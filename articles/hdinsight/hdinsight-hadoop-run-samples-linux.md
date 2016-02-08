@@ -28,7 +28,7 @@ Linux 기반 HDInsight 클러스터는 Hadoop MapReduce 작업 실행을 익히�
 
 ##필수 조건
 
-- **Azure 구독**: [Azure 무료 평가판 받기](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)를 참조하세요.
+- **Azure 구독**: [Azure 무료 평가판 받기](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)를 참조하세요.
 
 - **Linux 기반 HDInsight 클러스터**: [Linux의 HDInsight에서 Hive와 Hadoop 사용 시작](hdinsight-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 
@@ -69,7 +69,7 @@ Linux 기반 HDInsight 클러스터는 Hadoop MapReduce 작업 실행을 익히�
 
 **소스 코드**: 이러한 샘플에 대한 소스 코드는 HDInsight 클러스터(**/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples**)에 포함되어 있습니다.
 
-> [AZURE.NOTE]경로의 `2.2.4.9-1`은 HDInsight 클러스터용 Hortonworks Data Platform의 버전이며 HDInsight 업데이트 시 변경될 수 있습니다.
+> [AZURE.NOTE] 경로의 `2.2.4.9-1`은 HDInsight 클러스터용 Hortonworks Data Platform의 버전이며 HDInsight 업데이트 시 변경될 수 있습니다.
 
 ## 샘플을 실행하는 방법 ##
 
@@ -103,7 +103,7 @@ Linux 기반 HDInsight 클러스터는 Hadoop MapReduce 작업 실행을 익히�
 
     이 예의 출력은 ****wasb:///example/data/davinciwordcount**에 저장됩니다.
 
-    > [AZURE.NOTE]Wordcount 샘플에 대한 도움말에서 설명했듯이 여러 입력 파일을 지정할 수도 있습니다. 예를 들어 `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount`는 davinci.txt와 ulysses.txt 모두에서 단어 수를 계산합니다.
+    > [AZURE.NOTE] Wordcount 샘플에 대한 도움말에서 설명했듯이 여러 입력 파일을 지정할 수도 있습니다. 예를 들어 `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount`는 davinci.txt와 ulysses.txt 모두에서 단어 수를 계산합니다.
 
 5. 작업이 완료되면 다음 명령을 사용하여 결과를 확인합니다.
 
@@ -144,7 +144,7 @@ Sudoku 예제에는 "Include a puzzle on the command line" 등 다소 유용하�
     ? ? ? ? ? ? 2 ? ?
     ? ? ? ? 4 5 ? 7 8
 
-> [AZURE.NOTE]경로의 `2.2.4.9-1` 부분은 HDInsight 클러스터에 업데이트가 적용됨에 따라 변경될 수 있습니다.
+> [AZURE.NOTE] 경로의 `2.2.4.9-1` 부분은 HDInsight 클러스터에 업데이트가 적용됨에 따라 변경될 수 있습니다.
 
 Sudoku 예제를 통해 이를 실행하려면 다음 명령을 사용합니다.
 
@@ -186,7 +186,7 @@ GraySort는 메트릭이 대량의 데이터를 정렬하는 동안 도달하는
 
 - **TeraGen**: 정렬할 데이터의 행을 생성하는 MapReduce 프로그램
 
-- **TeraSort**: 입력 데이터를 샘플링하여 데이터를 전체 순서로 정렬하는 데 MapReduce를 사용
+- **TeraSort**: 입력 데이터를 샘플링하고 MapReduce를 사용하여 데이터를 전체 순서로 정렬
 
     TeraSort는 각 reduce의 키 범위를 정의하는 N-1 샘플 키의 정렬된 목록을 사용하는 사용자 지정 파티셔너를 제외하면 MapReduce 함수의 표준 정렬입니다. 특히, sample[i-1] <= key < sample[i]와 같은 모든 키는 reduce i로 전송됩니다. 이는 reduce i의 출력이 모두 reduce i+1의 출력보다 작다는 것을 보증합니다.
 
@@ -236,4 +236,4 @@ GraySort는 메트릭이 대량의 데이터를 정렬하는 동안 도달하는
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

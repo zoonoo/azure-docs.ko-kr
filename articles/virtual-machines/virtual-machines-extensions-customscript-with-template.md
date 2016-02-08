@@ -37,7 +37,7 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스 간의 종속성�
 
 ### 필수 조건
 
-1. [여기](http://azure.microsoft.com/downloads)서 최신 Azure PowerShell Cmdlet 또는 Azure CLI를 설치합니다.
+1. [여기](https://azure.microsoft.com/downloads/)서 최신 Azure PowerShell Cmdlet 또는 Azure CLI를 설치합니다.
 2. 기존 VM에서 스크립트를 실행하려는 경우, 해당 VM에서 VM 에이전트를 사용하도록 설정되어 있는지 확인하고, 사용하도록 설정되어 있지 않으면 [이 지침](virtual-machines-extensions-install)에 따라 설치합니다.
 3. VM에서 실행할 스크립트를 Azure 저장소에 업로드합니다. 단일 저장소 컨테이너 또는 여러 저장소 컨테이너의 스크립트를 업로드할 수 있습니다.
 4. 또는 스크립트를 Github 계정에 업로드할 수 있습니다.
@@ -100,6 +100,6 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스 간의 종속성�
 
 사용자 지정 스크립트 확장을 사용하여 VM에서 응용 프로그램을 구성하는 전체 샘플은 아래 예제를 참조하세요.
 
-<a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/" target="_blank">Linux VM의 사용자 지정 스크립트 확장</a>. </br> <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="_blank">Windows VM의 사용자 지정 스크립트 확장</a>.
+<a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/" target="_blank">Linux VM의 사용자 지정 스크립트 확장</a>. </br> <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="_blank">Windows VM의 사용자 지정 스크립트 확장</a>
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

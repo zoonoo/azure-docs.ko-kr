@@ -62,12 +62,12 @@ Azure 검색은 우리 프로젝트의 판도를 바꾸어 놓았습니다. Azur
 
 위 다이어그램의 녹색 상자를 살펴보면 WhatToPedia 솔루션이 다음 서비스를 기반으로 하고 있음을 알 수 있습니다.
 
-- [Azure 검색](http://azure.microsoft.com/services/search/)
-- [MVC 4를 사용하는 Azure 웹 사이트](http://azure.microsoft.com/services/websites/)
+- [Azure 검색](https://azure.microsoft.com/services/search/)
+- [MVC 4를 사용하는 Azure 웹 사이트](https://azure.microsoft.com/services/websites/)
 - [예약된 작업을 위한 Azure WebJobs](../websites-webjobs-resources.md)
-- [Azure SQL 데이터베이스](http://azure.microsoft.com/services/sql-database/)
-- [Azure Blob 저장소](http://azure.microsoft.com/services/storage/)
-- [SendGrid 전자 메일 서비스](http://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/)
+- [Azure SQL 데이터베이스](https://azure.microsoft.com/services/sql-database/)
+- [Azure Blob 저장소](https://azure.microsoft.com/services/storage/)
+- [SendGrid 전자 메일 서비스](https://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/)
 
 솔루션의 핵심은 데이터와 검색입니다. Reseller 공급자에서 최종 소비자로의 데이터 흐름은 다음과 같습니다.
 
@@ -170,7 +170,7 @@ Azure WebJobs를 사용하여 데이터를 인덱스에 업데이트합니다. �
 
 작업은 예약된 웹 작업으로 5분마다 실행되도록 예약됩니다. 서비스에서 3,000개의 문서를 업로드하는 데 약 3분 정도 걸리는 것으로 계산되었으며, 이는 우리의 요구 사항에 부합했습니다.
 
-> [AZURE.NOTE]최근에 Azure 검색에 도입된 프로토타입 인덱서 기능이 있습니다. 이 기능은 우리의 첫 번째 릴리스에서 사용하기에는 너무 늦게 제공되었지만 인덱서 작업을 사용한 것과 동일한 문제, 즉 데이터 로드 작업 자동화를 해결합니다.
+> [AZURE.NOTE] 최근에 Azure 검색에 도입된 프로토타입 인덱서 기능이 있습니다. 이 기능은 우리의 첫 번째 릴리스에서 사용하기에는 너무 늦게 제공되었지만 인덱서 작업을 사용한 것과 동일한 문제, 즉 데이터 로드 작업 자동화를 해결합니다.
 
 
 ###백업 전략
@@ -193,7 +193,7 @@ Azure SQL 데이터베이스의 구독자 데이터는 가장 중요한 자산�
 
 구현 과정에서 가장 큰 과제는 미리 보기 버전이기 때문에 정보 찾기 및 공유 환경이 까다롭다는 점이었습니다. 몇 가지 정보를 연관지어 생각한 후 우리는 Azure 검색 서비스는 REST API 및 JSON 데이터 형식 때문에 사용하기 매우 간편하다는 사실을 알았습니다. JQuery JSON.Net과 같은 대부분의 오픈 소스 플러그 인에서 프레임워크를 직접 호출할 수 있으며, Fiddler와 같은 도구를 사용하여 신속하게 실험 및 디버그할 수 있습니다.
 
-> [AZURE.NOTE]데이터를 준비된 상태로 유지하는 것 외에 프로토타입을 이미 구축한 경우 검색 기술의 작동 방식을 이해하여 생산성을 높이고 기본 제공 기능을 보다 효율적으로 활용할 수 있습니다. 검색 쿼리 생성, 패싯 탐색, 필터 등을 늘려야 하는 경우 프로토타이핑 시간이 더 오래 걸립니다.
+> [AZURE.NOTE] 데이터를 준비된 상태로 유지하는 것 외에 프로토타입을 이미 구축한 경우 검색 기술의 작동 방식을 이해하여 생산성을 높이고 기본 제공 기능을 보다 효율적으로 활용할 수 있습니다. 검색 쿼리 생성, 패싯 탐색, 필터 등을 늘려야 하는 경우 프로토타이핑 시간이 더 오래 걸립니다.
 
 ###검색 프레젠테이션 페이지의 패싯 제어
 
@@ -217,7 +217,7 @@ Azure 검색만 놀라움을 선사한 것이 아니었습니다. 우리는 WebJ
 
 - [Azure 검색 전용 MSDN 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=azuresearch)
 - [StackOverflow에도 태그가 있음](http://stackoverflow.com/questions/tagged/azure-search)
-- [Azure.com의 설명서 페이지](http://azure.microsoft.com/documentation/services/search/)
+- [Azure.com의 설명서 페이지](https://azure.microsoft.com/documentation/services/search/)
 - [MSDN의 Azure 검색 설명서](http://msdn.microsoft.com/library/azure/dn798933.aspx)
 
 
@@ -421,4 +421,4 @@ Azure 검색만 놀라움을 선사한 것이 아니었습니다. 우리는 WebJ
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

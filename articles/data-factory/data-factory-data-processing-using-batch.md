@@ -53,7 +53,7 @@
 
 ### 필수 조건
 
-1.  **Azure 구독**. Azure 구독이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. [무료 평가판](http://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+1.  **Azure 구독**. Azure 구독이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
 2.  **Azure 저장소 계정**. 이 자습서에서는 데이터 저장을 위해 Azure 저장소 계정을 사용합니다. Azure 저장소 계정이 없는 경우 [저장소 계정 만들기](../storage/storage-create-storage-account.md#create-a-storage-account)를 참조하세요. 샘플 솔루션은 Blob 저장소를 사용합니다.
 
@@ -500,7 +500,7 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
 
 ### 1단계: 데이터 팩터리 만들기
 
-1.  [Azure 포털](http://portal.azure.com/)에 로그인한 후에 다음을 수행합니다.
+1.  [Azure 포털](https://portal.azure.com/)에 로그인한 후에 다음을 수행합니다.
 
     1.  왼쪽 메뉴에서 **새로 만들기**를 클릭합니다.
 
@@ -707,7 +707,7 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
 
 이 단계에서는 이전에 만든 하나의 작업, 사용자 지정 작업을 사용하여 파이프라인을 만듭니다.
 
-> [AZURE.IMPORTANT]**file.txt**를 Blob 컨테이너의 입력 폴더에 업로드하지 않은 경우 파이프라인을 만들기 전에 업로드하세요. **isPaused** 속성은 파이프라인 JSON에서 false로 설정되었으므로 파이프라인은 즉시 과거의 **시작** 날짜로 실행합니다.
+> [AZURE.IMPORTANT] **file.txt**를 Blob 컨테이너의 입력 폴더에 업로드하지 않은 경우 파이프라인을 만들기 전에 업로드하세요. **isPaused** 속성은 파이프라인 JSON에서 false로 설정되었으므로 파이프라인은 즉시 과거의 **시작** 날짜로 실행합니다.
 
 1.  데이터 팩터리 편집기의 명령 모음에서 **새 파이프라인**을 클릭합니다. 명령이 표시되지 않으면 **... (줄임표)**을 클릭하여 표시합니다.
 
@@ -761,11 +761,11 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
 
 	-   **AssemblyName**을 DLL의 이름 **MyDotNetActivity.dll**로 설정합니다.
 
-	-   **EntryPoint**를 **MyDotNetActivityNS.MyDotNetActivity**로 설정합니다. 기본적으로 코드에 있는 \<namespace\>.\<classname\>입니다.
+	-   **EntryPoint**를 **MyDotNetActivityNS.MyDotNetActivity**로 설정합니다. 기본적으로 코드에 있는 <namespace>.<classname>입니다.
 
 	-   **PackageLinkedService**가 사용자 지정 작업 zip 파일을 포함하는 Blob 저장소를 가리키는 **StorageLinkedService**로 설정됩니다. 입/출력 파일 및 사용자 지정 작업 zip 파일에 대해 서로 다른 Azure 저장소 계정을 사용하는 경우 다른 Azure 저장소 연결된 서비스를 만들어야 합니다. 이 문서에서는 동일한 Azure 저장소 계정을 사용 중이라고 가정합니다.
 
-	-   **PackageFile**을 **customactivitycontainer/MyDotNetActivity.zip**으로 설정합니다. \<containerforthezip\>/\<nameofthezip.zip\> 형식입니다.
+	-   **PackageFile**을 **customactivitycontainer/MyDotNetActivity.zip**으로 설정합니다. <containerforthezip>/<nameofthezip.zip> 형식입니다.
 
 	-   사용자 지정 작업은 입력으로 **InputDataset**을, 출력으로 **OutputDataset**을 사용합니다.
 
@@ -929,4 +929,4 @@ Azure Data Factory 및 Azure 배치 기능에 대한 자세한 내용을 보려�
 
     -   [Azure 배치 라이브러리 .NET 시작](../batch/batch-dotnet-get-started.md)
 
-<!----HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

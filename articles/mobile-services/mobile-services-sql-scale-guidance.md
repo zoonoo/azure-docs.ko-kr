@@ -204,7 +204,7 @@ Entity Framework에서 인덱스를 정의하려면 인덱싱하려는 필드에
 
 - **부하를 시간별로 분산합니다.** 갑작스러운 수요 증가가 예상되는 특정 이벤트(예: 브로드캐스트 푸시 알림)의 시간을 제어할 경우, 치명적이지 않은 시간에 그러한 이벤트를 분산할 수 있습니다. 위에서 든 예제의 경우에는 앱 고객이 거의 동시에 알림을 받는 대신 하루 중 각 시간별로 고르게 분산된 일괄 처리 작업을 통해 새로운 앱 콘텐츠 알림을 받더라도 문제가 없을 수 있습니다. 이 경우 고객을 각 그룹별로 묶어서 각 일괄 처리에 따라 알림 제공을 지연시킬 수 있습니다. 알림 허브를 사용할 경우, 일괄 처리 추적을 위한 추가 태그를 적용하고, 해당 태그에 푸시 알림을 제공하면 이 전략을 쉽게 구현할 수 있습니다. 태그에 대한 자세한 내용은 [알림 허브를 사용하여 최신 뉴스 전송](../notification-hubs-windows-store-dotnet-send-breaking-news.md)을 참조하세요.
 - **가능한 경우 Blob 및 테이블 저장소를 사용합니다.** 갑작스러운 부하 증가 중 고객이 보게 될 콘텐츠는 상당히 정적인 경우가 많으며, 해당 콘텐츠에 대한 관계형 쿼리 기능이 필요할 가능성이 매우 낮으므로 이를 SQL 데이터베이스에 저장할 필요도 없습니다. 이 경우에는 콘텐츠를 Blob 또는 테이블 저장소에 저장하는 방식을 고려할 수 있습니다. Blob 저장소의 공용 Blob에는 장치에서 직접 액세스할 수 있습니다. 보안 방식으로 Blob에 액세스하거나 테이블 저장소를 사용할 경우에는 저장소 액세스 키를 보호하기 위해 모바일 서비스 사용자 지정 API를 통과해야 합니다. 자세한 내용은 [모바일 서비스를 사용하여 Azure 저장소에 이미지 업로드](mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage.md)를 참조하세요.
-- **메모리 내 캐시를 사용합니다**. 또 다른 방법은 트래픽이 크게 증가되는 기간 동안 일반적으로 액세스되는 데이터를 [Azure 캐시](http://azure.microsoft.com/services/cache/)와 같은 메모리 내 캐시에 저장하는 방법입니다. 즉, 요청이 수신되었을 때 데이터베이스를 반복적으로 쿼리하는 대신 필요한 정보를 메모리에서 인출할 수 있게 하는 것입니다.
+- **메모리 내 캐시를 사용합니다**. 또 다른 방법은 트래픽이 크게 증가되는 기간 동안 일반적으로 액세스되는 데이터를 [Azure 캐시](https://azure.microsoft.com/services/cache/)와 같은 메모리 내 캐시에 저장하는 방법입니다. 즉, 요청이 수신되었을 때 데이터베이스를 반복적으로 쿼리하는 대신 필요한 정보를 메모리에서 인출할 수 있게 하는 것입니다.
 
 <a name="Advanced"></a>
 ## 고급 문제 해결
@@ -279,7 +279,8 @@ Basic, Standard 및 Premium 계층을 사용 중인 경우 관리 포털에서 �
     WHERE database_name = 'todoitem_db'
     ORDER BY start_time DESC
 
-> [AZURE.NOTE]이 쿼리는 서버의 **master** 데이터베이스에서 실행하세요. **sys.resource\_stats** 뷰는 이 데이터베이스에서만 제공됩니다.
+> [AZURE.NOTE]
+이 쿼리는 서버의 **master** 데이터베이스에서 실행하세요. **sys.resource\_stats** 뷰는 이 데이터베이스에서만 제공됩니다.
 
 결과에는 다음과 같은 유용한 메트릭이 포함됩니다. CPU(계층 제한의 %), 저장소(MB), 물리적 데이터 읽기(계층 제한의 %), 로그 쓰기(계층 제한의 %), 메모리(계층 제한의 %), 작업자 수, 세션 수 등입니다.
 
@@ -292,7 +293,8 @@ Basic, Standard 및 Premium 계층을 사용 중인 경우 관리 포털에서 �
     and event_type like 'throttling%'
     order by start_time desc
 
-> [AZURE.NOTE]이 쿼리는 서버의 **master** 데이터베이스에서 실행하세요. **sys.event\_log** 뷰는 이 데이터베이스에서만 제공됩니다.
+> [AZURE.NOTE]
+이 쿼리는 서버의 **master** 데이터베이스에서 실행하세요. **sys.event\_log** 뷰는 이 데이터베이스에서만 제공됩니다.
 
 <a name="AdvancedIndexing" ></a>
 ### 고급 인덱싱
@@ -305,7 +307,8 @@ Basic, Standard 및 Premium 계층을 사용 중인 경우 관리 포털에서 �
 
 실제 비유를 제공하려면 책이나 기술 매뉴얼을 고려해보세요. 각 페이지의 콘텐츠를 레코드라고 할 때 페이지 번호는 클러스터형 인덱스가 되고, 책 뒷면에 있는 색인은 비클러스터형 인덱스가 됩니다. 색인의 각 항목은 클러스터형 인덱스인 페이지 번호를 가리킵니다.
 
-> [AZURE.NOTE]기본적으로 Azure 모바일 서비스의 JavaScript 백 엔드는 **\_createdAt**을 클러스터형 인덱스로 설정합니다. 이 열을 제거하거나 다른 클러스터형 인덱스를 원할 경우에는 아래의 [클러스터형 인덱스 디자인 지침](#ClusteredIndexes)을 따라야 합니다. .NET 백 엔드에서 `EntityData` 클래스는 `[Index(IsClustered = true)]` 주석을 사용하여 `CreatedAt`을(를) 클러스터형 인덱스로 정의합니다.
+> [AZURE.NOTE]
+기본적으로 Azure 모바일 서비스의 JavaScript 백 엔드는 **\_createdAt**을 클러스터형 인덱스로 설정합니다. 이 열을 제거하거나 다른 클러스터형 인덱스를 원할 경우에는 아래의 [클러스터형 인덱스 디자인 지침](#ClusteredIndexes)을 따라야 합니다. .NET 백 엔드에서 `EntityData` 클래스는 `[Index(IsClustered = true)]` 주석을 사용하여 `CreatedAt`을(를) 클러스터형 인덱스로 정의합니다.
 
 <a name="ClusteredIndexes"></a>
 #### 클러스터형 인덱스 디자인 지침
@@ -488,4 +491,4 @@ JavaScript 백 엔드의 경우, SQL Server Management Studio 또는 Azure SQL �
 <!-- BLOG LINKS -->
 [키 비용 확인]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

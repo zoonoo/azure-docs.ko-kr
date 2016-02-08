@@ -23,7 +23,7 @@ Azure AD B2C는 모두 업계 표준 프로토콜 [OAuth 2.0](active-directory-b
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 ## 기본 사항
-Azure AD B2C를 사용하는 모든 앱은 [Azure 포털](https://portal.azure.com)을 통해 [B2C 디렉터리](active-directory-b2c-get-started.md)에 등록해야 합니다. 앱 등록 프로세스는 몇 개의 값을 수집하고 앱에 할당합니다.
+Azure AD B2C를 사용하는 모든 앱은 [Azure 포털](https://portal.azure.com/)을 통해 [B2C 디렉터리](active-directory-b2c-get-started.md)에 등록해야 합니다. 앱 등록 프로세스는 몇 개의 값을 수집하고 앱에 할당합니다.
 
 - 앱을 고유하게 식별하는 **응용 프로그램 ID**
 - 응답을 다시 앱으로 보내는 데 사용할 수 있는 **리디렉션 URI**
@@ -93,7 +93,8 @@ Accept: application/json
 
 Web API는 토큰을 사용하여 API 호출자의 ID를 확인하고 토큰에 인코드된 클레임에서 호출자에 대한 정보를 추출할 수 있습니다. [Azure AD B2C 토큰 참조](active-directory-b2c-reference-tokens.md)에서 앱이 사용할 수 있는 모든 토큰 및 클레임 형식에 대해 알아볼 수 있습니다.
 
-> [AZURE.NOTE]Azure AD B2C 미리 보기는 현재 고유한 잘 알려진 클라이언트에서 액세스하는 Web API만을 지원합니다. 예를 들어 전체 앱이 iOS 앱, Android 앱 및 백 엔드 Web API를 포함할 수도 있습니다. 이 아키텍처를 완전히 지원합니다. 현재 지원되지 않는 사항은 다른 iOS 응용 프로그램과 같은 타사 클라이언트를 사용하여 동일한 Web API에 액세스하는 작업입니다. 실제로 전체 앱의 각 구성 요소는 모두 단일 응용 프로그램 ID를 공유해야 합니다.
+> [AZURE.NOTE]
+	Azure AD B2C 미리 보기는 현재 고유한 잘 알려진 클라이언트에서 액세스하는 Web API만을 지원합니다. 예를 들어 전체 앱이 iOS 앱, Android 앱 및 백 엔드 Web API를 포함할 수도 있습니다. 이 아키텍처를 완전히 지원합니다. 현재 지원되지 않는 사항은 다른 iOS 응용 프로그램과 같은 타사 클라이언트를 사용하여 동일한 Web API에 액세스하는 작업입니다. 실제로 전체 앱의 각 구성 요소는 모두 단일 응용 프로그램 ID를 공유해야 합니다.
 
 Web API는 웹앱, 데스크톱 및 모바일 앱, 단일 페이지 앱, 서버 쪽 데몬 및 다른 Web API까지 포함하여 모든 유형의 클라이언트에서 토큰을 받을 수 있습니다. 한 예로 Web API를 호출하는 웹앱에 대한 전체 흐름을 살펴보겠습니다.
 
@@ -108,7 +109,8 @@ Azure AD B2C로 Web API를 보호하는 방법을 알아보려면 [시작 섹션
 
 이 흐름에서 앱은 [정책](active-directory-b2c-reference-policies.md)을 실행하고 사용자 정책을 완료한 후에 Azure AD에서 authorization\_code를 수신합니다. authorization\_code는 현재 로그인한 사용자를 대신하여 응용 프로그램의 사용 권한을 나타내어 백 엔드 서비스를 호출합니다. 앱은 백그라운드에서 authoriztion\_code를 id\_token 및 refresh\_token으로 교환할 수 있습니다. 앱은 id\_token을 사용하여 HTTP 요청 시 백 엔드 Web API에 인증할 수 있고 refresh\_token을 사용하여 이전 토큰 만료 시 새 id\_token을 가져올 수 있습니다.
 
-> [AZURE.NOTE]Azure AD B2C 미리 보기는 현재 앱 자체의 백 엔드 웹 서비스에 액세스하는 데 사용되는 id\_tokens를 가져오도록 지원합니다. 예를 들어 전체 앱이 iOS 앱, Android 앱 및 백 엔드 Web API를 포함할 수도 있습니다. 이 아키텍처를 완전히 지원합니다. 현재 지원되지 않는 사항은 iOS 앱이 access\_tokens OAuth 2.0을 사용하여 타사 Web API에 액세스하는 작업입니다. 실제로 전체 앱의 각 구성 요소는 모두 단일 응용 프로그램 ID를 공유해야 합니다.
+> [AZURE.NOTE]
+	Azure AD B2C 미리 보기는 현재 앱 자체의 백 엔드 웹 서비스에 액세스하는 데 사용되는 id\_tokens를 가져오도록 지원합니다. 예를 들어 전체 앱이 iOS 앱, Android 앱 및 백 엔드 Web API를 포함할 수도 있습니다. 이 아키텍처를 완전히 지원합니다. 현재 지원되지 않는 사항은 iOS 앱이 access\_tokens OAuth 2.0을 사용하여 타사 Web API에 액세스하는 작업입니다. 실제로 전체 앱의 각 구성 요소는 모두 단일 응용 프로그램 ID를 공유해야 합니다.
 
 ![네이티브 앱 스윔 레인 이미지](./media/active-directory-b2c-apps/native.png)
 
@@ -128,4 +130,4 @@ Azure AD B2C로 Web API를 보호하는 방법을 알아보려면 [시작 섹션
 
 On-Behalf-Of 흐름이라고도 하는 OAuth 2.0 Jwt 전달자 자격 증명 권한 부여를 사용하여 이 연결된 Web API 시나리오를 지원할 수 있습니다. 그러나 On-Behalf-Of 흐름은 현재 Azure AD B2C 미리 보기에 구현되어 있지 않습니다.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

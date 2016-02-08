@@ -49,13 +49,7 @@
 |ConflictError|충돌(409)|충돌이 발생하여 작업을 완료할 수 없습니다.|
 |TemporaryRedirect|임시 리디렉션(307)|요청된 개체를 사용할 수 없습니다. 개체의 새 위치에 대한 임시 URI는 응답의 위치 필드에서 가져올 수 있습니다. 새 URI에서 원래 요청을 반복할 수 있습니다.|
 
-API 작업 관리 서비스는 관리 서비스가 정의한 오류 정보를 반환할 수도 있습니다. 이 추가 오류 정보는 응답 본문에 반환됩니다. 오류 응답의 본문은 아래에 표시된 기본 형식을 따릅니다.
-
-		<?xml version="1.0" encoding="utf-8"?>  
-		<Error>  
-			<Code>string-code</Code>  
-			<Message>detailed-error-message</Message>  
-		</Error>  
+API 작업 관리 서비스는 관리 서비스가 정의한 오류 정보를 반환할 수도 있습니다. 이 추가 오류 정보는 응답 본문에 반환됩니다.
 
 ## 참고 항목
 
@@ -68,7 +62,7 @@ API 작업 관리 서비스는 관리 서비스가 정의한 오류 정보를 �
 
  [Azure 스케줄러의 버전 및 요금 청구](scheduler-plans-billing.md)
 
- [Azure 스케줄러 REST API 참조](https://msdn.microsoft.com/library/dn528946)
+ [Azure 스케줄러 REST API 참조](https://msdn.microsoft.com/library/mt629143)
 
  [Azure 스케줄러 PowerShell cmdlet 참조](scheduler-powershell-reference.md)
 
@@ -78,4 +72,4 @@ API 작업 관리 서비스는 관리 서비스가 정의한 오류 정보를 �
  
   
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

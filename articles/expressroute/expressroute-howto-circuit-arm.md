@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure 리소스 관리자 및 PowerShell을 사용하여 Express 경로 회로 구성 | Microsoft Azure"
-   description="이 문서에서는 Express 경로 회로를 만들고 프로비전하는 단계를 안내합니다. 또한 상태 확인, 업데이트 또는 삭제 및 프로비전 해제 방법을 보여줍니다."
+   description="이 문서에서는 Express 경로 회로를 만들고 프로비전하는 단계를 안내합니다. 또한 상태 확인, 업데이트 또는 삭제 및 프로비전 해제 방법을 보여 줍니다."
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/12/2016"
+   ms.date="01/26/2016"
    ms.author="cherylmc"/>
 
 # Azure 리소스 관리자 및 PowerShell을 사용하여 Express 경로 회로 만들기 및 수정
@@ -183,7 +183,7 @@
 
 
 
-5. **주기적으로 회로 키의 상태 및 상태를 확인합니다.**
+6. **주기적으로 회로 키의 상태 및 상태를 확인합니다.**
 
 	이를 통해 공급자가 회로 활성화를 마치면 알 수 있습니다. 회로가 구성된 후에는 *ServiceProviderProvisioningState*가 아래 예에서처럼 *프로비전됨*으로 표시됩니다.
 
@@ -213,16 +213,12 @@
 		ServiceKey                       : **************************************
 		Peerings                         : []
 
-6. **라우팅 구성을 만듭니다.**
-	
-	단계별 지침은 [Express 경로 회로 라우팅 만들기 및 수정](expressroute-howto-routing-arm.md)을 참조하세요.
+7. **라우팅 구성 및 VNet 연결**
 
->[AZURE.IMPORTANT]이 지침은 2계층 연결 서비스를 제공하는 서비스 공급자를 사용하여 만든 회로에만 적용됩니다. 관리된 3계층 서비스(일반적으로 MPLS와 같은 IPVPN)를 제공하는 서비스 공급자를 사용하는 경우 연결 공급자는 사용자를 위해 라우팅을 구성하고 관리합니다. 이러한 경우에 피어링을 만들거나 관리할 수 없습니다.
+	a. **라우팅 구성을 만듭니다.** 단계별 지침은 [Express 경로 회로 라우팅 만들기 및 수정](expressroute-howto-routing-arm.md)을 참조하세요.
 
-
-7. **VNet을 Express 경로 회로에 연결합니다.** 
-
-	이제 VNet을 Express 경로 회로에 연결합니다. 단계별 지침은 [Express 경로 회로에 가상 네트워크 연결](expressroute-howto-linkvnet-arm.md)을 참조하세요.
+		>[AZURE.NOTE] The instructions for routing only apply for circuits created with service providers offering Layer 2 connectivity services. If you are using a service provider offering managed Layer 3 services (typically an IPVPN, like MPLS), your connectivity provider will configure and manage routing for you. You will not be able to create or manage peerings in such cases. 
+	b. **VNet을 Express 경로 회로에 연결합니다.** 라우팅이 구성되었는지 확인한 후 VNet을 Express 경로 회로에 연결해야 합니다. 단계별 지침은 [Express 경로 회로에 가상 네트워크 연결](expressroute-howto-linkvnet-arm.md)을 참조하세요.
 
 ##  Express 경로 회로의 상태를 가져오려면
 
@@ -289,14 +285,14 @@
 
 ## Express 경로 회로를 수정하려면
 
-연결에 미치는 영향 없이 Express 경로 회로의 특정 속성을 수정할 수 있습니다.
+연결에 미치는 영향 없이 Express 경로 회로의 특정 속성을 수정할 수 있습니다. 제한 및 제한 사항에 대한 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md) 페이지를 참조하세요.
 
-다음을 수행할 수 있습니다.
+가동 중지 시간을 발생시키지 않고 다음 설정을 수정할 수 있습니다.
 
-- 중단 시간 없이 Express 경로 회로에 대한 Express 경로 프리미엄 추가 기능 활성화/비활성화
+- 중단 시간 없이 Express 경로 회로에 대한 Express 경로 프리미엄 추가 기능을 활성화 또는 비활성화합니다.
 - 중단 시간 없이 Express 경로 회로의 대역폭 증가시킵니다.
 
-제한 및 제한 사항에 대한 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md) 페이지를 참조하세요.
+
 
 ### Express 경로 프리미엄 추가 기능을 활성화하는 방법
 
@@ -304,7 +300,7 @@
 
 		$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-		$ckt.Sku.Name = "Premium"
+		$ckt.Sku.Tier = "Premium"
 		$ckt.sku.Name = "Premium_MeteredData"
 
 		Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
@@ -314,7 +310,13 @@
 
 ### Express 경로 프리미엄 추가 기능을 비활성화하는 방법
 
-다음 PowerShell cmdlet을 사용하여 기존 회로에 대해 Express 경로 프리미엄 추가 기능을 사용하지 않도록 설정할 수 있습니다.
+기존 회로에 대해 Express 경로 프리미엄 추가 기능을 사용하지 않도록 설정할 수 있습니다. Express 경로 프리미엄 추가 기능을 비활성화하는 경우 다음 고려 사항을 유의하세요.
+
+- 프리미엄을 표준으로 다운그레이드하기 전에 회로에 연결된 가상 네트워크 수가 10개 미만인지 확인해야 합니다. 그렇지 않으면 업데이트 요청이 실패하고 프리미엄 요금이 청구됩니다.
+- 다른 지리적 위치의 모든 가상 네트워크를 연결 해제해야 합니다. 그렇지 않으면 업데이트 요청이 실패하고 프리미엄 요금이 청구됩니다.
+- 사설 피어링을 위해서는 경로 테이블의 경로가 4000개 미만이어야 합니다. 경로 테이블 크기가 4000개 경로 이상이면 BGP 세션이 폐기되고 게시된 프리픽스 수가 4000개 미만이 될 때까지 다시 활성화되지 않습니다.
+
+프리미엄 추가 기능을 비활성화하려면 아래 PowerShell cmdlet 샘플을 사용합니다. 표준 회로에 허용된 것보다 많은 리소스를 사용할 경우 이 작업이 실패합니다.
 	
 		$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 		
@@ -323,19 +325,13 @@
 		
 		Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
-
-그러면 회로에 대해 프리미엄 추가 기능을 사용할 수 없습니다.
-
-표준 회로에 허용된 것보다 많은 리소스를 사용할 경우 이 작업이 실패합니다.
-
-- 프리미엄을 표준으로 다운그레이드하기 전에 회로에 연결된 가상 네트워크 수가 10개 미만인지 확인해야 합니다. 그렇지 않으면 업데이트 요청이 실패하고 프리미엄 요금이 청구됩니다.
-- 다른 지리적 위치의 모든 가상 네트워크를 연결 해제해야 합니다. 그렇지 않으면 업데이트 요청이 실패하고 프리미엄 요금이 청구됩니다.
-- 사설 피어링을 위해서는 경로 테이블의 경로가 4000개 미만이어야 합니다. 경로 테이블 크기가 4000개 경로 이상이면 BGP 세션이 폐기되고 게시된 프리픽스 수가 4000개 미만이 될 때까지 다시 활성화되지 않습니다.
-
-
 ### Express 경로 회로 대역폭을 업데이트하는 방법
 
-공급자에 대해 지원되는 대역폭 옵션은 [Express 경로 FAQ](expressroute-faqs.md) 페이지를 확인하세요. 기존 회로의 크기보다 큰 모든 크기를 선택할 수 있습니다. 필요한 크기를 선택한 후에는 다음 명령을 사용하여 회로 크기를 조정할 수 있습니다.
+공급자에 대해 지원되는 대역폭 옵션은 [Express 경로 FAQ](expressroute-faqs.md) 페이지를 확인하세요. 가동 중지 시간을 발생시키지 않고 기존 회로의 크기보다 **큰** 모든 크기를 선택할 수 있습니다.
+
+>[AZURE.IMPORTANT] 그러나 중단 없이 Express 경로 회로의 대역폭을 줄일 수는 없습니다. 대역폭 다운그레이드에서는 Express 경로 회로의 프로비전을 해제하고 새 Express 경로 회로를 다시 프로비전해야 합니다.
+
+필요한 크기를 선택하면 다음 샘플을 사용하여 회로 크기를 조정할 수 있습니다. cmdlet을 실행한 후 회로의 크기는 Microsoft 쪽에서 조정됩니다. 변경에 부합하게 구성을 업데이트하려면 해당 공급자에게 연락해야 합니다. 이 지점에서 업데이트된 대역폭 옵션에 대한 요금을 청구하기 시작합니다.
 
 		$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
@@ -343,24 +339,25 @@
 
 		Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
-회로의 크기는 Microsoft 쪽에서 조정됩니다. 변경에 부합하게 구성을 업데이트하려면 해당 공급자에게 연락해야 합니다. 이 지점에서 업데이트된 대역폭 옵션에 대한 요금을 청구하기 시작합니다.
-
->[AZURE.IMPORTANT]그러나 중단 없이 Express 경로 회로의 대역폭을 줄일 수는 없습니다. 대역폭 다운그레이드에서는 Express 경로 회로의 프로비전을 해제하고 새 Express 경로 회로를 다시 프로비전해야 합니다.
-
 ## Express 경로 회로를 삭제하고 프로비전을 해제하려면
 
-다음 명령을 실행하여 Express 경로 회로를 삭제할 수 있습니다.
+Express 경로 회로를 삭제할 수 있습니다. Express 경로 회로를 삭제할 때 다음 고려 사항을 유의하세요.
+
+- 이 작업이 성공하려면 모든 가상 네트워크를 Express 경로에서 연결 해제해야 합니다. 이 작업이 실패할 경우 회로에 연결된 가상 네트워크가 있는지 확인하십시오.
+
+- Express 경로 회로 서비스 공급자 프로비전 상태를 사용할 경우 상태가 사용함 상태에서 *사용 안 함*으로 바뀝니다. 서비스 공급자 측에서 회로를 프로비전 해제하도록 서비스 공급자와 협조해야 합니다. 이제 리소스를 예약하며, 서비스 공급자가 회로 프로비저닝을 해제한 다음 통지를 보내기 전까지 청구가 계속됩니다.
+
+- cmdlet을 실행하기 전에 서비스 공급자가 회로의 프로비전을 해제한 경우(서비스 공급자 프로비전 상태가 *프로비전 안 됨*으로 설정) 회로에 프로비전을 해제하고 청구를 중지합니다.
+
+Express 경로 회로를 삭제하려면 아래 PowerShell cmdlet 샘플을 사용합니다.
 
 		Remove-AzureRmExpressRouteCircuit -ResourceGroupName "ExpressRouteResourceGroup" -Name "ExpressRouteARMCircuit"
 
-이 작업이 성공하려면 모든 가상 네트워크를 Express 경로에서 연결 해제해야 합니다. 이 작업이 실패할 경우 회로에 연결된 가상 네트워크가 있는지 확인하십시오.
-
-Express 경로 회로 서비스 공급자 프로비전 상태를 사용할 경우 상태가 사용함 상태에서 *사용 안 함*으로 바뀝니다. 서비스 공급자 측에서 회로를 프로비전 해제하도록 서비스 공급자와 협조해야 합니다. 이제 리소스를 예약하며, 서비스 공급자가 회로 프로비저닝을 해제한 다음 통지를 보내기 전까지 청구가 계속됩니다.
-
-위의 cmdlet을 실행하기 전에 서비스 공급자가 회로의 프로비전을 해제한 경우(서비스 공급자 프로비전 상태가 *프로비전 안 됨*으로 설정) 회로에 프로비전을 해제하고 청구를 중지합니다.
-
 ## 다음 단계
 
-- [라우팅 구성](expressroute-howto-routing-arm.md)
+회로를 만든 후 다음을 수행합니다.
 
-<!---HONumber=AcomDC_0114_2016-->
+1.  [Express 경로 회로의 라우팅 만들기 및 수정](expressroute-howto-routing-arm.md)
+2.  [가상 네트워크를 Express 경로 회로에 연결](expressroute-howto-linkvnet-arm.md)
+
+<!---HONumber=AcomDC_0128_2016-->

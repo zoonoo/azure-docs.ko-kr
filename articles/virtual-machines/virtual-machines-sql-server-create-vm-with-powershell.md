@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="01/06/2015"
+	ms.date="01/22/2016"
 	ms.author="jroth" />
 
 # Azure에서 SQL Server 가상 컴퓨터 만들기(PowerShell)
@@ -67,7 +67,7 @@ SQL Server 가상 컴퓨터를 특정 Azure 지역에 있는 클라우드 서비
 
 		(Get-AzureStorageAccount | where { $_.GeoPrimaryLocation -eq $dcLocation }).StorageAccountName
 
-	>[AZURE.NOTE]새 저장소 계정이 필요한 경우 먼저 New-AzureStorageAccount 명령을 사용하여 저장소 계정 이름(모두 소문자)을 만듭니다(예: **New-AzureStorageAccount -StorageAccountName "<storage account name>" -Location $dcLocation**).
+	>[AZURE.NOTE] 새 저장소 계정이 필요한 경우 먼저 New-AzureStorageAccount 명령을 사용하여 저장소 계정 이름(모두 소문자)을 만듭니다(예: **New-AzureStorageAccount -StorageAccountName "<storage account name>" -Location $dcLocation**).
 
 1. 대상 저장소 계정 이름을 **$staccount**에 할당합니다. **Set-AzureSubscription**을 사용하여 구독 및 현재 저장소 계정을 설정합니다.
 
@@ -112,7 +112,7 @@ SQL Server 가상 컴퓨터를 특정 Azure 지역에 있는 클라우드 서비
 
 		New-AzureVM –ServiceName $svcname -VMs $vm1
 
->[AZURE.NOTE]추가 설명과 구성 옵션은 [Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성](virtual-machines-ps-create-preconfigure-windows-vms.md)의 **명령 집합 빌드** 섹션을 참조하세요.
+>[AZURE.NOTE] 추가 설명과 구성 옵션은 [Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성](virtual-machines-ps-create-preconfigure-windows-vms.md)의 **명령 집합 빌드** 섹션을 참조하세요.
 
 ## PowerShell 스크립트 예
 
@@ -175,4 +175,4 @@ SQL Server 가상 컴퓨터를 특정 Azure 지역에 있는 클라우드 서비
 
 이러한 리소스 외에도 [Azure 가상 컴퓨터에서 SQL Server 실행과 관련된 기타 항목](virtual-machines-sql-server-infrastructure-services.md)을 확인하는 것이 좋습니다.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

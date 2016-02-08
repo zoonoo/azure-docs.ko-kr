@@ -18,13 +18,13 @@
 
 # 모니터링 및 진단 사용
 
-[Azure 포털](http://portal.azure.com)에서 리소스에 대한 다양하고 빈번한 모니터링 및 진단 데이터를 구성할 수 있습니다. [REST API](https://msdn.microsoft.com/library/azure/dn931932.aspx) 또는 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/)를 사용하여 프로그래밍 방식으로 진단을 구성할 수도 있습니다.
+[Azure 포털](https://portal.azure.com)에서 리소스에 대한 다양하고 빈번한 모니터링 및 진단 데이터를 구성할 수 있습니다. [REST API](https://msdn.microsoft.com/library/azure/dn931932.aspx) 또는 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/)를 사용하여 프로그래밍 방식으로 진단을 구성할 수도 있습니다.
 
 Azure의 진단, 모니터링 및 메트릭 데이터는 선택한 저장소 계정에 저장됩니다. 따라서 저장소 탐색기부터 Power BI 및 타사 도구에 이르기까지 원하는 도구를 사용하여 데이터를 읽을 수 있습니다.
 
 ## 리소스를 만드는 경우
 
-[Azure 포털](http://portal.azure.com)에서 리소스를 처음 만드는 경우 대부분의 서비스를 통해 진단을 사용하도록 설정할 수 있습니다.
+[Azure 포털](https://portal.azure.com)에서 리소스를 처음 만드는 경우 대부분의 서비스를 통해 진단을 사용하도록 설정할 수 있습니다.
 
 1. **새로 만들기**로 이동한 다음 관심 있는 리소스를 선택합니다. 
 
@@ -71,4 +71,4 @@ Azure의 진단, 모니터링 및 메트릭 데이터는 선택한 저장소 계
 * [서비스 상태를 추적](insights-service-health.md)하여 Azure에서 성능 저하 또는 서비스 중단이 발생한 시기를 확인합니다. 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

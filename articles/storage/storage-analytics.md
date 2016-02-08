@@ -22,7 +22,7 @@
 
 Azure 저장소 분석은 로깅을 수행하며 저장소 계정에 대한 메트릭 데이터를 제공합니다. 이 데이터를 사용하여 요청을 추적하고 사용량 추세를 분석하며 저장소 계정에 대한 문제를 진단할 수 있습니다.
 
-저장소 분석을 사용하려면 모니터링할 각 서비스에 대해 저장소 분석을 개별적으로 사용하도록 설정해야 합니다. [Azure 포털](portal.azure.com)에서 활성화할 수 있습니다. 자세한 내용은 [저장소 계정을 모니터링하는 방법](http://www.azure.com/manage/services/storage/how-to-monitor-a-storage-account/)을 참조하세요. REST API 또는 클라이언트 라이브러리를 통해 프로그래밍 방식으로 저장소 분석을 사용하도록 설정할 수도 있습니다. [Blob 서비스 속성 가져오기](https://msdn.microsoft.com/library/hh452239.aspx), [큐 서비스 속성 가져오기](https://msdn.microsoft.com/library/hh452243.aspx) 및 [테이블 서비스 속성 가져오기](https://msdn.microsoft.com/library/hh452238.aspx) 작업을 사용하여 각 서비스에 대해 저장소 분석을 사용하도록 설정합니다.
+저장소 분석을 사용하려면 모니터링할 각 서비스에 대해 저장소 분석을 개별적으로 사용하도록 설정해야 합니다. [Azure 포털](https://portal.azure.com)에서 활성화할 수 있습니다. 자세한 내용은 [저장소 계정을 모니터링하는 방법](http://www.azure.com/manage/services/storage/how-to-monitor-a-storage-account/)을 참조하세요. REST API 또는 클라이언트 라이브러리를 통해 프로그래밍 방식으로 저장소 분석을 사용하도록 설정할 수도 있습니다. [Blob 서비스 속성 가져오기](https://msdn.microsoft.com/library/hh452239.aspx), [큐 서비스 속성 가져오기](https://msdn.microsoft.com/library/hh452243.aspx) 및 [테이블 서비스 속성 가져오기](https://msdn.microsoft.com/library/hh452238.aspx) 작업을 사용하여 각 서비스에 대해 저장소 분석을 사용하도록 설정합니다.
 
 집계된 데이터는 알려진 로깅용 Blob 및 알려진 메트릭용 테이블에 저장됩니다. Blob 서비스 및 테이블 서비스 API를 사용하면 이러한 Blob와 테이블에 액세스할 수 있습니다.
 
@@ -62,19 +62,19 @@ Azure 저장소 분석은 로깅을 수행하며 저장소 계정에 대한 메�
 
 - 오류 코드가 304(수정되지 않음)인 실패한 GET 요청
 
-기타 모든 실패한 익명 요청은 기록되지 않습니다. 기록되는 데이터의 전체 목록은 [저장소 분석에서 기록한 작업 및 상태 메시지](https://msdn.microsoft.com/library/hh343260.aspx) 및 [저장소 분석 로그 형식](https://msdn.microsoft.com/library/hh343259.aspx) 항목에 나와 있습니다.
+기타 모든 실패한 익명 요청은 기록되지 않습니다. 기록되는 데이터의 전체 목록은 [저장소 분석에서 기록한 작업 및 상태 메시지](https://msdn.microsoft.com/library/hh343260.aspx) 및 저장소 분석 로그 형식(](https://msdn.microsoft.com/library/hh343259.aspx)) 항목에 나와 있습니다.
 
 ### 로그 저장 방법
 모든 로그는 $logs 컨테이너의 블록 Blob에 저장됩니다. 이 컨테이너는 저장소 계정에 대해 저장소 분석을 사용하도록 설정하면 자동으로 작성됩니다. $logs 컨테이너는와 같은 저장소 계정의 Blob 네임스페이스에 있습니다. `http://<accountname>.blob.core.windows.net/$logs` 저장소 계정을 사용하도록 설정한 후에는 이 컨테이너를 삭제할 수 없지만 해당 콘텐츠는 삭제할 수 있습니다.
 
->[Azure.NOTE]$logs 컨테이너는 [ListContainers](https://msdn.microsoft.com/library/ee758348.aspx) 등의 메서드를 사용하여 컨테이너 나열 작업을 수행할 때는 표시되지 않으므로 직접 액세스해야 합니다. 예를 들어 [ListBlobs](https://msdn.microsoft.com/library/ee772878.aspx) 메서드를 사용하여 `$logs` 컨테이너의 Blob에 액세스할 수 있습니다. 요청을 기록할 때 저장소 분석은 중간 결과를 블록으로 업로드합니다. 그리고 이러한 블록을 정기적으로 커밋하여 Blob로 제공합니다.
+>[Azure.NOTE] $logs 컨테이너는 [ListContainers](https://msdn.microsoft.com/library/ee758348.aspx) 등의 메서드를 사용하여 컨테이너 나열 작업을 수행할 때는 표시되지 않으므로 직접 액세스해야 합니다. 예를 들어 [ListBlobs](https://msdn.microsoft.com/library/ee772878.aspx) 메서드를 사용하여 `$logs` 컨테이너의 Blob에 액세스할 수 있습니다. 요청을 기록할 때 저장소 분석은 중간 결과를 블록으로 업로드합니다. 그리고 이러한 블록을 정기적으로 커밋하여 Blob로 제공합니다.
 
 같은 시간에 생성되는 로그의 경우 중복 레코드가 있을 수 있습니다. **RequestId** 및 **Operation** 번호를 검사하여 레코드 중복 여부를 확인할 수 있습니다.
 
 ### 로그 명명 규칙
 각 로그는 다음 형식으로 작성됩니다.
 
-    <service-name>/YYYY/MM/DD/hhmm/<counter>.log 
+    <service-name>/YYYY/MM/DD/hhmm/<counter>.log
 
 다음 표에서는 로그 이름의 각 특성에 대해 설명합니다.
 
@@ -94,7 +94,7 @@ Azure 저장소 분석은 로깅을 수행하며 저장소 계정에 대한 메�
 
 이전 로그에 액세스하는 데 사용할 수 있는 샘플 URI는 다음과 같습니다.
 
-    https://<accountname>.blob.core.windows.net/$logs/blob/2011/07/31/1800/000001.log 
+    https://<accountname>.blob.core.windows.net/$logs/blob/2011/07/31/1800/000001.log
 
 저장소 요청이 기록되면 생성되는 로그 이름과 요청한 작업이 완료된 시간 간의 상관 관계가 지정됩니다. 예를 들어 GetBlob 요청이 2011/7/31 오후 6:30에 완료된 경우 로그는 다음 접두사와 함께 작성됩니다. `blob/2011/07/31/1800/`
 
@@ -126,7 +126,7 @@ Azure 관리되는 라이브러리에서 제공하는 .NET API를 비롯한 Blob
 
 저장소 분석에서는 저장소 서비스에 대한 요청 관련 용량 데이터 및 집계된 트랜잭션 통계를 포함하는 메트릭을 저장할 수 있습니다. 트랜잭션은 API 작업 수준과 저장소 서비스 수준에서 모두 보고되며 용량은 저장소 서비스 수준에서 보고됩니다. 메트릭 데이터를 사용하면 저장소 서비스 사용량을 분석하고 저장소 서비스에 대한 요청의 문제를 진단하며 서비스를 사용하는 응용 프로그램의 성능을 개선할 수 있습니다.
 
-저장소 분석을 사용하려면 모니터링할 각 서비스에 대해 저장소 분석을 개별적으로 사용하도록 설정해야 합니다. [Azure 포털](portal.azure.com)에서 활성화할 수 있습니다. 자세한 내용은 [저장소 계정을 모니터링하는 방법](../how-to-monitor-a-storage-account.md)을 참조하세요. REST API 또는 클라이언트 라이브러리를 통해 프로그래밍 방식으로 저장소 분석을 사용하도록 설정할 수도 있습니다. [Blob 서비스 속성 가져오기, 큐 서비스 속성 가져오기](https://msdn.microsoft.com/library/hh452239.aspx) 및 [테이블 서비스 속성 가져오기](https://msdn.microsoft.com/library/hh452238.aspx) 작업을 사용하여 각 서비스에 대해 저장소 분석을 사용하도록 설정합니다.
+저장소 분석을 사용하려면 모니터링할 각 서비스에 대해 저장소 분석을 개별적으로 사용하도록 설정해야 합니다. [Azure 포털](https://portal.azure.com)에서 활성화할 수 있습니다. 자세한 내용은 [저장소 계정을 모니터링하는 방법](../how-to-monitor-a-storage-account.md)을 참조하세요. REST API 또는 클라이언트 라이브러리를 통해 프로그래밍 방식으로 저장소 분석을 사용하도록 설정할 수도 있습니다. [Blob 서비스 속성 가져오기, 큐 서비스 속성 가져오기](https://msdn.microsoft.com/library/hh452239.aspx) 및 [테이블 서비스 속성 가져오기](https://msdn.microsoft.com/library/hh452238.aspx) 작업을 사용하여 각 서비스에 대해 저장소 분석을 사용하도록 설정합니다.
 
 ### 트랜잭션 메트릭
 
@@ -140,7 +140,7 @@ Azure 관리되는 라이브러리에서 제공하는 .NET API를 비롯한 Blob
 
 ### 용량 메트릭
 
->[AZURE.NOTE]현재는 Blob 서비스에 대해서만 용량 메트릭이 제공됩니다. 테이블 서비스와 큐 서비스에 대한 용량 메트릭은 이후 저장소 분석 버전에서 제공될 예정입니다.
+>[AZURE.NOTE] 현재는 Blob 서비스에 대해서만 용량 메트릭이 제공됩니다. 테이블 서비스와 큐 서비스에 대한 용량 메트릭은 이후 저장소 분석 버전에서 제공될 예정입니다.
 
 용량 데이터는 저장소 계정의 Blob 서비스에 대해 매일 기록되며 2개 테이블 엔터티가 작성됩니다. 이러한 엔터티 중 하나는 사용자 데이터에 대한 통계를 제공하며 다른 하나는 저장소 분석에서 사용하는 `$logs` Blob 컨테이너에 대한 통계를 제공합니다. `$MetricsCapacityBlob` 테이블에는 다음 통계가 포함됩니다.
 
@@ -206,4 +206,4 @@ Azure 관리되는 라이브러리에서 제공하는 .NET API를 비롯한 테�
 - [저장소 분석 메트릭 테이블 스키마](https://msdn.microsoft.com/library/hh343264.aspx)
 - [저장소 분석에서 기록한 작업 및 상태 메시지](https://msdn.microsoft.com/library/hh343260.aspx)  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

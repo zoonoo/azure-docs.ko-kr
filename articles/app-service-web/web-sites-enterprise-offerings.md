@@ -49,7 +49,7 @@ IT 환경이 빠르게 변화하여, 자본 비용이 높고 지연 시간이 �
 
 - [앱 서비스 환경](../app-service-app-service-environment-intro.md) - ASE(앱 서비스 환경)는 최근에 Microsoft Azure 앱 서비스 제품에 추가된 새로운 프리미엄 기능입니다. ASE는 격리 및 보안 네트워크 액세스를 제공하면서 Azure 앱 서비스 앱을 대규모로 안전하게 실행하는 완전히 격리된 전용 환경을 제공합니다.   
 - [하이브리드 연결](../integration-hybrid-connection-overview.md) – 하이브리드 연결은 Microsoft Azure BizTalk 서비스의 기능이며, 웹 앱에서 SQL Server, MySQL, Web API 및 사용자 지정 웹 서비스 등과 같은 온-프레미스 리소스에 안전하게 액세스할 수 있도록 지원합니다. 
-- [가상 네트워크 통합 ](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/) – Azure 가상 네트워크와 웹 앱을 통합하면 웹 앱을 Azure 가상 네트워크에 연결할 수 있으며, 결과적으로 Azure 가상 네트워크가 사이트 간 VPN을 통해 사용자의 온-프레미스 인프라에 연결될 수 있습니다. 
+- [가상 네트워크 통합 ](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/) – Azure 가상 네트워크와 웹 앱을 통합하면 웹 앱을 Azure 가상 네트워크에 연결할 수 있으며, 결과적으로 Azure 가상 네트워크가 사이트 간 VPN을 통해 사용자의 온-프레미스 인프라에 연결될 수 있습니다. 
 
 다음 다이어그램에서는 온-프레미스 리소스에 대한 연결 옵션을 사용하는 고급 솔루션의 예제를 보여 줍니다. 첫 번째 예제에서는 Azure 앱 서비스의 표준 기능을 사용하여 수행하는 방법을 보여 주고, 두 번째 예제에서는 프리미엄 서비스인 앱 서비스 환경을 사용하여 수행하는 방법을 보여 줍니다.
 
@@ -159,4 +159,4 @@ Azure 앱 서비스 웹 앱 서비스에 대한 자세한 내용은 [http://aka.
  
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

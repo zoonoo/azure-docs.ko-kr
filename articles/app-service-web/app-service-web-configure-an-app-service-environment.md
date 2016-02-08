@@ -39,7 +39,7 @@ ASE 각각은 500Gb의 저장소로 구성됩니다. 이 공간은 ASE의 모든
 
 데이터베이스는 내부에서 실행 중인 앱의 환경 뿐만 아니라 세부 정보를 정의하는 정보를 가집니다. 이것 또한 Azure가 보유한 구독의 일부이며 고객이 직접 조작할 수 있는 것은 아닙니다.
 
-ASE와 함께 사용되는 가상 네트워크는 ASE를 만들 때 만들었거나 미리 있던 것일 수 있습니다. ASE를 ASE에 사용된 리소스 그룹과 다른 별도의 리소스 그룹에 두려는 경우 ASE 만들기 흐름에서 별도로 VNET을 만들어야 합니다. ASE을 만드는 동안 서브넷을 만들면 ASE가 VNET과 동일한 리소스 그룹에 있도록 강제되기 때문에 동시에 사용하려는 서브넷을 만드는 것이 좋습니다. 현재 V1 "클래식" VNET만 지원합니다.
+ASE와 함께 사용되는 가상 네트워크는 ASE를 만들 때 만들었거나 미리 있던 것일 수 있습니다. VNET를 ASE에 사용된 리소스 그룹과 다른 별도의 리소스 그룹에 두려는 경우 ASE 만들기 흐름과 별도로 VNET을 만들어야 합니다. ASE을 만드는 동안 서브넷을 만들면 ASE가 VNET과 동일한 리소스 그룹에 있도록 강제되기 때문에 동시에 사용하려는 서브넷을 만드는 것이 좋습니다. 현재 V1 "클래식" VNET만 지원합니다.
 
 앱 서비스 환경을 관리하고 모니터링하는 UI는 Azure 포털에서 사용할 수 있습니다. ASE가 있는 경우 사이드바에서 앱 서비스 기호를 확인할 수 있습니다. 이 기호는 Azure 포털에서 앱 서비스 환경을 나타내는 데 사용됩니다.
 
@@ -200,4 +200,4 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 [ExpressRoute]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-network-configuration-expressroute/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

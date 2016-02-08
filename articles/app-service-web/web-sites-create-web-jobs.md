@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="01/12/2016" 
 	ms.author="tdykstra"/>
 
 # WebJob으로 백그라운드 작업 실행
@@ -42,7 +42,7 @@ Azure WebJobs SDK는 많은 웹 작업 프로그래밍 작업을 간소화합니
 
 ## <a name="CreateOnDemand"></a>포털에서 요청 시 웹 작업 만들기
 
-1. [Azure 포털](http://portal.azure.com)의 **웹 앱** 블레이드에서 **모든 설정 > 웹 작업**을 클릭하여 **웹 작업** 블레이드를 표시합니다.
+1. [Azure 포털](https://portal.azure.com)의 **웹 앱** 블레이드에서 **모든 설정 > 웹 작업**을 클릭하여 **웹 작업** 블레이드를 표시합니다.
 	
 	![WebJob 블레이드](./media/web-sites-create-web-jobs/wjblade.png)
 	
@@ -70,7 +70,7 @@ Azure WebJobs SDK는 많은 웹 작업 프로그래밍 작업을 간소화합니
 
 2. 지속적인 웹 작업을 시작하거나 중지하려면 목록에서 웹 작업을 마우스 오른쪽 단추로 클릭하고 **시작** 또는 **중지**를 클릭합니다.
 	
-> [AZURE.NOTE]웹 앱이 둘 이상의 인스턴스에서 실행되는 경우 계속 실행되는 웹 작업은 모든 인스턴스에서 실행됩니다. 주문형 작업 및 예약형 작업은 Microsoft Azure의 부하 분산에 따라 선택된 단일 인스턴스에서 실행됩니다.
+> [AZURE.NOTE] 웹 앱이 둘 이상의 인스턴스에서 실행되는 경우 계속 실행되는 웹 작업은 모든 인스턴스에서 실행됩니다. 주문형 작업 및 예약형 작업은 Microsoft Azure의 부하 분산에 따라 선택된 단일 인스턴스에서 실행됩니다.
 	
 > 연속하는 WebJob을 모든 인스턴스에서 안정적으로 실행하려면 웹앱에 대한 항상 위* 구성 설정을 사용하도록 설정합니다. 그렇지 않으면 SCM 호스트 사이트를 오래 동안 사용하지 않을 경우 실행이 중지될 수 있습니다.
 
@@ -201,7 +201,7 @@ Azure 포털은 아직 예약된 웹 작업을 만들 수 없지만, [클래식 
 - 기본 및 표준 모드에는 무중단 기능이 제공되며, 이 기능을 사용하도록 설정하면 웹 앱이 유휴 상태로 전환되지 않습니다.
 - 계속 실행되는 웹 작업만을 디버깅할 수 있습니다. 예약된 또는 주문형 웹 작업 디버깅이 지원되지 않습니다.
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ## <a name="NextSteps"></a>다음 단계
  
@@ -239,4 +239,4 @@ Azure 포털은 아직 예약된 웹 작업을 만들 수 없지만, [클래식 
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

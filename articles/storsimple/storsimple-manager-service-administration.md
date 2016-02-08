@@ -34,7 +34,7 @@ StorSimple 관리자 서비스는 Microsoft Azure에서 실행되며 여러 Stor
 
 #### 해당 서비스에 연결하려면
 
-1. [http://azure.microsoft.com](http://azure.microsoft.com/)으로 이동합니다.
+1. [http://azure.microsoft.com](https://azure.microsoft.com/)으로 이동합니다.
 
 1. Microsoft 계정 자격 증명을 사용하여 Microsoft Azure 클래식 포털(해당 창의 상단 오른쪽에 있는)로 로그온합니다.
 
@@ -57,15 +57,15 @@ StorSimple Manager 서비스 UI에 대한 탐색 기록이 다음 테이블에 �
 |방문 페이지|서비스 수준 페이지|장치 수준 페이지|장치 수준 페이지|
 |---|---|---|---|
 |StorSimple 관리자 서비스|서비스 대시보드|장치 대시보드||
-||장치 →|모니터|
-||백업 카탈로그|볼륨 컨테이너→|볼륨|
-||(서비스) 구성|백업 정책||
-||작업|(장치) 구성|
-||경고|유지 관리|
+|장치 →|모니터|
+|백업 카탈로그|볼륨 컨테이너→|볼륨|
+|(서비스) 구성|백업 정책||
+|작업|(장치) 구성|
+|경고|유지 관리|
 
 ![동영상 사용 가능](./media/storsimple-manager-service-administration/Video_icon.png) **동영상 사용 가능**
 
-StorSimple Manager 서비스 사용자 인터페이스를 안내하는 동영상을 시청하려면 [여기](http://azure.microsoft.com/documentation/videos/storsimple-manager-service-overview/)를 클릭하세요.
+StorSimple Manager 서비스 사용자 인터페이스를 안내하는 동영상을 시청하려면 [여기](https://azure.microsoft.com/documentation/videos/storsimple-manager-service-overview/)를 클릭하세요.
 
 ## StorSimple Manager 서비스를 사용한 StorSimple 장치 관리
 
@@ -114,4 +114,4 @@ StorSimple 장치의 일상적인 작업 또는 해당 하드웨어 구성 요�
 
 문제를 해결할 수 없고 서비스 요청을 만드는 데 필요한 경우 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)를 참조합니다.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/15/2015"
+   ms.date="01/20/2016"
    ms.author="ryanwi; mani-ramaswamy"/>
 
 
@@ -46,13 +46,13 @@
 
 2. *운영자*는 [**CopyApplicationPackage** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage.aspx) 또는 [**Copy-ServiceFabricApplicationPackage** cmdlet](https://msdn.microsoft.com/library/azure/mt125905.aspx)를 사용하여 응용 프로그램 패키지를 클러스터 이미지 저장소에 업로드합니다. 응용 프로그램 패키지는 응용 프로그램 매니페스트 및 서비스 패키지 컬렉션을 포함합니다. 서비스 패브릭이 이미지 저장소에 저장된 응용 프로그램 패키지의 응용 프로그램을 배포합니다. ImageStore는 Azure Blob 저장소일 수도 있고 서비스 패브릭 시스템 서비스일 수도 있습니다.
 
-3. 그런 다음 *운영자*가 [**ProvisionApplicationAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync.aspx), [**Register-ServiceFabricApplicationType** cmdlet](https://msdn.microsoft.com/library/azure/mt125958.aspx) 또는 [**Create Application** REST 작업](https://msdn.microsoft.com/library/azure/dn707692.aspx)을 사용하여 업로드된 응용 프로그램 패키지의 대상 클러스터에 응용 프로그램 유형을 프로비전합니다.
+3. 그런 다음 *운영자*가 [**ProvisionApplicationAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync.aspx), [**Register-ServiceFabricApplicationType** cmdlet](https://msdn.microsoft.com/library/azure/mt125958.aspx) 또는 [**응용 프로그램 프로비전** REST 작업](https://msdn.microsoft.com/library/azure/dn707672.aspx)을 사용하여 업로드된 응용 프로그램 패키지의 대상 클러스터에 응용 프로그램 유형을 프로비전합니다.
 
-3. 응용 프로그램을 프로비전한 후 *운영자*가 [**CreateApplicationAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.createapplicationasync.aspx), [**New-ServiceFabricApplication** cmdlet](https://msdn.microsoft.com/library/azure/mt125913.aspx) 또는 [**Create Application** 작업](https://msdn.microsoft.com/library/azure/dn707692.aspx)을 사용하여 *응용 프로그램 관리자*가 제공한 매개 변수로 응용 프로그램을 시작합니다.
+4. 응용 프로그램을 프로비전한 후 *운영자*가 [**CreateApplicationAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.createapplicationasync.aspx), [**New-ServiceFabricApplication** cmdlet](https://msdn.microsoft.com/library/azure/mt125913.aspx) 또는 [**Create Application** 작업](https://msdn.microsoft.com/library/azure/dn707676.aspx)을 사용하여 *응용 프로그램 관리자*가 제공한 매개 변수로 응용 프로그램을 시작합니다.
 
-4. 응용 프로그램이 배포된 후 *관리자*가 [**CreateServiceAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.servicemanagementclient.createserviceasync.aspx), [**New-ServiceFabricService** cmdlet](https://msdn.microsoft.com/library/azure/mt125874.aspx) 또는 [**Create Application** REST 작업](https://msdn.microsoft.com/library/azure/dn707692.aspx)을 사용하여 제공되는 서비스 유형에 따라 응용 프로그램에 대한 새 서비스 인스턴스를 만듭니다.
+5. 응용 프로그램이 배포된 후 *운영자*가 [**CreateServiceAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.servicemanagementclient.createserviceasync.aspx), [**New-ServiceFabricService** cmdlet](https://msdn.microsoft.com/library/azure/mt125874.aspx) 또는 [**서비스 만들기** REST 작업](https://msdn.microsoft.com/library/azure/dn707657.aspx)을 사용하여 제공되는 서비스 유형에 따라 응용 프로그램에 대한 새 서비스 인스턴스를 만듭니다.
 
-5. 이제 서비스 패브릭 클러스터에서 응용 프로그램이 실행됩니다.
+6. 이제 서비스 패브릭 클러스터에서 응용 프로그램이 실행됩니다.
 
 예는 [응용 프로그램 배포](service-fabric-deploy-remove-applications.md)를 참조하세요.
 
@@ -72,15 +72,15 @@
 
 4. *운영자*는 [**CopyApplicationPackage** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage.aspx) 또는 [**Copy-ServiceFabricApplicationPackage** cmdlet](https://msdn.microsoft.com/library/azure/mt125905.aspx)를 사용하여 업데이트된 응용 프로그램 패키지를 클러스터 ImageStore에 업로드합니다. 응용 프로그램 패키지는 응용 프로그램 매니페스트 및 서비스 패키지 컬렉션을 포함합니다.
 
-5. 그런 다음 *운영자*가 [**ProvisionApplicationAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync.aspx), [**Register-ServiceFabricApplicationType** cmdlet](https://msdn.microsoft.com/library/azure/mt125958.aspx) 또는 [**Provision an Application** REST 작업](https://msdn.microsoft.com/library/azure/dn707692.aspx)을 사용하여 대상 클러스터에 새로운 응용 프로그램 버전을 프로비전합니다.
+5. 그런 다음 *운영자*가 [**ProvisionApplicationAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync.aspx), [**Register-ServiceFabricApplicationType** cmdlet](https://msdn.microsoft.com/library/azure/mt125958.aspx) 또는 [**Provision an Application** REST 작업](https://msdn.microsoft.com/library/azure/dn707672.aspx)을 사용하여 대상 클러스터에 새로운 응용 프로그램 버전을 프로비전합니다.
 
-6. *운영자*가 [**UpgradeApplicationAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.upgradeapplicationasync.aspx), [**Start-ServiceFabricApplicationUpgrade** cmdlet](https://msdn.microsoft.com/library/azure/mt125975.aspx) 또는 [**Upgrade Application by Application Type** REST 작업](https://msdn.microsoft.com/library/azure/dn707692.aspx)을 사용하여 대상 응용 프로그램을 새 버전으로 업그레이드합니다.
+6. *운영자*가 [**UpgradeApplicationAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.upgradeapplicationasync.aspx), [**Start-ServiceFabricApplicationUpgrade** cmdlet](https://msdn.microsoft.com/library/azure/mt125975.aspx) 또는 [**응용 프로그램 업그레이드** REST 작업](https://msdn.microsoft.com/library/azure/dn707633.aspx)을 사용하여 대상 응용 프로그램을 새 버전으로 업그레이드합니다.
 
-7. *운영자*가 [**GetApplicationUpgradeProgressAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.getapplicationupgradeprogressasync.aspx), [**Get-ServiceFabricApplicationUpgrade** cmdlet](https://msdn.microsoft.com/library/azure/mt125988.aspx) 또는 [**Get Application Upgrade Progress** REST 작업](https://msdn.microsoft.com/library/azure/dn707692.aspx)을 사용하여 업그레이드 진행 상황을 확인합니다.
+7. *운영자*가 [**GetApplicationUpgradeProgressAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.getapplicationupgradeprogressasync.aspx), [**Get-ServiceFabricApplicationUpgrade** cmdlet](https://msdn.microsoft.com/library/azure/mt125988.aspx) 또는 [**Get Application Upgrade Progress** REST 작업](https://msdn.microsoft.com/library/azure/dn707631.aspx)을 사용하여 업그레이드 진행 상황을 확인합니다.
 
-8. 필요한 경우 *운영자*가 [**UpdateApplicationUpgradeAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.updateapplicationupgradeasync.aspx), [**Update-ServiceFabricApplicationUpgrade** cmdlet](https://msdn.microsoft.com/library/azure/mt126030.aspx) 또는 [**Update Application Upgrade** 작업](https://msdn.microsoft.com/library/azure/dn707692.aspx)을 사용하여 현재 응용 프로그램 업그레이드의 매개 변수를 수정하고 다시 적용합니다.
+8. 필요한 경우 *운영자*가 [**UpdateApplicationUpgradeAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.updateapplicationupgradeasync.aspx), [**Update-ServiceFabricApplicationUpgrade** cmdlet](https://msdn.microsoft.com/library/azure/mt126030.aspx) 또는 [**Update Application Upgrade** 작업](https://msdn.microsoft.com/library/azure/mt628489.aspx)을 사용하여 현재 응용 프로그램 업그레이드의 매개 변수를 수정하고 다시 적용합니다.
 
-9. 필요한 경우 *운영자*가 [**RollbackApplicationUpgradeAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.rollbackapplicationupgradeasync.aspx), [**Start-ServiceFabricApplicationRollback** cmdlet](https://msdn.microsoft.com/library/azure/mt125833.aspx) 또는 [**Rollback Application Upgrade** 작업](https://msdn.microsoft.com/library/azure/dn707692.aspx)을 사용하여 현재 응용 프로그램 업그레이드를 롤백합니다.
+9. 필요한 경우 *운영자*가 [**RollbackApplicationUpgradeAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.rollbackapplicationupgradeasync.aspx), [**Start-ServiceFabricApplicationRollback** cmdlet](https://msdn.microsoft.com/library/azure/mt125833.aspx) 또는 [**Rollback Application Upgrade** 작업](https://msdn.microsoft.com/library/azure/mt628494.aspx)을 사용하여 현재 응용 프로그램 업그레이드를 롤백합니다.
 
 10. 모든 구성 서비스가 제공되는 상태로 서비스 패브릭이 클러스터에서 실행되는 대상 응용 프로그램을 업그레이드합니다.
 
@@ -98,11 +98,11 @@
 5. 클러스터에 새 노드가 추가되거나 기존 노드 클러스터에서 노드가 제거되면 서비스 패브릭이 실행 중인 응용 프로그램의 부하를 클러스터의 모든 노드로 분산하여 최적의 성능을 유지합니다.
 
 ## Remove
-1. *운영자*는 [**DeleteServiceAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync.aspx), [**Remove-ServiceFabricService** cmdlet](https://msdn.microsoft.com/library/azure/mt126033.aspx) 또는 [**Delete Service** REST 작업](https://msdn.microsoft.com/library/azure/dn707692.aspx)을 사용하여 전체 응용 프로그램을 제거하지 않고 클러스터에서 실행 중인 특정 인스턴스를 삭제할 수 있습니다.  
+1. *운영자*는 [**DeleteServiceAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync.aspx), [**Remove-ServiceFabricService** cmdlet](https://msdn.microsoft.com/library/azure/mt126033.aspx) 또는 [**Delete Service** REST 작업](https://msdn.microsoft.com/library/azure/dn707687.aspx)을 사용하여 전체 응용 프로그램을 제거하지 않고 클러스터에서 실행 중인 특정 인스턴스를 삭제할 수 있습니다.  
 
-2. 또한 *운영자*는 [**DeleteApplicationAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.deleteapplicationasync.aspx), [**Remove-ServiceFabricApplication** cmdlet](https://msdn.microsoft.com/library/azure/mt125914.aspx) 또는 [**Delete Application** REST 작업](https://msdn.microsoft.com/library/azure/dn707692.aspx)을 사용하여 응용 프로그램 인스턴스 및 모든 서비스를 삭제할 수 있습니다.
+2. 또한 *운영자*는 [**DeleteApplicationAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.deleteapplicationasync.aspx), [**Remove-ServiceFabricApplication** cmdlet](https://msdn.microsoft.com/library/azure/mt125914.aspx) 또는 [**Delete Application** REST 작업](https://msdn.microsoft.com/library/azure/dn707651.aspx)을 사용하여 응용 프로그램 인스턴스 및 모든 서비스를 삭제할 수 있습니다.
 
-3. 응용 프로그램 및 서비스가 중지되면 *운영자*는 [**UnprovisionApplicationAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync.aspx), [**Unregister-ServiceFabricApplicationType** cmdlet](https://msdn.microsoft.com/library/azure/mt125885.aspx) 또는 [**Unprovision an Application** REST 작업](https://msdn.microsoft.com/library/azure/dn707692.aspx)을 사용하여 응용 프로그램 유형의 프로비전을 해제할 수 있습니다. 응용 프로그램 유형의 프로비전을 해제해도 ImageStore에서 응용 프로그램 패키지가 제거되지는 않습니다. 따라서 응용 프로그램 패키지를 수동으로 제거해야 합니다.
+3. 응용 프로그램 및 서비스가 중지되면 *운영자*는 [**UnprovisionApplicationAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync.aspx), [**Unregister-ServiceFabricApplicationType** cmdlet](https://msdn.microsoft.com/library/azure/mt125885.aspx) 또는 [**Unprovision an Application** REST 작업](https://msdn.microsoft.com/library/azure/dn707671.aspx)을 사용하여 응용 프로그램 유형의 프로비전을 해제할 수 있습니다. 응용 프로그램 유형의 프로비전을 해제해도 ImageStore에서 응용 프로그램 패키지가 제거되지는 않습니다. 따라서 응용 프로그램 패키지를 수동으로 제거해야 합니다.
 
 4. *운영자*가 [**RemoveApplicationPackage** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.removeapplicationpackage.aspx) 또는 [**Remove-ServiceFabricApplicationPackage** cmdlet](https://msdn.microsoft.com/library/azure/mt163532.aspx)를 사용하여 ImageStore에서 응용 프로그램 패키지를 제거합니다.
 
@@ -119,4 +119,4 @@
 - [테스트 용이성 개요](service-fabric-testability-overview.md)
 - [REST 기반 응용 프로그램 수명 주기 샘플](service-fabric-rest-based-application-lifecycle-sample.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

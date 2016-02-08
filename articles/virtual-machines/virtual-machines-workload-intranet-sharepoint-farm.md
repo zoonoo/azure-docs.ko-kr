@@ -35,7 +35,7 @@ Azure 인프라 서비스에서 인트라넷 SharePoint 팜을 호스트하는 �
 
 다음 단계는 Azure에서 호스트되는 개발/테스트 인트라넷 SharePoint 팜을 설정하는 것입니다.
 
-> [AZURE.NOTE]Microsoft은 SharePoint Server 2016 IT Preview를 출시했습니다. 이 Preview를 보다 쉽게 설치하고 테스트하기 위해 SharePoint Server 2016 IT Preview 및 해당 필수 구성 요소가 미리 설치된 상태에서 Azure 가상 컴퓨터 갤러리 이미지를 사용할 수 있습니다. 자세한 내용은 [Azure에서 SharePoint Server 2016 IT Preview 테스트](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/)를 참조하세요.
+> [AZURE.NOTE] Microsoft은 SharePoint Server 2016 IT Preview를 출시했습니다. 이 Preview를 보다 쉽게 설치하고 테스트하기 위해 SharePoint Server 2016 IT Preview 및 해당 필수 구성 요소가 미리 설치된 상태에서 Azure 가상 컴퓨터 갤러리 이미지를 사용할 수 있습니다. 자세한 내용은 [Azure에서 SharePoint Server 2016 IT Preview 테스트](https://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/)를 참조하세요.
 
 ## Azure에서 호스트되는 개발/테스트 인트라넷 SharePoint 팜 만들기
 
@@ -44,7 +44,7 @@ Azure에서 호스트되는 SharePoint 팜에 대한 개발/테스트 환경을 
 - 클라우드 전용 가상 네트워크
 - 프레미스 간 가상 네트워크
 
-[Visual Studio 구독](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/) 또는 [Azure 평가판 구독](http://azure.microsoft.com/pricing/free-trial/)을 사용하여 이러한 개발/테스트 환경을 무료로 만들 수 있습니다.
+[Visual Studio 구독](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) 또는 [Azure 평가판 구독](https://azure.microsoft.com/pricing/free-trial/)을 사용하여 이러한 개발/테스트 환경을 무료로 만들 수 있습니다.
 
 ### 클라우드 전용 가상 네트워크
 
@@ -102,4 +102,4 @@ Azure에서 호스트되는 SharePoint 팜에 대한 개발/테스트 환경을 
 
 - 구성에 대해 자세히 알아보기 전에 프로덕션 워크로드의 [개요](virtual-machines-workload-intranet-sharepoint-overview.md)를 확인합니다.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

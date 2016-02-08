@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="01/21/2016"
 	ms.author="ricksal"/>
 
 # Android 장치에서 Azure 저장소에 이미지 업로드
@@ -35,7 +35,7 @@
 
 또한 이 자습서를 사용하려면 다음이 필요합니다.
 
-+ [Azure 저장소 계정](../storage-create-storage-account.md)
++ [Azure 저장소 계정](../storage/storage-create-storage-account.md)
 + 카메라와 Android 장치
 
 ## 앱 작동 방식
@@ -49,7 +49,7 @@
 
 그렇다면 SAS는 무엇인가요?
 
-클라이언트 앱 내에서 Azure 저장소 서비스에 데이터를 업로드하는 데 필요한 자격 증명을 저장하는 것은 안전하지 않습니다. 대신 이러한 자격 증명을 모바일 서비스에 저장하고, 이를 통해 새로운 이미지 업로드에 권한을 부여하는 SAS(공유 액세스 서명)를 생성해야 합니다. 만료 기간이 5분인 자격 증명, SAS는 모바일 서비스에 의해 클라이언트 앱으로 안전하게 반환됩니다. 그러면 앱은 이 임시 자격 증명을 사용하여 이미지를 업로드합니다. 자세한 내용은 [공유 액세스 서명, 1부: SAS 모델 이해](storage-dotnet-shared-access-signature-part-1.md)를 참조하세요.
+클라이언트 앱 내에서 Azure 저장소 서비스에 데이터를 업로드하는 데 필요한 자격 증명을 저장하는 것은 안전하지 않습니다. 대신 이러한 자격 증명을 모바일 서비스에 저장하고, 이를 통해 새로운 이미지 업로드에 권한을 부여하는 SAS(공유 액세스 서명)를 생성해야 합니다. 만료 기간이 5분인 자격 증명, SAS는 모바일 서비스에 의해 클라이언트 앱으로 안전하게 반환됩니다. 그러면 앱은 이 임시 자격 증명을 사용하여 이미지를 업로드합니다. 자세한 내용은 [공유 액세스 서명, 1부: SAS 모델 이해](../storage/storage-dotnet-shared-access-signature-part-1.md)를 참조하세요.
 
 ## 코드 샘플
 [여기](https://github.com/Azure/mobile-services-samples/tree/master/UploadImages)는 해당 앱의 완료된 클라이언트 원본 코드 부분입니다. 실행하려면 이 자습서의 모바일 서비스 백 엔드 부분을 완료해야 합니다.
@@ -426,4 +426,4 @@
 [모바일 서비스 .NET 방법 개념 참조]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

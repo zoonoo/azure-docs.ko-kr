@@ -25,7 +25,7 @@
 시작할 준비가 되셨습니까? Azure Active Directory와 함께 릴리스된 정말 멋진 프로그램을 사용해보세요. 이 기능을 사용하면 조직 ID 및 액세스 관리에 실제 가치를 더해줍니다. 설명서를 읽어 이러한 기능을 구성하는 방법에 대해 알아보세요. 그런 다음 첫번째 단계를 수행하고 관리자와 사용자에 게 평가판 라이선스를 할당하여 이 기능의 테스트를 시작할 수 있는 방법을 알아봅니다.
 
 
-> [AZURE.NOTE]누구나 Azure AD를 무료로 사용할 수 있습니다. Azure 평가판 구독을 지금 등록하면 디렉터리를 사용할 수 있습니다. 디렉터리는 구입 여부에 상관없이 여러분의 것입니다. [지금 Azure AD를 사용해 보세요.](http://azure.microsoft.com/trial/get-started-active-directory/)
+> [AZURE.NOTE] 누구나 Azure AD를 무료로 사용할 수 있습니다. Azure 평가판 구독을 지금 등록하면 디렉터리를 사용할 수 있습니다. 디렉터리는 구입 여부에 상관없이 여러분의 것입니다. [지금 Azure AD를 사용해 보세요.](https://azure.microsoft.com/trial/get-started-active-directory/)
 
 ##조직의 액세스 보안
 Multi-Factor Authentication을 사용하여 클라우드에서 조직의 ID 데이터를 보호하여 안전한 로컬 및 원격 액세스를 확인합니다. [Multi-Factor Authentication에 대해 자세히 알아보기](../multi-factor-authentication.md)
@@ -44,4 +44,4 @@ Azure AD는 관리자를 위한 다양한 보고서를 제공합니다. Azure AD
 * [조직으로 Azure 등록](sign-up-organization.md)
 * [Azure ID](fundamentals-identity.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -23,7 +23,7 @@
 
 StorSimple 관리자 서비스 **백업 카탈로그** 페이지는 수동 또는 자동화된 백업을 수행할 때 생성되는 모든 백업 세트를 표시합니다. 이 페이지를 사용하여 백업 정책 또는 볼륨에 대한 모든 백업을 나열하거나, 백업을 선택 또는 삭제하거나 백업을 사용하여 볼륨을 복원 또는 복제할 수 있습니다.
 
-  ![백업 카탈로그 페이지](./media/storsimple-clone-volume/HCS_BackupCatalog.png)
+![백업 카탈로그 페이지](./media/storsimple-clone-volume/HCS_BackupCatalog.png)
 
 이 자습서에서는 개별 볼륨 복제에 백업 세트를 사용하는 방법을 설명합니다. *임시* 및 *영구* 복제의 차이점에 대해서도 설명합니다.
 
@@ -45,9 +45,9 @@ StorSimple 관리자 서비스 **백업 카탈로그** 페이지는 수동 또�
 
   1. 대상 장치를 식별합니다. 클론이 만들어지는 위치입니다. 동일한 장치를 선택하거나 다른 장치를 지정할 수 있습니다. 다른 클라우드 서비스 공급자와 연결 된 볼륨을 선택하는 경우 (Azure가 아님), 대상 장치에 대한 드롭다운 목록에는 물리적 장치만 표시 됩니다. 가상 장치에 다른 클라우드 서비스 공급자와 연결된 볼륨을 복제할 수 없습니다.
 
-        >  [AZURE.NOTE] 복제에 필요한 용량은 대상 장치에서 사용 가능한 용량보다 작아야 합니다.
+        >  [AZURE.NOTE] Make sure that the capacity required for the clone is lower than the capacity available on the target device.
   2. 해당 클론에 대한 고유 볼륨 이름을 지정합니다. 이름은 3자에서 127자 사이여야 합니다.
-  3. 화살표 아이콘![화살표 아이콘](./media/storsimple-clone-volume/HCS_ArrowIcon.png)을 클릭하여 다음 페이지로 이동합니다.
+  3. 화살표 아이콘 ![화살표 아이콘](./media/storsimple-clone-volume/HCS_ArrowIcon.png)을 클릭하여 다음 페이지로 이동합니다.
 
 5. **이 볼륨을 사용할 수 있는 호스트 지정** 아래:
 
@@ -61,7 +61,7 @@ StorSimple 관리자 서비스 **백업 카탈로그** 페이지는 수동 또�
   1. **장치** 페이지로 이동하여 **볼륨 컨테이너** 탭을 선택합니다.
   2. 복제한 원본 볼륨에 연관된 볼륨 컨테이너를 선택합니다. 볼륨 목록에 방금 만든 클론이 보입니다.
 
->[AZURE.NOTE]모니터링 및 기본 백업은 복제된 볼륨에서 자동으로 비활성화됩니다.
+>[AZURE.NOTE] 모니터링 및 기본 백업은 복제된 볼륨에서 자동으로 비활성화됩니다.
 
 이러한 방식으로 만들어진 클론은 임시 클론입니다. 복제 유형에 대한 자세한 내용은 [임시 및 영구 복제본 비교](#transient-vs.-permanent-clones)를 참조하세요.
 
@@ -83,12 +83,11 @@ StorSimple 관리자 서비스 **백업 카탈로그** 페이지는 수동 또�
  
 ![동영상 사용 가능](./media/storsimple-clone-volume/Video_icon.png) **동영상 사용 가능**
 
-StorSimple에서 복제 및 복원 기능을 사용하여 삭제된 파일을 복구하는 방법을 보여 주는 동영상을 시청하려면 [여기](http://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/)를 클릭하세요.
+StorSimple에서 복제 및 복원 기능을 사용하여 삭제된 파일을 복구하는 방법을 보여 주는 동영상을 시청하려면 [여기](https://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/)를 클릭하세요.
 
 ### 영구 클론을 사용하여 프로덕션 환경에서 테스트
 
 프로덕션 환경에서 테스트 버그를 확인해야 합니다. 프로덕션 환경에서 볼륨의 클론을 만듭니다. 향상된 성능을 위해 이 클론의 클라우드 스냅숏을 수행해야 합니다. 복제된 볼륨은 이제 독립적이며 성능이 향상됩니다. 이 시나리오에서는 영구 클론이 사용됩니다.
-
 
 ## 다음 단계
 - [백업 세트에서 StorSimple 볼륨을 복원](storsimple-restore-from-backup-set.md)하는 방법에 대해 알아봅니다.
@@ -97,4 +96,4 @@ StorSimple에서 복제 및 복원 기능을 사용하여 삭제된 파일을 �
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

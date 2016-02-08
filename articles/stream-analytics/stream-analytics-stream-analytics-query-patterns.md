@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="12/04/2015"
+	ms.date="01/25/2016"
 	ms.author="jeffstok"/>
 
 
@@ -22,7 +22,7 @@
 
 ## 소개 ##
 
-Azure Stream 분석의 쿼리는 [여기](https://msdn.microsoft.com/library/azure/dn834998.aspx)에 문서화된 SQL과 유사한 언어로 표현됩니다. 이 문서에서는 실제 시나리오에 따른 몇 가지 일반적인 쿼리 패턴에 대한 솔루션을 간략하게 설명합니다. 이 작업은 진행 중이며 새 패턴이 지속적으로 업데이트됩니다.
+Azure Stream 분석의 쿼리는 [스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx) 가이드에 문서화된 SQL 유사 언어로 표현됩니다. 이 문서에서는 실제 시나리오에 따른 몇 가지 일반적인 쿼리 패턴에 대한 솔루션을 간략하게 설명합니다. 이 작업은 진행 중이며 새 패턴이 지속적으로 업데이트됩니다.
 
 ## 쿼리 예제: 데이터 형식 변환 ##
 **설명**: 입력 스트림의 속성 형식을 정의합니다. 예를 들어 자동차 무게가 입력 스트림에 문자열 형식으로 설정되면 합계를 수행하기 위해 INT로 변환해야 합니다.
@@ -145,7 +145,7 @@ Azure Stream 분석의 쿼리는 [여기](https://msdn.microsoft.com/library/azu
 | --- | --- | --- |
 | Toyota | 2015-01-01T00:00:10.0000000Z | 3 |
 
-**솔루션**:
+**해결 방법**:
 
 	SELECT
 		*
@@ -384,6 +384,35 @@ Azure Stream 분석의 쿼리는 [여기](https://msdn.microsoft.com/library/azu
 
 **설명**: LAG을 사용하여 지난 이벤트의 입력 스트림을 살펴보고, Make 값을 얻습니다. 그런 다음 현재 이벤트와 출력 이벤트가 같은지 Make를 비교하고, LAG을 사용하여 이전 자동차에 대한 데이터를 얻습니다.
 
+## 쿼리 예제: 이벤트 간 기간 검색
+**설명**: 제공된 이벤트의 기간을 찾습니다. 예를 들어 웹 클릭스트림을 지정하여 기능에서 사용한 시간을 결정합니다.
+
+**입력**:
+  
+| 사용자 | 기능 | 이벤트 | Time |
+| --- | --- | --- | --- |
+| user@location.com | RightMenu | 시작 | 2015-01-01T00:00:01.0000000Z |
+| user@location.com | RightMenu | 끝 | 2015-01-01T00:00:08.0000000Z |
+  
+**출력**:
+  
+| 사용자 | 기능 | 기간 |
+| --- | --- | --- |
+| user@location.com | RightMenu | 7 |
+  
+
+**솔루션**
+
+````
+    SELECT
+    	[user], feature, DATEDIFF(second, LAST(Time) OVER (PARTITION BY [user], feature LIMIT DURATION(hour, 1) WHEN Event = 'start'), Time) as duration
+    FROM input TIMESTAMP BY Time
+    WHERE
+    	Event = 'end'
+````
+
+**설명**: LAST 함수를 사용하여 이벤트 유형이 'Start'였을 때 마지막 시간 값을 검색합니다. LAST 함수는 PARTITION BY [사용자]를 사용하여 고유한 사용자마다 결과가 계산된다는 것을 나타냅니다. 쿼리에 'Start'와 'Stop' 이벤트 간 시간 차이를 위해 최대 1시간의 임계값이 있지만 필요에 따라 구성 가능합니다(LIMIT DURATION(hour, 1).
+
 ## 쿼리 예제: 조건의 기간 감지 ##
 **설명**: 조건의 시간이 얼마인지 알아봅니다. 예를 들어 버그가 생겨서 모든 자동차 결과가 정확하지 않은 경우(20.000파운드 이상) 버그의 기간을 계산하고자 합니다.
 
@@ -411,34 +440,19 @@ Azure Stream 분석의 쿼리는 [여기](https://msdn.microsoft.com/library/azu
 | 2015-01-01T00:00:01.0000000Z | 2015-01-01T00:00:08.0000000Z | 7 |
 | 2015-01-01T00:00:01.0000000Z | 2015-01-01T00:00:08.0000000Z | 7 |
 
-**해결 방법**:
+**솔루션**:
 
-	SELECT
-	    PrevGood.Time AS StartFault,
-	    ThisGood.Time AS Endfault,
-	    DATEDIFF(second, PrevGood.Time, ThisGood.Time) AS FaultDuraitonSeconds
-	FROM
-	    Input AS ThisGood TIMESTAMP BY Time
-	    INNER JOIN Input AS PrevGood TIMESTAMP BY Time
-	    ON DATEDIFF(second, PrevGood, ThisGood) BETWEEN 1 AND 3600
-	    AND PrevGood.Weight < 20000
-	    INNER JOIN Input AS Bad TIMESTAMP BY Time
-	    ON DATEDIFF(second, PrevGood, Bad) BETWEEN 1 AND 3600
-	    AND DATEDIFF(second, Bad, ThisGood) BETWEEN 1 AND 3600
-	    AND Bad.Weight >= 20000
-	    LEFT JOIN Input AS MidGood TIMESTAMP BY Time
-	    ON DATEDIFF(second, PrevGood, MidGood) BETWEEN 1 AND 3600
-	    AND DATEDIFF(second, MidGood, ThisGood) BETWEEN 1 AND 3600
-	    AND MidGood.Weight < 20000
-	WHERE
-	    ThisGood.Weight < 20000
-	    AND MidGood.Weight IS NULL
+````
+SELECT 
+    LAG(time) OVER (LIMIT DURATION(hour, 24) WHEN weight < 20000 ) [StartFault],
+    [time] [EndFault]
+FROM input
+WHERE
+    [weight] < 20000
+    AND LAG(weight) OVER (LIMIT DURATION(hour, 24)) > 20000
+````
 
-**설명**: 2개의 정상 이벤트 사이에 잘못된 이벤트가 있는 경우와 정상 이벤트가 없는 경우를 찾으려고 합니다. 이 말은, 2개의 이벤트는 처음 이벤트이고, 전후로 잘못된 이벤트가 최소한 1개 있어야 한다는 뜻입니다. 1개의 잘못된 이벤트가 중간에 있는 2개의 정상 이벤트를 얻으려면 간단히 2개의 JOIN을 사용하거나, 무게를 확인하고 타임스탬프를 비교하여 good->bad->good을 얻는 유효성 검사를 실행하여 얻을 수 있습니다.
-
-“NULL을 포함하거나 이벤트 부재를 수행하도록 LEFT Outer 조인”에서 배웠던 선택한 2개의 정상 이벤트 사이에 잘못된 이벤트가 발생했는지 확인하는 방법을 사용합니다.
-
-이러한 것들을 조합하여 중간에 잘못된 이벤트가 없는 good->bad->good을 얻습니다. 이제 버그의 기간을 알려주는 첫 번째 정상 이벤트와 마지막 정상 이벤트 사이의 기간을 계산할 수 있습니다.
+**설명**: LAG를 사용하여 24시간 동안 입력 스트림을 보고 StartFault와 StopFault가 가중치 < 20000인 인스턴스를 찾습니다.
 
 ## 도움말 보기
 추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=AzureStreamAnalytics)을 참조하세요.
@@ -452,4 +466,4 @@ Azure Stream 분석의 쿼리는 [여기](https://msdn.microsoft.com/library/azu
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

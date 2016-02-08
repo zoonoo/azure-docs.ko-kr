@@ -346,7 +346,7 @@ Azure PowerShell에서 `Get-AzureAccount`를 실행하여 Azure AD 테넌트의 
 
  [Azure 스케줄러의 버전 및 요금 청구](scheduler-plans-billing.md)
 
- [Azure 스케줄러 REST API 참조](https://msdn.microsoft.com/library/dn528946)
+ [Azure 스케줄러 REST API 참조](https://msdn.microsoft.com/library/mt629143)
 
  [Azure 스케줄러 PowerShell cmdlet 참조](scheduler-powershell-reference.md)
 
@@ -360,4 +360,4 @@ Azure PowerShell에서 `Get-AzureAccount`를 실행하여 Azure AD 테넌트의 
  
   
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -5,7 +5,7 @@
 
 1. [Azure Active Directory에 등록하는 방법] 항목을 따라 Azure Active Directory에 응용 프로그램을 등록합니다.
 
-2. [Azure 클래식 포털](https://manage.windowsazure.com/)에서, Azure Active Directory 확장으로 다시 이동하고 활성 디렉터리를 클릭합니다.
+2. [Azure 클래식 포털](https://manage.windowsazure.com/)에서 Azure Active Directory 확장으로 다시 이동하고 활성 디렉터리를 클릭합니다.
 
 3. **응용 프로그램** 탭을 클릭한 다음, 응용 프로그램을 클릭합니다.
 
@@ -38,4 +38,4 @@
 <!-- URLs. -->
 [Azure Active Directory에 등록하는 방법]: ../articles/mobile-services/mobile-services-how-to-register-active-directory-authentication.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

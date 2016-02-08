@@ -44,7 +44,7 @@ SQL Server 백업을 Azure Blob 저장소 서비스에 쓸 수 있는 기능은 
 
 ## Azure Blob 저장소 서비스 구성 요소
 
-* 저장소 계정: 저장소 계정은 모든 저장소 서비스를 사용하기 위한 출발점입니다. Azure Blob 저장소 서비스에 액세스하려면 먼저 Azure 저장소 계정을 만드세요. Azure Blob 저장소 서비스에 대한 자세한 내용은 [Azure Blob 저장소 서비스를 사용하는 방법](http://azure.microsoft.com/develop/net/how-to-guides/blob-storage/)(영문)을 참조하십시오.
+* 저장소 계정: 저장소 계정은 모든 저장소 서비스를 사용하기 위한 출발점입니다. Azure Blob 저장소 서비스에 액세스하려면 먼저 Azure 저장소 계정을 만드세요. Azure Blob 저장소 서비스에 대한 자세한 내용은 [Azure Blob 저장소 서비스를 사용하는 방법](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/)(영문)을 참조하십시오.
 
 * 컨테이너: 컨테이너는 Blob 집합의 그룹화를 제공하며 Blob을 개수에 제한 없이 저장할 수 있습니다. SQL Server 백업을 Azure Blob 서비스에 쓰려면 최소한 루트 컨테이너를 만들어야 합니다.
 
@@ -72,4 +72,4 @@ SQL Server 백업을 Azure Blob 저장소 서비스에 쓸 수 있는 기능은 
 
 [백업 및 복원 모범 사례(Azure Blob 저장소 서비스)](http://go.microsoft.com/fwlink/?LinkId=272394)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

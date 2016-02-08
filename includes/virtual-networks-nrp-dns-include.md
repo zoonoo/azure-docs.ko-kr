@@ -16,7 +16,7 @@ DNS 영역에는 레코드 집합이라고 하는 자식 개체가 있습니다.
 |---|---|---|
 | 문자열(UTF-8 형식) 또는 | IPv4 레코드 유형 | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/A/www |
 | AAAA | IPv6 레코드 유형| /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/AAAA/hostrecord |
-| CNAME | 정식 이름 레코드 종류 <sup>1</sup> | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/CNAME/www |
+| CNAME | Canonical 이름 레코드 유형 <sup>1</sup> | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/CNAME/www |
 | MX | 메일 레코드 유형 | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/MX/mail |
 | NS | 이름 서버 레코드 유형 | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/NS/ |
 | SOA | 권한 시작 레코드 종류 <sup>2</sup> | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/SOA |
@@ -85,6 +85,6 @@ Json 형식의 DNS 영역 샘플:
 
 자세한 내용은[DNS 영역에 대한 REST API 설명서](https://msdn.microsoft.com/library/azure/mt130626.aspx)를 참조하세요.
 
-자세한 내용은[DNS 레코드 집합에 대한 REST API 설명서](https://msdn.microsoft.com/library/azure/mt130626.aspx)를 참조하세요.
+자세한 내용은[DNS 레코드 집합에 대한 REST API 설명서](https://msdn.microsoft.com/library/azure/mt130627.aspx)를 참조하세요.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

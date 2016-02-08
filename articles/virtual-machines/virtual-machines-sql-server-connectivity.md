@@ -60,7 +60,7 @@ Azure 가상 컴퓨터에서 실행되는 SQL Server에 대한 연결 구성은 
 
 이를 통해 인터넷을 통한 클라이언트의 연결이 활성화되지만 누구나 SQL Server에 연결할 수 있다는 뜻은 아닙니다. 외부 클라이언트는 정확한 사용자 이름과 암호가 있어야 합니다. 보안을 높이기 위해 잘 알려진 포트 1433은 공용 가상 컴퓨터 끝점으로 사용하지 않는 것이 좋습니다. 또한 가능하다면 끝점에 ACL을 추가하여 트래픽을 허용한 클라이언트로 한정하는 것이 좋습니다. 끝점에서 ACL을 사용하는 방법에 대한 지침은 [끝점에 대한 ACL 관리](virtual-machines-set-up-endpoints.md#manage-the-acl-on-an-endpoint)를 참조하세요.
 
->[AZURE.NOTE]SQL Server와의 통신에 이 방법을 사용할 때는 반환되는 모든 데이터가 데이터 센터에서 나가는 트래픽으로 고려된다는 점을 유의해야 합니다. 일반적인 [아웃바운드 데이터 전송 가격](http://azure.microsoft.com/pricing/details/data-transfers)의 적용 대상입니다. 이 방법을 동일한 데이터 센터의 다른 컴퓨터나 클라우드 서비스에 사용하는 경우에도 마찬가지입니다. 트래픽이 Azure 공용 부하 분산 장치를 통해 이동하기 때문입니다.
+>[AZURE.NOTE] SQL Server와의 통신에 이 방법을 사용할 때는 반환되는 모든 데이터가 데이터 센터에서 나가는 트래픽으로 고려된다는 점을 유의해야 합니다. 일반적인 [아웃바운드 데이터 전송 가격](https://azure.microsoft.com/pricing/details/data-transfers/)의 적용 대상입니다. 이 방법을 동일한 데이터 센터의 다른 컴퓨터나 클라우드 서비스에 사용하는 경우에도 마찬가지입니다. 트래픽이 Azure 공용 부하 분산 장치를 통해 이동하기 때문입니다.
 
 ### 동일한 가상 네트워크의 SQL Server에 연결
 
@@ -110,4 +110,4 @@ Azure 가상 컴퓨터에서 실행되는 SQL Server에 대한 모든 보안 모
 
 Azure VM에서의 SQL Server 실행에 관한 다른 항목은 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-sql-server-infrastructure-services.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Azure Multi-Factor Authentication을 사용할 경우 Azure MFA 로그인 환경" 
-	description="이 페이지에서는 Azure MFA에서 사용할 수 있는 다양한 로그인 방법을 확인할 수 있는 위치에 대한 지침을 제공합니다." 
+	description="이 페이지에서는 Azure MFA에서 사용할 수 있는 다양한 로그인 방법을 확인할 수 있는 위치에 대한 지침을 제공합니다."
+	keywords="사용자 인증, 로그인 환경, 휴대폰으로 로그인, 사무실 전화로 로그인" 
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
@@ -13,11 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="01/25/2016" 
 	ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication의 로그인 환경
-> [AZURE.NOTE]이 페이지에 제공된 다음의 문서는 일반적인 로그인 환경을 보여줍니다. 로그인 관련 지원은 [Azure Multi-Factor Authentication에 문제가 있는 경우](multi-factor-authentication-end-user-manage-settings.md)를 참조하세요.
+> [AZURE.NOTE]  이 페이지에 제공된 다음의 문서는 일반적인 로그인 환경을 보여줍니다. 로그인 관련 지원은 [Azure Multi-Factor Authentication에 문제가 있는 경우](multi-factor-authentication-end-user-manage-settings.md)를 참조하세요.
 
 
 
@@ -103,4 +104,4 @@
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

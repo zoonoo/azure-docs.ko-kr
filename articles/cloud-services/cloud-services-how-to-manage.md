@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="클라우드 서비스를 관리하는 방법 | Microsoft Azure" 
+	pageTitle="일반적인 클라우드 서비스 관리 작업(클래식) | Microsoft Azure" 
 	description="Azure 클래식 포털에서 클라우드 서비스를 관리하는 방법에 대해 알아봅니다." 
 	services="cloud-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015"
+	ms.date="01/20/2016"
 	ms.author="adegeo"/>
 
 
@@ -49,7 +49,7 @@ Azure 클래식 포털 **클라우드 서비스** 영역에서 서비스 역할 
 
 	역할의 크기, 즉 역할 인스턴스를 호스트하는 가상 컴퓨터의 크기나 역할의 수를 변경하는 경우 각 역할 인스턴스(가상 컴퓨터)를 이미지로 다시 설치해야 하며, 이때 로컬 데이터가 손실됩니다.
 
-7. 서비스 역할에 역할 인스턴스가 하나만 있는 경우 **하나 이상의 역할에 단일 인스턴스가 포함된 경우에도 업데이트합니다** 확인란을 선택하여 업그레이드가 계속 진행되도록 합니다.
+7. 서비스 역할에 역할 인스턴스가 하나만 있는 경우 **Update even if one or more role contain a single instance** 확인란을 선택하여 업그레이드가 계속 진행되도록 합니다.
 
 	Azure는 각 역할에 둘 이상의 역할 인스턴스(가상 컴퓨터)가 있는 경우에만 클라우드 서비스 업데이트 중 99.95%의 서비스 가용성을 보장할 수 있습니다. 이에 따라, 가상 컴퓨터 하나는 클라이언트 요청을 처리하고 다른 하나는 업데이트를 진행할 수 있습니다.
 
@@ -107,7 +107,7 @@ Azure 클래식 포털의 **데이터베이스** 노드에서 데이터베이스
 
 	![연결 페이지1](./media/cloud-services-how-to-manage/CloudServices_LinkedResources_LinkPage1.png)
 
-4. **새로운 리소스를 생성합니다** 또는 **기존 리소스에 연결합니다**를 클릭합니다.
+4. **Create a new resource** 또는 **Link an existing resource**를 클릭합니다.
 
 5. 연결할 리소스 종류를 선택합니다. [Azure 클래식 포털](http://manage.windowsazure.com/)에서 **SQL 데이터베이스**를 클릭합니다. (Preview Azure 클래식 포털에서는 저장소 계정을 클라우드 서비스에 연결할 수 없습니다.)
 
@@ -148,19 +148,20 @@ Azure 클래식 포털의 **데이터베이스** 노드에서 데이터베이스
 	![삭제 메뉴](./media/cloud-services-how-to-manage/CloudServices_DeleteMenu.png)
 
 
-3. 배포를 삭제하려면 **프로덕션 배포를 삭제합니다** 또는 **단계별 배포를 삭제합니다**를 클릭합니다. 그리고 확인 메시지가 나타나면 **예**를 클릭합니다.
+3. 배포를 삭제하려면 **Delete production deployment** 또는 **Delete staging deployment**를 클릭합니다. 그리고 확인 메시지가 나타나면 **예**를 클릭합니다.
 
 4. 클라우드 서비스를 삭제할 계획이면 필요한 경우 3단계를 반복하여 다른 배포를 삭제합니다.
 
 5. 클라우드 서비스를 삭제하려면 **클라우드 서비스 삭제**를 클릭합니다. 그리고 확인 메시지가 나타나면 **예**를 클릭합니다.
 
-> [AZURE.NOTE]클라우드 서비스에 대해 자세한 모니터링이 구성되어 있는 경우, 클라우드 서비스를 삭제해도 Azure는 저장소 계정에서 모니터링 데이터를 삭제하지 않습니다. 이 데이터를 수동으로 삭제해야 합니다. 메트릭 테이블이 있는 위치에 대한 자세한 내용은 [클라우드 서비스를 모니터링하는 방법](cloud-services-how-to-monitor.md)에서 "방법: Azure 클래식 포털 외부에서 자세한 모니터링 데이터 액세스"를 참조하세요.
+> [AZURE.NOTE]
+클라우드 서비스에 대해 자세한 모니터링이 구성되어 있는 경우, 클라우드 서비스를 삭제해도 Azure는 저장소 계정에서 모니터링 데이터를 삭제하지 않습니다. 이 데이터를 수동으로 삭제해야 합니다. 메트릭 테이블이 있는 위치에 대한 자세한 내용은 [클라우드 서비스를 모니터링하는 방법](cloud-services-how-to-monitor.md)에서 "방법: Azure 클래식 포털 외부에서 자세한 모니터링 데이터 액세스"를 참조하세요.
 
 ## 다음 단계
 
  * [클라우드 서비스의 일반 구성](cloud-services-how-to-configure.md)
 * [클라우드 서비스를 배포](cloud-services-how-to-create-deploy.md)하는 방법을 알아봅니다.
 * [사용자 지정 도메인 이름](cloud-services-custom-domain-name.md)을 구성합니다.
-* [SSL 인증서](cloud-services-configure-ssl-certificate.md)를 구성합니다.
+* [SSL 인증서](cloud-services-configure-ssl-certificate.md) 구성
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

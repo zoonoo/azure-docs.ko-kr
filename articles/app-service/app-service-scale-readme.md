@@ -19,7 +19,7 @@
 	
 # Azure 앱 서비스: 앱 서비스 응용 프로그램 크기 조정
 
-Azure 앱 서비스에서 호스트되는 응용 프로그램은 [대규모로 확장](https://azure.microsoft.com/blog/canadian-broadcasting-corporation-radio-canada-leverage-azure-for-smooth-election-coverage)할 수 있지만 응용 프로그램의 크기를 조정하는 것은 "보편적으로 적용되는" 솔루션이 없는 복잡한 문제입니다. 응용 프로그램의 크기를 올바르게 조정하기 위해 응용 프로그램 성공에 기여하는 3가지 주요 영역이 있습니다.
+Azure 앱 서비스에서 호스트되는 응용 프로그램은 [대규모로 확장](https://azure.microsoft.com/blog/canadian-broadcasting-corporation-radio-canada-leverage-azure-for-smooth-election-coverage/)할 수 있지만 응용 프로그램의 크기를 조정하는 작업은 "보편적으로 적용되는" 솔루션이 없는 복잡한 문제입니다. 응용 프로그램의 크기를 올바르게 조정하기 위해 응용 프로그램 성공에 기여하는 3가지 주요 영역이 있습니다.
 
 1. 응용 프로그램 아키텍처와 약점 이해
 	* 응용 프로그램이 상태 저장인가요? 상태 비저장인가요?
@@ -38,4 +38,4 @@ Azure 앱 서비스에서 호스트되는 응용 프로그램은 [대규모로 �
 
 [AZURE.INCLUDE [app-service-blueprint-scaling-app-service-applications](../../includes/app-service-blueprint-scaling-app-service-applications.md)]
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="service-bus" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="01/26/2016" 
 	ms.author="sethm"/>
 
 # 클라우드 및 프레미스로 확장되는 하이브리드 응용 프로그램 사용
@@ -35,16 +35,16 @@
  
 ## 인기 사이트
 
-- [서비스 버스 가격 정보](http://azure.microsoft.com/pricing/details/service-bus/)
+- [서비스 버스 가격 정보](https://azure.microsoft.com/pricing/details/service-bus/)
 - [서비스 버스 가격 FAQ](service-bus-pricing-faq.md)
 - [서비스 버스 REST API 참조](http://msdn.microsoft.com/library/azure/hh780717.aspx)
-- [무료 Azure 평가판 등록](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF)
+- [무료 Azure 평가판 등록](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF)
  
 ## 관련 서비스
 
-- [BizTalk 서비스](http://azure.microsoft.com/services/biztalk-services/)
-- [모바일 서비스](http://azure.microsoft.com/services/mobile-services/)
-- [클라우드 서비스](http://azure.microsoft.com/services/cloud-services/) 
+- [BizTalk 서비스](https://azure.microsoft.com/services/biztalk-services/)
+- [모바일 서비스](https://azure.microsoft.com/services/mobile-services/)
+- [클라우드 서비스](https://azure.microsoft.com/services/cloud-services/) 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

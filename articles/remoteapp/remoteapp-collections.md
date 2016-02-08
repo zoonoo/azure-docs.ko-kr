@@ -49,7 +49,7 @@ Azure RemoteApp 컬렉션을 최대한 활용하는 데 필요한 여러 가지 
 - 온-프레미스 네트워크 + Azure VNET에 대한 전체 액세스를 제공합니다.
 - 앱 및 데이터에 대한 도메인 조인 액세스를 포함합니다. 원격 응용 프로그램은 사용자의 온-프레미스 Active Directory에 대해 인증한 다음 사용자 도메인의 리소스에 액세스할 수 있습니다.
 - 기존 시스템 센터 솔루션 및 Windows 그룹 정책을 사용하여 고급 모니터링 및 관리를 사용하도록 설정합니다(Windows Server 2012 R2에서 만든 사용자 지정 이미지를 통해).
-- Azure VNET을 로컬 VNET에 연결하는 [Express 경로](http://azure.microsoft.com/services/expressroute/)를 지원합니다.
+- Azure VNET을 로컬 VNET에 연결하는 [Express 경로](https://azure.microsoft.com/services/expressroute/)를 지원합니다.
 
 **VNET을 사용하여 만들기** 옵션을 사용하여 만들고 도메인에 가입을 선택합니다.
 
@@ -91,4 +91,4 @@ Azure AD 및 Active Directory를 구성하는 데 필요한 단계는 [Azure Rem
 
 [클라우드 컬렉션을 만들](remoteapp-create-cloud-deployment.md) 또는 [하이브리드 컬렉션을 만들기](remoteapp-create-hybrid-deployment.md) - 만들기만 하면 됩니다.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

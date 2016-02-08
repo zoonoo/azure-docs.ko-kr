@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/30/2015"
+   ms.date="01/21/2016"
    ms.author="andkjell;billmath"/>
 
 # 미리 보기 기능에 대한 자세한 내용
@@ -46,22 +46,22 @@ Office 365 그룹에 대한 자세한 내용 및 사용 방법은 [여기](http:
 - 현재 단일 포리스트 Exchange 조직 배포만 지원합니다. 둘 이상의 Exchange 조직 온-프레미스가 있는 경우 이러한 그룹을 다른 포리스트에 표시하려면 온-프레미스 GALSync 솔루션이 필요합니다.
 - 그룹 쓰기 저장 기능은 현재 보안 그룹 또는 배포 그룹을 처리하지 않습니다.
 
->[AZURE.NOTE]Azure AD Premium에 대한 구독에는 그룹 쓰기 저장이 필요합니다.
+>[AZURE.NOTE] Azure AD Premium에 대한 구독에는 그룹 쓰기 저장이 필요합니다.
 
 ## 사용자 쓰기 저장
-> [AZURE.IMPORTANT]사용자 쓰기 저장 미리 보기 기능은 Azure AD Connect 2015년 8월 업데이트에서 임시로 제거되었습니다. 이 기능을 사용하도록 설정한 경우 사용하지 않도록 설정해야 합니다.
+> [AZURE.IMPORTANT] 사용자 쓰기 저장 미리 보기 기능은 Azure AD Connect 2015년 8월 업데이트에서 임시로 제거되었습니다. 이 기능을 사용하도록 설정한 경우 사용하지 않도록 설정해야 합니다.
 
 사용자 쓰기 저장은 초기 미리 보기에 있습니다. Azure AD가 모든 사용자 개체의 원본이고 이 기능을 사용하도록 설정하기 전에 온-프레미스 Active Directory가 비어 있는 경우에만 이 기능(녹색 필드 배포)을 사용할 수 있습니다.
 
-> [AZURE.WARNING]이 기능은 테스트 환경에서만 평가해야 하며 프로덕션 용도로 사용되는 Azure AD 디렉터리에서는 사용할 수 없습니다.
+> [AZURE.WARNING] 이 기능은 테스트 환경에서만 평가해야 하며 프로덕션 용도로 사용되는 Azure AD 디렉터리에서는 사용할 수 없습니다.
 
 .
 
->[AZURE.NOTE]Azure AD Premium에 대한 구독에는 사용자 쓰기 저장이 필요합니다.
+>[AZURE.NOTE] Azure AD Premium에 대한 구독에는 사용자 쓰기 저장이 필요합니다.
 
 ## 다음 단계
 [Azure AD Connect의 사용자 지정 설치](active-directory-aadconnect-get-started-custom.md)를 계속 진행합니다.
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

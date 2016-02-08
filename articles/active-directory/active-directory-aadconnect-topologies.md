@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/02/2015"
+   ms.date="01/22/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect에 대한 토폴로지
 
-이 항목의 목적은 Azure AD Connect Sync가 주요 통합 솔루션인 여러 온-프레미스 및 Azure AD 토폴로지에 대해 설명하는 것입니다. 지원되거나 지원되지않는 구성에 대해 설명합니다.
+이 항목의 목적은 Azure AD Connect Sync가 주요 통합 솔루션인 여러 온-프레미스 및 Azure AD 토폴로지에 대해 설명하는 것입니다. 지원되거나 지원되지 않는 구성에 대해 설명합니다.
 
 문서 내 그림에 대한 범례:
 
@@ -43,7 +43,7 @@
 ### 단일 포리스트, 여러 동기화 서버를 하나의 Azure AD 디렉터리로
 ![SingleForestFilteredUnsupported](./media/active-directory-aadconnect-topologies/SingleForestFilteredUnsupported.png)
 
-여러 Azure AD Connect Sync 서버가 상호 배타적인 개체 집합을 동기화하도록 구성되었다고 해도 동일한 Azure AD 디렉터리에 대한 연결은 지원되지 않습니다([스테이징 서버](#staging-server)는 제외). 이것은 공통 네트워크 위치에서 프리스트 내 하나의 도메인에 연결할 수 없거나 여러 서버에 걸쳐 동기화 부하를 분산하기 위해 시도될 수 있습니다.
+여러 Azure AD Connect Sync 서버가 상호 배타적인 개체 집합을 동기화하도록 구성되었다고 해도 동일한 Azure AD 디렉터리에 대한 연결은 지원되지 않습니다([스테이징 서버](#staging-server)는 제외). 이것은 공통 네트워크 위치에서 포리스트 내 하나의 도메인에 연결할 수 없거나 여러 서버에 걸쳐 동기화 부하를 분산하기 위해 시도될 수 있습니다.
 
 ## 여러 포리스트, 단일 Azure AD Directory
 ![MultiForestSingleDirectory](./media/active-directory-aadconnect-topologies/MultiForestSingleDirectory.png)
@@ -56,9 +56,17 @@ Azure AD Connect 마법사는 사용자를 통합하는 방법에 몇 가지 옵
 
 일반적인 토폴로지는 다음 섹션에서 설명됩니다. [토폴로지 분리](#multiple-forests-separate-topologies), [전체 메시](#multiple-forests-full-mesh-with-optional-galsync) 및 [계정 리소스](#multiple-forests-account-resource-forest).
 
-Azure AD Connect Sync에 의해 제공된 기본 구성에서는 다음과 같이 가정됩니다. 1 사용자는 하나의 계정만 사용할 수 있으며 이 계정이 위치한 포리스트는 사용자를 인증하는 데 사용됩니다. 이것은 암호 동기화 및 페더레이션 두 가지용입니다. userPrincipalName 및 sourceAnchor/immutableID이 이 포리스트로부터 제공됩니다. 2. 사용자에게는 하나의 사서함만 있습니다. 3. 사용자의 사서함을 호스트하는 포리스트에는 Exchange 전체 주소 목록(GAL)에 표시되는 특성에 대해 최상의 데이터 품질을 가집니다. 사용자에 대해 사서함이 없는 경우 아무 포리스트나 사용하여 이러한 특성 값에 기여할 수 있습니다. 4. 연결된 사서함이 있다면 로그인에 사용되는 여러 포리스트에도 다른 계정이 있습니다.
+Azure AD Connect Sync에 의해 제공된 기본 구성에서는 다음과 같이 가정됩니다.
 
-사용자의 환경이 이러한 가정에 일치하지 않으면 다음이 발생합니다. 하나 이상의 활성 계정 또는 하나 이상의 사서함이 있다면 동기화 엔진이 이 중 하나를 선택하고 다른 하나는 무시합니다. - 연결된 사서함만 있고 다른 계정이 없다면 이들 계정은 Azure AD에 내보내기되지 않고 사용자는 어떤 그룹의 멤버도 되지 않습니다. DirSync에서는 연결된 사서함이 일반 사서함으로 나타나므로 이것은 여러 포리스트 시나리오의 지원을 향상시키기 위한 의도적인 다른 동작입니다.
+1.	사용자는 하나의 계정만 사용할 수 있으며 이 계정이 위치한 포리스트는 사용자를 인증하는 데 사용됩니다. 이것은 암호 동기화 및 페더레이션 두 가지용입니다. userPrincipalName 및 sourceAnchor/immutableID이 이 포리스트로부터 제공됩니다.
+2.	사용자에게는 하나의 사서함만 있습니다.
+3.	사용자의 사서함을 호스트하는 포리스트에는 Exchange 전체 주소 목록(GAL)에 표시되는 특성에 대해 최상의 데이터 품질을 가집니다. 사용자에 대해 사서함이 없는 경우 아무 포리스트나 사용하여 이러한 특성 값에 기여할 수 있습니다.
+4.	연결된 사서함이 있다면 로그인에 사용되는 여러 포리스트에도 다른 계정이 있습니다.
+
+사용자 환경이 이러한 가정과 일치하지 않은 경우 다음이 수행됩니다.
+
+-	둘 이상의 활성 계정 또는 둘 이상의 사서함이 있으면 동기화 엔진은 하나를 선택하고 다른 하나는 무시합니다.
+-	다른 계정이 없고 연결된 사서함만 있는 경우 이러한 계정은 Azure AD로 내보내지 않고 해당 사용자는 그룹의 멤버가 되지 않습니다. DirSync에서는 연결된 사서함이 일반 사서함으로 나타나므로 이것은 여러 포리스트 시나리오의 지원을 향상시키기 위한 의도적인 다른 동작입니다.
 
 ### 여러 포리스트, 여러 동기화 서버를 하나의 Azure AD 디렉터리로
 ![MultiForestMultiSyncUnsupported](./media/active-directory-aadconnect-topologies/MultiForestMultiSyncUnsupported.png)
@@ -142,7 +150,10 @@ Azure AD Connect Sync 서버와 Azure AD Directory 간에 1:1 관계가 있습�
 
 이 토폴로지를 통해 하나의 Azure AD Directory만 온-프레미스 Active Directory와 함께 Exchange 하이브리드를 활성화할 수 있습니다.
 
-상호 배타적인 집합 개체에 대한 요구사항은 쓰기 저장에도 적용됩니다. 이렇게 하면 단일 구성 온-프레미스로 가정되므로 일부 쓰기 저장 기능이 이 토폴로지로 지원되지 않습니다. 여기에는 다음이 포함됩니다. - 기본 구성을 사용한 그룹 쓰기 저장 - 장치 쓰기 저장
+상호 배타적인 집합 개체에 대한 요구사항은 쓰기 저장에도 적용됩니다. 이렇게 하면 단일 구성 온-프레미스로 가정되므로 일부 쓰기 저장 기능이 이 토폴로지로 지원되지 않습니다. 다음 내용이 포함됩니다.
+
+-	기본 구성으로 쓰기 저장 그룹화
+-	장치 쓰기 저장
 
 ### Azure AD 디렉터리에서 각 개체가 여러 번
 ![SingleForestMultiDirectoryUnsupported](./media/active-directory-aadconnect-topologies/SingleForestMultiDirectoryUnsupported.png) ![SingleForestMultiConnectorsUnsupported](./media/active-directory-aadconnect-topologies/SingleForestMultiConnectorsUnsupported.png)
@@ -167,4 +178,4 @@ Azure AD 디렉터리는 설계상 격리되어 있습니다. 디렉터리 간�
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

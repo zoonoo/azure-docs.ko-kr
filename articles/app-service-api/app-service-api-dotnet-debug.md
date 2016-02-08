@@ -72,7 +72,7 @@
 
 API 응용 프로그램을 로컬로 디버깅하려는 경우가 있을 수 있습니다. 예: Azure 서버에 대한 왕복 확인으로 인해 디버깅이 느려지는 경우. 이 섹션에서는 Swagger UI를 테스트 클라이언트로 사용하여 API 앱을 로컬로 디버깅하는 방법을 보여줍니다.
 
-2. 브라우저에서 [Azure Preview 포털](https://portal.azure.com)로 이동합니다. 
+2. 브라우저에서 [Azure Preview 포털](https://portal.azure.com/)로 이동합니다. 
 
 3. 사이드바에서 **찾아보기** 단추를 클릭하고 **API 앱**을 선택합니다.
 
@@ -138,4 +138,4 @@ API 응용 프로그램을 로컬로 디버깅하려는 경우가 있을 수 있
 
 문제해결에 대한 자세한 내용은 [Visual Studio를 사용하여 Azure 앱 서비스에서 웹앱 문제 해결](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md)을 참조하세요. 앱 서비스 API 앱은 웹 서비스를 호스트하기 위한 추가 기능이 있는 웹앱이므로 웹앱에 사용하는 것과 동일한 디버깅 및 문제 해결 도구를 API 앱에 사용할 수 있습니다.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

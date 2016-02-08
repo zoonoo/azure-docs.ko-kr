@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/02/2015"
+	ms.date="01/21/2016"
 	ms.author="donnam"/>
 
 # 모바일 서비스에서 오프라인 데이터 사용
@@ -34,7 +34,7 @@
 * 최종 사용자가 네트워크에 액세스할 수 없는 경우에도 데이터를 만들고 수정할 수 있도록 허용하여 네트워크에 연결되지 않은 시나리오까지 지원
 * 여러 장치 간에 데이터를 동기화하고 동일한 레코드를 두 개의 장치에서 수정할 때 충돌 감지
 
->[AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 Azure 평가판을 등록하고 최대 10개의 무료 모바일 서비스를 사용할 수 있습니다. 이러한 서비스는 평가판 사용 기간이 끝난 후에도 계속 사용할 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure 무료 평가판</a>을 참조하세요.
+>[AZURE.NOTE] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 Azure 평가판을 등록하고 최대 10개의 무료 모바일 서비스를 사용할 수 있습니다. 이러한 서비스는 평가판 사용 기간이 끝난 후에도 계속 사용할 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure 무료 평가판</a>을 참조하세요.
 >
 > 모바일 서비스를 처음 사용하는 경우 먼저 [모바일 서비스 시작]을 완료해야 합니다.
 
@@ -99,7 +99,7 @@ Azure 모바일 서비스의 오프라인 동기화를 사용하면 최종 사�
 
     이 예제에서는 원격 `TodoItem` 테이블에 있는 모든 레코드를 검색하지만 쿼리를 전달하여 레코드를 필터링할 수도 있습니다. `PullAsync()`의 첫 번째 매개 변수는 증분 동기화에 사용되는 쿼리 ID이며, `UpdatedAt` 타임스탬프를 사용하여 마지막 동기화 이후에 수정된 레코드만 가져옵니다. 쿼리 ID는 앱의 각 논리 쿼리에 고유한 설명 문자열이어야 합니다. 증분 동기화를 옵트아웃하려면 `null`을(를) 쿼리 ID로 전달합니다. 그러면 각 끌어오기 작업에서 모든 레코드를 검색하므로 비효율적일 수 있습니다.
 
-    >[AZURE.NOTE]모바일 서비스 데이터베이스에서 삭제된 레코드를 장치 로컬 저장소에서 제거하려면 [일시 삭제]를 사용해야 합니다. 그렇지 않으면 앱이 주기적으로 `IMobileServiceSyncTable.PurgeAsync()`에 대해 호출하여 로컬 저장소를 제거합니다.
+    >[AZURE.NOTE] 모바일 서비스 데이터베이스에서 삭제된 레코드를 장치 로컬 저장소에서 제거하려면 [일시 삭제]를 사용해야 합니다. 그렇지 않으면 앱이 주기적으로 `IMobileServiceSyncTable.PurgeAsync()`에 대해 호출하여 로컬 저장소를 제거합니다.
 
     `MobileServicePushFailedException`이(가) 푸시 및 끌어오기 작업 둘 다에 대해 발생할 수 있습니다. 다음 자습서인 [모바일 서비스에서 오프라인 데이터 동기화를 사용하여 충돌 처리]에서 이러한 동기화 관련 예외를 처리하는 방법을 보여줍니다.
 
@@ -115,7 +115,7 @@ Azure 모바일 서비스의 오프라인 동기화를 사용하면 최종 사�
 
     - `InsertTodoItemAsync`
     - `CompleteItemAsync`
-    - `RefreshAsync`
+    - `RefreshDataAsync`
 
     이제 `RefreshAsync()`이(가) 로컬 저장소에서 데이터를 로드하기만 하고 앱 백 엔드에 연결하지 않습니다.
 
@@ -166,8 +166,6 @@ Azure 모바일 서비스의 오프라인 동기화를 사용하면 최종 사�
 
 ## 다음 단계
 
-* [모바일 서비스에 대한 오프라인 지원을 통해 충돌 처리]
-
 * [Azure 모바일 서비스용 Xamarin Component 클라이언트를 사용하는 방법]
 
 <!-- Anchors. -->
@@ -178,8 +176,8 @@ Azure 모바일 서비스의 오프라인 동기화를 사용하면 최종 사�
 <!-- Images -->
 
 <!-- URLs. -->
-[모바일 서비스에 대한 오프라인 지원을 통해 충돌 처리]: ../mobile-services-xamarin-ios-handling-conflicts-offline-data.md
-[모바일 서비스에서 오프라인 데이터 동기화를 사용하여 충돌 처리]: ../mobile-services-xamarin-ios-handling-conflicts-offline-data.md
+[모바일 서비스에 대한 오프라인 지원을 통해 충돌 처리]: mobile-services-xamarin-ios-handling-conflicts-offline-data.md
+[모바일 서비스에서 오프라인 데이터 동기화를 사용하여 충돌 처리]: mobile-services-xamarin-ios-handling-conflicts-offline-data.md
 [모바일 서비스 시작]: mobile-services-ios-get-started.md
 [Azure 모바일 서비스용 Xamarin Component 클라이언트를 사용하는 방법]: partner-xamarin-mobile-services-how-to-use-client-library.md
 [일시 삭제]: mobile-services-using-soft-delete.md
@@ -188,4 +186,4 @@ Azure 모바일 서비스의 오프라인 동기화를 사용하면 최종 사�
 [Xamarin 확장]: http://xamarin.com/visual-studio
 [Azure 클래식 포털]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

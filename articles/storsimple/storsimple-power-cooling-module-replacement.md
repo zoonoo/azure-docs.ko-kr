@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/02/2015"
+   ms.date="01/21/2016"
    ms.author="alkohli" />
 
 # StorSimple 장치의 전원 및 냉각 모듈 교체
@@ -26,7 +26,7 @@ Microsoft Azure StorSimple 장치의 PCM(전원 및 냉각 모듈)은 기본 및
 - PCM 꺼내기
 - 교체 PCM 설치
 
->[AZURE.IMPORTANT]PCM을 꺼내고 교체하기 전에 [StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)에서 안전 정보를 검토하세요.
+>[AZURE.IMPORTANT] PCM을 꺼내고 교체하기 전에 [StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)에서 안전 정보를 검토하세요.
 
 ## PCM을 교체하기 전에
 
@@ -40,11 +40,14 @@ PCM을 교체하기 전에 다음과 같은 중요한 문제에 주의하세요.
 
 - PCM 모듈 교체를 완료하는 데 몇 분밖에 걸리지 않지만 과열을 방지하기 위해 오류가 발생한 PCM을 꺼내고 10분 내에 완료해야 합니다.
 
+- 공장에서 출고된 교체 764 W PCM 모듈에는 백업 배터리 모듈이 없습니다. 교체하기 전에 결함이 있는 PCM에서 배터리를 제거하고 교체 모듈에 이를 삽입해야 합니다. 자세한 내용은 [백업 배터리 모듈 제거 및 삽입](storsimple-battery-replacement.md) 방법을 참조하세요.
+
+
 ## PCM 꺼내기
 
 Microsoft Azure StorSimple 장치에서 PCM(전원 및 냉각 모듈)을 꺼낼 준비가 되면 다음 지침을 따르세요.
 
->[AZURE.NOTE]PCM을 꺼내기 전에 올바른 교체(기본 엔클로저의 경우 764W, EBOD 엔클로저의 경우 580W)가 있는지 확인합니다.
+>[AZURE.NOTE] PCM을 꺼내기 전에 올바른 교체(기본 엔클로저의 경우 764W, EBOD 엔클로저의 경우 580W)가 있는지 확인합니다.
 
 #### PCM을 꺼내려면
 
@@ -114,7 +117,7 @@ Microsoft Azure StorSimple 장치에서 PCM(전원 및 냉각 모듈)을 꺼낼 
 
 ## 교체 PCM 설치
 
-StorSimple 장치에 PCM을 설치하려면 다음 지침을 따르세요.
+StorSimple 장치에 PCM을 설치하려면 다음 지침을 따르세요. 교체 PCM을 설치하기 전에 백업 배터리 모듈을 삽입했는지 확인합니다(764 W PCM에만 적용). 자세한 내용은 [백업 배터리 모듈 제거 및 삽입](storsimple-battery-replacement.md) 방법을 참조하세요.
 
 #### PCM을 설치하려면
 
@@ -126,7 +129,7 @@ StorSimple 장치에 PCM을 설치하려면 다음 지침을 따르세요.
 
 2. 커넥터에 특히 주의해서 엔클로저에 손상된 부분이 있는지 확인합니다.
 										
-    >[AZURE.NOTE]**커넥터 핀이 구부러진 경우 모듈을 설치하지 마세요.**
+    >[AZURE.NOTE] **커넥터 핀이 구부러진 경우 모듈을 설치하지 마세요.**
 
 3. PCM 핸들을 열린 위치에 놓고 모듈을 엔클로저에 밀어넣습니다.
 
@@ -136,7 +139,7 @@ StorSimple 장치에 PCM을 설치하려면 다음 지침을 따르세요.
 
 4. 수동으로 PCM 핸들을 닫습니다. 핸들 래치가 걸리면 딸깍하는 소리가 들립니다.
 										
-    >[AZURE.NOTE]커넥터 핀이 걸리도록 래치를 해제하지 않고 핸들을 부드럽게 잡아당길 수 있습니다. PCM이 밖으로 밀리면 커넥터가 걸리기 전에 래치가 닫힌 것입니다.
+    >[AZURE.NOTE] 커넥터 핀이 걸리도록 래치를 해제하지 않고 핸들을 부드럽게 잡아당길 수 있습니다. PCM이 밖으로 밀리면 커넥터가 걸리기 전에 래치가 닫힌 것입니다.
 
 5. 전원과 PCM에 전원 케이블을 연결합니다.
 
@@ -146,10 +149,10 @@ StorSimple 장치에 PCM을 설치하려면 다음 지침을 따르세요.
 
 8. 교체에 성공했는지 확인합니다. StorSimple Manager 서비스의 Azure 클래식 포털에서 **장치** > **유지 관리** > **하드웨어 상태**로 이동합니다. **공유 구성 요소** 아래에서 PCM 상태가 녹색이어야 합니다.
 										
-    >[AZURE.NOTE]교체 PCM이 완전히 초기화되는 데 몇 분 정도 걸릴 수 있습니다.
+    >[AZURE.NOTE] 교체 PCM이 완전히 초기화되는 데 몇 분 정도 걸릴 수 있습니다.
 
 ## 다음 단계
 
 [StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

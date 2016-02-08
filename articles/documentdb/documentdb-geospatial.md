@@ -18,7 +18,7 @@
     
 # Azure DocumentDB에서 지리 공간 데이터 작업
 
-이 문서에서는 [Azure DocumentDB](http://azure.microsoft.com/services/documentdb/)의 지리 공간 기능을 소개합니다. 이 문서를 읽은 후에는 다음과 같은 질문에 답할 수 있습니다.
+이 문서에서는 [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/)의 지리 공간 기능을 소개합니다. 이 문서를 읽은 후에는 다음과 같은 질문에 답할 수 있습니다.
 
 - Azure DocumentDB에 공간 데이터를 저장하려면 어떻게 해야 하나요?
 - SQL 및 LINQ에서 Azure DocumentDB의 지리 공간 데이터를 쿼리하려면 어떻게 해야 하나요?
@@ -43,7 +43,7 @@ DocumentDB는 인덱싱 및 지리 공간 지점 데이터의 쿼리를 지원�
        "coordinates":[ 31.9, -4.8 ]
     }
 
->[AZURE.NOTE]GeoJSON 사양은 경도를 먼저 지정하고 위도를 두 번째로 지정합니다. 다른 매핑 응용 프로그램과 마찬가지로 경도와 위도는 각도이며 도 단위로 표시됩니다. 경도 값은 본초 자오선에서 측정되고 -180도와 180.0도 사이이고, 위도 값은 적도에서 측정되고 -90.0도와 90.0도 사이입니다.
+>[AZURE.NOTE] GeoJSON 사양은 경도를 먼저 지정하고 위도를 두 번째로 지정합니다. 다른 매핑 응용 프로그램과 마찬가지로 경도와 위도는 각도이며 도 단위로 표시됩니다. 경도 값은 본초 자오선에서 측정되고 -180도와 180.0도 사이이고, 위도 값은 적도에서 측정되고 -90.0도와 90.0도 사이입니다.
 >
 > DocumentDB는 WGS-84 참조 시스템을 기준으로 좌표를 해석합니다. 좌표 참조 시스템에 대한 자세한 내용은 아래를 참조하세요.
 
@@ -77,7 +77,7 @@ DocumentDB는 인덱싱 및 지리 공간 지점 데이터의 쿼리를 지원�
        ]
     }
 
->[AZURE.NOTE]GeoJSON 사양에서는 유효한 다각형이 되기 위해 마지막 좌표 쌍을 첫 번째 좌표 쌍과 동일하게 제공하여 닫힌 도형을 만들어야 합니다.
+>[AZURE.NOTE] GeoJSON 사양에서는 유효한 다각형이 되기 위해 마지막 좌표 쌍을 첫 번째 좌표 쌍과 동일하게 제공하여 닫힌 도형을 만들어야 합니다.
 >
 >다각형 내의 점을 시계 반대 방향 순서로 지정해야 합니다. 시계 방향 순서로 지정된 다각형은 내부 영역의 반전을 나타냅니다.
 
@@ -198,7 +198,7 @@ ST\_WITHIN의 다각형 인수에는 단일 링만 포함될 수 있습니다. �
       "id": "WakefieldFamily",
     }]
     
->[AZURE.NOTE]DocumentDB 쿼리에서 일치하지 않는 형식이 작동하는 방식과 비슷하게, 인수에 지정된 위치 값이 잘못되었거나 형식이 잘못된 경우 **정의되지 않음**으로 평가되고 평가된 문서는 쿼리 결과에서 생략됩니다. 쿼리에서 결과가 반환되지 않는 경우 ST\_ISVALIDDETAILED를 실행하여 공간 형식이 잘못된 이유를 디버그합니다.
+>[AZURE.NOTE] DocumentDB 쿼리에서 일치하지 않는 형식이 작동하는 방식과 비슷하게, 인수에 지정된 위치 값이 잘못되었거나 형식이 잘못된 경우 **정의되지 않음**으로 평가되고 평가된 문서는 쿼리 결과에서 생략됩니다. 쿼리에서 결과가 반환되지 않는 경우 ST\_ISVALIDDETAILED를 실행하여 공간 형식이 잘못된 이유를 디버그합니다.
 
 ST\_ISVALID 및 ST\_ISVALIDDETAILED를 사용하여 공간 개체가 유효한지 확인할 수 있습니다. 예를 들어 다음 쿼리는 위도 값(-132.8)이 범위를 벗어난 점의 유효성을 검사합니다. ST\_ISVALID는 부울 값만 반환하고 ST\_ISVALIDDETAILED는 부울 및 잘못된 것으로 간주된 이유를 포함하는 문자열을 반환합니다.
 
@@ -345,7 +345,7 @@ LINQ 및 SQL을 사용하여 문서를 쿼리하는 방법을 살펴보았으며
         await Task.Delay(TimeSpan.FromSeconds(1));
     }
 
-> [AZURE.NOTE]문서 내의 위치 GeoJSON 값이 잘못되었거나 형식이 잘못된 경우 공간 쿼리를 위해 인덱싱되지 않습니다. ST\_ISVALID 및 ST\_ISVALIDDETAILED를 사용하여 위치 값의 유효성을 검사할 수 있습니다.
+> [AZURE.NOTE] 문서 내의 위치 GeoJSON 값이 잘못되었거나 형식이 잘못된 경우 공간 쿼리를 위해 인덱싱되지 않습니다. ST\_ISVALID 및 ST\_ISVALIDDETAILED를 사용하여 위치 값의 유효성을 검사할 수 있습니다.
 
 ## 다음 단계
 DocumentDB에서 지리 공간 지원을 시작하는 방법을 배웠으므로 이제 다음 작업을 수행할 수 있습니다.
@@ -355,4 +355,4 @@ DocumentDB에서 지리 공간 지원을 시작하는 방법을 배웠으므로 
 - [DocumentDB 쿼리](documentdb-sql-query.md)에 대해 자세히 알아보기
 - [DocumentDB 인덱싱 정책](documentdb-indexing-policies.md)에 대해 자세히 알아보기
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

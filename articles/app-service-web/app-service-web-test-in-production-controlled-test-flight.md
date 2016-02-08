@@ -48,15 +48,15 @@ Flighting 배포는 라이브 트래픽의 라우팅에 국한되지 않습니�
 	-	[Git](http://git-scm.com/documentation)
 	-	[PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
-> [AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 있어야 합니다. + [Azure 계정을 무료로 개설](/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있음 - 유료 Azure 서비스를 사용해 볼 수 있는 크레딧을 받게 되며, 크레딧을 모두 사용한 후에도 계정을 유지하고 웹앱과 같은 무료 Azure 서비스를 사용할 수 있습니다. + [Visual Studio 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있음 - Visual Studio 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
+> [AZURE.NOTE] 이 자습서를 완료하려면 Azure 계정이 있어야 합니다. + [Azure 계정을 무료로 개설](/pricing/free-trial/)할 수 있음 - 유료 Azure 서비스를 사용해 볼 수 있는 크레딧을 받게 되며, 크레딧을 모두 사용한 후에도 계정을 유지하고 웹앱과 같은 무료 Azure 서비스를 사용할 수 있습니다. + [Visual Studio 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/)할 수 있음 - Visual Studio 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
 >
 > Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ## 프로덕션 웹앱 설치
 
->[AZURE.NOTE]이 자습서에서 사용되는 스크립트는 사용자의 GitHub 저장소에서 자동적으로 구성되어 지속적으로 게시됩니다. 이것은 Azure에 이미 저장되어있는 GitHub 자격 증명이 요구되며, 그렇지 않으면 웹앱에 대한 소스 제어 설정 구성을 시도할 때 스크립트 배포는 실패합니다.
+>[AZURE.NOTE] 이 자습서에서 사용되는 스크립트는 사용자의 GitHub 저장소에서 자동적으로 구성되어 지속적으로 게시됩니다. 이것은 Azure에 이미 저장되어있는 GitHub 자격 증명이 요구되며, 그렇지 않으면 웹앱에 대한 소스 제어 설정 구성을 시도할 때 스크립트 배포는 실패합니다.
 >
->Azure에서 GitHub 자격 증명을 저장하려면 [Azure 포털](https://portal.azure.com)에서 웹앱을 생성하고 [GitHub 배포를 구성](web-sites-publish-source-control.md#Step7)하세요. 이 작업은 한 번만 필요합니다.
+>Azure에서 GitHub 자격 증명을 저장하려면 [Azure 포털](https://portal.azure.com/)에서 웹앱을 생성하고 [GitHub 배포를 구성](web-sites-publish-source-control.md#Step7)하세요. 이 작업은 한 번만 필요합니다.
 
 일반적인 DevOps 시나리오에서, 사용자는 Azure에서 실시간으로 실행되는 응용 프로그램을 갖게 되며, 지속적인 게시를 통해 원하는 부분을 변경할 수 있습니다. 이 시나리오에서는 개발하고 테스트한 템플릿을 프로덕션에 배포합니다.
 
@@ -84,7 +84,7 @@ Flighting 배포는 라이브 트래픽의 라우팅에 국한되지 않습니�
 	![](./media/app-service-web-test-in-production-controlled-test-flight/00.2-swap-to-production.png)
 
 7.	스크립트가 완료되면 프런트 엔드의 주소(http://ToDoApp*&lt;your_suffix>*.azurewebsites.net/)로 돌아가 프로덕션에서 응용 프로그램이 실행되는 것을 확인합니다.
-5.	[Azure 포털](https://portal.azure.com)에 로그인하고 생성된 것을 살펴보세요.
+5.	[Azure 포털](https://portal.azure.com/)에 로그인하고 생성된 것을 살펴보세요.
 
 	같은 리소스 그룹에서 두 개의 웹앱이 나타나야 하며, 하나는 이름에 `Api` 접미사가 있습니다. 리소스 그룹 보기를 보면 SQL 데이터베이스 및 서버, 앱 서비스 계획 및 웹앱에 대한 스테이징 슬롯도 표시 됩니다. *&lt;repository\_root>*\\ARMTemplates\\ProdAndStage.json을 사용하여 다른 리소스를 통해 검색 및 비교하여 템플릿에서 어떻게 구성되는지 볼 수 있습니다.
 
@@ -215,7 +215,7 @@ ToDoApp 응용 프로그램 코드에 따라 **단추** 이벤트는 전송 단�
 
 5. **즐겨찾기** 단추를 클릭하여 현재 메트릭 탐색기 설정을 **사용자 지정 이벤트: 프로덕션** 같은 곳에 저장합니다. 나중에 이 뷰 및 배포 슬롯 뷰를 쉽게 전환할 수 있습니다.
 
-    > [AZURE.TIP]더욱 강력한 분석의 경우 [Power BI로 Application Insights 리소스 통합](app-insights-export-power-bi.md)을 고려합니다.
+    > [AZURE.TIP] 더욱 강력한 분석의 경우 [Power BI로 Application Insights 리소스 통합](app-insights-export-power-bi.md)을 고려합니다.
 
 ### 서버 앱 메트릭에 슬롯 특정 태그 추가
 다시 완전성을 위해 서버 측 앱을 설정합니다. JavaScript에서 계측되는 클라이언트 앱과 달리 서버 앱에 대한 슬롯 특정 태그는 .NET 코드를 사용하여 계측됩니다.
@@ -279,7 +279,7 @@ ToDoApp 응용 프로그램 코드에 따라 **단추** 이벤트는 전송 단�
 
     스크립트가 종료되면 원래 리소스 그룹의 모든 리소스는 유지되지만 "베타"라는 새 슬롯은 후에 시작 부분에서 만든 "스테이징" 슬롯과 동일한 구성을 사용하여 만들어 집니다.
 
-    >[AZURE.NOTE]다양한 배포 환경을 만드는 이 메서드는 [Azure 앱 서비스로 민첩한 소프트웨어 개발](app-service-agile-software-development.md)의 메서드와 다릅니다 여기에서 배포 슬롯을 사용하여 배포 환경을 만든 반면 저기서는 리소스 그룹을 사용하여 배포 환경을 만듭니다. 리소스 그룹으로 배포 환경을 관리하면 개발자에게 제한 없이 프로덕션 환경을 유지할 수 있지만 슬롯을 쉽게 수행할 수 있는 프로덕션 환경에서 테스트가 쉽지 않습니다.
+    >[AZURE.NOTE] 다양한 배포 환경을 만드는 이 메서드는 [Azure 앱 서비스로 민첩한 소프트웨어 개발](app-service-agile-software-development.md)의 메서드와 다릅니다 여기에서 배포 슬롯을 사용하여 배포 환경을 만든 반면 저기서는 리소스 그룹을 사용하여 배포 환경을 만듭니다. 리소스 그룹으로 배포 환경을 관리하면 개발자에게 제한 없이 프로덕션 환경을 유지할 수 있지만 슬롯을 쉽게 수행할 수 있는 프로덕션 환경에서 테스트가 쉽지 않습니다.
 
 또한 원하는 경우 실행하여 알파 앱을 만들 수 있습니다.
 
@@ -328,7 +328,7 @@ ToDoApp 응용 프로그램 코드에 따라 **단추** 이벤트는 전송 단�
 
 3. Application Insights 리소스에서 환경="베타"를 사용하여 메트릭을 필터링합니다.
 
-    > [AZURE.NOTE]다른 즐겨찾기로 이 필터링된 보기를 저장하는 경우 프로덕션 및 베타 뷰 사이에서 메트릭 탐색기 뷰를 쉽게 전환할 수 있습니다.
+    > [AZURE.NOTE] 다른 즐겨찾기로 이 필터링된 보기를 저장하는 경우 프로덕션 및 베타 뷰 사이에서 메트릭 탐색기 뷰를 쉽게 전환할 수 있습니다.
 
 Application Insights에서 다음과 유사한 내용이 표시된다고 가정합니다.
 
@@ -375,4 +375,4 @@ Azure 앱 서비스는 일반적으로 큰 기업에서 수행한 바와 같이 
 -	[Azure PowerShell](powershell-install-configure.md)
 -	[프로젝트 Kudu Wiki](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

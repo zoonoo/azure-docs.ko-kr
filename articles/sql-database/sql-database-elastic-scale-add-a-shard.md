@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="01/27/2016" 
 	ms.author="ddove;sidneyh"/>
 
 # 탄력적 데이터베이스 도구를 사용하여 분할된 데이터베이스 추가하기
@@ -25,7 +25,7 @@
 키 값의 새로운 범위가 기존 매핑에 속하지 않는 경우에는 매우 간편하게 새 분할된 데이터베이스를 추가하고 새 키 또는 범위를 해당 분할된 데이터베이스에 연결할 수 있습니다.
 
 ### 예 : 기존 분할된 데이터베이스 맵에 분할된 데이터베이스 및 해당 범위 추가
-아래 샘플에서는 [300, 400) 범위를 포함하도록 **sample\_shard\_2** 데이터베이스와 이 데이터베이스 내의 필요한 모든 스키마 개체를 만듭니다.
+이 샘플에서는 [TryGetShard](https://msdn.microsoft.com/library/azure/dn823929.aspx) [CreateShard](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard.aspx), [CreateRangeMapping](https://msdn.microsoft.com/library/azure/dn807221.aspx#M:Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.RangeShardMap`1.CreateRangeMapping(Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.RangeMappingCreationInfo{`0})) 메서드를 사용하며 [ShardLocation](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardlocation.shardlocation.aspx#M:Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardLocation.) 클래스의 인스턴스를 만듭니다. 아래 샘플에서는 [300, 400) 범위를 포함하도록 **sample\_shard\_2** 데이터베이스와 이 데이터베이스 내의 필요한 모든 스키마 개체를 만듭니다.
 
     // sm is a RangeShardMap object.
     // Add a new shard to hold the range being added. 
@@ -79,4 +79,4 @@
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

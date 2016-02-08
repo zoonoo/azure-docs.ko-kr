@@ -13,7 +13,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="infrastructure-services"
- ms.date="09/21/2015"
+ ms.date="01/21/2015"
  ms.author="danlep"/>
 
 # MPI 응용 프로그램을 실행하도록 Linux RDMA 클러스터 설정
@@ -23,7 +23,7 @@ ms.service="virtual-machines"
 
 이 문서에서는 Azure에서 [크기가 A8 및 A9인 가상 컴퓨터](virtual-machines-a8-a9-a10-a11-specs.md)를 사용하여 MPI(Message Passing Interface) 응용 프로그램을 병렬로 실행하도록 Linux RDMA를 설정하는 방법을 보여 줍니다. 지원되는 MPI 구현을 실행하도록 크기가 A8 및 A9인 Linux 기반 VM을 구성한 경우 MPI 응용 프로그램은 Azure에서 RDMA(원격 직접 메모리 액세스) 기술을 기반으로 하는 낮은 대기 시간 및 높은 처리량의 네트워크에서 효율적으로 통신합니다.
 
->[AZURE.NOTE]Azure Linux RDMA는 현재 SUSE Linux Enterprise Server 12(SLES 12)에서 실행되는 Intel MPI Library 버전 5에서 지원됩니다. 이 문서는 Intel MPI 5.0.3.048 버전을 기반으로 합니다.
+>[AZURE.NOTE] Azure Linux RDMA는 현재 Azure 마켓플레이스의 SUSE Linux Enterprise Server 12(SLES 12) 이미지에서 실행되는 Intel MPI Library 버전 5에서 지원됩니다. 이 문서는 Intel MPI 5.0.3.048 버전을 기반으로 합니다.
 >
 > 또한 Azure에서는 A8 및 A9 인스턴스와 처리 성능이 동일하지만 RDMA 백 엔드 네트워크에 연결되지 않는 A10 및 A11 계약 집약적 인스턴스도 제공합니다. Azure에서 MPI 작업을 실행하려는 경우 일반적으로 A8 및 A9 인스턴스에서 최상의 성능을 얻을 수 있습니다.
 
@@ -32,31 +32,31 @@ ms.service="virtual-machines"
 
 다음은 작업 스케줄러를 사용하거나 사용하지 않고 Linux RDMA 클러스터를 만드는 데 사용할 수 있는 방법입니다.
 
-* **HPC 팩** - Azure에서 Microsoft HPC 팩 클러스터를 만들고 지원되는 Linux 배포판(Linux 계산 노드는 HPC Pack 2012 R2 업데이트 2부터 지원)을 실행하는 계산 노드를 추가합니다. 특정 Linux 노드는 RDMA 네트워크에 액세스하도록 구성할 수 있습니다. [Azure에서 HPC Pack 클러스터의 Linux 계산 노드 시작](virtual-machines-linux-cluster.md)을 참조하세요.
+* **HPC 팩** - Azure에서 Microsoft HPC 팩 클러스터를 만들고 지원되는 Linux 배포판을 실행하는 계산 노드를 추가합니다. 특정 Linux 노드는 RDMA 네트워크에 액세스하도록 구성할 수 있습니다. [Azure에서 HPC Pack 클러스터의 Linux 계산 노드 시작](virtual-machines-linux-cluster.md)을 참조하세요.
 
-* **Azure CLI 스크립트** - 이 문서의 나머지 부분의 단계에 나와 있는 설명과 같이 Mac, Linux 및 Windows용 [Azure 명령줄 인터페이스](../xplat-cli-install.md)(CLI)를 사용하여Linux 클러스터를 만드는 데 필요한 가상 네트워크 및 기타 구성 요소의 배포를 스크립팅합니다. 클래식(서비스 관리) 배포 모드의 CLI는 계산 노드를 순차적으로 배포하므로 많은 계산 노드를 배포하는 경우 배포를 완료하는 데 몇 분 정도 걸릴 수 있습니다.
+* **Azure CLI 스크립트** - 이 문서의 나머지 부분의 단계에 나와 있는 설명과 같이 Mac, Linux 및 Windows용 [Azure CLI](../xplat-cli-install.md)(명령줄 인터페이스)를 사용하여Linux 클러스터를 만드는 데 필요한 가상 네트워크 및 기타 구성 요소의 배포를 스크립팅합니다. 클래식(서비스 관리) 배포 모드의 CLI는 계산 노드를 순차적으로 배포하므로 많은 계산 노드를 배포하는 경우 배포를 완료하는 데 몇 분 정도 걸릴 수 있습니다.
 
-* **Azure 리소스 관리자 템플릿** - 간단한 Azure 리소스 관리자 JSON 템플릿 파일을 만들고 리소스 관리자에 대한 Azure CLI 명령을 실행하거나 Azure 포털을 사용하여 여러 A8 및 A9 Linux VM을 배포하고 가상 네트워크, 고정 IP 주소, DNS 설정 및 그 밖에 RDMA 네트워크를 활용하여 MPI 작업을 실행할 수 있는 계산 클러스터를 만드는 데 필요한 리소스를 정의합니다. [사용자 고유의 템플릿을 만들거나](../resource-group-authoring-templates.md) [Azure 빠른 시작 템플릿 페이지](https://azure.microsoft.com/documentation/templates/)에서 Microsoft 또는 커뮤니티가 참여한 템플릿을 확인하여 원하는 솔루션을 배포할 수 있습니다. 리소스 관리자 템플릿은 일반적으로 Linux 클러스터를 배포하는 가장 빠르고 안정적인 방법을 제공합니다.
+* **Azure 리소스 관리자 템플릿** - Azure 리소스 관리자 배포 모델을 사용하여 여러 A8 및 A9 Linux VM을 배포하고 가상 네트워크, 고정 IP 주소, DNS 설정 및 그 밖에 RDMA 네트워크를 활용하여 MPI 작업을 실행할 수 있는 계산 클러스터를 위한 리소스를 정의합니다. [사용자 고유의 템플릿을 만들거나](../resource-group-authoring-templates.md) [Azure 빠른 시작 템플릿 페이지](https://azure.microsoft.com/documentation/templates/)에서 Microsoft 또는 커뮤니티가 참여한 템플릿을 확인하여 원하는 솔루션을 배포할 수 있습니다. 리소스 관리자 템플릿을 사용하면 빠르고 안정적으로 Linux 클러스터를 배포할 수 있습니다.
 
 ## Azure 서비스 관리에서 Azure CLI 스크립트를 사용하여 배포
 
-다음 단계에서는 Azure CLI를 사용하여 SLES 12 VM을 배포하고, Intel MPI Library 및 기타 사용자 지정 항목을 설치하고, 사용자 지정 VM 이미지를 만들고, A8 또는 A9 VM 클러스터 배포 스크립트를 작성하도록 도와줍니다.
+다음 단계에서는 Azure CLI를 사용하여 SUSE Linux Enterprise Server 12 VM을 배포하고, Intel MPI Library 및 기타 사용자 지정 항목을 설치하고, 사용자 지정 VM 이미지를 만들고, A8 또는 A9 VM 클러스터 배포 스크립트를 작성하도록 도와줍니다.
 
 ### 필수 조건
 
 *   **클라이언트 컴퓨터** - Azure와 통신할 Mac, Linux 또는 Windows 기반 클라이언트가 필요합니다. 이러한 단계는 Linux 클라이언트를 사용하는 것을 가정합니다.
 
-*   **Azure 구독** - 계정이 없는 경우에는 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+*   **Azure 구독** - 계정이 없는 경우에는 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
-*   **코어 할당량** - A8 또는 A9 VM 클러스터를 배포하려면 코어 할당량을 늘려야 할 수도 있습니다. 예를 들어 이 문서에 설명된 것처럼 8대의 A9 VM을 배포하려는 경우 적어도 128개의 코어가 필요합니다. 할당량을 늘리려면 무료로 [온라인 고객 지원 요청을 개설](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)합니다.
+*   **코어 할당량** - A8 또는 A9 VM 클러스터를 배포하려면 코어 할당량을 늘려야 할 수도 있습니다. 예를 들어 이 문서에 설명된 것처럼 8대의 A9 VM을 배포하려는 경우 적어도 128개의 코어가 필요합니다. 할당량을 늘리려면 무료로 [온라인 고객 지원 요청을 개설](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)합니다.
 
 *   **Azure CLI** - Azure CLI를 [설치](../xplat-cli-install.md)하고 클라이언트 컴퓨터에서 Azure 구독을 연결하도록 [구성](../xplat-cli-connect.md)합니다.
 
-*   **Intel MPI** -클러스터에 대한 Linux VM 이미지 사용자 지정의 일부로(이 문서의 뒷부분에 나오는 세부 정보 참조) 프로비전할 Azure Linux VM의 [Intel.com 사이트](https://software.intel.com/ko-KR/intel-mpi-library/)에서 Intel MPI 라이브러리 5 런타임을 다운로드 및 설치해야 합니다. 이를 준비하려면 Intel에 등록한 후 확인 전자 메일의 링크를 따라 관련 웹 페이지로 이동하여 적절한 Intel MPI 버전의 .tgz 파일에 대한 다운로드 링크를 복사합니다. 이 문서는 Intel MPI 5.0.3.048 버전을 기반으로 합니다.
+*   **Intel MPI** -클러스터에 대한 Linux VM 이미지 사용자 지정의 일부로(이 문서의 뒷부분에 나오는 세부 정보 참조) [Intel.com 사이트](https://software.intel.com/ko-KR/intel-mpi-library/)에서 Intel MPI 라이브러리 5 런타임을 다운로드 및 설치해야 합니다. 이를 준비하려면 Intel에 등록한 후 확인 전자 메일의 링크를 따라 관련 웹 페이지로 이동하여 적절한 Intel MPI 버전의 .tgz 파일에 대한 다운로드 링크를 복사합니다. 이 문서는 Intel MPI 5.0.3.048 버전을 기반으로 합니다.
 
 ### SLES 12 VM 프로비전
 
-Azure CLI에서 Azure에 로그인 한 후 `azure config list`을(를) 실행하여 출력이 CLI가 Azure 서비스 관리 모드에 있는지를 나타내는 **asm** 모드를 표시하는지 확인합니다. 그렇지 않은 경우 다음 명령을 실행하여 모드를 설정합니다.
+Azure CLI에서 Azure에 로그인한 후 `azure config list`를 실행하여 출력이 CLI가 Azure 서비스 관리 모드에 있는지를 나타내는 **asm** 모드를 표시하는지 확인합니다. 그렇지 않은 경우 다음 명령을 실행하여 모드를 설정합니다.
 
 ```
 azure config mode asm
@@ -176,7 +176,7 @@ VM 프로비전이 완료되면 VM의 외부 IP 주소(또는 DNS 이름) 및 �
 sudo waagent -deprovision
 ```
 
-그런 다음 클라이언트 컴퓨터에서 다음 Azure CLI 명령을 실행하여 이미지를 캡처합니다. 자세한 내용은 [Linux 가상 컴퓨터를 캡처하여 템플릿으로 사용하는 방법](virtual-machines-linux-capture-image.md)을 참조하세요.
+그런 다음 클라이언트 컴퓨터에서 다음 Azure CLI 명령을 실행하여 이미지를 캡처합니다. 자세한 내용은 [클래식 Linux 가상 컴퓨터를 이미지로 캡처하는 방법](virtual-machines-linux-capture-image.md)을 참조하세요.
 
 ```
 azure vm shutdown <vm-name>
@@ -221,8 +221,64 @@ for (( i=11; i<19; i++ )); do
         azure vm create -g <username> -p <password> -c <cloud-service-name> -z A9 -n $vmname$i -e $portnumber$i -w <network-name> -b Subnet-1 <image-name>
 done
 
-# Save this script with a name like makecluster.sh and run it in your shell environnment to provision your cluster
+# Save this script with a name like makecluster.sh and run it in your shell environment to provision your cluster
 ```
+
+## SLES 12용 Linux RDMA 드라이버 업데이트
+
+SLES 12 HPC 이미지에 따라 Linux RDMA 클러스터를 만든 후 RDMA 네트워크 연결을 위해 VM에서 RDMA 드라이버를 업데이트해야 할 수 있습니다.
+
+>[AZURE.IMPORTANT]이 단계는 현재 대부분의 Azure 지역에서 Linux RDMA 클러스터 배포에 **필요합니다**. **업데이트하면 안 되는 SLES 12 VM은 미국 서부, 유럽 서부, 일본 동부 등의 Azure 지역에서 만들어진 VM뿐입니다.**
+
+드라이버를 업데이트 하기 전에 **zypper** 프로세스 또는 VM에서 SUSE 리포지토리 데이터베이스를 잠그는 모든 프로세스를 중지합니다. 그렇지 않으면 드라이버가 제대로 업데이트되지 않을 수 있습니다.
+
+
+클라이언트 컴퓨터에서 다음 Azure CLI 명령 집합 중 하나를 실행하여 각 VM에서 Linux RDMA 드라이버를 업데이트합니다.
+
+**Azure 서비스 관리에서 프로비전된 VM**
+
+```
+azure config mode asm
+
+azure vm extension set <vm-name> RDMAUpdateForLinux Microsoft.OSTCExtensions 0.1
+```
+
+**Azure 리소스 관리자에서 프로비전된 VM**
+
+```
+azure config mode arm
+
+azure vm extension set <resource-group> <vm-name> RDMAUpdateForLinux Microsoft.OSTCExtensions 0.1
+```
+
+>[AZURE.NOTE]드라이버를 설치하는 데 약간의 시간이 걸릴 수 있으며 명령은 출력 없이 반환됩니다. 업데이트가 수행된 후 VM이 다시 시작하므로 몇 분 후에 사용할 수 있습니다.
+
+클러스터의 모든 노드에서 드라이버 업데이트를 스크립팅할 수 있습니다. 예를 들어 다음 스크립트는 이전 단계의 스크립트에서 만든 8노드 클러스터의 드라이버를 업데이트합니다.
+
+```
+
+#!/bin/bash -x
+
+# Define a prefix naming scheme for compute nodes, e.g., cluster11, cluster12, etc.
+
+vmname=cluster
+
+# Plug in appropriate numbers in the for loop below.
+
+for (( i=11; i<19; i++ )); do
+
+# For ASM VMs use the following command in your script.
+
+azure vm extension set $vmname$i RDMAUpdateForLinux Microsoft.OSTCExtensions 0.1
+
+# For ARM VMs use the following command in your script.
+
+# azure vm extension set <resource-group> $vmname$i RDMAUpdateForLinux Microsoft.OSTCExtensions 0.1
+
+done
+
+```
+
 ## Intel MPI 구성 및 실행
 
 Azure Linux RDMA에서 MPI 응용 프로그램을 실행하려면 Intel MPI에 특정한 특정 환경 변수를 구성해야 합니다. 변수를 구성하고 응용 프로그램을 실행하는 샘플 Bash 스크립트는 다음과 같습니다.
@@ -370,4 +426,4 @@ cluster12
 
 * Intel MPI에 대한 지침은 [Intel MPI Library 설명서](https://software.intel.com/ko-KR/articles/intel-mpi-library-documentation/)를 참조하세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

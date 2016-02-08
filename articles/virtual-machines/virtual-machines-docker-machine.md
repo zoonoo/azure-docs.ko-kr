@@ -39,7 +39,7 @@
 
 [Machine 빌드](https://github.com/docker/machine#contributing)의 단계에 따라 **docker-machine**을 직접 빌드할 수도 있습니다. 빌드를 수행하려면 1GB 이상의 콘텐츠를 다운로드해야 합니다. 이렇게 하면 환경을 원하는 방식으로 정확하게 사용자 지정할 수 있습니다.
 
-> [AZURE.NOTE]사용 중인 플랫폼 버전에 대한 [바로 가기 링크](http://en.wikipedia.org/wiki/Symbolic_link)를 만들 수도 있지만 이 자습서에서는 동작을 매우 정확하게 시연하기 위해 바이너리를 직접 사용합니다. 따라서 이 자습서에서는 **docker-machine** 자습서에 나와 있는 `docker-machine env` 등의 명령이 아닌 `docker-machine_linux-amd64 env`를 사용합니다. 바로 가기 링크를 만들어도 되고 바이너리 이름을 직접 사용해도 되지만 사용 중인 이름을 변경할 때는 아래 지침에서도 해당 이름을 수정해야 합니다.
+> [AZURE.NOTE] 사용 중인 플랫폼 버전에 대한 [바로 가기 링크](http://en.wikipedia.org/wiki/Symbolic_link)를 만들 수도 있지만 이 자습서에서는 동작을 매우 정확하게 시연하기 위해 바이너리를 직접 사용합니다. 따라서 이 자습서에서는 **docker-machine** 자습서에 나와 있는 `docker-machine env` 등의 명령이 아닌 `docker-machine_linux-amd64 env`를 사용합니다. 바로 가기 링크를 만들어도 되고 바이너리 이름을 직접 사용해도 되지만 사용 중인 이름을 변경할 때는 아래 지침에서도 해당 이름을 수정해야 합니다.
 
 <br />
 
@@ -49,7 +49,7 @@
 
 이제 Azure에서 사용자 ID와 권한을 확인하는 데 필요한 인증서 및 키 파일과 **docker-machine**에서 원격으로 컨테이너를 만들고 관리하기 위해 Azure 가상 컴퓨터와 통신하는 데 필요한 인증서 및 키 파일을 만들어야 합니다. Docker에서 사용하기 위해 이러한 파일을 디렉터리에 이미 저장한 경우에는 다시 사용해도 됩니다. 그러나 **docker-machine**을 테스트하는 모범 사례는 이러한 파일을 별도의 디렉터리에 만들고 docker-machine이 해당 파일을 가리키도록 지정하는 것입니다.
 
-> [AZURE.NOTE]**docker-machine**를 계속 다시 입력하기를 종료한 경우 동일한 인증서와 키 파일을 다시 사용해야 합니다. **docker-machine**은 클라이언트 인증서 집합을 만들며, 만든 모든 것을 `~/.docker/machine`에서 검토할 수 있습니다. 이러한 인증서를 다른 컴퓨터로 이동하는 경우에는 **docker-machine** 인증서 폴더도 이동해야 합니다. 작동 방식만을 확인하기 위해 다른 플랫폼에서 **docker-machine**을 사용하는 등의 경우 이와 같이 폴더를 이동하면 작업을 쉽게 수행할 수 있습니다.
+> [AZURE.NOTE] **docker-machine**를 계속 다시 입력하기를 종료한 경우 동일한 인증서와 키 파일을 다시 사용해야 합니다. **docker-machine**은 클라이언트 인증서 집합을 만들며, 만든 모든 것을 `~/.docker/machine`에서 검토할 수 있습니다. 이러한 인증서를 다른 컴퓨터로 이동하는 경우에는 **docker-machine** 인증서 폴더도 이동해야 합니다. 작동 방식만을 확인하기 위해 다른 플랫폼에서 **docker-machine**을 사용하는 등의 경우 이와 같이 폴더를 이동하면 작업을 쉽게 수행할 수 있습니다.
 
 Linux가 배포된 환경을 사용하는 경우에는 이러한 파일이 컴퓨터의 특정 위치에서 이미 제공될 수 있습니다. [Docker HTTPS 설명서에도 해당 단계가 설명되어 있습니다](https://docs.docker.com/articles/https/). 아래에서는 이 단계를 간단하게 설명합니다.
 
@@ -106,7 +106,7 @@ Linux가 배포된 환경을 사용하는 경우에는 이러한 파일이 컴�
 	    INFO[0368] "machine-name" has been created and is now the active machine.
 	    INFO[0368] To point your Docker client at it, run this in your shell: $(docker-machine_linux-amd64 env machine-name)
 
-    > [AZURE.NOTE]VM을 만드는 중이므로 준비 상태가 되려면 몇 분 정도 걸릴 수 있습니다. 기다리는 동안 VM이 **ReadyRole** 상태로 표시될 때까지 Azure CLI를 사용하여`azure vm list`를 입력해 새 Docker 호스트의 상태를 확인할 수 있습니다.
+    > [AZURE.NOTE] VM을 만드는 중이므로 준비 상태가 되려면 몇 분 정도 걸릴 수 있습니다. 기다리는 동안 VM이 **ReadyRole** 상태로 표시될 때까지 Azure CLI를 사용하여`azure vm list`를 입력해 새 Docker 호스트의 상태를 확인할 수 있습니다.
 
 5. 터미널 세션에 대해 Docker 및 Machine 환경 변수를 설정합니다. 피드백의 마지막 줄은 **env** 명령을 즉시 실행하여 특정 Machine에서 Docker 클라이언트를 직접 사용하는 데 필요한 환경 변수를 내보내라는 메시지를 표시합니다.
 
@@ -140,7 +140,7 @@ Linux가 배포된 환경을 사용하는 경우에는 이러한 파일이 컴�
 	    ID: W3FZ:BCZW:UX24:GDSV:FR4N:N3JW:XOC2:RI56:IWQX:LRTZ:3G4P:6KJK
 	    WARNING: No swap limit support
 
-> [AZURE.NOTE]이 자습서에서는 VM 하나를 만드는 **docker-machine**을 보여 줍니다. 그러나 위의 단계를 반복하여 가상 컴퓨터를 원하는 수만큼 만들 수 있습니다. 이렇게 하는 경우 Docker가 설치된 VM 간을 전환하는 가장 효율적인 방법은 **env** 명령을 인라인으로 사용하여 개별 명령에 대해 **docker** 환경 변수를 설정하는 것입니다. 예를 들어, 다른 VM에서**docker info**를 사용하려면 해당 VM에서 사용할 Docker 연결 정보에 `docker $(docker-machine env <VM name>) info` 및 **env** 명령을 입력합니다.
+> [AZURE.NOTE] 이 자습서에서는 VM 하나를 만드는 **docker-machine**을 보여 줍니다. 그러나 위의 단계를 반복하여 가상 컴퓨터를 원하는 수만큼 만들 수 있습니다. 이렇게 하는 경우 Docker가 설치된 VM 간을 전환하는 가장 효율적인 방법은 **env** 명령을 인라인으로 사용하여 개별 명령에 대해 **docker** 환경 변수를 설정하는 것입니다. 예를 들어, 다른 VM에서**docker info**를 사용하려면 해당 VM에서 사용할 Docker 연결 정보에 `docker $(docker-machine env <VM name>) info` 및 **env** 명령을 입력합니다.
 
 ## Docker 및 Docker 허브의 이미지를 사용하여 원격으로 응용 프로그램 실행
 
@@ -158,7 +158,7 @@ Linux가 배포된 환경을 사용하는 경우에는 이러한 파일이 컴�
 
 그러나 [Docker 허브](https://registry.hub.docker.com/)의 [nginx](https://registry.hub.docker.com/_/nginx/)와 같이 인터넷에서 즉시 찾을 수 있는 응용 프로그램을 만들 수도 있습니다.
 
-> [AZURE.NOTE]**docker**가 이미지에 임의 포트를 할당하도록 하려면 **-P** 옵션을 사용하고, 컨테이너가 백그라운드에서 계속 실행되도록 하려면 **-d** 옵션을 사용합니다. 이 옵션을 사용하지 않는 경우 nginx를 시작하면 즉시 종료됩니다.
+> [AZURE.NOTE] **docker**가 이미지에 임의 포트를 할당하도록 하려면 **-P** 옵션을 사용하고, 컨테이너가 백그라운드에서 계속 실행되도록 하려면 **-d** 옵션을 사용합니다. 이 옵션을 사용하지 않는 경우 nginx를 시작하면 즉시 종료됩니다.
 
 	$ docker run --name machinenginx -P -d nginx
     Unable to find image 'nginx:latest' locally
@@ -201,7 +201,7 @@ Docker가 컨테이너 포트 80을 VM 포트 49153에 할당했음을 확인할
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 다음 단계
-[Docker 사용자 가이드](https://docs.docker.com/userguide/)로 이동하여 Microsoft Azure에서 응용 프로그램을 만들어 봅니다. 또는 Azure](virtual-machines-docker-swarm.md)에서 [**docker** 및 swarm](https://github.com/docker/swarm)을 사용해 보고 Docker 및 Azure와 swarm을 사용하는 방법을 살펴봅니다.
+[Docker 사용자 가이드](https://docs.docker.com/userguide/)로 이동하여 Microsoft Azure에서 응용 프로그램을 만들어 봅니다. 또는 [Azure에서 Docker Swarm]을 사용해 보고 Docker와 Azure에서 [swarm](https://github.com/docker/swarm)을 사용하는 방법을 살펴봅니다.
 
 <!--Image references-->
 [nginx]: ./media/virtual-machines-docker-machine/nginxondocker.png
@@ -213,5 +213,6 @@ Docker가 컨테이너 포트 80을 VM 포트 49153에 할당했음을 확인할
 [Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
+[Azure에서 Docker Swarm]: virtual-machines-docker-swarm.md
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

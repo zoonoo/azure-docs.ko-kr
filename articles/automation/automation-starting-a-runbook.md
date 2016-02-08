@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Azure 자동화에서 Runbook 시작"
+   pageTitle="Azure 자동화에서 Runbook 시작 | Microsoft Azure"
    description="Azure 포털과 Windows PowerShell을 사용하여 Azure 자동화에서 Runbook을 시작하고 세부 정보를 제공하는 데 사용할 수 있는 여러 방법을 요약합니다."
    services="automation"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/13/2015"
+   ms.date="01/19/2016"
    ms.author="bwren;sngun"/>
 
 # Azure 자동화에서 Runbook 시작
@@ -106,6 +106,9 @@
 <br>
 
 
+다음 이미지는 Runbook의 수명 주기에서 자세한 단계별 프로세스를 보여줍니다.Runbook이 Azure 자동화에서 시작하는 다른 방법인 온-프레미스 컴퓨터에 필요한 구성 요소를 포함하여 Azure 자동화 Runbook 및 다른 구성 요소 간의 상호 작용을 실행합니다. 데이터 센터에서 자동화 Runbook의 실행에 대해 알아보려면 [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)를 참조하세요.
+
+![Runbook 아키텍처](media/automation-starting-runbook/runbooks-architecture.png)
 
 ## Azure 포털을 사용하여 Runbook 시작
 
@@ -188,7 +191,7 @@ user 매개 변수에 다음 텍스트를 사용할 수 있습니다.
 
 매개 변수가 [array] 또는 [string]과 같은 배열인 경우 *[Value1,Value2,Value3]* JSON 형식을 사용하여 값 목록으로 전송해야 합니다. 이러한 값은 단순한 형식이어야 합니다.
 
-예를 들어 다음 테스트 Runbook에서는 *user* 라는 매개 변수를 허용합니다.
+예를 들어 다음 테스트 Runbook에서는 *user*라는 매개 변수를 허용합니다.
 
 	Workflow Test-Parameters
 	{
@@ -228,16 +231,16 @@ user 매개 변수에 다음 텍스트를 사용할 수 있습니다.
 	   $credential.UserName
 	}
 
-*My Credential* 이라는 자격 증명 자산이 있다고 가정할 경우 user 매개 변수에 다음 텍스트를 사용할 수 있습니다.
+*My Credential*이라는 자격 증명 자산이 있다고 가정할 경우 user 매개 변수에 다음 텍스트를 사용할 수 있습니다.
 
 	My Credential
 
-자격 증명의 사용자 이름을 *jsmith* 라고 가정할 경우 다음과 같이 출력됩니다.
+자격 증명의 사용자 이름을 *jsmith*라고 가정할 경우 다음과 같이 출력됩니다.
 
 	jsmith
 
-## 관련된 문서
+## 다음 단계
 
-- [Azure 자동화의 자식 runbook](automation-child-runbooks.md) 
+- 현재 문서의 Runbook 아키텍처에서는 Hybrid Runbook에 대한 대략적인 설명을 제공합니다. 자세한 내용을 확인하려면 [Azure 자동화의 자식 Runbook](automation-child-runbooks.md)을 참조하세요 
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

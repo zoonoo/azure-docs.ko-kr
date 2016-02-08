@@ -1,26 +1,26 @@
 <properties 
-                pageTitle="Azure의 리소스 액세스 이해?" 
-                description="이 항목에서는 구독 관리자를 사용하여 전체 Azure 포털에서 리소스 액세스를 제어하는 방법에 대한 개념을 설명합니다." 
-                services="active-directory" 
-                documentationCenter="" 
-                authors="markusvi" 
-                manager="stevenpo" 
-                editor=""/>
+    pageTitle="Azure의 리소스 액세스 이해?" 
+    description="이 항목에서는 구독 관리자를 사용하여 전체 Azure 포털에서 리소스 액세스를 제어하는 방법에 대한 개념을 설명합니다." 
+    services="active-directory" 
+    documentationCenter="" 
+    authors="markusvi" 
+    manager="stevenpo" 
+    editor=""/>
 
 <tags 
-                ms.service="active-directory" 
-                ms.workload="identity" 
-                ms.tgt_pltfrm="na" 
-                ms.devlang="na" 
-                ms.topic="article" 
-                ms.date="10/30/2015" 
-                ms.author="markusvi"/>
+    ms.service="active-directory" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="01/26/2016" 
+    ms.author="markusvi"/>
 
 
 # Azure의 리소스 액세스 이해
 
 
-> [AZURE.NOTE]이 항목에서는 구독 관리자를 사용하여 전체 Azure 포털에서 리소스 액세스를 제어하는 방법에 대한 개념을 설명합니다. 또는 Azure 미리 보기 포털이 [역할 기반 액세스 제어](role-based-access-control-configure.md)을 제공하여 Azure 리소스를 보다 정확하게 관리할 수 있습니다.
+> [AZURE.NOTE] 이 항목에서는 구독 관리자를 사용하여 전체 Azure 포털에서 리소스 액세스를 제어하는 방법에 대한 개념을 설명합니다. 또는 Azure 미리 보기 포털이 [역할 기반 액세스 제어](role-based-access-control-configure.md)을 제공하여 Azure 리소스를 보다 정확하게 관리할 수 있습니다.
 
 2013년 10월에 Azure 관리 포털 및 서비스 관리 API는 Azure 리소스에 대한 액세스를 관리하기 위한 사용자 환경을 개선하기 위한 토대를 마련하기 위해 Azure Active Directory와 통합되었습니다. Azure Active Directory는 이미 사용자 관리, 온-프레미스 디렉터리 동기화, 다단계 인증 및 응용 프로그램 액세스 제어와 같은 훌륭한 기능을 제공합니다. 물론 이러한 기능들로 Azure 리소스를 전반적으로 관리할 수 있습니다.
 
@@ -37,7 +37,7 @@ Azure 관리 포털 내의 기능으로 Microsoft 계정을 사용하여 로그�
 
 
 
-> [AZURE.NOTE]직장 또는 학교 계정은 소속된 디렉터리에만 로그인 할 수 있기 때문에 Azure 관리 포털의 **디렉터리 편집** 명령은 직장 또는 학교 계정을 사용하여 로그인하는 사용자에게 사용할 수 없습니다.
+> [AZURE.NOTE] 직장 또는 학교 계정은 소속된 디렉터리에만 로그인 할 수 있기 때문에 Azure 관리 포털의 **디렉터리 편집** 명령은 직장 또는 학교 계정을 사용하여 로그인하는 사용자에게 사용할 수 없습니다.
 
 <br><br>![간단한 사용자 로그인 흐름][3]
 
@@ -64,4 +64,4 @@ Azure 관리 포털 내의 기능으로 Microsoft 계정을 사용하여 로그�
 [3]: ./media/active-directory-understanding-resource-access/IC707933.png
 [4]: ./media/active-directory-understanding-resource-access/IC707934.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

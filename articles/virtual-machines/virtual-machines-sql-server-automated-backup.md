@@ -38,7 +38,7 @@
 
 Azure 포털을 사용하여 새 SQL Server 2014 가상 컴퓨터를 만들 때 자동화된 백업을 구성할 수 있습니다.
 
->[AZURE.NOTE]자동화된 백업은 SQL Server IaaS 에이전트에 의존합니다. 에이전트를 설치하고 구성하려면 대상 가상 컴퓨터에서 실행 중인 Azure VM 에이전트가 있어야 합니다. 최신 가상 컴퓨터 갤러리 이미지는 기본적으로 이 옵션을 사용하도록 설정되어 있지만 Azure VM 에이전트가 기존 VM에서 누락될 수 있습니다. 사용자 고유의 VM 이미지를 사용하는 경우에는 SQL Server IaaS 에이전트를 설치해야 합니다. 자세한 내용은 [VM 에이전트 및 확장](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/)을 참조하세요.
+>[AZURE.NOTE] 자동화된 백업은 SQL Server IaaS 에이전트에 의존합니다. 에이전트를 설치하고 구성하려면 대상 가상 컴퓨터에서 실행 중인 Azure VM 에이전트가 있어야 합니다. 최신 가상 컴퓨터 갤러리 이미지는 기본적으로 이 옵션을 사용하도록 설정되어 있지만 Azure VM 에이전트가 기존 VM에서 누락될 수 있습니다. 사용자 고유의 VM 이미지를 사용하는 경우에는 SQL Server IaaS 에이전트를 설치해야 합니다. 자세한 내용은 [VM 에이전트 및 확장](https://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/)을 참조하세요.
 
 다음 Azure 포털 스크린샷은 **옵션 구성**ㅣ**SQL 자동화된 백업**의 옵션을 보여줍니다.
 
@@ -48,7 +48,7 @@ Azure 포털을 사용하여 새 SQL Server 2014 가상 컴퓨터를 만들 때 
 
 ![Azure 포털에서 자동화된 백업 구성](./media/virtual-machines-sql-server-automated-backup/IC792133.jpg)
 
->[AZURE.NOTE]처음으로 자동화된 백업을 사용 설정하면 Azure에서 백그라운드로 SQL Server IaaS 에이전트를 구성합니다. 이 시간 동안, Azure 포털은 구성된 자동화된 백업을 보여주지 않습니다. 에이전트가 설치 및 구성될 때까지 몇 분 정도 기다리세요. 그 후 Azure 포털에는 새 설정이 반영됩니다.
+>[AZURE.NOTE] 처음으로 자동화된 백업을 사용 설정하면 Azure에서 백그라운드로 SQL Server IaaS 에이전트를 구성합니다. 이 시간 동안, Azure 포털은 구성된 자동화된 백업을 보여주지 않습니다. 에이전트가 설치 및 구성될 때까지 몇 분 정도 기다리세요. 그 후 Azure 포털에는 새 설정이 반영됩니다.
 
 ## PowerShell을 사용하여 자동화된 백업 구성
 
@@ -90,7 +90,7 @@ SQL Server IaaS 에이전트를 제거하려면 다음 구문을 사용합니다
 
     Get-AzureVM -ServiceName <vmservicename> -Name <vmname> | Remove-AzureVMSqlServerExtension | Update-AzureVM
 
->[AZURE.NOTE]SQL Server IaaS 에이전트를 비활성화하고 제거해도 이전에 구성한 관리된 백업 설정은 제거되지 않습니다. SQL Server IaaS 에이전트를 비활성화 또는 제거하기 전에 자동화된 백업을 사용하지 않도록 설정해야 합니다.
+>[AZURE.NOTE] SQL Server IaaS 에이전트를 비활성화하고 제거해도 이전에 구성한 관리된 백업 설정은 제거되지 않습니다. SQL Server IaaS 에이전트를 비활성화 또는 제거하기 전에 자동화된 백업을 사용하지 않도록 설정해야 합니다.
 
 ## 호환성
 
@@ -114,4 +114,4 @@ Azure에서 SQL Server VM 관련 기능은 [Azure 가상 컴퓨터의 SQL Server
 
 그 밖에 [Azure 가상 컴퓨터에서 SQL Server 실행과 관련된 리소스](virtual-machines-sql-server-infrastructure-services.md)를 검토합니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

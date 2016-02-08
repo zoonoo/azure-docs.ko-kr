@@ -7,7 +7,7 @@
 - 기존 클라우드 서비스에 VM 추가
 - 가용성 집합에 VM 추가
 
-> [AZURE.IMPORTANT]가상 컴퓨터에서 가상 네트워크를 사용하여 호스트 이름으로 가상 컴퓨터에 직접 연결하거나 프레미스 간 연결을 설정할 수 있게 하려는 경우 가상 컴퓨터를 만들 때 가상 네트워크를 지정해야 합니다. 가상 컴퓨터를 만드는 경우에만 가상 네트워크에 가입하도록 가상 컴퓨터를 구성할 수 있습니다. 가상 네트워크에 대한 자세한 내용은 [Azure 가상 네트워크 개요](http://go.microsoft.com/fwlink/p/?LinkID=294063)를 참조하세요.
+> [AZURE.IMPORTANT] 가상 컴퓨터에서 가상 네트워크를 사용하여 호스트 이름으로 가상 컴퓨터에 직접 연결하거나 프레미스 간 연결을 설정할 수 있게 하려는 경우 가상 컴퓨터를 만들 때 가상 네트워크를 지정해야 합니다. 가상 컴퓨터를 만드는 경우에만 가상 네트워크에 가입하도록 가상 컴퓨터를 구성할 수 있습니다. 가상 네트워크에 대한 자세한 내용은 [Azure 가상 네트워크 개요](http://go.microsoft.com/fwlink/p/?LinkID=294063)를 참조하세요.
 
 1. [Azure 포털](http://manage.windowsazure.com)에 로그인합니다.
 
@@ -34,9 +34,9 @@
 	- 클라우드 서비스의 첫 번째 또는 유일한 가상 컴퓨터인 경우 **Create a New Cloud Service**를 선택합니다. **Cloud Service DNS Name**에 3자에서 24자 사이의 소문자와 숫자를 사용하는 이름을 입력합니다. 이 이름은 클라우드 서비스를 통해 가상 컴퓨터에 연결하는 데 사용되는 URI의 일부가 됩니다.
 	- 이 가상 컴퓨터를 클라우드 서비스에 추가하는 경우 목록에서 선택합니다.
 
-	> [AZURE.NOTE]동일한 클라우드 서비스에 가상 컴퓨터를 배치하는 방법에 대한 자세한 내용은 [클라우드 서비스에서 가상 컴퓨터를 연결하는 방법](http://www.windowsazure.com/manage/windows/how-to-guides/connect-to-a-cloud-service/)을 참조하세요.
+	> [AZURE.NOTE] 동일한 클라우드 서비스에 가상 컴퓨터를 배치하는 방법에 대한 자세한 내용은 [클라우드 서비스에서 가상 컴퓨터를 연결하는 방법](https://azure.microsoft.com/manage/windows/how-to-guides/connect-to-a-cloud-service/)을 참조하세요.
 
-12. **Region/Affinity Group/Virtual Network**에서 가상 컴퓨터에 사용할 영역, 선호도 그룹 또는 가상 네트워크를 선택합니다. 선호도 그룹에 대한 자세한 내용은 [가상 네트워크의 선호도 그룹 정보](../virtual-network/virtual-networks-migrate-to-regional-vnet.md)를 참조하세요.
+12. **Region/Affinity Group/Virtual Network**에서 가상 컴퓨터에 사용할 영역, 선호도 그룹 또는 가상 네트워크를 선택합니다. 선호도 그룹에 대한 자세한 내용은 [가상 네트워크의 선호도 그룹 정보](../virtual-network/virtual-networks-migrate-to-regional-vnet.md)를 참조하십시오.
 
 13. **Storage Account**에서 VHD 파일에 대한 기존 저장소 계정을 선택하거나 자동으로 생성된 저장소 계정을 사용합니다. 영역당 하나의 저장소 계정만 자동으로 만들어집니다. 이 설정으로 만든 다른 모든 가상 컴퓨터는 이 저장소 계정에 있습니다. 20개의 저장소 계정으로 제한됩니다.
 
@@ -58,4 +58,4 @@
 - [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](../articles/virtual-machines/virtual-machines-linux-how-to-log-on.md)
 - [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법](../articles/virtual-machines/virtual-machines-log-on-windows-server.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

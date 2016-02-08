@@ -98,7 +98,7 @@ Azure에서 강제 터널링은 가상 네트워크 사용자 정의 경로를 �
 
 - 구성된 가상 네트워크입니다.
 
-- 웹 플랫폼 설치 관리자를 사용하는 Azure PowerShell cmdlet의 최신 버전입니다. [다운로드 페이지](http://azure.microsoft.com/downloads/)의 **Windows PowerShell** 섹션에서 최신 버전을 다운로드하여 설치할 수 있습니다.
+- 웹 플랫폼 설치 관리자를 사용하는 Azure PowerShell cmdlet의 최신 버전입니다. [다운로드 페이지](https://azure.microsoft.com/downloads/)의 **Windows PowerShell** 섹션에서 최신 버전을 다운로드하여 설치할 수 있습니다.
 
 ## 강제 터널링 구성
 
@@ -157,4 +157,4 @@ Azure에서 강제 터널링은 가상 네트워크 사용자 정의 경로를 �
 
 	Remove-AzureVnetGatewayDefaultSites -VNetName <virtualNetworkName>
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -33,7 +33,7 @@ Azure 클래식 포털을 사용하거나 서비스 관리 API를 사용하여 �
 ## 관리 인증서란 무엇인가요?
 관리 인증서를 사용하면 Azure 클래식에서 제공하는 서비스 관리 API를 사용하여 인증할 수 있습니다. Visual Studio 또는 Azure SDK와 같은 많은 프로그램 및 도구에서 이러한 인증서를 사용하여 다양한 Azure 서비스의 구성 및 배포를 자동화합니다. 클라우드 서비스와는 실제로 관련이 없습니다.
 
->[AZURE.WARNING]주의가 필요합니다! 이러한 형식의 인증서를 사용하면 해당 인증서로 인증된 사람은 누구나 연결된 구독을 관리할 수 있습니다.
+>[AZURE.WARNING] 주의가 필요합니다! 이러한 형식의 인증서를 사용하면 해당 인증서로 인증된 사람은 누구나 연결된 구독을 관리할 수 있습니다.
 
 ### 제한 사항
 관리 인증서는 구독당 100개로 제한됩니다. 특정 서비스 관리자 사용자 ID에서는 모든 구독에 대해 관리 인증서가 100개로 제한되기도 합니다. 계정 관리자의 사용자 ID가 이미 관리 인증서 100개를 추가하는 데 사용되었으나 인증서가 더 필요한 경우 공동 관리자를 추가하여 인증서를 더 추가할 수 있습니다.
@@ -51,7 +51,7 @@ Azure 클래식 포털을 사용하거나 서비스 관리 API를 사용하여 �
 * 주체 이름은 클라우드 서비스 액세스에 사용되는 도메인과 일치해야 합니다.
     > cloudapp.net(또는 관련된 모든 Azure) 도메인용 SSL 인증서를 얻을 수 없으므로, 인증서의 주체 이름은 사용 중인 응용 프로그램 액세스에 사용되는 사용자 지정 도메인 이름과 일치해야 합니다. 예를 들어, **contoso.cloudapp.net**이 아니라**contoso.net**입니다.
 * 최소한 2048비트 암호화를 사용해야 합니다.
-* **서비스 인증서에만 해당**: 클라이언트 쪽 인증서는 개인 인증서 저장소에 있어야 합니다.
+* **서비스 인증서에만 해당**: 클라이언트 쪽 인증서는 *개인* 인증서 저장소에 있어야 합니다.
 
 Windows에서는 두 가지 방법, `makecert.exe` 유틸리티 또는 IIS를 사용하여 쉽게 인증서를 만들 수 있습니다.
 
@@ -74,10 +74,10 @@ Java를 사용하여 [인증서를 만들](../app-service-web/java-create-azure-
 
 ## 다음 단계
 
-[서비스 인증서를 Azure 클래식 포털(또는 [Azure 포털](cloud-services-configure-ssl-certificate-portal.md))에 업로드](cloud-services-configure-ssl-certificate.md)하고 클라우드 서비스에 사용하도록 [구성](cloud-services-xml-certs.md)합니다.
+[서비스 인증서를 Azure 클래식 포털(또는 [Azure 포털](cloud-services-configure-ssl-certificate-portal.md))에 업로드합니다.](cloud-services-configure-ssl-certificate.md)
 
 [관리 API 인증서](../azure-api-management-certs.md)를 Azure 클래식 포털에 업로드합니다.
 
->[AZURE.NOTE]Azure 포털은 API에 액세스하는 데 관리 인증서를 사용하지 않고 사용자 계정을 사용합니다.
+>[AZURE.NOTE] Azure 포털은 API에 액세스하는 데 관리 인증서를 사용하지 않고 사용자 계정을 사용합니다.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

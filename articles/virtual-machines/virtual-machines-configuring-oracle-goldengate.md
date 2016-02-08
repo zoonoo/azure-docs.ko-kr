@@ -34,7 +34,7 @@ oracle GoldenGate는 다음 주요 구성 요소를 포함합니다: 추출, 복
 
 - [Oracle 다운로드](http://www.oracle.com/us/downloads/index.html) 웹 사이트에서 Oracle GoldenGate 소프트웨어를 다운로드했습니다. Oracle Fusion 미들웨어 제품 팩 - 데이터 통합을 선택 했습니다. 그런 다음, Oracle GoldenGate Oracle v11.2.1 미디어 팩에서 Microsoft Windows x64(64 비트)에 대한 Oracle 11g 데이터베이스를 선택 했습니다. 다음으로 Windows 2008(64bit)에서 구동되는 Oracle 11g 64bit용의 Oracle GoldenGate V11.2.1.0.3을 다운로드 합니다.
 
-- Windows Server에서 Oracle Enterprise Edition 이미지를 제공하는 동일한 플랫폼을 사용하여 Azure에서 두 가상 컴퓨터(VMs)을 만들었습니다. 자세한 내용은 [Azure에서 Oracle 데이터베이스 12c 가상 컴퓨터 만들기](#z3dc8d3c097cf414e9048f7a89c026f80) 및 [Azure 가상 컴퓨터](http://azure.microsoft.com/documentation/services/virtual-machines/)를 참조하세요. 영구적인 개인 IP 주소를 통해 서로 액세스할 수 있게 하려면 가상 컴퓨터가 [동일한 클라우드 서비스](virtual-machines-load-balance.md) 및 동일한 [가상 네트워크](http://azure.microsoft.com/documentation/services/virtual-network/)에 있어야 합니다.
+- Windows Server에서 Oracle Enterprise Edition 이미지를 제공하는 동일한 플랫폼을 사용하여 Azure에서 두 가상 컴퓨터(VMs)을 만들었습니다. 자세한 내용은 [Azure에서 Oracle 데이터베이스 12c 가상 컴퓨터 만들기](#z3dc8d3c097cf414e9048f7a89c026f80) 및 [Azure 가상 컴퓨터](https://azure.microsoft.com/documentation/services/virtual-machines/)를 참조하세요. 영구적인 개인 IP 주소를 통해 서로 액세스할 수 있게 하려면 가상 컴퓨터가 [동일한 클라우드 서비스](virtual-machines-load-balance.md) 및 동일한 [가상 네트워크](https://azure.microsoft.com/documentation/services/virtual-network/)에 있어야 합니다.
 
 - Azure 클래식 포털에서 가상 컴퓨터 이름을 Site A에 대해서는 “MachineGG1” 로 Site B에 대해서는 “MachineGG2”로 설정했습니다.
 
@@ -80,7 +80,7 @@ oracle GoldenGate는 다음 주요 구성 요소를 포함합니다: 추출, 복
 
 6. 양방향 복제 프로세스를 확인 합니다.
 
->[AZURE.IMPORTANT]이 자습서에서는 다음 소프트웨어 구성에 대해 설정 및 테스트되었습니다.
+>[AZURE.IMPORTANT] 이 자습서에서는 다음 소프트웨어 구성에 대해 설정 및 테스트되었습니다.
 >
 >| | **사이트 A 데이터베이스** | **사이트 B 데이터베이스** |
 >|------------------------|----------------------------------|----------------------------------|
@@ -191,7 +191,7 @@ Oracle GoldenGate 복제 프로세스를 설명 하기 위해 이 자습서는 �
 	sql>alter database open;
 
 
-그런 후에 다음과 같이 최소한의 [보완 로깅](http://docs.oracle.com/cd/E11882_01/server.112/e22490/logminer.htm)을 사용하도록 설정합니다.
+그런 다음, 사용할 수 있는 최소한의[보완 로깅](http://docs.oracle.com/cd/E11882_01/server.112/e22490/logminer.htm)은 다음과 같습니다.
 
 	SQL> ALTER DATABASE ADD SUPPLEMENTAL LOG DATA (ALL) COLUMNS;
 
@@ -208,7 +208,7 @@ Oracle GoldenGate 복제 프로세스를 설명 하기 위해 이 자습서는 �
 ##3\. DDL 복제를 지원 하기 위해 필요한 모든 개체를 만듭니다.
 이 섹션에는 DDL복제를 지원하는 모든 필요한 개체를 만들기 위해 필요한 스크립트를 나열 합니다. 사이트 A와 사이트 B 모두에 이 섹션에 지정된 스크립트를 실행 해야 합니다.
 
-Windows 명령 프롬프트를 열고 C:\\OracleGG 같은 Oracle GoldenGate 폴더로 이동 합니다. 사이트 A와 사이트 B에서 **SYSDBA**를 사용하는 등 데이터베이스 관리자 권한으로 SQL*Plus 명령 프롬프트를 시작합니다.
+Windows 명령 프롬프트를 열고 C:\\OracleGG 같은 Oracle GoldenGate 폴더로 이동 합니다. SQL * Plus 명령 프롬프트를 **SYSDBA**와 같은 데이터 베이스 관리자 권한을 사용하여 사이트 A와 사이트 B에서 실행합니다.
 
 다음 스크립트를 실행 합니다.
 
@@ -602,4 +602,4 @@ Oracle GoldenGate 구성을 확인 하려면 사이트 A에서 데이터베이�
 ##추가 리소스
 [Azure용 Oracle 가상 컴퓨터 이미지](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

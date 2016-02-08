@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="11/18/2015"
+   ms.date="01/22/2016"
    ms.author="larryfr"/>
 
 #Windows 기반 HDInsight에서 Apache Storm 토폴로지 배포 및 관리
@@ -23,7 +23,7 @@ Storm 대시보드를 사용하면 사용자의 웹 브라우저를 사용하는
 
 Storm 대시보드와 HDInsight 도구의 Storm 기능은 사용자 고유의 모니터링 및 관리 솔루션을 만들기 위해 사용할 수 있는 Storm REST API를 필요로 합니다.
 
-> [AZURE.IMPORTANT]이 문서의 단계에는 HDInsight 클러스터의 Windows 기반 Storm이 필요합니다. Linux 기반 클러스터를 사용하는 방법은 [Linux 기반 HDInsight에서 Apache Storm 토폴로지 배포 및 관리](hdinsight-storm-deploy-monitor-topology-linux.md)를 참조하세요
+> [AZURE.IMPORTANT] 이 문서의 단계에는 HDInsight 클러스터의 Windows 기반 Storm이 필요합니다. Linux 기반 클러스터를 사용하는 방법은 [Linux 기반 HDInsight에서 Apache Storm 토폴로지 배포 및 관리](hdinsight-storm-deploy-monitor-topology-linux.md)를 참조하세요
 
 ##필수 조건
 
@@ -41,7 +41,7 @@ Storm 대시보드와 HDInsight 도구의 Storm 기능은 사용자 고유의 �
 
 	* <a href="http://visualstudio.com/downloads/visual-studio-2015-ctp-vs" target="_blank">Visual Studio 2015 CTP6</a>
 
-	> [AZURE.NOTE]현재 Visual Studio용 HDInsight 도구는 HDInsight 클러스터 버전 3.2의 Storm만 지원합니다.
+	> [AZURE.NOTE] 현재 Visual Studio용 HDInsight 도구는 HDInsight 클러스터 버전 3.2의 Storm만 지원합니다.
 
 ##Storm 대시보드
 
@@ -57,7 +57,7 @@ Storm 대시보드에서 **Storm UI** 링크를 선택합니다. 실행 중인 �
 
 ![Storm UI][storm-dashboard-ui]
 
-> [AZURE.NOTE]일부 버전의 Internet Explorer에서는 처음으로 방문한 후 rm UI가 새로 고쳐지지 않습니다. 예를 들어 제출한 새 토폴로지가 표시되지 않거나 이전에 비활성화한 토폴로지가 활성 상태로 표시될 수 있습니다. Microsoft는 이 문제를 알고 있으며 해결 방법을 찾기 위해 노력하고 있습니다.
+> [AZURE.NOTE] 일부 버전의 Internet Explorer에서는 처음으로 방문한 후 rm UI가 새로 고쳐지지 않습니다. 예를 들어 제출한 새 토폴로지가 표시되지 않거나 이전에 비활성화한 토폴로지가 활성 상태로 표시될 수 있습니다. Microsoft는 이 문제를 알고 있으며 해결 방법을 찾기 위해 노력하고 있습니다.
 
 ####기본 페이지
 
@@ -129,7 +129,7 @@ HDInsight 도구는 Storm 클러스터에 C# 또는 하이브리드 토폴로지
 
 1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **HDInsight에서 Storm에 제출**을 선택합니다.
 
-	> [AZURE.NOTE]메시지가 표시되면 Azure 구독에 대한 로그인 자격 증명을 입력합니다. 하나 이상의 구독이 있는 경우 HDInsight의 Storm 클러스터를 포함하는 자격 증명으로 로그인합니다.
+	> [AZURE.NOTE] 메시지가 표시되면 Azure 구독에 대한 로그인 자격 증명을 입력합니다. 하나 이상의 구독이 있는 경우 HDInsight의 Storm 클러스터를 포함하는 자격 증명으로 로그인합니다.
 
 2. **Storm 클러스터** 드롭다운 목록에서 HDInsight의 Storm 클러스터를 선택한 다음 **제출**을 선택합니다. **출력** 창을 사용하여 제출 성공 여부를 모니터링할 수 있습니다.
 
@@ -137,13 +137,15 @@ HDInsight 도구는 Storm 클러스터에 C# 또는 하이브리드 토폴로지
 
 	![VISUAL STUDIO 모니터](./media/hdinsight-storm-deploy-monitor-topology/vsmonitor.png)
 
-	> [AZURE.NOTE]**Azure** > **HDInsight**를 확장한 다음 HDInsight의 Storm 클러스터를 마우스 오른쪽 단추로 클릭하고 **Storm 토폴로지 보기**를 선택하여 **서버 탐색기**에서 **Storm 토폴로지**를 볼 수도 있습니다.
+	> [AZURE.NOTE] **Azure** > **HDInsight**를 확장한 다음 HDInsight의 Storm 클러스터를 마우스 오른쪽 단추로 클릭하고 **Storm 토폴로지 보기**를 선택하여 **서버 탐색기**에서 **Storm 토폴로지**를 볼 수도 있습니다.
 
-	이러한 구성 요소에 대한 정보를 보려면 Spout 또는 Bolt 링크를 사용합니다. 선택한 각 항목에 대해 새 창이 열립니다.
+	이러한 구성 요소에 대한 정보를 보려면 Spout 또는 Bolt에 대한 셰이프를 선택합니다. 선택한 각 항목에 대해 새 창이 열립니다.
+    
+    > [AZURE.NOTE] 토폴로지 이름은 추가된 타임 스탬프가 있는 토폴로지의 클래스 이름입니다(이 경우 `HelloWord`).
 
 4. 토폴로지를 중단하려면 **토폴로지 요약** 보기에서 **중단**을 선택합니다.
 
-	> [AZURE.NOTE]Storm 토폴로지는 중지되거나 클러스터가 삭제될 때까지 계속 실행됩니다.
+	> [AZURE.NOTE] Storm 토폴로지는 중지되거나 클러스터가 삭제될 때까지 계속 실행됩니다.
 
 ##REST API
 
@@ -159,7 +161,7 @@ HDInsight 클러스터에서 REST API의 기본 URI는 **https://&lt;clustername
 
 REST API 요청에서는 **기본 인증**을 사용해야 하므로 HDInsight 클러스터 관리자 이름 및 암호를 사용합니다.
 
-> [AZURE.NOTE]기본 인증은 일반 텍스트로 전송되기 때문에 클러스터와의 안전한 통신을 위해서는 **항상** HTTPS를 사용해야 합니다.
+> [AZURE.NOTE] 기본 인증은 일반 텍스트로 전송되기 때문에 클러스터와의 안전한 통신을 위해서는 **항상** HTTPS를 사용해야 합니다.
 
 ###반환 값
 
@@ -179,4 +181,4 @@ Storm 대시보드를 사용하여 토폴로지를 배포 및 모니터링하는
 [storm-dashboard-submit]: ./media/hdinsight-storm-deploy-monitor-topology/submit.png
 [storm-dashboard-ui]: ./media/hdinsight-storm-deploy-monitor-topology/storm-ui-summary.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

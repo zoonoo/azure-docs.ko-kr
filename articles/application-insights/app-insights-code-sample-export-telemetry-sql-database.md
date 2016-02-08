@@ -31,7 +31,7 @@
 
 시작하기:
 
-1. [Microsoft Azure에서 계정](http://azure.microsoft.com/pricing/)을 만듭니다.
+1. [Microsoft Azure에서 계정](https://azure.microsoft.com/pricing/)을 만듭니다.
 2. [Azure 포털][portal]에서 앱에 대한 새 Application Insights 리소스를 추가합니다.
 
     ![새로 만들기, 개발자 서비스, Application Insights 선택 후 응용 프로그램의 유형 선택](./media/app-insights-code-sample-export-telemetry-sql-database/010-new-asp.png)
@@ -467,7 +467,7 @@ Visual Studio에서는 저장소 계정 연결 문자열로 작업자 역할 설
 
 PageView에 대해 생성되는 테이블의 스키마입니다.
 
-> [AZURE.NOTE]이 스크립트를 실행하지 않아도 됩니다. JSON에서 특성은 테이블의 열을 결정합니다.
+> [AZURE.NOTE] 이 스크립트를 실행하지 않아도 됩니다. JSON에서 특성은 테이블의 열을 결정합니다.
 
     CREATE TABLE [dbo].[PageViewPerformances](
 	[Id] [uniqueidentifier] NOT NULL,
@@ -543,4 +543,4 @@ PageView에 대해 생성되는 테이블의 스키마입니다.
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

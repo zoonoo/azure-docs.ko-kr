@@ -18,13 +18,13 @@
 
 # Azure 앱 서비스에서 인증을 위해 Active Directory를 사용합니다. #
 
-[Azure 앱 서비스 웹 앱](http://go.microsoft.com/fwlink/?LinkId=529714)은 온-프레미스 환경에서든 공용 인터넷에서든 사용자가 SSO(Single Sign-On)를 통해 응용 프로그램에 액세스할 수 있도록 하여 엔터프라이즈 LOB(기간 업무) 응용 프로그램 시나리오를 지원합니다. [AAD](http://azure.microsoft.com/services/active-directory/)(Azure Active Directory) 또는 온-프레미스 STS(보안 토큰 서비스)(예: AD FS(Active Directory Federation Services))와 통합되어 내부 AD(Active Directory) 사용자를 인증하고 적절하게 권한을 부여할 수 있습니다.
+[Azure 앱 서비스 웹 앱](http://go.microsoft.com/fwlink/?LinkId=529714)은 온-프레미스 환경에서든 공용 인터넷에서든 사용자가 SSO(Single Sign-On)를 통해 응용 프로그램에 액세스할 수 있도록 하여 엔터프라이즈 LOB(기간 업무) 응용 프로그램 시나리오를 지원합니다. [AAD](https://azure.microsoft.com/services/active-directory/)(Azure Active Directory) 또는 온-프레미스 STS(보안 토큰 서비스)(예: AD FS(Active Directory Federation Services))와 통합되어 내부 AD(Active Directory) 사용자를 인증하고 적절하게 권한을 부여할 수 있습니다.
 
 ## 원활한 인증 및 권한 부여 ##
 
-단추를 몇 번 클릭하는 것만으로 웹앱에 대한 인증 및 권한 부여를 설정할 수 있습니다. 모든 Azure 웹앱에서 checkbox 스타일 구성은 LOB 웹앱의 기본 액세스 제어를 제공합니다. 사용자에게 웹앱 콘텐츠에 대한 액세스 권한을 부여하기 전에 선택한 Azure AD 테넌트에 HTTPS 및 인증을 적용하는 방식으로 구현됩니다. 자세한 내용은 [웹 앱 인증/권한 부여](http://azure.microsoft.com/blog/2014/11/13/azure-websites-authentication-authorization/)를 참조하세요.
+단추를 몇 번 클릭하는 것만으로 웹앱에 대한 인증 및 권한 부여를 설정할 수 있습니다. 모든 Azure 웹앱에서 checkbox 스타일 구성은 LOB 웹앱의 기본 액세스 제어를 제공합니다. 사용자에게 웹앱 콘텐츠에 대한 액세스 권한을 부여하기 전에 선택한 Azure AD 테넌트에 HTTPS 및 인증을 적용하는 방식으로 구현됩니다. 자세한 내용은 [웹 앱 인증/권한 부여](https://azure.microsoft.com/blog/2014/11/13/azure-websites-authentication-authorization/)를 참조하세요.
 
->[AZURE.NOTE]이 기능은 현재 미리 보기로 제공됩니다.
+>[AZURE.NOTE] 이 기능은 현재 미리 보기로 제공됩니다.
 
 ## 수동으로 인증 및 권한 부여 구현 ##
 
@@ -46,10 +46,10 @@
 	-	응용 프로그램별로 [클레임](http://technet.microsoft.com/library/ee913571.aspx)을 관리할 수 있습니다.
 	-	회사 방화벽을 통해 온-프레미스 AD 데이터에 액세스하기 위한 별도의 솔루션이 있어야 합니다.
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

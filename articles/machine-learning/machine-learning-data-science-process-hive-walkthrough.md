@@ -19,7 +19,7 @@
 
 # 실행 중인 Cortana 분석 프로세스: HDInsight Hadoop 클러스터 사용
 
-이 연습에서는 [Azure HDInsight Hadoop 클러스터](http://azure.microsoft.com/services/hdinsight/)를 사용하는 종단 간 시나리오에서 Cortana 분석 프로세스를 사용하여 공개적으로 사용 가능한 [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) 데이터 집합에서 데이터를 저장, 탐색, 기능 설계 및 다운 샘플링합니다. 데이터의 모델은 이진/다중 클래스 분류 및 회귀 예측 작업을 처리하기 위해 Azure 기계 학습으로 빌드됩니다.
+이 연습에서는 [Azure HDInsight Hadoop 클러스터](https://azure.microsoft.com/services/hdinsight/)를 사용하는 종단 간 시나리오에서 Cortana 분석 프로세스를 사용하여 공개적으로 사용 가능한 [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) 데이터 집합에서 데이터를 저장, 탐색, 기능 설계 및 다운 샘플링합니다. 데이터의 모델은 이진/다중 클래스 분류 및 회귀 예측 작업을 처리하기 위해 Azure 기계 학습으로 빌드됩니다.
 
 데이터 처리에 HDInsight Hadoop 클러스터를 사용하는 유사한 시나리오에서 더 큰(1TB) 데이터 집합을 처리하는 방법을 보여 주는 연습은 [Cortana 분석 프로세스 - 1TB 데이터 집합에서 Azure HDInsight Hadoop 클러스터 사용](machine-learning-data-science-process-hive-criteo-walkthrough.md)을 참조하세요.
 
@@ -75,7 +75,7 @@ trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_licence 및
 
 ## <a name="setup"></a>고급 분석용 HDInsight Hadoop 클러스터 설정
 
->[AZURE.NOTE]이는 일반적으로 **관리자** 작업입니다.
+>[AZURE.NOTE] 이는 일반적으로 **관리자** 작업입니다.
 
 다음 세 단계를 통해 HDInsight 클러스터를 사용하는 고급 분석용 Azure 환경을 설정할 수 있습니다.
 
@@ -91,7 +91,7 @@ trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_licence 및
 
 ## <a name="getdata"></a>공용 원본에서 데이터 가져오기
 
->[AZURE.NOTE]이는 일반적으로 **관리자** 작업입니다.
+>[AZURE.NOTE] 이는 일반적으로 **관리자** 작업입니다.
 
 해당 공용 위치에서 [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) 데이터 집합을 가져오려면 [Azure Blob 저장소에서 데이터 이동](machine-learning-data-science-move-azure-blob.md)에 설명된 방법 중 하나를 사용하여 데이터를 컴퓨터에 복사하면 됩니다.
 
@@ -107,7 +107,7 @@ trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_licence 및
 
 ## <a name="upload"></a>Azure HDInsight Hadoop 클러스터의 기본 컨테이너에 데이터 업로드
 
->[AZURE.NOTE]이는 일반적으로 **관리자** 작업입니다.
+>[AZURE.NOTE] 이는 일반적으로 **관리자** 작업입니다.
 
 다음 AzCopy 명령에서 다음 매개 변수를 Hadoop 클러스터를 만들고 데이터 파일의 압축을 풀 때 지정한 실제 값으로 바꿉니다.
 
@@ -130,7 +130,7 @@ trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_licence 및
 
 ## <a name="#download-hql-files"></a>Hadoop 클러스터의 헤드 노드에 로그인하여 예비 데이터 분석 준비
 
->[AZURE.NOTE]이는 일반적으로 **관리자** 작업입니다.
+>[AZURE.NOTE] 이는 일반적으로 **관리자** 작업입니다.
 
 예비 데이터 분석 및 데이터 다운 샘플링을 위해 클러스터의 헤드 노드에 액세스하려면 [Hadoop 클러스터의 헤드 노드 액세스](machine-learning-data-science-customize-hadoop-cluster.md#headnode)에 설명된 절차를 따릅니다.
 
@@ -146,13 +146,13 @@ trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_licence 및
 
 ## <a name="#hive-db-tables"></a>월별로 분할된 Hive 데이터베이스 및 테이블 만들기
 
->[AZURE.NOTE]이는 일반적으로 **관리자** 작업입니다.
+>[AZURE.NOTE] 이는 일반적으로 **관리자** 작업입니다.
 
 이제 NYC taxi 데이터 집합에 대한 Hive 테이블을 만들 준비가 완료되었습니다. Hadoop 클러스터 헤드 노드의 바탕 화면에서 ***Hadoop Command Line***을 열고 명령을 입력하여 Hive 디렉터리를 입력합니다.
 
     cd %hive_home%\bin
 
->[AZURE.NOTE]**이 연습의 모든 Hive 명령은 위의 Hive bin/ 디렉터리 프롬프트에서 실행합니다. 경로 문제가 자동으로 해결됩니다. "Hive 디렉터리 프롬프트", "Hive bin/ 디렉터리 프롬프트" 및 "Hadoop Command Line"은 이 연습에서 상호 교환적으로 사용되는 용어입니다.**
+>[AZURE.NOTE] **이 연습의 모든 Hive 명령은 위의 Hive bin/ 디렉터리 프롬프트에서 실행합니다. 경로 문제가 자동으로 해결됩니다. "Hive 디렉터리 프롬프트", "Hive bin/ 디렉터리 프롬프트" 및 "Hadoop Command Line"은 이 연습에서 상호 교환적으로 사용되는 용어입니다.**
 
 Hive 디렉터리 프롬프트에서 헤드 노드의 Hadoop 명령줄에 다음 명령을 입력하여 Hive 데이터베이스 및 테이블을 만드는 Hive 쿼리를 제출합니다.
 
@@ -208,7 +208,7 @@ Hive 디렉터리 프롬프트에서 헤드 노드의 Hadoop 명령줄에 다음
 
 ## <a name="#load-data"></a>분할된 Hive 테이블에 데이터 로드
 
->[AZURE.NOTE]이는 일반적으로 **관리자** 작업입니다.
+>[AZURE.NOTE] 이는 일반적으로 **관리자** 작업입니다.
 
 NYC taxi 데이터 집합에는 처리 및 쿼리 시간을 단축하기 위해 사용하는 월별 자연 분할 기능이 있습니다. 아래의 PowerShell 명령(**Hadoop 명령줄**을 사용하여 Hive 디렉터리에서 실행)은 월별로 분할된 "trip" 및 "fare" Hive 테이블에 데이터를 로드합니다.
 
@@ -275,7 +275,7 @@ nyctaxidb 데이터베이스에서 테이블을 표시하려면 Hadoop 명령줄
 
 ## <a name="#explore-hive"></a>Hive에서 데이터 탐색 및 기능 엔지니어링
 
->[AZURE.NOTE]이는 일반적으로 **데이터 과학자** 작업입니다.
+>[AZURE.NOTE] 이는 일반적으로 **데이터 과학자** 작업입니다.
 
 Hive 테이블에 로드된 데이터에 대한 데이터 탐색 및 기능 엔지니어링 작업은 Hive 쿼리를 사용하여 수행할 수 있습니다. 다음은 이 섹션에서 설명할 이러한 작업의 예입니다.
 
@@ -287,7 +287,7 @@ Hive 테이블에 로드된 데이터에 대한 데이터 탐색 및 기능 엔�
 
 ### 탐색: trip 테이블의 상위 10개 레코드 보기
 
->[AZURE.NOTE]이는 일반적으로 **데이터 과학자** 작업입니다.
+>[AZURE.NOTE] 이는 일반적으로 **데이터 과학자** 작업입니다.
 
 데이터 모양을 보려면 각 테이블에서 10개의 레코드를 살펴봅니다. Hadoop 명령줄 콘솔의 Hive 디렉터리 프롬프트에서 다음 두 쿼리를 따로 실행하여 레코드를 검사합니다.
 
@@ -305,7 +305,7 @@ Hive 테이블에 로드된 데이터에 대한 데이터 탐색 및 기능 엔�
 
 ### 탐색: 각 12개 파티션의 각 레코드 수 보기
 
->[AZURE.NOTE]이는 일반적으로 **데이터 과학자** 작업입니다.
+>[AZURE.NOTE] 이는 일반적으로 **데이터 과학자** 작업입니다.
 
 연간 여정 수가 어떻게 다른지 확인하려는 것입니다. 월별로 그룹화를 통해 이 여정 분포를 볼 수 있습니다.
 
@@ -373,7 +373,7 @@ Hive 디렉터리 프롬프트에서 아래 명령을 사용하여 fare 데이�
 
 ### 탐색: medallion별 여정 분포
 
->[AZURE.NOTE]이는 일반적으로 **데이터 과학자** 작업입니다.
+>[AZURE.NOTE] 이는 일반적으로 **데이터 과학자** 작업입니다.
 
 이 예제에서는 지정된 기간 내의 여정이 100개가 넘는 medallion(택시 번호)을 식별합니다. 쿼리는 파티션 변수 **month**의 영향을 받기 때문에 테이블을 분할하면 쿼리 성능이 개선됩니다. 쿼리 결과는 `C:\temp` 헤드 노드의 로컬 파일 queryoutput.tsv에 작성됩니다.
 
@@ -405,7 +405,7 @@ Hive 디렉터리 프롬프트에서 아래 명령을 실행합니다.
 
 ### 탐색: medallion 및 hack\_license별 여정 분포
 
->[AZURE.NOTE]이는 일반적으로 **데이터 과학자** 작업입니다.
+>[AZURE.NOTE] 이는 일반적으로 **데이터 과학자** 작업입니다.
 
 데이터 집합을 탐색할 때 값 그룹의 동시 발생 횟수를 조사하는 경우가 많습니다. 이 섹션에서는 택시와 운전 기사에 대해 이 작업을 수행하는 방법에 대한 예제를 제공합니다.
 
@@ -428,7 +428,7 @@ Hive 디렉터리 프롬프트에서 다음을 실행합니다.
 
 ### 탐색: 잘못된 경도/위도 레코드를 확인하여 데이터 품질 평가
 
->[AZURE.NOTE]이는 일반적으로 **데이터 과학자** 작업입니다.
+>[AZURE.NOTE] 이는 일반적으로 **데이터 과학자** 작업입니다.
 
 예비 데이터 분석의 일반적인 목적은 유효하지 않거나 잘못된 레코드를 걸러내는 것입니다. 이 섹션의 예제에서는 위도 또는 경도 필드에 NYC 영역 밖의 값이 포함되어 있는지 여부를 확인합니다. 이러한 레코드에는 잘못된 경도-위도 값이 있을 수 있기 때문에 모델링에 사용할 데이터에서 이를 제거하려고 합니다.
 
@@ -794,9 +794,7 @@ b. 회귀 문제의 경우 예측의 제곱된 오류, 결정 계수 등을 확�
 
 ## 참조
 
-•	[Andrés Monroy NYC 택시 왕복 다운로드 페이지](http://www.andresmh.com/nyctaxitrips/)  
-•	[Chris Whong FOILing NYC 택시 여정 데이터](http://chriswhong.com/open-data/foil_nyc_taxi/)   
-•	[NYC 택시 및 리무진 수수료 연구 및 통계](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+• [Andrés Monroy NYC 택시 왕복 다운로드 페이지](http://www.andresmh.com/nyctaxitrips/) • [Chris Whong FOILing NYC 택시 여정 데이터](http://chriswhong.com/open-data/foil_nyc_taxi/) • [NYC 택시 및 리무진 수수료 연구 및 통계](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
 
 [2]: ./media/machine-learning-data-science-process-hive-walkthrough/output-hive-results-3.png
@@ -810,4 +808,4 @@ b. 회귀 문제의 경우 예측의 제곱된 오류, 결정 계수 등을 확�
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

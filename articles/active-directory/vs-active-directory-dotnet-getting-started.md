@@ -75,6 +75,6 @@
     &lt;/html>
 </pre>
 
-[Azure Active Directory에 대한 자세한 정보](http://azure.microsoft.com/services/active-directory/)
+[Azure Active Directory에 대한 자세한 정보](https://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

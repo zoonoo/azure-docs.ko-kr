@@ -47,7 +47,7 @@
 
 **백업 카탈로그** 페이지를 사용하여 특정 백업에서 StorSimple 볼륨을 복원할 수 있습니다. 그러나 볼륨을 복원하면 백업이 수행된 시점의 상태로 볼륨이 되돌려진다는 점에 유의하세요. 백업 작업 후 추가된 모든 데이터가 손실됩니다.
 
-> [AZURE.WARNING]백업에서 복원되면 백업에서 기존 볼륨을 대체합니다. 백업이 수행된 후 작성된 모든 데이터가 손실될 수 있습니다.
+> [AZURE.WARNING] 백업에서 복원되면 백업에서 기존 볼륨을 대체합니다. 백업이 수행된 후 작성된 모든 데이터가 손실될 수 있습니다.
 
 
 ### 백업 세트에서 복원하려면
@@ -60,13 +60,13 @@
   1. 해당 장치를 선택합니다.
   2. 드롭다운 목록에서 선택하려는 백업에 대 한 볼륨 또는 백업 정책을 선택합니다.
   3. 시간 범위를 지정합니다.
-  4. 확인 아이콘 ![확인 아이콘](./media/storsimple-restore-from-backup-set/HCS_CheckIcon.png) 을 클릭하여 이 쿼리를 실행 합니다.
+  4. 확인 아이콘![확인 아이콘](./media/storsimple-restore-from-backup-set/HCS_CheckIcon.png)을 클릭하여 이 쿼리를 실행 합니다.
  
     선택한 볼륨와 연결된 백업을 또는 백업 정책이 백업 세트의 목록에 나타나야 합니다.
 
-3. 백업 세트를 확장하여 연결된 볼륨을 봅니다. 이 볼륨은 복원하려면 호스트와 장치에서 오프라인 상태여야 합니다. **볼륨 컨테이너** 페이지에서 볼륨에 액세스한 다음 [볼륨을 오프라인 상태로 전환](storsimple-manage-volumes.md#take-a-volume-offline) 의 단계에 따라 오프라인 상태로 전환합니다.
+3. 백업 세트를 확장하여 연결된 볼륨을 봅니다. 이 볼륨은 복원하려면 호스트와 장치에서 오프라인 상태여야 합니다. **볼륨 컨테이너** 페이지에서 볼륨에 액세스한 다음 [볼륨을 오프라인 상태로 전환](storsimple-manage-volumes.md#take-a-volume-offline)의 단계에 따라 오프라인 상태로 전환합니다.
 
-    >  [AZURE.IMPORTANT]해당 볼륨을 오프 라인으로 전환하기 전에, 먼저 호스트에서 해당 볼륨을 오프라인으로 전환했는지 확인합니다. 호스트에서 볼륨을 오프라인으로 전환하지 않은 경우 잠재적으로 데이터가 손상될 수입니다.
+    >  [AZURE.IMPORTANT] 해당 볼륨을 오프 라인으로 전환하기 전에, 먼저 호스트에서 해당 볼륨을 오프라인으로 전환했는지 확인합니다. 호스트에서 볼륨을 오프라인으로 전환하지 않은 경우 잠재적으로 데이터가 손상될 수입니다.
 
 4. **백업 카탈로그** 탭으로 다시 이동하고 백업 세트를 선택합니다.
 
@@ -76,13 +76,13 @@
 
     ![확인 페이지](./media/storsimple-restore-from-backup-set/HCS_ConfirmRestore.png)
 
-7. 복원 정보를 검토하고 확인 아이콘 ![확인 아이콘](./media/storsimple-restore-from-backup-set/HCS_CheckIcon.png) 을 클릭합니다. 그러면 **작업** 페이지에 액세스하여 볼 수 있는 복원 작업이 시작됩니다.
+7. 복원 정보를 검토하고 확인 아이콘![확인 아이콘](./media/storsimple-restore-from-backup-set/HCS_CheckIcon.png)을 클릭합니다. 그러면 **작업** 페이지에 액세스하여 볼 수 있는 복원 작업이 시작됩니다.
 
 8. 복원이 완료되면 볼륨의 내용을 백업의 볼륨으로 바뀌는 것을 확인할 수 있습니다.
 
 ![동영상 사용 가능](./media/storsimple-restore-from-backup-set/Video_icon.png) **동영상 사용 가능**
 
-StorSimple에서 복제 및 복원 기능을 사용하여 삭제된 파일을 복구하는 방법을 보여 주는 동영상을 시청하려면 [여기](http://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/)를 클릭하세요.
+StorSimple에서 복제 및 복원 기능을 사용하여 삭제된 파일을 복구하는 방법을 보여 주는 동영상을 시청하려면 [여기](https://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/)를 클릭하세요.
 
 ## 다음 단계
 
@@ -90,4 +90,4 @@ StorSimple에서 복제 및 복원 기능을 사용하여 삭제된 파일을 �
 
 - [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

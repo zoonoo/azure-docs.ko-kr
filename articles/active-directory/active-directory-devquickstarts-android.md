@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="01/21/2016"
 	ms.author="brandwe"/>
 
 # Android 응용 프로그램에 Azure AD 통합
@@ -100,7 +100,7 @@ Maven으로 빌드하려면 최상위 수준에서 pom.xml을 사용할 수 있�
   * SDK 19를 사용하여 에뮬레이터를 설치합니다.
   * 리포지토리를 복제한 루트 폴더로 이동합니다.
   * mvn clean install 명령을 실행합니다.
-  * cd samples\hello를 실행하여 빠른 시작 샘플로 디렉터리를 변경합니다.
+  * cd samples\\hello를 실행하여 빠른 시작 샘플로 디렉터리를 변경합니다.
   * mvn android:deploy android:run 명령을 실행합니다.
   * 앱이 시작되는 것을 볼 수 있습니다.
   * 테스트 사용자 자격 증명을 입력하여 사용해 보세요.
@@ -136,7 +136,7 @@ repositories {
         dirs 'libs'
     }
     maven {
-        url "YourLocalMavenRepoPath\.m2\repository"
+        url "YourLocalMavenRepoPath\\.m2\\repository"
     }
 }
 dependencies {
@@ -270,8 +270,7 @@ maven에서 리포지토리로 jar 파일을 가져와 프로젝트의 *libs* �
      mContext.acquireTokenSilent(resource, clientid, userId, callback );
     ```
 
-11. **Broker**: 
-  Microsoft Intune의 회사 포털 앱은 broker 구성 요소를 제공합니다. Adal은 broker 계정을 사용하며, 사용자 계정이 하나만 만들어지면 인증자 및 개발자는 해당 계정을 건너뛰지 않도록 선택합니다. 개발자는 다음을 사용해서 broker 사용자를 건너뛸 수 있습니다.
+11. **Broker**: Microsoft Intune의 회사 포털 앱은 broker 구성 요소를 제공합니다. Adal은 broker 계정을 사용하며, 사용자 계정이 하나만 만들어지면 인증자 및 개발자는 해당 계정을 건너뛰지 않도록 선택합니다. 개발자는 다음을 사용해서 broker 사용자를 건너뛸 수 있습니다.
 
     ```java
      AuthenticationSettings.Instance.setSkipBroker(true);
@@ -283,14 +282,13 @@ maven에서 리포지토리로 jar 파일을 가져와 프로젝트의 *libs* �
 
  ```java
  String brokerAccount =  mContext.getBrokerUser();
- ``` 
-계정이 유효하면 Broker 사용자가 반환됩니다.
+ ``` 계정이 유효하면 Broker 사용자가 반환됩니다.
 
  앱 매니페스트에는 AccountManager 계정을 사용할 수 있는 권한이 있어야 합니다. http://developer.android.com/reference/android/accounts/AccountManager.html
 
- * GET_ACCOUNTS
- * USE_CREDENTIALS
- * MANAGE_ACCOUNTS
+ * GET\_ACCOUNTS
+ * USE\_CREDENTIALS
+ * MANAGE\_ACCOUNTS
 
 
 이 연습 과정을 수행하여 Azure Active Directory에 성공적으로 통합하는 데 필요한 기술과 지식을 얻을 수 있습니다. 이 작업의 추가 예제를 보려면 GitHub의 AzureADSamples/ 리포지토리를 방문하세요.
@@ -313,12 +311,9 @@ ADFS는 프로덕션 STS로 인식되지 않으므로 인스턴스 검색을 해
 
 ### 캐시 항목 쿼리
 
-ADAL은 일부 간단한 캐시 쿼리 함수를 사용하여 SharedPrefrecens에서 기본 캐시를 제공합니다. 다음을 사용하여 AuthenticationContext에서 현재 캐시를 가져올 수 있습니다. 
-```Java
+ADAL은 일부 간단한 캐시 쿼리 함수를 사용하여 SharedPrefrecens에서 기본 캐시를 제공합니다. 다음을 사용하여 AuthenticationContext에서 현재 캐시를 가져올 수 있습니다. ```Java
  ITokenCacheStore cache = mContext.getCache();
-``` 
-사용자 지정하려는 경우에도 캐시 구현을 제공할 수 있습니다. 
-```Java
+``` 사용자 지정하려는 경우에도 캐시 구현을 제공할 수 있습니다. ```Java
 mContext = new AuthenticationContext(MainActivity.this, authority, true, yourCache);
 ```
 
@@ -364,8 +359,7 @@ ADAL은 프롬프트 동작을 지정하기 위한 옵션을 제공합니다. �
       writeToLogFile(getApplicationContext(), tag +":" + message + "-" + additionalMessage);
      }
  }
- ``` 
-아래와 같이 사용자 지정 로그 파일에 메시지를 쓸 수 있습니다. 그러나 장치에서 로그를 얻는 표준 방법은 없습니다. 이 작업에 도움이 되는 몇 가지 서비스가 있습니다. 또한 서버에 파일을 보내는 것과 같은 자체 방법을 개발할 수도 있습니다.
+ ``` 아래와 같이 사용자 지정 로그 파일에 메시지를 쓸 수 있습니다. 그러나 장치에서 로그를 얻는 표준 방법은 없습니다. 이 작업에 도움이 되는 몇 가지 서비스가 있습니다. 또한 서버에 파일을 보내는 것과 같은 자체 방법을 개발할 수도 있습니다.
 
 ```Java
 private syncronized void writeToLogFile(Context ctx, String msg) {
@@ -386,8 +380,7 @@ private syncronized void writeToLogFile(Context ctx, String msg) {
 + 정보(정보 제공용)
 + 자세한 정보 표시(추가 정보)
 
-다음과 같이 로그 수준을 설정할 수 있습니다. 
-```Java
+다음과 같이 로그 수준을 설정할 수 있습니다. ```Java
 Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
  ```
 
@@ -395,8 +388,7 @@ Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
 
  ```
   adb logcat > "C:\logmsg\logfile.txt"
- ``` 
-adb cmds에 대한 추가 예제: https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
+ ``` adb cmds에 대한 추가 예제: https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
 
 #### 네트워크 추적
 
@@ -404,8 +396,8 @@ ADAL이 생성하는 HTTP 트래픽을 캡처하기 위해 다양한 도구를 �
 
 Fiddler는 가장 쉬운 HTTP 추적 도구입니다. 다음 링크에서 ADAL 네트워크 트래픽을 올바르게 기록하도록 설정할 수 있습니다. 편리한 작업을 위해 fiddler 또는 Charles와 같은 다른 도구가 암호화되지 않은 SSL 트래픽을 기록하도록 구성해야 할 수 있습니다. 참고: 이 방식으로 생성된 추적에는 액세스 토큰, 사용자 이름 및 암호와 같은 높은 권한이 필요한 정보가 포함될 수 있습니다. 프로덕션 계정을 사용하는 경우 이러한 추적 정보를 제3자와 공유하지 않도록 하세요. 지원을 얻기 위해 누군가에게 추적 정보를 제공해야 하는 경우 공유해도 괜찮은 사용자 이름 및 암호를 사용한 임시 계정으로 문제를 재현하도록 합니다.
 
-+ [Android용 Fiddler 설정](http://docs.telerik.com/fiddler/configure-fiddler/tasks/ConfigureForAndroid)(영문)
-+ [ADAL에 대한 Fiddler 규칙 구성](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/How-to-listen-to-httpUrlConnection-in-Android-app-from-Fiddler)(영문)
++ [Android용 Fiddler 설정(영문)](http://docs.telerik.com/fiddler/configure-fiddler/tasks/ConfigureForAndroid)
++ [ADAL에 대한 Fiddler 규칙 구성(영문)](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/How-to-listen-to-httpUrlConnection-in-Android-app-from-Fiddler)
 
 
 ### 대화 상자 모드
@@ -417,18 +409,16 @@ ADAL은 기본적으로 토큰을 암호화한 후 SharedPreferences에 저장�
 
 ### Oauth2 전달자 과제
 
-AuthenticationParameters 클래스는 authorization_uri Oauth2 전달자 인증을 가져오기 위한 기능을 제공합니다.
+AuthenticationParameters 클래스는 authorization\_uri Oauth2 전달자 인증을 가져오기 위한 기능을 제공합니다.
 
 ### Webview의 세션 쿠키
 
-앱이 닫힌 후에 Android webview가 세션 쿠키를 지우지 않습니다. 아래 샘플 코드로 이 문제를 처리할 수 있습니다. 
-```java
+앱이 닫힌 후에 Android webview가 세션 쿠키를 지우지 않습니다. 아래 샘플 코드로 이 문제를 처리할 수 있습니다. ```java
 CookieSyncManager.createInstance(getApplicationContext());
 CookieManager cookieManager = CookieManager.getInstance();
 cookieManager.removeSessionCookie();
 CookieSyncManager.getInstance().sync();
-``` 
-쿠키에 대한 추가 정보: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
+``` 쿠키에 대한 추가 정보: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
 
 ### 리소스 재정의
 
@@ -452,6 +442,5 @@ ADAL 라이브러리에는 다음 두 ProgressDialog 메시지에 대한 영어 
 Adal 버전 1.1.0은 WebViewClient의 onReceivedHttpAuthRequest 이벤트를 통해 처리되는 NTLM 대화 상자를 지원합니다. 대화 상자 레이아웃 및 문자열은 사용자 지정할 수 있습니다. # # # 5단계: iOS 네이티브 클라이언트 샘플 코드 다운로드
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

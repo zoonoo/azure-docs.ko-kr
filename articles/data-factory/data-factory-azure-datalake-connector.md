@@ -19,7 +19,8 @@
 # Azure 데이터 팩터리를 사용하여 Azure 데이터 레이크 저장소 간 데이터 이동
 이 문서에서는 Azure 데이터 팩토리에서 복사 작업을 사용하여 다른 데이터 저장소에서 Azure 데이터 레이크 저장소로, 그리고 Azure 데이터 레이크 저장소에서 다른 데이터 스토어로 데이터를 이동하는 방법을 간략하게 설명합니다. 이 문서는 복사 작업 및 지원되는 데이터 저장소 조합을 사용하여 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서를 작성합니다.
 
-> [AZURE.NOTE]Azure 데이터 레이크 저장소 간에 데이터를 이동하려면 복사 작업을 사용하여 파이프라인을 만들기 전에 Activity 데이터 레이크 저장소 계정을 만들어야 합니다. Azure 데이터 레이크 저장소에 대해 알아보려면 [Azure 데이터 레이크 저장소 시작](../data-lake-store/data-lake-store-get-started-portal.md)을 참조하세요.
+> [AZURE.NOTE]
+Azure 데이터 레이크 저장소 간에 데이터를 이동하려면 복사 작업을 사용하여 파이프라인을 만들기 전에 Activity 데이터 레이크 저장소 계정을 만들어야 합니다. Azure 데이터 레이크 저장소에 대해 알아보려면 [Azure 데이터 레이크 저장소 시작](../data-lake-store/data-lake-store-get-started-portal.md)을 참조하세요.
 >  
 > Data Factory, 연결된 서비스, 데이터 집합 및 파이프라인 만들기를 위한 자세한 단계는 [첫 파이프라인 빌드하기 자습서](data-factory-build-your-first-pipeline.md)를 검토하세요. Data Factory 편집기, Visual Studio 또는 Azure PowerShell에서 JSON 조각을 사용하여 Data Factory 엔터티를 만듭니다.
 
@@ -74,7 +75,7 @@
 5. (선택 사항) JSON에서 **accountName**, **subscriptionID** 및 **resourceGroupName**과 같은 선택적 매개 변수의 값을 지정하거나 이러한 속성을 JSON에서 삭제합니다.
 6. 명령 모음에서 **배포**를 클릭하여 연결된 서비스를 배포합니다.
 
-> [AZURE.IMPORTANT]**권한 부여** 단추를 사용하여 생성된 권한 부여 코드는 잠시 후 만료됩니다. **토큰이 만료**되면 **권한 부여** 단추를 사용하여 **다시 인증**하고 연결된 서비스를 다시 배포해야 합니다. 자세한 내용은 [Azure 데이터 레이크 저장소 연결된 서비스](#azure-data-lake-store-linked-service-properties) 섹션을 참조하세요.
+> [AZURE.IMPORTANT] **권한 부여** 단추를 사용하여 생성된 권한 부여 코드는 잠시 후 만료됩니다. **토큰이 만료**되면 **권한 부여** 단추를 사용하여 **다시 인증**하고 연결된 서비스를 다시 배포해야 합니다. 자세한 내용은 [Azure 데이터 레이크 저장소 연결된 서비스](#azure-data-lake-store-linked-service-properties) 섹션을 참조하세요.
 
 
 
@@ -238,7 +239,7 @@
 	    }
 	}
 
-> [AZURE.NOTE]authorization URL을 가져오려면 이전 샘플의 단계를 참조하세요.
+> [AZURE.NOTE] authorization URL을 가져오려면 이전 샘플의 단계를 참조하세요.
 
 **Azure 저장소 연결된 서비스:**
 
@@ -414,8 +415,8 @@ Azure 저장소 연결된 서비스를 사용하여 Azure 저장소 계정을 Az
 | 사용자 유형 | 다음 시간 후에 만료 |
 | :-------- | :----------- | 
 | 비-AAD 사용자(@hotmail.com, @live.com 등) | 12시간 |
-| AAD 사용자 및 OAuth 기반 원본은 사용자의 데이터 팩터리 테넌트와 다른 [테넌트](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant)에 있습니다. | 12시간 |
-| AAD 사용자 및 OAuth 기반 원본은 사용자의 데이터 팩터리 테넌트와 동일한 테넌트에 있습니다. | <p> 사용자가 14일마다 한 번 OAuth 기반 연결된 서비스 원본에 따라 분할 영역을 실행하는 경우 최대값은 90일입니다. </p><p>예상되는 90일 동안 사용자가 14일 동안 해당 원본에 따라 분할 영역을 실행하지 않으면 자격 증명은 마지막 분할 영역 실행 즉시 14일 후에 만료됩니다.</p> |
+| AAD 사용자 및 OAuth 기반 원본은 데이터 팩터리 테넌트와 다른 [테넌트](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant)에 있습니다. | 12시간 |
+| AAD 사용자 및 OAuth 기반 원본은 데이터 팩터리 테넌트와 동일한 테넌트에 있습니다. | 14일 |
 
 이 오류를 방지/해결하려면 **토큰이 만료**되면 **권한 부여** 단추를 사용하여 다시 인증하고 연결된 서비스를 다시 배포해야 합니다. 다음 섹션의 코드를 사용하여 프로그래밍 방식으로 **sessionId** 및 **권한 부여** 속성의 값을 생성할 수도 있습니다.
 
@@ -604,4 +605,4 @@ Hive 테이블에서 Avro 형식을 사용하려는 경우 [Apache Hive의 자�
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

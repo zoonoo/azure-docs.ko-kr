@@ -13,7 +13,7 @@
 	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="article"
 	ms.date="11/16/2015"
 	ms.author="jodebrui"/>
 
@@ -52,7 +52,7 @@ SELECT DatabasePropertyEx(Db_Name(), 'IsXTPSupported');
 
 새로운 Premium 데이터베이스로 bacpac 가져옵니다.
 
-1. Azure [포털](http://portal.azure.com/)에서
+1. Azure [포털](https://portal.azure.com/)에서
  - 서버로 이동합니다.
  - [데이터베이스 가져오기](sql-database-import.md) 옵션을 선택합니다.
  - Premium 가격 책정 계층을 선택합니다.
@@ -220,7 +220,7 @@ CREATE PROCEDURE schemaname.procedurename
 
 프로덕션에서 메모리 내 구현의 성능 효과를 모니터링하는 것이 좋습니다.
 
-- [메모리 내 저장소 모니터링](https://azure.microsoft.com/documentation/articles/sql-database-in-memory-oltp-monitoring/).
+- [메모리 내 저장소 모니터링](sql-database-in-memory-oltp-monitoring.md).
 
 - [동적 관리 뷰를 사용하여 Azure SQL 데이터베이스 모니터링](sql-database-monitoring-with-dmvs.md)
 
@@ -233,4 +233,4 @@ CREATE PROCEDURE schemaname.procedurename
 
 - [메모리 최적화 관리자](http://msdn.microsoft.com/library/dn284308.aspx)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

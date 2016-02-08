@@ -36,7 +36,7 @@ DocumentDB의 일반적인 사용 사례는 웹 및 모바일 응용 프로그�
 
 다양한 소셜 네트워크와 통합되는 응용 프로그램은 이러한 네트워크의 스키마 변화에 응답해야 합니다. DocumentDB에서는 기본적으로 데이터가 자동으로 인덱싱되므로 언제든지 데이터를 쿼리할 수 있습니다. 따라서 이러한 응용 프로그램이 해당 요구에 따라 유연하게 프로젝션을 검색할 수 있습니다.
 
-많은 소셜 응용 프로그램은 글로벌 규모로 실행되며 예측할 수 없는 사용 패턴을 나타낼 수 있습니다. 사용량 수요에 따라 응용 프로그램 계층의 크기가 조정되므로 데이터 저장소의 크기를 조정하는 유연성이 필요합니다. DocumentDB 계정으로 데이터 파티션을 더 추가하여 규모를 확장할 수 있습니다. 또한 여러 지역에 추가 DocumentDB 계정을 만들 수도 있습니다. DocumentDB 서비스 지역 가용성은 [Azure 지역](http://azure.microsoft.com/regions/#services)을 참조하세요.
+많은 소셜 응용 프로그램은 글로벌 규모로 실행되며 예측할 수 없는 사용 패턴을 나타낼 수 있습니다. 사용량 수요에 따라 응용 프로그램 계층의 크기가 조정되므로 데이터 저장소의 크기를 조정하는 유연성이 필요합니다. DocumentDB 계정으로 데이터 파티션을 더 추가하여 규모를 확장할 수 있습니다. 또한 여러 지역에 추가 DocumentDB 계정을 만들 수도 있습니다. DocumentDB 서비스 지역 가용성은 [Azure 지역](https://azure.microsoft.com/regions/#services)을 참조하세요.
 
 ## 카탈로그 데이터
 카탈로그 데이터 사용 시나리오에는 사용자, 장소 및 제품과 같은 엔터티의 특성 집합 저장 및 쿼리가 포함됩니다. 카탈로그 데이터의 몇 가지 예로 사용자 계정, 제품 카탈로그, IoT에 대한 장치 레지스트리, BOM 시스템 등이 있습니다. 이 데이터의 특성은 다양하며, 시간에 따라 응용 프로그램 요구 사항에 맞게 변경될 수 있습니다.
@@ -68,7 +68,7 @@ IoT용 Azure 제품에 대한 자세한 내용은 [사물 인터넷 만들기](h
 
 ## 다음 단계
  
-DocumentDB를 시작하기 위해 [계정](http://azure.microsoft.com/pricing/free-trial/)을 만든 다음 [학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/)에 따라 DocumentDB에 대해 알아보고 필요한 정보를 찾을 수 있습니다.
+DocumentDB를 시작하기 위해 [계정](https://azure.microsoft.com/pricing/free-trial/)을 만든 다음 [학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/)에 따라 DocumentDB에 대해 알아보고 필요한 정보를 찾을 수 있습니다.
 
 또는 DocumentDB를 사용하는 고객에 대한 추가 정보를 원하는 경우 다음 고객 사례를 확인할 수 있습니다.
 
@@ -79,4 +79,4 @@ DocumentDB를 시작하기 위해 [계정](http://azure.microsoft.com/pricing/fr
 - [XOMNI](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667). 미래 저장소가 빠른 검색 및 쉬운 데이터 흐름으로 실행됩니다.
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

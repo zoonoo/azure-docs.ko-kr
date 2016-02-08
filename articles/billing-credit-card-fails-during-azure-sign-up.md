@@ -59,9 +59,9 @@ Azure 무료 평가판 제품은 무료 평가판 활성화 한 번으로 제한
 
 제안:
 
-과거에 Azure 구독을 이미 활성화했기 때문에 무료 평가판 활성화에 실패한 경우 Azure 무료 평가판 계획 대신에 [Microsoft Azure 제품 정보](http://azure.microsoft.com/support/legal/offer-details/)에 나열된 사용 가능한 또 다른 Azure 계획을 사용하십시오.
+과거에 Azure 구독을 이미 활성화했기 때문에 무료 평가판 활성화에 실패한 경우 Azure 무료 평가판 계획 대신에 [Microsoft Azure 제품 정보](https://azure.microsoft.com/support/legal/offer-details/)에 나열된 사용 가능한 또 다른 Azure 계획을 사용하십시오.
 
 ## Azure 지원 문의
 이 문제 해결 단계를 수행한 후 등록 문제가 계속 발생하면 [Azure 지원](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409)에 문의하십시오.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

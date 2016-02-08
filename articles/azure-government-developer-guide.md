@@ -42,7 +42,7 @@ Microsoft는 클라우드 응용 프로그램을 만들고 배포할 수 있는 
 
 응용 프로그램을 만들어 글로벌 서비스가 아니라 Azure Government 서비스에 배포하는 경우 개발자는 두 서비스의 주요 차이점을 알아야 합니다. 특히, 프로그래밍 환경을 설정 및 구성하고, 끝점을 구성하며, 응용 프로그램을 작성하고, 응용 프로그램을 서비스로 Azure Government에 배포하는 경우에 그렇습니다.
 
-이 문서의 정보는 그러한 차이점을 요약하고 [Azure Government](http://www.azure.com/gov "Azure Government") 사이트 및 MSDN의 [Microsoft Azure 기술 라이브러리](http://msdn.microsoft.com/cloud-app-development-msdn "MSDN")에서 제공하는 정보를 보완합니다. 또한 공식 정보는 [Microsoft Azure 보안 센터](http://azure.microsoft.com/support/trust-center/ "Microsoft Azure 보안 센터"), [Azure 설명서 센터](http://azure.microsoft.com/documentation/) 및 [Azure 블로그](http://azure.microsoft.com/blog/ "Azure 블로그") 등의 여러 다른 위치에서도 제공할 수 있습니다.
+이 문서의 정보는 그러한 차이점을 요약하고 [Azure Government](http://www.azure.com/gov "Azure Government") 사이트 및 MSDN의 [Microsoft Azure 기술 라이브러리](http://msdn.microsoft.com/cloud-app-development-msdn "MSDN")에서 제공하는 정보를 보완합니다. 또한 공식 정보는 [Microsoft Azure 보안 센터](https://azure.microsoft.com/support/trust-center/ "Microsoft Azure Trust Center"/), [Azure 설명서 센터](https://azure.microsoft.com/documentation/) 및 [Azure 블로그](https://azure.microsoft.com/blog/ "Azure Blogs"/) 등의 여러 다른 위치에서도 제공할 수 있습니다.
 
 이 내용은 Microsoft Azure Government에 배포하는 파트너 및 개발자를 위한 것입니다.
 
@@ -77,7 +77,7 @@ Microsoft는 클라우드 응용 프로그램을 만들고 배포할 수 있는 
 - Express 경로
 - etc.
 
-기타 서비스도 사용할 수 있으며, 계속해서 서비스가 더 추가될 예정입니다. 서비스의 최신 목록은 사용 가능한 각 지역과 해당 서비스가 강조 표시되어 있는 [지역 페이지](http://azure.microsoft.com/regions/#services)를 참조하세요.
+기타 서비스도 사용할 수 있으며, 계속해서 서비스가 더 추가될 예정입니다. 서비스의 최신 목록은 사용 가능한 각 지역과 해당 서비스가 강조 표시되어 있는 [지역 페이지](https://azure.microsoft.com/regions/#services)를 참조하세요.
 
 현재 미국 정부 아이오와 및 미국 정부 버지니아는 Azure Government를 지원하는 데이터 센터입니다. 현재 사용 가능한 데이터 센터 및 서비스에 대해서는 위의 지역 페이지를 참조하세요.
 
@@ -112,7 +112,7 @@ Azure Government에 대한 보다 자세한 내용은 아래 링크를 통해 �
 
 - **[Azure 정부 블로그](http://blogs.msdn.com/b/azuregov/)**
 
-- **[Azure 규정 준수](http://azure.microsoft.com/support/trust-center/compliance/)**
+- **[Azure 규정 준수](https://azure.microsoft.com/support/trust-center/compliance/)**
 
 <!--Anchors-->
 
@@ -128,4 +128,4 @@ Azure Government에 대한 보다 자세한 내용은 아래 링크를 통해 �
 [Link 2 to another azure.microsoft.com documentation topic]: web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

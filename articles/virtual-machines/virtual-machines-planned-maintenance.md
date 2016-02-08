@@ -50,7 +50,7 @@ Microsoft Azure의 업데이트 클래스는 고객이 실행 중인 가상 컴�
 
 이와 반대로 단일 인스턴스 구성은 가용성 집합에 배치되지 않은 독립 실행형 가상 컴퓨터에 사용됩니다. 이러한 가상 컴퓨터는 동일한 가용성 집합 하에서 배포된 둘 이상의 가상 컴퓨터를 요구하는 SLA(서비스 수준 계약)를 충족하지 못합니다.
 
-SLA에 대한 자세한 내용은 [서비스 수준 계약](http://azure.microsoft.com/support/legal/sla/)의 "클라우드 서비스, 가상 컴퓨터 및 가상 네트워크" 섹션을 참조하세요.
+SLA에 대한 자세한 내용은 [서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/)의 "클라우드 서비스, 가상 컴퓨터 및 가상 네트워크" 섹션을 참조하세요.
 
 
 ## 다중 인스턴스 구성 업데이트
@@ -126,4 +126,4 @@ Azure는 지역 쌍의 집합을 구성합니다. Azure는 단일 인스턴스 �
 [Virtual Machines Manage Availability]: virtual-machines-windows-tutorial.md
 [Understand planned versus unplanned maintenance]: virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

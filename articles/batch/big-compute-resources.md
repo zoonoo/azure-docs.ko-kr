@@ -25,14 +25,14 @@ Azure의 큰 계산 옵션에 대해 알아보고 사용자의 작업 및 비즈
 
 * [배치 및 HPC 솔루션](batch-hpc-solutions.md)
 
-* [비디오: 클라우드에서 Azure 및 HPC를 사용한 큰 계산(영문)](http://azure.microsoft.com/documentation/videos/teched-europe-2014-big-compute-in-the-cloud-with-high-performance-computing-on-azure/)
+* [비디오: 클라우드에서 Azure 및 HPC를 사용한 큰 계산(영문)](https://azure.microsoft.com/documentation/videos/teched-europe-2014-big-compute-in-the-cloud-with-high-performance-computing-on-azure/)
 
 
 ## Azure 배치
 
-[배치](http://azure.microsoft.com/services/batch/)는 응용 프로그램에서 클라우드를 쉽게 지원하도록 만들고 클러스터 및 작업 스케줄러를 설정 및 관리하지 않고도 작업을 실행할 수 있게 해주는 플랫폼 서비스입니다. SDK를 사용하면 다양한 언어로 Azure 배치와 응용 프로그램을 통합하고, 데이터를 Azure에 스테이징하고, 작업 실행 파이프라인을 빌드할 수 있습니다.
+[배치](https://azure.microsoft.com/services/batch/)는 응용 프로그램에서 클라우드를 쉽게 지원하도록 만들고 클러스터 및 작업 스케줄러를 설정 및 관리하지 않고도 작업을 실행할 수 있게 해주는 플랫폼 서비스입니다. SDK를 사용하면 다양한 언어로 Azure 배치와 응용 프로그램을 통합하고, 데이터를 Azure에 스테이징하고, 작업 실행 파이프라인을 빌드할 수 있습니다.
 
-* [설명서](http://azure.microsoft.com/documentation/services/batch/)
+* [설명서](https://azure.microsoft.com/documentation/services/batch/)
 
 * [API 참조](https://msdn.microsoft.com/library/azure/dn820177.aspx)
 
@@ -68,9 +68,9 @@ HPC Pack은 Microsoft Azure 및 Windows Server 기술로 구축된 무료 HPC �
 
 Azure 빠른 시작 템플릿을 사용하여 Linux HPC 클러스터와 오픈 소스 도구를 배포합니다.
 
-* [SLURM 클러스터 스핀업](http://azure.microsoft.com/documentation/templates/slurm/) 및 [블로그 게시물](http://blogs.technet.com/b/windowshpc/archive/2015/06/06/deploy-a-slurm-cluster-on-azure.aspx)
+* [SLURM 클러스터 스핀업](https://azure.microsoft.com/documentation/templates/slurm/) 및 [블로그 게시물](http://blogs.technet.com/b/windowshpc/archive/2015/06/06/deploy-a-slurm-cluster-on-azure.aspx)
 
-* [토크 클러스터 스핀업](http://azure.microsoft.com/documentation/templates/torque-cluster/)
+* [토크 클러스터 스핀업](https://azure.microsoft.com/documentation/templates/torque-cluster/)
 
 ## Microsoft MPI
 
@@ -102,23 +102,23 @@ Azure는 Linux 및 Windows HPC 워크로드를 실행하도록 계산 집약적 
 
 ## 관련 Azure 서비스
 
-* [데이터 팩터리](http://azure.microsoft.com/documentation/services/data-factory/)
+* [데이터 팩터리](https://azure.microsoft.com/documentation/services/data-factory/)
 
-* [기계 학습](http://azure.microsoft.com/documentation/services/machine-learning/)
+* [기계 학습](https://azure.microsoft.com/documentation/services/machine-learning/)
 
-* [HDInsight](http://azure.microsoft.com/documentation/services/hdinsight/)
+* [HDInsight](https://azure.microsoft.com/documentation/services/hdinsight/)
 
-* [가상 컴퓨터](http://azure.microsoft.com/documentation/services/virtual-machines/)
+* [가상 컴퓨터](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
-* [클라우드 서비스](http://azure.microsoft.com/documentation/services/cloud-services/)
+* [클라우드 서비스](https://azure.microsoft.com/documentation/services/cloud-services/)
 
-* [미디어 서비스](http://azure.microsoft.com/documentation/services/media-services/)
+* [미디어 서비스](https://azure.microsoft.com/documentation/services/media-services/)
 
 
 
 ## 다음 단계
 
-* 최신 공지 사항은 [Microsoft HPC 및 배치 팀 블로그](http://blogs.technet.com/b/windowshpc/) 및 [Azure 블로그](http://azure.microsoft.com/blog/tag/hpc/)를 참조하세요.
-* 또한 [배치의 새로운 기능](http://azure.microsoft.com/updates/?service=batch)을 참조하거나 [RSS 피드](http://azure.microsoft.com/updates/feed/?service=batch)를 구독하세요.
+* 최신 공지 사항은 [Microsoft HPC 및 배치 팀 블로그](http://blogs.technet.com/b/windowshpc/) 및 [Azure 블로그](https://azure.microsoft.com/blog/tag/hpc/)를 참조하세요.
+* 또한 [배치의 새로운 기능](https://azure.microsoft.com/updates/?service=batch)을 참조하거나 [RSS 피드](https://azure.microsoft.com/updates/feed/?service=batch)를 구독하세요.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

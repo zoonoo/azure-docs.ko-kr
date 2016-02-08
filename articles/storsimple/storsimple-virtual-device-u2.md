@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/14/2015"
+   ms.date="01/22/2016"
    ms.author="alkohli" />
 
 # Azure에서 StorSimple 가상 장치 배포 및 관리(업데이트 2)
@@ -40,7 +40,7 @@ StorSimple 가상 장치 모델은 두 가지 모델 즉, 표준 8010 및 프리
 | **저장소 유형** | Azure 표준 저장소 사용<br></br> [표준 저장소 계정을 만드는]() 방법 알아보기 | Azure 프리미엄 저장소 사용<br></br> [프리미엄 저장소 계정을 만드는](storage-premium-storage-preview-portal.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) 방법 알아보기 |
 | **워크로드 지침** | 백업으로부터 항목 수준 파일 읽어오기 | 클라우드 개발 및 테스트 시나리오, 짧은 대기 시간, 높은 성능 워크로드 <br></br>재해 복구용 보조 장치 |
  
-<sup>1</sup> 이전에 1100로 알려짐.
+<sup>1</sup> *이전에 1100로 알려짐*.
 
 
 이 문서는 Azure에서 StorSimple 가상 장치를 배포하는 단계별 프로세스를 설명합니다. 이 문서를 읽고 나면:
@@ -125,8 +125,7 @@ StorSimple 가상 장치는 Microsoft Azure 가상 컴퓨터의 단일 노드에
 
 이 절차를 시작하기 전에 서비스 데이터 암호화 키의 복사본을 가지고 있는지 확인합니다. 첫번째 StorSimple 장치를 구성하고 안전한 위치에 저장하도록 명령한 경우, 서비스 데이터 암호화 키가 만들어집니다. 서비스 데이터 암호화 키의 복사본이 없는 경우 Microsoft 지원에 문의해야 합니다.
 
-다음 단계에 따라 StorSimple 가상 장치를 구성하고 등록합니다.
-[AZURE.INCLUDE [가상 장치 구성 및 등록](../../includes/storsimple-configure-register-virtual-device.md)]
+다음 단계에 따라 StorSimple 가상 장치를 구성하고 등록합니다.[AZURE.INCLUDE [가상 장치 구성 및 등록](../../includes/storsimple-configure-register-virtual-device.md)]
 
 ### 3단계: (선택 사항) 장치 구성 설정 수정
 
@@ -144,7 +143,7 @@ StorSimple 가상 장치는 Microsoft Azure 가상 컴퓨터의 단일 노드에
 
 StorSimple 스냅숏 관리자 소프트웨어는 Windows 호스트에 상주하며 관리자가 로컬 및 클라우드 스냅숏의 형태로 StorSimple 장치의 백업을 관리할 수 있습니다.
 
->[AZURE.NOTE]가상 장치의 경우, Windows 호스트는 Azure 가상 컴퓨터입니다.
+>[AZURE.NOTE] 가상 장치의 경우, Windows 호스트는 Azure 가상 컴퓨터입니다.
 
 StorSimple 스냅숏 관리자에서 장치를 구성하면, StorSimple 장치 IP 주소 및 암호를 입력하여 저장소 장치를 인증하라는 메시지가 표시됩니다. 자세한 단계를 보려면 [StorSimple 스냅숏 관리자 암호 구성](storsimple-change-passwords.md#change-the-storsimple-snapshot-manager-password)으로 이동합니다.
 
@@ -167,7 +166,7 @@ Windows PowerShell 인터페이스를 통해 가상 장치에 대한 원격 액�
 
 StorSimple 장치 구성 페이지에서 원격 관리를 활성화한 후, Windows PowerShell 원격을 사용하여 동일한 가상 네트워크 내 다른 가상 컴퓨터에서 가상 장치에 연결할 수 있습니다. 예를 들어, iSCSI에 연결하도록 구성되고 사용된 호스트 VM에서 연결할 수 있습니다. 대부분의 배포에서는 가상 장치에 액세스하기 위해 사용할 수 있는 호스트 VM에 액세스하기 위해 이미 공용 끝점이 열려 있습니다.
 
->[AZURE.WARNING]**보안 강화를 위해 끝점에 연결할 때 HTTPS를 사용하고 PowerShell 원격 세션을 완료한 후 끝점을 삭제하는 것이 좋습니다.**
+>[AZURE.WARNING] **보안 강화를 위해 끝점에 연결할 때 HTTPS를 사용하고 PowerShell 원격 세션을 완료한 후 끝점을 삭제하는 것이 좋습니다.**
 
 [StorSimple 장치에 원격으로 연결](storsimple-remote-connect.md)의 절차에 따라 가상 장치에 대한 원격 서비스를 설정해야 합니다.
 
@@ -235,7 +234,7 @@ StorSimple 물리적 장치와 달리, StorSimple 가상 장치에서 누를 전
 
 DR(재해 복구)는 StorSimple 가상 장치가 설계된 주요 시나리오 중 하나입니다. 이 시나리오에서는 물리적 StorSimple 장치 또는 전체 데이터 센터를 사용하지 못할 수 있습니다. 다행스럽게도 가상 장치를 사용하여 다른 위치에서 작업을 복원할 수 있습니다. DR 중, 원본 장치의 볼륨 컨테이너는 소유권을 변경하고 가상 장치로 전송됩니다. DR에 대한 필수 구성 요소는 가상 장치가 작성되고 구성되었는지, 볼륨 컨테이너 내의 모든 볼륨을 오프라인으로 전환했는지 및 볼륨 컨테이너에 연결된 클라우드 스냅숏이 있는지 입니다.
 
->[AZURE.NOTE]
+>[AZURE.NOTE] 
 >
 > - DR에 대한 보조 장치로 가상 장치를 사용하는 경우에는 8010에 30TB의 표준 저장소가 있고 8020에 64TB의 프리미엄 저장소가 있다는 것을 기억합니다. 높은 용량의 8020 가상 장치가 DR 시나리오에 보다 적합할 수 있습니다.
 > - 업데이트 2를 실행하는 장치에서 사전 업데이트 1 소프트웨어를 실행하는 장치로 장애 조치 또는 복제할 수 없습니다. 하지만 업데이트 2를 실행하는 장치에서 업데이트 1(1.1 또는 1.2)을 실행하는 장치로 장애 조치는 가능합니다.
@@ -259,4 +258,4 @@ StorSimple 가상 장치를 이전에 구성하고 사용했지만 이제 용도
  
 - [백업 세트에서 StorSimple 볼륨을 복원](storsimple-restore-from-backup-set.md)하는 방법을 이해합니다.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -47,7 +47,7 @@ Azure Active Directory 테넌트(또는 대리자)의 관리자가 Azure 포털�
 
 ### 에이전트에 의해 수집된 데이터
 
-아래 목록에 요약된 정보는 웹 응용 프로그램에 연결되는 경우 에이전트에 의해 수집됩니다. 이 정보는 관리자가 검색에 대해 구성한 응용 프로그램에 대해서만 수집됩니다. <br> Microsoft [Azure 포털](https://portal.azure.com)의 **설정**->**데이터 컬렉션**->**앱 컬렉션 목록**에 있는 클라우드 앱 검색 블레이드를 통해 에이전트가 모니터링하는 클라우드 앱 목록을 편집할 수 있습니다. 자세한 내용은 [클라우드 앱 검색 시작](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx)을 참조하십시오<br> **정보 범주**: 사용자 정보<br> **설명**:<br> 대상 웹 응용 프로그램에 요청을 수행하는 프로세스의 Windows 사용자 이름(예: DOMAIN\\username) 및 사용자의 SID(Windows 보안 식별자)
+아래 목록에 요약된 정보는 웹 응용 프로그램에 연결되는 경우 에이전트에 의해 수집됩니다. 이 정보는 관리자가 검색에 대해 구성한 응용 프로그램에 대해서만 수집됩니다. <br> Microsoft [Azure 포털](https://portal.azure.com/)의 **설정**->**데이터 컬렉션**->**앱 컬렉션 목록**에 있는 클라우드 앱 검색 블레이드를 통해 에이전트가 모니터링하는 클라우드 앱 목록을 편집할 수 있습니다. 자세한 내용은 [클라우드 앱 검색 시작](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx)을 참조하십시오<br> **정보 범주**: 사용자 정보<br> **설명**:<br> 대상 웹 응용 프로그램에 요청을 수행하는 프로세스의 Windows 사용자 이름(예: DOMAIN\\username) 및 사용자의 SID(Windows 보안 식별자)
 
 
 **정보 범주**: 프로세스 정보<br>**설명**:<br> 대상 웹 응용 프로그램에 요청을 수행하는 프로세스의 이름(예: "iexplore.exe")
@@ -88,7 +88,7 @@ Azure Active Directory 테넌트(또는 대리자)의 관리자가 Azure 포털�
 
 
 
-> [AZURE.NOTE]위의 HTTP 정보는 암호화되지 않은 모든 연결에 대해 수집됩니다. TLS 연결의 경우에는 포털에서 '자세히 검사' 설정이 켜져 있을 때만 이 정보가 캡처됩니다. 설정은 기본적으로 'ON'입니다. 자세한 내용은 아래 내용과 [클라우드 앱 검색 시작](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx)을 참조하십시오.
+> [AZURE.NOTE] 위의 HTTP 정보는 암호화되지 않은 모든 연결에 대해 수집됩니다. TLS 연결의 경우에는 포털에서 '자세히 검사' 설정이 켜져 있을 때만 이 정보가 캡처됩니다. 설정은 기본적으로 'ON'입니다. 자세한 내용은 아래 내용과 [클라우드 앱 검색 시작](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx)을 참조하십시오.
 
 
 에이전트는 네트워크 작업에 대한 데이터뿐만 아니라 소프트웨어 및 하드웨어 구성에 대한 익명 정보, 오류 보고서 및 에이전트 사용 방법에 대한 정보도 수집합니다.
@@ -168,7 +168,7 @@ TLS 가로채기가 최종 사용자 환경에 영향을 줄 수 있는 몇 가�
 
 
 
-> [AZURE.NOTE]자세한 내용은 [클라우드 앱 검색 시작](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx)을 참조하십시오.
+> [AZURE.NOTE] 자세한 내용은 [클라우드 앱 검색 시작](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx)을 참조하십시오.
 
 <br> 포털에서 데이터에 액세스하는 모든 사용자는 Azure AD Premium 라이선스의 사용 허가를 받아야 합니다.
 
@@ -179,4 +179,4 @@ TLS 가로채기가 최종 사용자 환경에 영향을 줄 수 있는 몇 가�
 
 * [조직 내에서 사용되고 있는 허용되지 않은 클라우드 앱을 검색하는 방법](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

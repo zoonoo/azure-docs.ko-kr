@@ -51,7 +51,7 @@ Oracle 데이터베이스 커넥터에서 사용할 수 있는 트리거와 작�
 데이터 원본 | 예 | Oracle 클라이언트가 설치되어 있는 컴퓨터의 tnsnames.ora 파일에 지정된 데이터 원본(Net 서비스) 이름입니다. 데이터 원본 이름 및 tnsnames.ora에 대한 자세한 내용은 [Oracle 클라이언트 구성](http://msdn.microsoft.com/library/dd787872.aspx)을 참조하세요.
 사용자 이름 | 예 | Oracle 서버에 연결할 사용자 이름을 입력합니다.
 암호 | 예 | 사용자 이름 암호를 입력합니다.
-서비스 버스 연결 문자열 | 예 | 온-프레미스에 연결할 경우 서비스 버스 릴레이 연결 문자열을 입력합니다.<br/><br/>[하이브리드 연결 관리자 사용](app-service-logic-hybrid-connection-manager.md)<br/>[서비스 버스 가격](http://azure.microsoft.com/pricing/details/service-bus/)
+서비스 버스 연결 문자열 | 예 | 온-프레미스에 연결할 경우 서비스 버스 릴레이 연결 문자열을 입력합니다.<br/><br/>[하이브리드 연결 관리자 사용](app-service-logic-hybrid-connection-manager.md)<br/>[서비스 버스 가격](https://azure.microsoft.com/pricing/details/service-bus/)
 테이블 | 아니요 | 커넥터를 통해 수정할 수 있는 데이터베이스의 테이블을 입력합니다. 예를 들어 *OrdersTable, EmployeeTable*을 입력합니다.
 저장 프로시저 | 아니요 | 커넥터를 통해 호출할 수 있는 데이터베이스의 저장 프로시저를 입력합니다. 예를 들어 *IsEmployeeEligible, CalculateOrderDiscount*를 입력합니다.
 함수 | 아니요 | 커넥터를 통해 호출할 수 있는 데이터베이스의 함수를 입력합니다. 예를 들어 *IsEmployeeEligible, CalculateOrderDiscount*를 입력합니다.
@@ -91,7 +91,7 @@ Oracle 커넥터를 작업으로 사용하려면 Oracle 커넥터를 만들 때 
 
 ## 하이브리드 구성
 
-> [AZURE.NOTE]이 단계는 방화벽 뒤의 Oracle 온-프레미스를 사용하는 경우에만 필요합니다.
+> [AZURE.NOTE] 이 단계는 방화벽 뒤의 Oracle 온-프레미스를 사용하는 경우에만 필요합니다.
 
 앱 서비스는 하이브리드 구성 관리자를 사용하여 온-프레미스 시스템에 안전하게 연결합니다. 커넥터가 온-프레미스 Oracle을 사용하는 경우 하이브리드 연결 관리자가 필요합니다.
 
@@ -100,7 +100,7 @@ Oracle 커넥터를 작업으로 사용하려면 Oracle 커넥터를 만들 때 
 ## 커넥터의 추가 기능
 이제 커넥터를 만들었으므로 논리 앱을 사용하여 비즈니스 워크플로에 추가할 수 있습니다. [논리 앱 정의](app-service-logic-what-are-logic-apps.md)를 참조하세요.
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동합니다. 앱 서비스에서 즉시 단기 스타터 논리 앱을 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동합니다. 앱 서비스에서 즉시 단기 스타터 논리 앱을 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 [커넥터 및 API 앱 참조](http://go.microsoft.com/fwlink/p/?LinkId=529766)의 Swagger REST API 참조를 봅니다.
 
@@ -118,4 +118,4 @@ Oracle 커넥터를 작업으로 사용하려면 Oracle 커넥터를 만들 때 
 [11]: ./media/app-service-logic-connector-oracle/LogicApp7.png
 [12]: ./media/app-service-logic-connector-oracle/LogicApp8.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

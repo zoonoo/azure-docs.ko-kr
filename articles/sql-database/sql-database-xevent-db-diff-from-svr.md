@@ -33,9 +33,9 @@
 *XEvent*는 블로그 및 기타 비공식 위치에서 '확장 이벤트'를 가리키는 비공식적 별명입니다.
 
 
-> [AZURE.NOTE]2015 년 10월을 기준으로 확장 이벤트 세션 기능은 Azure SQL 데이터베이스에서 미리 보기 수준으로 활성화됩니다. GA(일반 공급) 날짜는 아직 정해지지 않았습니다.
+> [AZURE.NOTE] 2015 년 10월을 기준으로 확장 이벤트 세션 기능은 Azure SQL 데이터베이스에서 미리 보기 수준으로 활성화됩니다. GA(일반 공급) 날짜는 아직 정해지지 않았습니다.
 > 
-> Azure [서비스 업데이트](http://azure.microsoft.com/updates/?service=sql-database)페이지에 GA에 대한 공지 사항이 게시됩니다.
+> Azure [서비스 업데이트](https://azure.microsoft.com/updates/?service=sql-database)페이지에 GA에 대한 공지 사항이 게시됩니다.
 
 
 ## 필수 조건
@@ -44,7 +44,7 @@
 이 항목은 다음에 대한 어느 정도의 지식이 있는 것으로 가정합니다.
 
 
-- [Azure SQL 데이터베이스 서비스](http://azure.microsoft.com/services/sql-database/).
+- [Azure SQL 데이터베이스 서비스](https://azure.microsoft.com/services/sql-database/).
 
 
 - Microsoft SQL Server의 [확장 이벤트](http://msdn.microsoft.com/library/bb630282.aspx).
@@ -54,7 +54,7 @@
 이벤트 파일을 [대상](#AzureXEventsTargets)으로 선택할 경우 다음 항목에 대한 사전 지식이 있으면 도움이 됩니다.
 
 
-- [Azure 저장소 서비스](http://azure.microsoft.com/services/storage/)
+- [Azure 저장소 서비스](https://azure.microsoft.com/services/storage/)
 
 
 - PowerShell
@@ -269,4 +269,4 @@ Azure 저장소 BLOB에 데이터를 유지하는 동안 **이벤트 파일** �
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

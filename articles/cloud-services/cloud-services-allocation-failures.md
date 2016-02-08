@@ -24,7 +24,7 @@
 ## 요약
 클라우드 서비스에 인스턴스를 배포하거나 새 웹 또는 작업자 역할 인스턴스를 추가할 때 Microsoft Azure는 계산 리소스를 할당합니다. 이러한 작업을 수행하면서 Azure 구독 제한에 도달하기 전에 오류를 수신하는 경우도 있습니다. 이 문서는 일부 일반적인 할당 오류의 이유를 설명하고 가능한 수정을 제안합니다. 서비스 배포를 계획하는 사용자에게 이 정보가 유용할 수 있습니다.
 
-이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 스택 오버플로 포럼](http://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수도 있습니다. [Azure 지원 사이트](http://azure.microsoft.com/support/options/)로 이동한 다음 **지원 받기**를 클릭합니다.
+이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 스택 오버플로 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수도 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동한 다음 **지원 받기**를 클릭합니다.
 
 ### 배경 – 할당의 작동 원리
 Azure 데이터 센터의 서버는 클러스터로 분할되어 있습니다. 여러 클러스터에서 새 클라우드 서비스 할당 요청을 시도합니다. 첫 번째 인스턴스가 클라우드 서비스(스테이징 또는 프로덕션)에 배포되면 해당 클라우드 서비스가 클러스터에 고정됩니다. 이후 클라우드 서비스에 대한 모든 추가 배포는 동일한 클러스터에서 발생합니다. 이 문서에서는 이것을 “클러스터에 고정된”이라고 하겠습니다. 아래 다이어그램 1은 여러 클러스터에 시도되는 정상적인 할당의 사례를 보여 줍니다. 다이어그램 2는 클라우드 서비스 CS\_1이 호스트되는 클러스터 2에 고정된 할당의 사례를 보여 줍니다.
@@ -86,6 +86,6 @@ Azure 데이터 센터의 서버는 클러스터로 분할되어 있습니다. �
 ## 추가 리소스
 ### Azure 고객 지원 서비스에 문의
 
-이 문서가 Azure 문제 해결에 도움이 되지 않으면 [MSDN 및 스택 오버플로](http://azure.microsoft.com/support/forums/)에서 Azure 포럼을 찾아봅니다. 사용자의 문제에 관해 Azure 기술 지원 인시던트를 제출할 수도 있습니다. [Azure 지원](http://azure.microsoft.com/support/options/) 사이트로 가서 지원 받기를 클릭합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](http://azure.microsoft.com/support/faq/)를 참조하세요.
+이 문서가 Azure 문제 해결에 도움이 되지 않으면, [MSDN 및 스택 오버플로](https://azure.microsoft.com/support/forums/)에서 Azure 포럼을 찾아봅니다. 사용자의 문제에 관해 Azure 기술 지원 인시던트를 제출할 수도 있습니다. [Azure 지원](https://azure.microsoft.com/support/options/) 사이트로 가서 지원 받기를 클릭합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

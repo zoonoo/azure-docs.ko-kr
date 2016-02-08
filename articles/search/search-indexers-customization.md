@@ -114,7 +114,7 @@ Azure 검색에서 문서 키 필드 내부의 문자는 URL 안전 문자로 �
 
 일부 실패를 허용하더라도 [인덱서 상태 가져오기 API](https://msdn.microsoft.com/library/azure/dn946884.aspx)에서 실패한 문서에 대한 정보를 반환합니다.
 
-오늘은 여기까지 하겠습니다. 향후 콘텐츠 아이디어에 대해 의견이나 제안이 있다면 #AzureSearch 해시 태그를 사용하여 트윗하거나 [UserVoice 페이지](http://feedback.azure.com/forums/263029-azure-search)에 아이디어를 제출하세요.
+오늘은 여기까지 하겠습니다. 향후 콘텐츠 아이디어에 대해 의견이나 제안이 있다면 #AzureSearch 해시 태그를 사용하여 트윗하거나 [UserVoice 페이지](https://feedback.azure.com/forums/263029-azure-search/)에 아이디어를 제출하세요.
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="01/25/2016"
 	ms.author="dkshir"/>
 
 # Windows를 실행하는 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결
@@ -26,7 +26,7 @@ Windows 기반 Azure 가상 컴퓨터에 원격 데스크톱(RDP) 연결은 여�
 
 이 문서는 Windows를 실행하는 Azure 가상 컴퓨터에 적용됩니다. Linux를 실행하는 Azure 가상 컴퓨터의 경우 [Azure VM에 SSH 연결 문제 해결](virtual-machines-troubleshoot-ssh-connections.md)을 참조하세요.
 
-이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 스택 오버플로 포럼](http://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수도 있습니다. [Azure 지원 사이트](http://azure.microsoft.com/support/options/)로 이동한 다음 **지원 받기**를 클릭합니다.
+이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 스택 오버플로 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수도 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동한 다음 **지원 받기**를 클릭합니다.
 
 
 <a id="quickfixrdp"></a>
@@ -38,38 +38,38 @@ Windows 기반 Azure 가상 컴퓨터에 원격 데스크톱(RDP) 연결은 여�
 
 이 단계는 클래식 배포 모델을 통해 만든 Azure 가상 컴퓨터에서 대부분의 원격 데스크톱 연결 오류를 해결할 수 있습니다. 각 단계 후 VM에 다시 연결을 시도합니다.
 
-- [Azure 포털](https://portal.azure.com)에서 원격 데스크톱 서비스를 다시 설정하여 RDP 서버와 시작 문제를 해결합니다.<br> 찾아보기 > 가상 컴퓨터(클래식) > Windows 가상 컴퓨터 > **원격 액세스 다시 설정**을 클릭합니다.
+- [Azure 포털](https://portal.azure.com)에서 원격 데스크톱 서비스를 다시 설정하여 RDP 서버와 시작 문제를 해결합니다.<br> **찾아보기** > **가상 컴퓨터(클래식)** > Windows 가상 컴퓨터 > **원격 액세스 다시 설정**을 클릭합니다.
 
-- 가상 컴퓨터를 다시 시작하여 다른 시작 문제를 해결합니다.<br> 찾아보기 > 가상 컴퓨터(클래식) > Windows 가상 컴퓨터 > **다시 시작**을 클릭합니다.
+- 가상 컴퓨터를 다시 시작하여 다른 시작 문제를 해결합니다.<br> **찾아보기** > **가상 컴퓨터(클래식)** > Windows 가상 컴퓨터 > **다시 시작**을 클릭합니다.
 
-- VM 크기를 조정하여 모든 호스트 문제를 해결합니다.<br> 찾아보기 > 가상 컴퓨터(클래식) > Windows 가상 컴퓨터 > 설정 > **크기**를 클릭합니다. 자세한 단계는 [가상 컴퓨터 크기 조정](https://msdn.microsoft.com/library/dn168976.aspx)을 참조하세요.
+- VM 크기를 조정하여 모든 호스트 문제를 해결합니다.<br> **찾아보기** > **가상 컴퓨터(클래식)** > Windows 가상 컴퓨터 > **설정** > **크기**를 클릭합니다. 자세한 단계는 [가상 컴퓨터 크기 조정](https://msdn.microsoft.com/library/dn168976.aspx)을 참조하세요.
 
-- VM의 콘솔 로그 또는 스크린샷을 검토하여 부팅 문제를 해결합니다.<br> 찾아보기 > 가상 컴퓨터(클래식) > Windows 가상 컴퓨터 > 설정 > **진단 부팅**을 클릭합니다.
+- VM의 콘솔 로그 또는 스크린샷을 검토하여 부팅 문제를 해결합니다.<br> **찾아보기** > **가상 컴퓨터(클래식)** > Windows 가상 컴퓨터 > **설정** > **진단 부팅**을 클릭합니다.
 
-- VM 리소스 상태에서 플랫폼 문제를 확인합니다.<br> 찾아보기 > 가상 컴퓨터(클래식) > Windows 가상 컴퓨터 > 설정 > **상태 검사**를 클릭합니다.
+- VM 리소스 상태에 플랫폼 문제가 있는지 확인합니다.<br> **찾아보기** > **가상 컴퓨터(클래식)** > Windows 가상 컴퓨터 > **설정** > **상태 검사**를 클릭합니다.
 
 ### 리소스 관리자 배포 모델을 사용하여 만든 가상 컴퓨터
 
 이 단계는 리소스 관리자 배포 모델을 통해 만든 Azure 가상 컴퓨터에서 대부분의 원격 데스크톱 연결 오류를 해결할 수 있습니다. 각 단계 후 VM에 다시 연결을 시도합니다.
 
-- Powershell<br>을 사용한 원격 액세스 다시 설정 a. 아직 설치되지 않은 경우 Azure AD 명령을 사용하여 [Azure PowerShell를 설치하고 Azure 구독에 연결](../powershell-install-configure.md)합니다. 새 Azure PowerShell 버전 1.0. x에서는 리소스 관리자 모드로 전환할 필요가 없습니다.
+- Powershell<br>을 사용한 _원격 액세스 다시 설정_ a. 아직 설치되지 않은 경우 Azure AD 명령을 사용하여 [Azure PowerShell를 설치하고 Azure 구독에 연결](../powershell-install-configure.md)합니다. 새 Azure PowerShell 버전 1.0. x에서는 리소스 관리자 모드로 전환할 필요가 없습니다.
 
 	b. 다음 Azure PowerShell 명령 중 하나를 사용하여 RDP 연결을 다시 설정합니다. `myRG`, `myVM`, `myVMAccessExtension` 및 위치를 설치에 관련된 값으로 대체합니다.
 
 	```
 	Set-AzureRmVMExtension -ResourceGroupName "myRG" -VMName "myVM" -Name "myVMAccessExtension" -ExtensionType "VMAccessAgent" -Publisher "Microsoft.Compute" -typeHandlerVersion "2.0" -Location Westus
 	```
-	또는
+	또는<br>
 
   ```
   Set-AzureRmVMAccessExtension -ResourceGroupName "myRG" -VMName "myVM" -Name "myVMAccess" -Location Westus
   ```
 
-- 가상 컴퓨터를 다시 시작하여 다른 시작 문제를 해결합니다.<br> 찾아보기 > 가상 컴퓨터 > 해당Windows 가상 컴퓨터 > **다시 시작**을 클릭합니다.
+- 가상 컴퓨터를 다시 시작하여 다른 시작 문제를 해결합니다.<br> **찾아보기** > **가상 컴퓨터(클래식)** > Windows 가상 컴퓨터 > **다시 시작**을 클릭합니다.
 
-- VM 크기를 조정하여 모든 호스트 문제를 해결합니다.<br> 찾아보기 > 가상 컴퓨터 > 해당 Windows 가상 컴퓨터 > 설정 > **크기**를 클릭합니다.
+- VM 크기를 조정하여 모든 호스트 문제를 해결합니다.<br> **찾아보기** > **가상 컴퓨터(클래식)** > Windows 가상 컴퓨터 > **설정** > **크기**를 클릭합니다.
 
-- VM의 콘솔 로그 또는 스크린샷을 검토하여 부팅 문제를 해결합니다.<br> 찾아보기 > 가상 컴퓨터 > Windows 가상 컴퓨터 > 설정 > **진단 부팅**을 클릭합니다.
+- VM의 콘솔 로그 또는 스크린샷을 검토하여 부팅 문제를 해결합니다.<br> **찾아보기** > **가상 컴퓨터** > Windows 가상 컴퓨터 > **설정** > **진단 부팅**을 클릭합니다.
 
 
 위의 단계로 원격 데스크톱 연결 오류를 해결하지 못하면 다음 단계로 이동합니다.
@@ -121,7 +121,7 @@ VM에 실제로 두 개 이상의 동시 원격 데스크톱 연결이 필요하
 
 원인: 대상 가상 컴퓨터가 사용자의 자격 증명의 사용자 이름 부분에서 보안 기관을 찾지 못했습니다.
 
-사용자 이름이 *SecurityAuthority\UserName* (example: CORP\\User1) 형식인 경우, *SecurityAuthority* 부분은 가상 컴퓨터 이름(로컬 보안 기관)이거나 Active Directory 도메인 이름입니다.
+사용자 이름이 *SecurityAuthority*\*UserName* (example: CORP\\User1) 형식인 경우, *SecurityAuthority* 부분은 가상 컴퓨터 이름(로컬 보안 기관)이거나 Active Directory 도메인 이름입니다.
 
 가능한 해결 방법:
 
@@ -136,8 +136,8 @@ VM에 실제로 두 개 이상의 동시 원격 데스크톱 연결이 필요하
 
 Windows 기반 컴퓨터는 로컬 계정 또는 도메인 계정 자격 증명의 유효성을 검사할 수 있습니다.
 
-- 로컬 계정의 경우 *ComputerName\UserName* 구문(예: SQL1\\Admin4798)을 사용합니다.
-- 도메인 계정의 경우 *DomainName\UserName* 구문(예: CONTOSO\\johndoe)을 사용합니다.
+- 로컬 계정의 경우 *ComputerName*\*UserName* 구문(예: SQL1\\Admin4798)을 사용합니다.
+- 도메인 계정의 경우 *DomainName*\*UserName* 구문(예: CONTOSO\\johndoe)을 사용합니다.
 
 또한 VM을 새 Active Directory 포리스트의 도메인 컨트롤러로 승격한 경우 사용자가 로그인할 때 사용한 로컬 관리자 계정이 새 포리스트 및 도메인과 같은 암호를 가진 동일한 계정으로 변환됩니다. 그러면 로컬 계정이 삭제됩니다. 예를 들어 DC1\\DCAdmin 로컬 계정으로 로그인하고 가상 컴퓨터를 corp.contoso.com 도메인에 대한 새 포리스트의 도메인 컨트롤러로 승격하는 경우 DC1\\DCAdmin 로컬 계정이 삭제되고 같은 암호를 가진 새 도메인 계정 CORP\\DCAdmin이 생성됩니다.
 
@@ -171,4 +171,4 @@ Windows 기반 컴퓨터는 로컬 계정 또는 도메인 계정 자격 증명�
 
 [Azure 가상 컴퓨터에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

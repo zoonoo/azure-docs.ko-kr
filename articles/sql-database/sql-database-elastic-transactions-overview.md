@@ -140,9 +140,9 @@ SQL DB의 동적 관리 뷰(DMV)를 사용하여 진행 중인 탄력적 데이�
 
 ## 자세한 정보
 
-아직 Azure 응용 프로그램용 탄력적 데이터베이스 기능을 사용하지 않나요? [설명서 맵](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/)을 확인하세요. 의문 사항이 있으면 [SQL 데이터베이스 포럼](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)에 문의하고, 기능에 대한 요청이 있는 경우 해당 기능을 [SQL 데이터베이스 사용자 의견 포럼](http://feedback.azure.com/forums/217321-sql-database)에 추가하세요.
+아직 Azure 응용 프로그램용 탄력적 데이터베이스 기능을 사용하지 않나요? [설명서 맵](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/)을 확인하세요. 의문 사항이 있으면 [SQL 데이터베이스 포럼](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)에 문의하고, 기능에 대한 요청이 있는 경우 해당 기능을 [SQL 데이터베이스 사용자 의견 포럼](https://feedback.azure.com/forums/217321-sql-database/)에 추가하세요.
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

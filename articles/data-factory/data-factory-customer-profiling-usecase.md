@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="01/26/2016" 
 	ms.author="spelluru"/>
 
 # 사용 사례 - 고객 프로파일링
@@ -48,4 +48,4 @@ Contoso의 목표는 사용자의 게임 기록 프로필을 기반으로 상향
 
 사용자 프로필 분석을 최적화하고 비즈니스 목표에 맞추어 게임 회사는 신속하게 사용 패턴을 수집하고 모든 다른 게임 제품에 대한 마케팅 캠페인의 효과를 분석할 수 있습니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

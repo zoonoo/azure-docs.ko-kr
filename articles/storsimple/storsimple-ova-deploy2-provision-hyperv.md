@@ -32,7 +32,7 @@
 
 ## 프로비전 필수 조건
 
-여기에는 Hyper-V 2008 R2, Hyper-V 2012, 및 2012 R2를 실행하는 호스트 시스템에 가상 장치를 프로비전하기 위한 필수 조건이 제공됩니다.
+여기에는 Hyper-V 2008 R2, Hyper-V 2012 또는 Hyper-V 2012 R2를 실행하는 호스트 시스템에 가상 장치를 프로비전하기 위한 필수 조건이 제공됩니다.
 
 ### StorSimple 관리자 서비스의 경우
 
@@ -212,7 +212,7 @@
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image22.png)
 
-1.  장치가 준비되기까지 5-10분 정도 걸릴 수 있습니다. 콘솔에 진행률을 나타내는 상태 메시지가 표시됩니다. 장치가 준비되면 **작업**으로 이동합니다. `Ctrl + Alt + Delete` 키를 눌러서 가상 장치에 로그인합니다. 기본 사용자는 StorSimpleAdmin이고 기본 암호는 Password1입니다.
+1.  장치가 준비되기까지 5-10분 정도 걸릴 수 있습니다. 콘솔에 진행률을 나타내는 상태 메시지가 표시됩니다. 장치가 준비되면 **작업**으로 이동합니다. `Ctrl + Alt + Delete` 키를 눌러서 가상 장치에 로그인합니다. 기본 사용자는 *StorSimpleAdmin*이고 기본 암호는 *Password1*입니다.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image23.png)
 
@@ -274,4 +274,4 @@ Hyper-V에서 StorSimple 가상 배열을 프로비전하는 방법을 보려면
 
 -   [StorSimple 가상 배열을 iSCSI 서버로 설정](storsimple-ova-deploy3-iscsi-setup.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

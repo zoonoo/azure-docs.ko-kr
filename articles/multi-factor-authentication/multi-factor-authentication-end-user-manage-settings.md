@@ -1,7 +1,8 @@
 <properties 
 	pageTitle="Azure Multi-Factor Authentication에 문제가 있는 경우 | Microsoft Azure" 
 	description="이 문서는 Azure 다단계 인증에 문제가 있는 경우 수행할 작업에 대한 정보를 제공합니다." 
-	services="multi-factor-authentication" 
+	services="multi-factor-authentication"
+	keywords = "다단계 인증 클라이언트, 인증 문제, 상관관계 ID"
 	documentationCenter="" 
 	authors="billmath" 
 	manager="stevenpo" 
@@ -13,11 +14,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
+	ms.date="01/25/2016" 
 	ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication에 문제가 있는 경우
->[AZURE.IMPORTANT]이 페이지를 개선하도록 도와주세요. 이 페이지에서 문제에 대한 답변을 찾지 못한 경우 이에 대한 내용을 추가할 수 있도록 자세한 피드백을 제공해주세요.
+>[AZURE.IMPORTANT]
+이 페이지를 개선하도록 도와주세요. 이 페이지에서 문제에 대한 답변을 찾지 못한 경우 이에 대한 내용을 추가할 수 있도록 자세한 피드백을 제공해주세요.
 
 발생할 수 있는 일반적인 문제 중 일부를 도와주는 다음 정보가 제공됩니다.
 
@@ -63,7 +65,8 @@
 
 ![대체 전화](./media/multi-factor-authentication-end-user-manage/altphone2.png)
 
->[AZURE.IMPORTANT]보조 인증 전화 번호를 구성하는 것이 중요합니다. 기본 전화 번호 및 모바일 앱은 아마도 동일한 전화상에 있으므로 보조 전화 번호는 전화를 분실하거나 도난당한 경우 사용자 계정으로 돌아갈 수 있는 유일한 방법입니다.
+>[AZURE.IMPORTANT]
+보조 인증 전화 번호를 구성하는 것이 중요합니다. 기본 전화 번호 및 모바일 앱은 아마도 동일한 전화상에 있으므로 보조 전화 번호는 전화를 분실하거나 도난당한 경우 사용자 계정으로 돌아갈 수 있는 유일한 방법입니다.
 
 보조 인증 전화 번호를 구성하지 않은 경우 관리자에게 설정을 삭제하도록 문의하여 다음 번 로그인 시 [Multi-Factor Authentication 설정](multi-factor-authentication-manage-users-and-devices.md#require-selected-users-to-provide-contact-methods-again)을 다시 하라는 메시지가 나타나도록 해야 합니다.
 
@@ -89,7 +92,7 @@ Office 365와 함께 다단계 인증을 사용하는 경우 Office 365 포털�
 2. 오른쪽 위 모서리에서 위젯을 선택하고 Office 365 설정을 선택합니다.
 3. 추가 보안 인증을 클릭합니다.
 4. 오른쪽의 **Update my phone numbers used for account security(계정 보안에 사용되는 전화 번호 업데이트)** 링크를 클릭합니다. ![O365](./media/multi-factor-authentication-end-user-manage/o365a.png)
-5. 이렇게 하면 설정을 변경할 수 있는 페이지로 이동합니다.![O365](./media/multi-factor-authentication-end-user-manage/o365b.png)
+5. 이렇게 하면 설정을 변경할 수 있는 페이지로 이동합니다. ![O365](./media/multi-factor-authentication-end-user-manage/o365b.png)
 
 
 ### Myapps 포털에서 설정 변경
@@ -129,7 +132,8 @@ Azure에서 Multi-Factor Authentication을 사용하는 경우 Azure 포털을 �
 
 ![대체 전화](./media/multi-factor-authentication-end-user-manage/altphone2.png)
 
->[AZURE.IMPORTANT]보조 인증 전화 번호를 구성하는 것이 중요합니다. 기본 전화 번호 및 모바일 앱은 아마도 동일한 전화상에 있으므로 보조 전화 번호는 전화를 분실하거나 도난당한 경우 사용자 계정으로 돌아갈 수 있는 유일한 방법입니다.
+>[AZURE.IMPORTANT]
+보조 인증 전화 번호를 구성하는 것이 중요합니다. 기본 전화 번호 및 모바일 앱은 아마도 동일한 전화상에 있으므로 보조 전화 번호는 전화를 분실하거나 도난당한 경우 사용자 계정으로 돌아갈 수 있는 유일한 방법입니다.
 
 두 번째는 관리자 또는 mfa를 설정한 사람에게 문의하는 방법입니다. 보조 인증 전화 번호를 구성하지 않은 경우 이 작업을 수행해야 합니다. 그렇지 않은 경우 관리자 또는 mfa를 설정한 사람에게 설정을 삭제하도록 문의하여 다음 번 로그인 시 [Multi-Factor Authentication 설정](multi-factor-authentication-manage-users-and-devices.md#require-selected-users-to-provide-contact-methods-again)을 다시 하라는 메시지가 나타나도록 해야 합니다.
 
@@ -168,4 +172,4 @@ Azure에서 Multi-Factor Authentication을 사용하는 경우 Azure 포털을 �
 
 마지막으로, 이 페이지를 업데이트하고 보다 많은 정보를 제공하여 지속적으로 개선할 수 있도록 이 페이지에 자세한 피드백을 남겨야 합니다.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

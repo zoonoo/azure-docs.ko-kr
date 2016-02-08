@@ -79,7 +79,7 @@ Microsoft는 Microsoft 제품을 사용하여 특정 유형의 시스템을 빌�
 
 - 먼저 [교육 비디오를 시청](http://aka.ms/3dBlueprintTemplateVideo)하여 이 템플릿으로 무엇을 할 수 있는지 알아보십시오.   
 - [Microsoft 3D 청사진 Visio 템플릿](http://aka.ms/3DBlueprintTemplate) 다운로드
-- 3D 템플릿과 함께 사용할 [클라우드 및 엔터프라이즈 기호](#drawing-symbol-and-icon-sets) 다운로드 
+- 3D 템플릿과 함께 사용할 [클라우드 및 엔터프라이즈 기호](#drawing-symbol-and-icon-sets)를 다운로드합니다. 
 
 교육 자료에 없는 내용이 궁금하거나 의견을 보내주실 분은 [CnESymbols@microsoft.com](mailto:CnESymbols@microsoft.com)으로 전자 메일을 보내주십시오. 이 템플릿의 주요 목표가 유용성인 만큼 어떤 장단점이 있는지 살펴보겠습니다.
 
@@ -104,8 +104,8 @@ Microsoft Office 및 관련 기술에 대한 추가 기호는 CnE 집합처럼 �
 
 ##아키텍처 Infographics
 
-Microsoft에서는 포스터/Infographics 관련 아키텍처를 여러 개 게시합니다. 여기에는 [실제 클라우드 응용 프로그램 빌드](http://azure.microsoft.com/documentation/infographics/building-real-world-cloud-apps/) 및 [클라우드 서비스를 사용하여 크기 조정](http://azure.microsoft.com/documentation/infographics/cloud-services/)이 포함됩니다.
+Microsoft에서는 포스터/Infographics 관련 아키텍처를 여러 개 게시합니다. 여기에는 [실제 클라우드 응용 프로그램 빌드](https://azure.microsoft.com/documentation/infographics/building-real-world-cloud-apps/) 및 [클라우드 서비스를 사용하여 크기 조정](https://azure.microsoft.com/documentation/infographics/cloud-services/)이 포함됩니다.
 
 ![Azure 아키텍처 인포그래픽](./media/architecture-overview/AzureArchInfographicThumb.jpg)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

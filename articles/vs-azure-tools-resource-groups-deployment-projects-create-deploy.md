@@ -1,9 +1,9 @@
 <properties
    pageTitle="Azure 리소스 그룹 Visual Studio 프로젝트 만들기 및 배포 | Microsoft Azure"
    description="Visual Studio를 사용하여 Azure 리소스 그룹 프로젝트를 만들고 Azure에 리소스를 배포합니다."
-   services="visual-studio-online"
+   services="azure-resource-manager"
    documentationCenter="na"
-   authors="TomArcher"
+   authors="tfitzmac"
    manager="douge"
    editor="" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="11/13/2015"
-   ms.author="tarcher" />
+   ms.author="tomfitz" />
 
 # Visual Studio를 통해 Azure 리소스 그룹 만들기 및 배포
 
@@ -39,7 +39,7 @@ Azure 리소스 관리자에는 Ubuntu Server 및 Windows Server 2012 R2와 같�
 
     나중에 리소스 그룹에 더 많은 리소스를 추가할 수도 있습니다.
 
-    >[AZURE.NOTE]사용 가능한 템플릿 목록은 온라인으로 검색되고 변경될 수 있습니다.
+    >[AZURE.NOTE] 사용 가능한 템플릿 목록은 온라인으로 검색되고 변경될 수 있습니다.
 
     Visual Studio는 웹앱에 대한 Azure 리소스 그룹 배포 프로젝트를 만듭니다.
 
@@ -92,7 +92,7 @@ Azure 리소스 그룹 프로젝트를 배포할 때 Azure 리소스 그룹에 �
 
     ![리소스 그룹 만들기 대화 상자](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/IC796674.png)
 
-    >[AZURE.NOTE]일반적으로 새 배포 프로젝트를 시작하는 경우 배포할 새 리소스 그룹을 만들 수 있습니다.
+    >[AZURE.NOTE] 일반적으로 새 배포 프로젝트를 시작하는 경우 배포할 새 리소스 그룹을 만들 수 있습니다.
 
 1. 리소스 그룹의 이름과 위치를 입력한 다음 **만들기** 단추를 선택합니다.
 
@@ -108,15 +108,15 @@ Azure 리소스 그룹 프로젝트를 배포할 때 Azure 리소스 그룹에 �
 
     - *siteName* 매개 변수는 웹 페이지 URL의 첫 번째 부분입니다. 예를 들어, URL mywebsitename.azurewebsites.net의 경우 사이트 이름은 **mywebsitename**입니다.
 
-    - *hostingPlanName* 매개 변수는 호스팅 계획을 지정합니다. 이 예제에서는 '자유'를 사용할 수 있습니다. 호스팅 계획에 대한 자세한 내용은 [Azure 앱 서비스 계획의 포괄 개요](http://azure.microsoft.com/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview/)를 참조하세요.
+    - *hostingPlanName* 매개 변수는 호스팅 계획을 지정합니다. 이 예제에서는 '자유'를 사용할 수 있습니다. 호스팅 계획에 대한 자세한 내용은 [Azure 앱 서비스 계획의 포괄 개요](https://azure.microsoft.com/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview/)를 참조하세요.
 
-    - *siteLocation* 매개 변수는 "미국 서부"와 같은 호스팅될 사이트인 Azure 지역을 참조합니다. 사용 가능한 영역 목록은 [Azure 지역](http://azure.microsoft.com/regions/)을 참조하세요.
+    - *siteLocation* 매개 변수는 "미국 서부"와 같은 호스팅될 사이트인 Azure 지역을 참조합니다. 사용 가능한 영역 목록은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요.
 
 1. **배포** 단추를 선택하여 Azure에 프로젝트를 배포합니다.
 
     **출력** 창에서 배포의 진행률을 볼 수 있습니다. 구성에 따라 배포를 완료하는 데 몇 분 정도 걸릴 수 있습니다.
 
-    >[AZURE.NOTE]Microsoft Azure PowerShell cmdlet을 설치하라는 메시지가 표시될 수 있습니다. 이 cmdlet은 Azure 리소스 그룹을 배포하는 데 필요하기 때문에 이를 설치해야 합니다.
+    >[AZURE.NOTE] Microsoft Azure PowerShell cmdlet을 설치하라는 메시지가 표시될 수 있습니다. 이 cmdlet은 Azure 리소스 그룹을 배포하는 데 필요하기 때문에 이를 설치해야 합니다.
 
 1. 브라우저에서 [Azure Preview 포털](https://portal.azure.com/)을 엽니다. 새 변경 사항이므로 **알림** 탭에서 사용 가능한 새 알림 메시지여야 합니다. 새 Azure 리소스 그룹에 대한 세부 정보를 보려면 선택합니다. 사용 가능한 모든 리소스 그룹 목록을 보려면, **찾아보기** 탭을 선택한 후 **리소스 그룹**를 선택합니다.
 
@@ -196,4 +196,4 @@ TFS 자동화된 빌드 및 Microsoft 내 다른 프로젝트에서 명명 규�
 
 Visual Studio에서 Azure 리소스 그룹에 리소스를 추가하는 방법은 [Visual Studio를 사용하여 리소스 관리자 템플릿 편집](vs-azure-tools-resource-group-adding-resources.md)을 참조하세요.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

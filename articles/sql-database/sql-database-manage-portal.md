@@ -1,23 +1,23 @@
-<properties 
-	pageTitle="Azure 클래식 포털을 사용하여 Azure SQL 데이터베이스 관리" 
-	description="Azure 클래식 포털을 사용하여 클라우드의 관계형 데이터베이스를 관리하는 방법을 알아보세요." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="stevestein" 
-	manager="jeffreyg" 
+<properties
+	pageTitle="Azure 클래식 포털을 사용하여 Azure SQL 데이터베이스 관리"
+	description="Azure 클래식 포털을 사용하여 클라우드의 관계형 데이터베이스를 관리하는 방법을 알아보세요."
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jeffreyg"
 	editor=""/>
 
-<tags 
-	ms.service="sql-database" 
-	ms.devlang="NA" 
-	ms.workload="data-management" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="NA" 
-	ms.date="09/11/2015" 
+<tags
+	ms.service="sql-database"
+	ms.devlang="NA"
+	ms.workload="data-management"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.date="01/22/2016"
 	ms.author="sstein"/>
 
 
-# Azure 클래식 포털을 사용하여 Azure SQL 데이터베이스 관리
+# Azure 포털을 사용하여 Azure SQL 데이터베이스 관리
 
 
 > [AZURE.SELECTOR]
@@ -25,16 +25,14 @@
 - [SSMS](sql-database-manage-azure-ssms.md)
 - [PowerShell](sql-database-command-line-tools.md)
 
-[Azure 클래식 포털][Classic Portal]을 사용하여 Azure SQL 데이터베이스 및 서버를 만들고, 모니터링하고, 관리할 수 있습니다. 이 문서에서는 클래식 포털을 사용하여 수행할 수 있는 데이터베이스 작업에 대해 설명합니다.
-
->[AZURE.NOTE]Azure 클래식 포털이 익숙하지 않은 분들은 이 [둘러보기 비디오][Azure Classic Portal Tour]를 통해 일반 기능 및 개념을 신속하게 파악할 수 있습니다.
+[Azure 포털](https://portal.azure.com/)을 사용하여 Azure SQL 데이터베이스 및 논리 서버를 만들고, 모니터링하고, 관리할 수 있습니다. 이 문서에서는 보다 일반적인 작업에 속하는 몇 가지 사항을 중점적으로 설명합니다.
 
 ![데이터베이스 개요](./media/sql-database-manage-portal/sqldatabase_annotated.png)
 
 ## 1\. 데이터베이스 관리 작업
 ![데이터베이스 관리 작업](./media/sql-database-manage-portal/sqldatabase_actions.png)
 
-Azure 클래식 포털은 데이터베이스 블레이드 상단에 액세스 가능한 일반적인 데이터베이스 작업 집합을 제공합니다. 사용자는 데이터베이스를 이전 시점으로 복원하고, Visual Studio에서 데이터베이스를 열고, 데이터베이스를 새 서버로 복사하고, 데이터베이스를 Azure 저장소 계정으로 내보낼 수 있습니다.
+Azure 포털은 데이터베이스 블레이드 상단에 액세스 가능한 일반적인 데이터베이스 작업 집합을 제공합니다. 사용자는 데이터베이스를 이전 시점으로 복원하고, Visual Studio에서 데이터베이스를 열고, 데이터베이스를 새 서버로 복사하고, 데이터베이스를 Azure 저장소 계정으로 내보낼 수 있습니다.
 
 - [SQL 데이터베이스 복원](sql-database-point-in-time-restore-tutorial-management-portal.md)
 - [Visual Studio에서 SQL 데이터베이스 열기](sql-database-connect-query.md)
@@ -54,7 +52,7 @@ Azure SQL 데이터베이스는 기본적으로 DTU(데이터베이스 처리량
 
 - [SQL 데이터베이스 감사](sql-database-auditing-get-started.md)
 
-또한 민감한 데이터를 권한 없는 사용자에게 마스킹하도록 Azure SQL 데이터베이스를 구성할 수 있습니다.
+또한 중요한 데이터를 권한 없는 사용자에게 마스킹하도록 Azure SQL 데이터베이스를 구성할 수 있습니다.
 
 - [동적 데이터 마스킹](sql-database-dynamic-data-masking-get-started.md)
 
@@ -62,7 +60,7 @@ Azure SQL 데이터베이스는 기본적으로 DTU(데이터베이스 처리량
 ## 4\. 지역에서 복제
 ![지역에서 복제](./media/sql-database-manage-portal/sqldatabase_georeplication.png)
 
-커밋된 트랜잭션을 보조 데이터베이스에 비동기적으로 복제하도록 Azure SQL 데이터베이스를 구성할 수 있습니다. 클래식 포털의 지역에서 복제 파트를 사용하여 보조 데이터베이스가 상주할 Azure 지역을 선택할 수 있습니다.
+커밋된 트랜잭션을 보조 데이터베이스에 비동기적으로 복제하도록 Azure SQL 데이터베이스를 구성할 수 있습니다. 포털의 지역에서 복제 파트를 사용하여 보조 데이터베이스가 상주할 Azure 지역을 선택할 수 있습니다.
 
 - [지역에서 복제](https://msdn.microsoft.com/library/azure/dn783447.aspx)
 
@@ -74,7 +72,7 @@ Azure SQL 데이터베이스는 기본적으로 DTU(데이터베이스 처리량
 * [SQL 데이터베이스](sql-database-technical-overview.md)   
 * [동적 관리 뷰를 사용하여 SQL 데이터베이스 모니터링][]   
 * [Transact-SQL 참조(SQL 데이터베이스)][]
-  
+
   [Azure Classic Portal Tour]: https://go.microsoft.com/fwlink/?LinkID=522341
   [Classic Portal]: https://portal.azure.com
   [Azure part monitoring]: ../documentdb-monitor-accounts.md
@@ -87,7 +85,4 @@ Azure SQL 데이터베이스는 기본적으로 DTU(데이터베이스 처리량
   [AzureDb Auditing]: http://azure.microsoft.com/documentation/articles/sql-database-auditing-get-started/
   [AzureDb datamasking]: http://azure.microsoft.com/documentation/articles/sql-database-dynamic-data-masking-get-started/
 
- 
- 
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

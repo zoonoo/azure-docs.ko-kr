@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/21/2016"
 	ms.author="dastrock"/>
 
 # Azure AD B2C 미리 보기: 토큰 참조
@@ -156,4 +156,4 @@ https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/o
 | 새로 고침 토큰 | 최대 14일 | 단일 새로 고침 토큰이 최대 14일 동안 유효합니다. 그러나 새로 고침 토큰은 다양한 이유로 언제든지 무효화될 수 있으므로 실패하거나 앱이 새로운 새로 고침 토큰으로 대체할 때까지 앱에서 계속 새로 고침 토큰을 시도하고 사용해야 합니다. 사용자가 자격 증명을 입력한 후 90일이 경과한 경우에도 새로 고침 토큰이 무효화됩니다. |
 | 권한 부여 코드 | 5분 | 인증 코드는 의도적으로 수명이 짧으므로 받는 즉시 access\_token, id\_tokens 및 refresh\_token으로 교환해야 합니다. |
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

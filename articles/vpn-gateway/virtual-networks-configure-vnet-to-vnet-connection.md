@@ -198,7 +198,7 @@ VNet 간 구성을 만드는 경우 서로를 로컬 네트워크 사이트로 �
 
 ## 7단계 - VPN 게이트웨이 연결
 
-위의 모든 단계를 완료한 후에는 IPsec/IKE 사전 공유 키를 동일하게 설정합니다. 이 작업은 REST API 또는 PowerShell cmdlet을 사용하여 수행할 수 있습니다. PowerShell을 사용하는 경우 Microsoft Azure PowerShell cmdlet이 [최신 버전](http://azure.microsoft.com/downloads/)인지 확인합니다. 아래의 예에서는 PowerShell cmdlet을 사용하여 키 값을 A1b2C3D4로 설정합니다. 두 키가 모두 같은 키 값을 사용해야 합니다. 아래의 예를 편집하여 실제 값을 반영하세요.
+위의 모든 단계를 완료한 후에는 IPsec/IKE 사전 공유 키를 동일하게 설정합니다. 이 작업은 REST API 또는 PowerShell cmdlet을 사용하여 수행할 수 있습니다. PowerShell을 사용하는 경우 Microsoft Azure PowerShell cmdlet이 [최신 버전](https://azure.microsoft.com/downloads/)인지 확인합니다. 아래의 예에서는 PowerShell cmdlet을 사용하여 키 값을 A1b2C3D4로 설정합니다. 두 키가 모두 같은 키 값을 사용해야 합니다. 아래의 예를 편집하여 실제 값을 반영하세요.
 
 VNet1의 경우
 
@@ -223,4 +223,4 @@ VNet2의 경우
 [2]: http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Configure-the-VPN-connectivity-between-two-Azure-virtual-networks
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

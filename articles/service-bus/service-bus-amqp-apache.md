@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/07/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # Azure Linux VM에 Apache Qpid Proton-C 설치
@@ -104,7 +104,7 @@ Python 및 PHP 응용 프로그램의 경우 이 예제에서는 Apache의 Proto
 
 자세히 알아볼 준비가 되셨습니까? 다음 링크를 방문하세요.
 
-- [서비스 버스 AMQP 개요]
+- [서비스 버스 AMQP 개요][]
 
 [서비스 버스 AMQP 개요]: service-bus-amqp-overview.md
 [0]: ./media/service-bus-amqp-apache/amqp-apache-1.png
@@ -114,4 +114,4 @@ Python 및 PHP 응용 프로그램의 경우 이 예제에서는 Apache의 Proto
 
 [Azure 클래식 포털]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

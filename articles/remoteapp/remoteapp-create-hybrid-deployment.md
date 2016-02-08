@@ -40,7 +40,7 @@
 
 컬렉션을 만들기 전에 다음을 수행해야 합니다.
 
-- Azure RemoteApp에 [등록](http://azure.microsoft.com/services/remoteapp/)합니다. 
+- Azure RemoteApp에 [등록](https://azure.microsoft.com/services/remoteapp/)합니다. 
 - Azure RemoteApp 서비스 계정으로 사용할 Active Directory의 사용자 계정을 만듭니다. 이 계정의 권한은 도메인에 컴퓨터를 가입시킬 수 있는 권한만으로 제한합니다.
 - 온-프레미스 네트워크에 대한 정보 수집: IP 주소 정보 및 VPN 장치 세부 정보입니다.
 - [Azure PowerShell](../install-configure-powershell.md) 모듈을 설치합니다.
@@ -149,4 +149,4 @@ Azure RemoteApp 하이브리드 컬렉션을 성공적으로 만들고 배포했
 ### 의견 보내기 
 이 기사에 대한 등급을 매기고 아래에 의견을 다는 것은 물론 문서를 직접 변경할 수 있다는 사실을 알고 계셨나요? 누락된 부분이 있나요? 잘못된 부분이 있나요? 혼동을 줄 수 있는 부분이 있나요? 위로 스크롤하여 **GitHub에서 편집**을 클릭하면 변경할 수 있습니다. 당사에서 변경 사항을 검토하고 승인하면 변경 및 개선 사항을 바로 여기서 확인할 수 있습니다.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

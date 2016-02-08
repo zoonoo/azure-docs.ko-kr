@@ -20,7 +20,7 @@
 
 Azure 보안 센터, 주요 기능 및 작동 방법에 대해 알아봅니다.
 
-> [AZURE.NOTE]이 문서의 정보는 Azure 보안 센터의 미리 보기 버전에 적용됩니다. 예제 배포를 사용하여 서비스를 소개합니다.
+> [AZURE.NOTE] 이 문서의 정보는 Azure 보안 센터의 미리 보기 버전에 적용됩니다. 예제 배포를 사용하여 서비스를 소개합니다.
 
 ## Azure 보안 센터란?
 Azure 보안 센터는 Azure 리소스의 보안에 대한 향상된 가시성과 제어권을 통해 위협을 예방하고 감지하며 위협에 대응하는 데 도움이 됩니다. 이는 Azure 구독에 대해 통합된 보안 모니터링 및 정책 관리를 제공하고 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되며 보안 솔루션의 광범위한 환경에서 작동합니다.
@@ -42,7 +42,7 @@ Azure 보안 센터는 Azure에 기본 제공되는 쉽고 효과적인 위협 �
 | | 현재 공격을 중지하고 미래 공격을 예방하는 데 도움이 되는 방법 제안 |
 
 ## 기능 소개 연습
-Azure 보안 센터는 [Azure 포털](http://azure.microsoft.com/features/azure-portal/)에서 액세스합니다. 액세스하려면 [포털에 로그인](https://portal.azure.com)하여 **찾아보기**를 선택하고 **보안 센터** 옵션으로 스크롤하거나 이전에 포털 대시보드에 고정한 **보안 센터** 타일을 선택합니다.
+Azure 보안 센터는 [Azure 포털](https://azure.microsoft.com/features/azure-portal/)에서 액세스합니다. 액세스하려면 [포털에 로그인](https://portal.azure.com)하여 **찾아보기**를 선택하고 **보안 센터** 옵션으로 스크롤하거나 이전에 포털 대시보드에 고정한 **보안 센터** 타일을 선택합니다.
 
 ![][1]
 
@@ -52,7 +52,7 @@ Azure 보안 센터에서 보안 정책 설정, 보안 구성 모니터링, 보�
 
 회사의 보안 요구 사항에 따라 응용 프로그램 유형 또는 각 구독의 데이터 민감도에 맞는 Azure 구독에 대한 정책을 정의합니다. 예를 들어 개발 또는 테스트에 사용되는 리소스의 요구사항은 프로덕션 응용 프로그램에 사용되는 보안 요구 사항과 다릅니다. 마찬가지로 PII 같은 규제된 데이터를 가진 응용 프로그램에 대해서는 더 높은 수준의 보안이 필요할 수 있습니다.
 
-> [AZURE.NOTE]보안 정책을 편집하려면 해당 구독의 소유자 또는 참여자여야 합니다.
+> [AZURE.NOTE] 보안 정책을 편집하려면 해당 구독의 소유자 또는 참여자여야 합니다.
 
 구독 목록에 대한 **보안 정책** 타일을 클릭하고 정책 세부 정보를 볼 구독을 선택합니다.
 
@@ -102,9 +102,9 @@ Azure 보안 센터는 Azure 리소스, 네트워크 및 맬웨어 방지 프로
 ![][6]
 
 ## 시작
-Azure 보안 센터를 시작하려면 Microsoft Azure에 대한 구독이 있어야 합니다. Azure 보안 센터는 Azure 구독을 사용하여 사용하도록 설정됩니다. 구독이 없는 경우 [무료 평가판](https://azure.microsoft.com/pricing/free-trial)을 등록할 수 있습니다.
+Azure 보안 센터를 시작하려면 Microsoft Azure에 대한 구독이 있어야 합니다. Azure 보안 센터는 Azure 구독을 사용하여 사용하도록 설정됩니다. 구독이 없는 경우 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 등록할 수 있습니다.
 
-Azure 보안 센터는 [Azure 포털](http://azure.microsoft.com/features/azure-portal/)에서 액세스합니다. 자세한 내용은 [포털 설명서](https://azure.microsoft.com/documentation/services/azure-portal/)를 참조하세요.
+Azure 보안 센터는 [Azure 포털](https://azure.microsoft.com/features/azure-portal/)에서 액세스합니다. 자세한 내용은 [포털 설명서](https://azure.microsoft.com/documentation/services/azure-portal/)를 참조하세요.
 
 [Azure 보안 센터 시작](security-center-get-started.md) Azure 보안 센터의 보안 모니터링 및 정책 관리 구성 요소를 빠르게 안내합니다.
 
@@ -126,4 +126,4 @@ Azure 보안 센터는 [Azure 포털](http://azure.microsoft.com/features/azure-
 [5]: ./media/security-center-intro/security-alert.png
 [6]: ./media/security-center-intro/security-alert-detail.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

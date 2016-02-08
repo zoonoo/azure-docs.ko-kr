@@ -61,7 +61,7 @@ Microsoft Azure 트래픽 관리자를 사용하면 Azure 클라우드 서비스
    - **트래픽 관리자 프로필 만들기** - Azure 클래식 포털에서 빨리 만들기를 사용하여 프로필을 만들려면 [트래픽 관리자 프로필 관리](traffic-manager-manage-profiles.md)를 참조하세요.
    - **트래픽 라우팅 방법 설정 구성** – 빠른 생성에서 사용자 프로필에 대한 트래픽 라우팅 방법을 선택해야 합니다. 이 설정은 빠른 생성 단계를 완료한 후 언제든지 변경할 수 있습니다. 구성 단계는 트래픽 라우팅 방법에 해당되는 항목을 참조하세요. [성능 구성 트래픽 라우팅 방법](traffic-manager-configure-performance-load-balancing.md), [장애 조치 구성 트래픽 라우팅 방법](traffic-manager-configure-failover-load-balancing.md), [라운드 로빈 구성 트래픽 라우팅 방법](traffic-manager-configure-round-robin-load-balancing.md).
    
-   >[AZURE.NOTE]이제 라운드 로빈 트래픽 라우팅 방법에서 가중치가 적용된 네트워크 트래픽 분산을 지원합니다. 그러나 이번에는 REST API 또는 Windows PowerShell을 사용하여 가중치를 구성해야 합니다. 자세한 내용과 예제 구성은 Azure 블로그에서 [Azure 트래픽 관리자 외부 끝점 및 PowerShell을 통한 가중치가 부여된 라운드 로빈](http://azure.microsoft.com/blog/2014/06/26/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/)을 참조하세요.
+   >[AZURE.NOTE] 이제 라운드 로빈 트래픽 라우팅 방법에서 가중치가 적용된 네트워크 트래픽 분산을 지원합니다. 그러나 이번에는 REST API 또는 Windows PowerShell을 사용하여 가중치를 구성해야 합니다. 자세한 내용과 예제 구성은 Azure 블로그에서 [Azure 트래픽 관리자 외부 끝점 및 PowerShell을 통한 가중치가 부여된 라운드 로빈](https://azure.microsoft.com/blog/2014/06/26/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/)을 참조하세요.
 
    - **끝점 구성** – 빨리 만들기 중에는 끝점이 구성되지 않습니다. 사용자 프로필을 만들고 트래픽 라우팅 방법을 지정한 후 트래픽 관리자에게 끝점을 알려야 합니다. 끝점을 구성하는 단계는 [트래픽 관리자에서 끝점 관리](traffic-manager-endpoints.md)를 참조하세요.
 
@@ -79,7 +79,7 @@ REST API 및 Windows PowerShell cmdlet을 통해 Azure 클래식 포털을 사�
 
 트래픽 관리자의 Windows PowerShell cmdlet에 대한 자세한 내용은 [Azure 트래픽 관리자 Cmdlet](http://go.microsoft.com/fwlink/p/?LinkId=400769)을 참조하세요.
 
->[AZURE.NOTE]외부 끝점(유형 = 'Any'), 라운드 로빈 트래픽 라우팅 방법의 가중치 및 Azure 클래식 포털의 중첩된 프로필 구성을 현재 지원하지 않습니다. REST([정의 만들기](http://go.microsoft.com/fwlink/p/?LinkId=400772) 참조) 또는 Windows PowerShell([추가-AzureTrafficManagerEndpoint](https://msdn.microsoft.com/library/azure/dn690257.aspx) 참조)을 사용해야 합니다.
+>[AZURE.NOTE] 외부 끝점(유형 = 'Any'), 라운드 로빈 트래픽 라우팅 방법의 가중치 및 Azure 클래식 포털의 중첩된 프로필 구성을 현재 지원하지 않습니다. REST([정의 만들기](http://go.microsoft.com/fwlink/p/?LinkId=400772) 참조) 또는 Windows PowerShell([추가-AzureTrafficManagerEndpoint](https://msdn.microsoft.com/library/azure/dn690257.aspx) 참조)을 사용해야 합니다.
 
 ### Azure 클래식 포털에서 설정 구성
 
@@ -172,4 +172,4 @@ Windows PowerShell을 사용하여 트래픽 관리자 프로필을 만들고 �
 
 [Azure 트래픽 관리자 cmdlet](http://go.microsoft.com/fwlink/p/?LinkId=400769)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

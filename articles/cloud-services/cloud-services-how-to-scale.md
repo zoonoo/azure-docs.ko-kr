@@ -36,7 +36,7 @@ Azure 클래식 포털의 크기 조정 페이지에서 응용 프로그램의 �
 
 - 클라우드 서비스에 연결되는 리소스의 크기를 조정할 수 있습니다. 리소스를 연결하는 방법에 대한 자세한 내용은 [방법: 클라우드 서비스에 리소스 연결](cloud-services-how-to-manage.md#how-to-link-a-resource-to-a-cloud-service)을 참조하세요.
 
-- 응용 프로그램의 고가용성을 사용하려면 응용 프로그램이 두 개 이상의 역할 인스턴스 또는 가상 컴퓨터와 함께 배포되는지 확인해야 합니다. 자세한 내용은 [서비스 수준 계약](http://azure.microsoft.com/support/legal/sla/)을 참조하세요.
+- 응용 프로그램의 고가용성을 사용하려면 응용 프로그램이 두 개 이상의 역할 인스턴스 또는 가상 컴퓨터와 함께 배포되는지 확인해야 합니다. 자세한 내용은 [서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/)을 참조하세요.
 
 
 ## 웹 역할 또는 작업자 역할을 실행 중인 응용 프로그램의 크기 수동 조정
@@ -227,4 +227,4 @@ Azure 클래식 포털의 크기 조정 페이지에서 응용 프로그램의 �
 [scale_schedule]: ./media/cloud-services-how-to-scale/CloudServices_SetUpSchedule.png
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

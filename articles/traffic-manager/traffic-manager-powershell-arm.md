@@ -12,17 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/19/2015"
+   ms.date="01/25/2016"
    ms.author="joaoma" />
-
-
 
 # Azure 트래픽 관리자에 대한 Azure 리소스 관리자 지원 미리 보기
 ARM(Azure 리소스 관리자)은 Azure 서비스에 대한 새로운 관리 프레임워크입니다. 이제 Azure 리소스 관리자 기반 API 및 도구를 사용하여 Azure 트래픽 관리자 프로파일을 관리할 수 있습니다. Azure 리소스 관리자에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-preview-portal-using-resource-groups.md)를 참조하세요.
-
->[AZURE.NOTE]REST API, Azure PowerShell, Azure CLI 및 .NET SDK를 포함하여 트래픽 관리자에 대한 ARM 지원은 현재 미리 보기 상태입니다.
-
-
 
 ## 리소스 모델
 
@@ -44,20 +38,20 @@ ARM을 사용하여 트래픽 관리자 프로필을 구성하면 아래 나열�
 
 - ‘장애 조치’ 트래픽 라우팅 메서드는 ‘우선 순위’라는 이름으로 변경되었습니다.
 
-## 미리 보기 제한 사항
-트래픽 관리자에 대한 Azure 리소스 관리자 지원은 미리 보기 서비스이므로 현재 적은 수의 제한 사항이 있습니다.
+## 제한 사항
+현재 Azure 트래픽 관리자에 대한 ARM 지원에 몇 가지 제한 사항이 있습니다.
 
 - 트래픽 관리자 프로필은 기존(비 ARM) Azure 서비스 관리(ASM) API를 사용하여 만들었으며 도구 및 '클래식' 포털은 ARM을 통해 사용할 수 없고 그 반대도 마찬가지입니다. ASM에서 ARM API로 프로필 마이그레이션은 프로필 삭제 및 다시 만드는 방법 외에는 현재 지원되지 않습니다.
 
-- '중첩된' 트래픽 관리자 끝점은 현재 ARM API에서 지원되지 않습니다.
 
-- Azure 트래픽 관리자는 아직 Azure '미리 보기' 포털에서 사용할 수 없으며 '클래식' 포털에서만 사용할 수 있습니다.
+- '중첩' 트래픽 관리자 끝점은 ARM API, ARM PowerShell, ARM 모드 Azure CLI를 통해 지원됩니다. 이 끝점은 현재 Azure 포털(ARM API 사용)에서 지원되지 않습니다.
+
 
 ## Azure PowerShell 설정
 
 이러한 지침은 아래 단계를 사용하여 구성해야 하는 Microsoft Azure PowerShell을 사용합니다.
 
-PowerShell이 아닌 사용자 또는 Windows가 아닌 사용자의 경우 Azure CLI를 통해 유사한 작업을 실행할 수 있습니다.
+PowerShell이 아닌 사용자 또는 Windows가 아닌 사용자의 경우 Azure CLI를 통해 유사한 작업을 실행할 수 있습니다. '중첩' 트래픽 관리자 프로필 관리를 제외한 모든 작업은 Azure 포털을 통해서도 사용할 수 있습니다.
 
 ### 1단계
 Azure 다운로드 페이지에서 사용할 수 있는 최신 Azure PowerShell을 설치합니다.
@@ -72,7 +66,7 @@ Azure 계정에 로그인
 ### 3단계
 사용할 Azure 구독을 선택합니다.
 
-	PS C:\> Select-AzureRmContext -SubscriptionName "MySubscription"
+	PS C:\> Set-AzureRmContext -SubscriptionName "MySubscription"
 
 사용 가능한 구독 목록을 보려면 ‘Get-AzureRmSubscription’ cmdlet을 사용합니다.
 
@@ -85,7 +79,7 @@ Azure 계정에 로그인
 ### 5단계
 리소스 그룹을 만듭니다. 기존 리소스 그룹을 사용하는 경우에는 이 단계를 건너뛰세요.
 
-	PS C:\> New-AzureRmResourceGroup -Name MyAzureResourceGroup -Location "West US"
+	PS C:\> New-AzureRmResourceGroup -Name MyRG -Location "West US"
 
 Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치를 지정해야 합니다. 이 위치는 해당 리소스 그룹에서 리소스의 기본 위치로 사용됩니다. 하지만 모든 트래픽 관리자 프로필 리소스는 영역별이 아니라 전역이므로 리소스 그룹의 위치 선택이 Azure 트래픽 관리자에 영향을 주지 않습니다.
 
@@ -93,7 +87,7 @@ Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치�
 
 트래픽 관리자 프로필을 만들려면 New-AzureRmTrafficManagerProfile cmdlet을 사용합니다.
 
-	PS C:\> $profile = New-AzureRmTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup -TrafficRoutingMethod Performance -RelativeDnsName contoso -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+	PS C:\> $profile = New-AzureRmTrafficManagerProfile –Name MyProfile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName contoso -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
 
 매개 변수는 다음과 같습니다.
 
@@ -119,7 +113,7 @@ cmdlet는 트래픽 관리자 프로필 Azure 트래픽 관리자에서 만들�
 
 기존 트래픽 관리자 프로필 개체를 검색하려면 Get-AzureRmTrafficManagerProfle cmdlet을 사용합니다.
 
-	PS C:\> $profile = Get-AzureRmTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
+	PS C:\> $profile = Get-AzureRmTrafficManagerProfile –Name MyProfile -ResourceGroupName MyRG
 
 이 cmdlet은 트래픽 관리자 프로필 개체를 반환합니다.
 
@@ -137,7 +131,7 @@ cmdlet는 트래픽 관리자 프로필 Azure 트래픽 관리자에서 만들�
 
 예를 들어 프로필 TTL을 변경하려면:
 
-	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
+	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyRG
 	PS C:\> $profile.Ttl = 300
 	PS C:\> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
 
@@ -155,7 +149,7 @@ Azure 끝점은 Azure에서 호스팅되는 다른 서비스를 나타냅니다.
 #### 예제 1: AzureRmTrafficManagerEndpointConfig를 사용하여 웹앱 끝점 추가
 이 예제에서는 새 트래픽 관리자 프로필을 만들고 Add-AzureRmTrafficManagerEndpointConfig cmdlet을 사용하여 두 개의 웹앱 끝점을 추가한 다음 Set-AzureRmTrafficManagerProfile을 사용하여 업데이트된 프로필을 Azure 트래픽 관리자에 커밋합니다.
 
-	PS C:\> $profile = New-AzureRmTrafficManagerProfile –Name myprofile -ResourceGroupName myrg -TrafficRoutingMethod Performance -RelativeDnsName myapp -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+	PS C:\> $profile = New-AzureRmTrafficManagerProfile –Name myprofile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName myapp -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
 	PS C:\> $webapp1 = Get-AzureRMWebApp -Name webapp1
 	PS C:\> Add-AzureRmTrafficManagerEndpointConfig –EndpointName webapp1ep –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp1.Id –EndpointStatus Enabled
 	PS C:\> $webapp2 = Get-AzureRMWebApp -Name webapp2
@@ -171,18 +165,18 @@ Azure 끝점은 Azure에서 호스팅되는 다른 서비스를 나타냅니다.
 #### 예제 3: New-AzureRmTrafficManagerEndpoint를 사용하여 publicIpAddress 끝점 추가
 이 예제에서는 ARM 공용 IP 주소 리소스가 트래픽 관리자 프로필에 추가됩니다. 공용 IP 주소는 구성된 DNS 이름이 있어야 하고 VM의 NIC 또는 부하 분산 장치에 바인딩될 수 있습니다.
 
-	PS C:\> $ip = Get-AzureRmPublicIpAddress -Name MyPublicIP -ResourceGroupName MyResourceGroup
+	PS C:\> $ip = Get-AzureRmPublicIpAddress -Name MyPublicIP -ResourceGroupName MyRG
 	PS C:\> New-AzureRmTrafficManagerEndpoint –Name MyIpEndpoint –ProfileName MyProfile -ResourceGroupName MyRG –Type AzureEndpoints -TargetResourceId $ip.Id –EndpointStatus Enabled
 
 ### 외부 끝점 추가
 트래픽 관리자는 외부 끝점을 사용하여 Azure 외부에서 호스팅되는 서비스에 트래픽을 보냅니다. Azure 끝점과 마찬가지로 외부 끝점은 Set-AzureRmTrafficManagerProfile이 뒤에 오는 Add-AzureRmTrafficManagerEndpointConfig 또는 New-AzureRMTrafficManagerEndpoint를 사용하여 추가할 수 있습니다.
 
-외부 끝점을 지정하는 경우: - 끝점 도메인 이름은 '대상' 매개 변수를 사용하여 지정되어야 합니다. - '성능' 트래픽 라우팅 메서드를 사용하는 경우 'EndpointLocation'이 필수이고 그렇지 않으면 선택 사항입니다. 값은 [유효한 Azure 지역 이름](http://azure.microsoft.com/regions/)이어야 합니다. - '가중치' 및 '우선 순위'는 Azure 끝점의 경우와 마찬가지로 선택 사항입니다.
+외부 끝점을 지정하는 경우: - 끝점 도메인 이름은 '대상' 매개 변수를 사용하여 지정되어야 합니다. - '성능' 트래픽 라우팅 메서드를 사용하는 경우 'EndpointLocation'이 필수이고 그렇지 않으면 선택 사항입니다. 값은 [유효한 Azure 지역 이름](https://azure.microsoft.com/regions/)이어야 합니다. - '가중치' 및 '우선 순위'는 Azure 끝점의 경우와 마찬가지로 선택 사항입니다.
 
 #### 예제 1: Add-AzureRmTrafficManagerEndpointConfig 및 Set-AzureRmTrafficManagerProfile을 사용하여 외부 끝점 추가
 이 예제에서는 새 트래픽 관리자 프로필을 만들고 두 개의 외부 끝점을 추가하고 변경 내용을 커밋합니다.
 
-	PS C:\> $profile = New-AzureRmTrafficManagerProfile –Name myprofile -ResourceGroupName myrg -TrafficRoutingMethod Performance -RelativeDnsName myapp -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+	PS C:\> $profile = New-AzureRmTrafficManagerProfile –Name myprofile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName myapp -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
 	PS C:\> Add-AzureRmTrafficManagerEndpointConfig –EndpointName eu-endpoint –TrafficManagerProfile $profile –Type ExternalEndpoints -Target app-eu.contoso.com –EndpointStatus Enabled
 	PS C:\> Add-AzureRmTrafficManagerEndpointConfig –EndpointName us-endpoint –TrafficManagerProfile $profile –Type ExternalEndpoints -Target app-us.contoso.com –EndpointStatus Enabled
 	PS C:\> Set-AzureRmTrafficManagerProfile –TrafficManagerProfile $profile  
@@ -192,13 +186,39 @@ Azure 끝점은 Azure에서 호스팅되는 다른 서비스를 나타냅니다.
 
 	PS C:\> New-AzureRmTrafficManagerEndpoint –Name eu-endpoint –ProfileName MyProfile -ResourceGroupName MyRG –Type ExternalEndpoints -Target app-eu.contoso.com –EndpointStatus Enabled
 
+### '중첩' 끝점 추가
+
+트래픽 관리자를 통해 트래픽 관리자 프로필('자식' 프로필이라고 함)을 다른 트래픽 관리자 프로필('부모' 프로필이라고 함) 내의 끝점으로 구성할 수 있습니다.
+
+중첩 트래픽 관리자를 사용하면 더 유연하고 강력한 트래픽 라우팅 및 장애 조치(failover) 체계를 만들어 더 크고 복잡한 배포에 대한 요구 사항을 지원할 수 있습니다. [이 블로그 게시물](https://azure.microsoft.com/blog/new-azure-traffic-manager-nested-profiles/)에서 몇 가지 예제를 제공합니다.
+
+중첩 끝점은 특정 끝점 유형인 'NestedEndpoints'를 사용하여 부모 프로필에서 구성됩니다. 중첩된 끝점을 지정하는 경우: - 끝점(자식 프로필)은 'targetResourceId' 매개 변수를 사용하여 지정되어야 합니다. - 'Performance' 트래픽 라우팅 메서드를 사용하는 경우 'EndpointLocation'이 필수이고, 사용하지 않으면 선택 사항입니다. 값은 [유효한 Azure 지역 이름](http://azure.microsoft.com/regions/)이어야 합니다. - '가중치' 및 '우선 순위'는 Azure 끝점에서처럼 선택 사항입니다. - 'MinChildEndpoints' 매개 변수는 선택 사항이며 기본값은 '1'입니다. 자식 프로필에서 사용할 수 있는 끝점 수가 이 임계값 아래로 떨어지는 경우 부모 프로필은 자식 프로필의 '성능이 저하되었다'고 간주하고 트래픽을 다른 부모 프로필 끝점으로 전환합니다.
+
+
+#### 예제 1: Add-AzureRmTrafficManagerEndpointConfig 및 Set-AzureRmTrafficManagerProfile을 사용하여 중첩된 끝점 추가
+
+이 예제에서는 새 트래픽 관리자 자식 및 부모 프로필을 만들고 자식을 부모의 중첩 끝점으로 추가하고 변경 내용을 커밋합니다. (간단하게 하기 위해 일반적으로 필요하기는 하지만 여기서는 다른 끝점을 자식 프로필 또는 부모 프로필에 추가하지 않습니다.)
+
+	PS C:\> $child = New-AzureRmTrafficManagerProfile –Name child -ResourceGroupName MyRG -TrafficRoutingMethod Priority -RelativeDnsName child -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+	PS C:\> $parent = New-AzureRmTrafficManagerProfile –Name parent -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName parent -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+	PS C:\> Add-AzureRmTrafficManagerEndpointConfig –EndpointName child-endpoint –TrafficManagerProfile $parent –Type NestedEndpoints -TargetResourceId $child.Id –EndpointStatus Enabled -EndpointLocation "North Europe" -MinChildEndpoints 2
+	PS C:\> Set-AzureRmTrafficManagerProfile –TrafficManagerProfile $profile
+
+#### 예제 2: New-AzureRmTrafficManagerEndpoint를 사용하여 중첩된 끝점 추가
+
+이 예제에서는 프로필 이름 및 리소스 그룹 이름을 사용하여 지정된 기존 부모 프로필에 기존 자식 프로필을 중첩된 끝점으로 추가합니다.
+
+	PS C:\> $child = Get-AzureRmTrafficManagerEndpoint –Name child -ResourceGroupName MyRG
+	PS C:\> New-AzureRmTrafficManagerEndpoint –Name child-endpoint –ProfileName parent -ResourceGroupName MyRG –Type NestedEndpoints -TargetResourceId $child.Id –EndpointStatus Enabled -EndpointLocation "North Europe" -MinChildEndpoints 2
+
+
 ## 트래픽 관리자 끝점 업데이트
 기존 트래픽 관리자 끝점을 업데이트하는 방법은 두 가지입니다. 1. Get-AzureRmTrafficManagerProfile을 사용하여 트래픽 관리자 프로필을 가져오고 프로필 내의 끝점 속성을 업데이트하고 Set-AzureRmTrafficManagerProfile을 사용하여 변경 내용을 커밋합니다. 이 메서드는 한 번에 둘 이상의 끝점을 업데이트할 수 있다는 장점이 있습니다. 2. Get-AzureRmTrafficManagerEndpoint를 사용하여 트래픽 관리자 끝점을 가져오고 끝점 속성을 업데이트하고 Set-AzureRmTrafficManagerEndpoint를 사용하여 변경 내용을 커밋합니다. 이 메서드는 프로필에서 끝점 배열로 인덱싱하지 않아도 되므로 훨씬 간단합니다.
 
 #### 예제 1: Get-AzureRmTrafficManagerProfile 및 Set-AzureRmTrafficManagerProfile을 사용하여 끝점 업데이트
 이 예제에서는 기존 프로필 내에서 두 개의 끝점에 대한 우선 순위를 수정합니다.
 
-	PS C:\> $profile = Get-AzureRmTrafficManagerProfile –Name myprofile -ResourceGroupName myrg
+	PS C:\> $profile = Get-AzureRmTrafficManagerProfile –Name myprofile -ResourceGroupName MyRG
 	PS C:\> $profile.Endpoints[0].Priority = 2
 	PS C:\> $profile.Endpoints[1].Priority = 1
 	PS C:\> Set-AzureRmTrafficManagerProfile –TrafficManagerProfile $profile
@@ -206,7 +226,7 @@ Azure 끝점은 Azure에서 호스팅되는 다른 서비스를 나타냅니다.
 #### 예제 2: Get-AzureRmTrafficManagerEndpoint 및 Set-AzureRmTrafficManagerEndpoint을 사용하여 끝점 업데이트
 이 예제에서는 기존 프로필에 있는 단일 끝점의 가중치를 수정합니다.
 
-	PS C:\> $endpoint = Get-AzureRmTrafficManagerEndpoint -Name myendpoint -ProfileName myprofile -ResourceGroupName myrg -Type ExternalEndpoints
+	PS C:\> $endpoint = Get-AzureRmTrafficManagerEndpoint -Name myendpoint -ProfileName myprofile -ResourceGroupName MyRG -Type ExternalEndpoints
 	PS C:\> $endpoint.Weight = 20
 	PS C:\> Set-AzureRmTrafficManagerEndpoint -TrafficManagerEndpoint $endpoint
 
@@ -227,11 +247,11 @@ Disable-AzureRmTrafficManagerProfile cmdlet은 확인을 위해 메시지를 표
 #### 예제 2: 트래픽 관리자 끝점 활성화 및 비활성화
 트래픽 관리자 끝점을 활성화하려면 Enable-AzureRmTrafficManagerEndpoint를 사용합니다. TrafficManagerEndpoint 개체(파이프라인을 통해 또는 '-TrafficManagerEndpoint' 매개 변수를 사용하여 전달된)를 사용하거나 끝점 이름, 끝점 형식, 프로필 이름 및 리소스 그룹 이름을 사용하여 끝점을 지정할 수 있습니다.
 
-	PS C:\> Enable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyResourceGroup
+	PS C:\> Enable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG
 
 마찬가지로 트래픽 관리자 끝점을 비활성화하려면:
 
- 	PS C:\> Disable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyResourceGroup -Force
+ 	PS C:\> Disable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG -Force
 
 Disable-AzureRmTrafficManagerProfile과 마찬가지로 Disable-AzureRmTrafficManagerEndpoint cmdlet은 '-Force' 매개 변수를 사용하여 표시하지 않을 수 있는 확인 프롬프트를 포함합니다.
 
@@ -240,23 +260,23 @@ Disable-AzureRmTrafficManagerProfile과 마찬가지로 Disable-AzureRmTrafficMa
 
 개별 끝점을 제거하는 다른 방법은 Remove-AzureRmTrafficManagerEndpoint cmdlet을 사용하는 것입니다.
 
-	PS C:\> Remove-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyResourceGroup
+	PS C:\> Remove-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG
 	
 이 cmdlet은 '-Force' 매개 변수가 프롬프트를 표시하지 않도록 사용되지 않는 한 확인을 위한 메시지를 표시합니다.
 
 ## 트래픽 관리자 프로필 삭제
 트래픽 관리자 프로필을 삭제하려면 프로필 이름 및 리소스 그룹 이름을 지정하는 Remove-AzureRmTrafficManagerProfile cmdlet을 사용합니다.
 
-	PS C:\> Remove-AzureRmTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup [-Force]
+	PS C:\> Remove-AzureRmTrafficManagerProfile –Name MyProfile -ResourceGroupName MyRG [-Force]
 
 이 cmdlet은 확인 메시지를 표시합니다. 옵션 ‘-Force’ 스위치를 사용하여 이 메시지가 표시되지 않도록 할 수 있습니다. 삭제할 프로필은 프로필 개체를 사용하여 지정할 수도 있습니다.
 
-	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
+	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyRG
 	PS C:\> Remove-AzureTrafficManagerProfile –TrafficManagerProfile $profile [-Force]
 
 이 순서는 파이프될 수도 있습니다.
 
-	PS C:\> Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup | Remove-AzureTrafficManagerProfile [-Force]
+	PS C:\> Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyRG | Remove-AzureTrafficManagerProfile [-Force]
 
 ## 다음 단계
 
@@ -265,4 +285,4 @@ Disable-AzureRmTrafficManagerProfile과 마찬가지로 Disable-AzureRmTrafficMa
 [트래픽 관리자 성능 고려 사항](traffic-manager-performance-considerations.md)
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

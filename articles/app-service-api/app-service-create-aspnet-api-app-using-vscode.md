@@ -24,7 +24,7 @@
 
 이 자습서에서는 [Visual Studio Code](http://code.visualstudio.com//Docs/whyvscode)를 사용하여 ASP.NET 5 API 앱을 만드는 방법을 보여줍니다. ASP.NET 5는 ASP.NET을 완전히 다시 디자인한 것입니다. ASP.NET 5는 .NET을 사용하여 최신 클라우드 기반 웹 응용 프로그램을 제작할 수 있는 새로운 오픈 소스, 크로스 플랫폼 프레임워크입니다. 자세한 내용은 [ASP.NET 5 소개](http://docs.asp.net/en/latest/conceptual-overview/aspnet.html)를 참조하세요. API 앱에 대한 자세한 내용은 [API 앱 정의](app-service-api-apps-why-best-platform.md)를 참조하세요.
 
-> [AZURE.NOTE]이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우 [가입하여 무료 평가판을 사용](/pricing/free-trial/)하거나 [MSDN 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/)할 수 있습니다. 또한 무료로 [앱 서비스 앱 샘플](http://tryappservice.azure.com)을 사용해 볼 수 있습니다.
+> [AZURE.NOTE] 이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우 [가입하여 무료 평가판을 사용](/pricing/free-trial/)하거나 [MSDN 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/)할 수 있습니다. 또한 무료로 [앱 서비스 앱 샘플](http://tryappservice.azure.com)을 사용해 볼 수 있습니다.
 
 ## 필수 조건  
 
@@ -34,7 +34,7 @@
 ## ASP.NET 5 및 DNX 설치
 ASP.NET 5/DNX는 OS X, Linux 및 Windows에서 실행되는 최신 클라우드 및 웹앱을 제작하기 위한 린(lean) .NET 스택입니다. ASP.NET 5/DNX는 클라우드에 배포되거나 온-프레미스로 실행될 앱에 최적화된 개발 프레임워크를 제공하기 위해 처음부터 다시 제작되었습니다. 오버헤드를 최소화하는 모듈식 구성 요소로 구성되므로 솔루션을 구성하는 동안 유연성이 유지할 수 있습니다.
 
-> [AZURE.NOTE]OS X 및 Linux의 경우 ASP.NET 5 및 DNX(.NET 실행 환경)는 초기 베타/미리 보기 상태입니다.
+> [AZURE.NOTE] OS X 및 Linux의 경우 ASP.NET 5 및 DNX(.NET 실행 환경)는 초기 베타/미리 보기 상태입니다.
 
 이 자습서는 ASP.NET 5와 DNX의 최신 개발 버전으로 응용 프로그램 제작을 시작하도록 작성되었습니다. 더 안정적인, 출시된 환경을 원한다면 [http://www.asp.net/vnext](http://www.asp.net/vnext)를 방문하세요. 다음은 Windows에 해당하는 지침입니다. OS X, Linux 및 Windows에 대한 자세한 설치 지침은 [ASP.NET 5 및 DNX 설치](https://code.visualstudio.com/Docs/ASPnet5#_installing-aspnet-5-and-dnx)를 참조하세요.
 
@@ -136,37 +136,35 @@ namespace ContactsList.Models
 3. **Controllers** 폴더를 마우스 오른쪽 단추로 클릭하고 *ContactsController.cs* 파일을 추가하여 다음과 같이 표시되도록 합니다.
 
 	<pre class="prettyprint">
-	using System.Collections.Generic;
-	using Microsoft.AspNet.Mvc;
-	using ContactsList.Models;
+using System.Collections.Generic;
+using Microsoft.AspNet.Mvc;
+using ContactsList.Models;
 
-	namespace ContactsList.Controllers
-	{
-	    [Route("api/[controller]")]
-	    public class ContactsController : Controller
-	    {
-	        // GET: api/Contacts
-	        [HttpGet]
-	        public IEnumerable&lt;Contact> Get()
-	        {
-	            return new Contact[]{
-	                new Contact { Id = 1, EmailAddress = "barney@contoso.com", Name = "Barney Poland"},
-	                new Contact { Id = 2, EmailAddress = "lacy@contoso.com", Name = "Lacy Barrera"},
-	                new Contact { Id = 3, EmailAddress = "lora@microsoft.com", Name = "Lora Riggs"}
-	            };
-	        }
-	    }
-	}
-	</pre>
+namespace ContactsList.Controllers
+{
+    [Route("api/[controller]")]
+    public class ContactsController : Controller
+    {
+        // GET: api/Contacts
+        [HttpGet]
+        public IEnumerable&lt;Contact> Get()
+        {
+            return new Contact[]{
+                new Contact { Id = 1, EmailAddress = "barney@contoso.com", Name = "Barney Poland"},
+                new Contact { Id = 2, EmailAddress = "lacy@contoso.com", Name = "Lacy Barrera"},
+                new Contact { Id = 3, EmailAddress = "lora@microsoft.com", Name = "Lora Riggs"}
+            };
+        }
+    }
+}
+</pre>
 
 4. **파일** > **모두 저장**을 선택하여 모든 파일을 저장합니다.
 5. **명령 팔레트**에서 다음을 입력하여 앱을 로컬로 실행합니다.
 
 	<pre class="prettyprint">
-	dnx: kestrel - (ContactsList, Microsoft.AspNet.Hosting --server Kestrel --server.urls http://localhost:5001
-	</pre>
-
-	명령 창에 *시작됨*이 표시됩니다. 명령 창에 *시작됨*이 표시되지 않는 경우 VSCode의 왼쪽 아래에서 프로젝트에 오류가 있는지 확인합니다.
+dnx: kestrel - (ContactsList, Microsoft.AspNet.Hosting --server Kestrel --server.urls http://localhost:5001
+</pre>명령 창에 *시작됨*이 표시됩니다. 명령 창에 *시작됨*이 표시되지 않는 경우 VSCode의 왼쪽 아래에서 프로젝트에 오류가 있는지 확인합니다.
 
 5. 브라우저를 열고 다음 URL로 이동합니다.
 
@@ -312,9 +310,9 @@ ASP.NET API 프로젝트를 API 앱으로 배포할 수 있게 해주는 메타�
 
 ## Azure Preview 포털에서 API 앱 만들기
 
-> [AZURE.NOTE]이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우 [가입하여 무료 평가판을 사용](/pricing/free-trial/)하거나 [MSDN 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/)할 수 있습니다. 또한 무료로 [앱 서비스 앱 샘플](http://tryappservice.azure.com)을 사용해 볼 수 있습니다.
+> [AZURE.NOTE] 이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우 [가입하여 무료 평가판을 사용](/pricing/free-trial/)하거나 [MSDN 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/)할 수 있습니다. 또한 무료로 [앱 서비스 앱 샘플](http://tryappservice.azure.com)을 사용해 볼 수 있습니다.
 
-1. [Azure Preview 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Preview 포털](https://portal.azure.com/)에 로그인합니다.
 
 2. 포털의 왼쪽 위에서 **새로 만들기**를 클릭합니다.
 
@@ -428,7 +426,7 @@ To https://user@testsite.scm.azurewebsites.net/testsite.git
 [new branch]      master -> master
 </pre>
 
-> [AZURE.NOTE]앱을 변경할 경우 VSCode에서 **모두 커밋**을 선택한 다음 **GitBash**에서 **git push azure master** 명령을 입력하여 다시 게시하면 됩니다.
+> [AZURE.NOTE] 앱을 변경할 경우 VSCode에서 **모두 커밋**을 선택한 다음 **GitBash**에서 **git push azure master** 명령을 입력하여 다시 게시하면 됩니다.
 
 ## Azure Preview 포털에서 API 정의 보기
 API 앱에 API를 배포했으므로 이제 Azure Preview 포털에서 API 정의를 볼 수 있습니다. 먼저 Azure에서 API 앱의 API 정의가 변경된 것을 인식할 수 있도록 게이트웨이를 다시 시작합니다. 게이트웨이는 리소스 그룹의 API 앱에 대한 API 관리 및 권한 부여를 처리하는 웹앱입니다.
@@ -446,4 +444,4 @@ Azure Preview 포털에서 API 앱에 대한 **API 앱 호스트** 블레이드�
 이 자습서에서는 Visual Studio Code에서 API 앱을 만드는 방법을 알아보았습니다. Visual Studio Code에 대한 자세한 내용은 [Visual Studio Code](https://code.visualstudio.com/Docs/)를 참조하세요. API 앱에 대한 자세한 내용은 [API 앱 정의](app-service-api-apps-why-best-platform.md)를 참조하세요.
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

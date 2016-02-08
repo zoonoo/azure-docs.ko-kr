@@ -28,7 +28,7 @@ Azure Blob 저장소는 HTTP 또는 HTTPS를 통해 전 세계 어디에서나 �
 
 - 프로그래밍 방식으로 Blob을 조작하는 방법에 대한 자세한 내용은 [.NET에서 Blob 저장소를 사용하는 방법](storage-dotnet-how-to-use-blobs.md)을 참조하세요.
 - Azure 저장소에 대한 일반적인 내용은 [저장소 설명서](https://azure.microsoft.com/documentation/services/storage/)를 참조하세요.
-- Azure 클라우드 서비스에 대한 일반적인 내용은 [클라우드 서비스 설명서](http://azure.microsoft.com/documentation/services/cloud-services/)를 참조하세요.
+- Azure 클라우드 서비스에 대한 일반적인 내용은 [클라우드 서비스 설명서](https://azure.microsoft.com/documentation/services/cloud-services/)를 참조하세요.
 - ASP.NET 응용 프로그램을 프로그래밍하는 방법에 대한 자세한 내용은 [ASP.NET](http://www.asp.net)을 참조하세요.
 
 ## 코드에서 Blob 컨테이너에 액세스하기
@@ -58,11 +58,11 @@ Azure Blob 저장소는 HTTP 또는 HTTPS를 통해 전 세계 어디에서나 �
         // Get a reference to a container named “mycontainer.”
         CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
-> [AZURE.NOTE]다음 섹션의 코드 앞에서 이전 절차의 모든 코드를 사용합니다.
+> [AZURE.NOTE] 다음 섹션의 코드 앞에서 이전 절차의 모든 코드를 사용합니다.
 
 ## 코드에서 컨테이너 만들기
 
-> [AZURE.NOTE]ASP.NET의 Azure 저장소에 대한 호출을 수행하는 일부 API는 비동기적입니다. 자세한 내용은 [Async 및 Await를 사용한 비동기 프로그래밍](http://msdn.microsoft.com/library/hh191443.aspx)을 참조하세요. 다음 예제의 코드에서는 비동기 프로그래밍 메서드를 사용한다고 가정합니다.
+> [AZURE.NOTE] ASP.NET의 Azure 저장소에 대한 호출을 수행하는 일부 API는 비동기적입니다. 자세한 내용은 [Async 및 Await를 사용한 비동기 프로그래밍](http://msdn.microsoft.com/library/hh191443.aspx)을 참조하세요. 다음 예제의 코드에서는 비동기 프로그래밍 메서드를 사용한다고 가정합니다.
 
 저장소 계정에서 컨테이너를 만들려면 다음 코드와 같이 **CreateIfNotExistsAsync** 호출을 추가하면 됩니다.
 
@@ -257,4 +257,4 @@ Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 **Delete** 메서
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

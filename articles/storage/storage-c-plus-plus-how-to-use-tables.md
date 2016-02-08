@@ -23,7 +23,7 @@
 ## 개요  
 이 가이드에서는 Azure 테이블 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 C++로 작성되었으며 [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/v1.0.0/README.md)를 사용합니다. 여기서 다루는 시나리오에는 **테이블 만들기 및 삭제**와 **테이블 엔터티 작업**이 포함됩니다.
 
->[AZURE.NOTE]이 가이드는 Azure Storage Client Library for C++ 버전 1.0.0 이상을 대상으로 합니다. 권장되는 버전은 Storage Client Library 1.0.0이며, [NuGet](http://www.nuget.org/packages/wastorage) 또는 [GitHub](https://github.com/)를 통해 사용 가능합니다.
+>[AZURE.NOTE] 이 가이드는 Azure Storage Client Library for C++ 버전 1.0.0 이상을 대상으로 합니다. 권장되는 버전은 Storage Client Library 1.0.0이며, [NuGet](http://www.nuget.org/packages/wastorage) 또는 [GitHub](https://github.com/)를 통해 사용 가능합니다.
 
 [AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
@@ -46,12 +46,12 @@ Azure Storage Client Library for C++를 설치하려면 다음 메서드를 사�
 	#include "was/table.h"
 
 ## Azure 저장소 연결 문자열 설정  
-Azure 저장소 클라이언트는 저장소 연결 문자열을 사용하여 데이터 관리 서비스에 액세스하기 위한 끝점 및 자격 증명을 저장합니다. 클라이언트 응용 프로그램을 실행할 때 다음과 같은 형식의 저장소 연결 문자열을 제공해야 합니다. *AccountName* 및 *AccountKey* 값에 대해 [Azure 포털](portal.azure.com)에 나열된 저장소 계정으로 저장소 계정 이름 및 저장소 액세스 키를 사용합니다. 저장소 계정 및 액세스 키에 대한 자세한 내용은 [Azure 저장소 계정 정보](storage-create-storage-account.md)를 참조하세요. 이 예제는 정적 필드가 연결 문자열을 포함할 수 있도록 선언하는 방법을 보여 줍니다.
+Azure 저장소 클라이언트는 저장소 연결 문자열을 사용하여 데이터 관리 서비스에 액세스하기 위한 끝점 및 자격 증명을 저장합니다. 클라이언트 응용 프로그램을 실행할 때 다음과 같은 형식의 저장소 연결 문자열을 제공해야 합니다. *AccountName* 및 *AccountKey* 값에 대해 [Azure 포털](https://portal.azure.com)에 나열된 저장소 계정으로 저장소 계정 이름 및 저장소 액세스 키를 사용합니다. 저장소 계정 및 액세스 키에 대한 자세한 내용은 [Azure 저장소 계정 정보](storage-create-storage-account.md)를 참조하세요. 이 예제는 정적 필드가 연결 문자열을 포함할 수 있도록 선언하는 방법을 보여 줍니다.
 
 	// Define the connection string with your values.
 	const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
 
-로컬 Windows 기반 컴퓨터에서 응용 프로그램을 테스트하려면 [Azure SDK](http://azure.microsoft.com/downloads/)와 함께 설치된 Azure [저장소 에뮬레이터](storage-use-emulator.md)를 사용할 수 있습니다. 저장소 에뮬레이터는 로컬 개발 컴퓨터에서 사용할 수 있는 Azure Blob, 큐 및 테이블 서비스를 시뮬레이션하는 유틸리티입니다. 다음 예제에서는 로컬 저장소 에뮬레이터에 연결 문자열을 포함할 수 있도록 정적 필드를 선언하는 방법을 보여줍니다.
+로컬 Windows 기반 컴퓨터에서 응용 프로그램을 테스트하려면 [Azure SDK](https://azure.microsoft.com/downloads/)와 함께 설치된 Azure [저장소 에뮬레이터](storage-use-emulator.md)를 사용할 수 있습니다. 저장소 에뮬레이터는 로컬 개발 컴퓨터에서 사용할 수 있는 Azure Blob, 큐 및 테이블 서비스를 시뮬레이션하는 유틸리티입니다. 다음 예제에서는 로컬 저장소 에뮬레이터에 연결 문자열을 포함할 수 있도록 정적 필드를 선언하는 방법을 보여줍니다.
 
 	// Define the connection string with Azure storage emulator.
 	const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
@@ -359,7 +359,7 @@ Azure 저장소 에뮬레이터를 시작하려면 **시작** 단추를 클릭�
 		std::wcout << std::endl;
 	}
 
->[AZURE.NOTE]모든 속성을 검색하는 것보다 엔터티의 몇 가지 속성을 쿼리하는 것이 더 효율적인 작업입니다.
+>[AZURE.NOTE] 모든 속성을 검색하는 것보다 엔터티의 몇 가지 속성을 쿼리하는 것이 더 효율적인 작업입니다.
 
 ## 엔터티 삭제
 엔터티를 검색한 다음 쉽게 삭제할 수 있습니다. 엔터티가 검색되면 **table\_operation:: delete\_entity**를 삭제할 엔터티와 함께 호출합니다. 그런 다음 **cloud\_table.execute** 메서드를 호출합니다. 다음 코드를 검색하고 "Smith"의 파티션 키와 "Jeff"의 행 키가 있는 엔터티를 삭제합니다.
@@ -412,6 +412,6 @@ Azure 저장소 에뮬레이터를 시작하려면 **시작** 단추를 클릭�
 -	[C++에서 큐 저장소를 사용하는 방법](storage-c-plus-plus-how-to-use-queues.md)
 -	[C++에서 Azure 저장소 리소스 나열](storage-c-plus-plus-enumeration.md)
 -	[C++용 Storage Client Library 참조(영문)](http://azure.github.io/azure-storage-cpp)
--	[Azure 저장소 설명서](http://azure.microsoft.com/documentation/services/storage/)
+-	[Azure 저장소 설명서](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

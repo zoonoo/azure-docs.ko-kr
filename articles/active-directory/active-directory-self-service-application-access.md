@@ -20,14 +20,14 @@
 
 최종 사용자에 대한 셀프 서비스 기능을 사용하는 작업은 엔터프라이즈 IT에 대한 일반적인 시나리오입니다. 사용자가 많고 응용 프로그램의 많으며 액세스 권한 부여 결정을 내리는 가장 많은 정보를 가진 사람은 디렉터리 관리자가 아닐 수도 있습니다. 종종 응용 프로그램에 액세스할 수 있는 사용자를 결정하는 최상의 사용자는 팀 리더는 또는 다른 위임된 관리자입니다. 하루가 끝날 때 앱을 사용하는 사용자이며 이 사용자는 작업을 수행하는 데 필요한 사항을 압니다.
 
-셀프 서비스 응용 프로그램 액세스는 디렉터리 관리자가 다음을 수행할 수 있도록 하는 [Azure Active Directory Premium](http://azure.microsoft.com/trial/get-started-active-directory/)의 기능입니다.
+셀프 서비스 응용 프로그램 액세스는 디렉터리 관리자가 다음을 수행할 수 있도록 하는 [Azure Active Directory Premium](https://azure.microsoft.com/trial/get-started-active-directory/)의 기능입니다.
 
 * [Azure AD 액세스 패널](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)에서 사용자가 "더 많은 응용 프로그램 가져오기" 타일을 사용하여 응용 프로그램에 대한 액세스를 요청할 수 있습니다.
 * 액세스를 요청할 수 있는 응용 프로그램 사용자 설정
 * 사용자가 응용 프로그램에 대한 액세스를 자체 할당할 수 있도록 승인이 필요한지 여부 설정
 * 각 응용 프로그램에 대한 요청을 승인하고 액세스를 관리해야 하는 사용자 설정
 
-오늘날 이 기능은 [Azure Active Directory 응용 프로그램 갤러리](http://azure.microsoft.com/marketplace/active-directory/all/)에서 페더레이션된 또는 암호 기반 Single Sign-On을 지원하는 Salesforce, Dropbox, Google Apps과 같은 앱을 포함하여 미리 통합된 사용자 지정 앱을 지원합니다. 이 문서에서는 다음과 같이 방법을 설명합니다.
+오늘날 이 기능은 [Azure Active Directory 응용 프로그램 갤러리](https://azure.microsoft.com/marketplace/active-directory/all/)에서 페더레이션된 또는 암호 기반 Single Sign-On을 지원하는 Salesforce, Dropbox, Google Apps과 같은 앱을 포함하여 미리 통합된 사용자 지정 앱을 지원합니다. 이 문서에서는 다음과 같이 방법을 설명합니다.
 
 * 최종 사용자에게 선택적 승인 워크플로의 구성을 비롯한 셀프 서비스 응용 프로그램 액세스를 구성합니다. 
 * 조직에서 가장 적합한 사람에게 특정 응용 프로그램에 대한 액세스 관리를 위임하고, Azure AD 액세스 패널을 사용하여 액세스 요청을 승인하며, 선택된 사용자에 대한 액세스를 직접 할당하거나 또는 (선택적으로) 암호 기반 Single Sign-On이 구성된 경우 응용 프로그램 액세스에 대한 자격 증명을 설정합니다.
@@ -106,4 +106,4 @@
 [2]: ./media/active-directory-self-service-application-access/ssaa_ap_manage_app.PNG
 [3]: ./media/active-directory-self-service-application-access/ssaa_ap_manage_app_config.PNG
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

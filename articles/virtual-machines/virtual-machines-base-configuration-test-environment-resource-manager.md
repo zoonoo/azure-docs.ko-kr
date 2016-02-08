@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/14/2016"
+	ms.date="01/21/2016"
 	ms.author="josephd"/>
 
 # Azure 리소스 관리자를 사용하는 기본 구성 테스트 환경
@@ -50,15 +50,15 @@ Azure에서 Windows Server 2012 R2 기본 구성 테스트 환경의 Corpnet 서
 3.	APP1 구성
 4.	CLIENT1 구성
 
-아직 Azure 계정이 없는 경우에는 [Azure 평가판 사용](http://azure.microsoft.com/pricing/free-trial/)에서 무료로 가입할 수 있습니다. MSDN 구독이 있는 경우 [MSDN 구독자를 위한 Azure 혜택](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조하세요.
+아직 Azure 계정이 없는 경우에는 [Azure 평가판 사용](https://azure.microsoft.com/pricing/free-trial/)에서 무료로 가입할 수 있습니다. MSDN 구독이 있는 경우 [MSDN 구독자를 위한 Azure 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조하세요.
 
-> [AZURE.NOTE]Azure의 가상 컴퓨터는 실행 중인 동안 지속적인 비용이 부과됩니다. 이 비용은 무료 평가판, MSDN 구독 또는 유료 구독에 대해 청구됩니다. 실행 중인 Azure 가상 컴퓨터의 비용에 대한 자세한 내용은 [가상 컴퓨터 가격 정보](http://azure.microsoft.com/pricing/details/virtual-machines/) 및 [Azure 가격 계산기](http://azure.microsoft.com/pricing/calculator/)를 참조하세요. 비용을 절감하려면 [Azure에서 테스트 환경 가상 컴퓨터의 비용 최소화](#costs)를 참조하세요.
+> [AZURE.NOTE] Azure의 가상 컴퓨터는 실행 중인 동안 지속적인 비용이 부과됩니다. 이 비용은 무료 평가판, MSDN 구독 또는 유료 구독에 대해 청구됩니다. 실행 중인 Azure 가상 컴퓨터의 비용에 대한 자세한 내용은 [가상 컴퓨터 가격 정보](https://azure.microsoft.com/pricing/details/virtual-machines/) 및 [Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/)를 참조하세요. 비용을 절감하려면 [Azure에서 테스트 환경 가상 컴퓨터의 비용 최소화](#costs)를 참조하세요.
 
 ## 1단계: 가상 네트워크 만들기
 
 먼저, Azure PowerShell 프롬프트를 시작합니다.
 
-> [AZURE.NOTE]다음 명령 집합은 Azure PowerShell 1.0 이상을 사용합니다. 자세한 내용은 [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)을 참조하세요.
+> [AZURE.NOTE] 다음 명령 집합은 Azure PowerShell 1.0 이상을 사용합니다. 자세한 내용은 [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)을 참조하세요.
 
 계정에 로그인합니다.
 
@@ -175,7 +175,7 @@ DC1이 다시 시작된 후 DC1 가상 컴퓨터에 다시 연결합니다.
 
 	New-ADUser -SamAccountName User1 -AccountPassword (read-host "Set user password" -assecurestring) -name "User1" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false
 
-이 명령은 User1 계정 암호를 입력하라는 메시지를 표시합니다. 이 계정은 모든 CORP 도메인 구성원 컴퓨터에 대한 원격 데스크톱 연결에 사용되므로 강력한 암호를 선택해야 합니다. 암호 강도를 확인하려면 [암호 검사기: 강력한 암호 사용](https://www.microsoft.com/security/pc-security/password-checker.aspx)을 참조하세요. User1 계정 암호를 기록하고 안전한 위치에 저장합니다.
+이 명령은 User1 계정 암호를 입력하라는 메시지를 표시합니다. 이 계정은 모든 CORP 도메인 구성원 컴퓨터에 대한 원격 데스크톱 연결에 사용되므로 *강력한 암호를 선택*해야 합니다. 암호 강도를 확인하려면 [암호 검사기: 강력한 암호 사용](https://www.microsoft.com/security/pc-security/password-checker.aspx)을 참조하세요. User1 계정 암호를 기록하고 안전한 위치에 저장합니다.
 
 그 다음, 새로운 User1 계정을 엔터프라이즈 관리자로 구성합니다. 관리자 수준 Windows PowerShell 명령 프롬프트에서 다음 명령을 실행합니다.
 
@@ -243,6 +243,8 @@ Windows PowerShell 명령 프롬프트에서 다음 명령을 사용하여 APP1�
 ## 4단계: CLIENT1 구성
 
 CLIENT1은 Contoso 인트라넷에서 일반적인 랩톱, 태블릿 또는 데스크톱 컴퓨터 역할을 합니다.
+
+> [AZURE.NOTE] 다음 명령 집합은 Windows Server 2012 R2 Datacenter를 실행하는 CLIENT1을 만들고 이 작업은 Azure 구독의 모든 형식에 대해 가능합니다. MSDN 기반 Azure 구독이 있는 경우 [Azure 포털](virtual-machines-windows-tutorial.md)을 사용하여 Windows 10, Windows 8 또는 Windows 7을 실행하는 CLIENT1을 만들 수 있습니다.
 
 먼저, 리소스 그룹의 이름, Azure 위치 및 저장소 계정 이름을 입력하고, 로컬 컴퓨터의 Azure PowerShell 명령 프롬프트에서 이 명령들을 실행하여 CLIENT1에 대한 Azure 가상 컴퓨터를 만듭니다.
 
@@ -326,4 +328,4 @@ Azure PowerShell을 사용하여 가상 컴퓨터를 순서대로 시작하려�
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "APP1"
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "CLIENT1"
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

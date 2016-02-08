@@ -46,7 +46,7 @@ DPM 서버 백업에 Azure 백업을 사용할 경우의 비즈니스 이점은 
 
 스냅숏이 생성된 후 Azure 백업 서비스가 백업 자격 증명 모음으로 데이터를 전송합니다. 서비스는 마지막 백업에서 변경된 블록만 식별하고 전송하여 백업 자격 증명 모음 및 네트워크를 효율적으로 만듭니다. 데이터 전송이 완료되면 스냅숏이 제거되고 복구 지점이 생성됩니다. 이 복구 지점은 Azure 관리 포털에서 확인할 수 있습니다.
 
->[AZURE.NOTE]Linux 가상 컴퓨터의 경우 파일 일치 백업만 가능합니다.
+>[AZURE.NOTE] Linux 가상 컴퓨터의 경우 파일 일치 백업만 가능합니다.
 
 ## 필수 조건
 DPM 데이터를 백업하기 위해 다음과 같이 Azure 백업을 준비합니다.
@@ -90,6 +90,6 @@ DPM 데이터를 백업하기 위해 다음과 같이 Azure 백업을 준비합�
 - 압축된 스트림
 - 스파스 스트림
 
->[AZURE.NOTE]System Center 2012 DPM SP1부터는 DPM으로 보호되는 워크로드를 Microsoft Azure 백업을 사용하여 Azure에 백업할 수 있습니다.
+>[AZURE.NOTE] System Center 2012 DPM SP1부터는 DPM으로 보호되는 워크로드를 Microsoft Azure 백업을 사용하여 Azure에 백업할 수 있습니다.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

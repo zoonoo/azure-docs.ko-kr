@@ -56,20 +56,19 @@ Azure CDN이 요구 사항에 맞지 않는 경우에는 응용 프로그램에�
 다음 목록에서는 여러 지리적 위치에서 첫 번째 바이트까지의 중간 시간 값의 예를 보여줍니다. 대상 웹 역할은 Azure West US에 배포됩니다. CDN으로 인한 대폭적인 증가와 CDN 노드까지의 근접도 간에는 큰 상관관계가 있습니다. Azure CDN 노드 위치의 전체 목록은 [Azure CDN(콘텐츠 배달 네트워크) 노드 위치](cdn/cdn-pop-locations.md/)를 참조하세요.
 
 
-|| 첫 번째 바이트(원점)까지의 시간(ms) | 첫 번째(CDN)까지의 시간(ms) |%CDN 시간 향상|
+| 첫 번째 바이트(원점)까지 시간(ms) | 첫 번째(CDN)까지 시간(ms) |%CDN 시간 개선|
 |-------------|------------------------|--------------------|------------------|
-|\*산호세, 캘리포니아| 47.5 | 46.5 | 2 % |
-|\*\*덜레스, 버지니아| 109 | 40.5 | 169% |
+|*산호세, 캘리포니아| 47\.5 | 46\.5 | 2% |
+|**덜레스, 버지니아| 109 | 40\.5 | 169% |
 |부에노스아이레스, AR| 210 | 151 | 39%|
-|\*런던, 영국| 195 | 44 | 343%|
+|*런던, 영국| 195 | 44 | 343%|
 |상하이, 중국| 242 | 206 | 17% |
-|\*싱가포르 | 214 | 74 | 189 % |
-|\*도쿄, 일본 | 163 | 48 | 204 % |
+|*싱가포르 | 214 | 74 | 189% |
+|*도쿄, 일본 | 163 | 48 | 204% |
 |서울, 한국| 190 | 190 | 0% |
 
 
-\* 같은 도시에서는 Azure CDN 노드를 가집니다.  
-\*\* 인접한 도시에서는 Azure CDN 노드를 가집니다.  
+* 같은 도시에서는 Azure CDN 노드를 가집니다. ** 인접한 도시에서는 Azure CDN 노드를 가집니다.
 
 ## 과제  
 
@@ -206,13 +205,7 @@ CDN을 응용 프로그램 모니터링 전략의 일부로 포함시켜 오류 
 
 CDN에 로깅을 사용하고 이 로그를 일상적인 작업의 일부로 모니터링합니다.
 
-사용 패턴에 대한 CDN 트래픽을 분석하는 것이 좋습니다. Azure 포털은 모니터링할 수 있도록 다음과 같은 도구를 제공합니다.
-+ 대역폭, 
-+ 전송된 데이터,
-+ 적중(상태 코드),
-+ 캐시 상태,
-+ 캐시 적중 비율 및
-+ IPV4/IPV6 요청의 비율.
+사용 패턴에 대한 CDN 트래픽을 분석하는 것이 좋습니다. Azure 포털은 모니터링할 수 있도록 다음과 같은 도구를 제공합니다. + 대역폭, + 전송된 데이터, + 적중(상태 코드), + 캐시 상태, + 캐시 적중 비율 및 + IPV4/IPV6 요청의 비율.
 
 자세한 내용은 [Azure 분석 CDN 사용 패턴](cdn/cdn-analyze-usage-patterns.md/)을 참조하세요.
 
@@ -281,11 +274,10 @@ URL 다시 쓰기를 사용하면 리소스 묶음에 대한 변경을 수행해
 ## 자세한 정보
 
 
-+ [Azure CDN](http://azure.microsoft.com/services/cdn/)
++ [Azure CDN](https://azure.microsoft.com/services/cdn/)
 + [Azure 콘텐츠 배달 네트워크(CDN) 설명서](https://azure.microsoft.com/documentation/services/cdn/)
 + [웹 응용 프로그램에서 Azure CDN의 콘텐츠 제공](cdn/cdn-serve-content-from-cdn-in-your-web-application/)
 + [Azure CDN과 클라우드 서비스 통합](cdn/cdn-cloud-service-with-cdn.md/)
-+ [Microsoft Azure 콘텐츠 배달 네트워크 모범 사례](http://azure.microsoft.com/blog/2011/03/18/best-practices-for-the-windows-azure-content-delivery-network/)
++ [Microsoft Azure 콘텐츠 배달 네트워크 모범 사례](https://azure.microsoft.com/blog/2011/03/18/best-practices-for-the-windows-azure-content-delivery-network/)
 
-<!---HONumber=AcomDC_1223_2015-->
-
+<!---HONumber=AcomDC_0128_2016-->

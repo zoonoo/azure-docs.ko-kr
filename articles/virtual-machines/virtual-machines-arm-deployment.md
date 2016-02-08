@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="01/20/2016"
 	ms.author="davidmu"/>
 
 # 계산, 네트워크 및 저장소 .NET 라이브러리를 사용하여 Azure 리소스를 배포합니다.
@@ -28,7 +28,7 @@
 이 자습서를 완료하려면 다음이 필요합니다.
 
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
-- [Azure 저장소 계정](../storage-create-storage-account.md)
+- [Azure 저장소 계정](../storage/storage-create-storage-account.md)
 - [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) 또는 [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855)
 
 [AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
@@ -47,7 +47,7 @@ Azure AD를 사용하여 Azure 리소스 관리자에 요청을 인증하려면,
 
 			New-AzureRmADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
 
-	>[AZURE.NOTE]다음 단계에 필요하므로 응용 프로그램이 만들어진 후 반환되는 응용 프로그램 식별자를 기록해 둡니다. 또한 Azure 포털의 Active Directory 섹션에 있는 응용 프로그램의 클라이언트 ID 필드에서 응용 프로그램 식별자를 찾을 수 있습니다.
+	>[AZURE.NOTE] 다음 단계에 필요하므로 응용 프로그램이 만들어진 후 반환되는 응용 프로그램 식별자를 기록해 둡니다. 또한 Azure 포털의 Active Directory 섹션에 있는 응용 프로그램의 클라이언트 ID 필드에서 응용 프로그램 식별자를 찾을 수 있습니다.
 
 3. {application-id}를 방금 기록된 식별자로 바꾼 다음 해당 응용 프로그램에 대한 서비스 주체를 만듭니다.
 
@@ -73,7 +73,7 @@ NuGet 패키지는 이 자습서를 완료하는데 필요한 라이브러리를
 
 6. 검색 상자에 *Microsoft.Azure.Management.Network*를 입력하고 네트워크 .NET 라이브러리에 대해 **설치**를 클릭한 다음 지침에 따라 패키지를 설치합니다.
 
-7. 검색 상자에 *Microsoft.Azure.Management.Storage*를 입력하고 네트워크 .NET 라이브러리에 대해 **설치**를 클릭한 다음 지침에 따라 패키지를 설치합니다.
+7. 검색 상자에 *Microsoft.Azure.Management.Storage*를 입력하고 저장소 .NET 라이브러리에 대해 **설치**를 클릭한 다음 지침에 따라 패키지를 설치합니다.
 
 8. 검색 상자에 *Microsoft.Azure.Management.Resources*를 입력하고 리소스 관리 라이브러리에 대해 **설치**를 클릭합니다.
 
@@ -489,7 +489,7 @@ Azure Active Directory 응용 프로그램이 생성되고 인증 라이브러�
 	}
 	```
 
-	>[AZURE.NOTE]이 자습서는 Windows Server 운영 체제의 버전을 실행하는 가상 컴퓨터를 만듭니다. 기타 이미지 선택에 대해 자세히 알아보려면 [Windows PowerShell 및 Azure CLI를 사용하여 Azure 가상 컴퓨터 탐색 및 선택](resource-groups-vm-searching.md)을 참조하세요.
+	>[AZURE.NOTE] 이 자습서는 Windows Server 운영 체제의 버전을 실행하는 가상 컴퓨터를 만듭니다. 기타 이미지 선택에 대해 자세히 알아보려면 [Windows PowerShell 및 Azure CLI를 사용하여 Azure 가상 컴퓨터 탐색 및 선택](resource-groups-vm-searching.md)을 참조하세요.
 
 2. 방금 추가한 메서드를 호출하려면 Main 메서드에 다음 코드를 추가합니다.
 
@@ -536,11 +536,11 @@ Azure에서 사용되는 리소스에 대한 요금이 부과되기 때문에, �
 	Console.ReadLine();
 	```
 
-##6단계: 콘솔 응용 프로그램 실행
+## 6단계: 콘솔 응용 프로그램 실행
 
-1.	콘솔 응용 프로그램을 실행하려면, Visual Studio에서 **시작**을 클릭한 다음 구독에 사용되는 동일한 사용자 이름 및 암호를 사용하여 Azure AD에 로그인합니다.
+1. 콘솔 응용 프로그램을 실행하려면, Visual Studio에서 **시작**을 클릭한 다음 구독에 사용되는 동일한 사용자 이름 및 암호를 사용하여 Azure AD에 로그인합니다.
 
-2.	각 리소스를 생성하도록 각 상태 코드가 반환된 후 **Enter**를 누릅니다. 가상 컴퓨터를 만든 후 Enter 키를 눌러 모든 리소스를 삭제하기 전에 다음 단계를 수행합니다.
+2. 각 리소스를 생성하도록 각 상태 코드가 반환된 후 **Enter**를 누릅니다. 가상 컴퓨터를 만든 후 Enter 키를 눌러 모든 리소스를 삭제하기 전에 다음 단계를 수행합니다.
 
 	이 콘솔 응용 프로그램을 처음부터 끝까지 완전히 실행하려면 약 5분이 필요합니다. Enter를 눌러 리소스를 삭제하기 전에 Azure 포털에서 리소스 만들기를 확인하는 데에 몇 분이 걸릴 수 있습니다.
 
@@ -548,4 +548,4 @@ Azure에서 사용되는 리소스에 대한 요금이 부과되기 때문에, �
 
 	![AD 응용 프로그램 만들기](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -32,7 +32,7 @@ SQL 데이터베이스는 Azure에 관계형 데이터베이스 관리 시스템
 
 SQL 데이터베이스를 통해 Azure에서 관계형 데이터 저장소, 액세스 및 관리 서비스를 사용할 수 있습니다. 그러려면 Azure 구독이 필요합니다.
 
-1. 웹 브라우저를 열고 [http://azure.microsoft.com](http://azure.microsoft.com)으로 이동합니다. 무료 계정으로 시작하려면 오른쪽 위에 있는 무료 평가판을 클릭하고 안내되는 단계를 따르세요.
+1. 웹 브라우저를 열고 [http://azure.microsoft.com](https://azure.microsoft.com/)으로 이동합니다. 무료 계정으로 시작하려면 오른쪽 위에 있는 무료 평가판을 클릭하고 안내되는 단계를 따르세요.
 
 2. 이제 계정이 만들어집니다. 시작할 준비가 되었습니다.
 
@@ -211,4 +211,4 @@ Entity Framework를 통해 개발자는 관계형 저장소 스키마에 대해 
 이제 SQL 데이터베이스 연결의 기본 사항을 배웠으므로 [개발: 방법 항목(SQL 데이터베이스)](http://msdn.microsoft.com/library/windowsazure/ee621787.aspx)을 참조하세요.
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -31,11 +31,11 @@ Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Direc
 
 Alcumus 정보 교환과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
-- [Azure AD](http://azure.microsoft.com/) 구독
+- [Azure AD](https://azure.microsoft.com/) 구독
 - [Alcumus 정보 교환](http://www.alcumusgroup.com/) Single Sign-On이 설정된 구독
 
 
-> [AZURE.NOTE]이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
+> [AZURE.NOTE] 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
 
 
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
@@ -99,7 +99,7 @@ Alcumus 정보 교환에서 Azure AD Single Sign-On을 구성하고 테스트하
  
      **회신 URL** 텍스트 상자의 3.1에 Alcumus 정보 교환 팀 지원에서 설치된 소비자 URL을 입력합니다.
 
-     >[AZURE.NOTE]올바른 값을 모르는 경우 [helpdesk@alcumusgroup.com](mailto:helpdesk@alcumusgroup.com)을 통해 Alcumus 정보 교환 지원팀에 문의하세요.
+     >[AZURE.NOTE] 올바른 값을 모르는 경우 [helpdesk@alcumusgroup.com](mailto:helpdesk@alcumusgroup.com)을 통해 Alcumus 정보 교환 지원팀에 문의하세요.
 
      3\.2. **다음**을 클릭합니다.
  
@@ -124,7 +124,7 @@ Alcumus 정보 교환에서 Azure AD Single Sign-On을 구성하고 테스트하
 
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 
-3. 사용자 목록을 표시하려면 위쪽의 메뉴에서 **사용자**를 클릭합니다. <br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_03.png)
+3. 사용자 목록을 표시하려면 위쪽 메뉴에서 **사용자**를 클릭합니다.<br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_03.png)
  
 4. **사용자 추가** 대화 상자를 열려면 아래쪽의 도구 모음에서 **사용자 추가**를 클릭합니다.<br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_04.png)
 
@@ -168,7 +168,7 @@ Alcumus 정보 교환에서 Azure AD Single Sign-On을 구성하고 테스트하
 1. 위쪽의 메뉴에서 **사용자**를 클릭합니다.<br> <br><br>![사용자 할당][203]
 1. 사용자 목록에서 **Britta Simon**을 선택합니다.
 
-2. 아래쪽 도구 모음에서 **할당**을 클릭합니다.<br><br>![사용자 할당][205]
+2. 아래쪽 도구 모음에서 **할당**을 클릭합니다. <br><br>![사용자 할당][205]
 
 
 
@@ -204,4 +204,4 @@ Alcumus 정보 교환에서 Azure AD Single Sign-On을 구성하고 테스트하
 [205]: ./media/active-directory-saas-alcumus-info-tutorial/tutorial_general_205.png
 [400]: ./media/active-directory-saas-alcumus-info-tutorial/tutorial_alcumus_402.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

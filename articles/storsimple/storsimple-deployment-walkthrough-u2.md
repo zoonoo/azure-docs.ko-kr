@@ -33,7 +33,7 @@ Microsoft Azure StorSimple 장치 배포를 시작합니다. 이러한 배포 �
 
 설치 및 구성 프로세스를 완료하려면 관리자 권한이 필요합니다. 시작하기 전에 구성 검사 목록을 검토하는 것이 좋습니다. 배포 및 구성 프로세스는 완료하는 데 다소 시간이 걸릴 수 있습니다.
 
-> [AZURE.NOTE]Microsoft Azure 웹 사이트에 게시된 StorSimple 배포 정보는 StorSimple 8000 시리즈 장치에만 적용됩니다. 7000 시리즈 장치에 대한 자세한 내용은 [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com)으로 이동합니다. 7000 시리즈 배포 정보는 [StorSimple 시스템 퀵 스타트 가이드](http://onlinehelp.storsimple.com/111_Appliance/)를 참조하세요.
+> [AZURE.NOTE] Microsoft Azure 웹 사이트에 게시된 StorSimple 배포 정보는 StorSimple 8000 시리즈 장치에만 적용됩니다. 7000 시리즈 장치에 대한 자세한 내용은 [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com)으로 이동합니다. 7000 시리즈 배포 정보는 [StorSimple 시스템 퀵 스타트 가이드](http://onlinehelp.storsimple.com/111_Appliance/)를 참조하세요.
 
 ## 배포 단계
 
@@ -47,7 +47,7 @@ StorSimple 장치를 구성하여 StorSimple 관리자 서비스에 연결하려
 | [배포 필수 조건](#deployment-prerequisites) | 배포할 준비가 되어 있는 환경인지 유효성을 검사합니다. |
 | | |
 | **단계별 배포** | 프로덕션 환경에서 StorSimple 장치를 배포하려면 다음 단계가 필요합니다. |
-| [1단계: 새 서비스 만들기](#step-1-create-a-new-service) | StorSimple 장치에 대한 클라우드 관리 및 저장소를 설정합니다. 다른 StorSimple 장치에 대해 기존 서비스가 있는 경우 이 단계를 건너뜁니다. |
+| [1단계: 새 서비스 만들기](#step-1-create-a-new-service) | StorSimple 장치에 대한 클라우드 관리 및 저장소를 설정합니다. *다른 StorSimple 장치에 대해 기존 서비스가 있는 경우 이 단계를 건너뜁니다*. |
 | [2단계: 서비스 등록 키 받기](#step-2-get-the-service-registration-key) | 이 키를 사용하여 StorSimple 장치를 관리 서비스에 등록 및 연결합니다. |
 | [3단계: StorSimple용 Windows PowerShell을 통해 장치 구성 및 등록](#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) | 장치를 네트워크에 연결하고 관리 서비스를 사용하여 Azure로 등록하여 설정을 완료합니다. |
 | [4단계: 최소 장치 설정 완료](#step-4-complete-minimum-device-setupd)</br>[선택 사항: StorSimple 장치를 업데이트합니다.](#scan-for-and-apply-updates) | 관리 서비스를 사용하여 장치 설정을 완료하고 저장소를 제공할 수 있도록 설정합니다. |
@@ -82,7 +82,7 @@ StorSimple 장치를 구성하여 StorSimple 관리자 서비스에 연결하려
 
 - 액세스 자격 증명이 있는 Microsoft Azure 저장소 계정이 있습니다.
 
-- 사용자의 Microsoft Azure 구독을 StorSimple 관리자 서비스에 사용할 수 있습니다. 구독은 [기업 계약](http://azure.microsoft.com/pricing/enterprise-agreement/)을 통해 구매해야 합니다.
+- 사용자의 Microsoft Azure 구독을 StorSimple 관리자 서비스에 사용할 수 있습니다. 구독은 [기업 계약](https://azure.microsoft.com/pricing/enterprise-agreement/)을 통해 구매해야 합니다.
 
 - PuTTY와 같은 터미널 에뮬레이션 소프트웨어에 액세스할 수 있습니다.
 
@@ -111,7 +111,7 @@ StorSimple 관리자 서비스는 여러 StorSimple 장치를 관리할 수 있�
 
 [AZURE.INCLUDE [storsimple-create-new-service](../../includes/storsimple-create-new-service.md)]
 
-> [AZURE.IMPORTANT]서비스와 함께 저장소 계정을 자동으로 만들도록 설정하지 않은 경우, 서비스를 성공적으로 만든 후 하나 이상의 저장소 계정을 만들어야 합니다. 이 저장소 계정은 볼륨 컨테이너를 만들 때 사용됩니다.
+> [AZURE.IMPORTANT] 서비스와 함께 저장소 계정을 자동으로 만들도록 설정하지 않은 경우, 서비스를 성공적으로 만든 후 하나 이상의 저장소 계정을 만들어야 합니다. 이 저장소 계정은 볼륨 컨테이너를 만들 때 사용됩니다.
 >
 > * 저장소 계정을 자동으로 만들지 않은 경우 자세한 지침은 [서비스에 대한 새 저장소 계정 구성](#configure-a-new-storage-account-for-the-service)을 참조하세요. 
 > * 저장소 계정을 자동으로 생성하도록 설정한 경우, [2단계: 서비스 등록 키 받기](#step-2-get-the-service-registration-key)로 이동합니다.
@@ -155,7 +155,7 @@ StorSimple 장치의 최소 장치 구성에는 다음 사항이 필요합니다
 
 볼륨 컨테이너를 만든 후에 서버에 대한 StorSimple 장치에 저장소 볼륨을 프로비전할 수 있습니다. 볼륨을 만들려면 관리 포털에서 다음 단계를 수행합니다.
 
-> [AZURE.IMPORTANT]StorSimple 관리자는 씬 프로비전된 볼륨과 완전히 프로비전된 볼륨을 둘 다 만들 수 있습니다. 그러나 부분적으로 프로비전된 볼륨은 만들 수 없습니다.
+> [AZURE.IMPORTANT] StorSimple 관리자는 씬 프로비전된 볼륨과 완전히 프로비전된 볼륨을 둘 다 만들 수 있습니다. 그러나 부분적으로 프로비전된 볼륨은 만들 수 없습니다.
 
 [AZURE.INCLUDE [storsimple-create-volume](../../includes/storsimple-create-volume-u2.md)]
 
@@ -218,7 +218,7 @@ StorSimple용 Windows PowerShell에 연결하려면 PuTTY와 같은 터미널 �
 
 3.	업데이트 작업이 만들어집니다. **작업**으로 이동하여 업데이트 상태를 모니터링합니다.
 
-	> [AZURE.NOTE]업데이트 작업이 시작되면 50%로 상태를 즉시 표시합니다. 업데이트 작업이 완료된 후에 상태를 100%로 변경합니다. 업데이트 프로세스에 대한 실시간 상태가 없습니다.
+	> [AZURE.NOTE] 업데이트 작업이 시작되면 50%로 상태를 즉시 표시합니다. 업데이트 작업이 완료된 후에 상태를 100%로 변경합니다. 업데이트 프로세스에 대한 실시간 상태가 없습니다.
 
 4.	장치가 성공적으로 업데이트된 후 데이터 2 및 데이터 3이 비활성화된 경우 데이터 2 및 데이터 3 네트워크 인터페이스를 사용하도록 설정합니다.
 
@@ -244,4 +244,4 @@ StorSimple 장치에서 단일 볼륨에 대한 주문형 수동 백업을 만�
 - [StorSimple 관리자 서비스](storsimple-manager-service-administration.md)를 사용하여 StorSimple 장치를 관리할 수 있습니다.
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -32,6 +32,6 @@
 * [Visual Studio Tools](app-insights-release-notes-vsix.md)
 * [기타 플랫폼](https://github.com/Microsoft/ApplicationInsights-Home)
 
-또한 전체적으로 Application Insights 서비스의 주요 개선 사항을 요약하는 [서비스 업데이트](http://azure.microsoft.com/updates/?service=application-insights)를 읽으세요.
+또한 전체적으로 Application Insights 서비스의 주요 개선 사항을 요약하는 [서비스 업데이트](https://azure.microsoft.com/updates/?service=application-insights)를 읽으세요.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

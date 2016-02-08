@@ -42,7 +42,7 @@ Application Insights는 독립 실행형 앱(iOS, Android 및 Windows)과 웹앱
 
 ### 프로젝트 실행 및 첫 번째 결과 보기
 
-잠시 후에 디버그 모드에서 프로젝트를 실행하고 [Azure 포털](http://portal.azure.com)로 이동한 다음 Application Insights에서 프로젝트 리소스를 찾습니다.
+잠시 후에 디버그 모드에서 프로젝트를 실행하고 [Azure 포털](https://portal.azure.com)로 이동한 다음 Application Insights에서 프로젝트 리소스를 찾습니다.
 
 ![Azure에서 찾아보기, Application Insights를 클릭한 후 프로젝트 선택](./media/app-insights-overview-usage/00-start.png)
 
@@ -288,4 +288,4 @@ Global.asax.cs 같은 앱 이니셜라이저에서:
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

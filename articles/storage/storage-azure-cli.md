@@ -19,19 +19,19 @@
 
 ## 개요
 
-Azure CLI는 Azure 플랫폼 작업을 위한 플랫폼 간 오픈 소스 명령 집합을 제공합니다. 다양한 데이터 액세스 기능뿐만 아니라 [Azure 포털](portal.azure.com)에 있는 동일한 기능을 대부분 제공합니다.
+Azure CLI는 Azure 플랫폼 작업을 위한 플랫폼 간 오픈 소스 명령 집합을 제공합니다. 다양한 데이터 액세스 기능뿐만 아니라 [Azure 포털](https://portal.azure.com)에 있는 동일한 기능을 대부분 제공합니다.
 
 이 가이드에서는 [Azure CLI(명령줄 인터페이스 Azure)](../xplat-cli-install.md)을 사용하여 Azure 저장소와 다양한 개발 및 관리 작업을 수행할 수 있는 방법을 설명합니다. 이 가이드를 사용하기 전에 최신 Azure CLI를 다운로드 및 설치하거나, 최신 버전으로 업그레이드하는 것이 좋습니다.
 
 이 가이드에서는 Azure 저장소의 기본 개념을 이해하고 있다고 가정합니다. 이 가이드는 Azure 저장소에서 Azure CLI를 사용하는 방법을 보여주는 몇 가지 스크립트를 제공합니다. 각 스크립트를 실행하기 전에 구성에 따라 스크립트 변수를 업데이트 해야 합니다.
 
-> [AZURE.NOTE]이 가이드는 Azure 서비스 관리 모드 (ASM)에서 실행 중인 Azure CLI 명령 및 스크립트 예제를 제공합니다. ARM(Azure Resource Management) 모드에서의 Azure CLI 명령은 [Azure 리소스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](../azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects)을 참조하세요.
+> [AZURE.NOTE] 이 가이드는 Azure 서비스 관리 모드 (ASM)에서 실행 중인 Azure CLI 명령 및 스크립트 예제를 제공합니다. ARM(Azure Resource Management) 모드에서의 Azure CLI 명령은 [Azure 리소스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](../azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects)을 참조하세요.
 
 ## 5분 안에 Azure 저장소 및 Azure CLI 시작하기
 
 이 가이드에서는 예제를 보려면 Ubuntu를 사용하며 다른 OS 플랫폼에서도 유사하게 수행되어야 합니다.
 
-**Azure에 새로 만들기:** Microsoft Azure 구독 및 해당 구독과 연결된 Microsoft 계정을 가져옵니다. Azure 구입 옵션에 대한 자세한 내용은 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/), [구입 옵션](http://azure.microsoft.com/pricing/purchase-options/) 및 [회원 제안](http://azure.microsoft.com/pricing/member-offers/)(MSDN, Microsoft 파트너 네트워크, BizSpark 및 기타 Microsoft 프로그램의 회원인 경우)을 참조하세요.
+**Azure에 새로 만들기:** Microsoft Azure 구독 및 해당 구독과 연결된 Microsoft 계정을 가져옵니다. Azure 구입 옵션에 대한 자세한 내용은 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/), [구입 옵션](https://azure.microsoft.com/pricing/purchase-options/) 및 [회원 제안](https://azure.microsoft.com/pricing/member-offers/)(MSDN, Microsoft 파트너 네트워크, BizSpark 및 기타 Microsoft 프로그램의 회원인 경우)을 참조하세요.
 
 Azure 구독에 대한 자세한 내용은 [계정, 구독 및 관리 역할 관리](https://msdn.microsoft.com/library/azure/hh531793.aspx)를 참조하세요.
 
@@ -129,7 +129,7 @@ Azure 저장소의 모든 Blob은 컨테이너에 있어야 합니다. `azure st
 
         azure storage container create mycontainer
 
-> [AZURE.NOTE]익명 읽기 액세스의 세가지 수준은 **해제**, **Blob**, 및 **컨테이너**입니다. Blob에 대한 익명 액세스를 방지하려면 권한 매개 변수를 **해제**로 설정합니다. 기본적으로 새 컨테이너는 전용이며 계정 소유자만 액세스할 수 있습니다. 익명 공용 읽기 권한을 Blob 리소스에 대해 허용하지만 컨테이너 메타데이터나 컨테이너의 Blob 목록에 대해서는 허용하지 않으려면, 사용 권한 매개 변수를 **Blob**으로 설정하세요. Blob 리소스, 컨테이너 메타데이터 및 컨테이너의 Blob 목록에 대한 전체 공용 읽기 권한을 허용하려면, 권한 매개 변수를 **컨테이너**로 설정하세요. 자세한 내용은 [Azure 저장소 리소스에 대한 액세스 관리](storage-manage-access-to-resources.md)를 참조하세요.
+> [AZURE.NOTE] 익명 읽기 액세스의 세가지 수준은 **해제**, **Blob**, 및 **컨테이너**입니다. Blob에 대한 익명 액세스를 방지하려면 권한 매개 변수를 **해제**로 설정합니다. 기본적으로 새 컨테이너는 전용이며 계정 소유자만 액세스할 수 있습니다. 익명 공용 읽기 권한을 Blob 리소스에 대해 허용하지만 컨테이너 메타데이터나 컨테이너의 Blob 목록에 대해서는 허용하지 않으려면, 사용 권한 매개 변수를 **Blob**으로 설정하세요. Blob 리소스, 컨테이너 메타데이터 및 컨테이너의 Blob 목록에 대한 전체 공용 읽기 권한을 허용하려면, 권한 매개 변수를 **컨테이너**로 설정하세요. 자세한 내용은 [Azure 저장소 리소스에 대한 액세스 관리](storage-manage-access-to-resources.md)를 참조하세요.
 
 ### 컨테이너에 Blob 업로드
 
@@ -215,10 +215,10 @@ Azure CLI 버전 0.9.8부터 파일을 다른 파일로, 파일을 Blob으로 �
 
 다음은 Azure 저장소에 대한 자세한 내용을 확인할 수 있는 몇 가지 관련 항목 및 리소스입니다.
 
-- [Azure 저장소 설명서](http://azure.microsoft.com/documentation/services/storage/)
+- [Azure 저장소 설명서](https://azure.microsoft.com/documentation/services/storage/)
 - [Azure 저장소 REST API 참조](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 
 
 [Image1]: ./media/storage-azure-cli/azure_command.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

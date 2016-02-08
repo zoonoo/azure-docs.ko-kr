@@ -25,7 +25,7 @@
 ### Microsoft Azure DocumentDB란 무엇인가요? 
 Microsoft Azure DocumentDB는 확장 가능성이 높은 NoSQL 문서 DaaS(Database-as-a-Service)로, Microsoft Azure의 성능과 범위로 지원되는 관리 플랫폼을 통해 스키마 제약이 없는 데이터에 대해 다양한 쿼리를 제공하고, 구성 가능하며 안정적인 성능을 제공하고, 신속한 개발을 지원합니다. 예측 가능한 처리량, 짧은 대기 시간 및 스키마 제약이 없는 데이터 모델이 핵심 요구 사항인 경우 DocumentDB는 웹 및 모바일 응용 프로그램의 적합한 솔루션입니다. DocumentDB는 네이티브 JSON 데이터 모델을 통해 스키마 유연성과 다양한 인덱싱을 제공하며, 통합된 JavaScript로 다중 문서 트랜잭션도 지원합니다.
   
-이 서비스 배포 및 사용에 대한 데이터베이스 질문, 대답 및 지침은 [DocumentDB 설명서 페이지](http://azure.microsoft.com/documentation/services/documentdb/)를 참조하세요.
+이 서비스 배포 및 사용에 대한 데이터베이스 질문, 대답 및 지침은 [DocumentDB 설명서 페이지](https://azure.microsoft.com/documentation/services/documentdb/)를 참조하세요.
 
 ### DocumentDB는 어떤 종류의 데이터베이스인가요?
 DocumentDB는 JSON 형식으로 데이터를 저장하는 NoSQL 문서 지향 데이터베이스입니다. DocumentDB는 다양한 DocumentDB [SQL 쿼리 문법](documentdb-sql-query.md)을 통해 쿼리할 수 있는 자체 포함된 중첩 데이터 구조를 지원합니다. DocumentDB는 [저장 프로시저, 트리거 및 사용자 정의 함수](documentdb-programming.md)를 통해 서버 쪽 JavaScript의 고성능 트랜잭션 처리를 제공합니다. 또한 데이터베이스는 연결된 [성능 수준](documentdb-performance-levels.md)으로 개발자가 조정할 수 있는 일관성 수준을 지원합니다.
@@ -52,7 +52,7 @@ DocumentDB는 현재 HIPAA 규정을 준수하지 않지만 HIPAA 규정 준수 
 자세한 내용은 [DocumentDB 가격 책정 세부 정보](http://go.microsoft.com/fwlink/p/?LinkID=402317) 페이지를 참조하세요. DocumentDB 사용 요금은 사용 중인 컬렉션 수, 컬렉션이 온라인이었던 시간, 각 컬렉션의 [성능 수준](documentdb-performance-levels.md)으로 결정됩니다.
 
 ### 무료 평가판이 있나요?
-Azure를 처음 사용하는 경우 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록하면 30일간 제공된 ₩240,000로 모든 Azure 서비스를 사용해 볼 수 있습니다. 또는 Visual Studio 구독이 있다면 모든 Azure 서비스에 사용할 수 있는 [월별 $150의 무료 Azure 크레딧](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)에 대한 자격이 주어집니다.
+Azure를 처음 사용하는 경우 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록하면 30일간 제공된 ₩240,000로 모든 Azure 서비스를 사용해 볼 수 있습니다. 또는 Visual Studio 구독이 있다면 모든 Azure 서비스에 사용할 수 있는 [월별 $150의 무료 Azure 크레딧](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)에 대한 자격이 주어집니다.
 
 ### DocumentDB 추가 도움말은 어떻게 구할 수 있나요?
 도움이 필요한 경우 [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-documentdb), [Azure DocumentDB MSDN 개발자 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB)을 통해 문의하거나 [DocumentDB 엔지니어링 팀과의 1:1 채팅](http://www.askdocdb.com/)을 예약하세요. 최신 DocumentDB 소식과 기능에 대한 최신 동향을 파악하려면 [Twitter](https://twitter.com/DocumentDB)를 팔로우하세요.
@@ -115,4 +115,4 @@ DocumentDB에 문서를 일괄 삽입하는 세 가지 방법이 있습니다.
 [query]: documentdb-sql-query.md
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

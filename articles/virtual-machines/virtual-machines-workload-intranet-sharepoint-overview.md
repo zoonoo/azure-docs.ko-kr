@@ -69,7 +69,7 @@
 	- 가격 책정 계층에 관한 **표준**
 	- 이전 테이블의 기본 크기 또는 원하는 **인스턴스 크기**
 
-> [AZURE.NOTE]Azure 가격 계산기에는 SQL Server 2014 Enterprise에서 실행되는 두 대의 가상 컴퓨터의 SQL Server 라이선스에 대한 추가 비용이 포함되지 않습니다. 자세한 내용은 [가상 컴퓨터 가격 책정 - SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql)을 참조하세요.
+> [AZURE.NOTE] Azure 가격 계산기에는 SQL Server 2014 Enterprise에서 실행되는 두 대의 가상 컴퓨터의 SQL Server 라이선스에 대한 추가 비용이 포함되지 않습니다. 자세한 내용은 [가상 컴퓨터 가격 책정 - SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql)을 참조하세요.
 
 ## 배포 단계
 
@@ -89,16 +89,16 @@ SQL Server AlwaysOn을 사용하는 이 SharePoint 배포는 [SQL Server AlwaysO
 
 - SharePoint 구현 작업에 익숙한 경우 3~5단계의 지침을 조정하여 요구 사항에 가장 적합한 팜을 구축할 수 있습니다.
 - 기존 Azure 하이브리드 클라우드 배포가 이미 있는 경우 1~2단계의 지침을 조정하거나 건너뛰어 적절한 서브넷에서 새 SharePoint 팜을 호스트할 수 있습니다.
-- 모든 서버는 Azure 가상 네트워크에서 단일 서브넷에 있습니다. 서브넷 격리와 동등한 추가 보안을 제공하려는 경우 [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md)을 사용할 수 있습니다.
+- 모든 서버는 Azure 가상 네트워크에서 단일 서브넷에 있습니다. 서브넷 격리에 해당하는 추가 보안을 제공하려는 경우 [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md)을 사용할 수 있습니다.
 
 이 구성의 개념 증명 또는 개발/테스트 환경을 빌드하려면 [테스트용 하이브리드 클라우드에 SharePoint 인트라넷 팜 설치](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)를 참조하세요.
 
 SQL Server AlwaysOn 가용성 그룹을 사용하는 SharePoint에 대한 자세한 내용은 [SQL Server 2013에 대해 SQL Server 2012 AlwaysOn 가용성 그룹 구성](https://technet.microsoft.com/library/jj715261.aspx)을 참조하세요.
 
-> [AZURE.NOTE]Microsoft은 SharePoint Server 2016 IT Preview를 출시했습니다. 이 Preview를 보다 쉽게 설치하고 테스트하기 위해 SharePoint Server 2016 IT Preview 및 해당 필수 구성 요소가 미리 설치된 상태에서 Azure 가상 컴퓨터 갤러리 이미지를 사용할 수 있습니다. 자세한 내용은 [Azure에서 SharePoint Server 2016 IT Preview 테스트](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/)를 참조하세요.
+> [AZURE.NOTE] Microsoft은 SharePoint Server 2016 IT Preview를 출시했습니다. 이 Preview를 보다 쉽게 설치하고 테스트하기 위해 SharePoint Server 2016 IT Preview 및 해당 필수 구성 요소가 미리 설치된 상태에서 Azure 가상 컴퓨터 갤러리 이미지를 사용할 수 있습니다. 자세한 내용은 [Azure에서 SharePoint Server 2016 IT Preview 테스트](https://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/)를 참조하세요.
 
 ## 다음 단계
 
 - [1단계](virtual-machines-workload-intranet-sharepoint-phase1.md)를 사용하여 이 워크로드의 구성을 시작합니다.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

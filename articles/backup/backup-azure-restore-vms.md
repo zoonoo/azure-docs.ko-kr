@@ -1,19 +1,30 @@
 
 <properties
 	pageTitle="백업에서 가상 컴퓨터 복원 | Microsoft Azure"
-	description="Azure 가상 컴퓨터 복원 방법 알아보기"
+	description="복구 지점에서 Azure 가상 컴퓨터를 복원하는 방법 알아보기"
 	services="backup"
 	documentationCenter=""
 	authors="trinadhk"
 	manager="shreeshd"
-	editor=""/>
+	editor=""
+	keywords="백업 복원; 복원하는 방법; 복구 지점;"/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/29/2015" ms.author="trinadhk"; "jimpark"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/22/2016"
+	ms.author="trinadhk; jimpark;"/>
+
 
 # Azure의 가상 컴퓨터 복원
-복원 동작을 사용하여 Azure 백업 자격 증명에 저장된 백업을 통해 새 VM에 가상 컴퓨터를 복원할 수 있습니다.
+
+다음 단계를 사용하여 Azure 백업 자격 증명에 저장된 백업에서 새 VM에 가상 컴퓨터를 복원합니다.
 
 ## 워크플로 복원
+
 ### 1\. 복원할 항목 선택
 
 1. **보호된 항목** 탭으로 이동하고 새 VM에 복원할 가상 컴퓨터를 선택합니다.
@@ -49,9 +60,9 @@
   - 가상 컴퓨터 이름 지정: 가상 컴퓨터 이름은 주어진 클라우드 서비스 내에서 고유해야 합니다. 기존 VM을 같은 이름으로 대체하려는 경우 먼저 기존 VM 및 데이터 디스크를 삭제하고 Azure 백업에서 데이터를 복원합니다.
   - VM에 대한 클라우드 서비스 선택: VM을 만들기 위한 필수 항목입니다. 기존 클라우드 서비스를 사용하거나 새 클라우드 서비스 만들기를 선택할 수 있습니다.
 
-        클라우드 서비스 이름이 무엇이든 간에 전체적으로 고유한 것이어야 합니다. 일반적으로 클라우드 서비스 이름은 [cloudservice].cloudapp.net과 같은 형태의 공용 URL과 관련이 있습니다. Azure는 새로운 클라우드 서비스를 만들 때 이미 사용된 이름을 허용하지 않습니다. 새로운 클라우드 서비스를 만들기로 한 경우 가상 컴퓨터와 동일한 이름이 부여됩니다. 이 경우 선택된 VM 이름은 관련된 클라우드 서비스에 적용할 수 있는 고유한 것이어야 합니다.
+        Whatever cloud service name is picked should be globally unique. Typically, the cloud service name gets associated with a public-facing URL in the form of [cloudservice].cloudapp.net. Azure will not allow you to create a new cloud service if the name has already been used. If you choose to create select create a new cloud service, it will be given the same name as the virtual machine – in which case the VM name picked should be unique enough to be applied to the associated cloud service.
 
-        선호도 그룹과 관련 없는 클라우드 서비스와 가상 네트워크만 복원 인스턴스 정보에 표시합니다. [자세한 정보](https://msdn.microsoft.com/ko-kr/library/azure/jj156085.aspx).
+        We only display cloud services and virtual networks that are not associated with any affinity groups in the restore instance details. [Learn More](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
 2. VM에 대한 저장소 계정 선택: VM을 만들기 위한 필수 항목입니다. Azure 백업 자격 증명 모음과 동일한 지역에 있는 기존 저장소 계정 중에서 선택할 수 있습니다. 영역 중복 또는 프리미엄 저장소 형식의 저장소 계정은 지원되지 않습니다.
 
@@ -97,7 +108,7 @@ Azure 포털에서 또는 PowerShell을 사용하여 다른 VM과 마찬가지�
 
 Azure에 DSRM 모드가 없으면 문제가 됩니다. 따라서 이러한 VM을 복원하기 위해 Azure 포털을 사용할 수 없습니다. 지원되는 유일한 복원 메커니즘은 PowerShell을 사용하는 디스크 기반 복원입니다.
 
->[AZURE.WARNING]다중 DC 환경의 도메인 컨트롤러 VM의 경우 복원에 Azure 포털을 사용하지 마세요. PowerShell 기반 복원만 지원됩니다.
+>[AZURE.WARNING] 다중 DC 환경의 도메인 컨트롤러 VM의 경우 복원에 Azure 포털을 사용하지 마세요. PowerShell 기반 복원만 지원됩니다.
 
 [USN 롤백 문제](https://technet.microsoft.com/library/dd363553) 및 수정을 위한 제안 전략에 대해 알아보세요.
 
@@ -110,7 +121,7 @@ Azure 백업은 다음 가상 컴퓨터의 특수 네트워크 구성에 대한 
 
 이러한 구성은 복원 중 다음의 고려 사항을 위임합니다.
 
->[AZURE.TIP]VM 사후 복원의 특수 네트워크 구성을 다시 만들려면 PowerShell 기반 복원 흐름을 사용하십시오.
+>[AZURE.TIP] VM 사후 복원의 특수 네트워크 구성을 다시 만들려면 PowerShell 기반 복원 흐름을 사용하십시오.
 
 ### UI에서 복원:
 UI에서 복원하는 동안 **항상 새 클라우드 서비스를 선택**합니다. 포털은 복원 흐름 동안 필수 매개 변수만 사용하므로 UI를 사용하여 복원된 VM이 보유하고 있는 특수 네트워크 구성을 손실할 수 있음에 유의하세요. 즉, 복원 VM은 부하 분산 장치 또는 다중 NIC 또는 다중 예약된 IP의 구성이 없는 기본 VM입니다.
@@ -124,13 +135,13 @@ PowerShell은 백업에서 VM 디스크만 복원하고 가상 컴퓨터를 만�
 
 2. PowerShell cmdlet을 사용하여 부하 분산 장치/다중 NIC/다중의 예약된 IP에 필요한 VM 구성을 만들어 원하는 구성의 VM을 만드는데 사용합니다.
 	- [내부 부하 분산 장치](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/)를 사용하여 클라우드 서비스에서 VM 만들기
-	- [인터넷 연결 부하 분산 장치](https://azure.microsoft.com/ko-KR/documentation/articles/load-balancer-internet-getstarted)에 연결할 VM 만들기
-	- [다중 NIC](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics)를 사용하여 VM 만들기
+	- [인터넷 연결 부하 분산 장치](https://azure.microsoft.com/ko-KR/documentation/articles/load-balancer-internet-getstarted/)에 연결할 VM 만들기
+	- [다중 NIC](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics/)를 사용하여 VM 만들기
 	- [다중의 예약된 IP](https://azure.microsoft.com/documentation/articles/virtual-networks-reserved-public-ip/)가 있는 VM 만들기
-  
+
 
 ## 다음 단계
 - [문제 해결](backup-azure-vms-troubleshoot.md#restore)
 - [가상 컴퓨터 관리](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

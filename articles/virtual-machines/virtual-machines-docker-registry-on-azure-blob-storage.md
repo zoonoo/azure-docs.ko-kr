@@ -28,7 +28,7 @@
 문서 내용:
 
 1. Docker 사용 방법 및 Docker 이미지를 저장하는 방법을 알고 있습니다. (방법을 모르는 경우 [Docker에 대해 알아보기](https://www.docker.com))
-2. Docker 엔진이 설치된 서버가 있습니다. (없는 경우 [Azure에서 신속하게 수행합니다.](http://azure.microsoft.com/documentation/templates/docker-simple-on-ubuntu/))
+2. Docker 엔진이 설치된 서버가 있습니다. (없는 경우 [Azure에서 신속하게 수행합니다.](https://azure.microsoft.com/documentation/templates/docker-simple-on-ubuntu/))
 
 
 ## 개인 Docker 레지스트리란?
@@ -82,7 +82,7 @@ CONTAINER ID        IMAGE               COMMAND                CREATED          
 3698ddfebc6f        registry:2          "registry cmd/regist   2 seconds ago       Up 1 seconds        0.0.0.0:5000->5000/tcp   registry
 ```
 
-> [AZURE.IMPORTANT]Docker 레지스트리에 보안 구성은 이 문서에서 다루지 않으며 위의 배포 명령을 사용하는 경우 포트를 가상 컴퓨터 끝점 또는 부하 분산 장치의 레지스트리 포트로 사용할 수 있도록 사는 경우 사용자의 레지스트리는 기본적으로 인증 없이 누구든지 액세스할 수 있습니다.
+> [AZURE.IMPORTANT] Docker 레지스트리에 보안 구성은 이 문서에서 다루지 않으며 위의 배포 명령을 사용하는 경우 포트를 가상 컴퓨터 끝점 또는 부하 분산 장치의 레지스트리 포트로 사용할 수 있도록 사는 경우 사용자의 레지스트리는 기본적으로 인증 없이 누구든지 액세스할 수 있습니다.
 >
 > 레지스트리 인스턴스 및 이미지 보안을 유지하는 방법에 대해 배우려면 [Docker 레지스트리 구성하기][registry-config] 설명서를 읽어봅니다.
 
@@ -96,4 +96,4 @@ CONTAINER ID        IMAGE               COMMAND                CREATED          
 [registry-config]: http://docs.docker.com/registry/configuration/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

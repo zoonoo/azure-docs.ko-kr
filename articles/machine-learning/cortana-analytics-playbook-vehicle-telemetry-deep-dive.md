@@ -109,7 +109,7 @@ XUF99EW9OIQOMV7Q7 | 가족용 승용차
 
 [차량 텔레매틱스 시뮬레이터 Visual Studio 솔루션](http://go.microsoft.com/fwlink/?LinkId=717075)
 
-[Azure 이벤트 허브](http://azure.microsoft.com/services/event-hubs/)
+[Azure 이벤트 허브](https://azure.microsoft.com/services/event-hubs/)
 
 [Azure 데이터 팩터리](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
 
@@ -163,7 +163,7 @@ Azure 이벤트 허브, 스트림 분석 및 데이터 팩터리의 조합을 �
 
 
 ## 준비
->[AZURE.ALERT]솔루션의 이 단계는 일괄 처리에만 적용됩니다.
+>[AZURE.ALERT] 솔루션의 이 단계는 일괄 처리에만 적용됩니다.
 
 원시의 반구조화된 차량 신호 및 진단 데이터 집합은 효율적인 쿼리 및 확장성 있는 장기 저장을 위해 데이터 준비 단계에서 연/월 형식으로 분할됩니다(이를 통해 최초로 가득 참과 동시에 한 BLOB 계정에서 다른 계정으로 장애 조치할 수 있음). 출력 데이터(*PartitionedCarEventsTable*로 레이블 지정)는 고객의 "데이터 레이크"에 기초적이고 "가장 원시적인" 데이터 형식으로 장기간 보관됩니다. 이 파이프라인에 대한 입력 데이터는 일반적으로 무시됩니다. 출력 데이터가 입력에 대해 완전한 충실도를 포함하며 이후에 사용할 수 있도록 잘 저장(분할)되기 때문입니다.
 
@@ -396,7 +396,7 @@ Azure 스트림 분석에서 모든 '창 작업' 기능에 대한 자세한 내�
 
 *그림 19 - RealtimeDashboardApp: PowerBI에 로그인*
 
->[AZURE.NOTE]참고: PowerBI 데이터 집합을 플러시하려는 경우 RealtimeDashboardApp을 'flushdata' 매개 변수와 함께 실행합니다.
+>[AZURE.NOTE] 참고: PowerBI 데이터 집합을 플러시하려는 경우 RealtimeDashboardApp을 'flushdata' 매개 변수와 함께 실행합니다.
 
 	RealtimeDashboardApp.exe -flushdata
 
@@ -706,4 +706,4 @@ PowerBI 보고서 및 대시보드 설정에 관한 자세한 지침을 보려�
 
 이 문서는 차량 원격 분석 솔루션에 대한 자세한 드릴다운을 포함됩니다. 예측 및 동작과 함께 실시간 및 일괄 분석을 위한 람다 아키텍처 패턴을 설명합니다. 이 패턴은 실행 부하 과다 경로(실시간) 및 콜드 경로(일괄 처리) 분석이 필요한 다양한 사용 사례에 적용됩니다.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -34,7 +34,7 @@
 	![scaleout\_1][image-hdi-optimize-hive-scaleout_1]
 - 런타임 시, 다시 만들지 않고도 확장할 수도 있습니다. 다음과 같습니다. ![scaleout\_1][image-hdi-optimize-hive-scaleout_2]
 
-HDInsight에서 지원하는 다른 가상 컴퓨터에 대한 자세한 정보는 [HDInsight 가격](http://azure.microsoft.com/pricing/details/hdinsight/)을 참조하세요.
+HDInsight에서 지원하는 다른 가상 컴퓨터에 대한 자세한 정보는 [HDInsight 가격](https://azure.microsoft.com/pricing/details/hdinsight/)을 참조하세요.
 
 ##TCP 사용
 
@@ -218,4 +218,4 @@ ORC 형식에 대한 자세한 내용은 [여기](https://cwiki.apache.org/confl
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/partitioning_1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

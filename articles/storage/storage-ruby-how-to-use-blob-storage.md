@@ -59,7 +59,7 @@ Azure 모듈은 **AZURE\_STORAGE\_ACCOUNT** 및 **AZURE\_STORAGE\_ACCESS\_KEY** 
 
 이러한 값을 얻으려면
 
-1. [Azure 포털](portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. 사용하려는 저장소 계정으로 이동합니다.
 3. 탐색 창 아래쪽에서 **키 관리**를 클릭합니다.
 4. 팝업 대화 상자에 저장소 계정 이름, 기본 액세스 키 및 보조 액세스 키가 표시됩니다. 액세스 키의 경우 기본 액세스 키 또는 보조 액세스 키를 사용할 수 있습니다.
@@ -147,4 +147,4 @@ Blob을 다운로드하려면 **get\_blob()** 메서드를 사용하여 콘텐�
 - GitHub의 [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby)(영문) 리포지토리
 - [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

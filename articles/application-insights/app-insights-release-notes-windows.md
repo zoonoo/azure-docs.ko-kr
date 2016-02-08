@@ -16,7 +16,7 @@
  
 # Windows Phone 및 Store용 Application Insights SDK에 대한 릴리스 정보
 
-[Application Insights SDK](app-insights-windows-get-started.md)는 라이브 앱에 대한 원격 분석을 [Application Insights](http://azure.microsoft.com/services/application-insights/)에 보내며 사용법과 성능을 분석할 수 있습니다.
+[Application Insights SDK](app-insights-windows-get-started.md)는 라이브 앱에 대한 원격 분석을 [Application Insights](https://azure.microsoft.com/services/application-insights/)에 보내며 사용법과 성능을 분석할 수 있습니다.
 
 
 #### 응용 프로그램에 SDK를 설치하려면
@@ -95,4 +95,4 @@
 
 이전 버전에 대한 릴리스 정보가 없습니다.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

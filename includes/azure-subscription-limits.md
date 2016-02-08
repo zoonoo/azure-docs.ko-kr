@@ -11,9 +11,9 @@
 구독당 Express 경로 전용 회로|10|25
 구독당 호스티드 서비스 인증서|400|400
 구독당 [선호도 그룹](../virtual-network/virtual-networks-migrate-to-regional-vnet.md)|256|256
-구독당 지역별 [배치](http://azure.microsoft.com/services/batch/) 계정|1|50
+구독당 지역별 [배치](https://azure.microsoft.com/services/batch/) 계정|1|50
 구독 당 경고 규칙|250|250
 
 <sup>1</sup>매우 작은 인스턴스는 부분 코어를 사용하더라도 코어 제한에 대해 하나의 코어로 계산됩니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

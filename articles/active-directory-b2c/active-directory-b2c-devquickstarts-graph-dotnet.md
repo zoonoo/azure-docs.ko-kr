@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/08/2015"
+	ms.date="01/21/2016"
 	ms.author="dastrock"/>
 
 # Azure AD B2C 미리 보기: Graph API 사용
@@ -23,7 +23,7 @@
 Azure AD B2C 테넌트는 일반적으로 매우 큽니다. 즉, 많은 일반 테넌트 관리 작업을 프로그래밍 방식으로 수행해야 합니다. 주된 예는 사용자 관리입니다. B2C 테넌트에 기존 사용자 저장소를 마이그레이션하거나 배후에서 Azure AD에 사용자 계정을 만들어 고유의 페이지에서 사용자 등록을 호스트해야 할 수 있습니다. 이러한 형식의 작업은 사용자 계정을 만들고 읽고 업데이트 및 삭제해야 할 수 있고 이는 Azure AD Graph API를 사용하여 수행할 수 있습니다.
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
-	
+
 B2C 테넌트의 경우 Graph API와 통신하는 두 가지 기본적인 모드가 있습니다.
 
 - 대화형인 한 번 실행 작업의 경우 B2C 테넌트에서 관리자 계정으로 작동하는 관리 작업을 수행하려고 합니다. 이 모드는 관리자를 필요로 하여 Graph API에 호출을 수행하기 전에 자격 증명으로 로그인합니다.
@@ -39,14 +39,15 @@ B2C 테넌트의 경우 Graph API와 통신하는 두 가지 기본적인 모드
 
 이제 B2C 테넌트가 있으므로 Azure AD Powershell Cmdlet을 사용하여 서비스 응용 프로그램을 만들어야 합니다. 우선 [Microsoft Online Services 로그인 도우미](http://go.microsoft.com/fwlink/?LinkID=286152)를 다운로드 및 설치합니다. 그런 다음 [Windows Powershell 용 64비트 Azure Active Directory 모듈](http://go.microsoft.com/fwlink/p/?linkid=236297)을 다운로드 및 설치합니다.
 
-> [AZURE.NOTE]B2C 테넌트에서 Graph API를 사용하려면 이러한 지침에 따라 Powershell을 사용하여 전용 응용 프로그램을 등록해야 합니다. Azure 포털에 등록한 기존 B2C 응용 프로그램을 다시 사용할 수 없습니다. 이는 조만간(이 문서를 업데이트하는 시점) 제거될 Azure AD B2C 미리 보기의 제한 사항입니다.
+> [AZURE.NOTE]
+B2C 테넌트에서 Graph API를 사용하려면 이러한 지침에 따라 Powershell을 사용하여 전용 응용 프로그램을 등록해야 합니다. Azure 포털에 등록한 기존 B2C 응용 프로그램을 다시 사용할 수 없습니다. 이는 조만간(이 문서를 업데이트하는 시점) 제거될 Azure AD B2C 미리 보기의 제한 사항입니다.
 
 Powershell 모듈을 설치한 후에 Powershell을 열고 B2C 테넌트에 연결합니다. `Get-Credential`을 실행한 후에 사용자 이름 및 암호를 입력하라는 메시지가 표시됩니다. B2C 테넌트 관리자 계정의 해당 사항을 입력합니다.
 
 ```
 > $msolcred = Get-Credential
 > Connect-MsolService -credential $msolcred
-``` 
+```
 
 응용 프로그램을 만들기 전에 새 "클라이언트 암호"를 생성해야 합니다. 응용 프로그램이 클라이언트 암호를 사용하여 Azure AD에 인증하고 액세스 토큰을 획득합니다. Powershell에서 유효한 암호를 생성할 수 있습니다.
 
@@ -57,7 +58,7 @@ Powershell 모듈을 설치한 후에 Powershell을 열고 B2C 테넌트에 연�
 > $rand.Dispose()
 > $newClientSecret = [System.Convert]::ToBase64String($bytes)
 > $newClientSecret
-``` 
+```
 
 위의 마지막 명령은 새 클라이언트 암호를 인쇄해야 합니다. 안전한 곳에 복사합니다. 암호는 곧 다시 필요합니다. 이제 응용 프로그램을 만들 수 있으며 새 클라이언트 암호를 앱에 대한 자격 증명으로 제공합니다.
 
@@ -127,9 +128,10 @@ B2CGraphClient를 사용하려면 cmd Windows 명령 프롬프트를 열고 `Deb
 
 Graph API에 요청은 인증에 대한 액세스 토큰을 필요로 합니다. B2CGraphClient는 공개 소스 Active Directory 인증 라이브러리(ADAL)를 사용하여 액세스 토큰을 획득 도움을 줍니다. ADAL을 사용하여 토큰을 가져올 필요가 없습니다. 직접 HTTP 요청을 선별하여 토큰을 얻을 수 있습니다. ADAL을 사용하면 간단한 API를 제공하고 액세스 토큰의 캐싱과 같은 중요한 일부 세부 정보를 처리하여 토큰을 쉽게 얻을 수 있습니다.
 
-> [AZURE.NOTE]이 코드 샘플은 의도적으로 ADAL v2, 즉 ADAL의 일반적으로 사용 가능한 버전을 사용합니다. Azure AD B2C와 작동하도록 설계된 미리 보기 버전인 ADAL v4을 사용하지 않습니다. Azure AD B2C 미리 보기의 경우 Graph API와 통신하는 데 ADAL v2를 사용해야 합니다. 시간이 지남에 따라 ADAL v4로 Graph API 액세스를 사용하도록 설정하므로 전체 Azure AD B2C 솔루션에서 ADAL의 다른 두 버전을 사용할 필요가 없습니다.
+> [AZURE.NOTE]
+	이 코드 샘플은 의도적으로 ADAL v2, 즉 ADAL의 일반적으로 사용 가능한 버전을 사용합니다. Azure AD B2C와 작동하도록 설계된 미리 보기 버전인 ADAL v4을 사용하지 않습니다. Azure AD B2C 미리 보기의 경우 Graph API와 통신하는 데 ADAL v2를 사용해야 합니다. 시간이 지남에 따라 ADAL v4로 Graph API 액세스를 사용하도록 설정하므로 전체 Azure AD B2C 솔루션에서 ADAL의 다른 두 버전을 사용할 필요가 없습니다.
 
-B2CGraphClient가 실행되면 `B2CGraphClient` 클래스의 인스턴스를 만듭니다. 이 클래스의 생성자는 ADAL의 인증 스 캐폴딩을 설정합니다.
+B2CGraphClient가 실행되면 `B2CGraphClient` 클래스의 인스턴스를 만듭니다. 이 클래스의 생성자는 ADAL의 인증 스캐폴딩을 설정합니다.
 
 ```C#
 public B2CGraphClient(string clientId, string clientSecret, string tenant)
@@ -142,7 +144,7 @@ public B2CGraphClient(string clientId, string clientSecret, string tenant)
 	// The AuthenticationContext is ADAL's primary class, in which you indicate the tenant to use.
 	this.authContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenant);
 
-	// The ClientCredential is where you pass in your client_id and client_secret, which are 
+	// The ClientCredential is where you pass in your client_id and client_secret, which are
 	// provided to Azure AD in order to receive an access_token using the app's identity.
 	this.credential = new ClientCredential(clientId, clientSecret);
 }
@@ -157,7 +159,7 @@ public async Task<string> SendGraphGetRequest(string api, string query)
 	// The first parameter is the resource we want an access_token for; in this case, the Graph API.
 	AuthenticationResult result = authContext.AcquireToken("https://graph.windows.net", credential);
 
-	... 
+	...
 
 ```
 
@@ -177,14 +179,15 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0
  ```
  > B2C Get-User
  ```
- 
+
 여기에 유의해야 할 두 가지 중요한 사항이 있습니다.
 
 - ADAL을 통해 획득된 액세스 토큰은 `Bearer` 체계를 사용하여 `Authorization` 헤더에 추가됩니다.
 - B2C 테넌트의 경우 쿼리 매개 변수 `api-version=beta`를 사용해야 합니다.
 
 
-> [AZURE.NOTE]Azure AD Graph API 베타 버전은 미리 보기 기능을 제공합니다. 베타 버전에 대한 자세한 내용은 [이 Graph API 팀 블로그 게시물](http://blogs.msdn.com/b/aadgraphteam/archive/2015/04/10/graph-api-versioning-and-the-new-beta-version.aspx)을 참조하세요.
+> [AZURE.NOTE]
+	Azure AD Graph API 베타 버전은 미리 보기 기능을 제공합니다. 베타 버전에 대한 자세한 내용은 [이 Graph API 팀 블로그 게시물](http://blogs.msdn.com/b/aadgraphteam/archive/2015/04/10/graph-api-versioning-and-the-new-beta-version.aspx)을 참조하세요.
 
 이러한 세부 사항은 모두 `B2CGraphClient.SendGraphGetRequest(...)` 메서드에서 처리됩니다.
 
@@ -192,7 +195,7 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0
 public async Task<string> SendGraphGetRequest(string api, string query)
 {
 	...
-	
+
 	// For B2C user managment, be sure to use the beta Graph API version.
 	HttpClient http = new HttpClient();
 	string url = "https://graph.windows.net/" + tenant + api + "?" + "api-version=beta";
@@ -200,16 +203,16 @@ public async Task<string> SendGraphGetRequest(string api, string query)
 	{
 		url += "&" + query;
 	}
-	
+
 	// Append the access token for the Graph API to the Authorization header of the request, using the Bearer scheme.
 	HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, url);
 	request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
 	HttpResponseMessage response = await http.SendAsync(request);
-	
-	... 
+
+	...
 ```
-		
-### 소비자 사용자 계정 만들기 
+
+### 소비자 사용자 계정 만들기
 
 B2C 테넌트에 사용자 계정을 만들 경우 `/users` 끝점에 HTTP POST 요청을 보낼 수 있습니다.
 
@@ -221,7 +224,7 @@ Content-Length: 338
 
 {
 	// These properties are all required for creating consumer users.
-	 
+
 	"accountEnabled": true,
 	"alternativeSignInNamesInfo": [             // controls what identifier the user uses to sign into their account
 		{
@@ -278,7 +281,7 @@ JSON 파일을 새 데이터로 업데이트하여 사용자를 업데이트하�
 > B2C Update-User <user-object-id> ..\..\..\usertemplate-email.json
 > B2C Update-User <user-object-id> ..\..\..\usertemplate-username.json
 ```
-	
+
 이 요청을 보내는 방법에 대한 세부 정보는 `B2CGraphClient.SendGraphPatchRequest(...)` 메서드를 검사합니다.
 
 ### 사용자 삭제
@@ -345,8 +348,9 @@ B2CGraphClient를 사용하여 B2C 테넌트에 정의된 사용자 지정 특�
 - Graph API를 호출할 때 [`api-version=beta`](http://blogs.msdn.com/b/aadgraphteam/archive/2015/04/10/graph-api-versioning-and-the-new-beta-version.aspx)를 사용합니다.
 - 소비자 사용자를 만들고 업데이트하는 경우 위에서 설명한 몇 가지 필수 속성이 있습니다.
 
-> [AZURE.IMPORTANT]B2C 앱에서 Azure AD Graph API를 사용할 때 Azure AD B2C의 기반이 되는 디렉터리 서비스의 복제 특성을 설명해야 합니다(자세한 내용은 [이](http://blogs.technet.com/b/ad/archive/2014/09/02/azure-ad-under-the-hood-of-our-geo-redundant-highly-available-geo-distributed-cloud-directory.aspx) 문서 참조). 소비자가 **등록** 정책을 사용하여 B2C 앱에 등록한 후, 즉시 앱에서 Azure AD Graph API를 사용하여 사용자 개체를 읽으려고 하면 해당 개체를 사용할 수 없습니다. 복제 프로세스가 완료될 때까지 몇 초 동안 기다려야 합니다. 일반 공급 시에 Azure AD Graph API 및 디렉터리 서비스에서 제공하는 “읽기-쓰기 정합성 보장"에 대한 보다 구체적인 지침을 게시할 예정입니다.
+> [AZURE.IMPORTANT]
+B2C 앱에서 Azure AD Graph API를 사용할 때 Azure AD B2C의 기반이 되는 디렉터리 서비스의 복제 특성을 설명해야 합니다(자세한 내용은 [이](http://blogs.technet.com/b/ad/archive/2014/09/02/azure-ad-under-the-hood-of-our-geo-redundant-highly-available-geo-distributed-cloud-directory.aspx) 문서 참조). 소비자가 **등록** 정책을 사용하여 B2C 앱에 등록한 후, 즉시 앱에서 Azure AD Graph API를 사용하여 사용자 개체를 읽으려고 하면 해당 개체를 사용할 수 없습니다. 복제 프로세스가 완료될 때까지 몇 초 동안 기다려야 합니다. 일반 공급 시에 Azure AD Graph API 및 디렉터리 서비스에서 제공하는 “읽기-쓰기 정합성 보장"에 대한 보다 구체적인 지침을 게시할 예정입니다.
 
 B2C 테넌트에서 Graph API를 사용하여 수행하려는 작업에 대한 질문이나 요청이 있는 경우 언제든지 알려주세요. 문서에 의견을 남기거나 코드 샘플 GitHub 리포지토리에 문제를 제출하세요.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

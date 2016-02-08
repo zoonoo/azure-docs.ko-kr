@@ -1,6 +1,6 @@
 <properties writer="kathydav" editor="tysonn" manager="timlt" />
 
-1. [Azure 포털](http://manage.windowsazure.com)에 로그인합니다. 아직 구독이 없으면 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/) 서비스를 확인하세요.
+1. [Azure 클래식 포털](http://manage.windowsazure.com)에 로그인합니다. 아직 구독이 없으면 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/) 서비스를 확인하세요.
 
 2. 창 맨 아래의 명령 모음에서 **새로 만들기**를 클릭합니다.
 
@@ -12,7 +12,8 @@
 
 5. 첫 번째 **가상 컴퓨터 구성** 페이지에서:
 
-	- **가상 컴퓨터 이름**(예: "testlinuxvm")을 입력합니다.
+	- **가상 컴퓨터 이름**(예: "testlinuxvm")을 입력합니다. 이름은 3~15자를 포함해야 하며, 문자/숫자/하이픈만 포함할 수 있습니다. 또한 문자로 시작해서 문자나 숫자로 끝나야 합니다.
+
 	- **계층**을 확인하고 **크기**를 선택합니다. 계층에 따라 선택할 수 있는 크기가 결정됩니다. 크기는 사용 비용과 구성 옵션(예: 연결할 수 있는 데이터 디스크 수)에 영향을 미칩니다. 자세한 내용은 [가상 컴퓨터의 크기](../articles/virtual-machines-size-specs.md)를 참조하세요.
 	- **새 사용자 이름**을 입력하거나 기본값 **azureuser**를 적용합니다. 이 이름은 Sudoers 목록 파일에 추가 됩니다.
 	- 사용할 **인증** 형식을 결정합니다. 일반적인 암호 지침은 [강력한 암호](http://msdn.microsoft.com/library/ms161962.aspx)를 참조하세요.
@@ -20,11 +21,11 @@
 6. 다음 **가상 컴퓨터 구성** 페이지에서:
 
 	- 기본 **새 클라우드 서비스 만들기**를 사용합니다.
-	- **DNS 이름** 상자에 주소의 일부로 사용할 유효한 DNS 이름(예: "testlinuxvm")을 입력합니다.
+	- **DNS 이름** 상자에 주소의 일부로 사용할 고유의 DNS 이름(예: "testlinuxvm")을 입력합니다.
 	- **Region/Affinity Group/Virtual Network** 상자에서 이 가상 이미지를 호스트할 영역을 선택합니다.
 	- **끝점**아래에서 SSH 끝점을 유지합니다. 지금 다른 사용자를 추가하거나 가상 컴퓨터를 만든 후 추가, 변경 또는 삭제할 수 있습니다.
 
-	>[AZURE.NOTE]가상 컴퓨터에서 가상 네트워크를 사용하려는 경우 가상 컴퓨터를 만들 때 **반드시** 가상 네트워크를 지정해야 합니다. 가상 컴퓨터를 만든 후에는 가상 컴퓨터를 가상 네트워크를 추가할 수 없습니다. 자세한 내용은 [가상 네트워크 개요(영문)](virtual-networks-overview.md)를 참조하세요.
+	>[AZURE.NOTE] 가상 컴퓨터에서 가상 네트워크를 사용하려는 경우 가상 컴퓨터를 만들 때 **반드시** 가상 네트워크를 지정해야 합니다. 가상 컴퓨터를 만든 후에는 가상 컴퓨터를 가상 네트워크를 추가할 수 없습니다. 자세한 내용은 [가상 네트워크 개요(영문)](virtual-networks-overview.md)를 참조하세요.
 
 7.	마지막 **가상 컴퓨터 구성** 페이지에서 기본 설정을 유지하고 확인 표시를 클릭하여 완료합니다.
 
@@ -64,4 +65,4 @@
 
 [Image6]: ./media/create-and-configure-opensuse-vm-in-portal/putty.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

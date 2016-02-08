@@ -25,7 +25,7 @@
 **탄력적 데이터베이스 작업**(미리 보기)에 PowerShell API를 사용하면 스크립트를 실행할 데이터베이스 그룹을 정의할 수 있습니다. 이 문서는 PowerShell cmdlet을 사용하여 **탄력적 데이터베이스 작업**을 만들고 관리하는 방법을 보여줍니다. [탄력적 작업 개요](sql-database-elastic-jobs-overview.md)를 참조하세요.
 
 ## 필수 조건
-* Azure 구독. 무료 평가판에 대한 내용은 [무료 1개월 평가판](http://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+* Azure 구독. 무료 평가판에 대한 내용은 [무료 1개월 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * 탄력적 데이터베이스 도구로 만든 데이터 집합. [탄력적 데이터베이스 도구 시작하기](sql-database-elastic-scale-get-started.md)를 참조하세요.
 * Azure PowerShell. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure.md)을 참조하세요.
 * **탄력적 데이터베이스 작업** PowerShell 패키지: [탄력적 데이터베이스 작업 설치](sql-database-elastic-jobs-service-installation.md) 참조
@@ -246,7 +246,7 @@
 
 	![명령 프롬프트][1]
 
-2.  명령 창에 "1"을 입력하고 **Enter** 키를 누릅니다. 이 명령은 분할된 데이터베이스 관리자를 생성 및 두 분할된 데이터베이스를 추가합니다. 그런 다음 "3"을 입력하고 **Enter** 키를 누릅니다. 이 작업을 4번 반복합니다. 이 명령은 분할된 데이터베이스에 샘플 데이터행을 삽입합니다.
+2.  명령 창에 "1"을 입력하고 **Enter**키를 누릅니다. 이 명령은 분할된 데이터베이스 관리자를 생성 및 두 분할된 데이터베이스를 추가합니다. 그런 다음 "3"을 입력하고 **Enter**키를 누릅니다: 작업을 4번 반복합니다. 이 명령은 분할된 데이터베이스에 샘플 데이터행을 삽입합니다.
   
 3.  [Azure 포털](https://portal.azure.com)에서 사용자의 v12 서버 내에 새로운 3개의 데이터베이스가 보여야 합니다.
 
@@ -694,4 +694,4 @@ DACPAC를 만들려면 [데이터 계층 응용 프로그램](https://msdn.micro
 [2]: ./media/sql-database-elastic-jobs-powershell/portal.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

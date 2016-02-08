@@ -21,7 +21,8 @@
 
 사용자가 작업 공간 연결을 통해 Azure Active Directory Device Registration 서비스에 장치를 등록하도록 요구하여 사용자의 개인 소유 장치를 조직에 알려지도록 표시할 수 있습니다. 다음은 Windows Server 2012 R2에서 AD FS(Active Directory Federation Service)를 사용하여 온-프레미스 응용 프로그램에 대한 조건부 액세스를 사용하도록 설정하는 단계별 가이드입니다.
 
-> [AZURE.NOTE]Azure Active Directory Device Registration 서비스 조건부 액세스 정책에 등록된 장치를 사용하는 경우 Office 365 라이선스 또는 Azure AD Premium 라이선스가 필요합니다. 여기에는 AD FS(Active Directory Federation Services)에 의해 온-프레미스 리소스에 적용되는 정책이 포함됩니다.
+> [AZURE.NOTE]
+Azure Active Directory Device Registration 서비스 조건부 액세스 정책에 등록된 장치를 사용하는 경우 Office 365 라이선스 또는 Azure AD Premium 라이선스가 필요합니다. 여기에는 AD FS(Active Directory Federation Services)에 의해 온-프레미스 리소스에 적용되는 정책이 포함됩니다.
 
 온-프레미스의 조건부 액세스 시나리오에 대한 자세한 내용은 [회사 응용 프로그램에 대한 SSO 및 원활한 두 번째 인증 단계를 위해 임의 장치에서 작업 공간 연결](https://technet.microsoft.com/library/dn280945.aspx)을 참조하세요.
 
@@ -118,13 +119,14 @@ Multi-Factor Authentication을 위한 여러 옵션 중 하나를 구성하는 �
 5.	**배포 및 관리** 섹션에서 1-3단계에 따라 Azure Active Directory를 로컬 디렉터리와 통합합니다.
   1.	도메인을 추가합니다.
   2.	Azure AD Connect 설치 및 실행: [Azure AD Connect의 사용자 지정 설치](active-directory-aadconnect-get-started-custom.md) 지침을 사용하여 Azure AD Connect를 설치합니다.
-  3. 디렉터리 동기화를 확인하고 관리합니다. 이 단계에 SSO(Single Sign-On) 지침도 포함되어 있습니다. >[AZURE.NOTE]아래 링크의 문서에 설명된 대로 AD FS와의 페더레이션을 구성합니다. >[AZURE.NOTE]미리 보기 기능은 구성할 필요 없습니다.
+  3. 디렉터리 동기화를 확인하고 관리합니다. 이 단계에 SSO(Single Sign-On) 지침도 포함되어 있습니다. >[AZURE.NOTE] 아래 링크의 문서에 설명된 대로 AD FS와의 페더레이션을 구성합니다. >[AZURE.NOTE] 미리 보기 기능은 구성할 필요 없습니다.
   
    
 
 
 ## Active Directory 도메인 서비스 스키마 업그레이드
-> [AZURE.NOTE]Active Directory 스키마 업그레이드는 취소할 수 없습니다. 먼저 테스트 환경에서 이 작업을 수행하는 것이 좋습니다.
+> [AZURE.NOTE]
+Active Directory 스키마 업그레이드는 취소할 수 없습니다. 먼저 테스트 환경에서 이 작업을 수행하는 것이 좋습니다.
 
 1. Enterprise Admin 및 Schema Admin 권한이 둘 다 있는 계정으로 도메인 컨트롤러에 로그인합니다.
 2. **[media]\\support\\adprep** 디렉터리와 하위 디렉터리를 Active Directory 도메인 컨트롤러 중 하나로 복사합니다. 
@@ -132,12 +134,13 @@ Multi-Factor Authentication을 위한 여러 옵션 중 하나를 구성하는 �
 4. 명령 프롬프트에서 adprep 디렉터리로 이동한 다음 **adprep.exe /forestprep**을 실행합니다. 화면의 지시에 따라 스키마 업그레이드를 완료합니다.
 
 ## 장치를 지원하도록 Active Directory 준비
->[AZURE.NOTE]장치를 지원하도록 Active Directory 포리스트를 준비하기 위해 실행해야 하는 일회성 작업입니다. 이 절차를 완료하려면 엔터프라이즈 관리자 권한으로 로그온해야 하며 Active Directory 포리스트에 Windows Server 2012 R2 스키마가 있어야 합니다.
+>[AZURE.NOTE] 장치를 지원하도록 Active Directory 포리스트를 준비하기 위해 실행해야 하는 일회성 작업입니다. 이 절차를 완료하려면 엔터프라이즈 관리자 권한으로 로그온해야 하며 Active Directory 포리스트에 Windows Server 2012 R2 스키마가 있어야 합니다.
 
 
 ##장치를 지원하도록 Active Directory 포리스트 준비
 
-> [AZURE.NOTE]장치를 지원하도록 Active Directory 포리스트를 준비하기 위해 실행해야 하는 일회성 작업입니다. 이 절차를 완료하려면 엔터프라이즈 관리자 권한으로 로그온해야 하며 Active Directory 포리스트에 Windows Server 2012 R2 스키마가 있어야 합니다.
+> [AZURE.NOTE]
+장치를 지원하도록 Active Directory 포리스트를 준비하기 위해 실행해야 하는 일회성 작업입니다. 이 절차를 완료하려면 엔터프라이즈 관리자 권한으로 로그온해야 하며 Active Directory 포리스트에 Windows Server 2012 R2 스키마가 있어야 합니다.
 
 ### Active Directory 포리스트 준비
 
@@ -183,6 +186,9 @@ Azure Active Directory Device Registration은 iOS 장치에 대해 무선 프로
 3. **연결**을 선택합니다.
 4. 메시지가 표시되면 자격 증명을 사용하여 로그인합니다. 이제 장치가 연결되었습니다.
 
+###Azure Active Directory Device Registration을 사용하여 Windows 7 장치 연결
+Windows 7 도메인 가입 장치를 등록하려면 장치 등록 소프트웨어 패키지를 배포해야 합니다. 이 소프트웨어 패키지를 Windows 7용 작업 공간 연결이라고 하며 [Microsoft Connect 웹 사이트](https://connect.microsoft.com/site1164)에서 다운로드할 수 있습니다. 패키지를 사용하는 방법에 대한 지침은 [Windows 7 도메인 가입 장치에 대한 자동 장치 등록 구성](active-directory-conditional-access-automatic-device-registration-windows7.md)을 참조하세요.
+
 ### Azure Active Directory Device Registration을 사용하여 Android 장치 연결
 
 [Android용 Azure Authenticator](active-directory-conditional-access-azure-authenticator-app.md) 항목에는 Android 장치에 Azure Authenticator 앱을 설치하고 회사 계정을 추가하는 방법에 대한 지침이 있습니다. Android 장치에 회사 계정이 성공적으로 생성되면 해당 장치가 작업 공간 연결을 통해 조직에 연결됩니다.
@@ -198,7 +204,8 @@ LDP.exe 또는 ADSI 편집을 사용하여 장치 개체가 Active Directory에 
 다음 시나리오를 고려합니다. AD FS에서 응용 프로그램 신뢰 당사자 트러스트를 만들고 등록된 장치만 허용하는 발급 권한 부여 규칙을 구성합니다. 이제 등록된 장치만 응용 프로그램에 액세스할 수 있습니다. 사용자가 응용 프로그램에 쉽게 액세스할 수 있게 하려면 장치를 연결하는 방법에 대한 지침을 포함하는 사용자 지정 액세스 거부 메시지를 구성합니다. 이제 사용자가 응용 프로그램에 액세스하기 위해 해당 장치를 원활하게 등록할 수 있습니다.
 
 다음 단계는 이 시나리오를 구현하는 방법을 보여 줍니다.
->[AZURE.NOTE]이 섹션에서는 AD FS에서 응용 프로그램에 대한 신뢰 당사자 트러스트를 이미 구성했다고 가정합니다.
+>[AZURE.NOTE]
+이 섹션에서는 AD FS에서 응용 프로그램에 대한 신뢰 당사자 트러스트를 이미 구성했다고 가정합니다.
 
 1. AD FS MMC 도구를 열고 AD FS > 트러스트 관계 > 신뢰 당사자 트러스트로 이동합니다.
 2. 이 새로운 액세스 규칙을 적용할 응용 프로그램을 찾습니다. 응용 프로그램을 마우스 오른쪽 단추로 클릭하고 클레임 규칙 편집...을 선택합니다.
@@ -237,4 +244,4 @@ LDP.exe 또는 ADSI 편집을 사용하여 장치 개체가 Active Directory에 
 
 ![사용자가 Azure AD로 자신의 장치를 등록하지 않은 경우 표시되는 오류의 스크린샷](./media/active-directory-conditional-access/error-azureDRS-device-not-registered.gif)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

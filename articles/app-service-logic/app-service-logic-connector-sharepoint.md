@@ -34,11 +34,9 @@ SharePoint Online 커넥터 및 SharePoint Server 커넥터 갤러리 앱은 Sha
 
 	이름 | 필수 | 설명
 --- | --- | ---
-사이트 URL | 예 | SharePoint 웹 사이트의 전체 URL을 입력합니다. 예를 들어 *https://microsoft.sharepoint.com/teams/wabstest* 를 입력합니다.
-문서 라이브러리/상대 URL 나열 | 예 | 문서 라이브러리 입력/SharePoint 사이트 URL에 상대적이며 커넥터에서 수정할 수 있는 URL을 입력합니다. 예를 들어 *목록/작업, 공유 문서* 를 입력합니다.
+사이트 URL | 예 | SharePoint 웹 사이트의 전체 URL을 입력합니다. 예를 들어 **https://microsoft.sharepoint.com/teams/wabstest*를 입력합니다. 문서 라이브러리/상대 URL 나열 | 예 | 문서 라이브러리 입력/SharePoint 사이트 URL에 상대적이며 커넥터에서 수정할 수 있는 URL을 입력합니다. 예를 들어 *목록/작업, 공유 문서*를 입력합니다.
 
-5. 완료되면 패키지 설정은 다음과 유사하게 됩니다.  
-![][1]
+5. 완료되면 패키지 설정은 다음과 유사하게 됩니다. ![][1]
 
 작업을 완료하면 이제 동일한 리소스 그룹에서 논리 앱을 만들어 SharePoint Online 커넥터를 사용할 수 있습니다.
 
@@ -53,15 +51,13 @@ SharePoint Online 커넥터 및 SharePoint Server 커넥터 갤러리 앱은 Sha
 
 	이름 | 필수 | 설명
 --- | --- | ---
-사이트 URL | 예 | SharePoint 웹 사이트의 전체 URL을 입력합니다. 예를 들어 *https://microsoft.sharepoint.com/teams/wabstest* 을 입력합니다.
-인증 모드 | 예 | SharePoint 사이트에 연결하기 위한 인증 모드를 지정합니다. 옵션은 다음과 같습니다. <ul><li>Default</li><li>WindowsAuthentication</li><li>FormBasedAuthentication</li></ul><br/><br/>기본값을 선택하면 SharePoint 커넥터를 실행 중인 자격 증명을 사용합니다. 사용자 이름/암호는 필요하지 않습니다. 사용자 이름 및 암호는 다른 인증 형식에 필요합니다.<br/><br/>**참고** 익명 인증은 지원되지 않습니다.
+사이트 URL | 예 | SharePoint 웹 사이트의 전체 URL을 입력합니다. 예를 들어 *https://microsoft.sharepoint.com/teams/wabstest*을 입력합니다. 인증 모드 | 예 | SharePoint 사이트에 연결하기 위한 인증 모드를 지정합니다. 옵션은 다음과 같습니다. <ul><li>Default</li><li>WindowsAuthentication</li><li>FormBasedAuthentication</li></ul><br/><br/>기본값을 선택하면 SharePoint 커넥터를 실행 중인 자격 증명을 사용합니다. 사용자 이름/암호는 필요하지 않습니다. 사용자 이름 및 암호는 다른 인증 형식에 필요합니다.<br/><br/>**참고** 익명 인증은 지원되지 않습니다.
 사용자 이름 | 아니요 | 인증 모드가 기본값이 아닌 경우 SharePoint 사이트에 연결하려면 유효한 사용자 이름을 입력합니다.
 암호 | 아니요 | 인증 모드가 기본값이 아닌 경우 SharePoint 사이트에 연결하려면 유효한 암호를 입력합니다.
-문서 라이브러리/목록 상대 URL | 예 | 문서 라이브러리 입력/SharePoint 사이트 URL에 상대적이며 커넥터에서 수정할 수 있는 URL을 입력합니다. 예를 들어 *목록/작업, 공유 문서* 를 입력합니다.
-서비스 버스 연결 문자열 | 아니요 | 온-프레미스에 연결할 경우 서비스 버스 릴레이 연결 문자열을 입력합니다.<br/><br/>[하이브리드 연결 관리자 사용](app-service-logic-hybrid-connection-manager.md)<br/>[서비스 버스 가격](http://azure.microsoft.com/pricing/details/service-bus/)
+문서 라이브러리/목록 상대 URL | 예 | 문서 라이브러리 입력/SharePoint 사이트 URL에 상대적이며 커넥터에서 수정할 수 있는 URL을 입력합니다. 예를 들어 *목록/작업, 공유 문서*를 입력합니다.
+서비스 버스 연결 문자열 | 아니요 | 온-프레미스에 연결할 경우 서비스 버스 릴레이 연결 문자열을 입력합니다.<br/><br/>[하이브리드 연결 관리자 사용](app-service-logic-hybrid-connection-manager.md)<br/>[서비스 버스 가격](https://azure.microsoft.com/pricing/details/service-bus/)
 
-5. 완료되면 패키지 설정은 다음과 유사합니다.
-![][2]
+5. 완료되면 패키지 설정은 다음과 유사합니다.![][2]
 
 작업을 완료하면 이제 동일한 리소스 그룹에서 논리 앱을 만들어 SharePoint Server 커넥터를 사용할 수 있습니다.
 
@@ -78,17 +74,13 @@ API 앱을 만들면 이제 SharePoint 커넥터를 논리 앱의 트리거 또�
 
 4. SharePoint Online 커넥터를 사용하는 경우 논리 앱을 인증하고 사용자 대신 작업을 수행할 수 있는 권한을 부여해야 합니다. 권한 부여를 시작하려면 ![][3]SharePoint 커넥터의 **인증**을 클릭합니다.
 
-5. 권한 부여를 클릭하면 SharePoint의 인증 대화 상자가 열립니다. 작업을 수행하려는 SharePoint 계정의 로그인 세부 정보를 입력합니다.  
-![][4]
+5. 권한 부여를 클릭하면 SharePoint의 인증 대화 상자가 열립니다. 작업을 수행하려는 SharePoint 계정의 로그인 세부 정보를 입력합니다. ![][4]
 
-6. 사용자 대신 작업을 수행하려면 계정에 대한 논리 앱 액세스 권한을 부여 합니다.  
-![][5]
+6. 사용자 대신 작업을 수행하려면 계정에 대한 논리 앱 액세스 권한을 부여 합니다.![][5]
 
-7. SharePoint 커넥터를 트리거로 구성하는 경우 트리거가 표시됩니다. 그렇지 않은 경우 작업 목록이 표시되며 수행하려는 적절한 작업을 선택할 수 있습니다.  
-![][6]
+7. SharePoint 커넥터를 트리거로 구성하는 경우 트리거가 표시됩니다. 그렇지 않은 경우 작업 목록이 표시되며 수행하려는 적절한 작업을 선택할 수 있습니다. ![][6]
   
-**문서 라이브러리에 대해 구성된 상대 URL**  
-![][7]
+**문서 라이브러리에 대해 구성된 상대 URL** ![][7]
 
 **문서 목록에 대해 구성된 상대 URL**
 
@@ -97,7 +89,7 @@ API 앱을 만들면 이제 SharePoint 커넥터를 논리 앱의 트리거 또�
 ##  트리거
 논리 앱을 시작하려는 경우 트리거를 사용합니다.
 
-> [AZURE.NOTE]트리거는 파일을 읽은 후 삭제합니다. 이러한 파일을 유지하려면 보관 위치에 대한 값을 입력하십시오.
+> [AZURE.NOTE] 트리거는 파일을 읽은 후 삭제합니다. 이러한 파일을 유지하려면 보관 위치에 대한 값을 입력하십시오.
 
 ### 1\. 공유 문서의 새 문서(JSON)
 이 트리거는 ‘공유 문서’에서 새 문서를 사용할 수 있는 경우 발생합니다.
@@ -220,7 +212,7 @@ ItemId | 문서 라이브러리에 추가된 문서의 ItemId입니다.
 
 이름 | 필수 | 설명
 --- | --- | ---
-문서 상대 URI | 아니요 | 이 매개 변수는 ‘공유 문서’에 상대적인 문서 URL을 입력합니다. 예를 들어 *myspec1,myfolder/orders* 를 입력합니다.
+문서 상대 URI | 아니요 | 이 매개 변수는 ‘공유 문서’에 상대적인 문서 URL을 입력합니다. 예를 들어 *myspec1,myfolder/orders*를 입력합니다.
 
 #### 출력
 
@@ -244,7 +236,7 @@ Param2* | 문서 라이브러리에서 문서의 매개 변수 중 하나입니�
 
 이름 | 필수 | 설명
 --- | --- | ---
-문서 상대 URI | 아니요 | 이 매개 변수는 ‘공유 문서’에 상대적인 문서 URL을 입력합니다. 예를 들어 *myspec1,myfolder/orders* 를 입력합니다.
+문서 상대 URI | 아니요 | 이 매개 변수는 ‘공유 문서’에 상대적인 문서 URL을 입력합니다. 예를 들어 *myspec1,myfolder/orders*를 입력합니다.
 
 #### 출력
 
@@ -384,7 +376,7 @@ ContentTransferEncoding | 예 | 메시지의 콘텐츠 전송 인코딩입니다
 
 이름 | 필수 | 설명
 --- | --- | ---
-문서 상대 URI | 아니요 | 이 매개 변수는 ‘공유 문서’에 상대적인 문서 URL을 입력합니다. 예를 들어 *myspec1,myfolder/orders* 를 입력합니다.
+문서 상대 URI | 아니요 | 이 매개 변수는 ‘공유 문서’에 상대적인 문서 URL을 입력합니다. 예를 들어 *myspec1,myfolder/orders*를 입력합니다.
 파일 형식 | 예 | 파일이 이진 파일인지 텍스트 파일인지 입력합니다.
 
 #### 출력
@@ -455,7 +447,7 @@ ItemID | 예 | 목록 항목의 ItemId입니다.
 
 ## 하이브리드 구성(선택 사항)
 
-> [AZURE.NOTE]이 단계는 방화벽 뒤의 SharePoint 온-프레미스를 사용하는 경우에만 필요합니다.
+> [AZURE.NOTE] 이 단계는 방화벽 뒤의 SharePoint 온-프레미스를 사용하는 경우에만 필요합니다.
 
 앱 서비스는 하이브리드 구성 관리자를 사용하여 온-프레미스 시스템에 안전하게 연결합니다. 커넥터로 온-프레미스 SharePoint Server를 사용하는 경우 하이브리드 연결 관리자가 필요합니다.
 
@@ -464,7 +456,7 @@ ItemID | 예 | 목록 항목의 ItemId입니다.
 ## 커넥터의 추가 기능
 이제 커넥터를 만들었으므로 논리 앱을 사용하여 비즈니스 워크플로에 추가할 수 있습니다. [논리 앱 정의](app-service-logic-what-are-logic-apps.md)를 참조하세요.
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동합니다. 앱 서비스에서 즉시 단기 스타터 논리 앱을 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동합니다. 앱 서비스에서 즉시 단기 스타터 논리 앱을 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 [커넥터 및 API 앱 참조](http://go.microsoft.com/fwlink/p/?LinkId=529766)의 Swagger REST API 참조를 봅니다.
 
@@ -480,4 +472,4 @@ ItemID | 예 | 목록 항목의 ItemId입니다.
 [6]: ./media/app-service-logic-connector-sharepoint/image_5.png
 [7]: ./media/app-service-logic-connector-sharepoint/image_6.png
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

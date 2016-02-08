@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,16 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/31/2015"
+   ms.date="01/26/2016"
    ms.author="alkohli" />
 
 # StorSimple 하드웨어 구성 요소 교체
 
 ## 개요
 
-하드웨어 구성 요소 교체 자습서에서는 Microsoft Azure StorSimple 장치의 하드웨어 구성 요소 및 구성 요소를 꺼내고 교체하는 데 필요한 단계를 설명합니다. 이 문서에서는 안전 아이콘을 설명하고, 자세한 자습서에 대한 포인터를 제공하고, 교체 가능한 구성 요소를 나열합니다.
+하드웨어 구성 요소 교체 자습서에서는 Microsoft Azure StorSimple 8000 시리즈 장치의 하드웨어 구성 요소 및 구성 요소를 꺼내고 교체하는 데 필요한 단계를 설명합니다. 이 문서에서는 안전 아이콘을 설명하고, 자세한 자습서에 대한 포인터를 제공하고, 교체 가능한 구성 요소를 나열합니다.
 
->[AZURE.IMPORTANT]StorSimple 구성 요소를 꺼내거나 교체하기 전에 [안전성 아이콘 표시 규칙](#safety-icon-conventions) 및 기타 [안전 주의 사항](storsimple-safety.md)을 검토해야 합니다.
+>[AZURE.IMPORTANT] StorSimple 구성 요소를 꺼내거나 교체하기 전에 [안전성 아이콘 표시 규칙](#safety-icon-conventions) 및 기타 [안전 주의 사항](storsimple-safety.md)을 검토해야 합니다.
  
 ### 안전성 아이콘 표시 규칙
 
@@ -57,7 +57,7 @@
 
 ## 하드웨어 구성 요소 교체 절차
 
-Microsoft Azure StorSimple 장치는 기본 및/또는 EBOD 엔클로저의 여러 플러그 인 모듈로 구성되어 있습니다. 8100에는 단일 기본 엔클로저가 있는 반면 8600은 기본 엔클로저와 EBOD 엔클로저가 있는 이중 엔클로저 장치입니다.
+StorSimple 8000 시리즈 장치는 기본 및/또는 EBOD 엔클로저의 여러 플러그 인 모듈로 구성되어 있습니다. 8100에는 단일 기본 엔클로저가 있는 반면 8600은 기본 엔클로저와 EBOD 엔클로저가 있는 이중 엔클로저 장치입니다.
 
 장치의 기본 하드웨어 구성 요소는 다음 표에 요약되어 있습니다. **교체 절차** 열에 있는 링크를 클릭하면 연결된 자습서로 이동합니다.
 
@@ -122,9 +122,9 @@ StorSimple 장치에 사용할 수 있는 FRU(필드 교체 장치)는 다음과
 
 - 섀시(통합 작업 패널 포함)
 
-- 764W AC 전원 및 냉각 모듈
+- 764 W AC PCM
 
-- 580W AC 전원 및 냉각 모듈
+- 580 W AC PCM
 
 - 드라이브 캐리어 모듈이 있는 하드 디스크 드라이브
 
@@ -142,4 +142,4 @@ StorSimple 장치에 사용할 수 있는 FRU(필드 교체 장치)는 다음과
 
 StorSimple 하드웨어 구성 요소를 교체하기 전에 모든 [안전 정보](storsimple-safety.md)를 검토하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

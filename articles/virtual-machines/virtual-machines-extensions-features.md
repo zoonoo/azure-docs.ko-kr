@@ -55,7 +55,7 @@ VM 확장은 VM에서 사용하려는 대부분의 중요 기능을 구현합니
 |**DSC**|PowerShell DSC(Desired State Configuration) 확장|[Azure PowerShell DSC(Desired State Configuration) 확장](http://blogs.msdn.com/b/powershell/archive/2014/08/07/introducing-the-azure-powershell-dsc-desired-state-configuration-extension.aspx)|
 |**PuppetEnterpriseAgent**|Puppet Enterprise의 기능을 구현합니다. |[Azure에서의 Puppet](http://puppetlabs.com/solutions/microsoft)|
 |**CustomScriptExtension**(Windows)**CustomScriptForLinux**(Linux)|시작 시 또는 실행 중에 언제든 VM에서 사용자 지정 스크립트를 호출합니다.|[사용자 지정 스크립트 확장](virtual-machines-extensions-customscript.md) | [Linux](https://github.com/Azure/azure-linux-extensions/tree/master/CustomScript)|
-|**AzureCATExtensionHandler**|**IaaSDiagnostics**와 몇 가지 다른 데이터 원본(예: [Azure 저장소 분석 메트릭](https://msdn.microsoft.com/library/azure/hh343270.aspx))에서 수집한 진단 데이터를 사용하고 SAP 호스트 제어 프로세스에서 사용하는 데 적합한 집계 데이터 집합으로 변환합니다.|[SAP용 Azure Enhanced Monitoring](http://azure.microsoft.com/blog/2014/06/04/azure-enhanced-monitoring-for-sap/)|
+|**AzureCATExtensionHandler**|**IaaSDiagnostics**와 몇 가지 다른 데이터 원본(예: [Azure 저장소 분석 메트릭](https://msdn.microsoft.com/library/azure/hh343270.aspx))에서 수집한 진단 데이터를 사용하고 SAP 호스트 제어 프로세스에서 사용하는 데 적합한 집계 데이터 집합으로 변환합니다.|[SAP용 Azure Enhanced Monitoring](https://azure.microsoft.com/blog/2014/06/04/azure-enhanced-monitoring-for-sap/)|
 
 ##보안 및 보호
 
@@ -77,8 +77,8 @@ VM 확장은 VM에서 사용하려는 대부분의 중요 기능을 구현합니
 |**VM 확장 이름**|기능 설명|추가 정보|
 |---|---|---|
 |**AzureVmLogCollector**|필요에 따라 **AzureVMLogCollector** 확장을 사용하여 VM에 원격으로 로그온하지 않고 웹 역할 및 작업자 역할 둘 다로 하나 이상의 클라우드 서비스 VM에서 일회성 로그 수집을 수행하고 수집한 파일을 Azure 저장소 계정으로 전송할 수 있습니다. |[AzureLogCollector 확장](virtual-machines-extensions-log-collector.md)|
-|**IaaSDiagnostics**|Azure 진단을 사용하거나 사용하지 않도록 설정 및 구성하며, **AzureCATExtensionHandler**에서 SAP 모니터링을 지원하는 데도 사용됩니다.|[Azure Diagnostics 확장을 통한Microsoft Azure 가상 컴퓨터 모니터링](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/)|
-|**OSPatchingForLinux**|Azure VM 관리자를 사용하여 사용자 지정 구성으로 VM OS 업데이트를 자동화합니다. OS 패치 업데이트 시기 및 빈도 지정, 설치할 패치 지정, 업데이트 후 재부팅 동작 구성 등, OSPatching 확장을 사용하여 가상 컴퓨터에 대한 OS 업데이트를 구성할 수 있습니다.|[OS 패치 확장 블로그 게시물](http://azure.microsoft.com/blog/2014/10/23/automate-linux-vm-os-updates-using-ospatching-extension/). Github의 [OS 패치 확장](https://github.com/Azure/azure-linux-extensions)에서 Readme와 원본도 참조하세요.|
+|**IaaSDiagnostics**|Azure 진단을 사용하거나 사용하지 않도록 설정 및 구성하며, **AzureCATExtensionHandler**에서 SAP 모니터링을 지원하는 데도 사용됩니다.|[Azure Diagnostics 확장을 통한Microsoft Azure 가상 컴퓨터 모니터링](https://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/)|
+|**OSPatchingForLinux**|Azure VM 관리자를 사용하여 사용자 지정 구성으로 VM OS 업데이트를 자동화합니다. OS 패치 업데이트 시기 및 빈도 지정, 설치할 패치 지정, 업데이트 후 재부팅 동작 구성 등, OSPatching 확장을 사용하여 가상 컴퓨터에 대한 OS 업데이트를 구성할 수 있습니다.|[OS 패치 확장 블로그 게시물](https://azure.microsoft.com/blog/2014/10/23/automate-linux-vm-os-updates-using-ospatching-extension/). Github의 [OS 패치 확장](https://github.com/Azure/azure-linux-extensions)에서 Readme와 원본도 참조하세요.|
 
 ##개발 및 디버깅
 
@@ -103,4 +103,4 @@ VM 확장은 VM에서 사용하려는 대부분의 중요 기능을 구현합니
 |**BGInfo**|RDP를 사용할 때 바탕 화면에 서버에 대한 유용한 통합 정보를 표시합니다.|[BGInfo 확장](https://msdn.microsoft.com/library/dn606289.aspx)|
 |**HpcVmDrivers**|Windows Server 2012 R2 또는 Windows Server 2012를 실행하는 크기가 A8 또는 A9인 VM에서 RDMA(원격 직접 메모리 액세스) 네트워크 장치 드라이버를 설치, 구성 및 유지 관리합니다. 병렬 MPI 응용 프로그램을 실행할 때 클러스터형 A8 또는 A9 VM에서 RDMA 네트워크를 사용하도록 설정합니다.|[A8, A9, A10 및 A11 계산 집약적 인스턴스 정보](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

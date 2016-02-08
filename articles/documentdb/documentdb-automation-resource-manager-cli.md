@@ -46,7 +46,7 @@ Azure 리소스 그룹에서 Azure CLI를 사용하려면 올바른 Azure CLI �
 
 ### Azure 계정 및 구독 설정
 
-Azure 구독이 아직 없지만 Visual Studio 구독이 있는 경우 [Visual Studio 구독자 혜택](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화할 수 있습니다. 또는 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
+Azure 구독이 아직 없지만 Visual Studio 구독이 있는 경우 [Visual Studio 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화할 수 있습니다. 또는 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 
 Azure 리소스 관리 템플릿을 사용하려면 회사 또는 학교 계정 또는 Microsoft 계정 ID가 있어야 합니다. 이러한 계정 중 하나 있는 경우 다음 명령을 입력합니다.
 
@@ -59,7 +59,7 @@ Azure 리소스 관리 템플릿을 사용하려면 회사 또는 학교 계정 
     Enter the code E1A2B3C4D to authenticate. If you're signing in as an Azure
     AD application, use the --username and --password parameters.
 
-> [AZURE.NOTE]Azure 계정이 없는 경우 다른 유형의 계정이 필요하다는 오류 메시지가 표시됩니다. 현재 Azure 계정에서 계정을 만들려면 [Azure Active Directory에서 회사 또는 학교 ID 만들기](../virtual-machines/resource-group-create-work-id-from-personal.md)를 참조하세요.
+> [AZURE.NOTE] Azure 계정이 없는 경우 다른 유형의 계정이 필요하다는 오류 메시지가 표시됩니다. 현재 Azure 계정에서 계정을 만들려면 [Azure Active Directory에서 회사 또는 학교 ID 만들기](../virtual-machines/resource-group-create-work-id-from-personal.md)를 참조하세요.
 
 브라우저에서 [https://aka.ms/devicelogin](https://aka.ms/devicelogin)을 열고 명령 출력에 제공된 코드를 입력합니다.
 
@@ -136,7 +136,7 @@ DocumentDB 계정을 만들려면 먼저 리소스 그룹이 필요합니다. �
 
 명령 프롬프트에서 다음 명령을 입력하여 새 또는 기존 리소스 그룹에 DocumentDB 계정을 만듭니다.
 
-> [AZURE.TIP]Azure PowerShell 또는 Windows PowerShell에서 이 명령을 실행하는 경우 예기치 않은 토큰에 대한 오류가 발생합니다. 그 대신 Windows 명령 프롬프트에서 이 명령을 실행합니다.
+> [AZURE.TIP] Azure PowerShell 또는 Windows PowerShell에서 이 명령을 실행하는 경우 예기치 않은 토큰에 대한 오류가 발생합니다. 그 대신 Windows 명령 프롬프트에서 이 명령을 실행합니다.
 
     azure resource create -g <resourcegroupname> -n <databaseaccountname> -r "Microsoft.DocumentDB/databaseAccounts" -o "2015-04-08" -l <databaseaccountlocation> -p "{"databaseAccountOfferType":"Standard"}" 
 
@@ -314,7 +314,7 @@ DocumentDB 계정을 만들려면 먼저 리소스 그룹이 필요합니다. �
 
 리소스 그룹 또는 데이터베이스 계정을 만드는 동안 `Deployment provisioning state was not successful`과 같은 오류가 발생하면 몇 가지 문제 해결 옵션이 있습니다.
 
-> [AZURE.NOTE]데이터베이스 계정 이름에 잘못된 문자를 제공하거나 DocumentDB를 사용할 수 없는 위치를 제공하면 배포 오류가 발생합니다. 데이터베이스 계정 이름은 소문자, 숫자 및 '-' 문자만 포함할 수 있으며, 3자에서 50자 사이여야 합니다. 모든 유효한 데이터베이스 계정 위치는 [Azure 지역 페이지](https://azure.microsoft.com/regions/#services)에 나열됩니다.
+> [AZURE.NOTE] 데이터베이스 계정 이름에 잘못된 문자를 제공하거나 DocumentDB를 사용할 수 없는 위치를 제공하면 배포 오류가 발생합니다. 데이터베이스 계정 이름은 소문자, 숫자 및 '-' 문자만 포함할 수 있으며, 3자에서 50자 사이여야 합니다. 모든 유효한 데이터베이스 계정 위치는 [Azure 지역 페이지](https://azure.microsoft.com/regions/#services)에 나열됩니다.
 
 - 출력이 다음 `Error information has been recorded to C:\Users\wendy\.azure\azure.err`을 포함하는 경우 azure.err 파일에서 오류 정보를 검토합니다.
 
@@ -349,6 +349,6 @@ DocumentDB에 대해 자세히 알아보려면 다음 리소스를 참조하세�
 -	[DocumentDB 학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 -	[DocumentDB 리소스 모델 및 개념](documentdb-resources.md)
 
-사용할 수 있는 더 많은 템플릿은 [Azure 빠른 시작 템플릿](http://azure.microsoft.com/documentation/templates/)을 참조하세요.
+사용할 수 있는 더 많은 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)을 참조하세요.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -19,7 +19,7 @@ Oracle 이미지에 따라 가상 컴퓨터를 만들려면 [Azure 포털](https
 ![](media/virtual-machines-oracle-list-oracle-virtual-machine-images/image1.png)
 
 ##Windows 기반 가상 컴퓨터 이미지
-다음은 Azure의 Windows Server에서 실행되는 사용 가능한 Oracle 가상 컴퓨터 이미지 목록입니다. 이러한 이미지 요금은 종량제이므로 Oracle 라이선스 비용이 해당 이미지 사용료에 포함됩니다. 사용자 고유의 라이선스를 가져와 Windows 또는 Linux에서 Oracle 소프트웨어를 실행할 수도 있습니다. [Azure 가상 컴퓨터 및 가상 컴퓨터 갤러리 이미지의 가격 및 라이선스](http://azure.microsoft.com/pricing/details/virtual-machines/#oracle-software)에 대한 자세한 내용은 다음과 같습니다. 특정 Oracle 가격 책정에 대한 자세한 내용을 보려면 **Oracle** 탭을 클릭하세요.
+다음은 Azure의 Windows Server에서 실행되는 사용 가능한 Oracle 가상 컴퓨터 이미지 목록입니다. 이러한 이미지 요금은 종량제이므로 Oracle 라이선스 비용이 해당 이미지 사용료에 포함됩니다. 사용자 고유의 라이선스를 가져와 Windows 또는 Linux에서 Oracle 소프트웨어를 실행할 수도 있습니다. [Azure 가상 컴퓨터 및 가상 컴퓨터 갤러리 이미지의 가격 및 라이선스](https://azure.microsoft.com/pricing/details/virtual-machines/#oracle-software)에 대한 자세한 내용은 다음과 같습니다. 특정 Oracle 가격 책정에 대한 자세한 내용을 보려면 **Oracle** 탭을 클릭하세요.
 
 ###Oracle Database 가상 컴퓨터 이미지
 - Oracle Database 12c Enterprise Edition on Windows Server 2012
@@ -63,4 +63,4 @@ Oracle 이미지에 따라 가상 컴퓨터를 만들려면 [Azure 포털](https
 
 [Oracle 가상 컴퓨터 이미지 - 기타 고려 사항](#miscellaneous-considerations-for-oracle-virtual-machine-images-new-article)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

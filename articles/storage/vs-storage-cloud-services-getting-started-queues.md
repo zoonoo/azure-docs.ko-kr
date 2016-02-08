@@ -28,7 +28,7 @@
 
  - 코드에서 큐를 조작하는 방법에 대한 자세한 내용은 [.NET에서 큐 저장소를 사용하는 방법](storage-dotnet-how-to-use-queues.md)을 참조하세요.
  - Azure 저장소에 대한 일반적인 내용은 [저장소 설명서](https://azure.microsoft.com/documentation/services/storage/)를 참조하세요.
- - Azure 클라우드 서비스에 대한 일반적인 내용은 [클라우드 서비스 설명서](http://azure.microsoft.com/documentation/services/cloud-services/)를 참조하세요.
+ - Azure 클라우드 서비스에 대한 일반적인 내용은 [클라우드 서비스 설명서](https://azure.microsoft.com/documentation/services/cloud-services/)를 참조하세요.
  - ASP.NET 응용 프로그램을 프로그래밍하는 방법에 대한 자세한 내용은 [ASP.NET](http://www.asp.net)을 참조하세요.
 
 
@@ -192,4 +192,4 @@ Visual Studio 클라우드 서비스 프로젝트의 큐에 액세스하려면 A
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

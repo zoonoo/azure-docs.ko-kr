@@ -30,7 +30,7 @@ Azure 클래식 포털, Windows PowerShell 또는 Azure 명령줄 인터페이�
 
 ## 필수 조건
 
-이 예제에서는 먼저 Ubuntu 14.04 이상을 실행하는 두 개의 Azure VM을 만듭니다. VM의 이름은 *script-vm* 및 *lamp-vm* 입니다. VM을 만드는 경우 고유한 이름을 사용하세요. 하나는 CLI 명령을 실행하고 다른 하나는 LAMP 앱을 배포하는 데 사용합니다.
+이 예제에서는 먼저 Ubuntu 14.04 이상을 실행하는 두 개의 Azure VM을 만듭니다. VM의 이름은 *script-vm* 및 *lamp-vm*입니다. VM을 만드는 경우 고유한 이름을 사용하세요. 하나는 CLI 명령을 실행하고 다른 하나는 LAMP 앱을 배포하는 데 사용합니다.
 
 또한 Azure 저장소 계정과 해당 계정에 액세스하는 데 사용할 키도 필요합니다. 계정 및 키는 Azure 클래식 포털에서 가져올 수 있습니다.
 
@@ -68,11 +68,11 @@ CustomScript 확장을 통해 원격 VM에서 스크립트를 실행하여 LAMP 
 
 ### 스크립트 업로드
 
-스크립트를 *lamp\_install.sh* 와 같은 텍스트 파일로 저장한 다음 Azure 저장소에 업로드합니다. Azure CLI를 사용하면 이 작업을 쉽게 수행할 수 있습니다. 다음 예제에서는 "scripts"라는 저장소 컨테이너에 이 파일을 업로드합니다. 컨테이너가 없으면 먼저 만들어야 합니다.
+스크립트를 *lamp\_install.sh*와 같은 텍스트 파일로 저장한 다음 Azure 저장소에 업로드합니다. Azure CLI를 사용하면 이 작업을 쉽게 수행할 수 있습니다. 다음 예제에서는 "scripts"라는 저장소 컨테이너에 이 파일을 업로드합니다. 컨테이너가 없으면 먼저 만들어야 합니다.
 
     azure storage blob upload -a <yourStorageAccountName> -k <yourStorageKey> --container scripts ./install_lamp.sh
 
-또한 Azure 저장소에서 스크립트를 다운로드하는 방법을 설명하는 JSON 파일도 만듭니다. 이 파일을 *public\_config.json* 으로 저장하고, "mystorage"는 저장소 계정 이름으로 바꿉니다.
+또한 Azure 저장소에서 스크립트를 다운로드하는 방법을 설명하는 JSON 파일도 만듭니다. 이 파일을 *public\_config.json*으로 저장하고, "mystorage"는 저장소 계정 이름으로 바꿉니다.
 
     {"fileUris":["https://mystorage.blob.core.windows.net/scripts/install_lamp.sh"], "commandToExecute":"sh install_lamp.sh" }
 
@@ -83,7 +83,7 @@ CustomScript 확장을 통해 원격 VM에서 스크립트를 실행하여 LAMP 
 
     azure vm extension set -c "./public_config.json" lamp-vm CustomScriptForLinux Microsoft.OSTCExtensions 1.*
 
-이전 명령은 *lamp-vm* 이라는 VM에서 *lamp\_install.sh* 스크립트를 다운로드하고 실행합니다.
+이전 명령은 *lamp-vm*이라는 VM에서 *lamp\_install.sh* 스크립트를 다운로드하고 실행합니다.
 
 앱은 웹 서버를 포함하므로 원격 VM에서 다음 명령을 사용하여 HTTP 수신 대기 포트를 열어야 합니다.
 
@@ -91,12 +91,12 @@ CustomScript 확장을 통해 원격 VM에서 스크립트를 실행하여 LAMP 
 
 ## 모니터링 및 문제 해결
 
-원격 VM에서 로그 파일을 통해 사용자 지정 스크립트가 잘 실행되는지 확인할 수 있습니다. *lamp-vm* 에 대해 SSH를 실행하고 다음 명령을 사용하여 로그 파일의 끝부분을 확인합니다.
+원격 VM에서 로그 파일을 통해 사용자 지정 스크립트가 잘 실행되는지 확인할 수 있습니다. *lamp-vm*에 대해 SSH를 실행하고 다음 명령을 사용하여 로그 파일의 끝부분을 확인합니다.
 
     cd /var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.3.0.0/
     tail -f extension.log
 
-CustomScript 확장 프로그램을 실행한 후에 정보를 위해 만든 PHP 페이지를 찾아볼 수 있습니다. 이 문서의 예제에 대한 PHP 페이지는 *http://lamp-vm.cloudapp.net/phpinfo.php* 입니다.
+CustomScript 확장 프로그램을 실행한 후에 정보를 위해 만든 PHP 페이지를 찾아볼 수 있습니다. 이 문서의 예제에 대한 PHP 페이지는 **http://lamp-vm.cloudapp.net/phpinfo.php*입니다.
 
 ## 추가 리소스
 
@@ -104,10 +104,10 @@ CustomScript 확장 프로그램을 실행한 후에 정보를 위해 만든 PHP
 
 Azure CLI, Linux 및 CustomScript 확장을 위한 일부 추가 리소스는 다음에 나열됩니다.
 
-[CustomScript 확장을 사용하여 Linux VM 사용자 지정 작업 자동화](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)
+[CustomScript 확장을 사용하여 Linux VM 사용자 지정 작업 자동화](https://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)
 
 [Azure Linux 확장(GitHub)](https://github.com/Azure/azure-linux-extensions)
 
 [Azure에서 Linux 및 오픈 소스 컴퓨팅](virtual-machines-linux-opensource.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

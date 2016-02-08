@@ -30,7 +30,7 @@
 
 이 자습서는 모바일 서비스 퀵 스타트를 기반으로 합니다. 먼저 [모바일 서비스 시작] 또는 [기존 앱에 모바일 서비스 추가](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md) 자습서를 완료해야 합니다.
 
->[AZURE.NOTE]이 자습서에서는 Windows 스토어 및 Windows Phone 스토어 8.1 앱에서 사용자에 대한 서버 지향 인증을 사용하는 방법을 보여 줍니다. 클라이언트 지향 인증에 대한 자세한 내용은 [Google, Microsoft 및 Facebook SDK로 Azure 모바일 서비스에 로그인](http://azure.microsoft.com/blog/2014/10/27/logging-in-with-google-microsoft-and-facebook-sdks-to-azure-mobile-services/)(영문)을 참조하세요.
+>[AZURE.NOTE]이 자습서에서는 Windows 스토어 및 Windows Phone 스토어 8.1 앱에서 사용자에 대한 서버 지향 인증을 사용하는 방법을 보여 줍니다. 클라이언트 지향 인증에 대한 자세한 내용은 [Google, Microsoft 및 Facebook SDK로 Azure 모바일 서비스에 로그인](https://azure.microsoft.com/blog/2014/10/27/logging-in-with-google-microsoft-and-facebook-sdks-to-azure-mobile-services/)(영문)을 참조하세요.
 
 ##<a name="register"></a>인증을 위해 앱 등록 및 모바일 서비스 구성
 
@@ -75,7 +75,7 @@
 
 ##참고 항목
 
-+ [향상된 사용자 기능](http://azure.microsoft.com/blog/2014/10/02/custom-login-scopes-single-sign-on-new-asp-net-web-api-updates-to-the-azure-mobile-services-net-backend/)<br/> .NET 백 엔드에서 **ServiceUser.GetIdentitiesAsync()** 메서드를 호출하여 모바일 서비스의 ID 공급자로 유지 관리되는 추가 사용자 데이터를 가져올 수 있습니다.
++ [향상된 사용자 기능](https://azure.microsoft.com/blog/2014/10/02/custom-login-scopes-single-sign-on-new-asp-net-web-api-updates-to-the-azure-mobile-services-net-backend/)<br/> .NET 백 엔드에서 **ServiceUser.GetIdentitiesAsync()** 메서드를 호출하여 모바일 서비스의 ID 공급자로 유지 관리되는 추가 사용자 데이터를 가져올 수 있습니다.
 
 + [모바일 서비스 .NET 방법 개념 참조] <br/>.NET 클라이언트에서 모바일 서비스를 사용하는 방법을 자세히 알아봅니다.
 
@@ -103,4 +103,4 @@
 [모바일 서비스 .NET 방법 개념 참조]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

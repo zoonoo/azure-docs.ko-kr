@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="DocumentDB SQL 참고 자료 PDF | Microsoft Azure" 
-	description="DocumentDB의 SQL 구문을 사용하여 해당 NoSQL 데이터베이스에서 JSON 문서를 쿼리하도록 도와주는 인쇄 가능한 SQL 참고 자료 PDF입니다." 
+	description="DocumentDB의 SQL 구문을 사용하여 해당 NoSQL 데이터베이스에서 JSON 문서를 쿼리하도록 도와주는 인쇄 가능한 SQL 참고 자료 PDF - SQL 빠른 참조" 
 	keywords="sql 참고 자료, sql 참고 자료 pdf, sql 쿼리 참고 자료"
 	services="documentdb" 
 	documentationCenter="" 
@@ -29,7 +29,7 @@ SQL 쿼리 참고 자료를 다운로드하고 신속하게 참조하여 쿼리�
 
 **[Microsoft Azure DocumentDB SQL 참고 자료](http://go.microsoft.com/fwlink/?LinkId=623215)에서 SQL 참고 자료를 다운로드**하세요.
 
-![DocumentDB SQL 쿼리 참고 자료: DocumentDB에서 지원하는 SQL 문법에 대한 빠른 참조][cheat-sheet]
+![DocumentDB SQL 쿼리 참고 자료: DocumentDB에서 지원하는 SQL 구문에 대한 빠른 참조 PDF - SQL 참고 자료, SQL 참고 자료 PDF, SQL 빠른 참조][cheat-sheet]
 
 [cheat-sheet]: ./media/documentdb-sql-query-cheat-sheet/microsoft-documentdb-sql-query-cheat-sheet-v2.png
 
@@ -39,4 +39,4 @@ SQL 쿼리 참고 자료를 다운로드하고 신속하게 참조하여 쿼리�
 - DocumentDB에서 사용 가능한 쿼리 옵션에 대한 설명은 [DocumentDB 쿼리](documentdb-sql-query.md)를 참조하세요.
 - 관련 참조 문서는 [DocumentDB SQL 쿼리 언어](https://msdn.microsoft.com/library/azure/dn782250.aspx)를 참조하세요.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

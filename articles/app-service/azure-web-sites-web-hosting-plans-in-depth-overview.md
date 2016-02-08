@@ -61,7 +61,7 @@
  
 ## 다른 앱 서비스 계획으로 앱 이동
 
-[Azure 포털](http://portal.azure.com)에서 앱을 다른 앱 서비스 계획으로 이동할 수 있습니다. 동일한 지역의 계획 간에 앱을 이동할 수 있습니다.
+[Azure 포털](https://portal.azure.com)에서 앱을 다른 앱 서비스 계획으로 이동할 수 있습니다. 동일한 지역의 계획 간에 앱을 이동할 수 있습니다.
 
 앱을 다른 계획으로 이동하려면 이동할 앱을 탐색하고 **앱 서비스 계획 변경**을 클릭합니다.
  
@@ -90,14 +90,11 @@
 ## 변경된 내용
 
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
- 
- 
- 
- <!-- Images. -->
+   
 [pricingtier]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/appserviceplan-pricingtier.png
 [assign]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/assing-appserviceplan.png
 [change]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png
 [createASP]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png
 [createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -33,7 +33,7 @@
 
 2-`ipconfig /flushdns`를 입력하여 DNS 확인자 캐시를 플러시합니다.
 
-3-`nslookup <your Traffic Manager domain name>`을 입력합니다. 예를 들어, 다음 명령은 접두사가 *myapp.contoso* 인 도메인 이름 nslookup myapp.contoso.trafficmanager.net을 확인합니다. 일반적인 결과는 다음을 표시합니다. -이 트래픽 관리자 도메인 이름을 확인하기 위해 액세스하는 DNS 서버의 DNS 이름 및 IP 주소. - 명령줄에서 "nslookup" 뒤에 입력한 트래픽 관리자 도메인 이름 및 트래픽 관리자 도메인이 확인하는 IP 주소입니다. 두 번째 IP 주소는 중요 확인 사항입니다. 테스트 중인 트래픽 관리자 프로필에서 웹 사이트 또는 클라우드 서비스 중 하나에 대한 공용 가상 IP(VIP) 주소와 일치해야 합니다.
+3-`nslookup <your Traffic Manager domain name>`을 입력합니다. 예를 들어, 다음 명령은 접두사가 *myapp.contoso*인 도메인 이름 nslookup myapp.contoso.trafficmanager.net을 확인합니다. 일반적인 결과는 다음을 표시합니다. -이 트래픽 관리자 도메인 이름을 확인하기 위해 액세스하는 DNS 서버의 DNS 이름 및 IP 주소. - 명령줄에서 "nslookup" 뒤에 입력한 트래픽 관리자 도메인 이름 및 트래픽 관리자 도메인이 확인하는 IP 주소입니다. 두 번째 IP 주소는 중요 확인 사항입니다. 테스트 중인 트래픽 관리자 프로필에서 웹 사이트 또는 클라우드 서비스 중 하나에 대한 공용 가상 IP(VIP) 주소와 일치해야 합니다.
 
 ## 부하 분산 방법 테스트
 
@@ -57,4 +57,4 @@
 [트래픽 관리자 트래픽 라우팅 방법 정보](../about-traffic-manager-balancing-methods.md) [트래픽 관리자](../traffic-manager.md)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -20,7 +20,8 @@
 
 과거의 일반 공급 Azure AD 서비스 또는 Azure AD의 통합된 앱에 익숙하다면, v2.0 앱 모델에서는 상상하지 못한 몇 가지 차이를 느낄 수 있을 것입니다. 이 문서는 이러한 차이의 이해를 돕기 위해 작성되었습니다.
 
-> [AZURE.NOTE]이 정보는 v2.0 앱 모델 공용 미리 보기에 적용됩니다. 일반 공급 Azure AD 서비스와 통합하는 방법에 대한 지침은 [Azure Active Directory 개발자 가이드](active-directory-developers-guide.md)를 참조하십시오.
+> [AZURE.NOTE]
+	이 정보는 v2.0 앱 모델 공용 미리 보기에 적용됩니다. 일반 공급 Azure AD 서비스와 통합하는 방법에 대한 지침은 [Azure Active Directory 개발자 가이드](active-directory-developers-guide.md)를 참조하십시오.
 
 
 ## Microsoft 계정과 Azure AD 계정
@@ -105,12 +106,25 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 
 `scope` 매개 변수를 통해 동적으로 권한을 요청하도록 앱을 허용하는 것은 사용자의 환경의 완전한 통제를 제공합니다. 원한다면, 초기 단계에 동의 환경을 선택할 수 있고, 초기 권한 요청의 모든 권한을 요청할 수 있습니다. 또는 앱이 많은 권한을 요청하는 경우, 시간의 경과에 따라 앱의 특정 기능을 사용하도록 시도하는 것처럼 점진적으로 사용자로부터 권한을 수집하도록 선택할 수 있습니다.
 
-## 오프라인 액세스
+## 잘 알려진 범위
+
+#### 오프라인 액세스
 V2.0 앱 모델은 새롭게 잘 알려진 앱의 권한-`offline_access` 범위를 도입합니다. 모든 앱이 연장된 기간 동안 사용자를 대신하여 리소스에 액세스해야 할 경우, 사용자가 앱을 자주 쓰지 않는 경우에도 이 권한을 요청해야 합니다. `offline_access` 범위는 “오프라인으로 데이터에 엑세스"라는 동의 대화 상자로 사용자에게 표시되며 반드시 동의해야 합니다. `offline_access` 권한 요청은 웹앱이 OAuth 2.0 refresh\_token을 v2.0 끝점에서 받을 수 있도록 해줍니다. Refresh\_token은 수명이 길며, 액세스의 기간이 확장된 새로운 OAuth 2.0 access\_token으로 바꿀 수 있습니다.
 
-앱이 `offline_access` 범위를 요청하지 않으면 refresh\_token을 받을 수 없습니다. 즉, [OAuth 2.0 인증 코드 흐름](active-directory-v2-protocols.md#oauth2-authorization-code-flow)에서 authorization\_code를 교환하는 경우 `/oauth2/token` 끝점에서 access\_token만 받게 됩니다. 해당 access\_token은 짧은 기간(일반적으로 1시간) 동안 유효하지만 결국 만료됩니다. 해당 시점에 앱은 사용자를 `/oauth2/authorize` 끝점으로 다시 리디렉션하여 새 authorization\_code를 검색해야 합니다. 리디렉션 중에 앱 형식에 따라 사용자가 자격 증명을 다시 입력하거나 권한에 다시 동의해야 할 수도 있고 그렇지 않을 수도 있습니다.
+앱이 `offline_access` 범위를 요청하지 않으면 refresh\_token을 받을 수 없습니다. 즉, [OAuth 2.0 인증 코드 흐름](active-directory-v2-protocols.md#oauth2-authorization-code-flow)에서 authorization\_code를 교환하는 경우 `/token` 끝점에서 access\_token만 받게 됩니다. 해당 access\_token은 짧은 기간(일반적으로 1시간) 동안 유효하지만 결국 만료됩니다. 해당 시점에 앱은 사용자를 `/authorize` 끝점으로 다시 리디렉션하여 새 authorization\_code를 검색해야 합니다. 리디렉션 중에 앱 형식에 따라 사용자가 자격 증명을 다시 입력하거나 권한에 다시 동의해야 할 수도 있고 그렇지 않을 수도 있습니다.
 
 OAuth 2.0, refresh\_token, 및 access\_token에 대한 자세한 내용은[v2.0 app 앱 모델 프로토콜 참조](active-directory-v2-protocols.md)를 확인하세요.
+
+#### OpenID, 프로필 및 전자 메일
+
+원래의 Azure Active Directory 서비스에서 가장 기본적인 OpenID Connect 로그인 흐름은 결과 id\_token의 사용자에 대해 다양한 정보를 제공합니다. id\_token의 클레임에는 사용자의 이름, 기본 설정된 사용자 이름, 전자 메일 주소, 개체 ID 등이 있습니다.
+
+이제 `openid` 범위가 허용하는 앱의 액세스 정보를 제한할 것입니다. `openid` 범위는 앱이 사용자를 로그인시키고 해당 사용자에 대한 앱별 식별자만 수신할 수 있게 합니다. 앱에 있는 사용자의 개인 식별 정보(PII)를 가져오려면 앱은 사용자로부터 추가 권한을 요청해야 합니다. 이를 수행할 수 있는 두 가지의 새로운 범위 즉, `email` 및 `profile` 범위를 도입할 것입니다.
+
+`email` 범위는 매우 간단합니다. 앱이 id\_token의 `email` 클레임을 통해 사용자의 기본 전자 메일 주소에 액세스할 수 있도록 해줍니다. `profile` 범위는 앱이 사용자 이름, 기본 설정된 사용자 이름, 개체 ID 등 사용자에 관한 모든 기타 기본 정보에 액세스할 수 있도록 해줍니다.
+
+이렇게 하면 최소한의 공개로 앱을 코딩할 수 있으며, 작업 수행에 필요한 정보만 사용자에게 요청할 수 있습니다. 이러한 범위에 대한 자세한 내용은 [v2.0 범위 참조](active-directory-v2-scopes.md)를 참조하세요.
+
 
 ## 토큰 클레임
 V2.0 끝점에 의해 발급된 토큰의 클레임은 일반 공급 Azure AD 끝점에서 발급된 토큰과 동일하지 않습니다. 새로운 서비스로 마이그레이션하는 앱은 id\_token 또는 access\_token에 존재할 특정 클레임을 가정하면 안 됩니다. V2.0 끝점에서 발급한 토큰은 OAuth 2.0 및 OpenID Connect 사양을 준수하지만 일반 공급 Azure AD 서비스보다는 서로 다른 의미 체계를 따를 수 있습니다.
@@ -121,4 +135,4 @@ v2.0 앱 모델 토큰에서 내보내는 특정 클레임에 관한 더 자세�
 ## 미리 보기 제한 사항
 다양한 공용 미리 보기 중 v2.0 App 모델로 응용 프로그램을 작성할 때 주의해야 할 여러 제한 사항이 있습니다. 이 제한 사항들 중 하나라도 특정 시나리오에 적용하는 경우, [v2.0 앱 모델 제한 사항 문서](active-directory-v2-limitations.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

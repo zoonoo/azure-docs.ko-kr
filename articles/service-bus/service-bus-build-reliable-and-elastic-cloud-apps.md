@@ -42,7 +42,7 @@
 
 ## 관련 서비스
 
-- [클라우드 서비스](http://azure.microsoft.com/services/cloud-services/) 
+- [클라우드 서비스](https://azure.microsoft.com/services/cloud-services/) 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

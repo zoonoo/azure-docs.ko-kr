@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/20/2016" 
+	ms.date="01/21/2016" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache FAQ
@@ -74,12 +74,12 @@ Azure Redis Cache에 대한 일반적인 질문과 대답, 패턴 및 모범 사
 <a name="cache-billing"></a>
 ## Azure Redis Cache에 대한 요금은 어떻게 청구되나요?
 
-Azure Redis Cache 가격 책정에 대해서는 [여기](http://azure.microsoft.com/pricing/details/cache/)를 참조하세요. 가격 책정 페이지에는 시간 단위로 가격이 나와 있습니다. 캐시는 캐시가 만들어지는 시간부터 삭제되는 시간까지 분 단위로 요금이 청구됩니다. 캐시 요금 청구를 중지 또는 일시 중지하는 옵션은 없습니다.
+Azure Redis Cache 가격 책정에 대해서는 [여기](https://azure.microsoft.com/pricing/details/cache/)를 참조하세요. 가격 책정 페이지에는 시간 단위로 가격이 나와 있습니다. 캐시는 캐시가 만들어지는 시간부터 삭제되는 시간까지 분 단위로 요금이 청구됩니다. 캐시 요금 청구를 중지 또는 일시 중지하는 옵션은 없습니다.
 
 <a name="cache-timeouts"></a>
 ## 왜 시간 초과가 표시되나요?
 
-시간 초과는 Redis와 통신하는 데 사용하는 클라이언트에서 발생합니다. 대부분의 경우 Redis 서버는 시간 초과되지 않습니다. Redis 서버에 명령이 전송될 때 명령은 큐에 배치되며 Redis 서버가 결국 명령을 선택하여 실행합니다. 그러나 이 프로세스 중에 클라이언트가 시간 초과될 수 있으며, 이 경우 호출 쪽에서 예외가 발생합니다. 시간 초과 문제를 해결하는 방법에 대한 자세한 내용은 [Azure Redis Cache에 대한 StackExchange.Redis에서 시간 초과 예외 조사](http://azure.microsoft.com/blog/2015/02/10/investigating-timeout-exceptions-in-stackexchange-redis-for-azure-redis-cache/)를 참조하세요.
+시간 초과는 Redis와 통신하는 데 사용하는 클라이언트에서 발생합니다. 대부분의 경우 Redis 서버는 시간 초과되지 않습니다. Redis 서버에 명령이 전송될 때 명령은 큐에 배치되며 Redis 서버가 결국 명령을 선택하여 실행합니다. 그러나 이 프로세스 중에 클라이언트가 시간 초과될 수 있으며, 이 경우 호출 쪽에서 예외가 발생합니다. 시간 초과 문제를 해결하는 방법에 대한 자세한 내용은 [Azure Redis Cache에 대한 StackExchange.Redis에서 시간 초과 예외 조사](https://azure.microsoft.com/blog/2015/02/10/investigating-timeout-exceptions-in-stackexchange-redis-for-azure-redis-cache/)를 참조하세요.
 
 <a name="cache-monitor"></a>
 ## 내 캐시의 상태 및 성능을 모니터링하려면 어떻게 해야 하나요?
@@ -170,9 +170,18 @@ IOCP 또는 작업자 스레드의 증가에 제한이 있는 경우 StackExchan
 
 -	ASP.NET에서 web.config의 `<processModel>` 구성 요소 아래에서 ["minIoThreads" 구성 설정][]을 사용합니다. Azure 웹 사이트 내에서 실행하는 경우 이 설정은 구성 옵션을 통해 노출되지 않습니다. 그러나 global.asax.cs의 Application\_Start 메서드에서 프로그래밍 방식(아래 참조)으로 설정할 수 있어야 합니다.
 
-> **중요:** 이 구성 요소에 지정된 값은 코어당 설정입니다. 예를 들어 4코어 컴퓨터가 있고 minIOThreads 설정을 런타임 시 200으로 지정하려는 경우 `<processModel minIoThreads="50"/>`을(를) 사용합니다.
+> **중요:** 이 구성 요소에 지정된 값은 *코어당* 설정입니다. 예를 들어 4코어 컴퓨터가 있고 minIOThreads 설정을 런타임 시 200으로 지정하려는 경우 `<processModel minIoThreads="50"/>`을(를) 사용합니다.
 
 -	ASP.NET 외부에서 [ThreadPool.SetMinThreads(...)](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx) API를 사용합니다.
+
+<a name="server-gc"></a>
+## StackExchange.Redis를 사용하는 경우 클라이언트에서 더 많은 처리량을 가져오는 서버 GC를 사용하도록 설정
+
+서버 GC를 사용하면 클라이언트를 최적화하고 StackExchange.Redis를 사용하는 경우 더 나은 성능 및 처리량을 제공할 수 있습니다. 서버 GC 및 사용하도록 설정하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
+
+-	[서버 GC를 사용하도록 설정하려면](https://msdn.microsoft.com/library/ms229357.aspx)
+-	[가비지 수집 기본 사항](https://msdn.microsoft.com/library/ee787088.aspx)
+-	[가비지 수집 및 성능](https://msdn.microsoft.com/library/ee851764.aspx)
 
 <a name="cache-redis-commands"></a>
 ## 일반적인 Redis 명령을 사용할 때 고려해야 하는 몇 가지 사항은 무엇인가요?
@@ -229,12 +238,12 @@ Redis 도구 다운로드에 대한 지침은 [어떻게 Redis 명령을 실행�
 
 Microsoft Azure Redis Cache는 많이 사용되는 오픈 소스 Redis Cache를 기반으로 하며 Microsoft에서 관리하는 안전한 전용 Redis Cache에 액세스할 수 있게 합니다. 다양한 프로그래밍 언어에 대해 다양한 [Redis 클라이언트](http://redis.io/clients)를 사용할 수 있습니다. 각 클라이언트에는 [Redis 명령](http://redis.io/commands)을 사용하여 Redis Cache 인스턴스를 호출하는 자체 API가 있습니다.
 
-클라이언트마다 다르기 때문에 MSDN에 하나의 중앙 집중식 클래스 참조는 없습니다. 대신, 각 클라이언트가 자체 참조 설명서를 유지 관리합니다. 참조 설명서 외에도 Azure.com의 [Redis Cache 설명서](http://azure.microsoft.com/documentation/services/redis-cache/) 페이지에는 다양한 언어 및 캐시 클라이언트를 사용하여 Azure Redis Cache를 시작하는 방법을 보여 주는 여러 자습서가 있습니다.
+클라이언트마다 다르기 때문에 MSDN에 하나의 중앙 집중식 클래스 참조는 없습니다. 대신, 각 클라이언트가 자체 참조 설명서를 유지 관리합니다. 참조 설명서 외에도 Azure.com의 [Redis Cache 설명서](https://azure.microsoft.com/documentation/services/redis-cache/) 페이지에는 다양한 언어 및 캐시 클라이언트를 사용하여 Azure Redis Cache를 시작하는 방법을 보여 주는 여러 자습서가 있습니다.
 
 
 ## 내게 적합한 Azure 캐시 기능
 
->[AZURE.IMPORTANT]신규 개발에서는 항상 Azure Redis Cache를 사용하는 것이 좋습니다.
+>[AZURE.IMPORTANT] 신규 개발에서는 항상 Azure Redis Cache를 사용하는 것이 좋습니다.
 
 Azure 캐시에는 현재 다음과 같은 세 가지 제품이 있습니다.
 
@@ -273,4 +282,4 @@ In-Role Cache는 2016년 11월 30일에 사용 중지되도록 설정됩니다.
 
 ["minIoThreads" 구성 설정]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -18,6 +18,12 @@
 
 #Windows Phone Silverlight SDK 릴리스 정보
 
+##3\.2.0(2016/01/22)
+*MicrosoftAzure.MobileEngagement* Nuget 패키지 **v3.3.0**의 일부
+
+-   사용자 지정 스키마, ms-appx 및 ms-appdata를 작업 URL에 사용할 수 있습니다.
+-   안정성 향상
+  
 ##3\.1.0(11/20/2015)
 *MicrosoftAzure.MobileEngagement* Nuget 패키지 **v3.2.0**의 일부
 
@@ -37,4 +43,4 @@
 -   보안이 개선되었습니다.
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -27,7 +27,7 @@
 
 ## 필수 조건
 
-* Azure 구독. 무료 평가판에 대한 내용은 [무료 1개월 평가판](http://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+* Azure 구독. 무료 평가판에 대한 내용은 [무료 1개월 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * 탄력적 데이터베이스 풀 [탄력적 데이터베이스 풀 정보](sql-database-elastic-pool.md)를 참조하세요.
 * 탄력적 데이터베이스 작업 서비스 구성 요소의 설치 [탄력적 데이터베이스 작업 서비스 설치](sql-database-elastic-jobs-service-installation.md)를 참조하세요.
 
@@ -115,4 +115,4 @@
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

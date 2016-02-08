@@ -171,7 +171,7 @@ Azure WebJob은 다음과 같은 특성을 가지고 있습니다.
 
 백그라운드 작업은 Azure 웹앱 또는 클라우드 서비스에 배포되지 않도록 하는 방법으로 구현할 수 있습니다. 이러한 옵션은 불편할 수 있습니다. 일반적인 예로 Windows 서비스, 타사 유틸리티 및 실행 프로그램이 있습니다. 또한 응용 프로그램을 호스트하는 것과 다른 실행 환경을 위해 작성된 프로그램도 이러한 예에 포함될 수 있습니다. 예를 들어, Windows 또는 .NET 응용 프로그램에서 실행하려는 Unix 또는 Linux 프로그램이 그러한 프로그램입니다. Azure 가상 컴퓨터를 위한 다양한 운영 체제 중에서 선택하고 사용자 서비스 또는 실행 파일을 해당 가상 컴퓨터에서 실행할 수 있습니다.
 
-가상 컴퓨터를 사용할 때 선택하는 방법은 [Azure 앱 서비스, 클라우드 서비스 및 가상 컴퓨터 비교](choose-web-site-cloud-service-vm.md)를 참조하세요. [가상 컴퓨터를 위한 옵션에 대한 자세한 내용은 Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](http://msdn.microsoft.com/library/azure/dn197896.aspx)를 참조하세요. 가상 컴퓨터에 사용할 수 있는 운영 체제 및 미리 작성된 이미지에 대한 자세한 내용은 [Azure 가상 컴퓨터 갤러리](http://azure.microsoft.com/gallery/virtual-machines/)를 참조하세요.
+가상 컴퓨터를 사용할 때 선택하는 방법은 [Azure 앱 서비스, 클라우드 서비스 및 가상 컴퓨터 비교](choose-web-site-cloud-service-vm.md)를 참조하세요. [가상 컴퓨터를 위한 옵션에 대한 자세한 내용은 Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](http://msdn.microsoft.com/library/azure/dn197896.aspx)를 참조하세요. 가상 컴퓨터에 사용할 수 있는 운영 체제 및 미리 작성된 이미지에 대한 자세한 내용은 [Azure 가상 컴퓨터 갤러리](https://azure.microsoft.com/gallery/virtual-machines/)를 참조하세요.
 
 별도 가상 컴퓨터에서 백그라운드 작업을 시작하려는 경우 다양한 옵션이 있습니다.
 
@@ -191,7 +191,7 @@ Azure 가상 컴퓨터에서 백그라운드 작업을 배포할지 여부를 �
 
 ### 자세한 정보
 
-- Azure에서 [가상 컴퓨터](http://azure.microsoft.com/services/virtual-machines/)
+- Azure에서 [가상 컴퓨터](https://azure.microsoft.com/services/virtual-machines/)
 - [Azure 가상 컴퓨터 FAQ](virtual-machines-questions.md)
 
 ## 디자인 고려 사항
@@ -317,4 +317,4 @@ Azure 가상 컴퓨터에서 백그라운드 작업을 배포할지 여부를 �
 - [Azure 큐 및 서비스 버스 큐 - 비교 및 대조](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - [클라우드 서비스에서 진단 기능을 사용하는 방법](cloud-services-dotnet-diagnostics.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

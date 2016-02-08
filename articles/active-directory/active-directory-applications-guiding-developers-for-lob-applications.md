@@ -3,7 +3,7 @@
 	description="IT 전문가를 위해 작성된 이 문서는 Active Directory와 Azure 응용 프로그램 통합에 대한 지침을 제공합니다."
 	services="active-directory"
 	documentationCenter=""
-	authors="IHenkel"
+	authors="kgremban"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
-	ms.author="inhenk"/>
+	ms.date="01/21/2016"
+	ms.author="kgremban"/>
 
 # Azure AD 및 응용 프로그램: 개발자 안내
 
 ## 개요
 
-이 가이드는 Azure Active Directory에 대한 LOB(기간 업무) 응용 프로그램 개발의 개요를 제공하고 Active Directory/Office 365 전역 관리자를 위해 구체적으로 기록됩니다.
+이 가이드는 Azure Active Directory(AD)에 대한 LoB(기간 업무) 응용 프로그램 개발의 개요를 제공하고 Active Directory/Office 365 전역 관리자를 위해 구체적으로 기록됩니다.
 
 Azure AD와 통합된 응용 프로그램을 구축하면 조직의 사용자에게 Office 365를 사용하여 Single Sign-On을 제공합니다. Azure AD에 응용 프로그램이 있다면 응용 프로그램에 대한 인증 정책을 통한 제어를 제공합니다. 조건부 액세스 및 Multi-Factor Authentication(MFA)을 사용하여 앱을 보호하는 방법에 대한 자세한 내용은 [액세스 규칙 구성](active-directory-conditional-access-azuread-connected-apps.md) 문서를 참조하세요.
 
@@ -41,11 +41,11 @@ Azure Active Directory를 사용하기 위해 응용 프로그램을 등록해�
 	  - 앱 사용 권한(전역 관리자만 해당) 예:
 	    - 다른 Azure AD 응용 프로그램에서 역할 멤버 자격 또는 Azure 리소스, 리소스 그룹 또는 구독에 상대적인 역할 멤버 자격
 	  - 위임된 권한(모든 사용자). 예:
-	    - (AAD)로그인 및 프로필 읽기
+	    - (Azure AD)로그인 및 프로필 읽기
 	    - (Exchange)메일 읽기, 메일 보내기
 	    - (SharePoint)읽기
 
-> [AZURE.NOTE]기본적으로 모든 멤버는 응용 프로그램을 등록할 수 있습니다. 특정 멤버에 응용 프로그램 등록에 대한 사용 권한을 제한하는 방법을 알아보려면 [Azure AD에 응용 프로그램을 추가하는 방법 문서를 참조하세요.
+> [AZURE.NOTE]기본적으로 모든 멤버는 응용 프로그램을 등록할 수 있습니다. 특정 멤버에 응용 프로그램 등록에 대한 사용 권한을 제한하는 방법을 알아보려면 [Azure AD에 응용 프로그램을 추가하는 방법](active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance) 문서를 참조하세요.
 
 다음은 개발자가 자신의 응용 프로그램을 생산할 준비를 돕기 위해 전역 관리자가 수행해야 하는 사항입니다.
 
@@ -65,10 +65,9 @@ Azure Active Directory를 사용하기 위해 응용 프로그램을 등록해�
 
 [사용자 할당 요구](active-directory-applications-guiding-developers-requiring-user-assignment.md)
 
-Azure AD Premium 또는 Enterprise Mobility Suite(EMS) 구독자인 경우 그룹을 활용하는 것이 좋습니다. 응용 프로그램에 그룹을 할당하면 그룹의 소유자에게 지속적인 액세스 관리를 위임할 수 있습니다. 그룹을 만들거나 원하는 경우 조직에서 책임 파티를 요청하여 그룹 관리 기능을 사용하여 그룹을 만들 수 있습니다.
+Azure AD Premium 또는 Enterprise Mobility Suite(EMS) 구독자인 경우 그룹을 활용하는 것이 좋습니다. 응용 프로그램에 그룹을 할당하면 그룹의 소유자에게 지속적인 액세스 관리를 위임할 수 있습니다. 그룹을 만들거나 조직에서 책임 파티를 요청하여 그룹 관리 기능을 사용하여 그룹을 만들 수 있습니다.
 
-- [응용 프로그램에 사용자 지정](active-directory-applications-guiding-developers-assigning-users.md)
-- [응용 프로그램에 그룹 지정](active-directory-applications-guiding-developers-assigning-groups.md)
+[응용 프로그램에 사용자 지정](active-directory-applications-guiding-developers-assigning-users.md) [응용 프로그램에 그룹 지정](active-directory-applications-guiding-developers-assigning-groups.md)
 
 ## 사용자 동의 무시
 
@@ -78,4 +77,4 @@ Azure AD Premium 또는 Enterprise Mobility Suite(EMS) 구독자인 경우 그�
 
 Azure에서 동의 및 동의 환경에 대한 자세한 내용은 [Azure Active Directory와 응용 프로그램 통합](active-directory-integrating-applications.md)을 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

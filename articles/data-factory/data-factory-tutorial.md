@@ -27,7 +27,7 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 
 ## 자습서 수행을 위한 준비
 1.	[Azure Data Factory 소개][adfintroduction]를 읽고 Azure Data Factory에 대한 개요를 확인하고 최상위 개념을 이해합니다.
-2.	이 자습서를 수행하려면 Azure 구독이 있어야 합니다. 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션](http://azure.microsoft.com/pricing/purchase-options/), [구성원 제공 항목](http://azure.microsoft.com/pricing/member-offers/) 또는 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+2.	이 자습서를 수행하려면 Azure 구독이 있어야 합니다. 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션](https://azure.microsoft.com/pricing/purchase-options/), [구성원 제공 항목](https://azure.microsoft.com/pricing/member-offers/) 또는 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 3.	컴퓨터에 [Azure PowerShell][download-azure-powershell]을 다운로드하고 설치해야 합니다. 데이터 팩터리 cmdlet을 실행하여 샘플 데이터 및 pig/hive 스크립트를 Blob 저장소로 업로드합니다. 
 2.	**(권장)** [Azure Data Factory 시작][adfgetstarted] 문서의 간단한 자습서를 검토하고 연습하여 포털 및 cmdlet을 익힙니다.
 3.	**(권장)** [Azure 데이터 팩터리에서 Pig 및 Hive 사용][usepigandhive] 문서의 연습을 검토하고 실습하여 온-프레미스에서 Azure Blob 저장소로 데이터를 복사하는 파이프라인을 만들어 봅니다.
@@ -192,7 +192,7 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
  
 ## <a name="MainStep3"></a> 3단계: 연결된 서비스 만들기
 
-> [AZURE.NOTE]이 문서에서는 Azure 클래식 포털, 특히 데이터 팩터리 편집기를 사용하여 연결된 서비스, 테이블 및 파이프라인을 만듭니다. Azure PowerShell을 사용하여 이 자습서를 수행하려면 [Azure PowerShell 사용 자습서][adftutorial-using-powershell]를 참조하세요.
+> [AZURE.NOTE] 이 문서에서는 Azure 클래식 포털, 특히 데이터 팩터리 편집기를 사용하여 연결된 서비스, 테이블 및 파이프라인을 만듭니다. Azure PowerShell을 사용하여 이 자습서를 수행하려면 [Azure PowerShell 사용 자습서][adftutorial-using-powershell]를 참조하세요.
 
 이 단계에서는 연결된 서비스
 
@@ -206,8 +206,6 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 1.	**데이터 팩터리** 블레이드에서 **작성자 및 배포** 타일을 클릭하여 데이터 팩터리에 대한 **편집기**를 시작합니다.
 
 	![작성 및 배포 타일][image-author-deploy-tile]
-
-	데이터 팩터리 편집기에 대한 자세한 개요는 [데이터 팩터리 편집기][data-factory-editor] 토픽을 참조하세요.
 
 2.  **편집기**의 도구 모음에서 **새 데이터 저장소** 단추를 클릭하고 드롭다운 메뉴에서 **Azure 저장소**를 선택합니다. 오른쪽 창에 Azure 저장소 연결된 서비스를 만들기 위한 JSON 템플릿이 표시됩니다.
 	
@@ -421,7 +419,6 @@ Azure Blob에서 온-프레미스 SQL Server로 마케팅 캠페인 효과 데�
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
-[data-factory-editor]: data-factory-editor.md
 
 [adfsamples]: data-factory-samples.md
 [adfgetstarted]: data-factory-get-started.md
@@ -486,4 +483,4 @@ Azure Blob에서 온-프레미스 SQL Server로 마케팅 캠페인 효과 데�
 
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-tutorial/NewDataFactoryMenu.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

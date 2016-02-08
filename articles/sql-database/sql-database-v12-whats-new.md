@@ -27,7 +27,7 @@
 V12에 기능은 추가 계속됩니다. Azure에 대한 서비스 업데이트 웹 페이지를 방문하고 해당 필터를 사용해 보세요.
 
 
-- [SQL 데이터베이스 서비스](http://azure.microsoft.com/updates/?service=sql-database)에 대해 필터링되었습니다.
+- [SQL 데이터베이스 서비스](https://azure.microsoft.com/updates/?service=sql-database)에 대해 필터링되었습니다.
 - SQL 데이터베이스 기능의 [GA(General Availability) 공지](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability)에 대해 필터링되었습니다.
 
 
@@ -132,7 +132,7 @@ V12는 대폭 개선된 복구 지점 목표(RPO) 및 예상된 복구 시간 (E
 SQL 데이터베이스 서비스의 이전 버전에서 실행되는 데이터베이스나 논리 서버가 있는지 알 수 있는 쉬운 방법 중 하나는 다음을 수행해 보면 됩니다.
 
 
-1. [Azure 포털](http://portal.azure.com/)로 이동합니다.
+1. [Azure 포털](https://portal.azure.com/)로 이동합니다.
 2. **찾아보기**를 클릭합니다.
 3. **SQL Server**를 클릭합니다.
 4. 서버 또는 데이터베이스 옆의 아이콘이 다음을 표시합니다.
@@ -159,6 +159,6 @@ V12 논리 서버에만 V12 데이터베이스를 호스팅할 수 있습니다.
 - 2015년 7월 31일까지 모든 지역이 GA(일반 공급)로 승격되었습니다.
 - V12는 2014년 12월에 릴리스되지만 미리 보기 상태에서만 릴리스됩니다.
 
-[Microsoft Azure 미리 보기에 대한 보충 사용 약관](http://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+[Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

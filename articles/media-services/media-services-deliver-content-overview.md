@@ -54,7 +54,7 @@
 
 로케이터는 만료 날짜입니다. 자산을 게시하기 위해 포털을 사용할 때 만료 날짜가 100년인 로케이터가 만들어집니다.
 
->[AZURE.NOTE]포털을 사용하여 2015년 3월 전에 로케이터를 만들려는 경우, 2년의 만료 날짜가 있는 로케이터가 만들어졌습니다.
+>[AZURE.NOTE] 포털을 사용하여 2015년 3월 전에 로케이터를 만들려는 경우, 2년의 만료 날짜가 있는 로케이터가 만들어졌습니다.
 
 로케이터의 만료 날짜를 업데이트하려면 [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) 또는 [.NET](http://go.microsoft.com/fwlink/?LinkID=533259) API를 사용합니다. SAS 로케이터의 만료 날짜를 업데이트할 때 해당 URL도 변경됩니다.
  
@@ -104,7 +104,7 @@
 
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,audio-only=false)
 
-자세한 내용은 [이 게시물](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support)을 참조하세요.
+자세한 내용은 [이 게시물](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/)을 참조하세요.
 
 
 **부드러운 스트리밍 형식**
@@ -190,4 +190,4 @@
 [저장소 키를 롤링 후 미디어 서비스 로케이터를 업데이트합니다.](media-services-roll-storage-access-keys.md)
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

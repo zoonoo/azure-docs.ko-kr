@@ -1,9 +1,9 @@
 <properties
    pageTitle="Azure 권한 있는 ID 관리: 보안 경고를 구성하는 방법"
-   description="Azure 권한 있는 ID 관리 확장에 대한 보안 경고를 구성하는 방법 배우기"
+   description="Azure Privileged Identity Management 확장에 대한 보안 경고를 구성하는 방법 배우기"
    services="active-directory"
    documentationCenter=""
-   authors="IHenkel"
+   authors="kgremban"
    manager="stevenpo"
    editor=""/>
 
@@ -13,12 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/21/2015"
+   ms.date="01/21/2016"
    ms.author="inhenk"/>
 
-# Azure 권한 있는 ID 관리: 보안 경고를 구성하는 방법
+# Azure Privileged Identity Management: 보안 경고를 구성하는 방법
+
 ## 보안 경고 개요
-Azure 권한 있는 ID 관리는 다음과 같은 경고를 제공하며 구성이 가능합니다. 보안 경고는 PIM 대시보드의 경고 섹션에서 볼 수 있습니다.
+Azure Privileged Identity Management(PIM)는 다음과 같은 경고를 제공하며 구성이 가능합니다. 보안 경고는 PIM 대시보드의 경고 섹션에서 볼 수 있습니다.
 
 | 경고 | 트리거 |
 | ------------- | ------------- |
@@ -42,7 +43,7 @@ Azure 권한 있는 ID 관리는 다음과 같은 경고를 제공하며 구성�
 1. 대시보드의 **활동** 섹션에서 **보안 경고**를 선택합니다. **Active security alerts**(활동 보안 경고) 블레이드가 표시됩니다.
 2. **설정**을 클릭합니다.
 3. 슬라이드를 조정하거나 텍스트 필드에 기간(일수)을 입력하여 역할을 활성화하지 않고 허용되는 기간(일수)을 선택합니다.
-4. **저장**을 클릭합니다.
+4. **Save**를 클릭합니다.
 
 ### "전역 관리자가 너무 많아서 공격 표면을 증가시킴" 경고 구성
 
@@ -52,9 +53,10 @@ Azure 권한 있는 ID 관리는 다음과 같은 경고를 제공하며 구성�
 2. **설정**을 클릭합니다.
 3. 슬라이드를 조정하거나 텍스트 필드에 숫자를 입력하여 **Minimum number of Global Administrators**(최소 전역 관리자 수)를 설정합니다.
 4. 슬라이드를 조정하거나 텍스트 필드에 숫자를 입력하여 **Percentage of Global Administrators**(전역 관리자 비율)를 설정합니다.
+5. **Save**를 클릭합니다.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 다음 단계
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

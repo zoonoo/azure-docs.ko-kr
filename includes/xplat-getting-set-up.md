@@ -32,6 +32,6 @@ Azure CLI의 버전을 업데이트하려면 [Azure CLI](https://github.com/Azur
     info:    Changes saved
     info:    account set command OK
 
-> [AZURE.NOTE]Azure 계정이 아직 없지만 MSDN 구독이 있는 경우 [여기에서 MSDN 구독자 혜택](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하여 무료 Azure 크레딧을 받거나 무료 계정을 사용할 수 있습니다. 둘 중 하나가 Azure 액세스에 작동합니다.
+> [AZURE.NOTE] Azure 계정이 아직 없지만 MSDN 구독이 있는 경우 [여기에서 MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하여 무료 Azure 크레딧을 받거나 무료 계정을 사용할 수 있습니다. 둘 중 하나가 Azure 액세스에 작동합니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

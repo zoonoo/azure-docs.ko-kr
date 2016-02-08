@@ -26,7 +26,7 @@ Azure 이벤트 허브를 사용하면 웹 사이트, 앱 및 장치에서 대�
 
 * **EventHubReader**: 이벤트 허브에서 데이터를 읽어 Azure 테이블 저장소에 저장합니다.
 
-[AZURE.NOTE]이 문서의 단계는 Windows 기반 HDInsight 클러스터에만 적용됩니다. Linux 기반 또는 Windows 기반 클러스터로 작동하는 이 프로젝트의 Java 버전의 경우 [HDInsight의 Storm으로 Azure 이벤트 허브에서 이벤트 처리(Java)](hdinsight-storm-develop-java-event-hub-topology.md)를 참조하세요.
+[AZURE.NOTE] 이 문서의 단계는 Windows 기반 HDInsight 클러스터에만 적용됩니다. Linux 기반 또는 Windows 기반 클러스터로 작동하는 이 프로젝트의 Java 버전의 경우 [HDInsight의 Storm으로 Azure 이벤트 허브에서 이벤트 처리(Java)](hdinsight-storm-develop-java-event-hub-topology.md)를 참조하세요.
 
 ## 필수 조건
 
@@ -34,7 +34,7 @@ Azure 이벤트 허브를 사용하면 웹 사이트, 앱 및 장치에서 대�
 
 * [Azure 이벤트 허브](../service-bus/service-bus-event-hubs-csharp-ephcs-getstarted.md)
 
-* [Azure .NET SDK](http://azure.microsoft.com/downloads/)
+* [Azure .NET SDK](https://azure.microsoft.com/downloads/)
 
 * [Visual Studio용 HDInsight 도구](hdinsight-hadoop-visual-studio-tools-get-started.md)
 
@@ -42,7 +42,7 @@ Azure 이벤트 허브를 사용하면 웹 사이트, 앱 및 장치에서 대�
 
 이 자습서에서 만든 프로젝트의 전체 버전은 GitHub [eventhub-storm-hybrid](https://github.com/Blackmist/eventhub-storm-hybrid)에서 다운로드할 수 있습니다. 그러나 이 자습서의 단계에 따라 구성 설정을 제공해야 합니다.
 
-> [AZURE.NOTE]완성된 프로젝트를 사용하는 경우 **NuGet 패키지 관리자**를 사용하여 이 솔루션에 필요한 패키지를 복원해야 합니다.
+> [AZURE.NOTE] 완성된 프로젝트를 사용하는 경우 **NuGet 패키지 관리자**를 사용하여 이 솔루션에 필요한 패키지를 복원해야 합니다.
 
 ## 이벤트 허브 Spout 및 Bolt
 
@@ -54,7 +54,7 @@ Spout 및 Bolt는 **eventhubs-storm-spout-0.9-jar-with-dependencies.jar**이라�
 
 최신 버전의 **eventhubs-storm-spout-0.9-jar-with-dependencies.jar** 파일은 **lib** 폴더 아래의 <a href="https://github.com/hdinsight/hdinsight-storm-examples" target="_blank">HDInsight Storm 예제</a> 프로젝트에 포함되어 있습니다. 이 파일을 다운로드하려면 다음 방법 중 하나를 사용합니다.
 
-> [AZURE.NOTE]spout 및 bolt는 Apache Storm 프로젝트에 포함되도록 제출되었습니다. 자세한 내용은 GitHub에서 <a href="https://github.com/apache/storm/pull/336/files">STORM-583: storm-event hubs 초기 체크 인</a>을 참조하세요.
+> [AZURE.NOTE] spout 및 bolt는 Apache Storm 프로젝트에 포함되도록 제출되었습니다. 자세한 내용은 GitHub에서 <a href="https://github.com/apache/storm/pull/336/files">STORM-583: storm-event hubs 초기 체크 인</a>을 참조하세요.
 
 * **ZIP 파일 다운로드**: <a href="https://github.com/hdinsight/hdinsight-storm-examples" target="_blank">HDInsight Storm 예제</a> 사이트의 오른쪽 창에서 **Download ZIP** 단추를 선택하여 프로젝트가 포함된 .zip 파일을 다운로드합니다.
 
@@ -76,7 +76,7 @@ Spout 및 Bolt는 **eventhubs-storm-spout-0.9-jar-with-dependencies.jar**이라�
 
 	![마법사 페이지 1](./media/hdinsight-storm-develop-csharp-event-hub-topology/wiz1.png)
 
-	> [AZURE.NOTE]대기 시간 및 비용을 줄이려면 HDInsight 서버의 Storm과 동일한 **위치**를 선택해야 합니다.
+	> [AZURE.NOTE] 대기 시간 및 비용을 줄이려면 HDInsight 서버의 Storm과 동일한 **위치**를 선택해야 합니다.
 
 2. **이벤트 허브 구성** 화면에서 **파티션 개수** 및 **메시지 보존** 값을 입력합니다. 이 예에서는 파티션 개수로 10을, 메시지 보존으로는 1을 사용합니다. 파티션 개수 값은 나중에 필요하므로 기록해 둡니다.
 
@@ -106,7 +106,7 @@ Spout 및 Bolt는 **eventhubs-storm-spout-0.9-jar-with-dependencies.jar**이라�
 
 2. 저장소 계정의 **이름**을 입력하고 **위치**를 선택한 다음 **확인 표시**를 클릭하여 저장소 계정을 만듭니다.
 
-	> [AZURE.NOTE]대기 시간 및 비용을 줄이려면 이벤트 허브 및 HDInsight 서버의 Storm과 동일한 **위치**를 선택해야 합니다.
+	> [AZURE.NOTE] 대기 시간 및 비용을 줄이려면 이벤트 허브 및 HDInsight 서버의 Storm과 동일한 **위치**를 선택해야 합니다.
 
 3. 새 저장소 계정이 프로비전되면 계정을 선택하고 페이지 아래쪽에 있는 **액세스 키 관리** 링크를 사용하여 **저장소 계정 이름** 및 **기본 액세스 키**를 검색합니다. 이 정보는 나중에 사용되므로 저장합니다.
 
@@ -228,7 +228,7 @@ Spout 및 Bolt는 **eventhubs-storm-spout-0.9-jar-with-dependencies.jar**이라�
 
 이제 **Program.cs** 작업을 마쳤습니다. 토폴로지는 정의되었지만 이제 이벤트 허브 Bolt에서 사용할 수 있는 형식으로 데이터를 생성하도록 **Spout.cs**를 수정해야 합니다.
 
-> [AZURE.NOTE]이 토폴로지는 기본적으로 하나의 작업자 프로세스를 만들며, 이는 예제의 목적에 충분합니다. 이를 프로덕션 클러스터에 맞게 조정하려면 다음을 추가하고 작업자 수를 변경해야 합니다.
+> [AZURE.NOTE] 이 토폴로지는 기본적으로 하나의 작업자 프로세스를 만들며, 이는 예제의 목적에 충분합니다. 이를 프로덕션 클러스터에 맞게 조정하려면 다음을 추가하고 작업자 수를 변경해야 합니다.
 
     StormConfig config = new StormConfig();
     config.setNumWorkers(1);
@@ -246,7 +246,7 @@ Spout 및 Bolt는 **eventhubs-storm-spout-0.9-jar-with-dependencies.jar**이라�
 
 	이렇게 하면 JSON 데이터를 사용하여 보다 쉽게 작업할 수 있습니다.
     
-    > [AZURE.NOTE]C# Storm 토폴로지에 사용되는 SCP.NET 프레임워크에서 필요하므로 JSON.NET 패키지가 이미 설치되어 있어야 합니다.
+    > [AZURE.NOTE] C# Storm 토폴로지에 사용되는 SCP.NET 프레임워크에서 필요하므로 JSON.NET 패키지가 이미 설치되어 있어야 합니다.
 
 3. 다음 코드를 찾습니다.
 
@@ -377,11 +377,11 @@ Spout 및 Bolt는 **eventhubs-storm-spout-0.9-jar-with-dependencies.jar**이라�
 
 	이 코드는 bolt(Bolt.cs에 정의됨)를 사용하도록 토폴로지에 지시합니다. 앞에서 정의한 사용자 지정 직렬 변환기는 이 Bolt에서 업스트림 Java 구성 요소에 의해 생성된 데이터를 사용할 수 있도록 여기에서 사용됩니다. 이 예제의 경우 EventHubSpout입니다.
 
-    > [AZURE.IMPORTANT]SetBolt에 대한 마지막 매개 변수(`true` 값)는 이 Bolt에 대한 ACK 기능을 사용하도록 설정합니다. EventHubSpout 구성 요소에는 내보내는 데이터에 대한 ACK가 필요하므로 이는 필수 사항입니다. 다운스트림 구성 요소에서 ACK가 반환되지 않는 경우 Spout는 약 1000개의 메시지를 처리한 후 중지됩니다.
+    > [AZURE.IMPORTANT] SetBolt에 대한 마지막 매개 변수(`true` 값)는 이 Bolt에 대한 ACK 기능을 사용하도록 설정합니다. EventHubSpout 구성 요소에는 내보내는 데이터에 대한 ACK가 필요하므로 이는 필수 사항입니다. 다운스트림 구성 요소에서 ACK가 반환되지 않는 경우 Spout는 약 1000개의 메시지를 처리한 후 중지됩니다.
 
 이제 **Program.cs** 작업을 마쳤습니다. 토폴로지는 정의되었지만 이제 테이블 저장소에 데이터를 기록하는 도우미 클래스를 만든 다음 Spout에 의해 생성된 데이터를 이해할 수 있도록 **Bolt.cs**를 수정해야 합니다.
 
-> [AZURE.NOTE]이 토폴로지는 기본적으로 하나의 작업자 프로세스를 만들며, 이는 예제의 목적에 충분합니다. 이를 프로덕션 클러스터에 맞게 조정하려면 다음을 추가하고 작업자 수를 변경해야 합니다.
+> [AZURE.NOTE] 이 토폴로지는 기본적으로 하나의 작업자 프로세스를 만들며, 이는 예제의 목적에 충분합니다. 이를 프로덕션 클러스터에 맞게 조정하려면 다음을 추가하고 작업자 수를 변경해야 합니다.
 
     StormConfig config = new StormConfig();
     config.setNumWorkers(1);
@@ -484,7 +484,7 @@ Spout 및 Bolt는 **eventhubs-storm-spout-0.9-jar-with-dependencies.jar**이라�
 
     엔터티가 테이블에 삽입되면 데이터를 성공적으로 처리했음을 Spout에 알리기 위해 튜플에 대한 `Ack()`가 호출됩니다.
 
-    > [AZURE.IMPORTANT]EventHubSpout 구성 요소에는 이 Bolt와 같은 다운스트림 구성 요소에서의 각 튜플에 대한 ACK가 필요합니다. ACK가 수신되지 않은 경우 EventHubSpout는 튜플 처리가 실패한 것으로 간주합니다.
+    > [AZURE.IMPORTANT] EventHubSpout 구성 요소에는 이 Bolt와 같은 다운스트림 구성 요소에서의 각 튜플에 대한 ACK가 필요합니다. ACK가 수신되지 않은 경우 EventHubSpout는 튜플 처리가 실패한 것으로 간주합니다.
 
 이제 이벤트 허브에서 데이터를 읽어 테이블 저장소의 **이벤트** 테이블에 저장하는 전체 토폴로지가 있습니다.
 
@@ -534,7 +534,7 @@ EventHubSpout는 해당 상태의 검사점을 큐에서 읽은 메시지의 현
 
 영구 검사점을 WASB(HDInsight 클러스터에서 사용하는 Azure 저장소)로 내보내고 가져올 수도 있습니다. 이 작업을 수행하는 스크립트는 HDInsight의 Storm 클러스터(**c:\\apps\\dist\\storm-0.9.3.2.2.1.0-2340\\zkdatatool-1.0\\bin**)에 있습니다.
 
->[AZURE.NOTE]클러스터에 설치된 Storm 버전이 나중에 변경될 수 있으므로 경로의 버전 번호는 다를 수 있습니다.
+>[AZURE.NOTE] 클러스터에 설치된 Storm 버전이 나중에 변경될 수 있으므로 경로의 버전 번호는 다를 수 있습니다.
 
 이 디렉터리의 스크립트는 다음과 같습니다.
 
@@ -546,7 +546,7 @@ EventHubSpout는 해당 상태의 검사점을 큐에서 읽은 메시지의 현
 
 내보내기 및 가져오기를 통해 클러스터를 삭제해야 하는 경우 검사점 데이터를 유지할 수 있지만 새 클러스터를 다시 온라인으로 전환할 때 허브의 현재 오프셋에서 처리를 다시 시작할 수 있습니다.
 
-> [AZURE.NOTE]데이터가 기본 저장소 컨테이너에 유지되므로 새 클러스터는 **반드시** 이전 클러스터와 동일한 저장소 계정 및 컨테이너를 사용해야 합니다.
+> [AZURE.NOTE] 데이터가 기본 저장소 컨테이너에 유지되므로 새 클러스터는 **반드시** 이전 클러스터와 동일한 저장소 계정 및 컨테이너를 사용해야 합니다.
 
 ## 요약
 
@@ -557,4 +557,4 @@ EventHubSpout는 해당 상태의 검사점을 큐에서 읽은 메시지의 현
 * [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

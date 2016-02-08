@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/21/2015"
+   ms.date="01/19/2016"
    ms.author="seanmck"/>
 
 
@@ -42,7 +42,7 @@ ASP.NET 5는 최신 웹 UI 및 Web API를 만드는 데 사용할 수 있는 가
 
     Web API 프로젝트를 만들었으면 응용 프로그램에 두 개의 서비스가 있을 것입니다. 계속해서 응용 프로그램을 구축하는 동안 똑같은 방법으로 더 많은 서비스를 추가합니다. 각 서비스를 독립적으로 버전 지정 및 업그레이드할 수 있습니다.
 
->[AZURE.NOTE]서비스 패브릭의 11월 공개 미리 보기 릴리스를 기준으로 ASP.NET 프로젝트를 처리할 경우 긴 경로에 대해 알려진 문제가 있습니다. 이러한 형식의 프로젝트를 만들 때 문제를 방지하기 위해 코드 및 구성 패키지 이름 뿐만 아니라 응용 프로그램 및 서비스 형식에 대한 짧은 이름을 선택하는 것이 좋습니다.
+>[AZURE.NOTE] 서비스 패브릭의 11월 공개 미리 보기 릴리스를 기준으로 ASP.NET 프로젝트를 처리할 경우 긴 경로에 대해 알려진 문제가 있습니다. 이러한 형식의 프로젝트를 만들 때 문제를 방지하기 위해 코드 및 구성 패키지 이름 뿐만 아니라 응용 프로그램 및 서비스 형식에 대한 짧은 이름을 선택하는 것이 좋습니다.
 
 ## 응용 프로그램 실행
 
@@ -139,7 +139,7 @@ ASP.NET 5 프로젝트를 비롯한 상태 저장 서비스와 클라이언트 �
 
 `ICounter` 인터페이스가 구현되었으니, 이제 통신 채널만 열면 다른 서비스에서 상태 저장 서비스를 호출할 수 있습니다. 상태 저장 서비스의 경우 서비스 패브릭은 `CreateServiceReplicaListeners`라는 재정의 가능한 메서드를 제공합니다. 이 메서드로 서비스에 사용하려는 통신 형식에 따라 하나 이상의 통신 수신기를 지정할 수 있습니다.
 
->[AZURE.NOTE]상태 비저장 서비스에 대한 통신 채널을 열기 위해 제공되는 메서드는 `CreateServiceInstanceListeners`입니다.
+>[AZURE.NOTE] 상태 비저장 서비스에 대한 통신 채널을 열기 위해 제공되는 메서드는 `CreateServiceInstanceListeners`입니다.
 
 이 경우에서는 기존 `CreateServiceReplicaListeners` 메서드를 바꾸고 `ServiceRemotingListener`의 인스턴스를 제공하며 이는 `ServiceProxy`을 통해 클라이언트에서 호출 가능한 RPC 끝점을 만듭니다.
 
@@ -189,7 +189,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 
     코드의 첫 번째 줄이 핵심입니다. 상태 저장 서비스에 ICounter 프록시를 만들려면 두 가지 정보, 즉 파티션 ID와 서비스 이름을 제공해야 합니다.
 
-    고객 ID, 우편 번호 등 사용자가 정의하는 키를 기반으로 상태를 여러 버킷으로 분류하여 상태 저장 서비스를 확장하도록 파티션을 사용할 수 있습니다. 간단한 응용 프로그램에서 상태 저장 서비스에는 파티션이 하나밖에 없으므로 키는 문제가 되지 않습니다. 아무 키를 입력해도 같은 파티션으로 연결됩니다. 서비스 분할에 대해 자세히 알아보려면 [서비스 패브릭 Reliable Services 분할 방법](service-fabric-concepts-partitioning)을 참조하세요.
+    고객 ID, 우편 번호 등 사용자가 정의하는 키를 기반으로 상태를 여러 버킷으로 분류하여 상태 저장 서비스를 확장하도록 파티션을 사용할 수 있습니다. 간단한 응용 프로그램에서 상태 저장 서비스에는 파티션이 하나밖에 없으므로 키는 문제가 되지 않습니다. 아무 키를 입력해도 같은 파티션으로 연결됩니다. 서비스 분할에 대해 자세히 알아보려면 [서비스 패브릭 Reliable Services 분할 방법](service-fabric-concepts-partitioning.md)을 참조하세요.
 
     서비스 이름은 양식 패브릭의 URI입니다(예: /&lt;application\_name&gt;/&lt;service\_name&gt;).
 
@@ -237,4 +237,4 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 [vs-services-nuget-package]: ./media/service-fabric-add-a-web-frontend/vs-services-nuget-package.png
 [browser-aspnet-counter-value]: ./media/service-fabric-add-a-web-frontend/browser-aspnet-counter-value.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

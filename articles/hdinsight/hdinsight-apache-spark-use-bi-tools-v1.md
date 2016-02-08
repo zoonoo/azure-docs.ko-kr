@@ -20,7 +20,7 @@
 
 # Azure HDInsight에서 Apache Spark와 함께 BI 도구 사용(Windows)
 
-> [AZURE.NOTE]이제 HDInsight가 Linux에서 Spark 클러스터를 제공합니다. HDInsight Linux에서 Spark 클러스터와 함께 BI 도구를 사용하는 방법은 [Azure HDInsight에서 Apache Spark와 함께 BI 도구 사용(Linux)](hdinsight-apache-spark-use-bi-tools.md)을 참조하세요.
+> [AZURE.NOTE] 이제 HDInsight가 Linux에서 Spark 클러스터를 제공합니다. HDInsight Linux에서 Spark 클러스터와 함께 BI 도구를 사용하는 방법은 [Azure HDInsight에서 Apache Spark와 함께 BI 도구 사용(Linux)](hdinsight-apache-spark-use-bi-tools.md)을 참조하세요.
 
 Azure HDInsight에서 Apache Spark를 사용하여 다음을 수행하는 방법에 대해 알아봅니다.
 
@@ -31,7 +31,7 @@ Azure HDInsight에서 Apache Spark를 사용하여 다음을 수행하는 방법
 
 다음이 있어야 합니다.
 
-- Azure 구독. [Azure 무료 평가판](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+- Azure 구독. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 - Apache Spark 클러스터. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](hdinsight-apache-spark-provision-clusters.md)를 참조하세요.
 - Microsoft Spark ODBC 드라이버가 설치된 컴퓨터(Tableau 작업할 HDInsight에서 Spark 필요). [여기](http://go.microsoft.com/fwlink/?LinkId=616229)에서 드라이버를 설치할 수 있습니다.
 - [Power BI](http://www.powerbi.com/) 또는 [Tableau Desktop](http://www.tableau.com/products/desktop)과 같은 BI 도구. [http://www.powerbi.com/](http://www.powerbi.com/)에서 Power BI의 미리 보기 구독을 무료로 받을 수 있습니다.
@@ -46,11 +46,11 @@ Azure HDInsight에서 Apache Spark를 사용하여 다음을 수행하는 방법
 
 2. Spark 클러스터 블레이드에서 **빠른 연결**을 클릭한 다음 **클러스터 대시보드** 블레이드에서 **Jupyter Notebook**을 클릭합니다. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다.
 
-	> [AZURE.NOTE]또한 브라우저에서 다음 URL을 열어 클러스터에 대한 Jupyter Notebook에 접근할 수 있습니다. __CLUSTERNAME__을 클러스터의 이름으로 바꿉니다.
+	> [AZURE.NOTE] 또한 브라우저에서 다음 URL을 열어 클러스터에 대한 Jupyter Notebook에 접근할 수 있습니다. __CLUSTERNAME__을 클러스터의 이름으로 바꿉니다.
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-2. 새 Notebook을 만듭니다. **새로 만들기**를 클릭한 다음 **Python 2**를 클릭합니다.
+2. 새 Notebook을 만듭니다. **새로 만들기**를 클릭한 후 **Python 2**를 클릭합니다.
 
 	![새 Jupyter 노트북 만들기](./media/hdinsight-apache-spark-use-bi-tools-v1/hdispark.note.jupyter.createnotebook.png "새 Jupyter 노트북 만들기")
 
@@ -214,4 +214,4 @@ Azure HDInsight에서 Apache Spark를 사용하여 다음을 수행하는 방법
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

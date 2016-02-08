@@ -27,7 +27,7 @@ Azure 검색은 Microsoft Azure에서 호스팅되는 클라우드 검색 서비
 
 이제 Azure 검색은 일반적으로 사용 가능하며 최신 릴리스로 전환하는 것이 좋습니다: 2015-02-28은 Azure 검색을 일반적으로 사용 가능한 릴리스의 공식 API 버전입니다. 해당 버전은 [MSDN](https://msdn.microsoft.com/library/azure/dn798933.aspx)에서 확인할 수 있습니다.
 
-본사는 아직 개발 중인 기능을 도입하여 다음 미리 보기 버전인 [2015-02-28-Preview](search-api-2015-02-28-preview.md)을 출시합니다. [Azure 검색 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=azuresearch) 또는 당사 [사용자 의견 페이지](http://feedback.azure.com/forums/263029-azure-search)를 통해 미리 보기 API에 관한 사용자 의견을 제공할 수 있습니다.
+본사는 아직 개발 중인 기능을 도입하여 다음 미리 보기 버전인 [2015-02-28-Preview](search-api-2015-02-28-preview.md)을 출시합니다. [Azure 검색 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=azuresearch) 또는 당사 [사용자 의견 페이지](https://feedback.azure.com/forums/263029-azure-search /)를 통해 미리 보기 API에 관한 사용자 의견을 제공할 수 있습니다.
 
 ###마이그레이션의 검사 목록###
 
@@ -144,4 +144,4 @@ API 버전`2015-02-28`은 SLA에 따릅니다. 지원 티켓을 만들기 위해
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

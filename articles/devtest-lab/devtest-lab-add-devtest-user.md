@@ -26,7 +26,7 @@ DevTest Lab에 대한 액세스는 Azure RBAC(역할 기반 액세스 제어)에
 
  - **소유자**: Azure 구독 수준에서 **소유자** 역할에 할당된 사용자는 관리 및 모니터링 기능을 포함하여 랩에 대한 완전한 액세스 권한을 가집니다.
 
-     >[AZURE.NOTE]구독 수준 이외의 RBAC 수준에서 할당된 **소유자** 역할은 DevTest Lab에서 지원되지 않습니다. 사용자를 DevTest Lab의 **소유자** 역할에 할당하는 것은 지원되지 않습니다.
+     >[AZURE.NOTE] 구독 수준 이외의 RBAC 수준에서 할당된 **소유자** 역할은 DevTest Lab에서 지원되지 않습니다. 사용자를 DevTest Lab의 **소유자** 역할에 할당하는 것은 지원되지 않습니다.
 
  -  **DevTest Lab 사용자**: **DevTest Lab 사용자** 역할에 할당된 사용자는 지정된 랩에서 VM을 만들고 업데이트하고 삭제할 수 있습니다. 사용자는 *내부*(구독에 대한 Azure Active Directory 구성원) 또는 *외부*(파트너 조직의 구성원과 같이 Azure AD의 구성원이 아닌 사용자)일 수 있습니다.
 	-  **DevTest Lab 사용자** 역할은 랩의 **사용자 추가** 타일을 통해 할당해야 합니다.
@@ -39,7 +39,7 @@ DevTest Lab은 랩이 포함된 Azure 구독의 소유자를 해당 랩의 소�
 
 이미 랩을 만들었거나 새 랩을 만드는 Azure 구독에 소유자를 추가하려면 다음 단계를 수행합니다.
 
-1. [Azure Preview 포털](http://portal.azure.com)에 로그인합니다.
+1. [Azure Preview 포털](https://portal.azure.com)에 로그인합니다.
 
 1. 왼쪽 탐색에서 **구독**을 탭합니다.
 
@@ -71,7 +71,7 @@ DevTest Lab은 랩이 포함된 Azure 구독의 소유자를 해당 랩의 소�
 
 랩에 DevTest Lab 사용자를 추가하려면 다음 단계를 수행합니다.
 
-1. [Azure Preview 포털](http://portal.azure.com)에 로그인합니다.
+1. [Azure Preview 포털](https://portal.azure.com)에 로그인합니다.
 
 1. **찾아보기**를 탭합니다.
 
@@ -101,4 +101,4 @@ DevTest Lab은 랩이 포함된 Azure 구독의 소유자를 해당 랩의 소�
 
 	1. **사용자** 블레이드에 추가된 역할 및 사용자가 표시됩니다.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

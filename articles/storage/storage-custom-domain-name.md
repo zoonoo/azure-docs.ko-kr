@@ -24,11 +24,11 @@
 Azure 저장소 계정에서 Blob 데이터에 액세스할 수 있도록 사용자 지정 도메인을 구성할 수 있습니다. Blob 저장소의 기본 끝점은 https://<*mystorageaccount*>.blob.core.windows.net입니다. **www.contoso.com**과 같은 사용자 지정 도메인 및 하위 도메인을 저장소 계정의 Blob 끝점에 매핑하면 사용자도 해당 도메인을 사용하여 저장소 계정의 Blob 데이터에 액세스할 수 있습니다.
 
 
-> [AZURE.NOTE]이 작업의 절차는 Azure 저장소 계정에 적용됩니다. 클라우드 서비스에 대해서는 <a href = "/develop/net/common-tasks/custom-dns/">Azure 클라우드 서비스의 사용자 지정 도메인 이름 구성</a>을, 웹 사이트에 대해서는 <a href="/develop/net/common-tasks/custom-dns-web-site/">Azure 웹 사이트의 사용자 지정 도메인 이름 구성을 참조하세요</a>.
+> [AZURE.NOTE]	이 작업의 절차는 Azure 저장소 계정에 적용됩니다. 클라우드 서비스에 대해서는 <a href = "/develop/net/common-tasks/custom-dns/">Azure 클라우드 서비스의 사용자 지정 도메인 이름 구성</a>을, 웹 사이트에 대해서는 <a href="/develop/net/common-tasks/custom-dns-web-site/">Azure 웹 사이트의 사용자 지정 도메인 이름 구성을 참조하세요</a>.
 
 저장소 계정의 Blob 끝점으로 사용자 지정 도메인을 가리키는 방법은 두 가지입니다. 가장 간단한 방법은 사용자 지정 도메인 및 하위 도메인을 Blob 끝점에 매핑하는 CNAME 레코드를 만드는 것입니다. CNAME 레코드는 원본 도메인을 대상 도메인에 매핑하는 DNS 기능입니다. 이 경우에 원본 도메인은 사용자 지정 도메인 및 하위 도메인이며, 하위 도메인은 항상 필요합니다. 대상 도메인은 Blob 서비스 끝점입니다.
 
-사용자 지정 도메인을 Blob 끝점에 매핑하는 프로세스로 인해 [Azure 클래식 포털](manage.windowsazure.com)에서 도메인을 등록하는 동안 도메인이 잠시 가동 중지될 수 있습니다. 사용자 지정 도메인에서 가동 중지 시간이 없어야 하는 SLA(서비스 수준 계약)가 설정된 응용 프로그램을 현재 지원하고 있다면 DNS 매핑이 진행되는 동안 사용자가 도메인에 액세스할 수 있도록 중간 등록 단계를 제공하는 데 Azure **asverify** 하위 도메인을 사용할 수 있습니다.
+사용자 지정 도메인을 Blob 끝점에 매핑하는 프로세스로 인해 [Azure 클래식 포털](https://manage.windowsazure.com)에서 도메인을 등록하는 동안 도메인이 잠시 가동 중지될 수 있습니다. 사용자 지정 도메인에서 가동 중지 시간이 없어야 하는 SLA(서비스 수준 계약)가 설정된 응용 프로그램을 현재 지원하고 있다면 DNS 매핑이 진행되는 동안 사용자가 도메인에 액세스할 수 있도록 중간 등록 단계를 제공하는 데 Azure **asverify** 하위 도메인을 사용할 수 있습니다.
 
 다음 표는 이름이 **mystorageaccount**인 저장소 계정의 Blob 데이터에 액세스하기 위한 샘플 URL을 보여 줍니다. 저장소 계정에 등록된 사용자 지정 도메인은 **www.contoso.com**입니다.
 
@@ -48,7 +48,7 @@ Blob|**기본 URL:** http://mystorageaccount.blob.core.windows.net/mycontainer/m
 
 각 등록 기관은 서로 유사하면서 약간 다른 방법으로 CNAME 레코드를 지정하지만 개념은 동일합니다. 대다수 기본 도메인 등록 패키지에서 DNS 구성을 제공하지 않으므로 CNAME 레코드를 만들려면 먼저 도메인 등록 패키지를 업그레이드해야 할 수 있습니다.
 
-1.  [Azure 클래식 포털](manage.windowsazure.com)에서 **저장소** 탭으로 이동합니다.
+1.  [Azure 클래식 포털](https://manage.windowsazure.com)에서 **저장소** 탭으로 이동합니다.
 
 2.  **저장소** 탭에서 사용자 지정 도메인을 매핑할 저장소 계정의 이름을 클릭합니다.
 
@@ -74,7 +74,7 @@ Blob|**기본 URL:** http://mystorageaccount.blob.core.windows.net/mycontainer/m
 
 asverify 하위 도메인은 Azure에서 인식하는 특수한 하위 도메인입니다. 고유한 하위 도메인 앞에 **asverify**를 추가하면 도메인의 DNS 레코드를 수정하지 않아도 Azure에서 사용자 지정 도메인을 인식할 수 있습니다. 도메인의 DNS 레코드를 수정하면 가동 중지 시간 없이 Blob 끝점에 매핑됩니다.
 
-1.  [Azure 클래식 포털](manage.windowsazure.com)에서 **저장소** 탭으로 이동합니다.
+1.  [Azure 클래식 포털](https://manage.windowsazure.com)에서 **저장소** 탭으로 이동합니다.
 
 2.  **저장소** 탭에서 사용자 지정 도메인을 매핑할 저장소 계정의 이름을 클릭합니다.
 
@@ -116,4 +116,4 @@ asverify 하위 도메인은 Azure에서 인식하는 특수한 하위 도메인
 
 -   <a href="http://msdn.microsoft.com/library/azure/gg680307.aspx">CDN 콘텐츠를 사용자 지정 도메인에 매핑하는 방법</a>
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

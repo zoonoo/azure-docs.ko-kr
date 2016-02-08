@@ -11,9 +11,9 @@
 
 ## ARM(Azure 리소스 관리자)에서 Azure CLI 사용
 
-리소스 관리자 명령 및 템플릿에서 Azure CLI를 사용하여 리소스 그룹을 통해 Azure 리소스 및 워크로드를 배포하려면 먼저 Azure 계정이 필요합니다. 계정이 없는 경우 [여기에서 무료 Azure 평가판](http://azure.microsoft.com/pricing/free-trial/)을 얻을 수 있습니다.
+리소스 관리자 명령 및 템플릿에서 Azure CLI를 사용하여 리소스 그룹을 통해 Azure 리소스 및 워크로드를 배포하려면 먼저 Azure 계정이 필요합니다. 계정이 없는 경우 [여기에서 무료 Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 얻을 수 있습니다.
 
-> [AZURE.NOTE]Azure 계정이 아직 없지만 MSDN 구독이 있는 경우 [여기에서 MSDN 구독자 혜택](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하여 무료 Azure 크레딧을 받거나 무료 계정을 사용할 수 있습니다. 둘 중 하나가 Azure 액세스에 작동합니다.
+> [AZURE.NOTE] Azure 계정이 아직 없지만 MSDN 구독이 있는 경우 [여기에서 MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하여 무료 Azure 크레딧을 받거나 무료 계정을 사용할 수 있습니다. 둘 중 하나가 Azure 액세스에 작동합니다.
 
 ### 1단계: Azure CLI 버전 확인
 
@@ -62,6 +62,6 @@ ARM(Azure 리소스 관리) 모드에서 Azure CLI를 사용하려면 `azure con
     $ azure config mode arm
     info:    New mode is arm
 
-> [AZURE.NOTE]`azure config mode asm`을 입력하여 Azure 서비스 관리 명령을 사용하도록 다시 전환할 수 있습니다.
+> [AZURE.NOTE] `azure config mode asm`을 입력하여 Azure 서비스 관리 명령을 사용하도록 다시 전환할 수 있습니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

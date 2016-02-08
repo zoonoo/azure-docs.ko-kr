@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/14/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # 이벤트 허브 API 개요
 
 이 문서는 키 이벤트 허브 .NET 클라이언트 API의 일부를 요약합니다. 관리와 런타임 API 등 두 가지 범주가 있습니다. 런타임 API는 메시지를 주고받는 데 필요한 모든 작업으로 구성됩니다. 관리 작업을 사용하면 엔터티를 만들고 업데이트 및 삭제하여 이벤트 허브 엔터티 상태를 관리할 수 있습니다.
 
-모니터링 시나리오는 관리 및 런타임 모두에 사용됩니다. .NET API에 대한 자세한 참조 설명서는[.NET 클래스 라이브러리](https://msdn.microsoft.com/library/azure/mt419900.aspx)및[EventProcessorHost API](https://msdn.microsoft.com/library/azure/mt445521.aspx) 참조를 참조하십시오.
+모니터링 시나리오는 관리 및 런타임 모두에 사용됩니다. .NET API에 대한 자세한 참조 설명서는 [서비스 버스 .NET](https://msdn.microsoft.com/library/azure/mt419900.aspx)및[EventProcessorHost API](https://msdn.microsoft.com/library/azure/mt445521.aspx) 참조를 참조하세요.
 
 ## 관리 API
 
@@ -84,7 +84,7 @@ await client.SendAsync(data);
 ### 소비자 만들기
 
 ```
-// Create the Event Hub client
+// Create the Event Hubs client
 EventHubClient eventHubClient = EventHubClient.Create(EventHubName);
 
 // Get the default consumer group
@@ -120,6 +120,7 @@ msg = UnicodeEncoding.UTF8.GetString(info);
 ```
 // Checkpointing is done within the SimpleEventProcessor and on a per-consumerGroup per-partition basis, workers resume from where they last left off.
 // Use the EventData.Offset value for checkpointing yourself, this value is unique per partition.
+
 string eventHubConnectionString = System.Configuration.ConfigurationManager.AppSettings["Microsoft.ServiceBus.ConnectionString"];
 string blobConnectionString = System.Configuration.ConfigurationManager.AppSettings["AzureStorageConnectionString"]; // Required for checkpoint/state
 
@@ -188,4 +189,4 @@ public class SimpleEventProcessor : IEventProcessor
 - [서비스 버스 및 이벤트 허브 .NET API 참조](https://msdn.microsoft.com/library/azure/mt419900.aspx)
 - [이벤트 프로세서 호스트 API 참조](https://msdn.microsoft.com/library/azure/mt445521.aspx)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

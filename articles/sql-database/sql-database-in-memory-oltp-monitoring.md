@@ -13,7 +13,7 @@
 	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="article"
 	ms.date="10/28/2015"
 	ms.author="jodebrui"/>
 
@@ -32,7 +32,7 @@
 
 ## 모니터링 및 경고
 
-메모리 내 저장소 사용량을 Azure [포털](http://portal.azure.com/)에서 [성능 계층에 대한 저장소 용량](sql-database-service-tiers.md#service-tiers-for-single-databases)으로 모니터링할 수 있습니다.
+메모리 내 저장소 사용량을 Azure [포털](https://portal.azure.com/)에서 [성능 계층에 대한 저장소 용량](sql-database-service-tiers.md#service-tiers-for-single-databases)으로 모니터링할 수 있습니다.
 
 - 데이터베이스 블레이드에서 리소스 사용률 상자를 찾고 편집을 클릭합니다.
 - 그런 다음 메트릭 XTP 메모리 내 저장소 비율을 선택합니다.
@@ -58,4 +58,4 @@
 ## 다음 단계
 [동적 관리 뷰를 사용하여 Azure SQL 데이터베이스 모니터링](sql-database-monitoring-with-dmvs.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

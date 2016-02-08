@@ -17,9 +17,9 @@
 
 # 서비스 버스 가격 책정 FAQ
 
-이 섹션은 서비스 버스 가격 책정 구조에 대한 일부 자주 묻는 질문을 답변합니다. 또한 일반적인 Microsoft Azure 가격 책정 정보는 [Azure 지원 FAQ](http://go.microsoft.com/fwlink/?LinkID=185083)를 방문할 수 있습니다. 서비스 버스 가격 책정에 대한 전체 내용은 [서비스 버스 가격 책정 세부 정보](http://azure.microsoft.com/pricing/details/service-bus/)를 참조하세요.
+이 섹션은 서비스 버스 가격 책정 구조에 대한 일부 자주 묻는 질문을 답변합니다. 또한 일반적인 Microsoft Azure 가격 책정 정보는 [Azure 지원 FAQ](http://go.microsoft.com/fwlink/?LinkID=185083)를 방문할 수 있습니다. 서비스 버스 가격 책정에 대한 전체 내용은 [서비스 버스 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/service-bus/)를 참조하세요.
 
->[AZURE.NOTE] [이벤트 허브 공급 및 지원 FAQ](event-hubs-availability-and-support-faq.md) 항목과 [이벤트 허브 가격 책정](http://azure.microsoft.com/pricing/details/event-hubs/) 항목에서 자세한 정보와 함께 이벤트 허브에 대한 가격 책정 구조를 설명합니다.
+>[AZURE.NOTE] [이벤트 허브 공급 및 지원 FAQ](event-hubs-availability-and-support-faq.md) 항목과 [이벤트 허브 가격 책정](https://azure.microsoft.com/pricing/details/event-hubs/) 항목에서 자세한 정보와 함께 이벤트 허브에 대한 가격 책정 구조를 설명합니다.
 
 - [서비스 버스 요금을 어떻게 청구하나요?](#how-do-you-charge-for-service-bus)
 - [서비스 버스를 어떻게 사용하면 데이터 전송이 적용되나요? 어떤 경우에 대상이 아닌가요?](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not)
@@ -32,7 +32,7 @@
 
 ## 서비스 버스 요금을 어떻게 청구하나요?
 
-서비스 버스 가격에 대한 전체 내용은 [서비스 버스 가격 책정 및 청구](https://msdn.microsoft.com/library/dn831889.aspx) 및 [서비스 버스 가격 책정 세부 정보](http://azure.microsoft.com/pricing/details/service-bus/)를 참조하세요. 언급된 가격 외에도 응용 프로그램이 프로비전되는 데이터 센터의 외부에서 송신을 위해 연결된 데이터 전송에 요금이 부과됩니다. 자세한 내용은 아래의 다음 섹션을 참조하세요. [서비스 버스를 어떻게 사용하면 데이터 전송이 적용되나요? 어떤 경우에 대상이 아닌가요?아래의 ](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not) 섹션입니다.
+서비스 버스 가격에 대한 전체 내용은 [서비스 버스 가격 책정 및 청구](https://msdn.microsoft.com/library/dn831889.aspx) 및 [서비스 버스 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/service-bus/)를 참조하세요. 언급된 가격 외에도 응용 프로그램이 프로비전되는 데이터 센터의 외부에서 송신을 위해 연결된 데이터 전송에 요금이 부과됩니다. 자세한 내용은 아래의 다음 섹션을 참조하세요. [서비스 버스를 어떻게 사용하면 데이터 전송이 적용되나요? 어떤 경우에 대상이 아닌가요?아래의 ](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not) 섹션입니다.
 
 ## 서비스 버스를 어떻게 사용하면 데이터가 전송의 대상이 되나요? 어떤 경우에 대상이 아닌가요?
 
@@ -116,4 +116,4 @@ Azure에서 다른 서비스와 마찬가지로 서비스 버스는 리소스의
 
 [Azure 클래식 포털]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -37,7 +37,7 @@
 - 이름: **TestVNet**, 주소 공간 **192.168.0.0/16** 및 **10.254.0.0/16** 사용. VNet에는 하나 이상의 주소 공간을 사용할 수 있습니다.
 - 서브넷 이름: **FrontEnd**, **192.168.1.0/24** 사용
 - 서브넷 이름: **BackEnd**, **10.254.1.0/24** 사용
-- 서브넷 이름: **GatewaySubnet**, **192.168.200.0/24** 사용. 서브넷 이름 GatewaySubnet은 게이트웨이가 작동하기 위한 필수 항목입니다. 
+- 서브넷 이름: **GatewaySubnet**, **192.168.200.0/24** 사용. 서브넷 이름 *GatewaySubnet*은 게이트웨이가 작동하기 위한 필수 항목입니다. 
 - VPN 클라이언트 주소 풀: **172.16.201.0/24**. 이 지점 및 사이트 간 연결을 사용 하여 VNet에 연결되는 VPN 클라이언트는 이 풀에서 IP 주소를 받습니다.
 - 구독: 하나 이상 있는 경우 올바른 구독인지 확인합니다.
 - 리소스 그룹: **TestRG**
@@ -50,7 +50,7 @@
 
 ## 시작하기 전에
 
-Azure 구독이 있고 이 구성에 필요한 Azure PowerShell cmdlet을 설치했는지 확인합니다(1.0.2 이상). Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하거나 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
+Azure 구독이 있고 이 구성에 필요한 Azure PowerShell cmdlet을 설치했는지 확인합니다(1.0.2 이상). Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하거나 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 	
 **PowerShell cmdlet 모듈 설치에 대한 정보**
 
@@ -94,7 +94,7 @@ Azure 구독이 있고 이 구성에 필요한 Azure PowerShell cmdlet을 설치
 
 		New-AzureRmResourceGroup -Name $RG -Location $Location
 
-6. 가상 네트워크에 대한 서브넷 구성을 만들고 FrontEnd, BackEnd 및 GatewaySubnet으로 이름을 지정합니다. 이러한 접두사는 위에서 선언된 VNet 주소 공간의 일부여야 합니다.
+6. 가상 네트워크에 대한 서브넷 구성을 만들고 *FrontEnd*, *BackEnd* 및 *GatewaySubnet*으로 이름을 지정합니다. 이러한 접두사는 위에서 선언된 VNet 주소 공간의 일부여야 합니다.
 
 		$fesub = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName -AddressPrefix $FESubPrefix
 		$besub = New-AzureRmVirtualNetworkSubnetConfig -Name $BESubName -AddressPrefix $BESubPrefix
@@ -114,7 +114,7 @@ Azure 구독이 있고 이 구성에 필요한 Azure PowerShell cmdlet을 설치
 		$pip = New-AzureRmPublicIpAddress -Name $GWIPName -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
 		$ipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
 		
-10. Azure에 루트 인증서 .cer 파일을 업로드합니다. 엔터프라이즈 인증서 환경에서 루트 인증서를 사용하거나 자체 서명된 루트 인증서를 사용할 수 있습니다. 최대 20개의 루트 인증서를 업로드할 수 있습니다. makecert를 사용하여 자체 서명된 루트 인증서를 만드는 방법은 [지점 및 사이트 간 구성에 대한 자체 서명된 루트 인증서로 작업](vpn-gateway-certificates-point-to-site.md)을 참조하세요. .cer 파일은 루트 인증서의 개인 키를 포함해서는 안 됩니다.
+10. Azure에 루트 인증서 .cer 파일을 업로드합니다. 엔터프라이즈 인증서 환경에서 루트 인증서를 사용하거나 자체 서명된 루트 인증서를 사용할 수 있습니다. 최대 20개의 루트 인증서를 업로드할 수 있습니다. *makecert*를 사용하여 자체 서명된 루트 인증서를 만드는 방법은 [지점 및 사이트 간 구성에 대한 자체 서명된 루트 인증서로 작업](vpn-gateway-certificates-point-to-site.md)을 참조하세요. .cer 파일은 루트 인증서의 개인 키를 포함해서는 안 됩니다.
 	
 	다음은 이 구조에 대한 샘플입니다. 공용 인증서 데이터를 업로드하는 과정 중 어려운 부분은 전체 문자열을 공백없이 복사 및 붙여넣기 해야 한다는 점입니다. 그렇지 않으면 업로드가 동작하지 않습니다. 이 단계에 고유한 인증서.cer 파일을 사용해야 합니다. 아래에서 샘플을 복사 및 붙여넣기 하지 마세요.
 
@@ -147,7 +147,7 @@ Azure 구독이 있고 이 구성에 필요한 Azure PowerShell cmdlet을 설치
 
 ## 연결 확인
 
-1. VPN 연결이 활성인지를 확인하려면, 관리자 권한 명령 프롬프트를 열고 ipconfig/all을 실행합니다.
+1. VPN 연결이 활성인지를 확인하려면, 관리자 권한 명령 프롬프트를 열고 *ipconfig/all*을 실행합니다.
 
 2. 결과를 확인합니다. 받은 IP 주소가 구성에 지정한 지점 및 사이트 VPN 클라이언트 주소 풀 내의 주소 중 하나인지 확인합니다. 결과는 다음과 같아야 합니다.
     
@@ -231,4 +231,4 @@ Azure에서 루트 인증서를 제거할 수 있습니다. 루트 인증서를 
 
 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 단계는 [가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-tutorial.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

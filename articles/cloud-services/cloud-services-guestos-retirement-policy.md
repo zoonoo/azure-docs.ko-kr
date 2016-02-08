@@ -85,9 +85,9 @@ Microsoft의 판단에 따라 고객이 전환하기에 용이하도록 이 기�
 
 **내 웹 응용 프로그램을 사용하려면 OS와 밀접하게 통합되어야 하는 경우 어떻게 하나요?**
 
-웹 응용 프로그램 아키텍처가 기본 운영 체제에 대한 심층적 종속성을 요구할 경우 [시작 작업](cloud-services-startup-tasks.md) 또는 나중에 존재할 수 있는 기타 확장성 메커니즘과 같은 플랫폼 지원 기능을 사용합니다. 또는 [Azure 가상 컴퓨터](http://azure.microsoft.com/documentation/scenarios/virtual-machines/)(IaaS – 서비스로서의 인프라)를 사용할 수도 있으며, 기본 운영 체제를 유지 관리하게 됩니다.
+웹 응용 프로그램 아키텍처가 기본 운영 체제에 대한 심층적 종속성을 요구할 경우 [시작 작업](cloud-services-startup-tasks.md) 또는 나중에 존재할 수 있는 기타 확장성 메커니즘과 같은 플랫폼 지원 기능을 사용합니다. 또는 [Azure 가상 컴퓨터](https://azure.microsoft.com/documentation/scenarios/virtual-machines/)(IaaS – 서비스로서의 인프라)를 사용할 수도 있으며, 기본 운영 체제를 유지 관리하게 됩니다.
  
 ## 다음 단계
 최신 [게스트 OS 릴리스](cloud-services-guestos-update-matrix.md)를 검토합니다.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

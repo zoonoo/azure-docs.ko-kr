@@ -25,12 +25,12 @@ Azure 가상 컴퓨터 갤러리에는 Microsoft SQL Server가 포함된 몇 개
 - 중소 규모 데이터의 경우 SQL Server 2012 SP2 Enterprise
 - 대규모 데이터의 경우 SQL Server 2012 SP2 Enterprise Optimized for DataWarehousing Workloads
 
- >[AZURE.NOTE]SQL Server 2012 SP2 Enterprise 이미지에는 **데이터 디스크가 포함되어 있지 않습니다**. 데이터를 저장할 하나 이상의 가상 하드 디스크를 추가 및/또는 연결해야 합니다. Azure 가상 컴퓨터를 만들면 C 드라이브에 매핑되는 운영 체제용 디스크와 D 드라이브에 매핑되는 임시 디스크가 있습니다. D 드라이브는 데이터 저장에 사용하지 마세요. 이름이 의미하는 것과 같이 D 드라이브는 임시 저장소만 제공합니다. Azure 저장소에 상주하지 않으므로 중복성이나 백업을 제공하지 않습니다.
+ >[AZURE.NOTE] SQL Server 2012 SP2 Enterprise 이미지에는 **데이터 디스크가 포함되어 있지 않습니다**. 데이터를 저장할 하나 이상의 가상 하드 디스크를 추가 및/또는 연결해야 합니다. Azure 가상 컴퓨터를 만들면 C 드라이브에 매핑되는 운영 체제용 디스크와 D 드라이브에 매핑되는 임시 디스크가 있습니다. D 드라이브는 데이터 저장에 사용하지 마세요. 이름이 의미하는 것과 같이 D 드라이브는 임시 저장소만 제공합니다. Azure 저장소에 상주하지 않으므로 중복성이나 백업을 제공하지 않습니다.
 
 
 ##<a name="Provision"></a>Azure 클래식 포털에 연결 및 SQL Server 가상 컴퓨터 프로비전
 
-1.  사용자 계정을 사용하여 [Azure 클래식 포털](http://manage.windowsazure.com/)에 로그인합니다. Azure 계정이 없는 경우 [Azure 무료 평가판](http://www.windowsazure.com/pricing/free-trial/)을 방문하십시오.
+1.  사용자 계정을 사용하여 [Azure 클래식 포털](http://manage.windowsazure.com/)에 로그인합니다. Azure 계정이 없는 경우 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 방문하십시오.
 
 2.  Azure 클래식 포털 웹 페이지의 왼쪽 아래에서 **+새로 만들기**, **계산**, **가상 컴퓨터**, **갤러리에서**를 차례로 클릭합니다.
 
@@ -46,7 +46,7 @@ Azure 가상 컴퓨터 갤러리에는 Microsoft SQL Server가 포함된 몇 개
     -   **암호 확인** 상자에 암호를 다시 입력합니다.
     -   드롭다운 목록에서 적절한 **크기**를 선택합니다.
 
-     >[AZURE.NOTE]프로비전하는 동안 가상 컴퓨터의 크기가 지정됩니다. A2는 프로덕션 작업에 권장 되는 가장 작은 크기입니다. SQL Server Enterprise Edition을 사용할 경우 가상 컴퓨터의 최소 권장 크기는 A3입니다. SQL Server Enterprise Edition을 사용할 경우 A3 이상을 선택합니다. 트랜잭션 작업 이미지에 최적화된 SQL Server 2012 또는 2014 Enterprise를 사용할 때는 A4를 선택합니다. 데이터 웨어하우스 작업 이미지에 최적화된 SQL Server 2012 또는 2014 Enterprise를 사용할 때는 A7을 선택합니다. 선택한 크기는 구성할 수 있는 데이터 디스크 수를 제한합니다. 사용 가능한 가상 컴퓨터 크기 및 가상 컴퓨터에 연결할 수 있는 데이터 디스크 수에 대한 최신 정보는 [Azure의 가상 컴퓨터 크기](http://msdn.microsoft.com/library/azure/dn197896.aspx)를 참조하십시오. 가격 정보는 [가상 컴퓨터 가격](http://azure.microsoft.com/pricing/details/virtual-machines/)을 참조하세요.
+     >[AZURE.NOTE] 프로비전하는 동안 가상 컴퓨터의 크기가 지정됩니다. A2는 프로덕션 작업에 권장 되는 가장 작은 크기입니다. SQL Server Enterprise Edition을 사용할 경우 가상 컴퓨터의 최소 권장 크기는 A3입니다. SQL Server Enterprise Edition을 사용할 경우 A3 이상을 선택합니다. 트랜잭션 작업 이미지에 최적화된 SQL Server 2012 또는 2014 Enterprise를 사용할 때는 A4를 선택합니다. 데이터 웨어하우스 작업 이미지에 최적화된 SQL Server 2012 또는 2014 Enterprise를 사용할 때는 A7을 선택합니다. 선택한 크기는 구성할 수 있는 데이터 디스크 수를 제한합니다. 사용 가능한 가상 컴퓨터 크기 및 가상 컴퓨터에 연결할 수 있는 데이터 디스크 수에 대한 최신 정보는 [Azure의 가상 컴퓨터 크기](http://msdn.microsoft.com/library/azure/dn197896.aspx)를 참조하십시오. 가격 정보는 [가상 컴퓨터 가격](https://azure.microsoft.com/pricing/details/virtual-machines/)을 참조하세요.
 
     오른쪽 아래에 있는 다음 화살표를 클릭하여 계속합니다.
 
@@ -119,7 +119,7 @@ IPython Notebook 서버 역할을 하도록 새 SQL Server VM을 구성하고 Az
 
 VM 이미지에 데이터 디스크, 즉 C 드라이브(OS 디스크) 및 D 드라이브(임시 디스크) 이외의 디스크가 포함되지 않은 경우 데이터를 저장할 데이터 디스크를 하나 이상 추가해야 합니다. SQL Server 2012 SP2 Enterprise Optimized for DataWarehousing Workloads용 VM 이미지는 SQL Server 데이터 및 로그 파일용 추가 디스크로 미리 구성된 상태로 제공됩니다.
 
- >[AZURE.NOTE]D 드라이브는 데이터 저장에 사용하지 마세요. 이름이 의미하는 것과 같이 D 드라이브는 임시 저장소만 제공합니다. Azure 저장소에 상주하지 않으므로 중복성이나 백업을 제공하지 않습니다.
+ >[AZURE.NOTE] D 드라이브는 데이터 저장에 사용하지 마세요. 이름이 의미하는 것과 같이 D 드라이브는 임시 저장소만 제공합니다. Azure 저장소에 상주하지 않으므로 중복성이나 백업을 제공하지 않습니다.
 
 추가 데이터 디스크를 연결하려면 다음 과정을 안내하는 [Windows 가상 컴퓨터에 데이터 디스크를 연결하는 방법](storage-windows-attach-disk.md)에 설명된 단계를 따릅니다.
 
@@ -143,7 +143,7 @@ SQL Server 데이터베이스 엔진은 도메인 환경에서만 Windows 인증
 
 	<br>
 
-	 >[AZURE.TIP]Windows 레지스트리 키 변경 또는 SQL Server Management Studio를 사용하여 SQL Server 인증 모드를 변경할 수 있습니다. Windows 레지스트리 키 변경을 사용하여 인증 모드를 변경하려면 **새 쿼리**를 시작하고 다음 스크립트를 실행합니다.
+	 >[AZURE.TIP] Windows 레지스트리 키 변경 또는 SQL Server Management Studio를 사용하여 SQL Server 인증 모드를 변경할 수 있습니다. Windows 레지스트리 키 변경을 사용하여 인증 모드를 변경하려면 **새 쿼리**를 시작하고 다음 스크립트를 실행합니다.
 
 		USE master
     	go
@@ -174,7 +174,7 @@ SQL Server 데이터베이스 엔진은 도메인 환경에서만 Windows 인증
 
 다른 컴퓨터에서 데이터베이스 엔진에 연결하려면 SQL Server 인증 로그인을 하나 이상 만들어야 합니다.
 
-> [AZURE.TIP]SQL Server Management Studio를 사용하거나 프로그래밍 방식으로 새 SQL Server 로그인을 만들 수 있습니다. SQL 인증을 사용하는 새 sysadmin 사용자를 프로그래밍 방식으로 만들려면 **새 쿼리**를 시작하고 다음 스크립트를 실행합니다. <새 사용자 이름> 및 <새 암호>를 원하는 사용자 이름 및 암호로 바꿉니다. 필요에 따라 암호 정책을 조정합니다(샘플 코드에서는 정책 확인 및 암호 만료를 해제함). SQL Server 로그인에 대한 자세한 내용은 [로그인 만들기](http://msdn.microsoft.com/library/aa337562.aspx)를 참조하십시오.
+> [AZURE.TIP] SQL Server Management Studio를 사용하거나 프로그래밍 방식으로 새 SQL Server 로그인을 만들 수 있습니다. SQL 인증을 사용하는 새 sysadmin 사용자를 프로그래밍 방식으로 만들려면 **새 쿼리**를 시작하고 다음 스크립트를 실행합니다. <새 사용자 이름> 및 <새 암호>를 원하는 사용자 이름 및 암호로 바꿉니다. 필요에 따라 암호 정책을 조정합니다(샘플 코드에서는 정책 확인 및 암호 만료를 해제함). SQL Server 로그인에 대한 자세한 내용은 [로그인 만들기](http://msdn.microsoft.com/library/aa337562.aspx)를 참조하십시오.
 
     USE master
     go
@@ -259,7 +259,7 @@ SQL Server Management Studio를 사용하여 새 SQL Server 로그인을 만들�
 
 Azure 가상 컴퓨터는 **종량제**로 비용이 청구됩니다. 가상 컴퓨터를 사용하지 않을 때 비용이 청구되지 않도록 하려면 **중지(할당 해제)** 상태에 있어야 합니다.
 
-> [AZURE.NOTE]Windows 전원 옵션을 사용하여 내부에서 가상 컴퓨터를 종료하면 VM이 중지되지만 여전히 할당된 상태로 유지됩니다. 비용이 청구되지 않도록 하려면 항상 [Azure 클래식 포털](http://manage.windowsazure.com/)에서 가상 컴퓨터를 중지하세요. "PostShutdownAction"이 "StoppedDeallocated"와 동일한 ShutdownRoleOperation을 호출하여 Powershell을 통해 VM을 중지할 수도 있습니다.
+> [AZURE.NOTE] Windows 전원 옵션을 사용하여 내부에서 가상 컴퓨터를 종료하면 VM이 중지되지만 여전히 할당된 상태로 유지됩니다. 비용이 청구되지 않도록 하려면 항상 [Azure 클래식 포털](http://manage.windowsazure.com/)에서 가상 컴퓨터를 중지하세요. "PostShutdownAction"이 "StoppedDeallocated"와 동일한 ShutdownRoleOperation을 호출하여 Powershell을 통해 VM을 중지할 수도 있습니다.
 
 가상 컴퓨터를 종료하고 할당을 해제하려면 다음을 수행합니다.
 
@@ -298,4 +298,4 @@ Azure 가상 컴퓨터는 **종량제**로 비용이 청구됩니다. 가상 컴
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

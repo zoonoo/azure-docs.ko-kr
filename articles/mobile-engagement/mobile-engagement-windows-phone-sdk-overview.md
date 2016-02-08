@@ -32,11 +32,11 @@
 
 ##릴리스 정보
 
-###3\.1.0(11/20/2015)
-*MicrosoftAzure.MobileEngagement* Nuget 패키지 **v3.2.0**의 일부
+###3\.2.0(2016/01/22)
+*MicrosoftAzure.MobileEngagement* Nuget 패키지 **v3.3.0**의 일부
 
--   초기화 바로 다음에 장치 ID를 요청하는 동안 크래시를 수정하였습니다.
--   콘솔은 향상된 기능을 기록합니다.
+-   사용자 지정 스키마, ms-appx 및 ms-appdata를 작업 URL에 사용할 수 있습니다.
+-   안정성 향상
 
 이전 버전에 대한 내용은 [전체 릴리스 정보](mobile-engagement-windows-phone-release-notes.md)를 참조하세요.
 
@@ -55,4 +55,4 @@
 [업그레이드 절차](mobile-engagement-windows-phone-upgrade-procedure/)를 참조하세요.
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -131,7 +131,7 @@ parameters 섹션 내에서는 다른 매개 변수 값을 생성하는 매개 �
 
 매개 변수를 선택적으로 지정하려면 defaultValue를 빈 문자열로 설정합니다.
 
->[AZURE.NOTE]모든 암호와 키, 기타 비밀은 **secureString** 유형을 사용해야 합니다. 리소스 배포 후에는 secureString 형식의 템플릿 매개 변수를 읽을 수 없습니다.
+>[AZURE.NOTE] 모든 암호와 키, 기타 비밀은 **secureString** 유형을 사용해야 합니다. 리소스 배포 후에는 secureString 형식의 템플릿 매개 변수를 읽을 수 없습니다.
 
 다음 예제에서는 매개 변수를 정의하는 방법을 보여줍니다.
 
@@ -168,6 +168,8 @@ parameters 섹션 내에서는 다른 매개 변수 값을 생성하는 매개 �
           "minValue": 1
        }
     }
+
+배포 중에 매개 변수 값을 입력하는 방법에 대한 내용은 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](resource-group-template-deploy.md/#parameter-file)를 참조하세요.
 
 ## 변수
 
@@ -291,7 +293,7 @@ resources 섹션에서 배포 또는 업데이트되는 리소스를 정의합�
 
 
 
-다음 예제에는 자식 **Extensions** 리소스가 있는 **Microsoft.Web/serverfarms** 리소스 및 **Microsoft.Web/sites** 리소스가 나와 있습니다. 서버 팜이 존재해야 사이트를 배포할 수 있기 때부터 해당 사이트는 서버 팜에 대한 종속으로 표시됩니다. **확장** 리소스는 사이트의 자식입니다.
+다음 예제에는 자식 **Extensions** 리소스가 있는 **Microsoft.Web/serverfarms** 리소스 및 **Microsoft.Web/sites** 리소스가 나와 있습니다. 서버 팜이 존재해야 사이트를 배포할 수 있기 때부터 해당 사이트는 서버 팜에 대한 종속으로 표시됩니다. **Extensions** 리소스는 사이트의 자식입니다.
 
     "resources": [
         {
@@ -470,4 +472,4 @@ Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 예를 �
 - 응용 프로그램 배포에 대한 자세한 예는 [Azure에서 마이크로 서비스를 예측 가능하게 프로비전 및 배포](app-service-web/app-service-deploy-complex-application-predictably.md)를 참조하세요.
 - 사용할 수 있는 스키마는 [Azure 리소스 관리자 스키마](https://github.com/Azure/azure-resource-manager-schemas)를 참조하세요.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

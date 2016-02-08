@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="01/26/2016" 
 	ms.author="awills"/>
  
 # Application Insights에서 진단 검색 사용
@@ -20,6 +20,9 @@
 진단 검색은 페이지 보기, 예외 사항 또는 웹 요청과 같은 개별 원격 분석 항목을 찾고 검색하는 데 사용하는 [Application Insights][start]에 있는 블레이드입니다. 또한 코딩한 로그 추적 및 이벤트를 볼 수 있습니다.
 
 ## 진단 검색을 언제 보나요?
+
+
+### Azure 포털에서 다음을 수행합니다.
 
 다음과 같이 명시적으로 진단 검색을 열 수 있습니다.
 
@@ -38,7 +41,21 @@
 일반적으로 이벤트는 진단 검색에 표시된 후에 메트릭 탐색기에 나타납니다. 블레이드는 특정 간격으로 자체적으로 새로 고쳐지지만 특정 이벤트를 대기하는 동안 새로 고침을 클릭할 수 있습니다.
 
 
-> [AZURE.NOTE]앱에서 다양한 원격 분석을 생성하는 경우(ASP.NET SDK 버전 2.0.0-beta3 이상 사용), 적응 샘플링 모듈 이벤트의 대표적인 일부만 전송하여 포털에 전송되는 볼륨이 자동으로 줄어듭니다. 그러나, 동일한 요청과 관련된 이벤트가 그룹으로 선택되거나 선택 취소되므로 관련 이벤트 간을 이동할 수 있습니다. [샘플링에 대해 알아봅니다](app-insights-sampling.md).
+### Visual Studio에서
+
+Visual Studio에서 검색 창을 엽니다.
+
+![](./media/app-insights-diagnostic-search/32.png)
+
+검색 창에는 웹 포털과 동일한 기능이 있습니다.
+
+![](./media/app-insights-diagnostic-search/34.png)
+
+
+### 샘플링
+
+앱에서 다양한 원격 분석을 생성하는 경우(ASP.NET SDK 버전 2.0.0-beta3 이상 사용), 적응 샘플링 모듈 이벤트의 대표적인 일부만 전송하여 포털에 전송되는 볼륨이 자동으로 줄어듭니다. 그러나, 동일한 요청과 관련된 이벤트가 그룹으로 선택되거나 선택 취소되므로 관련 이벤트 간을 이동할 수 있습니다.
+> [샘플링에 대해 알아봅니다](app-insights-sampling.md).
 
 
 ## 개별 항목 검사
@@ -203,4 +220,4 @@ Application Insights SDK에서 보낸 기본 원격 분석 외에도 다음을 �
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

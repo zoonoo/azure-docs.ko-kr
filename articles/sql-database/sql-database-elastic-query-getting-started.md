@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="01/22/2016"
 	ms.author="SilviaDoomra" />
 
 # 분할(행 분할)을 위한 탄력적 쿼리 시작
@@ -44,7 +44,7 @@ Azure SQL 데이터베이스에 탄력적 데이터베이스 쿼리 (미리 보�
 ## 탄력적 쿼리 데이터베이스 만들기
 
 1. [Azure 포털](https://portal.azure.com)을 열고 로그인 합니다.
-2. 분할 된 데이터베이스를 설치한 동일 서버에서 새 Azure SQL 데이터베이스를 만듭니다. 데이터베이스 이름을"ElasticDBQuery."로 합니다. 
+2. 분할 된 데이터베이스를 설치한 동일 서버에서 새 Azure SQL 데이터베이스를 만듭니다. 데이터베이스 이름을"ElasticDBQuery."로 합니다.
 
 	![Azure 포털 및 가격 책정 계층][3]
 
@@ -129,7 +129,7 @@ ElasticDBQuery 데이터베이스에서 다음쿼리를 실행 합니다.
 ### 비용
 탄력적 데이터베이스 쿼리 기능을 사용 하는 것은 무료입니다.
 
-가격 정보는 [SQL 데이터베이스 가격 정보](http://azure.microsoft.com/pricing/details/sql-database/)를 참조하세요.
+가격 정보는 [SQL 데이터베이스 가격 정보](https://azure.microsoft.com/pricing/details/sql-database/)를 참조하세요.
 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
@@ -142,4 +142,4 @@ ElasticDBQuery 데이터베이스에서 다음쿼리를 실행 합니다.
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

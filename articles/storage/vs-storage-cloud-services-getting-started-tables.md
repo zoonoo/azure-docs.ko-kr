@@ -30,7 +30,7 @@ Azure 테이블 저장소 서비스를 사용하면 많은 양의 구조화된 �
 
 - 프로그래밍 방식으로 테이블을 조작하는 방법에 대한 자세한 내용은 [.NET에서 테이블 저장소를 사용하는 방법](storage-dotnet-how-to-use-tables.md)을 참조하세요.
 - Azure 저장소에 대한 일반적인 내용은 [저장소 설명서](https://azure.microsoft.com/documentation/services/storage/)를 참조하세요.
-- Azure 클라우드 서비스에 대한 일반적인 내용은 [클라우드 서비스 설명서](http://azure.microsoft.com/documentation/services/cloud-services/)를 참조하세요.
+- Azure 클라우드 서비스에 대한 일반적인 내용은 [클라우드 서비스 설명서](https://azure.microsoft.com/documentation/services/cloud-services/)를 참조하세요.
 - ASP.NET 응용 프로그램을 프로그래밍하는 방법에 대한 자세한 내용은 [ASP.NET](http://www.asp.net)을 참조하세요.
 
 ## 코드에서 테이블 액세스하기
@@ -50,7 +50,7 @@ Azure 테이블 저장소 서비스를 사용하면 많은 양의 구조화된 �
 		 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 		   CloudConfigurationManager.GetSetting("<storage account name>
          _AzureStorageConnectionString"));
-> [AZURE.NOTE]다음 샘플의 코드 앞에 위의 코드를 모두 사용합니다.
+> [AZURE.NOTE]  다음 샘플의 코드 앞에 위의 코드를 모두 사용합니다.
 
 3. 저장소 계정의 테이블 개체를 참조하려면 **CloudTableClient** 개체를 가져옵니다.
 
@@ -269,4 +269,4 @@ Azure 테이블을 만들려면 "코드에서 테이블 액세스" 섹션에 설
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

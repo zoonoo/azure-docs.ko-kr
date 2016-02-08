@@ -13,13 +13,12 @@
 	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="12/11/2015"
+	ms.topic="article"
+	ms.date="01/27/2016"
 	ms.author="jodebrui"/>
 
 
 # SQL 데이터베이스에서 메모리 내 시작(미리 보기)
-
 
 메모리 내 기술은 합당한 상황에서 트랜잭션 및 분석 워크로드의 성능을 크게 향상시킵니다.
 
@@ -83,7 +82,7 @@ GA, 일반 공급:
 메모리 내 기능이 미리 보기일 때 고려해야 할 사항은 [이 문서의 뒷부분](#preview_considerations_for_in_memory)에 설명되어 있습니다.
 
 
-> [AZURE.NOTE]미리 보기 기능은 표준 또는 기본 서비스 계층의 데이터베이스에는 제공되지 않고, [*프리미엄*](sql-database-service-tiers.md) Azure SQL 데이터베이스에만 제공됩니다.
+> [AZURE.NOTE] 미리 보기 기능은 표준 또는 기본 서비스 계층의 데이터베이스에는 제공되지 않고, [*프리미엄*](sql-database-service-tiers.md) Azure SQL 데이터베이스에만 제공됩니다.
 
 
 
@@ -93,7 +92,7 @@ GA, 일반 공급:
 
 ## A. 메모리 내 OLTP 샘플 설치
 
-[Azure 포털](http://portal.azure.com/)에서 몇 번 클릭으로 AdventureWorksLT [V12] 샘플 데이터베이스를 만들 수 있습니다. 그런 다음 이 섹션의 단계에서는 AdventureWorksLT 데이터베이스를 보강할 수는 방법을 설명합니다.
+[Azure 포털](https://portal.azure.com/)에서 몇 번 클릭으로 AdventureWorksLT [V12] 샘플 데이터베이스를 만들 수 있습니다. 그런 다음 이 섹션의 단계에서는 AdventureWorksLT 데이터베이스를 보강할 수는 방법을 설명합니다.
 
 - 메모리 내 테이블.
 - 고유하게 컴파일된 저장 프로시저.
@@ -101,7 +100,7 @@ GA, 일반 공급:
 
 #### 설치 단계
 
-1. [Azure 포털](http://portal.azure.com/)에서 V12 서버의 Premium 데이터베이스를 만듭니다. AdventureWorksLT [V12] 샘플 데이터베이스에 **소스**를 설정합니다.
+1. [Azure 포털](https://portal.azure.com/)에서 V12 서버의 Premium 데이터베이스를 만듭니다. AdventureWorksLT [V12] 샘플 데이터베이스에 **소스**를 설정합니다.
  - 자세한 지침은 [첫 번째 Azure SQL 데이터베이스 만들기](sql-database-get-started.md)를 참조하세요.
 
 2. SQL Server Management Studio[(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx)를 사용하여 데이터베이스에 연결합니다.
@@ -227,17 +226,18 @@ WHILE (@i < 20)
 begin;
 	EXECUTE SalesLT.usp_InsertSalesOrder_inmem @SalesOrderID OUTPUT,
 		@DueDate, @CustomerID, @BillToAddressID, @ShipToAddressID, @od;
+	SET @i = @i + 1;
 end
 ```
 
 
-ostress.exe에 대한 이전 T-SQL의 \_ondisk 버전을 만들려면 *\_inmem* 문자열의 두 항목을 *\_ondisk* 로 간단히 대체합니다. 이러한 대체는 테이블의 이름 및 저장된 프로시저에 영향을 줍니다.
+ostress.exe에 대한 이전 T-SQL의 \_ondisk 버전을 만들려면 *\_inmem* 문자열의 두 항목을 *\_ondisk*로 간단히 대체합니다. 이러한 대체는 테이블의 이름 및 저장된 프로시저에 영향을 줍니다.
 
 
 ### RML 유틸리티 및 ostress 설치
 
 
-이상적으로 Azure VM에 ostress.exe를 실행합니다. AdventureWorksLT 데이터베이스가 있는 곳과 동일한 Azure 지리적 지역에 [Azure 가상 컴퓨터](http://azure.microsoft.com/documentation/services/virtual-machines/)를 만듭니다. 하지만 대신 노트북에서 ostress.exe를 실행할 수 있습니다.
+이상적으로 Azure VM에 ostress.exe를 실행합니다. AdventureWorksLT 데이터베이스가 있는 곳과 동일한 Azure 지리적 지역에 [Azure 가상 컴퓨터](https://azure.microsoft.com/documentation/services/virtual-machines/)를 만듭니다. 하지만 대신 노트북에서 ostress.exe를 실행할 수 있습니다.
 
 
 VM 또는 선택한 호스트에서 ostress.exe를 포함하는 RML(Replay Markup Language) 유틸리티를 설치합니다.
@@ -277,8 +277,7 @@ ostress.exe -n100 -r50 -S<servername>.database.windows.net -U<login> -P<password
 위의 ostress.exe 명령줄을 실행하려면:
 
 
-1. 이전 실행으로 삽입된 모든 데이터를 삭제하도록 SSMS에서 다음 명령을 실행하여 데이터베이스 데이터 콘텐츠를 다시 설정합니다.
-```
+1. 이전 실행으로 삽입된 모든 데이터를 삭제하도록 SSMS에서 다음 명령을 실행하여 데이터베이스 데이터 콘텐츠를 다시 설정합니다.```
 EXECUTE Demo.usp_DemoReset;
 ```
 
@@ -303,8 +302,7 @@ ostress.exe가 완료되면 출력의 마지막 줄로 실행 기간을 RML Cmd 
 \_Inmem 실행에서 결과를 얻은 후 \_indisk 실행에 대해 다음 단계를 수행합니다.
 
 
-1. 이전 실행으로 삽입된 모든 데이터를 삭제하도록 SSMS에서 다음 명령을 실행하여 데이터베이스를 다시 설정합니다.
-```
+1. 이전 실행으로 삽입된 모든 데이터를 삭제하도록 SSMS에서 다음 명령을 실행하여 데이터베이스를 다시 설정합니다. ```
 EXECUTE Demo.usp_DemoReset;
 ```
 
@@ -317,10 +315,7 @@ EXECUTE Demo.usp_DemoReset;
 
 #### 예상된 비교 결과
 
-데이터베이스와 동일한 Azure 지역의 Azure VM에서 ostress를 실행하여, 이렇게 간단한 워크로드에 대해 출력 메모리 내 테스트의 성능이 **9배** 향상되었습니다.
-
-
-성능 향상은 고유하게 컴파일된 저장된 프로시저에 대한 변환이 추가되면 높을 수 있습니다.
+데이터베이스와 동일한 Azure 지역의 Azure VM에서 ostress를 실행하여, 이렇게 간단한 워크로드에 대해 메모리 내 테스트의 성능이 **9배** 향상되었습니다.
 
 
 ## B. 메모리 내 분석 샘플 설치
@@ -452,7 +447,7 @@ GO
 ## 메모리 내 OLTP에 대한 미리 보기 고려 사항
 
 
-Azure SQL 데이터베이스의 메모리 내 OLTP 기능은 [2015년 10월 28일에 미리 보기에 대해 활성화](http://azure.microsoft.com/updates/public-preview-in-memory-oltp-and-real-time-operational-analytics-for-azure-sql-database/)되었습니다.
+Azure SQL 데이터베이스의 메모리 내 OLTP 기능은 [2015년 10월 28일에 미리 보기에 대해 활성화](https://azure.microsoft.com/updates/public-preview-in-memory-oltp-and-real-time-operational-analytics-for-azure-sql-database/)되었습니다.
 
 
 GA(일반 공급) 전의 미리 보기 단계 동안 메모리 내 OLTP는 다음에 대해서만 지원됩니다.
@@ -528,4 +523,4 @@ SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 
 - 메모리 내 OLTP에 대한 [메모리 내 저장소 모니터링](sql-database-in-memory-oltp-monitoring.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

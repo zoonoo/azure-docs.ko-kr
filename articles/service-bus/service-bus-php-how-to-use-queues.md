@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="10/14/2015" 
+	ms.date="01/26/2016" 
 	ms.author="sethm"/>
 
 # 서비스 버스 큐를 사용하는 방법
@@ -28,7 +28,7 @@
 
 Azure Blob 서비스에 액세스하는 PHP 응용 프로그램을 만드는 데 유일한 요구 사항은 코드 내에서 [PHP용 Azure SDK](../php-download-sdk.md)의 클래스를 참조하는 것입니다. 어떠한 개발 도구를 사용해도 응용 프로그램 또는 메모장을 만들 수 있습니다.
 
-> [AZURE.NOTE]PHP를 설치하려면 [OpenSSL 확장](http://php.net/openssl)도 설치되어 있고 사용하도록 설정되어 있어야 합니다.
+> [AZURE.NOTE] PHP를 설치하려면 [OpenSSL 확장](http://php.net/openssl)도 설치되어 있고 사용하도록 설정되어 있어야 합니다.
 
 이 가이드에서는 PHP 응용 프로그램 내에서 로컬로 또는 Azure 웹 역할, 작업자 역할 또는 웹 사이트 내에서 실행되는 코드에서 호출할 수 있는 서비스 기능을 사용합니다.
 
@@ -38,21 +38,21 @@ Azure Blob 서비스에 액세스하는 PHP 응용 프로그램을 만드는 데
 
 ## 서비스 버스를 사용하도록 응용 프로그램 구성
 
-Azure 서비스 버스 큐 API를 사용하려면 다음을 수행합니다.
+서비스 버스 큐 API를 사용하려면 다음을 수행합니다.
 
 1. [require\_once][require_once] 문을 사용하여 자동 로더 파일을 참조합니다.
 2. 사용할 수 있는 모든 클래스 참조
 
 다음 예제에서는 자동 로더 파일을 포함하고 **ServicesBuilder** 클래스를 참조하는 방법을 보여 줍니다.
 
-> [AZURE.NOTE]이 예제 및 이 문서의 다른 예제에서는 작성기를 통해 Azure용 PHP 클라이언트 라이브러리를 설치했다고 가정합니다. 라이브러리를 수동으로 또는 PEAR 패키지로 설치한 경우 **WindowsAzure.php** 자동 로더 파일을 참조해야 합니다.
+> [AZURE.NOTE] 이 예제 및 이 문서의 다른 예제에서는 작성기를 통해 Azure용 PHP 클라이언트 라이브러리를 설치했다고 가정합니다. 라이브러리를 수동으로 또는 PEAR 패키지로 설치한 경우 **WindowsAzure.php** 자동 로더 파일을 참조해야 합니다.
 
 	require_once 'vendor\autoload.php';
 	use WindowsAzure\Common\ServicesBuilder;
 
 아래 예제에서 `require_once` 문은 항상 표시되지만 예제를 실행하는 데 필요한 클래스만 참조됩니다.
 
-## Azure 서비스 버스 연결 설정
+## 서비스 버스 연결 설정
 
 서비스 버스 클라이언트를 인스턴스화하려면 먼저 다음 형식의 유효한 연결 문자열이 있어야 합니다.
 
@@ -108,7 +108,7 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
 		echo $code.": ".$error_message."<br />";
 	}
 
-> [AZURE.NOTE]`ServiceBusRestProxy` 개체의 `listQueues` 메서드를 사용하여 서비스 네임스페이스 내에 지정된 이름의 큐가 이미 있는지 확인할 수 있습니다.
+> [AZURE.NOTE] `ServiceBusRestProxy` 개체의 `listQueues` 메서드를 사용하여 서비스 네임스페이스 내에 지정된 이름의 큐가 이미 있는지 확인할 수 있습니다.
 
 ## 방법: 큐에 메시지 보내기
 
@@ -209,4 +209,4 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

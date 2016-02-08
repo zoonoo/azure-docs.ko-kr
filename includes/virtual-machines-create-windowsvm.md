@@ -1,4 +1,4 @@
-1. [클래식 포털](http://manage.windowsazure.com)에 로그인 합니다. 아직 구독이 없으면 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/) 서비스를 확인하세요.
+1. [클래식 포털](http://manage.windowsazure.com)에 로그인 합니다. 아직 구독이 없으면 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/) 서비스를 확인하세요.
 
 2. 창 맨 아래의 명령 모음에서 **새로 만들기**를 클릭합니다.
 
@@ -20,16 +20,16 @@
 
 	- **지역/선호도 그룹/가상 네트워크**에는 사용자 위치에 해당하는 지역을 사용합니다. 대신 가상 네트워크를 지정하도록 선택할 수도 있습니다.
 
-	>[AZURE.NOTE]가상 컴퓨터에서 가상 네트워크를 사용하려는 경우 가상 컴퓨터를 만들 때 **반드시** 가상 네트워크를 지정해야 합니다. VM을 만든 후에는 가상 컴퓨터를 가상 네트워크에 가입할 수 없습니다. 자세한 내용은 [Azure 가상 네트워크 개요](virtual-networks-overview.md)(영문)를 참조하세요.
+	>[AZURE.NOTE] 가상 컴퓨터에서 가상 네트워크를 사용하려는 경우 가상 컴퓨터를 만들 때 **반드시** 가상 네트워크를 지정해야 합니다. VM을 만든 후에는 가상 컴퓨터를 가상 네트워크에 가입할 수 없습니다. 자세한 내용은 [Azure 가상 네트워크 개요](virtual-networks-overview.md)(영문)를 참조하세요.
 	>
 	> 끝점을 구성하는 방법에 대한 지침은 [가상 컴퓨터로 끝점을 설정하는 방법](../articles/virtual-machines-set-up-endpoints.md)(영문)을 참조하세요.
 
 7. 네 번째 구성 화면에서는 VM 에이전트를 설치하고 사용 가능한 확장 중 일부를 구성할 수 있습니다.
 
-	>[AZURE.NOTE]VM 에이전트는 가상 컴퓨터를 조작 또는 관리하는 데 유용한 확장을 설치하기 위한 환경을 제공합니다. 자세한 내용은 [VM 에이전트 및 확장 정보](virtual-machines-extensions-agent-about.md)를 참조하세요.
+	>[AZURE.NOTE] VM 에이전트는 가상 컴퓨터를 조작 또는 관리하는 데 유용한 확장을 설치하기 위한 환경을 제공합니다. 자세한 내용은 [VM 에이전트 및 확장 정보](virtual-machines-extensions-agent-about.md)를 참조하세요.
 
 8. 가상 컴퓨터가 만들어지면 클래식 포털의 **가상 컴퓨터** 아래에 새 가상 컴퓨터가 나열됩니다. 해당 클라우드 서비스 및 저장소 계정도 만들어진 후 해당 섹션에 나열됩니다. 가상 컴퓨터와 클라우드 서비스가 둘 다 자동으로 시작되고 해당 상태가 **실행 중**으로 나열됩니다.
 
 	![가상 컴퓨터의 VM 에이전트 및 끝점 구성](./media/virtual-machines-create-WindowsVM/vmcreated.png)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

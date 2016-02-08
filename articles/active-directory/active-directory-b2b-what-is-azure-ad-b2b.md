@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="10/27/2015"
+   ms.date="01/22/2016"
    ms.author="viviali"/>
 
 # Azure AD(Azure Active Directory) B2B 공동 작업 미리 보기: 간단하고 안전한 클라우드 파트너 통합
@@ -28,6 +28,8 @@
 
 Azure AD B2B 공동 작업을 실행하면서 [공개 미리 보기를 알리는 블로그 게시물](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx) 및 [심층 분석 동영상](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-B2B-collaboration-demo)을 확인해 보세요.
 
+Azure AD B2B 공동 작업, Azure AD B2C 및 Azure AD 다중 테넌트 앱에 대한 다양한 사용 사례 비교는 [Azure Active Directory를 사용하여 외부 ID 관리 기능 비교](active-directory-b2b-compare-external-identities.md)를 참조하세요.
+
 ## 관련된 문서
 Azure B2B 공동 작업에 대한 다른 문서 찾아보기:
 
@@ -38,4 +40,4 @@ Azure B2B 공동 작업에 대한 다른 문서 찾아보기:
 - [외부 사용자 개체 특성 변경 사항](active-directory-b2b-references-external-user-object-attribute-changes.md)
 - [현재 미리 보기 제한 사항](active-directory-b2b-current-preview-limitations.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

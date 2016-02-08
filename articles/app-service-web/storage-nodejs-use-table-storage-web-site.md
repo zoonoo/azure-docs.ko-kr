@@ -37,7 +37,7 @@
 
 ![빈 tasklist가 표시된 웹 페이지][node-table-finished]
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ## 필수 조건
 
@@ -53,7 +53,7 @@
 
 Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하기 위해 이 계정을 사용합니다.
 
-1.  [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1.  [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
 2. 포털의 왼쪽 아래에서 **새로 만들기** 아이콘을 클릭한 다음 **데이터 + 저장소** > **저장소**를 클릭합니다. 저장소 계정에 고유한 이름을 지정하고 이를 위한 새 [리소스 그룹](../resource-group-overview.md)을 만듭니다.
 
@@ -88,7 +88,7 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 		├── mkdirp@0.3.5
 		└── commander@1.3.2 (keypress@0.1.0)
 
-	> [AZURE.NOTE]'-g' 매개 변수는 모듈을 전역적으로 설치합니다. 이와 같이 **express**를 사용하여 추가 경로 정보를 입력하지 않고도 웹앱 스캐폴딩을 생성할 수 있습니다.
+	> [AZURE.NOTE] '-g' 매개 변수는 모듈을 전역적으로 설치합니다. 이와 같이 **express**를 사용하여 추가 경로 정보를 입력하지 않고도 웹앱 스캐폴딩을 생성할 수 있습니다.
 
 4. 응용프로그램에 대한 스캐폴딩을 만들려면 **express** 명령을 입력하세요.
 
@@ -167,7 +167,7 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 
 ### 모델 만들기
 
-모델은 응용프로그램에서 데이터를 나타내는 개체입니다. 응용프로그램의 경우 모델만 할 일 목록에서 항목을 나타내는 작업 개체입니다. 작업에는 다음 필드가 포함됩니다.
+*모델*은 응용프로그램에서 데이터를 나타내는 개체입니다. 응용프로그램의 경우 모델만 할 일 목록에서 항목을 나타내는 작업 개체입니다. 작업에는 다음 필드가 포함됩니다.
 
 - PartitionKey
 - RowKey
@@ -258,7 +258,7 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 
 ### 컨트롤러 만들기
 
-컨트롤러는 HTTP 요청을 처리하고 HTML 응답을 렌더링합니다.
+*컨트롤러*는 HTTP 요청을 처리하고 HTML 응답을 렌더링합니다.
 
 1. **tasklist/routes** 디렉터리에서 **tasklist.js**라는 새 파일을 만들고 텍스트 편집기에서 엽니다.
 
@@ -336,7 +336,7 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 		var accountName = nconf.get("STORAGE_NAME");
 		var accountKey = nconf.get("STORAGE_KEY");
 
-	> [AZURE.NOTE]nconf는 환경 변수 또는 나중에 만들 **config.json** 파일에서 구성 값을 로드합니다.
+	> [AZURE.NOTE] nconf는 환경 변수 또는 나중에 만들 **config.json** 파일에서 구성 값을 로드합니다.
 
 3. app.js 파일에서 다음 줄이 보일 때까지 아래로 스크롤합니다.
 
@@ -441,7 +441,7 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 	    "TABLE_NAME": "tasks"
 	}
 
-다음과 같이 이 파일을 **tasklist** 디렉터리보다 한 디렉터리 높은 단계에 저장합니다.
+다음과 같이 이 파일을 **tasklist** 디렉터리보다 *한 디렉터리 높은 단계*에 저장합니다.
 
 	parent/
 	  |-- config.json
@@ -478,7 +478,7 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 
 이 섹션의 단계는 Azure 명령줄 도구를 사용하여 앱 서비스에서 새 웹앱을 만든 다음 Git을 사용하여 응용프로그램을 배포합니다. 이러한 단계를 수행하려면 Azure 구독이 있어야 합니다.
 
-> [AZURE.NOTE]이러한 단계는 [Azure 포털](https://portal.azure.com)을 사용하여 수행할 수도 있습니다. [Azure 앱 서비스에서 Node.js 웹앱 빌드 및 배포]를 참조하세요.
+> [AZURE.NOTE] 이러한 단계는 [Azure 포털](https://portal.azure.com/)을 사용하여 수행할 수도 있습니다. [Azure 앱 서비스에서 Node.js 웹앱 빌드 및 배포]를 참조하세요.
 >
 > 처음으로 만든 웹앱인 경우 Azure 포털을 사용하여 이 응용프로그램을 배포해야 합니다.
 
@@ -496,9 +496,7 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 
 	이 명령은 브라우저를 시작하고 다운로드 페이지로 이동합니다. 메시지가 나타나면 Azure 구독과 관련된 계정으로 로그인합니다.
 
-	<!-- ![The download page][download-publishing-settings] -->
-
-	파일 다운로드가 자동으로 시작됩니다. 그렇지 않은 경우 페이지 처음 부분에서 링크를 클릭하여 수동으로 파일을 다운로드할 수 있습니다. 파일을 저장하고 파일 경로를 기록해 둡니다.
+	<!-- ![The download page][download-publishing-settings] -->파일 다운로드가 자동으로 시작됩니다. 그렇지 않은 경우 페이지 처음 부분에서 링크를 클릭하여 수동으로 파일을 다운로드할 수 있습니다. 파일을 저장하고 파일 경로를 기록해 둡니다.
 
 2. 다음 명령을 입력하여 설정을 가져옵니다.
 
@@ -535,7 +533,7 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 		info:   Executing `git remote add azure https://username@tabletasklist.azurewebsites.net/TableTasklist.git`
 		info:   site create command OK
 
-	> [AZURE.NOTE]구독에 대한 앱 서비스 웹앱을 처음 만드는 경우 Azure 포털을 사용하여 웹앱을 만들라고 안내됩니다. 자세한 내용은 [Azure 앱 서비스에서 Node.js 웹앱 빌드 및 배포]를 참조하세요.
+	> [AZURE.NOTE] 구독에 대한 앱 서비스 웹앱을 처음 만드는 경우 Azure 포털을 사용하여 웹앱을 만들라고 안내됩니다. 자세한 내용은 [Azure 앱 서비스에서 Node.js 웹앱 빌드 및 배포]를 참조하세요.
 
 ### 환경 변수 설정
 
@@ -547,7 +545,7 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 
 앞서 만든 저장소 계정 이름으로 **<storage account name>**을(를) 바꾸고 저장소 계정의 기본 액세스 키로 **<storage access key>**을(를) 바꿉니다. (이전에 만든 config.json 파일과 동일한 값을 사용합니다.)
 
-또는 [Azure 포털](https://portal.azure.com)에서 환경 변수를 설정할 수 있습니다.
+또는 [Azure 포털](https://portal.azure.com/)에서 환경 변수를 설정할 수 있습니다.
 
 1.  **찾아보기** > **웹앱** > 사용자의 웹앱 이름을 클릭하여 웹앱 블레이드를 엽니다.
 
@@ -637,4 +635,4 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 [app-settings-save]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
 [app-settings]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

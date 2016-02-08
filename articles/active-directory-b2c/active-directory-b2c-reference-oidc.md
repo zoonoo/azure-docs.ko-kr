@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/21/2016"
 	ms.author="dastrock"/>
 
 # Azure AD B2C 미리 보기: OpenID Connect로 웹 로그인
@@ -77,7 +77,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 | 매개 변수 | | 설명 |
 | ----------------------- | ------------------------------- | ----------------------- |
-| client\_id | 필수 | [Azure 포털](https://portal.azure.com)이 앱에 할당된 응용 프로그램 ID입니다. |
+| client\_id | 필수 | [Azure 포털](https://portal.azure.com/)이 앱에 할당된 응용 프로그램 ID입니다. |
 | response\_type | 필수 | OpenID Connect를 위한 `id_token`이 포함되어야 합니다. 웹앱이 Web API를 호출하기 위해 토큰이 필요한 경우 여기서 수행한 대로 `code+id_token`를 사용할 수 있습니다. |
 | redirect\_uri | 필수 | 앱이 인증 응답을 보내고 받을 수 있는 앱의 redirect\_uri입니다. URL로 인코드되어야 한다는 점을 제외하고 포털에서 등록한 redirect\_uri 중 하나와 정확히 일치해야 합니다. |
 | scope | 필수 | 공백으로 구분된 범위 목록입니다. 단일 범위 값은 요청된 사용 권한을 모두 Azure AD에 나타냅니다. `openid` 범위는 사용자 로그인 및 **id\_tokens**의 형식으로 사용자에 대 한 데이터를 가져올 사용 권한을 나타냅니다.(앞으로 추가됨) `offline_access` 범위는 웹앱에 대한 선택 사항입니다. 앱이 리소스에 장기간 액세스할 수 있도록 **refresh\_token**이 필요함을 나타냅니다. |
@@ -133,8 +133,7 @@ Azure AD B2C에는 앱이 런타임에 Azure AD B2C에 대한 정보를 가져�
 
 id\_token을 서명하는 데 어떤 정책을 사용할지(그리고 메타데이터를 인출하는 위치)를 결정하기 위해 두 가지 옵션이 있습니다. 먼저 정책 이름은 id\_token의 `acr` 클레임에 포함됩니다. id\_token에서 클레임을 구문 분석하는 방법에 대한 내용은 [Azure AD B2C 토큰 참조](active-directory-b2c-reference-tokens.md)를 참조하세요. 다른 옵션은 요청을 실행할 때 `state` 매개 변수의 값에 정책을 인코딩한 다음 이를 디코딩하여 어떤 정책을 사용할지 결정하는 것입니다. 두 방법 모두 완벽하게 유효합니다.
 
-OpenID Connect 메타데이터 끝점에서 메타데이터 문서를 획득하면 이 끝점에 위치한 RSA256 공용 키를 사용하여 id\_token의 서명의 유효성을 검사할 수 있습니다. 이 끝점에는 항상 여러 키가 나열될 수 있으며, 각각 `kid`로 식별됩니다. id\_token의 헤더에는 id\_token 서명에 사용된 키를 나타내는 `kid` 클레임도 포함됩니다. [토큰 유효성 검사](active-directory-b2c-reference-tokens.md#validating-tokens) 및 [서명 키 롤오버에 대한 중요한 정보](active-directory-b2c-reference-tokens.md#validating-tokens)를 포함하여 자세한 내용은 [Azure AD B2C 토큰 참조](active-directory-b2c-reference-tokens.md)를 참조하세요.
-<!--TODO: Improve the information on this-->
+OpenID Connect 메타데이터 끝점에서 메타데이터 문서를 획득하면 이 끝점에 위치한 RSA256 공용 키를 사용하여 id\_token의 서명의 유효성을 검사할 수 있습니다. 이 끝점에는 항상 여러 키가 나열될 수 있으며, 각각 `kid`로 식별됩니다. id\_token의 헤더에는 id\_token 서명에 사용된 키를 나타내는 `kid` 클레임도 포함됩니다. [토큰 유효성 검사](active-directory-b2c-reference-tokens.md#validating-tokens) 및 [서명 키 롤오버에 대한 중요한 정보](active-directory-b2c-reference-tokens.md#validating-tokens)를 포함하여 자세한 내용은 [Azure AD B2C 토큰 참조](active-directory-b2c-reference-tokens.md)를 참조하세요.<!--TODO: Improve the information on this-->
 
 id\_token의 서명 유효성을 검사한 후 확인해야 하는 몇 개의 클레임이 있습니다.
 
@@ -175,12 +174,12 @@ Content-Type: application/json
 | 매개 변수 | | 설명 |
 | ----------------------- | ------------------------------- | --------------------- |
 | p | 필수 | 권한 부여 코드를 획득하는 데 사용된 정책입니다. 이 요청에 다른 정책을 사용할 수 없습니다. **이 매개 변수는 쿼리 문자열에 추가 됩니다**. 게시 본문은 안됩니다. |
-| client\_id | 필수 | [Azure 포털](https://portal.azure.com)이 앱에 할당된 응용 프로그램 ID입니다. |
+| client\_id | 필수 | [Azure 포털](https://portal.azure.com/)이 앱에 할당된 응용 프로그램 ID입니다. |
 | grant\_type | 필수 | 인증 코드 흐름에 대한 `authorization_code`여야 합니다. |
 | scope | 필수 | 공백으로 구분된 범위 목록입니다. 단일 범위 값은 요청된 사용 권한을 모두 Azure AD에 나타냅니다. `openid` 범위는 사용자 로그인 및 **id\_tokens**의 형식으로 사용자에 대 한 데이터를 가져올 사용 권한을 나타냅니다. 앱 자체의 백 엔드 Web API에 토큰을 가져오기 위해 사용할 수 있으며 이는 클라이언트와 동일한 응용 프로그램 ID로 나타납니다. `offline_access` 범위는 앱이 리소스에 장기간 액세스할 수 있도록 **refresh\_token**이 필요함을 나타냅니다. |
 | 코드 | 필수 | 흐름의 첫 번째 레그에서 얻은 authorization\_code입니다. |
 | redirect\_uri | 필수 | authorization\_code을 받은 응용 프로그램의 redirect\_uri입니다. |
-| client\_secret | 필수 | [Azure 포털](https://portal.azure.com)에서 생성한 응용 프로그램 암호입니다. 이 응용 프로그램 암호는 중요한 보안 아티팩트이며 서버에 안전하게 저장해야 합니다. 또한 이 클라이언트 암호를 정기적으로 순환하도록 주의해야 합니다. |
+| client\_secret | 필수 | [Azure 포털](https://portal.azure.com/)에서 생성한 응용 프로그램 암호입니다. 이 응용 프로그램 암호는 중요한 보안 아티팩트이며 서버에 안전하게 저장해야 합니다. 또한 이 클라이언트 암호를 정기적으로 순환하도록 주의해야 합니다. |
 
 성공적인 토큰 응답은 다음과 같습니다.
 
@@ -207,7 +206,8 @@ Content-Type: application/json
 | refresh\_token | OAuth 2.0 새로 고침 토큰입니다. 앱은 현재 토큰이 만료된 후 이 토큰을 사용하여 추가 토큰을 획득할 수 있습니다. refresh\_token은 수명이 길며, 오랜 시간 동안 리소스에 대한 액세스를 유지하는 데 사용할 수 있습니다. 자세한 내용은 [B2C 토큰 참조](active-directory-b2c-reference-tokens.md)를 참조하세요. 권한 부여 및 토큰 요청에서 새로 고침 토큰을 수신하기 위해 범위 `offline_access`를 사용했습니다. |
 | refresh\_token\_expires\_in | 최대 시간 새로 고침 토큰은 (초)동안 유효할 수 있습니다. 그러나 새로 고침 토큰은 언제든지 잘못될 수 있습니다. |
 
-> [AZURE.NOTE]이 시점에서 "access\_token가 어디 있는지" 생각하고 있다면 다음을 고려합니다. `openid` 범위를 요청하는 경우 Azure AD는 응답에서 JWT `id_token`를 발급합니다. `id_token`이 기술적으로 OAuth 2.0 access\_token이 아닌 반면 앱 자체의 백 엔드 서비스와 통신할 때와 같이 사용될 수 있으며 클라이언트와 동일한 client\_id로 나타납니다. `id_token`는 여전히 HTTP 권한 부여 헤더에 있는 리소스에 전송되고 요청을 인증하는 데 사용될 수 있는 서명된 JWT 전달자 토큰입니다. 차이점은 `id_token`이 특정 클라이언트 응용 프로그램이 가질 수 있는 액세스 범위를 축소하는 메커니즘이 없다는 점입니다. 그러나 클라이언트 응용 프로그램이 백 엔드 서비스와 통신할 수 있는 클라이언트인 경우(현재 Azure AD B2C 미리 보기를 사용한 경우처럼) 범위 지정 메커니즘과 같은 것은 필요하지 않습니다. Azure AD B2C 미리 보기는 추가 본사 및 타사 리소스와 통신하는 클라이언트에 대한 기능을 추가하며 access\_tokens을 소개합니다. 그러나 해당 시간에도 앱 자체의 백 엔드 서비스와 통신하는 데 `id_tokens`을 사용하는 것이 추천되는 패턴입니다. Azure AD B2C 미리 보기로 빌드할 수 있는 응용 프로그램의 형식에 대해 자세한 정보는 [이 문서](active-directory-b2c-apps.md)를 참조하세요.
+> [AZURE.NOTE]
+	이 시점에서 "access\_token가 어디 있는지" 생각하고 있다면 다음을 고려합니다. `openid` 범위를 요청하는 경우 Azure AD는 응답에서 JWT `id_token`를 발급합니다. `id_token`이 기술적으로 OAuth 2.0 access\_token이 아닌 반면 앱 자체의 백 엔드 서비스와 통신할 때와 같이 사용될 수 있으며 클라이언트와 동일한 client\_id로 나타납니다. `id_token`는 여전히 HTTP 권한 부여 헤더에 있는 리소스에 전송되고 요청을 인증하는 데 사용될 수 있는 서명된 JWT 전달자 토큰입니다. 차이점은 `id_token`이 특정 클라이언트 응용 프로그램이 가질 수 있는 액세스 범위를 축소하는 메커니즘이 없다는 점입니다. 그러나 클라이언트 응용 프로그램이 백 엔드 서비스와 통신할 수 있는 클라이언트인 경우(현재 Azure AD B2C 미리 보기를 사용한 경우처럼) 범위 지정 메커니즘과 같은 것은 필요하지 않습니다. Azure AD B2C 미리 보기는 추가 본사 및 타사 리소스와 통신하는 클라이언트에 대한 기능을 추가하며 access\_tokens을 소개합니다. 그러나 해당 시간에도 앱 자체의 백 엔드 서비스와 통신하는 데 `id_tokens`을 사용하는 것이 추천되는 패턴입니다. Azure AD B2C 미리 보기로 빌드할 수 있는 응용 프로그램의 형식에 대해 자세한 정보는 [이 문서](active-directory-b2c-apps.md)를 참조하세요.
 
 오류 응답은 다음과 같습니다.
 
@@ -246,19 +246,19 @@ Content-Type: application/json
 	"scope": "openid offline_access",
 	"refresh_token": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...",
 	"redirect_uri": "urn:ietf:wg:oauth:2.0:oob",
-	"client_secret": "<your-application-secret>"	
+	"client_secret": "<your-application-secret>"
 }
 ```
 
 | 매개 변수 | | 설명 |
 | ----------------------- | ------------------------------- | -------- |
 | p | 필수 | 원래 새로 고침 토큰을 획득하는 데 사용된 정책입니다. 이 요청에 다른 정책을 사용할 수 없습니다. **이 매개 변수는 쿼리 문자열에 추가 됩니다**. 게시 본문은 안됩니다. |
-| client\_id | 필수 | [Azure 포털](https://portal.azure.com)이 앱에 할당된 응용 프로그램 ID입니다. |
-| grant\_type | 필수 | 이 인증 코드 흐름 레그에 대한 `refresh_token`이어야 합니다. |
+| client\_id | 필수 | [Azure 포털](https://portal.azure.com/)이 앱에 할당된 응용 프로그램 ID입니다. |
+| grant\_type | 필수 | 이 인증 코드 흐름 범례에 대한 `refresh_token`이어야 합니다. |
 | scope | 필수 | 공백으로 구분된 범위 목록입니다. 단일 범위 값은 요청된 사용 권한을 모두 Azure AD에 나타냅니다. `openid` 범위는 사용자 로그인 및 **id\_tokens**의 형식으로 사용자에 대 한 데이터를 가져올 사용 권한을 나타냅니다. 앱 자체의 백 엔드 Web API에 토큰을 가져오기 위해 사용할 수 있으며 이는 클라이언트와 동일한 응용 프로그램 ID로 나타납니다. `offline_access` 범위는 앱이 리소스에 장기간 액세스할 수 있도록 **refresh\_token**이 필요함을 나타냅니다. |
 | redirect\_uri | 필수 | authorization\_code을 받은 응용 프로그램의 redirect\_uri입니다. |
 | refresh\_token | 필수 | 흐름의 두 번째 레그에서 얻은 원래 refresh\_token입니다. 권한 부여 및 토큰 요청에서 새로 고침 토큰을 수신하기 위해 범위 `offline_access`를 사용했습니다. |
-| client\_secret | 필수 | [Azure 포털](https://portal.azure.com)에서 생성한 응용 프로그램 암호입니다. 이 응용 프로그램 암호는 중요한 보안 아티팩트이며 서버에 안전하게 저장해야 합니다. 또한 이 클라이언트 암호를 정기적으로 순환하도록 주의해야 합니다. |
+| client\_secret | 필수 | [Azure 포털](https://portal.azure.com/)에서 생성한 응용 프로그램 암호입니다. 이 응용 프로그램 암호는 중요한 보안 아티팩트이며 서버에 안전하게 저장해야 합니다. 또한 이 클라이언트 암호를 정기적으로 순환하도록 주의해야 합니다. |
 
 성공적인 토큰 응답은 다음과 같습니다.
 
@@ -300,11 +300,11 @@ Content-Type: application/json
 | error\_description | 개발자가 인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. |
 
 
-<!-- 
+<!--
 
 Here is the entire flow for a native  app; each request is detailed in the sections below:
 
-![OAuth Auth Code Flow](./media/active-directory-b2c-reference-oauth-code/convergence_scenarios_native.png) 
+![OAuth Auth Code Flow](./media/active-directory-b2c-reference-oauth-code/convergence_scenarios_native.png)
 
 -->
 
@@ -325,7 +325,8 @@ p=b2c_1_sign_in
 | p | 필수 | 사용자가 가장 최근에 응용 프로그램에 로그인하기 위해 사용한 정책입니다. |
 | post\_logout\_redirect\_uri | 권장 | 성공적으로 로그아웃한 후에 사용자가 리디렉션되는 URL입니다. 포함되지 않은 경우 Azure AD B2C에서 사용자에게 일반 메시지를 표시합니다. |
 
-> [AZURE.NOTE]사용자를 `end_session_endpoint`로 지시하면 Azure AD를 사용한 사용자 single sign-on 상태의 선택을 일부 취소하는 반면 현재 사용자를 효과적으로 로그아웃시키지 않습니다. 대신 사용자는 로그인하기를 원하는 IDP를 선택한 다음 자격 증명을 입력하지 않고 다시 인증을 받습니다. 소셜 IDP의 경우 예상되는 동작입니다. 사용자가 B2C 디렉토리에서 로그아웃하려는 경우 반드시 완전히 Facebook 계정을 로그아웃한다는 의미는 아닙니다. 그러나 로컬 계정의 경우 제대로 사용자의 세션을 종료할 수 있어야 합니다. 로컬 계정 로그아웃이 제대로 작동하지 않는 Azure AD 미리 보기의 알려진 [제한](active-directory-b2c-limitations.md)입니다. 즉각적인 용어에 대한 해결책은 각 인증 요청에서 `&prompt=login` 매개 변수를 보내며 이는 원하는 동작의 모양이지만 B2C 디렉터리의 응용 프로그램 간에 single sign-on을 끊습니다.
+> [AZURE.NOTE]
+	사용자를 `end_session_endpoint`로 지시하면 Azure AD를 사용한 사용자 single sign-on 상태의 선택을 일부 취소하는 반면 현재 사용자를 효과적으로 로그아웃시키지 않습니다. 대신 사용자는 로그인하기를 원하는 IDP를 선택한 다음 자격 증명을 입력하지 않고 다시 인증을 받습니다. 소셜 IDP의 경우 예상되는 동작입니다. 사용자가 B2C 디렉토리에서 로그아웃하려는 경우 반드시 완전히 Facebook 계정을 로그아웃한다는 의미는 아닙니다. 그러나 로컬 계정의 경우 제대로 사용자의 세션을 종료할 수 있어야 합니다. 로컬 계정 로그아웃이 제대로 작동하지 않는 Azure AD 미리 보기의 알려진 [제한](active-directory-b2c-limitations.md)입니다. 즉각적인 용어에 대한 해결책은 각 인증 요청에서 `&prompt=login` 매개 변수를 보내며 이는 원하는 동작의 모양이지만 B2C 디렉터리의 응용 프로그램 간에 single sign-on을 끊습니다.
 
 ## 사용자 고유의 B2C 디렉터리 사용
 
@@ -345,4 +346,4 @@ image goes here
 
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

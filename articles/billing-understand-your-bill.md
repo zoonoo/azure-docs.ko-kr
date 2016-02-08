@@ -24,7 +24,7 @@ Microsoft Azure 구독 요금은 요금제에 따라 다릅니다. Visual Studio
 
 이전 청구 기간에서 최대 24시간의 잠재 사용량이 현재 청구 기간에 보고될 수 있습니다.
 
-소비와 요금 계획에 관한 자세한 내용은 [Microsoft Azure 구입 옵션 페이지](http://azure.microsoft.com/pricing/purchase-options/)를 참조하세요.
+소비와 요금 계획에 관한 자세한 내용은 [Microsoft Azure 구입 옵션 페이지](https://azure.microsoft.com/pricing/purchase-options/)를 참조하세요.
 
 아래 링크는 모든 Microsoft Azure 서비스의 전체 목록을 다룹니다.
 
@@ -262,4 +262,4 @@ SKU | SKU | 각 Azure 리소스에 대한 고유한 시스템 식별자를 식�
 
 <!--Image references-->
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

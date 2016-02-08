@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/14/2015"
+	ms.date="01/13/2016"
 	ms.author="byvinyal"/>
 
 #<a name="howtomonitor"></a>Azure 앱 서비스에서 웹 앱 모니터링
@@ -24,7 +24,7 @@
 
 ##메트릭 보존 정책
 
->[AZURE.NOTE]앱 메트릭에 대한 보존 정책은 세분성에 따라 다릅니다.
+>[AZURE.NOTE] 앱 메트릭에 대한 보존 정책은 세분성에 따라 다릅니다.
 
 - **분** 세분성 메트릭은 **24시간** 동안 보존됩니다.
 - **시** 세분성 메트릭은 **7일** 동안 보존됩니다.
@@ -54,7 +54,7 @@
 
 [클래식 포털](https://manage.windowsazure.com)의 웹앱 **규모** 관리 페이지에서 웹앱이 **공유** 및 **표준** 모드에서 모두 실행될 수 있도록 구성할 수 있습니다. 각 Azure 구독은 **공유** 모드에서 지역당 최대 100개의 웹 앱을 실행하도록 제공된 리소스 풀에 액세스할 수 있습니다. 이런 목적으로 각 웹 앱 구독에서 사용할 수 있는 리소스 풀은 동일한 지역에 있으며 **공유** 모드로 실행되도록 구성된 다른 웹 앱에서 공유됩니다. 이러한 리소스가 다른 웹 앱에서도 사용할 수 있도록 공유되기 때문에 모든 구독은 이러한 리소스 사용과 관련하여 제한을 받습니다. 이러한 리소스의 구독 사용에 적용된 제한은 각 웹 앱의 **대시보드** 관리 페이지에 있는 사용 개요 섹션 아래에 나열된 사용 할당량으로 표시됩니다.
 
->[AZURE.NOTE]웹 앱이 **표준** 모드에서 실행되도록 구성되면 [Azure의 가상 컴퓨터 및 클라우드 서비스 크기][vmsizes]로 테이블에 **작음**(기본값), **중간** 또는 **큼** 가상 컴퓨터 크기에 해당하는 전용 리소스가 할당됩니다. 구독이 **표준** 모드에서 실행 중인 웹 앱에 사용할 수 있는 리소스에는 제한이 없습니다. 그러나 지역당 만들 수 있는 **표준** 모드 웹 앱의 수는 500개입니다.
+>[AZURE.NOTE] 웹 앱이 **표준** 모드에서 실행되도록 구성되면 [Azure의 가상 컴퓨터 및 클라우드 서비스 크기][vmsizes]로 테이블에 **작음**(기본값), **중간** 또는 **큼** 가상 컴퓨터 크기에 해당하는 전용 리소스가 할당됩니다. 구독이 **표준** 모드에서 실행 중인 웹 앱에 사용할 수 있는 리소스에는 제한이 없습니다. 그러나 지역당 만들 수 있는 **표준** 모드 웹 앱의 수는 500개입니다.
 
 ### 방법: 공유 모드로 구성된 웹 앱에 대한 사용 할당량 보기 ###
 웹 앱이 리소스 사용 할당량에 영향을 미치는 범위를 확인하려면 다음 단계를 따르세요.
@@ -100,7 +100,7 @@
 
 Azure 저장소 계정에 대한 자세한 내용은 [저장소 계정을 관리하는 방법](/manage/services/storage/how-to-manage-a-storage-account/)(영문)을 참조하십시오.
 
-> [AZURE.NOTE]테이블 또는 Blob 저장소에 대한 응용 프로그램 로깅은 .NET 응용 프로그램에서만 지원됩니다.
+> [AZURE.NOTE] 테이블 또는 Blob 저장소에 대한 응용 프로그램 로깅은 .NET 응용 프로그램에서만 지원됩니다.
 
 저장소에 대한 응용 프로그램 로깅의 경우 저장소 클라이언트를 사용하여 로그 데이터를 봐야 하므로, Azure 테이블 또는 Blob 저장소에서 데이터를 직접 읽고 처리하는 방법을 인식하는 서비스 또는 응용 프로그램 사용을 계획할 때 이런 점에 유의해야 합니다. 파일 시스템에 로깅하면 FTP 또는 이 섹션의 뒷부분에서 설명하는 기타 유틸리티를 사용하여 로컬 컴퓨터에 다운로드할 수 있는 파일이 생성됩니다.
 
@@ -108,7 +108,7 @@ Azure 저장소 계정에 대한 자세한 내용은 [저장소 계정을 관리
 
 Azure PowerShell에서 **Set-AzureWebsite** cmdlet을 사용해서도 진단을 사용하도록 설정할 수 있습니다. Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 이를 구성하지 않은 경우 [Azure PowerShell을 사용하는 방법](/develop/nodejs/how-to-guides/powershell-cmdlets/)(영문)을 참조하십시오.
 
-> [AZURE.NOTE]응용 프로그램 로깅은 응용 프로그램에서 생성되는 로그 정보를 사용합니다. 로그 정보뿐 아니라 정보의 형식을 생성하는 데 사용되는 메서드는 응용 프로그램을 작성한 언어에 따라 달라집니다. 응용 프로그램 로깅 사용에 관한 특정 언어는 다음 문서를 참조합니다.
+> [AZURE.NOTE] 응용 프로그램 로깅은 응용 프로그램에서 생성되는 로그 정보를 사용합니다. 로그 정보뿐 아니라 정보의 형식을 생성하는 데 사용되는 메서드는 응용 프로그램을 작성한 언어에 따라 달라집니다. 응용 프로그램 로깅 사용에 관한 특정 언어는 다음 문서를 참조합니다.
 >
 > - **.NET** - [Visual Studio를 사용하여 Azure 앱 서비스에서 웹앱 문제 해결](web-sites-dotnet-troubleshoot-visual-studio.md)
 > - **Node.js** - [Azure 웹 사이트에서 Node.js 응용 프로그램 디버그 방법](web-sites-nodejs-debug.md)
@@ -134,7 +134,7 @@ Azure PowerShell에서 **Set-AzureWebsite** cmdlet을 사용해서도 진단을 
 
 웹 앱에 대한 진단을 사용하도록 설정한 후 **구성** 관리 페이지의 맨 아래 있는 **저장** 아이콘을 클릭하여 설정된 옵션을 적용합니다.
 
-> [AZURE.IMPORTANT]자세한 오류 메시지 및 실패한 요청 추적은 웹앱에 상당한 부담을 줍니다. 해결 중인 문제를 재현한 후에는 이러한 기능을 해제하는 것이 좋습니다.
+> [AZURE.IMPORTANT] 자세한 오류 메시지 및 실패한 요청 추적은 웹앱에 상당한 부담을 줍니다. 해결 중인 문제를 재현한 후에는 이러한 기능을 해제하는 것이 좋습니다.
 
 ### 고급 구성 ###
 
@@ -173,7 +173,7 @@ Azure PowerShell에서 **Set-AzureWebsite** cmdlet을 사용해서도 진단을 
 
 1. **시작 화면** 또는 **시작 메뉴**에서 **Azure PowerShell**을 검색합니다. **Azure PowerShell**을 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 선택합니다.
 
-	> [AZURE.NOTE]**Azure PowerShell**이 아직 설치되지 않은 경우 설치 및 구성 정보에 대해서는 [Azure PowerShell Cmdlet 시작](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx)을 참조하십시오.
+	> [AZURE.NOTE] **Azure PowerShell**이 아직 설치되지 않은 경우 설치 및 구성 정보에 대해서는 [Azure PowerShell Cmdlet 시작](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx)을 참조하십시오.
 
 2. Azure PowerShell 프롬프트에서 다음 명령을 사용하여 로그 파일을 다운로드합니다.
 
@@ -201,7 +201,7 @@ Azure PowerShell에서 **Set-AzureWebsite** cmdlet을 사용해서도 진단을 
 
 명령이 실행된 명령 프롬프트, PowerShell, bash 또는 터미널 세션에 로그 정보가 표시됩니다.
 
-> [AZURE.NOTE]**azure** 명령이 설치되지 않은 경우 설치 및 구성 정보에 대해서는 [Azure CLI를 사용하는 방법](../virtual-machines-command-line-tools.md)을 참조하세요.
+> [AZURE.NOTE] **azure** 명령이 설치되지 않은 경우 설치 및 구성 정보에 대해서는 [Azure CLI를 사용하는 방법](../virtual-machines-command-line-tools.md)을 참조하세요.
 
 ### 로그 파일 읽기 ###
 
@@ -263,7 +263,7 @@ Azure PowerShell에서 **Set-AzureWebsite** cmdlet을 사용해서도 진단을 
 7.	선택적으로, 앞의 단계를 반복하여 두 번째 끝점을 만듭니다.
 8.	**Save**를 클릭합니다. 웹 끝점 모니터링 데이터가 **대시보드** 및 **모니터** 탭에서 사용 가능해질 때까지 어느 정도 시간이 걸릴 수 있습니다.
 
-	메일 규칙을 만들려면 다음을 수행합니다.
+메일 규칙을 만들려면 다음을 수행합니다.
 
 9.	왼쪽 끝의 서비스 모음에서 **관리 서비스**를 클릭합니다.
 10.	아래쪽의 **규칙 추가**를 클릭합니다.
@@ -279,7 +279,7 @@ Azure PowerShell에서 **Set-AzureWebsite** cmdlet을 사용해서도 진단을 
 
 - [Azure 웹 사이트 가동 및 끝점 모니터링 - 스테판 스차코우(Stefan Schackow)(영문)](/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/)
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
@@ -289,4 +289,4 @@ Azure PowerShell에서 **Set-AzureWebsite** cmdlet을 사용해서도 진단을 
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

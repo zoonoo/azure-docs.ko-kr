@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/08/2015" 
+	ms.date="01/26/2016" 
 	ms.author="cephalin"/>
 
 # Azure 앱 서비스의 운영 체제 기능 #
@@ -105,10 +105,10 @@
 
 사용자별 레지스트리 키 액세스를 포함하여 레지스트리에 대한 쓰기 액세스는 차단됩니다. 앱의 관점에서 보면, Azure 환경에서는 여러 가상 컴퓨터에서 앱을 마이그레이션할 수 있고 마이그레이션하므로 레지스트리에 대한 쓰기 액세스에 의존해서는 안 됩니다. 앱이 사용할 수 있는 유일한 쓰기 가능한 영구 저장소는 앱 서비스 UNC 공유에 저장된 앱별 콘텐츠 디렉터리 구조입니다.
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
  
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

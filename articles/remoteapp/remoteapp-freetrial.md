@@ -24,10 +24,10 @@ Azure를 구독하는 경우 [30일 동안 무료로 Azure RemoteApp](https://ww
 
 평가 모드에서 작업하는 동안 컬렉션 제한당 10명의 사용자와 두 개의 컬렉션을 만들 수 있습니다. 기타 제한은 없습니다. 언제든지 유료 구독으로 사용자가 평가판을 변환할 수 있습니다. 유료 구독으로 변환하지 않는 경우 30일 후 컬렉션은 비활성화됩니다.
 
->[AZURE.NOTE]Azure SLA는 평가 모드에서 작성된 컬렉션에 적용되지 않습니다.
+>[AZURE.NOTE] Azure SLA는 평가 모드에서 작성된 컬렉션에 적용되지 않습니다.
 
-기다릴 수 없나요? [클라우드 배포를 만드는](http://azure.microsoft.com/documentation/videos/azure-remoteapp-cloud-deployment-overview/) 방법에 대한 간단한 비디오를 보세요.
+기다릴 수 없나요? [클라우드 배포를 만드는](https://azure.microsoft.com/documentation/videos/azure-remoteapp-cloud-deployment-overview/) 방법에 대한 간단한 비디오를 보세요.
 
-피드백이 있나요? [토론 포럼](http://feedback.azure.com/forums/247748-azure-remoteapp)에 질문을 게시하세요. [Azure 지원 계획](http://azure.microsoft.com/support/plans/)이 있는 경우 지원 사례를 제출할 수 있습니다. 누구나 [피드백 포럼](http://feedback.azure.com/forums/247748-azure-remoteapp)에 피드백을 제출할 수 있습니다.
+피드백이 있나요? [토론 포럼](https://feedback.azure.com/forums/247748-azure-remoteapp/)에 질문을 게시하세요. [Azure 지원 계획](https://azure.microsoft.com/support/plans/)이 있는 경우 지원 사례를 제출할 수 있습니다. 누구나 [피드백 포럼](https://feedback.azure.com/forums/247748-azure-remoteapp/)에 피드백을 제출할 수 있습니다.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

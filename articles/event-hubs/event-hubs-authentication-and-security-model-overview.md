@@ -1,6 +1,6 @@
 <properties 
    pageTitle="이벤트 허브 인증 및 보안 모델의 개요 | Microsoft Azure"
-   description="이벤트 허브 FAQ"
+   description="이벤트 허브 인증 및 보안 모델 개요"
    services="event-hubs"
    documentationCenter="na"
    authors="sethmanheim"
@@ -11,8 +11,8 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="10/07/2015"
+   ms.workload="na"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # 이벤트 허브 인증 및 보안 모델 개요
@@ -31,7 +31,7 @@
 
 각 장치는 장치에 업로드되는 고유 토큰을 할당합니다. 각 고유 토큰이 고유한 다른 게시자에 대한 액세스가 허용되도록 토큰이 생성됩니다. 토큰을 소유하는 장치는 하나의 게시자에게만 보낼 수 있으며 다른 게시자에는 보낼 수 없습니다. 여러 장치에서 동일한 토큰을 공유하는 경우 이러한 각 장치들은 게시자를 공유합니다.
 
-권장되지는 않지만 이벤트 허브에 대한 직접 액세스 권한을 부여하는 토큰을 사용하는 장치를 장착할 수 있습니다. 이러한 토큰을 보유하는 모든 장치는 해당 이벤트 허브에 직접 메시지를 보낼 수 있습니다. 이러한 장치는 제한의 대상이 되지 않습니다. 또한 장치에서 해당 이벤트 허브로 보내는 것을 차단할 수 없습니다.
+권장되지는 않지만 이벤트 허브에 대한 직접 액세스 권한을 부여하는 토큰을 사용하는 장치를 장착할 수 있습니다. 이 토큰을 보유하는 모든 장치는 해당 이벤트 허브에 직접 메시지를 보낼 수 있습니다. 이러한 장치는 제한의 대상이 되지 않습니다. 또한 장치에서 해당 이벤트 허브로 보내는 것을 차단할 수 없습니다.
 
 모든 토큰은 SAS 키로 서명됩니다. 일반적으로 모든 토큰은 동일한 키로 서명됩니다. 장치는 키를 인식하지 않습니다. 장치는 토큰을 제조하지 못합니다.
 
@@ -50,7 +50,7 @@ Uri uri = ServiceBusEnvironment.CreateServiceUri("sb", serviceNamespace, string.
 TokenProvider td = TokenProvider.CreateSharedAccessSignatureTokenProvider(namespaceManageKeyName, namespaceManageKey);
 NamespaceManager nm = new NamespaceManager(namespaceUri, namespaceManageTokenProvider);
 
-// Create Event Hub with a SAS rule that allows sending to that Event Hub.
+// Create Event hub with a SAS rule that allows sending to that Event hub
 EventHubDescription ed = new EventHubDescription("MY_EVENT_HUB") { PartitionCount = 32 };
 string eventHubSendKeyName = "EventHubSendKey";
 string eventHubSendKey = SharedAccessAuthorizationRule.GenerateRandomKey();
@@ -154,4 +154,4 @@ ACS는 서비스 ID, 신뢰 당사자 및 규칙을 만드는 여러 방법을 �
 [큐 메시징 솔루션]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

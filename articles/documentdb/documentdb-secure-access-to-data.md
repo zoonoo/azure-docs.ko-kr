@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/16/2015" 
+	ms.date="01/26/2015" 
 	ms.author="ryancraw"/>
 
 # DocumentDB 데이터에 대한 액세스 보호 #
@@ -115,7 +115,7 @@ DocumentDB 사용자 리소스는 DocumentDB 데이터베이스와 연관됩니�
 
     docUser = await client.CreateUserAsync(database.SelfLink, docUser);
 
-> [AZURE.NOTE]각 DocumentDB 사용자에게는 해당 사용자와 연관된 권한 목록을 검색하기 위해 사용할 수 있는 PermissionsLink 속성이 있습니다.
+> [AZURE.NOTE] 각 DocumentDB 사용자에게는 해당 사용자와 연관된 권한 목록을 검색하기 위해 사용할 수 있는 PermissionsLink 속성이 있습니다.
 
 DocumentDB 권한 리소스는 DocumentDB 사용자와 연관됩니다. 각 사용자는 0개 이상의 DocumentDB 권한을 포함할 수 있습니다. 권한 리소스는 사용자가 특정 응용 프로그램 리소스에 액세스하려고 시도할 때 필요한 보안 토큰에 대한 액세스 권한을 제공합니다. 권한 리소스에서 제공될 수 있는 사용 가능한 액세스 수준은 다음 두 가지입니다.
 
@@ -123,7 +123,7 @@ DocumentDB 권한 리소스는 DocumentDB 사용자와 연관됩니다. 각 사�
 - 읽기: 사용자가 리소스 내용을 읽을 수만 있고 리소스에 대해 쓰기, 업데이트 또는 삭제 작업을 수행할 수 없습니다.
 
 
-> [AZURE.NOTE]DocumentDB 저장 프로시저를 실행하기 위해서는 사용자에게 저장 프로시저가 실행되는 컬렉션에 대한 모든 권한이 있어야 합니다.
+> [AZURE.NOTE] DocumentDB 저장 프로시저를 실행하기 위해서는 사용자에게 저장 프로시저가 실행되는 컬렉션에 대한 모든 권한이 있어야 합니다.
 
 
 다음 코드 조각은 권한 리소스를 만들고, 권한 리소스의 리소스 토큰(토큰)을 읽고, 권한을 위에서 생성된 사용자와 연관시키는 방법을 보여 줍니다.
@@ -154,7 +154,7 @@ DocumentDB 권한 리소스는 DocumentDB 사용자와 연관됩니다. 각 사�
             
     DocumentClient userClient = new DocumentClient(new Uri(endpointUrl),permList);
 
-> [AZURE.TIP]리소스 토큰은 기본 1시간의 유효한 시간을 갖습니다. 하지만 토큰 수명은 최대 5시간까지 명시적으로 지정할 수 있습니다.
+> [AZURE.TIP] 리소스 토큰은 기본 1시간의 유효한 시간을 갖습니다. 하지만 토큰 수명은 최대 5시간까지 명시적으로 지정할 수 있습니다.
 
 ##<a name="NextSteps"></a>다음 단계
 
@@ -163,4 +163,4 @@ DocumentDB 권한 리소스는 DocumentDB 사용자와 연관됩니다. 각 사�
 - DocumentDB 권한 부여 토큰을 생성하는 방법에 대해 자세히 알아보려면 [여기](https://msdn.microsoft.com/library/azure/dn783368.aspx)를 클릭합니다.
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

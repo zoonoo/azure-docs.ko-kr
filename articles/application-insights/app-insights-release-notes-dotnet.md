@@ -16,7 +16,7 @@
  
 # Application Insights SDK for .NET에 대한 릴리스 정보
 
-[Application Insights SDK for.NET](app-insights-asp-net.md)은 라이브 앱에 대한 원격 분석을 [Application Insights](http://azure.microsoft.com/services/application-insights/)에 보내며 사용법과 성능을 분석할 수 있습니다.
+[Application Insights SDK for.NET](app-insights-asp-net.md)은 라이브 앱에 대한 원격 분석을 [Application Insights](https://azure.microsoft.com/services/application-insights/)에 보내며 사용법과 성능을 분석할 수 있습니다.
 
 
 #### 응용 프로그램에 SDK를 설치하려면
@@ -61,7 +61,7 @@
 
 ## 버전 2.0.0-beta2
 - ITelemetryProcessor에 대한 지원과 코드 또는 구성을 통해 구성하는 기능이 추가되었습니다. [SDK에서 사용자 지정 필터링을 사용할 수 있습니다.](app-insights-api-filtering-sampling/#filtering)
-- 컨텍스트 이니셜라이저가 제거되었습니다. 대신 [원격 분석 이니셜라이저]( https://azure.microsoft.com/documentation/articles/app-insights-api-filtering-sampling/#filtering)를 사용합니다.
+- 컨텍스트 이니셜라이저가 제거되었습니다. 대신 [원격 분석 이니셜라이저](https://azure.microsoft.com/documentation/articles/app-insights-api-filtering-sampling/#filtering)를 사용합니다.
 - .NET Framework 4.6용 Application Insights가 업데이트되었습니다. 
 - 이제 사용자 지정 이벤트 이름을 최대 512자까지 지정할 수 있습니다.
 - ```OperationContext.Name``` 속성의 이름이 ```RootName```으로 변경되었습니다.
@@ -136,4 +136,4 @@
 
  
 
-<!----HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -20,7 +20,7 @@
 
 Azure 검색 서비스는 호스팅되는 클라우드 검색 서비스로, 훌륭한 검색 환경을 간편하게 제공할 수 있습니다. 검색에 앞서 데이터를 Azure 검색 인덱스에 입력해야 합니다. 데이터가 Azure SQL 데이터베이스에 있는 경우 Azure 검색의 새 **Azure SQL 데이터베이스용 Azure 검색 인덱서**(또는 줄여서 **Azure SQL 인덱서** 줄여서)를 사용하여 인덱싱 프로세스를 자동화할 수 있습니다. 이는 작성할 코드 및 관리할 인프라가 없음을 의미합니다.
 
-현재 인덱서는 Azure SQL 데이터베이스, Azure VM의 SQL Server 및 [Azure DocumentDB](../documentdb/documentdb-search-indexer.md)에서만 작동합니다. 이 문서에서는 Azure SQL 데이터베이스에서 작동하는 인덱서를 중점적으로 살펴봅니다. 추가 데이터 원본에 대한 지원을 확인하려면 [Azure 검색 사용자 의견 포럼](http://feedback.azure.com/forums/263029-azure-search)에 의견을 남겨 주시기 바랍니다.
+현재 인덱서는 Azure SQL 데이터베이스, Azure VM의 SQL Server 및 [Azure DocumentDB](../documentdb/documentdb-search-indexer.md)에서만 작동합니다. 이 문서에서는 Azure SQL 데이터베이스에서 작동하는 인덱서를 중점적으로 살펴봅니다. 추가 데이터 원본에 대한 지원을 확인하려면 [Azure 검색 사용자 의견 포럼](https://feedback.azure.com/forums/263029-azure-search/)에 의견을 남겨 주시기 바랍니다.
 
 이 문서에서는 인덱서 사용 원리를 다루지만 SQL 데이터베이스에서만 사용할 수 있는 기능 및 동작(예: 통합 변경 내용 추적)에 대해서도 자세히 알아봅니다.
 
@@ -279,4 +279,4 @@ A: 예. 인덱서는 검색 서비스의 노드 중 하나에서 실행되므로
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

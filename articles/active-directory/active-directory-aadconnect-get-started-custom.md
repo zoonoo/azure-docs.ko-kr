@@ -1,7 +1,8 @@
 <properties
 	pageTitle="Azure AD Connect: 사용자 지정 설치 | Microsoft Azure"
-	description="이 문서는 Azure AD Connect에 대한 사용자 지정 설치 옵션에 대해 자세히 설명합니다."
+	description="이 문서는 Azure AD Connect에 대한 사용자 지정 설치 옵션에 대해 자세히 설명합니다. Azure AD Connect를 통해 Active Directory를 설치하려면 다음 지침을 사용합니다."
 	services="active-directory"
+    keywords="Azure AD Connect의 정의, Active Directory 설치, Azure AD에 대한 필수 구성 요소"
 	documentationCenter=""
 	authors="billmath"
 	manager="stevenpo"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/11/2016"
+	ms.date="01/25/2016"
 	ms.author="billmath;andkjell"/>
 
 # Azure AD Connect의 사용자 지정 설치
@@ -95,11 +96,11 @@ Active Directory 도메인 서비스에 연결하려면, Azure AD Connect는 충
 sAMAccountName 및 MailNickName|이 옵션은 사용자에 대한 로그인 ID를 찾을 수 있을 것으로 예상되는 특성에 연결합니다.
 나만의 특성|이 옵션을 사용하면 고유한 특성을 선택할 수 있습니다. **제한:** 메타버스에 이미 존재하는 특성을 선택할 수 있는지 확인합니다. 사용자 지정 특성을 선택하면 마법사를 완료할 수 없습니다.
 
-- **소스 앵커** -특성 sourceAnchor는 사용자 개체의 수명 동안 변경할 수 없는 특성입니다. Azure AD에서 사용자와 온-프레미스 사용자를 연결하는 기본 키입니다. 특성을 변경할 수 없으므로, 좋은 특성을 사용해야 합니다. 좋은 후보는 objectGUID입니다. 사용자 계정이 포리스트/도메인 간에 이동하지 않는 한 이 특성은 변경되지 않습니다. 포리스트 간에 계정을 이동하는 다중 포리스트 환경에서 employeeID가 있는 특성과 같은 다른 특성이 사용되어야 합니다. 피해야할 특성은 결혼하거나 약속을 변경한 경우 변경되는 특성입니다. @ 기호와 함께 특성을 사용할 수 없으므로 메일 및 userPrincipalName을 사용할 수 없습니다. 특성은 대/소문자를 구분하므로 포리스트 간에 개체를 이동하는 경우 대/소문자를 유지해야 합니다. 이진 특성의 경우 값은 base64로 인코딩되지만 다른 특성 유형의 경우 인코딩되지 않은 상태로 유지됩니다. 페더레이션 시나리오 및 일부 Azure AD 인터페이스에서 이 특성은 immutableID라고도 합니다. 원본 앵커에 대한 자세한 정보는 [디자인 개념](active-directory-aadconnect-design-concepts.md#sourceAnchor)에서 찾을 수 있습니다.
+- **소스 앵커** -특성 sourceAnchor는 사용자 개체의 수명 동안 변경할 수 없는 특성입니다. Azure AD에서 사용자와 온-프레미스 사용자를 연결하는 기본 키입니다. 특성을 변경할 수 없으므로, 좋은 특성을 사용해야 합니다. 좋은 후보는 objectGUID입니다. 사용자 계정이 포리스트/도메인 간에 이동하지 않는 한 이 특성은 변경되지 않습니다. 포리스트 간에 계정을 이동하는 다중 포리스트 환경에서 employeeID가 있는 특성과 같은 다른 특성이 사용되어야 합니다. 피해야 할 특성은 결혼하거나 약속을 변경한 경우 변경되는 특성입니다. @ 기호와 함께 특성을 사용할 수 없으므로 메일 및 userPrincipalName을 사용할 수 없습니다. 특성은 대/소문자를 구분하므로 포리스트 간에 개체를 이동하는 경우 대/소문자를 유지해야 합니다. 이진 특성의 경우 값은 base64로 인코딩되지만 다른 특성 유형의 경우 인코딩되지 않은 상태로 유지됩니다. 페더레이션 시나리오 및 일부 Azure AD 인터페이스에서 이 특성은 immutableID라고도 합니다. 원본 앵커에 대한 자세한 정보는 [디자인 개념](active-directory-aadconnect-design-concepts.md#sourceAnchor)에서 찾을 수 있습니다.
 
 - **UserPrincipalName** -특성 userPrincipalName은 Azure AD 및 Office 365에 로그인하는 경우 사용자가 사용하는 특성입니다. UPN-접미사로 알려진 사용된 도메인은 사용자가 동기화되기 전에 Azure AD에서 확인해야 합니다. 기본 특성 userPrincipalName을 유지하는 것이 좋습니다. 이 특성은 라우팅할 수 없고 확인할 수 없으며 메일의 경우 로그인 ID를 보유하는 특성으로 다른 특성을 선택할 수 없습니다. **대체 ID**로도 알려져 있습니다. 대체 ID 특성 값은 RFC822 표준을 따라야 합니다. 대체 ID는 로그인 솔루션으로 암호 Single Sign-On(SSO) 및 페더레이션 SSO 모두를 함께 사용할 수 있습니다.
 
->[AZURE.WARNING]대체 ID를 사용하면 모든 Office 365 워크로드 부하와 호환되지 않습니다. 자세한 내용은 [대체 로그인 ID 구성](https://technet.microsoft.com/library/dn659436.aspx)을 참조하세요.
+>[AZURE.WARNING] 대체 ID를 사용하면 모든 Office 365 워크로드 부하와 호환되지 않습니다. 자세한 내용은 [대체 로그인 ID 구성](https://technet.microsoft.com/library/dn659436.aspx)을 참조하세요.
 
 
 
@@ -108,7 +109,7 @@ sAMAccountName 및 MailNickName|이 옵션은 사용자에 대한 로그인 ID�
 
 이 기능을 사용하려면 사용자 지정된 경로에 이 페이지가 표시됩니다. ![동기화 필터링](./media/active-directory-aadconnect-get-started-custom/filter2.png)
 
->[AZURE.WARNING]이 기능은 파일럿 배포를 지원하기 위한 것이며 전체 프로덕션 배포에 사용할 수 없습니다.
+>[AZURE.WARNING] 이 기능은 파일럿 배포를 지원하기 위한 것이며 전체 프로덕션 배포에 사용할 수 없습니다.
 
 전체 프로덕션 배포에서 동기화할 모든 개체를 단일 그룹으로 유지하기는 어렵습니다. 대신 [구성 필터링](active-directory-aadconnectsync-configure-filtering.md)의 방법 중 하나를 사용합니다.
 
@@ -118,7 +119,7 @@ sAMAccountName 및 MailNickName|이 옵션은 사용자에 대한 로그인 ID�
 
 ![선택적 기능](./media/active-directory-aadconnect-get-started-custom/optional.png)
 
-> [AZURE.WARNING]현재 디렉터리 동기화 또는 Azure AD Sync가 활성화되어 있는 경우 Azure AD Connect에서 쓰기 저장 기능을 활성화하지 마세요.
+> [AZURE.WARNING] 현재 디렉터리 동기화 또는 Azure AD Sync가 활성화되어 있는 경우 Azure AD Connect에서 쓰기 저장 기능을 활성화하지 마세요.
 
 선택적 기능 | 설명
 -------------------    | ------------- |
@@ -165,7 +166,7 @@ Azure AD Connect를 사용하여 AD FS를 구성하는 것은 단 몇 번의 클
 여기에서 AD FS를 설치하려는 특정 서버를 입력합니다. 용량 계획 요구 사항에 따라 하나 이상의 서버를 추가할 수 있습니다. 이 서버는 모두 이 구성 작업을 수행하기 전에 Active Directory 도메인에 가입되어야 합니다. 테스트 및 파일럿 배포를 위한 단일 AD FS 서버를 설치하고 Azure AD Connect를 열어 새 서버를 배포하고 크기 조정 요구 사항에 맞게 추가 서버에 AD FS를 배포하여 추가 서버를 배포 하는 것이 좋습니다.
 
 
-> [AZURE.NOTE]이 구성 작업을 수행하기 전에 모든 서버가 AD 도메인에 가입되었는지 확인합니다.
+> [AZURE.NOTE] 이 구성 작업을 수행하기 전에 모든 서버가 AD 도메인에 가입되었는지 확인합니다.
 
 ![AD FS 서버](./media/active-directory-aadconnect-get-started-custom/adfs2.png)
 
@@ -175,7 +176,8 @@ Azure AD Connect를 사용하여 AD FS를 구성하는 것은 단 몇 번의 클
 여기에서 웹 응용 프로그램 프록시 서버로 원하는 특정 서버를 입력합니다. 웹 응용 프로그램 프록시 서버는 DMZ(엑스트라넷 연결)에 배포되며 엑스트라넷에서 인증 요청을 지원합니다. 용량 계획 요구 사항에 따라 하나 이상의 서버를 추가할 수 있습니다. 테스트 및 파일럿 배포를 위한 단일 AD FS 서버를 설치하고 Azure AD Connect를 열어 추가 서버를 배포하고 웹 응용 프로그램 프록시를 추가 서버에 배포하는 것이 좋습니다. 일반적으로 인트라넷에서 인증을 충족하기 위해 동일한 수의 프록시 서버가 있는 것이 좋습니다.
 
 
-> [AZURE.NOTE]- Azure AD Connect를 설치하는 데 사용 하는 계정이 AD FS 서버에서 로컬 관리자가 아닌 경우, 충분한 권한이 있는 계정의 자격 증명에 대한 메시지가 표시됩니다. - 이 단계를 구성하기 전에 Azure AD Connect 서버와 웹 응용 프로그램 프록시 서버 간의 HTTP/HTTPS 연결이 있는지 확인합니다. - 또한 웹 응용 프로그램 서버와 AD FS 서버 간의 HTTP/HTTPS 연결을 통해 인증 요청이 허용되는지 확인합니다.
+> [AZURE.NOTE]
+- Azure AD Connect를 설치하는 데 사용 하는 계정이 AD FS 서버에서 로컬 관리자가 아닌 경우, 충분한 권한이 있는 계정의 자격 증명에 대한 메시지가 표시됩니다. - 이 단계를 구성하기 전에 Azure AD Connect 서버와 웹 응용 프로그램 프록시 서버 간의 HTTP/HTTPS 연결이 있는지 확인합니다. - 또한 웹 응용 프로그램 서버와 AD FS 서버 간의 HTTP/HTTPS 연결을 통해 인증 요청이 허용되는지 확인합니다.
 
 
 ![웹앱](./media/active-directory-aadconnect-get-started-custom/adfs3.png)
@@ -251,4 +253,4 @@ Azure AD Connect를 설치했으므로 [설치를 확인하고 라이선스를 �
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

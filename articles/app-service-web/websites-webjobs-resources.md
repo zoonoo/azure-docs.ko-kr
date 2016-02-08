@@ -57,7 +57,7 @@ Azure 포털의 WebJob 대시보드는 WebJob 내의 개별 함수를 호출하�
 
 * [Visual Studio를 사용하여 Azure WebJobs를 배포하는 방법](websites-dotnet-deploy-webjobs.md)
 * [Azure 포털을 사용하여 WebJobs를 배포하는 방법](web-sites-create-web-jobs.md)
-* [Azure WebJobs의 명령줄 또는 연속 배달 사용](http://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/)
+* [Azure WebJobs의 명령줄 또는 연속 배달 사용](https://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/)
 * [WebJobs를 사용하여 Azure에 .NET 콘솔 앱을 배포하는 Git](http://blog.amitapple.com/post/73574681678/git-deploy-console-app/)
 * [Azure에 F# WebJob 배포](http://blogs.msdn.com/b/dave_crooks_dev_blog/archive/2015/02/18/deploying-f-web-job-to-azure.aspx)
 * [Azure Webjobs로 사용자 지정 서비스 배포](http://withouttheloop.com/articles/2015-06-23-deploying-custom-services-as-azure-webjobs/)
@@ -98,7 +98,7 @@ Azure 포털의 WebJob 대시보드는 WebJob 내의 개별 함수를 호출하�
 * [Magnus Mårtensson의 Azure WebJobs GA 블로그 게시물](http://magnusmartensson.com/azure-webjobs-ga)
 * [Azure 앱 서비스에서 Powershell 웹 작업 실행](http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx)
 * [Azure에서 트리거한 WebJobs 완료 시 알림 받기](http://blog.amitapple.com/post/2014/03/webjobs-notification/)
-* [WebJobs를 통한 간단한 웹앱 백업 보존 정책](http://azure.microsoft.com/blog/2014/04/28/simple-web-site-backup-retention-policy-with-webjobs/)
+* [WebJobs를 통한 간단한 웹앱 백업 보존 정책](https://azure.microsoft.com/blog/2014/04/28/simple-web-site-backup-retention-policy-with-webjobs/)
 * [최초 요청 시 느려지는 Azure 웹앱 및 클라우드 서비스](http://wp.sjkp.dk/windows-azure-websites-and-cloud-services-slow-on-first-request/). WebJobs를 사용하여 표준 가격 책정 계층에서만 사용할 수 있는 AlwaysOn 기능을 시뮬레이션하는 방법을 보여 줍니다.
 * [WebJobs 정상 종료](http://blog.amitapple.com/post/2014/05/webjobs-graceful-shutdown/#.U72Il_5OWUl). WebJobs SDK 정상 종료에 대해서는 [정상 종료](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#graceful)를 참조하세요.
 * [Azure WebJobs 및 AzCopy를 사용하여 백업 자동화](http://markjbrown.com/azure-webjobs-azcopy/)
@@ -135,8 +135,8 @@ Azure 포털의 WebJob 대시보드는 WebJob 내의 개별 함수를 호출하�
 * [WebJobs SDK의 스택 오버플로](http://stackoverflow.com/questions/tagged/azure-webjobssdk)
 * [Azure 및 ASP.NET 포럼](http://forums.asp.net/1247.aspx)
 * [Azure 앱 서비스 웹앱 포럼](http://social.msdn.microsoft.com/Forums/azure/home?forum=windowsazurewebsitespreview)
-* [Azure 웹앱 사용자 음성 사이트](http://feedback.azure.com/forums/169385-websites)
+* [Azure 웹앱 사용자 음성 사이트](https://feedback.azure.com/forums/169385-websites/)
 * [Twitter](http://twitter.com/). 해시 태그 #AzureWebJobs를 사용합니다.
 * [WebJobs 버그 또는 문제 보고](https://github.com/projectkudu/kudu/wiki/Reporting-WebJobs-issues)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

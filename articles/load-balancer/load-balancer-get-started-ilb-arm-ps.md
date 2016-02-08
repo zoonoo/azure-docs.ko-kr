@@ -14,14 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="01/21/2015"
    ms.author="joaoma" />
 
 # PowerShell을 사용하여 내부 부하 분산 장치 만들기 시작
 
 [AZURE.INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]<BR>[AZURE.INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [클래식 배포 모델](load-balancer-get-started-ilb-classic-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](load-balancer-get-started-ilb-classic-ps.md).
 
 [AZURE.INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
@@ -87,7 +87,7 @@ PowerShell용 Azure 모듈이 최신 프로덕션 버전이고 Azure 구독에 �
 
 새 리소스 그룹을 만듭니다. 기존 리소스 그룹을 사용하는 경우에는 이 단계를 건너뛰세요.
 
-    PS C:\> New-AzureRmResourceGroup -Name NRP-RG -location "West US"
+    	PS C:\> New-AzureRmResourceGroup -Name NRP-RG -location "West US"
 
 Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치를 지정해야 합니다. 이 위치는 해당 리소스 그룹에서 리소스의 기본 위치로 사용됩니다. 부하 분산 장치를 만드는 모든 명령에서 동일한 리소스 그룹을 사용하는지 확인합니다.
 
@@ -146,7 +146,7 @@ Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치�
 
 - 포트 3441로 들어오는 모든 트래픽을 포트 3389로 이동하는 NAT 규칙
 - 포트 3442로 들어오는 모든 트래픽을 포트 3389로 이동하는 두 번째 NAT 규칙
-- 공용 포트 80의 들어오는 모든 트래픽을 백엔드 주소 풀의 로컬 포트 80으로 부하 분산하는 부하 분산 장치 규칙
+- 공용 포트 80의 들어오는 모든 트래픽을 백 엔드 주소 풀의 로컬 포트 80으로 부하 분산하는 부하 분산 장치 규칙
 - 경로 "HealthProbe.aspx"에 대한 상태를 확인하는 프로브 규칙
 
 
@@ -189,8 +189,9 @@ LB-Nic2-BE라는 두 번째 네트워크 인터페이스 만들기:
 최종 결과는 다음과 같이 표시됩니다.
 
 
-PS C:\> $backendnic1
+	PS C:\> $backendnic1
 
+예상된 출력:
 
 	Name                 : lb-nic1-be
 	ResourceGroupName    : NRP-RG
@@ -242,6 +243,39 @@ Add-AzureRmVMNetworkInterface 명령을 사용하여 가상 컴퓨터에 NIC를 
 
 가상 컴퓨터를 만들고 NIC에 할당하는 단계별 지침은 [리소스 관리자 및 Azure PowerShell을 사용하여 Windows 가상 컴퓨터 만들기 및 미리 구성](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example) 옵션 4 또는 5를 참조하세요.
 
+또는 이미 가상 컴퓨터를 만든 경우 다음 단계로 네트워크 인터페이스를 추가할 수 있습니다.
+
+#### 1단계 
+
+(아직 수행하지 않은 경우) 부하 분산 장치 리소스를 변수로 로드합니다. 사용되는 변수는 $lb라고 하고 위에서 만든 부하 분산 장치 리소스에서 동일한 이름을 사용합니다.
+
+	$lb= Get-AzureRmLoadBalancer –name NRP-LB -resourcegroupname NRP-RG
+
+#### 2단계 
+
+백 엔드 구성을 변수로 로드합니다.
+
+	$backend= Get-AzureRmLoadBalancerBackendAddressPoolConfig -name backendpool1 -LoadBalancer $lb
+
+#### 3단계 
+
+이미 만든 네트워크 인터페이스를 변수로 로드합니다. 사용되는 변수 이름은 $nic입니다. 사용되는 네트워크 인터페이스 이름은 위의 예제와 같습니다.
+
+	$nic=Get-AzureRmNetworkInterface –name lb-nic1-be -resourcegroupname NRP-RG
+
+#### 4단계
+
+네트워크 인터페이스에서 백 엔드 구성을 변경합니다.
+
+	PS C:\> $nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
+
+#### 5단계 
+
+네트워크 인터페이스 개체를 저장합니다.
+
+	PS C:\> Set-AzureRmNetworkInterface -NetworkInterface $nic
+
+네트워크 인터페이스가 부하 분산 장치 백 엔드 풀에 추가된 후 해당 부하 분산 장치 리소스에 대한 부하 분산 규칙에 따라 네트워크 트래픽을 받기 시작합니다.
 
 ## 기존 부하 분산 장치 업데이트
 
@@ -271,7 +305,7 @@ Remove-AzureRmLoadBalancer 명령을 사용하여 “NRP-RG”라는 리소스 �
 
 	Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
 
->[AZURE.NOTE]선택적 스위치 -Force를 사용하여 삭제에 대한 프롬프트를 방지할 수 있습니다.
+>[AZURE.NOTE] 선택적 스위치 -Force를 사용하여 삭제에 대한 프롬프트를 방지할 수 있습니다.
 
 
 
@@ -282,4 +316,4 @@ Remove-AzureRmLoadBalancer 명령을 사용하여 “NRP-RG”라는 리소스 �
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

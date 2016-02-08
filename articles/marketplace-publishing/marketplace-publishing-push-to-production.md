@@ -31,9 +31,9 @@
 
   ![그리기][img-pubportal-publish-pushproduction]
 
-> [AZURE.IMPORTANT]**초안** 상태(즉, **스테이징으로 푸시**, **프로덕션으로 푸시** 상태가 아님)에 있는 동안에는 제품을 언제든지 삭제할 수 있습니다. **기록** 탭에서 초안을 삭제하려면 페이지의 맨 아래에 있는 **초안 삭제** 단추를 클릭합니다.
+> [AZURE.IMPORTANT] **초안** 상태(즉, **스테이징으로 푸시**, **프로덕션으로 푸시** 상태가 아님)에 있는 동안에는 제품을 언제든지 삭제할 수 있습니다. **기록** 탭에서 초안을 삭제하려면 페이지의 맨 아래에 있는 **초안 삭제** 단추를 클릭합니다.
 
-> 가상 컴퓨터 이미지의 경우 데이터 센터에서 복제 작업은 24~48시간이 걸립니다. 복제가 완료되면 [Azure 마켓플레이스](http://azure.microsoft.com/marketplace)에 제품이 나열됩니다.
+> 가상 컴퓨터 이미지의 경우 데이터 센터에서 복제 작업은 24~48시간이 걸립니다. 복제가 완료되면 [Azure 마켓플레이스](https://azure.microsoft.com/marketplace/)에 제품이 나열됩니다.
 
 ## 다음 단계
 제품이 작동되면 고객 시나리오를 테스트하여 모든 계약 및 기능 작업이 스테이징 환경에서 테스트되고 유효성이 검사된 것처럼 프로덕션 환경에서 제대로 작동하는지 테스트합니다.
@@ -45,4 +45,4 @@
 [img-pubportal-menu-publish]: media/marketplace-publishing-push-to-production/pubportal-menu-publish.png
 [img-pubportal-publish-pushproduction]: media/marketplace-publishing-push-to-production/pubportal-publish-pushproduction.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

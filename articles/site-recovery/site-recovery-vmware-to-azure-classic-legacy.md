@@ -25,7 +25,7 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 - **Azure에 VMware 가상 컴퓨터 복제** - 온-프레미스 VMware 가상 컴퓨터에서 Azure 저장소로 복제, 장애 조치(Failover), 복구 조정을 위해 사이트 복구를 배포합니다.
 - **Azure에 물리적 서버 복제** - 온-프레미스 Windows 및 Linux 물리적 서버에서 Azure로 복제, 장애 조치(Failover), 복구 조정을 위해 Azure Site Recovery를 배포합니다.
 
->[AZURE.NOTE]이 문서에 설명된 시나리오는 **레거시 지침**을 포함합니다. 새 배포인 경우 이 문서를 사용하지 마세요. 대신 클래식 배포를 위한 [향상된 배포](site-recovery-vmware-to-azure-classic)를 사용하세요. 이 문서에 설명된 방법을 사용하여 이미 배포한 경우 아래 설명된 대로 새 버전으로 마이그레이션하는 것이 좋습니다.
+>[AZURE.NOTE] 이 문서에 설명된 시나리오는 **레거시 지침**을 포함합니다. 새 배포인 경우 이 문서를 사용하지 마세요. 대신 클래식 포털을 위한 [향상된 배포](site-recovery-vmware-to-azure-classic.md) 지침을 사용합니다. 이 문서에 설명된 방법을 사용하여 이미 배포한 경우 아래 설명된 대로 새 버전으로 마이그레이션하는 것이 좋습니다.
 
 
 ## 향상된 배포로 마이그레이션
@@ -49,33 +49,37 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 마이그레이션 과정은 다음과 같습니다.
 
 1. [향상된 기능](site-recovery-vmware-to-azure-classic.md#enhanced-deployment)을 참조하여 새 [아키텍처](site-recovery-vmware-to-azure-classic.md#scenario-architecture)를 이해하고 [필수 조건](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment)에서 향상된 배포를 확인하세요.
-2. [자격 증명 모음 등록 키](site-recovery-vmware-to-azure-classic.md#step-3:-download-a-vault-registration-key)를 가져오고 [통합 설치 마법사를 실행](site-recovery-vmware-to-azure-classic.md#step-4:-install-the-management-server)하여 구성 서버, 프로세스 서버를 설치하고 관리 서버에 마스터 대상 서버 구성 요소를 설치합니다. [용량 계획](site-recovery-vmware-to-azure-classic.md#capacity-planning)에 대해 자세히 알아보세요.
-3. VMware vCenter Server가 있는 경우 액세스할 [자격 증명을 설정](site-recovery-vmware-to-azure-classic.md#step-5:-set-up-credentials-for-the-vcenter-server)하여 사이트 복구에서 관리하는 VM을 자동으로 검색할 수 있도록 합니다. [필요한 사용 권한](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access)에 대해 자세히 알아보세요.
-4. [vCenter Server 또는 ESXi 호스트](site-recovery-vmware-to-azure-classic.md#step-6:-add-vcenter-servers-and-esxi-hosts)를 추가합니다. 포털을 새로 고침하여 자격 증명이 표시될 때까지는 최대 15분까지 소요될 수 있습니다.
-5. [새 보호 그룹](site-recovery-vmware-to-azure-classic.md#step-7:-create-a-protection-group)을 만듭니다. 포털을 새로 고침하여 가상 컴퓨터가 검색 및 표시될 때까지는 최대 15분까지 소요될 수 있습니다. 기다리지 않으려면 관리 서버 이름(클릭 안 함) > **새로 고침**을 강조 표시하면 됩니다.
-6. 새 보호 그룹에서 **컴퓨터 마이그레이션**을 클릭합니다.
+2. 현재 보호 중인 컴퓨터에서 모바일 서비스를 제거합니다. 컴퓨터를 새 보호 그룹에 추가하면 새 버전의 모바일 서비스가 해당 컴퓨터에 설치됩니다.
+3. [자격 증명 모음 등록 키](site-recovery-vmware-to-azure-classic.md#step-4-download-a-vault-registration-key)를 가져오고 [통합 설치 마법사를 실행](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server)하여 구성 서버, 프로세스 서버를 설치하고 관리 서버에 마스터 대상 서버 구성 요소를 설치합니다. [용량 계획](site-recovery-vmware-to-azure-classic.md#capacity-planning)에 대해 자세히 알아보세요.
+4. VMware vCenter Server가 있는 경우 액세스할 [자격 증명을 설정](site-recovery-vmware-to-azure-classic.md#step-6-set-up-credentials-for-the-vcenter-server)하여 사이트 복구에서 관리하는 VM을 자동으로 검색할 수 있도록 합니다. [필요한 사용 권한](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access)에 대해 자세히 알아보세요.
+5. [vCenter Server 또는 ESXi 호스트](site-recovery-vmware-to-azure-classic.md#step-7-add-vcenter-servers-and-esxi-hosts)를 추가합니다. 포털을 새로 고침하여 자격 증명이 표시될 때까지는 최대 15분까지 소요될 수 있습니다.
+6. [새 보호 그룹](site-recovery-vmware-to-azure-classic.md#step-8-create-a-protection-group)을 만듭니다. 포털을 새로 고침하여 가상 컴퓨터가 검색 및 표시될 때까지는 최대 15분까지 소요될 수 있습니다. 기다리지 않으려면 관리 서버 이름(클릭 안 함) > **새로 고침**을 강조 표시하면 됩니다.
+7. 새 보호 그룹에서 **컴퓨터 마이그레이션**을 클릭합니다.
 
 	![계정 추가](./media/site-recovery-vmware-to-azure-classic-legacy/legacy-migration1.png)
 
-7. **컴퓨터 선택**에서 마이그레이션 원본 보호 그룹과 마이그레이션할 컴퓨터를 선택합니다.
+8. **컴퓨터 선택**에서 마이그레이션 원본 보호 그룹과 마이그레이션할 컴퓨터를 선택합니다.
 
 	![계정 추가](./media/site-recovery-vmware-to-azure-classic-legacy/legacy-migration2.png)
-
-8. **대상 설정 구성**에서 모든 컴퓨터에 대해 동일한 설정을 사용할지 여부를 지정하고 프로세스 서버와 Azure 저장소 계정을 선택합니다. 단일 관리 서버를 설정한 경우 프로세스 서버가 해당 관리 서버의 IP 주소가 됩니다.
+9. **대상 설정 구성**에서 모든 컴퓨터에 대해 동일한 설정을 사용할지 여부를 지정하고 프로세스 서버와 Azure 저장소 계정을 선택합니다. 단일 관리 서버를 설정한 경우 프로세스 서버가 해당 관리 서버의 IP 주소가 됩니다.
 
 	![계정 추가](./media/site-recovery-vmware-to-azure-classic-legacy/legacy-migration3.png)
 
-9. **계정 지정**에서 새 버전의 모바일 서비스를 보호된 컴퓨터로 자동으로 푸시하기 위해 만든 계정을 선택합니다.
+10. **계정 지정**에서 새 버전의 모바일 서비스를 보호된 컴퓨터로 자동으로 푸시하기 위해 만든 계정을 선택합니다.
 
 	![계정 추가](./media/site-recovery-vmware-to-azure-classic-legacy/legacy-migration4.png)
 
-10. 사이트 복구는 사용자가 제공한 Azure 저장소 계정에 복제된 데이터를 마이그레이션합니다. 필요에 따라 레거시 배포에 사용한 저장소 계정을 다시 사용할 수 있습니다.
-11. 작업이 완료되면 가상 컴퓨터가 자동으로 동기화됩니다. 동기화가 완료된 후에 레거시 보호 그룹에서 가상 컴퓨터를 삭제할 수 있습니다.
-12. 모든 컴퓨터를 마이그레이션한 후에 레거시 보호 그룹을 삭제할 수 있습니다.
-13. 컴퓨터에 대한 장애 조치 속성 및 동기화가 완료된 후 Azure 네트워크 설정을 지정해야 합니다.
-14. 기존 복구 계획이 있는 경우 복구 계획 마이그레이션으로 향상된 배포로 마이그레이션할 수 있습니다. 모든 보호된 컴퓨터를 마이그레이션한 후에 이 작업을 수행해야 합니다. 
+11. 사이트 복구는 사용자가 제공한 Azure 저장소 계정에 복제된 데이터를 마이그레이션합니다. 필요에 따라 레거시 배포에 사용한 저장소 계정을 다시 사용할 수 있습니다.
+12. 작업이 완료되면 가상 컴퓨터가 자동으로 동기화됩니다. 동기화가 완료된 후에 레거시 보호 그룹에서 가상 컴퓨터를 삭제할 수 있습니다.
+13. 모든 컴퓨터를 마이그레이션한 후에 레거시 보호 그룹을 삭제할 수 있습니다.
+14. 컴퓨터에 대한 장애 조치 속성 및 동기화가 완료된 후 Azure 네트워크 설정을 지정해야 합니다.
+15. 기존 복구 계획이 있는 경우 **복구 계획 마이그레이션** 옵션으로 향상된 배포로 마이그레이션할 수 있습니다. 모든 보호된 컴퓨터를 마이그레이션한 후에 이 작업을 수행해야 합니다. 
 
 	![계정 추가](./media/site-recovery-vmware-to-azure-classic-legacy/legacy-migration5.png)
+
+>[AZURE.NOTE] 마이그레이션 단계를 완료한 후 [향상된 문서](site-recovery-vmware-to-azure-classic.md)를 사용하여 계속해야 합니다. 마이그레이션 후 이 레거시 문서의 나머지 부분은 더 이상 관련이 없으며 it**에 설명된 단계를 더 이상 따를 필요가 없습니다.
+
+
 
 
 ## 무엇이 필요하나요?
@@ -94,7 +98,7 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 **온-프레미스 컴퓨터** | VMware 하이퍼바이저에서 실행되는 온-프레미스 가상 컴퓨터나 Windows 또는 Linux를 실행하는 물리적 서버입니다. | 가상 컴퓨터와 서버에 적용되는 복제 설정을 지정합니다. 장애 조치(Failover)를 개별 컴퓨터에 대해 실행할 수 있지만, 보통은 함께 장애 조치(Failover)를 실행하는 복수 가상 컴퓨터가 포함된 복구 계획으로 실행합니다.
 **모바일 서비스** | <p>보호하려는 각각의 가상 컴퓨터 또는 물리적 서버에 설치</p><p>보호가 서버에 대해 사용하도록 설정된 경우 수동으로 설치하거나 프로세스 서버로 자동으로 푸시 및 설치할 수 있습니다. | 모바일 서비스는 초기 복제의 일부로 프로세스 서버로 데이터를 보냅니다(다시 동기화). 서버가 보호된 상태에 도달하면(재동기화가 완료된 후) 모바일 서비스는 디스크에 메모리 내 캡처의 쓰기를 수행하고 이를 프로세스 서버에 보냅니다. Windows 서버에 대한 응용 프로그램 일관성은 VSS 프레임워크를 사용하여 얻을 수 있습니다.
 **Azure Site Recovery 자격 증명 모음** | Site Recovery 서비스를 구독한 다음 설정합니다. | Site Recovery 자격 증명 모음에 서버를 등록합니다. 자격 증명 모음은 온-프레미스 사이트와 Azure 간의 데이터 복제본, 장애 조치(Failover) 및 복구를 조정하고 오케스트레이션합니다.
-**복제 메커니즘** | <p>**인터넷 이용** - 인터넷 연결을 통해 SSL/TLS 통신 채널을 사용하여 보호된 온-프레미스 서버와 Azure의 데이터를 전달 및 복제합니다. 기본 옵션입니다.</p><p>**VPN/Express 경로** - VPN 연결을 통해 온-프레미스 서버와 Azure 간에 데이터를 전달 및 복제합니다. 온-프레미스 사이트와 Azure 네트워크 사이에 사이트 간 VPN 또는 [Express 경로](../expressroute-introduction.md) 연결을 설정해야 합니다.</p><p>Site Recovery 배포 중에 복제 방식을 선택합니다. 구성된 후에는 이미 보호되고 있는 서버의 보호에 영향을 미치지 않고 메커니즘을 변경할 수 없습니다.| <p>두 옵션 모두 보호된 컴퓨터에 인바운드 네트워크 포트를 열 필요가 없습니다. 모든 네트워크 통신은 온-프레미스 사이트에서 시작됩니다.</p> 
+**복제 메커니즘** | <p>**인터넷 이용** - 인터넷 연결을 통해 SSL/TLS 통신 채널을 사용하여 보호된 온-프레미스 서버와 Azure의 데이터를 전달 및 복제합니다. 기본 옵션입니다.</p><p>**VPN/Express 경로** - VPN 연결을 통해 온-프레미스 서버와 Azure 간에 데이터를 전달 및 복제합니다. 온-프레미스 사이트와 Azure 네트워크 사이에 사이트 간 VPN 또는 Express 경로 연결을 설정해야 합니다.</p><p>Site Recovery 배포 중에 복제 방식을 선택합니다. 구성된 후에는 이미 보호되고 있는 서버의 보호에 영향을 미치지 않고 메커니즘을 변경할 수 없습니다.| <p>두 옵션 모두 보호된 컴퓨터에 인바운드 네트워크 포트를 열 필요가 없습니다. 모든 네트워크 통신은 온-프레미스 사이트에서 시작됩니다.</p> 
 
 [Site Recovery 구성 요소](site-recovery-components.md)에서 Site Recovery 구성 요소, 공급자, 에이전트에 대해 자세히 알아볼 수 있습니다.
 
@@ -194,7 +198,7 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 
 **구성 요소** | **요구 사항** | **세부 정보**
 --- | --- | --- 
-**Azure 계정** | [Microsoft Azure](http://azure.microsoft.com/) 계정이 있어야 합니다. [무료 평가판](pricing/free-trial/)으로 시작할 수 있습니다.
+**Azure 계정** | [Microsoft Azure](https://azure.microsoft.com/) 계정이 있어야 합니다. [무료 평가판](pricing/free-trial/)으로 시작할 수 있습니다.
 **Azure 저장소** | <p>복제 데이터를 저장하려면 Azure 저장소 계정이 필요합니다.</p><p>계정은 [표준 지역 중복 저장소 계정](../storage/storage-redundancy.md#geo-redundant-storage) 또는 [프리미엄 저장소 계정](../storage/storage-premium-storage-preview-portal.md)이어야 합니다.</p><p>Azure Site Recovery 서비스와 동일한 하위 지역에 있어야 하며 동일한 구독에 연결되어야 합니다.</p><p>자세히 알아보려면 [Microsoft Azure 저장소 소개](../storage/storage-introduction.md)를 참조하세요.</p>
 **Azure 가상 네트워크** | 구성 서버와 마스터 대상 서버를 배포할 Azure 가상 네트워크가 필요합니다. 이 네트워크는 Azure Site Recovery 자격 증명 모음과 동일한 구독 및 지역에 있어야 합니다. Express 경로 또는 VPN 연결을 통해 데이터를 복제하려는 경우 Azure 가상 네트워크가 Express 경로 연결 또는 사이트 간 VPN을 통해 온-프레미스 네트워크에 연결되어야 합니다.
 **Azure 리소스** | 모든 구성 요소를 배포하기에 충분한 Azure 리소스가 있는지 확인합니다. [Azure 구독 제한](../azure-subscription-service-limits.md)을 참조하세요.
@@ -262,7 +266,7 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 4. **새 구성 서버 세부 정보**에 다음을 지정합니다.
 
 	- 구성 서버 이름 및 연결에 필요한 자격 증명
-	- 네트워크 연결 유형 드롭다운에서 공용 인터넷 또는 VPN을 선택합니다.[AZURE.NOTE]이 설정은 배포 시간 선택이므로 나중에 변경할 수 없습니다.  
+	- 네트워크 연결 유형 드롭다운에서 공용 인터넷 또는 VPN을 선택합니다.[AZURE.NOTE] 이 설정은 배포 시간 선택이므로 나중에 변경할 수 없습니다.  
 	- 서버를 배치할 Azure 네트워크를 선택합니다. 네트워크 연결 유형으로 VPN을 지정한 경우 이 Azure vnet은 Express 경로 연결 또는 사이트 간 VPN을 통해 온-프레미스 사이트에 연결됩니다.
 	- 서버에 할당할 내부 IP 주소 및 서브넷을 지정합니다. 내부 Azure 사용을 위해 모든 서브넷의 맨 앞 4개 IP 주소가 예약됩니다. 다른 IP 주소를 사용하세요.
 	
@@ -282,7 +286,7 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 	
 	![VM 끝점](./media/site-recovery-vmware-to-azure-classic-legacy/vm-endpoints.png)
 
-    >[AZURE.WARNING]구성 서버 배포 중 생성된 끝점의 공용 또는 개인 포트 번호를 삭제 또는 변경하지 마세요.
+    >[AZURE.WARNING] 구성 서버 배포 중 생성된 끝점의 공용 또는 개인 포트 번호를 삭제 또는 변경하지 마세요.
 
 구성 서버가 자동으로 생성된 Azure 클라우드 서비스에 예약된 IP 주소로 배포됩니다. 클라우드 서비스의 가상 컴퓨터(구성 서버 포함)를 재부팅해도 구성 서버 클라우드 서비스 IP 주소가 동일하게 유지되도록 하려면 예약 주소가 필요합니다. 구성 서버를 해제할 경우 예약된 공용 IP 주소를 수동으로 예약 취소해야 합니다. 그렇지 않을 경우 예약된 상태로 유지됩니다. 구독당 예약된 공용 IP 주소 수 제한은 기본적으로 20개입니다. 예약된 IP 주소에 대해 [자세히 알아보세요](../virtual-network/virtual-networks-reserved-private-ip.md).
 
@@ -380,7 +384,7 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 
 내부 Azure 사용을 위해 모든 서브넷의 맨 앞 4개 IP 주소가 예약됩니다. 사용 가능한 다른 IP 주소를 사용하세요.
 
->[AZURE.NOTE] [프리미엄 저장소 계정](../storage/storage-premium-storage-preview-portal.md)을 사용하여 IO를 많이 사용하는 작업을 호스팅하기 위해 일관된 고성능과 짧은 대기 시간이 요구되는 워크로드에 대한 보호를 구성하는 경우 표준 DS4를 선택합니다.
+>[AZURE.NOTE] [프리미엄 저장소 계정](../storage/storage-premium-storage-preview-portal.md)을 사용하여 IO를 많이 사용하는 작업을 호스팅하기 위해 일관된 고성능과 짧은 대기 시간이 요구되는 워크로드에 대한 보호를 구성하는 경우 표준 DS4를 선택합니다.
 
 
 3. Windows 마스터 대상 서버 가상 컴퓨터는 이러한 끝점(배포 유형이 공용 인터넷인 경우에만 공용 끝점이 생성됩니다)을 사용하여 생성됩니다.
@@ -396,7 +400,7 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 	- 사용자 지정 1: 프로세스 서버에서 공용 포트를 사용하여 인터넷을 통해 메타 데이터를 보냅니다. 프로세스 서버가 개인 포트 9080을 사용하여 VPN을 통해 제어 데이터를 마스터 대상 서버로 보냅니다.
 	- SSH: 개인 포트 22
 
-    >[AZURE.WARNING]마스터 대상 서버 배포 중 생성된 끝점의 공용 또는 개인 포트 번호를 삭제 또는 변경하지 마세요.
+    >[AZURE.WARNING] 마스터 대상 서버 배포 중 생성된 끝점의 공용 또는 개인 포트 번호를 삭제 또는 변경하지 마세요.
 
 5. **가상 컴퓨터**에서 가상 컴퓨터가 시작될 때까지 기다립니다.
 
@@ -427,11 +431,11 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 
 	![대상 서버 확인](./media/site-recovery-vmware-to-azure-classic-legacy/target-server-list.png)
 
->[AZURE.NOTE]등록을 마친 후 마스터 대상 서버가 구성 서버에 나열될 때까지 최대 15분이 소요될 수 있습니다. 즉시 업데이트하려면 구성 서버 페이지 하단에 있는 새로 고침 단추를 클릭하여 구성 서버를 새로 고칩니다.
+>[AZURE.NOTE] 등록을 마친 후 마스터 대상 서버가 구성 서버에 나열될 때까지 최대 15분이 소요될 수 있습니다. 즉시 업데이트하려면 구성 서버 페이지 하단에 있는 새로 고침 단추를 클릭하여 구성 서버를 새로 고칩니다.
 
 ## 4단계: 온-프레미스 프로세스 서버 배포
 
->[AZURE.NOTE]재부팅 시에도 유지되도록 프로세스 서버에서 정적 IP 주소를 구성하는 것이 좋습니다.
+>[AZURE.NOTE] 재부팅 시에도 유지되도록 프로세스 서버에서 정적 IP 주소를 구성하는 것이 좋습니다.
 
 1. 빠른 시작 > **프로세스 서버 온-프레미스 설치** > **프로세스 서버 다운로드 및 설치**를 클릭합니다.
 
@@ -668,7 +672,7 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 
     ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i 104.40.75.37 -p 62519 -s y -c https -P passphrase.txt
 
->[AZURE.NOTE]이미 적절한 버전의 모바일 서비스를 실행 중인 보호 그룹에 컴퓨터를 추가하면 푸시 설치가 생략됩니다.
+>[AZURE.NOTE] 이미 적절한 버전의 모바일 서비스를 실행 중인 보호 그룹에 컴퓨터를 추가하면 푸시 설치가 생략됩니다.
 
 
 ## 단계 9: 보호 사용
@@ -792,14 +796,14 @@ Azure에서 실행 중인 컴퓨터를 장애 조치(Failover)한 다음 온-프
 
 ## 타사 소프트웨어 통지 및 정보
 
-번역 또는 지역화 금지
+Do Not Translate or Localize
 
-Microsoft 제품이나 서비스에서 실행되는 소프트웨어와 펌웨어는 아래 나열된 프로젝트의 자료(총체적으로 "타사 코드")를 기반으로 하거나 통합합니다. Microsoft는 타사 코드의 원래 작성자가 아닙니다. Microsoft가 이러한 타사 코드를 받을 때 적용된 원래 저작권 표시 및 라이선스는 아래에 명시되어 있습니다.
+The software and firmware running in the Microsoft product or service is based on or incorporates material from the projects listed below (collectively, “Third Party Code”). Microsoft is the not original author of the Third Party Code. The original copyright notice and license, under which Microsoft received such Third Party Code, are set forth below.
 
-섹션 A의 정보는 아래 나열된 프로젝트의 타사 코드 구성 요소와 관련된 것입니다. 해당 라이선스와 정보는 정보 제공 목적으로만 제공됩니다. 이 타사 코드는 Microsoft 제품 또는 서비스에 대한 Microsoft 소프트웨어 사용 조건에 의거하여 Microsoft에 의해 사용이 재허용됩니다.
+The information in Section A is regarding Third Party Code components from the projects listed below. Such licenses and information are provided for informational purposes only. This Third Party Code is being relicensed to you by Microsoft under Microsoft's software licensing terms for the Microsoft product or service.
 
-섹션 B의 정보는 원래 사용 조건에 의거하여 Microsoft에서 제공하는 타사 구성 요소와 관련된 것입니다.
+The information in Section B is regarding Third Party Code components that are being made available to you by Microsoft under the original licensing terms.
 
-전체 파일은 [Microsoft 다운로드 센터](http://go.microsoft.com/fwlink/?LinkId=529428)에서 확인할 수 있습니다. Microsoft에서 명시적으로 부여하지 않은 모든 권한은 묵시적, 금반언적 또는 기타 어떠한 방식에 의해서든 Microsoft가 보유합니다.
+The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

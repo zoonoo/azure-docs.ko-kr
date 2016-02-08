@@ -25,13 +25,13 @@ Azure에 클라우드 서비스 응용 프로그램 패키지를 배포할 때 A
 * Azure 포털에서: 클라우드 서비스의 배포, **모든 설정**, **속성**을 차례로 클릭합니다.
 * Azure 클래식 포털에서: 클라우드 서비스의 배포, **대시보드**를 차례로 클릭하고 페이지의 오른쪽 아래로 이동합니다(**간략 상태** 아래). 이 창에 대한 "속성" 텍스트가 없습니다.
 
-> [AZURE.NOTE]창의 오른쪽 위 모서리에 있는 아이콘을 클릭하여 속성 창의 내용을 클립보드에 복사할 수 있습니다.
+> [AZURE.NOTE] 창의 오른쪽 위 모서리에 있는 아이콘을 클릭하여 속성 창의 내용을 클립보드에 복사할 수 있습니다.
 
 ## Azure 고객 지원 서비스에 문의
 
-이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 스택 오버플로 포럼](http://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다.
+이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 스택 오버플로 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다.
 
-또는 Azure 기술 지원 인시던트를 제출할 수도 있습니다. [Azure 지원 사이트](http://azure.microsoft.com/support/options/)로 이동한 다음 **지원 받기**를 클릭합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](http://azure.microsoft.com/support/faq/)를 참조하세요.
+또는 Azure 기술 지원 인시던트를 제출할 수도 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동한 다음 **지원 받기**를 클릭합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.
 
 
 
@@ -41,7 +41,7 @@ Azure에 클라우드 서비스 응용 프로그램 패키지를 배포할 때 A
 
 1. Azure 포털에서 클라우드 서비스의 배포를 클릭합니다.
 2. Azure 포털의 **속성** 창에서 역할 인스턴스에 대한 포트를 확인합니다(입력 끝점에서).
-3. 포트가 80인 경우 응용 프로그램에 액세스할 때 URL에 올바른 포트 값을 추가합니다. 기본이 아닌 포트를 지정하려면 뒤에 콜론(:)과 공백 없이 포트 번호를 붙인 URL을 입력합니다.
+3. 포트가 *80*인 경우 응용 프로그램에 액세스할 때 URL에 올바른 포트 값을 추가합니다. 기본이 아닌 포트를 지정하려면 뒤에 콜론(:)과 공백 없이 포트 번호를 붙인 URL을 입력합니다.
 
 ## 문제: 아무 것도 하지 않았는데 내 역할 인스턴스가 다시 시작되었어요
 
@@ -80,7 +80,7 @@ Azure에서 문제가 있는 노드를 검색하고 역할 인스턴스를 새 �
    * 역할 인스턴스가 사용 중인 경우 응용 프로그램 코드가 [StatusCheck](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.statuscheck) 이벤트를 처리하는지 확인합니다. 이 이벤트를 처리하는 일부 코드를 추가하거나 수정해야 합니다.
    * [Azure PaaS 계산 진단 데이터] 블로그 게시물에서 진단 데이터 및 문제 해결 시나리오를 수행합니다.
 
->[AZURE.WARNING]클라우드 서비스를 다시 시작하면 배포에 대한 속성을 다시 설정하며 이렇게 하면 원래 문제에 대한 정보가 효과적으로 지워집니다.
+>[AZURE.WARNING] 클라우드 서비스를 다시 시작하면 배포에 대한 속성을 다시 설정하며 이렇게 하면 원래 문제에 대한 정보가 효과적으로 지워집니다.
 
 ## 다음 단계
 
@@ -88,4 +88,4 @@ Azure에서 문제가 있는 노드를 검색하고 역할 인스턴스를 새 �
 
 Azure PaaS 컴퓨터 진단 데이터를 사용하여 클라우드 서비스 역할 문제를 해결하는 방법을 알아보려면 [Kevin Williamson의 블로그 시리즈](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx)를 참조하세요.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

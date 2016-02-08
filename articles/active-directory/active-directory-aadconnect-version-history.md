@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/02/2015"
+   ms.date="01/21/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: 버전 릴리스 내역
@@ -50,7 +50,7 @@ Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect�
 **새로운 미리 보기 기능:**
 
 - [동기화를 위한 Azure AD Connect Health](active-directory-aadconnect-health-sync.md).
-- [Azure AD 도메인 서비스](active-directory-ds-getting-started.md) 암호 동기화를 지원합니다.
+- [Azure AD 도메인 서비스](active-directory-get-started.md) 암호 동기화를 지원합니다.
 
 **지원되는 새 시나리오:**
 
@@ -209,4 +209,4 @@ AD로부터 암호 해시를 읽을 수 있으려면 AD 계정에 추가 권한�
 ## 다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

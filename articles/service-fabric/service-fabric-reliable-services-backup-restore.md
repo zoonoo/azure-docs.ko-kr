@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/01/2015"
+   ms.date="01/25/2016"
    ms.author="mcoskun"/>
 
 # Reliable Services 백업 및 복원
@@ -87,7 +87,7 @@ private async Task<bool> BackupCallbackAsync(BackupInfo backupInfo)
 
 서비스 작성자는 복구하려면 다음을 수행해야 합니다.
 
-- **IReliableStateManager**를 재정의하여 새 **ReliableStateManager**를 반환하고 데이터 손실 이벤트의 경우 호출될 콜백 함수를 제공합니다.
+- **CreateReliableStateManager**를 재정의하여 새 **ReliableStateManager**를 반환하고 데이터 손실 이벤트의 경우 호출될 호출 함수를 제공합니다.
 
 - 서비스의 백업을 포함하는 외부 위치에서 최신 백업을 찾습니다.
 
@@ -118,7 +118,7 @@ protected override async Task<bool> OnDataLossAsync(CancellationToken cancellati
 }
 ```
 
->[AZURE.NOTE]RestorePolicy는 기본적으로 Safe로 설정됩니다. 즉, 백업 폴더에 이 복제본에 포함된 상태와 같거나 그 이전인 상태가 포함되었음을 탐지한 경우 **RestoreAsync** API가 ArgumentException과 함께 실패합니다. **RestorePolicy.Force**를 사용하여 이 보안 검사를 건너뛸 수 있습니다.
+>[AZURE.NOTE] RestorePolicy는 기본적으로 Safe로 설정됩니다. 즉, 백업 폴더에 이 복제본에 포함된 상태와 같거나 그 이전인 상태가 포함되었음을 탐지한 경우 **RestoreAsync** API가 ArgumentException과 함께 실패합니다. **RestorePolicy.Force**를 사용하여 이 보안 검사를 건너뛸 수 있습니다.
 
 ## 서비스 삭제 또는 손상
 
@@ -158,4 +158,4 @@ Reliable State Manager는 **IReliableStateManager.RestoreAsync** API를 사용�
 
 **RestoreAsync**는 먼저 호출된 기본 복제본에서 모든 기존 상태를 삭제합니다. 이후 Reliable State Manager가 백업 폴더에 존재하는 모든 신뢰 개체를 만듭니다. 다음으로 백업 폴더의 검사점으로부터 백업하도록 신뢰 개체에게 지시합니다. 마지막으로 Reliable State Manager가 백업 폴더의 로그 레코드에서 자체 상태를 복구하고 복구를 수행합니다. 복구 프로세스의 일환으로 백업 폴더에서 로그 레코드를 커밋한 "시작점"에서 시작하는 작업이 신뢰 개체에 재현됩니다. 이 단계를 통해 일관된 복구 상태를 유지합니다.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

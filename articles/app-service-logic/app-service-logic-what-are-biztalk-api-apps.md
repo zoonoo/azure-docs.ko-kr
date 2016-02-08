@@ -28,7 +28,7 @@ Azure 앱 서비스는 API 앱을 통한 일반적인 연결 및 확장성의 �
 
 Azure 앱 서비스에서 다양한 서비스 "계층"을 사용할 수 있습니다. 모든 계층에는 전체 기능을 포함하여 모든 커넥터 및 API 앱이 포함되어 있습니다.
 
-[앱 서비스 가격](http://azure.microsoft.com/pricing/details/app-service/)에서는 서비스 계층을 설명하고 이러한 계층에 포함된 항목도 나열합니다. 다음 섹션에서는 BizTalk API 앱 및 커넥터의 다양한 범주를 설명합니다.
+[앱 서비스 가격](https://azure.microsoft.com/pricing/details/app-service/)에서는 서비스 계층을 설명하고 이러한 계층에 포함된 항목도 나열합니다. 다음 섹션에서는 BizTalk API 앱 및 커넥터의 다양한 범주를 설명합니다.
 
 
 ## 표준 커넥터
@@ -48,4 +48,4 @@ Azure 앱 서비스에서 다양한 서비스 "계층"을 사용할 수 있습�
 표준 커넥터, BizTalk EAI, 프리미엄 커넥터 등을 포함하여 각 범주에 포함된 커넥터 및 API 앱의 전체 목록은 [커넥터 및 API 앱 목록](app-service-logic-connectors-list.md)을 참조하세요.
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

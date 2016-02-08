@@ -103,6 +103,7 @@ Microsoft 부드러운 스트리밍 클라이언트 이식 키트는 두 가지�
 - Liberty Global Services BV
 - MediaTek Inc.
 - MStar Co, Ltd
+- Nintendo Co., Ltd.
 - OpenTV, Inc.
 - Research In Motion Limited
 - Saffron Digital Limited
@@ -167,4 +168,4 @@ Microsoft 부드러운 스트리밍 클라이언트 이식 키트는 두 가지�
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

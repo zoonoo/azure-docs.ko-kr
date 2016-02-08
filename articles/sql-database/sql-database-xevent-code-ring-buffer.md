@@ -51,7 +51,7 @@
 ## 필수 조건
 
 
-- Azure 계정 및 구독 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
+- Azure 계정 및 구독 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 
 
 - 테이블을 만들 수 있는 데이터베이스.
@@ -385,4 +385,4 @@ Azure SQL 데이터베이스의 확장 이벤트에 대한 기본 항목은 다�
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

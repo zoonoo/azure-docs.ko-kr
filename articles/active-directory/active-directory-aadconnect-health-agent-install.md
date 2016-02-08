@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="01/21/2016"
 	ms.author="billmath"/>
 
 
@@ -79,7 +79,7 @@ Windows Server 2008 R2 서버에 대해 다음을 수행합니다.
 1. **시작**을 클릭하고 **프로그램**, **관리 도구** 순으로 가리킨 다음 **로컬 보안 정책**을 클릭합니다.
 2. **보안 설정\\로컬 정책\\사용자 권한 관리** 폴더로 이동하여 보안 감사 생성을 두 번 클릭합니다.
 3. **로컬 보안 설정** 탭에서 AD FS 2.0 서비스 계정이 나열되어 있는지 확인합니다. 없는 경우 **사용자 또는 그룹 추가**를 클릭하여 목록에 추가하고 **확인**을 클릭합니다.
-4. 상승된 권한을 사용하여 명령 프롬프트를 열고 다음 명령을 실행하여 감사를 사용하도록 설정합니다.<code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code>
+4. 상승된 권한으로 명령 프롬프트를 열고 다음 명령을 실행하여 감사를 사용합니다.<code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code>
 5. 로컬 보안 정책을 닫고 관리 스냅인을 엽니다. 관리 스냅인을 열려면 **시작**을 클릭하고 **프로그램**, **관리 도구** 순으로 가리킨 다음 AD FS 2.0 관리를 클릭합니다.
 6. 작업 창에서 페더레이션 서비스 속성 편집을 클릭합니다.
 7. **페더레이션 서비스 속성** 대화 상자에서 **이벤트** 탭을 클릭합니다.
@@ -112,7 +112,7 @@ Windows Server 2008 R2 서버에 대해 다음을 수행합니다.
 
 ![AD FS 감사 로그](./media/active-directory-aadconnect-health-requirements/adfsaudit.png)
 
-> [AZURE.WARNING]AD FS 감사를 사용하지 않도록 설정하는 그룹 정책이 있는 경우 Azure AD Connect Health Agent가 정보를 수집할 수 없습니다. 감사를 사용하지 않도록 설정할 수 있는 그룹 정책이 없는지 확인합니다.
+> [AZURE.WARNING] AD FS 감사를 사용하지 않도록 설정하는 그룹 정책이 있는 경우 Azure AD Connect Health Agent가 정보를 수집할 수 없습니다. 감사를 사용하지 않도록 설정할 수 있는 그룹 정책이 없는지 확인합니다.
 
 [//]: # "에이전트 프록시 구성 섹션의 시작"
 
@@ -126,7 +126,7 @@ Windows Server 2008 R2 서버에 대해 다음을 수행합니다.
  
 ![동기화에 대한 Azure AD Connect Health 확인](./media/active-directory-aadconnect-health-sync/services.png)
 
->[Azure.NOTE]Azure AD Connect Health를 사용하려면 Azure AD Premium이 필요합니다. Azure AD Premium이 없는 경우 Azure 포털에서 구성을 완료할 수 없습니다. 자세한 내용은 [여기](active-directory-aadconnect-health.md#requirements)에서 요구 사항을 참조하세요.
+>[Azure.NOTE] Azure AD Connect Health를 사용하려면 Azure AD Premium이 필요합니다. Azure AD Premium이 없는 경우 Azure 포털에서 구성을 완료할 수 없습니다. 자세한 내용은 [여기](active-directory-aadconnect-health.md#requirements)에서 요구 사항을 참조하세요.
 
 
 
@@ -134,12 +134,13 @@ Windows Server 2008 R2 서버에 대해 다음을 수행합니다.
 ## HTTP 프록시를 사용하도록 Azure AD Connect Health Agent 구성
 HTTP 프록시와 작동하도록 Azure AD Connect Health Agent를 구성할 수 있습니다.
 
->[AZURE.NOTE]- 에이전트에서 Microsoft Windows HTTP 서비스 대신 System.Net을 사용하여 웹 요청을 하므로 “Netsh WinHttp set ProxyServerAddress” 사용이 작동하지 않습니다. - 구성된 HTTP 프록시 주소가 암호화된 HTTPS 메시지를 통과시키는 데 사용됩니다. - 인증된 프록시(HTTPBasic 사용)가 지원되지 않습니다.
+>[AZURE.NOTE]
+- 에이전트에서 Microsoft Windows HTTP 서비스 대신 System.Net을 사용하여 웹 요청을 하므로 “Netsh WinHttp set ProxyServerAddress” 사용이 작동하지 않습니다. - 구성된 HTTP 프록시 주소가 암호화된 HTTPS 메시지를 통과시키는 데 사용됩니다. - 인증된 프록시(HTTPBasic 사용)가 지원되지 않습니다.
 
 ### Health Agent 프록시 구성 변경
 HTTP 프록시를 사용하도록 Azure AD Connect Health Agent를 구성하는 옵션은 다음과 같습니다.
 
->[AZURE.NOTE]모든 Azure AD Connect Health Agent 서비스를 다시 시작하여 프록시 설정을 업데이트해야 합니다. 다음 명령을 실행합니다.<br> Restart-Service AdHealth*
+>[AZURE.NOTE] 모든 Azure AD Connect Health Agent 서비스를 다시 시작하여 프록시 설정을 업데이트해야 합니다. 다음 명령을 실행합니다.<br> Restart-Service AdHealth*
 
 #### 기존 프록시 설정 가져오기
 
@@ -186,4 +187,4 @@ Health Agent를 실행하는 각 서버에서 다음 PowerShell 명령을 실행
 * [동기화에 대한 Azure AD Connect Health 사용](active-directory-aadconnect-health-sync.md)
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

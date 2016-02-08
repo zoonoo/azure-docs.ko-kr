@@ -33,8 +33,8 @@
 ## 다음 단계
 Azure Redis Cache 사용에 대해 자세히 알아보려면 다음을 참조하세요.
  
-- [Redis Azure Cache 문서](http://azure.microsoft.com/documentation/services/cache/)(영문): 이 페이지에서는 Redis Azure Cache 사용에 유용한 많은 링크를 제공합니다.
-- [15분 내에 Azure Redis Cache를 사용하여 MVC 동영상 앱 실행](http://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/)(영문): 이 블로그 게시물에서는 ASP.NET MVC 앱에서 빠르게 Azure Redis Cache를 사용하는 방법을 알려줍니다.
+- [Redis Azure Cache 문서](https://azure.microsoft.com/documentation/services/cache/)(영문): 이 페이지에서는 Redis Azure Cache 사용에 유용한 많은 링크를 제공합니다.
+- [15분 내에 Azure Redis Cache를 사용하여 MVC 동영상 앱 실행](https://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/)(영문): 이 블로그 게시물에서는 ASP.NET MVC 앱에서 빠르게 Azure Redis Cache를 사용하는 방법을 알려줍니다.
 - [Azure 웹 사이트에서 ASP.NET 세션 상태를 사용하는 방법](../app-service-web/web-sites-dotnet-session-state-caching.md)(영문): 이 항목에서는 세션 상태에 Azure Redis Cache 서비스를 사용하는 방법을 설명합니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

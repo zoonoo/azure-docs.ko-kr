@@ -233,7 +233,7 @@
 ## 기존 VM에 정적 개인 IP 주소를 추가하는 방법
 위의 스크립트를 사용하여 만든 teh VM에 사용된 NIC에 정적 개인 IP 주소를 추가하려면 다음 명령을 실행합니다.
 
-	azure netwrok nic set -g TestRG -n TestNIC2 -a 192.168.1.101
+	azure network nic set -g TestRG -n TestNIC2 -a 192.168.1.101
 
 예상된 출력:
 
@@ -264,4 +264,4 @@
 - [ILPIP(인스턴스 수준 공용 IP)](../virtual-networks-instance-level-public-ip) 주소에 대해 알아봅니다.
 - [예약된 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)를 참조합니다.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

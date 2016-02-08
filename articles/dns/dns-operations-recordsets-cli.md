@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="11/10/2015"
+   ms.date="01/21/2016"
    ms.author="joaoma"/>
 
 # CLI를 사용하여 DNS 레코드를 관리하는 방법
@@ -24,7 +24,7 @@
 
 이 가이드에서는 DNS 영역에 대한 레코드 집합 및 레코드를 관리하는 방법을 보여 줍니다.
 
->[AZURE.NOTE]Azure DNS는 Azure 리소스 관리자 전용 서비스입니다. 여기에는 ASM API가 없습니다. 따라서 'azure config mode arm' 명령을 사용하여 Azure CLI가 리소스 관리자 모드를 사용하도록 구성되었는지 확인해야 합니다.
+>[AZURE.NOTE] Azure DNS는 Azure 리소스 관리자 전용 서비스입니다. 여기에는 ASM API가 없습니다. 따라서 'azure config mode arm' 명령을 사용하여 Azure CLI가 리소스 관리자 모드를 사용하도록 구성되었는지 확인해야 합니다.
 
 >"오류: 'dns'가 azure 명령이 아닙니다"가 표시되면 Azure CLI를 리소스 관리자 모드가 아닌 ASM 모드에서 사용하고 있기 때문입니다.
 
@@ -34,27 +34,25 @@ DNS 레코드 집합과 개별 DNS 레코드의 차이점을 이해하는 것이
 
 `azure network dns record-set create` 명령을 사용하여 레코드 집합을 만듭니다. 레코드 집합 이름, 영역, TTL(Time-to-Live) 및 레코드 형식을 지정해야 합니다.
 
->[AZURE.NOTE]레코드 집합 이름은 영역 이름을 제외한 상대 이름이어야 합니다. 예를 들어 'contoso.com' 영역의 레코드 집합 이름 'www'는 정규화된 이름 'www.contoso.com'을 가진 레코드 집합을 만듭니다.
+레코드 집합 이름은 영역 이름을 제외한 상대 이름이어야 합니다. 예를 들어 'contoso.com' 영역의 레코드 집합 이름 'www'는 정규화된 이름 'www.contoso.com'을 가진 레코드 집합을 만듭니다.
 
->영역 구로의 레코드 집합의 경우, 따옴표를 포함하여 "@"를 레코드 집합 이름으로 사용합니다. 완전한 레코드 집합의 이름은 영역 이름과 동일하며 이 경우 "contoso.com"입니다.
+영역 구로의 레코드 집합의 경우, 따옴표를 포함하여 "@"를 레코드 집합 이름으로 사용합니다. 완전한 레코드 집합의 이름은 영역 이름과 동일하며 이 경우 "contoso.com"입니다.
 
 Azure DNS는 A, AAAA, CNAME, MX, NS, SOA, SRV, TXT 등의 레코드 형식을 지원합니다. SOA 형식의 레코드 집합은 각 영역과 함께 자동으로 생성되며 별도로 만들 수 없습니다. [SPF 레코드 유형은 TXT 레코드 종류를 사용하여 SPF 레코드를 만드는 데 유리한 DNS 표준에 의해 사용되지 않습니다](http://tools.ietf.org/html/rfc7208#section-3.1).
 
 	azure network dns record-set create myresourcegroup contoso.com  www  A --ttl 300
 
 
->[AZURE.IMPORTANT]CNAME 레코드 집합은 동일한 이름의 다른 레코드 집합과 함께 존재할 수 없습니다. 예를 들어 상대 이름이 'www'인 CNAME과 상대 이름이 'www'인 A 레코드를 동시에 만들 수 없습니다. 영역 루트(이름 = '@')는 항상 영역을 만들 때 생성된 NS 및 SOA 레코드 집합을 포함하므로 영역 루트에 CNAME 레코드 집합을 만들 수 없습니다. 이러한 제약 조건은 DNS 표준에서 발생하며 Azure DNS의 제한 사항이 아닙니다.
+>[AZURE.IMPORTANT] CNAME 레코드 집합은 동일한 이름의 다른 레코드 집합과 함께 존재할 수 없습니다. 예를 들어 상대 이름이 'www'인 CNAME과 상대 이름이 'www'인 A 레코드를 동시에 만들 수 없습니다. 영역 루트(이름 = '@')는 항상 영역을 만들 때 생성된 NS 및 SOA 레코드 집합을 포함하므로 영역 루트에 CNAME 레코드 집합을 만들 수 없습니다. 이러한 제약 조건은 DNS 표준에서 발생하며 Azure DNS의 제한 사항이 아닙니다.
 
 ### 와일드카드 레코드
 
-Azure DNS는 [와일드카드 레코드](https://en.wikipedia.org/wiki/Wildcard_DNS_record)를 지원합니다. 이러한 레코드는 일치하는 이름이 있는 모든 쿼리에 대해 반환됩니다(비 와일드카드 레코드 집합에 더 일치하는 항목이 없는 한).
+Azure DNS는 [와일드카드 레코드](https://en.wikipedia.org/wiki/Wildcard_DNS_record)를 지원합니다. 이러한 레코드는 일치하는 이름이 있는 모든 쿼리에 대해 반환됩니다(비 와일드카드 레코드 집합에 더 일치하는 항목이 없는 한). 와일드카드 레코드 집합을 만들려면 "*"라는 레코드 집합 이름을 사용하거나 첫 번째 레이블의 이름이 "*", 예: "*.foo"인 이름을 사용합니다.
 
->[AZURE.NOTE]와일드카드 레코드 집합을 만들려면 "\*"라는 레코드 집합 이름을 사용하거나 첫 번째 레이블의 이름이 "\*", 예: "\*.foo"인 이름을 사용합니다.
-
->와일드카드 레코드 집합은 NS 및 SOA를 제외한 모든 레코드 유형에 대해 지원됩니다.
+와일드카드 레코드 집합은 NS 및 SOA를 제외한 모든 레코드 유형에 대해 지원됩니다.
 
 ## 레코드 집합 가져오기
-기존 레코드 집합을 가져오려면 리소스 그룹, 영역 이름, 레코드 집합 상대 이름 및 레코드 종류를 지정하여 `azure network dns record-set show`를 사용합니다.
+기존 레코드 집합을 가져오려면 리소스 그룹, 영역 이름, 레코드 집합 상대 이름 및 레코드 형식을 지정하여 `azure network dns record-set show`를 사용합니다.
 
 	azure network dns record-set show myresourcegroup contoso.com www A
 
@@ -91,7 +89,7 @@ Azure DNS는 [와일드카드 레코드](https://en.wikipedia.org/wiki/Wildcard_
 	
 	azure network dns record-set create myresourcegroup  contoso.com "test-a"  A --ttl 300
 
->[AZURE.NOTE]--ttl 매개 변수가 정의되지 않은 경우 기본값은 4(초)입니다.
+>[AZURE.NOTE] --ttl 매개 변수가 정의되지 않은 경우 기본값은 4(초)입니다.
 
 
 A 레코드 집합을 만든 후에 `azure network dns record-set add-record`로 레코드 집합에 IPv4 주소를 추가합니다.
@@ -110,7 +108,7 @@ A 레코드 집합을 만든 후에 `azure network dns record-set add-record`로
 	
 	azure network dns record-set add-record  myresourcegroup contoso.com  test-cname CNAME -c "www.contoso.com"
 
->[AZURE.NOTE]CNAME 레코드에는 하나의 단일 문자열 값만 허용됩니다.
+>[AZURE.NOTE] CNAME 레코드에는 하나의 단일 문자열 값만 허용됩니다.
 
 ### 단일 레코드를 포함하는 MX 레코드 집합 만들기
 
@@ -229,7 +227,7 @@ A 레코드 집합을 만든 후에 `azure network dns record-set add-record`로
 ## 레코드 집합 삭제
 Remove-AzureDnsRecordSet cmdlet을 사용하여 레코드 집합을 삭제할 수 있습니다.
 
->[AZURE.NOTE]영역을 만들 때 자동으로 생성된 영역 루트(이름 = '@')의 SOA 및 NS 레코드 집합은 삭제할 수 없습니다. 영역을 삭제하면 자동으로 삭제됩니다.
+>[AZURE.NOTE] 영역을 만들 때 자동으로 생성된 영역 루트(이름 = '@')의 SOA 및 NS 레코드 집합은 삭제할 수 없습니다. 영역을 삭제하면 자동으로 삭제됩니다.
 
 다음 예제에서는 "test-a" 레코드 집합이 DNS 영역에서 제거됩니다.
 
@@ -238,9 +236,10 @@ Remove-AzureDnsRecordSet cmdlet을 사용하여 레코드 집합을 삭제할 �
 선택적 '-q' 스위치를 사용하여 확인 메시지가 표시되지 않도록 할 수 있습니다.
 
 
-##참고 항목
+## 다음 단계
 
-[Azure DNS에 도메인 위임](dns-domain-delegation.md)<BR> [DNS 영역 관리](dns-operations-dnszones-cli.md)<BR> [.NET SDK로 작업 자동화](dns-sdk.md)
+DNS 영역 및 레코드를 만든 후 [Azure DNS에 도메인을 위임](dns-domain-delegation.md)할 수 있습니다.<BR> CLI를 사용하여 [DNS 영역을 관리](dns-operations-dnszones-cli.md)하는 방법에 대해 알아봅니다.<BR> Azure DNS 작업을 응용 프로그램으로 코딩하도록 [.NET SDK를 사용하여 작업을 자동화](dns-sdk.md)할 수도 있습니다.
+
  
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

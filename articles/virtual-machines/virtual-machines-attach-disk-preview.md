@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/14/2015"
+	ms.date="01/21/2016"
 	ms.author="cynthn"/>
 
 # Azure 포털에서 데이터 디스크를 연결하는 방법
@@ -27,21 +27,17 @@
 - 프리미엄 저장소를 사용하려면 DS 시리즈 또는 GS 시리즈 가상 컴퓨터가 필요합니다. 이 가상 컴퓨터를 사용하여 프리미엄 및 표준 저장소 계정에서 모두 디스크를 사용할 수 있습니다. 프리미엄 저장소는 특정 지역에서만 사용할 수 있습니다. 자세한 내용은 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../storage/storage-premium-storage-preview-portal.md)를 참조하세요.
 - 가상 컴퓨터에 연결된 디스크는 실제로 Azure 저장소 계정의 .vhd 파일입니다. 자세한 내용은 [가상 컴퓨터용 디스크 및 VHD 정보](virtual-machines-disks-vhds.md)를 참조하세요.
 - 새 디스크의 경우 Azure가 디스크를 연결할 때 생성하므로 먼저 생성하지 않아도 됩니다.
-- 기존 디스크의 경우 Azure 저장소 계정에서 .vhd 파일을 사용할 수 있어야 합니다. 다른 가상 컴퓨터에 연결되어 있지 않은 경우 이미 있는 디스크를 사용하거나 자기만의 .vhd 파일을 저장소 계정에 업로드할 수 있습니다.
+- 기존 디스크의 경우 Azure 저장소 계정에서 .vhd 파일을 사용할 수 있어야 합니다. 다른 가상 컴퓨터에 연결되지 않은 경우 이미 있는 .vhd 파일을 사용하거나 고유의 .vhd 파일을 저장소 계정에 업로드할 수 있습니다.
 
 ## 가상 컴퓨터 찾기
 
 1. Azure 포털에 로그인합니다.
 
-2. 허브 메뉴에서 **찾아보기**를 클릭합니다.
+2. 허브 메뉴에서 **가상 컴퓨터**를 클릭합니다.
 
-3. 검색 블레이드에서 아래로 스크롤하여 **가상 컴퓨터**를 클릭합니다.
+3.	목록에서 가상 컴퓨터를 선택합니다.
 
-	![가상 컴퓨터 검색](./media/virtual-machines-attach-disk-preview/search-blade-preview-portal.png)
-
-4.	목록에서 가상 컴퓨터를 선택합니다.
-
-5. 오른쪽의 **필수 항목** 아래에서 **모든 설정**을 클릭한 다음 **디스크**를 클릭합니다.
+4. 오른쪽의 **Essentials** 아래에서 **모든 설정**을 클릭한 다음 **디스크**를 클릭합니다.
 
 	![디스크 설정 열기](./media/virtual-machines-attach-disk-preview/find-disk-settings.png)
 
@@ -90,4 +86,4 @@
 
 [Azure 저장소 계정 정보]: ../storage-whatis-account/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

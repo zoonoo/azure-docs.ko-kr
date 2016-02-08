@@ -287,7 +287,7 @@ td.EnablePartitioning = true;
 ns.CreateTopic(td);
 ```
 
-자세한 내용은 [분할된 서비스 버스 큐 및 토픽 | Microsoft Azure 블로그](http://azure.microsoft.com/blog/2013/10/29/partitioned-service-bus-queues-and-topics/) 및 [Microsoft Azure 서비스 버스 분할 큐](https://code.msdn.microsoft.com/windowsazure/Service-Bus-Partitioned-7dfd3f1f) 샘플을 참조하세요.
+자세한 내용은 [분할된 서비스 버스 큐 및 토픽 | Microsoft Azure 블로그](https://azure.microsoft.com/blog/2013/10/29/partitioned-service-bus-queues-and-topics/) 및 [Microsoft Azure 서비스 버스 분할 큐](https://code.msdn.microsoft.com/windowsazure/Service-Bus-Partitioned-7dfd3f1f) 샘플을 참조하세요.
 
 ## SharedAccessStartTime을 설정하지 마십시오.
 
@@ -449,7 +449,7 @@ AP4001
 
 - ASP.NET vNext 응용 프로그램의 경우 configuration.json을 사용하여 연결 문자열을 저장합니다.
 
-web.config 또는 app.config와 같은 구성 파일을 사용하는 방법은 [ASP.NET 웹 구성 지침](https://msdn.microsoft.com/library/vstudio/ff400235(v=vs.100).aspx))을 참조하세요. Azure 환경 변수의 작동 방식에 대해서는 [Azure 웹 사이트: 응용 프로그램 문자열 및 연결 문자열 작동 방식](http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)을 참조하세요. 연결 문자열을 소스 제어에 저장하는 방법에 대한 자세한 내용은 [연결 문자열과 같은 민감한 정보를 소스 코드 리포지토리에 저장된 파일에 두지 않는 방식](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control)을 참조하세요.
+web.config 또는 app.config와 같은 구성 파일을 사용하는 방법은 [ASP.NET 웹 구성 지침](https://msdn.microsoft.com/library/vstudio/ff400235(v=vs.100).aspx))을 참조하세요. Azure 환경 변수의 작동 방식에 대해서는 [Azure 웹 사이트: 응용 프로그램 문자열 및 연결 문자열 작동 방식](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)을 참조하세요. 연결 문자열을 소스 제어에 저장하는 방법에 대한 자세한 내용은 [연결 문자열과 같은 민감한 정보를 소스 코드 리포지토리에 저장된 파일에 두지 않는 방식](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control)을 참조하세요.
 
 ## 진단 구성 파일 사용
 
@@ -532,4 +532,4 @@ public class BlogsController : Controller
 
 Azure 앱 최적화 및 문제 해결에 대한 자세한 내용은 [Visual Studio를 사용하여 Azure 앱 서비스에서 웹 앱 문제 해결](web-sites-dotnet-troubleshoot-visual-studio.md)을 참조하세요.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

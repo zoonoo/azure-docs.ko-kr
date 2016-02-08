@@ -1,4 +1,4 @@
- 선택하는 [가격 책정 계층](http://azure.microsoft.com/pricing/details/application-insights/)에 따라 제한됩니다.
+ 선택하는 [가격 책정 계층](https://azure.microsoft.com/pricing/details/application-insights/)에 따라 제한됩니다.
 
 **리소스** | **기본 제한** | **최대 제한**
 -------- | ------------- | -------------
@@ -21,4 +21,4 @@
  
 [Application Insights의 가격 책정 및 할당량 정보](app-insights-pricing.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

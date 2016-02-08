@@ -21,21 +21,21 @@
 
 Spark 클러스터에 Zeppelin Notebook을 설치하는 방법 및 Zeppelin Notebook 사용 방법을 알아봅니다.
 
-> [AZURE.IMPORTANT]HDInsight Spark 클러스터용 Zeppelin Notebook은 Azure HDInsight Spark 환경에서 Zeppelin을 사용하는 방법을 보여줍니다. HDInsight Spark와 함께 작동하도록 노트북을 사용하려는 경우에는 Jupyter 노트북을 대신 사용하는 것이 좋습니다. 또한 Jupyter 노트북은 Scala 등의 다른 커널 옵션을 제공하고 지속적으로 향상된 기능을 제공합니다. HDInsight Spark와 Jupyter 노트북을 사용하는 방법에 대한 지침은 [Jupyter 노트북을 사용하여 Spark SQL 쿼리 실행](hdinsight-apache-spark-jupyter-spark-sql.md#jupyter)을 참조하세요.
+> [AZURE.IMPORTANT] HDInsight Spark 클러스터용 Zeppelin Notebook은 Azure HDInsight Spark 환경에서 Zeppelin을 사용하는 방법을 보여줍니다. HDInsight Spark와 함께 작동하도록 노트북을 사용하려는 경우에는 Jupyter 노트북을 대신 사용하는 것이 좋습니다. 또한 Jupyter 노트북은 Scala 등의 다른 커널 옵션을 제공하고 지속적으로 향상된 기능을 제공합니다. HDInsight Spark와 Jupyter 노트북을 사용하는 방법에 대한 지침은 [Jupyter 노트북을 사용하여 Spark SQL 쿼리 실행](hdinsight-apache-spark-jupyter-spark-sql.md#jupyter)을 참조하세요.
 
 **필수 조건:**
 
-* 이 자습서를 시작하기 전에 Azure 구독이 있어야 합니다. [Azure 무료 평가판](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+* 이 자습서를 시작하기 전에 Azure 구독이 있어야 합니다. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 * Apache Spark 클러스터. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](hdinsight-apache-spark-provision-clusters.md)를 참조하세요.
 * SSH 클라이언트. Linux 및 Unix 배포 또는 Macintosh OS X의 경우 `ssh` 명령은 운영 체제에 제공됩니다. Windows의 경우 [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)가 좋습니다.
 
-	> [AZURE.NOTE]`ssh` 또는 PuTTY 이외의 다른 SSH 클라이언트를 사용하려는 경우 SSH 터널을 설정하는 방법에 대해 클라이언트를 위한 설명서를 참조하세요.
+	> [AZURE.NOTE] `ssh` 또는 PuTTY 이외의 다른 SSH 클라이언트를 사용하려는 경우 SSH 터널을 설정하는 방법에 대해 클라이언트를 위한 설명서를 참조하세요.
 
 * SOCKS 프록시를 사용하도록 구성할 수 있는 웹 브라우저
 
 * __(선택 사항)__: 터널을 통해 특정 요청을 라우팅하는 규칙을 적용할 수 있는 [FoxyProxy](http://getfoxyproxy.org/,)와 같은 플러그인
 
-	> [AZURE.WARNING]FoxyProxy와 같은 플러그인 없이 브라우저를 통해 만들어진 모든 요청은 터널을 통해 라우팅될 수 있습니다. 이 경우 브라우저에서 웹 페이지의 로딩 속도가 느릴 수 있습니다.
+	> [AZURE.WARNING] FoxyProxy와 같은 플러그인 없이 브라우저를 통해 만들어진 모든 요청은 터널을 통해 라우팅될 수 있습니다. 이 경우 브라우저에서 웹 페이지의 로딩 속도가 느릴 수 있습니다.
 
 ## 클러스터 만들기의 일부로 Zeppelin 설치
 
@@ -151,13 +151,13 @@ PuTTY를 사용하여 SSH 터널을 만들려면 다음 단계를 사용합니�
 
 ### 브라우저에서 터널 사용
 
-> [AZURE.NOTE]이 섹션의 단계는 Linux, Unix, Macintosh OS X 및 Windows 시스템에 자유롭게 사용할 수 있으므로 FireFox 브라우저를 사용합니다. Google Chrome, Microsoft Edge 또는 Apple Safari와 같은 다른 최신 브라우저도 제대로 작동하지만 일부 단계에 사용된 FoxyProxy 플러그인은 모든 브라우저에 대해 사용할 수 없습니다.
+> [AZURE.NOTE] 이 섹션의 단계는 Linux, Unix, Macintosh OS X 및 Windows 시스템에 자유롭게 사용할 수 있으므로 FireFox 브라우저를 사용합니다. Google Chrome, Microsoft Edge 또는 Apple Safari와 같은 다른 최신 브라우저도 제대로 작동하지만 일부 단계에 사용된 FoxyProxy 플러그인은 모든 브라우저에 대해 사용할 수 없습니다.
 
 1. 브라우저를 구성하여 **SOCKS v5** 프록시로 **localhost:9876**을 사용합니다. Firefox 설정은 다음과 같습니다. 9876이 아닌 다른 포트를 사용한 경우 포트를 사용한 포트로 변경합니다.
 
 	![Firefox 설정 이미지](./media/hdinsight-apache-spark-use-zeppelin-notebook/socks.png)
 
-	> [AZURE.NOTE]**Remote DNS**를 선택하면 HDInsight 클러스터를 통해 DNS(Domain Name System) 요청이 확인됩니다. 선택하지 않은 경우 DNS가 로컬로 확인됩니다.
+	> [AZURE.NOTE] **Remote DNS**를 선택하면 HDInsight 클러스터를 통해 DNS(Domain Name System) 요청이 확인됩니다. 선택하지 않은 경우 DNS가 로컬로 확인됩니다.
 
 2. Firefox에서 프록시 설정을 사용하거나 사용하지 않도록 설정한 상태에서 [http://www.whatismyip.com/](http://www.whatismyip.com/)과 같은 사이트를 방문하여 트래픽이 터널을 통해 라우팅되는지 확인합니다. 설정이 활성화되어 있는 동안 IP 주소는 Microsoft Azure 데이터 센터에 있는 컴퓨터의 주소입니다.
 
@@ -191,7 +191,7 @@ FoxyProxy 표준을 설치한 경우 터널을 통해 HDInsight에 대한 트래
 
 	* **Pattern Name** - **zeppelinnotebook** - 패턴의 이름입니다.
 
-	* **URL 패턴** - **hn0** - Zeppelin Notebook이 호스팅되는 끝점의 내부 정규화된 도메인 이름과 일치하는 패턴을 정의합니다. Zeppelin Notebook은 클러스터의 headnode0에만 사용할 수 있고 끝점은 일반적으로 `http://hn0-<string>.internal.cloudapp.net`이므로, **hn0** 패턴을 사용하면 요청이 반드시 Zeppelin 끝점으로 리디렉션됩니다.
+	* **URL 패턴** - ***hn0*** - Zeppelin Notebook이 호스팅되는 끝점의 내부 정규화된 도메인 이름과 일치하는 패턴을 정의합니다. Zeppelin Notebook은 클러스터의 headnode0에만 사용할 수 있고 끝점은 일반적으로 `http://hn0-<string>.internal.cloudapp.net`이므로, **hn0** 패턴을 사용하면 요청이 반드시 Zeppelin 끝점으로 리디렉션됩니다.
 
 		![foxyproxy 패턴](./media/hdinsight-apache-spark-use-zeppelin-notebook/foxypattern.png)
 
@@ -330,4 +330,4 @@ SSH 터널링을 설정했으면 아래 단계에 따라 Spark 클러스터의 Z
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

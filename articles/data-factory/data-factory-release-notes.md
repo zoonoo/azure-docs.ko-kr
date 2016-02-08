@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/09/2015" 
+	ms.date="01/26/2016" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory 릴리스 정보
@@ -287,12 +287,12 @@ HDInsight 작업(Hive, Pig, MapReduce, Hadoop 스트리밍)은 새 속성인 **g
 -  Azure Blob에서 텍스트 파일의 인코딩을 지정할 수 있습니다. 새 [encodingName 속성](https://msdn.microsoft.com/library/dn894089.aspx#AzureBlob)을 참조하십시오. 
 - SQL 싱크로 복사하는 경우 추가 매개 변수가 있는 저장 프로시저를 호출할 수 있습니다.    
 
-예제를 포함하여 자세한 내용은 Blob 게시물: [Azure 데이터 팩터리 업데이트 - 새 데이터 저장소](http://azure.microsoft.com/blog/2015/03/30/azure-data-factory-update-new-data-stores/)를 참조하십시오.
+예제를 포함하여 자세한 내용은 Blob 게시물: [Azure 데이터 팩터리 업데이트 - 새 데이터 저장소](https://azure.microsoft.com/blog/2015/03/30/azure-data-factory-update-new-data-stores/)를 참조하십시오.
 
 ## 데이터 팩터리의 2015/2/27 릴리스 정보
 
 ### 새롭게 향상된 기능
-- **Azure 데이터 팩터리 편집기**. Azure 포털의 일부인 데이터 팩터리 편집기를 사용하면 연결된 서비스, 데이터 집합 및 파이프라인을 정의하는 JSON 파일을 만들고 편집 및 배포할 수 있습니다. 편집기의 주요 목표는 Azure PowerShell 설치 및 PowerShell cmdlet을 사용한 규모 확장을 요구하지 않고 Azure Data Factory 아티팩트를 만들기 위한 빠르고 간단한 UI(사용자 인터페이스)를 제공하는 것입니다. 데이터 팩터리 편집기에 대한 간략한 개요와 동영상은 [Azure 데이터 팩터리 편집기 - 경량 웹 편집기][adf-editor-blog](영문) 블로그 게시물을 참조하세요. 편집기에 대한 자세한 개요는 [데이터 팩터리 편집기][adf-editor] 문서를 참조하세요.          
+- **Azure 데이터 팩터리 편집기**. Azure 포털의 일부인 데이터 팩터리 편집기를 사용하면 연결된 서비스, 데이터 집합 및 파이프라인을 정의하는 JSON 파일을 만들고 편집 및 배포할 수 있습니다. 편집기의 주요 목표는 Azure PowerShell 설치 및 PowerShell cmdlet을 사용한 규모 확장을 요구하지 않고 Azure Data Factory 아티팩트를 만들기 위한 빠르고 간단한 UI(사용자 인터페이스)를 제공하는 것입니다. 데이터 팩터리 편집기에 대한 간략한 개요와 동영상은 [Azure 데이터 팩터리 편집기 - 경량 웹 편집기][adf-editor-blog](영문) 블로그 게시물을 참조하세요.  
 
 ### 변경 내용
 
@@ -340,7 +340,6 @@ HDInsight 작업(Hive, Pig, MapReduce, Hadoop 스트리밍)은 새 속성인 **g
 
 [adf-azure-ml]: data-factory-azure-ml-batch-execution-activity.md
 [adf-custom-activities]: data-factory-use-custom-activities.md
-[adf-editor]: data-factory-editor.md
 
 [adf-editor-video]: http://channel9.msdn.com/Blogs/Windows-Azure/New-Azure-Data-Factory-Editor-UI
 [adf-editor-blog]: http://azure.microsoft.com/blog/2015/03/02/azure-data-factory-editor-a-light-weight-web-editor/
@@ -354,4 +353,4 @@ HDInsight 작업(Hive, Pig, MapReduce, Hadoop 스트리밍)은 새 속성인 **g
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/22/2015"
+	ms.date="01/28/2016"
 	ms.author="anhoh"/>
 
 # DocumentDB 계정 제한 증가 요청
@@ -38,8 +38,8 @@
 |쿼리당 최대 UDF 수 |2
 |쿼리당 최대 JOIN 수 |5
 |쿼리당 최대 AND 절 수 |20
-|쿼리당 최대 OR 절 수 |10
-|IN 식당 최대 값 수 |100
+|쿼리당 최대 OR 절 수 |20
+|IN 식당 최대 값 수 |200
 |ST\_WITHIN 쿼리의 다각형 인수에 있는 점의 최대 수 |16
 |분당 최대 컬렉션 생성 수 |5
 |분당 최대 크기 조정 작업 수 |5
@@ -75,4 +75,4 @@
 ##<a name="NextSteps"></a> 다음 단계
 - DocumentDB에 대해 자세히 알아보려면 [여기](http://azure.com/docdb)를 클릭하세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -31,7 +31,7 @@ Azure 스트림 분석은 완전히 관리되는 서비스로, 클라우드의 �
 이 문서를 시작하기 전에 다음이 있어야 합니다.
 
 - Visual Studio 2012 또는 2013 설치
-- [Azure .NET SDK](http://azure.microsoft.com/downloads/)를 다운로드하여 설치합니다.
+- [Azure .NET SDK](https://azure.microsoft.com/downloads/)를 다운로드하여 설치합니다.
 - 구독에서 Azure 리소스 그룹을 만듭니다. 다음은 샘플 Azure PowerShell 스크립트입니다. Azure PowerShell 정보는 [Azure PowerShell 설치 및 구성](../install-configure-powershell.md)을 참조하세요.  
 
 
@@ -366,4 +366,4 @@ Blob 저장소 또는 이벤트 허브의 입력 소스는 특정 작업에 연�
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

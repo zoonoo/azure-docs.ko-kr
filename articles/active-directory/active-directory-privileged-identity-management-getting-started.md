@@ -3,7 +3,7 @@
    description="Azure 권한 있는 ID 관리 확장을 사용하여 권한 있는 ID를 관리하는 방법에 대해 알아봅니다."
    services="active-directory"
    documentationCenter=""
-   authors="IHenkel"
+   authors="kgremban"
    manager="stevenpo"
    editor=""/>
 
@@ -13,17 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/21/2015"
+   ms.date="01/21/2016"
    ms.author="inhenk"/>
 
-# Azure 권위 있는 ID 관리 시작
+# Azure Privileged Identity Management 시작
 
 ## 권위 있는 ID 관리 확장 시작
 
 1.  Azure Active Directory에서 디렉터리를 만듭니다.
 2.  Azure Active Directory에 사용자를 추가합니다.
 3.  디렉터리에 몇 개의 전역 관리자를 만듭니다.
-4.  전역 관리자 계정으로 [Azure 포털](http://portal.azure.com)에 로그인합니다.
+4.  전역 관리자 계정으로 [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 5.  Azure 포털의 왼쪽 위에서 **사용자 이름**을 클릭합니다.
 6.  방금 만든 **디렉터리**를 선택합니다.
 7.  왼쪽 탐색 창에서 **새로 만들기** 아이콘을 클릭합니다.
@@ -35,4 +35,4 @@
 ## 다음 단계
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

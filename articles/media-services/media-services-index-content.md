@@ -26,7 +26,7 @@
 
 Azure 미디어 인덱서를 사용하면 미디어 파일 콘텐츠를 검색 가능하게 만들고 선택 자막 및 키워드용 전체 텍스트 기록을 생성할 수 있습니다. 하나의 미디어 파일 또는 일괄 처리에서 여러 미디어 파일을 처리할 수 있습니다.
 
->[AZURE.IMPORTANT]콘텐츠를 인덱싱할 때, 음성이 매우 분명한(배경 음악, 소음, 효과 또는 마이크 소음) 미디어 파일을 사용해야 합니다. 적절한 콘텐츠의 예: 회의, 강의 또는 프레젠테이션 녹음. 인덱싱에 적합하지 않을 수 있는 콘텐츠: 영화, TV 프로그램, 오디오 및 사운드 효과가 혼합된 콘텐츠, 배경 소음(기계 소음)이 들어간 녹음 품질이 좋지 않은 콘텐츠.
+>[AZURE.IMPORTANT] 콘텐츠를 인덱싱할 때, 음성이 매우 분명한(배경 음악, 소음, 효과 또는 마이크 소음) 미디어 파일을 사용해야 합니다. 적절한 콘텐츠의 예: 회의, 강의 또는 프레젠테이션 녹음. 인덱싱에 적합하지 않을 수 있는 콘텐츠: 영화, TV 프로그램, 오디오 및 사운드 효과가 혼합된 콘텐츠, 배경 소음(기계 소음)이 들어간 녹음 품질이 좋지 않은 콘텐츠.
 
 
 인덱싱 작업은 다음 출력을 생성할 수 있습니다.
@@ -37,10 +37,10 @@ Azure 미디어 인덱서를 사용하면 미디어 파일 콘텐츠를 검색 �
 - 키워드 파일(XML).
 - SQL server에서 사용할 AIB(오디오 인덱싱 Blob) 파일.
 
-	자세한 내용은 [Azure 미디어 인덱서 및 SQL Server에서 AIB 파일 사용](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)(영문)을 참조하세요.
+	자세한 내용은 [Azure 미디어 인덱서 및 SQL Server에서 AIB 파일 사용](https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)(영문)을 참조하세요.
 
 
-이 항목에서는 **자산을 인덱싱**하고 **여러 파일 색인을 인덱싱**하는 인덱싱 작업을 만드는 방법을 보여 줍니다.
+이 항목에서는 **자산을 인덱싱**하고 **여러 파일을 인덱싱**하는 인덱싱 작업을 만드는 방법을 보여 줍니다.
 
 최신 Azure 미디어 인덱서 업데이트는 [미디어 서비스 블로그](#preset)(영문)를 참조하세요.
 
@@ -50,7 +50,7 @@ Azure 미디어 인덱서를 사용하면 미디어 파일 콘텐츠를 검색 �
 
 매니페스트 파일을 사용하여 여러 미디어 파일을 한 번에 처리할 수도 있습니다.
 
-자세한 내용은 [Azure 미디어 인덱서의 태스크 기본 설정](#)(영문)을 참조하세요.
+자세한 내용은 [Azure 미디어 인덱서의 작업 기본 설정](#)(영문)을 참조하세요.
 
 ## 자산 인덱스
 
@@ -278,7 +278,7 @@ __features__ <br /><br /> 버전 1.2에 추가되었습니다. 현재 지원되�
 
 ## <a id="supported_languages"></a>지원되는 언어
 
-현재 영어와 스페인어가 지원됩니다. 자세한 내용은 [v1.2 릴리스 블로그 게시물](http://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/)을 참조하세요.
+현재 영어와 스페인어가 지원됩니다. 자세한 내용은 [v1.2 릴리스 블로그 게시물](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/)을 참조하세요.
 
 
 ##미디어 서비스 학습 경로
@@ -293,7 +293,7 @@ __features__ <br /><br /> 버전 1.2에 추가되었습니다. 현재 지원되�
 
 ## 관련 링크
 
-[Azure 미디어 인덱서 및 SQL Server에서 AIB 파일 사용(영문)](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
+[Azure 미디어 인덱서 및 SQL Server에서 AIB 파일 사용(영문)](https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
 
 <!-- Anchors. -->
 
@@ -301,4 +301,4 @@ __features__ <br /><br /> 버전 1.2에 추가되었습니다. 현재 지원되�
 
 <!-- URLs. -->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

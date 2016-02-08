@@ -33,7 +33,7 @@
 
 인터넷 연결을 통해 온-프레미스 데이터 센터에서 Azure 저장소로 데이터를 이동하는 작업은 데이터 볼륨, 대역폭 가용성 또는 기타 고려 사항으로 인해 항상 가능하지는 않습니다. [Azure 저장소 가져오기/내보내기 서비스](../storage/storage-import-export-service.md)는 Blob 저장소에 있는 데이터의 큰 볼륨을 배치/검색하는 하드웨어 기반 옵션을 제공합니다. 이렇게 하면 클라우드 연산자가 저장소 계정에 콘텐츠를 업로드하는 Azure 데이터 센터에 [BitLocker로 암호화된](https://technet.microsoft.com/library/dn306081#BKMK_BL2012R2) 하드 디스크 드라이브를 직접 보낼 수 있거나 반환되도록 Azure 데이터를 드라이브를 다운로드할 수 있습니다. 암호화된 디스크는(작업을 설치하는 동안 서비스 자체에서 생성된 BitLocker 키를 사용하여) 이 프로세스에 허용됩니다. BitLocker 키는 별도로 Azure에 제공되므로 공유할 밴드 키를 벗어나 제공됩니다.
 
-전송 중인 데이터가 다양한 시나리오에 위치할 수 있으므로 또한 Microsoft Azure가 [가상 네트워킹](http://azure.microsoft.com/documentation/services/virtual-network/)을 사용하여 서로에서 테넌트 트래픽을 격리한다는 점을 인식하며 호스트 및 게스트 수준 방화벽, IP 패킷 필터링, 포트 차단 및 HTTPS 끝점과 같은 측정값을 사용합니다. 그러나 인프라간 및 인프라 및 고객(온-프레미스)을 포함하여 Azure의 내부 통신 대부분은 암호화됩니다. 다른 중요한 시나리오는 Azure 데이터 센터 내의 통신입니다. Microsoft는 VM이 다른 IP 주소를 가장하거나 가로챌 수 없도록 네트워크를 관리합니다. TLS/SSL는 Azure 저장소 또는 SQL 데이터베이스에 액세스할 때 또는 클라우드 서비스에 연결할 때 사용됩니다. 이 경우에 고객 관리자는 TLS/SSL 인증서를 취득하고 테넌트 인프라에 배포하는 일을 담당합니다. Microsoft Azure 가상 네트워크를 통해 동일한 배포 내의 가상 컴퓨터 또한 단일 배포의 테넌트 간에 이동하는 데이터 트래픽은 HTTPS, SSL/TLS 또는 다른 사용자와 같은 암호화된 통신 프로토콜을 통해 보호될 수 있습니다.
+전송 중인 데이터가 다양한 시나리오에 위치할 수 있으므로 또한 Microsoft Azure가 [가상 네트워킹](https://azure.microsoft.com/documentation/services/virtual-network/)을 사용하여 서로에서 테넌트 트래픽을 격리한다는 점을 인식하며 호스트 및 게스트 수준 방화벽, IP 패킷 필터링, 포트 차단 및 HTTPS 끝점과 같은 측정값을 사용합니다. 그러나 인프라간 및 인프라 및 고객(온-프레미스)을 포함하여 Azure의 내부 통신 대부분은 암호화됩니다. 다른 중요한 시나리오는 Azure 데이터 센터 내의 통신입니다. Microsoft는 VM이 다른 IP 주소를 가장하거나 가로챌 수 없도록 네트워크를 관리합니다. TLS/SSL는 Azure 저장소 또는 SQL 데이터베이스에 액세스할 때 또는 클라우드 서비스에 연결할 때 사용됩니다. 이 경우에 고객 관리자는 TLS/SSL 인증서를 취득하고 테넌트 인프라에 배포하는 일을 담당합니다. Microsoft Azure 가상 네트워크를 통해 동일한 배포 내의 가상 컴퓨터 또한 단일 배포의 테넌트 간에 이동하는 데이터 트래픽은 HTTPS, SSL/TLS 또는 다른 사용자와 같은 암호화된 통신 프로토콜을 통해 보호될 수 있습니다.
 
 [데이터 보호 요구 사항 확인](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)에서 질문에 답변하는 방법에 따라 데이터를 보호하는 방법 및 하이브리드 ID 솔루션으로 보조할 방법을 확인할 수 있어야 합니다. 테이블에서는 각 데이터 보호 시나리오에 사용할 수 있는 Azure에서 지원되는 옵션을 보여줍니다.
 
@@ -47,7 +47,8 @@
 | VPN | | | X |
 
 
->[AZURE.NOTE] [Microsoft Azure 보안 센터](http://azure.microsoft.com/support/trust-center/)에서 [기능으로 규정 준수](http://azure.microsoft.com/support/trust-center/services/)를 읽고 각 Azure 서비스와 호환되는 인증에 대해 자세히 알아봅니다. 데이터 보호에 대한 옵션은 다중 계층 접근 방법을 사용하기 때문에 이러한 옵션 간의 비교는 이 작업에 적용될 수 없습니다. 데이터가 될 수 있는 각 상태에 사용 가능한 모든 옵션을 활용하도록 합니다.
+>[AZURE.NOTE]
+[Microsoft Azure 보안 센터](https://azure.microsoft.com/support/trust-center/)에서 [기능으로 규정 준수](https://azure.microsoft.com/support/trust-center/services/)를 읽고 각 Azure 서비스와 호환되는 인증에 대해 자세히 알아봅니다. 데이터 보호에 대한 옵션은 다중 계층 접근 방법을 사용하기 때문에 이러한 옵션 간의 비교는 이 작업에 적용될 수 없습니다. 데이터가 될 수 있는 각 상태에 사용 가능한 모든 옵션을 활용하도록 합니다.
 
 ## 콘텐츠 관리 옵션 정의
 하이브리드 ID 인프라를 관리하기 위해 Azure AD를 사용하는 이점은 프로세스가 최종 사용자의 관점에서 완전히 투명하다는 점입니다. 토큰을 얻고 리소스에 액세스 하기 위해 사용자는 공유 리소스에 액세스하려고 하고 리소스에는 인증이 필요하며 사용자는 Azure AD로 인증 요청을 보내야 합니다. 이 전체 프로세스는 사용자 개입 없이 백그라운드에서 발생합니다. 또한 특정 일반 동작을 수행할 수 있도록 하기 위해 사용자의 [그룹](active-directory-manage-groups.md#getting-started-with-access-management)에 권한을 부여할 수 있습니다.
@@ -65,7 +66,8 @@
 - 사용자 관리(예: 사용자 추가, 제거 또는 업데이트)
 - 라이선스 추가 또는 제거
 
->[AZURE.NOTE] [Microsoft Azure 보안 및 감사 로그 관리](http://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf)를 읽고 Azure에서 로깅 기능에 대해 자세히 알아봅니다. [콘텐츠 관리 요구 사항 확인](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)에서 질문에 답변하는 방법에 따라 하이브리드 ID 솔루션에서 콘텐츠를 관리하는 방법을 확인할 수 있어야 합니다. 테이블 6에 노출된 모든 옵션은 Azure AD와 통합할 수 있는 반면 비즈니스 요구에 적합한 것을 정의하는 데 중요합니다.
+>[AZURE.NOTE]
+[Microsoft Azure 보안 및 감사 로그 관리](http://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf)를 읽고 Azure에서 로깅 기능에 대해 자세히 알아봅니다. [콘텐츠 관리 요구 사항 확인](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)에서 질문에 답변하는 방법에 따라 하이브리드 ID 솔루션에서 콘텐츠를 관리하는 방법을 확인할 수 있어야 합니다. 테이블 6에 노출된 모든 옵션은 Azure AD와 통합할 수 있는 반면 비즈니스 요구에 적합한 것을 정의하는 데 중요합니다.
 
 | 콘텐츠 관리 옵션 | 장점 | 단점 |
 |------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -89,9 +91,11 @@ Azure Active Directory는 수천 개의 SaaS 응용 프로그램 및 온-프레�
 - 인증서
 
 
->[AZURE.NOTE] [Azure Active Directory 인증 프로토콜](https://msdn.microsoft.com/library/azure/dn151124.aspx)을 읽고 Azure에서 각 프로토콜 및 해당 기능에 대한 자세한 정보를 알아봅니다. Azure AD 지원을 사용하여 직원이 해당 회사 Active Directory 자격 증명으로 모바일 응용 프로그램에 로그인할 수 있도록 모바일 비즈니스 응용 프로그램은 동일하게 쉬운 모바일 서비스 인증 환경을 사용할 수 있습니다. 이 기능을 사용하여 Azure AD는 이미 지원한 다른 ID 공급자와 함께 모바일 서비스에서 ID 공급자로 지원됩니다.(Microsoft 계정, Facebook ID, Google ID 및 Twitter ID 포함) 온-프레미스 앱이 회사의 AD DS에 있는 사용자의 자격 증명을 사용하는 경우 클라우드에서 들어오는 파트너 및 사용자로부터의 액세스는 투명해야 합니다. (클라우드 기반) 웹 응용 프로그램, Web API, Microsoft 클라우드 서비스, 타사 SaaS 응용 프로그램 및 네이티브 (모바일) 클라이언트 응용 프로그램에 사용자의 조건부 액세스 제어를 관리할 수 있으며 한 곳에서 보안, 감사, 보고의 이점을 가질 수 있습니다. 그러나 비-프로덕션 환경에서 또는 제한된 양의 사용자로 유효성을 검사하는 것이 좋습니다.
+>[AZURE.NOTE]
+[Azure Active Directory 인증 프로토콜](https://msdn.microsoft.com/library/azure/dn151124.aspx)을 읽고 Azure에서 각 프로토콜 및 해당 기능에 대한 자세한 정보를 알아봅니다. Azure AD 지원을 사용하여 직원이 해당 회사 Active Directory 자격 증명으로 모바일 응용 프로그램에 로그인할 수 있도록 모바일 비즈니스 응용 프로그램은 동일하게 쉬운 모바일 서비스 인증 환경을 사용할 수 있습니다. 이 기능을 사용하여 Azure AD는 이미 지원한 다른 ID 공급자와 함께 모바일 서비스에서 ID 공급자로 지원됩니다.(Microsoft 계정, Facebook ID, Google ID 및 Twitter ID 포함) 온-프레미스 앱이 회사의 AD DS에 있는 사용자의 자격 증명을 사용하는 경우 클라우드에서 들어오는 파트너 및 사용자로부터의 액세스는 투명해야 합니다. (클라우드 기반) 웹 응용 프로그램, Web API, Microsoft 클라우드 서비스, 타사 SaaS 응용 프로그램 및 네이티브 (모바일) 클라이언트 응용 프로그램에 사용자의 조건부 액세스 제어를 관리할 수 있으며 한 곳에서 보안, 감사, 보고의 이점을 가질 수 있습니다. 그러나 비-프로덕션 환경에서 또는 제한된 양의 사용자로 유효성을 검사하는 것이 좋습니다.
 
->[AZURE.TIP]Azure AD에는 AD DS만큼 그룹 정책이 없다는 사실에 주목합니다. 장치에 정책을 적용하기 위해 [Microsoft Intune](https://technet.microsoft.com/library/jj676587.aspx)과 같은 모바일 장치 관리 솔루션이 필요합니다.
+>[AZURE.TIP]
+Azure AD에는 AD DS만큼 그룹 정책이 없다는 사실에 주목합니다. 장치에 정책을 적용하기 위해 [Microsoft Intune](https://technet.microsoft.com/library/jj676587.aspx)과 같은 모바일 장치 관리 솔루션이 필요합니다.
 
 Azure AD를 사용하여 사용자가 인증되면 사용자를 갖게 된 액세스 수준을 평가하는 것이 중요합니다. 리소스에 대해 사용자가 가직 액세스 수준은 다를 수 있습니다. 또한 Azure AD가 일부 리소스에 대한 액세스를 제어하여 추가 보안 계층을 추가할 수 있는 반면 리소스 자체는 파일 서버에 있는 파일에 대 한 액세스 제어와 같이 고유한 액세스 제어 목록을 별도로 가질 수 있다는 점을 염두해야 합니다. 아래 그림에서는 하이브리드 시나리오에서 가질 수 있는 액세스 제어의 수준을 요약합니다.
 
@@ -107,7 +111,8 @@ Azure AD를 사용하여 사용자가 인증되면 사용자를 갖게 된 액�
  - Azure에서 기본 제공 역할 활용: 세 가지 역할(소유자, 참가자 및 읽기 권한자)을 사용하여 사용자 및 그룹에 작업 수행에 필요한 작업만 수행할 수 있는 권한을 제공할 수 있습니다. 
  - 리소스에 대한 세부적인 액세스: 웹 사이트 또는 데이터베이스와 같은 특정 구독, 리소스 그룹 또는 개별 Azure 리소스에 대한 역할을 사용자 및 그룹에 할당할 수 있습니다. 이러한 방식으로 사용자는 필요한 모든 리소스에 대해 액세스하고 관리할 필요가 없는 리소스에 액세스하지 않을 수 있습니다.
 
- >[AZURE.NOTE]이 기능에 대한 자세한 내용은 [Azure Preview 포털의 역할 기반 액세스 제어](http://azure.microsoft.com/updates/role-based-access-control-in-azure-preview-portal/)를 참조하세요. 또한 응용 프로그램을 빌드하고 이에 대한 액세스 제어를 사용자 지정하려는 개발자의 경우 권한 부여를 위해 Azure AD 응용 프로그램 역할을 사용할 수 있습니다. 이 기능을 사용하여 앱을 개발하는 방법에 대해 [WebApp-RoleClaims-DotNet 예제](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet)를 검토합니다.
+ >[AZURE.NOTE]
+  이 기능에 대한 자세한 내용은 [Azure Preview 포털의 역할 기반 액세스 제어](https://azure.microsoft.com/updates/role-based-access-control-in-azure-preview-portal/)를 참조하세요. 또한 응용 프로그램을 빌드하고 이에 대한 액세스 제어를 사용자 지정하려는 개발자의 경우 권한 부여를 위해 Azure AD 응용 프로그램 역할을 사용할 수 있습니다. 이 기능을 사용하여 앱을 개발하는 방법에 대해 [WebApp-RoleClaims-DotNet 예제](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet)를 검토합니다.
 
 3. Microsoft Intune을 사용한 Office 365 응용 프로그램에 대한 조건부 액세스: IT 관리자는 조건부 액세스 장치 정책을 프로비전하여 규격 장치를 사용하는 정보 작업자가 서비스에 액세스할 수 있도록 하는 동시에 회사 리소스를 보호할 수 있습니다. 자세한 내용은 [Office 365 서비스에 대한 조건부 액세스 장치 정책](active-directory-conditional-access-device-policies.md)을 참조하세요.
 
@@ -124,7 +129,8 @@ Azure AD는 사용자의 활동을 모니터링하여 환경에서 잠재적인 
 - **사용자별 보고서**: 특정 사용자에 대한 장치/로그인 활동 데이터를 표시합니다.
 - **활동 로그**: 최근 24시간, 최근 7일 또는 최근 30일 이내에 감사된 모든 이벤트의 레코드와 그룹 활동 변경 사항, 암호 재설정 및 등록 활동이 포함됩니다.
 
->[AZURE.TIP]또한 사건을 다루는 인시던트 대응 팀에게 도움이 되는 다른 보고서는 [누수된 자격 증명을 사용하는 사용자](http://blogs.technet.com/b/ad/archive/2015/06/15/azure-active-directory-premium-reporting-now-detects-leaked-credentials.aspx) 보고서입니다. 이 보고서는 이러한 누수된 자격 증명 목록과 테넌트 간의 일치 항목을 표시합니다.
+>[AZURE.TIP]
+또한 사건을 다루는 인시던트 대응 팀에게 도움이 되는 다른 보고서는 [누수된 자격 증명을 사용하는 사용자](http://blogs.technet.com/b/ad/archive/2015/06/15/azure-active-directory-premium-reporting-now-detects-leaked-credentials.aspx) 보고서입니다. 이 보고서는 이러한 누수된 자격 증명 목록과 테넌트 간의 일치 항목을 표시합니다.
 
 인시던트 대응 조사 중에 사용될 수 있는 다른 중요한 Azure AD의 기본 제공 보고서는 다음과 같습니다.
 
@@ -150,4 +156,4 @@ Azure AD는 사용자의 활동을 모니터링하여 환경에서 잠재적인 
 ## 참고 항목
 [디자인 고려 사항 개요](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -53,7 +53,8 @@ MFA 서비스 설정 페이지를 통해 MFA 관리 포털에 액세스하려면
 6.	**초기 인사말 중 사기 행위 보고 코드** 텍스트 상자에 호출 확인 중 사용할 수 있는 숫자 코드를 입력합니다. 사용자가 # 기호 대신 코드와 #를 입력하면 사기 행위 경고가 보고됩니다. 
 7.	아래쪽에서 저장을 클릭합니다.
 
->[AZURE.NOTE]Microsoft의 기본 음성 인사말은 사용자가 사기 행위 경고 제출하기 위해 0# 키를 누르도록 지시합니다. 0이 아닌 코드를 사용하는 경우 적절한 지침과 함께 고유의 사용자 지정 음성 인사말을 기록하고 업로드해야 합니다.
+>[AZURE.NOTE]
+Microsoft의 기본 음성 인사말은 사용자가 사기 행위 경고 제출하기 위해 0# 키를 누르도록 지시합니다. 0이 아닌 코드를 사용하는 경우 적절한 지침과 함께 고유의 사용자 지정 음성 인사말을 기록하고 업로드해야 합니다.
 
 
 <center>![클라우드](./media/multi-factor-authentication-whats-next/fraud.png)</center>
@@ -80,7 +81,7 @@ MFA 서비스 설정 페이지를 통해 MFA 관리 포털에 액세스하려면
 
 ### 사기 행위 보고서를 보려면
 
-1. 여기로 로그온합니다. [http://azure.microsoft.com](http://azure.microsoft.com)
+1. 여기로 로그온합니다. [http://azure.microsoft.com](https://azure.microsoft.com/)
 2. 왼쪽에서 Active Directory를 선택합니다.
 3. 위쪽에서 Multi-Factor Auth 공급자를 선택합니다. 그러면 Multi-Factor Auth 공급자의 목록이 표시됩니다.
 4. 둘 이상의 Multi-Factor Auth 공급자를 사용하도록 설정한 경우 사기 행위 경고 보고서를 보려는 하나를 선택하고 페이지의 아래에서 관리를 클릭합니다. 하나만 있는 경우 관리를 클릭합니다. 그러면 Multi-Factor Authentication 관리 포털이 열립니다.
@@ -106,7 +107,7 @@ MFA 서비스 설정 페이지를 통해 MFA 관리 포털에 액세스하려면
 
 ### 일회성 바이패스 보고서를 보려면
 
-1. 여기로 로그온합니다. [http://azure.microsoft.com](http://azure.microsoft.com)
+1. 여기로 로그온합니다. [http://azure.microsoft.com](https://azure.microsoft.com/)
 2. 왼쪽에서 Active Directory를 선택합니다.
 3. 위쪽에서 Multi-Factor Auth 공급자를 선택합니다. 그러면 Multi-Factor Auth 공급자의 목록이 표시됩니다.
 4. 둘 이상의 Multi-Factor Auth 공급자를 사용하도록 설정한 경우 사기 행위 경고 보고서를 보려는 하나를 선택하고 페이지의 아래에서 관리를 클릭합니다. 하나만 있는 경우 관리를 클릭합니다. 그러면 Multi-Factor Authentication 관리 포털이 열립니다.
@@ -210,7 +211,7 @@ Azure AD 테넌트의 유형| 사용 가능한 신뢰할 수 있는 IP 옵션
 
 Office 2010 또는 이전 및 Apple 메일과 같은 일부 앱에서 Multi-factor Authentication를 사용할 수 없습니다. 이러한 앱을 사용하려면 기존의 암호 대신 "앱 암호"를 사용해야 합니다. 앱 암호를 사용하면 응용 프로그램이 Multi-factor Authentication을 바이패스하고 작업을 계속할 수 있습니다.
 
->[AZURE.NOTE]Office 2013 클라이언트에 대한 최신 인증
+>[AZURE.NOTE] Office 2013 클라이언트에 대한 최신 인증
 >
 > Office 2013 클라이언트(Outlook 포함)는 이제 새 인증 프로토콜을 지원하고 Multi-Factor Authentication을 지원하도록 설정할 수 있습니다. 즉, 일단 이렇게 설정되면 Office 2013 클라이언트에서 앱 암호를 사용할 필요가 없습니다. 자세한 내용은 [발표된 Office 2013 최신 인증 공개 미리 보기](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/)를 참조하십시오.
 
@@ -230,7 +231,7 @@ Office 2010 또는 이전 및 Apple 메일과 같은 일부 앱에서 Multi-fact
 - 현재 사용자 당 40개의 암호로 제한되어 있습니다. 새로 만들려면 기존 앱 암호 중 하나를 삭제하라는 메시지가 표시됩니다.
 - 사용자 계정에 Multi-Factor Authentication을 사용하도록 설정되었으면 대부분의 브라우저가 아닌 클라이언트(예: Outlook 및 Lync)에 앱 암호를 사용할 수 있지만, Windows PowerShell과 같은 브라우저가 아닌 응용 프로그램을 통해서는 사용자에게 관리 계정이 있어도 앱 암호를 사용하여 관리 작업을 수행할 수 없습니다. 강력한 암호로 PowerShell 스크립트를 실행할 서비스 계정을 만들고 해당 계정에 Multi-Factor Authentication을 사용하지 않도록 설정해야 합니다.
 
->[AZURE.WARNING]앱 암호는 클라이언트가 온-프레미스 및 클라우드 자동 검색 끝점과 통신하는 하이브리드 환경에서는 작동하지 않습니다.
+>[AZURE.WARNING]  앱 암호는 클라이언트가 온-프레미스 및 클라우드 자동 검색 끝점과 통신하는 하이브리드 환경에서는 작동하지 않습니다.
 >
 >앱 암호는 클라이언트가 온-프레미스 및 클라우드 자동 검색 끝점과 통신하는 하이브리드 환경에서는 작동하지 않음을 유의하세요. 온-프레미스를 인증하는 데는 도메인 암호가 필요하고 클라우드를 인증하는 데는 앱 암호가 필요하기 때문입니다.
 
@@ -338,7 +339,7 @@ Azure AD는 온-프레미스 Windows Server Active Directory 도메인 서비스
 - 자신의 회사 계정이 손상될 경우
 - 기억된 장치를 분실하거나 도난당한 경우
 
-> [AZURE.NOTE]이 기능은 브라우저 쿠키 캐시로 구현됩니다. 브라우저 쿠키를 사용할 수 없는 경우 작동하지 않습니다.
+> [AZURE.NOTE] 이 기능은 브라우저 쿠키 캐시로 구현됩니다. 브라우저 쿠키를 사용할 수 없는 경우 작동하지 않습니다.
 
 ### 기억된 장치 및 집합에 대해 MFA 일시 중단을 설정/해제하는 방법
 
@@ -351,4 +352,4 @@ Azure AD는 온-프레미스 Windows Server Active Directory 도메인 서비스
 <li>서비스 설정 페이지의 사용자 장치 설정 관리 아래에서 **사용자가 장치를 기억하도록 하여 Multi-Factor Authentication을 일시 중단할 수 있습니다**를 선택/선택 취소합니다.</li>
 ![장치 일시 중단](./media/multi-factor-authentication-manage-users-and-devices/suspend.png) <li>일시 중단을 허용하려는 일 수를 설정합니다. 기본값은 14일입니다.</li> <li>저장을 클릭합니다.</li> <li>닫기를 클릭합니다.</li>
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

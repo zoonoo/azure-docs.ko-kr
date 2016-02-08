@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Connect 동기화: 일반 LDAP 커넥터"
+   pageTitle="Azure AD Connect 동기화: 일반 LDAP 커넥터 | Microsoft Azure"
    description="이 문서에서는 Microsoft의 일반 LDAP 커넥터를 구성하는 방법을 설명합니다."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="01/14/2015"
+   ms.date="01/21/2016"
    ms.author="andkjell"/>
 
 # 일반 LDAP 커넥터 기술 참조
@@ -152,7 +152,7 @@ ShowDeletedControl은 삭제된 개체를 볼 수 있는 USNChanged 델타 가�
 
 ### 지원되지 않음
 
-다음 LDAP 기능은 원되지 않습니다.
+다음 LDAP 기능은 지원되지 않습니다.
 
 - 서버 간 LDAP 조회(RFC 4511/4.1.10)
 
@@ -279,4 +279,4 @@ Novell eDirectory의 경우 델타 가져오기는 개체 삭제를 검색하지
 
 -	커넥터의 문제를 해결하기 위해 로깅을 사용하는 방법에 대한 자세한 내용은 [커넥터에 ETW 추적을 사용하는 방법](http://go.microsoft.com/fwlink/?LinkId=335731) 참조하세요.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

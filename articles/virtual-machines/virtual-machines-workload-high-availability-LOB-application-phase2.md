@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="01/21/2016" 
 	ms.author="josephd"/>
 
 # LOB(기간 업무) 응용 프로그램 워크로드 2단계: 도메인 컨트롤러 구성
@@ -54,7 +54,7 @@ Azure PowerShell 명령의 다음 블록을 사용하여 두 도메인 컨트롤
 
 표 V, S, ST, A는 [1단계: Azure 구성](virtual-machines-workload-high-availability-LOB-application-phase1.md)에서 정의했습니다.
 
-> [AZURE.NOTE]다음 명령 집합은 Azure PowerShell 1.0 이상을 사용합니다. 자세한 내용은 [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)을 참조하세요.
+> [AZURE.NOTE] 다음 명령 집합은 Azure PowerShell 1.0 이상을 사용합니다. 자세한 내용은 [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)을 참조하세요.
 
 적절한 값을 모두 입력한 후 Azure PowerShell 프롬프트에서 완성된 블록을 실행합니다.
 
@@ -111,7 +111,7 @@ Azure PowerShell 명령의 다음 블록을 사용하여 두 도메인 컨트롤
 	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
-> [AZURE.NOTE]이러한 가상 컴퓨터는 인트라넷 응용 프로그램용이므로 공용 IP 주소 또는 DNS 도메인 이름 레이블이 할당되지 않으며 인터넷에 노출되지 않습니다. 그러나 이는 Azure 포털에서도 연결할 수 없음을 의미합니다. 가상 컴퓨터의 속성을 볼 때 **연결** 단추를 사용할 수 없습니다. 원격 데스크톱 연결 액세서리 또는 다른 원격 데스크톱 도구를 통해 해당 개인 IP 주소 또는 인트라넷 DNS 이름을 사용하여 가상 컴퓨터에 연결합니다.
+> [AZURE.NOTE] 이러한 가상 컴퓨터는 인트라넷 응용 프로그램용이므로 공용 IP 주소 또는 DNS 도메인 이름 레이블이 할당되지 않으며 인터넷에 노출되지 않습니다. 그러나 이는 Azure 포털에서도 연결할 수 없음을 의미합니다. 가상 컴퓨터의 속성을 볼 때 **연결** 단추를 사용할 수 없습니다. 원격 데스크톱 연결 액세서리 또는 다른 원격 데스크톱 도구를 통해 해당 개인 IP 주소 또는 인트라넷 DNS 이름을 사용하여 가상 컴퓨터에 연결합니다.
 
 ## 첫 번째 도메인 컨트롤러 구성
 
@@ -167,7 +167,7 @@ Azure PowerShell 명령의 다음 블록을 사용하여 두 도메인 컨트롤
 
 1.	Azure 포털의 왼쪽 창에서 **가상 네트워크**를 클릭하고 가상 네트워크의 이름(표 V - 항목 1 - 값 열)을 클릭합니다.
 2.	**설정** 창에서 **DNS 서버**를 클릭합니다.
-3.	**DNS 서버** 창에서 다음을 입력합니다.
+3.	**DNS 서버** 창에 다음을 입력합니다.
 	- **주 DNS 서버**: 표 V – 항목 6 – 값 열
 	- **보조 DNS 서버**: 표 V – 항목 7 – 값 열
 4.	Azure 포털의 왼쪽 패널에서 **가상 컴퓨터**를 클릭합니다.
@@ -197,4 +197,4 @@ Azure PowerShell 명령의 다음 블록을 사용하여 두 도메인 컨트롤
 
 - [3단계](virtual-machines-workload-high-availability-LOB-application-phase3.md)를 사용하여 이 워크로드의 구성을 계속합니다.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

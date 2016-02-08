@@ -28,7 +28,8 @@
 - **암호 관리 작업 보고서**는 조직에서 발생하는 암호 재설정 및 등록 작업에서의 관리자 이해도를 높여줍니다.
 - **암호 쓰기 저장** 기능을 사용하여 클라우드에서 온-프레미스 암호를 관리할 수 있으므로 위의 모든 시나리오에서 수행되거나 페더레이션 및 암호가 동기화된 사용자가 대신 수행할 수 있습니다. 암호 쓰기 저장 기능을 사용하려면 Azure AD Premium이 필요합니다. 자세한 내용은 [Azure Active Directory Premium 시작하기](active-directory-get-started-premium.md)를 참조하세요.
 
-> [AZURE.NOTE]중국 고객의 경우 전 세계의 Azure AD 인스턴스를 사용하여 Azure AD Premium을 사용할 수 있습니다. 중국의 21Vianet에서 운영하는 Microsoft Azure 서비스는 현재 Azure AD Premium을 지원하지 않습니다. 자세한 내용은 [Azure Active Directory 포럼](http://feedback.azure.com/forums/169401-azure-active-directory)을 통해 문의하세요.
+> [AZURE.NOTE]
+중국 고객의 경우 전 세계의 Azure AD 인스턴스를 사용하여 Azure AD Premium을 사용할 수 있습니다. 중국의 21Vianet에서 운영하는 Microsoft Azure 서비스는 현재 Azure AD Premium을 지원하지 않습니다. 자세한 내용은 [Azure Active Directory 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/)을 통해 문의하세요.
 
 다음 링크를 사용하여 가장 관심 있는 설명서로 이동하세요.
 
@@ -48,4 +49,4 @@
 - [Azure AD에서 사용자 만들기 또는 편집](active-directory-create-users.md)
 - [Azure AD에서 그룹 관리](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

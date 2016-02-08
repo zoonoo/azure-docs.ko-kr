@@ -257,7 +257,7 @@ Active Directory 도메인 컨트롤러에 대해 $hcaching을 "None"으로 설�
 
 ## 추가 리소스
 
-[가상 컴퓨터 설명서](http://azure.microsoft.com/documentation/services/virtual-machines/)
+[가상 컴퓨터 설명서](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
 [Azure 가상 컴퓨터 FAQ](http://msdn.microsoft.com/library/azure/dn683781.aspx)
 
@@ -265,4 +265,4 @@ Active Directory 도메인 컨트롤러에 대해 $hcaching을 "None"으로 설�
 
 [Azure PowerShell 설치 및 구성하는 방법](../install-configure-powershell.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

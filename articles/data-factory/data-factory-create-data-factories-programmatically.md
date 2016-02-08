@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="01/26/2016" 
 	ms.author="spelluru"/>
 
 # 데이터 팩터리 .NET SDK를 사용하여 Azure Data Factory 만들기, 모니터링 및 관리
@@ -86,7 +86,7 @@
 
         DataFactoryManagementClient client = new DataFactoryManagementClient(aadTokenCredentials, resourceManagerUri);
 
-	> [AZURE.NOTE]**resourcegroupname**을 Azure 리소스 그룹의 이름으로 바꿉니다. [New-AzureResourceGroup](https://msdn.microsoft.com/library/Dn654594.aspx) cmdlet을 사용하여 리소스 그룹을 만들 수 있습니다.
+	> [AZURE.NOTE] **resourcegroupname**을 Azure 리소스 그룹의 이름으로 바꿉니다. [New-AzureResourceGroup](https://msdn.microsoft.com/library/Dn654594.aspx) cmdlet을 사용하여 리소스 그룹을 만들 수 있습니다.
 
 7. **데이터 팩터리**를 만드는 다음 코드를 **Main** 메서드에 추가합니다.
 
@@ -106,7 +106,7 @@
 
 8. **연결된 서비스**를 만드는 다음 코드를 **Main** 메서드에 추가합니다.
 
-	> [AZURE.NOTE]**ConnectionString**에 Azure 저장소 계정의 **계정 이름** 및 **계정 키**를 사용합니다.
+	> [AZURE.NOTE] **ConnectionString**에 Azure 저장소 계정의 **계정 이름** 및 **계정 키**를 사용합니다.
 
         // create a linked service
         Console.WriteLine("Creating a linked service");
@@ -379,7 +379,7 @@
 
 
 
-> [AZURE.NOTE]위의 샘플 코드는 대화 상자를 시작하여 Azure 자격 증명을 입력하도록 합니다. 대화 상자를 사용하지 않고 프로그래밍 방식으로 로그인해야 하는 경우 [Azure 리소스 관리자를 사용하여 서비스 주체 인증](resource-group-authenticate-service-principal.md#authenticate-service-principal-with-certificate---powershell)을 참조하세요.
+> [AZURE.NOTE] 위의 샘플 코드는 대화 상자를 시작하여 Azure 자격 증명을 입력하도록 합니다. 대화 상자를 사용하지 않고 프로그래밍 방식으로 로그인해야 하는 경우 [Azure 리소스 관리자를 사용하여 서비스 주체 인증](resource-group-authenticate-service-principal.md#authenticate-service-principal-with-certificate---powershell)을 참조하세요.
 
 
 [data-factory-introduction]: data-factory-introduction.md
@@ -392,4 +392,4 @@
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

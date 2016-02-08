@@ -231,10 +231,10 @@ node server.js
 
 브라우저에서 `http://localhost:8080`으로 이동합니다. 개인 Microsoft 계정 또는 회사/학교 계정을 사용하여 로그인합니다. 사용자의 할 일 모음에 작업을 추가하고 로그아웃합니다. 다른 유형의 계정으로 로그인을 시도합니다. Azure AD 테넌트에서 회사/학교 사용자를 만들어야 하는 경우에는 [여기에서 만드는 방법을 알아봅니다(무료)](active-directory-howto-tenant.md).
 
-앱 모델 v2.0 미리 보기에 대해 계속 알아보려면 [v2.0 개발자 가이드](active-directory-appmodel-v2-overview.md)로 돌아가세요. 추가 리소스는 다음을 확인해보세요.
+앱 모델 v2.0 미리 보기에 대해 계속 알아보려면, [v2.0 개발자 가이드](active-directory-appmodel-v2-overview.md)로 돌아가세요. 추가 리소스는 다음을 확인해보세요.
 
 - [GitHub의 Azure 샘플(영문) >>](https://github.com/Azure-Samples)
 - [스택 오버플로의 Azure AD(영문) >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
-- [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)의 Azure AD 설명서
+- [Azure.com >>](https://azure.microsoft.com/documentation/services/active-directory/)의 Azure AD 설명서
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

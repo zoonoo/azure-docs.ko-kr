@@ -158,7 +158,7 @@ namespaceManager.CreateSubscription("IssueTrackingTopic", "Dashboard", new SqlFi
 
 ## 이벤트 허브(영문)
 
-[이벤트 허브](http://azure.microsoft.com/services/event-hubs/)는 짧은 대기 시간 및 높은 안정성으로 이벤트 및 원격 분석을 엄청난 규모의 Azure에 제공하는 데 사용되는 이벤트 ingestor 서비스입니다. 다른 다운스트림 서비스와 함께 사용되는 경우 이 서비스는 응용 프로그램 계측, 사용자 경험 또는 워크플로 처리 및 사물 인터넷(IoT) 시나리오에서 특히 유용합니다.
+[이벤트 허브](https://azure.microsoft.com/services/event-hubs/)는 짧은 대기 시간 및 높은 안정성으로 이벤트 및 원격 분석을 엄청난 규모의 Azure에 제공하는 데 사용되는 이벤트 ingestor 서비스입니다. 다른 다운스트림 서비스와 함께 사용되는 경우 이 서비스는 응용 프로그램 계측, 사용자 경험 또는 워크플로 처리 및 사물 인터넷(IoT) 시나리오에서 특히 유용합니다.
 
 이벤트 허브는 메시지 스트리밍 구문이고 큐 및 항목과 유사해 보이지만 매우 다양한 특성이 있습니다. 예를 들어 전통적인 조정된 메시징 기능이 스트리밍 기능이 아니기에 이벤트 허브는 메시지 TTL, 효력 상실, 트랜잭션 또는 승인을 제공하지 않습니다. 이벤트 허브는 순서 및 스트림 재생을 분할, 유지하는 것과 같이 다른 스트림 관련 기능을 제공합니다.
 
@@ -172,4 +172,4 @@ namespaceManager.CreateSubscription("IssueTrackingTopic", "Dashboard", new SqlFi
 - [이벤트 허브 개발자 가이드](../event-hubs/event-hubs-programming-guide.md)
 - [조정된 메시징: 고급 필터](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

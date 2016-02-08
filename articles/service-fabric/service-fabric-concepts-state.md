@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/26/2015"
+   ms.date="01/20/2016"
    ms.author="aprameyr"/>
 
 # 서비스 상태
@@ -40,4 +40,4 @@ Azure 서비스 패브릭에서 첫 번째 서비스는 상태 비저장 서비�
 
 - [서비스 패브릭 서비스 분할](service-fabric-concepts-partitioning.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

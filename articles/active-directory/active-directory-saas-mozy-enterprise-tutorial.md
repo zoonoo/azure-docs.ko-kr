@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2015" 
+    ms.date="01/26/2016" 
     ms.author="jeedes" />
 
 #자습서: Mozy Enterprise와 Azure Active Directory 통합
@@ -76,7 +76,7 @@
 
     ![Single Sign-On 구성](./media/active-directory-saas-mozy-enterprise-tutorial/IC777311.png "Single Sign-On 구성")
 
-3.  **앱 URL 구성** 페이지의 **Mozy Enterprise 로그인 URL** 텍스트 상자에 다음 패턴 "https://\<tenant-name>.Mozyenterprise.com"을 사용하여 URL을 입력한 후 **다음**을 클릭합니다.
+3.  **앱 URL 구성** 페이지의 **Mozy Enterprise 로그인 URL** 텍스트 상자에 다음 패턴 "*https://\<tenant-name>.Mozyenterprise.com*"을 사용하여 URL을 입력한 후 **다음**을 클릭합니다.
 
     ![앱 URL 구성](./media/active-directory-saas-mozy-enterprise-tutorial/IC777312.png "앱 URL 구성")
 
@@ -157,4 +157,4 @@ Azure AD 사용자가 Mozy Enterprise에 로그인할 수 있도록 하려면 Mo
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -70,7 +70,7 @@ URL 구성표 | API에서 지원할 구성표를 선택합니다. **HTTP**, **HT
 2. **모든 설정**을 선택합니다
 3. **설정**에서 **정책**을 선택합니다. ![][14]
 
-이 정책은 [Azure API 관리](https://azure.microsoft.com/services/api-management)에서 지원되는 정책과 동일합니다. 현재 정책은 포함된 XML 편집기에 있습니다. 새 XML 파일을 업로드하거나 인라인으로 편집할 수 있습니다. 변경 내용을 **저장**한 후에 API 정책에 대한 문제를 비롯한 오류가 있으면 이 블레이드에 표시됩니다.
+이 정책은 [Azure API 관리](https://azure.microsoft.com/services/api-management/)에서 지원되는 정책과 동일합니다. 현재 정책은 포함된 XML 편집기에 있습니다. 새 XML 파일을 업로드하거나 인라인으로 편집할 수 있습니다. 변경 내용을 **저장**한 후에 API 정책에 대한 문제를 비롯한 오류가 있으면 이 블레이드에 표시됩니다.
 
 [Azure API 관리의 정책](../api-management-howto-policies.md)은 정책 구성 및 이해에 대해 자세히 알아볼 수 있는 좋은 자료입니다.
 
@@ -88,4 +88,4 @@ API를 만든 후에는, 아래 문서의 단계를 사용하여 설정을 변�
 [13]: ./media/powerapps-configure-apis/api-settings-api-definition.png
 [14]: ./media/powerapps-configure-apis/api-settings-policy.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

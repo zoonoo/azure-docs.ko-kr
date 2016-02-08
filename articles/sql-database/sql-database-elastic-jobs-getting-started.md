@@ -29,13 +29,13 @@ Azure SQL 데이터베이스에 대한 탄력적 데이터베이스 작업(미�
 
 분할된 데이터베이스 안의 삽입된 데이터에 따라 여느 분할된 데이터 베이스와 마찬가지로 분할된 데이터 베이스 관리자를 만들수 있습니다. 이미 분할된 데이터가 설치되어 있는 분할된 데이터베이스가 있다면, 다음 단계들을 건너뛰고 다음 섹션으로 이동합니다.
 
-1. **탄력적 데이터베이스 도구 응용 프로그램**을 빌드하고 실행하세요. 7 단계까지는 [샘플 응용 프로그램 다운로드 및 실행](sql-database-elastic-scale-get-started.md#Getting-started-with-elastic-database-tools)섹션에서 실행하세요. 7단계를 끝내면 다음 명령 프롬프트를 볼 수 있습니다.
+1. **탄력적 데이터베이스 도구 응용 프로그램**을 빌드하고 실행하세요. [샘플 앱 다운로드 및 실행](sql-database-elastic-scale-get-started.md#Getting-started-with-elastic-database-tools) 섹션에서 7단계까지 수행합니다. 7단계를 끝내면 다음 명령 프롬프트를 볼 수 있습니다.
 
 	![명령 프롬프트][1]
 
 2.  명령 창에 "1"을 입력하고 **Enter**키를 누릅니다. 이 명령은 분할된 데이터베이스 관리자를 생성 및 두 분할된 데이터베이스를 추가합니다. 그런 다음 "3"을 입력하고 **Enter** 키를 누릅니다. 이 작업을 4번 반복합니다. 이 명령은 분할된 데이터베이스에 샘플 데이터행을 삽입합니다.
 
-3.  [Azure 포털](https://portal.azure.com)에서 사용자의v12 서버 내에 새로운 3개의 데이터베이스가 보여야 합니다.
+3.  [Azure 포털](https://portal.azure.com)에서 사용자의 v12 서버 내에 새로운 3개의 데이터베이스가 보여야 합니다.
 
 	![Visual Studio 확인][2]
 
@@ -418,13 +418,13 @@ JobTaskExecution 개체에는 Message 속성과 함께 Lifecycle 주기에 대�
 
 1. Excel 2013을 실행 합니다.
 2. 	**데이터** 리본을 탐색합니다.
-3. 	**기타 원본**을 클릭한 다음 **SQL Server**를 클릭합니다.
+3. 	**기타 원본에서**을 클릭하고 **SQL Server에서**를 클릭합니다.
 
 	![다른 원본에서 Excel 가져오기][5]
 4. 	**데이터 연결 마법사**에서 서버 이름 및 로그인 자격 증명을 입력합니다. 그런 후 **Next**를 클릭합니다.
-5. 	**원하는 데이터가 포함된 데이터베이스를 선택하세요.** 대화 상자에서 **ElasticDBQuery** 데이터베이스를 선택합니다.
-6. 	목록 보기에서 **Customers** 테이블을 선택하고 **다음**을 클릭합니다. **마침**을 클릭합니다.
-7. 	**데이터 가져오기** 양식의 **현재 통합 문서에서 이 데이터를 표시할 방법을 선택하세요.**에서 **테이블**을 선택하고 **확인**을 클릭합니다.
+5. 	대화 상자에서 **데이터를 포함시키고 싶은 데이터베이스를 선택**, **ElasticDBQuery** 데이터베이스를 선택합니다.
+6. 	목록보기에서 **사용자**테이블을 선택하고 **다음**을 클릭합니다. **마침**을 클릭합니다.
+7. 	**데이터 가져오기** 양식에서, **통합문서에서 원하는 데이터를 보는 방법을 선택**, **테이블**을 선택하고 **확인**을 클릭합니다.
 
 다른 분할된 데이터베이스에 저장된 **Customers**테이블의 모든 행으로 Excel 시트를 채웁니다.
 
@@ -434,7 +434,7 @@ JobTaskExecution 개체에는 Message 속성과 함께 Lifecycle 주기에 대�
 ### 비용
 탄력적 데이터베이스 쿼리 기능을 사용 하는 것은 무료입니다. 그러나, 지금 이 기능은 분할된 데이터베이스처럼 모든 서비스계층에서만 사용 가능한게 아니라, 끝점처럼 프리미엄 데이터베이스에서만 사용 가능합니다.
 
-가격 정보는 [SQL 데이터베이스 가격 정보](http://azure.microsoft.com/pricing/details/sql-database/)를 참조하세요.
+가격 정보는 [SQL 데이터베이스 가격 정보](https://azure.microsoft.com/pricing/details/sql-database/)를 참조하세요.
 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
@@ -447,4 +447,4 @@ JobTaskExecution 개체에는 Message 속성과 함께 Lifecycle 주기에 대�
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

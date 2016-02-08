@@ -19,7 +19,7 @@
 
 # Azure Active Directory 응용 프로그램 갤러리에 응용 프로그램 나열
 
-[Azure AD 갤러리](http://azure.microsoft.com/marketplace/active-directory/all/)에서 Azure Active Directory를 사용하여 Single Sign-On을 지원하는 응용 프로그램을 나열하려면 먼저 응용 프로그램은 다음의 통합 모드 중 하나를 구현해야 합니다.
+[Azure AD 갤러리](https://azure.microsoft.com/marketplace/active-directory/all/)에서 Azure Active Directory를 사용하여 Single Sign-On을 지원하는 응용 프로그램을 나열하려면 먼저 응용 프로그램은 다음의 통합 모드 중 하나를 구현해야 합니다.
 
 * **OpenID Connect** - 인증을 위한 OpenID Connect 및 구성을 위한 Azure AD 동의 API를 사용하는 Azure AD과 통합을 지원합니다. 통합을 시작하고 응용 프로그램이 SAML을 지원하지 않으면 이것이 권장 모드입니다.
 
@@ -33,7 +33,7 @@
 
 * Azure AD 팀에서 사용할 수 있는 응용 프로그램을 사용하는 테스트 테넌트 또는 계정에 대한 자격 증명을 제공하여 통합을 테스트합니다.  
 
-* Azure AD 팀이 [Azure AD 동의 프레임워크](https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/#overview-of-the-consent-framework)를 사용하여 로그인하고 응용 프로그램에 Azure AD의 인스턴스를 연결하는 방법에 대한 지침을 제공합니다.
+* Azure AD 팀이 [Azure AD 동의 프레임워크](https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/#overview-of-the-consent-framework/)를 사용하여 로그인하고 응용 프로그램에 Azure AD의 인스턴스를 연결하는 방법에 대한 지침을 제공합니다.
 
 * 응용 프로그램을 사용하여 Single Sign-On을 테스트하기 위해 Azure AD 팀에 필요한 추가 지침을 제공합니다.
 
@@ -97,4 +97,4 @@ SAML 2.0을 지원하는 앱은 [사용자 지정 응용 프로그램을 추가�
 > 
 > 응용 프로그램 연결 로고(PNG 파일, 150x122px, 투명 배경색):
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

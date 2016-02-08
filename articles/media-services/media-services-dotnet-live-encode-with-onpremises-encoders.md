@@ -29,7 +29,7 @@
 
 다음 문서를 검토하는 것이 좋습니다.
 
-- [Azure 미디어 서비스 RTMP 지원 및 라이브 인코더](http://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)
+- [Azure 미디어 서비스 RTMP 지원 및 라이브 인코더](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)
 - [온-프레미스 인코더에서 다중 비트 전송률 라이브 스트림을 받는 채널 작업](media-services-manage-channels-overview.md)
  
 
@@ -49,7 +49,7 @@
 - 모든 스트리밍 끝점에 대한 로케이터 가져오기
 - 리소스 종료
 	
-라이브 인코더 구성 방법에 대한 자세한 내용은 [Azure 미디어 서비스 RTMP 지원 및 라이브 인코더](http://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)를 참조하세요.
+라이브 인코더 구성 방법에 대한 자세한 내용은 [Azure 미디어 서비스 RTMP 지원 및 라이브 인코더](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)를 참조하세요.
 	
 		using System;
 		using System.Collections.Generic;
@@ -385,4 +385,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

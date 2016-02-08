@@ -174,7 +174,7 @@ API 테스트 페이지를 보려면 다음 단계를 수행합니다.
 
 ## Azure에서 API 앱 만들기
 
-1. [Azure Preview 포털](https://portal.azure.com)에서 API 앱을 만듭니다. 
+1. [Azure Preview 포털](https://portal.azure.com/)에서 API 앱을 만듭니다. 
 
 	* **새로 만들기 > 웹 + 모바일 > API 앱**을 클릭합니다.
 
@@ -256,7 +256,7 @@ API 앱은 기본적으로 Azure에서 웹 서비스 기능을 위한 추가 기
 
 이 섹션에서는 방금 만든 API 앱에 대한 API 정의를 보려면 포털로 이동합니다.
 
-1. [Azure Preview 포털](https://portal.azure.com)에서, API 앱에 대한 **API 앱** 블레이드로 이동합니다. **찾아보기 > 리소스 그룹 > [만든 리소스 그룹] > [만든 API 앱]**을 클릭합니다.
+1. [Azure Preview 포털](https://portal.azure.com/)에서, API 앱에 대한 **API 앱** 블레이드로 이동합니다. **찾아보기 > 리소스 그룹 > [만든 리소스 그룹] > [만든 API 앱]**을 클릭합니다.
 
 4. **API 정의**를 클릭합니다.
 
@@ -294,4 +294,4 @@ API 앱은 기본적으로 Azure에서 웹 서비스 기능을 위한 추가 기
 Visual Studio 2015 RC를 사용하여 API 앱을 만들고 배포했습니다. API 앱에 대한 추가 설명서는 페이지의 왼쪽(넓은 브라우저 창의 경우) 또는 페이지의 위쪽(좁은 브라우저 창의 경우)에 표시되는 탐색 창의 항목을 참조하세요. 대부분의 API 앱 설명서에는 현재 Visual Studio 2013이 표시되어 있지만 그 중 대부분은 UI가 유사하고 작성하는 코드가 동일하며 포털 UI가 같기 때문에 VS 2015에서 사용할 수 있습니다.
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

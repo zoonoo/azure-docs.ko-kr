@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure Active Directory 버전 | Microsoft Azure"
-	description="무료 및 유료 버전의 Azure Active Directory를 설명하는 항목입니다."
+	description="무료 및 유료 버전의 Azure Active Directory를 설명하는 토픽입니다. Azure Active Directory Basic은 무료 버전이고 Azure Active Directory Premium은 유료 버전입니다."
 	services="active-directory"
 	documentationCenter=""
 	authors="MarkusVi"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="01/25/2016"
 	ms.author="markvi"/>
 
 # Azure Active Directory 버전
@@ -23,12 +23,12 @@
 Azure Active Directory는 클라우드에서 직원, 파트너 및 고객에게 포괄적인 ID 및 액세스 관리 기능을 제공하는 서비스입니다. 이 서비스는 개발자를 위한 디렉터리 서비스, 고급 ID 거버넌스, 풍부한 표준 기반 플랫폼과 고유한 또는 미리 통합된 응용 프로그램을 위한 응용 프로그램 액세스 관리를 결합합니다. Azure Active Directory Free Edition를 사용하면 사용자 및 그룹을 관리하고, 온-프레미스 디렉터리와 동기화하고, Azure, Office 365 및 인기 많은 수천 가지의 SaaS 응용 프로그램(예: Salesforce, Workday, Concur, DocuSign, Google Apps, Box, ServiceNow, Dropbox 등)에서 SSO(Single Sign-On)를 수행할 수 있습니다. Azure Active Directory에 대해 자세히 알아보려면 [Azure AD란?](active-directory-whatis.md)을 읽습니다.
 
 
-Azure Active Directory를 강화하려면 Azure Active Directory Basic 및 Premium Edition을 사용하여 유료 기능을 추가할 수 있습니다. Azure Active Directory 유료 버전은 기존 무료 디렉토리 위에 구축되어 모바일 작업자를 위한 셀프 서비스를 확장하는 엔터프라이즈 클래스 기능, 향상 된 모니터링, 보안 보고, Multi-Factor Authentication(MFA) 및 보안 액세스를 제공합니다.
+Azure Active Directory를 강화하려면 Azure Active Directory Basic 및 Premium Edition을 사용하여 유료 기능을 추가할 수 있습니다. Azure Active Directory 유료 버전은 기존 무료 디렉터리 위에 구축되어 모바일 작업자를 위한 셀프 서비스를 확장하는 엔터프라이즈 클래스 기능, 향상 된 모니터링, 보안 보고, Multi-Factor Authentication(MFA) 및 보안 액세스를 제공합니다.
 
 Office 365 구독은 아래의 비교 테이블에 설명된 추가 Azure Active Directory 기능을 포함합니다.
 
 
-> [AZURE.NOTE]이러한 버전의 가격 옵션은 [Azure Active Directory 가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)을 참조하세요. <br>Azure Active Directory Premium 및 Azure Active Directory Basic은 중국에서 현재 지원되지 않습니다. 자세한 내용은 Azure Active Directory 포럼에 문의하세요.
+> [AZURE.NOTE] 이러한 버전의 가격 옵션은 [Azure Active Directory 가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)을 참조하세요. <br>Azure Active Directory Premium 및 Azure Active Directory Basic은 중국에서 현재 지원되지 않습니다. 자세한 내용은 Azure Active Directory 포럼에 문의하세요.
 
 
 - **Azure Active Directory Basic** - 클라우드를 주로 필요로 하는 작업자를 위해 설계된 이 버전은 클라우드 중심 응용 프로그램 액세스 및 셀프 서비스 ID 관리 솔루션을 제공합니다. Azure Active Directory Basic 버전을 사용하면 그룹 기반 액세스 관리, 클라우드 응용 프로그램에 대한 셀프 서비스 암호 재설정 및 Azure Active Directory 응용 프로그램 프록시(Azure Active Directory를 사용하여 온-프레미스 웹 응용 프로그램을 게시하는 데 필요)와 같은 생산성 강화 및 비용 절감 기능을 활용할 수 있고 이는 모두 엔터프라이즈급의 99.9% 가동 시간 SLA에서 지원됩니다.
@@ -38,7 +38,8 @@ Office 365 구독은 아래의 비교 테이블에 설명된 추가 Azure Active
 지금 당장 Active Directory Premium을 등록하고 사용하려면 [Azure Active Directory Premium 시작](active-directory-get-started-premium.md)을 참조하세요.
 
 
-> [AZURE.NOTE]다양한 Azure Active Directory 기능은 "종량제" 버전을 통해 사용할 수 있습니다.
+> [AZURE.NOTE] 
+다양한 Azure Active Directory 기능은 "종량제" 버전을 통해 사용할 수 있습니다.
 >
 >- Active Directory B2C는 소비자 지향 응용 프로그램에 대한 ID 및 액세스 관리 솔루션입니다. 자세한 내용은 [Azure Active Directory B2C](https://azure.microsoft.com/documentation/services/active-directory-b2c/)를 참조하세요.
  
@@ -95,4 +96,4 @@ Office 365 구독은 아래의 비교 테이블에 설명된 추가 Azure Active
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

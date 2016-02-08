@@ -23,7 +23,7 @@
 
 이 항목에서는 Azure 가상 컴퓨터에서 SQL Server Reporting Services 기본 모드 보고서 서버의 배포 및 구성에 대해 설명하고 안내합니다. 이 문서의 단계는 가상 컴퓨터 및 Windows PowerShell 스크립트를 만드는 수동 단계를 조합하여 VM에서 Reporting Services를 구성합니다. 구성 스크립트에는 HTTP 또는 HTTPS에 대해 방화벽 포트를 여는 작업이 포함되어 있습니다.
 
->[AZURE.NOTE]보고서 서버에서 **HTTPS**가 필요하지 않은 경우 **2단계를 건너뜁니다**.
+>[AZURE.NOTE] 보고서 서버에서 **HTTPS**가 필요하지 않은 경우 **2단계를 건너뜁니다**.
 >
 >1단계에서 VM을 만든 후 스크립트를 사용하여 보고서 서버 및 HTTP 구성 섹션으로 이동합니다. 스크립트를 실행하면 보고서 서버를 사용할 준비가 된 것입니다.
 
@@ -33,7 +33,7 @@
 	
 	- 구독의 코어 제한을 확인하려면, Azure 클래식 포털의 왼쪽 창에서 설정을 클릭하고 위쪽 메뉴에서 사용을 클릭합니다.
 	
-	- 코어 할당량을 늘리려면 [Azure 지원](http://azure.microsoft.com/support/options/)에 문의하세요. VM 크기 정보는 [Azure에 대한 가상 컴퓨터 크기](virtual-machines-size-specs.md)를 참조하세요.
+	- 코어 할당량을 늘리려면 [Azure 지원](https://azure.microsoft.com/support/options/)에 문의하세요. VM 크기 정보는 [Azure에 대한 가상 컴퓨터 크기](virtual-machines-size-specs.md)를 참조하세요.
 
 - **Windows PowerShell 스크립팅**: 이 항목에서는 Windows PowerShell의 기본 작동 지식이 있다고 가정합니다. Windows PowerShell을 사용하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
@@ -71,7 +71,7 @@
 	
 	- **계층**: 표준
 	
-	- **크기: A3**은 SQL Server 작업에 권장되는 VM 크기입니다. VM이 보고서 서버로만 사용되는 경우 보고서 서버의 작업이 크지 않는 한 VM 크기는 A2이면 충분합니다. VM 가격 책정 정보는 [가상 컴퓨터 가격 책정](http://azure.microsoft.com/pricing/details/virtual-machines/)을 참조하세요.
+	- **크기: A3**은 SQL Server 작업에 권장되는 VM 크기입니다. VM이 보고서 서버로만 사용되는 경우 보고서 서버의 작업이 크지 않는 한 VM 크기는 A2이면 충분합니다. VM 가격 책정 정보는 [가상 컴퓨터 가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/)을 참조하세요.
 	
 	- **새 사용자 이름**: 제공하는 이름은 VM에서 관리자로 만들어집니다.
 	
@@ -99,7 +99,7 @@
 	
 	- 다음을 클릭합니다. ![다음](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC692021.gif)
 
-1. 마법사의 마지막 페이지에서 기본 **VM 에이전트 설치**를 선택한 상태로 유지합니다. 이 항목의 단계에서 VM 에이전트를 이용하지 않지만 이 VM을 유지하려는 경우 VM 에이전트 및 확장을 사용하면 CM이 향상됩니다. VM 에이전트에 대한 자세한 내용은 [VM 에이전트 및 확장 – 1부](http://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/)를 참조하세요. AD 실행을 설치한 기본 확장 중 하나가 VM 데스크톱에서 내부 IP 및 여유 드라이브 공간 같은 시스템 정보를 표시하는 “BGINFO” 확장입니다.
+1. 마법사의 마지막 페이지에서 기본 **VM 에이전트 설치**를 선택한 상태로 유지합니다. 이 항목의 단계에서 VM 에이전트를 이용하지 않지만 이 VM을 유지하려는 경우 VM 에이전트 및 확장을 사용하면 CM이 향상됩니다. VM 에이전트에 대한 자세한 내용은 [VM 에이전트 및 확장 – 1부](https://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/)를 참조하세요. AD 실행을 설치한 기본 확장 중 하나가 VM 데스크톱에서 내부 IP 및 여유 드라이브 공간 같은 시스템 정보를 표시하는 “BGINFO” 확장입니다.
 
 1. 완료를 클릭합니다. ![확인](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC660122.gif)
 
@@ -107,7 +107,7 @@
 
 ## 2단계: 서버 인증서 만들기
 
->[AZURE.NOTE]보고서 서버에서 HTTPS가 필요하지 않은 경우 **2단계를 건너뛰고** **스크립트를 사용하여 보고서 서버 및 HTTP 구성** 섹션으로 이동합니다. HTTP 스크립트를 사용하여 신속하게 보고서 서버를 구성하면 보고서 서버를 사용할 준비가 된 것입니다.
+>[AZURE.NOTE] 보고서 서버에서 HTTPS가 필요하지 않은 경우 **2단계를 건너뛰고** **스크립트를 사용하여 보고서 서버 및 HTTP 구성** 섹션으로 이동합니다. HTTP 스크립트를 사용하여 신속하게 보고서 서버를 구성하면 보고서 서버를 사용할 준비가 된 것입니다.
 
 VM에서 HTTPS를 사용하려면 신뢰할 수 있는 SSL 인증서가 필요합니다. 시나리오에 따라 다음 두 방법 중 하나를 사용할 수 있습니다.
 
@@ -129,7 +129,7 @@ VM에서 HTTPS를 사용하려면 신뢰할 수 있는 SSL 인증서가 필요�
 
 	[Windows Server 2012를 관리하는 보안 도구](https://technet.microsoft.com/library/jj730960.aspx)
 
-	>[AZURE.NOTE]신뢰할 수 있는 SSL 인증서의 **발급 대상** 필드는 새 VM에 사용한 **클라우드 서비스 DNS 이름**과 동일해야 합니다.
+	>[AZURE.NOTE] 신뢰할 수 있는 SSL 인증서의 **발급 대상** 필드는 새 VM에 사용한 **클라우드 서비스 DNS 이름**과 동일해야 합니다.
 
 1. **웹 서버에 서버 인증서를 설치합니다**. 이 경우의 웹 서버는 보고서 서버를 호스트하는 VM이고 Reporting Services를 구성할 때 이후 단계에서 웹 사이트가 만들어집니다. 인증서 MMC 스냅인을 사용하여 웹 서버에 서버 인증서를 설치하는 방법에 대한 자세한 내용은 [서버 인증서 설치](https://technet.microsoft.com/library/cc740068)를 참조하세요.
 	
@@ -599,13 +599,13 @@ PowerShell 스크립트를 실행하여 보고서 서버를 구성하지 않으�
 
 ## 4단계: Windows 방화벽 포트 열기
 
->[AZURE.NOTE]스크립트 중 하나를 사용하여 보고서 서버를 구성한 경우 이 섹션을 건너뛸 수 있습니다. 스크립트에는 방화벽 포트를 여는 단계가 포함되어 있습니다. 기본값은 HTTP의 경우 포트 80이고 HTTPS의 경우 포트 443입니다.
+>[AZURE.NOTE] 스크립트 중 하나를 사용하여 보고서 서버를 구성한 경우 이 섹션을 건너뛸 수 있습니다. 스크립트에는 방화벽 포트를 여는 단계가 포함되어 있습니다. 기본값은 HTTP의 경우 포트 80이고 HTTPS의 경우 포트 443입니다.
 
 가상 컴퓨터의 보고서 관리자 또는 보고서 서버에 원격으로 연결하려면 VM에서 TCP 끝점이 필요합니다. 이는 VM의 방화벽에서 동일한 포트를 여는 데 필요합니다. VM이 프로비전되었을 때 끝점이 만들어졌습니다.
 
 이 섹션에서는 방화벽 포트를 여는 방법에 대한 기본 정보를 제공합니다. 자세한 내용은 [보고서 서버 액세스를 위한 방화벽 구성](https://technet.microsoft.com/library/bb934283.aspx)을 참조하세요.
 
->[AZURE.NOTE]스크립트를 사용하여 보고서 서버를 구성한 경우 이 섹션을 건너뛰면 됩니다. 스크립트에는 방화벽 포트를 여는 단계가 포함되어 있습니다.
+>[AZURE.NOTE] 스크립트를 사용하여 보고서 서버를 구성한 경우 이 섹션을 건너뛰면 됩니다. 스크립트에는 방화벽 포트를 여는 단계가 포함되어 있습니다.
 
 HTTPS에 대해 443 이외의 개인 포트를 구성한 경우 다음 스크립트를 적절하게 수정합니다. Windows 방화벽에서 포트 **443**을 열려면 다음을 완료합니다.
 
@@ -633,7 +633,7 @@ HTTPS에 대해 443 이외의 개인 포트를 구성한 경우 다음 스크립
 
 		http://localhost/Reports
 
-- 로컬 컴퓨터의 VM에서 **원격** 보고서 관리자로 이동합니다. 다음 예제에서 DNS 이름을 적절하게 업데이트합니다. 암호를 입력하라는 메시지가 표시되면 VM이 프로비전되었을 때 만든 관리자 자격 증명을 사용합니다. 사용자 이름은 [도메인]\[사용자 이름] 형식이며, 여기서 도메인은 VM 컴퓨터 이름입니다. 예를 들어 ssrsnativecloud\\testuser입니다. HTTP**S**를 사용하지 않는 경우 URL에서 **s**를 제거합니다. VM에서 추가 사용자를 만드는 방법에 대한 자세한 내용은 다음 섹션을 참조하세요.
+- 로컬 컴퓨터의 VM에서 **원격** 보고서 관리자로 이동합니다. 다음 예제에서 DNS 이름을 적절하게 업데이트합니다. 암호를 입력하라는 메시지가 표시되면 VM이 프로비전되었을 때 만든 관리자 자격 증명을 사용합니다. 사용자 이름은 [도메인][사용자 이름] 형식이며, 여기서 도메인은 VM 컴퓨터 이름입니다. 예를 들어 ssrsnativecloud\\testuser입니다. HTTP**S**를 사용하지 않는 경우 URL에서 **s**를 제거합니다. VM에서 추가 사용자를 만드는 방법에 대한 자세한 내용은 다음 섹션을 참조하세요.
 
 		https://ssrsnativecloud.cloudapp.net/Reports
 
@@ -683,7 +683,7 @@ HTTPS에 대해 443 이외의 개인 포트를 구성한 경우 다음 스크립
 
 ## VM을 사용하지 않는 경우 비용 최소화
 
->[AZURE.NOTE]Azure 가상 컴퓨터를 사용하지 않을 때 요금을 최소화하려면, Azure 클래식 포털에서 VM을 종료합니다. VM 내의 Windows 전원 옵션을 사용하여 VM을 종료하면 VM에 대해 동일한 요금이 계속 청구됩니다. 요금을 줄이려면 Azure 클래식 포털에서 VM을 종료해야 합니다. VM이 더 이상 필요하지 않은 경우 저장소 요금이 부과되지 않도록 VM 및 연결된 .vhd 파일을 삭제해야 합니다. 자세한 내용은 [가상 컴퓨터 가격 책정 정보](http://azure.microsoft.com/pricing/details/virtual-machines)의 FAQ 섹션을 참조하세요.
+>[AZURE.NOTE] Azure 가상 컴퓨터를 사용하지 않을 때 요금을 최소화하려면, Azure 클래식 포털에서 VM을 종료합니다. VM 내의 Windows 전원 옵션을 사용하여 VM을 종료하면 VM에 대해 동일한 요금이 계속 청구됩니다. 요금을 줄이려면 Azure 클래식 포털에서 VM을 종료해야 합니다. VM이 더 이상 필요하지 않은 경우 저장소 요금이 부과되지 않도록 VM 및 연결된 .vhd 파일을 삭제해야 합니다. 자세한 내용은 [가상 컴퓨터 가격 책정 정보](https://azure.microsoft.com/pricing/details/virtual-machines/)의 FAQ 섹션을 참조하세요.
 
 ## 추가 정보
 
@@ -695,7 +695,7 @@ HTTPS에 대해 443 이외의 개인 포트를 구성한 경우 다음 스크립
 
 - Azure 가상 컴퓨터에서 SQL Server Business Intelligence 배포와 관련된 일반 정보는 [Azure 가상 컴퓨터에서 SQL Server Business Intelligence](virtual-machines-sql-server-business-intelligence.md)를 참조하세요.
 
-- Azure 계산 요금의 비용에 대한 자세한 내용은 [Azure 가격 책정 계산기](http://azure.microsoft.com/pricing/calculator/?scenario=virtual-machines)의 가상 컴퓨터 탭을 참조하세요.
+- Azure 계산 요금의 비용에 대한 자세한 내용은 [Azure 가격 책정 계산기](https://azure.microsoft.com/pricing/calculator/?scenario=virtual-machines)의 가상 컴퓨터 탭을 참조하세요.
 
 ### 커뮤니티 콘텐츠
 
@@ -705,4 +705,4 @@ HTTPS에 대해 443 이외의 개인 포트를 구성한 경우 다음 스크립
 
 [Azure 가상 컴퓨터의 SQL Server 개요](virtual-machines-sql-server-infrastructure-services.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

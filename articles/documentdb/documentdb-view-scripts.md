@@ -18,7 +18,7 @@
 
 # 저장된 프로시저, 트리거 및 DocumentDB 스크립트 탐색기를 사용한 사용자 정의 함수 보기, 편집 및 만들기
 
-이 문서에서는 [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) 스크립트 탐색기, 저장된 프로시저, 트리거 및 사용자 정의 함수를 포함하여 DocumentDB 서버 쪽 프로그래밍 아티팩트를 볼 수 있도록 하는 Azure 포털 도구를 간략하게 설명합니다. [여기](documentdb-programming.md)에서 DocumentDB 서버 쪽 프로그래밍에 대해 읽어 보세요.
+이 문서에서는 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 스크립트 탐색기, 저장된 프로시저, 트리거 및 사용자 정의 함수를 포함하여 DocumentDB 서버 쪽 프로그래밍 아티팩트를 볼 수 있도록 하는 Azure 포털 도구를 간략하게 설명합니다. [여기](documentdb-programming.md)에서 DocumentDB 서버 쪽 프로그래밍에 대해 읽어 보세요.
 
 이 자습서를 완료하면 다음 질문에 대답할 수 있습니다.
 
@@ -56,7 +56,7 @@
 	![필터링된 결과와 함께 스크립트 탐색기의 스크린샷](./media/documentdb-view-scripts/scriptexplorerfilterresults.png)
 
 
-	> [AZURE.IMPORTANT]스크립트 탐색기 필터 기능은 ***현재*** 로드된 스크립트 집합만 필터링하고 현재 선택한 컬렉션을 자동으로 새로 고치지 않습니다.
+	> [AZURE.IMPORTANT] 스크립트 탐색기 필터 기능은 ***현재*** 로드된 스크립트 집합만 필터링하고 현재 선택한 컬렉션을 자동으로 새로 고치지 않습니다.
 
 5. 스크립트 탐색기에서 로드한 스크립트 목록을 새로 고치려면, 블레이드 맨 위에 있는 **새로 고침** 명령을 클릭하면 됩니다.
 
@@ -91,7 +91,7 @@
 
 	![스크립트 탐색기 스크립트 속성 보기의 스크린샷](./media/documentdb-view-scripts/scriptproperties.png)
 
-	> [AZURE.NOTE]타임스탬프(\_ts) 속성은 내부적으로 epoch 시간으로 표시되지만 스크립트 탐색기에서는 이 값을 사람이 읽을 수 있는 GMT 형식으로 표시합니다.
+	> [AZURE.NOTE] 타임스탬프(\_ts) 속성은 내부적으로 epoch 시간으로 표시되지만 스크립트 탐색기에서는 이 값을 사람이 읽을 수 있는 GMT 형식으로 표시합니다.
 
 - 스크립트를 삭제하려면 스크립트 탐색기에서 스크립트를 선택하고 **삭제** 명령을 클릭합니다.
 
@@ -106,4 +106,4 @@
 DocumentDB에 대해 자세히 알아보려면 [여기](http://azure.com/docdb)를 클릭하세요.
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

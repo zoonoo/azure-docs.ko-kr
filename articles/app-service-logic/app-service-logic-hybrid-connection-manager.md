@@ -21,11 +21,11 @@
 
 하이브리드 연결 관리자(HCM)는 방화벽 뒤의 네트워크 내에서 IIS 서버에 설치된 원클릭 설치 관리자입니다. Azure 서비스 버스 릴레이를 사용하여 HCM이 Azure의 커넥터로 온-프레미스 시스템을 인증합니다.
 
-> [AZURE.NOTE]방화벽 뒤의 온-프레미스 리소스에 연결하는 경우에만 하이브리드 연결 관리자가 필요합니다. 온-프레미스 시스템에 연결하지 않는 경우 하이브리드 연결 관리자는 필요하지 않습니다.
+> [AZURE.NOTE] 방화벽 뒤의 온-프레미스 리소스에 연결하는 경우에만 하이브리드 연결 관리자가 필요합니다. 온-프레미스 시스템에 연결하지 않는 경우 하이브리드 연결 관리자는 필요하지 않습니다.
 
 시작하려면 다음이 필요합니다.
 
-- Azure 서비스 버스 릴레이 네임스페이스 SAS 연결 문자열. 릴레이를 포함하는 계층을 확인하려면 [서비스 버스 가격](http://azure.microsoft.com/pricing/details/service-bus/)를 참조하세요.
+- Azure 서비스 버스 릴레이 네임스페이스 SAS 연결 문자열. 릴레이를 포함하는 계층을 확인하려면 [서비스 버스 가격](https://azure.microsoft.com/pricing/details/service-bus/)를 참조하세요.
 - 사용자 이름 및 암호를 포함하는 온-프레미스 시스템 로그인 정보. 예를 들어 온-프레미스 SQL Server에 연결하는 경우 SQL Server 로그인 계정 및 암호가 필요합니다.
 - 포트 번호와 서버 이름을 포함하는 온-프레미스 서버 정보. 예를 들어 온-프레미스 SQL Server에 연결하는 경우 SQL Server 이름 및 TCP 포트 번호가 필요합니다.
 
@@ -56,7 +56,7 @@ Azure 포털에서 서비스 버스 루트 SAS 연결 문자열을 복사합니�
 
 이제 커넥터를 다시 찾아보면 하이브리드 연결 상태가 **연결됨**인 것을 확인할 수 있습니다. 커넥터를 닫고 다시 열 수도 있습니다. <br/> ![][4]
 
-> [AZURE.NOTE]보조 연결 문자열을 전환하려면 하이브리드 연결 설치를 다시 실행하고 **보조 구성 문자열**을 입력합니다.
+> [AZURE.NOTE] 보조 연결 문자열을 전환하려면 하이브리드 연결 설치를 다시 실행하고 **보조 구성 문자열**을 입력합니다.
 
 
 ## TCP 포트 및 보안
@@ -119,7 +119,7 @@ Azure 앱 서비스 커넥터를 사용할 경우 하이브리드 연결 관리�
 
 ## 자세히 알아보기
 
-[논리 앱 모니터링](app-service-logic-monitor-your-logic-apps.md)<br/> [서비스 버스 가격 책정](http://azure.microsoft.com/pricing/details/service-bus/)
+[논리 앱 모니터링](app-service-logic-monitor-your-logic-apps.md)<br/> [서비스 버스 가격 책정](https://azure.microsoft.com/pricing/details/service-bus/)
 
 
 
@@ -133,4 +133,4 @@ Azure 앱 서비스 커넥터를 사용할 경우 하이브리드 연결 관리�
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

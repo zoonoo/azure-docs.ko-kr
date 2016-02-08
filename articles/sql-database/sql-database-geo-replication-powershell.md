@@ -151,7 +151,7 @@ Standard 데이터베이스는 읽을 수 없는 보조를 하나를 가질 수 
 이 시퀀스는 데이터 손실이 발생하지 않음을 보장합니다. 역할이 전환되는 동안 두 데이터베이스를 모두 사용할 수 없는 (0-25초의 순서로) 짧은 기간이 있습니다. 전체 작업은 정상적인 상황에서 완료하는데 1분 미만이 걸려야 합니다. 자세한 내용은 [Set-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt619393.aspx)를 참조하세요.
 
 
-> [AZURE.NOTE]명령이 실행될 때 주 데이터베이스를 사용할 수 없는 경우 주 서버를 사용할 수 없음을 나타내는 오류 메시지와 함께 명령이 실패합니다. 드문 경우로 작업을 완료할 수 없으며 중지될 수 있습니다. 이 경우 사용자는 강제 장애 조치(failover) 명령(계획되지 않은 장애 조치(failover))을 호출하고 데이터 손실을 허용할 수 있습니다.
+> [AZURE.NOTE] 명령이 실행될 때 주 데이터베이스를 사용할 수 없는 경우 주 서버를 사용할 수 없음을 나타내는 오류 메시지와 함께 명령이 실패합니다. 드문 경우로 작업을 완료할 수 없으며 중지될 수 있습니다. 이 경우 사용자는 강제 장애 조치(failover) 명령(계획되지 않은 장애 조치(failover))을 호출하고 데이터 손실을 허용할 수 있습니다.
 
 
 
@@ -173,7 +173,7 @@ Standard 데이터베이스는 읽을 수 없는 보조를 하나를 가질 수 
 
 하지만 보조 데이터베이스에서는 특정 시점 복원이 지원되지 않으므로 새로운 주 데이터베이스로 복제되지 않은 커밋된 데이터를 이전 주 데이터베이스로 복구하려면 데이터베이스를 알려진 로그 백업으로 복원하는 CSS를 활용해야 합니다.
 
-> [AZURE.NOTE]주 및 보조가 온라인일 때 명령이 실행되는 경우 이전 주는 새 보조가 되지만 데이터 동기화는 시도되지 않으므로 일부 데이터 손실이 발생할 수 있습니다.
+> [AZURE.NOTE] 주 및 보조가 온라인일 때 명령이 실행되는 경우 이전 주는 새 보조가 되지만 데이터 동기화는 시도되지 않으므로 일부 데이터 손실이 발생할 수 있습니다.
 
 
 주 데이터베이스에 여러 보조가 있는 경우 명령이 부분적으로 성공합니다. 명령이 실행된 보조는 주가 됩니다. 그러나 이전의 주 데이터베이스는 여전히 주로 남아 있습니다. 즉, 두 개의 주가 일관되지 않은 상태로 끝나고 일시 중단된 복제 링크로 연결됩니다. 사용자는 이러한 주 데이터베이스 중 하나에서 "보조 제거" API를 사용하여 이러한 구성을 수동으로 복구해야 합니다.
@@ -210,9 +210,9 @@ Standard 데이터베이스는 읽을 수 없는 보조를 하나를 가질 수 
 
 ## 추가 리소스
 
-- [새 지역에서 복제 기능에 대한 주요 내용](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication)
+- [새 지역에서 복제 기능에 대한 주요 내용](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
 - [지역에서 복제를 사용하여 비즈니스 연속성을 위한 클라우드 응용 프로그램 설계](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [비즈니스 연속성 개요](sql-database-business-continuity.md)
 - [SQL 데이터베이스 설명서](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

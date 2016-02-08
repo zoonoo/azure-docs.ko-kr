@@ -18,12 +18,12 @@
 	
 # Visual Studio에서 배포
 
-[Azure 포털](https://portal.azure.com)에서 논리 앱을 디자인하고 관리하는 훌륭한 방법을 제공하지만 대신 Visual Studio에서 논리 앱을 배포하고자 할 수도 있습니다. 사용할 수 있는 몇 가지 주요 기능이 있습니다.
+[Azure 포털](https://portal.azure.com/)에서 논리 앱을 디자인하고 관리하는 훌륭한 방법을 제공하지만 대신 Visual Studio에서 논리 앱을 배포하고자 할 수도 있습니다. 사용할 수 있는 몇 가지 주요 기능이 있습니다.
 
 - 솔루션의 다른 자산과 함께 논리 앱을 저장하면 응용 프로그램의 모든 측면을 포함할 수 있습니다.
 - 소스 제어에서 확인된 논리 앱 정의를 유지하면 TFS 또는 Git를 사용하여 수정 버전을 추적할 수 있습니다. 
 
-아래의 다음 단계를 수행하기 위해 Azure SDK 2.7이 설치되어 있어야 합니다. 여기서 [VS용 최신 SDK](http://azure.microsoft.com/downloads/)을 찾습니다.
+아래의 다음 단계를 수행하기 위해 Azure SDK 2.7이 설치되어 있어야 합니다. 여기서 [VS용 최신 SDK](https://azure.microsoft.com/downloads/)을 찾습니다.
 
 ## 프로젝트 만들기
 
@@ -65,4 +65,4 @@ Azure 포털 내에서 이전에 논리 앱을 만들었고 이제 소스 제어
 
 Visual Studio를 사용하지 않고 싶지만 소스 제어에서 논리 앱을 배포하기 위해 여전히 도구를 사용하고자 하는 경우 [API](https://msdn.microsoft.com/library/azure/dn948510.aspx) 또는 [Powershell](../powershell-azure-resource-manager.md)을 직접 사용하여 배포를 자동화하는 데 사용할 수 있습니다.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

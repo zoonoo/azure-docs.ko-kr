@@ -23,11 +23,11 @@
 
 이 문서에서는 Windows 기반 Azure 가상 컴퓨터에 대한 복잡한 원격 데스크톱 오류를 진단 및 해결하는 자세한 문제 해결 단계를 제공합니다.
 
-> [AZURE.IMPORTANT]일반적인 원격 데스크톱 오류를 제거하려면 계속하기 전에 [원격 데스크톱에 대한 기본적인 문제 해결 문서](virtual-machines-troubleshoot-remote-desktop-connections.md)를 읽어야 합니다.
+> [AZURE.IMPORTANT] 일반적인 원격 데스크톱 오류를 제거하려면 계속하기 전에 [원격 데스크톱에 대한 기본적인 문제 해결 문서](virtual-machines-troubleshoot-remote-desktop-connections.md)를 읽어야 합니다.
 
 [기본적인 원격 데스크톱 문제 해결 가이드](virtual-machines-troubleshoot-remote-desktop-connections.md)에 나와 있는 특정 오류 메시지와 다른 원격 데스크톱 오류가 발생하는 경우 다음 단계에 따라 원격 데스크톱(또는 [RDP](https://en.wikipedia.org/wiki/Remote_Desktop_Protocol)) 클라이언트를 Azure VM의 RDP 서비스에 연결할 수 없는 이유를 파악할 수 있습니다.
 
-이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 스택 오버플로 포럼](http://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수도 있습니다. [Azure 지원 사이트](http://azure.microsoft.com/support/options/)로 가서 **지원 받기**를 클릭합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](http://azure.microsoft.com/support/faq/)를 참조하세요.
+이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 스택 오버플로 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수도 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 가서 **지원 받기**를 클릭합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.
 
 
 ## 원격 데스크톱 연결을 위한 구성 요소
@@ -100,7 +100,7 @@
 
 ![](./media/virtual-machines-rdp-detailed-troubleshoot/tshootrdp_3.png)
 
-> [AZURE.NOTE]리소스 관리자에서 만든 가상 컴퓨터의 경우, [소스 4: 네트워크 보안 그룹](#nsgs)으로 건너뜁니다.
+> [AZURE.NOTE] 리소스 관리자에서 만든 가상 컴퓨터의 경우, [소스 4: 네트워크 보안 그룹](#nsgs)으로 건너뜁니다.
 
 동일한 클라우드 서비스 또는 가상 네트워크에 다른 가상 컴퓨터가 없는 경우 [Azure에서 Windows를 실행 중인 가상 컴퓨터 만들기](virtual-machines-windows-tutorial.md)의 단계를 사용하여 새 가상 컴퓨터를 만들 수 있습니다. 테스트가 완료된 후에 별도의 가상 컴퓨터를 삭제합니다.
 
@@ -195,4 +195,4 @@ Azure VM에 대한 원격 데스크톱 끝점도 TCP 포트 3398을 내부 포�
 
 [Azure 가상 컴퓨터에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

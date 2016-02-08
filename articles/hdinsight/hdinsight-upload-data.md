@@ -56,7 +56,7 @@ Microsoft는 Azure Blob 저장소에서 작업할 다음 유틸리티를 제공�
 | [AzCopy][azure-azcopy] | | | ✔ |
 | [Hadoop 명령](#commandline) | ✔ | ✔ | ✔ |
 
-> [AZURE.NOTE]모든 Azure CLI, Azure PowerShell 및 AzCopy는 외부 Azure에서 사용될 수 있지만, Hadoop 명령만 HDInsight 클러스터에서 사용할 수 있으며 데이터를 로컬 파일 시스템에서 Azure Blob 저장소로 로드할 수 있습니다.
+> [AZURE.NOTE] 모든 Azure CLI, Azure PowerShell 및 AzCopy는 외부 Azure에서 사용될 수 있지만, Hadoop 명령만 HDInsight 클러스터에서 사용할 수 있으며 데이터를 로컬 파일 시스템에서 Azure Blob 저장소로 로드할 수 있습니다.
 
 ###<a id="xplatcli"></a>Azure CLI
 
@@ -94,7 +94,7 @@ Azure CLI는 Azure 서비스를 관리할 수 있도록 하는 크로스 플랫�
 
 			azure storage blob download -a <storage-account-name> -k <primary-key> <container-name> <blob-name> <destination-file>
 
-> [AZURE.NOTE]항상 동일한 저장소 계정으로 작업하는 경우 모든 명령에 대한 키를 지정하는 대신 다음의 환경 변수를 설정할 수 있습니다:
+> [AZURE.NOTE] 항상 동일한 저장소 계정으로 작업하는 경우 모든 명령에 대한 키를 지정하는 대신 다음의 환경 변수를 설정할 수 있습니다:
 >
 > * **AZURE\_STORAGE\_ACCOUNT**: 저장소 계정 이름
 >
@@ -220,7 +220,7 @@ Azure 데이터 팩터리 서비스는 데이터 저장소, 처리 및 이동 �
 
 Azure 데이터 팩터리를 사용하여 Azure Blob 저장소로 데이터를 이동하거나 Hive 및 Pig와 같은 HDInsight 기능을 직접 사용하는 데이터 파이프라인을 만들 수 있습니다.
 
-자세한 내용은 [Azure 데이터 팩터리 설명서](http://azure.microsoft.com/documentation/services/data-factory/)를 참조하세요.
+자세한 내용은 [Azure 데이터 팩터리 설명서](https://azure.microsoft.com/documentation/services/data-factory/)를 참조하세요.
 
 ###<a id="sqoop"></a>Apache Sqoop
 
@@ -239,7 +239,7 @@ Azure Blob 저장소는 다음 프로그래밍 언어에서 Azure SDK를 사용�
 * Python
 * Ruby
 
-Azure SDK 설치에 대한 자세한 내용은 [Azure 다운로드](http://azure.microsoft.com/downloads/)를 참조하세요.
+Azure SDK 설치에 대한 자세한 내용은 [Azure 다운로드](https://azure.microsoft.com/downloads/)를 참조하세요.
 
 
 ## 다음 단계
@@ -284,4 +284,4 @@ Azure SDK 설치에 대한 자세한 내용은 [Azure 다운로드](http://azure
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

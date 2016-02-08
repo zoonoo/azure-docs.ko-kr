@@ -33,7 +33,7 @@ Microsoft Azure StorSimple 장치 배포를 시작합니다. 이러한 배포 �
 
 설치 및 구성 프로세스를 완료하려면 관리자 권한이 필요합니다. 시작하기 전에 구성 검사 목록을 검토하는 것이 좋습니다. 배포 및 구성 프로세스는 완료하는 데 다소 시간이 걸릴 수 있습니다.
 
-> [AZURE.NOTE]Microsoft Azure 웹 사이트에 게시된 StorSimple 배포 정보는 StorSimple 8000 시리즈 장치에만 적용됩니다. 7000 시리즈 장치에 대한 자세한 내용은 [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com)으로 이동합니다. 7000 시리즈 배포 정보는 [StorSimple 시스템 퀵 스타트 가이드](http://onlinehelp.storsimple.com/111_Appliance/)를 참조하세요.
+> [AZURE.NOTE] Microsoft Azure 웹 사이트에 게시된 StorSimple 배포 정보는 StorSimple 8000 시리즈 장치에만 적용됩니다. 7000 시리즈 장치에 대한 자세한 내용은 [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com)으로 이동합니다. 7000 시리즈 배포 정보는 [StorSimple 시스템 퀵 스타트 가이드](http://onlinehelp.storsimple.com/111_Appliance/)를 참조하세요.
 
 ## 배포 단계
 
@@ -115,7 +115,7 @@ StorSimple 장치를 구성하여 StorSimple 관리자 서비스에 연결하려
 
 - 액세스 자격 증명이 있는 Microsoft Azure 저장소 계정이 있습니다.
 
-- 사용자의 Microsoft Azure 구독을 StorSimple 관리자 서비스에 사용할 수 있습니다. 구독은 [기업 계약](http://azure.microsoft.com/pricing/enterprise-agreement/)을 통해 구매해야 합니다.
+- 사용자의 Microsoft Azure 구독을 StorSimple 관리자 서비스에 사용할 수 있습니다. 구독은 [기업 계약](https://azure.microsoft.com/pricing/enterprise-agreement/)을 통해 구매해야 합니다.
 
 - PuTTY와 같은 터미널 에뮬레이션 소프트웨어에 액세스할 수 있습니다.
 
@@ -146,7 +146,7 @@ StorSimple 관리자 서비스는 여러 StorSimple 장치를 관리할 수 있�
 
 [AZURE.INCLUDE [storsimple-create-new-service](../../includes/storsimple-create-new-service.md)]
 
-> [AZURE.IMPORTANT]서비스와 함께 저장소 계정을 자동으로 만들도록 설정하지 않은 경우, 서비스를 성공적으로 만든 후 하나 이상의 저장소 계정을 만들어야 합니다. 이 저장소 계정은 볼륨 컨테이너를 만들 때 사용됩니다.
+> [AZURE.IMPORTANT] 서비스와 함께 저장소 계정을 자동으로 만들도록 설정하지 않은 경우, 서비스를 성공적으로 만든 후 하나 이상의 저장소 계정을 만들어야 합니다. 이 저장소 계정은 볼륨 컨테이너를 만들 때 사용됩니다.
 >
 > * 저장소 계정을 자동으로 만들지 않은 경우 자세한 지침은 [서비스에 대한 새 저장소 계정 구성](#configure-a-new-storage-account-for-the-service)을 참조하세요. 
 > * 저장소 계정을 자동으로 생성하도록 설정한 경우, [2단계: 서비스 등록 키 받기](#step-2-get-the-service-registration-key)로 이동합니다.
@@ -190,7 +190,7 @@ StorSimple 장치의 최소 장치 구성에는 다음 사항이 필요합니다
 
 볼륨 컨테이너를 만든 후에 서버에 대한 StorSimple 장치에 저장소 볼륨을 프로비전할 수 있습니다. 볼륨을 만들려면 Azure 클래식 포털에서 다음 단계를 수행합니다.
 
-> [AZURE.IMPORTANT]StorSimple 관리자는 씬 프로비저닝된 볼륨만 만들 수 있습니다. 완전히 또는 부분적으로 프로비전된 볼륨을 만들 수 없습니다.
+> [AZURE.IMPORTANT] StorSimple 관리자는 씬 프로비저닝된 볼륨만 만들 수 있습니다. 완전히 또는 부분적으로 프로비전된 볼륨을 만들 수 없습니다.
 
 [AZURE.INCLUDE [storsimple-create-volume](../../includes/storsimple-create-volume.md)]
 
@@ -241,8 +241,7 @@ StorSimple용 Windows PowerShell에 연결하려면 PuTTY와 같은 터미널 �
 
 ## 업데이트 검색 및 적용
 
-장치 업데이트는 몇 시간이 걸릴 수 있습니다. 다음 단계를 수행하여 장치에서 업데이트를 검색 및 적용합니다. 
-<!--can take 1-4 hours-->
+장치 업데이트는 몇 시간이 걸릴 수 있습니다. 다음 단계를 수행하여 장치에서 업데이트를 검색 및 적용합니다. <!--can take 1-4 hours-->
 
 <!--If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
 
@@ -254,7 +253,7 @@ StorSimple용 Windows PowerShell에 연결하려면 PuTTY와 같은 터미널 �
 
 3.	업데이트 작업이 만들어집니다. **작업**으로 이동하여 업데이트 상태를 모니터링합니다.
 
-	> [AZURE.NOTE]업데이트 작업이 시작되면 50%로 상태를 즉시 표시합니다. 업데이트 작업이 완료된 후에 상태를 100%로 변경합니다. 업데이트 프로세스에 대한 실시간 상태가 없습니다.
+	> [AZURE.NOTE] 업데이트 작업이 시작되면 50%로 상태를 즉시 표시합니다. 업데이트 작업이 완료된 후에 상태를 100%로 변경합니다. 업데이트 프로세스에 대한 실시간 상태가 없습니다.
 
 4.	장치가 성공적으로 업데이트된 후 데이터 2 및 데이터 3이 비활성화된 경우 데이터 2 및 데이터 3 네트워크 인터페이스를 사용하도록 설정합니다.
 
@@ -279,7 +278,7 @@ MPIO(다중 경로 I/O)는 선택적 기능이며 Windows Server에 기본적으
 Linux 호스트에 연결된 StorSimple 도구에 대한 MPIO 설치 지침은 [Linux 호스트에 대한 MPIO 구성](storsimple-configure-mpio-on-linux.md)으로 이동합니다.
 
 
-> [AZURE.NOTE]MPIO는 StorSimple 가상 장치에서 지원되지 않습니다.
+> [AZURE.NOTE] MPIO는 StorSimple 가상 장치에서 지원되지 않습니다.
 
 
 
@@ -290,4 +289,4 @@ Linux 호스트에 연결된 StorSimple 도구에 대한 MPIO 설치 지침은 [
 - [StorSimple 관리자 서비스](storsimple-manager-service-administration.md)를 사용하여 StorSimple 장치를 관리할 수 있습니다.
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

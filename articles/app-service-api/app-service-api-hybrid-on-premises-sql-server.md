@@ -24,7 +24,7 @@
 
 이 자습서에서는 새 하이브리드 연결 기능을 사용하여 로컬 온-프레미스 SQL Server 데이터베이스에 연결하는 [Azure 미리 보기](http://go.microsoft.com/fwlink/?LinkId=529715)에서 앱 서비스 API 앱을 만드는 방법에 대해 배웁니다. 이 자습서는 이전에 Azure 또는 SQL 서버를 사용해 본 경험이 없다고 가정합니다.
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ## 필수 조건
 
@@ -75,7 +75,7 @@
 <a name="InstallSQL"></a>
 ## SQL Server Express 설치, TCP/IP 사용 및 SQL Server 데이터베이스 온-프레미스 만들기
 
-이 섹션에서는 API 앱이 [Azure Preview 포털](https://portal.azure.com)에서 작동하도록 SQL Server Express를 설치하고, TCP/IP를 사용하도록 설정하고, 데이터베이스를 만드는 방법을 보여 줍니다.
+이 섹션에서는 API 앱이 [Azure Preview 포털](https://portal.azure.com/)에서 작동하도록 SQL Server Express를 설치하고, TCP/IP를 사용하도록 설정하고, 데이터베이스를 만드는 방법을 보여 줍니다.
 
 <a name="InstallSQLDB"></a>
 ### SQL Server Express 설치
@@ -202,7 +202,7 @@ TCP/IP를 사용하도록 설정하려면 SQL Server Express를 설치할 때 �
 
 10. `SpeakersController.cs` 파일의 코드를 아래 코드로 바꿉니다. `connectionString`에서 &lt;serverName> 및 &lt;password> 자리 표시자의 고유 값을 지정해야 합니다. &lt;serverName> 값은 SQL Server가 있는 컴퓨터 이름이며 &lt;password> 값은 SQL Server를 설치하고 구성할 때 설정한 값입니다.
 
-	> [AZURE.NOTE]다음 코드 조각에는 암호 정보가 포함됩니다. 이렇게 데모를 간단하게 유지합니다. 실제 프로덕션 환경에서는 코드에 자격 증명을 저장하지 마십시오. 대신에 [ASP.NET 및 Azure에 암호(및 기타 중요한 데이터)를 배포하기 위한 모범 사례](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure)를 참조하세요.
+	> [AZURE.NOTE] 다음 코드 조각에는 암호 정보가 포함됩니다. 이렇게 데모를 간단하게 유지합니다. 실제 프로덕션 환경에서는 코드에 자격 증명을 저장하지 마십시오. 대신에 [ASP.NET 및 Azure에 암호(및 기타 중요한 데이터)를 배포하기 위한 모범 사례](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure)를 참조하세요.
 
 		using System;
 		using System.Collections.Generic;
@@ -332,7 +332,7 @@ Swagger UI를 사용하면 이 메서드를 호출 하도록 클라이언트 코
 	- Azure 구독이 여러 개 있는 경우 사용할 구독을 선택합니다.
 	- **앱 서비스 계획**에서, 기존 앱 서비스 계획에서 선택하거나 **새 앱 서비스 계획 만들기**를 선택하고 새 계획의 이름을 입력합니다. 
 	- **리소스 그룹**에 대해 기존 리소스 그룹 중에서 선택하거나 **새 리소스 그룹 만들기**를 선택하고 이름을 입력합니다. 이름은 고유해야 합니다. 앱 이름을 접두사로 사용하고 Microsoft ID(@ 기호 없이)와 같은 일부 개인 정보를 추가하는 것이 좋습니다.  
-	- **액세스 수준**에서 **Available to anyone(누구나 사용 가능)**을 선택합니다. 이 옵션은 API를 완전히 공용으로 만들며, 이 자습서에서는 이렇게 해도 괜찮습니다. 나중에 [Azure Preview 포털](https://portal.azure.com)을 통해 액세스를 제한할 수 있습니다.
+	- **액세스 수준**에서 **Available to anyone(누구나 사용 가능)**을 선택합니다. 이 옵션은 API를 완전히 공용으로 만들며, 이 자습서에서는 이렇게 해도 괜찮습니다. 나중에 [Azure Preview 포털](https://portal.azure.com/)을 통해 액세스를 제한할 수 있습니다.
 	- 지역을 선택합니다.
 
 	**확인**을 클릭하여 구독에 API 앱을 만듭니다.
@@ -355,7 +355,7 @@ Swagger UI를 사용하면 이 메서드를 호출 하도록 클라이언트 코
 
 ## 하이브리드 연결 및 BizTalk 서비스 만들기 ##
 
-1. 브라우저에서 [Azure Preview 포털](https://portal.azure.com)로 이동합니다. 
+1. 브라우저에서 [Azure Preview 포털](https://portal.azure.com/)로 이동합니다. 
 
 2. 왼쪽의 **모두 찾아보기** 옵션을 클릭합니다.
 
@@ -432,4 +432,4 @@ Swagger UI를 사용하면 이 메서드를 호출 하도록 클라이언트 코
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

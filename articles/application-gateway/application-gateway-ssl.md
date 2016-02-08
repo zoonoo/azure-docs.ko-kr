@@ -27,7 +27,7 @@ Azure 응용 프로그램 게이트웨이 구성을 사용하여 웹 팜에서 �
 
 ## 시작하기 전에
 
-1. 웹 플랫폼 설치 관리자를 사용하는 Azure PowerShell cmdlet의 최신 버전을 설치합니다. [다운로드 페이지](http://azure.microsoft.com/downloads/)의 **Windows PowerShell** 섹션에서 최신 버전을 다운로드하여 설치할 수 있습니다.
+1. 웹 플랫폼 설치 관리자를 사용하는 Azure PowerShell cmdlet의 최신 버전을 설치합니다. [다운로드 페이지](https://azure.microsoft.com/downloads/)의 **Windows PowerShell** 섹션에서 최신 버전을 다운로드하여 설치할 수 있습니다.
 2. 유효한 서브넷과 작업 가상 네트워크가 있는지 확인합니다.
 3. 가상 네트워크 또는 할당된 공용 IP/VIP와 백 엔드 서버가 있는지 확인합니다.
 
@@ -235,4 +235,4 @@ SSL 인증서 구성에서 **HttpListener**의 프로토콜은 *Https*(대/소�
 - [Azure 부하 분산 장치](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure 트래픽 관리자](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -3,7 +3,7 @@
 	description="Visual Studio .NET 프로젝트에서 Azure 모바일 서비스를 시작하는 방법을 알아봅니다."
 	services="mobile-services"
 	documentationCenter=""
-	authors="TomArcher"
+	authors="mlhoop"
 	manager="douge"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="01/05/2016"
-	ms.author="tarcher"/>
+	ms.author="mlearned"/>
 
 # 모바일 서비스 시작(.NET 프로젝트)
 
@@ -81,6 +81,6 @@
 	await todoTable.DeleteAsync(item);
 
 
-[모바일 서비스에 대한 자세한 정보](http://azure.microsoft.com/documentation/services/mobile-services/)
+[모바일 서비스에 대한 자세한 정보](https://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

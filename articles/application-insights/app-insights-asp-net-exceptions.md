@@ -25,11 +25,31 @@
 
 ASP.NET 앱을 모니터링하려면 응용 프로그램에 [Application Insights SDK를 추가][greenbrown]하거나, [IIS 서버에 상태 모니터를 설치][redfield]하거나, 또는 앱이 Azure 웹 앱인 경우 [Application Insights Extension][azure]을 설치해야 합니다.
 
-## 실패 진단 
+## Visual Studio를 사용하여 예외 진단
 
-개요 블레이드의 실패 타일은 가장 많은 실패를 유발하는 요청 URL 목록과 함께 예외 및 실패한 HTTP 요청에 대한 차트를 보여 줍니다.
+디버깅에 도움이 되도록 Visual Studio에서 앱 솔루션을 엽니다.
 
-![실패 선택](./media/app-insights-asp-net-exceptions/012-start.png)
+F5 키를 사용하여 서버 또는 개발 컴퓨터에서 앱을 실행합니다.
+
+Visual Studio에서 Application Insights 검색 창을 열고 앱에서 이벤트를 표시하도록 설정합니다. 디버깅하는 동안 Application Insights 단추를 클릭하여 이를 수행할 수 있습니다.
+
+![프로젝트를 마우스 오른쪽 단추로 클릭하고 Application Insights 및 열기를 선택합니다.](./media/app-insights-asp-net-exceptions/34.png)
+
+예외를 표시하도록 보고서를 필터링 할 수 있습니다.
+
+*예외가 표시되지 않나요? [예외 캡처](#exceptions)를 참조하세요.*
+
+예외 보고서를 클릭하여 해당 스택 추적을 표시합니다.
+
+![예외를 통해 클릭합니다.](./media/app-insights-asp-net-exceptions/35.png)
+
+스택 추적에서 참조를 클릭하여 관련 파일을 엽니다.
+
+## Azure 포털을 사용하여 오류 진단
+
+앱의 Application Insights 개요에서 실패 타일은 가장 많은 실패를 유발하는 요청 URL 목록과 함께 예외 및 실패한 HTTP 요청에 대한 차트를 보여 줍니다.
+
+![설정 선택, 오류](./media/app-insights-asp-net-exceptions/012-start.png)
 
 목록의 실패한 요청 유형 중 하나를 클릭하면 개별 실패 항목이 표시됩니다. 여기서 해당 항목에 관련된 예외 또는 모든 추적 데이터를 찾아갑니다.
 
@@ -49,6 +69,8 @@ ASP.NET 앱을 모니터링하려면 응용 프로그램에 [Application Insight
 ![드릴스루](./media/app-insights-asp-net-exceptions/050-exception-properties.png)
 
 [진단 검색에 대해 자세히 알아보세요][diagnostic].
+
+
 
 ## 종속성 실패
 
@@ -73,13 +95,13 @@ ASP.NET 앱을 모니터링하려면 응용 프로그램에 [Application Insight
 * [TrackException()](#exceptions)은 스택 추적을 보냅니다. [예외에 대해 자세히 알아보세요](#exceptions).
 * 사용자가 이미 Log4Net 또는 NLog와 같은 로깅 프레임워크를 사용하는 경우, 요청과 예외 데이터와 함께 진단 검색 안에서 [이러한 로그를 캡처][netlogs]하고 볼 수 있습니다.
 
-이러한 이벤트를 보려면, [검색][diagnostic]과 필터를 차례대로 열고 사용자 지정 이벤트, 추적 또는 예외를 선택 합니다.
+이러한 이벤트를 보려면, [검색][diagnostic]과 필터를 차례대로 열고 사용자 지정 이벤트, 추적 또는 예외를 선택합니다.
 
 
 ![드릴스루](./media/app-insights-asp-net-exceptions/viewCustomEvents.png)
 
 
-> [AZURE.NOTE]앱에서 다양한 원격 분석을 생성하는 경우 적응 샘플링 모듈은 이벤트의 대표적인 분수만 전송하여 포털에 전송되는 볼륨을 자동으로 줄입니다. 동일한 작업에 속하는 이벤트를 그룹으로 선택하거나 선택 취소되므로 관련된 이벤트를 탐색할 수 있습니다. [샘플링에 대해 알아봅니다](app-insights-sampling.md).
+> [AZURE.NOTE] 앱에서 다양한 원격 분석을 생성하는 경우 적응 샘플링 모듈은 이벤트의 대표적인 분수만 전송하여 포털에 전송되는 볼륨을 자동으로 줄입니다. 동일한 작업에 속하는 이벤트를 그룹으로 선택하거나 선택 취소되므로 관련된 이벤트를 탐색할 수 있습니다. [샘플링에 대해 알아봅니다.](app-insights-sampling.md)
 
 ### 요청 게시 데이터를 참조하는 방법
 
@@ -434,7 +456,7 @@ WebApiConfig에서 서비스에 추가합니다.
 
 ## 예외 성능 카운터
 
-서버에 [상태 모니터가 설치][redfield]되어 있는 경우, .NET으로 측정되는 예외 속도 차트를 가져올 수 있습니다. 여기에는 처리된 .NET 예외와 처리되지 않은 .NET 예외가 모두 포함됩니다.
+서버에 [상태 모니터를 설치][redfield]한 경우 .NET에서 측정된 예외 속도 차트를 확인할 수 있습니다. 여기에는 처리된 .NET 예외와 처리되지 않은 .NET 예외가 모두 포함됩니다.
 
 메트릭 탐색기 블레이드를 열고 새 차트를 추가한 다음 성능 카운터 아래에 나열된 **예외 속도**를 선택합니다.
 
@@ -455,4 +477,4 @@ TrackException 보고서를 계산하여 Application Insights 포털에서 계�
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

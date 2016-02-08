@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/04/2015"
+	ms.date="01/22/2016"
 	ms.author="dkshir"/>
 
 # Linux 운영 체제가 포함된 가상 하드 디스크 만들기 및 업로드
@@ -26,14 +26,14 @@
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
-Azure의 가상 컴퓨터는 가상 컴퓨터를 만들 때 선택한 이미지를 기반으로 하는 운영 체제를 실행합니다. 이미지는 VHD 형식인 .vhd 파일로 저장소 계정에 저장됩니다. 자세한 내용은 [Azure의 디스크](virtual-machines-disks-vhds.md) 및 [Azure의 이미지](virtual-machines-images.md)를 참조하세요.
+Azure 가상 컴퓨터는 만드는 동안 선택한 이미지에 따라 운영 체제를 실행합니다. 이러한 이미지는 VHD 형식인 .vhd 파일로 저장소 계정에 저장됩니다. 자세한 내용은 [Azure의 디스크](virtual-machines-disks-vhds.md) 및 [Azure의 이미지](virtual-machines-images.md)를 참조하세요.
 
 가상 컴퓨터를 만드는 경우 실행하려는 응용 프로그램에 적합하도록 일부 운영 체제 설정을 사용자 지정할 수 있습니다. 자세한 내용은 [사용자 지정 가상 컴퓨터를 만드는 방법](virtual-machines-create-custom.md)(영문)을 참조하십시오.
 
 **중요**: [Azure 인증 배포의 Linux](virtual-machines-../linux-endorsed-distributions.md)의 '지원되는 버전'에 지정된 대로 보증 배포판 중 하나가 구성 세부 정보와 함께 사용되는 경우에만 Linux OS를 실행하는 가상 컴퓨터에 Azure 플랫폼 SLA가 적용됩니다. Azure 이미지 갤러리의 모든 Linux 배포는 필요한 구성이 포함된 보증 배포판입니다.
 
 
-##필수 조건##
+## 필수 조건
 이 문서에서는 사용자에게 다음 항목이 있다고 가정합니다.
 
 - **관리 인증서** - VHD를 업로드할 구독에 필요한 관리 인증서를 만들어 .cer 파일로 내보냈습니다. 인증서 만들기에 대한 자세한 내용은 [Azure용 인증서 개요](../cloud-services/cloud-services-certs-create.md)를 참조하세요.
@@ -46,9 +46,10 @@ Azure의 가상 컴퓨터는 가상 컴퓨터를 만들 때 선택한 이미지�
 
 - **Azure 명령줄 인터페이스** - Linux 운영 체제를 사용하여 이미지를 만드는 경우에는 [Azure 명령줄 인터페이스](../virtual-machines-command-line-tools.md)를 사용하여 VHD를 업로드합니다.
 
-- **Azure Powershell 도구** - `Add-AzureVhd` cmdlet을 사용하여 VHD를 업로드할 수도 있습니다. Azure PowerShell cmdlet을 다운로드하려면 [Azure 다운로드](http://azure.microsoft.com/downloads/)를 방문하세요. 참조 정보는 [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx)(영문)를 참조하십시오.
+- **Azure Powershell 도구** - `Add-AzureVhd` cmdlet을 사용하여 VHD를 업로드할 수도 있습니다. Azure PowerShell cmdlet을 다운로드하려면 [Azure 다운로드](https://azure.microsoft.com/downloads/)를 방문하세요. 참조 정보는 [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx)(영문)를 참조하십시오.
 
-## <a id="prepimage"> </a>1단계: 업로드할 이미지 준비 ##
+<a id="prepimage"> </a>
+## 1단계: 업로드할 이미지 준비
 
 Azure에서는 다양한 Linux 배포를 지원합니다([보증 배포판](../linux-endorsed-distributions.md) 참조). 다음 문서에서는 Azure에서 지원되는 다양한 Linux 배포를 준비하는 방법을 안내합니다.
 
@@ -64,8 +65,8 @@ Azure에서는 다양한 Linux 배포를 지원합니다([보증 배포판](../l
 
 위 가이드의 단계를 수행하면 Azure에 업로드할 수 있는 VHD 파일을 만들 수 있습니다.
 
-
-## <a id="connect"> </a>2단계: Azure 연결 준비 ##
+<a id="connect"> </a>
+## 2단계: Azure 연결 준비
 
 .vhd 파일을 업로드하려면 컴퓨터와 Azure의 구독 사이에 보안 연결을 설정해야 합니다.
 
@@ -88,7 +89,7 @@ Azure AD 메서드를 사용한 로그인:
 
 	메시지가 표시되면 사용자 이름 및 암호를 입력합니다.
 
-**또는 ** PublishSettings 파일을 대신 사용합니다.
+**또는** PublishSettings 파일을 대신 사용합니다.
 
 1. Azure CLI 창 열기
 
@@ -141,21 +142,26 @@ Azure AD 메서드를 사용한 로그인:
 
 	자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure.md)을 참조하세요.
 
-> [AZURE.NOTE]Azure CLI 또는 Azure PowerShell에서 최신 Azure Active Directory 메서드를 사용하여 Azure 구독에 로그인하는 것이 좋습니다.
+> [AZURE.NOTE] Azure CLI 또는 Azure PowerShell에서 최신 Azure Active Directory 메서드를 사용하여 Azure 구독에 로그인하는 것이 좋습니다.
 
-## <a id="upload"> </a>3단계: Azure에 이미지 업로드 ##
-
-### Azure CLI를 사용하는 경우
-
-Azure CLI를 사용하여 이미지를 업로드합니다. 다음 명령을 사용하여 이미지를 업로드할 수 있습니다.
-
-		azure vm image create <image-name> --location <location-of-the-data-center> --os Linux <source-path-to the vhd>
-
-### PowerShell을 사용하는 경우
+<a id="upload"> </a>
+## 3단계: Azure에 이미지 업로드
 
 VHD 파일을 업로드할 저장소 계정이 필요합니다. 기존 계정을 선택하거나 새로 만들 수 있습니다. 저장소 계정을 만들려면 [저장소 계정 만들기](../storage-create-storage-account.md)를 참조하세요.
 
-.vhd 파일을 업로드하는 경우 Blob 저장소 내 임의의 위치에 .vhd 파일을 배치할 수 있습니다. 다음 명령 예제에서 **BlobStorageURL**은 사용하려는 저장소 계정의 URL이고, **YourImagesFolder**는 이미지를 저장할 Blob 저장소 내 컨테이너입니다. **VHDName**은 가상 하드 디스크를 식별하기 위해 [Azure 클래식 포털](http://manage.windowsazure.com)에 표시되는 레이블입니다. **PathToVHDFile**은 .vhd 파일의 전체 경로 및 이름입니다.
+.vhd 파일을 업로드하는 경우 Blob 저장소 내 임의의 위치에 .vhd 파일을 배치할 수 있습니다. 다음 명령 예제에서 **BlobStorageURL**은 사용하려는 저장소 계정의 URL이고, **YourImagesFolder**는 이미지를 저장할 Blob 저장소 내 컨테이너입니다. **VHDName**은 가상 하드 디스크를 식별하기 위해 [Azure 포털](http://portal.azure.com) 또는 [Azure 클래식 포털](http://manage.windowsazure.com)에 표시되는 레이블입니다. **PathToVHDFile**은 컴퓨터에 있는 .vhd 파일의 전체 경로 및 이름입니다.
+
+
+### Azure CLI를 사용하는 경우
+
+Azure CLI에서 다음 명령을 사용하여 이미지를 업로드합니다.
+
+		azure vm image create <ImageName> --blob-url <BlobStorageURL>/<YourImagesFolder>/<VHDName> --os Linux <PathToVHDFile>
+
+자세한 내용은 [Azure 서비스 관리를 위한 Azure CLI 참조](virtual-machines-command-line-tools.md)를 참조하세요.
+
+
+### PowerShell을 사용하는 경우
 
 이전 단계에서 사용한 Azure PowerShell 창에서 다음을 입력합니다.
 
@@ -163,11 +169,9 @@ VHD 파일을 업로드할 저장소 계정이 필요합니다. 기존 계정을
 
 자세한 내용은 [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx)(영문)를 참조하십시오.
 
-> [AZURE.NOTE] [Azure Powershell 1.0 미리 보기 버전](https://azure.microsoft.com/blog/azps-1-0-pre/) 크게 기본 및 리소스 관리자 배포 모델에 대한 cmdlet를 처리하는 방식으로 변경합니다. 이 문서에서는 미리 보기 버전을 아직 사용하지 않습니다.
-
 
 [Step 1: Prepare the image to be uploaded]: #prepimage
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
 
-<!---HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

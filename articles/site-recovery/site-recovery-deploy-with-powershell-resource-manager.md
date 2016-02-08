@@ -29,7 +29,7 @@ ARM에 대한 Azure PowerShell과 함께 사용할 수 있는 Azure Site Recover
 
 이 문서에서는 예제의 도움으로 Azure에 서버 보호를 구성하고 오케스트레이션하기 위해 ARM과 함께 Windows PowerShell®을 사용하여 Azure Site Recovery를 배포하는 방법을 설명합니다. 이 문서에 사용된 예제는 ARM으로 Azure PowerShell을 사용하여 Azure에 대한 Hyper-V 호스트의 가상 컴퓨터를 보호, 장애 조치하고 복구하는 방법을 보여 줍니다.
 
-> [AZURE.NOTE]Azure Site Recovery PowerShell cmdlet을 사용하여 VMM 사이트에서 VMM 사이트로, VMM 사이트에서 Azure로, Hyper-V 사이트에서 Azure 시나리오로 구성할 수 있습니다. 다른 ASR 시나리오에 대한 지원은 곧 추가될 예정입니다.
+> [AZURE.NOTE] Azure Site Recovery PowerShell cmdlet을 사용하여 VMM 사이트에서 VMM 사이트로, VMM 사이트에서 Azure로, Hyper-V 사이트에서 Azure 시나리오로 구성할 수 있습니다. 다른 ASR 시나리오에 대한 지원은 곧 추가될 예정입니다.
 
 이 문서를 사용하기 위해 PowerShell 전문가가 될 필요는 없지만 모듈, cmdlet 및 세션과 같은 기본 개념을 이해한다고 가정합니다. Windows PowerShell에 대한 자세한 내용은 [Azure PowerShell을 사용하여 시작](http://technet.microsoft.com/library/hh857337.aspx)을 참조하세요. 자세한 내용은 [Azure 리소스 관리자를 사용하여 Azure PowerShell 사용](../powershell-azure-resource-manager.md)을 읽어보세요.
 
@@ -43,8 +43,8 @@ ARM에 대한 Azure PowerShell과 함께 사용할 수 있는 Azure Site Recover
 
 다음 필수 조건이 충족되었는지 확인합니다.
 
-- [Microsoft Azure](http://azure.microsoft.com/) 계정이 있어야 합니다. [무료 평가판](pricing/free-trial/)으로 시작할 수 있습니다. [Azure Site Recovery Manager 가격](http://azure.microsoft.com/pricing/details/site-recovery/)에 대해 알아볼 수도 있습니다.
-- Azure PowerShell 1.0이 필요합니다. 이 릴리스에 대한 정보 및 설치하는 방법은 [Azure PowerShell 1.0](http://azure.microsoft.com/)을 참조하세요.
+- [Microsoft Azure](https://azure.microsoft.com/) 계정이 있어야 합니다. [무료 평가판](pricing/free-trial/)으로 시작할 수 있습니다. [Azure Site Recovery Manager 가격](https://azure.microsoft.com/pricing/details/site-recovery/)에 대해 알아볼 수도 있습니다.
+- Azure PowerShell 1.0이 필요합니다. 이 릴리스에 대한 정보 및 설치하는 방법은 [Azure PowerShell 1.0](https://azure.microsoft.com/)을 참조하세요.
 - [AzureRM.SiteRecovery](https://www.powershellgallery.com/packages/AzureRM.SiteRecovery/) 및 [AzureRM.RecoveryServices](https://www.powershellgallery.com/packages/AzureRM.RecoveryServices/) 모듈을 설치해야 합니다. [PowerShell 갤러리](https://www.powershellgallery.com/)에서 이러한 모듈의 최신 버전을 가져올 수 있습니다.
 
 이 문서에서는 ARM으로 Azure Powershell을 사용하여 예제의 도움을 받아 서버 보호를 구성하고 관리하는 방법을 보여 줍니다. 이 문서에 사용된 예제에서는 Azure에 대한 Hyper-V 호스트에서 실행 중인 가상 컴퓨터를 보호하는 방법을 보여 줍니다. 다음에 나오는 필수 구성 요소는 이 예제에 해당됩니다. 다양한 ASR 시나리오에 대한 포괄적인 요구 사항 집합은 해당 시나리오와 관련된 설명서를 참조하세요.
@@ -87,7 +87,7 @@ ARM에 대한 Azure PowerShell과 함께 사용할 수 있는 Azure Site Recover
 
 		Register-AzureRmProviderFeature -FeatureName betaAccess -ProviderNamespace Microsoft.RecoveryServices
 
-	>[AZURE.TIP]위의 명령을 성공적으로 완료한 후 구독에서 복구 서비스 공급자에 대한 액세스를 활성화하려면 최대 1시간까지 걸릴 수 있습니다. `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices` 명령을 사용하여 구독에서 복구 서비스 공급자를 등록하려고 시도하는 경우 중간에 실패할 수 있습니다. 이런 문제가 발생하는 경우 잠시 기다린 후 다시 시도합니다.
+	>[AZURE.TIP] 위의 명령을 성공적으로 완료한 후 구독에서 복구 서비스 공급자에 대한 액세스를 활성화하려면 최대 1시간까지 걸릴 수 있습니다. `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices` 명령을 사용하여 구독에서 복구 서비스 공급자를 등록하려고 시도하는 경우 중간에 실패할 수 있습니다. 이런 문제가 발생하는 경우 잠시 기다린 후 다시 시도합니다.
 
 	구독에서 복구 서비스 공급자에 대한 액세스를 활성화하면 다음 명령을 실행하여 구독에서 공급자를 등록합니다.
 
@@ -113,7 +113,7 @@ ARM에 대한 Azure PowerShell과 함께 사용할 수 있는 Azure Site Recover
 
 	`Get-AzureRmRecoveryServicesVault` cmdlet을 사용하여 기존 자격 증명 모음의 목록을 검색할 수 있습니다.
 
-> [AZURE.NOTE]클래식 포털 또는 Azure 서비스 관리 PowerShell 모듈을 사용하여 만든 ASR 자격 증명 모음에서 작업을 수행하려는 경우 `Get-AzureRmSiteRecoveryVault` cmdlet을 사용하여 이러한 자격 증명 모음 목록을 검색할 수 있습니다. 모든 새 작업에 대해 새 복구 서비스 자격 증명 모음을 만드는 것이 좋습니다. 앞서 만든 사이트 복구 자격 증명 모음은 계속 지원되지만 최신 기능이 없습니다.
+> [AZURE.NOTE] 클래식 포털 또는 Azure 서비스 관리 PowerShell 모듈을 사용하여 만든 ASR 자격 증명 모음에서 작업을 수행하려는 경우 `Get-AzureRmSiteRecoveryVault` cmdlet을 사용하여 이러한 자격 증명 모음 목록을 검색할 수 있습니다. 모든 새 작업에 대해 새 복구 서비스 자격 증명 모음을 만드는 것이 좋습니다. 앞서 만든 사이트 복구 자격 증명 모음은 계속 지원되지만 최신 기능이 없습니다.
 
 ## 3단계: 자격 증명 모음 등록 키 생성
 
@@ -164,7 +164,7 @@ ARM에 대한 Azure PowerShell과 함께 사용할 수 있는 Azure Site Recover
 
 	반환된 작업을 확인하여 복제 정책 만들기 성공했는지 확인합니다.
 
-	>[AZURE.IMPORTANT]지정된 저장소 계정은 복구 서비스 자격 증명 모음과 같은 Azure 지역에 있어야 하고 지역에서 복제를 활성화해야 합니다.
+	>[AZURE.IMPORTANT] 지정된 저장소 계정은 복구 서비스 자격 증명 모음과 같은 Azure 지역에 있어야 하고 지역에서 복제를 활성화해야 합니다.
 	>
 	> - 지정된 복구 저장소 계정이 Azure 저장소 형식(클래식)인 경우 보호된 컴퓨터의 장애 조치는 Azure IaaS(클래식)에 대한 컴퓨터를 복구합니다.
 	> - 지정된 복구 저장소 계정이 Azure 저장소 형식(ARM)인 경우 보호된 컴퓨터의 장애 조치는 Azure IaaS(ARM)에 대한 컴퓨터를 복구합니다.
@@ -192,7 +192,7 @@ ARM에 대한 Azure PowerShell과 함께 사용할 수 있는 Azure Site Recover
 		$Ostype = "Windows"                                 # "Windows" or "Linux"
 		$DRjob = Set-AzureRmSiteRecoveryProtectionEntity -ProtectionEntity $protectionEntity -Policy $Policy -Protection Enable -RecoveryAzureStorageAccountId $storageaccountID  -OS $OStype -OSDiskName $protectionEntity.Disks[0].Name
 
-	>[AZURE.IMPORTANT]지정된 저장소 계정은 복구 서비스 자격 증명 모음과 같은 Azure 지역에 있어야 하고 지역에서 복제를 활성화해야 합니다.
+	>[AZURE.IMPORTANT] 지정된 저장소 계정은 복구 서비스 자격 증명 모음과 같은 Azure 지역에 있어야 하고 지역에서 복제를 활성화해야 합니다.
 	>
 	> - 지정된 복구 저장소 계정이 Azure 저장소 형식(클래식)인 경우 보호된 컴퓨터의 장애 조치는 Azure IaaS(클래식)에 대한 컴퓨터를 복구합니다.
 	> - 지정된 복구 저장소 계정이 Azure 저장소 형식(ARM)인 경우 보호된 컴퓨터의 장애 조치는 Azure IaaS(ARM)에 대한 컴퓨터를 복구합니다.
@@ -261,4 +261,4 @@ ARM에 대한 Azure PowerShell과 함께 사용할 수 있는 Azure Site Recover
 
     	$TFjob = Resume-AzureRmSiteRecoveryJob -Job $TFjob
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

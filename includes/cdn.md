@@ -22,7 +22,7 @@ CDN을 사용하여 Azure 데이터를 캐시할 경우의 혜택은 다음과 �
 
 저장소 계정을 만들려면 관련 구독에 대한 서비스 관리자 또는 공동 관리자여야 합니다.
 
-> [AZURE.NOTE]Azure 서비스 관리 API를 사용하여 이 작업을 수행하는 방법에 대한 자세한 내용은 [저장소 계정 만들기](http://msdn.microsoft.com/library/windowsazure/hh264518.aspx) 참조 항목을 참조하세요.
+> [AZURE.NOTE] Azure 서비스 관리 API를 사용하여 이 작업을 수행하는 방법에 대한 자세한 내용은 [저장소 계정 만들기](http://msdn.microsoft.com/library/windowsazure/hh264518.aspx) 참조 항목을 참조하세요.
 
 **Azure 구독에 대한 저장소 계정을 만들려면**
 
@@ -70,7 +70,7 @@ CDN을 사용하여 Azure 데이터를 캐시할 경우의 혜택은 다음과 �
 	원본 도메인은 CDN이 콘텐츠를 캐시하는 위치입니다. 원본 도메인은 저장소 계정이나 클라우드 서비스일 수 있습니다. 이 예제의 목적에는 저장소 계정이 사용됩니다. 저장소 콘텐츠는 지정한 캐시 제어 설정이나 캐싱 네트워크의 기본 추론에 따라 에지 서버에 캐시됩니다.
 
 
-    > [AZURE.NOTE]끝점에 대해 만든 구성은 즉시 사용할 수 없습니다. 등록이 CDN 네트워크를 통해 전파되는 데 최대 60분 정도 걸릴 수 있습니다. 사용자가 CDN 도메인 이름을 즉시 사용하려고 시도할 경우 CDN을 통해 콘텐츠를 사용할 수 있을 때까지 상태 코드 400(잘못된 요청)이 표시될 수 있습니다.
+    > [AZURE.NOTE] 끝점에 대해 만든 구성은 즉시 사용할 수 없습니다. 등록이 CDN 네트워크를 통해 전파되는 데 최대 60분 정도 걸릴 수 있습니다. 사용자가 CDN 도메인 이름을 즉시 사용하려고 시도할 경우 CDN을 통해 콘텐츠를 사용할 수 있을 때까지 상태 코드 400(잘못된 요청)이 표시될 수 있습니다.
 
 <a id="Step3"> </a> <h2>3단계: CDN 콘텐츠 액세스</h2>
 
@@ -83,13 +83,13 @@ http://<*CDNNamespace*>.vo.msecnd.net/<*myPublicContainer*>/<*BlobName*>
 더 이상 Azure CDN(콘텐츠 배달 네트워크)에 개체를 캐시하지 않으려면 다음 단계 중 하나를 수행할 수 있습니다.
 
 -   Azure Blob의 경우 공용 컨테이너에서 Blob을 삭제할 수 있습니다.
--   컨테이너를 공용 대신 전용으로 설정할 수 있습니다. 자세한 내용은 [컨테이너 및 Blob에 대한 액세스 제한](http://azure.microsoft.com/documentation/articles/storage-manage-access-to-resources/#restrict-access-to-containers-and-blobs)을 참조하세요.
+-   컨테이너를 공용 대신 전용으로 설정할 수 있습니다. 자세한 내용은 [컨테이너 및 Blob에 대한 액세스 제한](https://azure.microsoft.com/documentation/articles/storage-manage-access-to-resources/#restrict-access-to-containers-and-blobs)을 참조하세요.
 -   관리 포털을 사용하여 CDN 끝점을 사용하지 않도록 설정하거나 삭제할 수 있습니다.
 -   더 이상 개체 요청에 응답하지 않도록 호스티드 서비스를 수정할 수 있습니다.
 
 CDN에 이미 캐시된 개체는 개체의 TTL(Time-to-Live) 기간이 만료될 때까지 캐시된 상태로 유지됩니다. TTL(Time-to-Live)이 만료되면 CDN에서 CDN 끝점이 여전히 유효하며 개체에 익명으로 액세스할 수 있는지 확인합니다. 그렇지 않으면 개체가 더 이상 캐시되지 않습니다.
 
-콘텐츠를 바로 제거하는 기능은 현재 Azure 관리 포털에서 지원되지 않습니다. 즉시 콘텐츠를 제거해야 하는 경우 [Azure 지원](http://azure.microsoft.com/support/options/)에 문의하세요.
+콘텐츠를 바로 제거하는 기능은 현재 Azure 관리 포털에서 지원되지 않습니다. 즉시 콘텐츠를 제거해야 하는 경우 [Azure 지원](https://azure.microsoft.com/support/options/)에 문의하세요.
 
 ## 추가 리소스
 
@@ -111,4 +111,4 @@ CDN에 이미 캐시된 개체는 개체의 TTL(Time-to-Live) 기간이 만료�
 [create-new-storage-account]: ./media/cdn/CDN_CreateNewStorageAcct.png
 [Previous Management Portal]: ../../Shared/Media/previous-portal.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

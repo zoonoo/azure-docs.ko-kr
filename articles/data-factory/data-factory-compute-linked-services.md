@@ -24,11 +24,10 @@
 
 이 구성의 형식에서는 컴퓨팅 환경은 Azure 데이터 팩터리 서비스에 의해 완벽하게 관리됩니다. 데이터를 처리하기 위한 작업을 제출하기 전에 데이터 팩터리 서비스에서 자동으로 컴퓨팅 환경을 만들고 작업이 완료되면 제거합니다. 사용자는 주문형 계산 환경에 대한 연결된 서비스를 만들고 구성하며 작업 실행, 클러스터 관리, 부트스트래핑 작업에 대한 세부적인 설정을 제어할 수 있습니다.
 
-> [AZURE.NOTE]주문형 구성은 현재 Azure HDInsight 클러스터에 대해서만 지원됩니다.
+> [AZURE.NOTE] 주문형 구성은 현재 Azure HDInsight 클러스터에 대해서만 지원됩니다.
 
 ## Azure HDInsight 주문형 연결된 서비스
-
-Azure 데이터 팩터리 서비스에서 데이터를 처리하도록 주문형 HDInsight 클러스터가 자동으로 작성됩니다. 클러스터는 클러스터와 연결된 저장소 계정(JSON에서 linkedServiceName 속성)과 동일한 지역에 만들어집니다.
+Azure 데이터 팩터리 서비스는 데이터를 처리하는 Windows/Linux 기반 주문형 HDInsight 클러스터를 자동으로 만들 수 있습니다. 클러스터는 클러스터와 연결된 저장소 계정(JSON에서 linkedServiceName 속성)과 동일한 지역에 만들어집니다.
 
 주문형 HDInsight 연결된 서비스에 대해 다음 **중요한** 점에 유의하십시오.
 
@@ -36,28 +35,49 @@ Azure 데이터 팩터리 서비스에서 데이터를 처리하도록 주문형
 - 주문형 HDInsight 클러스터에서 실행하는 작업에 대한 로그는 HDInsight 클러스터와 연결된 저장소 계정에 복사됩니다. **활동 실행 세부 정보** 블레이드의 Azure 클래식 포털에서 이러한 로그에 액세스할 수 있습니다. 세부 정보는 [파이프라인 모니터링 및 관리](data-factory-monitor-manage-pipelines.md) 문서를 참조하십시오.
 - HDInsight 클러스터가 작업을 실행 중인 경우에 대해서만 청구됩니다.
 
-> [AZURE.IMPORTANT]일반적으로 **15분**이 더 걸려서 필요한 Azure HDInsight 클러스터를 프로비전합니다.
+> [AZURE.IMPORTANT] 일반적으로 **15분**이 더 걸려서 필요한 Azure HDInsight 클러스터를 프로비전합니다.
 
 ### 예
+다음 JSON는 주문형 HDInsight 연결된 서비스를 정의합니다. 데이터 팩터리는 데이터 조각을 처리하는 경우 **Windows 기반** HDInsight 클러스터를 자동으로 만듭니다. **osType**은 이 샘플 JSON에 지정되지 않으며 이 속성의 기본값은 **Windows**입니다.
 
 	{
 	  "name": "HDInsightOnDemandLinkedService",
 	  "properties": {
 	    "type": "HDInsightOnDemand",
 	    "typeProperties": {
-	      "clusterSize": 4,
-	      "timeToLive": "00:05:00",
 	      "version": "3.2",
-		  "osType": "linux",
-	      "linkedServiceName": "MyBlobStore",
-		  "hcatalogLinkedServiceName": "AzureSqlLinkedService",
-	      "additionalLinkedServiceNames": [
-	        "otherLinkedServiceName1",
-	        "otherLinkedServiceName2"
-	      ]
+	      "clusterSize": 1,
+	      "timeToLive": "00:30:00",
+	      "linkedServiceName": "StorageLinkedService"
 	    }
 	  }
 	}
+
+
+다음 JSON는 Linux 기반 주문형 HDInsight 연결된 서비스를 정의합니다. 데이터 팩터리 서비스는 데이터 조각을 처리하는 경우 **Linux 기반** HDInsight 클러스터를 자동으로 만듭니다. **sshUserName** 및 **sshPassword**에 대한 값을 지정해야 합니다.
+
+
+	{
+	    "name": "HDInsightOnDemandLinkedService",
+	    "properties": {
+	        "hubName": "getstarteddf0121_hub",
+	        "type": "HDInsightOnDemand",
+	        "typeProperties": {
+	            "version": "3.2",
+	            "clusterSize": 4,
+	            "timeToLive": "00:05:00",
+	            "osType": "linux",
+	            "sshPassword": "MyPassword!",
+	            "sshUserName": "myuser",
+	            "linkedServiceName": "StorageLinkedService",
+	        }
+	    }
+	}
+
+> [AZURE.IMPORTANT] 
+HDInsight 클러스터는 JSON (**linkedServiceName**)에서 지정한 Blob 저장소에 **기본 컨테이너**를 만듭니다. HDInsight는 클러스터가 삭제될 때 이 컨테이너를 삭제하지 않습니다. 의도적인 작동입니다. 주문형 HDInsight 연결된 서비스에서는 기존 라이브 클러스터(**timeToLive**)가 없는 한 슬라이스를 처리해야 할 때마다 HDInsight 클러스터가 만들어지며 처리가 완료되면 삭제됩니다.
+> 
+> 점점 더 많은 조각이 처리될수록 Azure Blob 저장소에 컨테이너가 많아집니다. 작업의 문제 해결을 위해 이 항목들이 필요하지 않다면 저장소 비용을 줄이기 위해 삭제할 수 있습니다. 이 컨테이너의 이름은 "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp" 패턴을 따릅니다. [Microsoft 저장소 탐색기](http://storageexplorer.com/) 같은 도구를 사용하여 Azure Blob 저장소에서 컨테이너를 삭제합니다.
 
 ### 속성
 
@@ -71,7 +91,17 @@ linkedServiceName | 데이터를 저장 및 처리하기 위해 주문형 클러
 additionalLinkedServiceNames | HDInsight 연결된 서비스에 대한 추가 저장소 계정을 지정하므로 데이터 팩터리 서비스가 사용자를 대신해 계정을 등록할 수 있습니다. | 아니요
 osType | 운영 체제 유형입니다. 허용되는 값은 Windows(기본값) 및 Linux입니다. | 아니요
 hcatalogLinkedServiceName | HCatalog 데이터베이스를 가리키는 Azure SQL 연결된 서비스 이름입니다. 주문형 HDInsight 클러스터는 Azure SQL 데이터베이스를 metastore로 사용하여 만들어집니다. | 아니요
+sshUser | Linux 기반 HDInsight 클러스터에 대한 SSH 사용자 | 예(Linux의 경우)
+sshPassword | Linux 기반 HDInsight 클러스터에 대한 SSH 암호 | 예(Linux의 경우)
 
+
+#### additionalLinkedServiceNames JSON 예제
+
+    "additionalLinkedServiceNames": [
+        "otherLinkedServiceName1",
+		"otherLinkedServiceName2"
+  	]
+ 
 ### 고급 속성
 
 또한 주문형 HDInsight 클러스터의 세부적인 구성에 다음 속성을 지정할 수 있습니다.
@@ -296,8 +326,8 @@ sessionId | OAuth 권한 부여 세션의 세션 ID입니다. 각 세션 ID는 �
 | 사용자 유형 | 다음 시간 후에 만료 |
 | :-------- | :----------- | 
 | 비-AAD 사용자(@hotmail.com, @live.com 등) | 12시간 |
-| AAD 사용자 및 OAuth 기반 원본은 사용자의 데이터 팩터리 테넌트와 다른 [테넌트](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant)에 있습니다. | 12시간 |
-| AAD 사용자 및 OAuth 기반 원본은 사용자의 데이터 팩터리 테넌트와 동일한 테넌트에 있습니다. | <p> 사용자가 14일마다 한 번 OAuth 기반 연결된 서비스 원본에 따라 분할 영역을 실행하는 경우 최대값은 90일입니다. </p><p>예상되는 90일 동안 사용자가 14일 동안 해당 원본에 따라 분할 영역을 실행하지 않으면 자격 증명은 마지막 분할 영역 실행 즉시 14일 후에 만료됩니다.</p> | 
+| AAD 사용자 및 OAuth 기반 원본은 데이터 팩터리 테넌트와 다른 [테넌트](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant)에 있습니다. | 12시간 |
+| AAD 사용자 및 OAuth 기반 원본은 데이터 팩터리 테넌트와 동일한 테넌트에 있습니다. | 14일 |
 
 이 오류를 방지/해결하려면 **토큰이 만료**되면 **권한 부여** 단추를 사용하여 다시 인증하고 연결된 서비스를 다시 배포해야 합니다. 다음 섹션의 코드를 사용하여 프로그래밍 방식으로 sessionId 및 권한 부여 속성의 값을 생성할 수도 있습니다.
 
@@ -334,4 +364,4 @@ sessionId | OAuth 권한 부여 세션의 세션 ID입니다. 각 세션 ID는 �
 
 Azure SQL 연결된 서비스를 만들고 [저장 프로시저 활동](data-factory-stored-proc-activity.md)에서 사용하여 Data Factory 파이프라인에서 저장 프로시저를 호출합니다. 이 연결된 서비스에 대한 자세한 내용은 [Azure SQL 커넥터](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) 문서를 참조하세요.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

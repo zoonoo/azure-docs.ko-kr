@@ -47,14 +47,14 @@ V12로 업그레이드 한 직후에는 서비스가 새 서버의 워크로드�
 ## 업그레이드 준비
 
 - **모든 Web 및 Business 데이터베이스 업그레이드**: 아래의 [모든 Web 및 Business 데이터베이스 업그레이드](sql-database-upgrade-server-portal.md#upgrade-all-web-and-business-databases) 섹션을 참조하거나 [PowerShell을 사용하여 데이터베이스 및 서버 업그레이드](sql-database-upgrade-server-powershell.md)를 수행하세요.
-- **지역에서 복제 검토 및 일시 중단**: Azure SQL 데이터베이스가 지역에서 복제가 가능하도록 구성된 경우 데이터베이스의 현재 구성 및 [지역에서 복제 중지](sql-database-geo-replication-portal.md#remove-secondary-database)를 문서화해야 합니다. 업그레이드가 완료된 후 지역에서 복제 데이터베이스를 다시 구성하세요.
-- **클라이언트가 Azure VM에 있는 경우 열 포트**: Azure VM(가상 컴퓨터)에서 클라이언트가 실행되는 동안 클라이언트 프로그램이 SQL 데이터베이스 V12에 연결하는 경우 VM에서 포트 범위 11000-11999 및 14000-14999를 열어야 합니다. 자세한 내용은 [SQL 데이터베이스 V12용 포트](sql-database-develop-direct-route-ports-adonet-v12.md)를 참조하세요.
+- **지역에서 복제 검토 및 일시 중단**: Azure SQL 데이터베이스가 지역에서 복제가 가능하도록 구성된 경우 데이터베이스의 현재 구성을 문서에 기록해 놓고 [지역에서 복제를 중지](sql-database-geo-replication-portal.md#remove-secondary-database)해야 합니다. 업그레이드가 완료된 후 지역에서 복제 데이터베이스를 다시 구성하세요.
+- **Azure VM에 클라이언트가 있는 경우 열어야 하는 포트**: Azure VM(가상 컴퓨터)에서 클라이언트가 실행되면서 클라이언트 프로그램이 SQL 데이터베이스 V12에 연결하는 경우에는 VM에서 11000-11999 및 14000-14999 범위의 포트를 열어야 합니다. 자세한 내용은 [SQL 데이터베이스 V12용 포트](sql-database-develop-direct-route-ports-adonet-v12.md)를 참조하세요.
 
 
 
 ## 업그레이드 시작
 
-1. [Azure 포털](http://portal.azure.com/)에서 **모두 찾아보기** > **SQL Server**를 선택한 후 원하는 서버를 선택하여 업그레이드하려는 서버로 이동합니다.
+1. [Azure 포털](https://portal.azure.com/)에서 **모두 찾아보기** > **SQL Server**를 선택한 후 원하는 서버를 선택하여 업그레이드하려는 서버로 이동합니다.
 2. **최신 SQL 데이터베이스 업데이트**를 선택한 다음 **이 서버 업그레이드**를 선택합니다.
 
       ![서버 업그레이드][1]
@@ -117,7 +117,7 @@ V12로 업그레이드 한 직후에는 서비스가 새 서버의 워크로드�
 개별 데이터베이스를 모니터링하는 것 외에, [포털을 사용](sql-database-elastic-pool-portal.md#monitor-and-manage-an-elastic-database-pool)하거나 [PowerShell](sql-database-elastic-pool-powershell.md#monitoring-elastic-databases-and-elastic-database-pools)을 사용하여 탄력적 데이터베이스 풀을 모니터링할 수도 있습니다.
 
 
-**리소스 사용량 데이터:** 기본, 표준 및 프리미엄 데이터베이스의 경우 사용자 데이터베이스에서 [sys.dm\_ db\_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) DMV를 통해 리소스 사용량 데이터를 사용할 수 있습니다. 이 DMV는 지난 1시간 동안의 작업에 대해 15초 간격으로 거의 실시간 리소스 사용량 정보를 제공합니다. 특정 간격의 DTU 사용률은 CPU, IO 및 로그 차원의 최대 사용률로 계산됩니다. 다음은 지난 1시간 동안의 평균 DTU 사용률을 계산하는 쿼리입니다.
+**리소스 소비 데이터:** 기본, 표준 및 프리미엄 데이터베이스의 경우 사용자 데이터베이스에서 [sys.dm\_ db\_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) DMV를 통해 리소스 소비 데이터를 사용할 수 있습니다. 이 DMV는 지난 1시간 동안의 작업에 대해 15초 간격으로 거의 실시간 리소스 사용량 정보를 제공합니다. 특정 간격의 DTU 사용률은 CPU, IO 및 로그 차원의 최대 사용률로 계산됩니다. 다음은 지난 1시간 동안의 평균 DTU 사용률을 계산하는 쿼리입니다.
 
     SELECT end_time
     	 , (SELECT Max(v)
@@ -168,4 +168,4 @@ V12로 업그레이드 한 직후에는 서비스가 새 서버의 워크로드�
 [6]: ./media/sql-database-upgrade-server-portal/recommendations.png
 [7]: ./media/sql-database-upgrade-server-portal/new-elastic-pool.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

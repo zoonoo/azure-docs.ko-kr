@@ -193,7 +193,7 @@ Azure PowerShell 및 리소스 관리자 템플릿을 사용하여 제공Microso
 
 	Remove-AzureRmVM -ResourceGroupName "resource group name" –Name "VM name"
 
-> [AZURE.NOTE]**–Force** 매개 변수를 사용하여 확인 프롬프트를 건너뜁니다.
+> [AZURE.NOTE] **–Force** 매개 변수를 사용하여 확인 프롬프트를 건너뜁니다.
 
 -Force 매개 변수를 사용하지 않은 경우 확인하라는 메시지가 나타납니다.
 
@@ -216,4 +216,4 @@ Azure PowerShell 및 리소스 관리자 템플릿을 사용하여 제공Microso
 
 [AZURE.VIDEO start-stop-restart-and-delete-vms-in-microsoft-azure-with-powershell]
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

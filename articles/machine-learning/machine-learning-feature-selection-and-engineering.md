@@ -40,7 +40,7 @@
 * **기능 엔지니어링** 이 프로세스에서는 데이터의 기존 원시 기능에서 추가 관련 기능을 만들고 학습 알고리즘의 예측 능력을 향상시키려 합니다.
 * **선택 기능**: 이 프로세스에서는 학습 문제의 차원 수를 줄이기 위해 원래 데이터 기능의 주요 하위 집합을 선택합니다.
 
-이 항목에서는 데이터 향상 프로세스의 기능 엔지니어링 및 기능 선택 측면만 다룹니다. 데이터 사전 처리 단계에 대한 추가 정보는 [Azure 기계 학습 스튜디오의 사전 처리 데이터](http://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/) 비디오를 참조하세요.
+이 항목에서는 데이터 향상 프로세스의 기능 엔지니어링 및 기능 선택 측면만 다룹니다. 데이터 사전 처리 단계에 대한 추가 정보는 [Azure 기계 학습 스튜디오의 사전 처리 데이터](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/) 비디오를 참조하세요.
 
 
 ## 데이터에서 기능 만들기 - 기능 엔지니어링
@@ -135,4 +135,4 @@ Azure 기계 학습 스튜디오에서는 기능 선택에 제공되는 모듈�
 [fisher-linear-discriminant-analysis]: https://msdn.microsoft.com/library/azure/dcaab0b2-59ca-4bec-bb66-79fd23540080/
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

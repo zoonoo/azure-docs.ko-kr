@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="01/21/2016" 
 	ms.author="josephd"/>
 
 # LOB(기간 업무) 응용 프로그램 워크로드 1단계: Azure 구성
@@ -62,7 +62,7 @@ Azure 구성 요소 구성을 시작하기 전에 다음 표에 필요한 정보
 
 **표 S: 가상 네트워크의 서브넷**
 
-> [AZURE.NOTE]이 미리 정의된 아키텍처에서는 간편한 작업을 위해 단일 서브넷을 사용합니다. 서브넷 격리를 에뮬레이트하기 위해 트래픽 필터 집합을 오버레이하려는 경우에는 Azure [네트워크 보안 그룹](virtual-networks-nsg.md)을 사용할 수 있습니다.
+> [AZURE.NOTE] 이 미리 정의된 아키텍처에서는 간편한 작업을 위해 단일 서브넷을 사용합니다. 서브넷 격리를 에뮬레이트하기 위해 트래픽 필터 집합을 오버레이하려는 경우에는 Azure [네트워크 보안 그룹](virtual-networks-nsg.md)을 사용할 수 있습니다.
 
 가상 네트워크에서 도메인 컨트롤러를 처음 설정할 때 사용하려는 두 온-프레미스 DNS 서버의 정보를 표 D에 입력합니다. 각 DNS 서버에는 이름과 단일 IP 주소를 지정합니다. 이 이름은 DNS 서버의 호스트 이름 또는 컴퓨터 이름과 일치하지 않아도 됩니다. 아래에는 빈 칸이 두 개 있지만 항목을 더 추가할 수 있습니다. 추가 항목은 IT 부서에서 확인할 수 있습니다.
 
@@ -87,7 +87,7 @@ Azure 구성 요소 구성을 시작하기 전에 다음 표에 필요한 정보
 
 먼저, Azure PowerShell 프롬프트를 시작합니다.
 
-> [AZURE.NOTE]다음 명령 집합은 Azure PowerShell 1.0 이상을 사용합니다. 자세한 내용은 [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)을 참조하세요.
+> [AZURE.NOTE] 다음 명령 집합은 Azure PowerShell 1.0 이상을 사용합니다. 자세한 내용은 [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)을 참조하세요.
 
 먼저 Azure PowerShell 프롬프트를 시작하고 계정에 로그인합니다.
 
@@ -220,4 +220,4 @@ Azure 구독을 설정합니다. < and > 문자를 포함하여 따옴표 안의
 
 - [2단계](virtual-machines-workload-high-availability-LOB-application-phase2.md)를 사용하여 이 워크로드의 구성을 계속합니다.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

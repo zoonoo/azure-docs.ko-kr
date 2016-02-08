@@ -44,7 +44,7 @@
 #### 데이터를 보는 데 중지되었습니다.
 
 * [상태 블로그](http://blogs.msdn.com/b/applicationinsights-status/)를 참조하세요.
-* 데이터 요소의 월간 할당량에 도달했습니까? 설정/할당량 및 가격을 열어 알아봅니다. 그렇다면 계획을 업그레이드하거나 추가 용량에 대한 비용을 지불할 수 있습니다. [가격 체계](http://azure.microsoft.com/pricing/details/application-insights/)를 참조하세요.
+* 데이터 요소의 월간 할당량에 도달했습니까? 설정/할당량 및 가격을 열어 알아봅니다. 그렇다면 계획을 업그레이드하거나 추가 용량에 대한 비용을 지불할 수 있습니다. [가격 체계](https://azure.microsoft.com/pricing/details/application-insights/)를 참조하세요.
 
 
 
@@ -89,7 +89,7 @@ XML 메서드를 사용하여 값 변경 시 응용 프로그램을 다시 시�
 
 ## Azure 시작 화면
 
-*[Azure 포털](http://portal.azure.com)을 보고 있습니다. 맵에 내 앱에 대한 정보가 표시되나요?*
+*[Azure 포털](https://portal.azure.com)을 보고 있습니다. 맵에 내 앱에 대한 정보가 표시되나요?*
 
 아니요, 전 세계 Azure 서버의 상태가 표시됩니다.
 
@@ -138,4 +138,4 @@ XML 메서드를 사용하여 값 변경 시 응용 프로그램을 다시 시�
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

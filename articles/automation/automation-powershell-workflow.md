@@ -129,7 +129,7 @@ InlineScript에는 아래 표시된 구문이 사용됩니다.
 		$ServiceName = "MyService"
 	
 		$Output = InlineScript {
-			$Service = Get-Service -Name $Using:MyService
+			$Service = Get-Service -Name $Using:ServiceName
 			$Service.Stop()
 			$Service
 		}
@@ -206,7 +206,7 @@ Windows PowerShell 워크플로의 한 가지 장점은 일반적인 스크립�
 		Write-Output "All files copied."
 	}
 
-> [AZURE.NOTE]자식 runbook을 병렬로 실행하는 것은 추천하지 않는 이유는 결과물이 신뢰할 수 없기 때문입니다. 자식 runbook에서의 출력은 때때로 나타나지 않을수도 있고, 한 자식 runbook의 설정이 다른 병렬 자식 runbook에 영향을 미칠 수 있습니다.
+> [AZURE.NOTE]  자식 runbook을 병렬로 실행하는 것은 추천하지 않는 이유는 결과물이 신뢰할 수 없기 때문입니다. 자식 runbook에서의 출력은 때때로 나타나지 않을수도 있고, 한 자식 runbook의 설정이 다른 병렬 자식 runbook에 영향을 미칠 수 있습니다.
 
 
 ## 검사점
@@ -249,4 +249,4 @@ Windows PowerShell 워크플로의 한 가지 장점은 일반적인 스크립�
 
 - [Windows PowerShell 워크플로 시작](http://technet.microsoft.com/library/jj134242.aspx) 
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

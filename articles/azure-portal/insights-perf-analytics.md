@@ -17,7 +17,7 @@
 
 # Azure 웹앱 성능 모니터링
 
-[Azure 포털](http://portal.azure.com)에서 [Azure 웹앱](../app-service-web/app-service-web-overview.md) 또는 [가상 컴퓨터](../virtual-machines/virtual-machines-about.md) 내 응용 프로그램 종속성에 대한 통계와 세부 정보를 수집하도록 모니터링을 설정할 수 있습니다.
+[Azure 포털](https://portal.azure.com)에서 [Azure 웹앱](../app-service-web/app-service-web-overview.md) 또는 [가상 컴퓨터](../virtual-machines/virtual-machines-about.md) 내 응용 프로그램 종속성에 대한 통계와 세부 정보를 수집하도록 모니터링을 설정할 수 있습니다.
 
 Azure는 *확장*을 활용하여 응용 프로그램 성능 모니터링(또는 *APM*)을 지원합니다. 이 확장은 응용 프로그램에 설치되며 데이터를 수집하고 모니터링 서비스로 다시 보고합니다.
 
@@ -83,4 +83,4 @@ SDK는 API를 제공하므로 [사용자 지정 원격 분석을 작성하여](.
 * 페이지가 다운된 경우 이를 찾을 수 있도록 Application Insights를 사용하여 [웹 페이지의 가용성 및 응답성을 모니터링](../app-insights-monitor-web-app-availability.md)합니다.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

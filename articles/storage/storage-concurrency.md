@@ -93,10 +93,7 @@ Azure 저장소 서비스는 세 가지 전략을 모두 지원하지만 특히 
 컨테이너 메타데이터 가져오기|	예|	아니요|
 컨테이너 메타데이터 설정|	예|	예|
 컨테이너 ACL 가져오기|	예|	아니요|
-컨테이너 ACL 설정|	예|	예(*)|
-컨테이너 삭제| 아니요| 예|
-컨테이너 임대| 예| 예|
-Blob 나열| 아니요| 아니요 
+컨테이너 ACL 설정|	예|	예(*)| 컨테이너 삭제| 아니요| 예| 컨테이너 임대| 예| 예| Blob 나열| 아니요| 아니요 
 
 (*) SetContainerACL이 정의하는 권한은 캐시되며 이러한 권한에 대한 업데이트가 전파되려면 30초가 걸립니다. 이 시간 동안에는 업데이트의 일관성이 보장되지 않습니다.
 
@@ -110,16 +107,7 @@ Blob 속성 가져오기|	예|	예|
 Blob 속성 설정|	예|	예|
 Blob 메타데이터 가져오기|	예|	예|
 Blob 메타데이터 설정|	예|	예|
-Blob 임대(*) | 예 | 예 |
-스냅숏 Blob| 예 | 예 |
-Blob 복사| 예 | 예(원본 및 대상 Blob) |
-Blob 복사 중단| 아니요| 아니요|
-Blob 삭제| 아니요| 예 |
-블록 배치| 아니요| 아니요|
-블록 목록 배치| 예 | 예 |
-블록 목록 가져오기| 예| 아니요|
-페이지 배치| 예| 예|
-페이지 범위 가져오기| 예| 예
+Blob 임대(*) | 예 | 예 | 스냅숏 Blob| 예 | 예 | Blob 복사| 예 | 예(원본 및 대상 Blob) | Blob 복사 중단| 아니요| 아니요| Blob 삭제| 아니요| 예 | 블록 배치| 아니요| 아니요| 블록 목록 배치| 예 | 예 | 블록 목록 가져오기| 예| 아니요| 페이지 배치| 예| 예| 페이지 범위 가져오기| 예| 예
 
 (*) Blob 임대에서는 Blob의 ETag가 변경되지 않습니다.
 
@@ -278,9 +266,9 @@ Microsoft Azure 저장소 서비스는 개발자가 기본적으로 제공하려
 
 Azure 저장소에 대한 자세한 내용은 다음을 참조하세요.
 
-- [Microsoft Azure 저장소 홈페이지](http://azure.microsoft.com/services/storage/)
+- [Microsoft Azure 저장소 홈페이지](https://azure.microsoft.com/services/storage/)
 - [Azure 저장소 소개](storage-introduction.md)
 - [Blob](storage-dotnet-how-to-use-blobs.md), [테이블](storage-dotnet-how-to-use-tables.md) 및 [큐](storage-dotnet-how-to-use-queues.md)에 대한 저장소 시작 가이드
 - 저장소 아키텍처 – [Microsoft Azure 저장소: 강력한 일관성과 함께 항상 사용 가능한 클라우드 저장소 서비스](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!----HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

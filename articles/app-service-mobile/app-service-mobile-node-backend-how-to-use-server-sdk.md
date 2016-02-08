@@ -18,13 +18,11 @@
 
 # Azure 모바일 앱 Node.js SDK를 사용하는 방법
 
-[AZURE.INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]&nbsp;
-
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
 
 이 문서에서는 Azure 앱 서비스 모바일 앱에서 Node.js 백 엔드로 작업하는 방법을 보여주는 자세한 정보와 예를 제공합니다.
 
-> [AZURE.NOTE]이 SDK는 미리 보기로 제공됩니다. 따라서 프로덕션에 이 SDK를 사용하는 것은 권장하지 않습니다. 이 문서의 예제에서는 [azure-mobile-apps]의 v2.0.0-beta2를 사용합니다.
+> [AZURE.NOTE] 이 SDK는 미리 보기로 제공됩니다. 따라서 프로덕션에 이 SDK를 사용하는 것은 권장하지 않습니다. 이 문서의 예제에서는 [azure-mobile-apps]의 v2.0.0-rc2를 사용합니다.
 
 ## <a name="Introduction"></a>소개
 
@@ -163,6 +161,14 @@ Azure 앱 서비스에는 배포하기 전에 검토해야 하는 Node.js 응용
 - [노드 버전 지정]하는 방법
 - [노드 모듈 사용]하는 방법
 
+### <a name="howto-enable-homepage"></a>방법: 응용 프로그램에 홈 페이지 사용
+
+대부분의 응용 프로그램은 웹앱 및 모바일 앱의 조합이고 ExpressJS 프레임워크를 사용하면 두 가지 측면을 결합할 수 있습니다. 그러나 때로는 모바일 인터페이스를 구현하려고 할 수 있습니다. 앱 서비스를 실행하도록 하기 위해 방문 페이지를 제공하는 것이 유용합니다. 고유한 홈 페이지에 제공하거나 임시 홈 페이지를 사용할 수 있습니다. 임시 홈 페이지를 사용하려면 다음에 모바일 앱 생성자를 조정합니다.
+
+    var mobile = azureMobileApps({ homePage: true });
+
+로컬로 개발할 때 이 옵션을 사용하려면 `azureMobile.js` 파일에 이 설정을 추가할 수 있습니다.
+
 ## <a name="TableOperations"></a>테이블 작업
 
 azure-mobile-apps Node.js 서버 SDK는 Azure SQL 데이터베이스에 저장된 데이터 테이블을 WebAPI로 노출하는 메커니즘을 제공합니다. 다섯 가지 작업이 제공됩니다.
@@ -246,7 +252,7 @@ Azure 모바일 앱 AzureMobile 앱 노드 SDK는 상자에서 데이터를 처�
 
 Azure 모바일 앱 Node.js SDK는 [mssql Node.js 패키지]를 사용하여 SQL Express 및 SQL 데이터베이스에 대한 연결을 설정하고 사용합니다. 이 패키지는 SQL Express 인스턴스에서 TCP 연결을 사용해야 합니다.
 
-> [AZURE.TIP]메모리 드라이버는 테스트하기 위한 완전한 기능 집합을 제공하지 않습니다. 백 엔드 로컬로 테스트하려는 경우 SQL Express 데이터 저장소 및 mssql 드라이버를 사용하는 것이 좋습니다.
+> [AZURE.TIP] 메모리 드라이버는 테스트하기 위한 완전한 기능 집합을 제공하지 않습니다. 백 엔드 로컬로 테스트하려는 경우 SQL Express 데이터 저장소 및 mssql 드라이버를 사용하는 것이 좋습니다.
 
 1. [Microsoft SQL Server 2014 Express]를 다운로드하고 설치합니다. Tools Edition을 사용하여 SQL Server 2014 Express를 설치하도록 합니다. 64비트를 지원하도록 명시적으로 요구하지 않는 한 32비트 버전이 실행할 때 메모리를 적게 사용합니다.
 
@@ -368,7 +374,7 @@ Azure SQL 데이터베이스를 데이터 저장소로 사용하면 모든 Azure
 
 모바일 앱 백 엔드를 만들면 모바일 앱 백 엔드에 기존 SQL 데이터베이스를 연결하거나 새 SQL 데이터베이스를 만들도록 선택할 수 있습니다. 이 섹션에서 새 SQL 데이터베이스를 만듭니다.
 
-> [AZURE.NOTE]새 모바일 앱 백 엔드와 동일한 지역에 데이터베이스가 이미 있다면 대신 **기존 데이터베이스 사용**을 선택한 다음 해당 데이터베이스를 선택할 수 있습니다. 다른 지역에 있는 데이터베이스는 추가 대역폭 비용과 대기 시간이 높으므로 사용을 권장하지 않습니다.
+> [AZURE.NOTE] 새 모바일 앱 백 엔드와 동일한 지역에 데이터베이스가 이미 있다면 대신 **기존 데이터베이스 사용**을 선택한 다음 해당 데이터베이스를 선택할 수 있습니다. 다른 지역에 있는 데이터베이스는 추가 대역폭 비용과 대기 시간이 높으므로 사용을 권장하지 않습니다.
 
 6. 새 모바일 앱 백 엔드에서 **설정** > **모바일 앱** > **데이터** > **+추가**를 클릭합니다.
 
@@ -420,9 +426,9 @@ Azure SQL 데이터베이스를 데이터 저장소로 사용하면 모든 Azure
 
 액세스 속성은 세 가지 값 중 하나를 사용할 수 있습니다
 
-  - 익명은 클라이언트 응용 프로그램이 인증 없이 데이터를 읽을 수 있다는 것을 나타냅니다.
-  - 인증됨은 클라이언트 응용 프로그램이 요청을 사용하여 유효한 인증 토큰을 송신해야 함을 나타냅니다.
-  - 사용 안 함은 이 테이블이 현재 사용되지 않음을 나타냅니다.
+  - *익명*은 클라이언트 응용 프로그램이 인증 없이 데이터를 읽을 수 있다는 것을 나타냅니다.
+  - *인증됨*은 클라이언트 응용 프로그램이 요청을 사용하여 유효한 인증 토큰을 송신해야 함을 나타냅니다.
+  - *사용 안 함*은 이 테이블이 현재 사용되지 않음을 나타냅니다.
 
 액세스 속성을 정의하지 않으면 인증되지 않은 액세스가 허용됩니다.
 
@@ -430,10 +436,10 @@ Azure SQL 데이터베이스를 데이터 저장소로 사용하면 모든 Azure
 
 테이블에 나타나는 것 외에도 액세스 속성은 개별 작업을 제어하는 데 사용될 수 있습니다. 네 가지 작업이 있습니다.
 
-  - 읽기는 테이블의 RESTful 가져오기 작업입니다.
-  - 삽입은 테이블의 RESTful POST 작업입니다.
-  - 업데이트는 테이블의 RESTful PATCH 작업입니다.
-  - 삭제는 테이블의 RESTful DELETE 작업입니다.
+  - *읽기*는 테이블의 RESTful 가져오기 작업입니다.
+  - *삽입*은 테이블의 RESTful POST 작업입니다.
+  - *업데이트*는 테이블의 RESTful PATCH 작업입니다.
+  - *삭제*는 테이블의 RESTful DELETE 작업입니다.
 
 예를 들어 읽기 전용 인증되지 않은 테이블을 제공하려 할 수도 있습니다. 다음 테이블 정의에서 제공될 수 있습니다.
 
@@ -542,6 +548,24 @@ Azure SQL 데이터베이스를 데이터 저장소로 사용하면 모든 Azure
 데이터의 시드는 Azure 모바일 앱 SDK에서 테이블을 만들 때에만 수행될 수 있음에 유의해야 합니다. 테이블이 데이터베이스 내에 이미 있으면 데이터는 테이블에 삽입되지 않습니다. 동적 스키마를 설정한 경우 스키마는 시드된 데이터에서 유추됩니다.
 
 서비스가 실행되기 시작하면 initialize() 메서드를 명시적으로 호출하여 테이블을 만드는 것이 좋습니다.
+
+### <a name="Swagger"></a>Swagger 지원 사용
+
+Azure 앱 서비스 모바일 앱은 기본 제공 [Swagger]를 지원합니다. Swagger 지원을 사용하려면 먼저Swagger UI를 종속성으로 설치합니다.
+
+    npm install --save swagger-ui
+
+설치되면 Azure 모바일 앱 생성자에서 Swagger 지원을 사용할 수 있습니다.
+
+    var mobile = azureMobileApps({ swagger: true });
+
+개발 버전에서 Swagger 지원을 사용하려 합니다. `NODE_ENV` 앱 설정을 활용하여 수행할 수 있습니다.
+
+    var mobile = azureMobileApps({ swagger: process.env.NODE_ENV !== 'production' });
+
+Swagger 끝점은 http://\_yoursite\_.azurewebsites.net/swagger에 위치합니다. `/swagger/ui` 끝점을 통해 Swagger UI에 액세스할 수 있습니다. 전체 응용 프로그램에서 인증을 요구하도록 선택한 경우 Swagger는 / 끝점에 오류를 생성합니다. 최상의 결과를 위해 Azure 앱 서비스 인증/ 권한 부여 설정 및 `table.access` 속성을 사용하는 제어 인증에서 인증되지 않은 요청을 허용하도록 선택합니다.
+
+또한 로컬로 개발할 때 Swagger 지원을 원하는 경우 `azureMobile.js` 파일에 Swagger 옵션을 추가할 수 있습니다.
 
 ## <a name="CustomAPI"></a>사용자 지정 API
 
@@ -707,6 +731,7 @@ Azure 포털을 사용하면 로컬 컴퓨터에 프로젝트를 다운로드하
 [Create a new Azure App Service]: ../app-service-web/
 [azure-mobile-apps]: https://www.npmjs.com/package/azure-mobile-apps
 [Express]: http://expressjs.com/
+[Swagger]: http://swagger.io/
 
 [Azure 포털]: https://portal.azure.com/
 [OData]: http://www.odata.org
@@ -722,4 +747,4 @@ Azure 포털을 사용하면 로컬 컴퓨터에 프로젝트를 다운로드하
 [ExpressJS 미들웨어]: http://expressjs.com/guide/using-middleware.html
 [윈스턴]: https://github.com/winstonjs/winston
 
-<!----HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

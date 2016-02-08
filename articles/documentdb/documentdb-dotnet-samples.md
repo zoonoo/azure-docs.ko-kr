@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="DocumentDB용 github의 .NET 샘플 | Microsoft Azure" 
-	description="NoSQL 데이터베이스에서 JSON 문서에 대한 CRUD 작업을 비롯한 DocumentDB의 일반적인 작업에 대한 github의 C# .NET 샘플을 찾습니다." 
+	pageTitle="DocumentDB에 대한 .NET NoSQL 예제 | Microsoft Azure" 
+	description="NoSQL 데이터베이스에서 JSON 문서에 대한 CRUD 작업을 비롯한 DocumentDB의 일반적인 작업에 대한 github의 C# .NET NoSQL 예제를 찾습니다." 
+	keywords="NoSQL 예제"
 	services="documentdb" 
 	authors="mimig1" 
 	manager="jhubbard" 
@@ -17,30 +18,31 @@
 	ms.author="mimig"/>
 
 
-# DocumentDB .NET 샘플(영문)
+# DocumentDB .NET 예제(영문)
 
 > [AZURE.SELECTOR]
-- [.NET Samples](documentdb-dotnet-samples.md)
-- [Node.js Samples](documentdb-nodejs-samples.md)
+- [.NET Examples](documentdb-dotnet-samples.md)
+- [Node.js Examples](documentdb-nodejs-samples.md)
 - [Azure Code Sample Gallery](https://azure.microsoft.com/documentation/samples/?service=documentdb)
 
 DocumentDB 리소스에 대한 CRUD 작업 및 다른 일반적인 작업을 수행하는 샘플 솔루션은 [azure-documentdb-net](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples) GitHub 리포지토리에 포함됩니다. 이 문서는 다음을 제공합니다.
 
-- 각 샘플 C# 프로젝트 파일에서 작업에 연결합니다. 
+- 각 예제 C# 프로젝트 파일에서 작업에 연결합니다. 
 - 관련된 API 참조 콘텐츠에 대한 링크입니다.
 
 **필수 구성 요소**
 
-1. 이러한 샘플을 사용하려면 Azure 계정이 필요합니다.
+1. 이러한 NoSQL 예제를 사용하려면 Azure 계정이 필요합니다.
     - [Azure 계정을 무료로 개설](https://azure.microsoft.com/pricing/free-trial/)할 수 있음: 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스(예: 웹 서비스)를 사용할 수 있습니다. 설정을 명시적으로 변경하여 결제를 요청하지 않는 한 신용 카드로 결제되지 않습니다.
    - [Visual Studio 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)할 수 있음: Visual Studio 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
 2. 또한 [Microsoft.Azure.DocumentDB NuGet 패키지](http://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)가 필요합니다. 
 
-> [AZURE.NOTE]각 샘플은 자체 포함되며 자체를 설정하고 자체를 정리합니다. 샘플은 CreateDocumentCollectionAsync()에 대한 여러 호출을 실행합니다. 구독에 이렇게 영향을 줄 때마다 생성되는 컬렉션의 성능 계층 당 1시간 사용량이 청구됩니다.
+> [AZURE.NOTE]
+각 샘플은 자체 포함되며 자체를 설정하고 자체를 정리합니다. 샘플은 CreateDocumentCollectionAsync()에 대한 여러 호출을 실행합니다. 구독에 이렇게 영향을 줄 때마다 생성되는 컬렉션의 성능 계층 당 1시간 사용량이 청구됩니다.
 
-## 데이터베이스 샘플
+## 데이터베이스 예제
 
-DatabaseManagement 프로젝트의 샘플인 [RunDatabaseDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L72-L121) 메서드는 다음과 같은 작업을 수행하는 방법을 보여줍니다.
+DatabaseManagement 프로젝트의 샘플인 [RunDatabaseDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L72-L121) 메서드는 다음과 같은 작업을 수행하는 방법을 보여 줍니다.
 
 작업 | API 참조
 --- | ---
@@ -50,9 +52,9 @@ DatabaseManagement 프로젝트의 샘플인 [RunDatabaseDemo](https://github.co
 [계정에 대한 데이터베이스 나열](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L108-L113) | [DocumentClient.ReadDatabaseFeedAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readdatabasefeedasync.aspx)
 [데이터베이스 삭제](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L118) | [DocumentClient.DeleteDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.deletedatabaseasync.aspx)
 
-## 컬렉션 샘플 
+## 컬렉션 예제 
 
-샘플 CollectionManagement 프로젝트의 [RunCollectionDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/CollectionManagement/Program.cs#L96-L185) 메서드는 다음 작업을 수행하는 방법을 보여줍니다.
+샘플 CollectionManagement 프로젝트의 [RunCollectionDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/CollectionManagement/Program.cs#L96-L185) 메서드는 다음 작업을 수행하는 방법을 보여 줍니다.
 
 작업 | API 참조
 --- | ---
@@ -63,9 +65,9 @@ DatabaseManagement 프로젝트의 샘플인 [RunDatabaseDemo](https://github.co
 [데이터베이스에서 모든 컬렉션의 목록 읽기](https://github.com/Azure/azure-documentdb-dotnet/blob/89670bc8aefd9bdd932db7f9b6d2fcb9b6acf35e/samples/code-samples/CollectionManagement/Program.cs#L162) | [DocumentClient.ReadDocumentCollectionFeedAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readdocumentcollectionfeedasync.aspx)
 [컬렉션 삭제](https://github.com/Azure/azure-documentdb-dotnet/blob/89670bc8aefd9bdd932db7f9b6d2fcb9b6acf35e/samples/code-samples/CollectionManagement/Program.cs#L175) | [DocumentClient.DeleteDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.deletedocumentcollectionasync.aspx)
 
-## 문서 샘플
+## 문서 예제
 
-샘플 DocumentManagement 프로젝트의 [RunDocumentsDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/f374cc601f4cf08d11c88f0c3fa7dcefaf7ecfe8/samples/code-samples/DocumentManagement/Program.cs#L97-L102) 메서드는 다음 작업을 수행하는 방법을 보여줍니다.
+샘플 DocumentManagement 프로젝트의 [RunDocumentsDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/f374cc601f4cf08d11c88f0c3fa7dcefaf7ecfe8/samples/code-samples/DocumentManagement/Program.cs#L97-L102) 메서드는 다음 작업을 수행하는 방법을 보여 줍니다.
 
 작업 | API 참조
 --- | ---
@@ -78,9 +80,9 @@ DatabaseManagement 프로젝트의 샘플인 [RunDatabaseDemo](https://github.co
 [문서 삭제](https://github.com/Azure/azure-documentdb-dotnet/blob/f374cc601f4cf08d11c88f0c3fa7dcefaf7ecfe8/samples/code-samples/DocumentManagement/Program.cs#L322) | [DocumentClient.DeleteDocumentAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.deletedocumentasync.aspx)
 [.NET 동적 개체로 작업](https://github.com/Azure/azure-documentdb-dotnet/blob/f374cc601f4cf08d11c88f0c3fa7dcefaf7ecfe8/samples/code-samples/DocumentManagement/Program.cs#L331-L380) | [DocumentClient.CreateDocumentAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx)<br>[DocumentClient.ReadDocumentAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readdocumentasync.aspx)<br>[DocumentClient.ReplaceDocumentAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.replacedocumentasync.aspx)
 
-## 인덱싱 샘플
+## 청구 예제
 
-샘플 IndexManagement 프로젝트의 [RunIndexDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/ea8c977b9c2f37ddc2894911ec239907ab60e40a/samples/code-samples/IndexManagement/Program.cs#L89-L117) 메서드는 다음과 같은 작업을 수행하는 방법을 보여줍니다.
+샘플 IndexManagement 프로젝트의 [RunIndexDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/ea8c977b9c2f37ddc2894911ec239907ab60e40a/samples/code-samples/IndexManagement/Program.cs#L89-L117) 메서드는 다음과 같은 작업을 수행하는 방법을 보여 줍니다.
 
 작업 | API 참조
 --- | ---
@@ -94,9 +96,9 @@ DatabaseManagement 프로젝트의 샘플인 [RunDatabaseDemo](https://github.co
 
 인덱싱에 대한 자세한 내용은 [DocumentDB 인덱싱 정책](documentdb-indexing-policies.md)을 참조하세요.
  
-## 샘플 분할
+## 분할 예제
 
-샘플 분할 파일인 [azure-documentdb-net/samples/code-samples/Partitioning/Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/Partitioning/Program.cs)는 다음 작업을 수행하는 방법을 보여줍니다. 경우에 따라 추가 도우미 파일은 작업을 완료하는 데 사용됩니다.
+샘플 분할 파일인 [azure-documentdb-net/samples/code-samples/Partitioning/Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/Partitioning/Program.cs)는 다음 작업을 수행하는 방법을 보여 줍니다. 경우에 따라 추가 도우미 파일은 작업을 완료하는 데 사용됩니다.
 
 작업 | API 참조
 --- | ---
@@ -112,9 +114,9 @@ DatabaseManagement 프로젝트의 샘플인 [RunDatabaseDemo](https://github.co
 
 파티션 및 분할하는 방법에 대한 자세한 내용은 [DocumentDB에서 데이터 파티션 및 크기 조정](documentdb-partition-data.md)을 참조하세요.
 
-## 지리 공간 샘플  
+## 지리 공간 예제  
 
-지리 공간 샘플 파일인 [azure-documentdb-net/samples/code-samples/Geospatial/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs)는 다음 작업을 수행하는 방법을 보여줍니다.
+지리 공간 샘플 파일인 [azure-documentdb-net/samples/code-samples/Geospatial/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs)는 다음 작업을 수행하는 방법을 보여 줍니다.
  
 작업 | API 참조  
 ---- | ---  
@@ -127,9 +129,9 @@ DatabaseManagement 프로젝트의 샘플인 [RunDatabaseDemo](https://github.co
  
 지리 공간 데이터로 작업에 대한 자세한 내용은 [Azure DocumentDB에서 지리 공간 데이터로 작업](documentdb-geospatial.md)을 참조하세요.
  
-## 샘플 쿼리
+## 쿼리 예제
 
-쿼리 문서 파일인 [azure-documentdb-net/samples/code-samples/Queries/Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/Queries/Program.cs)는 SQL 쿼리 문법, 쿼리가 있는 LINQ 공급자, Lambda를 사용하여 다음 작업을 각각 수행하는 방법을 보여줍니다.
+쿼리 문서 파일인 [azure-documentdb-net/samples/code-samples/Queries/Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/Queries/Program.cs)는 SQL 쿼리 문법, 쿼리가 있는 LINQ 공급자, Lambda를 사용하여 다음 작업을 각각 수행하는 방법을 보여 줍니다.
 
 작업 | API 참조
 --- | ---
@@ -148,9 +150,9 @@ DatabaseManagement 프로젝트의 샘플인 [RunDatabaseDemo](https://github.co
 쿼리를 작성하는 방법에 대한 자세한 내용은 [DocumentDB 내에서 SQL 쿼리](documentdb-sql-query.md)를 참조하세요.
 
 
-## 서버 쪽 프로그래밍 샘플
+## 서버 쪽 프로그래밍 예제
 
-서버 쪽 프로그래밍 샘플 파일인 [azure-documentdb-net/samples/code-samples/ServerSideScripts/Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/ServerSideScripts/Program.cs)는 다음 작업을 수행하는 방법을 보여줍니다.
+서버 쪽 프로그래밍 샘플 파일인 [azure-documentdb-net/samples/code-samples/ServerSideScripts/Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/ServerSideScripts/Program.cs)는 다음 작업을 수행하는 방법을 보여 줍니다.
 
 작업 | API 참조
 --- | ---
@@ -164,9 +166,9 @@ DatabaseManagement 프로젝트의 샘플인 [RunDatabaseDemo](https://github.co
 
 서버 쪽 프로그래밍에 대한 자세한 내용은 [DocumentDB 서버 쪽 프로그래밍: 저장 프로시저, 데이터베이스 트리거 및 UDF](documentdb-programming.md)를 참조하세요.
 
-## 사용자 관리 샘플
+## 사용자 관리 예제
 
-사용자 관리 파일인 [azure-documentdb-net/samples/code-samples/UserManagement/Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/UserManagement/Program.cs)는 다음 작업을 수행하는 방법을 보여줍니다.
+사용자 관리 파일인 [azure-documentdb-net/samples/code-samples/UserManagement/Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/UserManagement/Program.cs)는 다음 작업을 수행하는 방법을 보여 줍니다.
 
 작업 | API 참조
 --- | ---
@@ -174,4 +176,4 @@ DatabaseManagement 프로젝트의 샘플인 [RunDatabaseDemo](https://github.co
 [컬렉션 또는 문서에 권한 설정](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/UserManagement/Program.cs#L85) | [DocumentClient.CreatePermissionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createpermissionasync.aspx)
 [사용자의 사용 권한 목록 가져오기](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/UserManagement/Program.cs#L218) | [DocumentClient.ReadUserAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readuserasync.aspx)<br>[DocumentClient.ReadPermissionFeedAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readpermissionfeedasync.aspx)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -35,7 +35,7 @@ Azure는 Oracle 데이터베이스의 Oracle Real Application Clusters (RAC)를 
 
 ### 고정 내부 IP 주소 없음
 
-Azure는 각 가상 컴퓨터에 내부 IP 주소를 할당합니다. 가상 컴퓨터가 가상 네트워크의 일부가 아닌 경우 가상 컴퓨터의 IP 주소는 동적이며 가상 컴퓨터를 다시 시작한 후에 변경될 수 있습니다. Oracle 데이터베이스는 정적 IP 주소가 필요하기 때문에 문제가 발생할 수 있습니다. 이 문제를 방지하려면, Azure 가상 네트워크에 가상 컴퓨터를 추가하는 것이 좋습니다. 자세한 내용은 [가상 네트워크](http://azure.microsoft.com/documentation/services/virtual-network/) 및 [Azure에서 가상 네트워크 만들기](create-virtual-network.md)를 참조하세요.
+Azure는 각 가상 컴퓨터에 내부 IP 주소를 할당합니다. 가상 컴퓨터가 가상 네트워크의 일부가 아닌 경우 가상 컴퓨터의 IP 주소는 동적이며 가상 컴퓨터를 다시 시작한 후에 변경될 수 있습니다. Oracle 데이터베이스는 정적 IP 주소가 필요하기 때문에 문제가 발생할 수 있습니다. 이 문제를 방지하려면, Azure 가상 네트워크에 가상 컴퓨터를 추가하는 것이 좋습니다. 자세한 내용은 [가상 네트워크](https://azure.microsoft.com/documentation/services/virtual-network/) 및 [Azure에서 가상 네트워크 만들기](create-virtual-network.md)를 참조하세요.
 
 ### 연결된 디스크 구성 옵션
 
@@ -53,13 +53,13 @@ Azure는 각 가상 컴퓨터에 내부 IP 주소를 할당합니다. 가상 컴
 
 	![](media/virtual-machines-miscellaneous-considerations-oracle-virtual-machine-images/image3.png)
 
->[AZURE.IMPORTANT]상황별로 쓰기 성능과 읽기 성능간의 트레이드-오프를 평가합니다. 이러한 접근 방식을 사용하는 경우 실제 결과가 달라질 수 있습니다.
+>[AZURE.IMPORTANT] 상황별로 쓰기 성능과 읽기 성능간의 트레이드-오프를 평가합니다. 이러한 접근 방식을 사용하는 경우 실제 결과가 달라질 수 있습니다.
 
 ### 높은 가용성 및 재해 복구 고려 사항
 
 Azure 가상 컴퓨터에서 Oracle 데이터베이스를 사용할 때, 사용자는 모든 가동 중지 시간을 방지하기 위해 높은 가용성과 재해 복구 솔루션을 구현하는 일을 담당합니다. 또한 사용자 고유의 데이터와 응용 프로그램 백업을 담당해야 합니다.
 
-Azure에서 Oracle Database Enterprise Edition(RAC 제외)에 대한 고가용성 및 재해 복구는 두 가상 컴퓨터에 있는 두 개의 데이터베이스와 함께 [Data Guard, Active Data Guard](http://www.oracle.com/technetwork/articles/oem/dataguardoverview-083155.html) 또는 [Oracle Golden Gate](http://www.oracle.com/technetwork/middleware/goldengate)를 사용하여 수행할 수 있습니다. 두 가상 컴퓨터는 영구적인 개인 IP 주소를 통해 서로 액세스할 수 있도록 동일한 [클라우드 서비스](cloud-services-connect-virtual-machine.md) 및 동일한 [가상 네트워크](http://azure.microsoft.com/documentation/services/virtual-network/)에 있어야 합니다. 또한 Azure가 개별 장애 도메인 및 업그레이드 도메인에 가상 컴퓨터를 배치할 수 있도록 동일한 [가용성 집합](manage-availability-virtual-machines.md)에 VM을 배치하는 것이 좋습니다. 참고 동일한 클라우드 서비스에서 오직 가상 컴퓨터만 동일한 가용성 집합에 참여할 수 있습니다. 각 가상 컴퓨터에는 최소 2GB의 메모리 및 5GB의 디스크 공간이 있어야 합니다.
+Azure에서 Oracle Database Enterprise Edition(RAC 제외)에 대한 고가용성 및 재해 복구는 두 가상 컴퓨터에 있는 두 개의 데이터베이스와 함께 [Data Guard, Active Data Guard](http://www.oracle.com/technetwork/articles/oem/dataguardoverview-083155.html) 또는 [Oracle Golden Gate](http://www.oracle.com/technetwork/middleware/goldengate)를 사용하여 수행할 수 있습니다. 두 가상 컴퓨터는 영구적인 개인 IP 주소를 통해 서로 액세스할 수 있도록 동일한 [클라우드 서비스](cloud-services-connect-virtual-machine.md) 및 동일한 [가상 네트워크](https://azure.microsoft.com/documentation/services/virtual-network/)에 있어야 합니다. 또한 Azure가 개별 장애 도메인 및 업그레이드 도메인에 가상 컴퓨터를 배치할 수 있도록 동일한 [가용성 집합](manage-availability-virtual-machines.md)에 VM을 배치하는 것이 좋습니다. 참고 동일한 클라우드 서비스에서 오직 가상 컴퓨터만 동일한 가용성 집합에 참여할 수 있습니다. 각 가상 컴퓨터에는 최소 2GB의 메모리 및 5GB의 디스크 공간이 있어야 합니다.
 
 Oracle 데이터 가드로, 가상 컴퓨터에서 주 데이터베이스, 또 다른 가상 컴퓨터에서 보조(대기) 데이터 베이스에서 고가용성을 얻을 수 있으며, 양 데이터베이스 간에 단방향 복제를 설정할 수 있습니다. 결과는 해당 데이터 베이스의 복사본에 대한 읽기 엑세스입니다. Oracle 골든 게이트로, 두 개의 데이터베이스 간의 양방향 복제를 구성할 수 있습니다. 이러한 도구를 사용하여 데이터베이스에 대한 고가용성 솔루션을 설정하는 방법을 알아보려면 Oracle 웹 사이트에서 [Active Data Guard](http://www.oracle.com/technetwork/database/features/availability/data-guard-documentation-152848.html) 및 [GoldenGate](http://docs.oracle.com/goldengate/1212/gg-winux/index.html) 설명서를 참조하세요. 데이터베이스의 복사본에 대한 읽기-쓰기 권한이 필요한 경우 [Oracle Active Data Guard](http://www.oracle.com/uk/products/database/options/active-data-guard/overview/index.html)를 사용할 수 있습니다.
 
@@ -108,4 +108,4 @@ Oracle 데이터 가드로, 가상 컴퓨터에서 주 데이터베이스, 또 �
 ##추가 리소스
 [Azure용 Oracle 가상 컴퓨터 이미지 ](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

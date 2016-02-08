@@ -3,7 +3,7 @@
    description="Visual Studio 연결된 서비스 추가 대화 상자를 사용하여 모바일 서비스 추가"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="TomArcher"
+   authors="mlhoop"
    manager="douge"
    editor="" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="mobile"
    ms.date="12/16/2015"
-   ms.author="tarcher" />
+   ms.author="mlearned" />
 
 # Visual Studio 연결된 서비스를 사용하여 모바일 서비스 추가
 
@@ -21,7 +21,7 @@ Visual Studio 2015에서 **연결된 서비스 추가** 대화 상자를 사용�
 
 ## 지원되는 프로젝트 형식
 
->[AZURE.NOTE]Visual Studio 2015에서는 Windows Universal(Windows 10) 프로젝트에 Azure 모바일 서비스 추가가 지원되지 않습니다. 프로젝트에 대해 NuGet 패키지 관리자에서 적절한 패키지를 설치하여 Azure 모바일 서비스를 추가할 수 있습니다.
+>[AZURE.NOTE] Visual Studio 2015에서는 Windows Universal(Windows 10) 프로젝트에 Azure 모바일 서비스 추가가 지원되지 않습니다. 프로젝트에 대해 NuGet 패키지 관리자에서 적절한 패키지를 설치하여 Azure 모바일 서비스를 추가할 수 있습니다.
 
 연결된 서비스 대화 상자에서 다음 프로젝트 형식으로 Azure 모바일 서비스에 연결할 수 있습니다.
 
@@ -49,9 +49,7 @@ Visual Studio 2015에서 **연결된 서비스 추가** 대화 상자를 사용�
 
 1. **Azure 모바일 서비스** 대화 상자에서 기존 모바일 서비스가 있는 경우 이를 선택합니다. 새 Azure 모바일 서비스를 만들어야 하는 경우 이렇게 하려면 다음 절차를 따르십시오. 그렇지 않은 경우 다음 단계로 건너뜁니다.
 
-    새 모바일 서비스 계정을 만들려면,
-    1. 대화 상자 맨 아래의 **서비스 만들기 **링크를 선택합니다.
-        ![새 모바일 연결된 서비스 추가](./media/vs-azure-tools-connected-services-add-mobile-services/IC797637.png)
+    새 모바일 서비스 계정을 만들려면, 1. 대화 상자 맨 아래의 **서비스 만들기 **링크를 선택합니다. ![새 모바일 연결된 서비스 추가](./media/vs-azure-tools-connected-services-add-mobile-services/IC797637.png)
 
 
 
@@ -85,10 +83,10 @@ Visual Studio가 프로젝트를 수정하는 방법은 프로젝트 형식에 �
 
  - [MSDN 포럼: Azure 모바일 서비스](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)
 
- - [Microsoft Azure Team Blog의 Azure 모바일 서비스](http://azure.microsoft.com/blog/topics/mobile/)
+ - [Microsoft Azure Team Blog의 Azure 모바일 서비스](https://azure.microsoft.com/blog/topics/mobile/)
 
- - [azure.microsoft.com의 Azure 모바일 서비스](http://azure.microsoft.com/services/mobile-services/)
+ - [azure.microsoft.com의 Azure 모바일 서비스](https://azure.microsoft.com/services/mobile-services/)
 
- - [azure.microsoft.com의 Azure 모바일 서비스 설명서](http://azure.microsoft.com/documentation/services/mobile-services/)
+ - [azure.microsoft.com의 Azure 모바일 서비스 설명서](https://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

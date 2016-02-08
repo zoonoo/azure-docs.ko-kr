@@ -31,7 +31,7 @@ Microsoft는 사용자의 의견을 소중하게 생각합니다. 이 문서는 
 
 ## Azure 구성 요소
 
-Azure는 [Azure 인포그래픽 정의](http://azure.microsoft.com/documentation/infographics/azure/)와 같은 다양한 시각적 보조 기능 및 관리 포털의 범주로 서비스를 그룹화합니다. 관리 포털은 전부는 아니지만 대부분의 Azure 서비스를 관리하는 포털입니다.
+Azure는 [Azure 인포그래픽 정의](https://azure.microsoft.com/documentation/infographics/azure/)와 같은 다양한 시각적 보조 기능 및 관리 포털의 범주로 서비스를 그룹화합니다. 관리 포털은 전부는 아니지만 대부분의 Azure 서비스를 관리하는 포털입니다.
 
 이 백서에서는 **다른 조직**을 사용하여 비슷한 기능을 기반으로 하는 서비스에 대해 설명하고 대규모 서비스를 구성하는 중요 하위 서비스에 대해서도 살펴봅니다.
 
@@ -246,7 +246,7 @@ Azure는 개발자 및 IT 전문가가 클라우드에서 응용 프로그램을
 ### Azure SDK
 2008년 Azure 첫 번째 시험판 버전에서는 .NET 개발만 지원했습니다. 하지만 이제 Azure 응용 프로그램을 대부분의 언어로 작성할 수 있습니다. 현재 Microsoft는 .NET, Java, PHP, Node.js, Ruby, Python 등의 언어별 SDK를 제공합니다. 또한 C++ 등 모든 언어를 기본적으로 지원하는 일반적인 Azure SDK도 있습니다.
 
-이러한 SDK는 Azure 응용 프로그램의 구축, 배포, 관리 등을 돕습니다. SDK는 [www.microsoftazure.com](http://azure.microsoft.com/downloads/) 또는 GitHub에 있으며, Visual Studio 및 Eclipse와 함께 사용할 수 있습니다. 또한 Azure는 개발자가 어느 편집기나 개발 환경에서 사용할 수 있는 명령줄 도구를 제공하며, 여기에는 Linux나 Macintosh 시스템의 응용 프로그램을 Azure로 배포하는 도구가 포함됩니다.
+이러한 SDK는 Azure 응용 프로그램의 구축, 배포, 관리 등을 돕습니다. SDK는 [www.microsoftazure.com](https://azure.microsoft.com/downloads/) 또는 GitHub에 있으며, Visual Studio 및 Eclipse와 함께 사용할 수 있습니다. 또한 Azure는 개발자가 어느 편집기나 개발 환경에서 사용할 수 있는 명령줄 도구를 제공하며, 여기에는 Linux나 Macintosh 시스템의 응용 프로그램을 Azure로 배포하는 도구가 포함됩니다.
 
 Azure 응용 프로그램 빌드를 돕는 것 외에도, 이 SDK는 Azure 서비스를 사용하는 소프트웨어 작성을 돕는 클라이언트 라이브러리를 제공합니다. 예를 들어, Azure Blob을 읽고 쓰는 응용 프로그램을 빌드하거나 Azure 관리 인터페이스를 통해 Azure 응용 프로그램 배포 도구를 만들 수 있습니다.
 
@@ -611,4 +611,4 @@ SendGrid는 메일을 보낼 수 있는 Azure 스토어의 응용 프로그램�
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

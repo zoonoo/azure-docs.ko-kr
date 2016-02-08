@@ -57,7 +57,7 @@
 
 	"Server=sqlvmlabel.eastus.cloudapp.azure.com,1500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
->[AZURE.NOTE]SQL Server와의 통신에 이 방법을 사용할 때는 반환되는 모든 데이터가 데이터 센터에서 나가는 트래픽으로 고려된다는 점을 유의해야 합니다. 일반적인 [아웃바운드 데이터 전송 가격](http://azure.microsoft.com/pricing/details/data-transfers)의 적용 대상입니다. 이 방법을 동일한 데이터 센터의 다른 컴퓨터나 클라우드 서비스에 사용하는 경우에도 마찬가지입니다. 트래픽이 Azure 공용 부하 분산 장치를 통해 이동하기 때문입니다.
+>[AZURE.NOTE] SQL Server와의 통신에 이 방법을 사용할 때는 반환되는 모든 데이터가 데이터 센터에서 나가는 트래픽으로 고려된다는 점을 유의해야 합니다. 일반적인 [아웃바운드 데이터 전송 가격](https://azure.microsoft.com/pricing/details/data-transfers/)의 적용 대상입니다. 이 방법을 동일한 데이터 센터의 다른 컴퓨터나 클라우드 서비스에 사용하는 경우에도 마찬가지입니다. 트래픽이 Azure 공용 부하 분산 장치를 통해 이동하기 때문입니다.
 
 ### 동일한 가상 네트워크의 SQL Server에 연결
 
@@ -100,4 +100,4 @@ Azure 가상 컴퓨터에서 실행되는 SQL Server에 대한 모든 보안 모
 
 Azure VM에서의 SQL Server 실행에 관한 다른 항목은 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-sql-server-infrastructure-services.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

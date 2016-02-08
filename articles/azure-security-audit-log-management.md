@@ -18,7 +18,7 @@
 
 # Microsoft Azure 보안 및 감사 로그 관리
 
-Azure을 통해 고객은 플랫폼에서 구독의 중앙 저장소에 대한 서비스(PaaS) 역할로, Azure 인프라에서 서비스(IaaS)로 보안 이벤트를 생성하고 수집할 수 있습니다. 고객은 [HDInsight](http://azure.microsoft.com/documentation/services/hdinsight/)를 사용하여 수집된 이벤트를 집계하고 분석할 수 있습니다. 또한 수집된 이 이벤트를 온-프레미스 보안 정보 및 지속적인 모니터링을 위한 이벤트 관리(SIEM) 시스템으로 내보낼 수 있습니다.
+Azure을 통해 고객은 플랫폼에서 구독의 중앙 저장소에 대한 서비스(PaaS) 역할로, Azure 인프라에서 서비스(IaaS)로 보안 이벤트를 생성하고 수집할 수 있습니다. 고객은 [HDInsight](https://azure.microsoft.com/documentation/services/hdinsight/)를 사용하여 수집된 이벤트를 집계하고 분석할 수 있습니다. 또한 수집된 이 이벤트를 온-프레미스 보안 정보 및 지속적인 모니터링을 위한 이벤트 관리(SIEM) 시스템으로 내보낼 수 있습니다.
 
 Azure 보안 로깅, 분석 및 수명 주기 모니터링은 다음을 포함합니다.
 
@@ -32,9 +32,9 @@ Azure 보안 로깅, 분석 및 수명 주기 모니터링은 다음을 포함�
 ## 로그 생성
 보안 이벤트는 가상 컴퓨터에서 **시스템**, **보안** 및 **응용 프로그램** 채널을 위한 Windows 이벤트 로그에서 발생합니다. 이벤트가 잠재적인 데이터 손실 없이 로그되도록 하려면, 이벤트 로그의 크기를 적절하게 구성하는 것이 중요합니다. 감사 정책 설정이 생성되고 이벤트 컬렉션 정책이 정의된 여러 이벤트의 이벤트 로그 크기를 기반으로 합니다. 자세한 내용은 [보안 감사 모니터링 및 관리 계획](http://technet.microsoft.com/library/ee513968.aspx#BKMK_4)을 참조하세요.
 
->[AZURE.NOTE]Windows 이벤트 전달(WEF) 또는 Azure 진단([로그 수집](#log-collection) 섹션에 설명된)을 사용하여 클라우드 서비스 또는 가상 컴퓨터에서 로그를 가져오는 경우, 시스템 중단의 잠재적인 영향을 고려해야 합니다. 예를 들어 WEF 환경이 일정 기간동안 중단되는 경우, 가능한 로그 데이터 손실을 준비하거나 더 긴 기간동안 계정에 대해 로그 크기가 충분한지 확인해야 합니다.
+>[AZURE.NOTE] Windows 이벤트 전달(WEF) 또는 Azure 진단([로그 수집](#log-collection) 섹션에 설명된)을 사용하여 클라우드 서비스 또는 가상 컴퓨터에서 로그를 가져오는 경우, 시스템 중단의 잠재적인 영향을 고려해야 합니다. 예를 들어 WEF 환경이 일정 기간동안 중단되는 경우, 가능한 로그 데이터 손실을 준비하거나 더 긴 기간동안 계정에 대해 로그 크기가 충분한지 확인해야 합니다.
 
-[Azure 가상 컴퓨터 마켓플레이스](http://azure.microsoft.com/marketplace/virtual-machines/#microsoft)에서 만든 Azure 및 가상 컴퓨터에서 배포된 클라우드 서비스 응용 프로그램의 경우, 운영 체제 보안 이벤트의 집합이 기본적으로 사용됩니다. 고객은 이벤트를 추가, 제거 또는 수정하여 운영 체제 감사 정책을 사용자 지정할 수 있습니다. 자세한 내용은 [보안 정책 설정 참조](http://technet.microsoft.com/library/jj852210.aspx)를 참조하세요.
+[Azure 가상 컴퓨터 마켓플레이스](https://azure.microsoft.com/marketplace/virtual-machines/#microsoft)에서 만든 Azure 및 가상 컴퓨터에서 배포된 클라우드 서비스 응용 프로그램의 경우, 운영 체제 보안 이벤트의 집합이 기본적으로 사용됩니다. 고객은 이벤트를 추가, 제거 또는 수정하여 운영 체제 감사 정책을 사용자 지정할 수 있습니다. 자세한 내용은 [보안 정책 설정 참조](http://technet.microsoft.com/library/jj852210.aspx)를 참조하세요.
 
 다음 메서드를 사용하여 운영 체제(예: 감사 정책 변경) 및 Windows 구성 요소(예: IIS)에서 추가 로그를 생성할 수 있습니다.
 
@@ -93,7 +93,7 @@ Azure에서 가상 컴퓨터 또는 클라우드 서비스에서 보안 이벤�
 ##	Windows 이벤트 전달을 사용하여 보안 이벤트 데이터 수집
 도메인에 가입된 Azure 가상 컴퓨터의 경우, 온-프레미스 도메인에 가입된 컴퓨터의 경우와 동일한 방식으로 그룹 정책 설정을 사용하여 WEF를 구성할 수 있습니다. 자세한 내용은 [하이브리드 클라우드](http://www.microsoft.com/server-cloud/solutions/hybrid-cloud.aspx)를 참조하세요.
 
-이 방법을 사용하면 조직은 IaaS 구독을 구입하고, [Express 경로](http://azure.microsoft.com/services/expressroute/) 또는 사이트 간 VPN을 사용하여 회사 네트워크에 연결한 다음 회사 도메인의 Azure에 있는 가상 컴퓨터에 연결합니다. 그런 다음 도메인에 가입된 컴퓨터에서 WEF를 구성할 수 있습니다.
+이 방법을 사용하면 조직은 IaaS 구독을 구입하고, [Express 경로](https://azure.microsoft.com/services/expressroute/) 또는 사이트 간 VPN을 사용하여 회사 네트워크에 연결한 다음 회사 도메인의 Azure에 있는 가상 컴퓨터에 연결합니다. 그런 다음 도메인에 가입된 컴퓨터에서 WEF를 구성할 수 있습니다.
 
 이벤트 전달은 원본 및 수집기의 두 부분으로 나뉩니다. 원본은 보안 로그가 생성되는 컴퓨터입니다. 수집기는 이벤트 로그를 수집하고 통합하는 중앙 서버입니다. IT 관리자는 원격 컴퓨터(이벤트 소스)에서 전달된 이벤트를 받고 저장할 수 있도록 이벤트를 구독할 수 있습니다. 자세한 내용은 [이벤트를 전달 및 수집하도록 컴퓨터 구성](http://technet.microsoft.com/library/cc748890.aspx)을 참조하세요.
 
@@ -218,7 +218,7 @@ $VM3 = Update-AzureVM -ServiceName $service_name -Name $vm_name -VM $VM2.VM
 
 - 타임 스탬프는 엔터티를 마지막으로 수정한 시간을 추적할 서버에서 유지 관리되는 날짜/시간 값입니다.
 
->[AZURE.NOTE]Azure 저장소 테이블의 최대 행 크기는 1MB로 제한됩니다. 2012년 6월 이후 계정을 만든 경우 저장소 계정은 BLOB, 큐 및 테이블에서 최대 200TB의 데이터를 포함할 수 있습니다. 따라서 BLOB 및 큐 저장소가 공간을 사용하지 않는 경우 테이블 크기는 200TB까지 증가할 수 있습니다. 2012년 6월 이전에 만든 계정은 100TB의 제한이 있습니다.
+>[AZURE.NOTE] Azure 저장소 테이블의 최대 행 크기는 1MB로 제한됩니다. 2012년 6월 이후 계정을 만든 경우 저장소 계정은 BLOB, 큐 및 테이블에서 최대 200TB의 데이터를 포함할 수 있습니다. 따라서 BLOB 및 큐 저장소가 공간을 사용하지 않는 경우 테이블 크기는 200TB까지 증가할 수 있습니다. 2012년 6월 이전에 만든 계정은 100TB의 제한이 있습니다.
 
 또한 저장소 탐색기는 테이블 데이터를 편집하는 옵션을 제공합니다. 다음과 같이 엔터티 편집 창을 열려면 테이블 보기에서 특정 행을 두 번 클릭합니다.
 
@@ -230,7 +230,7 @@ $VM3 = Update-AzureVM -ServiceName $service_name -Name $vm_name -VM $VM2.VM
 ##### 1단계: 원하는 이벤트를 포함하도록 구성 파일 업데이트
 이전 예에서 만든 Azure 진단 파일은 Windows 응용 프로그램 이벤트 로그 오류 유형을 포함하도록 업데이트되어야 합니다.
 
->[AZURE.NOTE]새 구성 파일을 사용하여 모든 기존 Azure 진단 구성 설정을 병합해야 합니다. 새 파일에 정의된 설정은 기존 구성을 덮어쓰게 됩니다.
+>[AZURE.NOTE] 새 구성 파일을 사용하여 모든 기존 Azure 진단 구성 설정을 병합해야 합니다. 새 파일에 정의된 설정은 기존 구성을 덮어쓰게 됩니다.
 
 기존 구성 설정을 검색하려면 **Get-AzureVMDiagnosticsExtension** cmdlet을 사용할 수 있습니다. 다음은 기존 구성을 검색하는 샘플 Azure PowerShell 스크립트입니다.
 
@@ -396,7 +396,7 @@ Azure 진단 에이전트가 저장소 테이블에 이벤트를 푸시할 수 �
 방화벽 변경 내용을 감지하려면 방화벽 변경 이벤트를 포함하도록 기존 구성을 업데이트합니다.
 
 #### 1단계: 기존 구성 가져오기
->[AZURE.NOTE]새 구성 설정은 기존 구성을 덮어씁니다. 따라서, 새 구성 파일을 사용하여 모든 기존 Azure 진단 구성 설정을 병합하는 것이 중요합니다.
+>[AZURE.NOTE] 새 구성 설정은 기존 구성을 덮어씁니다. 따라서, 새 구성 파일을 사용하여 모든 기존 Azure 진단 구성 설정을 병합하는 것이 중요합니다.
 
 기존 구성 설정을 검색하려면 **Get-AzureServiceDiagnosticsExtension** cmdlet을 사용할 수 있습니다.
 
@@ -527,7 +527,7 @@ Azure 진단 에이전트가 저장소 테이블에 이벤트 데이터를 푸�
 - 변경 내용과 기존 Azure 진단 구성 설정을 병합합니다. 새 구성 설정 파일은 기존 구성 설정을 덮어씁니다.
 - **예약 전송 기간** 간격을 현명하게 선택합니다. 전송 시간이 짧을 수록 데이터 연관성이 늘어나지만 저장소 비용 및 처리 오버 헤드를 향상시킬 수 있습니다.
 
->[AZURE.NOTE]수집된 데이터의 양에 크게 영향을 주는 다른 변수는 로깅 수준입니다. 다음은 로깅 수준에 따라 로그를 필터링하는 방법의 예입니다.
+>[AZURE.NOTE] 수집된 데이터의 양에 크게 영향을 주는 다른 변수는 로깅 수준입니다. 다음은 로깅 수준에 따라 로그를 필터링하는 방법의 예입니다.
 
     System!*[System[(Level =2)]]
 
@@ -535,7 +535,7 @@ Azure 진단 에이전트가 저장소 테이블에 이벤트 데이터를 푸�
 
 - 더 이상 필요하지 않은 경우 Azure 저장소에서 진단 데이터를 주기적으로 지웁니다.
 
->[AZURE.NOTE]진단 데이터에 대한 자세한 내용을 보려면 [Azure 저장소에서 진단 데이터 저장 및 보기](https://msdn.microsoft.com/library/azure/hh411534.aspx)를 참조하세요. 진단 데이터를 저장하는 컨테이너 및 테이블은 다른 컨테이너 및 테이블과 동일하며, 다른 데이터에서와 마찬가지로 BLOB 및 엔터티를 삭제할 수 있습니다. 프로그래밍 방식으로 저장소 클라이언트 라이브러리의 중 하나에서 또는 시각적으로 [저장소 탐색기 클라이언트](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx)에서 진단 데이터를 삭제할 수 있습니다.
+>[AZURE.NOTE] 진단 데이터에 대한 자세한 내용을 보려면 [Azure 저장소에서 진단 데이터 저장 및 보기](https://msdn.microsoft.com/library/azure/hh411534.aspx)를 참조하세요. 진단 데이터를 저장하는 컨테이너 및 테이블은 다른 컨테이너 및 테이블과 동일하며, 다른 데이터에서와 마찬가지로 BLOB 및 엔터티를 삭제할 수 있습니다. 프로그래밍 방식으로 저장소 클라이언트 라이브러리의 중 하나에서 또는 시각적으로 [저장소 탐색기 클라이언트](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx)에서 진단 데이터를 삭제할 수 있습니다.
 
 - 별도의 저장소 계정으로 서비스 데이터 및 보안 로그 데이터를 저장하는 것이 좋습니다. 이 격리로 인해 보안 로그 데이터 저장은 프로덕션 서비스 데이터에 대한 저장소 성능에 영향을 주지 않습니다.
 - 조직의 규정 준수 정책 및 데이터 분석 및 모니터링 요구 사항을 기반으로 로그 보존 기간을 선택합니다.
@@ -572,7 +572,7 @@ Azure 구독 리소스와 관련된 작업 로그는 관리 포털의 **작업 �
 ## 추가 리소스
 다음 리소스는 Microsoft Azure 및 관련 Microsoft 서비스에 대한 일반 정보를 제공합니다.
 
-- [Microsoft Azure 보안 센터](http://azure.microsoft.com/support/trust-center/)
+- [Microsoft Azure 보안 센터](https://azure.microsoft.com/support/trust-center/)
 
     보안 및 개인정보가 Azure의 개발에 포함 되는 방법 및 Azure가 광범위한 국제 및 특정 산업 규정 준수 표준을 충족하는 방법에 대한 정보
 
@@ -614,4 +614,4 @@ Azure 구독 리소스와 관련된 작업 로그는 관리 포털의 **작업 �
 [19]: ./media/azure-security-audit-log-management/sec-view-blob-container.png
 [20]: ./media/azure-security-audit-log-management/sec-hdinsight-analysis.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

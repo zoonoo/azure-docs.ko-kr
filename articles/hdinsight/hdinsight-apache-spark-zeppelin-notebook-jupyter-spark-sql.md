@@ -20,7 +20,7 @@
 
 # 시작: Azure HDInsight에서 Apache Spark를 만들기 및 Spark SQL을 사용하여 대화형 쿼리 실행
 
-> [AZURE.NOTE]이제 HDInsight가 Linux에서 Spark 클러스터를 제공합니다. HDInsight Linux에서 Spark 클러스터를 시작하는 방법은 [시작: Azure HDInsight에서 Apache Spark 만들기(Linux)](hdinsight-apache-spark-jupyter-spark-sql.md)를 참조하세요.
+> [AZURE.NOTE] 이제 HDInsight가 Linux에서 Spark 클러스터를 제공합니다. HDInsight Linux에서 Spark 클러스터를 시작하는 방법은 [시작: Azure HDInsight에서 Apache Spark 만들기(Linux)](hdinsight-apache-spark-jupyter-spark-sql.md)를 참조하세요.
 
 빠른 생성 옵션을 사용하여 HDInsight에서 Apache Spark 클러스터를 만든 후 웹 기반 [Zeppelin](https://zeppelin.incubator.apache.org) 및 [Jupyter](https://jupyter.org) Notebook을 사용하여 Spark 클러스터에서 Spark SQL 대화형 쿼리를 실행하는 방법을 알아봅니다.
 
@@ -29,14 +29,14 @@
 
 **필수 조건:**
 
-이 자습서를 시작하기 전에 Azure 구독이 있어야 합니다. [Azure 무료 평가판](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+이 자습서를 시작하기 전에 Azure 구독이 있어야 합니다. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 
 
 ## HDInsight Spark 클러스터 만들기
 
 이 섹션에서는 Spark 버전 1.3.1을 기반으로 하는 HDInsight 버전 3.2 클러스터를 만듭니다. HDInsight 버전 및 해당 SLA에 대한 내용은 [HDInsight 구성 요소 버전 관리](hdinsight-component-versioning.md)를 참조하세요.
 
->[AZURE.NOTE]이 문서의 단계에서는 기본 구성 설정을 사용하여 HDInsight에서 Apache Spark 클러스터를 만듭니다. 추가 저장소, Azure 가상 네트워크 또는 Hive용 Metastore를 사용하는 등의 기타 클러스터 구성 설정에 대한 자세한 내용은 [사용자 지정 옵션을 사용하여 HDInsight 클러스터 만들기](hdinsight-apache-spark-provision-clusters.md)를 참조하세요.
+>[AZURE.NOTE] 이 문서의 단계에서는 기본 구성 설정을 사용하여 HDInsight에서 Apache Spark 클러스터를 만듭니다. 추가 저장소, Azure 가상 네트워크 또는 Hive용 Metastore를 사용하는 등의 기타 클러스터 구성 설정에 대한 자세한 내용은 [사용자 지정 옵션을 사용하여 HDInsight 클러스터 만들기](hdinsight-apache-spark-provision-clusters.md)를 참조하세요.
 
 
 **Spark 클러스터를 만들려면**
@@ -47,7 +47,7 @@
 
     ![Azure 포털에서 새 클러스터 만들기](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/hdispark.createcluster.1.png "Azure 포털에서 새 클러스터 만들기")
 
-3. **클러스터 이름**을 입력하고 **클러스터 형식**으로 **Hadoop**을 선택하고 **클러스터 운영 체제** 드롭다운 메뉴에서 **Windows Server 2012 R2 Datacenter**를 선택합니다. 클러스터 이름을 사용할 수 있는 경우 클러스터 이름 옆에 녹색 확인 표시가 나타납니다.
+3. **클러스터 이름**을 입력하고 **클러스터 형식**으로 **Spark**를 선택하고 **클러스터 운영 체제** 드롭다운 메뉴에서 **Windows Server 2012 R2 Datacenter**를 선택합니다. 클러스터 이름을 사용할 수 있는 경우 클러스터 이름 옆에 녹색 확인 표시가 나타납니다.
 
 	![클러스터 이름 및 유형 입력](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/hdispark.createcluster.2.png "클러스터 이름 및 유형 입력")
 
@@ -55,7 +55,7 @@
 
 5. **리소스 그룹**을 클릭하여 기존 리소스 그룹 목록을 확인하고 클러스터를 만들 리소스 그룹을 선택합니다. 또는 **새로 만들기**를 클릭한 다음 새 리소스 그룹의 이름을 입력할 수 있습니다. 새 그룹 이름을 사용할 수 있는지 여부를 나타내는 녹색 확인 표시가 나타납니다.
 
-	> [AZURE.NOTE]사용할 수 있는 경우 이 항목은 기존 리소스 그룹 중 하나로 기본 설정됩니다.
+	> [AZURE.NOTE] 사용할 수 있는 경우 이 항목은 기존 리소스 그룹 중 하나로 기본 설정됩니다.
 
 6. **자격 증명**을 클릭한 다음 **클러스터 로그인 사용자 이름** 및 **클러스터 로그인 암호**를 입력합니다. 클러스터 노드에 대해 원격 데스크톱을 사용하도록 설정하려면 **원격 데스크톱 사용**에 대해 **예**를 클릭한 다음 필요한 값을 지정합니다. 이 자습서에서는 원격 데스크톱이 필요하지 않으므로 이를 건너뛸 수 있습니다. 아래쪽의 **선택**을 클릭하여 자격 증명 구성을 저장합니다.
 
@@ -67,7 +67,7 @@
 
 	현재 HDInsight 클러스터의 데이터 원본으로 Azure 저장소 계정을 선택할 수 있습니다. 다음을 사용하여 **데이터 원본** 블레이드의 항목을 이해합니다.
 
-	- **선택 방법**: 모든 구독에서 저장소 계정을 찾을 수 있도록 하려면 이 항목을 **모든 구독에서**로 설정합니다. 기존 저장소 계정의 **저장소 이름** 및 **액세스 키**를 입력하려면 이 항목을 **액세스 키**로 설정합니다.
+	- **선택 방법**: 모든 구독에서 저장소 계정을 찾을 수 있도록 하려면 이 항목을 **From all subscriptions(모든 구독에서)**로 설정합니다. 기존 저장소 계정의 **저장소 이름** 및 **액세스 키**를 입력하려면 이 항목을 **액세스 키**로 설정합니다.
 
 	- **저장소 계정 선택/새로 만들기**: 클러스터와 연결할 기존 저장소 계정을 찾아 선택하려면 **저장소 계정 선택**을 클릭합니다. 또는 새 저장소 계정을 만들려면 **새로 만들기**를 클릭합니다. 저장소 계정의 이름을 입력할 때 나타나는 필드를 사용합니다. 이름을 사용할 수 있는 경우 녹색 확인 표시가 나타납니다.
 
@@ -75,7 +75,7 @@
 
 	- **위치**: 저장소 계정이 있거나 저장소 계정을 만들 지리적인 지역입니다.
 
-		> [AZURE.IMPORTANT]기본 데이터 원본의 위치를 선택하면 HDInsight 클러스터의 위치도 설정됩니다. 클러스터와 기본 데이터 원본은 같은 지역에 있어야 합니다.
+		> [AZURE.IMPORTANT] 기본 데이터 원본의 위치를 선택하면 HDInsight 클러스터의 위치도 설정됩니다. 클러스터와 기본 데이터 원본은 같은 지역에 있어야 합니다.
 
 	**선택**을 클릭하여 데이터 원본 구성을 저장합니다.
 
@@ -91,7 +91,7 @@
 	| ------------------ | --------------------- |
 	| ![시작 보드에 표시기 만들기](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/provisioning.png) | ![만든 클러스터 타일](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/provisioned.png) |
 
-	> [AZURE.NOTE]클러스터를 만드는데 약간의 시간이 걸리며, 일반적으로 약 15분이 소요됩니다. 시작 보드에 있는 타일 또는 페이지 왼쪽에 있는 **알림** 항목을 사용하여 생성 프로세스를 확인하세요.
+	> [AZURE.NOTE] 클러스터를 만드는데 약간의 시간이 걸리며, 일반적으로 약 15분이 소요됩니다. 시작 보드에 있는 타일 또는 페이지 왼쪽에 있는 **알림** 항목을 사용하여 생성 프로세스를 확인합니다.
 
 10. 만들기가 완료되면 시작 보드에서 Spark 클러스터 타일을 클릭하여 클러스터 블레이드를 시작합니다.
 
@@ -100,23 +100,23 @@
 
 클러스터를 만든 후 웹 기반 Zeppelin Notebook을 사용하여 Spark HDInsight 클러스터에 대해 Spark SQL 대화형 쿼리를 실행할 수 있습니다. 이 섹션에서는 클러스터에서 기본적으로 사용 가능한 샘플 데이터 파일(hvac.csv)을 사용하여 대화형 Spark SQL 쿼리를 실행합니다.
 
->[AZURE.NOTE]아래 지침에 따라 만드는 노트북은 클러스터에서 기본적으로 사용 가능합니다. Zeppelin을 시작한 후 **Zeppelin HVAC 자습서** 이름으로 이 Notebook을 찾습니다.
+>[AZURE.NOTE] 아래 지침에 따라 만드는 노트북은 클러스터에서 기본적으로 사용 가능합니다. Zeppelin을 시작한 후 **Zeppelin HVAC 자습서** 이름으로 이 Notebook을 찾습니다.
 
 1. [Azure 포털](https://portal.azure.com/)의 시작 보드에서 Spark 클러스터에 대한 타일을 클릭합니다(시작 보드에 고정한 경우). **모두 찾아보기** > **HDInsight 클러스터**에서 클러스터로 이동할 수도 있습니다.   
 
-2. Spark 클러스터 블레이드에서 **빠른 연결**을 클릭한 다음 **클러스터 대시보드** 블레이드에서 **Zeppelin 노트북**을 클릭합니다. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다.
+2. Spark 클러스터 블레이드에서 **빠른 연결**을 클릭한 다음 **클러스터 대시보드** 블레이드에서 **Zeppelin Notebook**을 클릭합니다. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다.
 
-	> [AZURE.NOTE]또한 브라우저에서 다음 URL을 열어 클러스터에 대한 Zeppelin Notebook에 도달할 수 있습니다. __CLUSTERNAME__을 클러스터의 이름으로 바꿉니다.
+	> [AZURE.NOTE] 또한 브라우저에서 다음 URL을 열어 클러스터에 대한 Zeppelin Notebook에 도달할 수 있습니다. __CLUSTERNAME__을 클러스터의 이름으로 바꿉니다.
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/zeppelin`
 
-2. 새 Notebook을 만듭니다. 헤더 창에서 **Notebook**을 클릭하고 **새 메모 만들기**를 클릭합니다.
+2. 새 Notebook을 만듭니다. 헤더 창에서 **노트북**을 클릭하고 **새 메모 만들기**를 클릭합니다.
 
 	![새 Zeppelin 노트북 만들기](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/hdispark.createnewnote.png "새 Zeppelin 노트북 만들기")
 
-	같은 페이지의 **Notebook** 제목 아래에 **Note XXXXXXXXX**로 시작하는 이름의 새 Notebook이 표시됩니다. 새 노트북을 클릭합니다.
+	같은 페이지의 **노트북** 제목 아래에 **Note XXXXXXXXX**로 시작하는 이름의 새 노트북이 표시됩니다. 새 노트북을 클릭합니다.
 
-3. 새 노트북에 대한 웹 페이지에서 제목을 클릭하고 원하는 경우 노트북의 이름을 변경합니다. Enter 키를 눌러 변경된 이름을 저장합니다. 또한 Notebook 헤더의 오른쪽 위 모서리에 **연결됨** 상태가 표시되는지 확인합니다.
+3. 새 노트북에 대한 웹 페이지에서 제목을 클릭하고 원하는 경우 노트북의 이름을 변경합니다. Enter 키를 눌러 변경된 이름을 저장합니다. 또한 노트북 헤더의 오른쪽 위 모서리에 **연결됨** 상태가 표시되는지 확인합니다.
 
 	![Zeppelin 노트북 상태](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/hdispark.newnote.connected.png "Zeppelin 노트북 상태")
 
@@ -185,13 +185,13 @@
 
 이 섹션에서는 Jupyter 노트북을 사용하여 Spark 클러스터에 대해 Spark SQL 쿼리를 실행합니다.
 
->[AZURE.NOTE]아래 지침에 따라 만드는 노트북은 클러스터에서 기본적으로 사용 가능합니다. Jupyter를 시작한 후 **HVACTutorial.ipynb** 이름으로 이 Notebook을 찾습니다.
+>[AZURE.NOTE] 아래 지침에 따라 만드는 노트북은 클러스터에서 기본적으로 사용 가능합니다. Jupyter를 시작한 후 **HVACTutorial.ipynb** 이름으로 이 Notebook을 찾습니다.
 
 1. [Azure 포털](https://portal.azure.com/)의 시작 보드에서 Spark 클러스터에 대한 타일을 클릭합니다(시작 보드에 고정한 경우). **모두 찾아보기** > **HDInsight 클러스터**에서 클러스터로 이동할 수도 있습니다.   
 
 2. Spark 클러스터 블레이드에서 **빠른 연결**을 클릭한 다음 **클러스터 대시보드** 블레이드에서 **Jupyter Notebook**을 클릭합니다. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다.
 
-	> [AZURE.NOTE]또한 브라우저에서 다음 URL을 열어 클러스터에 대한 Jupyter Notebook에 접근할 수 있습니다. __CLUSTERNAME__을 클러스터의 이름으로 바꿉니다.
+	> [AZURE.NOTE] 또한 브라우저에서 다음 URL을 열어 클러스터에 대한 Jupyter Notebook에 접근할 수 있습니다. __CLUSTERNAME__을 클러스터의 이름으로 바꿉니다.
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
@@ -290,4 +290,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

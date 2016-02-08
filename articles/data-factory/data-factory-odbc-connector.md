@@ -28,6 +28,8 @@
 
 데이터 관리 게이트웨이 외에도 게이트웨이 컴퓨터에서 데이터 저장소에 대한 ODBC 드라이버를 설치해야 합니다.
 
+> [AZURE.NOTE] 연결/게이트웨이 관련 문제 해결에 대한 팁은 [게이트웨이 문제 해결](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting)을 참조하세요.
+
 ## 샘플: ODBC 데이터 저장소에서 Azure Blob로 데이터 복사
 
 아래 샘플은 다음을 보여줍니다.
@@ -42,7 +44,7 @@
 
 첫 번째 단계로 [온-프레미스 위치 및 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서의 지침에 따라 데이터 관리 게이트웨이를 설정합니다.
 
-**ODBC 연결된 서비스** 이 예제에서는 Windows 인증을 사용합니다. 사용할 수 있는 다른 유형의 인증은 [ODBC 연결된 서비스](#odbc-linked-service-properties) 섹션을 참조하세요.
+**ODBC 연결된 서비스** 이 예제에서는 기본 인증을 사용합니다. 사용할 수 있는 다른 유형의 인증은 [ODBC 연결된 서비스](#odbc-linked-service-properties) 섹션을 참조하세요.
 
 	{
 	    "name": "OnPremOdbcLinkedService",
@@ -51,10 +53,10 @@
 	        "type": "OnPremisesOdbc",
 	        "typeProperties":
 	        {
-	            "authenticationType": "Windows",
-	            "connectionString": "Driver={SQL Server};Server=servername; Database=<database>;",
-	            "userName": "<domain>\<user>",
-	            "password": "<password>",
+	            "authenticationType": "Basic",
+	            "connectionString": "Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;",
+	            "userName": "username",
+	            "password": "password",
 	            "gatewayName": "mygateway"
 	        }
 	    }
@@ -221,8 +223,8 @@
 | type | 형식 속성은 **OnPremisesOdbc**로 설정되어야 합니다. | 예 |
 | connectionString | 선택적 암호화된 자격 증명 뿐만 아니라 연결 문자열의 비 액세스 자격 증명 부분입니다. 아래 예제를 참조하세요. | 예
 | 자격 증명 | 드라이버 관련 속성 값 형식에 지정된 연결 문자열의 액세스 자격 증명 부분입니다. 예: “Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;” | 아니요
-| authenticationType | ODBC 데이터 저장소에 연결하는 데 사용되는 인증 형식입니다. 가능한 값은 익명, 기본 및 Windows입니다. | 예 | 
-| username | 기본 또는 Windows 인증을 사용하는 경우 사용자 이름을 지정합니다. | 아니요 | 
+| authenticationType | ODBC 데이터 저장소에 연결하는 데 사용되는 인증 형식입니다. 가능한 값은 익명 및 기본입니다. | 예 | 
+| username | 기본 인증을 사용하는 경우 사용자 이름을 지정합니다. | 아니요 | 
 | password | 사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. | 아니요 | 
 | gatewayName | 데이터 팩터리 서비스가 ODBC 데이터 저장소에 연결하는 데 사용해야 하는 게이트웨이의 이름. | 예 |
 
@@ -263,24 +265,6 @@
 	        }
 	    }
 	}
-
-### Windows 인증 사용
-
-	{
-	    "name": "odbc",
-	    "properties":
-	    {
-	        "type": "OnPremisesOdbc",
-	        "typeProperties":
-	        {
-	            "authenticationType": "Windows",
-	            "connectionString": "Driver={SQL Server};Server=servername; Database=TestDatabase;",
-	            "userName": "<domain>\<user>",
-	            "password": "<password>",
-	            "gatewayName": "mygateway"
-	        }
-	    }
-	} 
 
 
 ### 익명 인증 사용
@@ -340,4 +324,4 @@ ODBC 데이터 저장소에서 데이터를 이동할 때 [ODBC 데이터 형식
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

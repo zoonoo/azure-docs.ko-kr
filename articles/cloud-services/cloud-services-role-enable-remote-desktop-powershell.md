@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="09/17/2015" 
+ms.date="01/19/2016" 
 ms.author="saurabh"/>
 
 # PowerShell을 사용하여 Azure 클라우드 서비스의 역할에 대해 원격 데스크톱 연결 사용
@@ -20,12 +20,12 @@ ms.author="saurabh"/>
 >[AZURE.SELECTOR]
 - [Azure classic portal](cloud-services-role-enable-remote-desktop.md)
 - [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
-- [Visual Studio](https://msdn.microsoft.com/library/gg443832.aspx)
+- [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
 
 
 원격 데스크톱을 사용하면 Azure에서 실행 중인 역할의 데스크톱에 액세스할 수 있습니다. 원격 데스크톱 연결을 사용하여 응용 프로그램 실행 중에 응용 프로그램 문제를 진단하고 해결할 수 있습니다.
 
-이 문서에서는 PowerShell을 사용하여 클라우드 서비스 역할에 대해 원격 데스크톱을 사용하는 방법을 설명합니다. 이 문서에 필요한 필수 조건은 [Azure PowerShell 설치 및 구성하는 방법](powershell-install-configure.md)을 참조하세요. PowerShell에서는 응용 프로그램이 배포된 후에도 원격 데스크톱을 사용 가능하게 설정할 수 있도록 원격 데스크톱 확장 접근 방법을 사용합니다.
+이 문서에서는 PowerShell을 사용하여 클라우드 서비스 역할에 대해 원격 데스크톱을 사용하는 방법을 설명합니다. 이 문서에 필요한 필수 조건은 [Azure PowerShell 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요. PowerShell에서는 응용 프로그램이 배포된 후에도 원격 데스크톱을 사용 가능하게 설정할 수 있도록 원격 데스크톱 확장 접근 방법을 사용합니다.
 
 
 ## PowerShell에서 원격 데스크톱 구성
@@ -50,7 +50,7 @@ PowerShell은 자동화 시나리오에 주로 사용되므로 사용자 조작�
 
 암호 파일(password.txt)을 만들고 나면, 이 파일만 사용할 것이며 일반 텍스트로 암호를 지정할 필요가 없습니다. 암호를 업데이트해야 하는 경우, 새 암호로 위의 powershell을 다시 실행하여 새 password.txt 파일을 생성할 수 있습니다.
 
->[AZURE.IMPORTANT]암호를 설정할 때 [복잡성 요구 사항](https://technet.microsoft.com/library/cc786468.aspx)을 충족하는지 확인합니다.
+>[AZURE.IMPORTANT] 암호를 설정할 때 [복잡성 요구 사항](https://technet.microsoft.com/library/cc786468.aspx)을 충족하는지 확인합니다.
 
 보안 암호 파일에서 자격 증명 개체를 만들려면 파일 내용을 읽고 [Convertto-securestring](https://technet.microsoft.com/library/hh849818.aspx)을 사용하여 이를 다시 보안 문자열로 변환해야 합니다. 자격 증명 외에 [Set-AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/library/azure/dn495117.aspx) cmdlet는 사용자 계정이 만료되는 DateTime을 지정하는 *Expiration* 매개 변수를 수락하기도 합니다. 고정된 날짜와 시간을 지정하여 이를 설정하거나 현재 날짜로부터 만료가 얼마 남지 않은 계정을 간단히 선택할 수 있습니다.
 
@@ -94,7 +94,7 @@ Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallCo
 
 ```  
 
->[AZURE.NOTE]*UninstallConfiguration* 매개 변수는 서비스에 적용된 모든 확장 구성을 제거합니다. 모든 확장 구성은 배포를 통해 확장을 활성화하는 서비스 구성과 연결되고 배포는 확장 구성과 연결되어야 됩니다. *UninstallConfiguration* 없는 제거 cmdlet를 호출하면 확장 구성에서 배포가 분리되어 배포에서 확장이 효과적으로 제거됩니다. 그러나 확장 구성은 서비스와 연결되어 있습니다. 확장 구성을 완전히 제거하려면 *UninstallConfiguration* 매개 변수로 제거 cmdlet을 호출해야 합니다.
+>[AZURE.NOTE] *UninstallConfiguration* 매개 변수는 서비스에 적용된 모든 확장 구성을 제거합니다. 모든 확장 구성은 배포를 통해 확장을 활성화하는 서비스 구성과 연결되고 배포는 확장 구성과 연결되어야 됩니다. *UninstallConfiguration* 없는 제거 cmdlet를 호출하면 확장 구성에서 배포가 분리되어 배포에서 확장이 효과적으로 제거됩니다. 그러나 확장 구성은 서비스와 연결되어 있습니다. 확장 구성을 완전히 제거하려면 *UninstallConfiguration* 매개 변수로 제거 cmdlet을 호출해야 합니다.
 
 
 
@@ -102,4 +102,4 @@ Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallCo
 
 [클라우드 서비스를 구성하는 방법](cloud-services-how-to-configure.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->
