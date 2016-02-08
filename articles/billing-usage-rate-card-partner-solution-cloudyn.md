@@ -31,7 +31,7 @@ RateCard API의 데이터와 사용 API에서 데이터의 소위 "multiplicatio
 ## RateCard 및 사용 API와 Cloudyn 통합
 RateCard API는 지역 정보, 통화 및 로컬과 같은 여러 입력된 매개 변수가 필요하지만 가장 중요한 것은 OfferDurableID로 사용하는 고객에게 제공하는 Azure의 유형을 지정합니다.(종량제, 레거시 6 및 12개월 약정 계획, MSDN 제공, MPN 제공, 프로모션 제공 및 기타) OfferDurableID는 지정된 구독에 대한 "Offer ID" 아래 [Azure 사용 및 대금 청구 포털](https://account.windowsazure.com/Subscriptions)에서 찾을 수 있습니다.
 
-[Azure용 Cloudyn](https://www.cloudyn.com/microsoft-azure/) 서비스에 등록하여 고객은 Cloudyn RateCard API를 통해 관련 가격 정보를 가져올 수 있는 OfferDurableID 코드를 추가할 수 있습니다. 다른 유형의 제품에 대한 정보는 [Microsoft Azure 제품 세부 정보](https://azure.microsoft.com/en-gb/support/legal/offer-details/) 페이지에서 찾을 수 있습니다.
+[Azure용 Cloudyn](https://www.cloudyn.com/microsoft-azure/) 서비스에 등록하여 고객은 Cloudyn RateCard API를 통해 관련 가격 정보를 가져올 수 있는 OfferDurableID 코드를 추가할 수 있습니다. 다른 유형의 제품에 대한 정보는 [Microsoft Azure 제품 세부 정보](https://azure.microsoft.com/support/legal/offer-details/) 페이지에서 찾을 수 있습니다.
 
 ![Cloudyn ITFM 엔진 개요][2]
 

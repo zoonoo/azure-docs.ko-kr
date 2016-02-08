@@ -20,7 +20,7 @@
 
 # Azure 구독 지불에 사용하는 신용 카드를 변경하는 방법
 
-신용 또는 직불 카드를 사용하여 지불하거나 청구서로 지불 승인을 받을 수 있습니다. 청구서로 지불하는 방법에 대한 자세한 내용은 [Azure 청구](https://azure.microsoft.com/ko-KR/pricing/invoicing/)를 참조하세요.
+신용 또는 직불 카드를 사용하여 지불하거나 청구서로 지불 승인을 받을 수 있습니다. 청구서로 지불하는 방법에 대한 자세한 내용은 [Azure 청구](https://azure.microsoft.com/pricing/invoicing/)를 참조하세요.
 
 ## 기존 신용 카드에 대한 결제 정보 편집
 1. [Azure 계정 센터](https://account.windowsazure.com/Subscriptions)에 계정 관리자로 로그온합니다.

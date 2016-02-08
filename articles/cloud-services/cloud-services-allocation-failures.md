@@ -81,7 +81,7 @@ Azure 데이터 센터의 서버는 클러스터로 분할되어 있습니다. �
 
 4. 새 배포에 대한 선호도 그룹 제거 - 선호도 그룹은 더 이상 권장되지 않습니다. 위의 #1에 따라 새 클라우드 서비스를 배포합니다. 클라우드 서비스가 선호도 그룹에 없는지 확인합니다.
 
-5. 지역 가상 네트워크로 변환 - [선호도 그룹에서 지역 VNet(가상 네트워크)으로 마이그레이션하는 방법](https://azure.microsoft.com/documentation/articles/virtual-networks-migrate-to-regional-vnet/)을 참조하세요.
+5. 지역 가상 네트워크로 변환 - [선호도 그룹에서 지역 VNet(가상 네트워크)으로 마이그레이션하는 방법]( https://azure.microsoft.com/documentation/articles/virtual-networks-migrate-to-regional-vnet/)을 참조하세요.
 
 ## 추가 리소스
 ### Azure 고객 지원 서비스에 문의

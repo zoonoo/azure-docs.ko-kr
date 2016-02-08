@@ -33,7 +33,7 @@
 
 * Azure AD 팀에서 사용할 수 있는 응용 프로그램을 사용하는 테스트 테넌트 또는 계정에 대한 자격 증명을 제공하여 통합을 테스트합니다.  
 
-* Azure AD 팀이 [Azure AD 동의 프레임워크](https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/#overview-of-the-consent-framework/)를 사용하여 로그인하고 응용 프로그램에 Azure AD의 인스턴스를 연결하는 방법에 대한 지침을 제공합니다.
+* Azure AD 팀이 [Azure AD 동의 프레임워크]( https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/#overview-of-the-consent-framework/)를 사용하여 로그인하고 응용 프로그램에 Azure AD의 인스턴스를 연결하는 방법에 대한 지침을 제공합니다.
 
 * 응용 프로그램을 사용하여 Single Sign-On을 테스트하기 위해 Azure AD 팀에 필요한 추가 지침을 제공합니다.
 

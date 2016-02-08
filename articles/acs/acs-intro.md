@@ -28,7 +28,7 @@ ACS는 Docker를 활용하여 응용 프로그램 컨테이너가 완전히 이�
 
 Azure 컨테이너 서비스를 사용하면 오케스트레이션 계층에 포함되는 응용 프로그램 이식성을 유지하면서 Azure의 엔터프라이즈급 기능을 활용할 수 있습니다.
 
-이 서비스가 미리 보기 상태에 있는 동안 [self-nominate(자체 지정)](http://aka.ms/acspreview) 서비스에 대한 테스트를 요청합니다. 미리 보기 액세스가 제공되면 배포 템플릿 및 시작 지침을 포함하는 추가 세부 정보를 가진 전자 메일이 전송됩니다. 이 서비스를 사용하려면 Azure 구독이 필요합니다. 아직 구독하지 않은 경우 [무료 평가판](https://azure.microsoft.com/ko-KR/pricing/free-trial/)에 등록해 보는 것이 어때요?
+이 서비스가 미리 보기 상태에 있는 동안 [self-nominate(자체 지정)](http://aka.ms/acspreview) 서비스에 대한 테스트를 요청합니다. 미리 보기 액세스가 제공되면 배포 템플릿 및 시작 지침을 포함하는 추가 세부 정보를 가진 전자 메일이 전송됩니다. 이 서비스를 사용하려면 Azure 구독이 필요합니다. 아직 구독하지 않은 경우 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록해 보는 것이 어때요?
 
 Azure 컨테이너 서비스 사용
 -----------------------------
@@ -104,7 +104,7 @@ Swarm 클러스터의 컨테이너를 관리하기 위해 지원된 도구를 �
 액세스하기
 --------------
 
-이 서비스가 미리 보기 상태에 있는 동안 [self-nominate(자체 지정)](http://aka.ms/acspreview) 서비스에 대한 테스트를 요청합니다. 먼저 Azure 구독이 필요합니다. 아직 구독하지 않은 경우 [무료 평가판](https://azure.microsoft.com/ko-KR/pricing/free-trial/)에 등록해 보는 것이 어때요?
+이 서비스가 미리 보기 상태에 있는 동안 [self-nominate(자체 지정)](http://aka.ms/acspreview) 서비스에 대한 테스트를 요청합니다. 먼저 Azure 구독이 필요합니다. 아직 구독하지 않은 경우 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록해 보는 것이 어때요?
 
 비디오
 ------

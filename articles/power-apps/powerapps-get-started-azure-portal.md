@@ -159,7 +159,7 @@ PowerApps API 및 연결, 그리고 모바일 앱, 웹 앱, API 앱 및 논리 �
 
 1. 방금 만든 앱 서비스 환경을 선택합니다.
 2. Essentials에서 **리소스 그룹** 속성을 선택합니다. 그러면 앱 서비스 환경을 포함하고 있는 리소스 그룹이 열립니다. ![][7]
-3. 사용 권한을 관리하는 RBAC 아이콘을 선택합니다. ![][8] 사용자 추가 및 역할 할당은 Azure 내에서 [역할 기반 액세스 제어](https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/)를 사용할 때와 같습니다.
+3. 사용 권한을 관리하는 RBAC 아이콘을 선택합니다. ![][8] 사용자 추가 및 역할 할당은 Azure 내에서 [역할 기반 액세스 제어]( https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/)를 사용할 때와 같습니다.
 
 > [AZURE.NOTE] 현재 앱 서비스 환경에 RBAC 권한을 부여할 수 없습니다. 부모 리소스 그룹 수준에서 RBAC 사용 권한을 부여할 수 있습니다.
 
