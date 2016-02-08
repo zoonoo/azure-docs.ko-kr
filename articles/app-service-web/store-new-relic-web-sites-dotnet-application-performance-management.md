@@ -38,7 +38,8 @@ New Relic Standard는 Azure 사용자에게 무료입니다. New Relic Pro는 �
 
 Azure 고객은 New Relic 에이전트를 배포할 때 New Relic Pro에 대해 2주의 평가판 구독을 받습니다.
 
-Azure 마켓플레이스를 사용하여 New Relic에 등록 --
+Azure 마켓플레이스를 사용하여 New Relic에 등록 
+--
 
 New Relic은 Azure 웹 역할, 작업자 역할 및 Azure 앱 서비스와 원활하게 통합됩니다.
 
@@ -71,7 +72,7 @@ Azure 마켓플레이스에서 직접 New Relic에 등록하려면 다음과 같
 
 	![](./media/store-new-relic-web-sites-dotnet-application-performance-management/configure-new-relic-integration.png)
 
-	저장 작업이 완료되면 웹 앱의 블레이드에서 **모든 설정**을 클릭한 다음 **응용 프로그램 설정**을 클릭합니다. New Relic 지원을 위해 블레이드의 **앱 설정** 섹션에 추가된 **NEWRELIC\_LICENSEKEY** 설정이 보입니다.
+	저장 작업이 완료되면 웹 앱의 블레이드에서 **모든 설정**을 클릭한 다음 **응용 프로그램 설정**을 클릭합니다. New Relic 지원을 위해 블레이드의 **앱 설정** 섹션에 추가된 **NEWRELIC_LICENSEKEY** 설정이 보입니다.
 
 	>[AZURE.NOTE] 새 앱 설정이 적용되기까지는 최대 30초 정도의 시간이 소요됩니다. 설정이 즉시 적용되도록 하려면 웹 앱을 다시 시작합니다.
 

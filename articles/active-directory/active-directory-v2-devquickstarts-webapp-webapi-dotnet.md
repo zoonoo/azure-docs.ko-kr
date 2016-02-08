@@ -46,7 +46,7 @@ v2.0 앱 모델에서는 개인 Microsoft 계정과 회사 또는 학교 계정 
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet.git```
 
-## 1\. 앱 등록
+## 1. 앱 등록
 [apps.dev.microsoft.com](https://apps.dev.microsoft.com)에서 새 앱을 만들거나 다음 [자세한 단계](active-directory-v2-app-registration.md)를 따르십시오. 다음을 수행해야 합니다.
 
 - 곧 필요하게 되므로 앱에 할당된 **응용 프로그램 ID**를 적어둡니다.
@@ -55,7 +55,7 @@ v2.0 앱 모델에서는 개인 Microsoft 계정과 회사 또는 학교 계정 
 - 올바른 **리디렉션 URI**를 입력합니다. 리디렉션 URI는 인증 응답을 보내야 하는 Azure AD를 나타냅니다. 이 자습서에 대한 기본값은 `https://localhost:44326/`입니다.
 
 
-## 2\. OpenID Connect를 사용하여 사용자 로그인
+## 2. OpenID Connect를 사용하여 사용자 로그인
 여기서는 [OpenID Connect 인증 프로토콜](active-directory-v2-protocols.md#openid-connect-sign-in-flow)을 사용하도록 OWIN 미들웨어를 구성합니다. OWIN은 로그인 및 로그아웃 요청을 실행하고, 사용자의 세션을 관리하고, 사용자에 대한 정보를 가져오는 데 사용됩니다.
 
 -	먼저 `TodoList-WebApp` 프로젝트의 루트에서 `web.config` 파일을 열고 `<appSettings>` 섹션에 앱의 구성 값을 입력합니다.
@@ -119,7 +119,9 @@ public void ConfigureAuth(IAppBuilder app)
 
 - 먼저 ADAL 미리 보기 버전을 설치합니다.
 
-```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease``` - 그리고 ADAL의 `App_Start\Startup.Auth.cs` 파일에 다른 `using` 문을 추가합니다. - 이제 새 메서드인 `OnAuthorizationCodeReceived` 이벤트 처리기를 추가합니다. 이 처리기는 ADAL을 사용하여 할 일 목록 API에 대한 액세스 토큰을 가져오는 데 사용하며, 나중에 ADAL의 토큰 캐시에 토큰을 저장합니다.
+```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease``` 
+- 그리고 ADAL의 `App_Start\Startup.Auth.cs` 파일에 다른 `using` 문을 추가합니다. 
+- 이제 새 메서드인 `OnAuthorizationCodeReceived` 이벤트 처리기를 추가합니다. 이 처리기는 ADAL을 사용하여 할 일 목록 API에 대한 액세스 토큰을 가져오는 데 사용하며, 나중에 ADAL의 토큰 캐시에 토큰을 저장합니다.
 
 ```C#
 private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
@@ -201,6 +203,8 @@ catch (AdalException ee)
 
 ## 다음 단계
 
-추가 리소스는 다음을 확인해보세요. - [앱 모델 v2.0 미리 보기 >>](active-directory-appmodel-v2-overview.md) - [스택 오버플로 "adal" 태그 >>](http://stackoverflow.com/questions/tagged/adal)
+추가 리소스는 다음을 확인해보세요. 
+- [앱 모델 v2.0 미리 보기 >>](active-directory-appmodel-v2-overview.md) 
+- [스택 오버플로 "adal" 태그 >>](http://stackoverflow.com/questions/tagged/adal)
 
 <!---HONumber=AcomDC_0128_2016-->

@@ -77,7 +77,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 | 매개 변수 | | 설명 |
 | ----------------------- | ------------------------------- | ----------------------- |
-| client\_id | 필수 | [Azure 포털](https://portal.azure.com/)이 앱에 할당된 응용 프로그램 ID입니다. |
+| client\_id | 필수 | [Azure 포털](https://portal.azure.com)이 앱에 할당된 응용 프로그램 ID입니다. |
 | response\_type | 필수 | OpenID Connect를 위한 `id_token`이 포함되어야 합니다. 웹앱이 Web API를 호출하기 위해 토큰이 필요한 경우 여기서 수행한 대로 `code+id_token`를 사용할 수 있습니다. |
 | redirect\_uri | 필수 | 앱이 인증 응답을 보내고 받을 수 있는 앱의 redirect\_uri입니다. URL로 인코드되어야 한다는 점을 제외하고 포털에서 등록한 redirect\_uri 중 하나와 정확히 일치해야 합니다. |
 | scope | 필수 | 공백으로 구분된 범위 목록입니다. 단일 범위 값은 요청된 사용 권한을 모두 Azure AD에 나타냅니다. `openid` 범위는 사용자 로그인 및 **id\_tokens**의 형식으로 사용자에 대 한 데이터를 가져올 사용 권한을 나타냅니다.(앞으로 추가됨) `offline_access` 범위는 웹앱에 대한 선택 사항입니다. 앱이 리소스에 장기간 액세스할 수 있도록 **refresh\_token**이 필요함을 나타냅니다. |
@@ -133,7 +133,8 @@ Azure AD B2C에는 앱이 런타임에 Azure AD B2C에 대한 정보를 가져�
 
 id\_token을 서명하는 데 어떤 정책을 사용할지(그리고 메타데이터를 인출하는 위치)를 결정하기 위해 두 가지 옵션이 있습니다. 먼저 정책 이름은 id\_token의 `acr` 클레임에 포함됩니다. id\_token에서 클레임을 구문 분석하는 방법에 대한 내용은 [Azure AD B2C 토큰 참조](active-directory-b2c-reference-tokens.md)를 참조하세요. 다른 옵션은 요청을 실행할 때 `state` 매개 변수의 값에 정책을 인코딩한 다음 이를 디코딩하여 어떤 정책을 사용할지 결정하는 것입니다. 두 방법 모두 완벽하게 유효합니다.
 
-OpenID Connect 메타데이터 끝점에서 메타데이터 문서를 획득하면 이 끝점에 위치한 RSA256 공용 키를 사용하여 id\_token의 서명의 유효성을 검사할 수 있습니다. 이 끝점에는 항상 여러 키가 나열될 수 있으며, 각각 `kid`로 식별됩니다. id\_token의 헤더에는 id\_token 서명에 사용된 키를 나타내는 `kid` 클레임도 포함됩니다. [토큰 유효성 검사](active-directory-b2c-reference-tokens.md#validating-tokens) 및 [서명 키 롤오버에 대한 중요한 정보](active-directory-b2c-reference-tokens.md#validating-tokens)를 포함하여 자세한 내용은 [Azure AD B2C 토큰 참조](active-directory-b2c-reference-tokens.md)를 참조하세요.<!--TODO: Improve the information on this-->
+OpenID Connect 메타데이터 끝점에서 메타데이터 문서를 획득하면 이 끝점에 위치한 RSA256 공용 키를 사용하여 id\_token의 서명의 유효성을 검사할 수 있습니다. 이 끝점에는 항상 여러 키가 나열될 수 있으며, 각각 `kid`로 식별됩니다. id\_token의 헤더에는 id\_token 서명에 사용된 키를 나타내는 `kid` 클레임도 포함됩니다. [토큰 유효성 검사](active-directory-b2c-reference-tokens.md#validating-tokens) 및 [서명 키 롤오버에 대한 중요한 정보](active-directory-b2c-reference-tokens.md#validating-tokens)를 포함하여 자세한 내용은 [Azure AD B2C 토큰 참조](active-directory-b2c-reference-tokens.md)를 참조하세요.
+<!--TODO: Improve the information on this-->
 
 id\_token의 서명 유효성을 검사한 후 확인해야 하는 몇 개의 클레임이 있습니다.
 
@@ -174,12 +175,12 @@ Content-Type: application/json
 | 매개 변수 | | 설명 |
 | ----------------------- | ------------------------------- | --------------------- |
 | p | 필수 | 권한 부여 코드를 획득하는 데 사용된 정책입니다. 이 요청에 다른 정책을 사용할 수 없습니다. **이 매개 변수는 쿼리 문자열에 추가 됩니다**. 게시 본문은 안됩니다. |
-| client\_id | 필수 | [Azure 포털](https://portal.azure.com/)이 앱에 할당된 응용 프로그램 ID입니다. |
+| client\_id | 필수 | [Azure 포털](https://portal.azure.com)이 앱에 할당된 응용 프로그램 ID입니다. |
 | grant\_type | 필수 | 인증 코드 흐름에 대한 `authorization_code`여야 합니다. |
 | scope | 필수 | 공백으로 구분된 범위 목록입니다. 단일 범위 값은 요청된 사용 권한을 모두 Azure AD에 나타냅니다. `openid` 범위는 사용자 로그인 및 **id\_tokens**의 형식으로 사용자에 대 한 데이터를 가져올 사용 권한을 나타냅니다. 앱 자체의 백 엔드 Web API에 토큰을 가져오기 위해 사용할 수 있으며 이는 클라이언트와 동일한 응용 프로그램 ID로 나타납니다. `offline_access` 범위는 앱이 리소스에 장기간 액세스할 수 있도록 **refresh\_token**이 필요함을 나타냅니다. |
 | 코드 | 필수 | 흐름의 첫 번째 레그에서 얻은 authorization\_code입니다. |
 | redirect\_uri | 필수 | authorization\_code을 받은 응용 프로그램의 redirect\_uri입니다. |
-| client\_secret | 필수 | [Azure 포털](https://portal.azure.com/)에서 생성한 응용 프로그램 암호입니다. 이 응용 프로그램 암호는 중요한 보안 아티팩트이며 서버에 안전하게 저장해야 합니다. 또한 이 클라이언트 암호를 정기적으로 순환하도록 주의해야 합니다. |
+| client\_secret | 필수 | [Azure 포털](https://portal.azure.com)에서 생성한 응용 프로그램 암호입니다. 이 응용 프로그램 암호는 중요한 보안 아티팩트이며 서버에 안전하게 저장해야 합니다. 또한 이 클라이언트 암호를 정기적으로 순환하도록 주의해야 합니다. |
 
 성공적인 토큰 응답은 다음과 같습니다.
 

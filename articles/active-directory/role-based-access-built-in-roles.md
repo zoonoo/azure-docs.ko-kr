@@ -387,7 +387,8 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있음
 
 | **actions** ||
 | ------- | ------ |
-| */read | 암호를 제외한 모든 유형의 리소스 읽기 | | Microsoft.Authorization/* | 읽기 권한 부여 |
+| */read | 암호를 제외한 모든 유형의 리소스 읽기 | 
+| Microsoft.Authorization/* | 읽기 권한 부여 |
 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
 ### 클래식 가상 컴퓨터 참여자

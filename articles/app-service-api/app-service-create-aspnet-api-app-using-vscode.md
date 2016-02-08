@@ -164,7 +164,8 @@ namespace ContactsList.Controllers
 
 	<pre class="prettyprint">
 dnx: kestrel - (ContactsList, Microsoft.AspNet.Hosting --server Kestrel --server.urls http://localhost:5001
-</pre>명령 창에 *시작됨*이 표시됩니다. 명령 창에 *시작됨*이 표시되지 않는 경우 VSCode의 왼쪽 아래에서 프로젝트에 오류가 있는지 확인합니다.
+	</pre>
+	명령 창에 *시작됨*이 표시됩니다. 명령 창에 *시작됨*이 표시되지 않는 경우 VSCode의 왼쪽 아래에서 프로젝트에 오류가 있는지 확인합니다.
 
 5. 브라우저를 열고 다음 URL로 이동합니다.
 
@@ -312,7 +313,7 @@ ASP.NET API 프로젝트를 API 앱으로 배포할 수 있게 해주는 메타�
 
 > [AZURE.NOTE] 이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우 [가입하여 무료 평가판을 사용](/pricing/free-trial/)하거나 [MSDN 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/)할 수 있습니다. 또한 무료로 [앱 서비스 앱 샘플](http://tryappservice.azure.com)을 사용해 볼 수 있습니다.
 
-1. [Azure Preview 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Preview 포털](https://portal.azure.com)에 로그인합니다.
 
 2. 포털의 왼쪽 위에서 **새로 만들기**를 클릭합니다.
 

@@ -46,7 +46,9 @@
 | ---- | ---- | -------- | ---------------- | ----------- |
 | type | enum | 예 | 리소스의 경우: <br />**{namespace}/{type}/providers/locks**<br /><br />리소스 그룹의 경우:<br />**Microsoft.Authorization/locks** | 만들려는 리소스 종류입니다. |
 | apiVersion | enum | 예 | **2015-01-01** | 리소스를 만들 때 사용하는 API 버전입니다. |  
-| name | string | 예 | 리소스의 경우:<br />**{resouce}/Microsoft.Authorization/{lockname}**<br /><br />리소스 그룹의 경우:<br />**{lockname}****<br /><br />최대 64자<br /><, > %, &, ? 또는 제어 문자를 포함할 수 없습니다. | 잠글 리소스 및 잠금 이름을 지정하는 값입니다. | | dependsOn | array| 아니요 | 쉼표로 구분된 리소스 이름 및 리소스 고유 식별자 목록입니다. | 이 잠금에 따라 달라지는 리소스 컬렉션입니다. 잠근 리소스가 동일한 템플릿으로 배포되는 경우 해당 리소스 이름을 이 요소에 포함하여 먼저 배포되도록 해야 합니다.| properties | object | 예 | (아래 참조) | 잠금 유형을 식별하고 잠금에 대해 설명하는 개체입니다. | 
+| name | string | 예 | 리소스의 경우:<br />**{resouce}/Microsoft.Authorization/{lockname}**<br /><br />리소스 그룹의 경우:<br />**{lockname}****<br /><br />최대 64자<br /><, > %, &, ? 또는 제어 문자를 포함할 수 없습니다. | 잠글 리소스 및 잠금 이름을 지정하는 값입니다. | 
+| dependsOn | array| 아니요 | 쉼표로 구분된 리소스 이름 및 리소스 고유 식별자 목록입니다. | 이 잠금에 따라 달라지는 리소스 컬렉션입니다. 잠근 리소스가 동일한 템플릿으로 배포되는 경우 해당 리소스 이름을 이 요소에 포함하여 먼저 배포되도록 해야 합니다.|
+| properties | object | 예 | (아래 참조) | 잠금 유형을 식별하고 잠금에 대해 설명하는 개체입니다. | 
 
 ### properties 개체
 

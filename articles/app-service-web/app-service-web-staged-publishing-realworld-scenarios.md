@@ -372,14 +372,21 @@ Courier2 패키지를 [여기](https://our.umbraco.org/projects/umbraco-pro/umbr
   </repositories>
  ```
 
-Under `<repositories>`, enter the production site URL and user information. If you are using default Umbraco Membership provider, then add the ID for the Administration user in <user> section . If you are using a custom Umbraco membership provider, use `<login>`,`<password>` to Courier2 module know how to connect to the production site. For more details, review the [documentation](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) for Courier module.
+`<repositories>`에서 프로덕션 사이트 URL 및 사용자 정보를 입력하세요. 기본 Umbraco 멤버 자격 공급자를 사용 중인 경우 <user> 섹션에서 관리 사용자의 ID를 추가하세요. 사용자 정의 Umbraco 멤버 자격 공급자를 사용 중인 경우 `<login>`,`<password>`을(를) Courier2 모듈에 사용하세요.  자세한 정보는 Courier 모듈 [설명서](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) 를 확인하세요.
 
-Similarly, install Courier module on your production site and configure it point to stage web app in its respective courier.config file as shown here
+마찬가지로, 여기에 표시된 대로 프로덕션 사이트에 Courier 모듈을 설치하고 각 courier.config 파일에서 스테이지 웹 앱에 연결하도록 구성하세요.
 
 ```xml
   <!-- Repository connection settings -->
   <!-- For each site, a custom repository must be configured, so Courier knows how to connect and authenticate-->
-  <repositories> <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  --> <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true"> <url>http://umbracositecms-1-stage.azurewebsites.net</url> <user>0</user> </repository> </repositories> ```
+  <repositories>
+        <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  -->
+        <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true">
+            <url>http://umbracositecms-1-stage.azurewebsites.net</url>
+            <user>0</user>
+           </repository>
+  </repositories>
+```
 
 Umbraco CMS 웹앱 대시보드에서 Courier2 탭을 클릭하고 위치를 선택합니다. `courier.config`에 설명된 대로 리포지토리 이름이 표시됩니다. 프로덕션 및 준비 웹앱 모두에서 이 작업을 수행합니다.
 

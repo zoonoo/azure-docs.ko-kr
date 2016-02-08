@@ -3,7 +3,7 @@
 
 기본적으로 Azure는 *.azurewebsites.net 도메인에 대해 와일드카드 인증서를 사용하는 앱에 대해 HTTPS를 사용하도록 설정합니다. 사용자 지정 도메인을 구성하지 않으려는 경우 기본 HTTPS 인증서를 활용할 수 있습니다. 그러나 [모든 와일드카드 도메인](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/)과 마찬가지로, 자체 인증서로 사용자 지정 도메인을 사용하는 것만큼 안전하지 않습니다.
 
-이 문서의 나머지 부분은 **contoso.com**, **www.contoso.com** 또는 ***.contoso.com**과 같은 사용자 지정 도메인에 대한 HTTPS를 사용하기 위한 세부 정보를 제공합니다.
+이 문서의 나머지 부분은 **contoso.com**, **www.contoso.com** 또는 **\*.contoso.com**과 같은 사용자 지정 도메인에 대한 HTTPS를 사용하기 위한 세부 정보를 제공합니다.
 
 <a name="bkmk_domainname"></a>
 ## 사용자 지정 도메인에 대한 SSL을 사용하도록 설정
@@ -40,7 +40,7 @@ Azure 웹 사이트에서 사용할 SSL 인증서를 받으려면 인증 기관�
 - [OpenSSL을 사용하여 SubjectAltName 인증서 가져오기](#bkmk_subjectaltname)
 - [자체 서명된 인증서 생성(테스트 전용)](#bkmk_selfsigned)
 
-> [AZURE.NOTE] 다음 단계에서 **일반 이름**(예: `www.contoso.com`)을 입력하라는 메시지가 표시됩니다. 와일드카드 인증서의 경우 이 값은 *.domainname(예: *.contoso.com)이어야 합니다. *.contoso.com과 같은 와일드카드 이름과 contoso.com과 같은 루트 도메인 이름을 둘 다 지원해야 하는 경우 와일드카드 subjectAltName 인증서를 사용할 수 있습니다.
+> [AZURE.NOTE]다음 단계에서 **일반 이름**(예: `www.contoso.com`)을 입력하라는 메시지가 표시됩니다. 와일드카드 인증서의 경우 이 값은 \*.domainname(예: \*.contoso.com)이어야 합니다. \*.contoso.com과 같은 와일드카드 이름과 contoso.com과 같은 루트 도메인 이름을 둘 다 지원해야 하는 경우 와일드카드 subjectAltName 인증서를 사용할 수 있습니다.
 >
 > ECC(Elliptic Curve Cryptography) 인증서는 Azure 앱 서비스에서 지원되지만 상대적으로 새로운 인증서이며 CSR을 만드는 것과 정확히 동일한 단계로 CA에 대해 작업해야 합니다.
 
@@ -397,8 +397,10 @@ OpenSSL을 사용하면 SubjectAltName 확장을 사용하여 단일 인증서�
 3.	**웹앱** 블레이드를 클릭합니다.
 4.	앱의 이름을 클릭합니다.
 5.	**필수** 페이지에서 **설정**을 클릭합니다.
-6.	**크기 조정** ![크기 조정 탭][scale]을 클릭합니다.
-7.	**크기 조정** 섹션에서 **선택**을 클릭하여 앱 서비스 계획 모드를 설정합니다. ![가격 책정 계층][sslreserved]
+6.	**크기 조정** 
+	![크기 조정 탭][scale]을 클릭합니다.
+7.	**크기 조정** 섹션에서 **선택**을 클릭하여 앱 서비스 계획 모드를 설정합니다. 
+	![가격 책정 계층][sslreserved]
 
 	> [AZURE.NOTE] "웹앱 '&lt;앱 이름&gt;'에 대한 크기 구성' 실패" 오류가 표시되면 자세히 단추를 사용하여 추가 정보를 확인할 수 있습니다. "사용 가능한 표준 인스턴스 서버가 부족하여 이 요청을 충족할 수 없습니다." 오류가 표시될 수도 있습니다. 이 오류가 표시되면 [Azure 지원](/support/options/)으로 문의하세요.
 
@@ -412,9 +414,11 @@ OpenSSL을 사용하면 SubjectAltName 확장을 사용하여 단일 인증서�
 3.	**웹앱** 블레이드를 클릭합니다.
 4.	앱의 이름을 클릭합니다.
 5.	**필수** 페이지에서 **설정**을 클릭합니다.
-6.	**사용자 지정 도메인 및 SSL**을 클릭합니다. ![구성 탭][sslconfig]
+6.	**사용자 지정 도메인 및 SSL**을 클릭합니다. 
+	![구성 탭][sslconfig]
 7.	**인증서** 섹션에서 **업로드**를 클릭합니다.
-8.	**Upload a certificate** 대화 상자에서 IIS 관리자 또는 OpenSSL을 사용하여 앞에서 만든 .pfx 인증서 파일을 선택합니다. .pfx 파일의 보안을 설정하는 데 사용된 암호(있는 경우)를 지정합니다. 끝으로, **저장**을 클릭하여 인증서를 업로드합니다. ![ssl 업로드][ssluploadcert]
+8.	**Upload a certificate** 대화 상자에서 IIS 관리자 또는 OpenSSL을 사용하여 앞에서 만든 .pfx 인증서 파일을 선택합니다. .pfx 파일의 보안을 설정하는 데 사용된 암호(있는 경우)를 지정합니다. 끝으로, **저장**을 클릭하여 인증서를 업로드합니다. 
+	![ssl 업로드][ssluploadcert]
 9. **SSL 설정** 탭의 **ssl 바인딩** 섹션에서 드롭다운을 사용하여 SSL로 보안을 설정할 도메인 이름과 사용할 인증서를 선택합니다. SNI([서버 이름 표시][sni])를 사용할지 또는 IP 기반 SSL을 사용할지 선택할 수도 있습니다.
 
 	![SSL 바인딩][sslbindings]

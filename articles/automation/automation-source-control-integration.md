@@ -120,7 +120,7 @@ Runbook 체크 인을 사용하면 Azure 자동화에서 Runbook에 대한 변�
 
     ![체크 인 입력](media/automation-source-control-integration/automation_09_CheckinInput.png)
 
-6. 변경 내용을 보기 위해 작업이 완료되면 GitHub 리포지토리를 새로 고칩니다. 커밋 메시지(**Azure 자동화에서 업데이트된 *Runbook 이름***)와 함께 리포지토리에 커밋이 있어야 합니다.
+6. 변경 내용을 보기 위해 작업이 완료되면 GitHub 리포지토리를 새로 고칩니다. 커밋 메시지**(Azure 자동화에서 업데이트된 *Runbook 이름* )**와 함께 리포지토리에 커밋이 있어야 합니다.
 
 
 

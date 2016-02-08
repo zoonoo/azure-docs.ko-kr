@@ -18,9 +18,9 @@
 # Azure에서 StorSimple 가상 장치 배포 및 관리(업데이트 2)
 
 > [AZURE.SELECTOR]
-- [Update 2](../articles/storsimple/storsimple-virtual-device-u2.md)
-- [Update 1](../articles/storsimple/storsimple-virtual-device-u1.md)
-- [GA Release](../articles/storsimple/storsimple-virtual-device.md)
+- [업데이트 2](../articles/storsimple/storsimple-virtual-device-u2.md)
+- [업데이트 1](../articles/storsimple/storsimple-virtual-device-u1.md)
+- [GA 릴리스](../articles/storsimple/storsimple-virtual-device.md)
 
 ##개요
 StorSimple 가상 장치는 Microsoft Azure StorSimple 솔루션과 함께 제공되는 추가 기능입니다. StorSimple 가상 장치는 Microsoft Azure 가상 네트워크의 가상 컴퓨터에서 실행되며, 이 장치를 사용하여 호스트에서 데이터를 백업하고 복제할 수 있습니다.
@@ -125,7 +125,8 @@ StorSimple 가상 장치는 Microsoft Azure 가상 컴퓨터의 단일 노드에
 
 이 절차를 시작하기 전에 서비스 데이터 암호화 키의 복사본을 가지고 있는지 확인합니다. 첫번째 StorSimple 장치를 구성하고 안전한 위치에 저장하도록 명령한 경우, 서비스 데이터 암호화 키가 만들어집니다. 서비스 데이터 암호화 키의 복사본이 없는 경우 Microsoft 지원에 문의해야 합니다.
 
-다음 단계에 따라 StorSimple 가상 장치를 구성하고 등록합니다.[AZURE.INCLUDE [가상 장치 구성 및 등록](../../includes/storsimple-configure-register-virtual-device.md)]
+다음 단계에 따라 StorSimple 가상 장치를 구성하고 등록합니다.
+[AZURE.INCLUDE [가상 장치 구성 및 등록](../../includes/storsimple-configure-register-virtual-device.md)]
 
 ### 3단계: (선택 사항) 장치 구성 설정 수정
 

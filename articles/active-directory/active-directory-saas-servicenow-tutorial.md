@@ -16,7 +16,8 @@
 
 #자습서: ServiceNow와 Azure Active Directory 통합
   
-이 자습서는 Azure와 ServiceNow의 통합을 보여주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
+이 자습서는 Azure와 ServiceNow의 통합을 보여주기 위한 것입니다. 
+이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 -   유효한 Azure 구독
 -   ServiceNow의 테넌트
@@ -195,7 +196,7 @@
 
     k. **AuthnContextClass 만들기**의 선택을 취소합니다.
 
-    l. **AuthnContextClassRef 메서드**에 ****http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password**를 입력합니다.
+    l. **AuthnContextClassRef 메서드**에 **http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password**를 입력합니다.
 
     m. **시계 기울이기** 텍스트 상자에 **60**을 입력합니다.
 
@@ -229,19 +230,19 @@
 
 2. **ServiceNow 자격 증명을 입력하여 자동 사용자 프로비전 사용** 페이지에서 사용자 프로비전 구성 설정을 제공합니다.
 
-     2\.1. **ServiceNow 인스턴스 이름** 텍스트 상자에 ServiceNow 인스턴스 이름을 입력합니다.
+     2.1. **ServiceNow 인스턴스 이름** 텍스트 상자에 ServiceNow 인스턴스 이름을 입력합니다.
 
-     2\.2. **ServiceNow 관리자 사용자 이름** 텍스트 상자에 ServiceNow 관리자 계정의 이름을 입력합니다.
+     2.2. **ServiceNow 관리자 사용자 이름** 텍스트 상자에 ServiceNow 관리자 계정의 이름을 입력합니다.
 
-     2\.3. **ServiceNow 관리자 암호** 텍스트 상자에 이 계정의 암호를 입력합니다.
+     2.3. **ServiceNow 관리자 암호** 텍스트 상자에 이 계정의 암호를 입력합니다.
 
-     2\.4. **유효성 검사**를 클릭하여 구성을 확인합니다.
+     2.4. **유효성 검사**를 클릭하여 구성을 확인합니다.
 
-     2\.5. **다음** 단추를 클릭하여 **다음 단계** 페이지를 엽니다.
+     2.5. **다음** 단추를 클릭하여 **다음 단계** 페이지를 엽니다.
 
-     2\.6. 이 응용 프로그램에 모든 사용자를 프로비전하려는 경우 "** 이 응용 프로그램에 대한 디렉터리의 모든 사용자 계정을 자동으로 프로비전**"을 선택합니다. <br><br> ![다음 단계](./media/active-directory-saas-servicenow-tutorial/IC698804.png "다음 단계")
+     2.6. 이 응용 프로그램에 모든 사용자를 프로비전하려는 경우 "**이 응용 프로그램에 대한 디렉터리의 모든 사용자 계정을 자동으로 프로비전**"을 선택합니다. <br><br> ![다음 단계](./media/active-directory-saas-servicenow-tutorial/IC698804.png "다음 단계")
 
-     2\.7. **다음 단계** 페이지에서 **완료**를 클릭하여 구성을 저장합니다.
+     2.7. **다음 단계** 페이지에서 **완료**를 클릭하여 구성을 저장합니다.
 
 
 

@@ -207,7 +207,7 @@ Azure PowerShell을 설치하려면 이전 섹션 **Azure PowerShell 설치 및 
 
 1.	agent.zip을 다운로드합니다. 다음을 수행합니다.
 
-    1.	팀 프로젝트에 로그인합니다(예: ****https://[your-VSTS-account-name].visualstudio.com**).
+    1.	팀 프로젝트에 로그인합니다(예: **https://[your-VSTS-account-name].visualstudio.com**).
 
     2.	화면 오른쪽 위 모퉁이에서 '기어' 아이콘을 선택합니다.
 

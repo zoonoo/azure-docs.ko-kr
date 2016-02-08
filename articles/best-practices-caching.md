@@ -427,9 +427,20 @@ Redis는 문자열 값에 대한 일련의 원자성 get-and-set 작업을 지�
 
 - 정수 숫자 데이터 값에 원자성 증가 및 감소 작업을 수행하는 `INCR`, `INCRBY`, `DECR`, 및 `DECRBY`입니다. StackExchange 라이브러리는 `IDatabase.StringIncrementAsync` 및 `IDatabase.StringDecrementAsync` 메서드의 오버로드된 버전을 제공하여 이러한 작업을 수행하고 캐시에 저장된 결과 값을 반환합니다. 다음 코드 조각에서는 이러한 메서드를 사용하는 방법을 보여줍니다.
 
-  ```csharp ConnectionMultiplexer redisHostConnection = ...; IDatabase cache = redisHostConnection.GetDatabase(); ... await cache.StringSetAsync("data:counter", 99); ... long oldValue = await cache.StringIncrementAsync("data:counter"); // 1씩 증가합니다(기본값) // oldValue는 100이어야 합니다.
+  ```csharp 
+  ConnectionMultiplexer redisHostConnection = ...;
+   IDatabase cache = redisHostConnection.GetDatabase();
+  ...
+  await cache.StringSetAsync("data:counter", 99);
+  ...
+  long oldValue = await cache.StringIncrementAsync("data:counter");
+  // 1씩 증가합니다(기본값)
+  // oldValue는 100이어야 합니다.
 
-  long newValue = await cache.StringDecrementAsync("data:counter", 50); // 50씩 감소합니다 // newValue는 50이어야 합니다. ```
+  long newValue = await cache.StringDecrementAsync("data:counter", 50); 
+  // 50씩 감소합니다
+  // newValue는 50이어야 합니다.
+  ```
 
 - 키와 연결된 값을 검색하고 새 값으로 변경하는 `GETSET`입니다. StackExchange 라이브러리를 사용하면 이 작업을 `IDatabase.StringGetSetAsync` 방법을 통해 사용할 수 있습니다. 아래 코드 조각에 이 메서드의 예가 나와 있습니다. 이 코드는 이전 예제에서 "data:counter" 키와 연결된 현재 값을 반환하고 동일한 작업의 일부로 이 키의 값을 0으로 다시 돌려 설정합니다.
 
@@ -442,9 +453,28 @@ Redis는 문자열 값에 대한 일련의 원자성 get-and-set 작업을 지�
 
 - 문자열 값의 집합을 단일 작업으로 반환하거나 변경할 수 있는 `MGET` 및 `MSET`입니다. `IDatabase.StringGetAsync` 및 `IDatabase.StringSetAsync` 방법은 다음 예와 같이 이 기능을 지원하기 위해 오버로드됩니다.
 
-  ```csharp ConnectionMultiplexer redisHostConnection = ...; IDatabase cache = redisHostConnection.GetDatabase(); ... // 키/값 쌍의 목록을 만듭니다 var keysAndValues = new List<KeyValuePair<RedisKey  RedisValue>>() { new KeyValuePair<RedisKey  RedisValue>("data:key1", "value1"), new KeyValuePair<RedisKey  RedisValue>("data:key99", "value2"), new KeyValuePair<RedisKey  RedisValue>("data:key322", "value3") };
+  ```csharp 
+  ConnectionMultiplexer redisHostConnection = ...;
+  IDatabase cache = redisHostConnection.GetDatabase();
+  ...
+  // 키/값 쌍의 목록을 만듭니다
+  var keysAndValues = 
+      new List<KeyValuePair<RedisKey, RedisValue>>()
+      {
+          new KeyValuePair<RedisKey, RedisValue>("data:key1", "value1"),
+          new KeyValuePair<RedisKey, RedisValue>("data:key99", "value2"),
+          new KeyValuePair<RedisKey, RedisValue>("data:key322", "value3")
+      };
 
-  // 키/값 쌍의 목록을 캐시에 저장합니다 cache.StringSet(keysAndValues.ToArray()); ... //키 목록이 일치하는 모든 값을 찾습니다 RedisKey keys = { "data:key1", "data:key99", "data:key322"}; RedisValue values = null; values = cache.StringGet(keys); // 값은 { "value1", "value2", "value3" }를 포함해야 합니다 ```
+  // 키/값 쌍의 목록을 캐시에 저장합니다
+  cache.StringSet(keysAndValues.ToArray());
+  ...
+  //키 목록이 일치하는 모든 값을 찾습니다
+  RedisKey keys = { "data:key1", "data:key99", "data:key322"};
+  RedisValue values = null;
+  values = cache.StringGet(keys);
+  // 값은 { "value1", "value2", "value3" }를 포함해야 합니다 
+  ```
 
 이 설명서의 Redis 트랜잭션 및 배치 섹션에서 설명한 대로 여러 작업을 단일 Redis 트랜잭션으로 결합할 수도 있습니다. StackExchange 라이브러리는 `ITransaction` 인터페이스를 통해 트랜잭션에 대한 지원을 제공합니다. IDatabase.CreateTransaction 메서드를 사용하여 ITransaction 개체를 만들고 `ITransaction` 개체를 제공한 메서드를 사용하여 트랜잭션에 명령을 호출할 수 있습니다. 이 `ITransaction` 인터페이스는 모든 메서드가 비동기 작업인 경우를 제외하고 `IDatabase` 인터페이스와 비슷한 메서드 집합에 액세스를 제공합니다. 이는 `ITransaction.Execute` 메서드가 호출된 경우에만 수행합니다. Execute 메서드에 의해 반환되는 값은 트랜잭션이 성공적으로(true) 또는 실패하여(false) 만들어졌는지 여부를 나타냅니다.
 
@@ -735,7 +765,8 @@ subscriber.PublishAsync("messages:blogPosts", blogPost.Title);
 
 - 여러 구독자가 동일한 채널을 구독할 수 있고 해당 채널에 게시된 메시지를 받을 수 있습니다.
 - 구독자는 구독한 후 게시된 메시지를 단지 수신합니다. 채널이 버퍼링되지 않고 메시지가 게시되면, Redis 인프라가 각 구독자에게 메시지를 밀어넣은 다음 제거합니다.
-- 기본적으로 구독자는 보낸 순서대로 메시지를 수신합니다. 메시지 및 많은 구독자와 게시자 다수를 포함한 매우 활발 시스템에서 메시지의 보장된 순차적인 배달은 시스템의 성능을 저하시킬 수 있습니다. 각 메시지는 독립적이며 순서는 중요하지 않은 경우 응답성을 향상시킬 수 있는 Redis 시스템이 동시 처리를 설정할 수 있습니다. 구독자가 False에 사용하는 연결의 PreserveAsyncOrder를 설정하여 StackExchange 클라이언트에서 이것을 달성할 수 있습니다.```csharp
+- 기본적으로 구독자는 보낸 순서대로 메시지를 수신합니다. 메시지 및 많은 구독자와 게시자 다수를 포함한 매우 활발 시스템에서 메시지의 보장된 순차적인 배달은 시스템의 성능을 저하시킬 수 있습니다. 각 메시지는 독립적이며 순서는 중요하지 않은 경우 응답성을 향상시킬 수 있는 Redis 시스템이 동시 처리를 설정할 수 있습니다. 구독자가 False에 사용하는 연결의 PreserveAsyncOrder를 설정하여 StackExchange 클라이언트에서 이것을 달성할 수 있습니다.
+  ```csharp
   ConnectionMultiplexer redisHostConnection = ...;
   redisHostConnection.PreserveAsyncOrder = false;
   ISubscriber subscriber = redisHostConnection.GetSubscriber();

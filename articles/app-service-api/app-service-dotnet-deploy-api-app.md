@@ -46,7 +46,7 @@ API 앱이 웹앱을 기반으로 한다는 사실은 ASP.NET 이외의 플랫�
 
 이전 자습서에서 Swagger UI를 사용할 수 있도록 했기 때문에 API 앱이 Azure에서 실행되고 있는지 확인하는 데 Swagger UI를 사용할 수 있습니다.
 
-1. [Azure Preview 포털](https://portal.azure.com/)에서 배포한 API 앱에 대한 **API 앱** 블레이드로 이동합니다.
+1. [Azure Preview 포털](https://portal.azure.com)에서 배포한 API 앱에 대한 **API 앱** 블레이드로 이동합니다.
 
 2. API 앱의 URL을 클릭합니다.
 
@@ -62,7 +62,7 @@ API 앱이 웹앱을 기반으로 한다는 사실은 ASP.NET 이외의 플랫�
 
 ## 포털에서 API 정의 보기
 
-1. [Azure Preview 포털](https://portal.azure.com/)에서 배포한 API 앱에 대한 **API 앱** 블레이드로 다시 돌아갑니다.
+1. [Azure Preview 포털](https://portal.azure.com)에서 배포한 API 앱에 대한 **API 앱** 블레이드로 다시 돌아갑니다.
 
 4. **API 정의**를 클릭합니다.
  

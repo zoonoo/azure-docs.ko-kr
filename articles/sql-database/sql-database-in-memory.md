@@ -277,7 +277,8 @@ ostress.exe -n100 -r50 -S<servername>.database.windows.net -U<login> -P<password
 위의 ostress.exe 명령줄을 실행하려면:
 
 
-1. 이전 실행으로 삽입된 모든 데이터를 삭제하도록 SSMS에서 다음 명령을 실행하여 데이터베이스 데이터 콘텐츠를 다시 설정합니다.```
+1. 이전 실행으로 삽입된 모든 데이터를 삭제하도록 SSMS에서 다음 명령을 실행하여 데이터베이스 데이터 콘텐츠를 다시 설정합니다.
+```
 EXECUTE Demo.usp_DemoReset;
 ```
 
@@ -302,7 +303,8 @@ ostress.exe가 완료되면 출력의 마지막 줄로 실행 기간을 RML Cmd 
 \_Inmem 실행에서 결과를 얻은 후 \_indisk 실행에 대해 다음 단계를 수행합니다.
 
 
-1. 이전 실행으로 삽입된 모든 데이터를 삭제하도록 SSMS에서 다음 명령을 실행하여 데이터베이스를 다시 설정합니다. ```
+1. 이전 실행으로 삽입된 모든 데이터를 삭제하도록 SSMS에서 다음 명령을 실행하여 데이터베이스를 다시 설정합니다.
+```
 EXECUTE Demo.usp_DemoReset;
 ```
 

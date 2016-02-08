@@ -18,7 +18,8 @@
 
 # Azure 모바일 앱에 관리되는 클라이언트를 사용하는 방법
 
-[AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]&nbsp;
+[AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
+&nbsp;
 
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
@@ -56,7 +57,8 @@ C#에서 해당하는 형식화된 클라이언트 쪽 형식은 다음과 같�
 
 다음 코드는 모바일 앱 백 엔드에 액세스하는 데 사용되는 `MobileServiceClient` 개체를 만듭니다.
 
-	MobileServiceClient client = new MobileServiceClient("MOBILE_APP_URL");
+	MobileServiceClient client = new MobileServiceClient(
+		"MOBILE_APP_URL", "", "");
 
 위의 코드에서 `MOBILE_APP_URL`을 모바일 앱 백 엔드의 URL로 대체하며 이는 [Azure 포털](https://portal.azure.com/)의 모바일 앱 백 엔드에 대한 블레이드에서 찾을 수 있습니다.
 
@@ -259,7 +261,12 @@ C#에서 해당하는 형식화된 클라이언트 쪽 형식은 다음과 같�
 
 	await todoTable.UpdateAsync(todoItem);
 
-형식화되지 않은 데이터를 삽입하려면 다음과 같이 Json.NET을 이용할 수 있습니다. JObject jo = new JObject(); jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D"); jo.Add("Text", "Hello World"); jo.Add("Complete", false); var inserted = await table.UpdateAsync(jo);
+형식화되지 않은 데이터를 삽입하려면 다음과 같이 Json.NET을 이용할 수 있습니다. 
+	JObject jo = new JObject();
+	jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D");
+	jo.Add("Text", "Hello World");
+	jo.Add("Complete", false);
+	var inserted = await table.UpdateAsync(jo);
 
 업데이트할 때 ID를 지정해야 합니다. 백 엔드가 업데이트할 인스턴스를 식별하는 방법입니다. ID는 `InsertAsync` 호출의 결과에서 가져올 수 있습니다. "ID" 값을 제공하지 않고 항목을 업데이트하려고 할 때 `ArgumentException`이 발생합니다.
 

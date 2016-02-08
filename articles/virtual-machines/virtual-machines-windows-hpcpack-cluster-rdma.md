@@ -226,7 +226,7 @@ Microsoft HPC 팩은 Azure에서 Windows Server 기반 HPC 클러스터를 만�
 
 * Azure 인스턴스에 MPI 응용 프로그램을 실행하려면 **hpcfwutil** 명령을 실행하여 인스턴스의 Windows 방화벽에 각 MPI 응용 프로그램을 등록합니다. 그러면 방화벽에서 동적으로 할당한 포트에서 MPI 통신이 이루어집니다.
 
-    >[AZURE.NOTE] Azure로 버스트 배포의 경우 방화벽 제외 명령을 구성하여 클러스터에 추가된 모든 새 Azure 노드에서 자동으로 실행할 수도 있습니다. **hpcfwutil** 명령을 실행하고 응용 프로그램이 작동하는지 확인한 다음 Azure 노드의 시작 스크립트에 명령을 추가합니다. 자세한 내용은 [Azure 노드에 시작 스크립트 사용](https://technet.microsoft.com/library/jj899632.aspx)을 참조하세요.
+    >[AZURE.NOTE] Azure로 버스트 배포의 경우 방화벽 제외 명령을 구성하여 클러스터에 추가된 모든 새 Azure 노드에서 자동으로 실행할 수도 있습니다. **hpcfwutil** 명령을 실행하고 응용 프로그램이 작동하는지 확인한 다음 Azure 노드의 시작 스크립트에 명령을 추가합니다. 자세한 내용은 [Azure 노드에 시작 스크립트 사용](https://technet.microsoft.com/library/jj899632(v=ws.10).aspx)을 참조하세요.
 
 
 
