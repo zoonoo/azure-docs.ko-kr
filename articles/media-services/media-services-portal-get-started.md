@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/05/2015"
+	ms.date="01/28/2016"
 	ms.author="juliako"/>
 
 
@@ -25,7 +25,8 @@
 
 이 자습서에서는 Azure 클래식 포털을 사용하여 VoD(주문형 비디오) 콘텐츠 배달 응용 프로그램을 구현하는 단계를 안내합니다.
 
-> [AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure 무료 평가판</a>을 참조하세요.
+> [AZURE.NOTE] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 무료 체험](/pricing/free-trial/?WT.mc_id=A261C142F)을 참조하세요.
+
 
 이 자습서에는 다음 작업이 포함되어 있습니다.
 
@@ -91,7 +92,7 @@ Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나
 
 	새 단위를 할당하는 작업은 완료하는 데 20분 정도 걸립니다.
 
-	>[AZURE.NOTE]현재, 스트리밍 단위의 양수 값을 0으로 변경하면 최대 1시간 동안 스트리밍을 사용하지 않을 수 있습니다.
+	>[AZURE.NOTE] 현재, 스트리밍 단위의 양수 값을 0으로 변경하면 최대 1시간 동안 스트리밍을 사용하지 않을 수 있습니다.
 	>
 	> 24시간 동안 가장 많은 단위 수가 비용 계산에 사용됩니다. 가격 정보에 대한 자세한 내용은 [미디어 서비스 가격 정보](http://go.microsoft.com/fwlink/?LinkId=275107)를 참조하세요.
 
@@ -120,6 +121,7 @@ Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나
 ## 콘텐츠 인코딩
 
 ### 개요
+
 인터넷을 통해 디지털 비디오를 배달하려면 미디어를 압축해야 합니다. 미디어 서비스는 콘텐츠를 인코딩할 방법(예: 사용할 코덱, 파일 형식, 해상도, 비트 전송률)을 지정할 수 있는 미디어 인코더를 제공합니다.
 
 Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나는 클라이언트에 적응 비트 전송률 스트리밍을 제공하는 것입니다. 적응 비트 전송률 스트리밍을 사용하면 현재 네트워크 대역폭, CPU 사용률 및 기타 요인에 따라 비디오가 표시되므로 클라이언트는 더 높거나 낮은 비트 전송률 스트림으로 전환할 수 있습니다. 미디어 서비스에서 지원하는 적응 비트 전송률 스트리밍 기술은 HLS(HTTP 라이브 스트리밍), 부드러운 스트리밍, MPEG DASH 및 HDS(Adobe PrimeTime/Access 정식 사용자만 해당)입니다.
@@ -140,21 +142,12 @@ Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나
 이 섹션에서는 Azure 클래식 포털을 사용하여 Azure 미디어 인코더로 콘텐츠를 인코딩할 수 있는 단계를 설명합니다.
 
 1.  인코딩하려는 파일을 선택합니다. 이 파일 형식에 대해 인코딩이 지원되는 경우에는 콘텐츠 페이지 아래쪽에서 **프로세스** 단추를 사용할 수 있습니다.
-4. **프로세스** 대화 상자에서 **Azure 미디어 인코더** 프로세서를 선택합니다.
+4. **프로세스** 대화 상자에서 **미디어 인코더 표준** 프로세서를 선택합니다.
 5. **인코딩 구성** 중 하나를 선택합니다.
 
 	![Process2][process2]
 
-	[Azure 미디어 인코더용 작업 기본 설정 문자열](https://msdn.microsoft.com/library/azure/dn619392.aspx) 항목에서는 **적응 스트리밍 기본 설정(동적 패키징)**, **점진적 다운로드 기본 설정**, **적응 스트리밍 레거시 기본 설정** 범주에 있는 각 기본 설정에 대해 설명합니다.
-
-	**다른** 구성에 대해서는 다음에 설명되어 있습니다.
-
-	+ **PlayReady 콘텐츠 보호 기능으로 인코딩**. 이 사전 설정은 PlayReady 콘텐츠 보호 기능을 통해 인코딩된 자산을 생성합니다.  
-
-		미디어 서비스 PlayReady 라이선스 서비스는 기본적으로 사용됩니다. 클라이언트가 PlayReady로 암호화된 콘텐츠를 재생하기 위한 라이선스를 가져올 수 있는 다른 서비스를 지정하려면 REST 또는 미디어 서비스 .NET SDK API를 사용합니다. 자세한 내용은 [정적 암호화를 사용하여 콘텐츠 보호]()를 참조하여 Media Encryptor 사전 설정의 **licenseAcquisitionUrl** 속성을 설정합니다. 동적 암호화를 사용하여 **PlayReady 동적 암호화 및 License Delivery 서비스 사용**의 설명에 따라 [PlayReadyLicenseAcquisitionUrl](http://go.microsoft.com/fwlink/?LinkId=507720) 속성을 설정할 수도 있습니다.
-	+ **PC/Mac에서 재생(Flash/Silverlight를 통해)**. 이 기본 설정은 다음 특성을 가진 부드러운 스트리밍 자산을 생성합니다. 44.1kHz 16비트/샘플 스테레오 오디오 CBR은 AAC를 사용하여 96kbps로 인코딩되고 720p 비디오 CBR은 H.264 기본 프로필과 2초 GOP를 사용하여 3400kbps에서 400kbps 사이의 6 비트 전송률로 인코딩됩니다.
-	+ **HTML5를 통해 재생(IE/Chrome/Safari)**. 이 기본 설정은 다음 특성을 가진 단일 MP4 파일을 생성합니다. 44.1kHz 16비트/샘플 스테레오 오디오 CBR은 AAC를 사용하여 128kbps로 인코딩되고 720p 비디오 CBR은 H.264 기본 프로필을 사용하여 4500kbps로 인코딩됩니다.
-	+ **iOS 장치 및 PC/Mac에서 재생**. 이 기본 설정은 부드러운 스트리밍 자산과 동일한 특성(이전 설명 참조)을 갖지만 Apple HLS 스트림을 iOS 장치에 제공하는 데 사용할 수 있는 형식으로 생성합니다.
+	[미디어 인코더 표준용 태스크 기본 설정 문자열](https://msdn.microsoft.com/ko-KR/library/mt269960) 항목에 각 기본 설정의 의미가 설명되어 있습니다.
 
 5. 그런 다음, 원하는 출력 콘텐츠 이름을 입력하거나 기본값을 적용합니다. 확인 단추를 클릭하여 인코딩 작업을 시작하고 포털 맨 아래에서 진행 상태를 추적할 수 있습니다.
 6. **확인**을 선택합니다.
@@ -193,7 +186,7 @@ MPEG DASH 스트리밍 URL을 작성하려면 URL에 (format=mpd-time-csf)를 �
 
 로케이터는 만료 날짜입니다. 자산을 게시하기 위해 포털을 사용할 때 만료 날짜가 100년인 로케이터가 만들어집니다.
 
->[AZURE.NOTE]2015년 3월 이전에 로케이터를 만드는 데 포털을 사용한 경우에는 만료 날짜가 2년인 로케이터가 생성되었습니다.
+>[AZURE.NOTE] 2015년 3월 이전에 로케이터를 만드는 데 포털을 사용한 경우에는 만료 날짜가 2년인 로케이터가 생성되었습니다.
 
 로케이터의 만료 날짜를 업데이트하려면 [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) 또는 [.NET](http://go.microsoft.com/fwlink/?LinkID=533259) API를 사용합니다. SAS 로케이터의 만료 날짜를 업데이트할 때 해당 URL도 변경됩니다.
 
@@ -260,4 +253,4 @@ Azure 클래식 포털에서는 비디오를 테스트하는 데 사용할 수 �
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

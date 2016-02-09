@@ -150,7 +150,7 @@ swagger.io 온라인 편집기를 사용하여 API의 구조를 나타내는 Swa
 ## 코드를 편집하여 API 구현 추가
 이 섹션에서는 사용자 지정 코드로 생성된 코드의 서버 측 구현을 바꿉니다. 새 코드는 클라이언트를 호출하는 데 연락처의 ArrayList 엔터티를 반환합니다.
 
-1. [Visual Studio Code](https://code.visualstudio.com)를 사용하거나 원하는 텍스트 편집기에서 *src/gen/java/swagger/model* 폴더에 위치한 *Contact.java* 모델 파일을 엽니다. 
+1. [Visual Studio Code](https://code.visualstudio.com)를 사용하거나 원하는 텍스트 편집기에서 *src/gen/java/io/swagger/model* 폴더에 위치한 *Contact.java* 모델 파일을 엽니다. 
 
     ![연락처 모델 파일 열기](media/app-service-api-java-api-app/open-contact-model-file.png)
 
@@ -163,7 +163,7 @@ swagger.io 온라인 편집기를 사용하여 API의 구조를 나타내는 Swa
 			this.emailAddress = email;
 		}
 
-1. [Visual Studio Code](https://code.visualstudio.com)를 사용하거나 원하는 텍스트 편집기에서 *src/main/java/swagger/api/impl* 폴더에 위치한 *ContactsApiServiceImpl.java* 서비스 구현 파일을 엽니다.
+1. [Visual Studio Code](https://code.visualstudio.com)를 사용하거나 원하는 텍스트 편집기에서 *src/main/java/io/swagger/api/impl* 폴더에 위치한 *ContactsApiServiceImpl.java* 서비스 구현 파일을 엽니다.
 
     ![연락처 서비스 코드 파일 열기](media/app-service-api-java-api-app/open-contact-service-code-file.png)
 
@@ -295,4 +295,4 @@ swagger.io 온라인 편집기를 사용하여 API의 구조를 나타내는 Swa
 
 Azure에서 Java를 사용하는 방법에 대한 자세한 내용은 [Java 개발자 센터](/develop/java/)를 참조하세요.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

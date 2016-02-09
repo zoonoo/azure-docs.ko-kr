@@ -16,7 +16,7 @@
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-device-client</artifactId>
-      <version>1.0.0-preview.9</version>
+      <version>1.0.0</version>
     </dependency>
     <dependency>
       <groupId>com.google.code.gson</groupId>
@@ -27,7 +27,7 @@
 
 4. pom.xml 파일을 저장하고 닫습니다.
 
-5. 텍스트 편집기를 사용하여 simulated-device\\src\\main\\java\\com\\mycompany\\app\\App.java 파일을 엽니다.
+5. 텍스트 편집기를 사용하여 simulated-device\src\main\java\com\mycompany\app\App.java 파일을 엽니다.
 
 6. 파일에 다음 **import** 문을 추가합니다.
 
@@ -156,6 +156,6 @@
 > [AZURE.NOTE] 간단히 하기 위해 이 자습서에서는 다시 시도 정책을 구현하지 않습니다. 프로덕션 코드에서는 MSDN 문서 [일시적인 오류 처리][lnk-transient-faults]에서 제시한 대로 다시 시도 정책(예: 지수 백오프)을 구현해야 합니다.
 
 <!-- Links -->
-[lnk-transient-faults]: https://msdn.microsoft.com/ko-KR/library/hh680901(v=pandp.50).aspx
+[lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

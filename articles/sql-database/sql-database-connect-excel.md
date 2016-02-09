@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/09/2015"
+	ms.date="02/04/2016"
 	ms.author="joseidz"/>
 
 
@@ -46,7 +46,7 @@
 
 4.	**로그온 자격 증명** 섹션에서 **다음 사용자 이름 및 암호 사용**을 클릭하고 SQL 데이터베이스 서버를 만들 때 설정한 **사용자 이름** 및 **암호**를 입력한 후 **다음**을 클릭합니다.
 
-	> [AZURE.TIP]Excel에 대한 [PowerPivot](https://www.microsoft.com/download/details.aspx?id=102)및[파워 쿼리](https://www.microsoft.com/download/details.aspx?id=39379) 추가 기능의 환경은 유사합니다.
+	> [AZURE.TIP] Excel에 대한 [PowerPivot](https://www.microsoft.com/download/details.aspx?id=102)및[파워 쿼리](https://www.microsoft.com/download/details.aspx?id=39379) 추가 기능의 환경은 유사합니다.
 
 5. **데이터베이스 및 테이블 선택** 대화 상자의 풀 다운 메뉴에서 **AdventureWorks** 데이터베이스를 선택하고 테이블 및 뷰 목록에서 **vGetAllCategories**를 선택한 후 **다음**을 클릭합니다.
 
@@ -77,4 +77,4 @@ SaaS(Software as a Service) 개발자인 경우 [탄력적 데이터베이스 �
 [4]: ./media/sql-database-connect-excel/power-pivot-results.png
 [5]: ./media/sql-database-connect-excel/select-database-and-table.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

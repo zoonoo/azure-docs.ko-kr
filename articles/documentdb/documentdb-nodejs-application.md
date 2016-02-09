@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="hero-article" 
-	ms.date="01/26/2015" 
+	ms.date="02/03/2016" 
 	ms.author="ryancraw"/>
 
 # <a name="_Toc395783175"></a>DocumentDB를 사용하여 Node.js 응용 프로그램 빌드
@@ -505,7 +505,7 @@
 	
 	응용 프로그램이 작동하는 데 필요한 모든 작업이 완료되었습니다.
 
-5. **public\\stylesheets** 디렉터리에서 **style.css** 파일을 열고 코드를 다음으로 바꿉니다.
+5. **public\stylesheets** 디렉터리에서 **style.css** 파일을 열고 코드를 다음으로 바꿉니다.
 
 		body {
 		  padding: 50px;
@@ -569,4 +569,4 @@
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

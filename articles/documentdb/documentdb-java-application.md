@@ -6,7 +6,7 @@
 	documentationCenter="java" 
 	authors="aliuy" 
 	manager="jhubbard" 
-	editor="monicar"/>
+	editor="mimig"/>
 
 <tags 
 	ms.service="documentdb" 
@@ -14,7 +14,7 @@
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="NA" 
 	ms.workload="data-services" 
-	ms.date="10/20/2015" 
+	ms.date="01/29/2015" 
 	ms.author="andrl"/>
 
 # DocumentDB를 사용하여 Java 웹 응용 프로그램 빌드
@@ -34,7 +34,7 @@
 
 ![My ToDo List Java 응용 프로그램](./media/documentdb-java-application/image1.png)
 
-> [AZURE.TIP]이 응용 프로그램 개발 자습서에서는 이전에 Java를 사용한 경험이 있다고 가정합니다. Java 또는 [필수 도구](#Prerequisites)를 처음 사용하는 경우 GitHub에서 전체 [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) 프로젝트를 다운로드하고 [이 문서의 끝에 있는 지침](#GetProject)을 사용하여 이 프로젝트를 빌드하는 것이 좋습니다. 프로젝트를 빌드하고 나면 이 문서를 검토하여 프로젝트의 컨텍스트에서 코드를 이해할 수 있습니다.
+> [AZURE.TIP] 이 응용 프로그램 개발 자습서에서는 이전에 Java를 사용한 경험이 있다고 가정합니다. Java 또는 [필수 도구](#Prerequisites)를 처음 사용하는 경우 GitHub에서 전체 [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) 프로젝트를 다운로드하고 [이 문서의 끝에 있는 지침](#GetProject)을 사용하여 이 프로젝트를 빌드하는 것이 좋습니다. 프로젝트를 빌드하고 나면 이 문서를 검토하여 프로젝트의 컨텍스트에서 코드를 이해할 수 있습니다.
 
 ##<a id="Prerequisites"></a>이 Java 웹 응용 프로그램 자습서의 필수 조건
 이 응용 프로그램 개발 자습서를 시작하기 전에 다음이 있어야 합니다.
@@ -95,7 +95,7 @@ DocumentDB Java SDK 및 해당 종속성을 가져오는 가장 쉬운 방법은
 4. **종속성 선택** 창에서 다음을 수행합니다.
  - **그룹 ID** 상자에 com.microsoft.azure를 입력합니다.
  - **아티팩트 ID** 상자에 azure-documentdb를 입력합니다.
- - **버전** 상자에 1.4.0을 입력합니다.
+ - **버전** 상자에 1.5.1을 입력합니다.
 
 	![DocumentDB Java 응용 프로그램 SDK 설치](./media/documentdb-java-application/image13.png)
 
@@ -104,7 +104,7 @@ DocumentDB Java SDK 및 해당 종속성을 가져오는 가장 쉬운 방법은
 	    <dependency>
 		    <groupId>com.microsoft.azure</groupId>
 		    <artifactId>azure-documentdb</artifactId>
-		    <version>1.4.0</version>
+		    <version>1.5.1</version>
 	    </dependency>
 
 5. **확인**을 클릭하면 Maven이 DocumentDB Java SDK를 설치합니다.
@@ -786,4 +786,4 @@ Azure 웹 사이트에서는 Java 응용 프로그램을 간단히 배포할 수
 [1]: media/documentdb-java-application/keys.png
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

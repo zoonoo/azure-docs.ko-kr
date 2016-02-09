@@ -129,7 +129,7 @@ URL 시퀀스를 포함하는 시나리오를 모니터링할 수 있습니다. 
 
 코딩된 함수는 테스트에 사용할 수 없습니다. 시나리오 단계를 .webtest 파일에 스크립트로 포함해야 합니다.
 
-#### 1\. 시나리오 기록
+#### 1. 시나리오 기록
 
 Visual Studio Enterprise 또는 Ultimate를 사용하여 웹 세션을 기록합니다.
 
@@ -160,7 +160,7 @@ Visual Studio Enterprise 또는 Ultimate를 사용하여 웹 세션을 기록합
     ![Visual Studio에서 .webtest 파일을 열고 실행을 클릭합니다.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
 
 
-#### 2\. Application Insights에 웹 테스트를 업로드
+#### 2. Application Insights에 웹 테스트를 업로드
 
 1. Application Insights 포털에서 새 웹 테스트를 만듭니다.
 
@@ -207,6 +207,20 @@ Visual Studio Enterprise 또는 Ultimate를 사용하여 웹 세션을 기록합
 
 이제 테스트를 포털에 업로드합니다. 테스트의 모든 실행에 동적 값을 사용합니다.
 
+## OAuth 로그인
+
+사용자가 OAuth 암호(예: Microsoft, Google 또는 Facebook)를 사용하여 앱에 로그인하는 경우, SAML 플러그인을 사용하여 다단계 웹 테스트에서 로그인을 시뮬레이션할 수 있습니다.
+
+![OAuth용 샘플 웹 테스트](./media/app-insights-monitor-web-app-availability/81.png)
+
+샘플 테스트는 다음 단계를 수행합니다.
+
+1. 테스트 중인 웹앱에 OAuth 끝점의 주소를 요청합니다.
+2. SAML 플러그인을 사용하여 로그인합니다.
+3. 로그인한 상태에서 테스트의 나머지 부분을 수행합니다.
+
+SAML 프러그인은 2단계에서 사용되는 변수 `Assert`를 설정합니다.
+
 ## <a name="edit"></a>테스트 편집 또는 사용 안 함
 
 개별 테스트를 열어서 편집하거나 사용하지 않도록 설정합니다.
@@ -249,4 +263,4 @@ Visual Studio Enterprise 또는 Ultimate를 사용하여 웹 세션을 기록합
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

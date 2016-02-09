@@ -98,7 +98,8 @@
 
         try
         {
-            indexClient.Documents.Index(IndexBatch.Create(documents.Select(doc => IndexAction.Create(doc))));
+            var batch = IndexBatch.Upload(sitecoreItems);
+            indexClient.Documents.Index(batch);
         }
         catch (IndexBatchException e)
         {
@@ -107,7 +108,7 @@
             // retrying. For this simple demo, we just log the failed document keys and continue.
             Console.WriteLine(
                 "Failed to index some of the documents: {0}",
-                String.Join(", ", e.IndexResponse.Results.Where(r => !r.Succeeded).Select(r => r.Key)));
+                String.Join(", ", e.IndexingResults.Where(r => !r.Succeeded).Select(r => r.Key)));
         }
 
         // Wait a while for indexing to complete.
@@ -118,10 +119,10 @@
 
 두 번째 부분은 각 `Hotel`에 대해 `IndexAction`을(를) 만든 다음, 이를 새로운 `IndexBatch`와(과) 함께 그룹화합니다. 그런 다음 `Documents.Index` 메서드를 통해 Azure 검색 인덱스에 일괄적으로 업로드합니다.
 
-> [AZURE.NOTE]이 예에서는 문서를 업로드하는 것입니다. 변경 사항을 기존 문서에 병합하거나 문서를 삭제하려는 경우, 해당하는 `IndexActionType`와(과) 함께 `IndexAction`을(를) 만들 수 있습니다. 이 예에서는 기본값이 `Upload`이기 때문에 `IndexActionType`을(를) 지정할 필요가 없습니다.
+> [AZURE.NOTE] 이 예에서는 문서를 업로드하는 것입니다. 변경 사항을 기존 문서에 병합하거나 문서를 삭제하려는 경우, 해당하는 `Merge`, `MergeOrUpload` 또는 `Delete` 메서드를 사용할 수 있습니다.
 
 이 메서드의 세 번째 부분은 인덱싱에 중요한 오류 사례를 처리하는 catch 블록입니다. Azure 검색 서비스가 일괄 처리에서 문서 일부를 인덱싱하는데 실패하는 경우 `Documents.Index`에 의해 `IndexBatchException`이(가) 발생합니다. 이는 부하가 높은 상태에서 서비스 되는 동안에 문서를 인덱싱는 경우 발생할 수 있습니다. **이 경우 코드에서 명시적으로 처리하는 것이 좋습니다.** 실패한 문서 인덱싱을 잠시 후 다시 시도하거나, 샘플에서 하던 것처럼 기록하여 계속하거나, 응용 프로그램의 데이터 일관성 요구 사항에 따라 다른 작업을 수행할 수 있습니다.
 
 마지막으로, 메서드가 2초 동안 지연됩니다. Azure 검색 서비스에서 인덱싱이 비동기적으로 발생하기 때문에, 샘플 응용 프로그램은 문서 검색을 위해 잠시 기다려야 합니다. 이와 같이 데모, 테스트, 샘플 응용 프로그램에서는 일반적으로 지연만 필요합니다.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

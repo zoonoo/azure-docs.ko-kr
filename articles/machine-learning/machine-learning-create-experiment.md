@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/03/2015"
+	ms.date="02/03/2016"
 	ms.author="garye"/>
 
 # 기계 학습 자습서: Azure 기계 학습 스튜디오에서 첫 번째 실험 만들기
@@ -29,7 +29,7 @@
 
 기계 학습 스튜디오에 대한 일반적인 정보는 [기계 학습 스튜디오란 무엇인가요?](machine-learning-what-is-ml-studio.md)를 참조하세요.
 
->[AZURE.TIP]기계 학습 스튜디오의 기능을 개략적으로 제공하는 다이어그램을 다운로드하고 인쇄하려면 [Azure 기계 학습 스튜디오 기능 개요 다이어그램](machine-learning-studio-overview-diagram.md)을 참조하세요.
+>[AZURE.TIP] 기계 학습 스튜디오의 기능을 개략적으로 제공하는 다이어그램을 다운로드하고 인쇄하려면 [Azure 기계 학습 스튜디오 기능 개요 다이어그램](machine-learning-studio-overview-diagram.md)을 참조하세요.
 
 
 ## 실험 만들기 5단계
@@ -76,7 +76,7 @@
 
 데이터 집합은 일반적으로 전처리를 거쳐야 분석할 수 있습니다. 여러 행의 열에 누락된 값이 있는 것을 볼 수 있습니다. 모델에서 데이터를 올바르게 분석할 수 있도록 이러한 누락된 값을 정리해야 합니다. 지금은 누락된 값이 있는 행을 모두 제거하겠습니다. 또한 **normalized-losses** 열에 값이 누락된 비율이 크므로 여기서는 해당 열을 모델에서 완전히 제외하겠습니다.
 
-> [AZURE.TIP]입력 데이터에서 누락 값을 정리하는 것은 대부분의 모듈을 사용하기 위한 필수 조건입니다.
+> [AZURE.TIP] 입력 데이터에서 누락 값을 정리하는 것은 대부분의 모듈을 사용하기 위한 필수 조건입니다.
 
 먼저 **normalized-losses** 열을 제거한 다음 누락된 데이터가 있는 행을 제거하겠습니다.
 
@@ -94,7 +94,7 @@
 
     ![프로젝트 열 속성][screen4]
 
-    > [AZURE.TIP]모듈을 두 번 클릭하고 텍스트를 입력하여 모듈에 주석을 추가할 수 있습니다. 그러면 모듈이 실험에서 수행하는 내용을 한눈에 볼 수 있습니다. 이 경우 [Project Columns][project-columns] 모듈을 두 번 클릭하고 주석 "Exclude normalized-losses"를 입력합니다.
+    > [AZURE.TIP] 모듈을 두 번 클릭하고 텍스트를 입력하여 모듈에 주석을 추가할 수 있습니다. 그러면 모듈이 실험에서 수행하는 내용을 한눈에 볼 수 있습니다. 이 경우 [Project Columns][project-columns] 모듈을 두 번 클릭하고 주석 "Exclude normalized-losses"를 입력합니다.
 
 3. [Clean Missing Data][clean-missing-data] 모듈을 실험 캔버스로 끌어 놓고 [Project Columns][project-columns] 모듈과 연결합니다. **Properties** 창에서 **Cleaning mode** 아래의 **Remove entire row**를 선택하여 누락 값이 있는 행을 제거하는 방법으로 데이터를 정리합니다. 모듈을 두 번 클릭하고 주석 "Remove missing value rows"를 입력합니다.
 
@@ -124,7 +124,7 @@
 
 3. 열 선택기에서 **Begin With**로 **No columns**를 선택한 후 필터 행에서 **Include** 및 **column names**를 선택합니다. 열 이름 목록을 입력합니다. 그러면 지정한 열만 전달하는 모듈로 리디렉션됩니다.
 
-	> [AZURE.TIP]실험을 실행했기 때문에 원본 데이터 집합에서 가져온 데이터에 대한 열 정의가 [Clean Missing Data][clean-missing-data] 모듈을 통해 전달되었습니다. [Project Columns][project-columns]를 [Clean Missing Data][clean-missing-data]에 연결하면 [Project Columns][project-columns] 모듈이 데이터의 열 정의를 인식하게 됩니다. **column names** 상자를 클릭하면 열 목록이 표시되고, 목록에 추가하려는 열을 선택할 수 있습니다.
+	> [AZURE.TIP] 실험을 실행했기 때문에 원본 데이터 집합에서 가져온 데이터에 대한 열 정의가 [Clean Missing Data][clean-missing-data] 모듈을 통해 전달되었습니다. [Project Columns][project-columns]를 [Clean Missing Data][clean-missing-data]에 연결하면 [Project Columns][project-columns] 모듈이 데이터의 열 정의를 인식하게 됩니다. **column names** 상자를 클릭하면 열 목록이 표시되고, 목록에 추가하려는 열을 선택할 수 있습니다.
 
 4. 확인 표시(확인) 단추를 클릭합니다.
 
@@ -142,7 +142,7 @@
 
 1. 데이터를 별도의 학습 및 테스트 집합으로 분할하여 학습과 테스트 모두에 데이터를 사용할 수 있습니다. [Split Data][split] 모듈을 선택하여 실험 캔버스로 끌어 놓고 마지막 [Project Columns][project-columns] 모듈의 출력과 연결합니다. **첫 번째 출력 데이터 집합의 행 분수**를 0.75로 설정합니다. 그러면 데이터의 75%를 모델 학습에 사용하고 25%는 테스트용으로 보유합니다.
 
-	> [AZURE.TIP]**Random seed** 매개 변수를 변경하면 학습 및 테스트용으로 서로 다른 무작위 샘플을 생성할 수 있습니다. 이 매개 변수는 난수 발생기의 시드를 제어합니다.
+	> [AZURE.TIP] **Random seed** 매개 변수를 변경하면 학습 및 테스트용으로 서로 다른 무작위 샘플을 생성할 수 있습니다. 이 매개 변수는 난수 발생기의 시드를 제어합니다.
 
 2. 실험을 실행합니다. 그러면 [Project Columns][project-columns] 및 [Split Data][split] 모듈이 다음에 추가할 모듈에 열 정의를 전달할 수 있습니다.
 
@@ -196,7 +196,7 @@
 
 이제 첫번째 기계 학습 자습서를 완료하고 실험을 설정했으므로 반복하여 모델을 향상시킬 수 있습니다. 예를 들어 예측에 사용하는 특성을 변경할 수 있습니다. 또는 [선형 회귀][linear-regression] 알고리즘의 속성을 수정하거나 다른 알고리즘을 시도해 볼 수 있습니다. 한 번에 여러 기계 학습 알고리즘을 실험에 추가하고 [Evaluate Model][evaluate-model] 모듈을 사용하여 둘을 비교할 수도 있습니다.
 
-> [AZURE.TIP]실험 반복의 복사본을 만들려면 실험 캔버스 아래에 있는 **SAVE AS** 단추를 사용하세요. 캔버스 아래에서 **VIEW RUN HISTORY**를 클릭하여 실험의 모든 반복을 볼 수 있습니다. 자세한 내용은 [Azure 기계 학습 스튜디오에서 실험 반복 관리][runhistory]를 참조하세요.
+> [AZURE.TIP] 실험 반복의 복사본을 만들려면 실험 캔버스 아래에 있는 **SAVE AS** 단추를 사용하세요. 캔버스 아래에서 **VIEW RUN HISTORY**를 클릭하여 실험의 모든 반복을 볼 수 있습니다. 자세한 내용은 [Azure 기계 학습 스튜디오에서 실험 반복 관리][runhistory]를 참조하세요.
 
 [runhistory]: machine-learning-manage-experiment-iterations.md
 
@@ -234,4 +234,4 @@
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0204_2016-->

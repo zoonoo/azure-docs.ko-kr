@@ -32,7 +32,7 @@ Azure IoT Hub는 수백만의 IoT 장치와 솔루션 백 엔드 간에서 안�
 
 - Azure 포털을 사용하여 IoT Hub를 만듭니다.
 - IoT Hub에서 장치 ID를 만듭니다.
-- 클라우드 백 엔드로 원격 분석을 보내고, 클라우드 백 엔드로부터 명령을 받는 시뮬레이션된 장치를 만듭니다.
+- 클라우드 백 엔드로 원격 분석을 보내고, 클라우드 백 엔드으로부터 명령을 받는 시뮬레이션된 장치를 만듭니다.
 
 이 자습서의 끝 부분에서 다음의 세 가지 Windows 콘솔 응용 프로그램이 만들어집니다.
 
@@ -40,7 +40,7 @@ Azure IoT Hub는 수백만의 IoT 장치와 솔루션 백 엔드 간에서 안�
 * **ReadDeviceToCloudMessages**는 시뮬레이션된 장치에서 보낸 원격 분석을 표시합니다.
 * **SimulatedDevice**는 앞에서 만든 장치 ID로 IoT Hub에 연결하고 매초마다 원격 분석 메시지를 보냅니다.
 
-> [AZURE.NOTE] [IoT Hub SDK][lnk-hub-sdks] 문서는 장치와 솔루션 백 엔드에서 실행하기 위해 두 응용 프로그램을 빌드하는 데 사용할 수 있는 다양한 SDK에 관한 정보를 제공합니다.
+> [AZURE.NOTE] [IoT Hub Sdk][lnk-hub-sdks] 문서는 장치와 솔루션 백 엔드에서 실행하기 위해 두 응용 프로그램을 빌드하는 데 사용할 수 있는 다양한 SDK에 관한 정보를 제공합니다.
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -125,4 +125,4 @@ Azure IoT Hub는 수백만의 IoT 장치와 솔루션 백 엔드 간에서 안�
 [lnk-resource-groups]: resource-group-portal.md
 [lnk-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

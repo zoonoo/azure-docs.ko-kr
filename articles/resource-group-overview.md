@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/15/2016"
+   ms.date="02/02/2016"
    ms.author="tomfitz"/>
 
 # Azure 리소스 관리자 개요
@@ -87,7 +87,7 @@ Marketplace에서 솔루션을 만들 때 솔루션에 자동으로 배포 템�
 
 템플릿을 구성하는 방법에 대한 지침은 [Azure 리소스 관리자 템플릿 설계의 모범 사례](best-practices-resource-manager-design-templates.md)를 참조하세요.
 
-다른 환경에 솔루션 배포에 관한 지침은 [Microsoft Azure의 개발 및 테스트 환경](solution-dev-test-environments-preview-portal.md)을 참조하세요.
+다른 환경에 솔루션 배포에 관한 지침은 [Microsoft Azure의 개발 및 테스트 환경](solution-dev-test-environments.md)을 참조하세요.
 
 ## 태그
 
@@ -119,7 +119,7 @@ Marketplace에서 솔루션을 만들 때 솔루션에 자동으로 배포 템�
 
 Azure PowerShell에 대한 정보는 [Azure 리소스 관리자와 함께 Azure PowerShell 사용](./powershell-azure-resource-manager.md) 및 nd [Azure 리소스 관리자 Cmdlets](https://msdn.microsoft.com/library/azure/dn757692.aspx)을 참조하십시오.
 
-Azure CLI에 대한 정보는 [Azure 리소스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](./virtual-machines/xplat-cli-azure-resource-manager.md)을 참조하십시오.
+Azure CLI에 대한 정보는 [Azure 리소스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](./xplat-cli-azure-resource-manager.md)을 참조하십시오.
 
 REST API에 대한 정보는 [Azure 리소스 관리자 REST API 참조](https://msdn.microsoft.com/library/azure/dn790568.aspx)를 참조하십시오..
 
@@ -138,4 +138,4 @@ Azure 리소스 관리자는 크로스-원본 자원 공유 (CORS)를 지원합�
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

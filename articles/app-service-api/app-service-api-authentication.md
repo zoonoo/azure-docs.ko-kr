@@ -18,7 +18,7 @@
 
 # Azure 앱 서비스의 API 앱에 대한 인증 및 권한 부여
 
-[AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
+[AZURE.INCLUDE [선택기](../../includes/app-service-api-auth-selector.md)]
 
 ## 개요 
 
@@ -53,16 +53,14 @@ Azure 앱 서비스는 [OAuth 2.0](#oauth) 및 [OpenID Connect](#oauth)를 구�
 
 1. 인증된 요청만 API 앱에 도달하도록 허용합니다.
 
-	브라우저에서 익명 요청을 받으면 앱 서비스가 로그온 페이지로 리디렉션합니다.
+	브라우저에서 익명 요청을 받으면 앱 서비스는 선택한 인증 공급자(Azure AD, Google, Twitter 등)의 로그온 페이지로 리디렉션합니다
 
-	사용할 인증 공급자(Google, Twitter 등)를 사전에 알고 있는 경우 앱 서비스가 로그온 프로세스를 처리하도록 구성할 수 있습니다. 다른 방법으로는 앱 서비스가 익명 요청을 리디렉션할 고유한 URL을 지정할 수 있습니다. 그런 다음 사용자가 다양한 인증 공급자를 제공할 수 있습니다.
-
-	이 옵션을 사용하면 앱에서 인증 코드를 전혀 작성하지 않아도 되며 가장 중요한 클레임이 HTTP 헤더에 제공되므로 권한 부여가 간소화됩니다.
+	이 옵션을 사용하면 앱에서 인증 코드를 전혀 작성하지 않아도 되며 가장 중요한 클레임이 HTTP 헤더에 제공되므로 인증 코드가 간소화됩니다.
 
 2. 모든 요청이 API 앱에 도달하도록 허용하지만 인증된 요청을 유효성 검사하고 HTTP 헤더에 인증 정보를 전달합니다.
 
-	이 옵션은 익명 요청 처리에 더 많은 유연성을 제공하며 가장 일반적인 클레임에 액세스해야 하는 코드를 쉽게 작성할 수 있습니다. 옵션 1과 달리 익명 사용자가 API를 사용하지 못하도록 하려면 코드를 작성해야 합니다.
-
+	이 옵션은 익명 요청 처리에 더 많은 유연성을 제공하지만 익명 사용자가 API를 사용하지 못하도록 하려면 코드를 작성해야 합니다. 가장 일반적인 클레임은 HTTP 요청의 헤더에 전달되기 때문에 인증 코드는 비교적 간단합니다.
+	
 3. 모든 요청이 API 앱에 도달하도록 허용하고 요청에서 인증 정보에 어떠한 작업도 하지 않습니다.
 
 	이 옵션은 인증 및 권한 부여 작업을 전적으로 응용 프로그램 코드의 몫으로 둡니다.
@@ -75,7 +73,7 @@ Azure 앱 서비스는 [OAuth 2.0](#oauth) 및 [OpenID Connect](#oauth)를 구�
 
 ![](./media/app-service-api-authentication/actiontotake.png)
 
-인증 공급자 구성 블레이드를 구성하는 방법을 설명하는 자세한 지침은 [앱 서비스 응용 프로그램을 구성하여 Azure Active Directory 로그인을 사용하는 방법](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md)을 참조하세요. 이 문서는 모바일 앱 뿐만 아니라 API 앱에 적용되고 다른 인증 공급자에 대한 다른 문서에 연결합니다.
+인증 공급자 구성 블레이드를 구성하는 방법을 설명하는 자세한 지침은 [Azure Active Directory 로그인을 사용하도록 앱 서비스 응용 프로그램을 구성하는 방법](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md)을 참조하세요. 이 문서는 모바일 앱 뿐만 아니라 API 앱에 적용되고 다른 인증 공급자에 대한 다른 문서에 연결합니다.
  
 ## <a id="internal"></a> 서비스 계정 인증
 
@@ -89,14 +87,14 @@ Azure 앱 서비스는 [OAuth 2.0](#oauth) 및 [OpenID Connect](#oauth)를 구�
 
 ## 클라이언트 인증
 
-모바일 클라이언트에서 인증을 처리하는 방법에 대한 내용은 [모바일 앱을 위한 인증에 대한 설명서](../app-service-mobile/app-service-mobile-ios-get-started-users.md)를 참조하세요. 앱 서비스 인증은 모바일 앱 및 API 앱에서 동일한 방식으로 작동합니다.
+모바일 클라이언트에서 인증을 처리하는 방법에 대한 내용은 [모바일 앱 인증에 대한 설명서](../app-service-mobile/app-service-mobile-ios-get-started-users.md)를 참조하세요. 앱 서비스 인증은 모바일 앱 및 API 앱에서 동일한 방식으로 작동합니다.
   
 ## 자세한 정보
 
 Azure 앱 서비스에서 인증 및 권한 부여에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
 * [앱 서비스 인증/권한 부여 확장](/blog/announcing-app-service-authentication-authorization/)
-* [앱 서비스 응용 프로그램을 구성하여 Azure Active Directory 로그인을 사용하는 방법](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md)(페이지 맨 위에 있는 다른 인증 공급자에 대한 링크를 포함합니다.) 
+* [Azure Active Directory 로그인을 사용하도록 앱 서비스 응용 프로그램을 구성하는 방법](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md)(페이지 맨 위에 있는 다른 인증 공급자에 대한 링크를 포함합니다.) 
 
 OAuth 2.0, OpenID Connect 및 JSON 웹 토큰(JWT)에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
@@ -118,4 +116,4 @@ ASP.NET 및 API 앱에 대한 자습서의 시작하기 순서를 진행하는 �
 
 Azure 앱 서비스에서 노드 및 Java를 사용하는 방법에 대한 자세한 내용은 [Node.js 개발자 센터](/develop/nodejs/) 및 [Java 개발자 센터](/develop/java/)를 참조하세요.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

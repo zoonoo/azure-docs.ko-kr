@@ -19,7 +19,7 @@ Azure 가상 컴퓨터나 클라우드 서비스에서 실행되는 응용 프�
 
 ![files-concepts][files-concepts]
 
--   **저장소 계정:** Azure 저장소에 대한 모든 액세스는 저장소 계정을 통해 수행됩니다. 저장소 계정 용량에 대한 자세한 내용은 [Azure 저장소 확장성 및 성능 목표](http://msdn.microsoft.com/library/azure/dn249410.aspx)(영문)를 참조하십시오.
+-   **저장소 계정:** Azure 저장소에 대한 모든 액세스는 저장소 계정을 통해 수행됩니다. 저장소 계정 용량에 대한 자세한 내용은 [Azure 저장소 확장성 및 성능 목표](../articles/storage/storage-scalability-targets.md)(영문)를 참조하십시오.
 
 -   **공유**: Azure에서 파일 저장소 공유는 SMB 파일 공유입니다. 모든 디렉터리 및 파일을 부모 공유에 만들어야 합니다. 계정에 포함할 수 있는 공유 수에는 제한이 없으며, 공유에 저장할 수 있는 파일 수에는 파일 공유의 최대 5TB의 최대 용량까지 제한이 없습니다.
 
@@ -27,13 +27,15 @@ Azure 가상 컴퓨터나 클라우드 서비스에서 실행되는 응용 프�
 
 -	**파일:** 공유에 있는 파일입니다. 파일 1개의 크기는 최대 1TB일 수 있습니다.
 
--   **URL 형식:** 다음 URL 형식을 사용하여 파일에 주소를 지정할 수 있습니다. https://`<storage
+-   **URL 형식:** 다음 URL 형식을 사용하여 파일에 주소를 지정할 수 있습니다. 
+https://`<storage
     account>`.file.core.windows.net/`<share>`/`<directory/directories>`/`<file>`
     
-    다음 예제 URL을 사용하여 위의 다이어그램에 있는 파일 중 하나를 지정할 수 있습니다. `http://samples.file.core.windows.net/logs/CustomLogs/Log1.txt`
+    다음 예제 URL을 사용하여 위의 다이어그램에 있는 파일 중 하나를 지정할 수 있습니다. 
+    `http://samples.file.core.windows.net/logs/CustomLogs/Log1.txt`
 
 공유, 디렉터리 및 파일 이름 지정 방법에 대한 자세한 내용은 [공유, 디렉터리, 파일 및 메타데이터 이름 지정 및 참조](http://msdn.microsoft.com/library/azure/dn167011.aspx)(영문)를 참조하세요.
 
 [files-concepts]: ./media/storage-file-concepts-include/files-concepts.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

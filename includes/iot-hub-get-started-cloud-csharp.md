@@ -8,7 +8,7 @@
 
 2. 솔루션 탐색기에서 **CreateDeviceIdentity** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리**를 클릭합니다.
 
-3. **NuGet 패키지 관리자** 창에서 **시험판 포함** 옵션이 선택되었는지 확인합니다. 그런 다음 **Microsoft Azure 장치**를 검색하고, **설치**를 클릭하여 **Microsoft.Azure.Devices** 패키지를 설치하고, 사용 약관에 동의합니다.
+3. **NuGet 패키지 관리자** 창에서 **Microsoft Azure 장치**를 검색하고, **설치**를 클릭하여 **Microsoft.Azure.Devices** 패키지를 설치하고, 사용 약관에 동의합니다.
 
 	![][11]
 
@@ -53,7 +53,7 @@
 
     ![][12]
 
-> [AZURE.NOTE]IoT Hub ID 레지스트리는 장치 ID만 저장하여 허브에 보안 액세스를 사용합니다. 보안 자격 증명으로 사용하기 위해 장치 ID 및 키와 개별 장치에 대해 액세스하지 못하도록 설정할 수 있는 사용/사용 안 함 플래그를 저장합니다. 응용 프로그램이 다른 장치별 메타데이터를 저장해야 하는 경우 응용 프로그램별 저장소를 사용해야 합니다. 자세한 내용은 [IoT Hub 개발자 가이드][lnk-devguide-identity]를 참조하세요.
+> [AZURE.NOTE] IoT Hub ID 레지스트리는 장치 ID만 저장하여 허브에 보안 액세스를 사용합니다. 보안 자격 증명으로 사용하기 위해 장치 ID 및 키와 개별 장치에 대해 액세스하지 못하도록 설정할 수 있는 사용/사용 안 함 플래그를 저장합니다. 응용 프로그램이 다른 장치별 메타데이터를 저장해야 하는 경우 응용 프로그램별 저장소를 사용해야 합니다. 자세한 내용은 [IoT Hub 개발자 가이드][lnk-devguide-identity]를 참조하세요.
 
 ## 장치-클라우드 메시지 받기
 
@@ -65,7 +65,7 @@
 
 2. 솔루션 탐색기에서 **ReadDeviceToCloudMessages** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리**를 클릭합니다.
 
-3. **NuGet 패키지 관리자** 창에서 **시험판 포함** 옵션이 선택되었는지 확인합니다. 그런 다음 **WindowsAzure.ServiceBus**를 검색하고 **설치**를 클릭하여 사용 약관에 동의합니다.
+3. **NuGet 패키지 관리자** 창에서 **WindowsAzure.ServiceBus**를 검색하고 **설치**를 클릭하고 사용 약관에 동의합니다.
 
     그러면 [Azure 서비스 버스][lnk-servicebus-nuget]가 모든 종속 항목과 함께 다운로드 및 설치되고 해당 참조가 추가됩니다.
 
@@ -125,4 +125,4 @@
 [11]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp2.png
 [12]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp3.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

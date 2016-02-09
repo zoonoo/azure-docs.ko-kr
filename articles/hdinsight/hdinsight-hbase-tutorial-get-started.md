@@ -14,21 +14,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/02/2015"
+	ms.date="01/29/2016"
 	ms.author="jgao"/>
 
 
 
-# HBase 자습서: HDInsight에서 Hadoop을 통해 Apache HBase 사용 시작(Windows)
+# HBase 자습서: HDInsight에서 Windows 기반 Hadoop을 통해 Apache HBase 사용 시작
 
 [AZURE.INCLUDE [hbase-selector](../../includes/hdinsight-hbase-selector.md)]
 
-
 HDInsight에서 HBase 클러스터를 만들고, HBase 테이블을 만들고 Apache Hive를 사용하여 테이블을 쿼리하는 방법에 대해 알아봅니다. 일반 HBase 정보는 [HDInsight HBase 개요][hdinsight-hbase-overview]를 참조하세요.
 
-> [AZURE.NOTE] 이 문서에 있는 정보는 Windows 기반 HDInsight 클러스터에 지정됩니다. Linux 기반 클러스터에 대한 정보는 [HBase 자습서: HDInsight에서 Hadoop을 통해 Apache HBase 사용 시작(Linux)](hdinsight-hbase-tutorial-get-started-linux.md)을 참조하세요.
->
-> Windows 기반 HDInsight의 HBase(버전 0.98.0)는 HDInsight 3.1 클러스터에서만 사용할 수 있습니다.(Apache Hadoop 및 YARN 2.4.0 기준) 버전 정보는 [HDInsight에서 제공하는 Hadoop 클러스터 버전의 새로운 기능][hdinsight-versions](영문)을 참조하세요.
+이 문서에 있는 정보는 Windows 기반 HDInsight 클러스터에 지정됩니다. Windows 기반 클러스터에 대한 내용을 보려면, 페이지 상단의 탭 선택기를 사용하여 전환합니다.
+
+> [AZURE.NOTE] Windows 기반 HDInsight의 HBase(버전 0.98.0)는 HDInsight 3.1 클러스터에서만 사용할 수 있습니다.(Apache Hadoop 및 YARN 2.4.0 기준) 버전 정보는 [HDInsight에서 제공하는 Hadoop 클러스터 버전의 새로운 기능][hdinsight-versions](영문)을 참조하세요.
 
 ###필수 조건
 
@@ -67,7 +66,8 @@ HDInsight에서 HBase 클러스터를 만들고, HBase 테이블을 만들고 Ap
 
 >[AZURE.NOTE] HBase 클러스터를 삭제한 후에 동일한 기본 저장소 계정 및 기본 Blob 컨테이너를 사용하여 다른 HBase 클러스터를 만들 수 있습니다. 새 클러스터에서는 원래 클러스터에서 만든 HBase 테이블을 선택합니다.
 
-## HBase 셸 사용
+## 테이블 만들기 및 데이터 삽입
+
 현재 HBase에 액세스하는 두 가지 방법이 있습니다. 이 섹션에서는 HBase 셸을 사용하여 설명합니다. 다음 섹션에서는.NET SDK를 사용하여 설명합니다.
 
 대부분의 사람들의 경우, 데이터는 테이블 형식으로 나타납니다.
@@ -331,4 +331,4 @@ HDInsight에 대한 이 HBase 자습서에서는 HBase 클러스터를 프로비
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->
