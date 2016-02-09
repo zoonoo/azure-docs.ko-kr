@@ -42,7 +42,7 @@
 * Visual Studio **서버 탐색기**를 사용하여 원격 파일을 열고 원격 디버그 세션을 시작하는 방법입니다. 
 * [Azure 포털](/overview/preview-portal/)을 사용하여 웹앱을 모니터링 및 관리하는 방법
 
-> [AZURE.NOTE]이 자습서는 Azure 앱 서비스와 ASP.NET을 사용하는 방법을 설명합니다. ASP.NET 웹앱을 개발하는 방법을 가르치지 않습니다. ASP.NET MVC 5에 대한 소개는 [ASP.NET](http://asp.net/) 사이트에서 [ASP.NET MVC 5 시작](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started)을 참조하세요. Azure 앱 서비스를 사용하는 방법에 대해 더 심층적으로 살펴보는 다른 문서에 대한 링크는 [다음 단계](#next-steps) 섹션을 참조하세요.
+> [AZURE.NOTE] 이 자습서는 Azure 앱 서비스와 ASP.NET을 사용하는 방법을 설명합니다. ASP.NET 웹앱을 개발하는 방법을 가르치지 않습니다. ASP.NET MVC 5에 대한 소개는 [ASP.NET](http://asp.net/) 사이트에서 [ASP.NET MVC 5 시작](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started)을 참조하세요. Azure 앱 서비스를 사용하는 방법에 대해 더 심층적으로 살펴보는 다른 문서에 대한 링크는 [다음 단계](#next-steps) 섹션을 참조하세요.
 > 
 > 이 자습서의 범위 및 접근 방식을 알도록 돕습니다. -- 여기 시작 자습서에서 살펴보고 싶은 다른 항목이 있는 경우 자습서의 끝에 있는 [Disqus 주석](#comments)에 피드백을 남겨주세요.
 
@@ -292,13 +292,13 @@ Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려는 경�
 
 * 웹 응용 프로그램용 앱 서비스, Azure 클라우드 서비스 및 Azure 가상 컴퓨터를 선택하는 방법
 
-	Azure에서는 앱 서비스 웹앱을 웹 사이트(이 자습서에 설명됨), 클라우드 서비스 또는 가상 컴퓨터에서 실행할 수 있습니다. 자세한 내용은 [Azure 웹앱, 클라우드 서비스 및 VM을 사용하는 경우](/manage/services/web-sites/choose-web-app-service/) 를 참조하세요.
+	Azure에서는 앱 서비스 웹앱을 웹 사이트(이 자습서에 설명됨), 클라우드 서비스 또는 가상 컴퓨터에서 실행할 수 있습니다. 자세한 내용은 [Azure 웹앱, 클라우드 서비스 및 VM을 사용하는 경우](/manage/services/web-sites/choose-web-app-service/)를 참조하세요.
 
 * [앱 서비스 계획을 선택하거나 만드는 방법](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
-* [리소스 그룹을 선택하거나 만드는 방법](../azure-preview-portal-using-resource-groups.md)
+* [리소스 그룹을 선택하거나 만드는 방법](../azure-portal/resource-group-portal.md)
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스 및 기존 Azure 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)를 참조하세요.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

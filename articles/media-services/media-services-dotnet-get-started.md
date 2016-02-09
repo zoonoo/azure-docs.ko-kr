@@ -13,11 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="01/18/2016"
+	ms.date="01/28/2016"
 	ms.author="juliako"/>
 
 
 # .NET SDK를 사용한 주문형 콘텐츠 제공 시작
+
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
@@ -130,13 +131,14 @@ Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나
 
 4. App.config 파일을 열고(기본적으로 추가되지 않은 경우 프로젝트에 파일 추가) *appSettings* 섹션을 파일에 추가합니다. Azure 미디어 서비스 계정 이름 및 계정 키의 값을 다음 예제와 같이 설정합니다. 계정 이름 및 키 정보를 얻으려면 Azure 클래식 포털을 열고 미디어 서비스 계정을 선택한 다음 **키 관리** 단추를 클릭합니다.
 
-<configuration> ... 
-	<appSettings> 
-		<add key="MediaServicesAccountName" value="Media-Services-Account-Name" /> 
-		<add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /> 
-	</appSettings>
+		<configuration>
+		...
+		  <appSettings>
+		    <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
+		    <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
+		  </appSettings>
 		  
-</configuration>
+		</configuration>
 
 5. 다음 코드를 사용하여 Program.cs 파일의 앞부분에 있는 기존 **using** 문을 덮어씁니다.
 
@@ -149,7 +151,7 @@ Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나
 		using System.Threading;
 		using System.IO;
 		using Microsoft.WindowsAzure.MediaServices.Client;
-		using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
+		
 
 6. 프로젝트 디렉터리 아래에 새 폴더를 만들고 인코딩하고 스트리밍 또는 점진적으로 다운로드하려는 .mp4 또는 .wmv 파일을 복사합니다. 이 예제에서는 "C:\\VideoFiles" 경로가 사용됩니다.
 
@@ -254,7 +256,7 @@ Program 클래스에 다음 메서드를 추가합니다.
 - mezzanine(원본) 파일을 적응 비트 전송률 MP4 파일 또는 적응 비트 전송률 부드러운 스트리밍 파일 집합으로 인코딩하거나 트랜스코딩합니다.  
 - 콘텐츠를 배달하는 출발점이 될 스트리밍 끝점에 하나 이상의 스트리밍 단위를 구성합니다.
 
-다음 코드는 인코딩 작업을 제출하는 방법을 보여 줍니다. 이 작업에는 **Azure 미디어 인코더**를 사용하여 mezzanine 파일을 적응 비트 전송률 MP4 집합으로 트랜스코딩하도록 지정하는 작업 하나가 포함됩니다. 이 코드는 작업을 제출하고 완료될 때까지 기다립니다.
+다음 코드는 인코딩 작업을 제출하는 방법을 보여 줍니다. 이 작업에는 **미디어 인코더 표준**을 사용하여 mezzanine 파일을 적응 비트 전송률 MP4 집합으로 트랜스코딩하도록 지정하는 작업 하나가 포함됩니다. 이 코드는 작업을 제출하고 완료될 때까지 기다립니다.
 
 작업이 완료되면 자산을 스트리밍하거나 트랜스코딩 결과로 생성된 MP4 파일을 점진적으로 다운로드할 수 있습니다. MP4 파일을 점진적으로 다운로드하려면 하나 이상의 스트리밍 단위가 필요하지 않습니다.
 
@@ -451,4 +453,4 @@ MPEG DASH
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
   [Portal]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

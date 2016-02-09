@@ -1,5 +1,5 @@
 <properties
-	pageTitle="HBase 자습서: Hadoop 및 HBase로 시작 | Microsoft Azure"
+	pageTitle="HBase 자습서: Hadoop에서 Linux 기반 HBase 클러스터 시작 | Microsoft Azure"
 	description="HDInsight에서 Hadoop을 통해 Apache HBase 사용을 시작하려면 이 HBase 자습서를 따르세요. HBase 셸에서 테이블을 만들고 Hive를 사용하여 쿼리합니다."
 	keywords="apache hbase, hbase, hbase 셸, hbase 자습서"
 	services="hdinsight"
@@ -14,64 +14,53 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/02/2015"
+	ms.date="02/01/2016"
 	ms.author="jgao"/>
 
 
 
-# HBase 자습서: HDInsight에서 Hadoop을 통해 Apache HBase 사용 시작(Linux)
+# HBase 자습서: HDInsight에서 Linux 기반 Hadoop을 통해 Apache HBase 사용 시작 
 
 [AZURE.INCLUDE [hbase-selector](../../includes/hdinsight-hbase-selector.md)]
 
-
 HDInsight에서 HBase 클러스터를 만들고, HBase 테이블을 만들고 Hive를 사용하여 테이블을 쿼리하는 방법에 대해 알아봅니다. 일반 HBase 정보는 [HDInsight HBase 개요][hdinsight-hbase-overview]를 참조하세요.
 
-> [AZURE.NOTE] 이 문서에 있는 정보는 Linux 기반 HDInsight 클러스터에 지정됩니다. Windows 기반 클러스터에 대한 정보는 [HDInsight에서 Hadoop으로 Apache HBase 시작(Windows)](hdinsight-hbase-tutorial-get-started.md)을 참조하세요.
+이 문서에 있는 정보는 Linux 기반 HDInsight 클러스터에 지정됩니다. Windows 기반 클러스터에 대한 내용을 보려면, 페이지 상단의 탭 선택기를 사용하여 전환합니다.
 
 ###필수 조건
 
 이 HBase 자습서를 시작하기 전에 다음이 있어야 합니다.
 
 - **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
-- Windows 기반 클라이언트용 PuTTY 및 PuTTYGen입니다. 이러한 유틸리티는 [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)에서 다운로드할 수 있습니다.
+- [SSH(secure Shell)](hdinsight-hadoop-linux-use-ssh-unixl.md). 
 - [curl](http://curl.haxx.se/download.html).
 
 ## HBase 클러스터 만들기
 
-[AZURE.INCLUDE [provisioningnote](../../includes/hdinsight-provisioning.md)]
+다음 절차는 Azure ARM 템플릿을 사용하여 HBase 클러스터를 만듭니다. 절차에 사용되는 매개 변수와 다른 클러스터 생성 메서드를 이해하려면 [HDInsight에서 Linux 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
 
-**Azure Preview 포털을 사용하여 HBase 클러스터를 만들려면**
+1. Azure 포털에서 ARM 템플릿을 열려면 다음 이미지를 클릭합니다. ARM 템플릿은 공용 BLOB 컨테이너에 있습니다. 
 
+    [![Azure에 배포](./media/hdinsight-hbase-tutorial-get-started-linux/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2FHbase.json)로 바꿉니다.
 
-1. [Azure 미리 보기 포털][azure-portal]에 로그인합니다.
-2. 왼쪽 위 모서리에서 **새로 만들기**를 클릭한 다음 **데이터 + 분석**, **HDInsight**를 차례로 클릭합니다.
-3. 다음 값을 입력합니다.
+2. **매개 변수** 블레이드에서 다음을 입력합니다.
 
+    - **ClusterName**: 만들려는 HBase 클러스터의 이름을 입력합니다.
+    - **ClusterStorageAccountName**: 각 클러스터에는 Azure Blob 저장소 계정 종속성이 있습니다. 클러스터를 삭제한 후에는 데이터가 저장소 계정에 유지됩니다.
+    - **Cluster login name and password**(클러스터 로그인 이름 및 암호): 기본 로그인 이름은 **admin**입니다.
+    - **SSH username and password**(SSH 사용자 이름 및 암호): 기본 사용자 이름은 **sshuser**입니다. 이름은 변경할 수 있습니다. 다른 매개 변수는 선택 사항입니다.  
+3. **확인**을 클릭하여 매개 변수를 저장합니다.
+4. **사용자 지정 배포** 블레이드에서 **리소스 그룹**을 클릭한 후 **새로 만들기**를 클릭하여 새 리소스 그룹을 만듭니다. 리소스 그룹은 클러스터, 종속 저장소 계정 및 기타 연결된 리소스를 그룹화하는 컨테이너입니다.
+5. **약관**을 클릭한 후에 **만들기**를 클릭합니다.
+6. **만들기**를 클릭합니다. 클러스터를 만들려면 20분 정도가 걸립니다.
 
-	- **클러스터 이름** - 이 클러스터를 식별하기 위한 이름을 입력합니다.
-	- **클러스터 유형** - **HBase**를 선택합니다.
-	- **클러스터 운영 체제**: **Ubuntu**를 선택합니다. Windows 기반 HBase 클러스터 만들기는 [HBase 자습서: HDInsight에서 Hadoop으로 Apache HBase를 사용 시작(Windows)](hdinsight-hbase-tutorial-get-started.md)을 참조하세요.
-	- **버전** - HBase 버전을 선택합니다.
-	- **구독** - 이 클러스터를 만드는 데 사용할 Azure 구독을 선택합니다.
-	- **리소스 그룹** - 새 리소스 그룹을 만들거나 기존 Azure 리소스 그룹을 선택합니다. 자세한 내용은 [Azure 리소스 관리자 개요](resource-group-overview.md)를 참조하세요.
-	- **자격 증명** HTTP 웹 서비스 사용자에 암호를 입력합니다. 기본 사용자 이름은 **admin**입니다. **SSH 사용자 이름**과 **암호** 또는 **공개 키**(SSH 사용자를 인증하는 데 사용됨)도 입력해야 합니다. 공개 키를 사용하는 것이 권장 방식입니다. HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
-
-		- [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
-		- [Windows에서 HDInsight의 Linux 기반 Hadoop로 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md) **선택**을 클릭하여 변경 사항을 저장합니다.
-	- **데이터 원본** - 클러스터의 기본 파일 시스템으로 사용할 기존 Azure 저장소 계정을 선택하거나 새 Azure 저장소 계정을 만듭니다. 기본 저장소 계정 위치는 클러스터 위치를 결정합니다. 기본 저장소 계정 및 클러스터는 같은 데이터 센터에 공동 배치되어야 합니다.
-	- **노드 가격 책정 계층** - HBase 클러스터에 사용할 지역 서버 수를 선택합니다.
-
-		> [AZURE.WARNING] HBase 서비스의 고가용성을 위해 **3개** 이상의 노드가 포함된 클러스터를 만들어야 합니다. 이렇게 하면 하나의 노드가 작동이 중지된 경우 다른 노드에서 HBase 데이터 영역을 사용할 수 있습니다.
-
-		> HBase를 학습하는 경우 항상 클러스터 크기로 1을 선택하고 각 사용 후에는 클러스터를 삭제하여 비용을 줄입니다.
-
-	- **옵션 구성** - Azure 가상 네트워크를 구성하고 스크립트 동작을 구성하며 추가 저장소 계정을 추가합니다.
-
-4. **만들기**를 클릭합니다.
 
 >[AZURE.NOTE] HBase 클러스터를 삭제한 후에는 동일한 기본 Blob 컨테이너를 사용하여 다른 HBase 클러스터를 만들 수 있습니다. 새 클러스터에서는 원래 클러스터에서 만든 HBase 테이블을 선택합니다.
 
-## HBase 셸 사용
+## 테이블 만들기 및 데이터 삽입
+
+SSH를 사용하여 HBase 클러스터를 연결하고 HBase 셸을 사용하여 HBase 테이블을 만들고 데이터 및 쿼리 데이터를 삽입할 수 있습니다. Linux, Unix, OS X 및 Windows에서 SSH 사용에 대한 자세한 내용은 [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md) 및 [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)을 참조하세요.
+ 
 
 대부분의 사람들의 경우, 데이터는 테이블 형식으로 나타납니다.
 
@@ -86,20 +75,7 @@ BigTable의 구현인 HBase에서 동일한 데이터는 다음과 같이 표시
 
 **HBase 셸을 사용하려면**
 
->[AZURE.NOTE] 여기의 단계는 Windows 컴퓨터에서 제공합니다. Linux, Unix 또는 OS X에서 Linux 기반 HDInsight 클러스터로 연결하는 데 대한 지침은 [Linux, Unix, 또는 OS X의 HDInsight에서 Linux 기반 Hadoop로 SSH 사용(미리 보기)](hdinsight-hadoop-linux-use-ssh-unix.md)
-1. 을 참조하세요. **PuTTY**를 엽니다. 문서의 시작에 나열된 필수 구성 요소를 참조하세요. 
-2. 생성 과정에서 사용자 계정을 생성할 때 SSH 키를 제공한 경우 다음 단계를 수행하여 클러스터에 인증할 때 사용하려는 개인 키를 선택해야 합니다.
-
-	In **Category**, expand **Connection**, expand **SSH**, and select **Auth**. Finally, click **Browse** and select the .ppk file that contains your private key.
-
-3. **Category**에서 **Session**을 클릭합니다.
-4. PuTTY 세션 화면에 대한 기본 옵션에서 다음 값을 입력합니다.
-
-	- 호스트 이름: 호스트 이름에서 HDInsight 서버의 SSH 주소(또는 IP 주소) 필드입니다. SSH 주소는 **-ssh.azurehdinsight.net**이 뒤에 오는 클러스터 이름입니다. 예를 들면 *mycluster-ssh.azurehdinsight.net*과 같습니다.
-	- 포트: 22. 헤드 노드 0에서 SSH 포트는 22입니다. [Linux에서 HDInsight 사용에 관한 정보(미리 보기)](hdinsight-hadoop-linux-information.md#remote-access-to-services)를 참조하세요.
-4. **Open**을 클릭하여 클러스터에 연결합니다.
-5. 메시지가 표시되면 클러스터를 생성할 때 입력한 사용자를 입력합니다. 사용자에 대한 암호를 제공한 경우 사용자를 입력하라는 메시지도 나타납니다.
-6. 다음 명령을 실행합니다.
+1. SSH에서 다음 명령을 실행합니다.
 
 		hbase shell
 
@@ -125,7 +101,6 @@ BigTable의 구현인 HBase에서 동일한 데이터는 다음과 같이 표시
 
 	Hbase 테이블 스키마에 대한 자세한 내용은 [HBase 스키마 디자인 소개][hbase-schema]를 참조하세요. HBase 명령에 대한 자세한 내용은 [Apache HBase 참조 가이드][hbase-quick-start]를 참조하세요.
 
-
 6. 셸 종료
 
 		exit
@@ -135,7 +110,7 @@ BigTable의 구현인 HBase에서 동일한 데이터는 다음과 같이 표시
 HBase는 테이블로 데이터를 로드하는 여러 방법을 포함합니다. 자세한 내용은 [대량 로드](http://hbase.apache.org/book.html#arch.bulk.load)를 참조하세요.
 
 
-샘플 데이터 파일은 공용 Blob 컨테이너, wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt로 업로드되었습니다. 데이터 파일 내용은 다음과 같습니다.
+샘플 데이터 파일은 공용 Blob 컨테이너, **wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*로 업로드되었습니다. 데이터 파일 내용은 다음과 같습니다.
 
 	8396	Calvin Raji		230-555-0191	230-555-0191	5415 San Gabriel Dr.
 	16600	Karen Wu		646-555-0113	230-555-0192	9265 La Paz
@@ -152,8 +127,7 @@ HBase는 테이블로 데이터를 로드하는 여러 방법을 포함합니다
 
 > [AZURE.NOTE] 이 절차는 마지막 절차에서 만든 연락처 HBase 테이블을 사용합니다.
 
-1. **PuTTY**를 열고 클러스터에 연결합니다. 이전 절차의 지침을 참조하세요.
-3. 데이터 파일을 StoreFiles로 변환하고 Dimporttsv.bulk.output에서 지정된 상대 경에 저장하려면 다음 명령을 실행합니다.
+1. SSH에서 데이터 파일을 StoreFiles로 변환하고 Dimporttsv.bulk.output에서 지정된 상대 경에 저장하려면 다음 명령을 실행합니다. HBase 셸인 경우에는 exit 명령을 사용하여 종료합니다.
 
 		hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name, Personal:Phone, Office:Phone, Office:Address" -Dimporttsv.bulk.output="/example/data/storeDataFileOutput" Contacts wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
 
@@ -165,10 +139,9 @@ HBase는 테이블로 데이터를 로드하는 여러 방법을 포함합니다
 
 
 
-## Hive를 사용하여 HBase 테이블 쿼리
+## Hive를 사용하여 HBase 쿼리
 
 Hive를 사용하여 HBase 테이블의 데이터를 쿼리할 수 있습니다. 이 섹션에서는 HBase 테이블에 매핑되는 Hive 테이블을 만들고 이를 사용하여 HBase 테이블의 데이터를 쿼리합니다.
-
 
 1. **PuTTY**를 열고 클러스터에 연결합니다. 이전 절차의 지침을 참조하세요.
 2. Hive 셸을 엽니다.
@@ -203,8 +176,8 @@ Hive를 사용하여 HBase 테이블의 데이터를 쿼리할 수 있습니다.
 
   이 명령에서 사용된 매개 변수는 다음과 같습니다.
 
-    * **-u** - 요청을 인증하는 데 사용되는 사용자 이름 및 암호입니다.
-    * **-G** - GET 요청임을 나타냅니다.
+    * **-u** - The user name and password used to authenticate the request.
+    * **-G** - Indicates that this is a GET request.
 
 2. 다음 명령을 사용하여 기존의 HBase 테이블을 나열합니다.
 
@@ -279,7 +252,7 @@ SSH는 웹 요청과 같은 로컬 요청을 HDInsight 클러스터에 터널링
 
 
 
-## 다음 작업
+## 다음 단계
 HDInsight에 대한 이 HBase 자습서에서는 HBase 클러스터를 만드는 방법 및 테이블을 만들고 HBase 셸에서 가져온 데이터를 이 테이블에서 보는 방법을 알아보았습니다. 또한 HBase 테이블에서 데이터에 대해 Hive 쿼리를 사용하는 방법 및 HBase C# REST API를 사용하여 HBase 테이블을 만들고 이 테이블에서 데이터를 검색하는 방법도 알아보았습니다.
 
 자세한 내용은 다음을 참조하세요.
@@ -314,4 +287,4 @@ HDInsight에 대한 이 HBase 자습서에서는 HBase 클러스터를 만드는
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

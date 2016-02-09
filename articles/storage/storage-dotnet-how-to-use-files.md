@@ -12,7 +12,7 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="01/24/2015"
+      ms.date="02/03/2015"
       ms.author="robinsh" />
 
 # Windows에서 Azure 파일 저장소 시작
@@ -29,7 +29,7 @@ Azure 파일 저장소는 표준 [SMB(서버 메시지 블록) 프로토콜](htt
 
 Linux에서 파일 저장소 사용에 대한 자세한 내용은 [Linux에서 Azure 파일 저장소 사용 방법](storage-how-to-use-files-linux.md)을 참조하세요.
 
-파일 저장소의 확장성 및 성능 목표에 대한 자세한 내용은 [Azure 저장소 확장성 및 성능 목표](storage-scalability-targets.md#scalability-targets-for-standard-storage-accounts)를 참조하세요.
+파일 저장소의 확장성 및 성능 목표에 대한 자세한 내용은 [Azure 저장소 확장성 및 성능 목표](storage-scalability-targets.md#scalability-targets-for-blobs-queues-tables-and-files)를 참조하세요.
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -138,7 +138,7 @@ PowerShell 사용을 준비하려면 Azure PowerShell cmdlet을 다운로드하�
 
 ### 저장소 계정 및 키에 대한 컨텍스트 만들기
 
-이제 저장소 계정 컨텍스트를 만듭니다. 이 컨텍스트는 저장소 계정 이름 및 계정 키를 캡슐화합니다. [Azure 포털](https://portal.azure.com)에서 계정 키 복사하기에 대한 지침은 [저장소 액세스 키 보기, 복사 및 재생성](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)을 참조하세요.
+이제 저장소 계정 컨텍스트를 만듭니다. 이 컨텍스트는 저장소 계정 이름 및 계정 키를 캡슐화합니다. [Azure 포털](https://portal.azure.com)에서 계정 키 복사하기에 대한 지침은 [저장소 액세스 키 보기 및 복사](storage-create-storage-account.md#view-and-copy-storage-access-keys)를 참조하세요.
 
 다음 예제에서 `storage-account-name` 및 `storage-account-key`을(를) 본인의 저장소 계정 이름 및 키로 바꿉니다.
 
@@ -425,7 +425,7 @@ Azure 저장소 클라이언트 라이브러리 버전 5.x부터 파일 공유 �
 
 Azure 저장소 클라이언트 라이브러리 버전 5.x부터 파일을 다른 파일로, 파일을 blob으로 또는 blob을 파일로 복사할 수 있습니다. 다음 섹션에는 이러한 복사 작업을 프로그래밍 방식으로 수행하는 방법이 나와 있습니다.
 
-AzCopy를 사용하여 파일을 다른 파일로 복사하거나 blob을 파일로 복사할 수도 있고 그 반대로 복사할 수도 있습니다. AzCopy를 사용하여 파일을 복사하는 방법에 대한 자세한 내용은 [Microsoft Azure 저장소를 통해 AzCopy를 사용하는 방법](storage-use-azcopy.md#copy-files-in-azure-file-storage-with-azcopy-preview-version-only)을 참조하세요.
+AzCopy를 사용하여 파일을 다른 파일로 복사하거나 blob을 파일로 복사할 수도 있고 그 반대로 복사할 수도 있습니다. AzCopy를 사용하여 파일을 복사하는 방법에 대한 자세한 내용은 [Microsoft Azure 저장소를 통해 AzCopy를 사용하는 방법](storage-use-azcopy.md#copy-files-in-azure-file-storage-with-azcopy)을 참조하세요.
 
 > [AZURE.NOTE] blob을 파일에 복사하거나 파일을 blob에 복사하는 경우 두 항목이 동일한 저장소 계정 내에 있더라도 SAS(공유 액세스 서명)를 사용하여 원본 개체를 인증해야 합니다.
 
@@ -586,9 +586,9 @@ Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합�
 
 ### 개념 문서 및 비디오
 
-- [Azure 파일 저장소: Windows 및 Linux을 위한 원활한 클라우드 SMB 파일 시스템 ](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
+- [Azure 파일 저장소: Windows 및 Linux용 원활한 클라우드 SMB 파일 시스템
+- https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
 - [Linux에서 Azure 파일 저장소 사용 방법](storage-how-to-use-files-linux.md)
-- [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy)
 
 ### 파일 저장소용 도구 지원
 
@@ -603,10 +603,9 @@ Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합�
 
 ### 블로그 게시물
 
-- [Azure 파일 저장소 일반적으로 사용 가능(영문)](http://go.microsoft.com/fwlink/?LinkID=626728&clcid=0x409)
-- [Azure 파일 저장소 자세히 알아보기](http://go.microsoft.com/fwlink/?LinkID=626729&clcid=0x409) 
+- [Azure 파일 저장소 일반적으로 사용 가능(영문)](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
+- [Azure 파일 저장소의 내면(영문)](https://azure.microsoft.com/blog/inside-azure-file-storage/) 
 - [Microsoft Azure 파일 서비스 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Microsoft Azure 파일에 대한 연결 유지](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
-- [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

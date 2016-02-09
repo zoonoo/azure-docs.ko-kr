@@ -18,17 +18,15 @@
 
 # CORS를 사용하여 JavaScript에서 API 앱 사용
 
-[AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
-
 ## 개요
 
 이 문서에는 다음과 같은 두 섹션이 포함되어 있습니다.
 
-* [CORS을 구성하는 방법](#corsconfig) 섹션은 모든 API 앱에 CORS을 구성하는 방법을 일반적으로 설명하며 .NET, Node.js 및 Java 등 앱 서비스에서 지원하는 모든 프레임워크에 동일하게 적용됩니다. 
+* [CORS를 구성하는 방법](#corsconfig) 섹션은 모든 API 앱에 CORS를 구성하는 방법을 일반적으로 설명하며 .NET, Node.js 및 Java 등 앱 서비스에서 지원하는 모든 프레임워크에 동일하게 적용됩니다. 
 
 * [문서의 나머지 부분](#tutorialstart)은 .NET 샘플 응용 프로그램을 배포하고 CORS를 구성하는 과정을 안내하므로 JavaScript 프런트 엔드는 Web API 백 엔드를 호출할 수 있습니다.
 
-## <a id="corsconfig"></a> Azure 앱 서비스에서 CORS을 구성하는 방법
+## <a id="corsconfig"></a> Azure 앱 서비스에서 CORS를 구성하는 방법
 
 ### CORS 정의
 
@@ -202,9 +200,9 @@ Web API CORS 지원은 앱 서비스 CORS 지원보다 유연성이 뛰어납니
 
 ### Web API 코드에서 CORS를 설정하는 방법
 
-다음 단계는 Web API CORS 지원 설정에 대한 프로세스를 간략하게 설명합니다. 자세한 내용은 [ASP.NET Web API 2에서 교차 원본 요청 사용](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api)을 참조하세요.
+다음 단계는 Web API CORS 지원 설정에 대한 프로세스를 간략하게 설명합니다. 자세한 내용은 [ASP.NET Web API 2에서 크로스-원본 요청 사용](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api)을 참조하세요.
 
-1. Web API 프로젝트에서 다음 예제와 같이 **WebApiConfig** 클래스의 **등록** 메서드에 `config.EnableCors()` 코드 줄을 포함합니다. 
+1. Web API 프로젝트에서 다음 예제와 같이 **WebApiConfig** 클래스의 **Register** 메서드에 `config.EnableCors()` 코드 줄을 포함합니다. 
 
 		public static class WebApiConfig
 	    {
@@ -240,4 +238,4 @@ Web API CORS 지원은 앱 서비스 CORS 지원보다 유연성이 뛰어납니
 
 이 자습서에서는 앱 서비스 CORS 지원을 사용하여 클라이언트 JavaScript 코드가 다른 도메인에서 API를 호출할 수 있는 방법을 살펴보았습니다. API 앱 시작 시리즈의 다음 문서에서는 [앱 서비스 API 앱에 대한 인증](app-service-api-authentication.md)에 대해 알아봅니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->
