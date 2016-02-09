@@ -471,10 +471,10 @@ Contoso Ads 응용 프로그램을 만드는 데는 다음 단계가 필요합�
 
 3. ContosoAdsWeb 프로젝트에서 다운로드한 프로젝트에서 가져온 다음 파일을 추가합니다.
 	- *Global.asax.cs*  
-	- *Views\\Shared* 폴더: <em>\_Layout.cshtml</em>
-	- *Views\\Home* 폴더: *Index.cshtml*.
+	- *Views\Shared* 폴더: <em>\_Layout.cshtml</em>
+	- *Views\Home* 폴더: *Index.cshtml*.
 	- *Controllers* 폴더: *AdController.cs*
-	- *Views\\Ad* 폴더(먼저 폴더 만들기): 5개의 *.cshtml* 파일.
+	- *Views\Ad* 폴더(먼저 폴더 만들기): 5개의 *.cshtml* 파일.
 
 3. ContosoAdsWorker 프로젝트에서 다운로드한 프로젝트에서 가져온 *WorkerRole.cs*를 추가합니다.
 
@@ -670,7 +670,7 @@ HttpPost `Edit` 메서드의 코드도 비슷하지만, 사용자가 새 이미�
 		    await blobToDelete.DeleteAsync();
 		}
 
-### ContosoAdsWeb - Views\\Ad\\Index.cshtml 및 Details.cshtml
+### ContosoAdsWeb - Views\Ad\Index.cshtml 및 Details.cshtml
 
 *Index.cshtml* 파일은 다른 광고 데이터가 포함된 미리 보기를 표시합니다.
 
@@ -680,7 +680,7 @@ HttpPost `Edit` 메서드의 코드도 비슷하지만, 사용자가 새 이미�
 
 		<img src="@Html.Raw(Model.ImageURL)" />
 
-### ContosoAdsWeb - Views\\Ad\\Create.cshtml 및 Edit.cshtml
+### ContosoAdsWeb - Views\Ad\Create.cshtml 및 Edit.cshtml
 
 *Create.cshtml* 및 *Edit.cshtml* 파일은 컨트롤러가 `HttpPostedFileBase` 개체를 가져올 수 있게 하는 양식 인코딩을 지정합니다.
 
@@ -694,7 +694,7 @@ HttpPost `Edit` 메서드의 코드도 비슷하지만, 사용자가 새 이미�
 
 Azure 작업자 역할 환경은 작업자 역할이 시작될 때 `OnStart` 메서드(`WorkerRole` 클래스에 있음)를 호출하고 `Run` 메서드를 호출합니다(`OnStart` 메서드가 완료되는 경우).
 
-`OnStart` 메서드는 *.cscfg** 파일에서 데이터베이스 연결 문자열을 가져와 Entity Framework DbContext 클래스에 전달합니다. SQLClient 공급자는 기본적으로 사용되므로, 이 공급자를 지정할 필요가 없습니다.
+`OnStart` 메서드는 *.cscfg* 파일에서 데이터베이스 연결 문자열을 가져와 Entity Framework DbContext 클래스에 전달합니다. SQLClient 공급자는 기본적으로 사용되므로, 이 공급자를 지정할 필요가 없습니다.
 
 		var dbConnString = CloudConfigurationManager.GetSetting("ContosoAdsDbConnectionString");
 		db = new ContosoAdsContext(dbConnString);

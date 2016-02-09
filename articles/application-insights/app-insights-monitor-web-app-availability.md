@@ -129,7 +129,7 @@ URL 시퀀스를 포함하는 시나리오를 모니터링할 수 있습니다. 
 
 코딩된 함수는 테스트에 사용할 수 없습니다. 시나리오 단계를 .webtest 파일에 스크립트로 포함해야 합니다.
 
-#### 1\. 시나리오 기록
+#### 1. 시나리오 기록
 
 Visual Studio Enterprise 또는 Ultimate를 사용하여 웹 세션을 기록합니다.
 
@@ -160,7 +160,7 @@ Visual Studio Enterprise 또는 Ultimate를 사용하여 웹 세션을 기록합
     ![Visual Studio에서 .webtest 파일을 열고 실행을 클릭합니다.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
 
 
-#### 2\. Application Insights에 웹 테스트를 업로드
+#### 2. Application Insights에 웹 테스트를 업로드
 
 1. Application Insights 포털에서 새 웹 테스트를 만듭니다.
 

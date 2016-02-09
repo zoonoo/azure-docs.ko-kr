@@ -104,25 +104,40 @@ ADO.NET을 사용하는 클라이언트에 대한 *차단 기간*의 설명은 [
 ### 네트워크에서 연결을 끊고 테스트
 
 
-재시도 논리를 테스트할 수 있는 한 가지 방법은 프로그램이 실행되는 동안 네트워크에서 클라이언트 컴퓨터 연결을 끊는 것입니다. 오류는 다음과 같습니다. - **SqlException.Number** = 11001 - 메시지: "해당 호스트를 알 수 없습니다."
+재시도 논리를 테스트할 수 있는 한 가지 방법은 프로그램이 실행되는 동안 네트워크에서 클라이언트 컴퓨터 연결을 끊는 것입니다. 오류는 다음과 같습니다. 
+- **SqlException.Number** = 11001 
+- 메시지: "해당 호스트를 알 수 없습니다."
 
 
 프로그램은 첫 번째 재시도 중 오타를 수정한 다음 연결을 시도할 수 있습니다.
 
 
-실제로 이 방법을 사용하려면 프로그램을 시작하기 전에 네트워크와 컴퓨터 간 케이블을 분리합니다. 그러면 프로그램에서 프로그램이 다음과 같이 작동하는 런타임 매개 변수를 인식합니다. 1. 오류 목록에 일시적 오류로 간주하기 위해 11001을 일시적으로 추가합니다. 2. 평상 시와 같이 첫 번째 연결을 시도합니다. 3. 오류가 확인되면 목록에서 11001을 제거합니다. 4. 사용자에게 컴퓨터를 네트워크에 연결하라는 메시지를 표시합니다. **Console.ReadLine** 메서드 또는 확인 단추가 포함된 대화 상자를 사용하여 추가 실행을 일시 정지합니다. 사용자가 컴퓨터와 네트워크 간 케이블을 연결한 다음 Enter 키를 누릅니다. 5. 다시 연결을 시도합니다. 정상적으로 연결되어야 합니다.
+실제로 이 방법을 사용하려면 프로그램을 시작하기 전에 네트워크와 컴퓨터 간 케이블을 분리합니다. 그러면 프로그램에서 프로그램이 다음과 같이 작동하는 런타임 매개 변수를 인식합니다. 
+1. 오류 목록에 일시적 오류로 간주하기 위해 11001을 일시적으로 추가합니다. 
+2. 평상 시와 같이 첫 번째 연결을 시도합니다. 
+3. 오류가 확인되면 목록에서 11001을 제거합니다. 
+4. 사용자에게 컴퓨터를 네트워크에 연결하라는 메시지를 표시합니다. 
+ - **Console.ReadLine** 메서드 또는 확인 단추가 포함된 대화 상자를 사용하여 추가 실행을 일시 정지합니다. 사용자가 컴퓨터와 네트워크 간 케이블을 연결한 다음 Enter 키를 누릅니다.
+5. 다시 연결을 시도합니다. 정상적으로 연결되어야 합니다.
 
 
 ### 연결 시 틀린 철자의 데이터베이스 이름을 사용하여 테스트
 
 
-프로그램이 첫 번째 연결 시도 전에 의도적으로 사용자 이름의 철자를 잘못 입력할 수 있습니다. 다음과 같은 오류가 표시됩니다. **SqlException.Number** = 18456 - 메시지: "'WRONG\_MyUserName' 사용자의 로그인이 실패했습니다".
+프로그램이 첫 번째 연결 시도 전에 의도적으로 사용자 이름의 철자를 잘못 입력할 수 있습니다. 다음과 같은 오류가 표시됩니다.
+- **SqlException.Number** = 18456
+- 메시지: "'WRONG\_MyUserName' 사용자의 로그인이 실패했습니다".
 
 
 프로그램은 첫 번째 재시도 중 오타를 수정한 다음 연결을 시도할 수 있습니다.
 
 
-실제로 이 방법을 사용하기 위해 프로그램에서 프로그램이 다음과 같이 작동하는 런타임 매개 변수를 인식할 수 있습니다. 1. 오류 목록에 일시적 오류로 간주하기 위해 18456을 일시적으로 추가합니다. 2. 사용자 이름에 의도적으로 'WRONG\_'을 추가합니다. 3. 오류가 확인되면 목록에서 18456을 제거합니다. 4. 사용자 이름에서 'WRONG\_'을 제거합니다. 5. 다시 연결을 시도합니다. 정상적으로 연결되어야 합니다.
+실제로 이 방법을 사용하기 위해 프로그램에서 프로그램이 다음과 같이 작동하는 런타임 매개 변수를 인식할 수 있습니다.
+1. 오류 목록에 일시적 오류로 간주하기 위해 18456을 일시적으로 추가합니다.
+2. 사용자 이름에 의도적으로 'WRONG\_'을 추가합니다.
+3. 오류가 확인되면 목록에서 18456을 제거합니다.
+4. 사용자 이름에서 'WRONG\_'을 제거합니다.
+5. 다시 연결을 시도합니다. 정상적으로 연결되어야 합니다.
 
 
 <a id="a-connection-connection-string" name="a-connection-connection-string"></a>
@@ -193,7 +208,8 @@ IP 주소를 구성하지 않을 경우 프로그램이 실패하고 간단한 �
 [AZURE.INCLUDE [sql-database-include-ip-address-22-v12portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
 
 
-자세한 내용은 [방법: SQL 데이터베이스에 방화벽 설정 구성](sql-database-configure-firewall-settings.md)을 참조하세요.
+자세한 내용은 
+[방법: SQL 데이터베이스에 방화벽 설정 구성](sql-database-configure-firewall-settings.md)을 참조하세요.
 
 
 <a id="c-connection-ports" name="c-connection-ports"></a>
@@ -219,7 +235,8 @@ IP 주소를 구성하지 않을 경우 프로그램이 실패하고 간단한 �
 클라이언트 프로그램이 Azure VM(가상 컴퓨터)에 호스팅된 경우 <br/>[ADO.NET 4.5 및 SQL 데이터베이스 V12용 1433 이상의 포트](sql-database-develop-direct-route-ports-adonet-v12.md)가 표시됩니다.
 
 
-포트 및 IP 주소 구성에 대한 배경 정보는 [Azure SQL 데이터베이스 방화벽](sql-database-firewall-configure.md)을 참조하세요.
+포트 및 IP 주소 구성에 대한 배경 정보는
+[Azure SQL 데이터베이스 방화벽](sql-database-firewall-configure.md)을 참조하세요.
 
 
 <a id="d-connection-ado-net-4-5" name="d-connection-ado-net-4-5"></a>
@@ -230,13 +247,16 @@ IP 주소를 구성하지 않을 경우 프로그램이 실패하고 간단한 �
 프로그램이 Azure SQL 데이터베이스에 연결하는 데 **System.Data.SqlClient.SqlConnection**과 같은 ADO.NET 클래스를 사용할 경우 버전 4.6.1 이상의 .NET Framework를 사용하는 것이 좋습니다.
 
 
-ADO.NET 4.6.1: - TDS 7.4 프로토콜 지원이 추가되었습니다. 여기에는 4.0보다 향상된 연결 기능, 즉, 연결 풀링 지원이 포함됩니다. 또한 프로그램에 제공하는 연결 개체가 올바르게 작동하는지를 효율적으로 확인합니다.
+ADO.NET 4.6.1: 
+- TDS 7.4 프로토콜 지원이 추가되었습니다. 여기에는 4.0보다 향상된 연결 기능, 즉,
+- 연결 풀링 지원이 포함됩니다. 또한 프로그램에 제공하는 연결 개체가 올바르게 작동하는지를 효율적으로 확인합니다.
 
 
 연결 풀에서 연결 개체를 사용할 경우 바로 연결을 사용하지 않을 때 프로그램에서 연결을 일시적으로 닫는 것이 좋습니다. 연결을 다시 열 경우 새로 연결하는 것만큼 많은 비용이 들지 않습니다.
 
 
-ADO.NET 4.0 이전 버전을 사용할 경우 최신 ADO.NET으로 업그레이드하는 것이 좋습니다. 2015년 11월 현재 [ADO.NET 4.6.1을 다운로드](http://blogs.msdn.com/b/dotnet/archive/2015/11/30/net-framework-4-6-1-is-now-available.aspx)할 수 있습니다.
+ADO.NET 4.0 이전 버전을 사용할 경우 최신 ADO.NET으로 업그레이드하는 것이 좋습니다.
+- 2015년 11월 현재 [ADO.NET 4.6.1을 다운로드](http://blogs.msdn.com/b/dotnet/archive/2015/11/30/net-framework-4-6-1-is-now-available.aspx)할 수 있습니다.
 
 
 <a id="e-diagnostics-test-utilities-connect" name="e-diagnostics-test-utilities-connect"></a>
@@ -261,14 +281,17 @@ Windows 컴퓨터에서 ADO.NET를 사용하여 연결하는 SQL Server Manageme
 연결 시도가 실패하는 이유가 포트 문제 때문인 것으로 의심되는 경우를 가정해 보겠습니다. 컴퓨터에서 포트 구성에 대해 보고하는 유틸리티를 실행할 수 있습니다.
 
 
-Linux에서는 다음 유틸리티가 도움이 될 수 있습니다. - `netstat -nap` - `nmap -sS -O 127.0.0.1` - (예제 값을 사용자의 IP 주소로 변경)
+Linux에서는 다음 유틸리티가 도움이 될 수 있습니다. 
+- `netstat -nap` 
+- `nmap -sS -O 127.0.0.1` 
+- (예제 값을 사용자의 IP 주소로 변경)
 
 
 Windows에서는 [PortQry.exe](http://www.microsoft.com/download/details.aspx?id=17148) 유틸리티가 도움이 됩니다. 다음은 Azure SQL 데이터베이스 서버에서 포트 상황에 대해 쿼리하기 위해 노트북 컴퓨터에서 실행한 실행 프로그램 예제입니다.
 
 
 ```
-[C:\Users\johndoe]
+[C:\Users\johndoe\]
 >> portqry.exe -n johndoesvr9.database.windows.net -p tcp -e 1433
 
 Querying target system called:
@@ -280,7 +303,7 @@ Name resolved to 23.100.117.95
 querying...
 TCP port 1433 (ms-sql-s service): LISTENING
 
-[C:\Users\johndoe]
+[C:\Users\johndoe\]
 >>
 ```
 
@@ -296,7 +319,8 @@ TCP port 1433 (ms-sql-s service): LISTENING
 클라이언트에서 발생한 모든 오류를 기록하면 진단에 도움이 될 수 있습니다. 로그 항목과 Azure SQL 데이터베이스에서 내부적으로 기록하는 오류 데이터의 상관 관계를 분석할 수 있습니다.
 
 
-Enterprise Library 6(EntLib60)는 로깅을 지원하기 위해 .NET 관리 클래스를 제공합니다. [5 - 간단한 응용 프로그램 블록 로깅 사용](http://msdn.microsoft.com/library/dn440731.aspx)
+Enterprise Library 6(EntLib60)는 로깅을 지원하기 위해 .NET 관리 클래스를 제공합니다. 
+- [5 - 간단한 응용 프로그램 블록 로깅 사용](http://msdn.microsoft.com/library/dn440731.aspx)
 
 
 <a id="h-diagnostics-examine-logs-errors" name="h-diagnostics-examine-logs-errors"></a>
@@ -363,10 +387,12 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 ## Enterprise Library 6
 
 
-Enterprise Library 6(EntLib60)은 Azure SQL 데이터베이스를 포함한 견고한 클라우드 서비스 클라이언트를 구현할 수 있는 .NET 클래스의 프레임워크입니다. 가장 먼저 [Enterprise Library 6 – 2013년 4월](http://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx)을 참조하여 EntLib60을 이용할 수 있는 각 영역에 해당하는 항목을 찾을 수 있습니다.
+Enterprise Library 6(EntLib60)은 Azure SQL 데이터베이스를 포함한 견고한 클라우드 서비스 클라이언트를 구현할 수 있는 .NET 클래스의 프레임워크입니다. 가장 먼저 
+- [Enterprise Library 6 – 2013년 4월](http://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx)을 참조하여 EntLib60을 이용할 수 있는 각 영역에 해당하는 항목을 찾을 수 있습니다.
 
 
-일시적 오류 처리에 대한 재시도 논리는 EntLib60을 이용할 수 있는 한 가지 영역입니다. - [4 - 모든 성공의 인내와 비밀: 일시적 오류 처리 응용 프로그램 블록 사용](http://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)
+일시적 오류 처리에 대한 재시도 논리는 EntLib60을 이용할 수 있는 한 가지 영역입니다.
+- [4 - 모든 성공의 인내와 비밀: 일시적 오류 처리 응용 프로그램 블록 사용](http://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)
 
 
 재시도 논리에서 EntLib60을 사용하는 간단한 C# 코드 샘플은 [코드 샘플: Enterprise Library 6에서 SQL 데이터베이스에 연결하기 위한 C#의 재시도 논리](sql-database-develop-entlib-csharp-retry-windows.md)에서 다운로드할 수 있습니다.
@@ -424,7 +450,8 @@ Enterprise Library 6(EntLib60)은 Azure SQL 데이터베이스를 포함한 견�
 - 로깅 블록은 대상 로깅 저장소의 위치 및 유형과 상관없이 응용 프로그램 코드의 일관성을 유지하도록 로그 대상에서 로깅 기능을 추상화합니다.
 
 
-자세한 내용은 : [5 - 간단한 응용 프로그램 블록 로깅 사용](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx)을 참조하세요.
+자세한 내용은 : 
+[5 - 간단한 응용 프로그램 블록 로깅 사용](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx)을 참조하세요.
 
 
 ### EntLib60 IsTransient 메서드 소스 코드

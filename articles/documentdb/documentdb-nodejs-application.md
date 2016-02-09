@@ -505,7 +505,7 @@
 	
 	응용 프로그램이 작동하는 데 필요한 모든 작업이 완료되었습니다.
 
-5. **public\\stylesheets** 디렉터리에서 **style.css** 파일을 열고 코드를 다음으로 바꿉니다.
+5. **public\stylesheets** 디렉터리에서 **style.css** 파일을 열고 코드를 다음으로 바꿉니다.
 
 		body {
 		  padding: 50px;

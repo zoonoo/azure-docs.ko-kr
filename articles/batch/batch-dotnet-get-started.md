@@ -84,7 +84,8 @@ private const string StorageAccountKey  = "";
 
 [Azure 포털][azure_portal]의 각 서비스의 계정 블레이드 내에서 배치 및 저장소 계정 자격 증명을 찾을 수 있습니다.
 
-![포털의 배치 자격 증명][9] ![포털의 저장소 자격 증명][10]<br/>
+![포털의 배치 자격 증명][9] 
+![포털의 저장소 자격 증명][10]<br/>
 
 자격 증명으로 프로젝트를 업데이트했으므로 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **솔루션 빌드**를 클릭합니다. 메시지가 표시되면 모든 NuGet 패키지 복원을 확인합니다.
 
@@ -96,7 +97,8 @@ private const string StorageAccountKey  = "";
 
 ## 1단계: 저장소 컨테이너 만들기
 
-![Azure 저장소에 컨테이너 만들기][1] <br/>
+![Azure 저장소에 컨테이너 만들기][1] 
+<br/>
 
 배치에는 Azure 저장소와의 상호 작용을 위해 기본 제공되는 지원이 포함됩니다. 저장소 계정 내의 컨테이너는 실행해야 하는 파일과 함께 배치 계정에서 실행되는 태스크를 제공합니다. 컨테이너는 태스크가 생성하는 출력 데이터를 저장할 공간도 제공합니다. *DotNetTutorial* 클라이언트 응용 프로그램이 실행하는 첫 번째 작업은 [Azure Blob 저장소](./../storage/storage-introduction.md)에 세 개의 컨테이너를 만드는 것입니다.
 
@@ -152,7 +154,8 @@ private static async Task CreateContainerIfNotExistAsync(CloudBlobClient blobCli
 
 ## 2단계: 작업 응용 프로그램 및 데이터 파일 업로드
 
-![컨테이너에 작업 응용 프로그램 및 입력(데이터) 파일 업로드][2] <br/>
+![컨테이너에 작업 응용 프로그램 및 입력(데이터) 파일 업로드][2] 
+<br/>
 
 파일 업로드 작업에서 *DotNetTutorial*은 먼저 로컬 컴퓨터에 있는 **응용 프로그램**의 컬렉션 및 **입력** 파일 경로를 지정합니다. 그런 다음 이전 단계에서 만든 컨테이너에 이러한 파일을 업로드합니다.
 
@@ -238,7 +241,8 @@ DotNetTutorial 샘플 응용 프로그램은 JobPreparationTask 또는 JobReleas
 
 ## 3단계: 배치 풀 만들기
 
-![배치 풀 만들기][3] <br/>
+![배치 풀 만들기][3] 
+<br/>
 
 저장소 계정에 응용 프로그램 및 데이터 파일을 업로드한 후 *DotNetTutorial*은 Batch .NET 라이브러리를 사용하여 배치 서비스와의 상호 작용을 시작합니다. 이렇게 하기 위해 [BatchClient][net_batchclient]가 먼저 만들어집니다.
 
@@ -323,7 +327,8 @@ private static async Task CreateJobAsync(BatchClient batchClient, string jobId, 
 
 ## 5단계: 작업에 태스크 추가
 
-![작업에 태스크 추가][5]<br/> *(1) 태스크가 작업에 추가됨, (2) 태스크가 노드에서 실행되도록 예약됨, (3) 태스크가 처리할 데이터 파일을 다운로드함*
+![작업에 태스크 추가][5]<br/> 
+*(1) 태스크가 작업에 추가됨, (2) 태스크가 노드에서 실행되도록 예약됨, (3) 태스크가 처리할 데이터 파일을 다운로드함*
 
 실제로 작업을 수행하려면 태스크가 작업에 추가되어야 합니다. 각 [CloudTask][net_task]는 명령줄 속성 및 명령줄이 자동으로 실행되기 전에 태스크가 노드에 다운로드하는 [ResourceFiles][net_task_resourcefiles](풀의 StartTask와 마찬가지로)을 사용하여 구성됩니다. *DotNetTutorial* 샘플 프로젝트에서 각 태스크는 파일을 하나만 처리합니다. 따라서 ResourceFiles 컬렉션은 단일 요소를 포함합니다.
 
@@ -341,7 +346,7 @@ private static async Task<List<CloudTask>> AddTasksAsync(BatchClient batchClient
     foreach (ResourceFile inputFile in inputFiles)
     {
         string taskId = "topNtask" + inputFiles.IndexOf(inputFile);
-        string taskCommandLine = String.Format("cmd /c %AZ_BATCH_NODE_SHARED_DIR%\\TaskApplication.exe {0} 3 "{1}"", inputFile.FilePath, outputContainerSasUrl);
+        string taskCommandLine = String.Format("cmd /c %AZ_BATCH_NODE_SHARED_DIR%\\TaskApplication.exe {0} 3 \"{1}\"", inputFile.FilePath, outputContainerSasUrl);
 
         CloudTask task = new CloudTask(taskId, taskCommandLine);
         task.ResourceFiles = new List<ResourceFile> { inputFile };
@@ -402,7 +407,8 @@ private static void UploadFileToContainer(string filePath, string containerSas)
 
 ## 6단계: 작업 모니터링
 
-![작업 모니터링][6]<br/> *클라이언트 응용 프로그램이 (1) 태스크의 완료 및 성공 상태를 모니터링하고 (2) 태스크는 결과 데이터를 Azure 저장소에 업로드합니다.*
+![작업 모니터링][6]<br/> 
+*클라이언트 응용 프로그램이 (1) 태스크의 완료 및 성공 상태를 모니터링하고 (2) 태스크는 결과 데이터를 Azure 저장소에 업로드합니다.*
 
 태스크가 작업에 추가되면 작업에 연결된 풀 내에서 계산 노드에서 실행되도록 자동으로 큐에 대기 및 예약됩니다. 지정한 설정에 따라 배치는 대기, 예약, 다시 시도하는 모든 작업 및 기타 담당 작업 관리 업무를 처리합니다. 태스크 실행을 모니터링하는 방법은 여러 가지가 있습니다. DotNetTutorial은 완료 및 태스크 실패 또는 성공 상태에 대해서만 보고하는 간단한 예제를 보여 줍니다.
 
