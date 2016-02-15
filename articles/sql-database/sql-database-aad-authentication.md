@@ -66,8 +66,8 @@ Azure SQL 데이터베이스에 포함된 된 데이터베이스 사용자를 �
 ## Azure AD 기능 및 제한 사항
 
 Azure SQL Server에서 다음 Azure Active Directory 멤버를 프로비전할 수 있습니다.  
-- 네이티브 멤버: 관리되는 도메인 또는 고객 도메인의 Azure AD에서 만든 멤버. 자세한 내용은 [Azure AD에 고유한 도메인 이름 추가](https://azure.microsoft.com/documentation/articles/active-directory-add-domain/)를 참조하세요.  
-- 페더레이션된 도메인 멤버: 페더레이션된 도메인의 Azure AD에서 만든 멤버입니다. 자세한 내용은 [이제 Microsoft Azure에서 Windows Server Active Directory와의 페더레이션 지원](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)을 참조하세요. - 네이티브 또는 페더레이션된 도메인인 멤버로, Azure Active Directory에서 가져온 멤버. - 보안 그룹으로 만들어진 Active Directory 그룹.
+- 네이티브 멤버: 관리되는 도메인 또는 고객 도메인의 Azure AD에서 만든 멤버. 자세한 내용은 [Azure AD에 고유한 도메인 이름 추가]( https://azure.microsoft.com/documentation/articles/active-directory-add-domain/)를 참조하세요.  
+- 페더레이션된 도메인 멤버: 페더레이션된 도메인의 Azure AD에서 만든 멤버입니다. 자세한 내용은 [이제 Microsoft Azure에서 Windows Server Active Directory와의 페더레이션 지원]( https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)을 참조하세요. - 네이티브 또는 페더레이션된 도메인인 멤버로, Azure Active Directory에서 가져온 멤버. - 보안 그룹으로 만들어진 Active Directory 그룹.
 
 Microsoft 계정(예: outlook.com, hotmail.com, live.com) 또는 다른 게스트 계정(예: gmail.com, yahoo.com)은 지원되지 않습니다. 계정 및 암호를 사용하여 [https://login.live.com](https://login.live.com)에 로그인할 수 있는 경우 Azure SQL 데이터베이스에 대한 Azure AD 인증에 지원되지 않는 Microsoft 계정을 사용하는 것입니다.
 
@@ -331,4 +331,4 @@ Azure AD 인증과 관련한 특정 코드 예제는 MSDN의 [SQL Server 보안 
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
 
-<!----HONumber=AcomDC_0204_2016-->
+<!-----HONumber=AcomDC_0204_2016-->
