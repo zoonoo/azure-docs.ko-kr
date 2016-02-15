@@ -36,7 +36,7 @@ Java, Node.js, C 및 C#에 사용할 수 있는 MQTT 프로토콜을 지원하�
 | -------------------------- | ------------------------- |
 | [Node.JS][lnk-sample-node] | azure-iot-device-mqtt |
 | [Java][lnk-sample-java] | IotHubClientProtocol.MQTT |
-| [C][lnk-sample-c] | MQTT\_Protocol |
+| [C][lnk-sample-c] | MQTT_Protocol |
 | [C#][lnk-sample-csharp] | TransportType.Mqtt |
 
 ## MQTT 프로토콜 직접 사용

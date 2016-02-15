@@ -187,7 +187,7 @@ Ping 명령을 실행한 경우 IP 주소 10.0.0.1에서 성공적인 회신 4�
 14.	사이트 모음 만들기 페이지의 **제목 및 설명**에서 **제목**에 **Contoso Corporation**을 입력하고 URL ****http://sp1**/을 지정한 다음 **확인**을 클릭합니다. 완료되기 전에 작업 중 페이지가 잠시 동안 표시될 수 있습니다. 이 단계는 URL http://sp1에 팀 사이트를 만듭니다.
 15.	팜 구성 마법사를 완료합니다 페이지에서 **마침**을 클릭합니다. Internet Explorer 탭에 SharePoint 2013 중앙 관리 사이트가 표시됩니다.
 16.	CORP\\User1 계정 자격 증명으로 CLIENT1 컴퓨터에 로그온한 다음 Internet Explorer를 시작합니다.
-17.	주소 표시줄에 ****http://sp1/**을 입력하고 Enter 키를 누릅니다. Contoso Corporation에 대한 SharePoint 팀 사이트가 표시됩니다. 사이트를 렌더링하는 데 약간의 시간이 걸릴 수 있습니다.
+17.	주소 표시줄에 **http://sp1/**을 입력하고 Enter 키를 누릅니다. Contoso Corporation에 대한 SharePoint 팀 사이트가 표시됩니다. 사이트를 렌더링하는 데 약간의 시간이 걸릴 수 있습니다.
 
 다음은 현재 구성입니다.
 

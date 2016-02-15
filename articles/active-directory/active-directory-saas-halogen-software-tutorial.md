@@ -155,7 +155,8 @@ Halogen Software에서 Azure AD Single Sign-on을 구성하고 테스트하려�
 7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다. <br><br>![Azure AD Connect의 정의][105]  
 8. **임시 암호 가져오기** 대화 상자 페이지에서 다음 단계를 수행합니다. <br><br>![Azure AD Connect의 정의][106]   
 
-    a. **새 암호** 값을 적어둡니다. b. **완료**를 클릭합니다.
+    a. **새 암호** 값을 적어둡니다. 
+    b. **완료**를 클릭합니다.
   
  
 ### Halogen Software 테스트 사용자 만들기
@@ -166,7 +167,12 @@ Halogen Software에서 Azure AD Single Sign-on을 구성하고 테스트하려�
 
 1. **Halogen Software** 응용 프로그램에 관리자 권한으로 로그온합니다.
 2. **사용자 센터** 탭을 클릭한 후 **사용자 만들기**를 클릭합니다. <br><br>![Azure AD Connect의 정의][300]  
-3. **새 사용자** 대화 상자 페이지에서 다음 단계를 수행합니다. <br><br>![Azure AD Connect의 정의][301]a. **이름** 텍스트 상자에 **Britta**를 입력합니다. b. **성** 텍스트 상자에 **Simon**을 입력합니다. c. **사용자 이름** 텍스트 상자에 **Azure AD 포털의 Brita Simon 사용자 이름**을 입력합니다. d. **암호** 텍스트 상자에 Britta에 대한 암호를 입력합니다. e. **Save**를 클릭합니다.
+3. **새 사용자** 대화 상자 페이지에서 다음 단계를 수행합니다. <br><br>![Azure AD Connect의 정의][301]
+  a. **이름** 텍스트 상자에 **Britta**를 입력합니다. 
+  b. **성** 텍스트 상자에 **Simon**을 입력합니다. 
+  c. **사용자 이름** 텍스트 상자에 **Azure AD 포털의 Brita Simon 사용자 이름**을 입력합니다. 
+  d. **암호** 텍스트 상자에 Britta에 대한 암호를 입력합니다.
+  e. **Save**를 클릭합니다.
 
 
 ### Azure AD 테스트 사용자 할당

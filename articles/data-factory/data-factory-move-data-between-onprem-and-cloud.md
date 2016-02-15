@@ -602,10 +602,15 @@ Windows 방화벽 수준에서 이러한 아웃바운드 포트는 일반적으�
 7.	**자격 증명** 블레이드에서 **자격 증명을 안전하게 설정하려면 여기를 클릭하세요**를 클릭합니다.
 8.	**자격 증명 설정** 대화 상자에서 다음을 수행합니다.
 
-	![자격 증명 대화 상자 설정](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png) 1. 데이터 팩터리 서비스가 사용하려는 **인증**을 선택하여 데이터베이스에 연결합니다. 2. **USERNAME** 설정에 대해 데이터베이스에 액세스할 수 있는 사용자의 이름을 입력합니다. 3. **PASSWORD** 설정에 대해 사용자 암호를 입력합니다. 4. **확인**을 클릭하여 대화 상자를 닫습니다. 
+	![자격 증명 대화 상자 설정](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png) 
+	1. 데이터 팩터리 서비스가 사용하려는 **인증**을 선택하여 데이터베이스에 연결합니다. 
+	2. **USERNAME** 설정에 대해 데이터베이스에 액세스할 수 있는 사용자의 이름을 입력합니다. 
+	3. **PASSWORD** 설정에 대해 사용자 암호를 입력합니다. 
+	4. **확인**을 클릭하여 대화 상자를 닫습니다. 
 4. **확인**을 클릭하여 **자격 증명** 블레이드를 닫습니다. 
 5. **새 데이터 저장소** 블레이드에서 **확인**을 클릭합니다. 	
-6. **SqlServerLinkedService**의 상태가 연결된 서비스 블레이드에서 온라인으로 설정되었는지 확인합니다. ![SQL Server 연결된 서비스 상태](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
+6. **SqlServerLinkedService**의 상태가 연결된 서비스 블레이드에서 온라인으로 설정되었는지 확인합니다.
+	![SQL Server 연결된 서비스 상태](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
 
 게이트웨이 컴퓨터와 다른 컴퓨터에서 포털에 액세스하는 경우 자격 증명 관리자 응용프로그램이 게이트웨이 컴퓨터에 연결할 수 있는지 확인해야 합니다. 응용프로그램이 게이트웨이 컴퓨터에 연결할 수 없는 경우, 데이터 원본에 대한 자격 증명을 설정하고 데이터 원본에 대한 연결을 테스트할 수 없습니다.
 
@@ -677,7 +682,8 @@ Azure 포털에서 시작된 "자격 증명 설정" 응용 프로그램을 사�
 ## 데이터 관리 게이트웨이를 사용하는 복사에 대한 데이터 흐름
 데이터 파이프라인에는 복사 활동을 사용하여 온-프레미스 데이터를 클라우드로 수집하거나 결과 데이터를 클라우드에서 온-프레미스 데이터 저장소에 다시 내보내는 경우 복사 작업은 내부적으로 게이트웨이를 사용하여 온-프레미스 데이터 원본에서 클라우드로 그리고 반대로 데이터를 전송합니다.
 
-다음은 높은 수준의 데이터 흐름 및 데이터 게이트웨이를 사용한 복사본에 대한 단계의 요약입니다.![게이트웨이를 사용하는 데이터 흐름](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
+다음은 높은 수준의 데이터 흐름 및 데이터 게이트웨이를 사용한 복사본에 대한 단계의 요약입니다.
+![게이트웨이를 사용하는 데이터 흐름](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
 
 1.	데이터 개발자는 [Azure 포털](https://portal.azure.com) 또는 [PowerShell Cmdlet](https://msdn.microsoft.com/library/dn820234.aspx) 중 하나를 사용하는 Azure Data Factory에 대한 새 게이트웨이를 만듭니다. 
 2.	데이터 개발자는 게이트웨이로 "연결된 서비스" 패널을 사용하여 온-프레미스 데이터 저장소에 대한 새 연결 된 서비스를 정의합니다. 연결된 서비스 데이터 설정의 일부로서 개발자는 단계별 연습에 표시된 대로 자격 증명 설정 응용 프로그램을 사용하여 인증 유형 및 자격 증명을 지정합니다. 자격 증명 설정 응용 프로그램 대화 상자는 연결을 테스트하는 데이터 저장소 및 자격 증명을 저장하는 게이트웨이와 통신합니다.

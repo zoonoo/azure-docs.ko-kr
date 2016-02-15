@@ -56,11 +56,11 @@ Azure Site Recovery 배포의 일환으로 Hyper-V 서버마다 Azure Site Recov
 - 항상 최신 버전의 공급자 및 에이전트를 실행하는 것이 좋습니다. 이에 대한 내용은 사이트 복구 포털에서 제공됩니다.
 - 자격 증명 모음의 모든 Hyper-V 서버는 동일한 버전의 공급자 및 에이전트를 포함해야 합니다.
 - 서버에서 실행되는 공급자는 인터넷을 통해 사이트 복구에 연결됩니다. 현재 Hyper-V 서버에 구성된 프록시 설정 또는 공급자 설치 중에 구성하는 사용자 지정 프록시 설정을 사용하여 프록시 없이 이를 수행할 수 있습니다. 사용하려는 프록시 서버가 Azure 연결을 위해 이러한 URL에 액세스할 수 있는지 확인해야 합니다.
-	- **.hypervrecoverymanager.windowsazure.com
-- **.accesscontrol.windows.net
-- **.backup.windowsazure.com
-- **.blob.core.windows.net
-- **.store.core.windows.net
+	- *.hypervrecoverymanager.windowsazure.com
+	- *.accesscontrol.windows.net
+	- *.backup.windowsazure.com
+	- *.blob.core.windows.net
+	- *.store.core.windows.net
 	
 - 또한 [Azure 데이터센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653) 및 HTTPS(443) 프로토콜에 설명된 IP 주소를 허용합니다. 사용하려는 Azure 지역 및 미국 서부의 IP 범위를 허용해야 합니다.
 
