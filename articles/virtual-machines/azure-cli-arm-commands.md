@@ -1829,7 +1829,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 
 	vm start [options] <resource-group> <name>
 
-** 리소스 그룹 내 한 가상 컴퓨터를 종료하고 컴퓨팅 리소스 해제**
+**리소스 그룹 내 한 가상 컴퓨터를 종료하고 컴퓨팅 리소스 해제**
 
 	vm deallocate [options] <resource-group> <name>
 
@@ -1879,4 +1879,4 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!----HONumber=AcomDC_0204_2016-->
