@@ -1,4 +1,4 @@
-1. [Azure CLI에서 Azure에 연결](../articles/xplat-cli-connect.md)에 나열된 단계를 사용하여 Azure 구독에 로그인 합니다.
+1. [Azure CLI에서 Azure에 연결](../xplat-cli-connect.md)에 나열된 단계를 사용하여 Azure 구독에 로그인 합니다.
 
 2. 다음을 사용하여 서비스 관리 모드에 있는지 확인합니다.
 
@@ -25,9 +25,9 @@
         + Creating VM
         info:    vm create command OK
 
-    >[AZURE.NOTE]Linux 가상 컴퓨터에서는, `vm create`에서 `-e` 옵션을 반드시 제공해야 합니다. 가상 컴퓨터를 만든 후에는 SSH 사용이 불가능합니다. SSH에 대한 자세한 내용은 [Azure에서 Linux와 함께 SSH를 사용하는 방법](../articles/virtual-machines/virtual-machines-linux-use-ssh-key.md)을 참조하세요.
+    >[AZURE.NOTE] Linux 가상 컴퓨터에서는, `vm create`에서 `-e` 옵션을 반드시 제공해야 합니다. 가상 컴퓨터를 만든 후에는 SSH 사용이 불가능합니다. SSH에 대한 자세한 내용은 [Azure에서 Linux와 함께 SSH를 사용하는 방법](virtual-machines-linux-use-ssh-key.md)을 참조하세요.
 
-    *b4590d9e3ed742e4a1d46e5424aa335e\_\_suse-opensuse-13.1-20141216-x86-64*는 위 단계에 있는 이미지 목록에서 선택한 이미지입니다. *MyTestVM*은 새 가상 컴퓨터의 이름이고, *adminUser*는 가상 컴퓨터 내에서 SSH를 사용하는 사용자 이름입니다. 사용자 요구 사항에 따라 이러한 변수를 대체할 수 있습니다. 이 명령에 대한 자세한 내용은 [Azure 서비스 관리를 포함한 Azure CLI 사용](../articles/virtual-machines/virtual-machines-command-line-tools.md)을 방문하십시오.
+    *b4590d9e3ed742e4a1d46e5424aa335e\_\_suse-opensuse-13.1-20141216-x86-64*는 위 단계에 있는 이미지 목록에서 선택한 이미지입니다. *MyTestVM*은 새 가상 컴퓨터의 이름이고, *adminUser*는 가상 컴퓨터 내에서 SSH를 사용하는 사용자 이름입니다. 사용자 요구 사항에 따라 이러한 변수를 대체할 수 있습니다. 이 명령에 대한 자세한 내용은 [Azure 서비스 관리를 포함한 Azure CLI 사용](virtual-machines-command-line-tools.md)을 방문하십시오.
 
 5. 다음에 주어진 목록에 새로 만든 Linux 가상 컴퓨터가 나타납니다.
 
@@ -39,6 +39,6 @@
 
 7. 새로 만든 가상 컴퓨터는 `azure vm start` 명령을 사용하여 시작하도록 준비되었습니다.
 
-모든 Azure CLI 가상 컴퓨터 명령에 대한 자세한 설명은 [서비스 관리 API를 포함한 Azure CLI 사용](../articles/virtual-machines/virtual-machines-command-line-tools.md)을 참조하세요.
+모든 Azure CLI 가상 컴퓨터 명령에 대한 자세한 설명은 [서비스 관리 API를 포함한 Azure CLI 사용](virtual-machines-command-line-tools.md)을 참조하세요.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

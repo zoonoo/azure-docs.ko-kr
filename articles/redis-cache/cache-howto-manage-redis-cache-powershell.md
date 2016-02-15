@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="02/01/2016" 
 	ms.author="sdanie"/>
 
 # Azure PowerShell을 사용하여 Azure Redis Cache 관리
@@ -60,6 +60,46 @@ Azure 리소스 관리자에서 Windows PowerShell을 사용하려면 다음이 
 
 	Get-Help New-AzureRmRedisCache -Detailed
 
+## Azure Government 클라우드 또는 Azure 중국 클라우드에 연결하는 방법
+
+기본적으로 Azure 환경은 글로벌 Azure 클라우드 인스턴스를 나타내는 `AzureCloud`입니다. 다른 인스턴스에 연결하려면 원하는 환경 또는 환경 이름을 사용하여 `-Environment` 또는 -`EnvironmentName` 명령줄 스위치와 함께 `Add-AzureRmAccount` 명령을 사용합니다.
+
+사용 가능한 환경 목록을 보려면 `Get-AzureRmEnvironment` cmdlet을 실행합니다.
+
+### Azure Government 클라우드를 연결하려면
+
+Azure Government 클라우드를 연결하려면 다음 명령 중 하나를 사용합니다.
+
+	Add-AzureRMAccount -EnvironmentName AzureUSGovernment
+
+또는
+
+	Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureUSGovernment)
+
+Azure Government 클라우드 내에 캐시를 만들려면 다음 위치 중 하나를 사용합니다.
+
+-	USGov 버지니아
+-	미국 정부 아이오와
+
+Azure Government 클라우드에 대한 자세한 내용은 [Microsoft Azure Government](https://azure.microsoft.com/features/gov/) 및 [Microsoft Azure Government 개발자 가이드](azure-government-developer-guide.md)를 참조하세요.
+
+### Azure 중국 클라우드에 연결하려면
+
+Azure 중국 클라우드에 연결하려면 다음 명령 중 하나를 사용합니다.
+
+	Add-AzureRMAccount -EnvironmentName AzureChinaCloud
+
+또는
+
+	Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureChinaCloud)
+
+Azure 중국 클라우드에서 캐시를 만들려면 다음 위치 중 하나를 사용합니다.
+
+-	중국 동부
+-	중국 북부
+
+Azure 중국 클라우드에 대한 자세한 내용은 [중국 21Vianet에서 운영하는 Azure용 AzureChinaCloud](http://www.windowsazure.cn/)를 참조하세요.
+
 ## Azure Redis Cache PowerShell에 사용되는 속성
 
 다음 표에서는 Azure PowerShell을 사용하여 Azure Redis Cache 인스턴스를 만들고 관리할 때 자주 사용되는 매개 변수에 대한 속성 및 설명을 포함합니다.
@@ -85,7 +125,7 @@ Azure 리소스 관리자에서 Windows PowerShell을 사용하려면 다음이 
 
 [New-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634517.aspx) cmdlet을 사용하여 새 Azure Redis Cache 인스턴스를 만듭니다.
 
->[AZURE.IMPORTANT]Azure 포털을 사용하여 구독에 처음으로 Redis 캐시를 만들 때 포털은 해당 구독에 대해 `Microsoft.Cache` 네임스페이스를 등록합니다. PowerShell을 사용하여 구독에서 첫 번째 Redis 캐시를 만드는 경우, 먼저 다음 명령을 사용하여 해당 네임스페이스를 등록해야 하며 그렇지 않은 경우 `New-AzureRmRedisCache` 및 `Get-AzureRmRedisCache`의 cmdlet이 실패합니다.
+>[AZURE.IMPORTANT] Azure 포털을 사용하여 구독에 처음으로 Redis 캐시를 만들 때 포털은 해당 구독에 대해 `Microsoft.Cache` 네임스페이스를 등록합니다. PowerShell을 사용하여 구독에서 첫 번째 Redis 캐시를 만드는 경우, 먼저 다음 명령을 사용하여 해당 네임스페이스를 등록해야 하며 그렇지 않은 경우 `New-AzureRmRedisCache` 및 `Get-AzureRmRedisCache`의 cmdlet이 실패합니다.
 >
 >`Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Cache"`
 
@@ -569,4 +609,4 @@ Azure에서 Windows PowerShell 사용에 대한 자세한 내용은 다음 리�
 - [Windows PowerShell 블로그](http://blogs.msdn.com/powershell): Windows PowerShell의 새로운 기능에 대해 알아봅니다.
 - ["Hey, Scripting Guy!" 블로그](http://blogs.technet.com/b/heyscriptingguy/): Windows PowerShell 커뮤니티에서 실제 팁과 요령을 확인합니다.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

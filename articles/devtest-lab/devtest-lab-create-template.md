@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/01/2015"
+	ms.date="01/30/2016"
 	ms.author="tarcher"/>
 
 # VM 템플릿 만들기
 
 ## 개요
 
-[랩을 만든](devtest-lab-create-lab.md) 후 VM 템플릿 목록에서 [해당 랩에 VM을 추가](devtest-lab-add-vm-with-artifacts.md)할 수 있습니다. 이 문서에서는 VM을 만들 템플릿인 VHD(가상 하드 디스크) 이미지 파일을 업로드하고 구성하는 방법에 대해 알아봅니다. VHD 이미지에 익숙하지 않은 경우 VHD 이미지를 만드는 방법을 알아보려면 [Windows Server VHD를 만들어서 Azure에 업로드](../virtual-machines-create-upload-vhd-windows-server.md)를 참조하세요. VHD 이미지를 만들고 이에 대한 액세스 권한을 얻었으면 이 문서가 해당 이미지를 업로드하고 이 이미지로부터 템플릿을 만드는 방법을 안내합니다.
+[랩을 만든](devtest-lab-create-lab.md) 후 VM 템플릿 목록에서 [해당 랩에 VM을 추가](devtest-lab-add-vm-with-artifacts.md)할 수 있습니다. 이 문서에서는 VM을 만들 템플릿인 VHD(가상 하드 디스크) 이미지 파일을 업로드하고 구성하는 방법에 대해 알아봅니다. VHD 이미지에 익숙하지 않은 경우 VHD 이미지를 만드는 방법을 알아보려면 [Windows Server VHD를 만들어서 Azure에 업로드](/virtual-machines/virtual-machines-create-upload-vhd-windows-server.md)를 참조하세요. VHD 이미지를 만들고 이에 대한 액세스 권한을 얻었으면 이 문서가 해당 이미지를 업로드하고 이 이미지로부터 템플릿을 만드는 방법을 안내합니다.
 
 ## VM 템플릿 만들기
 
@@ -86,4 +86,4 @@
 
 VM을 만들 때 사용할 VM 템플릿을 추가했으면 다음 단계는 [DevTest Lab에 VM을 추가](devtest-lab-add-vm-with-artifacts)하는 것입니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

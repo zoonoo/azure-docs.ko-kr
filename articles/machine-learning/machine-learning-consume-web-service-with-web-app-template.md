@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/26/2015"
+	ms.date="02/03/2016"
 	ms.author="garye;raymondl"/>
 
 # 웹 앱 템플릿을 사용한 Azure 기계 학습 웹 서비스 사용
@@ -56,7 +56,7 @@ Azure 마켓플레이스에서 사용할 수 있는 웹 앱 템플릿은 웹 서
 
 	![요청 URI][image4]
 
-3. [Azure 포털](https://portal.azure.com), **로그인**으로 이동하고 **새로 만들기**를 클릭하고 **Azure ML 요청-응답 서비스 웹앱**을 검색하고 선택한 다음 **만들기**를 클릭합니다.
+3. [Azure 포털](https://portal.azure.com), **로그인**으로 이동하여 **새로 만들기**를 클릭하고 **Azure ML 요청-응답 서비스 웹앱**을 검색하고 선택한 다음 **만들기**를 클릭합니다.
 
 	- 웹 앱에 고유한 이름을 지정합니다. 웹앱의 URL이 이름 뒤에 됩니다 `.azurewebsites.net.`예를 들어, `http://carprediction.azurewebsites.net.`
 
@@ -86,7 +86,7 @@ Azure 마켓플레이스에서 사용할 수 있는 웹 앱 템플릿은 웹 서
 
 **구성** 페이지로 반환하려는 경우, 웹앱의 `setting.aspx` 페이지로 이동합니다. 예를 들어, `http://carprediction.azurewebsites.net/setting.aspx.` API 키를 다시 입력하라는 메시지가 표시됩니다. 이 키는 해당 페이지에 액세스하고 설정을 업데이트하는 데 필요합니다.
 
-웹앱처럼 Azure 클래식 포털에서 웹 앱을 중지하거나, 다시 시작하거나, 삭제할 수 있습니다. 실행되는 동안, 홈 웹 주소로 이동하여 새 값을 입력할 수 있습니다.
+웹앱처럼 Azure 포털에서 웹앱을 중지하거나, 다시 시작하거나, 삭제할 수 있습니다. 실행되는 동안, 홈 웹 주소로 이동하여 새 값을 입력할 수 있습니다.
 
 ## 일괄 처리 실행 서비스(BES) 템플릿을 사용하는 방법
 
@@ -125,4 +125,4 @@ Azure 마켓플레이스에서 사용할 수 있는 웹 앱 템플릿은 웹 서
 [image6]: media\machine-learning-consume-web-service-with-web-app-template\web-service-info.png
 [image7]: media\machine-learning-consume-web-service-with-web-app-template\storage.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

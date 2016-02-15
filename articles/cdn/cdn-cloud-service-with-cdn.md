@@ -48,9 +48,7 @@
 -	활성 [Microsoft Azure 계정](/account/)
 -	[Azure SDK](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409)를 설치한 Visual Studio 2015
 
-> [AZURE.NOTE] 이 자습서를 완료하려면 Azure 계정이 있어야 합니다.
-> + [Azure 계정을 무료로 개설](/pricing/free-trial/)할 수 있음 - 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스(예: [앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714) 웹앱)를 사용할 수 있습니다.
-> + [MSDN 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/)할 수 있음 - MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
+> [AZURE.NOTE] 이 자습서를 완료하려면 Azure 계정이 있어야 합니다. + [Azure 계정을 무료로 개설](/pricing/free-trial/)할 수 있음 - 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스(예: 웹 사이트)를 사용할 수 있습니다. + [MSDN 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/)할 수 있음 - MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
 
 <a name="deploy"></a>
 ## 클라우드 서비스 배포 ##
@@ -90,17 +88,17 @@
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-8-publish-finalize.png)
 
-	>[AZURE.NOTE]클라우드 서비스를 게시하는 프로세스는 시간이 조금 걸립니다. 모든 웹 역할에 대해 웹 배포 사용 옵션을 사용하면 웹 역할에 대한 신속한(하지만 임시적) 업데이트를 제공함으로써 클라우드 서비스를 훨씬 빠르게 디버깅할 수 있습니다. 이 옵션에 대한 자세한 내용은 [Azure Tools를 사용하여 클라우드 서비스 게시](http://msdn.microsoft.com/library/ff683672.aspx)를 참조하세요.
+	>[AZURE.NOTE] 클라우드 서비스를 게시하는 프로세스는 시간이 조금 걸립니다. 모든 웹 역할에 대해 웹 배포 사용 옵션을 사용하면 웹 역할에 대한 신속한(하지만 임시적) 업데이트를 제공함으로써 클라우드 서비스를 훨씬 빠르게 디버깅할 수 있습니다. 이 옵션에 대한 자세한 내용은 [Azure Tools를 사용하여 클라우드 서비스 게시](http://msdn.microsoft.com/library/ff683672.aspx)를 참조하세요.
 
 	**Microsoft Azure 활동 로그**에서 게시 상태가 **완료**로 표시된 경우 이 클라우드 서비스와 통합된 CDN 끝점을 만들 수 있습니다.
 	
-	>[AZURE.WARNING]게시 후, 배포된 클라우드 서비스에서 오류 화면을 표시하는 경우 개발한 클라우드 서비스가 [.NET 4.5.2가 포함되지 않은 게스트 OS](../cloud-services/cloud-services-guestos-update-matrix.md#news-updates)를 사용하고 있기 때문일 수 있습니다. [시작 작업으로 .NET 4.5.2를 배포](../cloud-services/cloud-services-dotnet-install-dotnet.md)하여 이 문제를 해결할 수 있습니다.
+	>[AZURE.WARNING] 게시 후, 배포된 클라우드 서비스에서 오류 화면을 표시하는 경우 개발한 클라우드 서비스가 [.NET 4.5.2가 포함되지 않은 게스트 OS](../cloud-services/cloud-services-guestos-update-matrix.md#news-updates)를 사용하고 있기 때문일 수 있습니다. [시작 작업으로 .NET 4.5.2를 배포](../cloud-services/cloud-services-dotnet-install-dotnet.md)하여 이 문제를 해결할 수 있습니다.
 
 ## 새 CDN 프로필 만들기
 
 CDN 프로필은 CDN 끝점의 컬렉션입니다. 각 프로필에는 CDN 끝점이 하나 이상 있습니다. 여러 프로필을 사용하여 인터넷 도메인, 웹 응용 프로그램 또는 일부 기타 조건에서 CDN 끝점을 구성할 수도 있습니다.
 
-> [AZURE.TIP]이미 이 자습서에 사용하려는 CDN 프로필이 있는 경우 [새 CDN 끝점 만들기](#create-a-new-cdn-endpoint)로 진행합니다.
+> [AZURE.TIP] 이미 이 자습서에 사용하려는 CDN 프로필이 있는 경우 [새 CDN 끝점 만들기](#create-a-new-cdn-endpoint)로 진행합니다.
 
 **새 CDN 프로필을 만들려면**
 
@@ -154,7 +152,7 @@ CDN 프로필은 CDN 끝점의 컬렉션입니다. 각 프로필에는 CDN 끝�
 
     ![CDN 끝점][cdn-endpoint-success]
 
-    > [AZURE.NOTE]끝점은 즉시 사용할 수 없습니다. CDN 네트워크를 통해 등록을 전파하는 데 최대 90분까지 걸릴 수 있습니다. 사용자가 CDN 도메인 이름을 즉시 사용하려고 시도할 경우 CDN을 통해 콘텐츠를 사용할 수 있을 때까지 상태 코드 404가 표시될 수 있습니다.
+    > [AZURE.NOTE] 끝점은 즉시 사용할 수 없습니다. CDN 네트워크를 통해 등록을 전파하는 데 최대 90분까지 걸릴 수 있습니다. 사용자가 CDN 도메인 이름을 즉시 사용하려고 시도할 경우 CDN을 통해 콘텐츠를 사용할 수 있을 때까지 상태 코드 404가 표시될 수 있습니다.
 	
 ## CDN 끝점 테스트
 
@@ -626,10 +624,9 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 
 ## 추가 정보 ##
 - [Azure CDN(콘텐츠 배달 네트워크) 개요](http://msdn.microsoft.com/library/azure/ff919703.aspx)
-- [웹 응용 프로그램에서 Azure CDN의 콘텐츠 제공](cdn-serve-content-from-cdn-in-your-web-application.md)
-- [Azure CDN에 Azure 웹사이트 통합](cdn-websites-with-cdn.md)
+- [Azure에 CDN 사용](cdn-how-to-use-cdn.md)
 - [ASP.NET 묶음 및 축소](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
-- [Azure에 CDN 사용](cdn-how-to-use.md)
+
 
 
 [new-cdn-profile]: ./media/cdn-cloud-service-with-cdn/cdn-new-profile.png
@@ -638,4 +635,4 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 [cdn-add-endpoint]: ./media/cdn-cloud-service-with-cdn/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-cloud-service-with-cdn/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="01/27/2016" 
+	ms.date="02/04/2016" 
 	ms.author="jeffstok"
 />
 
@@ -417,10 +417,10 @@ Azure 관리 포털을 열고 만든 Azure 스트림 분석 작업으로 이동�
 
 이를 위해 EntryTime이 포함된 스트림과 ExitTime이 포함된 스트림을 조인해야 합니다. TollId 및 LicencePlate 열의 스트림을 조인하려고 합니다. JOIN 연산자에서는 조인된 이벤트 간에 허용할 수 있는 시간 차이를 설명하는 임시 해석 폭을 지정해야 합니다. DATEDIFF 함수를 사용하여 이벤트 사이의 간격이 15분 이하가 되도록 지정합니다. DATEDIFF 함수를 진출과 진입 시간에 적용하여 차량이 요금소에서 사용하는 실제 시간을 계산합니다. SELECT 문에서 DATEDIFF를 사용할 때 JOIN 조건에서 사용하는 것에 비해 어떤 차이가 있는지 적어둡니다.
 
-    SELECT EntryStream.TollId, EntryTime, ExitStream.ExitTime, EntryStream.LicensePlate, DATEDIFF (minute , EntryStream.EntryTime, ExitStream .ExitTime) AS Duration InMinutes
+    SELECT EntryStream.TollId, EntryStream.EntryTime, ExitStream.ExitTime, EntryStream.LicensePlate, DATEDIFF (minute , EntryStream.EntryTime, ExitStream.ExitTime) AS DurationInMinutes
     FROM EntryStream TIMESTAMP BY EntryTime
-    JOIN ExitStream TIMESTAMP BY ExitTim e
-    ON (Entry Stream.TollId= ExitStream.TollId AND EntryStream.LicensePlate = ExitStream.LicensePlate)
+    JOIN ExitStream TIMESTAMP BY ExitTime
+    ON (EntryStream.TollId= ExitStream.TollId AND EntryStream.LicensePlate = ExitStream.LicensePlate)
     AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 
 이 쿼리를 테스트하려면 작업의 쿼리 탭에서 쿼리를 업데이트합니다.
@@ -445,7 +445,7 @@ Azure 스트림 분석은 데이터의 정적 스냅숏을 사용하여 임시 �
     FROM EntryStream TIMESTAMP BY EntryTime
     JOIN Registration
     ON EntryStream.LicensePlate = Registration.LicensePlate
-    WHERE Registration.Expired = ‘1’
+    WHERE Registration.Expired = '1'
 
 참조 데이터를 사용하여 쿼리를 테스트하려면 5단계에서 수행한 것처럼 참조 데이터에 대한 입력 원본이 정의되어 있어야 합니다.
 
@@ -534,4 +534,4 @@ PowerShell 창에서 ".\\Cleanup.ps1"을 입력합니다. 그러면 자습서에
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image57.png)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -14,7 +14,7 @@
 	ms.workload="na" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="12/17/2015" 
+	ms.date="01/26/2016" 
 	ms.author="betorres"
 />
 
@@ -27,7 +27,7 @@
 ## 검색 트래픽 분석을 사용하도록 설정하는 방법
 
 ### 1\. 포털 사용
-[Azure 포털](https://portal.azure.com)에서 Azure 검색 서비스를 엽니다. 설정에서 검색 트래픽 분석 옵션을 찾습니다.
+[Azure 포털](http://portal.azure.com)에서 Azure 검색 서비스를 엽니다. 설정에서 검색 트래픽 분석 옵션을 찾습니다.
 
 ![][1]
 
@@ -131,26 +131,32 @@ properties |object |아래 참조 |데이터별 작업을 포함하는 개체
 
 데이터는 사용자 자신의 저장소 계정에 있고 사례에 가장 적합한 방식으로 이 데이터를 탐색하는 것이 좋습니다.
 
-시작점으로 [Power BI Desktop](https://powerbi.microsoft.com/ko-KR/desktop)을 사용하여 데이터를 탐색하고 시각화하는 것이 좋습니다. Azure 저장소 계정에 쉽게 연결하고 데이터 분석을 신속하게 시작할 수 있습니다.
+먼저 [Power BI](https://powerbi.microsoft.com)를 사용하여 데이터를 탐색하고 시각화하는 것이 좋습니다. Azure 저장소 계정에 쉽게 연결하고 데이터 분석을 신속하게 시작할 수 있습니다.
 
-Power BI Desktop에서 직접 보고서를 만들 수 있는 다음 샘플 쿼리를 확인하세요.
+#### Power BI 온라인
 
-### 지침
+[Power BI 콘텐츠 팩](https://app.powerbi.com/getdata/services/azure-search): 자동으로 데이터를 표시하고 검색 서비스에 대한 시각적 통찰력을 제공하는 Power BI 대시보드 및 Power BI 보고서 집합을 만듭니다. [콘텐츠 팩 도움말 페이지](https://powerbi.microsoft.com/ko-KR/documentation/powerbi-content-pack-azure-search/)를 참조하세요.
+
+![][3]
+
+#### Power BI Desktop
+
+[Power BI Desktop](https://powerbi.microsoft.com/ko-KR/desktop): 데이터를 탐색하고 데이터에 대한 고유의 시각화를 만듭니다. 아래에 도움이 되는 시작 쿼리를 제공합니다.
 
 1. 새 PowerBI Desktop 보고서를 엽니다.
 2. 데이터 가져오기 -> 자세히...를 선택합니다.
 
-	![][3]
+	![][4]
 
 3. Microsoft Azure Blob 저장소 및 연결을 선택합니다.
 
-	![][4]
+	![][5]
 
 4. 저장소 계정의 이름 및 계정 키를 입력합니다.
 5. "insight-logs-operationlogs" 및 "insights-metrics-pt1m"을 선택한 다음 편집을 클릭합니다.
 6. 쿼리 편집기가 열리면 왼쪽에서 "insight-logs-operationlogs"가 선택되었는지 확인합니다. 이제 보기 -> 고급 편집기를 선택하여 고급 편집기를 엽니다.
 
-	![][5]
+	![][6]
 
 7. 처음 두 줄은 유지하고 나머지를 다음 쿼리로 바꿉니다.
 
@@ -217,8 +223,9 @@ Power BI Desktop에서 직접 보고서를 만들 수 있는 다음 샘플 쿼�
 
 [1]: ./media/search-traffic-analytics/SettingsBlade.png
 [2]: ./media/search-traffic-analytics/DiagnosticsBlade.png
-[3]: ./media/search-traffic-analytics/GetData.png
-[4]: ./media/search-traffic-analytics/BlobStorage.png
-[5]: ./media/search-traffic-analytics/QueryEditor.png
+[3]: ./media/search-traffic-analytics/Dashboard.png
+[4]: ./media/search-traffic-analytics/GetData.png
+[5]: ./media/search-traffic-analytics/BlobStorage.png
+[6]: ./media/search-traffic-analytics/QueryEditor.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

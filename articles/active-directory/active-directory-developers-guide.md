@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/06/2016"
+   ms.date="02/01/2016"
    ms.author="mbaldwin"/>
 
 
@@ -72,7 +72,7 @@ IDMaaS(Identity Management As A Service) 플랫폼인 Azure Active Directory는 
 - [Office 365 API와 함께 응용 프로그램 만들기](https://msdn.microsoft.com/office/office365/howto/getting-started-Office-365-APIs)
 - [판매자 대시보드로 Office 365용 웹앱 제출](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
 - [미리 보기: 개인 및 회사 또는 학교 계정 모두를 사용하여 사용자를 로그인하는 앱을 빌드하는 방법](active-directory-appmodel-v2-overview.md)
-- [미리 보기: 소비자를 등록 및 로그인하는 앱을 빌드하는 방법](active-directory-b2c-overview.md)
+- [미리 보기: 소비자를 등록 및 로그인하는 앱을 빌드하는 방법](../active-directory-b2c/active-directory-b2c-overview.md)
 
 
 ## 참조
@@ -141,4 +141,4 @@ IDMaaS(Identity Management As A Service) 플랫폼인 Azure Active Directory는 
 
 - [Azure Active Directory Twitter](https://twitter.com/azuread): 140자 이하의 Azure Active Directory 알림입니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

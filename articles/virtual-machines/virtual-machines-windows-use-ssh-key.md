@@ -47,10 +47,10 @@ Azure에 대한 기본 SSH 설정은 2048비트(기본적으로 **ssh-keygen**�
 
 다음은 배포 시나리오 및 각각에 사용되는 파일 형식입니다.
 
-1. **ssh-rsa** 키는 배포 모델과 관계없이 [Preview 포털](https://portal.azure.com)을 사용하는 모든 배포에 필요합니다.
+1. **ssh-rsa** 키는 배포 모델과 관계없이 [Azure 포털](https://portal.azure.com)을 사용하는 모든 배포에 필요합니다.
 2. [클래식 포털](https://manage.windowsazure.com)을 사용하는 VM을 만들려면 .pem 파일이 필요합니다. .pem 파일은 [Azure CLI](../xplat-cli-install.md)를 사용하는 클래식 배포에서도 지원됩니다.
 
-> [AZURE.NOTE]클래식 배포 모델로 배포되는 서비스를 관리하려는 경우 **.cer** 서식 파일을 만들어 포털에 업로드하려고 할 수 있습니다. 여기엔 이 문서의 주제인 Linux VM에 연결 또는 **ssh**는 포함되어 있지 않습니다. Linux 또는 Mac에 해당 파일을 만들려면 다음을 입력하세요.
+> [AZURE.NOTE] 클래식 배포 모델로 배포되는 서비스를 관리하려는 경우 **.cer** 서식 파일을 만들어 포털에 업로드하려고 할 수 있습니다. 여기엔 이 문서의 주제인 Linux VM에 연결 또는 **ssh**는 포함되어 있지 않습니다. Linux 또는 Mac에 해당 파일을 만들려면 다음을 입력하세요.
 
 ## Windows에서 ssh-keygen 및 openssl 가져오기 ##
 
@@ -68,7 +68,7 @@ Windows용 `ssh-keygen` 및 `openssl`을 포함한 여러 유틸리티가 [이 �
 1.	다음 위치에서 Windows용 GitHub 다운로드 및 설치: [http://windows.github.com/](http://windows.github.com/)
 2.	시작 메뉴 > 모든 프로그램 > GitHub, Inc에서 Git 셸을 실행합니다.
 
-> [AZURE.NOTE]위의 `openssl` 명령을 실행할 때 다음 오류가 발생할 수 있습니다.
+> [AZURE.NOTE] 위의 `openssl` 명령을 실행할 때 다음 오류가 발생할 수 있습니다.
 
         Unable to load config info from /usr/local/ssl/openssl.cnf
 
@@ -155,4 +155,4 @@ Windows용 `ssh-keygen` 및 `openssl`을 포함한 여러 유틸리티가 [이 �
 5.	**열기**를 클릭하여 가상 컴퓨터에 연결합니다.
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

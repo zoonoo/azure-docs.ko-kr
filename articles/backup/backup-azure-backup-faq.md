@@ -1,10 +1,10 @@
 <properties
    pageTitle="Azure 백업 FAQ | Microsoft Azure"
-   description="– Azure 백업 솔루션에 대한 질문과 대답 - 백업 에이전트, 백업 및 보존, 복구, 보안 및 Azure 백업 솔루션에 대한 기타 일반적인 질문입니다."
+   description="백업 에이전트, 백업 및 보존, 복구, 보안 및 Azure 백업 솔루션과 관련하여 자주 묻는 질문에 대한 대답입니다."
    services="backup"
    documentationCenter=""
    authors="Jim-Parker"
-   manager="shreeshd"
+   manager="jwhit"
    editor=""
    keywords="백업 솔루션; 백업 서비스"/>
 
@@ -14,7 +14,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="01/26/2016"
+	 ms.date="01/28/2016"
 	 ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
 # Azure 백업 서비스 - FAQ
@@ -183,4 +183,4 @@
 
 새 캐시 위치로 성공적으로 백업되면 원래 캐시 폴더를 제거할 수 있습니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

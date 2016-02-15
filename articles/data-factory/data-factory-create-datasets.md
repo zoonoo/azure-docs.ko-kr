@@ -131,7 +131,7 @@ type | 열의 데이터 형식 | 아니요 | 해당 없음
 
 	"availability":
 	{
-		"frequency": "Daily",
+		"frequency": "Day",
 		"interval": "1",
 		"offset": "06:00:00"
 	}
@@ -208,4 +208,4 @@ type | 열의 데이터 형식 | 아니요 | 해당 없음
 	  }
 	}
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

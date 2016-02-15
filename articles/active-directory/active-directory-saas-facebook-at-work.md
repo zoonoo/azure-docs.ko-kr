@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/04/2015"
+	ms.date="02/02/2016"
 	ms.author="asmalser"/>
 
 
@@ -51,9 +51,9 @@ Facebook at Work의 Azure AD 통합을 구성하려면 갤러리의 Facebook at 
 
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 
-3. 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다. <br><br>![응용 프로그램][2]<br>
+3. 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.<br><br>![응용 프로그램][2]<br>
 
-4. 페이지 맨 아래에 있는 **추가**를 클릭합니다. <br><br>![응용 프로그램][3]<br>
+4. 페이지 맨 아래에 있는 **추가**를 클릭합니다.<br><br>![응용 프로그램][3]<br>
 
 5. **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다. <br><br>![응용 프로그램][4]<br>
 
@@ -114,4 +114,4 @@ Azure 관리 포털 창에서 **계정 프로비전 구성**을 클릭하여 자
 [3]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_general_04.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0204_2016-->

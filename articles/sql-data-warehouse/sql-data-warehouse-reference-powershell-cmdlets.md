@@ -30,15 +30,15 @@ SQL 데이터 웨어하우스는 Azure PowerShell cmdlet 또는 REST API를 사�
 2. 모듈을 실행하려면 시작 창에서 **Microsoft Azure PowerShell**을 입력합니다.
 3. 아직 컴퓨터에 계정을 추가하지 않았다면 다음 cmdlet을 실행합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법]()을 참조하세요.
 
-```
-Add-AzureAccount
-```
+	```
+	Login-AzureRmAccount
+	```
 
 3. 일시 중단하거나 다시 시작하려는 데이터베이스에 대한 구독을 선택합니다. 이렇게 하면 "MySubscription"이라는 구독이 선택됩니다.
 
-```
-Select-AzureRmSubscription -SubscriptionName "MySubscription"
-```
+	```
+	Select-AzureRmSubscription -SubscriptionName "MySubscription"
+	```
 
 ## Suspend-AzureRmSqlDatabase
 
@@ -113,7 +113,7 @@ $retorePoints
 ```
 
 
-> [AZURE.NOTE]서버가 foo.database.windows.net인 경우 Powershell cmdlet에서 -ServerName로 "foo"를 사용합니다.
+> [AZURE.NOTE] 서버가 foo.database.windows.net인 경우 Powershell cmdlet에서 -ServerName로 "foo"를 사용합니다.
 
 
 ## 다음 단계
@@ -133,4 +133,4 @@ $retorePoints
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

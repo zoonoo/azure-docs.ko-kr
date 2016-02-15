@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
+	ms.date="02/03/2016" 
 	ms.author="larryfr"/>
 
 #HDInsight의 Hive를 사용하여 비행 지연 데이터 분석
@@ -304,4 +304,4 @@ Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터를 분
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

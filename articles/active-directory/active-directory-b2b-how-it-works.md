@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="10/27/2015"
+   ms.date="02/03/2016"
    ms.author="viviali"/>
 
-# Azure AD(Azure Active Directory) B2B 공동 작업 미리 보기: 작동 방법
+# Azure AD B2B 공동 작업 미리 보기: 작동 방법
 Azure AD B2B 공동 작업은 초대 및 충전 모델을 기반으로 합니다. 사용하려는 응용 프로그램과 함께 공동 작업하려는 대상의 메일 주소를 제공합니다. Azure AD는 링크가 포함된 메일 초대를 보냅니다. 파트너 사용자가 링크를 클릭하면 자신의 Azure AD 계정을 사용하여 로그인하거나 새 Azure AD 계정을 등록하라는 메시지가 표시됩니다.
 
 1. 관리자는 Azure 포털을 사용하여 [구조화된 .csv 파일](active-directory-b2b-references-csv-file-format.md)을 업로드하여 파트너 사용자를 초대합니다.
@@ -42,4 +42,4 @@ Azure AD B2B를 사용하는 데 유료 Azure AD 구독(Basic 또는 Premium)이
  - [외부 사용자 개체 특성 변경 사항](active-directory-b2b-references-external-user-object-attribute-changes.md)
  - [현재 미리 보기 제한 사항](active-directory-b2b-current-preview-limitations.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0204_2016-->

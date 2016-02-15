@@ -43,9 +43,9 @@ ARM을 사용하여 트래픽 관리자 프로필을 구성하면 아래 나열�
 
 - 트래픽 관리자 프로필은 기존(비 ARM) Azure 서비스 관리(ASM) API를 사용하여 만들었으며 도구 및 '클래식' 포털은 ARM을 통해 사용할 수 없고 그 반대도 마찬가지입니다. ASM에서 ARM API로 프로필 마이그레이션은 프로필 삭제 및 다시 만드는 방법 외에는 현재 지원되지 않습니다.
 
-
 - '중첩' 트래픽 관리자 끝점은 ARM API, ARM PowerShell, ARM 모드 Azure CLI를 통해 지원됩니다. 이 끝점은 현재 Azure 포털(ARM API 사용)에서 지원되지 않습니다.
 
+- 웹앱을 참조할 때 'AzureEndpoints' 형식의 트래픽 관리자 끝점은 기본값(프로덕션) [웹앱 슬롯](../app-service-web/web-sites-staged-publishing.md)만 참조할 수 있습니다. 사용자 지정 슬롯은 아직 지원되지 않습니다. 해결 방법으로 'ExternalEndpoints' 형식을 사용하여 사용자 지정 슬롯을 구성할 수 있습니다.
 
 ## Azure PowerShell 설정
 
@@ -285,4 +285,4 @@ Disable-AzureRmTrafficManagerProfile과 마찬가지로 Disable-AzureRmTrafficMa
 [트래픽 관리자 성능 고려 사항](traffic-manager-performance-considerations.md)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -26,7 +26,7 @@ ms.service="virtual-machines"
 
 ![HPC 팩 헤드 노드][headnode]
 
->[AZURE.NOTE]현재, HPC 팩 VM 이미지는 HPC 팩 2012 R2 업데이트 2가 미리 설치된 Windows Server 2012 R2 Datacenter를 기준으로 합니다. Microsoft SQL Server 2014 Express도 미리 설치되어 있습니다.
+>[AZURE.NOTE] 현재, HPC 팩 VM 이미지는 HPC 팩 2012 R2 업데이트 2가 미리 설치된 Windows Server 2012 R2 Datacenter를 기준으로 합니다. Microsoft SQL Server 2014 Express도 미리 설치되어 있습니다.
 
 
 Azure의 HPC 팩 클러스터 프로덕션 배포의 경우 [HPC 팩 IaaS 배포 스크립트](virtual-machines-hpcpack-cluster-powershell-script.md), Azure 리소스 관리자 [빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)과 같은 자동 배포 방법을 사용하는 것이 좋습니다.
@@ -42,7 +42,7 @@ Azure의 HPC 팩 클러스터 프로덕션 배포의 경우 [HPC 팩 IaaS 배포
 다음은 HPC 팩 헤드 노드용 Azure VM을 만드는 개략적 단계입니다. 다양한 Azure 도구를 사용하여 Azure 클래식(서비스 관리) 배포 모델로 이러한 단계를 수행할 수 있습니다.
 
 
-1. 헤드 노드 VM에 대한 VNet을 만들려면,[ Azure 포털을 사용하여 가상 네트워크(클래식) 만들기](../virtual-networks/virtual-networks-create-vnet-classic-pportal.md)를 참조하세요.
+1. 헤드 노드 VM에 대한 VNet을 만들려면,[ Azure 포털을 사용하여 가상 네트워크(클래식) 만들기](../virtual-networks/virtual-networks-create-vnet-classic-portal.md)를 참조하세요.
 
     **고려 사항**
 
@@ -102,4 +102,4 @@ Azure의 HPC 팩 클러스터 프로덕션 배포의 경우 [HPC 팩 IaaS 배포
 <!--Image references-->
 [headnode]: ./media/virtual-machines-hpcpack-cluster-headnode/headnode.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

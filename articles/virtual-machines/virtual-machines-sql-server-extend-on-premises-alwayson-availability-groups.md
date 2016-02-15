@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="온-프레미스 AlwaysOn 가용성 그룹을 Azure에 확장 | Microsoft Azure"
 	description="이 자습서에서는 클래식 배포 모델을 사용하여 만든 리소스를 사용하며, SSMS(SQL Server Management Studio)에서 복제본 추가 마법사를 사용하여 Azure에 AlwaysOn 가용성 그룹 복제본을 추가하는 방법을 설명합니다."
 	services="virtual-machines"
@@ -8,13 +8,13 @@
 	editor="monicar"
 	tags="azure-service-management"/>
 
-<tags 
+<tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="11/13/2015"
+	ms.date="02/03/2016"
 	ms.author="jroth" />
 
 # 온-프레미스 AlwaysOn 가용성 그룹을 Azure에 확장
@@ -65,7 +65,7 @@ SQL Server에 하나 이상의 Azure VM을 프로비전한 다음 온-프레미�
 |**VM 사용자 이름**|VM에서 관리자 계정이 될 사용자 이름을 지정합니다.|
 |**VM 관리자 암호**|새 계정의 암호 지정|
 |**암호 확인**|새 계정의 암호 확인|
-|**가상 네트워크**|새 VM이 사용해야 할 Azure 가상 네트워크를 지정합니다. 가상 네트워크에 대한 자세한 내용은 [가상 네트워크 개요](..\virtual-network\virtual-networks-overview.md)를 참조하세요.|
+|**가상 네트워크**|새 VM이 사용해야 할 Azure 가상 네트워크를 지정합니다. 가상 네트워크에 대한 자세한 내용은 [가상 네트워크 개요](../virtual-network/virtual-networks-overview.md)를 참조하세요.|
 |**가상 네트워크 서브넷**|새 VM이 사용해야 할 가상 네트워크서브넷을 지정합니다.|
 |**도메인**|도메인에 대해 사전 입력된 값이 정확한지 확인합니다.|
 |**도메인 사용자 이름**|로컬 클러스터 노드에서 로컬 관리자 그룹에 해당하는 계정을 지정합니다.|
@@ -91,7 +91,7 @@ SQL Server에 하나 이상의 Azure VM을 프로비전한 다음 온-프레미�
 
 1. 프로비전 프로세스가 시작됩니다. 마법사가 성공적으로 완료되면 **닫기**를 클릭하여 마법사를 종료합니다.
 
->[AZURE.NOTE] Azure 복제본 추가 마법사는 <Users><user name>\\AppData\\Local\\SQL Server\\AddReplicaWizard에 로그 파일을 만듭니다. 이 로그 파일을 사용하여 실패한 Azure 복제본 배포의 문제를 해결할 수 있습니다. 마법사가 어떤 작업을 실행하는 데 실패할 경우 프로비전된 VM 삭제를 포함하여 이전의 모든 작업이 롤백됩니다.
+>[AZURE.NOTE] Azure 복제본 추가 마법사는 Users\\User Name\\AppData\\Local\\SQL Server\\AddReplicaWizard에 로그 파일을 만듭니다. 이 로그 파일을 사용하여 실패한 Azure 복제본 배포의 문제를 해결할 수 있습니다. 마법사가 어떤 작업을 실행하는 데 실패할 경우 프로비전된 VM 삭제를 포함하여 이전의 모든 작업이 롤백됩니다.
 
 ## 가용성 그룹 수신기 만들기
 
@@ -103,4 +103,4 @@ SQL Server에 하나 이상의 Azure VM을 프로비전한 다음 온-프레미�
 
 Azure VM에서의 SQL Server 실행에 관한 다른 항목은 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-sql-server-infrastructure-services.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -1,20 +1,20 @@
 <properties
-   pageTitle="자습서: Azure Active Directory | Microsoft Azure와 Google Apps 통합"
-   description="Azure Active Directory에서 Google Apps를 사용하여 Single Sign-On, 자동화된 프로비저닝 등을 사용하도록 설정하는 방법을 알아봅니다."
-   services="active-directory"
-   documentationCenter=""
-   authors="liviodlc"
-   manager="TerryLanfear"
-   editor=""/>
+    pageTitle="자습서: Google Apps와 Azure Active Directory 통합 | Microsoft Azure"
+    description="Azure Active Directory에서 Google Apps를 사용하여 Single Sign-On, 자동화된 프로비저닝 등을 사용하도록 설정하는 방법을 알아봅니다."
+    services="active-directory"
+    documentationCenter=""
+    authors="liviodlc"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="11/01/2015"
-   ms.author="liviodlc"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="02/02/2016"
+    ms.author="liviodlc"/>
 
 #자습서: Azure Active Directory와 Google Apps를 통합하는 방법
 
@@ -70,7 +70,7 @@
 
 	![Azure AD Single Sign-On 선택][7]
 
-	> [AZURE.NOTE]다른 Single Sign-On 옵션에 대해 자세히 알아보려면 [여기를 클릭](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work)하세요.
+	> [AZURE.NOTE] 다른 Single Sign-On 옵션에 대해 자세히 알아보려면 [여기를 클릭](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work)하세요.
 
 3. **앱 설정 구성** 페이지에서 **로그온 URL** 필드에 다음 형식으로 Google Apps 테넌트 URL을 입력합니다.`https://mail.google.com/a/<yourdomain>`
 
@@ -80,7 +80,7 @@
 
 	![도메인 이름을 입력하고 구성을 누릅니다.](./media/active-directory-saas-google-apps-tutorial/ga-auto-config.png)
 
-	> [AZURE.NOTE]Single sign-on을 수동으로 구성하는 것을 선호하는 경우 [선택적 단계: 수동으로 Single Sign-on 구성](#optional-step-manually-configure-single-sign-on)을 참조하세요.
+	> [AZURE.NOTE] Single sign-on을 수동으로 구성하는 것을 선호하는 경우 [선택적 단계: 수동으로 Single Sign-on 구성](#optional-step-manually-configure-single-sign-on)을 참조하세요.
 
 5. Google Apps 관리자 계정에 로그인합니다. Azure Active Directory를 제출하기 위해 **허용**을 클릭하여 Google Apps 구독에서 구성을 변경할 수 있습니다.
 
@@ -106,7 +106,7 @@ Single Sign-On을 수동으로 설정하는 것을 선호하는 경우 다음 �
 
 	![Azure AD Single Sign-On 선택][7]
 
-	> [AZURE.NOTE]다른 Single Sign-On 옵션에 대해 자세히 알아보려면 [여기를 클릭](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work)하세요.
+	> [AZURE.NOTE] 다른 Single Sign-On 옵션에 대해 자세히 알아보려면 [여기를 클릭](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work)하세요.
 
 3. **앱 설정 구성** 페이지에서 **로그온 URL** 필드에 다음 형식으로 Google Apps 테넌트 URL을 입력합니다.`https://mail.google.com/a/<yourdomain>`
 
@@ -120,7 +120,7 @@ Single Sign-On을 수동으로 설정하는 것을 선호하는 경우 다음 �
 
 	![인증서를 다운로드합니다.][9]
 
-5. 브라우저에서 새 탭을 열고 관리자 계정을 사용하여 [Google Apps 관리 콘솔](http://admin.google.com/)에 로그인합니다.
+5. 브라우저에서 새 탭을 열고 관리자 계정을 사용하여 [ 관리 콘솔](http://admin.google.com/)에 로그인합니다.
 
 6. **보안**을 클릭합니다. 링크가 보이지 않으면 화면 아래쪽에 있는 **기타 컨트롤** 메뉴에 숨겨져 있을 수 있습니다.
 
@@ -158,7 +158,7 @@ Single Sign-On을 수동으로 설정하는 것을 선호하는 경우 다음 �
 
 ##3단계: 자동화된 사용자 프로비저닝 사용
 
-> [AZURE.NOTE]Google Apps로 사용자 프로비저닝을 자동화하는 데 실행 가능한 다른 옵션은 온-프레미스 Active Directory ID를 Google Apps에 프로비전하는 [GADS(Google Apps Directory Sync)](https://support.google.com/a/answer/106368?hl=en)를 사용하는 것입니다. 반대로 이 자습서의 솔루션은 Azure Active Directory(클라우드) 사용자 및 메일 사용이 가능한 그룹을 Google Apps에 프로비전합니다.
+> [AZURE.NOTE] Google Apps로 사용자 프로비저닝을 자동화하는 데 실행 가능한 다른 옵션은 온-프레미스 Active Directory ID를 Google Apps에 프로비전하는 [GADS(Google Apps Directory Sync)](https://support.google.com/a/answer/106368?hl=en)를 사용하는 것입니다. 반대로 이 자습서의 솔루션은 Azure Active Directory(클라우드) 사용자 및 메일 사용이 가능한 그룹을 Google Apps에 프로비전합니다.
 
 1. 관리자 계정을 사용하여 [Google Apps 관리 콘솔](http://admin.google.com/)에 로그인하고 **보안**을 클릭합니다. 링크가 보이지 않으면 화면 아래쪽에 있는 **기타 컨트롤** 메뉴에 숨겨져 있을 수 있습니다.
 
@@ -172,7 +172,7 @@ Single Sign-On을 수동으로 설정하는 것을 선호하는 경우 다음 �
 
 	![API 참조를 클릭합니다.][16]
 
-	> [AZURE.IMPORTANT]Google Apps로 프로비전하려는 모든 사용자에 대해 Azure Active Directory에서 해당 사용자 이름을 사용자 지정 도메인에 연결*해야* 합니다. 예를 들면 bob@contoso.onmicrosoft.com와 같은 사용자 이름은 Google Apps에서 허용되지 않지만 bob@contoso.com은 허용됩니다. Azure AD에서 해당 속성을 편집하여 기존 사용자의 도메인을 변경할 수 있습니다. Azure Active Directory 및 Google Apps 모두에 대한 사용자 지정 도메인을 설정하는 방법에 대한 지침이 아래에 포함되어 있습니다.
+	> [AZURE.IMPORTANT] Google Apps로 프로비전하려는 모든 사용자에 대해 Azure Active Directory에서 해당 사용자 이름을 사용자 지정 도메인에 연결*해야* 합니다. 예를 들면 bob@contoso.onmicrosoft.com와 같은 사용자 이름은 Google Apps에서 허용되지 않지만 bob@contoso.com은 허용됩니다. Azure AD에서 해당 속성을 편집하여 기존 사용자의 도메인을 변경할 수 있습니다. Azure Active Directory 및 Google Apps 모두에 대한 사용자 지정 도메인을 설정하는 방법에 대한 지침이 아래에 포함되어 있습니다.
 
 4. Azure Active Directory에 사용자 지정 도메인 이름을 아직 추가하지 않은 경우에는 아래 단계를 따릅니다.
 
@@ -186,7 +186,7 @@ Single Sign-On을 수동으로 설정하는 것을 선호하는 경우 다음 �
 
 		![도메인 이름을 입력합니다.][18]
 
-	- **다음**을 클릭하여 확인 페이지로 이동합니다. 이 도메인을 소유했는지 확인하려면 이 페이지에 제공된 값에 따라 도메인의 DNS 레코드를 편집해야 합니다. **레코드 형식** 옵션에 대해 선택한 항목에 따라 **MX 레코드** 또는 **TXT 레코드**를 사용하여 확인하도록 선택할 수 있습니다. Azure AD에서 도메인 이름을 확인하는 방법에 대한 포괄적인 지침은 [Azure AD에 고유한 도메인 이름 추가](https://go.microsoft.com/fwLink/?LinkID=278919&clcid=0x409)를 참조하세요.
+	- **다음**을 클릭하여 확인 페이지로 이동합니다. 이 도메인을 소유했는지 확인하려면 이 페이지에 제공된 값에 따라 도메인의 DNS 레코드를 편집해야 합니다. **레코드 종류** 옵션에 대해 선택한 항목에 따라 **MX 레코드** 또는 **TXT 레코드**를 사용하여 확인하도록 선택할 수 있습니다. Azure AD에서 도메인 이름을 확인하는 방법에 대한 포괄적인 지침은 [Azure AD에 고유한 도메인 이름 추가](https://go.microsoft.com/fwLink/?LinkID=278919&clcid=0x409)를 참조하세요.
 
 		![도메인 이름을 확인합니다.][19]
 
@@ -210,7 +210,7 @@ Single Sign-On을 수동으로 설정하는 것을 선호하는 경우 다음 �
 
 	- Google Apps에 추가하려는 모든 추가 도메인에 대해 위의 단계를 반복합니다.
 
-	> [AZURE.WARNING]Google Apps 테넌트에 대한 기본 도메인을 변경하는 경우 및 Azure AD에서 Single Sign-On을 이미 구성한 경우 [2단계: Single Sign-On 사용](#step-two-enable-single-sign-on)에 있는 3단계를 반복해야 합니다.
+	> [AZURE.WARNING] Google Apps 테넌트에 대한 기본 도메인을 변경하는 경우 및 Azure AD에서 Single Sign-On을 이미 구성한 경우 [2단계: Single Sign-On 사용](#step-two-enable-single-sign-on)에 있는 3단계를 반복해야 합니다.
 
 6. [Google Apps 관리 콘솔](http://admin.google.com/)에서 **관리자 역할**을 클릭합니다.
 
@@ -220,7 +220,7 @@ Single Sign-On을 수동으로 설정하는 것을 선호하는 경우 다음 �
 
 	![Google Apps 클릭][27]
 
-	> [AZURE.NOTE]프로덕션 환경을 구성하는 경우 가장 좋은 방법은 이 단계에 대해 구체적으로 Google Apps에서 새 관리자 계정을 만드는 것입니다. 이러한 계정에는 필요한 API 권한이 있는 계정과 연결된 관리자 역할이 있어야 합니다.
+	> [AZURE.NOTE] 프로덕션 환경을 구성하는 경우 가장 좋은 방법은 이 단계에 대해 구체적으로 Google Apps에서 새 관리자 계정을 만드는 것입니다. 이러한 계정에는 필요한 API 권한이 있는 계정과 연결된 관리자 역할이 있어야 합니다.
 
 8. Azure Active Directory에서 최상위 메뉴에 있는 **응용 프로그램**을 클릭한 다음 **Google Apps**를 클릭합니다.
 
@@ -292,4 +292,4 @@ Single Sign-On을 수동으로 설정하는 것을 선호하는 경우 다음 �
 [29]: ./media/active-directory-saas-google-apps-tutorial/assign-users.png
 [30]: ./media/active-directory-saas-google-apps-tutorial/assign-confirm.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0204_2016-->

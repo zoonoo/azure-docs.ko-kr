@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="01/30/2016"
 	ms.author="tarcher"/>
 
 # Azure 큐 저장소 및 Visual Studio 연결된 서비스 시작(WebJob 프로젝트)
@@ -259,7 +259,7 @@ SDK에서 자동으로 개체를 JSON으로 serialize합니다. 개체가 null�
 
 ## 큐 메시지를 처리하는 동안 Blob 및 테이블을 읽고 쓰는 방법
 
-**Blob** 및 **Table** 특성을 사용하여 Blob과 테이블을 읽고 쓸 수 있습니다. 이 섹션의 샘플은 Blob에 적용됩니다. Blob가 생성되거나 업데이트될 때 프로세스를 트리거하는 방법을 보여 주는 코드 샘플은 [WebJobs SDK를 사용하여 Azure Blob 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)을 참조하고, 테이블을 읽고 쓰는 코드 샘플은 [WebJobs SDK를 사용하여 Azure 테이블 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)을 참조하세요.
+**Blob** 및 **Table** 특성을 사용하여 Blob과 테이블을 읽고 쓸 수 있습니다. 이 섹션의 샘플은 Blob에 적용됩니다. Blob가 생성되거나 업데이트될 때 프로세스를 트리거하는 방법을 보여 주는 코드 샘플은 [WebJobs SDK를 사용하여 Azure Blob 저장소로 작업하는 방법](/app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)을 참조하고, 테이블을 읽고 쓰는 코드 샘플은 [WebJobs SDK를 사용하여 Azure 테이블 저장소로 작업하는 방법](/app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md)을 참조하세요.
 
 ### Blob 작업을 트리거하는 문자열 큐 메시지
 
@@ -543,4 +543,4 @@ Azure 테이블에서 **Console.Out** 및 **Console.Error** 로그는 다음과 
 
 이 문서에서는 Azure 큐 작업에 대한 일반적인 시나리오를 처리하는 방법을 보여 주는 코드 샘플을 제공했습니다. Azure WebJob 및 WebJob SDK를 사용하는 방법에 대한 자세한 내용은 [Azure WebJob 권장 리소스](http://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="09/23/2015"
+	ms.date="02/03/2016"
 	ms.author="bwren" />
 
 
@@ -108,4 +108,4 @@ PowerShell 모듈에는 Runbook에 사용할 수 있는 cmdlet이 있으며, Azu
 - [Azure 자동화에서 Runbook 만들기 또는 가져오기](automation-creating-importing-runbook.md)
 - [PowerShell 워크플로 학습](automation-powershell-workflow.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

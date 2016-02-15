@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/28/2015"
+   ms.date="01/26/2016"
    ms.author="sumukhs"/>
 
 # 상태 저장 신뢰할 수 있는 서비스 구성
@@ -24,7 +24,7 @@
 
 기본적으로 Azure 서비스 패브릭 런타임은 settings.xml 파일에서 미리 정의된 섹션 이름을 찾아서 기본 런타임 구성 요소를 만드는 동안 해당 구성 값을 사용합니다.
 
->[AZURE.NOTE]코드를 통해 서비스를 구성할 예정이 아니면 Visual Studio 솔루션에서 생성된 "Settings.xml" 파일에서 다음 구성의 섹션 이름을 삭제하지 **않도록** 합니다. ReliableStateManager를 구성할 때 구성 패키지 또는 섹션의 이름을 바꾸려면 코드를 변경해야 합니다.
+>[AZURE.NOTE] 코드를 통해 서비스를 구성할 예정이 아니면 Visual Studio 솔루션에서 생성된 "Settings.xml" 파일에서 다음 구성의 섹션 이름을 삭제하지 **않도록** 합니다. ReliableStateManager를 구성할 때 구성 패키지 또는 섹션의 이름을 바꾸려면 코드를 변경해야 합니다.
 
 
 ## 복제자 보안 구성
@@ -33,7 +33,7 @@
 ### 기본 섹션 이름
 ReplicatorSecurityConfig
 
->[AZURE.NOTE]이 섹션의 이름을 변경하려면 이 서비스에 대한 ReliableStateManager를 만들 때 replicatorSecuritySectionName 매개 변수를 ReliableStateManagerConfiguration 생성자로 재정의합니다.
+>[AZURE.NOTE] 이 섹션의 이름을 변경하려면 이 서비스에 대한 ReliableStateManager를 만들 때 replicatorSecuritySectionName 매개 변수를 ReliableStateManagerConfiguration 생성자로 재정의합니다.
 
 
 ## 복제자 구성
@@ -42,7 +42,7 @@ ReplicatorSecurityConfig
 ### 기본 섹션 이름
 ReplicatorConfig
 
->[AZURE.NOTE]이 섹션의 이름을 변경하려면 이 서비스에 대한 ReliableStateManager를 만들 때 replicatorSettingsSectionName 매개 변수를 ReliableStateManagerConfiguration 생성자로 재정의합니다.
+>[AZURE.NOTE] 이 섹션의 이름을 변경하려면 이 서비스에 대한 ReliableStateManager를 만들 때 replicatorSettingsSectionName 매개 변수를 ReliableStateManagerConfiguration 생성자로 재정의합니다.
 
 
 ### 구성 이름
@@ -107,4 +107,4 @@ MaxRecordSizeInKB 설정은 복제자가 로그 파일에 쓸 수 있는 레코�
 
 SharedLogId 및 SharedLogPath 설정은 항상 함께 사용되며 서비스가 노드에 대한 기본 공유 로그에서 별도의 공유 로그를 사용하도록 합니다. 최상의 효율성을 위해 최대한 많은 서비스가 동일한 공유 로그를 지정해야 합니다. 공유 로그 파일에만 사용되는 디스크에 공유 로그 파일을 배치해야 헤드 이동 경합이 감소합니다. 이 값은 드문 경우에만 변경되어야 합니다.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

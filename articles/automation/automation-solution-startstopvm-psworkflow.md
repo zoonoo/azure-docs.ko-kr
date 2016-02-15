@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="09/25/2015"
+	ms.date="01/27/2016"
 	ms.author="bwren" />
 
 # Azure 자동화 솔루션 - 가상 컴퓨터 시작 및 중지
@@ -28,11 +28,11 @@ Azure 자동화 솔루션은 기존 가상 컴퓨터를 시작하고 중지하�
 - [Graphical](automation-solution-startstopvm-graphical.md)
 - [PowerShell Workflow](automation-solution-startstopvm-psworkflow.md)
 
-이 솔루션의 PowerShell 워크플로 Runbook 버전입니다. [그래픽 Runbook](automation-solutions-startstopvm-graphical.md)을 사용하여 사용할 수도 있습니다.
+이 솔루션의 PowerShell 워크플로 Runbook 버전입니다. [그래픽 Runbook](automation-solution-startstopvm-graphical.md)을 사용하여 사용할 수도 있습니다.
 
 ## 솔루션 가져오기
 
-이 솔루션은 다음 링크에서 다운로드할 수 있는 PowerShell 워크플로 Runbook으로 구성됩니다. 그래픽 Runbook에 대한 링크는 이 솔루션의 [그래픽 버전](automation-solutions-startstopvm-graphical.md)을 참조하세요.
+이 솔루션은 다음 링크에서 다운로드할 수 있는 PowerShell 워크플로 Runbook으로 구성됩니다. 그래픽 Runbook에 대한 링크는 이 솔루션의 [그래픽 버전](automation-solution-startstopvm-graphical.md)을 참조하세요.
 
 | Runbook | 링크 | 형식 | 설명 |
 |:---|:---|:---|:---|
@@ -193,4 +193,4 @@ Runbook과 작업할 가상 컴퓨터를 검색하도록 **Get-AzureVM**이 사�
 - [Azure 자동화의 자식 runbook](automation-child-runbooks.md) 
 - [Azure 자동화에서 Runbook 출력 및 메시지](automation-runbook-output-and-messages.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="NA" 
     ms.workload="data-services" 
-    ms.date="10/28/2015" 
+    ms.date="02/01/2016" 
     ms.author="anhoh"/>
 
 #인덱서를 사용해서 DocumentDB를 Azure 검색에 연결
@@ -88,7 +88,7 @@ HTTP POST 요청을 실행해서 Azure 검색 서비스에서 다음 요청 헤�
         "softDeleteMarkerValue" : "the value that identifies a document as deleted" 
     }
 
-> [AZURE.NOTE]사용자 지정 프로젝션을 사용할 경우에는 SELECT 절에 속성을 포함해야 합니다.
+> [AZURE.NOTE] 사용자 지정 프로젝션을 사용할 경우에는 SELECT 절에 속성을 포함해야 합니다.
 
 ###<a id="CreateDataSourceExample"></a>요청 본문 예
 
@@ -121,7 +121,7 @@ HTTP POST 요청을 실행해서 Azure 검색 서비스에서 다음 요청 헤�
 
 ##<a id="CreateIndex"></a>2단계: 인덱스 만들기
 
-대상 Azure 검색 인덱스가 아직 없으면 만듭니다. 이 작업은 [Azure 클래식 포털 UI](../search/search-get-started.md#test-service-operations) 또는 [인덱스 API 만들기](https://msdn.microsoft.com/library/azure/dn798941.aspx)를 사용해서 수행할 수 있습니다.
+대상 Azure 검색 인덱스가 아직 없으면 만듭니다. 이 작업은 [Azure 포털 UI](../search/search-get-started.md#test-service-operations) 또는 [인덱스 API 만들기](https://msdn.microsoft.com/library/azure/dn798941.aspx)를 사용해서 수행할 수 있습니다.
 
 	POST https://[Search service name].search.windows.net/indexes?api-version=[api-version]
 	Content-Type: application/json
@@ -270,4 +270,4 @@ HTTP GET 요청을 실행해서 인덱서의 현재 상태 및 실행 기록을 
  - Azure 검색에 대해 알아보려면 [검색 서비스 페이지](https://azure.microsoft.com/services/search/)를 참조하세요.
  
 
-<!---HONumber=AcomDC_0107_2016--->
+<!---HONumber=AcomDC_0204_2016-->

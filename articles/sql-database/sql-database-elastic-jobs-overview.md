@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
-	ms.author="ddove; sidneyh" />
+	ms.date="02/01/2016" 
+	ms.author="ddove;sidneyh" />
 
 # 탄력적 데이터베이스 작업 개요
 
@@ -91,7 +91,7 @@
 * **Azure 클라우드 서비스**: 탄력적 데이터베이스 작업(Preview)은 고객이 호스트하는 Azure 클라우드 서비스 형태로 제공되어 요청된 작업의 실행을 처리합니다. 포털에서 서비스가 배포되며 Microsoft Azure 구독에 포함되어 호스팅됩니다. 기본적으로 배포되는 서비스는 고가용성을 위한 최소 2개의 작업자 역할로 실행됩니다. 각 작업자 역할(ElasticDatabaseJobWorker)의 기본 크기가 A0 인스턴스에서 실행됩니다. 가격에 대한 내용은 [클라우드 서비스 가격](https://azure.microsoft.com/pricing/details/cloud-services/)을 참조하세요. 
 * **Azure SQL 데이터베이스**: 이 서비스는 **제어 데이터베이스**로 알려진 Azure SQL 데이터베이스를 사용하여 모든 작업 메타데이터를 저장합니다. 기본 서비스 계층은 S0입니다. 가격에 대한 내용은 [SQL 데이터베이스 가격](https://azure.microsoft.com/pricing/details/sql-database/)을 참조하세요.
 * **Azure 서비스 버스**: Azure 서비스 버스는 Azure 클라우드 서비스 내의 작업 조정에 사용됩니다. [서비스 버스 가격](https://azure.microsoft.com/pricing/details/service-bus/)을 참조하세요.
-* **Azure 저장소**: Azure 저장소 계정은 추가로 디버그해야 하는 문제가 있을 경우([Azure 진단](cloud-services-dotnet-diagnostics.md)에서 일반적인 사례) 진단 출력 로그를 저장하는 데 사용됩니다. 가격에 대한 내용은 [Azure 저장소 가격](https://azure.microsoft.com/pricing/details/storage/)을 참조하세요.
+* **Azure 저장소**: Azure 저장소 계정은 추가로 디버그해야 하는 문제가 있을 경우 이벤트에 진단 출력 로그를 저장하는 데 사용됩니다([Azure 클라우드 서비스 및 가상 컴퓨터에서 진단 사용](../service-fabric/cloud-services-dotnet-diagnostics.md) 참조). 가격에 대한 내용은 [Azure 저장소 가격](https://azure.microsoft.com/pricing/details/storage/)을 참조하세요.
 
 ## 탄력적 데이터베이스 작업의 작동 방식
 1.	Azure SQL 데이터베이스는 모든 메타데이터 및 상태 데이터를 저장하는 제어 데이터베이스로 지정됩니다.
@@ -124,4 +124,4 @@
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

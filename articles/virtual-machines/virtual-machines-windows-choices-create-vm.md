@@ -67,7 +67,7 @@ Azure PowerShell의 경우 다음 내용 참조:
 [리소스 관리자 및 Azure PowerShell을 사용하여 Windows 가상 컴퓨터 만들기 및 미리 구성]: virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md
 [Azure 리소스 관리자 템플릿 및 PowerShell을 사용하여 가상 컴퓨터 배포 및 관리]: virtual-machines-deploy-rmtemplates-powershell.md
 [리소스 관리자 및 PowerShell을 사용하여 Windows VM 만들기]: virtual-machines-create-windows-powershell-resource-manager.md
-[리소스 관리자 템플릿 및 PowerShell을 사용하여 Windows 가상 컴퓨터 만들기]: virtual-machines-create-windows-powershell-resource-manager-template-simple.md
+[리소스 관리자 템플릿 및 PowerShell을 사용하여 Windows 가상 컴퓨터 만들기]: virtual-machines-create-windows-powershell-resource-manager-template.md
 
 
 [Windows PowerShell 및 Azure CLI를 사용하여 Azure 가상 컴퓨터 이미지 탐색 및 선택]: resource-groups-vm-searching.md
@@ -79,4 +79,4 @@ Azure PowerShell의 경우 다음 내용 참조:
 
 [Azure hybrid cloud test environments]: virtual-machines-hybrid-cloud-test-environments.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

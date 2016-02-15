@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="12/15/2015"
+ ms.date="02/03/2016"
  ms.author="dobett"/>
 
 # IoT Hub에 대한 액세스 구성 및 관리
@@ -22,12 +22,14 @@
 
 ## 네트워크 연결
 
-장치는 AMQP 또는 HTTPS 프로토콜을 사용하여 Azure에서 IoT Hub와 통신합니다. 일반적으로 프로토콜은 솔루션의 특정 요구 사항에 따라 선택됩니다. 다음 표에는 특정 프로토콜을 사용할 수 있는 장치에 대해 열려 있어야 하는 아웃바운드 포트가 나와 있습니다.
+장치는 다양한 프로토콜을 사용하여 Azure에서 IoT Hub와 통신할 수 있습니다. 일반적으로 프로토콜은 솔루션의 특정 요구 사항에 따라 선택됩니다. 다음 표에는 특정 프로토콜을 사용할 수 있는 장치에 대해 열려 있어야 하는 아웃바운드 포트가 나와 있습니다.
 
 | 프로토콜 | 포트 |
 | -------- | ------- |
 | HTTPS | 443 |
 | AMQP | 5671 |
+| Websocket 통한 AMQP | 443 |
+| MQTT | 8883 |
 
 Azure 지역에 IoT Hub를 만들면 허브는 해당 허브의 수명 동안 동일한 IP 주소를 유지합니다. 그러나 재해 복구 시나리오에서 Microsoft가 IoT Hub를 다른 배율 단위로 이동하는 경우에는 새 IP 주소로 할당됩니다.
 
@@ -49,4 +51,4 @@ IoT Hub에 등록된 장치만 해당 IoT Hub와 통신할 수 있습니다. 등
 [lnk-devguide]: iot-hub-devguide.md#security
 [lnk-manage-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

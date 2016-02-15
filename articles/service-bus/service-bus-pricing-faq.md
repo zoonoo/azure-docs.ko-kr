@@ -19,7 +19,7 @@
 
 이 섹션은 서비스 버스 가격 책정 구조에 대한 일부 자주 묻는 질문을 답변합니다. 또한 일반적인 Microsoft Azure 가격 책정 정보는 [Azure 지원 FAQ](http://go.microsoft.com/fwlink/?LinkID=185083)를 방문할 수 있습니다. 서비스 버스 가격 책정에 대한 전체 내용은 [서비스 버스 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/service-bus/)를 참조하세요.
 
->[AZURE.NOTE] [이벤트 허브 공급 및 지원 FAQ](event-hubs-availability-and-support-faq.md) 항목과 [이벤트 허브 가격 책정](https://azure.microsoft.com/pricing/details/event-hubs/) 항목에서 자세한 정보와 함께 이벤트 허브에 대한 가격 책정 구조를 설명합니다.
+>[AZURE.NOTE] [이벤트 허브 공급 및 지원 FAQ](../event-hubs/event-hubs-availability-and-support-faq.md) 항목과 [이벤트 허브 가격 책정](https://azure.microsoft.com/pricing/details/event-hubs/) 항목에서 자세한 정보와 함께 이벤트 허브에 대한 가격 책정 구조를 설명합니다.
 
 - [서비스 버스 요금을 어떻게 청구하나요?](#how-do-you-charge-for-service-bus)
 - [서비스 버스를 어떻게 사용하면 데이터 전송이 적용되나요? 어떤 경우에 대상이 아닌가요?](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not)
@@ -116,4 +116,4 @@ Azure에서 다른 서비스와 마찬가지로 서비스 버스는 리소스의
 
 [Azure 클래식 포털]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

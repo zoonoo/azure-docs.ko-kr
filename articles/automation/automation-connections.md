@@ -25,7 +25,7 @@
 
 ## Windows PowerShell cmdlet
 
-다음 표에 나와있는 cmdlet는 Windows PowerShell Window PowerShell의 자동화 연결을 생성하고 관리하는데 사용됩니다. 자동화 runbook과 DSC 구성에 사용할 수 있는 [Azure PowerShell 모듈](../powershell-install-configure.md)의 일부로 전송됩니다.
+다음 테이블의 cmdlet은 Windows PowerShell을 사용하여 자동화 연결을 만들고 관리하는 데 사용됩니다. 자동화 runbook과 DSC 구성에 사용할 수 있는 [Azure PowerShell 모듈](../powershell-install-configure.md)의 일부로 전송됩니다.
 
 |Cmdlet|설명|
 |:---|:---|
@@ -46,7 +46,7 @@
 
 ## 새 연결 만들기
 
-### Azure 포털을 사용하여 새 연결을 만들려면
+### Azure 클래식 포털을 사용하여 새 연결을 만들려면
 
 1. 자동화 계정에서 창의 위쪽에 있는 **자산**을 클릭합니다.
 1. 창의 아래쪽의 **설정 추가**를 클릭합니다.
@@ -55,7 +55,7 @@
 1. 마법사를 완료하고 새 연결을 저장하는 확인란을 클릭합니다.
 
 
-### Azure Preview 포털을 사용하여 새 연결을 만들려면
+### Azure 포털을 사용하여 새 연결을 만들려면
 
 1. 자동화 계정에서 **자산** 파트를 클릭하여 **자산** 블레이드를 엽니다.
 1. **연결** 파트를 클릭하여 **연결** 블레이드를 엽니다.
@@ -95,7 +95,7 @@ Windows PowerShell에서 [New-AzureAutomationConnection](http://msdn.microsoft.c
 	Send-TwilioSMS -Connection $Con -From $NumFrom -To $NumTo -Body $Body
 
 	#Send text with connection properties.
-	Send-TwilioSMS -AccountSid $Con.AccountSid -AuthToken $Con.AuthToken $Con -From $NumFrom -To $NumTo -Body $Body
+	Send-TwilioSMS -AccountSid $Con.AccountSid -AuthToken $Con.AuthToken -From $NumFrom -To $NumTo -Body $Body
 
 ### 그래픽 Runbook 샘플
 
@@ -120,4 +120,4 @@ Windows PowerShell에서 [New-AzureAutomationConnection](http://msdn.microsoft.c
 - [그래픽 작성의 링크](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

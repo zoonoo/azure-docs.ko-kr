@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="01/28/2016"
    ms.author="larryfr"/>
 
 # Visual Studio용 Hadoop 도구를 사용하여 HDInsight에서 Apache Storm에 대한 C# 토폴로지 개발
@@ -39,11 +39,11 @@ Visual Studio에 HDInsight 도구를 사용하여 C# Storm 토폴로지를 만�
 
 -	Visual Studio용 HDInsight 도구: Visual Studio용 HDInsight 도구를 설치하고 구성하려면 [Visual Studio용 HDInsight 도구 사용 시작](hdinsight-hadoop-visual-studio-tools-get-started.md)을 참조하세요.
 
-    > [AZURE.NOTE]Visual Studio용 HDInsight 도구는 Visual Studio Express에서 지원되지 않습니다.
+    > [AZURE.NOTE] Visual Studio용 HDInsight 도구는 Visual Studio Express에서 지원되지 않습니다.
 
--	HDInsight 클러스터의 Apache Storm: 클러스터를 만드는 단계는 [HDInsight에서 Apache Storm 시작](hdinsight-storm-getting-started.md)을 참조하세요.
+-	HDInsight 클러스터의 Apache Storm: 클러스터를 만드는 단계는 [HDInsight에서 Apache Storm 시작](hdinsight-apache-storm-tutorial-getting-started.md)을 참조하세요.
 
-	> [AZURE.NOTE]현재 Visual Studio용 HDInsight 도구는 HDInsight 버전 3.2 클러스터의 Storm만 지원합니다.
+	> [AZURE.NOTE] 현재 Visual Studio용 HDInsight 도구는 HDInsight 버전 3.2 클러스터의 Storm만 지원합니다.
 
 ##템플릿
 
@@ -62,7 +62,7 @@ Visual Studio용 HDInsight 도구는 다음 템플릿을 제공합니다.
 | Storm 하이브리드 샘플 | Java 구성 요소를 사용하는 방법 |
 | Storm 샘플 | 기본 단어 개수 토폴로지 |
 
-> [AZURE.NOTE]HBase 판독기 및 기록기 샘플은 HBase REST API(HBase Java API 아님)를 사용하여 HDInsight 클러스터의 HBase와 통신할 수 있습니다.
+> [AZURE.NOTE] HBase 판독기 및 기록기 샘플은 HBase REST API(HBase Java API 아님)를 사용하여 HDInsight 클러스터의 HBase와 통신할 수 있습니다.
 
 이 문서의 단계에서는 기본 Storm 응용 프로그램 프로젝트 형식을 사용하여 새 토폴로지를 만들 수 있습니다.
 
@@ -179,7 +179,7 @@ Visual Studio용 HDInsight 도구는 다음 템플릿을 제공합니다.
 
 	-	**Counter.cs**: 각각의 단어 수를 세고 단어의 새 스트림 및 각 단어의 개수를 내보내는 Bolt를 구현합니다.
 
-	> [AZURE.NOTE]이러한 Bolt는 스트림을 읽고 쓰지만 데이터베이스 또는 서비스와 같은 소스와 통신하는 데 Bolt를 사용할 수 있습니다.
+	> [AZURE.NOTE] 이러한 Bolt는 스트림을 읽고 쓰지만 데이터베이스 또는 서비스와 같은 소스와 통신하는 데 Bolt를 사용할 수 있습니다.
 
 3.	**Splitter.cs**를 엽니다. 기본적으로 **Execute**라는 하나의 메서드만 있습니다. 이는 bolt가 처리에 대한 튜플을 받을 때 호출됩니다. 여기에서 들어오는 튜플을 읽고 처리하며 나가는 튜플을 내보낼 수 있습니다.
 
@@ -378,19 +378,19 @@ Splitter bolt의 인스턴스로 배포되는 spout가 문장을 내보냅니다
 
 1.	**솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **HDInsight에서 Storm에 제출**을 선택합니다.
 
-	> [AZURE.NOTE]메시지가 표시되면 Azure 구독에 대한 로그인 자격 증명을 입력합니다. 하나 이상의 구독이 있는 경우 HDInsight의 Storm 클러스터를 포함하는 자격 증명으로 로그인합니다.
+	> [AZURE.NOTE] 메시지가 표시되면 Azure 구독에 대한 로그인 자격 증명을 입력합니다. 하나 이상의 구독이 있는 경우 HDInsight의 Storm 클러스터를 포함하는 자격 증명으로 로그인합니다.
 
 2.	**Storm 클러스터** 드롭다운 목록에서 HDInsight의 Storm 클러스터를 선택한 다음 **제출**을 선택합니다. **출력** 창을 통해 제출의 성공 여부를 모니터링할 수 있습니다.
 
 3.	토폴로지 제출에 성공하면 클러스터에 대한 **Storm 토폴로지**가 나타납니다. 실행 중인 토폴로지에 대한 정보를 보려면 목록에서 **WordCount** 토폴로지를 선택합니다.
 
-	> [AZURE.NOTE]**Azure** > **HDInsight**를 확장한 다음 HDInsight의 Storm 클러스터를 마우스 오른쪽 단추로 클릭하고 **Storm 토폴로지 보기**를 선택하여 **서버 탐색기**에서 **Storm 토폴로지**를 볼 수도 있습니다.
+	> [AZURE.NOTE] **Azure** > **HDInsight**를 확장한 다음 HDInsight의 Storm 클러스터를 마우스 오른쪽 단추로 클릭하고 **Storm 토폴로지 보기**를 선택하여 **서버 탐색기**에서 **Storm 토폴로지**를 볼 수도 있습니다.
 
 	이러한 구성 요소에 대한 정보를 보려면 Spout 또는 Bolt 링크를 사용합니다. 선택한 각각의 항목에 대해 새 창이 열립니다.
 
 4.	토폴로지를 중단하려면 **토폴로지 요약** 보기에서 **중단**을 클릭합니다.
 
-	> [AZURE.NOTE]Storm 토폴로지는 비활성화되거나 클러스터가 삭제될 때까지 계속 실행됩니다.
+	> [AZURE.NOTE] Storm 토폴로지는 비활성화되거나 클러스터가 삭제될 때까지 계속 실행됩니다.
 
 ##트랜잭션 토폴로지
 
@@ -428,11 +428,11 @@ Visual Studio용 HDInsight 도구를 사용하여 일부 구성 요소는 C#이�
 
 	-	트랜잭션 버전은 **HybridTopologyTx\_csharpSpout\_javaBolt**에서 정의됩니다.
 
-		> [AZURE.NOTE]이 버전은 텍스트 파일에서 Clojure 코드를 Java 구성 요소로 사용하는 방법을 설명하기도 합니다.
+		> [AZURE.NOTE] 이 버전은 텍스트 파일에서 Clojure 코드를 Java 구성 요소로 사용하는 방법을 설명하기도 합니다.
 
 프로젝트가 제출될 때 사용된 토폴로지 간에 전환하려면 클러스터에 제출하기 전에 사용하려는 토폴로지로 `[Active(true)]` 문을 이동합니다.
 
-> [AZURE.NOTE]필요한 모든 Java 파일이 **JavaDependency** 폴더에서 이 프로젝트의 일부로 제공됩니다.
+> [AZURE.NOTE] 필요한 모든 Java 파일이 **JavaDependency** 폴더에서 이 프로젝트의 일부로 제공됩니다.
 
 다음은 하이브리드 토폴로지를 만들고 제출할 때 고려할 사항입니다.
 
@@ -450,7 +450,7 @@ SCP.Net 버전 0.9.4.203은 이벤트 허브 spout(이벤트 허브로부터 읽
 
 -	**TopologyBuilder.SetEventHubSpout** 메서드: 토폴로지에 이벤트 허브 Spout 구성 요소를 추가합니다.
 
-> [AZURE.NOTE]이들이 다른 Java 구성 요소보다 이벤트 허브 spout으로 쉽게 작업할 수 있게 해주지만 여전히 CustomizedInteropJSONSerializer를 사용하여 spout에 의해 생성된 데이터를 직렬화해야 합니다.
+> [AZURE.NOTE] 이들이 다른 Java 구성 요소보다 이벤트 허브 spout으로 쉽게 작업할 수 있게 해주지만 여전히 CustomizedInteropJSONSerializer를 사용하여 spout에 의해 생성된 데이터를 직렬화해야 합니다.
 
 ##SCP.NET 업데이트 방법
 
@@ -460,9 +460,9 @@ SCP.NET의 최신 릴리스는 NuGet을 통해 패키지 업그레이드를 지�
 
 2. 패키지 관리자에서 **업데이트**를 선택합니다. 사용할 수 있는 업데이트가 나열됩니다. 패키지에 **업데이트** 단추를 클릭하여 설치합니다.
 
-> [AZURE.IMPORTANT]패키지 업데이트에 대해 NuGet을 사용하지 않은 SCP.NET의 이전 버전으로 프로젝트를 만든 경우 다음 단계를 수행하여 새 버전으로 업데이트해야 합니다.
+> [AZURE.IMPORTANT] 패키지 업데이트에 대해 NuGet을 사용하지 않은 SCP.NET의 이전 버전으로 프로젝트를 만든 경우 다음 단계를 수행하여 새 버전으로 업데이트해야 합니다.
 >
-> 1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다.
+> 1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 선택합니다.
 > 2. **검색** 필드를 사용하여 검색한 다음 **Microsoft.SCP.Net.SDK**를 프로젝트에 추가합니다.
 
 ##문제 해결
@@ -471,13 +471,13 @@ SCP.NET의 최신 릴리스는 NuGet을 통해 패키지 업그레이드를 지�
 
 토폴로지를 클러스터로 배포하는 것은 쉽지만, 일부 경우에 토폴로지를 로컬로 테스트해야 할 수 있습니다. 이 자습서의 예제 토폴로지를 사용자의 개발 환경에서 로컬로 실행 및 테스트하려면 다음 단계를 참조하세요.
 
-> [AZURE.WARNING]로컬 테스트만 기본 C# 전용 토폴로지에 대해 작동합니다. 하이브리드 토폴로지나 여러 스트림을 사용하는 토폴로지에는 로컬 테스트를 사용해서는안 됩니다. 오류가 발생할 수 있습니다.
+> [AZURE.WARNING] 로컬 테스트만 기본 C# 전용 토폴로지에 대해 작동합니다. 하이브리드 토폴로지나 여러 스트림을 사용하는 토폴로지에는 로컬 테스트를 사용해서는안 됩니다. 오류가 발생할 수 있습니다.
 
 1.	**솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다. 프로젝트 속성에서 **출력 유형**을 **콘솔 응용 프로그램**으로 변경합니다.
 
 	![출력 형식](./media/hdinsight-storm-develop-csharp-visual-studio-topology/outputtype.png)
 
-	> [AZURE.NOTE]토폴로지를 클러스터로 배포하기 전에 **출력 유형**을 **클래스 라이브러리**로 다시 변경해야 합니다.
+	> [AZURE.NOTE] 토폴로지를 클러스터로 배포하기 전에 **출력 유형**을 **클래스 라이브러리**로 다시 변경해야 합니다.
 
 2.	**솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **추가** > **새 항목**을 차례로 선택합니다. **클래스**를 선택하고 클래스 이름으로 **LocalTest.cs**를 입력합니다. 마지막으로 **추가**를 클릭합니다.
 
@@ -600,11 +600,11 @@ SCP.NET의 최신 릴리스는 NuGet을 통해 패키지 업그레이드를 지�
 
 7.	**Windows 탐색기**를 사용하여 프로젝트가 들어 있는 디렉터리(예: **C:\\Users<your\_user\_name>\\Documents\\Visual Studio 2013\\Projects\\WordCount\\WordCount**)를 찾습니다. 이 디렉터리에서 **Bin**을 열고 **디버그**를 클릭합니다. 테스트가 실행될 때 생성된 텍스트 파일(sentences.txt, counter.txt 및 splitter.txt)이 표시됩니다. 각각의 텍스트 파일을 열고 데이터를 검사합니다.
 
-	> [AZURE.NOTE]문자열 데이터는 이러한 파일에서 10진수 값의 배열로 유지됩니다. 예를 들어, **splitter.txt** 파일에서 [[97,103,111]]은 'and'라는 단어입니다.
+	> [AZURE.NOTE] 문자열 데이터는 이러한 파일에서 10진수 값의 배열로 유지됩니다. 예를 들어, **splitter.txt** 파일에서 [[97,103,111]]은 'and'라는 단어입니다.
 
 기본 단어 개수 응용 프로그램 로컬 테스트는 상당히 간단하지만, 실제 값은 데이터 원본과 연결되는 복잡한 토폴로지가 있거나 복잡한 데이터 분석을 수행할 때 들어옵니다. 이러한 프로젝트를 작업할 때 문제를 격리하기 위해 구성 요소의 코드에 중단점 및 단계를 설정해야 할 수 있습니다.
 
-> [AZURE.NOTE]HDInsight의 Storm으로 배포하기 전에 **프로젝트 유형**을 **클래스 라이브러리**로 다시 설정해야 합니다.
+> [AZURE.NOTE] HDInsight의 Storm으로 배포하기 전에 **프로젝트 유형**을 **클래스 라이브러리**로 다시 설정해야 합니다.
 
 ###로그 정보
 
@@ -616,7 +616,7 @@ Context.Logger.Info("Component started");
 
 로깅된 정보는 **서버 탐색기**에서 찾을 수 있는 **Hadoop 서비스 로그**에서 볼 수 있습니다. HDInsight의 Storm 클러스터에 대한 항목을 확장한 다음 **Hadoop 서비스 로그**를 확장합니다. 마지막으로 보려는 로그 파일을 선택합니다.
 
-> [AZURE.NOTE]로그는 사용자의 클러스터에서 사용되는 Azure 저장소 계정에 저장됩니다. Visual Studio 사용 시 로그인하는 것과 다른 구독인 경우, 이 정보를 보려면 저장소 계정을 포함하는 구독으로 로그인해야 합니다.
+> [AZURE.NOTE] 로그는 사용자의 클러스터에서 사용되는 Azure 저장소 계정에 저장됩니다. Visual Studio 사용 시 로그인하는 것과 다른 구독인 경우, 이 정보를 보려면 저장소 계정을 포함하는 구독으로 로그인해야 합니다.
 
 ###오류 정보 보기
 
@@ -656,6 +656,6 @@ HDInsight 사용 방법 및 HDInsight의 Storm에 대한 추가 샘플은 다음
 
 **HDInsight의 Apache HBase**
 
--	[HDInsight에서 HBase 시작](hdinsight-hbase-get-started.md)
+-	[HDInsight에서 HBase 시작](hdinsight-hbase-tutorial-get-started.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

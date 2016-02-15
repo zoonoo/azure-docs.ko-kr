@@ -13,7 +13,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="infrastructure-services"
- ms.date="01/21/2015"
+ ms.date="01/21/2016"
  ms.author="danlep"/>
 
 # MPI 응용 프로그램을 실행하도록 Linux RDMA 클러스터 설정
@@ -32,7 +32,7 @@ ms.service="virtual-machines"
 
 다음은 작업 스케줄러를 사용하거나 사용하지 않고 Linux RDMA 클러스터를 만드는 데 사용할 수 있는 방법입니다.
 
-* **HPC 팩** - Azure에서 Microsoft HPC 팩 클러스터를 만들고 지원되는 Linux 배포판을 실행하는 계산 노드를 추가합니다. 특정 Linux 노드는 RDMA 네트워크에 액세스하도록 구성할 수 있습니다. [Azure에서 HPC Pack 클러스터의 Linux 계산 노드 시작](virtual-machines-linux-cluster.md)을 참조하세요.
+* **HPC 팩** - Azure에서 Microsoft HPC 팩 클러스터를 만들고 지원되는 Linux 배포판을 실행하는 계산 노드를 추가합니다. 특정 Linux 노드는 RDMA 네트워크에 액세스하도록 구성할 수 있습니다. [Azure에서 HPC Pack 클러스터의 Linux 계산 노드 시작](virtual-machines-linux-cluster-hpcpack.md)을 참조하세요.
 
 * **Azure CLI 스크립트** - 이 문서의 나머지 부분의 단계에 나와 있는 설명과 같이 Mac, Linux 및 Windows용 [Azure CLI](../xplat-cli-install.md)(명령줄 인터페이스)를 사용하여Linux 클러스터를 만드는 데 필요한 가상 네트워크 및 기타 구성 요소의 배포를 스크립팅합니다. 클래식(서비스 관리) 배포 모드의 CLI는 계산 노드를 순차적으로 배포하므로 많은 계산 노드를 배포하는 경우 배포를 완료하는 데 몇 분 정도 걸릴 수 있습니다.
 
@@ -426,4 +426,4 @@ cluster12
 
 * Intel MPI에 대한 지침은 [Intel MPI Library 설명서](https://software.intel.com/ko-KR/articles/intel-mpi-library-documentation/)를 참조하세요.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

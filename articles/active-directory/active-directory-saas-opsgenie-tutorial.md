@@ -3,7 +3,7 @@
 	description="Azure Active Directory와 OpsGenie 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 	services="active-directory"
 	documentationCenter=""
-	authors="ashimaabrol"
+	authors="jeevansd"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/18/2015"
-	ms.author="v-aabrol"/>
+	ms.date="02/02/2016"
+	ms.author="jeedes"/>
 
 
 # 자습서: OpsGenie와 Azure Active Directory 통합
@@ -35,7 +35,7 @@ OpsGenie와의 Azure AD 통합을 구성하려면 다음 항목이 필요합니�
 - OpsGenie Single Sign-on이 설정된 구독
 
 
-> [AZURE.NOTE]이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
+> [AZURE.NOTE] 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
 
 
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
@@ -77,7 +77,7 @@ OpsGenie에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 1. **[Azure AD Single Sign-on 구성](#configuring-azure-ad-single-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
 2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
 4. **[OpsGenie 테스트 사용자 만들기](#creating-a-opsgenie-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 OpsGenie에 만듭니다.
-5. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+5. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
 5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
 ### Azure AD Single Sign-On 구성
@@ -97,7 +97,7 @@ OpsGenie에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     a. 로그인 URL 텍스트 상자에 다음 **“https://app.opsgenie.com/auth/login”** 패턴을 사용하여 사용자가 OpsGenie 응용 프로그램에 로그인하는 데 사용할 URL을 입력합니다.
 
-    > [AZURE.NOTE]로그인 URL이 필요한 경우 [OpsGenie 지원 팀](mailto:support@opsgenie.com)에 문의하세요.
+    > [AZURE.NOTE] 로그인 URL이 필요한 경우 [OpsGenie 지원 팀](mailto:support@opsgenie.com)에 문의하세요.
 
     b. **다음**을 클릭합니다.
 
@@ -123,7 +123,7 @@ OpsGenie에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     b. 다운로드한 인증서에서 Base-64로 인코딩된 파일을 만듭니다.
     
-    > [AZURE.NOTE]자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](https://www.youtube.com/watch?v=PlgrzUZ-Y1o&feature=youtu.be)을 참조하세요.
+    > [AZURE.NOTE] 자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](https://www.youtube.com/watch?v=PlgrzUZ-Y1o&feature=youtu.be)을 참조하세요.
 
     c. Base 64로 인코딩된 인증서를 메모장에서 열고, 내용을 클립보드에 복사한 다음 전체 인증서를 **X.500 인증서** 텍스트 상자에 붙여 넣습니다.
 
@@ -138,11 +138,11 @@ OpsGenie에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 
 ### Azure AD 테스트 사용자 만들기
-이 섹션은 Azure 포털에서 Britta Simon이라는 테스트 사용자를 만들기 위한 것입니다.<br> 사용자 목록에서 **Britta Simon**을 선택합니다.<br><br>![Azure AD 사용자 만들기][20]<br>
+이 섹션의 목적은 Azure 포털에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.<br> 사용자 목록에서 **Britta Simon**을 선택합니다.<br><br>![Azure AD 사용자 만들기][20]<br>
 
 **Azure AD에서 테스트 사용자를 만들려면 다음 단계를 수행하세요.**
 
-1. **Azure 관리 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. <br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-opsgenie-tutorial/create_aaduser_09.png) <br>
+1. **Azure 관리 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.<br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-opsgenie-tutorial/create_aaduser_09.png) <br>
 
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 
@@ -248,4 +248,4 @@ Britta는 자신의 프로필 설정에 대한 지침이 포함된 메일을 받
 [204]: ./media/active-directory-saas-opsgenie-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-opsgenie-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

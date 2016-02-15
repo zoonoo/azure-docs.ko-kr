@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/09/2015"
+   ms.date="02/01/2016"
    ms.author="hascipio" />
 
 # 스테이징에서 Azure 마켓플레이스용 VM 제품 테스트
@@ -30,11 +30,13 @@
 3.	**스테이징된 제품에 액세스할 수 있는 사람** 대화 상자에서 [Azure Preview 포털](https://portal.azure.com)에서 제품을 미리 보는 데 사용할 Azure 구독 목록을 입력합니다.
 4. 이전 단계에서 나열된 Azure 구독 중 하나를 사용하여 [Azure Preview 포털](https://portal.azure.com)에 로그인합니다.
 5. 제품을 찾고 VM 이미지 지점의 유효성을 검사합니다.
-  1. 마케팅 콘텐츠가 마켓플레이스에 올바르게 표시되는지 확인합니다.
-
+  - 마케팅 콘텐츠가 마켓플레이스에 올바르게 표시되는지 확인합니다.
+  - VM 이미지의 종단 간 배포
+  
       ![img-map-portal](media/marketplace-publishing-push-to-staging/pubportal-mapping-azure-portal.jpg)
 
-  2. VM 이미지의 종단 간 배포
+
+
 
 > [AZURE.IMPORTANT] 제품을 프로덕션으로 푸시할 준비가 되었다고 게시 포털을 통해 Microsoft에 알릴 때까지[**게시** > **"프로덕션으로 푸시 승인 요청"**] 제품은 스테이징으로 유지됩니다. 이 시간 동안 팀의 모든 구성원이 제품을 사용할 준비가 되었는지 확인할 수 있습니다.
 
@@ -46,4 +48,4 @@
 ## 참고 항목
 - [시작: Azure 마켓플레이스에 제품을 게시하는 방법](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

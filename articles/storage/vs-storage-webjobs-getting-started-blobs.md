@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="01/30/2016"
 	ms.author="tarcher"/>
 
 # Azure Blob 저장소 및 Visual Studio 연결된 서비스 시작(WebJob 프로젝트)
 
 ## 개요
 
-이 문서에서는 Azure Blob을 만들거나 업데이트할 때 프로세스를 트리거하는 방법을 보여 주는 Azure Blob C# 코드 샘플을 제공합니다. 코드 샘플에서는 [WebJobs SDK](websites-dotnet-webjobs-sdk.md) 버전 1.x를 사용합니다. Visual Studio **연결된 서비스 추가** 대화 상자를 사용하여 WebJob 프로젝트에 저장소 계정을 추가하는 경우 적절한 Azure 저장소 NuGet 패키지가 설치되고, 적절한 .NET 참조가 프로젝트에 추가되며, App.config 파일에서 저장소 계정에 대한 연결 문자열이 업데이트됩니다.
+이 문서에서는 Azure Blob을 만들거나 업데이트할 때 프로세스를 트리거하는 방법을 보여 주는 Azure Blob C# 코드 샘플을 제공합니다. 코드 샘플에서는 [WebJobs SDK](/app-service-web/websites-dotnet-webjobs-sdk.md) 버전 1.x를 사용합니다. Visual Studio **연결된 서비스 추가** 대화 상자를 사용하여 WebJob 프로젝트에 저장소 계정을 추가하는 경우 적절한 Azure 저장소 NuGet 패키지가 설치되고, 적절한 .NET 참조가 프로젝트에 추가되며, App.config 파일에서 저장소 계정에 대한 연결 문자열이 업데이트됩니다.
 
 
 
@@ -28,7 +28,7 @@
 
 이 섹션에서는 **BlobTrigger** 특성을 사용하는 방법을 보여 줍니다.
 
- **참고:** WebJobs SDK는 로그 파일을 검사하여 새 BLOB 또는 변경된 BLOB을 확인합니다. 이 프로세스는 기본적으로 느리므로, BLOB을 만든 후 몇 분이 경과할 때까지 함수가 트리거되지 않을 수도 있습니다. 응용 프로그램에서 BLOB을 즉시 처리해야 하는 경우 BLOB을 만들 때 큐 메시지를 만들고 BLOB을 처리하는 함수의 **BlobTrigger** 특성 대신 [QueueTrigger](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#trigger) 특성을 사용하는 것이 좋습니다.
+ **참고:** WebJobs SDK는 로그 파일을 검사하여 새 BLOB 또는 변경된 BLOB을 확인합니다. 이 프로세스는 기본적으로 느리므로, BLOB을 만든 후 몇 분이 경과할 때까지 함수가 트리거되지 않을 수도 있습니다. 응용 프로그램에서 BLOB을 즉시 처리해야 하는 경우 BLOB을 만들 때 큐 메시지를 만들고 BLOB을 처리하는 함수의 **BlobTrigger** 특성 대신 [QueueTrigger](/app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md#trigger) 특성을 사용하는 것이 좋습니다.
 
 ### 확장명을 포함하는 Blob 이름에 대한 단일 자리 표시자  
 
@@ -229,4 +229,4 @@ Blob를 강제로 처리하려면 *azure-webjobs-hosts* 컨테이너에서 해�
 
 이 문서에서는 Azure Blob 작업에 대한 일반적인 시나리오를 처리하는 방법을 보여 주는 코드 샘플을 제공했습니다. Azure WebJob 및 WebJob SDK를 사용하는 방법에 대한 자세한 내용은 [Azure WebJob 권장 리소스](http://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

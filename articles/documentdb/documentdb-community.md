@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="12/22/2015"
+  ms.date="01/29/2015"
   ms.author="andrl"/>
 
 # 커뮤니티 포털
@@ -64,7 +64,7 @@ API 앱으로 쉽게 배포할 수 있는 DocumentDB REST API Swagger 파일입�
 
 <br/><br/>
 
-*[GitHub](https://github.com/search?p=4&q=documentdb&type=Repositories)에서 더 많은 오픈 소스 DocumentDB 프로젝트를 확인하세요.*
+*[GitHub](https://github.com/search?p=4&q=documentdb&type=Repositories)에서 공개 소스 DocumentDB 프로젝트를 찾습니다.*
 
 <br/><br/>
 
@@ -79,6 +79,8 @@ API 앱으로 쉽게 배포할 수 있는 DocumentDB REST API Swagger 파일입�
 <br/>
 
 **커뮤니티 게시물:**
+
+* [**Azure DocumentDB 서버 쪽 스크립팅**](https://www.simple-talk.com/cloud/cloud-data/azure-documentdb-server-side-scripting/) - *Robert Sheldon*
 
 * [**Azure 스트림 분석에 대한 데이터 싱크로 DocumentDB**](http://janatdevelopment.com/2015/12/11/documentdb-as-a-data-sink-for-azure-stream-analytics/?utm_source=twitterfeed&utm_medium=twitter) - *Jan Hentschel 작성*
 
@@ -100,7 +102,7 @@ API 앱으로 쉽게 배포할 수 있는 DocumentDB REST API Swagger 파일입�
 
 * [**Azure DocumentDB의 RequestRateTooLarge 오류 처리 및 성능 테스트**](http://blogs.msdn.com/b/bigdatasupport/archive/2015/09/02/dealing-with-requestratetoolarge-errors-in-azure-documentdb-and-testing-documentdb-performance.aspx) - *Azim Uddin 작성*
 
-* [**데이터 요소 - Microsoft Azure DocumentDB의 개요**](https://msdn.microsoft.com/magazine/mt147238.aspx) - *Julie Lerman 작성*
+* [**Data Points - Microsoft Azure DocumentDB의 개요**](https://msdn.microsoft.com/magazine/mt147238.aspx) - *Julie Lerman 작성*
 
 * [**F#과 함께 DocumentDB 사용**](https://jamessdixon.wordpress.com/2014/12/30/using-documentdb-with-f/) - *Jamie Dixon 작성*
 
@@ -124,6 +126,7 @@ API 앱으로 쉽게 배포할 수 있는 DocumentDB REST API Swagger 파일입�
 
 | 이벤트 이름 | 발표자 | 위치 | Date | 해시 태그 |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ---------------------- | ------- |
+| [Meetup: CloudTalk](http://www.meetup.com/CloudTalk/events/227963695/) | Andrew Liu | Bellevue, WA | 2016년 3월 | 해당 없음
 | SQLBits XV | tbd | 리버풀, UK | 2016년 5월 4-7일 | [#SQLBits](https://twitter.com/hashtag/SQLBits)
 
 *연설하거나 이벤트를 호스팅했습니까? 도울 방법을 [알려주세요](mailto:askdocdb@microsoft.com)!*
@@ -132,6 +135,7 @@ API 앱으로 쉽게 배포할 수 있는 DocumentDB REST API Swagger 파일입�
 
 | 이벤트 이름 | 발표자 | 위치 | Date | 기록 |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ---------------------- | --------- |
+| [Meetup: Azure Austin](http://www.meetup.com/azureaustin/events/228209275/) | Merwan Chinta | Austin, TX | 2016년 1월 28일 | 해당 없음 |
 | [모임: msdevmtl](http://www.meetup.com/msdevmtl/events/223839818/) | Vincent-Philippe Lauzon | 몬트리올, QC, 캐나다 | 2015년 12월 1일 | 해당 없음 |
 | [Meetup: SeattleJS](http://www.meetup.com/seattlejs/events/220102664/) | David Makogon | 시애틀, WA | 2015년 11월 12일 | 해당 없음 |
 | [PASS 회담 2015](http://www.sqlpass.org/summit/2015/) | Jeff Renz, Andrew Hoh, Aravind Ramachandran, John Macintyre | 시애틀, WA | 2015년 10월 27-30일 | 해당 없음 |
@@ -213,14 +217,6 @@ Twitter [@DocumentDB](https://twitter.com/DocumentDB)를 팔로우하고 [#Docum
 
 <br/><br/>
 
-### 인터넷 릴레이 채팅 + 업무 시간
-
-[IRC 클라이언트](http://www.irchelp.org/)로 `#documentdb` 채널의 `chat.freenode.net`에서 또는 Freenode의 [웹 채팅](http://webchat.freenode.net/?channels=documentdb)을 사용하여 웹 채널에서 채널로 연결하여 IRC를 통해 실시간으로 채팅할 수 있습니다.
-
-태평양 표준시로 매주 금요일 오전 11에서 오후 12시까지 IRC에 업무 시간을 호스트합니다.
-
-<br/><br/>
-
 <hr/>
 
 ## 팀에 문의
@@ -271,4 +267,4 @@ DocumentDB 마법사는 다른 사용자가 Azure DocumentDB에서 경험을 최
 
 DocumentDB 마법사가 되고 싶으세요? DocumentDB 마법사가 되기 위한 벤치마크는 없지만 몇 가지 평가 기준에는 StackOverflow 및 MSDN과 같은 온라인 포럼, wiki 및 온라인 콘텐츠, 회의 및 사용자 그룹, 팟캐스트, 웹 사이트, 블로그 및 소셜 미디어, 기사 및 저서와 관련된 후보자의 영향력이 포함됩니다. [메일을 보내](mailto:askdocdb@microsoft.com) 자신이나 다른 사용자를 후보로 지명할 수 있습니다.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

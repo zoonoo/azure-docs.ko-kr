@@ -19,7 +19,7 @@
 
 # Azure 리소스 관리자에서 Mac, Linux 및 Windows용 Azure CLI 사용
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-command-line-tools.md)
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines/virtual-machines-command-line-tools.md).
 
 이 문서에서는 Azure 리소스 관리자 모드에서 Azure CLI(Azure 명령줄 인터페이스)를 사용하여 Mac, Linux 및 Windows 컴퓨터의 명령줄에서 서비스를 생성, 관리 및 삭제하는 방법에 대해 설명합니다. Azure SDK의 다양한 라이브러리와 Azure 포털을 사용하여 Azure PowerShell로 동일한 많은 작업을 수행할 수 있습니다.
 
@@ -1879,4 +1879,4 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

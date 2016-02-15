@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/23/2015"
+   ms.date="02/02/2015"
    ms.author="tomfitz"/>
 
 # Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포
 
 이 항목에서는 Azure 리소스 관리자 템플릿을 사용하여 Azure에 응용 프로그램을 배포하는 방법을 설명합니다. 여기서는 Azure PowerShell, Azure CLI, REST API 또는 Azure 포털을 사용하여 응용 프로그램을 배포합니다.
 
-리소스 관리자에 대한 소개는 [Azure 리소스 관리자 개요](../resource-group-overview.md)를 참조하세요. 템플릿을 만드는 방법에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
+리소스 관리자에 대한 소개는 [Azure 리소스 관리자 개요](./resource-group-overview.md)를 참조하세요. 템플릿을 만드는 방법에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 
 템플릿을 사용하여 응용 프로그램을 배포할 때는 매개 변수 값을 제공하여 리소스가 만들어지는 방식을 사용자 지정할 수 있습니다. 이 매개 변수의 값은 인라인 또는 매개 변수 파일로 지정할 수 있습니다.
 
@@ -274,12 +274,12 @@ Azure 리소스 관리자와 포털 사용에 대한 자세한 내용은 [Azure 
 템플릿에서 매개 변수를 정의하는 방법은 [템플릿 작성](resource-group-authoring-templates.md/#parameters)을 참조하세요. 보안 값을 전달하기 위한 KeyVault 참에 대한 자세한 내용은 [배포 중 보안 값 전달](resource-manager-keyvault-parameter.md)을 참조하세요.
 
 ## 다음 단계
-- .NET 클라이언트 라이브러리를 통한 리소스 배포의 예를 보려면 [.NET 라이브러리 및 템플릿을 사용하여 리소스 배포](arm-template-deployment.md)를 참조하세요.
+- .NET 클라이언트 라이브러리를 통한 리소스 배포의 예를 보려면 [.NET 라이브러리 및 템플릿을 사용하여 리소스 배포](./virtual-machines/arm-template-deployment.md)를 참조하세요.
 - 응용 프로그램 배포에 대한 자세한 예제는 [Azure에서 마이크로 서비스를 예측 가능하게 프로비전 및 배포](app-service-web/app-service-deploy-complex-application-predictably.md)를 참조하세요.
-- 다른 환경에 솔루션 배포에 관한 지침은 [Microsoft Azure의 개발 및 테스트 환경](solution-dev-test-environments-preview-portal.md)을 참조하세요.
+- 다른 환경에 솔루션 배포에 관한 지침은 [Microsoft Azure의 개발 및 테스트 환경](solution-dev-test-environments.md)을 참조하세요.
 - Azure 리소스 관리자 템플릿 섹션에 대한 자세한 내용은 [템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 - Azure 리소스 관리자 템플릿에서 사용할 수 있는 함수 목록은 [템플릿 함수](resource-group-template-functions.md)를 참조하세요.
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

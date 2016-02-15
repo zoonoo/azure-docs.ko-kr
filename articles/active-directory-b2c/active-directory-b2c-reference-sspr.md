@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/22/2015"
+	ms.date="01/28/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 미리 보기: 소비자를 위해 셀프 서비스 암호 재설정 설정
@@ -34,6 +34,7 @@
 
 테스트하려면 (로컬 계정을 ID 공급자로 가진)로그인 정책에서 "지금 실행" 기능을 사용합니다. (전자 메일 주소 및 암호 또는 사용자 이름 및 암호를 입력하는)로컬 계정 로그인 페이지에서 **계정에 액세스할 수 없습니까?**를 클릭하여 소비자 환경을 확인합니다.
 
-> [AZURE.NOTE]셀프 서비스 암호 재설정 페이지는 [회사 브랜딩 기능](active-directory-add-company-branding.md)을 사용하여 사용자 지정할 수 있습니다.
+> [AZURE.NOTE]
+셀프 서비스 암호 재설정 페이지는 [회사 브랜딩 기능](../active-directory/active-directory-add-company-branding.md)을 사용하여 사용자 지정할 수 있습니다.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

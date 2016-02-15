@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/10/2015"
+	ms.date="01/26/2016"
 	ms.author="mmercuri"/>
 
 # Azure 리소스 관리자 템플릿에서 상태 공유
@@ -389,4 +389,4 @@ enableJumpbox | 제한된 목록에서 가져온 문자열(enabled/disabled) | �
 - [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)
 - [Azure 리소스 관리자 템플릿 함수](resource-group-template-functions.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

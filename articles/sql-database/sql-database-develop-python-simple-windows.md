@@ -115,10 +115,10 @@ SQL 데이터베이스에 연결하는 데 [pymssql.connect](http://pymssql.org/
 	cursor = conn.cursor()
 	cursor.execute("BEGIN TRANSACTION")
 	cursor.execute("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL Server Express New', 'SQLEXPRESS New', 0, 0, CURRENT_TIMESTAMP)")
-	cnxn.rollback()
+	conn.rollback()
 
 ## 다음 단계
 
 자세한 내용은 [Python 개발자 센터](/develop/python/)를 참조하세요.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

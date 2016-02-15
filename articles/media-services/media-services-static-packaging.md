@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/05/2015"   
+	ms.date="01/28/2016"   
 	ms.author="juliako"/>
 
 
 # Azure Media Packager를 사용하여 정적 패키징 작업 수행
 
->[AZURE.NOTE]Microsoft Azure Media Packager 및 Microsoft Azure Media Encryptor는 2016년 3월 1일에 사용이 만료됩니다. 기간이 만료되면 이러한 구성 요소는 더 이상 사용할 수 없습니다. 형식 변환 및 암호화 기능은 동적 패키징 및 동적 암호화를 통해 사용할 수 있습니다.
+>[AZURE.NOTE]Microsoft Azure Media Packager 및 Microsoft Azure Media Encryptor의 만료 날짜가 2017년 3월 1일로 연장되었습니다. 이 날짜 전에 이러한 프로세서의 기능이 MES(미디어 인코더 표준)에 추가됩니다. 고객에게 워크플로를 마이그레이션하여 MES에 작업을 보내는 방법에 대한 지침이 제공됩니다. 형식 변환 및 암호화 기능은 동적 패키징 및 동적 암호화를 통해서도 사용할 수 있습니다.
 
 ## 개요
 
@@ -968,7 +968,7 @@ AES-128을 사용하여 HLS를 암호화하려는 경우 동적 암호화(권장
 
 PlayReady를 사용하여 콘텐츠를 보호하려는 경우 [동적 암호화](media-services-protect-with-drm.md)(권장되는 옵션) 또는 정적 암호화(이 섹션에서 설명) 사용 중에서 선택할 수 있습니다.
 
->[AZURE.NOTE]PlayReady를 사용하여 콘텐츠를 보호하려면 먼저 콘텐츠를 부드러운 스트리밍 형식으로 변환/인코딩해야 합니다.
+>[AZURE.NOTE] PlayReady를 사용하여 콘텐츠를 보호하려면 먼저 콘텐츠를 부드러운 스트리밍 형식으로 변환/인코딩해야 합니다.
 
 이 섹션의 예에서는 mezzanine 파일(이 경우 MP4)을 다중 비트 전송률 MP4 파일로 인코딩합니다. 그런 다음 MP4를 부드러운 스트리밍으로 패키징하고 PlayReady로 부드러운 스트리밍을 암호화합니다. PlayReady로 암호화된 HTTP 라이브 스트리밍(HLS)을 생성하려면 PlayReady 부드러운 스트리밍 자산을 HLS로 패키징해야 합니다. 이 항목에서는 이러한 모든 단계를 수행하는 방법을 보여 줍니다.
 
@@ -1447,4 +1447,4 @@ PlayReady를 사용하여 콘텐츠를 보호하려는 경우 [동적 암호화]
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

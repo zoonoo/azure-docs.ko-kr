@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/11/2015" 
+	ms.date="02/04/2016" 
 	ms.author="jeffstok"/>
 
 # 스트림 분석에서 쿼리를 작성하는 방법
@@ -42,7 +42,7 @@ Azure 스트림 분석의 스트림 처리 논리에 대한 쿼리 작성은 작
 
 브라우저에서 테스트 데이터가 포함된 하나 이상의 로컬 JSON 파일에 대해 쿼리를 실행하여 쿼리가 예상대로 동작하는지 테스트할 수 있습니다. 이 경우 작업이 시작되거나 요금이 청구되지 않습니다.
 
-> [AZURE.NOTE]현재 Azure Preview 포털에서 브라우저 내 쿼리 테스트는 지원되지 않습니다.
+> [AZURE.NOTE] 현재 Azure Preview 포털에서 브라우저 내 쿼리 테스트는 지원되지 않습니다.
 
 1.	쿼리에 오류가 없는지 확인하고(오류가 있으면 테스트 단추를 사용할 수 없음) 테스트 단추를 클릭합니다.  
 
@@ -71,4 +71,4 @@ Azure 스트림 분석의 스트림 처리 논리에 대한 쿼리 작성은 작
 - [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

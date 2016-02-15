@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="02/02/2016"
 	ms.author="jeedes"/>
 
 
@@ -64,7 +64,7 @@ Novatus의 Azure AD 통합을 구성하려면 갤러리의 Novatus를 관리되�
 4. 페이지 맨 아래에 있는 **추가**를 클릭합니다.<br><br> ![응용 프로그램][3]<br>
 5. **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.<br><br> ![응용 프로그램][4]<br>
 6. 검색 상자에서 **Novatus**를 입력합니다.<br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-novatus-tutorial/tutorial_novatus_01.png)<br>
-7. 결과 창에서 **Novatus**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다. <br><br>
+7. 결과 창에서 **Novatus**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-novatus-tutorial/tutorial_novatus_02.png)<br>
 
 ##  Azure AD Single Sign-on 구성 및 테스트
 이 섹션은 "Britta Simon"이라는 테스트 사용자를 기반으로 Novatus에서 Azure AD Single Sign-On을 구성하고 테스트하는 방법을 보여 주기 위해 작성되었습니다.
@@ -213,4 +213,4 @@ Novatus에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 [204]: ./media/active-directory-saas-novatus-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-novatus-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

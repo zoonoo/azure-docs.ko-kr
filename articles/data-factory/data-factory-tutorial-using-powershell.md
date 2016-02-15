@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # 자습서: 데이터 팩터리 [PowerShell]을 사용하여 로그 파일 이동 및 처리
@@ -31,16 +31,13 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 
 	이 문서는 모든 데이터 팩터리 cmdlet을 다루지 않습니다. 데이터 팩터리 cmdlet에 대한 포괄적인 설명서는 [데이터 팩터리 Cmdlet 참조](https://msdn.microsoft.com/library/dn820234.aspx)(영문)를 참조하세요.
     
-	**버전 < 1.0**인 Azure PowerShell을 사용하는 경우 [여기][old-cmdlet-reference]에 설명된 cmdlet을 사용해야 합니다. 또한 데이터 팩터리 cmdlet을 사용하기 전에 다음 명령을 실행해야 합니다.
-
 	1. **Add-AzureAccount**를 실행하고 Azure 포털에 로그인하는 데 사용하는 사용자 이름 및 암호를 입력합니다.
 	2. **Get-AzureSubscription**을 실행하여 이 계정의 모든 구독을 확인합니다.
 	3. **Select-AzureSubscription**을 실행하여 사용하려는 구독을 선택합니다. 이 구독은 Azure 포털에서 사용한 것과 같아야 합니다.
 	
 	이 자습서를 마칠 때까지 Azure PowerShell을 열어 두세요. 닫은 후 다시 여는 경우 이러한 명령을 다시 실행해야 합니다.
 
-2. AzureResourceManager 모드로 전환합니다. Azure 데이터 팩터리 cmdlet은 **Switch-AzureMode AzureResourceManager** 모드에서 사용할 수 있습니다.
- 
+
 2.	**(권장)** [Azure 데이터 팩터리 시작][adfgetstarted] 문서의 간단한 자습서를 검토하고 연습하여 포털 및 cmdlet을 익힙니다.
 3.	**(권장)** [Azure 데이터 팩터리에서 Pig 및 Hive 사용][usepigandhive] 문서의 연습을 검토하고 실습하여 온-프레미스에서 Azure Blob 저장소로 데이터를 복사하는 파이프라인을 만들어 봅니다.
 4.	[ADFWalkthrough][adfwalkthrough-download] 파일을 **C:\\ADFWalkthrough** 폴더로 다운로드합니다. 이때 다음과 같이 **폴더 구조를 유지**합니다.
@@ -183,14 +180,14 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 
 		New-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name LogProcessingFactory –Location "West US"
 
-	> [AZURE.IMPORTANT]Azure Data Factory 이름은 전역적으로 고유해야 합니다. **데이터 팩터리 이름 “LogProcessingFactory”를 사용할 수 없습니다.** 오류가 표시되는 경우 이름을 변경합니다(예: yournameLogProcessingFactory). 이 자습서의 단계를 수행하는 동안 LogProcessingFactory 대신 이 이름을 사용합니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](data-factory-naming-rules.md) 항목을 참조하세요.
+	> [AZURE.IMPORTANT] Azure Data Factory 이름은 전역적으로 고유해야 합니다. **데이터 팩터리 이름 “LogProcessingFactory”를 사용할 수 없습니다.** 오류가 표시되는 경우 이름을 변경합니다(예: yournameLogProcessingFactory). 이 자습서의 단계를 수행하는 동안 LogProcessingFactory 대신 이 이름을 사용합니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](data-factory-naming-rules.md) 항목을 참조하세요.
 	> 
 	> 데이터 팩터리의 이름은 나중에 DNS 이름으로 표시되므로 공개적으로 등록될 수도 있습니다.
 
  
 ## <a name="MainStep3"></a> 3단계: 연결된 서비스 만들기
 
-> [AZURE.NOTE]이 문서에서는 Azure PowerShell을 사용하여 연결된 서비스, 테이블 및 파이프라인을 만듭니다. Azure 포털, 특히 데이터 팩터리 편집기를 사용하여 이 자습서를 수행하려는 경우 [데이터 팩터리 편집기를 사용한 자습서][adftutorial-using-editor]를 참조하세요.
+> [AZURE.NOTE] 이 문서에서는 Azure PowerShell을 사용하여 연결된 서비스, 테이블 및 파이프라인을 만듭니다. Azure 포털, 특히 데이터 팩터리 편집기를 사용하여 이 자습서를 수행하려는 경우 [데이터 팩터리 편집기를 사용한 자습서][adftutorial-using-editor]를 참조하세요.
 
 이 단계에서는 연결된 서비스 StorageLinkedService, AzureSqlLinkedService, HDInsightStorageLinkedService 및 HDInsightLinkedService를 만듭니다.
 
@@ -506,4 +503,4 @@ Azure Blob에서 온-프레미스 SQL Server로 마케팅 캠페인 효과 데�
 
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-tutorial-using-powershell/NewDataFactoryMenu.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

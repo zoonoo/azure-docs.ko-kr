@@ -25,7 +25,7 @@
 
 ## 장치 인증
 
-이벤트 허브 보안 모델은 [공유 액세스 서명(SAS)](service-bus-shared-access-signature-authentication.md) 토큰 및 이벤트 게시자의 조합을 기반으로 합니다. 이벤트 게시자는 이벤트 허브에 대한 가상 끝점을 정의합니다. 게시자는 이벤트 허브에 메시지를 보내는 데만 사용할 수 있습니다. 게시자에서 메시지를 받을 수 없습니다.
+이벤트 허브 보안 모델은 [공유 액세스 서명(SAS)](../service-bus/service-bus-shared-access-signature-authentication.md) 토큰 및 이벤트 게시자의 조합을 기반으로 합니다. 이벤트 게시자는 이벤트 허브에 대한 가상 끝점을 정의합니다. 게시자는 이벤트 허브에 메시지를 보내는 데만 사용할 수 있습니다. 게시자에서 메시지를 받을 수 없습니다.
 
 일반적으로 이벤트 허브에서는 장치 당 하나의 게시자를 사용합니다. 이벤트 허브의 게시자에게 전달되는 모든 메시지는 해당 이벤트 허브 내에서 큐에 삽입합니다. 게시자는 세분화된 액세스 제어 및 제한을 허용합니다.
 
@@ -154,4 +154,4 @@ ACS는 서비스 ID, 신뢰 당사자 및 규칙을 만드는 여러 방법을 �
 [큐 메시징 솔루션]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

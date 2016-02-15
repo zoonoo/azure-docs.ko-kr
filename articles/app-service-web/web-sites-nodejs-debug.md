@@ -4,9 +4,9 @@
 	tags="azure-portal"
 	services="app-service\web"
 	documentationCenter="nodejs"
-	authors="TomArcher"
+	authors="rmcmurray"
 	manager="wpickett"
-	editor="mollybos"/>
+	editor=""/>
 
 <tags
 	ms.service="app-service-web"
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="11/18/2015"
-	ms.author="tarcher"/>
+	ms.date="02/03/2016"
+	ms.author="robmcm"/>
 
 # Azure 앱 서비스에서 Node.js 웹 앱을 디버그하는 방법
 
@@ -40,11 +40,11 @@ stdout 및 stderr 스트림에 대한 로깅을 사용하려면 Node.js 응용 �
 
 이 옵션을 사용하도록 설정하면 IISNode가 친숙한 오류(예: "내부 서버 오류가 발생했습니다.") 대신 stderr에 전송된 정보의 마지막 64K를 반환합니다.
 
-> [AZURE.NOTE]devErrorsEnabled가 개발 중 문제를 진단하는 데 유용하긴 하지만 프로덕션 환경에서 이 옵션을 사용하도록 설정하면 개발 오류가 최종 사용자에게 전달될 수 있습니다.
+> [AZURE.NOTE] devErrorsEnabled가 개발 중 문제를 진단하는 데 유용하긴 하지만 프로덕션 환경에서 이 옵션을 사용하도록 설정하면 개발 오류가 최종 사용자에게 전달될 수 있습니다.
 
 **IISNode.yml** 파일이 응용 프로그램에 아직 없는 경우, 업데이트된 응용 프로그램을 게시한 후 웹 앱을 다시 시작해야 합니다. 이전에 게시했던 기존 **IISNode.yml** 파일에서 설정만 변경하는 경우에는 다시 시작하지 않아도 됩니다.
 
-> [AZURE.NOTE]Azure 명령줄 도구 또는 Azure PowerShell Cmdlet을 사용하여 웹 앱을 만든 경우 기본 **IISNode.yml** 파일이 자동으로 만들어집니다.
+> [AZURE.NOTE] Azure 명령줄 도구 또는 Azure PowerShell Cmdlet을 사용하여 웹 앱을 만든 경우 기본 **IISNode.yml** 파일이 자동으로 만들어집니다.
 
 웹앱을 다시 시작하려면 [Azure 포털](https://portal.azure.com)에서 웹앱을 선택한 다음 **다시 시작** 단추를 클릭합니다.
 
@@ -54,7 +54,7 @@ Azure 명령줄 도구가 개발 환경에 설치되어 있는 경우 다음 명
 
 	azure site restart [sitename]
 
-> [AZURE.NOTE]loggingEnabled 및 devErrorsEnabled가 진단 정보를 캡처하기 위해 가장 일반적으로 사용되는 IISNode.yml 구성 옵션이긴 하지만 IISNode.yml을 사용하여 호스팅 환경을 위한 다양한 옵션을 구성할 수 있습니다. 전체 구성 옵션 목록에 대해서는 [iisnode\_schema.xml](https://github.com/tjanczuk/iisnode/blob/master/src/config/iisnode_schema.xml)(영문) 파일을 참조하십시오.
+> [AZURE.NOTE] loggingEnabled 및 devErrorsEnabled가 진단 정보를 캡처하기 위해 가장 일반적으로 사용되는 IISNode.yml 구성 옵션이긴 하지만 IISNode.yml을 사용하여 호스팅 환경을 위한 다양한 옵션을 구성할 수 있습니다. 전체 구성 옵션 목록에 대해서는 [iisnode\_schema.xml](https://github.com/tjanczuk/iisnode/blob/master/src/config/iisnode_schema.xml)(영문) 파일을 참조하십시오.
 
 <a id="viewlogs"></a>
 ## 로그 액세스
@@ -69,7 +69,7 @@ Azure 명령줄 도구가 개발 환경에 설치되어 있는 경우 다음 명
 
 FTP를 통해 진단 정보에 액세스하려면 [Azure 포털](https://portal.azure.com)을 방문하고, 웹앱을 선택한 후 **대시보드**를 선택합니다. **빠른 연결** 섹션에서 **FTP 진단 로그** 및 **FTPS 진단 로그** 링크는 FTP 프로토콜을 사용하여 로그에 액세스할 수 있는 방법을 제공합니다.
 
-> [AZURE.NOTE]FTP 또는 배포의 사용자 이름 및 암호를 아직 구성하지 않은 경우 **배포 자격 증명 설정**을 선택하여 **빠른 시작** 관리 페이지에서 사용자 이름 및 암호를 구성할 수 있습니다.
+> [AZURE.NOTE] FTP 또는 배포의 사용자 이름 및 암호를 아직 구성하지 않은 경우 **배포 자격 증명 설정**을 선택하여 **빠른 시작** 관리 페이지에서 사용자 이름 및 암호를 구성할 수 있습니다.
 
 대시보드에 반환된 FTP URL은 다음 하위 디렉터리를 포함하는 **LogFiles** 디렉터리에 대한 것입니다.
 
@@ -115,7 +115,7 @@ Node.js 버전의 응용 프로그램 지정에 대한 자세한 내용은 [Azur
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 [IISNode]: https://github.com/tjanczuk/iisnode
 [IISNode 추가 정보]: https://github.com/tjanczuk/iisnode#readme
@@ -126,4 +126,4 @@ Node.js 버전의 응용 프로그램 지정에 대한 자세한 내용은 [Azur
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

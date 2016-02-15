@@ -40,7 +40,7 @@ Unix 시스템 성능 메트릭을[Application Insights](app-insights-overview.m
 사용자 Unix 서버 컴퓨터:
 
 1. [collectd](http://collectd.org/) 5.4.0 버전 또는 그 이상을 설치합니다.
-2. [Application Insights collectd 기록기 플러그 인](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html)을 다운로드합니다. 버전 번호를 메모합니다.
+2. [Application Insights collectd 기록기 플러그 인](https://azuredownloads.blob.core.windows.net/applicationinsights/applicationinsights-collectd-1.0.1.jar)을 다운로드합니다. 버전 번호를 메모합니다.
 3. 플러그인JAR를 `/usr/share/collectd/java`에 복사합니다.
 3. 편집`/etc/collectd/collectd.conf`:
  * [Java 플러그인](https://collectd.org/wiki/index.php/Plugin:Java)사용하도록 설정 합니다.
@@ -143,4 +143,4 @@ Application Insights 리소스에서[메트릭 탐색기 및 차트 추가하기
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

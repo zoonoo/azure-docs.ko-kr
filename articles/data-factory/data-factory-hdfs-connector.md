@@ -21,6 +21,7 @@
 
 현재 데이터 팩터리는 다른 데이터 저장소에서 온-프레미스 HDFS로 데이터 이동이 아닌 온-프레미스 HDFS에서 다른 데이터 저장소로 데이터 이동만을 지원합니다.
 
+
 ## 연결 사용
 데이터 팩터리 서비스는 데이터 관리 게이트웨이를 사용하여 온-프레미스 HDFS에 연결을 지원합니다. 데이터 관리 게이트웨이 및 게이트웨이 설정에 대한 단계별 지침을 알아보려면 [온-프레미스 위치 및 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요. Azure IaaS VM에서 호스팅되는 경우 HDFS에 연결하려면 게이트웨이를 활용해야 합니다.
 
@@ -28,7 +29,9 @@
 
 ## 샘플: 온-프레미스 HDFS에서 Azure Blob으로 데이터 복사
 
-아래 샘플은 다음을 보여줍니다.
+이 샘플은 온-프레미스 HDFS에서 Azure Blob 저장소로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure 데이터 팩터리의 복사 작업을 사용하여 [여기](data-factory-data-movement-activities.md#supported-data-stores)에 설명한 싱크로 **직접** 데이터를 복사할 수 있습니다.
+ 
+이 샘플에는 다음 데이터 팩터리 엔터티가 있습니다.
 
 1.	[OnPremisesHdfs](#hdfs-linked-service-properties) 형식의 연결된 서비스
 2.	[AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 형식의 연결된 서비스
@@ -260,12 +263,12 @@
 folderPath | 파일의 경로입니다. 예제: myfolder<p>문자열의 특수 문자에 이스케이프 문자 '\\'를 사용합니다. 예를 들어 folder\\subfolder, folder\\subfolder 및 d:\\samplefolder에 d:\\samplefolder를 지정합니다.</p><p>**partitionBy**로 이를 결합하여 조각 시작/종료 날짜-시간에 따라 폴더 경로를 가질 수 있습니다.</p> | 예
 fileName | 폴더에서 특정 파일을 참조하기 위해 테이블을 사용하려는 경우 **folderPath**에 있는 파일의 이름을 지정합니다. 이 속성에 값을 지정하지 않으면 테이블은 폴더에 있는 모든 파일을 가리킵니다.<p>출력 데이터 집합에 fileName을 지정하지 않으면 생성된 파일의 이름은 다음 이 서식에 있습니다.</p><p>데이터.<Guid>.txt(예를 들어 Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p> | 아니요
 partitionedBy | 동적 folderPath, 시계열 데이터에 대 한 filename을 지정 하려면 partitionedBy는 활용할 수 있습니다. 예를 들어 매시간 데이터에 대한 매개 변수가 있는 folderPath입니다. | 아니요
-fileFilter | 모든 파일이 아닌 folderPath의 파일 하위 집합을 선택하는데 사용할 필터를 지정합니다. <p>허용되는 값은 다음과 같습니다. (여러 문자) 및 ?(한 개의 문자).</p><p>예제 1: "fileFilter": ".log"</p>예제 2: "fileFilter":2014-1-?.txt"</p><p>참고**: fileFilter는 입력 FileShare 데이터 집합에 적용됩니다.</p> | 아니요
+fileFilter | 모든 파일이 아닌 folderPath의 파일 하위 집합을 선택하는데 사용할 필터를 지정합니다. <p>허용되는 값은 다음과 같습니다. *(여러 문자) 및 ?(한 개의 문자).</p><p>예제 1: "fileFilter": "*.log"</p>예제 2: "fileFilter":2014-1-?.txt"</p><p>**참고**: fileFilter는 입력 FileShare 데이터 집합에 적용됩니다.</p> | 아니요
 | 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 GZip, Deflate 및 BZip2이고 지원되는 수준은 최적 및 가장 빠름입니다. 자세한 내용은 [압축 지원](#compression-support) 섹션을 참조하세요. | 아니요 |
 | format | **TextFormat**, **AvroFormat**과 같은 두 서식 유형이 지원됩니다. 값이 있으면 이 중 하나로 서식에서 형식 속성을 설정해야 합니다. 서식이 TextFormat인 경우 형식에 선택적 추가 속성을 지정할 수 있습니다. 자세한 내용은 아래 [TextFormat 지정](#specifying-textformat) 섹션을 참조하세요. | 아니요
 
 
-> [AZURE.NOTE]filename 및 fileFilter는 동시에 사용할 수 없습니다.
+> [AZURE.NOTE] filename 및 fileFilter는 동시에 사용할 수 없습니다.
 
 
 ### partionedBy 속성 활용
@@ -362,4 +365,4 @@ Hive 테이블에서 Avro 형식을 사용하려는 경우 [Apache Hive의 자�
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

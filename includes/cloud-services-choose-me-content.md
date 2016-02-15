@@ -1,7 +1,7 @@
 <a name="tellmecs"></a>
 ## 클라우드 서비스에 대한 설명
 
-클라우드 서비스는 PaaS(Platform-as-a-Service)의 예입니다. [앱 서비스](app-service-web-overview.md)와 마찬가지로 이 기술은 웹 사이트와 마찬가지로 확장 가능하고 안정적이며 운영 비용이 저렴한 응용 프로그램을 지원하도록 설계되었습니다. [앱 서비스](app-service-web-overview.md)가 VM에서 호스팅되는 것과 마찬가지로 클라우드 서비스도 VM에서 호스팅되지만, VM에 대한 제어력이 높습니다. 클라우드 서비스 VM에 원하는 소프트웨어를 설치하여 원격으로 실행할 수 있습니다.
+클라우드 서비스는 PaaS(Platform-as-a-Service)의 예입니다. [앱 서비스](../articles/app-service-web/app-service-web-overview.md)와 마찬가지로 이 기술은 확장 가능하고 안정적이며 운영 비용이 저렴한 응용 프로그램을 지원하도록 설계되었습니다. 앱 서비스와 마찬가지로 클라우드 서비스도 VM에서 호스트되지만 VM에 대한 제어력이 높습니다. 클라우드 서비스 VM에 원하는 소프트웨어를 설치하여 원격으로 실행할 수 있습니다.
 
 ![cs\_diagram](./media/cloud-services-choose-me-content/diagram.png)
 
@@ -14,7 +14,7 @@
 * **웹 역할** IIS에 자동으로 배포된 웹앱과 함께 Windows Server를 실행합니다.
 * **작업자 역할** IIS 없이 Windows Server를 실행합니다.
 
-예를 들어 간단한 응용 프로그램은 웹 역할만 사용할 수 있지만 좀더 복잡한 응용 프로그램은 웹 역할을 사용하여 사용자로부터의 수신 요청을 처리한 후 요청을 만든 작업을 작업자 역할에 전달하여 처리할 수 있습니다. 이 통신은 [서비스 버스](../articles/service-bus/fundamentals-service-bus-hybrid-solutions.md)나 [Azure 큐](../articles/storage/storage-introduction.md)를 사용할 수 있음)
+예를 들어 간단한 응용 프로그램은 웹 역할만 사용할 수 있지만 좀더 복잡한 응용 프로그램은 웹 역할을 사용하여 사용자로부터의 수신 요청을 처리한 후 요청을 만든 작업을 작업자 역할에 전달하여 처리할 수 있습니다. 이 통신은 [서비스 버스](../articles/service-bus/service-bus-fundamentals-hybrid-solutions.md)나 [Azure 큐](../articles/storage/storage-introduction.md)를 사용할 수 있음)
 
 위에 나와 있는 것처럼 단일 응용 프로그램의 모든 VM은 동일한 클라우드 서비스에서 실행됩니다. 그렇기 때문에 사용자는 응용 프로그램 VM의 자동 부하 분산 요청으로 하나의 공용 IP 주소를 통해 응용 프로그램에 액세스합니다. 플랫폼은 하드웨어 오류를 방지하는 방식으로 클라우드 서비스 응용 프로그램에 VM을 [확장 및 배포](../articles/cloud-services/cloud-services-how-to-scale.md)합니다.
 
@@ -30,4 +30,4 @@
 
 클라우드 서비스의 PaaS 특성에는 다른 것도 있습니다. 가장 중요한 것 중 하나는 웹 역할 또는 작업자 역할 인스턴스에 오류가 발생할 때 이 기술로 구축된 응용 프로그램이 제대로 실행되도록 작성되어야 한다는 점입니다. 이렇게 하려면 클라우드 서비스 응용 프로그램이 자체 VM의 파일 시스템 상태를 관리해서는 안 됩니다. Azure 가상 컴퓨터로 만들어진 VM과 달리 클라우드 서비스 VM에 실행된 쓰기는 영구적이지 않습니다. 가상 컴퓨터 데이터 디스크가 가장 좋습니다. 대신 클라우드 서비스 응용 프로그램은 SQL 데이터베이스, Blob, 테이블 또는 일부 기타 외부 저장소에 모든 상태를 명확하게 작성해야 합니다. 이 방법으로 응용 프로그램을 구축하면 보다 쉽게 확장하고 오류를 방어할 수 있으며, 둘 다 클라우드 서비스의 중요한 목표입니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

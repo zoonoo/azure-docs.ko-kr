@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="02/02/2016" 
 	ms.author="ddove;sidneyh"/>
 
 # 탄력적 데이터베이스 작업 설치 개요
@@ -24,7 +24,7 @@
 
 ## 필수 조건
 * Azure 구독. 무료 평가판에 대해서는 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* Azure PowerShell 버전 0.8.16 이상. [웹 플랫폼 설치 관리자](http://go.microsoft.com/fwlink/p/?linkid=320376)를 통해 최신 버전(0.9.5)을 설치합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure.md)을 참조하세요.
+* Azure PowerShell 버전 0.8.16 이상. [웹 플랫폼 설치 관리자](http://go.microsoft.com/fwlink/p/?linkid=320376)를 통해 최신 버전(0.9.5)을 설치합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
 * [NuGet 명령줄 유틸리티](https://nuget.org/nuget.exe)는 탄력적 데이터베이스 작업 패키지를 설치하는 데 사용됩니다. 자세한 내용은 http://docs.nuget.org/docs/start-here/installing-nuget을 참조하세요.
 
 ## 탄력적 데이터베이스 작업 PowerShell 패키지 다운로드 및 가져오기
@@ -167,7 +167,7 @@
 
 	![사용자 이름 및 암호 만들기][2]
 
-6. 확인 단추를 클릭합니다. 몇 분 안에 새 [리소스 그룹](../resource-group-portal.md)에 사용자를 위한 구성 요소가 생성됩니다. 새 리소스 그룹은 아래 나온 것처럼 시작 보드에 고정됩니다. 생성이 완료되면 탄력적 데이터베이스 작업(클라우드 서비스, SQL 데이터베이스, 서비스 버스, 저장소)이 그룹 내에 모두 생성됩니다.
+6. 확인 단추를 클릭합니다. 몇 분 안에 새 [리소스 그룹](../azure-portal/resource-group-portal.md)에 사용자를 위한 구성 요소가 생성됩니다. 새 리소스 그룹은 아래 나온 것처럼 시작 보드에 고정됩니다. 생성이 완료되면 탄력적 데이터베이스 작업(클라우드 서비스, SQL 데이터베이스, 서비스 버스, 저장소)이 그룹 내에 모두 생성됩니다.
 
 	![시작 보드 내의 리소스 그룹][3]
 
@@ -188,4 +188,4 @@
 [4]: ./media/sql-database-elastic-jobs-service-installation/not-done.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

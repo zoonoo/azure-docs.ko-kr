@@ -12,8 +12,9 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="11/04/2015" 
+    ms.date="02/04/2016" 
     ms.author="torsteng;sidneyh" />
+
 
 # 분할-병합 보안 구성  
 
@@ -23,8 +24,8 @@
 
 인증서는 두 가지 방법으로 구성합니다.
 
-1. [SSL 인증서를 구성하려면](To#Configure#the#SSL#Certificate)
-2. [클라이언트 인증서를 구성하려면](To#Configure#Client#Certificates) 
+1. [SSL 인증서를 구성하려면](#To-Configure-the-SSL#Certificate)
+2. [클라이언트 인증서를 구성하려면](#To-Configure-Client-Certificates) 
 
 ## 인증서를 얻으려면
 
@@ -52,45 +53,45 @@
 
 ### 자체 서명된 새로운 인증서 만들기
 
-1.    [자체 서명된 인증서 만들기](Create#a#Self-Signed#Certificate)
-2.    [자체 서명된 SSL 인증서용 PFX 파일 만들기](Create#PFX#file#for#Self-Signed#SSL#Certificate)
-3.    [클라우드 서비스에 SSL 인증서 업로드](Upload#SSL#Certificate#to#Cloud#Service)
-4.    [서비스 구성 파일에서 SSL 인증서 업데이트](Update#SSL#Certificate#in#Service#Configuration#File)
-5.    [SSL 인증 기관 가져오기](Import#SSL#Certification#Authority)
+1.    [자체 서명된 인증서 만들기](#Create-a-Self-Signed-Certificate)
+2.    [자체 서명된 SSL 인증서용 PFX 파일 만들기](#Create-PFX-file-for-Self-Signed-SSL-Certificate)
+3.    [클라우드 서비스에 SSL 인증서 업로드](#Upload-SSL-Certificate-to-Cloud-Service)
+4.    [서비스 구성 파일에서 SSL 인증서 업데이트](#Update-SSL-Certificate-in-Service-Configuration-File)
+5.    [SSL 인증 기관 가져오기](#Import-SSL-Certification-Authority)
 
 ### 인증서 저장소에서 기존 인증서를 사용하려면
-1. [인증서 저장소에서 SSL 인증서 내보내기](Export#SSL#Certificate#From#Certificate#Store)
-2. [클라우드 서비스에 SSL 인증서 업로드](Upload#SSL#Certificate#to#Cloud#Service)
-3. [서비스 구성 파일에서 SSL 인증서 업데이트](Update#SSL#Certificate#in#Service#Configuration#File)
+1. [인증서 저장소에서 SSL 인증서 내보내기](#Export-SSL-Certificate-From-Certificate-Store)
+2. [클라우드 서비스에 SSL 인증서 업로드](#Upload-SSL-Certificate-to-Cloud-Service)
+3. [서비스 구성 파일에서 SSL 인증서 업데이트](#Update-SSL-Certificate-in-Service-Configuration-File)
 
 ### PFX 파일에서 기존 인증서를 사용하려면
 
-1. [클라우드 서비스에 SSL 인증서 업로드](Upload#SSL#Certificate#to#Cloud#Service)
-2. [서비스 구성 파일에서 SSL 인증서 업데이트](Update#SSL#Certificate#in#Service#Configuration#File)
+1. [클라우드 서비스에 SSL 인증서 업로드](#Upload-SSL-Certificate-to-Cloud-Service)
+2. [서비스 구성 파일에서 SSL 인증서 업데이트](#Update-SSL-Certificate-in-Service-Configuration-File)
 
 ## 클라이언트 인증서를 구성하려면
 클라이언트 인증서는 서비스에 요청을 인증하는 데 필요합니다. 아래 세 가지 시나리오 중 가장 적합한 시나리오를 선택하고 모든 단계를 실행합니다.
 
 ### 클라이언트 인증서 해제
-1.    [클라이언트 인증서 기반 인증 해제](Turn#Off#Client#Certificate-Based#Authentication)
+1.    [클라이언트 인증서 기반 인증 해제](#Turn-Off-Client-Certificate-Based-Authentication)
 
 ### 자체 서명된 새로운 클라이언트 인증서 발급
-1.    [자체 서명된 인증 기관 만들기](Create#a#Self-Signed#Certification#Authority)
-2.    [클라우드 서비스에 CA 인증서 업로드](Upload#CA#Certificate#to#Cloud#Service)
-3.    [서비스 구성 파일의 CA 인증서 업데이트](Update#CA#Certificate#in#Service#Configuration#File)
-4.    [클라이언트 인증서 발급](Issue#Client#Certificates)
-5.    [클라이언트 인증서용 PFX 파일 만들기](Create#PFX#files#for#Client#Certificates)
-6.    [클라이언트 인증서 가져오기](Import#Client#Certificate)
-7.    [클라이언트 인증서 지문 복사](Copy#Client#Certificate#Thumbprints)
-8.    [서비스 구성 파일에서 허용된 클라이언트 구성](Configure#Allowed#Clients#in#the#Service#Configuration#File)
+1.    [자체 서명된 인증 기관 만들기](#Create-a-Self-Signed-Certification-Authority)
+2.    [클라우드 서비스에 CA 인증서 업로드](#Upload-CA-Certificate-to-Cloud-Service)
+3.    [서비스 구성 파일의 CA 인증서 업데이트](#Update-CA-Certificate-in-Service-Configuration-File)
+4.    [클라이언트 인증서 발급](#Issue-Client-Certificates)
+5.    [클라이언트 인증서용 PFX 파일 만들기](#Create-PFX-files-for-Client-Certificates)
+6.    [클라이언트 인증서 가져오기](#Import-Client-Certificate)
+7.    [클라이언트 인증서 지문 복사](#Copy-Client-Certificate-Thumbprints)
+8.    [서비스 구성 파일에서 허용된 클라이언트 구성](#Configure-Allowed-Clients-in-the-Service-Configuration-File)
 
 ### 기존 클라이언트 인증서 사용
-1.    [Find CA Public Key](Find#CA#Public Key)
-2.    [클라우드 서비스에 CA 인증서 업로드](Upload#CA#certificate#to#cloud#service)
-3.    [서비스 구성 파일의 CA 인증서 업데이트](Update#CA#Certificate#in#Service#Configuration#File)
-4.    [클라이언트 인증서 지문 복사](Copy#Client#Certificate#Thumbprints)
-5.    [서비스 구성 파일에 허용 된 클라이언트 구성] (configure ##Clients Allowed #in #the #Service #Configuration File)
-6.    [클라이언트 인증서 해지 확인 구성](Configure#Client#Certificate#Revocation#Check)
+1.    [CA 공개 키 찾기](#Find-CA-Public Key)
+2.    [클라우드 서비스에 CA 인증서 업로드](#Upload-CA-certificate-to-cloud-service)
+3.    [서비스 구성 파일의 CA 인증서 업데이트](#Update-CA-Certificate-in-Service-Configuration-File)
+4.    [클라이언트 인증서 지문 복사](#Copy-Client-Certificate-Thumbprints)
+5.    [서비스 구성 파일에 허용된 클라이언트 구성](#Configure-Allowed-Clients-in-the-Service-Configuration File)
+6.    [클라이언트 인증서 해지 확인 구성](#Configure-Client-Certificate-Revocation-Check)
 
 ## 허용된 IP 주소
 
@@ -102,21 +103,21 @@
 
 ### 자체 서명된 새로운 인증서 사용
 
-1.     [자체 서명된 인증서 만들기](Create#a#Self-Signed#Certificate)
-2.     [자체 서명된 암호화 인증서용 PFX 파일 만들기](Create#PFX#file#for#Self-Signed#Encryption#Certificate)
-3.     [클라우드 서비스에 암호화 인증서 업로드](Upload#Encryption#Certificate#to#Cloud#Service)
-4.     [서비스 구성 파일에서 암호화 인증서 업데이트](Update#Encryption#Certificate#in#Service#Configuration#File)
+1.     [자체 서명된 인증서 만들기](#Create-a-Self-Signed-Certificate)
+2.     [자체 서명된 암호화 인증서용 PFX 파일 만들기](#Create-PFX-file-for-Self-Signed-Encryption-Certificate)
+3.     [클라우드 서비스에 암호화 인증서 업로드](#Upload-Encryption-Certificate-to-Cloud-Service)
+4.     [서비스 구성 파일에서 암호화 인증서 업데이트](#Update-Encryption-Certificate-in-Service-Configuration-File)
 
 ### 인증서 저장소에서 기존 인증서 사용
 
-1.     [인증서 저장소에서 암호화 인증서 내보내기](Export#Encryption#Certificate#From#Certificate#Store)
-2.     [클라우드 서비스에 암호화 인증서 업로드](Upload#Encryption#Certificate#to#Cloud#Service)
-3.     [서비스 구성 파일에서 암호화 인증서 업데이트](Update#Encryption#Certificate#in#Service#Configuration#File)
+1.     [인증서 저장소에서 암호화 인증서 내보내기](#Export-Encryption-Certificate-From-Certificate-Store)
+2.     [클라우드 서비스에 암호화 인증서 업로드](#Upload-Encryption-Certificate-to-Cloud-Service)
+3.     [서비스 구성 파일에서 암호화 인증서 업데이트](#Update-Encryption-Certificate-in-Service-Configuration-File)
 
 ### PFX 파일에서 기존 인증서 사용
 
-1.     [클라우드 서비스에 암호화 인증서 업로드](Upload#Encryption#Certificate#to#Cloud#Service)
-2.     [서비스 구성 파일에서 암호화 인증서 업데이트](Update#Encryption#Certificate#in#Service#Configuration#File)
+1.     [클라우드 서비스에 암호화 인증서 업로드](#Upload-Encryption-Certificate-to-Cloud-Service)
+2.     [서비스 구성 파일에서 암호화 인증서 업데이트](#Update-Encryption-Certificate-in-Service-Configuration-File)
 
 ## 기본 구성
 
@@ -448,12 +449,12 @@ CA 공개 키가 포함된 기존 또는 생성된 .CER 파일과 함께 인증�
 7.     원하는 저장소를 선택합니다.
 8.     **마침**을 클릭합니다.
        
-	* 신뢰할 수 있는 루트 인증 기관 저장소를 선택한 경우 **예**를 클릭합니다.
+    * 신뢰할 수 있는 루트 인증 기관 저장소를 선택한 경우 **예**를 클릭합니다.
 9.     모든 대화 상자 창에서 **확인**을 클릭합니다.
 
 ## 인증서 업로드
 
-[Azure 클래식 포털](https://portal.azure.com/)에서
+[Azure 포털](https://portal.azure.com/)에서
 
 1. **클라우드 서비스**를 선택합니다.
 2. 클라우드 서비스를 선택합니다.
@@ -473,4 +474,4 @@ CA 공개 키가 포함된 기존 또는 생성된 .CER 파일과 함께 인증�
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

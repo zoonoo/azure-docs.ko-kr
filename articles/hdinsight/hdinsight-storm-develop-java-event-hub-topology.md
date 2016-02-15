@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/12/2016"
+   ms.date="01/28/2016"
    ms.author="larryfr"/>
 
 # HDInsight의 Storm으로 Azure 이벤트 허브에서 이벤트 처리(Java)
@@ -30,9 +30,9 @@ Azure 이벤트 허브를 사용하면 웹 사이트, 앱 및 장치에서 대�
 
     - [Windows 기반 클러스터](hdinsight-apache-storm-tutorial-get-started.md): PowerShell을 사용하여 Windows 클라이언트에서 클러스터를 사용하려면 이 옵션을 선택합니다.
 
-    > [AZURE.NOTE]두 클러스터 형식 간의 유일한 차이점은 SSH를 사용하여 클러스터 또는 웹 형식에 토폴로지를 제출하는지 여부입니다.
+    > [AZURE.NOTE] 두 클러스터 형식 간의 유일한 차이점은 SSH를 사용하여 클러스터 또는 웹 형식에 토폴로지를 제출하는지 여부입니다.
 
-* [Azure 이벤트 허브](../event-hubs/service-bus-event-hubs-csharp-ephcs-getstarted.md)
+* [Azure 이벤트 허브](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
 * [OpenJDK](http://openjdk.java.net/)와 같은 [Oracle Java 개발자 키트(JDK) 버전 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) 또는 그와 동등
 
@@ -40,7 +40,7 @@ Azure 이벤트 허브를 사용하면 웹 사이트, 앱 및 장치에서 대�
 
 * 텍스트 편집기 또는 Java 통합 개발 환경(IDE)
 
-	> [AZURE.NOTE]편집기 또는 IDE에 이 문서에서 다루지 않은 Maven과 함께 동작하는 특정 기능이 있을 수 있습니다. 편집 환경 기능에 대한 내용은 사용 중인 제품의 설명서를 참조하세요.
+	> [AZURE.NOTE] 편집기 또는 IDE에 이 문서에서 다루지 않은 Maven과 함께 동작하는 특정 기능이 있을 수 있습니다. 편집 환경 기능에 대한 내용은 사용 중인 제품의 설명서를 참조하세요.
 
  * SSH 클라이언트. HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
@@ -78,7 +78,7 @@ JSON 문서를 사용하여 이벤트 허브에 데이터를 저장하는 이유
 
 eventhubs-storm-spout 패키지에 대한 종속성을 추가하며 이는 이벤트 허브에서 읽기의 경우 Spout 및 쓰기의 경우 Bolt를 모두 포함합니다.
 
-> [AZURE.NOTE]이 패키지는 Maven에서 사용할 수 없으며 이후 단계의 로컬 Maven 리포지토리에 수동으로 설치됩니다.
+> [AZURE.NOTE] 이 패키지는 Maven에서 사용할 수 없으며 이후 단계의 로컬 Maven 리포지토리에 수동으로 설치됩니다.
 
 ####HdfsBolt 및 WASB 구성 요소
 
@@ -141,7 +141,7 @@ HdfsBolt는 일반적으로 Hadoop 분산 파일 시스템 HDFS에 데이터를 
        <version>0.6.0</version>
      </dependency>
 
-> [AZURE.NOTE]WASB를 사용할 수 있는 패키지는 Maven 리포지토리에서 사용할 수 없고 이후 단계에서 수동으로 설치됩니다.
+> [AZURE.NOTE] WASB를 사용할 수 있는 패키지는 Maven 리포지토리에서 사용할 수 없고 이후 단계에서 수동으로 설치됩니다.
 
 ####maven-compiler-plugin
 
@@ -269,7 +269,7 @@ Java 및 JDK를 설치할 때 사용자의 개발 워크스테이션에 다음 �
 
 	![마법사 페이지 1](./media/hdinsight-storm-develop-csharp-event-hub-topology/wiz1.png)
 
-	> [AZURE.NOTE]대기 시간 및 비용을 줄이려면 HDInsight 서버의 Storm과 동일한 **위치**를 선택해야 합니다.
+	> [AZURE.NOTE] 대기 시간 및 비용을 줄이려면 HDInsight 서버의 Storm과 동일한 **위치**를 선택해야 합니다.
 
 2. **이벤트 허브 구성** 화면에서 **파티션 개수** 및 **메시지 보존** 값을 입력합니다. 이 예에서는 파티션 개수로 10을, 메시지 보존으로는 1을 사용합니다. 파티션 개수 값은 나중에 필요하므로 기록해 둡니다.
 
@@ -311,7 +311,7 @@ Java 및 JDK를 설치할 때 사용자의 개발 워크스테이션에 다음 �
 
 		mvn -q org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=lib/hadoop/hadoop-main-3.0.0-SNAPSHOT.pom -DpomFile=lib/hadoop/hadoop-main-3.0.0-SNAPSHOT.pom
 
-	> [AZURE.NOTE]Powershell을 사용하는 경우 따옴표에 `-D` 매개 변수를 두어야 합니다. 예: `"-Dfile=lib/hadoop/hadoop-main-3.0.0-SNAPSHOT.pom"`
+	> [AZURE.NOTE] Powershell을 사용하는 경우 따옴표에 `-D` 매개 변수를 두어야 합니다. 예: `"-Dfile=lib/hadoop/hadoop-main-3.0.0-SNAPSHOT.pom"`
 
 	또한 이러한 파일은 원래 https://github.com/hdinsight/hdinsight-storm-examples에서 비롯되므로 최신 버전을 찾을 수 있습니다.
 
@@ -333,7 +333,7 @@ Java 및 JDK를 설치할 때 사용자의 개발 워크스테이션에 다음 �
 
     SSH 계정에 암호를 사용한 경우 암호를 입력하라는 메시지가 나타납니다. 계정에서 SSH 키를 사용한 경우 `-i` 매개 변수를 사용하여 키 파일에 대한 경로를 지정해야 할 수 있습니다. 예: `scp -i ~/.ssh/id_rsa ./target/EventHubExample-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:.`
 
-    > [AZURE.NOTE]클라이언트가 Windows 워크스테이션이면 설치된 SCP 명령이 없을 수 있습니다. [PuTTY 다운로드 페이지](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)에서 다운로드할 수 있는 PSCP를 사용하는 것이 좋습니다.
+    > [AZURE.NOTE] 클라이언트가 Windows 워크스테이션이면 설치된 SCP 명령이 없을 수 있습니다. [PuTTY 다운로드 페이지](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)에서 다운로드할 수 있는 PSCP를 사용하는 것이 좋습니다.
 
     이 명령은 클러스터의 SSH 사용자의 홈 디렉터리에 파일을 복사합니다.
 
@@ -341,13 +341,13 @@ Java 및 JDK를 설치할 때 사용자의 개발 워크스테이션에 다음 �
 
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 
-    > [AZURE.NOTE]SSH 계정에 암호를 사용한 경우 암호를 입력하라는 메시지가 나타납니다. 계정에서 SSH 키를 사용한 경우 `-i` 매개 변수를 사용하여 키 파일에 대한 경로를 지정해야 할 수 있습니다. 다음 예제에서는 `~/.ssh/id_rsa`에서 개인 키를 로드합니다.
+    > [AZURE.NOTE] SSH 계정에 암호를 사용한 경우 암호를 입력하라는 메시지가 나타납니다. 계정에서 SSH 키를 사용한 경우 `-i` 매개 변수를 사용하여 키 파일에 대한 경로를 지정해야 할 수 있습니다. 다음 예제에서는 `~/.ssh/id_rsa`에서 개인 키를 로드합니다.
     >
     > `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`
 
     PuTTY를 사용하는 경우 __호스트 이름(또는 IP 주소)__ 필드에 `CLUSTERNAME-ssh.azurehdinsight.net`를 입력한 다음 __열기__를 클릭하여 연결합니다. SSH 계정 이름을 입력하라는 메시지가 표시됩니다.
 
-    > [AZURE.NOTE]SSH 계정에 암호를 사용한 경우 암호를 입력하라는 메시지가 나타납니다. 계정으로 SSH 키를 사용하는 경우 다음 단계를 사용하여 키를 선택해야 합니다.
+    > [AZURE.NOTE] SSH 계정에 암호를 사용한 경우 암호를 입력하라는 메시지가 나타납니다. 계정으로 SSH 키를 사용하는 경우 다음 단계를 사용하여 키를 선택해야 합니다.
     >
     > 1. **Category**에서 **Connection**, **SSH**를 차례로 확장하고 **Auth**를 선택합니다.
     > 2. **찾아보기**를 클릭하고 개인 키가 포함된 .ppk 파일을 선택합니다.
@@ -372,7 +372,7 @@ Java 및 JDK를 설치할 때 사용자의 개발 워크스테이션에 다음 �
         -rw-r--r--   1 storm supergroup      10267 2015-08-11 19:36 /devicedata/wasbbolt-14-11-1439321761090.txt
         -rw-r--r--   1 storm supergroup      10259 2015-08-11 19:36 /devicedata/wasbbolt-14-12-1439321762679.txt
 
-    > [AZURE.NOTE]EventHubReader에서 만들어진 대로 일부 파일의 크기는 0이지만 아직 해당 파일에 데이터가 저장되지 않았습니다.
+    > [AZURE.NOTE] EventHubReader에서 만들어진 대로 일부 파일의 크기는 0이지만 아직 해당 파일에 데이터가 저장되지 않았습니다.
 
     다음 명령을 사용하여 파일의 내용을 볼 수 있습니다.
 
@@ -448,7 +448,7 @@ EventHubSpout는 해당 상태의 검사점을 큐에서 읽은 메시지의 현
 
 영구 검사점을 WASB(HDInsight 클러스터에서 사용하는 Azure 저장소)로 내보내고 가져올 수 있습니다. 이 작업을 수행하는 스크립트는 HDInsight의 Storm 클러스터(**c:\\apps\\dist\\storm-0.9.3.2.2.1.0-2340\\zkdatatool-1.0\\bin**)에 있습니다.
 
->[AZURE.NOTE]클러스터에 설치된 Storm 버전이 나중에 변경될 수 있으므로 경로의 버전 번호는 다를 수 있습니다.
+>[AZURE.NOTE] 클러스터에 설치된 Storm 버전이 나중에 변경될 수 있으므로 경로의 버전 번호는 다를 수 있습니다.
 
 이 디렉터리의 스크립트는 다음과 같습니다.
 
@@ -460,7 +460,7 @@ EventHubSpout는 해당 상태의 검사점을 큐에서 읽은 메시지의 현
 
 내보내기 및 가져오기를 통해 클러스터를 삭제해야 하는 경우 검사점 데이터를 유지할 수 있지만 새 클러스터를 다시 온라인으로 전환할 때 허브의 현재 오프셋에서 처리를 다시 시작할 수 있습니다.
 
-> [AZURE.NOTE]데이터가 기본 저장소 컨테이너에 유지되므로 새 클러스터는 **반드시** 이전 클러스터와 동일한 저장소 계정 및 컨테이너를 사용해야 합니다.
+> [AZURE.NOTE] 데이터가 기본 저장소 컨테이너에 유지되므로 새 클러스터는 **반드시** 이전 클러스터와 동일한 저장소 계정 및 컨테이너를 사용해야 합니다.
 
 ##문제 해결
 
@@ -476,4 +476,4 @@ Storm UI를 사용하는 방법에 대한 자세한 내용은 다음 항목을 �
 
 * [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

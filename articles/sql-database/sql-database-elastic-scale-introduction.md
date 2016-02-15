@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="11/04/2015"
+    ms.date="02/01/2016"
     ms.author="ddove;sidneyh"/>
 
 # 탄력적 데이터베이스 기능 개요
@@ -108,4 +108,4 @@ SaaS 응용 프로그램을 만들 때 잠재 고객에게 평가판 소프트�
 [3]: ./media/sql-database-elastic-scale-introduction/overview.png
 [4]: ./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0204_2016-->

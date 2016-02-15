@@ -7,13 +7,16 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/06/2016" ms.author="aashishr";"trinadhk" />
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/28/2016" ms.author="aashishr";"trinadhk" />
 
 
 # PowerShell을 사용하여 Azure VM의 배포 및 백업 관리
 이 문서에서는 Azure IaaS VM의 백업 및 복구를 위한 Azure PowerShell을 사용하는 방법을 보여줍니다.
 
 ## 개념
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+
 Azure 백업 설명서에 [Azure IaaS VM 백업이 소개](backup-azure-vms-introduction.md)되어 있습니다.
 
 > [AZURE.WARNING] 시작하기 전에 먼저 Azure 백업 작업에 필요한 [필수 조건](backup-azure-vms-prepare.md) 및 현재 VM 솔루션의 [제한](backup-azure-vms-prepare.md#limitations)에 관한 기본 사항을 다루었는지 확인합니다.
@@ -70,7 +73,7 @@ PowerShell로 다음과 같은 설정 및 등록 작업을 자동화할 수 있�
 
 ### 백업 자격 증명 모음 만들기
 
-> [AZURE.WARNING] 처음으로 Azure 백업을 사용하는 고객의 경우, 구독과 함께 사용할 Azure 백업 공급자를 등록해야 합니다. 이는 다음 명령을 실행하여 수행할 수 있습니다. Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
+> [AZURE.WARNING] 처음으로 Azure 백업을 사용하는 고객의 경우, 구독과 함께 사용할 Azure 백업 공급자를 등록해야 합니다. 이는 다음 명령을 실행하여 수행할 수 있습니다. Register-AzureRMResourceProvider -ProviderNamespace "Microsoft.Backup"
 
 **New-AzureRMBackupVault** commandlet을 사용하여 새 백업 자격 증명 모음을 만들 수 있습니다. 백업 저장소는 ARM 리소스이므로 리소스 그룹 내에 배치해야 합니다. 승격된 Azure PowerShell 콘솔에서 다음 명령을 실행합니다.
 
@@ -327,4 +330,4 @@ $DAILYBACKUPSTATS | Out-GridView
 
 이 보고서 출력에 차트 기능을 추가하려는 경우 TechNet 블로그에서 [PowerShell을 사용한 차트 작성](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx)에 대해 알아보세요.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

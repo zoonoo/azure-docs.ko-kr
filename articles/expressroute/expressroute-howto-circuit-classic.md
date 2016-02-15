@@ -1,6 +1,6 @@
 <properties
    pageTitle="PowerShell을 사용하여 Express 경로 회로를 구성하기 위한 단계 | Microsoft Azure"
-   description="이 문서에서는 Express 경로 회로를 만들고 프로비전하는 단계를 안내합니다. 또한 상태 확인, 업데이트 또는 삭제 및 프로비전 해제 방법을 보여줍니다."
+   description="이 문서에서는 Express 경로 회로를 만들고 프로비전하는 단계를 안내합니다. 또한 상태 확인, 업데이트 또는 삭제 및 프로비전 해제 방법을 보여 줍니다."
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
@@ -43,7 +43,7 @@
 
 2. **공급자, 위치 및 지원되는 대역폭의 목록을 가져옵니다.**
 
-	Express 경로 회로를 만들기 전에 연결 공급자, 지원되는 위치 및 대역폭 옵션 목록이 필요합니다. PowerShell cmdlet *Get-AzureDedicatedCircuitServiceProvider*는 나중에 사용할 이 정보를 반환합니다.
+	Express 경로 회로를 만들기 전에 연결 공급자, 지원되는 위치 및 대역폭 옵션 목록이 필요합니다. PowerShell cmdlet *Get-AzureDedicatedCircuitServiceProvider*는 나중에 사용할 이 정보를 반환합니다. cmdlet을 실행할 때 아래 예제와 같은 결과가 표시됩니다.
 
 		PS C:\> Get-AzureDedicatedCircuitServiceProvider
 
@@ -197,7 +197,7 @@
 
 7. **VNet을 Express 경로 회로에 연결합니다.**
 
-	이제 VNet을 Express 경로 회로에 연결합니다. 단계별 지침은 [Express 경로 회로를 VNet에 연결](expressroute-howto-linkvnet-classic.md)을 참조하세요. Express 경로에 대한 가상 네트워크를 만들어야 할 경우 지침은 [Express 경로에 대한 가상 네트워크 만들기](expressroute-howto-createvnet-classic.md)를 참조하세요.
+	이제 VNet을 Express 경로 회로에 연결합니다. 단계별 지침은 [Express 경로 회로를 VNet에 연결](expressroute-howto-linkvnet-classic.md)을 참조하세요. Express 경로에 클래식 배포 모델을 사용하여 가상 네트워크를 만들어야 할 경우 [Express 경로에 대한 VNet 만들기](expressroute-howto-vnet-portal-classic.md)를 참조하세요.
 
 ##  Express 경로 회로의 상태를 가져오려면
 
@@ -328,4 +328,4 @@ Express 경로 회로 서비스 공급자 프로비전 상태를 사용할 경�
 
 - [라우팅 구성](expressroute-howto-routing-classic.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

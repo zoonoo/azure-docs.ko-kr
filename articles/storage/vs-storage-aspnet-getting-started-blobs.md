@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="01/30/2016"
 	ms.author="tarcher"/>
 
 # Blob 저장소 및 Visual Studio 연결된 서비스 시작(ASP.NET)
@@ -50,7 +50,7 @@ ASP.NET 프로젝트에서 Blob에 프로그래밍 방식으로 액세스하려�
 		CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 		   CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
 
-    > [AZURE.NOTE]다음 섹션의 코드 앞에서 이전 코드를 모두 사용합니다.
+    > [AZURE.NOTE] 다음 섹션의 코드 앞에서 이전 코드를 모두 사용합니다.
 
 3. 저장소 계정의 기존 컨테이너를 참조하는 **CloudBlobClient** 개체를 가져옵니다.
 
@@ -60,7 +60,7 @@ ASP.NET 프로젝트에서 Blob에 프로그래밍 방식으로 액세스하려�
         // Get a reference to a container named “mycontainer.”
         CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
-> [AZURE.NOTE]ASP.NET 5에서 Azure 저장소에 대한 호출을 수행하는 일부 API는 비동기식입니다. 자세한 내용은 [Async 및 Await를 사용한 비동기 프로그래밍](http://msdn.microsoft.com/library/hh191443.aspx)을 참조하세요.
+> [AZURE.NOTE] ASP.NET 5에서 Azure 저장소에 대한 호출을 수행하는 일부 API는 비동기식입니다. 자세한 내용은 [Async 및 Await를 사용한 비동기 프로그래밍](http://msdn.microsoft.com/library/hh191443.aspx)을 참조하세요.
 
 
 ## 코드에서 Blob 컨테이너 만들기
@@ -237,4 +237,4 @@ Blob을 삭제하려면 **Delete** 메서드를 사용합니다.
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

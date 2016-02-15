@@ -1,20 +1,20 @@
 <properties
-pageTitle="랩 정책 정의 | Microsoft Azure"
-description="VM 크기, 사용자당 최대 VM 수 및 자동 종료와 같은 랩 정책을 정의하는 방법에 대해 알아봅니다."
-services="devtest-lab,virtual-machines"
-documentationCenter="na"
-authors="tomarcher"
-manager="douge"
-editor=""/>
+	pageTitle="랩 정책 정의 | Microsoft Azure"
+	description="VM 크기, 사용자당 최대 VM 수 및 자동 종료와 같은 랩 정책을 정의하는 방법에 대해 알아봅니다."
+	services="devtest-lab,virtual-machines"
+	documentationCenter="na"
+	authors="tomarcher"
+	manager="douge"
+	editor=""/>
 
 <tags
-ms.service="devtest-lab"
-ms.workload="na"
-ms.tgt_pltfrm="na"
-ms.devlang="na"
-ms.topic="article"
-ms.date="11/01/2015"
-ms.author="tarcher"/>
+	ms.service="devtest-lab"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/03/2016"
+	ms.author="tarcher"/>
 
 # 랩 정책 정의
 
@@ -100,4 +100,4 @@ DevTest Lab을 사용하면 랩 및 해당 VM을 사용하는 방법을 관리�
 
 1. **저장**을 탭합니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

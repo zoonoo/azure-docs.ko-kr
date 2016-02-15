@@ -63,12 +63,7 @@ Azure 계산 단위(ACU)의 개념을 만들어 Azure SKU를 통한 계산(CPU) 
 |[Standard\_A0(매우 작음)](#standard-tier-a-series) |50 |
 |[Standard\_A1-4(작음 – 큼)](#standard-tier-a-series) |100 |
 |[Standard\_A5-7](#standard-tier-a-series) |100 |
-|[A8-A11](#standard-tier-a-series) |225 *|
-|[D1-14](#standard-tier-d-series) |160 |
-|[D1-14v2](#standard-tier-dv2-series) |210 - 250 *|
-|[DS1-14](#standard-tier-ds-series) |160 |
-|[G1-5](#standard-tier-g-series) |180 - 240 *|
-|[GS1-5](#standard-tier-gs-series) |180 - 240 *|
+|[A8-A11](#standard-tier-a-series) |225 *| |[D1-14](#standard-tier-d-series) |160 | |[D1-14v2](#standard-tier-dv2-series) |210 - 250 *| |[DS1-14](#standard-tier-ds-series) |160 | |[G1-5](#standard-tier-g-series) |180 - 240 *| |[GS1-5](#standard-tier-gs-series) |180 - 240 *|
 
 
 *로 표시된 ACU는 Intel® 터보 기술을 사용하여 CPU 주파수를 증가시키고 성능 향상을 제공합니다. 상승량은 VM 크기, 워크로드 및 동일한 호스트에서 실행 중인 다른 작업에 따라 달라질 수 있습니다.
@@ -160,7 +155,7 @@ Azure 계산 단위(ACU)의 개념을 만들어 Azure SKU를 통한 계산(CPU) 
 |Standard\_DS13 |8|56|8|로컬 SSD 디스크 = 112GB |16|288| 25,600 초당 256MB |
 |Standard\_DS14 |16|112|8|로컬 SSD 디스크 = 224GB |32|576| 50,000 초당 512MB |
 
-**DS 시리즈 VM에서 가능한 최당 최대 입/출력 작업(IOPS) 및 처리량(대역폭) VM은 디스크의 크기에 영향을 받습니다. 자세한 내용은 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../storage-premium-storage-preview-portal.md)를 참조하세요.
+**DS 시리즈 VM에서 가능한 최당 최대 입/출력 작업(IOPS) 및 처리량(대역폭) VM은 디스크의 크기에 영향을 받습니다. 자세한 내용은 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](storage-premium-storage-preview-portal.md)를 참조하세요.
 
 ## 표준 계층: G 시리즈
 
@@ -189,4 +184,4 @@ Azure 계산 단위(ACU)의 개념을 만들어 Azure SKU를 통한 계산(CPU) 
 
 [A8, A9, A10 및 A11 계산 집약적인 인스턴스 정보](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,11 +13,15 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="08/10/2015"
+	ms.date="02/01/2016"
 	ms.author="piyushjo" />
 
 
 #릴리스 정보
+
+##4\.1.5(2016/02/01)
+
+- 안정성 향상
 
 ##4\.1.4(2016/01/26)
 
@@ -61,4 +65,4 @@
 -   보안이 개선되었습니다.
 -   Google Play 및 SmartAd 추적을 제거했습니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

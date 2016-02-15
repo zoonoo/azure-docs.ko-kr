@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/15/2015"
+   ms.date="01/28/2016"
    ms.author="jgao"/>
 
 #Microsoft Hive ODBC 드라이버로 Hadoop에 Excel 연결
@@ -25,7 +25,7 @@ Microsoft의 빅 데이터 솔루션은 Microsoft BI(비즈니스 인텔리전�
 
 Excel에서 Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDInsight 클러스터 및 기타 데이터 원본(예: 기타(비 HDInsight) Hadoop 클러스터)과 연결된 데이터를 연결할 수도 있습니다. 파워 쿼리 설치 및 사용에 대한 자세한 내용은 [HDInsight에 파워 쿼리로 Excel 연결][hdinsight-power-query]을 참조하세요.
 
-> [AZURE.NOTE]이 문서의 단계는 Linux 또는 Windows 기반 HDInsight 클러스터와 함께 사용할 수 있지만, Windows는 클라이언트 워크스테이션에 필요합니다.
+> [AZURE.NOTE] 이 문서의 단계는 Linux 또는 Windows 기반 HDInsight 클러스터와 함께 사용할 수 있지만, Windows는 클라이언트 워크스테이션에 필요합니다.
 
 **필수 조건**:
 
@@ -55,35 +55,35 @@ Excel에서 Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDIns
 
 5. 다음 값을 입력하거나 선택합니다.
 
-속성|설명
----|---
-데이터 원본 이름|데이터 원본에 이름 지정
-호스트|<HDInsightClusterName>.azurehdinsight.net을 입력합니다. 예를 들면 myHDICluster.azurehdinsight.net과 같습니다.
-포트|<strong>443</strong>을 사용합니다. (이 포트는 563에서 443으로 변경됨)
-데이터베이스|<strong>기본값</strong>을 사용합니다.
-Hive 서버 유형|<strong>Hive 서버 2</strong> 선택
-메커니즘|<strong>Azure HDInsight Service</strong> 선택
-HTTP 경로|비워 둠
-사용자 이름|HDInsight 클러스터 사용자의 사용자 이름 입력. 클러스터 프로비전 프로세스 동안 만들어진 사용자 이름입니다. 빠른 생성 옵션을 사용한 경우 기본 사용자 이름은 <strong>admin</strong>입니다.
-암호|HDInsight 클러스터 사용자 암호 입력
-</table>
+    속성|설명
+    ---|---
+    데이터 원본 이름|데이터 원본에 이름 지정
+    호스트|<HDInsightClusterName>.azurehdinsight.net을 입력합니다. 예를 들면 myHDICluster.azurehdinsight.net과 같습니다.
+    포트|<strong>443</strong>을 사용합니다. (이 포트는 563에서 443으로 변경됨)
+    데이터베이스|<strong>기본값</strong>을 사용합니다.
+    Hive 서버 유형|<strong>Hive 서버 2</strong> 선택
+    메커니즘|<strong>Azure HDInsight Service</strong> 선택
+    HTTP 경로|비워 둠
+    사용자 이름|HDInsight 클러스터 사용자의 사용자 이름 입력. 클러스터 프로비전 프로세스 동안 만들어진 사용자 이름입니다. 빠른 생성 옵션을 사용한 경우 기본 사용자 이름은 <strong>admin</strong>입니다.
+    암호|HDInsight 클러스터 사용자 암호 입력
+    </table>
 
-**고급 옵션**을 클릭할 때 알아야 할 중요한 매개 변수가 몇 가지 있습니다.
+    **고급 옵션**을 클릭할 때 알아야 할 중요한 매개 변수가 몇 가지 있습니다.
 
-매개 변수|설명
----|---
-Use Native Query|선택하면 ODBC 드라이버가 TSQL을 HiveQL로 변환하지 않습니다. 순수 HiveQL 문을 제출하는 것이 확실한 경우에만 이 옵션을 사용합니다. SQL Server 또는 Azure SQL 데이터베이스에 연결하는 경우에는 이 옵션을 선택 취소한 상태로 둬야 합니다.
-Rows fetched per block|대량의 레코드를 가져오는 경우 최적의 성능을 위해 이 매개 변수를 조정해야 할 수 있습니다.
-Default string column length, Binary column length, Decimal column scale|데이터 형식 길이 및 정밀도는 데이터가 반환되는 방식에 영향을 줄 수 있습니다. 정밀도 손실 및/또는 잘림으로 인해 잘못된 정보가 반환될 수 있습니다.
+    매개 변수|설명
+    ---|---
+    Use Native Query|선택하면 ODBC 드라이버가 TSQL을 HiveQL로 변환하지 않습니다. 순수 HiveQL 문을 제출하는 것이 확실한 경우에만 이 옵션을 사용합니다. SQL Server 또는 Azure SQL 데이터베이스에 연결하는 경우에는 이 옵션을 선택 취소한 상태로 둬야 합니다.
+    Rows fetched per block|대량의 레코드를 가져오는 경우 최적의 성능을 위해 이 매개 변수를 조정해야 할 수 있습니다.
+    Default string column length, Binary column length, Decimal column scale|데이터 형식 길이 및 정밀도는 데이터가 반환되는 방식에 영향을 줄 수 있습니다. 정밀도 손실 및/또는 잘림으로 인해 잘못된 정보가 반환될 수 있습니다.
 
 
-	![Advanced options][img-HiveOdbc-DataSource-AdvancedOptions]
+	![고급 옵션][img-HiveOdbc-DataSource-AdvancedOptions]
 
 6. **테스트**를 클릭하여 데이터 원본을 테스트합니다. 원본이 올바르게 구성된 경우 *테스트를 성공적으로 완료했습니다.*가 표시됩니다.
 7. **확인**을 클릭하여 테스트 대화 상자를 닫습니다. 이제 새 데이터 원본이 **ODBC 데이터 원본 관리자**에 나열됩니다.
 8. **확인**을 클릭하여 마법사를 종료합니다.
 
-##HDInsight 클러스터에서 Excel로 데이터 가져오기
+##HDInsight에서 Excel로 데이터 가져오기
 
 다음 단계에 따라 위 단계에서 만든 ODBC 데이터 원본을 사용하여 hive 테이블에서 Excel 통합 문서로 데이터를 가져올 수 있습니다.
 
@@ -131,4 +131,4 @@ Default string column length, Binary column length, Decimal column scale|데이�
 [img-hdi-simbahiveodbc-excel-connectionproperties]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveODBC.Excel.ConnectionProperties1.png
 [img-hdi-simbahiveodbc.excel.dataconnection]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveOdbc.Excel.DataConnection1.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

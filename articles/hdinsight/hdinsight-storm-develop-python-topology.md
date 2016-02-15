@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/01/2016"
    ms.author="larryfr"/>
 
 #HDInsight에서 Python을 사용하여 Apache Storm 토폴로지 개발
@@ -25,6 +25,8 @@ Apache Storm은 여러 언어를 지원하여 한 토폴로지에 여러 언어�
 * Python 2.7 이상
 
 * Java JDK 1.7 이상
+
+* [Leiningen](http://leiningen.org/)
 
 ##Storm 다중 언어 지원
 
@@ -54,7 +56,7 @@ __storm.py__ 모듈을 사용하면 데이터를 사용하는 Python Spout와 �
 
 ##Java 토폴로지를 포함하는 Python 구성 요소
 
-> [AZURE.NOTE]이 예제는 __JavaTopology__ 디렉터리의 https://github.com/Blackmist/hdinsight-python-storm-wordcount에서 사용할 수 있습니다. Maven 기반 프로젝트입니다. Maven에 대해 잘 모르는 경우 Storm 토폴로지에 대한 Maven 프로젝트를 만드는 방법에 대한 자세한 내용은 [HDInsight에서 Apache Storm으로 Java 기반 토폴로지 개발](hdinsight-storm-develop-java-topology.md)을 참조하세요.
+> [AZURE.NOTE] 이 예제는 __JavaTopology__ 디렉터리의 [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount)에서 사용할 수 있습니다. Maven 기반 프로젝트입니다. Maven에 대해 잘 모르는 경우 Storm 토폴로지에 대한 Maven 프로젝트를 만드는 방법에 대한 자세한 내용은 [HDInsight에서 Apache Storm으로 Java 기반 토폴로지 개발](hdinsight-storm-develop-java-topology.md)을 참조하세요.
 
 Python(또는 기타 JVM 언어 구성 요소)을 사용하는 Java 기반 토폴로지는 Java 구성 요소를 사용하는 것으로 처음에 나타나지만 각 Java Spout/Bolt를 들여다 보면 다음과 유사한 코드가 표시됩니다.
 
@@ -70,7 +72,7 @@ Python(또는 기타 JVM 언어 구성 요소)을 사용하는 Java 기반 토�
 
 여기에는 이 프로젝트에서 작성될 jar의 `/multilang` 폴더에 있는 모든 파일이 포함됩니다.
 
-> [AZURE.IMPORTANT]여기서는 `/multilang/resources`가 아닌 `/multilang` 디렉터리만 지정합니다. Storm은 `resources` 디렉터리에서 비JVM 리소스를 필요로 하므로 내부적으로 기존 항목을 검색합니다. 이 폴더에 구성 요소를 배치하면 Java 코드에서 이름만으로도 참조할 수 있습니다. 예: `super("python", "countbolt.py");` 이에 대한 다른 생각은 다중 언어 리소스에 액세스할 때 `resources` 디렉터리를 루트(/)로 여긴다는 점입니다.
+> [AZURE.IMPORTANT] 여기서는 `/multilang/resources`가 아닌 `/multilang` 디렉터리만 지정합니다. Storm은 `resources` 디렉터리에서 비JVM 리소스를 필요로 하므로 내부적으로 기존 항목을 검색합니다. 이 폴더에 구성 요소를 배치하면 Java 코드에서 이름만으로도 참조할 수 있습니다. 예: `super("python", "countbolt.py");` 이에 대한 다른 생각은 다중 언어 리소스에 액세스할 때 `resources` 디렉터리를 루트(/)로 여긴다는 점입니다.
 >
 > 이 예제 프로젝트에서 `storm.py` 모듈은 `/multilang/resources` 디렉터리에 포함됩니다.
 
@@ -106,11 +108,11 @@ Apache Storm을 실행하는 HDInsight 클러스터에\\로 프로젝트를 배�
 
         마지막으로, __제출__을 선택하여 토폴로지를 시작합니다.
 
-> [AZURE.NOTE]토폴로지가 시작되면 Storm 토폴로지가 중지될 때까지 실행됩니다. 토폴로지를 중지하려면 명령줄(예를 들어 Linux 클러스터에 대한 SSH 세션)에서 `storm kill TOPOLOGYNAME` 명령을 사용하거나 Storm UI를 사용하여 토폴로지를 선택한 후 __중지__ 단추를 선택합니다.
+> [AZURE.NOTE] 토폴로지가 시작되면 Storm 토폴로지가 중지될 때까지 실행됩니다. 토폴로지를 중지하려면 명령줄(예를 들어 Linux 클러스터에 대한 SSH 세션)에서 `storm kill TOPOLOGYNAME` 명령을 사용하거나 Storm UI를 사용하여 토폴로지를 선택한 후 __중지__ 단추를 선택합니다.
 
 ##Clojure 토폴로지를 포함하는 Python 구성 요소
 
-> [AZURE.NOTE]이 예제는 __ClojureTopology__ 디렉터리의 https://github.com/Blackmist/hdinsight-python-storm-wordcount에서 사용할 수 있습니다.
+> [AZURE.NOTE] 이 예제는 __ClojureTopology__ 디렉터리의 [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount)에서 사용할 수 있습니다.
 
 이 토폴로지는 [새 Clojure 프로젝트를 만드는](https://github.com/technomancy/leiningen/blob/stable/doc/TUTORIAL.md#creating-a-project) [Leiningen](http://leiningen.org)을 사용하여 만듭니다. 이후, 스캐폴드 프로젝트에 수정된 내용은 다음과 같습니다.
 
@@ -165,7 +167,7 @@ __uberjar을 빌드하고 HDInsight에 배포하려면__ 다음 단계를 수행
 
             마지막으로, __제출__을 선택하여 토폴로지를 시작합니다.
 
-> [AZURE.NOTE]토폴로지가 시작되면 Storm 토폴로지가 중지될 때까지 실행됩니다. 토폴로지를 중지하려면 명령줄(Linux 클러스터에 대한 SSH 세션)에서 `storm kill TOPOLOGYNAME` 명령을 사용하거나 Storm UI를 사용하여 토폴로지를 선택한 후 __중지__ 단추를 선택합니다.
+> [AZURE.NOTE] 토폴로지가 시작되면 Storm 토폴로지가 중지될 때까지 실행됩니다. 토폴로지를 중지하려면 명령줄(Linux 클러스터에 대한 SSH 세션)에서 `storm kill TOPOLOGYNAME` 명령을 사용하거나 Storm UI를 사용하여 토폴로지를 선택한 후 __중지__ 단추를 선택합니다.
 
 ##Pyleus 프레임워크
 
@@ -175,7 +177,7 @@ __uberjar을 빌드하고 HDInsight에 배포하려면__ 다음 단계를 수행
 * __MessagePack 기반 직렬 변환기__: MessagePack은 JSON 대신 기본 직렬화로 사용됩니다. 구성 요소 간 메시징이 빨라질 수 있습니다.
 * __종속성 관리__: Virtualenv는 모든 작업자 노드에 배포되는 Python 종속성을 확인하는 데 사용됩니다. 이를 위해서는 작업자 노드에 Virtualenv가 설치되어 있어야 합니다.
 
-> [AZURE.IMPORTANT]Pyleus는 개발 환경에서 Storm을 필요로 합니다. 기본 Apache Storm 0.9.3 배포를 사용할 경우 HDInsight와 함께 제공된 Storm 버전과 호환되지 않는 jar이 발생할 수 있습니다. 따라서 다음 단계에서는 개발 환경으로 HDInsight 클러스터를 사용합니다.
+> [AZURE.IMPORTANT] Pyleus는 개발 환경에서 Storm을 필요로 합니다. 기본 Apache Storm 0.9.3 배포를 사용할 경우 HDInsight와 함께 제공된 Storm 버전과 호환되지 않는 jar이 발생할 수 있습니다. 따라서 다음 단계에서는 개발 환경으로 HDInsight 클러스터를 사용합니다.
 
 빌드 환경으로 HDInsight 헤드 노드를 사용하여 예제 Pyleus 토폴로지를 성공적으로 빌드할 수 있습니다.
 
@@ -184,7 +186,7 @@ __uberjar을 빌드하고 HDInsight에 배포하려면__ 다음 단계를 수행
     * __이름__: 여기에 친숙한 이름을 제공합니다.
     * \_\_ 스크립트 URI\_\_: 값으로 `https://hditutorialdata.blob.core.windows.net/customizecluster/pythonvirtualenv.sh`를 사용합니다. 이 스크립트는 노드에 Python Virtualenv를 설치합니다.
     
-        > [AZURE.NOTE]이 문서의 뒷부분에 나오는 Streamparse 프레임워크에 사용되는 일부 디렉터리도 만들어집니다.
+        > [AZURE.NOTE] 이 문서의 뒷부분에 나오는 Streamparse 프레임워크에 사용되는 일부 디렉터리도 만들어집니다.
         
     * __Nimbus__: 이 항목을 선택하여 스크립트가 Nimbus(헤드) 노드에 적용되도록 합니다.
     * __Supervisor__: 이 항목을 선택하여 스크립트가 supervisor(작업자) 노드에 적용되도록 합니다.
@@ -230,7 +232,7 @@ __uberjar을 빌드하고 HDInsight에 배포하려면__ 다음 단계를 수행
 * __종속성 관리__: Virtualenv는 모든 작업자 노드에 배포되는 Python 종속성을 확인하는 데 사용됩니다. 이를 위해서는 작업자 노드에 Virtualenv가 설치되어 있어야 합니다.
 * __원격 배포__: Streamparse는 SSH 자동화를 사용하여 구성 요소를 작업자 노드에 배포할 수 있으며 Nimbus와 통신하는 SSH 터널을 만들 수 있습니다. 따라서 개발 환경에서 HDInsight와 같은 Linux 기반 클러스터에 쉽게 배포할 수 있습니다.
 
-> [AZURE.IMPORTANT]Streamparse는 Windows에서는 사용할 수 없는 [Unix 신호](https://en.wikipedia.org/wiki/Unix_signal)를 필요로 하는 구성 요소를 기반으로 합니다. 개발 환경은 Linux, Unix, 또는 OS X여야 하며 HDInsight 클러스터는 Linux 기반이어야 합니다.
+> [AZURE.IMPORTANT] Streamparse는 Windows에서는 사용할 수 없는 [Unix 신호](https://en.wikipedia.org/wiki/Unix_signal)를 필요로 하는 구성 요소를 기반으로 합니다. 개발 환경은 Linux, Unix, 또는 OS X여야 하며 HDInsight 클러스터는 Linux 기반이어야 합니다.
 
 1. HDInsight 클러스터에서 새 Storm을 프로비전하는 경우 클러스터 노드에 Python Virtualenv가 있는지 확인해야 합니다. 새 Linux 기반 HDInsight 클러스터를 만들 때는 [클러스터 사용자 지정](hdinsight-hadoop-customize-cluster.md)을 통해 다음 스크립트 동작 설정을 사용합니다.
 
@@ -241,7 +243,7 @@ __uberjar을 빌드하고 HDInsight에 배포하려면__ 다음 단계를 수행
     
     다른 항목은 비워둡니다.
     
-    > [AZURE.WARNING]또한 Streamparse를 사용하여 원격으로 배포하려면 __공개 키__를 사용하여 HDInsight 클러스터에 대한 SSH 사용자를 보호해야 합니다.
+    > [AZURE.WARNING] 또한 Streamparse를 사용하여 원격으로 배포하려면 __공개 키__를 사용하여 HDInsight 클러스터에 대한 SSH 사용자를 보호해야 합니다.
     >
     > HDInsight에서 SSH와 함께 키 사용에 대한 자세한 내용은 다음 문서 중 하나를 참조하세요.
     >
@@ -304,7 +306,7 @@ Linux 기반 HDInsight 클러스터가 만들어졌으면 다음 단계에 따�
     
         /tmp/ssh-rfSUL1ldCldQ/agent.1792
     
-    > [AZURE.NOTE]전체 경로는 운영 체제에 따라 달라질 수 있습니다. 예를 들어, OS X에서는 경로가 `/private/tmp/com.apple.launchd.vq2rfuxaso/Listeners`와 유사할 수 있습니다. 하지만 에이전트가 실행 중인 경우 일부 경로를 반환해야 합니다
+    > [AZURE.NOTE] 전체 경로는 운영 체제에 따라 달라질 수 있습니다. 예를 들어, OS X에서는 경로가 `/private/tmp/com.apple.launchd.vq2rfuxaso/Listeners`와 유사할 수 있습니다. 하지만 에이전트가 실행 중인 경우 일부 경로를 반환해야 합니다
     
     아무 것도 반환되지 않는 경우 `ssh-agent` 명령을 사용하여 에이전트를 시작합니다.
     
@@ -345,4 +347,4 @@ Linux 기반 HDInsight 클러스터가 만들어졌으면 다음 단계에 따�
 * [MapReduce 작업을 스트리밍하는 데 Python을 사용하는 방법](hdinsight-hadoop-streaming-python.md)
 * [Pig 및 Hive에서 UDF(사용자 정의 함수)를 사용하는 방법](hdinsight-python.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

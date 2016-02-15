@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/04/2016" 
+	ms.date="01/28/2016" 
 	ms.author="tomfitz"/>
 
 # 새 리소스 그룹 또는 구독으로 리소스 이동
@@ -113,8 +113,8 @@
 
 ## 다음 단계
 - [리소스 관리자로 Azure PowerShell 사용](./powershell-azure-resource-manager.md)
-- [리소스 관리에서 Azure CLI 사용](./virtual-machines/xplat-cli-azure-resource-manager.md)
+- [리소스 관리에서 Azure CLI 사용](./xplat-cli-azure-resource-manager.md)
 - [Azure 포털을 사용하여 리소스 관리](azure-portal/resource-group-portal.md)
 - [태그를 사용하여 리소스 구성](./resource-group-using-tags.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

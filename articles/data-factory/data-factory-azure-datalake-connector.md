@@ -24,6 +24,9 @@ Azure 데이터 레이크 저장소 간에 데이터를 이동하려면 복사 �
 >  
 > Data Factory, 연결된 서비스, 데이터 집합 및 파이프라인 만들기를 위한 자세한 단계는 [첫 파이프라인 빌드하기 자습서](data-factory-build-your-first-pipeline.md)를 검토하세요. Data Factory 편집기, Visual Studio 또는 Azure PowerShell에서 JSON 조각을 사용하여 Data Factory 엔터티를 만듭니다.
 
+다음 샘플은 Azure 데이터 레이크 저장소 및 Azure Blob 저장소 간에 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure 데이터 팩터리의 복사 작업을 사용하여 임의의 원본에서 [여기](data-factory-data-movement-activities.md#supported-data-stores)에 설명한 싱크로 **직접** 데이터를 복사할 수 있습니다.
+
+
 ## 샘플: Azure Blob에서 Azure 데이터 레이크 저장소로 데이터 복사
 아래 샘플은 다음을 보여줍니다.
 
@@ -605,4 +608,4 @@ Hive 테이블에서 Avro 형식을 사용하려는 경우 [Apache Hive의 자�
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

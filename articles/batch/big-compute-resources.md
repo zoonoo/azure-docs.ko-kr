@@ -1,6 +1,6 @@
 <properties
-   pageTitle="큰 계산: 배치 및 HPC(고성능 컴퓨팅)에 대한 기술 리소스 | Microsoft Azure"
-   description="Azure에서 대규모 병렬, 배치 및 HPC 워크로드를 실행하는 데 도움을 주는 기술 리소스를 나열합니다."
+   pageTitle="클라우드의 배치 및 HPC 워크로드에 대한 리소스 | Microsoft Azure"
+   description="Azure에서 대규모 병렬, 배치 및 HPC(고성능 컴퓨팅) 워크로드를 실행하는 데 도움을 주는 기술 리소스를 나열합니다."
    services="batch, cloud-services, virtual-machines"
    documentationCenter=""
    authors="dlepow"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="09/29/2015"
+   ms.date="01/26/2016"
    ms.author="danlep"/>
 
 # Azure에서의 큰 계산: 배치 및 HPC(고성능 컴퓨팅)에 대한 기술 리소스
@@ -34,11 +34,11 @@ Azure의 큰 계산 옵션에 대해 알아보고 사용자의 작업 및 비즈
 
 * [설명서](https://azure.microsoft.com/documentation/services/batch/)
 
-* [API 참조](https://msdn.microsoft.com/library/azure/dn820177.aspx)
+* [.NET](https://msdn.microsoft.com/library/azure/mt348682.aspx) 및 [REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) API 참조
 
 * [자습서: .NET용 Azure 배치 라이브러리 시작](batch-dotnet-get-started.md)
 
-* [배치 포럼](https://social.msdn.microsoft.com/Forums/home?forum=azurebatch)
+* [배치 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=azurebatch)
 
 * [배치 비디오](https://azure.microsoft.com/documentation/videos/index/?services=batch)
 
@@ -50,7 +50,7 @@ Azure의 큰 계산 옵션에 대해 알아보고 사용자의 작업 및 비즈
 
 HPC Pack은 Microsoft Azure 및 Windows Server 기술로 구축된 무료 HPC 솔루션으로, Windows와 Linux HPC 작업을 모두 실행할 수 있습니다.
 
-* [HPC 팩 2012 R2 업데이트 3 다운로드(영문)](https://www.microsoft.com/ko-KR/download/details.aspx?id=49922)
+* [HPC 팩 2012 R2 업데이트 3 다운로드(영문)](https://www.microsoft.com/download/details.aspx?id=49922)
 
 * [설명서](https://technet.microsoft.com/library/jj899572.aspx)
 
@@ -62,7 +62,7 @@ HPC Pack은 Microsoft Azure 및 Windows Server 기술로 구축된 무료 HPC �
 * [HPC 팩을 사용하여 Azure 배치로 버스트](https://technet.microsoft.com/library/mt612877.aspx)
 
 
-* [Windows HPC 포럼](https://social.microsoft.com/Forums/home?category=windowshpc)
+* [Windows HPC 포럼](https://social.microsoft.com/Forums/ko-KR/home?category=windowshpc)
 
 ### Linux 및 OSS 클러스터 솔루션
 
@@ -81,12 +81,12 @@ Azure 빠른 시작 템플릿을 사용하여 Linux HPC 클러스터와 오픈 �
 
 * [MS-MPI 참조(영문)](https://msdn.microsoft.com/library/dn473458.aspx)
 
-* [MPI 포럼](https://social.microsoft.com/Forums/home?forum=windowshpcmpi)
+* [MPI 포럼](https://social.microsoft.com/Forums/ko-KR/home?forum=windowshpcmpi)
 
 
 ## 계산 집약적 인스턴스
 
-Azure는 Linux 및 Windows HPC 워크로드를 실행하도록 계산 집약적 [A8, A9, A10 및 A11 인스턴스](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md)를 비롯하여 [다양한 크기](../virtual-machines/virtual-machines-size-specs.md)를 제공합니다.
+Azure는 Linux 및 Windows HPC 워크로드를 실행하도록 백 엔드 RDMA 네트워크에 연결할 수 있는 계산 집약적 [A8 및 A9](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md) 인스턴스를 비롯하여 [다양한 크기](../virtual-machines/virtual-machines-size-specs.md)를 제공합니다.
 
 * [MPI 응용 프로그램을 실행하도록 Linux RDMA 클러스터 설정](../virtual-machines/virtual-machines-linux-cluster-rdma.md)
 
@@ -94,7 +94,7 @@ Azure는 Linux 및 Windows HPC 워크로드를 실행하도록 계산 집약적 
 
 ## 아키텍처 청사진
 
-* Microsoft Azure 배치 및 Azure Data Factory: 대규모 데이터 처리를 위한 아키텍처([PDF](http://go.microsoft.com/fwlink/?linkid=717686) 및 [문서](../data-factory/data-factory-data-processing-using-batch.md))에서 데이터 팩터리가 데이터 이동과 처리를 오케스트레이션하는 방법 및 Azure 배치가 병렬 방식으로 데이터를 처리하는 방법을 보여 줍니다.
+* [Azure 배치 및 Azure 데이터 팩토리를 사용하여 HPC 및 데이터 오케스트레이션](http://go.microsoft.com/fwlink/?linkid=717686) (PDF) 및 [문서](../data-factory/data-factory-data-processing-using-batch.md)
 
 ## 샘플 및 데모
 
@@ -121,4 +121,4 @@ Azure는 Linux 및 Windows HPC 워크로드를 실행하도록 계산 집약적 
 * 최신 공지 사항은 [Microsoft HPC 및 배치 팀 블로그](http://blogs.technet.com/b/windowshpc/) 및 [Azure 블로그](https://azure.microsoft.com/blog/tag/hpc/)를 참조하세요.
 * 또한 [배치의 새로운 기능](https://azure.microsoft.com/updates/?service=batch)을 참조하거나 [RSS 피드](https://azure.microsoft.com/updates/feed/?service=batch)를 구독하세요.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

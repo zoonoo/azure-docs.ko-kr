@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="AlwaysOn 가용성 그룹에 대한 외부 수신기 구성 | Microsoft Azure"
 	description="이 자습서에서는 연결된 클라우드 서비스의 공용 가상 IP 주소를 사용하여 외부에서 액세스 가능한 Azure의 AlwaysOn 가용성 그룹 수신기를 만드는 과정을 안내합니다."
 	services="virtual-machines"
@@ -7,13 +7,13 @@
 	manager="jeffreyg"
 	editor="monicar"
 	tags="azure-service-management" />
-<tags 
+<tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="11/13/2015"
+	ms.date="02/03/2016"
 	ms.author="jroth" />
 
 # Azure에서 AlwaysOn 가용성 그룹에 대한 외부 수신기를 구성합니다.
@@ -25,7 +25,7 @@
 이 항목에서는 외부에서 인터넷에 액세스할 수 있는 AlwaysOn 가용성 그룹에 대해 수신기를 구성하는 방법을 보여줍니다. 클라우드 서비스의 **공용 VIP(가상 IP)** 주소를 수신기와 연결하면 이 작업이 가능합니다.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
- 
+
 
 가용성 그룹은 온-프레미스 전용, Azure 전용 또는 하이브리드 구성에 대한 온-프레미스와 Azure 모두에 걸쳐 있는 복제본을 포함할 수 있습니다. Azure 복제본은 동일한 지역 내 또는 여러 Vnet(가상 네트워크)을 사용하 여 여러 지역에 걸쳐 있을 수 있습니다. 다음 단계에서는 [가용성 그룹을 구성](virtual-machines-sql-server-alwayson-availability-groups-gui.md)했지만 수신기는 구성하지 않았다고 가정합니다.
 
@@ -60,7 +60,7 @@
 		# Define variables
 		$ServiceName = "<MyCloudService>" # the name of the cloud service that contains the availability group nodes
 		$AGNodes = "<VM1>","<VM2>","<VM3>" # all availability group nodes containing replicas in the same cloud service, separated by commas
-		
+
 		# Configure a load balanced endpoint for each node in $AGNodes, with direct server return enabled
 		ForEach ($node in $AGNodes)
 		{
@@ -81,21 +81,21 @@
 
 [AZURE.INCLUDE [방화벽](../../includes/virtual-machines-ag-listener-create-listener.md)]
 
-1. 외부 부하 분산에서는 복제본을 포함하는 클라우드 서비스의 공용 가상 IP 주소를 구해야 합니다. Azure 클래식 포털에 로그인합니다. 가용성 그룹 VM이 포함된 클라우드 서비스로 이동합니다. **대시보드** 보기를 엽니다. 
+1. 외부 부하 분산에서는 복제본을 포함하는 클라우드 서비스의 공용 가상 IP 주소를 구해야 합니다. Azure 클래식 포털에 로그인합니다. 가용성 그룹 VM이 포함된 클라우드 서비스로 이동합니다. **대시보드** 보기를 엽니다.
 
-3. **공용 VIP(가상 IP) 주소** 아래에 표시된 주소를 적어 둡니다. 솔루션이 Vnet에 걸쳐 있으면 복제본을 호스팅하는 VM이 포함된 각 클라우드 서비스에 대해 이 단계를 반복합니다.
+3. **공용 VIP(가상 IP) 주소** 아래에 표시된 주소를 확인합니다. 솔루션이 Vnet에 걸쳐 있으면 복제본을 호스팅하는 VM이 포함된 각 클라우드 서비스에 대해 이 단계를 반복합니다.
 
 4. VM 중 하나에서 아래의 PowerShell 스크립트를 텍스트 편집기에 복사하 고 앞에서 기록한 값으로 변수를 설정합니다.
 
 		# Define variables
 		$ClusterNetworkName = "<ClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
-		$IPResourceName = "<IPResourceName>" # the IP Address resource name 
+		$IPResourceName = "<IPResourceName>" # the IP Address resource name
 		$CloudServiceIP = "<X.X.X.X>" # Public Virtual IP (VIP) address of your cloud service
-		
+
 		Import-Module FailoverClusters
-		
-		# If you are using Windows Server 2012 or higher, use the Get-Cluster Resource command. If you are using Windows Server 2008 R2, use the cluster res command. Both commands are commented out. Choose the one applicable to your environment and remove the # at the beginning of the line to convert the comment to an executable line of code. 
-		
+
+		# If you are using Windows Server 2012 or higher, use the Get-Cluster Resource command. If you are using Windows Server 2008 R2, use the cluster res command. Both commands are commented out. Choose the one applicable to your environment and remove the # at the beginning of the line to convert the comment to an executable line of code.
+
 		# Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$CloudServiceIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"OverrideAddressMatch"=1;"EnableDhcp"=0}
 		# cluster res $IPResourceName /priv enabledhcp=0 overrideaddressmatch=1 address=$CloudServiceIP probeport=59999  subnetmask=255.255.255.255
 
@@ -124,10 +124,10 @@
 
 앞의 예와 달리 호출자가 인터넷을 통해 windows 인증을 사용할 수 없으므로 SQL 인증을 사용해야 합니다. 자세한 내용은 [Azure VM의 AlwaysOn 가용성 그룹: 클라이언트 연결 시나리오](http://blogs.msdn.com/b/sqlcat/archive/2014/02/03/alwayson-availability-group-in-windows-azure-vm-client-connectivity-scenarios.aspx)를 참조하세요. SQL 인증을 사용할 때는 두 복제본에서 동일한 로그인을 만들 수 있는지 확인합니다. 가용성 그룹 로그인 문제 해결에 대한 자세한 내용은 [로그인 매핑 또는 포함된 SQL 데이터베이스 사용자를 통해 다른 복제본에 연결하고 가용성 데이터베이스에 매핑하는 방법](http://blogs.msdn.com/b/alwaysonpro/archive/2014/02/19/how-to-map-logins-or-use-contained-sql-database-user-to-connect-to-other-replicas-and-map-to-availability-databases.aspx)을 참조하세요.
 
-AlwaysOn 복제본이 여러 서브넷에 있는 경우 클라이언트가 연결 문자열에 **MultisubnetFailover=True**를 지정해야 합니다. 그러면 다른 서브넷에 있는 복제본에 대한 병렬 연결을 시도합니다. 이 시나리오에는 영역 간 AlwaysOn 가용성 그룹 배포가 포함되어 있습니다.
+AlwaysOn 복제본이 다른 서브넷에 있는 경우 클라이언트는 연결 문자열에 **MultisubnetFailover=True**를 지정해야 합니다. 그러면 다른 서브넷에 있는 복제본에 대한 병렬 연결을 시도합니다. 이 시나리오에는 영역 간 AlwaysOn 가용성 그룹 배포가 포함되어 있습니다.
 
 ## 다음 단계
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -16,7 +16,7 @@
    ms.date="01/20/2016"
    ms.author="karolz@microsoft.com"/>
 
-# 서비스 패브릭 응용 프로그램 추적 저장소와 같은 ElasticSearch 사용
+# 서비스 패브릭 응용 프로그램 추적 저장소로 ElasticSearch 사용
 ## 소개
 이 문서에서는 [Azure 서비스 패브릭](https://azure.microsoft.com/documentation/services/service-fabric/) 응용 프로그램이 프로그램 추적 저장소, 인덱싱 및 검색을 위해 **Elasticsearch** 및 **Kibana**를 사용할 수 있는 방법에 대해 설명합니다. [Elasticsearch](https://www.elastic.co/guide/index.html)는 이 작업에 적합한 공개 소스, 분산 및 확장 가능한 실시간 검색 및 분석 엔진이며 Microsoft Azure에서 실행되는 Windows 및 Linux 가상 컴퓨터에 설치할 수 있습니다. Elasticsearch는 **ETW(Windows용 이벤트 추적)**와 같은 기술을 사용하여 생성된 *구조화된* 추적을 매우 효율적으로 처리할 수 있습니다.
 
@@ -24,11 +24,9 @@ ETW는 서비스 패브릭 런타임에서 진단 정보(추적)를 얻는 데 �
 
 Elasticsearch에 추적을 표시하려면 실시간으로 서비스 패브릭 클러스터 노드에서 캡처하고(응용 프로그램 실행 중) Elasticsearch 끝점에 전송해야 합니다. 추적 캡처에 대한 두 가지 주요 옵션이 있습니다.
 
-+ **In-process 추적 캡처**  
-응용 프로그램 또는 보다 정확하게 서비스 프로세스는 추적 저장소에 진단 데이터를 전송하는 것을 담당합니다(ElasticSearch).
++ **In Process 추적 캡처** 응용 프로그램 또는 보다 정확하게 서비스 프로세스는 추적 저장소에 진단 데이터를 전송하는 것을 담당합니다(Elasticsearch).
 
-+ **Out-of-process 추적 캡처**  
-별도 에이전트를 서비스 프로세스에서 추적 캡처하고 추적 저장소에 보냅니다.
++ **Out of Process 추적 캡처** 별도 에이전트를 서비스 프로세스에서 추적 캡처하고 추적 저장소에 보냅니다.
 
 아래에서 Azure에 Elasticsearch를 설정하는 방법을 설명하고 캡처 옵션의 장단점에 대해 알아보고 Elasticsearch에 데이터를 전송하도록 서비스 패브릭 서비스를 구성하는 방법을 설명합니다.
 
@@ -248,4 +246,4 @@ Elasticsearch 연결 데이터는 서비스 구성 파일(**PackageRoot\\Config\
 [1]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/listener-lib-references.png
 [2]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/kibana.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

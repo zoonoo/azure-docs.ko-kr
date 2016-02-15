@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/27/2016"  
+	ms.date="02/02/2016"  
 	ms.author="willzhan;kilroyh;yanmf;juliako"/>
 
 #다중 DRM 및 액세스 제어가 포함된 CENC: Azure 및 Azure 미디어 서비스에서 참조 디자인 및 구현
@@ -40,13 +40,13 @@ Azure Active Directory, Azure 미디어 서비스, Azure 미디어 플레이어,
 	- [라이브 스트리밍의 경우는 어떨까요?](media-services-cenc-with-multidrm-access-control.md#what-about-live-streaming)
 	- [Azure 미디어 서비스 외부에서 라이선스 서버는 어떨까요?](media-services-cenc-with-multidrm-access-control.md#what-about-license-servers-outside-of-azure-media-services)
 	- [사용자 지정 STS를 사용하려면 어떻게 하나요?](media-services-cenc-with-multidrm-access-control.md#what-if-i-want-to-use-a-custom-sts)
-	- [기술 참고 사항](media-services-cenc-with-multidrm-access-control.md#tech-note)
 - [완료된 시스템 및 테스트](media-services-cenc-with-multidrm-access-control.md#the-completed-system-and-test)
 	- [사용자 로그인](media-services-cenc-with-multidrm-access-control.md#user-login)
 	- [PlayReady에 암호화된 미디어 확장 사용](media-services-cenc-with-multidrm-access-control.md#using-encrypted-media-extensipons-for-playready)
 	- [Widevine에 EME 사용](media-services-cenc-with-multidrm-access-control.md#using-eme-for-widevine)
 	- [자격이 없는 사용자](media-services-cenc-with-multidrm-access-control.md#not-entitled-users)
 	- [사용자 지정 보안 토큰 서비스 실행](media-services-cenc-with-multidrm-access-control.md#running-custom-secure-token-service)
+- [요약](media-services-cenc-with-multidrm-access-control.md#summary)
 
 ##소개
 
@@ -62,7 +62,7 @@ DRM에는 포함 다중 DRM의 CENC(일반적인 암호화)도 포함됩니다. 
 1. 암호화된 자산의 복사본이 하나만 필요하므로 암호화된 자산의 관리 비용이 절감됩니다.
 1. 기본 플랫폼에서 기본 DRM 클라이언트는 일반적으로 무료로 제공되므로 DRM 클라이언트 라이선스 비용이 없습니다.
 
-Microsoft는 몇몇 주요 기업들과 더불어 DASH 및 CENC의 적극적인 프로모터로 활동해왔습니다. Microsoft Azure 미디어 서비스에서 DASH 및CENC 지원을 제공하고 있습니다. Mingfei의 블로그의 [Azure 미디어 서비스에서 Google Widevine 라이선스 전달 서비스 공용 미리 보기 발표](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/) 및 [다중 DRM 스트림을 배달하기 위해 Azure 미디어 서비스에서 Google Widevine 패키징 추가](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)에서 최근 소식을 참조하세요.
+Microsoft는 몇몇 주요 기업들과 더불어 DASH 및 CENC의 적극적인 프로모터로 활동해왔습니다. Microsoft Azure 미디어 서비스에서 DASH 및CENC 지원을 제공하고 있습니다. Mingfei의 블로그의 [Azure 미디어 서비스에서 Google Widevine 라이선스 전달 서비스 발표](https://azure.microsoft.com/blog/announcing-general-availability-of-google-widevine-license-services/) 및 [다중 DRM 스트림을 배달하기 위해 Azure 미디어 서비스에서 Google Widevine 패키징 추가](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)에서 최근 소식을 참조하세요.
 
 ### 이 문서의 개요
 
@@ -406,7 +406,7 @@ AAD가 JWT 토큰을 생성한 후, 플레이어가 확인을 위해 JWT 토큰�
 1.	대칭 키: JWT 토큰을 생성 및 확인하는 데 동일한 키가 사용됩니다.
 2.	비대칭 키: JWT 토큰을 암호화/생성하는 데는 개인 키가, 토큰을 확인하는 데는 공개 키가 사용되는 방식으로 X509 인증서에 공개-개인 키 쌍이 사용됩니다.
 
-###기술 참고 사항
+####기술 참고 사항
 
 개발 플랫폼으로 .NET Framework/C#을 사용하는 경우 비공개 보안 키에 사용된 X509 인증서에는 키 길이가 2048 이상이어야 합니다. 이는 .NET Framework에서 System.IdentityModel.Tokens.X509AsymmetricSecurityKey 클래스의 요구 사항입니다. 그렇지 않으면 다음 예외가 throw됩니다.
 
@@ -520,6 +520,6 @@ X509 인증서를 통해 비대칭 키를 사용하는 경우(Microsoft 최신 �
 
 ###승인 
 
-William Zhang, Mingfei Yan, Kilroy Hughes, Roland Le Franc, Julia Kornich
+William Zhang, Mingfei Yan, Roland Le Franc, Kilroy Hughes, Julia Kornich
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

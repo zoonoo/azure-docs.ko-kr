@@ -18,7 +18,7 @@
 # Azure 자동화의 자식 runbook
 
 
-다른 runbook에서 사용할 수 있는 불연속 함수를 사용하여 다시 사용할 수 있는 모듈식 runbook을 작성하는 Azure 자동화의 모범 사례입니다. 부모 runbook은 하나 이상의 자식 runbook를 자주 호출하여 필요한 기능을 수행합니다. 자식 Runbook을 호출하는 방법에는 두 가지가 있으며, 각기 다른 시나리오에 가장 적합한 방법을 결정할 수 있도록 각 방법의 차이점을 이해해야 합니다.
+다른 runbook에서 사용할 수 있는 불연속 함수를 사용하여 다시 사용할 수 있는 모듈식 runbook을 작성하는 Azure 자동화의 모범 사례입니다. 부모 runbook은 하나 이상의 자식 runbook를 자주 호출하여 필요한 기능을 수행합니다. 두 가지 방법으로 자식 runbook을 호출하고 각각 서로 다른 차이점을 이해하여 다양한 시나리오에 가장 적합하게 결정하도록 합니다.
 
 ##  인라인 실행을 사용하여 자식 runbook 호출
 
@@ -53,7 +53,7 @@ runbook이 게시되면 호출하는 모든 자식 runbook은 이미 게시되�
 
 [Start-AzureAutomationRunbook](http://msdn.microsoft.com/library/dn690259.aspx) cmdlet을 사용하여 [Windows PowerShell에서 Runbook 시작](../automation-starting-a-runbook.md#starting-a-runbook-with-windows-powershell)에서 설명한 대로 Runbook을 시작할 수 있습니다. cmdlet에서 자식 runbook을 시작하는 경우 부모 runbook은 자식 runbook에 대한 작업이 만들어진 직후 다음 줄으로 이동합니다. Runbook에서 출력을 검색해야 하는 경우 [Get-AzureAutomationJobOutput](http://msdn.microsoft.com/library/dn690268.aspx)을 사용하여 작업에 액세스해야 합니다.
 
-cmdlet으로 시작된 자식 runbook에서 작업은 부모 runbook의 별도 작업에서 실행됩니다. 스크립트 인라인을 호출하는 것 보다 많은 작업이 발생하고 추적하기 어려울 수 있습니다. 부모는 각각이 완료되기를 기다리지 않고 여러 자식 runbook을 시작할 수 있습니다. 인라인에서 자식 Runbook을 호출하는 동일한 종류의 병렬 실행에 대해 부모 Runbook은 [parallel 키워드](automation-powershell-workflow.md#parallel-processing)를 사용해야 합니다.
+cmdlet으로 시작된 자식 runbook에서 작업은 부모 runbook의 별도 작업에서 실행됩니다. Runbook 인라인을 호출하는 것 보다 많은 작업이 발생하고 추적하기 어려울 수 있습니다. 부모는 각각이 완료되기를 기다리지 않고 여러 자식 runbook을 시작할 수 있습니다. 인라인에서 자식 Runbook을 호출하는 동일한 종류의 병렬 실행에 대해 부모 Runbook은 [parallel 키워드](automation-powershell-workflow.md#parallel-processing)를 사용해야 합니다.
 
 [Runbook 매개 변수](automation-starting-a-runbook.md#runbook-parameters)에서 설명한 대로 cmdlet을 사용하여 시작된 자식 Runbook에 대한 매개 변수는 해시 테이블로 제공됩니다. 단순한 데이터 형식만 사용할 수 있습니다. runbook에 복잡한 데이터 형식을 가진 매개 변수가 있는 경우 인라인으로 호출해야 합니다.
 
@@ -62,7 +62,7 @@ cmdlet으로 시작된 자식 runbook에서 작업은 부모 runbook의 별도 �
 다음 예제는 매개 변수로 자식 runbook를 시작한 다음 완료되기를 기다립니다. 완료되면 해당 출력을 부모 runbook가 작업에서 수집합니다.
 
 	$params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true} 
-	$job = Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test- ChildRunbook" –Parameters $params
+	$job = Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-ChildRunbook" –Parameters $params
 	
 	$doLoop = $true
 	While ($doLoop) {
@@ -94,4 +94,4 @@ cmdlet으로 시작된 자식 runbook에서 작업은 부모 runbook의 별도 �
 - [Azure 자동화에서 Runbook 시작](automation-starting-a-runbook.md)
 - [Azure 자동화에서 Runbook 출력 및 메시지](automation-runbook-output-and-messages.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

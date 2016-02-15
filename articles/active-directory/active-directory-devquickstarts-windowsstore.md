@@ -62,7 +62,7 @@ PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 -	DirectorySearcher 프로젝트에서 `MainPage.xaml.cs`를 엽니다. Azure 포털에 입력한 값을 반영하도록 `Config Values` 영역의 값을 바꿉니다. 코드는 ADAL을 사용할 때마다 이러한 값을 참조합니다.
     -	`tenant`는 Azure AD 테넌트의 도메인(예: contoso.onmicrosoft.com)입니다.
     -	`clientId`는 포털에서 복사한 응용 프로그램의 clientId여야 합니다.
--	이제 Windows Phone 앱에 대한 콜백 uri를 검색해야 합니다. 이 줄의 `MainPage` 메서드에 중단점을 설정합니다.
+-	이제 Windows 스토어 앱에 대한 콜백 uri를 검색해야 합니다. 이 줄의 `MainPage` 메서드에 중단점을 설정합니다.
 
 ```
 redirectURI = Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCurrentApplicationCallbackUri();
@@ -146,4 +146,4 @@ ADAL은 응용 프로그램에 이러한 모든 일반적인 ID 기능을 쉽게
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

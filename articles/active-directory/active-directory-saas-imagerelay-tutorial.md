@@ -3,7 +3,7 @@
 	description="Azure Active Directory 및 ImageRelay 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="jeevansd"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/16/2015"
-	ms.author="markusvi"/>
+	ms.date="02/02/2016"
+	ms.author="jeedes"/>
 
 
 # 자습서: ImageRelay와 Azure Active Directory 통합
@@ -35,7 +35,7 @@ ImageRelay와 Azure AD 통합을 구성하려면 다음 항목이 필요합니�
 - ImageRelay Single Sign-On이 설정된 구독
 
 
-> [AZURE.NOTE]이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
+> [AZURE.NOTE] 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
 
 
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
@@ -78,7 +78,7 @@ ImageRelay에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On 테스트하는 데 사용합니다.
 4. **[ImageRelay 테스트 사용자 만들기](#creating-a-userecho-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 ImageRelay에 만듭니다.
 5. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
-5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
+5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
 ### Azure AD Single Sign-On 구성
 
@@ -151,7 +151,7 @@ ImageRelay에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 
 ### Azure AD 테스트 사용자 만들기
-이 섹션은 Azure 포털에서 Britta Simon이라는 테스트 사용자를 만들기 위한 것입니다.<br> 사용자 목록에서 **Britta Simon**을 선택합니다.<br><br>![Azure AD 사용자 만들기][20]<br>
+이 섹션의 목적은 Azure 포털에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.<br> 사용자 목록에서 **Britta Simon**을 선택합니다.<br><br>![Azure AD 사용자 만들기][20]<br>
 
 **Azure AD에서 테스트 사용자를 만들려면 다음 단계를 수행하세요.**
 
@@ -253,4 +253,4 @@ ImageRelay에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 [204]: ./media/active-directory-saas-imagerelay-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-imagerelay-tutorial/tutorial_general_205.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

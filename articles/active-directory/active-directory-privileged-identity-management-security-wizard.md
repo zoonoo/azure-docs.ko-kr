@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="na"
+   ms.service="active-directory"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -67,4 +67,4 @@ Azure Privileged Identity Management(PIM)를 처음 실행하면 마법사가 �
 ## 다음 단계
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

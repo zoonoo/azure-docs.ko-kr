@@ -35,7 +35,7 @@
  
 현재 실행 중인 작업 창의 경우 작업 창과 관련된 시간 간격은 작업 JSON에서 **WindowStart** 및 **WindowEnd** 시스템 변수를 통해 액세스할 수 있습니다. 이러한 변수는 입력에서 데이터 선택, 출력 데이터 집합에서 시계열 데이터 표현 등 작업 JSON 및 작업에 연결된 스크립트에서 다양한 용도로 사용할 수 있습니다.
 
-특정 시간 오프셋에 예약, 작업 창에 대한 간격 시작 또는 끝에 처리에 맞게 모드 설정 등 스케줄러에서 제공되는 다양한 속성에 대한 자세한 내용은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요.
+**스케줄러** 속성은 데이터 집합의 **가용성** 속성과 같은 하위 속성을 지원합니다. 특정 시간 오프셋에 예약, 작업 창에 대한 간격 시작 또는 끝에 처리에 맞게 모드 설정 등 스케줄러에서 제공되는 다양한 속성에 대한 자세한 내용은 [데이터 집합 가용성](data-factory-create-datasets.md#Availability) 문서를 참조하세요.
 
 ## 시계열 데이터 집합 및 데이터 조각
 
@@ -577,6 +577,8 @@ DateTime | Ticks(X) | X: DateTime | 매개 변수 X의 틱 속성을 가져옵�
 	    "Hour" : "$$Text.Format('{0:hh}',WindowStart)"
 	}
 
+사용할 수 있는 다른 서식 옵션을 설명하는 [사용자 지정 날짜 및 시간 형식 문자열](https://msdn.microsoft.com/library/8kb3ddd4.aspx)(예: yy 대 yyyy)를 참조하세요.
+
 > [AZURE.NOTE] 다른 함수 내에서 함수를 사용할 경우 내부 함수에 대한 접두사로 **$$**를 사용해야 합니다. 예: $$Text.Format('PartitionKey eq \\'my\_pkey\_filter\_value\\' and RowKey ge \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). 이 예에서는 **Time.AddHours** 함수에 대해 **$$** 접두사가 사용되지 않았습니다.
   
 
@@ -678,4 +680,4 @@ DateTime | Ticks(X) | X: DateTime | 매개 변수 X의 틱 속성을 가져옵�
 
   
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

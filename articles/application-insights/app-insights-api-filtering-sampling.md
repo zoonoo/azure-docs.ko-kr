@@ -17,7 +17,7 @@
 
 # Application Insights SDK에서 원격 분석 샘플링, 필터링 및 전처리
 
-Application Insights는 미리 보기 상태입니다.
+*Application Insights는 미리 보기 상태입니다.*
 
 Application Insights SDK에 대한 플러그인을 작성하고 구성하여 원격 분석을 Application Insights 서비스에 전송하기 전에 캡처하고 처리하는 방법을 사용자 지정할 수 있습니다.
 
@@ -32,13 +32,13 @@ Application Insights SDK에 대한 플러그인을 작성하고 구성하여 원
 
 시작하기 전에 다음을 수행합니다.
 
-* [Application Insights SDK](app-insights-asp-net.md)를 응용 프로그램에 설치합니다. NuGet 패키지를 수동으로 설치하고 최신 시험판 버전을 선택합니다.
+* [Application Insights SDK](app-insights-asp-net.md)를 응용 프로그램에 설치합니다. NuGet 패키지를 수동으로 설치하고 최신 *시험판* 버전을 선택합니다.
 * [Application Insights API](app-insights-api-custom-events-metrics.md)를 사용합니다. 
 
 
 ## 샘플링
 
-이 기능은 베타에 있습니다.
+*이 기능은 베타에 있습니다.*
 
 [샘플링](app-insights-sampling.md)은 정확한 통계를 유지하면서 트래픽을 줄이는 권장 방법입니다. 필터는 관련된 항목을 선택하여 진단 항목 간을 탐색할 수 있도록 합니다. 이벤트 수는 메트릭 탐색기에서 조정되어 필터링된 항목을 보완합니다.
 
@@ -47,7 +47,7 @@ Application Insights SDK에 대한 플러그인을 작성하고 구성하여 원
 
 ### 샘플링을 사용하도록 설정하려면
 
-최신 시험판 버전의 Application Insights로 **프로젝트의 NuGet 패키지를 업데이트**합니다. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고, NuGet 패키지 관리를 선택한 다음 **Include Prerelease(시험판 포함)**를 선택하고 Microsoft.ApplicationInsights.Web을 검색합니다.
+최신 *시험판* 버전의 Application Insights로 **프로젝트의 NuGet 패키지를 업데이트**합니다. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고, NuGet 패키지 관리를 선택한 다음 **Include Prerelease(시험판 포함)**를 선택하고 Microsoft.ApplicationInsights.Web을 검색합니다.
 
 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)에서 적응 알고리즘에서 목표로 하는 원격 분석의 최대 비율을 조정할 수 있습니다.
 
@@ -57,7 +57,7 @@ Application Insights SDK에 대한 플러그인을 작성하고 구성하여 원
 
 웹 페이지에서 데이터에 대한 고정 비율 샘플링을 가져오려면 일반적으로 \_Layout.cshtml 등의 마스터 페이지에서 삽입한 [Application Insights 조각](app-insights-javascript.md)에 줄을 추가로 배치합니다.
 
-JavaScript
+*JavaScript*
 
 ```JavaScript
 
@@ -80,7 +80,7 @@ JavaScript
 
 원격 분석을 필터링하려면 원격 분석 프로세서를 작성하고 SDK를 사용하여 등록합니다. 모든 원격 분석은 해당 프로세서를 거친 다음 스트림에서 삭제하거나 속성을 추가할 수 있습니다. 직접 작성한 원격 분석뿐만 아니라 HTTP 요청 수집기 및 종속성 수집기와 같은 표준 모듈의 원격 분석이 여기에 포함됩니다. 예를 들어 로봇 또는 성공적인 종속성 호출에서 요청에 대한 원격 분석을 필터링할 수 있습니다.
 
-> [AZURE.WARNING]프로세서를 사용하는 SDK에서 보낸 원격 분석을 필터링하는 작업은 포털에 표시되는 통계를 왜곡하고 관련된 항목을 수행하기 어렵게 만들 수 있습니다.
+> [AZURE.WARNING] 프로세서를 사용하는 SDK에서 보낸 원격 분석을 필터링하는 작업은 포털에 표시되는 통계를 왜곡하고 관련된 항목을 수행하기 어렵게 만들 수 있습니다.
 > 
 > 대신 [샘플링](#sampling) 사용을 고려하세요.
 
@@ -154,7 +154,7 @@ JavaScript
 
 클래스에서 명명된 공용 속성을 제공하여 .config 파일의 문자열 값을 전달할 수 있습니다.
 
-> [AZURE.WARNING].config 파일의 형식 이름 및 모든 속성 이름이 코드의 클래스 및 속성 이름과 일치하는지 주의하여 확인해야 합니다. .config 파일에서 존재하지 않는 형식 또는 속성을 참조하는 경우 SDK가 원격 분석을 자동으로 전송하지 못할 수 있습니다.
+> [AZURE.WARNING] .config 파일의 형식 이름 및 모든 속성 이름이 코드의 클래스 및 속성 이름과 일치하는지 주의하여 확인해야 합니다. .config 파일에서 존재하지 않는 형식 또는 속성을 참조하는 경우 SDK가 원격 분석을 자동으로 전송하지 못할 수 있습니다.
 
  
 **또는** 코드에서 필터를 초기화할 수 있습니다. Global.asax.cs의 AppStart과 같은 적합한 초기화 클래스의 과정에서 프로세서를 삽입합니다.
@@ -217,7 +217,7 @@ public void Process(ITelemetry item)
 
 느린 호출을 진단하려는 경우 빠른 호출을 필터링합니다.
 
-> [AZURE.NOTE]이 포털에서 참조하는 통계를 왜곡시킵니다. 종속성 차트는 종속성 호출이 모두 실패한 것처럼 보입니다.
+> [AZURE.NOTE] 이 포털에서 참조하는 통계를 왜곡시킵니다. 종속성 차트는 종속성 호출이 모두 실패한 것처럼 보입니다.
 
 ``` C#
 
@@ -245,7 +245,7 @@ public void Process(ITelemetry item)
 
 **이니셜라이저 정의**
 
-C#
+*C#*
 
 ```C#
 
@@ -296,7 +296,7 @@ ApplicationInsights.config에서:
       </TelemetryInitializers>
     </ApplicationInsights>
 
-또는, 코드에서 이니셜라이저를 인스턴스화할 수 있습니다(예: Global.aspx.cs).
+*또는*, 코드에서 이니셜라이저를 인스턴스화할 수 있습니다(예: Global.aspx.cs).
 
 
 ```C#
@@ -314,7 +314,7 @@ ApplicationInsights.config에서:
 <a name="js-initializer"></a>
 ### JavaScript 원격 분석 이니셜라이저
 
-JavaScript
+*JavaScript*
 
 포털에서 가져온 초기화 코드 바로 뒤에 원격 분석 이니셜라이저를 삽입합니다.
 
@@ -358,7 +358,7 @@ JavaScript
     </script>
 ```
 
-TelemetryItem에서 사용할 수 있는 사용자 지정이 아닌 속성의 요약은 [데이터 모델](app-insights-export-data-model.md/#lttelemetrytypegt)을 참조하세요.
+TelemetryItem에서 사용할 수 있는 사용자 지정이 아닌 속성의 요약은 [데이터 모델](app-insights-export-data-model.md#lttelemetrytypegt)을 참조하세요.
 
 이니셜라이저를 원하는 수만큼 추가할 수 있습니다.
 
@@ -404,4 +404,4 @@ TelemetryItem에서 사용할 수 있는 사용자 지정이 아닌 속성의 �
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

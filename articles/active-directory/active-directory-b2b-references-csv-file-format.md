@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="10/27/2015"
+   ms.date="02/03/2016"
    ms.author="viviali"/>
 
-# Azure AD(Azure Active Directory) B2B 공동 작업 미리 보기를 위한 CSV 파일 형식
+# Azure AD B2B 공동 작업 미리 보기: CSV 파일 형식
 
 Azure AD B2B 공동 작업의 미리 보기 버전에는 Azure AD 포털을 통해 업로드할 파트너 사용자 정보가 지정된 CSV 파일이 필요합니다. CSV 파일은 아래의 필수 레이블 및 필요에 따라 선택적 필드를 포함해야 합니다. 첫 번째 행의 레이블 철자를 변경하거나 열을 다시 정렬하지 말고 아래의 샘플 CSV 파일을 수정하세요.
 
->[AZURE.NOTE]레이블의 첫 번째 행(예: Email, DisplayName...)은 CSV 파일을 성공적으로 구문 분석하기 위해 필요합니다. 철자는 아래 지정된 필드와 일치해야 합니다. 이러한 레이블은 그 아래의 콘텐츠를 식별합니다. 필요하지 않은 선택적 필드에 대한 레이블은 CSV 파일에서 제거할 수 있습니다. 전체 열을 비워 둘 수 있습니다.
+>[AZURE.NOTE] 레이블의 첫 번째 행(예: Email, DisplayName...)은 CSV 파일을 성공적으로 구문 분석하기 위해 필요합니다. 철자는 아래 지정된 필드와 일치해야 합니다. 이러한 레이블은 그 아래의 콘텐츠를 식별합니다. 필요하지 않은 선택적 필드에 대한 레이블은 CSV 파일에서 제거할 수 있습니다. 전체 열을 비워 둘 수 있습니다.
 
 ## 필수 필드: <br/>
 **Email:** 초대한 사용자의 메일 주소입니다. <br/> **DisplayName:** 초대한 사용자에 대한 표시 이름(일반적으로 성 및 이름)입니다.<br/> **InviteContactUsUrl:** 초대한 사용자가 조직에게 문의하려는 경우 사용할 URL로, 메일 초대에 포함됩니다.<br/>
@@ -31,9 +31,9 @@ Azure AD B2B 공동 작업의 미리 보기 버전에는 Azure AD 포털을 통�
 ## 샘플 CSV 파일
 다음은 수정할 수 있는 샘플 CSV입니다.
 
->[AZURE.NOTE]이 파일을 메모장에 복사하여 붙여넣고 '.csv' 파일 확장명을 사용하여 저장합니다. 그런 다음 Excel에서 이 파일을 편집합니다. 그러면 첫 번째 행에 레이블이 표시된 테이블로 표시됩니다.
+>[AZURE.NOTE] 이 파일을 메모장에 복사하여 붙여넣고 '.csv' 파일 확장명을 사용하여 저장합니다. 그런 다음 Excel에서 이 파일을 편집합니다. 그러면 첫 번째 행에 레이블이 표시된 테이블로 표시됩니다.
 
->[AZURE.NOTE]Excel에서 레이블을 지정하고 그 아래 열을 채워 더 많은 선택적 필드를 추가할 수 있습니다.
+>[AZURE.NOTE] Excel에서 레이블을 지정하고 그 아래 열을 채워 더 많은 선택적 필드를 추가할 수 있습니다.
 
 ```
 Email,DisplayName,InviteAppID,InviteReplyUrl,InviteAppResources,InviteGroupResources,InviteContactUsUrl
@@ -52,4 +52,4 @@ Azure B2B 공동 작업에 대한 다른 문서 찾아보기
 - [외부 사용자 개체 특성 변경 사항](active-directory-b2b-references-external-user-object-attribute-changes.md)
 - [현재 미리 보기 제한 사항](active-directory-b2b-current-preview-limitations.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0204_2016-->

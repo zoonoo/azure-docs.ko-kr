@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/20/2016"
+   ms.date="02/01/2016"
    ms.author="jonor;sivae"/>
 
 # 예 2 - 방화벽 및 NSG로 응용 프로그램을 보호하는 DMZ 빌드
@@ -30,12 +30,12 @@
 - 두 클라우드 서비스: "FrontEnd001" 및 "BackEnd001"
 - "FrontEnd" 및 "BackEnd"의 두 서브넷을 포함하는 가상 네트워크 "CorpNetwork"
 - 서브넷 모두에 적용되는 단일 네트워크 보안 그룹
-- 네트워크 가상 어플라이언스(이 예제의 경우 프런트엔드 서브넷에 연결된 Barracuda NG Firewall)
-- 응용 프로그램 웹 서버("IIS01")를 나타내는 Windows Server
+- 네트워크 가상 어플라이언스(이 예제의 경우 프런트 엔드 서브넷에 연결된 Barracuda NextGen Firewall)
+- 응용 프로그램 웹 서버("IIS01")를 나타내는 Windows 서버
 - 응용 프로그램 백 엔드 서버("AppVM01", "AppVM02")를 나타내는 두 Windows 서버
-- DNS 서버("DNS01")를 나타내는 Windows Server
+- DNS 서버("DNS01")를 나타내는 Windows 서버
 
->[AZURE.NOTE]이 예에서는 Barracuda NG Firewall을 사용하지만 이 예에 다른 네트워크 가상 어플라이언스를 사용해도 됩니다.
+>[AZURE.NOTE] 이 예제에서는 Barracuda NextGen Firewall을 사용하지만 이 예제에 다른 네트워크 가상 어플라이언스를 사용해도 됩니다.
 
 아래 참조 섹션에는 위에서 설명한 대부분의 환경을 빌드할 PowerShell 스크립트가 나와 있습니다. VM 및 가상 네트워크 구축은 예제 스크립트로 수행하지만 이 문서에서는 자세히 설명하지 않습니다.
  
@@ -57,7 +57,7 @@
 ## 네트워크 보안 그룹(NSG)
 이 예에서는 NSG 그룹을 빌드한 후 6개의 규칙과 함께 로드합니다.
 
->[AZURE.TIP]일반적으로 특정 "허용" 규칙을 먼저 만든 후 보다 일반적인 "거부" 규칙을 만들어야 합니다. 할당된 우선순위에 따라 먼저 평가할 규칙이 결정됩니다. 특정 규칙에 적용할 트래픽이 발견되면 규칙을 더 이상 평가하지 않습니다. NSG 규칙은 인바운드 또는 아웃바운드 방향으로 적용할 수 있습니다(서브넷 관점에서).
+>[AZURE.TIP] 일반적으로 특정 "허용" 규칙을 먼저 만든 후 보다 일반적인 "거부" 규칙을 만들어야 합니다. 할당된 우선순위에 따라 먼저 평가할 규칙이 결정됩니다. 특정 규칙에 적용할 트래픽이 발견되면 규칙을 더 이상 평가하지 않습니다. NSG 규칙은 인바운드 또는 아웃바운드 방향으로 적용할 수 있습니다(서브넷 관점에서).
 
 선언적으로 인바운드 트래픽에 대해 다음 규칙이 빌드됩니다.
 
@@ -79,7 +79,7 @@
 
 이 예에 사용된 클라이언트 다운로드 및 Barracuda 연결에 대한 지침은 [Barracuda NG Admin](https://techlib.barracuda.com/NG61/NGAdmin)(영문)에서 확인할 수 있습니다.
 
-방화벽에서 전달 규칙을 만들어야 합니다. 이 예에서는 인터넷 트래픽 인바운드를 방화벽으로 라우팅한 후 웹 서버로 라우팅하므로 하나의 전달 NAT 규칙만 필요합니다. 이 예에 사용된 Barracuda NG Firewall에서 규칙은 이 트래픽을 전달하기 위한 대상 NAT 규칙("Dst NAT")입니다.
+방화벽에서 전달 규칙을 만들어야 합니다. 이 예에서는 인터넷 트래픽 인바운드를 방화벽으로 라우팅한 후 웹 서버로 라우팅하므로 하나의 전달 NAT 규칙만 필요합니다. 이 예제에 사용된 Barracuda NextGen Firewall에서 규칙은 이 트래픽을 전달하기 위한 대상 NAT 규칙("Dst NAT")입니다.
 
 다음 규칙을 만들거나 기존 기본 규칙을 확인하려면 Barracuda NG Admin 클라이언트 대시보드에서 시작하여 구성 탭으로 이동한 후 작동 구성 섹션에서 규칙 집합을 클릭합니다. "Main Rules"라는 그리드에 방화벽에 대해 기존 활성 및 비활성화된 규칙이 표시됩니다. 이 그리드의 오른쪽 위 모서리에 작은 녹색 "+" 단추를 클릭하여 새 규칙을 만듭니다(참고: 방화벽은 변경에 대해 "잠금" 상태일 수 있으며 "잠금" 단추가 표시되고 규칙을 만들거나 편집할 수 없는 경우 이 단추를 클릭하여 규칙 집합을 "잠금 해제"하고 편집을 허용합니다). 기존 규칙을 편집하려는 경우 해당 규칙을 선택하고 마우스 오른쪽 단추를 클릭한 후 규칙 편집을 선택합니다.
 
@@ -108,7 +108,7 @@
 
 방화벽 규칙 집합을 활성화하면 이 예제 환경 빌드가 완료된 것입니다. 필요에 따라 참조 섹션의 빌드 후 스크립트를 실행하여 응용 프로그램을 이 환경에 추가하고 아래 트래픽 시나리오를 테스트할 수 있습니다.
 
->[AZURE.IMPORTANT]웹 서버를 직접 호출하지 않는다는 것을 깨닫는 것이 중요합니다. 브라우저가 FrontEnd001.CloudApp.Net에서 HTTP 페이지를 요청하면 HTTP 끝점(포트 80)이 이 트래픽을 웹 서버가 아닌 방화벽에 전달합니다. 방화벽 다음에는 위에서 만든 규칙에 따라 웹 서버로 요청을 NAT합니다.
+>[AZURE.IMPORTANT] 웹 서버를 직접 호출하지 않는다는 것을 깨닫는 것이 중요합니다. 브라우저가 FrontEnd001.CloudApp.Net에서 HTTP 페이지를 요청하면 HTTP 끝점(포트 80)이 이 트래픽을 웹 서버가 아닌 방화벽에 전달합니다. 방화벽 다음에는 위에서 만든 규칙에 따라 웹 서버로 요청을 NAT합니다.
 
 ## 트래픽 시나리오
 
@@ -227,7 +227,7 @@ PowerShell 스크립트 파일에 전체 스크립트를 저장합니다. 네트
 
 이 PowerShell 스크립트를 인터넷 연결된 PC 또는 서버에서 로컬로 실행해야 합니다.
 
->[AZURE.IMPORTANT]이 스크립트를 실행하는 경우 PowerShell에서 경고 또는 기타 정보 메시지가 표시될 수 있습니다. 빨간색 오류 메시지만 심각한 문제입니다.
+>[AZURE.IMPORTANT] 이 스크립트를 실행하는 경우 PowerShell에서 경고 또는 기타 정보 메시지가 표시될 수 있습니다. 빨간색 오류 메시지만 심각한 문제입니다.
 
 
 	<# 
@@ -239,7 +239,7 @@ PowerShell 스크립트 파일에 전체 스크립트를 저장합니다. 네트
 	   - A default storage account for VM disks
 	   - Two new cloud services
 	   - Two Subnets (FrontEnd and BackEnd subnets)
-	   - A Network Virtual Appliance (NVA), in this case a Barracuda NG Firewall
+	   - A Network Virtual Appliance (NVA), in this case a Barracuda NextGen Firewall
 	   - One server on the FrontEnd Subnet (plus the NVA on the FrontEnd subnet)
 	   - Three Servers on the BackEnd Subnet
 	   - Network Security Groups to allow/deny traffic patterns as declared
@@ -303,7 +303,7 @@ PowerShell 스크립트 파일에 전체 스크립트를 저장합니다. 네트
 	
 	  # VM Base Disk Image Details
 	    $SrvImg = Get-AzureVMImage | Where {$_.ImageFamily -match 'Windows Server 2012 R2 Datacenter'} | sort PublishedDate -Descending | Select ImageName -First 1 | ForEach {$_.ImageName}
-	    $FWImg = Get-AzureVMImage | Where {$_.ImageFamily -match 'Barracuda NG Firewall'} | sort PublishedDate -Descending | Select ImageName -First 1 | ForEach {$_.ImageName}
+	    $FWImg = Get-AzureVMImage | Where {$_.ImageFamily -match 'Barracuda NextGen Firewall'} | sort PublishedDate -Descending | Select ImageName -First 1 | ForEach {$_.ImageName}
 	
 	  # NSG Details
 	    $NSGName = "MyVNetSG"
@@ -566,4 +566,4 @@ PowerShell 스크립트 파일에 전체 스크립트를 저장합니다. 네트
 [SampleApp]: ./virtual-networks-sample-app.md
 [Example1]: ./virtual-networks-dmz-nsg-asm.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

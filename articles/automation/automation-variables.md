@@ -91,8 +91,8 @@ Azure 포털에서 변수를 만들 때 드롭다운 목록에서 해당 데이�
 	New-AzureAutomationVariable –AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable" –Encrypted $false –Value $vm
 	
 	$vmValue = (Get-AzureAutomationVariable –AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable").Value
-	$vmName = $ vmValue.Name
-	$vmIpAddress = $ vmValue.IpAddress
+	$vmName = $vmValue.Name
+	$vmIpAddress = $vmValue.IpAddress
 
 
 
@@ -116,7 +116,7 @@ Azure 포털에서 변수를 만들 때 드롭다운 목록에서 해당 데이�
 	for ($i = 1; $i -le $NumberOfIterations; $i++) {
 	   Write-Output "$i`: $SampleMessage"
 	}
-	Set-AutomationVariable –Name NumberOfRunnings –Value (NumberOfRunngs += 1)
+	Set-AutomationVariable –Name NumberOfRunnings –Value ($NumberOfRunnings += 1)
 
 
 #### 변수에서 복잡한 개체 설정 및 검색
@@ -188,4 +188,4 @@ Azure 포털에서 변수를 만들 때 드롭다운 목록에서 해당 데이�
 - [그래픽 작성의 링크](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

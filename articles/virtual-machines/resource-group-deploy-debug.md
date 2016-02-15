@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
-   ms.date="01/06/2016"
+   ms.date="01/28/2016"
    ms.author="tomfitz;rasquill"/>
 
 # Azure에서 리소스 그룹 배포 문제 해결
@@ -23,7 +23,7 @@
 
 이 항목은 주로 배포 명령을 사용하여 배포 문제를 해결하는 데 중점을 둡니다. 감사 로그를 사용하여 리소스에서 모든 작업을 추적하기 위한 정보는 [리소스 관리자로 작업 감사](../resource-group-audit.md)를 참조하세요.
 
-이 항목에서는 Azure PowerShell, Azure CLI 및 REST API를 통해 문제 해결 정보를 검색하는 방법을 보여줍니다. 배포 문제를 해결하기 위한 포털 사용에 대한 내용은 [Azure Preview 포털을 사용하여 Azure 리소스 관리](../azure-portal/resource-group-portal.md)를 참조하세요.
+이 항목에서는 Azure PowerShell, Azure CLI 및 REST API를 통해 문제 해결 정보를 검색하는 방법을 보여줍니다. 배포 문제를 해결하기 위한 포털 사용에 대한 자세한 내용은 [Azure 포털을 사용하여 Azure 리소스 관리](../azure-portal/resource-group-portal.md)를 참조하세요.
 
 또한 사용자에게 발생할 수 있는 일반적인 오류에 대한 솔루션을 이 항목에서 설명합니다.
 
@@ -160,7 +160,7 @@
 
 Azure 자격 증명이 만료되거나 Azure 계정에 로그인하지 않은 경우 배포가 실패합니다. 세션이 너무 오랫동안 열려 있으면 자격 증명이 만료될 수 있습니다. 다음 옵션으로 자격 증명을 새로 고칠 수 있습니다.
 
-- PowerShell에서는 **Login-AzureRmAccount** cmdlet(또는 PowerShell 1.0 Preview 이전 버전의 경우 **Add-AzureAccount**)을 사용합니다. 게시 설정 파일의 자격 증명으로는 AzureResourceManager 모듈의 cmdlet을 지원할 수 없습니다.
+- PowerShell의 경우 **Login-AzureRmAccount** cmdlet을 사용합니다. 게시 설정 파일의 자격 증명으로는 AzureResourceManager 모듈의 cmdlet을 지원할 수 없습니다.
 - Azure CLI의 경우 **azure login**을 사용합니다. 인증 오류에 대한 도움말을 보려면 [Azure CLI를 올바르게 구성](../xplat-cli-connect.md)했는지 확인합니다.
 
 ## 템플릿 및 매개 변수 형식 검사
@@ -169,7 +169,7 @@ Azure 자격 증명이 만료되거나 Azure 계정에 로그인하지 않은 �
 
 ### PowerShell
 
-PowerShell의 경우 **Test-AzureRmResourceGroupDeployment**(또는 PowerShell 1.0 Preview 이전 버전의 경우 **Test-AzureResourceGroupTemplate**)를 사용합니다.
+PowerShell의 경우 **Test-AzureRmResourceGroupDeployment**를 사용합니다.
 
     PS C:\> Test-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile c:\Azure\Templates\azuredeploy.json -TemplateParameterFile c:\Azure\Templates\azuredeploy.parameters.json
     VERBOSE: 12:55:32 PM - Template is valid.
@@ -201,7 +201,7 @@ REST API의 경우 [템플릿 배포의 유효성 검사](https://msdn.microsoft
 
 ### PowerShell
 
-PowerShell 1.0 Preview 버전의 경우 **Get-AzureLocation** 명령을 사용하여 리소스 및 위치의 전체 목록을 확인할 수 있습니다.
+PowerShell 1.0 이전 버전의 경우 **Get-AzureLocation** 명령을 사용하여 리소스 및 위치의 전체 목록을 확인할 수 있습니다.
 
     PS C:\> Get-AzureLocation
 
@@ -222,7 +222,7 @@ PowerShell 1.0 Preview 버전의 경우 **Get-AzureLocation** 명령을 사용�
                                                                 North Europe, West Europe, East Asia, Southeast Asia,
                                                                 Japan East, Japan West
 
-PowerShell 1.0 Preview의 경우 **Get-AzureRmResourceProvider**를 사용하여 지원되는 위치를 가져옵니다.
+PowerShell 1.0의 경우 **Get-AzureRmResourceProvider**를 사용하여 지원되는 위치를 가져옵니다.
 
     PS C:\> Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web
 
@@ -275,7 +275,7 @@ REST API의 경우 [리소스 공급자에 대한 정보 가져오기](https://m
 
 또한 배포가 리소스 그룹, 구독, 계정 및 기타 범위당 기본 할당량에 도달할 경우 문제가 발생할 수 있습니다. 올바르게 배포할 수 있는 리소스가 있는지 확인합니다. 전체 할당량 정보는 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)을 참조하세요.
 
-코어에 대한 고유의 구독 할당량을 검사하려면 Azure CLI의 `azure vm list-usage` 명령 및 PowerShell의 **Get-AzureVMUsage** cmdlet을 사용합니다. 다음은 Azure CLI에 명령과 무료 평가판 계정에 대한 코어 할당량이 4개 임을 보여줍니다.
+코어에 대한 고유의 구독 할당량을 검사하려면 Azure CLI의 `azure vm list-usage` 명령 및 PowerShell의 **Get-AzureRmVMUsage** cmdlet을 사용합니다. 다음은 Azure CLI에 명령과 무료 평가판 계정에 대한 코어 할당량이 4개 임을 보여줍니다.
 
     azure vm list-usage
     info:    Executing command vm list-usage
@@ -293,25 +293,8 @@ REST API의 경우 [리소스 공급자에 대한 정보 가져오기](https://m
 
 이러한 경우 포털로 이동하여 사용자가 배포하고 싶은 지역의 할당량을 올려서 지원 문제를 해결합니다.
 
-> [AZURE.NOTE]리소스 그룹에 대해서는 이것을 기억하세요. 할당량은 개별적인 지역을 위한 것이지, 전체 구독을 위한 것이 아닙니다. 사용자가 미국 서부에 30개의 코어를 배포해야 하면 미국 서부에 30개의 리소스 관리자 코어를 요청해야 합니다. 사용자가 액세스하는 임의적인 지역에 30개의 코어를 배포해야 하는 경우 모든 지역에 30개의 리소스 관리자 코어를 요청해야 합니다.
-<!-- -->
-예를 들어 특정한 코어를 만들려면 json 구문 분석을 위해 **jq**를 빼낸 아래의 명령을 이용하여 적정한 할당량을 요청해야 하는 지역을 확인할 수 있습니다.
-<!-- -->
-        azure provider show Microsoft.Compute --json | jq '.resourceTypes[] | select(.name == "virtualMachines") | { name,apiVersions, locations}'
-        {
-          "name": "virtualMachines",
-          "apiVersions": [
-            "2015-05-01-preview",
-            "2014-12-01-preview"
-          ],
-          "locations": [
-            "East US",
-            "West US",
-            "West Europe",
-            "East Asia",
-            "Southeast Asia"
-          ]
-        }
+> [AZURE.NOTE] 리소스 그룹에 대해서는 이것을 기억하세요. 할당량은 개별적인 지역을 위한 것이지, 전체 구독을 위한 것이 아닙니다. 사용자가 미국 서부에 30개의 코어를 배포해야 하면 미국 서부에 30개의 리소스 관리자 코어를 요청해야 합니다. 사용자가 액세스하는 임의적인 지역에 30개의 코어를 배포해야 하는 경우 모든 지역에 30개의 리소스 관리자 코어를 요청해야 합니다. <!-- --> 예를 들어 특정한 코어를 만들려면 json 구문 분석을 위해 **jq**를 빼낸 아래의 명령을 이용하여 적정한 할당량을 요청해야 하는 지역을 확인할 수 있습니다. <!-- --> azure provider show Microsoft.Compute --json | jq '.resourceTypes | select(.name == "virtualMachines") | { name,apiVersions, locations}' { "name": "virtualMachines", "apiVersions": [ "2015-05-01-preview", "2014-12-01-preview" ], "locations": [ "East US", "West US", "West Europe", "East Asia", "Southeast Asia" ] }
+
 
 ## 리소스 공급자 등록 확인
 
@@ -319,7 +302,7 @@ REST API의 경우 [리소스 공급자에 대한 정보 가져오기](https://m
 
 ### PowerShell
 
-리소스 공급자 목록과 등록 상태를 가져오려면 PowerShell 1.0 Preview 이전 버전의 경우 **Get-AzureProvider**를 사용합니다.
+리소스 공급자 목록과 등록 상태를 가져오려면 PowerShell 1.0 이전 버전의 경우 **Get-AzureProvider**를 사용합니다.
 
     PS C:\> Get-AzureProvider
 
@@ -332,7 +315,7 @@ REST API의 경우 [리소스 공급자에 대한 정보 가져오기](https://m
 
 공급자를 등록하려면 **Register-AzureProvider**를 사용합니다.
 
-Powershell 1.0 Preview의 경우 **Get-AzureRmResourceProvider**를 사용합니다.
+Powershell 1.0의 경우 **Get-AzureRmResourceProvider**를 사용합니다.
 
     PS C:\> Get-AzureRmResourceProvider -ListAvailable
 
@@ -434,4 +417,4 @@ PowerShell에는 동일한 절차를 수행하는 몇 가지 기본 명령이 �
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

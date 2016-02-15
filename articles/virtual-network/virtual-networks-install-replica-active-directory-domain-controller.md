@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/01/2016"
 	ms.author="curtand"/>
 
 
@@ -23,7 +23,7 @@
 
 다음 관련 토픽을 참조할 수도 있습니다.
 
--  선택적으로 Azure 가상 네트워크에 새 Active Directory 포리스트를 설치할 수 있습니다. 이러한 단계는 [Azure 가상 네트워크에 새 Active Directory 포리스트 설치](../active-directory-new-forest-virtual-machine.md)를 참조하십시오.
+-  선택적으로 Azure 가상 네트워크에 새 Active Directory 포리스트를 설치할 수 있습니다. 이러한 단계는 [Azure 가상 네트워크에 새 Active Directory 포리스트 설치](../active-directory/active-directory-new-forest-virtual-machine.md)를 참조하십시오.
 -  Azure 가상 네트워크에 AD DS(Active Directory 도메인 서비스)를 설치하는 방법에 대한 개념 지침은 [Azure 가상 컴퓨터에 Windows Server Active Directory 배포에 대한 지침](https://msdn.microsoft.com/library/azure/jj156090.aspx)을 참조하세요.
 
 
@@ -31,7 +31,7 @@
 
 이 시나리오에서는 외부 사용자가 도메인에 가입된 서버에서 실행되는 응용 프로그램에 액세스해야 합니다. 응용 프로그램 서버 및 복제본 DC를 실행하는 VM은 Azure 가상 네트워크에 설치됩니다. 다음 다이어그램과 같이 [사이트 간 VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md) 연결을 통해 가상 네트워크를 온-프레미스 네트워크에 연결할 수 있으며, 더 빠른 연결을 위해 [Express 경로](../../services/expressroute/)를 사용할 수 있습니다.
 
-응용 프로그램 서버 및 DC는 계산 처리 분산을 위해 별개의 [클라우드 서비스](../cloud-services-what-is.md)에 배포되고 내결함성 향상을 위해 [가용성 집합](../virtual-machines/virtual-machines-manage-availability.md) 내에 배포됩니다. DC는 Active Directory 복제를 사용하여 온-프레미스 DC 및 서로 간에 복제됩니다. 동기화 도구가 필요하지 않습니다.
+응용 프로그램 서버 및 DC는 계산 처리 분산을 위해 별개의 클라우드 서비스에 배포되고 내결함성 향상을 위해 [가용성 집합](../virtual-machines/virtual-machines-manage-availability.md) 내에 배포됩니다. DC는 Active Directory 복제를 사용하여 온-프레미스 DC 및 서로 간에 복제됩니다. 동기화 도구가 필요하지 않습니다.
 
 ![][1]
 
@@ -121,4 +121,4 @@ Windows PowerShell 사용에 대한 자세한 내용은 [Azure Cmdlets 시작하
 <!--Image references-->
 [1]: ./media/virtual-networks-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

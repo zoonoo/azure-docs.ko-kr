@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/13/2015"
+   ms.date="01/26/2016"
    ms.author="rsinha"/>
 
 # 테스트 용이성 개요
@@ -115,4 +115,4 @@ System.Fabric.Testability.dll에 테스트 용이성 기능이 있습니다. 이
   - [서비스 작업 중 오류 시뮬레이션](service-fabric-testability-workload-tests.md)
   - [서비스 대 서비스 통신 오류](service-fabric-testability-scenarios-service-communication.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

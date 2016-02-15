@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/20/2016"
+   ms.date="02/01/2016"
    ms.author="jonor"/>
 
 # 보안 경계 환경에 사용할 샘플 응용 프로그램
@@ -148,7 +148,7 @@
 4.	디렉터리와 파일에 익명으로 액세스할 수 있는 권한을 설정합니다.
 5.	이 서버에서 쉽게 탐색할 수 있도록 IE의 강화된 보안을 해제합니다. 
 
->[AZURE.IMPORTANT]**모범 사례**: 프로덕션 서버에서 IE의 강화된 보안을 해제하지 마십시오. 프로덕션 서버에서 웹을 탐색하는 것도 좋지 않습니다. 또한 익명 액세스를 위해 파일 공유를 여는 것도 바람직하지 않지만 여기서는 간단한 설명을 위해 사용합니다.
+>[AZURE.IMPORTANT] **모범 사례**: 프로덕션 서버에서 IE의 강화된 보안을 해제하지 마십시오. 프로덕션 서버에서 웹을 탐색하는 것도 좋지 않습니다. 또한 익명 액세스를 위해 파일 공유를 여는 것도 바람직하지 않지만 여기서는 간단한 설명을 위해 사용합니다.
 
 이 PowerShell 스크립트는 AppVM01에 RDP 처리된 동안 로컬로 실행해야 합니다. 관리자가 성공적 실행을 보장하기 위해 PowerShell을 실행해야 합니다.
 	
@@ -188,4 +188,4 @@
 <!--Link References-->
 [HOME]: ../best-practices-network-security.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

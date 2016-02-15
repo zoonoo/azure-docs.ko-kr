@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="article"
-	ms.date="01/21/2015"
+	ms.date="02/03/2015"
     ms.author="donnam"/>
 
 #Xamarin.Forms 앱에서 Azure 저장소에 연결
@@ -718,7 +718,7 @@ iOS 프로젝트에 플랫폼 특정 코드를 추가합니다.
 [Microsoft.Azure.Mobile.Client.Files]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.Files/
 [Microsoft.Azure.Mobile.Client.SQLiteStore]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.SQLiteStore/
 [Microsoft.Azure.Mobile.Server.Files]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Files/
-[공유 액세스 서명 이해]: https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/
-[Azure 저장소 계정 만들기]: https://azure.microsoft.com/ko-KR/documentation/articles/storage-create-storage-account/#create-a-storage-account
+[공유 액세스 서명 이해]: ../storage/storage-dotnet-shared-access-signature-part-1.md
+[Azure 저장소 계정 만들기]: ../storage/storage-create-storage-account.md#create-a-storage-account
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

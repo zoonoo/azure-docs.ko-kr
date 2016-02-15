@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/04/2015" 
+	ms.date="02/04/2016" 
 	ms.author="jeffstok"/>
 
 #스트림 분석 작업에서 입력 및 출력을 위한 로그인 자격 증명 회전
@@ -58,7 +58,7 @@ Azure 스트림 분석은 마지막 출력에서 작업 재시작을 지원하�
 
 ###SQL 데이터베이스
 
->[AZURE.NOTE]참고: SQL 데이터베이스 서비스에 연결해야 합니다. Azure 관리 포털에서 관리 환경을 사용하여 이를 수행하는 방법을 보여줄 수 있지만 SQL Server Management Studio와 같은 일부 클라이언트측 도구를 함께 사용하 여 선택할 수 있습니다.
+>[AZURE.NOTE] 참고: SQL 데이터베이스 서비스에 연결해야 합니다. Azure 관리 포털에서 관리 환경을 사용하여 이를 수행하는 방법을 보여줄 수 있지만 SQL Server Management Studio와 같은 일부 클라이언트측 도구를 함께 사용하 여 선택할 수 있습니다.
 
 1.  Azure 관리 포털에서 SQL 데이터베이스 확장명으로 이동합니다. ![graphic14][graphic14]
 2.  작업에서 사용되는 SQL 데이터베이스를 찾아 동일한 줄에 있는 **서버를 클릭합니다.** ![graphic15][graphic15]
@@ -194,4 +194,4 @@ Azure 스트림 분석은 마지막 출력에서 작업 재시작을 지원하�
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

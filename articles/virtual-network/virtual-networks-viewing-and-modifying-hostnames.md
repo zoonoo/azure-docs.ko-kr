@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="01/21/2016"
    ms.author="joaoma" />
 
 # 호스트 이름 보기 및 수정
@@ -55,7 +55,7 @@ REST 클라이언트에서 다음 지침을 따릅니다.
 
 1. 각 **RoleInstance** 요소에 대해 **HostName** 요소를 찾습니다.
 
->[AZURE.WARNING]**InternalDnsSuffix** 요소를 확인하거나, 원격 데스크톱 세션(Windows)의 명령 프롬프트에서 ipconfig /all을 실행하거나, SSH 터미널(Linux)에서 cat /etc/resolv.conf를 실행하여 REST 호출 응답에서 클라우드 서비스의 내부 도메인 접미사를 확인할 수도 있습니다.
+>[AZURE.WARNING] **InternalDnsSuffix** 요소를 확인하거나, 원격 데스크톱 세션(Windows)의 명령 프롬프트에서 ipconfig /all을 실행하거나, SSH 터미널(Linux)에서 cat /etc/resolv.conf를 실행하여 REST 호출 응답에서 클라우드 서비스의 내부 도메인 접미사를 확인할 수도 있습니다.
 
 ## 호스트 이름 수정
 
@@ -71,4 +71,4 @@ REST 클라이언트에서 다음 지침을 따릅니다.
 
 [네트워크 구성 파일을 사용하여 DNS 설정 지정](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

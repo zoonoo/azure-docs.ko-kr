@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/28/2015"
+   ms.date="01/28/2016"
    ms.author="hascipio; v-divte" />
 
 # Azure 마켓플레이스의 솔루션 템플릿 생성을 위한 필수 기술 구성 요소
@@ -29,9 +29,9 @@
   - [https://github.com/azure/azure-quickstart-templates](https://github.com/azure/azure-quickstart-templates)
 
 ## 다음 단계
-이제 필수 구성 요소를 검토하고 필요한 작업을 완료했으므로 [솔루션 템플릿 만들기 가이드](marketplace-publishing-solution-template-creation.md)에 설명된 대로 솔루션 템플릿 제품 만들기를 진행할 수 있습니다. 모범 사례에 대해서는 [솔루션 템플릿 모범 사례 만들기](marketplace-publishing-solution-template-best-practices.md)를 참조하세요. Publisher 작업의 기본 페이지로 돌아가려면 [시작: Azure 마켓플레이스를 제공하는 서비스를 게시하는 방법](marketplace-publishing-getting-started.md)을 참조하세요.
+이제 필수 구성 요소를 검토하고 필요한 작업을 완료했으므로 [솔루션 템플릿 만들기 가이드](marketplace-publishing-solution-template-creation.md)에 설명된 대로 솔루션 템플릿 제품 만들기를 진행할 수 있습니다. Publisher 작업의 기본 페이지로 돌아가려면 [시작: Azure 마켓플레이스를 제공하는 서비스를 게시하는 방법](marketplace-publishing-getting-started.md)을 참조하세요.
 
 
 [link-acct]: marketplace-publishing-accounts-creation-registration.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/05/2016"
+   ms.date="01/30/2016"
    ms.author="tarcher" />
 
 # Visual Studio에서 Azure 가상 컴퓨터 만들기 및 관리
@@ -175,6 +175,6 @@ Visual Studio에서 서버 탐색기를 사용하여 Azure에 가상 컴퓨터�
 
 ## 다음 단계
 
-가상 컴퓨터를 만드는 방법을 자세히 알아보려면 [Linux를 실행하는 가상 컴퓨터 만들기](virtual-machines-linux-tutorial.md) 및 [Azure Preview 포털에서 Windows를 실행하는 가상 컴퓨터 만들기](virtual-machines-windows-tutorial.md)를 참조하세요.
+가상 컴퓨터를 만드는 방법을 자세히 알아보려면 [Linux를 실행하는 가상 컴퓨터 만들기](/virtual-machines/virtual-machines-linux-tutorial.md) 및 [Azure Preview 포털에서 Windows를 실행하는 가상 컴퓨터 만들기](/virtual-machines/virtual-machines-windows-tutorial.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

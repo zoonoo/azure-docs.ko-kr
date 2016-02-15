@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter=""
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-resource-manager,azure-service-management"/>
 
@@ -68,4 +68,4 @@ CLI를 사용하여 Windows, OS X 또는 Linux 컴퓨터에서 Azure 리소스�
 - [템플릿 설계](/best-practices-resource-manager-design-templates.md) 방법을 알아봅니다.
 - [모범 사례](/best-practices-resource-manager-examples.md) 사용
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

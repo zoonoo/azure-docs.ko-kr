@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/28/2015"
+   ms.date="01/26/2016"
    ms.author="sumukhs"/>
 
 # Reliable Actors 구성--ReliableDictionaryActorStateProvider
@@ -21,7 +21,7 @@ ReliableDictionaryActorStateProvider의 기본 구성은 지정된 행위자에 
 
 Azure 서비스 패브릭 런타임은 settings.xml 파일에서 미리 정의된 섹션 이름을 찾아서 기본 런타임 구성 요소를 만드는 동안 해당 구성 값을 사용합니다.
 
->[AZURE.NOTE]Visual Studio 솔루션에서 생성된 settings.xml 파일에서 다음 구성의 섹션 이름을 삭제 또는 수정하지 **않도록** 합니다.
+>[AZURE.NOTE] Visual Studio 솔루션에서 생성된 settings.xml 파일에서 다음 구성의 섹션 이름을 삭제 또는 수정하지 **않도록** 합니다.
 
 ## 복제자 보안 구성
 복제자 보안 구성은 복제하는 동안 사용되는 통신 채널을 보호하는 데 사용됩니다. 따라서 서비스는 서로의 복제 트래픽을 볼 수 없으므로 항상 사용 가능하게 설정한 데이터를 안전하게 보호할 수 있습니다. 기본적으로 빈 보안 구성 섹션에서는 복제 보안이 되지 않습니다.
@@ -84,4 +84,4 @@ MaxRecordSizeInKB 설정은 복제자가 로그 파일에 쓸 수 있는 레코�
 
 SharedLogId 및 SharedLogPath 설정은 항상 함께 사용되며 서비스가 노드에 대한 기본 공유 로그에서 별도의 공유 로그를 사용하도록 합니다. 최상의 효율성을 위해 최대한 많은 서비스가 동일한 공유 로그를 지정해야 합니다. 공유 로그 파일에만 사용되는 디스크에 공유 로그 파일을 배치해야 헤드 이동 경합이 감소합니다. 이 값은 드문 경우에만 변경되어야 합니다.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

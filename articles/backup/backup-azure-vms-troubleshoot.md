@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/09/2016"
-	ms.author="trinadhk;jimpark;aashishr"/>
+	ms.date="01/28/2016"
+	ms.author="trinadhk;jimpark;"/>
 
 
 # Azure 가상 컴퓨터 백업 문제 해결
@@ -105,13 +105,13 @@ Windows VM의 경우
 
 Linux VM의 경우
 
-- [Linux VM 에이전트 업데이트](../virtual-machines-linux-update-agent.md)의 지침을 따르세요.
+- [Linux VM 에이전트 업데이트](../virtual-machines/virtual-machines-linux-update-agent.md)의 지침을 따르세요.
 
 
 ### VM 에이전트 설치의 유효성 검사
 Windows VM에서 VM 에이전트 버전을 확인하는 방법
 
-1. Azure 가상 컴퓨터에 로그온하고 C:\\WindowsAzure\\Packages 폴더로 이동합니다. WaAppAgent.exe 파일을 찾습니다.
+1. Azure 가상 컴퓨터에 로그온하고 *C:\\WindowsAzure\\Packages* 폴더로 이동합니다. WaAppAgent.exe 파일을 찾습니다.
 2. 파일을 마우스 오른쪽 단추로 클릭하고 **속성**으로 이동한 다음 **세부 정보** 탭을 선택합니다. 제품 버전 필드가 2.6.1198.718 이상이어야 합니다.
 
 ## VM 스냅숏 문제 해결
@@ -149,6 +149,6 @@ VM 백업은 기본 저장소에 대한 스냅숏 명령 실행을 사용합니�
     - 일부 네트워크 제한이 있는 경우(예: 네트워크 보안 그룹) 트래픽을 라우팅하는 HTTP 프록시 서버를 배포합니다. HTTP 프록시 서버를 배포하는 단계는 [여기](backup-azure-vms-prepare.md#2-network-connectivity)에서 찾을 수 있습니다.
     - HTTP 프록시에서 인터넷에 액세스할 수 있도록 NSG(있는 경우)에 규칙을 추가합니다.
 
->[AZURE.NOTE]IaaS VM 백업이 작동하려면 게스트 내에 DHCP를 사용하도록 설정되어야 합니다. 고정 개인 IP가 필요한 경우 플랫폼을 통해 구성해야 합니다. VM 내 DHCP 옵션은 사용 가능한 상태로 두어야 합니다. 고정 내부 개인 IP를 설정하는 방법에 대한 자세한 내용은 [여기](virtual-networks-reserved-private-ip.md)를 참조하세요.
+>[AZURE.NOTE] IaaS VM 백업이 작동하려면 게스트 내에 DHCP를 사용하도록 설정되어야 합니다. 고정 개인 IP가 필요한 경우 플랫폼을 통해 구성해야 합니다. VM 내 DHCP 옵션은 사용 가능한 상태로 두어야 합니다. 고정 내부 개인 IP를 설정하는 방법에 대한 자세한 내용은 [여기](virtual-networks-reserved-private-ip.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

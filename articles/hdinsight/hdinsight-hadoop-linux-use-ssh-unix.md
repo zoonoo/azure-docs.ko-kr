@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/22/2016"
+   ms.date="01/28/2016"
    ms.author="larryfr"/>
 
 #Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH를 사용합니다.
@@ -99,8 +99,7 @@ Linux 기반 HDInsight 클러스터를 만들 때 이전에 생성한 공개 키
 
 ![공개 키를 묻는 양식의 이미지](./media/hdinsight-hadoop-linux-use-ssh-unix/ssh-key.png)
 
-> [AZURE.NOTE] 키 파일은 단순한 텍스트 파일입니다. 내용은 다음과 유사합니다.
-> ```
+> [AZURE.NOTE] 키 파일은 단순한 텍스트 파일입니다. 내용은 다음과 유사합니다. ```
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCelfkjrpYHYiks4TM+r1LVsTYQ4jAXXGeOAF9Vv/KGz90pgMk3VRJk4PEUSELfXKxP3NtsVwLVPN1l09utI/tKHQ6WL3qy89WVVVLiwzL7tfJ2B08Gmcw8mC/YoieT/YG+4I4oAgPEmim+6/F9S0lU2I2CuFBX9JzauX8n1Y9kWzTARST+ERx2hysyA5ObLv97Xe4C2CQvGE01LGAXkw2ffP9vI+emUM+VeYrf0q3w/b1o/COKbFVZ2IpEcJ8G2SLlNsHWXofWhOKQRi64TMxT7LLoohD61q2aWNKdaE4oQdiuo8TGnt4zWLEPjzjIYIEIZGk00HiQD+KCB5pxoVtp user@system
 > ```
 
@@ -108,7 +107,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCelfkjrpYHYiks4TM+r1LVsTYQ4jAXXGeOAF9Vv/KG
 
 ###Mac, Linux 및 Windows용 Azure 명령줄 인터페이스
 
-[Mac, Linux 및 Windows용 Azure CLI](../xplat-cli.md)를 사용하여 `azure hdinsight cluster create` 명령을 통해 새 클러스터를 만들 수 있습니다.
+[Mac, Linux 및 Windows용 Azure CLI](../xplat-cli-install.md)를 사용하여 `azure hdinsight cluster create` 명령을 통해 새 클러스터를 만들 수 있습니다.
 
 이 명령 사용에 대한 자세한 내용은 [사용자 지정 옵션을 사용하여 HDInsight에서 Hadoop Linux 클러스터 프로비전](hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요.
 
@@ -239,4 +238,4 @@ SSH 터널의 생성 및 사용에 대한 자세한 내용은 [SSH 터널링을 
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

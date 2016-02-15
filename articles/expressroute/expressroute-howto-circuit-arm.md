@@ -215,9 +215,8 @@
 
 7. **라우팅 구성 및 VNet 연결**
 
-	a. **라우팅 구성을 만듭니다.** 단계별 지침은 [Express 경로 회로 라우팅 만들기 및 수정](expressroute-howto-routing-arm.md)을 참조하세요.
-
-		>[AZURE.NOTE] The instructions for routing only apply for circuits created with service providers offering Layer 2 connectivity services. If you are using a service provider offering managed Layer 3 services (typically an IPVPN, like MPLS), your connectivity provider will configure and manage routing for you. You will not be able to create or manage peerings in such cases. 
+	a. **라우팅 구성을 만듭니다.** 단계별 지침은 [Express 경로 회로 라우팅 만들기 및 수정](expressroute-howto-routing-arm.md)을 참조하세요. 참고로 라우팅 지침은 2계층 연결 서비스를 제공하는 서비스 공급자를 사용하여 만든 회로에만 적용됩니다. 관리된 3계층 서비스(일반적으로 MPLS와 같은 IPVPN)를 제공하는 서비스 공급자를 사용하는 경우 연결 공급자는 사용자를 위해 라우팅을 구성하고 관리합니다. 이러한 경우에 피어링을 만들거나 관리할 수 없습니다.
+	
 	b. **VNet을 Express 경로 회로에 연결합니다.** 라우팅이 구성되었는지 확인한 후 VNet을 Express 경로 회로에 연결해야 합니다. 단계별 지침은 [Express 경로 회로에 가상 네트워크 연결](expressroute-howto-linkvnet-arm.md)을 참조하세요.
 
 ##  Express 경로 회로의 상태를 가져오려면
@@ -360,4 +359,4 @@ Express 경로 회로를 삭제하려면 아래 PowerShell cmdlet 샘플을 사�
 1.  [Express 경로 회로의 라우팅 만들기 및 수정](expressroute-howto-routing-arm.md)
 2.  [가상 네트워크를 Express 경로 회로에 연결](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

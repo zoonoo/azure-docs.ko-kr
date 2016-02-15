@@ -23,7 +23,7 @@
 
 ## Windows PowerShell cmdlet
 
-다음 표의 cmdlet은 Azure 자동화에서 Windows PowerShell을 사용하여 변수를 만들고 관리하는 데 사용됩니다. 이러한 cmdlet은 [Azure PowerShell 모듈](../powershell-install-configure.md)의 일부로 제공됩니다.
+다음 테이블의 cmdlet은 Azure 자동화에서 Windows PowerShell을 사용하여 일정을 만들고 관리하는 데 사용됩니다. 이러한 cmdlet은 [Azure PowerShell 모듈](../powershell-install-configure.md)의 일부로 제공됩니다.
 
 |Cmdlet|설명|
 |:---|:---|
@@ -37,15 +37,15 @@
 
 ## 새 일정 만들기
 
-### Azure 포털을 사용하여 새 일정을 만들려면
+### Azure 클래식 포털을 사용하여 새 일정을 만들려면
 
 
 1. 자동화 계정에서 창의 위쪽에 있는 **자산**을 클릭합니다.
 1. 창의 아래쪽의 **설정 추가**를 클릭합니다.
 1. **일정 추가**를 클릭합니다.
-1. 마법사를 완료하고 새 변수를 저장하는 확인란을 클릭합니다.
+1. 마법사를 완료하고 새 일정을 저장하는 확인란을 클릭합니다.
 
-### Azure Preview 포털을 사용하여 새 일정을 만들려면
+### Azure 포털을 사용하여 새 일정을 만들려면
 
 1. 자동화 계정에서 **자산** 파트를 클릭하여 **자산** 블레이드를 엽니다.
 1. **일정** 파트를 클릭하여 **일정** 블레이드를 엽니다.
@@ -68,4 +68,4 @@
 - [Azure 자동화에서 Runbook 예약](automation-scheduling-a-runbook.md)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/05/2016"
+   ms.date="02/01/2016"
    ms.author="curtand;kenhoff"/>
 
 # Azure Active Directory Reporting 시작하기
@@ -48,7 +48,7 @@ Azure AD(Azure Active Directory)에는 디렉터리에 대한 보안, 활동 및
 
 - 디렉터리 감사 보고서
 
-> [AZURE.TIP]Azure AD Reporting에 대한 설명서에 대해서는 [액세스 및 사용 보고서 보기](active-directory-view-access-usage-reports.md)를 확인하세요.
+> [AZURE.TIP] Azure AD Reporting에 대한 설명서에 대해서는 [액세스 및 사용 보고서 보기](active-directory-view-access-usage-reports.md)를 확인하세요.
 
 
 
@@ -71,7 +71,7 @@ Azure AD 플랫폼에서 처리한 수많은 인증 및 로그인으로 인해 �
 
 ![각 보고서의 위쪽에 도움말 텍스트](./media/active-directory-reporting-getting-started/reportingWatermark.PNG)
 
-> [AZURE.TIP]Azure AD Reporting에 대한 설명서에 대해서는 [액세스 및 사용 보고서 보기](active-directory-view-access-usage-reports.md)를 확인하세요.
+> [AZURE.TIP] Azure AD Reporting에 대한 설명서에 대해서는 [액세스 및 사용 보고서 보기](active-directory-view-access-usage-reports.md)를 확인하세요.
 
 
 
@@ -92,7 +92,7 @@ Azure AD 플랫폼에서 처리한 수많은 인증 및 로그인으로 인해 �
 
 ### 각 보고서 탐색
 
-각 보고서로 이동하여 수집된 데이터와 처리된 로그인을 확인합니다. [여기서 모든 보고서 목록](active-directory-reporting-what-it-is.md)을 찾을 수 있습니다.
+각 보고서로 이동하여 수집된 데이터와 처리된 로그인을 확인합니다. [여기서 모든 보고서 목록](active-directory-reporting-guide.md)을 찾을 수 있습니다.
 
 ![모든 보고서](./media/active-directory-reporting-getting-started/reportsMain.png)
 
@@ -104,7 +104,7 @@ Azure AD 플랫폼에서 처리한 수많은 인증 및 로그인으로 인해 �
 
 ![다운로드 단추](./media/active-directory-reporting-getting-started/downloadButton.png)
 
-> [AZURE.TIP]Azure AD Reporting에 대한 설명서에 대해서는 [액세스 및 사용 보고서 보기](active-directory-view-access-usage-reports.md)를 확인하세요.
+> [AZURE.TIP] Azure AD Reporting에 대한 설명서에 대해서는 [액세스 및 사용 보고서 보기](active-directory-view-access-usage-reports.md)를 확인하세요.
 
 
 
@@ -134,7 +134,7 @@ Azure AD 플랫폼에서 처리한 수많은 인증 및 로그인으로 인해 �
 
 ![화면 맨 아래에 있는 Multi-Factor Authentication 단추](./media/active-directory-reporting-getting-started/mfaButton.png)
 
-> [AZURE.TIP]Azure AD Reporting에 대한 설명서에 대해서는 [액세스 및 사용 보고서 보기](active-directory-view-access-usage-reports.md)를 확인하세요.
+> [AZURE.TIP] Azure AD Reporting에 대한 설명서에 대해서는 [액세스 및 사용 보고서 보기](active-directory-view-access-usage-reports.md)를 확인하세요.
 
 
 
@@ -154,6 +154,6 @@ Azure AD 플랫폼에서 처리한 수많은 인증 및 로그인으로 인해 �
 
 피드백을 제공하거나, 도움이 필요하거나, 질문이 있는 경우 [aadreportinghelp@microsoft.com](mailto:aadreportinghelp@microsoft.com)으로 전자 메일을 보내세요.
 
-> [AZURE.TIP]Azure AD Reporting에 대한 설명서에 대해서는 [액세스 및 사용 보고서 보기](active-directory-view-access-usage-reports.md)를 확인하세요.
+> [AZURE.TIP] Azure AD Reporting에 대한 설명서에 대해서는 [액세스 및 사용 보고서 보기](active-directory-view-access-usage-reports.md)를 확인하세요.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

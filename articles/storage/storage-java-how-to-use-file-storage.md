@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="01/11/2016"
+	ms.date="02/03/2016"
 	ms.author="jutang"/>
 
 # Java에서 파일 저장소를 사용하는 방법
@@ -30,7 +30,7 @@
 
 ## Java 응용 프로그램 만들기
 
-샘플을 빌드하려면 Java 개발 키트(JDK)와 [Java용 Azure 저장소 SDK][]가 필요합니다. Azure 저장소 계정도 만들었어야 합니다.
+샘플을 빌드하려면 JDK(Java 개발 키트)와 [Java용 Azure 저장소 SDK][]가 필요합니다. Azure 저장소 계정도 만들었어야 합니다.
 
 ## 파일 저장소를 사용하도록 응용 프로그램 설정
 
@@ -208,17 +208,12 @@ Azure 파일 저장소 공유에는 파일이 상주할 수 있는 최소한의 
 
 다른 Azure 저장소 API에 대해 더 알아보려면 다음 링크를 따르십시오.
 
-- [Java용 Azure 저장소 SDK]
-- [Azure 저장소 클라이언트 SDK 참조]
-- [Azure 저장소 REST API]
-- [Azure 저장소 팀 블로그]
-- [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy)
+- [Java용 Azure SDK](http://azure.microsoft.com/develop/java/)
+- [Java용 Azure 저장소 SDK](https://github.com/azure/azure-storage-java)
+- [Android용 Azure 저장소 SDK](https://github.com/azure/azure-storage-android)
+- [Azure 저장소 클라이언트 SDK 참조](http://dl.windowsazure.com/storage/javadoc/)
+- [Azure 저장소 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+- [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)
+- [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)
 
-[Azure SDK for Java]: http://azure.microsoft.com/develop/java/
-[Java용 Azure 저장소 SDK]: https://github.com/azure/azure-storage-java
-[Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
-[Azure 저장소 클라이언트 SDK 참조]: http://dl.windowsazure.com/storage/javadoc/
-[Azure 저장소 REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
-[Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

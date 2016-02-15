@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/28/2015"
+	ms.date="01/28/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 미리 보기: FAQ
@@ -59,7 +59,7 @@ Azure AD B2C 테넌트에서 대부분의 앱은 사용자가 임의의 전자 �
 
 ### Azure AD B2C에서 보낸 확인 전자 메일을 어떻게 사용자 지정합니까?(콘텐츠 및 보낸 사람 필드, 즉 "From" 필드)
 
-[회사 브랜딩 기능](./active-directory/active-directory-add-company-branding.md)을 사용하여 확인 메일의 콘텐츠를 사용자 지정합니다. 보낸 사람 필드는 지원을 통해 변경할 수 있습니다.
+[회사 브랜딩 기능](../active-directory/active-directory-add-company-branding.md)을 사용하여 확인 메일의 콘텐츠를 사용자 지정합니다. 보낸 사람 필드는 지원을 통해 변경할 수 있습니다.
 
 ### 데이터베이스에서 Azure AD B2C로 기존 사용자 이름, 암호 및 프로필을 어떻게 마이그레이션할 수 있습니까?
 
@@ -80,6 +80,10 @@ Azure AD Graph API를 사용([여기](active-directory-b2c-devquickstarts-graph-
 ### Azure AD B2C는 SharePoint 온-프레미스 2016 또는 이전과 함께 작동합니까?
 
 현재는 아닙니다. Azure AD B2C는 SP 온-프레미스 요구에 따라 구축된 포털/전자상거래 응용 프로그램의 SAML 1.1 토큰을 지원하지 않습니다. Azure AD B2C는 Sharepoint 외부 파트너 공유 시나리오에 해당하지 않습니다. 대신 [Azure AD B2B](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx)를 참조하세요.
+
+### 외부 ID를 관리하려면 Azure AD B2C 또는 B2B를 사용해야 합니까?
+
+외부 ID 시나리오에 적절한 기능을 적용하는 방법에 대한 자세한 내용은 [이 문서](../active-directory/active-directory-b2b-compare-external-identities.md)를 참조하세요.
 
 ### Azure AD B2C이 제공하는 보고 및 감사 기능은 무엇입니까? Azure AD Premium과 동일합니까?
 
@@ -109,4 +113,4 @@ Azure AD B2C에서 [이 지원 항목](active-directory-b2c-support.md)을 확�
 
 또한 현재 [미리 보기 제한, 제한 사항 및 제약 조건](active-directory-b2c-limitations.md)을 검토하려 합니다.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/09/2015"   
+	ms.date="01/29/2016"
 	ms.author="juliako"/>
 
 
@@ -25,6 +25,7 @@
 
 - [현재 알려진 문제](#issues)
 - [REST API 버전 기록](#rest_version_history)
+- [2016년 1월 릴리스](#jan_changes_16)
 - [2015년 12월 릴리스](#dec_changes_15)
 - [2015년 11월 릴리스](#nov_changes_15)
 - [2015년 10월 릴리스](#oct_changes_15)
@@ -76,6 +77,13 @@ SDK의 미디어 서비스 개체는 직렬화할 수 없으며, 결과적으로
 ##<a id="rest_version_history"></a>REST API 버전 기록
 
 미디어 서비스 REST API 버전 기록에 대한 자세한 내용은 [Azure 미디어 서비스 REST API 참조]를 참조하세요.
+
+
+##<a id="jan_changes_16"></a>2016년 1월 릴리스
+
+인코더 이름의 혼동을 줄이기 위해 인코딩 예약 단위 이름이 바뀌었습니다.
+
+기본, 표준 및 프리미엄 인코딩 예약 단위의 이름이 S1, S2 및 S3 예약 단위로 각각 바뀌었습니다. 현재 기본 인코딩 RU를 사용하는 고객에게는 Azure 포털(및 청구서)에서 S1이 레이블로 표시되고 표준 및 프리미엄 고객에게는 S2 및 S3이 각각 레이블로 표시됩니다.
 
 ##<a id="dec_changes_15"></a>2015년 12월 릴리스
 
@@ -635,4 +643,4 @@ Azure 미디어 서비스 .NET SDK Extensions는 코드를 단순화하고 Azure
 [미디어 서비스 작업 알림 처리]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

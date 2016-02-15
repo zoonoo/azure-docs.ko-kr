@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="01/08/2016"
+   ms.date="02/01/2016"
    ms.author="alkohli"/>
 
 # StorSimple 소프트웨어, 높은 가용성 및 네트워킹 요구 사항
@@ -35,11 +35,11 @@ Microsoft Azure StorSimple 시작을 환영합니다. 이 문서에서는 중요
 
 | 지원되는 운영 체제 | 필요한 버전 | 추가 요구 사항/메모 |
 | --------------------------- | ---------------- | ------------- |
-| Windows Server | 2008R2 SP1, 2012, 2012R2 |StorSimple iSCSI 볼륨은 다음과 같은 Windows 디스크 유형에 사용하는 경우에만 지원됩니다.<ul><li>기본 디스크의 단순 볼륨</li><li>동적 디스크의 단순 및 미러 볼륨</li></ul>Windows Server 2012 씬 프로비저닝 및 ODX 기능은 StorSimple iSCSI 볼륨을 사용하는 경우에만 지원됩니다.<br><br>StorSimple은 씬 프로비저닝된 볼륨만 만들 수 있습니다. 완전히 또는 부분적으로 프로비전된 볼륨은 만들 수 없습니다.<br><br>씬 프로비저닝된 볼륨을 다시 포맷하는 데에는 시간이 오래 걸릴 수 있습니다. 다시 포맷하는 대신 볼륨을 삭제했다가 새 볼륨을 만드는 것이 좋습니다. 그래도 볼륨을 다시 포맷하려면,<ul><li>공간 재사용에 따른 지연을 방지하려면 다시 포맷하기 전에 다음 명령을 실행합니다.<br>`fsutil behavior set disabledeletenotify 1`</br></li><li>포맷이 완료되면 다음 명령을 사용하여 공간 재사용을 다시 활성화합니다.<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>[KB 2878635](https://support.microsoft.com/kb/2870270)에 설명된 대로 Windows Server 2012 핫픽스를 Windows Server 컴퓨터에 적용합니다.</li></ul></li></ul></ul> StorSimple 스냅숏 관리자 또는 SharePoint용 StorSimple 어댑터를 구성하려면 [선택적 구성 요소에 대한 소프트웨어 요구 사항](#software-requirements-for-optional-components)으로 이동하세요.|
-| VMWare ESX | 5\.1 | iSCSI 클라이언트로 VMware vSphere 5.1과 함께 지원됩니다. VAAI 블록 기능은 StorSimple 장치에서 VMware vSphere v.5.1과 함께 지원됩니다. 
+| Windows Server | 2008R2 SP1, 2012, 2012R2 |StorSimple iSCSI 볼륨은 다음과 같은 Windows 디스크 유형에 사용하는 경우에만 지원됩니다.<ul><li>기본 디스크의 단순 볼륨</li><li>동적 디스크의 단순 및 미러 볼륨</li></ul>Windows Server 2012 씬 프로비저닝 및 ODX 기능은 StorSimple iSCSI 볼륨을 사용하는 경우에만 지원됩니다.<br><br>StorSimple은 씬 프로비전된 볼륨 및 완전히 프로비전된 볼륨을 만들 수 있습니다. 부분적으로 프로비전된 볼륨은 만들 수 없습니다.<br><br>씬 프로비전된 볼륨을 다시 포맷하는 데에는 시간이 오래 걸릴 수 있습니다. 다시 포맷하는 대신 볼륨을 삭제했다가 새 볼륨을 만드는 것이 좋습니다. 그래도 볼륨을 다시 포맷하려면,<ul><li>공간 재사용에 따른 지연을 방지하려면 다시 포맷하기 전에 다음 명령을 실행합니다.<br>`fsutil behavior set disabledeletenotify 1`</br></li><li>포맷이 완료되면 다음 명령을 사용하여 공간 재사용을 다시 활성화합니다.<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>[KB 2878635](https://support.microsoft.com/kb/2870270)에 설명된 대로 Windows Server 2012 핫픽스를 Windows Server 컴퓨터에 적용합니다.</li></ul></li></ul></ul> StorSimple 스냅숏 관리자 또는 SharePoint용 StorSimple 어댑터를 구성하려면 [선택적 구성 요소에 대한 소프트웨어 요구 사항](#software-requirements-for-optional-components)으로 이동하세요.|
+| VMWare ESX | 5\.5 | iSCSI 클라이언트로 VMWare vSphere와 함께 지원됩니다. VAAI 블록 기능은 StorSimple 장치에서 VMware vSphere와 함께 지원됩니다. 
 | Linux RHEL/CentOS | 5 및 6 | Open iSCSI 초기자 버전 5 및 6과 함께 Linux iSCSI 클라이언트를 지원합니다. |
 | Linux | SUSE Linux 11 | |
- >[AZURE.NOTE]IBM AIX는 현재 StorSimple에 지원되지 않습니다.
+ > [AZURE.NOTE] IBM AIX는 현재 StorSimple에 지원되지 않습니다.
 
 ## 선택적 구성 요소에 대한 소프트웨어 요구 사항
 
@@ -71,7 +71,7 @@ StorSimple 장치는 잠긴 장치입니다. 하지만 iSCSI, 클라우드 또�
 
 <sup>3</sup> StorSimple 장치에서 IP가 고정된 컨트롤러는 라우팅할 수 있어야 하며 인터넷에 연결할 수 있어야 합니다. 고정 IP 주소는 장치에 대한 업데이트를 제공하는 데 사용됩니다. 장치 컨트롤러가 고정 IP를 통해 인터넷에 연결되는 경우 StorSimple 장치를 업데이트할 수 없습니다.
 
-> [AZURE.IMPORTANT]방화벽이 StorSimple 장치 및 Azure 사이의 모든 SSL 트래픽을 수정하거나 암호를 해독하지 않도록 해야 합니다.
+> [AZURE.IMPORTANT] 방화벽이 StorSimple 장치 및 Azure 사이의 모든 SSL 트래픽을 수정하거나 암호를 해독하지 않도록 해야 합니다.
 
 ### 라우팅 메트릭
 
@@ -108,12 +108,7 @@ StorSimple에 대해 다수의 네트워크 인터페이스와 게이트웨이�
 		
 	| 네트워크 인터페이스 | 클라우드 사용 | 클라우드 미사용(게이트웨이 구성됨) |
 	|-----|---------------|---------------------------|
-	| Data 0 | 1 | - |
-	| Data 1 | 2 | 20 |
-	| Data 2 | 3 | 30 |
-	| Data 3 | 4 | 40 |
-	| Data 4 | 5 | 50 |
-	| Data 5 | 6 | 60 |
+	| Data 0 | 1 | - | | Data 1 | 2 | 20 | | Data 2 | 3 | 30 | | Data 3 | 4 | 40 | | Data 4 | 5 | 50 | | Data 5 | 6 | 60 |
 
 
 - 네트워크 인터페이스를 통해 클라우드 트래픽이 라우팅되는 순서는 다음과 같습니다.
@@ -261,4 +256,4 @@ StorSimple 장치에 연결된 호스트의 고가용성을 위해 이러한 모
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

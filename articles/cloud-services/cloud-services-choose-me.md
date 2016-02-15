@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure의 클라우드 서비스가 내가 원하는 계산 옵션인가요?" 
+	pageTitle="클라우드 서비스는 저에게 적합한 Azure 계산 옵션입니까? | Microsoft Azure" 
 	description="Azure 계산 호스팅 옵션 및 작동 방식에 대해 알아봅니다. 앱 서비스, 클라우드 서비스 및 가상 컴퓨터" 
 	services="cloud-services"
     documentationCenter=""
@@ -32,8 +32,8 @@ Azure는 응용 프로그램을 실행하기 위한 여러 호스팅 모델을 �
 ## 다음 단계
 [.NET에서 클라우드 서비스 앱 만들기](cloud-services-dotnet-get-started.md)<br/> [ Node.js에서 클라우드 서비스 앱 만들기](cloud-services-nodejs-develop-deploy-app.md)<br/> [PHP에서 클라우드 서비스 앱 만들기](../cloud-services-php-create-web-role.md)<br/> [Python에서 클라우드 서비스 앱 만들기](../cloud-services-python-ptvs.md)<br/>
 
-[앱 서비스]: app-service-choose-me.md
-[가상 컴퓨터]: ../virtual-machines-about.md
+[앱 서비스]: ../app-service-web/app-service-web-overview.md
+[가상 컴퓨터]: ../virtual-machines/virtual-machines-about.md
 [클라우드 서비스]: #tellmecs
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

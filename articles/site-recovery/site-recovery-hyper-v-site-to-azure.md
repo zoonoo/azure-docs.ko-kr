@@ -56,13 +56,13 @@ Azure Site Recovery 배포의 일환으로 Hyper-V 서버마다 Azure Site Recov
 - 항상 최신 버전의 공급자 및 에이전트를 실행하는 것이 좋습니다. 이에 대한 내용은 사이트 복구 포털에서 제공됩니다.
 - 자격 증명 모음의 모든 Hyper-V 서버는 동일한 버전의 공급자 및 에이전트를 포함해야 합니다.
 - 서버에서 실행되는 공급자는 인터넷을 통해 사이트 복구에 연결됩니다. 현재 Hyper-V 서버에 구성된 프록시 설정 또는 공급자 설치 중에 구성하는 사용자 지정 프록시 설정을 사용하여 프록시 없이 이를 수행할 수 있습니다. 사용하려는 프록시 서버가 Azure 연결을 위해 이러한 URL에 액세스할 수 있는지 확인해야 합니다.
-	- *.hypervrecoverymanager.windowsazure.com
-	- *.accesscontrol.windows.net
-	- *.backup.windowsazure.com
-	- *.blob.core.windows.net
-	- *.store.core.windows.net
+	- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
 	
-- 또한 [Azure 데이터센터 IP 범위](https://www.microsoft.com/ko-KR/download/details.aspx?id=41653) 및 HTTPS(443) 프로토콜에 설명된 IP 주소를 허용합니다. 사용하려는 Azure 지역 및 미국 서부의 IP 범위를 허용해야 합니다.
+- 또한 [Azure 데이터센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653) 및 HTTPS(443) 프로토콜에 설명된 IP 주소를 허용합니다. 사용하려는 Azure 지역 및 미국 서부의 IP 범위를 허용해야 합니다.
 
 
 이 그림에서는 조정 및 복제를 위해 사이트 복구에서 사용되는 다양한 통신 채널 및 포트를 보여줍니다.
@@ -167,8 +167,8 @@ Hyper-V 클러스터를 설치하는 경우 장애 조치 클러스터의 각 �
 
 4. 등록을 완료하려면 다음을 실행합니다.
 
-	    	CD C:\Program Files\Microsoft Azure Site Recovery Provider\
-    		C:\Program Files\Microsoft Azure Site Recovery Provider> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>         
+    	CD C:\Program Files\Microsoft Azure Site Recovery Provider
+    	C:\Program Files\Microsoft Azure Site Recovery Provider> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>         
 
 여기서 매개 변수는 다음과 같습니다.
 
@@ -224,7 +224,7 @@ Hyper-V 클러스터를 설치하는 경우 장애 조치 클러스터의 각 �
 		- **크기**: 장애 조치된 가상 컴퓨터의 대상 크기입니다.
 
 		![가상 컴퓨터 속성 구성](./media/site-recovery-hyper-v-site-to-azure/VMProperties.png)
-	- 다음을 포함하여 **보호된 항목** > **보호 그룹** > *protectiongroup\_name* > **가상 컴퓨터** *virtual\_machine\_name* > **구성**에서 추가적인 가상 컴퓨터의 설정을 구성합니다.
+	- 다음을 포함하여 *보호된 항목** > **보호 그룹** > *protectiongroup\_name* > **가상 컴퓨터** *virtual\_machine\_name* > **구성**에서 추가적인 가상 컴퓨터의 설정을 구성합니다.
 
 		- **네트워크 어댑터**: 네트워크 어댑터 수가 대상 가상 컴퓨터에 대해 지정하는 크기에 따라 결정됩니다. [가상 컴퓨터 크기 사양](../virtual-machines/virtual-machines-size-specs.md#size-tables)에서 가상 컴퓨터 크기에 의해 지원되는 NIC의 수를 확인하세요.
 
@@ -292,4 +292,4 @@ Azure 대상 네트워크를 사용하여 테스트 장애 조치(Failover)를 �
 
 배포가 설정되고 실행된 후 장애 조치에 대해 [알아봅니다](site-recovery-failover.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="12/04/2015"
+ ms.date="02/01/2016"
  ms.author="larryfr"/>
 
 #Hive JDBC 드라이버를 사용하여 Azure HDInsight에서 Hive에 연결
@@ -61,7 +61,7 @@ Azure에서 HDInsight 클러스터에 대한 JDBC가 443을 통해 연결되어 
 
 ##Java 프로젝트 예제
 
-HDInsight에서 Hive를 쿼리하는 데 Java 클라이언트를 사용하는 예제를 [https://github.com/Blackmist/hdinsight-hive-jdbc](https://github.com/Blackmist/hdinsight-hive-jdbc)에서 사용할 수 있습니다. 리포지토리의 지침에 따라 샘플을 빌드하고 실행합니다.
+HDInsight에서 Hive를 쿼리하는 데 Java 클라이언트를 사용하는 예제를 [https://github.com/Azure-Samples/hdinsight-java-hive-jdbc](https://github.com/Azure-Samples/hdinsight-java-hive-jdbc)에서 사용할 수 있습니다. 리포지토리의 지침에 따라 샘플을 빌드하고 실행합니다.
 
 ##다음 단계
 
@@ -72,4 +72,4 @@ JDBC를 사용하여 Hive와 함께 작업하는 방법을 살펴보았으므로
 * [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 * [HDInsight에서 MapReduce 작업 사용](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="10/27/2015"
+   ms.date="02/03/2016"
    ms.author="viviali"/>
 
-# Azure Active Directory(Azure AD) B2B 공동 작업에 대한 현재 미리 보기 제한 사항
+# Azure AD B2B 공동 작업 미리 보기: 현재 미리 보기 제한 사항
 
 - 외부 사용자에서 지원되지 않는 Multi-Factor Authentication(MFA)입니다. 예를 들어, Contoso에 MFA가 있지만 파트너 조직에는 없는 경우, B2B 공동 작업을 통해.파트너 조직 사용자에게 MFA를 부여할 수 없습니다.
 - CSV를 통해서만 초대가 가능합니다. 개별 초대 및 API 액세스는 지원되지 않습니다.
@@ -37,4 +37,4 @@ Azure B2B 공동 작업에 대한 다른 기사 찾아보기:
 - [외부 사용자 토큰 형식](active-directory-b2b-references-external-user-token-format.md)
 - [외부 사용자 개체 특성 변경](active-directory-b2b-references-external-user-object-attribute-changes.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0204_2016-->

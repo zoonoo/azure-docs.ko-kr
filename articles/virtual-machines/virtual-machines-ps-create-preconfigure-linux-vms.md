@@ -35,7 +35,7 @@ Windows 기반 가상 컴퓨터에 대한 관련 문서는 [Azure PowerShell을 
 
 ## Azure PowerShell 설치
 
-아직 설치하지 않은 경우에는 [Azure PowerShell을 설치하고 구성](../install-configure-powershell.md)합니다. 그런 다음 Azure PowerShell 명령 프롬프트를 엽니다.
+아직 설치하지 않은 경우에는 [Azure PowerShell을 설치하고 구성](powershell-install-configure.md)합니다. 그런 다음 Azure PowerShell 명령 프롬프트를 엽니다.
 
 ## 구독 및 저장소 계정 설정
 
@@ -274,10 +274,10 @@ Azure 가상 네트워크의 특정 서브넷에 가상 컴퓨터를 할당합�
 
 [Azure 가상 컴퓨터 개요](http://msdn.microsoft.com/library/azure/jj156143.aspx)
 
-[Azure PowerShell을 설치 및 구성하는 방법](../install-configure-powershell.md)
+[Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure.md)
 
 [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](virtual-machines-linux-how-to-log-on.md)
 
 [Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="01/28/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 미리 보기: 제한 사항
@@ -28,7 +28,7 @@
 
 ## 확인 메일에 대한 브랜딩 문제
 
-기본 확인 메일에 "Microsoft" 브랜딩이 포함되어 있습니다. 이는 나중에 제거될 예정입니다. 지금은 [회사 브랜딩 기능](./active-directory/active-directory-add-company-branding.md)을 사용하여 제거할 수 있습니다.
+기본 확인 메일에 "Microsoft" 브랜딩이 포함되어 있습니다. 이는 나중에 제거될 예정입니다. 지금은 [회사 브랜딩 기능](../active-directory/active-directory-add-company-branding.md)을 사용하여 제거할 수 있습니다.
 
 ## 프로덕션 응용 프로그램에 대한 지원
 
@@ -68,7 +68,7 @@ Azure AD B2C 미리 보기는 OpenID Connect 및 OAuth 2.0을 지원합니다. �
 
 ## 토큰에 대한 제한 사항
 
-Azure AD B2C 미리 보기에서 발급된 토큰은 대부분 JSON 웹 토큰, 즉 JWT로 구현됩니다. 그러나 JWT에 포함된 일부 정보("클레임"이라고 함)는 부족하거나 누락되었습니다. 일부 예제는 "sub" 및 "preferred\_username" 클레임을 포함합니다. 미리 보기하는 동안 여기서 상당히 변경될 것을 예상해야 합니다. Azure AD B2C 서비스에서 현재 내보내는 토큰을 더 잘 이해하려면 [토큰 참조](active-directory-b2c-tokens.md)를 자세히 읽어보세요.
+Azure AD B2C 미리 보기에서 발급된 토큰은 대부분 JSON 웹 토큰, 즉 JWT로 구현됩니다. 그러나 JWT에 포함된 일부 정보("클레임"이라고 함)는 부족하거나 누락되었습니다. 일부 예제는 "sub" 및 "preferred\_username" 클레임을 포함합니다. 미리 보기하는 동안 여기서 상당히 변경될 것을 예상해야 합니다. Azure AD B2C 서비스에서 현재 내보내는 토큰을 더 잘 이해하려면 [토큰 참조](active-directory-b2c-reference-tokens.md)를 자세히 읽어보세요.
 
 ## Azure 클래식 포털에서 사용자 관리에 발생하는 문제
 
@@ -96,4 +96,4 @@ Azure 클래식 포털에서 Azure AD B2C 테넌트를 삭제할 수 없습니�
 
 Azure 포털에서 B2C 설정 블레이드에 액세스하는 경우 오른쪽 위에 있는 알림에 다음과 같은 경고 메시지가 표시됩니다. “<B2CTenantName> 디렉터리에 구독이 없습니다. 전환할 수 있는 다른 디렉터리가 있습니다.” 여기서 <B2CTenantName>은 B2C 테넌트 이름입니다. 이 메시지는 무시해도 되고 계속해서 B2C 기능에 액세스할 수 있습니다. 이 문제의 해결을 위해 Azure 포털 팀과 함께 작업이 진행 중입니다.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

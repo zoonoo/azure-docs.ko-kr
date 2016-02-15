@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/31/2015"
+   ms.date="01/29/2016"
    ms.author="v-sharos" />
 
 # 작동 StorSimple 장치 문제 해결
@@ -64,7 +64,7 @@
 문제를 해결할 수 없는 경우 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요.
 
 
-[1]: https://technet.microsoft.com/en-us/%5Clibrary/Dn688135(v=WPS.630).aspx
-[2]: https://technet.microsoft.com/en-us/%5Clibrary/Dn715782(v=WPS.630).aspx
+[1]: https://technet.microsoft.com/ko-KR/%5Clibrary/Dn688135(v=WPS.630).aspx
+[2]: https://technet.microsoft.com/ko-KR/%5Clibrary/Dn715782(v=WPS.630).aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

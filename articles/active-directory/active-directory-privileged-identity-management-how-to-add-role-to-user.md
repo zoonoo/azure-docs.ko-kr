@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="na"
+   ms.service="active-directory"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -46,4 +46,4 @@ PIM 인터페이스의 **관리되는 사용자 추가** 블레이드로 이동�
 ## 다음 단계
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

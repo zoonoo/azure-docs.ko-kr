@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/14/2016"
+	ms.date="02/02/2016"
 	ms.author="juliako"/>
 
 #Azure 미디어 서비스 개요 및 일반적인 시나리오
@@ -31,10 +31,12 @@ Microsoft Azure 미디어 서비스는 개발자가 확장 가능한 미디어 �
 - [미디어 서비스 REST API](https://msdn.microsoft.com/library/azure/hh973617.aspx)
 - 사용 가능한 클라이언트 SDK 중 하나: 
 	- [.NET용 Azure 미디어 서비스 SDK](https://github.com/Azure/azure-sdk-for-media-services), 
-	- [Java용 Azure SDK](https://github.com/Azure/azure-sdk-for-java), [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php), 
-	- [Node.js용 Azure 미디어 서비스](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js)(Node.js SDK의 타사 버전입니다. 커뮤니티에서 유지 관리하고 현재 AMS API를 100% 포함하지 않습니다). 
-- 기존 도구: [Azure 클래식 포털](http://manage.windowsazure.com/) 또는 [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer)
-
+	- [Java용 Azure SDK](https://github.com/Azure/azure-sdk-for-java), 
+	- [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php), 
+	- [Node.js용 Azure 미디어 서비스](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js)(Node.js SDK의 Microsoft가 아닌 타사 버전입니다. 커뮤니티에서 유지 관리하고 현재 AMS API를 100% 포함하지 않습니다). 
+- 기존 도구: 
+	- [Azure 클래식 포털](http://manage.windowsazure.com/) 
+	- [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer)(AMSE(Azure 미디어 서비스 탐색기)는 Windows용 Winforms/C# 응용 프로그램임)
 
 ##미디어 서비스 학습 경로
 
@@ -44,7 +46,6 @@ Microsoft Azure 미디어 서비스는 개발자가 확장 가능한 미디어 �
 - [AMS 주문형 스트리밍 워크플로](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ##포스터
-
 
 [여기서](https://azure.microsoft.com/documentation/infographics/media-services/) 미디어 만들기부터 소비까지의 AMS 워크플로를 표시하는 Azure 미디어 서비스 포스터를 볼 수 있습니다.
 
@@ -59,10 +60,11 @@ Azure 미디어 서비스 사용을 시작하려면 다음이 있어야 합니�
 	프로그래밍 방식으로 자동으로 [연결](media-services-dotnet-connect_programmatically.md)하는 방법도 알아봅니다.
 4. (권장) 하나 이상의 배율 단위 할당. 프로덕션 환경에서 응용 프로그램에 대한 하나 이상의 확장 단위를 할당하는 것이 좋습니다. 자세한 내용은 [스트리밍 끝점 관리](media-services-manage-origins.md)를 참조하세요.
 
-##개념
+##개념 및 개요
 
-자세한 내용은 [개념](media-services-concepts.md)을 참조하세요.
+Azure 미디어 서비스 개념은 [개념](media-services-concepts.md)을 참조하세요.
 
+Azure 미디어 서비스의 모든 주요 구성 요소를 소개하는 사용 방법 시리즈는 [Azure 미디어 서비스 단계별 자습서](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series)를 참조하세요. 이 시리즈에는 개념에 대한 훌륭한 개요가 포함되어 있으며 AMSE 도구를 사용하여 AME 작업을 보여 줍니다. AMSE 도구는 Windows 도구입니다. 이 도구는 [.NET용 AMS SDK](https://github.com/Azure/azure-sdk-for-media-services), [Java용 Azure SDK](https://github.com/Azure/azure-sdk-for-java) 또는 [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php)를 사용하여 프로그래밍 방식으로 얻을 수 있는 대부분의 작업을 지원합니다.
 
 ##<a id="vod_scenarios"></a>Azure 미디어 서비스를 사용하여 주문형 미디어 제공: 일반적인 시나리오 및 작업
 
@@ -234,4 +236,4 @@ Azure 미디어 서비스는 iOS 장치, Android 장치, Windows, Windows Phone,
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

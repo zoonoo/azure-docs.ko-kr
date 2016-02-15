@@ -13,12 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Azure 데이터 팩터리를 사용하여 Azure SQL 데이터 웨어하우스 간 데이터 이동
 
 이 문서에서는 데이터 팩터리 복사 작업을 사용하여 어떻게 다른 데이터 저장소에서 Azure SQL 데이터 웨어하우스에 데이터를 이동하고 다른 데이터 저장소에서 Azure SQL에 데이터를 이동할 수 있는지를 설명합니다. 이 문서는 복사 작업 및 지원되는 데이터 저장소 조합을 사용하여 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서를 작성합니다.
+
+다음 샘플은 Azure SQL 데이터 웨어하우스 및 Azure Blob 저장소 간에 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure 데이터 팩터리의 복사 작업을 사용하여 임의의 원본에서 [여기](data-factory-data-movement-activities.md#supported-data-stores)에 설명한 싱크로 **직접** 데이터를 복사할 수 있습니다.
+
 
 ## 샘플: Azure SQL 데이터 웨어하우스에서 Azure Blob에 데이터 복사
 
@@ -193,7 +196,7 @@
 	   }
 	}
 
-> [AZURE.NOTE]위의 예에서 **sqlReaderQuery**는 SqlDWSource에 지정됩니다. 복사 작업은 데이터를 가져오는 Azure SQL 데이터 웨어하우스 원본에 대해 이 쿼리를 실행합니다.
+> [AZURE.NOTE] 위의 예에서 **sqlReaderQuery**는 SqlDWSource에 지정됩니다. 복사 작업은 데이터를 가져오는 Azure SQL 데이터 웨어하우스 원본에 대해 이 쿼리를 실행합니다.
 >  
 > 또는 **sqlReaderStoredProcedureName** 및 **storedProcedureParameters**를 지정하여 저장된 프로시저를 지정할 수 있습니다.(저장된 프로시저가 매개 변수를 사용하는 경우)
 >  
@@ -473,7 +476,7 @@ sqlReaderQuery 또는 sqlReaderStoredProcedureName 중 하나를 지정하지 �
 
 ### Azure SQL 데이터 웨어하우스에 대한 형식 매핑
 
-[데이터 이동 활동](data-factory-data-movement-activities.md) 문서에서 설명한 대로 복사 작업은 다음 2단계 접근 방식을 사용하여 원본 형식에서 싱크 형식으로 자동 형식 변환을 수행합니다.
+[데이터 이동 활동](data-factory-data-movement-activities.md) 문서에서 설명한 것처럼 복사 작업은 다음 2단계 접근 방법을 사용하여 자동 형식 변환인 원본 형식에서 싱크 형식으로 자동 형식 변환을 수행합니다.
 
 1. 네이티브 원본 형식에서 .NET 형식으로 변환
 2. .NET 형식에서 네이티브 싱크 형식으로 변환
@@ -523,4 +526,4 @@ SQL Azure, SQL server, Sybase에서 데이터를 이동하는 경우 SQL 형식�
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0204_2016-->

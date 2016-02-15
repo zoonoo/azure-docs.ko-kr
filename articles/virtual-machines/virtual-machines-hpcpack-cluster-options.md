@@ -13,7 +13,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="10/08/2015"
+ ms.date="01/26/2016"
  ms.author="danlep"/>
 
 # Microsoft HPC Pack을 사용하여 Azure에서 HPC(고성능 컴퓨팅) 클러스터를 만들고 관리하는 옵션
@@ -69,7 +69,6 @@ ms.service="virtual-machines"
 
 * [Azure에서 HPC Pack 클러스터의 컴퓨터 노드 관리](virtual-machines-hpcpack-cluster-node-manage.md)
 
-* [Azure에서 HPC Pack 헤드 노드에 Azure "버스트" 노드 추가](virtual-machines-hpcpack-cluster-node-burst.md)
 
 * [HPC Pack 클러스터에서 Azure 계산 리소스 확장 및 축소](virtual-machines-hpcpack-cluster-node-autogrowshrink.md)
 
@@ -97,6 +96,6 @@ ms.service="virtual-machines"
 
 * [자습서: Azure의 Linux RDMA 클러스터에서 Microsoft HPC 팩을 사용하여 OpenFOAM 실행](virtual-machines-linux-cluster-hpcpack-openfoam.md)
 
-<!-- * [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-hpcpack-cluster-rdma.md) -->
+* [MPI 응용 프로그램을 실행하도록 Linux RDMA 클러스터 설정](virtual-machines-linux-cluster-rdma.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

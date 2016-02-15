@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/12/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # 데이터 팩터리 문제 해결
@@ -374,4 +374,4 @@ HDInsight 프로비저닝 클러스터를 프로비전할 때 기본값을 변�
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

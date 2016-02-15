@@ -271,7 +271,7 @@ NIC를 만들고 부하 분산된 집합에 대한 부하 분산 장치 인스�
 	$avName="<availability set name>"
 	Get-AzureRmVMSize -ResourceGroupName $rgName -AvailabilitySetName $avName | Select Name
 
-> [AZURE.NOTE]현재 리소스 관리자를 사용하여, 가상 컴퓨터를 만드는 동안에만 가용성 집합에 추가할 수 있습니다.
+> [AZURE.NOTE] 현재 리소스 관리자를 사용하여, 가상 컴퓨터를 만드는 동안에만 가용성 집합에 추가할 수 있습니다.
 
 VM에 데이터 디스크를 더 추가하려면 다음 줄을 명령 집합으로 복사하고 디스크 설정을 지정합니다.
 
@@ -391,8 +391,8 @@ VM에 데이터 디스크를 더 추가하려면 다음 줄을 명령 집합으�
 
 [리소스 관리자 템플릿 및 PowerShell을 사용하여 Azure 가상 컴퓨터 배포 및 관리](virtual-machines-deploy-rmtemplates-powershell.md)
 
-[리소스 관리자 템플릿 및 PowerShell을 사용하여 Windows 가상 컴퓨터 만들기](virtual-machines-create-windows-powershell-resource-manager-template-simple)
+[리소스 관리자 템플릿 및 PowerShell을 사용하여 Windows 가상 컴퓨터 만들기](virtual-machines-create-windows-powershell-resource-manager-template.md)
 
-[Azure PowerShell 설치 및 구성하는 방법](../install-configure-powershell.md)
+[Azure PowerShell 설치 및 구성하는 방법](powershell-install-configure.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

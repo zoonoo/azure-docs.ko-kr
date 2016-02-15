@@ -12,8 +12,8 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="11/02/2015" 
+	ms.topic="article" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # 자습서: 데이터 팩터리 편집기를 사용하여 복사 작업이 있는 파이프라인 만들기
@@ -37,7 +37,7 @@
 [5단계: 조각 및 파이프라인 모니터링](#MonitorDataSetsAndPipeline) | 이 단계에서는 Azure 포털을 사용하여 입력 및 출력 테이블의 조각을 모니터링합니다.
  
 
-## <a name="CreateDataFactory"></a>1단계: Azure Data Factory 만들기
+## <a name="CreateDataFactory"></a>1단계: Azure 데이터 팩터리 만들기
 이 단계에서는 Azure 포털을 사용하여 **ADFTutorialDataFactory**라는 Azure Data Factory를 만듭니다.
 
 1.	[Azure 포털][azure-portal]에 로그인한 후에 왼쪽 아래에서 **새로 만들기**를 클릭하고 **만들기** 블레이드에서 **데이터 분석**을 선택한 다음 **데이터 분석** 블레이드에서 **데이터 팩터리**를 클릭합니다. 
@@ -459,4 +459,4 @@ Azure PowerShell을 사용하여 이 자습서를 수행하려면 [Azure PowerSh
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

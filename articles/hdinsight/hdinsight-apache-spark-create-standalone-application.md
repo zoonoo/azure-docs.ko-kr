@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="02/01/2016" 
 	ms.author="nitinme"/>
 
 
@@ -84,13 +84,13 @@ IntelliJ IDEA 설치가 Scala 플러그 인 활성화를 묻지 않은 경우 In
 	4. **적용**을 클릭한 다음 **확인**을 클릭합니다. 
 
 
-8. Scala 소스 파일을 업데이트하여 응용 프로그램 코드를 포함합니다. 기존 샘플 코드를 열고 다음 코드로 바꾸고 변경 내용을 저장합니다.
+8. Scala 소스 파일을 업데이트하여 응용 프로그램 코드를 포함합니다. 기존 샘플 코드를 열고 다음 코드로 바꾸고 변경 내용을 저장합니다. 이 코드는 HVAC.csv(모든 HDInsight Spark 클러스터에서 사용 가능)에서 데이터를 읽고, 여섯 번째 열에 한 자리만 있는 행을 검색하고, 출력을 클러스터의 기본 저장 컨테이너 아래의 **/HVACOut**에 씁니다.
 
 		package com.microsoft.spark.example
 
 		import org.apache.spark.SparkConf
 		import org.apache.spark.SparkContext
-				
+		
 		/**
 		  * Test IO to wasb
 		  */
@@ -101,11 +101,13 @@ IntelliJ IDEA 설치가 Scala 플러그 인 활성화를 묻지 않은 경우 In
 		
 		    val rdd = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 		
-		    val rdd1 = rdd.map(s => s.split(",")).filter(s => s(0) != "ID")
+		    //find the rows which have only one digit in the 7th column in the CSV
+		    val rdd1 = rdd.filter(s => s.split(",")(6).length() == 1)
 		
 		    rdd1.saveAsTextFile("wasb:///HVACout")
 		  }
 		}
+
 
 9. pom.xml를 업데이트합니다.
 
@@ -192,4 +194,4 @@ IntelliJ IDEA 설치가 Scala 플러그 인 활성화를 묻지 않은 경우 In
 
 * [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

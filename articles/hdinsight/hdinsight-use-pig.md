@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/08/2016"
+   ms.date="01/28/2016"
    ms.author="larryfr"/>
 
 # HDInsight에서 Hadoop과 Pig 사용
@@ -57,7 +57,7 @@ Pig와 UDF를 사용하는 예로, 다음 문서를 참조하십시오:
 
 이전 예에서 로그 수준은 ERROR입니다.
 
-> [AZURE.NOTE] [Apache Log4j](http://en.wikipedia.org/wiki/Log4j) 도구 로깅하여 log4j 파일을 생성하고 해당 파일을 사용자의 blob에 업로드할 수도 있습니다. 해당 지침은 [HDInsight에 데이터 업로드](hdinsight-upload-data.md)를 참조하세요. HDInsight와 함께 Azure Blob 저장소를 사용하는 방법에 대한 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용](../hdinsight-use-blob-storage.md)을 참조하세요.
+> [AZURE.NOTE] [Apache Log4j](http://en.wikipedia.org/wiki/Log4j) 도구 로깅하여 log4j 파일을 생성하고 해당 파일을 사용자의 blob에 업로드할 수도 있습니다. 해당 지침은 [HDInsight에 데이터 업로드](hdinsight-upload-data.md)를 참조하세요. HDInsight와 함께 Azure Blob 저장소를 사용하는 방법에 대한 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용](hdinsight-hadoop-use-blob-storage.md)을 참조하세요.
 
 샘플 데이터는 HDInsight가 Hadoop 클러스터의 기본 파일 시스템으로 사용하는 Azure Blob 저장소에 저장됩니다. HDInsight에서는 **wasb** 접두사를 사용하여 Blob 저장소에 저장된 파일에 액세스할 수 있습니다. 예를 들어 sample.log 파일에 액세스하려는 경우 다음 구문을 사용합니다.
 
@@ -65,7 +65,7 @@ Pig와 UDF를 사용하는 예로, 다음 문서를 참조하십시오:
 
 WASB가 HDInsight의 기본 저장소이므로 Pig Latin에서 **/example/data/sample.log**를 사용하여 파일에 액세스할 수도 있습니다.
 
-> [AZURE.NOTE]구문 ****wasb:///**는 HDInsight 클러스터의 기본 저장소 컨테이너에 저장된 파일에 액세스하는 데 사용됩니다. 클러스터를 프로비전할 때 추가 저장소 계정을 지정한 경우 이러한 계정에 저장된 파일에 액세스하려면 컨테이너 이름과 저장소 계정 주소를 지정하여 데이터에 액세스하면 됩니다. 예를 들어 ****wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**와 같습니다.
+> [AZURE.NOTE] 구문 ****wasb:///**는 HDInsight 클러스터의 기본 저장소 컨테이너에 저장된 파일에 액세스하는 데 사용됩니다. 클러스터를 프로비전할 때 추가 저장소 계정을 지정한 경우 이러한 계정에 저장된 파일에 액세스하려면 컨테이너 이름과 저장소 계정 주소를 지정하여 데이터에 액세스하면 됩니다. 예를 들어 ****wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**와 같습니다.
 
 
 ##<a id="job"></a>샘플 앱 정보
@@ -126,7 +126,7 @@ Scalding을 사용하여 HDInsight와 함께 Pig를 사용하는 방법을 살�
 [connectionmanager]: http://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
 [ssispack]: http://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
 
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: hdinsight-use-blob-storage.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-get-started]: ../hdinsight-get-started.md
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
@@ -146,4 +146,4 @@ Scalding을 사용하여 HDInsight와 함께 Pig를 사용하는 방법을 살�
 [image-hdi-pig-powershell]: ./media/hdinsight-use-pig/hdi.pig.powershell.png
 [image-hdi-pig-architecture]: ./media/hdinsight-use-pig/HDI.Pig.Architecture.png
 
-<!---HONumber=AcomDC_0114_2016--->
+<!---HONumber=AcomDC_0204_2016-->

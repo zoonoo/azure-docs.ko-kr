@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="12/18/2015"
+   ms.date="01/30/2016"
    ms.author="tarcher" />
 
 # Docker에서 웹앱 호스팅
@@ -98,7 +98,7 @@ ASP.NET 5 웹 응용 프로그램과 마찬가지로 이 예제는 Docker 확장
 
 1. Azure에 Docker 호스트를 완벽히 프로비전하면, Azure 포털에서 계정을 확인할 수 있습니다. Azure 포털의 **가상 컴퓨터** 범주에서 새로운 가상 컴퓨터를 확인할 수 있습니다.
 
-1. Docker 호스트가 준비되면 돌아가서 웹앱 프로젝트를 게시합니다. **솔루션 탐색기**의 웹 응용 프로그램 프로젝트 노드에 대한 컨텍스트 메뉴에서 **게시**를 선택합니다. Visual Studio는 생성된 VM에 따라 게시 파일을 만듭니다.
+1. Docker 호스트가 준비되면 돌아가서 웹앱 프로젝트를 게시합니다. **솔루션 탐색기**의 웹 응용 프로그램 프로젝트 노드에 대한 컨텍스트 메뉴에서, **게시**를 선택합니다. Visual Studio는 생성된 VM에 따라 게시 파일을 만듭니다.
 
 1. **게시 웹** 대화 상자의 **연결** 탭에서 **유효성 검사 연결** 상자를 선택하여 Docker 호스트가 준비되었는지 확인합니다. 연결상태가 좋다면 **게시** 단추를 선택하여 웹앱을 게시합니다.
 
@@ -163,7 +163,7 @@ ASP.NET 5 웹 응용 프로그램과 마찬가지로 이 예제는 Docker 확장
 
 이제 Docker 호스트를 갖추고 있으므로 Docker 명령을 실행할 수 있습니다. Docker에 대한 자세한 내용은[Docker 설명서](https://docs.docker.com/) 및 [Docker 온라인 자습서](https://www.docker.com/tryit/)를 참조하세요.
 
-Azure에서 Linux에 대한 Docker 가상 컴퓨터 확장을 사용하는 방법에 대한 자세한 내용은 [Azure에서 Linux에 대한 Docker 가상 컴퓨터 확장](virtual-machines-docker-vm-extension.md)을 참조하세요.
+Azure에서 Linux에 대한 Docker 가상 컴퓨터 확장을 사용하는 방법에 대한 자세한 내용은 [Azure에서 Linux에 대한 Docker 가상 컴퓨터 확장](/virtual-machines/virtual-machines-docker-vm-extension.md)을 참조하세요.
 
 Visual Studio의 Dcoker 사용에 관한 문제는 [Visual Studio를 사용하여 Windows의 Docker 클라이언트 오류 문제 해결](vs-azure-tools-docker-troubleshooting-docker-errors.md)을 참조하세요.
 
@@ -177,4 +177,4 @@ Visual Studio의 Dcoker 사용에 관한 문제는 [Visual Studio를 사용하�
 [7]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796685.png
 [8]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796686.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

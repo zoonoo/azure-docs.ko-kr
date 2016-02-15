@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="na"
+   ms.service="active-directory"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -25,7 +25,7 @@
 4. 관리자에게 활성화 알림을 전송하거나 전송하지 않으려는 경우 **사용** 또는 **사용 안 함**을 클릭합니다.
 5. 관리자가 활성화 요청에 티켓 발행 정보를 입력할 수 있도록 허용하거나 허용하지 않으려는 경우 **사용** 또는 **사용 안 함**을 클릭합니다.
 6. 활성화 요청에 대한 다단계 인증을 요구하거나 요구하지 않으려는 경우 **사용** 또는 **사용 안 함**을 클릭합니다. PIM과 함께 MFA를 사용하는 방법에 대한 자세한 내용은 [MFA를 요구하는 방법](active-directory-privileged-identity-management-how-to-require-mfa.md)을 참조하세요.
-7. 전역 관리자를 임시로 허용하거나 허용하지 않으려는 경우 **사용** 또는 **사용 안 함**을 클릭합니다. 
+7. 전역 관리자를 임시로 허용하거나 허용하지 않으려는 경우 **사용** 또는 **사용 안 함**을 클릭합니다.
 8. **Save**를 클릭합니다.
 
 <!--PLACEHOLDER: Need an explanation of what the temporary Global Administrator setting is for.-->
@@ -34,4 +34,4 @@
 ## 다음 단계
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

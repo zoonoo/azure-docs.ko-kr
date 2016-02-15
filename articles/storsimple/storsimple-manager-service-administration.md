@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="01/27/2016"
    ms.author="alkohli" />
 
 # StorSimple Manager 서비스를 사용하여 StorSimple 장치 관리
@@ -34,7 +34,7 @@ StorSimple 관리자 서비스는 Microsoft Azure에서 실행되며 여러 Stor
 
 #### 해당 서비스에 연결하려면
 
-1. [http://azure.microsoft.com](https://azure.microsoft.com/)으로 이동합니다.
+1. [https://manage.windowsazure.com/](https://manage.windowsazure.com/)으로 이동합니다.
 
 1. Microsoft 계정 자격 증명을 사용하여 Microsoft Azure 클래식 포털(해당 창의 상단 오른쪽에 있는)로 로그온합니다.
 
@@ -114,4 +114,4 @@ StorSimple 장치의 일상적인 작업 또는 해당 하드웨어 구성 요�
 
 문제를 해결할 수 없고 서비스 요청을 만드는 데 필요한 경우 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)를 참조합니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

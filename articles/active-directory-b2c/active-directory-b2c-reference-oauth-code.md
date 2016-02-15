@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="01/28/2016"
 	ms.author="dastrock"/>
 
 # Azure AD B2C 미리 보기: OAuth 2.0 인증 코드 흐름
@@ -26,7 +26,7 @@ OAuth 2.0 인증 코드 권한은 장치에 설치된 앱에서 사용하여 Web
 
 OAuth 2.0 인증 코드 흐름은 [OAuth 2.0 사양의 섹션 4.1](http://tools.ietf.org/html/rfc6749)에서 설명합니다. [웹앱](active-directory-b2c-apps.md#web-apps) 및 [기본적으로 설치된 앱](active-directory-b2c-apps.md#mobile-and-native-apps)을 포함하여 대부분의 앱 형식에서 인증 및 권한 부여를 수행하는 데 사용할 수 있습니다. [인증 서버](active-directory-b2c-reference-protocols.md#the-basics)를 사용하여 보안된 리소스에 액세스하는 데 사용할 수 있는 **access\_tokens**을 앱이 안전하게 획득할 수 있도록 합니다. 이 가이드는 OAuth 2.0 인증 코드 흐름-**공용 클라이언트**의 특정 버전에 집중합니다. 공용 클라이언트는 보안 암호의 무결성을 안전하게 유지하기 위해 신뢰할 수 없는 클라이언트 응용 프로그램입니다. 모바일 앱, 데스크톱 앱 및 장치에서 실행되고 access\_tokens 가져와야 하는 거의 모든 응용 프로그램을 포함합니다. Azure AD B2C를 사용하여 ID 관리를 웹앱에 추가하려는 경우 OAuth 2.0 보다 [OpenID Connect](active-directory-b2c-reference-oidc.md)를 사용해야 합니다.
 
-Azure AD B2C는 단순한 인증 및 권한 부여 보다 더 많은 작업으로 표준 OAuth 2.0의 흐름을 확장합니다. [**정책 매개 변수**](active-directory-b2c-reference-poliices.md)를 소개하며 OAuth 2.0을 사용하여 등록, 로그인 및 프로필 관리와 같은 앱에 사용자 환경을 추가할 수 있습니다. 여기서 어떻게 OAuth 2.0 및 정책을 사용하여 네이티브 응용 프로그램에서 각 이러한 환경을 구현하고 Web API에 액세스하기 위한 access\_tokens 가져오는지 보여줍니다.
+Azure AD B2C는 단순한 인증 및 권한 부여 보다 더 많은 작업으로 표준 OAuth 2.0의 흐름을 확장합니다. [**정책 매개 변수**](active-directory-b2c-reference-policies.md)를 소개하며 OAuth 2.0을 사용하여 등록, 로그인 및 프로필 관리와 같은 앱에 사용자 환경을 추가할 수 있습니다. 여기서 어떻게 OAuth 2.0 및 정책을 사용하여 네이티브 응용 프로그램에서 각 이러한 환경을 구현하고 Web API에 액세스하기 위한 access\_tokens 가져오는지 보여줍니다.
 
 아래 예제 HTTP 요청은 샘플 B2C 디렉터리, **fabrikamb2c.onmicrosoft.com** 뿐만 아니라 샘플 응용 프로그램 및 정책을 사용합니다. 이러한 값을 사용하여 직접 요청을 시도하거나 고유의 작업으로 바꿀 수 있습니다. [사용자 고유의 B2C 디렉터리, 응용 프로그램 및 정책을 가져오는](#use-your-own-b2c-directory) 방법을 알아봅니다.
 
@@ -74,7 +74,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 | 매개 변수 | | 설명 |
 | ----------------------- | ------------------------------- | ----------------------- |
-| client\_id | 필수 | [Azure 포털](https://portal.azure.com/)이 앱에 할당된 응용 프로그램 ID입니다. |
+| client\_id | 필수 | [Azure 포털](https://portal.azure.com)이 앱에 할당된 응용 프로그램 ID입니다. |
 | response\_type | 필수 | 인증 코드 흐름에 대한 `code`를 포함해야 합니다. |
 | redirect\_uri | 필수 | 앱이 인증 응답을 보내고 받을 수 있는 앱의 redirect\_uri입니다. URL로 인코드되어야 한다는 점을 제외하고 포털에서 등록한 redirect\_uri 중 하나와 정확히 일치해야 합니다. |
 | scope | 필수 | 공백으로 구분된 범위 목록입니다. 단일 범위 값은 요청된 사용 권한을 모두 Azure AD에 나타냅니다. `openid` 범위는 사용자 로그인 및 **id\_tokens**의 형식으로 사용자에 대 한 데이터를 가져올 사용 권한을 나타냅니다.(앞으로 추가됨) `offline_access` 범위는 앱이 리소스에 장기간 액세스할 수 있도록 **refresh\_token**이 필요함을 나타냅니다. |
@@ -134,7 +134,7 @@ Content-Type: application/json
 | 매개 변수 | | 설명 |
 | ----------------------- | ------------------------------- | --------------------- |
 | p | 필수 | 권한 부여 코드를 획득하는 데 사용된 정책입니다. 이 요청에 다른 정책을 사용할 수 없습니다. **이 매개 변수는 쿼리 문자열에 추가 됩니다**. 게시 본문은 안됩니다. |
-| client\_id | 필수 | [Azure 포털](https://portal.azure.com/)이 앱에 할당된 응용 프로그램 ID입니다. |
+| client\_id | 필수 | [Azure 포털](https://portal.azure.com)이 앱에 할당된 응용 프로그램 ID입니다. |
 | grant\_type | 필수 | 인증 코드 흐름에 대한 `authorization_code`여야 합니다. |
 | scope | 필수 | 공백으로 구분된 범위 목록입니다. 단일 범위 값은 요청된 사용 권한을 모두 Azure AD에 나타냅니다. `openid` 범위는 사용자 로그인 및 **id\_tokens**의 형식으로 사용자에 대 한 데이터를 가져올 사용 권한을 나타냅니다. 앱 자체의 백 엔드 Web API에 토큰을 가져오기 위해 사용할 수 있으며 이는 클라이언트와 동일한 응용 프로그램 ID로 나타납니다. `offline_access` 범위는 앱이 리소스에 장기간 액세스할 수 있도록 **refresh\_token**이 필요함을 나타냅니다. |
 | 코드 | 필수 | 흐름의 첫 번째 레그에서 얻은 authorization\_code입니다. |
@@ -211,7 +211,7 @@ Content-Type: application/json
 | 매개 변수 | | 설명 |
 | ----------------------- | ------------------------------- | -------- |
 | p | 필수 | 원래 새로 고침 토큰을 획득하는 데 사용된 정책입니다. 이 요청에 다른 정책을 사용할 수 없습니다. **이 매개 변수는 쿼리 문자열에 추가 됩니다**. 게시 본문은 안됩니다. |
-| client\_id | 필수 | [Azure 포털](https://portal.azure.com/)이 앱에 할당된 응용 프로그램 ID입니다. |
+| client\_id | 필수 | [Azure 포털](https://portal.azure.com)이 앱에 할당된 응용 프로그램 ID입니다. |
 | grant\_type | 필수 | 이 인증 코드 흐름 범례에 대한 `refresh_token`이어야 합니다. |
 | scope | 필수 | 공백으로 구분된 범위 목록입니다. 단일 범위 값은 요청된 사용 권한을 모두 Azure AD에 나타냅니다. `openid` 범위는 사용자 로그인 및 **id\_tokens**의 형식으로 사용자에 대 한 데이터를 가져올 사용 권한을 나타냅니다. 앱 자체의 백 엔드 Web API에 토큰을 가져오기 위해 사용할 수 있으며 이는 클라이언트와 동일한 응용 프로그램 ID로 나타납니다. `offline_access` 범위는 앱이 리소스에 장기간 액세스할 수 있도록 **refresh\_token**이 필요함을 나타냅니다. |
 | redirect\_uri | 필수 | authorization\_code을 받은 응용 프로그램의 redirect\_uri입니다. |
@@ -257,11 +257,11 @@ Content-Type: application/json
 | error\_description | 개발자가 인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. |
 
 
-<!--
+<!-- 
 
 Here is the entire flow for a native  app; each request is detailed in the sections below:
 
-![OAuth Auth Code Flow](./media/active-directory-b2c-reference-oauth-code/convergence_scenarios_native.png)
+![OAuth Auth Code Flow](./media/active-directory-b2c-reference-oauth-code/convergence_scenarios_native.png) 
 
 -->
 
@@ -273,4 +273,4 @@ Here is the entire flow for a native  app; each request is detailed in the secti
 - [응용 프로그램을 만들어](active-directory-b2c-app-registration.md) 응용 프로그램 ID 및 redirect\_uri를 얻을 수 있습니다. 앱에서 **네이티브 클라이언트**를 포함하려 합니다.
 - [정책을 만들어](active-directory-b2c-reference-policies.md) 정책 이름을 얻습니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

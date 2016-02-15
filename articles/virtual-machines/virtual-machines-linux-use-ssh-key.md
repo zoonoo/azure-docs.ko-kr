@@ -23,7 +23,7 @@
 - [Windows](../articles/virtual-machines/virtual-machines-windows-use-ssh-key.md)
 - [Linux/Mac](../articles/virtual-machines/virtual-machines-linux-use-ssh-key.md)
 
-이 항목에서는 Linux와 Mac에서 **ssh-keygen** 및 **openssl**을 사용하여 **ssh-rsa** 형식 및 **.pem** 형식 파일을 만들어서 Linux 기반의 Azure VM과 안전하게 통신하는 방법을 설명합니다. 신규 배포에서 *ssh-rsa* 유형 공개 키 파일 또는 문자열(배포 클라이언트에 따라)을 취하는 경우에는 리소스 관리자 배포 모델을 사용하여 Linux 기반 Azure 가상 컴퓨터를 만드는 것이 좋습니다. 현재 [Preview 포털](https://portal.azure.com)에서는 클래식 또는 리소스 관리자 배포에 **ssh-rsa** 형식 문자열만 허용합니다.
+이 항목에서는 Linux와 Mac에서 **ssh-keygen** 및 **openssl**을 사용하여 **ssh-rsa** 형식 및 **.pem** 형식 파일을 만들어서 Linux 기반의 Azure VM과 안전하게 통신하는 방법을 설명합니다. 신규 배포에서 *ssh-rsa* 유형 공개 키 파일 또는 문자열(배포 클라이언트에 따라)을 취하는 경우에는 리소스 관리자 배포 모델을 사용하여 Linux 기반 Azure 가상 컴퓨터를 만드는 것이 좋습니다. 현재 [Azure 포털](https://portal.azure.com)에서는 클래식 또는 리소스 관리자 배포에 **ssh-rsa** 형식 문자열만 허용합니다.
 
 > [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]Azure에서 Linux VM과 안전하게 통신할 수 있도록 이러한 파일 유형을 만들어서 Windows 컴퓨터에 사용하는 방법은 [Windows에서 SSH 키 사용](virtual-machines-windows-use-ssh-key.md)을 참조하세요.
 
@@ -33,7 +33,7 @@ Azure에 대한 기본 SSH 설정은 2048비트(기본적으로 **ssh-keygen**�
 
 다음은 배포 시나리오 및 각각에 사용되는 파일 형식입니다.
 
-1. **ssh-rsa** 키는 배포 모델과 관계없이 [Preview 포털](https://portal.azure.com)을 사용하는 모든 배포에 필요합니다.
+1. **ssh-rsa** 키는 배포 모델과 관계없이 [Azure 포털](https://portal.azure.com)을 사용하는 모든 배포에 필요합니다.
 2. [클래식 포털](https://manage.windowsazure.com)을 사용하는 VM을 만들려면 .pem 파일이 필요합니다. .pem 파일은 [Azure CLI](xplat-cli-install.md)를 사용하는 클래식 배포에서도 지원됩니다. 
 
 ## SSH와 함께 사용할 키 생성
@@ -72,7 +72,7 @@ Azure에 대한 기본 SSH 설정은 2048비트(기본적으로 **ssh-keygen**�
 
 	다른 개인 키 파일에서 .pem 파일을 만들려면 `-key` 인수를 수정하세요.
 
-> [AZURE.NOTE]클래식 배포 모델로 배포되는 서비스를 관리하려는 경우 **.cer** 서식 파일을 만들어 포털에 업로드하려고 할 수 있습니다. 여기엔 이 문서의 주제인 Linux VM에 연결 또는 **ssh**는 포함되어 있지 않습니다. Linux 또는 Mac에서 이러한 파일을 만들려면 <br /> openssl.exe x509 -outform der -in myCert.pem -out myCert.cer을 입력합니다.
+> [AZURE.NOTE] 클래식 배포 모델로 배포되는 서비스를 관리하려는 경우 **.cer** 서식 파일을 만들어 포털에 업로드하려고 할 수 있습니다. 여기엔 이 문서의 주제인 Linux VM에 연결 또는 **ssh**는 포함되어 있지 않습니다. Linux 또는 Mac에서 이러한 파일을 만들려면 <br /> openssl.exe x509 -outform der -in myCert.pem -out myCert.cer을 입력합니다.
 
 .pem 파일을 DER 인코딩된 X509 인증서 파일로 변환하려면
 
@@ -296,4 +296,4 @@ VM을 만들 때 기본 SSH 포트 22를 사용하지 않았으면 다음 예와
  
 VM에 연결했으니, 선택한 배포를 계속 사용할 수 있도록 업데이트해야 합니다.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/15/2015"    
+	ms.date="01/28/2016" 
 	ms.author="juliako"/>
 
 
@@ -302,7 +302,6 @@
 	          <MaxBitrate>4500</MaxBitrate>
 	        </H264Layer>
 	      </H264Layers>
-	      <Chapters />
 	    </H264Video>
 	    <AACAudio>
 	      <Profile>AACLC</Profile>
@@ -365,7 +364,7 @@
 
 	표기법을 원하는 대로 혼용하거나 일치시킬 수 있습니다.
 	
-	또한 Start는 콘텐츠의 첫 번째 “흥미로운" 프레임의 결정을 시도하는 특수 Macro:{Best}를 지원합니다. 참고: (Step 및 Range는 Start를 {Best}로 설정하면 무시됨)
+	또한 Start는 콘텐츠의 첫 번째 "흥미로운" 프레임의 결정을 시도하는 특수 Macro:{Best}를 지원합니다. 참고: (Step 및 Range는 Start를 {Best}로 설정하면 무시됨)
 	
 	- 기본값: Start:{Best}
 - 각 이미지 형식에 대해 출력 형식을 명시적으로 제공해야 합니다. Jpg/Png/BmpFormat. 있는 경우 MES는 JpgFormat을 JpgVideo에 일치시키는 식으로 진행합니다. OutputFormat은 새 이미지 코덱 특유의 Macro: {Index}를 도입하며, 이는 이미지 출력 형식에 대해 존재해야(한 번만) 합니다.
@@ -383,4 +382,4 @@
 
 [미디어 서비스 인코딩 개요](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

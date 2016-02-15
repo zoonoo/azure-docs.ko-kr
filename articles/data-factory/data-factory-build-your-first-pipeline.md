@@ -12,7 +12,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article" 
+	ms.topic="article" 
 	ms.date="12/18/2015"
 	ms.author="spelluru"/>
 
@@ -222,4 +222,4 @@ HDInsight Hive 작업을 사용하여 파이프라인에서 파일이 처리될 
 - Visual Studio
 - Azure 리소스 관리자 템플릿 
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

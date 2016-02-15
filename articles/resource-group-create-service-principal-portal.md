@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/20/2016"
+   ms.date="01/27/2016"
    ms.author="tomfitz"/>
 
 # 포털을 사용하여 Active Directory 응용 프로그램 및 서비스 주체 만들기
@@ -112,7 +112,7 @@
 
 1. **응용 프로그램 추가**를 선택합니다.
 
-2. 목록에서 **Windows Azure 서비스 관리 API**를 선택합니다.
+2. 목록에서 **Azure 서비스 관리 API**를 선택합니다.
 
       ![앱 선택](./media/resource-group-create-service-principal-portal/select-app.png)
 
@@ -167,12 +167,12 @@
     PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213
     PM> Update-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Safe
 
-응용 프로그램 ID와 암호로 로그인하려면 다음 방법을 사용하여 토큰을 검색합니다.
+클라이언트 ID와 암호로 로그인하려면 다음 방법을 사용하여 토큰을 검색합니다.
 
     public static string GetAccessToken()
     {
         var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenantId or tenant name}");  
-        var credential = new ClientCredential(clientId: "{application id}", clientSecret: "{application password}");
+        var credential = new ClientCredential(clientId: "{client id}", clientSecret: "{application password}");
         var result = authenticationContext.AcquireToken(resource: "https://management.core.windows.net/", clientCredential:credential);
 
         if (result == null) {
@@ -189,7 +189,7 @@
     public static string GetAcessToken()
     {
         var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenant id}");
-        var result = authenticationContext.AcquireToken(resource: "https://management.core.windows.net/", {application id}, new Uri({redirect uri});
+        var result = authenticationContext.AcquireToken(resource: "https://management.core.windows.net/", {client id}, new Uri({redirect uri});
 
         if (result == null) {
             throw new InvalidOperationException("Failed to obtain the JWT token");
@@ -229,4 +229,4 @@
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

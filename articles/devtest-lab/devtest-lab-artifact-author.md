@@ -1,6 +1,6 @@
-    <properties 
-	pageTitle="Create custom artifacts for your DevTest Lab VM | Microsoft Azure"
-	description="Learn how to author your own artifacts for use with DevTest Labs"
+<properties 
+	pageTitle="DevTest Lab VM에 대한 사용자 지정 아티팩트 만들기 | Microsoft Azure"
+	description="DevTest 랩과 함께 사용할 사용자 고유의 아티팩트를 저작하는 방법 알아보기"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/01/2015"
+	ms.date="02/03/2016"
 	ms.author="tarcher"/>
 
 #DevTest Lab VM에 대한 사용자 지정 아티팩트 만들기
@@ -121,4 +121,4 @@ VM이 프로비전된 후 응용 프로그램을 배포하고 구성하기 위�
 
 [DevTest Lab에 Git 아티팩트 리포지토리 추가](devtest-lab-add-artifact-repo.md) 방법에 대해 알아봅니다.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

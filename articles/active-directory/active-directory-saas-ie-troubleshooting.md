@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Internet Explorer용 액세스 패널 확장 문제 해결| Microsoft Azure"
-   description="그룹 정책을 사용하여 My Apps 포털용 Internet Explorer 추가 기능을 배포하는 방법"
-   services="active-directory"
-   documentationCenter=""
-   authors="liviodlc"
-   manager="stevenpo"
-   editor=""/>
+    pageTitle="Internet Explorer용 액세스 패널 확장 문제 해결| Microsoft Azure"
+    description="그룹 정책을 사용하여 My Apps 포털용 Internet Explorer 추가 기능을 배포하는 방법"
+    services="active-directory"
+    documentationCenter=""
+    authors="liviodlc"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="09/28/2015"
-   ms.author="liviodlc"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="02/02/2016"
+    ms.author="liviodlc"/>
 
 #Internet Explorer용 액세스 패널 확장 문제 해결
 
@@ -105,4 +105,4 @@ InPrivate 브라우징 모드를 사용 중인 경우:
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

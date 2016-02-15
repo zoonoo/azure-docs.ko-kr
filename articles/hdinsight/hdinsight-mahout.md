@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="01/28/2016"
 	ms.author="larryfr"/>
 
 #HDInsight의 Hadoop과 함께 Apache Mahout을 사용하여 영화 추천 생성
@@ -23,7 +23,7 @@
 
 Azure HDInsight에서 [Apache Mahout](http://mahout.apache.org) 기계 학습 라이브러리를 사용하여 영화 추천을 생성하는 방법에 대해 알아봅니다.
 
-> [AZURE.NOTE]이 문서의 단계는 Windows 클라이언트와 Windows 기반 HDInsight 클러스터에 필요합니다. Linux, OS X 또는 Unix 클라이언트, Linux 기반 HDInsight 클러스터에서 Mahout 사용에 대한 자세한 내용은 [HDInsight에서 Linux 기반 Hadoop으로 Apache Mahout을 사용하여 영화 권장 구성 생성](hdinsight-hadoop-mahout-linux-mac.md)을 참조하세요.
+> [AZURE.NOTE] 이 문서의 단계는 Windows 클라이언트와 Windows 기반 HDInsight 클러스터에 필요합니다. Linux, OS X 또는 Unix 클라이언트, Linux 기반 HDInsight 클러스터에서 Mahout 사용에 대한 자세한 내용은 [HDInsight에서 Linux 기반 Hadoop으로 Apache Mahout을 사용하여 영화 권장 구성 생성](hdinsight-hadoop-mahout-linux-mac.md)을 참조하세요.
 
 
 ##<a name="learn"></a>학습 내용
@@ -36,7 +36,7 @@ Mahout은 Apache Hadoop용 [기계 학습][ml] 라이브러리입니다. Mahout�
 
 * HDInsight 3.0 및 2.0 클러스터에 Mahout을 설치하는 방법
 
-	> [AZURE.NOTE]Mahout는 HDInsight 3.1 버전의 클러스터에서 제공됩니다. 이전 버전의 HDInsight를 사용하는 경우 계속하기 전에 [Mahout 설치](#install)를 참조하세요.
+	> [AZURE.NOTE] Mahout는 HDInsight 3.1 버전의 클러스터에서 제공됩니다. 이전 버전의 HDInsight를 사용하는 경우 계속하기 전에 [Mahout 설치](#install)를 참조하세요.
 
 ##필수 조건
 
@@ -46,7 +46,7 @@ Mahout은 Apache Hadoop용 [기계 학습][ml] 라이브러리입니다. Mahout�
 
 ##<a name="recommendations"></a>WindowsPowerShell을 사용하여 추천 생성
 
-> [AZURE.NOTE]이 섹션에 사용된 작업은 Windows PowerShell에서 작동하지만 Mahout과 함께 제공되는 클래스 중 다수가 Windows PowerShell에서 현재 작동하지 않으며 Hadoop 명령줄을 사용하여 실행해야 합니다. Windows PowerShell에서 작동하지 않는 클래스의 목록은 [문제 해결](#troubleshooting) 섹션을 참조하세요.
+> [AZURE.NOTE] 이 섹션에 사용된 작업은 Windows PowerShell에서 작동하지만 Mahout과 함께 제공되는 클래스 중 다수가 Windows PowerShell에서 현재 작동하지 않으며 Hadoop 명령줄을 사용하여 실행해야 합니다. Windows PowerShell에서 작동하지 않는 클래스의 목록은 [문제 해결](#troubleshooting) 섹션을 참조하세요.
 >
 > Hadoop 명령줄을 사용하여 Mahout 작업을 실행하는 예제에 대해서는 [Hadoop 명령줄을 사용하여 데이터 분류](#classify)를 참조하세요.
 
@@ -104,7 +104,7 @@ Mahout에서 제공하는 기능 중 하나가 추천 엔진입니다. 이 엔�
             -Container $container `
             -Context $context
     
-    이 명령은 클러스터용 기본 저장소의 __example/data/u.data__에 __u.data__ 파일을 업로드합니다. 그런 다음 HDInsight 작업에서 __wasb:///example/data/u.data__ URI를 사용하여 이 데이터에 액세스할 수 있습니다.
+    이 명령은 클러스터용 기본 저장소의 __example/data/u.data__에 __u.data__ 파일을 업로드합니다. 그런 다음 HDInsight 작업에서 \_\___wasb:///example/data/u.data__ URI를 사용하여 이 데이터에 액세스할 수 있습니다.
 
 ###작업 실행
 
@@ -186,7 +186,7 @@ Mahout에서 제공하는 기능 중 하나가 추천 엔진입니다. 이 엔�
             -HttpCredential $creds `
             -DisplayOutputType StandardError
 
-> [AZURE.NOTE]Mahout 작업은 작업을 처리하는 동안 생성된 임시 데이터를 제거하지 않습니다. 이 `--tempDir` 매개 변수는 쉽게 삭제할 수 있도록 임시 파일을 특정 디렉터리로 분리하기 위해 예제 작업에서 지정되었습니다.
+> [AZURE.NOTE] Mahout 작업은 작업을 처리하는 동안 생성된 임시 데이터를 제거하지 않습니다. 이 `--tempDir` 매개 변수는 쉽게 삭제할 수 있도록 임시 파일을 특정 디렉터리로 분리하기 위해 예제 작업에서 지정되었습니다.
 
 Mahout 작업은 STDOUT로 출력을 반환하지 않습니다. 대신 지정된 출력 디렉터리에 __part-r-00000__으로 저장합니다. 이 스크립트는 이 파일을 워크스테이션의 현재 디렉터리에서 __output.txt__에 다운로드합니다.
 
@@ -378,7 +378,7 @@ Mahout에서 사용 가능한 분류 방법 중 하나는 [랜덤 포리스트][
 
 		hadoop jar c:/apps/dist/mahout-0.9.0.2.2.7.1-37/examples/target/mahout-examples-0.9.0.2.2.7.1-37-job.jar org.apache.mahout.classifier.df.mapreduce.BuildForest -Dmapred.max.split.size=1874231 -d wasb:///example/data/KDDTrain+.arff -ds wasb:///example/data/KDDTrain+.info -sl 5 -p -t 100 -o nsl-forest
 
-    이 작업의 출력은 HDInsight 클러스터(__wasb://user/&lt;username>/nsl-forest/nsl-forest.seq)의 저장소에 있는 __nsl-forest__ 디렉터리에 저장됩니다. &lt;username>은 원격 데스크톱 세션에 사용되는 사용자 이름입니다. 이 파일은 사용자가 읽을 수 없습니다.
+    이 작업의 출력은 HDInsight 클러스터(\_\___wasb://user/&lt;username>/nsl-forest/nsl-forest.seq)의 저장소에 있는 __nsl-forest__ 디렉터리에 저장됩니다. &lt;username>은 원격 데스크톱 세션에 사용되는 사용자 이름입니다. 이 파일은 사용자가 읽을 수 없습니다.
 
 5. __KDDTest+.arff__ 데이터 집합을 분류하여 포리스트를 테스트합니다. 다음 명령을 사용합니다.
 
@@ -410,9 +410,9 @@ Mahout에서 사용 가능한 분류 방법 중 하나는 [랜덤 포리스트][
 	    Reliability                                53.4921%
 	    Reliability (standard deviation)            0.4933
 
-  또한 이 작업은 __wasb:///example/data/predictions/KDDTest+.arff.out__에 있는 파일을 생성합니다. 그러나 이 파일은 사용자가 읽을 수 없습니다.
+  또한 이 작업은 \_\___wasb:///example/data/predictions/KDDTest+.arff.out__에 있는 파일을 생성합니다. 그러나 이 파일은 사용자가 읽을 수 없습니다.
 
-> [AZURE.NOTE]Mahout 작업은 파일을 덮어쓰지 않습니다. 이러한 작업을 다시 실행하려는 경우 이전 작업에서 생성된 파일을 삭제해야 합니다.
+> [AZURE.NOTE] Mahout 작업은 파일을 덮어쓰지 않습니다. 이러한 작업을 다시 실행하려는 경우 이전 작업에서 생성된 파일을 삭제해야 합니다.
 
 ##<a name="troubleshooting"></a>문제 해결
 
@@ -430,7 +430,7 @@ Mahout은 HDInsight 3.1 클러스터에 설치되며, 다음 단계를 사용하
 
     	After the build completes, you can find the JAR file at __mahout\mrlegacy\target\mahout-mrlegacy-1.0-SNAPSHOT-job.jar__.
 
-    	> [AZURE.NOTE] Mahout 1.0이 릴리스되면 HDInsight 3.0에 미리 빌드된 패키지를 사용할 수 있습니다.
+    	> [AZURE.NOTE] When Mahout 1.0 is released, you should be able to use the prebuilt packages with HDInsight 3.0.
 
 2. 클러스터용 기본 저장소의 __example/jars__에 jar 파일을 업로드합니다. 다음 스크립트에서 CLUSTERNAME을 해당 HDInsight 클러스터의 이름으로, FILENAME은 __mahout-coure-0.9-job.jar__ 파일에 대한 경로로 바꿉니다.
 
@@ -511,9 +511,9 @@ Windows PowerShell에서 사용하는 경우 다음 클래스를 사용하는 Ma
 
 이제 Mahout을 사용하는 방법을 배웠으므로 HDInsight에서 데이터로 작업하는 다른 방법을 검색합니다.
 
-* [HDInsight에서 Hive 사용](../hadoop-use-hive.md)
-* [HDInsight에서 Pig 사용](../hadoop-use-pig.md)
-* [HDInsight에서 MapReduce 사용](../hadoop-use-mapreduce.md)
+* [HDInsight에서 Hive 사용](hdinsight-use-hive.md)
+* [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
+* [HDInsight에서 MapReduce 사용](hdinsight-use-mapreduce.md)
 
 [build]: http://mahout.apache.org/developers/buildingmahout.html
 [aps]: ../powershell-install-configure.md
@@ -530,4 +530,4 @@ Windows PowerShell에서 사용하는 경우 다음 클래스를 사용하는 Ma
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

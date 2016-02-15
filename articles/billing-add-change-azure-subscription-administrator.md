@@ -1,12 +1,12 @@
 <properties
 	pageTitle="Azure 관리자 역할을 추가 또는 변경하는 방법 | Microsoft Azure"
 	description="Azure 공동 관리자, 서비스 관리자 및 계정 관리자를 추가 또는 변경하는 방법에 대해 설명합니다."
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="msmbaldwin"
 	editor="meerak"
-	/>
+	tags="billing"/>
 
 <tags
 	ms.service="billing"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="01/27/2016"
 	ms.author="genli"/>
 
 # Azure 관리자 역할을 추가 또는 변경하는 방법
@@ -66,4 +66,4 @@ Microsoft Azure에는 세 종류의 관리자 역할이 있습니다.
 
 Azure 계정의 소유권을 다른 계정에 양도하려면 [Azure 구독 양도](billing-subscription-transfer.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

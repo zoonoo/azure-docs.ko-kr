@@ -24,7 +24,7 @@
 
 [Azure 기계 학습 스튜디오](https://studio.azureml.net/)는 예측 분석 솔루션에 대해 많은 수의 기계 학습 알고리즘와 함께 제공됩니다. 이러한 알고리즘은 ***회귀***, ***분류***, ***클러스터링*** 및 ***이상 탐지***의 일반적인 기계 학습 범주에 해당하며, 각각 다른 유형의 기계 학습 문제를 해결합니다.
 
-> [AZURE.NOTE]이 치트 시트를 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 기계 학습을 위한 알고리즘 선택 방법](machine-learning-algorithm-choice.md) 문서를 참조하세요.
+> [AZURE.NOTE] 이 치트 시트를 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 기계 학습을 위한 알고리즘 선택 방법](machine-learning-algorithm-choice.md) 문서를 참조하세요.
 
 ## 기계 학습 알고리즘 치트 시트 다운로드
 
@@ -79,7 +79,7 @@
 <a href="http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet.pdf">
 <img src="C:\Users\garye\azure-content-pr\articles\media\machine-learning-algorithm-cheat-sheet\cheat-sheet-small.png">
 </a>
--->
+--> \\
 
 <!-- Module References -->
 [a-z-list]: https://msdn.microsoft.com/library/azure/dn906033.aspx
@@ -87,4 +87,4 @@
 [k-means-clustering]: https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/
 [one-vs-all-multiclass]: https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

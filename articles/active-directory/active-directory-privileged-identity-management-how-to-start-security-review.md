@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="na"
+   ms.service="active-directory"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -62,4 +62,4 @@ Azure PIM 대시보드에서 다음 경로에 따라 검토를 시작할 수 있
 ## PIM 목차
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

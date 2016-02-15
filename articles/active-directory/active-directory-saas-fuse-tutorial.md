@@ -3,7 +3,7 @@
 	description="Azure Active Directory와 Fuse 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 	services="active-directory"
 	documentationCenter=""
-	authors="ashimaabrol"
+	authors="jeevansd"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2015"
-	ms.author="v-aabrol"/>
+	ms.date="02/02/2016"
+	ms.author="jeedes"/>
 
 
 # 자습서: Fuse와 Azure Active Directory 통합
@@ -35,7 +35,7 @@ Fuse와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 - Fuse Single Sign-On이 설정된 구독
 
 
-> [AZURE.NOTE]이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
+> [AZURE.NOTE] 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
 
 
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
@@ -214,4 +214,4 @@ Fuse에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 [204]: ./media/active-directory-saas-fuse-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-fuse-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

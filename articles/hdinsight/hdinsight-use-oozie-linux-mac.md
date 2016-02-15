@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="01/28/2016"
 	ms.author="larryfr"/>
 
 
@@ -26,15 +26,15 @@ Apache Oozie를 사용하여 Hive 및 Sqoop를 사용하는 워크플로 정의�
 
 Apache Oozie는 Hadoop 작업을 관리하는 워크플로/코디네이션 시스템입니다. Hadoop 스택과 통합되며 Apache MapReduce, Apache Pig, Apache Hive, Apache Sqoop에 Hadoop 작업을 지원합니다. 또한 Java 프로그램이나 셸 스크립트와 같은 시스템에 특정한 작업을 예약하는 데 사용할 수도 있습니다.
 
-> [AZURE.NOTE]HDInsight를 사용하여 워크플로를 정의하는 또 다른 옵션은 Azure 데이터 팩터리입니다. Azure 데이터 팩터리에 대한 자세한 내용은 [데이터 팩터리에서 Pig 및 Hive 사용][azure-data-factory-pig-hive]을 참조하세요.
+> [AZURE.NOTE] HDInsight를 사용하여 워크플로를 정의하는 또 다른 옵션은 Azure 데이터 팩터리입니다. Azure 데이터 팩터리에 대한 자세한 내용은 [데이터 팩터리에서 Pig 및 Hive 사용][azure-data-factory-pig-hive]을 참조하세요.
 
 ##필수 조건
 
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-- **Azure 구독**: [Azure 무료 평가판 받기](get-azure-free-trial-for-testing-hadoop-in-hdinsight.md)를 참조하세요.
+- **Azure 구독**: [Azure 무료 평가판 받기](https://azure.microsoft.com/pricing/free-trial/)를 참조하세요.
 
-- **Azure CLI**: [Azure CLI 설치 및 구성](xplat-cli-install.md)을 참조하세요.
+- **Azure CLI**: [Azure CLI 설치 및 구성](../xplat-cli-install.md)을 참조하세요.
 
 - **HDInsight 클러스터**: [Linux에서 HDInsight 시작](hdinsight-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 
@@ -48,9 +48,9 @@ Apache Oozie는 Hadoop 작업을 관리하는 워크플로/코디네이션 시�
 
 1. Hive 동작은 HiveQL을 실행하여 HDInsight에 포함된 **hivesampletable**에서 레코드를 추출합니다. 데이터의 각 행은 특정 모바일 장치에서의 방문을 설명합니다. 레코드 형식은 다음과 유사하게 표시됩니다.
 
-		8       18:54:20        KO-KR   Android Samsung SCH-i500        California     United States    13.9204007      0       0
-		23      19:19:44        KO-KR   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
-		23      19:19:46        KO-KR   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
+		8       18:54:20        ko-KR   Android Samsung SCH-i500        California     United States    13.9204007      0       0
+		23      19:19:44        ko-KR   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
+		23      19:19:46        ko-KR   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
 
 	이 문서에서 사용된 Hive 스크립트는 각 플랫폼(예: Android 또는 iPhone)에 대한 총 방문 횟수를 계산하여 새 Hive 테이블에 저장합니다.
 
@@ -58,7 +58,7 @@ Apache Oozie는 Hadoop 작업을 관리하는 워크플로/코디네이션 시�
 
 2.  Sqoop 동작은 새 Hive 테이블의 내용을 Azure SQL 데이터베이스의 테이블로 내보냅니다. Sqoop에 대한 자세한 내용은 [HDInsight에서 Hadoop Sqoop 사용][hdinsight-use-sqoop]을 참조하세요.
 
-> [AZURE.NOTE]HDInsight 클러스터에서 지원되는 Oozie 버전에 대해서는 [HDInsight에서 제공하는 Hadoop 클러스터 버전의 새로운 기능][hdinsight-versions]을 참조하세요.
+> [AZURE.NOTE] HDInsight 클러스터에서 지원되는 Oozie 버전에 대해서는 [HDInsight에서 제공하는 Hadoop 클러스터 버전의 새로운 기능][hdinsight-versions]을 참조하세요.
 
 ##작업 디렉터리 만들기
 
@@ -66,7 +66,7 @@ Oozie에는 작업을 같은 디렉터리에 저장하는 데 사용되는 리�
 
 	hadoop fs -mkdir -p /tutorials/useoozie/data
 
-> [AZURE.NOTE]`-p` 매개 변수는 경로의 모든 디렉터리(없는 경우)가 만들어지도록 합니다. **data** 디렉터리는 **useooziewf.hql** 스크립트에서 사용되는 데이터를 유지하는 데 사용됩니다.
+> [AZURE.NOTE] `-p` 매개 변수는 경로의 모든 디렉터리(없는 경우)가 만들어지도록 합니다. **data** 디렉터리는 **useooziewf.hql** 스크립트에서 사용되는 데이터를 유지하는 데 사용됩니다.
 
 또한 Hive 및 Sqoop 작업을 실행할 때 Oozie가 사용자 계정을 가장할 수 있도록 다음 명령을 실행합니다. **USERNAME**을 로그인 이름으로 바꿉니다.
 
@@ -112,7 +112,7 @@ Oozie에는 작업을 같은 디렉터리에 저장하는 데 사용되는 리�
 
 2. Ctrl-X를 눌러 편집기를 종료합니다. 메시지가 나타나면 **Y**를 선택하여 파일을 저장한 다음 **Enter** 키를 눌러 **useooziewf.hql** 파일 이름을 사용합니다.
 
-3. 다음 명령을 사용하여 **useooziewf.hql**을 **wasb:///tutorials/useoozie/useooziewf.hql**에 복사합니다.
+3. 다음 명령을 사용하여 **useooziewf.hql**을 ****wasb:///tutorials/useoozie/useooziewf.hql**에 복사합니다.
 
 		hadoop fs -copyFromLocal useooziewf.hql /tutorials/useoozie/useooziewf.hql
 
@@ -185,7 +185,7 @@ Oozie 워크플로 정의는 hPDL(XML 프로세스 정의 언어)로 작성되�
 
 	- **RunSqoopExport**: Sqoop를 사용하여 Hive 스크립트에서 만든 데이터를 SQL 데이터베이스로 내보냅니다. 이 동작은 **RunHiveScript** 동작에 성공한 경우에만 실행됩니다.
 
-		> [AZURE.NOTE]Oozie 워크플로 및 워크플로 작업 사용에 대한 자세한 내용은 [Apache Oozie 4.0 설명서][apache-oozie-400](HDInsight 버전 3.0의 경우) 또는 [Apache Oozie 3.3.2 설명서][apache-oozie-332](HDInsight 버전 2.1의 경우)를 참조하세요.
+		> [AZURE.NOTE] Oozie 워크플로 및 워크플로 작업 사용에 대한 자세한 내용은 [Apache Oozie 4.0 설명서][apache-oozie-400](HDInsight 버전 3.0의 경우) 또는 [Apache Oozie 3.3.2 설명서][apache-oozie-332](HDInsight 버전 2.1의 경우)를 참조하세요.
 
 	워크플로에는 이 문서의 뒷부분에 나오는 작업 정의에서 사용하는 값으로 대체될 `${jobTracker}`와 같은 여러 항목이 있습니다.
 
@@ -193,7 +193,7 @@ Oozie 워크플로 정의는 hPDL(XML 프로세스 정의 언어)로 작성되�
 
 2. Ctrl-X를 사용한 다음 **Y**와 **Enter** 키를 사용하여 파일을 저장합니다.
 
-3. 다음 명령을 사용하여 **workflow.xml** 파일을 **wasb:///tutorials/useoozie/workflow.xml**에 복사합니다.
+3. 다음 명령을 사용하여 **workflow.xml** 파일을 ****wasb:///tutorials/useoozie/workflow.xml**에 복사합니다.
 
 		hadoop fs -copyFromLocal workflow.xml wasb:///tutorials/useoozie/workflow.xml
 
@@ -201,7 +201,7 @@ Oozie 워크플로 정의는 hPDL(XML 프로세스 정의 언어)로 작성되�
 
 다음 단계에서는 데이터를 내보낼 Azure SQL 데이터베이스를 만듭니다.
 
-> [AZURE.IMPORTANT]이러한 단계를 수행하기 전에 [Azure CLI를 설치하고 구성](xplat-cli-install.md)해야 합니다. HDInsight 클러스터 또는 로컬 워크스테이션에서 CLI를 설치하고 데이터베이스를 만드는 단계를 수행할 수 있습니다.
+> [AZURE.IMPORTANT] 이러한 단계를 수행하기 전에 [Azure CLI를 설치하고 구성](xplat-cli-install.md)해야 합니다. HDInsight 클러스터 또는 로컬 워크스테이션에서 CLI를 설치하고 데이터베이스를 만드는 단계를 수행할 수 있습니다.
 
 1. 다음 명령을 사용하여 새 Azure SQL 데이터베이스 서버를 만듭니다.
 
@@ -216,7 +216,7 @@ Oozie 워크플로 정의는 hPDL(XML 프로세스 정의 언어)로 작성되�
         data:    Server Name i1qwc540ts
         info:    sql server create command OK
 
-    > [AZURE.IMPORTANT]이 명령에서 반환되는 서버 이름(위 예제의 경우 **i1qwc540ts**)을 기록해 둡니다. 이것은 생성된 SQL 데이터베이스 서버의 짧은 이름입니다. 완전히 정규화된 도메인 이름(FQDN)은 **&lt;shortname&gt;.database.windows.net**입니다. 위 예제의 경우 FQDN은 **i1qwc540ts.database.windows.net**입니다.
+    > [AZURE.IMPORTANT] 이 명령에서 반환되는 서버 이름(위 예제의 경우 **i1qwc540ts**)을 기록해 둡니다. 이것은 생성된 SQL 데이터베이스 서버의 짧은 이름입니다. 완전히 정규화된 도메인 이름(FQDN)은 **&lt;shortname&gt;.database.windows.net**입니다. 위 예제의 경우 FQDN은 **i1qwc540ts.database.windows.net**입니다.
 
 2. 다음 명령을 사용하여 SQL 데이터베이스 서버에서 **oozietest**라는 이름의 데이터베이스를 생성합니다.
 
@@ -224,13 +224,13 @@ Oozie 워크플로 정의는 hPDL(XML 프로세스 정의 언어)로 작성되�
 
     완료되면 “OK” 메시지가 반환됩니다.
 
-	> [AZURE.NOTE]액세스가 없다는 오류가 나타나면 다음 명령을 사용하여 시스템의 IP 주소를 SQL 데이터베이스에 추가해야 할 수도 있습니다.
+	> [AZURE.NOTE] 액세스가 없다는 오류가 나타나면 다음 명령을 사용하여 시스템의 IP 주소를 SQL 데이터베이스에 추가해야 할 수도 있습니다.
     >
     > `sql firewallrule create [options] <serverName> <ruleName> <startIPAddress> <endIPAddress>`
 
 ###테이블 만들기
 
-> [AZURE.NOTE]여러 가지 방법으로 SQL 데이터베이스에 연결하여 테이블을 생성할 수 있습니다. 다음 단계는 HDInsight 클러스터의 [FreeTDS](http://www.freetds.org/)를 사용합니다.
+> [AZURE.NOTE] 여러 가지 방법으로 SQL 데이터베이스에 연결하여 테이블을 생성할 수 있습니다. 다음 단계는 HDInsight 클러스터의 [FreeTDS](http://www.freetds.org/)를 사용합니다.
 
 3. 다음 명령을 사용하여 HDInsight 클러스터에 FreeTDS를 설치합니다.
 
@@ -284,7 +284,7 @@ Oozie 워크플로 정의는 hPDL(XML 프로세스 정의 언어)로 작성되�
 		<name>fs.defaultFS</name>
 		<value>wasb://mycontainer@mystorageaccount.blob.core.windows.net</value>
 
-	다음 단계에서 사용되므로 **wasb://mycontainer@mystorageaccount.blob.core.windows.net** 값을 저장합니다.
+	다음 단계에서 사용되므로 ****wasb://mycontainer@mystorageaccount.blob.core.windows.net** 값을 저장합니다.
 
 2. 다음 명령을 사용하여 클러스터 헤드 노드의 FQDN을 가져옵니다. FQDN은 클러스터의 JobTracker 주소에 사용됩니다. 이 주소는 잠시 후 구성 파일에서 사용됩니다.
 
@@ -361,9 +361,9 @@ Oozie 워크플로 정의는 hPDL(XML 프로세스 정의 언어)로 작성되�
 		  </property>
 		</configuration>
 
-	* **wasb://mycontainer@mystorageaccount.blob.core.windows.net**의 모든 인스턴스를 이전에 받은 값으로 바꿉니다.
+	* ****wasb://mycontainer@mystorageaccount.blob.core.windows.net**의 모든 인스턴스를 이전에 받은 값으로 바꿉니다.
 
-	> [AZURE.WARNING]컨테이너 및 저장소 계정이 경로의 일부로 포함된 전체 WASB 경로를 사용해야 합니다. 약식 표현(wasb:///)을 사용하면 작업이 시작될 때 RunHiveScript 동작이 실패합니다.
+	> [AZURE.WARNING] 컨테이너 및 저장소 계정이 경로의 일부로 포함된 전체 WASB 경로를 사용해야 합니다. 약식 표현(wasb:///)을 사용하면 작업이 시작될 때 RunHiveScript 동작이 실패합니다.
 
 	* **JOBTRACKERADDRESS**를 이전에 받은 JobTracker/ResourceManager 주소로 바꿉니다.
 
@@ -373,7 +373,7 @@ Oozie 워크플로 정의는 hPDL(XML 프로세스 정의 언어)로 작성되�
 
 	이 파일의 정보는 대부분 workflow.xml 또는 ooziewf.hql 파일에서 사용되는 값(예: ${nameNode})을 채우는 데 사용됩니다.
 
-	> [AZURE.NOTE]**oozie.wf.application.path** 항목은 이 작업에서 실행한 워크플로를 포함하는 workflow.xml 파일을 찾을 수 있는 위치를 정의합니다.
+	> [AZURE.NOTE] **oozie.wf.application.path** 항목은 이 작업에서 실행한 워크플로를 포함하는 workflow.xml 파일을 찾을 수 있는 위치를 정의합니다.
 
 2. Ctrl-X를 사용한 다음 **Y**와 **Enter** 키를 사용하여 파일을 저장합니다.
 
@@ -381,7 +381,7 @@ Oozie 워크플로 정의는 hPDL(XML 프로세스 정의 언어)로 작성되�
 
 다음 단계에서는 Oozie 명령을 사용하여 클러스터에서 Oozie 워크플로를 제출 및 관리합니다. Oozie 명령은 [Oozie REST API](https://oozie.apache.org/docs/4.1.0/WebServicesAPI.html)를 통해 제공되는 친숙한 인터페이스입니다.
 
-> [AZURE.IMPORTANT]Oozie 명령을 사용할 때는 HDInsight 헤드 노드에 대한 FQDN을 사용해야 합니다. 이 FQDN은 클러스터에서만 액세스할 수 있으며, 클러스터가 Azure 가상 네트워크에 있는 경우에는 같은 네트워크에 있는 다른 컴퓨터에서 액세스할 수 있습니다.
+> [AZURE.IMPORTANT] Oozie 명령을 사용할 때는 HDInsight 헤드 노드에 대한 FQDN을 사용해야 합니다. 이 FQDN은 클러스터에서만 액세스할 수 있으며, 클러스터가 Azure 가상 네트워크에 있는 경우에는 같은 네트워크에 있는 다른 컴퓨터에서 액세스할 수 있습니다.
 
 1. 다음을 사용하여 Oozie 서비스의 URL을 가져옵니다.
 
@@ -392,7 +392,7 @@ Oozie 워크플로 정의는 hPDL(XML 프로세스 정의 언어)로 작성되�
 		<name>oozie.base.url</name>
 		<value>http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie</value>
 
-	**http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie** 부분은 Oozie 명령에서 사용할 URL입니다.
+	****http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie** 부분은 Oozie 명령에서 사용할 URL입니다.
 
 2. 모든 명령에 입력할 필요 없이 다음을 사용하여 URL에 대한 환경 변수를 만들 수 있습니다.
 
@@ -640,7 +640,7 @@ Oozie UI를 사용하면 Oozie 로그뿐 아니라 Hive 쿼리와 같은 MapRedu
 
 	sudo adduser USERNAME users
 
-> [AZURE.NOTE]HDInsight에서 사용자가 그룹에 추가된 것을 인식하는 데 몇 분 정도 걸릴 수 있습니다.
+> [AZURE.NOTE] HDInsight에서 사용자가 그룹에 추가된 것을 인식하는 데 몇 분 정도 걸릴 수 있습니다.
 
 ###시작 관리자 오류(Sqoop)
 
@@ -721,4 +721,4 @@ Oozie UI를 사용하면 Oozie 로그뿐 아니라 Hive 쿼리와 같은 MapRedu
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

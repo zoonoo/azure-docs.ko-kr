@@ -191,9 +191,9 @@ Azure Site Recovery에서 복제에 사용되는 대역폭을 늘리려면 레�
 
 **필수 요소** | **세부 정보**
 --- | ---
-**관리 서버** | 가상 컴퓨터 또는 물리적 서버에서 실행되는 온-프레미스 Windows 2012 R2 서버가 필요합니다. 모든 온-프레미스 사이트 복구 구성 요소가 이 관리 서버에 설치됩니다.<br/><br/> 서버를 고가용성의 VMware VM으로 배포하는 것이 좋습니다. Azure에서 온-프레미스 사이트로 장애 복구(failback)는 VM 또는 물리적 서버 장애 조치에 관계없이 항상 VMware VM으로 이루어집니다. 관리 서버를 VMware VM으로 구성하지 않으면 장애 복구(failback) 트래픽을 수신하기 위해 별도의 마스터 대상 서버를 VMware VM으로 설정해야 합니다.<br/><br/>서버에 고정 IP 주소가 있어야 합니다.<br/><br/>서버의 호스트 이름은 15자 이하여야 합니다.<br/><br/>운영 체제 로캘은 영어만 사용해야 합니다.<br/><br/>관리 서버에서 인터넷에 액세스할 수 있어야 합니다.<br/><br/>다음과 같이 서버에서 아웃바운드 액세스가 필요합니다. 사이트 복구 구성 요소 설치 중 MySQL를 다운로드 하기 위해 HTTP 80에 대한 임시 액세스, 복제 관리를 위한 HTTPS 443에 대한 지속적인 아웃바운드 액세스, 복제 트래픽을 위한 HTTPS 9443에 대한 지속적인 아웃바운드 액세스(이 포트는 수정될 수 있음)<br/><br/> 다음 URL이 관리 서버에서 액세스할 수 있는지 확인합니다. <br/>- *.hypervrecoverymanager.windowsazure.com<br/>- *.accesscontrol.windows.net<br/>- *.backup.windowsazure.com<br/>- *.blob.core.windows.net<br/>- *.store.core.windows.net<br/>-http://www.msftncsi.com/ncsi.txt<br/>- http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi<br/><br/>서버에 IP 주소 기반 방화벽 규칙이 있는 경우 해당 규칙이 Azure에 대한 통신을 허용하는지 확인합니다. [Azure 데이터 센터 IP 범위](https://msdn.microsoft.com/library/azure/dn175718.aspx) 및 HTTPS(433) 프로토콜을 허용해야 합니다. 또한 구독의 Azure 지역 및 미국 서부에 대한 IP 주소 범위를 허용 목록으로 지정해야 합니다. URL http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi을 통해 MySQL을 다운로드합니다. 
-**VMware vCenter/ESXi 호스트**: | 최신 업데이트와 함께 ESX/ESXi 버전 6.0, 5.5 또는 5.1을 실행하고 VMware 가상 컴퓨터를 관리하는 vMware vSphere ESX/ESXi 하이퍼바이저가 하나 이상 필요합니다.<br/><br/> ESXi 호스트를 관리하는 VMware vCenter Server를 배포하는 것이 좋습니다. 최신 업데이트와 함께 vCenter 버전 6.0 또는 5.5를 실행해야 합니다.<br/><br/>사이트 복구에서는 교차 vCenter vMotion, 가상 볼륨 및 저장소 DRS와 같은 새로운 vCenter 및 vSphere 6.0 기능을 지원하지 않습니다. 사이트 복구 지원은 버전 5.5에서도 사용할 수 있는 기능에 제한됩니다.
-**보호된 컴퓨터**: | **AZURE**<br/><br/>보호할 컴퓨터는 Azure VM을 만들기 위한 [Azure 필수 조건](site-recovery-best-practices.md)에 맞아야 합니다.<br><br/>장애 조치(failover) 후 Azure VM에 연결하려는 경우 로컬 방화벽에서 원격 데스크톱 연결을 사용하도록 설정해야 합니다.<br/><br/>보호된 컴퓨터에서 개별 디스크 용량은 1023GB를 초과해서는 안 됩니다. VM은 최대 64개의 디스크(따라서 최대 64TB)를 포함할 수 있습니다. 1TB보다 큰 디스크를 포함하는 경우 SQL Server Always On 또는 Oracle Data Guard와 같은 데이터베이스 복제를 사용하는 것을 고려해보세요.<br/><br/>공유 디스크 게스트 클러스터는 지원되지 않습니다. 클러스터형 배포를 포함하는 경우 SQL Server Always On 또는Oracle Data Guard와 같은 데이터베이스 복제를 사용하는 것을 고려해보세요.<br/><br/>UEFI(Unified Extensible Firmware Interface)/EFI(Extensible Firmware Interface)는 지원되지 않습니다.<br/><br/>컴퓨터 이름은 1자에서 63자(문자, 숫자 및 하이픈)까지 사용할 수 있습니다. 이름은 문자나 숫자로 시작하고 문자나 숫자로 끝나야 합니다. 컴퓨터가 보호된 후 Azure 이름을 수정할 수 있습니다.<br/><br/>**VMware VM**<br/><br>관리 서버(구성 서버)에 VMware vSphere PowerCLI 6.0을 설치해야 합니다.<br/><br/>보호하려는 VMware VM에는 VMware 도구가 설치되어 있고 실행 중이어야 합니다.<br/><br/>원본 VM에 NIC 팀이 있는 경우 Azure로 장애 조치(failover) 후 단일 NIC로 변환됩니다.<br/><br/>보호된 VM에 iSCSI 디스크가 있는 경우 VM이 Azure로 장애 조치(failover) 시 사이트 복구에서 보호된 VM iSCSI 디스크를 VHD 파일로 변환합니다. Azure VM에서 iSCSI 대상에 연결할 수 있는 경우 iSCSI 대상에 연결되며 기본적으로 두 개의 디스크(Azure VM의 VHD 디스크 및 원본 iSCSI 디스크)가 표시됩니다. 이 경우 장애 조치된 Azure VM에 나타나는 iSCSI 대상의 연결을 끊어야 합니다.<br/><br/>사이트 복구에 필요한 VMware 사용자 권한에 대해 [자세히 알아보세요](#vmware-permissions-for-vcenter-access).<br/><br/> **WINDOWS SERVER 컴퓨터(VMware VM 또는 물리적 서버)**<br/><br/>서버에는 지원되는 64비트 운영 체제: Windows Server 2012 R2, Windows Server 2012 또는 Windows Server 2008 R2 SP1 이상이 실행되고 있어야 합니다.<br/><br/>호스트 이름, 탑재 지점, 장치 이름, Windows 시스템 경로(예: C:\\Windows)에는 영어만 사용해야 합니다.<br/><br/>운영 체제는 C:\\ 드라이브에 설치되어야 하며 OS 디스크는 Windows 기본 디스크여야 합니다(OS를 Windows 동적 디스크에 설치해서는 안 됨).<br/><br/> Windows Server에서 모바일 서비스의 푸시 설치를 위해 관리자 계정(Windows 컴퓨터에서 로컬 관리자 여야 함)을 제공해야 합니다. 관리자 계정이 도메인 계정이 아닌 경우 로컬 컴퓨터에서 원격 사용자 액세스 제어를 사용하지 않도록 설정해야 합니다. [자세히 알아보세요](#install-the-mobility-service-with-the-process-server).<br/><br/>사이트 복구에서는 RDM 디스크를 사용한 VM을 지원합니다. 원래 원본 VM과 RDM 디스크를 사용할 수 있는 경우 사이트 복구에서는 장애 복구(failback) 중에 RDM 디스크를 다시 사용합니다. 사용할 수 없는 경우 사이트 복구에서는 장애 복구(failback) 중에 각 디스크를 위한 새 VMDK 파일을 만듭니다.<br/><br/>**LINUX 컴퓨터**<br/><br/>지원되는 64비트 운영 체제: Red Hat Enterprise Linux 6.7, Centos 6.5, 6.6, 6.7, Red Hat 호환 커널 또는 UEK3(Unbreakable Enterprise Kernel Release 3)을 실행하는 Oracle Enterprise Linux 6.4, 6.5, SUSE Linux Enterprise Server 11 SP3이 필요합니다.<br/><br/>보호되는 컴퓨터에서 /etc/hosts 파일은 로컬 호스트 이름을 모든 네트워크 어댑터와 연결된 IP 주소로 매핑하는 항목을 포함해야 합니다. <br/><br/>장애 조치(failover) 후에 보안 셸 클라이언트(ssh)를 사용하여 Linux를 실행하는 Azure 가상 컴퓨터에 연결하려는 경우 보호된 컴퓨터의 보안 셸 서비스가 시스템 부팅 시 자동으로 시작되도록 설정되었는지, 그리고 방화벽 규칙에서 ssh 연결을 허용하는지 확인합니다.<br/><br/>호스트 이름, 탑재 지점, 장치 이름 및 Linux 시스템 경로 및 파일 이름(예: /etc/; /usr)에는 영어만 사용해야 합니다.<br/><br/>다음 저장소의 Linux 컴퓨터에 대해서만 보호를 사용할 수 있습니다. 파일 시스템(EXT3, ETX4, ReiserFS, XFS), 다중 경로 소프트웨어(장치 매퍼(multipath)), 볼륨 관리자: (LVM2). HP CCISS 컨트롤러 저장소가 있는 물리적 서버는 지원되지 않습니다. ReiserFS 파일 시스템은 SUSE Linux Enterprise Server 11 SP3에서만 지원됩니다.<br/><br/>사이트 복구에서는 RDM 디스크를 사용한 VM을 지원합니다. Linux에 대한 장애 복구(failback) 중에는 사이트 복구에서 RDM 디스크를 다시 사용하지 않습니다. 대신 각 해당 RDM 디스크에 대 해 새 VMDK 파일을 만듭니다. 
+**관리 서버** | 가상 컴퓨터 또는 물리적 서버에서 실행되는 온-프레미스 Windows 2012 R2 서버가 필요합니다. 모든 온-프레미스 사이트 복구 구성 요소가 이 관리 서버에 설치됩니다.<br/><br/> 서버를 고가용성의 VMware VM으로 배포하는 것이 좋습니다. Azure에서 온-프레미스 사이트로 장애 복구(failback)는 VM 또는 물리적 서버 장애 조치에 관계없이 항상 VMware VM으로 이루어집니다. 관리 서버를 VMware VM으로 구성하지 않으면 장애 복구(failback) 트래픽을 수신하기 위해 별도의 마스터 대상 서버를 VMware VM으로 설정해야 합니다.<br/><br/>서버에 고정 IP 주소가 있어야 합니다.<br/><br/>서버의 호스트 이름은 15자 이하여야 합니다.<br/><br/>운영 체제 로캘은 영어만 사용해야 합니다.<br/><br/>관리 서버에서 인터넷에 액세스할 수 있어야 합니다.<br/><br/>다음과 같이 서버에서 아웃바운드 액세스가 필요합니다. Site Recovery 구성 요소 설치 중 MySQL을 다운로드하기 위해 HTTP 80에 대한 임시 액세스, 복제 관리를 위한 HTTPS 443에 대한 지속적인 아웃바운드 액세스, 복제 트래픽을 위한 HTTPS 9443에 대한 지속적인 아웃바운드 액세스(이 포트는 수정될 수 있음)<br/><br/> 다음 URL이 관리 서버에서 액세스할 수 있는지 확인합니다. <br/>- *.hypervrecoverymanager.windowsazure.com<br/>- *.accesscontrol.windows.net<br/>- *.backup.windowsazure.com<br/>- *.blob.core.windows.net<br/>- *.store.core.windows.net<br/>-http://www.msftncsi.com/ncsi.txt<br/>- [ http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi](http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi "http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi")<br/><br/>서버에 IP 주소 기반 방화벽 규칙이 있는 경우 해당 규칙이 Azure에 대한 통신을 허용하는지 확인합니다. [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653) 및 HTTPS(433) 프로토콜을 허용해야 합니다. 또한 구독의 Azure 지역 및 미국 서부에 대한 IP 주소 범위를 허용 목록으로 지정해야 합니다. URL [http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi](http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi "http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi")는 MySQL을 다운로드하기 위한 것입니다. 
+**VMware vCenter/ESXi 호스트**: | 최신 업데이트와 함께 ESX/ESXi 버전 6.0, 5.5 또는 5.1을 실행하고 VMware 가상 컴퓨터를 관리하는 vMware vSphere ESX/ESXi 하이퍼바이저가 하나 이상 필요합니다.<br/><br/> ESXi 호스트를 관리하는 VMware vCenter Server를 배포하는 것이 좋습니다. 최신 업데이트와 함께 vCenter 버전 6.0 또는 5.5를 실행해야 합니다.<br/><br/>Site Recovery에서는 교차 vCenter vMotion, 가상 볼륨 및 저장소 DRS와 같은 새로운 vCenter 및 vSphere 6.0 기능을 지원하지 않습니다. 사이트 복구 지원은 버전 5.5에서도 사용할 수 있는 기능에 제한됩니다.
+**보호된 컴퓨터**: | **AZURE**<br/><br/>보호할 컴퓨터는 Azure VM을 만들기 위한 [Azure 필수 조건](site-recovery-best-practices.md)에 맞아야 합니다.<br><br/>장애 조치(failover) 후 Azure VM에 연결하려는 경우 로컬 방화벽에서 원격 데스크톱 연결을 사용하도록 설정해야 합니다.<br/><br/>보호된 컴퓨터에서 개별 디스크 용량은 1023GB를 초과해서는 안 됩니다. VM은 최대 64개의 디스크(따라서 최대 64TB)를 포함할 수 있습니다. 1TB보다 큰 디스크를 포함하는 경우 SQL Server Always On 또는 Oracle Data Guard와 같은 데이터베이스 복제를 사용하는 것을 고려해보세요.<br/><br/>공유 디스크 게스트 클러스터는 지원되지 않습니다. 클러스터형 배포를 포함하는 경우 SQL Server Always On 또는 Oracle Data Guard와 같은 데이터베이스 복제를 사용하는 것을 고려해보세요.<br/><br/>UEFI(Unified Extensible Firmware Interface)/EFI(Extensible Firmware Interface)는 지원되지 않습니다.<br/><br/>컴퓨터 이름은 1자에서 63자(문자, 숫자 및 하이픈)까지 사용할 수 있습니다. 이름은 문자나 숫자로 시작하고 문자나 숫자로 끝나야 합니다. 컴퓨터가 보호된 후 Azure 이름을 수정할 수 있습니다.<br/><br/>**VMware VM**<br/><br>관리 서버(구성 서버)에 VMware vSphere PowerCLI 6.0을 설치해야 합니다.<br/><br/>보호하려는 VMware VM에는 VMware 도구가 설치되어 있고 실행 중이어야 합니다.<br/><br/>원본 VM에 NIC 팀이 있는 경우 Azure로 장애 조치(failover) 후 단일 NIC로 변환됩니다.<br/><br/>보호된 VM에 iSCSI 디스크가 있는 경우 VM이 Azure로 장애 조치(failover) 시 Site Recovery에서 보호된 VM iSCSI 디스크를 VHD 파일로 변환합니다. Azure VM에서 iSCSI 대상에 연결할 수 있는 경우 iSCSI 대상에 연결되며 기본적으로 두 개의 디스크(Azure VM의 VHD 디스크 및 원본 iSCSI 디스크)가 표시됩니다. 이 경우 장애 조치(failover)된 Azure VM에 나타나는 iSCSI 대상의 연결을 끊어야 합니다.<br/><br/>Site Recovery에 필요한 VMware 사용자 권한에 대해 [자세히 알아봅니다](#vmware-permissions-for-vcenter-access).<br/><br/> **WINDOWS SERVER 컴퓨터(VMware VM 또는 물리적 서버)**<br/><br/>서버에는 지원되는 64비트 운영 체제: Windows Server 2012 R2, Windows Server 2012 또는 Windows Server 2008 R2 SP1 이상이 실행되고 있어야 합니다.<br/><br/>호스트 이름, 탑재 지점, 장치 이름, Windows 시스템 경로(예: C:\\Windows)에는 영어만 사용해야 합니다.<br/><br/>운영 체제는 C:\\ 드라이브에 설치되어야 하며 OS 디스크는 Windows 기본 디스크여야 합니다(OS를 Windows 동적 디스크에 설치해서는 안 됨).<br/><br/>Windows Server에서 모바일 서비스의 푸시 설치를 위해 관리자 계정(Windows 컴퓨터에서 로컬 관리자여야 함)을 제공해야 합니다. 관리자 계정이 도메인 계정이 아닌 경우 로컬 컴퓨터에서 원격 사용자 액세스 제어를 사용하지 않도록 설정해야 합니다. [자세히 알아보세요](#install-the-mobility-service-with-the-process-server).<br/><br/>Site Recovery에서는 RDM 디스크를 사용한 VM을 지원합니다. 원래 원본 VM과 RDM 디스크를 사용할 수 있는 경우 사이트 복구에서는 장애 복구(failback) 중에 RDM 디스크를 다시 사용합니다. 사용할 수 없는 경우 Site Recovery에서는 장애 복구(failback) 중에 각 디스크를 위한 새 VMDK 파일을 만듭니다.<br/><br/>**LINUX 컴퓨터**<br/><br/>지원되는 64비트 운영 체제: Red Hat Enterprise Linux 6.7, Centos 6.5, 6.6, 6.7, Red Hat 호환 커널 또는 UEK3(Unbreakable Enterprise Kernel Release 3)을 실행하는 Oracle Enterprise Linux 6.4, 6.5, SUSE Linux Enterprise Server 11 SP3이 필요합니다.<br/><br/>보호되는 컴퓨터에서 /etc/hosts 파일은 로컬 호스트 이름을 모든 네트워크 어댑터와 연결된 IP 주소로 매핑하는 항목을 포함해야 합니다. <br/><br/>장애 조치(failover) 후에 보안 셸 클라이언트(ssh)를 사용하여 Linux를 실행하는 Azure 가상 컴퓨터에 연결하려는 경우 보호된 컴퓨터의 보안 셸 서비스가 시스템 부팅 시 자동으로 시작되도록 설정되었는지, 그리고 방화벽 규칙에서 ssh 연결을 허용하는지 확인합니다.<br/><br/>호스트 이름, 탑재 지점, 장치 이름 및 Linux 시스템 경로 및 파일 이름(예: /etc/; /usr)에는 영어만 사용해야 합니다.<br/><br/>다음 저장소의 Linux 컴퓨터에 대해서만 보호를 사용할 수 있습니다. 파일 시스템(EXT3, ETX4, ReiserFS, XFS), 다중 경로 소프트웨어(장치 매퍼(multipath)), 볼륨 관리자(LVM2) HP CCISS 컨트롤러 저장소가 있는 물리적 서버는 지원되지 않습니다. ReiserFS 파일 시스템은 SUSE Linux Enterprise Server 11 SP3에서만 지원됩니다.<br/><br/>Site Recovery에서는 RDM 디스크를 사용한 VM을 지원합니다. Linux에 대한 장애 복구(failback) 중에는 사이트 복구에서 RDM 디스크를 다시 사용하지 않습니다. 대신 각 해당 RDM 디스크에 대 해 새 VMDK 파일을 만듭니다. 
 
 
 ## 1단계: 자격 증명 모음 만들기
@@ -270,11 +270,11 @@ VMware 가상 컴퓨터를 복제하려는 경우 관리 서버에 다음과 같
 
 	![방화벽](./media/site-recovery-vmware-to-azure-classic/combined-wiz3.png)
 
-7. **필수 조건 확인**에서 설치 프로그램은 서버에서 필수 조건 검사를 실행합니다.
+7. **필수 조건 확인**에서 설치 프로그램이 서버에서 필수 조건 검사를 실행합니다.
 
 	![필수 조건](./media/site-recovery-vmware-to-azure-classic/combined-wiz4.png)
 
-8. **MySQL 구성**에서 MySQL 서버 인스턴스로 로그인하는 데 사용할 자격 증명을 만듭니다. 특수 문자 '\_' , '!' , '@' , '$', '\\', '%'를 지정할 수 있습니다.
+8. **MySQL 구성**에서 MySQL 서버 인스턴스로 로그온하려면 자격 증명을 만듭니다. 특수 문자 '\_' , '!' , '@' , '$', '\\', '%'를 지정할 수 있습니다.
 
 	![MySQL](./media/site-recovery-vmware-to-azure-classic/combined-wiz5.png)
 
@@ -333,7 +333,7 @@ VMware 가상 컴퓨터를 복제하려는 경우 관리 서버에 다음과 같
 
 다음과 같이 수행합니다.
 
-1. vCenter Server에서 [필요한 권한](#vmware-permissions-for-vcenter-access)과 함께 vCenter 수준에서 역할(**Azure\_Site\_Recovery**)을 만듭니다.
+1. vCenter Server에서 [필요한 권한](#vmware-permissions-for-vcenter-access)과 함께 vCenter 수준에 역할(**Azure\_Site\_Recovery**)을 만듭니다.
 2. **Azure\_Site\_Recovery** 역할을 vCenter 사용자에게 할당합니다.
 
 	>[AZURE.NOTE] 읽기 전용 역할이 있는 vCenter 사용자 계정은 보호된 원본 컴퓨터를 종료하지 않고 장애 조치(Failover)를 실행할 수 있습니다. 이러한 컴퓨터를 종료하려는 경우 Azure\_Site\_Recovery 역할이 필요합니다. VMware에서 Azure로 VM을 마이그레이션하고 장애 복구(failback)가 필요하지 않는 경우 읽기 전용 역할이면 충분합니다.
@@ -343,7 +343,7 @@ VMware 가상 컴퓨터를 복제하려는 경우 관리 서버에 다음과 같
 
 	![계정 추가](./media/site-recovery-vmware-to-azure-classic/credentials1.png)
 
-3. **계정 세부 정보**에서 vCenter Server에 액세스하는 데 사용할 수 있는 자격 증명을 추가합니다. 포털에 계정 이름이 나타나는 데 15분 이상이 소요될 수 있습니다. 즉시 업데이트하려면 **구성 서버** 탭 에서 새로 고침을 클릭합니다.
+3. **계정 세부 정보**에서 vCenter Server에 액세스하는 데 사용할 수 있는 자격 증명을 추가합니다. 포털에 계정 이름이 나타나는 데 15분 이상이 소요될 수 있습니다. 즉시 업데이트하려면 **구성 서버** 탭에서 새로 고침을 클릭합니다.
 
 	![세부 정보](./media/site-recovery-vmware-to-azure-classic/credentials2.png)
 
@@ -390,7 +390,7 @@ VMware VM을 복제하는 경우 vCenter Server(또는 ESXi 호스트)를 추가
 	- **복구 지점 보존**: 보존 기간을 지정합니다. 보호된 컴퓨터를 이 기간 내의 모든 지점으로 복구할 수 있습니다.
 	- **응용 프로그램 일치 스냅숏 빈도**: 응용 프로그램 일치 스냅숏이 포함된 복구 지점을 만드는 방법을 지정합니다.
 
-확인 표시를 클릭하면 지정된 이름으로 보호 그룹이 생성됩니다. 또한 <protection-group-name-Failback> 이름으로 두 번째 보호 그룹 이름이 생성됩니다. 이 보호 그룹은 Azure에 장애 조치 후 온-프레미스 사이트에 장애 복구(failback)하는 경우 사용됩니다. **보호된 항목** 페이지에서 생성 시 보호 그룹을 모니터링할 수 있습니다.
+확인 표시를 클릭하면 지정된 이름으로 보호 그룹이 생성됩니다. 또한 <protection-group-name-Failback> 이름으로 두 번째 보호 그룹 이름이 생성됩니다. 이 보호 그룹은 Azure에 장애 조치 후 온-프레미스 사이트에 장애 복구(failback)하는 경우 사용됩니다. **보호된 항목** 페이지에서 만들 때 보호 그룹을 모니터링할 수 있습니다.
 
 ## 9단계: 모바일 서비스 설치
 
@@ -455,8 +455,7 @@ VMware VM을 복제하는 경우 vCenter Server(또는 ESXi 호스트)를 추가
 원본 운영 체제 | 모바일 서비스 설치 파일
 --- | ---
 Windows Server(64비트만 해당) | Microsoft-ASR\_UA\_9.*.0.0\_Windows\_* release.exe
-CentOS 6.4, 6.5, 6.6(64비트만 해당) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz
-SUSE Linux Enterprise Server 11 SP3(64비트만 해당) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
+CentOS 6.4, 6.5, 6.6(64비트만 해당) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz SUSE Linux Enterprise Server 11 SP3(64비트만 해당) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
 Oracle Enterprise Linux 6.4, 6.5(64비트만 해당) | Microsoft-ASR\_UA\_9.*.0.0\_OL6-64\_*release.tar.gz
 
 
@@ -500,7 +499,7 @@ UnifiedAgent.exe [/Role <Agent/MasterTarget>] [/InstallLocation <설치 디렉�
 #### Linux 서버에 수동으로 설치:
 
 1. 위 표를 기준으로 해당 tar 아카이브를 보호하려는 Linux 컴퓨터에 복사합니다.
-2. 셸 프로그램을 열고 `tar -xvzf Microsoft-ASR_UA_8.5.0.0*`을 실행하여 압축된 tar 아카이브를 로컬 경로로 추출합니다.
+2. 셸 프로그램을 열고 `tar -xvzf Microsoft-ASR_UA_8.5.0.0*`을 실행하여 압축된 tar 압축 파일을 로컬 경로로 추출합니다.
 3. tar 아카이브의 내용을 추출한 로컬 디렉터리에 passphrase.txt 파일을 만듭니다. 이렇게 하려면 관리 서버의 C:\\ProgramData\\Microsoft Azure Site Recovery\\private\\connection.passphrase에서 암호를 복사하고 셸에서 *`echo <passphrase> >passphrase.txt`*를 실행하여 passphrase.txt에 저장합니다.
 4. *`sudo ./install -t both -a host -R Agent -d /usr/local/ASR -i <IP address> -p <port> -s y -c https -P passphrase.txt`*를 입력하여 모바일 서비스를 설치합니다.
 5. 관리 서버의 내부 IP 주소를 지정하고 포트 443이 선택되어 있는지 확인합니다.
@@ -537,7 +536,7 @@ UnifiedAgent.exe [/Role <Agent/MasterTarget>] [/InstallLocation <설치 디렉�
 
 보호 그룹에 컴퓨터 추가:
 
-1. **보호된 항목** > **보호 그룹** > **컴퓨터** > 컴퓨터 추가를 클릭합니다. 모범 사례로 
+1. **보호된 항목** > **보호 그룹** > **컴퓨터** > 컴퓨터 추가를 클릭합니다. \\모범 사례로 
 2. **가상 컴퓨터 선택**에서 VMware 가상 컴퓨터를 보호하는 경우 가상 컴퓨터(EXSi 호스트를 실행 중인 경우 EXSi 호스트)를 관리하는 vCenter Server를 선택한 다음 컴퓨터를 선택합니다.
 
 	![보호 사용](./media/site-recovery-vmware-to-azure-classic/enable-protection2.png)
@@ -603,7 +602,7 @@ UnifiedAgent.exe [/Role <Agent/MasterTarget>] [/InstallLocation <설치 디렉�
 
 	![가상 컴퓨터 추가](./media/site-recovery-vmware-to-azure-classic/recovery-plan2.png)
 
-계획을 사용자 지정하여 그룹을 만들고 복구 계획의 컴퓨터가 장애 조치(Failover)되는 순서를 지정할 수 있습니다. 수동 작업 및 스크립트에 대한 프롬프트를 추가할 수도 있습니다. 스크립트를 직접 작성하거나 [Azure 자동화 Runbook](site-recovery-runbook-automation.md)을 사용합니다. 복구 계획 사용자 지정에 대해 [자세히 알아보세요](site-recovery-create-recovery-plans.md).
+계획을 사용자 지정하여 그룹을 만들고 복구 계획의 컴퓨터가 장애 조치(Failover)되는 순서를 지정할 수 있습니다. 수동 작업 및 스크립트에 대한 프롬프트를 추가할 수도 있습니다. 스크립트를 직접 작성하거나 [Azure 자동화 Runbook](site-recovery-runbook-automation.md)을 사용하여 작성합니다. 복구 계획 사용자 지정에 대해 [자세히 알아봅니다](site-recovery-create-recovery-plans.md).
 
 ## 장애 조치(Failover) 실행
 
@@ -664,11 +663,11 @@ UnifiedAgent.exe [/Role <Agent/MasterTarget>] [/InstallLocation <설치 디렉�
 
 	>[AZURE.NOTE] 이 옵션은 물리적 서버를 복제하는 경우에는 사용할 수 없습니다. 가능한 경우 수동으로 시도 및 종료해야 합니다.
 	
-3. **장애 조치(failover) 확인**에서 장애 조치(failover) 방향(Azure로)을 확인하고 장애 조치(failover)에 사용할 복구 지점을 선택합니다. 복제 속성을 구성할 때 여러 VM을 설정한 경우 최신 응용 프로그램 또는 크래시 일관성 복구 지점으로 복구할 수 있습니다. **사용자 지정 복구 지점**을 선택하여 이전 시점으로 복구할 수도 있습니다. 확인 표시를 클릭하여 장애 조치를 시작합니다.
+3. **장애 조치(failover) 확인**에서 Azure로의 장애 조치(failover) 방향을 확인하고 장애 조치(failover)에 사용할 복구 지점을 선택합니다. 복제 속성을 구성할 때 여러 VM을 설정한 경우 최신 응용 프로그램 또는 크래시 일관성 복구 지점으로 복구할 수 있습니다. **사용자 지정 복구 지점**을 선택하여 이전 시점으로 복구할 수도 있습니다. 확인 표시를 클릭하여 장애 조치를 시작합니다.
 
 	![가상 컴퓨터 추가](./media/site-recovery-vmware-to-azure-classic/unplanned-failover3.png)
 
-3. 계획되지 않은 장애 조치 작업이 완료될 때까지 기다립니다. **작업** 탭에서 장애 조치(failover) 진행률을 모니터링할 수 있습니다. 계획되지 않은 장애 조치 중에 오류가 발생해도 복구 계획은 완료될 때까지 실행됩니다. 또한 Azure 포털의 가상 컴퓨터에 Azure 컴퓨터 복제본이 나타나는 것을 확인할 수 있습니다.
+3. 계획되지 않은 장애 조치 작업이 완료될 때까지 기다립니다. **작업** 탭에서 장애 조치(failover) 진행 상황을 모니터링할 수 있습니다. 계획되지 않은 장애 조치 중에 오류가 발생해도 복구 계획은 완료될 때까지 실행됩니다. 또한 Azure 포털의 가상 컴퓨터에 Azure 컴퓨터 복제본이 나타나는 것을 확인할 수 있습니다.
 
 ### 장애 조치 후 복제된 Azure 가상 컴퓨터에 연결
 
@@ -727,7 +726,7 @@ UnifiedAgent.exe [/Role <Agent/MasterTarget>] [/InstallLocation <설치 디렉�
 
 **역할** | **세부 정보** | **권한**
 --- | --- | ---
-Azure\_Site\_Recovery 역할 | VMware VM 검색 |v-Center Server에 대해 이러한 권한 할당:<br/><br/>데이터 저장소->공간 할당, 데이터 저장소 찾아보기, 하위 수준 파일 작업., 파일 제거, 가상 컴퓨터 파일 업데이트<br/><br/>네트워크-> 네트워크 할당<br/><br/>리소스 -> 가상 컴퓨터를 리소스 풀에 할당, 전원 꺼짐 가상 컴퓨터 마이그레이션, 전원 켜진 가상 컴퓨터 마이그레이션<br/><br/>작업 -> 만들기 작업, 업데이트 작업<br/><br/>가상 컴퓨터 -> 구성<br/><br/>가상 컴퓨터 -> 상호 작용 -> 질문 답변, 장치 연결., CD 미디어 구성, 플로피 미디어 구성, 전원 꺼짐, 전원 켜짐, VMware 도구 설치<br/><br/>가상 컴퓨터 -> 인벤토리 -> 만들기, 등록, 등록 취소<br/><br/>가상 컴퓨터 -> 프로비전 -> 가상 컴퓨터 다운로드 허용, 가상 컴퓨터 파일 업로드 허용<br/><br/>가상 컴퓨터 -> 스냅숏 -> 스냅숏 제거
+Azure\_Site\_Recovery 역할 | VMware VM 검색 |v-Center Server에 대해 이러한 권한 할당:<br/><br/>데이터 저장소->공간 할당, 데이터 저장소 찾아보기, 하위 수준 파일 작업., 파일 제거, 가상 컴퓨터 파일 업데이트<br/><br/>네트워크-> 네트워크 할당<br/><br/>리소스 -> 가상 컴퓨터를 리소스 풀에 할당, 전원이 꺼진 가상 컴퓨터 마이그레이션, 전원이 켜진 가상 컴퓨터 마이그레이션<br/><br/>작업 -> 만들기 작업, 업데이트 작업<br/><br/>가상 컴퓨터 -> 구성<br/><br/>가상 컴퓨터 -> 상호 작용 -> 질문 답변, 장치 연결., CD 미디어 구성, 플로피 미디어 구성, 전원 꺼짐, 전원 켜짐, VMware 도구 설치<br/><br/>가상 컴퓨터 -> 인벤토리 -> 만들기, 등록, 등록 취소<br/><br/>가상 컴퓨터 -> 프로비전 -> 가상 컴퓨터 다운로드 허용, 가상 컴퓨터 파일 업로드 허용<br/><br/>가상 컴퓨터 -> 스냅숏 -> 스냅숏 제거
 vCenter 사용자 역할 | VMware VM 검색/원본 VM을 종료하지 않고 장애 조치 | v-Center Server에 대해 이러한 권한 할당:<br/><br/>데이터 센터 개체 –> 자식 개체에 전파, 역할=읽기 전용 <br/><br/>사용자는 데이터 센터 수준에서 할당되므로 데이터 센터의 모든 개체에 대한 액세스 권한이 있습니다. 액세스를 제한하려는 경우 **자식 개체에 전파**를 사용하여 **액세스 권한 없음** 역할을 자식 개체(ESX 호스트, 데이터 저장소, VM 및 네트워크)에 할당합니다. 
 vCenter 사용자 역할 | 장애 조치 및 장애 복구 | v-Center Server에 대해 이러한 권한 할당:<br/><br/>데이터 센터 개체 – 자식 개체에 전파, 역할=Azure\_Site\_Recovery<br/><br/>사용자는 데이터 센터 수준에서 할당되므로 데이터 센터의 모든 개체에 대한 액세스 권한이 있습니다. 액세스를 제한하려는 경우 **자식 개체에 전파**를 사용하여 **액세스 권한 없음 **역할을 자식 개체(ESX 호스트, 데이터 저장소, VM 및 네트워크)에 할당합니다. 
 
@@ -747,6 +746,6 @@ The complete file may be found on the [Microsoft Download Center](http://go.micr
 
 ## 다음 단계
 
-Azure에서 실행 중인 장애 조치(failover)된 컴퓨터를 온-프레미스 환경으로 [장애 복구(failback)하는 방법에 대해 자세히 알아보세요](site-recovery-failback-azure-to-vmware-classic.md).
+Azure에서 실행 중인 장애 조치(failover)된 컴퓨터를 온-프레미스 환경으로 [장애 복구(failback)하는 방법에 대해 자세히 알아봅니다](site-recovery-failback-azure-to-vmware-classic.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

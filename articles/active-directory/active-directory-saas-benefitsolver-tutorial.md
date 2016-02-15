@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="02/02/2016" 
     ms.author="jeedes" />
 
 #자습서: Benefitsolver와 Azure Active Directory 통합
@@ -82,10 +82,8 @@
 
     ![앱 설정 구성](./media/active-directory-saas-benefitsolver-tutorial/IC804826.png "앱 설정 구성")
 
-    1.  **로그온 URL** 텍스트 상자에 사용자가 Benefitsolver 응용 프로그램에 로그인하는 데 사용하는 URL(예: “*http://azure-dev.benefitsolver.com*)을 입력합니다.
-    2.  **URL 회신** 텍스트 상자에 Benefitsolver AssertionConsumerService URL를 입력합니다(예: “*https://dev.benefitsolver.com/benefits/BenefitSolverView?page\_name=single\_signon\_saml*”)).  
-
-        >[AZURE.NOTE]Benefitsolver 지원팀에서 사용자 환경에 대한 실제 값을 얻을 수 있습니다.
+    1.  **로그인 URL** 텍스트 상자에서 ****http://azure.benefitsolver.com**을 입력합니다.
+2.  **회신 URL** 텍스트 상자에서 ****https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml**을 입력합니다.
 
     3.  **다음**을 클릭합니다.
 
@@ -95,7 +93,7 @@
 
 5.  다운로드한 메타데이터 파일을 Benefitsolver 지원팀에 보냅니다.
 
-    >[AZURE.NOTE]Benefitsolver 지원팀은 실제 SSO 구성을 수행해야 합니다. 구독에 SSO를 사용하도록 설정하면 알림을 받을 수 있습니다.
+    >[AZURE.NOTE] Benefitsolver 지원팀은 실제 SSO 구성을 수행해야 합니다. 구독에 SSO를 사용하도록 설정하면 알림을 받을 수 있습니다.
 
 6.  Azure AD 포털에서 Single Sign-on 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-on 구성** 대화 상자를 닫습니다.
 
@@ -122,11 +120,12 @@
     4.  **완료**를 클릭합니다.
 
 9.  **변경 내용 적용**을 클릭합니다.
+
 ##사용자 프로비전 구성
 
-Azure AD 사용자가 Benefitsolver에 로그인할 수 있도록 하려면 Benefitsolver로 프로비전되어야 합니다. Benefitsolver의 경우 Benefitsolver 지원팀에서 사용자를 수동으로 만들어야 합니다.
+Azure AD 사용자가 Benefitsolver에 로그인할 수 있도록 하려면 Benefitsolver로 프로비전되어야 합니다. Benefitsolver의 경우 직원 데이터는 HRIS 시스템의 인구 조사 파일을 통해 주로 밤에 채워지는 응용 프로그램에 있습니다.
 
->[AZURE.NOTE]다른 Benefitsolver 사용자 계정 생성 도구 또는 Benefitsolver가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+>[AZURE.NOTE] 다른 Benefitsolver 사용자 계정 생성 도구 또는 Benefitsolver가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
 
 ##사용자 할당
 
@@ -146,4 +145,4 @@ Azure AD 사용자가 Benefitsolver에 로그인할 수 있도록 하려면 Bene
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

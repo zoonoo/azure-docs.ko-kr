@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory를 사용하여 온-프레미스 파일 시스템 간 데이터 이동
@@ -36,7 +36,9 @@
  
 ## 샘플: 온-프레미스 파일 시스템에서 Azure Blob으로 데이터 복사
 
-아래 샘플은 다음을 보여줍니다.
+이 샘플은 온-프레미스 파일 시스템에서 Azure Blob 저장소로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure 데이터 팩터리의 복사 작업을 사용하여 [여기](data-factory-data-movement-activities.md#supported-data-stores)에 설명한 싱크로 **직접** 데이터를 복사할 수 있습니다.
+ 
+이 샘플에는 다음 데이터 팩터리 엔터티가 있습니다.
 
 1.	[OnPremisesFileServer](data-factory-onprem-file-system-connector.md#onpremisesfileserver-linked-service-properties) 형식의 연결된 서비스
 2.	[AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 형식의 연결된 서비스
@@ -606,4 +608,4 @@ false | mergeFiles | <p>다음 구조를 가진 원본 폴더 Folder1의 경우:
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

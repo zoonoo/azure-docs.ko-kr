@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # 자습서: Azure PowerShell을 사용하여 데이터 팩터리 만들기 및 모니터링
@@ -26,7 +26,8 @@
 
 [Azure Data Factory 시작][adf-get-started] 자습서에서는 [Azure 포털][azure-portal]을 사용하여 Azure Data Factory를 만들고 모니터링하는 방법을 보여 줍니다. 이 자습서에서는 Azure PowerShell cmdlet을 사용하여 Azure Data Factory를 만들고 모니터링합니다. 이 자습서에서 만드는 데이터 팩터리의 파이프라인은 Azure Blob에서 Azure SQL 데이터베이스로 데이터를 복사합니다.
 
-> [AZURE.IMPORTANT] [자습서 개요](data-factory-get-started.md) 문서를 살펴보고 이 자습서를 수행하기 전에 필수 단계를 완료합니다.
+> [AZURE.IMPORTANT] 
+[자습서 개요](data-factory-get-started.md) 문서를 살펴보고 이 자습서를 수행하기 전에 필수 단계를 완료합니다.
 >   
 > 이 문서는 모든 데이터 팩터리 cmdlet을 다루지 않습니다. 데이터 팩터리 cmdlet에 대한 포괄적인 설명서는 [데이터 팩터리 Cmdlet 참조](https://msdn.microsoft.com/library/dn820234.aspx)(영문)를 참조하세요.
   
@@ -56,7 +57,7 @@
 [4단계: 파이프라인 만들기 및 실행](#CreateAndRunAPipeline) | 이 단계에서는 데이터 팩터리 **ADFTutorialDataFactoryPSH**에 **ADFTutorialPipeline**이라는 파이프라인을 만듭니다. 이 파이프라인에는 Azure Blob에서 출력 Azure 데이터베이스 테이블로 데이터를 복사하는 **복사 작업**이 있습니다.
 [5단계: 데이터 집합 및 파이프라인 모니터링](#MonitorDataSetsAndPipeline) | 이 단계에서는 Azure PowerShell을 사용하여 데이터 집합 및 파이프라인을 모니터링합니다.
 
-## <a name="CreateDataFactory"></a>1 단계: 프로그램 Azure 데이터 팩터리 만들기
+## <a name="CreateDataFactory"></a> 1단계: Azure 데이터 팩터리 만들기
 이 단계에서는 명명 된는 Azure 데이터 팩터리를 만들려면 Azure PowerShell을 사용 **ADFTutorialDataFactoryPSH**.
 
 1. Azure PowerShell을 시작하고 다음 명령을 실행합니다. 이 자습서를 마칠 때까지 Azure PowerShell을 열어 두세요. 닫은 후 다시 여는 경우 이러한 명령을 다시 실행해야 합니다.
@@ -74,7 +75,7 @@
 
 	Azure Data Factory 이름은 전역적으로 고유해야 합니다. **데이터 팩터리 이름 “ADFTutorialDataFactoryPSH”를 사용할 수 없습니다.** 오류가 표시되는 경우 이름을 변경합니다(예: yournameADFTutorialDataFactoryPSH). 이 자습서의 단계를 수행하는 동안 ADFTutorialFactoryPSH 대신 이 이름을 사용합니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](data-factory-naming-rules.md) 항목을 참조하세요.
 
-	> [AZURE.NOTE]데이터 팩터리의 이름은 나중에 DNS 이름으로 표시되므로 공개적으로 등록될 수도 있습니다.
+	> [AZURE.NOTE] 데이터 팩터리의 이름은 나중에 DNS 이름으로 표시되므로 공개적으로 등록될 수도 있습니다.
 
 ## <a name="CreateLinkedServices"></a>2단계: 연결된 서비스 만들기
 연결된 서비스는 데이터 저장소 또는 계산 서비스를 Azure Data Factory에 연결합니다. 데이터 저장소는 데이터 팩터리 파이프라인에 대한 입력 데이터를 포함하거나 출력 데이터를 저장하는 Azure 저장소, Azure SQL 데이터베이스 또는 온-프레미스 SQL Server 데이터베이스일 수 있습니다. 계산 서비스는 입력 데이터를 처리하고 출력 데이터를 생성하는 서비스입니다.
@@ -442,4 +443,4 @@
 [sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
  
 
-<!---HONumber=AcomDC_0107_2016--->
+<!---HONumber=AcomDC_0204_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/18/2015"
+   ms.date="01/30/2016"
    ms.author="tarcher" />
 
 # Azure 응용 프로그램 게시 마법사
@@ -21,7 +21,7 @@
 
 Visual Studio에서, 웹 응용 프로그램을 개발한 후, **Azure 응용 프로그램 게시** 마법사를 사용하여 해당 응용 프로그램을 Azure 클라우드 서비스에 쉽게 게시할 수 있습니다. 첫 번째 섹션에서는 마법사를 사용하기 전에 완료해야 하는 단계를 설명하며, 나머지 섹션에서는 마법사의 기능을 설명합니다.
 
->[AZURE.NOTE]이 토픽은 웹 사이트가 아닌 클라우드 서비스에 배포에 대한 것입니다. 웹 사이트에 배포에 대한 자세한 내용은 [Azure 웹 사이트에 배포하는 방법](https://social.msdn.microsoft.com/Search/windowsazure?query=How%20to%20Deploy%20an%20Azure%20Web%20Site&Refinement=138&ac=4#refinementChanges=117&pageNumber=1&showMore=false)을 참조하세요.
+>[AZURE.NOTE] 이 토픽은 웹 사이트가 아닌 클라우드 서비스에 배포에 대한 것입니다. 웹 사이트에 배포에 대한 자세한 내용은 [Azure 웹 사이트에 배포하는 방법](https://social.msdn.microsoft.com/Search/windowsazure?query=How%20to%20Deploy%20an%20Azure%20Web%20Site&Refinement=138&ac=4#refinementChanges=117&pageNumber=1&showMore=false)을 참조하세요.
 
 ## 필수 조건
 
@@ -29,13 +29,13 @@ Azure에 웹 응용 프로그램을 게시하기 전에 Azure 구독과 Microsof
 
 1. Microsoft 계정과 Azure 구독을 가져옵니다. 1개월 무료 Azure 구독을 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 시도할 수 있습니다.
 
-1. Azure에서 클라우드 서비스 및 저장소 계정을 만듭니다. Visual Studio의 서버 탐색기에서 또는 [Azure 관리 포털](http://go.microsoft.com/fwlink/?LinkID=213885)을 사용하여 수행할 수 있습니다. Azure 환경을 설정하는 방법에 대한 자세한 내용은 [Visual Studio에서 클라우드 서비스를 게시하는 데 필요항 서비스 설정](vs-azure-tools-publish-azure-application-wizard)을 참조하세요.
+1. Azure에서 클라우드 서비스 및 저장소 계정을 만듭니다. Visual Studio의 서버 탐색기에서 또는 [Azure 관리 포털](http://go.microsoft.com/fwlink/?LinkID=213885)을 사용하여 수행할 수 있습니다.
 
 1. Azure용 웹 응용 프로그램을 사용합니다. 웹 응용 프로그램을 사용하여 Visual Studio에서 Azure에 게시하려면, Visual Studio에서 Azure 클라우드 서비스 프로젝트와 연결해야 합니다. 연관된 클라우드 서비스 프로젝트를 만드려면, 웹 응용 프로그램용 프로젝트에 대 한 바로 가기 메뉴를 열고 **Azure 클라우드 서비스 프로젝트로 변환**을 선택합니다.
 
 1. 클라우드 서비스 프로젝트가 솔루션에 추가된 후, 동일한 바로 가기 메뉴를 다시 열고 **게시**를 선택합니다. Azure 용 응용 프로그램을 사용하는 방법에 대한 자세한 내용은 [방법: Visual Studio에서 Azure 클라우드 서비스에 웹 응용 프로그램 마이그레이션 및 게시](https://msdn.microsoft.com/library/azure/hh420322.aspx)를 참조하세요.
 
->[AZURE.NOTE]관리자 자격 증명(관리자 권한으로 실행)으로 Visual Studio를 시작해야 합니다.
+>[AZURE.NOTE] 관리자 자격 증명(관리자 권한으로 실행)으로 Visual Studio를 시작해야 합니다.
 
 1. 응용 프로그램을 게시할 준비가 되면 Azure 클라우드 서비스 프로젝트에 대한 바로 가기 메뉴를 열고 **게시**를 선택합니다. 다음 단계에서는 Azure 응용 프로그램 게시 마법사를 보여줍니다.
 
@@ -65,7 +65,7 @@ Azure에 웹 응용 프로그램을 게시하기 전에 Azure 구독과 Microsof
 
 1. 이 배포에 대해 원하는 수정을 수정한 다음 **게시** 단추를 선택하여 게시합니다(다음 섹션은 다양한 설정에 대한 자세한 정보를 제공합니다.). 게시하기 전에 설정을 검토하려면 **다음** 단추를 선택합니다.
 
-    >[AZURE.NOTE]이 단계에서 게시를 선택한 경우, Visual Studio에서이 배포의 상태를 모니터링할 수 있습니다.
+    >[AZURE.NOTE] 이 단계에서 게시를 선택한 경우, Visual Studio에서이 배포의 상태를 모니터링할 수 있습니다.
 
 **Azure 응용 프로그램 게시** 마법사를 사용하여 배포에 대한 일반 및 고급 설정 모두를 수정할 수 있습니다. 예를 들어, 릴리스하기 전에 테스트 환경에 응용 프로그램을 배포하는 설정을 선택할 수 있습니다. 다음 그림에서는 Azure 배포에 대한 **일반 설정** 탭을 표시합니다.
 
@@ -97,7 +97,7 @@ Azure에 웹 응용 프로그램을 게시하기 전에 Azure 구독과 Microsof
 
 1. **저장소 계정** 목록에서 이 배포에 사용할 저장소 계정을 선택합니다. 클라우드 서비스 및 저장소 계정에 대한 데이터 센터의 위치를 비교합니다. 이상적으로 이 위치는 같아야 합니다.
 
-    >[AZURE.NOTE]Azure 저장소 계정은 응용 프로그램 배포용 패키지를 저장합니다. 응용 프로그램이 배포된 후 패키지는 저장소 계정에서 제거됩니다.
+    >[AZURE.NOTE] Azure 저장소 계정은 응용 프로그램 배포용 패키지를 저장합니다. 응용 프로그램이 배포된 후 패키지는 저장소 계정에서 제거됩니다.
 
 1. 업데이트된 구성 요소만 배포하려는 경우 **배포 업데이트** 확인란을 선택합니다. 이 유형의 배포는 전체 배포보다 빠를 수 있습니다. **설정** 링크를 선택하여 다음 그림에 표시된 **배포 업데이트 설정** 대화 상자를 엽니다.
 
@@ -113,7 +113,7 @@ Azure에 웹 응용 프로그램을 게시하기 전에 Azure 구독과 Microsof
 2. 응용 프로그램을 프로파일링하려면 **프로파일링 사용** 확인란을 선택한 다음 **설정** 링크를 선택하여 프로파일링 옵션을 표시합니다.
 
 
-    >[AZURE.NOTE]Visual Studio Ultimate에서 IntelliTrace 또는 계층 상호작용 프로파일링(TIP)를 사용하도록 설정해야 하며 동시에 모두 사용할 수 없습니다.
+    >[AZURE.NOTE] Visual Studio Ultimate에서 IntelliTrace 또는 계층 상호작용 프로파일링(TIP)를 사용하도록 설정해야 하며 동시에 모두 사용할 수 없습니다.
 
     자세한 내용은 [IntelliTrace 및 Visual Studio를 사용하여 게시된 클라우드 서비스 디버깅](https://msdn.microsoft.com/library/azure/ff683671.aspx) 및 [클라우드 서비스의 성능 테스트](https://msdn.microsoft.com/library/azure/hh369930.aspx)를 참조하세요.
 
@@ -125,13 +125,11 @@ Azure에 웹 응용 프로그램을 게시하기 전에 Azure 구독과 Microsof
 
     ![게시 마법사의 요약 화면](./media/vs-azure-tools-publish-azure-application-wizard/IC749015.png)
 
-    >[AZURE.NOTE]게시 프로필은 Visual Studio의 솔루션 탐색기에 나타나며 프로필 설정은 확장명이 .azurePubxml인 파일로 기록됩니다. 설정은 XML 태그의 특성으로 저장됩니다.
+    >[AZURE.NOTE] 게시 프로필은 Visual Studio의 솔루션 탐색기에 나타나며 프로필 설정은 확장명이 .azurePubxml인 파일로 기록됩니다. 설정은 XML 태그의 특성으로 저장됩니다.
 
 1. **게시**를 선택하여 응용 프로그램을 게시합니다. Visual Studio의 **출력** 창에서 프로세스 상태를 모니터링할 수 있습니다.
 
 ## 참고 항목
-
-[Visual Studio에서 클라우드 서비스를 게시하는 데 필요한 서비스 설정](https://msdn.microsoft.com/library/azure/ff683668.aspx)
 
 [방법: Visual Studio에서 Azure 클라우드 서비스로 웹 응용 프로그램 마이그레이션 및 게시](https://msdn.microsoft.com/library/azure/hh420322.aspx)
 
@@ -141,4 +139,4 @@ Azure에 웹 응용 프로그램을 게시하기 전에 Azure 구독과 Microsof
 
 [클라우드 서비스의 성능 테스트](https://msdn.microsoft.com/library/azure/hh369930.aspx)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->
