@@ -28,7 +28,7 @@ Microsoft Azure SQL 데이터베이스에서 서비스에 등록하면 프로비
 
 Azure SQL 데이터베이스 서버 수준 보안 주체 계정은 항상 모든 서버 수준 및 데이터베이스 수준 보안을 관리할 권한이 있습니다. 이 항목에서는 서버 수준 보안 주체 및 기타 계정을 사용하여 SQL 데이터베이스에서 로그인 및 데이터베이스를 관리하는 방법을 설명합니다.
 
-Azure 역할 기반 액세스 제어 및 Azure 리소스 관리자 REST API를 통해 SQL 데이터베이스에 액세스하는 Azure 사용자는 해당 Azure 역할에서 권한을 받습니다. Azure 역할 멤버 작업은 데이터베이스 엔진에서 실행됩니다. 데이터베이스 엔진 권한 모델의 영향을 받지 않으므로 이 항목에서는 다루지 않습니다. 자세한 내용은 [RBAC: 기본 제공 역할](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/#sql-db-contributor)을 참조하세요.
+Azure 역할 기반 액세스 제어 및 Azure 리소스 관리자 REST API를 통해 SQL 데이터베이스에 액세스하는 Azure 사용자는 해당 Azure 역할에서 권한을 받습니다. Azure 역할 멤버 작업은 데이터베이스 엔진에서 실행됩니다. 데이터베이스 엔진 권한 모델의 영향을 받지 않으므로 이 항목에서는 다루지 않습니다. 자세한 내용은 [RBAC: 기본 제공 역할]( https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/#sql-db-contributor)을 참조하세요.
 
 > [AZURE.IMPORTANT] SQL 데이터베이스 V12 사용자를 사용하면 포함된 데이터베이스 사용자를 사용하여 데이터베이스에서 인증할 수 있습니다. 포함된 데이터베이스 사용자는 로그인하지 않아도 됩니다. 데이터베이스를 이식 가능하지만 데이터베이스에 액세스를 제어하는 서버 수준 보안 주체의 성능이 감소합니다. 포함된 데이터베이스 사용자를 사용하면 보안에 중요한 영향이 발생합니다. 자세한 내용은 [포함된 데이터베이스 사용자 - 데이터베이스를 이식 가능하게 만들기](https://msdn.microsoft.com/library/ff929188.aspx), [포함된 데이터베이스](https://technet.microsoft.com/library/ff929071.aspx), [CREATE USER(Transact-SQL)](https://technet.microsoft.com/library/ms173463.aspx), [Azure Active Directory 인증을 사용하여 SQL 데이터베이스에 연결](sql-database-aad-authentication.md)을 참조하십시오.
 
@@ -176,4 +176,4 @@ SELECT * FROM sys.databases;
 
 [Azure SQL 데이터베이스 보안 지침 및 제한 사항](sql-database-security-guidelines.md) [Azure Active Directory 인증을 사용하여 SQL 데이터베이스에 연결](sql-database-aad-authentication.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!----HONumber=AcomDC_0204_2016-->

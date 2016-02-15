@@ -90,7 +90,7 @@ Azure Active Directory를 만들고 사용자 및 그룹으로 채웁니다. 다
 - 온-프레미스 Active Directory 도메인 서비스를 Azure Active Directory와 페더레이션합니다.
 - **AD FS** 도구를 사용하여 **서비스**, **끝점** 섹션에서 URL 경로 **/adfs/services/trust/13/windowstransport**에 대해 **Ws-trust 1.3**을 사용하도록 설정합니다.
 
-자세한 내용은 [Azure AD에 고유한 도메인 이름 추가](https://azure.microsoft.com/documentation/articles/active-directory-add-domain/), [이제 Microsoft Azure에서 Windows Server Active Directory와의 페더레이션 지원](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Azure AD 디렉터리 관리](https://msdn.microsoft.com/library/azure/hh967611.aspx) 및 [Windows PowerShell을 사용한 Azure AD 관리](https://msdn.microsoft.com/library/azure/jj151815.aspx)를 참조하세요.
+자세한 내용은 [Azure AD에 고유한 도메인 이름 추가]( https://azure.microsoft.com/documentation/articles/active-directory-add-domain/), [이제 Microsoft Azure에서 Windows Server Active Directory와의 페더레이션 지원]( https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Azure AD 디렉터리 관리]( https://msdn.microsoft.com/library/azure/hh967611.aspx) 및 [Windows PowerShell을 사용한 Azure AD 관리]( https://msdn.microsoft.com/library/azure/jj151815.aspx)를 참조하세요.
 
 ## 2\. Azure SQL 데이터베이스 V12에 데이터베이스가 있는지 확인
 
@@ -331,4 +331,4 @@ Azure AD 인증과 관련한 특정 코드 예제는 MSDN의 [SQL Server 보안 
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!----HONumber=AcomDC_0204_2016-->
