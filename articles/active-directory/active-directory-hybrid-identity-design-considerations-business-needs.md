@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="12/07/2015"
+	ms.date="02/02/2016"
 	ms.author="billmath"/>
 
 # 하이브리드 ID 솔루션에 대한 ID 요구 사항 확인
@@ -47,7 +47,8 @@
 또한 회사에 있을 수도 있는 클라우드 서비스를 인식해야 합니다. 사용자 환경에서 SaaS IaaS, PaaS 모델을 사용하는 현재 통합을 이해하도록 평가를 수행하는 것이 매우 중요합니다. 이 평가 동안 다음 질문에 대답하도록 합니다: - 회사가 클라우드 서비스 공급자와 통합해 있습니까? - 그렇다면 어떤 서비스를 사용하고 있습니까? - 현재 이러한 통합은 생산 중입니까 아니면 파일럿입니까?
 
 
->[AZURE.NOTE]모든 앱 및 클라우드 서비스의 정확한 매핑이 되지 않은 경우 클라우드 앱 검색 도구를 사용할 수 있습니다. 이 도구는 조직의 모든 비즈니스 및 소비자 클라우드 앱에 가시성이 있는 IT 부서를 제공할 수 있습니다. 따라서 사용 패턴 및 클라우드 응용 프로그램에 액세스하는 사용자에 대한 세부 정보를 포함하여 조직의 섀도 IT를 더 쉽게 발견할 수 있습니다. 이 도구에 액세스하려면 [https://appdiscovery.azure.com](https://appdiscovery.azure.com/)으로 이동합니다.
+>[AZURE.NOTE]
+모든 앱 및 클라우드 서비스의 정확한 매핑이 되지 않은 경우 클라우드 앱 검색 도구를 사용할 수 있습니다. 이 도구는 조직의 모든 비즈니스 및 소비자 클라우드 앱에 가시성이 있는 IT 부서를 제공할 수 있습니다. 따라서 사용 패턴 및 클라우드 응용 프로그램에 액세스하는 사용자에 대한 세부 정보를 포함하여 조직의 섀도 IT를 더 쉽게 발견할 수 있습니다. 이 도구에 액세스하려면 [https://appdiscovery.azure.com](https://appdiscovery.azure.com/)으로 이동합니다.
 
 ## ID 통합 요구 사항 평가
 다음으로 ID 통합 요구 사항을 평가해야 합니다. 이 평가는 사용자가 인증하는 방법, 조직의 우선 순위가 클라우드에서 보이는 방법, 조직이 권한을 부여하는 방법 및 사용자 환경이 변할 모습에 대한 기술 요구 사항을 정의하는 데 중요합니다. 다음 질문에 답변하세요.
@@ -94,6 +95,6 @@
 [디렉터리 동기화 요구 사항 결정](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
 
 ## 참고 항목
-[디자인 고려 사항 개요]((active-directory-hybrid-identity-design-considerations-overview.md)
+[설계 고려 사항 개요](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

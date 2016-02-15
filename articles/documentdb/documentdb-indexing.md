@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="02/03/2016" 
 	ms.author="arramac"/>
 	
 # Azure DocumentDB에서 자동 인덱싱
@@ -67,4 +67,4 @@ DocumentDB의 인덱싱은 다중 테넌트를 처리하고 저장소 효율성�
 - [여기](documentdb-indexing-policies.md)서 DocumentDB 인덱스를 사용자 지정하는 방법을 알아보세요.
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

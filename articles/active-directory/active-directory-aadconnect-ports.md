@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/01/2016"
 	ms.author="billmath"/>
 
 # 포트 및 프로토콜이 필요한 하이브리드 ID
@@ -46,7 +46,13 @@
 Office 365 포트의 목록 및 IP 주소에 대한 자세한 내용은 [Office 365 URL 및 IP 주소 범위](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)를 참조하세요.
 
 ## 테이블 3 - Azure AD Connect 및 페더레이션 서버/WAP
-이 테이블은 Azure AD Connect 서버 및 페더레이션 서버/WAP 서버 간의 통신에 필요한 포트와 프로토콜에 대해 설명합니다. 서비스 예정!
+이 테이블은 Azure AD Connect 서버 및 페더레이션 서버/WAP 서버 간의 통신에 필요한 포트와 프로토콜에 대해 설명합니다.
+
+| 프로토콜 |포트 |설명
+| --------- | --------- |--------- |
+| HTTP|80(TCP/UDP)|CRL(인증서 해지 목록)를 다운로드하여 SSL 인증서를 확인하는 데 사용합니다.
+|HTTPS|443(TCP/UDP)|Azure AD와 동기화하는 데 사용합니다.
+|WinRM|5985| WinRM 수신기
 
 ## 테이블 4 - WAP 및 페더레이션 서버
 이 테이블은 페더레이션 서버 및 WAP 서버 간의 통신에 필요한 포트와 프로토콜에 대해 설명합니다.
@@ -79,4 +85,4 @@ Office 365 포트의 목록 및 IP 주소에 대한 자세한 내용은 [Office 
 ### 6b - Azure AD Connect Health 에이전트(AD FS/동기화)와 Azure AD에 대한 끝점
 끝점의 목록에 대한 자세한 내용은 [Azure AD Connect Health 에이전트에 대한 요구 사항 섹션](active-directory-aadconnect-health.md#requirements)을 참조하세요.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

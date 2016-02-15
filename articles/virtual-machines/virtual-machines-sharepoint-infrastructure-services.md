@@ -31,7 +31,7 @@
 
 Azure 포털에서 Azure 마켓플레이스의 [SharePoint 2013 비 HA 팜](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) 항목을 참조하세요. 인터넷 연결 SharePoint 웹사이트에 대한 기본 개발/테스트 팜을 만듭니다. 추가 정보는 [SharePoint 서버 팜 만들기](virtual-machines-sharepoint-farm-azure-preview.md)를 참조하세요.
 
-Azure 리소스 관리자 템플릿을 사용할 수도 있습니다. [3개의 서버 SharePoint 팜 배포](virtual-machines-workload-template-sharepoint.md#deploy-a-three-server-sharepoint-farm)를 참조하세요.
+Azure 리소스 관리자 템플릿을 사용할 수도 있습니다. [SharePoint](virtual-machines-app-frameworks.md)를 참조하세요.
 
 > [AZURE.NOTE] Azure 포털에서 Azure 마켓플레이스의 **SharePoint 서버 팜** 항목이 제거되었습니다.
 
@@ -61,4 +61,4 @@ Azure 리소스 관리자 템플릿을 사용할 수도 있습니다. [9개의 �
 
 - Azure 인프라 서비스에서 추가 [SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) 구성을 검색합니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

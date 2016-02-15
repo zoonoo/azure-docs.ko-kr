@@ -13,7 +13,7 @@
  	ms.tgt_pltfrm="na"
  	ms.devlang="na"
  	ms.topic="article"
- 	ms.date="10/16/2015"  
+ 	ms.date="02/01/2015"  
  	ms.author="stevenpo"/>
 
 # Azure AD와 계정 공유
@@ -44,7 +44,7 @@ Azure AD 관리자는 해당 응용 프로그램에 대해 액세스 패널을 �
 
 공유 계정을 사용하면 관리뿐 아니라 활용성도 높아지며 보안도 향상됩니다. 자격 증명을 사용할 권한이 있는 사용자는 공유 암호를 보는 것이 아니라 조정된 인증 흐름의 일환으로 암호를 사용할 권한을 받는 것입니다. 또한 일부 암호 SSO 응용 프로그램을 통해 Azure AD가 대규모의 복잡한 암호를 사용하여 주기적으로 암호를 롤오버(업데이트)하도록 지정하여 계정 보안을 증대할 수 있습니다. 관리자는 응용 프로그램에 액세스 권한을 쉽게 부여 또는 취소할 수 있으며 누가 계정에 액세스 권한이 있고 누가 과거에 액세스했는지 파악할 수 있습니다.
 
-Azure AD는 모든 유형의 암호 Single Sign-on 응용 프로그램 전체에서EMS(Enterprise Mobility Suite), 프리미엄 또는 기본 라이선스 사용자의 공유 계정을 지원합니다. 응용 프로그램 갤러리에서 수천 개의 사전 통합된 응용 프로그램에서 계정을 공유하고, [사용자 지정 SSO 앱](active-directory-single-sign-on-newly-acquired-saas-apps.md)으로 자체 암호 인증 응용 프로그램을 추가할 수 있습니다.
+Azure AD는 모든 유형의 암호 Single Sign-on 응용 프로그램 전체에서EMS(Enterprise Mobility Suite), 프리미엄 또는 기본 라이선스 사용자의 공유 계정을 지원합니다. 응용 프로그램 갤러리에서 수천 개의 사전 통합된 응용 프로그램에서 계정을 공유하고, [사용자 지정 SSO 앱](active-directory-sso-integrate-saas-apps.md)으로 자체 암호 인증 응용 프로그램을 추가할 수 있습니다.
 
 계정에 공유를 사용하는 Azure AD 기능은 다음과 같습니다.
 
@@ -72,4 +72,4 @@ Azure AD를 사용하여 계정을 공유하려면 다음이 필요합니다.
 - [조건부 액세스를 사용한 앱 보호](active-directory-conditional-access.md)
 - [셀프 서비스 그룹 관리/SSAA](active-directory-accessmanagement-self-service-group-management.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

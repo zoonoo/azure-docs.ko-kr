@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/17/2015"
+   ms.date="02/02/2016"
    ms.author="mbaldwin"/>
 
 # Azure Active Directory와의 통합
@@ -30,7 +30,7 @@ Azure Active Directory는 클라우드 응용 프로그램에 대해 엔터프�
 
 **로그인 충돌을 줄이고 지원 비용을 절감합니다.** Azure AD를 사용하여 응용 프로그램에 로그인하면 사용자는 이름 및 암호를 기억하지 않아도 되며 개발자는 저장하고 보호할 암호가 줄어듭니다. 잊어버린 암호 재설정을 처리하지 않으므로 상당히 효율적입니다. Azure AD에서는 Office 365, Microsoft Azure 등과 같이 전 세계에서 인기가 많은 다양한 클라우드 응용 프로그램에 로그인할 수 있도록 지원합니다. 약 500만 개의 조직에서 4억 3천 만명 이상이 사용 중이므로 사용자가 이미 Azure AD에 로그인되어 있을 가능성이 높습니다. [Azure AD 로그인 지원 추가](active-directory-authentication-scenarios.md)에 대해 자세히 알아보세요.
 
-**응용 프로그램 등록을 단순화합니다.** 응용 프로그램을 등록하는 동안 등록 양식을 사전에 입력하거나 완전히 제거할 수 있도록 Azure AD가 사용자에 대한 필수 정보를 보낼 수 있습니다. 사용자는 소셜 미디어 및 모바일 응용 프로그램에서 본 것과 비슷한 친숙한 동의 환경을 통해 자신의 Azure AD 계정을 사용하여 응용 프로그램을 등록할 수 있습니다. 모든 사용자는 IT 담당자의 도움 없이 Azure AD와 통합된 응용 프로그램을 등록 및 로그인할 수 있습니다. [Azure AD 계정 로그인을 위해 응용 프로그램 등록](../mobile-services-how-to-register-active-directory-authentication.md)에 대해 자세히 알아보세요.
+**응용 프로그램 등록을 단순화합니다.** 응용 프로그램을 등록하는 동안 등록 양식을 사전에 입력하거나 완전히 제거할 수 있도록 Azure AD가 사용자에 대한 필수 정보를 보낼 수 있습니다. 사용자는 소셜 미디어 및 모바일 응용 프로그램에서 본 것과 비슷한 친숙한 동의 환경을 통해 자신의 Azure AD 계정을 사용하여 응용 프로그램을 등록할 수 있습니다. 모든 사용자는 IT 담당자의 도움 없이 Azure AD와 통합된 응용 프로그램을 등록 및 로그인할 수 있습니다. [Azure AD 계정 로그인을 위해 응용 프로그램 등록](../mobile-services/mobile-services-how-to-register-active-directory-authentication.md)에 대해 자세히 알아보세요.
 
 ### 사용자 검색, 사용자 프로비전 관리, 응용 프로그램에 대한 액세스 제어
 
@@ -90,4 +90,4 @@ Azure AD와 통합하면 추가 코드를 작성할 필요가 없다는 이점�
 
 [Azure AD를 사용한 사용자 로그인](active-directory-authentication-scenarios.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

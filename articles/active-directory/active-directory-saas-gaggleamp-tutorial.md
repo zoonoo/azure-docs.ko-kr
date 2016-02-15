@@ -3,7 +3,7 @@
 	description="Azure Active Directory 및 GaggleAMP 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 	services="active-directory"
 	documentationCenter=""
-	authors="ashimaabrol"
+	authors="jeevansd"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/18/2015"
-	ms.author="v-aabrol"/>
+	ms.date="02/02/2016"
+	ms.author="jeedes"/>
 
 
 # 자습서: GaggleAMP와 Azure Active Directory 통합
@@ -35,7 +35,7 @@ GaggleAMP와의 Azure AD 통합을 구성하려면 다음 항목이 필요합니
 - GaggleAMP Single Sign-On이 설정된 구독
 
 
-> [AZURE.NOTE]이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
+> [AZURE.NOTE] 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
 
 
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
@@ -186,7 +186,7 @@ GaggleAMP에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 1. Azure 포털에서 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다. <br><br>![사용자 할당][201] <br>
 
-2. 응용 프로그램 목록에서 **GaggleAMP**를 선택합니다. <br><br>![Azure 목록](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_50.png)<br>
+2. 응용 프로그램 목록에서 **GaggleAMP**를 선택합니다. <br><br>![Azure 목록](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_50.png) <br>
 
 1. 위쪽 메뉴에서 **사용자**를 클릭합니다. <br><br>![사용자 할당][203] <br>
 
@@ -225,4 +225,4 @@ GaggleAMP에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 [204]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

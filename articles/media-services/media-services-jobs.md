@@ -45,7 +45,7 @@
 
 ##인코딩
 
-**Azure 클래식 포털**, **.NET** 또는 **REST API**를 사용하여 **Azure 미디어 인코더**로 인코딩합니다.
+**Azure 클래식 포털**, **.NET** 또는 **REST API**를 사용하여 **미디어 인코더 표준**으로 인코드합니다.
 
 [AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
 
@@ -80,4 +80,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

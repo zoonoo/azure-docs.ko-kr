@@ -32,6 +32,28 @@ iOS 클라이언트에서 이 사용자 지정 API를 호출하려면 `MSClient 
 	     parameters:emailHeader
 	     headers:nil
 	     completion:completion ];
+	    
+반환된 데이터가 필요한 경우 다음과 같은 코드를 사용할 수 있습니다.
+
+	[self.client invokeAPI:apiName
+                 body:yourBody
+           HTTPMethod:httpMethod
+           parameters:parameters
+              headers:headers
+           completion:  ^(NSData *result,
+                          NSHTTPURLResponse *response,
+                          NSError *error){
+               // error is nil if no error occured
+               if(error) { 
+                   NSLog(@"ERROR %@", error);
+               } else {
+                   
+		// do something with the result
+               }
+               
+               
+           }];
+
 		
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

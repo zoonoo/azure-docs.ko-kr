@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="08/10/2015"
+	ms.date="02/01/2016"
 	ms.author="mingzhan"/>
 
 
@@ -30,11 +30,11 @@ PostgreSQL은 Oracle 및 DB2와 유사한 고급 오픈 소스 데이터베이�
 
 ## PostgreSQL 설치
 
-> [AZURE.NOTE]이 자습서를 완료하려면 Linux를 실행하는 Azure 가상 컴퓨터가 이미 있어야 합니다. 계속하기 전에 Linux VM을 생성하고 설정하려면 [Azure Linux VM 자습서](virtual-machines-linux-tutorial.md)를 참조하세요.
+> [AZURE.NOTE] 이 자습서를 완료하려면 Linux를 실행하는 Azure 가상 컴퓨터가 이미 있어야 합니다. 계속하기 전에 Linux VM을 생성하고 설정하려면 [Azure Linux VM 자습서](virtual-machines-linux-tutorial.md)를 참조하세요.
 
 이 경우 PostgreSQL 포트로 포트 1999를 사용하세요.
 
-PuTTY를 통해 생성한 Linux VM에 연결합니다. Azure Linux VM을 처음 사용하는 경우 [Azure에서 Linux와 함께 SSH를 사용하는 방법](virtual-machines-linux-use-ssh-key.md)을 참조하여 PuTTY를 통해 Linux VM에 연결하는 방법을 알아봅니다.
+PuTTY를 통해 생성한 Linux VM에 연결합니다. Azure Linux VM을 처음 사용하는 경우 [Azure에서 Linux와 함께 SSH를 사용하는 방법](virtual-machines-linux-use-ssh-key.md)을 참조하여 Linux VM에 연결하기 위해 PuTTY를 사용하는 방법을 배웁니다.
 
 1. 다음 명령을 실행하여 루트(관리자)로 전환합니다.
 
@@ -94,7 +94,7 @@ PuTTY를 통해 생성한 Linux VM에 연결합니다. Azure Linux VM을 처음 
 
 		# su - postgres
 
-   >[AZURE.NOTE]보안상의 이유로, PostgreSQL은 루트가 아닌 사용자를 사용하여 데이터베이스를 초기화, 시작 또는 종료합니다.
+   > [AZURE.NOTE] 보안상의 이유로, PostgreSQL은 루트가 아닌 사용자를 사용하여 데이터베이스를 초기화, 시작 또는 종료합니다.
 
 
 4. 아래 명령을 입력하여 *bash\_profile* 파일을 편집합니다. *bash\_profile* 파일 끝에 다음 줄이 추가됩니다.
@@ -255,4 +255,4 @@ Postgres 데이터베이스를 만듭니다.
 ##PostgreSQL에 대한 자세한 정보 얻기
 Azure Linux VM에서 PostgreSQL의 설치를 완료하면 Azure에서 사용하여 즐길 수 있습니다. PostgreSQL에 대해 자세히 알아보려면 [PostgreSQL 웹 사이트](http://www.postgresql.org/)를 방문하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

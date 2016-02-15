@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/04/2016"
+   ms.date="02/02/2016"
    ms.author="jgao"/>
 
 # ARM 템플릿을 사용하여 HDInsight의 Windows 기반 Hadoop 클러스터 만들기
@@ -128,7 +128,7 @@ Visual Studio를 리소스 그룹과 함께 사용하는 방법은 [Visual Studi
 
 - .NET 클라이언트 라이브러리를 통한 리소스 배포의 예를 보려면 [.NET 라이브러리 및 템플릿을 사용하여 리소스 배포](arm-template-deployment.md)를 참조하세요.
 - 응용 프로그램 배포에 대한 자세한 예제는 [Azure에서 마이크로 서비스를 예측 가능하게 프로비전 및 배포](app-service-deploy-complex-application-predictably.md)를 참조하세요.
-- 다른 환경에 솔루션 배포에 관한 지침은 [Microsoft Azure의 개발 및 테스트 환경](solution-dev-test-environments-preview-portal.md)을 참조하세요.
+- 다른 환경에 솔루션 배포에 관한 지침은 [Microsoft Azure의 개발 및 테스트 환경](solution-dev-test-environments.md)을 참조하세요.
 - Azure 리소스 관리자 템플릿 섹션에 대한 자세한 내용은 [템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 - Azure 리소스 관리자 템플릿에서 사용할 수 있는 함수 목록은 [템플릿 함수](resource-group-template-functions.md)를 참조하세요.
 
@@ -444,4 +444,4 @@ Visual Studio를 리소스 그룹과 함께 사용하는 방법은 [Visual Studi
 	  }
 	}
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

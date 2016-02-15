@@ -47,7 +47,7 @@
 
 이 작업을 수행하려면 다음이 필요합니다.
 
-- Azure PowerShell 모듈 버전 0.8.2 이상이 로컬 컴퓨터에 설치되어 있어야 합니다. **Get-Module azure | format-table version** 명령을 사용하여 설치한 Azure PowerShell 버전을 확인할 수 있습니다. 지침 및 최신 버전에 대한 링크를 보려면 [Azure PowerShell을 설치 및 구성하는 방법](../install-configure-powershell.md)을 참조하세요.
+- Azure PowerShell 모듈 버전 0.8.2 이상이 로컬 컴퓨터에 설치되어 있어야 합니다. **Get-Module azure | format-table version** 명령을 사용하여 설치한 Azure PowerShell 버전을 확인할 수 있습니다. 지침 및 최신 버전에 대한 링크를 보려면 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
 
 - VM 에이전트가 대상 가상 컴퓨터에 설치되어 있어야 합니다.
 
@@ -87,4 +87,4 @@ VM 에이전트가 설치되어 있는 경우 다음 명령을 실행합니다.
 [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법]: virtual-machines-log-on-windows-server.md
 [Azure VM 확장 및 기능]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

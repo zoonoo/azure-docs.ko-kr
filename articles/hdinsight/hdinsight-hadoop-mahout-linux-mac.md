@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="01/28/2016"
 	ms.author="larryfr"/>
 
 #HDInsight의 Linux 기반 Hadoop와 함께 Apache Mahout를 사용하여 영화 추천 생성(미리 보기)
@@ -25,7 +25,7 @@ Azure HDInsight에서 [Apache Mahout](http://mahout.apache.org) 기계 학습 �
 
 Mahout은 Apache Hadoop용 [기계 학습][ml] 라이브러리입니다. Mahout에는 필터링, 분류 및 클러스터링과 같은 데이터 처리를 위한 알고리즘이 포함됩니다. 이 문서에서는 추천 엔진을 사용하여 친구가 본 영화를 기준으로 영화 추천을 생성합니다.
 
-> [AZURE.NOTE]이 문서의 단계에는 HDInsight 클러스터의 Linux 기반 Hadoop가 필요합니다(미리 보기). Windows 기반 클러스터와 함께 Mahout 사용에 대한 자세한 내용은 [HDInsight에서 Windows 기반 Hadoop로 Apache Mahout을 사용하여 영화 추천 생성](hdinsight-mahout.md)을 참조하세요.
+> [AZURE.NOTE] 이 문서의 단계에는 HDInsight 클러스터의 Linux 기반 Hadoop가 필요합니다(미리 보기). Windows 기반 클러스터와 함께 Mahout 사용에 대한 자세한 내용은 [HDInsight에서 Windows 기반 Hadoop로 Apache Mahout을 사용하여 영화 추천 생성](hdinsight-mahout.md)을 참조하세요.
 
 ##필수 조건
 
@@ -35,7 +35,7 @@ Mahout은 Apache Hadoop용 [기계 학습][ml] 라이브러리입니다. Mahout�
 
 HDInsight 클러스터에 포함된 Mahout 버전에 대한 자세한 내용은 [HDInsight 버전 및 Hadoop 구성 요소](hdinsight-component-versioning.md)를 참조하세요.
 
-> [AZURE.WARNING]HDInsight 클러스터에 다른 버전의 Mahout를 업로드할 수 있지만, HDInsight 클러스터와 함께 제공된 구성 요소만 완전히 지원되며 Microsoft 지원에서 이러한 구성 요소와 관련된 문제를 해결하는 데 도움을 드릴 것입니다.
+> [AZURE.WARNING] HDInsight 클러스터에 다른 버전의 Mahout를 업로드할 수 있지만, HDInsight 클러스터와 함께 제공된 구성 요소만 완전히 지원되며 Microsoft 지원에서 이러한 구성 요소와 관련된 문제를 해결하는 데 도움을 드릴 것입니다.
 >
 > 사용자 지정 구성 요소는 문제 해결에 도움이 되는 합리적인 지원을 받습니다. 지원을 통해 문제를 해결하거나 해당 기술에 대한 전문 지식이 있는, 오픈 소스 기술에 대해 사용 가능한 채널에 참여하도록 요구할 수 있습니다. 예를 들어 [HDInsight에 대한 MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/ko-KR/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com)과 같은 여러 커뮤니티 사이트를 사용할 수 있습니다. Apache 프로젝트는 [http://apache.org](http://apache.org)에 프로젝트 사이트가 있습니다(예: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/)).
 
@@ -94,7 +94,7 @@ Mahout에서 제공하는 기능 중 하나가 추천 엔진입니다. 이 엔�
 
 	mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /example/data/u.data -o /example/data/mahoutout --tempDir /temp/mahouttemp
 
-> [AZURE.NOTE]작업을 완료하려면 몇 분정도 걸릴 수 있으며 여러 MapReduce 작업을 실행할 수 있습니다.
+> [AZURE.NOTE] 작업을 완료하려면 몇 분정도 걸릴 수 있으며 여러 MapReduce 작업을 실행할 수 있습니다.
 
 ##출력 보기
 
@@ -241,7 +241,7 @@ Mahout 작업은 작업을 처리하는 동안 생성된 임시 데이터를 제
 
 	hdfs dfs -rm -f -r /temp/mahouttemp
 
-> [AZURE.WARNING]명령을 다시 실행하려는 경우 출력 디렉터리도 삭제해야 합니다. 이 디렉터리를 삭제하려면 다음을 사용합니다.
+> [AZURE.WARNING] 명령을 다시 실행하려는 경우 출력 디렉터리도 삭제해야 합니다. 이 디렉터리를 삭제하려면 다음을 사용합니다.
 >
 > ```hdfs dfs -rm -f -r /example/data/mahoutout```
 
@@ -249,9 +249,9 @@ Mahout 작업은 작업을 처리하는 동안 생성된 임시 데이터를 제
 
 이제 Mahout을 사용하는 방법을 배웠으므로 HDInsight에서 데이터로 작업하는 다른 방법을 검색합니다.
 
-* [HDInsight에서 Hive 사용](hadoop-use-hive.md)
-* [HDInsight에서 Pig 사용](hadoop-use-pig.md)
-* [HDInsight에서 MapReduce 사용](hadoop-use-mapreduce.md)
+* [HDInsight에서 Hive 사용](hdinsight-use-hive.md)
+* [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
+* [HDInsight에서 MapReduce 사용](hdinsight-use-mapreduce.md)
 
 [build]: http://mahout.apache.org/developers/buildingmahout.html
 [movielens]: http://grouplens.org/datasets/movielens/
@@ -267,4 +267,4 @@ Mahout 작업은 작업을 처리하는 동안 생성된 임시 데이터를 제
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

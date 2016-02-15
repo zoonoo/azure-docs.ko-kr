@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="02/03/2016" 
 	ms.author="arramac"/>
 
 # Order By를 사용하여 DocumentDB 데이터 정렬
@@ -79,7 +79,7 @@ DocumentDB는 곧 추가 쿼리 형식을 가진 단일 숫자, 문자열 또는
 
 DocumentDB는 두 종류의 인덱스(해시 및 범위)를 지원하며 이는 특정 경로/속성, 데이터 형식(문자열/숫자) 및 다른 전체 자릿수 값(최대 전체 자릿수 또는 고정된 전체 자릿수 값)에 대해 설정된다는 사실에 유의하십시오. DocumentDB가 기본적으로 인덱싱 해시를 사용하기 때문에 Order By를 사용하려면 숫자, 문자열 또는 둘 모두의 범위에 사용자 지정 인덱싱 정책을 사용하여 새 컬렉션을 만들어야 합니다.
 
->[AZURE.NOTE]문자열 범위 인덱스는 2015년 7월 7일에 REST API 버전 2015-06-03에서 도입되었습니다. 문자열에 대해 Order By을 위한 정책을 만들려면 NET SDK의 SDK 버전 1.2.0. 또는 버전 1.1.0 Python, Node.js 또는 Java SDK를 사용해야 합니다.
+>[AZURE.NOTE] 문자열 범위 인덱스는 2015년 7월 7일에 REST API 버전 2015-06-03에서 도입되었습니다. 문자열에 대해 Order By을 위한 정책을 만들려면 NET SDK의 SDK 버전 1.2.0. 또는 버전 1.1.0 Python, Node.js 또는 Java SDK를 사용해야 합니다.
 >
 >REST API 버전 2015-06-03 전에 기본 컬렉션 인덱싱 정책은 문자열과 숫자를 위한 해시였습니다. 문자열을 위한 해시 및 숫자에 대한 범위로 변경되었습니다.
 
@@ -100,7 +100,7 @@ DocumentDB는 두 종류의 인덱스(해시 및 범위)를 지원하며 이는 
     await client.CreateDocumentCollectionAsync(databaseLink, 
         booksCollection);  
 
->[AZURE.NOTE]오직 Order By이 RangeIndex로 인덱싱되는 데이터 형식(문자열 및 숫자)의 결과를 반환합니다. 예를 들어 숫자에 RangeIndex가 있는 기본 인덱싱 정책이 있다면 문자열 값을 가진 경로에 대한 Order By는 어떤 문서도 반환하지 않습니다.
+>[AZURE.NOTE] 오직 Order By이 RangeIndex로 인덱싱되는 데이터 형식(문자열 및 숫자)의 결과를 반환합니다. 예를 들어 숫자에 RangeIndex가 있는 기본 인덱싱 정책이 있다면 문자열 값을 가진 경로에 대한 Order By는 어떤 문서도 반환하지 않습니다.
 
 ### 단일 속성에 대한 Order By의 인덱싱
 다음은 문자열인 제목 속성에 대해 인덱스가 Order By인 컬렉션을 만들 수 있는 방법입니다. 범위 인덱싱을 가진 제목 속성("/Title/?")에 대한 경로와 기본 인덱싱 체계를 가진 다른 모든 속성에 대해 문자열에 대한 해시 및 숫자에 대한 범위인 경로 등 두 개의 경로가 있습니다.
@@ -126,13 +126,6 @@ DocumentDB는 두 종류의 인덱스(해시 및 범위)를 지원하며 이는 
 
 ## 샘플
 정책 인덱싱 정책 만들기 및 Order By를 사용한 페이징을 포함하여 Order By를 사용하는 방법을 나타내는 이 [Github 샘플 프로젝트](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries)을 살펴 보세요. 샘플은 오픈 소스이며, 다른 DocumentDB 개발자에게 도움이 되는 정보와 함께 끌어오기 요청을 제출하는 것이 좋습니다. 참여하는 방법에 대한 지침은 [참여 지침](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md)을 참조하세요.
-
-## 다음 단계
-
-향후 서비스 업데이트는 여기에 도입된 Order By 지원에 맞게 확장됩니다. 다음 추가 기능에 대해 작업하고 사용자 의견에 따라 이 개선점 릴리스의 우선순위를 지정합니다.
-
-- 동적 인덱싱 정책: 컬렉션을 만든 후 Azure 클래식 포털에서 인덱싱 정책 수정 지원
-- 보다 효율적인 Order By 및 여러 속성에 대한 Order By에 대해 복합 인덱스를 지원합니다.
 
 ## FAQ
 
@@ -177,4 +170,4 @@ Order By는 속성, 숫자 또는 문자열에 대해 최대 자릿수(-1)로 �
 * [DocumentDB Order By 샘플](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries)
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

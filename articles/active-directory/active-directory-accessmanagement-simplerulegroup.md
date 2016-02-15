@@ -26,6 +26,8 @@
 2. 이제 이 그룹에 대해 그룹의 동적 멤버 자격 작동 방식을 제어할 간단한 단일 규칙을 설정할 수 있습니다. **사용자 추가 위치** 옵션이 선택되어 있는지 확인하고 목록에서 사용자 속성(예: department, jobTitle 등)을 선택합니다.
 
 3. 그런 다음, 조건(같지 않음, 같음, 다음으로 시작 안 함, 다음으로 시작, 포함 안 함, 포함, 일치하지 않음, 일치)을 선택하고 선택한 사용자 속성의 값을 지정합니다. 예를 들어 그룹이 SaaS 응용 프로그램에 할당되어 있고 **사용자 추가 위치**가 (-eq)Sales Rep과 같은 jobTitle로 설정된 규칙을 설정하여 이 그룹에 대해 동적 멤버 자격을 사용하도록 설정한 경우 Azure AD 디렉터리 내에서 직책이 Sales Rep으로 설정된 모든 사용자가 이 SaaS 응용 프로그램에 액세스할 수 있습니다.
+4. 
+보안 그룹 또는 Office 그룹에서 동적 멤버 자격에 대한 규칙을 설정할 수 있습니다.
 
 이러한 문서는 Azure Active Directory에 추가 정보를 제공합니다.
 
@@ -33,4 +35,4 @@
 * [Azure Active Directory란?](active-directory-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

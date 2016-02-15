@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # 데이터 팩터리에서 MapReduce 프로그램 호출
@@ -103,7 +103,7 @@ HDInsight MapReduce 작업을 사용하는 샘플은 [GitHub의 데이터 팩터
 ### 연결된 서비스
 우선 Azure HDInsight 클러스터에서 사용되는 Azure 저장소를 Azure 데이터 팩터리에 연결하도록 연결된 서비스를 생성합니다. 다음 코드를 복사하여 붙여넣는 경우, **계정 이름**과 **계정 키**를 사용자의 Azure 저장소의 이름과 키로 바꿔야 합니다.
 
-#### 저장소 연결된 서비스
+#### Azure 저장소 연결된 서비스
 
 	{
 	    "name": "StorageLinkedService",
@@ -220,4 +220,4 @@ linkedServiceName | 이전에 만든 HDInsight 연결된 서비스를 말합니�
 [Azure Classic Portal]: http://portal.azure.com
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

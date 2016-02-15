@@ -1,6 +1,6 @@
-    <properties 
-	pageTitle="What is the DevTest Lab service? | Microsoft Azure"
-	description="Learn how DevTest Lab can make it easy to create, manage, and monitor Azure virtual machines"
+<properties 
+	pageTitle="DevTest 서비스란 무엇입니까? | Microsoft Azure"
+	description="DevTest 랩으로 Azure 가상 컴퓨터를 쉽게 만들고 관리 및 모니터링할 수 있는 방법 알아보기"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/01/2015"
+	ms.date="01/30/2016"
 	ms.author="tarcher"/>
 
 #DevTest Lab이란?
@@ -52,7 +52,7 @@ VM이 프로비전된 후 응용 프로그램을 배포하고 구성하기 위�
 - VM에서 실행하려는 작업(예: 리포지토리 복제)
 - 테스트하려는 응용 프로그램
 
-아티팩트는 배포를 수행하고 구성을 적용하기 위한 지침이 포함된 ARM(Azure 리소스 관리자) 기반 JSON 파일입니다. 자세한 내용은 [Azure 리소스 관리자 개요](resource-group-overview.md)에서 ARM을 참조하세요.
+아티팩트는 배포를 수행하고 구성을 적용하기 위한 지침이 포함된 ARM(Azure 리소스 관리자) 기반 JSON 파일입니다. 자세한 내용은 [Azure 리소스 관리자 개요](/resource-group-overview.md)에서 ARM을 참조하세요.
 
 **아티팩트 리포지토리**는 아티팩트가 체크 인되는 Git 리포지토리입니다. 동일한 아티팩트 리포지토리를 조직에 있는 여러 개의 랩에 추가하면 다시 사용하거나 공유할 수 있습니다.
 
@@ -66,4 +66,4 @@ VM이 프로비전된 후 응용 프로그램을 배포하고 구성하기 위�
 
 DevTest Lab을 시작하려면 [Azure DevTest Lab 만들기](devtest-lab-create-lab.md) 단계별 자습서를 수행합니다.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="01/28/2016" 
 	ms.author="josephd"/>
 
 # 테스트용 하이브리드 클라우드에 SharePoint 인트라넷 팜 설치
@@ -176,7 +176,7 @@ Ping 명령을 실행한 경우 IP 주소 10.0.0.1에서 성공적인 회신 4�
 3.	구성하는 동안 일부 서비스를 다시 시작해야 할 수 있음을 알리는 대화 상자에서 **예**를 클릭합니다.
 4.	서버 팜에 연결 페이지에서 **새 서버 팜 만들기**를 클릭한 후 **다음**을 클릭합니다.
 5.	구성 데이터베이스 설정 지정 페이지에서 **데이터베이스 서버**에 **sql1.corp.contoso.com**을 입력하고, **사용자 이름**에 **CORP\\SPFarmAdmin**을 입력하고, 암호에 SPFarmAdmin 계정 **암호**를 입력한 후 **다음**을 클릭합니다.
-6.	팜 보안 설정 지정 페이지에서 **암호**와 **암호 확인** 둘 다에 **P@ssphrase**를 입력하고 **다음**을 클릭합니다.
+6.	팜 보안 설정 지정 페이지에서 **암호**와 **암호 확인** 둘 다에 ****P@ssphrase**를 입력하고 **다음**을 클릭합니다.
 7.	SharePoint 중앙 관리 웹 응용 프로그램 구성 페이지에서 **다음**을 클릭합니다.
 8.	SharePoint 제품 구성 마법사 완료 페이지에서 **다음**을 클릭합니다. SharePoint 제품 구성 마법사를 완료하는 데 몇 분 정도 걸릴 수 있습니다.
 9.	구성 완료 페이지에서 **마침**을 클릭합니다. 완료 후 초기 팜 구성 마법사라는 탭에서 Internet Explorer가 시작됩니다.
@@ -187,7 +187,7 @@ Ping 명령을 실행한 경우 IP 주소 10.0.0.1에서 성공적인 회신 4�
 14.	사이트 모음 만들기 페이지의 **제목 및 설명**에서 **제목**에 **Contoso Corporation**을 입력하고 URL ****http://sp1**/을 지정한 다음 **확인**을 클릭합니다. 완료되기 전에 작업 중 페이지가 잠시 동안 표시될 수 있습니다. 이 단계는 URL http://sp1에 팀 사이트를 만듭니다.
 15.	팜 구성 마법사를 완료합니다 페이지에서 **마침**을 클릭합니다. Internet Explorer 탭에 SharePoint 2013 중앙 관리 사이트가 표시됩니다.
 16.	CORP\\User1 계정 자격 증명으로 CLIENT1 컴퓨터에 로그온한 다음 Internet Explorer를 시작합니다.
-17.	주소 표시줄에 **http://sp1/**을 입력하고 Enter를 누릅니다. Contoso Corporation에 대한 SharePoint 팀 사이트가 표시됩니다. 사이트를 렌더링하는 데 약간의 시간이 걸릴 수 있습니다.
+17.	주소 표시줄에 **http://sp1/**을 입력하고 Enter 키를 누릅니다. Contoso Corporation에 대한 SharePoint 팀 사이트가 표시됩니다. 사이트를 렌더링하는 데 약간의 시간이 걸릴 수 있습니다.
 
 다음은 현재 구성입니다.
 
@@ -195,23 +195,8 @@ Ping 명령을 실행한 경우 IP 주소 10.0.0.1에서 성공적인 회신 4�
  
 하이브리드 클라우드 환경의 SharePoint 인트라넷 팜을 테스트할 준비가 완료되었습니다.
 
-## 추가 리소스
+## 다음 단계
 
-[Azure 인프라 서비스의 SharePoint](http://msdn.microsoft.com/library/azure/dn275955.aspx)
+- [프로덕션 워크로드](../virtual-machines/virtual-machines-workload-intranet-sharepoint-overview.md)를 설정합니다.
 
-[SharePoint 서버 팜](../virtual-machines/virtual-machines-sharepoint-farm-azure-preview.md)
-
-[테스트용 하이브리드 클라우드 환경 설정](virtual-networks-setup-hybrid-cloud-environment-testing.md)
-
-[테스트를 위한 하이브리드 클라우드에서 웹 기반 LOB 응용 프로그램 설정](virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
-
-[테스트를 위한 하이브리드 클라우드에서 Office 365 디렉터리 동기화(DirSync) 설정](virtual-networks-setup-dirsync-hybrid-cloud-testing.md)
-
-[테스트를 위한 시뮬레이션된 하이브리드 클라우드 환경 설정](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
-
-[Azure 하이브리드 클라우드 테스트 환경](../virtual-machines/virtual-machines-hybrid-cloud-test-environments.md)
-
-[Azure 인프라 서비스 구현 지침](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
- 
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

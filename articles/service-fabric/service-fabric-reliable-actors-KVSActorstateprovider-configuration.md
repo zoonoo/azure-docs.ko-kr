@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/28/2015"
+   ms.date="01/26/2016"
    ms.author="sumukhs"/>
 
 # Reliable Actors 구성--KVSActorStateProvider
@@ -21,7 +21,7 @@ KVSActorStateProvider의 기본 구성은 지정된 행위자에 대해 Microsof
 
 Azure 서비스 패브릭 런타임은 settings.xml 파일에서 미리 정의된 섹션 이름을 찾아서 기본 런타임 구성 요소를 만드는 동안 해당 구성 값을 사용합니다.
 
->[AZURE.NOTE]Visual Studio 솔루션에서 생성된 settings.xml 파일에서 다음 구성의 섹션 이름을 삭제 또는 수정하지 **않도록** 합니다.
+>[AZURE.NOTE] Visual Studio 솔루션에서 생성된 settings.xml 파일에서 다음 구성의 섹션 이름을 삭제 또는 수정하지 **않도록** 합니다.
 
 ## 복제자 보안 구성
 복제자 보안 구성은 복제하는 동안 사용되는 통신 채널을 보호하는 데 사용됩니다. 따라서 서비스는 서로의 복제 트래픽을 볼 수 없으므로 항상 사용 가능하게 설정한 데이터를 안전하게 보호할 수 있습니다. 기본적으로 빈 보안 구성 섹션에서는 복제 보안이 되지 않습니다.
@@ -86,4 +86,4 @@ Azure 서비스 패브릭 런타임은 settings.xml 파일에서 미리 정의�
 
 BatchAcknowledgementInterval 매개 변수는 복제 지연을 제어합니다. '0' 값은 처리량을 희생하여 가장 낮은 대기 시간을 제공합니다(더 많은 승인 메시지를 보내고 처리해야 하므로 각각에 포함된 승인은 적음). BatchAcknowledgementInterval의 값이 클수록 전체적인 복제 처리량은 높아지고 작업 대기 시간은 더욱 길어집니다. 이 값은 트랜잭션 커밋의 대기 시간으로 직접 변환됩니다.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

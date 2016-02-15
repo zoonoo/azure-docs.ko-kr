@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="01/28/2016"
    ms.author="larryfr"/>
 
 # HDInsight(Hadoop)에서 Apache Storm, 이벤트 허브 및 HBase를 사용하여 센서 데이터 분석
@@ -24,9 +24,9 @@ HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 센서 �
 
 ## 필수 조건
 
-* Azure 구독. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+* Azure 구독. [Azure 무료 평가판](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 
-* [HDInsight의 Apache Storm 클러스터](../hdinsight-storm-getting-started.md)
+* [HDInsight의 Apache Storm 클러스터](hdinsight-apache-storm-tutorial-get-started.md)
 
 * [Node.js](http://nodejs.org/): 웹 대시보드에 사용되며 센서 데이터를 이벤트 허브를 보냅니다.
 
@@ -256,7 +256,7 @@ HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 센서 �
 
 ### 웹 사이트 대시보드 게시
 
-1. 대시보드를 Azure 웹 사이트에 배포하려면 [Node.js 웹 사이트 빌드 및 Azure에 배포](../web-sites-nodejs-develop-deploy-mac.md) 단계를 따릅니다 웹 사이트의 URL(**mywebsite.azurewebsites.net**과 유사함)을 기록해 둡니다.
+1. 대시보드를 Azure 웹 사이트에 배포하려면 [Node.js 웹 사이트 빌드 및 Azure에 배포](../app-service-web/web-sites-nodejs-develop-deploy-mac.md) 단계를 따릅니다 웹 사이트의 URL(**mywebsite.azurewebsites.net**과 유사함)을 기록해 둡니다.
 
 2. 웹 사이트가 만들어지면 Azure 클래식 포털에서 해당 사이트로 이동하여 **구성** 탭을 선택합니다. **웹 소켓**을 사용하도록 설정하고 페이지 아래쪽에서 **저장**을 클릭합니다.
 
@@ -422,4 +422,4 @@ Storm 클러스터에서 토폴로지를 시작하고 데이터를 처리한 경
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

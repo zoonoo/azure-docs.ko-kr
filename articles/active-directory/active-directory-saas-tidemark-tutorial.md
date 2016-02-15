@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/25/2016"
+	ms.date="02/02/2016"
 	ms.author="jeedes"/>
 
 
@@ -64,7 +64,7 @@ Tidemark의 Azure AD 통합을 구성하려면 갤러리의 Tidemark를 관리�
 4. 페이지 맨 아래에 있는 **추가**를 클릭합니다.<br><br> ![응용 프로그램][3]<br>
 5. **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.<br><br> ![응용 프로그램][4]<br>
 6. 검색 상자에 **Tidemark**를 입력합니다.<br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-tidemark-tutorial/tutorial_tidemark_01.png)<br>
-7. 결과 창에서 **Tidemark**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다. <br><br>
+7. 결과 창에서 **Tidemark**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-tidemark-tutorial/tutorial_tidemark_02.png)<br>
 
 ##  Azure AD Single Sign-on 구성 및 테스트
 이 섹션은 "Britta Simon"이라는 테스트 사용자를 기반으로 Tidemark에서 Azure AD Single Sign-On을 구성하고 테스트하는 방법을 보여 주기 위해 작성되었습니다.
@@ -75,7 +75,7 @@ Tidemark에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 1. **[Azure AD Single Sign-on 구성](#configuring-azure-ad-single-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
 2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-4. **[Tidemark 테스트 사용자 만들기](#creating-a-Tidemark-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Tidemark에 만듭니다.
+4. **[Tidemark 테스트 사용자 만들기](#creating-a-tidemark-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Tidemark에 만듭니다.
 5. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
 5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
@@ -213,4 +213,4 @@ Tidemark에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 [204]: ./media/active-directory-saas-tidemark-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-tidemark-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

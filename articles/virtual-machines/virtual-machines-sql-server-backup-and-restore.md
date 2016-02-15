@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="11/13/2015"
+	ms.date="02/03/2016"
 	ms.author="jroth" />
 
 # Azure 가상 컴퓨터에서 SQL Server의 백업 및 복원
@@ -23,13 +23,13 @@
 
 SQL Server 데이터베이스에 데이터를 백업하는 작업은 응용 프로그램 또는 사용자 오류로 인한 데이터 손실을 방지하기 위한 전략의 중요한 부분입니다. 이는 Azure 가상 컴퓨터(VM)에서 실행되는 SQL Server에 대해서도 마찬가지입니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 Azure VM에서 실행되는 SQL Server의 경우, 백업 파일의 대상으로 연결된 디스크를 사용하는 네이티브 백업 및 복원 기법을 사용할 수 있습니다. 그러나 [가상 컴퓨터의 크기](virtual-machines-size-specs.md)에 따라 Azure 가상 컴퓨터에 연결할 수 있는 디스크의 수에는 제한이 있습니다. 또한 고려해야 할 디스크 관리에 대한 오버헤드도 있습니다.
 
-SQL Server 2014부터는 Microsoft Azure Blob 저장소에 백업 및 복원할 수 있습니다. 또한 SQL Server 2016은 이 옵션에 대한 향상된 기능을 제공합니다. 또한 Microsoft Azure Blob 저장소에 저장된 데이터베이스 파일의 경우, SQL Server 2016은 Azure 스냅숏을 사용하여 거의 즉시 백업하고 신속하게 복원하는 옵션을 제공합니다. 이 문서에서는 이러한 옵션에 대한 개요를 제공하며 자세한 정보는 [Microsoft Azure Blob 저장소 서비스로 SQL Server 백업 및 복원](https://msdn.microsoft.com/library/jj919148(v=sql.130).aspx)에서 확인할 수 있습니다.
+SQL Server 2014부터는 Microsoft Azure Blob 저장소에 백업 및 복원할 수 있습니다. 또한 SQL Server 2016은 이 옵션에 대한 향상된 기능을 제공합니다. 또한 Microsoft Azure Blob 저장소에 저장된 데이터베이스 파일의 경우, SQL Server 2016은 Azure 스냅숏을 사용하여 거의 즉시 백업하고 신속하게 복원하는 옵션을 제공합니다. 이 문서에서는 이러한 옵션에 대한 개요를 제공하며 자세한 내용은 [Microsoft Azure Blob 저장소 서비스로 SQL Server 백업 및 복원](https://msdn.microsoft.com/library/jj919148.aspx)에서 확인할 수 있습니다.
 
->[AZURE.NOTE]대형 데이터베이스 백업 옵션에 대한 설명은 [Azure 가상 컴퓨터에 대한 다중 테라바이트 SQL Server 데이터베이스 백업 전략](http://blogs.msdn.com/b/igorpag/archive/2015/07/28/multi-terabyte-sql-server-database-backup-strategies-for-azure-virtual-machines.aspx)을 참조하세요.
+>[AZURE.NOTE] 대형 데이터베이스 백업 옵션에 대한 설명은 [Azure 가상 컴퓨터에 대한 다중 테라바이트 SQL Server 데이터베이스 백업 전략](http://blogs.msdn.com/b/igorpag/archive/2015/07/28/multi-terabyte-sql-server-database-backup-strategies-for-azure-virtual-machines.aspx)을 참조하세요.
 
 아래 섹션에는 Azure 가상 컴퓨터에서 지원되는 다양한 SQL Server 버전에 관련된 정보가 포함되어 있습니다.
 
@@ -53,7 +53,7 @@ Microsoft SQL Server 2016 CTP3(Community Technology Preview 3)는 SQL Server 201
 
 - **관리되는 백업 일정**: Azure에 대한 SQL Server 관리되는 백업에서 이제는 사용자 지정 일정을 지원합니다. 자세한 내용은 [Microsoft Azure로의 SQL Server 관리되는 백업](https://msdn.microsoft.com/library/dn449496.aspx)을 참조하세요.
 
->[AZURE.NOTE]Azure Blob 저장소를 사용하는 경우 SQL Server 2016 기능에 대한 자습서는 [자습서: SQL Server 2016 데이터베이스에서 Microsoft Azure Blob 저장소 서비스 사용](https://msdn.microsoft.com/library/dn466438.aspx)을 참조하세요.
+>[AZURE.NOTE] Azure Blob 저장소를 사용하는 경우 SQL Server 2016 기능에 대한 자습서는 [자습서: SQL Server 2016 데이터베이스에서 Microsoft Azure Blob 저장소 서비스 사용](https://msdn.microsoft.com/library/dn466438.aspx)을 참조하세요.
 
 ## SQL Server 2014에서 백업 및 복원
 
@@ -86,10 +86,10 @@ SQL Server 2008에서 SQL Server 백업 및 복원에 대해서는 [SQL Server�
 
 ## 다음 단계
 
-Azure VM에서 SQL Server를 배포할 계획 중인 경우 [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-provision-sql-server.md) 자습서의 프로비전 지침을 참조하세요.
+Azure VM에서 SQL Server를 배포할 계획 중인 경우 [Azure 리소스 관리자를 사용하여 Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-sql-server-provision-resource-manager.md) 자습서의 프로비저닝 참고 자료를 참조하세요.
 
 데이터를 마이그레이션하는 데 백업 및 복원을 사용할 수 있지만 Azure VM의 SQL Server로 데이터를 마이그레이션하는 훨씬 간편한 경로가 있습니다. 마이그레이션 옵션 및 권장 사항에 대한 자세한 내용은 [Azure VM에서 SQL Server로 데이터베이스 마이그레이션](virtual-machines-migrate-onpremises-database.md)을 참조하세요.
 
 그 밖에 [Azure 가상 컴퓨터에서 SQL Server 실행과 관련된 리소스](virtual-machines-sql-server-infrastructure-services.md)를 검토하세요.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

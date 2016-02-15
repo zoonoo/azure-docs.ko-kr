@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="02/03/2016"
 	ms.author="garye"/>
 
 # Azure 기계 학습 스튜디오란?
@@ -31,7 +31,7 @@ Microsoft Azure 기계 학습 스튜디오는 데이터에 대한 예측 분석 
 
 **Azure 기계 학습 스튜디오**에서는 예측 분석 모델을 간편하게 빌드, 테스트, 반복할 수 있는 대화형 시각적 작업 영역을 제공합니다. ***데이터 집합***과 분석 ***모듈***을 대화형 ***캔버스***로 끌어서 놓고 함께 연결하여 ***실험***을 생성하고 기계 학습 스튜디오에서 ***실행***합니다. 모델 디자인을 반복하려면 실험을 ***편집***하고 필요에 따라 복사본을 ***저장***하고 실험을 다시 실행합니다. 준비가 되면 ***학습 실험***을 ***예측 실험***으로 변환한 다음 다른 사용자가 모델에 액세스할 수 있도록 ***웹 서비스***로 ***게시***할 수 있습니다.
 
->[AZURE.TIP]기계 학습 스튜디오의 기능을 개략적으로 제공하는 다이어그램을 다운로드하고 인쇄하려면 [Azure 기계 학습 스튜디오 기능 개요 다이어그램](machine-learning-studio-overview-diagram.md)을 참조하세요.
+>[AZURE.TIP] 기계 학습 스튜디오의 기능을 개략적으로 제공하는 다이어그램을 다운로드하고 인쇄하려면 [Azure 기계 학습 스튜디오 기능 개요 다이어그램](machine-learning-studio-overview-diagram.md)을 참조하세요.
 
 프로그래밍이 필요하지 않고 데이터 집합과 모듈을 시각적으로 연결하면 예측 분석 모델을 구성할 수 있습니다.
 
@@ -93,7 +93,7 @@ Microsoft Azure 기계 학습 스튜디오는 데이터에 대한 예측 분석 
 모듈은 데이터에 대해 수행할 수 있는 알고리즘입니다. 기계 학습 스튜디오에는 데이터 가져오기 함수부터 학습, 점수 매기기 및 유효성 검사 프로세스에 이르는 다양한 모듈이 있습니다. 포함된 모듈의 몇 가지 예제는 다음과 같습니다.
 
 - [ARFF로 변환][convert-to-arff] - .NET 직렬화된 데이터 집합을 ARFF(Attribute-Relation File Format) 형식으로 변환합니다.
-- [기본 통계][elementary-statistics] - 평균, 표준 편차 등의 기본 통계를 계산합니다.
+- [기본 통계 계산][elementary-statistics] - 평균, 표준 편차 등의 기본 통계를 계산합니다.
 - [선형 회귀][linear-regression] - 온라인 기울기 하강 기반 선형 회귀 모델을 만듭니다.
 - [모델 점수 매기기][score-model] -학습된 분류 또는 회귀 모델의 점수를 매깁니다.
 
@@ -115,4 +115,4 @@ Microsoft Azure 기계 학습 스튜디오는 데이터에 대한 예측 분석 
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

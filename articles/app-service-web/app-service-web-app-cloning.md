@@ -35,7 +35,7 @@
 
 새 앱 서비스 계획을 만들려면 다음 예제처럼 New-AzureRmAppServicePlan 명령을 사용할 수 있습니다.
 
-	New-AzureRmAppServicePlan -Location "South Central US" -ResourceGroupName DestinationAzureResourceGroup -Name NewAppServicePlan
+	New-AzureRmAppServicePlan -Location "South Central US" -ResourceGroupName DestinationAzureResourceGroup -Name NewAppServicePlan -Tier Premium
 
 New-AzureRmWebApp 명령을 사용하여 미국 중북부 지역에서 새 웹앱을 만들어 기존 프리미엄 계층 앱 서비스 계획에 연결할 수 있으며 또한 원본 웹앱과 동일한 리소스 그룹을 사용하거나 다음과 같이 새 리소스 그룹을 정의할 수 있습니다.
 
@@ -77,7 +77,7 @@ ASE의 이름 및 ASE가 속한 리소스 그룹 이름을 알고 있으면 사�
 
 ## 앱을 복제하는 동한 트래픽 관리자 구성 ##
 
-기존 웹앱에서 복제하는 동안 새 웹을 만들 때 트래픽 관리자를 구성하면 두 웹앱을 새 트래픽 관리자 프로필 또는 트래픽 관리자의 ARM 버전만 지원되는 기존 트래픽 관리자 프로필에 연결할 수 있습니다.
+다중 지역 웹앱을 만들고 이러한 웹앱에 트래픽을 라우팅하도록 Azure 트래픽 관리자를 구성하는 것은 고객에게 높은 앱 가용성을 보장하기 위해 매우 중요한 시나리오입니다. 기존 웹앱을 복제할 때 두 웹앱을 새 트래픽 관리자 프로필에 연결할 수도 있고 기존 트래픽 관리자 프로필에 연결할 수도 있습니다. 단, 트래픽 관리자의 ARM 버전만 지원됩니다.
 
 ### 앱을 복제하는 동안 새 트래픽 관리자 프로필 만들기 ###
 
@@ -114,4 +114,4 @@ ASE의 이름 및 ASE가 속한 리소스 그룹 이름을 알고 있으면 사�
 - [앱 서비스 환경 소개](app-service-app-service-environment-intro.md)
 - [Azure 리소스 관리자로 Azure PowerShell 사용](../powershell-azure-resource-manager.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

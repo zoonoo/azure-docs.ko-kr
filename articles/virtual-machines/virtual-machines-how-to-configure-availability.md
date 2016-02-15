@@ -31,7 +31,7 @@
 - [옵션 1: 가상 컴퓨터와 가용성 집합을 동시에 만듭니다.][] 그런 다음 새 가상 컴퓨터를 만들 때 집합에 가상 컴퓨터를 추가합니다.
 - [옵션 2: 기존 가상 컴퓨터를 가용성 집합에 추가합니다.][]
 
->[AZURE.NOTE]클래식 모델에서는 같은 가용성 집합에 배치할 가상 컴퓨터는 같은 클라우드 서비스에 속해야 합니다.
+>[AZURE.NOTE] 클래식 모델에서는 같은 가용성 집합에 배치할 가상 컴퓨터는 같은 클라우드 서비스에 속해야 합니다.
 
 ## <a id="createset"> </a>옵션 1: 동시에 가상 컴퓨터 및 가용성 집합 만들기##
 
@@ -96,7 +96,7 @@ Azure PowerShell 명령을 사용하려면 관리자 수준의 Azure PowerShell 
 
 	Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Set-AzureAvailabilitySet -AvailabilitySetName "<AvSetName>" | Update-AzureVM
 
->[AZURE.NOTE]가용성 집합에 추가하는 작업을 완료하기 위해 가상 컴퓨터를 다시 시작해야 할 수 있습니다.
+>[AZURE.NOTE] 가용성 집합에 추가하는 작업을 완료하기 위해 가상 컴퓨터를 다시 시작해야 할 수 있습니다.
 
 ## 추가 리소스
 
@@ -110,6 +110,6 @@ Azure PowerShell 명령을 사용하려면 관리자 수준의 Azure PowerShell 
 [가상 컴퓨터의 가용성 관리]: virtual-machines-manage-availability.md
 [Windows를 실행하는 가상 컴퓨터 만들기]: virtual-machines-windows-tutorial.md
 [가상 네트워크 개요(영문)]: virtual-networks-overview.md
-[서비스 관리의 가상 컴퓨터 관련 문서]: virtual-machines-service-management-articles.md
+[서비스 관리의 가상 컴퓨터 관련 문서]: https://azure.microsoft.com/documentation/articles/?tag=azure-service-management&service=virtual-machines
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

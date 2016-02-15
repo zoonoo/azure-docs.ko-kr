@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="liviodlc"
-	manager="terrylan"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/29/2015"
+	ms.date="02/02/2016"
 	ms.author="liviodlc"/>
 
 #Azure Active Directory에서 페더레이션된 Single Sign-On에 대한 인증서 관리
@@ -72,10 +72,10 @@
 
 	- Azure AD에서 새 인증서를 사용하도록 설정하는 대화 상자의 맨 아래에 있는 확인 확인란을 선택하고 **다음**을 클릭하여 전송합니다.
 
-	> [AZURE.IMPORTANT]앱에 Single Sign-On은 이러한 두 단계 중 한 단계를 완료하는 순간 비활성화되지만, 두 번째 단계를 완료하면 다시 활성화됩니다. 따라서 가동 중지 시간을 최소화하려면 각각 짧은 시간 내에 두 단계를 완료할 수 잇도록 준비하세요.
+	> [AZURE.IMPORTANT] 앱에 Single Sign-On은 이러한 두 단계 중 한 단계를 완료하는 순간 비활성화되지만, 두 번째 단계를 완료하면 다시 활성화됩니다. 따라서 가동 중지 시간을 최소화하려면 각각 짧은 시간 내에 두 단계를 완료할 수 잇도록 준비하세요.
 
 	![다운로드한 다음 인증서 업로드](./media/active-directory-sso-certs/renew-config-app.PNG)
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

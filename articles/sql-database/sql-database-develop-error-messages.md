@@ -29,7 +29,7 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 -->
 
 
-이 문서에서는 데이터베이스 연결 오류, 일시적인 오류, 리소스 거버넌스 오류, 데이터베이스 복사 문제 및 기타 오류를 포함하여 SQL 데이터베이스 클라이언트 응용 프로그램의 SQL 오류 코드를 나열합니다. 대부분의 범주는 Azure SQL 데이터베이스에 특정되며 Microsoft SQL Server에 적용되지 않습니다.
+이 문서에서는 데이터베이스 연결 오류, 일시적인 오류(일시적인 폴트라고도 함), 리소스 거버넌스 오류, 데이터베이스 복사 문제 및 기타 오류를 포함하여 SQL 데이터베이스 클라이언트 응용 프로그램의 SQL 오류 코드를 나열합니다. 대부분의 범주는 Azure SQL 데이터베이스에 특정되며 Microsoft SQL Server에 적용되지 않습니다.
 
 클라이언트 응용 프로그램에서 주어진 모든 오류에 대해 사용자 지정하는 메시지를 사용자에게 제공할 수 있습니다.
 
@@ -221,4 +221,4 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 - [Azure SQL 데이터베이스 일반 제한 사항 및 지침](sql-database-general-limitations.md)
 - [Azure SQL 데이터베이스 리소스 제한](sql-database-resource-limits.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

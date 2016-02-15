@@ -12,8 +12,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/06/2016"
-    ms.author="sidneyh;torsteng" />
+    ms.date="01/28/2016"
+    ms.author="torsteng;sidneyh" />
 
 # 분할(행 분할)을 위한 탄력적 데이터베이스 쿼리
 
@@ -192,7 +192,7 @@ DISTRIBUTION 절은 이 테이블의 데이터 배포를 지정합니다.
 	where w_id > 100 and w_id < 200 
 	group by w_id, o_c_id 
  
-### 2\.2 Stored procedure SP\_ EXECUTE\_FANOUT 
+### 2\.2 저장 프로시저 SP\_ EXECUTE\_FANOUT 
 
 또한 탄력적 쿼리는 분할된 데이터베이스에 대한 직접 액세스를 제공하기 위해 저장 프로시저를 사용합니다. 저장 프로시저는 sp\_execute\_fanout이며 다음 매개 변수를 사용합니다.
 
@@ -200,7 +200,7 @@ DISTRIBUTION 절은 이 테이블의 데이터 배포를 지정합니다.
 * 분할 맵 데이터베이스 이름(nvarchar): 분할된 데이터베이스 맵 데이터베이스의 이름입니다. 
 * 사용자 이름(nvarchar): 분할된 데이터베이스 맵에 로그인하기 위한 사용자 이름입니다. 
 * 암호(nvarchar): 사용자 암호입니다. 
-* 분할된 데이터베이스 맵 이름(nvarchar): 쿼리에 대해 사용할 분할된 데이터베이스 맵 이름입니다. 
+* 분할된 데이터베이스 맵 이름(nvarchar): 쿼리에 대해 사용할 분할된 데이터베이스 맵 이름입니다. 이름은 \_ShardManagement.ShardMapsGlobal 테이블에 있으며 [탄력적 데이터베이스 도구 시작하기](sql-database-elastic-scale-get-started.md)에 있는 샘플 앱으로 데이터베이스를 만들 때 사용되는 기본 이름입니다. 앱에 있는 기본 이름은 "CustomerIDShardMap"입니다.
 *  쿼리: T-SQL 쿼리를 각 분할된 데이터베이스에서 실행할 수 있습니다. 
 *  매개 변수 선언(nvarchar), 선택 사항: 쿼리 매개 변수(예: sp\_executesql)에 사용된 매개 변수에 대한 데이터 형식 정의가 있는 문자열입니다. 
 *  매개 변수 값 목록, 선택 사항: 쉼표로 구분한 매개 변수 값(예: sp\_executesql) 목록  
@@ -212,7 +212,7 @@ sp\_execute\_fanout은 호출 매개 변수에서 제공한 분할 맵 정보를
 예제:
 
 	sp_execute_fanout 
-		’myserver.database.windows.net', 
+		N'myserver.database.windows.net', 
 		N'ShardMapDb', 
 		N'myuser', 
 		N'MyPwd', 
@@ -241,4 +241,4 @@ sp\_execute\_fanout은 호출 매개 변수에서 제공한 분할 맵 정보를
 [1]: ./media/sql-database-elastic-query-horizontal-partitioning/horizontalpartitioning.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

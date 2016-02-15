@@ -1,9 +1,9 @@
-<properties 
+<properties
 	pageTitle="가상 컴퓨터의 SQL Server 개요 | Microsoft Azure"
-	description="이 문서에서는 Azure 가상 컴퓨터에서 호스트되는 SQL Server에 대한 개요를 제공합니다. 여기에는 세부 콘텐츠에 대한 링크가 포함되어 있습니다." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="rothja" 
+	description="이 문서에서는 Azure 가상 컴퓨터에서 호스트되는 SQL Server에 대한 개요를 제공합니다. 여기에는 세부 콘텐츠에 대한 링크가 포함되어 있습니다."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="rothja"
 	manager="jeffreyg"
 	editor=""
 	tags="azure-service-management"/>
@@ -13,8 +13,8 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services" 
-	ms.date="11/12/2015"
+	ms.workload="infrastructure-services"
+	ms.date="02/03/2016"
 	ms.author="jroth"/>
 
 # Azure 가상 컴퓨터의 SQL Server 개요
@@ -28,9 +28,11 @@ Azure에서 SQL Server 가상 컴퓨터를 만들려면 먼저 Azure 플랫폼 �
 
 ### 단일 VM에 SQL Server 인스턴스 배포
 
-구독을 등록한 후, Azure에 SQL Server 가상 컴퓨터를 배포하는 가장 쉬운 방법은 [Azure 클래식 포털에 SQL 서버 컴퓨터 갤러리 이미지를 프로비전](virtual-machines-provision-sql-server.md)하는 것입니다. 이러한 이미지에는 VM 가격에 포함된 SQL Server의 라이선스가 포함되어 있습니다.
+구독에 등록한 후 Azure에서 SQL Server 가상 컴퓨터를 배포하는 가장 쉬운 방법은 [Azure에서 SQL Server 컴퓨터 갤러리 이미지를 프로비전](virtual-machines-sql-server-provision-resource-manager.md)하는 것입니다. 이러한 이미지에는 VM 가격에 포함된 SQL Server의 라이선스가 포함되어 있습니다.
 
->[AZURE.NOTE] Azure 포털을 사용하여 SQL Server 가상 컴퓨터를 프로비전 및 관리합니다. 기본적으로 프리미엄 저장소를 사용하고 자동화된 패치, 자동화된 백업 및 AlwaysOn 구성을 제공합니다.
+Azure 가상 컴퓨터를 만들고 관리하기 위한 모델이 두 가지(클래식 및 리소스 관리자) 있다는 점에 유의해야 합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. Azure VM의 일부 SQL Server 설명서는 여전히 클래식 모델을 단독으로 참조합니다. 이러한 항목은 새 Azure 포털 및 리소스 관리자 모델을 사용하기 위해 시간에 따라 업데이트됩니다. 자세한 내용은 [리소스 관리자 배포 및 클래식 배포 이해](../resource-manager-deployment-model.md)를 참조하세요.
+
+>[AZURE.NOTE] 가능하면 최신 [Azure 포털](https://portal.azure.com/)을 사용하여 SQL Server 가상 컴퓨터를 프로비전 및 관리합니다. 기본적으로 프리미엄 저장소를 사용하고 자동화된 패치, 자동화된 백업 및 AlwaysOn 구성을 제공합니다.
 
 다음 표에서는 가상 컴퓨터 갤러리의 사용 가능한 SQL Server 이미지의 매트릭스를 제공합니다.
 
@@ -44,16 +46,14 @@ Azure에서 SQL Server 가상 컴퓨터를 만들려면 먼저 Azure 플랫폼 �
 |SQL Server 2014 SP1|Windows Server 2012 R2|Enterprise, Standard, Web|
 |SQL Server 2016 CTP|Windows Server 2012 R2|평가|
 
->[AZURE.NOTE] 데이터 웨어하우징 및 트랜잭션 작업에 대한 가상 컴퓨터 갤러리 이미지(위에 표시되지 않음)는 사용되지 않으며 갤러리에서 곧 제거될 예정입니다. 이전 표에 나와 있는 표준 이미지를 사용하여 특정 작업에 대한 성능을 최적화하세요.
-
-미리 구성된 이미지뿐 아니라 사전 설치된 SQL Server 없이 [Azure 가상 컴퓨터 만들기](virtual-machines-windows-tutorial.md)를 수행할 수도 있습니다. 라이선스가 있다면 어떤 SQL Server 인스턴스든 설치할 수 있습니다. Azure 가상 컴퓨터에서 SQL Server를 실행하기 위해 [Azure에서 Software Assurance를 통한 라이선스 이동](https://azure.microsoft.com/pricing/license-mobility/)을 사용하여 라이선스를 Azure로 마이그레이션합니다. 이 시나리오에서는 가상 컴퓨터와 관련된 Azure 계산 및 저장소 [비용](https://azure.microsoft.com/pricing/details/virtual-machines/)에 대해서만 지불합니다.
+미리 구성된 이미지 외에도 사전 설치된 SQL Server 없이 [Azure 가상 컴퓨터 만들기](virtual-machines-windows-tutorial.md)를 수행할 수도 있습니다. 라이선스가 있다면 어떤 SQL Server 인스턴스든 설치할 수 있습니다. Azure 가상 컴퓨터에서 SQL Server를 실행하기 위해 [Azure에서 Software Assurance를 통한 라이선스 이동](https://azure.microsoft.com/pricing/license-mobility/)을 사용하여 라이선스를 Azure로 마이그레이션합니다. 이 시나리오에서는 가상 컴퓨터와 관련된 Azure 계산 및 저장소 [비용](https://azure.microsoft.com/pricing/details/virtual-machines/)에 대해서만 지불합니다.
 
 SQL Server 이미지에 가장 적합한 가상 컴퓨터 구성 설정을 확인하려면 [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](virtual-machines-sql-server-performance-best-practices.md)를 검토하세요. 프로덕션 작업의 경우 SQL Server Enterprise Edition에 대한 최소 권장 가상 컴퓨터 크기는 **DS3**이며 Standard Edition에 대한 최소 권장 가상 컴퓨터 크기는 **DS2**입니다.
 
 성능 모범 사례 검토 외에도 다른 초기 작업에는 다음이 포함됩니다.
 
 - [Azure VM의 SQL Server에 대한 보안 모범 사례 검토](virtual-machines-sql-server-security-considerations.md)
-- [연결 설정](virtual-machines-sql-server-connectivity.md)
+- [연결 설정](virtual-machines-sql-server-connectivity-resource-manager.md)
 
 ### 데이터 마이그레이션
 
@@ -63,11 +63,10 @@ SQL Server 가상 컴퓨터를 준비하고 실행한 후 기존 데이터베이
 
 고가용성이 필요한 경우 SQL Server AlwaysOn 가용성 그룹을 구성하는 것이 좋습니다. 여기에는 가상 네트워크의 여러 Azure VM이 포함됩니다. Azure 포털에는 사용자를 위해 이 구성을 설정하는 템플릿이 있습니다. 자세한 내용은 [Azure 갤러리의 SQL Server AlwaysOn 제품](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx)을 참조하세요.
 
-가용성 그룹과 연결된 수신기를 수동으로 구성하려는 경우 다음 문서를 참조하세요.
+가용성 그룹과 연결된 수신기를 수동으로 구성하려는 경우 클래식 배포 모델을 기반한 다음 문서를 참조하세요.
 
 - [Azure의 AlwaysOn 가용성 그룹 구성(GUI)](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
 - [Azure에서 AlwaysOn 가용성 그룹에 대한 ILB 수신기 구성](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md)
-- [Azure 리소스 관리자 템플릿을 사용하여 SQL Server AlwaysOn 배포](virtual-machines-workload-template-sql-alwayson.md)
 - [온-프레미스 AlwaysOn 가용성 그룹을 Azure에 확장](virtual-machines-sql-server-extend-on-premises-alwayson-availability-groups.md)
 
 다른 고가용성 고려 사항은 [Azure 가상 컴퓨터의 SQL Server에 대한 고가용성 및 재해 복구](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md)를 참조하세요.
@@ -142,10 +141,10 @@ SQL Server 가상 컴퓨터를 준비하고 실행한 후 기존 데이터베이
 
 ## 리소스
 
-- [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-provision-sql-server.md)
+- [Azure에서 SQL Server 가상 컴퓨터 프로비전(리소스 관리자)](virtual-machines-sql-server-provision-resource-manager.md)
 - [Azure VM에서 SQL Server로 데이터베이스 마이그레이션](virtual-machines-migrate-onpremises-database.md)
 - [Azure 가상 컴퓨터의 SQL Server에 대한 고가용성 및 재해 복구](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md)
 - [Azure 가상 컴퓨터의 SQL Server에 대한 응용 프로그램 패턴 및 개발 전략](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
-- [Azure 가상 컴퓨터](virtual-machines-about.md) 
+- [Azure 가상 컴퓨터](virtual-machines-about.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

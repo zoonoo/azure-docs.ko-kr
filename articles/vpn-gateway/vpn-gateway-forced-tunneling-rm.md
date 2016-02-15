@@ -61,9 +61,7 @@ Azure에서 강제 터널링은 가상 네트워크 사용자 정의 경로를 �
 
 - Azure 구독. Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하거나 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 
-- Azure PowerShell cmdlet(1.0 이상). [다운로드 페이지](https://azure.microsoft.com/downloads/)의 Windows PowerShell 섹션에서 이 버전을 다운로드하여 설치할 수 있습니다. 이 설명서는 PowerShell 1.0 이상용으로 작성되었습니다. 이 구성에 필요한 cmdlet이 이전 버전에 없습니다.
-
-- Azure 리소스 관리자 및 PowerShell을 사용하는 데 익숙하지 않은 경우 [이 문서](../articles/powershell-azure-resource-manager.md)에서 자세한 내용을 참조하세요.
+- Azure PowerShell cmdlet(1.0 이상). 이 구성에 필요한 cmdlet이 1.0 이전 버전에는 없습니다. [다운로드 페이지](https://azure.microsoft.com/downloads/)의 Windows PowerShell 섹션에서 이 버전을 다운로드하여 설치할 수 있습니다. PowerShell 설치 및 구성에 익숙하지 않은 경우 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)에서 자세한 내용을 참조하세요.
 
 ### 구성 단계
 
@@ -136,4 +134,4 @@ Azure에서 강제 터널링은 가상 네트워크 사용자 정의 경로를 �
 		Get-AzureRmVirtualNetworkGatewayConnection -Name "Connection1" -ResourceGroupName "ForcedTunneling"
 		
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

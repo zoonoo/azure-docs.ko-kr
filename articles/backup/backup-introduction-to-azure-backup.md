@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="01/29/2016"
 	ms.author="trinadhk;jimpark"/>
 
 # Azure 백업이란?
@@ -77,6 +77,8 @@ Azure 백업은 Microsoft 클라우드에서 데이터를 백업 및 복원하�
 | 증분 백업 | ![예][green] | ![예][green] | ![예][green] | ![예][green] |
 | 디스크 중복 제거 | | ![부분적으로][yellow] | ![부분적으로][yellow]| | |
 
+**키** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![예][green]= 지원 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![부분적으로][yellow]= 부분적으로 지원 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* = 지원되지 않음
+
 백업 자격 증명 모음은 모든 구성 요소에서 원하는 저장소 대상입니다. 또한 ystem Center DPM 및 백업 서버는 로컬 디스크 복사본을 가지도록 하는 옵션을 제공하지만 System Center DPM만이 테이프 저장 장치에 데이터를 기록하는 옵션을 제공합니다.
 
 #### 증분 백업
@@ -95,6 +97,8 @@ Azure 백업은 Microsoft 클라우드에서 데이터를 백업 및 복원하�
 | ------- | --- | --- | --- | ---- |
 | 네트워크 보안(Azure에) | ![예][green] |![예][green] | ![예][green] | ![부분적으로][yellow]|
 | 데이터 보안(Azure에) | ![예][green] |![예][green] | ![예][green] | ![부분적으로][yellow]|
+
+**키** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![예][green]= 지원 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![부분적으로][yellow]= 부분적으로 지원 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* = 지원되지 않음
 
 AES(Advanced Encryption Standard) 256을 사용하여 서버에서 백업 자격 증명 모음까지 모든 백업 트래픽이 암호화됩니다. 데이터는 안전한 HTTPS 연결을 통해 전송됩니다. 또한 백업 데이터는 암호화된 형태로 백업 자격 증명 모음에 저장됩니다. 고객만이 데이터를 잠금 해제하는 암호를 보유합니다. Microsoft는 어떠한 경우에도 백업 데이터를 암호 해독할 수 없습니다.
 
@@ -116,6 +120,8 @@ Azure VM을 백업하는 경우 가상 컴퓨터 *내에서* 명시적으로 암
 | Azure 가상 컴퓨터(Windows) | | | | ![예][green] |
 | Azure 가상 컴퓨터(Linux) | | | | ![예][green] |
 
+**키** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![예][green]= 지원 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* = 지원되지 않음
+
 ### 네트워크
 
 | 기능 | Azure 백업 에이전트 | System Center DPM | Azure 백업 서버 | Azure 백업(VM 확장) |
@@ -124,6 +130,8 @@ Azure VM을 백업하는 경우 가상 컴퓨터 *내에서* 명시적으로 암
 | 네트워크 압축(백업 자격 증명 모음으로) | ![예][green] | ![예][green] | ![예][green] | |
 | 네트워크 프로토콜(백업 서버로) | | TCP | TCP | |
 | 네트워크 프로토콜(백업 자격 증명 모음으로) | HTTPS | HTTPS | HTTPS | HTTPS |
+
+**키** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![예][green]= 지원 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* = 지원되지 않음
 
 VM 확장이 저장소 네트워크를 통해 Azure 저장소 계정에서 직접 데이터를 읽기 때문에 이 트래픽을 최적화할 필요는 없습니다. 트래픽은 Azure 데이터 센터에서 로컬 저장소 네트워크를 통하므로 대역폭 고려 사항 때문에 발생하는 압축이 필요하지 않습니다.
 
@@ -134,7 +142,7 @@ VM 확장이 저장소 네트워크를 통해 Azure 저장소 계정에서 직�
 | | Azure 백업 에이전트 | System Center DPM 및 Azure 백업 서버 | Azure 백업(VM 확장) |
 | --- | --- | --- | --- |
 | 백업 빈도(백업 자격 증명 모음으로) | 하루에 세 번 백업 | 하루에 두 번 백업 | 하루에 한 번 백업 |
-| 백업 주기(디스크로) | 해당 없음 | <p>SQL Server에 대해 15분 마다</p> <p>다른 워크로드에 대해 1시간 마다</p> | 해당 없음 |
+| 백업 주기(디스크로) | 해당 없음 | <p>SQL Server에 대해 15분마다</p> <p>다른 워크로드에 대해 1시간마다</p> | 해당 없음 |
 | 보존 옵션 | 매일, 매주, 매월, 매년 | 매일, 매주, 매월, 매년 | 매일, 매주, 매월, 매년 |
 | 보존 기간 | 최대 99년 | 최대 99년 | 최대 99년 |
 | 백업 자격 증명 모음의 복구 지점 | Unlimited | Unlimited | Unlimited |
@@ -159,11 +167,11 @@ Azure 백업은 데이터를 온-프레미스 및 클라우드에 백업합니�
 
 - [Azure 백업 시도](backup-try-azure-backup-in-10-mins.md)
 - [Azure 백업 서비스에 대한 질문과 대답](backup-azure-backup-faq.md)
-- [Azure 백업 포럼](http://go.microsoft.com/fwlink/p/?LinkId=290933)을 방문하세요.
+- [Azure 백업 포럼](http://go.microsoft.com/fwlink/p/?LinkId=290933) 방문
 
 
 [green]: ./media/backup-introduction-to-azure-backup/green.png
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

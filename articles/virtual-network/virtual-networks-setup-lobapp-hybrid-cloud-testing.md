@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="01/28/2016" 
 	ms.author="josephd"/>
 
 # 테스트용 하이브리드 클라우드에 웹 기반 LOB 응용 프로그램 설치
@@ -180,23 +180,8 @@ Ping 명령을 실행한 경우 IP 주소 10.0.0.1에서 성공적인 회신 4�
  
 이제 이 환경은 LOB1에 웹 기반 응용 프로그램을 배포하고 Corpnet 서브넷에서 기능 및 성능을 테스트할 준비가 완료되었습니다.
 
-## 추가 리소스
+## 다음 단계
 
-[Microsoft Software 아키텍처 다이어그램 및 청사진](http://msdn.microsoft.com/dn630664)
+- [프로덕션 환경](../virtual-machines/virtual-machines-workload-high-availability-LOB-application-overview.md)을 설정합니다.
 
-[호스팅용 웹 서버 플랫폼(IIS)](http://technet.microsoft.com/library/hh831818)
-
-[테스트용 하이브리드 클라우드 환경 설정](virtual-networks-setup-hybrid-cloud-environment-testing.md)
-
-[테스트용 하이브리드 클라우드에 SharePoint 인트라넷 팜 설치](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
-
-[테스트를 위한 하이브리드 클라우드에서 Office 365 디렉터리 동기화(DirSync) 설정](virtual-networks-setup-dirsync-hybrid-cloud-testing.md)
-
-[테스트를 위한 시뮬레이션된 하이브리드 클라우드 환경 설정](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
-
-[Azure 하이브리드 클라우드 테스트 환경](../virtual-machines/virtual-machines-hybrid-cloud-test-environments.md)
-
-[Azure 인프라 서비스 구현 지침](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
- 
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

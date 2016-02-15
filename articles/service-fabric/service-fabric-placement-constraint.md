@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/03/2015"
-   ms.author="abhic"/>
+   ms.date="02/03/2016"
+   ms.author="masnider"/>
 
 # 배치 제약 조건 개요
 
@@ -26,7 +26,7 @@ Azure 서비스 패브릭을 사용하면 개발자가 특정 조건을 충족�
 
 - 노드에 대해 NodeProperties를 정의하여 서로 다른 유형의 서비스를 서로 다른 노드로 제한합니다.
 
-- 주 복제본에 대해 특정 제약 조건을 적용하고 보조 복제본에는 적용하지 않습니다.
+- 서비스의 기본 복제본과 보조 복제본에 적용할 제약 조건을 대상으로 지정하거나 기본 복제본에만 적용할 제약 조건을 대상으로 지정합니다.
 
 
 ## 주요 개념
@@ -38,4 +38,4 @@ NodeProperty - 문자열을 값에 매핑하는 사용자 정의 또는 시스�
 
 자세한 내용은 [응용 프로그램 시나리오](../service-fabric-application-scenarios)를 참조하세요.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

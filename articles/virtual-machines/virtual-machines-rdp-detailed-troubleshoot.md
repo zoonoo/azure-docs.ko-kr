@@ -39,7 +39,7 @@
 진행하기 전에 마지막으로 VM에 대한 원격 데스크톱 연결을 성공한 이후로 변경된 사항을 마음속으로 생각해보는 것이 도움이 될 수 있습니다. 예:
 
 - VM 또는 VM이 포함된 클라우드 서비스의 공용 IP 주소(가상 IP 주소 [VIP](https://en.wikipedia.org/wiki/Virtual_IP_address)라고도 함)가 변경된 경우 DNS 클라이언트 캐시가 DNS 이름에 대해 등록된 *이전 IP 주소*를 계속 포함하므로 RDP 오류가 발생할 수 있습니다. DNS 클라이언트 캐시를 플러시하고 VM 연결을 다시 시도하세요. 또는 새 VIP와 직접 연결을 시도하세요.
-- Azure 포털을 사용하지 않고 타사 응용 프로그램을 사용하여 원격 데스크톱 연결을 관리하는 경우 응용 프로그램 구성에 원격 데스크톱 트래픽에 대한 올바른 TCP 포트가 포함되어 있는지 확인하세요. [Azure 포털](portal.azure.com)에서 VM의 설정 > 끝점을 클릭하여 클래식 가상 컴퓨터에 대한 이 포트를 확인할 수 있습니다.
+- Azure 포털을 사용하지 않고 타사 응용 프로그램을 사용하여 원격 데스크톱 연결을 관리하는 경우 응용 프로그램 구성에 원격 데스크톱 트래픽에 대한 올바른 TCP 포트가 포함되어 있는지 확인하세요. [Azure 포털](https://portal.azure.com)에서 VM의 설정 > 끝점을 클릭하여 클래식 가상 컴퓨터에 대한 이 포트를 확인할 수 있습니다.
 
 
 ## 준비 단계
@@ -135,7 +135,7 @@
 
 클래식 배포 모델을 사용하여 만든 VM의 경우 Azure 가상 컴퓨터에 대해 원격 Azure PowerShell 세션을 사용할 수 있습니다. 먼저 가상 컴퓨터의 호스팅 클라우드 서비스에 대 인증서를 설치해야 합니다. [Azure 가상 컴퓨터에 대한 보안 원격 PowerShell 액세스 구성](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe)으로 이동하고 **InstallWinRMCertAzureVM.ps1** 스크립트 파일을 로컬 컴퓨터에 다운로드합니다.
 
-다음으로, 아직 없는 경우 Azure PowerShell을 설치합니다. [Azure PowerShell 설치 및 구성 방법](../install-configure-powershell.md)을 참조하세요.
+다음으로, 아직 없는 경우 Azure PowerShell을 설치합니다. [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
 
 다음으로, Azure PowerShell 명령 프롬프트를 열고 현재 폴더를 **InstallWinRMCertAzureVM.ps1** 스크립트 파일 위치로 변경합니다. Azure PowerShell 스크립트를 실행하려면 올바른 실행 정책을 설정해야 합니다. 현재 정책 수준을 지정하려면 **Get-ExecutionPolicy** 명령을 실행합니다. 적절한 수준을 설정하는 방법에 대한 자세한 내용은 [Set-ExecutionPolicy](https://technet.microsoft.com/library/hh849812.aspx)를 참조하세요.
 
@@ -195,4 +195,4 @@ Azure VM에 대한 원격 데스크톱 끝점도 TCP 포트 3398을 내부 포�
 
 [Azure 가상 컴퓨터에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

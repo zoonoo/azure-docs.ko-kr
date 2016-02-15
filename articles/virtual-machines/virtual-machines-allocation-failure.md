@@ -14,18 +14,18 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/29/2015"
-	ms.author="kenazk"/>
+	ms.date="02/02/2016"
+	ms.author="cjiang"/>
 
 
 
 # Azure에서 VM을 만들거나 재시작하거나 크기를 조정하는 경우 할당 오류 해결
 
-VM을 만들거나 중지된(할당이 취소된) VM을 재시작하거나 VM의 크기를 조정하는 경우 Microsoft Azure에서 구독에 계산 리소스를 할당합니다. 이러한 작업을 수행하면서 Azure 구독 제한에 도달하기 전에 오류를 수신하는 경우도 있습니다. 이 문서는 일부 일반적인 할당 오류의 이유를 설명하고 가능한 수정을 제안합니다. 서비스 배포를 계획하는 사용자에게 이 정보가 유용할 수 있습니다.
+VM을 만들거나 중지된(할당이 취소된) VM을 재시작하거나 VM의 크기를 조정하는 경우 Microsoft Azure에서 구독에 계산 리소스를 할당합니다. 이러한 작업을 수행하면서 오류를 수신하는 경우도 있습니다. Azure 구독 제한에 도달하기 전에도 그렇습니다. 이 문서는 일부 일반적인 할당 오류의 이유를 설명하고 가능한 수정을 제안합니다. 서비스 배포를 계획하는 사용자에게 이 정보가 유용할 수 있습니다.
+
+"일반 문제 해결 단계" 섹션에는 일반적인 문제를 해결하는 단계가 나와 있습니다. "자세한 문제 해결 단계" 섹션은 특정 오류 메시지에 따른 해결 단계를 제공합니다. 시작하기 전에 할당이 어떻게 작동하며 할당 오류가 발생하는 이유에 대한 몇 가지 배경 정보를 설명합니다.
 
 Azure 문제와 관련된 정보가 이 문서에 없을 경우 [MSDN 및 스택 오버플로에서 Azure 포럼](https://azure.microsoft.com/support/forums/)을 방문합니다. 이러한 포럼이나 Twitter의 @AzureSupport에 문제를 게시할 수 있습니다. 또한 [Azure 지원](https://azure.microsoft.com/support/options/) 사이트에서 **지원 받기**를 선택하여 Azure 지원 요청을 제출할 수 있습니다.
-
-이 문서에서 "일반적인 할당 실패 문제 해결" 섹션은 일반적인 문제 해결을 위한 단계를 나열합니다. "특정 할당 오류 시나리오 문제 해결" 섹션에서 특정 오류 메시지에 대한 해결 단계를 제공합니다. 시작하기 전에 할당이 어떻게 작동하며 할당 오류가 발생하는 이유에 대한 몇 가지 배경 정보를 설명합니다.
 
 ## 배경 정보
 ### 할당의 작동 원리
@@ -72,7 +72,7 @@ Azure 데이터 센터의 서버는 클러스터로 분할되어 있습니다. �
 
 아래 다이어그램 5는 (고정된) 할당 시나리오의 분류법을 나타냅니다.![고정된 할당 분류법](./media/virtual-machines-allocation-failure/Allocation3.png)
 
-> [AZURE.NOTE] 각각의 할당 시나리오에 나열된 오류는 짧은 형식입니다. 자세한 오류 문자열은 [부록](#appendix)을 참조하세요.
+> [AZURE.NOTE] 각각의 할당 시나리오에 나열된 오류는 짧은 형식입니다. 자세한 오류 문자열은 [오류 문자열 조회](#오류 문자열 조회)를 참조하세요.
 
 #### 할당 시나리오: VM 크기 조정 또는 기존 클라우드 서비스에 VM 또는 역할 인스턴스 추가
 **오류**
@@ -119,7 +119,7 @@ GeneralError*
 #### 할당 시나리오: 스테이징/프로덕션 배포(Platform as a Service 전용)
 **오류**
 
-New\_General 또는 New\_VMSizeNotSupported
+New\_General* 또는 New\_VMSizeNotSupported*
 
 **클러스터 고정의 원인**
 
@@ -132,7 +132,7 @@ New\_General 또는 New\_VMSizeNotSupported
 #### 할당 시나리오: 선호도 그룹(VM/서비스 근접성)
 **오류**
 
-New\_General 또는 New\_VMSizeNotSupported
+New\_General* 또는 New\_VMSizeNotSupported*
 
 **클러스터 고정의 원인**
 
@@ -145,9 +145,9 @@ New\_General 또는 New\_VMSizeNotSupported
 #### 할당 시나리오: 선호도-그룹-기반 가상 네트워크
 **오류**
 
-New\_General 또는 New\_VMSizeNotSupported
+New\_General* 또는 New\_VMSizeNotSupported*
 
-**클러스터 고정의 원인**
+<**클러스터 고정의 원인**
 
 지역 가상 네트워크가 도입되기 전에는 가상 네트워크를 선호도 그룹과 연결해야 했습니다. 그 결과 선호도 그룹에 배치된 계산 리소스가 위의 “할당 시나리오: 선호도 그룹(VM/서비스 근접성)” 섹션의 설명처럼 동일한 제약 조건에 바인딩되었습니다. 계산 리소스는 한 개의 클러스터에 연결됩니다.
 
@@ -171,7 +171,7 @@ New\_General 또는 New\_VMSizeNotSupported
 #### 할당 시나리오: VM 크기 조정 또는 기존 가용성 집합에 VM 추가
 **오류**
 
-Upgrade\_VMSizeNotSupported 또는 GeneralError
+Upgrade\_VMSizeNotSupported* 또는 GeneralError*
 
 **클러스터 고정의 원인**
 
@@ -209,8 +209,7 @@ GeneralError*
 
 할당할 새 VM 크기를 선택합니다. 작동하지 않는 경우 나중에 다시 시도하세요.
 
-## 부록
-### 오류 문자열 조회
+## 오류 문자열 조회
 **New\_VMSizeNotSupported***
 
 “배포 요청 제약 조건으로 인해 배포에 요구되는 VM 크기(또는 VM 크기의 조합)를 프로비전할 수 없습니다. 가능한 경우, 가상 네트워크 바인딩 같은 제약 조건을 해제하고 다른 배포를 포함하지 않는 호스티드 서비스에 배포를 시도하거나 다른 선호도 그룹 또는 선호도 그룹 없이 배포를 시도하거나 다른 지역으로 배포를 시도합니다.”
@@ -227,4 +226,4 @@ GeneralError*
 
 “서버에 내부 오류가 발생했습니다. 요청을 다시 시도하세요.” 그렇지 않으면 "서비스에 대한 할당 생성이 실패합니다."
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="tbd" 
-	ms.date="12/11/2015" 
+	ms.date="02/03/2015" 
 	ms.author="bradsev;ankarloff" />
 
 
@@ -114,7 +114,8 @@ XML 파일의 **Input** 및 **Arg** 요소에 대한 **id** 특성 값은 R 코�
 * **Description** 요소의 내용은 128자를 초과할 수 없습니다.
 * **Owner** 요소의 내용은 32자를 초과할 수 없습니다.
 
-** 모듈의 결과가 결정적인지 또는 비결정적인지를 나타냅니다.
+
+**모듈의 결과가 결정적인지 또는 비결정적인지를 나타냄**
 
 기본적으로 모든 모듈은 결정적인 것으로 간주됩니다. 즉, 변경되지 않는 매개 변수 집합이 주어진 경우 모듈은 실행될 때마다 같은 결과를 반환합니다. 이 동작에 따라 Azure 기계 학습 스튜디오는 매개 변수 또는 입력 데이터가 변경되지 않은 경우 결정적으로 표시된 모듈을 다시 실행하지 않습니다. 보다 빠른 실험 실행을 위해 캐시된 결과가 반환됩니다.
 
@@ -170,8 +171,6 @@ XML 정의 파일의 **Language** 요소는 사용자 지정 모듈 언어를 �
 	</Output>
 
 사용자 지정 R 모듈의 출력은 **id** 특성 값이 R 스크립트의 항목에 해당할 필요는 없지만 고유해야 합니다. 단일 모듈 출력의 경우 R 함수의 반환 값은 *data.frame*이어야 합니다. 지원되는 데이터 형식의 개체를 두 개 이상 출력하려면 XML 정의 파일에 해당 출력 포트를 지정하고 개체를 목록으로 반환해야 합니다. 출력 개체는 반환되는 목록에서 개체가 배치된 순서를 나타내도록 왼쪽으로 오른쪽으로 출력 포트에 할당됩니다.
- 
-예를 들어 dataset, Dataset1 및 Dataset2를 각각 왼쪽에서 오른쪽 순으로 출력 포트 dataset, dataset1 및 dataset2로 출력하려면 ‘CustomAddRows.xml’ 파일에서 출력 포트를 다음과 같이 정의합니다.
 
 예를 들어 **사용자 지정 행 추가** 모듈을 새로 조인된 *dataset*와 함께 원래 두 데이터 집합 *dataset1* 및 *dataset2*를 출력(왼쪽부터 순서대로 *dataset*, *dataset1*, *dataset2*)하도록 수정하려면 CustomAddRows.xml 파일에서 다음과 같이 출력 포트를 정의합니다.
 
@@ -254,7 +253,7 @@ XML 정의 파일의 **Language** 요소는 사용자 지정 모듈 언어를 �
 
 * *선택적 속성*: **default** - 설정하지 않은 경우 false
 
-**string**: 표준 문자열
+**string**: 표준 문자열입니다.
 
         <Arg id="stringValue1" name="My string Param" type="string">
 		   <Properties default="Default string value." isOptional="true" />
@@ -363,4 +362,4 @@ R 스크립트의 실행 환경에서는 **R 스크립트 실행** 모듈과 동
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

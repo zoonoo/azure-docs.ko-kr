@@ -11,8 +11,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
-	ms.author="ddove; sidneyh" />
+	ms.date="02/02/2016" 
+	ms.author="ddove;sidneyh" />
 
 # PowerShell을 사용하여 SQL 데이터베이스 탄력적 데이터베이스 작업 만들기 및 관리(미리 보기)
 
@@ -27,7 +27,7 @@
 ## 필수 조건
 * Azure 구독. 무료 평가판에 대한 내용은 [무료 1개월 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * 탄력적 데이터베이스 도구로 만든 데이터 집합. [탄력적 데이터베이스 도구 시작하기](sql-database-elastic-scale-get-started.md)를 참조하세요.
-* Azure PowerShell. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure.md)을 참조하세요.
+* Azure PowerShell. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
 * **탄력적 데이터베이스 작업** PowerShell 패키지: [탄력적 데이터베이스 작업 설치](sql-database-elastic-jobs-service-installation.md) 참조
 
 ### Azure 구독 선택
@@ -655,7 +655,7 @@ T-SQL 스크립트가 파일 내에서 정의된 경우 다음을 사용하여 �
 
 ## 데이터베이스에서 실행할 DACPAC(데이터 계층 응용 프로그램)를 만들려면
 
-DACPAC를 만들려면 [데이터 계층 응용 프로그램](https://msdn.microsoft.com/library/ee210546.aspx)을 참조하세요. DACPAC를 배포하려면 [New-AzureSqlJobContent cmdlet](https://msdn.microsoft.com/library/mt346085.aspx)을 사용합니다. DACPAC는 서비스에 액세스할 수 있어야 합니다. 생성된 DACPAC를 Azure 저장소에 업로드하고 DACPAC에 대한 서[공유 액세스 서명](storage-dotnet-shared-access-signature-part-1.md)을 만드는 것이 좋습니다.
+DACPAC를 만들려면 [데이터 계층 응용 프로그램](https://msdn.microsoft.com/library/ee210546.aspx)을 참조하세요. DACPAC를 배포하려면 [New-AzureSqlJobContent cmdlet](https://msdn.microsoft.com/library/mt346085.aspx)을 사용합니다. DACPAC는 서비스에 액세스할 수 있어야 합니다. 생성된 DACPAC를 Azure 저장소에 업로드하고 DACPAC에 대한 서[공유 액세스 서명](../storage/storage-dotnet-shared-access-signature-part-1.md)을 만드는 것이 좋습니다.
 
 	$dacpacUri = "{Uri}"
 	$dacpacName = "{Dacpac Name}"
@@ -694,4 +694,4 @@ DACPAC를 만들려면 [데이터 계층 응용 프로그램](https://msdn.micro
 [2]: ./media/sql-database-elastic-jobs-powershell/portal.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

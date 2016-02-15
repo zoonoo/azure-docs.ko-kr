@@ -15,7 +15,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="12/03/2015"
+	ms.date="01/28/2016"
 	ms.author="larryfr"/>
 
 # 샘플 Apache log4j 파일 분석을 위해 HDInsight에서 Hadoop와 함께 Hive 및 HiveQL 사용
@@ -62,7 +62,7 @@ Hive 내부 테이블 및 외부 테이블에 대해 알아야 할 사항이 몇
 
 이전 예에서 로그 수준은 ERROR입니다.
 
-> [AZURE.NOTE] [Apache Log4j](http://en.wikipedia.org/wiki/Log4j) 도구 로깅하여 log4j 파일을 생성하고 해당 파일을 사용자의 blob 컨테이너에 업로드할 수도 있습니다. 해당 지침은 [HDInsight에 데이터 업로드](hdinsight-upload-data.md)를 참조하세요. HDInsight에서 Azure Blob 저장소를 사용하는 방법에 대한 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용](../hdinsight-use-blob-storage.md)을 참조하세요.
+> [AZURE.NOTE] [Apache Log4j](http://en.wikipedia.org/wiki/Log4j) 도구 로깅하여 log4j 파일을 생성하고 해당 파일을 사용자의 blob 컨테이너에 업로드할 수도 있습니다. 해당 지침은 [HDInsight에 데이터 업로드](hdinsight-upload-data.md)를 참조하세요. HDInsight에서 Azure Blob 저장소를 사용하는 방법에 대한 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용](hdinsight-hadoop-use-blob-storage.md)을 참조하세요.
 
 샘플 데이터는 HDInsight가 기본 파일 시스템으로 사용하는 Azure Blob 저장소에 저장됩니다. HDInsight에서는 **wasb** 접두사를 사용하여 Blob 저장소에 저장된 파일에 액세스할 수 있습니다. 예를 들어 sample.log 파일에 액세스하려는 경우 다음 구문을 사용합니다.
 
@@ -70,7 +70,7 @@ Hive 내부 테이블 및 외부 테이블에 대해 알아야 할 사항이 몇
 
 Azure Blob 저장소가 HDInsight의 기본 저장소이므로 HiveQL의 **/example/data/sample.log**를 사용하여 파일에 액세스할 수도 있습니다.
 
-> [AZURE.NOTE]구문 ****wasb:///**는 HDInsight 클러스터의 기본 저장소 컨테이너에 저장된 파일에 액세스하는 데 사용됩니다. 클러스터를 프로비전할 때 추가 저장소 계정을 지정한 경우 이러한 계정에 저장된 파일에 액세스하려면 컨테이너 이름과 저장소 계정 주소를 지정하여 데이터에 액세스하면 됩니다. 예를 들어 ****wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**와 같습니다.
+> [AZURE.NOTE] 구문 ****wasb:///**는 HDInsight 클러스터의 기본 저장소 컨테이너에 저장된 파일에 액세스하는 데 사용됩니다. 클러스터를 프로비전할 때 추가 저장소 계정을 지정한 경우 이러한 계정에 저장된 파일에 액세스하려면 컨테이너 이름과 저장소 계정 주소를 지정하여 데이터에 액세스하면 됩니다. 예를 들어 ****wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**와 같습니다.
 
 ##<a id="job"></a>샘플 작업: 구분된 데이터에 열을 투영
 
@@ -91,7 +91,7 @@ Azure Blob 저장소가 HDInsight의 기본 저장소이므로 HiveQL의 **/exam
 * **SELECT**: **t4** 열에 **[ERROR]** 값이 포함된 모든 행의 수를 선택합니다. 이 경우 이 값을 포함하는 행이 3개 있으므로 **3** 값이 반환되어야 합니다.
 * **INPUT\_\_FILE\_\_NAME LIKE '%.log'** - .log로 끝나는 파일의 데이터만 반환하도록 Hive에 지시합니다. 데이터를 포함하는 sample.log 파일로 검색을 제한하며, 정의한 스키마와 일치하지 않는 다른 예제 데이터 파일의 데이터가 반환되지 않도록 합니다.
 
-> [AZURE.NOTE]자동화된 데이터 업로드 프로세스와 같은 외부 원본이나 또 다른 MapReduce 작업을 통해 기본 데이터를 업데이트해야 하며 Hive 쿼리에서 항상 최신 데이터를 사용하려고 할 경우 외부 테이블을 사용해야 합니다.
+> [AZURE.NOTE] 자동화된 데이터 업로드 프로세스와 같은 외부 원본이나 또 다른 MapReduce 작업을 통해 기본 데이터를 업데이트해야 하며 Hive 쿼리에서 항상 최신 데이터를 사용하려고 할 경우 외부 테이블을 사용해야 합니다.
 >
 > 외부 테이블을 삭제하면 데이터가 삭제되지 **않고** 테이블 정의만 삭제됩니다.
 
@@ -108,13 +108,13 @@ Azure Blob 저장소가 HDInsight의 기본 저장소이므로 HiveQL의 **/exam
 * **STORED AS ORC**: 데이터를 ORC(Optimized Row Columnar) 형식으로 저장합니다. Hive 데이터를 저장하기 위한 고도로 최적화되고 효율적인 형식입니다.
 * **덮어쓰기 삽입... SELECT**: **[ERROR]**가 포함된 **log4jLogs** 테이블에서 행을 선택하고 데이터를 **errorLogs** 테이블에 삽입합니다.
 
-> [AZURE.NOTE]외부 테이블과 달리 내부 테이블을 삭제하면 기본 데이터도 삭제됩니다.
+> [AZURE.NOTE] 외부 테이블과 달리 내부 테이블을 삭제하면 기본 데이터도 삭제됩니다.
 
 ##<a id="usetez"></a>성능 개선을 위해 Tez 사용
 
 [Apache Tez](http://tez.apache.org)는 Hive와 같이 데이터를 많이 사용하는 응용 프로그램을 큰 규모에서도 훨씬 더 효율적으로 실행할 수 있는 프레임워크입니다. HDInsight의 최신 릴리스에서는 Hive를 Tez에서 실행할 수 있습니다. Tez는 Linux 기반 HDInsight 클러스터에 대해 기본값으로 사용할 수 있습니다.
 
-> [AZURE.NOTE]Tez는 현재 Windows 기반 HDInsight 클러스터에 대해 기본적으로 꺼져 있으며 사용하도록 설정해야 합니다. Tez를 사용하려면 Hive 쿼리에 대해 다음 값을 설정해야 합니다:
+> [AZURE.NOTE] Tez는 현재 Windows 기반 HDInsight 클러스터에 대해 기본적으로 꺼져 있으며 사용하도록 설정해야 합니다. Tez를 사용하려면 Hive 쿼리에 대해 다음 값을 설정해야 합니다:
 >
 > ```set hive.execution.engine=tez;```
 >
@@ -161,8 +161,6 @@ SSIS(SQL Server Integration Services)를 사용하여 Hive 작업을 실행할 �
 
 [check]: ./media/hdinsight-use-hive/hdi.checkmark.png
 
-[1]: ../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md
-
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
@@ -184,12 +182,12 @@ SSIS(SQL Server Integration Services)를 사용하여 Hive 작업을 실행할 �
 [hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
 
 
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
+[hdinsight-get-started]: hdinsight-get-started.md
 
 [Powershell-install-configure]: ../install-configure-powershell.md
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
@@ -201,4 +199,4 @@ SSIS(SQL Server Integration Services)를 사용하여 Hive 작업을 실행할 �
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
-<!---HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0204_2016-->

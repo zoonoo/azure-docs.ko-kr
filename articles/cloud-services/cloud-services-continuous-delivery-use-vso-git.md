@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/18/2015"
+	ms.date="01/30/2016"
 	ms.author="tarcher"/>
 
 # Visual Studio Team Services 및 Git을 사용하여 Azure에 지속적으로 전송
@@ -23,8 +23,7 @@ Visual Studio Team Services 팀 프로젝트를 사용하여 소스 코드용 Gi
 Visual Studio 2013 및 Azure SDK가 설치되어 있어야 합니다. Visual Studio 2013을 아직 설치하지 않은 경우 **www.visualstudio.com**에서 [무료로 시작하기](http://www.visualstudio.com) 링크를 선택하여 다운로드하세요. Azure SDK의 경우 [여기](http://go.microsoft.com/fwlink/?LinkId=239540)에서 설치할 수 있습니다.
 
 
-> [AZURE.NOTE]이 자습서를 완료하려면 Visual Studio Team Services 계정이 있어야 합니다.
-> [Visual Studio Team Services 계정은 무료로 개설](http://go.microsoft.com/fwlink/p/?LinkId=512979)할 수 있습니다.
+> [AZURE.NOTE] 이 자습서를 완료하려면 Visual Studio Team Services 계정이 있어야 합니다. [Visual Studio Team Services 계정은 무료로 개설](http://go.microsoft.com/fwlink/p/?LinkId=512979)할 수 있습니다.
 
 Visual Studio Team Services를 사용하여 Azure에 자동으로 빌드 및 배포하도록 클라우드 서비스를 설정하려면 다음 단계를 따르세요.
 
@@ -44,7 +43,7 @@ Visual Studio Team Services를 사용하여 Azure에 자동으로 빌드 및 배
 
 	![][4]
 
-2. 이 연습의 단계에 따라 웹앱 또는 클라우드 서비스(Azure 응용 프로그램)를 배포할 수 있습니다. 새 Azure 클라우드 서비스 프로젝트 또는 새 ASP.NET MVC 프로젝트를 만듭니다. 프로젝트가 .NET Framework 4 또는 그 이상을 대상으로 하는지 확인합니다. Visual Studio 클라우드 서비스 프로젝트를 만드는 경우 ASP.NET MVC 웹 역할과 작업자 역할을 추가합니다. 웹앱을 만들려는 경우 **ASP.NET 웹 응용 프로그램** 프로젝트 템플릿을 선택한 후 **MVC**를 선택합니다. 자세한 내용은 [Azure 앱 서비스에서 ASP.NET 웹 응용 프로그램 만들기](../web-sites-dotnet-get-started.md)를 참조하세요.
+2. 이 연습의 단계에 따라 웹앱 또는 클라우드 서비스(Azure 응용 프로그램)를 배포할 수 있습니다. 새 Azure 클라우드 서비스 프로젝트 또는 새 ASP.NET MVC 프로젝트를 만듭니다. 프로젝트가 .NET Framework 4 또는 그 이상을 대상으로 하는지 확인합니다. Visual Studio 클라우드 서비스 프로젝트를 만드는 경우 ASP.NET MVC 웹 역할과 작업자 역할을 추가합니다. 웹앱을 만들려는 경우 **ASP.NET 웹 응용 프로그램** 프로젝트 템플릿을 선택한 후 **MVC**를 선택합니다. 자세한 내용은 [Azure 앱 서비스에서 ASP.NET 웹 응용 프로그램 만들기](/app-service-web/web-sites-dotnet-get-started.md)를 참조하세요.
 
 3. 솔루션의 바로 가기 메뉴를 열고 **커밋**을 선택합니다.
 
@@ -225,7 +224,7 @@ Git을 사용할 경우 보통 작업 분기에서 변경한 다음 개발이 �
 
 ## 다음 단계
 
-Visual Studio Team Services에서 Git 사용에 대해 더 많은 팁을 알아보려면 [Visual Studio를 사용하여 Git에서 코드 개발 및 공유](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx)를 참조하고, Visual Studio Team Services에서 관리하지 않는 Git 리포지토리를 사용하여 Azure에 게시하는 방법에 대한 자세한 내용은 [Azure 앱 서비스에서 GIT을 사용한 지속적인 배포](../web-sites-publish-source-control.md)를 참조하세요. Visual Studio Team Services에 대한 자세한 내용은 [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861)를 참조하세요.
+Visual Studio Team Services에서 Git 사용에 대해 더 많은 팁을 알아보려면 [Visual Studio를 사용하여 Git에서 코드 개발 및 공유](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx)를 참조하고, Visual Studio Team Services에서 관리하지 않는 Git 리포지토리를 사용하여 Azure에 게시하는 방법에 대한 자세한 내용은 [Azure 앱 서비스에서 GIT을 사용한 지속적인 배포](/app-service-web/web-sites-publish-source-control.md)를 참조하세요. Visual Studio Team Services에 대한 자세한 내용은 [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861)를 참조하세요.
 
 [0]: ./media/cloud-services-continuous-delivery-use-vso/tfs0.PNG
 [1]: ./media/cloud-services-continuous-delivery-use-vso-git/CreateTeamProjectInGit.PNG
@@ -273,4 +272,4 @@ Visual Studio Team Services에서 Git 사용에 대해 더 많은 팁을 알아�
 [47]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

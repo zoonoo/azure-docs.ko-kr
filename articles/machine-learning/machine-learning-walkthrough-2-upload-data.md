@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/08/2015" 
+	ms.date="02/01/2016" 
 	ms.author="garye"/>
 
 
@@ -73,10 +73,10 @@ UCI 웹 사이트는 금융 정보, 신용 기록, 취업 상태, 개인 정보�
 
 그러면 데이터가 실험에 사용할 수 있는 데이터 집합 모듈에 업로드됩니다.
 
-다양한 데이터 형식을 실험으로 가져오는 방법에 대한 자세한 내용은 [Azure 기계 학습 스튜디오로 학습 데이터 가져오기](machine-learning-import-data.md)를 참조하세요.
+다양한 데이터 형식을 실험으로 가져오는 방법에 대한 자세한 내용은 [Azure 기계 학습 스튜디오로 학습 데이터 가져오기](machine-learning-data-science-import-data.md)를 참조하세요.
 
 **다음 단계: [새 실험 만들기](machine-learning-walkthrough-3-create-new-experiment.md)**
 
 [1]: ./media/machine-learning-walkthrough-2-upload-data/upload1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

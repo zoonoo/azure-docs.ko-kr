@@ -1,20 +1,20 @@
 <properties
-   pageTitle="자습서: Azure Active Directory | Microsoft Azure와 Salesforce 통합"
-   description="Azure Active Directory에서 Salesforce를 사용하여 Single Sign-On, 자동화된 프로비저닝 등을 사용하도록 설정하는 방법을 알아봅니다."
-   services="active-directory"
-   documentationCenter=""
-   authors="liviodlc"
-   manager="TerryLanfear"
-   editor=""/>
+    pageTitle="자습서: Salesforce와 Azure Active Directory 통합 | Microsoft Azure"
+    description="Azure Active Directory에서 Salesforce를 사용하여 Single Sign-On, 자동화된 프로비저닝 등을 사용하도록 설정하는 방법을 알아봅니다."
+    services="active-directory"
+    documentationCenter=""
+    authors="liviodlc"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="10/20/2015"
-   ms.author="liviodlc"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="02/02/2016"
+    ms.author="liviodlc"/>
 
 #자습서: Azure Active Directory와 Salesforce를 통합하는 방법
 
@@ -26,7 +26,7 @@
 
 2. [Salesforce.com](https://www.salesforce.com/)에 유효한 테넌트가 있어야 합니다.
 
-> [AZURE.IMPORTANT]Salesforce.com **평가판**을 사용하는 경우 자동화된 사용자 프로비저닝을 구성할 수 없습니다. 평가판 계정은 구입할 때까지 필요한 API 액세스가 활성화되지 않습니다.
+> [AZURE.IMPORTANT] Salesforce.com **평가판**을 사용하는 경우 자동화된 사용자 프로비저닝을 구성할 수 없습니다. 평가판 계정은 구입할 때까지 필요한 API 액세스가 활성화되지 않습니다.
 > 
 > 이 자습서를 완료하기 위해 [무료 개발자 계정](https://developer.salesforce.com/signup)을 사용하여 이러한 제한을 해결할 수 있습니다.
 
@@ -84,7 +84,7 @@ Salesforce 샌드박스 환경을 사용하는 경우 [Salesforce 샌드박스 �
 
 	![Azure AD Single Sign-On 선택][7]
 
-	> [AZURE.NOTE]다른 Single Sign-On 옵션에 대해 자세히 알아보려면 [여기를 클릭](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work)하세요.
+	> [AZURE.NOTE] 다른 Single Sign-On 옵션에 대해 자세히 알아보려면 [여기를 클릭](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work)하세요.
 
 4. **앱 설정 구성** 페이지에서 다음 형식으로 Salesforce 도메인 URL을 입력하여 **로그온 URL**을 작성합니다.
  - 엔터프라이즈 계정: `https://<domain>.my.salesforce.com`
@@ -106,7 +106,7 @@ Salesforce 샌드박스 환경을 사용하는 경우 [Salesforce 샌드박스 �
 
 	![편집 단추 클릭][11]
 
-	> [AZURE.NOTE]Salesforce 계정에 대해 Single Sign-on 설정을 사용하도록 설정할 수 없는 경우 사용자에 기능을 사용하도록 설정하려면 Salesforce의 지원 팀에 문의해야 합니다.
+	> [AZURE.NOTE] Salesforce 계정에 대해 Single Sign-on 설정을 사용하도록 설정할 수 없는 경우 사용자에 기능을 사용하도록 설정하려면 Salesforce의 지원 팀에 문의해야 합니다.
 
 9. **SAML Enabled(SAML 사용)**을 선택한 다음 **저장**을 클릭합니다.
 
@@ -152,7 +152,7 @@ Salesforce 샌드박스 환경을 사용하는 경우 [Salesforce 샌드박스 �
 
 	![SSO 구성 선택][17]
 
-	> [AZURE.NOTE]둘 이상의 인증 서비스를 선택하는 경우 사용자가 Salesforce 환경으로 Single Sign-On을 시작하려고 하면 로그인하려고 하는 인증 서비스를 선택하라는 메시지가 표시됩니다. 이 메시지가 표시되지 않도록 하려면 **다른 모든 인증 서비스를 선택하지 않은 상태로 유지**해야 합니다.
+	> [AZURE.NOTE] 둘 이상의 인증 서비스를 선택하는 경우 사용자가 Salesforce 환경으로 Single Sign-On을 시작하려고 하면 로그인하려고 하는 인증 서비스를 선택하라는 메시지가 표시됩니다. 이 메시지가 표시되지 않도록 하려면 **다른 모든 인증 서비스를 선택하지 않은 상태로 유지**해야 합니다.
 
 15. Azure AD에서 Salesforce에 업로드한 인증서를 사용하도록 설정하려면 Single Sign-On 구성 확인 확인란을 선택합니다. 그런 후 **Next**를 클릭합니다.
 
@@ -174,7 +174,7 @@ Salesforce 샌드박스 환경을 사용하는 경우 [Salesforce 샌드박스 �
 
 	![관리자 사용자 이름 또는 암호 입력][21]
 
-	> [AZURE.NOTE]프로덕션 환경을 구성하는 경우 가장 좋은 방법은 이 단계에 대해 구체적으로 Salesforce에서 새 관리자 계정을 만드는 것입니다. 이 계정은 **시스템 관리자** 프로필을 Salesforce에 할당해야 합니다.
+	> [AZURE.NOTE] 프로덕션 환경을 구성하는 경우 가장 좋은 방법은 이 단계에 대해 구체적으로 Salesforce에서 새 관리자 계정을 만드는 것입니다. 이 계정은 **시스템 관리자** 프로필을 Salesforce에 할당해야 합니다.
 
 3. Salesforce 보안 토큰을 얻으려면 새 탭을 열고 동일한 Salesforce 관리자 계정에 로그인합니다. 페이지의 오른쪽 위 모서리에 있는 사용자 이름을 클릭하고 **내 설정**을 클릭합니다.
 
@@ -253,4 +253,4 @@ Salesforce 샌드박스 환경을 사용하는 경우 [Salesforce 샌드박스 �
 [28]: ./media/active-directory-saas-salesforce-tutorial/assign-confirm.png
 [29]: ./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

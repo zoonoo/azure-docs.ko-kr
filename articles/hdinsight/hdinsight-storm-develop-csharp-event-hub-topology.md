@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="01/28/2016"
    ms.author="larryfr"/>
 
 # HDInsight의 Storm으로 Azure 이벤트 허브에서 이벤트 처리
@@ -30,11 +30,11 @@ Azure 이벤트 허브를 사용하면 웹 사이트, 앱 및 장치에서 대�
 
 ## 필수 조건
 
-* [HDInsight의 Apache Storm 클러스터](hdinsight-storm-getting-started.md)
+* [HDInsight의 Apache Storm 클러스터](hdinsight-apache-storm-tutorial-get-started.md)
 
-* [Azure 이벤트 허브](../service-bus/service-bus-event-hubs-csharp-ephcs-getstarted.md)
+* [Azure 이벤트 허브](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
-* [Azure .NET SDK](https://azure.microsoft.com/downloads/)
+* [Azure .NET SDK](http://azure.microsoft.com/downloads/)
 
 * [Visual Studio용 HDInsight 도구](hdinsight-hadoop-visual-studio-tools-get-started.md)
 
@@ -557,4 +557,4 @@ EventHubSpout는 해당 상태의 검사점을 큐에서 읽은 메시지의 현
 * [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

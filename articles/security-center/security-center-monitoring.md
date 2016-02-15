@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/22/2016"
+   ms.date="01/29/2016"
    ms.author="yurid"/>
 
 #Azure 보안 센터에서 보안 상태 모니터링
@@ -41,7 +41,7 @@ Azure 보안 센터는 Azure 리소스의 보안에 대한 향상된 가시성�
 ###가상 컴퓨터
 **리소스 상태** 타일에서 **가상 컴퓨터**를 클릭하면 아래와 같이 Azure 보안 센터에서 모니터링하는 전체 VM 목록과 온보딩 및 방지 단계에 대한 자세한 내용이 포함된 **가상 컴퓨터** 블레이드가 열립니다.
 
-![VM에서 누락된 시스템 업데이트](./media/security-center-monitoring/security-center-monitoring-fig2-new.png)
+![VM에서 누락된 시스템 업데이트](./media/security-center-monitoring/security-center-monitoring-fig2-2-new.png)
 
 이 블레이드를 열면 세 개 섹션이 표시됩니다.
 
@@ -60,7 +60,7 @@ Azure 보안 센터는 Azure 리소스의 보안에 대한 향상된 가시성�
 ####가상 컴퓨터 권장 사항
 이 섹션에는 Azure 보안 센터에서 모니터링하는 각 VM에 대한 권장 사항이 있습니다. 첫 번째 열에서는 권장 사항을 설명하고 두 번째 열에서는 권장 사항의 영향을 받은 VM의 총량을 표시하고, 세 번째 열에서는 아래와 같이 심각도를 표시합니다.
 
-![VM 권장 사항](./media/security-center-monitoring/security-center-monitoring-fig4-new.png)
+![VM 권장 사항](./media/security-center-monitoring/security-center-monitoring-fig4-2-new.png)
 
 각 권장 사항에는 클릭하면 수행되는 작업 집합이 있습니다. 예를 들어 **누락된 시스템 업데이트**를 클릭하면 아래와 같이 패치가 누락된 VM 목록과 각각의 심각도가 표시되는 **누락된 시스템 업데이트** 블레이드가 열립니다.
 
@@ -173,4 +173,4 @@ Azure 워크로드에서 응용 프로그램이 [리소스 관리자 VM](resourc
 - [Azure 보안 센터 FAQ](security-center-faq.md) – 서비스 사용에 관한 질문과 대답 찾기
 - [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) – Azure 보안 및 규정 준수에 관한 블로그 게시물 찾기
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/12/2015"
+	ms.date="02/03/2016"
 	ms.author="jeffreyg; ronitr"/>
  
 # SQL 데이터베이스 감사 시작
@@ -29,7 +29,7 @@ Azure SQL 데이터베이스 감사는 데이터베이스 이벤트를 추적하
 
 ##<a id="subheading-1"></a>Azure SQL 데이터베이스 감사 기본 사항
 
-다음 섹션에서는 Azure 포털을 사용하여 감사 구성을 설명합니다. [기존 Azure 클래식 포털을 사용하여 데이터베이스에 대한 감사를 설정]할 수도 있습니다.
+다음 섹션에서는 Azure 포털을 사용하여 감사 구성을 설명합니다. [Azure 클래식 포털을 사용하여 데이터베이스에 대한 감사를 설정]할 수도 있습니다.
 
 SQL 데이터베이스 감사를 사용하여 다음을 수행할 수 있습니다.
 
@@ -62,7 +62,7 @@ SQL 데이터베이스 감사를 사용하여 다음을 수행할 수 있습니�
 
 ##<a id="subheading-2"></a>데이터베이스에 대한 감사 설정
 
-1. https://portal.azure.com에서 [Azure 포털](https://portal.azure.com)을 시작합니다. 또는 https://manage.windowsazure.com/에서 [기존 Azure 클래식 포털](https://manage.windowsazure.com/)을 시작할 수도 있습니다. 아래에서 자세한 내용을 참조하세요.
+1. https://portal.azure.com에서 [Azure 포털](https://portal.azure.com)을 시작합니다. 또는 https://manage.windowsazure.com/에서 [Azure 클래식 포털](https://manage.windowsazure.com/)을 시작할 수도 있습니다. 아래에서 자세한 내용을 참조하세요.
 
 2. 감사할 SQL 데이터베이스 / SQL Server의 설정 블레이드로 이동합니다. 설정 블레이드에서 **감사 및 위협 감지**를 선택합니다.
 
@@ -99,9 +99,9 @@ SQL 데이터베이스 감사를 사용하여 다음을 수행할 수 있습니�
 ![탐색 창][4]
 
 
-##<a id="subheading-4"></a>기존 Azure 클래식 포털을 사용하여 데이터베이스에 대한 감사 설정
+##<a id="subheading-4"></a>Azure 클래식 포털을 사용하여 데이터베이스에 대한 감사 설정
 
-1. https://manage.windowsazure.com/에서 [기존 Azure 클래식 포털](https://manage.windowsazure.com/)을 시작합니다.
+1. https://manage.windowsazure.com/에서 [Azure 클래식 포털](https://manage.windowsazure.com/)을 시작합니다.
 
 2. 감사할 SQL 데이터베이스 / SQL 서버를 클릭한 다음 **감사 및 보안** 탭을 클릭합니다.
 
@@ -123,7 +123,7 @@ SQL 데이터베이스 감사를 사용하여 다음을 수행할 수 있습니�
 
 
 ##<a id="subheading-5">프로덕션에서 사용하기 위한 연습</a>
-이 섹션의 설명에서는 위의 화면 캡처를 참조합니다. [Azure 포털](https://portal.azure.com) 또는 [기존 Azure 클래식 포털](https://manage.windowsazure.com/)을 사용할 수 있습니다.
+이 섹션의 설명에서는 위의 화면 캡처를 참조합니다. [Azure 포털](https://portal.azure.com) 또는 [Azure 클래식 포털](https://manage.windowsazure.com/)을 사용할 수 있습니다.
 
 
 ##<a id="subheading-6"></a>저장소 키 다시 생성
@@ -159,7 +159,7 @@ Azure SQL 데이터베이스에서 감사를 구성하는 데 사용할 수 있�
 [Azure SQL 데이터베이스 감사 기본 사항]: #subheading-1
 [데이터베이스에 대한 감사 설정]: #subheading-2
 [감사 로그 및 보고서 분석]: #subheading-3
-[기존 Azure 클래식 포털을 사용하여 데이터베이스에 대한 감사를 설정]: #subheading-4
+[Azure 클래식 포털을 사용하여 데이터베이스에 대한 감사를 설정]: #subheading-4
 [Practices for usage in production]: #subheading-5
 [Storage Key Regeneration]: #subheading-6
 [Automation]: #subheading-7
@@ -178,4 +178,4 @@ Azure SQL 데이터베이스에서 감사를 구성하는 데 사용할 수 있�
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="11/09/2015"
+ ms.date="02/03/2016"
  ms.author="dobett"/>
 
 # Azure IoT Hub란?
@@ -24,6 +24,7 @@ Azure IoT Hub는 수백만의 IoT 장치와 솔루션 백 엔드 간에서 안�
 
 - 대규모 환경에서 신뢰할 수 있는 장치-클라우드 및 클라우드-장치 메시징을 제공합니다.
 - 장치 단위 보안 자격 증명 및 액세스 제어를 사용하여 통신을 보호합니다.
+- 장치 연결 및 장치 ID 관리 이벤트에 대한 포괄적인 모니터링을 제공합니다.
 - 가장 인기 있는 언어 및 플랫폼에 대한 장치 라이브러리를 포함합니다.
 
 ![클라우드 게이트웨이로 IoT Hub][img-architecture]
@@ -48,9 +49,11 @@ Azure IoT Hub는 다음과 같은 방법으로 장치 연결 과제를 해결합
 
 -   **장치별 인증 및 보안 연결**. IoT Hub에 연결할 수 있도록 각 장치를 고유한 보안 키로 프로비전할 수 있습니다. [IoT Hub ID 레지스트리][lnk-devguide-identityregistry]는 솔루션의 키와 장치 ID를 저장합니다. 솔루션 백 엔드는 개별 장치를 허용 목록 및 블랙 리스트에 추가하여 장치 액세스를 완전히 제어할 수 있습니다.
 
+-   **장치 연결 작업에 대한 모니터링** 장치 ID 관리 작업 및 장치 연결 이벤트에 대한 자세한 작업 로그를 받을 수 있습니다. 따라서 IoT 솔루션을 통해 잘못된 자격 증명을 사용하여 연결하려 하거나, 메시지를 너무 자주 보내거나, 장치나 모든 클라우드-장치 간 메시지 거부 등의 연결 문제를 쉽게 식별할 수 있습니다.
+
 -   **광범위한 장치 라이브러리 집합**. Azure IoT 장치 SDK는 사용 가능하며 다양한 언어 및 플랫폼(여러 Linux 배포판, Windows 및 실시간 운영 체제에 대한 C)에 대해 지원됩니다. 또한 Azure IoT 장치 SDK에서는 C#, Java 및 JavaScript와 같은 관리된 언어를 지원합니다.
 
--   **IoT 프로토콜 및 확장성**. 솔루션이 장치 라이브러리를 사용할 수 없는 경우 IoT Hub는 장치가 기본적으로 HTTP 1.1 및 AMQP 1.0 프로토콜을 사용할 수 있도록 허용하는 공용 프로토콜을 노출합니다. IoT Hub를 확장하여 [Azure IoT 프로토콜 게이트웨이][protocol-gateway] 오픈 소스 구성 요소와 MQTT v3.1.1에 대한 지원을 제공할 수 있습니다. 클라우드 또는 온-프레미스에서 Azure IoT 프로토콜 게이트웨이를 실행할 수 있습니다. 또한 사용자 지정 프로토콜을 지원하도록 확장할 수도 있습니다.
+-   **IoT 프로토콜 및 확장성**. 솔루션이 장치 라이브러리를 사용할 수 없는 경우 IoT Hub는 장치가 기본적으로 MQTT v3.1.1, HTTP 1.1 및 AMQP 1.0 프로토콜을 사용할 수 있도록 허용하는 공용 프로토콜을 노출합니다. IoT Hub를 확장하여 [Azure IoT 프로토콜 게이트웨이][protocol-gateway] 오픈 소스 구성 요소를 사용자 지정함으로써 사용자 지정 프로토콜 지원을 제공할 수도 있습니다. 클라우드 또는 온-프레미스에서 Azure IoT 프로토콜 게이트웨이를 실행할 수 있습니다.
 
 -   **확장**. Azure IoT Hub는 동시에 연결된 수백만 대의 장치 및 수백만 개의 초당 이벤트로 확장 가능합니다.
 
@@ -109,4 +112,4 @@ Azure IoT Hub에 대해 더 알아보려면 다음 링크를 참조하세요.
 [lnk-google-messaging]: https://developers.google.com/cloud-messaging/
 [lnk-apple-push]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

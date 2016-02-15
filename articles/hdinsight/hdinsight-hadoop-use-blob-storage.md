@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/23/2015"
+	ms.date="01/29/2016"
 	ms.author="jgao"/>
 
 
@@ -27,7 +27,7 @@ Azure Blob 저장소는 HDInsight와 매끄럽게 통합되는 강력한 범용 
 
 Blob 저장소에 데이터를 저장하면 사용자 데이터 손실 없이 계산에 사용된 HDInsight 클러스터를 안전하게 삭제할 수 있습니다.
 
-> [AZURE.NOTE]HDInsight 버전 3.0 클러스터에서는 **asv://* 구문이 지원되지 않습니다. 즉, 정확히 **asv://* 구문을 명시적으로 사용하는 HDInsight 버전 3.0 클러스터에 제출하는 작업은 실패하게 됩니다. 대신 **wasb://* 구문을 사용해야 합니다. 또한 asv:// 구문을 사용하는 리소스에 대한 명시적 참조를 포함하는 기존의 메타스토어로 만들어 HDInsight 버전 3.0 클러스터에 제출하는 작업도 실패하게 됩니다. 리소스 주소를 지정하려면 wasb:// 구문을 사용하여 이 Metastore를 다시 만들어야 합니다.
+> [AZURE.NOTE]	HDInsight 버전 3.0 클러스터에서는 **asv://* 구문이 지원되지 않습니다. 즉, 정확히 **asv://* 구문을 명시적으로 사용하는 HDInsight 버전 3.0 클러스터에 제출하는 작업은 실패하게 됩니다. 대신 **wasb://* 구문을 사용해야 합니다. 또한 asv:// 구문을 사용하는 리소스에 대한 명시적 참조를 포함하는 기존의 메타스토어로 만들어 HDInsight 버전 3.0 클러스터에 제출하는 작업도 실패하게 됩니다. 리소스 주소를 지정하려면 wasb:// 구문을 사용하여 이 Metastore를 다시 만들어야 합니다.
 
 > HDInsight는 현재 블록 Blob만 지원합니다.
 
@@ -58,7 +58,8 @@ Hadoop은 기본 파일 시스템의 개념을 지원합니다. 기본 파일 �
 
 - **클러스터에 연결되지 않은 저장소 계정의 공용 컨테이너 또는 공용 Blob:** 컨테이너의 Blob에 대한 읽기 전용 권한을 가집니다.
 
-	> [AZURE.NOTE]>공용 컨테이너를 사용하면 해당 컨테이너에서 사용할 수 있는 모든 Blob 목록 및 컨테이너 메타데이터를 가져올 수 있습니다. 공용 Blob을 사용하면 정확한 URL을 아는 경우에만 Blob에 액세스할 수 있습니다. 자세한 내용은 <a href="http://msdn.microsoft.com/library/windowsazure/dd179354.aspx">컨테이너 및 Blob에 대한 액세스 제한</a>을 참조하십시오.
+	> [AZURE.NOTE]
+        >공용 컨테이너를 사용하면 해당 컨테이너에서 사용할 수 있는 모든 Blob 목록 및 컨테이너 메타데이터를 가져올 수 있습니다. 공용 Blob을 사용하면 정확한 URL을 아는 경우에만 Blob에 액세스할 수 있습니다. 자세한 내용은 <a href="http://msdn.microsoft.com/library/windowsazure/dd179354.aspx">컨테이너 및 Blob에 대한 액세스 제한</a>을 참조하십시오.
 
 - **클러스터에 연결되지 않은 저장소 계정의 개인 컨테이너:** WebHCat 작업을 제출할 때 저장소 계정을 정의하지 않는 경우 컨테이너의 Blob에 액세스할 수 없습니다. 이것은 문서 뒷부분에 설명되어 있습니다.
 
@@ -67,7 +68,7 @@ Hadoop은 기본 파일 시스템의 개념을 지원합니다. 기본 파일 �
 
 Hive, MapReduce, Hadoop 스트리밍 및 Pig를 비롯한 여러 WebHCat 작업은 저장소 계정 및 메타데이터 설명을 포함할 수 있습니다. (현재 메타데이터가 아닌 저장소 계정이 있는 Pig에서 작동합니다.) 이 문서의 [PowerShell을 사용하여 Blob 액세스](#powershell) 섹션에는 이 기능의 샘플이 포함되어 있습니다. 자세한 내용은 [대체 저장소 계정 및 메타스토어와 HDInsight 클러스터 사용](http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx)을 참조하세요.
 
-구조적 및 비구조적 데이터에 대한 Blob 저장소를 사용할 수 있습니다. Blob 저장소 컨테이너는 키/값 쌍으로 데이터를 저장하며, 디렉터리 계층 구조는 없습니다. 그러나 파일이 디렉터리 구조 내에 저장된 것처럼 보이도록 키 이름에 슬래쉬 문자(/)를 사용할 수 있습니다. 예를 들어 Blob의 키 이름을 input/log1.txt로 지정할 수 있습니다. 실제로input 디렉터리는 없지만 키 이름에 슬래쉬 문자가 있으므로 파일 경로처럼 보입니다.
+구조적 및 비구조적 데이터에 대한 Blob 저장소를 사용할 수 있습니다. Blob 저장소 컨테이너는 키/값 쌍으로 데이터를 저장하며, 디렉터리 계층 구조는 없습니다. 그러나 파일이 디렉터리 구조 내에 저장된 것처럼 보이도록 키 이름에 슬래쉬 문자(/)를 사용할 수 있습니다. 예를 들어 Blob의 키 이름을 *input/log1.txt*로 지정할 수 있습니다. 실제로*input* 디렉터리는 없지만 키 이름에 슬래쉬 문자가 있으므로 파일 경로처럼 보입니다.
 
 ###<a id="benefits"></a>Blob 저장소의 이점
 계산 클러스터 및 저장소 공동 배치에 따른 암시적 성능 비용은 계산 클러스터를 Azure 데이터 센터 내에서 저장소 계정 리소스 근처에 만드는 방식으로 완화되어 고속 네트워크 환경에서는 계산 노드가 Azure Blob 저장소 내 데이터에 매우 효율적으로 액세스할 수 있습니다.
@@ -106,7 +107,7 @@ Blob을 사용하려면 먼저 [Azure 저장소 계정][azure-storage-create]을
 
 	azure storage account create <storageaccountname> --type LRS
 
-> [AZURE.NOTE]`--type` 매개 변수는 저장소 계정이 복제되는 방식을 나타냅니다. 자세한 내용은 [Azure 저장소 복제](../storage/storage-redundancy.md)를 참조하세요. ZRS에서 페이지 Blob, 파일, 테이블 또는 큐를 지원하지 않으므로 ZRS를 사용하지 마세요.
+> [AZURE.NOTE] `--type` 매개 변수는 저장소 계정이 복제되는 방식을 나타냅니다. 자세한 내용은 [Azure 저장소 복제](../storage/storage-redundancy.md)를 참조하세요. ZRS에서 페이지 Blob, 파일, 테이블 또는 큐를 지원하지 않으므로 ZRS를 사용하지 마세요.
 
 저장소 계정에 있는 지리적 지역을 지정 하라는 메시지가 표시됩니다. HDInsight 클러스터를 만들려는 동일한 지역에 저장소 계정을 만들어야 합니다.
 
@@ -150,28 +151,28 @@ HDInsight에서 Blob 저장소의 파일에 액세스하기 위한 URI 체계는
 	wasb[s]://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
 
 
-> [AZURE.NOTE]저장소 에뮬레이터(HDInsight 에뮬레이터에서 실행됨)에서 파일의 주소를 지정하기 위한 구문은 <i>wasb://&lt;ContainerName&gt;@storageemulator</i>입니다.
+> [AZURE.NOTE] 저장소 에뮬레이터(HDInsight 에뮬레이터에서 실행됨)에서 파일의 주소를 지정하기 위한 구문은 <i>wasb://&lt;ContainerName&gt;@storageemulator</i>입니다.
 
 
 
-URI 체계는 암호화되지 않은 액세스(wasb: 접두사가 있음)와 SSL로 암호화된 액세스(wasbs가 있음)를 제공합니다. Azure의 동일한 데이터 센터에 있는 데이터에 액세스하는 경우에도 가능하면 wasbs를 사용하는 것이 좋습니다.
+URI 체계는 암호화되지 않은 액세스(*wasb:* 접두사가 있음)와 SSL로 암호화된 액세스(*wasbs*가 있음)를 제공합니다. Azure의 동일한 데이터 센터에 있는 데이터에 액세스하는 경우에도 가능하면 *wasbs*를 사용하는 것이 좋습니다.
 
 &lt;BlobStorageContainerName&gt;은 Azure Blob 저장소에서 컨테이너의 이름을 식별합니다. &lt;StorageAccountName&gt;은 Azure 저장소 계정 이름을 식별합니다. FQDN(정규화된 도메인 이름)이 필요합니다.
 
-&lt;BlobStorageContainerName&gt;과 &lt;StorageAccountName&gt;이 둘 다 지정되지 않은 경우 기본 파일 시스템이 사용됩니다. 기본 파일 시스템의 파일에 대해서는 상대 경로나 절대 경로를 사용할 수 있습니다. 예를 들어, HDInsight 클러스터와 함께 제공되는 hadoop-mapreduce-examples.jar 파일을 가리킬 때 다음 중 하나를 사용할 수 있습니다:
+&lt;BlobStorageContainerName&gt;과 &lt;StorageAccountName&gt;이 둘 다 지정되지 않은 경우 기본 파일 시스템이 사용됩니다. 기본 파일 시스템의 파일에 대해서는 상대 경로나 절대 경로를 사용할 수 있습니다. 예를 들어, HDInsight 클러스터와 함께 제공되는 *hadoop-mapreduce-examples.jar* 파일을 가리킬 때 다음 중 하나를 사용할 수 있습니다:
 
 	wasb://mycontainer@myaccount.blob.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
 	wasb:///example/jars/hadoop-mapreduce-examples.jar
 	/example/jars/hadoop-mapreduce-examples.jar
 
-> [AZURE.NOTE]HDInsight 버전 2.1 및 1.6 클러스터에서는 파일 이름이<i>hadoop-examples.jar</i>입니다.
+> [AZURE.NOTE] HDInsight 버전 2.1 및 1.6 클러스터에서는 파일 이름이<i>hadoop-examples.jar</i>입니다.
 
 
-&lt;path&gt;는 파일 또는 디렉터리 HDFS 경로 이름입니다. Azure Blob 저장소의 컨테이너는 단지 키-값 저장소이므로 실제 계층적 파일 시스템이 없습니다. Blob 키 내부의 슬래쉬 문자(/)는 디렉터리 구분기호로 해석됩니다. 예를 들어 hadoop-mapreduce-examples.jar의 Blob 이름은 다음과 같습니다.
+&lt;path&gt;는 파일 또는 디렉터리 HDFS 경로 이름입니다. Azure Blob 저장소의 컨테이너는 단지 키-값 저장소이므로 실제 계층적 파일 시스템이 없습니다. Blob 키 내부의 슬래쉬 문자(/)는 디렉터리 구분기호로 해석됩니다. 예를 들어 *hadoop-mapreduce-examples.jar*의 Blob 이름은 다음과 같습니다.
 
 	example/jars/hadoop-mapreduce-examples.jar
 
-> [AZURE.NOTE]HDInsight 외부에서 blob를 작업할 때 대부분의 유틸리티는 WASB 형식을 인식하지 않으며 대신 `example/jars/hadoop-mapreduce-examples.jar`과 같은 기본 경로 형식을 예상합니다.
+> [AZURE.NOTE] HDInsight 외부에서 blob를 작업할 때 대부분의 유틸리티는 WASB 형식을 인식하지 않으며 대신 `example/jars/hadoop-mapreduce-examples.jar`과 같은 기본 경로 형식을 예상합니다.
 
 ## Azure CLI를 사용하여 Blob 액세스
 
@@ -197,7 +198,7 @@ URI 체계는 암호화되지 않은 액세스(wasb: 접두사가 있음)와 SSL
 
 ## Azure PowerShell을 사용하여 Blob에 액세스
 
-> [AZURE.NOTE]이 섹션의 명령은 PowerShell을 사용하여 blob에 저장된 데이터에 액세스하는 기본 예제를 제공합니다. HDInsight와의 작업에 대해 사용자 지정되는 더 완전한 기능의 예는 [HDInsight 도구](https://github.com/Blackmist/hdinsight-tools)를 참조하세요.
+> [AZURE.NOTE] 이 섹션의 명령은 PowerShell을 사용하여 blob에 저장된 데이터에 액세스하는 기본 예제를 제공합니다. HDInsight와의 작업에 대해 사용자 지정되는 더 완전한 기능의 예는 [HDInsight 도구](https://github.com/Blackmist/hdinsight-tools)를 참조하세요.
 
 다음 명령을 사용하여 Blob 관련 cmdlet을 나열합니다:
 
@@ -299,4 +300,4 @@ URI 체계는 암호화되지 않은 액세스(wasb: 접두사가 있음)와 SSL
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

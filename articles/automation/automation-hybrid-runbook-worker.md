@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/25/2016"
+   ms.date="01/27/2016"
    ms.author="bwren" />
 
 # Azure 자동화 Hybrid Runbook Worker
@@ -60,7 +60,7 @@ Hybrid Worker에 대한 다음 권장 사항을 고려하십시오.
 아래 절차는 Hybrid Runbook Worker를 설치하고 구성하는 방법을 설명합니다. 자동화 환경에 대해 처음 두 단계를 한 번 수행한 후 각 Worker 컴퓨터에 대해 나머지 단계를 반복합니다.
 
 ### 1\. Operations Management Suite 작업 영역 만들기
-Operations Management Suite 작업 영역이 아직 없는 경우 [Operational Insights 작업 영역 설정](../operational-insights/operational-insights-onboard-in-minutes.md)의 지침에 따라 작업 영역을 만듭니다. 이미 있는 경우에는 기존 작업 영역을 사용할 수 있습니다.
+Operations Management Suite 작업 영역이 아직 없는 경우 [작업 영역 설정](https://technet.microsoft.com/library/mt484119.aspx)의 지침에 따라 작업 영역을 만듭니다. 이미 있는 경우에는 기존 작업 영역을 사용할 수 있습니다.
 
 ### 2\. Operations Management Suite 작업 영역에 자동화 솔루션 추가
 솔루션은 Operations Management Suite에 기능을 추가합니다. 자동화 솔루션은 Hybrid Runbook Worker에 대한 지원을 포함하여 Azure 자동화를 위한 기능을 추가합니다. 작업 영역에 솔루션을 추가할 때 다음 단계에서 설치할 에이전트 컴퓨터로 Worker 구성 요소를 자동으로 푸시다운합니다.
@@ -190,4 +190,4 @@ Azure 자동화에서 Hybrid Runbook Worker용 Runbook을 편집할 수 있지�
 - [Azure 자동화에서 Runbook 편집](https://msdn.microsoft.com/library/dn879137.aspx)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

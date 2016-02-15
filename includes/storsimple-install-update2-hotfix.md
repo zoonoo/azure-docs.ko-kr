@@ -87,7 +87,7 @@ Microsoft 업데이트 카탈로그에서 소프트웨어 업데이트를 다운
 
 	> [AZURE.NOTE] 업데이트가 진행 중일 때 cmdlet에서 `False`를 보고하는 경우도 있습니다. 핫픽스가 완료되었는지 확인하려면 몇 분 동안 기다린 후 이 명령을 다시 실행하고 `RunInProgress`가 `False`인지 확인합니다. 맞으면 핫픽스가 완료된 것입니다.
 	
-8. 소프트웨어 업데이트가 완료되었으면 `CisMdsAgentUpdateBundle.exe`를 사용하여 3-5단계를 반복하고 SaaS 에이전트 및 MDS 에이전트를 설치 및 모니터링합니다. `CisMdsAgentUpdateBundle.exe` 이전에 `HcsMdsSoftwareUpdate.exe`가 설치되었는지 확인합니다.
+8. 소프트웨어 업데이트가 완료되면 3-5단계를 반복하여 SaaS 에이전트 및 MDS 에이전트를 설치 및 모니터링합니다. `all-cismdsagentupdatebundle_f98e62f4d56c79e2a6644d027af7a2393a93827a.exe` 이전에 `all-hcsmdssoftwareupdate_0b438ddf0d5b686aada2378b754fac8c7f2160e9.exe`가 설치되었는지 확인합니다.
 
 9. 시스템 소프트웨어 버전을 확인합니다. 형식:
 
@@ -103,13 +103,13 @@ Microsoft 업데이트 카탈로그에서 소프트웨어 업데이트를 다운
     
 9. 나머지 일반 핫픽스를 설치 및 모니터링하려면 3-5단계를 반복합니다.
 
-	- `HcsLsiUpdate.exe` 패키지를 사용하여 LSI 드라이버(KB3121900).
-	- `Storport-KB3080728-x64.msu` 패키지를 사용하여 Storport 수정(KB3080728).
-	- `spaceport-KB3090322-x64.msu` 패키지를 사용하여 Spaceport 수정(KB3090322).
+	- KB3121900을 사용한 LSI 드라이버
+	- KB3080728을 사용하여 Storport 수정
+	- KB3090322를 사용하여 Spaceport 수정
 
 #### 유지 관리 모드 핫픽스를 설치 및 확인하려면
 
-`DiskFirmwarePackage.exe` 패키지(KB3121899)를 사용하여 디스크 펌웨어 업데이트를 설치합니다. 작업 중단 업데이트이며 완료하는 데 약 30분이 소요됩니다. 장치 직렬 콘솔에 연결하여 계획된 유지 관리 기간에 설치하도록 선택할 수 있습니다.
+KB3121899를 사용하여 디스크 펌웨어 업데이트를 설치합니다. 작업 중단 업데이트이며 완료하는 데 약 30분이 소요됩니다. 장치 직렬 콘솔에 연결하여 계획된 유지 관리 기간에 설치하도록 선택할 수 있습니다.
 
 디스크 펌웨어가 이미 최신 상태인 경우 이러한 업데이트를 설치할 필요가 없습니다. 장치 직렬 콘솔에서 `Get-HcsUpdateAvailability` cmdlet을 실행합니다. 업데이트가 사용 가능한지 여부와 중단 업데이트(유지 관리 모드 업데이트) 또는 무중단 업데이트(일반)인지에 대한 알림이 표시됩니다.
  
@@ -159,7 +159,7 @@ Microsoft 업데이트 카탈로그에서 소프트웨어 업데이트를 다운
 		WARNING: Installation is currently in progress. This operation can take several minutes to complete.
 	
 
-1.  `Get-HcsUpdateStatus` 명령을 사용하여 설치 진행률을 모니터링합니다. `RunInProgress`가 `False`로 변경되면 업데이트가 완료됩니다.
+1.  `Get-HcsUpdateStatus` 명령을 사용하여 설치 진행 상황을 모니터링합니다. `RunInProgress`가 `False`로 변경되면 업데이트가 완료됩니다.
  
 2.  설치가 완료된 후에 유지 관리 모드 핫픽스가 설치된 컨트롤러가 다시 부팅됩니다. 모든 권한이 있는 옵션 1로 로그인하고 디스크 펌웨어 버전을 확인합니다. 형식:
 	
@@ -239,4 +239,4 @@ Microsoft 업데이트 카탈로그에서 소프트웨어 업데이트를 다운
  
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

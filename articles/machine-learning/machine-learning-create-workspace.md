@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/13/2015" 
+	ms.date="02/03/2016" 
 	ms.author="garye;bradsev"/>
 
 
@@ -29,7 +29,7 @@ Azure 기계 학습 스튜디오를 사용하려면 기계 학습 작업 영역�
 
 ## 작업 영역을 만들려면
 
-1. Microsoft Azure 계정에 로그인합니다.
+1. [Microsoft Azure 클래식 포털](https://manage.windowsazure.com/)에 로그인합니다.
 2. Microsoft Azure 서비스 패널에서 **기계 학습**을 클릭합니다.
 
     ![기계 학습 서비스][1]
@@ -41,7 +41,7 @@ Azure 기계 학습 스튜디오를 사용하려면 기계 학습 작업 영역�
 
 5. 작업 영역에 대한 **작업 영역 이름**을 입력하고 **작업 영역 소유자**를 지정합니다. 작업 영역 소유자는 유효한 Microsoft 계정(예: name@outlook.com))이어야 합니다.
 
-    > [AZURE.NOTE]나중에 작업 영역에 다른 사용자를 초대하여 작업 중인 실험을 공유할 수 있습니다. 기계 학습 스튜디오의 **SETTINGS** 페이지에서 이 작업을 할 수 있습니다. 각 사용자에 대한 Microsoft 계정 또는 조직 계정만 있으면 됩니다.
+    > [AZURE.NOTE] 나중에 작업 영역에 다른 사용자를 초대하여 작업 중인 실험을 공유할 수 있습니다. 기계 학습 스튜디오의 **SETTINGS** 페이지에서 이 작업을 할 수 있습니다. 각 사용자에 대한 Microsoft 계정 또는 조직 계정만 있으면 됩니다.
 
 6. Azure **위치**를 지정하고 기존 Azure **저장소 계정**을 입력하거나 **새 저장소 계정 만들기**를 클릭하여 새 저장소 계정을 만듭니다.
 7. **기계 학습 작업 영역 만들기**를 클릭합니다.
@@ -67,4 +67,4 @@ Azure 기계 학습 스튜디오를 사용하려면 기계 학습 작업 영역�
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

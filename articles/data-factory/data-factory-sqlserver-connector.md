@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Azure 데이터 팩터리를 사용하여 온-프레미스 또는 IaaS(Azure VM) SQL Server 간 데이터 이동
@@ -27,6 +27,8 @@ SQL Server가 호스팅되는 온-프레미스 또는 Azure IaaS(Infrastructure-
 데이터 관리 게이트웨이 및 게이트웨이 설정에 대한 단계별 지침을 알아보려면 [온-프레미스 위치 및 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요. SQL Server에 연결하기 위해서는 게이트웨이 인스턴스를 설정해야 합니다.
 
 성능 향상을 위해 게이트웨이를 동일한 온-프레미스 컴퓨터 또는 클라우드 VM 인스턴스에 SQL Server로 설치할 수 있지만, 리소스 충돌을 방지하기 위해 별도의 컴퓨터 또는 클라우드 VM에 설치하는 것이 좋습니다.
+
+다음 샘플은 SQL Server 및 Azure Blob 저장소 간에 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure 데이터 팩터리의 복사 작업을 사용하여 임의의 원본에서 [여기](data-factory-data-movement-activities.md#supported-data-stores)에 설명한 싱크로 **직접** 데이터를 복사할 수 있습니다.
 
 ## 샘플: SQL Server에서 Azure Blob로 데이터 복사
 
@@ -565,4 +567,4 @@ Azure SQL, SQL server, Sybase에서 데이터를 이동하는 경우 SQL 형식�
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -1,19 +1,19 @@
 <properties
-   pageTitle="그룹 정책을 사용하여 Internet Explorer용 액세스 패널 확장을 배포하는 방법 | Microsoft Azure"
-   description="그룹 정책을 사용하여 My Apps 포털용 Internet Explorer 추가 기능을 배포하는 방법"
-   services="active-directory"
-   documentationCenter=""
-   authors="liviodlc"
-   manager="stevenpo"
-   editor=""/>
+    pageTitle="그룹 정책을 사용하여 Internet Explorer용 액세스 패널 확장을 배포하는 방법 | Microsoft Azure"
+    description="그룹 정책을 사용하여 My Apps 포털용 Internet Explorer 추가 기능을 배포하는 방법"
+    services="active-directory"
+    documentationCenter=""
+    authors="liviodlc"
+    manager="stevenpo"
+    editor=""/>
 <tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="11/18/2015"
-   ms.author="liviodlc"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="02/02/2016"
+    ms.author="liviodlc"/>
 
 #그룹 정책을 사용하여 Internet Explorer용 액세스 패널 확장을 배포하는 방법
 
@@ -42,7 +42,7 @@
 
 	![파일 및 저장소 서비스 열기](./media/active-directory-saas-ie-group-policy/shares.png)
 
-4. **새 공유 마법사**를 완료하고 사용자의 컴퓨터에서 액세스할 수 있게 권한을 설정합니다. [공유에 대해 알아봅니다](https://technet.microsoft.com/library/cc753175.aspx).
+4. **새 공유 마법사**를 완료하고 사용자의 컴퓨터에서 액세스할 수 있게 권한을 설정합니다. [공유에 대해 알아봅니다.](https://technet.microsoft.com/library/cc753175.aspx)
 
 5. [Access Panel Extension.msi](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access Panel Extension.msi) Microsoft Windows Installer 패키지(.msi 파일)를 다운로드합니다.
 
@@ -62,7 +62,7 @@
 
 3. **그룹 정책 관리** 창의 왼쪽 창에서 조직 구성 단위(OU) 계층 구조를 확인하고 그룹 정책을 적용할 범위를 결정합니다. 예를 들어, 테스트를 위해 소수의 사용자에게 소규모 OU를 배포하거나, 전 조직에 배포하기 위해 최상위 OU를 선택할 수 있습니다.
 
-	> [AZURE.NOTE]조직 단위(OU)를 만들거나 편집하려면 서버 관리자로 다시 전환하여 **도구** > **Active Directory 사용자 및 컴퓨터**로 이동합니다.
+	> [AZURE.NOTE] 조직 단위(OU)를 만들거나 편집하려면 서버 관리자로 다시 전환하여 **도구** > **Active Directory 사용자 및 컴퓨터**로 이동합니다.
 
 4. OU를 선택한 후에는 해당 OU를 마우스 오른쪽 단추로 클릭하고 **이 도메인에서 GPO를 만들고 여기에 연결...**을 선택합니다.
 
@@ -90,7 +90,7 @@
 
 4. [1단계: 배포 지점 만들기](#step-1-create-the-distribution-point)에서 만든 설치 관리자 패키지가 들어 있는 공유 폴더로 이동하고 .msi 파일을 선택한 다음 **열기**를 클릭합니다.
 
-	> [AZURE.IMPORTANT]공유가 같은 서버에 있는 경우 로컬 파일 경로가 아닌 네트워크 파일 경로를 통해 .msi에 액세스하고 있는지 확인합니다.
+	> [AZURE.IMPORTANT] 공유가 같은 서버에 있는 경우 로컬 파일 경로가 아닌 네트워크 파일 경로를 통해 .msi에 액세스하고 있는지 확인합니다.
 
 	![공유 폴더에서 설치 패키지를 선택합니다.](./media/active-directory-saas-ie-group-policy/select-package.png)
 
@@ -141,7 +141,7 @@
 
 2. 이름이 **양식의 사용자 이름과 암호에 자동 완성 기능 사용**인 설정을 찾습니다.
 
-	> [AZURE.NOTE]이전 버전의 Active Directory에는 이 설정의 이름이 **Do not allow auto-complete to save passwords**(자동 완성이 암호를 저장하도록 허용 안 함)으로 표시될 수 있습니다. 해당 설정에 대한 구성은 이 자습서에 설명되어 있는 설정마다 다릅니다.
+	> [AZURE.NOTE] 이전 버전의 Active Directory에는 이 설정의 이름이 **Do not allow auto-complete to save passwords**(자동 완성이 암호를 저장하도록 허용 안 함)으로 표시될 수 있습니다. 해당 설정에 대한 구성은 이 자습서에 설명되어 있는 설정마다 다릅니다.
 
 	![사용자 설정에서 이 내용을 찾아야 합니다.](./media/active-directory-saas-ie-group-policy/disable-auto-complete.png)
 
@@ -155,7 +155,7 @@
 
 사용자는 더 이상 자신의 자격 증명을 저장하거나 자동 완성을 사용하여 이전에 저장된 자격 증명에 액세스할 수 없습니다. 하지만 이 정책은 검색 필드와 같은 다른 유형의 양식 필드에는 자동 완성 기능을 계속 사용하도록 허용합니다.
 
-> [AZURE.WARNING]사용자가 자격 증명을 저장하도록 선택한 후에 이 정책을 사용하도록 설정하면, 이 정책은 이미 저장된 자격 증명을 지우지 *않습니다*.
+> [AZURE.WARNING] 사용자가 자격 증명을 저장하도록 선택한 후에 이 정책을 사용하도록 설정하면, 이 정책은 이미 저장된 자격 증명을 지우지 *않습니다*.
 
 ##6단계: 배포 테스트
 
@@ -177,4 +177,4 @@
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

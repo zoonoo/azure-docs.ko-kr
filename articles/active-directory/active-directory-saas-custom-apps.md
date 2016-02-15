@@ -15,32 +15,34 @@
 
 #Azure Active Directory 응용 프로그램 갤러리에 있지 않은 응용 프로그램에 Single Sign-On 구성
 
-Azure Active Directory 응용 프로그램 갤러리는 [이 문서]( https://azure.microsoft.com/documentation/articles/active-directory-appssoaccess-whatis/)에 설명한 대로 Azure Active Directory와의 Single Sign-On 형식을 지원하는 것으로 알려진 응용 프로그램 목록을 제공합니다. (조직에서 IT 전문가 또는 시스템 통합자인 경우)연결한 응용 프로그램을 찾으면 Azure 관리 포털에 Single Sign-On 활성화에 대해 제공된 단계별 지침을 따라 시작할 수 있습니다.
+이 문서에서는 관리자가 Azure Active Directory 앱 갤러리에 없는 응용 프로그램에 Single Sign-On을 *코드 작성 없이* 구성할 수 있도록 설정하는 기능에 대해 설명합니다. 이 기능은 2015년 11 월 18일에 기술 미리 보기에서 릴리스되었으며 [Azure Active Directory Premium](active-directory-editions.md)에 포함되어 있습니다. 이 문서 대신 사용자 지정 앱을 Azure AD와 통합하는 방법에 대한 개발자 지침을 찾으신다면 [Azure AD의 인증 시나리오](active-directory-authentication-scenarios.md)를 참조하세요.
 
-[Azure Active Directory Premium](https://msdn.microsoft.com/library/azure/dn532272.aspx) 라이선스를 가진 고객은 Azure AD 응용 프로그램 갤러리의 **사용자 지정** 범주에서 호출할 수 있는 이러한 추가 기능을 가져옵니다.
+Azure Active Directory 응용 프로그램 갤러리는 [이 문서](active-directory-appssoaccess-whatis.md)에 설명한 대로 Azure Active Directory와의 Single Sign-On 형식을 지원하는 것으로 알려진 응용 프로그램 목록을 제공합니다. (조직에서 IT 전문가 또는 시스템 통합자인 경우)연결한 응용 프로그램을 찾으면 Azure 관리 포털에 Single Sign-On 활성화에 대해 제공된 단계별 지침을 따라 시작할 수 있습니다.
 
-* SAML 2.0 ID 공급자를 지원하는 응용 프로그램의 셀프 서비스 연결
-* 암호 기반 SSO를 사용하여 HTML 기반 로그인 페이지가 있는 웹 응용 프로그램의 셀프 서비스 연결
-* [Office 365 앱 시작 관리자]( https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) 또는 [Azure AD 액세스 패널]( https://azure.microsoft.com/documentation/articles/active-directory-appssoaccess-whatis/#deploying-azure-ad-integrated-applications-to-users/)에서 응용 프로그램에 대한 링크를 추가하는 기능
+또한 [Azure Active Directory Premium](active-directory-editions.md) 라이선스가 있는 고객에게는 다음과 같은 기능이 제공됩니다
+
+* SAML 2.0 ID 공급자를 지원하는 응용 프로그램의 셀프 서비스 통합
+* [암호 기반 SSO](active-directory-appssoaccess-whatis.md/#password-based-single-sign-on)를 사용하여 HTML 기반 로그인 페이지가 있는 웹 응용 프로그램의 셀프 서비스 통합
 * 사용자 프로비전에 SCIM 프로토콜을 사용하는 응용 프로그램의 셀프 서비스 연결([여기에 설명됨](active-directory-scim-provisioning))
+* [Office 365 앱 시작 관리자](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) 또는 [Azure AD 액세스 패널](active-directory-appssoaccess-whatis.md/#deploying-azure-ad-integrated-applications-to-users)에서 응용 프로그램에 대한 링크를 추가하는 기능
 
 사용하지만 아직된 Azure AD 응용 프로그램 갤러리에 등록되지 않은 SaaS 응용 프로그램 뿐만 아니라 조직이 클라우드 또는 온-프레미스에서 제어하는 서버에 배포된 타사 웹 응용 프로그램을 포함할 수 있습니다.
 
-참고: 해당 응용 프로그램과 이 기능 간의 호환성을 테스트하려는 응용 프로그램 개발자는 [Azure Active Directory Premium의 무료 평가판](https://azure.microsoft.com/trial/get-started-active-directory/)을 사용하여 수행할 수 있지만 [내부 사용권 라이선스](https://mspartner.microsoft.com/en/us/pages/membership/internal-use-software.aspx)를 획득하는 것이 좋습니다.
+*앱 통합 템플릿*이라고도 하는 이러한 기능은 SAML, SCIM 또는 폼 기반 인증을 지원하는 앱에 대한 표준 기반 연결점을 제공하며, 다양한 응용 프로그램과의 호환성을 위해 유연한 옵션과 설정을 포함하고 있습니다.
 
-##목록에 없거나 사용자 지정된 응용 프로그램 추가 
+##목록에 없는 응용 프로그램 추가
 
-응용 프로그램을 구성하려면 Azure Active Directory 관리자 계정을 사용하여 Azure 관리 포털에 로그인하고 **Active Directory > [Directory] > 응용 프로그램** 섹션으로 이동하며 **추가** 및 **갤러리에서 응용 프로그램 추가**를 차례로 선택합니다.
+앱 통합 템플릿을 사용하여 응용 프로그램을 연결하려면 Azure Active Directory 관리자 계정을 사용하여 Azure 관리 포털에 로그인하고 **Active Directory > [Directory] > 응용 프로그램** 섹션으로 이동하며 **추가** 및 **갤러리에서 응용 프로그램 추가**를 차례로 선택합니다.
 
 ![][1]
 
-원하는 응용 프로그램을 찾을 수 없는 경우 앱 갤러리의 왼쪽에서 **사용자 지정** 범주를 사용하거나 검색 결과에 표시된 **목록에 없는 응용 프로그램 추가** 링크를 선택하여 사용자 지정 응용 프로그램을 추가할 수 있습니다 응용 프로그램에 이름을 입력한 후에 Single Sign On 옵션 및 동작을 구성할 수 있습니다.
+원하는 응용 프로그램을 찾을 수 없는 경우 앱 갤러리의 왼쪽에서 **사용자 지정** 범주를 사용하거나 검색 결과에 표시된 **목록에 없는 응용 프로그램 추가** 링크를 선택하여 목록에 없는 응용 프로그램을 추가할 수 있습니다 응용 프로그램에 이름을 입력한 후에 Single Sign On 옵션 및 동작을 구성할 수 있습니다.
 
 **빠른 팁**: 모범 사례로 응용 프로그램 갤러리에 응용 프로그램이 이미 존재하는지 확인하려면 검색 기능을 사용합니다. 앱이 발견되고 해당 설명이 "Single Sign On"을 언급하는 경우 응용 프로그램은 이미 페더레이션된 Single Sign-On에 대해 지원됩니다.
 
 ![][2]
 
-사용자 지정 응용 프로그램을 추가하면 사전 통합된 응용 프로그램에 사용할 수 있는 데에 매우 비슷한 환경을 제공합니다. 시작하려면 **Single Sign-On 구성**을 선택합니다. 다음 화면에서는 다음 섹션에서 설명하는 을 Single Sign On을 구성하기 위해 다음 세 가지 옵션을 나타냅니다.
+이런 방식으로 응용 프로그램을 추가하면 사전 통합된 응용 프로그램에 제공되는 환경과 매우 비슷한 환경을 구성할 수 있습니다. 시작하려면 **Single Sign-On 구성**을 선택합니다. 다음 화면에서는 다음 섹션에서 설명하는 을 Single Sign On을 구성하기 위해 다음 세 가지 옵션을 나타냅니다.
 
 ![][3]
 
@@ -105,7 +107,7 @@ SAML URL 및 인증서가 Azure AD 및 응용 프로그램에서 구성되면 �
 
 이 옵션을 선택하여 조직의 Azure AD 액세스 패널 또는 Office 365 포털에 응용 프로그램에 대한 링크를 추가합니다. 인증에 대한 Azure AD 대신 현재 Azure Active Directory Federation Services(또는 다른 페더레이션 서비스)를 사용하는 사용자 지정 웹앱에 대한 링크를 추가하는 데 사용할 수 있습니다. 혹은 사용자의 액세스 패널에 표시하려는 특정 SharePoint 페이지 또는 다른 웹 페이지에 딥 링크를 추가할 수 있습니다.
 
-**다음**을 선택한 후에 링크할 응용 프로그램의 URL을 입력하라는 메시지가 표시됩니다. 완료되면 사용자 및 그룹은 응용 프로그램에 할당될 수 있으며 이는 응용 프로그램이 해당 사용자에 대한 [Office 365 앱 시작 관리자]( https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) 또는 [Azure AD 액세스 패널]( https://azure.microsoft.com/documentation/articles/active-directory-appssoaccess-whatis/#deploying-azure-ad-integrated-applications-to-users/)에 표시되도록 합니다.
+**다음**을 선택한 후에 링크할 응용 프로그램의 URL을 입력하라는 메시지가 표시됩니다. 완료되면 사용자 및 그룹은 응용 프로그램에 할당될 수 있으며 이는 응용 프로그램이 해당 사용자에 대한 [Office 365 앱 시작 관리자](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) 또는 [Azure AD 액세스 패널](active-directory-appssoaccess-whatis.md/#deploying-azure-ad-integrated-applications-to-users)에 표시되도록 합니다.
 
 참고: 응용 프로그램에 **구성** 탭의 **로고 업로드** 단추를 사용하여 응용 프로그램에 대한 타일 로고를 업로드할 수 있습니다.
 
@@ -118,4 +120,4 @@ SAML URL 및 인증서가 Azure AD 및 응용 프로그램에서 구성되면 �
 [6]: ./media/active-directory-saas-custom-apps/customapp6.png
 [7]: ./media/active-directory-saas-custom-apps/customapp7.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

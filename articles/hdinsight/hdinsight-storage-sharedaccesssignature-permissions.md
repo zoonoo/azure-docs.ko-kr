@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="01/15/2016"
+ms.date="02/01/2016"
 ms.author="larryfr"/>
 
 #Azure 저장소 공유 액세스 서명을 사용하여 HDInsight에서 데이터 액세스 제한
@@ -34,7 +34,7 @@ HDInsight는 데이터 저장소로 Azure 저장소 Blob를 사용합니다. HDI
 
 * Linux 기반 HDInsight 클러스터 또는 [Azure PowerShell][powershell] - 기존 Linux 기반 클러스터가 있는 경우 Ambari를 사용하여 클러스터에 공유 액세스 서명을 추가할 수 있습니다. 그렇지 않으면 Azure PowerShell을 사용하여 새 클러스터를 만들고 클러스터를 만들 때 공유 액세스 서명을 추가합니다.
 
-* 예제 파일은 [https://github.com/Blackmist/hdinsight-azure-storage-sas](https://github.com/Blackmist/hdinsight-azure-storage-sas)에 있습니다. 이 리포지토리는 다음을 포함합니다.
+* [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature)의 예제 파일입니다. 이 리포지토리는 다음을 포함합니다.
 
     * HDInsight에 사용할 저장소 컨테이너, 저장된 정책 및 SAS를 만들 수 있는 Visual Studio 프로젝트
     
@@ -60,7 +60,7 @@ HDInsight는 데이터 저장소로 Azure 저장소 Blob를 사용합니다. HDI
 
 4. SAS를 만드는 데 사용된 계정 키를 다시 생성한 경우. 이렇게 하면 해당 계정 키를 사용하는 모든 응용 프로그램 구성 요소는 다른 유효한 계정 키 또는 새로 생성된 계정 키를 사용하도록 업데이트될 때까지 인증되지 않습니다.
 
-> [AZURE.IMPORTANT]공유 액세스 서명 URI는 서명을 만드는 데 사용된 계정 키 및 저장된 관련 액세스 정책(있는 경우)에 연결됩니다. 저장된 액세스 정책을 지정하지 않는 경우 공유 액세스 서명을 해지하는 방법은 계정 키를 변경하는 것뿐입니다.
+> [AZURE.IMPORTANT] 공유 액세스 서명 URI는 서명을 만드는 데 사용된 계정 키 및 저장된 관련 액세스 정책(있는 경우)에 연결됩니다. 저장된 액세스 정책을 지정하지 않는 경우 공유 액세스 서명을 해지하는 방법은 계정 키를 변경하는 것뿐입니다.
 
 항상 저장된 액세스 정책을 사용하여 필요에 따라 서명을 해지하거나 만료 날짜를 연장할 수 있도록 하는 것이 좋습니다. 이 문서의 단계에서는 SAS를 생성하는 데 저장된 액세스 정책을 사용합니다.
 
@@ -68,7 +68,7 @@ HDInsight는 데이터 저장소로 Azure 저장소 Blob를 사용합니다. HDI
 
 ##저장된 정책을 만들고 SAS를 생성합니다.
 
-현재는 저장된 정책을 프로그래밍 방식으로 만들어야 합니다. 저장된 정책 및 SAS를 만드는 C# 및 Python 예제는 [https://github.com/Blackmist/hdinsight-azure-storage-sas](https://github.com/Blackmist/hdinsight-azure-storage-sas)에서 확인할 수 있습니다.
+현재는 저장된 정책을 프로그래밍 방식으로 만들어야 합니다. 저장된 정책 및 SAS를 만드는 C# 및 Python 예제는 [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature)에서 확인할 수 있습니다.
 
 ###C#을 사용하여 저장된 정책 및 SAS 만들기
 
@@ -169,7 +169,7 @@ SAS를 사용하는 HDInsight 클러스터를 만드는 예제는 리포지토�
     
     Linux 기반 클러스터를 만드는 경우 SSH 사용자 계정 이름 및 암호를 묻는 메시지도 표시됩니다. 클러스터에 원격으로 로그인하는 데 사용됩니다.
     
-    > [AZURE.IMPORTANT]HTTP/s 또는 SSH 사용자 이름 및 암호를 묻는 메시지가 나타나면 다음 조건을 충족하는 암호를 제공해야 합니다.
+    > [AZURE.IMPORTANT] HTTP/s 또는 SSH 사용자 이름 및 암호를 묻는 메시지가 나타나면 다음 조건을 충족하는 암호를 제공해야 합니다.
     >
     > - 길이가 10자 이상이어야 함
     > - 숫자를 1개 이상 포함해야 함
@@ -201,7 +201,7 @@ SAS를 사용하는 HDInsight 클러스터를 만드는 예제는 리포지토�
 
     변경이 완료되었으면 __확인__을 클릭합니다.
 
-    > [AZURE.IMPORTANT]이렇게 하면 구성 변경 내용이 저장되지만 변경 내용을 적용하기 위해서는 여러 서비스를 다시 시작해야 합니다.
+    > [AZURE.IMPORTANT] 이렇게 하면 구성 변경 내용이 저장되지만 변경 내용을 적용하기 위해서는 여러 서비스를 다시 시작해야 합니다.
 
 6. Ambari 웹 UI의 왼쪽 목록에서 __HDFS__를 선택한 다음 오른쪽의 __서비스 작업__ 드롭다운 목록에서 __모두 다시 시작__을 선택합니다. 메시지가 나타나면 __유지 관리 모드 설정__을 선택한 다음 "모두 다시 시작 확인"을 선택합니다.
 
@@ -290,4 +290,4 @@ __해결 방법__: 다음 조건을 충족하는 암호를 사용합니다.
 
 [powershell]: ../powershell-install-configure.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="01/29/2016"
    ms.author="larryfr"/>
 
 #HDInsight에서 Apache Storm 및 Maven으로 기본 단어 개수 응용 프로그램에 대한 Java 기반 토폴로지를 개발합니다.
@@ -22,6 +22,8 @@
 Maven을 사용하여 HDInsight에서 Apache Storm에 대한 Java 기반 토폴로지를 만드는 기본 프로세스를 알아봅니다. Maven 및 Java를 사용하여 기본 단어 개수 응용 프로그램을 만드는 과정을 안내합니다. 지침에서는 Eclipse를 사용하지만 원하는 텍스트 편집기를 사용할 수도 있습니다.
 
 이 문서의 단계를 완료하면 HDInsight에서 Apache Storm에 배포할 수 있는 기본 토폴로지가 생깁니다.
+
+> [AZURE.NOTE]\: 이 토폴로지의 완료된 버전은 [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount)에서 사용할 수 있습니다.
 
 ##필수 조건
 
@@ -31,7 +33,7 @@ Maven을 사용하여 HDInsight에서 Apache Storm에 대한 Java 기반 토폴�
 
 * 메모장, <a href="http://www.gnu.org/software/emacs/" target="_blank">Emacs<a>, <a href="http://www.sublimetext.com/" target="_blank">Sublime Text</a>, <a href="https://atom.io/" target="_blank">Atom.io</a>, <a href="http://brackets.io/" target="_blank">Brackets.io</a> 등의 텍스트 편집기. 또는 <a href="https://eclipse.org/" target="_blank">Eclipse</a>(Luna 버전 이상)와 같은 IDE(통합 개발 환경)를 사용할 수 있습니다.
 
-	> [AZURE.NOTE]편집기 또는 IDE에 이 문서에서 다루지 않은 Maven과 함께 동작하는 특정 기능이 있을 수 있습니다. 편집 환경 기능에 대한 내용은 사용 중인 제품의 설명서를 참조하세요.
+	> [AZURE.NOTE] 편집기 또는 IDE에 이 문서에서 다루지 않은 Maven과 함께 동작하는 특정 기능이 있을 수 있습니다. 편집 환경 기능에 대한 내용은 사용 중인 제품의 설명서를 참조하세요.
 
 ##환경 변수 구성
 
@@ -85,7 +87,7 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 
 컴파일 시간에 Maven 리포지토리에서 **storm-core**를 찾기 위해 Maven은 이 정보를 사용합니다. 먼저 로컬 컴퓨터의 리포지토리에서 찾습니다. 파일이 없으면 공개 Maven 리포지토리에서 이를 다운로드하여 로컬 리포지토리에 저장합니다.
 
-> [AZURE.NOTE]추가한 섹션에서 `<scope>provided</scope>` 줄을 확인합니다. 이는 Maven에 만든 JAR 파일에서 **storm-core**를 제외하도록 요청합니다. 시스템을 통해 제공되기 때문입니다. 이를 통해 만든 패키지를 좀 더 작게 할 수 있으며 이는 HDInsight에서 Storm에 포함된 **storm-core** 비트를 사용합니다.
+> [AZURE.NOTE] 추가한 섹션에서 `<scope>provided</scope>` 줄을 확인합니다. 이는 Maven에 만든 JAR 파일에서 **storm-core**를 제외하도록 요청합니다. 시스템을 통해 제공되기 때문입니다. 이를 통해 만든 패키지를 좀 더 작게 할 수 있으며 이는 HDInsight에서 Storm에 포함된 **storm-core** 비트를 사용합니다.
 
 ##빌드 구성
 
@@ -148,7 +150,7 @@ Java 기반 Storm 토폴로지는 사용자가 작성자이거나 종속성으�
 
 외부 데이터 소스 설정에 대한 요구를 줄이기 위해 다음 spout가 임의의 문장을 내보냅니다. 이는 <a href="https://github.com/apache/storm/blob/master/examples/storm-starter/" target="_blank">Storm-Starter 예제</a>와 함께 제공된 Spout의 수정된 버전입니다.
 
-> [AZURE.NOTE]외부 데이터 소스에서 읽는 Spout의 예는 다음 예제 중 하나를 참조하세요.
+> [AZURE.NOTE] 외부 데이터 소스에서 읽는 Spout의 예는 다음 예제 중 하나를 참조하세요.
 >
 > * <a href="https://github.com/apache/storm/blob/master/examples/storm-starter/src/jvm/storm/starter/spout/TwitterSampleSpout.java" target="_blank">TwitterSampleSpout</a>: Twitter에서 읽는 예제 Spout
 >
@@ -240,7 +242,7 @@ Spout의 경우, **src\\main\\java\\com\\microsoft\\example** 디렉터리에 **
 
 코드 주석을 읽어보면 이 spout가 어떻게 동작하는지 이해할 수 있습니다.
 
-> [AZURE.NOTE]이 토폴로지는 하나의 spout만 사용하지만 다른 토폴로지는 다른 소스에서 해당 토폴로지로 데이터를 피드하는 여러 spout를 사용할 수 있습니다.
+> [AZURE.NOTE] 이 토폴로지는 하나의 spout만 사용하지만 다른 토폴로지는 다른 소스에서 해당 토폴로지로 데이터를 피드하는 여러 spout를 사용할 수 있습니다.
 
 ###Bolt 만들기
 
@@ -250,7 +252,7 @@ Bolt는 데이터 처리를 다룹니다. 이 토폴로지의 경우 다음 두 
 
 * **WordCount**: 각각의 단어가 발생한 횟수를 계산합니다.
 
-> [AZURE.NOTE]Bolt는 계산, 지속성, 외부 구성 요소에 말하기 등 문자 그대로 아무 작업이나 수행할 수 있습니다.
+> [AZURE.NOTE] Bolt는 계산, 지속성, 외부 구성 요소에 말하기 등 문자 그대로 아무 작업이나 수행할 수 있습니다.
 
 **src\\main\\java\\com\\microsoft\\example** 디렉터리에 **SplitSentence.java** 및 **WordCount.Java**라는 두 개의 새 파일을 만듭니다. 파일 내용으로 다음을 사용합니다.
 
@@ -467,4 +469,4 @@ Java를 사용하여 Storm 토폴로지를 만드는 방법을 배웠으므로 �
 
 Storm 토폴로지에 대한 추가 예제는 [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)를 참조하세요.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

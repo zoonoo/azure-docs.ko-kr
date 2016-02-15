@@ -45,7 +45,7 @@
 ## 새 자격 증명 만들기
 
 
-### Azure 포털을 사용하여 새 자격 증명을 만들려면
+### Azure 클래식 포털을 사용하여 새 변수를 만들려면
 
 1. 자동화 계정에서 창의 위쪽에 있는 **자산**을 클릭합니다.
 1. 창의 아래쪽의 **설정 추가**를 클릭합니다.
@@ -54,7 +54,7 @@
 1. 마법사를 완료하고 새 자격 증명을 저장하는 확인란을 클릭합니다.
 
 
-### Azure Preview 포털을 사용하여 새 자격 증명을 만들려면
+### Azure 포털을 사용하여 새 자격 증명을 만들려면
 
 1. 자동화 계정에서 **자산** 파트를 클릭하여 **자산** 블레이드를 엽니다.
 1. **자격 증명** 파트를 클릭하여 **자격 증명** 블레이드를 엽니다.
@@ -92,7 +92,7 @@
 
 ![캔버스에 자격 증명 추가](media/automation-credentials/credential-add-canvas.png)
 
-다음 그림에서는 그래픽 Runbook에서 자격 증명을 사용하는 예제를 보여 줍니다. 이 예제에서는 [Azure 리소스에 대한 인증 구성](#automation-configuring.md)에 설명된 대로 자격 증명을 사용하여 Azure 리소스에 Runbook에 대한 인증을 제공합니다. 첫 번째 활동에서는 Azure 구독에 액세스할 수 있는 자격 증명을 검색합니다. 그런 다음 **Add-AzureAccount** 활동에서 이 자격 증명을 사용하여 이후의 모든 활동에 대한 인증을 제공합니다. **Get-AutomationPSCredential**에는 단일 개체가 필요하기 때문에 여기에서는 [파이프라인 링크](automation-graphical-authoring-intro.md#links-and-workflow)를 사용합니다.
+다음 그림에서는 그래픽 Runbook에서 자격 증명을 사용하는 예제를 보여 줍니다. 이 예제에서는 [Azure 리소스에 대한 인증 구성](automation-configuring.md)에 설명된 대로 자격 증명을 사용하여 Azure 리소스에 Runbook에 대한 인증을 제공합니다. 첫 번째 활동에서는 Azure 구독에 액세스할 수 있는 자격 증명을 검색합니다. 그런 다음 **Add-AzureAccount** 활동에서 이 자격 증명을 사용하여 이후의 모든 활동에 대한 인증을 제공합니다. **Get-AutomationPSCredential**에는 단일 개체가 필요하기 때문에 여기에서는 [파이프라인 링크](automation-graphical-authoring-intro.md#links-and-workflow)를 사용합니다.
 
 ![캔버스에 자격 증명 추가](media/automation-credentials/get-credential.png)
 
@@ -105,4 +105,4 @@ Azure 자동화에서 DSC 구성은 **Get-AutomationPSCredential**을 사용하�
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

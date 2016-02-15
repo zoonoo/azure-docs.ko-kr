@@ -25,8 +25,8 @@ azureedge.net의 하위 도메인을 사용하는 대신 캐시된 콘텐츠에 
 	CNAME 레코드는 원본 도메인을 대상 도메인에 매핑하는 DNS 기능입니다. 이 경우 원본 도메인은 사용자 지정 도메인과 하위 도메인입니다(하위 도메인은 항상 필수임). 대상 도메인은 CDN 끝점입니다.
 
 	그러나 사용자 지정 도메인을 CDN 끝점에 매핑하는 프로세스로 인해 Azure 포털에서 도메인을 등록하는 동안 도메인이 잠시 가동 중지될 수 있습니다.
-     
-2. [**cdnverify**를 사용하여 중간 등록 단계 추가]((#register-a-custom-domain-for-an-azure-cdn-endpoint-using-the-intermediary-cdnverify-subdomain)
+	 
+2. [**cdnverify**를 사용하여 중간 등록 단계 추가](#register-a-custom-domain-for-an-azure-cdn-endpoint-using-the-intermediary-cdnverify-subdomain)
 
 	사용자 지정 도메인에서 가동 중지 시간이 없어야 하는 SLA(서비스 수준 계약)가 설정된 응용 프로그램을 현재 지원하고 있는 경우 DNS 매핑이 진행되는 동안 사용자가 도메인에 액세스할 수 있도록 중간 등록 단계를 제공하는 데 Azure **cdnverify** 하위 도메인을 사용할 수 있습니다.
 
@@ -83,4 +83,4 @@ azureedge.net의 하위 도메인을 사용하는 대신 캐시된 콘텐츠에 
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

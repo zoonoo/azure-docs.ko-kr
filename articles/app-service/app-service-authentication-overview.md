@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/08/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Azure 앱 서비스에서 API 앱 및 모바일 앱 인증
@@ -216,4 +216,4 @@ Azure에서 [ASP.NET Identity](http://www.asp.net/identity) 또는 [Thinktecture
 
 * [모바일 앱에서 액세스 토큰 가져오기 및 SharePoint API 호출](../app-service-mobile/app-service-mobile-dotnet-backend-get-started-connect-to-enterprise.md#obtain-token)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

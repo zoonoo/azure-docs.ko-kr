@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="10/09/2015"
+   ms.date="02/02/2016"
    ms.author="hascipio; v-divte"/>
 
 # Azure 마켓플레이스에 대한 가상 컴퓨터 이미지 만들기 가이드
@@ -45,7 +45,7 @@ SKU는 VM 이미지에 대한 상업용 이름입니다. VM 이미지에는 운�
 
 1. **SKU를 추가합니다.** SKU는 URL에 사용되는 식별자가 필요합니다. 이 식별자는 게시 프로필 내에서 공유해야 하지만, 식별자가 다른 게시자와 충돌할 위험은 없습니다.
 
-> [AZURE.NOTE]제품 및 SKU 식별자는 마켓플레이스의 제품 URL에 표시됩니다.
+> [AZURE.NOTE] 제품 및 SKU 식별자는 마켓플레이스의 제품 URL에 표시됩니다.
 
 2. **SKU에 대한 요약 설명을 추가합니다.** 요약 설명은 고객에게 표시되므로 이해하기 쉽도록 작성합니다. 이 정보는 "스테이징으로 푸시" 단계까지 잠글 필요가 없습니다. 그때까지 자유롭게 편집할 수 있습니다.
 3. Windows 기반 SKU를 사용할 경우 제안된 링크를 따라 Windows Server의 승인된 버전을 습득하세요.
@@ -53,7 +53,7 @@ SKU는 VM 이미지에 대한 상업용 이름입니다. VM 이미지에는 운�
 ## 2\. Azure 호환 VHD 만들기(Linux 기반)
 이 섹션에서는 Azure 마켓플레이스에 대한 Linux 기반 VM 이미지를 만드는 모범 사례를 중심으로 다룹니다. 단계별 연습은 [Linux 운영 체제가 포함된 가상 하드 디스크 만들기 및 업로드][link-azure-vm-1] 설명서를 참조하세요.
 
-> [AZURE.TIP]다음 단계의 대부분(예: 에이전트 설치, 커널 부팅 매개 변수)은 Microsoft Azure 이미지 갤러리에서 제공되는 Linux 이미지에 대해 이미 수행한 작업입니다. 따라서 이러한 이미지 중 하나를 토대로 시작하면 Azure 미인식 Linux 이미지를 구성하는 것보다 시간을 절약할 수 있습니다.
+> [AZURE.TIP] 다음 단계의 대부분(예: 에이전트 설치, 커널 부팅 매개 변수)은 Microsoft Azure 이미지 갤러리에서 제공되는 Linux 이미지에 대해 이미 수행한 작업입니다. 따라서 이러한 이미지 중 하나를 토대로 시작하면 Azure 미인식 Linux 이미지를 구성하는 것보다 시간을 절약할 수 있습니다.
 
 ### 2\.1 올바른 VHD 크기 선택
 게시된 SKU(VM 이미지)는 SKU에 대한 디스크 수를 지원하는 모든 VM 크기에서 작동하도록 설계되어야 합니다. 권장 크기에 대한 지침을 제공할 수 있지만, 이러한 지침은 권장 사항이지 강제 사항은 아닙니다.
@@ -150,7 +150,7 @@ VM 이미지용 운영 체제 VHD는 Windows Server 또는 SQL Server를 포함�
 
 이러한 링크는 게시 포털의 SKU 페이지 아래에도 있습니다.
 
-> [AZURE.TIP]최신 Azure 포털 또는 PowerShell을 사용 중인 경우 2014년 9월 8일 이후에 게시된 Windows Server 이미지가 승인됩니다.
+> [AZURE.TIP] 최신 Azure 포털 또는 PowerShell을 사용 중인 경우 2014년 9월 8일 이후에 게시된 Windows Server 이미지가 승인됩니다.
 
 
 ### 3\.2 Windows 기반 VM 만들기
@@ -195,7 +195,7 @@ Microsoft Azure 포털에서 승인된 기본 이미지를 기반으로 VM을 �
 ### 3\.3 클라우드에서 VHD 개발
 RDP(원격 데스크톱 프로토콜)를 사용하여 클라우드에서 VHD를 개발하는 것이 좋습니다. 프로비전 중에 지정한 사용자 이름과 암호를 사용하여 RDP에 연결합니다.
 
-> [AZURE.IMPORTANT]온-프레미스에서 VHD를 개발하는 경우(권장되지 않음) [온-프레미스에 가상 컴퓨터 이미지 만들기](marketplace-publishing-vm-image-creation-on-premise.md)를 참조하세요. 클라우드에서 개발 중인 경우에는 VHD를 다운로드할 필요가 없습니다.
+> [AZURE.IMPORTANT] 온-프레미스에서 VHD를 개발하는 경우(권장되지 않음) [온-프레미스에 가상 컴퓨터 이미지 만들기](marketplace-publishing-vm-image-creation-on-premise.md)를 참조하세요. 클라우드에서 개발 중인 경우에는 VHD를 다운로드할 필요가 없습니다.
 
 
 **[Microsoft Azure 포털][link-azure-portal]을 사용하여 RDP를 통해 연결**
@@ -580,14 +580,11 @@ Linux 또는 Windows 기반 VM 이미지에 대해 올바른 옵션을 선택한
 2. **VM 이미지** 탭을 선택합니다.
 3. 페이지의 맨 위에 나열된 식별자는 SKU 식별자가 아니고 실제 제품 식별자입니다.
 4. **SKU** 섹션에 속성을 입력합니다.
-
-    ![그리기][img-pubportal-vm-skus]
-
 5. **운영 체제 제품군**에서 운영 체제 VHD에 연결된 운영 체제 유형을 클릭합니다.
 6. **운영 체제** 상자에서 운영 체제에 대해 설명합니다. 운영 체제 제품군, 유형, 버전, 업데이트 등과 같은 형식을 고려하세요. 예를 들어 "Windows Server Datacenter 2014 R2"를 고려합니다.
-7. 3개의 권장되는 가상 컴퓨터 크기를 선택합니다. 이는 이미지를 구입하여 배포하려는 경우에 Azure 포털에서 고객의 가격 책정 계층 블레이드에 표시되는 권장 사항입니다.
+7. 권장된 가상 컴퓨터 크기를 최대 6개까지 선택합니다. 이는 이미지를 구입하여 배포하려는 경우에 Azure 포털에서 고객의 가격 책정 계층 블레이드에 표시되는 권장 사항입니다.
 
-  >[AZURE.NOTE]이는 유일한 권장 사항입니다. 고객은 이미지에 지정된 디스크에 적용되는 VM 크기를 선택할 수 있습니다.
+  > [AZURE.NOTE] 이는 유일한 권장 사항입니다. 고객은 이미지에 지정된 디스크에 적용되는 VM 크기를 선택할 수 있습니다.
 
 8. 버전을 입력합니다. 버전 필드는 제품 및 해당 업데이트를 식별하는 의미 체계 버전을 캡슐화합니다.
   -	버전은 X.Y.Z 형식이며, X, Y 및 Z는 정수여야 합니다.
@@ -596,14 +593,11 @@ Linux 또는 Windows 기반 VM 이미지에 대해 올바른 옵션을 선택한
 9. **OS VHD URL** 상자에 운영 체제 VHD에 대해 만들어진 공유 액세스 서명 URI를 입력합니다.
 10. 이 SKU에 데이터 디스크가 연결되어 있는 경우 배포 시 이 데이터 디스크를 탑재할 LUN(논리 단위 번호)을 선택합니다.
 11. **LUN X VHD URL** 상자에 첫 번째 데이터 VHD에 대해 만들어진 공유 액세스 서명 URI를 입력합니다.
-12.	**테스트 결과 업로드**를 클릭합니다.
-13.	**인증 요청**을 클릭합니다.
-14.	모든 추가 데이터 디스크 VHD에 대해 11, 12 및 13단계를 반복합니다.
 
     ![그리기][img-pubportal-vm-skus-2]
 
 ## 다음 단계
-인증을 위한 가상 컴퓨터 이미지 SKU가 제출되면 [Azure 마켓플레이스 마케팅 콘텐츠 가이드][link-pushstaging]를 진행할 수 있습니다. 게시 프로세스의 해당 단계에서는 **3단계: 스테이징에서 VM 제품 테스트** 이전에 필요한 마케팅 콘텐츠, 가격 책정 및 기타 정보를 제공합니다. 여기에서 제품을 Azure 마켓플레이스에 배포하여 일반에게 공개하고 판매하기 전에 다양한 사용 사례 시나리오를 테스트합니다.
+SKU 세부 정보를 완료하면 [Azure 마켓플레이스 마케팅 콘텐츠 가이드][link-pushstaging]를 진행할 수 있습니다. 게시 프로세스의 해당 단계에서는 **3단계: 스테이징에서 VM 제품 테스트** 이전에 필요한 마케팅 콘텐츠, 가격 책정 및 기타 정보를 제공합니다. 여기에서 제품을 Azure 마켓플레이스에 배포하여 일반에게 공개하고 판매하기 전에 다양한 사용 사례 시나리오를 테스트합니다.
 
 ## 참고 항목
 - [시작: Azure 마켓플레이스에 제품을 게시하는 방법](marketplace-publishing-getting-started.md)
@@ -635,7 +629,7 @@ Linux 또는 Windows 기반 VM 이미지에 대해 올바른 옵션을 선택한
 
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 [link-github-waagent]: https://github.com/Azure/WALinuxAgent
-[link-azure-codeplex]: https://azurestorageexplorer.codeplex.com/
+[link-azure-codeplex]: http://storageexplorer.com/
 [link-azure-2]: ../storage/storage-dotnet-shared-access-signature-part-2/
 [link-azure-1]: ../storage/storage-dotnet-shared-access-signature-part-1/
 [link-msft-download]: http://www.microsoft.com/download/details.aspx?id=44299
@@ -660,4 +654,4 @@ Linux 또는 Windows 기반 VM 이미지에 대해 올바른 옵션을 선택한
 [link-intsvc]: http://www.microsoft.com/download/details.aspx?id=41554
 [link-python]: https://www.python.org/
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

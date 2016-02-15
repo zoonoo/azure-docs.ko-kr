@@ -17,6 +17,7 @@
 	ms.date="11/16/2015"
 	ms.author="cynthn"/>
 
+	
 # 클래식 배포 모델을 사용하여 만든 Azure 가상 컴퓨터에 대한 질문과 대답
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
@@ -159,4 +160,4 @@ Azure가 사용자의 VM에 영향을 주는 심각한 하드웨어 문제를 �
 
 [Windows 가상 컴퓨터를 만드는 다양한 방법](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

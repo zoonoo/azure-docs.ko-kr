@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="미디어 인코더 표준 형식 및 코덱" 
-	description="이 항목에서는 Azure 미디어 인코더 표준 형식 및 코덱에 대한 개요를 제공합니다." 
+	description="이 항목에서는 미디어 인코더 표준 형식 및 코덱에 대한 개요를 제공합니다." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako,anilmur" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
+	ms.date="01/28/2016"  
 	ms.author="juliako"/>
 
 #미디어 인코더 표준 형식 및 코덱
@@ -121,4 +121,4 @@ MPEG2-TS |H.264(High, Main 및 Baseline Profiles)|AAC-LC, HE-AAC v1, HE-AAC v2
 
 [미디어 인코더 표준으로 인코딩하는 방법](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

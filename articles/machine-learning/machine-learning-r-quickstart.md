@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/08/2015"
+	ms.date="02/04/2016"
 	ms.author="larryfr"/>
 
 # Azure 기계 학습에 대한 프로그래밍 언어는 R에 대한 빠른 시작 자습서
@@ -238,13 +238,24 @@ Azure 기계 학습 스튜디오에서 실험할 간단한 첫 번째 R 스크�
 	source("src/yourfile.R") # Reads a zipped R script
 	load("src/yourData.rdata") # Reads a zipped R data file
 
-> [AZURE.NOTE]Azure 기계 학습은 src/ 디렉터리에 있는 것처럼 파일을 zip 파일로 처리하므로 이 디렉터리 이름을 파일 이름 앞에 붙여야 합니다.
+> [AZURE.NOTE] Azure 기계 학습은 src/ 디렉터리에 있는 것처럼 파일을 zip 파일로 처리하므로 이 디렉터리 이름을 파일 이름 앞에 붙여야 합니다. 예를 들어 zip 파일의 루트에 `yourfile.R` 및 `yourData.rdata` 파일이 포함된 경우 `source` 및 `load`를 사용할 때 이러한 파일을 `src/yourfile.R` 및 `src/yourData.rdata`로 처리합니다.
 
 [데이터 집합 로드](#loading)는 데이터 집합 로드에서 이미 설명했습니다 이전 섹션에 나와 있는 R 스크립트를 만들고 테스트한 후에는 다음을 수행하세요.
 
-1. R 스크립트를 .R 파일로 저장합니다. 이 스크립트 파일을 "simpleplot.R"이라고 하겠습니다.  
+1. R 스크립트를 .R 파일로 저장합니다. 이 스크립트 파일을 "simpleplot.R"이라고 하겠습니다. 콘텐츠는 다음과 같습니다.
 
-2.  Zip 파일을 만들고 스크립트를 이 zip 파일에 복사합니다.
+        ## Only one of the following two lines should be used
+        ## If running in Machine Learning Studio, use the first line with maml.mapInputPort()
+        ## If in RStudio, use the second line with read.csv()
+        cadairydata <- maml.mapInputPort(1)
+        # cadairydata  <- read.csv("cadairydata.csv", header = TRUE, stringsAsFactors = FALSE)
+        str(cadairydata)
+        pairs(~ Cotagecheese.Prod + Icecream.Prod + Milk.Prod + N.CA.Fat.Price, data = cadairydata)
+        ## The following line should be executed only when running in
+        ## Azure Machine Learning Studio
+        maml.mapOutputPort('cadairydata')
+
+2.  Zip 파일을 만들고 스크립트를 이 zip 파일에 복사합니다. Windows에서 파일을 마우스 오른쪽 단추로 클릭하고 __보내기__를 선택한 다음 __압축 폴더__를 선택할 수 있습니다. 그러면 "simpleplot.R" 파일을 포함하는 zip 파일이 새로 만들어집니다.
 
 3.	파일을 **zip** 형식으로 지정하여 기계 학습 스튜디오의 **데이터 집합**에 추가합니다. 이제 데이터 집합에 zip 파일이 표시됩니다.
 
@@ -252,7 +263,7 @@ Azure 기계 학습 스튜디오에서 실험할 간단한 첫 번째 R 스크�
 
 5.	**Zip 데이터** 아이콘의 출력을 [R 스크립트 실행][execute-r-script] 모듈의 **스크립트 번들** 입력에 연결합니다.
 
-6.	`source()` 함수를 zip 파일 이름과 함께 [R 스크립트 실행][execute-r-script] 모듈의 코드 창에 입력합니다. 제 경우 `source("src/SimplePlot.R")`를 입력합니다.
+6.	`source()` 함수를 zip 파일 이름과 함께 [R 스크립트 실행][execute-r-script] 모듈의 코드 창에 입력합니다. 제 경우 `source("src/simpleplot.R")`를 입력합니다.
 
 7.	반드시 **저장**을 클릭하세요.
 
@@ -279,7 +290,7 @@ Dataset1 입력을 사용하여 사각형의 데이터 테이블을 R 코드에 
     [ModuleOutput]  "ColumnTypes":System.Int32,3,System.Double,5,System.String,1
     [ModuleOutput] }
 
-페이지를 두 번 클릭하면 추가 데이터가 로드되며, 이 데이터는 다음과 같아 보입니다.
+페이지 아래쪽에 열에 대한 상세 정보가 다음과 같이 나타납니다.
 
 	[ModuleOutput] [1] "Loading variable port1..."
 	[ModuleOutput]
@@ -305,7 +316,7 @@ Dataset1 입력을 사용하여 사각형의 데이터 테이블을 R 코드에 
 
 결과는 거의 예상대로 dataframe에 228번의 관찰과 9개의 열이 나왔습니다. 각 열의 열 이름, R 데이터 형식, 샘플을 볼 수 있습니다.
 
-> [AZURE.NOTE]이와 동일한 인쇄된 출력은 [R 스크립트 실행][execute-r-script] 모듈의 R 장치 출력에서 편리하게 사용할 수 있습니다. 다음 섹션에서 [R 실행 모듈][execute-r-script]의 출력을 설명합니다.
+> [AZURE.NOTE] 이와 동일한 인쇄된 출력은 [R 스크립트 실행][execute-r-script] 모듈의 R 장치 출력에서 편리하게 사용할 수 있습니다. 다음 섹션에서 [R 실행 모듈][execute-r-script]의 출력을 설명합니다.
 
 ####Dataset2
 
@@ -462,7 +473,7 @@ R 데이터 프레임은 강력한 필터링 기능을 지원합니다. 행이�
 
 이 데이터 집합에서 수행해야 하는 필터링이 하나 있습니다. cadairydata 데이터 프레임의 열을 살펴보면 두 개의 불필요한 열을 볼 수 있습니다. 첫 번째 열은 단지 행 번호만 가지고 있으며 그리 유용하지 않습니다. 두 번째 열인 Year.Month에는 불필요한 정보가 포함되어 있습니다. 다음 R 코드를 사용하여 이 두 열을 쉽게 제외시킬 수 있습니다.
 
-> [AZURE.NOTE]지금부터 이 섹션에서 [R 스크립트 실행][execute-r-script] 모듈에 추가하는 추가 코드만 보여드리겠습니다. 새 줄은 `str()` 함수 **앞**에 추가합니다. 이 함수는 Azure 기계 학습 스튜디오에서 결과를 확인하는 데 사용됩니다.
+> [AZURE.NOTE] 지금부터 이 섹션에서 [R 스크립트 실행][execute-r-script] 모듈에 추가하는 추가 코드만 보여드리겠습니다. 새 줄은 `str()` 함수 **앞**에 추가합니다. 이 함수는 Azure 기계 학습 스튜디오에서 결과를 확인하는 데 사용됩니다.
 
 다음 줄을 [R 스크립트 실행][execute-r-script] 모듈의 R 코드에 추가합니다.
 
@@ -1347,4 +1358,4 @@ R 시계열 패키지 카탈로그는 다음 CRAN Task View for time series anal
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

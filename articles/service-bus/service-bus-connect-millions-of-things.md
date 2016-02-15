@@ -22,7 +22,7 @@
 
 ## 탐색
 
-- [이벤트 허브](event-hubs-overview.md)
+- [이벤트 허브](../event-hubs/event-hubs-overview.md)
 - [분할 패턴](http://msdn.microsoft.com/library/dn589797.aspx)
 - [서비스 버스 및 AMQP 1.0](service-bus-amqp-overview.md)
 - [서비스 버스 소개](https://azure.microsoft.com/services/service-bus/)
@@ -45,4 +45,4 @@
 - [클라우드 서비스](https://azure.microsoft.com/services/cloud-services/) 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Visual Studio에서 응용 프로그램 디버그 | Microsoft Azure"
-   description="Visual Studio 및 로컬 개발 클러스터를 사용한 개발 및 디버깅으로 서비스의 안정성과 성능을 향상시킵니다."
+   description="로컬 개발 클러스터의 Visual Studio에서 개발하고 디버그하여 서비스의 안정성과 성능을 향상시킵니다."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/15/2015"
+   ms.date="01/28/2016"
    ms.author="jesseb"/>
 
 # Visual Studio를 사용하여 서비스 패브릭 응용 프로그램 디버그
@@ -28,7 +28,7 @@
 
 3. 코드의 중단점을 설정하고 **디버그** 메뉴의 명령을 클릭하여 응용 프로그램의 단계를 진행합니다.
 
-    > [AZURE.NOTE]Visual Studio는 응용 프로그램의 모든 인스턴스에 연결합니다. 단계별로 코드를 실행하는 동안 중단점은 동시 세션에서 발생하는 여러 프로세스에 히트될 수 있습니다. 스레드 ID의 각 중단점을 조건부로 생성하거나 진단 이벤트를 사용하여 히트된 후에 중단점을 사용하지 않도록 설정합니다.
+    > [AZURE.NOTE] Visual Studio는 응용 프로그램의 모든 인스턴스에 연결합니다. 단계별로 코드를 실행하는 동안 중단점은 동시 세션에서 발생하는 여러 프로세스에 히트될 수 있습니다. 스레드 ID의 각 중단점을 조건부로 생성하거나 진단 이벤트를 사용하여 히트된 후에 중단점을 사용하지 않도록 설정합니다.
 
 4. **진단 이벤트** 창이 자동으로 열려서 실시간으로 진단 이벤트를 볼 수 있습니다.
 
@@ -65,4 +65,4 @@
 [diagnosticeventsactions]: ./media/service-fabric-debugging-your-application/diagnosticeventsactions.png
 [breakpoint]: ./media/service-fabric-debugging-your-application/breakpoint.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

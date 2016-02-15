@@ -13,14 +13,14 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="01/14/2016"
+ms.date="01/28/2016"
 ms.author="larryfr"/>
 
 #HDInsight에서 Apache Storm으로 Azure 데이터 레이크 저장소 사용
 
 Azure 데이터 레이크 저장소는 데이터에 대한 높은 처리량, 가용성, 내구성 및 안정성을 제공하는 HDFS와 호환 가능한 클라우드 저장소 서비스입니다. 이 문서에서 [HdfsBolt](http://storm.apache.org/javadoc/apidocs/org/apache/storm/hdfs/bolt/HdfsBolt.html)를 사용하여 Azure 데이터 레이크 저장소에 데이터를 작성하는 데 Java 기반 Storm 토폴로지를 사용하는 방법을 알아보고 이는 Apache Storm의 일부로 제공됩니다.
 
-> [AZURE.IMPORTANT]이 문서에 사용된 예제 토폴로지는 HDInsight 클러스터의 Storm에 포함되는 구성 요소에 의존하며 다른 Apache Storm 클러스터와 함께 사용될 때 Azure 데이터 레이크 저장소와 함께 작동하도록 수정이 필요할 수 있습니다.
+> [AZURE.IMPORTANT] 이 문서에 사용된 예제 토폴로지는 HDInsight 클러스터의 Storm에 포함되는 구성 요소에 의존하며 다른 Apache Storm 클러스터와 함께 사용될 때 Azure 데이터 레이크 저장소와 함께 작동하도록 수정이 필요할 수 있습니다.
 
 ##필수 조건
 
@@ -63,7 +63,7 @@ ADLStoreBolt는 Azure 데이터 레이크를 작성하는 토폴로지에서 Hdf
 
 특히 HDInsight 클러스터를 만들 때 Azure 데이터 레이크 저장소와 연결할 수 있습니다. 선택한 데이터 레이크 저장소에 대한 핵심 사이트에 항목을 작성하며 이는 hadoop 클라이언트 및 hadoop-hdfs와 같은 구성 요소가 데이터 레이크 저장소와 통신할 수 있도록 하는 데 사용됩니다.
 
-> [AZURE.NOTE]Microsoft에는 Azure 데이터 레이크 저장소 및 Azure Blob 저장소와 통신할 수 있는 Apache Hadoop 및 Storm 프로젝트에 기여한 코드가 있지만 이 기능은 다른 Hadoop 및 Storm 배포에 기본적으로 포함될 수 없습니다.
+> [AZURE.NOTE] Microsoft에는 Azure 데이터 레이크 저장소 및 Azure Blob 저장소와 통신할 수 있는 Apache Hadoop 및 Storm 프로젝트에 기여한 코드가 있지만 이 기능은 다른 Hadoop 및 Storm 배포에 기본적으로 포함될 수 없습니다.
 
 토폴로지의 HdfsBolt에 대한 구성은 다음과 같습니다.
 
@@ -96,9 +96,9 @@ HdfsBolt 사용에 익숙한 경우 URL을 제외하고 모두 표준 구성임�
 
 ##HDInsight 클러스터 및 데이터 레이크 저장소 만들기
 
-[Azure를 사용하는 데이터 레이크 저장소로 HDInsight 사용](data-lake-store-hdinsight-hadoop-use-portal.md) 문서의 단계를 사용하여 HDInsight 클러스터에서 새 Storm을 만듭니다. 이 문서의 단계는 새 HDInsight 클러스터 및 Azure 데이터 레이크 저장소를 만드는 과정을 안내합니다.
+[Azure를 사용하는 데이터 레이크 저장소로 HDInsight 사용](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md) 문서의 단계를 사용하여 HDInsight 클러스터에서 새 Storm을 만듭니다. 이 문서의 단계는 새 HDInsight 클러스터 및 Azure 데이터 레이크 저장소를 만드는 과정을 안내합니다.
 
-> [AZURE.IMPORTANT]HDInsight 클러스터를 만들 때 __Storm__을 클러스터 형식으로 선택해야 합니다. OS는 Windows 또는 Linux일 수 있습니다.
+> [AZURE.IMPORTANT] HDInsight 클러스터를 만들 때 __Storm__을 클러스터 형식으로 선택해야 합니다. OS는 Windows 또는 Linux일 수 있습니다.
 
 ##토폴로지 빌드 및 패키지
 
@@ -123,7 +123,7 @@ HDInsight 클러스터에서 Linux 기반 Storm을 만든 경우 다음 단계�
     
     메시지가 표시되면 클러스터에 대한 SSH 사용자를 만들 때 사용한 암호를 입력합니다. 암호 대신 공용 키를 사용하는 경우 `-i` 매개 변수를 사용하여 개인 키와 일치하는 경로를 지정합니다.
     
-    > [AZURE.NOTE]개발을 위해 Windows 클라이언트를 사용하는 경우 `scp` 명령이 없을 수 있습니다. 그렇다면 [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)에서 다운로드할 수 있는 `pscp`를 사용할 수 있습니다.
+    > [AZURE.NOTE] 개발을 위해 Windows 클라이언트를 사용하는 경우 `scp` 명령이 없을 수 있습니다. 그렇다면 [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)에서 다운로드할 수 있는 `pscp`를 사용할 수 있습니다.
 
 2. 업로드가 완료되면 SSH를 사용하여 HDInsight 클러스터에 연결하도록 다음을 사용합니다. __USER__를 클러스터를 만들 때 사용한 SSH 사용자 이름으로 대체합니다. __CLUSTERNAME__을 클러스터 이름으로 바꿉니다.
 
@@ -131,7 +131,7 @@ HDInsight 클러스터에서 Linux 기반 Storm을 만든 경우 다음 단계�
 
     메시지가 표시되면 클러스터에 대한 SSH 사용자를 만들 때 사용한 암호를 입력합니다. 암호 대신 공용 키를 사용하는 경우 `-i` 매개 변수를 사용하여 개인 키와 일치하는 경로를 지정합니다.
     
-    > [AZURE.NOTE]개발을 위해 Windows 클라이언트를 사용하는 경우 PuTTY 클라이언트를 사용하여 클러스터에 연결하는 정보는 [Windows에서 SSH로 Linux 기반 HDInsight에 연결](hdinsight-hadoop-linux-use-ssh-windows.md)에 있는 내용을 수행합니다.
+    > [AZURE.NOTE] 개발을 위해 Windows 클라이언트를 사용하는 경우 PuTTY 클라이언트를 사용하여 클러스터에 연결하는 정보는 [Windows에서 SSH로 Linux 기반 HDInsight에 연결](hdinsight-hadoop-linux-use-ssh-windows.md)에 있는 내용을 수행합니다.
     
 3. 연결되면 다음을 사용하여 토폴로지를 시작합니다.
 
@@ -162,11 +162,11 @@ HDInsight 클러스터에서 Linux 기반 Storm을 만든 경우 다음 단계�
 
 데이터를 보는 몇 가지 방법이 있습니다. 이 섹션에서는 Azure 포털 및 `hdfs` 명령을 사용하여 데이터를 볼 수 있습니다.
 
-> [AZURE.NOTE]토폴로지가 출력 데이터를 검사하기 전에 몇 분 동안 실행할 수 있도록 해야 합니다. 그러면 데이터가 Azure 데이터 레이크 저장소의 여러 파일에 동기화됩니다.
+> [AZURE.NOTE] 토폴로지가 출력 데이터를 검사하기 전에 몇 분 동안 실행할 수 있도록 해야 합니다. 그러면 데이터가 Azure 데이터 레이크 저장소의 여러 파일에 동기화됩니다.
 
 * __[Azure 포털](https://portal.azure.com)에서__: 포털에서 HDInsight와 함께 사용하는 Azure 데이터 레이크 저장소를 선택합니다.
 
-    > [AZURE.NOTE]Azure 포털 대시보드에 데이터 레이크 저장소를 고정하지 않은 경우 왼쪽 목록 맨 아래에서 __찾아보기__를 선택한 다음 __데이터 레이크 저장소__ 마지막으로 저장소를 선택하여 찾을 수 있습니다.
+    > [AZURE.NOTE] Azure 포털 대시보드에 데이터 레이크 저장소를 고정하지 않은 경우 왼쪽 목록 맨 아래에서 __찾아보기__를 선택한 다음 __데이터 레이크 저장소__ 마지막으로 저장소를 선택하여 찾을 수 있습니다.
     
     데이터 레이크 저장소의 맨 위에 있는 아이콘에서 __데이터 탐색기__를 선택합니다.
     
@@ -221,4 +221,4 @@ __Windows 기반 HDInsight의 경우__:
 
 이제 Storm을 사용하여 Azure 데이터 레이크 저장소에 작성하는 방법을 알아보았으므로 다른 [HDInsight에 대한 Storm 예제](hdinsight-storm-example-topology.md)를 검색합니다.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

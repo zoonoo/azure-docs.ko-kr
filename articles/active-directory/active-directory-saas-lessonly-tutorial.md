@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="02/02/2016"
 	ms.author="jeedes"/>
 
 
@@ -35,7 +35,7 @@ Lesson.ly와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다
 - Lesson.ly Single Sign-On이 설정된 구독
 
 
-> [AZURE.NOTE]이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
+> [AZURE.NOTE] 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
 
 
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
@@ -56,7 +56,7 @@ Lesson.ly의 Azure AD 통합을 구성하려면 갤러리의 Lesson.ly를 관리
 
 **갤러리에서 Lesson.ly를 추가하려면 다음 단계를 수행합니다.**
 
-1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. <br><br> ![Active Directory][1]<br>
+1. **Azure 관리 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. <br><br> ![Active Directory][1]<br>
 
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 
@@ -64,8 +64,7 @@ Lesson.ly의 Azure AD 통합을 구성하려면 갤러리의 Lesson.ly를 관리
 4. 페이지 맨 아래에 있는 **추가**를 클릭합니다.<br><br> ![응용 프로그램][3]<br>
 5. **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.<br><br> ![응용 프로그램][4]<br>
 6. 검색 상자에서 **Lesson.ly**를 입력합니다.<br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_01.png)<br>
-7. 결과 창에서 **Lesson.ly**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다. <br><br>
-
+7. 결과 창에서 **Lesson.ly**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_02.png)<br>
 ##  Azure AD Single Sign-on 구성 및 테스트
 이 섹션은 "Britta Simon"이라는 테스트 사용자를 기반으로 Lesson.ly에서 Azure AD Single Sign-On을 구성하고 테스트하는 방법을 보여 주기 위해 작성되었습니다.
 
@@ -75,41 +74,49 @@ Lesson.ly에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 1. **[Azure AD Single Sign-on 구성](#configuring-azure-ad-single-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
 2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-4. **[Lesson.ly 테스트 사용자 만들기](#creating-a-Lesson.ly-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Lesson.ly에 만듭니다.
+4. **[Lesson.ly 테스트 사용자 만들기](#creating-a-Lessonly-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Lesson.ly에 만듭니다.
 5. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
 5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
 ### Azure AD Single Sign-On 구성
 
-이 섹션은 Azure 클래식 포털에서 Azure AD Single Sign-On을 사용하도록 설정하고 Lesson.ly 응용 프로그램에서 Single Sign-On을 구성하는 방법을 설명하기 위한 것입니다.
+이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Lesson.ly에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다.
 
-
+Lesson.ly 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하며, **SAML 토큰 특성** 구성에 사용자 할당 특성 매핑을 추가해야 합니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다. <br><br> ![Single Sign-On 구성](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_06.png) <br>
 
 **Lesson.ly에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure 클래식 포털의 **Lesson.ly** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다. <br><br> ![Single Sign-On 구성][6] <br>
+1. Azure AD 포털의 Lesson.ly 응용 프로그램 통합 페이지에 있는 상단의 메뉴에서 **특성**을 클릭하여 **SAML 토큰 특성** 대화 상자를 엽니다. <br><br> ![Single Sign-On 구성](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_07.png) <br>
 
-2. **Lesson.ly에 대한 사용자 로그인 방법 선택** 페이지에서 **Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다. <br><br> ![Single Sign-On 구성](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_03.png) <br>
+2. 필요한 특성 매핑을 추가하려면 다음 단계를 수행합니다. <br><br> ![Single Sign-On 구성](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_08.png) <br> a. 위에 있는 테이블의 각 데이터 행에서 **사용자 특성 추가**를 클릭합니다.<br> b. **특성 이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.<br> c. **특성 값** 목록에서 해당 행에 표시된 특성 값을 선택합니다.<br> d. **완료**를 클릭합니다.
 
-3. **앱 설정 구성** 대화 상자 페이지에서 다음 단계를 수행합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_04.png) <br>
+3. **변경 내용 적용**을 클릭합니다.
+
+4. 브라우저에서 **뒤로**를 클릭하여 빠른 시작 대화 상자를 다시 엽니다.
+
+5. **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다. <br><br> ![Single Sign-On 구성][6] <br>
+
+6. **Lesson.ly에 대한 사용자 로그인 방법 선택** 페이지에서 **Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다. <br><br> ![Single Sign-On 구성](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_03.png) <br>
+
+7. **앱 설정 구성** 대화 상자 페이지에서 다음 단계를 수행합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_04.png) <br>
 
 
-    a. 로그인 URL 텍스트 상자에 다음의 **“https://<company name>.Lesson.ly/signin”** 패턴을 사용하여 사용자가 Lesson.ly 응용 프로그램에 로그인하는 데 사용할 URL을 입력합니다.
+    a. 로그인 URL 텍스트 상자에 다음의 **“https://companyname.Lesson.ly/signin”** 패턴을 사용하여 사용자가 Lesson.ly 응용 프로그램에 로그인하는 데 사용할 URL을 입력합니다. **companyname**을 실제 이름으로 교체해야 하는 일반 이름을 참조하는 경우
 
 
-4. **Lesson.ly에서 Single Sign-On 구성** 페이지에서 다음 단계를 수행합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_05.png) <br>
+8. **Lesson.ly에서 Single Sign-On 구성** 페이지에서 다음 단계를 수행합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_05.png) <br>
 
     a. **인증서 다운로드**를 클릭하고 파일을 컴퓨터에 저장합니다.
 
     b. **다음**을 클릭합니다.
 
 
-5. 응용 프로그램에 대해 SSO를 구성하려면 dev@lesson.ly를 통해 Lesson.ly 지원 팀에 문의하세요. 다운로드한 인증서 파일을 메일에 첨부하고 해당하는 쪽에 SSO를 설정하기 위해 Lesson.ly 팀과 메타데이터 URL(엔터티 ID, SSO 로그인 URL 및 로그아웃 URL)을 공유합니다.
+9. 응용 프로그램에 대해 SSO를 구성하려면 dev@lesson.ly를 통해 Lesson.ly 지원 팀에 문의하세요. 다운로드한 인증서 파일을 메일에 첨부하고 해당하는 쪽에 SSO를 설정하기 위해 Lesson.ly 팀과 메타데이터 URL(엔터티 ID, SSO 로그인 URL 및 로그아웃 URL)을 공유합니다.
 
 
-6. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다. <br><br>![Azure AD Single Sign-On][10]<br>
+10. Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다. <br><br>![Azure AD Single Sign-On][10]<br>
 
-7. **Single Sign-On 확인** 페이지에서 **완료**를 클릭합니다. <br><br>![Azure AD Single Sign-On][11]
+11. **Single Sign-On 확인** 페이지에서 **완료**를 클릭합니다. <br><br>![Azure AD Single Sign-On][11]
 
 
 
@@ -119,7 +126,7 @@ Lesson.ly에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 **Azure AD에서 테스트 사용자를 만들려면 다음 단계를 수행하세요.**
 
-1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. <br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-lessonly-tutorial/create_aaduser_09.png) <br>
+1. **Azure 관리 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.<br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-lessonly-tutorial/create_aaduser_09.png) <br>
 
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 
@@ -161,9 +168,9 @@ Lesson.ly에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 이 섹션은 Lesson.ly에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. Lesson.ly는 Just-In-Time 프로비전을 지원하며 기본적으로 사용하도록 설정합니다.
 
-이 섹션에 작업 항목이 없습니다. 새 사용자가 아직 존재하지 않는 경우 Lesson.ly에 액세스하는 동안 만들어질 수 있습니다.
+이 섹션에 작업 항목이 없습니다. 새 사용자가 아직 존재하지 않는 경우 Lesson.ly에 액세스하는 동안 만들어질 수 있습니다. [Azure AD Single Sign-On 구성](#configuring-azure-ad-single-single-sign-on)
 
-> [AZURE.NOTE]사용자를 수동으로 만들어야 하는 경우 Lesson.ly 지원 팀에 문의해야 합니다.
+> [AZURE.NOTE] 사용자를 수동으로 만들어야 하는 경우 Lesson.ly 지원 팀에 문의해야 합니다.
 
 
 ### Azure AD 테스트 사용자 할당
@@ -213,4 +220,4 @@ Lesson.ly에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 [204]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

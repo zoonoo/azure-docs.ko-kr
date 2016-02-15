@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="11/17/2015"
+	ms.date="02/03/2016"
 	ms.author="tarcher" />
 
 # Azure 리소스 그룹 프로젝트 배포 스크립트 개요
@@ -35,7 +35,7 @@ Deploy-AzureResourceGroup.ps1 스크립트는 배포 워크플로에 중요한 �
 
 다음은 Deploy-AzureResourceGroup.ps1 Azure PowerShell 스크립트의 선택 섹션이 수행하는 작업에 대한 설명입니다.
 
->[AZURE.NOTE]이것은 Deploy-AzureResourceGroup.ps1 스크립트 1.0 버전에 대한 설명입니다.
+>[AZURE.NOTE] 이것은 Deploy-AzureResourceGroup.ps1 스크립트 1.0 버전에 대한 설명입니다.
 
 1.	Azure 리소스 관리자 배포 프로젝트에 선언 매개 변수가 필요합니다. 일부 매개 변수에는 프로젝트가 만들어질 때 설정된 기본값이 있습니다. 스크립트를 실행하기 전에 다른 매개 변수 값을 추가하거나 스크립트의 기본값을 변경할 수 있습니다.
 
@@ -209,7 +209,7 @@ Deploy-AzureResourceGroup.ps1 스크립트는 배포 워크플로에 중요한 �
 
     ![][3]
 
-	>[AZURE.NOTE]필수 매개 변수에 값이 필요하면, 배포 시 이 대화 상자에 자동으로 표시됩니다.
+	>[AZURE.NOTE] 필수 매개 변수에 값이 필요하면, 배포 시 이 대화 상자에 자동으로 표시됩니다.
 
     ![][4]
 
@@ -264,4 +264,4 @@ $(Build.StagingDirectory)/AzureResourceGroup1/Scripts/Deploy-AzureResourceGroup.
 [4]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy5c.png
 [5]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy6c.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

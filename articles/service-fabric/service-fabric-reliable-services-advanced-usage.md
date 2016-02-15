@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/17/2015"
+   ms.date="01/28/2016"
    ms.author="jesseb"/>
 
 # 신뢰할 수 있는 서비스 프로그래밍 모델 고급 사용법
 Azure 서비스 패브릭은 신뢰할 수 있는 상태 비저장 및 상태 저장 서비스의 작성과 관리를 단순화합니다. 이 가이드는 서비스에 대한 더 많은 제어와 유연성을 확보할 수 있는 신뢰할 수 있는 서비스 프로그래밍 모델의 고급 사용법에 대해 설명합니다. 이 가이드를 읽기 전에 [신뢰할 수 있는 서비스 프로그래밍 모델](service-fabric-reliable-services-introduction.md)에 대해 숙지하세요.
 
 ## 상태 비저장 서비스에 대한 기본 클래스
-StatelessService 기본 클래스는 대부분의 상태 비저장 서비스에 충분한 RunAsync() 및 CreateCommunicationListener()를 제공합니다. StatelessServiceBase 클래스는 StatelessService의 기반이 되고 추가 서비스 수명 주기 이벤트를 노출합니다. 추가 제어 또는 유연성이 필요한 경우 StatelessServiceBase에서 파생시킬 수 있습니다. 자세한 내용은 [StatelessService](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.services.statelessservice.aspx) 및 [StatelessServiceBase](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.services.statelessservicebase.aspx)에서 개발자 참조 설명서를 참조하세요.
+StatelessService 기본 클래스는 대부분의 상태 비저장 서비스에 충분한 RunAsync() 및 CreateCommunicationListener()를 제공합니다. StatelessServiceBase 클래스는 StatelessService의 기반이 되고 추가 서비스 수명 주기 이벤트를 노출합니다. 추가 제어 또는 유연성이 필요한 경우 StatelessServiceBase에서 파생시킬 수 있습니다. 자세한 내용은 [StatelessService](https://msdn.microsoft.com/library/microsoft.servicefabric.services.runtime.statelessservice.aspx) 및 [StatelessServiceBase](https://msdn.microsoft.com/library/microsoft.servicefabric.services.runtime.statelessservicebase.aspx)에서 개발자 참조 설명서를 참조하세요.
 
 - `void OnInitialize(StatelessServiceInitializiationParameters)` OnInitialize는 서비스 패브릭에서 호출하는 첫 번째 메서드입니다. 서비스 이름, 파티션 ID, 인스턴스 ID 및 코드 패키지 정보와 같은 서비스 초기화 정보가 제공됩니다. 여기에서는 복잡한 처리를 수행하지 않습니다. OnOpenAsync에서는 긴 초기화를 수행해야 합니다.
 
@@ -31,7 +31,7 @@ StatelessService 기본 클래스는 대부분의 상태 비저장 서비스에 
 - `void OnAbort()` 상태 비저장 서비스 인스턴스가 정상적으로 종료되려고 할 때 OnAbort가 호출됩니다. 이는 일반적으로 노드에서 영구 오류가 감지되거나, 내부 오류로 인해 서비스 패브릭에서 서비스 인스턴스 수명 주기를 안정적으로 관리할 수 없을 때 호출됩니다.
 
 ## 상태 저장 서비스에 대한 기본 클래스
-StatefulService 기본 클래스는 대부분의 상태 저장 서비스에 충분합니다. 상태 비저장 서비스와 유사한 StatefulServiceBase 클래스는 StatefulService의 기반이 되고 추가 서비스 수명 주기 이벤트를 노출합니다. 또한 이를 사용하여 신뢰할 수 있는 사용자 지정 상태 제공자를 제공하고 필요에 따라 보조 복제본에서 통신 수신기를 지원할 수 있습니다. 추가 제어 또는 유연성이 필요한 경우 StatefulServiceBase에서 파생시킬 수 있습니다. 자세한 내용은 [StatefulService](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.services.statefulservice.aspx) 및 [StatefulServiceBase](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.services.statefulservicebase.aspx)에서 개발자 참조 설명서를 참조하세요.
+StatefulService 기본 클래스는 대부분의 상태 저장 서비스에 충분합니다. 상태 비저장 서비스와 유사한 StatefulServiceBase 클래스는 StatefulService의 기반이 되고 추가 서비스 수명 주기 이벤트를 노출합니다. 또한 이를 사용하여 신뢰할 수 있는 사용자 지정 상태 제공자를 제공하고 필요에 따라 보조 복제본에서 통신 수신기를 지원할 수 있습니다. 추가 제어 또는 유연성이 필요한 경우 StatefulServiceBase에서 파생시킬 수 있습니다. 자세한 내용은 [StatefulService](https://msdn.microsoft.com/library/microsoft.servicefabric.services.runtime.statefulservice.aspx) 및 [StatefulServiceBase](https://msdn.microsoft.com/library/microsoft.servicefabric.services.runtime.statefulservicebase.aspx)에서 개발자 참조 설명서를 참조하세요.
 
 - `Task OnChangeRoleAsync(ReplicaRole, CancellationToken)` 상태 저장 서비스가 역할을 변경할 경우(예: 주 또는 보조) OnChangeRoleAsync가 호출됩니다. 주 복제본에는 쓰기 상태가 지정됩니다(신뢰할 수 있는 컬렉션을 만들고 쓰도록 허용). 보조 복제본에는 읽기 상태가 지정됩니다(신뢰할 수 있는 기존 컬렉션에서 읽기만 가능). 보조 복제본에서 읽기 전용 유효성 검사, 보고서 생성 또는 데이터 마이닝을 수행하는 등의 역할 변경에 대한 응답으로 백그라운드 작업을 시작하거나 업데이트할 수 있습니다.
 
@@ -55,4 +55,4 @@ StatefulService 기본 클래스는 대부분의 상태 저장 서비스에 충�
 
 - [배치 제약 조건 개요](service-fabric-placement-constraint.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

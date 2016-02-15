@@ -58,7 +58,7 @@ CoreOS는 [Docker] 컨테이너를 비롯한 Linux 컨테이너만을 패키징 
 
 [Azure에서 Linux 환경의 SSH를 사용하는 방법](virtual-machines-linux-use-ssh-key.md)의 지침에 따라 SSH용 공용 키 및 개인 키를 만듭니다. 기본 단계는 아래 지침에 나와 있습니다. 이러한 키를 사용하여 클러스터의 VM에 연결해 VM이 작동하며 서로 통신할 수 있는지를 확인합니다.
 
-> [AZURE.NOTE]이 항목에서는 사용자가 이러한 키를 갖고 있지 않다고 가정하며, 해당 사용자는 명확한 작업을 위해 `myPrivateKey.pem` 및 `myCert.pem` 파일을 만들어야 합니다. 이미 공용 키와 개인 키 쌍을 `~/.ssh/id_rsa`에 저장한 경우, `openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem`을 입력하여 Azure에 업로드해야하는 .pem 파일을 가져올 수 있습니다.
+> [AZURE.NOTE] 이 항목에서는 사용자가 이러한 키를 갖고 있지 않다고 가정하며, 해당 사용자는 명확한 작업을 위해 `myPrivateKey.pem` 및 `myCert.pem` 파일을 만들어야 합니다. 이미 공용 키와 개인 키 쌍을 `~/.ssh/id_rsa`에 저장한 경우, `openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem`을 입력하여 Azure에 업로드해야하는 .pem 파일을 가져올 수 있습니다.
 
 1. 작업 디렉터리에서, `openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem`을 입력하여 개인 키를 만들고 연결된 x.509 인증서를 만듭니다.
 
@@ -79,7 +79,7 @@ curl https://discovery.etcd.io/new | grep ^http.* > etcdid
 
 계속해서 같은 작업 디렉터리에서, 다음 텍스트를 포함하는 평소에 사용하는 텍스트 에디터로 파일을 만들고 `cloud-config.yaml`로 저장합니다. 파일은 원하는 이름으로 저장하면 되지만 다음 단계에서 VM을 만들 때 **azure vm create** 명령의 **--custom-data** 옵션에서 이 파일 이름을 참조해야 합니다.
 
-> [AZURE.NOTE]`cat etcdid`을 입력하여 사용자가 위에서 만든 `etcdid` 파일에서 etcd 검색 ID를 검색한 후 다음 `cloud-config.yaml` 파일의 `<token>`을 `etcdid` 파일에서 생성된 숫자로 바꾸세요. 작업 종료 시 클러스터의 유효성을 검사할 수 없는 경우 이 단계를 건너뛰었기 때문일 수 있습니다.
+> [AZURE.NOTE] `cat etcdid`을 입력하여 사용자가 위에서 만든 `etcdid` 파일에서 etcd 검색 ID를 검색한 후 다음 `cloud-config.yaml` 파일의 `<token>`을 `etcdid` 파일에서 생성된 숫자로 바꾸세요. 작업 종료 시 클러스터의 유효성을 검사할 수 없는 경우 이 단계를 건너뛰었기 때문일 수 있습니다.
 
 ```
 #cloud-config
@@ -110,7 +110,7 @@ cloud-config 파일에 대한 전체 정보는 CoreOS 설명서의 [cloud-config
 
 3. `azure service create <cloud-service-name>`을 입력하여 기본 클러스터에 대해 클라우드 서비스를 만듭니다. 여기서 <*cloud-service-name*>은 CoreOS 클라우드 서비스의 이름입니다. 이 샘플에서는 이름으로 **`coreos-cluster`**을 사용합니다. 클라우드 서비스 내에서 CoreOS VM 인스턴스를 만들려면 선택하는 이름을 다시 사용해야 합니다.
 
-	[미리 보기 포털](https://portal.azure.com)에서 지금까지 수행한 작업을 확인하려면 다음 이미지에 나와 있는 것처럼 클라우드 서비스 이름이 리소스 그룹이자 도메인임을 확인할 수 있습니다.
+	한 가지 참고 사항: [Azure 포털](https://portal.azure.com)에서 지금까지 수행한 작업을 확인하려면 다음 이미지에 나와 있는 것처럼 클라우드 서비스 이름이 리소스 그룹이자 도메인임을 확인할 수 있습니다.
 
 	![][CloudServiceInNewPortal]
 
@@ -166,7 +166,7 @@ azure vm create --custom-data=cloud-config.yaml --ssh=22 --ssh-cert=./myCert.pem
 
 `ssh-add ./myPrivateKey.key`
 
-> [AZURE.NOTE]`~/.ssh/id_rsa` 키를 이미 사용하고 있으면 `ssh-add ~/.ssh/id_rsa`와 함께 이 키를 추가합니다.
+> [AZURE.NOTE] `~/.ssh/id_rsa` 키를 이미 사용하고 있으면 `ssh-add ~/.ssh/id_rsa`와 함께 이 키를 추가합니다.
 
 이제 **node-1**에서 사용한 것과 같은 **fleetctl** 명령을 사용하되 일부 원격 인수를 전달하여 원격으로 테스트를 수행할 수 있습니다.
 
@@ -209,4 +209,4 @@ azure vm create --custom-data=cloud-config.yaml --ssh=22 --ssh-cert=./myCert.pem
 [YAML]: http://yaml.org/
 [Azure의 CoreOS에서 Fleet 시작]: virtual-machines-linux-coreos-fleet-get-started.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

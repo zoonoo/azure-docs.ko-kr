@@ -21,6 +21,7 @@
 
 현재 데이터 팩터리는 다른 데이터 저장소에서 온-프레미스 ODBC 데이터 저장소로 데이터 이동이 아닌 온-프레미스 ODBC 데이터 저장소에서 다른 데이터 저장소로 데이터 이동만을 지원합니다.
 
+
 ## 연결 사용
 데이터 팩터리 서비스는 데이터 관리 게이트웨이를 사용하여 온-프레미스 ODBC 원본에 연결을 지원합니다. 데이터 관리 게이트웨이 및 게이트웨이 설정에 대한 단계별 지침을 알아보려면 [온-프레미스 위치 및 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요. Azure IaaS VM에서 호스팅되는 경우 ODBC 데이터 저장소에 연결하려면 게이트웨이를 활용해야 합니다.
 
@@ -32,7 +33,9 @@
 
 ## 샘플: ODBC 데이터 저장소에서 Azure Blob로 데이터 복사
 
-아래 샘플은 다음을 보여줍니다.
+이 샘플은 ODBC에서 Azure Blob 저장소로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure 데이터 팩터리의 복사 작업을 사용하여 [여기](data-factory-data-movement-activities.md#supported-data-stores)에 설명한 싱크로 **직접** 데이터를 복사할 수 있습니다.
+ 
+이 샘플에는 다음 데이터 팩터리 엔터티가 있습니다.
 
 1.	[OnPremisesOdbc](#odbc-linked-service-properties) 형식의 연결된 서비스
 2.	[AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 형식의 연결된 서비스
@@ -222,7 +225,7 @@
 | -------- | ----------- | -------- | 
 | type | 형식 속성은 **OnPremisesOdbc**로 설정되어야 합니다. | 예 |
 | connectionString | 선택적 암호화된 자격 증명 뿐만 아니라 연결 문자열의 비 액세스 자격 증명 부분입니다. 아래 예제를 참조하세요. | 예
-| 자격 증명 | 드라이버 관련 속성 값 형식에 지정된 연결 문자열의 액세스 자격 증명 부분입니다. 예: “Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;” | 아니요
+| 자격 증명 | 드라이버 관련 속성 값 형식에 지정된 연결 문자열의 액세스 자격 증명 부분입니다. 예: “Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;”. | 아니요
 | authenticationType | ODBC 데이터 저장소에 연결하는 데 사용되는 인증 형식입니다. 가능한 값은 익명 및 기본입니다. | 예 | 
 | username | 기본 인증을 사용하는 경우 사용자 이름을 지정합니다. | 아니요 | 
 | password | 사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. | 아니요 | 
@@ -324,4 +327,4 @@ ODBC 데이터 저장소에서 데이터를 이동할 때 [ODBC 데이터 형식
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

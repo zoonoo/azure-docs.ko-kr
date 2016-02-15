@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="09/23/2015"
+	ms.date="02/03/2016"
 	ms.author="bwren" />
 
 # Azure 자동화에서 Runbook 테스트
@@ -55,4 +55,4 @@ Azure 포털에서는 [PowerShell 워크플로 Runbook](automation-runbook-types
 - [Azure 자동화에서 텍스트 Runbook 편집](automation-edit-textual-runbook.md)
 - [Azure 자동화에서 Runbook 출력 및 메시지](automation-runbook-output-and-messages.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

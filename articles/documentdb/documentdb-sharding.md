@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/05/2015" 
+	ms.date="02/03/2016" 
 	ms.author="arramac"/>
 
 # .NET SDK를 사용하여 DocumentDB의 데이터를 분할하는 방법
 
-Azure DocumentDB는 [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 및 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx)를 사용한 컬렉션 프로비저닝(**분할**이라고도 함)을 통해 계정 크기를 매끄럽게 조정할 수 있게 해주는 문서 데이터베이스 서비스입니다. 분할된 응용 프로그램을 쉽게 개발할 수 있게 하고 분할 작업에 필요한 상용구 코드 양을 줄이기 위해 여러 파티션에 걸쳐 규모가 확장되는 응용 프로그램을 쉽게 빌드할 수 있게 해주는 기능이 .NET SDK에 추가되었습니다.
+Azure DocumentDB는 [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 및 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx)를 사용한 컬렉션 프로비저닝(**분할**이라고도 함)을 통해 계정 크기를 매끄럽게 조정할 수 있게 해주는 문서 데이터베이스 서비스입니다. 분할된 응용 프로그램을 쉽게 개발할 수 있게 하고 분할 작업에 필요한 상용구 코드 양을 줄이기 위해 여러 파티션에 걸쳐 규모가 확장되는 응용 프로그램을 쉽게 빌드할 수 있게 해주는 기능이 .NET, Node.js 및 Java SDK에 추가되었습니다.
 
 이 문서에서는 .NET SDK의 클래스 및 인터페이스와 분할된 응용 프로그램을 개발하는 데 사용하는 방법을 살펴보겠습니다.
 
@@ -141,10 +141,6 @@ DocumentDB는 다음 몇 가지 이유로 클라이언트 쪽 분할을 지원�
 - 세 가지, 즉 일관된 인덱싱/쿼리, 고가용성 및 ACID 트랜잭션 보증 중 하나의 손상 없이 개발자의 컬렉션 개념을 추상화하는 것은 매우 어렵습니다. 
 - 문서 데이터베이스는 서버 쪽 방법으로 수용할 수 없는 분할 전략의 정의 측면에서 유연성을 요구하는 경우가 많습니다. 
 
-**다른 플랫폼(Node.js, Java 또는 Python)에서는 왜 분할이 지원되지 않나요?**
-
-.NET SDK 고객의 의견에 따라 다른 플랫폼에 대한 분할 지원을 점차 출시할 예정입니다.
-
 **내 파티션 구성표에 컬렉션을 추가하거나 제거하려면 어떻게 해야 하나요?**
 
 다시 분할을 구현하는 방법의 예는 샘플 프로젝트의 DocumentClientHashPartitioningManager 구현을 참조하세요.
@@ -167,4 +163,4 @@ DocumentDB는 다음 몇 가지 이유로 클라이언트 쪽 분할을 지원�
 * [성능 팁에 대한 DocumentDB 블로그](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -7,7 +7,7 @@
 	manager="paulettm"
 	editor="cgronlun"
     tags=""/>
-
+    
 <tags
 	ms.service="machine-learning"
     ms.devlang="na"
@@ -25,7 +25,7 @@
 
 **Microsoft Azure 기계 학습 알고리즘 치트 시트**를 사용하면 알고리즘의 Microsoft Azure 기계 학습 라이브러리에서 예측 분석 솔루션에 대해 올바른 기계 학습 알고리즘을 선택할 수 있습니다. 이 문서에서는 사용 방법을 안내합니다.
 
-> [AZURE.NOTE]치트 시트를 다운로드하고 이 문서를 따르려면 [Microsoft Azure 기계 학습 스튜디오용 기계 학습 알고리즘 치트 시트](machine-learning-algorithm-cheat-sheet.md)로 이동합니다.
+> [AZURE.NOTE] 치트 시트를 다운로드하고 이 문서를 따르려면 [Microsoft Azure 기계 학습 스튜디오용 기계 학습 알고리즘 치트 시트](machine-learning-algorithm-cheat-sheet.md)로 이동합니다.
 
 이 치트 시트는 Azure 기계 학습 스튜디오에서 시작할 알고리즘을 선택하려는 재학생 수준의 기계 학습 지식을 지닌 초급 데이터 과학자라는 매우 구체적인 대상을 염두에 두고 작성되었습니다. 따라서 일반화되고 지나치게 단순화되었을 수 있으나 안전한 방향으로 사용자를 안내합니다. 여기에 나와 있는 것 외에도 수많은 알고리즘이 있습니다. Azure 기계 학습이 보다 완전하게 제공되는 방법을 더 포함하도록 확장됨에 따라 알고리즘을 더 추가할 예정입니다.
 
@@ -37,7 +37,7 @@
 
 다음은 동일한 데이터에 대해 여러 알고리즘을 시도하고 그 결과를 비교하는 실험에 대한 [Cortana Analytics 갤러리](http://gallery.azureml.net/)의 예제입니다. [다중 클래스 분류자 비교: 문자 인식](http://gallery.azureml.net/Details/a635502fc98b402a890efe21cec65b92).
 
->[AZURE.TIP]기계 학습 스튜디오의 기능을 개략적으로 제공하는 다이어그램을 다운로드하고 인쇄하려면 [Azure 기계 학습 스튜디오 기능 개요](machine-learning-studio-overview-diagram.md)를 참조하세요.
+>[AZURE.TIP] 기계 학습 스튜디오의 기능을 개략적으로 제공하는 다이어그램을 다운로드하고 인쇄하려면 [Azure 기계 학습 스튜디오 기능 개요](machine-learning-studio-overview-diagram.md)를 참조하세요.
 
 ## 기계 학습의 다양한 특징
 
@@ -237,4 +237,4 @@ Azure 기계 학습에는 [Vowpal Wabbit](https://msdn.microsoft.com/library/azu
 [9]: ./media/machine-learning-algorithm-choice/image9.png
 [10]: ./media/machine-learning-algorithm-choice/image10.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

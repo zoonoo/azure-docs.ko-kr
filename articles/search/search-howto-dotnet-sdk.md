@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="01/21/2016"
+   ms.date="01/29/2016"
    ms.author="brjohnst"/>
 
 # .NET 응용 프로그램에서 Azure 검색을 사용하는 방법
@@ -39,7 +39,7 @@ Azure 검색.NET SDK의 현재 버전은 시험판입니다. 첫 번째 안정�
 
 ## 최신 버전의 SDK로 업그레이드
 
-Azure 검색 .NET SDK 이전 버전을 사용하는 경우, 새로운 1.0.1-preview 버전으로 업그레이드하려면 [이 문서](search-dotnet-sdk-migration.md)에서 방법을 참조하세요.
+Azure 검색 .NET SDK 이전 버전을 사용하는 경우 새로운 1.0-preview 버전으로 업그레이드하려면 [이 문서](search-dotnet-sdk-migration.md)에서 방법을 참조하세요.
 
 ## SDK의 요구 사항
 
@@ -84,10 +84,10 @@ Azure 검색.NET SDK는.NET Framework 4.5를 대상으로 한 응용 프로그�
         CreateHotelsIndex(serviceClient);
 
         SearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
-            
+
         Console.WriteLine("{0}", "Uploading documents...\n");
         UploadDocuments(indexClient);
-            
+
         Console.WriteLine("{0}", "Searching documents 'fancy wifi'...\n");
         SearchDocuments(indexClient, searchText: "fancy wifi");
 
@@ -187,8 +187,8 @@ Azure 검색.NET SDK는.NET Framework 4.5를 대상으로 한 응용 프로그�
         var definition = new Index()
         {
             Name = "hotels",
-            Fields = new[] 
-            { 
+            Fields = new[]
+            {
                 new Field("hotelId", DataType.String)                       { IsKey = true },
                 new Field("hotelName", DataType.String)                     { IsSearchable = true, IsFilterable = true },
                 new Field("baseRate", DataType.Double)                      { IsFilterable = true, IsSortable = true },
@@ -216,20 +216,20 @@ Azure 검색.NET SDK는.NET Framework 4.5를 대상으로 한 응용 프로그�
             new Hotel[]
             {
                 new Hotel()
-                { 
-                    HotelId = "1058-441", 
-                    HotelName = "Fancy Stay", 
-                    BaseRate = 199.0, 
-                    Category = "Luxury", 
-                    Tags = new[] { "pool", "view", "concierge" }, 
-                    ParkingIncluded = false, 
-                    LastRenovationDate = new DateTimeOffset(2010, 6, 27, 0, 0, 0, TimeSpan.Zero), 
-                    Rating = 5, 
+                {
+                    HotelId = "1058-441",
+                    HotelName = "Fancy Stay",
+                    BaseRate = 199.0,
+                    Category = "Luxury",
+                    Tags = new[] { "pool", "view", "concierge" },
+                    ParkingIncluded = false,
+                    LastRenovationDate = new DateTimeOffset(2010, 6, 27, 0, 0, 0, TimeSpan.Zero),
+                    Rating = 5,
                     Location = GeographyPoint.Create(47.678581, -122.131577)
                 },
                 new Hotel()
-                { 
-                    HotelId = "666-437", 
+                {
+                    HotelId = "666-437",
                     HotelName = "Roach Motel",
                     BaseRate = 79.99,
                     Category = "Budget",
@@ -239,9 +239,9 @@ Azure 검색.NET SDK는.NET Framework 4.5를 대상으로 한 응용 프로그�
                     Rating = 1,
                     Location = GeographyPoint.Create(49.678581, -122.131577)
                 },
-                new Hotel() 
-                { 
-                    HotelId = "970-501", 
+                new Hotel()
+                {
+                    HotelId = "970-501",
                     HotelName = "Econo-Stay",
                     BaseRate = 129.99,
                     Category = "Budget",
@@ -252,8 +252,8 @@ Azure 검색.NET SDK는.NET Framework 4.5를 대상으로 한 응용 프로그�
                     Location = GeographyPoint.Create(46.678581, -122.131577)
                 },
                 new Hotel()
-                { 
-                    HotelId = "956-532", 
+                {
+                    HotelId = "956-532",
                     HotelName = "Express Rooms",
                     BaseRate = 129.99,
                     Category = "Budget",
@@ -263,9 +263,9 @@ Azure 검색.NET SDK는.NET Framework 4.5를 대상으로 한 응용 프로그�
                     Rating = 4,
                     Location = GeographyPoint.Create(48.678581, -122.131577)
                 },
-                new Hotel() 
-                { 
-                    HotelId = "566-518", 
+                new Hotel()
+                {
+                    HotelId = "566-518",
                     HotelName = "Surprisingly Expensive Suites",
                     BaseRate = 279.99,
                     Category = "Luxury",
@@ -349,7 +349,7 @@ Azure 검색.NET SDK가 어떻게 `Hotel`와(과) 같은 사용자 정의 클래
 > [AZURE.NOTE] Azure 검색.NET SDK는 필드 이름을 필드 값에 매핑하는 키/값인 `Document` 클래스를 사용하여 동적 유형의 문서도 지원합니다. 디자인 타임에서 인덱스 스키마를 알 수 없거나 특정 모델 클래스에 바인딩하기 불편한 시나리오에서 유용합니다. 문서를 처리하는 SDK의 모든 메서드에는 `Document` 클래스와 연동하는 오버로드와 제네릭 유형 매개 변수를 취하는 강력한 유형의 오버로드가 있습니다. 이 자습서의 샘플 코드에서는 후자만 사용됩니다. `Document` 클래스에 대한 자세한 내용은 [여기](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.document.aspx)에서 확인할 수 있습니다.
 
 **데이터 유형에 대한 중요한 정보**
- 
+
 사용자 고유의 모델 클래스를 Azure 검색 인덱스에 매핑하도록 설계하는 경우 `bool` 및 `int` 등과 같은 값 유형의 속성을 null이 허용되도록 선언하는 것이 좋습니다(예: `bool?` 대신 `bool`). Null이 허용되지 않는 속성을 사용하는 경우 인덱스의 문서가 해당 필드에 대해 Null 값을 포함하지 않음을 **보장**해야 합니다. SDK와 Azure 검색 서비스 모두 이를 적용하는 데 활용할 수 없습니다.
 
 이것은 가상의 문제가 아닙니다. `Edm.Int32` 형식인 기존 인덱스에 새 필드를 추가하는 시나리오를 상상해 보세요. 인덱스 정의를 업데이트한 후 모든 문서는 해당하는 새 필드에 대해 Null 값을 포함하게 됩니다(Azure 검색에서 모든 형식은 Null을 허용하기 때문). 그런 다음 해당 필드에 대해 Null이 허용되지 않는 `int` 속성으로 모델 클래스를 사용하는 경우 문서를 검색하려고 시도할 때 다음과 같은 `JsonSerializationException`이 발생합니다.
@@ -364,9 +364,9 @@ Azure 검색.NET SDK가 어떻게 `Hotel`와(과) 같은 사용자 정의 클래
 
     private static void SearchDocuments(SearchIndexClient indexClient, string searchText, string filter = null)
     {
-        // Execute search based on search text and optional filter 
+        // Execute search based on search text and optional filter
         var sp = new SearchParameters();
-            
+
         if (!String.IsNullOrEmpty(filter))
         {
             sp.Filter = filter;
@@ -457,10 +457,10 @@ Program.cs:
                 CreateHotelsIndex(serviceClient);
 
                 SearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
-            
+
                 Console.WriteLine("{0}", "Uploading documents...\n");
                 UploadDocuments(indexClient);
-            
+
                 Console.WriteLine("{0}", "Searching documents 'fancy wifi'...\n");
                 SearchDocuments(indexClient, searchText: "fancy wifi");
 
@@ -484,8 +484,8 @@ Program.cs:
                 var definition = new Index()
                 {
                     Name = "hotels",
-                    Fields = new[] 
-                    { 
+                    Fields = new[]
+                    {
                         new Field("hotelId", DataType.String)                       { IsKey = true },
                         new Field("hotelName", DataType.String)                     { IsSearchable = true, IsFilterable = true },
                         new Field("baseRate", DataType.Double)                      { IsFilterable = true, IsSortable = true },
@@ -507,20 +507,20 @@ Program.cs:
                     new Hotel[]
                     {
                         new Hotel()
-                        { 
-                            HotelId = "1058-441", 
-                            HotelName = "Fancy Stay", 
-                            BaseRate = 199.0, 
-                            Category = "Luxury", 
-                            Tags = new[] { "pool", "view", "concierge" }, 
-                            ParkingIncluded = false, 
-                            LastRenovationDate = new DateTimeOffset(2010, 6, 27, 0, 0, 0, TimeSpan.Zero), 
-                            Rating = 5, 
+                        {
+                            HotelId = "1058-441",
+                            HotelName = "Fancy Stay",
+                            BaseRate = 199.0,
+                            Category = "Luxury",
+                            Tags = new[] { "pool", "view", "concierge" },
+                            ParkingIncluded = false,
+                            LastRenovationDate = new DateTimeOffset(2010, 6, 27, 0, 0, 0, TimeSpan.Zero),
+                            Rating = 5,
                             Location = GeographyPoint.Create(47.678581, -122.131577)
                         },
                         new Hotel()
-                        { 
-                            HotelId = "666-437", 
+                        {
+                            HotelId = "666-437",
                             HotelName = "Roach Motel",
                             BaseRate = 79.99,
                             Category = "Budget",
@@ -530,9 +530,9 @@ Program.cs:
                             Rating = 1,
                             Location = GeographyPoint.Create(49.678581, -122.131577)
                         },
-                        new Hotel() 
-                        { 
-                            HotelId = "970-501", 
+                        new Hotel()
+                        {
+                            HotelId = "970-501",
                             HotelName = "Econo-Stay",
                             BaseRate = 129.99,
                             Category = "Budget",
@@ -543,8 +543,8 @@ Program.cs:
                             Location = GeographyPoint.Create(46.678581, -122.131577)
                         },
                         new Hotel()
-                        { 
-                            HotelId = "956-532", 
+                        {
+                            HotelId = "956-532",
                             HotelName = "Express Rooms",
                             BaseRate = 129.99,
                             Category = "Budget",
@@ -554,9 +554,9 @@ Program.cs:
                             Rating = 4,
                             Location = GeographyPoint.Create(48.678581, -122.131577)
                         },
-                        new Hotel() 
-                        { 
-                            HotelId = "566-518", 
+                        new Hotel()
+                        {
+                            HotelId = "566-518",
                             HotelName = "Surprisingly Expensive Suites",
                             BaseRate = 279.99,
                             Category = "Luxury",
@@ -585,9 +585,9 @@ Program.cs:
 
             private static void SearchDocuments(SearchIndexClient indexClient, string searchText, string filter = null)
             {
-                // Execute search based on search text and optional filter 
+                // Execute search based on search text and optional filter
                 var sp = new SearchParameters();
-            
+
                 if (!String.IsNullOrEmpty(filter))
                 {
                     sp.Filter = filter;
@@ -645,4 +645,4 @@ Hotel.cs:
 
 [GitHub에서](http://aka.ms/search-dotnet-howto) 전체 샘플 소스 코드를 찾을 수 있습니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

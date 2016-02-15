@@ -13,18 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/12/2016"
+   ms.date="01/28/2016"
    ms.author="larryfr"/>
 
 # Linux 기반 HDInsight에서 Apache Storm 토폴로지 배포 및 관리
 
 이 문서에서는 HDInsight 클러스터의 Linux 기반 Storm에서 실행되는 Storm 토폴로지의 모니터링 및 관리하는 기본 사항을 알아봅니다.
 
-> [AZURE.IMPORTANT]이 문서의 단계에는 HDInsight 클러스터의 Linux 기반 Storm이 필요합니다. Windows 기반 HDInsight에서 토폴로지의 배포 및 모니터링에 대한 정보는 [Windows 기반 HDInsight에서 Apache Storm 토폴로지 배포 및 관리](hdinsight-storm-deploy-monitor-topology.md)를 참조하세요.
+> [AZURE.IMPORTANT] 이 문서의 단계에는 HDInsight 클러스터의 Linux 기반 Storm이 필요합니다. Windows 기반 HDInsight에서 토폴로지의 배포 및 모니터링에 대한 정보는 [Windows 기반 HDInsight에서 Apache Storm 토폴로지 배포 및 관리](hdinsight-storm-deploy-monitor-topology.md)를 참조하세요.
 
 ## 필수 조건
 
-- **HDInsight 클러스터의 Linux 기반 Storm**: 클러스터를 만드는 단계는 [HDInsight에서 Apache Storm 시작](hdinsight-storm-get-started-linux.md)을 참조하세요.
+- **HDInsight 클러스터의 Linux 기반 Storm**: 클러스터를 만드는 단계는 [HDInsight에서 Apache Storm 시작](hdinsight-apache-storm-tutorial-get-started-linux.md)을 참조하세요.
 
 - **SSH 및 SCP의 기본적인 지식**: HDInsight에서 SSH와 SCP를 사용하는 방법에 대한 자세한 내용은 다음을 참조하세요.
     - **Linux, Unix 또는 OS X 클라이언트**: [Linux, OS X 또는 Unix에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
@@ -50,7 +50,7 @@
 
     클러스터에서 예제 WordCount 토폴로지를 시작합니다. 임의로 문장을 생성하고 문장에서 각 단어의 발생 횟수를 계산합니다.
 
-    > [AZURE.NOTE]클러스터에 토폴로지를 제출할 때 `storm` 명령을 사용하기 전에 먼저 Jar 파일을 포함하는 클러스터를 복사해야 합니다. 파일이 있는 클라이언트에서 `scp` 명령을 사용하여 수행할 수 있습니다. 예를 들어 `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`과 같습니다.
+    > [AZURE.NOTE] 클러스터에 토폴로지를 제출할 때 `storm` 명령을 사용하기 전에 먼저 Jar 파일을 포함하는 클러스터를 복사해야 합니다. 파일이 있는 클라이언트에서 `scp` 명령을 사용하여 수행할 수 있습니다. 예를 들어 `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`과 같습니다.
     >
     > WordCount 예제 및 다른 Storm 스타터 예제는 `/usr/hdp/current/storm-client/contrib/storm-starter/`에서 클러스터에 이미 포함되어 있습니다.
 
@@ -88,7 +88,7 @@ Storm 토폴로지가 일단 시작되면 중지될 때까지 계속 실행됩�
 
 토폴로지의 균형을 재조정하면 시스템이 토폴로지의 병렬 처리를 수정할 수 있습니다. 예를 들어 클러스터 크기를 조정하고 더 많은 메모를 추가하려면 균형을 재조정하여 실행 중인 토폴로지가 새 노드를 사용하도록 합니다.
 
-> [AZURE.WARNING]먼저 토폴로지의 균형을 재조정하면 토폴로지를 비활성화하고 클러스터에 작업자를 균등하게 다시 배포한 다음 마지막으로 토폴로지를 균형 재조정이 발생하기 전의 상태로 반환합니다. 따라서 토폴로지가 활성화되었으면 작업이 다시 활성화됩니다. 비활성화되어 있다면 비활성화된 상태를 유지합니다.
+> [AZURE.WARNING] 먼저 토폴로지의 균형을 재조정하면 토폴로지를 비활성화하고 클러스터에 작업자를 균등하게 다시 배포한 다음 마지막으로 토폴로지를 균형 재조정이 발생하기 전의 상태로 반환합니다. 따라서 토폴로지가 활성화되었으면 작업이 다시 활성화됩니다. 비활성화되어 있다면 비활성화된 상태를 유지합니다.
 
     storm rebalance TOPOLOGYNAME
 
@@ -96,7 +96,7 @@ Storm 토폴로지가 일단 시작되면 중지될 때까지 계속 실행됩�
 
 Storm UI는 토폴로지를 실행하여 함께 작업하기 위한 웹 인터페이스를 제공하고 HDInsight 클러스터에 포함됩니다. Storm UI를 보려면 웹 브라우저를 사용하여 \_\___https://CLUSTERNAME.azurehdinsight.net/stormui__을 엽니다. 여기서 __CLUSTERNAME__은 클러스터의 이름입니다.
 
-> [AZURE.NOTE]사용자 이름 및 암호를 제공하도록 요청을 받으면 클러스터를 만들 때 사용한 클러스터 관리자(관리자) 및암호를 입력합니다.
+> [AZURE.NOTE] 사용자 이름 및 암호를 제공하도록 요청을 받으면 클러스터를 만들 때 사용한 클러스터 관리자(관리자) 및암호를 입력합니다.
 
 
 ### 기본 페이지
@@ -126,7 +126,7 @@ Storm UI는 REST API의 맨 위에 기본 제공되므로 REST API를 사용하�
 
 자세한 내용은 [Storm UI REST API](https://github.com/apache/storm/blob/master/docs/documentation/ui-rest-api.md)를 참조하세요. 다음 정보는 HDInsight에서 Apache Storm과 REST API 사용하기에 관한 것입니다.
 
-> [AZURE.IMPORTANT]Storm REST API는 인터넷을 통해 공개적으로 사용할 수 없고 HDInsight 클러스터 헤드 노드에 SSH 터널을 사용하여 액세스되어야 합니다. SSH 터널의 생성 및 사용에 대한 정보는 [SSH 터널링을 사용하여 Ambari 웹 UI, ResourceManager, JobHistory, NameNode, Oozie, 및 기타 웹 UI에 액세스](hdinsight-linux-ambari-ssh-tunnel.md)를 참조하세요.
+> [AZURE.IMPORTANT] Storm REST API는 인터넷을 통해 공개적으로 사용할 수 없고 HDInsight 클러스터 헤드 노드에 SSH 터널을 사용하여 액세스되어야 합니다. SSH 터널의 생성 및 사용에 대한 정보는 [SSH 터널링을 사용하여 Ambari 웹 UI, ResourceManager, JobHistory, NameNode, Oozie, 및 기타 웹 UI에 액세스](hdinsight-linux-ambari-ssh-tunnel.md)를 참조하세요.
 
 ### 기본 URI
 
@@ -143,7 +143,7 @@ Linux 기반 HDInsight 클러스터에서 REST API에 대한 기본 URI는 ****h
 
 REST API 요청에서는 **기본 인증**을 사용해야 하므로 HDInsight 클러스터 관리자 이름 및 암호를 사용합니다.
 
-> [AZURE.NOTE]기본 인증은 일반 텍스트로 전송되기 때문에 클러스터와의 안전한 통신을 위해서는 **항상** HTTPS를 사용해야 합니다.
+> [AZURE.NOTE] 기본 인증은 일반 텍스트로 전송되기 때문에 클러스터와의 안전한 통신을 위해서는 **항상** HTTPS를 사용해야 합니다.
 
 ### 반환 값
 
@@ -155,4 +155,4 @@ Storm 대시보드를 사용하여 토폴로지를 배포 및 모니터링하는
 
 추가 예제 토폴로지 목록은 [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

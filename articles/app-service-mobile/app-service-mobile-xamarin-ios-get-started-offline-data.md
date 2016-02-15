@@ -13,14 +13,12 @@
     ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="01/28/2015"
     ms.author="wesmc"/>
 
 # Xamarin iOS 모바일 앱에 대해 오프라인 동기화 사용
 
-[AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## 개요
 
@@ -125,7 +123,6 @@
 
 	Visual Studio에서 **서버 탐색기**를 엽니다. **Azure**->**SQL 데이터베이스**에 있는 데이터베이스로 이동합니다. 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **SQL Server 개체 탐색기에서 열기**를 선택합니다. 이제 SQL 데이터베이스 테이블 및 콘텐츠를 찾아볼 수 있습니다.
 
-6. (선택 사항) Fiddle 또는 Postman과 같은 REST 도구를 사용하여 모바일 백 엔드를 쿼리하는데에 `https://your-mobile-app-backend-name.azurewebsites.net/tables/TodoItem` 양식의 GET 쿼리를 사용합니다.
 
 ## 모바일 백 엔드를 다시 연결하도록 클라이언트 앱 업데이트
 
@@ -143,7 +140,7 @@
 
 * [Azure 모바일 앱에서 오프라인 데이터 동기화]
 
-* [클라우드 표지: Azure 모바일 서비스에서 오프라인 동기화](참고: 비디오는 모바일 서비스에 있지만 Azure 모바일 앱에서 비슷한 방식으로 오프라인 동기화가 작동합니다.)
+* [Cloud Cover: Azure 모바일 서비스에서 오프라인 동기화](참고: 비디오는 모바일 서비스에 있지만 Azure 모바일 앱에서 비슷한 방식으로 오프라인 동기화가 작동합니다.)
 
 <!-- ##Summary
 
@@ -167,6 +164,6 @@
 [Xamarin Studio]: http://xamarin.com/download
 [Xamarin 확장]: http://xamarin.com/visual-studio
  
-[클라우드 표지: Azure 모바일 서비스에서 오프라인 동기화]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[Cloud Cover: Azure 모바일 서비스에서 오프라인 동기화]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_0204_2016-->

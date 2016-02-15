@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="01/28/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 미리 보기: Azure AD B2C 테넌트 만드는 방법
@@ -24,7 +24,7 @@ Azure Active Directory(AD) B2C를 사용하여 시작하려면 아래에 설명�
 
 ## 1단계: Azure 구독에 등록
 
-이미 Azure 구독이 있으면 다음 단계로 이동합니다. 그렇지 않은 경우 [Azure 구독](sign-up-organization.md)에 등록하고 Azure AD B2C에 액세스합니다.
+이미 Azure 구독이 있으면 다음 단계로 이동합니다. 그렇지 않은 경우 [Azure 구독](../active-directory/sign-up-organization.md)에 등록하고 Azure AD B2C에 액세스합니다.
 
 > [AZURE.NOTE]
 Azure AD B2C Preview는 현재 무료로 사용하지만 제한이 있습니다(테넌트당 사용자 최대 5만명). Azure 구독은 [Azure 클래식 포털](http://manage.windowsazure.com/)에 액세스하는 데 필요합니다.
@@ -74,4 +74,4 @@ Azure AD B2C Preview는 현재 무료로 사용하지만 제한이 있습니다(
 
 [Azure AD B2C로 응용 프로그램 등록 및 빠른 시작 응용 프로그램 빌드](active-directory-b2c-app-registration.md)로 이동합니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

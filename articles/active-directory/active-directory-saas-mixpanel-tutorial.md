@@ -3,7 +3,7 @@
 	description="Azure Active Directory 및 Mixpanel 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 	services="active-directory"
 	documentationCenter=""
-	authors="ashimaabrol"
+	authors="jeevansd"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/14/2015"
-	ms.author="v-aabrol"/>
+	ms.date="02/02/2016"
+	ms.author="jeedes"/>
 
 
 # 자습서: Mixpanel과 Azure Active Directory 통합
@@ -36,7 +36,7 @@ Mixpanel과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 - Mixpanel Single Sign-On이 설정된 구독
 
 
-> [AZURE.NOTE]이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
+> [AZURE.NOTE] 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
 
 
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
@@ -97,7 +97,7 @@ Mixpanel에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     a. **로그인 URL** 텍스트 상자에 다음 **“https://mixpanel.com/login/”** 패턴을 사용하여 사용자가 Mixpanel 응용 프로그램에 로그인하는 데 사용할 URL을 입력합니다.
 
-    > [AZURE.NOTE]로그인 자격 증명을 설정하려면 [https://mixpanel.com/register/](https://mixpanel.com/register/)에 등록하고 테넌트에 대한 SSO 설정을 사용할 수 있도록 하려면 [Mixpanel 지원팀](mailto:support@Mixpanel.com)에 문의하십시오. <br>Mixpanel 지원팀에서 필요한 경우 로그인 URL 값을 가져올 수도 있습니다.
+    > [AZURE.NOTE] 로그인 자격 증명을 설정하려면 [https://mixpanel.com/register/](https://mixpanel.com/register/)에 등록하고 테넌트에 대한 SSO 설정을 사용할 수 있도록 하려면 [Mixpanel 지원팀](mailto:support@Mixpanel.com)에 문의하십시오. <br>Mixpanel 지원팀에서 필요한 경우 로그인 URL 값을 가져올 수도 있습니다.
 
     b. **다음**을 클릭합니다,
 
@@ -139,7 +139,7 @@ Mixpanel에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 
-3. 사용자 목록을 표시하려면 최상위 메뉴에서 **사용자**를 클릭합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-mixpanel-tutorial/create_aaduser_03.png) <br>
+3. 사용자 목록을 표시하려면 위쪽 메뉴에서 **사용자**를 클릭합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-mixpanel-tutorial/create_aaduser_03.png) <br>
 
 4. **사용자 추가** 대화 상자를 열려면 아래쪽 도구 모음에서 **사용자 추가**를 클릭합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-mixpanel-tutorial/create_aaduser_04.png) <br>
 
@@ -167,7 +167,7 @@ Mixpanel에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 8. **임시 암호 가져오기** 대화 상자 페이지에서 다음 단계를 수행합니다. <br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-mixpanel-tutorial/create_aaduser_08.png) <br>
 
-    a. **새 암호** 값을 적어 둡니다.
+    a. **새 암호** 값을 적어둡니다.
 
     b. **완료**를 클릭합니다.
 
@@ -237,4 +237,4 @@ Mixpanel에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 [204]: ./media/active-directory-saas-mixpanel-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-mixpanel-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

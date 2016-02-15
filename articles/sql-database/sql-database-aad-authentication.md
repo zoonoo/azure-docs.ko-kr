@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="12/09/2015"
+   ms.date="02/01/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Azure Active Directory 인증을 사용한 SQL Database 연결
@@ -66,8 +66,8 @@ Azure SQL 데이터베이스에 포함된 된 데이터베이스 사용자를 �
 ## Azure AD 기능 및 제한 사항
 
 Azure SQL Server에서 다음 Azure Active Directory 멤버를 프로비전할 수 있습니다.  
-- 네이티브 멤버: 관리되는 도메인 또는 고객 도메인의 Azure AD에서 만든 멤버. 자세한 내용은 [Azure AD에 고유한 도메인 이름 추가](active-directory-add-domain.md)를 참조하세요.  
-- 페더레이션된 도메인 멤버: 페더레이션된 도메인의 Azure AD에서 만든 멤버입니다. 자세한 내용은 [이제 Microsoft Azure에서 Windows Server Active Directory와의 페더레이션 지원](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)을 참조하세요. - 네이티브 또는 페더레이션된 도메인인 멤버로, Azure Active Directory에서 가져온 멤버. - 보안 그룹으로 만들어진 Active Directory 그룹.
+- 네이티브 멤버: 관리되는 도메인 또는 고객 도메인의 Azure AD에서 만든 멤버. 자세한 내용은 [Azure AD에 고유한 도메인 이름 추가]( https://azure.microsoft.com/documentation/articles/active-directory-add-domain/)를 참조하세요.  
+- 페더레이션된 도메인 멤버: 페더레이션된 도메인의 Azure AD에서 만든 멤버입니다. 자세한 내용은 [이제 Microsoft Azure에서 Windows Server Active Directory와의 페더레이션 지원]( https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)을 참조하세요. - 네이티브 또는 페더레이션된 도메인인 멤버로, Azure Active Directory에서 가져온 멤버. - 보안 그룹으로 만들어진 Active Directory 그룹.
 
 Microsoft 계정(예: outlook.com, hotmail.com, live.com) 또는 다른 게스트 계정(예: gmail.com, yahoo.com)은 지원되지 않습니다. 계정 및 암호를 사용하여 [https://login.live.com](https://login.live.com)에 로그인할 수 있는 경우 Azure SQL 데이터베이스에 대한 Azure AD 인증에 지원되지 않는 Microsoft 계정을 사용하는 것입니다.
 
@@ -88,8 +88,9 @@ Azure Active Directory를 만들고 사용자 및 그룹으로 채웁니다. 다
 
 - 최초의 Azure AD 관리 도메인을 만듭니다.
 - 온-프레미스 Active Directory 도메인 서비스를 Azure Active Directory와 페더레이션합니다.
+- **AD FS** 도구를 사용하여 **서비스**, **끝점** 섹션에서 URL 경로 **/adfs/services/trust/13/windowstransport**에 대해 **Ws-trust 1.3**을 사용하도록 설정합니다.
 
-자세한 내용은 [Azure AD에 고유한 도메인 이름 추가](active-directory-add-domain.md), [이제 Microsoft Azure에서 Windows Server Active Directory와의 페더레이션 지원](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Azure AD 디렉터리 관리](https://msdn.microsoft.com/library/azure/hh967611.aspx) 및 [Windows PowerShell을 사용한 Azure AD 관리](https://msdn.microsoft.com/library/azure/jj151815.aspx)를 참조하세요.
+자세한 내용은 [Azure AD에 고유한 도메인 이름 추가]( https://azure.microsoft.com/documentation/articles/active-directory-add-domain/), [이제 Microsoft Azure에서 Windows Server Active Directory와의 페더레이션 지원]( https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Azure AD 디렉터리 관리]( https://msdn.microsoft.com/library/azure/hh967611.aspx) 및 [Windows PowerShell을 사용한 Azure AD 관리]( https://msdn.microsoft.com/library/azure/jj151815.aspx)를 참조하세요.
 
 ## 2\. Azure SQL 데이터베이스 V12에 데이터베이스가 있는지 확인
 
@@ -316,6 +317,7 @@ Azure AD 인증과 관련한 특정 코드 예제는 MSDN의 [SQL Server 보안 
 
 [CREATE USER(Transact-SQL)](http://msdn.microsoft.com/library/ms173463.aspx)
 
+
 <!--Image references-->
 
 [1]: ./media/sql-database-aad-authentication/1aad-auth-diagram.png
@@ -329,4 +331,4 @@ Azure AD 인증과 관련한 특정 코드 예제는 MSDN의 [SQL Server 보안 
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!-----HONumber=AcomDC_0204_2016-->

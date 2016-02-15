@@ -26,7 +26,7 @@
 
 Windows 또는 Linux의 개발 환경 설정 및 필수 구성 요소에 대한 정보는 [개발 환경 준비][devbox-setup]를 참조하세요.
 
-> [AZURE.NOTE]로컬 Maven 리포지토리에 필요한 JAR 파일을 추가하고 필수 구성 요소를 설치하기 위하여, 이 자습서를 시작하기 전에 [개발 환경 준비][devbox-setup]에 포함된 단계를 완료하는 것이 중요합니다.
+> [AZURE.NOTE] 로컬 Maven 리포지토리에 필요한 JAR 파일을 추가하고 필수 구성 요소를 설치하기 위하여, 이 자습서를 시작하기 전에 [개발 환경 준비][devbox-setup]에 포함된 단계를 완료하는 것이 중요합니다.
 
 ## 프로젝트 만들기
 
@@ -36,7 +36,7 @@ Windows 또는 Linux의 개발 환경 설정 및 필수 구성 요소에 대한 
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=iot-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-    > [AZURE.NOTE]이것은 하나의 긴 명령입니다. 명령줄 도구에 붙여 넣으려면 명령 전체를 복사해야 합니다.
+    > [AZURE.NOTE] 이것은 하나의 긴 명령입니다. 명령줄 도구에 붙여 넣으려면 명령 전체를 복사해야 합니다.
 
     이 명령은 표준 Maven 프로젝트 구조를 포함하는 *iot-device*라는 이름의 프로젝트 폴더를 만듭니다. 자세한 내용은 Apache 웹 사이트의 [Maven in 5 Minutes][maven-five-minutes]를 참조하세요.
 
@@ -48,7 +48,7 @@ Windows 또는 Linux의 개발 환경 설정 및 필수 구성 요소에 대한 
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-client</artifactId>
-      <version>1.0.0-preview.4</version>
+      <version>1.0.0</version>
     </dependency>
     ```
 
@@ -214,7 +214,7 @@ Windows 또는 Linux의 개발 환경 설정 및 필수 구성 요소에 대한 
 .level = {LOGGING_LEVEL}
 ```
 
-> [AZURE.NOTE]다양한 로깅 수준에 대한 설명은 [로깅 수준](http://docs.oracle.com/javase/7/docs/api/java/util/logging/Level.html)을 참조하세요.
+> [AZURE.NOTE]  다양한 로깅 수준에 대한 설명은 [로깅 수준](http://docs.oracle.com/javase/7/docs/api/java/util/logging/Level.html)을 참조하세요.
 
 그 후, JVM 속성 `java.util.logging.config.file={Path to your config.properties file}`을 설정합니다.
 
@@ -229,4 +229,4 @@ AMQP 프레임을 로깅하려면 명령 환경에서 환경 변수를 `PN_TRACE
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md
 [lnk-iothub-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/iothub-explorer/doc/provision_device.md
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -24,7 +24,7 @@
 
 [IoT Hub 리소스 공급자 REST API][lnk-rest-api]를 사용하여 Azure IoT Hub를 프로그래밍 방식으로 만들고 관리합니다. 이 자습서는 리소스 공급자 REST API를 사용하여 C# 프로그램에서 IoT Hub를 만드는 방법을 보여 줍니다.
 
-> [AZURE.NOTE]Azure에는 리소스를 만들고 작업하기 위한 두 가지 다양한 배포 모델이 있습니다. [리소스 관리자 및 클래식](../resource-manager-deployment-model.md) 이 문서에서는 리소스 관리자 배포 모델 사용에 대해 설명합니다.
+> [AZURE.NOTE] Azure에는 리소스를 만들고 작업하기 위한 두 가지 다양한 배포 모델이 있습니다. [리소스 관리자 및 클래식](../resource-manager-deployment-model.md) 이 문서에서는 리소스 관리자 배포 모델 사용에 대해 설명합니다.
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -40,7 +40,7 @@
 
 2. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리**를 클릭합니다.
 
-3. NuGet 패키지 관리자에서 **시험판 포함**을 선택하고 **Microsoft.Azure.Management.Resources**를 검색합니다. **2.18.11-preview** 버전을 선택합니다. **설치**를 클릭하고 **변경 내용 검토**에서 **확인**을 클릭한 다음 **동의함**을 클릭하여 라이선스에 동의합니다.
+3. NuGet 패키지 관리자에서 **Microsoft.Azure.Management.Resources**를 검색합니다. **2.18.11-preview** 버전을 선택합니다. **설치**를 클릭하고 **변경 내용 검토**에서 **확인**을 클릭한 다음 **동의함**를 클릭하여 라이선스에 동의합니다.
 
 4. NuGet 패키지 관리자에서 **Microsoft.IdentityModel.Clients.ActiveDirectory**를 검색합니다. **2.19.208020213** 버전을 선택합니다. **설치**를 클릭하고 **변경 내용 검토**에서 **확인**을 클릭한 다음 **동의함**을 클릭하여 라이선스에 동의합니다.
 
@@ -180,7 +180,7 @@ IoT Hub 리소스 공급자 REST API를 사용하여 리소스 그룹에 새 IoT
 
 4. [포털][lnk-azure-portal]을 방문하여 리소스 목록을 보거나 **Get AzureRmResource** PowerShell cmdlet을 사용하여 응용 프로그램이 새 IoT Hub를 추가했는지 확인할 수 있습니다.
 
-> [AZURE.NOTE]이 예제 응용 프로그램은 대금이 청구되는 S1 표준 IoT Hub를 추가합니다. 완료되면 [포털][lnk-azure-portal] 또는 **Remove-AzureRmResource** PowerShell cmdlet을 사용하여 IoT Hub를 삭제할 수 있습니다.
+> [AZURE.NOTE] 이 예제 응용 프로그램은 대금이 청구되는 S1 표준 IoT Hub를 추가합니다. 완료되면 [포털][lnk-azure-portal] 또는 **Remove-AzureRmResource** PowerShell cmdlet을 사용하여 IoT Hub를 삭제할 수 있습니다.
 
 ## 다음 단계
 
@@ -194,4 +194,4 @@ IoT Hub 리소스 공급자 REST API를 사용하여 리소스 그룹에 새 IoT
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
 [lnk-azure-rm-overview]: https://azure.microsoft.com/documentation/articles/resource-group-overview/
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

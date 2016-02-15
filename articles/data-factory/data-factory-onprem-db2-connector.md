@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/12/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Azure 데이터 팩터리를 사용하여 DB2에서 데이터 이동
@@ -36,7 +36,9 @@ DB2 데이터베이스에 연결할 데이터 관리 게이트웨이의 경우 �
 
 ## 샘플: DB2에서 Azure Blob로 데이터 복사
 
-아래 샘플은 다음을 보여줍니다.
+이 샘플은 온-프레미스 DB2 데이터베이스에서 Azure Blob 저장소로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure 데이터 팩터리의 복사 작업을 사용하여 [여기](data-factory-data-movement-activities.md#supported-data-stores)에 설명한 싱크로 **직접** 데이터를 복사할 수 있습니다.
+ 
+이 샘플에는 다음 데이터 팩터리 엔터티가 있습니다.
 
 1.	[OnPremisesDb2](data-factory-onprem-db2-connector.md#db2-linked-service-properties) 형식의 연결된 서비스
 2.	[AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 형식의 연결된 서비스 
@@ -312,4 +314,4 @@ Char | String
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

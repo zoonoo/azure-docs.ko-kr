@@ -7,13 +7,24 @@
 	manager="jwhit"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/26/2015" ms.author="jimpark"; "aashishr"; "sammehta"; "anuragm"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/28/2016"
+	ms.author="jimpark; aashishr; anuragm"/>
 
 
 # PowerShell을 사용하여 DPM(Data Protection Manager) 서버용 Azure 백업 배포 및 관리
+
 이 문서에서는 PowerShell을 사용하여 DPM 서버에서 Azure 백업을 설정하고 백업과 복원을 관리하는 방법을 보여 줍니다.
 
 ## PowerShell 환경 설정
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+
 PowerShell을 사용하여 Data Protection Manager에서 Azure로의 백업을 관리하기 전에 PowerShell에서 적합한 환경을 설정해야 합니다. PowerShell 세션 시작 시 다음 명령을 실행하여 정확한 모듈을 가져오고 DPM cmdlet을 올바르게 참조할 수 있습니다.
 
 ```
@@ -49,7 +60,7 @@ PowerShell로 다음과 같은 설정 및 등록 작업을 자동화할 수 있�
 
 ### 백업 자격 증명 모음 만들기
 
-> [AZURE.WARNING]처음으로 Azure 백업을 사용하는 고객의 경우, 구독과 함께 사용할 Azure 백업 공급자를 등록해야 합니다. 이는 다음 명령을 실행하여 수행할 수 있습니다. Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
+> [AZURE.WARNING] 처음으로 Azure 백업을 사용하는 고객의 경우, 구독과 함께 사용할 Azure 백업 공급자를 등록해야 합니다. 이는 다음 명령을 실행하여 수행할 수 있습니다. Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
 
 **New-AzureRMBackupVault** commandlet을 사용하여 새 백업 자격 증명 모음을 만들 수 있습니다. 백업 저장소는 ARM 리소스이므로 리소스 그룹 내에 배치해야 합니다. 승격된 Azure PowerShell 콘솔에서 다음 명령을 실행합니다.
 
@@ -87,7 +98,7 @@ PS C:\> MARSAgentInstaller.exe /?
 
 | 옵션 | 세부 정보 | 기본값 |
 | ---- | ----- | ----- |
-| /q | 무인 설치 | - |
+| /q | 무인 설치 | - | 
 | /p:"location" | Azure 백업 에이전트에 대한 설치 폴더 경로. | C:\Program Files\Microsoft Azure Recovery Services Agent |
 | /s:"location" | Azure 백업 에이전트에 대한 캐시 폴더 경로. | C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
 | /m | Opt-in to Microsoft Update | - |
@@ -122,7 +133,7 @@ PS C:\> Start-DPMCloudRegistration -DPMServerName "TestingServer" -VaultCredenti
 
 그러면 지정된 저장소 자격 증명을 사용하여 “TestingServer”라는 DPM 서버에 Microsoft Azure 저장소가 등록됩니다.
 
-> [AZURE.IMPORTANT]저장소 자격 증명 파일을 지정할 때 상대 경로를 사용하지 마세요. cmdlet 입력 내용은 반드시 절대 경로를 제공해야 합니다.
+> [AZURE.IMPORTANT] 저장소 자격 증명 파일을 지정할 때 상대 경로를 사용하지 마세요. cmdlet 입력 내용은 반드시 절대 경로를 제공해야 합니다.
 
 ### 초기 구성 설정
 DPM 서버를 Azure 백업 저장소에 등록하면 기본 구독 설정으로 시작됩니다. 이러한 구독 설정에는 네트워킹, 암호화 및 스테이징 영역이 포함됩니다. 구독 설정을 변경하려면 우선 [Get-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612793) cmdlet을 사용하여 기존(기본) 설정에 대한 핸들을 가져와야 합니다.
@@ -171,7 +182,7 @@ PS C:\> $Passphrase = ConvertTo-SecureString -string "passphrase123456789" -AsPl
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -EncryptionPassphrase $Passphrase
 ```
 
-> [AZURE.IMPORTANT]암호 정보를 설정한 후에는 안전하게 보관합니다. 이 암호 없이는 Azure에서 데이터를 복원할 수 없습니다.
+> [AZURE.IMPORTANT] 암호 정보를 설정한 후에는 안전하게 보관합니다. 이 암호 없이는 Azure에서 데이터를 복원할 수 없습니다.
 
 이 시점에서 ```$setting``` 개체에 필요한 모든 사항을 변경해야 합니다. 변경 내용은 커밋합니다.
 
@@ -322,4 +333,4 @@ PS C:\> Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -Recovery
 
 - DPM에 대한 Azure 백업에 대한 자세한 정보는 [DPM 백업 소개](backup-azure-dpm-introduction.md)를 참조합니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

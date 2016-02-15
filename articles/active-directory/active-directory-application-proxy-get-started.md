@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="01/28/2016"
 	ms.author="kgremban"/>
 
 # 온-프레미스 응용 프로그램에 보안된 원격 액세스를 제공하는 방법
 
-> [AZURE.NOTE]응용 프로그램 프록시는 Premium 또는 Basic 버전의 Azure Active Directory로 업그레이드하는 경우에만 사용할 수 있는 기능입니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
+> [AZURE.NOTE] 응용 프로그램 프록시는 Premium 또는 Basic 버전의 Azure Active Directory로 업그레이드하는 경우에만 사용할 수 있는 기능입니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
 
 장치, 태블릿, 스마트폰, 노트북 등 관리되거나 관리되지 않는 모든 종류의 장치를 소유한 원격 사용자에게 액세스를 제공하려고 합니다. 하지만 다양한 리소스에 대해 보안 액세스를 제공하는 것은 복잡할 수 있습니다. 최근에는 보안된 원격 액세스를 제공하는 데 역방향 프록시가 많이 사용되었으나 역방향 프록시는 보안 및 고가용성을 제공하기가 어려운 방화벽으로 보호되어야 합니다.
 
@@ -59,7 +59,7 @@ Azure AD 기본 또는 프리미엄 구독이 있고 자신이 전역 관리자�
 - [Channel 9에서 비디오 시청](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
 ## 추가 리소스
-* [조직으로 Azure 등록](../sign-up-organization.md)
-* [Azure ID](../fundamentals-identity.md)
+* [조직으로 Azure 등록](sign-up-organization.md)
+* [Azure ID](fundamentals-identity.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

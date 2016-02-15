@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="02/01/2016"
 	ms.author="curtand"/>
 
 # Azure AD를 사용하여 시작하는 방법
@@ -28,7 +28,7 @@
 > [AZURE.NOTE] 누구나 Azure AD를 무료로 사용할 수 있습니다. Azure 평가판 구독을 지금 등록하면 디렉터리를 사용할 수 있습니다. 디렉터리는 구입 여부에 상관없이 여러분의 것입니다. [지금 Azure AD를 사용해 보세요.](https://azure.microsoft.com/trial/get-started-active-directory/)
 
 ##조직의 액세스 보안
-Multi-Factor Authentication을 사용하여 클라우드에서 조직의 ID 데이터를 보호하여 안전한 로컬 및 원격 액세스를 확인합니다. [Multi-Factor Authentication에 대해 자세히 알아보기](../multi-factor-authentication.md)
+Multi-Factor Authentication을 사용하여 클라우드에서 조직의 ID 데이터를 보호하여 안전한 로컬 및 원격 액세스를 확인합니다. [Multi-Factor Authentication에 대해 자세히 알아보기](../multi-factor-authentication/multi-factor-authentication.md)
 
 ##암호 변경 및 재설정
 모든 위치, 모든 장치에서 Active Directory 또는 Azure Active Directory 암호를 변경하거나 재설정하도록 사용자를 강화하여 비용을 절감하고 헬프데스크를 줄입니다. 관리자는 암호 및 알림 정책을 관리하고, 암호 재설정 작업이 발생하는 순간 암호 재설정 작업의 자세한 감사 활동을 볼 수 있습니다. [Azure Active Directory의 암호 관리에 대해 자세히 알아보기](active-directory-manage-passwords.md)
@@ -44,4 +44,4 @@ Azure AD는 관리자를 위한 다양한 보고서를 제공합니다. Azure AD
 * [조직으로 Azure 등록](sign-up-organization.md)
 * [Azure ID](fundamentals-identity.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

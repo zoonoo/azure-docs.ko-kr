@@ -1,6 +1,6 @@
-    <properties
-	pageTitle="Add a VM with artifacts to a DevTest Lab | Microsoft Azure"
-	description="Create a new virtual machine with Artifacts in DevTest Lab."
+<properties
+	pageTitle="DevTest 랩에 아티팩트를 사용하여 VM 추가 | Microsoft Azure"
+	description="DevTest 랩에서 아티팩트를 사용하여 새 가상 컴퓨터를 만듭니다."
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/01/2015"
+	ms.date="02/03/2016"
 	ms.author="tarcher"/>
 
 # Azure DevTest Lab에 아티팩트를 사용하여 VM 추가
@@ -98,4 +98,4 @@ VM에 아티팩트를 추가하고 구성할 때 현재 아티팩트의 수를 �
 
 [VM에 대한 사용자 지정 아티팩트 작성](devtest-lab-artifact-author.md) 방법에 대해 알아봅니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

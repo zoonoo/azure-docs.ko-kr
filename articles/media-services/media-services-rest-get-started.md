@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/05/2015" 
+	ms.date="01/28/2016" 
 	ms.author="juliako"/>
 
 #REST API를 사용한 주문형 콘텐츠 제공 시작
@@ -21,8 +21,9 @@
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 
->[AZURE.NOTE] 
-> 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure 무료 평가판</a>을 참조하세요.
+>[AZURE.NOTE]
+이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 무료 체험](/pricing/free-trial/?WT.mc_id=A261C142F)을 참조하세요.
+
 
 이 자습서에서는 AMS(Azure 미디어 서비스) REST API를 사용하여 주문형 비디오(VoD) 콘텐츠 제공 응용 프로그램을 구현하는 단계를 안내합니다.
 
@@ -85,14 +86,15 @@ Azure 미디어 서비스에 액세스하려면 두 가지가 필요합니다. A
 	>[AZURE.NOTE]
 	https://media.windows.net에 연결하면 다른 미디어 서비스 URI를 지정하는 301 리디렉션을 받게 됩니다. 사용자는 새 URI에 대한 후속 호출을 해야 합니다.
 	> 
-	> ODATA API 메타데이터 설명을 포함하는 HTTP/1.1 200 응답을 받을 수도 있습니다.3. 새 URL에 후속 API 호출을 게시합니다. 
+	> ODATA API 메타데이터 설명을 포함하는 HTTP/1.1 200 응답을 받을 수도 있습니다.
+3. 새 URL에 후속 API 호출을 게시합니다. 
 	
-		예를 들어 연결을 시도한 후 다음 항목을 받은 경우.
+	예를 들어 연결을 시도한 후 다음 항목을 받은 경우.
 		
-			HTTP/1.1 301 Moved Permanently
-			Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
+		HTTP/1.1 301 Moved Permanently
+		Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
 
-		https://wamsbayclus001rest-hs.cloudapp.net/api/에 대한 후속 API 호출을 게시해야 합니다.
+	https://wamsbayclus001rest-hs.cloudapp.net/api/에 대한 후속 API 호출을 게시해야 합니다.
 
 ###액세스 토큰 가져오기
 
@@ -671,17 +673,17 @@ Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나
 - mezzanine (원본) 파일을 적응 비트 전송률 MP4 파일 또는 적응 비트 전송률 부드러운 스트리밍 파일 집합으로 인코딩하거나 트랜스코딩합니다.  
 - 콘텐츠를 배달하는 출발점이 될 스트리밍 끝점에 하나 이상의 스트리밍 단위를 구성합니다. 
 
-다음 섹션에서는 하나의 인코딩 작업을 포함하는 작업을 만드는 방법을 보여줍니다. 이 작업은 **Azure 미디어 인코더**를 사용하여 mezzanine 파일을 적응 비트 전송률 MP4 집합으로 트랜스코딩하도록 지정합니다. 이 섹션에서는 작업 진행 상황을 모니터링하는 방법도 보여줍니다. 작업이 완료되면 자산에 대한 액세스하는 데 필요한 로케이터를 만들 수 있습니다.
+다음 섹션에서는 하나의 인코딩 작업을 포함하는 작업을 만드는 방법을 보여줍니다. 이 작업은 **미디어 인코더 표준**을 사용하여 메자닌 파일을 적응 비트 전송률 MP4 집합으로 트랜스코딩하도록 지정합니다. 이 섹션에서는 작업 진행 상황을 모니터링하는 방법도 보여줍니다. 작업이 완료되면 자산에 대한 액세스하는 데 필요한 로케이터를 만들 수 있습니다.
 
 ### 미디어 프로세서 가져오기
 
-미디어 서비스에서 미디어 프로세서는 인코딩, 형식 변환, 콘텐츠, 암호화 또는 암호 해독 미디어와 같은 특정 처리 작업을 처리 하는 구성 요소입니다. 이 자습서에 표시된 인코딩 작업에서는 Azure 미디어 인코더를 사용하겠습니다.
+미디어 서비스에서 미디어 프로세서는 인코딩, 형식 변환, 콘텐츠, 암호화 또는 암호 해독 미디어와 같은 특정 처리 작업을 처리 하는 구성 요소입니다. 이 자습서에 표시된 인코딩 작업에서는 미디어 인코더 표준을 사용할 것입니다.
 
 다음 코드는 인코더의 id를 요청합니다.
 
 **HTTP 요청**
 
-	GET https://wamsbayclus001rest-hs.cloudapp.net/api/MediaProcessors()?$filter=Name%20eq%20'Azure%20Media%20Encoder' HTTP/1.1
+	GET https://wamsbayclus001rest-hs.cloudapp.net/api/MediaProcessors()?$filter=Name%20eq%20'Media%20Encoder%20Standard' HTTP/1.1
 	DataServiceVersion: 1.0;NetFx
 	MaxDataServiceVersion: 3.0;NetFx
 	Accept: application/json
@@ -691,7 +693,7 @@ Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나
 	Host: wamsbayclus001rest-hs.cloudapp.net
 	
 
-**HTTP 응답**
+**HTTP 응답 **
 
 	HTTP/1.1 200 OK
 	Cache-Control: no-cache
@@ -710,12 +712,12 @@ Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나
 	   "odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#MediaProcessors",
 	   "value":[  
 	      {  
-	         "Id":"nb:mpid:UUID:1b1da727-93ae-4e46-a8a1-268828765609",
-	         "Description":"Azure Media Encoder",
-	         "Name":"Azure Media Encoder",
+	         "Id":"nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",
+	         "Description":"Media Encoder Standard",
+	         "Name":"Media Encoder Standard",
 	         "Sku":"",
 	         "Vendor":"Microsoft",
-	         "Version":"4.4"
+	         "Version":"1.1"
 	      }
 	   ]
 	}
@@ -724,7 +726,7 @@ Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나
 
 각 작업을 수행하려는 처리 유형에 따라 하나 이상의 작업을 가질 수 있습니다. REST API를 통해 두 방법 중 하나로 작업 및 관련된 작업을 만들 수 있습니다. 작업은 작업 엔터티에 대한 작업 탐색 속성 또는 OData 배치를 통해 인라인으로 정의될 수 있습니다. 미디어 서비스 SDK 는 일괄 처리를 사용하지만 이 항목에 있는 코드 예제 가독성의 경우 작업은 인라인으로 정의됩니다. 일괄 처리에 대한 정보는 [Open Data Protocol(OData) 일괄 처리](http://www.odata.org/documentation/odata-version-3-0/batch-processing/)를 참조하세요.
 
-다음 예제에서는 특정 해상도와 품질로 비디오를 인코딩하기 위해 하나의 작업 집합으로 작업을 만들어 게시하는 방법을 보여 줍니다. 다음 설명서 섹션은 Azure 미디어 프로세서에서 지원하는 모든 [작업 사전 설정](http://msdn.microsoft.com/library/azure/dn619392.aspx) 목록을 포함합니다.
+다음 예제에서는 특정 해상도와 품질로 비디오를 인코딩하기 위해 하나의 작업 집합으로 작업을 만들어 게시하는 방법을 보여 줍니다. 다음 설명서 섹션은 미디어 인코더 표준 프로세서에서 지원하는 모든 [작업 사전 설정](https://msdn.microsoft.com/ko-KR/library/mt269960) 목록을 포함합니다.
 
 **HTTP 요청**
 	
@@ -751,7 +753,7 @@ Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나
 	   "Tasks":[  
 	      {  
 	         "Configuration":"H264 Adaptive Bitrate MP4 Set 720p",
-	         "MediaProcessorId":"nb:mpid:UUID:1b1da727-93ae-4e46-a8a1-268828765609",
+	         "MediaProcessorId":"nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",
 	         "TaskBody":"<?xml version="1.0" encoding="utf-8"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset>
 				<outputAsset>JobOutputAsset(0)</outputAsset></taskBody>"
 	      }
@@ -925,7 +927,7 @@ Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나
 	Host: wamsbayclus001rest-hs.cloudapp.net
 	
 
-**HTTP 응답**
+**HTTP 응답 **
 
 	HTTP/1.1 200 OK
 	Cache-Control: no-cache
@@ -1208,4 +1210,4 @@ MPEG DASH를 스트리밍하려면 "/매니페스트" 뒤에 추가(format=mpd-t
 <!-- URLs. -->
   [Azure 클래식 포털]: http://manage.windowsazure.com/
 
-<!-----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

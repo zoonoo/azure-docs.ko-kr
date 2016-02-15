@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="02/03/2016"
 	ms.author="haining;garye" />
 
 
@@ -26,7 +26,7 @@
 
 이 다이어그램은 이러한 모든 과정을 함께 보여 줍니다.
 
-> [AZURE.NOTE]전체를 탐색해 보고 기계 학습 스튜디오에서 사용 가능한 기계 학습 알고리즘을 선택하는 데 대한 추가 도움이 필요하면 [Microsoft Azure 기계 학습 스튜디오용 기계 학습 알고리즘 참고 자료](machine-learning-algorithm-cheat-sheet.md)를 참조하세요.
+> [AZURE.NOTE] 전체를 탐색해 보고 기계 학습 스튜디오에서 사용 가능한 기계 학습 알고리즘을 선택하는 데 대한 추가 도움이 필요하면 [Microsoft Azure 기계 학습 스튜디오용 기계 학습 알고리즘 참고 자료](machine-learning-algorithm-cheat-sheet.md)를 참조하세요.
 
 ## 기계 학습 스튜디오 개요 다이어그램 다운로드
 
@@ -47,4 +47,4 @@
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -1,6 +1,6 @@
-    <properties
-	pageTitle="Add a Git artifact repository to your DevTest Lab | Microsoft Azure"
-	description="Add a GitHub or Visual Studio Team Services Git repository for your custom artifacts to your lab"
+<properties
+	pageTitle="DevTest Lab에 Git 아티팩트 리포지토리 추가 | Microsoft Azure"
+	description="랩에 사용자 지정 아티팩트용 GitHub 또는 Visual Studio Team Services Git 저장소 추가"
 	services="devtest-lab,virtual-machines,visual-studio-online"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/01/2015"
+	ms.date="02/03/2016"
 	ms.author="tarcher"/>
 
 # DevTest Lab에 Git 아티팩트 리포지토리 추가
@@ -115,4 +115,4 @@
     3. 저장된 **개인 액세스 토큰**을 아티팩트 리포지토리에 입력합니다.
     4. **저장**을 탭합니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

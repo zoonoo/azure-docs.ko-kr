@@ -1,20 +1,20 @@
 <properties
-   pageTitle="자습서: Azure Active Directory | Microsoft Azure와 NetSuite 통합"
-   description="Azure Active Directory에서 NetSuite를 사용하여 Single Sign-On, 자동화된 프로비저닝 등을 사용하도록 설정하는 방법을 알아봅니다."
-   services="active-directory"
-   documentationCenter=""
-   authors="liviodlc"
-   manager="TerryLanfear"
-   editor=""/>
+    pageTitle="자습서: NetSuite와 Azure Active Directory의 통합 | Microsoft Azure"
+    description="Azure Active Directory에서 NetSuite를 사용하여 Single Sign-On, 자동화된 프로비저닝 등을 사용하도록 설정하는 방법을 알아봅니다."
+    services="active-directory"
+    documentationCenter=""
+    authors="liviodlc"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="10/20/2015"
-   ms.author="liviodlc"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="02/02/2016"
+    ms.author="liviodlc"/>
 
 #자습서: Azure Active Directory와 NetSuite를 통합하는 방법
 
@@ -64,7 +64,7 @@
 
 	![Azure AD Single Sign-On 선택][7]
 
-	> [AZURE.NOTE]다른 Single Sign-On 옵션에 대해 자세히 알아보려면 [여기를 클릭](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work)하세요.
+	> [AZURE.NOTE] 다른 Single Sign-On 옵션에 대해 자세히 알아보려면 [여기를 클릭](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work)하세요.
 
 3. **앱 설정 구성** 페이지에서 **회신 URL** 필드에 다음 형식 중 하나를 사용하여 NetSuite 테넌트 URL을 입력합니다.
 	- `https://<tenant-name>.netsuite.com/saml2/acs`
@@ -186,7 +186,7 @@
 
 ##3단계: 자동화된 사용자 프로비저닝 사용
 
-> [AZURE.NOTE]기본적으로 프로비전된 사용자를 NetSuite 환경의 루트 자회사에 추가합니다.
+> [AZURE.NOTE] 기본적으로 프로비전된 사용자를 NetSuite 환경의 루트 자회사에 추가합니다.
 
 1. Azure Active Directory에서 NetSuite에 대한 빠른 시작 페이지의 **사용자 프로비저닝 구성**을 클릭합니다.
 
@@ -256,4 +256,4 @@
 [31]: ./media/active-directory-saas-netsuite-tutorial/assign-users.png
 [32]: ./media/active-directory-saas-netsuite-tutorial/assign-confirm.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

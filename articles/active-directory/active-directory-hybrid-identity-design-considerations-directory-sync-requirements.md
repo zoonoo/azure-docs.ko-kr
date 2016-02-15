@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/11/2015"
+	ms.date="02/02/2016"
 	ms.author="billmath"/>
 
 # 디렉터리 동기화 요구 사항 결정
@@ -57,12 +57,13 @@
  - 회사가 이 질문에 대한 대답을 모르는 경우 [Azure Active Directory 동기화 서비스 설치](https://msdn.microsoft.com/library/azure/dn757602.aspx#BKMK_CreateAnADAccountForTheSyncService) 문서에서 "암호 동기화에 대한 사용 권한" 섹션을 검토하고 이러한 사용 권한이 있는 계정이 이미 있는지 혹은 하나를 만들어야 할지를 결정합니다.
 - 다중 포리스트 동기화가 있는 경우 동기화 서버가 각 포리스트에 도달할 수 있습니까?
  
->[AZURE.NOTE]각 답변을 주목하고 답변 이유를 이해해야 합니다. [사고 대응 요구 사항 결정](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)은 사용할 수 있는 옵션을 검토합니다. 질문에 답변함으로써 비즈니스 요구 사항에 가장 적합한 옵션을 선택할 수 있습니다.
+>[AZURE.NOTE]
+각 답변을 주목하고 답변 이유를 이해해야 합니다. [사고 대응 요구 사항 결정](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)은 사용할 수 있는 옵션을 검토합니다. 질문에 답변함으로써 비즈니스 요구 사항에 가장 적합한 옵션을 선택할 수 있습니다.
 
 ## 다음 단계
 [Multi-Factor Authentication 요구 사항 결정](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
 ## 참고 항목
-[디자인 고려 사항 개요](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[설계 고려 사항 개요](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -212,7 +212,7 @@ SSH 터널링을 설정했으면 아래 단계에 따라 Spark 클러스터의 Z
 		http://hn0-myspar:9995
 
 	* **hn0**은 headnode0을 의미합니다.
-	* **myspar**는 Spark 클러스터의 처음 5개 문자입니다.
+	* **myspar**는 Spark 클러스터 이름의 처음 여섯 문자입니다.
 	* **9995**는 Zeppelin Notebook이 액세스할 수 있는 포트입니다.
 
 2. 새 Notebook을 만듭니다. 헤더 창에서 **노트북**을 클릭하고 **새 메모 만들기**를 클릭합니다.
@@ -330,4 +330,4 @@ SSH 터널링을 설정했으면 아래 단계에 따라 Spark 클러스터의 Z
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

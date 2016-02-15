@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="01/21/2016"
+   ms.date="02/01/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Azure SQL 데이터베이스 TRANSACT-SQL의 차이점
@@ -95,6 +95,7 @@ SQL 데이터베이스 V12에서는 해당 SQL Server 2016 TRANSACT-SQL 문에 �
 - 트리거: 서버 범위 또는 로그온 트리거
 - USE 문
 
+
 ## 전체 TRANSACT-SQL 참조
 
 TRANSACT-SQL 문법, 사용법 및 예제에 대한 자세한 내용은 SQL Server 온라인 설명서의 [TRANSACT-SQL 참조(데이터베이스 엔진)](https://msdn.microsoft.com/library/bb510741.aspx)를 참조하세요.
@@ -107,4 +108,4 @@ Transact-SQL 참조에는 현재까지 SQL Server 버전 2008과 관련된 항�
 
 경우에 따라 항목의 일반 제목이 제품에 사용될 수 있지만 제품 간에 약간의 차이가 있습니다. 차이점은 항목의 중간점에 적절히 표시됩니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

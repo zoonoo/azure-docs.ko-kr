@@ -165,10 +165,10 @@ Windows 기반 컴퓨터는 로컬 계정 또는 도메인 계정 자격 증명�
 
 [Windows 가상 컴퓨터에 대한 원격 데스크톱 서비스 또는 암호를 다시 설정하는 방법](virtual-machines-windows-reset-password.md)
 
-[Azure PowerShell 설치 및 구성하는 방법](../install-configure-powershell.md)
+[Azure PowerShell 설치 및 구성하는 방법](../powershell-install-configure.md)
 
 [Linux 기반 Azure 가상 컴퓨터에 SSH(보안 셸) 연결 문제 해결](virtual-machines-troubleshoot-ssh-connections.md)
 
 [Azure 가상 컴퓨터에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

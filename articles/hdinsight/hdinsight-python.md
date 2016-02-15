@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="12/04/2015" 
+	ms.date="01/28/2016" 
 	ms.author="larryfr"/>
 
 #HDInsight에서 Hive 및 Pig와 함께 Python 사용
 
 Hive 및 Pig는 HDInsight의 데이터 작업에 적합하지만 보다 일반적인 언어가 필요한 경우도 있습니다. Hive 및 Pig를 통해 다양한 프로그래밍 언어를 사용하여 UDF(사용자 정의 함수)를 만들 수 있습니다. 이 문서에서는 Hive 및 Pig에서 Python UDF를 사용하는 방법을 알아봅니다.
 
-> [AZURE.NOTE]이 문서의 단계는 HDInsight 클러스터 버전 2.1, 3.0, 3.1 및 3.2에 적용됩니다.
+> [AZURE.NOTE] 이 문서의 단계는 HDInsight 클러스터 버전 2.1, 3.0, 3.1 및 3.2에 적용됩니다.
 
 
 ##<a name="python"></a>HDInsight의 Python
@@ -54,7 +54,7 @@ Python은 HiveQL **TRANSFORM** 문을 통해 Hive의 UDF로 사용할 수 있습
 	FROM hivesampletable
 	ORDER BY clientid LIMIT 50;
 
-> [AZURE.NOTE]Windows 기반 HDInsight 클러스터에서는 **USING** 절에서 python.exe의 전체 경로를 지정해야 합니다. 이는 항상 `D:\Python27\python.exe`입니다.
+> [AZURE.NOTE] Windows 기반 HDInsight 클러스터에서는 **USING** 절에서 python.exe의 전체 경로를 지정해야 합니다. 이는 항상 `D:\Python27\python.exe`입니다.
 
 다음은 이 예제에서 수행하는 작업입니다.
 
@@ -217,7 +217,7 @@ SSH 사용에 대한 자세한 내용은 <a href="../hdinsight-hadoop-linux-use-
 
 ###PowerShell
 
-이 단계에서는 Azure PowerShell을 사용합니다. 이 도구를 아직 개발 컴퓨터에 설치하여 구성하지 않은 경우 다음 단계를 사용하기 전에 [Azure PowerShell을 설치 및 구성하는 방법](../install-configure-powershell.md)을 참조하세요.
+이 단계에서는 Azure PowerShell을 사용합니다. 이 도구를 아직 개발 컴퓨터에 설치하여 구성하지 않은 경우 다음 단계를 사용하기 전에 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
 
 1. Python 예제 [streaming.py](#streamingpy) 및 [jython.py](#jythonpy)를 사용하여, 개발 컴퓨터에서 파일의 로컬 사본을 만듭니다.
 
@@ -255,7 +255,7 @@ SSH 사용에 대한 자세한 내용은 <a href="../hdinsight-hadoop-linux-use-
 
 	이 스크립트는 HDInsight 클러스터의 정보를 검색한 후 계정 및 기본 저장소 계정의 키를 추출하고 컨테이너의 루트에 파일을 업로드합니다.
 
-	> [AZURE.NOTE]그 외에 스크립트를 업로드하는 방법은 [HDInsight에서 Hadoop 작업용 데이터 업로드](hdinsight-upload-data.md) 문서에서 찾아볼 수 있습니다.
+	> [AZURE.NOTE] 그 외에 스크립트를 업로드하는 방법은 [HDInsight에서 Hadoop 작업용 데이터 업로드](hdinsight-upload-data.md) 문서에서 찾아볼 수 있습니다.
 
 파일을 업로드한 후 다음 PowerShell 스크립트를 사용하여 작업을 시작합니다. 작업이 완료되면 출력이 PowerShell 콘솔에 작성됩니다.
 
@@ -424,4 +424,4 @@ Pig 및 Hive를 사용하고 MapReduce 사용에 대해 배우는 다른 방법�
 
 * [HDInsight와 함께 MapReduce 사용](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

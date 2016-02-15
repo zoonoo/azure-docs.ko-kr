@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/22/2016"
+    ms.date="01/29/2016"
     ms.author="elizapo" />
 
 
@@ -37,13 +37,12 @@
 데스크톱, 장치 등의 클라이언트로 Azure RemoteApp 컬렉션에서 배포된 앱에 연결합니다.
 
 -  https://telemetry.remoteapp.windowsazure.com  
--  https://**.remoteapp.windowsazure.com(이 주소에 대한 선택적 UDP 포트입니다.) 
+-  https://*.remoteapp.windowsazure.com(이 주소에 대한 선택적 UDP 포트입니다.) 
 -  https://login.windows.net  
 -  https://login.microsoftonline.com  
 -  https://www.remoteapp.windowsazure.com 
--  https://**.remoteapp.windowsazure.com  
 -  https://*.core.windows.net  
 -  아웃바운드: TCP: 443  
 -  선택 사항 - UDP: 3391 
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

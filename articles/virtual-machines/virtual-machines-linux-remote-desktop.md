@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/14/2015"
+	ms.date="02/01/2016"
 	ms.author="mingzhan"/>
 
 
@@ -32,7 +32,7 @@ RDP(원격 데스크톱 프로토콜)는 Windows에 사용되는 독점 프로�
 xrdp는 Windows 컴퓨터에서 원격 데스크톱으로 Linux 서버에 연결할 수 있도록 해주는 공개 소스 RDP 서버입니다. VNC(Virtual Network Computing)보다 더 강력한 성능을 구현합니다. VNC는 "JPEG" 품질이며 느린 동작인 반면 RDP는 신속하고 맑습니다.
 
 
-> [AZURE.NOTE]Linux를 실행하는 Microsoft Azure VM이 있어야 합니다. Linux VM을 만들고 설정하려면 [Azure Linux VM 자습서](virtual-machines-linux-tutorial.md)를 참조하세요.
+> [AZURE.NOTE] Linux를 실행하는 Microsoft Azure VM이 있어야 합니다. Linux VM을 만들고 설정하려면 [Azure Linux VM 자습서](virtual-machines-linux-tutorial.md)를 참조하세요.
 
 
 ##원격 데스크톱에 대한 끝점 만들기
@@ -67,7 +67,7 @@ Ubuntu의 경우 다음을 사용합니다.
 
 OpenSUSE의 경우 다음을 사용합니다.
 
-> [AZURE.NOTE]아래 명령을 통해 OpenSUSE 버전을 사용 중인 버전으로 업데이트합니다. 아래는 `OpenSUSE 13.2`에 대한 예제 명령입니다.
+> [AZURE.NOTE] 아래 명령을 통해 OpenSUSE 버전을 사용 중인 버전으로 업데이트합니다. 아래는 `OpenSUSE 13.2`에 대한 예제 명령입니다.
 
 	#sudo zypper in http://download.opensuse.org/repositories/X11:/RemoteDesktop/openSUSE_13.2/x86_64/xrdp-0.9.0git.1401423964-2.1.x86_64.rpm
     #sudo zypper install tigervnc xorg-x11-Xvnc xterm remmina-plugin-vnc
@@ -116,4 +116,4 @@ Linux VM의 `user` 및 `password`를 사용하여 로그인한 다음 Microsoft 
 ##다음
 xrdp를 사용하는 방법에 대한 자세한 내용은 [여기](http://www.xrdp.org/)를 참조할 수 있습니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

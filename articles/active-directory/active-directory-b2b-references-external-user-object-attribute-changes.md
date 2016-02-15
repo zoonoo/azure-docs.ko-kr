@@ -13,10 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="10/27/2015"
+   ms.date="02/03/2016"
    ms.author="viviali"/>
 
-# Azure Active Directory(Azure AD) B2B 공동 작업 미리 보기에 대한 외부 사용자 개체 특성 변경
+# Azure AD B2B 공동 작업 미리 보기: 외부 사용자 개체 특성 변경
+
 Azure AD 디렉터리의 각 사용자는 사용자 개체로 표시됩니다. Azure AD의 사용자 개체는 B2B 공동 작업 초대-사용 흐름의 여러 단계에서 특성이 변경됩니다. 디렉터리의 파트너 사용자를 나타내는 사용자 개체에는 파트너 사용자가 초대 전자 메일의 링크를 클릭하면 사용 시간을 변경하는 특성이 있습니다. 구체적으로 살펴보면 다음과 같습니다.
 
 - **SignInName** 및 **AltSecId** 특성이 채워집니다.
@@ -34,4 +35,4 @@ Azure B2B 공동 작업에 대한 다른 기사 찾아보기:
 - [외부 사용자 토큰 형식](active-directory-b2b-references-external-user-token-format.md)
 - [현재 미리 보기 제한 사항](active-directory-b2b-current-preview-limitations.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0204_2016-->

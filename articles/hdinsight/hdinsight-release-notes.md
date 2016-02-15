@@ -14,11 +14,30 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="01/27/2016"
 	ms.author="nitinme"/>
 
 
 # Azure HDInsight에서 Hadoop 구성 요소에 대한 릴리스 정보
+
+## HDInsight의 2016/01/27 릴리스 정보
+
+이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
+
+* HDInsight(Windows) 2.1.10.817.2028315(HDP 1.3.12.0-01795 - 변경되지 않음)
+* HDInsight(Windows) 3.0.6.817.2028315(HDP 2.0.13.0-2117 - 변경되지 않음)
+* HDInsight(Windows) 3.1.4.817.2028315(HDP 2.1.15.0-2374 - 변경되지 않음)
+* HDInsight(Windows) 3.2.7.817.2028315(HDP 2.2.9.1-1)
+* HDInsight(Windows) 3.3.0.817.2028315(HDP 2.3.3.1-5 - 변경되지 않음)
+* HDInsight(Linux) 3.2.1000.4072335(HDP 2.2.9.1-1)
+* HDInsight(Linux) 3.3.1000.4072335(HDP 2.3.3.1-1)
+* SDK 1.5.8
+
+이 릴리스에는 다음 업데이트가 포함되어 있습니다.
+
+| 제목 | 설명 | 영향을 받는 영역(예: 서비스, 구성 요소 또는 SDK) | 클러스터 유형(예: Hadoop, HBase 또는 Storm) | JIRA(적용 가능한 경우) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| 모든 HDInsight 클러스터에 대해 HDInsight 버전 업데이트됨 | 이 릴리스에서는 모든 HDInsight 클러스터에 대해 HDInsight 버전을 업데이트함| 부여 | 모두| 해당 없음
 
 ## HDInsight의 2015/12/02 릴리스 정보
 
@@ -1422,4 +1441,4 @@ HDInsight 버전 클러스터에 사용되는 HDP(Hortonworks Data Platform)에 
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

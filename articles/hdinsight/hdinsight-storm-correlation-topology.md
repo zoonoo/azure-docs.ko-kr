@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="12/04/2015"
+ ms.date="02/01/2016"
  ms.author="larryfr"/>
 
 # HDInsight에서 Storm 및 HBase를 사용하여 시간 별로 이벤트의 상관 관계 지정
@@ -59,7 +59,7 @@ Apache Storm으로 영구적인 데이터 저장소를 사용하여 다른 시�
 
 세션이 시작되면 **START** 이벤트가 토폴로지에서 수신되고 HBase에 로그됩니다. **END** 이벤트가 수신되면 토폴로지가 **START** 이벤트를 검색하며 두 이벤트 사이에서 시간을 계산합니다. 그 다음 이 **기간** 값이 **END** 이벤트 정보와 함께 HBase에 저장됩니다.
 
-> [AZURE.IMPORTANT]이 토폴로지는 기본 패턴을 보여주며 프로덕션 솔루션은 다음과 같은 시나리오에 대한 디자인을 가져와야 합니다.
+> [AZURE.IMPORTANT] 이 토폴로지는 기본 패턴을 보여주며 프로덕션 솔루션은 다음과 같은 시나리오에 대한 디자인을 가져와야 합니다.
 >
 > - 이벤트가 잘못된 순서로 도착
 > - 중복된 이벤트
@@ -93,11 +93,11 @@ HBase에서 데이터가 다음 스키마/설정을 사용 하여 테이블에 �
 
 -	버전: 'cf' 제품군은 각 행의 5가지 버전을 유지하도록 설정됩니다.
 
-	> [AZURE.NOTE]버전은 특정 행의 키에 대해 저장된 이전 값의 로그입니다. 기본적으로 HBase는 행의 가장 최근 버전에 대한 값만 반환합니다. 이 경우 같은 행은 모든 이벤트(START, END)에 대해 사용됩니다. 행의 각 버전은 타임 스탬프 값에 의해 식별됩니다. 이렇게 하면 특정 ID에 대해 기록된 이벤트의 기록 보기가 제공됩니다.
+	> [AZURE.NOTE] 버전은 특정 행의 키에 대해 저장된 이전 값의 로그입니다. 기본적으로 HBase는 행의 가장 최근 버전에 대한 값만 반환합니다. 이 경우 같은 행은 모든 이벤트(START, END)에 대해 사용됩니다. 행의 각 버전은 타임 스탬프 값에 의해 식별됩니다. 이렇게 하면 특정 ID에 대해 기록된 이벤트의 기록 보기가 제공됩니다.
 
 ## 프로젝트를 다운로드합니다.
 
-샘플 프로젝트는 [hdinsight-storm-eventcorrelation](https://github.com/Blackmist/hdinsight-storm-eventcorrelation)으로부터 다운로드할 수 있습니다.
+샘플 프로젝트는 [https://github.com/Azure-Samples/hdinsight-storm-dotnet-event-correlation](https://github.com/Azure-Samples/hdinsight-storm-dotnet-event-correlation)에서 다운로드할 수 있습니다.
 
 이 다운로드에는 다음 C# 프로젝트가 포함됩니다.
 
@@ -147,7 +147,7 @@ HBase에서 데이터가 다음 스키마/설정을 사용 하여 테이블에 �
 
 	- 	HBaseTableColumnFamily: 열 제품군 이름. 여기에는 SessionInfo 프로젝트에 사용되는 것과 동일한 열 제품군 이름이 포함되어야 합니다.
 
-	> [AZURE.IMPORTANT]기본값이 **SessionInfo**에서 데이터 검색에 사용되는 이름이므로 HBaseTableColumnNames를 변경하지 마십시오.
+	> [AZURE.IMPORTANT] 기본값이 **SessionInfo**에서 데이터 검색에 사용되는 이름이므로 HBaseTableColumnNames를 변경하지 마십시오.
 
 4.  속성을 저장한 다음 프로젝트를 빌드합니다.
 
@@ -157,7 +157,7 @@ HBase에서 데이터가 다음 스키마/설정을 사용 하여 테이블에 �
 
 6.	**토폴로지 제출** 대화 상자에서 이 토폴로지를 실행할 Storm 클러스터를 선택합니다.
 
-	> [AZURE.NOTE]처음으로 토폴로지를 제출하면 HDInsight 클러스터의 이름을 검색하는 데 몇 초가 걸릴 수도 있습니다.
+	> [AZURE.NOTE] 처음으로 토폴로지를 제출하면 HDInsight 클러스터의 이름을 검색하는 데 몇 초가 걸릴 수도 있습니다.
 
 7.	토폴로지가 업로드되고 클러스터에 제출되면 **Storm 토폴로지 보기**가 실행 중인 토폴로지를 열고 표시합니다. **CorrelationTopology**를 선택하고 페이지의 상단 오른쪽에 있는 새로 고침 단추를 사용하여 토폴로지 정보를 새로 고칩니다.
 
@@ -165,7 +165,7 @@ HBase에서 데이터가 다음 스키마/설정을 사용 하여 테이블에 �
 
 	토폴로지가 데이터의 생성을 시작하면 **내보낸** 열의 값이 증가합니다.
 
-	> [AZURE.NOTE]**Storm 토폴로지 보기**가 자동으로 열리지 않으면 다음 단계를 이용하여 여십시오.
+	> [AZURE.NOTE] **Storm 토폴로지 보기**가 자동으로 열리지 않으면 다음 단계를 이용하여 여십시오.
 	>
 	> 1. **솔루션 탐색기**에서 **Azure**를 확장하고 **HDInsight**를 확장합니다.
 	>
@@ -189,7 +189,7 @@ END 이벤트의 검색은 START 이벤트의 검색과 동일하게 동작합�
 
 	Session fc9fa8e6-6892-4073-93b3-a587040d892e lasted 2 minutes, and ended at 6/5/2015 6:12:15 PM
 
-> [AZURE.NOTE]입력한 시간 값은 현지 시간이지만 쿼리로부터 반환된 시간은 UTC입니다.
+> [AZURE.NOTE] 입력한 시간 값은 현지 시간이지만 쿼리로부터 반환된 시간은 UTC입니다.
 
 ##토폴로지 중지
 
@@ -200,4 +200,4 @@ END 이벤트의 검색은 START 이벤트의 검색과 동일하게 동작합�
 더 많은 Storm 예제는 [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)를 참조하십시오.
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

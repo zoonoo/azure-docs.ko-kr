@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/02/2015"
+   ms.date="02/03/2016"
    ms.author="bwren;sngun" />
 
 # Azure 자동화 데이터 관리
@@ -84,4 +84,4 @@ Azure 자동화 계정의 표준인 지역에서 복제는 중복성을 위해 �
 
 주 지역 데이터가 손실되는 예기치 않은 이벤트가 발생한 경우 Microsoft는 복구를 시도합니다. 기본 데이터를을 복원할 수 없는 경우 지역 장애 조치(failover)가 수행되고 영향을 받는 고객은 해당 구독을 통해 이에 대한 알림을 받게 됩니다.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0204_2016-->

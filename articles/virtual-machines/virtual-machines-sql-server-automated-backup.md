@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="11/12/2015"
+	ms.date="02/03/2016"
 	ms.author="jroth" />
 
 # Azure 가상 컴퓨터에서 SQL Server의 자동화된 백업
@@ -114,4 +114,4 @@ Azure에서 SQL Server VM 관련 기능은 [Azure 가상 컴퓨터의 SQL Server
 
 그 밖에 [Azure 가상 컴퓨터에서 SQL Server 실행과 관련된 리소스](virtual-machines-sql-server-infrastructure-services.md)를 검토합니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

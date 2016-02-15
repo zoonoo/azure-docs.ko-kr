@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/02/2015"
+   ms.date="01/29/2016"
    ms.author="alkohli" />
 
 # StorSimple 관리자 서비스를 사용하여 StorSimple 장치를 모니터링합니다. 
@@ -45,6 +45,7 @@ StorSimple 관리자 서비스를 사용하여 StorSimple 솔루션 내에서 �
 
 **용량 사용률**은 볼륨, 볼륨 컨테이너 또는 장치에서 사용되는 데이터 저장소 공간의 양과 관련된 메트릭을 추적합니다. 기본 저장소, 클라우드 저장소 또는 장치 저장소 용량 사용률을 기반으로 보고서를 만들 수 있습니다. 용량 사용률은 특정 볼륨, 특정 볼륨 컨테이너 또는 모든 볼륨 컨테이너에 대해 측정될 수 있습니다.
 
+
 기본, 클라우드 및 장치 저장소 용량은 다음과 같이 설명할 수 있습니다.
 
 ###기본 저장소 용량 사용률
@@ -74,6 +75,10 @@ StorSimple 관리자 서비스를 사용하여 StorSimple 솔루션 내에서 �
 ![클라우드 스냅숏 전 기본 용량 사용률](./media/storsimple-monitor-device/StorSimple_PrimaryCapacityUtil_For_AllVolumes2M.png)
 
 ![클라우드 스냅숏 후 기본 용량 사용률](./media/storsimple-monitor-device/StorSimple_PrimaryCapacityUtil_For_AllVolumes1M.png)
+
+업데이트 2 이상 실행하는 경우 아래 나와 있는 것처럼 개별 볼륨, 모든 볼륨, 모든 계층화된 볼륨 및 모든 로컬 볼륨으로 기본 저장소 용량 사용률을 구분할 수 있습니다. 모든 로컬 볼륨별로 분석하면 로컬 계층이 얼마나 사용되는지 빠르게 확인할 수 있습니다.
+
+![모든 로컬 볼륨에 대한 기본 용량 사용률](./media/storsimple-monitor-device/localvolumes.png)
 
 
 ###클라우드 저장소 용량 사용률
@@ -121,4 +126,4 @@ SSD 선형 계층을 포함하므로 기본 저장소 사용률 이상인 장치
 
 - [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

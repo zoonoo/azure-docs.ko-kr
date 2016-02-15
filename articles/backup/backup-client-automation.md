@@ -10,17 +10,21 @@
 <tags 
 	ms.service="backup" 
 	ms.workload="storage-backup-recovery" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
 	ms.topic="article" 
 	ms.date="01/22/2016" 
 	ms.author="markgal"; "aashishr"; "jimpark"/>
 
 
 # PowerShell을 사용하여 Windows Server/Windows Client용 Azure 백업 배포 및 관리
+
 이 문서에서는 Windows Server 또는 Windows Client에서 Azure 백업을 설정하고 백업과 복원을 관리하기 위해 PowerShell을 사용하는 방법을 보여 줍니다.
 
 ## Azure PowerShell 설치
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+
 Azure PowerShell 1.0이 2015년 10월에 출시되었습니다. 이 릴리스는 0.9.8 릴리스를 성공했으며 특히 cmdlet의 이름 지정 패턴에서 중요한 변경 내용이 이루어졌습니다. 1.0 cmdlet는 명명 패턴{verb}-AzureRm{noun}을 따릅니다. 반면 0.9.8 이름은 **Rm**을 포함하지 않습니다(예를 들어 New-AzureResourceGroup 대신 New-AzureRmResourceGroup) Azure PowerShell 0.9.8을 사용하는 경우 먼저 **Switch-AzureMode AzureResourceManager** 명령을 실행하여 리소스 관리자 모드를 사용하도록 설정해야 합니다. 이 명령은 1.0 이상에서는 필요하지 않습니다.
 
 1\.0 이상 환경에서 0.9.8 환경을 위해 작성된 스크립트를 사용하려면 예기치 않은 영향을 방지하는 프로덕션에서 사용하기 전에 사전 프로덕션 환경에서 스크립트를 신중하게 테스트해야 합니다.
@@ -72,15 +76,15 @@ PS C:\> MARSAgentInstaller.exe /?
 
 | 옵션 | 세부 정보 | 기본값 |
 | ---- | ----- | ----- |
-| /q | 무인 설치 | - |
-| /p:"location" | Azure 백업 에이전트에 대한 설치 폴더 경로. | C:\Program Files\Microsoft Azure Recovery Services Agent |
-| /s:"location" | Azure 백업 에이전트에 대한 캐시 폴더 경로. | C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
+| /q | 무인 설치 | - | 
+| /p:"location" | Azure 백업 에이전트에 대한 설치 폴더 경로. | C:\Program Files\Microsoft Azure Recovery Services Agent | 
+| /s:"location" | Azure 백업 에이전트에 대한 캐시 폴더 경로. | C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch | 
 | /m | Opt-in to Microsoft Update | - |
-| /nu | 설치 완료 후 업데이트 확인 안 함 | - |
-| /d | Microsoft Azure 복구 서비스 에이전트 제거 | - |
-| /ph | 프록시 호스트 주소 | - |
-| /po | 프록시 호스트 포트 번호 | - |
-| /pu | 프록시 호스트 사용자 이름 | - |
+| /nu | 설치 완료 후 업데이트 확인 안 함 | - | 
+| /d | Microsoft Azure 복구 서비스 에이전트 제거 | - | 
+| /ph | 프록시 호스트 주소 | - | 
+| /po | 프록시 호스트 포트 번호 | - | 
+| /pu | 프록시 호스트 사용자 이름 | - | 
 | /pw | 프록시 암호 | - |
 
 
@@ -591,4 +595,4 @@ Windows Server/Client용 Azure 백업에 대한 자세한 정보는 다음을 �
 - [Azure 백업 소개](backup-configure-vault.md)
 - [Windows 서버 백업](backup-azure-backup-windows-server.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

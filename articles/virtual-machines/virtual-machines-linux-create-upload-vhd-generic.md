@@ -22,14 +22,14 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 
-**중요**: [보증 배포판](virtual-machines-../linux-endorsed-distributions.md) 중 하나를 사용하는 경우에만 Linux OS를 실행하는 가상 컴퓨터에 Azure 플랫폼 SLA가 적용됩니다. Azure 이미지 갤러리에 제공된 모든 Linux 배포는 필요한 구성이 포함된 보증 배포판입니다.
+**중요**: [보증 배포판](virtual-machines-linux-endorsed-distributions.md) 중 하나를 사용하는 경우에만 Linux OS를 실행하는 가상 컴퓨터에 Azure 플랫폼 SLA가 적용됩니다. Azure 이미지 갤러리에 제공된 모든 Linux 배포는 필요한 구성이 포함된 보증 배포판입니다.
 
-- [Azure의 Linux - 보증 배포판](virtual-machines-../linux-endorsed-distributions.md)
+- [Azure의 Linux - 보증 배포판](virtual-machines-linux-endorsed-distributions.md)
 - [Microsoft Azure의 Linux 이미지 지원](http://support2.microsoft.com/kb/2941892)
 
 Azure에서 실행되는 모든 배포가 플랫폼에서 올바르게 실행되려면 여러 가지 필수 구성 요소가 충족되어야 합니다. 모든 배포는 서로 다르므로 이 문서에는 모든 필수 구성 요소가 포함되어 있지는 않습니다. 아래 기준이 모두 충족되어도 플랫폼에서 올바르게 실행되도록 하려면 여전히 Linux 시스템을 상당히 조정해야 할 수 있습니다.
 
-따라서 가능한 경우 [Azure 보증 배포판의 Linux](../linux-endorsed-distributions.md) 중 하나를 사용하여 시작하는 것이 좋습니다. 다음 문서에서는 Azure에서 지원되는 다양한 Linux 보증 배포판을 준비하는 방법을 안내합니다.
+따라서 가능한 경우 [Azure 보증 배포판의 Linux](virtual-machines-linux-endorsed-distributions.md) 중 하나를 사용하여 시작하는 것이 좋습니다. 다음 문서에서는 Azure에서 지원되는 다양한 Linux 보증 배포판을 준비하는 방법을 안내합니다.
 
 - **[CentOS 기반 배포판](virtual-machines-linux-create-upload-vhd-centos.md)**
 - **[Debian Linux](virtual-machines-linux-create-upload-vhd-debian.md)**
@@ -109,7 +109,7 @@ Azure의 VHD 이미지는 가상 크기가 1MB 단위로 조정되어야 합니�
 
 ## Linux 커널 요구 사항 ##
 
-Hyper-V 및 Azure용 LIS(Linux 통합 서비스) 드라이버는 업스트림 Linux 커널로 직접 제공됩니다. 최신 Linux 커널 버전(예: 3.x)을 포함하는 대부분의 배포에서는 이러한 드라이버가 이미 제공되거나 이러한 드라이버의 백 포트 버전이 커널과 함께 제공됩니다. 이러한 드라이버는 업스트림 커널에서 새로운 수정 사항과 기능이 적용되어 지속적으로 업데이트되므로 가능하면 이러한 수정 사항과 업데이트를 포함하는 [보증 배포판](../linux-endorsed-distributions.md)을 실행하는 것이 좋습니다.
+Hyper-V 및 Azure용 LIS(Linux 통합 서비스) 드라이버는 업스트림 Linux 커널로 직접 제공됩니다. 최신 Linux 커널 버전(예: 3.x)을 포함하는 대부분의 배포에서는 이러한 드라이버가 이미 제공되거나 이러한 드라이버의 백 포트 버전이 커널과 함께 제공됩니다. 이러한 드라이버는 업스트림 커널에서 새로운 수정 사항과 기능이 적용되어 지속적으로 업데이트되므로 가능하면 이러한 수정 사항과 업데이트를 포함하는 [보증 배포판](virtual-machines-linux-endorsed-distributions.md)을 실행하는 것이 좋습니다.
 
 Red Hat Enterprise Linux 버전 **6.0-6.3**의 변형을 실행하는 경우에는 Hyper-V용 최신 LIS 드라이버를 설치해야 합니다. 드라이버는 [이 위치](http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409)에 있습니다. RHEL **6.4 이상** 및 파생 버전에서는 LIS 드라이버가 커널에 이미 포함되어 있으므로 Azure에서 해당 시스템을 실행하기 위해 추가 설치 패키지가 필요하지 않습니다.
 
@@ -195,4 +195,4 @@ Azure에서 Linux 가상 컴퓨터를 올바르게 프로비전하려면 [Azure 
 
 - 그런 다음 가상 컴퓨터를 종료하고 VHD를 Azure에 업로드해야 합니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

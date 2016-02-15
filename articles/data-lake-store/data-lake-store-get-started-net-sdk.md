@@ -67,7 +67,7 @@ Azure 데이터 레이크 저장소 .NET SDK를 사용하여 Azure 데이터 레
 
 	4. **NuGet 패키지 관리자**를 닫습니다.
 
-7. **Program.cs**를 열고 기존 코드 블록을 다음 코드로 바꿉니다. 또한 코드 조각에서 매개 변수에 대한 값을 제공합니다.
+7. **Program.cs**를 열고 기존 코드 블록을 다음 코드로 바꿉니다. 또한 코드 조각에서 subscriptionId, dataLakeAccountName 및 localPath 같은 매개변수에 대한 값을 제공합니다.
 
 	이 코드는 데이터 레이크 저장소 만들기, 저장소에서 폴더 만들기, 파일 업로드, 파일 다운로드, 마지막으로 계정을 삭제하는 프로세스를 진행합니다. 업로드할 일부 샘플 데이터를 찾는 경우 [Azure 데이터 레이크 Git 리포지토리](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData)의 **Ambulance Data** 폴더에 있을 수 있습니다.
 	
@@ -101,6 +101,10 @@ Azure 데이터 레이크 저장소 .NET SDK를 사용하여 Azure 데이터 레
 		            var subscriptionId = new Guid("<subscription_ID>");
 		            var _credentials = GetAccessToken();
 		            string dataLakeAccountName = "<data_lake_store_name>";
+		            string localPath = @"C:\local_path\file.txt"; //Change this
+		            string remoteFolder = "/data_lake_path/";
+		            string remotePath = remoteFolder + "file.txt";
+		            
 		            string location = "East US 2";
 		
 		            _credentials = GetCloudCredentials(_credentials, subscriptionId);
@@ -121,22 +125,22 @@ Azure 데이터 레이크 저장소 .NET SDK를 사용하여 Azure 데이터 레
 		            Console.WriteLine("Account created. Press ENTER to continue...");
 		            Console.ReadLine();
 		
-		            // Create a directory called MYTEMPDIR in the store
+		            // Create a directory in the store
 		            Console.WriteLine("Creating a directory under the Azure Data Lake Store account");
-		            CreateDir(_dataLakeStoreFileSystemClient, "/mytempdir", dataLakeAccountName, "777");
+		            CreateDir(_dataLakeStoreFileSystemClient, dataLakeAccountName, remoteFolder, "777");
 		            Console.WriteLine("Directory created. Press ENTER to continue...");
 		            Console.ReadLine();
 		
-		            // Upload a file under MYTEMPDIR
+		            // Upload a file under the new folder
 		            Console.WriteLine("Uploading a file to the Azure Data Lake Store account");
 		            bool force = false; //Set this to true if you want to overwrite existing data
-		            UploadFile(_dataLakeStoreFileSystemClient, dataLakeAccountName, "C:\\users\\nitinme\\desktop\\vehicle1_09142014.csv", "/mytempdir/vehicle1_09142014.csv", force);
+		            UploadFile(_dataLakeStoreFileSystemClient, dataLakeAccountName, localPath, remotePath, force);
 		            Console.WriteLine("File uploaded. Press ENTER to continue...");
 		            Console.ReadLine();
 		
 		            // List the files in the Data Lake Store
 		            Console.WriteLine("Listing all files in the Azure Data Lake Store account");
-		            var fileList = ListItems(_dataLakeStoreFileSystemClient, dataLakeAccountName, "/mytempdir");
+		            var fileList = ListItems(_dataLakeStoreFileSystemClient, dataLakeAccountName, remoteFolder);
 		            var fileMenuItems = fileList.Select(a => String.Format("{0,15} {1}", a.Type, a.PathSuffix)).ToList();
 		            foreach (var filename in fileMenuItems)
 		            {
@@ -148,7 +152,7 @@ Azure 데이터 레이크 저장소 .NET SDK를 사용하여 Azure 데이터 레
 		
 		            // Download the files from the Data Lake Store
 		            Console.WriteLine("Downloading files from an Azure Data Lake Store account");
-		            DownloadFile(_dataLakeStoreFileSystemClient, dataLakeAccountName, "/mytempdir/vehicle1_09142014.csv", "C:\\users\\nitinme\\desktop\\vehicle1_09142014_copy.csv", force);
+		            DownloadFile(_dataLakeStoreFileSystemClient, dataLakeAccountName, remotePath, localPath, force);
 		            Console.WriteLine("Files downloaded. Press ENTER to continue...");
 		            Console.ReadLine();
 		
@@ -184,9 +188,9 @@ Azure 데이터 레이크 저장소 .NET SDK를 사용하여 Azure 데이터 레
 		            return true;
 		        }
 		
-		        public static bool UploadFile(DataLakeStoreFileSystemManagementClient dataLakeStoreFileSystemClient, string dlAccountName, string srcPath, string destPath, bool force = false)
+		        public static bool UploadFile(DataLakeStoreFileSystemManagementClient dataLakeStoreFileSystemClient, string dlAccountName, string srcPath, string destPath, bool force = true)
 		        {
-		            var parameters = new UploadParameters(srcPath, destPath, dlAccountName, isOverwrite: true);
+		            var parameters = new UploadParameters(srcPath, destPath, dlAccountName, isOverwrite: force);
 		            var frontend = new DataLakeStoreFrontEndAdapter(dlAccountName, dataLakeStoreFileSystemClient);
 		            var uploader = new DataLakeStoreUploader(parameters, frontend);
 		            uploader.Execute();
@@ -195,9 +199,9 @@ Azure 데이터 레이크 저장소 .NET SDK를 사용하여 Azure 데이터 레
 		        
 		        public static bool AppendToFile(DataLakeStoreFileSystemManagementClient dataLakeStoreFileSystemClient, string dlAccountName, string path, string content)
 		        {
-		            var stream = new MemoryStream(Encoding.UTF8.GetBytes(content));
+		            var stream = new MemoryStream(System.Text.Encoding.UTF8.GetBytes(content));
 		            
-		            dataLakeStoreFileSystemClient.FileSystem.DirectAppend(filePath, accountName, stream);
+		            dataLakeStoreFileSystemClient.FileSystem.DirectAppend(path, dlAccountName, stream, null);
 		            return true;
 		        }
 		
@@ -235,4 +239,4 @@ Azure 데이터 레이크 저장소 .NET SDK를 사용하여 Azure 데이터 레
 - [Azure 데이터 레이크 분석에 데이터 레이크 저장소 사용](data-lake-analytics-get-started-portal.md)
 - [Azure HDInsight에 데이터 레이크 저장소 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

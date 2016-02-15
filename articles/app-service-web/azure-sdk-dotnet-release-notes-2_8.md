@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="01/19/2016"
+   ms.date="01/31/2016"
    ms.author="juliako"/>
 
 # Azure SDK for .NET 2.8, 2.8.1, 2.8.2
@@ -91,6 +91,8 @@ SDK 2.8을 사용하려면 Azure PowerShell cmdlet 버전 1.0이 필요합니다
 - Internet Explorer를 설치하지 않고 Windows 10을 사용하는 경우 "Internet Explorer를 찾을 수 없습니다"라는 오류가 발생할 수 있습니다. 이 문제를 해결하려면 Windows 구성 요소 추가/제거 대화 상자를 사용하여 Internet Explorer를 설치합니다.
 
 이러한 문제를 확인하면 웃는 얼굴 보내기 기능을 사용하여 보고합니다.
+
+자세한 내용은 [이 게시물](https://azure.microsoft.com/blog/announcing-azure-sdk-2-8-2-for-net/)을 참조하세요.
 ##다른 업데이트
 
 다른 업데이트는 [Azure SDK 2.8 발표 게시물](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/)을 참조하세요.
@@ -101,4 +103,4 @@ SDK 2.8을 사용하려면 Azure PowerShell cmdlet 버전 1.0이 필요합니다
 
 [.NET 및 API용 Azure SDK에 대한 지원 및 사용 중지 정보](https://msdn.microsoft.com/library/azure/dn479282.aspx)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

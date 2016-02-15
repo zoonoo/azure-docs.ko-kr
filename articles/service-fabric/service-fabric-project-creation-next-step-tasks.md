@@ -78,12 +78,12 @@ Visual Studio에서 Azure 클러스터로 직접 응용 프로그램을 게시�
 
 
 <!-- Links -->
-[add-web-frontend]: ./service-fabric-add-a-web-frontend.md
-[create-cluster-in-portal]: ./service-fabric-cluster-creation-via-portal.md
-[publish-app-to-azure]: ./service-fabric-publish-app-remote-cluster.md
-[visualize-with-sfx]: ./service-fabric-visualizing-your-cluster.md
-[ci-with-vso]: ./service-fabric-set-up-continuous-integration.md
-[reliable-services-webapi]: ./service-fabric-reliable-services-communication-webapi.md
-[app-upgrade-tutorial]: ./service-fabric-application-upgrade-tutorial.md
+[add-web-frontend]: service-fabric-add-a-web-frontend.md
+[create-cluster-in-portal]: service-fabric-cluster-creation-via-portal.md
+[publish-app-to-azure]: service-fabric-publish-app-remote-cluster.md
+[visualize-with-sfx]: service-fabric-visualizing-your-cluster.md
+[ci-with-vso]: service-fabric-set-up-continuous-integration.md
+[reliable-services-webapi]: service-fabric-reliable-services-communication-webapi.md
+[app-upgrade-tutorial]: service-fabric-application-upgrade-tutorial.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="01/28/2016" 
 	ms.author="josephd"/>
 
 # 테스트용 하이브리드 클라우드 환경 설정
@@ -291,20 +291,6 @@ TestVNET 가상 네트워크에는 고유한 DNS 서버(DC2)가 있으므로 이
  
 이제 하이브리드 클라우드 환경을 테스트할 준비가 완료되었습니다.
 
-## 추가 리소스
-
-[테스트용 하이브리드 클라우드에 SharePoint 인트라넷 팜 설치](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
-
-[테스트를 위한 하이브리드 클라우드에서 웹 기반 LOB 응용 프로그램 설정](virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
-
-[테스트를 위한 하이브리드 클라우드에서 Office 365 디렉터리 동기화(DirSync) 설정](virtual-networks-setup-dirsync-hybrid-cloud-testing.md)
-
-[테스트를 위한 시뮬레이션된 하이브리드 클라우드 환경 설정](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
-
-[Azure 하이브리드 클라우드 테스트 환경](../virtual-machines/virtual-machines-hybrid-cloud-test-environments.md)
-
-[Azure 인프라 서비스 구현 지침](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
-
 ## 이 환경의 지속적인 비용 최소화
 
 이 환경에서 가상 컴퓨터를 실행하는 데 드는 비용을 최소화하려면 가능한 신속하게 필요한 테스트 및 데모를 수행한 다음 가상 컴퓨터를 삭제하거나, 사용하지 않을 때 가상 컴퓨터를 종료합니다. 예를 들어 Azure 자동화 및 Runbook을 사용하여 업무 시간이 끝날 때마다 Test\_VNET 가상 네트워크의 가상 컴퓨터를 자동으로 종료할 수 있습니다. 자세한 내용은 [Azure 자동화 시작](../automation-create-runbook-from-samples.md)을 참조하세요.
@@ -328,5 +314,8 @@ Azure VPN 게이트웨이는 지속적인 비용이 발생하는 두 개의 Azur
 
 그런 다음 로컬 컴퓨터에서 Azure 관리 포털로 이동하여 TestVNET 가상 네트워크의 상태가 연결됨으로 표시될 때까지 기다립니다.
  
+## 다음 단계
 
-<!---HONumber=AcomDC_0128_2016-->
+- 이 환경에서 [SharePoint 인트라넷 팜](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md), [웹 기반 LOB 응용 프로그램](virtual-networks-setup-lobapp-hybrid-cloud-testing.md) 또는 [Office 365 디렉터리 동기화(DirSync) 서버](virtual-networks-setup-dirsync-hybrid-cloud-testing.md)를 설정합니다.
+
+<!---HONumber=AcomDC_0204_2016-->

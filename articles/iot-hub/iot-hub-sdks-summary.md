@@ -74,9 +74,9 @@ Microsoft Azure IoT 서비스 SDK에는 장치와 보안을 관리하기 위해 
 [IoT(사물 인터넷) .NET]: https://msdn.microsoft.com/library/mt488521.aspx
 [C용 Microsoft Azure IoT 장치 SDK]: http://azure.github.io/azure-iot-sdks/c/api_reference/index.html
 [Java용 Microsoft Azure IoT 장치 SDK]: http://azure.github.io/azure-iot-sdks/java/device/api_reference/index.html
-[Node.js용 Microsoft Azure IoT 장치 SDK]: http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iot-device/1.0.0-preview.9/index.html
+[Node.js용 Microsoft Azure IoT 장치 SDK]: http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iot-device/1.0.0/index.html
 [IoT Hub REST]: https://msdn.microsoft.com/library/mt548492.aspx
 [Java용 Microsoft Azure IoT 서비스 SDK]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/index.html
-[Node.js용 Microsoft Azure IoT 서비스 SDK]: http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iothub/1.0.0-preview.9/index.html
+[Node.js용 Microsoft Azure IoT 서비스 SDK]: http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iothub/1.0.0/index.html
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

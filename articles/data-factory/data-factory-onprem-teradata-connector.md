@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/12/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Azure 데이터 팩터리를 사용하여 Teradata에서 데이터 이동
@@ -34,7 +34,9 @@ Teradata 데이터베이스에 연결할 데이터 관리 게이트웨이의 경
 
 ### 샘플: Teradata에서 Azure Blob로 데이터 복사
 
-아래 샘플은 다음을 보여줍니다.
+이 샘플은 Teradata 데이터베이스에서 Azure Blob 저장소로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure 데이터 팩터리의 복사 작업을 사용하여 [여기](data-factory-data-movement-activities.md#supported-data-stores)에 설명한 싱크로 **직접** 데이터를 복사할 수 있습니다.
+ 
+이 샘플에는 다음 데이터 팩터리 엔터티가 있습니다.
 
 1.	[OnPremisesTeradata](data-factory-onprem-teradata-connector.md#teradata-linked-service-properties) 형식의 연결된 서비스
 2.	[AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 형식의 연결된 서비스
@@ -261,7 +263,7 @@ tableName | 연결된 서비스가 참조하는 Teradata 데이터베이스 인�
 
 ## Teradata에 대한 형식 매핑
 
-[데이터 이동 활동](data-factory-data-movement-activities.md) 문서에서 설명한 것처럼 복사 작업은 다음 2단계 접근 방법을 사용하여 원본 형식에서 싱크 형식으로 자동 형식 변환을 수행합니다.
+[데이터 이동 활동](data-factory-data-movement-activities.md) 문서에서 설명한 대로 복사 작업은 다음 2단계 접근 방식을 사용하여 원본 형식에서 싱크 형식으로 자동 형식 변환을 수행합니다.
 
 1. 네이티브 원본 형식에서 .NET 형식으로 변환
 2. .NET 형식에서 네이티브 싱크 형식으로 변환
@@ -314,4 +316,4 @@ Xml | String
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->
