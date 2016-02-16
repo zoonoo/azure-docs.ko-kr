@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/26/2016"
+	ms.date="02/05/2016"
 	ms.author="tdykstra"/>
 
 # CORS를 사용하여 JavaScript에서 API 앱 사용
@@ -76,6 +76,8 @@
 		    ]
 		}
 
+CORS 구성을 위해 JSON을 포함하는 Azure 리소스 관리자 템플릿의 예를 보려면 [샘플 응용 프로그램 리포지토리에 있는 azuredeploy.json 파일](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json)을 엽니다.
+
 ## <a id="tutorialstart"></a> .NET 시작 자습서 계속
 
 API 앱에 Node.js 또는 Java 시작 시리즈를 수행 중인 경우 다음 글인 [앱 서비스 API 앱에 대한 인증](app-service-api-authentication.md)으로 건너뜁니다.
@@ -108,19 +110,6 @@ API 앱에 Node.js 또는 Java 시작 시리즈를 수행 중인 경우 다음 �
 		    };
 		}]);
 
-### ToDoListAngular 프로젝트를 구성하여 ToDoListAPI API 앱 호출 
-
-이때 코드가 이전 자습서에 만든 ToDoListAPI Azure API 앱을 호출하도록 프런트 엔드를 Azure에 배포하기 전에 AngularJS 프로젝트에서 API 끝점을 변경해야 합니다.
-
-1. ToDoListAngular 프로젝트에서 *app/scripts/todoListSvc.js* 파일을 엽니다.
-
-2. `apiEndpoint`을 localhost URL로 설정하는 줄을 주석 처리하고 `apiEndPoint`을 azurewebsites.net URL로 설정하는 줄의 주석을 제거한 후 자리 표시자를 이전에 만든 API 앱의 실제 이름으로 바꿉니다. API 앱 이름을 ToDoListAPI0125로 지정하면 코드가 다음 예제와 같이 표시됩니다.
-
-		var apiEndPoint = 'https://todolistapi0125.azurewebsites.net';
-		//var apiEndPoint = 'http://localhost:45914';
-
-3. 변경 내용을 저장합니다.
-
 ### ToDoListAngular 프로젝트에 새 웹앱 만들기
 
 새 웹앱을 만들고 프로젝트를 배포하는 절차는 **웹앱**에서 **API 앱**으로 형식을 변경하지 않는 점을 제외하고 이 시리즈의 첫 번째 자습서와 동일합니다.
@@ -145,11 +134,59 @@ API 앱에 Node.js 또는 Java 시작 시리즈를 수행 중인 경우 다음 �
 
 	Visual Studio에서 웹앱을 만들고, 해당 게시 프로필을 만든 다음, **웹 게시** 마법사의 **연결** 단계를 표시합니다.
 
+	**웹 게시** 마법사에서 **게시**를 클릭하기 전에 앱 서비스에서 실행되는 중간 계층 API 앱을 호출하고 새 웹앱을 구성합니다.
+
+### 웹앱 설정에서 중간 계층 URL 설정
+
+1. [Azure 포털](https://portal.azure.com/)로 이동한 다음, ToDoListAngular(프런트 엔드) 프로젝트를 호스트하기 위해 만든 웹앱용 **웹앱** 블레이드로 이동합니다.
+
+2. **설정 > 응용 프로그램 설정**을 클릭합니다.
+
+3. **앱 설정** 섹션에서 다음 키와 값을 추가합니다.
+
+	|키|값|예
+	|---|---|---|
+	|toDoListAPIURL|https://{your 중간 계층 API 앱 이름}.azurewebsites.net|https://todolistapi0121.azurewebsites.net|
+
+4. **Save**를 클릭합니다.
+
+	코드가 Azure에서 실행되면 이 값은 이제 Web.config 파일에 있는 localhost URL을 재정의합니다.
+
+	설정값을 가져오는 코드는 *index.cshtml*에 있습니다.
+
+		<script type="text/javascript">
+		    var apiEndpoint = "@System.Configuration.ConfigurationManager.AppSettings["toDoListAPIURL"]";
+		</script>
+		<script src="app/scripts/todoListSvc.js"></script>
+
+	*todoListSvc.js*의 코드는 설정을 사용합니다.
+
+		return {
+		    getItems : function(){
+		        return $http.get(apiEndpoint + '/api/TodoList');
+		    },
+		    getItem : function(id){
+		        return $http.get(apiEndpoint + '/api/TodoList/' + id);
+		    },
+		    postItem : function(item){
+		        return $http.post(apiEndpoint + '/api/TodoList', item);
+		    },
+		    putItem : function(item){
+		        return $http.put(apiEndpoint + '/api/TodoList/', item);
+		    },
+		    deleteItem : function(id){
+		        return $http({
+		            method: 'DELETE',
+		            url: apiEndpoint + '/api/TodoList/' + id
+		        });
+		    }
+		};
+
 ### 새 웹앱에 ToDoListAngular 웹 프로젝트 배포
 
-*  **웹 게시** 마법사의 **연결** 단계에서 **게시**를 클릭합니다.
+*  Visual Studio에서 **웹 게시** 마법사의 **연결** 단계에서 **게시**를 클릭합니다.
 
-	Visual Studio에서 ToDoListAngular 프로젝트를 웹앱에 배포하고 해당 웹앱의 URL로 브라우저를 엽니다.
+	Visual Studio에서 ToDoListAngular 프로젝트를 새로운 웹앱에 배포하고 해당 웹앱의 URL로 브라우저를 엽니다.
 
 ### CORS를 사용하지 않고 응용 프로그램 테스트 
 
@@ -200,7 +237,7 @@ Web API CORS 지원은 앱 서비스 CORS 지원보다 유연성이 뛰어납니
 
 ### Web API 코드에서 CORS를 설정하는 방법
 
-다음 단계는 Web API CORS 지원 설정에 대한 프로세스를 간략하게 설명합니다. 자세한 내용은 [ASP.NET Web API 2에서 크로스-원본 요청 사용](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api)을 참조하세요.
+다음 단계는 Web API CORS 지원 설정에 대한 프로세스를 간략하게 설명합니다. 자세한 내용은 [ASP.NET Web API 2에서 크로스-원본 리소스 요청 사용](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api)을 참조하세요.
 
 1. Web API 프로젝트에서 다음 예제와 같이 **WebApiConfig** 클래스의 **Register** 메서드에 `config.EnableCors()` 코드 줄을 포함합니다. 
 
@@ -238,4 +275,4 @@ Web API CORS 지원은 앱 서비스 CORS 지원보다 유연성이 뛰어납니
 
 이 자습서에서는 앱 서비스 CORS 지원을 사용하여 클라이언트 JavaScript 코드가 다른 도메인에서 API를 호출할 수 있는 방법을 살펴보았습니다. API 앱 시작 시리즈의 다음 문서에서는 [앱 서비스 API 앱에 대한 인증](app-service-api-authentication.md)에 대해 알아봅니다.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

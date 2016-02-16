@@ -4,7 +4,7 @@
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"/>
 
@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/16/2015"
+   ms.date="02/04/2016"
    ms.author="cherylmc"/>
 
 # PowerShell을 사용하여 Azure VPN 게이트웨이 재설정
@@ -36,7 +36,7 @@ Azure VPN 게이트웨이 재설정은 하나 이상의 S2S VPN 터널에서 크
 
 ## PowerShell을 사용하여 VPN 게이트웨이 재설정
 
-Azure VPN 게이트웨이를 재설정하기 위한 PowerShell cmdlet은 *Reset-AzureVNetGateway* 입니다. 각 Azure VPN 게이트웨이는 활성-대기 구성에서 실행 중인 두 VM 인스턴스로 구성됩니다. 명령이 실행되면 Azure VPN 게이트웨이의 현재 활성 인스턴스가 즉시 재부팅됩니다. 활성 인스턴스(재부팅)에서 대기 인스턴스로 장애 조치(Failover) 중에 잠깐의 간격이 있습니다. 이 간격은 1분 미만이어야 합니다.
+Azure VPN 게이트웨이를 재설정하기 위한 PowerShell cmdlet은 *Reset-AzureVNetGateway*입니다. 각 Azure VPN 게이트웨이는 활성-대기 구성에서 실행 중인 두 VM 인스턴스로 구성됩니다. 명령이 실행되면 Azure VPN 게이트웨이의 현재 활성 인스턴스가 즉시 재부팅됩니다. 활성 인스턴스(재부팅)에서 대기 인스턴스로 장애 조치(Failover) 중에 잠깐의 간격이 있습니다. 이 간격은 1분 미만이어야 합니다.
 
 다음 예제에서는 "ContosoVNet"이라는 가상 네트워크에 대한 Azure VPN 게이트웨이를 재설정합니다.
  
@@ -54,9 +54,8 @@ Azure VPN 게이트웨이를 재설정하기 위한 PowerShell cmdlet은 *Reset-
 
 두 번 재부팅한 후에 크로스-프레미스 연결 문제가 여전히 발생하는 경우 Azure 클래식 포털에서 지원 티켓을 열어 Microsoft Azure 지원에 문의하시기 바랍니다.
 
-
 ## 다음 단계
 	
 이 cmdlet에 대한 자세한 내용은 [PowerShell 참조](https://msdn.microsoft.com/library/azure/mt270366.aspx)를 참조하세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

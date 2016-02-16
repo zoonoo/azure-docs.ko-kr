@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-sencha"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
-	ms.date="11/06/2015"
+	ms.date="02/10/2016"
 	ms.author="glenga"/>
 
 # <a name="getting-started"> </a>모바일 서비스 및 Sencha Touch 시작
@@ -42,9 +42,9 @@
 
 ##요구 사항
 
-- [Sencha Touch](http://wwww.sencha.com/products/touch/download" target="\_blank") 를 다운로드하여 설치합니다.
+- [Sencha Touch]를 다운로드하여 설치합니다(http://wwww.sencha.com/products/touch/download" target="\_blank").
 
-- [Sencha Cmd Tool](http://www.sencha.com/products/sencha-cmd/download" target="\_blank") 을 다운로드하여 설치합니다.
+- [Sencha Cmd Tool]을 다운로드하여 설치합니다(http://www.sencha.com/products/sencha-cmd/download" target="\_blank").
 
 - JRE(Java Runtime Environment) 또는 Java Development Kit(Android 앱을 만드는 경우)
 - Ruby 및 SASS 보석
@@ -69,7 +69,7 @@
 
 3. **TodoItems 테이블 만들기**을 클릭하여 앱 데이터를 저장할 테이블을 만듭니다.
 
-	> [AZURE.NOTE]Azure 클래식 포털에서 HTML 앱을 다운로드하지 마세요. 대신, 아래 섹션에서 직접 Sencha Touch 응용 프로그램을 만듭니다.
+	> [AZURE.NOTE] Azure 클래식 포털에서 HTML 앱을 다운로드하지 마세요. 대신, 아래 섹션에서 직접 Sencha Touch 응용 프로그램을 만듭니다.
 
 
 1. Azure 클래식 포털에서 **appKey** 및 **appUrl**을 기록해 두십시오. 이 자습서의 다른 섹션에서 이 정보를 사용합니다.
@@ -724,4 +724,4 @@ Sencha Touch 시작에 대한 자세한 내용을 보려면 전체 [가이드](h
 
 [Azure 클래식 포털]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

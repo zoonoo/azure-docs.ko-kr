@@ -10,10 +10,10 @@
 <tags
 	ms.service="active-directory"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="01/21/2016"
+	ms.date="02/10/2016"
 	ms.author="kgremban"/>
 
 # Azure 역할 기반 액세스 제어
@@ -198,4 +198,4 @@ Azure 리소스 공급자의 작업을 나열하려면 `Get-AzureRmProviderOpera
 
 **범위에서 할당할 수 있는 사용자 지정 역할을 볼 수 있는 사람** -범위에서 `Microsoft.Authorization/roleDefinition/read` 작업을 수행할 수 있는 사용자는 해당 범위에서 할당 가능한 RBAC 역할을 볼 수 있습니다. Azure RBAC에서 모든 기본 제공 역할은 할당 가능한 역할을 볼 수 있습니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

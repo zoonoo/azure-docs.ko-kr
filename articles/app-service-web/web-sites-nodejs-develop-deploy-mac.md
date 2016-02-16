@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="hero-article"
-	ms.date="01/09/2016"
+	ms.date="02/04/2016"
 	ms.author="robmcm"/>
 
 # Azure 앱 서비스에서 Node.js 웹 앱 만들기
@@ -40,7 +40,7 @@
 더 복잡한 Node.js 응용 프로그램을 가진 자습서 및 샘플 코드 또는 Azure에서 Node.js를 사용하는 방법에 대한 다른 항목의 경우 [Node.js 개발자 센터](/develop/nodejs/)를 참조하세요.
 
 > [AZURE.NOTE]
-> 이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우 [Visual Studio 구독자 혜택을 활성화](/ko-KR/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)하거나 [무료 평가판을 등록](/ko-KR/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있습니다.
+이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우 [Visual Studio 구독자 혜택을 활성화](/ko-KR/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)하거나 [무료 평가판을 등록](/ko-KR/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있습니다.
 >
 > Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려는 경우 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동하세요. 여기서 신용 카드와 약정 없이 앱 서비스에서 수명이 짧은 스타터 웹앱을 즉시 만들 수 있습니다.
 
@@ -112,7 +112,7 @@
 
 이 섹션에서는 [nodejs.org]에서 'Hello World' 예제의 조금 변형된 버전이 포함된 **server.js** 파일을 만듭니다. 코드는 Azure 웹앱에서 실행되는 경우 수신할 포트로 process.env.PORT를 추가합니다.
 
-1. *helloworld* 라는 디렉터리를 만듭니다.
+1. *helloworld*라는 디렉터리를 만듭니다.
 
 2. 텍스트 편집기를 사용하여 *helloworld* 디렉터리에 **server.js**라는 새 파일을 만듭니다.
 
@@ -211,7 +211,7 @@ Node.js는 응용 프로그램에 사용될 수 있는 풍부한 모듈 에코�
 
 응용 프로그램을 Azure에 배포한 후 문제가 발생하는 경우 [Azure 앱 서비스에서 Node.js 응용 프로그램을 디버그하는 방법](web-sites-nodejs-debug.md)에서 문제를 진단하는 방법에 대한 정보를 참조하세요.
 
-이 문서에서는 Azure 포털을 사용하여 웹앱을 만듭니다. 또한 [Azure 명령줄 인터페이스](../xplat-cli-install.md) 또는 [Azure PowerShell](../install-configure-powershell.md)을 사용하여 동일한 작업을 수행할 수 있습니다.
+이 문서에서는 Azure 포털을 사용하여 웹앱을 만듭니다. 또한 [Azure 명령줄 인터페이스](../xplat-cli-install.md) 또는 [Azure PowerShell](../powershell-install-configure.md)을 사용하여 동일한 작업을 수행할 수 있습니다.
 
 Azure에서 Node.js 응용 프로그램을 개발하는 방법에 대한 자세한 내용은 [Node.js 개발자 센터](/develop/nodejs/)를 참조하세요.
 
@@ -225,4 +225,4 @@ Azure에서 Node.js 응용 프로그램을 개발하는 방법에 대한 자세�
 [deployment-credentials]: ./media/web-sites-nodejs-develop-deploy-mac/deployment-credentials.png
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -12,7 +12,7 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="01/26/2016"
 	ms.author="maheshu"/>
 
@@ -46,7 +46,7 @@
    - 목록은 Azure AD 디렉터리에 대해 '도메인' 탭에서 구성한 확인된 도메인 뿐만 아니라 확인되지 않은 도메인을 포함하여 구성된 도메인을 모두 포함합니다.
    - 또한 사용자 지정 도메인 이름을 이 목록에 직접 입력하여 추가할 수 있습니다.
 
-     >[AZURE.WARNING] 지정한 도메인 이름의 도메인 접두사(예: 'contoso.local' 도메인 이름에서 'contoso')는 15자 이내로 합니다. 15자 보다 긴 도메인 접두사로 Azure AD 도메인 서비스 도메인을 만들 수 없습니다.
+     > [AZURE.WARNING] 지정한 도메인 이름의 도메인 접두사(예: 'contoso.local' 도메인 이름에서 'contoso')는 15자 이내로 합니다. 15자 보다 긴 도메인 접두사로 Azure AD 도메인 서비스 도메인을 만들 수 없습니다.
 
 8. 다음 단계에서는 Azure AD 도메인 서비스를 사용할 수 있는 가상 네트워크를 선택합니다. **해당 가상 네트워크에 도메인 서비스 연결** 드롭다운에 방금 만든 가상 네트워크를 선택합니다.
    - 사용자가 지정한 가상 네트워크가 Azure AD 도메인 서비스에서 지원하는 Azure 지역에 속하도록 합니다.
@@ -73,4 +73,4 @@
 ---
 [**다음 단계 - Azure 가상 네트워크에 대한 DNS 설정을 업데이트합니다.**](active-directory-ds-getting-started-dns.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

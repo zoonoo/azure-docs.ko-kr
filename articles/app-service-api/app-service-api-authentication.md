@@ -110,10 +110,6 @@ Azure Active Directory를 사용한 인증에 대한 자세한 내용은 다음 
 
 ## 다음 단계
 
-이 문서에서는 API 앱에 사용할 수 있는 앱 서비스의 인증 및 권한 부여 기능을 설명했습니다.
+이 문서에서는 API 앱에 사용할 수 있는 앱 서비스의 인증 및 권한 부여 기능을 설명했습니다. 다음 자습서에서는 [웹 서비스 API 앱의 사용자 인증](app-service-api-dotnet-user-principal-auth.md)을 구현하는 방법을 배우게 됩니다.
 
-ASP.NET 및 API 앱에 대한 자습서의 시작하기 순서를 진행하는 경우 다음 자습서인 [앱 서비스 API 앱에서 사용자 인증](app-service-api-dotnet-user-principal-auth.md)에서 해당 기능을 사용해보세요.
-
-Azure 앱 서비스에서 노드 및 Java를 사용하는 방법에 대한 자세한 내용은 [Node.js 개발자 센터](/develop/nodejs/) 및 [Java 개발자 센터](/develop/java/)를 참조하세요.
-
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

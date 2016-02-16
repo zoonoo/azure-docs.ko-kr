@@ -12,7 +12,7 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="01/26/2016"
 	ms.author="maheshu"/>
 
@@ -58,4 +58,4 @@ Azure AD 도메인 서비스를 사용하도록 설정할 Azure 가상 네트워
 ---
 [**다음 단계 - Azure AD 도메인 서비스를 사용하도록 설정합니다.**](active-directory-ds-getting-started-enableaadds.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

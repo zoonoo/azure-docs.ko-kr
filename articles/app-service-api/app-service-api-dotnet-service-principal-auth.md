@@ -22,20 +22,20 @@
 
 ## 개요
 
+이 문서에서는 API 앱에 대한 [내부](app-service-api-authentication.md#internal) 액세스를 위해 앱 서비스 인증을 사용하는 방법을 설명합니다. 내부 시나리오에는 사용자 고유의 응용 프로그램 코드에 의해서만 사용되도록 한 API 앱이 있습니다. 앱 서비스에서 이 시나리오를 구현하는 가장 쉬운 방법은 호출된 API 앱을 보호하기 위해 Azure AD를 사용하는 것입니다. 응용 프로그램 ID(서비스 주체) 자격 증명을 제공하여 Azure AD에서 가져온 전달자 토큰으로 보호된 API 앱을 호출합니다.
+
 이 문서에서는 다음에 대해 알아봅니다.
 
 * Azure AD(Azure Active Directory)를 사용하여 인증되지 않은 액세스로부터 API 앱을 보호하는 방법
-* 서비스 주체(앱 ID) 자격 증명을 사용하여 보호된 API 앱을 사용하는 방법입니다.
+* Azure AD 서비스 주체(앱 ID) 자격 증명을 사용하여 API 앱, 웹앱 또는 모바일 앱의 보호된 API 앱을 사용하는 방법 논리 앱에서 사용하는 방법에 대한 자세한 내용은 [논리 앱으로 앱 서비스에서 호스팅되는 사용자 지정 API 사용](../app-service-logic/app-service-logic-custom-hosted-api.md)을 참조하세요.
 * 로그온된 사용자가 보호된 API 앱을 브라우저에서 호출할 수 없도록 하는 방법입니다.
 * 특정 Azure AD 서비스 주체만이 보호된 API 앱을 호출할 수 있도록 하는 방법입니다.
-
-API 앱을 보호하는 메서드는 API 앱에서 다른 API 앱을 호출하는 경우와 같은 [내부 시나리오](app-service-api-authentication.md#internal)에 일반적으로 사용됩니다.
 
 이 문서에는 두 섹션이 포함되어 있습니다.
 
 * [Azure 앱 서비스에서 서비스 주체 인증을 구성하는 방법](#authconfig) 섹션에서는 API 앱에 인증을 구성하는 방법 및 보호된 API 앱을 사용하는 방법을 일반적으로 설명합니다. 이 섹션은 .NET, Node.js 및 Java를 포함하여 앱 서비스에서 지원되는 모든 프레임워크에 동일하게 적용됩니다.
 
-* [문서의 나머지 부분](#tutorialstart)은 앱 서비스에서 실행되는 .NET 샘플 응용 프로그램에 "내부 액세스" 시나리오를 구성하도록 안내합니다.
+* [.NET 시작 자습서 계속](#tutorialstart)으로 시작하는 자습서는 앱 서비스에서 실행되는 .NET 샘플 응용 프로그램에 대해 "내부 액세스" 시나리오를 구성하는 과정을 안내합니다.
 
 ## <a id="authconfig"></a> Azure 앱 서비스에서 서비스 주체를 인증하는 방법
 
@@ -65,7 +65,7 @@ API 앱을 보호하는 메서드는 API 앱에서 다른 API 앱을 호출하�
 
 7. **인증/권한 부여** 블레이드에서 **저장**을 클릭합니다.
 
-이 작업이 완료되면 앱 서비스는 인증되지 않은 API 호출이 API 앱에 도달하지 않도록 방지합니다. 보호된 API 앱에 인증 또는 권한 부여 코드가 필요합니다.
+이 작업이 완료되면 앱 서비스는 구성된 Azure AD 테넌트에 있는 호출자의 요청만 허용합니다. 보호된 API 앱에 인증 또는 권한 부여 코드가 필요합니다. 전달자 토큰은 HTTP 헤더에서 흔히 사용되는 클레임과 함께 API 앱에 전달되면, 서비스 주체와 같은 특정 호출자의 요청을 확인하기 위해 코드의 해당 정보를 읽을 수 있습니다.
 
 인증 기능은 .NET, Node.js, Java 등 앱 서비스가 지원하는 모든 언어에 동일한 방법으로 작동합니다.
 
@@ -83,10 +83,12 @@ API 앱을 보호하는 메서드는 API 앱에서 다른 API 앱을 호출하�
 
 #### 동일한 테넌트의 사용자가 API 앱을 액세스로부터 보호하는 방법
 
-동일한 테넌트의 사용자에 대한 전달자 토큰은 보호된 API 앱에 대해 유효하다고 간주됩니다. 서비스 주체만이 보호된 API 앱을 호출할 수 있도록 하려는 경우 보호된 API 앱에 코드를 추가하여 다음 클레임을 검사합니다.
+동일한 테넌트의 사용자에 대한 전달자 토큰은 보호된 API 앱에 대해 유효하다고 간주됩니다. 서비스 주체만이 보호된 API 앱을 호출할 수 있도록 하려는 경우 보호된 API 앱에 코드를 추가하여 토큰으로부터 다음과 같은 클레임의 유효성을 검사합니다.
 
-* `appid`는 호출자와 관련된 Azure AD 응용 프로그램의 클라이언트 ID와 동일해야 합니다.
-* `objectidentifier`는 호출자의 서비스 주체 ID여야 합니다.
+* `appid`는 호출자와 관련된 Azure AD 응용 프로그램의 클라이언트 ID여야 합니다. 
+* `oid`(`objectidentifier`)는 호출자의 서비스 주체 ID여야 합니다. 
+
+앱 서비스는 X-MS-CLIENT-PRINCIPAL-ID 헤더에 있는 `objectidentifier` 클레임을 제공합니다.
 
 ### 브라우저 액세스로부터 API 앱을 보호하는 방법
 
@@ -96,7 +98,7 @@ API 앱을 보호하는 메서드는 API 앱에서 다른 API 앱을 호출하�
 
 API 앱에 Node.js 또는 Java 시작 시리즈를 수행 중인 경우 [다음 단계](#next-steps) 섹션으로 건너뜁니다.
 
-이 문서의 나머지 부분에서는 API 앱에 .NET 시작 시리즈를 계속하며 [사용자 인증 자습서](app-service-api-user-principal-authentication.md)를 완료하고 사용자 인증을 사용하여 Azure에서 실행하는 샘플 응용 프로그램이 있다고 가정합니다.
+이 문서의 나머지 부분에서는 API 앱에 .NET 시작 시리즈를 계속하며 [사용자 인증 자습서](app-service-api-user-principal-auth.md)를 완료하고 사용자 인증을 사용하여 Azure에서 실행하는 샘플 응용 프로그램이 있다고 가정합니다.
 
 ## Azure에서 인증 설정
 
@@ -120,7 +122,7 @@ API 앱에 Node.js 또는 Java 시작 시리즈를 수행 중인 경우 [다음 
 
 6. **Azure Active Directory 설정** 블레이드에서 **Express**를 클릭합니다.
 
-	**Express** 옵션을 사용하면 Azure는 Azure AD [테넌트](https://msdn.microsoft.com/ko-KR/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant)에서 자동으로 AAD 응용 프로그램을 만들 수 있습니다.
+	**Express** 옵션을 사용하면 Azure는 Azure AD [테넌트](https://msdn.microsoft.com/en-us/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant)에서 자동으로 AAD 응용 프로그램을 만들 수 있습니다.
 
 	자동으로 모든 Azure 계정에 하나씩 있기 때문에 테넌트를 만들 필요가 없습니다.
 
@@ -301,7 +303,7 @@ Visual Studio의 ToDoListAPI 프로젝트에서 다음과 같이 변경합니다
 
 들어오는 호출에서 `appid` 및 `objectidentifier` 클레임의 유효성을 검사하는 코드를 추가하여 이러한 제한을 추가할 수 있습니다.
 
-이 자습서의 경우 컨트롤러 작업에서 직접 앱 ID 및 서비스 주체 ID의 유효성을 검사하는 코드를 배치합니다. 대안은 사용자 지정 `Authorize` 특성을 사용하거나 시작 시퀀스(예: OWIN 미들웨어)에서 이 유효성 검사를 수행하는 것입니다.
+이 자습서의 경우 컨트롤러 작업에서 직접 앱 ID 및 서비스 주체 ID의 유효성을 검사하는 코드를 배치합니다. 대안은 사용자 지정 `Authorize` 특성을 사용하거나 시작 시퀀스(예: OWIN 미들웨어)에서 이 유효성 검사를 수행하는 것입니다. 두 번째 방법의 예제는 [이 샘플 응용 프로그램](https://github.com/mohitsriv/EasyAuthMultiTierSample/blob/master/MyDashDataAPI/Startup.cs)을 참조하세요.
 
 TodoListDataAPI 프로젝트를 다음과 같이 변경합니다.
 
@@ -378,7 +380,7 @@ ToDoListAngular와 같은 Web API 백 엔드를 통한 AngularJS 단일 페이�
 * 브라우저에서 HTTP URL이 아닌 HTTPS URL을 사용하는지 확인합니다.
 * 중간 계층 API 앱에서 CORS가 계속 활성화되어 프런트 엔드 HTTPS URL에서 중간 계층에 대한 호출을 허용하는지 확인합니다. 문제가 CORS와 관련이 있는지 잘 모르겠으면 "*"를 다음 원래의 URL로 사용해 봅니다. **중요:** 실제 문제가 데이터 계층 인증인 경우 일부 브라우저 개발자 도구 콘솔 오류 메시지는 CORS 오류를 보고할 수 있습니다. 일시적으로 ToDoListDataAPI API 앱에 대한 인증을 비활성화한 경우인지 확인할 수 있습니다.
 * [customErrors 모드를 Off](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remoteview)로 설정하여 오류 메시지에서 가능한 많은 정보를 확인할 수 있도록 합니다.
-* 다른 방법이 실패하면 [원격 디버깅 세션](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug)을 시도하고 ToDoListAPI에서 전달자 토큰을 획득하는 코드에 전달되는 변수 값을 검토하며 Azure AD 값의 유효성을 검사하는 코드가 ToDoListDataAPI에서 전송되었습니다. 코드가 많은 다양한 원본에서 구성 값을 선택할 수 있으므로 이러한 방식으로 재미를 찾을 수 있습니다. 예를 들어 `ida:ClientId`를 `ida:ClientID`로 잘못 이름지은 경우 앱 서비스 설정을 구성할 때 코드가 앱 서비스 설정을 무시하고 Web.config 파일에서 찾는 `ida:ClientId` 값을 가져올 수 있습니다. 
+* 다른 방법이 실패하면 [원격 디버깅 세션](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug)을 시도하고 ToDoListAPI에서 전달자 토큰을 획득하는 코드에 전달되는 변수 값을 검토하며 Azure AD 값의 유효성을 검사하는 코드가 ToDoListDataAPI에서 전송되었습니다. 코드가 많은 다양한 원본에서 구성 값을 선택할 수 있으므로 이러한 방식으로 재미를 찾을 수 있습니다. 예를 들어 `ida:ClientId`를 `ida:ClientID`로 잘못 이름 지은 경우 앱 서비스 설정을 구성할 때 코드가 앱 서비스 설정을 무시하고 Web.config 파일에서 찾는 `ida:ClientId` 값을 가져올 수 있습니다. 
 
 ## 다음 단계
 
@@ -388,8 +390,8 @@ Azure Active Directory에 대한 자세한 내용은 다음 리소스를 참조�
 
 * [Azure AD 개발자 가이드](http://aka.ms/aaddev)
 * [Azure AD 시나리오](http://aka.ms/aadscenarios)
-* [Azure AD 샘플](http://aka.ms/aadsamples)
+* [Azure AD 샘플](http://aka.ms/aadsamples) [WebApp-WebAPI-OAuth2-AppIdentity-DotNet](http://github.com/AzureADSamples/WebApp-WebAPI-OAuth2-AppIdentity-DotNet) 샘플은 이 자습서에 표시된 것과 비슷하지만, 앱 서비스 인증을 사용할 필요가 없습니다.
 
 Visual Studio를 사용하거나 [원본 제어 시스템](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control)에서 [배포를 자동화](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery)하여 API 앱에 Visual Studio를 배포하는 다른 방법에 대한 정보는 [Azure 앱 서비스 앱을 배포하는 방법](web-sites-deploy.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

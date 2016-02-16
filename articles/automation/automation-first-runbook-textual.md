@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="09/17/2015"
+	ms.date="02/09/2016"
 	ms.author="bwren"/>
 
 
@@ -124,4 +124,4 @@ Runbook이 Azure 구독에서 인증을 받으므로 리소스를 관리할 수 
 - [내 첫 번째 그래픽 Runbook](automation-first-runbook-graphical.md)
 - [내 첫 번째 PowerShell Runbook](automation-first-runbook-textual-PowerShell.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

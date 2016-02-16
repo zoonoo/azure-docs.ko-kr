@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="01/26/2016"
+	ms.date="02/05/2016"
 	ms.author="tdykstra"/>
 
 # Azure 앱 서비스에서 API 앱 및 ASP.NET 시작
@@ -340,6 +340,8 @@ Azure PowerShell, CLI 또는 [리소스 탐색기](https://resources.azure.com/)
 		  "url": "https://todolistdataapi.azurewebsites.net/swagger/docs/v1"
 		}
 
+API 정의 속성을 설정하기 위해 JSON을 포함하는 Azure 리소스 관리자 템플릿의 예를 보려면 [샘플 응용 프로그램 리포지토리에 있는 azuredeploy.json 파일](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json)을 엽니다.
+
 ## <a id="codegen"></a> 생성된 클라이언트 코드를 사용하여 .NET 클라이언트에서 사용
 
 Azure API 앱에 Swagger를 통합할 경우의 장점 중 하나는 자동 코드 생성입니다. 생성된 클라이언트 클래스는 API 앱을 호출하는 코드를 더욱 쉽게 작성하도록 합니다.
@@ -392,25 +394,23 @@ ToDoListAPI 프로젝트에 이미 생성된 클라이언트 코드가 있지만
 
 	다음 코드 조각은 코드가 클라이언트 개체를 인스턴스화하고 가져오기 메서드를 호출하는 방법을 보여줍니다.
 
-		private ToDoListDataAPI db = new ToDoListDataAPI(new Uri("http://localhost:45914"));
+		private ToDoListDataAPI db = new ToDoListDataAPI(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
 		
 		public ActionResult Index()
 		{
 		    return View(db.Contacts.Get());
 		}
 
-	이 코드는 응용 프로그램을 로컬로 실행할 수 있도록 API 프로젝트의 로컬 IIS Express URL에서 클라이언트 클래스 생성자로 전달됩니다. 생성자 매개 변수를 생략한 경우 코드를 생성한 URL이 기본 끝점이 됩니다.
+	생성자 매개 변수는 `toDoListDataAPIURL` 앱 설정에서 끝점 URL을 가져옵니다. Web.config 파일에서 해당 값은 응용 프로그램을 로컬로 실행할 수 있도록 `toDoListDataAPIURL` 설정에서 API 프로젝트의 로컬 IIS Express URL에 설정됩니다. 생성자 매개 변수를 생략한 경우 코드를 생성한 URL이 기본 끝점이 됩니다.
 
-6. 클라이언트 클래스는 API 앱 이름을 기반으로 다른 이름으로 생성됩니다. 형식 이름이 프로젝트에서 생성된 이름과 일치하도록 이 코드를 변경하고 URL을 제거합니다. 예를 들어 API 앱을 ToDoListDataAPI0121로 명명한 경우 코드는 다음 예제와 같습니다.
+6. 클라이언트 클래스는 API 앱 이름을 기반으로 다른 이름으로 생성됩니다. 형식 이름이 프로젝트에서 생성된 이름과 일치하도록 이 코드를 변경하세요. 예를 들어 API 앱을 ToDoListDataAPI0121로 명명한 경우 코드는 다음 예제와 같습니다.
 
-		private ToDoListDataAPI0121 db = new ToDoListDataAPI0121();
+		private ToDoListDataAPI0121 db = new ToDoListDataAPI0121(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
 		
 		public ActionResult Index()
 		{
 		    return View(db.Contacts.Get());
 		}
-
-	ToDoListDataAPI API 앱에서 코드를 생성했기 때문에 기본 대상 URL은 Azure API 앱입니다. 다른 방법으로 코드를 생성한 경우 로컬 URL을 지정할 때와 동일한 방식으로 Azure API 앱 URL을 지정해야 할 수도 있습니다.
 
 #### 중간 계층을 호스트하는 API 앱 만들기
 
@@ -434,6 +434,22 @@ ToDoListAPI 프로젝트에 이미 생성된 클라이언트 코드가 있지만
 
 	Visual Studio에서 API 앱을 만들고 해당 게시 프로필을 만든 다음, **웹 게시** 마법사의 **연결** 단계를 표시합니다.
 
+### 중간 계층 앱 설정에서 데이터 계층 URL 설정
+
+1. [Azure 포털](https://portal.azure.com/)로 이동한 다음, TodoListAPI(중간 계층) 프로젝트를 호스트하기 위해 만든 API 앱용 **API 앱** 블레이드로 이동합니다.
+
+2. **설정 > 응용 프로그램 설정**을 클릭합니다.
+
+3. **앱 설정** 섹션에서 다음 키와 값을 추가합니다.
+
+	|키|값|예
+	|---|---|---|
+	|toDoListDataAPIURL|https://{your 데이터 계층 API 앱 이름}.azurewebsites.net|https://todolistdataapi0121.azurewebsites.net|
+
+4. **Save**를 클릭합니다.
+
+	코드가 Azure에서 실행되면 이 값은 이제 Web.config 파일에 있는 localhost URL을 재정의합니다.
+
 ### 새 API 앱에 ToDoListAPI 프로젝트 배포
 
 3.  **웹 게시** 마법사의 **연결** 단계에서 **게시**를 클릭합니다.
@@ -454,4 +470,4 @@ ToDoListAPI 프로젝트에 이미 생성된 클라이언트 코드가 있지만
 
 이 자습서에서는 API 앱을 만들고, 이 앱에 코드를 배포하고, 클라이언트 코드를 생성하고, .NET 클라이언트에서 이를 사용하는 방법을 살펴보았습니다. API 앱 시작 시리즈의 다음 자습서에서는 [CORS를 사용하여 JavaScript 클라이언트에서 API 앱을 사용](app-service-api-cors-consume-javascript.md)하는 방법을 보여 줍니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

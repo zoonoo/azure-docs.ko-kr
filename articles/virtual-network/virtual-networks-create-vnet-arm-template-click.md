@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="telmosampaio"
    manager="carmonm"
-   editor=""
+   editor="tysonn"
    tags="azure-resource-manager"/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="02/02/2016"
    ms.author="telmos"/>
 
 # ARM 템플릿을 사용하여 가상 네트워크를 만들기
@@ -39,4 +39,4 @@ GitHub에서 기존 ARM 템플릿을 다운로드한 후 수정하고 GitHub, Po
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-arm-template-click-include](../../includes/virtual-networks-create-vnet-arm-template-click-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

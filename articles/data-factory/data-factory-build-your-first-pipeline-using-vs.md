@@ -261,7 +261,7 @@ Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이
 ### partitionweblogs.hql 및 input.log 종속성으로 추가 
 
 1. **솔루션 탐색기** 창에서 **종속성**을 마우스 오른쪽 단추로 클릭하고 **추가**를 가리킨 다음 **기존 항목**을 클릭합니다.  
-2. **C:\\ADFGettingStarted**로 이동하고 **partitionweblogs.hql**, **input.log** 파일을 선택한 다음 **추가**를 클릭합니다. [자습서 개요](data-factory-build-your-first-pipeline.md)에서 필수 구성 요소의 일부로 이 두 파일을 만들었습니다.
+2. **C:\ADFGettingStarted**로 이동하고 **partitionweblogs.hql**, **input.log** 파일을 선택한 다음 **추가**를 클릭합니다. [자습서 개요](data-factory-build-your-first-pipeline.md)에서 필수 구성 요소의 일부로 이 두 파일을 만들었습니다.
 
 다음 단계에서 솔루션을 게시할 때 **partitionweblogs.hql** 파일은 **adfgetstarted** Blob 저장소의 스크립트 컨테이너에 업로드됩니다.
 
@@ -283,7 +283,7 @@ Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이
 	3. **구독** 필드에서 올바른 구독을 선택합니다. 
 	4. 생성되는 데이터 팩터리의 **리소스 그룹**을 선택합니다. 
 	5. 데이터 팩터리의 **하위 지역**을 선택합니다. 
-	6. **다음**을 클릭하여 **항목 게시** 페이지로 전환합니다. **다음** 단추를 사용할 수 없는 경우 **Tab** 키를 눌러 이름 필드에서 나갑니다. 
+	6. **다음**을 클릭하여 **항목 게시** 페이지로 전환합니다. **다음** 단추를 사용할 수 없는 경우 **탭** 키를 눌러 이름 필드에서 나갑니다. 
 23. **항목 게시** 페이지에서 모든 데이터 팩터리 엔터티가 선택되었는지 확인하고 **다음**을 클릭하여 **요약** 페이지로 전환합니다.     
 24. 요약을 검토한 후 **다음**을 클릭하여 배포 프로세스를 시작하고 **배포 상태**를 봅니다.
 25. **배포 상태** 페이지에 배포 프로세스의 상태가 표시됩니다. 배포가 완료되면 마침을 클릭합니다. 
@@ -324,6 +324,8 @@ Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이
  
 	![출력 데이터](./media/data-factory-build-your-first-pipeline-using-vs/three-ouptut-files.png)
 
+Azure 포털을 사용하여 이 자습서에서 만든 파이프라인 및 데이터 집합을 모니터링하는 방법에 대한 지침은 [데이터 집합 및 파이프라인 모니터링](data-factory-monitor-manage-pipelines.md)을 참조하세요.
+
 ## 서버 탐색기를 사용하여 데이터 팩터리 엔터티를 검토합니다.
 
 1. **Visual Studio**의 메뉴에서 **보기**를 클릭한 다음 **서버 탐색기**를 클릭합니다.
@@ -342,11 +344,101 @@ Visual Studio용 Azure Data Factory 도구를 업데이트하려면 다음을 �
 2. 왼쪽 창에서 **업데이트**를 선택한 다음 **Visual Studio 갤러리**를 선택합니다.
 3. **Visual Studio용 Azure Data Factory 도구**를 선택하고 **업데이트**를 클릭합니다. 이 항목이 표시되지 않으면 이미 최신 버전의 도구가 있는 것입니다. 
 
-Azure 포털을 사용하여 이 자습서에서 만든 파이프라인 및 데이터 집합을 모니터링하는 방법에 대한 지침은 [데이터 집합 및 파이프라인 모니터링](data-factory-monitor-manage-pipelines.md)을 참조하세요.
- 
+## 구성 파일 사용
+각 환경마다 다르게 연결된 서비스/테이블/파이프라인에 대한 속성을 구성하기 위해 Visual Studio의 구성 파일을 사용할 수 있습니다.
+
+Azure 저장소 연결 서비스에 대한 다음 JSON 정의를 고려해야 합니다. 데이터 팩터리 엔터티를 배포하는 환경(개발/테스트/프로덕션)에 따라 서로 다른 accountname 및 accountkey의 값으로 **connectionString**을 지정하려면 각 환경에 대한 별도의 구성 파일을 사용하여 이 작업을 수행할 수 있습니다.
+
+	{
+	    "name": "StorageLinkedService",
+	    "properties": {
+	        "type": "AzureStorage",
+	        "description": "",
+	        "typeProperties": {
+	            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+	        }
+	    }
+	} 
+
+### 구성 파일 추가
+다음 단계를 수행하여 각 환경에 대한 구성 파일을 추가합니다.
+
+1. Visual Studio 솔루션의 데이터 팩터리 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가**를 가리킨 다음 **새 항목**을 클릭합니다.
+2. 왼쪽에 있는 설치된 템플릿 목록에서 **구성**을 선택하고 **구성 파일**를 입력하한 다음, 구성 파일의 **이름**을 입력하고 **추가**를 클릭합니다.
+
+	![구성 파일 추가](./media/data-factory-build-your-first-pipeline-using-vs/add-config-file.png)
+3. 아래에 나와 있는 형식으로 구성 매개 변수와 해당 값을 추가합니다.
+
+		{
+		    "$schema": "http://datafactories.schema.management.azure.com/vsschemas/V1/Microsoft.DataFactory.Config.json",
+		    "AzureStorageLinkedService1": [
+		        {
+		            "name": "$.properties.typeProperties.connectionString",
+		            "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+		        }
+		    ],
+		    "AzureSqlLinkedService1": [
+		        {
+		            "name": "$.properties.typeProperties.connectionString",
+		            "value":  "Server=tcp:spsqlserver.database.windows.net,1433;Database=spsqldb;User ID=spelluru;Password=Sowmya123;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+		        }
+		    ]
+		}
+
+	이 예제에서는 Azure 저장소 연결된 서비스 및 Azure SQL 연결된 서비스의 connectionString 속성을 구성합니다. 이름을 지정하는 구문은 [JsonPath](http://goessner.net/articles/JsonPath/)입니다.
+
+	JSON에 아래와 같은 값 배열의 속성이 있는 경우
+
+		"structure": [
+	  		{
+	  			"name": "FirstName",
+	    		"type": "String"
+	  		},
+	  		{
+	    		"name": "LastName",
+	    	    "type": "String"
+			}
+		],
+	
+	구성 파일에서 다음과 같이 구성해야 합니다(0부터 시작하는 인덱싱 사용).
+		
+		{
+            "name": "$.properties.structure[0].name",
+            "value": "FirstName"
+        }
+        {
+            "name": "$.properties.structure[0].type",
+            "value": "String"
+        }
+        {
+            "name": "$.properties.structure[1].name",
+            "value": "LastName"
+        }
+        {
+            "name": "$.properties.structure[1].type",
+            "value": "String"
+        }
+
+
+### 구성을 사용하여 솔루션 배포
+VS에서 Azure 데이터 팩터리 엔터티를 게시하는 경우 해당 게시 작업에 사용하려는 구성을 지정할 수 있습니다.
+
+구성 파일을 사용하여 Azure 데이터 팩터리 프로젝트에서 엔터티를 게시하려면
+
+1. 데이터 팩터리 프로젝트를 마우스 오른쪽 단추로 클릭 하고 **게시**를 클릭하여 **게시 항목** 대화 상자를 표시합니다. 
+2. 기존 데이터 팩터리의 선택 하거나 **데이터 팩터리 구성** 페이지에서 새 데이터 팩터리를 만들기 위한 값을 지정하고 **다음**을 클릭합니다.   
+3. **항목 게시** 페이지에서 **배포 구성 선택** 필드에서 사용 가능한 구성이 있는 드롭다운 목록이 나타납니다.
+
+	![구성 파일 선택](./media/data-factory-build-your-first-pipeline-using-vs/select-config-file.png)
+
+4. 사용하려는 **구성 파일**을 선택하고 **다음**을 클릭합니다.
+5. **요약** 페이지에서 JSON 파일의 이름이 표시되는지 확인하고 **다음**을 클릭합니다. 
+6. 배포 작업이 완료되면 **마침**을 클릭합니다. 
+
+배포할 때 구성 파일의 값은 엔터티가 Azure 데이터 팩터리 서비스에 배포되기 전에 데이터 팩터리 엔터티(연결된 서비스, 테이블 또는 파이프라인)에 대한 JSON 파일에서 속성 값을 설정하는 데 사용됩니다.
 
 ## 다음 단계
 이 문서에서 파이프라인과 주문형 HDInsight 클러스터에서 Hive 스크립트를 실행하는 변환 작업(HDInsight 작업)을 만들었습니다. 복사 작업을 사용하여 Azure Blob에서 Azure SQL로 데이터를 복사하는 방법은 [자습서: Azure Blob에서 Azure SQL로 데이터 복사](data-factory-get-started.md)를 참조하세요.
   
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

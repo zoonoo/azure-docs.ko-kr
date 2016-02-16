@@ -10,7 +10,7 @@
 <tags
    ms.service="search"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="search" 
    ms.date="01/13/2016"
@@ -523,4 +523,4 @@ Azure 검색은 완전히 관리되는 [PaaS](https://en.wikipedia.org/wiki/Plat
 [13]: ./media/search-tryappservice/AzSearch-TryAppService-Schema.png
 [14]: ./media/search-tryappservice/AzSearch-TryAppService-HitHighlight.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

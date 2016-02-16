@@ -12,7 +12,7 @@
 	ms.workload="multiple" 
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="01/08/2016" 
 	ms.author="tomfitz"/>
 
@@ -89,7 +89,7 @@ Cmdlet가 Azure 계정에 대한 로그인 자격 증명을 유도합니다. 로
 
 계정 설정은 만료되므로 자주 새로 고쳐야 합니다. 계정 설정을 새로 고치려면 **Login-AzureRmAccount**를 다시 실행합니다.
 
->[AZURE.NOTE]리소스 관리자 모듈을 사용하려면 Login-AzureRmAccount가 필요합니다. 게시 설정 파일로는 충분하지 않습니다.
+>[AZURE.NOTE] 리소스 관리자 모듈을 사용하려면 Login-AzureRmAccount가 필요합니다. 게시 설정 파일로는 충분하지 않습니다.
 
 ## 리소스 유형 위치 가져오기
 
@@ -461,4 +461,4 @@ PowerShell에 익숙한 경우 빼기 기호(-)를 입력하고 TAB 키를 눌�
 - 프로젝트 배포의 자세한 예제를 보려면 [Azure에서 예측 가능한 방식으로 microservices 배포](app-service-web/app-service-deploy-complex-application-predictably.md)를 참조하세요.
 - 실패한 배포 문제 해결에 대해 알아보려면 [Azure에서 리소스 그룹 배포 문제 해결](./virtual-machines/resource-group-deploy-debug.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

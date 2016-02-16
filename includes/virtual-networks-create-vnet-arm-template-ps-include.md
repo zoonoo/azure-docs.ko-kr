@@ -4,7 +4,7 @@ PowerShell을 사용하여 다운로드한 ARM 템플릿을 배포하려면 다�
 
 1. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure.md)을 참조하고 지침을 끝까지 따르면서 Azure에 로그인하고 구독을 선택합니다.
 
-3. 필요한 경우 **New-AzureRMResourceGroup** cmdlet을 실행하여 새 리소스 그룹을 만듭니다. 아래 명령은 *미국 중부* Azure 지역에서 *TestRG*라는 리소스 그룹을 만듭니다. 리소스 그룹에 대한 자세한 내용은 [Azure 리소스 관리자 개요](resource-group-overview.md)를 참조하세요.
+3. 필요한 경우 **`New-AzureRmResourceGroup`** cmdlet을 실행하여 새 리소스 그룹을 만듭니다. 아래 명령은 *미국 중부* Azure 지역에서 *TestRG*라는 리소스 그룹을 만듭니다. 리소스 그룹에 대한 자세한 내용은 [Azure 리소스 관리자 개요](resource-group-overview.md)를 참조하세요.
 
 		New-AzureRmResourceGroup -Name TestRG -Location centralus
 		
@@ -20,7 +20,7 @@ PowerShell을 사용하여 다운로드한 ARM 템플릿을 배포하려면 다�
 		                    *
 		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
 
-4. **New-AzureRMResourceGroupDeployment** cmdlet을 실행하고 위에서 다운로드한 후 수정한 템플릿 및 매개 변수를 사용하여 새 VNet을 배포합니다.
+4. 위에서 다운로드하고 수정한 템플릿 및 매개 변수를 사용하여 새 VNet을 배포하기 위해 **`New-AzureRmResourceGroupDeployment`** cmdlet을 실행합니다.
 
 		New-AzureRmResourceGroupDeployment -Name TestVNetDeployment -ResourceGroupName TestRG `
 			-TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
@@ -46,7 +46,7 @@ PowerShell을 사용하여 다운로드한 ARM 템플릿을 배포하려면 다�
 		
 		Outputs           :
 
-5. 아래와 같이 새 VNet의 속성을 보려면 **Get-AzureRMVirtualNetwork** cmdlet을 실행합니다.
+5. 아래와 같이 새 VNet의 속성을 보려면 **`Get-AzureRmVirtualNetwork`** cmdlet을 실행합니다.
 
 
 		Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
@@ -92,4 +92,4 @@ PowerShell을 사용하여 다운로드한 ARM 템플릿을 배포하려면 다�
 		                      }
 		                    ]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->
