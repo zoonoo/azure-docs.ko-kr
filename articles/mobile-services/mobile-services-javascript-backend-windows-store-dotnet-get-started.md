@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article" 
-	ms.date="11/06/2015"
+	ms.date="02/10/2016"
 	ms.author="glenga"/>
 
 # <a name="getting-started"> </a>모바일 서비스 시작
@@ -75,7 +75,7 @@
 
 * [앱에 푸시 알림 추가][Get started with push notifications] 기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
 
-* [.NET 클라이언트 사용 방법](mobile-services-windows-dotnet-how-to-use-client-library.md) 모바일 서비를 쿼리하고, 데이터로 작업하고, 사용자 지정 API에 액세스하는 방법을 알아봅니다.
+* [.NET 클라이언트 사용 방법](mobile-services-dotnet-how-to-use-client-library.md) 모바일 서비를 쿼리하고, 데이터로 작업하고, 사용자 지정 API에 액세스하는 방법을 알아봅니다.
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
@@ -98,4 +98,4 @@
 [Azure 클래식 포털]: https://manage.windowsazure.com/
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

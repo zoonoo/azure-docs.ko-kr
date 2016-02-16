@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="01/28/2016"
+	ms.date="02/03/2016" 
 	ms.author="juliako"/>
 
 
@@ -66,7 +66,7 @@
 
 1. Azure 클래식 포털에서 **새로 만들기**, **미디어 서비스** 및 **빠른 생성**을 차례로 클릭합니다.
 
-![미디어 서비스 빠른 생성](./media/media-services-dotnet-get-started/wams-QuickCreate.png)
+	![미디어 서비스 빠른 생성](./media/media-services-dotnet-get-started/wams-QuickCreate.png)
 
 2. **이름**에 새 계정의 이름을 입력합니다. 미디어 서비스 계정 이름은 공백 없이 모두 소문자로 이루어진 3-24자의 숫자 또는 문자입니다.
 
@@ -256,7 +256,7 @@ Program 클래스에 다음 메서드를 추가합니다.
 - mezzanine(원본) 파일을 적응 비트 전송률 MP4 파일 또는 적응 비트 전송률 부드러운 스트리밍 파일 집합으로 인코딩하거나 트랜스코딩합니다.  
 - 콘텐츠를 배달하는 출발점이 될 스트리밍 끝점에 하나 이상의 스트리밍 단위를 구성합니다.
 
-다음 코드는 인코딩 작업을 제출하는 방법을 보여 줍니다. 이 작업에는 **미디어 인코더 표준**을 사용하여 mezzanine 파일을 적응 비트 전송률 MP4 집합으로 트랜스코딩하도록 지정하는 작업 하나가 포함됩니다. 이 코드는 작업을 제출하고 완료될 때까지 기다립니다.
+다음 코드는 인코딩 작업을 제출하는 방법을 보여 줍니다. 이 작업에는 **미디어 인코더 표준**을 사용하여 mezzanine 파일을 적응 비트 전송률 MP4 집합으로 트랜스코딩하도록 지정하는 한 가지 태스크가 포함됩니다. 이 코드는 작업을 제출하고 완료될 때까지 기다립니다.
 
 작업이 완료되면 자산을 스트리밍하거나 트랜스코딩 결과로 생성된 MP4 파일을 점진적으로 다운로드할 수 있습니다. MP4 파일을 점진적으로 다운로드하려면 하나 이상의 스트리밍 단위가 필요하지 않습니다.
 
@@ -453,4 +453,4 @@ MPEG DASH
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
   [Portal]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

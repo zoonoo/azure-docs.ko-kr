@@ -3,7 +3,7 @@
 Microsoft에서 유지 관리하는 github 리포지토리에 대한 미리 정의된 ARM 템플릿 업로드를 다시 사용하고 해당 커뮤니티를 열 수 있습니다. 이러한 템플릿은 github에서 바로 배포하거나 다운로드한 후 필요에 맞게 수정할 수 있습니다. 두 서브넷으로 VNet을 만드는 템플릿을 배포하려면 다음 단계를 수행합니다.
 
 1. 브라우저에서 [https://github.com/Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates)으로 이동합니다.
-2. 템플릿 목록 아래로 스크롤하여 **101-two-subnets**를 클릭합니다. 아래와 같이 **README.md** 파일을 선택합니다.
+2. 템플릿 목록 아래로 스크롤하여 **101-vnet-two-subnets**를 클릭합니다. 아래와 같이 **README.md** 파일을 선택합니다.
 
 	![Github의 READEME.md 파일](./media/virtual-networks-create-vnet-arm-template-click-include/figure1.png)
 
@@ -27,4 +27,4 @@ Microsoft에서 유지 관리하는 github 리포지토리에 대한 미리 정�
 
 	![Preview 포털에서 VNet 만들기](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.gif)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

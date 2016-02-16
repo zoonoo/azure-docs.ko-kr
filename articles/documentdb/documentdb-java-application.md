@@ -14,7 +14,7 @@
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="NA" 
 	ms.workload="data-services" 
-	ms.date="01/29/2015" 
+	ms.date="01/29/2016" 
 	ms.author="andrl"/>
 
 # DocumentDB를 사용하여 Java 웹 응용 프로그램 빌드
@@ -786,4 +786,4 @@ Azure 웹 사이트에서는 Java 응용 프로그램을 간단히 배포할 수
 [1]: media/documentdb-java-application/keys.png
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

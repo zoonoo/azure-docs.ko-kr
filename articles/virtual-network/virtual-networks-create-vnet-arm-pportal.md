@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Preview 포털을 사용하여 가상 네트워크 만들기 | Microsoft Azure"
-   description="ARM(Azure 리소스 관리자)에서 Azure Preview 포털을 사용하여 가상 네트워크를 만드는 방법을 알아봅니다."
+   pageTitle="Azure 포털을 사용하여 가상 네트워크 만들기 | Microsoft Azure"
+   description="ARM | Azure 리소스 관리자에서 Azure 포털을 사용하여 가상 네트워크를 만드는 방법을 알아봅니다."
    services="virtual-network"
    documentationCenter=""
    authors="telmosampaio"
@@ -14,10 +14,10 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="02/04/2016"
    ms.author="telmos"/>
 
-# Azure Preview 포털을 사용하여 가상 네트워크 만들기
+# Azure 포털을 사용하여 가상 네트워크 만들기
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-selectors-arm-include](../../includes/virtual-networks-create-vnet-selectors-arm-include.md)]
 
@@ -30,4 +30,4 @@
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-arm-pportal-include](../../includes/virtual-networks-create-vnet-arm-pportal-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

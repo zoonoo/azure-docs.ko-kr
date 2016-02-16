@@ -1,7 +1,7 @@
 <properties
 	pageTitle="기계 학습을 사용한 신용 위험에 대 한 예측 솔루션 | Microsoft Azure"
 	description="Azure 기계 학습 스튜디오의 신용 위험 평가에 대한 예측 분석 솔루션을 만드는 방법을 보여주는 자세한 연습."
-	keywords="credit risk, predictive analytics solution,risk assessment"
+	keywords="신용 위험, 예측 분석 솔루션, 위험 평가"
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/13/2015"
+	ms.date="02/03/2016"
 	ms.author="garye"/>
 
 
@@ -28,9 +28,7 @@
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-기계 학습 스튜디오를 엽니다. [https://studio.azureml.net/Home](https://studio.azureml.net/Home) 기계 학습 스튜디오를 시작하는 방법에 대한 자세한 내용은 [Microsoft Azure 기계 학습 스튜디오 홈](https://studio.azureml.net/)을 참조하세요.
-
->[AZURE.TIP]기계 학습 스튜디오의 기능에 대한 개요를 설명하는 다이어그램을 다운로드 및 프린트하려면 [기계 학습 스튜디오의 기능 개요 다이어그램](machine-learning-studio-overview-diagram.md)을 참조하세요.
+>[AZURE.TIP] 기계 학습 스튜디오의 기능을 개략적으로 제공하는 다이어그램을 다운로드하고 인쇄하려면 [Azure 기계 학습 스튜디오 기능 개요](machine-learning-studio-overview-diagram.md)를 참조하세요.
 
 신용 위험 평가 솔루션을 만들려면 다음 단계를 따릅니다.
 
@@ -41,6 +39,6 @@
 5.	[웹 서비스 배포](machine-learning-walkthrough-5-publish-web-service.md)
 6.	[웹 서비스 액세스](machine-learning-walkthrough-6-access-web-service.md)
 
-이 연습은 기계 학습 스튜디오에 포함된 [신용 위험 예측 샘플 실험](../machine-learning-sample-credit-risk-prediction.md)의 간소화된 버전을 기반으로 합니다.
+이 연습은 [Cortana 분석 갤러리](http://gallery.cortanaanalytics.com/)의 [이진 분류: 신용 위험 예측](../machine-learning-sample-credit-risk-prediction.md) 샘플 실험의 간소화된 버전을 기반으로 합니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

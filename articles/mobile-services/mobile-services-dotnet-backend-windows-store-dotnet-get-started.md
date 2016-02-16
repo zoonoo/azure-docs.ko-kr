@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="11/06/2015"
+	ms.date="02/10/2016"
 	ms.author="glenga"/>
 
 
@@ -99,20 +99,15 @@
 ## 다음 단계
 이제 퀵 스타트를 완료했으며 모바일 서비스에서 중요한 추가 작업을 수행하는 방법을 알아보겠습니다.
 
-* [기존 앱에 모바일 서비스 추가][Get started with data]
- <br/>모바일 서비스를 사용하여 데이터를 저장 및 쿼리하는 방법을 자세히 알아봅니다.
+* [기존 앱에 모바일 서비스 추가][Get started with data] <br/>모바일 서비스를 사용하여 데이터를 저장 및 쿼리하는 방법을 자세히 알아봅니다.
 
-* [오프라인 데이터 동기화 시작]
-  <br/>오프라인 데이터 동기화를 활용하여 응답성과 견고성이 뛰어난 앱을 제작하는 방법을 알아봅니다.
+* [오프라인 데이터 동기화 시작] <br/>오프라인 데이터 동기화를 활용하여 응답성과 견고성이 뛰어난 앱을 제작하는 방법을 알아봅니다.
 
-* [모바일 서비스 앱에 인증 추가][Get started with authentication]
-  <br/>ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
+* [모바일 서비스 앱에 인증 추가][Get started with authentication] <br/>ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
 
-* [앱에 푸시 알림 추가][Get started with push notifications]
-  <br/>기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
+* [앱에 푸시 알림 추가][Get started with push notifications] <br/>기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
 
-* [모바일 서비스 .NET 백 엔드 문제 해결]
-  <br/> 모바일 서비스 .NET 백 엔드에서 발생할 수 있는 문제를 진단 및 해결하는 방법을 알아봅니다.
+* [모바일 서비스 .NET 백 엔드 문제 해결] <br/> 모바일 서비스 .NET 백 엔드에서 발생할 수 있는 문제를 진단 및 해결하는 방법을 알아봅니다.
 
 범용 Windows 앱에 대한 자세한 내용은 [단일 모바일 서비스에서 여러 장치 플랫폼 지원](mobile-services-how-to-use-multiple-clients-single-service.md#shared-vs)을 참조하세요.
 
@@ -137,4 +132,4 @@
 [Azure 클래식 포털]: https://manage.windowsazure.com/
 [모바일 서비스 .NET 백 엔드 문제 해결]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

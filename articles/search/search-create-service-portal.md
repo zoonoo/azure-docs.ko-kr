@@ -1,6 +1,6 @@
 <properties
-	pageTitle="포털에서 Azure 검색 서비스 만들기 | Microsoft Azure | 호스트된 클라우드 검색 서비스"
-	description="Azure 클래식 포털을 사용하여 무료 또는 표준 Azure 검색을 기존 구독에 추가합니다. Azure 검색은 사용자 지정 앱에 대한 클라우드 호스트된 검색 서비스입니다."
+	pageTitle="포털에서 Azure 검색 서비스 만들기 | Microsoft Azure | 클라우드 검색 서비스"
+	description="Azure 포털을 사용하여 무료 또는 표준 Azure 검색을 기존 구독에 추가합니다. Azure 검색은 사용자 지정 앱에 대한 클라우드 호스트된 검색 서비스입니다."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -10,20 +10,22 @@
 
 <tags
 	ms.service="search"
-	ms.devlang="rest-api"
+	ms.devlang="na"
 	ms.workload="search"
-	ms.topic="get-started-article"
+	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
+	ms.date="02/05/2016"
 	ms.author="heidist"/>
 
-# Azure 클래식 포털에서 Azure 검색서비스 만들기
+# Azure 포털에서 Azure 검색 서비스 만들기
 
-Microsoft Azure 검색은 호스팅되는 클라우드 검색 서비스로, 서비스 기능을 사용자 지정 응용 프로그램에 포함할 수 있습니다. Azure 클래식 포털, .NET SDK 또는 REST API를 통해 액세스 및 관리할 수 있는 검색 데이터에 대한 검색 엔진 및 저장소를 제공합니다. 주요 기능에는 자동 완성 쿼리, 유사 항목 일치, 적중 항목 강조 표시, 패싯 탐색, 평가 프로필, 다국어 지원 등이 있습니다. Azure 검색에서 수행하는 작업에 대한 자세한 내용은 [Azure 검색이란?](search-what-is-azure-search.md)을 참조하세요.
+Microsoft Azure 검색은 호스팅되는 클라우드 검색 서비스로, 서비스 기능을 사용자 지정 응용 프로그램에 포함할 수 있습니다. Azure 포털, .NET SDK 또는 REST API를 통해 액세스하고 관리할 수 있는 검색 데이터에 대한 검색 엔진 및 저장소를 제공합니다. 주요 기능에는 자동 완성 쿼리, 유사 항목 일치, 적중 항목 강조 표시, 패싯 탐색, 평가 프로필, 다국어 지원 등이 있습니다. Azure 검색에서 수행하는 작업에 대해 더 알아보려면 [Azure 검색이란?](search-what-is-azure-search.md)을 참조하세요.
+
+Azure 검색은 무료(공유)에서 표준에 이르는 가격 수준에서 제공되며 여기서 비용은 등록한 용량에 기반합니다.
 
 ## 무료 구독에 Azure 검색 추가
 
-관리자는 공유 서비스를 선택할 때 무료로 또는 전용 리소스를 옵트인(opt in)할 때 표준 요금으로 Azure 검색을 기존 Azure 구독에 추가할 수 있습니다.
+관리자는 공유 서비스를 선택할 때 무료로 Azure 검색을 기존 Azure 구독에 추가할 수 있습니다. [무료 평가판 구독](../includes/free-trial-note.md)에 등록하여 평가를 시작할 수 있습니다.
 
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
@@ -35,7 +37,7 @@ Microsoft Azure 검색은 호스팅되는 클라우드 검색 서비스로, 서�
 
      ![][2]
 
-	- **서비스 이름**은 고유하고 소문자여야 하며, 공백 없이 15자 미만이어야 합니다. 이 이름은 Azure 검색 서비스 끝점의 일부가 됩니다. 이름 지정 규칙에 대한 자세한 내용은 [이름 지정 규칙](https://msdn.microsoft.com/library/azure/dn857353.aspx)을 참조하세요.
+	- **서비스 이름**은 고유하고 소문자여야 하며, 공백 없이 60자 미만이어야 합니다. 이 이름은 Azure 검색 서비스 끝점의 일부가 됩니다(예: "https://**my-service-name**.search.windows.net"). 이름 지정 규칙에 대한 자세한 내용은 [이름 지정 규칙](https://msdn.microsoft.com/library/azure/dn857353.aspx)을 참조하세요.
 
 	- **가격 책정 계층**은 용량 및 대금 청구를 결정합니다. 두 계층 모두 동일한 기능을 제공하지만 리소스 수준이 다릅니다.
 
@@ -57,7 +59,7 @@ Microsoft Azure 검색은 호스팅되는 클라우드 검색 서비스로, 서�
 
 많은 고객이 무료 서비스를 시작한 다음 더 큰 작업 부하를 수용하기 위해 표준 계층으로 전환합니다. 표준 계층은 Azure 데이터 센터에서 사용자만 사용할 수 있는 전용 리소스를 제공합니다.
 
-Azure 검색 작업에는 저장소 및 서비스 복제본이 둘 다 필요합니다. 리소스를 추가하기 위한 옵션이 없는 무료 서비스와 달리, 표준 계층은 시나리오에 보다 중요한 리소스를 증가시켜 더 많은 저장소 또는 쿼리 지원을 추가하기 위해 확장할 수 있습니다.
+Azure 검색 작업에는 저장소 및 서비스 복제본이 둘 다 필요합니다. 리소스를 추가하기 위한 옵션이 없는 무료 서비스와 달리, 표준 계층을 사용하면 워크로드에 보다 중요한 리소스를 증가시켜 더 많은 저장소 또는 쿼리 지원을 추가하기 위해 확장할 수 있습니다.
 
 표준 계층을 사용하려면 해당 가격 수준에서 새 검색 서비스를 만들어야 할 수 있습니다. 이 문서의 이전 단계를 반복하여 새 Azure 검색 서비스를 만들 수 있습니다. 전용 리소스를 설정하는 데 시간이 걸릴 수 있습니다(최대 15분 이상).
 
@@ -73,12 +75,12 @@ Azure 검색 작업에는 저장소 및 서비스 복제본이 둘 다 필요합
 
 추가 복제본과 파티션은 검색 단위로 청구됩니다. 리소스를 추가할 때 특정 리소스 구성을 지원하는 데 필요한 총 검색 단위가 페이지에 표시됩니다.
 
-[가격 정보](http://go.microsoft.com/fwlink/p/?LinkID=509792)에서 단위당 청구 정보를 확인할 수 있습니다. 파티션 및 복제본 조합을 구성하는 방법 결정에 대한 도움말은 [제한 및 제약 조건](search-limits-quotas-capacity.md)을 참조하세요.
+[가격 정보](http://go.microsoft.com/fwlink/p/?LinkID=509792)에서 단위당 청구 정보를 확인할 수 있습니다. 파티션 선택 및 복제본 조합에 대한 도움말은 [서비스 제한 및 제약 조건](search-limits-quotas-capacity.md)을 참조하세요.
 
 <a id="sub-2"></a>
 ## Azure 검색 서비스의 서비스 이름 및 api-key 찾기
 
-서비스를 만든 후 Azure 클래식 포털로 돌아가 URL 또는 `api-key`를 가져올 수 있습니다. Azure 검색 서비스에 연결하려면 URL과 호출을 인증할 `api-key`가 둘 다 있어야 합니다.
+서비스를 만든 후 Azure 포털로 돌아가 URL 또는 `api-key`를 가져올 수 있습니다. Azure 검색 서비스에 연결하려면 URL과 호출을 인증할 `api-key`가 둘 다 있어야 합니다.
 
 1. 이동 표시줄에서 **홈**을 클릭한 다음 Azure 검색 서비스를 클릭하여 서비스 대시보드를 엽니다.
 
@@ -86,11 +88,11 @@ Azure 검색 작업에는 저장소 및 서비스 복제본이 둘 다 필요합
 
   	![][3]
 
-3. 서비스 URL 및 관리 키를 복사합니다. 다음 작업인 [서비스 작업 테스트](#sub-4)에 필요합니다.
+3. 서비스 URL 및 관리 키를 복사합니다. 다음 작업인 [서비스 가용성 확인](#sub-4)에 필요합니다.
 
 
 <a id="sub-4"></a>
-## 서비스 작동 테스트
+## 서비스 가용성 확인
 
 서비스가 작동하고 클라이언트 응용 프로그램에서 액세스 가능한지 확인하는 것이 Azure 검색 구성의 최종 단계입니다. [Azure 검색을 통해 Fiddler](search-fiddler.md)를 사용하여 서비스 가용성을 확인할 수 있습니다.
 
@@ -98,15 +100,19 @@ Azure 검색 작업에는 저장소 및 서비스 복제본이 둘 다 필요합
 <a id="next-steps"></a>
 ## 다음 단계
 
-다음 내용에서는 Azure 검색을 사용하는 검색 응용 프로그램을 작성 및 관리하는 방법을 보여 줍니다.
+이제 서비스를 만들었으므로 다음 단계를 수행할 수 있습니다. [인덱스](search-what-is-an-index.md)를 빌드하고 [인덱스를 쿼리](search-query-overview.md)하며 Azure 검색을 사용하는 검색 응용 프로그램을 만들고 관리합니다.
+
+- [Azure 포털에서 Azure 검색 인덱스 만들기](search-create-index-portal.md)
+
+- [Azure 포털에서 검색 탐색기를 사용하여 Azure 검색 인덱스 쿼리](search-explorer.md)
+
+- [.NET에서 Azure 검색 시작](search-get-started-dotnet.md)
 
 - [.NET에서 Azure 검색을 사용하는 방법](search-howto-dotnet-sdk.md)
 
 - [Microsoft Azure에서 검색 솔루션 관리](search-manage.md)
 
-- [MSDN의 Azure 검색](http://msdn.microsoft.com/library/dn798933.aspx)
 
-- [채널 9 비디오: Azure 검색 소개](http://channel9.msdn.com/Shows/Data-Exposed/Introduction-To-Azure-Search)
 
 
 <!--Anchors-->
@@ -120,4 +126,4 @@ Azure 검색 작업에는 저장소 및 서비스 복제본이 둘 다 필요합
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

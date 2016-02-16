@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="01/07/2016"
+   ms.date="02/02/2016"
    ms.author="elizapo"/>
 
 # Azure RemoteApp을 사용하는 SQL Azure
@@ -22,7 +22,7 @@
 
 ## SQL 데이터 마이그레이션
 
-[Azure SQL 데이터베이스에 SQL Server 데이터베이스 마이그레이션](sql-database-cloud-migrate.md)을 시작하여 이 문서에서는이 작업을 수행하는 방법을 설명합니다.
+[SQL Server 데이터베이스를 Azure SQL 데이터베이스로 마이그레이션](../sql-database/sql-database-cloud-migrate.md)을 시작합니다.
 
 ## Azure RemoteApp 구성
 Azure RemoteApp에서 Windows 응용 프로그램을 호스트합니다. 다음은 단계별로 매우 높은 수준입니다.
@@ -37,11 +37,11 @@ Azure RemoteApp에서 Windows 응용 프로그램을 호스트합니다. 다음�
 ## 앱 및 SQL 구성 고려 사항
 RemoteApp과 함께 Azure SQL을 사용하는 경우 고려해야 할 몇가지 사항이 있습니다.
 
-[Azure SQL 데이터베이스 방화벽을 구성하는 방법](sql-database-firewall-configure.md)을 알아봅니다. 문서의 출처에서는 다음과 같이 언급합니다. “먼저 Azure SQL 데이터베이스 서버로의 모든 액세스는 방화벽에 의해 차단됩니다. Azure SQL 데이터베이스 서버를 사용하려면 클래식 포털로 가서 Azure SQL 데이터베이스 서버로 액세스를 가능하게 하는 하나 이상의 서버 수준 방화벽 규칙을 꼭 지정해야 합니다. 방화벽 규칙을 사용하여 인터넷이 허용하는 IP 주소 범위 및 Azure 응용 프로그램 Azure SQL 데이터베이스 서버의 연결 시도 가능 여부를 지정할 수 있습니다.”
+[Azure SQL 데이터베이스 방화벽을 구성하는 방법](../sql-database/sql-database-firewall-configure.md)을 알아봅니다. 문서의 출처에서는 다음과 같이 언급합니다. “먼저 Azure SQL 데이터베이스 서버로의 모든 액세스는 방화벽에 의해 차단됩니다. Azure SQL 데이터베이스 서버를 사용하려면 클래식 포털로 가서 Azure SQL 데이터베이스 서버로 액세스를 가능하게 하는 하나 이상의 서버 수준 방화벽 규칙을 꼭 지정해야 합니다. 방화벽 규칙을 사용하여 인터넷이 허용하는 IP 주소 범위 및 Azure 응용 프로그램 Azure SQL 데이터베이스 서버의 연결 시도 가능 여부를 지정할 수 있습니다.”
 
 또한 컴퓨터가 인터넷의 데이터베이스로 연결을 시도할 때, 방화벽은 서버 수준 및 데이터베이스 수준(필요한 경우) 방화벽 규칙의 전체 집합 대응을 요청하는 본래 IP 주소를 확인합니다. “요청된 IP 주소가 서버 수준 방화벽 규칙의 지정된 범위 안에 있을 경우, Azure SQL 데이터베이스 서버로 연결됩니다.” 따라서 개별 원본 IP 주소 뿐만 아니라 IP 범위를 사용할 수 있습니다.
 
-[방법: Azure 포털을 사용하여 SQL 데이터베이스에 방화벽 설정 구성](sql-database-configure-firewall-settings.md)의 단계별 지침에 따라 IP 범위를 지정합니다. SQL 방화벽 규칙을 구성하는 경우 Azure RemoteApp 컬렉션에 지정된 서브넷의 IP 범위를 제공합니다. 이렇게 하면 ARA 서버에 동적으로 할당된 IP 주소가 있더라도 SQL DB에 연결할 수 있습니다.
+[방법: Azure 포털을 사용하여 SQL 데이터베이스에 방화벽 설정 구성](../sql-database/sql-database-configure-firewall-settings.md)의 단계별 지침에 따라 IP 범위를 지정합니다. SQL 방화벽 규칙을 구성하는 경우 Azure RemoteApp 컬렉션에 지정된 서브넷의 IP 범위를 제공합니다. 이렇게 하면 ARA 서버에 동적으로 할당된 IP 주소가 있더라도 SQL DB에 연결할 수 있습니다.
 
 ## 문제 해결
 Azure 또는 온-프레미스에 호스팅되는 SQL 데이터베이스에 연결하는 Azure RemoteApp에서 호스팅되는 클라이언트 응용 프로그램을 사용하는 환경이 느린 경우 몇 가지 이유가 있을 수 있습니다.
@@ -50,4 +50,4 @@ Azure 또는 온-프레미스에 호스팅되는 SQL 데이터베이스에 연�
 - Azure RemoteApp에서 호스팅되는 클라이언트 앱은 부하가 높습니다. Premium 청구와 같은 다른 요금제를 선택하면 성능이 향상됩니다. 응용 프로그램이 소비하는 리소스를 모니터링하는 다른 방법은 다음과 같습니다. 활성 세션 동안 SAS 화면을 시작하고 작업 관리자를 선택하며 앱에 대한 리소스 사용률을 관찰하는 ctrl-alt-end 키 시퀀스를 수행합니다.
 - SQL Server은 부하가 많거나 최적화되지 않습니다. 문제 해결에 대한 SQL 지침을 따릅니다. 
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

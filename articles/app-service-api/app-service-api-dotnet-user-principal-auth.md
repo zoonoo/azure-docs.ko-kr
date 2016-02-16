@@ -78,63 +78,9 @@ API 앱에 대한 Node.js 또는 Java 시작 시리즈를 진행 중인 경우 �
 
 API 앱에 대한 .NET 시작 시리즈를 따르고 있고 이미 [첫 번째](app-service-api-dotnet-get-started.md) 및 [두 번째](app-service-api-cors-consume-javascript.md) 자습서에서 지시한 대로 샘플 응용 프로그램을 배포한 경우 [인증 구성](#azureauth) 섹션으로 건너뜁니다.
 
-첫 번째 및 두 번째 자습서를 설치하지 않았고 이 문서를 따르려는 경우 시리즈에 대한 모든 [필수 구성 요소](app-service-api-dotnet-get-started.md#prerequisites)가 준비되었는지부터 확인합니다. 이후 다음 단계를 통해 샘플 응용 프로그램을 다운로드하여 배포합니다. 이 단계는 처음 두 자습서에서 수행한 항목과 중복되지만 여기서는 요약한 지침을 제공합니다.
+첫 번째 및 두 번째 자습서를 수행하지 않고 이 자습서를 따라 수행하려는 경우 [To Do List 샘플 리포지토리 추가 정보 파일](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/readme.md)의 **Azure에 배포** 단추를 사용하여 API 앱 및 웹앱을 배포합니다.
 
-1. 샘플 응용 프로그램을 다운로드합니다.
-
-	a. [Azure-Samples/app-service-api-dotnet-todo-list](https://github.com/Azure-Samples/app-service-api-dotnet-to-do-list) 리포지토리에서 다운로드합니다.
-
-	a. ToDoList 솔루션을 Visual Studio 2015에서 열고 솔루션을 빌드하여 NuGet 패키지를 복원합니다.
-
-2. 새 API 앱에 ToDoListDataAPI 프로젝트를 배포합니다.
-
-	a. ToDoListDataAPI 프로젝트에서 *App\_Start/SwaggerConfig.cs* 파일을 열고 **EnableSwaggerUi** 코드의 주석 처리를 해제합니다.
-
-	b. **솔루션 탐색기**에서 ToDoListDataAPI 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 클릭합니다.
-
-	c. **웹 게시** 마법사의 **프로필** 단계에서 **Microsoft Azure 앱 서비스**를 클릭합니다.
-
-	d. **앱 서비스** 대화 상자에서 사용할 Azure **구독**을 선택하고 **새로 만들기**를 클릭합니다.
-
-	e. **앱 서비스 만들기** 대화 상자의 **호스팅** 탭에서 **형식 변경**을 클릭한 다음 **API 앱**을 클릭합니다.
-
-	f. ToDoListDataAPI와 숫자 등, *azurewebsites.net* 도메인에서 고유한 **API 앱 이름**을 입력합니다(예: ToDoListDataAPI1230).
-
-	g. **리소스 그룹** 드롭다운 목록에서 TodoListGroup 같은 이름을 입력하여 새 리소스 그룹을 만듭니다.
-
-	h. **앱 서비스 계획** 드롭다운에서 **새로 만들기**를 클릭하고 **앱 서비스 계획 구성** 대화 상자에 필요한 정보를 입력합니다.
-
-	i. **만들기**를 클릭합니다.
-
-	j. **게시**를 클릭합니다.
-
-3. 새 API 앱에 ToDoListAPI 프로젝트를 배포합니다.
-
-	a. ToDoListAPI 프로젝트에서 *Controllers\\ToDoListController.cs*를 열고 `http://localhost:45914`를 `https://{your ToDoListDataAPI app name}.azurewebsites.net`으로 변경합니다.
-
-	b. ToDoListDataAPI 프로젝트에 대해 수행한 ToDoListAPI 프로젝트를 배포하기 위해 동일한 절차를 따릅니다. 형식을 **API 앱**으로 반드시 변경합니다.
-
-4. 새 웹앱에 ToDoListAngular 프로젝트를 배포합니다.
-
-	a. ToDoListAngular 프로젝트에서 *app/scripts/todoListSvc.js*를 엽니다.
-
-	b. `apiEndpoint`을 localhost URL로 설정하는 줄을 주석 처리하고 `apiEndPoint`을 azurewebsites.net URL로 설정하는 줄의 주석을 제거한 후 자리 표시자를 ToDoListAPI에 대해 만든 API 앱의 실제 이름으로 바꿉니다.
-
-	c. ToDoListDataAPI 프로젝트에 대해 수행한 ToDoListAPI 프로젝트를 배포하기 위해 동일한 절차를 따릅니다. **단, 웹 앱의 형식을 API 앱으로 변경하지 않습니다.**
-
-5. Azure에서 API 앱에 대한 CORS를 구성합니다.
-
-	a. [Azure 포털](https://portal.azure.com/)로 이동한 다음ToDoListAPI 프로젝트에 대해 만든 API 앱으로 이동합니다.
-
-	b. **API 앱** 블레이드에서 **설정**을 클릭합니다.
-
-	c. **API** 섹션을 찾은 다음 **CORS**를 클릭합니다.
-
-	d. 텍스트 상자에 호출을 허용할 출처의 URL을 입력합니다. 이 자습서에서는 ToDoListAngular 프로젝트에서 만든 웹앱의 URL입니다. 예를 들어 "https://todolistangular.azurewebsites.net"을 입력합니다.
-
-	e. **Save**를 클릭합니다.
-
-6. 브라우저를 열어 웹앱의 HTTPS URL로 이동한 다음 할 일 항목을 보고, 추가하고, 편집하고, 삭제할 수 있는지 확인합니다.
+배포가 완료되면 웹앱에 대한 HTTP 링크가 표시됩니다. 응용 프로그램을 실행하고 작동하는지 확인하려면 해당 URL을 HTTPS로 변경합니다.
 
 ## <a id="azureauth"></a> Azure에서 인증 설정
 
@@ -168,7 +114,7 @@ API 앱에 대한 .NET 시작 시리즈를 따르고 있고 이미 [첫 번째](
 
 	![](./media/app-service-api-dotnet-user-principal-auth/aadsettings.png)
 
-	**Express** 옵션을 사용하면 Azure AD [테넌트](https://msdn.microsoft.com/ko-KR/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant)에서 앱 서비스가 자동으로 Azure AD 응용 프로그램을 만듭니다.
+	**Express** 옵션을 사용하면 Azure AD [테넌트](https://msdn.microsoft.com/en-us/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant)에서 앱 서비스가 자동으로 Azure AD 응용 프로그램을 만듭니다.
 
 	자동으로 모든 Azure 계정에 하나씩 있기 때문에 테넌트를 만들 필요가 없습니다.
 
@@ -369,7 +315,7 @@ ToDoListAPI 프로젝트를 다음과 같이 변경합니다.
 
 **Azure API 앱** 프로젝트 템플릿을 사용하고 기본 Values 컨트롤러를 ToDoList 컨트롤러로 대체하여 두 개의 웹 API 프로젝트가 만들어졌습니다.
 
-웹 API 2 백엔드를 통한 AngularJS 단일 페이지 응용 프로그램을 만드는 방법에 대한 내용은 [Hands On Lab: ASP.NET 웹 API 및 Angular.js를 통해 단일 페이지 응용 프로그램 빌드](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs)를 참조하세요. Azure AD 인증 코드를 추가하는 방법에 대한 내용은 다음 리소스를 참조하세요.
+웹 API 2 백 엔드를 통한 AngularJS 단일 페이지 응용 프로그램을 만드는 방법에 대한 내용은 [Hands On Lab: ASP.NET Web API 및 Angular.js를 통해 단일 페이지 응용 프로그램 빌드](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs)를 참조하세요. Azure AD 인증 코드를 추가하는 방법에 대한 내용은 다음 리소스를 참조하세요.
 
 * [Azure AD를 사용하여 AngularJS 단일 페이지 앱 보안 유지](../active-directory/active-directory-devquickstarts-angular.md)
 * [ADAL JS v1 소개](http://www.cloudidentity.com/blog/2015/02/19/introducing-adal-js-v1/)
@@ -391,4 +337,4 @@ ToDoListAPI 프로젝트를 다음과 같이 변경합니다.
 
 이 자습서에서는 API 앱에 앱 서비스 인증을 사용하는 방법과, ADAL JS 라이브러리를 사용하여 API 앱을 호출하는 방법을 배웠습니다. 다음 자습서에서는 [서비스 간 시나리오에 대해 API 앱에 대한 액세스를 보호](app-service-api-dotnet-service-principal-auth.md)하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

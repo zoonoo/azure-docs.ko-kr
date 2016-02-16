@@ -4,7 +4,7 @@
    services="vpn-gateway"
    documentationCenter=""
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"/>
 
@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/14/2015"
+   ms.date="02/04/2016"
    ms.author="cherylmc"/>
 
 # Azure 클래식 포털을 사용하여 사이트 간 VPN 연결로 가상 네트워크 만들기
@@ -23,7 +23,7 @@
 - [Azure Classic Portal](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
-이 문서에서는 가상 네트워크와 온-프레미스 네트워크에 대한 사이트 간 VPN 연결을 만드는 과정을 안내합니다. 이 문서는 클래식 배포 모델에 적용됩니다. 이 구성에 대한 다른 배포를 찾고 있다면 위의 탭을 사용하여 원하는 문서를 선택합니다. Vnet끼리 서로 연결하지만 온-프레미스에는 연결하지 않을 경우 [VNet간 연결 구성](virtual-networks-configure-vnet-to-vnet-connection.md)을 참조하세요.
+이 문서에서는 가상 네트워크와 온-프레미스 네트워크에 대한 사이트 간 VPN 연결을 만드는 과정을 안내합니다. 사이트간 연결은 프레미스 간 및 하이브리드 구성에 사용될 수 있습니다. 이 문서는 **클래식** 배포 모델에 적용됩니다. **리소스 관리자** 배포 모델에 사이트 간 연결을 만들려는 경우 [Azure 리소스 관리자 및 PowerShell을 사용하여 사이트 간 연결 구성](vpn-gateway-create-site-to-site-rm-powershell.md)을 참조하세요. VNet을 서로 연결하면서도 온-프레미스 위치에 대한 연결을 만들지 않으려는 경우 [클래식 배포 모델에 VNet 간 연결 구성](virtual-networks-configure-vnet-to-vnet-connection.md) 또는 [리소스 관리자 배포 모델에 VNet 간 연결 구성](vpn-gateway-vnet-vnet-rm-ps.md)을 참조하세요.
 
 **Azure 배포 모델 정보**
 
@@ -100,4 +100,4 @@
 
 클래식 가상 네트워크와 Azure 리소스 관리자 모드를 사용하여 만든 가상 네트워크 간의 연결을 구성하려는 경우 [Azure 리소스 관리자 VNet에 클래식 VNet 연결](../virtual-network/virtual-networks-arm-asm-s2s-howto.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

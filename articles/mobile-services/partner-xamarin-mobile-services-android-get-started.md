@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="11/05/2015"
+	ms.date="02/10/2016"
 	ms.author="donnam"/>
 
 # <a name="getting-started"></a>모바일 서비스 시작
@@ -110,7 +110,7 @@
 
 * [푸시 알림 시작] 기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
 
-* [Azure 모바일 서비스에 대해 Xamarin 구성 요소 클라이언트 사용 방법](partner-xamarin-mobile-services-how-to-use-client-library.md) 모바일 서비를 쿼리하고, 데이터로 작업하고, 사용자 지정 API에 액세스하는 방법을 알아봅니다.
+
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
@@ -146,4 +146,4 @@
 [Azure]: http://azure.microsoft.com/
 [Azure 클래식 포털]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

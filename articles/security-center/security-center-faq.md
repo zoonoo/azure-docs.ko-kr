@@ -10,10 +10,10 @@
 <tags
    ms.service="security-center"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/10/2015"
+   ms.date="02/09/2016"
    ms.author="terrylan"/>
 
 # Azure 보안 센터 FAQ(질문과 대답)
@@ -103,4 +103,4 @@ Azure 서비스 패브릭 클러스터의 일부인 가상 컴퓨터를 포함�
 ### Linux 가상 컴퓨터가 지원되나요?
 Azure 보안 센터는 Linux 가상 컴퓨터(Ubuntu 버전 12.04, 14.04, 14.10, 15.04만 해당)에 대한 기본 모니터링을 제공합니다. 나중에 추가 보안 상태 모니터링 및 데이터 수집/분석뿐만 아니라 추가 Linux 배포판에 대한 지원도 사용할 수 있을 것입니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

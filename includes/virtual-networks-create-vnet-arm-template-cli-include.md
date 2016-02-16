@@ -3,7 +3,7 @@
 Azure CLI를 사용하여 다운로드한 ARM 템플릿을 배포하려면 다음 단계를 수행합니다.
 
 1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](xplat-cli-install.md)을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
-2. 아래와 같이 **azure config mode** 명령을 실행하여 리소스 관리자 모드로 전환합니다.
+2. 아래와 같이 **`azure config mode`** 명령을 실행하여 리소스 관리자 모드로 전환합니다.
 
 		azure config mode arm
 
@@ -11,7 +11,7 @@ Azure CLI를 사용하여 다운로드한 ARM 템플릿을 배포하려면 다�
 
 		info:    New mode is arm
 
-3. 필요한 경우 아래와 같이 **azure group create**를 실행하여 새 리소스 그룹을 만듭니다. 명령의 출력을 확인합니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다. 리소스 그룹에 대한 자세한 내용은 [Azure 리소스 관리자 개요](resource-group-overview.md)를 참조하세요.
+3. 필요에 따라 아래와 같이 **`azure group create`**를 실행하여 새 리소스 그룹을 만듭니다. 명령의 출력을 확인합니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다. 리소스 그룹에 대한 자세한 내용은 [Azure 리소스 관리자 개요](resource-group-overview.md)를 참조하세요.
 
 		azure group create -n TestRG -l centralus
 
@@ -32,7 +32,7 @@ Azure CLI를 사용하여 다운로드한 ARM 템플릿을 배포하려면 다�
 	- **-n(또는 --name)**. 새 리소스 그룹의 이름입니다. 이 시나리오에서는 *TestRG*입니다.
 	- **-l(또는 --location)**. 새 리소스 그룹이 생성되는 Azure 지역입니다. 이 시나리오에서는 *centralus*입니다.
 
-4. **azure group deployment create** cmdlet을 실행하고 위에서 다운로드한 후 수정한 템플릿 및 매개 변수를 사용하여 새 VNet을 배포합니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다.
+4. 위에서 다운로드하고 수정한 템플릿 및 매개 변수를 사용하여 새 VNet을 배포하기 위해 **`azure group deployment create`** cmdlet을 실행합니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다.
 
 		azure group deployment create -g TestRG -n TestVNetDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
 
@@ -61,11 +61,11 @@ Azure CLI를 사용하여 다운로드한 ARM 템플릿을 배포하려면 다�
 		data:    subnet2Name    String  BackEnd
 		info:    group deployment create command OK
 
-	- **-g(또는 --resource-group)**. 새 VNet이 만들어지는 리소스 그룹의 이름입니다.
+	- **-g (or --resource-group)**. 새 VNet이 만들어지는 리소스 그룹의 이름입니다.
 	- **-f(또는 --template-file)**. ARM 템플릿 파일에 대한 경로입니다.
 	- **-e(또는 --parameters-file)**. ARM 매개 변수 파일에 대한 경로입니다.
 
-5. 아래와 같이 새 VNet의 속성을 보려면 **azure network vnet show** 명령을 실행합니다.
+5. 아래와 같이 새 VNet의 속성을 보려면 **`azure network vnet show`** 명령을 실행합니다.
 
 		azure network vnet show -g TestRG -n TestVNet
 
@@ -89,4 +89,4 @@ Azure CLI를 사용하여 다운로드한 ARM 템플릿을 배포하려면 다�
 		data:
 		info:    network vnet show command OK
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

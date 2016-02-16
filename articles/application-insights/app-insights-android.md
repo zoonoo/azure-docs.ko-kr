@@ -12,18 +12,23 @@
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="na"
     ms.topic="get-started-article"
-	ms.date="11/21/2015"
+	ms.date="02/04/2016"
     ms.author="awills"/>
 
 # Android 앱에 대한 분석
 
-Microsoft는 장치 devOps에 대해, devOps 워크플로 및 충돌 분석을 위한 [HockeyApp](http://hockeyapp.net/)과 사용 및 충돌 분석을 위한 [Application Insights](app-insights-overview.md)라는 두 가지 솔루션을 제공합니다.
+Microsoft는 장치 devOps에 대해 클라이언트측 분석을 위한 [HockeyApp](http://hockeyapp.net/)과 서버측을 위한 [Application Insights](app-insights-overview.md)라는 두 가지 솔루션을 제공합니다.
 
-[HockeyApp](http://hockeyapp.net/)은 iOS, OS X, Android 또는 Windows 장치 앱 뿐만 아니라 Xamarin, Cordova, Unity에 기반하는 플랫폼 간 앱에 대한 Mobile DevOps 솔루션일 입니다. 이를 통해 빌드를 베타 테스터에게 배포하고, 충돌 데이터를 수집하고, 사용자 피드백을 얻을 수 있습니다. Visual Studio Team Services와 통합되어 있기 때문에 손쉬운 빌드 배포 및 작업 항목 통합이 가능합니다. 자세한 내용은 [HockeyApp 기술 자료(영문)](http://support.hockeyapp.net/kb)에서 을 알아볼 수 있고 최신 정보는 [HockeyApp 블로그(영문)](http://hockeyapp.net/blog/)를 통해 확인할 수 있습니다.
+[HockeyApp](http://hockeyapp.net/)은 iOS, OS X, Android 또는 Windows 장치 앱 뿐만 아니라 Xamarin, Cordova, Unity에 기반하는 플랫폼 간 앱에 대한 Mobile DevOps 솔루션일 입니다. 이를 통해 빌드를 베타 테스터에게 배포하고, 충돌 데이터를 수집하고, 사용자 피드백을 얻을 수 있습니다. Visual Studio Team Services와 통합되어 있기 때문에 손쉬운 빌드 배포 및 작업 항목 통합이 가능합니다.
 
-사용 현황 분석은 [Android용 Application Insights SDK(영문)](https://github.com/Microsoft/ApplicationInsights-Android)를 사용하세요. 앱에 서버측이 있으면, 클라이언트 및 서버 데이터를 동일한 Application Insights 리소스에 보낼 수 있습니다.
+다음으로 이동합니다.
 
-* [Android용 Application Insights 시작(영문)](https://github.com/Microsoft/ApplicationInsights-Android).
+* [HockeyApp](http://support.hockeyapp.net/kb)
 * [Android용 HockeyApp 시작(영문)](http://support.hockeyapp.net/kb/client-integration-android/hockeyapp-for-android-sdk).
+* [HockeyApp 블로그](http://hockeyapp.net/blog/)
+* [Hockeyapp Preseason](http://hockeyapp.net/preseason/)을 조인하여 초기 릴리스를 얻습니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+앱에 서버측이 있으면, [Application Insights](app-insights-overview.md)를 사용하여 [ASP.NET](app-insights-asp-net.md) 또는 [J2EE](app-insights-java-get-started.md)에서 앱의 웹 서버측을 모니터링합니다.
+ 
+
+<!---HONumber=AcomDC_0211_2016-->

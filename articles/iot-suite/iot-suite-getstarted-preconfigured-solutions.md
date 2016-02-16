@@ -57,7 +57,7 @@ Azure IoT Suite의 [미리 구성된 솔루션][lnk-preconfigured-solutions]은 
 
     ![][img-devicelist]
 
-2.  프로비전 프로세스에서 생성된 네 개의 시뮬레이션된 장치가 보일 것입니다.
+2.  장치 목록은 프로비전 프로세스에서 생성된 네 개의 시뮬레이션된 장치를 보여줍니다.
 
 3.  장치 목록의 장치를 클릭하면 해당 장치의 세부 정보를 볼 수 있습니다.
 
@@ -130,6 +130,8 @@ Azure IoT Suite의 [미리 구성된 솔루션][lnk-preconfigured-solutions]은 
 9.  **솔루션 대시보드**의 **경보 기록** 테이블로 돌아가서 업데이트된 규칙의 결과로 동작이 어떻게 바뀌는지 관찰합니다.
 
     ![][img-newhistory]
+    
+완료되면 [azureiotsuite.com][lnk-azureiotsuite] 사이트의 Azure 구독에서 미리 구성된 솔루션을 삭제할 수 있고 그러면 미리 구성된 솔루션을 만든 경우 프로비전된 모든 리소스를 쉽게 삭제할 수 있습니다.
 
 ## 다음 단계
 
@@ -160,4 +162,4 @@ Azure IoT Suite의 [미리 구성된 솔루션][lnk-preconfigured-solutions]은 
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 [lnk-predictive]: iot-suite-predictive-overview.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

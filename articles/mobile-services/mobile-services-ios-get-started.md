@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="11/04/2015"
+	ms.date="02/10/2016"
 	ms.author="krisragh"/>
 
 # <a name="getting-started"> </a>모바일 서비스 시작
@@ -95,4 +95,4 @@ Azure 클래식 포털에서 쉬운 빠른 시작을 수행하여 모바일 서�
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [.NET 백 엔드 버전]: mobile-services-dotnet-backend-ios-get-started.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

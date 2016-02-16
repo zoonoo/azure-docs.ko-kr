@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""/>
 <tags
    ms.service="expressroute"
@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/16/2016"
+   ms.date="02/08/2016"
    ms.author="cherylmc"/>
 
 
@@ -67,7 +67,7 @@ BGP 세션을 설치하기 위해 소유한 공용 IP 주소를 사용해야 합
 - [APNIC](https://www.apnic.net/)
 - [AFRINIC](https://www.afrinic.net/)
 - [LACNIC](http://www.lacnic.net/)
-- [RIPE NCC](https://www.ripe.net/)
+- [RIPENCC](https://www.ripe.net/)
 - [RADB](http://www.radb.net/)
 - [ALTDB](http://altdb.net/)
 
@@ -103,7 +103,8 @@ Express 경로는 전송 라우터로 구성할 수 없습니다. 전송 라우�
 
 **참고:** 기본 경로 광고는 Windows 및 다른 VM 라이선스 정품 인증을 중단합니다. [여기](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx)서 지침을 수행하여 이 문제를 해결합니다.
 
-## BGP 커뮤니티에 대한 지원
+## BGP 커뮤니티에 대한 지원(서비스 예정)
+
 
 이 섹션에서는 BGP 커뮤니티를 어떻게 Express 경로와 함께 사용하는지에 대한 개요를 제공합니다. Microsoft는 적절한 커뮤니티 값으로 태그된 경로를 가진 공용 및 Microsoft 피어링 경로에 경로를 광고합니다. 이렇게 하는 이유 및 커뮤니티 값에 대한 세부 정보는 다음과 같습니다. 그러나 Microsoft는 Microsoft에 보급하는 경로에 태그된 커뮤니티 값을 인식하지 못합니다.
 
@@ -169,8 +170,8 @@ Microsoft는 설정한 BGP 커뮤니티 값을 준수하지 않습니다. 피어
 
 - Express 경로 연결을 구성합니다.
 
-	- [Express 경로 회로 만들기](expressroute-howto-circuit-classic.md)
-	- [라우팅 구성](expressroute-howto-routing-classic.md)
-	- [VNet을 Express 경로 회로에 연결](expressroute-howto-linkvnet-classic.md)
+	- [클래식 배포 모델용 Express 경로 회로 만들기](expressroute-howto-circuit-classic.md) 또는 [Azure 리소스 관리자를 사용하여 Express 경로 회로 만들기 및 수정](expressroute-howto-circuit-arm.md)
+	- [클래식 배포 모델용 라우팅 구성](expressroute-howto-routing-classic.md) 또는 [리소스 관리자 배포 모델용 라우팅 구성](expressroute-howto-routing-arm.md)
+	- [클래식 VNet를 Express 경로 회로에 연결](expressroute-howto-linkvnet-classic.md) 또는 [리소스 관리자 VNet를 Express 경로 회로에 연결](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->
