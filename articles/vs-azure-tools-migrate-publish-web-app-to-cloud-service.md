@@ -208,4 +208,4 @@ Azure에 웹 응용 프로그램을 게시하려면 응용 프로그램이 아�
 ## 다음 단계
 게시에 대한 자세한 내용은 [Visual Studio에서 Azure 응용 프로그램 게시 또는 배포 준비](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md)를 참조하세요. 또한 [명명된 인증 자격 증명 설정](vs-azure-tools-setting-up-named-authentication-credentials.md)도 참조하세요.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!----HONumber=AcomDC_0204_2016-->
