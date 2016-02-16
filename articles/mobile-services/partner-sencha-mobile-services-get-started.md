@@ -677,7 +677,7 @@ Sencha Touch 저장소는 다양한 방식으로 레코드를 표시할 수 있�
 
   3. 터미널에서 나열된 URL(예: http://localhost:1841))을 웹 브라우저에서 열고 앱을 시작합니다.
 
-  4. 앱에서 "Complete the tutorial" 등의 의미 있는 텍스트를 입력하고 **Add**를 클릭합니다.
+  4. 앱에서 "자습서 완료" 등의 의미 있는 텍스트를 입력하고 **Add**를 클릭합니다.
 
     ![new todo item](./media/partner-sencha-mobile-services-get-started/new-todo-item.png)
 
