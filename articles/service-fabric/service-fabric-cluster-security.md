@@ -205,7 +205,8 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My -FileP
 참고 - 보안 클러스터의 경우 항상 적어도 하나의 유효한(취소되지 않거나 만료됨) 인증서(주 또는 보조) 배포가 필요하며 그렇지 않으면 클러스터에 액세스할 수 없습니다.
 
 
-## 서비스 패브릭에서 사용하는 인증서 종류에 대해 자세히 설명합니다.
+## 
+서비스 패브릭에서 사용하는 인증서 종류에 대해 자세히 설명합니다.
 
 ## X.509 인증서
 
@@ -245,4 +246,4 @@ X.509 디지털 인증서는 클라이언트 및 서버를 인증하고 암호�
 [Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png
 [Client-to-Node]: ./media/service-fabric-cluster-security/client-to-node.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!----HONumber=AcomDC_0204_2016-->

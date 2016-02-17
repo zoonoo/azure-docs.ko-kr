@@ -104,7 +104,12 @@ Azure 데이터 팩터리 및 다른 클라우드 서비스와 게이트웨이�
 
 | 도메인 이름 | 포트 | 설명 |
 | ------ | --------- | ------------ |
-| **.servicebus.windows.net | 443, 80 | TCP를 통한 서비스 버스 릴레이 상의 수신기(액세스 제어 토큰을 획득하려면 443 필요) | | *.servicebus.windows.net | 9350-9354 | TCP를 통한 선택적 서비스 버스 릴레이 | | *.core.windows.net | 443 | HTTPS | | *.clouddatahub.net | 443 | HTTPS | | graph.windows.net | 443 | HTTPS | | login.windows.net | 443 | HTTPS | 
+| **.servicebus.windows.net | 443, 80 | TCP를 통한 서비스 버스 릴레이 상의 수신기(액세스 제어 토큰을 획득하려면 443 필요) |
+| *.servicebus.windows.net | 9350-9354 | TCP를 통한 선택적 서비스 버스 릴레이 |
+| *.core.windows.net | 443 | HTTPS |
+| *.clouddatahub.net | 443 | HTTPS |
+| graph.windows.net | 443 | HTTPS |
+| login.windows.net | 443 | HTTPS | 
 
 Windows 방화벽 수준에서 이러한 아웃바운드 포트는 일반적으로 사용할 수 있습니다. 그렇지 않은 경우 게이트웨이 컴퓨터에서 도메인 및 포트를 그에 따라 구성할 수 있습니다.
 
@@ -692,4 +697,4 @@ Azure 포털에서 시작된 "자격 증명 설정" 응용 프로그램을 사�
 5.	게이트웨이는 동일한 인증서로 자격 증명의 암호를 해독하고 적절한 인증 형식으로 온-프레미스 데이터 저장소에 연결합니다.
 6.	게이트웨이는 데이터 파이프라인에서 복사 활동을 구성하는 방법에 따라 온-프레미스 저장소에서 클라우드 저장소에 또는 클라우드 저장소에서 온-프레미스 데이터 저장소에 데이터를 복사합니다. 참고: 이 단계의 경우 게이트웨이는 보안(HTTPS) 채널을 통해 클라우드 기반 저장소 서비스(예: Azure Blob, Azure SQL 등)와 직접 통신합니다.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!----HONumber=AcomDC_0204_2016-->

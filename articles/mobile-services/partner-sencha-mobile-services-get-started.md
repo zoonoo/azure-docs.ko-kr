@@ -42,9 +42,9 @@
 
 ##요구 사항
 
-- [Sencha Touch]를 다운로드하여 설치합니다(http://wwww.sencha.com/products/touch/download" target="\_blank").
+- [Sencha Touch](http://wwww.sencha.com/products/touch/download" target="\_blank") 를 다운로드하여 설치합니다.
 
-- [Sencha Cmd Tool]을 다운로드하여 설치합니다(http://www.sencha.com/products/sencha-cmd/download" target="\_blank").
+- [Sencha Cmd Tool](http://www.sencha.com/products/sencha-cmd/download" target="\_blank") 을 다운로드하여 설치합니다.
 
 - JRE(Java Runtime Environment) 또는 Java Development Kit(Android 앱을 만드는 경우)
 - Ruby 및 SASS 보석
@@ -724,4 +724,4 @@ Sencha Touch 시작에 대한 자세한 내용을 보려면 전체 [가이드](h
 
 [Azure 클래식 포털]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0211_2016-->
