@@ -82,8 +82,9 @@
 
     ![앱 설정 구성](./media/active-directory-saas-benefitsolver-tutorial/IC804826.png "앱 설정 구성")
 
-    1.  **로그인 URL** 텍스트 상자에서 ****http://azure.benefitsolver.com**을 입력합니다.
-2.  **회신 URL** 텍스트 상자에서 ****https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml**을 입력합니다.
+    1.  **로그인 URL** 텍스트 상자에서 **http://azure.benefitsolver.com**을 입력합니다.
+	2.  **회신 URL** 텍스트 상자에서 **https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml**을 입력합니다.
+
 
     3.  **다음**을 클릭합니다.
 
@@ -145,4 +146,4 @@ Azure AD 사용자가 Benefitsolver에 로그인할 수 있도록 하려면 Bene
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!----HONumber=AcomDC_0204_2016-->
