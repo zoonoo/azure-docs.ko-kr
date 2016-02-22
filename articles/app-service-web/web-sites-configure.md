@@ -66,7 +66,7 @@
 
 - .NET 앱의 경우, 이 설정은 런타임 시 .NET 구성 `AppSettings`으로 주입되어 기존 설정을 재정의합니다. 
 
-- PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 환경 변수로 이러한 설정에 액세스할 수 있습니다. 각 앱 설정에 대해 두 개의 환경 변수가 만들어집니다. 하나는 앱 설정 항목에 의해 이름이 지정되고, 다른 하나는 이름에 APPSETTING\_ 접두사가 붙습니다. 둘 다 같은 값을 포함합니다.
+- PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 환경 변수로 이러한 설정에 액세스할 수 있습니다. 각 앱 설정에 대해 두 개의 환경 변수가 만들어집니다. 하나는 앱 설정 항목에 의해 이름이 지정되고, 다른 하나는 이름에 APPSETTING_ 접두사가 붙습니다. 둘 다 같은 값을 포함합니다.
 
 ### 연결 문자열
 
@@ -76,10 +76,10 @@
 
 PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 이러한 설정을 환경 변수로 사용할 수 있으며, 환경 변수 앞에는 연결 형식이 옵니다. 환경 변수 접두사는 다음과 같습니다.
 
-- SQL 서버: SQLCONNSTR\_
-- MySQL: MYSQLCONNSTR\_
-- SQL 데이터베이스: SQLAZURECONNSTR\_
-- 사용자 지정: CUSTOMCONNSTR\_
+- SQL 서버: SQLCONNSTR_
+- MySQL: MYSQLCONNSTR_
+- SQL 데이터베이스: SQLAZURECONNSTR_
+- 사용자 지정: CUSTOMCONNSTR_
 
 예를 들어 MySql 연결 문자열 이름이 `connectionstring1`로 지정된 경우 환경 변수 `MYSQLCONNSTR_connectionString1`을 통해 액세스될 수 있습니다.
 
@@ -132,7 +132,7 @@ PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 이러한 �
 ![](./media/web-sites-configure/configure03.png)
 
 
-전체 FTP 사용자 이름은 “app\\username”이며, 여기서 *app*은 사용자의 웹 앱 이름입니다. 사용자 이름은 **필수 항목** 아래 웹 앱 블레이드에 나열되어 있습니다.
+전체 FTP 사용자 이름은 “app\username”이며, 여기서 *app*은 사용자의 웹 앱 이름입니다. 사용자 이름은 **필수 항목** 아래 웹 앱 블레이드에 나열되어 있습니다.
 
 ![](./media/web-sites-configure/configure02.png)
 

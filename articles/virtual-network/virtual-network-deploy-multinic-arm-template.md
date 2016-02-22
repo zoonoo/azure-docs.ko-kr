@@ -27,7 +27,7 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-현재는 단일 NIC가 사용되는 VM과 여러 NIC가 사용되는 VM을 동일 리소스 그룹에서 사용할 수 없기 때문에 백 엔드 서버는 리소스 그룹에서 구현하고 다른 모든 구성 요소는 다른 보안 그룹에서 구현하게 됩니다. 다음 단계에서는 기본 리소스 그룹에 *IaaSStory*라는 리소스 그룹을, 백 엔드 서버에는 *IaaSStory-BackEnd*를 사용합니다.
+현재는 단일 NIC가 사용되는 VM과 여러 NIC가 사용되는 VM을 동일 리소스 그룹에서 사용할 수 없기 때문에 백 엔드 서버는 리소스 그룹에서 구현하고 다른 모든 구성 요소는 다른 보안 그룹에서 구현하게 됩니다. 다음 단계에서는 기본 리소스 그룹에 *IaaSStory* 라는 리소스 그룹을, 백 엔드 서버에는 *IaaSStory-BackEnd* 를 사용합니다.
 
 ## 필수 조건
 

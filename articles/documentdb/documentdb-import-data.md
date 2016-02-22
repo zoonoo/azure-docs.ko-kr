@@ -137,8 +137,21 @@ SQL 원본 가져오기 옵션을 사용하면 개별 SQL Server 데이터베이
 
 Address.AddressType 및 Address.Location.StateProvinceName과 같은 별칭을 확인합니다. 중첩 구분 기호 '.'을 지정하면 가져오기 도구가 가져오는 동안 Address 및 Address.Location 하위 문서를 만듭니다. DocumentDB의 결과 문서 예는 다음과 같습니다.
 
-*{ "id": "956", "Name": "Finer Sales and Service", "Address": { "AddressType": "Main Office", "AddressLine1": "#500-75 O'Connor Street", "Location": { "City": "Ottawa", "StateProvinceName": "Ontario" }, "PostalCode": "K4B 1S2", "CountryRegionName": "Canada" } }*
-
+*{
+  "id": "956",
+  "Name": "Finer Sales and Service",
+  "Address": {
+    "AddressType": "Main Office",
+    "AddressLine1": "#500-75 O'Connor Street",
+    "Location": {
+      "City": "Ottawa",
+      "StateProvinceName": "Ontario"
+    },
+    "PostalCode": "K4B 1S2",
+    "CountryRegionName": "Canada"
+  }
+}*
+ 
 SQL Server에서 가져오는 몇 가지 명령줄 샘플은 다음과 같습니다.
 
 	#Import records from SQL which match a query
@@ -157,9 +170,20 @@ SQL 원본과 마찬가지로, 중첩 구분 기호 속성을 사용하여 가�
 
 ![CSV 샘플 레코드의 스크린샷 - CSV에서 JSON으로](./media/documentdb-import-data/csvsample.png)
 
-DomainInfo.Domain\_Name 및 RedirectInfo.Redirecting과 같은 별칭을 확인하세요. 중첩 구분 기호 '.'을 지정하면 가져오기 도구가 가져오는 동안 DomainInfo 및 RedirectInfo 하위 문서를 만듭니다. DocumentDB의 결과 문서 예는 다음과 같습니다.
+DomainInfo.Domain_Name 및 RedirectInfo.Redirecting과 같은 별칭을 확인하세요. 중첩 구분 기호 '.'을 지정하면 가져오기 도구가 가져오는 동안 DomainInfo 및 RedirectInfo 하위 문서를 만듭니다. DocumentDB의 결과 문서 예는 다음과 같습니다.
 
-*{ "DomainInfo": { "Domain\_Name": "ACUS.GOV", "Domain\_Name\_Address": "http://www.ACUS.GOV" }, "Federal Agency": "Administrative Conference of the United States", "RedirectInfo": { "Redirecting": "0", "Redirect\_Destination": "" }, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }*
+*{
+  "DomainInfo": {
+    "Domain_Name": "ACUS.GOV",
+    "Domain_Name_Address": "http://www.ACUS.GOV"
+  },
+  "Federal Agency": "Administrative Conference of the United States",
+  "RedirectInfo": {
+    "Redirecting": "0",
+    "Redirect_Destination": ""
+  },
+  "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d"
+}*
 
 가져오기 도구는 CSV 파일의 따옴표가 없는 값에 대한 형식 정보를 유추하려고 합니다(따옴표로 묶인 값은 항상 문자열로 처리됨). 숫자, 날짜/시간, 부울 순서로 형식이 식별됩니다.
 
@@ -247,7 +271,7 @@ DocumentDB 연결 문자열의 형식은 다음과 같습니다.
 
 DocumentDB 원본 가져오기 옵션에는 다음과 같은 고급 옵션이 있습니다.
 
-1. 내부 필드 포함: 내보내기에 DocumentDB 문서 시스템 속성(예: \_rid, \_ts)을 포함할지 여부를 지정합니다.
+1. 내부 필드 포함: 내보내기에 DocumentDB 문서 시스템 속성(예: _rid, _ts)을 포함할지 여부를 지정합니다.
 2. 실패 시 다시 시도 횟수: 일시적 오류(예: 네트워크 연결 중단)의 경우 DocumentDB에 대한 연결을 다시 시도할 횟수를 지정합니다.
 3. 다시 시도 간격: 일시적 오류(예: 네트워크 연결 중단)의 경우 DocumentDB에 대한 연결을 다시 시도하는 간격을 지정합니다.
 4. 연결 모드: DocumentDB에 사용할 연결 모드를 지정합니다. 사용 가능한 선택 사항은 DirectTcp, DirectHttps 및 게이트웨이입니다. 직접 연결 모드는 더 빠르고, 게이트웨이 모드는 포트 443만 사용하므로 더 방화벽 친화적입니다.
@@ -298,7 +322,7 @@ DocumentDB 연결 문자열의 형식은 다음과 같습니다.
 
 > [AZURE.NOTE] Verify 명령을 사용하여 연결 문자열 필드에 지정된 DocumentDB 인스턴스를 액세스할 수 있는지 확인합니다.
 
-단일 컬렉션으로 가져오려면, 데이터를 가져올 컬렉션의 이름을 입력하고 추가 단추를 클릭합니다. 여러 컬렉션을 가져오려면 개별적으로 각 컬렉션 이름을 입력하거나 여러 컬렉션을 지정하려면 다음 구문을 사용합니다. *collection\_prefix*[start index - end index]. 앞서 언급한 구문을 통해 여러 컬렉션을 지정할 때 다음 사항에 유의해야 합니다.
+단일 컬렉션으로 가져오려면, 데이터를 가져올 컬렉션의 이름을 입력하고 추가 단추를 클릭합니다. 여러 컬렉션을 가져오려면 개별적으로 각 컬렉션 이름을 입력하거나 여러 컬렉션을 지정하려면 다음 구문을 사용합니다. *collection_prefix*[start index - end index]. 앞서 언급한 구문을 통해 여러 컬렉션을 지정할 때 다음 사항에 유의해야 합니다.
 
 1. 정수 범위 이름 패턴만 지원됩니다. 예를 들어, 컬렉션 [0-3]을 지정하면 collection0, collection1, collection2, collection3 컬렉션을 생성합니다.
 2. 축약된 구문을 사용할 수 있습니다. [3] 컬렉션은 1단계에서 설명한 동일한 집합을 내보냅니다.
@@ -322,7 +346,7 @@ DocumentDB 연결 문자열의 형식은 다음과 같습니다.
 
 -	문자열: 문자열 값으로 유지
 -	Epoch: Epoch 숫자 값으로 유지
--	둘 다: 문자열 및 Epoch 숫자 값으로 유지. 이 옵션은 하위 문서를 만듭니다(예: "date\_joined": { "Value": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245 }).
+-	둘 다: 문자열 및 Epoch 숫자 값으로 유지. 이 옵션은 하위 문서를 만듭니다(예: "date_joined": { "Value": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245 }). 
 
 
 DocumentDB 대량 가져오기에는 다음과 같은 추가 고급 옵션이 있습니다.
@@ -351,7 +375,7 @@ DocumentDB 연결 문자열의 형식은 다음과 같습니다.
 
 > [AZURE.NOTE] Verify 명령을 사용하여 연결 문자열 필드에 지정된 DocumentDB 인스턴스를 액세스할 수 있는지 확인합니다.
 
-단일 컬렉션으로 가져오려면, 데이터를 가져올 컬렉션의 이름을 입력하고 추가 단추를 클릭합니다. 여러 컬렉션을 가져오려면 개별적으로 각 컬렉션 이름을 입력하거나 여러 컬렉션을 지정하려면 다음 구문을 사용합니다. *collection\_prefix*[start index - end index]. 앞서 언급한 구문을 통해 여러 컬렉션을 지정할 때 다음 사항에 유의해야 합니다.
+단일 컬렉션으로 가져오려면, 데이터를 가져올 컬렉션의 이름을 입력하고 추가 단추를 클릭합니다. 여러 컬렉션을 가져오려면 개별적으로 각 컬렉션 이름을 입력하거나 여러 컬렉션을 지정하려면 다음 구문을 사용합니다. *collection_prefix*[start index - end index]. 앞서 언급한 구문을 통해 여러 컬렉션을 지정할 때 다음 사항에 유의해야 합니다.
 
 1. 정수 범위 이름 패턴만 지원됩니다. 예를 들어, 컬렉션 [0-3]을 지정하면 collection0, collection1, collection2, collection3 컬렉션을 생성합니다.
 2. 축약된 구문을 사용할 수 있습니다. [3] 컬렉션은 1단계에서 설명한 동일한 집합을 내보냅니다.
@@ -371,7 +395,7 @@ DocumentDB 연결 문자열의 형식은 다음과 같습니다.
 
 -	문자열: 문자열 값으로 유지
 -	Epoch: Epoch 숫자 값으로 유지
--	둘 다: 문자열 및 Epoch 숫자 값으로 유지. 이 옵션은 하위 문서를 만듭니다(예: "date\_joined": { "Value": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245 }).
+-	둘 다: 문자열 및 Epoch 숫자 값으로 유지. 이 옵션은 하위 문서를 만듭니다(예: "date_joined": { "Value": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245 }). 
 
 DocumentDB - 순차 레코드 가져오기에는 다음과 같은 추가 고급 옵션이 있습니다.
 

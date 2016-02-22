@@ -504,7 +504,8 @@ Facebook 이외의 ID 공급자를 사용하는 경우 위의 `login` 메서드�
 	// Start the sign-in process.
 	authenticate();
 
-이 코드는 Live Connect 클라이언트를 초기화하고, Microsoft 계정에 새 로그인 요청을 보내고, 반환된 인증 토큰을 모바일 서비스로 보낸 다음 로그인한 사용자에 대한 정보를 표시합니다. 앱은 인증에 성공할 때까지 시작되지 않습니다. <!--- //this guidance may be bad from an XSS vulnerability standpoint. We need to find better guidance for this
+이 코드는 Live Connect 클라이언트를 초기화하고, Microsoft 계정에 새 로그인 요청을 보내고, 반환된 인증 토큰을 모바일 서비스로 보낸 다음 로그인한 사용자에 대한 정보를 표시합니다. 앱은 인증에 성공할 때까지 시작되지 않습니다.
+<!--- //this guidance may be bad from an XSS vulnerability standpoint. We need to find better guidance for this
 ###Caching the authentication token
 In some cases, the call to the login method can be avoided after the first time the user authenticates. We can use [sessionStorage] or [localStorage] to cache the current user identity the first time they log in and every subsequent time we check whether we already have the user identity in our cache. If the cache is empty or calls fail (meaning the current login session has expired), we still need to go through the login process.
 

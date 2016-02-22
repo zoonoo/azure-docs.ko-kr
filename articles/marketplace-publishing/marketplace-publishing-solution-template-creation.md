@@ -46,9 +46,9 @@ Zip 파일을 업로드한 후 **인증 요청**을 클릭합니다. Microsoft �
 
 또한 다음 단계에 따라 고객을 위해 실제 배포하지 않고 만들기 환경을 확인할 수도 있습니다.
 
-1. *createUiDefinition.json*을 저장하고 절대 URL을 생성합니다. 이 URL은 공개적으로 액세스할 수 있어야 합니다.
+1. *createUiDefinition.json* 을 저장하고 절대 URL을 생성합니다. 이 URL은 공개적으로 액세스할 수 있어야 합니다.
 2. [http://www.url-encode-decode.com/](http://www.url-encode-decode.com/)에서 도구를 사용하여 URL을 인코딩합니다.
-3. 굵게 표시된 텍스트를 유효성 확인이 필요한 *createUiDefinition.json*의 위치(인코드된 URL)로 바꿉니다.
+3. 굵게 표시된 텍스트를 유효성 확인이 필요한 *createUiDefinition.json* 의 위치(인코드된 URL)로 바꿉니다.
 
   > https://portal.azure.com/?clientOptimizations=false#blade/Microsoft_Azure_Compute/CreateMultiVmWizardBlade/internal_bladeCallId/anything/internal_bladeCallerParams/ **{"initialData":{},"providerConfig":{"createUiDefinition":"http://yoururltocreateuidefinition.jsonURLencoded"}}**
 

@@ -40,7 +40,7 @@
 
 자습서 [Xamarin iOS 앱 만들기]를 완료한 경우 다운로드한 Xamarin 클라이언트 프로젝트는 로컬 SQLite 데이터베이스를 사용하여 오프라인 동기화를 지원하는 코드를 포함합니다. 이미 자습서 코드에 포함된 내용에 대한 간략한 개요입니다. 기능의 개념적 개요는 [Azure 모바일 앱에서 오프라인 데이터 동기화]를 참조하세요.
 
-* 모든 테이블 작업을 수행하려면 먼저 로컬 저장소를 초기화해야 합니다. `QSTodoListViewController.ViewDidLoad()`가 `QSTodoService.InitializeStoreAsync()`를 실행하는 경우 로컬 저장소 데이터베이스를 초기화합니다. Azure 모바일 앱 클라이언트 SDK에서 제공하는 `MobileServiceSQLiteStore` 클래스를 사용하여 새 로컬 SQLite 데이터베이스를 만듭니다.
+* 모든 테이블 작업을 수행하려면 먼저 로컬 저장소를 초기화해야 합니다. `QSTodoListViewController.ViewDidLoad()`가 `QSTodoService.InitializeStoreAsync()`를 실행하는 경우 로컬 저장소 데이터베이스를 초기화합니다. Azure 모바일 앱 클라이언트 SDK에서 제공하는 `MobileServiceSQLiteStore` 클래스를 사용하여 새 로컬 SQLite 데이터베이스를 만듭니다. 
 
 	`DefineTable` 메서드는 제공된 형식(이 경우 `ToDoItem`)의 필드와 일치하는 테이블을 로컬 저장소에 만듭니다. 이 형식은 원격 데이터베이스에 있는 열을 모두 포함하지 않아도 됩니다. 열의 하위 집합 저장은 불가능합니다.
 
@@ -140,7 +140,7 @@
 
 * [Azure 모바일 앱에서 오프라인 데이터 동기화]
 
-* [Cloud Cover: Azure 모바일 서비스에서 오프라인 동기화](참고: 비디오는 모바일 서비스에 있지만 Azure 모바일 앱에서 비슷한 방식으로 오프라인 동기화가 작동합니다.)
+* [Cloud Cover: Azure 모바일 서비스에서 오프라인 동기화]\(참고: 비디오는 모바일 서비스에 있지만 Azure 모바일 앱에서 비슷한 방식으로 오프라인 동기화가 작동합니다.)
 
 <!-- ##Summary
 

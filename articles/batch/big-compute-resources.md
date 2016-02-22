@@ -38,7 +38,7 @@ Azure의 큰 계산 옵션에 대해 알아보고 사용자의 작업 및 비즈
 
 * [자습서: .NET용 Azure 배치 라이브러리 시작](batch-dotnet-get-started.md)
 
-* [배치 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=azurebatch)
+* [배치 포럼](https://social.msdn.microsoft.com/Forums/home?forum=azurebatch)
 
 * [배치 비디오](https://azure.microsoft.com/documentation/videos/index/?services=batch)
 
