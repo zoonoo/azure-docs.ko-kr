@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="02/09/2016"
 	ms.author="asmalser-msft"/>
 
 #Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?
@@ -80,7 +80,7 @@ Azure AD는 HTML 기반 로그인 페이지가 있는 모든 클라우드 기반
 
 암호 기반 SSO의 경우 최종 사용자 브라우저는 다음 중 하나일 수 있습니다.
 
-- Internet Explorer 8, 9 및 10 -- Windows 7 이상([IE 확장 배포 가이드](active-directory-saas-ie-group-policy.md) 참조)
+- Internet Explorer 8, 9, 10, 11 - Windows 7 이상([IE 확장 배포 가이드](active-directory-saas-ie-group-policy.md) 참조)
 - Chrome - Windows 7 이상 및 Mac OS X 이상
 - Firefox 26.0 이상 - Windows XP SP2 이상 및 Mac OS X 10.6 이상
 
@@ -210,7 +210,14 @@ Azure AD는 또한 암호 기반 Single Sign-On, 기존 Single Sign-On 및 페�
 
 이러한 링크는 액세스 패널 및 Office 365와 동일한 액세스 제어 메커니즘을 사용하며, Azure 관리 포털에서 응용 프로그램에 할당된 해당 사용자나 그룹만 성공적으로 인증할 수 있습니다. 그러나 권한이 없는 사용자에게는 액세스 권한이 부여되지 않았음을 설명하는 메시지가 표시되고, 액세스할 수 있는 사용 가능한 응용 프로그램을 볼 수 있는 액세스 패널 로드에 대한 링크가 제공됩니다.
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+##관련 문서
+
+- [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
+- [클라우드 앱 검색을 사용하여 허용되지 않은 클라우드 응용 프로그램 찾기](active-directory-cloudappdiscovery-whatis.md)
+- [앱에 대한 액세스 관리 소개](active-directory-managing-access-to-apps.md)
+- [Azure AD에서 외부 ID 관리 기능 비교](active-directory-b2b-compare-external-identities.md)
+
 
 <!--Image references-->
 [1]: ./media/active-directory-appssoaccess-whatis/onlineappgallery.png
@@ -220,4 +227,4 @@ Azure AD는 또한 암호 기반 Single Sign-On, 기존 Single Sign-On 및 페�
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

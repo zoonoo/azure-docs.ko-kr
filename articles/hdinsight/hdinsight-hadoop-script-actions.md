@@ -14,23 +14,23 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/09/2015"
+	ms.date="02/04/2016"
 	ms.author="jgao"/>
 
 # HDInsight용 스크립트 작업 스크립트 개발
 
-HDInsight용 스크립트 작업 스크립트를 작성하는 방법을 알아봅니다. 스크립트 동작 스크립트 사용에 대한 자세한 내용은 [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster.md)을 참조하세요. Linux 운영 체제에서 HDInsight 클러스터용으로 작성된 동일한 문서를 보려면 [HDInsight용 스크립트 작업 스크립트 개발](hdinsight-hadoop-script-actions-linux.md)을 참조하세요.
+HDInsight용 스크립트 작업 스크립트를 작성하는 방법을 알아봅니다. 스크립트 동작 스크립트 사용에 대한 자세한 내용은 [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster.md)을 참조하세요. Linux 기반 HDInsight 클러스터용으로 작성된 동일한 문서를 보려면 [HDInsight용 스크립트 작업 스크립트 개발](hdinsight-hadoop-script-actions-linux.md)을 참조하세요.
 
 스크립트 작업은 Hadoop 클러스터에서 실행되는 추가 소프트웨어를 설치하거나 클러스터에 설치된 응용 프로그램의 구성을 변경하기 위해 사용할 수 있습니다. 스크립트 작업은 HDInsight 클러스터를 배포할 때 클러스터 노드에서 실행되는 스크립트이며 클러스터의 노드에서 HDInsight 구성이 완료되면 실행됩니다. 스크립트 작업은 시스템 관리자 계정 권한으로 실행되며 클러스터 노드에 대한 모든 액세스 권한을 제공합니다. 각 클러스터에는 지정된 순서로 실행되는 스크립트 작업 목록이 제공될 수 있습니다.
 
-> [AZURE.NOTE]다음 오류 메시지가 나타나는 경우
+> [AZURE.NOTE] 다음 오류 메시지가 나타나는 경우
 > 
 >     System.Management.Automation.CommandNotFoundException; ExceptionMessage : The term 'Save-HDIFile' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
 > 도우미 메서드를 포함하지 않았기 때문입니다. [사용자 지정 스크립트에 대한 도우미 메서드](hdinsight-hadoop-script-actions.md#helper-methods-for-custom-scripts)를 참조하세요.
 
 ## 샘플 스크립트
 
-Windows 운영 체제에서 HDInsight 클러스터를 프로비전하는 경우 스크립트 작업은 Azure PowerShell 스크립트입니다. 다음은 사이트 구성 파일 구성에 대한 샘플 스크립트입니다.
+Windows 운영 체제에서 HDInsight 클러스터를 만드는 경우 스크립트 작업은 Azure PowerShell 스크립트입니다. 다음은 사이트 구성 파일 구성에 대한 샘플 스크립트입니다.
 
 	param (
 	    [parameter(Mandatory)][string] $ConfigFileName,
@@ -94,7 +94,7 @@ HDInsight는 HDInsight 클러스터에 추가 구성 요소를 설치하는 여�
 
 스크립트 작업은 Azure 포털, Azure PowerShell에서 배포하거나 HDInsight .NET SDK를 사용하여 배포할 수 있습니다. 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-cluster-customize]을 참조하세요.
 
-> [AZURE.NOTE]샘플 스크립트는 HDInsight 클러스터 버전 3.1 이상에서만 작동합니다. HDInsight 클러스터 버전에 대한 자세한 내용은 [HDInsight 클러스터 버전](../hdinsight-component-versioning/)을 참조하세요.
+> [AZURE.NOTE] 샘플 스크립트는 HDInsight 클러스터 버전 3.1 이상에서만 작동합니다. HDInsight 클러스터 버전에 대한 자세한 내용은 [HDInsight 클러스터 버전](../hdinsight-component-versioning/)을 참조하세요.
 
 
 
@@ -213,7 +213,7 @@ HDInsight 클러스터용으로 사용자 지정 스크립트를 개발할 때 �
 
 ### 실패한 클러스터 배포에 대한 예외 발생
 
-클러스터 사용자 지정이 예상대로 성공하지 못했음을 정확히 알리는 알림을 받으려면 예외를 발생시키고 클러스터 프로비저닝을 실패로 처리해야 합니다. 예를 들어 파일이 존재하면 파일을 처리하고, 파일이 존재하지 않으면 오류 사례를 처리할 수 있습니다. 이렇게 하면 스크립트가 정상적으로 종료되고 클러스터의 상태가 올바르게 알려집니다. 다음 코드 조각에서는 이를 실현하는 방법에 대한 예제를 제공합니다.
+클러스터 사용자 지정이 예상대로 성공하지 못했음을 정확히 알리는 알림을 받으려면 예외를 발생시키고 클러스터 만들기를 실패로 처리해야 합니다. 예를 들어 파일이 존재하면 파일을 처리하고, 파일이 존재하지 않으면 오류 사례를 처리할 수 있습니다. 이렇게 하면 스크립트가 정상적으로 종료되고 클러스터의 상태가 올바르게 알려집니다. 다음 코드 조각에서는 이를 실현하는 방법에 대한 예제를 제공합니다.
 
 	If(Test-Path($SomePath)) {
 		#Process file in some way
@@ -339,7 +339,7 @@ HDInsight 스크립트 작업 명령에서 사용하기 전에 사용자 지정 
 - [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-cluster-customize]
 - [HDInsight 클러스터에서 Spark 설치 및 사용][hdinsight-install-spark]
 - [HDInsight 클러스터에서 R 설치 및 사용][hdinsight-r-scripts]
-- [HDInsight 클러스터에서 Solr 설치 및 사용](hdinsight-hadoop-solr-install.md)
+- [HDInsight 클러스터에 Solr 설치 및 사용](hdinsight-hadoop-solr-install.md)
 - [HDInsight 클러스터에서 Giraph 설치 및 사용](hdinsight-hadoop-giraph-install.md)
 
 [hdinsight-provision]: ../hdinsight-provision-clusters/
@@ -351,4 +351,4 @@ HDInsight 스크립트 작업 명령에서 사용하기 전에 사용자 지정 
 <!--Reference links in article-->
 [1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

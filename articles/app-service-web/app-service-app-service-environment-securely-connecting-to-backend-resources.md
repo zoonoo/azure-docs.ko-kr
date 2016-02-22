@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="02/10/2016" 
 	ms.author="stefsch"/>
 
 # 앱 서비스 환경에서 백 엔드 리소스에 안전하게 연결 #
@@ -28,6 +28,8 @@
 또 다른 예로, 중요한 끝점은 온-프레미스에서 실행되고 [사이트 간][SiteToSite] 또는 [Azure ExpressRoute][ExpressRoute] 연결을 통해 Azure에 연결될 수 있습니다. 따라서 사이트 간 또는 ExpressRoute 터널에 연결된 가상 네트워크의 리소스만 온-프레미스 끝점에 액세스할 수 있습니다.
 
 이 모든 시나리오에 대해 앱 서비스 환경에서 실행되는 앱은 다양한 서버 및 리소스에 안전하게 연결할 수 있습니다. 앱 서비스 환경에서 실행되는 앱에서 동일한 가상 네트워크에 있는(또는 동일한 가상 네트워크에 연결된) 개인 끝점으로의 아웃바운드 트래픽은 가상 네트워크를 통해서만 이동합니다. 개인 끝점으로의 아웃바운드 트래픽은 공용 인터넷을 통해 이동하지 않습니다.
+
+한 가지 주의 사항은 앱 서비스 환경과 가상 네트워크 내 끝점 간의 아웃바운드 트래픽에 적용됩니다. 앱 서비스 환경은 앱 서비스 환경과 **동일한** 서브넷에 있는 가상 컴퓨터의 끝점에 연결할 수 없습니다. 이는 앱 서비스 환경이 앱 서비스 환경 전용으로 예약된 서브넷에 배포된 경우에는 일반적으로 문제가 되지 않습니다.
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -114,4 +116,4 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 [NetworkAccessControlListExample]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/NetworkAcl01.png
 [DefaultNetworkSecurityRules]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/DefaultNetworkSecurityRules01.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

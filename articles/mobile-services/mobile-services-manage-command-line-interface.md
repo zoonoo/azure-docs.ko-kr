@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="11/02/2015"
+	ms.date="01/27/2016"
 	ms.author="glenga"/>
 
 # 명령줄 도구를 사용하여 모바일 서비스 자동화
@@ -79,7 +79,7 @@
 
 ##구독의 기존 모바일 서비스를 나열하는 방법
 
-> [AZURE.NOTE]"목록" 및 "스크립트"와 관련된 CLI의 명령은 JavaScript 백 엔드에서만 작동합니다.
+> [AZURE.NOTE] "목록" 및 "스크립트"와 관련된 CLI의 명령은 JavaScript 백 엔드에서만 작동합니다.
 
 다음 명령은 Azure 구독의 모든 모바일 서비스 목록을 반환합니다.
 
@@ -95,7 +95,7 @@
 
 `-a` 및 `-q` 매개 변수가 포함되었으므로 이 명령은 프롬프트를 표시하지 않고 모바일 서비스에서 사용하는 SQL 데이터베이스와 서버도 삭제합니다.
 
-> [AZURE.NOTE]<code>-a</code> 또는 <code>-d</code>와 함께 <code>-q</code> 매개 변수를 지정하지 않을 경우 실행이 일시 중지되고 SQL 데이터베이스에 대한 삭제 옵션을 선택하라는 메시지가 표시됩니다. 데이터베이스나 서버를 사용하는 다른 서비스가 없는 경우 <code>-a</code> 매개 변수만 사용합니다. 그렇지 않으면 <code>-d</code> 매개 변수를 사용하여 삭제되는 모바일 서비스에 속하는 데이터만 삭제합니다.
+> [AZURE.NOTE] <code>-a</code> 또는 <code>-d</code>와 함께 <code>-q</code> 매개 변수를 지정하지 않을 경우 실행이 일시 중지되고 SQL 데이터베이스에 대한 삭제 옵션을 선택하라는 메시지가 표시됩니다. 데이터베이스나 서버를 사용하는 다른 서비스가 없는 경우 <code>-a</code> 매개 변수만 사용합니다. 그렇지 않으면 <code>-d</code> 매개 변수를 사용하여 삭제되는 모바일 서비스에 속하는 데이터만 삭제합니다.
 
 ##모바일 서비스에 테이블을 만드는 방법
 
@@ -187,4 +187,4 @@
 [reference-docs]: http://azure.microsoft.com/documentation/articles/virtual-machines-command-line-tools/#Commands_to_manage_mobile_services
 [Mac 및 Linux에서 Azure 명령줄 도구를 설치하는 방법]: http://go.microsoft.com/fwlink/p/?LinkId=275795
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

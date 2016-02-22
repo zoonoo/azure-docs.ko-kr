@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/07/2015"
+   ms.date="02/08/2016"
    ms.author="sethm" />
 
 # AMQP 1.0을 사용하여 Python에서 서비스 버스 사용
@@ -31,7 +31,7 @@ Proton-Python은 Proton-C로 바인딩된 Python 언어로 Proton-Python은 C에
 
 다음 코드는 서비스 버스 메시징 엔터티에서 메시지를 전송하고 수신하는 방법을 보여 줍니다.
 
-### Proton-Python을 사용하여 메시지 전송
+### Proton-Python을 사용하여 메시지 보내기
 
 다음 코드는 서비스 버스 메시징 엔터티에 메시지를 전송하는 방법을 보여 줍니다.
 
@@ -45,7 +45,7 @@ messenger.put(message)
 messenger.send()
 ```
 
-### Proton-Python을 사용하여 메시지 수신
+### Proton-Python을 사용하여 메시지 받기
 
 다음 코드는 서비스 버스 메시징 엔터티에서 메시지를 수신하는 방법을 보여 줍니다.
 
@@ -173,4 +173,4 @@ if message.properties != None:
 
 [서비스 버스 AMQP 개요]: service-bus-amqp-overview.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

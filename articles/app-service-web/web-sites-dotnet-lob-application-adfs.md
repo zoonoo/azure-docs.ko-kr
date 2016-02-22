@@ -81,30 +81,31 @@ Azure 앱 서비스 웹 앱에서 다음 기능이 있는 기본 ASP.NET 응용 
 
 5.	App_Start\Startup.Auth.cs에서 아래에 강조 표시된 대로 정적 문자열 정의를 변경합니다.
 	<pre class="prettyprint">
-private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIdentifier</mark>"];
-<mark><del>private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];</del></mark>
-<mark><del>private static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];</del></mark>
-<mark><del>private static string metadata = string.Format("{0}/{1}/federationmetadata/2007-06/federationmetadata.xml", aadInstance, tenant);</del></mark>
-<mark>private static string metadata = string.Format("https://{0}/federationmetadata/2007-06/federationmetadata.xml", ConfigurationManager.AppSettings["ida:ADFS"]);</mark>
+	private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIdentifier</mark>"];
+    <mark><del>private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];</del></mark>
+    <mark><del>private static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];</del></mark>
+    <mark><del>private static string metadata = string.Format("{0}/{1}/federationmetadata/2007-06/federationmetadata.xml", aadInstance, tenant);</del></mark>
+    <mark>private static string metadata = string.Format("https://{0}/federationmetadata/2007-06/federationmetadata.xml", ConfigurationManager.AppSettings["ida:ADFS"]);</mark>
 
-<mark><del>string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenant);</del></mark>
-</pre>
+    <mark><del>string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenant);</del></mark>
+    </pre>
 
 6.	이제 Web.config를 적절히 변경합니다. Web.config를 열고 아래에 강조 표시된 대로 응용 프로그램 설정을 수정합니다.
 	<pre class="prettyprint">
-&lt;appSettings>
-  &lt;add key="webpages:Version" value="3.0.0.0" />
-  &lt;add key="webpages:Enabled" value="false" />
-  &lt;add key="ClientValidationEnabled" value="true" />
-  &lt;add key="UnobtrusiveJavaScriptEnabled" value="true" />
-  <mark><del>&lt;add key="ida:Wtrealm" value="[Enter the App ID URI of WebApp-WSFederation-DotNet https://contoso.onmicrosoft.com/WebApp-WSFederation-DotNet]" /></del></mark>
-  <mark><del>&lt;add key="ida:AADInstance" value="https://login.windows.net" /></del></mark>
-  <mark><del>&lt;add key="ida:Tenant" value="[Enter tenant name, e.g. contoso.onmicrosoft.com]" /></del></mark>
-  <mark>&lt;add key="ida:RPIdentifier" value="[Enter the relying party identifier as configured in AD FS, e.g. https://localhost:44320/]" /></mark>
-  <mark>&lt;add key="ida:ADFS" value="[Enter the FQDN of AD FS service, e.g. adfs.contoso.com]" /></mark>
+	&lt;appSettings>
+	  &lt;add key="webpages:Version" value="3.0.0.0" />
+	  &lt;add key="webpages:Enabled" value="false" />
+	  &lt;add key="ClientValidationEnabled" value="true" />
+	  &lt;add key="UnobtrusiveJavaScriptEnabled" value="true" />
+	  <mark><del>&lt;add key="ida:Wtrealm" value="[Enter the App ID URI of WebApp-WSFederation-DotNet https://contoso.onmicrosoft.com/WebApp-WSFederation-DotNet]" /></del></mark>
+	  <mark><del>&lt;add key="ida:AADInstance" value="https://login.windows.net" /></del></mark>
+	  <mark><del>&lt;add key="ida:Tenant" value="[Enter tenant name, e.g. contoso.onmicrosoft.com]" /></del></mark>
+	  <mark>&lt;add key="ida:RPIdentifier" value="[Enter the relying party identifier as configured in AD FS, e.g. https://localhost:44320/]" /></mark>
+	  <mark>&lt;add key="ida:ADFS" value="[Enter the FQDN of AD FS service, e.g. adfs.contoso.com]" /></mark>
 
-&lt;/appSettings>
+	&lt;/appSettings>
 	</pre>
+
 	각 환경을 기반으로 키 값을 입력합니다.
 
 7.	응용 프로그램을 빌드하여 오류가 없는지 확인합니다.
@@ -198,8 +199,8 @@ Azure에서 게시된 웹 앱을 디버거에 연결하려는 경우(즉, 게시
 10.	**사용자 지정 규칙을 사용하여 클레임 보내기**를 선택하고 **다음**을 클릭합니다.
 11.	다음 규칙 언어를 **사용자 지정 규칙** 상자에 붙여 넣고 규칙 이름을 **세션별 식별자**로 지정한 후 **마침**을 클릭합니다.  
 	<pre class="prettyprint">
-c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"] &amp;&amp;
-c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant"]
+	c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"] &amp;&amp;
+	c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant"]
 	=> add(
 		store = "_OpaqueIdStore",
 		types = ("<mark>http://contoso.com/internal/sessionid</mark>"),
@@ -210,7 +211,7 @@ c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticat
 		param = "",
 		param = c2.Value);
 	</pre>
-	사용자 지정 규칙은 다음과 같습니다.
+사용자 지정 규칙은 다음과 같습니다.
 
 	![](./media/web-sites-dotnet-lob-application-adfs/6-per-session-identifier.png)
 
@@ -263,23 +264,23 @@ RP 트러스트 구성에서 그룹 멤버 자격을 역할 클레임으로 포�
 1. Controllers\HomeController.cs를 엽니다.
 2. 인증된 사용자의 보안 그룹 멤버 자격을 사용하여 아래와 유사하게 `About` 및 `Contact` 작업 메서드를 장식합니다.  
 	<pre class="prettyprint">
-<mark>[Authorize(Roles="Test Group")]</mark>
-public ActionResult About()
-{
+    <mark>[Authorize(Roles="Test Group")]</mark>
+    public ActionResult About()
+    {
     ViewBag.Message = "Your application description page.";
 
     return View();
-}
+    }
 
-<mark>[Authorize(Roles="Domain Admins")]</mark>
-public ActionResult Contact()
-{
+    <mark>[Authorize(Roles="Domain Admins")]</mark>
+    public ActionResult Contact()
+    {
     ViewBag.Message = "Your contact page.";
 
     return View();
-}
+    }
 	</pre>
-	이 자습서의 AD FS 실습 환경에서는 **테스트 사용자**를 **테스트 그룹**에 추가했기 때문에 테스트 그룹을 사용하여 `About`에 대한 권한 부여를 테스트합니다. `Contact`의 경우 **테스트 사용자**가 속해 있지 않은 **Domain Admins**의 부정적인 사례를 테스트합니다.
+이 자습서의 AD FS 실습 환경에서는 **테스트 사용자**를 **테스트 그룹**에 추가했기 때문에 테스트 그룹을 사용하여 `About`에 대한 권한 부여를 테스트합니다. `Contact`의 경우 **테스트 사용자**가 속해 있지 않은 **Domain Admins**의 부정적인 사례를 테스트합니다.
 
 3. `F5` 키를 눌러 디버거를 시작하고 로그인한 후 **About**을 클릭합니다. 이제 인증된 사용자에게 해당 작업에 대한 권한이 부여된 경우 `~/About/Index` 페이지가 성공적으로 표시되어야 합니다.
 4. **Contact**를 클릭합니다(이 자습서에서는 **테스트 사용자**에게 작업에 대한 권한이 부여되지 않음). 그러나 브라우저가 AD FS로 리디렉션되므로 다음 메시지가 표시됩니다.
@@ -335,7 +336,7 @@ public ActionResult Contact()
 
 Azure Active Directory 대신 AD FS를 사용하여 LOB(기간 업무) 응용 프로그램을 구현하는 이유는 조직의 데이터를 오프-프레미스로 유지하는 경우의 규정 준수 문제 때문입니다. 이는 [SQL 데이터베이스](/services/sql-database/)를 웹앱의 데이터 계층으로 사용할 수 없어 Azure의 웹앱에서 온-프레미스 데이터베이스에 액세스해야 함을 의미할 수도 있습니다.
 
-Azure 앱 서비스 웹앱은 다음의 두 가지 방법으로 온-프레미스 데이터베이스 액세스를 지원합니다. [하이브리드 연결](../integration-hybrid-connection-overview.md) 및 [가상 네트워크](web-sites-integrate-with-vnet.md). 자세한 내용은 [Azure 앱 서비스 웹앱에서 VNET 통합 및 하이브리드 연결 사용](https://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/)을 참조하세요.
+Azure 앱 서비스 웹앱은 다음의 두 가지 방법으로 온-프레미스 데이터베이스 액세스를 지원합니다. [하이브리드 연결](../biztalk-services/integration-hybrid-connection-overview.md) 및 [가상 네트워크](web-sites-integrate-with-vnet.md). 자세한 내용은 [Azure 앱 서비스 웹앱에서 VNET 통합 및 하이브리드 연결 사용](https://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/)을 참조하세요.
 
 <a name="bkmk_resources"></a>
 ## 추가 리소스
@@ -353,4 +354,4 @@ Azure 앱 서비스 웹앱은 다음의 두 가지 방법으로 온-프레미스
  
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

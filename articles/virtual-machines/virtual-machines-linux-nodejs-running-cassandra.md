@@ -6,7 +6,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/09/2016" 
+	ms.date="02/04/2016" 
 	ms.author="robmcm"/>
 
 # Azure에서 Linux 환경의 Cassandra 실행 및 Node.js에서 Cassandra에 액세스 
@@ -291,7 +291,7 @@ Cassandra 시작 스크립트에서 이러한 jar을 찾을 수 있도록 $CASS\
 이 작업은 몇 초 정도 걸리며, 이미지 갤러리의 내 이미지 섹션에서 해당 이미지를 사용할 수 있습니다. 이미지가 성공적으로 캡처되면 원본 VM이 자동으로 삭제됩니다.
 
 ##단일 지역 배포 프로세스
-**1단계: 가상 네트워크 만들기** Azure 클래식 포털에 로그인한 다음 표에 나열된 특성을 사용하여 가상 네트워크를 만듭니다. 프로세스의 자세한 단계는 [Azure 클래식 포털에서 클라우드 전용 가상 네트워크 구성](../virtual-network/virtual-networks-create-vnet.md)을 참조하세요.
+**1단계: 가상 네트워크 만들기** Azure 클래식 포털에 로그인한 다음 표에 나열된 특성을 사용하여 가상 네트워크를 만듭니다. 프로세스의 자세한 단계는 [Azure 클래식 포털에서 클라우드 전용 가상 네트워크 구성](../virtual-network/virtual-networks-create-vnet-classic-portal.md)을 참조하세요.
 
 <table>
 <tr><th>VM 특성 이름</th><th>값</th><th>설명</th></tr>
@@ -692,4 +692,4 @@ Microsoft Azure는 이 연습에서 알 수 있듯이 Microsoft 및 오픈 소�
 - [http://www.datastax.com](http://www.datastax.com) 
 - [http://www.nodejs.org](http://www.nodejs.org) 
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

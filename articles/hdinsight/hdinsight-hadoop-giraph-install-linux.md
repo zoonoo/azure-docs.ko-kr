@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="02/05/2016"
 	ms.author="larryfr"/>
 
 # HDInsight Hadoop 클러스터에 Giraph를 설치하고 Giraph를 사용하여 대규모 그래프를 처리합니다.
@@ -23,7 +23,7 @@
 
 이 항목에서는 스크립트 작업을 사용하여 Giraph를 설치하는 방법을 알아봅니다. Giraph를 설치한 후 대규모 그래프를 처리하기 위해 가장 일반적인 응용 프로그램에 Giraph를 사용하는 방법도 알아보겠습니다.
 
-> [AZURE.NOTE]이 문서에 있는 정보는 Linux 기반 HDInsight 클러스터에 지정됩니다. Windows 기반 클러스터를 사용한 작업에 대한 자세한 내용은 [HDInsight Hadoop 클러스터(Windows)에 Giraph 설치](hdinsight-hadoop-giraph-install.md)를 참조하세요.
+> [AZURE.NOTE] 이 문서에 있는 정보는 Linux 기반 HDInsight 클러스터에 지정됩니다. Windows 기반 클러스터를 사용한 작업에 대한 자세한 내용은 [HDInsight Hadoop 클러스터(Windows)에 Giraph 설치](hdinsight-hadoop-giraph-install.md)를 참조하세요.
 
 ## <a name="whatis"></a>Giraph란?
 
@@ -44,18 +44,18 @@
 
 HDInsight 클러스터에 Giraph를 설치하는 샘플 스크립트는 읽기 전용 Azure 저장소 Blob([https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh))에서 다운로드할 수 있습니다. 이 섹션에서는 Azure 클래식 포털을 사용하여 클러스터를 만드는 동안 샘플 스크립트를 사용하는 방법에 대한 지침을 제공합니다.
 
-> [AZURE.NOTE]또한 이 스크립트를 사용하여 클러스터를 만드는 데 Azure PowerShell 또는 HDInsight.NET SDK를 사용할 수도 있습니다. 이 방법을 사용하는 자세한 내용은 [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
+> [AZURE.NOTE] 또한 이 스크립트를 사용하여 클러스터를 만드는 데 Azure PowerShell 또는 HDInsight.NET SDK를 사용할 수도 있습니다. 이 방법을 사용하는 자세한 내용은 [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
 
 1. [Linux 기반 HDInsight 클러스터 만들기](hdinsight-provision-linux-clusters.md#portal)의 단계를 사용하여 클러스터를 만들기 시작하지만 완료하지 마세요.
 
 2. **선택적 구성** 블레이드에서 **스크립트 동작**을 선택하고 아래 정보를 제공합니다.
 
-	* __이름__: 스크립트 작업에 이름을 입력합니다.
-	* __스크립트 URI__: https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
-	* __헤드__:이 옵션 선택
-	* __작업자__:이 옵션 선택
+	* __이름__: 스크립트 동작의 이름을 입력합니다.
+	* __SCRIPT URI__: https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
+	* __HEAD__:이 옵션 선택
+	* __WORKER__:이 옵션 선택
 	* __ZOOKEEPER__: 이 옵션을 선택하여 Zookeeper 노드에 설치합니다.
-	* __매개 변수__: 이 필드는 공백으로 둡니다.
+	* __PARAMETERS__: 이 필드는 공백으로 둡니다.
 
 3. **스크립트 동작**의 아래 쪽에서 **선택** 단추를 사용하여 구성을 저장합니다. 마지막으로 **선택적 구성** 블레이드의 아래 쪽에서 **선택** 단추를 사용하여 선택적 구성 정보를 저장합니다.
 
@@ -144,7 +144,7 @@ HDInsight 클러스터에 Giraph를 설치하는 샘플 스크립트는 읽기 �
 
 ## 다음 단계
 
-- [HDInsight 클러스터에서 Hue 설치 및 사용](hdinsight-hadoop-hue-linux.md) Hue는 HDInsight 클러스터에 기본 저장소를 찾을 뿐만 아니라 Pig 및 Hive 작업을 쉽게 작성, 실행 및 저장하는 웹 UI입니다.
+- [HDInsight 클러스터에서 Hue 설치 및 사용](hdinsight-hadoop-hue-linux.md)입니다. Hue는 HDInsight 클러스터에 기본 저장소를 찾을 뿐만 아니라 Pig 및 Hive 작업을 쉽게 작성, 실행 및 저장하는 웹 UI입니다.
 
 - [HDInsight 클러스터에 Spark 설치 및 사용](hdinsight-hadoop-spark-install-linux.md): 클러스터 사용자 지정을 사용하여 HDInsight Hadoop 클러스터에 Spark를 설치하고 사용하는 방법에 대한 지침입니다. Spark는 메모리 내 처리를 지원하여 빅데이터 분석 응용 프로그램의 성능을 향상하는 오픈 소스 병렬 처리 프레임워크입니다.
 
@@ -152,4 +152,4 @@ HDInsight 클러스터에 Giraph를 설치하는 샘플 스크립트는 읽기 �
 
 - [HDInsight 클러스터에 Solr 설치](hdinsight-hadoop-solr-install-linux.md)(영문). 클러스터 사용자 지정을 사용하여 HDInsight Hadoop 클러스터에 Solr을 설치합니다. Solr을 사용하면 저장된 데이터에서 강력한 검색 작업을 수행할 수 있습니다.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

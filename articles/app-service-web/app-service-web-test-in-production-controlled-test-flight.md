@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/16/2015"
+	ms.date="02/02/2016"
 	ms.author="cephalin"/>
 # Azure 앱 서비스에서 Flighting 배포(베타 테스트)
 
@@ -32,7 +32,7 @@ Flighting 배포는 라이브 트래픽의 라우팅에 국한되지 않습니�
 이 자습서에서는 프로덕션에서 앱 서비스 앱을 테스트하기 위해 다음의 시나리오를 가져오는 방법을 알아봅니다.
 
 - 베타 앱에 [프로덕션 트래픽 라우팅](app-service-web-test-in-production-get-start.md)
-- 유용한 메트릭을 가져오기 위해 [앱 계측](app-insights-web-track-usage.md)
+- 유용한 메트릭을 가져오기 위해 [앱 계측](../application-insights/app-insights-web-track-usage.md)
 - 연속 베타 앱 배포 및 라이브 앱 메트릭 추적
 - 프로덕션 앱 및 베타 앱 간에 메트릭을 비교하여 코드 변경이 어떻게 결과로 변환되는지 확인
 
@@ -44,7 +44,7 @@ Flighting 배포는 라이브 트래픽의 라우팅에 국한되지 않습니�
 -	Git 셸(설치된 [Windows용 GitHub](https://windows.github.com/)) - 이것은 동일한 세션에서 Git와 PowerShell 명령을 실행할 수 있도록 합니다.
 -	최신 [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/download/v0.9.8-September2015/azure-powershell.0.9.8.msi) 비트
 -	다음의 기본적인 이해:
-	-	[Azure 리소스 관리자](resource-group-overview.md) 템플릿 배포([Azure에서 예측 가능하도록 복잡한 응용 프로그램을 배포](app-service-deploy-complex-application-predictably.md) 참조)
+	-	[Azure 리소스 관리자](../resource-group-overview.md) 템플릿 배포([Azure에서 예측 가능하도록 복잡한 응용 프로그램을 배포](app-service-deploy-complex-application-predictably.md) 참조)
 	-	[Git](http://git-scm.com/documentation)
 	-	[PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
@@ -174,7 +174,7 @@ ToDoApp 응용 프로그램 코드에 따라 **단추** 이벤트는 전송 단�
 
 이 섹션에서는 다양한 배포 슬롯을 구성하여 동일한 Application Insights 리소스에 슬롯 특정 원격 분석을 보냅니다. 이러한 방식으로 다른 슬롯(배포 환경)에서 트래픽 간에 원격 분석 데이터를 비교하여 앱 변경의 효과를 쉽게 파악할 수 있습니다. 같은 시간에 나머지 부분에서 프로덕션 트래픽을 구분할 수 있으므로 필요에 따라 프로덕션 앱을 계속 모니터링할 수 있습니다.
 
-클라이언트 동작에 데이터를 수집하므로 index.cshtml에서 [JavaScript 코드에 원격 분석 이니셜라이저를 추가](app-insights-api-custom-events-metrics.md#js-initializer)합니다. 예를 들어 서버 측 성능을 테스트하려는 경우 비슷하게 서버 코드에서 수행할 수 있습니다.([사용자 지정 이벤트 및 메트릭에 대한 Application Insights API](app-insights-api-custom-events-metrics.md)를 참조하세요.
+클라이언트 동작에 데이터를 수집하므로 index.cshtml에서 [JavaScript 코드에 원격 분석 이니셜라이저를 추가](../application-insights/app-insights-api-custom-events-metrics.md#js-initializer)합니다. 예를 들어 서버 측 성능을 테스트하려는 경우 비슷하게 서버 코드에서 수행할 수 있습니다.([사용자 지정 이벤트 및 메트릭에 대한 Application Insights API](../application-insights/app-insights-api-custom-events-metrics.md)를 참조하세요.
 
 1. 먼저 이전에 `<heading>` 태그에 추가한 JavaScript 블록 아래에서 두 개의 `//` 주석 간에 코드를 추가합니다.
 
@@ -215,7 +215,7 @@ ToDoApp 응용 프로그램 코드에 따라 **단추** 이벤트는 전송 단�
 
 5. **즐겨찾기** 단추를 클릭하여 현재 메트릭 탐색기 설정을 **사용자 지정 이벤트: 프로덕션** 같은 곳에 저장합니다. 나중에 이 뷰 및 배포 슬롯 뷰를 쉽게 전환할 수 있습니다.
 
-    > [AZURE.TIP] 더욱 강력한 분석의 경우 [Power BI로 Application Insights 리소스 통합](app-insights-export-power-bi.md)을 고려합니다.
+    > [AZURE.TIP] 더욱 강력한 분석의 경우 [Power BI로 Application Insights 리소스 통합](../application-insights/app-insights-export-power-bi.md)을 고려합니다.
 
 ### 서버 앱 메트릭에 슬롯 특정 태그 추가
 다시 완전성을 위해 서버 측 앱을 설정합니다. JavaScript에서 계측되는 클라이언트 앱과 달리 서버 앱에 대한 슬롯 특정 태그는 .NET 코드를 사용하여 계측됩니다.
@@ -369,10 +369,10 @@ Azure 앱 서비스는 일반적으로 큰 기업에서 수행한 바와 같이 
 -   [Azure 앱 서비스를 사용하여 Agile 소프트웨어 개발](app-service-agile-software-development.md)
 -   [Azure 앱 서비스에서 웹 앱에 대한 스테이징 환경 설정](web-sites-staged-publishing.md)
 -	[Azure에서 예측 가능하도록 복잡한 응용 프로그램을 배포](app-service-deploy-complex-application-predictably.md)
--	[Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)
+-	[Azure 리소스 관리자 템플릿 작성](../resource-group-authoring-templates.md)
 -	[JSONLint-JSON 유효성 검사기](http://jsonlint.com/)
 -	[Git 분기-기본 분기 및 병합](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
--	[Azure PowerShell](powershell-install-configure.md)
+-	[Azure PowerShell](../powershell-install-configure.md)
 -	[프로젝트 Kudu Wiki](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

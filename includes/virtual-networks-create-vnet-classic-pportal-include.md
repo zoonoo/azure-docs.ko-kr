@@ -1,11 +1,11 @@
-## Azure Preview 포털에서 클래식 VNet을 만드는 방법
+## Azure 포털에서 클래식 VNet을 만드는 방법
 
 위의 시나리오에 따라 클래식 VNet을 만들려면 다음 단계를 수행합니다.
 
 1. 브라우저에서 http://portal.azure.com으로 이동하고 필요한 경우 Azure 계정으로 로그인합니다.
 2. 아래 그림과 같이 **새로 만들기** > **네트워킹** > **가상 네트워크**를 클릭하고 **배포 모델 선택** 목록에 **클래식**이 이미 표시되는지 확인한 후 **만들기**를 클릭합니다.
 
-	![Preview 포털에서 VNet 만들기](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure1.gif)
+	![Azure 포털에서 VNet 만들기](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure1.gif)
 
 3. **가상 네트워크** 블레이드에서 VNet의 **이름**을 입력하고 **주소 공간**을 클릭합니다. VNet 및 첫 번째 서브넷에 대한 주소 공간 설정을 구성하고 **확인**을 클릭합니다. 아래 그림에서는 이 시나리오에 대한 CIDR 블록 설정을 보여 줍니다.
 
@@ -33,6 +33,6 @@
 
 10. **서브넷** > **추가**를 클릭하고 서브넷의 **이름**을 입력하고 **주소 범위(CIDR 블록)**를 지정한 후 **확인**을 클릭합니다. 아래 그림에서는 현재 시나리오에 대한 설정을 보여 줍니다.
 
-	![Preview 포털에서 VNet 만들기](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure7.gif)
+	![Azure 포털에서 VNet 만들기](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure7.gif)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

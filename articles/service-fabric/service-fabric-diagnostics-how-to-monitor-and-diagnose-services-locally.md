@@ -31,7 +31,7 @@
 
 ## Visual Studio에서 서비스 패브릭 시스템 이벤트 보기
 
-서비스 패브릭은 ETW 이벤트를 내보내서 응용 프로그램 개발자가 플랫폼에서 일어나는 일을 이해할 수 있도록 도와줍니다. 아직 응용 프로그램을 만들지 않은 경우 [Visual Studio에서 응용 프로그램 처음 만들기](./service-fabric-create-your-first-application-in-visual-studio.md)의 단계에 따라 지금 만드세요. 이 정보는 응용 프로그램이 실행되는 동안 진단 이벤트 뷰어에 추적 메시지를 표시하는 데 도움이 될 것입니다.
+서비스 패브릭은 ETW 이벤트를 내보내서 응용 프로그램 개발자가 플랫폼에서 일어나는 일을 이해할 수 있도록 도와줍니다. 아직 응용 프로그램을 만들지 않은 경우 [Visual Studio에서 응용 프로그램 처음 만들기](service-fabric-create-your-first-application-in-visual-studio.md)의 단계에 따라 지금 만드세요. 이 정보는 응용 프로그램이 실행되는 동안 진단 이벤트 뷰어에 추적 메시지를 표시하는 데 도움이 될 것입니다.
 
 1. 진단 이벤트 창이 자동으로 표시되지 않으면 Visual Studio의 **서버 탐색기** 탭으로 가서 **서비스 패브릭 클러스터**를 마우스 오른쪽 단추로 클릭하고 상황에 맞는 메뉴에서 **진단 이벤트 보기**를 선택하십시오.
 
@@ -60,4 +60,4 @@
 ## 다음 단계
 위에서 로컬 진단을 위해 응용 프로그램에 추가한 것과 동일한 추적 코드는 Azure 클러스터에서 응용 프로그램을 실행할 때 이 이벤트를 보는 데 이용할 수 있는 도구와 함께 작동합니다. 도구의 다양한 옵션과 옵션 설정 방법에 대해 설명하는 다음 문서를 살펴보세요. * [Azure 진단 및 Operational Insights의 서비스 패브릭 클러스터에서 로그 수집](service-fabric-diagnostics-how-to-setup-wad-operational-insights.md) * [서비스 패브릭 응용 프로그램 추적 저장소와 같은 ElasticSearch 사용](service-fabric-diagnostic-how-to-use-elasticsearch.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

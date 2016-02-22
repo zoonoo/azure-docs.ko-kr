@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="11/11/2015"
+   ms.date="02/04/2016"
    ms.author="golive"/>
 
 # 사용 예: 자동화 DSC 및 Chocolatey를 사용하여 가상 컴퓨터에 연속 배포
@@ -78,7 +78,7 @@ Azure 자동화 계정에 DSC 리소스를 설치하기 위해 PowerShell 갤러
 또는 수동 방법이 있습니다. Windows 컴퓨터용 PowerShell 통합 모듈의 폴더 구조는 Azure 자동화에서의 예상 폴더 구조와 다소 차이가 있습니다. 여기에는 약간의 사용자 조정 작업이 필요합니다. 어려운 작업도 아니고 리소스당 한 번만 수행합니다(향후 업그레이드하지 않으려는 경우). PowerShell 통합 모듈 제작에 대한 자세한 내용은 다음 문서를 참조하세요. [Azure 자동화에 대한 통합 모듈 제작](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
 
 -   다음과 같이 사용자 워크스테이션에 필요한 모듈을 설치합니다.
-    -   [Windows Management Framework, v5](http://aka.ms/wmf5latest) 설치 
+    -   [Windows Management Framework, v5](http://www.microsoft.com/download/details.aspx?id=48729) 설치(Win10에는 필요 없음)
     -   `Install-Module  –ModuleName MODULENAME` <- PowerShell 갤러리에서 모듈 가져오기 
 -   `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME`의 모듈 폴더를 임시 폴더에 복사 
 -   주 폴더에서 샘플 및 설명서 삭제 
@@ -88,7 +88,7 @@ Azure 자동화 계정에 DSC 리소스를 설치하기 위해 PowerShell 갤러
 
         New-AzureAutomationModule ``
             -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT ``
-            -Name MODULE-NAME –ContentLink "https://STORAGE-URI/public/MODULE-NAME.zip"
+            -Name MODULE-NAME –ContentLink "https://STORAGE-URI/CONTAINERNAME/MODULE-NAME.zip"
         
 
 포함된 예는 cChoco 및xNetworking에 대해 이 절차를 수행합니다. cChoco에 대한 특수 처리는 [참고 사항](#notes)을 참조하세요.
@@ -177,8 +177,6 @@ New-ConfigurationScript.ps1:
 
 물론, 프러덕션 상태인 VM에서 패키지를 업데이트할 때는 업데이트가 설치되는 동안 VM을 로테이션에서 배제해야 합니다. 이를 수행하는 방법은 크게 다릅니다. 예를 들어, Azure 부하 분산 장치 뒤에 있는 VM에서는 사용자 지정 프로브를 추가할 수 있습니다. VM을 업데이트하는 동안 프로브 끝점이 400을 반환하게 합니다. 이 변경을 위해 필요한 조정은 구성 안에 있을 수 있습니다. 업데이트가 완료되면 조정에서 200을 반환하도록 복귀되기 때문입니다.
 
-PowerShell 갤러리에 있는 cChoco DSC 리소스의 버전은 해당 소스가최신이 아닙니다. GitHub 소스 프로젝트에서 cChoco.zip은 최신 상태입니다. 3단계에서 위에 수동 기법을 사용하여 설치합니다.
-
 이 사용 예의 전체 원본은 GitHub의 [이 Visual Studio 프로젝트](https://github.com/sebastus/ARM/tree/master/CDIaaSVM)에 있습니다.
 
 ##관련 문서##
@@ -187,4 +185,4 @@ PowerShell 갤러리에 있는 cChoco DSC 리소스의 버전은 해당 소스�
 - [Azure 자동화 DSC cmdlets](https://msdn.microsoft.com/library/mt244122.aspx)
 - [Azure 자동화 DSC를 통한 관리를 위한 컴퓨터 온보드](automation-dsc-onboarding.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/18/2015" 
+	ms.date="02/08/2016" 
 	ms.author="hangzh;bradsev" />
 
 #<a name="heading"></a> Cortana 분석 프로세스에서 Hive 쿼리를 HDInsight Hadoop 클러스터에 제출
@@ -127,7 +127,7 @@ Azure 저장소 탐색기 같은 도구를 사용하여 Hadoop 클러스터의 �
 1. [데이터 탐색](#hive-dataexploration)
 2. [기능 생성](#hive-featureengineering)
 
-> [AZURE.NOTE]샘플 Hive 쿼리에서는 Azure HDInsight Hadoop 클러스터의 Hive 테이블에 데이터가 업로드된 것으로 가정합니다. 업로드되지 않은 경우 [데이터를 만들어서 Hive 테이블에 로드](machine-learning-data-science-hive-tables.md)의 지침에 따라 먼저 Hive 테이블에 데이터를 업로드하세요.
+> [AZURE.NOTE] 샘플 Hive 쿼리에서는 Azure HDInsight Hadoop 클러스터의 Hive 테이블에 데이터가 업로드된 것으로 가정합니다. 업로드되지 않은 경우 [데이터를 만들어서 Hive 테이블에 로드](machine-learning-data-science-hive-tables.md)의 지침에 따라 먼저 Hive 테이블에 데이터를 업로드하세요.
 
 ###<a name="hive-dataexploration"></a>데이터 탐색
 다음은 Hive 테이블에서 데이터를 탐색할 때 사용할 수 있는 몇 가지 샘플 Hive 스크립트입니다.
@@ -179,7 +179,7 @@ Azure 저장소 탐색기 같은 도구를 사용하여 Hadoop 클러스터의 �
 4. [텍스트 필드에서 기능 추출](#hive-textfeature)
 5. [GPS 좌표 사이의 거리 계산](#hive-gpsdistance)
 
-> [AZURE.NOTE]추가 기능을 생성한 후 기존 테이블에 열로 추가하거나 추가 기능 및 기본 키를 사용하여 새 테이블을 만들어서 원래 테이블과 조인할 수 있습니다.
+> [AZURE.NOTE] 추가 기능을 생성한 후 기존 테이블에 열로 추가하거나 추가 기능 및 기본 키를 사용하여 새 테이블을 만들어서 원래 테이블과 조인할 수 있습니다.
 
 ####<a name="hive-frequencyfeature"></a> 빈도 기반 기능 생성
 
@@ -325,4 +325,4 @@ Hive 클러스터의 기본 매개 변수 설정이 Hive 쿼리 및 쿼리에서
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

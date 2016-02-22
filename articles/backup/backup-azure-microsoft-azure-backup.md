@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="na"
   ms.devlang="na"
   ms.topic="article"
-  ms.date="01/22/2016"
+  ms.date="02/04/2016"
   ms.author="jimpark; trinadhk;"/>
 
 # Azure 백업 서버를 사용하여 워크로드 백업 준비
@@ -66,7 +66,7 @@ Azure에 백업 데이터를 전송하거나 로컬로 유지하거나 관계없
 
 6. 자격 증명 모음이 성공적으로 만들어졌으며 복구 서비스 페이지에 활성 상태로 나열됨을 확인하는 메시지가 나타납니다. ![백업 자격 증명 모음 목록](./media/backup-azure-microsoft-azure-backup/backup_vaultslist.png)
 
-  >[AZURE.IMPORTANT] 자격 증명 모음이 생성된 후 즉시 적절한 저장소 중복 옵션을 선택해야 합니다. [백업 자격 증명 모음에서 저장소 중복 옵션 설정](backup-configure-vault.md#azure-backup---storage-redundancy-options)에 대해 자세히 알아보세요.
+  > [AZURE.IMPORTANT] 자격 증명 모음이 생성된 후 즉시 적절한 저장소 중복 옵션을 선택해야 합니다. [백업 자격 증명 모음에서 저장소 중복 옵션 설정](backup-configure-vault.md#azure-backup---storage-redundancy-options)에 대해 자세히 알아보세요.
 
 
 ## 3\. 소프트웨어 패키지
@@ -85,7 +85,8 @@ Azure에 백업 데이터를 전송하거나 로컬로 유지하거나 관계없
 
     ![다운로드 센터 1](./media/backup-azure-microsoft-azure-backup/downloadcenter1.png)
 
-3. 모든 파일을 선택하고 **다음**을 클릭합니다. Microsoft Azure 백업 다운로드 페이지에서 들어오는 모든 파일을 다운로드하고 모든 파일을 동일한 폴더에 배치합니다. ![다운로드 센터 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
+3. 모든 파일을 선택하고 **다음**을 클릭합니다. Microsoft Azure 백업 다운로드 페이지에서 들어오는 모든 파일을 다운로드하고 모든 파일을 동일한 폴더에 배치합니다. 
+![다운로드 센터 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
 
     모든 파일의 다운로드 크기가 >3G이기 때문에 10Mbps 다운로드 링크에서 다운로드를 완료하는 데 최대 60분이 걸릴 수 있습니다.
 
@@ -211,4 +212,4 @@ Microsoft Azure 백업 서버를 사용하여 워크로드 보호를 더 깊이 
 - [SharePoint 서버 백업](backup-azure-backup-sharepoint.md)
 - [대체 서버 백업](backup-azure-alternate-dpm-server.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

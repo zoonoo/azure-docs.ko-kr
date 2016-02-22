@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/10/2015"
+   ms.date="02/09/2016"
    ms.author="bwren" />
 
 # Azure 자동화에서 Runbook 실행
@@ -109,4 +109,4 @@ Runbook을 만들 때 두 검사점 간의 모든 활동을 실행할 시간을 
 
 - [Azure 자동화에서 Runbook 시작](automation-starting-a-runbook.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 # 원격 데스크톱을 사용하는 HDInsight에서 Hadoop과 MapReduce 사용
@@ -41,7 +41,7 @@ HDInsight 클러스터에 대한 데스크톱에 연결된 후 Hadoop 명령을 
 
 1. HDInsight 데스크톱에서 **Hadoop 명령줄**을 시작합니다. **c:\\apps\\dist\\hadoop-&lt;version number>** 디렉터리에서 새 명령 프롬프트가 열립니다.
 
-	> [AZURE.NOTE]버전 번호는 Hadoop를 업데이트할 때 변경됩니다. 해당 경로를 찾으려면 **HADOOP\_HOME** 환경 변수를 사용할 수 있습니다. 예를 들어 `cd %HADOOP_HOME%`은 버전 번호를 알 필요 없이 디렉터리를 Hadoop 디렉터리로 변경합니다.
+	> [AZURE.NOTE] 버전 번호는 Hadoop를 업데이트할 때 변경됩니다. 해당 경로를 찾으려면 **HADOOP\_HOME** 환경 변수를 사용할 수 있습니다. 예를 들어 `cd %HADOOP_HOME%`은 버전 번호를 알 필요 없이 디렉터리를 Hadoop 디렉터리로 변경합니다.
 
 2. **Hadoop** 명령을 사용하여 예제 MapReduce 작업을 실행하려면 다음 명령을 사용합니다.
 
@@ -49,7 +49,7 @@ HDInsight 클러스터에 대한 데스크톱에 연결된 후 Hadoop 명령을 
 
 	이 명령은 현재 디렉터리에 있는 **hadoop-mapreduce-examples.jar** 파일의 **wordcount** 클래스를 시작합니다. 입력으로 ****wasb://example/data/gutenberg/davinci.txt** 문서를 사용하며, 출력은 ****wasb:///example/data/WordCountOutput**에 저장됩니다.
 
-	> [AZURE.NOTE]이 MapReduce 작업 및 예제 데이터에 대한 자세한 내용은 <a href="hdinsight-use-mapreduce.md">HDInsight Hadoop에서 MapReduce 사용</a>을 참조하세요.
+	> [AZURE.NOTE] 이 MapReduce 작업 및 예제 데이터에 대한 자세한 내용은 <a href="hdinsight-use-mapreduce.md">HDInsight Hadoop에서 MapReduce 사용</a>을 참조하세요.
 
 2. 작업이 처리되는 동안 세부 정보를 내보내며 마지막으로 작업이 완료될 때 반환 정보는 다음과 유사합니다.
 
@@ -64,7 +64,7 @@ HDInsight 클러스터에 대한 데스크톱에 연결된 후 Hadoop 명령을 
 
 	**\_SUCCESS** 및 **part-r-00000**이라는 두 개의 파일이 표시됩니다. **part-r-00000** 파일은 이 작업에 대한 출력을 포함합니다.
 
-	> [AZURE.NOTE]일부 MapReduce 작업은 여러 **part-r-#####** 파일로 결과를 분할할 수 있습니다. 그럴 경우 ##### 접미사가 파일의 순서를 나타냅니다.
+	> [AZURE.NOTE] 일부 MapReduce 작업은 여러 **part-r-#####** 파일로 결과를 분할할 수 있습니다. 그럴 경우 ##### 접미사가 파일의 순서를 나타냅니다.
 
 4. 출력을 보려면 다음 명령을 사용합니다.
 
@@ -96,4 +96,4 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 
 * [HDInsight에서 Hadoop과 Pig 사용](hdinsight-use-pig.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

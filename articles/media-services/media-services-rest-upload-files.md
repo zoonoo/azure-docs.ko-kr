@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/18/2015"
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 
@@ -39,7 +39,7 @@
 
 ###자산 만들기
 
->[AZURE.NOTE]미디어 서비스 REST API를 사용할 때는 다음 사항을 고려해야 합니다.
+>[AZURE.NOTE] 미디어 서비스 REST API를 사용할 때는 다음 사항을 고려해야 합니다.
 >
 >미디어 서비스에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [미디어 서비스 REST API 개발 설정](media-services-rest-how-to-use.md)을 참조하세요.
 
@@ -293,7 +293,7 @@ SAS URL의 형식은 다음과 같습니다.
 	
 AccessPolicy와 로케이터를 설정했으면 실제 파일은 Azure 저장소 REST API를 사용하여 Azure Blob 저장소 컨테이너에 업로드됩니다. 페이지 또는 블록 blob에 업로드할 수 있습니다.
 
->[AZURE.NOTE]이전 섹션에서 받은 로케이터 **경로** 값에 업로드하려는 파일에 대한 파일 이름을 추가해야 합니다. 예: https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
+>[AZURE.NOTE] 이전 섹션에서 받은 로케이터 **경로** 값에 업로드하려는 파일에 대한 파일 이름을 추가해야 합니다. 예: https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
 
 Azure 저장소 Blob 작업에 대한 자세한 내용은 [Blob 서비스 REST API](http://msdn.microsoft.com/library/azure/dd135733.aspx)를 참조하세요.
 
@@ -391,7 +391,7 @@ IngestManifest는 집합에 대해 대량 수집의 진행률을 확인하는 �
 
 IngestManifestAsset을 만들기 전에 대량 수집을 사용하여 완료할 수 있는 자산을 만들어야 합니다. 자산은 여러 유형이나 비디오, 오디오, 이미지, 미리 보기 컬렉션, 텍스트 트랙 및 선택된 캡션 파일을 포함한 미디어 서비스의 개체 집합에 대한 컨테이너입니다. REST API에서 자산 생성은 Microsoft Azure 미디어 서비스에 HTTP POST 요청을 보내고 요청 본문에 자산에 대한 속성 정보를 배치해야 합니다. 이 예제에서는 요청 본문에 포함된 StorageEncrption(1) 옵션을 사용하여 자산을 만듭니다.
 
-**HTTP 응답**
+**HTTP 응답 **
 
 	POST https://media.windows.net/API/Assets HTTP/1.1
 	Content-Type: application/json;odata=verbose
@@ -431,7 +431,7 @@ IngestManifestAssets은 대량 수집에 사용되는 IngestManifest 내에서 �
 요청 본문 속성 | 설명 ID | 다음 형식인 “nb:kid:UUID:<NEW GUID>”을 사용하여 자체 생성하는 ContentKey ID입니다. ContentKeyType | 이 콘텐츠 키에 대한 정수인 콘텐츠 키 형식입니다. 저장소 암호화에 1값을 전달합니다. EncryptedContentKey | 256 비트(32바이트) 값인 새 콘텐츠 키 값을 만듭니다. GetProtectionKeyId 및 GetProtectionKey 메서드에 대한 HTTP GET 요청을 실행하여 Microsoft Azure 미디어 서비스에서 검색하는 저장소 암호화 X.509 인증서를 사용하여 키를 암호화합니다. ProtectionKeyId | 콘텐츠 키를 암호화하는 데 사용한 저장소 암호화 X.509 인증서에 대한 보호 키 ID입니다. ProtectionKeyType | 콘텐츠 키를 암호화하는 데 사용한 보호 키에 대한 암호화 형식입니다. 이 값은 예제에서 StorageEncryption(1)입니다. Checksum | 콘텐츠 키에 대한 MD5 계산 된 체크섬입니다. 콘텐츠 키로 콘텐츠 ID를 암호화하여 계산합니다. 예제 코드는 체크섬을 계산하는 방법을 보여줍니다.
 
 
-**HTTP 응답**
+**HTTP 응답 **
 	
 	POST https://media.windows.net/api/ContentKeys HTTP/1.1
 	Content-Type: application/json;odata=verbose
@@ -450,7 +450,7 @@ IngestManifestAssets은 대량 수집에 사용되는 IngestManifest 내에서 �
 
 ContentKey는 HTTP POST 요청을 전송하여 하나 이상의 자산에 연결합니다. 다음 요청은 예제 ContentKey를 예제 자산 ID에 연결하는 예제입니다.
 
-**HTTP 응답**
+**HTTP 응답 **
 	
 	POST https://media.windows.net/API/Assets('nb:cid:UUID:b3023475-09b4-4647-9d6d-6fc242822e68')/$links/ContentKeys HTTP/1.1
 	Content-Type: application/json;odata=verbose
@@ -470,7 +470,7 @@ ContentKey는 HTTP POST 요청을 전송하여 하나 이상의 자산에 연결
 IngestManifestFile 자산에 대한 대량 수집의 일환으로 업로드될 실제 비디오 또는 오디오 blob 개체를 나타냅니다. 자산이 암호화 옵션을 사용하지 않으면 암호화 관련 속성은 필요하지 않습니다. 이 섹션에 사용된 예제는 이전에 만든 자산에 StorageEncryption를 사용하는 IngestManifestFile를 만드는 것을 보여줍니다.
 
 
-**HTTP 응답**
+**HTTP 응답 **
 
 	POST https://media.windows.net/API/IngestManifestFiles HTTP/1.1
 	Content-Type: application/json;odata=verbose
@@ -495,7 +495,7 @@ IngestManifest의 통계 속성을 폴링하여 IngestManifest에 대한 대량 
 모니터할 수 있습니다. 속성은 복합 형식인 [IngestManifestStatistics](https://msdn.microsoft.com/library/azure/jj853027.aspx)입니다. 통계 속성을 폴링하여 IngestManifest ID를 전달하는 HTTP GET 요청을 제출합니다.
  
 
-**HTTP 응답**
+**HTTP 응답 **
 
 	GET https://media.windows.net/API/IngestManifests('nb:mid:UUID:5c77f186-414f-8b48-8231-17f9264e2048') HTTP/1.1
 	Content-Type: application/json;odata=verbose
@@ -522,4 +522,4 @@ IngestManifest의 통계 속성을 폴링하여 IngestManifest에 대한 대량 
 [How to Get a Media Processor]: media-services-get-media-processor.md
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

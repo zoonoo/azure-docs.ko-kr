@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="10/16/2015"
+      ms.date="02/09/2016"
       ms.author="inhenk"/>
 
 # Azure Active Directory(AD)와 응용 프로그램 관리
@@ -124,4 +124,8 @@ Azure AD를 사용하여 세부적인 액세스 정책 및 사전 통합된 MFA�
 
 응용 프로그램을 Azure AD와 통합하기 시작하려면 [응용 프로그램과 Azure Active Directory 통합 시작 가이드](active-directory-integrating-applications-getting-started.md)를 살펴봅니다.
 
-<!---HONumber=Oct15_HO4-->
+## 참고 항목
+
+[Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
+
+<!---HONumber=AcomDC_0211_2016-->

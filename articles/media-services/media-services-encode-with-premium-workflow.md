@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/28/2016"  
+	ms.date="02/03/2016" 
 	ms.author="juliako"/>
 
 #미디어 인코더 Premium 워크플로를 사용한 고급 인코딩
 
-**참고** 중국에서는 이 항목에서 설명하는 미디어 인코더 Premium 워크플로 미디어 프로세서를 사용할 수 없습니다.
+>[AZURE.NOTE]프리미엄 인코더 관련 질문은 mepd@microsoft.com으로 문의하세요.
+>
+>중국에서는 이 항목에서 설명하는 미디어 인코더 Premium 워크플로 미디어 프로세서를 사용할 수 없습니다.
 
 ##개요
 
@@ -33,6 +35,8 @@ Microsoft Azure 미디어 서비스는 **미디어 인코더 Premium 워크플�
 이 항목에서는 .NET을 사용하여 **미디어 인코더 Premium 워크플로**로 인코딩하는 방법을 보여 줍니다.
 
 **미디어 인코더 Premium 워크플로**의 인코딩 태스크에는 워크플로 파일이라는 별도의 구성 파일이 필요합니다. 이러한 파일은 확장명이 .workflow이고 [Workflow Designer](media-services-workflow-designer.md) 도구를 사용하여 작성됩니다.
+
+>[AZURE.NOTE]프리미엄 인코더 관련 질문은 mepd@microsoft.com으로 문의하세요.
 
 ##인코딩
 
@@ -50,7 +54,9 @@ Microsoft Azure 미디어 서비스는 **미디어 인코더 Premium 워크플�
 1. 자산을 만들고 워크플로 파일을 업로드합니다. 
 2. 자산을 만들고 소스 미디어 파일을 업로드합니다.
 3. "미디어 인코더 Premium 워크플로" 미디어 프로세서를 가져옵니다.
-4. 작업 및 태스크를 만듭니다.
+4. 작업 및 태스크를 만듭니다. 
+
+	대부분의 경우 태스크에 대한 구성 문자열은 비어 있습니다(다음 예제 참조). 인코딩 태스크에 XML 문자열을 제공하는 경우 런타임 속성을 동적으로 설정해야 하는 몇 가지 고급 시나리오가 있습니다. 이러한 시나리오의 예로는 오버레이 만들기, 순차 또는 병렬 미디어 연결, 자막 작성 등이 있습니다.
 5. 태스크에 입력 자산 두 개를 추가합니다.
 	
 	a. 첫 번째 – 워크플로 자산입니다.
@@ -264,10 +270,6 @@ Microsoft Azure 미디어 서비스는 **미디어 인코더 Premium 워크플�
 	}
 
 
-##알려진 문제
-
-입력된 비디오에 자막이 없는 경우, 출력 자산은 빈 TTML 파일을 포함합니다.
-
 
 ##미디어 서비스 학습 경로
 
@@ -277,4 +279,4 @@ Microsoft Azure 미디어 서비스는 **미디어 인코더 Premium 워크플�
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

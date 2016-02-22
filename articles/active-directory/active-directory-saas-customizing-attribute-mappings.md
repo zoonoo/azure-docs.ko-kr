@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="02/09/2016"
 	ms.author="markusvi"/>
 
 
@@ -26,7 +26,7 @@ Azure AD 사용자 개체와 각 SaaS 앱의 사용자 개체 사이에는 미�
 
 Azure AD 포털에서 SaaS 응용 프로그램의 도구 모음에 있는 특성을 클릭하여 이 기능에 액세스 할 수 있습니다.
 
-> [AZURE.NOTE]**특성** 링크는 SaaS 응용 프로그램에 사용할 수 있는 사용자 프로비전을 가지고 있을 때에만 사용 가능합니다.
+> [AZURE.NOTE] **특성** 링크는 SaaS 응용 프로그램에 사용할 수 있는 사용자 프로비전을 가지고 있을 때에만 사용 가능합니다.
 
 
 ![Salesforce][1]
@@ -81,8 +81,16 @@ SaaS 응용 프로그램에서 올바르게 작동하기 위해 요구되는 특
 Microsoft Azure AD는 동기화 프로세스의 매우 효과적인 구현을 제공합니다. 초기화된 환경에서 동기화 주기 중에는 업데이트가 필요한 개체만 처리됩니다. 특성 매핑 업데이트는 동기화 주기의 성능에 영향을 줍니다. 이는 특성 매핑 구성의 업데이트가 모든 관리된 개체를 다시 평가하는 것을 요구하기 때문입니다. 이 때문에 특성 매핑에 대한 연속 변경 횟수를 최소로 유지하는 것이 가장 좋은 방법으로 권장됩니다.
 
 
+##관련 문서
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+- [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
+- [SaaS 앱에 자동화된 사용자 프로비전/프로비전 해제](active-directory-saas-app-provisioning.md)
+- [특성 매핑에 대한 식 작성](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+- [사용자 프로 비전에 대 한 필터 범위 지정](active-directory-saas-scoping-filters.md)
+- [SCIM를 사용하여 Azure Active Directory으로부터 응용 프로그램에 사용자 및 그룹의 자동 프로비전 사용](active-directory-scim-provisioning.md)
+- [계정 프로비전 알림](active-directory-saas-account-provisioning-notifications.md)
+- [SaaS App을 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
+
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-customizing-attribute-mappings/ic765497.png
@@ -90,4 +98,4 @@ Microsoft Azure AD는 동기화 프로세스의 매우 효과적인 구현을 �
 [3]: ./media/active-directory-saas-customizing-attribute-mappings/ic775420.png
 [4]: ./media/active-directory-saas-customizing-attribute-mappings/ic775421.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0211_2016-->

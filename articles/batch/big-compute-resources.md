@@ -38,7 +38,7 @@ Azure의 큰 계산 옵션에 대해 알아보고 사용자의 작업 및 비즈
 
 * [자습서: .NET용 Azure 배치 라이브러리 시작](batch-dotnet-get-started.md)
 
-* [배치 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=azurebatch)
+* [배치 포럼](https://social.msdn.microsoft.com/Forums/home?forum=azurebatch)
 
 * [배치 비디오](https://azure.microsoft.com/documentation/videos/index/?services=batch)
 
@@ -62,15 +62,17 @@ HPC Pack은 Microsoft Azure 및 Windows Server 기술로 구축된 무료 HPC �
 * [HPC 팩을 사용하여 Azure 배치로 버스트](https://technet.microsoft.com/library/mt612877.aspx)
 
 
-* [Windows HPC 포럼](https://social.microsoft.com/Forums/ko-KR/home?category=windowshpc)
+* [Windows HPC 포럼](https://social.microsoft.com/Forums/home?category=windowshpc)
 
 ### Linux 및 OSS 클러스터 솔루션
 
-Azure 빠른 시작 템플릿을 사용하여 Linux HPC 클러스터와 오픈 소스 도구를 배포합니다.
+Linux HPC 클러스터를 배포하려면 이러한 Azure 템플릿을 사용합니다.
 
 * [SLURM 클러스터 스핀업](https://azure.microsoft.com/documentation/templates/slurm/) 및 [블로그 게시물](http://blogs.technet.com/b/windowshpc/archive/2015/06/06/deploy-a-slurm-cluster-on-azure.aspx)
 
 * [토크 클러스터 스핀업](https://azure.microsoft.com/documentation/templates/torque-cluster/)
+
+* [Lustre 소프트웨어용 Intel 클라우드 버전 - Eval](https://azure.microsoft.com/marketplace/partners/intel/lustre-cloud-edition-evaleval-lustre-2-7/)
 
 ## Microsoft MPI
 
@@ -114,11 +116,25 @@ Azure는 Linux 및 Windows HPC 워크로드를 실행하도록 백 엔드 RDMA �
 
 * [미디어 서비스](https://azure.microsoft.com/documentation/services/media-services/)
 
+## 고객 사례
 
+* [Towers Watson](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18222)
+
+* [Milliman](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=14967)
+
+* [ANEO](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=4168)
+
+* [d3View](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=22088)
+
+* [Schlumberger](http://azure.microsoft.com/blog/big-compute-for-large-engineering-simulations)
+
+* [Ludwig Institute of Cancer Research](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=5830)
+
+* [Microsoft Research](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=15634)
 
 ## 다음 단계
 
 * 최신 공지 사항은 [Microsoft HPC 및 배치 팀 블로그](http://blogs.technet.com/b/windowshpc/) 및 [Azure 블로그](https://azure.microsoft.com/blog/tag/hpc/)를 참조하세요.
 * 또한 [배치의 새로운 기능](https://azure.microsoft.com/updates/?service=batch)을 참조하거나 [RSS 피드](https://azure.microsoft.com/updates/feed/?service=batch)를 구독하세요.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

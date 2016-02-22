@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.workload="mobile"
-	ms.date="10/05/2015"
+	ms.date="01/22/2016"
 	ms.author="wesmc"/>
 
 # Xamarin.Forms 앱에 푸시 알림 추가
@@ -68,7 +68,7 @@
 
   	기본 사용 권한 집합이 설정된 새 저장소 테이블 **TodoItem**이 생성됩니다. 앱의 모든 사용자가 테이블의 데이터에 액세스하고 변경할 수 있습니다.
 
-    > [AZURE.NOTE]모바일 서비스 빠른 시작에 같은 테이블 이름이 사용됩니다. 하지만 각 테이블은 주어진 모바일 서비스에 특정된 스키마에 생성됩니다. 이렇게 하면 여러 모바일 서비스가 같은 데이터베이스를 사용할 때 발생하는 데이터 충돌을 예방할 수 있습니다.
+    > [AZURE.NOTE] 모바일 서비스 빠른 시작에 같은 테이블 이름이 사용됩니다. 하지만 각 테이블은 주어진 모바일 서비스에 특정된 스키마에 생성됩니다. 이렇게 하면 여러 모바일 서비스가 같은 데이터베이스를 사용할 때 발생하는 데이터 충돌을 예방할 수 있습니다.
 
 4. 새 **TodoItem** 테이블을 클릭하고 데이터 행이 없는 것을 확인합니다.
 
@@ -76,7 +76,7 @@
 
   	이 부분이 모바일 서비스의 테이블 최소 요구 사항입니다.
 
-    > [AZURE.NOTE]모바일 서비스에서 동적 스키마를 사용하면 삽입 또는 업데이트 작업에서 JSON 개체를 모바일 서비스에 보낼 때 새 열이 자동으로 생성됩니다.
+    > [AZURE.NOTE] 모바일 서비스에서 동적 스키마를 사용하면 삽입 또는 업데이트 작업에서 JSON 개체를 모바일 서비스에 보낼 때 새 열이 자동으로 생성됩니다.
 
 이제 새 모바일 서비스를 앱의 데이터 저장소로 사용할 준비가 되었습니다.
 
@@ -93,7 +93,7 @@
 
 APNS(Apple Push Notification Service)를 사용하여 iOS 앱에 푸시 알림을 추가합니다. 활성 Google 계정 및 [Google Cloud Messaging 클라이언트 구성 요소]가 필요합니다.
 
->[AZURE.IMPORTANT]APNS(Apple Push Notification Service) 요구 사항 때문에 에뮬레이터 대신 iOS 지원 장치(iPhone 또는 iPad)에서 푸시 알림을 배포 및 테스트해야 합니다.
+>[AZURE.IMPORTANT] APNS(Apple Push Notification Service) 요구 사항 때문에 에뮬레이터 대신 iOS 지원 장치(iPhone 또는 iPad)에서 푸시 알림을 배포 및 테스트해야 합니다.
 
 APNS는 인증서를 사용하여 모바일 서비스를 인증합니다. 필요한 인증서를 만들어 모바일 서비스에 업로드하려면 해당 지침을 따르세요. 공식 APNS 기능 설명서는 [Apple Push Notification Service](영문)를 참조하세요.
 
@@ -290,7 +290,7 @@ APNS에 앱을 등록하고 프로젝트를 구성했으면 APNS와 통합되도
             _deviceToken = _deviceToken.Trim('<', '>').Replace(" ", "");
 
             // Get Mobile Services client
-            MobileServiceClient client = todoItemManager.GetClient;
+            MobileServiceClient client = todoItemManager.GetClient();
 
             // Register for push with Mobile Services
             IEnumerable<string> tag = new List<string>() { "uniqueTag" };
@@ -302,7 +302,7 @@ APNS에 앱을 등록하고 프로젝트를 구성했으면 APNS와 통합되도
 
             var push = client.GetPush();
 
-            push.RegisterTemplateAsync(_deviceToken, template, expiryDate, "myTemplate", tag)
+            push.RegisterTemplateAsync(_deviceToken, template, expiryDate, "myTemplate", tag);
         }
 
 7. **AppDelegate**에서 **ReceivedRemoteNotification** 이벤트를 재정의합니다.
@@ -363,13 +363,13 @@ APNS에 앱을 등록하고 프로젝트를 구성했으면 APNS와 통합되도
 
     새 삽입 스크립트가 등록되며, 삽입 요청에 제공된 장치에 푸시 알림(삽입된 텍스트)을 보냅니다.
 
-   >[AZURE.NOTE]이 스크립트는 앱을 닫고 알림 메시지를 수신할 수 있는 시간을 주기 위해 알림 전송을 지연시킵니다.
+   >[AZURE.NOTE] 이 스크립트는 앱을 닫고 알림 메시지를 수신할 수 있는 시간을 주기 위해 알림 전송을 지연시킵니다.
 
 ### <a name="test"></a>앱에서 푸시 알림 테스트
 
 1. **실행** 단추를 눌러 프로젝트를 빌드하고 iOS 지원 장치에서 앱을 시작한 다음, **확인**을 클릭하여 푸시 알림을 수락합니다.
 
-   >[AZURE.NOTE]앱에서 푸시 알림을 명시적으로 수락해야 합니다. 이 요청은 앱이 처음 실행될 때만 발생합니다.
+   >[AZURE.NOTE] 앱에서 푸시 알림을 명시적으로 수락해야 합니다. 이 요청은 앱이 처음 실행될 때만 발생합니다.
 
 2. 앱에서 **추가** 단추를 클릭하고 작업 제목을 추가한 후 **저장** 단추를 클릭합니다.
 
@@ -392,7 +392,7 @@ GCM(Google Cloud Messaging) 서비스를 사용하여 Android 앱에 푸시 알�
 
 ###<a id="update-scripts"></a>알림을 보내도록 등록된 삽입 스크립트 업데이트
 
->[AZURE.NOTE]다음 단계에서는 Azure 클래식 포털의 TodoItem 테이블에서 삽입 작업에 등록된 스크립트를 업데이트하는 방법을 보여 줍니다. 또한 서버 탐색기의 Azure 노드의 Visual Studio에서 이 모바일 서비스 스크립트에 직접 액세스하여 편집할 수도 있습니다.
+>[AZURE.NOTE] 다음 단계에서는 Azure 클래식 포털의 TodoItem 테이블에서 삽입 작업에 등록된 스크립트를 업데이트하는 방법을 보여 줍니다. 또한 서버 탐색기의 Azure 노드의 Visual Studio에서 이 모바일 서비스 스크립트에 직접 액세스하여 편집할 수도 있습니다.
 
 [Azure 클래식 포털]에서 **데이터** 탭을 클릭한 후 **TodoItem** 테이블을 클릭합니다.
 
@@ -402,7 +402,7 @@ GCM(Google Cloud Messaging) 서비스를 사용하여 Android 앱에 푸시 알�
 
    ![][22]
 
-    This displays the function that is invoked when an insert occurs in the **TodoItem** table.
+**TodoItem** 테이블에 삽입 시 호출되는 함수가 표시됩니다.
 
 3. 삽입 함수를 다음의 코드로 바꾼 후 **저장**을 클릭합니다.
 
@@ -434,7 +434,7 @@ GCM(Google Cloud Messaging) 서비스를 사용하여 Android 앱에 푸시 알�
 
     새 삽입 스크립트가 등록되며, 삽입 요청에 제공된 장치에 푸시 알림(삽입된 텍스트)을 보냅니다.
 
-   >[AZURE.NOTE]이 스크립트는 앱을 닫고 알림 메시지를 수신할 수 있는 시간을 주기 위해 알림 전송을 지연시킵니다.
+   >[AZURE.NOTE] 이 스크립트는 앱을 닫고 알림 메시지를 수신할 수 있는 시간을 주기 위해 알림 전송을 지연시킵니다.
 
 
 ###<a id="configure-app"></a>푸시 알림에 대한 기존 프로젝트 구성
@@ -539,6 +539,7 @@ GCM(Google Cloud Messaging) 서비스를 사용하여 Android 앱에 푸시 알�
             MainActivity.DefaultService.RunOnUiThread(() => Register(push, null));
 
         }
+
         public async void Register(Microsoft.WindowsAzure.MobileServices.Push push, IEnumerable<string> tags)
         {
             try
@@ -618,9 +619,14 @@ GCM(Google Cloud Messaging) 서비스를 사용하여 Android 앱에 푸시 알�
 
 12. 컴파일할 프로젝트에 필요한 **OnUnRegistered()** 및 **OnError()**에 대해 재정의하는 다음 메서드를 추가합니다.
 
+		protected override void OnUnRegistered(Context context, string registrationId)
+		{
+			Log.Error("GcmService", "Unregistered RegisterationId : " + registrationId);
+		}
+
         protected override void OnError(Context context, string errorId)
         {
-              Log.Error(PushHandlerBroadcastReceiver.TAG, "GCM Error: " + errorId);
+            Log.Error(PushHandlerBroadcastReceiver.TAG, "GCM Error: " + errorId);
         }
 
 ###<a id="test"></a>앱에서 푸시 알림 테스트
@@ -629,7 +635,7 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 
 에뮬레이터에서 이 앱을 실행하는 경우 Google API를 지원하는 AVD(Android Virtual Device)를 사용해야 합니다.
 
-> [AZURE.IMPORTANT]푸시 알림을 받으려면 Android Virtual Device에서 Google 계정을 설정해야 합니다(에뮬레이터에서 **Settings**로 이동하고 **Add Account** 클릭). 에뮬레이터가 인터넷에 연결되어 있어야 합니다.
+> [AZURE.IMPORTANT] 푸시 알림을 받으려면 Android Virtual Device에서 Google 계정을 설정해야 합니다(에뮬레이터에서 **Settings**로 이동하고 **Add Account** 클릭). 에뮬레이터가 인터넷에 연결되어 있어야 합니다.
 
 1. **Tools**에서 **Open Android Emulator Manager**를 클릭하고 해당 장치를 선택한 후 **Edit**를 클릭합니다.
 
@@ -702,7 +708,7 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 
 5. **F5** 키를 눌러 앱을 실행합니다. 등록 키가 포함된 팝업 대화 상자가 표시됩니다.
 
-6.	솔루션 탐색기에서 **속성**을 확장하고 WMAppManifest.xml 파일을 연 후 **기능** 탭을 클릭하고 **ID\_\_\_CAP\_\_\_PUSH\_NOTIFICATION** 기능이 선택되었는지 확인합니다.
+6.	솔루션 탐색기에서 **속성**을 확장하고 WMAppManifest.xml 파일을 연 후 **기능** 탭을 클릭하고 **ID\_CAP\_PUSH\_NOTIFICATION** 기능이 선택되었는지 확인합니다.
 
    	![VS에서 알림 사용](./media/partner-xamarin-mobile-services-xamarin-forms-get-started-push/mobile-app-enable-push-wp8.png)
 
@@ -762,7 +768,7 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 
 1. Visual Studio에서 F5 키를 눌러 앱을 실행합니다.
 
-    >[AZURE.NOTE]Windows Phone 에뮬레이터에서 테스트하는 경우 401 Unauthorized RegistrationAuthorizationException이 발생할 수 있습니다. 이는 Windows Phone 에뮬레이터가 해당 시계를 호스트 PC와 동기화하는 방법으로 인해 `RegisterNativeAsync()`을(를) 호출하는 동안 발생할 수 있습니다. 이로 인해 보안 토큰이 거부될 수 있습니다. 이 문제를 해결하려면 테스트 전에 에뮬레이터의 시계를 수동으로 설정하면 됩니다.
+    >[AZURE.NOTE] Windows Phone 에뮬레이터에서 테스트하는 경우 401 Unauthorized RegistrationAuthorizationException이 발생할 수 있습니다. 이는 Windows Phone 에뮬레이터가 해당 시계를 호스트 PC와 동기화하는 방법으로 인해 `RegisterNativeAsync()`을(를) 호출하는 동안 발생할 수 있습니다. 이로 인해 보안 토큰이 거부될 수 있습니다. 이 문제를 해결하려면 테스트 전에 에뮬레이터의 시계를 수동으로 설정하면 됩니다.
 
 5. 앱에서 **Hello push**라는 새 작업을 만든 다음 시작 단추 또는 뒤로 단추를 바로 클릭하여 앱을 종료합니다.
 
@@ -850,4 +856,4 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 [Xamarin.Forms Azure 푸시 알림 시작 샘플]: https://github.com/Azure/mobile-services-samples/tree/master/TodoListXamarinForms
 [전체 Xamarin.Forms Azure 푸시 알림 샘플]: https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPushXamarinForms
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

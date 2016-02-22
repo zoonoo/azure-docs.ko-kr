@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/05/2015"
+ 	ms.date="02/09/2016"  
 	ms.author="juliako"/>
 
 
@@ -23,6 +23,15 @@
 
 Microsoft Azure 미디어 서비스는 OData 기반의 HTTP 요청을 허용하는 서비스이며 verbose JSON 또는 atom + pub 형식으로 다시 응답할 수 있습니다. 미디어 서비스는 Azure의 설계 지침을 따르기 때문에 미디어 서비스에 연결할 때 각 클라이언트가 사용해야 하는 필수 HTTP 헤더 집합뿐만 아니라 선택적 헤더로 사용할 수 있는 집합도 있습니다. 다음 섹션에서는 요청을 작성하고 미디어 서비스에서 응답을 수신할 때 사용할 수는 헤더 및 HTTP 동사를 설명합니다.
 
+##고려 사항 
+
+REST를 사용할 때 적용되는 고려 사항은 다음과 같습니다.
+
+
+- JSON을 사용하는 경우 Accept 헤더를 [JSON Verbose 형식](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/)으로 설정해야 합니다. verbose로 설정하지 않으면 Odata에서 \_\_metadata 속성을 인식하지 못합니다.
+
+	**Accept**: application/json;odata=verbose
+- 엔터티를 쿼리할 때 한 번에 반환되는 엔터티 수는 최대 1000개입니다. 공용 REST v2에서는 쿼리 결과를 1000개로 제한하기 때문입니다. [이 .NET 예제](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) 및 [이 REST API 예제](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities)에 설명된 대로 **Skip** 및 **Take**(.NET)/**top**(REST)을 사용해야 합니다. 
 
 ## 미디어 서비스에서 지원하는 표준 HTTP 요청 헤더
 
@@ -38,7 +47,7 @@ MaxDataServiceVersion|10진수|3\.0
 
 
 
->[AZURE.NOTE]미디어 서비스는 OData를 사용하여 REST API를 통해 기본 자산 메타데이터 리포지토리를 표시합니다. DataServiceVersion과 MaxDataServiceVersion 헤더는 모든 요청에 포함되어야 합니다. 그러나 그렇지 않은 경우 현재 미디어 서비스는 사용 중인 DataServiceVersion 값이 3.0이라고 가정합니다.
+>[AZURE.NOTE] 미디어 서비스는 OData를 사용하여 REST API를 통해 기본 자산 메타데이터 리포지토리를 표시합니다. DataServiceVersion과 MaxDataServiceVersion 헤더는 모든 요청에 포함되어야 합니다. 그러나 그렇지 않은 경우 현재 미디어 서비스는 사용 중인 DataServiceVersion 값이 3.0이라고 가정합니다.
 
 다음은 선택적 헤더의 집합입니다.
 
@@ -81,6 +90,10 @@ PUT|개체를 바꾸거나 명명된 개체(있는 경우)를 만듭니다.
 MERGE|명명된 속성 변경 내용으로 기존 개체를 업데이트합니다.
 HEAD|GET 응답에 대한 개체의 메타데이터를 반환합니다.
 
+##제한 사항
+
+엔터티를 쿼리할 때 한 번에 반환되는 엔터티 수는 최대 1000개입니다. 공용 REST v2에서는 쿼리 결과를 1000개로 제한하기 때문입니다. [이 .NET 예제](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) 및 [이 REST API 예제](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities)에 설명된 대로 **Skip** 및 **Take**(.NET)/**top**(REST)을 사용해야 합니다.
+
 
 ## 미디어 서비스 모델 검색
 
@@ -105,4 +118,4 @@ HEAD|GET 응답에 대한 개체의 메타데이터를 반환합니다.
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

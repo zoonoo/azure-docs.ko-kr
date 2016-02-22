@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="10/28/2015"
+      ms.date="02/06/2016"
       ms.author="hascipio; v-divte" />
 
 # Azure 마켓플레이스용 솔루션 템플릿 만들기 가이드
@@ -54,7 +54,7 @@ Zip 파일을 업로드한 후 **인증 요청**을 클릭합니다. Microsoft �
 
 4. URL을 복사하고 브라우저에 붙여넣어 createUiDefinition.json 파일의 고객 환경을 확인합니다.
 
-  >[AZURE.TIP]개발자가 솔루션 템플릿 토폴로지를 만들고 인증을 받는 동안 회사의 비즈니스, 마케팅 및/또는 법무 부서는 마케팅 및 법률 콘텐츠를 작업할 수 있습니다.
+  > [AZURE.TIP] 개발자가 솔루션 템플릿 토폴로지를 만들고 인증을 받는 동안 회사의 비즈니스, 마케팅 및/또는 법무 부서는 마케팅 및 법률 콘텐츠를 작업할 수 있습니다.
 
 ## 다음 단계
 이제 솔루션 템플릿을 만들고 인증에 필요한 파일이 포함된 zip 파일을 제출했으므로 스테이징에서 제품을 테스트할 준비를 하기 전에 계속해서 [마켓플레이스 마케팅 콘텐츠 가이드](marketplace-publishing-push-to-staging.md)의 지침에 따라 작업을 수행할 수 있습니다. 또는 [시작: Azure 마켓플레이스에 제품을 게시하는 방법](marketplace-publishing-getting-started.md)을 참조하여 전체 마켓플레이스 게시 문서를 확인할 수 있습니다.
@@ -74,4 +74,4 @@ Zip 파일을 업로드한 후 **인증 요청**을 클릭합니다. Microsoft �
 [link-acct-creation]: marketplace-publishing-microsoft-accounts-creation-registration.md
 [link-pubportal]: https://publish.windowsazure.com
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0211_2016-->

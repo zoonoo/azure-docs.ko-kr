@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="11/16/2015"
+   ms.date="02/09/2016"
    ms.author="elfish"/>
 
 # 비즈니스 연속성 FAQ
@@ -60,4 +60,4 @@
 
 [sys.dm\_geo\_replication\_link\_status](https://msdnstage.redmond.corp.microsoft.com/library/mt575504.aspx) 동적 관리 뷰(DMVs)를 사용하여 마지막 복제 시간, 마지막 복제 간격 및 복제 링크에 대한 기타 정보를 얻을 수 있습니다.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

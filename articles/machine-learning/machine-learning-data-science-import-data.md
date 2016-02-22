@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/27/2015"
+	ms.date="02/08/2016"
 	ms.author="garye;bradsev" />
 
 
@@ -32,7 +32,7 @@
 
 이러한 각 옵션을 위 메뉴의 항목 중 하나에서 설명합니다. 이 항목에서는 기계 학습 스튜디오에서 사용하기 위해 이러한 여러 데이터 원본에서 데이터를 가져오는 방법을 보여 줍니다.
 
-> [AZURE.NOTE]기계 학습 스튜디오에는 이 용도로 사용할 수 있는 샘플 데이터 집합이 많이 있습니다. 이에 대한 자세한 내용은 [Azure 기계 학습 스튜디오의 샘플 데이터 집합 사용](machine-learning-use-sample-datasets.md))을 참조하세요.
+> [AZURE.NOTE] 기계 학습 스튜디오에는 이 용도로 사용할 수 있는 샘플 데이터 집합이 많이 있습니다. 이에 대한 자세한 내용은 [Azure 기계 학습 스튜디오의 샘플 데이터 집합 사용](machine-learning-use-sample-datasets.md))을 참조하세요.
 
 또한 이 소개 항목에서는 기계 학습 스튜디오에 사용할 준비가 완료된 데이터를 가져오는 방법을 보여 주고 지원되는 데이터 형식과 데이터 유형을 설명합니다.
 
@@ -91,4 +91,4 @@
 [metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0211_2016-->

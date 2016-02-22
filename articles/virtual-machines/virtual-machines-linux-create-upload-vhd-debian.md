@@ -19,9 +19,9 @@
 
 
 
-#Azure용 Debian VHD 준비
+# Azure용 Debian VHD 준비
 
-##필수 조건
+## 필수 조건
 이 섹션에서는 [Debian 웹 사이트](https://www.debian.org/distrib/)에서 다운로드한 .iso 파일에서 Debian Linux 운영 체제를 가상 하드 디스크에 설치했다고 가정합니다. .vhd 파일을 만드는 여러 도구가 있으며 Hyper-V가 한 가지 예입니다. Hyper-V 사용에 대한 자세한 내용은 [Hyper-V 역할 설치 및 가상 컴퓨터 구성](https://technet.microsoft.com/library/hh846766.aspx)을 참조하세요.
 
 
@@ -33,7 +33,7 @@
 - 모든 VHD 크기는 1MB의 배수여야 합니다.
 
 
-##Debian 7.x 및 8.x
+## Debian 7.x 및 8.x
 
 1. Hyper-V 관리자에서 가상 컴퓨터를 선택합니다.
 
@@ -47,13 +47,13 @@
 
 5. grub을 다시 빌드하고 다음을 실행합니다.
 
-        # sudo update-grub 
+        # sudo update-grub
 
 6. Azure Linux 에이전트에 대한 종속성 패키지를 설치합니다.
 
         # apt-get install -y git parted
 
-7.	[참고 자료](virtual-machines-linux-update-agent.md)를 사용하여 Github에서 Azure Linux 에이전트를 설치하고 2.0.14 버전을 선택합니다.
+7.	[참고 자료](virtual-machines-linux-update-agent.md)를 사용하여 GitHub에서 Azure Linux 에이전트를 설치하고 2.0.14 버전을 선택합니다.
 
 			# wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-2.0.14/waagent
 			# chmod +x waagent
@@ -65,10 +65,10 @@
         # sudo waagent –force -deprovision
         # export HISTSIZE=0
         # logout
- 
+
 9. Hyper-V 관리자에서 **작업** -> 종료를 클릭합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
 
-##Credativ 스크립트를 사용하여 Debian VHD 만들기
+## Credativ 스크립트를 사용하여 Debian VHD 만들기
 
 Debian VHD를 자동으로 빌드하는 데 도움이 되는 스크립트가 Credativ 웹 사이트에서 제공됩니다. [여기](https://gitlab.credativ.com/de/azure-manage)에서 다운로드하여 Linux VM에 설치하면 됩니다. Debian VHD(예: Debian 7)를 만들려면 다음을 실행합니다.
 
@@ -78,6 +78,6 @@ Debian VHD를 자동으로 빌드하는 데 도움이 되는 스크립트가 Cre
 
 ## 다음 단계
 
-이제 Debian.vhd를 사용하여 새 Azure 가상 컴퓨터를 만들 준비가 되었습니다. Azure 사용 및 Azure에 .vhd 파일 업로드가 처음이면 [이 지침](virtual-machines-linux-create-upload-vhd.md)의 2단계 및 3단계를 수행합니다.
+이제 Debian 가상 하드 디스크를 사용하여 Azure에서 새 가상 컴퓨터를 만들 준비가 되었습니다. .vhd 파일을 Azure에 처음으로 업로드하는 경우 [Linux 운영 체제를 포함하는 가상 하드 디스크 만들기 및 업로드](virtual-machines-linux-create-upload-vhd.md)에서 2단계 및 3단계를 참조하세요.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

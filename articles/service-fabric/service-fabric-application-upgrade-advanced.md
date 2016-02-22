@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/17/2015"
+   ms.date="02/04/2016"
    ms.author="subramar"/>
 
 # 서비스 패브릭 응용 프로그램 업그레이드: 고급 항목
 
 ## 수동 업그레이드 모드
 
-> [AZURE.NOTE]모니터링되지 않는 수동 모드는 업그레이드가 실패 또는 일시 중단된 경우에만 고려해야 합니다. 서비스 패브릭 응용 프로그램에 권장되는 업그레이드 모드는 모니터링 모드입니다.
+> [AZURE.NOTE]  모니터링되지 않는 수동 모드는 업그레이드가 실패 또는 일시 중단된 경우에만 고려해야 합니다. 서비스 패브릭 응용 프로그램에 권장되는 업그레이드 모드는 모니터링 모드입니다.
 
 Azure 서비스 패브릭은 개발 및 프로덕션 클러스터를 지원하는 여러 업그레이드 모드를 제공합니다. 각 배포 옵션은 다양한 환경에 적합합니다.
 
@@ -49,12 +49,15 @@ Azure 서비스 패브릭은 개발 및 프로덕션 클러스터를 지원하�
 
 ## 다음 단계
 
-[업그레이드 자습서](service-fabric-application-upgrade-tutorial.md)
+[Visual Studio를 사용하여 응용 프로그램 업그레이드](service-fabric-application-upgrade-tutorial.md)에서는 Visual Studio를 사용하여 응용 프로그램 업그레이드를 진행하는 방법을 안내합니다.
 
-[업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md)
+[Powershell을 사용하여 응용 프로그램 업그레이드](service-fabric-application-upgrade-tutorial-powershell.md)에서는 PowerShell을 사용하여 응용 프로그램 업그레이드를 진행하는 방법을 안내합니다.
 
-[데이터 직렬화](service-fabric-application-upgrade-data-serialization.md)
+[업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md)를 사용하여 응용 프로그램 업그레이드 방법을 제어합니다.
 
-[응용 프로그램 업그레이드 문제 해결](service-fabric-application-upgrade-troubleshooting.md)
+[데이터 직렬화](service-fabric-application-upgrade-data-serialization.md) 사용 방법을 익혀 응용 프로그램 업그레이드와 호환되도록 만듭니다.
 
-<!---HONumber=AcomDC_0121_2016-->
+[응용 프로그램 업그레이드 문제 해결](service-fabric-application-upgrade-troubleshooting.md)의 단계를 참조하여 응용 프로그램 업그레이드 중 발생하는 일반적인 문제를 해결합니다.
+ 
+
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/03/2015"
+	ms.date="02/05/2016"
 	ms.author="antonba"/>
 
 # Azure API 관리에서 VPN 연결을 설정하는 방법
 
-API 관리의 VPN 지원을 사용하여 API 관리 게이트웨이를 Azure 가상 네트워크에 연결할 수 있습니다. 이렇게 하면 API 관리 고객을 온-프레미스이거나 공용 인터넷에 액세스할 수 없는 해당 백엔드 웹 서비스에 안전하게 연결할 수 있습니다.
+API 관리의 VPN 지원을 사용하여 API 관리 게이트웨이를 Azure 가상 네트워크(클래식)에 연결할 수 있습니다. 이렇게 하면 API 관리 고객을 온-프레미스이거나 공용 인터넷에 액세스할 수 없는 해당 백엔드 웹 서비스에 안전하게 연결할 수 있습니다.
+
+>[AZURE.NOTE] Azure API 관리는 클래식 VNET과 함께 작동합니다. 클래식 VNET을 만드는 방법에 대한 정보는 [Azure 포털을 사용하여 가상 네트워크(클래식) 만들기](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)를 참조하세요. ARM VNET에 클래식 VNET을 연결하는 내용은 [새 VNet에 클래식 VNet 연결](../virtual-network/virtual-networks-arm-asm-s2s.md)을 참조하세요.
 
 ## <a name="enable-vpn"> </a>VPN 연결 사용
 
@@ -66,4 +68,4 @@ API 관리 서비스가 VPN에 연결되면 가상 네트워크 내에서 웹 �
 [자습서: 사이트 간 연결용 프레미스 간 가상 네트워크 만들기]: ../virtual-networks-create-site-to-site-cross-premises-connectivity
 [API 검사기를 사용하여 Azure API 관리에서 호출을 추적하는 방법]: api-management-howto-api-inspector.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

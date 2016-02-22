@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="01/05/2016"
+    ms.date="02/09/2016"
     ms.author="curtand"/>
 
 # Azure Active Directory Single Sign-On과 SaaS 앱 통합  
@@ -43,7 +43,7 @@ Azure AD는 조직의 최종 사용자에게 응용 프로그램을 배포하는
 
 조직이 사용하는 응용 프로그램에 Single Sign-On을 설치하는 작업은 새 응용 프로그램에 새 계정을 만드는 것과 다른 프로세스입니다. 다음 몇 가지 준비 단계를 포함합니다. 응용 프로그램에서 Azure AD ID에 사용자 ID를 매핑하고 통합된 후에 사용자가 응용 프로그램에 로그인하는 방법을 이해합니다.
 
-> [AZURE.NOTE]기존 응용 프로그램에 대한 SSO를 설정하려면 Azure AD와 SaaS 응용 프로그램에서 전역 관리자 권한이 있어야 합니다.
+> [AZURE.NOTE] 기존 응용 프로그램에 대한 SSO를 설정하려면 Azure AD와 SaaS 응용 프로그램에서 전역 관리자 권한이 있어야 합니다.
 
 ### 사용자 계정 매핑
 
@@ -68,4 +68,8 @@ Azure AD는 조직의 최종 사용자에게 응용 프로그램을 배포하는
 
 [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)부터 시작하여 Azure.com 라이브러리에는 이러한 모든 문제에 대한 자세한 내용이 포함되어 있습니다.
 
-<!---HONumber=AcomDC_0107_2016-->
+## 참고 항목
+
+- [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
+
+<!---HONumber=AcomDC_0211_2016-->

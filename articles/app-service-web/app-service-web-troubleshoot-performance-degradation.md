@@ -50,7 +50,7 @@
 
 #### 서비스 상태를 추적합니다.
 
-Microsoft Azure는 서비스가 중단되거나 성능이 저하될 때마다 경고를 표시합니다. [Azure 포털](https://portal.azure.com/)에서 서비스의 상태를 추적할 수 있습니다. 자세한 내용은 [서비스 상태 추적](insights-service-health.md)을 참조하세요.
+Microsoft Azure는 서비스가 중단되거나 성능이 저하될 때마다 경고를 표시합니다. [Azure 포털](https://portal.azure.com/)에서 서비스의 상태를 추적할 수 있습니다. 자세한 내용은 [서비스 상태 추적](../azure-portal/insights-service-health.md)을 참조하세요.
 
 #### 웹앱 모니터링
 
@@ -69,7 +69,7 @@ Microsoft Azure는 서비스가 중단되거나 성능이 저하될 때마다 �
 자세한 내용은 다음을 참조하세요.
 
 -	[Azure 앱 서비스에서 웹앱 모니터링](web-sites-monitor.md)
--	[경고 알림 받기](insights-receive-alert-notifications.md)
+-	[경고 알림 받기](../azure-portal/insights-receive-alert-notifications.md)
 
 #### 웹 끝점 상태 모니터링
 
@@ -91,9 +91,9 @@ Microsoft Azure는 서비스가 중단되거나 성능이 저하될 때마다 �
 
 [Azure Application Insights](/services/application-insights/) 및 [New Relic](/marketplace/partners/newrelic/newrelic/)은 두 가지 사이트 확장 성능 모니터링이 가능합니다. New Relic을 사용하려면 런타임에 에이전트를 설치해야 합니다. Azure Application Insights를 사용하려면, SDK를 사용하여 코드를 다시 작성해야 하고 추가 데이터 접근을 제공하는 확장 프로그램을 설치해야 할 수도 있습니다. SDK를 통해 앱의 사용과 성능을 보다 자세하게 모니터링하기 위한 코드를 작성할 수 있습니다.
 
-Application Insights를 사용하려면 [웹 응용 프로그램에서 모니터 성능](app-insights-web-monitor-performance.md)을 참조하세요.
+Application Insights를 사용하려면 [웹 응용 프로그램에서 모니터 성능](../application-insights/app-insights-web-monitor-performance.md)을 참조하세요.
 
-New Relic을 사용하려면 [Azure에서 New Relic 응용 프로그램 성능 관리](store-new-relic-cloud-services-dotnet-application-performance-management.md)를 참조하세요.
+New Relic을 사용하려면 [Azure에서 New Relic 응용 프로그램 성능 관리](../store-new-relic-cloud-services-dotnet-application-performance-management.md)를 참조하세요.
 
 <a name="collect" />
 ### 2\. 데이터 수집
@@ -184,6 +184,6 @@ AutoHeal은 사용자가 선택한 설정(예: 구성 변경, 요청, 메모리 
 
  ![](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
 
-또한, Azure Powershell을 사용하여 웹앱을 관리할 수 있습니다. 자세한 내용은 [Azure 리소스 관리자에서 Azure PowerShell 사용](powershell-azure-resource-manager.md)을 참조하세요.
+또한, Azure Powershell을 사용하여 웹앱을 관리할 수 있습니다. 자세한 내용은 [Azure 리소스 관리자에서 Azure PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

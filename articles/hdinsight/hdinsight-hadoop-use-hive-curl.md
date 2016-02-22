@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 #Curl을 사용하여 HDInsight에서 Hadoop으로 Hive 쿼리 실행
@@ -25,7 +25,7 @@
 
 Curl은 실행, 모니터링 및 Hive 쿼리 검색 결과를 원시 HTTP 요청을 사용하여 HDInsight와 함께 작용하는 방법을 설명하기 위해 사용됩니다. 이 Curl은 HDInsight 클러스터에서 제공하는 WebHCat REST API(이전의 Templeton)를 사용하여 작동합니다.
 
-> [AZURE.NOTE]Linux 기반 Hadoop 서버를 익숙하게 사용하지만 HDInsight는 처음인 경우 [HDInsight의 Linux 기반 Hadoop에 대해 알아야 할 정보](hdinsight-hadoop-linux-information.md)를 참조하세요.
+> [AZURE.NOTE] Linux 기반 Hadoop 서버를 익숙하게 사용하지만 HDInsight는 처음인 경우 [HDInsight의 Linux 기반 Hadoop에 대해 알아야 할 정보](hdinsight-hadoop-linux-information.md)를 참조하세요.
 
 ##<a id="prereq"></a>필수 조건
 
@@ -39,7 +39,7 @@ Curl은 실행, 모니터링 및 Hive 쿼리 검색 결과를 원시 HTTP 요청
 
 ##<a id="curl"></a>Curl을 사용하여 Hive 쿼리 실행
 
-> [AZURE.NOTE]WebHCat에서 Curl 또는 다른 모든 REST 통신을 사용하는 경우 HDInsight 클러스터 관리자의 사용자 이름 및 암호를 제공하여 요청을 인증해야 합니다. 또한 클러스터 이름을 서버로 요청을 보내는 데 사용되는 URI(Uniform Resource Identifier)의 일부로 사용해야 합니다.
+> [AZURE.NOTE] WebHCat에서 Curl 또는 다른 모든 REST 통신을 사용하는 경우 HDInsight 클러스터 관리자의 사용자 이름 및 암호를 제공하여 요청을 인증해야 합니다. 또한 클러스터 이름을 서버로 요청을 보내는 데 사용되는 URI(Uniform Resource Identifier)의 일부로 사용해야 합니다.
 >
 > 이 섹션의 명령에서 **USERNAME**은 클러스터에 대해 인증할 사용자로 바꾸고 **PASSWORD**는 사용자 계정의 암호로 바꿉니다. **CLUSTERNAME**을 클러스터의 이름으로 바꿉니다.
 >
@@ -86,7 +86,7 @@ Curl은 실행, 모니터링 및 Hive 쿼리 검색 결과를 원시 HTTP 요청
 
     * **CREATE EXTERNAL TABLE** - Hive에서 새 ‘외부’ 테이블을 만듭니다. 외부 테이블은 테이블 정의만 Hive에 저장합니다. 데이터는 원래 위치에 그대로 유지됩니다.
 
-		> [AZURE.NOTE]자동화된 데이터 업로드 프로세스와 같은 외부 원본이나 또 다른 MapReduce 작업을 통해 기본 데이터를 업데이트해야 하지만 Hive 쿼리에서 항상 최신 데이터를 사용하려고 할 경우 외부 테이블을 사용해야 합니다.
+		> [AZURE.NOTE] 자동화된 데이터 업로드 프로세스와 같은 외부 원본이나 또 다른 MapReduce 작업을 통해 기본 데이터를 업데이트해야 하지만 Hive 쿼리에서 항상 최신 데이터를 사용하려고 할 경우 외부 테이블을 사용해야 합니다.
 		>
 		> 외부 테이블을 삭제하면 데이터는 삭제되지 **않고** 테이블 정의만 삭제됩니다.
 
@@ -96,11 +96,11 @@ Curl은 실행, 모니터링 및 Hive 쿼리 검색 결과를 원시 HTTP 요청
 
     * **SELECT** - **t4** 열에 **[ERROR]** 값이 포함된 모든 행의 수를 선택합니다. 이 경우 이 값을 포함하는 행이 3개 있으므로 **3** 값이 반환되어야 합니다.
 
-    > [AZURE.NOTE]Curl과 함께 사용할 경우 HiveQL 문 사이의 공백이 `+` 문자로 바뀝니다. 구분 기호와 같이 공백을 포함하는 따옴표로 묶인 값은 `+`로 바뀌지 않아야 합니다.
+    > [AZURE.NOTE] Curl과 함께 사용할 경우 HiveQL 문 사이의 공백이 `+` 문자로 바뀝니다. 구분 기호와 같이 공백을 포함하는 따옴표로 묶인 값은 `+`로 바뀌지 않아야 합니다.
 
     * **INPUT\_\_FILE\_\_NAME LIKE '%25.log'** - .log로 끝나는 파일만 사용하도록 검색을 제한합니다. 없는 경우 Hive는 이 테이블에 대해 정의된 열 스키마와 일치하지 않는 파일을 포함하여 이 디렉터리와 해당 하위 디렉터리에 있는 모든 파일을 검색하려고 합니다.
 
-    > [AZURE.NOTE]%25는 URL로 인코드된 형식의 %이므로 실제 조건은 `like '%.log'`입니다. %를 URL로 인코드해야 하므로 URL에서 특수 문자로 처리됩니다.
+    > [AZURE.NOTE] %25는 URL로 인코드된 형식의 %이므로 실제 조건은 `like '%.log'`입니다. %를 URL로 인코드해야 하므로 URL에서 특수 문자로 처리됩니다.
 
     이 명령은 작업 상태를 확인하는데 사용할 수 있는 작업 ID를 반환해야 합니다.
 
@@ -112,7 +112,7 @@ Curl은 실행, 모니터링 및 Hive 쿼리 검색 결과를 원시 HTTP 요청
 
 	작업이 완료되면 상태는 **SUCCEEDED**가 됩니다.
 
-    > [AZURE.NOTE]이 Curl 요청은 작업에 관한 정보가 있는 JSON(JavaScript Object Notation) 문서를 반환합니다. jq는 상태 값을 검색하는 데만 사용됩니다.
+    > [AZURE.NOTE] 이 Curl 요청은 작업에 관한 정보가 있는 JSON(JavaScript Object Notation) 문서를 반환합니다. jq는 상태 값을 검색하는 데만 사용됩니다.
 
 4. 작업 상태가 **SUCCEEDED**로 변경되면 Azure Blob 저장소에서 작업 결과를 검색할 수 있습니다. 쿼리와 함께 전달된 `statusdir` 매개 변수에는 출력 파일의 위치(이 예의 경우 ****wasb:///example/curl**)가 포함됩니다. HDInsight 클러스터에서 사용하는 기본 저장소 컨테이너의 **example/curl** 디렉터리에 작업의 출력을 저장합니다.
 
@@ -124,7 +124,7 @@ Curl은 실행, 모니터링 및 Hive 쿼리 검색 결과를 원시 HTTP 요청
 
 		azure storage blob download <container-name> <blob-name> <destination-file>
 
-	> [AZURE.NOTE]`-a` 및 `-k` 매개 변수를 사용하여 Blob을 포함하는 저장소 계정 이름을 지정하거나 **AZURE\_STORAGE\_ACCOUNT** 및 **AZURE\_STORAGE\_ACCESS\_KEY** 환경 변수를 설정해야 합니다. 자세한 내용은 <a href="hdinsight-upload-data.md" target="\_blank"를 참조하세요.
+	> [AZURE.NOTE] `-a` 및 `-k` 매개 변수를 사용하여 Blob을 포함하는 저장소 계정 이름을 지정하거나 **AZURE\_STORAGE\_ACCOUNT** 및 **AZURE\_STORAGE\_ACCESS\_KEY** 환경 변수를 설정해야 합니다. 자세한 내용은 <a href="hdinsight-upload-data.md" target="\_blank"를 참조하세요.
 
 6. 다음 문을 사용하여 **errorLogs**라는 새 ‘내부' 테이블을 만듭니다.
 
@@ -134,7 +134,7 @@ Curl은 실행, 모니터링 및 Hive 쿼리 검색 결과를 원시 HTTP 요청
 
     * **CREATE TABLE IF NOT EXISTS** - 테이블이 아직 없는 경우 테이블을 만듭니다. **EXTERNAL** 키워드가 사용되지 않으면 Hive 데이터 웨어하우스에 저장되고 Hive에서 완전히 관리되는 내부 테이블입니다.
 
-		> [AZURE.NOTE]외부 테이블과 달리 내부 테이블을 삭제하면 기본 데이터도 삭제됩니다.
+		> [AZURE.NOTE] 외부 테이블과 달리 내부 테이블을 삭제하면 기본 데이터도 삭제됩니다.
 
     * **STORED AS ORC** - 데이터를 ORC(Optimized Row Columnar) 형식으로 저장합니다. Hive 데이터를 저장하기 위한 고도로 최적화되고 효율적인 형식입니다.
     * **덮어쓰기 삽입... SELECT** - **[ERROR]**가 포함된 **log4jLogs** 테이블에서 행을 선택하고 데이터를 **errorLogs** 테이블에 삽입합니다.
@@ -187,4 +187,4 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

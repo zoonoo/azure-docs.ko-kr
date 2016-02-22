@@ -125,7 +125,6 @@ IDE를 사용하여 배포할 때의 단점:
 ###<a name="webmatrix"></a>WebMatrix에서 직접 배포하는 방법
 
 * [WebMatrix를 사용하여 Node.js 웹 사이트 빌드 및 Azure에 배포](web-sites-nodejs-use-webmatrix.md).
-* [WebMatrix를 사용하여 PHP-MySQL 웹 앱을 만들고 배포합니다.](web-sites-php-mysql-use-webmatrix.md)
 * [WebMatrix 3:통합된 Git 및 Azure에 배포합니다](http://www.codeproject.com/Articles/577581/Webmatrixplus3-3aplusIntegratedplusGitplusandplusD)(영문). WebMatrix를 사용하여 Git 소스 제어 리포지토리에서 배포하는 방법을 설명합니다.
 
 ## <a name="onprem"></a>온-프레미스 소스 제어 시스템에서 배포
@@ -157,7 +156,7 @@ TFS를 사용하여 배포할 때의 추가 장점:
 
 ###<a name="tfs"></a>TFS를 사용하여 지속적으로 배포하는 방법
 
-* [Azure 클라우드 서비스의 지속적인 전송](../cloud-services-dotnet-continuous-delivery.md). 이 문서는 Azure 클라우드 서비스에 대한 것이지만 일부 내용은 웹 앱과도 관련이 있습니다.
+* [Azure 클라우드 서비스의 지속적인 전송](../cloud-services/cloud-services-dotnet-continuous-delivery.md). 이 문서는 Azure 클라우드 서비스에 대한 것이지만 일부 내용은 웹 앱과도 관련이 있습니다.
 
 ###<a name="gitmercurial"></a>온-프레미스 Git 또는 Mercurial 리포지토리에서 배포하는 방법
 
@@ -195,8 +194,8 @@ Visual Studio Team Services를 사용하여 배포할 때의 추가 장점:
 
 ###<a name="vsts"></a>Visual Studio Team Services를 사용하여 지속적으로 배포하는 방법
 
-- [Visual Studio Team Services 및 TFVC를 사용하여 Azure에 대한 지속적인 업데이트](../cloud-services-continuous-delivery-use-vso.md) TFVC를 사용하여 Visual Studio Team Services에서 웹앱으로의 지속적인 업데이트를 설정하는 방법을 보여 주는 단계별 자습서입니다. 
-- [Visual Studio Team Services 및 Git을 사용하여 Azure에 대한 지속적인 업데이트](../cloud-services-continuous-delivery-use-vso-git.md) 이 자습서는 이전 자습서와 비슷하지만 TFVC 대신 Git를 사용합니다.
+- [Visual Studio Team Services 및 TFVC를 사용하여 Azure에 대한 지속적인 업데이트](../cloud-services/cloud-services-continuous-delivery-use-vso.md) TFVC를 사용하여 Visual Studio Team Services에서 웹앱으로의 지속적인 업데이트를 설정하는 방법을 보여 주는 단계별 자습서입니다. 
+- [Visual Studio Team Services 및 Git을 사용하여 Azure에 대한 지속적인 업데이트](../cloud-services/cloud-services-continuous-delivery-use-vso-git.md) 이 자습서는 이전 자습서와 비슷하지만 TFVC 대신 Git를 사용합니다.
 
 ###<a name="cloudgitmercurial"></a>클라우드 기반 Git 또는 Mercurial 리포지토리에서 배포하는 방법
 
@@ -284,4 +283,4 @@ Azure의 역할 기반 액세스 제어를 사용하여 웹 앱 배포에 대한
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

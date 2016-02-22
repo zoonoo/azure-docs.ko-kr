@@ -12,14 +12,12 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/04/2016"
 	ms.author="donnam"/>
 
 # Android 모바일 앱에 대해 오프라인 동기화 사용
 
 [AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## 개요
 
@@ -36,7 +34,7 @@ Azure 모바일 앱을 처음 사용하는 경우, 먼저 [Android 앱 만들기
 장치와 Azure 모바일 서비스 간에 변경 내용을 푸시하거나 끌어오려면 데이터를 로컬로 저장하는 데 사용할 로컬 데이터베이스와 함께 초기화하는 *동기화 컨텍스트*(*MobileServiceClient.SyncContext*)를 사용합니다.
 
 1. `TodoActivity.java`에서 `mToDoTable`의 기존 정의를 주석으로 처리하고 동기화 테이블 버전의 주석 처리를 제거합니다.
-    
+
 	    private MobileServiceSyncTable<ToDoItem> mToDoTable;
 
 2. `onCreate` 메서드에서 `mToDoTable`의 기존 초기화를 주석으로 처리하고 이 정의의 주석 처리를 제거합니다.
@@ -118,4 +116,4 @@ Azure 모바일 앱을 처음 사용하는 경우, 먼저 [Android 앱 만들기
 [Cloud Cover: Azure 모바일 서비스에서 오프라인 동기화]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_0211_2016-->

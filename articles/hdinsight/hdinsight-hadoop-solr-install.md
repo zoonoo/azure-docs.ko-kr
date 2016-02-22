@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/02/2015"
+	ms.date="02/05/2016"
 	ms.author="nitinme"/>
 
 # HDInsight Hadoop 클러스터에서 Solr 설치 및 사용
@@ -67,7 +67,7 @@
 
 데이터 파일로 Solr을 인덱싱하는 것부터 시작해야 합니다. 그런 다음 인덱싱한 데이터에 대해 Solr을 사용하여 검색 쿼리를 실행할 수 있습니다. HDInsight 클러스터에서 Solr을 사용하려면 다음 단계를 수행하세요.
 
-1. **RDP(원격 데스크톱 프로토콜)를 사용하여 Solr이 설치된 HDInsight 클러스터에 원격으로 연결**합니다. Azure 포털에서 Solr을 설치하여 만든 클러스터에 대해 원격 데스크톱을 사용하도록 설정한 다음 클러스터에 원격으로 연결합니다. 지침은 <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">RDP를 사용하여 HDInsight 클러스터에 연결</a>을 참조하세요.
+1. **RDP(원격 데스크톱 프로토콜)를 사용하여 Solr이 설치된 HDInsight 클러스터에 원격으로 연결**합니다. Azure 포털에서 Solr을 설치하여 만든 클러스터에 대해 원격 데스크톱을 사용하도록 설정한 다음 클러스터에 원격으로 연결합니다. 지침은 [RDP를 사용하여 HDInsight 클러스터에 연결](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)을 참조하세요.
 
 2. **데이터 파일을 업로드하여 Solr을 인덱싱**합니다. Solr을 인덱싱할 때 검색이 필요할 수 있는 문서를 포함시킵니다. Solr을 인덱싱하려면 RDP를 사용하여 클러스터에 원격으로 연결한 후 Hadoop 명령줄을 열고 **C:\\apps\\dist\\solr-4.7.2\\example\\exampledocs**로 이동합니다. 다음 명령을 실행합니다.
 
@@ -186,7 +186,7 @@
 - [HDInsight Hadoop 클러스터에서 Solr 설치 및 사용(Linux)](hdinsight-hadoop-solr-install-linux.md)
 - [HDInsight에서 Hadoop 클러스터 만들기](hdinsight-provision-clusters.md): HDInsight 클러스터를 만드는 방법에 대한 일반 정보입니다.
 - [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-cluster-customize]\: 스크립트 동작을 사용하여 HDInsight 클러스터를 사용자 지정하는 데 대한 일반 정보입니다.
-- [HDInsight용 스크립트 작업 스크립트 개발](hdinsight-hadoop-script-actions.md).
+- [HDInsight용 스크립트 작업 스크립트 개발](hdinsight-hadoop-script-actions.md)
 - [HDInsight 클러스터에서 Spark 설치 및 사용][hdinsight-install-spark]\: Spark 설치에 대한 스크립트 작업 샘플입니다.
 - [HDInsight 클러스터에서 R 설치][hdinsight-install-r]\: R 설치에 대한 스크립트 작업 샘플입니다.
 - [HDInsight 클러스터에서 Giraph 설치](hdinsight-hadoop-giraph-install.md): Giraph 설치에 대한 스크립트 작업 샘플입니다.
@@ -198,4 +198,4 @@
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

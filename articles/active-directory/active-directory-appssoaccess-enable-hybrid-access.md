@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/16/2015"
+	ms.date="02/09/2016"
 	ms.author="femila"/>
 
 # 앱 프록시를 사용하여 하이브리드 액세스 사용
@@ -38,8 +38,9 @@ Microsoft Azure Active Directory(AD) 응용 프로그램 프록시를 사용하�
 6. 티켓은 응용 프로그램 서버에 전송되고 확인됩니다.
 7. 응답은 응용 프로그램 프록시를 통해 최종 사용자에게 전송됩니다.
 
-## 관련 문서
+## 관련된 문서
+- [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 - [Azure AD 응용 프로그램 프록시 사용](active-directory-application-proxy-enable.md#step-1-enable-application-proxy-in-azure-ad)
 - [Azure AD 앱 프록시를 통해 응용 프로그램 게시](active-directory-application-proxy-publish.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/15/2015"
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #방법: 저장소 액세스 키 롤링 후 미디어 서비스 업데이트
@@ -89,7 +89,7 @@
 
 SAS 로케이터를 업데이트하거나 다시 만들 때마다 URL이 변경됩니다.
 
->[AZURE.NOTE]주문형 로케이터의 기존 URL을 유지하려면 기존 로케이터를 삭제하고 동일한 ID로 새 로케이터를 만들어야 합니다.
+>[AZURE.NOTE] 주문형 로케이터의 기존 URL을 유지하려면 기존 로케이터를 삭제하고 동일한 ID로 새 로케이터를 만들어야 합니다.
  
 아래 .NET 예제에서는 동일한 ID로 로케이터를 다시 만드는 방법을 보여줍니다.
 	
@@ -159,4 +159,4 @@ SAS 로케이터를 업데이트하거나 다시 만들 때마다 URL이 변경�
 
 이 문서를 만들 때 기여한 다음 사람들에게 감사 드리고자 합니다. Cenk Dingiloglu, Milan Gada, Seva Titov
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

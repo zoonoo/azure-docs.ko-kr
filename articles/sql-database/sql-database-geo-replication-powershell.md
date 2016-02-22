@@ -38,7 +38,7 @@ Standard 데이터베이스는 읽을 수 없는 보조를 하나를 가질 수 
 
 - Azure 구독. Azure 구독이 필요할 경우 이 페이지 위쪽에서 **무료 평가판**을 클릭하고 되돌아와 이 문서를 완료합니다.
 - Azure SQL 데이터베이스 - 다른 지역으로 복제하려는 주 데이터베이스입니다.
-- Azure PowerShell 1.0 이상 [Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure.md)에 따라 Azure PowerShell 모듈을 다운로드하여 설치할 수 있습니다.
+- Azure PowerShell 1.0 이상 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)에 따라 Azure PowerShell 모듈을 다운로드하여 설치할 수 있습니다.
 
 
 
@@ -84,8 +84,8 @@ Standard 데이터베이스는 읽을 수 없는 보조를 하나를 가질 수 
 
 다음 명령은 리소스 그룹 "rg2"에서 서버 "srv2"의 데이터베이스 "mydb"에 대한 읽을 수 없는 보조를 만듭니다.
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
-    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "None"
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
+    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "No"
 
 
 
@@ -93,7 +93,7 @@ Standard 데이터베이스는 읽을 수 없는 보조를 하나를 가질 수 
 
 다음 명령은 리소스 그룹 "rg2"에서 서버 "srv2"의 데이터베이스 "mydb"에 대한 읽을 수 있는 보조를 만듭니다.
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
     $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "All"
 
 
@@ -103,15 +103,15 @@ Standard 데이터베이스는 읽을 수 없는 보조를 하나를 가질 수 
 
 다음 명령은 리소스 그룹 "rg2"에서 서버 "srv2"의 탄력적 데이터베이스 풀 "ElasticPool1"에 있는 데이터베이스 "mydb"에 대한 읽을 수 없는 보조를 만듭니다.
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
-    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" –SecondaryElasticPoolName "ElasticPool1" -AllowConnections "None"
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
+    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" –SecondaryElasticPoolName "ElasticPool1" -AllowConnections "No"
 
 
 ### 읽을 수 있는 보조(탄력적 데이터베이스) 추가
 
 다음 명령은 리소스 그룹 "rg2"에서 서버 "srv2"의 탄력적 데이터베이스 풀 "ElasticPool1"에 있는 데이터베이스 "mydb"에 대한 읽을 수 있는 보조를 만듭니다.
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
     $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" –SecondaryElasticPoolName "ElasticPool1" -AllowConnections "All"
 
 
@@ -131,7 +131,7 @@ Standard 데이터베이스는 읽을 수 없는 보조를 하나를 가질 수 
 
 다음은 리소스 그룹 "rg2"의 서버 "srv2"에 대한 데이터베이스 "mydb"의 복제 링크를 제거합니다.
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
     $secondaryLink = $database | Get-AzureRmSqlDatabaseReplicationLink –SecondaryResourceGroup "rg2" –PartnerServerName "srv2"
     $secondaryLink | Remove-AzureRmSqlDatabaseSecondary 
 
@@ -159,7 +159,7 @@ Standard 데이터베이스는 읽을 수 없는 보조를 하나를 가질 수 
 
 다음 명령은 리소스 그룹 "rg2" 아래의 서버 "srv2"에서 데이터베이스 "mydb"의 역할을 주 데이터베이스로 전환합니다. 두 데이터베이스를 완전히 동기화한 후 "db2"가 연결되었던 기존 주 데이터베이스를 보조로 전환합니다.
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb” –ResourceGroupName "rg2” –ServerName "srv2”
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" –ResourceGroupName "rg2” –ServerName "srv2”
     $database | Set-AzureRmSqlDatabaseSecondary -Failover
 
 
@@ -181,7 +181,7 @@ Standard 데이터베이스는 읽을 수 없는 보조를 하나를 가질 수 
 
 다음 명령은 주 데이터베이스를 사용할 수 없을 때 "mydb"라는 데이터베이스의 역할을 주로 전환합니다. 다시 온라인 상태가 되면 "mydb"가 연결되었던 기존 주 데이터베이스가 보조로 전환됩니다. 해당 지점에서 동기화로 인해 데이터 손실이 발생할 수 있습니다.
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb” –ResourceGroupName "rg2” –ServerName "srv2”
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" –ResourceGroupName "rg2” –ServerName "srv2”
     $database | Set-AzureRmSqlDatabaseSecondary –Failover -AllowDataLoss
 
 
@@ -194,7 +194,7 @@ Standard 데이터베이스는 읽을 수 없는 보조를 하나를 가질 수 
 
 다음 명령은 주 데이터베이스 "mydb" 및 리소스 그룹 "rg2"의 서버 "srv2"에 있는 보조 데이터베이스 간 복제 링크의 상태를 검색합니다.
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb”
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
     $secondaryLink = $database | Get-AzureRmSqlDatabaseReplicationLink –PartnerResourceGroup "rg2” –PartnerServerName "srv2”
 
 
@@ -215,4 +215,4 @@ Standard 데이터베이스는 읽을 수 없는 보조를 하나를 가질 수 
 - [비즈니스 연속성 개요](sql-database-business-continuity.md)
 - [SQL 데이터베이스 설명서](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

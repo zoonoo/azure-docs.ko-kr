@@ -252,11 +252,11 @@ CSS 업데이트를 게시할 경우 다음과 같이 CSS URL에 다른 버전 �
 
 Azure 앱 서비스 또는 Azure 클라우드 서비스를 Azure CDN에 통합하면 다음과 같은 이점이 있습니다.
 
-- 콘텐츠 배포(이미지, 스크립트 및 스타일시트)를 Azure 웹앱 [연속 배포](../web-sites-publish-source-control.md) 프로세스의 일부로 통합
+- 콘텐츠 배포(이미지, 스크립트 및 스타일시트)를 Azure 웹앱 [연속 배포](../app-service-web/web-sites-publish-source-control.md) 프로세스의 일부로 통합
 - CDN 제공 NuGet 패키지(예: jQuery 또는 부트스트랩 버전)를 쉽게 업그레이드 
 - 동일한 Visual Studio 인터페이스에서 웹 응용 프로그램 및 CDN 제공 콘텐츠 관리
 
-관련 자습서는 다음을 참조하세요. - [Azure 앱 서비스에서Azure CDN 사용](../cdn-websites-with-cdn.md) - [Azure CDN와 클라우드 서비스 통합](cdn-cloud-service-with-cdn.md)
+관련 자습서는 다음을 참조하세요. - [Azure 앱 서비스에서Azure CDN 사용](../app-service-web/cdn-websites-with-cdn.md) - [Azure CDN와 클라우드 서비스 통합](cdn-cloud-service-with-cdn.md)
 
 Azure 앱 서비스 웹앱 또는 Azure 클라우드 서비스와 통합하지 않고도 다음 사항을 주의하면 스크립트 번들에 Azure CDN을 사용할 수 있습니다.
 
@@ -267,10 +267,10 @@ Azure 앱 서비스 웹앱 또는 Azure 클라우드 서비스와 통합하지 �
 
 ## 추가 정보 ##
 - [Azure CDN(콘텐츠 배달 네트워크) 개요](cdn-overview.md)
-- [Azure 앱 서비스에서 Azure CDN 사용](../cdn-websites-with-cdn.md)
+- [Azure 앱 서비스에서 Azure CDN 사용](../app-service-web/cdn-websites-with-cdn.md)
 - [Azure CDN과 클라우드 서비스 통합](cdn-cloud-service-with-cdn.md)
 - [CDN(콘텐츠 배달 네트워크) 콘텐츠를 사용자 지정 도메인에 매핑하는 방법](http://msdn.microsoft.com/library/azure/gg680307.aspx)
 - [Azure에 CDN 사용](cdn-how-to-use-cdn.md)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

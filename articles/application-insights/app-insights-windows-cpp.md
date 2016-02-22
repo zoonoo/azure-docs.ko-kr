@@ -56,7 +56,7 @@ Visual Studio Application Insights를 사용하여 모바일 응용 프로그램
 
 #### SDK를 이후 버전으로 업데이트하려면
 
-새 [SDK가 출시](app-insights-release-notes-windows-cpp.md)될 때:
+새 [SDK가 출시](https://github.com/Microsoft/ApplicationInsights-CPP/releases)될 때:
 
 * NuGet 패키지 관리자에서 설치된 SDK를 선택하고 작업:: 업그레이드를 선택합니다
 * 새 버전 번호를 사용하여 설치 단계를 반복합니다.
@@ -140,4 +140,4 @@ http://portal.azure.com으로 돌아가서 Application Insights 리소스를 찾
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0211_2016-->

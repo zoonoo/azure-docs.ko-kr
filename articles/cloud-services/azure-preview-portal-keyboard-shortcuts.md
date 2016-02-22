@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="12/01/2015"
+   ms.date="02/07/2016"
    ms.author="curtand"/>
 
 # Azure 클래식 포털 바로 가기 키
@@ -50,4 +50,4 @@
 
 Azure 클래식 포털을 더 알아 봅니다(http://azure.microsoft.com).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

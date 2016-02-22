@@ -1,20 +1,19 @@
-<properties 
-	pageTitle="데이터베이스 마이그레이션 도구 - CSV에서 JSON으로 변환 | Microsoft Azure" 
-	description="오픈 소스 DocumentDB 데이터 마이그레이션 도구를 사용하여 DocumentDB로 데이터를 가져오는 방법에 대해 알아봅니다. MongoDB, SQL, 테이블 저장소, DynamoDB 및 CSV에서 JSON입니다." 
-	keywords="csv에서 json으로, 데이터베이스 마이그레이션 도구, csv에서 json으로 변환"
-	services="documentdb" 
-	authors="andrewhoh" 
-	manager="jhubbard" 
-	editor="monicar" 
+<properties
+	pageTitle="DocumentDB로 데이터 가져오기 | Microsoft Azure"
+	description="오픈 소스 DocumentDB 데이터 마이그레이션 도구를 사용하여 JSON 파일, CSV 파일, SQL, MongoDB, Azure 테이블 저장소, Amazon DynamoDB 및 DocumentDB 컬렉션을 비롯한 다양한 소스에서 DocumentDB로 데이터를 가져오는 방법을 알아봅니다."
+	services="documentdb"
+	authors="andrewhoh"
+	manager="jhubbard"
+	editor="monicar"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/16/2015" 
+<tags
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/29/2016"
 	ms.author="anhoh"/>
 
 # DocumentDB로 데이터 가져오기 - 데이터베이스 마이그레이션 도구
@@ -54,7 +53,7 @@ DocumentDB 데이터 마이그레이션 도구는 다음을 비롯한 다양한 
 가져오기 도구는 그래픽 사용자 인터페이스(dtui.exe)를 포함하지만 명령줄(dt.exe)에서 구동할 수도 있습니다. 실제로 UI를 통해 가져오기를 설정한 후 관련 명령을 출력하는 옵션이 있습니다. 가져오는 동안 계층 관계(하위 문서)를 만들 수 있도록 테이블 형식 원본 데이터(예: SQL Server 또는 CSV 파일)를 변환할 수 있습니다. 원본 옵션, 각 원본에서 가져오는 샘플 명령줄, 대상 옵션 및 가져오기 결과 보기에 대해 자세히 알아보려면 계속 진행하세요.
 
 
-##<a id="Install"></a>DocumentDB 데이터 마이그레이션 도구 설치 ##
+##<a id="Install"></a>DocumentDB 데이터 마이그레이션 도구 설치
 
 마이그레이션 도구 소스 코드는 GitHub의 [이 리포지토리](https://github.com/azure/azure-documentdb-datamigrationtool)에서 사용할 수 있으며, 컴파일된 버전은 [Microsoft 다운로드 센터](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d)에서 사용할 수 있습니다. 솔루션을 컴파일하거나, 컴파일된 버전을 다운로드하고 선택한 디렉터리에 압축을 풀 수 있습니다. 다음 중 하나를 실행합니다.
 
@@ -69,7 +68,7 @@ JSON 파일 원본 가져오기 옵션을 사용하면 단일 문서 JSON 파일
 
 JSON 파일을 가져오는 몇 가지 명령줄 샘플은 다음과 같습니다.
 
-	#Import a single JSON file	
+	#Import a single JSON file
 	dt.exe /s:JsonFile /s.Files:.\Sessions.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:Sessions /t.CollectionTier:S3
 
 	#Import a directory of JSON files
@@ -155,7 +154,7 @@ Address.AddressType 및 Address.Location.StateProvinceName과 같은 별칭을 �
  
 SQL Server에서 가져오는 몇 가지 명령줄 샘플은 다음과 같습니다.
 
-	#Import records from SQL which match a query	
+	#Import records from SQL which match a query
 	dt.exe /s:SQL /s.ConnectionString:"Data Source=<server>;Initial Catalog=AdventureWorks;User Id=advworks;Password=<password>;" /s.Query:"select CAST(BusinessEntityID AS varchar) as Id, * from Sales.vStoreWithAddresses WHERE AddressType='Main Office'" /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:Stores /t.IdField:Id /t.CollectionTier:S3
 
 	#Import records from sql which match a query and create hierarchical relationships
@@ -215,7 +214,7 @@ Azure 테이블 저장소 연결 문자열의 형식은 다음과 같습니다.
 
 Azure 테이블 저장소 원본 가져오기 옵션에는 다음과 같은 추가 옵션이 있습니다.
 
-1. 내부 필드 포함 
+1. 내부 필드 포함
 	2. 모두 - 모든 내부 필드 포함(PartitionKey, RowKey 및 Timestamp)
 	3. 없음 - 모든 내부 필드 제외
 	4. RowKey - RowKey 필드만 포함
@@ -226,7 +225,7 @@ Azure 테이블 저장소에서 가져오는 명령줄 샘플은 다음과 같�
 
 	dt.exe /s:AzureTable /s.ConnectionString:"DefaultEndpointsProtocol=https;AccountName=<Account Name>;AccountKey=<Account Key>" /s.Table:metrics /s.InternalFields:All /s.Filter:"PartitionKey eq 'Partition1' and RowKey gt '00001'" /s.Projection:ObjectCount;ObjectSize  /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:metrics /t.CollectionTier:S3
 
-##<a id="DynamoDBSource"></a>Amazon DynamoDB에서 가져오기 ##
+##<a id="DynamoDBSource"></a>Amazon DynamoDB에서 가져오기
 
 Amazon DynamoDB 원본 가져오기 옵션을 사용하면 개별 Amazon DynamoDB 테이블에서 가져오고 필요에 따라 가져올 엔터티를 필터링할 수 있습니다. 여러 템플릿이 제공되므로 가져오기를 최대한 쉽게 설정할 수 있습니다.
 
@@ -244,7 +243,7 @@ Amazon DynamoDB에서 가져오는 명령줄 샘플은 다음과 같습니다.
 
 	dt.exe /s:DynamoDB /s.ConnectionString:ServiceURL=https://dynamodb.us-east-1.amazonaws.com;AccessKey=<accessKey>;SecretKey=<secretKey> /s.Request:"{   """TableName""": """ProductCatalog""" }" /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:catalogCollection /t.CollectionTier:S3
 
-##<a id="BlobImport"></a>Azure Blob 저장소에서 파일 가져오기##
+##<a id="BlobImport"></a>Azure Blob 저장소에서 파일 가져오기
 
 JSON 파일, MongoDB 내보내기 파일 및 CSV 파일 원본 가져오기 옵션을 통해 Azure Blob 저장소에서 하나 이상의 파일을 가져올 수 있습니다. Blob 컨테이너 URL 및 계정 키를 지정한 후에 가져올 파일을 선택하는 정규식을 제공하기만 하면 됩니다.
 
@@ -293,7 +292,7 @@ DocumentDB에서 가져오는 몇 가지 명령줄 샘플은 다음과 같습니
 	#Export a DocumentDB collection to a JSON file
 	dt.exe /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /s.Collection:StoresSub /t:JsonFile /t.File:StoresExport.json /t.Overwrite /t.CollectionTier:S3
 
-##<a id="HBaseSource"></a>HBase에서 가져오기 ##
+##<a id="HBaseSource"></a>HBase에서 가져오기
 
 HBase 원본 가져오기 옵션을 사용하면 HBase 테이블에서 데이터를 가져오고 필요에 따라 데이터를 필터링할 수 있습니다. 여러 템플릿이 제공되므로 가져오기를 최대한 쉽게 설정할 수 있습니다.
 
@@ -311,7 +310,7 @@ HBase에서 가져오는 명령줄 샘플은 다음과 같습니다.
 
 	dt.exe /s:HBase /s.ConnectionString:ServiceURL=<server-address>;Username=<username>;Password=<password> /s.Table:Contacts /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:hbaseimport
 
-##<a id="DocumentDBBulkTarget"></a>DocumentDB로 가져오기(대량 가져오기) ##
+##<a id="DocumentDBBulkTarget"></a>DocumentDB로 가져오기(대량 가져오기)
 
 DocumentDB 대량 가져오기를 사용하면 효율성을 위해 DocumentDB 저장 프로시저를 통해 사용 가능한 모든 원본 옵션에서 가져올 수 있습니다. 이 도구는 단일 DocumentDB 컬렉션 및 여러 DocumentDB 컬렉션 간에 데이터를 분할하는 분할된 데이터베이스 가져오기도 지원합니다. [여기](documentdb-partition-data.md)에서 DocumentDB에서 데이터 분할에 대해 자세히 알아봅니다. 이 도구는 대상 컬렉션에서 저장 프로시저를 만들고 실행한 다음 삭제합니다.
 
@@ -353,17 +352,18 @@ DocumentDB 연결 문자열의 형식은 다음과 같습니다.
 DocumentDB 대량 가져오기에는 다음과 같은 추가 고급 옵션이 있습니다.
 
 1. 배치 크기: 기본적으로 도구의 배치 크기는 50으로 설정되어 있습니다. 가져올 문서가 크면 배치 크기를 줄이는 것이 좋습니다. 반대로, 가져올 문서가 작으면 배치 크기를 늘리는 것이 좋습니다.
-2. 최대 스크립트 크기(바이트): 기본적으로 도구의 최대 스크립트 크기는 960KB로 설정되어 있습니다.
+2. 최대 스크립트 크기(바이트): 기본적으로 도구의 최대 스크립트 크기는 512KB로 설정되어 있습니다.
 3. 자동 ID 생성 사용 안 함: 가져올 모든 문서에 ID 필드가 포함되어 있는 경우 이 옵션을 선택하면 성능을 향상시킬 수 있습니다. 고유 ID 필드가 없는 문서는 가져오지 않습니다.
-4. 실패 시 다시 시도 횟수: 일시적 오류(예: 네트워크 연결 중단)의 경우 DocumentDB에 대한 연결을 다시 시도할 횟수를 지정합니다.
-5. 다시 시도 간격: 일시적 오류(예: 네트워크 연결 중단)의 경우 DocumentDB에 대한 연결을 다시 시도하는 간격을 지정합니다.
-6. 연결 모드: DocumentDB에 사용할 연결 모드를 지정합니다. 사용 가능한 선택 사항은 DirectTcp, DirectHttps 및 게이트웨이입니다. 직접 연결 모드는 더 빠르고, 게이트웨이 모드는 포트 443만 사용하므로 더 방화벽 친화적입니다.
+4. 기존 문서 업데이트: 이 도구는 기본적으로 기존 문서를 충돌하는 ID로 대체하지 않습니다. 이 옵션을 선택하면 기존 문서를 일치하는 ID로 덮어쓸 수 있습니다. 이 기능은 기존 문서를 업데이트하는 예약된 데이터 마이그레이션에 유용합니다.
+5. 실패 시 다시 시도 횟수: 일시적 오류(예: 네트워크 연결 중단)의 경우 DocumentDB에 대한 연결을 다시 시도할 횟수를 지정합니다.
+6. 다시 시도 간격: 일시적 오류(예: 네트워크 연결 중단)의 경우 DocumentDB에 대한 연결을 다시 시도하는 간격을 지정합니다.
+7. 연결 모드: DocumentDB에 사용할 연결 모드를 지정합니다. 사용 가능한 선택 사항은 DirectTcp, DirectHttps 및 게이트웨이입니다. 직접 연결 모드는 더 빠르고, 게이트웨이 모드는 포트 443만 사용하므로 더 방화벽 친화적입니다.
 
 ![DocumentDB 대량 가져오기 고급 옵션의 스크린샷](./media/documentdb-import-data/docdbbulkoptions.png)
 
 > [AZURE.TIP] 가져오기 도구는 기본적으로 DirectTcp 연결 모드로 설정되어 있습니다. 방화벽 문제가 발생하는 경우 포트 443만 요구하는 게이트웨이 연결 모드로 전환합니다.
 
-##<a id="DocumentDBSeqTarget"></a>DocumentDB로 가져오기(순차 레코드 가져오기) ##
+##<a id="DocumentDBSeqTarget"></a>DocumentDB로 가져오기(순차 레코드 가져오기)
 
 DocumentDB 순차 레코드 가져오기를 사용하면 레코드 단위로 사용 가능한 모든 원본 옵션에서 가져올 수 있습니다. 저장 프로시저의 할당량에 도달한 기존 컬렉션으로 가져오는 경우 이 옵션을 선택할 수 있습니다. 이 도구는 단일 DocumentDB 컬렉션 및 여러 DocumentDB 컬렉션 간에 데이터를 분할하는 분할된 데이터베이스 가져오기도 지원합니다. [여기](documentdb-partition-data.md)에서 DocumentDB에서 데이터 분할에 대해 자세히 알아봅니다.
 
@@ -401,9 +401,10 @@ DocumentDB - 순차 레코드 가져오기에는 다음과 같은 추가 고급 
 
 1. 병렬 요청 수: 기본적으로 도구의 병렬 요청 수는 2개로 설정되어 있습니다. 가져올 문서가 작으면 병렬 요청 수를 늘리는 것이 좋습니다. 이 개수를 너무 많이 늘리면 가져오기 시 제한이 발생할 수 있습니다.
 2. 자동 ID 생성 사용 안 함: 가져올 모든 문서에 ID 필드가 포함되어 있는 경우 이 옵션을 선택하면 성능을 향상시킬 수 있습니다. 고유 ID 필드가 없는 문서는 가져오지 않습니다.
-3. 실패 시 다시 시도 횟수: 일시적 오류(예: 네트워크 연결 중단)의 경우 DocumentDB에 대한 연결을 다시 시도할 횟수를 지정합니다.
-4. 다시 시도 간격: 일시적 오류(예: 네트워크 연결 중단)의 경우 DocumentDB에 대한 연결을 다시 시도하는 간격을 지정합니다.
-5. 연결 모드: DocumentDB에 사용할 연결 모드를 지정합니다. 사용 가능한 선택 사항은 DirectTcp, DirectHttps 및 게이트웨이입니다. 직접 연결 모드는 더 빠르고, 게이트웨이 모드는 포트 443만 사용하므로 더 방화벽 친화적입니다.
+3. 기존 문서 업데이트: 이 도구는 기본적으로 기존 문서를 충돌하는 ID로 대체하지 않습니다. 이 옵션을 선택하면 기존 문서를 일치하는 ID로 덮어쓸 수 있습니다. 이 기능은 기존 문서를 업데이트하는 예약된 데이터 마이그레이션에 유용합니다.
+4. 실패 시 다시 시도 횟수: 일시적 오류(예: 네트워크 연결 중단)의 경우 DocumentDB에 대한 연결을 다시 시도할 횟수를 지정합니다.
+5. 다시 시도 간격: 일시적 오류(예: 네트워크 연결 중단)의 경우 DocumentDB에 대한 연결을 다시 시도하는 간격을 지정합니다.
+6. 연결 모드: DocumentDB에 사용할 연결 모드를 지정합니다. 사용 가능한 선택 사항은 DirectTcp, DirectHttps 및 게이트웨이입니다. 직접 연결 모드는 더 빠르고, 게이트웨이 모드는 포트 443만 사용하므로 더 방화벽 친화적입니다.
 
 ![DocumentDB 순차 레코드 가져오기 고급 옵션의 스크린샷](./media/documentdb-import-data/documentdbsequentialoptions.png)
 
@@ -420,7 +421,6 @@ DocumentDB - 순차 레코드 가져오기에는 다음과 같은 추가 고급 
 도구가 제공하는 정책 템플릿은 다음과 같습니다.
 
 - 기본값 이 정책은 문자열에 대해 같음 쿼리를 수행하고 숫자에 대해 ORDER BY, 범위 및 같음 쿼리를 사용할 때 가장 좋습니다. 이 정책에는 범위보다 더 낮은 인덱스 저장소 오버헤드가 있습니다.
-- 해시입니다. 이 정책은 숫자 및 문자열 모두에 대해 같음 쿼리를 수행할 때 가장 좋습니다. 이 정책에는 가장 낮은 인덱스 저장소 오버헤드가 있습니다.
 - 범위입니다. 이 정책은 숫자와 문자열 모두에 ORDER BY, 범위 및 같음 쿼리를 사용할 때 가장 좋습니다. 이 정책에는 기본값 또는 해시보다 더 높은 인덱스 저장소 오버헤드가 있습니다.
 
 
@@ -441,7 +441,7 @@ DocumentDB JSON 내보내기를 사용하면 사용 가능한 모든 원본 옵�
 
 	Standard JSON export
 	[{"id":"Sample","Title":"About Paris","Language":{"Name":"English"},"Author":{"Name":"Don","Location":{"City":"Paris","Country":"France"}},"Content":"Don's document in DocumentDB is a valid JSON document as defined by the JSON spec.","PageViews":10000,"Topics":[{"Title":"History of Paris"},{"Title":"Places to see in Paris"}]}]
-	
+
 	Prettified JSON export
 	[
  	{
@@ -468,7 +468,7 @@ DocumentDB JSON 내보내기를 사용하면 사용 가능한 모든 원본 옵�
       }
     ]
 	}]
-	
+
 ## 고급 구성
 
 고급 구성 화면에서 원하는 모든 오류가 기록된 로그 파일의 위치를 지정합니다. 이 페이지에는 다음 규칙이 적용됩니다.
@@ -477,7 +477,9 @@ DocumentDB JSON 내보내기를 사용하면 사용 가능한 모든 원본 옵�
 2.	파일 이름에서 디렉토리가 없는 경우 파일은 현재 환경 디렉토리에 만들어지거나 덮어씁니다.
 3.	기존 파일을 선택하는 경우 파일을 덮어쓰며 추가 옵션은 없습니다.
 
-	![고급 구성 화면의 스크린샷](./media/documentdb-import-data/AdvancedConfiguration.png)
+그런 다음 모든 메시지를 기록할지, 중요한 메시지를 기록할지 또는 오류 없음 메시지를 기록할지 선택합니다. 마지막으로, 화면 전송 메시지를 해당 진행률과 함께 업데이트할 빈도를 결정합니다.
+
+	![Screenshot of Advanced configuration screen](./media/documentdb-import-data/AdvancedConfiguration.png)
 
 ## 가져오기 설정 확인 및 명령줄 보기
 
@@ -499,7 +501,4 @@ DocumentDB JSON 내보내기를 사용하면 사용 가능한 모든 원본 옵�
 
 - DocumentDB에 대해 자세히 알아보려면 [여기](http://azure.com/docdb)를 클릭하세요.
 
-
- 
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

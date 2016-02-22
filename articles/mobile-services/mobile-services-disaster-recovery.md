@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="11/30/2015"
+	ms.date="02/07/2016"
 	ms.author="christopheranderson"/>
 
 # 재해가 발생한 경우 모바일 서비스 복구
@@ -59,9 +59,9 @@ Azure 모바일 서비스를 사용하여 앱을 배포하는 경우 서버 오�
 
 4. 이제 보조 서비스를 사용하여 기본 서비스를 복구할 수 있습니다.
 
-	> [AZURE.IMPORTANT]마이그레이션 명령은 파일 마이그레이션 외에도 클라이언트 응용 프로그램을 업데이트할 필요가 없게 기본 서비스의 호스트 이름을 보조 서비스를 가리키도록 업데이트합니다. 그러나 호스트 이름에서 새 서비스를 확인하는 데 최대 30분이 걸립니다. 따라서 마이그레이션 명령은 재해 복구 시나리오에서만 사용하는 것이 좋습니다.
+	> [AZURE.IMPORTANT] 마이그레이션 명령은 파일 마이그레이션 외에도 클라이언트 응용 프로그램을 업데이트할 필요가 없게 기본 서비스의 호스트 이름을 보조 서비스를 가리키도록 업데이트합니다. 그러나 호스트 이름에서 새 서비스를 확인하는 데 최대 30분이 걸립니다. 따라서 마이그레이션 명령은 재해 복구 시나리오에서만 사용하는 것이 좋습니다.
 
-	> [AZURE.IMPORTANT]이 단계에서 명령을 실행하면 보조 서비스가 삭제되어 해당 용량을 기본 서비스 복구에 사용할 수 있게 됩니다. 스크립트 및 설정을 유지하려는 경우에는 명령을 실행하기 전에 백업하는 것이 좋습니다.
+	> [AZURE.IMPORTANT] 이 단계에서 명령을 실행하면 보조 서비스가 삭제되어 해당 용량을 기본 서비스 복구에 사용할 수 있게 됩니다. 스크립트 및 설정을 유지하려는 경우에는 명령을 실행하기 전에 백업하는 것이 좋습니다.
 
 	준비가 되면 다음 명령을 실행합니다.
 
@@ -74,7 +74,7 @@ Azure 모바일 서비스를 사용하여 앱을 배포하는 경우 서버 오�
 		info:    Migration complete. It may take 30 minutes for DNS to resolve to the migrated site.
 		info:    mobile migrate command OK
 
-    > [AZURE.NOTE]명령이 완료된 후 Azure 클래식 포털에서 변경 내용이 표시될 때까지 몇 분 정도 걸릴 수 있습니다.
+    > [AZURE.NOTE] 명령이 완료된 후 Azure 클래식 포털에서 변경 내용이 표시될 때까지 몇 분 정도 걸릴 수 있습니다.
 
 5. 스크립트를 소스 제어에 있는 원본과 비교하여 모든 스크립트가 올바르게 복구되었는지 확인합니다. 대부분의 경우 스크립트는 데이터 손실 없이 자동으로 복구됩니다. 하지만 차이가 발견하는 경우에는 해당 스크립트를 수동으로 복구할 수 있습니다.
 
@@ -114,4 +114,4 @@ Azure 모바일 서비스를 사용하여 앱을 배포하는 경우 서버 오�
 [Azure 서비스 대시보드]: http://www.windowsazure.com/support/service-dashboard/
 [Azure CLI를 사용하여 모바일 서비스 자동화]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

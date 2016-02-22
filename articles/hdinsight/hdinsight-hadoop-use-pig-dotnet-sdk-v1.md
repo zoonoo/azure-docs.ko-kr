@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/04/2016"
    ms.author="larryfr"/>
 
 #HDInsight에서 Hadoop용 .NET SDK를 사용하여 Pig 작업 실행
@@ -42,7 +42,7 @@ Azure HDInsight에 응용 프로그램을 인증하려면 자체 서명된 인�
 
 이 작업을 수행하는 방법에 대한 지침은 [자체 서명된 인증서 만들기](http://go.microsoft.com/fwlink/?LinkId=511138)를 참조하세요.
 
-> [AZURE.NOTE]인증서를 만들 때 나중에 사용할 것이므로 친숙한 이름을 사용해야 합니다.
+> [AZURE.NOTE] 인증서를 만들 때 나중에 사용할 것이므로 친숙한 이름을 사용해야 합니다.
 
 ##<a id="subscriptionid"></a>구독 ID 찾기
 
@@ -130,7 +130,7 @@ Azure HDInsight에 응용 프로그램을 인증하려면 자체 서명된 인�
 		                Query = queryString,
 		            };
 		
-		            System.Console.WriteLine("Submitting the Sqoop job to the cluster...");
+		            System.Console.WriteLine("Submitting the Pig job to the cluster...");
 		            var response = _hdiJobManagementClient.JobManagement.SubmitPigJob(parameters);
 		            System.Console.WriteLine("Validating that the response is as expected...");
 		            System.Console.WriteLine("Response status code is " + response.StatusCode);
@@ -161,4 +161,4 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 내용입니�
 
 * [HDInsight에서 Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

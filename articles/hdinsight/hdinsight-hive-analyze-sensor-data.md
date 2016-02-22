@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015" 
+	ms.date="02/05/2016" 
 	ms.author="larryfr"/>
 
 #HDInsight의 Hadoop에서 Hive 쿼리 콘솔을 사용하여 센서 데이터 분석
 
 HDInsight(Hadoop)에서 Hive 쿼리 콘솔을 사용하여 센서 데이터를 분석한 다음 Microsoft Excel에서 Power View를 사용하여 데이터를 시각화하는 방법에 대해 알아봅니다.
 
-> [AZURE.NOTE]이 문서의 단계는 Windows 기반 HDInsight 클러스터에만 적용됩니다.
+> [AZURE.NOTE] 이 문서의 단계는 Windows 기반 HDInsight 클러스터에만 적용됩니다.
 
 이 샘플에서는 Hive를 사용하여 HVAC(공기조화 냉난방) 시스템에서 생성하는 기록 데이터를 처리해 설정된 온도를 안정적으로 유지할 수 없는 시스템을 식별합니다. 다음 방법을 알게 됩니다.
 
@@ -38,7 +38,7 @@ HDInsight(Hadoop)에서 Hive 쿼리 콘솔을 사용하여 센서 데이터를 �
 
 * Microsoft Excel 2013
 
-	> [AZURE.NOTE]Microsoft Excel은 [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=ko-KR&rs=ko-KR&ad=US)를 통한 데이터 시각화에 사용됩니다.
+	> [AZURE.NOTE] Microsoft Excel은 [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=ko-KR&rs=ko-KR&ad=US)를 통한 데이터 시각화에 사용됩니다.
 
 * [Microsoft Hive ODBC 드라이버](http://www.microsoft.com/download/details.aspx?id=40886)
 
@@ -54,4 +54,4 @@ HDInsight(Hadoop)에서 Hive 쿼리 콘솔을 사용하여 센서 데이터를 �
 
 3. 웹 페이지에서 제공되는 지침에 따라 샘플을 완료합니다.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="리소스 관리자 템플릿을 사용하여 IoT Hub 만들기 | Microsoft Azure"
-	description="이 자습서를 통해 리소스 관리자 템플릿을 사용하여 IoT Hub 만들기를 시작할 수 있습니다."
+	description="이 자습서에 따라 리소스 관리자 템플릿을 사용하여 C# 프로그램 또는 PowerShell로 IoT Hub를 만드는 작업을 시작할 수 있습니다."
 	services="iot-hub"
 	documentationCenter=".net"
 	authors="dominicbetts"
@@ -31,6 +31,8 @@ Azure 리소스 관리자를 사용하여 Azure IoT Hub를 프로그래밍 방�
 - Microsoft Visual Studio 2015.
 - 활성 Azure 계정. <br/>계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판][lnk-free-trial]을 참조하세요.
 - [Microsoft Azure PowerShell 1.0][lnk-powershell-install] 이상
+
+> [AZURE.TIP] 이 문서에서는 C# 프로그램 및 ARM 템플릿을 사용하여 새 IoT hub를 만드는 방법을 설명합니다. 이 문서의 [ARM 템플릿](#submit-a-template-to-create-an-iot-hub)을 C# 프로그램 대신 PowerShell 스크립트와 함께 사용할 수도 있습니다. [Azure 리소스 관리자와 함께 Azure PowerShell 사용][lnk-powershell-arm] 문서에서는 ARM 템플릿을 사용하여 IoT hub와 같은 Azure 리소스를 만드는 PowerShell 스크립트를 작성하는 방법에 대해 설명합니다.
 
 [AZURE.INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
 
@@ -189,6 +191,7 @@ JSON 템플릿을 사용하여 리소스 그룹에 새 IoT hub를 만듭니다. 
 [lnk-azure-portal]: https://portal.azure.com/
 [lnk-powershell-install]: https://azure.microsoft.com/ko-KR/blog/azps-1-0-pre/
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
-[lnk-azure-rm-overview]: https://azure.microsoft.com/documentation/articles/resource-group-overview/
+[lnk-azure-rm-overview]: ./resource-group-overview.md
+[lnk-powershell-arm]: ./powershell-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

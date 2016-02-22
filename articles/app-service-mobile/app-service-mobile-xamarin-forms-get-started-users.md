@@ -1,26 +1,24 @@
-<properties 
-	pageTitle="Xamarin.Forms 앱에서 모바일 앱에 대한 인증 시작" 
-	description="모바일 앱을 사용하여 AAD, Google, Facebook, Twitter, Microsoft 등의 다양한 ID 공급자를 통해 Xamarin Forms 앱 사용자를 인증하는 방법을 알아봅니다." 
-	services="app-service\mobile" 
-	documentationCenter="xamarin" 
+<properties
+	pageTitle="Xamarin.Forms 앱에서 모바일 앱에 대한 인증 시작"
+	description="모바일 앱을 사용하여 AAD, Google, Facebook, Twitter, Microsoft 등의 다양한 ID 공급자를 통해 Xamarin Forms 앱 사용자를 인증하는 방법을 알아봅니다."
+	services="app-service\mobile"
+	documentationCenter="xamarin"
 	authors="wesmc7777"
-	manager="dwrede" 
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin" 
-	ms.devlang="dotnet" 
+<tags
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin"
+	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/07/2015" 
+	ms.date="02/04/2016"
 	ms.author="wesmc"/>
 
 # Xamarin.Forms 앱에 인증 추가
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##개요
 
@@ -38,7 +36,7 @@
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 
-##이식 가능한 클래스 라이브러리에 인증 추가 
+##이식 가능한 클래스 라이브러리에 인증 추가
 
 모바일 앱은 로그인 인터페이스를 표시하고 데이터를 캐시하기 위해서 플랫폼 전용 `MobileServiceClient.LoginAsync` 메서드를 사용합니다. Xamarin Forms 프로젝트를 사용하여 인증하기 위해서 이식 가능한 클래스 라이브러리에 `IAuthenticate` 인터페이스를 정의합니다. 지원하려는 플랫폼마다 플랫폼 특정 프로젝트에 이 인터페이스를 구현합니다.
 
@@ -59,14 +57,14 @@
 
 		public class App : Application
 		{
-	
+
 	        public static IAuthenticate Authenticator { get; private set; }
-	
+
 	        public static void Init(IAuthenticate authenticator)
 	        {
 	            Authenticator = authenticator;
 	        }
-	
+
 			...
 
 
@@ -147,12 +145,12 @@
 
 
 5. `IAuthenticate` 인터페이스를 지원하도록 아래 보이는 `MobileServiceUser` 필드 및 `Authenticate` 메서드를 추가하여 `MainActivity` 클래스를 업데이트합니다.
- 
+
 	Facebook 대신 다른 `MobileServiceAuthenticationProvider`를 사용하려면 해당 사항도 변경합니다.
 
 		// Define a authenticated user.
 		private MobileServiceUser user;
-	
+
         public async Task<bool> Authenticate()
         {
             var success = false;
@@ -214,12 +212,12 @@
 
 
 5. `IAuthenticate` 인터페이스를 지원하도록 아래 보이는 `MobileServiceUser` 필드 및 `Authenticate` 메서드를 추가하여 `AppDelegate` 클래스를 업데이트합니다.
- 
+
 	Facebook 대신 다른 `MobileServiceAuthenticationProvider`를 사용하려면 해당 사항도 변경합니다.
 
 		// Define a authenticated user.
 		private MobileServiceUser user;
-	
+
         public async Task<bool> Authenticate()
         {
             var success = false;
@@ -280,7 +278,7 @@
 
 
 5. `IAuthenticate` 인터페이스를 지원하도록 아래 보이는 `MobileServiceUser` 필드 및 `Authenticate` 메서드를 추가하여 `MainPage` 클래스를 업데이트합니다.
- 
+
 	Facebook 대신 다른 `MobileServiceAuthenticationProvider`를 사용하려면 해당 사항도 변경합니다.
 
         // Define a authenticated user.
@@ -320,7 +318,7 @@
             this.InitializeComponent();
 
             <Your portable class library namespace>.App.Init(this);
-            
+
             LoadApplication(new <Your portable class library namespace>.App());
         }
 
@@ -350,7 +348,7 @@
 
 
 5. `IAuthenticate` 인터페이스를 지원하도록 아래 보이는 `MobileServiceUser` 필드 및 `Authenticate` 메서드를 추가하여 `MainPage` 클래스를 업데이트합니다.
- 
+
 	Facebook 대신 다른 `MobileServiceAuthenticationProvider`를 사용하려면 해당 사항도 변경합니다.
 
         // Define a authenticated user.
@@ -405,7 +403,7 @@
 		protected override void OnActivated(IActivatedEventArgs args)
 		{
 		    base.OnActivated(args);
-		
+
 		    if (args.Kind == ActivationKind.WebAuthenticationBrokerContinuation)
 		    {
 		        var client = TodoItemManager.DefaultManager.CurrentClient as MobileServiceClient;
@@ -426,7 +424,4 @@
 [Installing Xamarin.iOS on Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
-
- 
-
-<!---HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0211_2016-->

@@ -41,9 +41,9 @@ Visual Studio에서 기본 ASP.NET MVC 템플릿을 사용하여 Azure 앱 서�
 -	활성 [Microsoft Azure 계정](/account/)
 -	[.NET용 Azure SDK](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)을 사용하는 Visual Studio 2015 Visual Studio를 사용하는 경우 단계가 달라질 수 있습니다.
 
-> [AZURE.NOTE] 이 자습서를 완료하려면 Azure 계정이 있어야 합니다. 
-+ [Azure 계정을 무료로 개설](/pricing/free-trial/)할 수 있음 - 유료 Azure 서비스를 사용해 볼 수 있는 크레딧을 받게 되며, 크레딧을 모두 사용한 후에도 계정을 유지하고 웹앱과 같은 무료 Azure 서비스를 사용할 수 있습니다. 
-+ [Visual Studio 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/)할 수 있음 - Visual Studio 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
+> [AZURE.NOTE] 이 자습서를 완료하려면 Azure 계정이 있어야 합니다.
+> + [Azure 계정을 무료로 개설](/pricing/free-trial/)할 수 있음 - 유료 Azure 서비스를 사용해 볼 수 있는 크레딧을 받게 되며, 크레딧을 모두 사용한 후에도 계정을 유지하고 웹앱과 같은 무료 Azure 서비스를 사용할 수 있습니다. 
+> + [Visual Studio 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/)할 수 있음 - Visual Studio 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
 >
 > Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
@@ -552,15 +552,15 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 7. Azure 웹앱에 대한 브라우저 창을 새로 고칩니다. 이제 모든 스크립트와 스타일시트가 제대로 로드된 것을 확인할 수 있습니다.
 
 ## 추가 정보 
-- [Azure CDN(콘텐츠 배달 네트워크) 개요](../cdn-overview.md)
-- [웹 응용 프로그램에서 Azure CDN의 콘텐츠 제공](../cdn-serve-content-from-cdn-in-your-web-application.md)
-- [Azure CDN과 클라우드 서비스 통합](../cdn-cloud-service-with-cdn.md)
+- [Azure CDN(콘텐츠 배달 네트워크) 개요](../cdn/cdn-overview.md)
+- [웹 응용 프로그램에서 Azure CDN의 콘텐츠 제공](../cdn/cdn-serve-content-from-cdn-in-your-web-application.md)
+- [Azure CDN과 클라우드 서비스 통합](../cdn/cdn-cloud-service-with-cdn.md)
 - [ASP.NET 묶음 및 축소](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
-- [Azure에 CDN 사용](../cdn-how-to-use-cdn.md)
+- [Azure에 CDN 사용](../cdn/cdn-how-to-use-cdn.md)
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

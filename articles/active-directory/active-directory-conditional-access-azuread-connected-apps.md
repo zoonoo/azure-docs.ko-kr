@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/30/2015"
+	ms.date="02/09/2016"
 	ms.author="femila"/>
 
 # Azure Conditional Access Preview for SaaS Apps
@@ -86,4 +86,8 @@ SaaS 앱에 대한 Azure 조건부 액세스는 공개 미리 보기에 제공�
 
 이 플래그를 설정하는 것 외에도 페더레이션 테넌트 AD FS 인스턴스에서 다단계 인증을 수행하도록 구성해야 합니다. 온-프레미스에 Azure Multi-Factor Authentication을 배포하기 위한 지침을 따르세요.
 
-<!---HONumber=Nov15_HO2-->
+##관련 문서
+
+- [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
+
+<!---HONumber=AcomDC_0211_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="10/29/2015"
+	ms.date="02/04/2016"
 	ms.author="jgao"/>
 
 
@@ -63,7 +63,7 @@ ZK([ZooKeeper](http://zookeeper.apache.org/)) 노드가 추가되었으며 헤�
 ![](./media/hdinsight-high-availability/Hadoop.Head.Node.Log.Files.png)
 
 
-## 헤드 노드의 크기 구성
+## 헤드 노드 크기 구성
 헤드 노드는 기본적으로 대형 VM(가상 컴퓨터)으로 할당됩니다. 이 크기는 클러스터에서 실행되는 대부분의 Hadoop 작업의 관리에 적합합니다. 그렇지만 초대형 VM이 헤드 노드에 필요할 수 있는 시나리오가 있습니다. 한 가지 예로 클러스터가 많은 수의 소형 Oozie 작업을 관리해야 하는 경우를 들 수 있습니다.
 
 초대형 VM은 Azure PowerShell cmdlet 또는 HDInsight SDK를 사용하여 구성할 수 있습니다.
@@ -100,10 +100,10 @@ SDK의 경우에도 상황은 비슷합니다. SDK를 사용하는 클러스터�
     };
 
 
-**참조**
+## 다음 단계
 
-- [ZooKeeper](http://zookeeper.apache.org/)
+- [Apache ZooKeeper](http://zookeeper.apache.org/)
 - [RDP를 사용하여 HDInsight 클러스터에 연결](hdinsight-administer-use-management-portal.md#rdp)
 - [HDInsight .NET SDK 사용](hdinsight-provision-clusters.md#sdk)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -12,14 +12,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/07/2016"
+    ms.date="02/02/2016"
     ms.author="elizapo" />
 
 # Azure RemoteApp에 대한 가상 네트워크를 계획하는 방법
 
-이 문서에서는 Azure RemoteApp에 대한 Azure 가상 네트워크(VNET) 및 서브넷을 설정하는 방법을 설명합니다. Azure 가상 네트워크에 익숙하지 않은 경우 클라우드로 네트워크 인프라를 가상화하고 Azure 및 온-프레미스 리소스로 하이브리드 솔루션을 만들 수 있도록 하는 기능입니다. 해당 서비스에 대한 자세한 내용은 [여기](virtual-networks-overview.md)에서 확인할 수 있습니다.
+이 문서에서는 Azure RemoteApp에 대한 Azure 가상 네트워크(VNET) 및 서브넷을 설정하는 방법을 설명합니다. Azure 가상 네트워크에 익숙하지 않은 경우 클라우드로 네트워크 인프라를 가상화하고 Azure 및 온-프레미스 리소스로 하이브리드 솔루션을 만들 수 있도록 하는 기능입니다. 해당 서비스에 대한 자세한 내용은 [여기](../virtual-network/virtual-networks-overview.md)에서 확인할 수 있습니다.
 
-Azure RemoteApp을 배포하고 있는 가상 네트워크의 트래픽(수신 및 송신)에 대한 보안 정책을 정의하려는 경우 Azure 가상 네트워크의 배포의 나머지 부분에서 Azure RemoteApp에 대한 별도 서브넷을 만드는 것이 좋습니다. Azure 가상 네트워크 서브넷에 대한 보안 정책을 정의하는 방법에 대한 자세한 내용은 [NSG(네트워크 보안 그룹)란?](virtual-networks-nsg.md)을 읽어 보세요.
+Azure RemoteApp을 배포하고 있는 가상 네트워크의 트래픽(수신 및 송신)에 대한 보안 정책을 정의하려는 경우 Azure 가상 네트워크의 배포의 나머지 부분에서 Azure RemoteApp에 대한 별도 서브넷을 만드는 것이 좋습니다. Azure 가상 네트워크 서브넷에 대한 보안 정책을 정의하는 방법에 대한 자세한 내용은 [NSG(네트워크 보안 그룹)란?](../virtual-network/virtual-networks-nsg.md)을 읽어 보세요.
 
 ## Azure 가상 네트워크를 사용한 Azure RemoteApp 컬렉션 형식
 
@@ -53,6 +53,6 @@ Azure RemoteApp 컬렉션을 나타내며 여기에서 액세스가 필요한 Re
 
 ## 강제 터널링을 통한 가상 네트워크
 
-[강제 터널링](vpn-gateway-about-forced-tunneling.md)은 이제 모든 새 Azure RemoteApp 컬렉션에 지원됩니다. 현재 강제 터널링을 지원하기 위해 기존 컬렉션의 마이그레이션이 지원되지 않습니다. Azure RemoteApp에 연결 중인 VNET을 사용하여 모든 기존 컬렉션을 삭제하고 컬렉션에서 활성화된 강제 터널링을 가져오도록 새 것을 만들어야 합니다.
+[강제 터널링](../vpn-gateway/vpn-gateway-about-forced-tunneling.md)은 이제 모든 새 Azure RemoteApp 컬렉션에 지원됩니다. 현재 강제 터널링을 지원하기 위해 기존 컬렉션의 마이그레이션이 지원되지 않습니다. Azure RemoteApp에 연결 중인 VNET을 사용하여 모든 기존 컬렉션을 삭제하고 컬렉션에서 활성화된 강제 터널링을 가져오도록 새 것을 만들어야 합니다.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="02/09/2016" 
 	ms.author="ryancraw"/>
 
 # DocumentDB SDK
@@ -120,10 +120,10 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 | [1\.3.0](#1.3.0) | 2015년 8월 5일 |--
 | [1\.2.0](#1.2.0) | 2015년 7월 6일 |--
 | [1\.1.0](#1.1.0) | 2015년 4월 30일 |--
-| [1\.0.0](#1.0.0) | 2015년 4월 8일 |--
+| [1\.0.0](#1.0.0) | 2015년 4월 8일 |--- 
 | [0\.9.3-prelease](#0.9.x-preview) | 2015년 3월 12일 | 2016년 2월 29일 
 | [0\.9.2-prelease](#0.9.x-preview) | 2015년 1월 | 2016년 2월 29일 
-| [0\.9.1-prelease](#0.9.x-preview) | 2014년 10월 13일 | 2016년 2월 29일 
+| [.9.1-prelease](#0.9.x-preview) | 2014년 10월 13일 | 2016년 2월 29일 
 | [0\.9.0-prelease](#0.9.x-preview) | 2014년 4월 21일 | 2016년 2월 29일
 
 ## FAQ
@@ -133,4 +133,4 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 DocumentDB에 대해 자세히 알아보려면 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 서비스 페이지를 참조하세요.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"/>
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/16/2016"
+   ms.date="02/04/2016"
    ms.author="cherylmc"/>
 
 # PowerShell을 사용하여 Express 경로 회로 만들기 및 수정
@@ -22,7 +22,7 @@
 [PowerShell - Classic](expressroute-howto-circuit-classic.md)
 [PowerShell - Resource Manager](expressroute-howto-circuit-arm.md)
 
-이 문서에서는 PowerShell cmdlet 및 일반 배포 모델을 사용하여 Express 경로 회로를 만드는 단계를 안내합니다. 아래 단계에서는 Express 경로 회로의 상태 확인, 업데이트 또는 삭제 및 프로비전 해제를 수행하는 방법도 설명합니다.
+이 문서에서는 PowerShell cmdlet 및 **클래식** 배포 모델을 사용하여 Express 경로 회로를 만드는 단계를 안내합니다. 아래 단계에서는 Express 경로 회로의 상태 확인, 업데이트 또는 삭제 및 프로비전 해제를 수행하는 방법도 설명합니다. **리소스 관리자** 배포 모델을 사용하여 Express 경로 회로를 만들고 수정하려면 [리소스 관리자 배포 모델을 사용하여 Express 경로 회로 만들기 및 수정](expressroute-howto-circuit-arm.md)을 참조하세요.
 
 [AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 
@@ -328,4 +328,4 @@ Express 경로 회로 서비스 공급자 프로비전 상태를 사용할 경�
 
 - [라우팅 구성](expressroute-howto-routing-classic.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

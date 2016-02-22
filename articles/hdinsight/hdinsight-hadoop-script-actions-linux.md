@@ -13,14 +13,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="12/04/2015"
+    ms.date="02/05/2016"
     ms.author="larryfr"/>
 
 # HDInsight를 사용하여 스크립트 작업 개발
 
 스크립트 작업은 설치하는 동안 클러스터 구성 설정을 지정하거나 클러스터에서 추가 서비스, 도구 또는 기타 소프트웨어를 설치하여 Azure HDInsight 클러스터를 사용자 지정하는 방법입니다.
 
-> [AZURE.NOTE]이 문서에 있는 정보는 Linux 기반 HDInsight 클러스터에 지정됩니다. Windows 기반 클러스터로 스크립트 동작 사용에 대한 정보는 [HDInsight를 사용하여 스크립트 작업 개발(Windows)](hdinsight-hadoop-script-actions.md)을 참조하세요.
+> [AZURE.NOTE] 이 문서에 있는 정보는 Linux 기반 HDInsight 클러스터에 지정됩니다. Windows 기반 클러스터로 스크립트 동작 사용에 대한 정보는 [HDInsight를 사용하여 스크립트 작업 개발(Windows)](hdinsight-hadoop-script-actions.md)을 참조하세요.
 
 ## 스크립트 작업 정의
 
@@ -43,7 +43,7 @@ HDInsight 클러스터용으로 사용자 지정 스크립트를 개발할 때 �
 - [STDOUT 및 STDERR에 정보 쓰기](#bPS7)
 - [줄 끝을 LF인 파일을 ASCII로 저장](#bps8)
 
-> [AZURE.IMPORTANT]스크립트 동작은 60분 이내에 완료하지 않으면 시간이 초과됩니다. 노드 프로비전 중에는 스크립트가 다른 설정 및 구성 프로세스와 동시에 실행됩니다. CPU 시간 또는 네트워크 대역폭 등의 리소스에 대한 경합으로 인해 스크립트 실행이 개발 환경에서보다 더 오래 걸릴 수 있습니다.
+> [AZURE.IMPORTANT] 스크립트 동작은 60분 이내에 완료하지 않으면 시간이 초과됩니다. 노드 프로비전 중에는 스크립트가 다른 설정 및 구성 프로세스와 동시에 실행됩니다. CPU 시간 또는 네트워크 대역폭 등의 리소스에 대한 경합으로 인해 스크립트 실행이 개발 환경에서보다 더 오래 걸릴 수 있습니다.
 
 ### <a name="bPS1"></a>Hadoop 버전 대상
 
@@ -55,7 +55,7 @@ HDInsight의 서로 다른 버전에는 설치된 Hadoop 서비스 및 구성 �
 
 구독의 Azure 저장소 계정에 모든 것을 다운로드하고 보관하는 것이 좋습니다.
 
-> [AZURE.IMPORTANT]사용된 저장소 계정은 클러스터의 기본 저장소 계정 또는 다른 모든 저장소 계정의 공용 읽기 전용 컨테이너에 있어야 합니다.
+> [AZURE.IMPORTANT] 사용된 저장소 계정은 클러스터의 기본 저장소 계정 또는 다른 모든 저장소 계정의 공용 읽기 전용 컨테이너에 있어야 합니다.
 
 예를 들어 Microsoft에서 제공하는 샘플은 HDInsight 팀에서 유지 관리하는 공용, 읽기 전용 컨테이너를 저장소 계정인 [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/)에 저장됩니다.
 
@@ -73,7 +73,7 @@ HDInsight의 서로 다른 버전에는 설치된 Hadoop 서비스 및 구성 �
 
 Linux 기반 HDInsight 클러스터는 클러스터 내에서 활성화 되는 두 노드를 제공하며 스크립트 동작은 두 노드에서 실행됩니다. 설치할 구성 요소가 헤드 노드를 하나라고 예상하는 경우 클러스터의 두 헤드 노드 중 하나에만 구성 요소를 설치하는 스크립트를 디자인해야 합니다.
 
-> [AZURE.IMPORTANT]HDInsight의 일부로 설치된 기본 서비스는 필요에 따라 두 헤드 노드 간에 장애 조치를 하도록 설계되지만 이 기능이 확장되어 스크립트 동작을 통해 설치된 구성 요소를 사용자지정하지 않습니다. 스크립트 동작을 통해 설치된 구성 요소가 가용성이 높아야 하는 경우 사용 가능한 두 헤드 노드를 사용하는 장애 조치 메커니즘을 구현해야 합니다.
+> [AZURE.IMPORTANT] HDInsight의 일부로 설치된 기본 서비스는 필요에 따라 두 헤드 노드 간에 장애 조치를 하도록 설계되지만 이 기능이 확장되어 스크립트 동작을 통해 설치된 구성 요소를 사용자지정하지 않습니다. 스크립트 동작을 통해 설치된 구성 요소가 가용성이 높아야 하는 경우 사용 가능한 두 헤드 노드를 사용하는 장애 조치 메커니즘을 구현해야 합니다.
 
 ### <a name="bPS6"></a>Azure Blob 저장소를 사용하도록 사용자 지정 구성 요소 구성
 
@@ -183,7 +183,7 @@ Microsoft에서는 HDInsight 클러스터에 구성 요소를 설치하는 샘�
 - [HDInsight 클러스터에 Solr 설치 및 사용](hdinsight-hadoop-solr-install-linux.md)
 - [HDInsight 클러스터에 Giraph 설치 및 사용](hdinsight-hadoop-giraph-install-linux.md)  
 
-> [AZURE.NOTE]위에 링크된 문서는 Linux 기반 HDInsight 클러스터에 한정됩니다. Windows 기반 HDInsight로 작동하는 스크립트는 [HDInsight를 사용하여 스크립트 작업 개발(Windows)](hdinsight-hadoop-script-actions.md)을 참조하거나 각 문서의 위쪽에 사용할 수 있는 링크를 사용합니다.
+> [AZURE.NOTE] 위에 링크된 문서는 Linux 기반 HDInsight 클러스터에 한정됩니다. Windows 기반 HDInsight로 작동하는 스크립트는 [HDInsight를 사용하여 스크립트 작업 개발(Windows)](hdinsight-hadoop-script-actions.md)을 참조하거나 각 문서의 위쪽에 사용할 수 있는 링크를 사용합니다.
 
 ##문제 해결
 
@@ -197,7 +197,7 @@ _원인_:이 오류는 스크립트에서 줄이 CRLF로 끝날 때 발생합니
 
 _해상도_: 텍스트 편집기에서 옵션인 경우 줄 끝에 LF 또는 Unix 형식을 선택합니다. 또한 Unix 시스템에서 다음 명령을 사용하여 CRLF는 LF로 변경할 수 있습니다.
 
-> [AZURE.NOTE]다음 명령은 CRLF 줄 끝을 LF으로 변경해야 하는 것과 거의 동일합니다. 시스템에서 사용할 수 있는 유틸리티에 따라 하나를 선택합니다.
+> [AZURE.NOTE] 다음 명령은 CRLF 줄 끝을 LF으로 변경해야 하는 것과 거의 동일합니다. 시스템에서 사용할 수 있는 유틸리티에 따라 하나를 선택합니다.
 
 | 명령 | 참고 사항 |
 | ------- | ----- |
@@ -220,4 +220,4 @@ _해상도_: ASCII로 또는 BOM을 사용하지 않고 UTF-8로 파일을 저�
 
 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

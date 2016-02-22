@@ -25,7 +25,7 @@ Azure SQL 데이터베이스의 [탄력적 데이터베이스 도구](sql-databa
 
 **데이터베이스**: Azure SQL 데이터베이스
 
-**데이터 종속 라우팅**: 특정 분할 키가 있는 경우 응용 프로그램에서 분할된 데이터베이스에 연결할 수 있는 기능입니다. **다중 분할된 데이터베이스 쿼리**와 비교할 수 있습니다.
+**데이터 종속 라우팅**: 특정 분할 키가 있는 경우 응용 프로그램에서 분할된 데이터베이스에 연결할 수 있는 기능입니다. [데이터 종속 라우팅](sql-database-elastic-scale-data-dependent-routing.md)을 참조하세요. **[다중 분할된 데이터베이스 쿼리](sql-database-elastic-scale-multishard-querying.md)**와 비교할 수 있습니다.
 
 **전역 분할된 데이터베이스 맵**: 분할 키와 **분할된 데이터베이스 집합** 내의 해당 분할된 데이터베이스 간 매핑 집합입니다. 전역 분할된 데이터베이스 맵은 **분할된 데이터베이스 맵 관리자**에 저장됩니다. **로컬 분할된 데이터베이스 맵**과 비교할 수 있습니다.
 
@@ -82,4 +82,4 @@ Azure SQL 데이터베이스의 [탄력적 데이터베이스 도구](sql-databa
 [3]: ./media/sql-database-elastic-scale-glossary/h_versus_vert.png
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

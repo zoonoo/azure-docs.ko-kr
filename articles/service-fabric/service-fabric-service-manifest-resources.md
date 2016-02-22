@@ -36,7 +36,7 @@
 </Resources>
 ```
 
-구성 패키지 설정 파일(settings.xml)의 끝점 참조에 대한 자세한 내용은 [상태 저장 Reliable Services 구성](../Service-Fabric/service-fabric-reliable-services-configuration.md)을 참조하세요.
+구성 패키지 설정 파일(settings.xml)의 끝점 참조에 대한 자세한 내용은 [상태 저장 Reliable Services 구성](service-fabric-reliable-services-configuration.md)을 참조하세요.
 
 ## 예: 서비스에 대한 HTTP 끝점 지정
 
@@ -137,4 +137,4 @@ HTTPS에 대해 설정해야 하는 예제 ApplicationManifest는 다음과 같�
 </ApplicationManifest>
 ```
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

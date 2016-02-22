@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/22/2015"
+	ms.date="02/04/2016"
 	ms.author="wesmc"/>
 
 # Windows 앱에 대해 오프라인 동기화 사용
 
 [AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## 개요
 
@@ -48,11 +46,11 @@ Azure 모바일 앱 오프라인 기능을 사용하면 오프라인 시나리�
     * **Windows 8.1 런타임:**: [Windows 8.1용 SQLite]를 설치합니다.
     * **Windows Phone 8.1:** [Windows Phone 8.1용 SQLite]를 설치합니다.
 
-    >[AZURE.NOTE]이러한 지침은 Windows 10 UAP 프로젝트에 대해서도 적용되지만 [Windows 10용 SQLite]를 대신 설치해야 합니다.
+    >[AZURE.NOTE] 이러한 지침은 Windows 10 UAP 프로젝트에 대해서도 적용되지만 [Windows 10용 SQLite]를 대신 설치해야 합니다.
 
 2. Visual Studio에서 [Windows 앱 만들기] 자습서에서 완료한 프로젝트를 엽니다. Windows 8.1 런타임 및 Windows Phone 8.1 프로젝트용 **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet 패키지를 설치합니다. Windows 스토어 8.1 및 Windows Phone 8.1 프로젝트 모두에 NuGet 참조를 추가합니다.
 
-    >[AZURE.NOTE]설치가 추가 참조를 설치한 SQLite의 다른 버전에 만드는 경우 컴파일 오류가 발생합니다. 프로젝트의 **참조** 노드에서 중복을 제거하여 이 오류를 해결해야 합니다.
+    >[AZURE.NOTE] 설치가 추가 참조를 설치한 SQLite의 다른 버전에 만드는 경우 컴파일 오류가 발생합니다. 프로젝트의 **참조** 노드에서 중복을 제거하여 이 오류를 해결해야 합니다.
 
 3. 솔루션 탐색기에서 Windows 8.1 런타임 및 Windows Phone 8.1 플랫폼 프로젝트에 대한 **참조**를 마우스 오른쪽 단추로 클릭하고 SQLite에 대한 참조가 있는지 확인합니다. 이 참조는 **확장** 섹션에 있습니다.
 
@@ -180,14 +178,14 @@ Azure 모바일 앱 백 엔드에 연결을 끊어서 오프라인 시나리오�
 
 1. 공유 프로젝트에서 App.xaml.cs를 편집합니다. **MobileServiceClient**의 초기화를 주석 처리하고 잘못된 모바일 앱 URL을 사용하는 다음 줄을 추가합니다.
 
-         public static MobileServiceClient MobileService = 
+         public static MobileServiceClient MobileService =
 				new MobileServiceClient("https://your-service.azurewebsites.fail");
 
 	응용 프로그램이 인증 또한 사용하는 경우 로그인에 실패할 수 있습니다. 장치에서 wifi 및 celluar 네트워크를 사용하지 않도록 설정하여 오프라인 동작을 시연하거나 비행기 모드를 사용할 수 있습니다.
 
 2. **F5**를 눌러 응용 프로그램을 빌드 및 실행합니다. 앱을 시작하는 경우 동기화는 새로 고침에 실패합니다.
-3. 새 todo 항목을 몇 개 입력하고 각각에 대해 **저장**을 클릭합니다. `PushResult.Status=CancelledByNetworkError`를 사용하는 각각에 대해 푸시가 실패합니다. 새 todo 항목은 모바일 앱 백 엔드에 푸시할 수 있을 때까지 로컬 저장소에만 있습니다. 
- 
+3. 새 todo 항목을 몇 개 입력하고 각각에 대해 **저장**을 클릭합니다. `PushResult.Status=CancelledByNetworkError`를 사용하는 각각에 대해 푸시가 실패합니다. 새 todo 항목은 모바일 앱 백 엔드에 푸시할 수 있을 때까지 로컬 저장소에만 있습니다.
+
 	`PushResult.Status=CancelledByNetworkError`에 대한 예외 대화 상자를 무시할 수 있습니다. 그러면 클라이언트 앱은 모든 CRUD(만들기, 읽기, 업데이트, 삭제) 작업을 원활하게 지원하는 모바일 앱 백 엔드에 연결된 것처럼 동작합니다.
 
 4. 앱을 닫았다가 다시 시작하여 만든 새 항목이 로컬 저장소에 유지되는지 확인합니다.
@@ -269,8 +267,8 @@ Azure 모바일 앱 백 엔드에 연결을 끊어서 오프라인 시나리오�
 [Windows 10용 SQLite]: http://go.microsoft.com/fwlink/?LinkID=716921
 
 [sqlite store nuget]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.SQLiteStore/
- 
+
 [Cloud Cover: Azure 모바일 서비스에서 오프라인 동기화]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Azure 모바일 서비스의 오프라인 지원 앱]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_0211_2016-->

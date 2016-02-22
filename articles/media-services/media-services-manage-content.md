@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015"
+	ms.date="02/04/2016"   
 	ms.author="juliako"/>
 
 
@@ -105,7 +105,7 @@ Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나
 ![Process2][process2]
 
 
-[미디어 인코더 표준에 대한 작업 미리 설정 문자열](https://msdn.microsoft.com/ko-KR/library/mt269960) 항목에서는 미리 설정 각각의 의미를 설명합니다.
+[미디어 인코더 표준용 태스크 기본 설정 문자열](https://msdn.microsoft.com/library/mt269960) 항목에 각 기본 설정의 의미가 설명되어 있습니다.
 
 5. 그런 다음, 원하는 출력 콘텐츠 이름을 입력하거나 기본값을 적용합니다. 확인 단추를 클릭하여 인코딩 작업을 시작하고 포털 맨 아래에서 진행 상태를 추적할 수 있습니다.
 6. 확인을 누릅니다.
@@ -220,4 +220,4 @@ MPEG DASH 스트리밍 URL을 작성하려면 URL에 (format=mpd-time-csf)를 �
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-manage-content/media-services-portal-player.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

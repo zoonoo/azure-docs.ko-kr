@@ -11,7 +11,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="01/12/2016"
+	ms.date="02/09/2016"
 	ms.author="ashmaka"/>
 
 # Azure 검색이란?
@@ -19,7 +19,7 @@ Azure 검색은 서버 및 인프라 관리를 Microsoft에 위한 클라우드 
 
 ## 사용자에게 강력한 검색 환경 제공
 
-논리 연산자, 구문 검색 연산자, 후위 연산자, 선행 연산자를 제공하는 [단순 쿼리 구문](https://msdn.microsoft.com/library/azure/dn798920.aspx)을 사용하여 **강력한 쿼리**를 공식화할 수 있습니다. 뿐만 아니라 [Lucene 쿼리 구문](https://msdn.microsoft.com/library/azure/mt589323.aspx)(현재는 미리 보기에서)은 유사 항목 검색, 맞춤법 오류, 근접 검색, 용어 승격 및 정규식을 사용할 수 있습니다. 또한 Azure 검색은 응용 프로그램에서 음성 일치를 사용하는 복잡한 검색 쿼리와 정규식을 처리할 수 있도록 사용자 지정 어휘 분석기를 지원합니다.
+논리 연산자, 구문 검색 연산자, 후위 연산자, 선행 연산자를 제공하는 [단순 쿼리 구문](https://msdn.microsoft.com/library/azure/dn798920.aspx)을 사용하여 **강력한 쿼리**를 공식화할 수 있습니다. 뿐만 아니라 [Lucene 쿼리 구문](https://msdn.microsoft.com/library/azure/mt589323.aspx)은 유사 항목 검색, 근접 검색, 용어 승격 및 정규식을 사용할 수 있습니다. 또한 Azure 검색은 응용 프로그램에서 음성 일치를 사용하는 복잡한 검색 쿼리와 정규식을 처리할 수 있도록 사용자 지정 어휘 분석기를 지원합니다.
 
 **언어 지원**은 [56개 언어](https://msdn.microsoft.com/library/azure/dn879793.aspx)로 제공됩니다. Lucene 분석기와 Microsoft 분석기를 사용하여(Office 및 Bing에서 자연어를 처리에 온 연 수 만큼 개선됨) Azure 검색은 응용 프로그램의 검색 상자에서 텍스트를 분석하여 동사 시제, 성, 불규칙 복수 명사(예: ‘쥐들'과 ‘쥐'), 분리된 단어, 단어 분철(띄어쓰기가 없는 언어의 경우) 등을 포함하여 언어별 언어를 지능적으로 처리할 수 있습니다.
 
@@ -82,4 +82,4 @@ Azure 검색 인덱스를 채웠으면 REST API 또는 .NET SDK와 함께 간단
 
 Azure 계정이 없는 분은 등록 없이 무료 60분 세션을 사용할 수 있습니다. [Azure 앱 서비스 시도](http://go.microsoft.com/fwlink/p/?LinkId=618214)로 이동하여 "웹앱"을 선택하세요. 그런 다음 "ASP.NET + Azure 검색" 템플릿을 선택하여 시작하세요.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

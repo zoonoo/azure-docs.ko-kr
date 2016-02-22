@@ -3,7 +3,7 @@
 	description=".NET용 Azure 저장소 클라이언트 라이브러리는 Azure 저장소 응용 프로그램의 보안을 최대화하기 위해 클라이언트 쪽 암호화 및 Azure 키 자격 증명 모음과의 통합을 지원합니다."
 	services="storage"
 	documentationCenter=".net"
-	authors="tamram"
+	authors="robinsh"
 	manager="carmonm"
 	editor="tysonn"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="02/08/2016"
 	ms.author="lakasa"/>
 
 
@@ -246,4 +246,4 @@ EncryptionPolicy 개체를 만드는 동안 사용자만 키를 공급 (IKey 구
 
 [.NET용 Azure 저장소 클라이언트 라이브러리 NuGet 패키지](http://www.nuget.org/packages/WindowsAzure.Storage/5.0.0) 다운로드, GitHub에서 [.NET용 Azure 저장소 클라이언트 라이브러리 소스 코드](https://github.com/Azure/azure-storage-net) 다운로드, [코어](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [클라이언트](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) 및 [확장](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) 패키지에서 Azure 주요 자격 증명 모음 NuGet 다운로드, [Azure 주요 자격 증명 모음 설명서](../articles/key-vault-whatis.md) 방문
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

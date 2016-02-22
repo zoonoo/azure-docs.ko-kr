@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015" 
+	ms.date="02/09/2016" 
 	ms.author="jeannt"/>
 
 # Azure 기계 학습을 사용하여 고객 이탈 분석
@@ -65,7 +65,7 @@
 
  
 ##기계 학습 스튜디오에서 모델링 원형 구현
-문제를 설명만 한다면 통합 모델링 및 점수 매기기 접근법을 어떻게 구현할 수 있을까요? 이 섹션에서는 Azure 기계 학습 스튜디오를 사용하여 이 작업을 하는 방법을 보여 줍니다.
+방금 설명한 문제에 대해 통합 모델링 및 점수 매기기 접근법을 구현하는 가장 좋은 방법은 무엇일까요? 이 섹션에서는 Azure 기계 학습 스튜디오를 사용하여 이 작업을 하는 방법을 보여 줍니다.
 
 다중 모델 접근법은 이탈에 대한 전역적인 원형을 디자인할 때 필수 요소입니다. 접근법의 점수 매기기(예측) 부분도 다중 모델이어야 합니다.
 
@@ -99,7 +99,9 @@
 
 *그림 7: 데이터 원본에서 추출된 기능*
 > 이 데이터는 비공개 데이터이므로 모델 및 데이터를 공유할 수 없습니다. 그러나 공개적으로 사용할 수 있는 데이터를 사용하는 유사한 모델의 경우 [Cortana Analytics 갤러리](http://gallery.azureml.net/): [Telco 고객 이탈](http://gallery.azureml.net/Experiment/31c19425ee874f628c847f7e2d93e383)에서 이 샘플 실험을 참조하세요.
->
+> 
+> Cortana 분석 제품군을 사용하여 변동 분석을 구현하는 방법에 대한 자세한 내용을 알아보려면 선임 프로그램 관리자인 Wee Hyong Tok의 [이 비디오](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html)를 시청하는 것이 좋습니다.
+> 
 
 ###프로토타입에 사용된 알고리즘
 
@@ -127,7 +129,7 @@
 이 섹션에서는 점수 데이터 집합에 따라 모델 정확도에 대한 결과를 제공합니다.
 
 ###점수 매기기의 정확도 및 정밀도
-일반적으로 기계 학습의 구현은 정확도가 SAS보다 10~15%(AUC(Area Under Curve)) 정도 낮습니다.
+일반적으로 Azure 기계 학습의 구현은 정확도가 SAS보다 10~15%(AUC(Area Under Curve)) 정도 낮습니다.
 
 그러나 이탈의 가장 중요한 메트릭은 오분류 비율입니다. 즉, 분류자를 통해 예측된 상위 N명의 이탈자 가운데 실제로 이탈하지 **않았지만** 특별 대우를 받은 비율(%)입니다. 다음 다이어그램에서는 모든 모델에 대한 이 오분류 비율을 비교합니다.
 
@@ -188,7 +190,7 @@ Wikipedia의 다음 다이어그램에서는 효과적이고 이해하기 쉬운
 	-	**경쟁 및 비즈니스 데이터**. 고객에 대해 가능한 모든 정보를 얻습니다(예: 사용할 수 없거나 추적하기 어려운 정보).
 -	기능 선택의 기준으로는 중요도를 사용합니다. 이는 향상된 의사 결정 트리 모델이 항상 유망한 접근법임을 의미합니다.  
 
-위의 네 가지 범주 사용은 이탈 위험이 있는 고객을 식별하는 데 있어 범주별로 타당한 요소에 대해 형성된 인덱스를 기반으로 하는 단순 *결정적* 접근법만으로 충분하다는 착각을 일으킵니다. 불행히도 이 생각은 타당한 것처럼 보이지만 잘못된 이해입니다. 이탈은 일시적 영향이고 일반적으로 이탈을 가져오는 요인은 과도 상태이기 때문입니다. 오늘 고객이 이탈을 고려하게 하는 요인은 내일은 달라질 수 있고 지금부터 6개월 후에는 확실히 달라집니다. 따라서 *확률적* 모델이 필요합니다.
+이러한 네 가지 범주 사용은 이탈 위험이 있는 고객을 식별하는 데 있어 범주별로 타당한 요소에 대해 형성된 인덱스를 기반으로 하는 단순 *결정적* 접근법만으로 충분하다는 착각을 일으킵니다. 불행히도 이 생각은 타당한 것처럼 보이지만 잘못된 이해입니다. 이탈은 일시적 영향이고 일반적으로 이탈을 가져오는 요인은 과도 상태이기 때문입니다. 오늘 고객이 이탈을 고려하게 하는 요인은 내일은 달라질 수 있고 지금부터 6개월 후에는 확실히 달라집니다. 따라서 *확률적* 모델이 필요합니다.
 
 비즈니스 인텔리전스 지향 접근법이 주로 판매가 더 쉽고 직관적인 자동화를 허용하기 때문에 분석보다 이 접근법을 선호하는 비즈니스에서는 이 중요한 관찰 결과가 종종 간과됩니다.
 
@@ -213,13 +215,13 @@ Azure 기계 학습에서 제공되는 또 다른 흥미로운 기능은 이미 
 ##참조
 [1] Predictive Analytics: Beyond the Predictions, W. McKnight, Information Management, July/August 2011, p.18-20.
 
-\[2] Wikipedia의 [Accuracy and precision](http://en.wikipedia.org/wiki/Accuracy_and_precision)
+[2] Wikipedia 문서: [Accuracy and precision](http://en.wikipedia.org/wiki/Accuracy_and_precision)
 
 [3] [CRISP-DM 1.0: Step-by-Step Data Mining Guide](http://www.the-modeling-agency.com/crisp-dm.pdf)
 
-[4] 빅데이터 마케팅
+[4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
+[5] Cortana 분석 갤러리의 [Telco churn model template](https://caqs.azure.net/#gallery/telcocustomerchurn)
 ##부록
 
 ![][10]
@@ -238,4 +240,4 @@ Azure 기계 학습에서 제공되는 또 다른 흥미로운 기능은 이미 
 [9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

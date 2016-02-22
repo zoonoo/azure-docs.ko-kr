@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/11/2015" 
+	ms.date="02/05/2016" 
 	ms.author="awills"/>
 
 # Application Insights에서 다음을 수행하는 방법
@@ -36,7 +36,7 @@
 ### 예외에 대해 메일 보내기
 
 1. [예외 모니터링 설정](app-insights-asp-net-exceptions.md)
-2. 예외 개수 메트릭에 대한 [경고 설정](app-insights-alert.md)
+2. 예외 개수 메트릭에 대한 [경고 설정](app-insights-alerts.md)
 
 
 ### 내 응용 프로그램에서 이벤트 발생 시 전자 메일로 알림
@@ -57,7 +57,7 @@
 
     telemetry.TrackMetric("Alarm", 0.5);
 
-[메트릭 탐색기](app-insights-metric-explorer.md)에서 차트를 만들어 경고를 확인합니다.
+[메트릭 탐색기](app-insights-metrics-explorer.md)에서 차트를 만들어 경고를 확인합니다.
 
 ![](./media/app-insights-how-do-i/010-alarm.png)
 
@@ -201,6 +201,7 @@
 
 * [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)에서 성능 카운터 수집기 등 필요하지 않은 모듈을 모두 사용하지 않도록 설정합니다.
 * SDK에서 [샘플링 및 필터링](app-insights-api-filtering-sampling.md)을 사용합니다.
+* 웹 페이지에서 모든 페이지 뷰에 대해 보고되는 Ajax 호출 수를 제한합니다. 스크립트 조각에서 `instrumentationKey:...` 뒤에 `,maxAjaxCallsPerView:3`(또는 적절한 숫자)을 삽입합니다.
 * [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric)을 사용하는 경우 결과를 보내기 전에 메트릭 값의 배치 집계를 계산합니다. 이를 제공하는 TrackMetric() 오버로드가 있습니다.
 
 
@@ -241,4 +242,4 @@
 * 먼저 [새 차트를 추가하고](app-insights-metrics-explorer.md) 제공한 기본 집합에 카운터가 있는지 확인합니다.
 * 없으면 [성능 카운터 모듈에서 수집한 집합에 카운터를 추가합니다](app-insights-web-monitor-performance.md#system-performance-counters).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

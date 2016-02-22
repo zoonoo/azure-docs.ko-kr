@@ -14,20 +14,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/30/2015"
+	ms.date="02/04/2016"
 	ms.author="jgao"/>
 
 # HDInsight에서 Hadoop 작업 제출
 
 Azure PowerShell을 사용하여 MapReduce, Hive 작업을 제출하는 방법과 HDInsight.NET SDK를 사용하여 MapReduce, Hadoop 스트리밍 및 Hive 작업을 제출하는 방법을 알아봅니다.
 
-> [AZURE.NOTE]이 문서의 단계는 Windows 클라이언트에서 수행되어야 합니다. HDInsight에서 MapReduce, Hive 또는 Pig 와 작업하도록 Linux, OS X 또는 Unix 클라이언트 사용에 대한 자세한 내용은 다음 문서를 참조하고 각 **SSH** 또는 **Curl** 링크를 선택합니다.
+> [AZURE.NOTE] 이 문서의 단계는 Windows 클라이언트에서 수행되어야 합니다. HDInsight에서 MapReduce, Hive 또는 Pig 와 작업하도록 Linux, OS X 또는 Unix 클라이언트 사용에 대한 자세한 내용은 다음 문서를 참조하고 각 **SSH** 또는 **Curl** 링크를 선택합니다.
 >
 > - [HDInsight에서 Hive 사용](hdinsight-use-hive.md)
 > - [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 > - [HDInsight와 함께 MapReduce 사용](hdinsight-use-mapreduce.md)
 
-##필수 조건
+###필수 조건
 
 이 문서를 시작하기 전에 다음이 있어야 합니다.
 
@@ -266,4 +266,4 @@ Visual Studio용 HDInsight 도구를 사용하여 Hive 쿼리 및 Pig 스크립�
 
 [apache-hive]: http://hive.apache.org/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

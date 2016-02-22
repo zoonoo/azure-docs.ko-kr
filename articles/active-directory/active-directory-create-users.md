@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="02/08/2016"
 	ms.author="curtand;viviali"/>
 
 # Azure AD에서 사용자 만들기 또는 편집
@@ -25,12 +25,12 @@ Microsoft 클라우드 서비스에 액세스하는 모든 사용자에 대한 �
 1. **Active Directory**를 클릭한 다음 조직의 디렉터리 이름을 선택합니다.
 2. **사용자** 페이지에서 **사용자 추가**를 클릭합니다.
 3. **이 사용자에 대해 알리기** 페이지에 대한 **사용자 형식**으로 다음 중 하나를 선택합니다.
-	
+
 	- **조직의 새 사용자** – 디렉터리에 새 사용자 계정 만들기
 	- **기존 Microsoft 계정을 사용하는 사용자** – 디렉터리에 기존 사용자 Microsoft 계정(예: outlook 계정) 추가
 	- **다른 Azure AD 디렉터리의 사용자** – 다른 Azure AD 디렉터리가 원본인 사용자 계정을 디렉터리에 추가(참고: 다른 디렉터리의 사용자를 선택하려면 해당 디렉터리의 멤버여야 함)
-	- **파트너 회사의 사용자** - 파트너 회사 사용자를 디렉터리에 초대하고 권한 부여([Azure Active Directory B2B 참조](active-directory-b2b-what-is-azure-ad-b2b.md))
-	
+	- **파트너 회사의 사용자** - 파트너 회사 사용자를 디렉터리에 초대하고 권한 부여([Azure Active Directory B2B 공동 작업 참조](active-directory-b2b-what-is-azure-ad-b2b.md))
+
 
 4. 선택한 옵션에 따라 사용자 이름과 전자 메일 주소를 입력하거나 파트너 사용자에 대한 CSV 파일을 업로드합니다.
 5. 사용자 **프로필** 페이지에 사용자의 이름과 성, 별명 및 역할 드롭다운 메뉴의 사용자 역할을 입력합니다. 사용자 및 관리자 역할에 대한 자세한 내용은 [Azure AD에서 관리자 역할 할당](active-directory-assign-admin-roles.md)을 참조하세요. **다단계 인증 사용** 여부를 지정합니다.
@@ -87,7 +87,7 @@ Azure AD에서, 사용자가 소속된 다른 Azure AD 디렉터리에서 Micros
 - 관리자인 외부 사용자는 홈 디렉터리 외부에 있는 디렉터리(B2B)에 파트너 회사의 사용자를 추가할 수 없습니다.
 - 외부 사용자가 홈 디렉터리 외부에 있는 디렉터리의 다중 테넌트 응용 프로그램에 동의할 수 없습니다.
 - Visual Studio Online은 현재 외부 사용자의 액세스를 지원하지 않습니다.
-- PowerBI는 현재 외부 사용자의 액세스를 지원하지 않습니다. 
+- PowerBI는 현재 외부 사용자의 액세스를 지원하지 않습니다.
 - Office 포털은 현재 외부 사용자에 대한 라이선싱을 지원하지 않습니다.
 
 ## 게스트
@@ -99,7 +99,7 @@ Azure AD에서, 사용자가 소속된 다른 Azure AD 디렉터리에서 Micros
 - 자신이 할당된 Azure 구독과 연결된 다른 사용자 및 그룹 보기
 - 자신이 속한 그룹의 그룹 멤버 보기
 - 사용자의 전체 전자 메일 주소를 알고 있는 경우 디렉터리의 다른 사용자 조회
-- 조회하는 사용자의 제한된 특성 보기 - 표시 이름, 전자 메일 주소, UPN(사용자 계정 이름) 및 축소한 사진으로 제한됨 
+- 조회하는 사용자의 제한된 특성 보기 - 표시 이름, 전자 메일 주소, UPN(사용자 계정 이름) 및 축소한 사진으로 제한됨
 - 테넌트의 확인된 도메인 목록 가져오기
 - 응용 프로그램에 동의하여 내 디렉터리에 있을 때와 동일한 액세스 권한 부여
 
@@ -124,4 +124,4 @@ Azure AD에서, 사용자가 소속된 다른 Azure AD 디렉터리에서 Micros
 [1]: ./media/active-directory-create-users/RBACDirConfigTab.png
 [2]: ./media/active-directory-create-users/RBACGuestAccessControls.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

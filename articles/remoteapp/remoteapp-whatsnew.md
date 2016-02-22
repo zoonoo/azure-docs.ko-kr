@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/23/2015"
+    ms.date="02/06/2016"
     ms.author="elizapo" />
 
 
@@ -22,6 +22,9 @@
 
 Azure RemoteApp의 이점 중 하나는 항상 개선하기 위해 노력한다는 것입니다. 개선 시, 여기에서 해당 변경 내용을 발표합니다.
 
+## 향후 업데이트
+Azure RemoteApp 팀이 RDS 블로그에 매월 업데이트를 게시한다는 것을 아십니까? Azure RemoteApp의 변경 내용뿐 아니라 RDS 사용 방법에 대한 기타 정보를 확인할 수 있습니다. 자세한 내용은 [원격 데스크톱 서비스 블로그](https://blogs.msdn.microsoft.com/rds/)를 참조하세요. 예를 들어 2주 전에는 [Azure RemoteApp 및 Azure AD를 사용하여 그대로 워크로드 이동](https://blogs.msdn.microsoft.com/rds/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services/)에 대한 항목을 게시했습니다.
+ 
 ## 2015년 9월
 - Microsoft Office 365 템플릿과 갤러리 이미지에 추가된 Infopath입니다. Infopath를 공유하려면 최신 이미지로 컬렉션을 업데이트해야 합니다.
 - 클라이언트 업데이트:
@@ -72,7 +75,7 @@ Azure RemoteApp의 이점 중 하나는 항상 개선하기 위해 노력한다�
 - [Azure 가상 컴퓨터에서 Azure RemoteApp 이미지를 만듭니다](remoteapp-image-on-azurevm.md) 사용자 지정 이미지를 Azure에 훨씬 더 빨리 업로드합니다.
 - RemoteApp VNET 대신 Azure VNET을 사용하여 Azure에 회사 네트워크 리소스를 연결합니다. Azure VNET (그 1 단계)를 만드는 방법을 안내하도록 [하이브리드 컬렉션 지침](remoteapp-create-hybrid-deployment.md)을 업데이트했습니다.
 - VNET과 관련하여 VNET 크기 제한 및 제한 사항에 대한 [새 지침](remoteapp-vnetsizing.md)을 확인하십시오.
-- 그리고 제한과 관련하여 [서비스 제한 및 기본값](remoteapp-servicelimits.md)의 정의입니다.
+- 그리고 제한과 관련하여 [서비스 제한 및 기본값](../azure-subscription-service-limits.md)의 정의입니다.
 
 Azure RemoteApp에 대해 더 알아보고 싶으세요? RemoteApp 팀은 몇 주 전에 Ignite에서 시행이 중지되었습니다. [Microsoft Azure RemoteApp 관리 및 관리의 기초](http://channel9.msdn.com/Events/Ignite/2015/BRK3868)라는 Eric의 비디오를 확인하십시오.
 
@@ -84,4 +87,4 @@ Azure RemoteApp에 대해 더 알아보고 싶으세요? RemoteApp 팀은 몇 �
 ### 의견 보내기
 이 기사에 대한 등급을 매기고 아래에 의견을 다는 것은 물론 문서를 직접 변경할 수 있다는 사실을 알고 계셨나요? 누락된 부분이 있나요? 잘못된 부분이 있나요? 혼동을 줄 수 있는 부분이 있나요? 위로 스크롤하여 **GitHub에서 편집**을 클릭하면 변경할 수 있습니다. 당사에서 변경 사항을 검토하고 승인하면 변경 및 개선 사항을 바로 여기서 확인할 수 있습니다.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

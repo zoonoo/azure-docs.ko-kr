@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="02/02/2016"
    ms.author="telmos" />
 
 #PowerShell을 사용하여 다중 NIC VM(클래식) 배포
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-intro-include.md](../../includes/virtual-network-deploy-multinic-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [리소스 관리자 모델](virtual-network-deploy-multinic-arm-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-network-deploy-multinic-arm-ps.md).
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
@@ -31,7 +31,7 @@
 
 ## 필수 조건
 
-백 엔드 서버를 배포하려면 먼저 이 시나리오에 필요한 모든 리소스로 기본 클라우드 서비스를 배포해야 합니다. 최소한, 백 엔드에 대한 서브넷으로 가상 네트워크를 만들어야 합니다. 가상 네트워크를 배포하는 방법을 알아보려면 [PowerShell을 사용하여 가상 네트워크를 만들기](virtual-networks-create-vnet-classic-ps.md)를 참조하세요.
+백 엔드 서버를 배포하려면 먼저 이 시나리오에 필요한 모든 리소스로 기본 클라우드 서비스를 배포해야 합니다. 최소한, 백 엔드에 대한 서브넷으로 가상 네트워크를 만들어야 합니다. 가상 네트워크를 배포하는 방법을 알아보려면 [PowerShell을 사용하여 가상 네트워크를 만들기](virtual-networks-create-vnet-classic-netcfg-ps.md)를 참조하세요.
 
 [AZURE.INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
@@ -45,7 +45,7 @@
 
 ### 1단계 - 스크립트 시작
 
-사용되는 전체 PowerShell 스크립트를 [여기](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/multinic.ps1)에서 다운로드할 수 있습니다. 다음 단계에 따라 스크립트를 사용자 환경에서 작동하도록 변경합니다.
+사용되는 전체 PowerShell 스크립트를 [여기](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-ps.ps1)에서 다운로드할 수 있습니다. 다음 단계에 따라 스크립트를 사용자 환경에서 작동하도록 변경합니다.
 
 1. 위의 [필수 조건](#Prerequisites)에서 배포한 기존 리소스 그룹을 기반으로 다음 변수 값을 변경합니다.
 
@@ -171,4 +171,4 @@
 		New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
 		New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded 
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

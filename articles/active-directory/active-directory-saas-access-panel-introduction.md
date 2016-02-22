@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="02/09/2016"
 	ms.author="markusvi"/>
 
 
@@ -116,7 +116,7 @@ iOS 용 My Apps는 iOS 버전 7 이상을 실행하는 모든 iPhone이나 iPad�
 
 
 
-> [AZURE.NOTE]Azure AD로 페더레이션을 지원하는 응용 프로그램은 플러그인 또는 모바일 앱을 요구하지 않고 모든 장치에서 거의 모든 웹 브라우저에서 (Salesforce, Google Apps, Dropbox, 상자, Concur, Workday, Office 365 등 70 포함) 로그인할 수 있습니다. [https://myapps.microsoft.com](https://myapps.microsoft.com/)의 다른 액세스 패널 환경의 경우에도 모바일 장치에서 My Apps 모바일 앱을 사용할 필요가 없습니다.
+> [AZURE.NOTE] Azure AD로 페더레이션을 지원하는 응용 프로그램은 플러그인 또는 모바일 앱을 요구하지 않고 모든 장치에서 거의 모든 웹 브라우저에서 (Salesforce, Google Apps, Dropbox, 상자, Concur, Workday, Office 365 등 70 포함) 로그인할 수 있습니다. [https://myapps.microsoft.com](https://myapps.microsoft.com/)의 다른 액세스 패널 환경의 경우에도 모바일 장치에서 My Apps 모바일 앱을 사용할 필요가 없습니다.
  
 
 
@@ -172,8 +172,12 @@ Azure 관리자이고 디렉터리에 있는 계정을 사용하여 Azure 관리
 
 응용 프로그램에 대한 Single Sign-On을 구성할 때 Azure 관리 포털은 "기존 Single Sign-On”의 세 번째 옵션을 제공합니다. 이 옵션을 사용하면 관리자가 응용 프로그램에 대한 링크를 만들고 선택한 사용자에 대한 액세스 패널에 배치할 수 있습니다. 예를 들어 Active Directory Federation Services 2.0을 사용하여 사용자를 인증하도록 구성된 응용 프로그램이 있는 경우 관리자가 "기존 Single Sign-On" 옵션을 사용하여 액세스 패널에서 이에 대한 링크를 만들 수 있습니다. 사용자가 이 링크에 액세스하는 경우 Active Directory Federation Services 2.0을 사용하거나 응용 프로그램에서 제공하는 기존 Single Sign-On 솔루션을 사용하여 인증을 받습니다.
 
+##관련 문서
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+- [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
+- [SaaS App을 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
+- [Azure Active Directory를 통한 Single Sign-on 및 응용 프로그램 액세스 관리 소개](active-directory-appssoaccess-whatis.md)
+- [SaaS 응용 프로그램에 자동화된 사용자 프로비저닝 및 프로비저닝 해제 ](active-directory-saas-app-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-access-panel-introduction/ic767166.png
@@ -181,4 +185,4 @@ Azure 관리자이고 디렉터리에 있는 계정을 사용하여 Azure 관리
 [3]: ./media/active-directory-saas-access-panel-introduction/ic767168.png
 [4]: ./media/active-directory-saas-access-panel-introduction/ic767169.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0211_2016-->

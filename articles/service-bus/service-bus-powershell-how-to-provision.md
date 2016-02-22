@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="service-bus"
-	ms.workload="tbd"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="02/08/2016"
 	ms.author="sethm"/>
 
 # PowerShell을 사용하여 서비스 버스 관리
@@ -26,9 +26,9 @@ Microsoft Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 �
 
 이 문서를 시작하기 전에 다음이 있어야 합니다.
 
-- Azure 구독. Azure는 구독 기반 플랫폼입니다. 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션], [구성원 제공 항목] 또는 [무료 평가판]을 참조하세요.
+- Azure 구독. Azure는 구독 기반 플랫폼입니다. 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션][], [구성원 제공 항목][] 또는 [무료 평가판][]을 참조하세요.
 
-- Azure PowerShell이 설치된 컴퓨터 자세한 내용은 [Azure PowerShell 설치 및 구성]을 참조하세요.
+- Azure PowerShell이 설치된 컴퓨터 자세한 내용은 [Azure PowerShell 설치 및 구성][]을 참조하세요.
 
 - PowerShell 스크립트, NuGet 패키지 및 .NET Framework 전반에 대한 지식
 
@@ -171,7 +171,7 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 [구매 옵션]: http://azure.microsoft.com/pricing/purchase-options/
 [구성원 제공 항목]: http://azure.microsoft.com/pricing/member-offers/
 [무료 평가판]: http://azure.microsoft.com/pricing/free-trial/
-[Azure PowerShell 설치 및 구성]: ../install-configure-powershell.md
+[Azure PowerShell 설치 및 구성]: ../powershell-install-configure.md
 [서비스 버스 NuGet 패키지]: http://www.nuget.org/packages/WindowsAzure.ServiceBus/
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
@@ -179,4 +179,4 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 [서비스 버스용 .NET API]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.aspx
 [NamespaceManager]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

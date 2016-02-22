@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/02/2015"
+   ms.date="02/02/2016"
    ms.author="tomfitz"/>
 
 # Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포
@@ -271,7 +271,7 @@ Azure 리소스 관리자와 포털 사용에 대한 자세한 내용은 [Azure 
 
 매개 변수 파일 크기는 64KB보다 클 수 없습니다.
 
-템플릿에서 매개 변수를 정의하는 방법은 [템플릿 작성](resource-group-authoring-templates.md/#parameters)을 참조하세요. 보안 값을 전달하기 위한 KeyVault 참에 대한 자세한 내용은 [배포 중 보안 값 전달](resource-manager-keyvault-parameter.md)을 참조하세요.
+템플릿에서 매개 변수를 정의하는 방법은 [템플릿 작성](../resource-group-authoring-templates/#parameters)을 참조하세요. 보안 값을 전달하기 위한 KeyVault 참에 대한 자세한 내용은 [배포 중 보안 값 전달](resource-manager-keyvault-parameter.md)을 참조하세요.
 
 ## 다음 단계
 - .NET 클라이언트 라이브러리를 통한 리소스 배포의 예를 보려면 [.NET 라이브러리 및 템플릿을 사용하여 리소스 배포](./virtual-machines/arm-template-deployment.md)를 참조하세요.
@@ -282,4 +282,4 @@ Azure 리소스 관리자와 포털 사용에 대한 자세한 내용은 [Azure 
 
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

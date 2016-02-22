@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/14/2016" 
+	ms.date="02/03/2016" 
 	ms.author="josephd"/>
 
-# 테스트용 시뮬레이션된 하이브리드 클라우드 환경 설정
+# 테스트를 위한 시뮬레이션된 하이브리드 클라우드 환경 설정(클래식 배포 모드)
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](../virtual-machines/virtual-machines-setup-simulated-hybrid-cloud-environment-testing.md).
 
 이 문서에서는 별도의 Azure 가상 네트워크 두 개를 사용하여 Microsoft Azure에서 테스트용 시뮬레이션된 하이브리드 클라우드 환경을 만드는 과정을 안내합니다. 인터넷을 직접 연결할 수 없고 사용 가능한 공용 IP 주소가 없는 경우 [테스트용 하이브리드 클라우드 환경 설정](virtual-networks-setup-hybrid-cloud-environment-testing.md)의 대안으로 이 구성을 사용합니다. 다음은 결과 구성입니다.
 
@@ -220,11 +220,7 @@ TestVNET 가상 네트워크에는 고유한 DNS 서버(DC2)가 있으므로 이
 
 ## 다음 단계
 
-TestVNET 가상 네트워크에서 다음 워크로드를 설정합니다.
-
-- [SharePoint 인트라넷 팜](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
-- [웹 기반 LOB(기간 업무) 응용 프로그램](virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
-- [Office 365 디렉터리 동기화(DirSync) 서버](virtual-networks-setup-dirsync-hybrid-cloud-testing.md)
+- TestVNET 가상 네트워크에서 [SharePoint 인트라넷 팜](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md), [웹 기반 LOB 응용 프로그램](virtual-networks-setup-lobapp-hybrid-cloud-testing.md) 또는 [Office 365 디렉터리 동기화(DirSync) 서버](virtual-networks-setup-dirsync-hybrid-cloud-testing.md)를 설정합니다.
 
 
 ## <a id="costs"></a>이 환경의 지속적인 비용 최소화
@@ -264,6 +260,5 @@ Azure VPN 게이트웨이는 지속적인 비용이 발생하는 두 개의 Azur
 	Set-AzureVNetGatewayKey -VNetName TestVNET -LocalNetworkSiteName TestLabLNet -SharedKey $preSharedKey
 
 그런 다음 Azure 관리 포털의 네트워크 페이지에서 **TestLab** 가상 네트워크를 클릭한 후 작업 표시줄에서 **연결**을 클릭합니다. TestLab 가상 네트워크가 TestVNET 로컬 네트워크에 연결된 상태로 표시될 때까지 기다립니다.
- 
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

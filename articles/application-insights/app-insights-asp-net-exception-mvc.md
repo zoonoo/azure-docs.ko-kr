@@ -18,7 +18,7 @@
 
 # Application Insights 설정: 예외 진단
 
-죄송합니다. [이 페이지는 이동했습니다](app-insights-asp-net-exception.md).
+죄송합니다. [이 페이지는 이동했습니다](app-insights-asp-net-exceptions.md).
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

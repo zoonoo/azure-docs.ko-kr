@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="02/05/2016"
 	ms.author="larryfr"/>
 
 
@@ -81,13 +81,13 @@ Linux 기반 HDInsight 클러스터는 Hadoop MapReduce 작업 실행을 익히�
 
 2. `username@#######:~$` 프롬프트에서 다음 명령을 사용하여 샘플을 나열합니다.
 
-        hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar
+        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar
 
     그러면 이 문서의 이전 섹션에 나와 있는 샘플 목록이 생성됩니다.
 
 3. 특정 샘플에 대한 도움말을 보려면 다음 명령을 사용합니다. 이 명령은 **wordcount** 샘플에 적용됩니다.
 
-        hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount
+        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount
 
     다음과 같은 메시지가 표시됩니다.
 
@@ -97,7 +97,7 @@ Linux 기반 HDInsight 클러스터는 Hadoop MapReduce 작업 실행을 익히�
 
 4. 다음을 사용하여 클러스터와 함께 샘플 데이터로 제공되는 Notebooks of Leonardo Da Vinci의 모든 단어 수를 계산할 수 있습니다.
 
-    	hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/davinciwordcount
+    	yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/davinciwordcount
 
     이 작업에 대한 입력은 ****wasb:///example/data/gutenberg/davinci.txt**에서 읽습니다.
 
@@ -107,7 +107,7 @@ Linux 기반 HDInsight 클러스터는 Hadoop MapReduce 작업 실행을 익히�
 
 5. 작업이 완료되면 다음 명령을 사용하여 결과를 확인합니다.
 
-        hadoop fs -cat /example/data/davinciwordcount/*
+        hdfs dfs -cat /example/data/davinciwordcount/*
 
     이 명령은 작업에서 생성된 모든 출력 파일을 연결하고 표시합니다. 이 기본 예제에는 파일이 하나만 있지만 파일이 더 많은 경우 모든 파일에서 이 명령이 반복됩니다.
 
@@ -148,7 +148,7 @@ Sudoku 예제에는 "Include a puzzle on the command line" 등 다소 유용하�
 
 Sudoku 예제를 통해 이를 실행하려면 다음 명령을 사용합니다.
 
-    hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar sudoku /usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples/src/main/java/org/apache/hadoop/examples/dancing/puzzle1.dta
+    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar sudoku /usr/hdp/2.2.9.1-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples/src/main/java/org/apache/hadoop/examples/dancing/puzzle1.dta
 
 결과는 다음과 유사합니다.
 
@@ -172,7 +172,7 @@ Pi 샘플에서는 통계(준난수 몬테카를로) 방법을 사용하여 Pi �
 
 다음 명령을 사용하여 이 샘플을 실행합니다. 이 명령에서는 각각 10,000,000개의 샘플이 있는 16개의 맵을 사용하여 pi 값을 추정합니다.
 
-    hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar pi 16 10000000
+    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar pi 16 10000000
 
 이 명령에서 반환되는 값은 **3.14159155000000000000**과 유사합니다. 참고로, Pi의 소수점 이하 10자리는 3.1415926535입니다.
 
@@ -198,19 +198,19 @@ GraySort는 메트릭이 대량의 데이터를 정렬하는 동안 도달하는
 
 1. HDInsight 클러스터의 기본 저장소(****wasb:///example/data/10GB-sort-input**)에 저장되는 10GB의 데이터를 생성합니다.
 
-        hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapred.map.tasks=50 100000000 /example/data/10GB-sort-input
+        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapred.map.tasks=50 100000000 /example/data/10GB-sort-input
 
 	`-Dmapred.map.tasks`는 이 작업에 사용할 map 작업 수를 Hadoop에 알려 줍니다. 마지막 두 매개 변수는 10GB 분량의 데이터를 만들어****wasb:///example/data/10GB-sort-input**에 저장하도록 지시합니다.
 
 2. 다음 명령을 사용하여 데이터를 정렬합니다.
 
-		hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /example/data/10GB-sort-input /example/data/10GB-sort-output
+		yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /example/data/10GB-sort-input /example/data/10GB-sort-output
 
 	`-Dmapred.reduce.tasks`는 작업에 사용할 reduce 작업 수를 Hadoop에 알려 줍니다. 마지막 두 매개 변수는 데이터의 입력 및 출력 위치입니다.
 
 3. 다음을 사용하여 정렬에 의해 생성된 데이터의 유효성을 검사합니다.
 
-		hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teravalidate -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /example/data/10GB-sort-output /example/data/10GB-sort-validate
+		yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teravalidate -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /example/data/10GB-sort-output /example/data/10GB-sort-validate
 
 ##다음 단계 ##
 
@@ -236,4 +236,4 @@ GraySort는 메트릭이 대량의 데이터를 정렬하는 동안 도달하는
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

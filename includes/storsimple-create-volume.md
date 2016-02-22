@@ -1,4 +1,4 @@
-<!--author=SharS last changed: 11/16/15-->
+<!--author=SharS last changed: 02/04/2016-->
 
 #### 볼륨을 만들려면
 
@@ -9,9 +9,10 @@
    2. 볼륨의 **프로비전된 용량**을 GB 또는 TB로 지정합니다. 볼륨 용량은 실제 장치에 대해 1GB 및 64TB 사이여야 합니다.
    3. 드롭다운 목록에서 볼륨의 **사용 유형**을 선택합니다. 
    4. 보관 데이터에 대해 이 볼륨을 사용하는 경우 **자주 액세스하지 않는 보관 데이터에 대해 이 볼륨 사용** 확인란을 선택합니다. 기타 모든 경우에는 **계층화된 볼륨**을 선택합니다. (계층화된 볼륨이 이전에는 기본 볼륨이었습니다.)
-   4. 화살표 아이콘![화살표 아이콘](./media/storsimple-create-volume/HCS_ArrowIcon-include.png)을 클릭하여 다음 페이지로 이동합니다.
 
-        ![Add volume](./media/storsimple-create-volume/AddVolume1-include.png)
+        ![Add volume](./media/storsimple-create-volume/ScreenshotUpdate1VolumeFlow.png)
+
+    4. 화살표 아이콘![화살표 아이콘](./media/storsimple-create-volume/HCS_ArrowIcon-include.png)을 클릭하여 다음 페이지로 이동합니다.
 
 3. **추가 설정** 대화 상자에서 새 ACR(액세스 제어 레코드)을 추가합니다.
    1. ACR의 **이름**을 지정합니다.
@@ -28,4 +29,4 @@
 
 StorSimple 볼륨을 만드는 방법을 보여 주는 동영상을 시청하려면 [여기](https://azure.microsoft.com/documentation/videos/create-a-storsimple-volume/)를 클릭하세요.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

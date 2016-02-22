@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.date="02/09/2016"
 	ms.author="femila"/>
 
 
@@ -119,7 +119,8 @@ Multi-Factor Authentication을 위한 여러 옵션 중 하나를 구성하는 �
 5.	**배포 및 관리** 섹션에서 1-3단계에 따라 Azure Active Directory를 로컬 디렉터리와 통합합니다.
   1.	도메인을 추가합니다.
   2.	Azure AD Connect 설치 및 실행: [Azure AD Connect의 사용자 지정 설치](active-directory-aadconnect-get-started-custom.md) 지침을 사용하여 Azure AD Connect를 설치합니다.
-  3. 디렉터리 동기화를 확인하고 관리합니다. 이 단계에 SSO(Single Sign-On) 지침도 포함되어 있습니다. >[AZURE.NOTE] 아래 링크의 문서에 설명된 대로 AD FS와의 페더레이션을 구성합니다. >[AZURE.NOTE] 미리 보기 기능은 구성할 필요 없습니다.
+  3. 디렉터리 동기화를 확인하고 관리합니다. 이 단계에는 SSO(Single Sign-On) 지침이 포함되어 있습니다.
+  >[AZURE.NOTE] 아래 링크의 문서에 설명된 대로 AD FS와의 페더레이션을 구성합니다.[AZURE.NOTE] 미리 보기 기능은 구성할 필요 없습니다.
   
    
 
@@ -244,4 +245,8 @@ LDP.exe 또는 ADSI 편집을 사용하여 장치 개체가 Active Directory에 
 
 ![사용자가 Azure AD로 자신의 장치를 등록하지 않은 경우 표시되는 오류의 스크린샷](./media/active-directory-conditional-access/error-azureDRS-device-not-registered.gif)
 
-<!---HONumber=AcomDC_0128_2016-->
+##관련 문서
+
+- [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
+
+<!---HONumber=AcomDC_0211_2016-->

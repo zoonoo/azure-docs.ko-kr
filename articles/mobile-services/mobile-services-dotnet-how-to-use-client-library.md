@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/02/2015"
+	ms.date="01/28/2016"
 	ms.author="glenga"/>
 
 # Azure 모바일 서비스에 관리되는 클라이언트 라이브러리를 사용하는 방법
@@ -69,7 +69,7 @@ JavaScript 백 엔드 모바일 서비스에서 동적 스키마를 사용하는
 
 ##<a name="instantiating"></a>방법: 테이블 참조 만들기
 
-모바일 서비스 테이블의 데이터에 액세스하거나 데이터를 수정하는 모든 코드는 `MobileServiceTable` 개체에 대한 함수를 호출합니다. 다음과 같이 `MobileServiceClient`의 인스턴스에 대해 [GetTable](https://msdn.microsoft.com/library/azure/jj554275.aspx) 메서드를 호출하여 테이블에 대한 참조를 구합니다.
+모바일 서비스 테이블의 데이터에 액세스하거나 데이터를 수정하는 모든 코드는 `MobileServiceTable` 개체에 대한 함수를 호출합니다. 다음과 같이 `MobileServiceClient`의 인스턴스에 대해 [GetTable](https://msdn.microsoft.com/library/azure/jj554275.aspx) 함수를 호출하여 테이블에 대한 참조를 구합니다.
 
     IMobileServiceTable<TodoItem> todoTable =
 		client.GetTable<TodoItem>();
@@ -86,7 +86,7 @@ JavaScript 백 엔드 모바일 서비스에서 동적 스키마를 사용하는
 - [특정 열 선택]
 - [ID를 기준으로 데이터 조회]
 
->[AZURE.NOTE]모든 행이 반환되는 것을 방지하기 위해 서버 기반 페이지 크기가 적용됩니다. 그러면 대규모 데이터 집합에 대한 기본 요청이 서비스에 부정적인 영향을 미치지 않습니다. 50개가 넘는 행을 반환하려면 [페이지에서 데이터 반환]에서 설명하는 대로 `Take` 메서드를 사용하십시오.
+>[AZURE.NOTE] 모든 행이 반환되는 것을 방지하기 위해 서버 기반 페이지 크기가 적용됩니다. 그러면 대규모 데이터 집합에 대한 기본 요청이 서비스에 부정적인 영향을 미치지 않습니다. 50개가 넘는 행을 반환하려면 [페이지에서 데이터 반환]에서 설명하는 대로 `Take` 메서드를 사용하세요.
 
 ### <a name="filtering"></a>방법: 반환된 데이터 필터링
 
@@ -211,7 +211,7 @@ JavaScript 백 엔드 모바일 서비스에서 동적 스키마를 사용하는
 
 ##<a name="inserting"></a>방법: 모바일 서비스에 데이터 삽입
 
-> [AZURE.NOTE]형식에 대해 삽입, 조회, 삭제 또는 업데이트 작업을 수행하려는 경우 **Id**라는 멤버를 만들어야 합니다. 이 때문에 예제 클래스 **TodoItem**에 이름이 **Id**인 멤버가 있습니다. 업데이트 및 삭제 작업에서 항상 유효한 id 값이 있어야 합니다.
+> [AZURE.NOTE] 형식에 대해 삽입, 조회, 삭제 또는 업데이트 작업을 수행하려는 경우 **Id**라는 멤버를 만들어야 합니다. 이 때문에 예제 클래스 **TodoItem**에 이름이 **Id**인 멤버가 있습니다. 업데이트 및 삭제 작업에서 항상 유효한 id 값이 있어야 합니다.
 
 다음 코드는 테이블에 새 행을 삽입하는 방법을 보여 줍니다. 매개 변수에는 .NET 개체로 삽입할 데이터가 포함되어 있습니다.
 
@@ -247,7 +247,7 @@ JavaScript 백 엔드 모바일 서비스에서 동적 스키마를 사용하는
 
 문자열 ID 값이 삽입된 레코드에 설정되지 않은 경우 모바일 서비스는 해당 ID에 대한 고유한 값을 생성합니다. `Guid.NewGuid()` 메서드를 사용하여 클라이언트 또는 .NET 모바일 백 엔드 서비스에서 고유한 ID 값을 생성할 수 있습니다. JavaScript 백 엔드 모바일 서비스에서 Guid를 생성하는 방법에 대해 알아보려면 [방법: 고유한 ID 값 생성](mobile-services-how-to-use-server-scripts.md#generate-guids)을 참조하세요.
 
-또한 테이블에 정수 ID를 사용할 수 있습니다. 정수 ID를 사용하려면 `mobile table create` 명령으로 `--integerId` 옵션을 사용하여 테이블을 만들어야 합니다. 이 명령은 Azure용 CLI(명령줄 인터페이스)와 함께 사용됩니다. CLI 사용에 대한 자세한 내용은 [모바일 서비스 테이블 관리 CLI](../virtual-machines-command-line-tools.md#Mobile_Tables)(영문)를 참조하십시오.
+또한 테이블에 정수 ID를 사용할 수 있습니다. 정수 ID를 사용하려면 `mobile table create` 명령으로 `--integerId` 옵션을 사용하여 테이블을 만들어야 합니다. 이 명령은 Azure용 CLI(명령줄 인터페이스)와 함께 사용됩니다. CLI 사용에 대한 자세한 내용은 [모바일 서비스 테이블 관리 CLI](../virtual-machines-command-line-tools.md#Mobile_Tables)(영문)를 참조하세요.
 
 ##<a name="modifying"></a>방법: 모바일 서비스의 데이터 수정
 
@@ -771,4 +771,4 @@ Windows Phone 앱의 경우 [ProtectedData] 클래스를 사용하여 데이터�
 [Azure 모바일 서비스 클라이언트 SDK의 사용자 지정 API]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

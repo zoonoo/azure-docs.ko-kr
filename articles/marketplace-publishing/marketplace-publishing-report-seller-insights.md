@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/12/2015"
+   ms.date="02/04/2016"
    ms.author="v-jeana; hascipio"/>
 
 # 판매자 통찰력 보고서 이해
@@ -118,4 +118,4 @@ URL에서 게시자 ID 찾기: - 이 ID를 암호로 사용하여 판매자 통�
 [9]: ./media/marketplace-publishing-report-seller-insights/publisherid.png
 [10]: ./media/marketplace-publishing-report-seller-insights/sellerinsightsquestions.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0211_2016-->

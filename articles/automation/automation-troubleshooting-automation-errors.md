@@ -18,14 +18,15 @@
 
 # Azure 자동화의 일반 오류에 대한 문제 해결 팁
 
-Runbook, 모듈, 자동화 자산 등 자동화 리소스를 사용하는 동안 문제가 발생할 경우 무엇이 잘못되었는지 확인해야 합니다. 이 문서에서는 Azure 자동화를 사용할 때 발생할 수 있는 일반적인 오류 몇 가지를 설명하고 해결 단계를 제안합니다.
+이 문서에서는 Azure 자동화를 사용할 때 발생할 수 있는 일반적인 오류 몇 가지를 설명하고 해결 단계를 제안합니다.
 
 ## Azure 자동화 Runbook을 사용할 때 인증 오류 해결  
 
-
-**시나리오: Azure 계정 로그인에 실패**
+### 시나리오: Azure 계정 로그인에 실패
 
 **오류:** Add-AzureAccount 또는 Login-AzureRmAccount cmdlet을 사용하면 "Unknown\_user\_type: 알 수 없는 사용자 유형" 오류가 수신됩니다.
+
+**오류 이유:** 이 오류는 자격 증명 자산 이름이 올바르지 않거나 자동화 자격 증명 자산을 설정하는 데 사용한 사용자 이름과 암호가 올바르지 않은 경우 발생합니다.
 
 **문제 해결 팁:** 무엇이 문제인지 확인하기 위해 다음 단계를 수행합니다.
 
@@ -37,15 +38,17 @@ Runbook, 모듈, 자동화 자산 등 자동화 리소스를 사용하는 동안
         #Using Azure Service Management   
         Add-AzureAccount –Credential $Cred  
         #Using Azure Resource Manager  
-        Login-AzureRmAccount – Credential $Cred
+        Login-AzureRmAccount –Credential $Cred
 
-3. 인증이 로컬에서 실패하면 Azure Active Directory 자격 증명을 올바르게 설정하지 않았다는 뜻입니다. Active Directory 계정을 올바르게 설정하는 방법은 [Azure Active Directory를 사용하여 Azure에 인증(영문)](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) 블로그 게시물을 참조하세요.
+3. 인증이 로컬에서 실패하면 Azure Active Directory 자격 증명을 올바르게 설정하지 않았다는 뜻입니다. Azure Active Directory 계정을 올바르게 설정하는 방법은 [Azure Active Directory를 사용하여 Azure에 인증](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) 블로그 게시물을 참조하세요.
 
-
-**시나리오: Azure 구독을 찾을 수 없음**
+  <br/>
+### 시나리오: Azure 구독을 찾을 수 없음
 
 **오류:** Select-AzureSubscription 또는 Select-AzureRmSubscription cmdlet을 사용하면 "``<subscription name>`` 구독을 찾을 수 없음" 오류가 수신됩니다.
- 
+
+**오류 이유:** 이 오류는 구독 이름이 올바르지 않거나 구독 세부 정보를 가져오려는 Azure Active Directory 사용자가 구독 관리자로 구성되지 않은 경우 발생합니다.
+
 **문제 해결 팁:** Azure에 올바르게 인증하여 선택하려는 구독에 대한 액세스 권한을 획득했는지 확인하기 위해 다음 단계를 수행합니다.
 
 1. **Add-AzureAccount**를 실행한 후 **Select-AzureSubscription** cmdlet을 실행합니다.  
@@ -54,23 +57,20 @@ Runbook, 모듈, 자동화 자산 등 자동화 리소스를 사용하는 동안
     * 출력에 구독 세부 정보가 보이지 않으면 아직 구독이 초기화되지 않았다는 뜻입니다.  
     * 출력에 구독 세부 정보가 보이면 **Select-AzureSubscription** cmdlet을 사용하여 올바른 구독 이름 또는 ID를 사용하고 있는지 확인합니다.   
 
-
-
-**시나리오: Multi-Factor Authentication이 활성화되어 Azure 인증에 실패**
+  <br/>
+### 시나리오: Multi-Factor Authentication이 활성화되어 Azure 인증에 실패
 
 **오류:** Azure 사용자 이름 및 암호를 사용하여 Azure에 인증하면 “Add-AzureAccount: AADSTS50079: 강력한 인증 등록(증명)이 필요합니다” 오류가 수신됩니다.
 
-**오류의 원인:** Azure 계정을 Multi-Factor Authentication에 사용 중이면 Active Directory 사용자를 사용하여 Azure에 인증할 수 없습니다. 그 대신 인증서 또는 서비스 주체를 사용하여 Azure에 인증해야 합니다.
+**오류의 원인:** Azure 계정에서 다단계 인증을 사용 중이면 Azure Active Directory 사용자를 사용하여 Azure에 인증할 수 없습니다. 그 대신 인증서 또는 서비스 주체를 사용하여 Azure에 인증해야 합니다.
 
 **문제 해결 팁:** Azure 서비스 관리 cmdlet에 인증서를 사용하려면 [인증서를 만들고 추가하여 Azure 서비스 관리](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx)를 참조하세요. Azure 리소스 관리자 cmdlet에 서비스 주체를 사용하려면 [Azure 포털을 사용하여 서비스 주체 만들기](./resource-group-create-service-principal-portal.md) 및 [Azure 리소스 관리자를 사용하여 서비스 주체 인증](./resource-group-authenticate-service-principal.md)을 참조하세요.
 
+  <br/>
+## Runbook을 사용할 때 발생하는 일반적인 오류 해결  
+### 시나리오: 역직렬화된 개체로 인해 Runbook 실패
 
-
-## Runbook을 사용할 때 발생하는 일반적인 오류 해결 
-
-**시나리오: Runbook을 실행할 때 매개 변수를 바인딩할 수 없음**
-
-**오류:** "``<ParameterName>`` 매개 변수를 바인딩할 수 없습니다. Deserialized 유형 ``<ParameterType>``의 ``<ParameterType>`` 값을 ``<ParameterType>``(으)로 변환할 수 없습니다" 오류와 함께 Runbook이 실패합니다.
+**오류:** "``<ParameterName>`` 매개 변수를 바인딩할 수 없습니다. 역직렬화된 유형 ``<ParameterType>``의 ``<ParameterType>`` 값을 ``<ParameterType>``(으)로 변환할 수 없습니다" 오류와 함께 Runbook이 실패합니다.
 
 **오류의 원인:** Runbook이 PowerShell 워크플로인 경우 워크플로가 일시 중단되더라도 Runbook 상태를 유지하기 위해 복합 개체를 역직렬화된 형식으로 저장합니다.
 
@@ -81,22 +81,22 @@ Runbook, 모듈, 자동화 자산 등 자동화 리소스를 사용하는 동안
 
 3. PowerShell 워크플로 Runbook 대신 PowerShell Runbook을 사용합니다.
 
-
-**시나리오: 할당된 할당량을 초과하여 Runbook 작업 실패**
+  <br/>
+### 시나리오: 할당된 할당량을 초과하여 Runbook 작업 실패
 
 **오류:** "이 구독에 할당된 월간 총 작업 실행에 도달했습니다" 오류와 함께 Runbook이 실패합니다.
 
 **오류의 원인:** 작업 실행 시간이 계정에 할당된 무료 500분을 초과하면 이 오류가 발생합니다. 이 할당량은 작업을 테스트하고, 포털에서 작업을 시작하고, 웹 후크를 사용하여 작업을 실행하고, Azure 포털 또는 데이터 센터를 사용하여 실행할 작업을 예약하는 등의 모든 작업 실행에 적용됩니다. 자동화 가격 책정에 대한 자세한 내용은 [자동화 가격 책정](https://azure.microsoft.com/pricing/details/automation/)을 참조하세요.
 
-**문제 해결 팁:** 매월 처리 시간을 500분 이상 사용하려면 구독을 무료 계층에는 기본 계층으로 변경해야 합니다. 다음 단계에 따라 기본 계층으로 업그레이드할 수 있습니다.
+**문제 해결 팁:** 매월 처리 시간을 500분 이상 사용하려면 구독을 무료 계층에서 기본 계층으로 변경해야 합니다. 다음 단계에 따라 기본 계층으로 업그레이드할 수 있습니다.
 
 1. Azure 구독에 로그인합니다.  
 2. 업그레이드할 자동화 계정을 선택합니다.  
 3. **설정** > **가격 책정 계층 및 사용 현황** > **가격 책정 계층**을 클릭합니다.  
 4. **가격 책정 계층 선택** 블레이드에서 **기본**을 선택합니다.    
 
-
-**시나리오: Runbook을 실행해도 cmdlet이 인식되지 않음**
+  <br/>
+### 시나리오: Runbook을 실행해도 cmdlet이 인식되지 않음
 
 **오류:** "``<cmdlet name>``: ``<cmdlet name>``이라는 용어가 cmdlet의 이름, 함수, 스크립트 파일 또는 사용이 가능한 프로그램으로 인식되지 않습니다" 오류와 함께 Runbook 작업이 실패합니다.
 
@@ -110,10 +110,12 @@ Runbook, 모듈, 자동화 자산 등 자동화 리소스를 사용하는 동안
 
 - 이름이 충돌하고 cmdlet이 서로 다른 두 모듈에서 사용되는 경우 cmdlet에 대한 정규화된 이름을 사용하여 이 문제를 해결할 수 있습니다. 예를 들어 **ModuleName\\CmdletName**을 사용할 수 있습니다.
 
+- Hybrid Worker 그룹에서 runbook 온-프레미스를 실행하는 경우 모듈/cmdlet이 Hybrid Worker를 호스트하는 시스템에 설치되어야 합니다.
 
+  <br/>
 ## 모듈을 가져올 때 발생하는 일반적인 오류 해결 
 
-**시나리오: 모듈이 가져오기를 실패하거나 가져오기를 실행한 후 cmdlet을 실행할 수 없음**
+### 시나리오: 모듈이 가져오기를 실패하거나 가져오기를 실행한 후 cmdlet을 실행할 수 없음
 
 **오류:** 모듈이 가져오기를 실패하거나 성공하더라도 cmdlet이 추출되지 않습니다.
 
@@ -135,7 +137,7 @@ Runbook, 모듈, 자동화 자산 등 자동화 리소스를 사용하는 동안
 
 - 모듈 폴더에 참조되는 .dll이 있는지 확인합니다.
 
-
+  <br/>
 
 ## 다음 단계
 
@@ -149,4 +151,4 @@ Runbook, 모듈, 자동화 자산 등 자동화 리소스를 사용하는 동안
 
 - Azure 자동화에 대한 의견이나 기능 요청이 있으면 [사용자 음성](https://feedback.azure.com/forums/34192--general-feedback)에 게시하세요.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

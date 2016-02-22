@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/02/2015"
+   ms.date="02/08/2016"
    ms.author="alkohli" />
 
 # StorSimple 장치에 원격으로 연결
@@ -32,6 +32,8 @@ Windows PowerShell 원격을 사용하여 장치를 관리하는 방법에 대�
 - 가장 안전하고 권장되는 옵션은 자체 서명된 인증서를 사용하여 HTTPS 세션을 통해 연결하는 것입니다.
 
 Windows PowerShell 인터페이스에 원격으로 연결할 수 있습니다. 그러나 Windows PowerShell 인터페이스를 통한 StorSimple 장치에 대한 원격 액세스는 기본적으로 사용되지 않습니다. 먼저, 장치에서 원격 관리를 사용하도록 설정한 다음 장치에 액세스하는 데 사용되는 클라이언트에서 사용하도록 설정해야 합니다.
+
+이 문서에 설명된 단계는 Windows Server 2012 R2를 실행하는 호스트 시스템에서 수행되었습니다.
 
 ## HTTP를 통해 연결
 
@@ -61,7 +63,7 @@ Azure 클래식 포털에서 다음 단계를 수행하여 HTTP를 통한 원격
 
 4. 이제 HTTP를 사용하여 연결하도록 선택할 수 있습니다. 기본값은 HTTPS를 통한 연결입니다. HTTP가 선택되었는지 확인합니다.
 
-    >[AZURE.NOTE]HTTP를 통한 연결은 신뢰할 수 있는 네트워크에서만 허용됩니다.
+    >[AZURE.NOTE] HTTP를 통한 연결은 신뢰할 수 있는 네트워크에서만 허용됩니다.
 
 6. 페이지 맨 아래에서 **저장**을 클릭합니다.
 
@@ -112,7 +114,7 @@ Azure 클래식 포털에서 다음 단계를 수행하여 HTTP를 통한 원격
 
      `Enter-pssession -Credential $cred -ConfigurationName SSAdminConsole -ComputerName <device_ip>`
 
-     >[AZURE.NOTE]StorSimple 가상 장치에 사용할 Windows PowerShell 세션을 만들려면 `–port` 매개 변수를 추가하고 Remoting for StorSimple Virtual Appliance에서 구성한 공용 포트를 지정합니다.
+     >[AZURE.NOTE] StorSimple 가상 장치에 사용할 Windows PowerShell 세션을 만들려면 `–port` 매개 변수를 추가하고 Remoting for StorSimple Virtual Appliance에서 구성한 공용 포트를 지정합니다.
 
      이제 장치에 대한 활성 원격 Windows PowerShell 세션이 있습니다.
 
@@ -176,7 +178,7 @@ Azure 클래식 포털에서 다음 단계를 수행하여 HTTPS를 통한 원�
 
 4. `Get-HcsSystem`의 출력에서 장치의 일련 번호를 복사하고 나중에 사용하기 위해 저장합니다.
 
-    >[AZURE.NOTE]일련 번호는 인증서의 CN 이름에 매핑됩니다.
+    >[AZURE.NOTE] 일련 번호는 인증서의 CN 이름에 매핑됩니다.
 
 5. 다음을 입력하여 원격 관리 인증서를 가져옵니다.
  
@@ -188,7 +190,7 @@ Azure 클래식 포털에서 다음 단계를 수행하여 HTTPS를 통한 원�
 
 5. **-----BEGIN CERTIFICATE-----**에서 **-----END CERTIFICATE-----**까지 인증서 정보를 메모장 등의 텍스트 편집기에 복사하고 .cer 파일로 저장합니다. 호스트를 준비할 때 이 파일을 원격 호스트에 복사합니다.
 
-    >[AZURE.NOTE]새 인증서를 생성하려면 `Set-HcsRemoteManagementCert` cmdlet을 사용합니다.
+    >[AZURE.NOTE] 새 인증서를 생성하려면 `Set-HcsRemoteManagementCert` cmdlet을 사용합니다.
 
 ### 원격 관리를 위해 호스트 준비
 
@@ -272,4 +274,4 @@ Windows PowerShell 및 SSL을 사용하여 원격 호스트 또는 클라이언�
 
 - [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

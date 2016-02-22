@@ -13,20 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="01/09/2016" 
+	ms.date="02/04/2016" 
 	ms.author="robmcm"/>
-
 
 # Azure에서 원격 데스크톱 사용
 
 원격 데스크톱을 사용하면 Azure에서 실행 중인 역할 인스턴스의 데스크톱에 액세스할 수 있습니다. 원격 데스크톱 연결을 사용하여 가상 컴퓨터를 구성하거나 응용 프로그램의 문제를 해결할 수 있습니다.
 
-> [AZURE.NOTE]이 문서는 Azure 클라우드 서비스로 호스트된 Node.js 응용 프로그램에 적용됩니다.
+> [AZURE.NOTE] 이 문서는 Azure 클라우드 서비스로 호스트된 Node.js 응용 프로그램에 적용됩니다.
 
 
 ## 필수 조건
 
-- [Azure Powershell](../install-configure-powershell.md)을 설치하고 구성합니다.
+- [Azure Powershell](../powershell-install-configure.md)을 설치하고 구성합니다.
 - Node.js 앱을 Azure 클라우드 서비스에 배포합니다. 자세한 내용은 [Node.js 응용 프로그램을 만들어서 Azure 클라우드 서비스에 배포](cloud-services-nodejs-develop-deploy-app.md)를 참조하세요.
 
 
@@ -74,9 +73,7 @@
 
     ![Windows 보안 프롬프트][5]
 
-4.  **연결**을 클릭하면 인스턴스에 액세스할 자격 증명을
-    입력하기 위한 보안 프롬프트가 나타납니다.
-    [1단계][1단계: Azure PowerShell을 사용하여 원격 데스크톱 액세스에 대한 서비스를 구성]에서 생성한 암호를 입력한 후 **확인**을 클릭합니다.
+4.  **연결**을 클릭하면 인스턴스에 액세스할 자격 증명을 입력하기 위한 보안 프롬프트가 나타납니다. [1단계]\[1단계: Azure PowerShell을 사용하여 원격 데스크톱 액세스에 대한 서비스를 구성]에서 생성한 암호를 입력한 후 **확인**을 클릭합니다.
 
     ![사용자 이름/암호 프롬프트][6]
 
@@ -108,14 +105,14 @@
 [publish-project]: ./media/cloud-services-nodejs-enable-remote-desktop/publish-rdp.png
 [enable-rdp]: ./media/cloud-services-nodejs-enable-remote-desktop/enable-rdp.png
 [cloud-services]: ./media/cloud-services-nodejs-enable-remote-desktop/cloud-services-remote.png
-  [3]: ./media/cloud-services-nodejs-enable-remote-desktop/cloud-service-instance.png
-  [4]: ./media/cloud-services-nodejs-enable-remote-desktop/rdp-open.png
-  [5]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-12.png
-  [6]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-13.png
-  [7]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-14.png
+[3]: ./media/cloud-services-nodejs-enable-remote-desktop/cloud-service-instance.png
+[4]: ./media/cloud-services-nodejs-enable-remote-desktop/rdp-open.png
+[5]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-12.png
+[6]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-13.png
+[7]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-14.png
   
-  [Azure에서 역할 인스턴스 원격 액세스]: http://msdn.microsoft.com/library/windowsazure/hh124107.aspx
-  [Azure 역할과 함께 원격 데스크톱 사용]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
+[Azure에서 역할 인스턴스 원격 액세스]: http://msdn.microsoft.com/library/windowsazure/hh124107.aspx
+[Azure 역할과 함께 원격 데스크톱 사용]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
  
 
-<!---HONumber=AcomDC_0114_2016--->
+<!---HONumber=AcomDC_0211_2016-->

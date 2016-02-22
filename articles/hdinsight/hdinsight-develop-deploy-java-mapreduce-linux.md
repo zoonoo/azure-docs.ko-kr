@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="02/05/2016"
 	ms.author="larryfr"/>
 
 # HDInsight의 Hadoop용 Java MapReduce 프로그램 개발
@@ -248,13 +248,13 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 
 2. SSH 세션에서 다음 명령을 사용하여 MapReduce 응용 프로그램을 실행합니다.
 
-		hadoop jar wordcountjava.jar org.apache.hadoop.examples.WordCount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/wordcountout
+		yarn jar wordcountjava.jar org.apache.hadoop.examples.WordCount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/wordcountout
 
 	이 명령은 WordCount MapReduce 응용 프로그램을 사용하여 davinci.txt 파일에서 단어 수를 계산하고 결과를 \_\___wasb:///example/data/wordcountout__에 저장합니다. 입력 파일과 출력 모두 클러스터의 기본 저장소에 저장됩니다.
 
 3. 작업이 완료되면 다음을 사용하여 결과를 확인합니다.
 
-		hadoop fs -cat wasb:///example/data/wordcountout/*
+		hdfs dfs -cat wasb:///example/data/wordcountout/*
 
 	다음과 유사한 값을 가진 단어 및 개수 목록이 표시됩니다.
 
@@ -292,4 +292,4 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

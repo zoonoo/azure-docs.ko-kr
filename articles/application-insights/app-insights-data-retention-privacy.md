@@ -64,7 +64,7 @@ Application Insights SDK는 다음과 같은 응용 프로그램 형식에 사�
 주요 범주는 다음과 같습니다.
 
 * [웹 서버 원격 분석](app-insights-asp-net.md) - HTTP가 요청합니다. URI, 요청, 응답 코드, 클라이언트 IP 주소를 처리하는 데 걸린 시간입니다. 세션 ID.
-* [웹 페이지](articles/app-insights-javascript.md) -페이지, 사용자 및 세션 수입니다. 페이지 로드 시간. 예외.
+* [웹 페이지](app-insights-javascript.md) -페이지, 사용자 및 세션 수입니다. 페이지 로드 시간. 예외. AJAX 호출.
 * 성능 카운터 - 메모리, CPU, IO, 네트워크 선점입니다.
 * 클라이언트 및 서버 컨텍스트 - OS, 로캘, 장치 형식, 브라우저, 화면 해상도입니다.
 * [예외](app-insights-asp-net-exceptions.md) 및 작동 중단 - **스택 덤프**, 작성 ID, CPU 형식입니다. 
@@ -191,7 +191,7 @@ SDK는 플랫폼마다 다르며, 설치할 수 있는 여러 구성 요소가 �
 [.NET 웹 프로젝트에 Application Insights SDK 추가][greenbrown] | ServerContext<br/>유추<br/>성능 카운터<br/>요청<br/>**예외**<br/>세션<br/>사용자
 [IIS에 상태 모니터 설치][redfield]<br/>[Azure VM 또는 웹앱에 AI 확장 추가][azure]|종속성<br/>ServerContext<br/>유추<br/>성능 카운터
 [Java 웹앱에 Application Insights SDK 추가][java]|ServerContext<br/>유추<br/>요청<br/>세션<br/>사용자
-[웹 페이지에 JavaScript SDK 추가][client]|ClientContext<br/>유추<br/>페이지<br/>ClientPerf
+[웹 페이지에 JavaScript SDK 추가][client]|ClientContext<br/>유추<br/>페이지<br/>ClientPerf<br/>Ajax
 [Windows 스토어 앱에 SDK 추가][windows]|DeviceContext<br/>사용자<br/>충돌 데이터
 [기본 속성 정의][apiproperties]|모든 표준 및 사용자 지정 이벤트의 **속성**
 [호출 TrackMetric][api]|숫자 값<br/>**속성**
@@ -218,6 +218,7 @@ ServerContext |컴퓨터 이름, 로캘, OS, 장치, 사용자 세션, 사용자
 이벤트 | 이벤트 이름 및 값
 PageViews | URL 및 페이지 이름이나 화면 이름
 클라이언트 성능 | URL/페이지 이름, 브라우저 로드 시간
+Ajax | 웹 페이지에서 서버로 HTTP 호출
 요청 |URL, 기간, 응답 코드
 종속성|유형(SQL, HTTP,...), 연결 문자열 또는 URI, 동기/비동기, 기간, 성공, SQL 문(상태 모니터 사용)
 **예외** | 유형, **메시지**, 호출 스택, 원본 파일 및 줄 번호, 스레드 ID
@@ -264,4 +265,4 @@ SDK 진단 | 추적 메시지 또는 예외
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

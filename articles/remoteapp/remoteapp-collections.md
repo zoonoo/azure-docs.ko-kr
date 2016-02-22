@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="01/07/2016" 
+    ms.date="02/02/2016" 
     ms.author="elizapo" />
 
 
@@ -80,7 +80,7 @@ Azure AD 계정을 사용하려는 경우 Azure AD 테넌트가 구독에 연결
 
 Azure AD + 온-프레미스 Active Directory 사용은 하이브리드 컬렉션에 대한 전제 조건입니다. 두 디렉터리를 통합하려면 AD Connect를 사용해야 합니다. 하지만 AD 연결을 구성하는 방법의 경우 몇 가지 선택이 있습니다.
 
-암호 동기화 사용 또는 AD 페더레이션 사용 등 두 가지 AD Connect 시나리오가 있습니다. [AD Connect 정보](active-directory-aadconnect.md)를 체크 아웃하여 둘 중 가장 적합한 시나리오를 알아냅니다.
+암호 동기화 사용 또는 AD 페더레이션 사용 등 두 가지 AD Connect 시나리오가 있습니다. [AD Connect 정보](../active-directory/active-directory-aadconnect.md)를 체크 아웃하여 둘 중 가장 적합한 시나리오를 알아냅니다.
 
 또한 Azure AD + AD를 클라우드 컬렉션과 함께 사용할 수 있습니다. 같은 설정 단계를 수행해야 합니다.
 
@@ -91,4 +91,4 @@ Azure AD 및 Active Directory를 구성하는 데 필요한 단계는 [Azure Rem
 
 [클라우드 컬렉션을 만들](remoteapp-create-cloud-deployment.md) 또는 [하이브리드 컬렉션을 만들기](remoteapp-create-hybrid-deployment.md) - 만들기만 하면 됩니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

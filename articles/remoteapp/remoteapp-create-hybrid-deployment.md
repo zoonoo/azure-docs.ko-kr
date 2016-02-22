@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="02/05/2016" 
 	ms.author="elizapo"/>
 
 # Azure RemoteApp용 하이브리드 컬렉션을 만드는 방법
@@ -28,7 +28,7 @@
 이 자습서에서는 하이브리드 컬렉션을 만드는 프로세스를 단계별로 안내합니다. 8가지 단계가 있습니다.
 
 1.	컬렉션에 사용할 [이미지](remoteapp-imageoptions.md)를 결정합니다. 사용자 지정 이미지를 만들거나 구독에 포함된 Microsoft 이미지 중 하나를 선택할 수 있습니다.
-2. 가상 네트워크를 설정합니다. [VNET 계획](remoteapp-planvpn.md) 및 [크기 조정](remoteapp-vnetsizing.md) 정보를 확인하세요.
+2. 가상 네트워크를 설정합니다. [VNET 계획](remoteapp-planvnet.md) 및 [크기 조정](remoteapp-vnetsizing.md) 정보를 확인하세요.
 2.	컬렉션을 만듭니다.
 2.	컬렉션을 로컬 도메인에 연결합니다.
 3.	템플릿 이미지를 컬렉션에 추가합니다.
@@ -43,7 +43,7 @@
 - Azure RemoteApp에 [등록](https://azure.microsoft.com/services/remoteapp/)합니다. 
 - Azure RemoteApp 서비스 계정으로 사용할 Active Directory의 사용자 계정을 만듭니다. 이 계정의 권한은 도메인에 컴퓨터를 가입시킬 수 있는 권한만으로 제한합니다.
 - 온-프레미스 네트워크에 대한 정보 수집: IP 주소 정보 및 VPN 장치 세부 정보입니다.
-- [Azure PowerShell](../install-configure-powershell.md) 모듈을 설치합니다.
+- [Azure PowerShell](../powershell-install-configure.md) 모듈을 설치합니다.
 - 액세스 권한을 부여할 사용자에 대한 정보를 수집합니다. 사용자당 하나의 Azure Active Directory 사용자 계정 이름(예: name@contoso.com)이 필요합니다. Azure AD와 Active Directory 간에 UPN이 일치하는지 확인합니다.
 - 템플릿 이미지를 선택합니다. Azure RemoteApp 템플릿 이미지는 사용자를 위해 게시하려는 앱 및 프로그램을 포함합니다. 자세한 내용은 [Azure RemoteApp 이미지 옵션](remoteapp-imageoptions.md)을 참조하세요. 
 - Office 365 ProPlus 이미지를 사용하려는 경우 [여기](remoteapp-officesubscription.md)서 정보를 확인하세요.
@@ -58,7 +58,7 @@ VNET을 만들기 전에 [VNET 계획](remoteapp-planvnet.md) 및 [VNET 크기](
 
 ### Azure VNET을 만들고 Active Directory 배포에 조인
 
-[가상 네트워크](../virtual-network/virtual-networks-create-vnet.md)를 만들기 시작합니다. 이 작업은 Azure 관리 포털의 **네트워크** 탭에서 수행됩니다. Azure Active Directory 테넌트로 동기화되는 Active Directory 배포에 가상 네트워크를 연결해야 합니다.
+[가상 네트워크](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)를 만들기 시작합니다. 이 작업은 Azure 관리 포털의 **네트워크** 탭에서 수행됩니다. Azure Active Directory 테넌트로 동기화되는 Active Directory 배포에 가상 네트워크를 연결해야 합니다.
 
 자세한 내용은 [관리 포털에서 가상 네트워크 설정 정보](../virtual-network/virtual-networks-settings.md)를 참조하세요.
 
@@ -120,7 +120,7 @@ RemoteApp은 1) 암호 동기화 옵션을 포함하여 Azure Active Directory �
 
 Azure RemoteApp 앱은 사용자에게 제공하는 앱 또는 프로그램입니다. 이 프로그램은 컬렉션에 대해 업로드한 템플릿 이미지에 있습니다. 사용자가 앱에 액세스할 때 앱이 로컬 환경에서 실행하는 것처럼 보이지만 실제로는 Azure에서 실행됩니다.
 
-사용자가 앱에 액세스할 수 있으려면 사용자가 원격 데스크톱 클라이언트를 통해 액세스하는 사용 가능한 앱 목록인 최종 사용자 피드에 게시해야 합니다.
+사용자가 앱에 액세스할 수 있도록 하려면 해당 앱을 게시해야 합니다. 이렇게 하면 사용자가 원격 데스크톱 클라이언트를 통해 해당 앱에 액세스할 수 있습니다.
  
 컬렉션에 여러 앱을 게시할 수 있습니다. 게시 페이지에서 **게시**를 클릭하여 앱을 추가합니다. 템플릿 이미지의 **시작** 메뉴에서 또는 앱의 템플릿 이미지에 경로를 지정하여 게시할 수 있습니다. **시작** 메뉴에서 추가하도록 선택한 경우 추가할 프로그램을 선택합니다. 앱의 경로를 제공하도록 선택한 경우 앱의 이름 및 템플릿 이미지에서 앱이 설치된 경로를 입력합니다.
 
@@ -149,4 +149,4 @@ Azure RemoteApp 하이브리드 컬렉션을 성공적으로 만들고 배포했
 ### 의견 보내기 
 이 기사에 대한 등급을 매기고 아래에 의견을 다는 것은 물론 문서를 직접 변경할 수 있다는 사실을 알고 계셨나요? 누락된 부분이 있나요? 잘못된 부분이 있나요? 혼동을 줄 수 있는 부분이 있나요? 위로 스크롤하여 **GitHub에서 편집**을 클릭하면 변경할 수 있습니다. 당사에서 변경 사항을 검토하고 승인하면 변경 및 개선 사항을 바로 여기서 확인할 수 있습니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

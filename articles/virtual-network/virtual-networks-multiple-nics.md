@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="02/02/2016"
    ms.author="telmos" />
 
 # 여러 NIC를 사용하여 VM 만들기
@@ -97,7 +97,7 @@ Azure에서 VM(가상 컴퓨터)을 만들고 각 VM에 여러 NIC(네트워크 
 - ****들어오는 트래픽** 대상은 서브넷을 통한 논의 중인 NIC 흐름으로, 서브넷의 NSG 규칙을 트리거하며 NIC로 전달되기 전에 NIC의 NSG 규칙을 트리거합니다.
 - **들어오는 트래픽** 소스는 처음 NIC를 통한 논의 중인 NIC 흐름으로, NIC의 NSG 규칙을 트리거하며 서브넷으로 전달되기 전에 서브넷의 NSG 규칙을 트리거합니다. 
 
-[네트워크 보안 그룹](virtual-networks-nsg)과 서브넷, VM 및 NIC 연결을 기반으로 이를 적용하는 방법에 대해 자세히 알아보세요.
+[네트워크 보안 그룹](virtual-networks-nsg.md)과 서브넷, VM 및 NIC 연결을 기반으로 이를 적용하는 방법에 대해 자세히 알아보세요.
 
 ## 클래식 배포에서 다중 NIC VM을 구성하는 방법
 
@@ -164,7 +164,7 @@ Azure에서 VM(가상 컴퓨터)을 만들고 각 VM에 여러 NIC(네트워크 
 
 		New-AzureVM -ServiceName "MultiNIC-CS" –VNetName "MultiNIC-VNet" –VMs $vm
 
->[AZURE.NOTE]여기서 지정하는 VNet(전제 조건에서 설명한 대로)은 이미 존재해야 합니다. 다음 예제에서는 **MultiNIC-VNet**으로 명명된 가상 네트워크를 지정합니다.
+>[AZURE.NOTE] 여기서 지정하는 VNet(전제 조건에서 설명한 대로)은 이미 존재해야 합니다. 다음 예제에서는 **MultiNIC-VNet**으로 명명된 가상 네트워크를 지정합니다.
 
 ## 다른 서브넷에 대한 보조 NIC 액세스
 
@@ -265,4 +265,4 @@ Linux VM의 경우, 기본 동작에서 취약한 호스트 라우팅을 사용�
 - [리소스 관리자 배포를 통해 2계층 응용 프로그램 시나리오에서 MultiNIC VM](virtual-network-deploy-multinic-arm-template.md) 배포
 - [클래식 배포를 통해 2계층 응용 프로그램 시나리오에서 MultiNIC VM](virtual-network-deploy-multinic-classic-ps.md) 배포
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

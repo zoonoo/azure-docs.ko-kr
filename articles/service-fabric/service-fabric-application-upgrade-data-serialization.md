@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/02/2016"
+   ms.date="02/04/2016"
    ms.author="jesseb"/>
 
 
@@ -56,12 +56,15 @@ Azure 서비스 패브릭에서 유지 및 복제되는 데이터는 C# 클래�
 
 ## 다음 단계
 
-[Visual Studio를 사용하여 서비스 패브릭 응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
+[Visual Studio를 사용하여 응용 프로그램 업그레이드](service-fabric-application-upgrade-tutorial.md)에서는 Visual Studio를 사용하여 응용 프로그램 업그레이드를 진행하는 방법을 안내합니다.
 
-[PowerShell을 사용하여 서비스 패브릭 응용 프로그램 업그레이드](service-fabric-automate-powershell.md)
+[Powershell을 사용하여 응용 프로그램 업그레이드](service-fabric-application-upgrade-tutorial-powershell.md)에서는 PowerShell을 사용하여 응용 프로그램 업그레이드를 진행하는 방법을 안내합니다.
 
-[업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md)
+[업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md)를 사용하여 응용 프로그램 업그레이드 방법을 제어합니다.
 
-[수동 업그레이드 및 Diff 패키지로 업그레이드](service-fabric-application-upgrade-advanced.md)
+[고급 항목](service-fabric-application-upgrade-advanced.md)을 참조하여 응용 프로그램을 업그레이드하는 동안 고급 기능을 사용하는 방법에 대해 알아봅니다.
 
-<!---HONumber=AcomDC_0204_2016-->
+[응용 프로그램 업그레이드 문제 해결](service-fabric-application-upgrade-troubleshooting.md)의 단계를 참조하여 응용 프로그램 업그레이드 중 발생하는 일반적인 문제를 해결합니다.
+ 
+
+<!---HONumber=AcomDC_0211_2016-->

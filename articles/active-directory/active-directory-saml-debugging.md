@@ -10,7 +10,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="11/18/2015" 
+    ms.date="02/09/2016" 
     ms.author="asmalser" />
 
 #Azure Active Directory에서 SAML 기반 Single Sign-On을 응용 프로그램에 디버그하는 방법
@@ -25,7 +25,13 @@ SAML 토큰이 포함된 Azure AD의 응답은 일반적으로 https://login.win
  
 **참고**: 이 HTTP 요청의 콘텐츠를 보려는 경우 Fiddler에서 수행해야 하는 HTTPS 트래픽의 암호 해독을 구성하라는 메시지를 표시할 수 있습니다.
 
+## 관련 문서
+
+- [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
+- [Azure Active Directory 응용 프로그램 갤러리에 있지 않은 응용 프로그램에 Single Sign-On 구성](active-directory-saas-custom-apps.md)
+- [사전 통합된 앱에 대해 SAML 토큰에서 발급된 클레임을 사용자 지정하는 방법](active-directory-saml-claims-customization.md)
+
 <!--Image references-->
 [1]: ./media/active-directory-saml-debugging/fiddler.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

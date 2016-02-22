@@ -3,7 +3,7 @@
    description="공개 미리 보기 기능 및 SQL 데이터 웨어하우스의 일반 공급에 대한 목표 요약입니다."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="lvargas"
+   authors="twounder"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="01/07/2016"
-   ms.author="lvargas;mausher;barbkess"/>
+   ms.author="mausher;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스 미리 보기 기대치
 
@@ -72,4 +72,4 @@ SQL 데이터 웨어하우스는 해당 데이터에 사용자 데이터 및 제
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

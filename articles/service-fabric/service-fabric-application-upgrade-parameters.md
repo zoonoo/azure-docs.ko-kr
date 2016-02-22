@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/17/2015"
+   ms.date="02/09/2016"
    ms.author="subramar"/>
 
 
@@ -36,7 +36,7 @@
 | HealthCheckStableDurationSec | 다음 업그레이드 도메인으로 이행하거나 업그레이드를 종료하기 전에 응용 프로그램이 안정적인지 확인하기 위해 대기하는 소요 시간(초)입니다. 이 대기 소요 시간은 상태 검사를 수행한 직후에 보호되지 않은 상태 변경을 방지하기 위해 사용됩니다. 기본값은 0초이며, 응용 프로그램에 맞게 적절히 사용자 지정해야 합니다. |
 | UpgradeDomainTimeoutSec | 단일 업그레이드 도메인을 업그레이드 하는 최대 시간(초)입니다. 이 시간 제한에 도달하면 업그레이드가 중지되고 UpgradeFailureAction에 의해 지정된 작업을 수행합니다. 기본값은 없음(무한)이며, 응용 프로그램에 맞게 적절히 사용자 지정해야 합니다. |
 | UpgradeTimeout | 전체 업그레이드에 적용되는 시간 제한(초)입니다. 이 시간 제한에 도달하면 업그레이드가 중지되고 UpgradeFailureAction이 트리거됩니다. 기본값은 없음(무한)이며, 응용 프로그램에 맞게 적절히 사용자 지정해야 합니다. |
-| UpgradeHealthCheckInterval | 상태를 확인하는 빈도입니다. 이 매개 변수는 클러스터 매니페스트의 ClusterManager 섹션에 지정됩니다(업그레이드 cmdlet의 일부로 지정되지 않음). 기본값은 60초입니다. |
+| UpgradeHealthCheckInterval | 상태를 확인하는 빈도입니다. 이 매개 변수는 _클러스터_ _매니페스트_의 ClusterManager 섹션에 지정됩니다(업그레이드 cmdlet의 일부로 지정되지 않음). 기본값은 60초입니다. |
 
 
 
@@ -67,15 +67,15 @@
 
 ## 다음 단계
 
+[Visual Studio를 사용하여 응용 프로그램 업그레이드](service-fabric-application-upgrade-tutorial.md)에서는 Visual Studio를 사용하여 응용 프로그램 업그레이드를 진행하는 방법을 안내합니다.
 
-[Visual Studio를 사용하여 서비스 패브릭 응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
+[Powershell을 사용하여 응용 프로그램 업그레이드](service-fabric-application-upgrade-tutorial-powershell.md)에서는 PowerShell을 사용하여 응용 프로그램 업그레이드를 진행하는 방법을 안내합니다.
 
-[PowerShell을 사용하여 서비스 패브릭 응용 프로그램 업그레이드](service-fabric-application-upgrade-tutorial-powershell.md)
+[데이터 직렬화](service-fabric-application-upgrade-data-serialization.md) 사용 방법을 익혀 응용 프로그램 업그레이드와 호환되도록 만듭니다.
 
-[수동 업그레이드 및 Diff 패키지로 업그레이드](service-fabric-application-upgrade-advanced.md)
+[고급 항목](service-fabric-application-upgrade-advanced.md)을 참조하여 응용 프로그램을 업그레이드하는 동안 고급 기능을 사용하는 방법에 대해 알아봅니다.
 
-[응용 프로그램 업그레이드 문제 해결](service-fabric-application-upgrade-troubleshooting.md)
+[응용 프로그램 업그레이드 문제 해결](service-fabric-application-upgrade-troubleshooting.md)의 단계를 참조하여 응용 프로그램 업그레이드 중 발생하는 일반적인 문제를 해결합니다.
+ 
 
-[데이터 직렬화](service-fabric-application-upgrade-data-serialization.md)
-
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

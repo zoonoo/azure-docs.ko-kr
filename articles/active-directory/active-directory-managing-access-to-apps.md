@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
   ms.devlang="na"
   ms.topic="article"
-  ms.date="12/08/2015"
+  ms.date="02/09/2016"
   ms.author="stevenpo"/>
 
 
@@ -66,9 +66,10 @@ Azure AD를 사용하여 Single Sign-On(SSO) 및 자동화된 프로비전에 Sa
 - 응용 프로그램 할당 FAQ
 - [앱 사용 대시보드/보고서](active-directory-passwords-get-insights.md)
 
-## 자세한 내용을 알아보려면 어떻게 할까요?
+## 자세한 내용을 알아보려면 어떤 정보를 참조해야 하나요?
 
+- [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 - [조건부 액세스를 사용한 앱 보호](active-directory-conditional-access.md)
 - [셀프 서비스 그룹 관리/SSAA](active-directory-accessmanagement-self-service-group-management.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

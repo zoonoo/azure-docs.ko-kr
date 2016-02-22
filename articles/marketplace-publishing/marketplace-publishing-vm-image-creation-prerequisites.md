@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="10/09/2015"
+  ms.date="02/04/2016"
   ms.author="hascipio; v-divte"/>
 
 # Azure 마켓플레이스용 가상 컴퓨터 이미지를 만들기 위한 기술 필수 조건
@@ -33,7 +33,7 @@ Windows 또는 Linux에서 Azure 기반 VM을 개발할 수 있습니다. Azure 
 - Linux를 사용 중인 경우에는 [가상 컴퓨터 이미지 게시 가이드](marketplace-publishing-vm-image-creation.md)의 “Azure 호환 VHD 만들기(Linux 기반)” 섹션을 참조하세요.
 - Windows를 사용 중인 경우에는 [가상 컴퓨터 이미지 게시 가이드](marketplace-publishing-vm-image-creation.md)의 “Azure 호환 VHD 만들기(Windows 기반)” 섹션을 참조하세요.
 
-> [AZURE.NOTE]인증 유효성 검사 도구를 실행하고 VHD 인증 제출용 VHD 공유 액세스 서명 URL을 만들려면 Windows 기반 컴퓨터에 액세스해야 합니다.
+> [AZURE.NOTE] 인증 유효성 검사 도구를 실행하고 VHD 인증 제출용 VHD 공유 액세스 서명 URL을 만들려면 Windows 기반 컴퓨터에 액세스해야 합니다.
 
 ## VHD 개발
 클라우드 또는 온-프레미스에서 VHD를 개발할 수 있습니다.
@@ -51,4 +51,4 @@ Windows 또는 Linux에서 Azure 기반 VM을 개발할 수 있습니다. Azure 
 
 [link-acct-creation]: marketplace-publishing-accounts-creation-registration.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

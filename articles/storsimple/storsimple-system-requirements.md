@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="02/01/2016"
+   ms.date="02/04/2016"
    ms.author="alkohli"/>
 
 # StorSimple 소프트웨어, 높은 가용성 및 네트워킹 요구 사항
@@ -36,7 +36,7 @@ Microsoft Azure StorSimple 시작을 환영합니다. 이 문서에서는 중요
 | 지원되는 운영 체제 | 필요한 버전 | 추가 요구 사항/메모 |
 | --------------------------- | ---------------- | ------------- |
 | Windows Server | 2008R2 SP1, 2012, 2012R2 |StorSimple iSCSI 볼륨은 다음과 같은 Windows 디스크 유형에 사용하는 경우에만 지원됩니다.<ul><li>기본 디스크의 단순 볼륨</li><li>동적 디스크의 단순 및 미러 볼륨</li></ul>Windows Server 2012 씬 프로비저닝 및 ODX 기능은 StorSimple iSCSI 볼륨을 사용하는 경우에만 지원됩니다.<br><br>StorSimple은 씬 프로비전된 볼륨 및 완전히 프로비전된 볼륨을 만들 수 있습니다. 부분적으로 프로비전된 볼륨은 만들 수 없습니다.<br><br>씬 프로비전된 볼륨을 다시 포맷하는 데에는 시간이 오래 걸릴 수 있습니다. 다시 포맷하는 대신 볼륨을 삭제했다가 새 볼륨을 만드는 것이 좋습니다. 그래도 볼륨을 다시 포맷하려면,<ul><li>공간 재사용에 따른 지연을 방지하려면 다시 포맷하기 전에 다음 명령을 실행합니다.<br>`fsutil behavior set disabledeletenotify 1`</br></li><li>포맷이 완료되면 다음 명령을 사용하여 공간 재사용을 다시 활성화합니다.<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>[KB 2878635](https://support.microsoft.com/kb/2870270)에 설명된 대로 Windows Server 2012 핫픽스를 Windows Server 컴퓨터에 적용합니다.</li></ul></li></ul></ul> StorSimple 스냅숏 관리자 또는 SharePoint용 StorSimple 어댑터를 구성하려면 [선택적 구성 요소에 대한 소프트웨어 요구 사항](#software-requirements-for-optional-components)으로 이동하세요.|
-| VMWare ESX | 5\.5 | iSCSI 클라이언트로 VMWare vSphere와 함께 지원됩니다. VAAI 블록 기능은 StorSimple 장치에서 VMware vSphere와 함께 지원됩니다. 
+| VMWare ESX | 5\.1 및 5.5 | iSCSI 클라이언트로 VMWare vSphere와 함께 지원됩니다. VAAI 블록 기능은 StorSimple 장치에서 VMware vSphere와 함께 지원됩니다. 
 | Linux RHEL/CentOS | 5 및 6 | Open iSCSI 초기자 버전 5 및 6과 함께 Linux iSCSI 클라이언트를 지원합니다. |
 | Linux | SUSE Linux 11 | |
  > [AZURE.NOTE] IBM AIX는 현재 StorSimple에 지원되지 않습니다.
@@ -67,7 +67,7 @@ StorSimple 장치는 잠긴 장치입니다. 하지만 iSCSI, 클라우드 또�
 
 <sup>1</sup> 인바운드 포트는 공용 인터넷에서 열릴 필요가 없습니다.
 
-<sup>2</sup> 여러 포트가 게이트웨이 구성을 수행하는 경우 아웃바운드 라우팅된 트래픽 순서는 아래 [포트 라우팅](#port-routing)에 설명된 포트 라우팅 순서에 따라 결정됩니다.
+<sup>2</sup> 여러 포트가 게이트웨이 구성을 수행하는 경우 아웃바운드 라우팅된 트래픽 순서는 아래 [포트 라우팅](#routing-metric)에 설명된 포트 라우팅 순서에 따라 결정됩니다.
 
 <sup>3</sup> StorSimple 장치에서 IP가 고정된 컨트롤러는 라우팅할 수 있어야 하며 인터넷에 연결할 수 있어야 합니다. 고정 IP 주소는 장치에 대한 업데이트를 제공하는 데 사용됩니다. 장치 컨트롤러가 고정 IP를 통해 인터넷에 연결되는 경우 StorSimple 장치를 업데이트할 수 없습니다.
 
@@ -77,7 +77,7 @@ StorSimple 장치는 잠긴 장치입니다. 하지만 iSCSI, 클라우드 또�
 
 라우팅 메트릭은 데이터를 특정 네트워크로 라우팅하는 게이트웨이 및 인터페이스와 연결됩니다. 라우팅 메트릭은 주어진 대상에 대해 다수의 경로가 존재한다는 것이 파악되면, 라우팅 프로토콜이 해당 대상에 대한 최상의 경로를 계산하는 데 사용됩니다. 라우팅 메트릭이 낮을수록 기본 설정이 높습니다.
 
-StorSimple에 대해 다수의 네트워크 인터페이스와 게이트웨이가 트래픽을 전달하기 위해 구성되면 라우팅 메트릭이 인터페이스가 사용될 상대적인 순서를 결정하는 데 작용하게 됩니다. 라우팅 메트릭은 사용자에 의해 변경될 수 없습니다. 하지만 `Get-HcsRoutingTable` cmdlet을 사용하여 StorSimple 장치에 라우팅 테이블(및 메트릭)을 출력할 수 있습니다. [Get-HcsRoutingTable cmdlet](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-get-hcsroutingtable-cmdlet)에 대한 자세한 내용을 참조하세요.
+StorSimple에 대해 다수의 네트워크 인터페이스와 게이트웨이가 트래픽을 전달하기 위해 구성되면 라우팅 메트릭이 인터페이스가 사용될 상대적인 순서를 결정하는 데 작용하게 됩니다. 라우팅 메트릭은 사용자에 의해 변경될 수 없습니다. 하지만 `Get-HcsRoutingTable` cmdlet을 사용하여 StorSimple 장치에 라우팅 테이블(및 메트릭)을 출력할 수 있습니다. Get-HcsRoutingTable cmdlet에 대한 자세한 내용은 [StorSimple 배포 문제 해결](storsimple-troubleshoot-deployment.md)을 참조하세요.
 
 라우팅 메트릭 알고리즘은 StorSimple 장치에서 실행 중인 소프트웨어 버전에 따라 다릅니다.
 
@@ -108,11 +108,11 @@ StorSimple에 대해 다수의 네트워크 인터페이스와 게이트웨이�
 		
 	| 네트워크 인터페이스 | 클라우드 사용 | 클라우드 미사용(게이트웨이 구성됨) |
 	|-----|---------------|---------------------------|
-	| Data 0 | 1 | - | 
-	| Data 1 | 2 | 20 | 
-	| Data 2 | 3 | 30 | 
-	| Data 3 | 4 | 40 | 
-	| Data 4 | 5 | 50 | 
+	| Data 0 | 1 | - |
+	| Data 1 | 2 | 20 |
+	| Data 2 | 3 | 30 |
+	| Data 3 | 4 | 40 |
+	| Data 4 | 5 | 50 |
 	| Data 5 | 6 | 60 |
 
 
@@ -215,7 +215,7 @@ StorSimple 장치 컨트롤러 모듈마다 1기가비트 4개 및 10기가비�
 
 #### SSD 및 HDD
 
-StorSimple 장치에는 미러링된 공간을 사용하여 보호되는 SSD(Solid State Disk) 및 HDD(Hard Disk Drive)가 포함되며, 핫 스페어는 HDD용으로 제공됩니다. 미러링된 공간을 사용하면 해당 장치가 하나 이상의 SSD 또는 HDD의 장애를 허용할 수 있습니다.
+StorSimple 장치에는 미러링된 공간을 사용하여 보호되는 SSD(Solid State Disk) 및 HDD(Hard Disk Drive)가 포함됩니다. 미러링된 공간을 사용하면 해당 장치가 하나 이상의 SSD 또는 HDD의 장애를 허용할 수 있습니다.
 
 - 모든 SSD 및 HDD 모듈이 설치되었는지 확인합니다.
 
@@ -256,9 +256,9 @@ StorSimple 장치에 연결된 호스트의 고가용성을 위해 이러한 모
 ## 다음 단계
 
 - [StorSimple 시스템 제한에 대해 자세히 알아봅니다](storsimple-limits.md).
-- [StorSimple 솔루션 배포 방법을 알아봅니다](storsimple-deployment-walkthrough.md).
+- [StorSimple 솔루션 배포 방법을 알아봅니다](storsimple-deployment-walkthrough-u2.md).
  
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

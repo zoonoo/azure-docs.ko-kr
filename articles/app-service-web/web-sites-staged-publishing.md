@@ -49,7 +49,8 @@
 
 	![새 배포 슬롯 추가][QGAddNewDeploymentSlot]
 
-	> [AZURE.NOTE]웹 앱이 **표준** 또는 **프리미엄** 모드가 아닌 경우 준비된 게시를 사용하려면 지원 모델을 나타내는 메시지를 받게 됩니다. 이때 **업그레이드**를 선택할 수 있는 옵션이 제공되고 계속하기 전에 웹 앱의 **크기 조정** 탭으로 이동합니다.
+	> [AZURE.NOTE]
+	웹 앱이 **표준** 또는 **프리미엄** 모드가 아닌 경우 준비된 게시를 사용하려면 지원 모델을 나타내는 메시지를 받게 됩니다. 이때 **업그레이드**를 선택할 수 있는 옵션이 제공되고 계속하기 전에 웹 앱의 **크기 조정** 탭으로 이동합니다.
 
 2. **슬롯 추가** 블레이드에서 슬롯에 이름을 지정하고, 다른 기존 배포 슬롯으로부터 웹 앱 구성을 복제할 것인지 여부를 선택합니다. 확인 표시를 클릭하여 계속합니다.
 
@@ -97,7 +98,7 @@
 <a name="Swap"></a>
 ## 배포 슬롯을 교환하려면 ##
 
->[AZURE.IMPORTANT]배포 슬롯에서 프로덕션으로 웹 앱을 교환하기 전에 특정 슬롯이 아닌 모든 설정이 해당 교환 대상에서 원하는 대로 정확히 구성되어야 합니다.
+>[AZURE.IMPORTANT] 배포 슬롯에서 프로덕션으로 웹 앱을 교환하기 전에 특정 슬롯이 아닌 모든 설정이 해당 교환 대상에서 원하는 대로 정확히 구성되어야 합니다.
 
 1. 배포 슬롯을 교환하려면 웹앱의 명령 모음 또는 배포 슬롯의 명령 모음에서 **교환** 단추를 클릭합니다. 교환 원본 및 교환 대상이 제대로 설정되어야 합니다. 일반적으로 교환 대상은 프로덕션 슬롯입니다.  
 
@@ -109,7 +110,7 @@
 
 자동 교환은 웹 앱의 최종 사용자를 위해 중단 시간 및 콜드 부팅이 발생하지 않는 웹 앱을 지속적으로 배포하려는 DevOps 시나리오를 간소화합니다. 배포 슬롯이 자동 교환에 대해 프로덕션에 구성될 때, 해당 슬롯에 이미 준비된 후에 해당 슬롯에 코드 업데이트를 푸시할 때마다 앱 서비스가 웹 앱을 프로덕션으로 자동 교환합니다.
 
->[AZURE.IMPORTANT]슬롯에 대해 자동 교환을 사용할 때 슬롯 구성은 정확히 대상 슬롯(일반적으로 프로덕션 슬롯)에 의도한 구성이어야 합니다.
+>[AZURE.IMPORTANT] 슬롯에 대해 자동 교환을 사용할 때 슬롯 구성은 정확히 대상 슬롯(일반적으로 프로덕션 슬롯)에 의도한 구성이어야 합니다.
 
 슬롯에 대한 자동 교환 구성은 쉽습니다. 다음 단계를 따르세요.
 
@@ -123,7 +124,7 @@
 
 	![][Autoswap2]
 
-	>[AZURE.NOTE]웹앱에 대한 자동 교환을 테스트하려면 먼저 **자동 교환 슬롯**에서 비 프로덕션 대상 슬롯을 선택하여 기능에 익숙해져야 합니다.
+	>[AZURE.NOTE] 웹앱에 대한 자동 교환을 테스트하려면 먼저 **자동 교환 슬롯**에서 비 프로덕션 대상 슬롯을 선택하여 기능에 익숙해져야 합니다.
 
 3. 해당 배포 슬롯에 코드 푸시를 실행합니다. 자동 교환은 짧은 시간 후에 발생하며 업데이트는 대상 슬롯의 URL에 반영됩니다.
 
@@ -134,7 +135,18 @@
 
 <a name="Rollback"></a>
 ## 교환 후 프로덕션 앱을 롤백하려면 ##
+
 슬롯 교환 후 프로덕션에서 오류가 발견되면 같은 두 슬롯을 즉시 교환하여 슬롯을 교환 전 상태로 롤백하세요.
+
+<a name="Warm-up"></a>
+## 교환하기 전에 사용자 지정 준비 ##
+
+일부 앱에는 사용자 지정 준비 작업이 필요할 수 있습니다. web.config의 applicationInitialization 구성 요소를 사용하면 요청을 받기 전에 수행할 사용자 지정 초기화 작업을 지정할 수 있습니다. 스왑 작업은 이 사용자 지정 준비가 완료될 때까지 대기합니다. 샘플 web.config 조각은 다음과 같습니다.
+
+    <applicationInitialization>
+        <add initializationPage="/" hostName="[web app hostname]" />
+        <add initializationPage="/Home/About" hostname="[web app hostname]" />
+    </applicationInitialization>
 
 <a name="Delete"></a>
 ## 배포 슬롯을 삭제하려면##
@@ -150,7 +162,7 @@
 
 Azure PowerShell은 Windows PowerShell을 통해 Azure를 관리하기 위한 cmdlet을 제공하는 모듈로, Azure 앱 서비스에서 웹 앱 배포 슬롯을 관리하는 기능도 지원합니다.
 
-- Azure PowerShell을 설치 및 구성하는 방법과 Azure 구독에 Azure PowerShell을 인증하는 방법에 대한 자세한 내용은 [Microsoft Azure PowerShell 설치 및 구성 방법](../install-configure-powershell.md)을 참조하세요.  
+- Azure PowerShell을 설치 및 구성하는 방법과 Azure 구독에 Azure PowerShell을 인증하는 방법에 대한 자세한 내용은 [Microsoft Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.  
 
 - PowerShell cmdlet용 새 Azure 리소스 관리자 모드를 사용하려면 다음으로 시작합니다.`Switch-AzureMode -Name AzureResourceManager`
 
@@ -233,7 +245,7 @@ Azure CLI는 Azure 작업을 위한 플랫폼 간 명령을 제공하며, 웹앱
 
 ----------
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ## 다음 단계 ##
 [Azure 앱 서비스 웹 앱 – 비 프로덕션 배포 슬롯에 대한 웹 액세스 차단](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
@@ -259,4 +271,4 @@ Azure CLI는 Azure 작업을 위한 플랫폼 간 명령을 제공하며, 웹앱
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

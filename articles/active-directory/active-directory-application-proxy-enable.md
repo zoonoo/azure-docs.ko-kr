@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="02/09/2016"
 	ms.author="kgremban"/>
 
 # Azure AD 응용 프로그램 프록시 사용
@@ -51,7 +51,7 @@ Microsoft Azure Active Directory 응용 프로그램 프록시를 사용하면 S
 2. Active Directory로 이동하여 응용 프로그램 프록시를 사용하도록 설정할 디렉터리를 선택합니다.
 3. **구성**을 클릭하고 응용 프로그램 프록시로 스크롤하여 이 디렉터리에 대해 응용 프로그램 프록시 서비스 사용을 **사용**으로 설정합니다.
 
-	![응용 프로그램 프록시 사용](./media/active-directory-application-proxy-enable/app_proxy_enable.png) <p>
+	![응용 프로그램 프록시 사용](./media/active-directory-application-proxy-enable/app_proxy_enable.png)
 
 4. 화면 아래쪽에서 **지금 다운로드**를 클릭합니다. 이렇게 하면 다운로드 페이지로 이동합니다. 사용 조건을 읽어보고 동의한 다음 **다운로드**를 클릭하여 응용 프로그램 프록시 커넥터의 Windows Installer 파일(.exe)을 저장합니다.
 
@@ -67,7 +67,7 @@ Microsoft Azure Active Directory 응용 프로그램 프록시를 사용하면 S
 
 4. 설치가 완료되면 아래와 같이 두 개의 새 서비스가 서버에 추가됩니다. 하나는 연결 기능을 사용할 수 있는 커넥터 서비스이며, 다른 하나는 정기적으로 커넥터의 새 버전을 확인하고 필요에 따라 커넥터를 업데이트하는 자동화된 업데이트 서비스입니다. 설치를 완료하려면 설치 창에서 **마침**을 클릭합니다.
 
-	![응용 프로그램 프록시 커넥터 서비스](./media/active-directory-application-proxy-enable/app_proxy_services.png) <p>
+	![응용 프로그램 프록시 커넥터 서비스](./media/active-directory-application-proxy-enable/app_proxy_services.png)
 
 5. 이제 [응용 프로그램 프록시를 사용하여 응용 프로그램을 게시](active-directory-application-proxy-publish.md)할 준비가 되었습니다.
 
@@ -91,8 +91,9 @@ Microsoft Azure Active Directory 응용 프로그램 프록시를 사용하면 S
 - [Channel 9에서 비디오 시청](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
 ## 추가 리소스
-* [조직으로 Azure 등록](sign-up-organization.md)
-* [Azure ID](fundamentals-identity.md)
-* [응용 프로그램 프록시를 사용하여 응용 프로그램 게시](active-directory-application-proxy-publish.md)
+- [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
+- [조직으로 Azure에 등록](sign-up-organization.md)
+- [Azure ID](fundamentals-identity.md)
+- [응용 프로그램 프록시를 사용하여 응용 프로그램 게시](active-directory-application-proxy-publish.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

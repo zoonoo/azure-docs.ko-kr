@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/10/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@
 
 - TargetProcess에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다. 
 - 사용자가 해당 Azure AD 계정으로 TargetProcess에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
-- 단일 중앙 위치인 Azure Active Directory 포털에서 계정을 관리할 수 있습니다.
+- 단일 중앙 위치인 Azure Active Directory 클래식 포털에서 계정을 관리할 수 있습니다.
 
 Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](active-directory-appssoaccess-whatis.md)을 참조하세요.
 
@@ -35,7 +35,7 @@ TargetProcess와 Azure AD 통합을 구성하려면 다음 항목이 필요합�
 - TargetProcess Single Sign-on이 설정된 구독
 
 
-> [AZURE.NOTE]이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
+> [AZURE.NOTE] 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
 
 
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
@@ -56,7 +56,7 @@ TargetProcess의 Azure AD 통합을 구성하려면 갤러리의 TargetProcess�
 
 **갤러리에서 TargetProcess를 추가하려면 다음 단계를 수행합니다.**
 
-1. **Azure 관리 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. <br><br> ![Active Directory][1]<br>
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. <br><br> ![Active Directory][1]<br>
 
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 
@@ -81,7 +81,7 @@ TargetProcess에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
 ### Azure AD Single Sign-On 구성
 
-이 섹션은 Azure AD 포털에서 Azure AD Single Sign-on을 사용하도록 설정하고 TargetProcess 응용 프로그램에서 Single Sign-On을 구성하는 방법을 설명하기 위한 것입니다. 이 절차의 일부로 base-64로 인코딩된 인증서 파일을 만들어야 합니다. 이 절차를 잘 모르는 경우 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
+이 섹션은 Azure 클래식 포털에서 Azure AD Single Sign-on을 사용하도록 설정하고 TargetProcess 응용 프로그램에서 Single Sign-On을 구성하는 방법을 설명하기 위한 것입니다. 이 절차의 일부로 base-64로 인코딩된 인증서 파일을 만들어야 합니다. 이 절차를 잘 모르는 경우 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
 
 TargetProcess에 Single Sign-On을 구성하려면 등록된 도메인이 필요합니다. 등록된 도메인이 아직 없는 경우 [support@flatterfiles.com](mailto:support@flatterfiles.com)을 통해 TargetProcess 지원 팀에 문의하세요.
 
@@ -89,7 +89,7 @@ TargetProcess에 Single Sign-On을 구성하려면 등록된 도메인이 필요
 
 **TargetProcess에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure AD 포털의 **TargetProcess** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다. <br><br> ![Single Sign-On 구성][6] <br>
+1. Azure 클래식 포털의 **TargetProcess** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다. <br><br> ![Single Sign-On 구성][6] <br>
 
 2. **TargetProcess에 대한 사용자 로그온 방법 선택** 페이지에서 **Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다. <br><br> ![Single Sign-On 구성](./media/active-directory-saas-target-process-tutorial/tutorial_target_process_02.png) <br>
 
@@ -121,14 +121,14 @@ TargetProcess에 Single Sign-On을 구성하려면 등록된 도메인이 필요
 
     a. **Single Sign-On 사용**을 클릭합니다.
 
-    b. Azure 포털의 **TargetProcess에서 Single Sign-On 구성** 페이지에서 **Single Sign-On 서비스 URL** 값을 복사한 다음 **로그인 URL** 텍스트 상자에 붙여넣습니다.
+    b. Azure 클래식 포털의 **TargetProcess에서 Single Sign-On 구성** 페이지에서 **Single Sign-On 서비스 URL** 값을 복사한 다음 **로그인 URL** 텍스트 상자에 붙여넣습니다.
 
     c. 다운로드된 인증서를 메모장에서 열고, 내용을 복사한 다음 전체 인증서를 **인증서** 텍스트 상자에 붙여넣습니다.
 
     d. **JIT 프로비전 사용**을 클릭합니다.
 
 
-6. Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다. <br><br>![Azure AD Single Sign-On][10]<br>
+6. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다. <br><br>![Azure AD Single Sign-On][10]<br>
 
 7. **Single Sign-On 확인** 페이지에서 **완료**를 클릭합니다. <br><br>![Azure AD Single Sign-On][11]
 
@@ -136,11 +136,11 @@ TargetProcess에 Single Sign-On을 구성하려면 등록된 도메인이 필요
 
 
 ### Azure AD 테스트 사용자 만들기
-이 섹션은 Azure 포털에서 Britta Simon이라는 테스트 사용자를 만들기 위한 것입니다.<br> 사용자 목록에서 **Britta Simon**을 선택합니다.<br><br>![Azure AD 사용자 만들기][20]<br>
+이 섹션의 목적은 Azure 클래식 포털에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.<br> 사용자 목록에서 **Britta Simon**을 선택합니다.<br><br>![Azure AD 사용자 만들기][20]<br>
 
 **Azure AD에서 테스트 사용자를 만들려면 다음 단계를 수행하세요.**
 
-1. **Azure 관리 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. <br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-flatter-files-tutorial/create_aaduser_09.png) <br> 
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. <br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-flatter-files-tutorial/create_aaduser_09.png) <br> 
 
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 
@@ -166,11 +166,11 @@ TargetProcess에 Single Sign-On을 구성하려면 등록된 도메인이 필요
 
     d. **역할** 목록에서 **사용자**를 선택합니다. e. **다음**을 클릭합니다.
 
-7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-flatter-files-tutorial/create_aaduser_07.png) <br>
+7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다. <br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-flatter-files-tutorial/create_aaduser_07.png)<br>
  
 8. **임시 암호 가져오기** 대화 상자 페이지에서 다음 단계를 수행합니다. <br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-flatter-files-tutorial/create_aaduser_08.png) <br>
   
-    a. **새 암호** 값을 적어 둡니다.
+    a. **새 암호** 값을 적어둡니다.
 
     b. **완료**를 클릭합니다.
 
@@ -191,7 +191,7 @@ TargetProcess에 Single Sign-On을 구성하려면 등록된 도메인이 필요
 
 **Britta Simon을 TargetProcess에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure 포털에서 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다. <br><br>![사용자 할당][201] <br>
+1. Azure 클래식 포털에서 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다. <br><br>![사용자 할당][201] <br>
 
 2. 응용 프로그램 목록에서 **TargetProcess**를 선택합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-target-process-tutorial/tutorial_target_process_09.png) <br>
 
@@ -232,4 +232,4 @@ TargetProcess에 Single Sign-On을 구성하려면 등록된 도메인이 필요
 [204]: ./media/active-directory-saas-target-process-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-target-process-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

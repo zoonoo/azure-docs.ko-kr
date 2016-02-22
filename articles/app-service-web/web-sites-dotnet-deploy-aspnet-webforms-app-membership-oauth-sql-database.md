@@ -3,7 +3,7 @@
 	description="이 자습서에서는 SQL 데이터베이스를 통합하는 보안 ASP.NET 4.5 Web Forms 웹 앱을 빌드하고 응용 프로그램을 Azure에 배포하는 방법을 보여 줍니다." 
 	services="app-service\web" 
 	documentationCenter=".net" 
-	authors="Erikre" 
+	authors="erikre" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="12/10/2015" 
-	ms.author="erikre"/>
+	ms.author="tdykstra"/>
 
 
 # 멤버 자격, OAuth 및 SQL 데이터베이스를 사용하여 보안 ASP.NET Web Forms 앱을 만들어 Azure 앱 서비스에 배포
@@ -72,7 +72,7 @@ ASP.NET 4.5 Web Forms에서 빌드되고 데이터베이스 액세스에 Entity 
 
 Azure SQL 데이터베이스는 SQL Server 기술로 구축된 클라우드 기반의 관계형 데이터베이스 서비스입니다. SQL Server에서 작동하는 도구와 응용 프로그램은 SQL 데이터베이스에서도 작동합니다.
 
-1. [Azure 관리 포털](https://manage.windowsazure.com/)의 왼쪽 탭에서 **웹 앱**을 클릭한 다음 **새로 만들기**를 클릭합니다.  
+1. [Azure 클래식 포털](https://manage.windowsazure.com/)에서 왼쪽 탭의 **웹앱**을 클릭하고 **새로 만들기**를 클릭합니다.
 	![웹 플랫폼 설치 관리자를 통해 사용 가능)](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/Intro-SecureWebForms-02.png)
 2. **웹 앱**을 클릭한 후 **사용자 지정 만들기**를 클릭합니다.  
 	![사용자 지정 만들기](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/Intro-SecureWebForms-03.png)  
@@ -246,7 +246,7 @@ Azure에 배포할 응용 프로그램을 만들기 위해 지금 수행해야 �
 	![클래스 선택](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms12.png)  
 	**새 항목 추가** 대화 상자가 표시됩니다.  
 
-2. 이 새 클래스 이름을 *Contacts.cs*로 지정합니다.  
+2. 이 새 클래스 이름을 *Contacts.cs*로 지정하고 **추가**를 클릭합니다. 
 	![새 항목 추가 대화 상자](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13.png)
 3. 기본 코드를 다음 코드로 바꿉니다.  
 
@@ -690,7 +690,7 @@ ASP.NET ID를 사용하여 관리자 역할을 추가하고 해당 역할에 사
 	![게시 메뉴 옵션](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms22.png)  
 	**웹 게시** 대화 상자가 표시됩니다.  
 	![웹 게시 대화 상자](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms22a.png)  
-3. 아직 선택하지 않았으면 **프로필** 탭에서 **Azure 웹 앱**을 게시 대상으로 선택합니다.  
+3. 아직 선택하지 않았으면 **프로필** 탭에서 **Azure 앱 서비스**를 게시 대상으로 선택합니다.
 	![웹 게시 대화 상자](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms23.png)  
 4. 아직 로그인하지 않은 경우 **로그인**을 클릭합니다.
 5. **기존 웹 앱** 드롭다운에서, 이 자습서의 앞부분에서 만든 기존 웹 앱을 선택하고 **확인** 단추를 클릭합니다.  
@@ -747,7 +747,7 @@ ASP.NET ID를 사용하여 관리자 역할을 추가하고 해당 역할에 사
 2. **ContactDB**를 마우스 오른쪽 단추로 클릭하고 **SQL Server 객체 탐색기에서 열기**를 선택합니다.  
 	![SQL Server 개체 탐색기 메뉴 항목에서 열기](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms32.png)  
 3. **방화벽 규칙 추가** 대화 상자가 표시되면 **방화벽 규칙 추가**를 선택합니다.  
-      **SQL 데이터베이스**를 확장할 수 없고 Visual Studio에서 **ContactDB**를 볼 수 없는 경우, 지침에 따라 방화벽 포트나 포트 범위를 열 수 있습니다. 그렇게 하려면 **MVC 자습서**(영문) 끝에 있는 [Azure 방화벽 규칙 설정](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)의 지침을 따르세요. 또는 로컬로 응용 프로그램을 빌드 및 실행하고, 이 응용 프로그램에 데이터를 추가하여 로컬 데이터베이스의 데이터를 검토할 수 있습니다(Visual Studio에서 **CTRL+F5**).  
+	**SQL 데이터베이스**를 확장할 수 없고 Visual Studio에서 **ContactDB**를 볼 수 없는 경우, 지침에 따라 방화벽 포트나 포트 범위를 열 수 있습니다. 그렇게 하려면 **MVC 자습서**(영문) 끝에 있는 [Azure 방화벽 규칙 설정](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)의 지침을 따르세요. 또는 로컬로 응용 프로그램을 빌드 및 실행하고, 이 응용 프로그램에 데이터를 추가하여 로컬 데이터베이스의 데이터를 검토할 수 있습니다(Visual Studio에서 **CTRL+F5** 키를 누름).  
 
 4. **서버에 연결** 대화 상자가 표시되면 이 자습서의 앞부분에서 만든 **암호**를 입력하고 **연결** 단추를 누릅니다. 
       암호가 기억나지 않는 경우 로컬 프로젝트 파일에서 찾을 수 있습니다. **솔루션 탐색기**에서 *Properties* 폴더와 *PublishProfiles* 폴더를 차례로 확장합니다. *contactmanager.pubxml* 파일(사용자의 파일 이름은 다를 수 있음)을 엽니다. 파일에서 게시 암호를 검색합니다.
@@ -780,4 +780,4 @@ ASP.NET Web Forms에 대해 자세한 내용은 ASP.NET 웹 앱 및 [Microsoft A
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

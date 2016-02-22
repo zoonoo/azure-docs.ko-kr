@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/16/2016"
+   ms.date="02/09/2016"
    ms.author="cherylmc"/>
 
 # Express 경로 FAQ
@@ -171,7 +171,7 @@ BGP 세션이 삭제됩니다. 접두사 개수가 제한보다 적으면 재설
 ### Express 경로 회로의 대역폭을 변경하려면 어떻게 해야 하나요?
 업데이트 전용 회로 API 및 PowerShell cmdlet을 사용하여 Express 경로 회로의 대역폭을 업데이트할 수 있습니다.
 
-## Express 경로 프리미엄
+## Express 경로 프리미엄:
 
 ### Express 경로 프리미엄이란?
 Express 경로 프리미엄은 아래 표시된 기능의 컬렉션입니다.
@@ -179,6 +179,7 @@ Express 경로 프리미엄은 아래 표시된 기능의 컬렉션입니다.
  - 증가된 라우팅 테이블은 공용 피어링 및 개인 피어링에 대해 4000개의 경로에서 경로 10, 000개의 경로로 제한합니다.
  - Express 경로 회로에 연결할 수 있는 VNets 수가 증가합니다(기본값은 10). 자세한 내용은 다음 표를 참조하세요.
  - Microsoft 핵심 네트워크를 통해 전역 연결합니다. 이제 다른 지역의 Express 경로 회로를 지역의 VNet에 연결할 수 있습니다. **예:** 실리콘밸리에서 만든 Express 경로 회로에 서부 유럽에서에서 만든 VNet을 연결할 수 있습니다.
+ - Office 365 서비스 및 CRM Online에 대한 연결
 
 ### Express 경로 프리미엄을 사용하는 경우, 얼마나 많은 VNet를 Express 경로 회로에 연결할 수 있나요?
 아래 표에서 Express 경로 회로에 연결할 수 있는 Vnet의 수에 대해 늘어난 수를 제공합니다. 기본 제한은 10입니다.
@@ -187,7 +188,7 @@ Express 경로 프리미엄은 아래 표시된 기능의 컬렉션입니다.
 
 | **회로 크기** | **기본 설치를 위한 VNet 링크 개수** | **Express 경로 프리미엄과의 VNet 링크 수** |
 |--------------|----------------------------------------|-----------------------------------------------|
-| 50Mbps | 10 | 지원되지 않음 |
+| 50Mbps | 10 | 10 |
 | 100Mbps | 10 | 20 |
 | 200Mbps | 10 | 25 |
 | 500Mbps | 10 | 40 |
@@ -213,49 +214,31 @@ Express 경로 프리미엄은 아래 표시된 기능의 컬렉션입니다.
 ### 표준 Express 경로 요금 외에도 Express 경로 프리미엄에 대한 납부 여부
 예. Express 경로 프리미엄 요금은 Express 경로 회로 요금 및 연결 공급자에서 필요한 요금 위에 적용됩니다.
 
-## Express 경로 및 Office 365
+## Express 경로, Office 365 서비스 및 CRM Online
 
-### Office 365 서비스에 연결하려면 어떻게 Express 경로 회로를 만드나요?
+### Office 365 서비스 및 CRM Online에 연결하려면 어떻게 Express 경로 회로를 만드나요?
 
 1. [Express 경로 필수 구성 요소 페이지](expressroute-prerequisites.md)를 검토하여 요구 사항을 충족하는지 확인합니다.
 2. 서비스 공급자 및 위치 목록을 [Express 경로 파트너 및 위치](expressroute-locations.md)에서 검토하여 사용자 연결 요구 사항이 충족하는지 확인합니다.
 3. [Office 365에 대한 네트워크 계획 및 성능 튜닝](http://aka.ms/tune/)을 검토하여 용량 요구 사항을 계획합니다.
-4. 워크플로 아래에 나열된 단계에 따라 연결을 설정합니다. [회로에 대한 Express 경로 워크플로 프로비전 및 회로 상태](expressroute-workflows.md)
+4. [회로 프로비전 및 회로 상태에 대한 Express 경로 워크플로](expressroute-workflows.md) 설정 연결 아래의 워크플로에 나열된 단계를 따르세요.
 
-### 기존 내 Express 경로 회로가 Office 365 서비스에 대한 연결을 지원할 수 있나요?
-예. 기존 Express 경로 회로가 Office 365 서비스에 대한 연결을 지원하도록 구성할 수 있나요? Office 365 서비스에 연결하는데 용량이 충분한 지 확인합니다. [Office 365에 대한 네트워크 계획 및 성능 튜닝](http://aka.ms/tune/)은 연결 요구 사항을 계획하는 데 도움이 됩니다. [Express 경로 회로 만들기 및 수정](expressroute-howto-circuit-classic.md)도 참조하세요.
+>[AZURE.IMPORTANT] Office 365 서비스 및 CRM Online에 대한 연결을 구성하는 경우 Express 경로 프리미엄 추가 기능을 사용하도록 설정했는지 확인합니다.
+
+### 기존 내 Express 경로 회로가 Office 365 서비스 및 CRM Online에 대한 연결을 지원할 수 있나요?
+예. 기존 Express 경로 회로가 Office 365 서비스에 대한 연결을 지원하도록 구성할 수 있나요? Office 365 서비스에 연결하는 데 용량이 충분한지 확인하고 프리미엄 추가 기능을 사용하도록 설정했는지 확인합니다. [Office 365에 대한 네트워크 계획 및 성능 튜닝](http://aka.ms/tune/)은 연결 요구 사항을 계획하는 데 도움이 됩니다. [Express 경로 회로 만들기 및 수정](expressroute-howto-circuit-classic.md)도 참조하세요.
 
 ### Express 경로 연결을 통해 어느 Office 365 서비스에 액세스할 수 있나요?
 
-**다음 Office 365 서비스가 지원됩니다.**
+Express 경로에서 지원되는 최신 서비스 목록은 [Office 365 URL 및 IP 주소 범위](http://aka.ms/o365endpoints) 페이지를 참조하세요.
 
-- Exchange Online 및 Exchange Online 보호
-- SharePoint Online
-- 비즈니스 온라인용 Skype
-- Office Online
-- Azure AD 및 Azure AD 동기화
-- Office 365 비디오
-- Power BI
-- Delve
-- Project Online
-
-**다음 Office 365 서비스는 지원되지 않습니다.**
-
-- Yammer
-- Office 365 ProPlus 클라이언트 다운로드
-- 온-프레미스 ID 공급자 로그인
-- 중국에서의 Office 365(21 Vianet에서 운영) 서비스
-
-인터넷을 통해 이 서비스에 연결할 수 있습니다.
-
-### Office 365용 Express 경로 비용
-Express 경로를 통해 Office 365에 연결하기 위한 추가 비용은 없습니다. [가격 세부 정보 페이지](https://azure.microsoft.com/pricing/details/expressroute/)는 Express 경로에 대한 비용의 세부 정보를 제공합니다.
+### Office 365 서비스 및 CRM Online용 Express 경로 비용은 얼마인가요?
+Office 365 서비스 및 CRM Online에서는 프리미엄 추가 기능을 사용하도록 설정해야 합니다. [가격 세부 정보 페이지](https://azure.microsoft.com/pricing/details/expressroute/)는 Express 경로에 대한 비용의 세부 정보를 제공합니다.
 
 ### Office 365용 Express 경로가 지원하는 영역
 Express 경로가 지원되는 파트너 및 위치에 대한 자세한 내용은 [Express 경로 파트너 및 위치](expressroute-locations.md)를 참조하세요.
 
 ### Express 경로가 내 조직에 대해 구성된 경우라도 인터넷을 통해 Office 365에 액세스할 수 있나요?
 예. Express 경로가 네트워크에 대해 구성된 경우라도 인터넷을 통해 Office 365 서비스 끝점에 연결할 수 있습니다. Express 경로를 통해 Office 365 서비스에 연결하도록 구성된 위치에 있는 경우 Express 경로를 통해 연결됩니다.
- 
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

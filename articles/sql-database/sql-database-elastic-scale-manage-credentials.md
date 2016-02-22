@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/11/2015" 
+	ms.date="02/04/2016" 
 	ms.author="ddove;sidneyh"/>
 
 # 탄력적 데이터베이스 클라이언트 라이브러리 액세스에 사용되는 자격 증명
 
-[탄력적 데이터베이스 클라이언트 라이브러리](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)는 세 가지 다른 종류의 자격 증명을 사용합니다. 자격 증명은 [분할된 데이터베이스 맵 관리자](sql-database-elastic-scale-shard-map-management.md) 액세스에 사용됩니다. 필요에 따라서 가능한 한 액세스 수준이 가장 낮은 자격 증명을 사용합니다.
+[탄력적 데이터베이스 클라이언트 라이브러리](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)는 세 가지 다른 종류의 자격 증명을 사용하여 [분할된 데이터베이스 맵 관리자](sql-database-elastic-scale-shard-map-management.md)에 액세스합니다. 필요에 따라서 가능한 한 액세스 수준이 가장 낮은 자격 증명을 사용합니다.
 
 * **관리 자격 증명**: 분할된 데이터베이스 맵 관리자를 만들고 조작하는 데 사용됩니다. ([용어집](sql-database-elastic-scale-glossary.md)을 참조하세요.) 
 * **액세스 자격 증명**: 분할된 데이터베이스에 대한 정보를 얻기 위해 기존의 분할된 데이터베이스 맵 관리자에 액세스하는 데 사용됩니다.
@@ -26,9 +26,9 @@
 
 [Azure SQL 데이터베이스에서 데이터베이스 및 로그인 관리](sql-database-manage-logins.md)를 참조하세요.
  
-## 관리 자격 증명  
+## 관리 자격 증명 정보
 
-관리 자격 증명은 분할된 데이터베이스 맵을 조작하는 응용 프로그램에 대한 [**ShardMapManager**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) 개체를 만드는 데 사용됩니다. 예를 들어, [탄력적 데이터베이스 도구를 사용하여 분할된 데이터베이스 추가하기](sql-database-elastic-scale-add-a-shard.md)를 참조하세요. 탄력적인 크기의 클라이언트 라이브러리 사용자는 SQL 사용자 및 SQL 로그인을 만들고 각각에 대해 글로벌 분할된 데이터베이스 맵 데이터베이스는 물론 모든 분할된 데이터베이스 맵에 대한 읽기/쓰기 권한을 부여합니다. 이러한 자격 증명은 분할된 데이터베이스 맵에 대한 변경을 수행할 때 전역 분할된 데이터베이스 맵 및 로컬 분할된 데이터베이스 맵을 유지 관리 하는 데 사용됩니다. 예를 들어 관리 자격 증명을 사용하여 분할된 데이터베이스 맵 관리자 개체를 만듭니다([**GetSqlShardMapManager**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx) 사용).
+관리 자격 증명은 분할된 데이터베이스 맵을 조작하는 응용 프로그램에 대한 [**ShardMapManager**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) 개체를 만드는 데 사용됩니다. 예를 들어 [탄력적 데이터베이스 도구를 사용하여 분할된 데이터베이스 추가](sql-database-elastic-scale-add-a-shard.md) 및 [데이터 종속 라우팅](sql-database-elastic-scale-data-dependent-routing.md)을 참조하세요. 탄력적인 크기의 클라이언트 라이브러리 사용자는 SQL 사용자 및 SQL 로그인을 만들고 각각에 대해 글로벌 분할된 데이터베이스 맵 데이터베이스는 물론 모든 분할된 데이터베이스 맵에 대한 읽기/쓰기 권한을 부여합니다. 이러한 자격 증명은 분할된 데이터베이스 맵에 대한 변경을 수행할 때 전역 분할된 데이터베이스 맵 및 로컬 분할된 데이터베이스 맵을 유지 관리 하는 데 사용됩니다. 예를 들어 관리 자격 증명을 사용하여 분할된 데이터베이스 맵 관리자 개체를 만듭니다([**GetSqlShardMapManager**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx) 사용).
 
 	// Obtain a shard map manager. 
 	ShardMapManager shardMapManager = ShardMapManagerFactory.GetSqlShardMapManager( 
@@ -77,4 +77,4 @@
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

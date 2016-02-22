@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
 	ms.devlang="dotnet"
-	ms.date="12/09/2015"
+	ms.date="02/07/2016"
 	ms.author="krisragh"/>
 
 # 모바일 서비스에서 사용자의 서비스 쪽 권한 부여
@@ -37,7 +37,7 @@
 
 		public string UserId { get; set; }
 
-	>[AZURE.NOTE]이 데이터 모델을 변경하고 데이터베이스에서 기존 데이터를 유지하려면 [Code First 마이그레이션](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md)을 사용해야 합니다.
+	>[AZURE.NOTE] 이 데이터 모델을 변경하고 데이터베이스에서 기존 데이터를 유지하려면 [Code First 마이그레이션](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md)을 사용해야 합니다.
 
 2. Visual Studio에서 컨트롤러 폴더를 확장하고, **TodoItemController.cs**를 열고, 아래 문을 사용하여 다음 내용을 추가합니다.
 
@@ -84,4 +84,4 @@
 <!-- URLs. -->
 [기존 모바일 서비스 앱에 인증 추가]: mobile-services-dotnet-backend-ios-get-started-users.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

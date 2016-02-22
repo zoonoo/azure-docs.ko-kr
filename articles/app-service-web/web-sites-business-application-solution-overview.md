@@ -32,7 +32,8 @@
 
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/web-app-notitle.svg" width="100%" height="100%"></object>
 
-> [AZURE.NOTE]이 가이드에서는 LOB(기간 업무) 응용 프로그램에 맞는 가장 일반적인 몇 가지 영역과 작업에 대해 설명합니다. 하지만 각자의 특정 구현에 사용할 수 있는 Azure 앱 서비스 웹 앱의 다른 기능도 있습니다. 이러한 기능에 대해 알아보려면 [글로벌 웹 서비스](web-sites-global-web-presence-solution-overview.md)(영문) 및 [디지털 마케팅 캠페인](web-sites-digital-marketing-application-solution-overview.md)(영문)에서 제공하는 다른 가이드도 참조하십시오.
+> [AZURE.NOTE]
+이 가이드에서는 LOB(기간 업무) 응용 프로그램에 맞는 가장 일반적인 몇 가지 영역과 작업에 대해 설명합니다. 하지만 각자의 특정 구현에 사용할 수 있는 Azure 앱 서비스 웹 앱의 다른 기능도 있습니다. 이러한 기능에 대해 알아보려면 [글로벌 웹 서비스](web-sites-global-web-presence-solution-overview.md)(영문) 및 [디지털 마케팅 캠페인](web-sites-digital-marketing-application-solution-overview.md)(영문)에서 제공하는 다른 가이드도 참조하십시오.
 
 ## 기존 자산 가져오기
 
@@ -79,10 +80,10 @@ Azure 또는 타사 도구를 사용하여 웹 앱의 성능을 최신 상태로
 ## 추가 리소스
 
 - [앱 서비스 웹앱 설명서](/services/app-service/web/)
-- [Azure 앱 서비스 웹앱 학습 맵](websites-learning-map.md)
+- [Azure 앱 서비스 웹앱 학습 맵](/documentation/learning-paths/appservice-webapps/)
 - [Azure 웹 블로그](/blog/topics/web/)
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -124,4 +125,4 @@ Azure 또는 타사 도구를 사용하여 웹 앱의 성능을 최신 상태로
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

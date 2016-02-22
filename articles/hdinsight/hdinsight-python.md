@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="01/28/2016" 
+	ms.date="02/10/2016" 
 	ms.author="larryfr"/>
 
 #HDInsight에서 Hive 및 Pig와 함께 Python 사용
@@ -23,7 +23,14 @@ Hive 및 Pig는 HDInsight의 데이터 작업에 적합하지만 보다 일반�
 
 > [AZURE.NOTE] 이 문서의 단계는 HDInsight 클러스터 버전 2.1, 3.0, 3.1 및 3.2에 적용됩니다.
 
+##요구 사항
 
+* HDInsight 클러스터(Windows 또는 Linux 기반)
+
+* 텍스트 편집기
+
+    > [AZURE.IMPORTANT] Linux 기반 HDInsight 서버를 사용하지만 Windows 클라이언트에서 Python 파일을 만드는 경우 LF를 줄 끝으로 사용하는 편집기를 사용해야 합니다. 편집기에서 LF 또는 CRLF를 사용하는지 여부가 확실하지 않은 경우 [문제 해결](#troubleshooting) 섹션에서 HDInsight 클러스터에서 유틸리티를 사용하여 CR 문자를 제거하는 단계를 참조하세요.
+    
 ##<a name="python"></a>HDInsight의 Python
 
 Python2.7은 기본적으로 HDInsight 3.0 이상의 클러스터에 설치됩니다. Hive는 이 버전의 Python과 함께 사용하여 스트림을 처리할 수 있습니다(데이터는 STDOUT/STDIN을 사용하여 Hive와 Python 간에 전달됨).
@@ -394,6 +401,22 @@ SSH 사용에 대한 자세한 내용은 <a href="../hdinsight-hadoop-linux-use-
 
 ##<a name="troubleshooting"></a>문제 해결
 
+###작업 실행 중 오류 발생
+
+하이브 작업 실행 중 다음과 유사한 오류가 발생할 수 있습니다.
+
+    Caused by: org.apache.hadoop.hive.ql.metadata.HiveException: [Error 20001]: An error occurred while reading or writing to your custom script. It may have crashed with an error.
+    
+이 문제는 streaming.py 파일의 줄 끝 때문에 발생할 수 있습니다. 많은 Windows 편집기에서는 기본적으로 CRLF를 줄 끝으로 사용하지만 Linux 응용 프로그램에서는 보통 LF를 사용합니다.
+
+LF 줄 끝을 만들 수 없는 편집기를 사용 중이거나 어떤 줄 끝을 사용하는지 확실하지 않은 경우 HDInsight에 파일을 업로드하기 전에 다음 PowerShell 문을 사용하여 CR 문자를 제거합니다.
+
+    $original_file ='c:\path\to\streaming.py'
+    $text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
+    [IO.File]::WriteAllText($original_file, $text)
+
+###PowerShell 스크립트
+
 이 예제를 실행하는 데 사용된 두 가지 예제 PowerShell 스크립트는 작업의 오류 출력을 표시하는 주석 처리된 줄을 포함합니다. 작업의 필요한 출력이 표시되지 않으면 다음 줄의 주석 처리를 제거하고 오류 정보가 문제를 나타내는지 확인합니다.
 
 	# Get-AzureRmHDInsightJobOutput `
@@ -424,4 +447,4 @@ Pig 및 Hive를 사용하고 MapReduce 사용에 대해 배우는 다른 방법�
 
 * [HDInsight와 함께 MapReduce 사용](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

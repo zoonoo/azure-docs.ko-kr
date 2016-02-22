@@ -33,6 +33,6 @@ Azure 서비스 패브릭은 서비스 빌드에 대해 Reliable Services API �
 ## 다음 단계
 
 - [Reliable Actors API에 대해 알아보기](service-fabric-reliable-actors-introduction.md)
-- [Reliable Services API에 대해 알아보기](../Service-Fabric/service-fabric-reliable-services-introduction.md)
+- [Reliable Services API에 대해 알아보기](service-fabric-reliable-services-introduction.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

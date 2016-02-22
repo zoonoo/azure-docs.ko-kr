@@ -1,7 +1,7 @@
 <properties
  pageTitle="클라우드의 HPC Pack 클러스터 옵션 | Microsoft Azure"
  description="Microsoft HPC Pack을 사용하여 Azure 클라우드에서 HPC(고성능 컴퓨팅) 클러스터를 만들고 관리하기 위한 옵션에 대해 알아봅니다."
- services="virtual-machines,cloud-services"
+ services="virtual-machines,cloud-services,batch"
  documentationCenter=""
  authors="dlepow"
  manager="timlt"
@@ -13,7 +13,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="01/26/2016"
+ ms.date="02/04/2016"
  ms.author="danlep"/>
 
 # Microsoft HPC Pack을 사용하여 Azure에서 HPC(고성능 컴퓨팅) 클러스터를 만들고 관리하는 옵션
@@ -26,6 +26,19 @@ ms.service="virtual-machines"
 
 ## Azure VM에서 HPC Pack 클러스터 실행
 
+### Azure 템플릿
+
+* (마켓플레이스) [Windows 워크로드용 HPC 팩 클러스터](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterwindowscn/)
+
+* (마켓플레이스) [Excel 워크로드용 HPC 팩 클러스터](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterexcelcn/)
+
+* (마켓플레이스) [Linux 워크로드용 HPC 팩 클러스터](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/)
+
+* (퀵 스타트) [HPC 클러스터 만들기](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/)
+
+* (퀵 스타트) [Linux 계산 노드가 포함된 HPC 클러스터 만들기](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/)
+
+* (퀵 스타트) [사용자 지정 계산 노드 이미지로 HPC 클러스터 만들기](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/)
 
 ### Azure VM 이미지
 
@@ -35,13 +48,7 @@ ms.service="virtual-machines"
 
 * [HPC Pack compute node with Excel on Windows Server 2012 R2(영문)](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2computenodewithexcelonwindowsserver2012r2/)
 
-### Azure 빠른 시작 템플릿
 
-* [HPC 클러스터 만들기(영문)](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/)
-
-* [Linux 계산 노드가 포함된 HPC 클러스터 만들기](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/)
-
-* [사용자 지정 컴퓨터 노드 이미지로 HPC 클러스터 만들기](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/)
 
 ### PowerShell 배포 스크립트
 
@@ -59,9 +66,7 @@ ms.service="virtual-machines"
 
 
 
-### Azure 클래식 포털을 사용하여 수동 배포
-
-
+### Azure 포털을 사용하여 수동 배포
 
 * [Azure VM에서 HPC Pack 클러스터의 헤드 노드 설정](virtual-machines-hpcpack-cluster-headnode.md)
 
@@ -98,4 +103,4 @@ ms.service="virtual-machines"
 
 * [MPI 응용 프로그램을 실행하도록 Linux RDMA 클러스터 설정](virtual-machines-linux-cluster-rdma.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

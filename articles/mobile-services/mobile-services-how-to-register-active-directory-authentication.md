@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="02/05/2016"
 	ms.author="ricksal"/>
 
 # Azure Active Directory 계정 로그인 사용을 위한 앱 등록
@@ -31,7 +31,7 @@
 
 ##앱 등록
 
->[AZURE.NOTE] 이 항목에 설명된 단계는 앱에서 [서비스 지향 로그인 작업](http://msdn.microsoft.com/library/azure/dn283952.aspx)을 사용할 때 [모바일 서비스 앱에 인증 추가](../mobile-services/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md) 자습서와 함께 사용하기 위해 작성되었습니다. 또는 앱이 Azure Active Directory 및 .NET 백 엔드 서비스에 대해 [클라이언트에서 지시하는 로그인 작업](http://msdn.microsoft.com/library/azure/jj710106.aspx)을 요구하는 경우 [Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증](mobile-services-windows-store-dotnet-adal-sso-authentication.md) 자습서부터 시작해야 합니다.
+>[AZURE.NOTE] 이 항목에 설명된 단계는 앱에서 [서비스 지향 로그인 작업](http://msdn.microsoft.com/library/azure/dn283952.aspx)을 사용할 때 [모바일 서비스 앱에 인증 추가](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md) 자습서와 함께 사용하기 위해 작성되었습니다. 또는 앱이 Azure Active Directory 및 .NET 백 엔드 서비스에 대해 [클라이언트에서 지시하는 로그인 작업](http://msdn.microsoft.com/library/azure/jj710106.aspx)을 요구하는 경우 [Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증](mobile-services-windows-store-dotnet-adal-sso-authentication.md) 자습서부터 시작해야 합니다.
 
 1. [Azure 클래식 포털]에 로그온하고 모바일 서비스로 이동한 후 **ID** 탭을 클릭한 다음 아래로 스크롤하여 **Azure Active Directory** ID 공급자 섹션으로 이동하고 표시되는 **앱 URL**을 복사합니다.
 
@@ -70,4 +70,4 @@
 [Azure 클래식 포털]: https://manage.windowsazure.com/
 [클래식 포털]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

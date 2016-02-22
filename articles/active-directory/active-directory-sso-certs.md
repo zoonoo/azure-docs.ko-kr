@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/02/2016"
+	ms.date="02/09/2016"
 	ms.author="liviodlc"/>
 
 #Azure Active Directory에서 페더레이션된 Single Sign-On에 대한 인증서 관리
@@ -76,6 +76,10 @@
 
 	![다운로드한 다음 인증서 업로드](./media/active-directory-sso-certs/renew-config-app.PNG)
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+## 관련 문서
 
-<!---HONumber=AcomDC_0204_2016-->
+- [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
+- [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On](active-directory-appssoaccess-whatis.md)
+- [SAML 기반 Single Sign-On 문제 해결](active-directory-saml-debugging.md)
+
+<!---HONumber=AcomDC_0211_2016-->

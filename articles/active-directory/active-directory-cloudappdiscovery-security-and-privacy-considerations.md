@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="02/09/2016"
 	ms.author="markusvi"/>
 
 # 클라우드 앱 보안 및 개인정보 취급 방침 고려 사항
@@ -174,9 +174,10 @@ TLS 가로채기가 최종 사용자 환경에 영향을 줄 수 있는 몇 가�
 
 
 
-**추가 리소스**
+##추가 리소스
 
 
 * [조직 내에서 사용되고 있는 허용되지 않은 클라우드 앱을 검색하는 방법](active-directory-cloudappdiscovery-whatis.md)
+* [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

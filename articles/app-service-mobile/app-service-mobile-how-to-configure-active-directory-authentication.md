@@ -1,26 +1,24 @@
-<properties 
-	pageTitle="앱 서비스 응용 프로그램에 대해 Azure Active Directory 인증을 구성하는 방법" 
-	description="앱 서비스 응용 프로그램에 대해 Azure Active Directory 인증을 구성하는 방법을 알아봅니다." 
-	authors="mattchenderson" 
-	services="app-service\mobile" 
-	documentationCenter="" 
-	manager="dwrede" 
+<properties
+	pageTitle="앱 서비스 응용 프로그램에 대해 Azure Active Directory 인증을 구성하는 방법"
+	description="앱 서비스 응용 프로그램에 대해 Azure Active Directory 인증을 구성하는 방법을 알아봅니다."
+	authors="mattchenderson"
+	services="app-service\mobile"
+	documentationCenter=""
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="11/20/2015" 
+<tags
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="02/04/2016"
 	ms.author="mahender"/>
 
 # Azure Active Directory 로그인을 사용하도록 앱 서비스 응용 프로그램을 구성하는 방법
 
-[AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]&nbsp;
-
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
 이 항목에서는 Azure Active Directory를 인증 공급자로 사용하도록 Azure 앱 서비스를 구성하는 방법을 보여 줍니다.
 
@@ -38,7 +36,7 @@
 16. Azure Active Directory에서 응용 프로그램을 등록하려면 **확인**을 클릭합니다. 이렇게 하면 새롭게 등록됩니다. 기존 등록을 대신 선택하려는 경우 **기존 앱 선택**을 클릭한 다음 테넌트 내에서 이전에 만든 등록 이름을 검색합니다. 등록을 클릭하여 선택하고 **확인**을 클릭합니다. Azure Active Directory 설정 블레이드에서 **확인**을 클릭합니다.
 
     ![][0]
-	
+
 	기본적으로 앱 서비스는 인증을 제공하지만 사이트 콘텐츠 및 API에 액세스하는 권한을 제한하지는 않습니다. 앱 코드에서 사용자 권한을 부여해야 합니다.
 
 17. (옵션) Azure Active Directory에서 인증된 사용자만 사이트에 액세스하도록 제한하려면 **요청이 인증되지 않으면 수행할 동작**을 **Azure Active Directory**로 설정합니다. 이렇게 하려면 모든 요청이 인증되어야 하며 모든 인증되지 않은 요청은 인증을 위해 Azure Active Directory로 리디렉션되어야 합니다.
@@ -69,8 +67,8 @@
 8. 응용 프로그램이 추가되면 **구성** 탭을 클릭합니다. **Single Sign-on** 아래 **회신 URL**을 앞에 _/.auth/login/aad/callback_ 경로가 추가된 응용 프로그램 URL이 되도록 편집합니다. 예: `https://contoso.azurewebsites.net/.auth/login/aad/callback` HTTPS 체계를 사용 중인지 확인합니다.
 
     ![][3]
-	
-	
+
+
 	> [AZURE.NOTE]
 	앱 서비스 인증/권한 부여 기능 대신 앱 서비스 게이트웨이를 사용 중인 경우 회신 URL은 _/signin-aad_ 경로가 추가된 게이트웨이 URL을 대신 사용합니다.
 
@@ -94,7 +92,7 @@
 15. **Azure Active Directory**를 클릭한 다음 **관리 모드**에서 **고급**을 클릭합니다. 앞에서 얻은 클라이언트 ID 및 발급자 URL 값을 붙여넣습니다. 그런 후 **OK**를 클릭합니다.
 
     ![][1]
-	
+
 	기본적으로 앱 서비스는 인증을 제공하지만 사이트 콘텐츠 및 API에 액세스하는 권한을 제한하지는 않습니다. 앱 코드에서 사용자 권한을 부여해야 합니다.
 
 17. (옵션) Azure Active Directory에서 인증된 사용자만 사이트에 액세스하도록 제한하려면 **요청이 인증되지 않으면 수행할 동작**을 **Azure Active Directory**로 설정합니다. 이렇게 하려면 모든 요청이 인증되어야 하며 모든 인증되지 않은 요청은 인증을 위해 Azure Active Directory로 리디렉션되어야 합니다.
@@ -145,4 +143,4 @@ Azure Active Directory를 사용하면 권한 매핑에 대해 보다 강력한 
 [ios-adal]: ../app-service-mobile-xamarin-ios-aad-sso.md
 [대체 방법]: #advanced
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

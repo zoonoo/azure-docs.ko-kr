@@ -34,7 +34,7 @@ Azure 포털의 WebJob 대시보드는 WebJob 내의 개별 함수를 호출하�
 * [놀라운 기능의 Azure WebJobs를 지금 바로 사용해 보세요!](http://www.troyhunt.com/2015/01/azure-webjobs-are-awesome-and-you.html) Troy Hunt의 블로그 게시물입니다.
 * [Azure WebJobs 기능](/blog/2014/10/22/webjobs-goes-into-full-production/)
 * [WebJobs SDK 정의](websites-dotnet-webjobs-sdk.md)
-* [Microsoft Patterns and Practices에 따른 백그라운드 작업 지침](https://github.com/mspnp/azure-guidance/blob/master/Background-Jobs.md)
+* [Microsoft Patterns and Practices에 따른 백그라운드 작업 지침](/documentation/articles/best-practices-background-jobs/)
 * [Microsoft Azure WebJobs SDK의 1.1.0 RTM 발표](/blog/azure-webjobs-sdk-1-1-0-rtm/)
 * [Azure WebJobs SDK 시작](websites-dotnet-webjobs-sdk-get-started.md)
 * [WebJobs SDK를 사용하여 Azure 큐 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)
@@ -139,4 +139,4 @@ Azure 포털의 WebJob 대시보드는 WebJob 내의 개별 함수를 호출하�
 * [Twitter](http://twitter.com/). 해시 태그 #AzureWebJobs를 사용합니다.
 * [WebJobs 버그 또는 문제 보고](https://github.com/projectkudu/kudu/wiki/Reporting-WebJobs-issues)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

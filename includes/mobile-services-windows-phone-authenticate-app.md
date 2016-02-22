@@ -21,9 +21,9 @@
             }
         }
 
-    현재 사용자를 저장하기 위한 멤버 변수와 인증 프로세스를 처리할 메서드가 만들어집니다. 사용자는 Facebook 로그인을 사용하여 인증됩니다.
+    현재 사용자를 저장하기 위한 멤버 변수와 인증 프로세스를 처리할 메서드가 만들어집니다. 사용자는 Twitter 로그인을 사용하여 인증됩니다.
 
-    >[AZURE.NOTE]Facebook 이외의 ID 공급자를 사용하는 경우 위의 <strong>MobileServiceAuthenticationProvider</strong> 값을 공급자에 대한 값으로 변경합니다.</p> </div>
+    >[AZURE.NOTE]Twitter 이외의 ID 공급자를 사용하는 경우 위의 <strong>MobileServiceAuthenticationProvider</strong> 값을 공급자에 대한 값으로 변경합니다.</p> </div>
 
 2. **OnNavigatedTo** 메서드 재정의를 삭제하거나 주석으로 처리하고 페이지의 **Loaded** 이벤트를 처리하는 다음 메서드로 바꿉니다.
 
@@ -50,4 +50,4 @@
 
    	로그인하고 나면 앱이 오류 없이 실행되며 모바일 서비스를 쿼리하고 데이터를 업데이트할 수 있게 됩니다.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="07/14/2015"
+   ms.date="02/09/2016"
    ms.author="elfish"/>
 
 #가동 중지 시간 없이 응용 프로그램 업그레이드
@@ -31,4 +31,4 @@ Microsoft Azure에서 '응용 프로그램'이라는 용어는 프런트 엔드,
  
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

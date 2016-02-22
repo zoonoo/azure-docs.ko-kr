@@ -34,8 +34,7 @@
 	-  Azure 공용 피어링 사용 - 공용 IP 주소에 호스팅된 Azure 서비스에 연결하려는 경우 Azure 공용 피어링을 사용해야 합니다. Azure 개인 피어링에 대한 기본 라우팅을 사용하도록 선택한 경우 Azure 리소스에 액세스하는 것이 요구됩니다.
 	-  Microsoft 피어링 사용 - 이 기능을 사용하여 Office 365 및 CRM 온라인 서비스에 액세스해야 합니다. 
 	
-	>[AZURE.IMPORTANT]Microsoft 피어링을 사용하도록 설정하는 경우 Azure AD에 액세스하려면 Azure 공용 피어링도 설정되었는지 확인합니다. 인터넷에 사용하는 것 이외에 별도 프록시/Edge를 사용하여 Microsoft에 연결해야 합니다. Express 경로 및 인터넷 모두에 동일한 Edge를 사용하면 비대칭 라우팅이 발생하고 네트워크에 대한 연결 중단이 발생합니다.
-
+	>[AZURE.IMPORTANT] 인터넷에 사용하는 것 이외에 별도 프록시/Edge를 사용하여 Microsoft에 연결해야 합니다. Express 경로 및 인터넷 모두에 동일한 Edge를 사용하면 비대칭 라우팅이 발생하고 네트워크에 대한 연결 중단이 발생합니다.
 
 	![](./media/expressroute-workflows/expressroute-routing-workflow.png)
 
@@ -49,9 +48,9 @@
 - 서비스 공급자 프로비전 상태
 - 상태
 
-상태는 Microsoft의 프로비전 상태를 나타냅니다. 이 속성은 다음 상태 중 하나일 수 있습니다. 사용, 사용 중, 또는 해제 중. Express 경로 회로는 사용할 수 있도록 사용 상태에 있어야 합니다.
+상태는 Microsoft의 프로비전 상태를 나타냅니다. 이 속성은 다음 상태 중 하나일 수 있습니다. *사용*, *사용 중*, 또는 *해제 중*. Express 경로 회로는 사용할 수 있도록 사용 상태에 있어야 합니다.
 
-연결 공급자 프로비전 상태는 연결 공급자 측의 상태를 나타냅니다. NotProvisioned, 프로비전 중, 또는 프로비전됨일 수 있습니다. Express 경로 회로는 사용할 수 있도록 프로비전됨 상태에 있어야 합니다.
+연결 공급자 프로비전 상태는 연결 공급자 측의 상태를 나타냅니다. *NotProvisioned*, *프로비전 중*, 또는 *프로비전됨*일 수 있습니다. Express 경로 회로는 사용할 수 있도록 프로비전됨 상태에 있어야 합니다.
 
 ### Express 경로 회로의 가능한 상태
 
@@ -106,11 +105,11 @@ PowerShell cmdlet을 실행하여 Express 경로 회로를 삭제하는 즉시 �
 
 BGP 프로비전 상태를 사용하면 Microsoft Edge에서 BGP 세션을 사용하는지를 알 수 있습니다. 상태는 피어링을 사용할 수 있도록 활성화되어야 합니다.
 
-특히 Microsoft 피어링의 경우 BGP 세션 상태를 확인하는 것이 중요합니다. BGP 프로비전 상태 외에도 보급된 공용 접두사 상태를 호출하는 다른 상태가 있습니다. BGP 세션이 가동되고 라우팅이 종단 간에 작동하기 위해 보급된 공용 접두사 상태는 구성된 상태에 있어야 합니다.
+특히 Microsoft 피어링의 경우 BGP 세션 상태를 확인하는 것이 중요합니다. BGP 프로비전 상태 외에도 *보급된 공용 접두사 상태*를 호출하는 다른 상태가 있습니다. BGP 세션이 가동되고 라우팅이 종단 간에 작동하기 위해 보급된 공용 접두사 상태는 *구성된* 상태에 있어야 합니다.
 
-보급된 공용 접두사 상태가 유효성 검사가 필요한 상태로 설정된 경우 보급된 접두사가 라우팅 레지스트리의의 AS 번호와 일치하지 않기 때문에 BGP 세션을 사용하지 않습니다.
+보급된 공용 접두사 상태가 *유효성 검사가 필요한* 상태로 설정된 경우 보급된 접두사가 라우팅 레지스트리의의 AS 번호와 일치하지 않기 때문에 BGP 세션을 사용하지 않습니다.
 
->[AZURE.IMPORTANT]보급된 공용 접두사 상태가 수동 유효성 검사 상태인 경우 [Microsoft 지원](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)으로 지원 티켓을 열고 사용자가 연관된 자치 시스템 번호와 함께 보급된 IP 주소를 소유한 증거를 제공해야 합니다.
+>[AZURE.IMPORTANT] 보급된 공용 접두사 상태가 *수동 유효성 검사* 상태인 경우 [Microsoft 지원](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)으로 지원 티켓을 열고 사용자가 연관된 자치 시스템 번호와 함께 보급된 IP 주소를 소유한 증거를 제공해야 합니다.
 
 
 ## 다음 단계
@@ -121,4 +120,4 @@ BGP 프로비전 상태를 사용하면 Microsoft Edge에서 BGP 세션을 사�
 	- [라우팅 구성](expressroute-howto-routing-arm.md)
 	- [VNet을 Express 경로 회로에 연결](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

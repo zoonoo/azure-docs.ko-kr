@@ -15,13 +15,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/06/2015"
+	ms.date="02/08/2016"
 	ms.author="fashah;bradsev" />
 
 
 # Azure 데이터 팩터리를 사용하여 온-프레미스 SQL server에서 SQL Azure로 데이터 이동
 
 이 항목에서는 Azure 데이터 팩터리(ADF)를 사용하여 Azure Blob 저장소를 통해 온-프레미스 SQL Server 데이터베이스에서 SQL Azure 데이터베이스로 데이터를 이동하는 방법을 보여 줍니다.
+
+다음 **메뉴**는 CAP(Cortana 분석 프로세스) 중 데이터를 저장하고 처리할 수 있는 다른 대상 환경으로 데이터를 수집하는 방법을 설명하는 항목에 연결됩니다.
+
+[AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
 ## <a name="intro"></a>소개: ADF란 무엇이며 데이터를 마이그레이션하는 데 사용하려면 언제 사용해야 하나요?
 
@@ -137,7 +141,7 @@ Azure SQL 데이터베이스에 대한 연결된 서비스를 만들려면 Azure
 		    	}
 	    	}
     	}
-여기서는 열 이름이 포함되지 않았습니다. 여기에 열 이름을 포함하여 열 이름을 sub-select할 수 있습니다(자세한 내용은 [ADF 설명서](data-factory-copy-activity.md) 참조).
+여기서는 열 이름이 포함되지 않았습니다. 여기에 열 이름을 포함하여 열 이름을 sub-select할 수 있습니다(자세한 내용은 [ADF 설명서](data-factory-data-movement-activities.md) 참조).
 
 테이블의 JSON 정의를 *onpremtabledef.json*이라는 파일로 복사하고 알려진 위치에 저장합니다(여기서는 *C:\\temp\\onpremtabledef.json*으로 간주). 다음 Azure PowerShell cmdlet을 사용하여 ADF에 테이블을 만듭니다.
 
@@ -211,7 +215,7 @@ SQL Azure 출력에 대한 테이블 정의가 다음과 같습니다(이 스키
 * 스크립트는 **파이프라인 이름**이 *AMLDSProcessPipeline*이라고 가정합니다.
 * 또한 파이프라인이 매일 정기적으로 실행되도록 파이프라인의 주기성을 설정하고 작업에 대한 기본 실행 시간을 사용합니다(오전 12시 UTC).
 
-> [AZURE.NOTE]  다음 절차에서는 Azure PowerShell을 사용하여 ADF 파이프라인을 정의하고 만듭니다. 그러나 이러한 작업은 Azure 포털을 사용해서도 수행할 수 있습니다. 자세한 내용은 [파이프라인 만들기 및 실행](data-factory-use-onpremises-datasources.md#step-4-create-and-run-a-pipeline)을 참조하세요.
+> [AZURE.NOTE]  다음 절차에서는 Azure PowerShell을 사용하여 ADF 파이프라인을 정의하고 만듭니다. 그러나 이러한 작업은 Azure 포털을 사용해서도 수행할 수 있습니다. 자세한 내용은 [파이프라인 만들기 및 실행](../data-factory/data-factory-use-onpremises-datasources.md#step-4-create-and-run-a-pipeline)을 참조하세요.
 
 위에 제공된 테이블 정의를 사용하여 ADF에 대한 파이프라인 정의는 다음과 같이 지정됩니다.
 
@@ -301,4 +305,4 @@ Azure 클래식 포털의 ADF에서 다음과 같이 파이프라인이 표시�
 
 데이터를 증분 방식으로 파이프하는 ADF 제공 기능을 활용하지 않았습니다. 이 작업을 수행하는 방법 및 ADF에서 제공하는 기타 기능에 대한 자세한 내용은 [ADF 설명서](https://azure.microsoft.com/services/data-factory/)를 참조하세요.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

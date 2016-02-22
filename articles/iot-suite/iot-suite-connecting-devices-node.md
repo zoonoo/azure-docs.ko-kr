@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/10/2015"
+   ms.date="02/04/2016"
    ms.author="dobett"/>
 
 
@@ -43,13 +43,13 @@
     HostName={your IoT Hub hostname};DeviceId={your device id};SharedAccessKey={your device key}
     ```
 
-5. IoT Hub 호스트 이름이 **contoso**이고 장치 ID가 **mydevice**이면, 연결 문자열은 다음과 같습니다.
+    IoT Hub 호스트 이름이 **contoso**이고 장치 ID가 **mydevice**이면, 연결 문자열은 다음과 같습니다.
 
     ```
     var connectionString = "HostName=contoso.azure-devices.net;DeviceId=mydevice;SharedAccessKey=2s ... =="
     ```
 
-6. 파일을 저장합니다. 이러한 파일이 포함된 폴더에서 다음 명령을 실행합니다.
+5. 파일을 저장합니다. 이러한 파일이 포함된 폴더에서 명령 프롬프트에 다음 명령을 입력하여 필요한 패키지를 설치하고 샘플 응용 프로그램을 실행합니다.
 
     ```
     npm install
@@ -60,6 +60,6 @@
 
 [lnk-github-repo]: https://github.com/azure/azure-iot-sdks
 [lnk-node-installers]: https://nodejs.org/download/
-[lnk-github-prepare]: https://github.com/Azure/azure-iot-sdks/blob/master/node/device/doc/devbox_setup.md
+[lnk-github-prepare]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->
