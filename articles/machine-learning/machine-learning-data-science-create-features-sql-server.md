@@ -25,7 +25,9 @@
 
 > [AZURE.NOTE] 실용적인 예제에는 [NYC Taxi 데이터 집합](http://www.andresmh.com/nyctaxitrips/)을 참조할 수 있으며, 종단 간 연습에 [IPython Notebook 및 SQL Server를 사용한 NYC 데이터 랭글링](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb)이라는 IPNB를 참조할 수 있습니다.
 
-[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]이 **메뉴**는 다양한 환경에서 데이터에 대한 기능을 만드는 방법을 설명하는 항목으로 연결되는 링크입니다. 이 작업은 [Cortana 분석 프로세스(CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)의 한 단계입니다.
+[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
+
+이 **메뉴**는 다양한 환경에서 데이터에 대한 기능을 만드는 방법을 설명하는 항목으로 연결되는 링크입니다. 이 작업은 [Cortana 분석 프로세스(CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)의 한 단계입니다.
 
 
 ## 필수 조건

@@ -25,7 +25,9 @@ Azure HDInsight Hadoop 클러스터에 저장된 데이터의 기능을 생성�
 
 마지막 섹션에서는 사용자가 조정하여 Hive 쿼리 성능을 높일 수 있는 매개 변수에 대해 설명합니다.
 
-[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]이 **메뉴**는 다양한 환경에서 데이터에 대한 기능을 만드는 방법을 설명하는 항목으로 연결되는 링크입니다. 이 작업은 [Cortana 분석 프로세스(CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)의 한 단계입니다.
+[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
+
+이 **메뉴**는 다양한 환경에서 데이터에 대한 기능을 만드는 방법을 설명하는 항목으로 연결되는 링크입니다. 이 작업은 [Cortana 분석 프로세스(CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)의 한 단계입니다.
 
 
 ## 필수 조건
