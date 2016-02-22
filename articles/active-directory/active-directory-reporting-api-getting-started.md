@@ -137,8 +137,46 @@ $ClientID, $ClientSecret, $tenantdomain을 "Azure AD에서 액세스 위임"의 
 
     echo $REPORT | ./jq-win64.exe -r '.value' | ./jq-win64.exe -r ".[]"
 
-
-
+### Python
+	# Author: Michael McLaughlin (michmcla@microsoft.com)
+	# Date: January 20, 2016
+	# This requires the Python Requests module: http://docs.python-requests.org
+	
+	import requests
+	import datetime
+	import sys
+	
+	client_id = 'your-application-client-id-here'
+	client_secret = 'your-application-client-secret-here'
+	login_url = 'https://login.windows.net/'
+	tenant_domain = 'your-directory-name-here.onmicrosoft.com' 
+	
+	# Get an OAuth access token
+	bodyvals = {'client_id': client_id,
+	            'client_secret': client_secret,
+	            'grant_type': 'client_credentials'}
+	
+	request_url = login_url + tenant_domain + '/oauth2/token?api-version=1.0'
+	token_response = requests.post(request_url, data=bodyvals)
+	
+	access_token = token_response.json().get('access_token')
+	token_type = token_response.json().get('token_type')
+	
+	if access_token is None or token_type is None:
+	    print "ERROR: Couldn't get access token"
+	    sys.exit(1)
+	
+	# Use the access token to make the API request
+	yesterday = datetime.date.strftime(datetime.date.today() - datetime.timedelta(days=1), '%Y-%m-%d')
+	
+	header_params = {'Authorization': token_type + ' ' + access_token}
+	request_string = 'https://graph.windows.net/' + tenant_domain + '/reports/auditEvents?api-version=beta&filter=eventTime%20gt%20' + yesterday   
+	response = requests.get(request_string, headers = header_params)
+	
+	if response.status_code is 200:
+	    print response.content
+	else:
+	    print 'ERROR: API request failed'
 
 
 ## 스크립트 실행
@@ -149,7 +187,7 @@ $ClientID, $ClientSecret, $tenantdomain을 "Azure AD에서 액세스 위임"의 
 ## 참고
 
 - Azure AD Reporting API에서 (OData 페이지 매김을 사용하여) 반환되는 이벤트의 수가 제한됩니다.
-	- 데이터 보고에서 보존 제한은 [Reporting 보존 정책](active-directory-reporting-retention.md)을 확인하세요.
+	- 데이터 보고에서 보존 제한은 [보존 정책 보고](active-directory-reporting-retention.md)를 확인하세요.
 
 
 ## 다음 단계
@@ -157,4 +195,4 @@ $ClientID, $ClientSecret, $tenantdomain을 "Azure AD에서 액세스 위임"의 
 - 감사 보고서에 대한 자세한 내용은 [Azure AD 감사 보고서 이벤트](active-directory-reporting-audit-events.md) 참조
 - Graph API REST 서비스에 대한 자세한 내용은 [Azure AD 보고서 및 이벤트(미리 보기)](https://msdn.microsoft.com/library/azure/mt126081.aspx) 참조
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

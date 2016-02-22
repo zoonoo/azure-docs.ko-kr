@@ -3,7 +3,7 @@
 	description="Azure 모바일 앱에 대한 인증/권한 부여 기능의 개념 참조 및 개요"
 	services="app-service\mobile"
 	documentationCenter=""
-	authors="mattchenderson" 
+	authors="mattchenderson"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="11/30/2015"
+	ms.date="02/04/2016"
 	ms.author="mahender"/>
 
 # Azure 모바일 앱의 인증 및 권한 부여
-
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## 앱 서비스 인증/권한 부여란?
 
@@ -52,7 +50,7 @@ ID 공급자 중 하나를 사용하여 인증하려면 먼저 ID 공급자를 �
 - 한 줄의 코드를 사용하여 모바일 앱 클라이언트 SDK가 사용자를 로그인하도록 할 수 있습니다.
 - 지정된 ID 공급자를 통해 게시된 SDK를 활용하여 ID를 설정한 다음 앱 서비스에 액세스를 얻습니다.
 
->[AZURE.TIP]많은 응용 프로그램은 공급자 SDK를 사용하여 더 원시적인 로그인 환경을 가져오고 새로 고침 지원 및 기타 공급자별 혜택을 활용해야 합니다.
+>[AZURE.TIP] 많은 응용 프로그램은 공급자 SDK를 사용하여 더 원시적인 로그인 환경을 가져오고 새로 고침 지원 및 기타 공급자별 혜택을 활용해야 합니다.
 
 ### 공급자 SDK 없이 인증 작동 방법
 
@@ -106,4 +104,4 @@ ID 공급자 중 하나를 사용하여 인증하려면 먼저 ID 공급자를 �
 [Microsoft 계정 로그인을 사용하도록 앱을 구성하는 방법]: app-service-mobile-how-to-configure-microsoft-authentication.md
 [Twitter 로그인을 사용하도록 앱을 구성하는 방법]: app-service-mobile-how-to-configure-twitter-authentication.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

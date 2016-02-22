@@ -1,22 +1,22 @@
-<properties 
-pageTitle="Azure용 Oracle Linux 가상 컴퓨터 준비 | Microsoft Azure" 
-description="Microsoft Azure에서 Linux를 실행하는 Oracle 가상 컴퓨터의 구성 과정을 단계별로 설명합니다." 
-services="virtual-machines" 
-authors="bbenz" 
+<properties
+pageTitle="Azure용 Oracle Linux 가상 컴퓨터 준비 | Microsoft Azure"
+description="Microsoft Azure에서 Linux를 실행하는 Oracle 가상 컴퓨터의 구성 과정을 단계별로 설명합니다."
+services="virtual-machines"
+authors="bbenz"
 documentationCenter="virtual-machines"
 tags="azure-service-management,azure-resource-manager"
 />
 
-<tags 
-ms.service="virtual-machines" 
-ms.devlang="na" 
-ms.topic="article" 
-ms.tgt_pltfrm="vm-linux" 
-ms.workload="infrastructure-services" 
-ms.date="06/22/2015" 
+<tags
+ms.service="virtual-machines"
+ms.devlang="na"
+ms.topic="article"
+ms.tgt_pltfrm="vm-linux"
+ms.workload="infrastructure-services"
+ms.date="06/22/2015"
 ms.author="bbenz" />
 
-#Azure용 Oracle Linux 가상 컴퓨터 준비
+# Azure용 Oracle Linux 가상 컴퓨터 준비
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -25,7 +25,7 @@ ms.author="bbenz" />
 
 -   [Azure용 Oracle Linux 7.0 이상 가상 컴퓨터 준비](virtual-machines-linux-create-upload-vhd-oracle.md)
 
-##필수 조건
+## 필수 조건
 이 문서에서는 가상 하드 디스크에 Oracle Linux 운영 체제를 이미 설치했다고 가정합니다. .vhd 파일을 만드는 여러 도구가 있습니다(예: Hyper-V와 같은 가상화 솔루션). 자세한 내용은 [Hyper-V 설치 및 가상 컴퓨터 만들기](http://technet.microsoft.com/library/hh846766.aspx)를 참조하세요.
 
 **Oracle Linux 설치 참고 사항**
@@ -44,10 +44,10 @@ ms.author="bbenz" />
 
 - 모든 VHD 크기는 1MB의 배수여야 합니다.
 
-- `Addons`리포지토리가 사용하도록 설정되었는지 확인합니다. 파일 `/etc/yum.repo.d/public-yum-ol6.repo`(Oracle Linux 6) 또는 파일 `/etc/yum.repo.d/public-yum-ol7.repo`(Oracle Linux)를 편집하고 이 파일의 **[ol6\_addons]** 또는 **[ol7\_addons]** 아래에서 줄 `enabled=0`을 `enabled=1`로 변경합니다.
+- `Addons` 리포지토리가 사용하도록 설정되었는지 확인합니다. 파일 `/etc/yum.repo.d/public-yum-ol6.repo`(Oracle Linux 6) 또는 파일 `/etc/yum.repo.d/public-yum-ol7.repo`(Oracle Linux)를 편집하고 이 파일의 **[ol6\_addons]** 또는 **[ol7\_addons]** 아래에서 줄 `enabled=0`을 `enabled=1`로 변경하도록 선택합니다.
 
 
-##Oracle Linux 6.4 이상
+## Oracle Linux 6.4 이상
 가상 컴퓨터를 Azure에서 실행하려면 운영 체제에서 특정 구성 단계를 완료해야 합니다.
 
 1. Hyper-V 관리자의 가운데 창에서 가상 컴퓨터를 선택합니다.
@@ -58,7 +58,7 @@ ms.author="bbenz" />
 
 		# sudo rpm -e --nodeps NetworkManager
 
-	>[AZURE.NOTE]패키지가 아직 설치되어 있지 않은 경우 이 명령이 실패하고 오류 메시지가 표시됩니다. 예상된 동작입니다.
+	>[AZURE.NOTE] 패키지가 아직 설치되어 있지 않은 경우 이 명령이 실패하고 오류 메시지가 표시됩니다. 예상된 동작입니다.
 
 4. 다음 텍스트가 포함된 **network**파일을 /etc/sysconfig/ 디렉터리에 만듭니다.
 
@@ -94,7 +94,7 @@ ms.author="bbenz" />
 
 	이렇게 하면 모든 콘솔 메시지가 첫 번째 직렬 포트로 전송되므로 Azure 지원에서 문제를 디버깅하는 데에도 도움이 될 수 있습니다. 이 경우 Oracle Red Hat 호환 커널의 버그로 인해 NUMA가 사용하지 않도록 설정됩니다.
 
-	위의 작업을 수행하는 동시에 다음 매개 변수를 제거하는 것이 좋습니다.
+	위의 작업을 수행하는 동시에 다음 매개 변수를 *제거*하는 것이 좋습니다.
 
 		rhgb quiet crashkernel=auto
 
@@ -112,7 +112,7 @@ ms.author="bbenz" />
 
 12.  OS 디스크에 스왑 공간을 만들지 마십시오.
 
-	Azure Linux 에이전트는 Azure에서 프로비전한 후 VM에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 로컬 리소스 디스크는 임시 디스크이며 VM의 프로비전을 해제할 때 비워질 수 있습니다. Azure Linux 에이전트를 설치한 후(이전 단계 참조) /etc/waagent.conf에서 다음 매개 변수를 적절하게 수정합니다.
+	Azure Linux 에이전트는 Azure에서 프로비전한 후 VM에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 로컬 리소스 디스크는 *임시* 디스크이며 VM의 프로비전을 해제할 때 비워질 수 있습니다. Azure Linux 에이전트를 설치한 후(이전 단계 참조) /etc/waagent.conf에서 다음 매개 변수를 적절하게 수정합니다.
 
 		ResourceDisk.Format=y
 
@@ -132,7 +132,7 @@ ms.author="bbenz" />
 
 14.  Hyper-V 관리자에서 **작업 -> 종료**를 클릭합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
 
-##Oracle Linux 7.0
+## Oracle Linux 7.0
 **Oracle Linux 7의 변경 내용**
 
 Azure용으로 Oracle Linux 7 가상 컴퓨터를 준비하는 작업은 Oracle Linux 6에 대한 프로세스와 매우 비슷하지만 다음과 같은 몇 가지 중요한 차이점이 있습니다.
@@ -189,7 +189,7 @@ Azure용으로 Oracle Linux 7 가상 컴퓨터를 준비하는 작업은 Oracle 
 
 		GRUB\_CMDLINE\_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0"
 
-	이렇게 하면 모든 콘솔 메시지가 첫 번째 직렬 포트로 전송되므로 Azure 지원에서 문제를 디버깅하는 데에도 도움이 될 수 있습니다. 위의 작업을 수행하는 동시에 다음 매개 변수를 제거하는 것이 좋습니다.
+	이렇게 하면 모든 콘솔 메시지가 첫 번째 직렬 포트로 전송되므로 Azure 지원에서 문제를 디버깅하는 데에도 도움이 될 수 있습니다. 위의 작업을 수행하는 동시에 다음 매개 변수를 *제거*하는 것이 좋습니다.
 
 		rhgb quiet crashkernel=auto
 
@@ -209,7 +209,7 @@ Azure용으로 Oracle Linux 7 가상 컴퓨터를 준비하는 작업은 Oracle 
 
 13.  OS 디스크에 스왑 공간을 만들지 마십시오.
 
-	Azure Linux 에이전트는 Azure에서 프로비전한 후 VM에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 로컬 리소스 디스크는 임시 디스크이며 VM의 프로비전을 해제할 때 비워질 수 있습니다. Azure Linux 에이전트를 설치한 후(이전 단계 참조) /etc/waagent.conf에서 다음 매개 변수를 적절하게 수정합니다.
+	Azure Linux 에이전트는 Azure에서 프로비전한 후 VM에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 로컬 리소스 디스크는 *임시* 디스크이며 VM의 프로비전을 해제할 때 비워질 수 있습니다. Azure Linux 에이전트를 설치한 후(이전 단계 참조) /etc/waagent.conf에서 다음 매개 변수를 적절하게 수정합니다.
 
 		ResourceDisk.Format=y
 		ResourceDisk.Filesystem=ext4
@@ -225,4 +225,4 @@ Azure용으로 Oracle Linux 7 가상 컴퓨터를 준비하는 작업은 Oracle 
 
 15.  Hyper-V 관리자에서 **작업 -> 종료**를 클릭합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

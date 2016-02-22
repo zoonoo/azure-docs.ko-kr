@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="02/09/2016"
 	ms.author="kgremban"/>
 
 
 # Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시
 
-> [AZURE.NOTE]응용 프로그램 프록시는 Premium 또는 Basic 버전의 Azure Active Directory로 업그레이드하는 경우에만 사용할 수 있는 기능입니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
+> [AZURE.NOTE] 응용 프로그램 프록시는 Premium 또는 Basic 버전의 Azure Active Directory로 업그레이드하는 경우에만 사용할 수 있는 기능입니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
 
 Microsoft Azure AD(Active Directory) 응용 프로그램 프록시를 사용하도록 설정한 후 응용 프로그램을 게시하여 개인 네트워크 외부에서 사용자가 액세스하도록 만들 수 있습니다.
 
 이 문서에서는 네트워크 외부에서 안전한 원격 액세스를 사용하도록 설정하려는 로컬 네트워크에 실행 중인 응용 프로그램을 게시하는 단계를 안내합니다.
 
-> [AZURE.NOTE]커넥터가 제대로 실행되고 있는지 확인하려면 사용자가 실제 응용 프로그램을 게시하기 전에 인터넷에서 액세스하도록 하기 위해 게시하는 첫 번째 응용 프로그램이 개인 네트워크 내에서 액세스할 수 있는 웹 사이트이어야 합니다.
+> [AZURE.NOTE] 커넥터가 제대로 실행되고 있는지 확인하려면 사용자가 실제 응용 프로그램을 게시하기 전에 인터넷에서 액세스하도록 하기 위해 게시하는 첫 번째 응용 프로그램이 개인 네트워크 내에서 액세스할 수 있는 웹 사이트이어야 합니다.
 
 
 ## 마법사를 사용하여 앱 게시
@@ -65,7 +65,7 @@ Microsoft Azure AD(Active Directory) 응용 프로그램 프록시를 사용하�
 
 3. 이 앱에 할당하려는 각 사용자나 그룹을 선택하고 **할당**을 클릭합니다.
 
-> [AZURE.NOTE]Windows 통합 인증 앱에 대해 온-프레미스 Active Directory에서 동기화되는 사용자와 그룹만 할당할 수 있습니다. Microsoft 계정 및 게스트를 사용하여 로그인하는 사용자는 Azure Active Directory 응용 프로그램 프록시를 사용하여 게시된 앱에 할당할 수 없습니다. 할당한 사용자가 게시하는 앱과 동일한 도메인에 속하는 자신의 자격 증명을 사용하여 로그인하는지 확인합니다.
+> [AZURE.NOTE] Windows 통합 인증 앱에 대해 온-프레미스 Active Directory에서 동기화되는 사용자와 그룹만 할당할 수 있습니다. Microsoft 계정 및 게스트를 사용하여 로그인하는 사용자는 Azure Active Directory 응용 프로그램 프록시를 사용하여 게시된 앱에 할당할 수 없습니다. 할당한 사용자가 게시하는 앱과 동일한 도메인에 속하는 자신의 자격 증명을 사용하여 로그인하는지 확인합니다.
 
 
 ## 고급 구성
@@ -111,7 +111,7 @@ Azure Active Directory 응용 프로그램 프록시를 사용하여 응용 프�
 - [Channel 9에서 비디오 시청](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
 ## 추가 리소스
+- [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
+- [Kerberos 제한 위임 정보](http://technet.microsoft.com/library/cc995228.aspx)
 
-* [Kerberos 제한 위임 정보](http://technet.microsoft.com/library/cc995228.aspx)
-
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/13/2015"
+	ms.date="02/09/2016"
 	ms.author="cephalin"/>
 
 # 하이브리드 연결을 사용하여 Azure 앱 서비스의 웹 앱에서 온-프레미스 SQL Server에 연결
 
 하이브리드 연결은 정적 TCP 포트를 사용하는 온-프레미스 리소스에 [Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714) 웹 앱을 연결할 수 있습니다. 지원되는 리소스로는 Microsoft SQL Server, MySQL, HTTP 웹 API, 모바일 서비스, 대부분의 사용자 지정 웹 서비스가 있습니다.
 
-이 자습서에서 [Azure 미리 보기](http://go.microsoft.com/fwlink/?LinkId=529715)에서 앱 서비스 웹 앱을 만들고, 새 하이브리드 연결 기능을 사용하여 로컬 온-프레미스 SQL Server 데이터베이스에 웹 앱을 연결하고, 하이브리드 연결을 사용하는 단순한 ASP.NET 응용 프로그램을 만들고, 앱 서비스 웹 앱에 응용 프로그램을 배포하는 방법에 대해 알아봅니다. Azure의 완전한 웹 앱은 온-프레미스인 멤버 자격 데이터베이스에서 사용자 자격 증명을 저장합니다. 이 자습서는 이전에 Azure 또는 ASP.NET을 사용해 본 경험이 있다고 가정합니다.
+이 자습서에서 [Azure 포털](http://go.microsoft.com/fwlink/?LinkId=529715)에서 앱 서비스 웹앱을 만들고, 새 하이브리드 연결 기능을 사용하여 로컬 온-프레미스 SQL Server 데이터베이스에 웹앱을 연결하고, 하이브리드 연결을 사용하는 단순한 ASP.NET 응용 프로그램을 만들고, 앱 서비스 웹앱에 응용 프로그램을 배포하는 방법에 대해 알아봅니다. Azure의 완전한 웹 앱은 온-프레미스인 멤버 자격 데이터베이스에서 사용자 자격 증명을 저장합니다. 이 자습서는 이전에 Azure 또는 ASP.NET을 사용해 본 경험이 있다고 가정합니다.
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 >
 >하이브리드 연결 기능의 웹 앱 부분은 [Azure 포털](https://portal.azure.com)에서만 사용할 수 있습니다. BizTalk 서비스에서 연결을 만들려면 [하이브리드 연결](http://go.microsoft.com/fwlink/p/?LinkID=397274)(영문)을 참조하세요.
 
@@ -54,7 +54,7 @@
 80|인증서 유효성 검사용 HTTP 포트에 **필요하며** 선택적으로 데이터 연결에 필요합니다.
 443|데이터 연결에 대해 **선택사항**입니다. 443에 대한 아웃바운드 연결을 사용할 수 없으면 TCP 포트 80이 사용됩니다.
 5671 및 9352|데이터 연결에 대해 **권장**하지만 선택사항입니다. 이 모드를 사용하면 일반적으로 더 높은 처리량을 얻을 수 있습니다. 이러한 포트에 대한 아웃바운드 연결을 사용할 수 없으면 TCP 포트 443이 사용됩니다.
-- 온-프레미스 리소스의 *호스트이름*:*포트번호* 에 연결할 수 있어야 합니다.
+- 온-프레미스 리소스의 *호스트이름*:*포트번호*에 연결할 수 있어야 합니다.
 
 이 자습서의 단계에서는 온-프레미스 하이브리드 연결 에이전트를 호스트하는 컴퓨터에서 브라우저를 사용하고 있다고 가정합니다.
 
@@ -63,7 +63,7 @@
 <a name="InstallSQL"></a>
 ## A. SQL Server Express 설치, TCP/IP 사용 및 SQL Server 데이터베이스 온-프레미스 만들기 ##
 
-이 섹션에서는 웹 응용 프로그램이 Azure 미리 보기 환경에서 작동하도록 SQL Server Express를 설치하고, TCP/IP를 사용하도록 설정하고, 데이터베이스를 만드는 방법을 보여 줍니다.
+이 섹션에서는 웹 응용 프로그램이 Azure 포털에서 작동하도록 SQL Server Express를 설치하고, TCP/IP를 사용하도록 설정하고, 데이터베이스를 만드는 방법을 보여 줍니다.
 
 ### SQL Server Express 설치 ###
 
@@ -118,7 +118,7 @@ Visual Studio 웹 응용 프로그램을 사용하려면 Azure에서 액세스�
 <a name="CreateSite"></a>
 ## B. Azure 포털에서 웹 앱 만들기 ##
 
-> [AZURE.NOTE]이 자습서에서 사용하고자 하는 Azure 포털에서 웹앱을 이미 만들었다면, [하이브리드 연결 및 BizTalk 서비스 만들기](#CreateHC)를 건너뛰고 계속 진행합니다.
+> [AZURE.NOTE] 이 자습서에서 사용하고자 하는 Azure 포털에서 웹앱을 이미 만들었다면, [하이브리드 연결 및 BizTalk 서비스 만들기](#CreateHC)를 건너뛰고 계속 진행합니다.
 
 1. [Azure 포털](https://portal.azure.com)에서 **새로 만들기** > **웹 + 모바일** > **웹앱**을 클릭합니다.
 
@@ -192,7 +192,7 @@ Visual Studio 웹 응용 프로그램을 사용하려면 Azure에서 액세스�
 
 이 단계에서, 응용 프로그램에 로컬 SQL Server Express 데이터베이스를 찾을 수 있는 위치를 알려 주는 연결 문자열을 편집합니다. 연결 문자열은 응용 프로그램에 대한 구성 정보를 포함하는 응용 프로그램의 Web.config 파일에 있습니다.
 
-> [AZURE.NOTE]응용 프로그램이 Visual Studio의 기본 LocalDB에 있는 데이터베이스가 아닌 SQL Server Express에서 만든 데이터베이스를 사용하도록 하려면 프로젝트를 실행하기 전에 이 단계를 완료하는 것이 중요합니다.
+> [AZURE.NOTE] 응용 프로그램이 Visual Studio의 기본 LocalDB에 있는 데이터베이스가 아닌 SQL Server Express에서 만든 데이터베이스를 사용하도록 하려면 프로젝트를 실행하기 전에 이 단계를 완료하는 것이 중요합니다.
 
 1. 솔루션 탐색기에서 Web.config 파일을 두 번 클릭합니다.
 
@@ -302,7 +302,7 @@ Visual Studio 웹 응용 프로그램을 사용하려면 Azure에서 액세스�
 
 [원활한 응용 프로그램 이식성으로 실시간 하이브리드 연결 클라우드 구축(채널 9 비디오)(영문)](http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
 
-[하이브리드 연결을 사용하여 Azure 모바일 서비스에서 온-프레미스 SQL Server에 연결](../mobile-services-dotnet-backend-hybrid-connections-get-started.md)
+[하이브리드 연결을 사용하여 Azure 모바일 서비스에서 온-프레미스 SQL Server에 연결](../mobile-services/mobile-services-dotnet-backend-hybrid-connections-get-started.md)
 
 [하이브리드 연결을 사용하여 Azure 모바일 서비스에서 온-프레미스 SQL Server에 연결(채널 9 비디오)(영문)](http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Connect-to-an-on-premises-SQL-Server-from-Azure-Mobile-Services-using-Hybrid-Connections)
 
@@ -363,4 +363,4 @@ Visual Studio 웹 응용 프로그램을 사용하려면 Azure에서 액세스�
 [HCTestSSMSTree]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F10HCTestSSMSTree.png
 [HCTestShowMemberDb]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F11HCTestShowMemberDb.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

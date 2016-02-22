@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/09/2015"
+	ms.date="02/04/2016"
 	ms.author="jgao"/>
 
 
@@ -76,7 +76,7 @@ HDInsight 플랫폼의 몇 가지 두드러진 기능은 다음과 같습니다.
 
 - **스크립트 작업** - 이 클러스터 사용자 지정 기능을 사용하면 사용자 지정 스크립트를 사용하여 임의의 방식으로 Hadoop 클러스터를 수정할 수 있습니다. 이 새로운 기능을 통해 사용자는 Apache Hadoop 에코시스템에서 사용할 수 있는 프로젝트를 실험하고 Azure HDInsight 클러스터에 배포할 수 있습니다. 이 사용자 지정 기능은 Hadoop, HBase, Storm을 비롯한 모든 HDInsight 유형에서 사용할 수 있습니다.
 
-- **HBase** - HBase는 빅 데이터를 온라인으로 트랜잭션 처리할 수 있게 하는 짧은 대기 시간의 NoSQL 데이터베이스입니다. HBase는 Azure 환경에 통합된 관리 클러스터로 제공합니다. 이 클러스터는 Azure Blob 저장소에 직접 데이터를 저장하도록 구성되며, 그러면 대기 시간이 짧고 성능/비용 선택 시 탄력성이 높습니다. 따라서 고객은 대규모 데이터 집합으로 작업하는 대화형 웹 사이트를 구축하고, 수백만 개의 끝점에서 발생하는 센서 및 원격 분석 데이터를 저장하는 서비스를 구축하고, Hadoop 작업을 사용해 이 데이터를 분석할 수 있습니다.
+- **HBase** - HBase는 빅데이터를 온라인으로 트랜잭션 처리할 수 있게 하는 짧은 대기 시간의 NoSQL 데이터베이스입니다. HBase는 Azure 환경에 통합된 관리 클러스터로 제공합니다. 이 클러스터는 Azure Blob 저장소에 직접 데이터를 저장하도록 구성되며, 그러면 대기 시간이 짧고 성능/비용 선택 시 탄력성이 높습니다. 따라서 고객은 대규모 데이터 집합으로 작업하는 대화형 웹 사이트를 구축하고, 수백만 개의 끝점에서 발생하는 센서 및 원격 분석 데이터를 저장하는 서비스를 구축하고, Hadoop 작업을 사용해 이 데이터를 분석할 수 있습니다.
 
 - **Apache Phoenix** - Apache Phoenix는 HBase를 기반으로 둔 SQL(Structured Query Language) 쿼리 계층입니다. 보조 인덱스 지원을 포함하여 SQL 쿼리 언어 사양의 제한된 하위 집합을 지원합니다. HBase 데이터에 대해 대기 시간이 짧은 쿼리를 목표로 하는 클라이언트에 JDBC(Java Database Connectivity) 드라이버로 제공됩니다. Apache Phoenix는 SQL 쿼리를 수신하고, 일련의 HBase 스캔 및 보조 프로세서 호출로 컴파일하고, 일반 JDBC 결과 집합을 생성합니다. Apache Phoenix는 HBase를 기반으로 둔 관계형 데이터베이스 계층입니다. HBase 데이터에 대해 대기 시간이 짧은 쿼리를 목표로 하는 클라이언트에 JDBC 드라이버로 제공됩니다. Apache Phoenix는 SQL 쿼리를 수신하고, 일련의 HBase 스캔으로 컴파일하고, 해당 스캔 실행을 오케스트레이션하여 일반 JDBC 결과 집합을 생성합니다.
 
@@ -120,7 +120,7 @@ SLA는 "지원 기간" 면에서 정의됩니다. 지원 기간은 Microsoft 고
 
 **사용 중단 날짜**는 HDInsight에서 해당 클러스터 버전을 만들 수 없게 되는 날짜입니다.
 
-> [AZURE.NOTE]HDInsight 2.1 및 3.0 클러스터는 모두 64비트 버전의 Windows Server 2012 R2를 사용하고 .NET Framework 4.0, 4.5 및 4.5.1을 지원하는 Azure 게스트 OS [제품군 4](../cloud-services-guestos-update-matrix.md)에서 실행됩니다.
+> [AZURE.NOTE] HDInsight 2.1 및 3.0 클러스터는 모두 64비트 버전의 Windows Server 2012 R2를 사용하고 .NET Framework 4.0, 4.5 및 4.5.1을 지원하는 Azure 게스트 OS [제품군 4](../cloud-services-guestos-update-matrix.md)에서 실행됩니다.
 
 ## HDInsight 버전과 관련된 Hortonworks 릴리스 정보##
 
@@ -160,4 +160,4 @@ SLA는 "지원 기간" 면에서 정의됩니다. 지원 기간은 Microsoft 고
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

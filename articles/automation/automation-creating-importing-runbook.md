@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="09/22/2015"
+	ms.date="02/09/2016"
 	ms.author="bwren" />
 
 # Azure 자동화에서 Runbook 만들기 또는 가져오기
@@ -131,4 +131,4 @@ Azure 자동화에 스크립트 파일을 가져오려면 다음 절차를 사�
 - [Azure 자동화에서 텍스트 Runbook 편집](automation-edit-textual-runbook.md)
 - [Azure 자동화에서 그래픽 작성](automation-graphical-authoring-intro.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Preview 포털을 사용하여 ARM 모드에서 NSG를 만드는 방법 | Microsoft Azure"
-   description="Preview 포털을 사용하여 ARM에서 NSG를 만들고 배포하는 방법을 알아봅니다."
+   pageTitle="Azure 포털을 사용하여 ARM 모드에서 NSG를 만드는 방법 | Microsoft Azure"
+   description="Azure 포털을 사용하여 ARM에서 NSG를 만들고 배포하는 방법을 알아봅니다."
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="02/04/2016"
    ms.author="telmos" />
 
 # Preview 포털을 사용하여 NSG를 관리하는 방법
@@ -56,4 +56,4 @@ Preview 포털의 기존 NSG에 규칙을 만들려면 다음 단계를 수행�
 
 ![Preview 포털 - 새 규칙](./media/virtual-networks-create-nsg-arm-pportal/figure5.png)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

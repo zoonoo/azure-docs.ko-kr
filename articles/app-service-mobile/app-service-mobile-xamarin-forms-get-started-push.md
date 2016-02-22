@@ -1,26 +1,24 @@
-<properties 
-	pageTitle="Azure 앱 서비스를 사용하여 Xamarin.Forms 앱에 푸시 알림 추가" 
-	description="Azure 앱 서비스를 사용하여Xamarin.Forms 앱에 푸시 알림을 전송하는 방법을 알아봅니다." 
-	services="app-service\mobile" 
-	documentationCenter="xamarin" 
+<properties
+	pageTitle="Azure 앱 서비스를 사용하여 Xamarin.Forms 앱에 푸시 알림 추가"
+	description="Azure 앱 서비스를 사용하여Xamarin.Forms 앱에 푸시 알림을 전송하는 방법을 알아봅니다."
+	services="app-service\mobile"
+	documentationCenter="xamarin"
 	authors="wesmc7777"
-	manager="dwrede" 
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin" 
-	ms.devlang="dotnet" 
+<tags
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin"
+	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/19/2015" 
+	ms.date="02/04/2016"
 	ms.author="wesmc"/>
 
 # Xamarin.Forms 앱에 푸시 알림 추가
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##개요
 
@@ -93,7 +91,7 @@
 	        // Check to ensure everything's setup right
 	        GcmClient.CheckDevice(this);
 	        GcmClient.CheckManifest(this);
-	
+
 	        // Register for push notifications
 	        System.Diagnostics.Debug.WriteLine("Registering...");
 	        GcmClient.Register(this, PushHandlerBroadcastReceiver.SENDER_IDS);
@@ -110,7 +108,7 @@
 
 4. `CreateAndShowDialog` 도우미 메서드에 대해 다음 코드를 추가합니다.
 
-		private void CreateAndShowDialog(String message, String title) 
+		private void CreateAndShowDialog(String message, String title)
 		{
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
@@ -121,10 +119,10 @@
 
 
 5. `MainActivity` 클래스에서 주 UI 스레드에 대해 몇몇 클래스를 실행할 수 있도록 다음 코드를 추가하여 현재 `MainActivity`를 노출합니다.
-		
+
 		// Create a new instance field for this activity.
 		static MainActivity instance = null;
-		
+
 		// Return the current activity instance.
 		public static MainActivity CurrentActivity
 		{
@@ -159,7 +157,7 @@
 		[assembly: Permission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
 		[assembly: UsesPermission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
 		[assembly: UsesPermission(Name = "com.google.android.c2dm.permission.RECEIVE")]
-		
+
 		//GET_ACCOUNTS is only needed for android versions 4.0.3 and below
 		[assembly: UsesPermission(Name = "android.permission.GET_ACCOUNTS")]
 		[assembly: UsesPermission(Name = "android.permission.INTERNET")]
@@ -170,10 +168,10 @@
 		[BroadcastReceiver(Permission = Gcm.Client.Constants.PERMISSION_GCM_INTENTS)]
 		[IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_MESSAGE }, Categories = new string[] { "@PACKAGE_NAME@" })]
 		[IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_REGISTRATION_CALLBACK }, Categories = new string[] { "@PACKAGE_NAME@" })]
-		[IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_LIBRARY_RETRY }, Categories = new string[] { "@PACKAGE_NAME@" })]		
+		[IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_LIBRARY_RETRY }, Categories = new string[] { "@PACKAGE_NAME@" })]
 		public class PushHandlerBroadcastReceiver : GcmBroadcastReceiverBase<GcmService>
-		{		
-		    public static string[] SENDER_IDS = new string[] { "<PROJECT_NUMBER>" };		
+		{
+		    public static string[] SENDER_IDS = new string[] { "<PROJECT_NUMBER>" };
 		}
 
 11. 새 브로드캐스트 수신기를 사용하도록 `GcmService` 클래스를 업데이트합니다.
@@ -182,7 +180,7 @@
 		 public class GcmService : GcmServiceBase
 		 {
 		     public static string RegistrationID { get; private set; }
-		
+
 		     public GcmService()
 		         : base(PushHandlerBroadcastReceiver.SENDER_IDS){}
 		 }
@@ -191,18 +189,18 @@
 12. OnRegistered 이벤트 처리기를 재정의하고 `Register` 메서드를 구현하는 다음 코드를 GcmService 클래스에 추가합니다.
 
 	이 코드는 `messageParam` 매개 변수를 사용하여 템플릿 알림을 수신하기 위해 템플릿 본문을 등록합니다. 템플릿 알림을 사용하여 플랫폼 간에 알림을 보낼 수 있습니다. 자세한 내용은 [템플릿](https://msdn.microsoft.com/library/azure/dn530748.aspx)을 사용하세요.
-		
+
 		protected override void OnRegistered(Context context, string registrationId)
 		{
 		    Log.Verbose("PushHandlerBroadcastReceiver", "GCM Registered: " + registrationId);
 		    RegistrationID = registrationId;
-		
+
 		    createNotification("GcmService Registered...", "The device has been Registered, Tap to View!");
-		
+
             var push = TodoItemManager.DefaultManager.CurrentClient.GetPush();
-		
+
 		    MainActivity.CurrentActivity.RunOnUiThread(() => Register(push, null));
-		
+
 		}
 
         public async void Register(Microsoft.WindowsAzure.MobileServices.Push push, IEnumerable<string> tags)
@@ -216,7 +214,7 @@
                 {
                   {"body", templateBodyGCM}
                 };
-                
+
                 await push.RegisterAsync(RegistrationID, templates);
                 Log.Info("Push Installation Id", push.InstallationId.ToString());
             }
@@ -232,61 +230,61 @@
 		protected override void OnMessage(Context context, Intent intent)
 		{
 		    Log.Info("PushHandlerBroadcastReceiver", "GCM Message Received!");
-		
+
 		    var msg = new StringBuilder();
-		
+
 		    if (intent != null && intent.Extras != null)
 		    {
 		        foreach (var key in intent.Extras.KeySet())
 		            msg.AppendLine(key + "=" + intent.Extras.Get(key).ToString());
 		    }
-		
+
 		    //Store the message
 		    var prefs = GetSharedPreferences(context.PackageName, FileCreationMode.Private);
 		    var edit = prefs.Edit();
 		    edit.PutString("last_msg", msg.ToString());
 		    edit.Commit();
-		
+
 		    string message = intent.Extras.GetString("message");
 		    if (!string.IsNullOrEmpty(message))
 		    {
 		        createNotification("New todo item!", "Todo item: " + message);
 		        return;
 		    }
-		
+
 		    string msg2 = intent.Extras.GetString("msg");
 		    if (!string.IsNullOrEmpty(msg2))
 		    {
 		        createNotification("New hub message!", msg2);
 		        return;
 		    }
-		
+
 		    createNotification("Unknown message details", msg.ToString());
 		}
-		
+
 		void createNotification(string title, string desc)
 		{
 		    //Create notification
 		    var notificationManager = GetSystemService(Context.NotificationService) as NotificationManager;
-		
+
 		    //Create an intent to show ui
 		    var uiIntent = new Intent(this, typeof(MainActivity));
-		
+
 		    //Create the notification
 		    var notification = new Notification(Android.Resource.Drawable.SymActionEmail, title);
-		
+
 		    //Auto cancel will remove the notification once the user touches it
 		    notification.Flags = NotificationFlags.AutoCancel;
-		
+
 		    //Set the notification info
 		    //we use the pending intent, passing our ui intent over which will get called
 		    //when the notification is tapped.
 		    notification.SetLatestEventInfo(this, title, desc, PendingIntent.GetActivity(this, 0, uiIntent, 0));
-		
+
 		    //Show the notification
 		    notificationManager.Notify(1, notification);
 		}
-	
+
 14. 또한 수신기에 대해 `OnUnRegistered` 및 `OnError` 처리기를 구현해야 합니다.
 
 		protected override void OnUnRegistered(Context context, string registrationId)
@@ -304,9 +302,9 @@
 ####Android 앱에서 푸시 알림 테스트
 
 1. Visual Studio 또는 Xamarin Studio에서 **droid** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 클릭합니다.
- 
+
 2. **실행** 단추를 눌러 프로젝트를 빌드하고 iOS 지원 장치에서 앱을 시작한 다음, **확인**을 클릭하여 푸시 알림을 수락합니다.
-	
+
 	> [AZURE.NOTE] 앱에서 푸시 알림을 명시적으로 수락해야 합니다. 이 요청은 앱이 처음 실행될 때만 발생합니다.
 
 2. 앱에서 작업을 입력한 다음 더하기(**+**) 아이콘을 클릭합니다.
@@ -355,7 +353,7 @@
             // IMPORTANT: uncomment this code to enable sync on Xamarin.iOS
             // For more information, see: http://go.microsoft.com/fwlink/?LinkId=620342
             //SQLitePCL.CurrentPlatform.Init();
-            
+
             // registers for push for iOS8
             var settings = UIUserNotificationSettings.GetSettingsForTypes(
                 UIUserNotificationType.Alert
@@ -414,7 +412,7 @@
 1. iOS 프로젝트를 마우스 오른쪽 단추로 누른 다음 **시작 프로젝트로 설정**을 클릭합니다.
 
 2. Visual Studio에서 **실행** 단추 또는 **F5** 키를 눌러 프로젝트를 빌드하고 iOS 지원 장치에서 앱을 시작한 다음, **확인**을 클릭하여 푸시 알림을 수락합니다.
-	
+
 	> [AZURE.NOTE] 앱에서 푸시 알림을 명시적으로 수락해야 합니다. 이 요청은 앱이 처음 실행될 때만 발생합니다.
 
 3. 앱에서 작업을 입력한 다음 더하기(**+**) 아이콘을 클릭합니다.
@@ -486,7 +484,7 @@
                 // Set the default language
                 rootFrame.Language = Windows.Globalization.ApplicationLanguages.Languages[0];
                 rootFrame.NavigationFailed += OnNavigationFailed;
-                Xamarin.Forms.Forms.Init(e); 
+                Xamarin.Forms.Forms.Init(e);
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
                     //TODO: Load state from previously suspended application
@@ -519,7 +517,7 @@
 
 
 2. **실행** 단추를 눌러 프로젝트를 빌드하고 iOS 지원 장치에서 앱을 시작한 다음, **확인**을 클릭하여 푸시 알림을 수락합니다.
-	
+
 	> [AZURE.NOTE] 앱에서 푸시 알림을 명시적으로 수락해야 합니다. 이 요청은 앱이 처음 실행될 때만 발생합니다.
 
 3. 앱에서 작업을 입력한 다음 더하기(**+**) 아이콘을 클릭합니다.
@@ -537,4 +535,4 @@
 [Windows에서 Xamarin.iOS 설치]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

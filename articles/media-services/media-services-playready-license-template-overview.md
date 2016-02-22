@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/05/2015"
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #미디어 서비스 PlayReady 라이선스 템플릿 개요
@@ -311,4 +311,4 @@ Silverlight에서 지원하는 보호 수준의 예는 [출력 보호를 위한 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

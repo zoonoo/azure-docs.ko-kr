@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="02/04/2016"
 	ms.author="kirillg"/>
 
 # <a name="getting-started"> </a>모바일 앱 정의
-
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 Azure 앱 서비스는 전문적 개발자를 위한 완전히 관리되는 PaaS(Platform as a Service) 제품으로, 웹, 모바일 및 통합 시나리오에 풍부한 기능 집합을 제공합니다. *Azure 앱 서비스*의 *모바일 앱*은 엔터프라이즈 개발자 및 시스템 통합자를 위해 확장성이 크고 전 세계에서 사용 가능한 모바일 응용 프로그램 개발 플랫폼을 제공합니다. 이 플랫폼은 모바일 개발자에게 풍부한 기능 집합을 제공합니다.
 
@@ -27,7 +25,7 @@ Azure 앱 서비스는 전문적 개발자를 위한 완전히 관리되는 PaaS
 ##모바일 앱 사용 이유
 *Azure 앱 서비스*의 *모바일 앱*은 엔터프라이즈 개발자 및 시스템 통합자를 위해 확장성이 크고 전 세계에서 사용 가능한 모바일 응용 프로그램 개발 플랫폼을 제공합니다. 이 플랫폼은 모바일 개발자에게 풍부한 기능 집합을 제공합니다. 모바일 앱을 통해 다음을 수행할 수 있습니다.
 
-- **네이티브 앱 및 크로스 플랫폼 앱 빌드** - 빌드하는 앱이 네이티브 iOS, Android 및 Windows 앱인지 또는 크로스 플랫폼 Xamarin 앱이나 Cordova(Phonegap) 앱인지에 관계없이 네이티브 SDK를 통해 앱 서비스를 이용할 수 있습니다.  
+- **네이티브 앱 및 크로스 플랫폼 앱 빌드** - 빌드하는 앱이 네이티브 iOS, Android 및 Windows 앱인지 또는 크로스 플랫폼 Xamarin 앱이나 Cordova(Phonegap) 앱인지에 관계없이 네이티브 SDK를 통해 앱 서비스를 이용할 수 있습니다.
 - **엔터프라이즈 시스템에 연결** - 모바일 앱을 사용하면 몇 분 내에 회사 로그온을 추가하고 엔터프라이즈 온-프레미스 또는 클라우드 리소스에 연결할 수 있습니다.
 - **쉽게 SaaS API에 연결** - 40개 이상의 SaaS API 커넥터를 통해 현재 엔터프라이즈에서 사용하는 SaaS API와 앱을 쉽게 통합할 수 있습니다. CRM과 청구 시스템 둘 다에서 계정 상태를 업데이트하고 싶으세요? 모바일 앱을 통해 엔터프라이즈 SaaS API를 원하는 대로 제어할 수 있습니다.
 - **동기화를 사용하여 오프라인 준비 앱 빌드** - 오프라인에서 작동하며 연결이 있을 경우 백그라운드에서 엔터프라이즈 데이터 원본이나 SasS API와 데이터를 동기화하는 앱을 빌드하여 모바일 직원의 생산성을 높입니다.
@@ -52,6 +50,4 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 [Azure 앱 서비스]: ../app-service/app-service-value-prop-what-is.md
 [시작]: app-service-mobile-ios-get-started.md
 
- 
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -21,7 +21,7 @@
 
 이 자습서에서는, [agile 소프트웨어 개발](https://en.wikipedia.org/wiki/Agile_software_development)을 지원하는 [Azure 앱 서비스](/services/app-service/)를 사용하여 고확장성 복합 응용 프로그램을 만드는 법을 배웁니다. 여기서는 사용자가 [Azure에서 복잡한 응용 프로그램 배포](app-service-deploy-complex-application-predictably.md)방법을 이미 알고 있다고 가정합니다.
 
-Agile 방법론의 성공적인 구현을 기술적인 과정의 제약이 나타날 수 있습니다. Azure 앱 서비스를 [지속적인 게시](web-sites-publish-source-control.md), [스테이징 환경](web-sites-staged-publishing.md)(슬롯) 및 [모니터링](web-sites-monitor.md)과 같은 기능을 조합과 [Azure 리소스 관리자](resource-group-overview.md)의 배포 관리와 잘 결합하면 Agile 소프트웨어 개발자에게 훌륭한 솔루션의 일부가 될 수 있습니다.
+Agile 방법론의 성공적인 구현을 기술적인 과정의 제약이 나타날 수 있습니다. Azure 앱 서비스를 [지속적인 게시](web-sites-publish-source-control.md), [스테이징 환경](web-sites-staged-publishing.md)(슬롯) 및 [모니터링](web-sites-monitor.md)과 같은 기능을 조합과 [Azure 리소스 관리자](../resource-group-overview.md)의 배포 관리와 잘 결합하면 Agile 소프트웨어 개발자에게 훌륭한 솔루션의 일부가 될 수 있습니다.
 
 다음 표는 Agile 개발과 연관된 요구 사항의 최종 목록과, Azure 서비스가 이것들을 어떻게 사용 가능하게 만드는지 나타냅니다.
 
@@ -43,7 +43,7 @@ Agile 방법론의 성공적인 구현을 기술적인 과정의 제약이 나�
 
 단어에 그림을 넣으려면:
 
--	배포 아키텍처는 3가지 환경(또는 Azure의 [리소스 그룹](resource-group-overview.md))으로 구분됩니다. 각각은 개별적인 [앱 서비스 계획](azure-web-sites-web-hosting-plans-in-depth-overview.md), [규모](web-sites-scale.md) 설정, SQL 데이터베이스가 있습니다. 
+-	배포 아키텍처는 3가지 환경(또는 Azure의 [리소스 그룹](../resource-group-overview.md))으로 구분됩니다. 각각은 개별적인 [앱 서비스 계획](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), [규모](web-sites-scale.md) 설정, SQL 데이터베이스가 있습니다. 
 -	각 환경을 별도로 관리할 수 있습니다. 서로 다른 구독에도 존재할 수 있습니다.
 -	스테이징과 프로덕션은 같은 앱 서비스 앱의 두 슬롯으로 구현됩니다. 마스터 분기점은 스테이징 슬롯의 연속 통합을 위한 장치 조정입니다.
 -	마스터 분기점으로의 커밋이 (프로덕션 데이터를 사용하여) 스테이징 슬롯에서 확인될 때 확인된 스테이징 앱은 [가동 중지 시간 없이](web-sites-staged-publishing.md) 프로덕션 슬롯으로 교체됩니다.
@@ -63,7 +63,7 @@ Agile 방법론의 성공적인 구현을 기술적인 과정의 제약이 나�
 -	Git 셸(설치된 [Windows용 GitHub](https://windows.github.com/)) - 이것은 동일한 세션에서 Git와 PowerShell 명령을 실행할 수 있도록 합니다. 
 -	최신 [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/download/0.9.4-June2015/azure-powershell.0.9.4.msi) 비트
 -	다음의 기본적인 이해:
-	-	[Azure 리소스 관리자](resource-group-overview.md) 템플릿 배포([Azure에서 예측 가능하도록 복잡한 응용 프로그램을 배포](app-service-deploy-complex-application-predictably.md) 참조)
+	-	[Azure 리소스 관리자](../resource-group-overview.md) 템플릿 배포([Azure에서 예측 가능하도록 복잡한 응용 프로그램을 배포](app-service-deploy-complex-application-predictably.md) 참조)
 	-	[Git](http://git-scm.com/documentation)
 	-	[PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
@@ -270,14 +270,14 @@ Agile 소프트웨어 개발은 Azure를 응용 프로그램 플랫폼으로 채
 -	[Azure에서 예측 가능하도록 복잡한 응용 프로그램을 배포](app-service-deploy-complex-application-predictably.md)
 -	[Agile 개발 연습에서: 현대화 개발 주기의 팁과 트릭](http://channel9.msdn.com/Events/Ignite/2015/BRK3707)
 -	[리소스 관리자 템플릿을 사용하여 Azure 웹앱의 고급 배포 전략](http://channel9.msdn.com/Events/Build/2015/2-620)
--	[Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)
+-	[Azure 리소스 관리자 템플릿 작성](../resource-group-authoring-templates.md)
 -	[JSONLint-JSON 유효성 검사기](http://jsonlint.com/)
 -	[ARMClient – 사이트로 GitHub 게시를 설정](https://github.com/projectKudu/ARMClient/wiki/Setup-GitHub-publishing-to-Site)
 -	[Git 분기-기본 분기 및 병합](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
 -	[David Ebbo의 블로그](http://blog.davidebbo.com/)
--	[Azure PowerShell](powershell-install-configure.md)
--	[Azure 플랫폼간 명령줄 도구](xplat-cli-install.md)
+-	[Azure PowerShell](../powershell-install-configure.md)
+-	[Azure 플랫폼간 명령줄 도구](../xplat-cli-install.md)
 -	[Azure AD에서 사용자 만들기 또는 편집](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[프로젝트 Kudu Wiki](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

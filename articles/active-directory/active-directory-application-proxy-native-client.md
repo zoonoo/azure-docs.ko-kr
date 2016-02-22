@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="02/09/2016"
 	ms.author="kgremban"/>
 
 # 네이티브 클라이언트 앱을 사용하여 프록시 응용 프로그램과 상호 작용하는 방법
 
-> [AZURE.NOTE]응용 프로그램 프록시는 Premium 또는 Basic 버전의 Azure Active Directory로 업그레이드하는 경우에만 사용할 수 있는 기능입니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
+> [AZURE.NOTE] 응용 프로그램 프록시는 Premium 또는 Basic 버전의 Azure Active Directory로 업그레이드하는 경우에만 사용할 수 있는 기능입니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
 
 Azure Active Directory 응용 프로그램 프록시는 비즈니스 응용 프로그램의 SharePoint, Outlook Web Access 및 사용자 지정 선과 같은 브라우저 응용 프로그램을 게시하는 데 널리 사용됩니다. 또한 네이티브 클라이언트를 사용하여 사용되는 HTTP 백 엔드 응용 프로그램을 게시하는 데 사용될 수 있습니다. 표준 권한 부여 HTTP 헤더에서 전송된 Azure AD가 발급한 토큰을 지원하여 이루어집니다.
 
@@ -95,7 +95,8 @@ Active Directory 인증 라이브러리(ADAL)의 인증 컨텍스트에서 네�
 - [Channel 9에서 비디오 시청](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
 ## 추가 리소스
-* [조직으로 Azure 등록](sign-up-organization.md)
-* [Azure ID](fundamentals-identity.md)
+- [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
+- [조직으로 Azure에 등록](sign-up-organization.md)
+- [Azure ID](fundamentals-identity.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

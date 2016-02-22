@@ -3,7 +3,7 @@
 	description="앱 서비스 응용 프로그램에 대해 Twitter 인증을 구성하는 방법을 알아봅니다."
 	services="app-service\mobile"
 	documentationCenter=""
-	authors="mattchenderson" 
+	authors="mattchenderson"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="01/13/2016"
+	ms.date="02/04/2016"
 	ms.author="mahender"/>
 
 # Twitter 로그인을 사용하도록 앱 서비스 응용 프로그램을 구성하는 방법
 
-[AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]&nbsp;
-
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
 이 항목에서는 Twitter를 인증 공급자로 사용하도록 Azure 앱 서비스를 구성하는 방법을 보여 줍니다.
 
@@ -36,18 +34,18 @@
 
 1. [Azure 포털]에 로그인한 다음 응용 프로그램으로 이동합니다. **URL**을 복사합니다. Twitter 앱을 구성하는 데 사용합니다.
 
-2. [Twitter 개발자] 웹 사이트로 이동하고 Twitter 계정 자격 증명을 사용하여 로그인한 다음 **새 앱 만들기**을 클릭합니다.
+2. [Twitter 개발자] 웹 사이트로 이동하고 Twitter 계정 자격 증명을 사용하여 로그인한 다음 **Create New App**을 클릭합니다.
 
 3. 새 앱에 대한 **이름** 및 **설명**을 입력합니다. **Website** 값으로 응용 프로그램의 **URL**을 붙여 넣습니다. 그런 다음에 **Callback URL**에 앞서 복사한 **콜백 URL**을 붙여넣습니다. 이는 _/.auth/login/twitter/callback_ 경로를 사용하여 추가된 모바일 앱 게이트웨이입니다. 예: `https://contoso.azurewebsites.net/.auth/login/twitter/callback`. HTTPS 체계를 사용 중인지 확인합니다.
 
 	> [AZURE.NOTE]
 	앱 서비스 인증/권한 부여 기능 대신 앱 서비스 게이트웨이를 사용 중인 경우 리디렉션 URL은 _/signin-twitter_ 경로가 있는 게이트웨이 URL을 대신 사용합니다.
 
-3.  페이지 맨 아래에서 사용 약관을 읽고 동의합니다. 그런 다음 **Twitter 응용 프로그램 만들기**을 클릭합니다. 앱이 등록되고 응용 프로그램 세부 정보가 표시됩니다.
+3.  페이지 맨 아래에서 사용 약관을 읽고 동의합니다. 그런 다음 **Create your Twitter application**을 클릭합니다. 앱이 등록되고 응용 프로그램 세부 정보가 표시됩니다.
 
-4. **설정** 탭을 클릭하고 **이 응용 프로그램을 Twitter로 로그인할 수 있도록 허용**를 선택한 다음 **업데이트 설정**를 클릭합니다.
+4. **Settings** 탭을 클릭하고 **Allow this application to be used to sign in with Twitter**를 선택한 다음 **Update Settings**를 클릭합니다.
 
-5. **키 및 액세스 토큰** 탭을 선택합니다. **API 키(소비자 키)** 및 **API 비밀(소비자 비밀)**의 값을 적어 둡니다.
+5. **Keys and Access Tokens** 탭을 선택합니다. **Consumer Key (API Key)** 및 **Consumer secret (API Secret)**의 값을 적어 둡니다.
 
     > [AZURE.NOTE] 소비자 암호는 중요한 보안 자격 증명입니다. 다른 사람과 이 암호를 공유하거나 앱과 함께 배포하지 마세요.
 
@@ -91,4 +89,4 @@
 [Azure 포털]: https://portal.azure.com/
 [xamarin]: ../app-services-mobile-app-xamarin-ios-get-started-users.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

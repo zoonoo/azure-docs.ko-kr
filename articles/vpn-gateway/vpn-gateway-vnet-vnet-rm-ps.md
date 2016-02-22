@@ -4,7 +4,7 @@
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-resource-manager"/>
 
@@ -23,15 +23,13 @@
 - [Azure Classic Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
 - [PowerShell - Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
 
-이 문서는 리소스 관리자 배포 모델을 사용하는 단계를 안내합니다. 이 구성에 대한 다른 배포 모델을 찾고 있다면 위의 탭을 사용하여 원하는 문서를 선택합니다.
-
-현재 다른 구독에 있는 리소스 관리자 배포 방법을 사용하여 만든 가상 네트워크에 대한 VNET 간 연결을 위한 솔루션은 없습니다. 팀에서 현재 솔루션을 준비 중이며 올해 안이나 내년 초에 마무리되기를 기대하고 있습니다. 사용 가능하게 되면 이 문서에서 해당 절차를 반영할 것입니다. 아래 단계는 동일한 구독에 있는 VNET에 적용됩니다.
+이 문서에서는 **리소스 관리자** 배포 모델 및 PowerShell을 사용하여 가상 네트워크 간에 연결을 만드는 단계를 안내합니다. 현재 다른 구독에 있는 리소스 관리자 배포 모델을 사용하여 만든 가상 네트워크에 대한 VNet 간 연결을 위한 설명서는 없습니다. 팀이 솔루션을 연구하는 중입니다. 사용 가능하게 되면 이 문서에서 해당 절차를 반영할 것입니다. 아래 단계는 동일한 구독에 있는 VNET에 적용됩니다.
 
 **Azure 배포 모델 정보**
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 	
-- 클래식 배포 모델을 통해 가상 네트워크를 만든 경우 [ VNet 간 연결 만들기](virtual-networks-configure-vnet-to-vnet-connection.md)를 참조하세요. 클래식 배포 모델에서는 다른 구독에 있는 VNET 연결을 지원합니다.
+- 클래식 배포 모델을 통해 가상 네트워크를 만든 경우 [VNet 간 연결 만들기](virtual-networks-configure-vnet-to-vnet-connection.md)를 참조하세요. 클래식 배포 모델에서는 다른 구독에 있는 VNet 연결을 지원합니다.
 	
 - 클래식 배포 모델에서 만든 가상 네트워크를 Azure 리소스 관리자에서 만든 가상 네트워크에 연결하려는 경우 [새 VNet에 클래식 VNet 연결](../virtual-network/virtual-networks-arm-asm-s2s.md)을 참조하세요.
 
@@ -262,4 +260,4 @@ VNet에 게이트웨이 서브넷을 추가해야 하는 경우 아래 샘플을
 
 연결이 완료되면 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 단계는 [가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-tutorial.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

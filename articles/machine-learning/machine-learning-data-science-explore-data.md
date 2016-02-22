@@ -13,14 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="02/08/2016" 
 	ms.author="bradsev" />
 
 #Cortana 분석 프로세스에서 데이터 탐색
-
-이 **메뉴**는 다양한 저장소 환경에서 데이터를 탐색하기 위해 도구를 사용하는 방법을 설명하는 항목에 연결되는 링크입니다. 이 작업은 Cortana 분석 프로세스(CAP)의 한 단계입니다.
-
-[AZURE.INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
 
 이 문서에서는 Cortana 분석 프로세스에 일반적으로 사용되는 4개의 서로 다른 환경에서 데이터를 탐색하는 방법을 설명합니다.
 
@@ -29,4 +25,8 @@
 - **Hive 테이블** 데이터는 Hive 쿼리를 사용하여 탐색합니다.
 - **Azure 기계 학습(AML) 스튜디오** 데이터는 AML 모듈을 사용하여 탐색합니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+이 **메뉴**는 다양한 저장소 환경에서 데이터를 탐색하기 위해 이러한 도구를 사용하는 방법을 설명하는 항목에 연결되는 링크입니다.
+
+[AZURE.INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
+
+<!---HONumber=AcomDC_0211_2016-->

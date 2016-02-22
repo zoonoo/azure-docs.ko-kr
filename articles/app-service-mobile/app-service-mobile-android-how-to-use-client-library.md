@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="02/03/2016" 
+	ms.date="02/04/2016"
 	ms.author="ricksal"/>
 
 
 # 모바일 앱용 Android 클라이언트 라이브러리를 사용하는 방법
 
-[AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]&nbsp;
+[AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 이 가이드에서는 데이터에 대한 쿼리(삽입, 업데이트 및 삭제), 사용자 인증, 오류 처리 및 클라이언트 사용자 지정과 같은 일반적인 시나리오를 구현하는 모바일 앱용 Android 클라이언트 SDK를 사용하는 방법을 보여줍니다. 또한 대부분의 모바일 앱에서 사용하는 일반적인 클라이언트 코드에 심층 분석을 수행합니다.
 
@@ -42,17 +42,17 @@ Android용 모바일 서비스 SDK는 Android 버전 2.2 이상을 지원하지�
 
 그런 다음 심층 분석 섹션에 설명한 단계를 완료해야 합니다.
 
-###<a name="gradle-build"></a>Gradle 빌드 파일 업데이트 
+###<a name="gradle-build"></a>Gradle 빌드 파일 업데이트
 
 **build.gradle** 파일을 모두 변경합니다.
 
 1. *buildscript* 태그 내의 *프로젝트* 수준 **build.gradle** 파일에 이 코드를 추가합니다.
- 
+
 		buildscript {
 		    repositories {
 		        jcenter()
 		    }
-		} 
+		}
 
 2. *dependencies* 태그 내의 *모듈 앱* 수준 **build.gradle** 파일에 이 코드를 추가합니다.
 
@@ -65,7 +65,7 @@ Azure에 액세스하려면 앱은 인터넷 사용 권한을 사용하도록 �
 
 	<uses-permission android:name="android.permission.INTERNET" />
 
-## 기본 사항 자세히 알아보기  
+## 기본 사항 자세히 알아보기
 
 이 섹션은 퀵 스타트 앱의 코드 중 일부를 설명합니다. 퀵 스타트를 완료하지 않은 경우 앱에 이 코드를 추가해야 합니다.
 
@@ -102,7 +102,7 @@ SQL Azure 테이블이 더 많은 열을 포함하는 경우 이 클래스에 �
 	    public Integer getPriority() {
 	        return mPriority;
 	    }
-	
+
 	    /**
 	     * Sets the item priority
 	     *
@@ -303,7 +303,7 @@ ToDoItemAdapter 생성자의 두 번째 매개 변수는 레이아웃에 대한 
 
 다음 쿼리는 *ToDoItem* 테이블의 모든 항목을 반환합니다.
 
-	List<ToDoItem> results = mToDoTable.execute().get();             
+	List<ToDoItem> results = mToDoTable.execute().get();
 
 *결과* 변수는 쿼리 결과 집합을 목록으로 반환합니다.
 
@@ -441,7 +441,7 @@ ToDoItemAdapter 생성자의 두 번째 매개 변수는 레이아웃에 대한 
 
 	String myRowId = "2FA404AB-E458-44CD-BC1B-3BC847EF0902";
    	mToDoTable.delete(myRowId);
-                    
+
 
 ##<a name="lookup"></a>방법: 특정 항목 조회
 
@@ -478,7 +478,7 @@ ToDoItemAdapter 생성자의 두 번째 매개 변수는 레이아웃에 대한 
 
 다음 단계는 개체를 삽입하는 것입니다.
 
-    mJsonToDoTable.insert(jsonItem).get();                   
+    mJsonToDoTable.insert(jsonItem).get();
 
 
 삽입된 개체의 ID를 가져와야 하는 경우 다음 메서드 호출을 사용합니다.
@@ -546,23 +546,23 @@ ID를 사용하여 직접 인스턴스를 삭제할 수도 있습니다.
 Android 클라이언트에서 **invokeApi** 메서드를 호출하여 사용자 지정 API 끝점을 호출합니다. 다음 예제에서는 *completeAll*이라는 API 끝점을 호출하는 방법을 보여주며 이는 MarkAllResult라는 컬렉션 클래스를 반환합니다.
 
 	public void completeItem(View view) {
-	    
-	    ListenableFuture<MarkAllResult> result = mClient.invokeApi( "completeAll", MarkAllResult.class ); 
-	    	
+
+	    ListenableFuture<MarkAllResult> result = mClient.invokeApi( "completeAll", MarkAllResult.class );
+
 	    	Futures.addCallback(result, new FutureCallback<MarkAllResult>() {
 	    		@Override
 	    		public void onFailure(Throwable exc) {
 	    			createAndShowDialog((Exception) exc, "Error");
 	    		}
-	    		
+
 	    		@Override
 	    		public void onSuccess(MarkAllResult result) {
 	    			createAndShowDialog(result.getCount() + " item(s) marked as complete.", "Completed Items");
-	                refreshItemsFromTable();	
+	                refreshItemsFromTable();
 	    		}
 	    	});
 	    }
-	
+
 **invokeApi** 메서드가 클라이언트에서 호출되어 POST 요청을 새 사용자 지정 API로 보냅니다. 사용자 지정 API에서 반환하는 결과는 오류와 마찬가지로 메시지 대화 상자에 표시됩니다. 다른 버전의 **invokeApi**를 사용하면 필요에 따라 요청 본문에 개체를 보내고 HTTP 메서드를 지정하며 요청으로 쿼리 매개 변수를 보낼 수 있습니다. **invokeApi**의 형식화되지 않은 버전도 제공됩니다.
 
 ##<a name="authentication"></a>방법: 앱에 인증 추가
@@ -839,4 +839,4 @@ Java 클라이언트 코드에서 *ToDoItem* 개체 속성에 다음과 같이 �
 [Azure 포털]: https://portal.azure.com
 [인증 시작]: app-service-mobile-android-get-started-users.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

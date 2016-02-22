@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="02/08/2016"
 	ms.author="hangzh;bradsev" />
 
 # Hive 쿼리를 사용하여 Hive 테이블의 데이터 탐색 
 
-이 **메뉴**는 다양한 저장소 환경에서 데이터를 탐색하기 위해 도구를 사용하는 방법을 설명하는 항목에 연결되는 링크입니다. 이 작업은 Cortana 분석 프로세스(CAP)의 한 단계입니다.
-
-[AZURE.INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
-
 ## 소개
 
 이 문서는 Hive 테이블에서 데이터를 탐색할 때 사용할 수 있는 몇 가지 샘플 Hive 스크립트를 제공합니다.
+
+아래의 **메뉴**는 다양한 저장소 환경에서 데이터를 탐색하기 위해 도구를 사용하는 방법을 설명하는 항목에 연결되는 링크입니다. 이 작업은 Cortana 분석 프로세스(CAP)의 한 단계입니다.
+
+[AZURE.INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
 
 ## 필수 조건
 이 문서에서는 사용자가 다음 작업을 수행한 것으로 가정합니다.
@@ -80,4 +80,4 @@
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

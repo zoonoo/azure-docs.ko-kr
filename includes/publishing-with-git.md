@@ -2,13 +2,13 @@
 
 이 문서에서는 Git를 사용하여 로컬 컴퓨터에서 웹 앱으로 바로 게시하는 방법(Azure에서는 이 게시 방법을 **로컬 Git**라고도 함)에 대해 배우게 됩니다. 또한 BitBucket, CodePlex, Dropbox, GitHub 또는 Mercurial과 같은 리포지토리 사이트에서 지속적으로 배포할 수 있도록 하는 방법에 대해서도 배우게 됩니다. TFS를 사용하여 지속적으로 배포하는 방법에 대한 내용은 [Visual Studio Team Services를 사용한 지속적인 업데이트]를 참조하세요.
 
-> [AZURE.NOTE]이 문서에 설명되어 있는 대부분의 Git 명령은 [Mac 및 Linux용 Azure 명령줄 도구](/develop/nodejs/how-to-guides/command-line-tools/)를 사용하여 웹 앱을 만드는 경우 자동으로 수행됩니다.
+> [AZURE.NOTE] 이 문서에 설명되어 있는 대부분의 Git 명령은 [Mac 및 Linux용 Azure 명령줄 도구](/develop/nodejs/how-to-guides/command-line-tools/)를 사용하여 웹 앱을 만드는 경우 자동으로 수행됩니다.
 
 ## <a id="Step1"></a>1단계: Git 설치
 
 Git를 설치하는 데 필요한 단계는 운영 체제마다 다릅니다. 운영 체제 특정 배포 및 설치 지침은 [Git 설치]를 참조하세요.
 
-> [AZURE.NOTE]일부 운영 체제에서는 Git의 명령줄과 GUI 버전을 둘 다 사용할 수 있습니다. 이 문서에서 제공하는 지침은 명령줄 버전을 사용합니다.
+> [AZURE.NOTE] 일부 운영 체제에서는 Git의 명령줄과 GUI 버전을 둘 다 사용할 수 있습니다. 이 문서에서 제공하는 지침은 명령줄 버전을 사용합니다.
 
 ## <a id="Step2"></a>2단계: 로컬 리포지토리 만들기
 
@@ -42,7 +42,7 @@ Git를 설치하는 데 필요한 단계는 운영 체제마다 다릅니다. �
 
 		git add index.html 
 
-	> [AZURE.NOTE]명령 다음에 -help 또는 --help를 입력하면 git 명령에 대한 도움말을 찾을 수 있습니다. 예를 들어 add 명령에 대한 매개 변수 옵션의 경우 명령줄 도움말은 'git add -help'를 입력하고, 자세한 도움말은 'git add --help'를 입력합니다.
+	> [AZURE.NOTE] 명령 다음에 -help 또는 --help를 입력하면 git 명령에 대한 도움말을 찾을 수 있습니다. 예를 들어 add 명령에 대한 매개 변수 옵션의 경우 명령줄 도움말은 'git add -help'를 입력하고, 자세한 도움말은 'git add --help'를 입력합니다.
 
 4. 그리고 나서 다음 명령을 사용하여 리포지토리에 변경 내용을 커밋합니다.
 
@@ -88,7 +88,7 @@ Git를 설치하는 데 필요한 단계는 운영 체제마다 다릅니다. �
 
 		git remote add azure https://username@needsmoregit.scm.azurewebsites.net:443/NeedsMoreGit.git
 
-    > [AZURE.NOTE]**remote** 명령은 명명된 참조를 원격 리포지토리에 추가합니다. 이 경우 웹 앱의 리포지토리용으로 'azure'라는 이름의 참조를 만듭니다.
+    > [AZURE.NOTE] **remote** 명령은 명명된 참조를 원격 리포지토리에 추가합니다. 이 경우 웹 앱의 리포지토리용으로 'azure'라는 이름의 참조를 만듭니다.
 
 1. 명령줄에서 다음을 사용하여 로컬 리포지토리에서 'azure' 원격으로 현재 리포지토리 내용을 푸시합니다.
 
@@ -108,7 +108,7 @@ Git를 설치하는 데 필요한 단계는 운영 체제마다 다릅니다. �
 		To https://username@needsmoregit.scm.azurewebsites.net:443/NeedsMoreGit.git
 		* [new branch]		master -> master
 
-	> [AZURE.NOTE]웹 앱용으로 만들어진 리포지토리는 대상인 리포지토리의 <strong>마스터</strong> 분기에 대한 푸시 요청이 필요하며, 이는 웹 앱의 콘텐츠로 사용됩니다.
+	> [AZURE.NOTE] 웹 앱용으로 만들어진 리포지토리는 대상인 리포지토리의 <strong>마스터</strong> 분기에 대한 푸시 요청이 필요하며, 이는 웹 앱의 콘텐츠로 사용됩니다.
 
 2. Azure 포털에서 웹 앱의 블레이드로 돌아갑니다. **찾을 수 없는 배포**는 최신 푸시의 로그 항목을 포함한 **활성 배포**로 변경되어야 합니다.
 
@@ -150,7 +150,7 @@ GitHub, CodePlex 또는 BitBucket에서 파일을 배포하려면 로컬 프로�
   
 	![](./media/publishing-with-git/azure7-setup-github-configure.png)
 
-	> [AZURE.NOTE]GitHub 또는 BitBucket에서 지속적으로 배포할 수 있도록 하면 공용 및 개인 프로젝트가 둘 다 표시됩니다.
+	> [AZURE.NOTE] GitHub 또는 BitBucket에서 지속적으로 배포할 수 있도록 하면 공용 및 개인 프로젝트가 둘 다 표시됩니다.
 
 Azure는 선택한 리포지토리와 연결하고 지정한 분기에서 파일을 가져옵니다. 이 프로세스를 완료한 후 웹 앱 블레이드의 **배포** 섹션은 배치가 성공했음을 나타내는 **활성 배포** 메시지를 표시합니다.
 
@@ -182,11 +182,9 @@ Azure 앱 서비스에서 웹 앱에 Visual Studio 솔루션을 푸시하는 것
 		_app/
 		nuget.exe
 
-	>[AZURE.NOTE]GitHub를 사용하는 경우 리포지토리를 만들 때 Visual Studio 관련 .gitignore 파일을 선택적으로 생성할 수 있습니다. 여기에는 모든 공통 임시 파일, 빌드 결과 등이 포함됩니다. 그런 다음 특정 요구에 맞게 사용자 지정할 수 있습니다.
+	>[AZURE.NOTE] GitHub를 사용하는 경우 리포지토리를 만들 때 Visual Studio 관련 .gitignore 파일을 선택적으로 생성할 수 있습니다. 여기에는 모든 공통 임시 파일, 빌드 결과 등이 포함됩니다. 그런 다음 특정 요구에 맞게 사용자 지정할 수 있습니다.
 
 -	전체 솔루션의 디렉터리 트리를 리포지토리에 추가하고 .sln 파일을 리포지토리 루트에 둡니다.
-
--	Visual Studio 솔루션에서 [NuGet 패키지 복원을 사용하도록 설정](http://docs.nuget.org/Consume/Package-Restore)하여 Visual Studio에서 누락된 패키지를 자동으로 복원하도록 합니다.
 
 설명된 대로 리포지토리를 설정하고, 온라인 Git 리포지토리 중 하나에서 연속 게시에 대해 Azure에서 웹 앱을 구성한 후에는 Visual Studio에서 ASP.NET 응용 프로그램을 로컬로 개발하고 온라인 Git 리포지토리에 변경 내용을 푸시하여 코드를 지속적으로 배포할 수 있습니다.
 
@@ -265,7 +263,7 @@ Azure 앱 서비스에서 웹 앱에 Visual Studio 솔루션을 푸시하는 것
 * [Git 설명서]
 * [Project Kudu](https://github.com/projectkudu/kudu/wiki)
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
@@ -297,4 +295,4 @@ Azure 앱 서비스에서 웹 앱에 Visual Studio 솔루션을 푸시하는 것
 [Using Dropbox to Share Git Repositories]: https://gist.github.com/trey/2722927
 [Visual Studio Team Services를 사용한 지속적인 업데이트]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

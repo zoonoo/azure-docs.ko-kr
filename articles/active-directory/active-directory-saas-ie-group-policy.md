@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/02/2016"
+    ms.date="02/09/2016"
     ms.author="liviodlc"/>
 
 #그룹 정책을 사용하여 Internet Explorer용 액세스 패널 확장을 배포하는 방법
@@ -175,6 +175,10 @@
 
 	![액세스 패널 확장이 설치되었으며 활성화되었는지 확인합니다.](./media/active-directory-saas-ie-group-policy/verify-install.png)
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+## 관련 문서
 
-<!---HONumber=AcomDC_0204_2016-->
+- [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
+- [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On](active-directory-appssoaccess-whatis.md)
+- [Internet Explorer용 액세스 패널 확장 문제 해결](active-directory-saas-ie-troubleshooting.md)
+
+<!---HONumber=AcomDC_0211_2016-->

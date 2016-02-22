@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/17/2015" 
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 
@@ -108,7 +108,7 @@
  	
 - 	**UploadAsync** 메서드를 사용하여 파일을 Media Services에 업로드합니다.
  	
->[AZURE.NOTE]호출을 차단하지 않고 파일을 동시에 업로드하려면 UploadAsync 메서드를 사용합니다.
+>[AZURE.NOTE] 호출을 차단하지 않고 파일을 동시에 업로드하려면 UploadAsync 메서드를 사용합니다.
  	
  	
         static public IAsset CreateAssetAndUploadMultipleFiles(AssetCreationOptions assetCreationOptions, string folderPath)
@@ -315,4 +315,4 @@ IngestManifest의 **IIngestManifest.BlobStorageUriForUpload** 속성이 제공�
 [미디어 프로세서를 가져오는 방법]: media-services-get-media-processor.md
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/28/2016"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 # Visual Studio용 Hadoop 도구를 사용하여 HDInsight에서 Apache Storm에 대한 C# 토폴로지 개발
@@ -41,7 +41,7 @@ Visual Studio에 HDInsight 도구를 사용하여 C# Storm 토폴로지를 만�
 
     > [AZURE.NOTE] Visual Studio용 HDInsight 도구는 Visual Studio Express에서 지원되지 않습니다.
 
--	HDInsight 클러스터의 Apache Storm: 클러스터를 만드는 단계는 [HDInsight에서 Apache Storm 시작](hdinsight-apache-storm-tutorial-getting-started.md)을 참조하세요.
+-	HDInsight 클러스터의 Apache Storm: 클러스터를 만드는 단계는 [HDInsight에서 Apache Storm 시작](hdinsight-apache-storm-tutorial-get-started.md)을 참조하세요.
 
 	> [AZURE.NOTE] 현재 Visual Studio용 HDInsight 도구는 HDInsight 버전 3.2 클러스터의 Storm만 지원합니다.
 
@@ -658,4 +658,4 @@ HDInsight 사용 방법 및 HDInsight의 Storm에 대한 추가 샘플은 다음
 
 -	[HDInsight에서 HBase 시작](hdinsight-hbase-tutorial-get-started.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

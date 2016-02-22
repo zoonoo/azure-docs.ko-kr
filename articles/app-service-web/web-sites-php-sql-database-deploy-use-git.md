@@ -13,14 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="02/09/2016" 
 	ms.author="tomfitz"/>
 
 # PHP-SQL 웹 앱 만들기 및 Git를 사용하여 Azure 앱 서비스에 배포하기
 
 이 자습서에서는 Azure SQL 데이터베이스에 연결하는 [Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)에서 PHP 웹앱을 만들고 Git를 사용하여 배포하는 방법을 설명합니다. 이 자습서는 컴퓨터에 [PHP][install-php], [SQL Server Express][install-SQLExpress], [PHP용 SQL Server를 위한 Microsoft 드라이버](http://www.microsoft.com/download/en/details.aspx?id=20098)(영문) 및 [Git][install-git]가 설치되어 있다고 가정합니다. 이 가이드를 완료하면 Azure에서 실행하는 PHP-SQL 웹 앱이 완성됩니다.
 
-> [AZURE.NOTE]PHP, SQL Server Express 및 PHP용 SQL Server를 위한 Microsoft 드라이버는 [Microsoft 웹 플랫폼 설치 관리자](http://www.microsoft.com/web/downloads/platform.aspx)를 사용하여 설치하고 구성할 수 있습니다.
+> [AZURE.NOTE]
+PHP, SQL Server Express 및 PHP용 SQL Server를 위한 Microsoft 드라이버는 [Microsoft 웹 플랫폼 설치 관리자](http://www.microsoft.com/web/downloads/platform.aspx)를 사용하여 설치하고 구성할 수 있습니다.
 
 다음 내용을 배웁니다.
 
@@ -33,7 +34,7 @@
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ##Azure 웹 앱 만들기 및 Git 게시 설정
 
@@ -244,12 +245,14 @@ Azure 웹 앱 및 SQL 데이터베이스를 만들려면 다음 단계를 따르
 	$pwd = "<your password>";
 	$db = "<value of SQL Database>";
 
-> [AZURE.NOTE]<code>$host</code>에서 서버의 값은 <code>tcp:</code>가 추가되어야 합니다.
+> [AZURE.NOTE]
+<code>$host</code>에서 서버의 값은 <code>tcp:</code>가 추가되어야 합니다.
 
 
 이제 Git 게시를 설정하고 응용 프로그램을 게시할 수 있습니다.
 
-> [AZURE.NOTE]이러한 단계는 위의 **Azure 웹앱 만들기 및 Git 게시 설정** 섹션 끝에서 설명한 단계와 동일합니다.
+> [AZURE.NOTE]
+이러한 단계는 위의 **Azure 웹앱 만들기 및 Git 게시 설정** 섹션 끝에서 설명한 단계와 동일합니다.
 
 
 1. GitBash(또는 Git가 `PATH`에 있는 경우 터미널)을 열고 응용 프로그램의 루트 디렉터리(**등록** 디렉터리)로 디렉터리를 변경한 후 다음 명령을 실행합니다.
@@ -295,4 +298,4 @@ Azure 웹 앱 및 SQL 데이터베이스를 만들려면 다음 단계를 따르
 [pdo-sqlsrv]: http://php.net/pdo_sqlsrv
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

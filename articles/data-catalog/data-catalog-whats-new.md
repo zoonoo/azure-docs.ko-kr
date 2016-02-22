@@ -13,18 +13,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="01/29/2016"
+   ms.date="02/04/2016"
    ms.author="maroche"/>
 
 # Azure 데이터 카탈로그의 새로운 기능
 
 **Azure 데이터 카탈로그**에 대한 업데이트는 정기적으로 릴리스됩니다. 일부 릴리스에서 백엔드 서비스 기능에 초점을 맞추므로 모든 릴리스는 새로운 사용자용 기능을 포함하지 않습니다. 이 페이지는 **Azure 데이터 카탈로그** 서비스에 추가된 새로운 사용자용 기능을 강조 표시합니다.
 
+## 2016년 2월 5일 주 릴리스의 새로운 기능
+
+2016년 2월 5일 주를 기준으로 다음과 같은 기능이 **Azure 데이터 카탈로그**에 추가되었습니다.
+
+- **Azure 데이터 카탈로그**에서 사용하는 Azure 구독을 변경할 수 있습니다. **Azure 데이터 카탈로그** 관리자가 **Azure 데이터 카탈로그** 포털의 설정 페이지에서 청구용으로 다른 Azure 구독을 선택할 수 있습니다.
+
 ## 2016년 1월 29일 주 릴리스의 새로운 기능
 
 2016년 1월 29일 주를 기준으로 다음과 같은 기능이 **Azure 데이터 카탈로그**에 추가되었습니다.
 
-- 추가 데이터 원본의 수동 등록을 지원합니다. 사용자는 이제 **Azure 데이터 카탈로그** 포털에서 “수동 항목 만들기"를 사용하거나 **Azure 데이터 카탈로그** REST API를 사용하여 다음 데이터 원본을 등록할 수 있습니다.
+- 추가 데이터 원본의 수동 등록을 지원합니다. 사용자는 이제 **Azure 데이터 카탈로그** 포털에서 "수동 항목 만들기"를 사용하거나 **Azure 데이터 카탈로그** REST API를 사용하여 다음 데이터 원본을 등록할 수 있습니다.
    + OData - 함수, 엔터티 집합 및 엔터티 컨테이너
    + HTTP - 파일, 끝점, 보고서 및 사이트
    + 파일 시스템 - 파일
@@ -35,13 +41,13 @@
    + PostgreSQL - 테이블, 뷰 및 데이터베이스
 - SQL Server(Azure SQL DB 및 Azure SQL 데이터 웨어하우스 포함) 데이터 원본에 대해 "SQL Server Data Tools에서 열기"가 지원됩니다.  
 
-> [AZURE.NOTE] "SQL Server Data Tools에서 열기"를 사용하려면 업데이트 4 및 SQL Server 도구가 포함된 Visual Studio 2013을 설치해야 합니다. SQL Server Data Tools의 최신 버전을 설치하려면 [SQL Server Data Tools(SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)를 다운로드합니다.
+> [AZURE.NOTE] "SQL Server Data Tools에서 열기"를 사용하려면 업데이트 4 및 SQL Server 도구가 포함된 Visual Studio 2013을 설치해야 합니다. SQL Server Data Tools의 최신 버전을 설치하려면 [SSDT(SQL Server Data Tools)](https://msdn.microsoft.com/library/mt204009.aspx)를 다운로드합니다.
 
 ## 2016년 1월 22일 주 릴리스의 새로운 기능
 
 2016년 1월 22일 주를 기준으로 다음과 같은 기능이 **Azure 데이터 카탈로그**에 추가되었습니다.
 
-- SAP HANA 보기 및 패키지 등록및 검색을 지원합니다. 사용자는 **Azure 데이터 카탈로그** 데이터 원본 등록 도구를 사용하여 SAP HANA 데이터 원본을 등록할 수있고 **Azure 데이터 카탈로그** 포털을 사용하여 등록된 SAP HANA 데이터 원본에 주석을 추가하고 검색할 수 있습니다.
+- SAP HANA 보기 및 패키지 등록및 검색을 지원합니다. 사용자는 **Azure 데이터 카탈로그** 데이터 원본 등록 도구를 사용하여 SAP HANA 데이터 원본을 등록할 수 있고 **Azure 데이터 카탈로그** 포털을 사용하여 등록된 SAP HANA 데이터 원본에 주석을 추가하고 검색할 수 있습니다.
 
 ## 2016년 1월 8일 주 릴리스의 새로운 기능
 
@@ -195,4 +201,4 @@
 - Standard Edition에만 해당: 이제 데이터 자산에 소유자를 추가하는 경우 **Azure 데이터 카탈로그**에서 사용자 계정과 보안 그룹을 모두 소유자로 지원합니다. 선택한 데이터 자산에 대해 소유자로 보안 그룹을 추가하려면 있는 경우 그룹의 표시 이름 또는 그룹의 UPN 전자 메일 주소를 입력할 수 있습니다.
 - Azure Blob 저장소의 데이터 원본에 대한 지원입니다. 이제 사용자는 Azure 저장소 Blob 및 디렉터리를 등록하고 검색할 수 있습니다.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

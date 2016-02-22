@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="01/29/2016"
+   ms.date="02/09/2016"
    ms.author="brjohnst"/>
 
 # .NET 응용 프로그램에서 Azure 검색을 사용하는 방법
@@ -29,9 +29,9 @@ SDK는 클라이언트 라이브러리 `Microsoft.Azure.Search`로 구성되어 
 - [Microsoft.Azure.Search](https://msdn.microsoft.com/library/azure/microsoft.azure.search.aspx)
 - [Microsoft.Azure.Search.Models](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.aspx)
 
-Azure 검색.NET SDK의 현재 버전은 시험판입니다. 첫 번째 안정적인 버전에 반영하기 위한 피드백을 제공하려는 경우 [피드백 페이지](https://feedback.azure.com/forums/263029-azure-search/)를 방문하십시오.
+Azure 검색 .NET SDK의 현재 버전이 이제 일반 공급됩니다. 다음 버전에 반영하기 위한 피드백을 제공하려는 경우 [피드백 페이지](https://feedback.azure.com/forums/263029-azure-search/)를 방문하세요.
 
-.NET SDK는 [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx)에서 문서화된 Azure 검색 REST API의 `2015-02-28` 버전을 지원합니다. 이 버전은 이제 Microsoft 언어 분석기에 대한 지원을 포함하고 있습니다. `moreLikeThis` 매개 변수 검색 등 이 버전의 일부가 *아닌* 새로운 기능은 [미리 보기](search-api-2015-02-28-preview.md)에 있으나 SDK에서는 아직 사용할 수 없습니다. 기능에 대한 업데이트 여부는 [검색 서비스 버전 관리](https://msdn.microsoft.com/library/azure/dn864560.aspx) 또는 [Azure 검색의 최신 업데이트](search-latest-updates.md)에서 다시 확인할 수 있습니다
+.NET SDK는 [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx)에서 문서화된 Azure 검색 REST API의 `2015-02-28` 버전을 지원합니다. 이 버전은 이제 Lucene 쿼리 구문 및 Microsoft 언어 분석기에 대한 지원을 포함하고 있습니다. `moreLikeThis` 매개 변수 검색 등 이 버전의 일부가 *아닌* 새로운 기능은 [미리 보기](search-api-2015-02-28-preview.md)에 있으나 SDK에서는 아직 사용할 수 없습니다. 기능에 대한 업데이트 여부는 [검색 서비스 버전 관리](https://msdn.microsoft.com/library/azure/dn864560.aspx) 또는 [Azure 검색의 최신 업데이트](search-latest-updates.md)에서 다시 확인할 수 있습니다
 
 이 SDK에서 지원되지 않는 기타 기능에는
 
@@ -39,7 +39,7 @@ Azure 검색.NET SDK의 현재 버전은 시험판입니다. 첫 번째 안정�
 
 ## 최신 버전의 SDK로 업그레이드
 
-Azure 검색 .NET SDK 이전 버전을 사용하는 경우 새로운 1.0-preview 버전으로 업그레이드하려면 [이 문서](search-dotnet-sdk-migration.md)에서 방법을 참조하세요.
+Azure 검색 .NET SDK 이전 버전을 사용하는 경우 새로운 일반 공급 버전으로 업그레이드하려면 [이 문서](search-dotnet-sdk-migration.md)에서 방법을 참조하세요.
 
 ## SDK의 요구 사항
 
@@ -47,7 +47,7 @@ Azure 검색 .NET SDK 이전 버전을 사용하는 경우 새로운 1.0-preview
 
 2. Azure 검색 서비스 SDK를 사용하려면 서비스 이름과 하나 이상의 API 키가 필요합니다. [포털에서 서비스 만들기](search-create-service-portal.md)는 이들 단계를 통해 도움을 받을 수 있습니다.
 
-3. Visual Studio에서 "NuGet 패키지 관리"를 사용하여 Azure 검색.NET SDK [NuGet 패키지](http://www.nuget.org/packages/Microsoft.Azure.Search)를 다운로드하십시오. NuGet.org에서 패키지 이름 `Microsoft.Azure.Search`을(를) 검색하십시오. "시험판 포함"을 선택하여 검색 결과에 시험판 SDK가 나타나도록 하십시오.
+3. Visual Studio에서 "NuGet 패키지 관리"를 사용하여 Azure 검색.NET SDK [NuGet 패키지](http://www.nuget.org/packages/Microsoft.Azure.Search)를 다운로드하십시오. NuGet.org에서 패키지 이름 `Microsoft.Azure.Search`을(를) 검색하십시오.
 
 Azure 검색.NET SDK는.NET Framework 4.5를 대상으로 한 응용 프로그램과 Windows 8.1 및 Windows Phone 8.1을 대상으로 하는 Windows 스토어 앱을 지원합니다. Silverlight는 지원되지 않습니다.
 
@@ -645,4 +645,4 @@ Hotel.cs:
 
 [GitHub에서](http://aka.ms/search-dotnet-howto) 전체 샘플 소스 코드를 찾을 수 있습니다.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

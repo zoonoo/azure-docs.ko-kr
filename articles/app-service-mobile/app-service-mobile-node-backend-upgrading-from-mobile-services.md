@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="node"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="02/09/2016"
 	ms.author="chrande"/>
 
 # 기존 Node.js Azure 모바일 서비스를 앱 서비스로 업그레이드
@@ -28,7 +28,7 @@
 
 [AZURE.INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
 
->[AZURE.TIP]업그레이드를 진행하기 전에 [마이그레이션을 수행](app-service-mobile-migrating-from-mobile-services.md)하는 것이 좋습니다. 이러한 방식으로 동일한 앱 서비스 계획에 두 버전의 응용 프로그램을 모두 추가 비용 없이 둘 수 있습니다.
+>[AZURE.TIP] 업그레이드를 진행하기 전에 [마이그레이션을 수행](app-service-mobile-migrating-from-mobile-services.md)하는 것이 좋습니다. 이러한 방식으로 동일한 앱 서비스 계획에 두 버전의 응용 프로그램을 모두 추가 비용 없이 둘 수 있습니다.
 
 ### 모바일 앱 Node.js 서버 SDK에서 향상된 기능
 
@@ -48,7 +48,7 @@
 
 .NET 모바일 앱 SDK와 달리 모바일 서비스에서 모바일 앱으로 노드 백 엔드를 업그레이드하는 작업은 패키지 교환처럼 간단하지 않습니다. 이제 제어하는 Azure와 반대로 전체 응용 프로그램 스택을 소유합니다. 따라서 기본 Express 앱을 만들어 모바일 백 엔드를 호스팅해야 합니다. 테이블 및 API 컨트롤러의 경우 개념은 비슷하지만 테이블 개체를 내보내야 하고 함수 API는 다소 변경됩니다. 이 문서에서는 업그레이드의 기본 전략을 안내하지만 마이그레이션하기 전에 시작에 앞서 [노드 백 엔드 방법](app-service-mobile-node-backend-how-to-use-server-sdk.md)을 읽습니다.
 
->[AZURE.TIP]업그레이드를 시작하기 전에 이 항목의 나머지 부분을 읽고 완전히 이해합니다. 아래 설명선에 표시된 사용하는 기능을 모두 기록해 두세요.
+>[AZURE.TIP] 업그레이드를 시작하기 전에 이 항목의 나머지 부분을 읽고 완전히 이해합니다. 아래 설명선에 표시된 사용하는 기능을 모두 기록해 두세요.
 
 모바일 서비스 클라이언트 SDK는 새 모바일 앱 서버 SDK와 호환할 수 **없습니다**. 앱에 대한 서비스 연속성을 제공하기 위해 현재 게시된 클라이언트를 제공하는 사이트에 변경 내용을 게시하지 않아야 합니다. 대신 중복으로 제공한 새 모바일 앱을 만들어야 합니다. 이 응용 프로그램을 동일한 앱 서비스 계획에 두어 추가 비용이 발생하지 않도록 할 수 있습니다.
 
@@ -131,7 +131,7 @@
 
 모바일 앱 백 엔드에서 앱 설정을 통해 설정할 수 있는 환경 변수를 통해 서버 구성을 구성할 수 있습니다.
 
-[구성 개체](http://azure.github.io/azure-mobile-apps-node/global.html#configuration)를 프로젝트의 루트에 있는 이니셜라이저에 전달하거나 [azureMobile.js라는 파일을 만들어](app-service-mobile-node-backend-how-to-use-server-sdk/#howto-config-localdev) 모바일 앱 SDK를 추가로 사용자 지정할 수 있습니다.
+[구성 개체](http://azure.github.io/azure-mobile-apps-node/global.html#configuration)를 프로젝트의 루트에 있는 이니셜라이저에 전달하거나 [azureMobile.js라는 파일을 만들어](app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-config-localdev) 모바일 앱 SDK를 추가로 사용자 지정할 수 있습니다.
 
 ### 데이터 및 테이블을 통한 작업
 
@@ -288,4 +288,4 @@ AAD, Facebook, Google 등의 일부 공급자의 경우 복사 응용 프로그�
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

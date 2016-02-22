@@ -191,4 +191,8 @@ ApplicationInsights.config의 계측 키는 원격 분석이 전송되는 위치
 
 도시, 지역 및 국가 차원이 IP 주소에서 파생되며 항상 정확하지는 않습니다.
 
-<!---HONumber=AcomDC_0204_2016-->
+## 여전히 작동하지 않습니다.
+
+* [Application Insights 포럼](https://social.msdn.microsoft.com/Forums/vstudio/ko-KR/home?forum=ApplicationInsights)
+
+<!---HONumber=AcomDC_0211_2016-->

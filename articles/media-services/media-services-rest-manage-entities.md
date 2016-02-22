@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/05/2015"
+ 	ms.date="02/09/2016"  
 	ms.author="juliako"/>
 
 #REST API를 사용하여 미디어 서비스 엔터티 관리
@@ -27,10 +27,11 @@ Microsoft Azure 미디어 서비스는 OData v3에 빌드된 REST 기반 서비�
 
 - 엔터티 추가 
 - 엔터티 쿼리 
+- 대용량 엔터티 컬렉션 열거
 - 엔터티 업데이트 
 - 엔터티 삭제 
 
->[AZURE.NOTE]미디어 서비스 REST API를 사용할 때는 다음 사항을 고려해야 합니다.
+>[AZURE.NOTE] 미디어 서비스 REST API를 사용할 때는 다음 사항을 고려해야 합니다.
 >
 >미디어 서비스에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [미디어 서비스 REST API 개발 설정](media-services-rest-how-to-use.md)을 참조하세요.
 
@@ -100,7 +101,9 @@ Microsoft Azure 미디어 서비스는 OData v3에 빌드된 REST 기반 서비�
 	x-ms-version: 2.11
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337078831&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=suFkxhvPWxQVMjOYelOJfYEWkyTWJCBc02pF0N7NghI%3d
 	Host: media.windows.net
-	The following example returns all JobTemplates with the name "SampleTemplate."
+
+다음 예제에서는 이름이 "SampleTemplate"인 모든 JobTemplates를 반환합니다.
+
 	GET https://media.windows.net/API/JobTemplates?$filter=startswith(Name,%20'SampleTemplate') HTTP/1.1
 	Content-Type: application/json;odata=verbose
 	Accept: application/json;odata=verbose
@@ -112,6 +115,20 @@ Microsoft Azure 미디어 서비스는 OData v3에 빌드된 REST 기반 서비�
 
 >[AZURE.NOTE]$expand 작업은 LINQ 고려 사항(WCF 데이터 서비스)에 설명된 지원되지 않는 LINQ 메서드 및 미디어 서비스에서 지원되지 않습니다.
 
+##대용량 엔터티 컬렉션 열거
+
+엔터티를 쿼리할 때 한 번에 반환되는 엔터티 수는 최대 1000개입니다. 공용 REST v2에서는 쿼리 결과를 1000개로 제한하기 때문입니다. **skip** 및 **top**을 사용하여 대용량 엔터티 컬렉션을 열거합니다.
+
+다음 예제에서는 **skip** 및 **top**을 사용하여 처음 2000개의 작업을 건너뛰고 다음 1000개의 작업을 가져오는 방법을 보여 줍니다.
+
+	GET https://media.windows.net/api/Jobs()?$skip=2000&$top=1000 HTTP/1.1
+	Content-Type: application/json;odata=verbose
+	Accept: application/json;odata=verbose
+	DataServiceVersion: 3.0
+	MaxDataServiceVersion: 3.0
+	x-ms-version: 2.11
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337078831&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=suFkxhvPWxQVMjOYelOJfYEWkyTWJCBc02pF0N7NghI%3d
+	Host: media.windows.net
 
 ##엔터티 업데이트
 
@@ -158,4 +175,4 @@ DELETE HTTP 요청을 사용하여 미디어 서비스에서 엔터티를 삭제
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

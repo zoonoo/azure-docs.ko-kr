@@ -4,7 +4,7 @@
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""/>
 
 <tags
@@ -24,7 +24,7 @@
 - [PowerShell - Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
 
 
-이 문서에서는 클래식 배포 모델(서비스 관리라고도 함)을 사용하여 가상 네트워크를 만들어 하나로 연결하는 과정을 안내합니다. 이 구성에 대한 다른 배포 모델을 찾고 있다면 위의 탭을 사용하여 원하는 문서를 선택합니다.
+이 문서에서는 클래식 배포 모델(서비스 관리라고도 함)을 사용하여 가상 네트워크를 만들어 하나로 연결하는 과정을 안내합니다. 리소스 관리자 배포 모델을 사용하여 만든 가상 네트워크를 연결하려는 경우 [Azure 리소스 관리자 및 PowerShell을 사용하여 동일한 구독에서 가상 네트워크의 VNet 간 연결 구성](vpn-gateway-vnet-vnet-rm-ps.md)을 참조하세요.
 
 **Azure 배포 모델 정보**
 
@@ -223,4 +223,4 @@ VNet2의 경우
 [2]: http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Configure-the-VPN-connectivity-between-two-Azure-virtual-networks
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

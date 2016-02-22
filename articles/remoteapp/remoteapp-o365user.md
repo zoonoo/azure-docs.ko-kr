@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="12/16/2015" 
+    ms.date="02/08/2016" 
     ms.author="elizapo" />
 
 
@@ -26,9 +26,11 @@ Azure RemoteApp을 배포하는 경우 대부분 다른 Azure AD와 연결된 Az
 Office 365 클라이언트 응용 프로그램을 배포하는 방법에 대한 자세한 내용은 [Azure RemoteApp으로 Office 365 구독을 사용하는 방법](remoteapp-officesubscription.md)을 참조하세요.
  
 ## 단계 1: 무료 Office 365 Azure Active Directory 구독 등록
-Azure 관리 포털을 통해 Azure AD에 대한 관리 권한을 얻으려면 [Azure RemoteApp에서 Azure Active Directory 테넌트 변경](remoteapp-changetenant.md)을 따릅니다. 이 프로세스를 완료하면 Azure 포털에 로그인하여 사용자의 디렉터리가 있는 것을 확인할 수 있습니다. 이 시점에서는 Azure RemoteApp과 함께 사용하는 전체 Azure 구독이 다른 디렉터리에 있으므로 다른 항목은 보이지 않습니다.
+Azure 클래식 포털을 사용하는 경우 [무료 Azure Active Directory 구독 등록](https://technet.microsoft.com/library/dn832618.aspx)의 단계를 사용하여 Azure 관리 포털을 통해 Azure AD에 대한 관리 액세스 권한을 얻습니다. 이 프로세스를 완료하면 Azure 포털에 로그인하여 사용자의 디렉터리가 있는 것을 확인할 수 있습니다. 이 시점에서는 Azure RemoteApp과 함께 사용하는 전체 Azure 구독이 다른 디렉터리에 있으므로 다른 항목은 보이지 않습니다.
 
 이 단계에서 만든 관리자 계정의 이름과 암호는 2단계에서 필요하므로 기억해 두어야 합니다.
+
+Azure 포털을 사용하는 경우 [Office 365 포털을 사용하여 무료 Azure Active Directory를 등록 및 활성화하는 방법](http://azureblogger.com/2016/01/how-to-register-and-activate-a-free-azure-active-directory-using-office-365-portal/)을 확인하세요.
 
 ## 단계 2: Azure 구독과 연결된 Azure AD를 변경합니다.
 Azure 구독의 현지 디렉터리를 1단계에서 작업한 Office 365 디렉터리로 변경합니다.
@@ -43,4 +45,4 @@ Azure 구독의 현지 디렉터리를 1단계에서 작업한 Office 365 디렉
 
 이제 Azure RemoteApp 구독이 Office 365 Azure AD와 연결되었습니다. Azure RemoteApp에서 기존 Office 365 사용자 계정을 사용할 수 있습니다.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

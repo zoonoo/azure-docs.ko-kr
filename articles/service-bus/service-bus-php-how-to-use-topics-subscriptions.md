@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="service-bus" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="02/08/2016" 
 	ms.author="sethm"/>
 
 
@@ -29,7 +29,7 @@
 
 Azure Blob 서비스에 액세스하는 PHP 응용 프로그램을 만드는 데 유일한 요구 사항은 코드 내에서 [PHP용 Azure SDK](../php-download-sdk.md)의 클래스를 참조하는 것입니다. 어떠한 개발 도구를 사용해도 응용 프로그램 또는 메모장을 만들 수 있습니다.
 
-> [AZURE.NOTE]PHP를 설치하려면 [OpenSSL 확장](http://php.net/openssl)도 설치되어 있고 사용하도록 설정되어 있어야 합니다.
+> [AZURE.NOTE] PHP를 설치하려면 [OpenSSL 확장](http://php.net/openssl)도 설치되어 있고 사용하도록 설정되어 있어야 합니다.
 
 이 항목에서는 PHP 응용 프로그램 내에서 로컬로 또는 Azure 웹 역할, 작업자 역할 또는 웹 사이트 내에서 실행되는 코드에서 호출할 수 있는 서비스 기능을 사용합니다.
 
@@ -46,7 +46,7 @@ Azure Blob 서비스에 액세스하는 PHP 응용 프로그램을 만드는 데
 
 다음 예제에서는 자동 로더 파일을 포함하고 **ServiceBusService** 클래스를 참조하는 방법을 보여 줍니다.
 
-> [AZURE.NOTE]이 예제 및 이 문서의 다른 예제에서는 작성기를 통해 Azure용 PHP 클라이언트 라이브러리를 설치했다고 가정합니다. 라이브러리를 수동으로 또는 PEAR 패키지로 설치한 경우 **WindowsAzure.php** 자동 로더 파일을 참조해야 합니다.
+> [AZURE.NOTE] 이 예제 및 이 문서의 다른 예제에서는 작성기를 통해 Azure용 PHP 클라이언트 라이브러리를 설치했다고 가정합니다. 라이브러리를 수동으로 또는 PEAR 패키지로 설치한 경우 **WindowsAzure.php** 자동 로더 파일을 참조해야 합니다.
 
 ```
 require_once 'vendor\autoload.php';
@@ -115,7 +115,7 @@ catch(ServiceException $e){
 }
 ```
 
-> [AZURE.NOTE]`ServiceBusRestProxy` 개체의 `listTopics` 메서드를 사용하여 서비스 네임스페이스 내에 지정된 이름의 항목이 이미 있는지 확인할 수 있습니다.
+> [AZURE.NOTE] `ServiceBusRestProxy` 개체의 `listTopics` 메서드를 사용하여 서비스 네임스페이스 내에 지정된 이름의 항목이 이미 있는지 확인할 수 있습니다.
 
 ## 구독 만들기
 
@@ -143,7 +143,7 @@ try	{
 catch(ServiceException $e){
 	// Handle exception based on error codes and messages.
 	// Error codes and messages are here: 
-	// http://msdn.microsoft.com/library/windowsazure/dd179357
+	// http://msdn.microsoft.com/library/azure/dd179357
 	$code = $e->getCode();
 	$error_message = $e->getMessage();
 	echo $code.": ".$error_message."<br />";
@@ -154,7 +154,7 @@ catch(ServiceException $e){
 
 토픽에 전송된 메시지 중 특정 토픽 구독 내에 표시되어야 하는 메시지를 지정하는 필터를 설정할 수도 있습니다. 구독에서 지원하는 가장 유연한 유형의 필터는 SQL92 하위 집합을 구현하는 **SqlFilter**입니다. SQL 필터는 토픽에 게시된 메시지의 속성에 적용됩니다. SqlFilter에 대한 자세한 내용은 [SqlFilter.SqlExpression 속성][sqlfilter](영문)을 참조하십시오.
 
-> [AZURE.NOTE]구독에 대한 각 규칙은 들어오는 메시지를 독립적으로 처리하여 해당 결과 메시지를 구독에 추가합니다. 또한 각 새 구독에는 토픽의 모든 메시지를 구독에 추가하는 필터가 포함된 기본 **규칙** 개체가 있습니다. 필터와 일치하는 메시지만 받으려면 기본 규칙을 제거해야 합니다. `ServiceBusRestProxy->deleteRule` 메서드를 사용하여 기본 규칙을 제거할 수 있습니다.
+> [AZURE.NOTE] 구독에 대한 각 규칙은 들어오는 메시지를 독립적으로 처리하여 해당 결과 메시지를 구독에 추가합니다. 또한 각 새 구독에는 토픽의 모든 메시지를 구독에 추가하는 필터가 포함된 기본 **규칙** 개체가 있습니다. 필터와 일치하는 메시지만 받으려면 기본 규칙을 제거해야 합니다. `ServiceBusRestProxy->deleteRule` 메서드를 사용하여 기본 규칙을 제거할 수 있습니다.
 
 다음 예제에서는 사용자 지정 **MessageNumber** 속성이 3보다 큰 메시지만 선택하는 **SqlFilter**가 포함된 **HighMessages**라는 구독을 만듭니다(메시지에 사용자 지정 속성 추가에 대한 자세한 내용은 [토픽에 메시지 보내기](#send-messages-to-a-topic) 참조).
 
@@ -211,7 +211,7 @@ try	{
 catch(ServiceException $e){
 	// Handle exception based on error codes and messages.
 	// Error codes and messages are here: 
-	// http://msdn.microsoft.com/library/windowsazure/hh780775
+	// http://msdn.microsoft.com/library/azure/hh780775
 	$code = $e->getCode();
 	$error_message = $e->getMessage();
 	echo $code.": ".$error_message."<br />";
@@ -278,7 +278,7 @@ try	{
 catch(ServiceException $e){
 	// Handle exception based on error codes and messages.
 	// Error codes and messages are here:
-	// http://msdn.microsoft.com/library/windowsazure/hh780735
+	// http://msdn.microsoft.com/library/azure/hh780735
 	$code = $e->getCode();
 	$error_message = $e->getMessage();
 	echo $code.": ".$error_message."<br />";
@@ -316,7 +316,7 @@ try	{
 catch(ServiceException $e){
 	// Handle exception based on error codes and messages.
 	// Error codes and messages are here: 
-	// http://msdn.microsoft.com/library/windowsazure/dd179357
+	// http://msdn.microsoft.com/library/azure/dd179357
 	$code = $e->getCode();
 	$error_message = $e->getMessage();
 	echo $code.": ".$error_message."<br />";
@@ -338,4 +338,4 @@ $serviceBusRestProxy->deleteSubscription("mytopic", "mysubscription");
 [require-once]: http://php.net/require_once
 [Azure 큐 및 서비스 버스 큐]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

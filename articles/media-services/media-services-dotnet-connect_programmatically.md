@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/05/2015" 
+  ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 
@@ -44,7 +44,7 @@ Media Services 계정 설정 과정이 끝나면 다음과 같은 필수 연결 
 
 서버 컨텍스트를 나타내는 **CloudMediaContext** 인스턴스를 만드는 데 필요한 Media Services에 대한 프로그래밍을 시작합니다. **CloudMediaContext**에는 작업, 자산, 파일, 액세스 정책 및 로케이터를 비롯하여 중요한 컬렉션에 대한 참조가 포함됩니다.
 
->[AZURE.NOTE]**CloudMediaContext** 클래스는 스레드로부터 안전하게 보호되지 않습니다. 스레드마다 또는 작업 집합마다 새 CloudMediaContext를 만들어야 합니다.
+>[AZURE.NOTE] **CloudMediaContext** 클래스는 스레드로부터 안전하게 보호되지 않습니다. 스레드마다 또는 작업 집합마다 새 CloudMediaContext를 만들어야 합니다.
 
 
 CloudMediaContext에는 5개의 생성자 오버로드가 있습니다. **MediaServicesCredentials**를 매개 변수로 사용하는 생성자를 사용하는 것이 좋습니다. 자세한 내용은 이어지는 **액세스 제어 서비스 토큰 다시 사용**을 참조하세요.
@@ -196,4 +196,4 @@ Media Services SDK 버전 3.0.0.0부터 ACS 토큰을 다시 사용할 수 있�
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

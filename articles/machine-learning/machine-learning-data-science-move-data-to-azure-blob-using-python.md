@@ -13,16 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="02/08/2016" 
 	ms.author="bradsev" />
 
 # Python을 사용하여 Azure Blob 저장소의 데이터 이동
 
-Azure Blob 저장소로 및/또는 저장소에서 데이터를 이동하는 데 사용되는 기술 지침은 여기에 연결되어 있습니다.
-
-[AZURE.INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
-
 ## 소개
+이 항목에서는 Python API를 사용하여 blob를 나열, 업로드 및 다운로드하는 방법을 설명합니다.
 
 Azure SDK에 제공되는 Python API를 사용하여 다음을 수행할 수 있습니다.
 
@@ -32,17 +29,22 @@ Azure SDK에 제공되는 Python API를 사용하여 다음을 수행할 수 있
 - 컨테이너의 Blob 나열
 - Blob 삭제
 
-이 섹션에서는 blob를 나열, 업로드 및 다운로드하는 방법을 설명합니다. Python API 사용에 대한 자세한 내용은 [Python에서 Blob 저장소 서비스를 사용하는 방법](../storage-python-how-to-use-blob-storage.md)을 참조하세요.
+Python API 사용에 대한 자세한 내용은 [Python에서 Blob 저장소 서비스를 사용하는 방법](../storage-python-how-to-use-blob-storage.md)을 참조하세요.
+
+Azure Blob 저장소로 및/또는 저장소에서 데이터를 이동하는 데 사용되는 기술 지침은 여기에 연결되어 있습니다.
+
+[AZURE.INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
+
 
 > [AZURE.NOTE] [Azure의 데이터 과학 가상 컴퓨터](machine-learning-data-science-virtual-machines.md)에서 제공하는 스크립트를 통해 설정된 VM을 사용하는 경우 AzCopy가 VM에 이미 설치되어 있습니다.
 
-> [AZURE.NOTE]Azure blob 저장소에 대한 전체 지침은 [Azure Blob 기본 사항](../storage-dotnet-how-to-use-blobs.md) 및 [Azure Blob 서비스](https://msdn.microsoft.com/library/azure/dd179376.aspx)를 참조하세요.
+> [AZURE.NOTE] Azure blob 저장소에 대한 전체 지침은 [Azure Blob 기본 사항](../storage-dotnet-how-to-use-blobs.md) 및 [Azure Blob 서비스](https://msdn.microsoft.com/library/azure/dd179376.aspx)를 참조하세요.
 
 ## 필수 조건
 
 이 문서에서는 사용자에게 Azure 구독, 저장소 계정 및 계정에 해당하는 저장소 키가 있다고 가정합니다. 데이터를 업로드/다운로드하려면 Azure 저장소 계정 이름 및 계정 키를 알아야 합니다.
 
-- Azure 구독을 설정하려면 [1개월 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+- Azure 구독을 설정하려면 [무료 1개월 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 - 저장소 계정을 만들고 계정 및 키 정보를 가져오는 방법에 대한 지침은 [Azure 저장소 계정 정보](../storage-create-storage-account.md)를 참조하세요.
 
 ## Blob에 데이터 업로드
@@ -123,4 +125,4 @@ Azure SDK에 제공되는 Python API를 사용하여 다음을 수행할 수 있
 	    except:
 	        print "something wrong happened when downloading the data %s"%blob.name
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_0211_2016-->

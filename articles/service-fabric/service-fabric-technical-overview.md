@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/25/2015"
+   ms.date="02/09/2016"
    ms.author="mfussell"/>
 
 # 서비스 패브릭의 기술 개요
@@ -53,4 +53,4 @@ Azure 서비스 패브릭은 확장 가능하고 안정적이며 대기 시간�
 - [응용 프로그램 모델](service-fabric-application-model.md)
 - [응용 프로그램 시나리오](service-fabric-application-scenarios.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

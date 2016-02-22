@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="12/28/2015"
+	ms.date="02/07/2016"
 	ms.author="mahender"/>
 
 # 사용자 지정 인증 시작
@@ -26,11 +26,11 @@
 ## 개요
 이 항목에서는 고유 모바일 서비스 인증 토큰을 발행하여 Azure 모바일 서비스 .NET 백 엔드에서 사용자를 인증하는 방법을 보여 줍니다. 이 자습서에서는 앱에 대해 사용자 지정 사용자 이름 및 암호를 사용해서 빠른 시작 프로젝트에 인증을 추가합니다.
 
->[AZURE.NOTE]이 자습서에서는 사용자 지정 자격 증명을 사용해서 모바일 서비스를 인증하는 고급 방법을 보여 줍니다. 많은 앱에서는 기본 제공되는 소셜 ID 공급자를 대신 사용하여 Facebook, Twitter, Google, Microsoft 계정 및 Azure Active Directory를 통해 로그인할 수 있도록 허용하는 것이 가장 적합할 것입니다. 모바일 서비스에서 인증 관련 작업을 처음 수행할 경우에는 [앱에 인증 추가] 자습서를 참조하세요.
+>[AZURE.NOTE] 이 자습서에서는 사용자 지정 자격 증명을 사용해서 모바일 서비스를 인증하는 고급 방법을 보여 줍니다. 많은 앱에서는 기본 제공되는 소셜 ID 공급자를 대신 사용하여 Facebook, Twitter, Google, Microsoft 계정 및 Azure Active Directory를 통해 로그인할 수 있도록 허용하는 것이 가장 적합할 것입니다. 모바일 서비스에서 인증 관련 작업을 처음 수행할 경우에는 [앱에 인증 추가] 자습서를 참조하세요.
 
 이 자습서는 모바일 서비스 quickstart를 기반으로 합니다. 먼저 [모바일 서비스 시작] 자습서를 완료해야 합니다.
 
->[AZURE.IMPORTANT]이 자습서에서는 모바일 서비스에 대한 인증 토큰을 발행하는 방법을 보여 줍니다. 이 자습서는 보안 지침으로 간주되지 않습니다. 앱 개발 시에는 암호 저장소가 보안에 미치는 영향을 인지하고 무차별 암호 대입 공격(brute-force attack)을 관리하기 위한 전략을 마련해야 합니다.
+>[AZURE.IMPORTANT] 이 자습서에서는 모바일 서비스에 대한 인증 토큰을 발행하는 방법을 보여 줍니다. 이 자습서는 보안 지침으로 간주되지 않습니다. 앱 개발 시에는 암호 저장소가 보안에 미치는 영향을 인지하고 무차별 암호 대입 공격(brute-force attack)을 관리하기 위한 전략을 마련해야 합니다.
 
 ## 계정 테이블 설정
 
@@ -336,7 +336,7 @@
 
         [AuthorizeLevel(AuthorizationLevel.Anonymous)]
 
->[AZURE.IMPORTANT]프로덕션 사용을 위한 `CustomLoginController`에는 무차별 암호 대입 공격(brute-force) 검색 전략이 포함되어야 합니다. 그렇지 않으면 로그인 솔루션이 공격에 취약해집니다.
+>[AZURE.IMPORTANT] 프로덕션 사용을 위한 `CustomLoginController`에는 무차별 암호 대입 공격(brute-force) 검색 전략이 포함되어야 합니다. 그렇지 않으면 로그인 솔루션이 공격에 취약해집니다.
 
 ## 인증을 요구하도록 모바일 서비스 구성
 
@@ -381,13 +381,13 @@
 
  	![](./media/mobile-services-dotnet-backend-get-started-custom-authentication/mobile-services-dotnet-backend-custom-auth-access-success.png)
 
->[AZURE.IMPORTANT]테스트를 위해 Azure에 이 모바일 서비스 프로젝트를 게시하도록 선택하는 경우, 로그인 및 인증 공급자가 공격에 취약해집니다. 이를 적절하게 확정하거나 보호되는 테스트 데이터가 사용자에게 중요하지 않아야 합니다. 프로덕션 서비스를 보호하려면 사용자 지정 인증 체계를 사용하려기 전에 주의를 기울여야 합니다.
+>[AZURE.IMPORTANT] 테스트를 위해 Azure에 이 모바일 서비스 프로젝트를 게시하도록 선택하는 경우, 로그인 및 인증 공급자가 공격에 취약해집니다. 이를 적절하게 확정하거나 보호되는 테스트 데이터가 사용자에게 중요하지 않아야 합니다. 프로덕션 서비스를 보호하려면 사용자 지정 인증 체계를 사용하려기 전에 주의를 기울여야 합니다.
 
 ## 클라이언트에서 사용자 지정 인증을 사용하여 로그인
 
 이 섹션에서는 모바일 서비스에 액세스하는 데 사용되는 인증 토큰을 가져오기 위해 클라이언트에서 사용자 지정 인증 끝점애 액세스하는 데 필요한 단계를 설명합니다. 필요한 특정 클라이언트 코드는 클라이언트에 따라 다르기 때문에 여기에 제공된 지침은 플랫폼에 독립적입니다.
 
->[AZURE.NOTE]모바일 서비스 클라이언트 라이브러리는 HTTPS를 통해 서비스와 통신합니다. 이 솔루션은 암호를 일반 텍스트 형식으로 보내는 데 필요하기 때문에 직접 REST 요청을 사용하는 이러한 끝점을 호출할 때 HTTPS를 사용하는지 확인해야 합니다.
+>[AZURE.NOTE] 모바일 서비스 클라이언트 라이브러리는 HTTPS를 통해 서비스와 통신합니다. 이 솔루션은 암호를 일반 텍스트 형식으로 보내는 데 필요하기 때문에 직접 REST 요청을 사용하는 이러한 끝점을 호출할 때 HTTPS를 사용하는지 확인해야 합니다.
 
 1. 사용자 이름 및 암호를 입력할 수 있도록 클라이언트 앱에서 필요한 UI 요소를 만듭니다.
 
@@ -395,7 +395,7 @@
 
 	계정 테이블에서 사용자 로그인 정보를 유지할 뿐 아니라 지정된 사용자의 계정을 만들기 위해 **CustomRegistration** 끝점을 한 번 호출해야 합니다. 다양한 지원 클라이언트 플랫폼에서 사용자 지정 API를 호출하는 방법의 예시는 [Azure 모바일 서비스의 사용자 지정 API - 클라이언트 SDK](http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx) 문서를 참조하세요.
 
-	> [AZURE.IMPORTANT]이 사용자 프로비전 단계는 한 번만 발생하기 때문에 일부 대역 외 방식에서 사용자 계정 만들기를 고려해야 합니다. 공용 등록 끝점의 경우, SMS 기반 또는 이메일 기반 확인 프로세스 구현을 고려하거나 사기성 계정을 생성하지 않도록 다른 보호책을 고려해야 합니다. Twilio를 사용하여 모바일 서비스에서 SMS 메시지를 보낼 수 있습니다. 모바일 서비스에서 이메일을 보내려면 SendGrid를 사용할 수도 있습니다. SendGrid 사용에 대한 자세한 내용은 [SendGrid로 모바일 서비스에서 전자 메일 보내기](store-sendgrid-mobile-services-send-email-scripts.md)를 참조하세요.
+	> [AZURE.IMPORTANT] 이 사용자 프로비전 단계는 한 번만 발생하기 때문에 일부 대역 외 방식에서 사용자 계정 만들기를 고려해야 합니다. 공용 등록 끝점의 경우, SMS 기반 또는 이메일 기반 확인 프로세스 구현을 고려하거나 사기성 계정을 생성하지 않도록 다른 보호책을 고려해야 합니다. Twilio를 사용하여 모바일 서비스에서 SMS 메시지를 보낼 수 있습니다. 모바일 서비스에서 이메일을 보내려면 SendGrid를 사용할 수도 있습니다. SendGrid 사용에 대한 자세한 내용은 [SendGrid로 모바일 서비스에서 전자 메일 보내기](store-sendgrid-mobile-services-send-email-scripts.md)를 참조하세요.
 
 3. 이번에는 적합한 **invokeApi** 메서드를 다시 사용하여 메시지 본문에서 런타임 제공 사용자 이름 및 암호를 전달하는 **CustomLogin** 끝점을 호출합니다.
 
@@ -424,4 +424,4 @@
 [ClaimsIdentity]: https://msdn.microsoft.com/library/system.security.claims.claimsidentity(v=vs.110).aspx
 [ProviderCredentials]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0211_2016-->

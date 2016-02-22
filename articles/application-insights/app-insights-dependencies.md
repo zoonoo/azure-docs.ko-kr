@@ -12,13 +12,13 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/17/2015" 
+	ms.date="02/09/2016" 
 	ms.author="awills"/>
  
 # Application Insights에서 종속성 문제 진단
 
 
-종속성은 앱에서 호출하는 외부 구성 요소로, 일반적으로 HTTP, 데이터베이스 또는 파일 시스템을 사용하여 호출되는 서비스입니다. Visual Studio Application Insights에서 응용 프로그램이 종속성을 기다리는 시간과 종속성 호출에 실패하는 빈도를 쉽게 확인할 수 있습니다.
+*종속성*은 앱에서 호출하는 외부 구성 요소로, 일반적으로 HTTP, 데이터베이스 또는 파일 시스템을 사용하여 호출되는 서비스입니다. 또는 웹 페이지 스크립트에서 서버를 다시 호출하는 AJAX 호출일 수 있습니다. Visual Studio Application Insights에서 응용 프로그램이 종속성을 기다리는 시간과 종속성 호출에 실패하는 빈도를 쉽게 확인할 수 있습니다.
 
 ## 사용 가능한 대상
 
@@ -26,6 +26,7 @@
 
 * IIS 서버 또는 Azure에서 실행 중인 ASP.NET 웹앱 및 서비스
 * [Java 웹앱](app-insights-java-agent.md)
+* [웹 페이지](https://azure.microsoft.com/blog/ajax-collection-in-application-insights/)
 
 장치 앱과 같은 다른 유형의 경우 [TrackDependency API](app-insights-api-custom-events-metrics.md#track-dependency)를 사용하여 고유한 모니터를 작성할 수 있습니다.
 
@@ -39,7 +40,7 @@
 * Java
  * MySQL, SQL Server, PostgreSQL 또는 SQLite 등의 [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/) 드라이버를 통해 데이터베이스를 호출합니다.
 * 웹 페이지
- * AJAX 호출
+ * [AJAX 호출](app-insights-javascript.md)
 
 다시 말하지만, 자체 SDK 호출을 작성하여 다른 종속성을 모니터링할 수 있습니다.
 
@@ -52,10 +53,11 @@
 IIS 서버 | [상태 모니터](app-insights-monitor-performance-live-website-now.md)
 Azure 웹앱 | [Application Insights 확장](../azure-portal/insights-perf-analytics.md)
 Java 웹 서버 | [Java 웹앱](app-insights-java-agent.md)
+웹 페이지 | [JavaScript 모니터](app-insights-javascript.md)(웹 페이지 모니터링 외 추가 설정 없음)
 
 IIS 서버용 상태 모니터는 Application Insights SDK를 사용하여 소스 프로젝트를 다시 빌드할 필요가 없습니다.
 
-## <a name="diagnosis"></a> 종속성 성능 문제 진단
+## <a name="diagnosis"></a> 웹 서버에서 종속성 성능 문제 진단
 
 서버에서 요청 성능을 평가하려면:
 
@@ -74,7 +76,7 @@ IIS 서버용 상태 모니터는 Application Insights SDK를 사용하여 소�
 
 장기 실행 인스턴스를 클릭하면 세부 사항을 조사할 수 있습니다.
 
-> [AZURE.NOTE]인스턴스를 선택하려면 약간 아래로 스크롤합니다. 파이프라인의 대기 시간은 최상위 인스턴스의 데이터가 완료되지 않았음을 의미할 수 있습니다.
+> [AZURE.NOTE] 인스턴스를 선택하려면 약간 아래로 스크롤합니다. 파이프라인의 대기 시간은 최상위 인스턴스의 데이터가 완료되지 않았음을 의미할 수 있습니다.
 
 이 요청과 관련된 원격 종속성 호출까지 스크롤합니다.
 
@@ -129,6 +131,12 @@ IIS 서버용 상태 모니터는 Application Insights SDK를 사용하여 소�
 
 표준 종속성 추적 모듈을 해제하려는 경우, [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)에서 DependencyTrackingTelemetryModule에 대한 참조를 삭제합니다.
 
-<!--Link references-->
 
-<!---HONumber=AcomDC_0121_2016-->
+## Ajax
+
+[웹 페이지](app-insights-javascript.md)를 참조하세요.
+
+
+ 
+
+<!---HONumber=AcomDC_0211_2016-->

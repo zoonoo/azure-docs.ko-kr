@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="02/05/2016"
 	ms.author="larryfr"/>
 
 
@@ -60,52 +60,52 @@ Hive 및 Pig가 런타임에 응용 프로그램을 호출해야 하므로 **콘
 
 2. **Program.cs**의 내용을 다음으로 바꿉니다.
 
-		using System;
-		using System.Security.Cryptography;
-		using System.Text;
-		using System.Threading.Tasks;
+        using System;
+        using System.Security.Cryptography;
+        using System.Text;
+        using System.Threading.Tasks;
 
-		namespace HiveCSharp
-		{
-		    class Program
-		    {
-		        static void Main(string[] args)
-		        {
-		            string line;
-		            // Read stdin in a loop
-		            while ((line = Console.ReadLine()) != null)
-		            {
-		                // Parse the string, trimming line feeds
-		                // and splitting fields at tabs
-		                line = line.TrimEnd('\n');
-		                string[] field = line.Split('\t');
-		                string phoneLabel = field[1] + ' ' + field[2];
-		                // Emit new data to stdout, delimited by tabs
-		                Console.WriteLine("{0}\t{1}\t{2}", field[0], phoneLabel, GetMD5Hash(phoneLabel));
-		            }
-		        }
-		        /// <summary>
-		        /// Returns an MD5 hash for the given string
-		        /// </summary>
-		        /// <param name="input">string value</param>
-		        /// <returns>an MD5 hash</returns>
-		        static string GetMD5Hash(string input)
-		        {
-		            // Step 1, calculate MD5 hash from input
-		            MD5 md5 = System.Security.Cryptography.MD5.Create();
-		            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(input);
-		            byte[] hash = md5.ComputeHash(inputBytes);
+        namespace HiveCSharp
+        {
+            class Program
+            {
+                static void Main(string[] args)
+                {
+                    string line;
+                    // Read stdin in a loop
+                    while ((line = Console.ReadLine()) != null)
+                    {
+                        // Parse the string, trimming line feeds
+                        // and splitting fields at tabs
+                        line = line.TrimEnd('\n');
+                        string[] field = line.Split('\t');
+                        string phoneLabel = field[1] + ' ' + field[2];
+                        // Emit new data to stdout, delimited by tabs
+                        Console.WriteLine("{0}\t{1}\t{2}", field[0], phoneLabel, GetMD5Hash(phoneLabel));
+                    }
+                }
+                /// <summary>
+                /// Returns an MD5 hash for the given string
+                /// </summary>
+                /// <param name="input">string value</param>
+                /// <returns>an MD5 hash</returns>
+                static string GetMD5Hash(string input)
+                {
+                    // Step 1, calculate MD5 hash from input
+                    MD5 md5 = System.Security.Cryptography.MD5.Create();
+                    byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(input);
+                    byte[] hash = md5.ComputeHash(inputBytes);
 
-		            // Step 2, convert byte array to hex string
-		            StringBuilder sb = new StringBuilder();
-		            for (int i = 0; i < hash.Length; i++)
-		            {
-		                sb.Append(hash[i].ToString("x2"));
-		            }
-		            return sb.ToString();
-		        }
-		    }
-		}
+                    // Step 2, convert byte array to hex string
+                    StringBuilder sb = new StringBuilder();
+                    for (int i = 0; i < hash.Length; i++)
+                    {
+                        sb.Append(hash[i].ToString("x2"));
+                    }
+                    return sb.ToString();
+                }
+            }
+        }
 
 3. 프로젝트를 빌드합니다.
 
@@ -219,7 +219,7 @@ Hive 및 Pig가 런타임에 응용 프로그램을 호출해야 하므로 **콘
 
 	`DEFINE` 문은 pigudf.exe 응용 프로그램에 대한 `streamer`의 별칭을 만들고 `SHIP` 클러스터의 노드를 분산합니다. 나중에 `streamer`는 `STREAM` 연산자와 함께 사용되어 로그에 포함된 단일 줄을 처리하고 일련의 열로 데이터를 반환합니다.
 
-> [AZURE.NOTE]별칭이 지정된 경우 스트리밍에 사용되는 응용 프로그램 이름은 '(기호) 문자로 묶어야 하며 `SHIP`와 함께 사용된 경우 '(작은따옴표)로 묶어야 합니다.
+> [AZURE.NOTE] 별칭이 지정된 경우 스트리밍에 사용되는 응용 프로그램 이름은 '(기호) 문자로 묶어야 하며 `SHIP`와 함께 사용된 경우 '(작은따옴표)로 묶어야 합니다.
 
 3. 마지막 줄을 입력한 후 작업을 시작해야 합니다. 결국 다음과 유사한 출력이 반환됩니다.
 
@@ -241,4 +241,4 @@ Pig 및 Hive를 사용하고 MapReduce 사용에 대해 배우는 다른 방법�
 
 * [HDInsight와 함께 MapReduce 사용](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

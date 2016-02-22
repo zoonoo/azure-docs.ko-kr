@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="11/09/2015"
+   ms.date="02/09/2016"
    ms.author="elfish"/>
 
 # 사용자 오류에서 Azure SQL 데이터베이스 복구
@@ -106,4 +106,4 @@ PowerShell을 사용하여 삭제된 데이터베이스를 복원하려면 [Star
 	
 4.	[데이터베이스 작업 상태](http://msdn.microsoft.com/library/azure/dn720371.aspx) 작업을 사용하여 복원 상태를 추적합니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

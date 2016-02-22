@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/29/2015"
+	ms.date="02/09/2016"
 	ms.author="asmalser-msft"/>
 
 #SCIM를 사용하여 Azure Active Directory으로부터 응용 프로그램에 사용자 및 그룹의 자동 프로비전 사용
@@ -137,8 +137,8 @@ Azure AD에서 프로비전 요청을 수락할 수 있는 SCIM 끝점을 구현
 7.	웹 서비스에 연결하려는 시도가 성공하면 나머지 화면에서 **다음**을 클릭한 다음 **완료**를 클릭하여 대화 상자를 종료합니다.
 8.	결과 화면에서 세 번째 **계정 할당** 단추를 선택합니다. 사용자 및 그룹 결과 섹션에서 응용 프로그램에 프로비전하려는 사용자 또는 그룹을 할당합니다.
 9.	사용자 및 그룹이 할당되면 화면 위쪽의 **구성** 탭을 클릭합니다.
-10.	**계정 프로비전**에서 상태가 켜짐으로 설정되었는지 확인합니다. 
-11.	**도구**에서 **계정 프로비전 다시 시작**을 클릭하여 프로비전 프로세스를 시작합니다.
+10.	**계정 프로비전**에서 상태가 켜기로 설정되었는지 확인합니다. 
+11.	**도구**에서 **계정 프로비전 다시시작**을 클릭하여 프로비전 프로세스를 시작합니다.
 
 프로비전 프로세스가 SCIM 끝점에 요청을 보내려고 시작하기 전에 5-10분이 경과될 수 있습니다. 연결 시도의 요약은 응용 프로그램의 대시보드 탭에서 제공되고 프로비전 활동에 대한 보고서 및 프로비전 오류는 모두 디렉터리의 보고서 탭에서 다운로드할 수 있습니다.
 
@@ -684,6 +684,17 @@ SCIM 서비스 구현에 대한 Microsoft 공용 언어 인프라 라이브러�
 
 ![][5] *그림: 그룹 프로비전 및 시퀀스 프로비전 해제*
 
+##관련 문서
+
+- [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
+- [SaaS 앱에 자동화된 사용자 프로비전/프로비전 해제](active-directory-saas-app-provisioning.md)
+- [사용자 프로비저닝에 대한 특성 매핑 사용자 지정](active-directory-saas-customizing-attribute-mappings.md)
+- [특성 매핑에 대한 식 작성](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+- [사용자 프로 비전에 대 한 필터 범위 지정](active-directory-saas-scoping-filters.md)
+- [계정 프로비전 알림](active-directory-saas-account-provisioning-notifications.md)
+- [SaaS App을 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
+
+
 	
 <!--Image references-->
 [1]: ./media/active-directory-scim-provisioning/scim-figure-1.PNG
@@ -692,4 +703,4 @@ SCIM 서비스 구현에 대한 Microsoft 공용 언어 인프라 라이브러�
 [4]: ./media/active-directory-scim-provisioning/scim-figure-4.PNG
 [5]: ./media/active-directory-scim-provisioning/scim-figure-5.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

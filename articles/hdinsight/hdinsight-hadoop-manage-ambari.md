@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/03/2015"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 #Ambari 웹 UI를 사용하여 HDInsight 클러스터 관리
@@ -25,7 +25,7 @@ Apache Ambari는 손쉬운 웹 UI 및 REST API 사용을 제공하여 Hadoop 클
 
 이 문서에서는 HDInsight 클러스터와 Ambari 웹 UI를 사용하는 방법을 배웁니다.
 
-> [AZURE.NOTE]이 문서의 정보는 Linux 기반 HDInsight 클러스터에만 적용됩니다. Windows 기반 HDInsight 클러스터에서는 Ambari REST API를 통한 모니터링만 사용할 수 있습니다. [Ambari API를 사용하여 HDInsight에서 Windows 기반 Hadoop 모니터링](hdinsight-monitor-use-ambari-api.md)를 참조하세요.
+> [AZURE.NOTE] 이 문서의 정보는 Linux 기반 HDInsight 클러스터에만 적용됩니다. Windows 기반 HDInsight 클러스터에서는 Ambari REST API를 통한 모니터링만 사용할 수 있습니다. [Ambari API를 사용하여 HDInsight에서 Windows 기반 Hadoop 모니터링](hdinsight-monitor-use-ambari-api.md)를 참조하세요.
 
 ##<a id="whatis"></a>Ambari 정의
 
@@ -37,11 +37,11 @@ Ambari 웹 UI는 Linux 기반 HDInsight 클러스터와 함께 기본적으로 �
 
 Ambari 웹 UI는 사용자 클러스터의 이름 __CLUSTERNAME__인 HTTPS://CLUSTERNAME.azurehdidnsight.net의 HDInsight 클러스터에서 사용 가능합니다.
 
-> [AZURE.IMPORTANT]HTTPS를 요구하는 HDInsight에서 Ambari로 연결 또한 관리자 계정 이름(기본값: __admin__)과, 클러스터를 만들 때 제공한 암호를 사용하여 Ambari에 인증해야 합니다.
+> [AZURE.IMPORTANT] HTTPS를 요구하는 HDInsight에서 Ambari로 연결 또한 관리자 계정 이름(기본값: __admin__)과, 클러스터를 만들 때 제공한 암호를 사용하여 Ambari에 인증해야 합니다.
 
 ##SSH 프록시
 
-> [AZURE.NOTE]클러스터의 Ambari는 인터넷을 통해 직접 액세스할 수 있지만 Ambari 웹 UI의 일부 링크(예: JobTracker)는 인터넷에 노출되지 않습니다. 따라서 클러스터 헤드 노드로 웹 트래픽을 프록시하는 데 SSH(보안 셸) 터널을 사용하지 않는 경우, 이러한 기능에 액세스 하려고 하면 "서버를 찾을 수 없음" 오류가 발생합니다.
+> [AZURE.NOTE] 클러스터의 Ambari는 인터넷을 통해 직접 액세스할 수 있지만 Ambari 웹 UI의 일부 링크(예: JobTracker)는 인터넷에 노출되지 않습니다. 따라서 클러스터 헤드 노드로 웹 트래픽을 프록시하는 데 SSH(보안 셸) 터널을 사용하지 않는 경우, 이러한 기능에 액세스 하려고 하면 "서버를 찾을 수 없음" 오류가 발생합니다.
 
 Ambari로 작업하기 위해 SSH 터널 생성에 대한 정보는 [SSH 터널링을 사용하여 Ambari 웹 UI, ResourceManager, JobHistory, NameNode, Oozie, 및 기타 웹 UI에 액세스](hdinsight-linux-ambari-ssh-tunnel.md)를 참조하세요.
 
@@ -137,7 +137,7 @@ Ambari는 많은 경고를 보여주며 다음 상태 중 하나입니다.
 
 이러한 링크 중 하나를 선택하면 브라우저에서 선택한 페이지를 표시하는 새 탭이 열립니다.
 
-> [AZURE.NOTE]서비스에 대한 **Quick Links** 링크를 선택한 경우 SSL(Secure Sockets Layer) 터널을 사용하여 클러스터에 대한 웹 트래픽을 프록시하지 않으면 "server not found" 오류가 반환됩니다. 이 정보를 표시하는 데 사용되는 웹 응용 프로그램이 인터넷에 노출되지 않기 때문입니다.
+> [AZURE.NOTE] 서비스에 대한 **Quick Links** 링크를 선택한 경우 SSL(Secure Sockets Layer) 터널을 사용하여 클러스터에 대한 웹 트래픽을 프록시하지 않으면 "server not found" 오류가 반환됩니다. 이 정보를 표시하는 데 사용되는 웹 응용 프로그램이 인터넷에 노출되지 않기 때문입니다.
 >
 > HDInsight로 SSL 터널 사용에 대한 정보는 [SSH 터널링을 사용하여 Ambari 웹 UI, ResourceManager, JobHistory, NameNode, Oozie, 및 기타 웹 UI에 액세스](hdinsight-linux-ambari-ssh-tunnel.md)를 참조하세요.
 
@@ -153,7 +153,7 @@ Ambari는 많은 경고를 보여주며 다음 상태 중 하나입니다.
 
 ![호스트 페이지](./media/hdinsight-hadoop-manage-ambari/hosts.png)
 
-> [AZURE.NOTE]호스트 추가, 서비스 해제 또는 서비스 등록은 HDInsight 클러스터에서 사용할 수 없습니다.
+> [AZURE.NOTE] 호스트 추가, 서비스 해제 또는 서비스 등록은 HDInsight 클러스터에서 사용할 수 없습니다.
 
 1. 관리하려는 호스트를 선택합니다.
 
@@ -177,11 +177,11 @@ Ambari는 많은 경고를 보여주며 다음 상태 중 하나입니다.
 
 	* **Decommission** - 호스트를 클러스터에서 제거합니다.
 
-		> [AZURE.NOTE]HDInsight 클러스터에서는 이 작업을 사용하지 마세요.
+		> [AZURE.NOTE] HDInsight 클러스터에서는 이 작업을 사용하지 마세요.
 
 	* **Recommission** - 이전에 서비스를 해지한 호스트를 클러스터에 추가합니다.
 
-		> [AZURE.NOTE]HDInsight 클러스터에서는 이 작업을 사용하지 마세요.
+		> [AZURE.NOTE] HDInsight 클러스터에서는 이 작업을 사용하지 마세요.
 
 ###<a id="service"></a>Services
 
@@ -189,7 +189,7 @@ Ambari는 많은 경고를 보여주며 다음 상태 중 하나입니다.
 
 ![서비스 작업](./media/hdinsight-hadoop-manage-ambari/service-actions.png)
 
-> [AZURE.WARNING].이 메뉴에 __서비스 추가__가 나열되어 있지만 HDInsight 클러스터에 서비스를 추가하는 데 사용하면 안 됩니다. 클러스터를 프로비전하는 동안 스크립트 작업을 사용하여 새 서비스를 추가해야 합니다. 스크립트 작업에 대한 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
+> [AZURE.WARNING] .이 메뉴에 __서비스 추가__가 나열되어 있지만 HDInsight 클러스터에 서비스를 추가하는 데 사용하면 안 됩니다. 클러스터를 프로비전하는 동안 스크립트 작업을 사용하여 새 서비스를 추가해야 합니다. 스크립트 작업에 대한 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
 
 
 **Actions** 단추는 모든 서비스를 다시 시작할 수 있는 반면, 특정 서비스를 시작하거나 중지, 다시 시작하려는 경우가 많습니다. 다음 단계를 사용하여 개별 서비스에서 작업을 수행할 수 있습니다.
@@ -200,11 +200,11 @@ Ambari는 많은 경고를 보여주며 다음 상태 중 하나입니다.
 
 	![서비스 작업](./media/hdinsight-hadoop-manage-ambari/individual-service-actions.png)
 
-	> [AZURE.NOTE]클러스터가 실행되는 동안 일부 서비스를 다시 시작하면 경고가 발생할 수 있습니다. 이 문제를 방지하려면 **Service Actions** 단추를 사용하여 다시 시작하기 전에 서비스에 대한 **Maintenance mode**를 설정합니다.
+	> [AZURE.NOTE] 클러스터가 실행되는 동안 일부 서비스를 다시 시작하면 경고가 발생할 수 있습니다. 이 문제를 방지하려면 **Service Actions** 단추를 사용하여 다시 시작하기 전에 서비스에 대한 **Maintenance mode**를 설정합니다.
 
 3. 동작이 선택되어 있고, 백그라운드 작업이 발생하면 페이지 위쪽에 있는 **# op** 항목의 숫자가 증가합니다. 백그라운드 작업 목록을 표시하도록 구성한 경우 백그라운드 작업 목록이 표시됩니다.
 
-	> [AZURE.NOTE]서비스에 대한 **Maintenance mode**를 사용하도록 설정한 경우 작업이 완료되면 **Service Actions** 단추를 사용하여 이 모드를 해제합니다.
+	> [AZURE.NOTE] 서비스에 대한 **Maintenance mode**를 사용하도록 설정한 경우 작업이 완료되면 **Service Actions** 단추를 사용하여 이 모드를 해제합니다.
 
 서비스를 구성하려면 다음 단계를 사용합니다.
 
@@ -224,4 +224,4 @@ Ambari 뷰를 사용하면 개발자가 [Ambari 보기 프레임워크](https://
 * Hive 뷰: Hive 뷰를 사용하면 웹 브라우저에서 직접 Hive 쿼리를 실행할 수 있습니다. 쿼리를 저장하고 결과 확인하며 클러스터 저장소에 결과를 저장하거나 로컬 시스템에 다운로드할 수 있습니다. Hive 뷰 사용에 대한 자세한 내용은 [HDInsight와 함께 Hive 뷰 사용](hdinsight-hadoop-use-hive-ambari-view.md)을 참조하세요.
 * Tez 뷰: Tez 뷰를 사용하면 Tez 작업 실행 방법 및 작업에서 사용되는 리소스 정보를 확인하여 작업을 더 잘 이해하고 최적화합니다.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

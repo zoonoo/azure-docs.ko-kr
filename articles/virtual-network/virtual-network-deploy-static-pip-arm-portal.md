@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="리소스 관리자에서 미리 보기 포털을 사용하여 고정 공용 IP를 사용하는 VM 배포 | Microsoft Azure"
-   description="리소스 관리자에서 미리 보기 포털을 사용하여 고정 공용 IP를 사용하는 VM을 배포하는 방법을 알아봅니다."
+   pageTitle="리소스 관리자에서 Azure 포털을 사용하여 고정 공용 IP를 사용하는 VM 배포 | Microsoft Azure"
+   description="리소스 관리자에서 Azure 포털을 사용하여 고정 공용 IP를 사용하는 VM을 배포하는 방법을 알아봅니다."
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/08/2016"
+   ms.date="02/04/2016"
    ms.author="telmos" />
 
 # Azure 포털을 사용하여 고정 공용 IP를 사용하는 VM 배포
@@ -59,4 +59,4 @@ Azure 포털에서 고정 공용 IP 주소의 VM을 만들려면 다음 단계�
 
 	![Azure 포털 - 공용 IP 주소 만들기](./media/virtual-network-deploy-static-pip-arm-portal/figure6.png)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/04/2016"
    ms.author="larryfr"/>
 
 #PowerShell을 사용하여 Pig 작업 실행
@@ -53,15 +53,13 @@ Azure PowerShell은 HDInsight에서 Pig 작업을 원격으로 실행할 수 있
 
 1. 편집기를 사용하여 다음 코드를 **pigjob.ps1**로 저장합니다. **CLUSTERNAME**을 HDInsight 클러스터의 이름으로 바꿉니다.
 
-		#Login to your Azure subscription
-		Login-AzureRmAccount
+        #Login to your Azure subscription
+        Login-AzureRmAccount
         #Get credentials for the admin/HTTPs account
         $creds=Get-Credential
 
-		#Specify the cluster name
-		$clusterName = "CLUSTERNAME"
-		#Where the output will be saved
-		$statusFolder = "/tutorial/pig/status"
+        #Specify the cluster name
+        $clusterName = "CLUSTERNAME"
         
         #Get the cluster info so we can get the resource group, storage, etc.
         $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
@@ -73,42 +71,60 @@ Azure PowerShell은 HDInsight에서 Pig 작업을 원격으로 실행할 수 있
             -ResourceGroupName $resourceGroup `
             | %{ $_.Key1 }
 
-		#Store the Pig Latin into $QueryString
-		$QueryString =  "LOGS = LOAD 'wasb:///example/data/sample.log';" +
-		"LEVELS = foreach LOGS generate REGEX_EXTRACT(`$0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;" +
-		"FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;" +
-		"GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;" +
-		"FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;" +
-		"RESULT = order FREQUENCIES by COUNT desc;" +
-		"DUMP RESULT;"
+        #Store the Pig Latin into $QueryString
+        $QueryString =  @"
+        LOGS = LOAD 'wasb:///example/data/sample.log';
+        LEVELS = foreach LOGS generate REGEX_EXTRACT(`$0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
+        FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
+        GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
+        FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
+        RESULT = order FREQUENCIES by COUNT desc;
+        DUMP RESULT;
+        "@
 
-		#Create a new HDInsight Pig Job definition
-		$pigJobDefinition = New-AzureRmHDInsightPigJobDefinition `
+        #Create a new HDInsight Pig Job definition
+        $pigJobDefinition = New-AzureRmHDInsightPigJobDefinition `
             -Query $QueryString `
+            -Arguments "-w"
 
-		# Start the Pig job on the HDInsight cluster
-		Write-Host "Start the Pig job ..." -ForegroundColor Green
-		$pigJob = Start-AzureRmHDInsightJob `
+        # Start the Pig job on the HDInsight cluster
+        Write-Host "Start the Pig job ..." -ForegroundColor Green
+        $pigJob = Start-AzureRmHDInsightJob `
             -ClusterName $clusterName `
             -JobDefinition $pigJobDefinition `
-            -ClusterCredential $creds
+            -HttpCredential $creds
 
-		# Wait for the Pig job to complete
-		Write-Host "Wait for the Pig job to complete ..." -ForegroundColor Green
-		Wait-AzureRmHDInsightJob `
+        # Wait for the Pig job to complete
+        Write-Host "Wait for the Pig job to complete ..." -ForegroundColor Green
+        $jobStatus = Wait-AzureRmHDInsightJob `
             -ClusterName $clusterName `
             -JobId $pigJob.JobId `
             -HttpCredential $creds
-
-		# Display the output of the Pig job.
-		Write-Host "Display the standard output ..." -ForegroundColor Green
-		Get-AzureRmHDInsightJobOutput `
-            -ClusterName $clusterName `
-            -JobId $pigJob.JobId `
-            -DefaultContainer $container `
-            -DefaultStorageAccountName $storageAccountName `
-            -DefaultStorageAccountKey $storageAccountKey `
-            -HttpCredential $creds
+            
+        if($jobStatus.State -eq "SUCCEEDED") {
+            # Success!
+            # Display the output of the Pig job.
+            Write-Host "Display the standard output ..." -ForegroundColor Green
+            Get-AzureRmHDInsightJobOutput `
+                -ClusterName $clusterName `
+                -JobId $pigJob.JobId `
+                -DefaultContainer $container `
+                -DefaultStorageAccountName $storageAccountName `
+                -DefaultStorageAccountKey $storageAccountKey `
+                -HttpCredential $creds
+        } else {
+            # Something went wrong, display error output
+            # Print the output of the Pig job.
+            Write-Host "Display the standard output ..." -ForegroundColor Green
+            Get-AzureRmHDInsightJobOutput `
+                -Clustername $clusterName `
+                -JobId $pigJob.JobId `
+                -DefaultContainer $container `
+                -DefaultStorageAccountName $storageAccountName `
+                -DefaultStorageAccountKey $storageAccountKey `
+                -HttpCredential $creds `
+                -DisplayOutputType StandardError
+        }
 
 2. 새 Azure PowerShell 명령 프롬프트를 엽니다. **pigjob.ps1** 파일의 디렉터리 위치를 변경한 다음 명령을 사용하여 스크립트를 실행합니다.
 
@@ -118,20 +134,8 @@ Azure PowerShell은 HDInsight에서 Pig 작업을 원격으로 실행할 수 있
 
 7. 작업이 완료되면 다음과 유사한 정보가 반환됩니다.
 
-		Start the Pig job ...
-		Wait for the Pig job to complete ...
-
-		Cluster         : CLUSTERNAME.
-        HttpEndpoint    : CLUSTERNAME.azurehdinsight.net
-        State           : SUCCEEDED
-        JobId           : job_1444852971289_0018
-        ParentId        :
-        PercentComplete : 100% complete
-        ExitValue       : 0
-        User            : admin
-        Callback        :
-        Completed       : done
-        
+        Start the Pig job ...
+        Wait for the Pig job to complete ...
         Display the standard output ...
         (TRACE,816)
         (DEBUG,434)
@@ -152,7 +156,7 @@ Azure PowerShell은 HDInsight에서 Pig 작업을 원격으로 실행할 수 있
             -DefaultContainer $container `
             -DefaultStorageAccountName $storageAccountName `
             -DefaultStorageAccountKey $storageAccountKey `
-            -HttpCredential $creds
+            -HttpCredential $creds `
             -DisplayOutputType StandardError
 
 이 명령은 작업을 실행할 때 서버의 STDERR에 기록된 정보를 반환하며 이 정보는 작업이 실패한 이유를 확인하는 데 도움이 될 수 있습니다.
@@ -173,4 +177,4 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 
 * [HDInsight에서 Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

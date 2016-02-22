@@ -3,5 +3,6 @@
 - [응용 프로그램에 사용자 지정](active-directory-applications-guiding-developers-assigning-users.md)
 - [응용 프로그램에 그룹 지정](active-directory-applications-guiding-developers-assigning-groups.md)
 - [Azure Active Directory와 응용 프로그램 통합](active-directory-integrating-applications.md)
+- [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

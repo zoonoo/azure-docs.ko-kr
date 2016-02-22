@@ -114,7 +114,7 @@ Visual Studio에 전송한 이벤트 수가 표시됩니다.
 
 차트를 클릭하면 더 자세한 메트릭을 볼 수 있습니다. [메트릭에 대해 자세히 알아봅니다.][perf]
 
-* *사용자 또는 페이지 데이터가 없나요?* - [사용자 및 페이지 데이터 추가](app-insights-asp-net-client.md)
+* *사용자 또는 페이지 데이터가 없나요?* - [사용자 및 페이지 데이터 추가](app-insights-web-track-usage.md)
 
 ### 검색: 개별 이벤트
 
@@ -146,7 +146,7 @@ Visual Studio에 전송한 이벤트 수가 표시됩니다.
 
 #### 빌드 서버에 문제가 있나요?
 
-[이 문제 해결 항목](app-insights-troubleshoot-faq.md#NuGetBuild)을 참조하세요.
+[이 문제 해결 항목](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild)을 참조하세요.
 
 > [AZURE.NOTE] 앱에서 다양한 원격 분석을 생성하는 경우(ASP.NET SDK 버전 2.0.0-beta3 이상 사용), 적응 샘플링 모듈 이벤트의 대표적인 일부만 전송하여 포털에 전송되는 볼륨이 자동으로 줄어듭니다. 그러나, 동일한 요청과 관련된 이벤트가 그룹으로 선택되거나 선택 취소되므로 관련 이벤트 간을 이동할 수 있습니다. [샘플링에 대해 알아봅니다](app-insights-sampling.md).
 
@@ -169,7 +169,7 @@ Visual Studio에 전송한 이벤트 수가 표시됩니다.
 
 ## 다음 단계
 
-- [사용자 및 페이지 데이터](../article/application-insights/app-insights-asp-net-client.md#selector1)
+- [사용자 및 페이지 데이터](../article/application-insights/app-insights-javascript.md#selector1)
 - [예외](../article/application-insights/app-insights-asp-net-exception-mvc.md#selector1)
 - [종속성](../article/application-insights/app-insights-asp-net-dependencies.md#selector1)
 - [Availability](../article/application-insights/app-insights-monitor-web-app-availability.md#selector1)
@@ -212,4 +212,4 @@ ApplicationInsights.config에 대한 사용자 지정을 변경한 경우, 업�
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

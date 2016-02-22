@@ -3,7 +3,7 @@
   description="모바일 서비스와 Azure 모바일 앱에 대한 클라이언트 SDK의 목록 및 서버 SDK 버전과 호환성"
   services="app-service\mobile"
   documentationCenter=""
-  authors="lindydonna" 
+  authors="lindydonna"
   manager="dwrede"
   editor=""/>
 
@@ -13,15 +13,12 @@
   ms.tgt_pltfrm="mobile-multiple"
   ms.devlang="dotnet"
   ms.topic="article"
-  ms.date="12/15/2015"
+  ms.date="02/04/2016"
   ms.author="donnam"/>
 
 # 모바일 앱 및 모바일 서비스에서 클라이언트 및 서버 버전 관리
 
 Azure 모바일 서비스의 최신 버전은 Azure 앱 서비스의 **모바일 앱** 기능입니다.
-
-<!-- Azure App Service offers a number of platform benefits over Mobile Services, including continuous integration and deployment, staging lots, and VNET support.
- -->
 
 모바일 앱 클라이언트 및 서버 SDK는 원래 모바일 서비스를 기반으로 하지만 서로 호환되지 *않습니다*. 즉, *모바일 앱* 서버 SDK 및 마찬가지로 *모바일 서비스*를 사용하는 *모바일 앱* 클라이언트 SDK를 사용해야 합니다. 이 계약은 클라이언트 및 서버 SDK인 `ZUMO-API-VERSION`에서 사용하는 특별한 헤더 값을 통해 적용됩니다.
 
@@ -45,7 +42,7 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
 앱 설정 **MS\_SkipVersionCheck**에 대한 **true** 값을 설정하여 버전 확인을 건너뛸 수 있습니다. Web.config 또는 Azure 포털의 응용 프로그램 설정 섹션에서 이를 지정합니다.
 
-> [AZURE.NOTE]오프라인 동기화, 인증 및 푸시 알림 영역에서 특히 모바일 서비스와 모바일 앱 간의 많은 동작 변경 사항이 있습니다. 이러한 동작 변경이 앱의 기능을 중단하지 않도록 테스트를 완료한 후에 버전 확인을 건너뛰어야 합니다.
+> [AZURE.NOTE] 오프라인 동기화, 인증 및 푸시 알림 영역에서 특히 모바일 서비스와 모바일 앱 간의 많은 동작 변경 사항이 있습니다. 이러한 동작 변경이 앱의 기능을 중단하지 않도록 테스트를 완료한 후에 버전 확인을 건너뛰어야 합니다.
 
 ## 모든 버전에 대한 호환성 요약
 
@@ -56,7 +53,7 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 | [모바일 서비스 클라이언트] | 확인 | 오류* |
 | [모바일 앱 클라이언트] | 오류* | 확인 |
 
-***MS_SkipVersionCheck**를 지정하여 제어될 수 있습니다.
+***MS\_SkipVersionCheck**를 지정하여 제어될 수 있습니다.
 
 
 <!-- IMPORTANT!  The anchors for Mobile Services and Mobile Apps MUST be 1.0.0 and 2.0.0 respectively, since there is an exception error message that uses those anchors. -->
@@ -80,10 +77,9 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
 ### 모바일 *서비스* 서버 SDK
 
-| 서버 플랫폼 | 버전                                                                                                       | 수락된 버전 헤더 |
+| 서버 플랫폼 | 버전 | 수락된 버전 헤더 |
 | ---------------- | ------------------------------------------------------------                                                   | ----------------------- |
-| .NET             | [WindowsAzure.MobileServices.Backend.* 버전 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | **버전 헤더 없음** |
-| Node.js           | (출시 예정)                        | **버전 헤더 없음** |
+| .NET | [WindowsAzure.MobileServices.Backend.* 버전 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | ****버전 헤더 없음 ** | | Node.js | (출시 예정) | **버전 헤더 없음** |
 
 <!-- TODO: add Node npm version -->
 
@@ -93,7 +89,7 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 | ---------------- | ---------------------------- | -------- |
 | 지정되지 않음 | 모두 | 200 - 확인 |
 | 어떤 값 | True | 200 - 확인 |
-| 어떤 값 | False/지정되지 않음 | 400 - 잘못된 요청 | 
+| 어떤 값 | False/지정되지 않음 | 400 - 잘못된 요청 |
 
 ## <a name="2.0.0"></a>Azure 모바일 앱 클라이언트 및 서버
 
@@ -142,4 +138,4 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 [Azure 앱 서비스에 모바일 서비스 마이그레이션]: app-service-mobile-migrating-from-mobile-services.md
 [모바일 서비스를 Azure 앱 서비스로 마이그레이션]: app-service-mobile-migrating-from-mobile-services.md
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

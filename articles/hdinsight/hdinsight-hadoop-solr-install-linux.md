@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="02/05/2016"
 	ms.author="larryfr"/>
 
 # HDInsight Hadoop 클러스터에서 Solr 설치 및 사용
 
 이 항목에서는 Azure HDInsight에서 스크립트 작업을 사용하여 Solr을 설치하는 방법에 대해 알아봅니다. Solr은 강력한 검색 플랫폼으로서 Hadoop에서 관리하는 데이터에 대한 엔터프라이즈 수준의 검색 기능을 제공합니다. HDInsight 클러스터에 Solr을 설치한 후에는 Solr을 사용하여 데이터를 검색하는 방법도 알아봅니다.
 
-> [AZURE.NOTE]이 문서의 단계에는 Linux 기반 HDInsight 클러스터가 필요합니다. Windows 기반 클러스터와 함께 Solr을 사용한 작업에 대한 자세한 내용은 [HDInsight Hadoop 클러스터(Windows)에 Solr 설치 및 사용](hdinsight-hadoop-solr-install.md)을 참조하세요.
+> [AZURE.NOTE] 이 문서의 단계에는 Linux 기반 HDInsight 클러스터가 필요합니다. Windows 기반 클러스터와 함께 Solr을 사용한 작업에 대한 자세한 내용은 [HDInsight Hadoop 클러스터(Windows)에 Solr 설치 및 사용](hdinsight-hadoop-solr-install.md)을 참조하세요.
 
 이 항목에 사용되는 샘플 스크립트로는 특정 구성의 Solr 클러스터가 만들어집니다. 서로 다른 컬렉션, 분할, 스키마, 복제 등으로 Solr 클러스터를 구성하려는 경우 그에 따라 이 스크립트와 Solr 바이너리를 수정해야 합니다.
 
@@ -42,13 +42,13 @@
 
 HDInsight 클러스터에 Solr을 설치하는 샘플 스크립트는 읽기 전용 Azure 저장소 Blob([https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh))에서 다운로드할 수 있습니다. 이 섹션에서는 Azure 포털을 사용하여 클러스터를 프로비전하면서 샘플 스크립트를 사용하는 방법에 대한 지침을 제공합니다.
 
-> [AZURE.NOTE]또한 이 스크립트를 사용하여 클러스터를 만드는 데 Azure PowerShell 또는 HDInsight.NET SDK를 사용할 수도 있습니다. 이 방법을 사용하는 자세한 내용은 [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
+> [AZURE.NOTE] 또한 이 스크립트를 사용하여 클러스터를 만드는 데 Azure PowerShell 또는 HDInsight.NET SDK를 사용할 수도 있습니다. 이 방법을 사용하는 자세한 내용은 [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
 
 1. [Linux 기반 HDInsight 클러스터 프로비전](hdinsight-provision-linux-clusters.md#portal)의 단계를 사용하여 클러스터를 프로비전하되, 완료하지는 않도록 합니다.
 
 2. **선택적 구성** 블레이드에서 **스크립트 동작**을 선택하고 아래 정보를 제공합니다.
 
-	* __NAME__: 스크립트 작업의 이름을 입력합니다.
+	* __이름__: 스크립트 동작의 이름을 입력합니다.
 	* __SCRIPT URI__: https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
 	* __HEAD__:이 옵션 선택
 	* __WORKER__:이 옵션 선택
@@ -75,7 +75,7 @@ HDInsight 클러스터에 Solr을 설치하는 샘플 스크립트는 읽기 전
 
 	* [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-	> [AZURE.IMPORTANT]이 문서의 이후 단계에서 SSL 터널을 사용하여 Solr 웹 UI에 연결합니다. 다음이 단계를 사용하려면 SSL 터널을 설정하고 브라우저를 구성하여 사용해야 합니다.
+	> [AZURE.IMPORTANT] 이 문서의 이후 단계에서 SSL 터널을 사용하여 Solr 웹 UI에 연결합니다. 다음이 단계를 사용하려면 SSL 터널을 설정하고 브라우저를 구성하여 사용해야 합니다.
 	>
 	> 자세한 내용은 [SSH 터널링을 사용하여 Ambari 웹 UI, ResourceManager, JobHistory, NameNode, Oozie, 및 기타 웹 UI에 액세스](hdinsight-linux-ambari-ssh-tunnel.md)를 참조하세요.
 
@@ -283,7 +283,7 @@ Solr 클러스터 노드에서 인덱싱된 데이터를 Azure Blob 저장소에
 
 	hadoop fs -copyFromLocal snapshot.20150806185338855.tgz /example/data
 
-	> [AZURE.NOTE]Solr 스냅숏을 저장하기 위한 전용 디렉터리를 만들 수 있습니다. 예: `hadoop fs -mkdir /solrbackup`.
+	> [AZURE.NOTE] Solr 스냅숏을 저장하기 위한 전용 디렉터리를 만들 수 있습니다. 예: `hadoop fs -mkdir /solrbackup`.
 
 Solr 백업 및 복원 작업에 대한 자세한 내용은 [SolrCores의 백업 생성 및 복원](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups+of+SolrCores)을 참조하세요.
 
@@ -306,4 +306,4 @@ Solr 백업 및 복원 작업에 대한 자세한 내용은 [SolrCores의 백업
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

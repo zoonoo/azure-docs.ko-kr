@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/02/2016"
+    ms.date="02/09/2016"
     ms.author="liviodlc"/>
 
 #자습서: Azure Active Directory와 Salesforce를 통합하는 방법
@@ -216,11 +216,14 @@ Salesforce 샌드박스 환경을 사용하는 경우 [Salesforce 샌드박스 �
 
 		![Confirm the assignment.][29]
 
-		> [AZURE.IMPORTANT] Salesforce **개발자** 환경으로 프로비전하는 경우 각 프로필에 매우 제한된 수의 라이선스만 사용할 수 있습니다. 따라서 4,999개 라이선스를 사용할 수 있는 **Chatter Free User** 프로필로 사용자를 프로비전하는 것이 좋습니다.
+		> [AZURE.IMPORTANT] If you are provisioning to a Salesforce **developer** environment, you will have a very limited number of licenses available for each profile. Therefore, it's best to provision users to the **Chatter Free User** profile, which has 4,999 licenses available.
 
 4. Single Sign-On 설정을 테스트하려면 [https://myapps.microsoft.com](https://myapps.microsoft.com/)에서 액세스 패널을 연 다음 테스트 계정에 로그인하고 **Salesforce**를 클릭합니다.
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+##관련 문서
+
+- [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
+- [SaaS App을 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
 
 [0]: ./media/active-directory-saas-salesforce-tutorial/azure-active-directory.png
 [1]: ./media/active-directory-saas-salesforce-tutorial/applications-tab.png
@@ -253,4 +256,4 @@ Salesforce 샌드박스 환경을 사용하는 경우 [Salesforce 샌드박스 �
 [28]: ./media/active-directory-saas-salesforce-tutorial/assign-confirm.png
 [29]: ./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

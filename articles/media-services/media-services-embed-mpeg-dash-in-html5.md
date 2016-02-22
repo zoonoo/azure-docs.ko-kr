@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 
@@ -114,4 +114,4 @@ Dash.js는 JavaScript로 작성된 오픈 소스 MPEG-DASH 비디오 플레이�
 
 [GitHub dash.js 리포지토리](https://github.com/Dash-Industry-Forum/dash.js)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -3,7 +3,7 @@
 	description="C용 Azure IoT 장치 SDK에 대해 알아보고 샘플 코드로 작업을 시작합니다."
 	services="iot-hub"
 	documentationCenter=""
-	authors="MichelBarnett"
+	authors="olivierbloch"
 	manager="timlt"
 	editor=""/>
 
@@ -14,7 +14,7 @@
      ms.tgt_pltfrm="na"
      ms.workload="na"
      ms.date="11/10/2015"
-     ms.author="michelb"/>
+     ms.author="obloch"/>
 
 # C용 Azure IoT 장치 SDK 소개
 
@@ -72,7 +72,7 @@ C용 Azure IoT 장치 SDK에서 샘플을 실행하려면 두 가지 작업을 �
 
 설치 관리자에서 기본 옵션을 사용할 수 있습니다.
 
-- Python 디렉터리를 시스템 **PATH** 환경 변수에 추가합니다. Windows에서는 다음과 같이 표시됩니다.
+- Git 도구 Python 디렉터리를 시스템 **PATH** 환경 변수에 추가합니다. Windows에서는 다음과 같이 표시됩니다.
 - 
 ![](media/iot-hub-device-sdk-c-intro/16-PythonPath.PNG)
 
@@ -148,11 +148,11 @@ Windows 버전의 **iothub\_client\_sample\_ampq** 응용 프로그램은 다음
 
 SDK를 사용하여 작업하는 경우 항상 **Microsoft.Azure.IoTHub.Common** 패키지가 필요합니다. 이 샘플은 AMQP에 의존하므로 **Apache.QPID.Proton.AzureIoT** 및 **Microsoft.Azure.IoTHub.AmqpTransport** 패키지도 포함해야 합니다(HTTP에 대한 해당 패키지가 존재함). 이 샘플에서는 **IoTHubClient** 라이브러리를 사용하므로 솔루션에 **Microsoft.Azure.IoTHub.IoTHubClient** 패키지도 포함해야 합니다.
 
-**iothub\_client\_sample\_amqp.c** 원본 파일에서 응용 프로그램 예제에 대한 구현을 찾을 수 있습니다.
+**iothub\_client\_sample\_amqp.c** 원본 파일에서 샘플 응용 프로그램에 대한 구현을 찾을 수 있습니다.
 
   ![](media/iot-hub-device-sdk-c-intro/13-iothub_client_sample_amqp_c.PNG)
 
-이 응용 프로그램 예제를 사용하여 **IoTHubClient** 라이브러리를 사용하는 데 필요한 내용을 안내합니다.
+이 샘플 응용 프로그램을 사용하여 **IoTHubClient** 라이브러리를 사용하는 데 필요한 내용을 안내합니다.
 
 ### 라이브러리 초기화
 
@@ -163,7 +163,7 @@ IOTHUB_CLIENT_HANDLE iotHubClientHandle;
 iotHubClientHandle = IoTHubClient_CreateFromConnectionString(connectionString, AMQP_Protocol);
 ```
 
-장치 탐색기에서 얻은 이 함수에 장치 연결 문자열의 복사본 전달합니다. 사용하고자 하는 프로토콜도 지정합니다. 이 예제에서는 AMQP를 사용하지만 HTTP도 옵션입니다.
+장치 탐색기에서 얻은 이 함수에 장치 연결 문자열의 복사본을 전달합니다. 사용하고자 하는 프로토콜도 지정합니다. 이 예제에서는 AMQP를 사용하지만 HTTP도 옵션입니다.
 
 유효한 **IOTHUB\_CLIENT\_HANDLE**이 있는 경우 API 호출을 시작하여 이벤트를 전송하고 IoT Hub에서 메시지를 수신할 수 있습니다. 이에 대해서는 다음에 살펴보겠습니다.
 
@@ -230,7 +230,7 @@ static IOTHUBMESSAGE_DISPOSITION_RESULT ReceiveMessageCallback(IOTHUB_MESSAGE_HA
 }
 ```
 
-**IoTHubMessage\_GetByteArray** 함수를 사용하여 메시지를 검색하는 방법을 확인합니다. 이 예에서는 문자열입니다.
+**IoTHubMessage\_GetByteArray** 함수를 사용하여 메시지를 검색하는 방법을 확인합니다. 이 예제에서는 문자열입니다.
 
 ### 라이브러리 초기화 취소
 
@@ -244,7 +244,7 @@ IoTHubClient_Destroy(iotHubClientHandle);
 
 표시된 것처럼 **IoTHubClient** 라이브러리로 간편하게 이벤트를 전송하고 메시지를 수신할 수 있습니다. 라이브러리가 사용할 프로토콜 등 IoT Hub와의 통신에 대한 세부 사항을 처리합니다(개발자 관점에서는 간단한 구성 옵션).
 
-**IoTHubClient** 라이브러리로 장치에서 IoT Hub로 전송한 이벤트를 직렬화하는 방법을 정밀하게 제어할 수도 있습니다. 이것이 장점인 경우도 있지만 신경쓰지 않아도 되는 구현 세부 사항인 경우도 있습니다. 이 경우 **serializer** 라이브러리를 사용하는 것이 좋습니다. 이 내용은 다 섹션에서 설명합니다.
+**IoTHubClient** 라이브러리로 장치에서 IoT Hub로 전송한 이벤트를 직렬화하는 방법을 정밀하게 제어할 수도 있습니다. 이것이 장점인 경우도 있지만 신경쓰지 않아도 되는 구현 세부 사항인 경우도 있습니다. 이 경우 **serializer** 라이브러리를 사용하는 것이 좋습니다. 이 내용은 다음 섹션에서 설명합니다.
 
 ## 직렬 변환기
 
@@ -260,7 +260,7 @@ azure-iot-sdks 리포지토리의 **serializer** 폴더 내에는 **simplesample
 
 이전 샘플에서 이 중 대부분을 살펴봤지만 **Microsoft.Azure.IoTHub.Serializer**는 새롭습니다. **serializer** 라이브러리를 사용할 경우 필요합니다.
 
-**iothub\_client\_sample\_amqp.c** 파일에서 응용 프로그램 예제에 대한 구현을 찾을 수 있습니다.
+**simplesample\_amqp.c** 파일에서 응용 프로그램 예제에 대한 구현을 찾을 수 있습니다.
 
   ![](media/iot-hub-device-sdk-c-intro/15-simplesample_amqp_c.PNG)
 
@@ -268,7 +268,7 @@ azure-iot-sdks 리포지토리의 **serializer** 폴더 내에는 **simplesample
 
 ### 라이브러리 초기화
 
-**serializer** 라이브러리 작업을 시작하려면 초기화 API를 호출해야 합니다.
+**직렬 변환기** 라이브러리 작업을 시작하려면 초기화 API를 호출해야 합니다.
 
 ```
 serializer_init(NULL);
@@ -278,13 +278,13 @@ IOTHUB_CLIENT_HANDLE iotHubClientHandle = IoTHubClient_CreateFromConnectionStrin
 ContosoAnemometer* myWeather = CREATE_MODEL_INSTANCE(WeatherStation, ContosoAnemometer);
 ```
 
-**serializer\_init** 함수에 대한 호출은 기본 라이브러리를 초기화하는 데 사용되는 일회성 호출입니다. 그런 다음 **IoTHubClient** 샘플과 같은 API인 **IoTHubClient\_CreateFromConnectionString** 함수를 호출합니다. 이 호출은 장치 연결 문자열을 설정하며 이 연결 문자열로도 사용할 프로토콜을 선택할 수 있습니다. 이 샘플에서는 전송으로 AMQP를 사용하지만 HTTP를 사용할 수도 있습니다.
+**serializer\_init** 함수에 대한 호출은 기본 라이브러리를 초기화하는 데 사용되는 일회성 호출입니다. 그런 다음 **IoTHubClient** 샘플과 동일한 API인 **IoTHubClient\_CreateFromConnectionString** 함수를 호출합니다. 이 호출은 장치 연결 문자열을 설정하며 이 연결 문자열로도 사용할 프로토콜을 선택할 수 있습니다. 이 샘플에서는 전송으로 AMQP를 사용하지만 HTTP를 사용할 수도 있습니다.
 
 마지막으로 **CREATE\_MODEL\_INSTANCE** 함수를 호출합니다. **WeatherStation**은 모델의 네임스페이스이며 **ContosoAnemometer**는 모델의 이름입니다. 모델 인스턴스를 만들면 이를 사용하여 이벤트 전송 및 메시지 수신을 시작할 수 있습니다. 하지만 모델을 이해하는 것이 중요합니다.
 
 ### 모델 정의
 
-**serializer** 라이브러리의 모델은 장치에서 IoT Hub로 전송할 수 있는 이벤트와 모델링 언어에서 *동작*이라고 하는 수신할 수 있는 메시지를 정의합니다. **simplesample\_amqp** 응용 프로그램 예제에서처럼 C 매크로 집합을 사용하여 모델을 정의합니다.
+**serializer** 라이브러리의 모델은 장치에서 IoT Hub로 전송할 수 있는 이벤트와 모델링 언어에서 *동작*이라고 하는 수신할 수 있는 메시지를 정의합니다. **simplesample\_amqp** 샘플 응용 프로그램에서처럼 C 매크로 집합을 사용하여 모델을 정의합니다.
 
 ```
 BEGIN_NAMESPACE(WeatherStation);
@@ -323,7 +323,7 @@ size_t destinationSize;
 SERIALIZE(&destination, &destinationSize, myWeather->WindSpeed);
 ```
 
-다음 코드는 이벤트를 버퍼에 직렬화합니다(**대상**으로 참조). 마지막으로 다음 코드로 이벤트를 IoT Hub로 전송합니다.
+다음 코드는 이벤트를 버퍼에 직렬화합니다(**대상**으로 참조). 마지막으로 다음 코드를 사용하여 이벤트를 IoT Hub로 전송합니다.
 
 ```
 sendMessage(iotHubClientHandle, destination, destinationSize);
@@ -356,7 +356,7 @@ static void sendMessage(IOTHUB_CLIENT_HANDLE iotHubClientHandle, const unsigned 
 
 이 코드는 바이트 배열에서 메시지를 만든 후 **IoTHubClient\_SendEventAsync**를 사용하여 IoT Hub로 전송했던 **iothub\_client\_sample\_amqp** 응용 프로그램의 내용과 매우 유사합니다. 그런 다음 이전에 할당한 메시지 핸들 및 직렬화된 데이터 버퍼를 해제해야 합니다.
 
-**IoTHubClient\_SendEventAsync**의 끝에서 두 번째 매개 변수는 데이터를 성공적으로 전송할 때 호출되는 콜백 함수에 대한 참조입니다. 다음은 콜백 함수의 예입니다.
+**IoTHubClient\_SendEventAsync**의 끝에서 두 번째 매개 변수는 데이터를 성공적으로 전송할 때 호출되는 콜백 함수에 대한 참조입니다. 다음은 호출 함수의 예입니다.
 
 ```
 void sendCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* userContextCallback)
@@ -375,13 +375,13 @@ void sendCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* userContextCal
 
 ### 메시지 수신
 
-메시지 수신은 **IoTHubClient** 라이브러리에서 메시지가 작동하는 방식과 유사하게 작동합니다. 먼저 메시지 콜백 함수를 등록합니다.
+메시지 수신은 **IoTHubClient** 라이브러리에서 메시지가 작동하는 방식과 유사하게 작동합니다. 먼저 메시지 호출 함수를 등록합니다.
 
 ```
 IoTHubClient_SetMessageCallback(iotHubClientHandle, IoTHubMessage, myWeather)
 ```
 
-그런 다음 메시지를 수신할 때 호출되는 콜백 함수를 작성합니다.
+그런 다음 메시지를 수신할 때 호출되는 호출 함수를 작성합니다.
 
 ```
 static IOTHUBMESSAGE_DISPOSITION_RESULT IoTHubMessage(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
@@ -419,7 +419,7 @@ static IOTHUBMESSAGE_DISPOSITION_RESULT IoTHubMessage(IOTHUB_MESSAGE_HANDLE mess
 }
 ```
 
-다음 코드는 상용구로 모든 솔루션에 대해 동일합니다. 이 함수는 메시지를 수신하고 **EXECUTE\_COMMAND** 호출을 통해 적절한 함수로 라우팅합니다. 해당 시점에 어떤 함수를 호출하느냐는 모델에서 동작 정의에 따라 달라집니다.
+다음 코드는 상용구로 모든 솔루션에 대해 동일합니다. 이 함수는 메시지를 수신하고 **EXECUTE\_COMMAND** 호출을 통해 적절한 함수로 라우팅합니다. 해당 시점에 호출하는 함수는 모델에서 동작 정의에 따라 달라집니다.
 
 모델에서 동작을 정의할 때 장치에서 해당 메시지를 수신할 때 호출되는 함수를 구현해야 합니다. 예를 들어 모델에서 다음 동작을 정의하는 경우:
 
@@ -440,7 +440,7 @@ EXECUTE_COMMAND_RESULT SetAirResistance(ContosoAnemometer* device, int Position)
 
 함수 이름은 모델에서 동작 이름과 일치하고 함수 매개 변수는 동작에 대해 지정된 매개 변수와 일치하는 것을 알 수 있습니다. 첫 번째 매개 변수는 항상 필수이며 모델 인스턴스에 대한 포인터를 포함합니다.
 
-장치에서 이 서명과 일치하는 메시지를 수신하면 해당 함수가 호출됩니다. 따라서 **IoTHubMessage**의 상용구 코드를 포함해야 하는 것 외에도, 메시지 수신은 모델에 정의된 각 동작에 대한 간단한 함수를 정의하는 정도의 문제입니다.
+장치에서 이 서명과 일치하는 메시지를 수신하면 해당 함수가 호출됩니다. 따라서 **IoTHubMessage**의 상용구 코드를 포함해야 하는 것 외에도 메시지 수신은 모델에 정의된 각 동작에 대한 간단한 함수를 정의하는 정도의 문제입니다.
 
 ### 라이브러리 초기화 취소
 
@@ -460,4 +460,4 @@ serializer_deinit();
 
 이 문서에서는 **C용 Azure IoT 장치 SDK**에서 라이브러리 사용에 대한 기본 사항을 다룹니다. SDK에 포함된 사항, 아키텍처 및 Windows 샘플 작업을 시작하는 방법을 이해하기에 충분한 정보를 제공합니다. 다음 문서에서는 [IoTHubClient 라이브러리에 대한 자세한 정보](iot-hub-device-sdk-c-iothubclient.md)를 설명하여 SDK를 계속 설명합니다.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

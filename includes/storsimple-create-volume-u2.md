@@ -1,4 +1,4 @@
-<!--author=alkohli last changed:12/14/15-->
+<!--author=SharS last changed: 02/04/2016-->
 
 #### 볼륨을 만들려면
 
@@ -18,10 +18,17 @@
 		8100 장치에서는 최대 9TB의 로컬로 고정된 볼륨 또는 최대 200TB의 계층화된 볼륨을 프로비전할 수 있습니다. 더 큰 8600 장치에서는 최대 24TB의 로컬로 고정된 볼륨 또는 최대 500TB의 계층화된 볼륨을 프로비전할 수 있습니다. 장치의 로컬 공간은 계층화된 볼륨의 작업 집합을 호스트하는 데 필요하므로 로컬로 고정된 볼륨을 만들면 계층화된 볼륨을 프로비전하는 데 사용할 수 있는 공간이 영향을 받습니다. 따라서 로컬로 고정된 볼륨을 만드는 경우 계층화된 볼륨을 만드는 데 사용할 수 있는 공간이 줄어듭니다. 마찬가지로 계층화된 볼륨을 만드는 경우 로컬로 고정된 볼륨을 만드는 데 사용할 수 있는 공간이 줄어듭니다.
 
 		8100 장치에서 9TB(허용되는 최대 크기)의 로컬로 고정된 볼륨을 프로비전하면 해당 장치에서 사용 가능한 로컬 공간이 모두 소진됩니다. 따라서 계층화된 볼륨의 작업 집합을 호스트할 로컬 공간이 장치에 없기 때문에 더 이상 계층화된 볼륨을 만들 수 없습니다. 기존 계층화된 볼륨도 사용 가능한 공간에 영향을 줍니다. 예를 들어 8100 장치에 이미 100TB의 계층화된 볼륨이 있는 경우 4.5TB의 공간만 로컬로 고정된 볼륨에 사용할 수 있습니다.
-   
+
+        다음 그림에서는 로컬로 고정된 볼륨에 대한 **기본 설정** 대화 상자를 보여 줍니다.
+
+         ![로컬 볼륨 추가](./media/storsimple-create-volume-u2/add-local-volume-include.png)
+
+        다음 그림에서는 계층화된 볼륨에 대한 **기본 설정** 대화 상자를 보여 줍니다.
+
+         ![로컬 볼륨 추가](./media/storsimple-create-volume-u2/add-tiered-volume-include.png)
+
    4. 화살표 아이콘![화살표 아이콘](./media/storsimple-create-volume-u2/HCS_ArrowIcon-include.png)을 클릭하여 다음 페이지로 이동합니다.
 
-  		![Add volume](./media/storsimple-create-volume-u2/AddLocalVolume1.png)
 
 3. **추가 설정** 대화 상자에서 새 ACR(액세스 제어 레코드)을 추가합니다.
 
@@ -29,10 +36,10 @@
 	2. **iSCSI 초기자 이름**에서 Windows 호스트의 IQN(정규화된 iSCSI 이름)을 제공합니다. IQN이 없는 경우 [Windows Server 호스트의 IQN 가져오기](#get-the-iqn-of-a-windows-server-host)로 이동합니다.
 	3. **이 볼륨에 대해 기본 백업하겠습니까?**에서 **사용** 확인란을 선택합니다. 기본 백업은 매일 22:30(장치 시간)에 실행되며 이 볼륨의 클라우드 스냅숏을 만드는 정책을 만듭니다.
 	 
-     >[AZURE.NOTE]여기서 백업이 활성화된 후에는 되돌릴 수 없습니다. 이 설정을 수정하려면 볼륨을 편집해야 합니다.
+     > [AZURE.NOTE] 여기서 백업이 활성화된 후에는 되돌릴 수 없습니다. 이 설정을 수정하려면 볼륨을 편집해야 합니다.
 
      ![볼륨 추가](./media/storsimple-create-volume-u2/AddVolumeAdditionalSettings1.png)
 
 4. 확인 아이콘![확인 아이콘](./media/storsimple-create-volume-u2/HCS_CheckIcon-include.png)을 클릭합니다. 지정한 설정으로 볼륨이 만들어집니다.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

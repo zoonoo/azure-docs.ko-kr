@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/02/2015" 
+  ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 
@@ -22,7 +22,6 @@
 ##개요
 
 Azure 미디어 서비스는 iOS 장치, Android 장치, Windows, Windows Phone, Xbox 및 셋톱 박스를 포함한 대부분의 플랫폼에서 풍부한 동적 클라이언트 플레이어 응용 프로그램을 만드는 데 필요한 도구를 제공합니다. 또한 이 항목에서는 Azure 미디어 서비스의 스트리밍 미디어를 사용할 수 있는 클라이언트 응용 프로그램을 개발하는 데 사용할 수 있는 SDK 및 플레이어 프레임워크 링크를 제공합니다.
-
 
 ##Azure 미디어 플레이어
 
@@ -82,4 +81,4 @@ Azure 미디어 서비스는 Windows 미디어 플랫폼: 플레이어 프레임
 [GitHub dash.js 리포지토리](https://github.com/Dash-Industry-Forum/dash.js)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

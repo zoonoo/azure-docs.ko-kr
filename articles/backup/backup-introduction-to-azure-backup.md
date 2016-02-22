@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/29/2016"
+	ms.date="02/05/2016"
 	ms.author="trinadhk;jimpark"/>
 
 # Azure 백업이란?
@@ -149,6 +149,12 @@ VM 확장이 저장소 네트워크를 통해 Azure 저장소 계정에서 직�
 | 로컬 디스크의 복구 지점 | 해당 없음 | 해당 없음 | 해당 없음 |
 | 테이프의 복구 지점 | 해당 없음 | 해당 없음 | 해당 없음 |
 
+## 자격 증명 모음 자격 증명 파일이란?
+
+자격 증명 모음 자격 증명 파일은 포털에서 각 백업 자격 증명 모음에 대해 생성하는 인증서입니다. 그런 다음 포털은 액세스 제어 서비스(ACS)에 공개 키를 업로드합니다. 컴퓨터 등록 워크플로에서 입력으로 제공된 워크플로의 일부로 사용자에게 인증서의 개인 키가 제공됩니다. 이는 Azure 백업 서비스의 식별된 자격 증명 모음에 백업 데이터를 보내도록 컴퓨터를 인증합니다.
+
+자격 증명 모음 자격 증명은 등록 워크플로 중에만 사용됩니다. 자격 증명 모음 자격 증명 파일이 손상되지 않도록 하는 것은 사용자의 책임입니다. 악의적인 사용자의 손에 들어갈 경우 자격 증명 모음 자격 증명 파일을 사용하여 동일한 자격 증명 모음에 다른 컴퓨터를 등록할 수 있습니다. 그러나 백업 데이터는 고객이 소유한 암호를 사용 하여 암호화되므로 기존 백업 데이터는 손상되지 않습니다. 이 문제를 완화하려면 보관 자격 증명을 48시간에 만료되도록 설정합니다. 백업 자격 증명 모음의 자격 증명 모음 자격 증명은 여러 번 다운로드할 수 있지만 등록 워크플로 중에는 최신 자격 증명 모음 자격 증명 파일만 적용할 수 있습니다.
+
 ## 백업은 Azure Site Recovery와 어떻게 다른가요?
 많은 고객이 백업 복구 및 재해 복구를 혼동합니다. 둘 다 데이터를 캡처하고 복원 의미 체계를 제공하지만 핵심 가치 제안은 다릅니다.
 
@@ -167,11 +173,11 @@ Azure 백업은 데이터를 온-프레미스 및 클라우드에 백업합니�
 
 - [Azure 백업 시도](backup-try-azure-backup-in-10-mins.md)
 - [Azure 백업 서비스에 대한 질문과 대답](backup-azure-backup-faq.md)
-- [Azure 백업 포럼](http://go.microsoft.com/fwlink/p/?LinkId=290933) 방문
+- [Azure 백업 포럼](http://go.microsoft.com/fwlink/p/?LinkId=290933)을 방문하세요.
 
 
 [green]: ./media/backup-introduction-to-azure-backup/green.png
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="10/19/2015"
+   ms.date="02/09/2016"
    ms.author="jlembicz"/>
 
 # Azure 검색에서 다국어 문서에 대한 인덱스 만들기
@@ -26,7 +26,7 @@
 
 다음은 사용자가 인덱스 스키마를 정의할 수 있는 Azure 검색의 Azure 클래식 포털 블레이드의 스크린샷입니다. 이 블레이드로부터 사용자가 모든 필드를 만들고 각각에 대한 분석기 속성을 설정할 수 있습니다.
 
-> [AZURE.NOTE]처음부터 새 인덱스를 만들거나 새 필드를 기존 인덱스에 추가할 때처럼 필드 정의 중에 언어 분석기를 설정하기만 하면 됩니다. 필드를 만들 때 분석기를 포함한 모든 속성을 완전히 지정했는지 확인합니다. 필드를 정의한 후에는 속성을 편집하거나 분석기 형식을 변경할 수 없습니다.
+> [AZURE.NOTE] 처음부터 새 인덱스를 만들거나 새 필드를 기존 인덱스에 추가할 때처럼 필드 정의 중에 언어 분석기를 설정하기만 하면 됩니다. 필드를 만들 때 분석기를 포함한 모든 속성을 완전히 지정했는지 확인합니다. 필드를 정의한 후에는 속성을 편집하거나 분석기 형식을 변경할 수 없습니다.
 
 1. [Azure 클래식 포털](https://portal.azure.com)에 로그인하고 검색 서비스의 서비스 블레이드를 엽니다.
 2. 서비스 대시보드 위쪽에 있는 **인덱스 추가**를 클릭하여 새 인덱스를 시작하거나, 기존 인덱스를 여러 기존 인덱스에 추가하는 새 필드에 대해 분석기를 설정합니다.
@@ -67,11 +67,11 @@
 
 `https://[service name].search.windows.net/indexes/[index name]/docs?search=Microsoft&scoringProfile=englishFirst&api-version=2015-02-28`
 
-.NET 개발자인 경우 [Azure 검색 .NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Search/0.13.0-preview)를 사용하여 언어 분석기를 구성할 수 있습니다. 최신 릴리스에는 Microsoft 언어 분석기에 대한 지원도 포함되어 있습니다.
+.NET 개발자인 경우 [Azure 검색 .NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Search)를 사용하여 언어 분석기를 구성할 수 있습니다. 최신 릴리스에는 Microsoft 언어 분석기에 대한 지원도 포함되어 있습니다.
 
 <!-- Image References -->
 [1]: ./media/search-language-support/AnalyzerTab.png
 [2]: ./media/search-language-support/SelectAnalyzer.png
 [3]: ./media/search-language-support/IndexDefinition.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

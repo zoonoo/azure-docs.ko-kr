@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="11/04/2015"
+    ms.date="02/05/2016"
     ms.author="vikbucha" />
 
 
@@ -42,4 +42,4 @@ Azure의 컬렉션 프로비전을 대기하는 중에 "GoldImageInvalid" 등의
 
 이 오류가 발생한 경우, 일반적으로 유료 계정으로 업그레이드되었음을 의미하지만 서비스의 평가 모드 중에만 유효한 Microsoft 제공 이미지를 사용하려고 함을 의미합니다. 이 경우, 다시 클라우드 컬렉션을 만들어 보지만 올바른 이미지를 지정해야 합니다.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

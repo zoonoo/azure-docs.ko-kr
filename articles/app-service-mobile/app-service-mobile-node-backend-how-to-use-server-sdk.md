@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="node"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="02/09/2016"
 	ms.author="adrianhall"/>
 
 # Azure 모바일 앱 Node.js SDK를 사용하는 방법
@@ -327,7 +327,7 @@ Azure 모바일 앱은 로컬 파일 시스템에서 _azureMobile.js_라는 Java
 
 _.gitignore_ 파일에 _azureMobile.js_를 추가하여(또는 기타 소스 코드 제어 무시 파일) 암호가 클라우드에 저장되지 않도록 합니다. [Azure 포털] 내의 앱 설정에서 프로덕션 설정을 항상 구성합니다.
 
-### <a name="howto-appsettings"><a>모바일 앱을 구성하기 위한 앱 설정
+### <a name="howto-appsettings"></a>모바일 앱을 구성하기 위한 앱 설정
 
 _azureMobile.js_ 파일에서 대부분의 설정은 [Azure 포털]에서 동일한 앱 설정을 포함합니다. 다음 목록을 사용하여 앱 설정에서 앱을 구성합니다.
 
@@ -561,7 +561,7 @@ Azure 앱 서비스 모바일 앱은 기본 제공 [Swagger]를 지원합니다.
 
     var mobile = azureMobileApps({ swagger: process.env.NODE_ENV !== 'production' });
 
-Swagger 끝점은 http://\_yoursite\_.azurewebsites.net/swagger에 위치합니다. `/swagger/ui` 끝점을 통해 Swagger UI에 액세스할 수 있습니다. 전체 응용 프로그램에서 인증을 요구하도록 선택한 경우 Swagger는 / 끝점에 오류를 생성합니다. 최상의 결과를 위해 Azure 앱 서비스 인증/ 권한 부여 설정 및 `table.access` 속성을 사용하는 제어 인증에서 인증되지 않은 요청을 허용하도록 선택합니다.
+Swagger 끝점은 http://_yoursite_.azurewebsites.net/swagger에 있습니다. `/swagger/ui` 끝점을 통해 Swagger UI에 액세스할 수 있습니다. 전체 응용 프로그램에서 인증을 요구하도록 선택한 경우 Swagger는 / 끝점에 오류를 생성합니다. 최상의 결과를 위해 Azure 앱 서비스 인증/ 권한 부여 설정 및 `table.access` 속성을 사용하는 제어 인증에서 인증되지 않은 요청을 허용하도록 선택합니다.
 
 또한 로컬로 개발할 때 Swagger 지원을 원하는 경우 `azureMobile.js` 파일에 Swagger 옵션을 추가할 수 있습니다.
 
@@ -645,6 +645,32 @@ Azure 모바일 앱 SDK는 테이블 끝점 및 사용자 지정 API에 대해 �
 
 테이블 끝점에 사용되는 동일한 토큰은 인증을 요구하는 사용자 지정 API에 사용되어야 합니다.
 
+### <a name="howto-customapi-auth"></a>방법: 대용량 파일 업로드 처리
+
+Azure 모바일 앱 SDK는 [body-parser middleware](https://github.com/expressjs/body-parser)를 사용하여 제출하는 본문 내용을 허용 및 디코딩합니다. 더 큰 파일 업로드를 허용하도록 body-parser를 미리 구성할 수 있습니다.
+
+	var express = require('express'),
+        bodyParser = require('body-parser'),
+		azureMobileApps = require('azure-mobile-apps');
+
+	var app = express(),
+		mobile = azureMobileApps();
+
+    // Set up large body content handling
+    app.use(bodyParser.json({ limit: '50mb' }));
+    app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
+
+	// Import the Custom API
+	mobile.api.import('./api');
+
+	// Add the mobile API so it is accessible as a Web API
+	app.use(mobile);
+
+	// Start listening on HTTP
+	app.listen(process.env.PORT || 3000);
+
+위에 표시된 50Mb 제한을 조정할 수 있습니다. 파일은 전송되기 전에 base-64로 인코딩되므로 실제 업로드 크기가 증가합니다.
+
 ## <a name="Debugging"></a>디버그 및 문제 해결
 
 Azure 앱 서비스는 Node.js 응용 프로그램에 대한 여러 디버깅 및 문제 해결 기술을 제공합니다. 이러한 기술을 모두 사용할 수 있습니다.
@@ -725,7 +751,7 @@ Azure 포털을 사용하면 로컬 컴퓨터에 프로젝트를 다운로드하
 [Azure 앱 서비스에 진단 로그 사용]: ../app-service-web/web-sites-enable-diagnostic-log.md
 [Visual Studio에서 Azure 앱 서비스 문제 해결]: ../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md
 [노드 버전 지정]: ../nodejs-specify-node-version-azure-apps.md
-[노드 모듈 사용]: ../nodejs-use-node-mobiles-azure-apps.md
+[노드 모듈 사용]: ../nodejs-use-node-modules-azure-apps.md
 [Create a new Azure App Service]: ../app-service-web/
 [azure-mobile-apps]: https://www.npmjs.com/package/azure-mobile-apps
 [Express]: http://expressjs.com/
@@ -745,4 +771,4 @@ Azure 포털을 사용하면 로컬 컴퓨터에 프로젝트를 다운로드하
 [ExpressJS 미들웨어]: http://expressjs.com/guide/using-middleware.html
 [윈스턴]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

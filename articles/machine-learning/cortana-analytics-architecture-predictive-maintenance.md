@@ -18,7 +18,7 @@
 
 # 항공 우주 및 다른 비즈니스에서 예측 유지 관리를 위한 Cortana Analytics 솔루션 템플릿의 아키텍처
 
-아래 다이어그램은 [예측 유지 관리를 위한 Cortana Analytics 솔루션 템플릿 아키텍처](cortana-analytics-playbook-predictive-maintenance.md)의 아키텍처 개요를 제공합니다.
+아래 다이어그램은 [예측 유지 관리를 위한 Cortana Analytics 솔루션 템플릿 아키텍처](https://gallery.cortanaanalytics-int.com/SolutionTemplate/Predictive-Maintenance-for-Aerospace-1)의 아키텍처 개요를 제공합니다.
 
 여기에서 다이어그램의 전체 크기 버전을 다운로드할 수 있습니다: [아키텍처 다이어그램: 예측 유지 관리를 위한 솔루션 템플릿](http://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png).
 
@@ -26,4 +26,4 @@
 
 [image]: ./media/cortana-analytics-architecture-predictive-maintenance/ca-topologies-maintenance-prediction.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/07/2016"
+	ms.date="02/09/2016"
 	ms.author="kgremban"/>
 
 
 # 커넥터 그룹을 사용하여 별도의 네트워크 및 위치에서 응용 프로그램 게시
 
-> [AZURE.NOTE]응용 프로그램 프록시는 Premium 또는 Basic 버전의 Azure Active Directory로 업그레이드하는 경우에만 사용할 수 있는 기능입니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
+> [AZURE.NOTE] 응용 프로그램 프록시는 Premium 또는 Basic 버전의 Azure Active Directory로 업그레이드하는 경우에만 사용할 수 있는 기능입니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
 
 커넥터 그룹은 다음을 비롯한 다양한 시나리오에 유용합니다.
 
@@ -70,7 +70,7 @@
 - [Channel 9에서 비디오 시청](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
 ## 추가 리소스
+- [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
+- [Kerberos 제한 위임 정보](http://technet.microsoft.com/library/cc995228.aspx)
 
-* [Kerberos 제한 위임 정보](http://technet.microsoft.com/library/cc995228.aspx)
-
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

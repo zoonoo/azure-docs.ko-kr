@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="service-bus" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="10/07/2015" 
+	ms.date="02/08/2016" 
 	ms.author="sethm"/>
 
 
@@ -31,7 +31,7 @@
 
 ## 서비스 버스를 사용하도록 응용 프로그램 구성
 
-서비스 버스를 사용하려면 Node.js azure 패키지를 다운로드합니다. 이 패키지에는 서비스 버스 REST 서비스와 통신하는 라이브러리 집합이 포함되어 있습니다.
+서비스 버스를 사용하려면 Node.js Azure 패키지를 다운로드합니다. 이 패키지에는 서비스 버스 REST 서비스와 통신하는 라이브러리 집합이 포함되어 있습니다.
 
 ### NPM(Node Package Manager)을 사용하여 패키지 가져오기
 
@@ -113,7 +113,7 @@ serviceBusService.createTopicIfNotExists('MyTopic', topicOptions, function(error
 function handle (requestOptions, next)
 ```
 
-요청 옵션에 대한 전처리를 수행한 후 메서드는 다음 서명을 사용하여 콜백을 전달하는 `next`를 호출합니다.
+요청 옵션에 대한 전처리를 수행한 후 메서드는 다음 서명을 사용하여 콜백을 전달하는 `next`을(를) 호출합니다.
 
 ```
 function (returnObject, finalCallback, next)
@@ -130,7 +130,7 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 
 토픽 구독은 **ServiceBusService** 개체로도 만들 수 있습니다. 구독에는 이름이 지정되며, 구독의 가상 큐에 전달되는 메시지 집합을 제한하는 선택적 필터가 있을 수 있습니다.
 
-> [AZURE.NOTE]구독은 영구적이며, 구독 자체 또는 구독과 연결된 토픽이 삭제될 때까지 계속 유지됩니다. 응용 프로그램에 구독을 만들기 위한 논리가 포함된 경우, **getSubscription** 메서드를 사용하여 구독이 이미 존재하는지를 먼저 확인해야 합니다.
+> [AZURE.NOTE] 구독은 영구적이며, 구독 자체 또는 구독과 연결된 토픽이 삭제될 때까지 계속 유지됩니다. 응용 프로그램에 구독을 만들기 위한 논리가 포함된 경우, **getSubscription** 메서드를 사용하여 구독이 이미 존재하는지를 먼저 확인해야 합니다.
 
 ### 기본(MatchAll) 필터를 사용하여 구독 만들기
 
@@ -152,7 +152,7 @@ serviceBusService.createSubscription('MyTopic','AllMessages',function(error){
 
 **ServiceBusService** 개체의 **createRule** 메서드를 사용하여 구독에 필터를 추가할 수 있습니다. 이 메서드를 사용하면 기존 구독에 새 필터를 추가할 수 있습니다.
 
-> [AZURE.NOTE]기본 필터는 모든 새로운 구독에 자동으로 적용되므로 먼저 기본 필터를 제거해야 합니다. 그렇지 않으면 **MatchAll**이 사용자가 지정하는 기타 필터를 재정의합니다. **ServiceBusService** 개체의 **deleteRule** 메서드를 사용하여 기본 규칙을 제거할 수 있습니다.
+> [AZURE.NOTE] 기본 필터는 모든 새로운 구독에 자동으로 적용되므로 먼저 기본 필터를 제거해야 합니다. 그렇지 않으면 **MatchAll**이 사용자가 지정하는 기타 필터를 재정의합니다. **ServiceBusService** 개체의 **deleteRule** 메서드를 사용하여 기본 규칙을 제거할 수 있습니다.
 
 다음 예제에서는 사용자 지정 **MessageNumber** 속성이 3보다 큰 메시지만 선택하는 **SqlFilter**를 사용하여 이름이 `HighMessages`인 구독을 만듭니다.
 
@@ -316,7 +316,7 @@ for (i = 0;i < 5;i++) {
 -   [SqlFilter][]에 대한 API 참조
 -   GitHub에서 [Azure SDK for Node][] 리포지토리를 방문하십시오.
 
-  [Azure SDK for Node]: https://github.com/WindowsAzure/azure-sdk-for-node
+  [Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
   [Azure 클래식 포털]: http://manage.windowsazure.com
   [SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [큐, 토픽 및 구독]: service-bus-queues-topics-subscriptions.md
@@ -327,4 +327,4 @@ for (i = 0;i < 5;i++) {
   [Node.js 웹 응용 프로그램 및 저장소]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

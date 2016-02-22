@@ -14,7 +14,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="01/22/2016"
+	 ms.date="02/05/2016"
 	 ms.author="jimpark;"/>
 
 # Azure에 Windows Server 또는 Windows 클라이언트 파일 및 폴더 백업
@@ -51,5 +51,6 @@
 - [Windows Server 또는 Windows 클라이언트 관리](backup-azure-manage-windows-server.md)
 - [Azure에서 Windows Server 또는 Windows 클라이언트 복원](backup-azure-restore-windows-server.md)
 - [Azure 백업 - FAQ](backup-azure-backup-faq.md)
+- [Azure 백업 포럼](http://go.microsoft.com/fwlink/p/?LinkId=290933)을 방문하세요.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

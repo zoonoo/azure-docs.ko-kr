@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="11/05/2015"
+	ms.date="02/09/2016"
 	ms.author="bwren;sngun"/>
 
 # Azure 자동화 개요
@@ -101,4 +101,4 @@ Azure 자동화의 Runbook은 Windows PowerShell 또는 Windows PowerShell 워�
 
 **사용자 의견을 보내 주세요!** Azure 자동화 Runbook 솔루션 또는 통합 모듈을 찾고 있는 경우 스크립트 센터에 스크립트 요청을 게시하세요. Azure 자동화에 대한 의견이나 기능 요청이 있는 경우 [사용자 음성](http://feedback.windowsazure.com/forums/34192--general-feedback)에 게시하세요. 감사합니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

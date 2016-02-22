@@ -13,18 +13,23 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="02/07/2016" 
 	ms.author="sunliangms;fashah;garye;bradsev" />
 
 #<a name="heading"></a>Azure Blob 저장소에서 데이터 샘플링
 
-이 **메뉴**는 다양한 저장소 환경에서 데이터를 샘플링하는 방법을 설명하는 항목에 연결되는 링크입니다. 이 작업은 Cortana 분석 프로세스(CAP)의 한 단계입니다.
-
-[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
-
 ## 소개
 
 이 문서에서는 프로그래밍 방식으로 다운로드한 다음 샘플 Python 코드로 샘플링하여 Azure Blob 저장소에 저장된 데이터를 샘플링하는 방법에 대해 알아봅니다. 작업 단계는 다음과 같습니다.
+
+**데이터를 샘플링하는 이유** 분석할 데이터 집합이 큰 경우 일반적으로 데이터를 다운 샘플링하여 작지만 전형적이고 관리하기 쉬운 크기로 줄이는 것이 좋습니다. 그러면 데이터 이해, 탐색 및 기능 엔지니어링이 용이해집니다. Cortana 분석 프로세스에서는 데이터 처리 기능 및 기계 학습 모델의 빠른 프로토타입 제작을 지원하는 역할을 합니다.
+
+아래의 **메뉴**는 다양한 저장소 환경에서 데이터를 샘플링하는 방법을 설명하는 항목에 연결되는 링크입니다.
+
+[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
+
+이 샘플링 작업은 [Cortana 분석 프로세스(CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)의 한 단계입니다.
+
 
 ## 데이터 다운로드 및 저해상도로 처리
 1. 다음 샘플 Python 코드에서 Blob 서비스를 사용하여 Azure Blob 저장소에서 데이터를 다운로드합니다. 
@@ -103,4 +108,4 @@
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

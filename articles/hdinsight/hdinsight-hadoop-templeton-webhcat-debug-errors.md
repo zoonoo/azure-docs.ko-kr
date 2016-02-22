@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="12/04/2015"
+ ms.date="02/05/2016"
  ms.author="larryfr"/>
 
 #HDInsightdml WebHCat(Templeton,)에서 받은 오류 이해 및 해결
@@ -27,7 +27,7 @@ WebHCat(이전의 Templeton)을 사용하여 HDInsight를 사용하는 경우 �
 
 ##구성 수정
 
-> [AZURE.IMPORTANT]구성된 최대값을 초과하기 때문에 이 문서에 나열된 몇몇 오류가 발생합니다. 해결 단계에서 값을 변경할 수 있음을 언급하면, 다음 중 하나를 사용하여 변경해야 합니다.
+> [AZURE.IMPORTANT] 구성된 최대값을 초과하기 때문에 이 문서에 나열된 몇몇 오류가 발생합니다. 해결 단계에서 값을 변경할 수 있음을 언급하면, 다음 중 하나를 사용하여 변경해야 합니다.
 
 * **Windows** 클러스터: 클러스터를 만드는 동안 값을 구성하려면 스크립트 동작을 사용합니다. 자세한 내용은 [스크립트 동작 개발](hdinsight-hadoop-script-actions.md)을 참조하세요.
 
@@ -86,4 +86,4 @@ WebHCat(이전의 Templeton)을 사용하여 HDInsight를 사용하는 경우 �
 [max-age-ms]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.6.0/ds_Hadoop/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

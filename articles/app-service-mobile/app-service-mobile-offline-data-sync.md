@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="01/11/2015"
+	ms.date="02/04/2016"
 	ms.author="wesmc"/>
 
 # Azure 모바일 앱에서 오프라인 데이터 동기화
-
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## 오프라인 데이터 동기화 정의
 
@@ -37,8 +35,8 @@
 다음 자습서는 Azure 모바일 앱을 사용하여 모바일 클라이언트에 오프라인 동기화를 추가하는 방법을 보여줍니다.
 
 * [Android: 오프라인 동기화 사용]
-* [iOS: 오프라인 동기화 사용]			
-* [Xamarin iOS: 오프라인 동기화 사용]	
+* [iOS: 오프라인 동기화 사용]
+* [Xamarin iOS: 오프라인 동기화 사용]
 * [Xamarin Android: 오프라인 동기화 사용]
 * [Windows 8.1: 오프라인 동기화 사용]
 
@@ -65,10 +63,10 @@ Windows Phone 또는 Windows 스토어 8.1에서 SQLite 기반 구현을 사용�
 <!-- TODO: link to client references -->
 
 
-<!-- 
+<!--
 Client code will interact with the table using the `IMobileServiceSyncTable` interface to support offline buffering. This interface supports all the methods of `IMobileServiceTable` along with additional support for pulling data from a Mobile App backend table and merging it into a local store table. How the local table is synchronized with the backend database is mainly controlled by your logic in the client app.
 
-The sync table uses the [System Properties](https://msdn.microsoft.com/library/azure/dn518225.aspx) on the table to implement change tracking for offline synchronization. 
+The sync table uses the [System Properties](https://msdn.microsoft.com/library/azure/dn518225.aspx) on the table to implement change tracking for offline synchronization.
 
 
 
@@ -103,22 +101,23 @@ The sync table uses the [System Properties](https://msdn.microsoft.com/library/a
 
   증분 동기화를 옵트아웃하려면 `null`을(를) 쿼리 ID로 전달합니다. 이 경우 `PullAsync`에 대한 모든 호출에서 모든 레코드가 검색되므로 이는 잠재적으로 비효율적입니다.
 
- 
+
 
 <!--   mymobileservice-code.azurewebsites.net/tables/TodoItem?$filter=(__updatedAt ge datetimeoffset'1970-01-01T00:00:00.0000000%2B00:00')&$orderby=__updatedAt&$skip=0&$top=50&__includeDeleted=true&__systemproperties=__updatedAt%2C__deleted
  -->
+
 * **제거**: `IMobileServiceSyncTable.PurgeAsync`를 사용하여 로컬 저장소의 내용을 지울 수 있습니다. 이 기능은 클라이언트 데이터베이스에서 오래된 데이터가 있는 경우 또는 모든 보류 중인 변경 내용을 취소하려는 경우에 필요할 수 있습니다.
 
   삭제는 로컬 저장소에서 테이블을 지웁니다. 서버 데이터베이스와 동기화 보류 중인 작업이 있는 경우 *강제 제거* 매개 변수를 설정하지 않으면 삭제가 예외를 throw 합니다.
 
   클라이언트에서 오래된 데이터의 예로 "todo 목록" 예에서 장치1이 완료되지 않은 항목을 끌어온다고 가정합니다. 그런 다음 todoitem "우유 구매"가 다른 장치에 의해 서버에서 완료되었다고 표시됩니다. 그러나 장치1은 완료 표시된 항목을 가져오기 때문에 아직 "우유 구매" todoitem을 로컬 저장소에 가지고 있습니다. 삭제는 이 오래된 항목을 지웁니다.
- 
+
 ## 다음 단계
 
-* [iOS: 오프라인 동기화 사용]			
-* [Xamarin iOS: 오프라인 동기화 사용]	
+* [iOS: 오프라인 동기화 사용]
+* [Xamarin iOS: 오프라인 동기화 사용]
 * [Xamarin Android: 오프라인 동기화 사용]
-* [Windows 8.1: 오프라인 동기화 사용]	
+* [Windows 8.1: 오프라인 동기화 사용]
 
 <!-- Links -->
 
@@ -128,4 +127,4 @@ The sync table uses the [System Properties](https://msdn.microsoft.com/library/a
 [Xamarin Android: 오프라인 동기화 사용]: ../app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Windows 8.1: 오프라인 동기화 사용]: ../app-service-mobile-windows-store-dotnet-get-started-offline-data.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="02/09/2016"
 	ms.author="tomfitz"/>
 
 #Azure 웹 앱 서비스에서 PHP-MySQL 웹 앱 만들기 및 Git를 사용하여 배포
@@ -213,14 +213,15 @@
 
 		php -S localhost:8000
 
-이제 **http://localhost:8000/** 로 이동하여 응용 프로그램을 테스트할 수 있습니다.
+이제 ****http://localhost:8000/**로 이동하여 응용 프로그램을 테스트할 수 있습니다.
 
 
 ##응용 프로그램 게시
 
 앱을 로컬에서 테스트한 후 Git를 사용하여 웹 앱에 게시할 수 있습니다. 로컬 Git 리포지토리를 초기화하고 응용 프로그램을 게시하겠습니다.
 
-> [AZURE.NOTE]이들은 앞선 웹앱 만들기 및 Git 게시 설정 섹션의 끝에서 Azure 포털에 표시된 단계와 동일합니다.
+> [AZURE.NOTE]
+이들은 앞선 웹앱 만들기 및 Git 게시 설정 섹션의 끝에서 Azure 포털에 표시된 단계와 동일합니다.
 
 1. (옵션) Git 원격 리포지토리 URL을 잊어버렸거나 제대로 보관하지 못한 경우 Azure 포털의 웹앱 속성으로 이동합니다.
 
@@ -261,7 +262,7 @@
 
 	![Azure PHP 웹 사이트][running-app]
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ## 다음 단계
 
@@ -302,4 +303,4 @@
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
  
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

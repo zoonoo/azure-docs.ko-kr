@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/18/2015"
+	ms.date="02/08/2016"
 	ms.author="msolhab;bradsev" />
 
 
@@ -28,7 +28,7 @@
 
 다음 섹션에서는 각각 샘플 시나리오를 제공합니다. 각 시나리오에 대해 가능한 데이터 과학 또는 고급 분석 흐름 및 지원되는 Azure 리소스가 나열되어 있습니다.
 
->[AZURE.NOTE]**이 모든 시나리오에서 다음을 수행해야 합니다.**
+>[AZURE.NOTE] **이 모든 시나리오에서 다음을 수행해야 합니다.**
 
 *   [저장소 계정 만들기](storage-whatis-account.md)
 *   [Azure ML 작업 영역 만들기](machine-learning/machine-learning-create-workspace.md)
@@ -168,7 +168,7 @@
 
     f. 테이블 조인이 필요한 경우, 인덱스를 만들어 조인을 신속하게 처리합니다.
 
- >[AZURE.NOTE]큰 데이터를 좀 더 빨리 로드하기 위해, 분할된 테이블을 만들고 병렬로 대량 데이터를 가져오는 것이 좋습니다. 자세한 내용은 [SQL 분할된 테이블로 병렬로 데이터 가져오기](machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md)를 참조하세요.
+ > [AZURE.NOTE] 큰 데이터를 좀 더 빨리 로드하기 위해, 분할된 테이블을 만들고 병렬로 대량 데이터를 가져오는 것이 좋습니다. 자세한 내용은 [SQL 분할된 테이블로 병렬로 데이터 가져오기](machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md)를 참조하세요.
 
 5.  데이터를 탐색하고 필요에 따라 기능을 만듭니다. 기능을 데이터베이스 테이블에 구체화하지 않아도 됩니다. 필요한 쿼리를 기록하여 만들기만 합니다.
 
@@ -208,7 +208,7 @@
 
 	f. 테이블 조인이 필요한 경우, 인덱스를 만들어 조인을 신속하게 처리합니다.
 
-> [AZURE.NOTE]큰 데이터를 좀 더 빨리 로드하기 위해, 분할된 테이블을 만들고 병렬로 대량 데이터를 가져옵니다. 자세한 내용은 [SQL 분할된 테이블로 병렬로 데이터 가져오기](machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md)를 참조하세요.
+> [AZURE.NOTE] 큰 데이터를 좀 더 빨리 로드하기 위해, 분할된 테이블을 만들고 병렬로 대량 데이터를 가져옵니다. 자세한 내용은 [SQL 분할된 테이블로 병렬로 데이터 가져오기](machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md)를 참조하세요.
 
 5.  데이터를 탐색하고 필요에 따라 기능을 만듭니다. 기능을 데이터베이스 테이블에 구체화하지 않아도 됩니다. 필요한 쿼리를 기록하여 만들기만 합니다.
 
@@ -264,7 +264,7 @@ SQL Server VM에서 전체 SQL Server 데이터베이스를 복제하려면, 한
 
     d. Hive 쿼리를 실행하여 데이터베이스 및 테이블을 만들고 Blob 저장소에서 Hive 테이블로 데이터를 로드합니다.
 
- 	> [AZURE.NOTE]데이터가 큰 경우 사용자는 파티션이 있는 Hive 테이블을 만들 수 있습니다. 그런 다음, 사용자는 헤드 노드의 Hadoop 명령줄에서 `for` 루프를 사용하여 파티션에서 분할된 Hive 테이블로 데이터를 로드합니다.
+ 	> [AZURE.NOTE] 데이터가 큰 경우 사용자는 파티션이 있는 Hive 테이블을 만들 수 있습니다. 그런 다음, 사용자는 헤드 노드의 Hadoop 명령줄에서 `for` 루프를 사용하여 파티션에서 분할된 Hive 테이블로 데이터를 로드합니다.
 
 6.  Hadoop 명령줄에서 데이터를 탐색하고 필요에 따라 기능을 만듭니다. 기능을 데이터베이스 테이블에 구체화하지 않아도 됩니다. 필요한 쿼리를 기록하여 만들기만 합니다.
 
@@ -314,4 +314,4 @@ SQL Server VM에서 전체 SQL Server 데이터베이스를 복제하려면, 한
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

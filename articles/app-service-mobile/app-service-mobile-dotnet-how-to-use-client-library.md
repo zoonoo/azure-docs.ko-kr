@@ -13,17 +13,14 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/20/2016" 
+	ms.date="02/04/2016"
 	ms.author="glenga"/>
 
 # Azure 모바일 앱에 관리되는 클라이언트를 사용하는 방법
 
 [AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
-&nbsp;
 
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
-
-##개요 
+##개요
 
 이 가이드에서는 Windows 및 Xamarin 앱용 Azure 앱 서비스 모바일 앱에 관리되는 클라이언트 라이브러리를 사용하는 일반적인 시나리오를 수행하는 방법을 보여 줍니다. 모바일 앱을 처음 접하는 경우 먼저 [모바일 앱 빠른 시작](app-service-mobile-windows-store-dotnet-get-started.md) 자습서를 완료하는 것이 좋습니다. 이 가이드에서는 클라이언트 쪽 관리되는 SDK에 초점을 둡니다. 모바일 앱용 서버 쪽 SDK에 대해 자세히 알아보려면 [.NET 백 엔드 SDK로 작업](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) 또는 [Node.js 백 엔드 SDK를 사용하는 방법](app-service-mobile-node-backend-how-to-use-server-sdk.md)을 참조하세요.
 
@@ -57,8 +54,7 @@ C#에서 해당하는 형식화된 클라이언트 쪽 형식은 다음과 같�
 
 다음 코드는 모바일 앱 백 엔드에 액세스하는 데 사용되는 `MobileServiceClient` 개체를 만듭니다.
 
-	MobileServiceClient client = new MobileServiceClient(
-		"MOBILE_APP_URL", "", "");
+	MobileServiceClient client = new MobileServiceClient("MOBILE_APP_URL");
 
 위의 코드에서 `MOBILE_APP_URL`을 모바일 앱 백 엔드의 URL로 대체하며 이는 [Azure 포털](https://portal.azure.com/)의 모바일 앱 백 엔드에 대한 블레이드에서 찾을 수 있습니다.
 
@@ -189,8 +185,8 @@ C#에서 해당하는 형식화된 클라이언트 쪽 형식은 다음과 같�
 
 	// Select multiple fields -- both Complete and Text info
 	MobileServiceTableQuery<TodoItem> query = todoTable
-					.Select(todoItem => string.Format("{0} -- {1}", 
-						todoItem.Text.PadRight(30), todoItem.Complete ? 
+					.Select(todoItem => string.Format("{0} -- {1}",
+						todoItem.Text.PadRight(30), todoItem.Complete ?
 						"Now complete!" : "Incomplete!"));
 	List<string> items = await query.ToListAsync();
 
@@ -261,12 +257,7 @@ C#에서 해당하는 형식화된 클라이언트 쪽 형식은 다음과 같�
 
 	await todoTable.UpdateAsync(todoItem);
 
-형식화되지 않은 데이터를 삽입하려면 다음과 같이 Json.NET을 이용할 수 있습니다. 
-	JObject jo = new JObject();
-	jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D");
-	jo.Add("Text", "Hello World");
-	jo.Add("Complete", false);
-	var inserted = await table.UpdateAsync(jo);
+형식화되지 않은 데이터를 삽입하려면 다음과 같이 Json.NET을 이용할 수 있습니다. JObject jo = new JObject(); jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D"); jo.Add("Text", "Hello World"); jo.Add("Complete", false); var inserted = await table.UpdateAsync(jo);
 
 업데이트할 때 ID를 지정해야 합니다. 백 엔드가 업데이트할 인스턴스를 식별하는 방법입니다. ID는 `InsertAsync` 호출의 결과에서 가져올 수 있습니다. "ID" 값을 제공하지 않고 항목을 업데이트하려고 할 때 `ArgumentException`이 발생합니다.
 
@@ -329,7 +320,7 @@ Xamarin 앱에는 iOS 또는 Android 앱을 실행하는 앱을 각각 APNS(Appl
         {
             // single template for Windows Notification Service toast
             var template = "<toast><visual><binding template="ToastText01"><text id="1">$(message)</text></binding></visual></toast>";
-            
+
             var templates = new JObject
             {
                 ["generic-message"] = new JObject
@@ -681,7 +672,7 @@ In the most simplified form, you can use the client flow as shown in this snippe
 
 To be able to authenticate users, you must register your app at the Microsoft account Developer Center. You must then connect this registration with your Mobile App backend. Complete the steps in [Register your app to use a Microsoft account login](mobile-services-how-to-register-microsoft-authentication.md) to create a Microsoft account registration and connect it to your Mobile App backend. If you have both Windows Store and Windows Phone 8/Silverlight versions of your app, register the Windows Store version first.
 
-The following code authenticates using Live SDK and uses the returned token to sign-in to your Mobile App backend. 
+The following code authenticates using Live SDK and uses the returned token to sign-in to your Mobile App backend.
 
 	private LiveConnectSession session;
  	//private static string clientId = "<microsoft-account-client-id>";
@@ -809,7 +800,7 @@ For Windows Phone apps, you may encrypt and cache data using the [ProtectedData]
 
     public class MyHandler : DelegatingHandler
     {
-        protected override async Task<HttpResponseMessage> 
+        protected override async Task<HttpResponseMessage>
             SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
             // Add a custom header to the request.
@@ -868,4 +859,4 @@ For Windows Phone apps, you may encrypt and cache data using the [ProtectedData]
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 [DelegatingHandler]: https://msdn.microsoft.com/library/system.net.http.delegatinghandler(v=vs.110).aspx
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

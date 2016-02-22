@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/07/2016"
+	ms.date="02/09/2016"
 	ms.author="kgremban"/>
 
 # Azure AD 응용 프로그램 프록시에서 사용자 지정 도메인 작업
-> [AZURE.NOTE]응용 프로그램 프록시는 Premium 또는 Basic 버전의 Azure Active Directory로 업그레이드하는 경우에만 사용할 수 있는 기능입니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
+> [AZURE.NOTE] 응용 프로그램 프록시는 Premium 또는 Basic 버전의 Azure Active Directory로 업그레이드하는 경우에만 사용할 수 있는 기능입니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
 
 기본 도메인을 사용하면 응용 프로그램 액세스를 위한 내외부 URL로 동일한 URL을 설정할 수 있으므로 사용자는 액세스 위치에 상관 없이 하나의 URL만 기억하면 해당 앱에 액세스할 수 있습니다. 또한 응용 프로그램에 대한 액세스 패널에서 단일 바로 가기를 만들 수 있습니다. Azure AD 응용 프로그램 프록시에 의해 제공되는 기본 도메인을 사용하면 추가 구성 없이도 사용자의 도메인을 사용할 수 있습니다. 사용자 지정 도메인을 사용하는 경우 응용 프로그램 프록시가 도메인을 인식하고 인증서의 유효성을 검사하도록 보장하기 위해 몇 가지를 수행해야 합니다.
 
@@ -48,8 +48,8 @@ Q: 이미 업로드한 인증서를 다시 업로드하지 않고 선택할 수 
 - [Channel 9에서 비디오 시청](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
 ## 추가 리소스
+- [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
+- [조직으로 Azure에 등록](sign-up-organization.md)
+- [Azure ID](fundamentals-identity.md)
 
-* [조직으로 Azure 등록](sign-up-organization.md)
-* [Azure ID](fundamentals-identity.md)
-
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="02/09/2016" 
 	ms.author="ryancraw"/>
 
 # DocumentDB SDK
@@ -78,9 +78,9 @@
   - OrderBy() 또는 OrderByDescending()에 대한 LINQ 공급자 지원
   - Order By를 지원하기 위한 IndexingPolicy 
   
-		**NB: 가능한 새로운 변경** 
+		**NB: Possible breaking change** 
   
-    	사용자 지정 인덱싱 정책을 사용하여 컬렉션을 프로비전하는 기존 코드가 있다면 기존 코드는 새 IndexingPolicy 클래스를 지원하도록 업데이트되어야 합니다.사용자 지정 인덱싱 정책이 없다면 이 변경 사항은 영향을 주지 않습니다.
+    	If you have existing code that provisions collections with a custom indexing policy, then your existing code will need to be updated to support the new IndexingPolicy class. If you have no custom indexing policy, then this change does not affect you.
 
 ### <a name="1.1.0"/>[1\.1.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.1.0)
 - 새로운 HashPartitionResolver 및 RangePartitionResolver 클래스와 IPartitionResolver를 사용한 데이터 분할 지원
@@ -112,19 +112,7 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
  
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 
 | ---	  | ---	         | ---
-| [1\.5.2](#1.5.2) | 2015년 12월 14일 |--
-| [1\.5.1](#1.5.1) | 2015년 11월 23일 |--
-| [1\.5.0](#1.5.0) | 2015년 10월 5일 |--
-| [1\.4.1](#1.4.1) | 2015년 8월 25일 |--
-| [1\.4.0](#1.4.0) | 2015년 8월 13일 |--
-| [1\.3.0](#1.3.0) | 2015년 8월 5일 |--
-| [1\.2.0](#1.2.0) | 2015년 7월 6일 |--
-| [1\.1.0](#1.1.0) | 2015년 4월 30일 |--
-| [1\.0.0](#1.0.0) | 2015년 4월 8일 |--
-| [0\.9.3-prelease](#0.9.x-preview) | 2015년 3월 12일 | 2016년 2월 29일 
-| [0\.9.2-prelease](#0.9.x-preview) | 2015년 1월 | 2016년 2월 29일 
-| [0\.9.1-prelease](#0.9.x-preview) | 2014년 10월 13일 | 2016년 2월 29일 
-| [0\.9.0-prelease](#0.9.x-preview) | 2014년 4월 21일 | 2016년 2월 29일
+| [1\.5.2](#1.5.2) | 2015년 12월 14일 |--| [1\.5.1](#1.5.1) | 2015년 11월 23일 |--| [1\.5.0](#1.5.0) | 2015년 10월 5일 |--| [1\.4.1](#1.4.1) | 2015년 8월 25일 |--| [1\.4.0](#1.4.0) | 2015년 8월 13일 |--| [1\.3.0](#1.3.0) | 2015년 8월 5일 |--| [1\.2.0](#1.2.0) | 2015년 7월 6일 |--| [1\.1.0](#1.1.0) | 2015년 4월 30일 |--| [1\.0.0](#1.0.0) | 2015년 4월 8일 |--- | [0\.9.3-prelease](#0.9.x-preview) | 2015년 3월 12일 | 2016년 2월 29일 | [0\.9.2-prelease](#0.9.x-preview) | 2015년 1월 | 2016년 2월 29일 | [.9.1-prelease](#0.9.x-preview) | 2014년 10월 13일 | 2016년 2월 29일 | [0\.9.0-prelease](#0.9.x-preview) | 2014년 4월 21일 | 2016년 2월 29일
 
 ## FAQ
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
@@ -133,4 +121,4 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 DocumentDB에 대해 자세히 알아보려면 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 서비스 페이지를 참조하세요.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="10/30/2015" 
+    ms.date="02/10/2016" 
     ms.author="hawong"/>
 
 # 일반적인 DocumentDB 사용 사례
@@ -79,4 +79,4 @@ DocumentDB를 시작하기 위해 [계정](https://azure.microsoft.com/pricing/f
 - [XOMNI](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667). 미래 저장소가 빠른 검색 및 쉬운 데이터 흐름으로 실행됩니다.
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -117,7 +117,7 @@
 11. Hyper-V 관리자에서 **작업 -> 종료**를 클릭합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
 
 ## 다음 단계
-이제 Ubuntu Linux .vhd를 사용하여 Azure에 새 Azure 가상 컴퓨터를 만들 준비가 되었습니다. Azure 사용 및 Azure에 .vhd 파일 업로드가 처음이면 [이 지침](virtual-machines-linux-create-upload-vhd.md)의 2단계 및 3단계를 수행합니다.
+이제 Ubuntu Linux 가상 하드 디스크를 사용하여 Azure에서 새 가상 컴퓨터를 만들 준비가 되었습니다. .vhd 파일을 Azure에 처음으로 업로드하는 경우 [Linux 운영 체제를 포함하는 가상 하드 디스크 만들기 및 업로드](virtual-machines-linux-create-upload-vhd.md)에서 2단계 및 3단계를 참조하세요.
 
 ## 참조 ##
 
@@ -126,4 +126,4 @@ Ubuntu 하드웨어 지원(HWE) 커널
 - [http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html](http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html)
 - [http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html](http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

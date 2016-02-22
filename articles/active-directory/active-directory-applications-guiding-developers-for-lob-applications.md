@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/09/2016"
 	ms.author="kgremban"/>
 
 # Azure AD 및 응용 프로그램: 개발자 안내
@@ -77,4 +77,8 @@ Azure AD Premium 또는 Enterprise Mobility Suite(EMS) 구독자인 경우 그�
 
 Azure에서 동의 및 동의 환경에 대한 자세한 내용은 [Azure Active Directory와 응용 프로그램 통합](active-directory-integrating-applications.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0128_2016-->
+##관련 문서
+
+- [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
+
+<!---HONumber=AcomDC_0211_2016-->

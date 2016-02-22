@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-html"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="10/23/2015"
+	ms.date="01/26/2016"
 	ms.author="glenga"/>
 
 # Azure 모바일 서비스용 HTML/JavaScript 클라이언트를 사용하는 방법
@@ -164,7 +164,7 @@ Query 개체에서 `where`를 호출하여 매개 변수로 개체를 전달하�
 
 다음 코드는 쿼리에 `orderBy` 또는 `orderByDescending` 함수를 포함하여 데이터를 정렬하는 방법을 보여 줍니다. `todoItemTable`의 항목을 `text` 필드를 기준으로 오름차순 정렬한 항목을 반환합니다. 기본적으로 서버는 첫 50개 요소만 반환합니다.
 
-> [AZURE.NOTE]모든 요소가 반환되는 것을 방지하기 위해 기본적으로 서버 기반 페이지 크기가 사용됩니다. 그러면 대규모 데이터 집합에 대한 기본 요청이 서비스에 부정적인 영향을 미치지 않습니다. 다음 섹션의 설명대로 `take`을(를) 호출하면 호출할 항목 수를 늘릴 수 있습니다. `todoItemTable`은(는) 이전에 만든 모바일 서비스 테이블에 대한 참조입니다.
+> [AZURE.NOTE] 모든 요소가 반환되는 것을 방지하기 위해 기본적으로 서버 기반 페이지 크기가 사용됩니다. 그러면 대규모 데이터 집합에 대한 기본 요청이 서비스에 부정적인 영향을 미치지 않습니다. 다음 섹션의 설명대로 `take`을(를) 호출하면 호출할 항목 수를 늘릴 수 있습니다. `todoItemTable`은(는) 이전에 만든 모바일 서비스 테이블에 대한 참조입니다.
 
 	var ascendingSortedTable = todoItemTable.orderBy("text").read().done(function (results) {
 	   alert(JSON.stringify(results));
@@ -388,7 +388,7 @@ Windows 스토어 앱에서 쿼리 결과를 사용하여 [WinJS.Binding.List] �
 
 모바일 서비스는 Facebook, Google, Microsoft 계정 및 Twitter와 같이 다양한 외부 ID 공급자를 사용하여 앱 사용자의 인증 및 권한 부여를 지원합니다. 테이블에 대해 사용 권한을 설정하여 특정 작업을 위한 액세스를 인증된 사용자로만 제한할 수 있습니다. 인증된 사용자의 ID를 사용하여 서버 스크립트에 인증 규칙을 구현할 수도 있습니다. 자세한 내용은 [인증 시작] 자습서를 참조하세요.
 
->[AZURE.NOTE]PhoneGap 또는 Cordova 앱에서 인증을 사용하는 경우 프로젝트에 다음 플러그 인도 추가해야 합니다.
+>[AZURE.NOTE] PhoneGap 또는 Cordova 앱에서 인증을 사용하는 경우 프로젝트에 다음 플러그 인도 추가해야 합니다.
 >
 >+ https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git
 >+ https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git
@@ -504,8 +504,7 @@ Facebook 이외의 ID 공급자를 사용하는 경우 위의 `login` 메서드�
 	// Start the sign-in process.
 	authenticate();
 
-이 코드는 Live Connect 클라이언트를 초기화하고, Microsoft 계정에 새 로그인 요청을 보내고, 반환된 인증 토큰을 모바일 서비스로 보낸 다음 로그인한 사용자에 대한 정보를 표시합니다. 앱은 인증에 성공할 때까지 시작되지 않습니다.
-<!--- //this guidance may be bad from an XSS vulnerability standpoint. We need to find better guidance for this
+이 코드는 Live Connect 클라이언트를 초기화하고, Microsoft 계정에 새 로그인 요청을 보내고, 반환된 인증 토큰을 모바일 서비스로 보낸 다음 로그인한 사용자에 대한 정보를 표시합니다. 앱은 인증에 성공할 때까지 시작되지 않습니다. <!--- //this guidance may be bad from an XSS vulnerability standpoint. We need to find better guidance for this
 ###Caching the authentication token
 In some cases, the call to the login method can be avoided after the first time the user authenticates. We can use [sessionStorage] or [localStorage] to cache the current user identity the first time they log in and every subsequent time we check whether we already have the user identity in our cache. If the cache is empty or calls fail (meaning the current login session has expired), we still need to go through the login process.
 
@@ -666,4 +665,4 @@ Promise는 완료할 작업을 아직 계산되지 않은 값으로 예약하는
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [OData 시스템 쿼리 옵션 참조]: http://go.microsoft.com/fwlink/p/?LinkId=444502
 
-<!---HONumber=AcomDC_1217_2015--->
+<!---HONumber=AcomDC_0211_2016-->

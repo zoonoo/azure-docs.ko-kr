@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="12/06/2015"
+	ms.date="02/07/2016"
 	ms.author="ricksal"/>
 
 # 모바일 서비스 앱에 푸시 알림 추가
@@ -53,7 +53,7 @@
 
 다음 단계에서는 Google Play Services를 설치합니다. Google Cloud Messaging에는 매니페스트의 **minSdkVersion** 속성이 준수해야 하는 개발 및 테스트에 대한 최소 API 수준 요구 사항이 있습니다.
 
-이전 장치로 테스트할 경우 이 값을 적절하게 설정할 수 있는 최소값을 확인하려면 [Google Play Services SDK 설정]\(영문)을 참조하세요.
+이전 장치로 테스트할 경우 이 값을 적절하게 설정할 수 있는 최소값을 확인하려면 [Google Play Services SDK 설정](영문)을 참조하세요.
 
 ###프로젝트에 Google Play Services 추가
 
@@ -117,4 +117,4 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 [구독자에게 브로드캐스트 알림 보내기]: ../notification-hubs-windows-store-dotnet-send-breaking-news.md
 [사용자에게 플랫폼 간 알림 보내기]: ../notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

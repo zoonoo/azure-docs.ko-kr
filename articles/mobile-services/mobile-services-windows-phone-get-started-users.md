@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/02/2015"
+	ms.date="01/25/2016"
 	ms.author="glenga"/>
 
 # 모바일 서비스 앱에 인증 추가
@@ -46,7 +46,7 @@
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 
-&nbsp;&nbsp;3. Visual Studio 2012 Express for Windows Phone에서 [기존 앱에 모바일 서비스 추가](mobile-services-windows-phone-get-started-data.md) 자습서를 완료할 때 만든 프로젝트를 엽니다.
+&nbsp;&nbsp;3. Visual Studio에서 [기존 앱에 모바일 서비스 추가](mobile-services-windows-phone-get-started-data.md) 자습서를 완료할 때 만든 프로젝트를 엽니다.
 
 &nbsp;&nbsp;4. F5 키를 눌러 이 빠른 시작 기반 앱을 실행합니다. 앱이 시작된 후 상태 코드 401(인증되지 않음)의 처리되지 않은 예외가 발생하는지 확인합니다. 이는 앱이 인증되지 않은 사용자로 모바일 서비스에 액세스하려고 시도하지만 *TodoItem* 테이블에서 이제 인증을 요구하기 때문에 발생합니다.
 
@@ -82,4 +82,4 @@
 [기존 앱에 모바일 서비스 추가]: mobile-services-windows-phone-get-started-data.md
 [Authorize users with scripts]: ../mobile-services-windows-phone-authorize-users-in-scripts.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

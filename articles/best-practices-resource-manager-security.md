@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/13/2015"
-	ms.author="georgem"/>
+	ms.date="02/09/2016"
+	ms.author="georgem;tomfitz"/>
 
 
 # Azure 리소스 관리자에 대한 보안 고려 사항
@@ -147,6 +147,8 @@ Azure 가상 컴퓨터, Azure 리소스 관리자 및 Azure 키 자격 증명 �
         }
     }
 
+템플릿을 배포하는 동안 키 자격 증명 모음의 값을 매개 변수로 전달하려면 [배포 중 보안 값 전달](resource-manager-keyvault-parameter.md)을 참조하세요.
+
 ## 구독 간 상호 작용에 대한 서비스 주체
 
 서비스 ID는 Active Directory에서 서비스 주체로 표시됩니다. 서비스 주체는 엔터프라이즈 IT 조직, 시스템 통합 업체(SI) 및 클라우드 서비스 공급 업체(CSV)에 대한 주요 시나리오를 사용할 때 중심이 됩니다. 특히, 사용 사례 중 이러한 조직 중 하나가 고객 중 하나의 구독에 대해 상호 작용해야 하는 경우가 있습니다.
@@ -174,7 +176,7 @@ Azure 가상 컴퓨터, Azure 리소스 관리자 및 Azure 키 자격 증명 �
 
 NSG를 VM에 연결하거나 가상 네트워크 내에 있는 서브넷에 연결할 수 있습니다. NSG가 VM과 연결된 경우 VM 인스턴스에서 보내고 받는 모든 트래픽에 적용됩니다. NSG가 가상 네트워크 내에 있는 서브넷에 적용된 경우 서브넷의 모든 VM 인스턴스에서 보내고 받는 모든 트래픽에 적용됩니다. VM 또는 서브넷은 오직 1개의 NSG와 연결될 수 있지만 각 NSG에는 규칙이 200개까지 포함될 수 있습니다. 구독당 100개의 NSG가 있을 수 있습니다.
 
->[AZURE.NOTE]끝점 기반 ACL과 네트워크 보안 그룹은 동일한 VM 인스턴스에서 지원되지 않습니다. NSG를 사용하려는데 끝점 ACL이 이미 있는 경우 먼저, 끝점 ACL을 제거합니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 [PowerShell을 사용하여 끝점에 대한 ACL(액세스 제어 목록) 관리](../virtual-network/virtual-networks-acl-powershell.md)를 참조하세요.
+>[AZURE.NOTE]  끝점 기반 ACL과 네트워크 보안 그룹은 동일한 VM 인스턴스에서 지원되지 않습니다. NSG를 사용하려는데 끝점 ACL이 이미 있는 경우 먼저, 끝점 ACL을 제거합니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 [PowerShell을 사용하여 끝점에 대한 ACL(액세스 제어 목록) 관리](../virtual-network/virtual-networks-acl-powershell.md)를 참조하세요.
 
 ### 네트워크 보안 그룹의 작동 방법
 
@@ -306,7 +308,7 @@ Azure 가상 네트워크와 인터넷 간의 트래픽을 제어하기 위해 �
 
 이 내용을 작성할 당시에는 Azure 리소스 관리자의 [네트워크 리소스 공급자](virtual-network/resource-groups-networking.md)에서 [Express 경로](expressroute/expressroute-introduction.md)가 아직 지원되지 않습니다. 온-프레미스 네트워크와 Azure 간에 ExpressRoute 연결이 있는 경우 BGP를 사용하도록 설정하여 ExpressRoute가 NRP에서 지원되고 나서 온-프레미스 네트워크에서 Azure로 경로를 전파할 수 있습니다. 이러한 BGP 경로는 각 Azure 서브넷의 사용자 정의 경로 및 기본 경로와 동일한 방식으로 사용됩니다. 자세한 내용은 [ExpressRoute 소개](expressroute/expressroute-introduction.md)를 참조하세요.
 
->[AZURE.NOTE]NRP에서 Express 경로가 지원되는 경우 VPN 게이트웨이를 다음 홉으로 사용하는 서브넷 0.0.0.0/0에 대한 사용자 정의 경로를 만들어 온-프레미스 네트워크를 통한 강제 터널링을 사용하도록 Azure 환경을 구성할 수 있습니다. 그러나 이 구성은 VPN 게이트웨이를 사용하는 경우에만 작동하고 ExpressRoute를 사용하는 경우에는 작동하지 않습니다. ExpressRoute의 경우 강제 터널링은 BGP를 통해 구성됩니다.
+>[AZURE.NOTE] NRP에서 Express 경로가 지원되는 경우 VPN 게이트웨이를 다음 홉으로 사용하는 서브넷 0.0.0.0/0에 대한 사용자 정의 경로를 만들어 온-프레미스 네트워크를 통한 강제 터널링을 사용하도록 Azure 환경을 구성할 수 있습니다. 그러나 이 구성은 VPN 게이트웨이를 사용하는 경우에만 작동하고 ExpressRoute를 사용하는 경우에는 작동하지 않습니다. ExpressRoute의 경우 강제 터널링은 BGP를 통해 구성됩니다.
 
 ### 사용자 정의 경로
 
@@ -323,7 +325,7 @@ Azure 환경에서는 위에서 지정한 기본 경로를 볼 수 없으며, �
 2.	BGP 경로(ExpressRoute를 사용하는 경우)
 3.	기본 경로
 
->[AZURE.NOTE]사용자 정의 경로는 Azure VM 및 클라우드 서비스에만 적용됩니다. 예를 들어 온-프레미스 네트워크와 Azure 간에 방화벽 가상 어플라이언스를 추가하려면 온-프레미스 주소 공간으로 이동하는 모든 트래픽을 가상 어플라이언스로 전달하는 Azure 경로 테이블에 대한 사용자 정의 경로를 만들어야 합니다. 그러나 온-프레미스 주소 공간에서 들어오는 트래픽은 가상 어플라이언스를 우회하여 VPN 게이트웨이 또는 ExpressRoute 회로를 통해 Azure 환경으로 직접 이동합니다.
+>[AZURE.NOTE] 사용자 정의 경로는 Azure VM 및 클라우드 서비스에만 적용됩니다. 예를 들어 온-프레미스 네트워크와 Azure 간에 방화벽 가상 어플라이언스를 추가하려면 온-프레미스 주소 공간으로 이동하는 모든 트래픽을 가상 어플라이언스로 전달하는 Azure 경로 테이블에 대한 사용자 정의 경로를 만들어야 합니다. 그러나 온-프레미스 주소 공간에서 들어오는 트래픽은 가상 어플라이언스를 우회하여 VPN 게이트웨이 또는 ExpressRoute 회로를 통해 Azure 환경으로 직접 이동합니다.
 
 ### IP 전달
 
@@ -332,9 +334,9 @@ Azure 환경에서는 위에서 지정한 기본 경로를 볼 수 없으며, �
 이 가상 어플라이언스 VM은 주소가 자신으로 지정되지 않은 들어오는 트래픽을 받을 수 있어야 합니다. VM이 다른 대상으로 주소가 지정된 트래픽을 받을 수 있도록 하려면 해당 VM에서 IP 전달을 사용하도록 설정해야 합니다.
 
 ## 다음 단계
-- 조직에서 리소스로 작업하는 데 필요한 정확한 액세스 권한으로 보안 주체를 설정하는 방법을 알아보려면, [Azure 리소스 관리자를 사용하여 서비스 주체 인증](resource-group-authenticate-service-principal.md)을 참조하세요.
+- 조직에서 리소스로 작업하는 데 필요한 정확한 액세스 권한으로 보안 주체를 설정하는 방법을 알아보려면 [Azure 리소스 관리자를 사용하여 서비스 사용자 인증](resource-group-authenticate-service-principal.md)을 참조하세요.
 - 리소스에 대한 액세스를 잠가야 하는 경우 관리 잠금을 사용할 수 있습니다. [Azure 리소스 관리자를 사용하여 리소스 잠그기](resource-group-lock-resources.md)를 참조하세요.
 - 라우팅 및 IP 전달을 구성하려면 [Azure에서 경로를 만들고 IP 전달을 사용하도록 설정하는 방법](virtual-network/virtual-networks-udr-how-to.md)을 참조하세요. 
 - 역할 기반 액세스 제어에 대한 개요는 [Microsoft Azure 포털에서 역할 기반 액세스 제어](role-based-access-control-configure.md)를 참조하세요.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

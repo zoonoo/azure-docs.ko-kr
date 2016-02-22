@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure 검색 서비스 REST API 버전 2015-02-28-Preview | Microsoft Azure"
-   description="Azure 검색 서비스 REST API 버전 2015-02-28-Preview에는 Lucene 쿼리 구문 및 사용자 지정 분석 같은 실험적 기능이 포함되어 있습니다."
+   description="Azure 검색 서비스 REST API 버전 2015-02-28-Preview에는 자연어 분석기 및 moreLikeThis 검색과 같은 실험적 기능이 포함되어 있습니다."
    services="search"
    documentationCenter="na"
    authors="HeidiSteen"
@@ -13,20 +13,25 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="12/21/2015"
+   ms.date="02/04/2016"
    ms.author="heidist"/>
 
 # Azure 검색 서비스 REST API: 버전 2015-02-28-Preview
 
 이 문서는 `api-version=2015-02-28-Preview`에 대한 참조 설명서입니다. 이 미리 보기는 다음과 같은 실험적 기능을 제공하여 현재 일반적으로 사용할 수 있는 버전인 [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx)을 확장합니다.
 
-- 이제 [Lucene 쿼리 구문](https://msdn.microsoft.com/library/mt589323.aspx)을 Azure 검색의 쿼리에 사용할 수 있습니다. Lucene 쿼리 파서를 사용하려면 검색 작업에서 `queryType`을 지정하세요.
-- [사용자 지정 분석기](https://msdn.microsoft.com/library/azure/mt605304.aspx)를 사용하여 텍스트를 인덱싱 가능/검색 가능 토큰으로 변환하는 프로세스를 제어할 수 있습니다
-- `moreLikeThis`는 [검색 작업](#SearchDocs)에서 다른 특정 문서와 관련된 다른 문서를 찾는 데 사용되는 쿼리 매개 변수입니다.
+- 이제 [Lucene 쿼리 구문](https://msdn.microsoft.com/library/mt589323.aspx)을 Azure 검색의 쿼리에 사용할 수 있습니다. Lucene 쿼리 파서를 사용하려면 검색 작업에서 `queryType`을 지정하세요. `moreLikeThis`는 [검색 작업](#SearchDocs)에서 다른 특정 문서와 관련된 다른 문서를 찾는 데 사용되는 쿼리 매개 변수입니다.
+
+`2015-02-28-Preview`의 몇 가지 추가 기능에 대해서는 별도로 설명합니다. 내용은 다음과 같습니다.
+
+- [점수 매기기 프로필](search-api-scoring-profiles-2015-02-28-preview.md)
+- [인덱서](search-api-indexers-2015-02-28-preview.md)
 
 Azure 검색 서비스는 여러 버전으로 제공됩니다. 자세한 내용은 [검색 서비스 버전 관리](http://msdn.microsoft.com/library/azure/dn864560.aspx)를 참조하세요.
 
-##이 문서의 API
+## 이 문서의 API
+
+Azure 검색 서비스 API는 API 작업을 위한 두 URL 구문, 즉 simple 및 OData(자세한 내용은 [OData(Azure 검색 API)](http://msdn.microsoft.com/library/azure/dn798932.aspx)를 참조하세요). 다음 목록에서는 간단한 구문을 보여 줍니다.
 
 [인덱스 만들기](#CreateIndex)
 
@@ -265,7 +270,7 @@ POST 요청의 경우에는 요청 본문에 인덱스 이름을 지정해야 �
 
 `analyzer` - 필드의 검색 시간 및 인덱싱 시간에 사용할 분석기 이름을 설정합니다. 허용되는 값은 [분석기](https://msdn.microsoft.com/library/mt605304.aspx)를 참조하세요. 이 옵션은 `searchable` 필드에만 사용할 수 있으며 `searchAnalyzer` 또는 `indexAnalyzer`와 함께 설정할 수 없습니다. 필드에 대해 분석기를 선택한 후에는 변경할 수 없습니다.
 
-`searchAnalyzer` - 필드의 검색 시간에 사용되는 분석기 이름을 설정합니다. 허용되는 값은 [분석기](https://msdn.microsoft.com/library/mt605304.aspx)를 참조하세요. 이 옵션은 `searchable` 필드에만 사용할 수 있습니다. `indexAnalyzer`와 함께 설정해야 하며 `analyzer` 옵션과 함께 설정할 수 없습니다. 필드에 대해 분석기를 선택한 후에는 변경할 수 없습니다.
+`searchAnalyzer` - 필드의 검색 시간에 사용되는 분석기 이름을 설정합니다. 허용되는 값은 [분석기](https://msdn.microsoft.com/library/mt605304.aspx)를 참조하세요. 이 옵션은 `searchable` 필드에만 사용할 수 있습니다. `indexAnalyzer`와 함께 설정해야 하며 `analyzer` 옵션과 함께 설정할 수 없습니다. 이 분석기는 기존 필드에서 업데이트할 수 있습니다.
 
 `indexAnalyzer` - 필드의 인덱싱 시간에 사용되는 분석기 이름을 설정합니다. 허용되는 값은 [분석기](https://msdn.microsoft.com/library/mt605304.aspx)를 참조하세요. 이 옵션은 `searchable` 필드에만 사용할 수 있습니다. `searchAnalyzer`와 함께 설정해야 하며 `analyzer` 옵션과 함께 설정할 수 없습니다. 필드에 대해 분석기를 선택한 후에는 변경할 수 없습니다.
 
@@ -662,7 +667,7 @@ Lucene 영어 분석기는 표준 분석기를 확장합니다. 이 분석기는
 현재는 인덱스 스키마 업데이트가 제한적으로 지원됩니다. 필드 형식을 변경하는 등 인덱싱을 다시 수행해야 하는 모든 스키마 업데이트는 현재 지원되지 않습니다. 기존 필드를 변경하거나 삭제할 수는 없지만 언제든지 기존 인덱스에 새 필드를 추가할 수는 있습니다. 새 필드를 추가하면 인덱스의 모든 기존 문서에서 해당 필드에 null 값이 자동으로 포함됩니다. 새 문서를 인덱스에 추가할 때까지는 저장소 공간이 추가로 사용되지 않습니다.
 
 <a name="Suggesters"></a>
-##확인기
+## 확인기
 
 Azure 검색에서 제안 기능은 검색 상자에 입력한 부분 문자열 입력에 대한 응답에 잠재적인 검색 용어 목록을 제공하는 미리 입력 또는 자동 완성 쿼리 기능입니다. 상용 웹 검색 엔진 사용 시 쿼리 제안을 보았을 것입니다. Bing에 ".NET"를 입력하면 ".NET 4.5", ".NET Framework 3.5" 등에 대한 용어 목록이 생성됩니다. 검색 서비스 REST API 사용 시, 사용자 지정 Azure 검색 응용 프로그램에서 제안 사항을 구현하려면 다음이 필요합니다.
 
@@ -703,7 +708,7 @@ Azure 검색에서 제안 기능은 검색 상자에 입력한 부분 문자열 
 		  ]
 		}
 
-> [AZURE.NOTE]Azure 검색의 공개 미리 보기 버전을 사용하는 경우에는 3~25자 사이의 짧은 문자열에 대해서만 접두사 제안을 지원했던 이전 부울 속성 `"suggestions": false` 대신 `suggesters`가 사용됩니다. 이 속성 대신 제공되는 `suggesters`는 필드 내용 시작 부분이나 중간에서 일치하는 용어를 찾는 중위 일치 기능을 지원하므로 검색 문자열을 잘못 입력해도 올바른 결과가 반환될 확률이 높아집니다. 일반적으로 사용 가능한 릴리스를 포함하여 이것이 현재 제안 API의 유일한 구현입니다. `api-version=2014-07-31-Preview`에 도입되었던 이전 `suggestions` 속성도 해당 버전에서는 계속 작동하지만 Azure 검색의 `2015-02-28` 이상 버전에서는 작동하지 않습니다.
+> [AZURE.NOTE]  Azure 검색의 공개 미리 보기 버전을 사용하는 경우에는 3~25자 사이의 짧은 문자열에 대해서만 접두사 제안을 지원했던 이전 부울 속성 `"suggestions": false` 대신 `suggesters`가 사용됩니다. 이 속성 대신 제공되는 `suggesters`는 필드 내용 시작 부분이나 중간에서 일치하는 용어를 찾는 중위 일치 기능을 지원하므로 검색 문자열을 잘못 입력해도 올바른 결과가 반환될 확률이 높아집니다. 일반적으로 사용 가능한 릴리스를 포함하여 이것이 현재 제안 API의 유일한 구현입니다. `api-version=2014-07-31-Preview`에 도입되었던 이전 `suggestions` 속성도 해당 버전에서는 계속 작동하지만 Azure 검색의 `2015-02-28` 이상 버전에서는 작동하지 않습니다.
 
 <a name="UpdateIndex"></a>
 ## 인덱스 업데이트
@@ -1042,6 +1047,8 @@ HTTP POST를 사용하여 지정한 인덱스에서 문서를 업로드, 병합,
       ]
     }
 
+> [AZURE.NOTE] 문서 키에는 문자, 숫자, 대시("-"), 밑줄("\_") 및 등호("=")만 포함될 수 있습니다. 자세한 내용은 [명명 규칙](https://msdn.microsoft.com/library/azure/dn857353.aspx)을 참조하세요.
+
 **문서 작업**
 
 - `upload`: 업로드 작업은 새 문서는 삽입하고 기존 문서는 업데이트/교체하는 "upsert"와 비슷합니다. 업데이트 시에는 모든 필드가 바뀝니다.
@@ -1143,9 +1150,9 @@ ________________________________________
 
 **GET 대신 POST를 사용하는 경우**
 
-HTTP GET을 사용하여 **검색** API를 호출하는 경우 요청 URL의 길이는 8KB를 초과할 수 없습니다. 이 크기는 일반적으로 대부분의 응용 프로그램에서 충분합니다. 그러나 일부 응용 프로그램은 매우 큰 쿼리, 특히 OData 필터 식을 생성합니다. 이러한 응용 프로그램에서는 HTTP POST를 사용하는 것이 더 좋습니다. POST에 대한 요청 크기 제한은 17MB 가까이 되는데, 이 크기는 가장 복잡한 쿼리에서도 충분한 공간을 제공합니다.
+HTTP GET을 사용하여 **검색** API를 호출하는 경우 요청 URL의 길이는 8KB를 초과할 수 없습니다. 이 크기는 일반적으로 대부분의 응용 프로그램에서 충분합니다. 그러나 일부 응용 프로그램은 매우 큰 쿼리 또는 OData 필터 식을 생성합니다. 이러한 응용 프로그램의 경우 GET보다 더 많은 필터와 쿼리를 허용할 수 있는 HTTP POST를 사용하는 것이 좋습니다. POST를 사용하면 쿼리의 절 또는 용어 수는 제한되지만 POST의 요청 크기 제한이 17MB 가까이 되므로 원시 쿼리의 크기는 제한되지 않습니다.
 
-**요청**
+> [AZURE.NOTE] POST 요청 크기 제한이 매우 크긴 하지만 검색 쿼리 및 필터 식을 임의로 복잡하게 작성할 수는 없습니다. 검색 쿼리 및 필터 복잡성 제한에 대한 자세한 내용은 [Lucene 쿼리 구문](https://msdn.microsoft.com/library/mt589323.aspx) 및 [OData 식 구문](https://msdn.microsoft.com/library/dn798921.aspx)을 참조하세요. **요청**
 
 서비스 요청에는 HTTPS를 사용해야 합니다. **검색** 요청은 GET 또는 POST 메서드를 사용하여 생성할 수 있습니다.
 
@@ -1178,29 +1185,29 @@ URL 인코딩은 위 쿼리 매개 변수에만 권장됩니다. 실수로 전�
 
 `queryType=simple|full` (선택 사항, 기본값 `simple`) - "simple"로 설정하면 +, * 및 “” 등과 같은 기호에 허용되는 단순 쿼리 언어를 사용하여 검색 텍스트가 해석됩니다. 쿼리는 기본적으로 각 문서의 모든 검색 가능 필드(또는 `searchFields`에 나타난 필드)에 걸쳐 평가됩니다. 쿼리 유형을 `full`(으)로 설정하면 필드별 및 가중치 적용 검색에 허용되는 Lucene 쿼리 언어를 사용하여 검색 텍스트가 해석됩니다. 검색 구문에 대한 구체적인 사항은 [단순 쿼리 구문](https://msdn.microsoft.com/library/dn798920.aspx) 및 [Lucene 쿼리 구문](https://msdn.microsoft.com/library/mt589323.aspx)을 참조하세요.
  
-> [AZURE.NOTE]Lucene 쿼리 언어의 범위 검색은 유사한 기능을 제공하는 $filter를 위해 지원되지 않습니다.
+> [AZURE.NOTE] Lucene 쿼리 언어의 범위 검색은 유사한 기능을 제공하는 $filter를 위해 지원되지 않습니다.
 
 `moreLikeThis=[key]`(선택) **중요:** 이 기능은 `2015-02-28-Preview`에서만 사용할 수 있습니다. 텍스트 검색 매개 변수 `search=[string]`이 포함된 쿼리에는 이 옵션을 사용할 수 없습니다. `moreLikeThis` 매개 변수는 문서 키로 지정된 문서와 유사한 문서를 찾습니다. 검색 요청이 `moreLikeThis`를 통해 이루어진 경우에는 원본 문서에서 용어의 빈도 및 희귀성에 따라 검색 용어 목록이 생성됩니다. 그런 다음 이러한 용어가 요청에 사용됩니다. `searchFields`가 검색되는 필드를 제한하는 데 사용되지 않은 한 기본적으로 모든 `searchable` 필드의 내용이 고려됩니다.
 
 `$skip=#`(선택 사항) - 건너뛸 검색 결과 수입니다. 100,000보다 클 수 없습니다. 문서를 순차적으로 검색하려는 경우 이 제한으로 인해 `$skip`을 사용할 수 없다면 대신 전체 정렬된 키에서 `$orderby`를 사용하고 범위 쿼리에 `$filter`를 사용하는 것이 좋습니다.
 
-> [AZURE.NOTE]POST를 사용하여 **검색**을 호출하는 경우 이 매개 변수의 이름은 `$skip` 대신 `skip`입니다.
+> [AZURE.NOTE] POST를 사용하여 **검색**을 호출하는 경우 이 매개 변수의 이름은 `$skip` 대신 `skip`입니다.
 
 `$top=#`(선택 사항) - 검색할 검색 결과 수입니다. 검색 결과의 클라이언트쪽 페이징을 구현하기 위해 `$skip`과 함께 사용할 수 있습니다.
 
-> [AZURE.NOTE]POST를 사용하여 **검색**을 호출하는 경우 이 매개 변수의 이름은 `$top` 대신 `top`입니다.
+> [AZURE.NOTE] POST를 사용하여 **검색**을 호출하는 경우 이 매개 변수의 이름은 `$top` 대신 `top`입니다.
 
 `$count=true|false`(선택, 기본적으로 `false`) - 총 결과 수를 가져올지 여부를 지정합니다. `search` 및 `$filter` 매개 변수와 일치하는 모든 문서의 개수이며 `$top` 및 `$skip`을 무시합니다. 이 값을 `true`로 설정하면 성능이 저하될 수 있습니다. 반환되는 개수는 근사값입니다.
 
-> [AZURE.NOTE]POST를 사용하여 **검색**을 호출하는 경우 이 매개 변수의 이름은 `$count` 대신 `count`입니다.
+> [AZURE.NOTE] POST를 사용하여 **검색**을 호출하는 경우 이 매개 변수의 이름은 `$count` 대신 `count`입니다.
 
 `$orderby=[string]`(선택) - 결과 정렬 기준으로 사용할 쉼표로 구분된 식 목록입니다. 각 식은 필드 이름이거나 `geo.distance()` 함수 호출일 수 있습니다. 각 식 뒤에는 오름차순을 나타내는 `asc` 또는 내림차순을 나타내는 `desc`가 올 수 있습니다. 기본값은 오름차순입니다. 동률은 문서의 일치 점수로 구분됩니다. `$orderby`를 지정하지 않은 경우 기본 정렬 순서는 문서 일치 점수별 내림차순입니다. `$orderby` 절은 32개로 제한됩니다.
 
-> [AZURE.NOTE]POST를 사용하여 **검색**을 호출하는 경우 이 매개 변수의 이름은 `$orderby` 대신 `orderby`입니다.
+> [AZURE.NOTE] POST를 사용하여 **검색**을 호출하는 경우 이 매개 변수의 이름은 `$orderby` 대신 `orderby`입니다.
 
 `$select=[string]`(선택) - 검색할 쉼표로 구분된 필드 목록입니다. 지정하지 않으면 스키마에서 검색 가능으로 표시된 모든 필드가 포함됩니다. 이 매개 변수를 `*`로 설정하여 모든 필드를 명시적으로 요청할 수도 있습니다.
 
-> [AZURE.NOTE]POST를 사용하여 **검색**을 호출하는 경우 이 매개 변수의 이름은 `$select` 대신 `select`입니다.
+> [AZURE.NOTE] POST를 사용하여 **검색**을 호출하는 경우 이 매개 변수의 이름은 `$select` 대신 `select`입니다.
 
 `facet=[string]`(0 이상) - 패싯할 필드입니다. 필요에 따라 문자열은 쉼표로 구분된 `name:value` 쌍으로 표현된 패싯을 사용자 지정하는 매개 변수를 포함할 수 있습니다. 유효한 매개 변수는 다음과 같습니다.
 
@@ -1216,33 +1223,36 @@ URL 인코딩은 위 쿼리 매개 변수에만 권장됩니다. 실수로 전�
 - `interval`(숫자의 경우 0보다 큰 정수 간격 또는 날짜/시간 값의 경우 `minute`, `hour`, `day`, `week`, `month`, `quarter`, `year`)
   - 예: `facet=baseRate,interval:100`은 기본 요금 범위 100을 기준으로 버킷을 생성합니다. 예를 들어 기본 요금이 모두 $60에서 $600 사이에 속한 경우 0-100, 100-200, 200-300, 300-400, 400-500 및 500-600에 대한 버킷이 생성됩니다.
   - 예: `facet=lastRenovationDate,interval:year`는 호텔이 리노베이션된 각 연도에 대해 하나의 버킷을 생성합니다.
+- `timeoffset` ([+-]hh:mm, [+-]hhmm 또는 [+-]hh) `timeoffset`는 선택 사항입니다. `interval` 옵션과 함께 `Edm.DateTimeOffset` 형식의 필드에 적용할 때만 사용할 수 있습니다. 이 값은 설정 시간 경계에서 고려할 UTC 시간 오프셋을 지정합니다.
+  - 예를 들어 `facet=lastRenovationDate,interval:day,timeoffset:-01:00`에서는 01:00:00 UTC(대상 표준 시간대의 자정)부터 시작하는 날짜 경계를 사용합니다.
 - **참고**: `count`와 `sort`는 동일한 패싯 사양에서 함께 사용할 수 있지만 `interval` 또는 `values` 및 `interval`과 `values`는 함께 사용할 수 없습니다.
+- **참고**: `timeoffset`을 지정하지 않은 경우 날짜 시간의 간격 패싯은 UTC 시간을 기준으로 계산됩니다. 예를 들어 `facet=lastRenovationDate,interval:day`인 경우 날짜 경계는 00:00:00 UTC에 시작합니다. 
 
-> [AZURE.NOTE]POST를 사용하여 **검색**을 호출하는 경우 이 매개 변수의 이름은 `facet` 대신 `facets`입니다. 또한 문자열의 JSON 배열로 지정할 수도 있습니다. 여기서 각 문자열은 별도의 패싯 식입니다.
+> [AZURE.NOTE] POST를 사용하여 **검색**을 호출하는 경우 이 매개 변수의 이름은 `facet` 대신 `facets`입니다. 또한 문자열의 JSON 배열로 지정할 수도 있습니다. 여기서 각 문자열은 별도의 패싯 식입니다.
 
 `$filter=[string]`(선택) - 표준 OData 구문의 구조화된 검색 식입니다. Azure 검색에서 지원하는 OData 식 문법의 하위 집합에 대한 자세한 내용은 [OData 식 구문](#ODataExpressionSyntax)을 참조하세요.
 
-> [AZURE.NOTE]POST를 사용하여 **검색**을 호출하는 경우 이 매개 변수의 이름은 `$filter` 대신 `filter`입니다.
+> [AZURE.NOTE] POST를 사용하여 **검색**을 호출하는 경우 이 매개 변수의 이름은 `$filter` 대신 `filter`입니다.
 
 `highlight=[string]`(선택) - 적중 항목을 강조 표시하는 데 사용되는 쉼표로 구분된 필드 이름 집합입니다. `searchable` 필드만 적중 항목 강조 표시에 사용할 수 있습니다.
 
 `highlightPreTag=[string]`(선택, 기본적으로 `<em>`) - 적중 항목 강조 표시 앞에 추가되는 문자열 태그입니다. `highlightPostTag`로 설정해야 합니다.
 
-> [AZURE.NOTE]GET을 사용하여 **검색**을 호출하는 경우 URL의 예약 문자는 %로 인코딩해야 합니다. 예를 들어 # 대신 %23을 사용해야 합니다.
+> [AZURE.NOTE] GET을 사용하여 **검색**을 호출하는 경우 URL의 예약 문자는 %로 인코딩해야 합니다. 예를 들어 # 대신 %23을 사용해야 합니다.
 
 `highlightPostTag=[string]`(선택, 기본적으로 `</em>`) - 적중 항목 강조 표시에 추가되는 문자열 태그입니다. `highlightPreTag`로 설정해야 합니다.
 
-> [AZURE.NOTE]GET을 사용하여 **검색**을 호출하는 경우 URL의 예약 문자는 %로 인코딩해야 합니다. 예를 들어 # 대신 %23을 사용해야 합니다.
+> [AZURE.NOTE] GET을 사용하여 **검색**을 호출하는 경우 URL의 예약 문자는 %로 인코딩해야 합니다. 예를 들어 # 대신 %23을 사용해야 합니다.
 
 `scoringProfile=[string]`(선택) - 결과를 정렬하기 위해 일치하는 문서의 일치 점수를 평가할 점수 매기기 프로필의 이름입니다.
 
 `scoringParameter=[string]`(0 이상) - 이름: 값 형식을 사용하여 점수 매기기 함수에 정의된 각 매개 변수(예: `referencePointParameter`)의 값을 나타냅니다. 예를 들어 점수 매기기 프로필이 "mylocation"라는 매개 변수를 사용하여 함수를 정의하는 경우 쿼리 문자열 옵션은 &scoringParameter=mylocation:-122.2,44.8입니다.
 
-> [AZURE.NOTE]POST를 사용하여 **검색**을 호출하는 경우 이 매개 변수의 이름은 `scoringParameter` 대신 `scoringParameters`입니다. 또한 문자열의 JSON 배열로 지정할 수도 있습니다. 여기서 각 문자열은 별도의 이름:값 쌍입니다.
+> [AZURE.NOTE] POST를 사용하여 **검색**을 호출하는 경우 이 매개 변수의 이름은 `scoringParameter` 대신 `scoringParameters`입니다. 또한 문자열의 JSON 배열로 지정할 수도 있습니다. 여기서 각 문자열은 별도의 이름:값 쌍입니다.
 
 `minimumCoverage`(선택 사항, 기본값 100까지) - 성공으로 보고할 쿼리를 위해 검색 쿼리를 통해 처리해야 하는 인덱스의 백분율을 나타내는 0과 100 사이의 숫자입니다. 기본적으로 전체 인덱스를 사용할 수 있습니다. 또는 `Search`이(가) HTTP 상태 코드 503을 반환합니다. `minimumCoverage` 및 `Search` 성공을 설정하는 경우 HTTP 200을 반환하며 쿼리에 포함되었던 인덱스의 백분율을 나타내는 응답에 `@search.coverage` 값을 포함합니다.
 
-> [AZURE.NOTE]100보다 작은 값으로 이 매개 변수를 설정하면 하나의 복제본만을 사용하여 서비스에 검색 가용성을 보장하는 데 유용할 수 있습니다. 하지만 일치하는 모든 문서가 검색 결과에 나타나도록 허용되는 것은 아닙니다. 검색 회수가 가용성보다 응용 프로그램에 더욱 중요한 경우, `minimumCoverage`을(를) 기본 값 100으로 두는 것이 가장 좋습니다.
+> [AZURE.NOTE] 100보다 작은 값으로 이 매개 변수를 설정하면 하나의 복제본만을 사용하여 서비스에 검색 가용성을 보장하는 데 유용할 수 있습니다. 하지만 일치하는 모든 문서가 검색 결과에 나타나도록 허용되는 것은 아닙니다. 검색 회수가 가용성보다 응용 프로그램에 더욱 중요한 경우, `minimumCoverage`을(를) 기본 값 100으로 두는 것이 가장 좋습니다.
 
 `api-version=[string]`(필수). 미리 보기 버전은 `api-version=2015-02-28-Preview`입니다. 자세한 내용 및 대체 버전은 [검색 서비스 버전 관리](http://msdn.microsoft.com/library/azure/dn864560.aspx)를 참조하세요.
 
@@ -1347,6 +1357,7 @@ Azure 검색이 연속 토큰을 반환하는 이유는 구현에 따라 그리�
 
 1) 날짜를 기준으로 내림차순으로 정렬된 인덱스를 검색합니다.
 
+
     GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2015-02-28-Preview
 
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
@@ -1357,6 +1368,7 @@ Azure 검색이 연속 토큰을 반환하는 이유는 구현에 따라 그리�
 
 2) 패싯 검색에서 인덱스를 검색하고 범주, 등급, 태그 및 특정 범위의 baseRate이 있는 항목에 대한 패싯을 검색합니다.
 
+
     GET /indexes/hotels/docs?search=test&facet=category&facet=rating&facet=tags&facet=baseRate,values:80|150|220&api-version=2015-02-28-Preview
 
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
@@ -1366,6 +1378,7 @@ Azure 검색이 연속 토큰을 반환하는 이유는 구현에 따라 그리�
     }
 
 3) 필터를 사용하여 사용자가 등급 3 및 범주 "Motel"을 클릭한 후 이전 패싯 쿼리 결과의 범위를 좁힙니다.
+
 
     GET /indexes/hotels/docs?search=test&facet=tags&facet=baseRate,values:80|150|220&$filter=rating eq 3 and category eq 'Motel'&api-version=2015-02-28-Preview
 
@@ -1378,6 +1391,7 @@ Azure 검색이 연속 토큰을 반환하는 이유는 구현에 따라 그리�
 
 4) 패싯 검색에서 쿼리에 반환되는 고유 항목의 상한을 설정합니다. 기본값은 10이지만 `facet` 특성의 `count` 매개 변수를 사용하여 이 값을 늘리거나 줄일 수 있습니다.
 
+
     GET /indexes/hotels/docs?search=test&facet=city,count:5&api-version=2015-02-28-Preview
 
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
@@ -1388,6 +1402,7 @@ Azure 검색이 연속 토큰을 반환하는 이유는 구현에 따라 그리�
 
 5) 특정 필드(예: 언어 관련 필드) 내에서 인덱스를 검색합니다.
 
+
     GET /indexes/hotels/docs?search=hôtel&searchFields=description_fr&api-version=2015-02-28-Preview
 
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
@@ -1397,6 +1412,7 @@ Azure 검색이 연속 토큰을 반환하는 이유는 구현에 따라 그리�
     }
 
 6) 여러 필드에서 인덱스를 검색합니다. 예를 들어 모두 동일한 인덱스 내에서 여러 언어로 된 검색 가능 필드를 저장하고 쿼리할 수 있습니다. 같은 문서에 영어 설명과 프랑스어 설명이 둘 다 있는 경우 쿼리 결과에서 둘 중 하나 또는 둘 다를 반환할 수 있습니다.
+
 
 	GET /indexes/hotels/docs?search=hotel&searchFields=description,description_fr&api-version=2015-02-28-Preview
 
@@ -1410,6 +1426,7 @@ Azure 검색이 연속 토큰을 반환하는 이유는 구현에 따라 그리�
 
 7) 페이징 - 항목의 첫 번째 페이지(페이지 크기는 10)를 가져옵니다.
 
+
     GET /indexes/hotels/docs?search=*&$skip=0&$top=10&api-version=2015-02-28-Preview
 
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
@@ -1420,6 +1437,7 @@ Azure 검색이 연속 토큰을 반환하는 이유는 구현에 따라 그리�
     }
 
 8) 페이징 - 항목의 두 번째 페이지(페이지 크기는 10)를 가져옵니다.
+
 
     GET /indexes/hotels/docs?search=*&$skip=10&$top=10&api-version=2015-02-28-Preview
 
@@ -1432,6 +1450,7 @@ Azure 검색이 연속 토큰을 반환하는 이유는 구현에 따라 그리�
 
 9) 특정 필드 집합을 검색합니다.
 
+
     GET /indexes/hotels/docs?search=*&$select=hotelName,description&api-version=2015-02-28-Preview
 
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
@@ -1442,6 +1461,7 @@ Azure 검색이 연속 토큰을 반환하는 이유는 구현에 따라 그리�
 
 10) 특정 필터 식과 일치하는 문서를 검색합니다.
 
+
     GET /indexes/hotels/docs?$filter=(baseRate ge 60 and baseRate lt 300) or hotelName eq 'Fancy Stay'&api-version=2015-02-28-Preview
 
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
@@ -1450,6 +1470,7 @@ Azure 검색이 연속 토큰을 반환하는 이유는 구현에 따라 그리�
     }
 
 11) 인덱스를 검색하여 적중 항목이 강조 표시된 조각을 반환합니다.
+
 
     GET /indexes/hotels/docs?search=something&highlight=description&api-version=2015-02-28-Preview
 
@@ -1461,6 +1482,7 @@ Azure 검색이 연속 토큰을 반환하는 이유는 구현에 따라 그리�
 
 12) 인덱스를 검색하여 참조 위치에서 가까이 있는 순으로 정렬된 문서를 반환합니다.
 
+
     GET /indexes/hotels/docs?search=something&$orderby=geo.distance(location, geography'POINT(-122.12315 47.88121)')&api-version=2015-02-28-Preview
 
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
@@ -1470,6 +1492,7 @@ Azure 검색이 연속 토큰을 반환하는 이유는 구현에 따라 그리�
     }
 
 13) 두 개의 거리 점수 매기기 함수를 사용하는 "geo"라는 점수 매기기 프로필이 있는 것으로 가정하여 인덱스를 검색합니다. 두 함수는 각각 "currentLocation"이라는 매개 변수와 "lastLocation"이라는 매개 변수를 정의합니다.
+
 
     GET /indexes/hotels/docs?search=something&scoringProfile=geo&scoringParameter=currentLocation:-122.123,44.77233&scoringParameter=lastLocation:-121.499,44.2113&api-version=2015-02-28-Preview
 
@@ -1481,6 +1504,7 @@ Azure 검색이 연속 토큰을 반환하는 이유는 구현에 따라 그리�
     }
 
 14) [단순 쿼리 구문](https://msdn.microsoft.com/library/dn798920.aspx)을 사용하여 인덱스에서 문서를 찾습니다. 이 쿼리는 검색 가능한 필드에 "comfort" 및 "location"이라는 용어가 있지만 "motel"이라는 용어가 없는 호텔을 반환합니다.
+
 
     GET /indexes/hotels/docs?search=comfort +location -motel&searchMode=all&api-version=2015-02-28-Preview
 
@@ -1504,7 +1528,7 @@ Azure 검색이 연속 토큰을 반환하는 이유는 구현에 따라 그리�
     }
 
 <a name="LookupAPI"></a>
-##문서 조회
+## 문서 조회
 
 **문서 조회** 작업은 Azure 검색에서 문서를 검색합니다. 사용자가 특정 검색 결과를 클릭할 때 해당 문서에 대한 특정 세부 정보를 조회하려는 경우 이 작업을 사용하면 유용합니다.
 
@@ -1562,7 +1586,7 @@ OData 구문을 사용하여 '3' 키가 있는 문서 조회
     GET /indexes('hotels')/docs('3')?api-version=2015-02-28-Preview
 
 <a name="CountDocs"></a>
-##문서 수 계산
+## 문서 수 계산
 
 **문서 수 계산** 작업은 검색 인덱스의 문서 수를 검색합니다. `$count` 구문은 OData 프로토콜의 일부입니다.
 
@@ -1598,7 +1622,7 @@ OData 구문을 사용하여 '3' 키가 있는 문서 조회
 응답 본문에는 일반 텍스트로 서식이 지정된 정수로 개수 값이 포함됩니다.
 
 <a name="Suggestions"></a>
-##제안
+## 제안
 
 **제안** 작업에서는 부분 검색 입력을 기준으로 제안을 검색합니다. 이 작업은 일반적으로 사용자가 검색 용어를 입력할 때 미리 입력된 제안을 제공하기 위해 검색 상자에서 사용됩니다.
 
@@ -1642,11 +1666,11 @@ URL 인코딩은 위 쿼리 매개 변수에만 권장됩니다. 실수로 전�
 
 `highlightPreTag=[string]`(선택) - 검색의 적중 항목 앞에 추가할 문자열 태그입니다. `highlightPostTag`로 설정해야 합니다.
 
-> [AZURE.NOTE]GET을 사용하여 **제안**을 호출하는 경우 URL의 예약 문자는 %로 인코딩해야 합니다. 예를 들어 # 대신 %23을 사용해야 합니다.
+> [AZURE.NOTE] GET을 사용하여 **제안**을 호출하는 경우 URL의 예약 문자는 %로 인코딩해야 합니다. 예를 들어 # 대신 %23을 사용해야 합니다.
 
 `highlightPostTag=[string]`(선택) - 검색의 적중 항목에 추가할 문자열 태그입니다. `highlightPreTag`로 설정해야 합니다.
 
-> [AZURE.NOTE]GET을 사용하여 **제안**을 호출하는 경우 URL의 예약 문자는 %로 인코딩해야 합니다. 예를 들어 # 대신 %23을 사용해야 합니다.
+> [AZURE.NOTE] GET을 사용하여 **제안**을 호출하는 경우 URL의 예약 문자는 %로 인코딩해야 합니다. 예를 들어 # 대신 %23을 사용해야 합니다.
 
 `suggesterName=[string]` - 인덱스 정의의 일부인 `suggesters` 컬렉션에 지정된 확인기의 이름입니다. 이 `suggester`에 따라 제안된 쿼리 용어를 검색할 필드가 결정됩니다. 자세한 내용은 [확인기](#Suggesters)를 참조하세요.
 
@@ -1656,23 +1680,23 @@ URL 인코딩은 위 쿼리 매개 변수에만 권장됩니다. 실수로 전�
 
 `$top=#`(선택, 기본값=5) - 검색할 제안의 수입니다. 값은 1~100 사이의 숫자여야 합니다.
 
-> [AZURE.NOTE]POST를 사용하여 **제안**을 호출하는 경우 이 매개 변수의 이름은 `$top` 대신 `top`입니다.
+> [AZURE.NOTE] POST를 사용하여 **제안**을 호출하는 경우 이 매개 변수의 이름은 `$top` 대신 `top`입니다.
 
 `$filter=[string]`(선택) - 제안을 검색할 때 고려할 문자를 필터링하는 식입니다.
 
-> [AZURE.NOTE]POST를 사용하여 **제안**을 호출하는 경우 이 매개 변수의 이름은 `$filter` 대신 `filter`입니다.
+> [AZURE.NOTE] POST를 사용하여 **제안**을 호출하는 경우 이 매개 변수의 이름은 `$filter` 대신 `filter`입니다.
 
 `$orderby=[string]`(선택) - 결과 정렬 기준으로 사용할 쉼표로 구분된 식 목록입니다. 각 식은 필드 이름이거나 `geo.distance()` 함수 호출일 수 있습니다. 각 식 뒤에는 오름차순을 나타내는 `asc` 또는 내림차순을 나타내는 `desc`가 올 수 있습니다. 기본값은 오름차순입니다. `$orderby` 절은 32개로 제한됩니다.
 
-> [AZURE.NOTE]POST를 사용하여 **제안**을 호출하는 경우 이 매개 변수의 이름은 `$orderby` 대신 `orderby`입니다.
+> [AZURE.NOTE] POST를 사용하여 **제안**을 호출하는 경우 이 매개 변수의 이름은 `$orderby` 대신 `orderby`입니다.
 
 `$select=[string]`(선택) - 검색할 쉼표로 구분된 필드 목록입니다. 지정하지 않으면 문서 키와 제안 텍스트만 반환됩니다. 이 매개 변수를 `*`로 설정하여 모든 필드를 명시적으로 요청할 수 있습니다.
 
-> [AZURE.NOTE]POST를 사용하여 **제안**을 호출하는 경우 이 매개 변수의 이름은 `$select` 대신 `select`입니다.
+> [AZURE.NOTE] POST를 사용하여 **제안**을 호출하는 경우 이 매개 변수의 이름은 `$select` 대신 `select`입니다.
 
 `minimumCoverage`(선택 사항, 기본값 80까지) - 성공으로 보고할 쿼리를 위해 제안 사항 쿼리를 통해 처리해야 하는 인덱스의 백분율을 나타내는 0과 100 사이의 숫자입니다. 기본적으로 인덱스의 80% 이상을 사용할 수 있습니다. 또는 `Suggest`이(가) HTTP 상태 코드 503을 반환합니다. `minimumCoverage` 및 `Suggest` 성공을 설정하는 경우 HTTP 200을 반환하며 쿼리에 포함되었던 인덱스의 백분율을 나타내는 응답에 `@search.coverage` 값을 포함합니다.
 
-> [AZURE.NOTE]100보다 작은 값으로 이 매개 변수를 설정하면 하나의 복제본만을 사용하여 서비스에 검색 가용성을 보장하는 데 유용할 수 있습니다. 하지만 일치하는 모든 제안 사항이 결과에 나타나도록 허용되는 것은 아닙니다. 회수가 가용성보다 응용 프로그램에 더욱 중요한 경우, 아래의 `minimumCoverage`보다 낮지 않도록 기본 값 80으로 두는 것이 가장 좋습니다.
+> [AZURE.NOTE] 100보다 작은 값으로 이 매개 변수를 설정하면 하나의 복제본만을 사용하여 서비스에 검색 가용성을 보장하는 데 유용할 수 있습니다. 하지만 일치하는 모든 제안 사항이 결과에 나타나도록 허용되는 것은 아닙니다. 회수가 가용성보다 응용 프로그램에 더욱 중요한 경우, 아래의 `minimumCoverage`보다 낮지 않도록 기본 값 80으로 두는 것이 가장 좋습니다.
 
 `api-version=[string]`(필수). 미리 보기 버전은 `api-version=2015-02-28-Preview`입니다. 자세한 내용 및 대체 버전은 [검색 서비스 버전 관리](http://msdn.microsoft.com/library/azure/dn864560.aspx)를 참조하세요.
 
@@ -1748,4 +1772,4 @@ POST의 경우:
       "suggesterName": "sg"
     }
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

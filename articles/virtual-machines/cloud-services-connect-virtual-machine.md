@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="02/03/2016"
 	ms.author="cynthn"/>
 
 
@@ -52,7 +52,10 @@
 독립 실행형 클라우드 서비스에서 가상 컴퓨터를 연결하려면
 
 1.	[Azure 클래식 포털](http://manage.windowsazure.com)에서 클라우드 서비스를 만듭니다. **새로 만들기 > 계산 > 클라우드 서비스 > 사용자 지정 만들기**를 클릭합니다. 또는 첫 번째 가상 컴퓨터를 만들 때 배포에 대한 클라우드 서비스를 만들 수 있습니다.
-2.	가상 컴퓨터를 만들 때 이전 단계에서 만든 클라우드 서비스의 이름을 선택합니다. ![기존 클라우드 서비스에 가상 컴퓨터 추가](./media/howto-connect-vm-cloud-service/Connect-VM-to-CS.png)
+
+2.	가상 컴퓨터를 만들 때 이전 단계에서 만든 클라우드 서비스의 이름을 선택합니다.
+
+	![기존 클라우드 서비스에 가상 컴퓨터 추가](./media/howto-connect-vm-cloud-service/Connect-VM-to-CS.png)
 
 ##리소스
 [가상 컴퓨터 부하 분산](load-balance-virtual-machines.md)
@@ -65,4 +68,4 @@
 
 [Windows 가상 컴퓨터에 데이터 디스크를 연결하는 방법](storage-windows-attach-disk.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

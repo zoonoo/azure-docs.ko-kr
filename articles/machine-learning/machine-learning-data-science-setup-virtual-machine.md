@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="02/08/2016"
 	ms.author="mohabib;xibingao;bradsev" />
 
 # 고급 분석을 위해 Azure 가상 컴퓨터를 IPython Notebook으로 설정
@@ -104,7 +104,7 @@ IPython Notebook은 사용자가 로컬 컴퓨터에 있는 기존 IPython Noteb
 
 Azure 가상 컴퓨터는 **종량제**로 비용이 청구됩니다. 가상 컴퓨터를 사용하지 않을 때 비용이 청구되지 않도록 하려면 **중지(할당 해제)** 상태에 있어야 합니다.
 
-> [AZURE.NOTE]Windows 전원 옵션을 사용하여 VM 내부에서 가상 컴퓨터를 종료하면 VM이 중지되지만 여전히 할당된 상태로 유지됩니다. 비용이 계속 청구되지 않도록 하려면 항상 [Azure 클래식 포털](http://manage.windowsazure.com/)에서 가상 컴퓨터를 중지하세요. "PostShutdownAction"이 "StoppedDeallocated"와 동일한 **ShutdownRoleOperation**을 호출하여 Powershell을 통해 VM을 중지할 수도 있습니다.
+> [AZURE.NOTE] Windows 전원 옵션을 사용하여 VM 내부에서 가상 컴퓨터를 종료하면 VM이 중지되지만 여전히 할당된 상태로 유지됩니다. 비용이 계속 청구되지 않도록 하려면 항상 [Azure 클래식 포털](http://manage.windowsazure.com/)에서 가상 컴퓨터를 중지하세요. "PostShutdownAction"이 "StoppedDeallocated"와 동일한 **ShutdownRoleOperation**을 호출하여 Powershell을 통해 VM을 중지할 수도 있습니다.
 
 가상 컴퓨터를 종료하고 할당을 해제하려면 다음을 수행합니다.
 
@@ -143,4 +143,4 @@ Azure 가상 컴퓨터는 **종량제**로 비용이 청구됩니다. 가상 컴
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

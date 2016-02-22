@@ -13,18 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/13/2015" 
+	ms.date="02/08/2016" 
 	ms.author="hangzh;bradsev" />
 
 # Cortana 분석 프로세스를 위한 Azure HDInsight Hadoop 클러스터 사용자 지정 
 
-이 메뉴는 CAPS(Cortana 분석 프로세스)에서 사용되는 다양한 데이터 과학 환경을 설정하는 방법을 설명하는 항목에 연결됩니다.
-
-[AZURE.INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
+## 소개
 
 이 문서에서는 HDInsight 서비스에서 클러스터를 프로비전할 때 64비트 Anaconda(Python 2.7)를 각 노드에 설치하여 HDInsight Hadoop 클러스터를 사용자 지정하는 방법에 대해 설명합니다. 이 사용자 지정은 Cortana 분석 프로세스에서 사용하기 위한 클러스터를 준비합니다. 또한 헤드 노드에 액세스하여 사용자 지정 작업을 클러스터에 제출하는 방법을 보여 줍니다.
 
 이 사용자 지정을 통해 클러스터에서 Hive 레코드를 처리하도록 설계된 UDF(사용자 정의 함수)에서 Anaconda에 포함된 널리 사용되는 많은 Python 모듈을 편리하게 사용할 수 있습니다. 이 시나리오에서 사용되는 절차에 대한 지침은 [고급 분석 프로세스에서 HDInsight Hadoop 클러스터로 Hive 쿼리 제출](machine-learning-data-science-hive-queries.md)을 참조하세요.
+
+다음 메뉴는 CAPS(Cortana 분석 프로세스)에서 사용되는 다양한 데이터 과학 환경을 설정하는 방법을 설명하는 항목에 연결됩니다.
+
+[AZURE.INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
 
 
 ## <a name="customize"></a>Azure HDInsight Hadoop 클러스터 사용자 지정
@@ -39,7 +41,7 @@
 
 구성 페이지 2에서 **데이터 노드** 수를 입력하고 **지역/가상 네트워크**를 선택한 다음 **헤드 노드** 및 **데이터 노드**의 크기를 선택합니다. 화살표를 클릭하여 다음 구성 페이지로 이동합니다.
 
->[AZURE.NOTE]**지역/가상 네트워크**는 HDInsight Hadoop 클러스터에 사용할 저장소 계정의 지역과 동일해야 합니다. 그렇지 않으면 네 번째 구성 페이지에서 사용자가 사용하려는 저장소 계정이 **계정 이름** 드롭다운 목록에 표시되지 않습니다.
+>[AZURE.NOTE] **지역/가상 네트워크**는 HDInsight Hadoop 클러스터에 사용할 저장소 계정의 지역과 동일해야 합니다. 그렇지 않으면 네 번째 구성 페이지에서 사용자가 사용하려는 저장소 계정이 **계정 이름** 드롭다운 목록에 표시되지 않습니다.
 
 ![작업 영역 만들기][3]
 
@@ -74,7 +76,7 @@ RDP를 통해 Hadoop 클러스터의 헤드 노드에 액세스하려면 먼저 
 
 2. **원격 데스크톱 구성** 창에서 사용자 이름 및 암호 필드를 입력하고 원격 액세스의 만료 날짜를 선택합니다. 그런 다음 확인 표시를 클릭하여 Hadoop 클러스터의 헤드 노드에 대한 원격 액세스를 설정합니다.
 	
-	>[AZURE.NOTE]
+	>[AZURE.NOTE] 
 	>
 	>1. 원격 액세스용 사용자 이름 및 암호는 Hadoop 클러스터를 만들 때 사용하는 사용자 이름 및 암호가 아닙니다. 이는 별도의 자격 증명 집합입니다.
 	>
@@ -102,4 +104,4 @@ RDP를 통해 Hadoop 클러스터의 헤드 노드에 액세스하려면 먼저 
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/11/2015" 
+	ms.date="02/10/2016" 
 	ms.author="awills"/>
 
 # ASP.NET 5용 Application Insights
@@ -21,8 +21,9 @@ Visual Studio Application Insights를 사용하여 웹 응용 프로그램의 �
 
 ![예](./media/app-insights-asp-net-five/sample.png)
 
-[Microsoft Azure](http://azure.com)를 구독해야 합니다. Microsoft 계정으로 로그인합니다. Windows, XBox Live 또는 기타 Microsoft 클라우드 서비스의 계정을 사용할 수 있습니다.
+[Microsoft Azure](http://azure.com)를 구독해야 합니다. Microsoft 계정으로 로그인합니다. Windows, XBox Live 또는 기타 Microsoft 클라우드 서비스의 계정을 사용할 수 있습니다. 팀에서 Azure를 단체 구독할 수도 있습니다. 소유자에게 Microsoft 계정을 사용하여 추가해 달라고 요청하세요.
 
+[샘플 데모](https://github.com/aspnet/Docs/tree/master/aspnet/fundamentals/application-insights/sample)
 
 ## 시작
 
@@ -78,4 +79,4 @@ Visual Studio 2015에서 프로젝트를 만든 경우에는 Application Insight
 [start]: app-insights-overview.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

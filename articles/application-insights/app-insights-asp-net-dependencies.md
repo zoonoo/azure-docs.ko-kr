@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="02/10/2016" 
 	ms.author="awills"/>
 
 
@@ -36,6 +36,7 @@
  * Azure DocumentDb, 테이블, Blob 저장소 및 큐
 * Java
  * MySQL, SQL Server, PostgreSQL 또는 SQLite 등의 [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/) 드라이버를 통해 데이터베이스를 호출합니다.
+* 웹 페이지의 JavaScript - [웹 페이지 SDK](app-insights-javascript.md)는 Ajax 호출을 자동으로 종속성으로 기록합니다.
 
 [TrackDependency API](app-insights-api-custom-events-metrics.md#track-dependency)를 사용하여 다른 종속성을 모니터링하는 사용자 고유의 SDK 호출을 작성할 수 있습니다.
 
@@ -111,7 +112,7 @@ Azure 웹앱의 제어판에서 Application Insights 확장을 추가합니다.
 
 장기 실행 인스턴스를 클릭하면 세부 사항을 조사할 수 있습니다.
 
-> [AZURE.NOTE]인스턴스를 선택하려면 약간 아래로 스크롤합니다. 파이프라인의 대기 시간은 최상위 인스턴스의 데이터가 완료되지 않았음을 의미할 수 있습니다.
+> [AZURE.NOTE] 인스턴스를 선택하려면 약간 아래로 스크롤합니다. 파이프라인의 대기 시간은 최상위 인스턴스의 데이터가 완료되지 않았음을 의미할 수 있습니다.
 
 이 요청과 관련된 원격 종속성 호출까지 스크롤합니다.
 
@@ -181,9 +182,7 @@ Azure 웹앱의 제어판에서 Application Insights 확장을 추가합니다.
 [availability]: app-insights-monitor-web-app-availability.md
 [azure]: ../insights-perf-analytics.md
 [client]: app-insights-javascript.md
-[detect]: app-insights-detect-triage-diagnose.md
 [diagnostic]: app-insights-diagnostic-search.md
-[knowUsers]: app-insights-overview-usage.md
 [metrics]: app-insights-metrics-explorer.md
 [netlogs]: app-insights-asp-net-trace-logs.md
 [perf]: app-insights-web-monitor-performance.md
@@ -191,8 +190,7 @@ Azure 웹앱의 제어판에서 Application Insights 확장을 추가합니다.
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-asp-net-dependencies.md
 [roles]: app-insights-resources-roles-access-control.md
-[start]: app-insights-overview.md
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

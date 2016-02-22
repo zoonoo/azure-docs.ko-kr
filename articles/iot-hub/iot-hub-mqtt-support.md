@@ -26,7 +26,7 @@ IoT Hub를 사용하면 장치는 [MQTT v3.1.1][lnk-mqtt-org] 프로토콜을 �
 
 ## 장치 클라이언트 SDK 사용
 
-Java, Node.js, C 및 C#에 사용할 수 있는 MQTT 프로토콜을 지원하는 [장치 클라이언트 SDK][lnk-mqtt-org]입니다. 장치 클라이언트 SDK는 표준 IoT Hub 연결 문자열을 사용하여 IoT Hub에 연결합니다. MQTT 프로토콜을 사용하려면 클라이언트 프로토콜 매개 변수를 **MQTT**에 설정해야 합니다. 기본적으로는 장치 클라이언트 SDK는 **CleanSession** 플래그가 **0**에 설정된 IoT Hub에 연결되고 **QoS 1**을 사용하여 IoT Hub와 메시지를 교환합니다.
+Java, Node.js, C 및 C#에 사용할 수 있는 MQTT 프로토콜을 지원하는 [장치 클라이언트 SDK][lnk-device-sdks]입니다. 장치 클라이언트 SDK는 표준 IoT Hub 연결 문자열을 사용하여 IoT Hub에 연결합니다. MQTT 프로토콜을 사용하려면 클라이언트 프로토콜 매개 변수를 **MQTT**에 설정해야 합니다. 기본적으로는 장치 클라이언트 SDK는 **CleanSession** 플래그가 **0**에 설정된 IoT Hub에 연결되고 **QoS 1**을 사용하여 IoT Hub와 메시지를 교환합니다.
 
 장치가 IoT Hub에 연결된 경우 장치 클라이언트 SDK는 IoT Hub와 메시지를 주고 받는 장치를 사용할 수 있는 메서드를 제공합니다.
 
@@ -36,15 +36,15 @@ Java, Node.js, C 및 C#에 사용할 수 있는 MQTT 프로토콜을 지원하�
 | -------------------------- | ------------------------- |
 | [Node.JS][lnk-sample-node] | azure-iot-device-mqtt |
 | [Java][lnk-sample-java] | IotHubClientProtocol.MQTT |
-| [C][lnk-sample-c] | MQTT_Protocol |
+| [C][lnk-sample-c] | MQTT\_Protocol |
 | [C#][lnk-sample-csharp] | TransportType.Mqtt |
 
 ## MQTT 프로토콜 직접 사용
 
 장치가 장치 클라이언트 SDK를 사용할 수 없는 경우라도 MQTT 프로토콜을 사용하는 공용 장치 끝점에 연결할 수 있습니다. **CONNECT** 패킷에서 장치는 다음 값을 사용해야 합니다.
 
-- **ClientId**에**deviceId** 사용.**사용자 이름** 필드의 여기서 {iothubhostname}는 IoT Hub의 전체 CName입니다(예: contoso.azure-devices.net).
-- 
+- **ClientId**에**deviceId** 사용.
+- **Username** 필드의 `{iothubhostname}/{device_id}`, 여기서 {iothubhostname}는 IoT Hub의 전체 CName입니다(예: contoso.azure-devices.net).
 - **암호** 필드에 SAS 토큰 사용. [SAS 토큰의 형식][lnk-iothub-security]은 HTTP 및 AMQP 프로토콜(<br/>`SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`)에서 설명된 것과 동일합니다.
 
 MQTT 연결 및 분리 패킷의 경우, IoT Hub는 **작업 모니터링** 채널의 이벤트를 발행합니다.
@@ -81,4 +81,4 @@ MQTT 프로토콜에 대한 자세한 내용은 [MQTT 설명서][lnk-mqtt-docs]�
 [lnk-sample-c]: https://github.com/Azure/azure-iot-sdks/tree/master/c/iothub_client/samples/iothub_client_sample_mqtt
 [lnk-sample-csharp]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/device/samples
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

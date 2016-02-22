@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/05/2015" 
+  ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 
@@ -31,7 +31,7 @@
 
 암호화된 자산은 **ContentKey**와 연관되어야 합니다. 이 문서에서는 콘텐츠 키를 만드는 방법을 설명합니다.
 
->[AZURE.NOTE]Media Services .NET SDK를 사용하여 새 **StorageEncrypted** 자산을 만들 때, **ContentKey**가 자동으로 생성되며 해당 자산과 연결됩니다.
+>[AZURE.NOTE] Media Services .NET SDK를 사용하여 새 **StorageEncrypted** 자산을 만들 때, **ContentKey**가 자동으로 생성되며 해당 자산과 연결됩니다.
 
 ##ContentKeyType
 
@@ -146,4 +146,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

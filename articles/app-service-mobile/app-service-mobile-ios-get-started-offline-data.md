@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/04/2016"
 	ms.author="krisragh"/>
 
 # iOS 모바일 앱에 대해 오프라인 동기화 사용
 
 [AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## 개요
 
@@ -30,7 +28,7 @@ Azure 모바일 앱을 처음 사용하는 경우, 먼저 [iOS 앱 만들기] �
 
 오프라인 동기화 기능에 대한 자세한 내용은 [Azure 모바일 앱에서 오프라인 데이터 동기화] 항목을 참조하세요.
 
-## <a name="review-sync"></a>클라이언트 동기화 코드 검토 
+## <a name="review-sync"></a>클라이언트 동기화 코드 검토
 
 자습서 [iOS 앱 만들기]에 대해 다운로드한 클라이언트 프로젝트는 로컬 핵심 데이터 기반 데이터베이스를 사용하여 오프라인 동기화를 지원하는 코드를 포함합니다. 이 섹션은 이미 자습서 코드에 포함된 내용에 대한 요약입니다. 기능의 개념적 개요는 [Azure 모바일 앱에서 오프라인 데이터 동기화]를 참조하세요.
 
@@ -107,7 +105,7 @@ Azure 모바일 앱의 오프라인 데이터 동기화 기능을 사용하면 �
       * MS\_TableConfig: 모든 끌어오기 작업에 대한 마지막 동기화 작업의 마지막 업데이트 시간 추적
       * TodoItem: 할 일 항목 저장 시스템 열 **createdAt**, **updatedAt** 및 **version**은 선택적 시스템 속성입니다.
 
->[AZURE.NOTE]Azure 모바일 앱 SDK는 "**``**"로 시작하는 열 이름을 예약합니다. 시스템 열 이외의 항목에는 이 접두사를 사용하지 않아야 합니다. 그렇지 않으면 원격 백 엔드를 사용할 때 열 이름이 수정됩니다.
+>[AZURE.NOTE] Azure 모바일 앱 SDK는 "**``**"로 시작하는 열 이름을 예약합니다. 시스템 열 이외의 항목에는 이 접두사를 사용하지 않아야 합니다. 그렇지 않으면 원격 백 엔드를 사용할 때 열 이름이 수정됩니다.
 
 - 오프라인 동기화 기능을 사용할 경우 아래와 같이 시스템 테이블을 정의해야 합니다.
 
@@ -232,7 +230,7 @@ Azure 모바일 앱에 대한 일반적인 CRUD 작업은 앱이 계속 연결�
 
 * [Azure 모바일 앱에서 오프라인 데이터 동기화]
 
-* [클라우드 표지: Azure 모바일 서비스에서 오프라인 동기화](참고: 비디오는 모바일 서비스에 있지만 Azure 모바일 앱에서 비슷한 방식으로 오프라인 동기화가 작동합니다.)
+* [Cloud Cover: Azure 모바일 서비스에서 오프라인 동기화](참고: 비디오는 모바일 서비스에 있지만 Azure 모바일 앱에서 비슷한 방식으로 오프라인 동기화가 작동합니다.)
 
 <!-- URLs. -->
 
@@ -245,8 +243,7 @@ Azure 모바일 앱에 대한 일반적인 CRUD 작업은 앱이 계속 연결�
 [defining-core-data-tableconfig-entity]: ./media/app-service-mobile-ios-get-started-offline-data/defining-core-data-tableconfig-entity.png
 [defining-core-data-todoitem-entity]: ./media/app-service-mobile-ios-get-started-offline-data/defining-core-data-todoitem-entity.png
 
-[클라우드 표지: Azure 모바일 서비스에서 오프라인 동기화]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[Cloud Cover: Azure 모바일 서비스에서 오프라인 동기화]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
- 
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_0211_2016-->

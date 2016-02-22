@@ -298,11 +298,11 @@ DevOps에서 반복성 및 예측 가능성은 마이크로 서비스로 구성�
 -	[Azure 리소스 관리자 템플릿 함수](../resource-group-template-functions.md)
 -	[Azure 리소스 관리자 템플릿으로 응용 프로그램 배포](../resource-group-template-deploy.md)
 -	[Azure 리소스 관리자로 Azure PowerShell 사용](../powershell-azure-resource-manager.md)
--	[Azure에서 리소스 그룹 배포 문제 해결](../resource-group-deploy-debug.md)
+-	[Azure에서 리소스 그룹 배포 문제 해결](../virtual-machines/resource-group-deploy-debug.md)
 
 
 
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

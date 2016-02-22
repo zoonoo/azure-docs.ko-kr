@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="01/28/2015"
+   ms.date="02/08/2015"
    ms.author="sstein"/>
 
 # SQL 데이터베이스 가격 책정 계층 권장 사항
@@ -96,4 +96,4 @@ SQL 데이터베이스 서비스는 SQL 데이터베이스의 과거 리소스 �
 
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

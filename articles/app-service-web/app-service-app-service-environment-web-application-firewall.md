@@ -29,7 +29,7 @@
 ![아키텍처][Architecture]
 
 ## 앱 서비스 환경 구성 ##
-앱 서비스 환경을 구성하려면 해당 제목의 [설명서](app-service-web-how-to-create-an-app-service-environment.md)를 참조하세요. 앱 서비스 환경을 만들면 [웹앱](app-service-web-overview.md), [API 앱](app-service-api-apps-why-best-platform.md) 및 [모바일 앱](app-service-mobile-value-prop-preview.md)을 다음에 섹션에서 구성할 WAF로 모두 보호 받는 환경에서 만들 수 있습니다.
+앱 서비스 환경을 구성하려면 해당 제목의 [설명서](app-service-web-how-to-create-an-app-service-environment.md)를 참조하세요. 앱 서비스 환경을 만들면 [웹앱](app-service-web-overview.md), [API 앱](../app-service-api/app-service-api-apps-why-best-platform.md) 및 [모바일 앱](../app-service-mobile/app-service-mobile-value-prop.md)을 다음에 섹션에서 구성할 WAF로 모두 보호 받는 환경에서 만들 수 있습니다.
 
 ## Barracuda WAF 클라우드 서비스를 구성합니다. ##
 Barracuda에는 Azure의 가상 컴퓨터에 WAF를 배포하는 방법에 대한 [자세한 문서](https://techlib.barracuda.com/WAF/AzureDeploy)가 있습니다. 이 설명서를 따라할 때 중복성을 원하고 단일 실패 지점을 도입하지 않는 것뿐만 아니라, 동일한 클라우드 서비스 안에 최소 2개의 WAF 인스턴스 VM을 배포하는 것을 원합니다.
@@ -66,7 +66,7 @@ Barracuda에는 Azure의 가상 컴퓨터에 WAF를 배포하는 방법에 대�
 > 참고: 응용 프로그램이 어떻게 구성되었는지, 앱 서비스 환경에서 어떤 기능들이 쓰이고 있는지에 따라서 트래픽을 80 및 443이 아닌 TCP 포트로 전달해야 합니다(예: 웹앱에 대한 IP SSL을 설치한 경우). 앱 서비스 환경에서 사용되는 네트워크 포트의 목록은 [인바운드 트래픽을 제어 설명서](app-service-app-service-environment-control-inbound-traffic.md)의 네트워크 포트 섹션을 참조하세요.
 
 ## Microsoft Azure 트래픽 관리자를 구성합니다. (선택 사항) ##
-응용 프로그램이 여러 지역에서 사용할 수 있는 경우, [Azure 트래픽 관리자](traffic-manager.md)를 사용하여 부하 분산하고자 합니다. 이 작업을 수행하려면 아래 그림처럼 트래픽 관리자 프로필의 WAF 클라우드 서비스 이름을 이용하여 [Azure 클래식 포털](https://manage.azure.com)에서 끝점을 추가합니다.
+응용 프로그램이 여러 지역에서 사용할 수 있는 경우, [Azure 트래픽 관리자](../traffic-manager/traffic-manager-overview.md)를 사용하여 부하 분산하고자 합니다. 이 작업을 수행하려면 아래 그림처럼 트래픽 관리자 프로필의 WAF 클라우드 서비스 이름을 이용하여 [Azure 클래식 포털](https://manage.azure.com)에서 끝점을 추가합니다.
 
 ![트래픽 관리자 끝점][TrafficManagerEndpoint]
 
@@ -99,4 +99,4 @@ Barracuda에는 Azure의 가상 컴퓨터에 WAF를 배포하는 방법에 대�
 [ConfigureTrafficManager]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureTrafficManager.png
 [WebsiteTranslations]: ./media/app-service-app-service-environment-web-application-firewall/WebsiteTranslations.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

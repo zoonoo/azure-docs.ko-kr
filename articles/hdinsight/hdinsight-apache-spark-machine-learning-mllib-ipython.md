@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/04/2016" 
+	ms.date="02/05/2016" 
 	ms.author="nitinme"/>
 
 
 # 기계 학습: HDInsight의 Spark(Linux)에서 MLlib를 사용하여 음식 검사 데이터에 대한 예측 분석
 
-> [AZURE.TIP]이 자습서는 HDInsight에서 만드는 Spark(Linux) 클러스터에서 Jupyter Notebook으로 사용할 수도 있습니다. Notebook 환경을 통해 Notebook 자체에서 Python 코드 조각을 실행할 수 있습니다. Notebook 내에서 자습서를 수행하려면 Spark 클러스터를 만들고 Jupyter Notebook(`https://CLUSTERNAME.azurehdinsight.net/jupyter`)을 시작한 다음 **Python** 폴더 아래의 Notebook **Spark 기계 학습 - MLLib.ipynb를 사용하여 음식 검사 데이터 예측 분석**을 실행합니다.
+> [AZURE.TIP] 이 자습서는 HDInsight에서 만드는 Spark(Linux) 클러스터에서 Jupyter Notebook으로 사용할 수도 있습니다. Notebook 환경을 통해 Notebook 자체에서 Python 코드 조각을 실행할 수 있습니다. Notebook 내에서 자습서를 수행하려면 Spark 클러스터를 만들고 Jupyter Notebook(`https://CLUSTERNAME.azurehdinsight.net/jupyter`)을 시작한 다음 **Python** 폴더 아래의 Notebook **Spark 기계 학습 - MLLib.ipynb를 사용하여 음식 검사 데이터 예측 분석**을 실행합니다.
 
 
 이 문서에서는 Spark의 기본 제공 기계 학습 라이브러리인 **MLLib**를 사용하여 공개 데이터 집합에 대한 간단한 예측 분석을 수행하는 방법을 보여줍니다. MLLib는 다음 작업에 적합한 유틸리티를 비롯한 기계 학습 작업에 유용한 여러 유틸리티를 제공하는 코어 Spark 라이브러리입니다.
@@ -59,7 +59,7 @@
 
 2. Spark 클러스터 블레이드에서 **빠른 연결**을 클릭한 다음 **클러스터 대시보드** 블레이드에서 **Jupyter Notebook**을 클릭합니다. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다.
 
-	> [AZURE.NOTE]또한 브라우저에서 다음 URL을 열어 클러스터에 대한 Jupyter Notebook에 접근할 수 있습니다. __CLUSTERNAME__을 클러스터의 이름으로 바꿉니다.
+	> [AZURE.NOTE] 또한 브라우저에서 다음 URL을 열어 클러스터에 대한 Jupyter Notebook에 접근할 수 있습니다. __CLUSTERNAME__을 클러스터의 이름으로 바꿉니다.
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
@@ -375,7 +375,9 @@ Spark에서 로지스틱 회귀를 사용하면 영어로 된 위반 설명과 �
 
 * [Livy를 사용하여 Spark 클러스터에서 원격으로 작업 실행](hdinsight-apache-spark-livy-rest-interface.md)
 
-### 확장
+### 도구 및 확장
+
+* [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark Scala 응용 프로그램 만들기 및 제출](hdinsight-apache-spark-intellij-tool-plugin.md)
 
 * [HDInsight에서 Spark 클러스터와 함께 Zeppelin Notebook 사용](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
@@ -385,4 +387,4 @@ Spark에서 로지스틱 회귀를 사용하면 영어로 된 위반 설명과 �
 
 * [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0211_2016-->

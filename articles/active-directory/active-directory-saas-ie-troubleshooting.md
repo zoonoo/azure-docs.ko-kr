@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/02/2016"
+    ms.date="02/09/2016"
     ms.author="liviodlc"/>
 
 #Internet Explorer용 액세스 패널 확장 문제 해결
@@ -103,6 +103,10 @@ InPrivate 브라우징 모드를 사용 중인 경우:
 
 확장을 제거하는 데 문제가 있으면 [Microsoft Fix It](https://go.microsoft.com/?linkid=9779673) 도구를 사용하여 제거할 수도 있습니다.
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+## 관련 문서
 
-<!---HONumber=AcomDC_0204_2016-->
+- [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
+- [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On](active-directory-appssoaccess-whatis.md)
+- [그룹 정책을 사용하여 Internet Explorer용 액세스 패널 확장을 배포하는 방법](active-directory-saas-ie-group-policy.md)
+
+<!---HONumber=AcomDC_0211_2016-->

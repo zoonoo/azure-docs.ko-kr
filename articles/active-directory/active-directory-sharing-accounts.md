@@ -13,7 +13,7 @@
  	ms.tgt_pltfrm="na"
  	ms.devlang="na"
  	ms.topic="article"
- 	ms.date="02/01/2015"  
+ 	ms.date="02/09/2016"  
  	ms.author="stevenpo"/>
 
 # Azure AD와 계정 공유
@@ -67,9 +67,10 @@ Azure AD를 사용하여 계정을 공유하려면 다음이 필요합니다.
 
 또한 MFA(Multi-Factor Authentication)로 공유 계정의 보안을 강화하고([Azure AD를 통한 응용 프로그램 보호](multi-factor-authentication-get-started.md)에 대한 자세한 정보) [Azure AD 셀프 서비스](active-directory-accessmanagement-self-service-group-management.md) 그룹 관리를 사용하여 응용 프로그램에 대한 액세스 권한이 있는 관리자에게 기능을 위임할 수 있습니다.
 
-## 관련 문서
+## 관련된 문서
 
+- [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 - [조건부 액세스를 사용한 앱 보호](active-directory-conditional-access.md)
 - [셀프 서비스 그룹 관리/SSAA](active-directory-accessmanagement-self-service-group-management.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

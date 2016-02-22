@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/05/2015"
+ 	ms.date="02/09/2016"  
 	ms.author="juliako"/>
 
 
@@ -33,7 +33,8 @@
 - 모든 자산 나열 
 - 작업 및 자산 나열 
 - 모든 액세스 정책 나열 
-- 모든 로케이터 나열 
+- 모든 로케이터 나열
+- 대용량 엔터티 컬렉션 열거
 - 자산 삭제 
 - 작업 삭제 
 - 액세스 정책 삭제 
@@ -245,6 +246,47 @@
 	    }
 	}
 
+## 대용량 엔터티 컬렉션 열거
+
+엔터티를 쿼리할 때 한 번에 반환되는 엔터티 수는 최대 1000개입니다. 공용 REST v2에서는 쿼리 결과를 1000개로 제한하기 때문입니다. 대용량 엔터티 컬렉션을 열거할 때 Skip 및 Take를 사용해야 합니다.
+	
+다음 함수는 제공된 미디어 서비스 계정에서 모든 작업을 반복합니다. 미디어 서비스는 작업 컬렉션의 작업 1000개를 반환합니다. 이 함수는 Skip 및 Take를 사용하여 모든 작업이 연결되었는지 확인합니다(계정에 1000개가 넘는 작업이 있는 경우).
+	
+	static void ProcessJobs()
+	{
+	    try
+	    {
+	
+	        int skipSize = 0;
+	        int batchSize = 1000;
+	        int currentBatch = 0;
+	
+	        while (true)
+	        {
+	            // Loop through all Jobs (1000 at a time) in the Media Services account
+	            IQueryable _jobsCollectionQuery = _context.Jobs.Skip(skipSize).Take(batchSize);
+	            foreach (IJob job in _jobsCollectionQuery)
+	            {
+	                currentBatch++;
+	                Console.WriteLine("Processing Job Id:" + job.Id);
+	            }
+	
+	            if (currentBatch == batchSize)
+	            {
+	                skipSize += batchSize;
+	                currentBatch = 0;
+	            }
+	            else
+	            {
+	                break;
+	            }
+	        }
+	    }
+	    catch (Exception ex)
+	    {
+	        Console.WriteLine(ex.Message);
+	    }
+	}
 
 ##자산 삭제
 
@@ -339,4 +381,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

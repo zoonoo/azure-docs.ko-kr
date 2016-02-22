@@ -36,9 +36,9 @@ Operational Insights는 서비스 패브릭 클러스터에서 업로드되는 �
 ## 수집하려는 다양한 로그 원본
 1. **서비스 패브릭 로그:** 플랫폼에서 표준 ETW와 EventSource 채널로 내보냅니다. 로그는 여러 유형 중 하나일 수 있습니다.
   - 작업 이벤트: 서비스 패브릭 플랫폼이 수행한 작업에 대한 로그입니다. 응용 프로그램 및 서비스 만들기, 노드 상태 변경, 업그레이드 정보 등을 예로 들 수 있습니다.
-  - [행위자 프로그래밍 모델 이벤트](https://azure.microsoft.com/service-fabric-reliable-actors-diagnostics/)
-  - [Reliable Services 프로그래밍 모델 이벤트](https://azure.microsoft.com/service-fabric-reliable-services-diagnostics/)
-2. **응용 프로그램 이벤트:** 서비스 코드에서 발생하며 Visual Studio에서 제공하는 EventSource 도우미 클래스를 사용하여 작성된 이벤트입니다. 응용 프로그램에서 로그를 작성하는 방법에 대한 자세한 내용은 [로컬 컴퓨터 환경에서 서비스를 모니터링 및 진단하는 방법에 대한 이 문서](https://azure.microsoft.com/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/)를 참조하세요.
+  - [행위자 프로그래밍 모델 이벤트](service-fabric-reliable-actors-diagnostics.md)
+  - [Reliable Services 프로그래밍 모델 이벤트](service-fabric-reliable-services-diagnostics.md)
+2. **응용 프로그램 이벤트:** 서비스 코드에서 발생하며 Visual Studio에서 제공하는 EventSource 도우미 클래스를 사용하여 작성된 이벤트입니다. 응용 프로그램에서 로그를 작성하는 방법에 대한 자세한 내용은 [로컬 컴퓨터 환경에서 서비스를 모니터링 및 진단하는 방법에 대한 이 문서](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)를 참조하세요.
 
 
 ## 진단 확장을 서비스 패브릭 클러스터에 배포하여 로그 수집 및 업로드
@@ -325,4 +325,4 @@ Operational Insights 작업 영역이 특정 저장소 계정에서 로그를 �
 ## 다음 단계
 문제를 해결하는 동안 조사해야 하는 이벤트에 대한 자세한 내용을 확인하려면 [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) 및 [Reliable Services](service-fabric-reliable-services-diagnostics.md)가 내보낸 진단 이벤트를 확인합니다.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

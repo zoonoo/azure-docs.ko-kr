@@ -19,6 +19,6 @@
 
 <sup>2</sup> 5,000만 이상의 추가 용량을 구매할 수 있습니다.
  
-[Application Insights의 가격 책정 및 할당량 정보](app-insights-pricing.md)
+[Application Insights의 가격 책정 및 할당량 정보](../articles/application-insights/app-insights-pricing.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

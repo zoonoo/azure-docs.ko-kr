@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/03/2016"
 	ms.author="josephd"/>
 
 # SharePoint 서버 팜 만들기
@@ -23,7 +23,7 @@
 
 Microsoft Azure 포털 마켓플레이스를 사용하면 미리 구성된 SharePoint Server 2013 팜을 신속하게 만들 수 있습니다. 그러면 개발 및 테스팅 환경을 위해 기본 또는 고가용성 SharePoint 팜이 필요하거나 SharePoint Server 2013 을 조직의 협업 솔루션으로 평가하는 경우 상당한 시간이 줄어들 수 있습니다.
 
-> [AZURE.NOTE] Azure 포털에서 Azure 마켓플레이스의 **SharePoint 서버 팜** 항목이 제거되었습니다.
+> [AZURE.NOTE] Azure 포털에서 Azure 마켓플레이스의 **SharePoint 서버 팜** 항목이 제거되었습니다. 이 항목은 **SharePoint 2013 비 HA 팜** 및 **SharePoint 2013 HA 팜** 항목으로 대체되었습니다.
 
 기본 SharePoint 팜은 다음 구성의 3가지 가상 컴퓨터로 구성됩니다.
 
@@ -51,8 +51,6 @@ Microsoft Azure 포털 마켓플레이스를 사용하면 미리 구성된 Share
 3. **SharePoint 2013 HA 팜** 창에서 **만들기**를 클릭합니다.
 4. **SharePoint 2013 HA 팜** 창의 7단계에서 설정을 지정한 다음 **SharePoint 2013 HA 팜 만들기**를 클릭합니다.
 
-> [AZURE.NOTE] Microsoft은 SharePoint Server 2016 IT Preview를 출시했습니다. 이 Preview를 보다 쉽게 설치하고 테스트하기 위해 SharePoint Server 2016 IT Preview 및 해당 필수 구성 요소가 미리 설치된 상태에서 Azure 가상 컴퓨터 갤러리 이미지를 사용할 수 있습니다. 자세한 내용은 [Azure에서 SharePoint Server 2016 IT Preview 테스트](https://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/)를 참조하세요.
-
 ## SharePoint 팜 관리
 
 원격 데스크톱 연결을 통해 이러한 팜의 서버를 관리할 수 있습니다. 자세한 내용은 [가상 컴퓨터에 로그온](virtual-machines-windows-tutorial.md#log-on-to-the-virtual-machine)을 참조하세요.
@@ -65,4 +63,4 @@ Microsoft Azure 포털 마켓플레이스를 사용하면 미리 구성된 Share
 
 - Azure 인프라 서비스에서 추가 [SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) 구성을 검색합니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

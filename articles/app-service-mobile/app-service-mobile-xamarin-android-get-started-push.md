@@ -1,8 +1,8 @@
 <properties
 	pageTitle="Azure 앱 서비스를 사용하여 Xamarin.Android 앱에 푸시 알림 추가"
 	description="Azure 앱 서비스와 Azure 알림 허브를 사용하여 Xamarin Android 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다."
-	services="app-service\mobile" 
-	documentationCenter="xamarin" 
+	services="app-service\mobile"
+	documentationCenter="xamarin"
 	authors="ggailey777"
 	manager="dwrede"
 	editor=""/>
@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/18/2015" 
+	ms.date="02/04/2016"
 	ms.author="glenga"/>
 
 # Xamarin.Android 앱에 푸시 알림 추가
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##개요
 
@@ -31,7 +29,7 @@
 이 자습서를 사용하려면 다음이 필요합니다.
 
 + 활성 Google 계정. [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302)에서 Google 계정을 등록할 수 있습니다.
-   
+
 + [Google Cloud Messaging 클라이언트 구성 요소](http://components.xamarin.com/view/GCMClient/). 자습서에 이 구성 요소가 추가됩니다.
 
 + [Xamarin.Android 빠른 시작] 자습서를 완료했습니다.
@@ -65,7 +63,7 @@
 
 에뮬레이터에서 가상 장치를 사용하여 앱을 테스트할 수 있습니다. 에뮬레이터에서 실행할 때 필요한 추가 구성 단계가 있습니다.
 
-1. 아래와 같이 AVD(Android 가상 장치) 관리자에서 대상으로 설정된 Google API가 있는 가상 장치에 배포하거나 해당 가상 장치에서 디버그해야 합니다. 
+1. 아래와 같이 AVD(Android 가상 장치) 관리자에서 대상으로 설정된 Google API가 있는 가상 장치에 배포하거나 해당 가상 장치에서 디버그해야 합니다.
 
 	![](./media/app-service-mobile-xamarin-android-get-started-push/google-apis-avd-settings.png)
 
@@ -86,4 +84,4 @@
 [Xamarin.Android]: http://xamarin.com/download/
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

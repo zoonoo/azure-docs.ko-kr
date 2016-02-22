@@ -13,14 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/06/2015"
+  ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 
 
 #동적 암호화: 콘텐츠 키 인증 정책 구성 
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
-
 
 ##개요
 
@@ -440,4 +439,4 @@ PlayReady로 콘텐츠를 보호하려는 경우 권한 부여 정책에서 지�
 콘텐츠 키의 권한 부여 정책을 구성했으므로 [자산 배포 정책 구성 방법](media-services-dotnet-configure-asset-delivery-policy.md) 항목으로 이동합니다.
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

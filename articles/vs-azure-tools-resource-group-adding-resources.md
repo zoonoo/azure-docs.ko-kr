@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="11/13/2015"
+   ms.date="02/09/2016"
    ms.author="tomfitz" />
 
 # Visual Studio를 사용하여 리소스 관리자 템플릿 편집
@@ -61,7 +61,7 @@ Visual Studio를 사용하여 템플릿을 직접 편집할 수도 있습니다.
 
 ## 참고 항목
 
-[Visual Studio를 통해 Azure 리소스 그룹 만들기 및 배포](vs-azure-tools-resource-groups-deployment-project-create-deploy.md)
+[Visual Studio를 통해 Azure 리소스 그룹 만들기 및 배포](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 [Azure 리소스 관리자 Cmdlet](https://msdn.microsoft.com/library/azure/dn757692.aspx)
 
@@ -69,4 +69,4 @@ Visual Studio를 사용하여 템플릿을 직접 편집할 수도 있습니다.
 
 [Channel9 비디오: Azure 리소스 관리자](http://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B224#fbid=)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

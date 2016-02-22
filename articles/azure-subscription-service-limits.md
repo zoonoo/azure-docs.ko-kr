@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/03/2015"
+	ms.date="02/11/2016"
 	ms.author="jroth"/>
 
 # Azure 구독 및 서비스 제한, 할당량 및 제약 조건
@@ -26,7 +26,7 @@
 
 ## 제한 및 Azure 리소스 관리자
 
-이제 단일 Azure 리소스 그룹에 여러 Azure 리소스를 결합할 수 있습니다. 리소스 그룹을 사용하는 경우 전역이었던 제한이 Azure 리소스 관리자에서 지역 수준으로 관리됩니다. Azure 리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](resource-group-portal.md)를 참조하세요.
+이제 단일 Azure 리소스 그룹에 여러 Azure 리소스를 결합할 수 있습니다. 리소스 그룹을 사용하는 경우 전역이었던 제한이 Azure 리소스 관리자에서 지역 수준으로 관리됩니다. Azure 리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](azure-portal/resource-group-portal.md)를 참조하세요.
 
 아래 제한에서는 Azure 리소스 관리자를 사용할 때 제한에 차이를 반영할 수 있도록 새로운 테이블이 추가되었습니다. 예를 들어, **구독 제한** 테이블 및 **구독 제한 - Azure 리소스 관리자** 테이블이 있습니다. 두 시나리오에 모두 제한이 적용되면 첫 번째 테이블에서만 표시됩니다. 별도로 지정하지 않으면 제한은 모든 지역에 걸쳐 전역으로 적용됩니다.
 
@@ -123,7 +123,7 @@ Azure 리소스 관리자 및 Azure 리소스 그룹을 사용하는 경우 다�
 
 [AZURE.INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
-#### 가상 컴퓨터 디스크 제한 
+#### 가상 컴퓨터 디스크 제한
 
 [AZURE.INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
@@ -171,7 +171,7 @@ Azure 리소스 관리자 및 Azure 리소스 그룹을 사용하는 경우 다�
 [AZURE.INCLUDE [azure-documentdb-limits](../includes/azure-documentdb-limits.md)]
 
 
-### 모바일 고객 관리 제한
+### 모바일 참여 제한
 
 [AZURE.INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]
 
@@ -238,7 +238,7 @@ Azure 리소스 관리자 및 Azure 리소스 그룹을 사용하는 경우 다�
 [AZURE.INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]
 
 
-### Operational Insights 제한 사항
+### Operational Insights 제한
 
 [AZURE.INCLUDE [operational-insights-limits](../includes/operational-insights-limits.md)]
 
@@ -277,6 +277,8 @@ SQL 데이터베이스 제한은 [SQL 데이터베이스 리소스 제한](sql-d
 
 [Azure 제한 및 증가 이해](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 
-[Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](http://msdn.microsoft.com/library/azure/dn197896.aspx)
+[Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](virtual-machines/virtual-machines-size-specs.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+[클라우드 서비스 크기](cloud-services/cloud-services-sizes-specs.md)
+
+<!---HONumber=AcomDC_0211_2016-->

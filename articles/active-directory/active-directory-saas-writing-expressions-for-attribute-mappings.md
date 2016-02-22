@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
+	ms.date="02/09/2016"
 	ms.author="markusvi"/>
 
 
@@ -305,6 +305,14 @@ Azure AD에 저장된 상태 코드를 기반으로 사용자의 시간대를 �
 - **출력**: "오스트레일리아/브리즈번"
 
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+##관련 문서
 
-<!---HONumber=AcomDC_0107_2016-->
+- [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
+- [SaaS 앱에 자동화된 사용자 프로비전/프로비전 해제](active-directory-saas-app-provisioning.md)
+- [사용자 프로비저닝에 대한 특성 매핑 사용자 지정](active-directory-saas-customizing-attribute-mappings.md)
+- [사용자 프로 비전에 대 한 필터 범위 지정](active-directory-saas-scoping-filters.md)
+- [SCIM를 사용하여 Azure Active Directory으로부터 응용 프로그램에 사용자 및 그룹의 자동 프로비전 사용](active-directory-scim-provisioning.md)
+- [계정 프로비전 알림](active-directory-saas-account-provisioning-notifications.md)
+- [SaaS App을 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
+
+<!---HONumber=AcomDC_0211_2016-->

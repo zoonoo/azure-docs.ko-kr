@@ -103,7 +103,7 @@ Azure SDK for .NET은 다음 제품을 설치합니다.
 
 ###<a id="mobile">Microsoft Azure Mobile App SDK
 
-[Azure 앱 서비스 모바일 앱](app-service-mobile/app-service-mobile-value-prop-preview.md)으로 작업하기 위한 도구
+[Azure 앱 서비스 모바일 앱](app-service-mobile/app-service-mobile-value-prop.md)으로 작업하기 위한 도구
 
 ###<a id="ps"></a>Microsoft Azure PowerShell
 
@@ -186,4 +186,4 @@ Azure SDK for .NET 또는 클라이언트 라이브러리를 다운로드하려�
 
 Azure 클라이언트 라이브러리 참조 설명서는 [Azure .NET 참조](/documentation/api/)를 참조하세요.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

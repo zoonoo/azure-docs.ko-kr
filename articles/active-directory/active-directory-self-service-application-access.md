@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/14/2015"
+	ms.date="02/09/2016"
 	ms.author="asmalser"/>
 
 #Azure Active Directory를 사용하는 셀프 서비스 응용 프로그램 액세스 및 위임된 관리
@@ -101,9 +101,12 @@
 
 * **사용자가 관리한 단일 계정을 사용하여 자동으로 로그인됩니다** - 이는 특수한 경우이며 모든 할당된 사용자가 단일 공유 계정을 사용하여 액세스 권한을 부여받아야할 때 사용하는 것이 적절합니다. 이에 대한 가장 일반적인 사용 사례는 소셜 미디어 응용 프로그램이며 여기서 조직에는 단일 "회사" 계정이 있고 여러 사용자는 해당 계정을 업데이트해야 합니다. 이 또한 [관리자가 자격 증명을 관리](active-directory-appssoaccess-whatis.md#password-based-single-sign-on)하는 암호 SSO 사례에 해당합니다. 그러나 이 옵션을 선택한 후에 승인자는 단일 공유 계정에 대한 사용자 이름 및 암호를 입력하라는 메시지가 표시됩니다. 완료되면 해당 Azure AD 액세스 패널 또는 Office 365에서 응용 프로그램을 클릭할 때 할당된 모든 사용자가 이 계정을 사용하여 로그인합니다.
 
+##추가 리소스
+- [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
+
 <!--Image references-->
 [1]: ./media/active-directory-self-service-application-access/ssaa_admin.PNG
 [2]: ./media/active-directory-self-service-application-access/ssaa_ap_manage_app.PNG
 [3]: ./media/active-directory-self-service-application-access/ssaa_ap_manage_app_config.PNG
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/05/2015"  
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #Azure 주문형 미디어 인코더 개요 및 비교
@@ -33,9 +33,9 @@ Azure 미디어 서비스는 클라우드에서 미디어의 인코딩에 대한
 
 미디어 서비스는 이 문서에서 설명하는 다음 주문형 인코더를 지원합니다.
 
-- **미디어 인코더 표준**
-- **Azure 미디어 인코더**
-- **미디어 인코더 Premium 워크플로**
+- [미디어 인코더 표준](media-services-encode-asset.md#media-encoder-standard)
+- [Azure 미디어 인코더](media-services-encode-asset.md#azure-media-encoder)
+- [미디어 인코더 Premium 워크플로](media-services-encode-asset.md#media-encoder-premium-workflow)
 
 이 문서에서는 주문형 미디어 인코더에 대한 간략한 개요와 보다 자세한 정보를 제공하는 문서에 대한 링크를 제공합니다. 또한 항목에서는 인코더에 대한 비교를 제공합니다.
 
@@ -74,15 +74,15 @@ Azure 미디어 인코더에 비해 더 입력 및 출력 형식과 코덱을 �
 
 ###미리 보기 생성
 
-내용은 [미디어 인코더 표준을 사용하여 미리 보기를 생성하는 방법](media-services-custom-mes-presets-with-dotnet.md#thumbnails)을 참조하세요.
+자세한 내용은 [미디어 인코더 표준을 사용하여 미리 보기를 생성하는 방법](media-services-custom-mes-presets-with-dotnet.md#thumbnails)을 참조하세요.
 
 ###비디오 자르기(클리핑)
 
-내용은 [미디어 인코더 표준을 사용하여 비디오를 자르는 방법](media-services-custom-mes-presets-with-dotnet.md#trim_video)을 참조하세요.
+자세한 내용은 [미디어 인코더 표준을 사용하여 비디오를 자르는 방법](media-services-custom-mes-presets-with-dotnet.md#trim_video)을 참조하세요.
 
 ###오버레이 만들기
 
-내용은 [미디어 인코더 표준을 사용하여 오버레이를 만드는 방법](media-services-custom-mes-presets-with-dotnet.md#overlay)을 참조하세요.
+자세한 내용은 [미디어 인코더 표준을 사용하여 오버레이를 만드는 방법](media-services-custom-mes-presets-with-dotnet.md#overlay)을 참조하세요.
 
 ###참고 항목
 
@@ -139,6 +139,11 @@ Azure 미디어 인코더는 [여기](https://msdn.microsoft.com/library/azure/d
 미디어 인코더 Premium 워크플로는 복잡한 워크플로를 사용하여 구성됩니다. 워크플로 파일은 [Workflow Designer](media-services-workflow-designer.md) 도구를 사용하여 만들고 업데이트할 수 있습니다.
 
 [Azure 미디어 서비스의 프리미엄 인코딩 사용 방법](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services/)
+
+###알려진 문제
+
+입력된 비디오에 자막이 없는 경우, 출력 자산은 빈 TTML 파일을 포함합니다.
+
 
 ##<a id="compare_encoders"></a>인코더 비교
 
@@ -290,4 +295,4 @@ TransientError|일시적인 문제를 포함하는 오류 범주(예: Azure 저�
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

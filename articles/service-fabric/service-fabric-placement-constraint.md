@@ -36,6 +36,6 @@ NodeProperty - 문자열을 값에 매핑하는 사용자 정의 또는 시스�
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 다음 단계
 
-자세한 내용은 [응용 프로그램 시나리오](../service-fabric-application-scenarios)를 참조하세요.
+자세한 내용은 [응용 프로그램 시나리오](service-fabric-application-scenarios.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

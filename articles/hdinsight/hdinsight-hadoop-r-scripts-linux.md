@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="02/05/2016"
 	ms.author="larryfr"/>
 
 # HDInsight Hadoop 클러스터에 R 설치 및 사용
 
 **스크립트 작업** 클러스터 사용자 지정을 사용하여 HDInsight의 Hadoop에서 모든 유형의 클러스터에 R을 설치할 수 있습니다. 이렇게 하면 데이터 과학자 및 분석가가 R을 사용하여 HDInsight에 배포된 Hadoop 클러스터에서 많은 양의 데이터를 처리하기 위한 강력한 MapReduce/YARN 프로그래밍 프레임워크를 배포할 수 있습니다.
 
-> [AZURE.NOTE]이 문서의 단계에는 Linux 기반 HDInsight 클러스터가 필요합니다. Windows 기반 클러스터와 함께 R을 사용한 작업에 대한 자세한 내용은 [HDInsight Hadoop 클러스터(Windows)에 R 설치 및 사용](hdinsight-hadoop-r-scripts.md)을 참조하세요.
+> [AZURE.NOTE] 이 문서의 단계에는 Linux 기반 HDInsight 클러스터가 필요합니다. Windows 기반 클러스터와 함께 R을 사용한 작업에 대한 자세한 내용은 [HDInsight Hadoop 클러스터(Windows)에 R 설치 및 사용](hdinsight-hadoop-r-scripts.md)을 참조하세요.
 
 ## R이란?
 
@@ -60,17 +60,17 @@ HDFS 및 MapReduce와의 통합을 제공하는다음 RHadoop 패키지도 설�
 
 [https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh) 스크립트 작업을 사용하여 HDInsight 클러스터에서 R을 설치합니다. 이 섹션에서는 Azure 포털을 사용하여 클러스터를 프로비전할 때 스크립트를 사용하는 방법에 대한 지침을 제공합니다.
 
-> [AZURE.NOTE]또한 이 스크립트를 사용하여 클러스터를 만드는 데 Azure PowerShell 또는 HDInsight.NET SDK를 사용할 수도 있습니다. 이 방법을 사용하는 자세한 내용은 [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
+> [AZURE.NOTE] 또한 이 스크립트를 사용하여 클러스터를 만드는 데 Azure PowerShell 또는 HDInsight.NET SDK를 사용할 수도 있습니다. 이 방법을 사용하는 자세한 내용은 [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
 
 1. [Linux 기반 HDInsight 클러스터 프로비전](hdinsight-hadoop-provision-linux-clusters.md#portal)의 단계를 사용하여 클러스터를 프로비전하되, 완료하지는 않도록 합니다.
 
 2. **선택적 구성** 블레이드에서 **스크립트 동작**을 선택하고 아래 정보를 제공합니다.
 
-	* __NAME__: 스크립트 작업의 이름을 입력합니다.
+	* __이름__: 스크립트 동작의 이름을 입력합니다.
 	* __SCRIPT URI__: https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh
-	* __HEAD__: 이 옵션 선택
+	* __HEAD__:이 옵션 선택
 	* __WORKER__:이 옵션 선택
-	* __ZOOKEEPER__: Zookeeper 노드에 설치하려면 이 옵션을 선택합니다.
+	* __ZOOKEEPER__: 이 옵션을 선택하여 Zookeeper 노드에 설치합니다.
 	* __PARAMETERS__: 이 필드는 공백으로 둡니다.
 
 3. **스크립트 동작**의 아래 쪽에서 **선택** 단추를 사용하여 구성을 저장합니다. 마지막으로 **선택적 구성** 블레이드의 아래 쪽에서 **선택** 단추를 사용하여 선택적 구성 정보를 저장합니다.
@@ -133,7 +133,7 @@ HDFS 및 MapReduce와의 통합을 제공하는다음 RHadoop 패키지도 설�
 
 ## 다음 단계
 
-- [HDInsight 클러스터에 Hue를 설치 및 사용](hdinsight-hadoop-hue-linux.md)합니다. Hue는 HDInsight 클러스터에 대한 기본 저장소를 쉽게 찾을 뿐만 아니라 Pig 및 Hive 작업을 편리하게 만들고 실행하고 저장할 수 있도록 하는 웹 UI입니다.
+- [HDInsight 클러스터에서 Hue 설치 및 사용](hdinsight-hadoop-hue-linux.md)입니다. Hue는 HDInsight 클러스터에 대한 기본 저장소를 쉽게 찾을 뿐만 아니라 Pig 및 Hive 작업을 편리하게 만들고 실행하고 저장할 수 있도록 하는 웹 UI입니다.
 
 - [HDInsight 클러스터에 Spark 설치 및 사용][hdinsight-install-spark] - 클러스터 사용자 지정을 사용하여 HDInsight Hadoop 클러스터에 Spark를 설치하고 사용하는 방법에 대한 지침을 제공합니다. Spark는 메모리 내 처리를 지원하여 빅데이터 분석 응용 프로그램의 성능을 향상하는 오픈 소스 병렬 처리 프레임워크입니다.
 
@@ -146,4 +146,4 @@ HDFS 및 MapReduce와의 통합을 제공하는다음 RHadoop 패키지도 설�
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

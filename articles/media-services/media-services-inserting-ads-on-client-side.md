@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/15/2015" 
+	ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 
@@ -21,9 +21,10 @@
 
 이 항목에서는 클라이언트 쪽에 다양한 유형의 광고를 삽입하는 방법에 대해 설명합니다.
 
-라이브 스트리밍 비디오에서 자막 및 광고 지원에 대한 정보는 [지원되는 자막 및 Ad 삽입 표준](media-services-manage-channels-overview.md#cc_and_ads)을 참조하세요.
+라이브 스트리밍 비디오에서 캡션 및 광고 지원에 대한 정보는 [지원되는 캡션 및 Ad 삽입 표준](media-services-manage-channels-overview.md#cc_and_ads)을 참조하세요.
 
- 
+>[AZURE.NOTE] Azure 미디어 플레이어는 현재 광고를 지원하지 않습니다.
+
 ##<a id="insert_ads_into_media"></a>미디어에 광고 삽입
 
 Azure 미디어 서비스는 Windows 미디어 플랫폼: 플레이어 프레임워크를 통해 광고 삽입에 대한 지원을 제공합니다. 광고를 지원하는 플레이어 프레임워크는 Windows 8, Silverlight, Windows Phone 8 및 iOS 장치에 사용할 수 있습니다. 각 플레이어 프레임워크는 플레이어 응용 프로그램을 구현하는 방법을 보여주는 샘플 코드를 포함합니다. 미디어 목록에 삽입할 수 있는 서로 다른 세 종류의 광고가 있습니다.
@@ -812,4 +813,4 @@ Microsoft Media Platform: iOS용 플레이어 프레임워크에는 프레임워
 
 [비디오 플레이어 응용 프로그램 개발](media-services-develop-video-players.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

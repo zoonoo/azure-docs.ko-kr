@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="01/20/2016"
+    ms.date="02/05/2016"
     ms.author="sstein"/>
 
 # PowerShell을 사용하여 BACPAC 파일을 가져와 새 Azure SQL 데이터베이스 만들기
@@ -32,16 +32,16 @@ BACPAC은 데이터베이스 스키마 및 데이터를 포함하는 .bacpac 파
 
 데이터베이스는 Azure 저장소 Blob 컨테이너에서 가져온 BACPAC으로 만들어집니다. Azure 저장소에 .bacpac 파일이 없는 경우 [Azure SQL 데이터베이스의 BACPAC 만들기 및 내보내기](sql-database-export-powershell.md)의 단계에 따라 새로 만들 수 있습니다.
 
-> [AZURE.NOTE]Azure SQL 데이터베이스는 모든 사용자 데이터베이스에 대해 복원할 수 있는 백업을 자동으로 만들고 유지 관리합니다. 자세한 내용은 [비즈니스 연속성 개요](sql-database-business-continuity.md)를 참조하세요.
+> [AZURE.NOTE] Azure SQL 데이터베이스는 모든 사용자 데이터베이스에 대해 복원할 수 있는 백업을 자동으로 만들고 유지 관리합니다. 자세한 내용은 [비즈니스 연속성 개요](sql-database-business-continuity.md)를 참조하세요.
 
 
 SQL 데이터베이스를 가져오려면 다음이 필요합니다.
 
 - Azure 구독. Azure 구독이 필요할 경우 이 페이지 위쪽에서 **무료 평가판**을 클릭하고 되돌아와 이 문서를 완료합니다.
-- 복원할 데이터베이스의 .bacpac 파일(BACPAC). BACPAC은 [Azure 저장소 계정(클래식)](storage-create-storage-account.md) Blob 컨테이너에 있어야 합니다.
+- 가져올 데이터베이스의 .bacpac 파일(BACPAC). BACPAC은 [Azure 저장소 계정(클래식)](storage-create-storage-account.md) Blob 컨테이너에 있어야 합니다.
 
 
-> [AZURE.IMPORTANT]이 문서에서는 Azure PowerShell 버전 1.0 미만의 명령을 포함합니다. **Get-Module azure | format-table version** 명령으로 Azure PowerShell의 버전을 확인할 수 있습니다.
+> [AZURE.IMPORTANT] 이 문서에서는 Azure PowerShell 버전 1.0 *미만*의 명령을 포함합니다. **Get-Module azure | format-table version** 명령으로 Azure PowerShell의 버전을 확인할 수 있습니다.
 
 
 
@@ -115,7 +115,7 @@ Blob 이름은 데이터베이스를 만들려는 기존 .bacpac 파일의 이�
  
 
 
-## SQL 데이터베이스 PowerShell 복원 스크립트
+## SQL 데이터베이스 PowerShell 내보내기 스크립트
 
 
     Add-AzureAccount
@@ -153,4 +153,4 @@ Blob 이름은 데이터베이스를 만들려는 기존 .bacpac 파일의 이�
 - [재해 복구 연습](sql-database-disaster-recovery-drills.md)
 - [SQL 데이터베이스 설명서](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

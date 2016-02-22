@@ -7,7 +7,14 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/26/2015" ms.author="aashishr", "giridham"; "jimpark"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/08/2016"
+	ms.author="giridham; jimpark;"/>
 
 
 # DPM을 사용한 SQL Server 워크로드에 대한 Azure 백업
@@ -55,7 +62,7 @@ Azure에 SQL Server 데이터베이스를 백업하고 Azure에서 데이터베�
 
     ![단기 목표](./media/backup-azure-backup-sql/pg-shortterm.png)
 
-    >[AZURE.NOTE]오후 8시에(화면 입력에 따라) 백업 시점은 전날의 오후 8시 백업 시점에서 수정된 데이터를 전송하여 매일 만들어집니다. 이 프로세스를 **빠른 전체 백업**이라고 합니다. 트랜잭션 로그를 15분마다 동기화하는 반면 오후 9시에 데이터베이스를 복구해야 할 경우 마지막 빠른 전체 백업 지점에서 로그를 재생하여 지점을 만듭니다.(이 경우에 오후 8시)
+    >[AZURE.NOTE] 오후 8시에(화면 입력에 따라) 백업 시점은 전날의 오후 8시 백업 시점에서 수정된 데이터를 전송하여 매일 만들어집니다. 이 프로세스를 **빠른 전체 백업**이라고 합니다. 트랜잭션 로그를 15분마다 동기화하는 반면 오후 9시에 데이터베이스를 복구해야 할 경우 마지막 빠른 전체 백업 지점에서 로그를 재생하여 지점을 만듭니다.(이 경우에 오후 8시)
 
 8. **다음**를 클릭합니다.
 
@@ -91,7 +98,7 @@ Azure에 SQL Server 데이터베이스를 백업하고 Azure에서 데이터베�
 
     이 예에서 백업은 매일 한 번 오후 12시 및 오후 8시에 수행됩니다.(화면의 아래쪽 부분)
 
-    >[AZURE.NOTE]신속한 복구를 위해 단기의 경우 디스크에 몇 가지 복구 지점이 있는 것이 좋습니다. 이를 "작동 복구"라고 합니다. Azure는 높은 SLA 및 보장된 가용성이 있는 좋은 오프사이트 위치를 제공합니다.
+    >[AZURE.NOTE] 신속한 복구를 위해 단기의 경우 디스크에 몇 가지 복구 지점이 있는 것이 좋습니다. 이를 "작동 복구"라고 합니다. Azure는 높은 SLA 및 보장된 가용성이 있는 좋은 오프사이트 위치를 제공합니다.
 
     **모범 사례**: DPM을 사용하여 로컬 디스크 백업이 완료된 후에 Azure 백업을 예약합니다. 이를 사용하면 최신 디스크 백업이 Azure에 복사될 수 있습니다.
 
@@ -167,4 +174,4 @@ Azure에서 보호되는 엔터티(SQL Server 데이터베이스)를 복구하�
 
 • [Azure 백업 FAQ](backup-azure-backup-faq.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

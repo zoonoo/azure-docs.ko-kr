@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 #Beeline를 사용하여 HDInsight에서 Hadoop과 Hive 사용
@@ -23,7 +23,7 @@
 
 이 문서에서는 SSH(Secure Shell)를 사용하여 Linux 기반 HDInsight 클러스터에 연결한 다음 [Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell) 명령줄 도구를 사용하여 Hive 쿼리를 대화형으로 제출하는 방법을 배웁니다.
 
-> [AZURE.NOTE]Beeline은 JDBC를 사용하여 Hive에 연결합니다. Hive로 JDBC를 사용하는 자세한 내용은 [Hive JDBC 드라이버를 사용하여 Azure HDInsight에서 Hive에 연결](hdinsight-connect-hive-jdbc-driver.md)을 참조하세요.
+> [AZURE.NOTE] Beeline은 JDBC를 사용하여 Hive에 연결합니다. Hive로 JDBC를 사용하는 자세한 내용은 [Hive JDBC 드라이버를 사용하여 Azure HDInsight에서 Hive에 연결](hdinsight-connect-hive-jdbc-driver.md)을 참조하세요.
 
 ##<a id="prereq"></a>필수 조건
 
@@ -123,7 +123,7 @@ PuTTY 사용에 대한 자세한 내용은 [Windows에서 HDInsight의 Linux 기
     * **SELECT** - **t4** 열에 **[ERROR]** 값이 포함된 모든 행의 수를 선택합니다. 이 경우 이 값을 포함하는 행이 3개 있으므로 **3** 값이 반환되어야 합니다.
     * **INPUT\_\_FILE\_\_NAME LIKE '%.log'** - .log로 끝나는 파일의 데이터만 반환하도록 Hive에 지시합니다. 일반적으로 hive를 쿼리할 때 동일한 폴더 내에서 동일한 스키마를 사용하는 데이터가 있지만 이 예제 로그 파일은 다른 데이터 형식과 저장됩니다.
 
-    > [AZURE.NOTE]자동화된 데이터 업로드 프로세스와 같은 외부 원본이나 또 다른 MapReduce 작업을 통해 기본 데이터를 업데이트해야 하지만 Hive 쿼리에서 항상 최신 데이터를 사용하려고 할 경우 외부 테이블을 사용해야 합니다.
+    > [AZURE.NOTE] 자동화된 데이터 업로드 프로세스와 같은 외부 원본이나 또 다른 MapReduce 작업을 통해 기본 데이터를 업데이트해야 하지만 Hive 쿼리에서 항상 최신 데이터를 사용하려고 할 경우 외부 테이블을 사용해야 합니다.
     >
     > 외부 테이블을 삭제하면 데이터는 삭제되지 **않고** 테이블 정의만 삭제됩니다.
     
@@ -161,7 +161,7 @@ PuTTY 사용에 대한 자세한 내용은 [Windows에서 HDInsight의 Linux 기
 
         nano query.hql
         
-2. 편집기가 열리면 파일의 내용으로 다음을 사용합니다. 이 쿼리는 **errorLogs**라는 새 ‘내부' 테이블을 만듭니다.
+2. 편집기가 열리면 파일의 내용으로 다음을 사용합니다. 이 쿼리는 **errorLogs**라는 새 '내부' 테이블을 만듭니다.
 
         CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
         INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log';
@@ -172,7 +172,7 @@ PuTTY 사용에 대한 자세한 내용은 [Windows에서 HDInsight의 Linux 기
     * **STORED AS ORC** - 데이터를 ORC(Optimized Row Columnar) 형식으로 저장합니다. Hive 데이터를 저장하기 위한 고도로 최적화되고 효율적인 형식입니다.
     * **덮어쓰기 삽입... SELECT** - **[ERROR]**가 포함된 **log4jLogs** 테이블에서 행을 선택하고 데이터를 **errorLogs** 테이블에 삽입합니다.
     
-    > [AZURE.NOTE]외부 테이블과 달리 내부 테이블을 삭제하면 기본 데이터도 삭제됩니다.
+    > [AZURE.NOTE] 외부 테이블과 달리 내부 테이블을 삭제하면 기본 데이터도 삭제됩니다.
     
 3. 파일을 저장하려면 __Ctrl__+___\_X__을 사용한 다음 __Y__ 및 마지막으로 __Enter__를 입력합니다.
 
@@ -237,4 +237,4 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

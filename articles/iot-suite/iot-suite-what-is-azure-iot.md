@@ -14,14 +14,14 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="11/05/2015"
+ ms.date="02/04/2016"
  ms.author="dobett"/>
 
 [AZURE.INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## Azure IoT Suite
 
-Microsoft Azure IoT Suite는 *원격 모니터링* 및 *연결된 장치*와 같이 일반적인 IoT 시나리오를 해결하는 미리 구성된 확장 가능 솔루션 집합을 통해 빠르게 시작할 수 있는 엔터프라이즈급 솔루션입니다.
+Microsoft Azure IoT Suite는 *원격 모니터링* 및 *예측 유지 관리*와 같이 일반적인 IoT 시나리오를 해결하는 미리 구성된 확장 가능 솔루션 집합을 통해 빠르게 시작할 수 있는 엔터프라이즈급 솔루션입니다.
 
 미리 구성된 솔루션은 다음과 같습니다.
 
@@ -47,4 +47,4 @@ Azure에서 IoT에 대한 자세한 내용은 다음 리소스를 탐색합니�
 [Azure 기계 학습]: https://azure.microsoft.com/ko-KR/services/machine-learning/
 [Azure 저장소]: https://azure.microsoft.com/ko-KR/services/storage/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

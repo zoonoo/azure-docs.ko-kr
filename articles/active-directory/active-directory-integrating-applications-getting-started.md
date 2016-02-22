@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="10/16/2015"
+      ms.date="02/09/2016"
       ms.author="inhenk"/>
 
 # 응용 프로그램과 Azure Active Directory 통합 시작 가이드
@@ -87,4 +87,8 @@ Microsoft Azure AD 응용 프로그램 프록시를 사용하여 어디서든 �
 
 Azure 응용 프로그램 갤러리에 사용자 지정 응용 프로그램을 추가하려는 경우 [Azure AD 셀프 서비스 SAML 구성을 사용하여 "앱 가져오기"](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx)를 참조하세요.
 
-<!---HONumber=AcomDC_0107_2016-->
+## 참고 항목
+
+- [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
+
+<!---HONumber=AcomDC_0211_2016-->

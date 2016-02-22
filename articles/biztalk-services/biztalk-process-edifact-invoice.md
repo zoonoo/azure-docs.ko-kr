@@ -22,7 +22,7 @@ BizTalk 서비스 포털을 사용하여 X12 및 EDIFACT 규약을 구성 및 �
 ## 이 자습서를 기반으로 하는 샘플
 이 자습서는 [MSDN 코드 갤러리](http://go.microsoft.com/fwlink/?LinkId=401005)에서 다운로드 가능한 샘플 **BizTalk 서비스를 사용하여 EDIFACT 송장 전송**에 대해 작성되었습니다. 샘플을 사용하고 이 자습서를 진행하여 샘플이 빌드된 방식을 이해할 수 있습니다. 또는 이 자습서를 사용하여 사용자 고유의 솔루션 처음부터 만들 수 있습니다. 이 자습서는 이 솔루션이 빌드된 방식을 이해할 수 있도록 두 번째 접근 방식을 대상으로 합니다. 또한 가능한 만큼 자습서는 샘플과 일치하고 샘플에 사용된 것과 동일한 아티팩트에 대한 이름(예: 스키마, 변환)을 사용합니다.
 
->[AZURE.NOTE]이 솔루션은 EAI 브리지에서 EDI 브리지로 메시지 전송을 포함하므로 [BizTalk 서비스 브리지 연결 샘플](http://code.msdn.microsoft.com/BizTalk-Bridge-chaining-2246b104) 샘플을 다시 사용합니다.
+>[AZURE.NOTE] 이 솔루션은 EAI 브리지에서 EDI 브리지로 메시지 전송을 포함하므로 [BizTalk 서비스 브리지 연결 샘플](http://code.msdn.microsoft.com/BizTalk-Bridge-chaining-2246b104) 샘플을 다시 사용합니다.
 
 ## 솔루션의 기능은 무엇입니까?
 
@@ -40,7 +40,7 @@ BizTalk 서비스 포털을 사용하여 X12 및 EDIFACT 규약을 구성 및 �
 
 *   송장을 받은 후 Northwind는 규약의 일부로 배포된 EDI 수신 브리지에 CONTRL 메시지를 반환합니다.
 
-> [AZURE.NOTE]필요에 따라 이 솔루션은 일괄 처리를 사용하여 각 송장을 별도로 보내지 않고 일괄 처리로 송장을 보내는 방법을 보여 줍니다.
+> [AZURE.NOTE] 필요에 따라 이 솔루션은 일괄 처리를 사용하여 각 송장을 별도로 보내지 않고 일괄 처리로 송장을 보내는 방법을 보여 줍니다.
 
 시나리오를 완료하려면 서비스 버스 큐를 사용하여 Contoso에서 Northwind로 송장을 보내거나 Northwind로부터 승인을 받습니다. 이러한 큐는 다운로드로 제공되며 이 자습서의 일부로 사용 가능한 샘플 패키지에 포함된 클라이언트 응용 프로그램을 사용하여 만들 수 있습니다.
 
@@ -173,7 +173,7 @@ Contoso와 Northwind 간의 거래 업체 규약을 만듭니다. 거래 업체 
 
 7.  솔루션 탐색기에서 **MessageFlowItinerary.bcs**를 확장하고 **EDIBridge.config** 파일을 두 번 클릭합니다. **EDIBridge.config**의 내용을 다음으로 바꿉니다.
 
-    > [AZURE.NOTE].config 파일을 편집해야 하는 이유는 무엇입니까? 브리지 디자이너 캔버스에 추가한 외부 서비스 끝점은 이전에 배포한 EDI 브리지를 나타냅니다. EDI 브리지는 양방향 브리지이며 송신 측과 수신 측이 있습니다. 그러나 브리지 디자이너에 추가한 EAI 브리지는 단방향 브리지입니다. 그러므로 두 브리지의 서로 다른 메시지 교환 패턴을 처리하기 위해 .config 파일에 해당 구성을 포함하여 사용자 지정 브리지 동작을 사용합니다. 또한 사용자 지정 동작은 또한 EDI 송신 브리지 끝점에 대한 인증을 처리합니다. 이 사용자 지정 동작은 [BizTalk 서비스 브리지 연결 샘플 - EAI에서 EDI로](http://code.msdn.microsoft.com/BizTalk-Bridge-chaining-2246b104)에 별도 샘플로 제공됩니다. 이 솔루션은 샘플을 다시 사용합니다.
+    > [AZURE.NOTE] .config 파일을 편집해야 하는 이유는 무엇입니까? 브리지 디자이너 캔버스에 추가한 외부 서비스 끝점은 이전에 배포한 EDI 브리지를 나타냅니다. EDI 브리지는 양방향 브리지이며 송신 측과 수신 측이 있습니다. 그러나 브리지 디자이너에 추가한 EAI 브리지는 단방향 브리지입니다. 그러므로 두 브리지의 서로 다른 메시지 교환 패턴을 처리하기 위해 .config 파일에 해당 구성을 포함하여 사용자 지정 브리지 동작을 사용합니다. 또한 사용자 지정 동작은 또한 EDI 송신 브리지 끝점에 대한 인증을 처리합니다. 이 사용자 지정 동작은 [BizTalk 서비스 브리지 연결 샘플 - EAI에서 EDI로](http://code.msdn.microsoft.com/BizTalk-Bridge-chaining-2246b104)에 별도 샘플로 제공됩니다. 이 솔루션은 샘플을 다시 사용합니다.
     
     ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -312,4 +312,4 @@ BizTalk 서비스 EDI 브리지는 나가는 메시지의 일괄 처리도 지�
 [17]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-17.PNG
 [18]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-18.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

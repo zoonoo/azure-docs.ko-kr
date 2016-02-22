@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/05/2015"  
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 
@@ -39,7 +39,7 @@
 
 콘텐츠를 고객에게 배달할 때는 서로 다른 네트워크 조건에 따라 다양한 장치에 고화질 영상을 제공하는 것이 목표입니다. 품질 및 네트워크 상태를 관리하려면 라이브 인코더를 사용하여 사용자의 스트림을 다중 비트 전송률(적응 비트 전송률) 비디오 스트림으로 인코딩합니다. 여러 장치에서 스트리밍을 관리하려면 미디어 서비스 [동적 패키징](media-services-dynamic-packaging-overview.md)을 사용하여 스트림을 여러 프로토콜로 동적으로 다시 패키징합니다. 미디어 서비스에서 지원하는 적응 비트 전송률 스트리밍 기술은 HLS(HTTP 라이브 스트리밍), 부드러운 스트리밍, MPEG DASH 및 HDS(Adobe PrimeTime/Access 정식 사용자만 해당)입니다.
 
-Azure 미디어 서비스에서 **Channel**, **Program**, and **StreamingEndpoint**는 수집, 형식 지정, DVR, 보안, 확장성 및 중복성을 포함한 라이브 스트리밍 기능 전반을 처리합니다.
+Azure 미디어 서비스에서 **채널**, **프로그램** 및 **스트리밍 끝점**은 수집, 형식 지정, DVR, 보안, 확장성 및 중복성을 포함한 라이브 스트리밍 기능 전반을 처리합니다.
 
 **채널**은 라이브 스트리밍 콘텐츠를 처리하기 위한 파이프라인을 나타냅니다. 현재 채널은 다음 방식으로 라이브 입력 스트림을 수신할 수 있습니다.
 
@@ -93,4 +93,4 @@ Azure 미디어 서비스에서 **Channel**, **Program**, and **StreamingEndpoin
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

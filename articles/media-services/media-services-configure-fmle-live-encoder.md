@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
+	ms.date="02/03/2016"   
 	ms.author="juliako"/>
 
 #FMLE 인코더를 사용하여 단일 비트 전송률 라이브 스트림 보내기
@@ -56,12 +56,12 @@
 
 3. **채널 만들기**를 클릭합니다. ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle2.png)
 
->[AZURE.NOTE]채널을 시작하는 데 20분 정도 걸릴 수 있습니다.
+>[AZURE.NOTE] 채널을 시작하는 데 20분 정도 걸릴 수 있습니다.
 
 
 채널을 시작하는 동안 [인코더 구성](media-services-configure-fmle-live-encoder.md#configure_fmle_rtmp)을 수행할 수 있습니다.
 
->[AZURE.IMPORTANT]채널이 준비 상태가 되는 즉시 요금이 청구되기 시작합니다. 자세한 내용은 [채널 상태](media-services-manage-live-encoder-enabled-channels.md#states)를 참조하세요.
+>[AZURE.IMPORTANT] 채널이 준비 상태가 되는 즉시 요금이 청구되기 시작합니다. 자세한 내용은 [채널 상태](media-services-manage-live-encoder-enabled-channels.md#states)를 참조하세요.
 
 ##<a id=configure_fmle_rtmp></a>FMLE 인코더 구성
 
@@ -127,17 +127,17 @@
 	추가 중복의 경우 보조 입력 URL을 사용하여 이러한 단계를 반복합니다.
 8. **연결**을 선택합니다.
 
->[AZURE.IMPORTANT]**연결**을 클릭하기 전에 채널이 준비되었는지 **반드시** 확인합니다. 또한 15분을 초과할 때까지 입력 기여 피드 없이 채널을 준비 상태로 그대로 두지 않도록 해야 합니다.
+>[AZURE.IMPORTANT] **연결**을 클릭하기 전에 채널이 준비되었는지 **반드시** 확인합니다. 또한 15분을 초과할 때까지 입력 기여 피드 없이 채널을 준비 상태로 그대로 두지 않도록 해야 합니다.
 
 ##테스트 재생
   
-1. AMSE 도구로 이동하고 테스트할 채널을 마우스 오른쪽 단추로 클릭합니다. 메뉴에서 **미리 보기 재생**을 가리키고 **Azure 미디어 플레이어 사용**을 선택합니다.  
+1. AMSE 도구로 이동하고 테스트할 채널을 마우스 오른쪽 단추로 클릭합니다. 메뉴에서 **Playback the Preview**(미리 보기 재생)를 가리키고 **with Azure Media Player**(Azure 미디어 플레이어 사용)를 선택합니다.  
 
 	![fmle](./media/media-services-fmle-live-encoder/media-services-fmle8.png)
 
 스트림이 플레이어에 나타나면 인코더가 AMS에 연결되도록 제대로 구성된 것입니다.
 
-오류가 수신되면 채널을 다시 설정해서 인코더 설정을 조정해야 합니다. 지침을 보려면 [문제 해결](media-services-troubleshooting-live-streaming.md) 항목을 참조하세요.
+오류가 수신되면 채널을 다시 설정해서 인코더 설정을 조정해야 합니다. 참고 자료를 보려면 [문제 해결](media-services-troubleshooting-live-streaming.md) 항목을 참조하세요.
 
 ##프로그램 만들기
 
@@ -152,14 +152,14 @@
 	참고: 프로그램 만들기는 채널 만들기보다 시간이 덜 걸립니다.
  
 5. 프로그램이 실행되고 있으면 프로그램을 마우스 오른쪽 단추로 클릭하고 **프로그램 재생**으로 이동한 다음 **Azure 미디어 플레이어 사용**을 선택하여 재생을 확인합니다.
-6. 확인되면 프로그램을 마우스 오른쪽 단추로 다시 클릭하고 **클립보드로 출력 URL 복사**를 선택하거나 메뉴의 **프로그램 정보 및 설정** 옵션에서 이 정보를 검색합니다. 
+6. 확인되면 프로그램을 마우스 오른쪽 단추로 다시 클릭하고 **Copy the Output URL to Clipboard**(클립보드로 출력 URL 복사)를 선택하거나 메뉴의 **Program information and settings**(프로그램 정보 및 설정) 옵션에서 이 정보를 검색합니다. 
 
 이제 스트림을 플레이어에 포함하거나 실시간 보기를 위해 대상 그룹에게 배포할 준비가 되었습니다.
 
 
 ## 문제 해결
 
-지침을 보려면 [문제 해결](media-services-troubleshooting-live-streaming.md) 항목을 참조하세요.
+참고 자료를 보려면 [문제 해결](media-services-troubleshooting-live-streaming.md) 항목을 참조하세요.
 
 
 ##미디어 서비스 학습 경로
@@ -170,4 +170,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="01/20/2016"
-   ms.author="ryanwi; mani-ramaswamy"/>
+   ms.author="ryanwi"/>
 
 
 # 서비스 패브릭 응용 프로그램 수명 주기
@@ -34,7 +34,7 @@
 
 
 ## 개발
-1. *서비스 개발자*는 [신뢰할 수 있는 행위자](service-fabric-reliable-actors-introduction.md) 또는 [신뢰할 수 있는 서비스](../service-fabric/service-fabric-reliable-services-introduction.md) 프로그래밍 모델을 사용하여 여러 유형의 서비스를 개발합니다.
+1. *서비스 개발자*는 [신뢰할 수 있는 행위자](service-fabric-reliable-actors-introduction.md) 또는 [신뢰할 수 있는 서비스](service-fabric-reliable-services-introduction.md) 프로그래밍 모델을 사용하여 여러 유형의 서비스를 개발합니다.
 2. *서비스 개발자*는 하나 이상의 코드, 구성 및 데이터 패키지로 구성된 서비스 매니페스트 파일에 개발된 서비스 유형에 대한 내용을 선언적으로 설명합니다.
 3. 그런 다음 *응용 프로그램 개발자*는 다른 서비스 유형을 사용하여 응용 프로그램을 빌드합니다.
 4. *응용 프로그램 개발자*는 구성 서비스의 서비스 매니페스트를 참조하여 응용 프로그램에 대한 내용을 응용 프로그램 매니페스트에 선언적으로 설명하고, 구성 서비스의 다른 구성 및 배포 설정을 적절하게 재정의 및 매개 변수화합니다.
@@ -113,10 +113,10 @@
 서비스 패브릭 응용 프로그램 및 서비스의 개발, 테스트 및 관리에 대한 자세한 내용은 다음 항목을 참조하세요.
 
 - [Reliable Actors](service-fabric-reliable-actors-introduction.md)
-- [Reliable Services](../service-fabric/service-fabric-reliable-services-introduction.md)
+- [Reliable Services](service-fabric-reliable-services-introduction.md)
 - [응용 프로그램 배포](service-fabric-deploy-remove-applications.md)
 - [응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
 - [테스트 용이성 개요](service-fabric-testability-overview.md)
 - [REST 기반 응용 프로그램 수명 주기 샘플](service-fabric-rest-based-application-lifecycle-sample.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

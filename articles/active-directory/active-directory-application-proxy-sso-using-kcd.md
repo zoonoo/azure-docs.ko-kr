@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/07/2016"
+	ms.date="02/09/2016"
 	ms.author="kgremban"/>
 
 
 # 응용 프로그램 프록시를 사용하는 Single-Sign-On
 
-> [AZURE.NOTE]응용 프로그램 프록시는 Premium 또는 Basic 버전의 Azure Active Directory로 업그레이드하는 경우에만 사용할 수 있는 기능입니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
+> [AZURE.NOTE] 응용 프로그램 프록시는 Premium 또는 Basic 버전의 Azure Active Directory로 업그레이드하는 경우에만 사용할 수 있는 기능입니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
 
 Single-Sign-On은 Azure AD 응용 프로그램 프록시의 핵심 요소입니다. 최상의 사용자 환경을 제공합니다. 클라우드에 사용자가 로그인하고 클라우드에서 모든 보안 유효성 검사를 수행합니다.(사전 인증) 요청이 온-프레미스 응용 프로그램에 보내지면 응용 프로그램 프록시 커넥터는 사용자를 가장하므로 백 엔드 응용 프로그램은 해당 요청을 도메인에 가입된 장치에서 온 일반 사용자로 간주합니다.
 
@@ -80,7 +80,7 @@ Active Directory 구성은 응용 프로그램 프록시 커넥터와 게시된 
 		Get-ADComputer sharepointserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
 
 
->[AZURE.NOTE]`sharepointserviceaccount`은 해당 SPS 앱 풀이 실행되고 있는 SPS 컴퓨터 계정 또는 서비스 계정이 될 수 있습니다.
+>[AZURE.NOTE] `sharepointserviceaccount`은 해당 SPS 앱 풀이 실행되고 있는 SPS 컴퓨터 계정 또는 서비스 계정이 될 수 있습니다.
 
 
 ### Azure 클래식 포털 구성
@@ -90,7 +90,7 @@ Active Directory 구성은 응용 프로그램 프록시 커넥터와 게시된 
 3. **속성**에서 **내부 인증 방법**을 **Windows 통합 인증**으로 설정합니다. ![고급 응용 프로그램 구성](./media/active-directory-application-proxy-sso-using-kcd/cwap_auth2.png)  
 4. 응용 프로그램 서버의 **내부 응용 프로그램 SPN**을 입력합니다. 이 예에서는 게시된 응용 프로그램에 대한 SPN이 http/lob.contoso.com입니다.  
 
->[AZURE.IMPORTANT]Azure Active Directory 내의 UPN이 온-프레미스 Active Directory 내의 UPN와 동일해야 사전 인증이 작동합니다. Azure AD가 온-프레미스 AD와 동기화되었는지 확인합니다.
+>[AZURE.IMPORTANT] Azure Active Directory 내의 UPN이 온-프레미스 Active Directory 내의 UPN와 동일해야 사전 인증이 작동합니다. Azure AD가 온-프레미스 AD와 동기화되었는지 확인합니다.
 
 | | |
 | --- | --- |
@@ -160,9 +160,14 @@ SSO 프로세스에 오류가 있으면 [문제 해결](active-directory-applica
 - [응용 프로그램 프록시 블로그 확인](http://blogs.technet.com/b/applicationproxyblog/)
 - [Channel 9에서 비디오 시청](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
+## 추가 리소스
+- [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
+- [조직으로 Azure에 등록](sign-up-organization.md)
+- [Azure ID](fundamentals-identity.md)
+
 
 <!--Image references-->
 [1]: ./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png
 [2]: ./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

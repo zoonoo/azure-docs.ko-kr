@@ -26,23 +26,19 @@
 
 미리 구성된 각 솔루션은 일반적인 IoT 시나리오를 구현하고 원격 분석을 생성하는 시뮬레이션된 장치를 사용하는 완전한 종단간 구현입니다.
 
-Azure에서 미리 구성된 솔루션을 배포 및 실행하는 것 외에도 완전한 원본 코드를 다운로드한 다음 특정 IoT 요구 사항에 맞도록 솔루션을 사용자 지정하고 확장할 수 있습니다.
+Azure에서 솔루션을 배포 및 실행하는 것 외에도 완전한 소스 코드를 다운로드한 다음 특정 IoT 요구 사항에 맞도록 솔루션을 사용자 지정하고 확장할 수 있습니다.
 
-사용 가능한 미리 구성된 솔루션은 다음과 같습니다.
+> [AZURE.NOTE] [미리 구성된 loT 솔루션 시작][lnk-preconf-get-started] 문서에서는 솔루션 중 하나를 배포 및 실행하는 방법을 설명합니다.
 
-- [원격 모니터링][lnk-remote-monitoring]
-- [예측 유지 관리][lnk-predictive-maintenance]
-
-다음 표에서 미리 구성된 솔루션을 특정 IoT 기능에 매핑하는 방법을 보여 줍니다.
+다음 표에서 솔루션을 특정 IoT 기능에 매핑하는 방법을 보여 줍니다.
 
 | 해결 방법 | 데이터 수집 | 장치 ID | 명령 및 제어 | 규칙 및 작업 | 예측 분석 |
 |------------------------|-----|-----|-----|-----|-----|
-| 원격 모니터링 | 예 | 예 | 예 | 예 | - |
-| 예측 유지 관리 | 예 | 예 | 예 | 예 | 예 |
+| [원격 모니터링][lnk-remote-monitoring] | 예 | 예 | 예 | 예 | - | | [예측 유지 관리][lnk-predictive-maintenance] | 예 | 예 | 예 | 예 | 예 |
 
 ## 미리 구성된 원격 모니터링 솔루션 개요
 
-이 섹션은 원격 모니터링 미리 구성된 솔루션의 핵심 요소 중 일부를 설명합니다. 원격 모니터링은 미리 구성된 솔루션의 가장 간단한 기능이며 다른 미리 구성된 솔루션을 공유하는 일반적인 디자인 요소를 보여줍니다.
+이 문서에서는 가장 간단한 솔루션이며 다른 솔루션에서 공유하는 일반적인 디자인 요소를 보여 주는 미리 구성된 원격 모니터링 솔루션에 대해 설명합니다.
 
 다음 다이어그램에서는 원격 모니터링 솔루션의 핵심 요소를 보여줍니다. 다음 섹션에서는 이러한 요소에 대한 자세한 정보를 제공합니다.
 
@@ -85,6 +81,8 @@ IoT Hub는 소비자 그룹 끝점을 통해 받는 원격 분석 데이터를 �
 
 ## 솔루션 포털
 
+![솔루션 대시보드][img-dashboard]
+
 솔루션 포털은 미리 구성된 솔루션의 일부로 클라우드에 배포된 웹 기반 UI입니다. 다음을 수행할 수 있습니다.
 
 - 대시보드에서 원격 분석 및 경보 기록을 봅니다.
@@ -101,10 +99,11 @@ IoT Hub는 소비자 그룹 끝점을 통해 받는 원격 분석 데이터를 �
 
 이 리소스를 탐색하여 IoT 미리 구성된 솔루션에 대해 자세히 알아봅니다.
 
-- [Azure IoT 미리 구성된 솔루션 개요][lnk-suite-overview]
 - [미리 구성된 loT 솔루션 시작][lnk-preconf-get-started]
+- [예측 정비 사전 구성 솔루션 개요][lnk-predictive-maintenance]
 
 [img-remote-monitoring-arch]: ./media/iot-suite-what-are-preconfigured-solutions/remote-monitoring-arch1.png
+[img-dashboard]: ./media/iot-suite-what-are-preconfigured-solutions/dashboard.png
 [lnk-remote-monitoring]: iot-suite-remote-monitoring-sample-walkthrough.md
 [lnk-what-is-azure-iot]: iot-suite-what-is-azure-iot.md
 [lnk-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
@@ -116,4 +115,4 @@ IoT Hub는 소비자 그룹 끝점을 통해 받는 원격 분석 데이터를 �
 [lnk-preconf-get-started]: iot-suite-getstarted-preconfigured-solutions.md
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

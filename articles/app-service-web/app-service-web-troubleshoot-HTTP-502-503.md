@@ -50,7 +50,7 @@
 
 ####	서비스 상태를 추적합니다.
 
-Microsoft Azure는 서비스가 중단되거나 성능이 저하될 때마다 경고를 표시합니다. [Azure 포털](https://portal.azure.com/)에서 서비스의 상태를 추적할 수 있습니다. 자세한 내용은 [서비스 상태 추적](insights-service-health.md)을 참조하세요.
+Microsoft Azure는 서비스가 중단되거나 성능이 저하될 때마다 경고를 표시합니다. [Azure 포털](https://portal.azure.com/)에서 서비스의 상태를 추적할 수 있습니다. 자세한 내용은 [서비스 상태 추적](../azure-portal/insights-service-health.md)을 참조하세요.
 
 ####	웹앱 모니터링
 
@@ -69,7 +69,7 @@ Microsoft Azure는 서비스가 중단되거나 성능이 저하될 때마다 �
 자세한 내용은 다음을 참조하세요.
 
 -	[Azure 앱 서비스에서 웹앱 모니터링](web-sites-monitor.md)
--	[경고 알림 받기](insights-receive-alert-notifications.md)
+-	[경고 알림 받기](../azure-portal/insights-receive-alert-notifications.md)
 
 <a name="collect" />
 ### 2\. 데이터 수집
@@ -136,6 +136,6 @@ AutoHeal은 사용자가 선택한 설정(예: 구성 변경, 요청, 메모리 
 
  ![](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
 
-또한, Azure Powershell을 사용하여 웹앱을 관리할 수 있습니다. 자세한 내용은 [Azure 리소스 관리자에서 Azure PowerShell 사용](powershell-azure-resource-manager.md)을 참조하세요.
+또한, Azure Powershell을 사용하여 웹앱을 관리할 수 있습니다. 자세한 내용은 [Azure 리소스 관리자에서 Azure PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

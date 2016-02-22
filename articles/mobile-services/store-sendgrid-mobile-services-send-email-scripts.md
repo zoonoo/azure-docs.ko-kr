@@ -15,7 +15,7 @@
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/30/2015" 
-	ms.author="Erikre"/>
+	ms.author="glenga"/>
 
 
 # SendGrid로 모바일 서비스에서 전자 메일 보내기
@@ -94,7 +94,7 @@ SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 
 
 	- **_from-address_**: 메일을 보내는 주소입니다. 해당 조직에 속하는 등록된 도메인 주소를 사용하십시오.
 
-     >[AZURE.NOTE]등록된 도메인이 없는 경우, 모바일 서비스의 도메인을 **notifications@_your-mobile-service_.azure-mobile.net* 형식으로 대신 사용할 수 있습니다. 그러나 모바일 서비스 도메인으로 전송되는 메시지는 무시됩니다.
+     > [AZURE.NOTE] 등록된 도메인이 없는 경우, 모바일 서비스의 도메인을 **notifications@_your-mobile-service_.azure-mobile.net* 형식으로 대신 사용할 수 있습니다. 그러나 모바일 서비스 도메인으로 전송되는 메시지는 무시됩니다.
 
 6. **저장** 단추를 클릭합니다. 이제 레코드가 **TodoItem** 테이블에 삽입될 때마다 전자 메일을 보내는 스크립트가 구성되었습니다.
 
@@ -140,4 +140,4 @@ SendGrid 전자 메일 서비스를 모바일 서비스와 함께 쉽게 사용�
 [트랜잭션 전자 메일 배달]: https://sendgrid.com/email-solutions
 [클라우드 기반 전자 메일 서비스]: https://sendgrid.com/transactional-email
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

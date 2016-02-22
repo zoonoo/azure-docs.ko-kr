@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="02/05/2016" 
 	ms.author="nitinme"/>
 
 # 개요: Azure HDInsight에서 Apache Spark(Linux)
@@ -28,7 +28,7 @@ HDInsight에서 Spark 클러스터를 만들 때는 설치 및 구성된 Spark�
 
 **Azure HDInsight에서 Apache Spark를 시작하나요?** [빠른 시작: HDInsight Linux에서 Spark 클러스터 만들기 및 Jupyter를 사용하여 샘플 응용 프로그램 실행](hdinsight-apache-spark-jupyter-spark-sql.md)을 참조하세요.
 
->[AZURE.NOTE]현재 릴리스의 알려진 문제 및 제한 목록은 [Azure HDInsight에서 Apache Spark의 알려진 문제(Linux)](hdinsight-apache-spark-jupyter-spark-sql.md)를 참조하세요.
+>[AZURE.NOTE] 현재 릴리스의 알려진 문제 및 제한 목록은 [Azure HDInsight에서 Apache Spark의 알려진 문제(Linux)](hdinsight-apache-spark-jupyter-spark-sql.md)를 참조하세요.
 
 
 ## Azure HDInsight에서 Spark를 사용하는 이유 
@@ -109,7 +109,9 @@ HDInsight Linux에서 Spark 클러스터를 만드는 작업부터 시작합니�
 
 * [Livy를 사용하여 Spark 클러스터에서 원격으로 작업 실행](hdinsight-apache-spark-livy-rest-interface.md)
 
-### 확장
+### 도구 및 확장
+
+* [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark Scala 응용 프로그램 만들기 및 제출](hdinsight-apache-spark-intellij-tool-plugin.md)
 
 * [HDInsight에서 Spark 클러스터와 함께 Zeppelin Notebook 사용](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
@@ -122,4 +124,4 @@ HDInsight Linux에서 Spark 클러스터를 만드는 작업부터 시작합니�
 
 [hdinsight-storage]: ../hdinsight-use-blob-storage/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
+	ms.date="02/09/2016"
 	ms.author="liamca"/>
 
 # Azure 검색을 사용하여 StackExchange 데이터를 검색하는 방법
@@ -41,7 +41,7 @@
 
 > <http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=stackexchange&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28%26search=azure%26$filter=tagsCollection/any(t:+t+eq+'architecture')%26$orderby=viewCount+desc>
 
--	`Spelling Mistakes`: [Lucene 쿼리 식](https://msdn.microsoft.com/library/mt589323.aspx)에 대한 새로운 지원(미리 보기)을 통해, 결과 임의 일치 및 특정 필드로 검색 한정 등과 같은 몇 가지 유용한 쿼리를 수행할 수 있습니다. 이 예에서는 필드에서 단어 “visualize”를 검색하지만 ~는 임의 일치를 나타내므로 visualise, visualizing 같은 결과도 함께 반환됩니다.
+-	`Fuzzy Search`: [Lucene 쿼리 식](https://msdn.microsoft.com/library/mt589323.aspx)에 대한 새로운 지원을 통해, 결과 임의 일치 및 특정 필드로 검색 한정 등과 같은 몇 가지 유용한 쿼리를 수행할 수 있습니다. 이 예에서는 필드에서 단어 “visualize”를 검색하지만 ~는 임의 일치를 나타내므로 visualise, visualizing 같은 결과도 함께 반환됩니다.
 
 > <http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=stackexchange&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28&search%3Dtitle%3Avisualise~%26querytype%3Dfull%26searchMode%3Dall%26%24select%3Dtitle>
 
@@ -109,4 +109,4 @@ Brent는 SQL 데이터베이스에 데이터를 준비하는 방법을 설명하
     Server=tcp:azs-playground.database.windows.net,1433;Database=StackExchange;User ID=reader@azs-playground;
     Password=EdrERBt3j6mZDP;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

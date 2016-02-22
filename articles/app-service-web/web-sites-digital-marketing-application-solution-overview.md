@@ -19,13 +19,14 @@
 # Azure 앱 서비스 웹 앱에서 디지털 마케팅 캠페인 만들기
 [Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714) 웹앱은 디지털 마케팅 캠페인에 탁월한 선택입니다. 디지털 마케팅 캠페인은 일반적으로 수명이 짧고 단기적인 마케팅 목표를 달성하기 위한 것입니다. 두 가지 주요 시나리오를 고려해야 합니다. 첫 번째 시나리오에서는 타 마케팅 회사가 프로모션 기간에 고객을 위한 캠페인을 만들고 관리합니다. 두 번째 시나리오에서는 마케팅 회사가 디지털 마케팅 캠페인을 만든 후 해당 리소스의 소유권을 고객에게 전송합니다. 그러면 고객이 디지털 마케팅 캠페인을 스스로 운영 및 관리합니다. Azure 웹 사이트는 두 가지 시나리오에 모두 적합합니다.
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 다음은 앱 서비스 웹 앱을 사용한 글로벌 다중 채널 디지털 마케팅 캠페인의 예입니다. 이 예에서는 최소한의 기술 투자로 앱 서비스 웹 앱을 다른 서비스와 함께 구성하는 것만으로 수행할 수 있는 작업을 보여 줍니다. **토폴로지의 요소를 클릭하여 자세한 정보를 확인할 수 있습니다.**
 
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/digital-marketing-notitle.svg" width="100%" height="100%"></object>
 
-> [AZURE.NOTE]이 가이드에서는 Azure 앱 서비스 웹 앱에서 디지털 마케팅 캠페인을 실행하는 데 적합한 가장 일반적인 몇 가지 영역과 작업에 대해 설명합니다. 그러나 앱 서비스 웹 앱에서 구현할 수 있는 다른 일반적인 시나리오도 있습니다. 이러한 솔루션에 대해 알아보려면 [글로벌 웹 서비스](web-sites-global-web-presence-solution-overview.md) 및 [비즈니스 응용 프로그램](web-sites-business-application-solution-overview.md)에서 제공하는 다른 가이드를 참조하세요.
+> [AZURE.NOTE]
+이 가이드에서는 Azure 앱 서비스 웹 앱에서 디지털 마케팅 캠페인을 실행하는 데 적합한 가장 일반적인 몇 가지 영역과 작업에 대해 설명합니다. 그러나 앱 서비스 웹 앱에서 구현할 수 있는 다른 일반적인 시나리오도 있습니다. 이러한 솔루션에 대해 알아보려면 [글로벌 웹 서비스](web-sites-global-web-presence-solution-overview.md) 및 [비즈니스 응용 프로그램](web-sites-business-application-solution-overview.md)에서 제공하는 다른 가이드를 참조하세요.
 
 ## 자산 새로 만들기 또는 기존 자산 가져오기
 
@@ -88,7 +89,7 @@ Azure 또는 타사 도구를 사용하여 웹 앱의 성능을 최신 상태로
 ## 추가 리소스
 
 - [앱 서비스 웹앱 설명서](/services/app-service/web/)
-- [Azure 앱 서비스 웹앱 학습 맵](websites-learning-map.md)
+- [Azure 앱 서비스 웹앱 학습 맵](/documentation/learning-paths/appservice-webapps/)
 - [Azure 웹 블로그](/blog/topics/web/)
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
@@ -138,4 +139,4 @@ Azure 또는 타사 도구를 사용하여 웹 앱의 성능을 최신 상태로
   [gitstaging]: http://www.bradygaster.com/post/multiple-environments-with-windows-azure-web-sites
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

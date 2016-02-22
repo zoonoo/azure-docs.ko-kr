@@ -19,7 +19,7 @@
 
 이 문서에서는 Azure에서 [Application Insights](app-insights-overview.md) 리소스를 자동으로 만드는 방법을 보여 줍니다. 예를 들어 빌드 프로세스의 일부로 이 작업을 수행할 수 있습니다. 기본 Application Insights 리소스와 함께 [가용성 웹 테스트](app-insights-monitor-web-app-availability.md), [경고 설정](app-insights-alerts.md) 및 다른 Azure 리소스를 만들 수 있습니다.
 
-이러한 리소스를 만드는 데 핵심 사항은 [Azure 리소스 관리자](powershell-azure-resource-manager.md)용 JSON 템플릿입니다. 간단히 말하면 절차는 다음과 같습니다. 기존 리소스의 JSON 정의를 다운로드하고, 이름과 같은 특정 값을 매개 변수화한 다음 새 리소스를 만들려고 할 때마다 템플릿을 실행합니다. 여러 리소스를 함께 패키지하여 모두 한꺼번에 만들 수 있습니다(예: 가용성 테스트, 경고 및 연속 내보내기에 대한 저장소를 포함하는 앱 모니터). 일부 매개 변수화에 있는 약간의 미묘한 사항은 여기서 설명합니다.
+이러한 리소스를 만드는 데 핵심 사항은 [Azure 리소스 관리자](../powershell-azure-resource-manager.md)용 JSON 템플릿입니다. 간단히 말하면 절차는 다음과 같습니다. 기존 리소스의 JSON 정의를 다운로드하고, 이름과 같은 특정 값을 매개 변수화한 다음 새 리소스를 만들려고 할 때마다 템플릿을 실행합니다. 여러 리소스를 함께 패키지하여 모두 한꺼번에 만들 수 있습니다(예: 가용성 테스트, 경고 및 연속 내보내기에 대한 저장소를 포함하는 앱 모니터). 일부 매개 변수화에 있는 약간의 미묘한 사항은 여기서 설명합니다.
 
 ## 일 회 설정
 
@@ -100,7 +100,7 @@
 
 ## 템플릿 매개 변수화
 
-이제 특정 이름을 매개 변수로 대체해야 합니다. [템플릿을 매개 변수화](resource-group-authoring-templates.md)하려면 [도우미 함수 집합](resource-group-template-functions.md)을 사용하여 식을 작성합니다.
+이제 특정 이름을 매개 변수로 대체해야 합니다. [템플릿을 매개 변수화](../resource-group-authoring-templates.md)하려면 [도우미 함수 집합](../resource-group-template-functions.md)을 사용하여 식을 작성합니다.
 
 문자열의 일부만 매개 변수화할 수 없으므로 `concat()`을 사용하여 문자열을 빌드합니다.
 
@@ -311,4 +311,13 @@ Azure에서는 엄격한 순서로 리소스를 설정해야 합니다. 다음 �
 
 ```
 
-<!---HONumber=AcomDC_0128_2016-->
+## 참고 항목
+
+다른 자동화 문서:
+
+* [Application Insights 리소스 만들기](app-insights-powershell-script-create-resource.md) - 템플릿을 사용하지 않는 빠른 방법입니다.
+* [경고 설정](app-insights-powershell-alerts.md)
+* [Application Insights에 Azure 진단 보내기](app-insights-powershell-azure-diagnostics.md)
+* [릴리스 주석 만들기](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
+
+<!---HONumber=AcomDC_0211_2016-->

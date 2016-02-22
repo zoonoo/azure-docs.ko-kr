@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/04/2016"
    ms.author="larryfr"/>
 
 #PowerShell을 사용하여 HDInsight에서 Hadoop과 Hive 쿼리 실행
@@ -139,7 +139,7 @@ Azure PowerShell은 HDInsight에서 MapReduce 작업을 원격으로 실행할 �
 
 	이 출력은 작업이 성공적으로 완료되었음을 나타냅니다.
 
-	> [AZURE.NOTE]**ExitCode**가 0이 아닌 값이면 [문제 해결](#troubleshooting)을 참조하세요.
+	> [AZURE.NOTE] **ExitCode**가 0이 아닌 값이면 [문제 해결](#troubleshooting)을 참조하세요.
 
     이 예제에서도 다운로드한 파일을 스크립트를 실행한 디렉터리의 **example/data/WordCountOutput** 폴더에 저장합니다.
 
@@ -147,7 +147,7 @@ Azure PowerShell은 HDInsight에서 MapReduce 작업을 원격으로 실행할 �
 
 MapReduce 작업의 출력은 *part-r-#####* 이름으로 파일에 저장됩니다. 작업에서 생성한 단어 및 단어 개수를 보려면 **example/data/WordCountOutput/part-r-00000** 파일을 텍스트 편집기에서 엽니다.
 
-> [AZURE.NOTE]MapReduce 작업의 출력 파일은 변경할 수 없습니다. 따라서 이 샘플을 다시 실행하는 경우 출력 파일의 이름을 변경해야 합니다.
+> [AZURE.NOTE] MapReduce 작업의 출력 파일은 변경할 수 없습니다. 따라서 이 샘플을 다시 실행하는 경우 출력 파일의 이름을 변경해야 합니다.
 
 ##<a id="troubleshooting"></a>문제 해결
 
@@ -182,4 +182,4 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 
 * [HDInsight에서 Hadoop과 Pig 사용](hdinsight-use-pig.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0211_2016-->

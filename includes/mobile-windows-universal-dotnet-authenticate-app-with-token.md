@@ -12,7 +12,7 @@
             bool success = false;
 
             // This sample uses the Facebook provider.
-            var provider = "Facebook";
+            var provider = MobileServiceAuthenticationProvider.Facebook;
 
             // Use the PasswordVault to securely store and access credentials.
             PasswordVault vault = new PasswordVault();
@@ -21,7 +21,7 @@
             try
             {
                 // Try to get an existing credential from the vault.
-                credential = vault.FindAllByResource(provider).FirstOrDefault();
+                credential = vault.FindAllByResource(provider.ToString()).FirstOrDefault();
             }
             catch (Exception)
             {
@@ -42,7 +42,7 @@
                 // expired, as shown in this post: http://aka.ms/jww5vp.
 
                 success = true;
-			    message = string.Format("Cached credentials for user - {0}", user.UserId);
+                message = string.Format("Cached credentials for user - {0}", user.UserId);
             }
             else
             {
@@ -53,18 +53,19 @@
                         .LoginAsync(provider);
 
                     // Create and store the user credentials.
-                    credential = new PasswordCredential(provider,
+                    credential = new PasswordCredential(provider.ToString(),
                         user.UserId, user.MobileServiceAuthenticationToken);
                     vault.Add(credential);
 
                     success = true;
+                    message = string.Format("You are now logged in - {0}", user.UserId);
                 }
                 catch (MobileServiceInvalidOperationException)
                 {
                     message = "You must log in. Login Required";
                 }
             }
-            message = string.Format("You are now logged in - {0}", user.UserId);
+            
             var dialog = new MessageDialog(message);
             dialog.Commands.Add(new UICommand("OK"));
             await dialog.ShowAsync();
@@ -80,4 +81,4 @@
 
 	첫 번째 시작에서는 공급자를 사용한 로그인이 다시 필요합니다. 그러나 두 번째 다시 시작에서는 캐시된 자격 증명이 사용되고 로그인이 무시됩니다.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

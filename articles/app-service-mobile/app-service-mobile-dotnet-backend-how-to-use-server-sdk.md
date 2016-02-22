@@ -4,7 +4,7 @@
 	keywords="앱 서비스, Azure 앱 서비스, 모바일 앱, 모바일 서비스, 규모, 확장성, 앱 배포, Azure 앱 배포"
 	services="app-service\mobile"
 	documentationCenter=""
-	authors="ggailey777" 
+	authors="ggailey777"
 	manager="dwrede"
 	editor=""/>
 
@@ -14,14 +14,12 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/24/2016"
+	ms.date="02/04/2016"
 	ms.author="glenga"/>
 
 # Azure 모바일 앱용 .NET 백엔드 서버 SDK 사용
 
-[AZURE.INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]&nbsp;
-
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
 
 이 항목은 주요 Azure 앱 서비스 모바일 앱 시나리오에서 .NET 백 엔드 서버 SDK를 사용하는 방법을 보여줍니다. Azure 모바일 앱 SDK를 사용하면 ASP.NET 응용 프로그램에서 모바일 클라이언트를 사용하여 작업할 수 있습니다.
 
@@ -85,11 +83,11 @@ OWIN 시작 클래스의 `Configuration()` 메서드에서 서비스에 대한 �
 	public void Configuration(IAppBuilder app)
 	{
 	    HttpConfiguration config = new HttpConfiguration();
-	   
+
 	    new MobileAppConfiguration()
 	        // no added features
-	        .ApplyTo(config);  
-	    
+	        .ApplyTo(config);
+
 	    app.UseWebApi(config);
 	}
 
@@ -104,7 +102,7 @@ OWIN 시작 클래스의 `Configuration()` 메서드에서 서비스에 대한 �
 기능 확장 메서드 대부분을 포함할 수 있는 추가 NuGet 패키지를 통해 사용할 수 있으며 이를 아래 섹션에서 설명합니다.
 
 Azure 포털의 빠른 시작 서버에서 **UseDefaultConfiguration()**을 호출합니다. 이것은 다음 설정과 같습니다.
-    
+
 		new MobileAppConfiguration()
 			.AddMobileAppHomeController()             // from the Home package
 			.MapApiControllers()
@@ -167,7 +165,7 @@ Azure 포털의 빠른 시작 서버에서 **UseDefaultConfiguration()**을 호�
 테이블 컨트롤러는 SQL 데이터베이스 또는 Azure 테이블 저장소와 같은 테이블 기반 데이터 저장소에 엔터티 데이터에 대한 액세스를 제공합니다. 테이블 컨트롤러는 **TableController** 제네릭 클래스에서 상속하는데 여기서 제네릭 형식은 다음과 같이 테이블 스키마를 나타내는 모델의 엔터티입니다.
 
 	public class TodoItemController : TableController<TodoItem>
-    {  
+    {
 		//...
 	}
 
@@ -179,7 +177,7 @@ Azure 포털의 빠른 시작 서버에서 **UseDefaultConfiguration()**을 호�
         new MobileAppTableConfiguration()
         .MapTableControllers()
         .AddEntityFramework()).ApplyTo(config);
- 
+
 Entity Framework를 사용하여 Azure SQL 데이터베이스의 데이터를 액세스하는 테이블 컨트롤러의 예제는 Azure 포털의 빠른 시작 서버 프로젝트 다운로드에서 **TodoItemController** 클래스를 참조하세요.
 
 ## 방법: 사용자 지정 API 컨트롤러 정의
@@ -196,7 +194,7 @@ Entity Framework를 사용하여 Azure SQL 데이터베이스의 데이터를 �
 
 4. 다음 예제와 같이 **[MobileAppController]** 특성을 API 컨트롤러 클래스 정의에 적용합니다.
 
-		[MobileAppController] 
+		[MobileAppController]
 		public class CustomController : ApiController
 		{
 		      //...
@@ -207,7 +205,7 @@ Entity Framework를 사용하여 Azure SQL 데이터베이스의 데이터를 �
 		new MobileAppConfiguration()
 		    .MapApiControllers()
 		    .ApplyTo(config);
-    
+
 	**UseDefaultConfiguration**을 대신 호출하는 경우 **MapApiControllers**를 호출하지 않아도 되며 이는 모든 기능을 초기화합니다.
 
 **MobileAppControllerAttribute**가 적용되지 않는 모든 컨트롤러는 클라이언트에서 여전히 액세스할 수 있지만 모든 모바일 앱 클라이언트 SDK로 올바르게 사용되지 않을 수 있습니다.
@@ -216,15 +214,15 @@ Entity Framework를 사용하여 Azure SQL 데이터베이스의 데이터를 �
 
 모바일 앱은 앱 서비스 인증 및 ASP.NET의 기능을 앱에 인증을 사용하도록 설정하는 과정에 사용합니다. 이 섹션에서는 .NET 백 엔드 서버 프로젝트에서 다음과 같은 인증 관련 작업을 수행하는 방법을 보여줍니다.
 
-+ [방법: 서버 프로젝트에 인증 추가](#add-auth) 
-+ [방법: 응용 프로그램에 사용자 지정 인증 사용](#custom-auth) 
++ [방법: 서버 프로젝트에 인증 추가](#add-auth)
++ [방법: 응용 프로그램에 사용자 지정 인증 사용](#custom-auth)
 + [방법: 인증된 사용자 정보 검색](#user-info)
 
 ### <a name="add-auth"></a>방법: 서버 프로젝트에 인증 추가
 
 **MobileAppConfiguration** 개체를 확장하고 OWIN 미들웨어를 구성하여 서버 프로젝트에 인증을 추가할 수 있습니다. [Microsoft.Azure.Mobile.Server.Quickstart] 패키지를 설치하고 **UseDefaultConfiguration** 확장 메서드를 호출하는 경우 3단계로 건너뛸 수 있습니다.
 
-1. Visual Studio에서 [Microsoft.Azure.Mobile.Server.Authentication] 패키지를 설치합니다. 
+1. Visual Studio에서 [Microsoft.Azure.Mobile.Server.Authentication] 패키지를 설치합니다.
 
 2. Startup.cs 프로젝트 파일에서 **Configuration** 메서드의 시작 부분에 다음 코드 줄을 추가합니다.
 
@@ -282,8 +280,8 @@ Entity Framework를 사용하여 Azure SQL 데이터베이스의 데이터를 �
 
 수동 HTTP POST 대신 `loginAsync()` 메서드(이름은 플랫폼에 따라 달라질 수 있음)를 사용하도록 클라이언트 코드를 단순화할 수도 있습니다. 추가 토큰 매개 변수를 사용하고 POST할 어설션 개체를 상호 연결하는 오버로드를 사용합니다. 이 경우 공급자는 원하는 사용자 지정 이름이어야 합니다. 서버에서 로그인 작업은 이 사용자 지정 이름을 포함하는 _/.auth/login/{customProviderName}_ 경로에 있어야 합니다. 이 경로에 컨트롤러를 배치하려면 MobileAppConfiguration을 적용하기 전에 HttpConfiguration에 경로를 추가합니다.
 
-		config.Routes.MapHttpRoute("CustomAuth", ".auth/login/CustomAuth", new { controller = "CustomAuth" }); 
-		
+		config.Routes.MapHttpRoute("CustomAuth", ".auth/login/CustomAuth", new { controller = "CustomAuth" });
+
 위의 "CustomAuth" 문자열을 로그인 작업을 호스트하는 컨트롤러 이름으로 바꿉니다.
 
 >[AZURE.TIP] loginAsync() 방식을 사용하여 인증 토큰이 서비스에 대한 모든 후속 호출에 연결되어 있는지 확인합니다.
@@ -303,14 +301,14 @@ SID는 공급자 특정 사용자 ID에서 파생되고 지정된 사용자 및 
 다음 코드는 **GetAppServiceIdentityAsync** 확장 메서드를 호출하여 로그인 자격 증명을 가져오며 이는 Facebook Graph API에 대한 요청에 필요한 액세스 토큰을 포함합니다.
 
     // Get the credentials for the logged-in user.
-    var credentials = 
+    var credentials =
         await this.User
         .GetAppServiceIdentityAsync<FacebookCredentials>(this.Request);
 
     if (credentials.Provider == "Facebook")
     {
         // Create a query string with the Facebook access token.
-        var fbRequestUrl = "https://graph.facebook.com/me/feed?access_token=" 
+        var fbRequestUrl = "https://graph.facebook.com/me/feed?access_token="
             + credentials.AccessToken;
 
         // Create an HttpClient request.
@@ -332,7 +330,7 @@ SID는 공급자 특정 사용자 ID에서 파생되고 지정된 사용자 및 
 **MobileAppConfiguration** 개체를 확장하고 알림 허브 클라이언트를 만들어 서버 프로젝트에 푸시 알림을 추가할 수 있습니다. [Microsoft.Azure.Mobile.Server.Quickstart] 패키지를 설치하고 **UseDefaultConfiguration** 확장 메서드를 호출하는 경우 3단계로 건너뛸 수 있습니다.
 
 1. Visual Studio에서 서버 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 클릭합니다. Microsoft.Azure.Mobile.Server.Notifications를 검색한 다음 **설치**를 클릭합니다. 그러면 [Microsoft.Azure.Mobile.Server.Notifications] 패키지가 설치됩니다.
- 
+
 3. 이 단계를 반복하여 알림 허브 클라이언트 라이브러리를 포함하는 `Microsoft.Azure.NotificationHubs` 패키지를 설치합니다.
 
 2. App\_Start/Startup.MobileApp.cs에서 초기화하는 동안 다음과 같이 **AddPushNotifications** 확장 메서드에 대한 호출을 추가합니다.
@@ -353,9 +351,9 @@ SID는 공급자 특정 사용자 ID에서 파생되고 지정된 사용자 및 
 
         // Get the settings for the server project.
         HttpConfiguration config = this.Configuration;
-        MobileAppSettingsDictionary settings = 
+        MobileAppSettingsDictionary settings =
             config.GetMobileAppSettingsProvider().GetMobileAppSettings();
-        
+
         // Get the Notification Hubs credentials for the Mobile App.
         string notificationHubName = settings.NotificationHubName;
         string notificationHubConnection = settings
@@ -412,7 +410,7 @@ Azure 앱 서비스는 ASP.NET 응용 프로그램에 대한 여러 디버깅 �
 3. .NET 백 엔드에서 진단 로그에 작성하려면 다음과 같이 추적 작성기를 만듭니다.
 
 		ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
-		traceWriter.Info("Hello, World");  
+		traceWriter.Info("Hello, World");
 
 4. 서버 프로젝트를 다시 게시하고 모바일 앱 백 엔드에 액세스하여 로깅을 통해 코드 경로를 실행합니다.
 
@@ -425,7 +423,7 @@ Azure 앱 서비스는 ASP.NET 응용 프로그램에 대한 여러 디버깅 �
 클라우드 기반 모바일 앱에서 앱 서비스 인증/권한 부여를 구성해야 하며 클라이언트가 클라우드 끝점을 대체 로그인 호스트로 지정해야 합니다. 필요한 구체적인 단계는 선택한 클라이언트 플랫폼([iOS](app-service-mobile-ios-how-to-use-client-library.md), [Windows/Xamarin](app-service-mobile-dotnet-how-to-use-client-library.md))에 대한 설명서를 참조하세요.
 
 응용 프로그램에 [Microsoft.Azure.Mobile.Server.Authentication]을 설치했는지 확인합니다. 그런 다음 `MobileAppConfiguration`를 `HttpConfiguration`에 적용한 후 응용 프로그램의 OWIN 시작 클래스에 다음을 추가합니다.
-		
+
 		app.UseAppServiceAuthentication(new AppServiceAuthenticationOptions()
 		{
 			SigningKey = ConfigurationManager.AppSettings["authSigningKey"],
@@ -446,4 +444,4 @@ Azure 앱 서비스는 ASP.NET 응용 프로그램에 대한 여러 디버깅 �
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

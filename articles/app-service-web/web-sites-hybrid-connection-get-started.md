@@ -13,17 +13,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/24/2015" 
+	ms.date="02/03/2016" 
 	ms.author="cephalin"/>
 
 #Azure 앱 서비스에서 하이브리드 연결을 사용하여 온-프레미스 리소스에 액세스
 
-Azure 앱 서비스의 웹 앱을 정적 TCP 포트를 사용하는 온-프레미스 리소스(예: SQL Server, MySQL, HTTP 웹 API, 모바일 서비스 및 대부분의 사용자 지정 웹 서비스)에 연결할 수 있습니다. 이 문서에서는 앱 서비스의 웹 앱과 온-프레미스 SQL Server 데이터베이스 간 하이브리드 연결을 만드는 방법을 보여 줍니다.
+SQL Server, MySQL, HTTP Web API 및 대부분의 사용자 지정 웹 서비스와 같이 정적 TCP 포트를 사용하는 모든 온-프레미스 리소스에 Azure 앱 서비스 앱을 연결할 수 있습니다. 이 문서에서는 앱 서비스와 온-프레미스 SQL Server 데이터베이스 간 하이브리드 연결을 만드는 방법을 보여 줍니다.
 
 > [AZURE.NOTE] 하이브리드 연결 기능의 웹 앱 부분은 [Azure 포털](https://portal.azure.com)에서만 사용할 수 있습니다. BizTalk 서비스에서 연결을 만들려면 [하이브리드 연결](http://go.microsoft.com/fwlink/p/?LinkID=397274)(영문)을 참조하세요.
+> 
+> 이 콘텐츠는 Azure 앱 서비스의 모바일 앱에도 적용됩니다.
 
 ## 필수 조건
 - Azure 구독. 무료 구독에 대해서는 [Azure 1개월 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요. 
+ 
+	Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 - 하이브리드 연결을 사용하여 온-프레미스 SQL Server 또는 SQL Server Express 데이터베이스를 사용하려면 TCP/IP를 고정 포트에서 사용할 수 있어야 합니다. SQL Server의 기본 인스턴스는 고정 포트 1433을 사용하므로 권장됩니다. 하이브리드 연결에 사용하기 위해 SQL Server Express를 설치 및 구성하는 방법에 대한 자세한 내용은 [하이브리드 연결을 사용하여 Azure 웹 사이트에서 온-프레미스 SQL Server에 연결](http://go.microsoft.com/fwlink/?LinkID=397979)을 참조하세요.
 
@@ -37,7 +41,7 @@ Azure 앱 서비스의 웹 앱을 정적 TCP 포트를 사용하는 온-프레�
 
 ## Azure 포털에서 웹 앱 만들기 ##
 
-> [AZURE.NOTE] 이 자습서에 사용하려는 Azure 포털에서 웹 앱을 이미 만들었으면 앞의 [하이브리드 연결 및 BizTalk 서비스 만들기](#CreateHC)로 건너뛰어 거기에서 시작합니다.
+> [AZURE.NOTE] Azure 포털에서 이 자습서에 사용하려는 웹앱 또는 모바일 앱 백 엔드를 이미 만들었으면 [하이브리드 연결 및 BizTalk 서비스 만들기](#CreateHC)로 건너뛰어 이 작업부터 시작합니다.
 
 1. [Azure 포털](https://portal.azure.com) 왼쪽 상단에서 **새로 만들기** > **웹+모바일** > **웹앱**을 차례로 클릭합니다.
 	
@@ -75,11 +79,7 @@ Azure 앱 서비스의 웹 앱을 정적 TCP 포트를 사용하는 온-프레�
 	
 	![하이브리드 연결 만들기][TwinCreateHCBlades]
 	
-	**하이브리드 연결 블레이드 만들기**에서
-	- **이름**에 연결 이름을 입력하고
-	- **호스트 이름**에는 리소스를 호스트하는 온-프레미스 컴퓨터의 이름을 입력합니다.
-	- **포트**에는 온-프레미스 리소스가 사용하는 포트 번호를 입력합니다(SQL Server 기본 인스턴스의 경우 1433).
-	- **Biz Talk 서비스**를 클릭합니다.
+	**하이브리드 연결 블레이드 만들기**에서 **이름**에 연결 이름을 입력하고 **호스트 이름**에는 리소스를 호스트하는 온-프레미스 컴퓨터의 이름을 입력합니다. **포트**에는 온-프레미스 리소스가 사용하는 포트 번호를 입력합니다(SQL Server 기본 인스턴스의 경우 1433). **Biz Talk 서비스**를 클릭합니다.
 
 
 4. **BizTalk 서비스 만들기** 블레이드가 열립니다. BizTalk 서비스의 이름을 입력한 다음 **확인**을 클릭합니다.
@@ -93,15 +93,18 @@ Azure 앱 서비스의 웹 앱을 정적 TCP 포트를 사용하는 온-프레�
 	![확인 클릭][CreateBTScomplete]
 	
 6. 프로세스가 완료되면 포털의 알림 영역에서 연결이 설정되었다는 메시지가 표시됩니다.
-	<!-- TODO 
-	Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the classic portal
-	(full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
-	Create hybrid conn step, you get the following error
-	Failed to create hybrid connection RelecIoudHC. The 
-	resource type could not be found in the namespace 
-	'Microsoft.BizTaIkServices for api version 2014-06-01'.The error indicates it couldn't find the type, not the instance.
-	![Success notification][CreateHCSuccessNotification] 
-	-->
+	<!--- TODO
+
+Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the classic portal
+(full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
+Create hybrid conn step, you get the following error
+Failed to create hybrid connection RelecIoudHC. The 
+resource type could not be found in the namespace 
+'Microsoft.BizTaIkServices for api version 2014-06-01'.
+
+The error indicates it couldn't find the type, not the instance.
+![Success notification][CreateHCSuccessNotification]
+-->
 7. 웹 앱 블레이드에서 이제 **하이브리드 연결** 아이콘이 1개의 하이브리드 연결이 설정되었음을 보여 줍니다.
 	
 	![1개의 하이브리드 연결 생성됨][CreateHCOneConnectionCreated]
@@ -153,14 +156,64 @@ Azure 앱 서비스의 웹 앱을 정적 TCP 포트를 사용하는 온-프레�
 
 하이브리드 연결 인프라를 완성했으므로 이 인프라를 사용하는 하이브리드 응용 프로그램을 만듭니다.
 
->[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE]다음 섹션에서는 모바일 앱 .NET 백 엔드 프로젝트에서 하이브리드 연결을 사용하는 방법을 보여 줍니다.
+
+## SQL Server 데이터베이스에 연결하기 위한 모바일 앱 .NET 백 엔드 프로젝트 구성
+
+앱 서비스에서 모바일 앱 .NET 백 엔드 프로젝트는 추가 모바일 앱 SDK가 설치되고 초기화된 ASP.NET 웹앱입니다. 웹앱을 모바일 앱 백 엔드로 사용하려면 [모바일 앱 .NET 백 엔드 SDK를 다운로드하여 초기화](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#install-sdk)해야 합니다.
+
+모바일 앱의 경우 온-프레미스 데이터베이스에 대한 연결 문자열을 정의하고 이 연결을 사용하여 모바일 앱 백 엔드를 수정해야 합니다.
+
+1. Visual Studio의 솔루션 탐색기에서 모바일 앱 .NET 백 엔드에 대한 Web.config 파일을 열고 **connectionStrings** 섹션을 찾아 다음과 같은 새로운 SqlClient 항목을 추가함으로써 온-프레미스 SQL Server 데이터베이스를 가리킵니다.
+
+	    <add name="OnPremisesDBConnection"
+         connectionString="Data Source=OnPremisesServer,1433;
+         Initial Catalog=OnPremisesDB;
+         User ID=HybridConnectionLogin;
+         Password=<**secure_password**>;
+         MultipleActiveResultSets=True"
+         providerName="System.Data.SqlClient" />
+
+	이 문자열에서 `<**secure_password**>`을 *HybridConnectionLogin*에 대해 만든 암호로 대체해야 합니다.
+
+3. Visual Studio에서 **저장**을 클릭하여 Web.config 파일을 저장합니다.
+
+	> [AZURE.NOTE]이 연결 설정은 로컬 컴퓨터에서 실행할 때 사용됩니다. Azure에서 실행하는 경우 이 설정은 포털에 정의된 연결 설정으로 재정의됩니다.
+
+4. **Models** 폴더를 확장하여 *Context.cs*로 끝나는 데이터 모델 파일을 엽니다.
+
+6. **DbContext** 인스턴스 생성자를 변형하여 다음 코드 조각과 비슷한 기본 **DbContext** 생성자에 `OnPremisesDBConnection` 값을 전달합니다.
+
+        public class hybridService1Context : DbContext
+        {
+            public hybridService1Context()
+                : base("OnPremisesDBConnection")
+            {
+            }
+        }
+
+	이제 서비스는 SQL Server 데이터베이스에 새 연결을 사용합니다.
+
+## 온-프레미스 연결 문자열을 사용하도록 모바일 앱 백 엔드 업데이트
+
+그 다음, 새 연결 문자열에 대한 앱 설정을 추가하여 Azure에서 사용합니다.
+
+1. 모바일 앱에 대한 웹앱 백 엔드 코드의 [Azure 포털](https://portal.azure.com)로 돌아가서 **모든 설정** 및 **응용 프로그램 설정**을 차례로 클릭합니다.
+
+3. **웹앱 설정** 블레이드에서 **연결 문자열** 아래로 스크롤하고 `Server=OnPremisesServer,1433;Database=OnPremisesDB;User ID=HybridConnectionsLogin;Password=<**secure_password**>`와 같은 값을 가지는 `OnPremisesDBConnection`로 지정한 새 **SQL Server** 연결 문자열을 추가합니다.
+
+	온-프레미스 데이터베이스의 보안 암호로 `<**secure_password**>`을(를) 바꿉니다.
+
+	![온-프레미스 데이터베이스에 대한 연결 문자열](./media/web-sites-hybrid-connection-get-started/set-sql-server-database-connection.png)
+
+2. **저장**을 눌러 하이브리드 연결과 방금 만든 연결 문자열을 저장합니다.
+
+이 시점에서 서버 프로젝트를 다시 게시하고 기존 모바일 앱 클라이언트와 새 연결을 테스트할 수 있습니다. 하이브리드 연결을 사용하여 온-프레미스 데이터베이스에서 데이터를 읽고 씁니다.
 
 <a name="NextSteps"></a>
 ## 다음 단계 ##
 
-- 하이브리드 연결을 사용하는 ASP.NET 웹 응용 프로그램 만들기에 대한 자세한 내용은 [하이브리드 연결을 사용하여 Azure 웹 사이트에서 온-프레미스 SQL Server에 연결](http://go.microsoft.com/fwlink/?LinkID=397979)(영문)을 참조하세요.
-
-- 모바일 서비스에 대한 하이브리드 연결 사용에 대한 자세한 내용은 [하이브리드 연결을 사용하여 Azure 모바일 서비스에서 온-프레미스 SQL Server에 연결](../mobile-services-dotnet-backend-hybrid-connections-get-started.md)(영문)을 참조하세요.
+- 하이브리드 연결을 사용하는 ASP.NET 웹 응용 프로그램 만들기에 대한 자세한 내용은 [하이브리드 연결을 사용하여 Azure 웹 사이트에서 온-프레미스 SQL Server에 연결](http://go.microsoft.com/fwlink/?LinkID=397979)(영문)을 참조하세요. 
 
 ### 추가 리소스
 
@@ -205,4 +258,4 @@ Azure 앱 서비스의 웹 앱을 정적 TCP 포트를 사용하는 온-프레�
 [HCStatusConnected]: ./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

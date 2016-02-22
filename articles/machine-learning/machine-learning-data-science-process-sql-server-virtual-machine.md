@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="02/08/2016" 
 	ms.author="fashah;garye" />
 
 #<a name="heading"></a>Azure의 SQL Server 가상 컴퓨터에서 데이터 처리
@@ -21,7 +21,7 @@
 이 문서에서는 Azure의 SQL Server VM에 저장된 데이터를 탐색하고 데이터에 대한 기능을 생성하는 방법에 대해 알아봅니다. 이렇게 하려면 SQL을 사용하여 데이터 랭글링을 수행하거나 Python과 같은 프로그래밍 언어를 사용합니다.
 
 
-> [AZURE.NOTE]이 문서의 샘플 SQL 문에서는 데이터가 SQL Server에 있는 것으로 가정합니다. 그렇지 않은 경우 데이터를 SQL Server로 이동하는 방법은 클라우드 데이터 과학 프로세스 맵을 참조하세요.
+> [AZURE.NOTE] 이 문서의 샘플 SQL 문에서는 데이터가 SQL Server에 있는 것으로 가정합니다. 그렇지 않은 경우 데이터를 SQL Server로 이동하는 방법은 클라우드 데이터 과학 프로세스 맵을 참조하세요.
 
 ##<a name="SQL"></a>SQL 사용
 
@@ -34,7 +34,7 @@
 SQL Server에서 데이터 저장소를 탐색하는 데 사용할 수 있는 몇 가지 샘플 SQL 스크립트는 다음과 같습니다.
 
 
-> [AZURE.NOTE]실용적인 예제에는 [NYC Taxi 데이터 집합](http://www.andresmh.com/nyctaxitrips/)을 사용할 수 있으며, 종단 간 연습에 [IPython Notebook 및 SQL Server를 사용한 NYC 데이터 랭글링](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb)이라는 IPNB를 참조할 수 있습니다.
+> [AZURE.NOTE] 실용적인 예제에는 [NYC Taxi 데이터 집합](http://www.andresmh.com/nyctaxitrips/)을 사용할 수 있으며, 종단 간 연습에 [IPython Notebook 및 SQL Server를 사용한 NYC 데이터 랭글링](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb)이라는 IPNB를 참조할 수 있습니다.
 
 1. 일별 관찰 수 가져오기
 
@@ -62,7 +62,7 @@ SQL Server에서 데이터 저장소를 탐색하는 데 사용할 수 있는 �
 3. [단일 열에서 기능 롤아웃](#sql-featurerollout)
 
 
-> [AZURE.NOTE]추가 기능을 생성한 후 이를 기존 테이블에 열로 추가하거나, 추가 기능 및 기본 키를 사용하여 새 테이블을 만들어 원래 테이블에 조인할 수 있습니다.
+> [AZURE.NOTE] 추가 기능을 생성한 후 이를 기존 테이블에 열로 추가하거나, 추가 기능 및 기본 키를 사용하여 새 테이블을 만들어 원래 테이블에 조인할 수 있습니다.
 
 ###<a name="sql-countfeature"></a>개수 기반 기능 생성
 
@@ -113,10 +113,10 @@ SQL Server에서 데이터 저장소를 탐색하는 데 사용할 수 있는 �
 위의 위치 기반 기능을 사용하여 앞서 설명한 대로 추가 개수 기능을 생성할 수도 있습니다.
 
 
-> [AZURE.TIP]선택한 언어를 사용하여 프로그래밍 방식으로 레코드를 삽입할 수 있습니다. 쓰기 효율성을 개선하기 위해 청크에 데이터를 삽입해야 할 수도 있습니다. [pyodbc를 사용하여 이 작업을 수행하는 방법에 대한 예제는 여기를 참조](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python)하세요.
+> [AZURE.TIP] 선택한 언어를 사용하여 프로그래밍 방식으로 레코드를 삽입할 수 있습니다. 쓰기 효율성을 개선하기 위해 청크에 데이터를 삽입해야 할 수도 있습니다. [pyodbc를 사용하여 이 작업을 수행하는 방법에 대한 예제는 여기를 참조](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python)하세요.
  
 
-> [AZURE.TIP]또 다른 방법은 [BCP 유틸리티](https://msdn.microsoft.com/library/ms162802.aspx)를 사용하여 데이터베이스에 데이터를 삽입하는 것입니다.
+> [AZURE.TIP] 또 다른 방법은 [BCP 유틸리티](https://msdn.microsoft.com/library/ms162802.aspx)를 사용하여 데이터베이스에 데이터를 삽입하는 것입니다.
 
 ###<a name="sql-aml"></a>Azure 기계 학습에 연결
 
@@ -152,4 +152,4 @@ Python의 [Pandas 라이브러리](http://pandas.pydata.org/)에서는 Python �
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

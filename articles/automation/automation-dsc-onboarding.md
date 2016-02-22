@@ -20,7 +20,7 @@
 
 ## Azure 자동화 DSC로 컴퓨터를 관리하는 이유
 
-[PowerShell 필요 상태 구성](https://technet.microsoft.com/library/dn249912.aspx)과 마찬가지로 Azure 자동화 필요 상태 구성은 클라우드나 온-프레미스 데이터 센터의 DSC 노드(물리적 및 가상 컴퓨터)를 위한 간단하지만 강력한 구성 관리 서비스입니다. 안전한 중앙 위치에서 수천 대의 컴퓨터를 빠르고 간편하게 확장할 수 있습니다. 컴퓨터를 쉽게 온보드하고, 컴퓨터에 선언적 구성을 할당하고, 사용자가 지정한 필요 상태에 대한 각 컴퓨터의 규정 준수를 나타내는 보고서를 확인할 수 있습니다. Azure 자동화 관리 계층이 PowerShell 스크립팅에 대한 것이라면 Azure 자동화 DSC 관리 계층은 DSC에 대한 것입니다. 즉 Azure 자동화가 Powershell 스크립트 관리를 지원하는 것과 동일한 방식으로 DSC 구성을 지원합니다. Azure 자동화 DSC의 이점을 확인하려면 [Azure 자동화 DSC 개요](automation-dsc-overview/)를 참조하세요.
+[PowerShell 필요 상태 구성](https://technet.microsoft.com/library/dn249912.aspx)과 마찬가지로 Azure 자동화 필요 상태 구성은 클라우드나 온-프레미스 데이터 센터의 DSC 노드(물리적 및 가상 컴퓨터)를 위한 간단하지만 강력한 구성 관리 서비스입니다. 안전한 중앙 위치에서 수천 대의 컴퓨터를 빠르고 간편하게 확장할 수 있습니다. 컴퓨터를 쉽게 온보드하고, 컴퓨터에 선언적 구성을 할당하고, 사용자가 지정한 필요 상태에 대한 각 컴퓨터의 규정 준수를 나타내는 보고서를 확인할 수 있습니다. Azure 자동화 관리 계층이 PowerShell 스크립팅에 대한 것이라면 Azure 자동화 DSC 관리 계층은 DSC에 대한 것입니다. 즉, Azure 자동화에서 PowerShell 스크립트 관리를 지원하는 동일한 방법으로 DSC 구성 관리를 지원합니다. Azure 자동화 DSC를 사용할 경우의 이점에 대한 자세한 내용은 [Azure 자동화 DSC 개요](automation-dsc-overview/)를 참조하세요.
 
 Azure 자동화 DSC를 다양한 컴퓨터의 관리에 사용할 수 있습니다.
 
@@ -40,7 +40,7 @@ Azure 자동화 DSC를 사용하면 Azure 포털이나 PowerShell을 사용하�
 
 ### Azure 포털
 
-[Azure Preview 포털](http://portal.azure.com/)에서 **찾아보기** -> **가상 컴퓨터(기본)**를 클릭합니다. 온보드할 Windows VM을 선택합니다. 가상 컴퓨터의 대시보드 블레이드에서 **모든 설정** -> **확장** -> **추가** -> **Azure 자동화 DSC** -> **만들기**를 클릭합니다. 사용 사례에 필요한 [PowerShell DSC 로컬 구성 관리자 값](https://msdn.microsoft.com/powershell/dsc/metaconfig4), 자동화 계정의 등록 키 및 등록 URL과, 선택적으로 VM에 할당할 노드 구성을 입력합니다.
+[Azure 포털](http://portal.azure.com/)에서 **찾아보기** -> **가상 컴퓨터(클래식)**를 클릭합니다. 온보드할 Windows VM을 선택합니다. 가상 컴퓨터의 대시보드 블레이드에서 **모든 설정** -> **확장** -> **추가** -> **Azure 자동화 DSC** -> **만들기**를 클릭합니다. 사용 사례에 필요한 [PowerShell DSC 로컬 구성 관리자 값](https://msdn.microsoft.com/powershell/dsc/metaconfig4), 자동화 계정의 등록 키 및 등록 URL과, 선택적으로 VM에 할당할 노드 구성을 입력합니다.
 
 
 ![](./media/automation-dsc-onboarding/DSC_Onboarding_1.png)
@@ -54,7 +54,7 @@ Azure 자동화 DSC를 사용하면 Azure 포털이나 PowerShell을 사용하�
     Add-AzureAccount
     Add-AzureRmAccount
     
-    # fill in correct values for your VM / Automation Account here
+    # fill in correct values for your VM/Automation account here
     $VMName = ""
     $ServiceName = ""
     $AutomationAccountName = ""
@@ -75,7 +75,7 @@ Azure 자동화 DSC를 사용하면 Azure 포털이나 PowerShell을 사용하�
       ModulesUrl = "https://eus2oaasibizamarketprod1.blob.core.windows.net/automationdscpreview/RegistrationMetaConfigV2.zip"
       ConfigurationFunction = "RegistrationMetaConfigV2.ps1\RegistrationMetaConfigV2"
 
-    # update these DSC agent Local Configuration Manager defaults if they do not match your use case.
+    # update these PowerShell DSC Local Configuration Manager defaults if they do not match your use case.
     # See https://technet.microsoft.com/library/dn249922.aspx?f=255&MSPPError=-2147217396 for more details
      Properties = @{
         RegistrationKey = @{
@@ -117,7 +117,7 @@ Azure 자동화 DSC를 사용하면 Azure 포털, Azure 리소스 관리자 템�
 
 ### Azure 포털
 
-[Azure 미리 보기 포털](https://portal.azure.com/)에서 가상 컴퓨터를 온보드할 Azure 자동화 계정으로 이동합니다. 자동화 계정 대시보드에서 **DSC 노드** -> **Azure VM 추가**를 클릭합니다.
+[Azure 포털](https://portal.azure.com/)에서 가상 컴퓨터를 온보드할 Azure 자동화 계정으로 이동합니다. 자동화 계정 대시보드에서 **DSC 노드** -> **Azure VM 추가**를 클릭합니다.
 
 **온보드할 가상 컴퓨터 선택**에서 온보드할 하나 이상의 Azure 가상 컴퓨터를 선택합니다.
 
@@ -135,7 +135,7 @@ Azure 가상 컴퓨터는 Azure 리소스 관리자 템플릿을 통해 Azure �
 
 ### PowerShell
 
-[Register-AzureRmAutomationDscNode](https://msdn.microsoft.com/library/mt603833.aspx) cmdlet를 PowerShell을 통한 Azure Preview 포털의 가상 컴퓨터를 온보드하는 데 사용할 수 있습니다.
+[Register-AzureRmAutomationDscNode](https://msdn.microsoft.com/library/mt603833.aspx) cmdlet를 PowerShell을 통한 Azure 포털의 가상 컴퓨터를 온보드하는 데 사용할 수 있습니다.
 
 ## 온-프레미스나 Azure 이외의 클라우드에 있는 실제/가상 Windows 컴퓨터
 
@@ -169,13 +169,13 @@ Azure 가상 컴퓨터는 Azure 리소스 관리자 템플릿을 통해 Azure �
 3.	아래 [**DSC 메타 구성 생성**](#generating-dsc-metaconfigurations) 섹션의 지침에 따라 필요한 DSC 메타 구성을 포함하는 폴더를 생성합니다.
 4.  온보드할 컴퓨터에 PowerShell DSC 메타 구성을 원격으로 적용합니다.
     	
-    	$SecurePass = ConvertTo-SecureString -string "<root password>" -AsPlainText -Force
-        $Cred = New-Object System.Management.Automation.PSCredential "root", $SecurPass
-        $Opt = New-CimSessionOption -UseSs1:$true -SkipCACheck:$true -SkipCNCheck:$true -SkipRevocationCheck:$true
+    	$SecurePass = ConvertTo-SecureString -String "<root password>" -AsPlainText -Force
+        $Cred = New-Object System.Management.Automation.PSCredential "root", $SecurePass
+        $Opt = New-CimSessionOption -UseSsl -SkipCACheck -SkipCNCheck -SkipRevocationCheck
 
         # need a CimSession for each Linux machine to onboard
         
-        $Session = New-CimSession -Credential:$Cred -ComputerName:<your Linux machine> -Port:5986 -Authentication:basic -SessionOption:$Opt
+        $Session = New-CimSession -Credential $Cred -ComputerName <your Linux machine> -Port 5986 -Authentication basic -SessionOption $Opt
     	
     	Set-DscLocalConfigurationManager -CimSession $Session –Path C:\Users\joe\Desktop\DscMetaConfigs
 	
@@ -204,7 +204,7 @@ Azure 가상 컴퓨터는 Azure 리소스 관리자 템플릿을 통해 Azure �
             param 
             ( 
                 [Parameter(Mandatory=$True)] 
-                $RegistrationUrl,
+                [String]$RegistrationUrl,
          
                 [Parameter(Mandatory=$True)] 
                 [String]$RegistrationKey,
@@ -339,7 +339,7 @@ Azure 자동화 DSC를 사용하면 구성 관리를 위해 간편하게 Azure W
 
 >[AZURE.NOTE] Azure VM 필요 상태 구성 확장을 사용하는 Azure 자동화 DSC에 Azure Windows VM을 온보드하는 모든 방법에서 노드가 Azure 자동화에 등록된 것으로 나타나는 데는 최대 1시간이 소요됩니다. 이것은 Azure 자동화 DSC의 VM을 온보드하기 위해 필요한 Azure VM DSC 확장에 의한 VM의 Windows 관리 프레임워크 5.0의 설치 때문에 꼭 필요한 일입니다.
 
-Azure VM 필요 상태 구성 확장의 상태를 보거나 문제를 해결하려면 Azure Preview 포털에서 온보드할 VM으로 이동한 다음 **모든 설정** -> **확장** -> **DSC**를 클릭합니다. 자세한 내용을 보려면 **자세한 상태 보기**를 클릭합니다.
+Azure VM 필요 상태 구성 확장의 상태를 보거나 문제를 해결하려면 Azure 포털에서 온보드할 VM으로 이동한 다음 **모든 설정** -> **확장** -> **DSC**를 클릭합니다. 자세한 내용을 보려면 **자세한 상태 보기**를 클릭합니다.
 
 [![](./media/automation-dsc-onboarding/DSC_Onboarding_5.png)](https://technet.microsoft.com/library/dn249912.aspx)로 바꿉니다.
 
@@ -359,4 +359,4 @@ Azure VM 필요 상태 구성 확장의 상태를 보거나 문제를 해결하�
 * [Azure 자동화 DSC cmdlets](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Azure 자동화 DSC 가격 책정](https://azure.microsoft.com/pricing/details/automation/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

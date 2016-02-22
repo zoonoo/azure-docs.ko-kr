@@ -13,14 +13,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/29/2016"
+    ms.date="02/02/2016"
     ms.author="elizapo" />
 
 
 
 # 고객 가상 네트워크에 배포된 Azure RemoteApp에 대한 액세스를 허용하는 포트 및 URL 목록입니다. 
 
-다음은 클라우드나 하이브리드 컬렉션을 VNET(가상 네트워크)에 배포하는 경우 Azure RemoteApp에 적용됩니다. 가상 네트워크에 대한 자세한 내용은 [가상 네트워크 개요](virtual-networks-overview.md)를 참조하세요. 트래픽을 Azure RemoteApp에 대해 선택한 가상 네트워크 리소스로 제한하는 NSG(네트워크 보안 그룹)를 만든 경우 다음에 액세스할 수 있는지와 가상 네트워크의 보안 정책을 통해 허용되는지 확인하세요. 네트워크 보안 그룹에 대한 자세한 내용은 [네트워크 보안 그룹이란?을 참조하세요. (NSG)](virtual-networks-nsg.md).
+다음은 클라우드나 하이브리드 컬렉션을 VNET(가상 네트워크)에 배포하는 경우 Azure RemoteApp에 적용됩니다. 가상 네트워크에 대한 자세한 내용은 [가상 네트워크 개요](../virtual-network/virtual-networks-overview.md)를 참조하세요. 트래픽을 Azure RemoteApp에 대해 선택한 가상 네트워크 리소스로 제한하는 NSG(네트워크 보안 그룹)를 만든 경우 다음에 액세스할 수 있는지와 가상 네트워크의 보안 정책을 통해 허용되는지 확인하세요. 네트워크 보안 그룹에 대한 자세한 내용은 다음을 참조하세요. [네트워크 보안 그룹이란? (NSG)](../virtual-network/virtual-networks-nsg.md).
 
 ##  Azure RemoteApp 서브넷에 다음 끝점 및 URL에 대한 액세스 권한 필요: 
 *	**.servicebus.windows.net
@@ -45,4 +45,4 @@
 -  아웃바운드: TCP: 443  
 -  선택 사항 - UDP: 3391 
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

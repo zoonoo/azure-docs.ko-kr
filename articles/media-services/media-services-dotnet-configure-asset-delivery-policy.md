@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/17/2015"  
+  ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 #.NET SDK를 사용하여 자산 배포 정책 구성
@@ -348,4 +348,4 @@ AssetDeliveryPolicy을 만들 때 사용자가 지정하는 값에 대한 자세
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

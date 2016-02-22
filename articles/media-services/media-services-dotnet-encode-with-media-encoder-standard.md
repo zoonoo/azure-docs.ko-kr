@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/21/2015"  
+  ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 
@@ -147,4 +147,4 @@
 
 [.NET과 함께 미디어 인코더 표준을 사용하여 미리 보기를 생성하는 방법](media-services-dotnet-generate-thumbnail-with-mes.md) [미디어 서비스 인코딩 개요](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

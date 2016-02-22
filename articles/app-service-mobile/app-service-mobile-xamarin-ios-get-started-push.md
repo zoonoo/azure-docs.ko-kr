@@ -1,26 +1,24 @@
-<properties 
-	pageTitle="Azure 앱 서비스를 사용하여 Xamarin.iOS 앱에 푸시 알림 추가" 
-	description="Azure 앱 서비스를 사용하여Xamarin.iOS 앱에 푸시 알림을 전송하는 방법을 알아봅니다." 
-	services="app-service\mobile" 
-	documentationCenter="xamarin" 
+<properties
+	pageTitle="Azure 앱 서비스를 사용하여 Xamarin.iOS 앱에 푸시 알림 추가"
+	description="Azure 앱 서비스를 사용하여Xamarin.iOS 앱에 푸시 알림을 전송하는 방법을 알아봅니다."
+	services="app-service\mobile"
+	documentationCenter="xamarin"
 	authors="wesmc7777"
-	manager="dwrede" 
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-ios" 
-	ms.devlang="dotnet" 
+<tags
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin-ios"
+	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/18/2015" 
+	ms.date="02/04/2016"
 	ms.author="wesmc"/>
 
 # Xamarin.iOS 앱에 푸시 알림 추가
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##개요
 
@@ -72,7 +70,7 @@
 ##앱에 푸시 알림 추가
 
 1. **QSTodoService**에서 **AppDelegate**가 모바일 클라이언트를 가져올 수 있도록 다음 속성을 추가합니다.
-        
+
             public MobileServiceClient GetClient {
             get
             {
@@ -95,19 +93,19 @@
         {
             // registers for push for iOS8
             var settings = UIUserNotificationSettings.GetSettingsForTypes(
-                UIUserNotificationType.Alert 
-                | UIUserNotificationType.Badge 
-                | UIUserNotificationType.Sound, 
+                UIUserNotificationType.Alert
+                | UIUserNotificationType.Badge
+                | UIUserNotificationType.Sound,
                 new NSSet());
 
-            UIApplication.SharedApplication.RegisterUserNotificationSettings(settings); 
+            UIApplication.SharedApplication.RegisterUserNotificationSettings(settings);
             UIApplication.SharedApplication.RegisterForRemoteNotifications();
 
             return true;
         }
 
 3. 동일한 파일에서 **RegisteredForRemoteNotifications** 이벤트를 재정의합니다. 이 코드에서는 서버에서 지원하는 모든 플랫폼에서 전송되는 간단한 템플릿 알림을 등록하게 됩니다.
- 
+
 	알림 허브를 사용하는 템플릿에 대한 자세한 내용은 [템플릿](../notification-hubs/notification-hubs-templates.md)을 참조하세요.
 
 
@@ -152,7 +150,7 @@
 ## <a name="test"></a>앱에서 푸시 알림 테스트
 
 1. **실행** 단추를 눌러 프로젝트를 빌드하고 iOS 지원 장치에서 앱을 시작한 다음, **확인**을 클릭하여 푸시 알림을 수락합니다.
-	
+
 	> [AZURE.NOTE] 앱에서 푸시 알림을 명시적으로 수락해야 합니다. 이 요청은 앱이 처음 실행될 때만 발생합니다.
 
 2. 앱에서 작업을 입력한 다음 더하기(**+**) 아이콘을 클릭합니다.
@@ -171,7 +169,4 @@
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532
 [Windows에서 Xamarin.iOS 설치]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 
-
- 
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

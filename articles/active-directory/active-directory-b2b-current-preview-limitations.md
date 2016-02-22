@@ -2,6 +2,7 @@
    pageTitle="Azure Active Directory B2B 공동 작업에 대한 현재 미리 보기 제한 사항 | Microsoft Azure"
    description="Azure Active Directory B2B는 비즈니스 파트너가 회사 응용 프로그램을 선택적으로 액세스할 수 있도록 하여 사용자 회사 간 관계를 지원합니다."
    services="active-directory"
+   documentationCenter=""
    authors="viv-liu"
    manager="cliffdi"
    editor=""
@@ -13,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="02/03/2016"
+   ms.date="02/09/2016"
    ms.author="viviali"/>
 
 # Azure AD B2B 공동 작업 미리 보기: 현재 미리 보기 제한 사항
@@ -35,6 +36,7 @@ Azure B2B 공동 작업에 대한 다른 기사 찾아보기:
 - [자세한 연습](active-directory-b2b-detailed-walkthrough.md)
 - [CSV 파일 형식 참조](active-directory-b2b-references-csv-file-format.md)
 - [외부 사용자 토큰 형식](active-directory-b2b-references-external-user-token-format.md)
-- [외부 사용자 개체 특성 변경](active-directory-b2b-references-external-user-object-attribute-changes.md)
+- [외부 사용자 개체 특성 변경 사항](active-directory-b2b-references-external-user-object-attribute-changes.md)
+- [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

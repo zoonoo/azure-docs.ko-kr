@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="01/12/2016" 
-	ms.author="erikre"/>
+	ms.author="tdykstra"/>
 
 # Azure 앱 서비스에서 웹 앱 관리
 
@@ -103,4 +103,4 @@ Visual Studio Team Services를 사용하는 경우 소스 제어에서 연속 �
 
   
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

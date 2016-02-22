@@ -14,14 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 #HDInsight용 Python 스트리밍 프로그램 개발
 
 Hadoop은 MapReduce용 스트리밍 API를 제공합니다. 이 API를 사용하여 Java 이외의 언어로 map 및 reduce 함수를 작성할 수 있습니다. 이 문서에서는 MapReduce 작업을 수행하기 위해 Python을 사용하는 방법을 배웁니다.
 
-> [AZURE.NOTE]이 문서의 Python 코드는 Windows 기반 HDInsight 클러스터에서 사용할 수 있지만 이 문서의 단계는 Linux 기반 클러스터에 해당됩니다.
+> [AZURE.NOTE] 이 문서의 Python 코드는 Windows 기반 HDInsight 클러스터에서 사용할 수 있지만 이 문서의 단계는 Linux 기반 클러스터에 해당됩니다.
 
 이 문서는 [Python으로 Hadoop MapReduce 프로그램 작성](http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/)에서 Michael Noll이 게시한 정보 및 예제를 기반으로 합니다.
 
@@ -69,29 +69,29 @@ mapper 및 reducer는 텍스트 파일이며 이 예제에서는 어떤 것이 �
 
 **mapper.py**라는 새 파일을 만들고 다음 코드를 그 내용으로 사용합니다.
 
-	#!/usr/bin/env python
+    #!/usr/bin/env python
 
-	# Use the sys module
-	import sys
+    # Use the sys module
+    import sys
 
-	# 'file' in this case is STDIN
-	def read_input(file):
-		# Split each line into words
-		for line in file:
-			yield line.split()
+    # 'file' in this case is STDIN
+    def read_input(file):
+        # Split each line into words
+        for line in file:
+            yield line.split()
 
-	def main(separator='\t'):
-		# Read the data using read_input
-		data = read_input(sys.stdin)
-		# Process each words returned from read_input
-		for words in data:
-			# Process each word
-			for word in words:
-				# Write to STDOUT
-				print '%s%s%d' % (word, separator, 1)
+    def main(separator='\t'):
+        # Read the data using read_input
+        data = read_input(sys.stdin)
+        # Process each words returned from read_input
+        for words in data:
+            # Process each word
+            for word in words:
+                # Write to STDOUT
+                print '%s%s%d' % (word, separator, 1)
 
-	if __name__ == "__main__":
-		main()
+    if __name__ == "__main__":
+        main()
 
 코드를 읽어 보면 이 코드의 내용을 이해할 수 있습니다.
 
@@ -99,40 +99,40 @@ mapper 및 reducer는 텍스트 파일이며 이 예제에서는 어떤 것이 �
 
 **reducer.py**라는 새 파일을 만들고 다음 코드를 그 내용으로 사용합니다.
 
-	#!/usr/bin/env python
+    #!/usr/bin/env python
 
-	# import modules
-	from itertools import groupby
-	from operator import itemgetter
-	import sys
+    # import modules
+    from itertools import groupby
+    from operator import itemgetter
+    import sys
 
-	# 'file' in this case is STDIN
-	def read_mapper_output(file, separator='\t'):
-		# Go through each line
-	    for line in file:
-			# Strip out the separator character
-	        yield line.rstrip().split(separator, 1)
+    # 'file' in this case is STDIN
+    def read_mapper_output(file, separator='\t'):
+        # Go through each line
+        for line in file:
+            # Strip out the separator character
+            yield line.rstrip().split(separator, 1)
 
-	def main(separator='\t'):
-	    # Read the data using read_mapper_output
-	    data = read_mapper_output(sys.stdin, separator=separator)
-		# Group words and counts into 'group'
-		#   Since MapReduce is a distributed process, each word
+    def main(separator='\t'):
+        # Read the data using read_mapper_output
+        data = read_mapper_output(sys.stdin, separator=separator)
+        # Group words and counts into 'group'
+        #   Since MapReduce is a distributed process, each word
         #   may have multiple counts. 'group' will have all counts
         #   which can be retrieved using the word as the key.
-	    for current_word, group in groupby(data, itemgetter(0)):
-	        try:
-				# For each word, pull the count(s) for the word
-				#   from 'group' and create a total count
-	            total_count = sum(int(count) for current_word, count in group)
-				# Write to stdout
-	            print "%s%s%d" % (current_word, separator, total_count)
-	        except ValueError:
-	            # Count was not a number, so do nothing
-	            pass
+        for current_word, group in groupby(data, itemgetter(0)):
+            try:
+                # For each word, pull the count(s) for the word
+                #   from 'group' and create a total count
+                total_count = sum(int(count) for current_word, count in group)
+                # Write to stdout
+                print "%s%s%d" % (current_word, separator, total_count)
+            except ValueError:
+                # Count was not a number, so do nothing
+                pass
 
-	if __name__ == "__main__":
-	    main()
+    if __name__ == "__main__":
+        main()
 
 ##파일 업로드
 
@@ -144,7 +144,7 @@ mapper 및 reducer는 텍스트 파일이며 이 예제에서는 어떤 것이 �
 
 로컬 시스템에서 헤드 노드로 파일이 복사됩니다.
 
-> [AZURE.NOTE]SSH 계정을 보호하는 암호를 사용한 경우 암호를 묻는 메시지가 나타납니다. SSH 키를 사용한 경우 `-i` 매개 변수 및 개인 키에 대한 경로를 사용해야 합니다(예: `scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:`).
+> [AZURE.NOTE] SSH 계정을 보호하는 암호를 사용한 경우 암호를 묻는 메시지가 나타납니다. SSH 키를 사용한 경우 `-i` 매개 변수 및 개인 키에 대한 경로를 사용해야 합니다(예: `scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:`).
 
 ##MapReduce 실행
 
@@ -152,11 +152,11 @@ mapper 및 reducer는 텍스트 파일이며 이 예제에서는 어떤 것이 �
 
 		ssh username@clustername-ssh.azurehdinsight.net
 
-	> [AZURE.NOTE]SSH 계정을 보호하는 암호를 사용한 경우 암호를 묻는 메시지가 나타납니다. SSH 키를 사용한 경우 `-i` 매개 변수 및 개인 키에 대한 경로를 사용해야 합니다(예: `ssh -i /path/to/private/key username@clustername-ssh.azurehdinsight.net`).
+	> [AZURE.NOTE] SSH 계정을 보호하는 암호를 사용한 경우 암호를 묻는 메시지가 나타납니다. SSH 키를 사용한 경우 `-i` 매개 변수 및 개인 키에 대한 경로를 사용해야 합니다(예: `ssh -i /path/to/private/key username@clustername-ssh.azurehdinsight.net`).
 
 2. 다음 명령을 사용하여 MapReduce 작업을 시작합니다.
 
-		hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files mapper.py,reducer.py -mapper mapper.py -reducer reducer.py -input wasb:///example/data/gutenberg/davinci.txt -output wasb:///example/wordcountout
+		yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files mapper.py,reducer.py -mapper mapper.py -reducer reducer.py -input wasb:///example/data/gutenberg/davinci.txt -output wasb:///example/wordcountout
 
 	다음은 명령어의 일부입니다.
 
@@ -172,7 +172,7 @@ mapper 및 reducer는 텍스트 파일이며 이 예제에서는 어떤 것이 �
 
 	* **-output**: 출력 내용을 작성할 디렉터리를 지정합니다.
 
-		> [AZURE.NOTE]이 명령어로 디렉터리를 새로 만들 수 있습니다.
+		> [AZURE.NOTE] 이 명령어로 디렉터리를 새로 만들 수 있습니다.
 
 작업을 시작하면 많은 **INFO** 문이 표시되며 마지막으로 **map** 및 **reduce** 작업 비율이 표시됩니다.
 
@@ -186,7 +186,7 @@ mapper 및 reducer는 텍스트 파일이며 이 예제에서는 어떤 것이 �
 
 작업이 완료되면 다음 명령을 사용하여 출력을 확인합니다.
 
-	hadoop fs -text /example/wordcountout/part-00000
+	hdfs dfs -text /example/wordcountout/part-00000
 
 그러면 단어의 목록과 단어가 나타나는 빈도가 표시됩니다. 다음은 출력 데이터의 예제입니다.
 
@@ -205,4 +205,4 @@ HDInsight에서 스트리밍 MapRedcue 작업을 사용하는 방법을 배웠�
 * [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 * [HDInsight에서 MapReduce 작업 사용](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="02/09/2016" 
 	ms.author="dariagrigoriu"/>
 
 # Azure 앱 서비스 배포 개요
@@ -23,4 +23,4 @@ Azure 앱 서비스는 강력하고 유연한 배포 워크플로 만들기를 �
 
 [AZURE.INCLUDE [app-service-blueprint-deployment](../../includes/app-service-blueprint-deployment.md)]
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/13/2015"
+   ms.date="02/09/2016"
    ms.author="bwren" />
 
 # Azure 자동화 Runbook 형식
@@ -50,7 +50,7 @@ Azure 자동화는 세 가지 형식의 runbook을 지원하며 다음 테이블
 
 ## PowerShell 워크플로 Runbook
 
-PowerShell 워크플로 Runbook은 [Windows PowerShell 워크플로](automation-powershell-workflow.md)에 기반하는 텍스트 Runbook입니다. Azure 포털의 텍스트 편집기를 사용하여 Runbook을 직접 편집합니다. 오프라인 텍스트 편집기도 사용할 수 있고 Azure 자동화로 [Runbook 가져오기](http://msdn.microsoft.com/library/azure/dn643637.aspx)가 가능합니다.
+PowerShell 워크플로 Runbook은 [Windows PowerShell 워크플로](automation-powershell-workflow.md)를 기반으로 하는 텍스트 Runbook입니다. Azure 포털의 텍스트 편집기를 사용하여 Runbook을 직접 편집합니다. 오프라인 텍스트 편집기도 사용할 수 있고 Azure 자동화로 [Runbook 가져오기](http://msdn.microsoft.com/library/azure/dn643637.aspx)가 가능합니다.
 
 ### 장점
 
@@ -88,7 +88,7 @@ PowerShell Runbook은 Windows PowerShell을 기반으로 합니다. Azure 포털
 PowerShell Runbook에 대해 현재 알려진 문제는 다음과 같습니다.
 
 - PowerShell Runbook은 null 값으로 암호화되지 않은 [변수 자산](automation-variables.md)을 검색할 수 없습니다.
-- PowerShell Runbook은 이름에 *~*를 사용하여 [변수 자산](automation-variables.md)을 검색할 수 없습니다.
+- PowerShell Runbook은 이름에 *~*을 사용하여 [변수 자산](automation-variables.md)을 검색할 수 없습니다.
 - PowerShell Runbook의 반복적인 Get-Process는 80회 반복 후에 작동이 중단될 수 있습니다. 
 - PowerShell Runbook은 한 번에 스트림을 출력하기 위해 매우 큰 데이터를 쓰려는 시도를 하면 실패할 수 있습니다. 일반적으로 큰 개체로 작업하는 경우 필요한 정보만 출력하면 이 문제를 극복할 수 있습니다. 예를 들어 *Get-Process* 같은 출력 대신 *Get-Process | Select ProcessName, CPU*를 사용하여 필요한 필드만 출력할 수 있습니다.
 
@@ -108,4 +108,4 @@ PowerShell Runbook에 대해 현재 알려진 문제는 다음과 같습니다.
 - [Windows PowerShell 워크플로 학습](automation-powershell-workflow.md)
 - [Runbook 만들기 또는 가져오기](http://msdn.microsoft.com/library/azure/dn643637.aspx)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->
