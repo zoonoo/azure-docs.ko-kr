@@ -176,8 +176,8 @@ Hive를 사용하여 HBase 테이블의 데이터를 쿼리할 수 있습니다.
 
   이 명령에서 사용된 매개 변수는 다음과 같습니다.
 
-    * **-u** - The user name and password used to authenticate the request.
-    * **-G** - Indicates that this is a GET request.
+    * **-u** - 요청을 인증하는 데 사용되는 사용자 이름 및 암호입니다.
+    * **-G** - GET 요청임을 나타냅니다.
 
 2. 다음 명령을 사용하여 기존의 HBase 테이블을 나열합니다.
 
