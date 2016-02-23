@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="02/12/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스에 대한 지원 티켓 만들기
@@ -22,7 +22,7 @@
 
 ## 지원 티켓을 만드는 방법
 
-1. [Azure 클래식 포털][]을 엽니다. 
+1. [Azure 포털][]을 엽니다. 
 2. 홈 화면에서 **도움말 + 지원** 타일을 클릭합니다.
 
     ![도움말 + 지원](./media/sql-data-warehouse-get-started-create-support-ticket/help-support.png)
@@ -78,10 +78,10 @@
 
 <!-- External links -->
 
-[Azure 클래식 포털]: https://portal.azure.com/
+[Azure 포털]: https://portal.azure.com/
 [Azure 지원 계획]: http://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/
 [Microsoft 프리미어 온라인 포털]: https://premier.microsoft.com/
 [S스택 오버플로]: http://stackoverflow.com/questions/tagged/azure-sqldw/
 [Azure SQL 데이터 웨어하우스 MSDN 포럼]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

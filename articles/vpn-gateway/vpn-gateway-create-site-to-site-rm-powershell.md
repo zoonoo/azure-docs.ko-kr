@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/04/2016"
+   ms.date="02/16/2016"
    ms.author="cherylmc"/>
 
 # PowerShell을 사용하여 사이트 간 VPN 연결로 가상 네트워크 만들기
@@ -38,12 +38,9 @@
 - VPN 장치에 대한 외부 연결 공용 IP 주소. 이 IP 주소는 NAT 뒤에 배치할 수 없습니다.
 	
 - Azure 구독. Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하거나 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
-
-## PowerShell 모듈 설치
-
-연결을 구성하려면 최신 버전의 Azure 리소스 관리자 PowerShell cmdlet이 필요합니다.
 	
-[AZURE.INCLUDE [vpn-gateway-ps-rm-howto](../../includes/vpn-gateway-ps-rm-howto-include.md)]
+- 최신 버전의 Azure 리소스 관리자 PowerShell cmdlet을 설치해야 합니다. PowerShell cmdlet 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
+
 
 ## 1\. 구독에 연결 
 
@@ -63,8 +60,7 @@ PowerShell 콘솔을 열고 계정에 연결합니다. 연결에 도움이 되�
 
 ## 2\. 가상 네트워크 및 게이트웨이 서브넷 만들기
 
-- 게이트웨이 서브넷이 포함된 가상 네트워크가 이미 있는 경우 **3단계 - 로컬 사이트 추가**로 바로 이동할 수 있습니다. 
-- 가상 네트워크가 이미 있고 VNet에 게이트웨이 서브넷을 추가하려는 경우 [VNet에 게이트웨이 서브넷 추가](#gatewaysubnet)를 참조하세요.
+아래 예제는 /28의 게이트웨이 서브넷을 보여 줍니다. 게이트웨이 서브넷을 /29만큼 작게 만들 수 있지만 권장하지 않습니다. 추가 기능 요구 사항을 수용하기 위해 게이트웨이 서브넷 /27 이상(/26, /25 등)을 만드는 것을 권장합니다. /29 이상인 게이트웨이 서브넷이 포함된 가상 네트워크가 이미 있는 경우 **3단계 - 로컬 사이트 추가**로 바로 이동할 수 있습니다.
 
 ### 가상 네트워크 및 게이트웨이 서브넷을 만들려면
 
@@ -82,11 +78,11 @@ PowerShell 콘솔을 열고 계정에 연결합니다. 연결에 도움이 되�
 	$subnet2 = New-AzureRmVirtualNetworkSubnetConfig -Name 'Subnet1' -AddressPrefix '10.0.1.0/28'
 	New-AzureRmVirtualNetwork -Name testvnet -ResourceGroupName testrg -Location 'West US' -AddressPrefix 10.0.0.0/16 -Subnet $subnet1, $subnet2
 
-### <a name="gatewaysubnet"></a>VNet에 게이트웨이 서브넷을 추가하려면(선택 사항)
+### <a name="gatewaysubnet"></a>이미 만든 가상 네트워크에 게이트웨이 서브넷을 추가하려면
 
 이 단계는 이전에 만든 VNet에 게이트웨이 서브넷을 추가해야 하는 경우에만 필요합니다.
 
-이미 기존 가상 네트워크가 있으며 게이트웨이 서브넷을 추가하려는 경우 아래 샘플을 사용하여 게이트웨이 서브넷을 만들 수 있습니다. 게이트웨이 서브넷의 이름을 'GatewaySubnet'으로 지정해야 합니다. 다른 이름을 지정하는 경우 서브넷이 만들어지지만 Azure에서 게이트웨이 서브넷으로 표시되지 않습니다.
+아래 샘플을 사용하여 게이트웨이 서브넷을 만들 수 있습니다. 게이트웨이 서브넷의 이름을 'GatewaySubnet'으로 지정해야 합니다. 다른 이름을 지정하는 경우 서브넷이 만들어지지만 Azure에서 게이트웨이 서브넷으로 표시되지 않습니다.
 
 	$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName testrg -Name testvnet
 	Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/28 -VirtualNetwork $vnet
@@ -143,8 +139,8 @@ PowerShell 예제를 사용할 때는 다음 사항에 유의하세요.
 
 다음 값을 사용합니다.
 
-- 게이트웨이 형식은 *Vpn*입니다.
-- VpnType은 RouteBased*(일부 설명서에서는 동적 게이트웨이라고도 함) 또는 *정책 기반*(일부 설명서에서는 정적 게이트웨이라고도 함)일 수 있습니다. VPN 게이트웨이 형식에 대한 자세한 내용은 [VPN 게이트웨이 정보](vpn-gateway-about-vpngateways.md)를 참조하세요. 	
+- 사이트 간 구성에 대한 **-GatewayType**은 **Vpn**입니다. 게이트웨이 유형은 항상 구현하는 구성에 따라 다릅니다. 예를 들어 다른 게이트웨이 구성은 GatewayType Express 경로 또는 GatewayType VNet2VNet이 필요할 수 있습니다. **사이트 간은 Vpn이 필요합니다**.
+- **-VpnType**은 **RouteBased**(일부 설명서에서는 동적 게이트웨이라고도 함) 또는 **정책 기반**(일부 설명서에서는 정적 게이트웨이라고도 함)일 수 있습니다. VPN 게이트웨이 형식에 대한 자세한 내용은 [VPN 게이트웨이 정보](vpn-gateway-about-vpngateways.md)를 참조하세요. 	
 
 		New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
 
@@ -246,4 +242,4 @@ VPN 연결을 만들었고 로컬 사이트에 포함된 IP 주소 접두사를 
 
 연결이 완료되면 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 단계는 [가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-tutorial.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -10,7 +10,7 @@
 <tags
    ms.service="multiple"
    ms.devlang="multiple"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
    ms.date="01/26/2016"
@@ -38,7 +38,7 @@ Azure의 큰 계산 옵션에 대해 알아보고 사용자의 작업 및 비즈
 
 * [자습서: .NET용 Azure 배치 라이브러리 시작](batch-dotnet-get-started.md)
 
-* [배치 포럼](https://social.msdn.microsoft.com/Forums/home?forum=azurebatch)
+* [배치 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=azurebatch)
 
 * [배치 비디오](https://azure.microsoft.com/documentation/videos/index/?services=batch)
 
@@ -84,7 +84,6 @@ Linux HPC 클러스터를 배포하려면 이러한 Azure 템플릿을 사용합
 * [MS-MPI 참조(영문)](https://msdn.microsoft.com/library/dn473458.aspx)
 
 * [MPI 포럼](https://social.microsoft.com/Forums/ko-KR/home?forum=windowshpcmpi)
-
 
 ## 계산 집약적 인스턴스
 
@@ -137,4 +136,4 @@ Azure는 Linux 및 Windows HPC 워크로드를 실행하도록 백 엔드 RDMA �
 * 최신 공지 사항은 [Microsoft HPC 및 배치 팀 블로그](http://blogs.technet.com/b/windowshpc/) 및 [Azure 블로그](https://azure.microsoft.com/blog/tag/hpc/)를 참조하세요.
 * 또한 [배치의 새로운 기능](https://azure.microsoft.com/updates/?service=batch)을 참조하거나 [RSS 피드](https://azure.microsoft.com/updates/feed/?service=batch)를 구독하세요.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

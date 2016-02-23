@@ -9,10 +9,10 @@
 <tags 
    ms.service="automation"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/13/2016"
+   ms.date="02/11/2016"
    ms.author="sngun"/>
 
 # Azure 자동화의 역할 기반 액세스 제어
@@ -139,4 +139,4 @@ Azure 자동화의 자동화 계정 범위에서 사용자, 그룹 및 응용 �
 - Runbook을 시작하는 다양한 방법에 대한 자세한 내용은 [Runbook 시작](automation-starting-a-runbook.md)을 참조하세요.
 - 다른 형식에 대한 자세한 내용은 [Azure 자동화 Runbook 형식](automation-runbook-types.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

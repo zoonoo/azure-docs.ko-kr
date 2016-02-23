@@ -51,7 +51,7 @@
 기본 Node.js 스캐폴딩과 함께 새 Azure 클라우드 서비스 프로젝트를 만들려면 다음 작업을 수행하세요.
 
 
-1. **Azure PowerShell** 관리자 권한으로 실행합니다. (**시작 메뉴** 또는 **시작 화면**에서 **Azure PowerShell**을 검색합니다.)
+1. **Windows PowerShell**을 관리자 권한으로 실행합니다. (**시작 메뉴** 또는 **시작 화면**에서 **Windows PowerShell**을 검색합니다.)
 
 2.  구독에 [PowerShell을 연결](powershell-install-configure.md#how-to-connect-to-your-subscription)합니다.
 3.  프로젝트를 만들려면 다음 PowerShell cmdlet을 입력합니다.
@@ -198,4 +198,4 @@ Node.js 앱은 웹 역할에 대한 디렉터리에 있는 **server.js** 파일�
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

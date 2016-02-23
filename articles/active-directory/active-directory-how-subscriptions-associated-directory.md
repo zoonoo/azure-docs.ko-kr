@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/05/2016"
+	ms.date="02/11/2016"
 	ms.author="curtand"/>
 
 # Azure 구독과 Azure Active Directory의 연관 관계
@@ -35,7 +35,7 @@ ID가 만들어지고 Microsoft 계정 시스템에 저장됨 | Azure 또는 Off
 예를 들어 Microsoft 계정을 가진 사용자가 Azure 클래식 포털에 로그인합니다.
 
 > [AZURE.NOTE]
-> Azure 클래식 포털에 로그인하려면 msmith@hotmail.com에 Azure 구독이 있어야 합니다. 구독의 공동 관리자 또는 서비스 관리자 계정이어야 합니다.
+Azure 클래식 포털에 로그인하려면 msmith@hotmail.com에 Azure 구독이 있어야 합니다. 구독의 공동 관리자 또는 서비스 관리자 계정이어야 합니다.
 
 ![][1]
 
@@ -106,19 +106,32 @@ Azure에 등록하기 전에 Office 365에 등록했다고 가정해 보겠습�
 이 두 디렉터리를 모두 Azure 클래식 포털에서 관리하려면 다음 단계를 완료하세요.
 
 > [AZURE.NOTE]
-> 이 단계는 사용자가 Microsoft 계정으로 로그인한 경우에만 완료할 수 있습니다. 사용자가 회사 또는 학교 계정으로 로그인했으면 홈 디렉터리(즉, 회사 또는 학교 계정이 저장된 디렉터리 및 회사 또는 학교가 소유한 디렉터리)만 회사 또는 학교 계정을 인증할 수 있으므로 **기존 디렉터리 사용** 옵션을 사용할 수 없습니다.
+이 단계는 사용자가 Microsoft 계정으로 로그인한 경우에만 완료할 수 있습니다. 사용자가 회사 또는 학교 계정으로 로그인했으면 홈 디렉터리(즉, 회사 또는 학교 계정이 저장된 디렉터리 및 회사 또는 학교가 소유한 디렉터리)만 회사 또는 학교 계정을 인증할 수 있으므로 **기존 디렉터리 사용** 옵션을 사용할 수 없습니다.
 
 1. Microsoft 계정을 사용하여 Azure 클래식 포털에 로그인합니다.
+
 2. **새로 만들기** > **앱 서비스** > **Active Directory** > **디렉터리 ** > **사용자 지정 만들기**를 클릭합니다.
+
 3. **기존 디렉터리 사용**을 클릭하고 **지금 로그아웃할 준비가 되었습니다**를 선택하고 확인 표시를 클릭하여 작업을 완료합니다.
+
 4. 회사 또는 학교 디렉터리에 대한 전역 관리자 권한이 있는 계정을 사용하여 Azure 클래식 포털에 로그인합니다.
+
 5. **Azure로 Contoso 디렉터리를 사용할까요?**란 메시지가 나타나면 **계속**을 클릭합니다.
+
 6. **지금 로그아웃**을 클릭합니다.
+
 7. Microsoft 계정을 사용하여 Azure 클래식 포털에 다시 로그인합니다. Active Directory 확장에 두 디렉터리가 모두 표시됩니다.
 
 
 ## 다음 단계
-[조직으로 Azure에 등록](sign-up-organization.md)
+
+- Azure 구독에 대한 관리자를 변경하는 방법을 자세히 알아보려면 [Azure 관리자 역할을 추가 또는 변경하는 방법](../billing-add-change-azure-subscription-administrator.md)을 참조하세요.
+
+- Microsoft Azure에서 리소스 액세스를 제어하는 방법을 자세히 알아보려면 [Azure에서 리소스 액세스 이해](active-directory-understanding-resource-access.md)를 참조하세요.
+
+- Azure AD에서 역할을 할당하는 방법에 대한 자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](active-directory-assign-admin-roles.md)을 참조하세요.
+
+- [조직으로 Azure에 등록](sign-up-organization.md)
 
 
 <!--Image references-->
@@ -126,4 +139,4 @@ Azure에 등록하기 전에 Office 365에 등록했다고 가정해 보겠습�
 [2]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png
 [3]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_SignInDisambiguation.PNG
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0218_2016-->

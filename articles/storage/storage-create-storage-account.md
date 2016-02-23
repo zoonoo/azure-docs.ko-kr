@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/26/2016"
+	ms.date="02/14/2016"
 	ms.author="robinsh"/>
 
 
@@ -28,7 +28,7 @@ Azure 저장소 계정은 Azure 저장소의 Azure Blob, 큐, 테이블 및 파�
 저장소 계정에는 다음과 같은 두 종류가 있습니다.
 
 - 표준 저장소 계정에는 Blob, 테이블, 큐 및 파일 저장소가 포함됩니다.
-- 프리미엄 저장소 계정은 현재 Azure 가상 컴퓨터 디스크만 지원합니다. 프리미엄 저장소의 자세한 개요는 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](storage-premium-storage-preview-portal.md)를 참조하세요.
+- 프리미엄 저장소 계정은 현재 Azure 가상 컴퓨터 디스크만 지원합니다. 프리미엄 저장소의 자세한 개요는 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](storage-premium-storage.md)를 참조하세요.
 
 ## 저장소 계정 사용 비용
 
@@ -39,9 +39,9 @@ Azure 저장소 사용 비용은 저장소 계정에 따라 청구됩니다. 저
 - 트랜잭션은 Azure 저장소에 대한 모든 읽기 및 쓰기 작업을 나타냅니다.
 - 데이터 송신은 Azure 지역 외부에서 전송되는 데이터를 나타냅니다. 저장소 계정의 데이터에 동일한 지역에서 실행되지 않는 응용 프로그램이 액세스하는 경우 해당 응용 프로그램이 클라우드 서비스인지 다른 유형의 응용 프로그램인지 여부에 상관없이 데이터 송신 요금이 부과됩니다. Azure 서비스의 경우 데이터 송신 요금을 줄이거나 제거하기 위해 동일한 데이터 센터의 데이터와 서비스를 그룹화하는 조치를 취할 수 있습니다.  
 
-[Azure 가격 책정](https://azure.microsoft.com/pricing/details/#storage) 페이지는 저장소 용량, 복제 및 트랜잭션에 대한 자세한 가격 정보를 제공합니다. [데이터 전송 가격 정보](https://azure.microsoft.com/pricing/details/data-transfers/) 페이지는 데이터 송신에 대한 자세한 가격 정보를 제공합니다.
+[Azure 저장소 가격 책정](https://azure.microsoft.com/pricing/details/storage) 페이지는 저장소 용량, 복제 및 트랜잭션에 대한 자세한 가격 정보를 제공합니다. [데이터 전송 가격 정보](https://azure.microsoft.com/pricing/details/data-transfers/) 페이지는 데이터 송신에 대한 자세한 가격 정보를 제공합니다.
 
-저장소 계정 용량 및 성능 목표에 대한 자세한 내용은 [Azure 저장소 확장성 및 성능 목표](http://msdn.microsoft.com/library/azure/dn249410.aspx)를 참조하세요.
+저장소 계정 용량 및 성능 목표에 대한 자세한 내용은 [Azure 저장소 확장성 및 성능 목표](storage-scalability-targets.md)를 참조하세요.
 
 > [AZURE.NOTE] Azure 가상 컴퓨터를 만드는 경우 배포 위치에 저장소 계정이 아직 없으면 해당 위치에서 자동으로 저장소 계정이 만들어집니다. 따라서 가상 컴퓨터 디스크에 대한 저장소 계정을 만들기 위해 아래 단계를 수행할 필요가 없습니다. 저장소 계정 이름은 가상 컴퓨터 이름을 기반으로 합니다. 자세한 내용은 [Azure 가상 컴퓨터 설명서](https://azure.microsoft.com/documentation/services/virtual-machines/)를 참조하세요.
 
@@ -61,7 +61,7 @@ Azure 저장소에 저장되는 모든 개체에는 고유한 URL 주소가 있�
 
 저장소 계정의 개체에 액세스하기 위한 URL은 저장소 계정의 개체 위치를 끝점에 추가하여 작성됩니다. 예를 들어 Blob 주소의 형식은 다음과 같습니다. http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*
 
-사용자 지정 도메인 이름을 구성하여 저장소 계정에서 사용할 수도 있습니다. 자세한 내용은 [Azure 저장소 계정에서 Blob 데이터의 사용자 지정 도메인 이름 구성](storage-custom-domain-name.md)을 참조하세요.
+사용자 지정 도메인 이름을 구성하여 저장소 계정에서 사용할 수도 있습니다. 클래식 저장소 계정의 경우 자세한 내용은 [Blob 저장소 끝점에 대한 사용자 지정 도메인 이름 구성](storage-custom-domain-name.md)을 참조하세요. ARM 저장소 계정의 경우 이 기능은 [Azure 포털](https://portal.azure.com)에 아직 추가되지 않았지만 PowerShell과 함께 구성할 수 있습니다. 자세한 내용은 [Set-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607146.aspx) cmdlet을 참조하세요.
 
 ## 저장소 계정 만들기
 
@@ -83,7 +83,7 @@ Azure 저장소에 저장되는 모든 개체에는 고유한 URL 주소가 있�
 
 	기본 저장소 계정 형식은 **Standard-RAGRS**이며 이는 읽기 액세스 지역 중복 복제를 사용하는 표준 저장소 계정입니다. 이 저장소 계정 형식은 주 지역에서 수백 마일이 떨어져 있는 보조 지역에 복제되고 보조 지역에 읽기 액세스를 제공합니다.
 
-	Azure 저장소 복제 옵션에 대한 자세한 내용은 아래의 [Azure 저장소 복제](storage-redundancy.md)를 참조하세요. 표준 및 프리미엄 저장소 계정에 대한 자세한 내용은 [저장소 소개](storage-introduction.md) 및 [프리미엄 저장소: Azure 가상 컴퓨터 워크로드에 대한 고성능 저장소](storage-premium-storage-preview-portal.md)를 참조하세요.
+	Azure 저장소 복제 옵션에 대한 자세한 내용은 아래의 [Azure 저장소 복제](storage-redundancy.md)를 참조하세요. 표준 및 프리미엄 저장소 계정에 대한 자세한 내용은 [Microsoft Azure 저장소 소개](storage-introduction.md) 및 [프리미엄 저장소: Azure 가상 컴퓨터 워크로드에 대한 고성능 저장소](storage-premium-storage.md)를 참조하세요.
 
 6. 저장소 계정에 대한 진단을 사용하려는지 여부를 나타냅니다. 진단은 저장소 분석 로깅 및 메트릭을 포함합니다.
 
@@ -99,7 +99,7 @@ Azure 저장소에 저장되는 모든 개체에는 고유한 URL 주소가 있�
 
 저장소 계정을 만들면 Azure에서 두 개의 512비트 저장소 액세스 키를 생성합니다. 이 키는 저장소 계정에 액세스하는 경우 인증에 사용됩니다. Azure에서는 두 개의 저장소 액세스 키를 제공하므로 저장소 서비스나 해당 서비스에 대한 액세스 중단 없이 키를 다시 생성할 수 있습니다.
 
-> [AZURE.NOTE] 저장소 액세스 키를 다른 사람과 공유하지 않는 것이 좋습니다. 액세스 키를 제공하지 않고 저장소 리소스에 대한 액세스를 허용하려는 경우에는 *공유 액세스 서명*을 사용할 수 있습니다. 공유 액세스 서명에서는 정의된 간격으로 지정된 권한을 사용하여 계정의 리소스에 액세스할 수 있습니다. 자세한 내용은 [공유 액세스 서명 자습서](storage-dotnet-shared-access-signature-part-1.md)를 참조하세요.
+> [AZURE.NOTE] 저장소 액세스 키를 다른 사람과 공유하지 않는 것이 좋습니다. 액세스 키를 제공하지 않고 저장소 리소스에 대한 액세스를 허용하려는 경우에는 *공유 액세스 서명*을 사용할 수 있습니다. 공유 액세스 서명에서는 정의된 간격으로 지정된 권한을 사용하여 계정의 리소스에 액세스할 수 있습니다. 자세한 내용은 [공유 액세스 서명: SAS 모델 이해](storage-dotnet-shared-access-signature-part-1.md)를 참조하세요.
 
 ### 저장소 액세스 키 보기 및 복사
 
@@ -137,7 +137,7 @@ Azure 가상 컴퓨터와 연결된 저장소 계정을 삭제하려면 먼저 �
 
     Failed to delete storage account <vm-storage-account-name>. Unable to delete storage account <vm-storage-account-name>: 'Storage account <vm-storage-account-name> has some active image(s) and/or disk(s). Ensure these image(s) and/or disk(s) are removed before deleting this storage account.'.
 
-가상 컴퓨터 디스크를 제거하려면 Azure 클래식 포털에서 이 단계를 따릅니다.
+저장소 계정이 클래식 배포 모델을 사용하는 경우 [클래식 Azure 포털](https://manage.windowsazure.com)의 이러한 단계를 수행하여 가상 컴퓨터 디스크를 제거할 수 있습니다.
 
 1. [Azure 클래식 포털](https://manage.windowsazure.com)로 이동합니다.
 2. 가상 컴퓨터 탭으로 이동합니다.
@@ -150,8 +150,8 @@ Azure 가상 컴퓨터와 연결된 저장소 계정을 삭제하려면 먼저 �
 ## 다음 단계
 
 - [Azure 저장소 복제](storage-redundancy.md)
-- [Azure 저장소에 대한 연결 문자열 구성](storage-configure-connection-string.md)
+- [Azure 저장소 연결 문자열 구성](storage-configure-connection-string.md)
 - [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)
 - [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)(영문)를 방문하세요.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

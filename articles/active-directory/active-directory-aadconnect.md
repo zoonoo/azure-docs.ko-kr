@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/25/2016"
+	ms.date="02/16/2016"
 	ms.author="andkjell;billmath"/>
 
 # Azure Active Directory와 온-프레미스 ID 통합
@@ -39,8 +39,8 @@ Azure Active Directory Connect는 기본 세 부분으로 구성됩니다. 이�
 <center>![Azure AD Connect Stack](./media/active-directory-aadconnect-how-it-works/AADConnectStack2.png) </center>
 
 - 동기화 - 이 부분은 이전에 [DirSync 및 Azure AD 동기화](active-directory-aadconnect-get-started-tools-comparison.md)로 릴리스된 구성 요소와 기능으로 이루어집니다. 사용자 및 그룹 생성을 담당하는 부분입니다. 또한 온-프레미스 환경의 사용자 및 그룹에 대한 정보가 클라우드 내의 정보와 일치하도록 만들기도 합니다.
-- AD FS - Azure AD Connect의 선택적 부분이며 온-프레미스 AD FS 인프라를 사용하여 하이브리드 환경을 설정하는 데 사용할 수 있습니다. 이 부분은 조직에서 도메인 가입 SSO, AD 로그인 정책 강화, 스마트 카드나 타사 MFA 등이 포함된 복잡한 배포를 처리하는 데 사용할 수 있습니다.
-- 상태 모니터링 - Azure AD Connect Health는 AD FS 서버에 대한 강력한 모니터링을 제공하고Azure 포털에서 이 활동을 볼 수 있는 중앙 위치를 제공할 수 있습니다. 자세한 내용은 [Azure Active Directory Connect Health](active-directory-aadconnect-health.md)를 참조하세요.
+- AD FS - Azure AD Connect의 선택적 부분이며 온-프레미스 AD FS 인프라를 사용하여 하이브리드 환경을 설정하는 데 사용할 수 있습니다. 이 부분은 조직에서 도메인 가입 SSO, AD 로그인 정책 강화, 스마트 카드나 타사 MFA 등이 포함된 복잡한 배포를 처리하는 데 사용될 수 있습니다.
+- 상태 모니터링 - Azure AD Connect Health는 강력한 모니터링을 제공하고 Azure 포털에서 중앙 위치를 제공하여 이 활동을 볼 수 있습니다. 자세한 내용은 [Azure Active Directory Connect Health](active-directory-aadconnect-health.md)를 참조하세요.
 
 ## Azure AD Connect 설치
 
@@ -89,9 +89,11 @@ Azure AD Connect는 필요에 따라 기본적으로 키거나 사용할 수 있
 
 [비밀번호 쓰기 저장](active-directory-passwords-getting-started.md)을 사용하면 사용자가 클라우드에서 암호를 변경하고 다시 설정할 수 있으며 온-프레미스 암호 정책을 적용합니다.
 
-[장치 쓰기 저장](active-directory-aadconnect-get-started-custom-device-writeback.md)을 사용하면 Azure AD에 등록된 장치가 온-프레미스 Active Directory에 다시 기록되므로 조건부 액세스를 위해 사용할 수 있습니다.
+[장치 쓰기 저장](active-directory-aadconnect-feature-device-writeback.md)을 사용하면 Azure AD에 등록된 장치가 온-프레미스 Active Directory에 다시 기록되므로 조건부 액세스를 위해 사용할 수 있습니다.
 
 [실수로 인한 삭제 방지](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) 기능은 기본적으로 켜지고 동시에 클라우드 디렉터리가 삭제되지 않도록 보호합니다. 기본적으로 실행 당 500건이 삭제되고 조직의 크기에 따라 변경될 수 있습니다.
+
+[자동 업그레이드](active-directory-aadconnect-feature-automatic-upgrade.md)는 기본 설정 설치에 기본적으로 사용되고 Azure AD Connect 사용자가 항상 최신 릴리스로 업데이트되도록 합니다.
 
 ### 기능을 구성하는 다음 단계
 
@@ -100,8 +102,9 @@ Azure AD Connect는 필요에 따라 기본적으로 키거나 사용할 수 있
 | 필터링 구성 | [Azure AD Connect 동기화 구성 필터링](active-directory-aadconnectsync-configure-filtering.md) |
 | 암호 동기화 | [Azure AD Connect 동기화: 암호 동기화 구현](active-directory-aadconnectsync-implement-password-synchronization.md) |
 | 암호 쓰기 저장 | [암호 관리 시작](active-directory-passwords-getting-started.md) |
-| 장치 쓰기 저장 | [Azure AD Connect에서 장치 쓰기 저장 사용](active-directory-aadconnect-get-started-custom-device-writeback.md) |
+| 장치 쓰기 저장 | [Azure AD Connect에서 장치 쓰기 저장 사용](active-directory-aadconnect-feature-device-writeback.md) |
 | 실수로 인한 삭제 방지 | [Azure AD Connect 동기화: 실수로 인한 삭제 방지](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) |
+| 자동 업그레이드 | [Azure AD Connect: 자동 업그레이드](active-directory-aadconnect-feature-automatic-upgrade.md)|
 
 ## Azure AD Connect 동기화 사용자 지정
 Azure AD Connect 동기화는 대부분의 고객 및 토폴로지에 대해 작동하기 위한 기본 구성으로 제공됩니다. 하지만 기본 구성이 작동하지 않고 조정되어야 하는 경우가 항상 있습니다. 이 섹션 및 연결된 항목에서 문서화된 대로 변경하도록 지원됩니다.
@@ -116,11 +119,11 @@ Azure AD Connect 동기화는 대부분의 고객 및 토폴로지에 대해 작
 
 | 항목 | |
 | --------- | --------- |
+| 모든 Azure AD Connect Sync 문서 | [Azure AD Connect 동기화](active-directory-aadconnectsync-whatis.md) |
 | 기술 개념 | [Azure AD Connect Sync: 기술 개념](active-directory-aadconnectsync-technical-concepts.md) |
 | 기본 구성 이해 | [Azure AD Connect 동기화: 기본 구성 이해](active-directory-aadconnectsync-understanding-default-configuration.md) |
 | 사용자 및 연락처 이해 | [Azure AD Connect Sync: 사용자 및 연락처 이해](active-directory-aadconnectsync-understanding-users-and-contacts.md) |
 | 선언적 프로비전 | [Azure AD Connect Sync: 선언적 프로비전 식 이해](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |
-| 선언적 프로비전 함수 참조 | [Azure AD 동기화 연결: 함수 참조](active-directory-aadconnectsync-functions-reference.md) |
 | 기본 구성 변경 | [기본 구성 변경에 대한 모범 사례](active-directory-aadconnectsync-best-practices-changing-default-configuration.md) |
 
 ## 자세한 내용 및 참조
@@ -141,4 +144,4 @@ Azure AD Connect 동기화는 대부분의 고객 및 토폴로지에 대해 작
 
 [AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

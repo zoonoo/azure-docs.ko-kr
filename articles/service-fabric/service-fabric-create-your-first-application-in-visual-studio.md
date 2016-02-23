@@ -46,7 +46,7 @@
 
 	![Visual Studio의 새 서비스 대화 상자][2]
 
-	>[AZURE.NOTE]옵션에 대한 자세한 내용은 [프레임워크 선택](service-fabric-choose-framework.md)을 참조하세요.
+	>[AZURE.NOTE] 옵션에 대한 자세한 내용은 [프레임워크 선택](service-fabric-choose-framework.md)을 참조하세요.
 
 	Visual Studio는 응용 프로그램 프로젝트 및 상태 저장 서비스 프로젝트를 만들고 솔루션 탐색기에 표시합니다.
 
@@ -68,7 +68,7 @@
 
 1. Visual Studio에서 F5 키를 눌러 응용 프로그램을 디버깅하기 위해 배포합니다.
 
-	>[AZURE.NOTE]Visual Studio가 개발에 로컬 클러스터를 만들기 때문에 처음에는 시간이 걸립니다. 로컬 클러스터는 단일 컴퓨터의 다중 컴퓨터 클러스터에 빌드된 동일한 플랫폼 코드를 실행합니다. Visual Studio 출력 창에서 클러스터 만들기 상태를 확인합니다.
+	>[AZURE.NOTE] Visual Studio가 개발에 로컬 클러스터를 만들기 때문에 처음에는 시간이 걸립니다. 로컬 클러스터는 단일 컴퓨터의 다중 컴퓨터 클러스터에 빌드된 동일한 플랫폼 코드를 실행합니다. Visual Studio 출력 창에서 클러스터 만들기 상태를 확인합니다.
 
 	클러스터가 준비되면 SDK가 포함된 로컬 클러스터 시스템 트레이 관리자 응용 프로그램에서 알림을 받게 됩니다.
 
@@ -86,7 +86,7 @@
 
 	로컬 클러스터는 단일 컴퓨터에서 호스트되는 다섯 개의 노드를 포함합니다. 노드는 노드가 서로 다른 컴퓨터에 있는 5 노드 클러스터를 모방합니다. 로컬 클러스터의 노드 중 하나를 확인하여 컴퓨터의 손실을 시뮬레이션하는 동시에 Visual Studio 디버거를 실행합니다.
 
-    >[AZURE.NOTE]프로젝트 템플릿에서 내보내는 응용 프로그램 진단 이벤트는 포함된 `ServiceEventSource` 클래스를 사용합니다. 자세한 내용은 [로컬로 서비스를 모니터링 및 진단하는 방법](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally)을 참조하세요.
+    >[AZURE.NOTE] 프로젝트 템플릿에서 내보내는 응용 프로그램 진단 이벤트는 포함된 `ServiceEventSource` 클래스를 사용합니다. 자세한 내용은 [로컬로 서비스를 모니터링 및 진단하는 방법](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)을 참조하세요.
 
 4. StatefulService(예: MyStatefulService)에서 파생되는 서비스 프로젝트에서 클래스를 찾고 `RunAsync` 메서드의 첫 줄에 중단점을 설정합니다.
 
@@ -142,4 +142,4 @@
 [systray-launch-sfx]: ./media/service-fabric-create-your-first-application-in-visual-studio/launch-sfx.png
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

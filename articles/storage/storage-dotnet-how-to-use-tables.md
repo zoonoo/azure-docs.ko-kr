@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="01/24/2016"
+	ms.date="02/14/2016"
 	ms.author="tamram"/>
 
 
@@ -423,8 +423,8 @@ Azure 테이블 저장소는 클라우드에 구조화되지 않은 NoSQL 데이
     - [REST API 참조](http://msdn.microsoft.com/library/azure/dd179355)
 - [Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md)를 사용하여 Azure 저장소 작업을 위해 작성하는 코드를 간소화하는 방법을 알아봅니다.
 - Azure에 데이터를 저장하기 위한 추가 옵션에 대한 자세한 내용은 추가 기능 가이드를 참조하세요.
-    - [Blob 저장소](storage-dotnet-how-to-use-blobs.md)를 사용하여 구조화되지 않은 데이터를 저장합니다.
-    - [SQL 데이터베이스](sql-database-dotnet-how-to-use.md)를 사용하여 관계형 데이터를 저장합니다.
+    - [.NET을 사용하여 Azure Blob 저장소를 시작](storage-dotnet-how-to-use-blobs.md)하여 구조화되지 않은 데이터를 저장합니다.
+    - [.NET 응용 프로그램에서 Azure SQL 데이터베이스를 사용하는 방법](sql-database-dotnet-how-to-use.md)으로 관계형 데이터를 저장합니다.
 
   [Download and install the Azure SDK for .NET]: /develop/net/
   [Creating an Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
@@ -444,4 +444,4 @@ Azure 테이블 저장소는 클라우드에 구조화되지 않은 NoSQL 데이
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

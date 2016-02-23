@@ -4,15 +4,15 @@
 	keywords="확장성 있는 데이터베이스, 데이터베이스 구성"
 	services="sql-database"
 	documentationCenter=""
-	authors="stevestein"
-	manager="jeffreyg"
+	authors="sidneyh"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="02/02/2015"
-	ms.author="sstein"
+	ms.date="02/12/2016"
+	ms.author="sidneyh"
 	ms.workload="data-management"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="NA"/>
@@ -30,7 +30,10 @@
 > [AZURE.NOTE] 탄력적 데이터베이스 풀은 현재 미리 보기 상태이며, SQL 데이터베이스 V12 서버에서만 사용할 수 있습니다. SQL 데이터베이스 V11 서버가 있는 경우 한 단계에서 [PowerShell을 사용하여 V12로 업그레이드 및 풀 만들기](sql-database-upgrade-server-powershell.md)를 할 수 있습니다.
 
 
-시작하기 전에 SQL 데이터베이스 V12 서버에 데이터베이스가 있어야 합니다. 데이터베이스가 없는 경우 [첫 Azure SQL 데이터베이스 만들기](sql-database-get-started.md)를 참조하여 5분 이내에 하나를 만드세요. 또는 SQL 데이터베이스 V11 서버가 이미 있는 경우 [포털에서 V12 업그레이드](sql-database-v12-upgrade.md)한 다음 다시 돌아와서 풀을 만들려면 다음이 지침에 따르세요.
+## 필수 조건
+
+* SQL 데이터베이스 V12 서버의 데이터베이스. 데이터베이스가 없는 경우 [첫 Azure SQL 데이터베이스 만들기](sql-database-get-started.md)를 참조하여 5분 이내에 하나를 만드세요. 
+* 또는 SQL 데이터베이스 V11 서버가 이미 있는 경우 [포털에서 V12 업그레이드](sql-database-v12-plan-prepare-upgrade.md)한 다음 다시 돌아와서 풀을 만들려면 다음이 지침에 따르세요.
 
 
 ## 1단계: 새 풀 만들기
@@ -173,8 +176,7 @@ SQL 데이터베이스는 올바른 서버 및 풀에 대해 구성되어 있으
 
 기존 풀을 선택하면 해당 풀의 리소스 사용률을 볼 수 있습니다. **리소스 사용률** 차트를 클릭하면 차트 및 설정 경고를 사용자 지정할 수 있는 **메트릭** 블레이드가 열립니다.
 
-![탄력적 풀 모니터링][4] 
-![리소스 사용률][6]
+![탄력적 풀 모니터링][4] ![리소스 사용률][6]
 
 **차트 편집**을 클릭하여 풀에 대한 원격 분석 데이터를 손쉽게 볼 수 있도록 매개 변수를 추가합니다.
 
@@ -201,4 +203,4 @@ SQL 데이터베이스는 올바른 서버 및 풀에 대해 구성되어 있으
 [7]: ./media/sql-database-elastic-pool-portal/edit-chart.png
 [10]: ./media/sql-database-elastic-pool-portal/star.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

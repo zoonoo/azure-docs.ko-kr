@@ -30,7 +30,7 @@
 PowerShell을 사용하여 설치하지 않은 경우 다운로드하고 구성해야 합니다.
 
 1. Azure PowerShell 모듈을 다운로드하려면 [Microsoft 웹 플랫폼 설치 관리자](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)를 실행합니다.
-2. 모듈을 실행하려면 시작 창에서 **Microsoft Azure PowerShell**을 입력합니다.
+2. 모듈을 실행하려면 시작 창에서 **Windows PowerShell**을 입력합니다.
 3. 이 cmdlet을 실행하여 Azure 리소스 관리자에 로그인합니다. 자세한 내용은 [Azure PowerShell 설치 및 구성하는 방법][]을 참조하세요.
 
 	```
@@ -96,4 +96,4 @@ SQL 데이터 웨어하우스를 프로그래밍 방식으로 관리하는 방�
 [firewall rules]: ../sql-database/sql-database-configure-firewall-settings.md
 [Azure PowerShell 설치 및 구성하는 방법]: ./powershell-install-configure.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -12,7 +12,7 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="02/03/2016"
+      ms.date="02/14/2016"
       ms.author="robinsh" />
 
 # Windows에서 Azure 파일 저장소 시작
@@ -55,7 +55,7 @@ Windows에서 Azure 파일 공유를 만들고 사용하는 방법을 보여주�
 	- 동일한 저장소 계정의 blob으로 파일 복사
 - 문제 해결을 위해 Azure 저장소 메트릭 사용
 
-파일 저장소는 이제 모든 저장소 계정에 대해 지원되므로 기존 저장소 계정을 사용하거나 새 저장소 계정을 만들 수 있습니다. 새 저장소 계정 만들기에 대한 자세한 내용은 [저장소 계정을 만들거나 관리 또는 삭제하는 방법](storage-create-storage-account.md#create-a-storage-account)을 참조하세요.
+파일 저장소는 이제 모든 저장소 계정에 대해 지원되므로 기존 저장소 계정을 사용하거나 새 저장소 계정을 만들 수 있습니다. 새 저장소 계정 만들기에 대한 자세한 내용은 [저장소 계정을 만드는 방법](storage-create-storage-account.md#create-a-storage-account)(영문)을 참조하세요.
 
 ## Azure 포털을 사용하여 파일 공유 관리
 
@@ -130,11 +130,11 @@ Windows에서 Azure 파일 공유를 만들고 사용하는 방법을 보여주�
 
 ### Azure 저장소에 대한 PowerShell cmdlet 설치
 
-PowerShell 사용을 준비하려면 Azure PowerShell cmdlet을 다운로드하여 설치합니다. 설치 지점 및 설치 지침에 대해서는 [Azure PowerShell 설치 및 구성 방법](../install-configure-powershell.md)을 참조하세요.
+PowerShell 사용을 준비하려면 Azure PowerShell cmdlet을 다운로드하여 설치합니다. 설치 지점 및 설치 지침에 대해서는 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
 
 > [AZURE.NOTE] 최신 Azure PowerShell 모듈을 다운로드하여 설치하거나 최신 모듈로 업그레이드하는 것이 좋습니다.
 
-**시작**을 클릭하고 **Azure PowerShell**을 입력하여 Azure PowerShell 창을 엽니다. Azure PowerShell 창에 Azure Powershell 모듈이 로드됩니다.
+**시작**을 클릭하고 **Windows PowerShell**을 입력하여 Azure PowerShell 창을 엽니다. PowerShell 창에 Azure Powershell 모듈이 로드됩니다.
 
 ### 저장소 계정 및 키에 대한 컨텍스트 만들기
 
@@ -210,8 +210,8 @@ SMB 3.0에 대한 지원을 통해 파일 저장소는 이제 SMB 3.0 클라이�
 
 Azure 파일 공유를 마운트하는 방법을 보여 주기 위해 Windows를 실행하는 Azure 가상 컴퓨터를 만든 후 원격으로 연결하여 공유를 마운트하겠습니다.
 
-1. 먼저 [Windows Server를 실행하는 가상 컴퓨터 만들기](../virtual-machines-windows-tutorial.md)의 지침에 따라 새 Azure 가상 컴퓨터를 만듭니다.
-2. 다음으로 [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법](../virtual-machines-log-on-windows-server.md)의 지침에 따라 가상 컴퓨터에 원격으로 연결합니다.
+1. 먼저 [Azure 포털에서 Windows 가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-tutorial.md)의 지침에 따라 새 Azure 가상 컴퓨터를 만듭니다.
+2. 다음으로 [Azure 포털을 사용하여 Windows 가상 컴퓨터에 로그온](../virtual-machines/virtual-machines-arm-log-on-windows-vm.md)의 지침에 따라 가상 컴퓨터에 원격으로 연결합니다.
 3. 가상 컴퓨터에서 PowerShell 창을 엽니다.
 
 ### 가상 컴퓨터의 저장소 계정 자격 증명 유지
@@ -419,13 +419,13 @@ Azure 저장소 클라이언트 라이브러리 버전 5.x부터 파일 공유 �
         Console.WriteLine(fileSas.DownloadText());
     }
 
-공유 액세스 서명 생성 및 사용에 대한 자세한 내용은 [공유 액세스 서명: SAS 모델 이해](storage-dotnet-shared-access-signature-part-1.md) 및 [Blob 서비스를 통해 SAS 생성 및 사용](storage-dotnet-shared-access-signature-part-2.md)을 참조하세요.
+공유 액세스 서명 생성 및 사용에 대한 자세한 내용은 [공유 액세스 서명: SAS 모델 이해](storage-dotnet-shared-access-signature-part-1.md) 및 [Blob 저장소를 통해 SAS 생성 및 사용](storage-dotnet-shared-access-signature-part-2.md)을 참조하세요.
 
 ### 파일 복사
 
 Azure 저장소 클라이언트 라이브러리 버전 5.x부터 파일을 다른 파일로, 파일을 blob으로 또는 blob을 파일로 복사할 수 있습니다. 다음 섹션에는 이러한 복사 작업을 프로그래밍 방식으로 수행하는 방법이 나와 있습니다.
 
-AzCopy를 사용하여 파일을 다른 파일로 복사하거나 blob을 파일로 복사할 수도 있고 그 반대로 복사할 수도 있습니다. AzCopy를 사용하여 파일을 복사하는 방법에 대한 자세한 내용은 [Microsoft Azure 저장소를 통해 AzCopy를 사용하는 방법](storage-use-azcopy.md#copy-files-in-azure-file-storage-with-azcopy)을 참조하세요.
+AzCopy를 사용하여 파일을 다른 파일로 복사하거나 blob을 파일로 복사할 수도 있고 그 반대로 복사할 수도 있습니다. [AzCopy를 사용하여 Azure 파일 저장소에 파일 복사](storage-use-azcopy.md#copy-files-in-azure-file-storage-with-azcopy)를 참조하세요.
 
 > [AZURE.NOTE] blob을 파일에 복사하거나 파일을 blob에 복사하는 경우 두 항목이 동일한 저장소 계정 내에 있더라도 SAS(공유 액세스 서명)를 사용하여 원본 개체를 인증해야 합니다.
 
@@ -586,8 +586,7 @@ Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합�
 
 ### 개념 문서 및 비디오
 
-- [Azure 파일 저장소: Windows 및 Linux용 원활한 클라우드 SMB 파일 시스템
-- https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
+- [Azure 파일 저장소: Windows 및 Linux을 위한 원활한 클라우드 SMB 파일 시스템 ](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
 - [Linux에서 Azure 파일 저장소 사용 방법](storage-how-to-use-files-linux.md)
 
 ### 파일 저장소용 도구 지원
@@ -608,4 +607,4 @@ Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합�
 - [Microsoft Azure 파일 서비스 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Microsoft Azure 파일에 대한 연결 유지](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

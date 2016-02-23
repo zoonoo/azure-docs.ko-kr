@@ -77,7 +77,7 @@ Azure AD Connect Health 포털을 사용하여 경고, 성능 모니터링 및 �
 ![Azure AD Connect Health 포털](./media/active-directory-aadconnect-health/portal2.png)
 
 - **빠른 시작** – 이 항목을 선택하면 빠른 시작 블레이드가 열립니다. 여기에서 도구 가져오기를 선택하여 Azure AD Connect Health Agent를 다운로드하고, 설명서에 액세스하고, 피드백을 제공할 수 있습니다.
-- **Active Directory Federation Services** – Azure AD Connect Health에서 현재 모니터링하는 모든 AD FS 서비스를 나타냅니다. 인스턴스 중 하나를 선택하면, 서비스 인스턴스에 대한 정보가 포함된 블레이드가 열립니다. 개요, 속성, 경고, 모니터링 및 사용 현황 분석이 이러한 정보에 포함됩니다. 
+- **Active Directory Federation Services** – Azure AD Connect Health에서 현재 모니터링하는 모든 AD FS 서비스를 나타냅니다. 인스턴스 중 하나를 선택하면, 서비스 인스턴스에 대한 정보가 포함된 블레이드가 열립니다. 개요, 속성, 경고, 모니터링 및 사용 현황 분석이 이러한 정보에 포함됩니다.
 - 구성 – 여기에서는 다음 옵션을 켜거나 끌 수 있습니다.
 <ol>
 1. 자동으로 Azure AD Connect Health Agent를 최신 버전으로 업데이트하는 자동 업데이트 - Azure AD Connect Health Agent의 최신 버전을 사용할 수 있게 되면 자동으로 업데이트됩니다. 이 옵션은 기본적으로 사용하도록 설정되어 있습니다.
@@ -112,7 +112,7 @@ Azure AD Connect Health 포털을 사용하여 경고, 성능 모니터링 및 �
 
 
 - AD FS에 대한 Azure AD Connect Health를 사용하여 시작하려면 [AD FS에 대한 Azure AD Connect Health 에이전트 다운로드](http://go.microsoft.com/fwlink/?LinkID=518973)를 사용하여 최신 버전을 다운로드할 수 있습니다. 에이전트를 설치하기 전에 Marketplace에서 추가 확인합니다.
-- 동기화에 대한 Azure AD Connect Health를 사용하여 시작하려면Azure AD Connect의 최신 버전을 다운로드하고 설치합니다. 상태 에이전트는 Azure AD Connect 설치의 일부로 설치됩니다. Azure AD Connect는 이전 버전에서 전체 업그레이드를 지원합니다.
+- 동기화에 대한 Azure AD Connect Health를 사용하여 시작하려면[Azure AD Connect의 최신 버전](http://go.microsoft.com/fwlink/?linkid=615771)을 다운로드하고 설치합니다. 상태 에이전트는 Azure AD Connect 설치의 일부로 설치됩니다. Azure AD Connect는 이전 버전에서 전체 업그레이드를 지원합니다.
 
 
 ## 관련 링크
@@ -123,4 +123,4 @@ Azure AD Connect Health 포털을 사용하여 경고, 성능 모니터링 및 �
 * [동기화에 대한 Azure AD Connect Health 사용](active-directory-aadconnect-health-sync.md)
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->
