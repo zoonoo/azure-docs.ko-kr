@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/22/2015"  
-	ms.author="juliako"/>
+	ms.date="02/17/2016"  
+	ms.author="piyushjo"/>
 
 
 # Azure Mobile Engagement 앱 만들기
@@ -23,7 +23,7 @@
 
 앱에 대한 데이터를 수집하고 푸시 알림을 보낼 수 있기 위해 "기본 통합"의 최소 집합을 추가해야 합니다. 전체 통합 설명서는 [Mobile Engagement 통합](mobile-engagement-windows-store-integrate-engagement.md)에서 찾을 수 있습니다.
 
-> [AZURE.IMPORTANT]Azure Mobile Engagement 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 무료 평가판</a>을 참조하세요.
+> [AZURE.IMPORTANT] Azure Mobile Engagement 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-KR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 무료 평가판</a>을 참조하세요.
 
 ##Azure에서 모바일 앱용 Mobile Engagement 설정
 
@@ -48,4 +48,4 @@ Mobile Engagement 포털에 위치하게 되면 세그먼트를 분석, 생성 �
 
 [Azure Mobile Engagement 시작](mobile-engagement-windows-store-dotnet-get-started.md) (페이지 맨 위에 있는 다른 모바일 플랫폼을 선택할 수 있습니다)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

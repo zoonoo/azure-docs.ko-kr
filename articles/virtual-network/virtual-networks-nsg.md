@@ -1,6 +1,6 @@
 <properties 
    pageTitle="NSG(네트워크 보안 그룹)란?"
-   description="NSG(네트워크 보안 그룹)에 대해 알아봅니다."
+   description="NSG(네트워크 보안 그룹)를 사용하여 Azure에서 분산된 방화벽 및 VNet(가상 네트워크) 내에서 NSG를 사용하여 트래픽 흐름을 분리하고 제어하는 방법에 대해 알아봅니다."
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -9,15 +9,17 @@
 <tags 
    ms.service="virtual-network"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="02/11/2016"
    ms.author="telmos" />
 
 # NSG(네트워크 보안 그룹)란?
 
-NSG(네트워크 보안 그룹)은 ACL(액세스 제어 목록)의 가상 네트워크에 VM 인스턴스에 대한 허용/거부 네트워크 트래픽 규칙의 목록을 포함합니다. Nsg는 서브넷 또는 서브넷 내의 개별 VM 인스턴스 중 하나와 연결될 수 있습니다. NSG를 서브넷과 연결한 경우 ACL 규칙은 해당 서브넷에 있는 모든 VM 인스턴스에 적용됩니다. 또한 개별 VM에 대한 트래픽은 해당 VM에 직접 NSG를 연결하여 추가로 제한할 수 있습니다.
+NSG(네트워크 보안 그룹)은 ACL(액세스 제어 목록)의 가상 네트워크에 VM 인스턴스에 대한 허용 또는 거부 네트워크 트래픽 규칙의 목록을 포함합니다. Nsg는 서브넷 또는 서브넷 내의 개별 VM 인스턴스 중 하나와 연결될 수 있습니다. NSG를 서브넷과 연결한 경우 ACL 규칙은 해당 서브넷에 있는 모든 VM 인스턴스에 적용됩니다. 또한 개별 VM에 대한 트래픽은 해당 VM에 직접 NSG를 연결하여 추가로 제한할 수 있습니다.
+
+## NSG 리소스
 
 NSG는 다음 속성을 포함합니다.
 
@@ -28,7 +30,7 @@ NSG는 다음 속성을 포함합니다.
 |리소스 그룹|NSG가 속하는 리소스 그룹|NSG는 하나의 리소스 그룹에 속하지만, 리소스가 NSG와 동일한 Azure 지역의 일부라면, 모든 리소스 그룹에 속하는 리소스에 연결될 수 있습니다.|리소스 그룹은 다수의 리소스를 하나의 배포 단위로 함께 관리하기 위해 사용됩니다.<br/>NSG를 연결된 리소스로 그룹화하는 것을 고려하는 것이 좋습니다.|
 |규칙|허용되거나 거부되는 트래픽을 정의하는 규칙||아래의 [NSG 규칙](#Nsg-rules)을 참조하세요.| 
 
->[AZURE.NOTE]끝점 기반 ACL과 네트워크 보안 그룹은 동일한 VM 인스턴스에서 지원되지 않습니다. NSG를 사용하려는데 끝점 ACL이 이미 있는 경우 먼저, 끝점 ACL을 제거합니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 [PowerShell을 사용하여 끝점에 대한 ACL(액세스 제어 목록) 관리](virtual-networks-acl-powershell.md)를 참조하세요.
+>[AZURE.NOTE] 끝점 기반 ACL과 네트워크 보안 그룹은 동일한 VM 인스턴스에서 지원되지 않습니다. NSG를 사용하려는데 끝점 ACL이 이미 있는 경우 먼저, 끝점 ACL을 제거합니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 [PowerShell을 사용하여 끝점에 대한 ACL(액세스 제어 목록) 관리](virtual-networks-acl-powershell.md)를 참조하세요.
 
 ### NSG 규칙
 
@@ -45,6 +47,12 @@ NSG 규칙은 다음 속성을 포함합니다.
 |**방향**|규칙과 일치하는 트래픽의 방향|인바운드 또는 아웃바운드|인바운드 규칙과 아웃바운드 규칙은 방향에 근거하여 별도로 처리됩니다.|
 |**우선 순위**|규칙은 우선 순위대로 검사되고 규칙이 적용된 후에는 일치 여부를 알기 위해 규칙이 더 이상 테스트되지 않습니다.|100~65535 사이의 숫자|기존 규칙 사이에 새로운 규칙을 위한 공간을 남겨두기 위해서 각 규칙의 우선 순위를 100씩 건너뛰도록 만드는 것이 좋습니다.|
 |**Access**|규칙이 일치하는 경우 적용할 액세스 유형|허용 또는 거부|패킷에 대한 허용 규칙을 찾을 수 없으면 패킷은 삭제됩니다.|
+
+NSG에는 인바운드 및 아웃바운드의 두 가지 규칙 집합이 포함되어 있습니다. 규칙에 대한 우선 순위는 각 집합 내에서 고유해야 합니다.
+
+![NSG 규칙 처리](./media/virtual-network-nsg-overview/figure3.png)
+
+위의 그림에서는 NSG 규칙을 처리하는 방법을 보여 줍니다.
 
 ### 기본 태그
 
@@ -97,11 +105,25 @@ NSG 규칙은 다음 속성을 포함합니다.
 	2. NIC(리소스 관리자) 또는 VM(클래식)에 적용되는 NSG.
 - **아웃바운드 트래픽**
 	1. NIC(리소스 관리자) 또는 VM(클래식)에 적용되는 NSG.
-	3. 서브넷에 적용되는 NSG.
+	2. 서브넷에 적용되는 NSG.
 
 ![NSG ACL](./media/virtual-network-nsg-overview/figure2.png)
 
->[AZURE.NOTE]서브넷, VM 또는 NIC에 단일 NSG만 연결할 수 있지만 동일한 NSG를 원하는 수만큼 많은 리소스에 연결할 수 있습니다.
+>[AZURE.NOTE] 서브넷, VM 또는 NIC에 단일 NSG만 연결할 수 있지만 동일한 NSG를 원하는 수만큼 많은 리소스에 연결할 수 있습니다.
+
+## 구현
+아래 나열된 다양한 도구를 사용하여 클래식 또는 리소스 관리자 배포 모델에서 NSG를 구현할 수 있습니다.
+
+|배포 도구|클래식|리소스 관리자|
+|---|---|---|
+|클래식 포털|![아니요][red]|![아니요][red]|
+|Azure 포털|![아니요][red]|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-pportal">![예][green]</a>|
+|PowerShell|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-ps">![예][green]</a>|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-ps">![예][green]</a>|
+|Azure CLI|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-cli">![예][green]</a>|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-cli">![예][green]</a>|
+|ARM 템플릿|![아니요][red]|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-template">![예][green]</a>|
+
+|**키**|![예][green] 지원됩니다. 문서를 클릭합니다.|![아니요][red] 지원되지 않습니다.|
+|---|---|---|
 
 ## 계획
 
@@ -111,7 +133,7 @@ NSG를 구현하기 전에 아래 질문에 답변해야 합니다.
 
 2. 들어오고 나가는 트래픽을 필터링하려는 리소스가 기존 VNet의 서브넷에 연결되어 있습니까? 아니면 새로운 VNet 또는 서브넷에 연결될 예정입니까?
  
-Azure에서 네트워크 보안을 계획하는 것과 관련된 내용은 [클라우드 서비스 및 네트워크 보안 모범 사례](best-practices-network-security.md)를 참조하세요.
+Azure에서 네트워크 보안을 계획하는 것과 관련된 내용은 [클라우드 서비스 및 네트워크 보안 모범 사례](../best-practices-network-security.md)를 참조하세요.
 
 ## 디자인 고려 사항
 
@@ -127,7 +149,7 @@ NSG를 디자인할 때 다음과 같은 제한을 고려해야 합니다.
 |구독당 지역별 NSG|100|기본적으로, 새 NSG는 Azure 포털에 생성하는 각 VM에 대해 생성됩니다. 이러한 기본 동작을 허용하면, NSG가 빨리 소진됩니다. 디자인을 하는 동안 이러한 제한 사항을 염두 해두고, 필요에 따라서 여러 지역 또는 구독으로 리소스를 구분해야 합니다. |
 |NSG당 NSG 규칙|200|이 한도를 초과하지 않도록 넓은 범위의 IP와 포트를 사용합니다. |
 
->[AZURE.IMPORTANT]솔루션을 디자인하기 전에 [Azure의 네트워킹 서비스와 관련된 제한 사항](../azure-subscription-service-limits/#networking-limits)을 모두 확인해야 합니다. 일부 제한은 지원 티켓을 열어 늘릴 수 있습니다.
+>[AZURE.IMPORTANT] 솔루션을 디자인하기 전에 [Azure의 네트워킹 서비스와 관련된 제한 사항](../azure-subscription-service-limits.md#networking-limits)을 모두 확인해야 합니다. 일부 제한은 지원 티켓을 열어 늘릴 수 있습니다.
 
 ### VNet 및 서브넷 디자인
 
@@ -222,7 +244,7 @@ NSG가 서브넷에 적용될 수 있기 때문에, 서브넷에 따라서 리�
 |---|---|---|---|---|---|---|---|
 |인터넷에서 RDP 허용|허용|100|인터넷|**|*|3389|TCP|
 
->[AZURE.NOTE]이 규칙에 대한 원본 주소 범위는 부하 분산 장치에 대한 VIP가 아니고 **인터넷**이며 원본 포트는 500001이 아니고 *****입니다. NAT 규칙/부하 분산 규칙과 NSG 규칙을 혼동하지 마십시오. NSG 규칙은 원본과 대상 사이의 부하 분산 장치가 **아닌** 본래의 원본 및 트래픽의 최종 대상과 항상 연관됩니다.
+>[AZURE.NOTE] 이 규칙에 대한 원본 주소 범위는 부하 분산 장치에 대한 VIP가 아니고 **인터넷**이며 원본 포트는 500001이 아니고 *****입니다. NAT 규칙/부하 분산 규칙과 NSG 규칙을 혼동하지 마십시오. NSG 규칙은 원본과 대상 사이의 부하 분산 장치가 **아닌** 본래의 원본 및 트래픽의 최종 대상과 항상 연관됩니다.
 
 ### 백 엔드의 관리 NIC에 대한 NSG
 
@@ -248,4 +270,8 @@ NSG가 서브넷에 적용될 수 있기 때문에, 서브넷에 따라서 리�
 - [리소스 관리자에서 NSG를 배포](virtual-networks-create-nsg-arm-pportal.md)합니다.
 - [NSG 로그를 관리](virtual-network-nsg-manage-log.md)합니다.
 
-<!---HONumber=AcomDC_1217_2015-->
+[green]: ./media/virtual-network-nsg-overview/green.png
+[yellow]: ./media/virtual-network-nsg-overview/yellow.png
+[red]: ./media/virtual-network-nsg-overview/red.png
+
+<!---HONumber=AcomDC_0218_2016-->

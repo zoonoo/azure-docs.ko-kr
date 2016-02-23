@@ -13,7 +13,7 @@
    ms.workload="storage-backup-recovery"
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
-	 ms.topic="article"
+	 ms.topic="get-started-article"
 	 ms.date="01/28/2016"
 	 ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
@@ -100,6 +100,10 @@
 - *.microsoftonline.com
 - *.windows.net
 
+**Q21. VM 확장을 사용하여 Azure 백업 서비스에서 이미 지원하는 Azure VM에 Azure 백업 에이전트를 설치할 수 있나요?** <br/> A21. 그렇습니다. Azure 백업은 VM 확장을 사용하여 Azure VM에 VM 수준 백업을 제공하며 게스트 Windows OS에 Azure 백업 에이전트를 설치하여 게스트 OS에서 파일 및 폴더를 보호할 수 있습니다.
+
+**Q22. Azure VM에 Azure 백업 에이전트를 설치하여 Azure VM에서 제공하는 임시 저장소에 존재하는 파일 및 폴더를 백업할 수 있나요?** <br/> A22. 게스트 Windows OS에 Azure 백업 에이전트를 설치하고 tempstorage에서 파일 및 폴더를 백업합니다. 그러나 임시 저장소 데이터를 초기화하는 경우 백업이 실패하기 시작합니다. 또한 복원하는 동안 임시 저장소 데이터를 삭제하는 경우 비 임시 저장소에 복원할 수 있습니다.
+
 
 ## 백업 및 보존
 **Q1. 백업하는 각 데이터 원본의 크기에 제한이 있나요?** <br/> A1. 2015년 8월 기준으로, 다양한 운영 체제에 대한 데이터 원본의 최대 크기는 아래와 같습니다.
@@ -183,4 +187,4 @@
 
 새 캐시 위치로 성공적으로 백업되면 원래 캐시 폴더를 제거할 수 있습니다.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

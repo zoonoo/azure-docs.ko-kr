@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/25/2015"
+	ms.date="02/16/2016"
 	ms.author="tdykstra"/>
 
 # API 검색 및 코드 생성에 대한 앱 서비스 API 앱 메타데이터 
@@ -56,4 +56,4 @@ Visual Studio를 사용하거나 명령줄에서 API 앱에 대한 클라이언�
 
 API 앱을 만들고 배포하며 소비하는 과정을 안내하는 단계별 자습서는 [Azure 앱 서비스에서 API 앱 시작](app-service-api-dotnet-get-started.md)을 참조하세요.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0218_2016-->

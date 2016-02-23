@@ -14,7 +14,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="02/03/2016"
+	ms.date="02/17/2016"
 	ms.author="jeffreyg"/>
 
 # SQL 데이터베이스 옵션 및 성능: 각 서비스 계층에서 사용할 수 있는 것 이해
@@ -30,7 +30,7 @@
 | **Standard** | 대부분의 클라우드 응용 프로그램에 적합한 옵션이며 복수의 동시 쿼리를 지원합니다. 예를 들어 작업 그룹 또는 웹 응용 프로그램이 이 계층에 적합한 예입니다. |
 | **Premium** | 트랜잭션 양이 많은 경우에 적합하며 다수의 동시 사용자를 지원하고 가장 높은 수준의 비즈니스 연속성 기능을 요구합니다. 예를 들어 업무 필수 응용 프로그램을 지원하는 데이터베이스가 이 계층에 적합합니다. |
 
->[AZURE.NOTE] Web 및 Business 버전은 사용이 중지되었습니다. [Web 및 Business 버전 업그레이드](sql-database-upgrade-new-service-tiers.md) 방법을 알아보세요. Web 및 Business Edition을 계속 사용하려는 경우 [지원 종료 FAQ](https://azure.microsoft.com/pricing/details/sql-database/web-business/)를 잘 읽어 보세요.
+>[AZURE.NOTE] Web 및 Business 버전은 사용이 중지되었습니다. Web 및 Business Edition을 계속 사용하려는 경우 [지원 종료 FAQ](https://azure.microsoft.com/pricing/details/sql-database/web-business/)를 잘 읽어 보세요.
 
 ### 단일 데이터베이스 서비스 계층 및 성능 수준
 단일 데이터베이스의 경우 각 서비스 계층 내에 여러 성능 수준이 있으므로 워크로드 요구에 가장 적합한 수준을 융통성 있게 선택할 수 있습니다. 규모를 확장 또는 축소해야 하는 경우는 **응용 프로그램 가동 중지 시간 없이** 데이터베이스의 계층을 간편하게 변경할 수 있습니다. 자세한 내용은 [데이터베이스 서비스 계층 및 성능 수준 변경](sql-database-scale-up.md)을 참조하세요.
@@ -94,4 +94,4 @@ SQL 데이터베이스의 성능 모니터링은 데이터베이스에 대해 �
 
 SQL 데이터베이스 계층에 대해 알아 보았으면 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 사용해보고 [첫 번째 SQL 데이터베이스를 만드는 방법](sql-database-get-started.md)에 대해 알아보세요!
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

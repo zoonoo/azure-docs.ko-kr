@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="11/17/2015"
+	ms.date="02/16/2016"
 	ms.author="wesmc"/>
 
 # Android용 Xamarin을 통해 알림 허브 시작
@@ -41,7 +41,6 @@
 
 + [Xamarin.Android]
 + 활성 Google 계정
-+ [Azure 모바일 서비스 구성 요소]
 + [Azure 메시징 구성 요소]
 + [Google Cloud Messaging 클라이언트 구성 요소]
 
@@ -519,8 +518,7 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
 [Xamarin.NotificationHub GitHub page]: https://github.com/SaschaDittmann/Xamarin.NotificationHub
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331329
 [Xamarin.Android]: http://xamarin.com/download/
-[Azure 모바일 서비스 구성 요소]: http://components.xamarin.com/view/azure-mobile-services/
 [Google Cloud Messaging 클라이언트 구성 요소]: http://components.xamarin.com/view/GCMClient/
 [Azure 메시징 구성 요소]: http://components.xamarin.com/view/azure-messaging
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

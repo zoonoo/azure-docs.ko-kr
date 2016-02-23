@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="01/22/2016"
+	ms.date="02/14/2016"
 	ms.author="tamram"/>
 
 
@@ -353,8 +353,8 @@ Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 **Delete** 메서
 - [.NET용 테이블 저장소 시작](storage-dotnet-how-to-use-tables.md)
 - [.NET용 큐 저장소 시작](storage-dotnet-how-to-use-queues.md)
 - [.NET용 파일 저장소 시작](storage-dotnet-how-to-use-files.md)
-- [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy)
-- [SQL 데이터베이스를 사용하여 관계형 데이터 저장](../sql-database/articles/sql-database-dotnet-how-to-use.md)
+- [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)
+- [.NET 응용 프로그램에서 Azure SQL 데이터베이스를 사용하는 방법](../sql-database/sql-database-dotnet-how-to-use.md)
 - [WebJob SDK를 사용하여 Azure Blob 저장소로 작업하는 방법](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
 
   [Blob5]: ./media/storage-dotnet-how-to-use-blobs/blob5.png
@@ -368,4 +368,4 @@ Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 **Delete** 메서
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="01/11/2016" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 # 클라우드에서 Azure Multi-Factor Authentication 시작
@@ -155,4 +155,4 @@ Windows PowerShell을 사용하여 사용자의 상태를 변경하려면 다음
 ## 다음 단계
 클라우드에서 다단계 인증을 설정했으므로 [Azure Multi-Factor Authentication 구성](multi-factor-authentication-whats-next.md)으로 이동하여 다음에 수행할 작업을 계속 진행할 수 있습니다. 여기에서 보고, 사기 경고, 음성 메시지 사용자 지정 및 Azure Multi-Factor Authentication에서 제공해야 하는 모든 기능에 대해 알아볼 수 있습니다.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

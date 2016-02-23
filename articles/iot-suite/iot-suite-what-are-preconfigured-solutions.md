@@ -11,7 +11,7 @@
 <tags
  ms.service="iot-suite"
  ms.devlang="na"
- ms.topic="article"
+ ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="11/30/2015"
@@ -34,8 +34,7 @@ Azure에서 솔루션을 배포 및 실행하는 것 외에도 완전한 소스 
 
 | 해결 방법 | 데이터 수집 | 장치 ID | 명령 및 제어 | 규칙 및 작업 | 예측 분석 |
 |------------------------|-----|-----|-----|-----|-----|
-| [원격 모니터링][lnk-remote-monitoring] | 예 | 예 | 예 | 예 | - |
-| [예측 유지 관리][lnk-predictive-maintenance] | 예 | 예 | 예 | 예 | 예 |
+| [원격 모니터링][lnk-remote-monitoring] | 예 | 예 | 예 | 예 | - | | [예측 유지 관리][lnk-predictive-maintenance] | 예 | 예 | 예 | 예 | 예 |
 
 ## 미리 구성된 원격 모니터링 솔루션 개요
 
@@ -116,4 +115,4 @@ IoT Hub는 소비자 그룹 끝점을 통해 받는 원격 분석 데이터를 �
 [lnk-preconf-get-started]: iot-suite-getstarted-preconfigured-solutions.md
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -17,7 +17,7 @@
 	ms.date="12/17/2015" 
 	ms.author="mimig"/>
 
-# Azure 포털을 사용하여 DocumentDB 데이터베이스 계정 만들기
+# Azure 포털을 사용하여 DocumentDB 데이터베이스 계정을 만드는 방법
 
 > [AZURE.SELECTOR]
 - [Azure Portal](documentdb-create-account.md)
@@ -50,4 +50,4 @@ DocumentDB에 대해 자세히 알아보려면 다음 리소스를 참조하세�
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

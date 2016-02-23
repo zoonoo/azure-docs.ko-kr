@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="01/26/2016"
 	ms.author="sethm"/>
 
@@ -45,4 +45,4 @@ Azure 이벤트 허브는 초당 수백만 개의 이벤트를 수집할 수 있
 [이벤트 허브 자습서]: event-hubs-csharp-ephcs-getstarted.md
 [이벤트 허브를 사용하는 전체 샘플 응용 프로그램]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

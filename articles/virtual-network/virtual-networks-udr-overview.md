@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="사용자 정의 경로 및 IP 전달 개요"
-   description="UDR 및 IP 전달 이해"
+   pageTitle="사용자 정의된 경로 및 IP 전달이란?"
+   description="Azure에서 UDR(사용자 정의 경로) 및 IP 전달을 사용하여 네트워크 가상 어플라이언스에 트래픽을 전달하는 방법에 대해 알아봅니다."
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -9,13 +9,13 @@
 <tags 
    ms.service="virtual-network"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="12/11/2015"
    ms.author="telmos" />
 
-# 사용자 정의 경로 및 IP 전달
+# 사용자 정의된 경로 및 IP 전달이란?
 Azure에서 VNet(가상 네트워크)에 VM(가상 컴퓨터)을 추가하면 네트워크를 통해 다른 VM과 통신할 수 있는지 자동으로 확인할 수 있습니다. 서로 다른 서브넷에 있는 VM 간에도 게이트웨이를 지정할 필요가 없습니다. VM에서 공용 인터넷에 통신하는 경우는 물론, Azure와 사용자 고유의 데이터 센터 간 하이브리드 연결이 있는 경우 사용자의 온-프레미스 네트워크에 통신하는 경우에도 마찬가지입니다 .
 
 이러한 통신 전달이 가능한 이유는 Azure가 일련의 시스템 경로를 사용하여 IP 트래픽 전달 방식을 정의하기 때문입니다. 다음과 같은 시나리오에서 시스템 경로가 통신 전달을 제어합니다.
@@ -36,7 +36,7 @@ Azure에서 VNet(가상 네트워크)에 VM(가상 컴퓨터)을 추가하면 �
 
 ![Azure의 시스템 경로](./media/virtual-networks-udr-overview/Figure2.png)
 
->[AZURE.IMPORTANT]사용자 정의 경로는 서브넷에서 나가는 트래픽에만 적용됩니다. 트래픽이 인터넷에서 서브넷으로 들어오는 방법 등을 지정하는 경로를 만들 수는 없습니다. 또한 트래픽을 전달하는 기기는 트래픽이 시작되는 위치와 동일한 서브넷에 있을 수 없습니다. 항상 기기를 위한 별도의 서브넷을 만드세요.
+>[AZURE.IMPORTANT] 사용자 정의 경로는 서브넷에서 나가는 트래픽에만 적용됩니다. 트래픽이 인터넷에서 서브넷으로 들어오는 방법 등을 지정하는 경로를 만들 수는 없습니다. 또한 트래픽을 전달하는 기기는 트래픽이 시작되는 위치와 동일한 서브넷에 있을 수 없습니다. 항상 기기를 위한 별도의 서브넷을 만드세요.
 
 ## 라우팅
 패킷은 물리적 네트워크의 각 노드에 정의된 경로 테이블을 기반으로 TCP/IP 네트워크를 통해 라우팅됩니다. 경로 테이블은 대상 IP 주소에 따라 패킷을 전달할 위치를 결정하는 데 사용되는 개별 경로의 컬렉션입니다. 경로는 다음으로 구성됩니다.
@@ -71,14 +71,14 @@ Azure에서 VNet(가상 네트워크)에 VM(가상 컴퓨터)을 추가하면 �
 1. BGP 경로(ExpressRoute를 사용하는 경우)
 1. 시스템 경로
 
-사용자 정의 경로를 만드는 방법은 [를 만들고 IP 전달을 사용하도록 설정하는 방법](../virtual-networks-udr-how-to#How-to-manage-routes)을 참조하십시오.
+사용자 정의 경로를 만드는 방법은 [를 만들고 IP 전달을 사용하도록 설정하는 방법](virtual-networks-udr-how-to.md#How-to-manage-routes)을 참조하십시오.
 
->[AZURE.IMPORTANT]사용자 정의 경로는 Azure VM 및 클라우드 서비스에만 적용됩니다. 예를 들어 온-프레미스 네트워크와 Azure 간에 방화벽 가상 어플라이언스를 추가하려면 온-프레미스 주소 공간으로 이동하는 모든 트래픽을 가상 어플라이언스로 전달하는 Azure 경로 테이블에 대한 사용자 정의 경로를 만들어야 합니다. 그러나 온-프레미스 주소 공간에서 들어오는 트래픽은 가상 어플라이언스를 우회하여 VPN 게이트웨이 또는 ExpressRoute 회로를 통해 Azure 환경으로 직접 이동합니다.
+>[AZURE.IMPORTANT] 사용자 정의 경로는 Azure VM 및 클라우드 서비스에만 적용됩니다. 예를 들어 온-프레미스 네트워크와 Azure 간에 방화벽 가상 어플라이언스를 추가하려면 온-프레미스 주소 공간으로 이동하는 모든 트래픽을 가상 어플라이언스로 전달하는 Azure 경로 테이블에 대한 사용자 정의 경로를 만들어야 합니다. 그러나 온-프레미스 주소 공간에서 들어오는 트래픽은 가상 어플라이언스를 우회하여 VPN 게이트웨이 또는 ExpressRoute 회로를 통해 Azure 환경으로 직접 이동합니다.
 
 ## BGP 경로
-온-프레미스 네트워크와 Azure 간에 ExpressRoute 연결이 있는 경우 BGP를 사용하도록 설정하여 온-프레미스 네트워크에서 Azure로 경로를 전파할 수 있습니다. 이러한 BGP 경로는 각 Azure 서브넷의 사용자 정의 경로 및 시스템 경로와 동일한 방식으로 사용됩니다. 자세한 내용은 [ExpressRoute 소개](../expressroute-introduction)를 참조하세요.
+온-프레미스 네트워크와 Azure 간에 ExpressRoute 연결이 있는 경우 BGP를 사용하도록 설정하여 온-프레미스 네트워크에서 Azure로 경로를 전파할 수 있습니다. 이러한 BGP 경로는 각 Azure 서브넷의 사용자 정의 경로 및 시스템 경로와 동일한 방식으로 사용됩니다. 자세한 내용은 [ExpressRoute 소개](../articles/expressroute/expressroute-introduction.md)를 참조하세요.
 
->[AZURE.IMPORTANT]VPN 게이트웨이를 다음 홉으로 사용하는 서브넷 0.0.0.0/0에 대한 사용자 정의 경로를 만들어 온-프레미스 네트워크를 통한 강제 터널링을 사용하도록 Azure 환경을 구성할 수 있습니다. 그러나 이 구성은 VPN 게이트웨이를 사용하는 경우에만 작동하고 ExpressRoute를 사용하는 경우에는 작동하지 않습니다. ExpressRoute의 경우 강제 터널링은 BGP를 통해 구성됩니다.
+>[AZURE.IMPORTANT] VPN 게이트웨이를 다음 홉으로 사용하는 서브넷 0.0.0.0/0에 대한 사용자 정의 경로를 만들어 온-프레미스 네트워크를 통한 강제 터널링을 사용하도록 Azure 환경을 구성할 수 있습니다. 그러나 이 구성은 VPN 게이트웨이를 사용하는 경우에만 작동하고 ExpressRoute를 사용하는 경우에는 작동하지 않습니다. ExpressRoute의 경우 강제 터널링은 BGP를 통해 구성됩니다.
 
 ## IP 전달
 위에서 설명한 것처럼 사용자 정의 경로를 만드는 주된 이유 중 하나는 트래픽을 가상 어플라이언스로 전달하기 위한 것입니다. 가상 어플라이언스는 방화벽이나 NAT 장치와 같이 네트워크 트래픽을 처리하는 데 사용되는 응용 프로그램을 실행하는 VM일 뿐입니다.
@@ -87,7 +87,7 @@ Azure에서 VNet(가상 네트워크)에 VM(가상 컴퓨터)을 추가하면 �
 
 ## 다음 단계
 
-- [리소스 관리자 배포 모델에서 경로를 만들어](../virtual-network-create-udr-arm-template) 서브넷에 연결하는 방법에 대해 알아봅니다. 
-- [클래식 배포 모델에서 경로를 만들어](../virtual-network-create-udr-classic-ps) 서브넷에 연결하는 방법에 대해 알아봅니다.
+- [리소스 관리자 배포 모델에서 경로를 만들어](virtual-network-create-udr-arm-template.md) 서브넷에 연결하는 방법에 대해 알아봅니다. 
+- [클래식 배포 모델에서 경로를 만들어](virtual-network-create-udr-classic-ps.md) 서브넷에 연결하는 방법에 대해 알아봅니다.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

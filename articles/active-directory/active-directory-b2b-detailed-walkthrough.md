@@ -11,10 +11,10 @@
 <tags
    ms.service="active-directory"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="02/09/2016"
+   ms.date="02/10/2016"
    ms.author="viviali"/>
 
 # Azure AD B2B 공동 작업 미리 보기: 세부 연습
@@ -82,4 +82,4 @@ Azure AD B2B 공동 작업에 대한 다른 문서 찾아보기:
 - [현재 미리 보기 제한 사항](active-directory-b2b-current-preview-limitations.md)
 - [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

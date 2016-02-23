@@ -9,7 +9,7 @@
 <tags 
    ms.service="service-bus"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="09/14/2015"
@@ -39,7 +39,7 @@ Azure 서비스 버스는 두 가지 포괄적인 메시징 솔루션을 제공�
 
 1. **공유 액세스 서명 생성기** 섹션에서 **RootManagerSharedAccessKey** 정책과 연결된 기본 키를 메모해 두거나 클립보드로 복사합니다. 나중에 이 자습서에서 이 값을 사용하게 됩니다.
 
-다음 단계는 Visual Studio 프로젝트를 만들고, 메시지의 쉼표 분리 목록을 강력한 형식의[BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx) .NET [목록](https://msdn.microsoft.com/library/6sh2ey19.aspx) 개체로 로드하는 두 도우미 함수를 작성하는 것입니다.
+다음 단계는 Visual Studio 프로젝트를 만들고, 메시지의 쉼표 분리 목록을 강력한 형식의[BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx) .NET [List](https://msdn.microsoft.com/library/6sh2ey19.aspx) 개체로 로드하는 두 도우미 함수를 작성하는 것입니다.
 
 ### Visual Studio 프로젝트 만들기
 
@@ -650,4 +650,4 @@ Visual Studio의 **빌드** 메뉴에서 **솔루션 빌드**를 클릭하거나
 
 [Azure 클래식 포털]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

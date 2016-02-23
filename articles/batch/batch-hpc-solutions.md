@@ -10,7 +10,7 @@
 <tags
    ms.service="batch"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
    ms.date="01/21/2016"
@@ -85,9 +85,9 @@ Windows 기반 및 Linux 기반 클러스터용 클러스터링 및 작업 예�
 
  | 시나리오 | 선택한 이유는 무엇인가요?
 ------------- | ----------- | ---------------
-**Azure에 HPC 클러스터 버스트**<br/><br/>[![클러스터 버스트][burst_cluster]](./media/batch-hpc-solutions/burst_cluster.png) <br/><br/> 자세한 정보:<br/>• [Microsoft HPC Pack으로 Azure에 버스트](https://technet.microsoft.com/library/gg481749.aspx)<br/><br/>• [Microsoft HPC Pack으로 하이브리드 계산 클러스터 설정](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)<br/><br/>|• 하이브리드 솔루션에서 온-프레미스 [Microsoft HPC 팩](https://technet.microsoft.com/library/cc514029) 클러스터를 추가 Azure 리소스와 결합.<br/><br/>• 빅 컴퓨팅을 확장하여 PaaS(Platform as a Service) 가상 컴퓨터 인스턴스(현재 Windows Server만 해당)에서 실행.<br/><br/>• 선택적 Azure 가상 네트워크를 사용하여 온-프레미스 라이선스 서버 또는 데이터 저장소에 액세스|• 기존 HPC 팩 클러스터가 있으며 더 많은 리소스가 필요함 <br/><br/>• 추가 HPC 클러스터 인프라를 구입 및 관리하지 않으려 함<br/><br/>• 일시적인 최대 수요 기간 또는 특수한 프로젝트가 존재함 
+**Azure에 HPC 클러스터 버스트**<br/><br/>[![클러스터 버스트][burst_cluster]](./media/batch-hpc-solutions/burst_cluster.png) <br/><br/> 자세한 정보:<br/>• [Microsoft HPC Pack으로 Azure에 버스트](https://technet.microsoft.com/library/gg481749.aspx)<br/><br/>• [Microsoft HPC Pack으로 하이브리드 계산 클러스터 설정](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)<br/><br/>|• 하이브리드 솔루션에서 온-프레미스 [Microsoft HPC 팩](https://technet.microsoft.com/library/cc514029) 클러스터를 추가 Azure 리소스와 결합.<br/><br/>• 빅 컴퓨팅을 확장하여 PaaS(Platform as a Service) 가상 컴퓨터 인스턴스(현재 Windows Server만 해당)에서 실행.<br/><br/>• 선택적 Azure 가상 네트워크를 사용하여 온-프레미스 라이선스 서버 또는 데이터 저장소에 액세스|• 기존 HPC 팩 클러스터가 있으며 더 많은 리소스가 필요함 <br/><br/>• 추가 HPC 클러스터 인프라를 구입 및 관리하지 않으려 함<br/><br/>• 일시적인 최대 수요 기간 또는 특수한 프로젝트가 존재함
 **Azure에서 HPC 클러스터 전체 만들기**<br/><br/>[![IaaS에서 클러스터][iaas_cluster]](./media/batch-hpc-solutions/iaas_cluster.png)<br/><br/>자세한 정보:<br/>• [Azure에서 HPC 클러스터 솔루션](./big-compute-resources.md)<br/><br/>|• 표준 또는 사용자 지정 Windows 또는 Linux IaaS(infrastructure as a service) 가상 컴퓨터에 빠르고 일관되게 응용 프로그램 및 클러스터 도구 배포.<br/><br/>• 선택한 작업 예약 솔루션을 사용하여 다양한 빅 컴퓨팅 워크로드 실행.<br/><br/>• 전체 클라우드 기반 솔루션을 만들기 위해 네트워킹 및 저장소를 포함하여 추가 Azure 서비스 사용. |• 추가 Linux 또는 Windows HPC 클러스터 인프라를 구입 및 관리하지 않으려 함<br/><br/>• 일시적인 최대 수요 기간 또는 특수한 프로젝트가 존재함<br/><br/>• 일정 기간 동안 추가 클러스터가 필요하지만 배포할 컴퓨터 및 공간에 투자하지 않으려 함<br/><br/>• 클라우드에서 완전히 서비스로 실행되도록 계산 집약적인 응용 프로그램을 오프로드하려 함
-**Azure에 병렬 응용 프로그램 규모 확장**<br/><br/>[![Azure 배치][batch_proc]](./media/batch-hpc-solutions/batch_proc.png)<br/><br/>자세한 정보:<br/>• [Azure 배치의 기본 사항](./batch-technical-overview.md)<br/><br/>• [.NET용 Azure 배치 라이브러리 시작](./batch-dotnet-get-started.md)|• [Azure 배치](https://azure.microsoft.com/documentation/services/batch/) API로 개발하여 PaaS(Platform as a Service) 가상 컴퓨터(현재 Windows Server만 해당)의 풀에서 실행하는 다양한 빅 컴퓨팅 워크로드의 규모 확장.<br/><br/>• Azure 서비스를 사용하여 별도의 HPC 클러스터 또는 작업 스케줄러를 요구하지 않고 가상 컴퓨터, 작업 예약, 재해 복구, 데이터 이동, 종속성 관리 및 응용 프로그램 배포의 배포 및 자동 크기 조정 관리.|• 계산 리소스 또는 작업 스케줄러를 관리하지 않는 대신 응용 프로그램의 실행에 집중하려고 함<br/><br/>• 클라우드에서 서비스로 실행되도록 계산 집약적인 응용 프로그램을 오프로드하려 함<br/><br/>• 계산 워크로드와 일치하도록 계산 리소스의 크기를 자동 조정하려 함 
+**Azure에 병렬 응용 프로그램 규모 확장**<br/><br/>[![Azure 배치][batch_proc]](./media/batch-hpc-solutions/batch_proc.png)<br/><br/>자세한 정보:<br/>• [Azure 배치의 기본 사항](./batch-technical-overview.md)<br/><br/>• [.NET용 Azure 배치 라이브러리 시작](./batch-dotnet-get-started.md)|• [Azure 배치](https://azure.microsoft.com/documentation/services/batch/) API로 개발하여 PaaS(Platform as a Service) 가상 컴퓨터(현재 Windows Server만 해당)의 풀에서 실행하는 다양한 빅 컴퓨팅 워크로드의 규모 확장.<br/><br/>• Azure 서비스를 사용하여 별도의 HPC 클러스터 또는 작업 스케줄러를 요구하지 않고 가상 컴퓨터, 작업 예약, 재해 복구, 데이터 이동, 종속성 관리 및 응용 프로그램 배포의 배포 및 자동 크기 조정 관리.|• 계산 리소스 또는 작업 스케줄러를 관리하지 않는 대신 응용 프로그램의 실행에 집중하려고 함<br/><br/>• 클라우드에서 서비스로 실행되도록 계산 집약적인 응용 프로그램을 오프로드하려 함<br/><br/>• 계산 워크로드와 일치하도록 계산 리소스의 크기를 자동 조정하려 함
 
 
 ## 큰 계산에 대한 azure 서비스
@@ -155,4 +155,4 @@ Azure 계산 서비스는 빅 컴퓨팅 솔루션의 핵심이며 다른 계산 
 [burst_cluster]: ./media/batch-hpc-solutions/burst_cluster.png
 [batch_proc]: ./media/batch-hpc-solutions/batch_proc.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

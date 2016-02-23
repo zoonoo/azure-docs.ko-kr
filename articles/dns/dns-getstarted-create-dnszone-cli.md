@@ -13,11 +13,10 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/10/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma"/>
 
 # CLI를 사용한 Azure DNS 시작
-
 
 
 > [AZURE.SELECTOR]
@@ -40,7 +39,7 @@ Azure CLI를 설치합니다. Windows, Linux 또는 MAC용 Azure CLI를 설치�
 	Azure network
 
 
->[AZURE.IMPORTANT]DNS 명령에는 Azure CLI 버전 0.9.8 이상이 필요합니다. `azure -v`를 입력하여 현재 컴퓨터에 설치되어 있는 Azure CLI 버전을 확인합니다.
+>[AZURE.IMPORTANT] DNS 명령에는 Azure CLI 버전 0.9.8 이상이 필요합니다. `azure -v`를 입력하여 현재 컴퓨터에 설치되어 있는 Azure CLI 버전을 확인합니다.
  
 ### 2단계
 
@@ -79,7 +78,7 @@ Azure DNS 서비스는 Microsoft.Network 리소스 공급자에 의해 관리됩
 
 ## 태그
 
-태그는 Etag와 다릅니다. 태그는 이름-값 쌍의 목록으로, Azure 리소스 관리자에서 대금 청구 또는 그룹화를 위해 리소스에 레이블을 지정하는 데 사용됩니다. 태그에 대한 자세한 내용은 [태그를 사용하여 Azure 리소스 구성](resource-group-using-tags.md)을 참조하세요. Azure DNS CLI는 옵션 '-Tag ' 매개 변수를 사용하여 지정된 영역 및 레코드 집합 양쪽에서 태그를 지원합니다. 다음 예제에서는 두 태그 ‘project = demo’ and ‘env = test’를 사용하여 DNS 영역을 만드는 방법을 보여 줍니다.
+태그는 Etag와 다릅니다. 태그는 이름-값 쌍의 목록으로, Azure 리소스 관리자에서 대금 청구 또는 그룹화를 위해 리소스에 레이블을 지정하는 데 사용됩니다. 태그에 대한 자세한 내용은 [태그를 사용하여 Azure 리소스 구성](resource-group-using-tags.md)을 참조하십시오. Azure DNS CLI는 옵션 '-Tag ' 매개 변수를 사용하여 지정된 영역 및 레코드 집합 양쪽에서 태그를 지원합니다. 다음 예제에서는 두 태그 ‘project = demo’ and ‘env = test’를 사용하여 DNS 영역을 만드는 방법을 보여 줍니다.
 
 	Azure network dns zone create -n contoso.com -g myresourcegroup -t "project=demo";"env=test"
 
@@ -90,7 +89,7 @@ Azure DNS 서비스는 Microsoft.Network 리소스 공급자에 의해 관리됩
     Azure network dns zone create -n contoso.com -g myresourcegroup
 
 
->[AZURE.NOTE]Azure DNS에서는 종료하는 '.' 없이 영역 이름을 지정해야 합니다. 예를 들어 'contoso.com.' 대신 'contoso.com'으로 지정합니다.
+>[AZURE.NOTE] Azure DNS에서는 종료하는 '.' 없이 영역 이름을 지정해야 합니다. 예를 들어 'contoso.com.' 대신 'contoso.com'으로 지정합니다.
 
 
 이제 Azure DNS에 DNS 영역이 생성되었습니다. DNS 영역을 만들면 다음과 같은 DNS 레코드도 생성됩니다.
@@ -140,7 +139,7 @@ Azure DNS 서비스는 Microsoft.Network 리소스 공급자에 의해 관리됩
 	data:
 	info:    network dns-record-set show command OK
 
->[AZURE.NOTE]DNS 영역의 루트에 있는 레코드 집합은 레코드 집합 이름으로 "@"를 사용합니다.
+>[AZURE.NOTE] DNS 영역의 루트에 있는 레코드 집합은 레코드 집합 이름으로 "@"를 사용합니다.
 
 첫 번째 DNS 영역을 만들었으므로 nslookup, DIG 또는 **Resolve-DnsName** PowerShell cmdlet과 같은 DNS 도구를 사용하여 테스트할 수 있습니다. Azure DNS에서 새 영역을 사용하도록 도메인을 아직 위임하지 않은 경우 DNS 쿼리를 영역에 대한 이름 서버 중 하나로 직접 보내야 합니다. 사용자의 영역에 대한 이름 서버는 "azure network dns-record-set show" 명령에 의해 나열된 것처럼 NS 레코드에 제공됩니다. 아래 명령을 사용자 영역의 올바른 값으로 대체해야 합니다.
 
@@ -170,7 +169,6 @@ Azure DNS 서비스는 Microsoft.Network 리소스 공급자에 의해 관리됩
 
 ## 다음 단계
 
+DNS 영역을 만든 후에는 [레코드 집합 및 레코드](dns-getstarted-create-recordset-cli.md)를 만들어 인터넷 도메인에 대한 이름 확인을 시작해야 합니다.<BR> [DNS 영역을 관리하는 방법](dns-operations-dnszones-cli.md) 및 해당 DNS 영역 작업도 학습할 수 있습니다.<BR> [DNS 레코드를 관리하는 방법](dns-operations-recordsets-cli.md) 및 [.NET SDK로 Azure 작업 자동화](dns-sdk.md)<BR> [Azure DNS REST API 참조](https://msdn.microsoft.com/library/azure/mt163862.aspx)에 대해 알아봅니다.
 
-[레코드 집합 및 레코드 만들기 시작](dns-getstarted-create-recordset-cli.md)<BR> [DNS 영역을 관리하는 방법](dns-operations-dnszones-cli.md)<BR> [DNS 레코드를 관리하는 방법](dns-operations-recordsets-cli.md)<BR> [.NET SDK로 Azure 작업 자동화](dns-sdk.md)<BR> [Azure DNS REST API 참조](https://msdn.microsoft.com/library/azure/mt163862.aspx)
-
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0218_2016-->

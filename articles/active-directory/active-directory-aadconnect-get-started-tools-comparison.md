@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.topic="get-started-article"
+	ms.date="02/18/2016"
 	ms.author="billmath"/>
 
 # 디렉터리 통합 도구 비교
@@ -27,8 +27,7 @@
 
 각 테이블에 다음 키를 사용합니다.
 
-● = 현재 사용 가능</br> FR = 이후 릴리스</br> PP = 공개 미리 보기</br>
-
+● = 현재 사용 가능 FR = 이후 릴리스 PP = 공개 미리 보기
 
 ## 온-프레미스와 클라우드 간 동기화
 
@@ -72,7 +71,7 @@
 | 도메인 컨트롤러에서 설치 지원 | ● | ● | ● | |
 | SQL Express를 사용하여 설치 지원 | ● | ● | ● | |
 | 디렉터리 동기화에서 쉽게 업그레이드 |● | | | |
-| 지역화 Windows Server 언어 | FR | ● | ● | |
+| 지역화 Windows Server 언어 | ● | ● | ● | |
 | Windows Server 2008 및 Windows Server 2008 R2 지원 | ● 동기화용, 페더레이션용이 아님| ● | ● | ● |
 | Windows Server 2012 및 Windows Server 2012 R2 지원 | ● | ● | ● | 2012만 해당 |
 
@@ -91,4 +90,4 @@ AD에서 Azure AD로의 흐름에서 특성 제거 허용 | ● | ● | |
 ## 다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

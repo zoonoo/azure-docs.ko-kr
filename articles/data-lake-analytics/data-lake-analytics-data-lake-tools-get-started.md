@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/07/2015"
+   ms.date="02/10/2016"
    ms.author="jgao"/>
 
 # 자습서: Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트 개발
@@ -52,7 +52,7 @@ U-SQL은 데이터 레이크 등에서 데이터를 준비하고 변환하고 �
 1. Visual Studio를 엽니다.
 2. **보기** 메뉴에서 **서버 탐색기**를 클릭하여 서버 탐색기를 엽니다. 또는 **[CTRL]+[ALT]+S** 키를 누릅니다.
 3. **Azure**를 마우스 오른쪽 단추로 클릭하고 "Microsoft Azure 구독에 연결"을 클릭한 후 지침을 따릅니다.
-4. **서버 탐색기**에서 **Azure**를 확장한 후 **데이터 레이크 분석**을 확장합니다. 계정이 있을 경우 해당 데이터 레이크 분석 계정 목록이 표시됩니다. Visual Studio에서 데이터 레이크 분석 계정을 만들 수 없습니다. 계정을 만들려면 [Azure 포털을 사용하여 Azure 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md) 또는 [Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 시작](data-lake-analytics--get-started-powershell.md)을 참조하세요.
+4. **서버 탐색기**에서 **Azure**를 확장한 후 **데이터 레이크 분석**을 확장합니다. 계정이 있을 경우 해당 데이터 레이크 분석 계정 목록이 표시됩니다. Visual Studio에서 데이터 레이크 분석 계정을 만들 수 없습니다. 계정을 만들려면 [Azure 포털을 사용하여 Azure 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md) 또는 [Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 시작](data-lake-analytics-get-started-powershell.md)을 참조하세요.
 
 ## 원본 데이터 파일 업로드
 
@@ -101,7 +101,11 @@ U-SQL은 데이터 레이크 등에서 데이터를 준비하고 변환하고 �
                     ClickedUrls     string
             FROM "/Samples/Data/SearchLog.tsv"
             USING Extractors.Tsv();
-        
+
+		@res =
+		    SELECT *
+		    FROM @searchlog;        
+
         OUTPUT @searchlog   
             TO "/Output/SearchLog-from-Data-Lake.csv"
         USING Outputters.Csv();
@@ -118,7 +122,7 @@ U-SQL은 데이터 레이크 등에서 데이터를 준비하고 변환하고 �
     
         wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
 
-    >[AZURE.NOTE]공용 Blob 또는 공용 컨테이너 액세스 권한이 있는 Azure Blob 컨테이너는 현재 지원되지 않습니다.
+    >[AZURE.NOTE] 공용 Blob 또는 공용 컨테이너 액세스 권한이 있는 Azure Blob 컨테이너는 현재 지원되지 않습니다.
 
 	다음 기능을 확인합니다.
 
@@ -130,8 +134,7 @@ U-SQL은 데이터 레이크 등에서 데이터를 준비하고 변환하고 �
  
     - *** 열 확장**
 
-        \*의 오른쪽을 클릭하면 * 아래에 파란색 밑줄이 표시됩니다. 파란색 밑줄에 마우스 커서를 가져간 다음 아래쪽 화살표를 클릭합니다.  
-    	![데이터 레이크 visual studio 도구 확장 *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
+        *의 오른쪽을 클릭하면 * 아래에 파란색 밑줄이 표시됩니다. 파란색 밑줄에 마우스 커서를 가져간 다음 아래쪽 화살표를 클릭합니다. ![데이터 레이크 visual studio 도구 확장*](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
 
         **열 확장**을 클릭하면 도구가 열 이름으로 *을 대체합니다.
     
@@ -259,15 +262,11 @@ U-SQL 스크립트 개발에 대한 지침은 [U-SQL 스크립트 개발](#devel
 
 Azure 데이터 레이크 분석 서비스에 C# 어셈블리를 제출하고 등록하지 않아도 C# 어셈블리를 디버그할 수 있습니다. 코드 숨김 파일 및 참조된 C# 프로젝트 양쪽 모두에 중단점을 설정할 수 있습니다.
 
-**코드 숨김 파일의 로컬 코드를 디버그하려면**
-1.	코드 숨김 파일에 중단점을 설정합니다. 
-2.	**F5** 키를 눌러서 스크립트를 로컬에서 디버그합니다.
+**코드 숨김 파일의 로컬 코드를 디버그하려면** 1. 코드 숨김 파일에 중단점을 설정합니다. 2. **F5** 키를 눌러서 스크립트를 로컬에서 디버그합니다.
 
 다음 프로시저는 Visual Studio 2015에만 해당됩니다. 이전 버전의 Visual Studio에서는 pdb 파일을 수동으로 추가해야 합니다.
 
-**참조된 C# 프로젝트의 로컬 코드를 디버그하려면**
-1.	C# 어셈블리 프로젝트를 만들고 빌드하여 출력 dll을 생성합니다.
-2.	U-SQL 문을 사용하여 dll을 등록합니다.
+**참조된 C# 프로젝트의 로컬 코드를 디버그하려면** 1. C# 어셈블리 프로젝트를 만들고 빌드하여 출력 dll을 생성합니다. 2. U-SQL 문을 사용하여 dll을 등록합니다.
 
         CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
 3.	C# 코드에 중단점을 설정합니다.
@@ -286,7 +285,7 @@ Azure 데이터 레이크 분석 서비스에 C# 어셈블리를 제출하고 �
 - [데이터 레이크 분석을 사용하여 웹 로그 분석](data-lake-analytics-analyze-weblogs.md)
 - [Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)
 - [Azure 데이터 레이크 분석 U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md)
-- [데이터 레이크 분석 작업을 위한 U-SQL 사용자 정의 연산자 개발](data-lake-analytics-u-sql-user-defined-operators.md)
+- [데이터 레이크 분석 작업을 위한 U-SQL 사용자 정의 연산자 개발](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 
 ##자습서 준비를 위한 Appx-A PowerShell 샘플
 
@@ -360,4 +359,4 @@ Azure 데이터 레이크 분석 서비스에 C# 어셈블리를 제출하고 �
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

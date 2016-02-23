@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma" />
 
 # 회사 인터넷 도메인이 트래픽 관리자 도메인을 가리키도록 설정
@@ -23,9 +23,9 @@
 
     www.contoso.com IN CNAME contoso.trafficmanager.net
 
-이제 *www.contoso.com* 으로 요청되는 모든 트래픽이 *contoso.trafficmanager.net* 으로 이동됩니다.
+이제 *www.contoso.com*으로 요청되는 모든 트래픽이 *contoso.trafficmanager.net*으로 이동됩니다.
 
->[AZURE.IMPORTANT] *contoso.com* 과 같은 두 번째 수준의 도메인이 트래픽 관리자 도메인을 가리킬 수 없습니다. DNS 프로토콜의 제한사항이며, CNAME 레코드를 두 번째 수준 도메인 이름으로 허용하지 않습니다.
+>[AZURE.IMPORTANT] *contoso.com*과 같은 두 번째 수준의 도메인이 트래픽 관리자 도메인을 가리킬 수 없습니다. DNS 프로토콜의 제한사항이며, CNAME 레코드를 두 번째 수준 도메인 이름으로 허용하지 않습니다.
 
 ## 다음 단계
 
@@ -35,4 +35,4 @@
 
 [트래픽 관리자 - 끝점 사용 안 함 또는 사용](disable-or-enable-an-endpoint.md)
 
-<!----HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="10/15/2015"
 	ms.author="darosa"/>
 
@@ -57,4 +57,4 @@
 - [Azure 서비스 버스 아키텍처 개요](service-bus-fundamentals-hybrid-solutions.md)
 - [서비스 버스 큐를 사용하는 방법](service-bus-dotnet-how-to-use-queues.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

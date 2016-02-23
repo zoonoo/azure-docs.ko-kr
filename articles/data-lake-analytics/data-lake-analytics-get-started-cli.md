@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/02/2015"
+   ms.date="02/10/2016"
    ms.author="jgao"/>
 
 # 자습서: Azure CLI(명령줄 인터페이스)를 사용하여 Azure 데이터 레이크 분석 시작
@@ -39,7 +39,7 @@ Azure CLI를 사용하여 Azure 데이터 레이크 분석 계정을 만들고, 
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
 - **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-- **Azure CLI**. [Azure CLI 설치 및 구성](xplat-cli.md)을 참조하세요.
+- **Azure CLI**. [Azure CLI 설치 및 구성](../xplat-cli-install.md)을 참조하세요.
 	- 이 데모를 완료하려면 **시험판** [Azure CLI 도구](https://github.com/MicrosoftBigData/AzureDataLake/releases)를 다운로드하여 설치합니다.
 - **인증**. 다음 명령을 사용합니다.
 
@@ -53,7 +53,7 @@ Azure CLI를 사용하여 Azure 데이터 레이크 분석 계정을 만들고, 
 
 모든 작업을 실행하기 전에 데이터 레이크 분석 계정이 있어야 합니다. 데이터 레이크 분석 계정을 만들려면 다음을 지정해야 합니다.
 
-- **Azure 리소스 그룹**: Azure 리소스 그룹 내에서 데이터 레이크 분석 계정을 만들어야 합니다. [Azure 리소스 관리자](resource-group-overview.md)를 사용하면 그룹으로 응용 프로그램에서 리소스와 함께 사용할 수 있습니다. 응용 프로그램에 대한 모든 리소스의 배포, 업데이트 또는 삭제를 조정된 단일 작업으로 수행할 수 있습니다.  
+- **Azure 리소스 그룹**: Azure 리소스 그룹 내에서 데이터 레이크 분석 계정을 만들어야 합니다. [Azure 리소스 관리자](../resource-group-overview.md)를 사용하면 그룹으로 응용 프로그램에서 리소스와 함께 사용할 수 있습니다. 응용 프로그램에 대한 모든 리소스의 배포, 업데이트 또는 삭제를 조정된 단일 작업으로 수행할 수 있습니다.  
 
 	구독에 대한 리소스 그룹을 나열하려면:
     
@@ -75,7 +75,7 @@ Azure CLI를 사용하여 Azure 데이터 레이크 분석 계정을 만들고, 
 
 		azure datalake store account create "<Data Lake Store Account Name>" "<Azure Location>" "<Resource Group Name>"
 
-	> [AZURE.NOTE]데이터 레이크 계정 이름은 소문자와 숫자만 포함해야 합니다.
+	> [AZURE.NOTE] 데이터 레이크 계정 이름은 소문자와 숫자만 포함해야 합니다.
 
 
 
@@ -88,7 +88,7 @@ Azure CLI를 사용하여 Azure 데이터 레이크 분석 계정을 만들고, 
 
 ![데이터 레이크 분석 표시 계정](./media/data-lake-analytics-get-started-cli/data-lake-analytics-show-account-cli.png)
 
-> [AZURE.NOTE]데이터 레이크 분석 계정 이름은 소문자와 숫자만 포함해야 합니다.
+> [AZURE.NOTE] 데이터 레이크 분석 계정 이름은 소문자와 숫자만 포함해야 합니다.
 
 
 ## 데이터 레이크 저장소에 데이터 업로드
@@ -102,7 +102,7 @@ CLI를 사용하여 파일을 업로드하려면 다음 명령을 사용합니�
   	azure datalake store filesystem import "<Data Lake Store Account Name>" "<Path>" "<Destination>"
   	azure datalake store filesystem list "<Data Lake Store Account Name>" "<Path>"
 
-데이터 레이크 분석은 Azure Blob 저장소에 액세스할 수도 있습니다. Azure Blob 저장소에 데이터를 업로드하려면 [Azure 저장소와 Azure CLI 사용](storage-azure-cli.md)을 참조하세요.
+데이터 레이크 분석은 Azure Blob 저장소에 액세스할 수도 있습니다. Azure Blob 저장소에 데이터를 업로드하려면 [Azure 저장소와 Azure CLI 사용](../storage/storage-azure-cli.md)을 참조하세요.
 
 ## 데이터 레이크 분석 작업 제출
 
@@ -139,7 +139,7 @@ CLI를 사용하여 파일을 업로드하려면 다음 명령을 사용합니�
     
         wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
 
-    >[AZURE.NOTE]공용 Blob 또는 공용 컨테이너 액세스 권한이 있는 Azure Blob 컨테이너는 현재 지원되지 않습니다.
+    >[AZURE.NOTE] 공용 Blob 또는 공용 컨테이너 액세스 권한이 있는 Azure Blob 컨테이너는 현재 지원되지 않습니다.
 
 	
 **작업을 제출하려면**
@@ -169,4 +169,4 @@ CLI를 사용하여 파일을 업로드하려면 다음 명령을 사용합니�
 - 관리 작업을 보려면 [Azure 포털을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-manage-use-portal.md)를 참조하세요.
 - 데이터 레이크 분석에 대한 개요를 보려면 [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

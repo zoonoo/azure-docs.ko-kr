@@ -10,7 +10,7 @@
 <tags
    ms.service="service-fabric"
    ms.devlang="dotNet"
-   ms.topic="hero-article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="11/20/2015"
@@ -19,7 +19,7 @@
 # 로컬 클러스터에서 응용 프로그램 배포 및 업그레이드 시작
 Azure 서비스 패브릭 SDK에서는 전체 로컬 개발 환경을 포함하고 로컬 클러스터에서 응용 프로그램을 배포 및 관리하는 작업을 빠르게 시작하는 데 사용할 수 있습니다. 이 문서에서는 Windows PowerShell에서 로컬 클러스터를 만들고 기존 응용 프로그램을 거기에 배포한 다음 새 버전으로 해당 응용 프로그램을 업그레이드합니다.
 
-> [AZURE.NOTE]이 문서는 이미 [개발 환경을 설정](service-fabric-get-started.md)한 것으로 가정합니다.
+> [AZURE.NOTE] 이 문서는 이미 [개발 환경을 설정](service-fabric-get-started.md)한 것으로 가정합니다.
 
 ## 로컬 클러스터 만들기
 서비스 패브릭 클러스터는 응용 프로그램을 배포할 수 있는 하드웨어 리소스의 집합을 나타냅니다. 일반적으로 클러스터는 다섯 대부터 수천 대에 이르는 컴퓨터로 이루어져 있습니다. 그러나 서비스 패브릭 SDK는 단일 컴퓨터에서 실행할 수 있는 클러스터 구성을 포함합니다.
@@ -28,7 +28,7 @@ Azure 서비스 패브릭 SDK에서는 전체 로컬 개발 환경을 포함하�
 
 SDK는 Windows PowerShell 스크립트 및 로컬 클러스터 관리자 시스템 트레이 앱과 같이 로컬 클러스터를 설치하는 두 가지 방법을 제공합니다. 이 자습서에서는 PowerShell 스크립트를 사용합니다.
 
-> [AZURE.NOTE]Visual Studio에서 응용 프로그램을 배포하여 이미 로컬 클러스터를 만든 경우 이 섹션을 건너뛸 수 있습니다.
+> [AZURE.NOTE] Visual Studio에서 응용 프로그램을 배포하여 이미 로컬 클러스터를 만든 경우 이 섹션을 건너뛸 수 있습니다.
 
 
 1. 새 PowerShell 창을 관리자 권한으로 실행합니다.
@@ -125,7 +125,7 @@ SDK는 Windows PowerShell 스크립트 및 로컬 클러스터 관리자 시스�
 
     ![서비스 패브릭 탐색기에서 응용 프로그램 세부 정보 보기][sfx-service-overview]
 
-    > [AZURE.NOTE]서비스 패브릭 탐색기에 대해 자세히 알아보려면 [서비스 패브릭 탐색기를 사용하여 클러스터 시각화](service-fabric-visualizing-your-cluster.md)를 참조하세요.
+    > [AZURE.NOTE] 서비스 패브릭 탐색기에 대해 자세히 알아보려면 [서비스 패브릭 탐색기를 사용하여 클러스터 시각화](service-fabric-visualizing-your-cluster.md)를 참조하세요.
 
 ## 응용 프로그램 업그레이드
 서비스 패브릭은 클러스터 전체에 걸쳐 롤백되므로 응용 프로그램의 상태를 모니터링하여 가동 중지 업그레이드가 발생하지 않습니다. WordCount 응용 프로그램의 간단한 업그레이드를 수행해보겠습니다.
@@ -186,4 +186,4 @@ SDK는 Windows PowerShell 스크립트 및 로컬 클러스터 관리자 시스�
 [sfx-upgradeprogress]: ./media/service-fabric-get-started-with-a-local-cluster/SfxUpgradeOverview.png
 [sfx-service-overview]: ./media/service-fabric-get-started-with-a-local-cluster/sfx-service-overview.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

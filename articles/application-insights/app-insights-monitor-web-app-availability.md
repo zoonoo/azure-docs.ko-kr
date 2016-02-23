@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/26/2016"
+	ms.date="02/11/2016"
 	ms.author="awills"/>
 
 # 웹 사이트의 가용성 및 응답성 모니터링
@@ -129,7 +129,7 @@ URL 시퀀스를 포함하는 시나리오를 모니터링할 수 있습니다. 
 
 코딩된 함수는 테스트에 사용할 수 없습니다. 시나리오 단계를 .webtest 파일에 스크립트로 포함해야 합니다.
 
-#### 1. 시나리오 기록
+#### 1\. 시나리오 기록
 
 Visual Studio Enterprise 또는 Ultimate를 사용하여 웹 세션을 기록합니다.
 
@@ -160,7 +160,7 @@ Visual Studio Enterprise 또는 Ultimate를 사용하여 웹 세션을 기록합
     ![Visual Studio에서 .webtest 파일을 열고 실행을 클릭합니다.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
 
 
-#### 2. Application Insights에 웹 테스트를 업로드
+#### 2\. Application Insights에 웹 테스트를 업로드
 
 1. Application Insights 포털에서 새 웹 테스트를 만듭니다.
 
@@ -207,19 +207,22 @@ Visual Studio Enterprise 또는 Ultimate를 사용하여 웹 세션을 기록합
 
 이제 테스트를 포털에 업로드합니다. 테스트의 모든 실행에 동적 값을 사용합니다.
 
-## OAuth 로그인
+## 로그인 처리
 
-사용자가 OAuth 암호(예: Microsoft, Google 또는 Facebook)를 사용하여 앱에 로그인하는 경우, SAML 플러그인을 사용하여 다단계 웹 테스트에서 로그인을 시뮬레이션할 수 있습니다.
+사용자가 앱에 로그인하면 로그인 뒤에 페이지를 테스트할 수 있도록 로그인을 시뮬레이션하기 위한 여러 옵션이 있습니다. 앱에서 제공하는 보안의 형식에 따라 사용하는 방법이 달라집니다.
 
-![OAuth용 샘플 웹 테스트](./media/app-insights-monitor-web-app-availability/81.png)
+모든 경우에 테스트하기 위해 계정을 만들어야 합니다. 가능하면 읽기 전용으로 해당 권한을 제한합니다.
 
-샘플 테스트는 다음 단계를 수행합니다.
+* 간단한 사용자 이름 및 암호: 일반적인 방법으로 웹 테스트를 기록합니다. 우선 쿠키를 삭제합니다.
+* SAML 인증 이를 위해 웹 테스트에 사용할 수 있는 SAML 플러그 인을 사용할 수 있습니다.
+* 클라이언트 암호: 앱에 클라이언트 암호를 포함하는 로그인 경로가 있는 경우 이를 사용합니다. Azure Active Directory가 지원합니다. 
+* 예를 들어 Microsoft 또는 Google 계정으로 로그인하여 인증을 엽니다. OAuth를 사용하는 많은 앱은 클라이언트 암호 대체를 제공하므로 첫 번째 방법은 해당 항목을 조사하는 것입니다. 테스트가 OAuth를 사용하여 로그인하는 경우 일반적인 방법은 다음과 같습니다.
+ * Fiddler와 같은 도구를 사용하여 웹 브라우저, 인증 사이트 및 응용 프로그램 간의 트래픽을 검사합니다. 
+ * 다른 컴퓨터 또는 브라우저를 사용하거나 긴 간격으로 두 개 이상의 로그인을 수행합니다(토큰이 만료되도록 허용).
+ * 다른 세션을 비교하여 인증 사이트에서 다시 전달된 토큰을 식별하고 이는 로그인한 후에 앱 서버에 전달됩니다. 
+ * Visual Studio Online을 사용하여 웹 테스트 기록 
+ * 토큰을 매개 변수화하고 토큰이 인증자에서 반환되면 매개 변수를 설정하고 사이트에 대한 쿼리에서 사용합니다. (Visual Studio는 테스트를 매개 변수화하려고 하지만 올바르게 토큰을 매개 변수화하지 않습니다.)
 
-1. 테스트 중인 웹앱에 OAuth 끝점의 주소를 요청합니다.
-2. SAML 플러그인을 사용하여 로그인합니다.
-3. 로그인한 상태에서 테스트의 나머지 부분을 수행합니다.
-
-SAML 프러그인은 2단계에서 사용되는 변수 `Assert`를 설정합니다.
 
 ## <a name="edit"></a>테스트 편집 또는 사용 안 함
 
@@ -263,4 +266,4 @@ SAML 프러그인은 2단계에서 사용되는 변수 `Assert`를 설정합니�
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

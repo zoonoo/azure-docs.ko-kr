@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/10/2015"
+   ms.date="02/02/2016"
    ms.author="joaoma"/>
 
 
@@ -42,7 +42,7 @@ GitHub에서 기존 Azure 리소스 관리자 템플릿을 다운로드한 후 �
 - CIDR 블록으로 10.0.0.0/28을 사용하는 Appgatewaysubnet이라고 하는 서브넷을 만듭니다.
 - 트래픽을 부하 분산하려는 웹 서버에 대해 이전에 구성된 백 엔드 IP 2개를 설정합니다. 이 템플릿 예제에서 백 엔드 IP는 10.0.1.10 및 10.0.1.11이 됩니다.
 
->[AZURE.NOTE]이 템플릿에 대한 매개 변수입니다. 템플릿을 사용자 지정하려면 규칙, 수신기 및 azuredeploy.json을 여는 SSL을 변경할 수 있습니다.
+>[AZURE.NOTE] 이 템플릿에 대한 매개 변수입니다. 템플릿을 사용자 지정하려면 규칙, 수신기 및 azuredeploy.json을 여는 SSL을 변경할 수 있습니다.
 
 
 
@@ -73,7 +73,7 @@ GitHub에서 가상 네트워크 및 두 개의 서브넷을 만들기 위한 �
 	| **backendaddress2** | 두 번째 웹 서버의 IP 주소 |
 
 
->[AZURE.IMPORTANT]GitHub에서 유지 관리되는 Azure 리소스 관리자 템플릿은 시간이 지나면서 달라질 수 있습니다. 템플릿을 사용하기 전에 확인합니다.
+>[AZURE.IMPORTANT] GitHub에서 유지 관리되는 Azure 리소스 관리자 템플릿은 시간이 지나면서 달라질 수 있습니다. 템플릿을 사용하기 전에 확인합니다.
 
 6. **resources** 아래의 내용을 확인하고 다음을 검토합니다.
 
@@ -253,7 +253,7 @@ Azure CLI를 사용하여 다운로드한 Azure 리소스 관리자 템플릿을
 
 ### 2단계
 
-"Azure에 배포"를 클릭합니다.
+**Deploy to Azure**를 클릭합니다.
 
 ![Azure에 배포](./media/application-gateway-create-gateway-arm-template/deploytoazure.png)
 
@@ -284,4 +284,4 @@ SSL 오프로드를 구성하려는 경우 [SSL 오프로드에 대해 응용 �
 - [Azure 부하 분산 장치](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure 트래픽 관리자](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->
