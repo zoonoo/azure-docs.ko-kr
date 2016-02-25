@@ -58,7 +58,7 @@ StorSimple 관리자 서비스를 사용하여 StorSimple 솔루션 내에서 �
 
 	이 상황은 다음 수식으로도 설명할 수 있습니다.
 
-	*Primary data (All volumes) = Sum of (Primary data (volume i) + Size of snapshot data (volume i) )*
+	*주 데이터(모든 볼륨) = (주 데이터(볼륨 i) + 스냅숏 데이터 크기(볼륨 i) )의 합*
 	
 	*여기서 (Primary data (volume i)는 볼륨 i에 할당된 기본 데이터의 크기입니다.*
  
@@ -126,4 +126,4 @@ SSD 선형 계층을 포함하므로 기본 저장소 사용률 이상인 장치
 
 - [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!----HONumber=AcomDC_0204_2016-->

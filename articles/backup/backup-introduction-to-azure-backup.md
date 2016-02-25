@@ -62,7 +62,7 @@ Azure 백업은 Microsoft 클라우드에서 데이터를 백업 및 복원하�
 | Microsoft SharePoint | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md),</p> <p>[Azure 백업 서버](backup-azure-microsoft-azure-backup.md)</p> |
 | Microsoft Exchange | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md),</p> <p>[Azure 백업 서버](backup-azure-microsoft-azure-backup.md)</p> |
 | Azure IaaS VM(Windows)| - | [Azure 백업(VM 확장)](backup-azure-vms-introduction.md) |
- | Azure IaaS VM(Linux) | - | [Azure 백업(VM 확장)](backup-azure-vms-introduction.md) |
+| Azure IaaS VM(Linux) | - | [Azure 백업(VM 확장)](backup-azure-vms-introduction.md) |
 
 ## 기능
 이러한 다섯 개의 테이블은 각 구성 요소에 백업 기능이 처리되는 방법을 요약합니다.
@@ -181,4 +181,4 @@ Azure 백업은 데이터를 온-프레미스 및 클라우드에 백업합니�
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!----HONumber=AcomDC_0218_2016-->
