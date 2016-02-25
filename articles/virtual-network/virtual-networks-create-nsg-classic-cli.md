@@ -104,7 +104,7 @@
 	- **-n(또는 --name)**. 새 규칙의 이름입니다. 이 시나리오에서는 *rdp-rule*입니다.
 	- **-c(또는 --action)**. 규칙(허용 또는 거부)에 대한 액세스 수준입니다.
 	- **-p(또는 --protocol)**. 규칙에 대한 프로토콜(Tcp, Udp 또는 *)입니다.
-- **-r(또는 --type)**. 연결 방향(인바운드 또는 아웃바운드)입니다.
+	- **-r(또는 --type)**. 연결 방향(인바운드 또는 아웃바운드)입니다.
 	- **-y(또는 --priority)**. 규칙에 대한 우선순위입니다.
 	- **-f(또는 --source-address-prefix)**. CIDR 또는 기본 태그를 사용하는 원본 주소 접두사입니다.
 	- **-o(또는 --source-port-range)**. 원본 포트 또는 포트 범위입니다.
@@ -239,4 +239,4 @@
 		info:    Creating a network security group "NSG-BackEndX"
 		info:    network nsg subnet add command OK
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0211_2016-->
