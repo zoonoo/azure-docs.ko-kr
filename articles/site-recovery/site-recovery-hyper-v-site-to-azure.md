@@ -227,7 +227,7 @@ Hyper-V 클러스터를 설치하는 경우 장애 조치 클러스터의 각 �
 		- **크기**: 장애 조치된 가상 컴퓨터의 대상 크기입니다.
 
 		![가상 컴퓨터 속성 구성](./media/site-recovery-hyper-v-site-to-azure/VMProperties.png)
-	- 다음을 포함하여 *보호된 항목** > **보호 그룹** > *protectiongroup\_name* > **가상 컴퓨터** *virtual\_machine\_name* > **구성**에서 추가적인 가상 컴퓨터의 설정을 구성합니다.
+	- 다음을 포함하여 **보호된 항목** > **보호 그룹** > *protectiongroup\_name* > **가상 컴퓨터** *virtual\_machine\_name* > **구성**에서 추가적인 가상 컴퓨터의 설정을 구성합니다.
 
 		- **네트워크 어댑터**: 네트워크 어댑터 수가 대상 가상 컴퓨터에 대해 지정하는 크기에 따라 결정됩니다. [가상 컴퓨터 크기 사양](../virtual-machines/virtual-machines-size-specs.md#size-tables)에서 가상 컴퓨터 크기에 의해 지원되는 NIC의 수를 확인하세요.
 

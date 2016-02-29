@@ -16,7 +16,8 @@
 
 #자습서: TOPdesk - Secure와 Azure Active Directory 통합
   
-이 자습서는 Azure 및 TOPdesk - Secure의 통합을 보여 주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
+이 자습서는 Azure 및 TOPdesk - Secure의 통합을 보여 주기 위한 것입니다.  
+이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 -   유효한 Azure 구독
 -   TOPdesk - Secure Single Sign-On이 설정된 구독
@@ -66,7 +67,8 @@
 
 ##Single Sign-On 구성
   
-이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 TOPdesk - Secure에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다. TOPdesk - Secure에 대한 Single Sign-On을 구성하려면 로고 아이콘 파일을 업로드해야 합니다. 아이콘 파일을 가져오려면 TOPdesk 지원팀에 문의합니다.
+이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 TOPdesk - Secure에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다.  
+TOPdesk - Secure에 대한 Single Sign-On을 구성하려면 로고 아이콘 파일을 업로드해야 합니다. 아이콘 파일을 가져오려면 TOPdesk 지원팀에 문의합니다.
 
 ###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
@@ -89,7 +91,8 @@
     ![기술 설정](./media/active-directory-saas-topdesk-secure-tutorial/IC790855.png "기술 설정")
 
     1.  **다운로드**를 클릭하여 공용 메타데이터 파일을 다운로드한 다음 컴퓨터에 로컬 저장합니다.
-    2.  메타데이터 파일을 열고 **AssertionConsumerService** 노드를 찾습니다.![어설션 소비자 서비스](./media/active-directory-saas-topdesk-secure-tutorial/IC790856.png "어설션 소비자 서비스")
+    2.  메타데이터 파일을 열고 **AssertionConsumerService** 노드를 찾습니다.
+        ![어설션 소비자 서비스](./media/active-directory-saas-topdesk-secure-tutorial/IC790856.png "어설션 소비자 서비스")
     3.  **AssertionConsumerService** 값을 복사합니다.  
 
         >[AZURE.NOTE] 해당 값은 자습서 뒷부분의 **앱 URL 구성** 섹션에서 필요합니다.
@@ -108,9 +111,9 @@
 
     ![앱 URL 구성](./media/active-directory-saas-topdesk-secure-tutorial/IC790604.png "앱 URL 구성")
 
-    1.  **TOPdesk - Public Sign-on URL** 텍스트 상자에서 TOPdesk - 사용자가 Secure 응용 프로그램 로그인에 사용한 URL을 입력합니다 (예: "**https://qssolutions.topdesk.net*").
-2.  **TOPdesk – Secure Reply URL** 텍스트 상자에서 **TOPdesk - Secure AssertionConsumerService URL**을 붙여넣기합니다 (예: "**https://qssolutions.topdesk.net/tas/public/login/saml*")
-3.  **다음**을 클릭합니다.
+    1.  **TOPdesk - Public Sign-on URL** 텍스트 상자에서 TOPdesk - 사용자가 Secure 응용 프로그램 로그인에 사용한 URL을 입력합니다 (예: "*https://qssolutions.topdesk.net*").
+    2.  **TOPdesk – Secure Reply URL** 텍스트 상자에서 **TOPdesk - Secure AssertionConsumerService URL**을 붙여넣기합니다 (예: "*https://qssolutions.topdesk.net/tas/public/login/saml*")
+    3.  **다음**을 클릭합니다.
 
 10. **TOPdesk - Secure에서 Single Sign-On 구성** 페이지에서 메타데이터를 다운로드 하려면 **메타데이터 다운로드**를 클릭한 다음 컴퓨터에 로컬 저장합니다.
 
@@ -148,8 +151,8 @@
     1.  다운로드한 메타데이터 파일을 업로드하려면 **페더레이션 메타데이터**에서 **찾아보기**를 클릭합니다.
     2.  인증서 파일을 업로드하려면 **인증서 (RSA)**에서 **찾아보기**를 클릭합니다.
     3.  TOPdesk 지원팀에서 받은 로고 파일을 업로드하려면 **로고 아이콘**에서 **찾아보기**를 클릭합니다.
-    4.  **사용자 이름 특성** 텍스트 상자에서 ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**을 입력합니다.
-5.  **이름 표시** 텍스트 상자에 구성할 이름을 입력합니다.
+    4.  **사용자 이름 특성** 텍스트 상자에서 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**을 입력합니다.
+    5.  **이름 표시** 텍스트 상자에 구성할 이름을 입력합니다.
     6.  **Save**를 클릭합니다.
 
 17. Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
@@ -158,7 +161,8 @@
 
 ##사용자 프로비전 구성
   
-Azure AD 사용자가 TOPdesk - Secure에 로그인 할 수 있도록 하려면 TOPdesk - Secure으로 프로비전되어야 합니다. TOPdesk - Secure의 경우 프로비전은 수동 작업입니다.
+Azure AD 사용자가 TOPdesk - Secure에 로그인 할 수 있도록 하려면 TOPdesk - Secure으로 프로비전되어야 합니다.  
+TOPdesk - Secure의 경우 프로비전은 수동 작업입니다.
 
 ###사용자 프로비전을 구성하려면
 

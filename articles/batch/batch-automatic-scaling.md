@@ -56,7 +56,7 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
 
 자동 크기 조정 수식에 시스템 정의 변수와 사용자 정의 변수 모두를 사용할 수 있습니다. 위의 두 줄 예제 수식에서 `$averageActiveTaskCount`가 사용자 정의 변수인 반면 `$TargetDedicated`는 시스템 정의 변수입니다. 아래 테이블은 배치 서비스에서 정의된 읽고 쓰기 및 읽기 전용 변수를 모두 보여줍니다.
 
-이러한 **시스템 정의 변수** 값을 *가져와서* *설정*하여 풀의 계산 노드 개수를 관리합니다.
+이러한 **시스템 정의 변수** 값을 *가져와서* *설정* 하여 풀의 계산 노드 개수를 관리합니다.
 
 <table>
   <tr>
@@ -347,7 +347,7 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
   </tr>
 </table>
 
-위 표에 설명된 함수 중 일부는 목록을 인수로 사용할 수 있습니다. 쉼표로 구분된 목록은 *double* 및 *doubleVec*의 조합입니다. 예:
+위 표에 설명된 함수 중 일부는 목록을 인수로 사용할 수 있습니다. 쉼표로 구분된 목록은 *double* 및 *doubleVec* 의 조합입니다. 예:
 
 `doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?`
 

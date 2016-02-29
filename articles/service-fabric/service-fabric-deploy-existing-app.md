@@ -44,12 +44,64 @@ Azure 서비스 패브릭에서 Node.js, Java 또는 네이티브 응용 프로�
   서비스 패브릭 세계에서 응용 프로그램은 "업그레이드 가능한 단위"입니다. 잠재적인 오류(및 잠재적 롤백)가 플랫폼에 의해 관리되는 하나의 단위로 응용 프로그램을 업그레이드할 수 있습니다. 플랫폼은 업그레이드 프로세스의 성공을 보장하며, 업그레이드가 실패할 경우 응용 프로그램을 알 수 없는/불안정한 상태로 남겨 두지 않습니다.
 
 
+ ```xml
+  <?xml version="1.0" encoding="utf-8"?>
+  <ApplicationManifest ApplicationTypeName="actor2Application"
+                       ApplicationTypeVersion="1.0.0.0"
+                       xmlns="http://schemas.microsoft.com/2011/01/fabric"
+                       xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <ServiceManifestImport>
+      <ServiceManifestRef ServiceManifestName="actor2Pkg" ServiceManifestVersion="1.0.0.0" />
+      <ConfigOverrides />
+    </ServiceManifestImport>
+
+    <DefaultServices>
+      <Service Name="actor2">
+        <StatelessService ServiceTypeName="actor2Type">
+          <SingletonPartition />
+        </StatelessService>
+      </Service>
+    </DefaultServices>
+
+  </ApplicationManifest>
+  ```
+
 * **서비스 매니페스트**
 
   서비스 매니페스트는 서비스의 구성 요소를 설명합니다. 서비스 매니페스트는 서비스의 이름 및 유형(서비스 패브릭이 서비스 관리에 사용하는 정보), 서비스 코드, 구성 및 데이터 구성 요소를 포함하고 있습니다. 또한 서비스 매니페스트는 서비스가 배포되면 서비스를 구성하는 데 사용할 수 있는 몇 가지 추가 매개 변수도 포함하고 있습니다.
 
   서비스 매니페스트에서 사용할 수 있는 모든 매개 변수를 자세히 다루지는 않고, 게스트 실행 파일을 서비스 패브릭에서 실행하는 데 필요한 하위 집합을 살펴보겠습니다.
 
+  ```xml
+  <?xml version="1.0" encoding="utf-8"?>
+  <ServiceManifest Name="actor2Pkg"
+                   Version="1.0.0.0"
+                   xmlns="http://schemas.microsoft.com/2011/01/fabric"
+                   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ServiceTypes>
+      <StatelessServiceType ServiceTypeName="actor2Type" />
+    </ServiceTypes>
+
+    <CodePackage Name="Code" Version="1.0.0.0">
+      <EntryPoint>
+        <ExeHost>
+          <Program>actor2.exe</Program>
+        </ExeHost>
+      </EntryPoint>
+    </CodePackage>
+
+    <ConfigPackage Name="Config" Version="1.0.0.0" />
+
+    <Resources>
+      <Endpoints>
+        <Endpoint Name="ServiceEndpoint" />
+      </Endpoints>
+    </Resources>
+  </ServiceManifest>
+  ```
 
 ## 응용 프로그램 패키지 파일 구조
 응용 프로그램을 서비스 패브릭에 배포하기 위해 응용 프로그램은 미리 정의된 디렉터리 구조를 따라야 합니다. 다음은 해당 구조의 예입니다.

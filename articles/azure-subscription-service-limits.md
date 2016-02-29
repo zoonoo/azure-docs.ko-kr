@@ -123,7 +123,7 @@ Azure 리소스 관리자 및 Azure 리소스 그룹을 사용하는 경우 다�
 
 [AZURE.INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
-#### 가상 컴퓨터 디스크 제한
+#### 가상 컴퓨터 디스크 제한 
 
 [AZURE.INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 

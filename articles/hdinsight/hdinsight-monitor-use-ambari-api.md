@@ -119,7 +119,7 @@ Ambari를 사용하여 HDInsight 클러스터를 모니터링하는 몇 가지 �
 
 **2014/10/8 릴리스**:
 
-Ambari 끝점 "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}"을 사용할 때 *host\_name* 필드에서 호스트 이름만이 아니라 노드의 FQDN(정규화된 도메인 이름)을 반환합니다. 10/8/2014 릴리스 이전 버전에서는 이 예가 "**headnode0**"만 반환했습니다. 10/8/2014 릴리스부터는 위의 예에 나와 있는 것처럼 FQDN "**headnode0.{ClusterDNS}.azurehdinsight.net**"이 반환됩니다. 이 변경은 HBase, Hadoop 등의 여러 클러스터 유형을 VNET(가상 네트워크) 하나에 배포할 수 있는 시나리오를 원활하게 수행하기 위해 필요한 작업이었습니다. 예를 들어 Hadoop의 백 엔드 플랫폼으로 HBase를 사용하는 등의 경우 이 변경이 적용됩니다.
+Ambari 끝점 "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}"을 사용할 때 *host_name* 필드에서 호스트 이름만이 아니라 노드의 FQDN(정규화된 도메인 이름)을 반환합니다. 10/8/2014 릴리스 이전 버전에서는 이 예가 "**headnode0**"만 반환했습니다. 10/8/2014 릴리스부터는 위의 예에 나와 있는 것처럼 FQDN "**headnode0.{ClusterDNS}.azurehdinsight.net**"이 반환됩니다. 이 변경은 HBase, Hadoop 등의 여러 클러스터 유형을 VNET(가상 네트워크) 하나에 배포할 수 있는 시나리오를 원활하게 수행하기 위해 필요한 작업이었습니다. 예를 들어 Hadoop의 백 엔드 플랫폼으로 HBase를 사용하는 등의 경우 이 변경이 적용됩니다.
 
 ## Ambari 모니터링 API
 

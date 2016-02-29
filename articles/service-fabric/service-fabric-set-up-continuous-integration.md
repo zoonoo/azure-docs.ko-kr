@@ -220,7 +220,7 @@ Azure PowerShell을 설치하려면 이전 섹션 **Azure PowerShell 설치 및 
 
     f. 빌드 컴퓨터에서 `C:\agent`(또는 짧은 경로의 위치)에 agent.zip의 압축을 풉니다.
 
-        >[AZURE.NOTE] If you plan on building ASP.NET 5 Web Services, it's recommended that you  choose the shortest name possible for this folder to avoid running into **PathTooLongExceptions** errors during deployment.
+        >[AZURE.NOTE]ASP.NET 5 웹 서비스 구축을 계획 중이라면 배포 중 **PathTooLongExceptions** 오류가 발생하지 않게 이 폴더에 가능한 가장 짧은 이름을 선택하는 것이 좋습니다.
 
 2.	관리자 명령 프롬프트에서 `C:\agent\ConfigureAgent.cmd`을 실행합니다. 스크립트가 다음 매개 변수를 입력하라는 메시지를 표시합니다.
 
