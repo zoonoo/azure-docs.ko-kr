@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="02/16/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -39,6 +39,7 @@ Azure Active Directory Connect 동기화 서비스(Azure AD Connect Sync)는 클
 | **기능** ||
 | [암호 동기화 구현](active-directory-aadconnectsync-implement-password-synchronization.md) | 암호 동기화의 작동 방식, 구현 방법, 작동 및 문제 해결 방법에 대해 설명합니다. |
 | [실수로 인한 삭제 방지](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) | *실수로 인한 삭제 방지* 기능과 이를 구성하는 방법을 설명합니다. |
+| [스케줄러](active-directory-aadconnectsync-feature-scheduler.md) | 데이터를 가져오고 동기화하고 내보내는 기본 제공 스케줄러를 설명합니다. |
 | **작업** ||
 | [운영 작업 및 고려 사항](active-directory-aadconnectsync-operations.md) | 재해 복구와 같은 운영 문제에 대해 설명합니다. |
 | **자세한 내용 및 참조** ||
@@ -50,4 +51,4 @@ Azure Active Directory Connect 동기화 서비스(Azure AD Connect Sync)는 클
 
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -183,7 +183,7 @@ Hadoop 명령에 대한 자세한 내용은 [Hadoop 명령 매뉴얼][hadoop-com
 
 HDInsight Emulator를 설치하면 사용자가 Windows에서 Apache Hadoop 기반의 서비스 학습을 시작할 수 있도록 일부 샘플이 제공됩니다. 이러한 샘플에서는 일반적으로 빅 데이터 집합을 처리할 때 필요한 일부 작업을 다룹니다. 위의 MapReduce 자습서에서 빌드된 샘플로 MapReduce 프로그래밍 모델 및 에코시스템과 관련된 개념을 익힐 수 있습니다.
 
-샘플 데이터는 IIS W3C(World Wide Web Consortium) 로그 데이터 처리를 위해 구성됩니다. 데이터 집합을 다양한 크기로 만들고 HDFS 또는 Azure Blob 저장소로 가져오도록 데이터 생성 도구가 제공됩니다. (자세한 내용은 [HDInsight에 Azure Blob 저장소 사용](../hdinsight-use-blob-storage.md)을 참조하세요.) Azure PowerShell 스크립트를 통해 생성된 데이터 페이지에서 MapReduce, Pig 또는 Hive 작업을 실행할 수 있습니다. Pig 및 Hive 스크립트는 MapReduce를 통한 추상화 계층이며 최종적으로는 MapReduce 프로그램으로 컴파일됩니다. 일련의 작업을 실행하여 이처럼 서로 다른 기술을 사용하는 경우의 결과와 처리 작업 실행에 대한 데이터 크기의 영향을 파악할 수 있습니다.
+샘플 데이터는 IIS W3C(World Wide Web Consortium) 로그 데이터 처리를 위해 구성됩니다. 데이터 집합을 다양한 크기로 만들고 HDFS 또는 Azure Blob 저장소로 가져오도록 데이터 생성 도구가 제공됩니다. (자세한 내용은 [HDInsight에 Azure Blob 저장소 사용](hdinsight-hadoop-use-blob-storage.md)을 참조하세요.) Azure PowerShell 스크립트를 통해 생성된 데이터 페이지에서 MapReduce, Pig 또는 Hive 작업을 실행할 수 있습니다. Pig 및 Hive 스크립트는 MapReduce를 통한 추상화 계층이며 최종적으로는 MapReduce 프로그램으로 컴파일됩니다. 일련의 작업을 실행하여 이처럼 서로 다른 기술을 사용하는 경우의 결과와 처리 작업 실행에 대한 데이터 크기의 영향을 파악할 수 있습니다.
 
 ### 섹션 내용
 
@@ -390,9 +390,9 @@ The samples currently contain all the required binaries, so building is not requ
 ##<a name="blobstorage"></a>Azure Blob 저장소에 연결
 HDInsight Emulator는 HDFS를 기본 파일 시스템으로 사용합니다. 그러나 Azure HDInsight는 Azure Blob 저장소를 기본 파일 시스템으로 사용합니다. 로컬 저장소 대신 Azure Blob 저장소를 사용하도록 HDInsight Emulator를 구성할 수 있습니다. Azure에서 저장소 컨테이너를 만들어 HDInsight Emulator에 연결하려면 다음 지침을 따릅니다.
 
->[AZURE.NOTE] HDInsight에서 Azure Blob 저장소를 만드는 방법에 대한 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용](../hdinsight-use-blob-storage.md)을 참조하세요.
+>[AZURE.NOTE] HDInsight에서 Azure Blob 저장소를 만드는 방법에 대한 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용](hdinsight-hadoop-use-blob-storage.md)을 참조하세요.
 
-아래 지침에 따라 작업을 시작하기 전에 먼저 저장소 계정을 만들어야 합니다. 자세한 내용은 [저장소 계정을 만드는 방법](../storage-create-storage-account.md)을 참조하세요.
+아래 지침에 따라 작업을 시작하기 전에 먼저 저장소 계정을 만들어야 합니다. 자세한 내용은 [저장소 계정을 만드는 방법](../storage/storage-create-storage-account.md)을 참조하세요.
 
 **컨테이너 만들기**
 
@@ -465,7 +465,7 @@ Emulator를 설치한 컴퓨터에서 제어판을 열고 **프로그램**에서
 ##<a name="nextsteps"></a> 다음 단계
 이 MapReduce 자습서에서는 HDInsight Emulator, Hadoop 샌드박스를 설치했으며 일부 Hadoop 작업을 실행했습니다. 자세한 내용은 다음 문서를 참조하세요.
 
-- [Azure HDInsight 사용 시작](../hdinsight-get-started.md)
+- [Azure HDInsight 사용 시작](hdinsight-hadoop-linux-tutorial-get-started.md)
 - [HDInsight용 Java MapReduce 프로그램 개발](hdinsight-develop-deploy-java-mapreduce.md)
 - [HDInsight용 C# Hadoop 스트리밍 MapReduce 프로그램 개발](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
 - [HDInsight Emulator 릴리스 정보](hdinsight-emulator-release-notes.md)
@@ -483,18 +483,18 @@ Emulator를 설치한 컴퓨터에서 제어판을 열고 **프로그램**에서
 [hdinsight-emulator-install]: http://www.microsoft.com/web/gallery/install.aspx?appid=HDINSIGHT
 [hdinsight-emulator-release-notes]: hdinsight-emulator-release-notes.md
 
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
-[hdinsight-get-started]: ../hdinsight-get-started.md
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-develop-deploy-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-versions]: hdinsight-component-versioning.md
 
-[Powershell-install-configure]: ../install-configure-powershell.md
+[Powershell-install-configure]: powershell-install-configure.md
 
 [hadoop-commands-manual]: http://hadoop.apache.org/docs/r1.1.1/commands_manual.html
 
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

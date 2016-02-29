@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/02/2016"
+	ms.date="02/11/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@
 
 - ImageRelay에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
 - 사용자가 해당 Azure AD 계정으로 ImageRelay에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
-- 단일 중앙 위치인 Azure Active Directory 포털에서 계정을 관리할 수 있습니다.
+- 단일 중앙 위치인 Azure Active Directory 클래식 포털에서 계정을 관리할 수 있습니다.
 
 Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](active-directory-appssoaccess-whatis.md)을 참조하세요.
 
@@ -57,7 +57,7 @@ ImageRelay의 Azure AD 통합을 구성하려면 갤러리의 ImageRelay를 관�
 
 **갤러리에서 ImageRelay를 추가하려면 다음 단계를 수행합니다.**
 
-1. Azure 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. <br><br> ![Active Directory][1]<br>
+1. Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. <br><br> ![Active Directory][1]<br>
 
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 
@@ -65,7 +65,7 @@ ImageRelay의 Azure AD 통합을 구성하려면 갤러리의 ImageRelay를 관�
 4. 페이지 맨 아래에 있는 **추가**를 클릭합니다.<br><br> ![응용 프로그램][3]<br>
 5. **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.<br><br> ![응용 프로그램][4]<br>
 6. 검색 상자에 **ImageRelay**를 입력합니다.<br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_01.png)<br>
-7. 결과 창에서 **ImageRelay**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다. <br><br>
+7. 결과 창에서 **ImageRelay**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_02.png)<br>
 
 ##  Azure AD Single Sign-on 구성 및 테스트
 이 섹션은 "Britta Simon"이라는 테스트 사용자를 기반으로 ImageRelay에서 Azure AD Single Sign-On을 구성하고 테스트하는 방법을 보여 주기 위해 작성되었습니다.
@@ -82,12 +82,12 @@ ImageRelay에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 ### Azure AD Single Sign-On 구성
 
-이 섹션은 Azure AD 포털에서 Azure AD Single Sign-On을 사용하도록 설정하고 ImageRelay 응용 프로그램에서 Single Sign-On을 구성하는 방법을 설명하기 위한 것입니다.
+이 섹션은 Azure AD 클래식 포털에서 Azure AD Single Sign-On을 사용하도록 설정하고 ImageRelay 응용 프로그램에서 Single Sign-On을 구성하는 방법을 설명하기 위한 것입니다.
 
 
 **ImageRelay에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure AD 포털의 **ImageRelay** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
+1. Azure AD 클래식 포털의 **ImageRelay** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
 
      ![Single Sign-On 구성][6] <br>
 
@@ -141,7 +141,7 @@ ImageRelay에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     - Single Sign-On을 통해서만 로그인할 수 있는 사용 권한 그룹(예: **SSO 기본**)을 선택합니다.<br><br>![Single Sign-On 구성](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_20.png)<br>
 
-6. Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.
+6. Azure AD 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.
 
     ![Azure AD Single Sign-On][10]<br>
 
@@ -151,11 +151,11 @@ ImageRelay에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 
 ### Azure AD 테스트 사용자 만들기
-이 섹션의 목적은 Azure 포털에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.<br> 사용자 목록에서 **Britta Simon**을 선택합니다.<br><br>![Azure AD 사용자 만들기][20]<br>
+이 섹션의 목적은 Azure AD 클래식 포털에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.<br> 사용자 목록에서 **Britta Simon**을 선택합니다.<br><br>![Azure AD 사용자 만들기][20]<br>
 
 **Azure AD에서 테스트 사용자를 만들려면 다음 단계를 수행하세요.**
 
-1. **Azure 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.<br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_09.png) <br>
+1. **Azure AD 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.<br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_09.png) <br>
 
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 
@@ -213,7 +213,7 @@ ImageRelay에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 **Britta Simon을 ImageRelay에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure 포털에서 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.<br><br>![사용자 할당][201] <br>
+1. Azure 클래식 포털에서 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.<br><br>![사용자 할당][201] <br>
 
 2. 응용 프로그램 목록에서 **ImageRelay**를 선택합니다.<br><br>![Single Sign-On 구성](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_23.png) <br>
 
@@ -253,4 +253,4 @@ ImageRelay에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 [204]: ./media/active-directory-saas-imagerelay-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-imagerelay-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/11/2016" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 #Azure Multi-Factor Authentication 작동 방법
@@ -102,4 +102,4 @@ Azure Multi-Factor Authentication 제공자를 사용하는 경우 Azure 구독�
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

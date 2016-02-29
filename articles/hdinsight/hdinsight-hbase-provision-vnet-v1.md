@@ -36,7 +36,7 @@
 
 - **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 
-- **Azure PowerShell이 포함된 워크스테이션**. [Azure PowerShell 설치 및 사용](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)을 참조하세요. 자세한 내용은 [Azure PowerShell 설치 및 구성](../install-configure-powershell.md)을 참조하세요. Azure PowerShell 스크립트를 실행하려면 관리자로 Azure PowerShell을 실행하고 실행 정책을 *RemoteSigned*로 설정해야 합니다. [Set-executionpolicy cmdlet 사용][2]을 참조하세요.
+- **Azure PowerShell이 포함된 워크스테이션**. [Azure PowerShell 설치 및 사용](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)을 참조하세요. 자세한 내용은 [Azure PowerShell 설치 및 구성](../powershell-install-configure.md)을 참조하세요. Azure PowerShell 스크립트를 실행하려면 관리자로 Azure PowerShell을 실행하고 실행 정책을 *RemoteSigned*로 설정해야 합니다. [Set-executionpolicy cmdlet 사용][2]을 참조하세요.
 
 	Azure PowerShell 스크립트를 실행하기 전에 cmdlet을 사용하여 Azure 구독에 연결되어 있는지 확인합니다.
 
@@ -84,7 +84,7 @@ DNS 서버는 선택 사항이지만 반드시 필요한 경우도 있습니다.
 
 **클러스터에서 사용할 Azure 저장소 계정 및 Blob 저장소 컨테이너를 만들려면**
 
-> [AZURE.NOTE] HDInsight 클러스터는 Azure Blob 저장소를 사용하여 데이터를 저장합니다. 자세한 내용은 [HDInsight에서 Hadoop와 함께 Azure Blob 저장소 사용](../hdinsight-use-blob-storage.md)을 참조하세요. 저장소 계정과 Blob 저장소 컨테이너가 필요합니다. 저장소 계정 위치는 가상 네트워크 위치 및 클러스터 위치와 일치해야 합니다.
+> [AZURE.NOTE] HDInsight 클러스터는 Azure Blob 저장소를 사용하여 데이터를 저장합니다. 자세한 내용은 [HDInsight에서 Hadoop와 함께 Azure Blob 저장소 사용](hdinsight-hadoop-use-blob-storage.md)을 참조하세요. 저장소 계정과 Blob 저장소 컨테이너가 필요합니다. 저장소 계정 위치는 가상 네트워크 위치 및 클러스터 위치와 일치해야 합니다.
 
 다른 HDInsight 클러스터와 마찬가지로 HBase 클러스터는 Azure 저장소 계정 및 Blob 저장소 컨테이너를 기본 파일 시스템으로 사용해야 합니다. 저장소 계정 위치는 가상 네트워크 위치 및 클러스터 위치와 일치해야 합니다. 자세한 내용은 [HDInsight에서 Hadoop와 함께 Azure Blob 저장소 사용][hdinsight-storage]을 참조하세요. HBase 클러스터를 프로비전할 때 새로 만들거나 기존 클러스터를 사용할 수 있는 옵션이 제공됩니다. 이 절차에서는 Azure 클래식 포털을 사용하여 저장소 계정 및 Blob 저장소 컨테이너를 만드는 방법을 보여 줍니다.
 
@@ -133,8 +133,7 @@ DNS 서버는 선택 사항이지만 반드시 필요한 경우도 있습니다.
 	<tr><td>헤드 노드 크기</td><td><p>헤드 노드에 대한 VM 크기를 선택합니다.</p></td></tr>
 	<tr><td>데이터 노드 크기</td><td><p>데이터 노드에 대한 VM 크기를 선택합니다.</p></td></tr>
 	<tr><td>Zookeeper 크기</td><td><p>Zookeeper 노드에 대한 VM 크기를 선택합니다.</p></td></tr>
-	</table>
-	>[AZURE.NOTE]선택한 VM에 따라 비용이 달라질 수 있습니다. HDInsight에서는 클러스터 노드에 모든 표준 계층 VM을 사용합니다. VM 크기가 가격에 미치는 영향에 대한 자세한 내용은 <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight 가격</a>을 참조하세요.
+</table>>[AZURE.NOTE] 선택한 VM에 따라 비용이 달라질 수 있습니다. HDInsight에서는 클러스터 노드에 모든 표준 계층 VM을 사용합니다. VM 크기가 가격에 미치는 영향에 대한 자세한 내용은 <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight 가격</a>을 참조하세요.
 
 	오른쪽 단추를 클릭합니다.
 
@@ -178,9 +177,8 @@ DNS 서버는 선택 사항이지만 반드시 필요한 경우도 있습니다.
         <p>새 저장소를 만들거나 다른 Azure 구독의 저장소를 사용하도록 선택한 경우 기본 컨테이너 이름을 지정해야 합니다.</p>
     </td></tr>
 	<tr><td>추가 저장소 계정</td>
-			<td>필요한 경우 클러스터의 추가 저장소 계정을 지정합니다. HDInsight는 여러 저장소 계정을 지원합니다. 클러스터에서 사용할 수 있는 추가 저장소 계정에는 한도가 없습니다. 하지만 Azure 포털을 사용하여 클러스터를 만드는 경우에는 UI 제약으로 인해 7개로 제한됩니다. 지정하는 각 추가 저장소 계정은 마법사에 계정 정보를 지정할 수 있는 <strong>저장소 계정</strong> 페이지를 더합니다. 예를 들어 위의 스크린샷에서는 선택된 추가 저장소 계정이 없으므로 추가 페이지가 마법사에 추가되지 않았습니다.</td></tr>
-	</table>
-	오른쪽 화살표를 클릭합니다.
+		<td>필요한 경우 클러스터의 추가 저장소 계정을 지정합니다. HDInsight는 여러 저장소 계정을 지원합니다. 클러스터에서 사용할 수 있는 추가 저장소 계정에는 한도가 없습니다. 하지만 Azure 클래식 포털을 사용하여 클러스터를 만드는 경우에는 UI 제약으로 인해 7개로 제한됩니다. 지정하는 각 추가 저장소 계정은 마법사에 계정 정보를 지정할 수 있는 <strong>저장소 계정</strong> 페이지를 더합니다. 예를 들어 위의 스크린샷에서는 선택된 추가 저장소 계정이 없으므로 추가 페이지가 마법사에 추가되지 않았습니다.</td></tr>
+</table>오른쪽 화살표를 클릭합니다.
 
 7. **스크립트 작업** 페이지에서 오른쪽 아래에 있는 확인 표시를 선택합니다. 이 자습서에서는 사용자 지정 클러스터 설정이 필요 없으므로 **스크립트 작업 추가** 단추를 클릭하지 마세요.
 
@@ -188,11 +186,11 @@ DNS 서버는 선택 사항이지만 반드시 필요한 경우도 있습니다.
 
 	> [AZURE.NOTE] 이 페이지를 사용하여 설치하는 동안 클러스터를 사용자 지정할 수 있습니다. 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster.md)을 참조하세요.
 
-새 HBase 클러스터 사용을 시작하려는 경우 [HDInsight에서 Hadoop을 통해 HBase 사용 시작](../hdinsight-hbase-get-started.md)의 절차를 사용할 수 있습니다.
+새 HBase 클러스터 사용을 시작하려는 경우 [HDInsight에서 Hadoop을 통해 HBase 사용 시작](hdinsight-hbase-tutorial-get-started.md)의 절차를 사용할 수 있습니다.
 
 ##HBase Java RPC API를 사용하여 가상 네트워크에 프로비전된 HBase 클러스터에 연결
 
-1.	동일한 Azure 가상 네트워크와 동일한 서브넷에 IaaS(infrastructure as a service) 가상 컴퓨터를 프로비전합니다. 따라서 가상 컴퓨터와 HBase 클러스터가 둘 다 동일한 내부 DNS 서버를 사용하여 호스트 이름을 확인합니다. 이렇게 하려면 **갤러리에서** 옵션을 선택한 다음 데이터 센터 대신 가상 네트워크를 선택해야 합니다. 지침에 대해서는 [Windows Server를 실행하는 가상 컴퓨터 만들기](../virtual-machines-windows-tutorial.md)를 참조하세요. 작은 VM 크기의 표준 Windows Server 2012 이미지면 충분합니다.
+1.	동일한 Azure 가상 네트워크와 동일한 서브넷에 IaaS(infrastructure as a service) 가상 컴퓨터를 프로비전합니다. 따라서 가상 컴퓨터와 HBase 클러스터가 둘 다 동일한 내부 DNS 서버를 사용하여 호스트 이름을 확인합니다. 이렇게 하려면 **갤러리에서** 옵션을 선택한 다음 데이터 센터 대신 가상 네트워크를 선택해야 합니다. 지침에 대해서는 [Windows Server를 실행하는 가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-tutorial.md)를 참조하세요. 작은 VM 크기의 표준 Windows Server 2012 이미지면 충분합니다.
 
 2.	Java 응용 프로그램을 사용하여 HBase에 원격으로 연결할 때는 FQDN(정규화된 도메인 이름)을 사용해야 합니다. FQDN을 확인하려면 HBase 클러스터의 연결별 DNS 접미사를 가져와야 합니다. 이렇게 하려면 Curl을 사용하여 Ambari를 쿼리하거나 원격 데스크톱을 사용하여 클러스터에 연결합니다.
 
@@ -380,11 +378,11 @@ Java 응용 프로그램에서 이 정보를 사용하려는 경우 [Maven을 �
 
 이 자습서에서는 HBase 클러스터를 프로비전하는 방법을 배웠습니다. 자세한 내용은 다음을 참조하세요.
 
-- [HDInsight 시작](../hdinsight-get-started.md)
+- [HDInsight 시작](hdinsight-hadoop-linux-tutorial-get-started.md)
 - [HDInsight에서 HBase 복제 구성](hdinsight-hbase-geo-replication.md)
 - [HDInsight에서 Hadoop 클러스터 프로비전](hdinsight-provision-clusters.md)
-- [HDInsight의 Hadoop에서 HBase 사용 시작](../hdinsight-hbase-get-started.md)
-- [HDInsight에서 HBase를 사용하여 Twitter 데이터 분석](../hdinsight-hbase-twitter-sentiment.md)
+- [HDInsight의 Hadoop에서 HBase 사용 시작](hdinsight-hbase-tutorial-get-started.md)
+- [HDInsight에서 HBase를 사용하여 Twitter 데이터 분석](hdinsight-hbase-analyze-twitter-sentiment.md)
 - [가상 네트워크 개요][vnet-overview]
 
 
@@ -392,10 +390,10 @@ Java 응용 프로그램에서 이 정보를 사용하려는 경우 [Maven을 �
 [2]: http://technet.microsoft.com/library/ee176961.aspx
 [3]: http://technet.microsoft.com/library/hh847889.aspx
 
-[hbase-get-started]: ../hdinsight-hbase-get-started.md
-[hbase-twitter-sentiment]: ../hdinsight-hbase-twitter-sentiment.md
+[hbase-get-started]: hdinsight-hbase-tutorial-get-started.md
+[hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 [vnet-overview]: ../virtual-network/virtual-networks-overview.md
-[vm-create]: ../virtual-machines-windows-tutorial.md
+[vm-create]: ../virtual-machines/virtual-machines-windows-tutorial.md
 
 [azure-portal]: https://management.windowsazure.com
 [azure-create-storageaccount]: ../storage-create-storage-account.md
@@ -413,15 +411,15 @@ Java 응용 프로그램에서 이 정보를 사용하려는 경우 [Maven을 �
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
 
-[powershell-install]: ../install-configure-powershell.md
+[powershell-install]: ../powershell-install-configure.md
 
 
 [hdinsight-customize-cluster]: hdinsight-hadoop-customize-cluster.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
-[hdinsight-storage-powershell]: ../hdinsight-use-blob-storage.md#powershell
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight-storage-powershell]: hdinsight-hadoop-use-blob-storage.md#powershell
 [hdinsight-analyze-flight-delay-data]: hdinsight-analyze-flight-delay-data.md
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
@@ -432,4 +430,4 @@ Java 응용 프로그램에서 이 정보를 사용하려는 경우 [Maven을 �
 [img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "새 HBase 클러스터에 대한 프로비전 정보"
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "스크립트 작업을 사용하여 HBase 클러스터 사용자 지정"
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -50,11 +50,9 @@
 
 ## 시작하기 전에
 
-Azure 구독이 있고 이 구성에 필요한 Azure PowerShell cmdlet을 설치했는지 확인합니다(1.0.2 이상). Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하거나 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
+- Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하거나 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 	
-**PowerShell cmdlet 모듈 설치에 대한 정보**
-
-	[AZURE.INCLUDE [vpn-gateway-ps-rm-howto](../../includes/vpn-gateway-ps-rm-howto-include.md)]
+- Azure 리소스 관리자 PowerShell cmdlet(1.0.2 이상)을 설치해야 합니다. PowerShell cmdlet 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
 
 ## Azure에 대한 지점 및 사이트 간 연결 구성
 
@@ -139,7 +137,7 @@ Azure 구독이 있고 이 구성에 필요한 Azure PowerShell cmdlet을 설치
 	
 2. 클라이언트 컴퓨터의 루트 인증서에서 생성된 클라이언트 인증서(*.pfx)를 생성하고 설치합니다. 익숙한 설치 방법을 어떤 것이든 사용할 수 있습니다. 자체 서명된 루트 인증서를 사용 중이고 이 작업에 익숙하지 않은 경우 [지점 및 사이트 간 구성에 대한 자체 서명된 루트 인증서로 작업](vpn-gateway-certificates-point-to-site.md)을 참조하세요.
 
-3. VNet에 연결하려면 클라이언트 컴퓨터에서 VPN 연결로 이동하고 방금 만든 VPN 연결을 찾습니다. 가상 네트워크와 같은 이름입니다. **연결**을 클릭합니다. 인증서 사용을 안내하는 팝업 메시지가 나타날 수 있습니다. 이 경우 **계속**을 클릭하여 상승된 권한을 사용합니다.
+3. VNet에 연결하려면 클라이언트 컴퓨터에서 VPN 연결로 이동하고 방금 만든 VPN 연결을 찾습니다. 가상 네트워크와 같은 이름입니다. **Connect**를 클릭합니다. 인증서 사용을 안내하는 팝업 메시지가 나타날 수 있습니다. 이 경우 **계속**을 클릭하여 상승된 권한을 사용합니다.
 
 4. **연결** 상태 페이지에서 연결을 시작하도록 **연결**을 클릭합니다. **인증서 선택** 화면에서 표시되는 클라이언트 인증서가 연결하는 데 사용할 인증서인지 확인합니다. 그렇지 않은 경우 드롭다운 화살표를 사용하여 올바른 인증서를 선택한 다음 **확인**을 클릭합니다.
 
@@ -231,4 +229,4 @@ Azure에서 루트 인증서를 제거할 수 있습니다. 루트 인증서를 
 
 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 단계는 [가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-tutorial.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="02/04/2016"
+	ms.date="02/17/2016"
 	ms.author="jroth" />
 
 
@@ -75,4 +75,4 @@ Azure SQL 데이터베이스에는 현재 15000 DTU의 논리 서버당 DTU 할�
 
 [SQL 데이터베이스 클라이언트 프로그램에 대한 오류 메시지](sql-database-develop-error-messages.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

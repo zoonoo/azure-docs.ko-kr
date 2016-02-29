@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="prasannas"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="02/17/2016"
 	ms.author="jeedes"/>
 
 
@@ -36,7 +36,7 @@ Condeco와의 Azure AD 통합을 구성하려면 다음 항목이 필요합니�
 - Condeco Single Sign-On이 설정된 구독
 
 
-> [AZURE.NOTE]이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
+> [AZURE.NOTE] 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
 
 
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
@@ -167,7 +167,7 @@ Condeco에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
 이 섹션에 작업 항목이 없습니다. 새 사용자가 아직 존재하지 않는 경우 Condeco에 액세스하는 동안 만들어질 수 있습니다. [Azure AD Single Sign-On 구성](#configuring-azure-ad-single-single-sign-on)
 
-> [AZURE.NOTE]사용자를 수동으로 만들어야 하는 경우 Condeco 지원 팀에 문의해야 합니다.
+> [AZURE.NOTE] 사용자를 수동으로 만들어야 하는 경우 Condeco 지원 팀에 문의해야 합니다.
 
 
 ### Azure AD 테스트 사용자 할당
@@ -217,4 +217,4 @@ Condeco에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 [204]: ./media/active-directory-saas-condeco-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-condeco-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0218_2016-->

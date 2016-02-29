@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,18 +12,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="TBD"
-   ms.date="12/02/2015"
+   ms.date="02/12/2016"
    ms.author="alkohli" />
 
 # StorSimple 장치에 대한 CHAP 구성
 
-이 자습서에서는 StorSimple 장치에 대한 CHAP를 구성하는 방법에 대해 설명합니다. CHAP는 Challenge Handshake Authentication Protocol의 약어입니다. CHAP는 서버에서 원격 클라이언트의 ID를 확인하는데 사용하는 인증 체계입니다. 확인은 공유 암호 또는 암호를 기반으로 합니다.
+이 자습서에서는 StorSimple 장치에 대한 CHAP를 구성하는 방법에 대해 설명합니다. 이 문서에서 설명하는 절차는 StorSimple 1200 장치 뿐만 아니라 StorSimple 8000 시리즈에도 적용됩니다.
 
-CHAP는 일방(단방향)이거나 상호적(양방향)일 수 있습니다. 단방향 CHAP는 대상이 초기자를 인증하는 경우입니다. 반면에 상호 또는 역방향 CHAP는 대상이 초기자를 인증한 다음 초기자에서 대상을 인증해야 합니다. 대상 인증 없이 초기자 인증을 구현할 수 있습니다. 그러나 초기자 인증도 구현하는 경우 대상 인증을 구현할 수 있습니다.
+CHAP는 Challenge Handshake Authentication Protocol의 약어입니다. CHAP는 서버에서 원격 클라이언트의 ID를 확인하는데 사용하는 인증 체계입니다. 확인은 공유 암호 또는 암호를 기반으로 합니다. CHAP는 일방(단방향)이거나 상호적(양방향)일 수 있습니다. 단방향 CHAP는 대상이 초기자를 인증하는 경우입니다. 반면에 상호 또는 역방향 CHAP는 대상이 초기자를 인증한 다음 초기자에서 대상을 인증해야 합니다. 대상 인증 없이 초기자 인증을 구현할 수 있습니다. 그러나 초기자 인증도 구현하는 경우 대상 인증을 구현할 수 있습니다.
 
 모범 사례로 CHAP를 사용하여 iSCSI 보안을 강화하는 것이 좋습니다.
 
->[AZURE.NOTE]IPSEC는 StorSimple 장치에서 현재 지원되지 않습니다.
+>[AZURE.NOTE] IPSEC는 StorSimple 장치에서 현재 지원되지 않습니다.
 
 StorSimple 장치에서 CHAP 설정은 다음과 같은 방법으로 구성할 수 있습니다.
 
@@ -49,8 +49,11 @@ StorSimple 장치에서 CHAP 설정은 다음과 같은 방법으로 구성할 �
 
 	2. CHAP 초기자에 대한 암호를 입력합니다.
 
-    > [AZURE.IMPORTANT]CHAP 사용자 이름은 233 미만의 문자를 포함해야 합니다. CHAP 암호는 12 ~ 16 자 사이여야 합니다. 더 긴 사용자 이름이나 암호를 사용하면 Windows 호스트에서 인증 오류가 발생합니다.
+   		 > [AZURE.IMPORTANT] CHAP 사용자 이름은 233 미만의 문자를 포함해야 합니다. CHAP 암호는 12 ~ 16 자 사이여야 합니다. 더 긴 사용자 이름이나 암호를 사용하면 Windows 호스트에서 인증 오류가 발생합니다.
+    
+	3. 암호를 확인합니다.
 
+4. **Save**를 클릭합니다. 확인 메시지가 표시됩니다. **확인**을 클릭하여 변경 내용을 저장합니다.
 #### Windows 호스트 서버에서 일방 인증을 구성하려면
 
 1. Windows 호스트 서버에서 iSCSI 초기자를 시작합니다.
@@ -83,9 +86,11 @@ StorSimple 장치에서 CHAP 설정은 다음과 같은 방법으로 구성할 �
 
 		![고급 설정 일반](./media/storsimple-configure-chap/IC740946.png)
 
-5. **iSCSI 초기자 속성** 창의 **대상** 탭에서 장치 상태는 **Connected**로 표시되어야 합니다.
+5. **iSCSI 초기자 속성** 창의 **대상** 탭에서 장치 상태는 **Connected**로 표시되어야 합니다. StorSimple 1200 장치를 사용하는 경우 각 볼륨은 아래와 같이 iSCSI 대상으로 탑재됩니다. 따라서 3-4단계는 각 볼륨에 대해 반복해야 할 수 있습니다.
 
-    > [AZURE.IMPORTANT]iSCSI 이름을 변경하는 경우 새 iSCSI 세션에 대한 새 이름이 사용됩니다. 새 설정은 로그오프하고 다시 로그온할 때까지 기존 세션에 대해 다시 사용되지 않습니다.
+	![별도 대상으로 탑재된 볼륨](./media/storsimple-configure-chap/chap4.png)
+
+    > [AZURE.IMPORTANT] iSCSI 이름을 변경하는 경우 새 iSCSI 세션에 대한 새 이름이 사용됩니다. 새 설정은 로그오프하고 다시 로그온할 때까지 기존 세션에 대해 다시 사용되지 않습니다.
 
 Windows 호스트 서버에서 CHAP를 구성하는 방법에 대한 자세한 내용을 보려면 [추가 고려 사항](#additional-considerations)으로 이동하세요.
 
@@ -153,7 +158,7 @@ Windows 호스트 서버에서 CHAP를 구성하는 방법에 대한 자세한 �
 		![고급 설정 상호 인증](./media/storsimple-configure-chap/IC740950.png)
 
 	5. **확인**을 클릭하여 CHAP 구성을 완료합니다.
-
+	 
 Windows 호스트 서버에서 CHAP를 구성하는 방법에 대한 자세한 내용을 보려면 [추가 고려 사항](#additional-considerations)으로 이동하세요.
 
 ## 추가 고려 사항
@@ -192,4 +197,4 @@ CHAP 구성이 올바르지 않은 경우 **인증 실패** 오류 메시지가 
 
 - [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0218_2016-->

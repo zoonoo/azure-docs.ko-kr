@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="02/05/2016" 
+    ms.date="02/11/2016" 
     ms.author="elizapo" />
 
 
@@ -48,11 +48,11 @@ Azure RemoteApp은 원격 데스크톱 서비스에 대해 사용할 수 있는 
 
 예:
 
-		Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "nusbdevicestoredirect:s:<Class Guid value>"
+		Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "usbdevicestoredirect:s:<Class Guid value>"
 
 동일한 Cmdlet에서 여러 장치 리디렉션을 결합할 수 있습니다. 예: 로컬 저장소와 USB 웹 카메라를 리디렉션하려면 Cmdlet은 다음과 같습니다.
 
-		Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "drivestoredirect:s:*`nusbdevicestoredirect:s:<Class Guid value>"
+		Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "drivestoredirect:s:*`usbdevicestoredirect:s:<Class Guid value>"
 
 클래스 GUID에 의해 장치 리디렉션을 설정하면 지정된 컬렉션에서 해당 클래스 GUID와 일치하는 모든 장치가 리디렉션됩니다. 예를 들어 로컬 네트워크에 동일한 USB 웹 카메라를 가진 여러 대의 컴퓨터가 있는 경우 단일 Cmdlet을 실행하여 모든 웹 카메라를 리디렉션할 수 있습니다.
 
@@ -70,11 +70,11 @@ Azure RemoteApp은 원격 데스크톱 서비스에 대해 사용할 수 있는 
 
 이제 다음 Cmdlet에서 인스턴스 ID를 사용합니다.
 
-	Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "nusbdevicestoredirect:s: USB<Device InstanceID value>"
+	Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "usbdevicestoredirect:s: USB<Device InstanceID value>"
 
 
 
 ### 의견 보내기 
 이 기사에 대한 등급을 매기고 아래에 의견을 다는 것은 물론 문서를 직접 변경할 수 있다는 사실을 알고 계셨나요? 누락된 부분이 있나요? 잘못된 부분이 있나요? 혼동을 줄 수 있는 부분이 있나요? 위로 스크롤하여 **GitHub에서 편집**을 클릭하면 변경할 수 있습니다. 당사에서 변경 사항을 검토하고 승인하면 변경 및 개선 사항을 바로 여기서 확인할 수 있습니다.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

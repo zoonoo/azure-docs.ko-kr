@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/04/2016" 
+	ms.date="02/16/2016" 
 	ms.author="jeffstok"
 />
 
@@ -37,7 +37,7 @@
 
 이 자습서를 성공적으로 완료하려면 다음과 같은 필수 조건을 갖추어야 합니다.
 
--   최신 [Azure PowerShell](../install-configure-powershell.md)
+-   최신 [Azure PowerShell](../powershell-install-configure.md)
 -   Visual Studio 2015 또는 무료 [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)
 -   [Azure 구독](https://azure.microsoft.com/pricing/free-trial/)
 -   컴퓨터에 대한 관리자 권한
@@ -150,7 +150,7 @@ GitHub에 있는 TollApp 폴더의 Setup.ps1 스크립트를 사용하여 필요
 
 [TollApp](https://github.com/streamanalytics/samples/releases) 폴더 및 파일 지원을 다운로드하고 저장합니다. 최신 릴리스를 다운로드해야 합니다.
 
-"Microsoft Azure PowerShell" 창을 **관리자 권한으로** 엽니다. Azure PowerShell이 아직 없는 경우 [Azure PowerShell 설치 및 구성](../install-configure-powershell.md) 지침에 따라 설치합니다.
+"Microsoft Azure PowerShell" 창을 **관리자 권한으로** 엽니다. Azure PowerShell이 아직 없는 경우 [Azure PowerShell 설치 및 구성](../powershell-install-configure.md) 지침에 따라 설치합니다.
 
 Windows가 인터넷에서 다운로드된 ps1, dll 및 exe 파일을 자동으로 차단합니다. 스크립트를 실행하려면 실행 정책을 설정해야 합니다. Azure PowerShell 창이 관리자 권한으로 실행되고 있는지 확인합니다. "Set-ExecutionPolicy unrestricted"를 실행합니다. 메시지가 표시되면 "Y"를 입력합니다.
 
@@ -534,4 +534,4 @@ PowerShell 창에서 ".\\Cleanup.ps1"을 입력합니다. 그러면 자습서에
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image57.png)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

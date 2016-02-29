@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/06/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma" />
 
 # Azure CLI에서 인터넷 연결 부하 분산 장치(클래식) 만들기 시작
@@ -130,7 +130,7 @@
 	azure vm endpoint delete web1 tcp-80-80
 
 
->[AZURE.NOTE]명령 `azure vm endpoint --help`를 사용하여 끝점을 관리하는 더 많은 옵션을 탐색할 수 있습니다.
+>[AZURE.NOTE] 명령 `azure vm endpoint --help`를 사용하여 끝점을 관리하는 더 많은 옵션을 탐색할 수 있습니다.
 
 
 ## 다음 단계
@@ -143,4 +143,4 @@
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -68,13 +68,13 @@ HDInsight에서 Hadoop 스트리밍을 사용하는 예는 다음을 참조하�
 
 Azure Blob 저장소가 HDInsight의 기본 저장소이므로 **/example/data/gutenberg/davinci.txt**를 사용하여 파일에 액세스할 수도 있습니다.
 
-> [AZURE.NOTE]이전 구문에서 ****wasb:///**는 HDInsight 클러스터의 기본 저장소 컨테이너에 저장된 파일에 액세스하는 데 사용됩니다. 클러스터를 프로비전할 때 추가 저장소 계정을 지정한 경우 이러한 계정에 저장된 파일에 액세스하려면 컨테이너 이름과 저장소 계정 주소를 지정하여 데이터에 액세스하면 됩니다. 예: ****wasb://mycontainer@mystorage.blob.core.windows.net/example/data/gutenberg/davinci.txt**
+> [AZURE.NOTE] 이전 구문에서 ****wasb:///**는 HDInsight 클러스터의 기본 저장소 컨테이너에 저장된 파일에 액세스하는 데 사용됩니다. 클러스터를 프로비전할 때 추가 저장소 계정을 지정한 경우 이러한 계정에 저장된 파일에 액세스하려면 컨테이너 이름과 저장소 계정 주소를 지정하여 데이터에 액세스하면 됩니다. 예: ****wasb://mycontainer@mystorage.blob.core.windows.net/example/data/gutenberg/davinci.txt**
 
 ##<a id="job"></a>예제 MapReduce 정보
 
 이 예에서 사용되는 MapReduce 작업은 ****wasb://example/jars/hadoop-mapreduce-examples.jar**에 위치하며 HDInsight 클러스터와 함께 제공됩니다. 여기에는 사용자가 **davinci.txt**를 대상으로 실행하는 단어 계산 예가 포함되어 있습니다.
 
-> [AZURE.NOTE]HDInsight 2.1 클러스터에서 파일 위치는 ****wasb:///example/jars/hadoop-examples.jar**입니다.
+> [AZURE.NOTE] HDInsight 2.1 클러스터에서 파일 위치는 ****wasb:///example/jars/hadoop-examples.jar**입니다.
 
 다음은 참조용 단어 계산 MapReduce 작업의 Java 코드입니다:
 
@@ -181,7 +181,7 @@ MapReduce는 강력한 진단 기능을 제공하는 반면 익히기 어려울 
 
 
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-develop-mapreduce-jobs]: hdinsight-develop-deploy-java-mapreduce.md
 [hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
@@ -193,4 +193,4 @@ MapReduce는 강력한 진단 기능을 제공하는 반면 익히기 어려울 
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -171,7 +171,7 @@ Azure PowerShell에서 **Set-AzureWebsite** cmdlet을 사용해서도 진단을 
 
 **Azure PowerShell**
 
-1. **시작 화면** 또는 **시작 메뉴**에서 **Azure PowerShell**을 검색합니다. **Azure PowerShell**을 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 선택합니다.
+1. **시작 화면** 또는 **시작 메뉴**에서 **Windows PowerShell**을 검색합니다. **Windows PowerShell** 항목을 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 선택합니다.
 
 	> [AZURE.NOTE] **Azure PowerShell**이 아직 설치되지 않은 경우 설치 및 구성 정보에 대해서는 [Azure PowerShell Cmdlet 시작](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx)을 참조하십시오.
 
@@ -289,4 +289,4 @@ Azure PowerShell에서 **Set-AzureWebsite** cmdlet을 사용해서도 진단을 
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

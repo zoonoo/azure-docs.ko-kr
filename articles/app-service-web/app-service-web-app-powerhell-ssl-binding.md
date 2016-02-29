@@ -23,6 +23,7 @@
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 
+
 ## 새 SSL 인증서 업로드 및 바인딩 ##
 
 시나리오: 사용자가 SSL 인증서를 웹앱 중 하나에 바인딩하려고 합니다.
@@ -30,6 +31,15 @@
 웹앱, 웹앱 이름, 인증서, 사용자 컴퓨터의 .pfx 파일 경로, 인증서 암호 및 사용자 지정 호스트 이름을 포함한 리소스 그룹 이름을 알고 있으면 다음 PowerShell 명령을 사용하여 해당 SSL 바인딩을 만들 수 있습니다.
 
     New-AzureRmWebAppSSLBinding -ResourceGroupName myresourcegroup -WebAppName mytestapp -CertificateFilePath PathToPfxFile -CertificatePassword PlainTextPwd -Name www.contoso.com
+
+SSL 바인딩을 웹앱에 추가하기 전에 이미 구성된 호스트 이름(사용자 지정 도메인)이 있어야 합니다. 호스트 이름이 구성되지 않은 경우 New-AzureRmWebAppSSLBinding을 실행하는 동안 'hostname'가 존재하지 않는다는 오류가 발생합니다. 포털에서 또는 Azure PowerShell을 사용하여 직접 호스트 이름을 추가할 수 있습니다. 다음 PowerShell 조각은 New-AzureRmWebAppSSLBinding을 실행하기 전에 호스트 이름을 구성할 수 있습니다.
+  
+    $webApp = Get-AzureRmWebApp -Name mytestapp -ResourceGroupName myresourcegroup  
+    $hostNames = $webApp.HostNames  
+    $HostNames.Add("www.contoso.com")  
+    Set-AzureRmWebApp -Name mytestapp -ResourceGroupName myresourcegroup -HostNames $HostNames   
+  
+Set-AzureRmWebApp cmdlet이 웹앱에 대한 호스트 이름을 덮어쓴다는 것을 이해하는 것이 중요합니다. 따라서 위의 PowerShell 조각은 웹앱에 대한 호스트 이름의 기존 목록에 추가됩니다.
 
 ## 기존 SSL 인증서 업로드 및 바인딩 ##
 
@@ -61,4 +71,4 @@
 - [앱 서비스 환경 소개](app-service-app-service-environment-intro.md)
 - [Azure 리소스 관리자로 Azure PowerShell 사용](../powershell-azure-resource-manager.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0218_2016-->

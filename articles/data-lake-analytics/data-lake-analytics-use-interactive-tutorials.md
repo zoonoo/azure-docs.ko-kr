@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="02/11/2016"
    ms.author="jgao"/>
 
 
@@ -22,7 +22,7 @@
 Azure 포털은 데이터 레이크 분석을 시작하기 위한 대화형 자습서를 제공합니다. 이 문서에서는 웹 사이트 로그 분석에 대한 자습서를 진행하는 방법을 보여 줍니다.
 
 
->[AZURE.NOTE]Visual Studio를 사용하여 같은 자습서를 진행하려는 경우 [데이터 레이크 분석을 사용하여 웹 사이트 로그 분석](data-lake-analytics-analyze-weblogs.md)을 참조하세요. 포털에 더 많은 대화형 자습서가 추가되어 있습니다.
+>[AZURE.NOTE] Visual Studio를 사용하여 같은 자습서를 진행하려는 경우 [데이터 레이크 분석을 사용하여 웹 사이트 로그 분석](data-lake-analytics-analyze-weblogs.md)을 참조하세요. 포털에 더 많은 대화형 자습서가 추가되어 있습니다.
 
 
 다른 자습서를 보려면 다음을 참조하세요.
@@ -42,7 +42,7 @@ Azure 포털은 데이터 레이크 분석을 시작하기 위한 대화형 자�
 
 모든 작업을 실행하기 전에 데이터 레이크 분석 계정이 있어야 합니다.
 
-각 데이터 레이크 분석 계정에는 [Azure 데이터 레이크 저장소](data-lake-store-overview.md) 계정 종속성이 있습니다. 이 계정을 기본 데이터 레이크 저장소 계정이라고 합니다. 데이터 레이크 분석 계정을 만들기 전이나 만들 때 데이터 레이크 저장소 계정을 만들 수 있습니다. 이 자습서에는 분석 계정과 함께 데이터 레이크 저장소 계정을 만듭니다.
+각 데이터 레이크 분석 계정에는 [Azure 데이터 레이크 저장소](../data-lake-store/data-lake-store-overview.md) 계정 종속성이 있습니다. 이 계정을 기본 데이터 레이크 저장소 계정이라고 합니다. 데이터 레이크 분석 계정을 만들기 전이나 만들 때 데이터 레이크 저장소 계정을 만들 수 있습니다. 이 자습서에는 분석 계정과 함께 데이터 레이크 저장소 계정을 만듭니다.
 
 **데이터 레이크 분석 계정을 만들려면**
 
@@ -88,4 +88,4 @@ Azure 포털은 데이터 레이크 분석을 시작하기 위한 대화형 자�
 - [Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)
 - [Azure 데이터 레이크 분석을 사용하여 웹 사이트 로그 분석](data-lake-analytics-analyze-weblogs.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

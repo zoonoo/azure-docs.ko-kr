@@ -390,7 +390,7 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 
 	![RawGameEventsTable 데이터 조각 블레이드][image-data-factory-monitoring-raw-game-events-table-dataslice-blade]
 
-	오류가 발생한 경우 여기에 **Failed ** 상태가 표시됩니다. 두 조각의 상태가 모두 **Ready**이거나 **PendingValidation**일 수 있으며, 이는 조각이 얼마나 빨리 처리되는지에 따라 다릅니다.
+	오류가 발생한 경우 여기에 **Failed ** 상태가 표시됩니다. 두 조각의 상태가 모두 **준비**이거나 **대기**일 수 있으며, 이는 조각이 얼마나 빨리 처리되는지에 따라 다릅니다.
 
 	조각이 **Ready** 상태가 아닌 경우 **Upstream slices that are not ready(준비되지 않은 업스트림 조각)** 목록에서 Ready 상태가 아니고 현재 조각의 실행을 차단하는 업스트림 조각을 확인할 수 있습니다.
  
@@ -483,4 +483,4 @@ Azure Blob에서 온-프레미스 SQL Server로 마케팅 캠페인 효과 데�
 
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-tutorial/NewDataFactoryMenu.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

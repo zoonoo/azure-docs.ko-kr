@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/22/2016"
+   ms.date="02/17/2016"
    ms.author="alkohli" />
 
 # 웹 UI를 사용하여 StorSimple 가상 배열 관리(미리 보기)
@@ -94,7 +94,7 @@
 
 ## 장치 종료 및 다시 시작
 
-로컬 웹 UI를 사용하여 가상 장치를 종료하거나 다시 시작할 수 있습니다.
+로컬 웹 UI를 사용하여 가상 장치를 종료하거나 다시 시작할 수 있습니다. 다시 시작하기 전에 호스트에서 볼륨 또는 공유를 오프라인으로 전환한 후 장치를 다시 시작하는 것이 좋습니다. 이렇게 하면 데이터 손상 가능성이 최소화됩니다.
 
 #### 가상 장치를 종료하려면
 
@@ -136,4 +136,4 @@
 
 [StorSimple Manager 서비스를 사용하여 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

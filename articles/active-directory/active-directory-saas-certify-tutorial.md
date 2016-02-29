@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/02/2016"
+	ms.date="02/11/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@
 
 - Certify에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
 - 사용자가 해당 Azure AD 계정으로 Certify에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
-- 단일 중앙 위치인 Azure Active Directory 포털에서 계정을 관리할 수 있습니다.
+- 단일 중앙 위치인 Azure Active Directory 클래식 포털에서 계정을 관리할 수 있습니다.
 
 Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](active-directory-appssoaccess-whatis.md)을 참조하세요.
 
@@ -56,7 +56,7 @@ Certify와 Azure AD의 통합을 구성하려면 갤러리의 Certify를 관리�
 
 **갤러리에서 Certify를 추가하려면 다음 단계를 수행합니다.**
 
-1. **Azure 관리 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. <br><br> ![Active Directory][1]<br>
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. <br><br> ![Active Directory][1]<br>
 
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 
@@ -64,12 +64,12 @@ Certify와 Azure AD의 통합을 구성하려면 갤러리의 Certify를 관리�
 4. 페이지 맨 아래에 있는 **추가**를 클릭합니다.<br><br> ![응용 프로그램][3]<br>
 5. **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.<br><br> ![응용 프로그램][4]<br>
 6. 검색 상자에 **Certify**를 입력합니다.<br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-certify-tutorial/tutorial_certify_01.png)<br>
-7. 결과 창에서 **Certify**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다. <br><br>
+7. 결과 창에서 **Certify**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-certify-tutorial/tutorial_certify_02.png)<br>
 
 ##  Azure AD Single Sign-on 구성 및 테스트
 이 섹션은 "Britta Simon"이라는 테스트 사용자를 기반으로 Certify에서 Azure AD Single Sign-On을 구성하고 테스트하는 방법을 보여 주기 위해 작성되었습니다.
 
-Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하는 Certify 사용자가 누군지 알고 있어야 합니다. 즉, Azure AD 사용자와 Certify의 관련 사용자 간에 연결이 형성되어야 합니다.<br> 이 연결 관계는 Azure AD의 **사용자 이름** 값을 Certify의 **사용자 이름** 값으로 할당하여 설정합니다.
+Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하는 Certify 사용자가 누군지 알고 있어야 합니다. 즉, Azure AD 사용자와 Certify의 관련 사용자 간에 연결이 형성되어야 합니다.<br> 이 연결 관계는 Azure AD의 **사용자 이름** 값을 Certify의 **Username** 값으로 할당하여 설정합니다.
 
 Certify에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
@@ -81,20 +81,20 @@ Certify에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
 ### Azure AD Single Sign-On 구성
 
-이 섹션은 Azure AD 포털에서 Azure AD Single Sign-on을 사용하도록 설정하고 Certify 응용 프로그램에서 Single Sign-On을 구성하는 방법을 설명하기 위한 것입니다.
+이 섹션은 Azure AD 클래식 포털에서 Azure AD Single Sign-On을 사용하도록 설정하고 Certify 응용 프로그램에서 Single Sign-On을 구성하는 방법을 설명하기 위한 것입니다.
 
 
 
 **Certify에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure AD 포털의 **Certify** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다. <br><br> ![Single Sign-On 구성][6] <br>
+1. Azure 클래식 AD 포털의 **Certify** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다. <br><br> ![Single Sign-On 구성][6] <br>
 
 2. **Certify에 대한 사용자 로그온 방법 선택** 페이지에서 **Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다. <br><br> ![Single Sign-On 구성](./media/active-directory-saas-certify-tutorial/tutorial_certify_03.png) <br>
 
 3. **앱 설정 구성** 대화 상자 페이지에서 다음 단계를 수행합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-certify-tutorial/tutorial_certify_04.png) <br>
 
 
-    a. 회신 URL 텍스트 상자에서 **"https://www.certify.com/SAML2.aspx"** 패턴을 사용하여 어설션 소비자 서비스 URL을 입력합니다.
+    a. 회신 URL 텍스트 상자에서 **"https://www.certify.com/SAML2.aspx"** 패턴을 사용하여 Assertion Consumer Service URL을 입력합니다.
 
 
 4. **Certify에서 Single Sign-On 구성** 페이지에서 다음 단계를 수행합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-certify-tutorial/tutorial_certify_05.png) <br>
@@ -107,9 +107,9 @@ Certify에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 5. 응용 프로그램에 대해 SSO를 구성하려면 support@certify.com을 통해 Certify 지원 팀에 문의하세요. 다운로드한 인증서 파일을 메일에 첨부하고 해당하는 쪽에 SSO를 설정하기 위해 Certify 팀과 메타데이터 URL(엔터티 ID, SSO 로그인 URL 및 로그아웃 URL)을 공유합니다.
 
 
-6. Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다. <br><br>![Azure AD Single Sign-On][10]<br>
+6. Azure AD 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다. <br><br>![Azure AD Single Sign-On][10]<br>
 
-7. **Single Sign-On 확인** 페이지에서 **완료**를 클릭합니다. <br><br>![Azure AD Single Sign-On][11]
+7. **Single Sign-on 확인** 페이지에서 **완료**를 클릭합니다. <br><br>![Azure AD Single Sign-On][11]
 
 
 
@@ -119,7 +119,7 @@ Certify에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
 **Azure AD에서 테스트 사용자를 만들려면 다음 단계를 수행하세요.**
 
-1. **Azure 관리 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.<br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-certify-tutorial/create_aaduser_09.png) <br>
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. <br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-certify-tutorial/create_aaduser_09.png) <br>
 
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 
@@ -168,7 +168,7 @@ Certify에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
 ### Azure AD 테스트 사용자 할당
 
-이 섹션의 목적은 Britta Simon에게 Certify에 대한 액세스 권한을 부여하여 Single Sign-On을 사용할 수 있도록 하는 것입니다. <br><br>![사용자 할당][200] <br>
+이 섹션의 목적은 Britta Simon에게 Certify에 대한 액세스 권한을 부여하여 Azure Single Sign-On을 사용할 수 있도록 하는 것입니다. <br><br>![사용자 할당][200] <br>
 
 **Britta Simon을 Certify에 할당하려면 다음 단계를 수행합니다.**
 
@@ -213,4 +213,4 @@ Certify에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 [204]: ./media/active-directory-saas-certify-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-certify-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

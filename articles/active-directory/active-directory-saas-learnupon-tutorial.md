@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="02/11/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,8 @@
 
 - LearnUpon에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
 - 사용자가 해당 Azure AD 계정으로 LearnUpon에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
-- 단일 중앙 위치인 Azure Active Directory 클래식 포털에서 계정을 관리할 수 있습니다.
+- 단일 중앙 위치인 Azure Active Directory 클래식에서 계정을 관리할 수 있습니다. 
+- 
 
 Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](active-directory-appssoaccess-whatis.md)을 참조하세요.
 
@@ -64,8 +65,7 @@ LearnUpon의 Azure AD 통합을 구성하려면 갤러리의 LearnUpon을 관리
 4. 페이지 맨 아래에 있는 **추가**를 클릭합니다.<br><br> ![응용 프로그램][3]<br>
 5. **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.<br><br> ![응용 프로그램][4]<br>
 6. 검색 상자에 **LearnUpon**을 입력합니다.<br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_01.png)<br>
-7. 결과 창에서 **LearnUpon**을 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다. <br><br>
-
+7. 결과 창에서 **LearnUpon**을 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_02.png)<br>
 ##  Azure AD Single Sign-on 구성 및 테스트
 이 섹션은 "Britta Simon"이라는 테스트 사용자를 기반으로 LearnUpon에서 Azure AD Single Sign-On을 구성하고 테스트하는 방법을 보여 주기 위해 작성되었습니다.
 
@@ -104,9 +104,9 @@ LearnUpon에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
     b. **다음**을 클릭합니다.
 
 
-5. LearnUpon쪽에서 **SAML SSO**를 설정하려면 다른 브라우저 인스턴스를 열어 관리자 사용자를 사용하여 LearnUpon 인스턴스에 로그인합니다. LearnUpon에 로그인하면 다음과 비슷한 화면이 표시됩니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_06.png) <br>
+5. LearnUpon 쪽에서 **SAML SSO**를 설정하려면 다른 브라우저 인스턴스를 열어 관리자 사용자를 사용하여 LearnUpon 인스턴스에 로그인합니다. LearnUpon에 로그인하면 다음과 비슷한 화면이 표시됩니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_06.png) <br>
 
-	a. **설정** 탭을 클릭하여 설정 창을 엽니다.<br> b. **Single Sign On - SAML**을 클릭합니다.<br> c. **일반 설정**을 클릭하여 SAML 설정을 구성합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_07.png) <br> d. 아래와 같이 **일반 설정** 양식을 작성합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_08.png) <br> d1. 이 포털에서 SAML을 사용하도록 설정하려면 **사용** 확인란을 선택합니다. <br> d2. **버전 2.0**을 선택합니다. <br> d3. **No Skip conditions**(건너뛰기 조건 없음)를 선택합니다. <br> d4. **SAML Token POST param name**(SAML 토큰 게시 매개 변수 이름)은 위에 표시한 SAML 소비자 URL에 대한 요청 게시 매개 변수의 이름으로, 확인하고 인증할 SAML 어설션이 포함되어 있습니다. 예를 들어 **SAMLResponse**입니다. <br> d5. **이름 식별자 형식**은 사용자 식별자(메일 주소)(예: **urn:oasis:names:tc:SAML:1.1:nameid- format:emailAddress**)가 있는 SAML 어설션의 위치를 알려줍니다.<br> d6. **공급자 위치 식별**은 포털 로그인 화면에서 업로드된 아이콘을 클릭하는 경우 사용자를 전송하는 위치입니다. <br> d7. Azure 구성 화면에서 **로그아웃 URL**로 **Single Sign-Out 서비스 URL**을 복사합니다. <br>![Single Sign-On 구성](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_09.png) <br> d8. 인증서의 지문을 업로드하려면 인증서 지문의 링크 **지문 관리**를 클릭합니다. <br>![Single Sign-On 구성](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_10.png) <br> d9. 저장 단추를 클릭합니다. SAML 사용자 설정을 구성하려면 **사용자 설정**을 클릭합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_11.png) <br> e1. **이름 식별자 형식**은 사용자 이름(예: **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/ givenname**)이 있는 SAML 어설션의 위치를 알려줍니다. e2. **성 식별자 형식**은 사용자 성(예: **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/ surname**)이 있는 SAML 어설션의 위치를 알려줍니다.
+	a. **설정** 탭을 클릭하여 설정 창을 엽니다.<br> b. **Single Sign On - SAML**을 클릭합니다.<br> c. **일반 설정**을 클릭하여 SAML 설정을 구성합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_07.png) <br> d. 아래와 같이 **일반 설정** 양식을 작성합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_08.png) <br> d1. 이 포털에서 SAML을 사용하도록 설정하려면 **사용** 확인란을 선택합니다. <br> d2. **버전 2.0**을 선택합니다. <br> d3. **건너뛰기 조건 없음**을 선택합니다. <br> d4. **SAML 토큰 게시 매개 변수 이름**은 위에 표시한 SAML 소비자 URL에 대한 요청 게시 매개 변수의 이름으로, 확인하고 인증할 SAML 어설션이 포함되어 있습니다. 예를 들어 **SAMLResponse**입니다. <br> d5. **이름 식별자 형식**은 사용자 식별자(메일 주소)(예: **urn:oasis:names:tc:SAML:1.1:nameid- format:emailAddress**)가 있는 SAML 어설션의 위치를 알려줍니다.<br> d6. **공급자 위치 식별**은 포털 로그인 화면에서 업로드된 아이콘을 클릭하는 경우 사용자를 전송하는 위치입니다. <br> d7. Azure 구성 화면에서 **로그아웃 URL**로 **Single Sign-Out 서비스 URL**을 복사합니다. <br>![Single Sign-On 구성](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_09.png) <br> d8. 인증서의 지문을 업로드하려면 인증서 지문의 링크 **지문 관리**를 클릭합니다. <br>![Single Sign-On 구성](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_10.png) <br> d9. 저장 단추를 클릭합니다. SAML 사용자 설정을 구성하려면 **사용자 설정**을 클릭합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_11.png) <br> e1. **이름 식별자 형식**은 사용자 이름(예: **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/ givenname**)이 있는 SAML 어설션의 위치를 알려줍니다. e2. **성 식별자 형식**은 사용자 성(예: **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/ surname**)이 있는 SAML 어설션의 위치를 알려줍니다.
 
 
 6. Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다. <br><br>![Azure AD Single Sign-On][10]<br>
@@ -215,4 +215,4 @@ LearnUpon에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 [204]: ./media/active-directory-saas-learnupon-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-learnupon-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

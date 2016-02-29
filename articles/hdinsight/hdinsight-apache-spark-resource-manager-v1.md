@@ -20,7 +20,7 @@
 
 # Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리(Windows)
 
-> [AZURE.NOTE]이제 HDInsight가 Linux에서 Spark 클러스터를 제공합니다. HDInsight Linux에서 Spark 클러스터에 대한 리소스를 관리하는 방법에 대한 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리(Linux)](hdinsight-apache-spark-resource-manager.md)를 참조하세요.
+> [AZURE.NOTE] 이제 HDInsight가 Linux에서 Spark 클러스터를 제공합니다. HDInsight Linux에서 Spark 클러스터에 대한 리소스를 관리하는 방법에 대한 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리(Linux)](hdinsight-apache-spark-resource-manager.md)를 참조하세요.
 
 리소스 관리자는 클러스터에서 실행되는 각 응용 프로그램이 사용하는 코어 및 RAM 등의 리소스를 관리할 수 있도록 하는 Spark 클러스터 대시보드의 구성 요소입니다.
 
@@ -73,15 +73,15 @@ Thrift 서버 코어 개수 및 Thrift 서버 실행자 메모리를 0으로 지
 * [HDInsight에서 Spark를 사용하여 실시간 스트리밍 응용 프로그램 빌드](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
 
 
-[hdinsight-versions]: ../hdinsight-component-versioning/
-[hdinsight-upload-data]: ../hdinsight-upload-data/
-[hdinsight-storage]: ../hdinsight-use-blob-storage/
+[hdinsight-versions]: hdinsight-component-versioning.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
-[azure-create-storageaccount]: ../storage-create-storage-account/
+[azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0218_2016-->

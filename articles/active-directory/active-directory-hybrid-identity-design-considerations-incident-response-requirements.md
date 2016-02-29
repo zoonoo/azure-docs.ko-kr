@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/06/2015"
+	ms.date="02/12/2016"
 	ms.author="yuridio"/>
 
 # 하이브리드 ID 솔루션에 대한 인시던트 대응 요구 사항 확인
@@ -54,7 +54,8 @@ ID서 관리 시스템은 IT 관리자를 도와 해당하는 의심스러운 �
  - 그렇다면 현재 솔루션이 채택하려는 하이브리드 ID 관리 시스템과 통합됩니까?
 - 회사가 격리된 사용자에 대해 조건부 액세스를 적용해야 합니까? 
  
->[AZURE.NOTE]각 답변을 주목하고 답변 이유를 이해해야 합니다. [데이터 보호 전략 정의](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)에서는 사용할 수 있는 옵션과 각 옵션의 장점/단점을 살펴봅니다. 질문에 답변함으로써 비즈니스 요구 사항에 가장 적합한 옵션을 선택할 수 있습니다.
+>[AZURE.NOTE]
+각 답변을 주목하고 답변 이유를 이해해야 합니다. [데이터 보호 전략 정의](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)에서는 사용할 수 있는 옵션과 각 옵션의 장점/단점을 살펴봅니다. 질문에 답변함으로써 비즈니스 요구 사항에 가장 적합한 옵션을 선택할 수 있습니다.
 
 ## 다음 단계
 [데이터 보호 전략 정의](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)
@@ -62,4 +63,4 @@ ID서 관리 시스템은 IT 관리자를 도와 해당하는 의심스러운 �
 ## 참고 항목
 [설계 고려 사항 개요](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0218_2016-->

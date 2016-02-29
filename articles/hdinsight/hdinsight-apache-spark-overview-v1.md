@@ -19,7 +19,7 @@
 
 # 개요: Azure HDInsight에서 Apache Spark(Windows)
  
-> [AZURE.NOTE]이제 HDInsight가 Linux에서 Spark 클러스터를 제공합니다. Linux에서 HDInsight Spark와 함께 제공되는 기능에 대한 자세한 내용은 [개요: Azure HDInsight에서 Apache Spark(Linux)](hdinsight-apache-spark-overview.md)를 참조하세요.
+> [AZURE.NOTE] 이제 HDInsight가 Linux에서 Spark 클러스터를 제공합니다. Linux에서 HDInsight Spark와 함께 제공되는 기능에 대한 자세한 내용은 [개요: Azure HDInsight에서 Apache Spark(Linux)](hdinsight-apache-spark-overview.md)를 참조하세요.
 
 <a href="http://spark.apache.org/" target="_blank">Apache Spark</a>는 메모리 내 처리를 지원하여 빅데이터 분석 응용 프로그램의 성능을 향상하는 오픈 소스 병렬 처리 프레임워크입니다. 속도, 간편한 사용 및 정교한 분석을 위해 Spark 처리 엔진이 빌드되었습니다. Spark는 메모리 내 계산 기능을 지원하여 기계 학습 및 그래프 계산의 반복 알고리즘에 적합합니다. 또한 Spark는 Azure Blob 저장소(WASB)와 호환되므로 Azure에 저장된 기존 데이터를 Spark를 통해 쉽게 처리할 수 있습니다.
 
@@ -63,7 +63,7 @@ HDInsight에서 Apache Spark는 다음과 같은 주요 시나리오를 사용�
 
 [자습서 살펴보기](hdinsight-apache-spark-use-bi-tools-v1.md)
 
-HDInsight에서 Apache Spark는 Azure Blob에 데이터를 저장합니다. 비즈니스 전문가 및 주요 의사 결정권자는 해당 데이터에 대한 보고서를 분석 및 작성하고 Microsoft Power BI를 사용하여 분석된 데이터에서 대화형 보고서를 작성합니다. 분석자는 Azure 저장소에 구조화되지 않은/반 구조화된 데이터부터 시작하여 노트북을 사용하여 데이터에 대한 스키마를 정의하고 Microsoft Power BI를 사용하여 데이터 모델을 작성할 수 있습니다. 또한 HDInsight에서 Spark는 데이터 분석자, 비즈니스 전문가 및 주요 의사 결정권자를 위한 이상적인 플랫폼을 만드는 Tableau, Qlikview, 및 SAP Lumira와 같은 타사 BI 도구를 지원합니다.
+HDInsight에서 Apache Spark는 Azure Blob에 데이터를 저장합니다. 비즈니스 전문가 및 주요 의사 결정권자는 해당 데이터에 대한 보고서를 분석 및 작성하고 Microsoft Power BI를 사용하여 분석된 데이터에서 대화형 보고서를 작성합니다. 분석자는 Azure 저장소에 구조화되지 않은/반 구조화된 데이터부터 시작하여 Notebook을 사용하여 데이터에 대한 스키마를 정의하고 Microsoft Power BI를 사용하여 데이터 모델을 작성할 수 있습니다. 또한 HDInsight에서 Spark는 데이터 분석자, 비즈니스 전문가 및 주요 의사 결정권자를 위한 이상적인 플랫폼을 만드는 Tableau, Qlikview, 및 SAP Lumira와 같은 타사 BI 도구를 지원합니다.
 
 ### 반복적인 기계 학습
 
@@ -96,6 +96,6 @@ HDInsight에서 Spark에는 기본적으로 클러스터에서 사용할 수 있
 * [Azure HDInsight에서 Apache Spark 클러스터에 원격으로 작업 제출](hdinsight-apache-spark-job-server.md)
 
 
-[hdinsight-storage]: ../hdinsight-use-blob-storage/
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0218_2016-->

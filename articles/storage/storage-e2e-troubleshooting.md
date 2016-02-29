@@ -3,7 +3,7 @@
 	description="Azure 저장소 분석, AzCopy 및 Microsoft Message Analyzer를 사용한 종단 간 문제 해결을 보여 주는 자습서"
 	services="storage"
 	documentationCenter="dotnet"
-	authors="tamram"
+	authors="robinsh"
 	manager="carmonm"/>
 
 <tags
@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/01/2015"
-	ms.author="tamram"/>
+	ms.date="02/14/2016"
+	ms.author="robinsh"/>
 
 # Azure 저장소 메트릭 및 로깅, AzCopy 및 Message Analyzer를 사용한 종단 간 문제 해결
 
@@ -25,7 +25,7 @@
 
 이 자습서에서는 성능에 영향을 줄 수 있는 클라이언트의 특정 오류를 확인하는 방법 및 클라이언트 응용 프로그램을 최적화하기 위해 Microsoft 및 Azure 저장소에서 제공하는 도구를 사용하여 종단 간에서 비롯한 해당 오류의 문제 해결 방법을 보여 줍니다.
 
-이 자습서는 종단 간 문제 해결 시나리오의 실습 탐색을 제공합니다. Azure 저장소 응용 프로그램의 문제 해결에 대한 심층적인 개념 가이드는 [저장소 모니터링, 진단 및 문제 해결](storage-monitoring-diagnosing-troubleshooting.md)을 참조하세요.
+이 자습서는 종단 간 문제 해결 시나리오의 실습 탐색을 제공합니다. Azure 저장소 응용 프로그램의 문제 해결에 대한 심층적인 개념 가이드는 [Microsoft Azure 저장소 모니터링, 진단 및 문제 해결](storage-monitoring-diagnosing-troubleshooting.md)을 참조하세요.
 
 ## Azure 저장소 응용 프로그램 문제 해결 도구
 
@@ -38,9 +38,9 @@ Microsoft Azure 저장소를 사용하는 클라이언트 응용 프로그램 �
 
 - **Azure 포털**. [Azure 포털](https://portal.azure.com)에서 저장소 계정에 대한 메트릭 및 로깅을 구성할 수 있습니다. 또한 시간이 지남에 따라 응용 프로그램이 어떻게 수행되는지 보여 주는 차트 및 그래프를 볼 수 있으며, 응용 프로그램이 지정된 메트릭에 대해 예상과 다르게 수행되는 경우 이를 알려 주도록 경고를 구성할 수도 있습니다.
 
-	Azure 포털에서 모니터링을 구성하는 방법에 대한 자세한 내용은 [저장소 계정을 모니터링하는 방법](storage-monitor-storage-account.md)을 참조하세요.
+	Azure 포털에서 모니터링 구성에 대한 자세한 내용은 [Azure 포털에서 저장소 계정 모니터링](storage-monitor-storage-account.md)을 참조하세요.
 
-- **AzCopy**. Azure 저장소의 서버 로그는 Blob으로 저장되므로 AzCopy를 사용하여 해당 로그 Blob을, Microsoft Message Analyzer를 사용한 분석의 로컬 디렉터리로 복사할 수 있습니다. AzCopy에 대한 자세한 내용은 [Microsoft Azure 저장소와 함께 AzCopy를 사용하는 방법](storage-use-azcopy.md)을 참조하세요.
+- **AzCopy**. Azure 저장소의 서버 로그는 Blob으로 저장되므로 AzCopy를 사용하여 해당 로그 Blob을, Microsoft Message Analyzer를 사용한 분석의 로컬 디렉터리로 복사할 수 있습니다. AzCopy에 대한 자세한 내용은 [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)을 참조하세요.
 
 - **Microsoft Message Analyzer**. Message Analyzer는 로그 파일을 사용하여 로그 데이터를 시각적 형식으로 표시하는 도구입니다. 이 도구를 이용하면 오류 및 성능 문제를 분석하는 데 사용할 수 있는 유용한 집합으로 로그 데이터를 필터링, 검색 및 그룹화할 수 있습니다. Message Analyzer에 대한 자세한 내용은 [Microsoft Message Analyzer 운영 가이드(영문)](http://technet.microsoft.com/library/jj649776.aspx)를 참조하세요.
 
@@ -92,7 +92,7 @@ Blob 또는 컨테이너를 찾을 수 없어서 컨테이너 또는 Blob에 대
 
 **Azure 포털을 통해**
 
-[Azure 포털](https://portal.azure.com)을 사용하여 저장소 계정의 로깅 및 메트릭을 구성하려면 [저장소 계정을 모니터링하는 방법](storage-monitor-storage-account.md)의 지침을 따릅니다.
+[Azure 포털](https://portal.azure.com)을 사용하여 저장소 계정의 로깅 및 메트릭을 구성하려면 [Azure 포털에서 저장소 계정 모니터링](storage-monitor-storage-account.md)의 지침을 따릅니다.
 
 > [AZURE.NOTE] Azure 포털을 사용하여 분 메트릭을 설정할 수는 없습니다. 그러나 이 자습서의 목적에 맞게 그리고 응용 프로그램의 성능 문제를 조사하도록 메트릭을 설정하는 것이 좋습니다. 아래와 같이 PowerShell을 사용하거나 저장소 클라이언트 라이브러리를 사용하여 프로그래밍 방식으로 분 메트릭을 설정할 수 있습니다.
 >
@@ -100,7 +100,7 @@ Blob 또는 컨테이너를 찾을 수 없어서 컨테이너 또는 Blob에 대
 
 **PowerShell을 통해**
 
-Azure용 PowerShell을 시작하려면 [Azure PowerShell을 설치 및 구성하는 방법](../install-configure-powershell.md)을 참조하세요.
+Azure용 PowerShell을 시작하려면 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
 
 1. 다음과 같이 [Add-azureaccount](http://msdn.microsoft.com/library/azure/dn722528.aspx) cmdlet을 사용하여 PowerShell 창에 Azure 사용자 계정을 추가합니다.
 
@@ -130,11 +130,9 @@ Azure용 PowerShell을 시작하려면 [Azure PowerShell을 설치 및 구성하
 
 ### .NET 클라이언트 쪽 로깅 구성
 
-.NET 응용 프로그램에 대해 클라이언트 쪽 로깅을 구성하려면 응용 프로그램의 구성 파일(web.config 또는 app.config)에서 .NET 진단을 사용하도록 설정합니다. 자세한 내용은 MSDN에서 [저장소 클라이언트 라이브러리를 사용한 클라이언트 쪽 로깅](http://msdn.microsoft.com/library/azure/dn782839.aspx) 및 [Microsoft Azure Storage SDK for Java를 사용한 클라이언트 쪽 로깅](http://msdn.microsoft.com/library/azure/dn782844.aspx)을 참조하세요.
+.NET 응용 프로그램에 대해 클라이언트 쪽 로깅을 구성하려면 응용 프로그램의 구성 파일(web.config 또는 app.config)에서 .NET 진단을 사용하도록 설정합니다. 자세한 내용은 MSDN에서 [.NET 저장소 클라이언트 라이브러리를 사용한 클라이언트 쪽 로깅](http://msdn.microsoft.com/library/azure/dn782839.aspx) 및 [Microsoft Azure Storage SDK for Java를 사용한 클라이언트 쪽 로깅](http://msdn.microsoft.com/library/azure/dn782844.aspx)을 참조하세요.
 
 클라이언트 쪽 로그에는 클라이언트가 요청을 준비하고 응답을 받아 처리하는 방법에 대한 자세한 정보가 포함됩니다.
-
-클라이언트 쪽 로깅은 응용 프로그램의 app.config 또는 web.config 파일 내에서 구성됩니다. 자세한 내용은 MSDN에서 [저장소 클라이언트 라이브러리를 사용한 클라이언트 쪽 로깅](http://msdn.microsoft.com/library/azure/dn782839.aspx)을 참조하세요.
 
 저장소 클라이언트 라이브러리는 응용 프로그램의 구성 파일(web.config 또는 app.config)에 지정된 위치에 클라이언트 쪽 로그 데이터를 저장합니다.
 
@@ -174,7 +172,7 @@ Azure용 PowerShell을 시작하려면 [Azure PowerShell을 설치 및 구성하
 
 이제 추가한 다른 메트릭과 함께 **성공 비율**이 Azure 포털의 모니터링 차트에 표시됩니다. Message Analyzer에서 로그를 분석하여 조사하는 시나리오에서 성공률이 100% 아래인 몇 가지를 볼 수 있습니다.
 
-모니터링 페이지에 메트릭을 추가하는 방법에 대한 자세한 내용은 [방법: 메트릭 테이블에 메트릭 추가](storage-monitor-storage-account.md#addmonitoringmetrics)를 참조하세요.
+모니터링 페이지에 메트릭을 추가하는 방법에 대한 자세한 내용은 [방법: 메트릭 테이블에 메트릭 추가](storage-monitor-storage-account.md#how-to-add-metrics-to-the-metrics-table)를 참조하세요.
 
 > [AZURE.NOTE] 저장소 메트릭을 사용하도록 설정한 이후 Azure 포털에 메트릭 데이터가 표시되는 데 약간의 시간이 걸릴 수 있습니다. 현재 시간이 경과할 때까지 이전 시간에 대한 시간별 메트릭이 Azure 포털에 표시되지 않기 때문입니다. 현재는 분 메트릭도 Azure 포털에 표시되지 않습니다. 따라서 메트릭을 사용하도록 설정한 시간에 따라 메트릭 데이터가 표시되는 데에는 최대 2시간까지 걸릴 수 있습니다.
 
@@ -186,9 +184,9 @@ AzCopy 명령줄 도구를 사용하여 이러한 서버 쪽 로그 파일을 �
 
 	AzCopy.exe /Source:http://<storageaccountname>.blob.core.windows.net/$logs /Dest:C:\Temp\Logs\Server /Pattern:"blob/2015/01/02" /SourceKey:<storageaccountkey> /S /V
 
-AzCopy는 [Azure 다운로드](https://azure.microsoft.com/downloads/) 페이지에서 다운로드할 수 있습니다. AzCopy를 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 저장소와 함께 AzCopy를 사용하는 방법](storage-use-azcopy.md)을 참조하세요.
+AzCopy는 [Azure 다운로드](https://azure.microsoft.com/downloads/) 페이지에서 다운로드할 수 있습니다. AzCopy 사용에 대한 자세한 내용은 [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)을 참조하세요.
 
-서버 쪽 로그를 다운로드하는 방법에 대한 자세한 내용은 [저장소 로깅 사용 및 로그 데이터 액세스](http://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata)를 참조하세요.
+서버 쪽 로그를 다운로드하는 방법에 대한 자세한 내용은 [저장소 로깅 로그 데이터 다운로드](http://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata)를 참조하세요.
 
 ## Microsoft Message Analyzer를 사용하여 로그 데이터 분석
 
@@ -339,30 +337,19 @@ Message Analyzer를 사용하여 로그 데이터를 분석하는 데 익숙해�
 | 조사하려면... | 필터 식 사용... | 식을 로그(클라이언트, 서버, 네트워크, 모두)에 적용 |
 |------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
 | 큐에서 메시지 배달의 예기치 않은 지연 | AzureStorageClientDotNetV4.Description은 "다시 시도 중 작업이 실패 했습니다."를 포함 | 클라이언트 |
-| PercentThrottlingError에서 HTTP 증가 | HTTP.Response.StatusCode == 500 &#124;&#124; HTTP.Response.StatusCode == 503 | 네트워크 |
+| PercentThrottlingError에서 HTTP 증가 | HTTP.Response.StatusCode == 500 || HTTP.Response.StatusCode == 503 | 네트워크 |
 | PercentTimeoutError의 증가 | HTTP.Response.StatusCode == 500 | 네트워크 |
-| PercentTimeoutError의 증가(모두) |    *StatusCode == 500 | All |
-| Increase in PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Client |
-| HTTP 403(사용할 수 없음) 메시지 | HTTP.Response.StatusCode == 403 | 네트워크 |
-| HTTP 404(찾을 수 없음) 메시지 | HTTP.Response.StatusCode == 404 | 네트워크 |
-| 404(모두) | *StatusCode == 404 | 모두 |
-| SAS(공유 액세스 서명) 권한 부여 문제 | AzureStorageLog.RequestStatus == "SASAuthorizationError" | 네트워크 |
-| HTTP 409(충돌) 메시지 | HTTP.Response.StatusCode == 409 | 네트워크 |
-| 409 (모두) | *StatusCode == 409 | 모두 |
-| 낮은 PercentSuccess 또는 분석 로그 항목에 ClientOtherErrors의 트랜잭션 상태인 작업이 있음 | AzureStorageLog.RequestStatus == "ClientOtherError" | 서버 |
-| Nagle 경고 | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) and (AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | 서버 |
-| 서버 및 네트워크 로그의 시간 범위 | #Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 | 서버, 네트워크 |
-| 서버 로그의 시간 범위 | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 and AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | 서버 |
+| PercentTimeoutError의 증가(모두) |    **StatusCode == 500 | 모두 | | PercentNetworkError의 증가 | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | 클라이언트 | | HTTP 403(사용할 수 없음) 메시지 | HTTP.Response.StatusCode == 403 | 네트워크 | | HTTP 404(찾을 수 없음) 메시지 | HTTP.Response.StatusCode == 404 | 네트워크 | | 404(모두) | *StatusCode == 404 | 모두 | | SAS(공유 액세스 서명) 권한 부여 문제 | AzureStorageLog.RequestStatus == "SASAuthorizationError" | 네트워크 | | HTTP 409(충돌) 메시지 | HTTP.Response.StatusCode == 409 | 네트워크 | | 409(모두) | *StatusCode == 409 | 모두 | | 낮은 PercentSuccess 또는 분석 로그 항목에 ClientOtherErrors의 트랜잭션 상태와 함께 작업이 있음 | AzureStorageLog.RequestStatus == "ClientOtherError" | 서버 | | Nagle 경고 | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) and (AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | 서버 | | 서버 및 네트워크 로그의 시간 범위 | #Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 | 서버, 네트워크 | | 서버 로그의 시간 범위 | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 and AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | 서버 |
 
 
 ## 다음 단계
 
 Azure 저장소의 종단 간 시나리오 문제 해결에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
-- [저장소 모니터링, 진단 및 문제 해결](storage-monitoring-diagnosing-troubleshooting.md)
+- [Microsoft Azure 저장소 모니터링, 진단 및 문제 해결](storage-monitoring-diagnosing-troubleshooting.md)
 - [저장소 분석](http://msdn.microsoft.com/library/azure/hh343270.aspx)
-- [저장소 계정을 모니터링하는 방법](storage-monitor-storage-account.md)
-- [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy)
+- [Azure 포털에서 저장소 계정 모니터링](storage-monitor-storage-account.md)
+- [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)
 - [Microsoft Message Analyzer 운영 가이드](http://technet.microsoft.com/library/jj649776.aspx)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

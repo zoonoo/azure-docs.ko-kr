@@ -424,9 +424,9 @@ Azure SQL 데이터베이스를 데이터 저장소로 사용하면 모든 Azure
 
 액세스 속성은 세 가지 값 중 하나를 사용할 수 있습니다
 
-  - 익명은 클라이언트 응용 프로그램이 인증 없이 데이터를 읽을 수 있다는 것을 나타냅니다.
-  - 인증됨은 클라이언트 응용 프로그램이 요청을 사용하여 유효한 인증 토큰을 송신해야 함을 나타냅니다.
-  - 사용 안 함은 이 테이블이 현재 사용되지 않음을 나타냅니다.
+  - *익명*은 클라이언트 응용 프로그램이 인증 없이 데이터를 읽을 수 있다는 것을 나타냅니다.
+  - *인증됨*은 클라이언트 응용 프로그램이 요청을 사용하여 유효한 인증 토큰을 송신해야 함을 나타냅니다.
+  - *사용 안 함*은 이 테이블이 현재 사용되지 않음을 나타냅니다.
 
 액세스 속성을 정의하지 않으면 인증되지 않은 액세스가 허용됩니다.
 
@@ -434,10 +434,10 @@ Azure SQL 데이터베이스를 데이터 저장소로 사용하면 모든 Azure
 
 테이블에 나타나는 것 외에도 액세스 속성은 개별 작업을 제어하는 데 사용될 수 있습니다. 네 가지 작업이 있습니다.
 
-  - 읽기는 테이블의 RESTful 가져오기 작업입니다.
-  - 삽입은 테이블의 RESTful POST 작업입니다.
-  - 업데이트는 테이블의 RESTful PATCH 작업입니다.
-  - 삭제는 테이블의 RESTful DELETE 작업입니다.
+  - *읽기*는 테이블의 RESTful 가져오기 작업입니다.
+  - *삽입*은 테이블의 RESTful POST 작업입니다.
+  - *업데이트*는 테이블의 RESTful PATCH 작업입니다.
+  - *삭제*는 테이블의 RESTful DELETE 작업입니다.
 
 예를 들어 읽기 전용 인증되지 않은 테이블을 제공하려 할 수도 있습니다. 다음 테이블 정의에서 제공될 수 있습니다.
 
@@ -636,7 +636,7 @@ Azure 모바일 앱 SDK는 테이블 끝점 및 사용자 지정 API에 대해 �
 		get: function (req, res, next) {
 			var date = { currentTime: Date.now() };
 			res.status(200).type('application/json').send(date);
-		});
+		}
 	};
 	// The GET methods must be authenticated.
 	api.get.access = 'authenticated';
@@ -671,6 +671,38 @@ Azure 모바일 앱 SDK는 [body-parser middleware](https://github.com/expressjs
 
 위에 표시된 50Mb 제한을 조정할 수 있습니다. 파일은 전송되기 전에 base-64로 인코딩되므로 실제 업로드 크기가 증가합니다.
 
+### <a name="howto-customapi-sql"></a>방법: 사용자 지정 SQL 문 실행
+
+Azure 모바일 앱 SDK를 사용하면 정의된 데이터 공급자에 대해 매개 변수화된 SQL 문을 쉽게 실행할 수 있는 요청 개체를 통해 전체 컨텍스트에 액세스할 수 있습니다.
+
+    var api = {
+        get: function (request, response, next) {
+            // Check for parameters - if not there, pass on to a later API call
+            if (typeof request.params.completed === 'undefined')
+                return next();
+
+            // Define the query - anything that can be handled by the mssql
+            // driver is allowed.
+            var query = {
+                sql: 'UPDATE TodoItem SET complete=@completed',
+                parameters: [{
+                    completed: request.params.completed
+                }]
+            };
+
+            // Execute the query.  The context for Azure Mobile Apps is available through
+            // request.azureMobile - the data object contains the configured data provider.
+            request.azureMobile.data.execute(query)
+            .then(function (results) {
+                response.json(results);
+            });
+        }
+    };
+
+    api.get.access = 'authenticated';
+    module.exports = api;
+
+이 끝점은 s에서 액세스될 수 있습니다.
 ## <a name="Debugging"></a>디버그 및 문제 해결
 
 Azure 앱 서비스는 Node.js 응용 프로그램에 대한 여러 디버깅 및 문제 해결 기술을 제공합니다. 이러한 기술을 모두 사용할 수 있습니다.
@@ -771,4 +803,4 @@ Azure 포털을 사용하면 로컬 컴퓨터에 프로젝트를 다운로드하
 [ExpressJS 미들웨어]: http://expressjs.com/guide/using-middleware.html
 [윈스턴]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

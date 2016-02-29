@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Site Recovery를 사용하여 온-프레미스 간 Hyper-V 복제에 대한 성능 테스트 및 확장 결과 | Microsoft Azure"
 	description="이 문서에서는 Azure Site Recovery를 사용하여 온-프레미스 복제에 온-프레미스에 대한 성능 테스트에 대하여 정보를 제공합니다."
-	services="site-recovery" 
+	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
 	manager="jwhit"
@@ -10,7 +10,7 @@
 <tags
 	ms.service="site-recovery"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
 	ms.date="12/14/2015"
@@ -195,19 +195,11 @@ Hyper-V 복제본은 복구 서버에 적은 양의 메모리를 사용하여 �
 
 |메트릭|카운터|
 |---|---|
-|CPU|\\Processor(\_Total)\\% 프로세서 시간|
-|사용 가능한 메모리|\\메모리\\사용 가능한 MB|
-|IOPS|\\PhysicalDisk(\_Total)\\디스크 전송/초|
-|VM 읽기(IOPS) 작업/초|\\Hyper-V 가상 저장소 장치(<VHD>)\\읽기 작업/초|
-|VM 쓰기(IOPS) 작업/초|\\Hyper-V 가상 저장소 장치(<VHD>)\\읽기 작업/초|
-|VM 읽기 처리량|\\Hyper-V 가상 저장소 장치(<VHD>)\\읽기 바이트/초|
-|VM 쓰기 처리량|\\Hyper-V 가상 저장소 장치(<VHD>)\\쓰기 바이트/초|
+|CPU|\\Processor(\_Total)\\% 프로세서 시간| |사용 가능한 메모리|\\메모리\\사용 가능한 MB| |IOPS|\\PhysicalDisk(\_Total)\\디스크 전송/초| |VM 읽기(IOPS) 작업/초|\\Hyper-V 가상 저장소 장치(<VHD>)\\읽기 작업/초| |VM 쓰기(IOPS) 작업/초|\\Hyper-V 가상 저장소 장치(<VHD>)\\읽기 작업/초| |VM 읽기 처리량|\\Hyper-V 가상 저장소 장치(<VHD>)\\읽기 바이트/초| |VM 쓰기 처리량|\\Hyper-V 가상 저장소 장치(<VHD>)\\쓰기 바이트/초|
 
 
 ## 다음 단계
 
 - [2개의 온-프레미스 VMM 사이트 간 보호 설정](site-recovery-vmm-to-vmm.md)
 
- 
-
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

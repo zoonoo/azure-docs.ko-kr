@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/12/2016"
+   ms.date="02/11/2016"
    ms.author="telmos" />
 
 # Azure의 IP 주소(기본)
@@ -26,7 +26,7 @@
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](virtual-network-ip-addresses-overview-arm.md).
 
 ## 공용 IP 주소
-공용 IP 주소를 사용하면 Azure 리소스가 [Azure Redis Cache](https://azure.microsoft.com/services/cache/), [Azure 이벤트 허브](https://azure.microsoft.com/services/event-hubs/), [SQL 데이터베이스](sql-database-technical-overview.md) 및 [Azure 저장소](storage-introduction.md)와 같은 Azure의 공용 서비스 및 인터넷과 통신할 수 있습니다.
+공용 IP 주소를 사용하면 Azure 리소스가 [Azure Redis Cache](https://azure.microsoft.com/services/cache/), [Azure 이벤트 허브](https://azure.microsoft.com/services/event-hubs/), [SQL 데이터베이스](../sql-database/sql-database-technical-overview.md) 및 [Azure 저장소](../storage/storage-introduction.md)와 같은 Azure의 공용 서비스 및 인터넷과 통신할 수 있습니다.
 
 공용 IP 주소는 다음 리소스 유형과 연결됩니다.
 
@@ -47,7 +47,7 @@
 ### 클라우드 서비스
 클라우드 서비스에는 항상 가상 IP 주소(VIP)라고 하는 공용 IP 주소가 있습니다. 클라우드 서비스 내에 끝점을 만들어 VIP의 여러 포트를 클라우드 서비스 내 VM 및 역할 인스턴스의 내부 포트로 연결할 수 있습니다.
 
-[클라우드 서비스에 여러 VIP](load-balancer-multivip.md)를 할당하고, SSL 기반 웹 사이트를 사용하는 다중 테넌트 환경과 같은 다중 VIP 시나리오를 구현할 수 있습니다.
+클라우드 서비스에는 여러 IaaS VM, PaaS 역할 인스턴스가 포함될 수 있으며 모두 동일한 클라우드 서비스 VIP를 통해 노출됩니다. [클라우드 서비스에 여러 VIP](../load-balancer/load-balancer-multivip.md)를 할당하고, SSL 기반 웹 사이트를 사용하는 다중 테넌트 환경과 같은 다중 VIP 시나리오를 구현할 수 있습니다.
 
 [예약된 IP](virtual-networks-reserved-public-ip.md)라고 하는 *정적* 공용 IP 주소를 사용하면 모든 역할 인스턴스가 중지되더라도 클라우드 서비스의 공용 IP 주소를 동일하게 유지할 수 있습니다. 특정 위치에 정적(예약된) IP 리소스를 만들고 해당 위치의 클라우드 서비스에 할당할 수 있습니다. 예약된 IP의 실제 IP 주소는 지정할 수 없습니다. 이는 생성된 위치에서 사용 가능한 IP 주소 풀에서 할당됩니다. 이 IP 주소는 명시적으로 삭제될 때까지 해제되지 않습니다.
 
@@ -58,14 +58,18 @@
 - IP 기반 보안 모델을 사용하는 외부 웹 서비스를 사용하는 경우
 - IP 주소에 연결된 SSL 인증서를 사용하는 경우
 
+>[AZURE.NOTE] 클래식 VM을 만들 때 컨테이너 *클라우드 서비스*가 Azure에 의해 만들어지며 VIP(가상 IP 주소)를 포함합니다. 포털을 통해 작성을 완료하는 경우 기본 RDP 또는 SSH *끝점*이 포털에 의해 구성되어 클라우드 서비스 VIP를 통해 VM에 연결할 수 있습니다. 이 클라우드 서비스 VIP는 예약할 수 있으며 VM에 연결하는 데 예약된 IP 주소를 효과적으로 제공하도록 합니다. 더 많은 끝점을 구성하여 추가 포트를 열 수 있습니다.
+
 ### IaaS VM 및 PaaS 역할 인스턴스
-클라우드 서비스 내에 있는 IaaS [VM](virtual-machines-about.md) 또는 PaaS 역할 인스턴스에 공용 IP 주소를 할당할 수 있습니다. 이를 인스턴스 수준 공용 IP 주소([ILPIP](virtual-networks-instance-level-public-ip.md))라고 합니다. 이 공용 IP 주소는 동적 방식만 가능합니다.
+클라우드 서비스 내에 있는 IaaS [VM](../virtual-machines/virtual-machines-about.md) 또는 PaaS 역할 인스턴스에 공용 IP 주소를 직접 할당할 수 있습니다. 이를 인스턴스 수준 공용 IP 주소([ILPIP](virtual-networks-instance-level-public-ip.md))라고 합니다. 이 공용 IP 주소는 동적 방식만 가능합니다.
+
+>[AZURE.NOTE] 클라우드 서비스에는 여러 IaaS VM, PaaS 역할 인스턴스가 포함될 수 있으며 모두 동일한 클라우드 서비스 VIP를 통해 노출되기 때문에 IaaS VMs 또는 PaaS 역할 인스턴스에 대한 컨테이너인 클라우드 서비스의 VIP와는 다릅니다.
 
 ### VPN 게이트웨이
-[VPN 게이트웨이](vpn-gateway-about-vpngateways.md)는 Azure VNet를 다른 Azure VNet 또는 온-프레미스 네트워크에 연결하는 데 사용할 수 있습니다. VPN 게이트웨이는 공용 IP 주소가 *동적으로*할당되며, 원격 네트워크와의 통신을 지원합니다.
+[VPN 게이트웨이](../vpn-gateway/vpn-gateway-about-vpngateways.md)는 Azure VNet를 다른 Azure VNet 또는 온-프레미스 네트워크에 연결하는 데 사용할 수 있습니다. VPN 게이트웨이는 공용 IP 주소가 *동적으로*할당되며, 원격 네트워크와의 통신을 지원합니다.
 
 ### 응용 프로그램 게이트웨이
-Azure [응용 프로그램 게이트웨이](application-gateway-introduction.md)는 HTTP 기반 네트워크 트래픽을 라우팅하는 Layer7 부하 분산에 사용할 수 있습니다. 응용 프로그램 게이트웨이에는 부하 분산된 VIP 역할을 하는 공용 IP 주소가 *동적으로* 할당됩니다.
+Azure [응용 프로그램 게이트웨이](../application-gateway/application-gateway-introduction.md)는 HTTP 기반 네트워크 트래픽을 라우팅하는 Layer7 부하 분산에 사용할 수 있습니다. 응용 프로그램 게이트웨이에는 부하 분산된 VIP 역할을 하는 공용 IP 주소가 *동적으로* 할당됩니다.
 
 ### 개요
 아래 테이블에서는 각 리소스 유형과 사용 가능한 할당 방법(동적/정적), 그리고 여러 공용 IP 주소를 할당할 수 있는지 여부를 보여 줍니다.
@@ -115,7 +119,7 @@ VM을 만들 때 개인 IP 주소에 대한 호스트 이름 매핑이 Azure 관
 *독립 실행형* 클라우드 서비스의 경우 동일한 클라우드 서비스 내에 있는 모든 VM/역할 인스턴스의 호스트 이름만 확인할 수 있습니다. VNet 내에 있는 클라우드 서비스의 경우 VNet 내에 있는 모든 VM/역할 인스턴스의 호스트 이름을 확인할 수 있습니다.
 
 ### ILB(내부 부하 분산 장치) 및 응용 프로그램 게이트웨이
-[Azure 내부 부하 분산 장치](load-balancer-internal-overview.md)(ILB) 또는 [Azure 응용 프로그램 게이트웨이](application-gateway-introduction.md)의 **프런트 엔드** 구성에 개인 IP 주소를 할당할 수 있습니다. 이 개인 IP 주소는 가상 네트워크(VNet) 내 리소스와 VNet에 연결된 원격 네트워크에만 액세스할 수 있는 내부 끝점으로 사용됩니다. 프런트 엔드 구성에 동적 또는 정적 개인 IP 주소를 할당할 수 있습니다. 또한 여러 개인 IP 주소를 할당하여 다중 vip 시나리오를 구현할 수도 있습니다.
+[Azure 내부 부하 분산 장치](../load-balancer/load-balancer-internal-overview.md)(ILB) 또는 [Azure 응용 프로그램 게이트웨이](../application-gateway/application-gateway-introduction.md)의 **프런트 엔드** 구성에 개인 IP 주소를 할당할 수 있습니다. 이 개인 IP 주소는 가상 네트워크(VNet) 내 리소스와 VNet에 연결된 원격 네트워크에만 액세스할 수 있는 내부 끝점으로 사용됩니다. 프런트 엔드 구성에 동적 또는 정적 개인 IP 주소를 할당할 수 있습니다. 또한 여러 개인 IP 주소를 할당하여 다중 vip 시나리오를 구현할 수도 있습니다.
 
 ### 개요
 아래 테이블에서는 각 리소스 유형과 사용 가능한 할당 방법(동적/정적), 그리고 여러 개인 IP 주소를 할당할 수 있는지 여부를 보여 줍니다.
@@ -162,4 +166,4 @@ Azure에서 [네트워킹에 대한 제한](azure-subscription-service-limits.md
 ## 다음 단계
 - 클래식 포털을 사용하여 [고정 개인 IP 주소를 사용하는 VM을 배포](virtual-networks-static-private-ip-classic-pportal.md)합니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

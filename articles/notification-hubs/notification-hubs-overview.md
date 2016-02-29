@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="12/10/2015"
+	ms.date="02/11/2016"
 	ms.author="wesmc"/>
 
 
@@ -165,4 +165,4 @@ Azure 서비스 전반에서 원활하고 일관적인 사용 환경을 조성�
   [Azure 포털]: https://portal.azure.com
   [태그]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

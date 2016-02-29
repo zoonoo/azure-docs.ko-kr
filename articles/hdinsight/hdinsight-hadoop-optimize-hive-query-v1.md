@@ -206,11 +206,11 @@ ORC 형식에 대한 자세한 내용은 [여기](https://cwiki.apache.org/confl
 ##<a id="nextsteps"></a> 다음 단계
 이 기사에서는 몇가지 일반적인 하이브 쿼리 최적화 방법을 배웠습니다. 자세한 내용은 다음 문서를 참조하세요.
 
-- [HDInsight에서 Apache Hive 사용](../hdinsight-using-hive.md)
+- [HDInsight에서 Apache Hive 사용](hdinsight-use-hive.md)
 - [HDInsight의 Hive를 사용하여 비행 지연 데이터 분석](hdinsight-analyze-flight-delay-data.md)
 - [HDInsight에서 Hive를 사용하여 Twitter 데이터 분석](hdinsight-analyze-twitter-data.md)
 - [HDInsight의 Hadoop에서 Hive 쿼리 콘솔을 사용하여 센서 데이터 분석](hdinsight-hive-analyze-sensor-data.md)
-- [HDInsight와 함께 Hive를 사용하여 웹 사이트의 로그 분석](../hdinsight-hive-analyze-web-site-log.md)
+- [HDInsight와 함께 Hive를 사용하여 웹 사이트의 로그 분석](hdinsight-hive-analyze-website-log.md)
 
 
 [image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/scaleout_1.png
@@ -218,4 +218,4 @@ ORC 형식에 대한 자세한 내용은 [여기](https://cwiki.apache.org/confl
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/partitioning_1.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

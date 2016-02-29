@@ -14,7 +14,7 @@
    ms.topic="campaign-page"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="na"
-   ms.date="11/18/2015"
+   ms.date="02/12/2016"
    ms.author="sedusch"/>
    
 # Azure 가상 컴퓨터(VM)에서 SAP 사용
@@ -78,6 +78,6 @@ Microsoft Azure 가상 컴퓨터 서비스와 함께 Microsoft는 포괄적인 I
 
 업데이트한 날짜: 2015년 12월
 
-[이 문서는 여기서 확인할 수 있습니다](virtual-machines-sap-on-linux-suse-quickstart.md).
+[이 문서는 여기서 확인할 수 있습니다.](virtual-machines-sap-on-linux-suse-quickstart.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -3,7 +3,7 @@
 	description="선언적 프로비전 식에 대해 설명합니다."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="andkjell"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,19 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/16/2016"
 	ms.author="markusvi;andkjell"/>
 
 
 # Azure AD Connect 동기화: 선언적 프로비전 식 이해
-
 Azure AD Connect 동기화는 Forefront Identity Manager 2010에 처음 도입된 선언적 프로비전을 기반으로 작성되어 컴파일된 코드를 작성할 필요 없이 전체 ID 통합 비즈니스 논리를 구현할 수 있도록 지원합니다.
 
 선언적 프로비전의 핵심적인 부분은 특성 흐름에 사용되는 표현 언어입니다. 사용 되는 언어는 VBA(Microsoft® Visual Basic® for Applications)의 하위 집합입니다. 이 언어는 Microsoft Office에서 사용되며, VBScript 경험이 있는 사용자 또한 이 언어를 인식합니다. 선언적 프로비저닝 표현 언어는 함수만 사용하며 구조적 언어는 아닙니다. 메서드 또는 문이 없습니다. 대신, 빠른 프로그램 흐름에 함수가 중첩됩니다.
 
-자세한 내용은 [Office 2013용 Visual basic for Applications 언어 참조 시작 을 참조하십시오](https://msdn.microsoft.com/library/gg264383(v=office.15).aspx).
+자세한 내용은 [Office 2013용 Visual Basic for Applications 언어 참조 시작](https://msdn.microsoft.com/library/gg264383.aspx)을 참조하세요.
 
-특성은 강력한 형식입니다. 단일 값 문자열 특성을 예상하는 함수는 다중 값 또는 다른 유형의 특성을 허용하지 않습니다. 대/소문자를 구분하기도 합니다. 함수 이름과 특성 이름은 모두 적절한 대/소문자를 가지고 있어야 하며 그렇지 않으면 오류가 발생합니다.
+특성은 강력한 형식입니다. 함수는 올바른 형식의 특성만 허용합니다. 대/소문자를 구분하기도 합니다. 함수 이름과 특성 이름은 모두 적절한 대/소문자를 가지고 있어야 하며 그렇지 않으면 오류가 발생합니다.
 
 ## 언어 정의 및 식별자
 
@@ -65,7 +64,7 @@ Active Directory Connector는 인바운드 동기화 규칙에 대해 다음 매
 
 사용자가 위치한 도메인의 netbios 이름이 있는 메타버스 특성 도메인으로 채워지는 예제:
 
-`domain <- %Domain.Netbios%`
+`domain` <- `%Domain.Netbios%`
 
 ### 연산자
 
@@ -85,13 +84,13 @@ Active Directory Connector는 인바운드 동기화 규칙에 대해 다음 매
 
 문자열 특성은 기본적으로 인덱싱 가능하게 설정되고 최대 길이는 448자입니다. 더 포함할 수 있는 문자열 특성을 사용한다면 특성 흐름에 반드시 다음을 포함하십시오.
 
-`attributeName <- Left([attributeName],448)`
+`attributeName` <- `Left([attributeName],448)`
 
 ### userPrincipalSuffix 변경
 
-Active Directory의 userPrincipalName 특성을 항상 사용자가 알 수 있는 것은 아니며 로그인 id로 적절하지 않을 수도 있습니다. Azure AD Connect Sync 설치 마법사를 통해 여러 특성을 선택할 수 있습니다(예: 메일). 하지만 일부 경우에는 특성을 계산해야 합니다. 예를 들어 회사 Contoso에는 2개의 Azure AD 디렉터리가 있습니다. 하나는 프로덕션용이고 하나는 테스트용입니다. 테스트 테넌트의 사용자가 로그인 ID의 접미사만 변경하도록 할 수 있습니다.
+Active Directory의 userPrincipalName 특성을 항상 사용자가 알 수 있는 것은 아니며 로그인 ID로 적절하지 않을 수도 있습니다. Azure AD Connect Sync 설치 마법사를 통해 여러 특성을 선택할 수 있습니다(예: 메일). 하지만 일부 경우에는 특성을 계산해야 합니다. 예를 들어 회사 Contoso에는 2개의 Azure AD 디렉터리가 있습니다. 하나는 프로덕션용이고 하나는 테스트용입니다. 테스트 테넌트의 사용자가 로그인 ID의 접미사만 변경하도록 할 수 있습니다.
 
-`userPrincipalName <- Word([userPrincipalName],1,"@") & "@contosotest.com"`
+`userPrincipalName` <- `Word([userPrincipalName],1,"@") & "@contosotest.com"`
 
 이 식에서는 첫번째 @ 기호(Word) 왼쪽에 있는 모든 것을 고정된 문자열과 연결합니다.
 
@@ -99,7 +98,7 @@ Active Directory의 userPrincipalName 특성을 항상 사용자가 알 수 있�
 
 Active Directory 내의 일부 특성은 Active Directory 사용자 및 컴퓨터에서 단일 값으로 보이더라도 스키마에서는 다중 값입니다. 그 예는 설명 특성입니다.
 
-`description <- IIF(IsNullOrEmpty([description]),NULL,Left(Trim(Item([description],1)),448))`
+`description` <- `IIF(IsNullOrEmpty([description]),NULL,Left(Trim(Item([description],1)),448))`
 
 이 식에서 특성에 값이 있는 경우 해당 특성 내 첫번째 항목(항목)에서 선행 및 후행 공백을 제거한 다음(트리밍), 문자열에 처음 448개의 문자(왼쪽)를 유지합니다.
 
@@ -111,7 +110,7 @@ Active Directory 내의 일부 특성은 Active Directory 사용자 및 컴퓨�
 
 아웃 바운드 동기화 규칙의 경우에는 NULL 및 IgnoreThisFlow, 2개의 상수를 사용할 수 있습니다. 두 가지 모두 특성 흐름에 기여할 것이 없음을 나타내지만, 둘 사이의 차이점은 다른 규칙에도 기여할 것이 없는 경우 발생하는 일입니다. 연결된 디렉터리에 기존 값이 없는 경우 NULL은 제거하는 특성에서 삭제를 준비하는 반면 IgnoreThisFlow은 기존 값을 유지합니다.
 
-#### ImportedValue
+### ImportedValue
 
 ImportedValues 함수는 특성 이름을 대괄호 대신 따옴표에 묶어야 하므로 다른 모든 함수와 다릅니다. 예: ImportedValue("proxyAddresses").
 
@@ -119,7 +118,7 @@ ImportedValues 함수는 특성 이름을 대괄호 대신 따옴표에 묶어�
 
 그 예로는 AD – User Common from Exchange 내의 즉시 사용 가능한 Synchronization Rule In에서 찾을 수 없으며, Hybrid Exchange에서 Exchange에 의해 온라인으로 추가된 값은 내보내기에 성공한 것이 확인된 경우에만 동기화해야 합니다.
 
-`proxyAddresses <- RemoveDuplicates(Trim(ImportedValues("proxyAddresses")))`
+`proxyAddresses` <- `RemoveDuplicates(Trim(ImportedValues("proxyAddresses")))`
 
 전체 함수 목록은 [Azure AD Connect 동기화: 함수 참조](active-directory-aadconnectsync-functions-reference.md)를 참조하세요.
 
@@ -131,4 +130,4 @@ ImportedValues 함수는 특성 이름을 대괄호 대신 따옴표에 묶어�
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

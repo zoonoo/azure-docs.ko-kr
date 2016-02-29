@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/09/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma" />
 
 # 클라우드 서비스를 위한 내부 부하 분산 장치(클래식) 만들기 시작
@@ -32,7 +32,7 @@
 
 아래 샘플에 나와 있는 것처럼 클라우드 서비스에서 첫 번째 배포를 만드는 동안 내부 부하 분산 장치 구성을 설정해야 합니다.
 
->[AZURE.IMPORTANT]아래 단계를 실행하려면 클라우드 배포를 위해 가상 네트워크를 반드시 미리 만들어 두어야 합니다. 내부 부하 분산을 만들려면 가상 네트워크 이름 및 서브넷 이름이 필요합니다.
+>[AZURE.IMPORTANT] 아래 단계를 실행하려면 클라우드 배포를 위해 가상 네트워크를 반드시 미리 만들어 두어야 합니다. 내부 부하 분산을 만들려면 가상 네트워크 이름 및 서브넷 이름이 필요합니다.
 
 ### 1단계
 
@@ -91,4 +91,4 @@ Visual Studio에서 클라우드 배포용 서비스 구성 파일(.cscfg)을 �
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -21,14 +21,14 @@
 
 [AZURE.INCLUDE [선택기](../../includes/hdinsight-create-windows-cluster-selector.md)]
 
-ARM(Azure 리소스 관리자) 템플릿을 사용하여 HDInsight 클러스터를 만드는 방법을 알아봅니다. 자세한 내용은 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요. 다른 클러스터 만들기 도구 및 기능은 이 페이지 맨 위에 있는 탭 선택을 클릭하거나 [클러스터 생성 방법](hdinsight-provision-clusters.md#cluster-creation-methods)을 참조하세요.
+ARM(Azure 리소스 관리자) 템플릿을 사용하여 HDInsight 클러스터를 만드는 방법을 알아봅니다. 자세한 내용은 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](../resource-group-template-deploy.md)를 참조하세요. 다른 클러스터 만들기 도구 및 기능은 이 페이지 맨 위에 있는 탭 선택을 클릭하거나 [클러스터 생성 방법](hdinsight-provision-clusters.md#cluster-creation-methods)을 참조하세요.
 
 ###필수 조건:
 
 이 문서의 지침을 시작하기 전에 다음이 있어야 합니다.
 
 - [Azure 구독](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- [Azure PowerShell](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater) 및/또는 [Azure CLI](xplat-cli-install.md). 
+- [Azure PowerShell](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater) 및/또는 [Azure CLI](../xplat-cli-install.md). 
 
 ## ARM 템플릿
 
@@ -38,8 +38,8 @@ HDInsight 클러스터 및 종속 Azure 저장소 계정을 만들기 위한 ARM
 
 ARM 템플릿에 대한 자세한 내용은 다음을 참조하세요.
 
-- [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)
-- [Azure 리소스 관리자 템플릿으로 응용 프로그램 배포](resource-group-template-deploy.md)
+- [Azure 리소스 관리자 템플릿 작성](../resource-group-authoring-templates.md)
+- [Azure 리소스 관리자 템플릿으로 응용 프로그램 배포](../resource-group-template-deploy.md)
 
 
 ## PowerShell을 사용하여 배포
@@ -102,7 +102,7 @@ ARM 템플릿에 대한 자세한 내용은 다음을 참조하세요.
 
 	PowerShell 스크립트는 클러스터 이름 및 저장소 계정 이름만 구성합니다. ARM 템플릿에서 다른 값을 설정할 수 있습니다.
 	
-자세한 내용은 [PowerShell로 배포](resource-group-template-deploy.md#deploy-with-powershell)를 참조하세요.
+자세한 내용은 [PowerShell로 배포](../resource-group-template-deploy.md#deploy-with-powershell)를 참조하세요.
 
 ## Azure CLI를 사용하여 배포
 
@@ -115,22 +115,22 @@ ARM 템플릿에 대한 자세한 내용은 다음을 참조하세요.
 
 ## REST API를 사용하여 배포
 
-[REST API를 사용하여 배포](resource-group-template-deploy.md#deploy-with-the-rest-api)를 참조하세요.
+[REST API를 사용하여 배포](../resource-group-template-deploy.md#deploy-with-the-rest-api)를 참조하세요.
 
 ## Visual Studio를 사용하여 배포
 
 Visual Studio를 사용하여 리소스 그룹 프로젝트를 만들고 사용자 인터페이스를 통해 Azure에 배포할 수 있습니다. 프로젝트에 포함할 리소스 유형을 선택하면 해당 리소스가 리소스 관리자 템플릿에 자동으로 추가됩니다. 또한 프로젝트에서는 템플릿을 배포할 수 있는 PowerShell 스크립트를 제공합니다.
 
-Visual Studio를 리소스 그룹과 함께 사용하는 방법은 [Visual Studio를 통해 Azure 리소스 그룹 생성 및 배포](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)를 참조하세요.
+Visual Studio를 리소스 그룹과 함께 사용하는 방법에 대한 소개는 [Visual Studio를 통해 Azure 리소스 그룹 생성 및 배포](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)를 참조하세요.
 
 ##다음 단계
 이 문서에서는 HDInsight 클러스터를 만드는 여러 가지 방법에 대해 알아보았습니다. 자세한 내용은 다음 문서를 참조하세요.
 
-- .NET 클라이언트 라이브러리를 통한 리소스 배포의 예를 보려면 [.NET 라이브러리 및 템플릿을 사용하여 리소스 배포](arm-template-deployment.md)를 참조하세요.
-- 응용 프로그램 배포에 대한 자세한 예제는 [Azure에서 마이크로 서비스를 예측 가능하게 프로비전 및 배포](app-service-deploy-complex-application-predictably.md)를 참조하세요.
-- 다른 환경에 솔루션 배포에 관한 지침은 [Microsoft Azure의 개발 및 테스트 환경](solution-dev-test-environments.md)을 참조하세요.
-- Azure 리소스 관리자 템플릿 섹션에 대한 자세한 내용은 [템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
-- Azure 리소스 관리자 템플릿에서 사용할 수 있는 함수 목록은 [템플릿 함수](resource-group-template-functions.md)를 참조하세요.
+- .NET 클라이언트 라이브러리를 통한 리소스 배포의 예를 보려면 [.NET 라이브러리 및 템플릿을 사용하여 리소스 배포](../virtual-machines/arm-template-deployment.md)를 참조하세요.
+- 응용 프로그램 배포에 대한 자세한 예제는 [Azure에서 마이크로 서비스를 예측 가능하게 프로비전 및 배포](../app-service-web/app-service-deploy-complex-application-predictably.md)를 참조하세요.
+- 다른 환경에 솔루션 배포에 관한 지침은 [Microsoft Azure의 개발 및 테스트 환경](../solution-dev-test-environments.md)을 참조하세요.
+- Azure 리소스 관리자 템플릿 섹션에 대한 자세한 내용은 [템플릿 작성](../resource-group-authoring-templates.md)을 참조하세요.
+- Azure 리소스 관리자 템플릿에서 사용할 수 있는 함수 목록은 [템플릿 함수](../resource-group-template-functions.md)를 참조하세요.
 
 
 ##부록 A: ARM 템플릿
@@ -444,4 +444,4 @@ Visual Studio를 리소스 그룹과 함께 사용하는 방법은 [Visual Studi
 	  }
 	}
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

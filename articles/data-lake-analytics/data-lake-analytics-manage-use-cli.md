@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/03/2015"
+   ms.date="02/11/2016"
    ms.author="jgao"/>
 
 # Azure 명령줄 인터페이스(CLI)를 사용하여 Azure 데이터 레이크 분석 관리
@@ -27,7 +27,7 @@ Azure를 사용하여 Azure 데이터 레이크 분석 계정, 데이터 원본,
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
 - **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-- **Azure CLI**. [Azure CLI 설치 및 구성](xplat-cli.md)을 참조하세요.
+- **Azure CLI**. [Azure CLI 설치 및 구성](../xplat-cli-install.md)을 참조하세요.
 	- 이 데모를 완료하려면 **시험판** [Azure CLI 도구](https://github.com/MicrosoftBigData/AzureDataLake/releases)를 다운로드하여 설치합니다.
 - **인증**. 다음 명령을 사용합니다.
 
@@ -85,8 +85,8 @@ Azure를 사용하여 Azure 데이터 레이크 분석 계정, 데이터 원본,
 
 데이터 레이크 분석은 현재 다음 데이터 원본을 지원합니다.
 
-- [Azure 데이터 레이크 저장소](data-lake-storage-overview.md)
-- [Azure 저장소](storage-introduction.md)
+- [Azure 데이터 레이크 저장소](../data-lake-store/data-lake-store-overview.md)
+- [Azure 저장소](../storage/storage-introduction.md)
 
 분석 계정을 만들 때 Azure 데이터 레이크 저장소 계정이 기본 저장소 계정이 되도록 지정해야 합니다. 기본 ADL 저장소 계정은 작업 메타데이터 및 작업 감사 로그를 저장하는 데 사용됩니다. 분석 계정을 만든 후 데이터 레이크 저장소 계정 및/또는 Azure 저장소 계정을 더 추가할 수 있습니다.
 
@@ -100,7 +100,7 @@ properties:datalakeStoreAccount:name 아래에 값이 나열됩니다.
 
   	azure datalake analytics account datasource add -n "<Data Lake Analytics Account Name>" -b "<Azure Blob Storage Account Short Name>" -k "<Azure Storage Account Key>"
 
->[AZURE.NOTE]Blob 저장소 짧은 이름만 지원됩니다. FQDN(예: “myblob.blob.core.windows.net”)을 사용하지 마십시오.
+>[AZURE.NOTE] Blob 저장소 짧은 이름만 지원됩니다. FQDN(예: “myblob.blob.core.windows.net”)을 사용하지 마십시오.
 
 ### 데이터 레이크 저장소 계정 추가
 
@@ -150,7 +150,7 @@ Blob 저장소 계정을 삭제하려면:
 	
 ### 작업 제출
 
-> [AZURE.NOTE]작업의 기본 우선 순위는 1000이고 작업에 대한 기본 병렬 처리 수준은 1입니다.
+> [AZURE.NOTE] 작업의 기본 우선 순위는 1000이고 작업에 대한 기본 병렬 처리 수준은 1입니다.
 
 	azure datalake analytics job create  "<Data Lake Analytics Account Name>" "<Job Name>" "<Script>"
 
@@ -191,7 +191,7 @@ U-SQL 카탈로그는 U-SQL 스크립트에서 공유할 수 있도록 데이터
 <!-- ################################ -->
 ## ARM 그룹 사용
 
-응용 프로그램은 일반적으로 웹앱, 데이터베이스, 데이터베이스 서버, 저장소 및 타사 서비스 등 많은 구성 요소로 구성됩니다. ARM(Azure 리소스 관리자)을 사용하면 Azure 리소스 그룹이라고 하는 그룹으로 응용 프로그램에서 리소스와 함께 사용할 수 있습니다. 응용 프로그램에 대한 모든 리소스의 배포, 업데이트, 모니터링 또는 삭제를 조정된 단일 작업으로 수행할 수 있습니다. 배포용 템플릿을 사용하고 이 템플릿을 테스트, 스테이징 및 프로덕션와 같은 여러 환경에서 사용할 수 있습니다. 전체 그룹에 대한 롤업 비용을 확인하여 조직에 요금 청구를 명확히 할 수 있습니다. 자세한 내용은 [Azure 리소스 관리자 개요](resource-group-overview.md)를 참조하세요.
+응용 프로그램은 일반적으로 웹앱, 데이터베이스, 데이터베이스 서버, 저장소 및 타사 서비스 등 많은 구성 요소로 구성됩니다. ARM(Azure 리소스 관리자)을 사용하면 Azure 리소스 그룹이라고 하는 그룹으로 응용 프로그램에서 리소스와 함께 사용할 수 있습니다. 응용 프로그램에 대한 모든 리소스의 배포, 업데이트, 모니터링 또는 삭제를 조정된 단일 작업으로 수행할 수 있습니다. 배포용 템플릿을 사용하고 이 템플릿을 테스트, 스테이징 및 프로덕션와 같은 여러 환경에서 사용할 수 있습니다. 전체 그룹에 대한 롤업 비용을 확인하여 조직에 요금 청구를 명확히 할 수 있습니다. 자세한 내용은 [Azure 리소스 관리자 개요](../resource-group-overview.md)를 참조하세요.
 
 데이터 레이크 분석 서비스는 다음 구성 요소를 포함할 수 있습니다.
 
@@ -211,7 +211,7 @@ U-SQL 카탈로그는 U-SQL 스크립트에서 공유할 수 있도록 데이터
 
 - [Microsoft Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)
 - [Azure 포털을 사용하여 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md)
-- [Azure 포털을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-use-portal.md)
+- [Azure 포털을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-manage-use-portal.md)
 - [Azure 포털을 사용하여 Azure 데이터 레이크 분석 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="리소스 관리자 템플릿을 사용하여 IoT Hub 만들기 | Microsoft Azure"
-	description="이 자습서에 따라 리소스 관리자 템플릿을 사용하여 C# 프로그램 또는 PowerShell로 IoT Hub를 만드는 작업을 시작할 수 있습니다."
+	pageTitle="ARM 템플릿 및 C#을 사용하여 IoT Hub 만들기 | Microsoft Azure"
+	description="이 자습서에 따라 리소스 관리자 템플릿을 사용하여 C# 프로그램으로 IoT Hub를 만드는 작업을 시작할 수 있습니다."
 	services="iot-hub"
 	documentationCenter=".net"
 	authors="dominicbetts"
@@ -13,16 +13,16 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="11/23/2015"
+     ms.date="02/12/2016"
      ms.author="dobett"/>
 
-# 자습서: C# 프로그램을 사용하여 IoT Hub 만들기
+# ARM 템플릿을 사용하여 C# 프로그램에서 IoT Hub 만들기
 
 [AZURE.INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 ## 소개
 
-Azure 리소스 관리자를 사용하여 Azure IoT Hub를 프로그래밍 방식으로 만들고 관리합니다. 이 자습서는 리소스 관리자 템플릿을 사용하여 C# 프로그램에서 IoT Hub를 만드는 방법을 보여 줍니다.
+ARM(Azure 리소스 관리자)을 사용하여 Azure IoT Hub를 프로그래밍 방식으로 만들고 관리합니다. 이 자습서는 리소스 관리자 템플릿을 사용하여 C# 프로그램에서 IoT Hub를 만드는 방법을 보여 줍니다.
 
 > [AZURE.NOTE] Azure에는 리소스를 만들고 작업하기 위한 두 가지 다양한 배포 모델이 있습니다. [리소스 관리자 및 클래식](../resource-manager-deployment-model.md) 이 문서에서는 리소스 관리자 배포 모델 사용에 대해 설명합니다.
 
@@ -30,9 +30,8 @@ Azure 리소스 관리자를 사용하여 Azure IoT Hub를 프로그래밍 방�
 
 - Microsoft Visual Studio 2015.
 - 활성 Azure 계정. <br/>계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판][lnk-free-trial]을 참조하세요.
+- 템플릿 파일을 저장할 수 있는 [Azure 저장소 계정][lnk-storage-account]입니다.
 - [Microsoft Azure PowerShell 1.0][lnk-powershell-install] 이상
-
-> [AZURE.TIP] 이 문서에서는 C# 프로그램 및 ARM 템플릿을 사용하여 새 IoT hub를 만드는 방법을 설명합니다. 이 문서의 [ARM 템플릿](#submit-a-template-to-create-an-iot-hub)을 C# 프로그램 대신 PowerShell 스크립트와 함께 사용할 수도 있습니다. [Azure 리소스 관리자와 함께 Azure PowerShell 사용][lnk-powershell-arm] 문서에서는 ARM 템플릿을 사용하여 IoT hub와 같은 Azure 리소스를 만드는 PowerShell 스크립트를 작성하는 방법에 대해 설명합니다.
 
 [AZURE.INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
 
@@ -42,35 +41,31 @@ Azure 리소스 관리자를 사용하여 Azure IoT Hub를 프로그래밍 방�
 
 2. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리**를 클릭합니다.
 
-3. NuGet 패키지 관리자에서 **Microsoft.Azure.Management.Resources**를 검색합니다. **2.18.11-preview** 버전을 선택합니다. **설치**를 클릭하고 **변경 내용 검토**에서 **확인**을 클릭한 다음 **동의함**를 클릭하여 라이선스에 동의합니다.
+3. NuGet 패키지 관리자에서 **시험판 포함**을 선택하고 **Microsoft.Azure.Management.Resources**를 검색합니다. **설치**를 클릭하고 **변경 내용 검토**에서 **확인**을 클릭한 다음 **동의함**를 클릭하여 라이선스에 동의합니다.
 
-4. NuGet 패키지 관리자에서 **Microsoft.IdentityModel.Clients.ActiveDirectory**를 검색합니다. **2.19.208020213** 버전을 선택합니다. **설치**를 클릭하고 **변경 내용 검토**에서 **확인**을 클릭한 다음 **동의함**을 클릭하여 라이선스에 동의합니다.
+4. NuGet 패키지 관리자에서 **Microsoft.IdentityModel.Clients.ActiveDirectory**를 검색합니다. **설치**를 클릭하고 **변경 내용 검토**에서 **확인**을 클릭한 다음 **동의함**을 클릭하여 라이선스에 동의합니다.
 
-5. NuGet 패키지 관리자에서 **Microsoft.Azure.Common**을 검색합니다. **2.1.0** 버전을 선택합니다. **설치**를 클릭하고 **변경 내용 검토**에서 **확인**을 클릭한 다음 **동의함**를 클릭하여 라이선스에 동의합니다.
+5. NuGet 패키지 관리자에서 **Microsoft.Azure.Common**을 검색합니다. **설치**를 클릭하고 **변경 내용 검토**에서 **확인**을 클릭한 다음 **동의함**를 클릭하여 라이선스에 동의합니다.
 
 6. Program.cs에서 기존 **using** 문을 다음으로 바꿉니다.
 
     ```
     using System;
-    using System.IO;
-    using System.Net;
-    using System.Net.Http.Headers;
-    using Microsoft.Azure;
     using Microsoft.Azure.Management.Resources;
     using Microsoft.Azure.Management.Resources.Models;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    using Microsoft.Rest;
     ```
     
-7. Program.cs에서 다음 정적 변수를 추가하여 자리 표시자 값을 바꿉니다. 이 자습서의 앞부분에서 **ApplicationId**, **SubscriptionId**, **TenantId** 및 **암호**를 적어 두었습니다. **리소스 그룹 이름**은 IoT Hub를 만들 때 사용할 리소스 그룹의 이름으로, 기존의 리소스 그룹이거나 새 리소스 그룹입니다. **IoT Hub 이름**은 **MyIoTHub**와 같은 만들려는 IoT Hub의 이름입니다. **배포 이름**은 **Deployment\_01**과 같은 배포의 이름입니다.
+7. Program.cs에서 다음 정적 변수를 추가하여 자리 표시자 값을 바꿉니다. 이 자습서의 앞부분에서 **ApplicationId**, **SubscriptionId**, **TenantId** 및 **암호**를 적어 두었습니다. **저장소 계정 이름**은 템플릿 파일을 저장할 Azure 저장소 계정의 이름입니다. **리소스 그룹 이름**은 IoT Hub를 만들 때 사용할 리소스 그룹의 이름으로, 기존의 리소스 그룹이거나 새 리소스 그룹입니다. **배포 이름**은 **Deployment\_01**과 같은 배포의 이름입니다.
 
     ```
     static string applicationId = "{Your ApplicationId}";
-    static string subscriptionId = "{Your SubscriptionId";
+    static string subscriptionId = "{Your SubscriptionId}";
     static string tenantId = "{Your TenantId}";
     static string password = "{Your application Password}";
-    
+    static string storageAddress = "https://{Your storage account name}.blob.core.windows.net";
     static string rgName = "{Resource group name}";
-    static string iotHubName = "{IoT Hub name}";
     static string deploymentName = "{Deployment name}";
     ```
 
@@ -78,24 +73,26 @@ Azure 리소스 관리자를 사용하여 Azure IoT Hub를 프로그래밍 방�
 
 ## IoT hub를 만들 템플릿 제출
 
-JSON 템플릿을 사용하여 리소스 그룹에 새 IoT hub를 만듭니다. 템플릿을 사용하여 기존 IoT Hub를 변경할 수도 있습니다.
+JSON 템플릿과 매개 변수 파일을 사용하여 리소스 그룹에 새 IoT hub를 만듭니다. 템플릿을 사용하여 기존 IoT Hub를 변경할 수도 있습니다.
 
-1. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** > **새 항목**을 클릭합니다. 프로젝트에 **template.json**이라는 JSON 파일을 새로 추가합니다.
+1. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가**, **새 항목**을 차례로 클릭합니다. 프로젝트에 **template.json**이라는 JSON 파일을 새로 추가합니다.
 
-2. 솔루션 탐색기에서 **template.json**을 선택한 다음 **속성**에서 **출력 디렉터리로 복사**를 **항상 복사**로 설정합니다.
-
-3. **template.json**의 콘텐츠를 다음 리소스 정의로 바꿔서 표준 IoT hub를 **미국 동부** 지역에 새로 추가합니다.
+2. **template.json**의 콘텐츠를 다음 리소스 정의로 바꿔서 표준 IoT hub를 **미국 동부** 지역에 새로 추가합니다.
 
     ```
     {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
-    "contentVersion": "1.0.0.0",
-
-    "resources": [
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "hubName": {
+          "type": "string"
+        }
+      },
+      "resources": [
       {
-        "apiVersion": "2015-08-15-preview",
-        "type": "Microsoft.Devices/Iothubs",
-        "name": "[IotHubName]",
+        "apiVersion": "2016-02-03",
+        "type": "Microsoft.Devices/IotHubs",
+        "name": "[parameters('hubName')]",
         "location": "East US",
         "sku": {
           "name": "S1",
@@ -106,70 +103,92 @@ JSON 템플릿을 사용하여 리소스 그룹에 새 IoT hub를 만듭니다. 
           "location": "East US"
         }
       }
-    ]
+      ],
+      "outputs": {
+        "hubKeys": {
+          "value": "[listKeys(resourceId('Microsoft.Devices/IotHubs', parameters('hubName')), '2016-02-03')]",
+          "type": "object"
+        }
+      }
     }
     ```
 
-4. Program.cs에 다음 메서드를 추가합니다.
+3. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가**, **새 항목**을 차례로 클릭합니다. 프로젝트에 **parameters.json**이라는 JSON 파일을 새로 추가합니다.
+
+4. 새 IoT Hub의 이름을 **mynewiothub**로 설정하는 다음 매개 변수 정보로 **parameters.json**의 내용을 대체합니다.
+
+    ```
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "hubName": { "value": "mynewiothub" }
+      }
+    }
+    ```
+
+5. **서버 탐색기**에서 Azure 구독에 연결하고 저장소 계정에서 **templates**라는 새 컨테이너를 만듭니다. **속성** 패널에서 **templates** 컨테이너의 **공용 읽기 액세스** 권한을 **Blob**로 설정합니다.
+
+6. **서버 탐색기**에서 **templates** 컨테이너를 마우스 오른쪽 단추로 클릭한 다음 **BLob 컨테이너 보기**를 클릭합니다. **Blob 업로드** 단추를 클릭하고, **parameters.json** 파일과 **templates.json** 파일을 선택한 다음 **열기**를 클릭하여 JSON 파일을 **templates** 컨테이너에 업로드합니다. JSON 데이터를 포함하는 BLob의 URL은 다음과 같습니다.
+
+    ```
+    https://{Your storage account name}.blob.core.windows.net/templates/parameters.json
+    https://{Your storage account name}.windows.net/templates/template.json
+    ```
+
+7. Program.cs에 다음 메서드를 추가합니다.
     
     ```
-    static bool CreateIoTHub(ResourceManagementClient client)
+    static void CreateIoTHub(ResourceManagementClient client)
     {
         
     }
     ```
 
-5. 다음 코드를 **CreateIoTHub** 메서드에 추가하여 템플릿 파일을 로드하고, IoT hub의 이름을 추가하고, 템플릿을 Azure 리소스 관리자에 제출합니다.
+5. **CreateIoTHub** 메서드에 다음 코드를 추가하여 Azure 리소스 관리자에게 템플릿 및 매개 변수 파일을 제출합니다.
 
     ```
-    string template = File.ReadAllText("template.json");
-    template = template.Replace("[IotHubName]", iotHubName);
-    var createResponse = client.Deployments.CreateOrUpdateAsync(
-      rgName,
-      deploymentName,
-      new Deployment()
-      {
-        Properties = new DeploymentProperties
-        {
-          Mode = DeploymentMode.Incremental,
-          Template = template
-        }
-      }).Result;
-    ```
-
-6. 배포가 성공적으로 완료될 때가지 기다리는 다음 코드를 **CreateIoTHub** 메서드에 추가합니다.
-
-    ```
-    string state = createResponse.Deployment.Properties.ProvisioningState;
-    while (state != "Succeeded" && state != "Failed")
-    {
-      var getResponse = client.Deployments.GetAsync(
+    var createResponse = client.Deployments.CreateOrUpdate(
         rgName,
-        deploymentName).Result;
+        deploymentName,
+        new Deployment()
+        {
+          Properties = new DeploymentProperties
+          {
+            Mode = DeploymentMode.Incremental,
+            TemplateLink = new TemplateLink
+            {
+              Uri = storageAddress + "/templates/template.json"
+            },
+            ParametersLink = new ParametersLink
+            {
+              Uri = storageAddress + "/templates/parameters.json"
+            }
+          }
+        });
+    ```
 
-      state = getResponse.Deployment.Properties.ProvisioningState;
-      Console.WriteLine("Deployment state: {0}", state);
-    }
+6. 새 IoT Hub의 상태 및 키를 표시하는 다음 코드를 **CreateIoTHub** 메서드에 추가합니다.
+
+    ```
+    string state = createResponse.Properties.ProvisioningState;
+    Console.WriteLine("Deployment state: {0}", state);
 
     if (state != "Succeeded")
     {
       Console.WriteLine("Failed to create iothub");
-      return false;
     }
-    return true;
+    Console.WriteLine(createResponse.Properties.Outputs);
     ```
-
-[AZURE.INCLUDE [iot-hub-retrieve-keys](../../includes/iot-hub-retrieve-keys.md)]
 
 ## 응용 프로그램을 완료하고 실행합니다.
 
-이제 **CreateIoTHub** 및 **ShowIoTHubKeys** 메서드를 호출하여 응용 프로그램을 완료한 다음 빌드하고 실행합니다.
+이제 **CreateIoTHub** 메서드를 호출하여 응용 프로그램을 완료한 다음 빌드하고 실행합니다.
 
 1. **Main** 메서드의 끝에 다음 코드를 추가합니다.
 
     ```
-    if (CreateIoTHub(client))
-        ShowIoTHubKeys(client, token.AccessToken);
+    CreateIoTHub(client);
     Console.ReadLine();
     ```
     
@@ -183,15 +202,17 @@ JSON 템플릿을 사용하여 리소스 그룹에 새 IoT hub를 만듭니다. 
 
 ## 다음 단계
 
-- [IoT Hub 리소스 공급자 REST API][lnk-rest-api]의 기능을 살펴봅니다.
+ARM 템플릿을 사용하여 C# 프로그램에서 IoT Hub를 배포했으니 구체적인 내용을 알아볼 차례입니다.
+
+- [IoT Hub 리소스 공급자 REST API][lnk-rest-api]의 기능을 읽어보세요.
 - Azure 리소스 관리자의 기능에 대한 자세한 내용은 [Azure 리소스 관리자 개요][lnk-azure-rm-overview]를 참조하세요.
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
-[lnk-powershell-install]: https://azure.microsoft.com/ko-KR/blog/azps-1-0-pre/
+[lnk-powershell-install]: ../powershell-install-configure.md
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
-[lnk-azure-rm-overview]: ./resource-group-overview.md
-[lnk-powershell-arm]: ./powershell-azure-resource-manager.md
+[lnk-azure-rm-overview]: ../resource-group-overview.md
+[lnk-storage-account]: ../storage/storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -4,7 +4,7 @@
 	services="virtual-machines"
 	documentationCenter=""
 	authors="joaoma"
-	manager="adinah"
+	manager="carmonm"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2015"
+	ms.date="02/02/2016"
 	ms.author="joaoma"/>
 
 
@@ -77,12 +77,17 @@ Azure 부하 분산과 마찬가지로 내부 부하 분산 집합을 구성함�
 
 ![loadbalancing](./media/virtual-machines-load-balance/LOBServers.png)
 
+## 부하 분산 장치 고려 사항
+
+부하 분산 장치는 기본적으로 4분의 유휴 세션 시간 제한으로 구성됩니다. 부하 분산 장치 뒤에 있는 응용 프로그램이 4분 이상 연결 유휴 상태를 유지하고 활성 유지 구성이 없는 경우 연결이 끊깁니다. [Azure 부하 분산 장치에 대한 더 긴 시간 제한 설정](../load-balancer/load-balancer-tcp-idle-timeout.md)을 허용하도록 부하 분산 장치 동작을 변경할 수 있습니다.
+
+다른 고려 사항에는 Azure 부하 분산 장치에서 지원하는 배포 모드의 유형입니다. 원본 IP 선호도(원본 IP, 대상 IP) 또는 원본 IP 프로토콜(원본 IP, 대상 IP 및 프로토콜)을 구성할 수 있습니다. 자세한 내용은 [Azure 부하 분산 장치 배포 모드(원본 IP 선호도)](../load-balancer/load-balancer-distribution-mode.md)를 확인하세요.
+
+
 ## 다음 단계
 
 부하 분산 집합을 만드는 과정은 [내부 부하 분산 집합 구성](../load-balancer/load-balancer-internal-getstarted.md)(영문)을 참조하십시오.
 
 자세한 내용은 [내부 부하 분산](../load-balancer/load-balancer-internal-overview.md)을 참조하세요.
 
-<!-- LINKS -->
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0218_2016-->

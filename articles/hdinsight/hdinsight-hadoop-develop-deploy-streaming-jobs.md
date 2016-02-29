@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="01/28/2016"
 	ms.author="jgao"/>
 
 
@@ -26,20 +26,19 @@ Hadoop은 MapReduce용 스트리밍 API를 제공합니다. 이 API를 사용하
 
 ![HDI.WordCountDiagram][image-hdi-wordcountdiagram]
 
-> [AZURE.NOTE]이 문서의 단계는 Windows 기반 Azure HDInsight 클러스터에만 적용됩니다. Linux 기반 HDInsight를 스트리밍하는 예는 [HDInsight용 Python 스트리밍 프로그램 개발](hdinsight-hadoop-streaming-python.md)을 참조하세요.
+> [AZURE.NOTE] 이 문서의 단계는 Windows 기반 Azure HDInsight 클러스터에만 적용됩니다. Linux 기반 HDInsight를 스트리밍하는 예는 [HDInsight용 Python 스트리밍 프로그램 개발](hdinsight-hadoop-streaming-python.md)을 참조하세요.
 
 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
 
-- Azure용 HDInsight Emulator에서 C#을 사용하여 Hadoop 스트리밍 MapReduce 프로그램 개발 및 테스트
-- Azure HDInsight에서 동일한 MapReduce 작업 실행
+- C#을 사용하여 Hadoop 스트리밍 MapReduce 프로그램 개발 
+- Azure HDInsight에서 MapReduce 작업 실행
 - MapReduce 작업 결과 검색
 
-##필수 조건
+###필수 조건
 
 이 자습서를 시작하기 전에 다음을 완료해야 합니다.
 
-- HDInsight Emulator를 설치합니다. 자세한 내용은 [HDInsight Emulator 사용 시작][hdinsight-get-started-emulator]을 참조하세요.
-- 에뮬레이터 컴퓨터에 Azure PowerShell 설치. 자세한 내용은 [Azure PowerShell 설치 및 구성][powershell-install]을 참조하세요.
+- [Azure PowerShell][powershell-install], 및 [Microsoft Visual Studio](https://www.visualstudio.com/)가 포함된 워크스테이션입니다.
 - Azure 구독. 자세한 내용은 [구매 옵션][azure-purchase-options], [회원 제안][azure-member-offers] 또는 [무료 평가판][azure-free-trial]을 참조하세요.
 
 
@@ -47,246 +46,92 @@ Hadoop은 MapReduce용 스트리밍 API를 제공합니다. 이 API를 사용하
 
 단어 계산 솔루션에는 두 개의 콘솔 응용 프로그램 프로젝트인 매퍼와 리듀서가 들어 있습니다. 매퍼 응용 프로그램은 각 단어를 콘솔로 스트림하며, 리듀서 응용 프로그램은 문서에서 스트림된 단어 수를 계산합니다. 매퍼와 리듀서는 둘 다 표준 입력 스트림(stdin)에서 문자를 줄 단위로 읽고 표준 출력 스트림(stdout)에 씁니다.
 
-**C# 콘솔 응용 프로그램 만들기**
-
-1. Visual Studio 2013을 엽니다.
-2. **파일**, **새로 만들기** 및 **프로젝트** 순으로 클릭합니다.
-3. 다음 값을 입력하거나 선택합니다.
-
-
-필드|값
----|---
-템플릿|Visual C#/Windows/Console Application
-이름|WordCountMapper
-위치|C:\\Tutorials
-솔루션 이름|WordCount
-
-
-4. **확인**을 클릭하여 프로젝트를 만듭니다.
-
 **매퍼 프로그램 만들기**
 
-5. 솔루션 탐색기에서 **Program.cs**를 마우스 오른쪽 단추로 클릭한 후 **이름 바꾸기**를 클릭합니다.
-6. 파일의 이름을 **WordCountMapper.cs**로 바꾼 후 **ENTER** 키를 누릅니다.
-7. **예**를 클릭하여 모든 참조의 이름 바꾸기를 확인합니다.
-8. **WordCountMapper.cs**를 두 번 클릭하여 엽니다.
-9. 다음 **using** 문을 추가합니다.
+1. Visual Studio를 열고 **WordCountMapper**라는 새 C# 콘솔 응용 프로그램을 만듭니다.
+2. 솔루션 탐색기에서 **Program.cs**의 이름을 **WordCountMapper.cs**로 바꿉니다. **예**를 클릭하여 모든 참조의 이름 바꾸기를 확인합니다.
+3. WordCountMapper.cs의 코드를 다음과 같이 바꿉니다.
 
-		using System.IO;
+        using System;
+        using System.IO;
 
-10. **Main()** 함수를 다음으로 바꿉니다.
+        namespace WordCountMapper
+        {
+            class WordCountMapper
+            {
+                static void Main(string[] args)
+                {
+                    if (args.Length > 0)
+                    {
+                        Console.SetIn(new StreamReader(args[0]));
+                    }
 
-		static void Main(string[] args)
-		{
-		    if (args.Length > 0)
-		    {
-		        Console.SetIn(new StreamReader(args[0]));
-		    }
+                    string line;
+                    string[] words;
 
-		    string line;
-		    string[] words;
+                    while ((line = Console.ReadLine()) != null)
+                    {
+                        words = line.Split(' ');
 
-		    while ((line = Console.ReadLine()) != null)
-		    {
-		        words = line.Split(' ');
+                        foreach (string word in words)
+                            Console.WriteLine(word.ToLower());
+                    }
+                }
+            }
+        }
 
-		        foreach (string word in words)
-		            Console.WriteLine(word.ToLower());
-		    }
-		}
-
-11. **빌드**를 클릭한 후 **솔루션 빌드**를 클릭하여 매퍼 프로그램을 컴파일합니다.
-
+4. 솔루션을 빌드하고 컴파일 오류가 없는지 확인합니다.
 
 **리듀서 프로그램을 만들기**
 
-1. Visual Studio 2013에서 **파일**, **추가**, **새 프로젝트**를 차례로 클릭합니다.
-2. 다음 값을 입력하거나 선택합니다.
+1. 다른 C# 콘솔 응용 프로그램을 **WordCountReducer**"라는 솔루션에 추가합니다. 위치|C:\\Tutorials\\WordCount
+2. 솔루션 탐색기에서 **Program.cs**의 이름을 **WordCountReducer.cs**로 바꿉니다. **예**를 클릭하여 모든 참조의 이름 바꾸기를 확인합니다.
+3. WordCountReducer.cs의 코드를 다음과 같이 바꿉니다.
+
+        using System;
+        using System.IO;
+
+        namespace WordCountReducer
+        {
+            class WordCountReducer
+            {
+                static void Main(string[] args)
+                {
+                    string word, lastWord = null;
+                    int count = 0;
+
+                    if (args.Length > 0)
+                    {
+                        Console.SetIn(new StreamReader(args[0]));
+                    }
+
+                    while ((word = Console.ReadLine()) != null)
+                    {
+                        if (word != lastWord)
+                        {
+                            if (lastWord != null)
+                                Console.WriteLine("{0}[{1}]", lastWord, count);
+
+                            count = 1;
+                            lastWord = word;
+                        }
+                        else
+                        {
+                            count += 1;
+                        }
+                    }
+                    Console.WriteLine(count);
+                }
+            }
+        }
+
+4. 솔루션을 빌드하고 컴파일 오류가 없는지 확인합니다.
+
+매퍼 및 리듀서 실행 파일을 가져옵니다.
+
+- ..\\WordCountMapper\\bin\\Debug\\WordCountMapper.exe
+- ..\\WordCountReducer\\bin\\Debug\\WordCountReducer.exe
 
-필드|값
----|---
-템플릿|Visual C#/Windows/Console Application
-이름|WordCountReducer
-위치|C:\\Tutorials\\WordCount
-
-3. **솔루션용 디렉터리 만들기** 확인란 선택을 취소하고 **확인**을 클릭하여 프로젝트를 만듭니다.
-4. 솔루션 탐색기에서 **Program.cs**를 마우스 오른쪽 단추로 클릭한 후 **이름 바꾸기**를 클릭합니다.
-5. 파일의 이름을 **WordCountReducer.cs**로 바꾼 후 **Enter** 키를 누릅니다.
-7. **예**를 클릭하여 모든 참조의 이름 바꾸기를 확인합니다.
-8. **WordCountReducer.cs**를 두 번 클릭하여 엽니다.
-9. 다음 **using** 문을 추가합니다.
-
-		using System.IO;
-
-10. **Main()** 함수를 다음으로 바꿉니다.
-
-		static void Main(string[] args)
-		{
-		    string word, lastWord = null;
-		    int count = 0;
-
-		    if (args.Length > 0)
-		    {
-		        Console.SetIn(new StreamReader(args[0]));
-		    }
-
-		    while ((word = Console.ReadLine()) != null)
-		    {
-		        if (word != lastWord)
-		        {
-		            if(lastWord != null)
-		                Console.WriteLine("{0}[{1}]", lastWord, count);
-
-		            count = 1;
-		            lastWord = word;
-		        }
-		        else
-		        {
-		            count += 1;
-		        }
-		    }
-		    Console.WriteLine(count);
-		}
-
-11. **빌드**를 클릭한 후 **솔루션 빌드**를 클릭하여 리듀서 프로그램을 컴파일합니다.
-
-매퍼 및 리듀서 실행 파일의 경로는 다음과 같습니다.
-
-- C:\\Tutorials\\WordCount\\WordCountMapper\\bin\\Debug\\WordCountMapper.exe
-- C:\\Tutorials\\WordCount\\WordCountReducer\\bin\\Debug\\WordCountReducer.exe
-
-
-##에뮬레이터에서 프로그램 테스트
-
-HDInsight Emulator에서 다음을 수행하여 프로그램을 테스트합니다.
-
-1. 에뮬레이터의 파일 시스템에 데이터 업로드
-2. 에뮬레이터의 파일 시스템에 매퍼 및 리듀서 응용 프로그램 업로드
-3. 단어 계산 MapReduce 작업 제출
-4. 작업 상태 확인
-5. 작업 결과 검색
-
-기본적으로 HDInsight Emulator에서는 Hadoop 분산 파일 시스템(HDFS)을 파일 시스템으로 사용합니다. 선택적으로 Azure Blob 저장소를 사용하도록 HDInsight Emulator를 구성할 수 있습니다. 자세한 내용은 [HDInsight Emulator 시작][hdinsight-emulator-wasb]을 참조하세요. 이 섹션에서는 HDFS **copyFromLocal** 명령을 사용하여 파일을 업로드합니다. 다음 섹션에서는 Azure PowerShell을 사용하여 파일을 업로드하는 방법을 보여 줍니다. 다른 방법에 대해서는 [HDInsight에 데이터 업로드][hdinsight-upload-data]를 참조하세요.
-
-이 자습서에서는 다음 폴더 구조를 사용합니다.
-
-폴더|참고
----|---
-\\WordCount|단어 계산 프로젝트의 루트 폴더
-\\WordCount\\Apps|매퍼 및 리듀서 실행 파일 폴더
-\\WordCount\\Input|MapReduce 원본 파일 폴더
-\\WordCount\\Output|MapReduce 출력 파일 폴더
-\\WordCount\\MRStatusOutput|작업 출력 폴더
-
-
-이 자습서에서는 %hadoop\_home% 디렉터리에 있는 .txt 파일을 사용합니다.
-
-> [AZURE.NOTE]Hadoop HDFS 명령은 대/소문자를 구분합니다.
-
-**에뮬레이터의 파일 시스템으로 텍스트 파일 복사**
-
-1. Hadoop 명령줄 창에서 다음 명령을 실행하여 입력 파일용 디렉터리를 만듭니다.
-
-		hadoop fs -mkdir /WordCount/
-		hadoop fs -mkdir /WordCount/Input
-
-	여기에서 사용한 경로는 상대 경로입니다. 이 경로는 다음과 같습니다.
-
-		hadoop fs -mkdir hdfs://localhost:8020/WordCount/Input
-
-2. 다음 명령을 실행하여 HDFS의 입력 폴더로 몇 개의 텍스트 파일을 복사합니다.
-
-		hadoop fs -copyFromLocal %hadoop_home%\share\doc\hadoop\common*.txt \WordCount\Input
-
-3. 다음 명령을 실행하여 업로드된 파일을 나열합니다.
-
-		hadoop fs -ls \WordCount\Input
-
-
-
-
-**에뮬레이터의 파일 시스템에 매퍼 및 리듀서 배포**
-
-1. 바탕 화면에서 Hadoop 명령줄을 열고 HDFS에 /Apps 폴더를 만듭니다.
-
-		hadoop fs -mkdir /WordCount/Apps
-
-2. 다음 명령을 실행합니다.
-
-		hadoop fs -copyFromLocal C:\Tutorials\WordCount\WordCountMapper\bin\Debug\WordCountMapper.exe /WordCount/Apps/WordCountMapper.exe
-		hadoop fs -copyFromLocal C:\Tutorials\WordCount\WordCountReducer\bin\Debug\WordCountReducer.exe /WordCount/Apps/WordCountReducer.exe
-
-3. 다음 명령을 실행하여 업로드된 파일을 나열합니다.
-
-		hadoop fs -ls /WordCount/Apps
-
-	두 개의 .exe 파일이 표시됩니다.
-
-
-**Azure PowerShell을 사용하여 MapReduce 작업 실행**
-
-1. Azure PowerShell을 엽니다. 자세한 내용은 [Azure PowerShell 설치 및 구성][powershell-install]을 참조하세요.
-3. 다음 명령을 실행하여 변수를 설정합니다.
-
-		$clusterName = "http://localhost:50111"
-
-		$mrMapper = "WordCountMapper.exe"
-		$mrReducer = "WordCountReducer.exe"
-		$mrMapperFile = "/WordCount/Apps/WordCountMapper.exe"
-		$mrReducerFile = "/WordCount/Apps/WordCountReducer.exe"
-		$mrInput = "/WordCount/Input/"
-		$mrOutput = "/WordCount/Output"
-		$mrStatusOutput = "/WordCount/MRStatusOutput"
-
-	HDInsight Emulator 클러스터 이름은 "http://localhost:50111"입니다.
-
-4. 다음 명령을 실행하여 스트리밍 작업을 정의합니다.
-
-		$mrJobDef = New-AzureHDInsightStreamingMapReduceJobDefinition -JobName mrWordCountStreamingJob -StatusFolder $mrStatusOutput -Mapper $mrMapper -Reducer $mrReducer -InputPath $mrInput -OutputPath $mrOutput
-		$mrJobDef.Files.Add($mrMapperFile)
-		$mrJobDef.Files.Add($mrReducerFile)
-
-5. 다음 명령을 실행하여 자격 증명 개체를 만듭니다.
-
-		$creds = Get-Credential -Message "Enter password" -UserName "hadoop"
-
-	암호를 입력하라는 메시지가 표시됩니다. 암호는 아무 문자열이나 사용할 수 있습니다. 사용자 이름은 "hadoop"이어야 합니다.
-
-6. 다음 명령을 실행하여 MapReduce 작업을 제출하고 작업이 완료될 때까지 기다립니다.
-
-		$mrJob = Start-AzureHDInsightJob -Cluster $clusterName -Credential $creds -JobDefinition $mrJobDef
-		Wait-AzureHDInsightJob -Credential $creds -job $mrJob -WaitTimeoutInSeconds 3600
-
-	작업이 완료되면 다음과 유사한 출력이 표시됩니다.
-
-		StatusDirectory : /WordCount/MRStatusOutput
-		ExitCode        :
-		Name            : mrWordCountStreamingJob
-		Query           :
-		State           : Completed
-		SubmissionTime  : 11/15/2013 7:18:16 PM
-		Cluster         : http://localhost:50111
-		PercentComplete : map 100%  reduce 100%
-		JobId           : job_201311132317_0034
-
-	출력에서 *job-201311132317-0034*와 같은 작업 ID를 확인할 수 있습니다.
-
-**작업 상태 확인**
-
-1. 바탕 화면에서 **Hadoop YARN 상태**를 클릭하거나 ****http://localhost:50030/jobtracker.jsp**로 이동합니다.
-2. **실행 중** 또는 **완료됨** 범주 아래의 작업 ID를 사용하여 작업을 찾습니다.
-3. 작업이 실패한 경우 **실패** 범주에서 작업 ID를 찾을 수 있습니다. 작업 세부 정보를 열어 디버깅에 유용한 몇몇 정보를 찾아볼 수도 있습니다.
-
-
-**HDFS에서 출력 표시**
-
-1. Hadoop 명령줄을 엽니다.
-2. 다음 명령을 실행하여 출력을 표시합니다.
-
-		hadoop fs -ls /WordCount/Output/
-		hadoop fs -cat /WordCount/Output/part-00000
-
-	페이지 보기를 가져오기 위해 명령의 끝 부분에 "|more"를 추가할 수 있습니다.
 
 ##Azure Blob 저장소에 데이터 업로드
 Azure HDInsight는 Azure Blob 저장소를 기본 파일 시스템으로 사용합니다. HDInsight 클러스터를 구성하여 데이터 파일에 추가 Blob 저장소를 사용할 수도 있습니다. 이 섹션에서는 Azure 저장소 계정을 만들어 Blob 저장소에 데이터 파일을 업로드합니다. 데이터 파일은 %hadoop\_home%\\share\\doc\\hadoop\\common 디렉터리에 있는 .txt 파일입니다.
@@ -523,7 +368,7 @@ Hadoop 스트리밍 작업 제출에 대한 HDInsight .NET SDK 샘플을 보려�
 ##다음 단계
 이 자습서에서는 Hadoop 스트리밍 MapReduce 작업을 개발하는 방법, HDInsight Emulator에서 응용 프로그램을 테스트하는 방법 및 HDInsight 클러스터를 프로비전하고 클러스터에서 MapReduce 작업을 실행하도록 Azure PowerShell 스크립트를 작성하는 방법에 대해 알아보았습니다. 자세한 내용은 다음 문서를 참조하세요.
 
-- [Azure HDInsight 시작](../hdinsight-get-started.md)
+- [Azure HDInsight 시작](hdinsight-hadoop-linux-tutorial-get-started.md)
 - [HDInsight Emulator 시작][hdinsight-get-started-emulator]
 - [HDInsight용 Java MapReduce 프로그램 개발][hdinsight-develop-mapreduce]
 - [HDInsight에서 Azure Blob 저장소 사용][hdinsight-storage]
@@ -542,7 +387,7 @@ Hadoop 스트리밍 작업 제출에 대한 HDInsight .NET SDK 샘플을 보려�
 [hdinsight-get-started-emulator]: ../hdinsight-get-started-emulator.md
 [hdinsight-emulator-wasb]: ../hdinsight-get-started-emulator.md#blobstorage
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
@@ -555,4 +400,4 @@ Hadoop 스트리밍 작업 제출에 대한 HDInsight .NET SDK 샘플을 보려�
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-hadoop-develop-deploy-streaming-jobs/HDI.WordCountDiagram.gif "MapReduce 단어 계산 응용 프로그램 흐름"
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0218_2016-->

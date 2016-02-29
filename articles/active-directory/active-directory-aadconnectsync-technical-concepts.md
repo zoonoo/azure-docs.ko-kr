@@ -13,11 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/16/2016"
 	ms.author="markusvi;andkjell"/>
 
 
 # Azure AD Connect Sync: 기술 개념
+이 문서에서는 [아키텍처 이해](active-directory-aadconnectsync-technical-concepts.md) 항목을 요약합니다.
 
 Azure AD Connect 동기화는 견고한 메타 디렉터리 동기화 플랫폼상에 빌드됩니다. 다음 섹션에서는 메타 디렉터리 동기화에 대한 개념을 소개합니다. MIIS, ILM 및 FIM을 바탕으로 구성된 Azure Active Directory 동기화 서비스는 데이터 원본에 연결, 데이터 원본 사이에 데이터 동기화 및 ID의 프로비전 및 프로비전 해제를 위한 차세대 플랫폼을 제공합니다.
 
@@ -89,4 +90,4 @@ ID가 서로 연결되어 있고 가져오기 흐름 매핑을 통해 기관이 
 <!--Image references-->
 [1]: ./media/active-directory-aadsync-technical-concepts/ic750598.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

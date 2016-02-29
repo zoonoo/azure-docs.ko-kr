@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/11/2015"
+   ms.date="02/11/2016"
    ms.author="jgao"/>
 
 
@@ -25,7 +25,7 @@
 
 이 자습서/학습 가이드는 두 가지 샘플 데이터 집합을 사용하여 창 함수를 적용할 수 있는 샘플 시나리오를 안내합니다. 자세한 내용은 [U-SQL 참조](http://go.microsoft.com/fwlink/p/?LinkId=691348)를 참조하세요.
 
-창 함수의 다음과 같이 분류됩니다.
+창 함수는 다음과 같이 분류됩니다.
 
 - [보고 집계 함수](#reporting-aggregation-functions)(예: SUM 또는 AVG)
 - [순위 함수](#ranking-functions)(예: DENSE\_RANK, ROW\_NUMBER, NTILE, RANK)
@@ -35,9 +35,9 @@
 
 - 다음 두 가지 자습서를 살펴봅니다.
 
-    - [Visual Studio용 Azure 데이터 레이크 도구 사용 시작](data-lake-analytics-use-data-lake-tools.md)
+    - [Visual Studio용 Azure 데이터 레이크 도구 사용 시작](data-lake-analytics-data-lake-tools-get-started.md)
     - [Azure 데이터 레이크 분석 작업에 U-SQL 사용 시작](data-lake-analytics-u-sql-get-started.md)
-- [Visual Studio용 Azure 데이터 레이크 도구 사용 시작](data-lake-analytics-use-data-lake-tools.md)의 지침에 따라 데이터 레이크 분석 계정을 만듭니다.
+- [Visual Studio용 Azure 데이터 레이크 도구 사용 시작](data-lake-analytics-data-lake-tools-get-started.md)의 지침에 따라 데이터 레이크 분석 계정을 만듭니다.
 - [Azure 데이터 레이크 분석 작업에 U-SQL 사용 시작](data-lake-analytics-u-sql-get-started.md)의 지침에 따라 Visual Studio U-SQL 프로젝트를 만듭니다.
 
 ## 샘플 데이터 집합
@@ -136,7 +136,7 @@
             SUM(Salary) AS TotalSalary
         FROM @employees;
     
->[AZURE.NOTE]테스트 및 출력물 검사에 대한 지침은 [Azure 데이터 레이크 분석 작업에 U-SQL 사용 시작](data-lake-analytics-u-sql-get-started.md)을 참조하세요.
+>[AZURE.NOTE] 테스트 및 출력물 검사에 대한 지침은 [Azure 데이터 레이크 분석 작업에 U-SQL 사용 시작](data-lake-analytics-u-sql-get-started.md)을 참조하세요.
 
 결과는 단일 열과 단일 행입니다. 전체 테이블에서 가져온 급여의 합계는 $165000입니다.
 
@@ -144,7 +144,7 @@
 |-----------
 |165000
 
->[AZURE.NOTE]창 함수를 처음 사용한다면 출력물에 포함된 숫자를 기억하는 것이 유용합니다.
+>[AZURE.NOTE] 창 함수를 처음 사용한다면 출력물에 포함된 숫자를 기억하는 것이 유용합니다.
 
 다음 문은 각 부서의 총 급여를 계산하기 위해 GROUP BY 절을 사용합니다.
 
@@ -198,7 +198,7 @@ GROUP BY와 달리 입력 행의 수만큼 출력 행이 있습니다.
 
 165000(모든 급여의 총계)이라는 값은 각 출력 행에 배치됩니다. 해당 총계는 모든 행의 “창”에서 가져온 것이므로 모든 급여를 포함합니다.
 
-다음 예는 모든 직원, 부서, 부서의 총 급여를 나열하도록 “창”을 구체화하는 방법을 보여줍니다. PARTITION BY는 OVER 절에 추가됩니다.
+다음 예는 모든 직원, 부서, 부서의 총 급여를 나열하도록 "창"을 구체화하는 방법을 보여줍니다. PARTITION BY는 OVER 절에 추가됩니다.
 
     @result=
     SELECT
@@ -225,7 +225,7 @@ GROUP BY와 달리 입력 행의 수만큼 출력 행이 있습니다.
 
 
 
-## 보고 집계 함수
+## 집계 함수 보고
 
 창 함수는 다음 집계 함수도 지원합니다.
 
@@ -340,7 +340,7 @@ MIN을 MAX와 바꾸고 시도해 봅니다.
 	        [ORDER BY <identifier, > …[n] [ASC|DESC]] 
 	) AS <alias>
 
-- ORDER BY 절은 순위 함수에서 선택 사항입니다. ORDERY BY를 지정하면 순위의 순서를 결정합니다. ORDER BY를 지정하지 않으면 U-SQL이 레코드 읽는 순서를 기반으로 값을 할당합니다. 따라서 행 번호의 값이 비결정적인 상태가 되며, 이 경우 rank 또는 dense rank에 order by 절이 지정되지 않습니다.
+- ORDER BY 절은 순위 함수에서 선택 사항입니다. ORDER BY를 지정하면 순위의 순서를 결정합니다. ORDER BY를 지정하지 않으면 U-SQL이 레코드 읽는 순서를 기반으로 값을 할당합니다. 따라서 행 번호의 값이 비결정적인 상태가 되며, 이 경우 rank 또는 dense rank에 order by 절이 지정되지 않습니다.
 - NTILE은 양의 정수를 구하는 식을 필요로 합니다. 이 숫자는 각 파티션을 나누는 그룹의 수를 지정합니다. 이 식별자는 NTILE 순위 함수에만 사용됩니다. 
 
 OVER 절에 대한 자세한 내용은 [U-SQL 참조]()를 참조하세요.
@@ -739,8 +739,8 @@ PERCENTILE\_DISC는 값을 보정하지 않으며 따라서 웹에 대한 중간
 - [Azure 데이터 레이크 분석 대화형 자습서 사용](data-lake-analytics-use-interactive-tutorials.md)
 - [Azure 데이터 레이크 분석을 사용하여 웹 사이트 로그 분석](data-lake-analytics-analyze-weblogs.md)
 - [Azure 데이터 레이크 분석 U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md)
-- [Azure 포털을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-use-portal.md)
-- [Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-use-powershell.md)
+- [Azure 포털을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-manage-use-portal.md)
+- [Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-manage-use-powershell.md)
 - [Azure 포털을 사용하여 Azure 데이터 레이크 분석 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0218_2016-->

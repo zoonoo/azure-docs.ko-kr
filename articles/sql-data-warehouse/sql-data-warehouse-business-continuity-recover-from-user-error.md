@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="02/17/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스의 사용자 오류에서 데이터베이스 복구
@@ -25,8 +25,10 @@ SQL 데이터 웨어하우스는 의도하지 않은 데이터 손상 또는 삭
 
 두 기능 모두 동일한 서버의 새 데이터베이스로 복원합니다.
 
+SQL 데이터 웨어하우스 데이터베이스 복원: Azure PowerShell 및 REST API를 지원하는 두 가지 다른 API가 있습니다. 둘 중 하나를 사용하여 SQL 데이터 웨어하우스 복원 기능에 액세스할 수 있습니다.
+
 ## 라이브 데이터베이스 복구
-의도하지 않은 데이터 수정을 유발하는 사용자 오류가 발생한 경우, 데이터베이스를 보존 기간 이내의 임의 복원 지점으로 복원할 수 있습니다. 라이브 데이터베이스에 대한 데이터베이스 스냅숏은 8시간마다 생성되며 7일 동안 유지됩니다.
+의도하지 않은 데이터 수정을 유발하는 사용자 오류가 발생한 경우, 데이터베이스를 보존 기간 이내의 임의 복원 지점으로 복원할 수 있습니다. 라이브 데이터베이스에 대한 데이터베이스 스냅숏은 적어도 8시간마다 생성되며 7일 동안 유지됩니다.
 
 ### PowerShell
 
@@ -136,4 +138,4 @@ Get-AzureSqlDatabaseOperation –ServerName "<YourServerName>" –OperationGuid 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

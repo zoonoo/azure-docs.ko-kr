@@ -36,7 +36,7 @@ Azure SDK for .NET은 다음 제품을 설치합니다.
 - [Microsoft Azure 저장소 에뮬레이터](#stgemulator)
 - [Microsoft Azure 저장소 도구](#stgtools)
 - [.NET용 Microsoft Azure 라이브러리](#libraries)
-- [HDInsight Tools for Visual Studio](#hdinsight) 및 [Microsoft Hive ODBC 드라이버](#hdinsight)
+- [HDInsight Tools for Visual Studio 및 Microsoft Hive ODBC 드라이버](#hdinsight)
 - [Microsoft Azure Mobile App SDK V1.0](#mobile)
 - [Microsoft Azure PowerShell](#ps)
 
@@ -101,7 +101,7 @@ Azure SDK for .NET은 다음 제품을 설치합니다.
 
 서버 탐색기의 HDInsight 도구를 사용하여 Hive 데이터베이스와 HDInsight 클러스터에 대해 연결된 저장소 계정을 탐색하고 테이블을 만들고 Hive 쿼리를 생성 및 전송할 수 있습니다. 자세한 내용은 [Visual Studio용 HDInsight Hadoop 도구 사용 시작](hdinsight/hdinsight-hadoop-visual-studio-tools-get-started.md)을 참조하세요.
 
-###<a id="mobile">Microsoft Azure Mobile App SDK
+###<a id="mobile"></a>Microsoft Azure Mobile App SDK V1.0
 
 [Azure 앱 서비스 모바일 앱](app-service-mobile/app-service-mobile-value-prop.md)으로 작업하기 위한 도구
 
@@ -186,4 +186,4 @@ Azure SDK for .NET 또는 클라이언트 라이브러리를 다운로드하려�
 
 Azure 클라이언트 라이브러리 참조 설명서는 [Azure .NET 참조](/documentation/api/)를 참조하세요.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

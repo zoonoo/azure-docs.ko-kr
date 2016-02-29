@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/11/2015"
+	ms.date="02/17/2016"
 	ms.author="jgao"/>
 
 # Ambari API를 사용하여 HDInsight에서 Hadoop 클러스터 모니터링
 
 Ambari API를 사용하여 HDInsight 클러스터 버전 3.1 및 2.1을 모니터링하는 방법에 대해 알아봅니다.
 
-> [AZURE.NOTE]이 문서의 정보는 주로 Windows 기반 HDInsight 클러스터에 대한 것이며 Ambari REST API의 읽기 전용 버전을 제공합니다. Linux 기반 클러스터는 [Ambari를 사용하여 Hadoop 클러스터 관리](hdinsight-hadoop-manage-ambari.md)를 참조하세요.
+> [AZURE.NOTE] 이 문서의 정보는 주로 Windows 기반 HDInsight 클러스터에 대한 것이며 Ambari REST API의 읽기 전용 버전을 제공합니다. Linux 기반 클러스터는 [Ambari를 사용하여 Hadoop 클러스터 관리](hdinsight-hadoop-manage-ambari.md)를 참조하세요.
 
 ## Ambari 정의
 
@@ -40,19 +40,17 @@ HDInsight는 현재 Ambari 모니터링 기능만 지원합니다. Ambari API 1.
 
 - (선택 사항) [cURL][curl]. 설치하려면 [cURL 릴리스 및 다운로드][curl-download]를 참조하세요.
 
-	>[AZURE.NOTE]Windows에서 cURL 명령을 사용할 때는 옵션 값에 작은따옴표 대신 큰따옴표를 사용합니다.
+	>[AZURE.NOTE] Windows에서 cURL 명령을 사용할 때는 옵션 값에 작은따옴표 대신 큰따옴표를 사용합니다.
 
 - **Azure HDInsight 클러스터**. 클러스터 프로비전에 대한 자세한 내용은 [HDInsight 사용 시작][hdinsight-get-started] 또는 [HDInsight 클러스터 프로비전][hdinsight-provision]을 참조하세요. 자습서를 완료하려면 다음 데이터가 필요합니다.
 
-클러스터 속성|Azure PowerShell 변수 이름|값|설명
----|---|---|---
-HDInsight 클러스터 이름|$clusterName||HDInsight 클러스터의 이름입니다.
-클러스터 사용자 이름|$clusterUsername||프로비전 시 지정된 클러스터 사용자 이름입니다.
-클러스터 암호|$clusterPassword||클러스터 사용자 암호입니다.
+    클러스터 속성|Azure PowerShell 변수 이름|값|설명
+    ---|---|---|---
+    HDInsight 클러스터 이름|$clusterName||HDInsight 클러스터의 이름입니다.
+    클러스터 사용자 이름|$clusterUsername||프로비전 시 지정된 클러스터 사용자 이름입니다.
+    클러스터 암호|$clusterPassword||클러스터 사용자 암호입니다.
 
-	> [AZURE.NOTE] Fill-in the values in the table. This will be helpful for going through this tutorial.
-
-
+    >[AZURE.NOTE] 테이블의 채우기 값입니다. 이 자습서를 완료하는 데 유용합니다.
 
 ## 신속한 시작
 
@@ -163,16 +161,16 @@ Ambari 모니터링 API 호출을 사용하는 방법을 알아보았습니다. 
 
 [microsoft-hadoop-SDK]: http://hadoopsdk.codeplex.com/wikipage?title=Ambari%20Monitoring%20Client
 
-[powershell-install]: ../install-configure-powershell.md
+[powershell-install]: powershell-install-configure.md
 [powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-admin-cli]: hdinsight-administer-use-command-line.md
 [hdinsight-documentation]: /documentation/services/hdinsight/
-[hdinsight-get-started]: ../hdinsight-get-started.md
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

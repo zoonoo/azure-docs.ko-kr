@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/11/2016" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication FAQ
@@ -75,7 +75,8 @@ MFA(Multi-Factor Authentication) 서버 온-프레미스를 사용하면 사용�
 
 Azure Multi-Factor Authentication은 사용자 및 인증 청구 옵션 당 독립 실행형 서비스로 사용 가능하거나 Azure Active Directory Premium, Enterprise Mobility Suite 및 Enterprise Cloud Suite와 함께 제공됩니다. 독립 실행형 서비스는 Azure 약정 금액에 대해 월별로 또는 Microsoft 기업 계약, 오픈 볼륨 라이선스 프로그램, 클라우드 솔루션 공급자 프로그램 및 Direct를 통해 사용할 수 있는 사용자 당 연간 라이선스로 청구되는 소비를 기반으로 사용할 수 있습니다.
 
->[AZURE.IMPORTANT]오스트레일리아 지역은 사업 소재지가 오스트레일리아나 뉴질랜드로 되어 있는 고객만 사용할 수 있습니다.
+>[AZURE.IMPORTANT]
+오스트레일리아 지역은 사업 소재지가 오스트레일리아나 뉴질랜드로 되어 있는 고객만 사용할 수 있습니다.
 
 청구 모델 | 가격
 ------------- | ------------- |
@@ -136,7 +137,7 @@ Azure Multi-Factor Authentication은 사용자 및 인증 청구 옵션 당 독�
 앱 암호 만들기에 대한 자세한 내용은 [앱 암호에 대한 도움말](multi-factor-authentication-end-user-app-passwords.md)을 참조하세요.
 
 
->[AZURE.NOTE]Office 2013 클라이언트에 대한 최신 인증
+>[AZURE.NOTE] Office 2013 클라이언트에 대한 최신 인증
 >
 > Office 2013 클라이언트(Outlook 포함)는 이제 새 인증 프로토콜을 지원하고 Multi-Factor Authentication을 지원하도록 설정할 수 있습니다. 즉, 일단 이렇게 설정되면 Office 2013 클라이언트에서 앱 암호를 사용할 필요가 없습니다. 자세한 내용은 [발표된 Office 2013 최신 인증 공개 미리 보기](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/)를 참조하세요.
 
@@ -179,4 +180,4 @@ Azure MFA 서버는 Windows Server 2012 이전 버전에서 LSA 보안 패키지
 
 이 문제를 해결하려면 관리 관련 작업용 사용자 계정과 비관리 관련 작업용 사용자 계정을 따로 두어야 합니다. 나중에 관리 계정과 비관리 계정 간의 사서함을 연결하면 비관리 계정을 사용하여 Outlook에 로그인할 수 있습니다. 이에 대한 자세한 내용은 [관리자에게 사용자의 사서함 내용을 열고 보는 기능 제공](http://help.outlook.com/141/gg709759(d=loband).aspx?sl=1))을 참조하세요.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

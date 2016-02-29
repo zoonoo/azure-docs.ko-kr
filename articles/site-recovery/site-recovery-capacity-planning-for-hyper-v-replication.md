@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Hyper-V 가상 컴퓨터 복제를 위한 용량 계획"
-	description="이 문서에서는 Hyper-V 용량 플래너 도구를 Azure Site Recovery에 사용하는 방법에 대해 설명합니다."
+	pageTitle="Site Recovery용 Hyper-V Capacity Planner 도구 실행 | Microsoft Azure"
+	description="이 문서에는 Azure Site Recovery용 Hyper-V Capacity Planner 도구를 사용하는 방법에 대한 설명이 포함되어 있습니다."
 	services="site-recovery"
 	documentationCenter="na"
 	authors="rayne-wiselman"
@@ -9,15 +9,19 @@
 <tags
 	ms.service="site-recovery"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="12/01/2015"
+	ms.date="02/15/2016"
 	ms.author="raynew" />
 
-# Hyper-V 가상 컴퓨터 복제를 위한 용량 계획
+# Site Recovery용 Hyper-V Capacity Planner 도구 실행
 
-Azure Site Recovery에서는 Hyper-V 복제본을 사용하여 온-프레미스 사이트의 Hyper-V 가상 컴퓨터를 Azure나 보조 데이터센터에 복제합니다. 사이트 복구용 용량 플래너 도구를 사용하면 Hyper-V 가상 컴퓨터 복제를 위한 복제 및 대역폭 요구 사항을 확인할 수 있습니다.
+Azure Site Recovery 배포의 일환으로 복제 및 대역폭 요구 사항을 파악해야 합니다. Site Recovery용 Hyper-V Capacity Planner 도구를 사용하면 Hyper-V 가상 컴퓨터 복제를 위한 복제 및 대역폭 요구 사항을 확인할 수 있습니다.
+
+
+이 문서에서는 Hyper-V Capacity Planner 도구를 실행하는 방법을 설명합니다. 이 도구는 [Site Recovery에 대한 용량 계획](site-recovery-capacity-planner.md)에 설명된 용량 계획 도구 및 정보와 함께 사용해야 합니다.
+
 
 ## 시작하기 전에
 
@@ -32,7 +36,7 @@ Azure Site Recovery에서는 Hyper-V 복제본을 사용하여 온-프레미스 
 
 
 ## 1단계: 기본 사이트 준비
-1. 기본 사이트에서 복제하려는 모든 Hyper-V 가상 컴퓨터와, 이들이 위치한 Hyper-V 호스트/클러스터의 목록을 작성합니다. 도구는 여러 독립 실행형 호스트에 대해 각각 실행하거나, 단일 클러스터에 대해 실행할 수 있지만 둘 다 함께는 실행할 수 없습니다. 또한 각 운영 체제마다 개별적으로 실행해야 하므로 다음과 같이 Hyper-V 서버를 취합하고 확인해야 합니다. 
+1. 기본 사이트에서 복제하려는 모든 Hyper-V 가상 컴퓨터와, 이들이 위치한 Hyper-V 호스트/클러스터의 목록을 작성합니다. 도구는 여러 독립 실행형 호스트에 대해 각각 실행하거나, 단일 클러스터에 대해 실행할 수 있지만 둘 다 함께는 실행할 수 없습니다. 또한 각 운영 체제마다 개별적으로 실행해야 하므로 다음과 같이 Hyper-V 서버를 취합하고 확인해야 합니다.
 
   - Windows Server® 2012 독립 실행형 서버
   - Windows Server® 2012 클러스터
@@ -57,8 +61,8 @@ Azure에 복제하는 경우 이 작업을 수행할 필요가 없습니다.
 
 	- **서버 관리자**에서 **장애 조치 클러스터 관리자**를 엽니다.
 	- 클러스터에 연결하고 클러스터 이름을 강조 표시한 다음 **작업** > **역할 구성**을 클릭하여 고가용성 마법사를 엽니다.
-	- **역할 선택**에서 **Hyper-v 복제본 브로커**를 클릭합니다. 이 마법사에서 클러스터에 대한 연결점으로 사용할 **NetBIOS 이름** 및 **IP 주소**를 입력합니다(클라이언트 액세스 지점이라고 함). **Hyper-V 복제본 브로커**가 구성되며 이에 따라 생성된 클라이언트 액세스 지점 이름을 기억해 두어야 합니다. 
-	- Hyper-V 복제본 Broker 역할이 성공적으로 온라인 상태가 되었는지, 모든 클러스터 노드 사이에서 장애 조치할 수 있는지 확인합니다. 이렇게 하려면 해당 역할을 마우스 오른쪽 단추로 클릭하고 **이동**을 가리킨 다음 **노드 선택**을 클릭합니다. 노드 > **OK**를 선택합니다. 
+	- **역할 선택**에서 **Hyper-v 복제본 브로커**를 클릭합니다. 이 마법사에서 클러스터에 대한 연결점으로 사용할 **NetBIOS 이름** 및 **IP 주소**를 입력합니다(클라이언트 액세스 지점이라고 함). **Hyper-V 복제본 브로커**가 구성되며 이에 따라 생성된 클라이언트 액세스 지점 이름을 기억해 두어야 합니다.
+	- Hyper-V 복제본 Broker 역할이 성공적으로 온라인 상태가 되었는지, 모든 클러스터 노드 사이에서 장애 조치할 수 있는지 확인합니다. 이렇게 하려면 해당 역할을 마우스 오른쪽 단추로 클릭하고 **이동**을 가리킨 다음 **노드 선택**을 클릭합니다. 노드 > **OK**를 선택합니다.
 	- 인증서 기반 인증을 사용하는 경우 각 클러스터 노드와 클라이언트 액세스 지점에 모두 인증서가 설치되었는지 확인합니다.
 2.  복제본 서버를 활성화합니다.
 
@@ -73,7 +77,7 @@ Azure에 복제하는 경우 이 작업을 수행할 필요가 없습니다.
 
 	- **netsh http show servicestate**를 실행하여 지정한 프로토콜/포트에 대해 수신기가 실행 중인지 확인합니다.  
 4. 방화벽을 설정합니다. Hyper-V 설치 중에, 기본 포트(443의 HTTPS, 80의 Kerberos)에서 트래픽을 허용하는 방화벽 규칙이 생성됩니다. 이러한 규칙을 다음과 같이 활성화합니다.
-	
+
 		- Certificate authentication on cluster (443): **Get-ClusterNode | ForEach-Object {Invoke-command -computername \$\_.name -scriptblock {Enable-Netfirewallrule -displayname "Hyper-V Replica HTTPS Listener (TCP-In)"}}**
 		- Kerberos authentication on cluster (80): **Get-ClusterNode | ForEach-Object {Invoke-command -computername \$\_.name -scriptblock {Enable-Netfirewallrule -displayname "Hyper-V Replica HTTP Listener (TCP-In)"}}**
 		- Certificate authentication on standalone server: **Enable-Netfirewallrule -displayname "Hyper-V Replica HTTPS Listener (TCP-In)"**
@@ -127,14 +131,18 @@ Azure에 복제하는 경우 이 작업을 수행할 필요가 없습니다.
 
 - 도구에 대한 자세한 정보는 도구 다운로드에 포함된 문서를 확인하세요.
 - Keith Mayer의 [TechNet 블로그](http://blogs.technet.com/b/keithmayer/archive/2014/02/27/guided-hands-on-lab-capacity-planner-for-windows-server-2012-hyper-v-replica.aspx)에서 제공하는 도구 안내를 확인하세요.
-- 온-프레미스 간 Hyper-V 복제를 위한 성능 테스트 [결과 보기](http://blogs.technet.com/b/keithmayer/archive/2014/02/27/guided-hands-on-lab-capacity-planner-for-windows-server-2012-hyper-v-replica.aspx)
+- 온-프레미스 간 Hyper-V 복제를 위한 성능 테스트 [결과 보기](site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md)
 
 
 
 ## 다음 단계
 
+용량 계획을 마친 후에는 Site Recovery 배포를 시작할 수 있습니다.
+
 - [온-프레미스 VMM 사이트와 Azure 간 보호 설정](site-recovery-vmm-to-azure.md)
 - [온-프레미스 Hyper-V 사이트와 Azure 간 보호 설정](site-recovery-hyper-v-site-to-azure.md)
 - [2개의 온-프레미스 VMM 사이트 간 보호 설정](site-recovery-vmm-to-vmm.md)
+- [SAN으로 2개의 온-프레미스 VMM 사이트 간 보호 설정](site-recovery-vmm-san.md)
+- [단일 VMM 서버로 보호 설정](site-recovery-single-vmm.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

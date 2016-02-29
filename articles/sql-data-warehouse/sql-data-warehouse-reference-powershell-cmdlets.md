@@ -27,7 +27,7 @@ SQL 데이터 웨어하우스는 Azure PowerShell cmdlet 또는 REST API를 사�
 ## Azure PowerShell cmdlet을 다운로드하여 실행합니다.
 
 1. Azure PowerShell 모듈을 다운로드하려면 [Microsoft 웹 플랫폼 설치 관리자](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)를 실행합니다. 
-2. 모듈을 실행하려면 시작 창에서 **Microsoft Azure PowerShell**을 입력합니다.
+2. 모듈을 실행하려면 시작 창에서 **Windows PowerShell**을 입력합니다.
 3. 아직 컴퓨터에 계정을 추가하지 않았다면 다음 cmdlet을 실행합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법]()을 참조하세요.
 
 	```
@@ -133,4 +133,4 @@ $retorePoints
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

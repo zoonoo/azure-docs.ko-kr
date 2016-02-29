@@ -4,7 +4,7 @@
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="load-balancer"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/02/2015"
+   ms.date="02/02/2016"
    ms.author="joaoma" />
 
 
@@ -42,7 +42,7 @@
 
 	Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Protocol TCP -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution sourceIP | Update-AzureVM
 
->[AZURE.NOTE]LoadBalancerDistribution은 2개 튜플(원본 IP, 대상 IP) 부하 분산의 경우 sourceIP로, 3개 튜플(원본 IP, 대상 IP, 프로토콜) 부하 분산의 경우 sourceIPProtocol로 설정할 수 있으며 5개 튜플 부하 분산의 기본 동작을 원하는 경우 none으로 설정할 수 있습니다.
+>[AZURE.NOTE] LoadBalancerDistribution은 2개 튜플(원본 IP, 대상 IP) 부하 분산의 경우 sourceIP로, 3개 튜플(원본 IP, 대상 IP, 프로토콜) 부하 분산의 경우 sourceIPProtocol로 설정할 수 있으며 5개 튜플 부하 분산의 기본 동작을 원하는 경우 none으로 설정할 수 있습니다.
 
 
 끝점 부하 분산 장치 배포 모드 구성 검색
@@ -149,4 +149,4 @@ LoadBalancerDistribution의 값은 2개 튜플 선호도의 경우 sourceIP로, 
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

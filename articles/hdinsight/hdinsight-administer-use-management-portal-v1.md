@@ -36,14 +36,14 @@ Azure 클래식 포털뿐 아니라 HDInsight 관리에 사용할 수 있는 기
 이 문서를 시작하기 전에 다음이 있어야 합니다.
 
 - **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
-- **Azure 저장소 계정** - HDInsight 클러스터는 Azure Blob 저장소 컨테이너를 기본 파일 시스템으로 사용합니다. Azure Blob 저장소가 HDInsight 클러스터에서 매끄럽게 작동하는 방식에 대한 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용](../hdinsight-use-blob-storage.md)을 참조하세요. Azure 저장소 계정 만들기에 대한 자세한 내용은 [저장소 계정을 만드는 방법](../storage-create-storage-account.md)을 참조하세요.
+- **Azure 저장소 계정** - HDInsight 클러스터는 Azure Blob 저장소 컨테이너를 기본 파일 시스템으로 사용합니다. Azure Blob 저장소가 HDInsight 클러스터에서 매끄럽게 작동하는 방식에 대한 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용](hdinsight-hadoop-use-blob-storage.md)을 참조하세요. Azure 저장소 계정 만들기에 대한 자세한 내용은 [저장소 계정을 만드는 방법](../storage/storage-create-storage-account.md)을 참조하세요.
 
 
 ##HDInsight 클러스터 프로비전
 
 빠른 생성 또는 사용자 지정 만들기 옵션을 사용하여 Azure 클래식 포털에서 HDInsight 클러스터를 프로비전할 수 있습니다. 자세한 내용은 다음 링크를 참조하세요.
 
-- [빠른 생성을 사용하여 클러스터 프로비전](../hdinsight-get-started.md#provision)
+- [빠른 생성을 사용하여 클러스터 프로비전](hdinsight-hadoop-linux-tutorial-get-started.md)
 - [사용자 지정 만들기를 사용하여 클러스터 프로비전](hdinsight-provision-clusters.md#portal)
 
 [AZURE.INCLUDE [데이터 센터 목록](../../includes/hdinsight-pricing-data-centers-clusters.md)]
@@ -182,7 +182,7 @@ HDInsight 클러스터에는 다음과 같은 HTTP 웹 서비스가 있습니다
 	cd %hcatalog_home%
 
 ##클러스터 크기 조정
-[HDInsight에서 Hadoop 클러스터 프로비전](hdinsight-hadoop-cluster-scaling.md)을 참조하세요.
+[HDInsight에서 Hadoop 클러스터 프로비전](hdinsight-administer-use-management-portal.md#scale-clusters)을 참조하세요.
 
 ##다음 단계
 이 문서에서는 Azure 클래식 포털을 사용하여 HDInsight 클러스터를 만드는 방법 및 Hadoop 명령줄 도구를 여는 방법을 배웠습니다. 자세한 내용은 다음 문서를 참조하세요.
@@ -191,11 +191,11 @@ HDInsight 클러스터에는 다음과 같은 HTTP 웹 서비스가 있습니다
 * [Azure CLI를 사용하여 HDInsight 관리](hdinsight-administer-use-command-line.md)
 * [HDInsight 클러스터 프로비전](hdinsight-provision-clusters.md)
 * [프로그래밍 방식으로 Hadoop 작업 제출](hdinsight-submit-hadoop-jobs-programmatically.md)
-* [Azure HDInsight 시작](../hdinsight-get-started.md)
+* [Azure HDInsight 시작](hdinsight-hadoop-linux-tutorial-get-started.md)
 * [Azure HDInsight에 포함된 Hadoop 버전](hdinsight-component-versioning.md)
 
 [image-hdi-create-rpd-user]: ./media/hdinsight-administer-use-management-portal-v1/hdi.createrdpuser.png
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal-v1/hdinsight-hadoop-command-line.png "Hadoop 명령줄"
 [image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal-v1/hdi.clustercreate.uploadcert.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

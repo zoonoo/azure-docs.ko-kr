@@ -24,9 +24,9 @@
 
 **예상 완료 시간:** 20분
 
-Azure 키 자격 증명 모음에 대한 개요는 [Azure 키 자격 증명 모음이란?](key-vault/key-vault-whatis.md)을 참조하세요.
+Azure 키 자격 증명 모음에 대한 개요는 [Azure 키 자격 증명 모음이란?](../key-vault/key-vault-whatis.md)을 참조하세요.
 
-Azure 저장소에 대한 클라이언트 쪽 암호화의 개요 정보는 [Microsoft Azure 저장소에 대한 클라이언트 쪽 암호화 시작](storage-client-side-encryption.md)을 참조하세요.
+Azure 저장소에 대한 클라이언트 쪽 암호화의 개요 정보는 [Microsoft Azure 저장소에 대한 클라이언트 쪽 암호화 및 Azure 키 자격 증명 모음](storage-client-side-encryption.md)을 참조하세요.
 
 
 ## 필수 조건
@@ -40,7 +40,7 @@ Azure 저장소에 대한 클라이언트 쪽 암호화의 개요 정보는 [Mic
 
 ## 클라이언트 쪽 암호화 개요
 
-Azure 저장소에 대한 클라이언트 쪽 암호화의 개요는 [Microsoft Azure 저장소에 대한 클라이언트 쪽 암호화 시작](storage-client-side-encryption.md)을 참조하세요.
+Azure 저장소에 대한 클라이언트 쪽 암호화의 개요는 [Microsoft Azure 저장소에 대한 클라이언트 쪽 암호화 및 Azure 키 자격 증명 모음](storage-client-side-encryption.md)을 참조하세요.
 
 클라이언트 쪽 암호화의 작동 원리에 대한 간단한 설명은 다음과 같습니다.
 
@@ -51,7 +51,7 @@ Azure 저장소에 대한 클라이언트 쪽 암호화의 개요는 [Microsoft 
 
 
 ## Azure 키 자격 증명 모음 설정
-이 자습서를 계속하려면 자습서 [Azure 키 자격 증명 모음 시작](key-vault/key-vault-get-started.md)에 요약된 다음 단계를 수행해야 합니다.
+이 자습서를 계속하려면 자습서 [Azure 키 자격 증명 모음 시작](../key-vault/key-vault-get-started.md)에 요약된 다음 단계를 수행해야 합니다.
 
 - 키 자격 증명 모음을 만듭니다.
 - 키 또는 암호를 키 자격 증명 모음에 추가합니다.
@@ -235,4 +235,4 @@ Microsoft Azure 저장소에 관한 최신 정보를 보려면 [Microsoft Azure 
 <!--Image references-->
 [1]: ./media/storage-encrypt-decrypt-blobs-key-vault/blobmetadata.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

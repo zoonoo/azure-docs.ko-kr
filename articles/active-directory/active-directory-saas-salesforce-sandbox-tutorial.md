@@ -1,5 +1,6 @@
 <properties 
-    pageTitle="자습서: Salesforce Sandbox와 Azure Active Directory 통합 | Microsoft Azure" description="Azure Active Directory에서 Salesforce Sandbox를 사용하여 Single Sign-On, 자동화된 프로비저닝 등을 사용하도록 설정하는 방법을 알아봅니다." 
+    pageTitle="자습서: Salesforce Sandbox와 Azure Active Directory 통합 | Microsoft Azure"
+    description="Azure Active Directory에서 Salesforce Sandbox를 사용하여 Single Sign-On, 자동화된 프로비저닝 등을 사용하도록 설정하는 방법을 알아봅니다." 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -18,9 +19,7 @@
 #자습서: Salesforce Sandbox와 Azure Active Directory 통합
 >[AZURE.TIP]피드백을 보내려면 [여기](http://go.microsoft.com/fwlink/?LinkId=521878)를 클릭하세요.
   
-이 자습서는 Azure 및 Salesforce Sandbox의 통합을 보여 주기 위한 것입니다.  
-샌드박스는 Salesforce 프로덕션 조직에서 데이터 및 응용 프로그램을 손상시키지 않고 개발, 테스트 및 훈련과 같은 다양한 목적으로 별도의 환경에서 조직의 여러 복사본을 만들 수 있는 기능을 제공합니다.  
-자세한 내용은 [샌드박스 개요](https://help.salesforce.com/HTViewHelpDoc?id=create_test_instance.htm&language=en_US)를 참조하세요.
+이 자습서는 Azure 및 Salesforce Sandbox의 통합을 보여 주기 위한 것입니다. 샌드박스는 Salesforce 프로덕션 조직에서 데이터 및 응용 프로그램을 손상시키지 않고 개발, 테스트 및 훈련과 같은 다양한 목적으로 별도의 환경에서 조직의 여러 복사본을 만들 수 있는 기능을 제공합니다. 자세한 내용은 [샌드박스 개요](https://help.salesforce.com/HTViewHelpDoc?id=create_test_instance.htm&language=en_US)를 참조하세요.
   
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
@@ -112,8 +111,8 @@ Salesforce.com에 유효한 샌드박스가 없는 경우 Salesforce에 문의�
 
     1.  이름 텍스트 상자에 구성의 이름을 입력합니다(예: *SPSSOWAAD\_Test*).
     2.  Azure 포털의 **Salesforce Sandbox에서 Single Sign-On 구성** 대화 상자 페이지에서 **발급자 URL** 값을 복사한 다음 **발급자** 텍스트 상자에 붙여 넣습니다.
-    3.  디렉터리에 처음으로 추가하는 Salesforce Sandbox 인스턴스인 경우 **엔터티 ID** 텍스트 상자에 **https://test.salesforce.com**을 입력합니다. Salesforce Sandbox의 인스턴스를 이미 추가한 경우에는 **엔터티 ID**에 **로그온 URL**을 입력합니다. 형식은 다음과 같아야 합니다. `http://company.my.salesforce.com`
-    4.  다운로드한 인증서를 업로드하려면 **찾아보기**를 클릭합니다.
+    3.  디렉터리에 처음으로 추가하는 Salesforce Sandbox 인스턴스인 경우 **엔터티 ID** 텍스트 상자에 ****https://test.salesforce.com**을 입력합니다. Salesforce Sandbox의 인스턴스를 이미 추가한 경우에는 **엔터티 ID**에 **로그온 URL**을 입력합니다. 형식은 다음과 같아야 합니다. `http://company.my.salesforce.com`
+4.  다운로드한 인증서를 업로드하려면 **찾아보기**를 클릭합니다.
     5.  **SAML ID 유형**으로 **사용자 개체에서 페더레이션 ID를 포함하는 어설션**을 선택합니다.
     6.  **SAML ID 위치**로 **Subject 문의 NameIdentifier 요소에 ID 포함**을 선택합니다.
     7.  Azure 포털의 **Salesforce Sandbox에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **ID 공급자 로그인 URL** 텍스트 상자에 붙여 넣습니다.
@@ -193,7 +192,7 @@ Salesforce.com에 유효한 샌드박스가 없는 경우 Salesforce에 문의�
 
 1.  Azure AD 포털에서 테스트 계정을 만듭니다.
 
-2.  **Salesforce Sandbox**응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+2.  **Salesforce Sandbox **응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
 
     ![사용자 할당](./media/active-directory-saas-salesforce-sandbox-tutorial/IC769574.png "사용자 할당")
 
@@ -205,4 +204,4 @@ Salesforce.com에 유효한 샌드박스가 없는 경우 Salesforce에 문의�
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하세요.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -12,14 +12,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/05/2016"
+    ms.date="02/14/2016"
     ms.author="dineshm"/>
 
 # C++에서 Azure 저장소 리소스 나열
 
 목록 작업은 Azure 저장소를 사용하는 다양한 배포 시나리오에 중요합니다. 이 문서에서는 Microsoft Azure Storage Client Library for C++에서 제공된 API 목록을 사용하여 Microsoft Azure 저장소에서 개체를 보다 효율적으로 열거하는 방법에 대해 설명합니다.
 
->[AZURE.NOTE] 이 가이드는 [NuGet](http://www.nuget.org/packages/wastorage) 또는 [GitHub](https://github.com/Azure/azure-storage-cpp)를 통해 사용할 수 있는 Azure Storage Client Library for C++ 버전 1.x을(를) 대상으로 합니다.
+>[AZURE.NOTE] 이 가이드는 [NuGet](http://www.nuget.org/packages/wastorage) 또는 [GitHub](https://github.com/Azure/azure-storage-cpp)를 통해 사용할 수 있는 Azure Storage Client Library for C++ 버전 2.x을(를) 대상으로 합니다.
 
 Storage Client Library는 Azure 저장소에서 개체를 나열 또는 쿼리하는 다양한 방법을 제공합니다. 이 문서는 다음과 같은 시나리오를 다룹니다.
 
@@ -33,7 +33,7 @@ Storage Client Library는 Azure 저장소에서 개체를 나열 또는 쿼리�
 
 ## 비동기 및 동기
 
-Storage Client Library for C++는 [C++ REST 라이브러리(Casablanca 프로젝트)](http://casablanca.codeplex.com/) 상단에 기본 제공되어 있기 때문에 [pplx::task](http://microsoft.github.io/cpprestsdk/classpplx_1_1task.html)를 사용하여 기본적으로 비동기 작업을 지원합니다. 예:
+Storage Client Library for C++는 [C++ REST 라이브러리](https://github.com/Microsoft/cpprestsdk) 상단에 기본 제공되어 있기 때문에 [pplx::task](http://microsoft.github.io/cpprestsdk/classpplx_1_1task.html)를 사용하여 기본적으로 비동기 작업을 지원합니다. 예:
 
 	pplx::task<list_blob_item_segment> list_blobs_segmented_async(continuation_token& token) const;
 
@@ -162,7 +162,7 @@ lazy 목록은 동기화 모드에서만 사용할 수 있습니다.
 
 greedy 목록에 비해 lazy 목록은 필요한 경우에만 데이터를 가져옵니다. 내부적으로 다음 반복기가 다음 세그먼트로 이동할 때에만 Azure 저장소에서 데이터를 가져옵니다. 따라서 메모리 사용량이 한계 크기로 제어되며 작업이 빠릅니다.
 
-lazy 목록 API는 Storage Client Library for C++ 버전 1.0.0에 포함됩니다.
+lazy 목록 API는 Storage Client Library for C++ 버전 2.2.0에 포함됩니다.
 
 ## 결론
 
@@ -184,4 +184,4 @@ Azure 저장소 및 Storage Client Library for C++에 대한 자세한 내용은
 -	[Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)
 -	[Azure 저장소 설명서](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

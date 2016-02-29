@@ -1,4 +1,4 @@
-Microsoft Azure 저장소 계정의 데이터는 항상 내구성 및 고가용성을 보증하도록 복제되며 일시적인 하드웨어 오류가 발생 하는 경우에도 [Azure 저장소 SLA](https://azure.microsoft.com/support/legal/sla/)을 충족합니다. 저장소 계정을 만들면 다음 복제 옵션 중 하나를 선택해야 합니다.
+Microsoft Azure 저장소 계정의 데이터는 항상 내구성 및 고가용성을 보증하도록 복제되며 일시적인 하드웨어 오류가 발생 하는 경우에도 [저장소용 SLA](https://azure.microsoft.com/support/legal/sla/storage/)을 충족합니다. 저장소 계정을 만들면 다음 복제 옵션 중 하나를 선택해야 합니다.
 
 - **LRS(로컬 중복 저장소)** 로컬 중복 저장소는 데이터의 복제본 3개를 유지 관리합니다. LRS는 단일 지역의 단일 시설 내에서 3번 복제됩니다. LRS는 단일 시설의 오류가 아닌 일반적인 하드웨어 오류로부터 데이터를 보호합니다.  
   
@@ -22,8 +22,8 @@ Microsoft Azure 저장소 계정의 데이터는 항상 내구성 및 고가용�
  
 저장소 복제 옵션에 대한 자세한 내용은 [Azure 저장소 복제](../articles/storage/storage-redundancy.md)를 참조하세요.
 
-저장소 계정 복제에 대한 가격 정보는 [저장소 가격 정보](https://azure.microsoft.com/pricing/details/storage/)를 참조하십시오.
+저장소 계정 복제에 대한 가격 정보는 [Azure 저장소 가격](https://azure.microsoft.com/pricing/details/storage/)을 참조하세요.
 
-Azure 저장소를 통한 지속성에 대한 구조적인 세부 사항은 [Azure 저장소 SOSP 문서](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)를 참조하세요.
+Azure 저장소를 통한 지속성에 대한 구조적인 세부 사항은 [SOSP 문서 - Azure 저장소: 일관성과 가용성이 뛰어난 클라우드 저장소 서비스](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)를 참조하세요.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

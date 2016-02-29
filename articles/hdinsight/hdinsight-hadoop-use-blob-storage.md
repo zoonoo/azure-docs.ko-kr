@@ -71,7 +71,7 @@ Hive, MapReduce, Hadoop 스트리밍 및 Pig를 비롯한 여러 WebHCat 작업�
 구조적 및 비구조적 데이터에 대한 Blob 저장소를 사용할 수 있습니다. Blob 저장소 컨테이너는 키/값 쌍으로 데이터를 저장하며, 디렉터리 계층 구조는 없습니다. 그러나 파일이 디렉터리 구조 내에 저장된 것처럼 보이도록 키 이름에 슬래쉬 문자(/)를 사용할 수 있습니다. 예를 들어 Blob의 키 이름을 *input/log1.txt*로 지정할 수 있습니다. 실제로*input* 디렉터리는 없지만 키 이름에 슬래쉬 문자가 있으므로 파일 경로처럼 보입니다.
 
 ###<a id="benefits"></a>Blob 저장소의 이점
-계산 클러스터 및 저장소 공동 배치에 따른 암시적 성능 비용은 계산 클러스터를 Azure 데이터 센터 내에서 저장소 계정 리소스 근처에 만드는 방식으로 완화되어 고속 네트워크 환경에서는 계산 노드가 Azure Blob 저장소 내 데이터에 매우 효율적으로 액세스할 수 있습니다.
+계산 클러스터 및 저장소 리소스의 공동 배치에 따른 암시적 성능 비용은 계산 클러스터를 Azure 지역 내의 저장소 계정 리소스 근처에 만드는 방식으로 완화됩니다. 여기서 고속 네트워크 환경은 계산 노드가 Azure Blob 저장소 내에 있는 데이터에 매우 효율적으로 액세스하도록 합니다.
 
 HDFS 대신Azure Blob 저장소에 데이터를 저장할 경우 몇 가지 이점이 있습니다:
 
@@ -87,7 +87,7 @@ HDFS 대신Azure Blob 저장소에 데이터를 저장할 경우 몇 가지 이�
 
 ## Blob 컨테이너 만들기
 
-Blob을 사용하려면 먼저 [Azure 저장소 계정][azure-storage-create]을 만듭니다. 이 작업의 일부로, 이 계정을 사용하여 만드는 개체를 저장할 Azure 데이터 센터를 지정합니다. 클러스터와 저장소 계정은 동일한 데이터 센터에서 호스팅되어야 합니다. Hive 메타 스토어 SQL Server 데이터베이스 및 Oozie 메타 스토어 SQL Server 데이터베이스도 동일한 데이터 센터에서 찾아야 합니다.
+Blob을 사용하려면 먼저 [Azure 저장소 계정][azure-storage-create]을 만듭니다. 이 작업의 일부로, 이 계정을 사용하여 만드는 개체를 저장할 Azure 지역을 지정합니다. 클러스터와 저장소 계정은 동일한 지역에서 호스팅되어야 합니다. Hive Metastore SQL Server 데이터베이스 및 Oozie Metastore SQL Server 데이터베이스도 동일한 지역에 위치해야 합니다.
 
 어디에 있든, 만들어진 각 Blob은 Azure 저장소 계정의 일부 컨테이너에 속합니다. 이 컨테이너는 HDInsight 외부에 생성된 기존 Blob일 수도 있고 HDInsight 클러스터용으로 생성된 컨테이너일 수도 있습니다.
 
@@ -155,7 +155,7 @@ HDInsight에서 Blob 저장소의 파일에 액세스하기 위한 URI 체계는
 
 
 
-URI 체계는 암호화되지 않은 액세스(*wasb:* 접두사가 있음)와 SSL로 암호화된 액세스(*wasbs*가 있음)를 제공합니다. Azure의 동일한 데이터 센터에 있는 데이터에 액세스하는 경우에도 가능하면 *wasbs*를 사용하는 것이 좋습니다.
+URI 체계는 암호화되지 않은 액세스(*wasb:* 접두사가 있음)와 SSL로 암호화된 액세스(*wasbs*가 있음)를 제공합니다. Azure의 동일한 지역에 있는 데이터에 액세스하는 경우에도 가능하면 *wasbs*를 사용하는 것이 좋습니다.
 
 &lt;BlobStorageContainerName&gt;은 Azure Blob 저장소에서 컨테이너의 이름을 식별합니다. &lt;StorageAccountName&gt;은 Azure 저장소 계정 이름을 식별합니다. FQDN(정규화된 도메인 이름)이 필요합니다.
 
@@ -286,7 +286,7 @@ URI 체계는 암호화되지 않은 액세스(*wasb:* 접두사가 있음)와 S
 * [Azure 저장소 공유 액세스 서명을 사용하여 HDInsight에서 데이터 액세스 제한][hdinsight-use-sas]
 
 [hdinsight-use-sas]: hdinsight-storage-sharedaccesssignature-permissions.md
-[powershell-install]: ../install-configure-powershell.md
+[powershell-install]: powershell-install-configure.md
 [hdinsight-creation]: hdinsight-provision-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-tutorial-get-started-windows.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
@@ -300,4 +300,4 @@ URI 체계는 암호화되지 않은 액세스(*wasb:* 접두사가 있음)와 S
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

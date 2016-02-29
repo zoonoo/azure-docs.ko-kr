@@ -112,7 +112,7 @@ Oozie에는 작업을 같은 디렉터리에 저장하는 데 사용되는 리�
 
 2. Ctrl-X를 눌러 편집기를 종료합니다. 메시지가 나타나면 **Y**를 선택하여 파일을 저장한 다음 **Enter** 키를 눌러 **useooziewf.hql** 파일 이름을 사용합니다.
 
-3. 다음 명령을 사용하여 **useooziewf.hql**을 **wasb:///tutorials/useoozie/useooziewf.hql**에 복사합니다.
+3. 다음 명령을 사용하여 **useooziewf.hql**을 ****wasb:///tutorials/useoozie/useooziewf.hql**에 복사합니다.
 
 		hadoop fs -copyFromLocal useooziewf.hql /tutorials/useoozie/useooziewf.hql
 
@@ -193,7 +193,7 @@ Oozie 워크플로 정의는 hPDL(XML 프로세스 정의 언어)로 작성되�
 
 2. Ctrl-X를 사용한 다음 **Y**와 **Enter** 키를 사용하여 파일을 저장합니다.
 
-3. 다음 명령을 사용하여 **workflow.xml** 파일을 **wasb:///tutorials/useoozie/workflow.xml**에 복사합니다.
+3. 다음 명령을 사용하여 **workflow.xml** 파일을 ****wasb:///tutorials/useoozie/workflow.xml**에 복사합니다.
 
 		hadoop fs -copyFromLocal workflow.xml wasb:///tutorials/useoozie/workflow.xml
 
@@ -201,7 +201,7 @@ Oozie 워크플로 정의는 hPDL(XML 프로세스 정의 언어)로 작성되�
 
 다음 단계에서는 데이터를 내보낼 Azure SQL 데이터베이스를 만듭니다.
 
-> [AZURE.IMPORTANT] 이러한 단계를 수행하기 전에 [Azure CLI를 설치하고 구성](xplat-cli-install.md)해야 합니다. HDInsight 클러스터 또는 로컬 워크스테이션에서 CLI를 설치하고 데이터베이스를 만드는 단계를 수행할 수 있습니다.
+> [AZURE.IMPORTANT] 이러한 단계를 수행하기 전에 [Azure CLI를 설치하고 구성](../xplat-cli-install.md)해야 합니다. HDInsight 클러스터 또는 로컬 워크스테이션에서 CLI를 설치하고 데이터베이스를 만드는 단계를 수행할 수 있습니다.
 
 1. 다음 명령을 사용하여 새 Azure SQL 데이터베이스 서버를 만듭니다.
 
@@ -284,7 +284,7 @@ Oozie 워크플로 정의는 hPDL(XML 프로세스 정의 언어)로 작성되�
 		<name>fs.defaultFS</name>
 		<value>wasb://mycontainer@mystorageaccount.blob.core.windows.net</value>
 
-	다음 단계에서 사용되므로 **wasb://mycontainer@mystorageaccount.blob.core.windows.net** 값을 저장합니다.
+	다음 단계에서 사용되므로 ****wasb://mycontainer@mystorageaccount.blob.core.windows.net** 값을 저장합니다.
 
 2. 다음 명령을 사용하여 클러스터 헤드 노드의 FQDN을 가져옵니다. FQDN은 클러스터의 JobTracker 주소에 사용됩니다. 이 주소는 잠시 후 구성 파일에서 사용됩니다.
 
@@ -361,7 +361,7 @@ Oozie 워크플로 정의는 hPDL(XML 프로세스 정의 언어)로 작성되�
 		  </property>
 		</configuration>
 
-	* **wasb://mycontainer@mystorageaccount.blob.core.windows.net**의 모든 인스턴스를 이전에 받은 값으로 바꿉니다.
+	* ****wasb://mycontainer@mystorageaccount.blob.core.windows.net**의 모든 인스턴스를 이전에 받은 값으로 바꿉니다.
 
 	> [AZURE.WARNING] 컨테이너 및 저장소 계정이 경로의 일부로 포함된 전체 WASB 경로를 사용해야 합니다. 약식 표현(wasb:///)을 사용하면 작업이 시작될 때 RunHiveScript 동작이 실패합니다.
 
@@ -392,7 +392,7 @@ Oozie 워크플로 정의는 hPDL(XML 프로세스 정의 언어)로 작성되�
 		<name>oozie.base.url</name>
 		<value>http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie</value>
 
-	**http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie** 부분은 Oozie 명령에서 사용할 URL입니다.
+	****http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie** 부분은 Oozie 명령에서 사용할 URL입니다.
 
 2. 모든 명령에 입력할 필요 없이 다음을 사용하여 URL에 대한 환경 변수를 만들 수 있습니다.
 
@@ -479,7 +479,7 @@ Oozie 웹 UI에 액세스하려면 다음 단계를 사용하세요.
 
 1. HDInsight 클러스터에 대한 SSH 터널을 만듭니다. 자세한 내용은 [SSH 터널링을 사용하여 Ambari 웹 UI, ResourceManager, JobHistory, NameNode, Oozie 및 기타 웹 UI에 액세스](hdinsight-linux-ambari-ssh-tunnel.md)를 참조하세요.
 
-2. 터널을 만든 후 웹 브라우저에서 Ambari 웹 UI를 엽니다. Ambari 사이트의 URI는 **https://CLUSTERNAME.azurehdinsight.net**입니다. **CLUSTERNAME**을 Linux 기반 HDInsight 클러스터의 이름으로 바꿉니다.
+2. 터널을 만든 후 웹 브라우저에서 Ambari 웹 UI를 엽니다. Ambari 사이트의 URI는 ****https://CLUSTERNAME.azurehdinsight.net**입니다. **CLUSTERNAME**을 Linux 기반 HDInsight 클러스터의 이름으로 바꿉니다.
 
 3. 페이지의 왼쪽부터 **Oozie**, **빠른 링크**, **Oozie 웹 UI**를 차례로 선택합니다.
 
@@ -721,4 +721,4 @@ Oozie UI를 사용하면 Oozie 로그뿐 아니라 Hive 쿼리와 같은 MapRedu
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

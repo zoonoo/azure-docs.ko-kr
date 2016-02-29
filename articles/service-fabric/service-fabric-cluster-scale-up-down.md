@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/29/2016"
+   ms.date="02/12/2016"
    ms.author="chackdan"/>
 
 
@@ -63,6 +63,8 @@ VM 수를 원하는 대로 조정하고 저장합니다. 배포가 완료되면 
 
     d. **삭제** 아이콘을 클릭하여 VM을 삭제합니다.
 
+>[AZURE.NOTE] 가용성을 유지하고 상태를 보존하기 위해 서비스 패브릭 클러스터에서 특정 수의 노드가 항상 작동 상태를 유지해야 하며, 이 숫자를 "유지 관리 쿼럼"이라고 합니다. 따라서 [상태 전체 백업](service-fabric-reliable-services-backup-restore.md)을 처음으로 수행하는 경우를 제외하고 일반적으로 클러스터의 모든 컴퓨터를 종료하는 행위는 안전하지 않습니다.
+
 ## 자동 크기 조정 서비스 패브릭 클러스터
 
 현재 서비스 패브릭 클러스터는 자동 크기 조정을 지원하지 않습니다. 조만간 가상 컴퓨터 크기 집합에 클러스터가 빌드될 예정입니다. 그러면 자동 크기 조정이 가능해지고 클라우드 서비스의 자동 크기 조정 동작과 비슷하게 작동할 것입니다.
@@ -79,4 +81,4 @@ VM 수를 원하는 대로 조정하고 저장합니다. 배포가 완료되면 
 <!--Image references-->
 [BrowseServiceFabricClusterResource]: ./media/service-fabric-cluster-scale-up-down/BrowseServiceFabricClusterResource.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

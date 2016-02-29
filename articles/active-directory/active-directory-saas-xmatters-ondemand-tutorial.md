@@ -1,5 +1,6 @@
 <properties 
-    pageTitle="자습서: XMatters OnDemand와 Azure Active Directory 통합 | Microsoft Azure" description="Azure Active Directory에서 XMatters OnDemand를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
+    pageTitle="자습서: XMatters OnDemand와 Azure Active Directory 통합 | Microsoft Azure"
+    description="Azure Active Directory에서 XMatters OnDemand를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
     services="active-directory" 
     authors="markusvi"  
     documentationCenter="na" 
@@ -83,7 +84,7 @@
 
 4.  **xMatters OnDemand에서 Single Sign-On 구성** 페이지에서 인증서를 다운로드하려면 **인증서 다운로드**를 클릭한 다음 컴퓨터에 로컬로 인증서 파일을 **c:\\XMatters OnDemand.cer**로 저장합니다.
 
-    >[AZURE.IMPORTANT]XMatters 지원팀에 인증서를 전달해야 합니다. Single Sign-On 구성을 완료하기 전에 xMatters 지원팀에서 인증서를 업로드해야 합니다.
+    >[AZURE.IMPORTANT] XMatters 지원팀에 인증서를 전달해야 합니다. Single Sign-On 구성을 완료하기 전에 xMatters 지원팀에서 인증서를 업로드해야 합니다.
 
     ![Single Sign On 구성](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776794.png "Single Sign On 구성")
 
@@ -130,7 +131,7 @@ Azure AD 사용자가 XMatters OnDemand에 로그인할 수 있도록 하려면 
     1.  프로비전하려는 유효한 AAD 계정의 **사용자 ID**, **이름**, **성** 및 **사이트**를 입력합니다.
     2.  **Save**를 클릭합니다.
 
->[AZURE.NOTE]다른 XMatters OnDemand 사용자 계정 생성 도구 또는 XMatters OnDemand가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+>[AZURE.NOTE] 다른 XMatters OnDemand 사용자 계정 생성 도구 또는 XMatters OnDemand가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
 
 ##사용자 할당
   
@@ -150,4 +151,4 @@ Azure AD 사용자가 XMatters OnDemand에 로그인할 수 있도록 하려면 
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

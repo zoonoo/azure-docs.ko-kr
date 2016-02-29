@@ -28,29 +28,17 @@ Azure PowerShell은 Windows PowerShell로 Azure를 관리하기 위한 cmdlet을
 
 다음은 Azure PowerShell을 설치할 수 있는 두 가지 방법입니다. WebPI 또는 PowerShell 갤러리에서 설치할 수 있습니다.
 
-> [AZURE.NOTE]Windows PowerShell ISE(통합 스크립팅 환경)의 모든 명령을 보려면 설치 후 다시 부팅해야 할 수 있습니다.
+> [AZURE.NOTE] Windows PowerShell ISE(통합 스크립팅 환경)의 모든 명령을 보려면 설치 후 다시 부팅해야 할 수 있습니다.
 
 ###WebPI에서 Azure PowerShell 설치
 
 WebPI에서 Azure PowerShell 1.0 이상을 설치하는 것은 0.9.x의 경우와 같습니다. [Azure Powershell](http://aka.ms/webpi-azps)을 다운로드하고 설치를 시작합니다. Azure PowerShell 0.9.x가 설치되어 있는 경우 0.9.x를 제거하라는 메시지가 표시됩니다. PowerShell 갤러리에서 Azure PowerShell 모듈을 설치한 경우 일관성 있는 Azure PowerShell 환경이 보장되도록 설치하기 전에 설치 관리자에서 모듈을 제거해야 합니다.
 
-> [AZURE.NOTE]PowerShell 갤러리 Azure 모듈을 설치한 경우 제거해야 합니다. 이렇게 하면 설치한 모듈과 모듈의 위치에 대한 혼동을 방지합니다. PowerShell 갤러리 모듈은 **%ProgramFiles%\\WindowsPowerShell\\Modules**에 정상적으로 설치됩니다. 반면 WebPI 설치 관리자는 Azure 모듈을 **%ProgramFiles%\\Microsoft SDKs\\Azure\\PowerShell**에 설치합니다. **PowerShellGet**은 모듈을 제거하고 모듈 종속성이 제거 중 로드되는 경우 잠긴 .dll 및 해당 폴더를 남겨 둡니다. PowerShell 갤러리 모듈을 제거해도 계속 설치에 대한 오류가 발생하면 **%ProgramFiles%\\WindowsPowerShell\\Modules** 폴더에서 Azure* 폴더를 제거합니다.
+> [AZURE.NOTE] PowerShell 갤러리 Azure 모듈을 설치한 경우 설치 프로그램이 자동으로 해당 모듈을 제거합니다. 이렇게 하면 설치한 모듈과 모듈의 위치에 대한 혼동을 방지합니다. PowerShell 갤러리 모듈은 **%ProgramFiles%\\WindowsPowerShell\\Modules**에 정상적으로 설치됩니다. 반면 WebPI 설치 관리자는 Azure 모듈을 **%ProgramFiles%\\Microsoft SDKs\\Azure\\PowerShell**에 설치합니다. **PowerShellGet**은 모듈을 제거하고 모듈 종속성이 제거 중 로드되는 경우 잠긴 .dll 및 해당 폴더를 남겨 둡니다. 설치 중에 오류가 발생하는 경우 **%ProgramFiles%\\WindowsPowerShell\\Modules** 폴더의 Azure* 폴더를 제거합니다.
 
-PowerShell 갤러리를 통해 Azure PowerShell을 설치했지만 대신 WebPI 설치를 사용하려는 경우 WebPI에서 설치하기 전에 다음 명령을 실행합니다.
+PowerShell 갤러리를 통해 Azure PowerShell을 설치했지만 WebPI 설치를 대신 사용하려는 경우 WebPI 설치가 갤러리에서 설치된 cmdlet을 자동으로 제거합니다.
 
-    # Uninstall the AzureRM component modules
-    Uninstall-AzureRM
-
-    # Uninstall AzureRM module
-    Uninstall-Module AzureRM
-
-    # Uninstall the Azure module
-    Uninstall-Module Azure
-
-    # Or, you can remove all Azure modules
-    # Uninstall-Module Azure* -Force
-
-> [AZURE.NOTE]WebPI에서 설치 시 PowerShell **$env:PSModulePath**에 문제가 발생합니다. 컴퓨터에서 시스템 업데이트 또는 다른 설치로 인해 다시 시작이 필요한 경우 **$env:PSModulePath**에 Azure PowerShell이 설치되는 경로가 포함되지 않을 수 있습니다. 컴퓨터를 다시 시작하거나 Azure PowerShell 경로를 **$env: PSModulePath**에 추가하여 이 문제를 해결할 수 있습니다.
+> [AZURE.NOTE] WebPI에서 설치 시 PowerShell **$env:PSModulePath**에 문제가 발생합니다. 컴퓨터에서 시스템 업데이트 또는 다른 설치로 인해 다시 시작이 필요한 경우 **$env:PSModulePath**에 Azure PowerShell이 설치되는 경로가 포함되지 않을 수 있습니다. 컴퓨터를 다시 시작하여 이를 해결할 수 있습니다.
 
 ###갤러리에서 Azure PowerShell 설치
 
@@ -79,11 +67,11 @@ PowerShell 갤러리를 통해 Azure PowerShell을 설치했지만 대신 WebPI 
 
 
 ## 2단계: 시작
-모듈은 Azure PowerShell에 대한 사용자 지정 콘솔을 설치합니다. 표준 Windows PowerShell 콘솔이나 Azure PowerShell 콘솔에서 cmdlet을 실행할 수 있습니다. 콘솔을 여는 데 사용하는 방법은 실행 중인 Windows 버전에 따라 달라집니다.
+표준 Windows PowerShell 콘솔 또는 PowerShell ISE(통합 스크립팅 환경)에서 cmdlet을 실행할 수 있습니다. 콘솔을 여는 데 사용하는 방법은 실행 중인 Windows 버전에 따라 달라집니다.
 
-- Windows 8 또는 Windows Server 2012 이상을 실행하는 컴퓨터에서 기본 제공 검색을 사용할 수 있습니다. **시작** 화면에서 power를 입력하기 시작합니다. 그러면 Windows PowerShell 및 Azure PowerShell이 포함된 앱 범위 목록이 반환됩니다. 콘솔을 열려면 앱을 클릭합니다. **시작** 화면에 앱을 고정하려면 아이콘을 마우스 오른쪽 단추로 클릭합니다.
+- Windows 8 또는 Windows Server 2012 이상을 실행하는 컴퓨터에서 기본 제공 검색을 사용할 수 있습니다. **시작** 화면에서 power를 입력합니다. 그러면 Windows PowerShell이 포함된 앱 범위 목록이 반환됩니다. 콘솔을 열려면 앱을 클릭합니다. (**시작** 화면에 앱을 고정하려면 아이콘을 마우스 오른쪽 단추로 클릭합니다.)
 
-- Windows 8 또는 Windows Server 2012 이전 버전을 실행하는 컴퓨터에서 **시작 메뉴**를 사용합니다. **시작** 메뉴에서 **모든 프로그램**, **Azure**, **Azure PowerShell**을 차례로 클릭합니다.
+- Windows 8 또는 Windows Server 2012 이전 버전을 실행하는 컴퓨터에서 **시작 메뉴**를 사용합니다. **시작** 메뉴에서 **모든 프로그램**, **보조프로그램**, **Windows PowerShell** 폴더를 차례로 클릭한 다음 **Windows PowerShell**을 클릭합니다.
 
 Windows PowerShell 콘솔에서 수행한 많은 동일한 작업을 수행하는 데 **Windows PowerShell ISE**를 실행하여 메뉴 항목 및 바로 가기 키를 사용할 수도 있습니다. ISE를 사용하려면 Windows PowerShell 콘솔, Cmd.exe 또는 **실행** 상자에서 **powershell\_ise.exe**를 입력합니다.
 
@@ -128,7 +116,7 @@ Windows PowerShell 콘솔에서 수행한 많은 동일한 작업을 수행하�
 ## 3단계: 연결
 서비스를 관리할 수 있도록 cmdlet에 구독이 필요합니다. Azure 구독이 아직 없는 경우 구매할 수 있습니다. 자세한 내용은 [Azure 구입 방법](http://go.microsoft.com/fwlink/p/?LinkId=320795)을 참조하세요.
 
-1. **Login-AzureRmAccount**를 입력합니다.
+1. **Login-AzureRmAccount** 입력
 
 2. 계정과 연결된 메일 주소 및 암호를 입력합니다. Azure가 자격 증명 정보를 인증 및 저장한 후 창을 닫습니다.
 
@@ -138,12 +126,12 @@ Windows PowerShell 콘솔에서 수행한 많은 동일한 작업을 수행하�
 
     $cred = Get-Credential
     Login-AzureRmAccount -Credential $cred
-> [AZURE.NOTE]조직 계정과 연결된 둘 이상의 테넌트가 있는 경우 TenantId 매개 변수를 지정합니다.
+> [AZURE.NOTE] 조직 계정과 연결된 둘 이상의 테넌트가 있는 경우 TenantId 매개 변수를 지정합니다.
 
     $loadersubscription = Get-AzureRmSubscription -SubscriptionName $YourSubscriptionName -TenantId $YourAssociatedSubscriptionTenantId
 
 
-> [AZURE.NOTE]이 비 대화형 로그인 방법은 회사 또는 학교 계정으로만 작동합니다. 회사 또는 학교 계정은 회사나 학교에서 관리되는 사용자이며, 회사나 직장에 대한 Azure Active Directory 인스턴스에 정의됩니다. 현재 회사나 학교 계정이 없고 Microsoft 계정을 사용하여 Azure 구독에 로그인하는 경우 다음 단계에 따라 쉽게 만들 수 있습니다.
+> [AZURE.NOTE] 이 비 대화형 로그인 방법은 회사 또는 학교 계정으로만 작동합니다. 회사 또는 학교 계정은 회사나 학교에서 관리되는 사용자이며, 회사나 직장에 대한 Azure Active Directory 인스턴스에 정의됩니다. 현재 회사나 학교 계정이 없고 Microsoft 계정을 사용하여 Azure 구독에 로그인하는 경우 다음 단계에 따라 쉽게 만들 수 있습니다.
 
 > 1. [Azure 관리 포털](https://manage.windowsazure.com)에 로그인한 후 **Active Directory**를 클릭합니다.
 
@@ -190,4 +178,4 @@ Cmdlet에 대한 참조 내용은 [Azure Cmdlet 참조](https://msdn.microsoft.c
 
 스크립팅을 사용하여 Azure를 관리하는 방법을 배우는 데 도움이 되는 샘플 스크립트 및 지침은 [스크립트 센터](http://go.microsoft.com/fwlink/p/?LinkId=321940)를 참조하세요.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0218_2016-->

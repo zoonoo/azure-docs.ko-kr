@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/09/2016"
+    ms.date="02/17/2016"
     ms.author="liviodlc"/>
 
 #자습서: Azure Active Directory와 Google Apps를 통합하는 방법
@@ -22,7 +22,7 @@
 
 ##필수 조건
 
-1. [Azure 관리 포털](https://manage.windowsazure.com)을 통해 Azure Active Directory에 액세스하려면 먼저 유효한 Azure 구독이 있어야 합니다.
+1. [Azure 클래식 포털](https://manage.windowsazure.com)을 통해 Azure Active Directory에 액세스하려면 먼저 유효한 Azure 구독이 있어야 합니다.
 
 2. [Google Apps for Work](https://www.google.com/work/apps/) 또는 [Google Apps for Education](https://www.google.com/edu/products/productivity-tools/)에 유효한 테넌트가 있어야 합니다. 어느 서비스에나 무료 평가판 계정을 사용할 수 있습니다.
 
@@ -32,9 +32,27 @@
 
 > [AZURE.VIDEO enable-single-sign-on-to-google-apps-in-2-minutes-with-azure-ad]
 
+##질문과 대답
+
+1. **Q: Chromebooks 및 기타 크롬 장치는 Azure AD Single Sign-On과 호환되나요?**
+
+	A: 예, 사용자는 Azure AD 자격 증명을 사용하여 Chromebook 장치에 로그인할 수 있습니다. 사용자가 자격 증명을 두 번 입력해야 하는 이유는 이 [Google Apps 지원 문서](https://support.google.com/chrome/a/answer/6060880)를 참조하세요.
+
+2. **Q: Single Sign-On을 사용하도록 설정한 경우 사용자는 Google Classroom, GMail, Google 드라이브, YouTube 등과 같은 모든 Google 제품에 로그인하는 데 자신의 Azure AD 자격 증명을 사용할 수 있나요?**
+
+	A: 예, [Google 앱](https://support.google.com/a/answer/182442?hl=en&ref_topic=1227583)에 따라 조직에 사용하거나 사용하지 않도록 설정할 수 있습니다.
+
+3. **Q: 내 Google 앱 사용자의 하위 집합에만 Single Sign-On을 사용할 수 있나요?**
+
+	A: 아니요, Single Sign-On을 켜는 즉시 모든 Google 앱 사용자가 Azure AD 자격 증명으로 인증해야 합니다. Google 앱은 여러 ID 공급자를 지원하지 않으므로 Google 앱 환경의 ID 공급자는 Azure AD 또는 Google 중 하나가 될 수 있지만 동시에 둘 다가 될 수는 없습니다.
+
+4. **Q: 사용자가 Windows를 통해 로그인하는 경우 암호 입력 메시지를 받지 않고도 Google 앱에 자동으로 인증하나요?**
+
+	A: 이 시나리오에는 두 가지 옵션을 사용할 수 있습니다. 첫째, [Azure Active Directory 조인](active-directory-azureadjoin-overview.md)을 통해 Windows 10 장치에 로그인할 수 있습니다. 또는 [AD FS(Active Directory Federation Services)](active-directory-aadconnect-user-signin.md) 배포를 통해 Azure AD에 Single Sign-On을 사용할 수 있도록 설정한 온-프레미스 Active Directory에 도메인 가입한 Windows 장치에 로그인할 수 있습니다. 물론 두 옵션 모두 다음 자습서를 따라 Azure AD와 Google 앱 간에 Single Sign-On을 사용하도록 설정해야 합니다.
+
 ##1단계: 디렉터리에 Google Apps 추가
 
-1. [Azure 관리 포털](https://manage.windowsazure.com)의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+1. [Azure 클래식 포털](https://manage.windowsazure.com)의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
 	![왼쪽 탐색 창에서 Active Directory를 선택합니다.][0]
 
@@ -176,7 +194,7 @@ Single Sign-On을 수동으로 설정하는 것을 선호하는 경우 다음 �
 
 4. Azure Active Directory에 사용자 지정 도메인 이름을 아직 추가하지 않은 경우에는 아래 단계를 따릅니다.
 
-	- [Azure 관리 포털](https://manage.windowsazure.com)의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. 디렉터리 목록에서 해당 디렉터리를 선택합니다. 
+	- [Azure 클래식 포털](https://manage.windowsazure.com)의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. 디렉터리 목록에서 해당 디렉터리를 선택합니다. 
 
 	- 최상위 메뉴에서 **도메인**을 클릭하고 **사용자 지정 도메인 추가**를 클릭합니다.
 
@@ -295,4 +313,4 @@ Single Sign-On을 수동으로 설정하는 것을 선호하는 경우 다음 �
 [29]: ./media/active-directory-saas-google-apps-tutorial/assign-users.png
 [30]: ./media/active-directory-saas-google-apps-tutorial/assign-confirm.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

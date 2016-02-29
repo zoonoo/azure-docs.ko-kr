@@ -100,8 +100,6 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 **Azure Site Recovery 자격 증명 모음** | Site Recovery 서비스를 구독한 다음 설정합니다. | Site Recovery 자격 증명 모음에 서버를 등록합니다. 자격 증명 모음은 온-프레미스 사이트와 Azure 간의 데이터 복제본, 장애 조치(Failover) 및 복구를 조정하고 오케스트레이션합니다.
 **복제 메커니즘** | <p>**인터넷 이용** - 인터넷 연결을 통해 SSL/TLS 통신 채널을 사용하여 보호된 온-프레미스 서버와 Azure의 데이터를 전달 및 복제합니다. 기본 옵션입니다.</p><p>**VPN/Express 경로** - VPN 연결을 통해 온-프레미스 서버와 Azure 간에 데이터를 전달 및 복제합니다. 온-프레미스 사이트와 Azure 네트워크 사이에 사이트 간 VPN 또는 Express 경로 연결을 설정해야 합니다.</p><p>Site Recovery 배포 중에 복제 방식을 선택합니다. 구성된 후에는 이미 보호되고 있는 서버의 보호에 영향을 미치지 않고 메커니즘을 변경할 수 없습니다.| <p>두 옵션 모두 보호된 컴퓨터에 인바운드 네트워크 포트를 열 필요가 없습니다. 모든 네트워크 통신은 온-프레미스 사이트에서 시작됩니다.</p> 
 
-[Site Recovery 구성 요소](site-recovery-components.md)에서 Site Recovery 구성 요소, 공급자, 에이전트에 대해 자세히 알아볼 수 있습니다.
-
 ## 용량 계획
 
 주요 고려 사항은 다음과 같습니다.
@@ -116,8 +114,8 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 - **마스터 대상 서버당 원본 수** - 단일 마스터 대상 서버로 여러 원본 컴퓨터를 보호할 수 있습니다. 하지만, 디스크 복제 시 디스크 크기를 미러링하는 VHD가 Azure Blob 저장소에 만들어지고 마스터 대상 서버에 데이터 디스크로 연결되기 때문에 여러 마스터 대상 서버에서 단일 컴퓨터를 보호할 수 없습니다.  
 - **원본당 일일 최대 변경률** - 원본당 권장 변경률을 고려할 때 세 가지 요소를 고려해야 합니다. 대상에서 고려할 사항은 원본의 각 작업용 대상 디스크에 2개의 IOPS가 필요하다는 점입니다. 그 이유는 오래된 데이터 읽기와 새 데이터 쓰기가 대상 디스크에서 발생하기 때문입니다. 
 	- **프로세스 서버에서 지원하는 일일 변경률** - 하나의 원본 컴퓨터를 여러 프로세스 서버로 확장할 수 없습니다. 단일 프로세스 서버는 최대 1TB의 일일 변경률을 지원합니다. 따라서 1TB는 원본 컴퓨터에 대해 지원되는 최대 일일 데이터 변경률입니다. 
-	- **대상 디스크에서 지원하는 최대 처리량** - 원본 디스크당 최대 변동은 1일 144GB를 초과할 수 없습니다(8K 쓰기 크기). 다양한 쓰기 크기에 대한 대상의 처리량 및 IOPS를 확인하려면 마스터 대상 섹션의 표를 참조하세요. 이각 원본 IOP는 대상 디스크에 2개의 IOPS를 생성하므로 이 숫자를 2로 나누어야 합니다. 프리미엄 저장소 계정에 대한 목표를 구성하는 동안 [프리미엄 저장소를 사용하는 경우 확장성 및 성능 목표](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts)를 참조하세요.
-	- **저장소 계정에서 지원하는 최대 처리량** - 하나의 원본을 복수 저장소 계정으로 확장할 수 없습니다. 저장소 계정이 초당 최대 2만 개의 요청을 수신하고 각 원본 IOP가 대상 서버에 2개의 IOPS를 생성할 경우 원본 전체의 IOPS 수를 1만으로 유지하는 것이 좋습니다. 프리미엄 저장소 계정에 대한 원본을 구성하는 동안 [프리미엄 저장소를 사용하는 경우 확장성 및 성능 목표](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts)를 참조하세요.
+	- **대상 디스크에서 지원하는 최대 처리량** - 원본 디스크당 최대 변동은 1일 144GB를 초과할 수 없습니다(8K 쓰기 크기). 다양한 쓰기 크기에 대한 대상의 처리량 및 IOPS를 확인하려면 마스터 대상 섹션의 표를 참조하세요. 이각 원본 IOP는 대상 디스크에 2개의 IOPS를 생성하므로 이 숫자를 2로 나누어야 합니다. 프리미엄 저장소 계정에 대한 목표를 구성하는 경우 [Azure 확장성 및 성능 목표](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts)를 참조하세요.
+	- **저장소 계정에서 지원하는 최대 처리량** - 하나의 원본을 복수 저장소 계정으로 확장할 수 없습니다. 저장소 계정이 초당 최대 2만 개의 요청을 수신하고 각 원본 IOP가 대상 서버에 2개의 IOPS를 생성할 경우 원본 전체의 IOPS 수를 1만으로 유지하는 것이 좋습니다. 프리미엄 저장소 계정에 대한 원본을 구성하는 경우 [Azure 확장성 및 성능 목표](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts)를 참조하세요.
 
 ### 구성 요소 서버 고려 사항
 
@@ -178,7 +176,7 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 마스터 대상 서버의 용량 계획은 다음에 따라 달라집니다.
 
 - Azure 저장소의 성능 및 제한 사항
-	- 표준 계층 VM에 대해 자주 활용되는 디스크의 최대 수는 단일 저장소 계정에서 약 40(디스크당 20,000/500 IOPS)입니다. 자세한 내용은 [표준 저장소 계정의 확장성 목표](../storage/storage-scalability-targets.md#scalability-targets-for-standard-storage-accounts)를 참조하세요. 마찬가지로 프리미엄 저장소 계정에 대한 자세한 내용은 [프리미엄 저장소 계정의 확장성 목표](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts)를 참조하세요.
+	- 표준 계층 VM에 대해 자주 활용되는 디스크의 최대 수는 단일 저장소 계정에서 약 40(디스크당 20,000/500 IOPS)입니다. [표준 저장소에 계정의 확장성 목표](../storage/storage-scalability-targets.md#scalability-targets-for-standard-storage-accounts) 및 [프리미엄 저장소 계정](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts)에 대해 알아봅니다.
 -	일일 데이터 변경률 
 -	보존 볼륨 저장소.
 
@@ -219,13 +217,13 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 
 ## 네트워크 연결
 
-온-프레미스 사이트와 인프라 구성 요소(구성 서버, 마스터 대상 서버)가 배포된 Azure 가상 네트워크 간에 네트워크 연결을 구성하는 두 가지 옵션이 있습니다. 구성 서버를 배포하기 전에 사용할 네트워크 연결 옵션을 결정해야 합니다. 배포 시간 선택이므로 나중에 변경할 수 없습니다.
+온-프레미스 사이트와 인프라 구성 요소(구성 서버, 마스터 대상 서버)가 배포된 Azure 가상 네트워크 간에 네트워크 연결을 구성하는 두 가지 옵션이 있습니다. 구성 서버를 배포하기 전에 사용할 네트워크 연결 옵션을 결정해야 합니다. 배포 시 이 설정을 선택해야 합니다. 나중에 변경할 수 없습니다.
 
-**공용 인터넷:** 온-프레미스 서버(서버 프로세스, 보호된 서버)와 Azure 인프라 구성 요소 서버(구성 서버, 마스터 대상 서버) 간의 통신 및 데이터 복제는 구성 서버 및 마스터 대상 서버에서 온-프레미스에서 공용 끝점으로 보안 SSL/TLS 연결을 통해 발생합니다. (유일한 예외는 프로세스 서버와 암호화되지 않은 TCP 포트 9080의 마스터 대상 서버 간의 연결입니다. 복제 설치에 사용된 복제 프로토콜에 관련된 제어 정보만 이 연결에서 교환됩니다.)
+**공용 인터넷:** 온-프레미스 서버(서버 프로세스, 보호된 컴퓨터)와 Azure 인프라 구성 요소 서버(구성 서버, 마스터 대상 서버) 간의 통신 및 데이터 복제는 구성 및 마스터 대상 서버에서 온-프레미스에서 공용 끝점으로 보안 SSL/TLS 연결을 통해 발생합니다. (유일한 예외는 프로세스 서버와 암호화되지 않은 TCP 포트 9080의 마스터 대상 서버 간의 연결입니다. 복제 설치를 위한 복제 프로토콜에 관련된 제어 정보만 이 연결에서 교환됩니다.)
 
 ![배포 다이어그램 인터넷](./media/site-recovery-vmware-to-azure-classic-legacy/internet-deployment.png)
 
-**VPN:** 온-프레미스 서버(서버 프로세스, 보호된 서버)와 Azure 인프라 구성 요소 서버(구성 서버, 마스터 대상 서버) 간의 통신 및 데이터 복제는 온-프레미스 네트워크와 구성 서버 및 마스터 대상 서버가 배포된 Azure 가상 네트워크 간의 VPN 연결을 통해 발생합니다. 온-프레미스 네트워크가 Express 경로 연결 또는 사이트 간 VPN 연결을 통해 Azure 가상 네트워크에 연결되어 있는지 확인합니다.
+**VPN:** 온-프레미스 서버(서버 프로세스, 보호된 컴퓨터)와 Azure 인프라 구성 요소 서버(구성 서버, 마스터 대상 서버) 간의 통신 및 데이터 복제는 온-프레미스 네트워크와 구성 서버 및 마스터 대상 서버가 배포된 Azure 가상 네트워크 간의 VPN 연결을 통해 발생합니다. 온-프레미스 네트워크가 Express 경로 연결 또는 사이트 간 VPN 연결을 통해 Azure 가상 네트워크에 연결되어 있는지 확인합니다.
 
 ![배포 다이어그램 VPN](./media/site-recovery-vmware-to-azure-classic-legacy/vpn-deployment.png)
 
@@ -806,4 +804,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

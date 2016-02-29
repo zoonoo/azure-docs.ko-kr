@@ -31,7 +31,7 @@
 | [HDInsight에서 Storm을 사용하여 Twitter 추세 항목 확인][3c86c7c8] | Trident | Java, Trident |
 | [HDInsight의 Storm으로 Azure 이벤트 허브에서 이벤트 처리][844d1d81] | 이벤트 허브(영문) | C# 및 Java |
 | [HDInsight의 Storm으로 Azure 이벤트 허브에서 이벤트 처리(Java)](hdinsight-storm-develop-java-event-hub-topology.md) | 이벤트 허브(영문) | Java |
-| [Power BI(미리 보기)를 사용하여 Storm 토폴로지에서 데이터 시각화][94d15238] | Power BI | C# |
+| [Power BI를 사용하여 Storm 토폴로지에서 데이터 시각화][94d15238] | Power BI | C# |
 | [Storm 및 HDInsight의 HBase를 사용하여 센서 데이터 분석][ab894747] | 이벤트 허브, HBase, Socket.IO, 웹 대시보드 | C#, Java, JavaScript, HTML |
 | [HDInsight의 Storm을 사용하여 이벤트 허브에서 차량 센서 데이터 처리][246ee964] | 이벤트 허브, DocumentDb, Azure 저장소 Blob(WASB) | C#, Java |
 | [HDInsight의 Storm을 사용하여 Azure 이벤트 허브에서 HBase로 ETL(추출, 변환 및 로드)][b4b68194] | 이벤트 허브, HBase | C# |
@@ -61,4 +61,4 @@
   [ce0c02a2]: https://github.com/hdinsight/hdinsight-storm-examples/tree/master/templates/HDInsightStormExamples "이 프로젝트에는 이벤트 허브, DocumentDB 및 SQL 데이터베이스와 같은 다양한 Azure 서비스와 상호 작용하는 토폴로지에 대한 Spout, Bolt 및 템플릿이 포함되어 있습니다."
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0218_2016-->

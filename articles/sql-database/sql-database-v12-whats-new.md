@@ -150,7 +150,7 @@ SQL 데이터베이스 서비스의 이전 버전에서 실행되는 데이터�
 V12 논리 서버에만 V12 데이터베이스를 호스팅할 수 있습니다. V12 서버는 V12 데이터베이스만 호스팅할 수 있습니다.
 
 
-아직 V12에서 실행하지 않는 경우, [SQL 데이터베이스 V12로 업그레이드](sql-database-v12-upgrade.md)의 단계에 따라 논리 서버를 업그레이드할 수 있습니다.
+아직 V12에서 실행하지 않는 경우, [SQL 데이터베이스 V12로 업그레이드](sql-database-v12-plan-prepare-upgrade.md)의 단계에 따라 논리 서버를 업그레이드할 수 있습니다.
 
 
 ## <a name="V12AzureSqlDbPreviewGaTable"></a> 일반 공급 지역
@@ -161,4 +161,4 @@ V12 논리 서버에만 V12 데이터베이스를 호스팅할 수 있습니다.
 
 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

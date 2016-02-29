@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/27/2015"
+   ms.date="02/11/2016"
    ms.author="jgao"/>
 
 # Azure 포털을 사용하여 Azure 데이터 레이크 분석 관리
@@ -102,8 +102,8 @@ Azure 포털을 사용하여 Azure 데이터 레이크 분석 계정, 데이터 
 
 데이터 레이크 분석은 현재 다음 데이터 원본을 지원합니다.
 
-- [Azure 데이터 레이크 저장소](data-lake-store-overview.md)
-- [Azure Blob 저장소](storage-introduction.md)
+- [Azure 데이터 레이크 저장소](../data-lake-store/data-lake-store-overview.md)
+- [Azure 저장소](../storage/storage-introduction.md)
 
 데이터 레이크 분석 계정을 만들 때 Azure 데이터 레이크 저장소 계정이 기본 저장소 계정이 되도록 지정해야 합니다. 기본 데이터 레이크 저장소 계정은 작업 메타데이터 및 작업 감사 로그를 저장하는 데 사용됩니다. 데이터 레이크 분석 계정을 만든 후 데이터 레이크 저장소 계정 및/또는 Azure 저장소 계정을 더 추가할 수 있습니다.
 
@@ -154,7 +154,7 @@ Azure 포털을 사용하여 Azure 데이터 레이크 분석 계정, 데이터 
 
 <a name="upload-data-to-wasb"></a> **Azure Blob 저장소 계정에 파일 업로드**
 
-[HDInsight에서 Hadoop 작업용 데이터 업로드](hdinsight-upload-data.md)를 참조하세요. 데이터 레이크 분석에 적용되는 정보입니다.
+[HDInsight에서 Hadoop 작업용 데이터 업로드](../hdinsight/hdinsight-upload-data.md)를 참조하세요. 데이터 레이크 분석에 적용되는 정보입니다.
 
 
 ## 사용자 관리
@@ -170,7 +170,7 @@ Azure 포털을 사용하여 Azure 데이터 레이크 분석 계정, 데이터 
 |DevTest Lab 사용자|모든 항목을 볼 수 있으며 가상 컴퓨터를 연결, 시작, 다시 시작 및 종료하도록 허용합니다.|  
 |사용자 액세스 관리자|Azure 리소스에 대한 사용자 액세스를 관리할 수 있습니다.|  
 
-Azure Active Directory 사용자 및 보안 그룹 만들기에 대한 자세한 내용은 [Azure Active Directory란?](active-directory-whatis.md)을 참조하세요.
+Azure Active Directory 사용자 및 보안 그룹 만들기에 대한 자세한 내용은 [Azure Active Directory란?](../active-directory/active-directory-whatis.md)을 참조하세요.
 
 **분석 계정에 사용자 또는 보안 그룹 추가**
 
@@ -181,7 +181,7 @@ Azure Active Directory 사용자 및 보안 그룹 만들기에 대한 자세한
 3. **사용자** 블레이드에서 **추가**를 클릭합니다.
 4. 역할을 선택하고 사용자를 추가한 후 **확인**을 클릭합니다.
 
-**참고: 이 사용자 또는 보안 그룹이 작업을 제출해야 하는 경우에는 데이터 레이크 저장소에 대한 권한이 부여되어야 합니다. 자세한 내용은 [데이터 레이크 저장소에 저장된 데이터 보호](data-lake-store-secure-data.md)를 참조하세요.**
+**참고: 이 사용자 또는 보안 그룹이 작업을 제출해야 하는 경우에는 데이터 레이크 저장소에 대한 권한이 부여되어야 합니다. 자세한 내용은 [데이터 레이크 저장소에 저장된 데이터 보호](../data-lake-store/data-lake-store-secure-data.md)를 참조하세요.**
 
 
 
@@ -244,8 +244,6 @@ Azure Active Directory 사용자 및 보안 그룹 만들기에 대한 자세한
 
 ##계정 사용 현황 모니터링
 
-[소개 - 조건을 설명하고 부분을 연결해야 합니다.]
-
 **계정 사용 현황을 모니터링하려면**
 
 1. 관리하려는 분석 계정을 엽니다. 자세한 내용은 [데이터 레이크 분석 계정 액세스](#access-adla-account)를 참조하세요. 계정 사용 현황 패널에는 사용 현황이 표시됩니다.
@@ -271,7 +269,7 @@ Azure Active Directory 사용자 및 보안 그룹 만들기에 대한 자세한
 <!-- ################################ -->
 ## Azure 리소스 관리자 그룹 사용
 
-응용 프로그램은 일반적으로 웹앱, 데이터베이스, 데이터베이스 서버, 저장소 및 타사 서비스 등 많은 구성 요소로 구성됩니다. ARM(Azure 리소스 관리자)을 사용하면 Azure 리소스 그룹이라고 하는 그룹으로 응용 프로그램에서 리소스와 함께 사용할 수 있습니다. 응용 프로그램에 대한 모든 리소스의 배포, 업데이트, 모니터링 또는 삭제를 조정된 단일 작업으로 수행할 수 있습니다. 배포용 템플릿을 사용하고 이 템플릿을 테스트, 스테이징 및 프로덕션와 같은 여러 환경에서 사용할 수 있습니다. 전체 그룹에 대한 롤업 비용을 확인하여 조직에 요금 청구를 명확히 할 수 있습니다. 자세한 내용은 [Azure 리소스 관리자 개요](resource-group-overview.md)를 참조하세요.
+응용 프로그램은 일반적으로 웹앱, 데이터베이스, 데이터베이스 서버, 저장소 및 타사 서비스 등 많은 구성 요소로 구성됩니다. ARM(Azure 리소스 관리자)을 사용하면 Azure 리소스 그룹이라고 하는 그룹으로 응용 프로그램에서 리소스와 함께 사용할 수 있습니다. 응용 프로그램에 대한 모든 리소스의 배포, 업데이트, 모니터링 또는 삭제를 조정된 단일 작업으로 수행할 수 있습니다. 배포용 템플릿을 사용하고 이 템플릿을 테스트, 스테이징 및 프로덕션와 같은 여러 환경에서 사용할 수 있습니다. 전체 그룹에 대한 롤업 비용을 확인하여 조직에 요금 청구를 명확히 할 수 있습니다. 자세한 내용은 [Azure 리소스 관리자 개요](../resource-group-overview.md)를 참조하세요.
 
 데이터 레이크 분석 서비스는 다음 구성 요소를 포함할 수 있습니다.
 
@@ -292,7 +290,7 @@ Azure Active Directory 사용자 및 보안 그룹 만들기에 대한 자세한
 
 - [Microsoft Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)
 - [Azure 포털을 사용하여 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md)
-- [Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-use-powershell.md)
+- [Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-manage-use-powershell.md)
 - [Azure 포털을 사용하여 Azure 데이터 레이크 분석 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

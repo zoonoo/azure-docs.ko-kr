@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="prasannas"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="02/17/2016"
 	ms.author="jeedes"/>
 
 
@@ -34,7 +34,7 @@ Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Direc
 - 23 Video Single Sign-On이 설정된 구독
 
 
-> [AZURE.NOTE]이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
+> [AZURE.NOTE] 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
 
 
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
@@ -92,7 +92,7 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
  
      a. **회신 URL** 텍스트 상자에 사용자가 23 Video 사이트에 로그인하는 데 사용하는 URL을 입력합니다(예: **https://britta-simon.23Video.com/saml/login*)).
 
-     >[AZURE.NOTE]SAML 2.0을 사용하는 Active Directory 통합은 23 Video의 모든 사용자가 사용할 수 있습니다. 관련된 메타데이터가 필요한 경우 [support@23company.com](mailto:support@23company.com)에서 지원팀에 문의합니다.
+     > [AZURE.NOTE] SAML 2.0을 사용하는 Active Directory 통합은 23 Video의 모든 사용자가 사용할 수 있습니다. 관련된 메타데이터가 필요한 경우 [support@23company.com](mailto:support@23company.com)에서 지원팀에 문의합니다.
 
      b. **다음**을 클릭합니다.
  
@@ -121,9 +121,9 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 
-3. 사용자 목록을 표시하려면 위쪽의 메뉴에서 **사용자**를 클릭합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-23video-tutorial/create_aaduser_03.png) <br>
+3. 사용자 목록을 표시하려면 위쪽 메뉴에서 **사용자**를 클릭합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-23video-tutorial/create_aaduser_03.png) <br>
  
-4. **사용자 추가** 대화 상자를 열려면 아래쪽의 도구 모음에서 **사용자 추가**를 클릭합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-23video-tutorial/create_aaduser_04.png) <br>
+4. **사용자 추가** 대화 상자를 열려면 아래쪽 도구 모음에서 **사용자 추가**를 클릭합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-23video-tutorial/create_aaduser_04.png) <br>
 
 5. **이 사용자에 대한 정보 입력** 대화 상자 페이지에서 다음 단계를 수행합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-23video-tutorial/create_aaduser_05.png) <br>
 
@@ -143,7 +143,7 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 
     d. **역할** 목록에서 **사용자**를 선택합니다. e. **다음**을 클릭합니다.
 
-7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-23video-tutorial/create_aaduser_07.png) <br>
+7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다. <br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-23video-tutorial/create_aaduser_07.png)<br>
  
 8. **임시 암호 가져오기** 대화 상자 페이지에서 다음 단계를 수행합니다. <br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-23video-tutorial/create_aaduser_08.png) <br>
   
@@ -228,4 +228,4 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 [401]: ./media/active-directory-saas-23video-tutorial/tutorial_23video_11.png
 [402]: ./media/active-directory-saas-23video-tutorial/tutorial_23video_12.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0218_2016-->

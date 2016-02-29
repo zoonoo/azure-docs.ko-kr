@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/27/2015"
+   ms.date="02/11/2016"
    ms.author="jgao"/>
 
 # Azure 포털을 사용하여 Azure 데이터 레이크 분석 작업 문제 해결
@@ -26,9 +26,9 @@ Azure 포털을 사용하여 데이터 레이크 분석 작업의 문제를 해�
 
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-- **데이터 레이크 분석 작업 프로세스에 대한 기본 지식**. [Azure 포털을 사용하여 Azure 데이터 레이크 분석 시작](data-lake-analytics-get-started-use-portal.md)을 참조하세요.
-- **데이터 레이크 분석 계정**. [Azure 포털을 사용하여 Azure 데이터 레이크 분석 시작](data-lake-analytics-get-started-use-portal.md#create-adl-analytics-account)을 참조하세요.
-- **기본 데이터 레이크 저장소 계정에 샘플 데이터 복사**. [원본 데이터 준비](data-lake-analytics-get-started-use-portal.md.md#prepare-source-data)를 참조하세요.
+- **데이터 레이크 분석 작업 프로세스에 대한 기본 지식**. [Azure 포털을 사용하여 Azure 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md)을 참조하세요.
+- **데이터 레이크 분석 계정**. [Azure 포털을 사용하여 Azure 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md#create-adl-analytics-account)을 참조하세요.
+- **기본 데이터 레이크 저장소 계정에 샘플 데이터 복사**. [원본 데이터 준비](data-lake-analytics-get-started-portal.md#prepare-source-data)를 참조하세요.
 
 ##데이터 레이크 분석 작업 제출
 
@@ -107,7 +107,7 @@ Azure 포털을 사용하여 데이터 레이크 분석 작업의 문제를 해�
 
 - [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)
 - [Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 시작](data-lake-analytics-get-started-powershell.md)
-- [Visual Studio를 사용하여 Azure 데이터 레이크 분석 및 U-SQL 시작](data-lake-analytics-get-started-u-sql-studio.md)
+- [Visual Studio를 사용하여 Azure 데이터 레이크 분석 및 U-SQL 시작](data-lake-analytics-u-sql-get-started.md)
 - [Azure 포털을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-manage-use-portal.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

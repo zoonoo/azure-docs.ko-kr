@@ -1,7 +1,8 @@
 <properties
-	pageTitle="조건부 액세스를 사용한 위험 관리"
-	description="정책을 준수하는 알려진 장치에서 원격으로 회사 네트워크 내의 특정 리소스에 액세스하도록 허용하고 분실되었거나, 도난당했거나, 호환되지 않는 장치에서는 액세스할 수 없도록 합니다."
-	services="active-directory, virtual-network"
+	pageTitle="Azure Active Directory에 연결된 Office 365 및 기타 앱에 대한 액세스 보호 | Microsoft Azure"  
+    description="조건부 액세스 제어를 통해 Azure Active Directory는 사용자를 인증할 때 및 응용 프로그램에 대한 액세스를 허용하기 전에 선택한 특정 조건을 확인합니다. 이러한 조건이 충족되면 사용자가 인증되고 응용 프로그램에 대한 액세스가 허용됩니다."  
+    services="active-directory" 
+	keywords="앱에 액세스, 회사 리소스에 대한 액세스 보호, 조건부 액세스 정책" 
 	documentationCenter=""
 	authors="femila"
 	manager="stevenpo"
@@ -13,36 +14,43 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="02/09/2016"
+	ms.date="02/10/2016"
 	ms.author="femila"/>
 
 
-# 조건부 액세스를 사용한 위험 관리
+# Azure Active Directory에 연결된 Office 365 및 기타 앱에 대한 액세스 보호  
+  
+회사 리소스에 대한 액세스를 보호하는 것은 모든 조직에 중요합니다. 클라우드 서비스 및 모바일 장치가 개발됨에 따라 사용자가 회사 리소스에 액세스하는 방법이 크게 변경되었습니다. 따라서 회사 리소스를 보호하는 방법에 대한 전략도 변경해야 합니다.
+  
+## 조건부 액세스를 사용하는 이유  
+ Azure Active Directory의 조건부 액세스 제어 기능은 클라우드 및 온-프레미스에서 회사 리소스를 보호하는 간단한 방법을 제공합니다. Azure Active Directory는 "도용한 암호를 사용하여 내 리소스에 액세스 방지" 또는 "엔터프라이즈 콘텐츠에 액세스하기 위해 정상적인 관리 장치 필요" 등의 요구 사항을 충족합니다.
 
-직원이 어떤 방식으로 작업하는지, 얼마나 생산적인지, 작업을 수행할 때 어떤 수단을 이용하는지에 대한 현재의 추세는 빠르게 변경되고 있습니다. 직원은 회사에 개인 장치를 가지고 오기도 합니다. 이러한 개인 장치에는 개인적인 디지털 생활 속에서 사용하는 앱이 담겨 있습니다. 또한 이러한 장치로 얻게 되는 자유로움과 기능에 익숙해져 있습니다. 직원들은 회사에서도 동일한 응용 프로그램을 사용하기 원하며 개인 디지털 생활에서 누리는 동일한 유연성을 회사 생활에서도 누리려고 합니다. 오늘날의 회사 직원들은 어디에서든지 선택한 장치에서 작업하고 비즈니스 응용 프로그램에 원활하게 연결하고 액세스할 수 있기 바랍니다.
+## 조건부 액세스 제어는 어떻게 적용되나요?  
+ 조건부 액세스 제어를 통해 Azure Active Directory는 사용자를 인증할 때 및 응용 프로그램에 대한 액세스를 허용하기 전에 선택한 특정 조건을 확인합니다. 이러한 조건이 충족되면 사용자가 인증되고 응용 프로그램에 대한 액세스가 허용됩니다.
+   
+![](./media/active-directory-conditional-access/conditionalaccess-overview.png)
 
-이와 같이 사용자들이 원하는 장소에서 원할 때 원하는 방식으로 작업할 수 있게 되면서 위험도 높아지고 있습니다. 많은 양의 데이터가 들어 있는 이러한 장치를 도난당하거나, 잘못 두거나, 분실하게 됩니다. 이러한 많은 스마트폰 및 태블릿에는 고객 및 회사의 중요한 기밀 콘텐츠가 방대하게 포함되어 있습니다. IT 설계자, 보안 전문가 및 IT 관리자는 이러한 측면에서 균형을 유지하려고 노력하고 있습니다. 즉, 사용자가 선호하는 모든 장치에서 생산적인 업무를 진행하도록 하면서 해당 장치에 있는 회사 콘텐츠에 대해 적절한 수준의 보안 및 보호를 제공하는 것이 필요합니다.
+## 리소스에 대한 사용자 기반 액세스
+  
+- **사용자 특성**: 사용자 특성 수준에서 권한이 있는 사용자만 회사 리소스에 액세스할 수 있도록 하는 정책을 적용할 수 있습니다.   
+- **사용자의 그룹 멤버 자격**: 그룹에 대한 멤버 자격을 기반으로 사용자에게 제공되는 액세스 수준을 제어할 수도 있습니다.   
+- **MFA(다단계 인증)**: 또한 다단계 인증 시스템을 사용하여 사용자 자신의 ID를 인증하는 정책을 적용할 수 있습니다. 예를 들어 추가 보안 계층을 위해 사용자 개인 휴대폰의 PIN을 확인할 수 있습니다. MFA 인증은 유효한 사용자의 사용자 이름과 암호에 대한 액세스 권한을 얻은 권한이 없는 사용자가 액세스하는 것으로부터 리소스를 보호합니다. 
 
-Azure Active Directory, Office 365 및 Microsoft Intune을 통해 제공되는 여러 조건부 액세스 기능을 사용하여 IT 관리자는 다음 문제를 해결할 수 있습니다.
+## 장치 기반 조건부 액세스 
 
-- 인터넷에 있는 모든 사람에게 개방하지는 않으면서, 직원의 원격 액세스를 허용합니다.
-- 정책을 준수하는 알려진 장치에서 원격으로 특정 리소스에 액세스할 수 있도록 합니다.
-- 분실되거나 도난당한 장치 또는 비규격 장치에서는 액세스할 수 없도록 합니다.
+- **등록된 장치**: 장치 수준에서 등록되거나 알려진 장치만 액세스가 가능하도록 정책을 설정할 수 있습니다. 또한 관리되는 장치만 리소스에 액세스하도록 Microsoft Intune과 같은 MDM(모바일 장치 관리) 솔루션을 사용할 수 있습니다. 장치 수준 조건부 액세스는 PIN을 적용하는 등의 정책을 준수하는 장치만 액세스할 수 있도록 합니다. 또한 MDM 솔루션을 사용하여 분실 또는 도난당한 장치의 회사 데이터를 원격으로 초기화할 수 있습니다.  
+- **장치 정책**: 응용 프로그램 단위로만 액세스를 제한하는 정책을 설정할 수도 있습니다. 또한 장치의 물리적 위치, 즉 알려진 회사 네트워크의 요청인지 외부의 요청인지에 따라 액세스 수준을 설정할 수도 있습니다.  
 
-![][1]
-
-## 다음 단계
-
-다음 항목에서는 조직에서 조건부 액세스 정책을 설정하는 데 사용할 수 있는 메커니즘 각각에 대해 설명합니다.
-
-- [Azure Active Directory Device Registration Overview](active-directory-conditional-access-device-registration-overview.md)
-- [Azure Active Directory Device Registration을 사용하여 온-프레미스 조건부 액세스 설정](active-directory-conditional-access-on-premises-setup.md)
-- [Conditional Access Device Policies for Office 365 services](active-directory-conditional-access-device-policies.md)
-- [Azure Conditional Access Preview for SaaS Apps](active-directory-conditional-access-azuread-connected-apps.md)
-- [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
+이러한 정책을 사용하여 설정할 수 있는 액세스 수준은 클라우드 또는 온-프레미스 리소스에 적용할 수 있습니다. 클라우드 리소스는 Office 365 및 타사 SaaS 앱과 같은 앱이 될 수 있습니다. 또한 클라우드에서 호스트한 LOB(기간 업무) 앱이 될 수도 있습니다.
+  
+## 조건부 액세스 - 콘텐츠 맵  
+다음 콘텐츠 맵에는 현재 배포에서 조건부 액세스를 사용하도록 설정하는 방법을 알아보기 위해 참조해야 하는 문서가 나열되어 있습니다.
 
 
-<!--Image references-->
-[1]: ./media/active-directory-conditional-access/condaccoverviewvsdx1.png
+| 시나리오 | 문서 |
+|------------------------------------------------------|----------|
+| 피싱 공격으로부터 회사 리소스 보호 |[MFA 및 엑스트라넷을 사용하여 AAD SaaS 앱에 조건부 액세스 시작](active-directory-conditional-access-azuread-connected-apps.md)<br><br>[Azure AD 앱에 조건부 액세스](active-directory-conditional-access-technical-reference.md)<br><br>[MFA 구성 방법](multi-factor-authentication-get-started-cloud.md)<br><br>[Azure Multi-Factor Authentication 및 AD FS를 사용하여 클라우드 리소스 보안](https://technet.microsoft.com/library/dn758113.aspx)<br><br>[사용자 단위 MFA 고려 사항](multi-factor-authentication-end-user-manage-settings.md)<br><br>[엑스트라넷의 MFA](multi-factor-authentication-get-started-adfs-cloud.md)|
+| 분실 또는 도난당한 장치의 회사 데이터 보호 |[장치 등록 서비스](active-directory-conditional-access-device-registration-overview.md)<br><br> [도메인 가입 장치 등록](active-directory-azureadjoin-setup.md)<br><br> [온-프레미스 조건부 액세스를 위해 Azure AD에 등록된 장치 사용](active-directory-conditional-access-on-premises-setup.md) <br><br>[Windows 7 도메인 가입 장치에 대한 자동 장치 등록 구성](active-directory-conditional-access-automatic-device-registration-windows7.md) <br><br>[Windows 8.1 도메인 가입 장치에 대한 자동 장치 등록 구성](active-directory-conditional-access-automatic-device-registration-windows8_1.md) <br><br>[Office 365 서비스에 대한 조건부 액세스 장치 정책](active-directory-conditional-access-device-policies.md)|
+| 추가 정보 |[조건부 액세스 FAQ](active-directory-conditional-faqs.md)|
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

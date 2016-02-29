@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/11/2015"
+	ms.date="02/12/2016"
 	ms.author="yuridio"/>
 
 # 하이브리드 ID 솔루션에 대한 콘텐츠 관리 요구 사항 확인
@@ -32,7 +32,8 @@ ID 솔루션은 아래 그림에 표시된 것처럼 콘텐츠 관리를 제공�
 - 데이터 분류: 분류에 따라 사용자 또는 그룹 및 개체에 대한 액세스 수준을 식별합니다. 
 - 데이터 유출 방지: 유출을 막기 위해 데이터 보호를 담당하는 보안 컨트롤은 ID 시스템과 상호 작용하여 사용자의 ID를 확인해야 합니다. 이는 감사 내역을 위해서도 중요합니다.
 
->[AZURE.NOTE]데이터 분류에 대한 모범 사례 및 지침에 대한 자세한 내용은 [클라우드 준비를 위한 데이터 분류](http://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf)를 참조하세요.
+>[AZURE.NOTE]
+데이터 분류에 대한 모범 사례 및 지침에 대한 자세한 내용은 [클라우드 준비를 위한 데이터 분류](http://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf)를 참조하세요.
 
 하이브리드 ID 솔루션을 계획할 때에는 조직의 요구 사항에 따라 다음 질문에 답변해 보세요.
 
@@ -50,7 +51,8 @@ ID 솔루션은 아래 그림에 표시된 것처럼 콘텐츠 관리를 제공�
 - 회사가 외부 비즈니스 파트너와 공유하는 모든 문서/내용을 암호화해야 하나요?
 - 회사가 특정 유형의 메일에 회사 정책을 적용해야 하나요(전체 회신 금지, 전달 금지)?
  
->[AZURE.NOTE]각 답변을 주목하고 답변 이유를 이해해야 합니다. [데이터 보호 전략 정의](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)에서는 사용할 수 있는 옵션과 각 옵션의 장점/단점을 살펴봅니다. 질문에 답변함으로써 비즈니스 요구 사항에 가장 적합한 옵션을 선택할 수 있습니다.
+>[AZURE.NOTE]
+각 답변을 주목하고 답변 이유를 이해해야 합니다. [데이터 보호 전략 정의](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)에서는 사용할 수 있는 옵션과 각 옵션의 장점/단점을 살펴봅니다. 질문에 답변함으로써 비즈니스 요구 사항에 가장 적합한 옵션을 선택할 수 있습니다.
 
 
 ## 다음 단계
@@ -59,4 +61,4 @@ ID 솔루션은 아래 그림에 표시된 것처럼 콘텐츠 관리를 제공�
 ## 참고 항목
 [설계 고려 사항 개요](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0218_2016-->

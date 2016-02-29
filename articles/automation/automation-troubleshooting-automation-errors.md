@@ -139,6 +139,42 @@
 
   <br/>
 
+## DSC(필요한 상태 구성)으로 작업하는 경우 일반적인 오류 문제 해결  
+
+### 시나리오: 노드는 "찾을 수 없음" 오류로 실패한 상태
+
+**오류:** 노드에는 "유효한 구성 <guid>를 찾을 수 없기 때문에 https://<url>//accounts/<account-id>/Nodes(AgentId=<agent-id>)/GetDscAction 서버에서 작업을 가져오려는 시도가 실패함"이라는 오류를 포함하는 ‘실패’ 상태의 보고서가 있습니다.
+
+**오류에 대한 원인:** 노드가 노드 구성 이름 (예: ABC.WebServer)이 아닌 구성 이름(예: ABC)에 할당되어 있기 때문에 이 오류가 일반적으로 발생합니다.
+
+**문제 해결 팁:** 노드 구성 이름이 사용되고 있고 구성 이름을 사용하지 않도록 다시 확인합니다. 포털의 노드 블레이드에서 "노드 구성 할당" 또는 Set-AzureRMAutomationDscNode cmdlet을 사용하여 유효한 노드 구성에 노드를 매핑할 수 있습니다.
+
+### 시나리오: 노드 구성(mof 파일)은 구성 컴파일이 수행될 때 생성되지 않았습니다.
+
+**오류:** DSC 컴파일 작업이 "컴파일은 성공적으로 완료되었지만 노드 구성 .mof가 생성되지 않음"이라는 오류로 일시 중단되었습니다.
+
+**오류에 대한 원인:** DSC 구성에서 "노드" 옆에 있는 식이 $null으로 계산되는 경우 노드 구성이 생성됩니다.
+
+**문제 해결 팁:** 노드 옆에 있는 식을 $null로 평가하지 않도록 확인합니다. ConfigurationData에 전달하는 경우 구성이 구성 데이터에서 필요한 예상 값에서 전달하도록 합니다. 예제에서는 “$AllNodes입니다. 자세한 정보는 https://azure.microsoft.com/ko-KR/documentation/articles/automation-dsc-compile/#configurationdata를 참조하세요.
+
+### 시나리오: DSC 노드 보고서는 "진행 중" 상태로 중단됩니다.
+
+**오류:** DSC 에이전트는 "주어진 속성 값으로 인스턴스를 찾을 수 없음"을 출력합니다.
+
+**오류에 대한 원인:** WMF 버전을 업그레이드했고 WMI가 손상되었습니다.
+
+**문제 해결 팁:** 문제 해결을 위해 이 게시물의 지침을 따릅니다. https://msdn.microsoft.com/ko-KR/powershell/wmf/limitation_dsc
+
+### 시나리오: DSC 구성에서 자격 증명을 사용할 수 없습니다. 
+
+**오류:** Your DSC 컴파일 작업이 다음 오류로 일시 중단되었습니다. "형식 '<some resource name>'의 System.InvalidOperationException 오류 처리 속성 '자격 증명': PSDscAllowPlainTextPassword가 true로 설정된 경우 암호화된 암호를 일반 텍스트로 변환하고 저장하는 작업이 허용됩니다."
+
+**오류에 대한 원인:** 구성에서 자격 증명을 사용하려고 시도했지만 각 노드 구성에 대해 PSAllowPlainTextPassword를 true로 설정하는 적절 한 ConfigurationData를 전달하지 않았습니다.
+
+**문제 해결 팁:** 적절한 ConfigurationData에 전달하여 구성에서 언급한 각 노드의 구성에 대해 PSAllowPlainTextPassword를 true로 설정하도록 합니다. 자세한 정보는 https://azure.microsoft.com/ko-KR/documentation/articles/automation-dsc-compile/#assets를 참조하세요.
+
+  <br/>
+
 ## 다음 단계
 
 위의 문제 해결 단계를 수행했으며 본 문서와 관련하여 추가 도움이 필요한 경우
@@ -151,4 +187,4 @@
 
 - Azure 자동화에 대한 의견이나 기능 요청이 있으면 [사용자 음성](https://feedback.azure.com/forums/34192--general-feedback)에 게시하세요.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

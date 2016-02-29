@@ -1,4 +1,3 @@
-
 <properties
 	pageTitle="Azure 배치 풀에서 자동으로 계산 노드 크기 조정 | Microsoft Azure"
 	description="클라우드 풀에서 자동 크기 조정을 사용하면 풀의 계산 노드 수를 동적으로 조정합니다."
@@ -21,7 +20,7 @@
 
 Azure 배치에서 자동 크기 조정을 사용하여 작업 실행 중 배치 풀에서 계산 노드를 동적으로 추가하거나 제거하여 응용 프로그램에서 사용되는 처리량을 자동으로 조정할 수 있습니다. 이 자동 조정은 시간과 비용을 모두 절약할 수 있습니다.
 
-[배치 .NET](batch-dotnet-get-started.md) 라이브러리의 [PoolOperations.EnableAutoScale][net_enableautoscale] 메서드와 같은 풀과 자동 크기 조정 수식을 연결하여 계산 노드의 풀에서 자동 크기 조정을 사용하도록 설정할 수 있습니다. 그러면 배치 서비스는 이 수식을 사용하여 워크로드를 실행하는 데 필요한 계산 노드의 수를 결정합니다. 주기적으로 수집되는 서비스 메트릭 데이터 샘플에 응답하는 풀의 계산 노드 수는 연결된 식에 따라 구성 가능한 간격으로 조정됩니다.
+[배치 .NET](batch-dotnet-get-started.md) 라이브러리의 [PoolOperations.EnableAutoScale][net_enableautoscale] 메서드와 같은 풀과 *자동 크기 조정 수식*을 연결하여 계산 노드의 풀에서 자동 크기 조정을 사용하도록 설정할 수 있습니다. 그러면 배치 서비스는 이 수식을 사용하여 워크로드를 실행하는 데 필요한 계산 노드의 수를 결정합니다. 주기적으로 수집되는 서비스 메트릭 데이터 샘플에 응답하는 풀의 계산 노드 수는 연결된 식에 따라 구성 가능한 간격으로 조정됩니다.
 
 풀이 만들어질 때 또는 기존 풀에서 자동 크기 조정을 사용하도록 설정할 수 있습니다. "자동 크기 조정"이 활성화된 풀의 기존 수식을 변경할 수도 있습니다. 배치는 수식을 자동 크기 조정 실행의 상태를 모니터링하기 위해서 뿐만 아니라 풀에 할당하기 전에 평가하는 기능을 제공합니다.
 
@@ -51,13 +50,13 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
 
 문서의 다음 섹션은 변수, 연산자, 작업 및 함수를 포함하여 자동 크기 조정 수식을 구성하는 다양한 엔터티를 설명합니다. 배치 내의 다양한 계산 리소스 및 작업 메트릭을 가져오는 방법을 알아봅니다. 이러한 메트릭을 사용하여 리소스 사용량 및 작업 상태에 따라 풀의 노드 수를 적절하게 조정할 수 있습니다. 그런 다음 배치 REST 및 .NET API를 모두 사용하여 수식을 구성하고 풀에서 자동 크기 조정을 사용하는 방법을 알아봅니다. 몇 가지 예제 수식으로 마무리하겠습니다.
 
-> [AZURE.NOTE]각 Azure Batch 계정은 처리에 사용할 수 있는 최대 계산 노드 수로 제한됩니다. 배치 서비스는 해당 제한까지만 노드를 만듭니다. 따라서 수식에 지정된 대상 번호에 도달하지 않을 수 있습니다. 계정 할당량을 보고 늘리는 방법에 대한 내용은 [Azure 배치 서비스에 대한 할당량 및 제한](batch-quota-limit.md)을 참조하세요.
+> [AZURE.NOTE] 각 Azure Batch 계정은 처리에 사용할 수 있는 최대 계산 노드 수로 제한됩니다. 배치 서비스는 해당 제한까지만 노드를 만듭니다. 따라서 수식에 지정된 대상 번호에 도달하지 않을 수 있습니다. 계정 할당량을 보고 늘리는 방법에 대한 내용은 [Azure 배치 서비스에 대한 할당량 및 제한](batch-quota-limit.md)을 참조하세요.
 
 ## <a name="variables"></a>변수
 
 자동 크기 조정 수식에 시스템 정의 변수와 사용자 정의 변수 모두를 사용할 수 있습니다. 위의 두 줄 예제 수식에서 `$averageActiveTaskCount`가 사용자 정의 변수인 반면 `$TargetDedicated`는 시스템 정의 변수입니다. 아래 테이블은 배치 서비스에서 정의된 읽고 쓰기 및 읽기 전용 변수를 모두 보여줍니다.
 
-이러한 **시스템 정의 변수** 값을 가져와서 설정하여 풀의 계산 노드 개수를 관리합니다.
+이러한 **시스템 정의 변수** 값을 *가져와서* *설정*하여 풀의 계산 노드 개수를 관리합니다.
 
 <table>
   <tr>
@@ -81,7 +80,7 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
    </tr>
 </table>
 
-이러한 **시스템 정의 변수**의 값을 가져와서 배치 서비스에서 메트릭을 기반으로 조정합니다.
+이러한 **시스템 정의 변수**의 값을 *가져와서* 배치 서비스에서 메트릭을 기반으로 조정합니다.
 
 <table>
   <tr>
@@ -153,7 +152,7 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
   </tr>
 </table>
 
-> [AZURE.TIP]위에 표시된 읽기 전용 시스템에 정의된 변수는 각각에 연결된 데이터에 액세스하는 다양한 메서드를 제공하는 개체입니다. 자세한 내용은 아래에서 [샘플 데이터 가져오기](#getsampledata)를 참조하세요.
+> [AZURE.TIP] 위에 표시된 읽기 전용 시스템에 정의된 변수는 각각에 연결된 데이터에 액세스하는 다양한 메서드를 제공하는 *개체*입니다. 자세한 내용은 아래에서 [샘플 데이터 가져오기](#getsampledata)를 참조하세요.
 
 ## 형식
 
@@ -348,11 +347,11 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
   </tr>
 </table>
 
-위 표에 설명된 함수 중 일부는 목록을 인수로 사용할 수 있습니다. 쉼표로 구분된 목록은 double 및 doubleVec의 조합입니다. 예:
+위 표에 설명된 함수 중 일부는 목록을 인수로 사용할 수 있습니다. 쉼표로 구분된 목록은 *double* 및 *doubleVec*의 조합입니다. 예:
 
 `doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?`
 
-doubleVecList 값은 평가 전 단일 doubleVec로 변환됩니다. 예를 들어 `v = [1,2,3]`의 경우 `avg(v)` 호출은 `avg(1,2,3)` 호출과 동일합니다. `avg(v, 7)` 호출은 `avg(1,2,3,7)` 호출과 동일합니다.
+*doubleVecList* 값은 평가 전 단일 *doubleVec*로 변환됩니다. 예를 들어 `v = [1,2,3]`의 경우 `avg(v)` 호출은 `avg(1,2,3)` 호출과 동일합니다. `avg(v, 7)` 호출은 `avg(1,2,3,7)` 호출과 동일합니다.
 
 ## <a name="getsampledata"></a>샘플 데이터 가져오기
 
@@ -399,23 +398,23 @@ doubleVecList 값은 평가 전 단일 doubleVec로 변환됩니다. 예를 들�
   </tr>
 </table>
 
-### 샘플, 샘플 비율 및 GetSample() 메서드
+### 샘플, 샘플 비율 및 *GetSample()* 메서드
 
 자동 크기 조정 수식의 핵심 작업은 작업 및 리소스 메트릭 데이터를 가져오고 데이터를 기반으로 풀 크기를 조정하는 것입니다. 따라서 자동 크기 조정 수식이 메트릭 데이터 또는 "샘플"과 상호 작용하는 방법을 이해해야 합니다.
 
 **샘플**
 
-배치 서비스는 정기적으로 작업 및 리소스 메트릭의 샘플을 사용하고 자동 크기 조정 수식에 사용할 수 있도록 합니다. 이러한 샘플은 배치 서비스에서 30초 마다 기록됩니다. 하지만 일반적으로 해당 샘플이 기록될 때와 자동 크기 조정 수식에 사용할 수 있을 때(읽을 수 있을 때) 사이에 지연이 발생하는 약간의 대기 시간이 존재합니다. 또한 네트워크 또는 다른 인프라 문제와 같은 다양한 원인으로 인해 샘플은 특정 기간에 기록되지 않았을 수 있습니다. 이는 "누락된" 샘플로 발생합니다.
+배치 서비스는 정기적으로 작업 및 리소스 메트릭의 *샘플*을 사용하고 자동 크기 조정 수식에 사용할 수 있도록 합니다. 이러한 샘플은 배치 서비스에서 30초 마다 기록됩니다. 하지만 일반적으로 해당 샘플이 기록될 때와 자동 크기 조정 수식에 사용할 수 있을 때(읽을 수 있을 때) 사이에 지연이 발생하는 약간의 대기 시간이 존재합니다. 또한 네트워크 또는 다른 인프라 문제와 같은 다양한 원인으로 인해 샘플은 특정 기간에 기록되지 않았을 수 있습니다. 이는 "누락된" 샘플로 발생합니다.
 
 **샘플 비율**
 
-`samplePercent`을 `GetSample()` 메서드에 전달하거나 `GetSamplePercent()` 메서드를 호출할 경우 "비율"은 배치 서비스에서 기록한 샘플의 가능한 총 수와 실제로 자동 크기 조정 수식에 사용할 수 있는 샘플 수 간에 비교를 의미합니다.
+`samplePercent`을 `GetSample()` 메서드에 전달하거나 `GetSamplePercent()` 메서드를 호출할 경우 "비율"은 배치 서비스에서 기록한 샘플의 *가능한* 총 수와 실제로 자동 크기 조정 수식에 *사용할 수 있는* 샘플 수 간에 비교를 의미합니다.
 
 예를 들어 10분 TimeSpan을 살펴보겠습니다. 샘플이 10분 TimeSpan 내에서 30초 마다 기록되므로 배치에 의해 기록된 샘플의 최대 총 수는 20샘플(2분 당)이었습니다. 그러나 보고 메커니즘의 고유한 대기 시간 또는 Azure 인프라 내의 몇 가지 다른 문제로 인해 읽기를 위한 자동 크기 조정 수식에 사용할 수 있는 샘플이 15밖에 없을 수 있습니다. 즉, 10분 동안 기록하는 샘플의 총 개수 중 **75%**만이 실제로 수식에 사용될 수 있습니다.
 
 **GetSample() 및 샘플 범위**
 
-자동 크기 조정 수식은 노드를 추가하거나 제거하여 풀을 증가시키고 축소시킵니다. 노드에 비용이 들기 때문에 수식은 충분한 데이터를 기반으로 지능형 분석 메서드를 사용해야 합니다. 따라서 수식에서 추세 형식 분석을 사용하는 것이 좋습니다. 이 형식은 수집된 샘플의 범위에 따라 풀을 확장하고 축소시킵니다.
+자동 크기 조정 수식은 노드를 추가하거나 제거하여 풀을 증가시키고 축소시킵니다. 노드에 비용이 들기 때문에 수식은 충분한 데이터를 기반으로 지능형 분석 메서드를 사용해야 합니다. 따라서 수식에서 추세 형식 분석을 사용하는 것이 좋습니다. 이 형식은 수집된 샘플의 *범위*에 따라 풀을 확장하고 축소시킵니다.
 
 이를 위해 `GetSample(interval look-back start, interval look-back end)`을 사용하여 샘플의 **벡터**를 반환합니다.
 
@@ -427,13 +426,13 @@ doubleVecList 값은 평가 전 단일 doubleVec로 변환됩니다. 예를 들�
 
 샘플의 벡터를 수집했으면 `min()`, `max()`, 및 `avg()`와 같은 함수를 사용하여 수집된 범위에서 의미있는 값을 파생할 수 있습니다.
 
-보안을 강화하려면 특정 기간 동안 샘플의 특정 비율 보다 작은 경우 실패에 대한 수식 평가를 강제할 수 있습니다. 수식 평가가 실패하도록 강제하면 지정된 샘플의 비율을 사용할 수 없는 경우 배치가 수식의 추가 평가를 중단하도록 지시하여 풀 크기가 변경되지 않습니다. 평가가 성공하기 위해 샘플의 필요한 백분율을 지정하려면 `GetSample()`에 대한 세 번째 매개 변수로 지정합니다. 여기에서는 샘플의 75% 요구 사항이 지정됩니다.
+보안을 강화하려면 특정 기간 동안 샘플의 특정 비율 보다 작은 경우 *실패*에 대한 수식 평가를 강제할 수 있습니다. 수식 평가가 실패하도록 강제하면 지정된 샘플의 비율을 사용할 수 없는 경우 배치가 수식의 추가 평가를 중단하도록 지시하여 풀 크기가 변경되지 않습니다. 평가가 성공하기 위해 샘플의 필요한 백분율을 지정하려면 `GetSample()`에 대한 세 번째 매개 변수로 지정합니다. 여기에서는 샘플의 75% 요구 사항이 지정됩니다.
 
 `runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * TimeInterval_Second, 75);`
 
 또한 샘플 가용성에서 이전에 언급한 지연 시간으로 인해 1분 이상인 돌아보기 시작 시간으로 시간 범위를 지정하는 것이 중요합니다. 이 샘플이 시스템을 통해 전파되는 데 1분 정도가 걸리기 때문에 `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` 범위에 있는 샘플은 사용할 수 없는 경우가 많습니다. 다시 `GetSample()`라는 백분율 매개 변수를 사용하여 특정 샘플 비율 요구 사항을 강제할 수 있습니다.
 
-> [AZURE.IMPORTANT]**자동 크기 조정 수식에서 `GetSample(1)`에만 의존하지 않는** 것이 **아주 좋습니다**. 즉, `GetSample(1)`가 기본적으로 배치 서비스에 "경과한 시간에 관계 없이 마지막 샘플을 제공하도록" 요구하기 때문입니다. 이 샘플은 단일 샘플이고 오래된 샘플이기 때문에 최근 작업 또는 리소스 상태의 큰 그림을 나타내지 않을 수 있습니다. `GetSample(1)`을 사용하는 경우 큰 문의 일부이며 수식이 사용하는 유일한 데이터 지점이 아니도록 주의합니다.
+> [AZURE.IMPORTANT] **자동 크기 조정 수식에서 `GetSample(1)`에*만* 의존하지 않는** 것이 **아주 좋습니다**. 즉, `GetSample(1)`가 기본적으로 배치 서비스에 "경과한 시간에 관계 없이 마지막 샘플을 제공하도록" 요구하기 때문입니다. 이 샘플은 단일 샘플이고 오래된 샘플이기 때문에 최근 작업 또는 리소스 상태의 큰 그림을 나타내지 않을 수 있습니다. `GetSample(1)`을 사용하는 경우 큰 문의 일부이며 수식이 사용하는 유일한 데이터 지점이 아니도록 주의합니다.
 
 ## 메트릭
 
@@ -486,11 +485,11 @@ doubleVecList 값은 평가 전 단일 doubleVec로 변환됩니다. 예를 들�
 2. CPU 사용량이 낮은 경우 풀의 계산 노드에 대상 수를 줄입니다.
 3. 항상 최대 노드 수를 400으로 제한합니다.
 
-CPU 사용량이 높을 때 노드 수를 늘리기 위해서, 마지막 10분 동안의 최소 평균 CPU 사용량이 70% 이상인 경우, 사용자 정의 변수 ($TotalNodes)에 현재 대상 노드 수의 110%가 되는 값으로 채워진 구문을 정의합니다.
+CPU 사용량이 높을 때 노드 수를 *늘리기* 위해서, 마지막 10분 동안의 최소 평균 CPU 사용량이 70% 이상인 경우, 사용자 정의 변수 ($TotalNodes)에 현재 대상 노드 수의 110%가 되는 값으로 채워진 구문을 정의합니다.
 
 `$TotalNodes = (min($CPUPercent.GetSample(TimeInterval_Minute*10)) > 0.7) ? ($CurrentDedicated * 1.1) : $CurrentDedicated;`
 
-다음 구문은 지난 60분의 평균 CPU 사용량이 20% 이하인 경우 동일한 변수를 노드에 있는 현재 대상 수의 90%에 설정합니다. 낮은 CPU 사용량이 낮을 때 대상 수를 줄입니다. 이 구문은 또한 위 구문의 사용자 정의 변수 $TotalNodes를 참조합니다.
+다음 구문은 지난 60분의 평균 CPU 사용량이 20% *이하*인 경우 동일한 변수를 노드에 있는 현재 대상 수의 90%에 설정합니다. 낮은 CPU 사용량이 낮을 때 대상 수를 줄입니다. 이 구문은 또한 위 구문의 사용자 정의 변수 *$TotalNodes*를 참조합니다.
 
 `$TotalNodes = (avg($CPUPercent.GetSample(TimeInterval_Minute * 60)) < 0.2) ? ($CurrentDedicated * 0.9) : $TotalNodes;`
 
@@ -506,7 +505,7 @@ $TotalNodes = (avg($CPUPercent.GetSample(TimeInterval_Minute*60)) < 0.2) ? ($Cur
 $TargetDedicated = min(400, $TotalNodes)
 ```
 
-> [AZURE.NOTE]자동 크기 조정 수식은 [배치 REST][rest_api] API 변수, 형식, 작업 및 함수로 구성됩니다. [배치 .NET][net_api] 라이브러리와 함께 연동되면서 수식 문자열에서 사용합니다.
+> [AZURE.NOTE] 자동 크기 조정 수식은 [배치 REST][rest_api] API 변수, 형식, 작업 및 함수로 구성됩니다. [배치 .NET][net_api] 라이브러리와 함께 연동되면서 수식 문자열에서 사용합니다.
 
 ## 자동 크기 조정을 사용하는 풀 만들기
 
@@ -516,7 +515,7 @@ $TargetDedicated = min(400, $TotalNodes)
 - [BatchClient.PoolOperations.CreatePool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.createpool.aspx)--풀을 만들기 위해 이 .NET 메서드가 호출되면 풀의 [CloudPool.AutoScaleEnabled](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscaleenabled.aspx) 속성 및 [CloudPool.AutoScaleFormula](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscaleformula.aspx) 속성을 설정하여 자동 크기 조정을 사용할 수 있게 됩니다.
 - [계정에 풀 추가](https://msdn.microsoft.com/library/azure/dn820174.aspx)--풀이 만들어질 때 이 REST API 요청에서 enableAutoScale 및 autoScaleFormula 요소를 사용하여 풀에 대해 자동 크기 조정을 설정합니다.
 
-> [AZURE.IMPORTANT]위의 방법 중 하나를 사용하여 자동 크기 조정 사용 풀을 만드는 경우 풀에 대한 targetDedicated 매개 변수는 지정되지 **않아야** 합니다. 또한 자동 크기 조정 사용 풀의 크기를 수동으로 조정하려는 경우(예: [BatchClient.PoolOperations.ResizePool][net_poolops_resizepool]을 사용하여) 먼저 풀에서 자동 크기 조정을 **사용하지 않도록** 다음 풀의 크기를 조정해야 합니다.
+> [AZURE.IMPORTANT] 위의 방법 중 하나를 사용하여 자동 크기 조정 사용 풀을 만드는 경우 풀에 대한 *targetDedicated* 매개 변수는 지정되지 **않아야** 합니다. 또한 자동 크기 조정 사용 풀의 크기를 수동으로 조정하려는 경우(예: [BatchClient.PoolOperations.ResizePool][net_poolops_resizepool]을 사용하여) 먼저 풀에서 자동 크기 조정을 **사용하지 않도록** 다음 풀의 크기를 조정해야 합니다.
 
 다음 코드 조각은 [배치 .NET][net_api] 라이브러리를 사용하여 자동 크기 조정 사용 풀([CloudPool][net_cloudpool]) 만들기를 보여 줍니다. 풀의 자동 크기 조정 수식은 월요일에 5의 대상 노드 수를 모든 다른 요일에 1의 대상 노드 수를 설정합니다. 또한 자동 크기 조정 간격을 30분으로 설정합니다.(아래에서 [자동 크기 조정 간격](#interval) 참조) 이 코드와 이 문서의 다른 C# 코드 조각에서 "myBatchClient"는 [BatchClient][net_batchclient]의 적절히 초기화된 인스턴스입니다.
 
@@ -537,18 +536,18 @@ pool.Commit();
 
 최소 간격은 5분이고 최대 간격은 168시간입니다. 이 범위 밖의 간격이 지정되면 배치 서비스는 잘못된 요청(400) 오류를 반환합니다.
 
-> [AZURE.NOTE]자동 크기 조정은 현재 1분 미만의 변경 내용에 응답하지 않지만 워크로드를 실행하면 점차적으로 풀의 크기를 조정합니다.
+> [AZURE.NOTE] 자동 크기 조정은 현재 1분 미만의 변경 내용에 응답하지 않지만 워크로드를 실행하면 점차적으로 풀의 크기를 조정합니다.
 
 ## 풀을 만든 후 자동 크기 조정을 사용하도록 설정
 
-이미 targetDedicated 매개 변수를 사용하여 계산 노드 수가 지정된 풀을 설정한 경우 나중에 기존 풀을 업데이트하여 자동으로 크기 조정되도록 할 수 있습니다. 다음 방법 중 하나를 사용하여 이 작업을 수행할 수 있습니다.
+이미 *targetDedicated* 매개 변수를 사용하여 계산 노드 수가 지정된 풀을 설정한 경우 나중에 기존 풀을 업데이트하여 자동으로 크기 조정되도록 할 수 있습니다. 다음 방법 중 하나를 사용하여 이 작업을 수행할 수 있습니다.
 
 - [BatchClient.PoolOperations.EnableAutoScale][net_enableautoscale]--이 .NET 메서드는 기존 풀의 ID와 풀에 적용할 자동 크기 조정 수식이 필요합니다.
 - [풀에서 자동 크기 조정 사용][rest_enableautoscale]--이 REST API 요청은 URI에 기존 풀의 ID가 필요하고 요청 본문에 자동 크기 조정 수식이 필요합니다.
 
-> [AZURE.NOTE]풀을 만들 때 targetDedicated 매개 변수에 대해 값이 지정된 경우, 자동 크기 조정 수식이 평가될 때 이 값은 무시됩니다.
+> [AZURE.NOTE] 풀을 만들 때 *targetDedicated* 매개 변수에 대해 값이 지정된 경우, 자동 크기 조정 수식이 평가될 때 이 값은 무시됩니다.
 
-이 코드 조각은 [배치 .NET][net_api] 라이브러리를 사용하여 기존 풀에서 자동 크기 조정을 사용하는 것을 보여 줍니다. 기존 풀에서 수식을 사용하고 업데이트하는 것은 모두 동일한 메서드를 사용합니다. 이 기술은 자동 크기 조정을 이미 사용하고 있던 경우 지정된 풀에서 수식을 업데이트합니다. 코드 조각은 "mypool"이 기존 풀([CloudPool][net_cloudpool])의 ID라고 가정합니다.
+이 코드 조각은 [배치 .NET][net_api] 라이브러리를 사용하여 기존 풀에서 자동 크기 조정을 사용하는 것을 보여 줍니다. 기존 풀에서 수식을 사용하고 업데이트하는 것은 모두 동일한 메서드를 사용합니다. 이 기술은 자동 크기 조정을 이미 사용하고 있던 경우 지정된 풀에서 수식을 *업데이트*합니다. 코드 조각은 "mypool"이 기존 풀([CloudPool][net_cloudpool])의 ID라고 가정합니다.
 
 		 // Define the autoscaling formula. In this snippet, the  formula sets the target number of nodes to 5 on
 		 // Mondays, and 1 on every other day of the week
@@ -563,9 +562,9 @@ pool.Commit();
 항상 응용 프로그램에서 수식을 사용하기 전에 수식을 평가하는 것이 좋습니다. 수식은 기존 풀에서 수식을 “테스트 실행”하여 평가합니다. 다음을 사용하여 이 작업을 수행합니다.
 
 - [BatchClient.PoolOperations.EvaluateAutoScale](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.evaluateautoscale.aspx) 또는 [BatchClient.PoolOperations.EvaluateAutoScaleAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.evaluateautoscaleasync.aspx)--이러한 .NET 메서드는 기존 풀의 ID와 자동 크기 조정 수식이 포함된 문자열이 필요합니다. 호출 결과는 [AutoScaleEvaluation ](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscaleevaluation.aspx) 클래스의 인스턴스에 포함됩니다.
-- [자동 크기 조정 수식 평가](https://msdn.microsoft.com/library/azure/dn820183.aspx)--이 REST API 요청의 경우 풀 ID는 URI에 지정됩니다. 자동 크기 조정 수식은 요청 본문의 autoScaleFormula 요소에 지정됩니다. 작업 응답에는 수식과 관련이 있을 수 있는 오류 정보가 포함됩니다.
+- [자동 크기 조정 수식 평가](https://msdn.microsoft.com/library/azure/dn820183.aspx)--이 REST API 요청의 경우 풀 ID는 URI에 지정됩니다. 자동 크기 조정 수식은 요청 본문의 *autoScaleFormula* 요소에 지정됩니다. 작업 응답에는 수식과 관련이 있을 수 있는 오류 정보가 포함됩니다.
 
-> [AZURE.NOTE]자동 크기 조정 수식을 평가하려면 먼저 유효한 수식을 사용하여 풀에서 자동 크기 조정을 사용해야 합니다.
+> [AZURE.NOTE] 자동 크기 조정 수식을 평가하려면 먼저 유효한 수식을 사용하여 풀에서 자동 크기 조정을 사용해야 합니다.
 
 [배치 .NET][net_api] 라이브러리를 사용하는 이 코드 조각에서, 이를 풀([CloudPool][net_cloudpool])에 적용하기 전에 수식을 평가합니다.
 
@@ -729,4 +728,4 @@ string formula = string.Format(@"
 [rest_autoscaleinterval]: https://msdn.microsoft.com/ko-KR/library/azure/dn820173.aspx
 [rest_enableautoscale]: https://msdn.microsoft.com/library/azure/dn820173.aspx
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -37,19 +37,21 @@ SQL 데이터 웨어하우스는 다음을 포함한 데이터 로드의 다양�
 
 다음 섹션에서는 각 단계에 대해 자세히 살펴보고, 프로세스의 예를 제공합니다.
 
-> [AZURE.NOTE]SQL Server와 같은 시스템에서 데이터를 이동하기 전에 설명서의 [스키마 마이그레이션][] 및 [코드 마이그레이션][] 문서를 검토하는 것이 좋습니다.
+> [AZURE.NOTE] SQL Server와 같은 시스템에서 데이터를 이동하기 전에 설명서의 [스키마 마이그레이션][] 및 [코드 마이그레이션][] 문서를 검토하는 것이 좋습니다.
 
 ## BCP를 사용하여 파일 내보내기
 
 Azure로 파일 이동을 준비하기 위해, 플랫 파일로 내보내야 합니다. BCP 명령줄 유틸리티를 사용하는 것이 가장 좋은 방법입니다. 아직 유틸리티가 없다면 [SQL Server용 Microsoft 명령줄 유틸리티][]를 사용하여 다운로드할 수 있습니다. 샘플 BCP 명령은 다음과 같을 수 있습니다.
 
 ```
-bcp "<Directory><File>" -c -T -S <Server Name> -d <Database Name>
+bcp "select top 10 * from <table>" queryout "<Directory><File>" -c -T -S <Server Name> -d <Database Name> -- Export Query
+or
+bcp <table> out "<Directory><File>" -c -T -S <Server Name> -d <Database Name> -- Export Table
 ```
 
-이 명령은 쿼리로 결과가 나오고, 이쿼리를 선택한 디렉터리 안에 있는 파일로 내보냅니다. 개별 테이블에 대해 여러 BCP 명령을 실행하여 프로세스를 병렬화할 수 있습니다. 이 방법은 서버의 코어 당 BCP 프로세스를 증가시킬 수 있고, 이 정보는 사용자 환경에서 어떤 작업이 제일 적합한지 다른 구성에서 작은 작업을 시도함으로써 확인할 수 있습니다.
+처리량을 최대화하려면 단일 테이블에 별도 파티션 또는 별도 테이블에 대한 여러 동시 BCP 명령을 실행하여 프로세스 병렬 처리를 시도할 수 있습니다. 이렇게 하면 BCP를 실행하는 서버에 여러 코어를 통해 BCP에서 사용되는 CPU를 분산합니다. SQL DW 또는 PDW 시스템에서 추출하는 경우 -q, 따옴표 붙은 식별자, BCP 명령에 대한 인수를 추가해야 합니다. Active directory를 사용하지 않는 환경의 경우 사용자 이름 및 암호를 지정하기 위해 -U 및 -P를 추가해야 할 수도 있습니다.
 
-PolyBase는 아직 UTF-16을 지원하지 않고, PolyBase를 사용하여 로드하기 때문에, 모든 파일은 UTF-8에 있어야합니다. BCP 명령에 있는 ‘-c’ 플래그를 포함한 다음 코드를 사용하여 간단하게 수행하거나, 다음 코드를 사용하여 플랫 파일을 UTF-16에서 UTF-8로 변환시킬 수 있습니다.
+PolyBase는 아직 UTF-16을 지원하지 않고, PolyBase를 사용하여 로드하기 때문에, 모든 파일은 UTF-8에 있어야 합니다. BCP 명령에 있는 ‘-c’ 플래그를 포함한 다음 코드를 사용하여 간단하게 수행하거나, 다음 코드를 사용하여 플랫 파일을 UTF-16에서 UTF-8로 변환시킬 수 있습니다.
 
 ```
 Get-Content <input_file_name> -Encoding Unicode | Set-Content <output_file_name> -Encoding utf8
@@ -62,7 +64,7 @@ Get-Content <input_file_name> -Encoding Unicode | Set-Content <output_file_name>
 
 다음 단계에서는 AZCopy를 사용하여 온-프레미스 서버에서 Azure 저장소 계정으로 이동하는 방법에 대해 자세히 설명합니다. 동일한 지역에 Azure 저장소 계정이 없는 경우 [Azure 저장소 설명서][]에 따라 새로운 계정을 만들 수 있습니다. 다른 지역의 저장소 계정에서 로드할 수 있지만, 이 경우 성능이 최적화되지 않습니다.
 
-> [AZURE.NOTE]이 설명서는 AZCopy 명령줄 유틸리티를 설치했으며 PowerShell을 사용하여 실행 가능한 상태를 가정합니다. 이러한 상태가 아닐 경우, [AZCopy 설치 지침][]을 따르세요.
+> [AZURE.NOTE] 이 설명서는 AZCopy 명령줄 유틸리티를 설치했으며 PowerShell을 사용하여 실행 가능한 상태를 가정합니다. 이러한 상태가 아닐 경우, [AZCopy 설치 지침][]을 따르세요.
 
 이제 BCP를 사용하여 생성한 파일 집합을 사용하여, AZCopy를 Azure Powershell에서 또는 powershell 스크립트를 실행하여 간단하게 실행할 수 있습니다. 더 높은 수준에서, AZCopy 실행을 요구하는 프롬프트는 다음 형식을 따릅니다.
 
@@ -73,7 +75,7 @@ AZCopy /Source:<File Location> /Dest:<Storage Container Location> /destkey:<Stor
 기본 사항에 추가하여, AZCopy를 사용한 로드에 대해 다음의 가장 적합한 실습을 권장합니다.
 
 
-+ **동시 연결**: 대상에 대한 많은 동시 연결을 여는 /NC 매개 변수를 설정하면 한 번에 실행되는 AZCopy 작업 수가 증가하는 것은 물론 AZCopy 작업 자체를 더욱 병렬화할 수 있습니다. 매개변수의 최대 설정은 512이고, 256이 데이터 전송에 최적화되어있지만, 사용자 구성의 최적값을 찾기 위해 많은 값을 테스트하는것을 권장합니다.
++ **동시 연결**: 대상에 대한 많은 동시 연결을 여는 /NC 매개 변수를 설정하면 한 번에 실행되는 AZCopy 작업 수가 증가하는 것은 물론 AZCopy 작업 자체를 더욱 병렬화할 수 있습니다. 매개변수의 최대 설정은 512이고, 256이 데이터 전송에 최적화되어있지만, 사용자 구성의 최적값을 찾기 위해 많은 값을 테스트하는 것을 권장합니다.
 
 + **Express 경로**: 위에서 설명한 대로, express 경로가 사용 가능한 경우 이 프로세스의 속도를 증가시킵니다. Express 경로 및 구성 단계에 대한 개요는 [Express 경로 설명서][]에서 확인할 수 있습니다.
 
@@ -201,4 +203,4 @@ create statistics [<another name>] on [<Table Name>] ([<Another Column Name>]);
 [Azure 저장소 설명서]: https://azure.microsoft.com/ko-KR/documentation/articles/storage-create-storage-account/
 [Express 경로 설명서]: http://azure.microsoft.com/documentation/services/expressroute/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

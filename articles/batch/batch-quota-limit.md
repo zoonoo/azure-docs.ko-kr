@@ -16,8 +16,6 @@
 	ms.date="01/26/2016"
 	ms.author="danlep"/>
 
-
-
 # Azure 배치 서비스에 대한 할당량 및 제한
 
 이 문서에서는 Azure 배치 서비스에 사용할 수 있는 특정 리소스의 기본 및 최대 제한을 나열합니다. 이러한 제한의 대부분은 Azure가 구독 또는 배치 계정에 적용하는 할당량입니다.
@@ -95,4 +93,4 @@ Azure 지원에서 사용자에게 연락합니다. 요청을 완료하려면 �
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

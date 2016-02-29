@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/13/2015"
+   ms.date="02/12/2016"
    ms.author="karolz@microsoft.com"/>
 
 # Visual Studio를 사용하여 서비스 패브릭 클러스터 설정
@@ -45,7 +45,7 @@
 |sourceVaultValue |저장된 클러스터를 보호하는 인증서가 있는 키 자격 증명 모음의 *리소스 ID*입니다.|
 |certificateUrlValue |클러스터 보안 인증서의 URL입니다.|
 
-Visual Studio 서비스 패브릭 리소스 관리자 템플릿은 인증서로 보호되는 보안 클러스터를 만듭니다. 이 인증서는 마지막 세 템플릿 매개 변수(`certificateThumbprint`, `sourceVaultValue` 및 `certificateUrlValue`)로 식별되며 **Azure 주요 자격 증명 모음**에 있어야 합니다. 클러스터 보안 인증서를 만드는 방법에 대한 자세한 내용은 [인증서를 사용하여 서비스 패브릭 클러스터를 보호하는 방법](service-fabric-cluster-security.md) 항목을 참조하세요.
+Visual Studio 서비스 패브릭 리소스 관리자 템플릿은 인증서로 보호되는 보안 클러스터를 만듭니다. 이 인증서는 마지막 세 템플릿 매개 변수(`certificateThumbprint`, `sourceVaultValue` 및 `certificateUrlValue`)로 식별되며 **Azure 주요 자격 증명 모음**에 있어야 합니다. 클러스터 보안 인증서를 만드는 방법에 대한 자세한 내용은 [인증서를 사용하여 서비스 패브릭 클러스터를 보호하는 방법](service-fabric-cluster-security.md#secure-a-service-fabric-cluster-by-using-certificates) 항목을 참조하세요.
 
 ## 옵션: 공용 응용 프로그램 포트 추가
 배포하기 전에 클러스터에 대한 공용 응용 프로그램 포트를 변경할 수도 있습니다. 기본적으로 템플릿에서는 두 개의 공용 TCP 포트(80과 8081)만 열립니다. 응용 프로그램에 더 많은 포트가 필요한 경우 템플릿에서 Azure 부하 분산 장치 정의를 수정합니다. 정의는 기본 템플릿 파일(`SecureFabricCluster.json`)에 저장됩니다. 해당 파일을 열고 `loadBalancedAppPort`를 검색합니다. 각 포트는 세 개의 아티팩트에 연결됩니다.
@@ -106,6 +106,8 @@ Visual Studio 출력 창에서 배포 프로세스의 진행률을 모니터링�
 
 오류가 발생한 경우 [Azure 포털](https://portal.azure.com/)로 이동하여 **알림**을 확인합니다. 리소스 그룹 배포에 오류가 발생한 경우 여기에 자세한 진단 정보를 남깁니다.
 
+>[AZURE.NOTE] 가용성을 유지하고 상태를 보존하기 위해 서비스 패브릭 클러스터에서 특정 수의 노드가 항상 작동 상태를 유지해야 하며, 이 숫자를 "유지 관리 쿼럼"이라고 합니다. 따라서 [상태 전체 백업](service-fabric-reliable-services-backup-restore.md)을 처음으로 수행하는 경우를 제외하고 일반적으로 클러스터의 모든 컴퓨터를 종료하는 행위는 안전하지 않습니다.
+
 ## 다음 단계
 - [Azure 포털을 사용하여 서비스 패브릭 클러스터 설정에 대해 알아보기](service-fabric-cluster-creation-via-portal.md)
 - [Visual Studio를 사용하여 서비스 패브릭 응용 프로그램을 관리 및 배포하는 방법 알아보기](service-fabric-manage-application-in-visual-studio.md)
@@ -115,4 +117,4 @@ Visual Studio 출력 창에서 배포 프로세스의 진행률을 모니터링�
 [2]: ./media/service-fabric-cluster-creation-via-visual-studio/selecting-azure-template.png
 [3]: ./media/service-fabric-cluster-creation-via-visual-studio/deploy-to-azure.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

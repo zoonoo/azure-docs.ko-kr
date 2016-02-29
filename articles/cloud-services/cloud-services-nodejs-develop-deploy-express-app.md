@@ -33,7 +33,7 @@ Node.js에는 핵심 런타임에 최소한의 기능이 들어 있습니다. �
 
 다음 단계에 따라 'expressapp'라는 이름의 새 클라우드 서비스 프로젝트를 만듭니다.
 
-1. **시작 메뉴** 또는 **시작 화면**에서 **Azure PowerShell**을 검색합니다. 마지막으로, **Azure PowerShell**을 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 선택합니다.
+1. **시작 메뉴** 또는 **시작 화면**에서 **Windows PowerShell**을 검색합니다. 마지막으로, **Windows PowerShell**을 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 선택합니다.
 
 	![Azure PowerShell 아이콘](./media/cloud-services-nodejs-develop-deploy-express-app/azure-powershell-start.png)
 
@@ -45,7 +45,7 @@ Node.js에는 핵심 런타임에 최소한의 기능이 들어 있습니다. �
 		PS C:\Node\expressapp> Add-AzureNodeWebRole
 		PS C:\Node\expressapp> Set-AzureServiceProjectRole WebRole1 Node 0.10.21
 
-	> [AZURE.NOTE]기본적으로 **Add-AzureNodeWebRole**은 이전 버전의 Node.js를 사용합니다. 위의 **Set-AzureServiceProjectRole** 문은 Azure에 Node의 v0.10.21을 사용하도록 지시합니다. 매개 변수는 대/소문자를 구분합니다. **WebRole1\\package.json**의 **engines** 속성을 확인하여 올바른 버전의 Node.js가 선택되었는지 확인할 수 있습니다.
+	> [AZURE.NOTE] 기본적으로 **Add-AzureNodeWebRole**은 이전 버전의 Node.js를 사용합니다. 위의 **Set-AzureServiceProjectRole** 문은 Azure에 Node의 v0.10.21을 사용하도록 지시합니다. 매개 변수는 대/소문자를 구분합니다. **WebRole1\\package.json**의 **engines** 속성을 확인하여 올바른 버전의 Node.js가 선택되었는지 확인할 수 있습니다.
 
 ##Express 설치
 
@@ -138,4 +138,4 @@ Azure PowerShell 창에서 **Publish-AzureServiceProject** cmdlet을 사용하�
 
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

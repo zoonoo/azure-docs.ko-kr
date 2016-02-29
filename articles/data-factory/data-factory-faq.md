@@ -132,9 +132,9 @@ Azure 데이터 팩터리에 대한 가격 정보는 [데이터 팩터리 가격
 다음 방법 중 하나로 조각을 다시 실행할 수 있습니다.
 
 - 포털에서 조각의 **데이터 조각** 블레이드에 대해 명령 모음의 **실행**을 클릭합니다. 
-- 조각의 Status를 **PendingExecution**으로 설정하여 **Set-AzureRmDataFactorySliceStatus** cmdlet를 실행합니다.   
+- 조각의 상태를 **대기**로 설정하여 **Set-AzureRmDataFactorySliceStatus** cmdlet를 실행합니다.   
 	
-		Set-AzureRmDataFactorySliceStatus -Status PendingExecution -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00" 
+		Set-AzureRmDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00" 
 
 cmdlet에 대한 자세한 내용은 [Set-AzureRmDataFactorySliceStatus][set-azure-datafactory-slice-status]를 참조하세요.
 
@@ -174,4 +174,4 @@ cmdlet에 대한 자세한 내용은 [Set-AzureRmDataFactorySliceStatus][set-azu
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

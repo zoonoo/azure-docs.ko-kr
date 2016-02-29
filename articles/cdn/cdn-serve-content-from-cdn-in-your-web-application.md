@@ -151,8 +151,8 @@
 
 ASP.NET 웹 응용 프로그램의 모든 정적 콘텐츠를 CDN 끝점으로 쉽게 업로드하려는 경우 또는 지속적인 전송(예제는 [Azure 클라우드 서비스의 지속적인 전송](../cloud-services/cloud-services-dotnet-continuous-delivery.md) 참조)을 사용하여 웹 응용 프로그램을 배포하는 경우 Azure PowerShell을 사용하여 웹 응용 프로그램을 배포할 때마다 Azure Blob에 대한 최신 콘텐츠 파일의 동기화를 자동화할 수 있습니다. 예를 들어 [ASP.NET 응용 프로그램에서 Azure Blob으로 콘텐츠 파일 업로드](http://gallery.technet.microsoft.com/scriptcenter/Upload-Content-Files-from-41c2142a)(영문)의 스크립트를 실행하여 ASP.NET 응용 프로그램의 모든 콘텐츠 파일을 업로드할 수 있습니다. 이 스크립트를 사용하려면 다음을 수행하세요.
 
-4. **시작** 메뉴에서 **Microsoft Azure PowerShell**을 실행합니다.
-5. Azure PowerShell 창에서 `Get-AzurePublishSettingsFile`을(를) 실행하여 Azure 계정의 게시 설정 파일을 다운로드합니다.
+4. **시작** 메뉴에서 **Windows PowerShell**을 실행합니다.
+5. PowerShell 창에서 `Get-AzurePublishSettingsFile`을 실행하여 Azure 계정에 대한 게시 설정 파일을 다운로드합니다.
 6. 게시 설정 파일 다운로드가 완료되면 다음을 실행합니다. 
 
 		Import-AzurePublishSettingsFile "<yourDownloadedFilePath>"
@@ -273,4 +273,4 @@ Azure 앱 서비스 웹앱 또는 Azure 클라우드 서비스와 통합하지 �
 - [Azure에 CDN 사용](cdn-how-to-use-cdn.md)
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -25,17 +25,20 @@
 
 이 문서는 VNet(가상 네트워크)을 Express 경로 회로에 연결하는 방법에 대한 개요를 제공합니다. 가상 네트워크는 같은 구독에 있을 수도 있고 다른 구독의 일부일 수도 있습니다. 이 문서는 리소스 관리자 배포 모델을 사용하여 배포된 VNet에 적용됩니다. 클래식 배포 모델을 사용하여 배포된 가상 네트워크를 연결하려면 [Express 경로 회로에 가상 네트워크 연결](expressroute-howto-linkvnet-classic.md)을 참조하세요.
 
-[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
+
+**Azure 배포 모델 정보**
+
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## 필수 구성 요소
 
-- Azure PowerShell 모듈의 버전 1.0 이상이 필요합니다. 
+- Azure PowerShell 모듈의 버전 1.0 이상이 필요합니다. PowerShell cmdlet 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요. 
 - 구성을 시작 하기 전에 [필수 구성 요소](expressroute-prerequisites.md) 페이지, [라우팅 요구 사항](expressroute-routing.md) 페이지 및 [워크플로](expressroute-workflows.md) 페이지를 검토했는지 확인합니다.
 - 활성화된 Express 경로 회로가 있어야 합니다. 
 	- 지침을 수행하여 [Express 경로 회로를 만들고](expressroute-howto-circuit-arm.md) 연결 공급자를 통해 회로를 사용하도록 설정합니다. 
 	- 회로에 구성된 Azure 개인 피어링이 있는지 확인합니다. 라우팅 지침에 대한 문서는 [라우팅 구성](expressroute-howto-routing-arm.md)을 참조하세요. 
 	- Azure 개인 피어링을 구성해야 하며 네트워크와 Microsoft 간의 BGP 피어링은 종단 간 연결을 사용하도록 작동 상태여야 합니다.
-	- 가상 네트워크 및 가상 네트워크 게이트웨이를 만들고 완전히 프로비전해야 합니다. 지침에 따라 [vpn 게이트웨이](../articles/vpn-gateway-create-site-to-site-rm-powershell.md)를 만듭니다.
+	- 가상 네트워크 및 가상 네트워크 게이트웨이를 만들고 완전히 프로비전해야 합니다. [VPN 게이트웨이](../articles/vpn-gateway-create-site-to-site-rm-powershell.md)를 만들려면 지침을 따르고 `-GatewayType ExpressRoute`를 사용해야 합니다.
 
 최대 10개의 가상 네트워크를 Express 경로 회로에 연결할 수 있습니다. 모든 Express 경로 회로는 같은 지역에 있어야 합니다. Express 경로 프리미엄 추가 기능을 사용하도록 설정하면 Express 경로 회로에 많은 수의 가상 네트워크를 연결할 수 있습니다. 프리미엄 추가 기능에 대한 자세한 내용은 [FAQ](expressroute-faqs.md)에서 확인하세요.
 
@@ -136,4 +139,4 @@ Express 경로 회로와 가상 네트워크의 연결을 삭제하여 권한 �
 
 Express 경로에 대한 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->
