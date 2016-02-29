@@ -27,7 +27,7 @@
         
             func loginAndGetData() {
                 
-                guard let client = self.table?.client where client.currentUser != nil else {
+                guard let client = self.table?.client where client.currentUser == nil else {
                     return
                 }
                 
@@ -44,4 +44,4 @@
 
 3. _Run_을 눌러 앱을 시작한 다음 로그인합니다. 로그인할 때 할 일 목록을 보고 업데이트할 수 있어야 합니다.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -31,9 +31,13 @@
 ### 개발자 센터에서 지급액 보고서 액세스
 
 1. https://dev.windows.com/ko-KR의 개발자 센터로 이동합니다.
-2. **대시보드**를 클릭합니다. ![LandingPageDashboardHighlight][1]
+2. **Dashboard**를 클릭합니다.
 
-3. **지급액 요약**을 클릭합니다. ![DashboardPayoutSummary][2]
+    ![LandingPageDashboardHighlight][1]
+
+3. **지급액 요약**을 클릭합니다.
+
+    ![DashboardPayoutSummary][2]
 
 
 ## 개발자 센터에서 지급 보고서 확인
@@ -58,7 +62,9 @@
 
 1. 게시 포털(https://publish.windowsazure.com)로 이동합니다.
 2. **게시자** 섹션에서 **지급 보고서**를 클릭합니다.
-3. 드롭다운을 클릭하면 사용할 수 있는 모든 분기별 지급 보고서가 표시됩니다. ![accessingpayoutreport][5]
+3. 드롭다운을 클릭하면 사용할 수 있는 모든 분기별 지급 보고서가 표시됩니다.
+
+    ![accessingpayoutreport][5]
 
 
 ### 지급 보고서 읽기
@@ -94,7 +100,7 @@
 
 ## 다음 단계
 
-기타 지원 쿼리는 https://portal.azure.com에서 문제를 기록하세요.
+기타 지원 쿼리는 <https://portal.azure.com>에서 문제를 기록하세요.
 
 [1]: ./media/marketplace-publishing-report-payout/LandingPage-DashboardHighlight.png
 [2]: ./media/marketplace-publishing-report-payout/Dashboard-PayoutSummary.png
@@ -106,4 +112,4 @@
 [8]: ./media/marketplace-publishing-report-payout/ledgerdefinitions.png
 [9]: ./media/marketplace-publishing-report-payout/payoutquestions.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

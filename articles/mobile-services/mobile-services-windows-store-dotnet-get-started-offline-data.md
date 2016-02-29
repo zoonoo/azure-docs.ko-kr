@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/06/2015"
+	ms.date="02/11/2016"
 	ms.author="donnam"/>
 
 # 모바일 서비스에서 오프라인 데이터 사용
@@ -284,4 +284,4 @@ Azure 모바일 서비스의 오프라인 기능을 사용하면 오프라인에
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
 [Azure 클래식 포털]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

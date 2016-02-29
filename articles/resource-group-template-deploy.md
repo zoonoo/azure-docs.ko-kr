@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/02/2016"
+   ms.date="02/17/2016"
    ms.author="tomfitz"/>
 
 # Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포
@@ -107,6 +107,8 @@ PowerShell 및 REST API에 대한 아래 예제에 설명된 대로 **Mode** 속
           Are you sure you want to use the complete deployment mode? Resources in the resource group 'ExampleResourceGroup' which are not
           included in the template will be deleted.
           [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
+
+     템플릿에 템플릿을 배포하는 명령의 매개 변수 중 하나와 일치하는 이름을 가진 매개 변수를 포함하는 경우(예: 템플릿에 [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx) cmdlet의 **ResourceGroupName** 매개 변수와 동일한 **ResourceGroupName**이라는 매개 변수 포함) **FromTemplate** 후위가 있는 매개 변수(예: **ResourceGroupNameFromTemplate**)에 대한 값을 제공하라는 메시지가 표시됩니다. 일반적으로 배포 작업에 사용되는 매개 변수와 동일한 이름을 가진 매개 변수를 명명하지 않음으로써 이러한 혼동이 발생하지 않도록 해야 합니다.
 
 6. 배포 오류에 대한 정보를 가져오려면 다음을 실행합니다.
 
@@ -271,7 +273,7 @@ Azure 리소스 관리자와 포털 사용에 대한 자세한 내용은 [Azure 
 
 매개 변수 파일 크기는 64KB보다 클 수 없습니다.
 
-템플릿에서 매개 변수를 정의하는 방법은 [템플릿 작성](../resource-group-authoring-templates/#parameters)을 참조하세요. 보안 값을 전달하기 위한 KeyVault 참에 대한 자세한 내용은 [배포 중 보안 값 전달](resource-manager-keyvault-parameter.md)을 참조하세요.
+템플릿에서 매개 변수를 정의하는 방법은 [템플릿 작성](../resource-group-authoring-templates/#parameters)을 참조하세요. 보안 값을 전달하기 위한 주요 자격 증명 모음 참조에 대한 자세한 내용은 [배포 중 보안 값 전달](resource-manager-keyvault-parameter.md)을 참조하세요.
 
 ## 다음 단계
 - .NET 클라이언트 라이브러리를 통한 리소스 배포의 예를 보려면 [.NET 라이브러리 및 템플릿을 사용하여 리소스 배포](./virtual-machines/arm-template-deployment.md)를 참조하세요.
@@ -282,4 +284,4 @@ Azure 리소스 관리자와 포털 사용에 대한 자세한 내용은 [Azure 
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

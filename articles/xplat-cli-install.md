@@ -40,7 +40,7 @@ Azure CLI가 설치되었으면 [Azure 구독을 사용하여 연결](xplat-cli-
 
 ## Node.js 및 npm 설치 및 사용
 
-Node.js가 시스템에 이미 설치된 경우 다음 명령을 사용하여 Azure CLI를 설치합니다.
+또는 Node.js가 시스템에 이미 설치된 경우 다음 명령을 사용하여 Azure CLI를 설치합니다.
 
 	npm install azure-cli -g
 
@@ -137,7 +137,7 @@ azure --version
 Microsoft는 업데이트된 Azure CLI 버전을 자주 발표합니다. 운영 체제의 설치 관리자를 사용하여 CLI를 다시 설치하거나 Node.js 및 npm이 설치된 경우 다음을 입력하여 업데이트합니다. Linux 배포에서는 **sudo**를 사용해야 할 수 있습니다.
 
 ```
-npm upgrade -g azure-cli
+npm update -g azure-cli
 ```
 
 ## 추가 리소스
@@ -158,4 +158,4 @@ npm upgrade -g azure-cli
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

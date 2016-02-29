@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Azure Active Directory와 응용 프로그램 관리 | Microsoft Azure"
-   description="이 문서는 온-프레미스, 클라우드 및 SaaS 응용 프로그램을 사용하여 Azure Active Directory를 통합하는 이점을 얻을 수 있습니다."
-   services="active-directory"
-   documentationCenter=""
-   authors="ihenkel"
-   manager="stevenpo"
-   editor=""/>
+    pageTitle="Azure Active Directory와 응용 프로그램 관리 | Microsoft Azure"
+    description="이 문서는 온-프레미스, 클라우드 및 SaaS 응용 프로그램을 사용하여 Azure Active Directory를 통합하는 이점을 얻을 수 있습니다."
+    services="active-directory"
+    documentationCenter=""
+    authors="markusvi"
+    manager="stevenpo"
+    editor=""/>
 
    <tags
       ms.service="active-directory"
@@ -13,12 +13,10 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="02/09/2016"
-      ms.author="inhenk"/>
+      ms.date="02/16/2016"
+      ms.author="markvi"/>
 
-# Azure Active Directory(AD)와 응용 프로그램 관리
-
-## 개요
+# Azure Active Directory로 응용 프로그램 관리
 
 실제 워크플로 또는 콘텐츠를 넘어 비즈니스에는 모든 응용 프로그램에 대한 두 가지 기본 요구 사항이 있습니다.
 
@@ -30,17 +28,17 @@
 
 용어 계산에서
 
-- *누구*는 *ID*입니다. - 사용자 및 그룹으로 구성된 데이터 저장소
+- *누가*는 *ID*라고 합니다. - 사용자 및 그룹 관리
 
 - *무엇*은 *액세스 관리*입니다. - 보호된 리소스에 대한 액세스 관리
 
-두 구성 요소는 모두 *ID 및 액세스 관리(IAM)*로 알려져 있으며 [Gartner](http://www.gartner.com/it-glossary/identity-and-access-management-iam) 그룹에서 “*적당한 사람이 적당한 때에 적당한 이유로 적당한 리소스에 액세스할 수 있도록 하는 보안 분야*”로 정의됩니다.
+두 구성 요소는 모두 *IAM(ID 및 액세스 관리)*로 알려져 있으며 [Gartner](http://www.gartner.com/it-glossary/identity-and-access-management-iam) 그룹에서 “*적당한 사람이 적당한 때에 적당한 이유로 적당한 리소스에 액세스할 수 있도록 하는 보안 분야*”로 정의됩니다.
 
 그럼 무엇이 문제입니까? IAM이 한 곳에서 통합 솔루션으로 *관리되지 않는* 경우 다음과 같습니다.
 
 - ID 관리자는 모든 응용 프로그램에서 개별적으로 사용자 계정을 만들고 업데이트해야 하며 이는 중복되고 시간이 많이 걸리는 작업입니다.
 
-- 사용자는 특히 보안 상의 이유로 모든 응용 프로그램에 대해 동일한 암호를 사용하지 않는 것이 좋기 때문에 여러 자격 증명을 암기하여 작업해야 하는 응용 프로그램에 액세스해야 합니다. 결과적으로 사용자는 자신의 암호를 적거나 기타 데이터 보안 위험을 소개하는 다른 암호 관리 솔루션을 사용하는 경향이 있습니다.
+- 사용자는 작업에 필요한 응용 프로그램에 액세스하기 위해 여러 자격 증명을 기억해야 합니다. 결과적으로 사용자는 자신의 암호를 적거나 기타 데이터 보안 위험을 소개하는 다른 암호 관리 솔루션을 사용하는 경향이 있습니다.
 
 - 중복되고 시간이 많이 걸리는 작업은 사용자 및 관리자가 비즈니스의 이익을 증가시키는 비즈니스 활동에서 작업하는 시간을 감소시킵니다.
 
@@ -52,15 +50,24 @@
 
 - 보안 및 모니터링 도구는 포괄적인 E2E 시나리오를 달성하기 위해 추가 사용자 지정 및 통합이 필요합니다.
 
-## 응용 프로그램과 통합된 Azure Active Directory(AD)
+## 응용 프로그램과 통합된 Azure Active Directory
 
-Azure Active Directory(AD)는 IAM을 클라우드 서비스로 사용하고 기본 액세스 관리, Single-Sign On(SSO) 및 [수 천 가지 응용 프로그램과 사전 통합된](https://azure.microsoft.com/marketplace/active-directory/) 보고를 제공하며 Salesforce, Google Apps, Box, Concur 등을 포함하는 Microsoft의 포괄적인 IDaaS( Identity as a Service)입니다. 파트너 및 고객(비즈니스 또는 소비자)을 위해 게시한 Azure AD 응용 프로그램에는 동일한 ID 및 액세스 관리 기능이 있어서 기본 비즈니스에 집중합니다.
+Azure Active Directory는 Microsoft의 포괄적인 IDaaS(Identity as a Service) 솔루션입니다.
 
-Azure AD의 값은 “그저” 클라우드 응용 프로그램의 수준을 넘어섭니다. 또한 안전한 원격 액세스를 제공하여 온-프레미스 응용 프로그램과 함께 사용할 수 있으며 이는 VPN 또는 기존의 기타 원격 액세스 관리 시스템을 필요로 하지 않도록 방지합니다.
+- 클라우드 서비스로 IAM 사용 
+
+- 중앙 액세스 관리, SSO(Single Sign-On) 및 보고 제공
+
+- Salesforce, Google Apps, Box, Concur 등을 포함하여 응용 프로그램 갤러리에서 [수천 개의 응용 프로그램](https://azure.microsoft.com/marketplace/active-directory/)에 대한 통합된 액세스 관리를 지원합니다.
+
+
+Azure Active Directory를 사용하여 파트너 및 고객(비즈니스 또는 소비자)을 위해 게시한 모든 응용 프로그램에는 동일한 ID 및 액세스 관리 기능이 있습니다.<br> 이렇게 하면 운영 비용을 크게 줄일 수 있습니다.
 
 응용 프로그램 갤러리에 아직 나열되지 않은 응용 프로그램을 구현해야 하는 경우 어떻게 합니까? 응용 프로그램 갤러리에서 응용 프로그램에 SSO를 구성하는 것 보다 약간 더 시간이 걸리지만 Azure AD는 구성에 도움이 되는 마법사를 제공합니다.
 
-모든 응용 프로그램에 대한 중앙 액세스 관리 및 Single Sign-On(SSO)을 제공하여 Azure AD는 데이터 보안 및 생산성 문제에 대한 솔루션을 제공합니다.
+Azure AD의 값은 “그저” 클라우드 응용 프로그램의 수준을 넘어섭니다. 또한 보안된 원격 액세스를 제공하여 온-프레미스 응용 프로그램과 함께 사용할 수도 있습니다. 보안된 원격 액세스를 사용하면 VPN 또는 기타 기존의 원격 액세스 관리 구현이 필요하지 않습니다.
+
+모든 응용 프로그램에 대한 중앙 액세스 관리 및 SSO(Single Sign On)를 제공하여 Azure AD는 주요 데이터 보안 및 생산성 문제에 대한 솔루션을 제공합니다.
 
 - 사용자는 한 번의 로그온으로 여러 응용 프로그램에 액세스하여 수입을 만들거나 비즈니스 작업이 이루어지는 데 더 많은 시간을 제공할 수 있습니다.
 
@@ -128,4 +135,4 @@ Azure AD를 사용하여 세부적인 액세스 정책 및 사전 통합된 MFA�
 
 [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/21/2016" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication 구성
@@ -36,7 +36,7 @@ MFA 서비스 설정 페이지를 통해 MFA 관리 포털에 액세스하려면
 [신뢰할 수 있는 IP](#trusted-ips)|신뢰할 수 있는 IP는 관리 또는 페더레이션된 테넌트의 관리자가 회사의 로컬 인트라넷에서 로그인하는 사용자를 위해 Multi-Factor Authentication을 바이패스할 수 있도록 하는 Multi-Factor Authentication의 기능입니다.|Multi-Factor Authentication에서 제외된 IP 주소 구성 및 설정	
 [앱 암호](#app-passwords)|앱 암호를 사용하면 mfa를 인식하지 않는 응용 프로그램은 Multi-Factor Authentication를 바이패스하고 계속 작업할 수 있습니다.|앱 암호에 대한 정보입니다.
 [기억된 장치 및 브라우저(공개 미리 보기)용 Multi-Factor Authentication 일시 중단](#suspend-multi-factor-authentication-for-remembered-devices-and-browsers-public-preview)|사용자가 MFA를 사용하여 성공적으로 로그인한 일수 집합에 MFA를 일시 중단할 수 있습니다.|이 기능을 활성화하고 일 수를 설정하는 방법에 대한 정보입니다.
-
+[선택 가능한 확인 방법(공개 미리 보기)](#selectable-verification-methods-public-preview)|사용자가 사용할 수 있는 인증 방법을 선택할 수 있습니다.|전화 또는 문자 메시지 같은 특정 인증 방법을 활성화 또는 비활성화하는 방법에 대한 정보입니다.
 
 
 
@@ -66,7 +66,7 @@ Microsoft의 기본 음성 인사말은 사용자가 사기 행위 경고 제출
 
 
 
-1. 전화에 전송된 확인을 클릭하면 Multi-factor Authentication 앱을 시작합니다.
+1. 전화에 전송된 확인 메시지를 클릭하면 Azure Authenticator 앱이 시작됩니다.
 2. 사기를 보고하려면 취소 및 사기 보고를 클릭합니다. 그러면 조직의 IT 지원 담당자에 통지됩니다라는 상자가 표시됩니다. 
 3. 사기 행위 보고를 클릭합니다.
 4. 앱에서 닫기를 클릭합니다.
@@ -187,7 +187,7 @@ Azure AD 테넌트의 유형| 사용 가능한 신뢰할 수 있는 IP 옵션
 
 ### 신뢰할 수 있는 IP를 활성화하려면
 
-1. Azure 관리 포털에 로그인합니다.
+1. Azure 클래식 포털에 로그인합니다.
 2. 왼쪽에서 Active Directory를 클릭합니다.
 3. 디렉터리 아래에서 사용자가 Trusted IPsing을 설정하려는 디렉터리를 클릭합니다.
 4. 선택한 디렉터리에서 구성을 클릭합니다.
@@ -202,7 +202,7 @@ Azure AD 테넌트의 유형| 사용 가능한 신뢰할 수 있는 IP 옵션
 
 
 
-![클라우드](./media/multi-factor-authentication-whats-next/trustedips2.png)
+![신뢰할 수 있는 IP](./media/multi-factor-authentication-whats-next/trustedips3.png)
 
 
 
@@ -223,7 +223,7 @@ Office 2010 또는 이전 및 Apple 메일과 같은 일부 앱에서 Multi-fact
 
 인증 환경|브라우저 기반 앱용|브라우저 이외 기반 앱용
 :------------- | :------------- | :------------- 
-|<ul><li>인증의 첫 번째 요소는 수행된 온-프레미스입니다</li><li>두 번째 요소는 클라우드 ID에서 수행되는 휴대폰 기반 방법입니다.</li>|<ul><li>관리자 및 사용자는 앱 암호를 사용하여 로그인할 수 있습니다.
+|<ul><li>인증의 첫번째 요소는 수행된 온-프레미스입니다</li><li>두번째 요소는 클라우드 ID에서 수행되는 휴대폰 기반 방법입니다.</li>|<ul><li>관리자 및 사용자는 앱 암호를 사용하여 로그인할 수 있습니다.
 
 - 사용자가 도난 노출 영역이 늘어나는 여러 앱 암호를 가질 수 있습니다. 앱 암호는 기억하기가 어려우므로 사용자가 적어 두는 것이 좋을 수도 있습니다. 앱 암호로 로그인하는 데 단 하나의 요소만 필요하므로 이는 권장되지 않으며 하지 않는 것이 좋습니다.
 - 암호를 캐시하고 온-프레미스 시나리오에서 사용하는 앱은 앱 암호가 조직 ID 외부에서 알려질 수 없으므로 실패할 수도 있습니다. 예제는 온-프레미스에 있는 Exchange 전자 메일이지만 보관된 메일은 클라우드에 있습니다. 동일한 암호는 작동하지 않습니다.
@@ -261,7 +261,7 @@ Azure AD는 온-프레미스 Windows Server Active Directory 도메인 서비스
 - Azure Multi-Factor Authentication을 사용하고 있습니다
 
 
-<center>![검사](./media/multi-factor-authentication-whats-next/federated.png)</center>
+![검사](./media/multi-factor-authentication-whats-next/federated.png)
 
  이러한 경우 다음을 수행해야 합니다.
 
@@ -275,7 +275,7 @@ Azure AD는 온-프레미스 Windows Server Active Directory 도메인 서비스
 
 
 
-1. Azure 관리 포털에 로그인합니다.
+1. Azure 클래식 포털에 로그인합니다.
 2. 왼쪽에서 Active Directory를 클릭합니다.
 3. 디렉터리 아래에서 사용하도록 설정하려는 사용자에 대한 디렉터리 클릭합니다.
 4. 위쪽에서 사용자를 클릭합니다.
@@ -283,7 +283,8 @@ Azure AD는 온-프레미스 Windows Server Active Directory 도메인 서비스
 6. Multi-factor Authentication 페이지의 위쪽에서 서비스 설정을 클릭합니다.
 7. 사용자가 비 브라우저 응용 프로그램에 로그인하도록 앱 암호를 만들 수 있습니다 옆의 라디오 단추가 선택되어 있는지 확인합니다.
 
-<center>![클라우드](./media/multi-factor-authentication-whats-next/trustedips.png)</center>
+
+![앱 암호 만들기](./media/multi-factor-authentication-whats-next/trustedips3.png)
 
 ### 앱 암호 만들기
 사용자가 초기 등록을 하는 동안 앱 암호를 만들 수 있습니다. 등록 프로세스를 스스로 만들 수 있도록 하는 등록 프로세스의 끝에 옵션이 제공됩니다.
@@ -308,7 +309,7 @@ Azure AD는 온-프레미스 Windows Server Active Directory 도메인 서비스
 
 ### Azure 포털에서 앱 암호를 만들려면
 --------------------------------------------------------------------------------
-1. Azure 관리 포털에 로그인
+1. Azure 클래식 포털에 로그인합니다.
 3. 위쪽에서 사용자 이름을 마우스 오른쪽 단추로 클릭하고 추가 보안 확인을 선택합니다.
 5. 검사 페이지 위쪽에서 앱 암호를 선택합니다.
 6. **만들기**를 클릭합니다.
@@ -316,7 +317,7 @@ Azure AD는 온-프레미스 Windows Server Active Directory 도메인 서비스
 8. 앱 암호를 클립보드에 복사하고 앱에 붙여 넣습니다.
 
 
-<center>![클라우드](./media/multi-factor-authentication-whats-next/app2.png)</center>
+![앱 암호](./media/multi-factor-authentication-whats-next/app2.png)
 
 ### Office 365 또는 Azure 구독이 없는 경우 앱 암호를 만들려면
 --------------------------------------------------------------------------------
@@ -328,7 +329,7 @@ Azure AD는 온-프레미스 Windows Server Active Directory 도메인 서비스
 7. 앱 암호의 이름을 입력하고 **다음**을 클릭합니다.
 8. 앱 암호를 클립보드에 복사하고 앱에 붙여 넣습니다.
 
-<center>![클라우드](./media/multi-factor-authentication-whats-next/myapp.png)</center>
+![앱 암호](./media/multi-factor-authentication-whats-next/myapp.png)
 
 ## 기억된 장치 및 브라우저(공개 미리 보기)용 Multi-Factor Authentication 일시 중단
 
@@ -343,13 +344,36 @@ Azure AD는 온-프레미스 Windows Server Active Directory 도메인 서비스
 
 ### 기억된 장치 및 집합에 대해 MFA 일시 중단을 설정/해제하는 방법
 
-<ol>
-<li>Azure 관리 포털에 로그인합니다.</li>
-<li>왼쪽에서 Active Directory를 클릭합니다.</li>
-<li>Active Directory 아래에서 기억된 장치에 대한 Multi-Factor Authentication 일시 중단을 설정하려는 디렉터리를 클릭합니다.</li>
-<li>선택한 디렉터리에서 구성을 클릭합니다.</li>
-<li>Multi-factor Authentication 섹션에서 서비스 설정 관리를 클릭합니다.</li>
-<li>서비스 설정 페이지의 사용자 장치 설정 관리 아래에서 **사용자가 장치를 기억하도록 하여 Multi-Factor Authentication을 일시 중단할 수 있습니다**를 선택/선택 취소합니다.</li>
-![장치 일시 중단](./media/multi-factor-authentication-manage-users-and-devices/suspend.png) <li>일시 중단을 허용하려는 일 수를 설정합니다. 기본값은 14일입니다.</li> <li>저장을 클릭합니다.</li> <li>닫기를 클릭합니다.</li>
+1. Azure 클래식 포털에 로그인합니다.
+2. 왼쪽에서 Active Directory를 클릭합니다.
+3. Active Directory 아래에서 기억된 장치에 대한 Multi-Factor Authentication 일시 중단을 설정하려는 디렉터리를 클릭합니다.
+4. 선택한 디렉터리에서 구성을 클릭합니다.
+5. Multi-factor Authentication 섹션에서 서비스 설정 관리를 클릭합니다.
+6. 서비스 설정 페이지의 사용자 장치 설정 관리 아래에서 **사용자가 장치를 기억하도록 하여 Multi-Factor Authentication을 일시 중단할 수 있습니다**를 선택/선택 취소합니다. ![장치 일시 중단](./media/multi-factor-authentication-manage-users-and-devices/suspend.png)
+8. 일시 중단을 허용하려는 일 수를 설정합니다. 기본값은 14일입니다.
+9. 저장을 클릭합니다.
+10. 닫기를 클릭합니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+
+## 선택 가능한 확인 방법(공개 미리 보기)
+이제 Azure Multi-factor Authentication을 사용할 때 사용자에게 제공되는 인증 방법을 선택할 수 있게 되었습니다. 이 기능은 이전에 온-프레미스 서버 버전에만 제공되었습니다. 아래 테이블은 사용자에게 활성화 또는 비활성화할 수 있는 다양한 인증 방법을 개략적으로 보여 줍니다.
+
+메서드|설명
+:------------- | :------------- | 
+[휴대폰에 전화 걸기](multi-factor-authentication-end-user-first-time-mobile-phone.md)| 인증 휴대폰으로 자동 음성 전화를 겁니다. 사용자가 전화를 받고 휴대폰 키패드에서 #을 눌러 인증합니다. 이 전화 번호는 온-프레미스 Active Directory와 동기화되지 않습니다.
+[휴대폰에 문자 메시지 전송](multi-factor-authentication-end-user-first-time-mobile-phone.md)|확인 코드를 포함하는 문자 메시지를 사용자에게 보냅니다. 사용자는 확인 코드로 문자 메시지에 응답하거나 또는 로그인 인터페이스에 확인 코드를 입력하도록 요구됩니다.
+[모바일 앱을 통한 알림](multi-factor-authentication-end-user-first-time-mobile-app.md)|이 모드에서는 Azure Authenticator 앱이 계정에 대한 무단 액세스를 방지하고 사기성 트랜잭션을 중지합니다. 이 작업은 휴대폰이나 등록된 장치로 푸시 알림을 보내는 방식으로 수행됩니다. 알림을 확인한 후 올바르면 확인을 누릅니다. 그렇지 않은 경우 거부를 선택하거나 사기성 알림을 거부한 후 보고하도록 선택할 수 있습니다. 사기성 알림을 보고하는 방법에 대한 자세한 내용은 Multi-Factor Authentication에 사기 행위 거부 및 보고 기능을 사용하는 방법을 참조하세요.</br></br>Azure Authenticator 앱은 [Windows Phone](http://www.windowsphone.com/ko-KR/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) 및 [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458)에 제공됩니다.|
+[모바일 앱의 확인 코드](multi-factor-authentication-end-user-first-time-mobile-app.md)|이 모드에서는 Azure Authenticator 앱을 소프트웨어 토큰으로 사용하여 OATH 확인 코드를 생성할 수 있습니다. 이 확인 코드를 사용자 이름 및 암호와 함께 입력하여 두 번째 형식의 인증을 제공할 수 있습니다.</li><br><p> [Windows Phone](http://www.windowsphone.com/ko-KR/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) 및 [iOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458) 장치의 경우 Azure Authenticator 앱을 사용할 수 있습니다.
+
+### 인증 방법을 활성화/비활성화하는 방법
+
+1. Azure 클래식 포털에 로그인합니다.
+2. 왼쪽에서 Active Directory를 클릭합니다.
+3. Active Directory에서 인증 방법을 활성화 또는 비활성화하려는 디렉터리를 클릭합니다.
+4. 선택한 디렉터리에서 구성을 클릭합니다.
+5. Multi-factor Authentication 섹션에서 서비스 설정 관리를 클릭합니다.
+6. 서비스 설정 페이지의 확인 옵션에서 사용할 옵션을 선택/선택 취소합니다.</br></br> ![장치 일시 중단](./media/multi-factor-authentication-whats-next/authmethods.png)
+9. 저장을 클릭합니다.
+10. 닫기를 클릭합니다.
+
+<!---HONumber=AcomDC_0218_2016-->

@@ -3,9 +3,9 @@
 	description="Azure 가상 컴퓨터에서 계산 집약적인 .NET 앱을 배포 및 실행하고 Azure 서비스 버스 큐를 사용하여 진행률을 원격으로 모니터링하는 방법에 대해 알아봅니다."
 	services="virtual-machines"
 	documentationCenter=".net"
-	authors="wadepickett"
-	manager="wpickett"
-	editor="mollybos"
+	authors="davidmu1"
+	manager="timlt"
+	editor=""
 	tags=“azure-service-management"/>
 
 <tags
@@ -15,7 +15,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="06/25/2015"
-	ms.author="wpickett"/>
+	ms.author="davidmu"/>
 
 # Azure 가상 컴퓨터에서 .NET으로 계산 집약적인 작업을 실행하는 방법
 
@@ -551,4 +551,4 @@ TSPSolver를 사용하는 대신 [Azure 클래식 포털](https://manage.windows
 [namespace_list]: ./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png
 [access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

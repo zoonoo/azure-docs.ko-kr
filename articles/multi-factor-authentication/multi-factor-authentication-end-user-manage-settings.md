@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/25/2016" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication에 문제가 있는 경우
@@ -25,13 +25,13 @@
 
 
 - [상관관계 ID 오류](#correlation-id-errors)
-- [전화를 분실했거나 도난당한 경우](#i-have-lost-my-phone-or-it-was-stolen?)
+- [전화를 분실했거나 도난당한 경우](#i-have-lost-my-phone-or-it-was-stolen)
 - [휴대폰 번호를 변경하려는 경우](#i-want-to-change-my-phone-number)
 - [새 전화를 구입했고 내 전화 번호를 변경해야 하는 경우](#i-have-a-new-phone-and-need-to-change-my-phone-number)
-- [휴대폰에서 코드를 받지 못하는 경우](#i-am-not-receiving-a-code-on-my-phone)
+- [휴대폰에서 코드를 받지 못하는 경우](#i-am-not-receiving-a-code-or-a-call-on-my-phone)
 - [앱 암호가 작동하지 않는 경우](#app-passwords-are-not-working)
 - [이전 장치에서 Azure Authenticator를 제거하고 새 장치로 이동하려는 경우](#how-do-i-clean-up-azure-authenticator-from-my-old-device-and-move-to-a-new-one)
-- [문제에 대한 답변을 찾을 수 없는 경우](#i-didn't-find-an-answer-to-my-problem)
+- [문제에 대한 답변을 찾을 수 없는 경우](#i-didnt-find-an-answer-to-my-problem)
 
 ##상관관계 ID 오류
 아래의 문제 해결 단계를 시도해도 여전히 문제가 발생하면 [Azure AD 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD)에 질문을 게시하거나, [Microsoft 기술 자료(KB)를 검색하거나](https://www.microsoft.com/ko-KR/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport), [지원에 문의하시면](https://support.microsoft.com/ko-KR) 빠른 시일 내에 문제를 살펴보겠습니다.
@@ -147,7 +147,7 @@ Azure에서 Multi-Factor Authentication을 사용하는 경우 Azure 포털을 �
 - 텍스트 메시지로 휴대폰에 인증 코드를 받도록 선택한 경우 서비스 요금제를 확인하고 장치가 텍스트 메시지 전송을 지원하는지 확인합니다. 전송 속도 및 가용성은 위치와 서비스 공급자에 따라 달라질 수 있습니다. 또한 이러한 코드를 수신하려고 할 때 적절한 셀 신호가 있는지 확인합니다.
 - 모바일 앱을 통해 인증을 받도록 선택한 경우 명확한 셀 신호가 있는지 확인합니다. 또한 전송 속도 및 가용성은 위치와 서비스 공급자에 따라 달라질 수 있습니다. 
 
-스마트폰이 있는 경우 [Azure Authenticator 앱](multi-factor-authentication-azure-authenticator)을 사용하는 것이 좋습니다.
+스마트폰이 있는 경우 [Azure Authenticator 앱](multi-factor-authentication-azure-authenticator.md)을 사용하는 것이 좋습니다.
 
 로그인 시 **다른 인증 옵션 사용**을 선택하여 모바일 앱을 통해 텍스트 메시지로 인증 코드를 받는 방법 간에 전환할 수 있습니다.
 
@@ -172,4 +172,4 @@ Azure에서 Multi-Factor Authentication을 사용하는 경우 Azure 포털을 �
 
 마지막으로, 이 페이지를 업데이트하고 보다 많은 정보를 제공하여 지속적으로 개선할 수 있도록 이 페이지에 자세한 피드백을 남겨야 합니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

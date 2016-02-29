@@ -12,7 +12,7 @@
       ms.tgt_pltfrm="na"
       ms.devlang="na"
       ms.topic="article"
-      ms.date="12/17/2015"
+      ms.date="02/15/2016"
       ms.author="jutang" />
 
 
@@ -120,14 +120,13 @@ Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합�
 
 ### 개념 문서 및 비디오
 
-- [Azure 파일 저장소: Windows 및 Linux을 위한 원활한 클라우드 SMB 파일 시스템](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
-- [Windows에서 Azure 파일 저장소 사용 방법](storage-dotnet-how-to-use-files.md)
-- [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy)
+- [Azure 파일 저장소: Windows 및 Linux을 위한 원활한 클라우드 SMB 파일 시스템 ](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
+- [Windows에서 Azure 파일 저장소 시작](storage-dotnet-how-to-use-files.md)
 
 ### 파일 저장소용 도구 지원
 
-- [Microsoft Azure 저장소와 함께 AzCopy를 사용하는 방법](storage-use-azcopy.md)
-- [Azure 저장소에서 Azure CLI 사용](storage-azure-cli.md#create-and-manage-file-shares)
+- [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)
+- Azure CLI를 사용하여 [파일 공유 만들기 및 관리](storage-azure-cli.md#create-and-manage-file-shares)
 
 ### 참조
 
@@ -135,9 +134,9 @@ Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합�
 
 ### 블로그 게시물
 
-- [Azure 파일 저장소 일반적으로 사용 가능(영문)](http://go.microsoft.com/fwlink/?LinkID=626728&clcid=0x409)
-- [Azure 파일 저장소 자세히 알아보기](http://go.microsoft.com/fwlink/?LinkID=626729&clcid=0x409)
+- [Azure 파일 저장소 일반적으로 사용 가능(영문)](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
+- [Azure 파일 저장소의 내면(영문)](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 - [Microsoft Azure 파일 서비스 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Microsoft Azure 파일에 대한 연결 유지](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,22 +13,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/16/2016"
 	ms.author="andkjell"/>
 
 # Azure AD Connect 연결 문제 해결
 이 문서는 Azure AD Connect와 Azure AD 간 연결의 작동 방식 및 연결 문제 해결 방법을 설명합니다. 이러한 문제는 프록시 서버 환경에서 발생할 가능성이 가장 높습니다.
 
 ## 설치 마법사에서 연결 문제 해결
-Azure AD Connect는 두 가지 서로 다른 구성 방법에 따라 Azure AD에 연결됩니다. 설치 마법사 및 동기화 엔진은 .Net 응용 프로그램이므로 machine.config를 제대로 구성해야 합니다. 로그인 도우미에도 종속성이 있으므로 winhttp가 올바르게 작동하도록 구성되어야 합니다.
+Azure AD Connect는 인증에 최신 인증을 사용합니다(ADAL 라이브러리 사용). 설치 마법사 및 동기화 엔진은 .NET 응용 프로그램이므로 machine.config를 제대로 구성해야 합니다.
 
 이 문서에서는 Fabrikam이 해당 프록시를 통해 Azure AD에 연결되는 방법을 보여 줍니다. 프록시 서버의 이름은 fabrikamproxy이고 포트 8080을 사용하고 있습니다.
 
 첫째, [**machine.config**](active-directory-aadconnect-prerequisites.md#connectivity)가 올바르게 구성되었는지 확인해야 합니다. ![machineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/machineconfig.png)
 
-> [AZURE.NOTE] 일부 블로그에 miiserver.exe.config를 대신 변경하는 것에 대한 내용이 나와 있습니다. 그러나 업그레이드할 때마다 이 파일을 덮어쓰기 때문에 초기 설치 중에는 작동한다 해도 첫 번째 업그레이드에서 시스템이 작동을 멈춥니다. 이런 이유로 인해 machine.config를 업데이트하는 것이 좋습니다.
+> [AZURE.NOTE] Microsoft가 아닌 타사 일부 블로그에 miiserver.exe.config를 대신 변경하는 것에 대한 내용이 나와 있습니다. 그러나 업그레이드할 때마다 이 파일을 덮어쓰기 때문에 초기 설치 중에는 작동한다 해도 첫 번째 업그레이드에서 시스템이 작동을 멈춥니다. 이런 이유로 인해 machine.config를 업데이트하는 것이 좋습니다.
 
-둘째, winhttp가 구성되었는지 확인해야 합니다. [**netsh**](active-directory-aadconnect-prerequisites.md#connectivity)를 사용하여 이를 확인할 수 있습니다. ![netsh](./media/active-directory-aadconnect-troubleshoot-connectivity/netsh.png)
+
 
 또한 프록시 서버에 필요한 URL이 열려 있어야 합니다. 공식 목록은 [Office 365 URL 및 IP 주소 범위](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)에 나와 있습니다.
 
@@ -38,8 +38,10 @@ Azure AD Connect는 두 가지 서로 다른 구성 방법에 따라 Azure AD에
 | ---- | ---- | ---- |
 | mscrl.microsoft.com | HTTP/80 | CRL 목록을 다운로드하는 데 사용됩니다. |
 | *.verisign.com | HTTP/80 | CRL 목록을 다운로드하는 데 사용됩니다. |
+| *.trust.com | HTTP/80 | MFA에 대한 CRL 목록을 다운로드하는 데 사용됩니다. |
 | *.windows.net | HTTPS/443 | Azure AD에 로그인하는 데 사용됩니다. |
-| *.microsoftonline.com | HTTPS/443 | Azure AD 디렉터리 구성 및 데이터 가져오기/내보내기에 사용됩니다. |
+| *.secure.aadcdn.microsoftonline-p.com | HTTPS/443 | MFA에 사용됩니다. |
+| *.microsoftonline.com | HTTPS/443 | Azure AD 디렉터리를 구성하고 데이터를 구성하고 데이터를 가져오거나 내보내는 데 사용됩니다. |
 
 ## 마법사 오류
 설치 마법사는 두 개의 서로 다른 보안 컨텍스트를 사용합니다. **Azure AD에 연결** 페이지에서 현재 로그인된 사용자를 사용합니다. **구성** 페이지에서 [동기화 엔진에 대한 서비스를 실행하는 계정](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts)으로 변경합니다. 프록시 구성은 컴퓨터에 전체적으로 적용되므로 문제가 있다면 이미 마법사의 **Azure AD에 연결** 페이지에 나타날 가능성이 매우 높습니다.
@@ -50,19 +52,17 @@ Azure AD Connect는 두 가지 서로 다른 구성 방법에 따라 Azure AD에
 마법사 자체가 프록시에 연결할 수 없는 경우 이 오류가 표시됩니다. ![nomachineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/nomachineconfig.png)
 
 - 이 오류가 표시되면 [machine.config](active-directory-aadconnect-prerequisites.md#connectivity)가 올바르게 구성되었는지 확인합니다.
-- 제대로 구성된 경우 문제가 마법사 외부에 있는지 확인하기 위해 [프록시 연결 확인](#verify-proxy-connectivity)의 단계를 수행합니다.
+- 올바로 구성된 경우 문제가 마법사 외부에 있는지 확인하기 위해 [프록시 연결 확인](#verify-proxy-connectivity)의 단계를 수행합니다.
 
-### 로그인 도우미가 올바르게 구성되지 않음
-이 오류는 로그인 도우미가 프록시를 연결할 수 없거나 프록시가 요청을 허용하지 않을 때 표시됩니다. ![nonetsh](./media/active-directory-aadconnect-troubleshoot-connectivity/nonetsh.png)
+### MFA 끝점에 연결할 수 없음
+끝점 ****https://secure.aadcdn.microsoftonline-p.com**에 연결할 수 없고 전역 관리자가 MFA를 사용하도록 설정한 경우 이 오류가 표시됩니다. ![nomachineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/nomicrosoftonlinep.png)
 
-- 이 오류가 표시되면 [netsh](active-directory-aadconnect-prerequisites.md#connectivity)에서 프록시 구성을 살펴보고 구성이 올바른지 확인합니다. ![netshshow](./media/active-directory-aadconnect-troubleshoot-connectivity/netshshow.png)
-- 제대로 구성된 경우 문제가 마법사 외부에 있는지 확인하기 위해 [프록시 연결 확인](#verify-proxy-connectivity)의 단계를 수행합니다.
+- 이 오류가 표시되는 경우 끝점 secure.aadcdn.microsoftonline-p.com이 프록시에 추가되어 있는지 확인합니다.
 
 ### 암호를 확인할 수 없음
 설치 마법사가 Azure AD 연결에 성공했지만 암호 자체를 확인할 수 없는 경우 이 오류가 표시됩니다. ![badpassword](./media/active-directory-aadconnect-troubleshoot-connectivity/badpassword.png)
 
-- 암호가 임시 암호라서 변경해야 하나요? 실제로 올바른 암호인가요? https://login.microsoftonline.com(Azure AD Connect 서버와 다른 서버)에 로그인하여 계정이 사용 가능한지 확인합니다.
-- 사용자가 MFA(Multi-Factor Authentication)를 사용할 수 있나요? 만약 그렇다면 사용하지 않도록 설정합니다.
+- 암호가 임시 암호라서 변경해야 하나요? 실제로 올바른 암호인가요? Azure AD Connect 서버와 다른 컴퓨터의 https://login.microsoftonline.com에 로그인하여 계정이 사용 가능한지 확인합니다.
 
 ### 프록시 연결 확인
 Azure AD Connect 서버가 프록시 및 인터넷에 실제로 연결되었는지 확인하려면 프록시가 웹 요청을 허용하는지 확인하기 위해 PowerShell을 사용합니다. PowerShell 프롬프트에서 `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`를 실행합니다. (기술적으로 https://login.microsoftonline.com을 첫 번째로 호출하고 작동도 되지만 다른 URI가 더 빠르게 응답합니다.)
@@ -126,4 +126,18 @@ Time | URL
 1/11/2016 8:49 | connect://*bba900-anchor*.microsoftonline.com:443
 1/11/2016 8:49 | connect://*bba800-anchor*.microsoftonline.com:443
 
-<!----HONumber=AcomDC_0128_2016-->
+## 이전 릴리스에 대한 문제 해결 단계입니다.
+빌드 번호 1.1.105.0(2016년 2월에 발표됨)으로 시작하는 릴리스에서 로그인 도우미 사용이 중지되었습니다. 이 섹션 및 구성은 더 이상 필요하지 않지만 참조로 유지됩니다.
+
+단일 로그인 도우미를 작동하려면 winhttp가 구성되어야 합니다. [**netsh**](active-directory-aadconnect-prerequisites.md#connectivity)를 사용하여 이를 확인할 수 있습니다. ![netsh](./media/active-directory-aadconnect-troubleshoot-connectivity/netsh.png)
+
+### 로그인 도우미가 올바르게 구성되지 않음
+이 오류는 로그인 도우미가 프록시를 연결할 수 없거나 프록시가 요청을 허용하지 않을 때 표시됩니다. ![nonetsh](./media/active-directory-aadconnect-troubleshoot-connectivity/nonetsh.png)
+
+- 이 오류가 표시되면 [netsh](active-directory-aadconnect-prerequisites.md#connectivity)에서 프록시 구성을 살펴보고 구성이 올바른지 확인합니다. ![netshshow](./media/active-directory-aadconnect-troubleshoot-connectivity/netshshow.png)
+- 올바로 구성된 경우 문제가 마법사 외부에 있는지 확인하기 위해 [프록시 연결 확인](#verify-proxy-connectivity)의 단계를 수행합니다.
+
+## 다음 단계
+[Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
+
+<!---HONumber=AcomDC_0218_2016-->

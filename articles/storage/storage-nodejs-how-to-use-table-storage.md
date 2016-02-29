@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/17/2016"
 	ms.author="micurd"/>
 
 
@@ -28,9 +28,9 @@
 
 이 항목의 코드 예제에서는 Node.js 응용 프로그램이 이미 있다고 가정합니다. Azure에서 Node.js 응용 프로그램을 만드는 방법에 대한 자세한 내용은 다음 항목을 참조하세요.
 
-- [Node.js 웹 사이트 빌드 및 Azure에 배포](Node.js 응용 프로그램 생성 및 Azure 웹 사이트에 배포)
-- [WebMatrix를 사용하여 Node.js 웹 사이트 빌드 및 Azure에 배포](WebMatrix를 사용하여 Node.js 응용 프로그램 생성 및 배포)
-- [Node.js 응용 프로그램 빌드 및 Azure 클라우드 서비스에 배포](Node.js 클라우드 서비스)(Windows PowerShell 사용)
+- [Azure 앱 서비스에서 Node.js 웹 앱 만들기](../app-service-web/web-sites-nodejs-develop-deploy-mac.md)
+- [WebMatrix를 사용하여 Node.js 웹앱 빌드 및 Azure에 배포](../app-service-web/web-sites-nodejs-use-webmatrix.md)
+- [Node.js 응용 프로그램 빌드 및 Azure 클라우드 서비스에 배포](../cloud-services/cloud-services-nodejs-develop-deploy-app.md)(Windows PowerShell 사용)
 
 
 [AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
@@ -71,7 +71,7 @@ Azure 저장소를 사용하려면 저장소 REST 서비스와 통신하는 편�
 
 Azure 모듈은 AZURE\_STORAGE\_ACCOUNT 및 AZURE\_STORAGE\_ACCESS\_KEY, 또는 AZURE\_STORAGE\_CONNECTION\_STRING 환경 변수를 읽고 Azure 저장소 계정에 연결하는 데 필요한 정보를 확인합니다. 이러한 환경 변수가 설정되어 있지 않은 경우 **TableService**를 호출할 때 계정 정보를 지정해야 합니다.
 
-Azure 웹 사이트의 [Azure 포털](https://portal.azure.com)에서 환경 변수를 설정하는 방법에 대한 예제는 [Node.js 웹 응용 프로그램 및 저장소]를 참조하세요.
+Azure 웹 사이트의 [Azure 포털](https://portal.azure.com)에서 환경 변수를 설정하는 방법에 대한 예제는 [Azure 테이블 서비스를 사용하여 Node.js 웹앱]을 참조하세요.
 
 ## 테이블 만들기
 
@@ -276,7 +276,7 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 	  }
 	});
 
-성공할 경우에는 `result.entries` 값에는 쿼리와 일치하는 엔터티의 배열이 포함됩니다. 쿼리에서 엔터티를 모두 반환할 수 없는 경우 `result.continuationToken`이 *null*이 아닌 값이 되므로 **queryEntities**의 세 번째 매개 변수로 사용하여 더 많은 결과를 검색할 수 있습니다. 초기 쿼리의 경우 세 번째 매개 변수에 *null*을 사용합니다.
+성공할 경우에는 `result.entries` 값에는 쿼리와 일치하는 엔터티의 배열이 포함됩니다. 쿼리에서 엔터티를 모두 반환할 수 없는 경우 `result.continuationToken`이 *null* 이 아닌 값이 되므로 **queryEntities**의 세 번째 매개 변수로 사용하여 더 많은 결과를 검색할 수 있습니다. 초기 쿼리의 경우 세 번째 매개 변수에 *null* 을 사용합니다.
 
 ### 엔터티 속성 하위 집합 쿼리
 
@@ -445,7 +445,7 @@ ACL이 설정되고 나면 정책의 ID를 기반으로 SAS를 만들 수 있습
   [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
   [Website with WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
   [Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
-  [Node.js 웹 응용 프로그램 및 저장소]: ../storage-nodejs-use-table-storage-web-site.md
+  [Azure 테이블 서비스를 사용하여 Node.js 웹앱]: ../storage-nodejs-use-table-storage-web-site.md
   [Create and deploy a Node.js application to an Azure website]: ../web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

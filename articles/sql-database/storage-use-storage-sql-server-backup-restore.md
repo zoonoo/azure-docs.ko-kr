@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="vm-windows-sql-server"
 	ms.topic="article"
-	ms.date="02/05/2015"
+	ms.date="02/16/2016"
 	ms.author="carlrab"/>
 
 
@@ -72,4 +72,4 @@ SQL Server 백업을 Azure Blob 저장소 서비스에 쓸 수 있는 기능은 
 
 [백업 및 복원 모범 사례(Azure Blob 저장소 서비스)](http://go.microsoft.com/fwlink/?LinkId=272394)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

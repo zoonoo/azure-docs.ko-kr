@@ -18,9 +18,14 @@
 
 # Azure 데이터 팩터리를 사용하여 Azure SQL 데이터 웨어하우스 간 데이터 이동
 
-이 문서에서는 데이터 팩터리 복사 작업을 사용하여 어떻게 다른 데이터 저장소에서 Azure SQL 데이터 웨어하우스에 데이터를 이동하고 다른 데이터 저장소에서 Azure SQL에 데이터를 이동할 수 있는지를 설명합니다. 이 문서는 복사 작업 및 지원되는 데이터 저장소 조합을 사용하여 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서를 작성합니다.
+이 문서에서는 Azure 데이터 팩터리의 복사 작업을 사용하여 Azure SQL 데이터 웨어하우스에서 다른 데이터 저장소로 데이터를 이동하고 다른 데이터 저장소에서 Azure SQL 데이터 웨어하우스로 데이터를 이동할 수 있는 방법을 설명합니다. 이 문서는 복사 작업 및 지원되는 데이터 원본을 사용하는 데이터 이동 및 SQL 데이터 웨어하우스에 대한 싱크의 일반적인 개요를 보여주는 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서를 작성합니다.
 
-다음 샘플은 Azure SQL 데이터 웨어하우스 및 Azure Blob 저장소 간에 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure 데이터 팩터리의 복사 작업을 사용하여 임의의 원본에서 [여기](data-factory-data-movement-activities.md#supported-data-stores)에 설명한 싱크로 **직접** 데이터를 복사할 수 있습니다.
+다음 샘플은 Azure SQL 데이터 웨어하우스 및 Azure Blob 저장소 간에 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure 데이터 팩터리의 복사 작업을 사용하여 임의의 원본에서 [데이터 이동 활동](data-factory-data-movement-activities.md#supported-data-stores) 문서에 설명한 싱크로 **직접** 데이터를 복사할 수 있습니다.
+
+> [AZURE.NOTE] 
+Azure 데이터 팩터리 서비스에 대한 개요는 [Azure 데이터 팩터리 소개](data-factory-introduction.md)를 참조하세요.
+> 
+> 이 문서에서는 JSON 예제를 제공하지만 데이터 팩터리를 만들기 위한 단계별 지침을 제공하지 않습니다. Azure 데이터 팩터리에서 복사 작업을 사용하는 단계별 지침이 있는 빠른 연습은 [자습서: Azure Blob에서 Azure SQL 데이터베이스에 데이터 복사](data-factory-get-started.md)를 참조하세요.
 
 
 ## 샘플: Azure SQL 데이터 웨어하우스에서 Azure Blob에 데이터 복사
@@ -526,4 +531,4 @@ SQL Azure, SQL server, Sybase에서 데이터를 이동하는 경우 SQL 형식�
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -21,7 +21,7 @@
 
 ## 개요
 
-이 문서에서는 Microsoft Azure Blob 저장소를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Objective-C로 작성되었으며 [Azure 저장소 iOS 라이브러리](https://github.com/Azure/azure-storage-ios)를 사용합니다. Blob **업로드**, **나열**, **다운로드** 및 **삭제** 시나리오를 다룹니다. Blob에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하십시오. 또한 [샘플 앱](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample)을 다운로드하여 iOS 응용 프로그램에서 Azure 저장소의 사용을 신속하게 볼 수 있습니다.
+이 문서에서는 Microsoft Azure Blob 저장소를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Objective-C로 작성되었으며 [Azure Storage Client Library for iOS](https://github.com/Azure/azure-storage-ios)를 사용합니다. Blob **업로드**, **나열**, **다운로드** 및 **삭제** 시나리오를 다룹니다. Blob에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하십시오. 또한 [샘플 앱](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample)을 다운로드하여 iOS 응용 프로그램에서 Azure 저장소의 사용을 신속하게 볼 수 있습니다.
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -88,7 +88,7 @@ iOS 응용 프로그램에서 Blob 저장소에 대해 클라이언트의 요청
 
 다음 예제에서는 Azure CLI를 사용하여 2015년 9월 5일 오전 12:00시(UTC)까지, 컨테이너 *sascontainer*에 대한 읽기 및 쓰기 권한을 부여하는 SAS 토큰을 생성하는 방법을 보여줍니다.
 
-1. 먼저 이 [가이드](../xplat-cli/#how-to-install-the-azure-cli)를 따라 Azure CLI를 설치하고 Azure 구독에 연결하는 방법을 알아봅니다.
+1. 먼저 [Azure CLI 설치](../xplat-cli-install.md)를 참조하여 Azure CLI를 설치하고 Azure 구독에 연결하는 방법을 알아봅니다.
 
 2. 그런 다음 Azure CLI에서 다음 명령을 입력하여 사용자 계정에 대한 연결 문자열을 가져옵니다.
 
@@ -111,7 +111,7 @@ iOS 응용 프로그램에서 Blob 저장소에 대해 클라이언트의 요청
 		// Get a reference to a container in your Storage account
     	AZSCloudBlobContainer *blobContainer = [[AZSCloudBlobContainer alloc] initWithUrl:[NSURL URLWithString:@" your SAS URL"]];
 
-보시는 바와 같이 SAS 토큰을 사용하는 경우, iOS 응용 프로그램에서 계정 이름 및 계정 키가 노출되지 않습니다. [공유 액세스 서명 자습서](../storage-dotnet-shared-access-signature-part-1)를 확인하여 SAS에 대해 자세히 알아볼 수 있습니다.
+보시는 바와 같이 SAS 토큰을 사용하는 경우, iOS 응용 프로그램에서 계정 이름 및 계정 키가 노출되지 않습니다. [공유 액세스 서명: SAS 모델 이해](../storage-dotnet-shared-access-signature-part-1)를 확인하여 SAS에 대해 자세히 알아볼 수 있습니다.
 
 ##비동기 작업
 > [AZURE.NOTE] 서비스에 대한 요청을 수행하는 모든 메서드는 비동기 작업입니다. 코드 샘플에서 이러한 메서드에는 완료 처리기가 있음을 확인할 수 있습니다. 완료 처리기 내에 있는 코드는 요청이 완료된 **후** 실행됩니다. 완료 처리기 이후 코드는 요청이 이루어지는 **동안** 실행됩니다.
@@ -348,15 +348,11 @@ NSString에서 블록 Blob를 업로드하는 것 외에도 이와 유사한 메
 
 이제 Blob 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 좀더 복잡한 저장소 작업에 대해 알아보세요.
 
-- [Azure 저장소 iOS 라이브러리]
-- [Azure 저장소 REST API]
-- [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy)
-- [Azure 저장소 팀 블로그]
+- [iOS용 Azure 저장소 클라이언트 라이브러리](https://github.com/azure/azure-storage-ios)
+- [Azure 저장소 서비스 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+- [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)
+- [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage)
 
 이 라이브러리에 대한 문의 사항이 있는 경우 [MSDN Azure 포럼](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) 또는 [스택 오버플로](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files)에 자유롭게 게시해 주세요. Azure 저장소에 대한 기능 제안 사항이 있는 경우 [Azure 저장소 피드백](https://feedback.azure.com/forums/217298-storage/)에 게시해 주세요.
 
-[Azure 저장소 iOS 라이브러리]: https://github.com/azure/azure-storage-ios
-[Azure 저장소 REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
-[Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

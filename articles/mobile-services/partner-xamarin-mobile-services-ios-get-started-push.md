@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="12/03/2015"
+	ms.date="02/11/2016"
 	ms.author="yuaxu"/>
 
 # 모바일 서비스 앱에 푸시 알림 추가
@@ -36,7 +36,7 @@
 + [Xamarin.iOS Studio]
 + [Azure 모바일 서비스 구성 요소]
 
->[AZURE.IMPORTANT]APNS 요구 사항 때문에 에뮬레이터 대신 iOS 지원 장치(iPhone 또는 iPad)에서 푸시 알림을 배포 및 테스트해야 합니다.
+>[AZURE.IMPORTANT] APNS 요구 사항 때문에 에뮬레이터 대신 iOS 지원 장치(iPhone 또는 iPad)에서 푸시 알림을 배포 및 테스트해야 합니다.
 
 APNS는 인증서를 사용하여 모바일 서비스를 인증합니다. 필요한 인증서를 만들어 모바일 서비스에 업로드하려면 해당 지침을 따르세요. 공식 APNS 기능 설명서는 [Apple Push Notification Service](영문)를 참조하세요.
 
@@ -310,7 +310,7 @@ APNS에 앱을 등록하고 프로젝트를 구성했으면 APNS와 통합되도
 
     새 삽입 스크립트가 등록되며, 이 스크립트는 [apns 개체]를 사용하여 삽입 요청에 제공된 장치에 푸시 알림(삽입된 텍스트)을 보냅니다.
 
-   >[AZURE.NOTE]이 스크립트는 앱을 닫고 알림 메시지를 수신할 수 있는 시간을 주기 위해 알림 전송을 지연시킵니다.
+   >[AZURE.NOTE] 이 스크립트는 앱을 닫고 알림 메시지를 수신할 수 있는 시간을 주기 위해 알림 전송을 지연시킵니다.
 
 ## <a name="test"></a>앱에서 푸시 알림 테스트
 
@@ -318,7 +318,7 @@ APNS에 앱을 등록하고 프로젝트를 구성했으면 APNS와 통합되도
 
     ![][23]
 
-   >[AZURE.NOTE]앱에서 푸시 알림을 명시적으로 수락해야 합니다. This request only occurs the first time that the app runs.
+   >[AZURE.NOTE] 앱에서 푸시 알림을 명시적으로 수락해야 합니다. This request only occurs the first time that the app runs.
 
 2. 앱에서 _새 모바일 서비스 작업_과 같은 의미 있는 텍스트를 입력하고 (**+**) 아이콘을 클릭합니다.
 
@@ -403,4 +403,4 @@ APNS에 앱을 등록하고 프로젝트를 구성했으면 APNS와 통합되도
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331303
 [Xamarin.iOS]: http://xamarin.com/download
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0218_2016-->

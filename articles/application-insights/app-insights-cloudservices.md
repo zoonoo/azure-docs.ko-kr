@@ -125,7 +125,7 @@ HTTP 요청과 같은 방법으로 요청을 추적하여 작업자 역할에 �
 
 ## Azure 진단
 
-[Azure 진단](vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) 데이터에는 역할 관리 이벤트, 성능 카운터 및 응용 프로그램 로그가 포함됩니다. 이러한 내용을 Application Insights로 보내면 나머지 원격 분석과 함께 표시하여 문제를 더 쉽게 진단할 수 있습니다.
+[Azure 진단](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) 데이터에는 역할 관리 이벤트, 성능 카운터 및 응용 프로그램 로그가 포함됩니다. 이러한 내용을 Application Insights로 보내면 나머지 원격 분석과 함께 표시하여 문제를 더 쉽게 진단할 수 있습니다.
 
 Azure 진단은 역할이 예기치 않게 실패하거나 시작되지 않을 경우에 특히 유용합니다.
 
@@ -261,7 +261,7 @@ Application Insights 포털에서 표시된 예는 다음과 같습니다.
 ## 관련된 항목
 
 * [Application Insights에 Azure 진단을 보내도록 구성](app-insights-azure-diagnostics.md)
-* [PowerShell을 사용하여 Application Insights에 Azure 진단 보내기])(app-insights-powershell-azure-diagnostics.md)
+* [PowerShell을 사용하여 Azure 진단을 Application Insights에 보내기](app-insights-powershell-azure-diagnostics.md)
 
 
 
@@ -279,4 +279,4 @@ Application Insights 포털에서 표시된 예는 다음과 같습니다.
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/16/2016"
 	ms.author="andkjell;markusvi"/>
 
 
@@ -75,6 +75,10 @@ Azure AD Connect를 설치하거나 최신 버전으로 업그레이드할 때 �
 ## 도메인 기반 필터링
 이 섹션에서는 도메인 필터를 구성하기 위해 수행해야 하는 단계를 제공합니다. Azure AD Connect를 설치한 후 포리스트 내에 도메인을 추가 및 삭제했다면 필터링 구성을 업데이트해야 합니다.
 
+도메인 기반 필터링을 변경하는 기본 방법은 설치 마법사를 실행하여 [도메인 및 OU 필터링](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering)을 변경하는 것입니다. 설치 마법사는 이 항목에 설명된 모든 작업을 자동화합니다.
+
+어떤 이유로 인해 설치 마법사를 실행할 수 없는 경우에만 다음 단계를 수행합니다.
+
 도메인 기반 필터링 구성은 다음 단계로 구성됩니다.
 
 - 동기화에 포함해야 할 [도메인을 선택](#select-domains-to-be-synchronized)합니다.
@@ -124,6 +128,10 @@ Azure AD Connect를 설치하거나 최신 버전으로 업그레이드할 때 �
 - 구성을 완료하려면 [변경 사항을 적용하고 확인합니다](#apply-and-verify-changes).
 
 ## 조직 구성 단위 기반 필터링
+OU 기반 필터링을 변경하는 기본 방법은 설치 마법사를 실행하여 [도메인 및 OU 필터링](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering)을 변경하는 것입니다. 설치 마법사는 이 항목에 설명된 모든 작업을 자동화합니다.
+
+어떤 이유로 인해 설치 마법사를 실행할 수 없는 경우에만 다음 단계를 수행합니다.
+
 **조직 구성 단위 기반 필터링을 구성하려면 다음 단계를 수행합니다.**
 
 1. **ADSyncAdmins** 보안 그룹의 멤버인 계정을 사용하여 Azure AD Connect 동기화를 실행하는 서버에 로그인합니다.
@@ -131,13 +139,13 @@ Azure AD Connect를 설치하거나 최신 버전으로 업그레이드할 때 �
 3. **커넥터**를 선택하고 **커넥터** 목록에서 **Active Directory 도메인 서비스** 형식을 가진 커넥터를 선택합니다. **작업**에서 **속성**을 선택합니다. ![커넥터 속성](./media/active-directory-aadconnectsync-configure-filtering/connectorproperties.png)  
 4. **디렉터리 파티션 구성**을 클릭하고 구성하려는 도메인을 선택한 후 **컨테이너**를 클릭합니다.
 5. 메시지가 표시되면 온-프레미스 Active Directory에 대한 읽기 권한으로 모든 자격 증명을 제공합니다. 대화 상자에 미리 채워져 있는 사용자일 필요는 없습니다.
-6. **컨테이너 선택** 대화 상자에서 클라우드 디렉터리와 동기화하지 않을 OU의 선택을 해제하고 **확인**을 클릭합니다. ![OU](./media/active-directory-aadconnectsync-configure-filtering/ou.png)  
+6. **컨테이너 선택** 대화 상자에서 클라우드 디렉터리와 동기화하지 않을 OU의 선택을 취소하고 **확인**을 클릭합니다. ![OU](./media/active-directory-aadconnectsync-configure-filtering/ou.png)  
   - 성공적으로 Azure AD에 동기화하려면 Windows 10 컴퓨터를 위해 **컴퓨터** 컨테이너를 선택해야 합니다. 컴퓨터에 연결된 도메인이 다른 OU에 있는 경우 해당 사항이 선택되어 있는지 확인합니다.
   - 트러스트된 여러 포리스트가 있는 경우 **ForeignSecurityPrincipals** 컨테이너를 선택해야 합니다. 이렇게 하면 크로스 포리스트 보안 그룹 멤버 자격을 확인할 수 있습니다.
   - 장치 쓰기 저장 기능을 사용하도록 설정한 경우 **RegisteredDevices** OU를 선택해야 합니다. 그룹 쓰기 저장 등 다른 쓰기 저장 기능을 사용하는 경우 이러한 위치를 선택해야 합니다.
   - 사용자, iNetOrgPersons, 그룹, 연락처 및 컴퓨터가 있는 다른 OU를 선택합니다. 위의 그림에서 이 모든 항목은 ManagedObjects OU에 있습니다.
 7. 완료하면 **확인**을 클릭하여 **속성** 대화 상자를 닫습니다.
-8. 구성을 완료하려면 [변경 사항을 적용하고 확인](#apply-and-verify-changes)합니다.
+8. 구성을 완료하려면 [변경 사항을 적용하고 확인합니다](#apply-and-verify-changes).
 
 ## 특성 기반 필터링
 다음 단계 작업을 위해 2015년 11월([1\.0.9125](active-directory-aadconnect-version-history.md#1091250)) 이상 빌드인지 확인합니다.
@@ -160,14 +168,14 @@ Azure AD Connect를 설치하거나 최신 버전으로 업그레이드할 때 �
 #### 부정 필터링, “다음을 동기화 안 함"
 다음 예제에서는**extensionAttribute15**가 **NoSync**의 값을 가진 모든 사용자를 필터링(동기화 안 함)합니다.
 
-1. **ADSyncAdmins** 보안 그룹의 구성원인 계정을 사용하여 Azure AD Connect 동기화를 실행하는 서버에 로그인합니다.
+1. **ADSyncAdmins** 보안 그룹의 멤버인 계정을 사용하여 Azure AD Connect 동기화를 실행하는 서버에 로그인합니다.
 2. 시작 메뉴에서 **동기화 규칙 편집기**를 시작합니다.
 3. **인바운드**가 선택되어 있는지 확인하고 **새 규칙 추가**를 클릭합니다.
-4. "*In from AD – User DoNotSyncFilter*"와 같이 설명이 포함된 이름을 규칙에 지정합니다. 올바른 포리스트를 선택합니다. 즉, **CS 개체 형식**으로 **사용자**, **MV 개체 형식**으로 **개인**을 선택합니다. **연결 종류**로 **조인**을 선택하고 우선 순위 형식에서 현재 다른 동기화 규칙에서 사용하지 않는 값(예: 500)을 선택한 후 **다음**을 클릭합니다. ![인바운드 1 설명](./media/active-directory-aadconnectsync-configure-filtering/inbound1.png)  
+4. "*In from AD – User DoNotSyncFilter*"와 같이 설명이 포함된 이름을 규칙에 지정합니다. 올바른 포리스트를 선택합니다. 즉, **CS 개체 형식**으로 **사용자**를 선택하고 **MV 개체 형식**으로 **개인**을 선택합니다. **연결 종류**로 **조인**을 선택하고 우선 순위 형식에서 현재 다른 동기화 규칙에서 사용하지 않는 값(예: 500)을 선택한 후 **다음**을 클릭합니다. ![인바운드 1 설명](./media/active-directory-aadconnectsync-configure-filtering/inbound1.png)  
 5. **범위 지정 필터**에서 **그룹 추가**를 클릭하고 **절 추가**를 클릭한 후 특성에서 **ExtensionAttribute15**를 선택합니다. 연산자가 **EQUAL**로 설정되어 있는지 확인하고 값 상자에 값 **NoSync**를 입력합니다. **다음**을 클릭합니다. ![인바운드 2 범위](./media/active-directory-aadconnectsync-configure-filtering/inbound2.png)  
 6. **조인**을 비워두고 **다음**을 클릭합니다.
-7. **변환 추가**를 클릭하고 **FlowType**을 **Constant**로 선택한 후 대상 특성 **cloudFiltered**를 선택하고 원본 텍스트 상자에 **True**를 입력합니다. **추가**를 클릭하여 규칙을 저장합니다. ![인바운드 3 변환](./media/active-directory-aadconnectsync-configure-filtering/inbound3.png)
-8. 구성을 완료하려면 [변경 사항을 적용하고 확인](#apply-and-verify-changes)합니다.
+7. **변환 추가**를 클릭하고 **FlowType**을 **상수**로 선택한 후 대상 특성 **cloudFiltered**를 선택하고 원본 텍스트 상자에 **True**를 입력합니다. **추가**를 클릭하여 규칙을 저장합니다. ![인바운드 3 변환](./media/active-directory-aadconnectsync-configure-filtering/inbound3.png)
+8. 구성을 완료하려면 [변경 사항을 적용하고 확인합니다](#apply-and-verify-changes).
 
 #### 긍정 필터링, “다음만 동기화"
 긍정 필터링을 표현하는 것은 회의실과 같이 동기화가 명확하지 않은 개체도 고려해야 하므로 더 어려울 수 있습니다.
@@ -176,20 +184,20 @@ Azure AD Connect를 설치하거나 최신 버전으로 업그레이드할 때 �
 
 다음 예제에서는 department 특성에 **Sales** 값이 있는 사용자 개체만 동기화합니다.
 
-1. **ADSyncAdmins** 보안 그룹의 구성원인 계정을 사용하여 Azure AD Connect 동기화를 실행하는 서버에 로그인합니다.
+1. **ADSyncAdmins** 보안 그룹의 멤버인 계정을 사용하여 Azure AD Connect 동기화를 실행하는 서버에 로그인합니다.
 2. 시작 메뉴에서 **동기화 규칙 편집기**를 시작합니다.
 3. **인바운드**가 선택되어 있는지 확인하고 **새 규칙 추가**를 클릭합니다.
-4. "*In from AD – User Sales sync*"와 같이 설명이 포함된 이름을 규칙에 지정합니다. 올바른 포리스트를 선택합니다. 즉, **CS 개체 형식**으로 **사용자**, **MV 개체 형식**으로 **개인**을 선택합니다. **연결 종류**로 **조인**을 선택하고 우선 순위 형식에서 현재 다른 동기화 규칙에서 사용하지 않는 값(예: 501)을 선택한 후 **다음**을 클릭합니다. ![인바운드 4 설명](./media/active-directory-aadconnectsync-configure-filtering/inbound4.png)  
+4. "*In from AD – User Sales sync*"와 같이 설명이 포함된 이름을 규칙에 지정합니다. 올바른 포리스트를 선택합니다. 즉, **CS 개체 형식**으로 **사용자**를 선택하고 **MV 개체 형식**으로 **개인**을 선택합니다. **연결 종류**로 **조인**을 선택하고 우선 순위 형식에서 현재 다른 동기화 규칙에서 사용하지 않는 값(예: 501)을 선택한 후 **다음**을 클릭합니다. ![인바운드 4 설명](./media/active-directory-aadconnectsync-configure-filtering/inbound4.png)  
 5. **범위 지정 필터**에서 **그룹 추가**를 클릭하고 **절 추가**를 클릭한 후 특성에서 **department**를 선택합니다. 연산자가 **EQUAL**로 설정되어 있는지 확인하고 값 상자에 값 **Sales**를 입력합니다. **다음**을 클릭합니다. ![인바운드 5 범위](./media/active-directory-aadconnectsync-configure-filtering/inbound5.png)  
 6. **조인**을 비워두고 **다음**을 클릭합니다.
-7. **변환 추가**를 클릭하고 **FlowType**을 **Constant**로 선택한 후 대상 특성 **cloudFiltered**를 선택하고 원본 텍스트 상자에 **False**를 입력합니다. **추가**를 클릭하여 규칙을 저장합니다. ![인바운드 6 변환](./media/active-directory-aadconnectsync-configure-filtering/inbound6.png) 이는 cloudFiltered를 명시적으로 False로 설정하는 특수한 경우입니다.
+7. **변환 추가**를 클릭하고 **FlowType**을 **상수**로 선택한 후 대상 특성 **cloudFiltered**를 선택하고 원본 텍스트 상자에 **False**를 입력합니다. **추가**를 클릭하여 규칙을 저장합니다. ![인바운드 6 변환](./media/active-directory-aadconnectsync-configure-filtering/inbound6.png) 이는 cloudFiltered를 명시적으로 False로 설정하는 특수한 경우입니다.
 
 	이제 범용 동기화 규칙을 만들어야 합니다.
 
-8. "*In from AD – User Catch-all filter*와 같이 설명이 포함된 이름을 규칙에 지정합니다. 올바른 포리스트를 선택합니다. 즉, **CS 개체 형식**으로 **사용자**, **MV 개체 형식**으로 **개인**을 선택합니다. **연결 종류**로 **조인**을 선택하고 우선 순위 형식에서 현재 다른 동기화 규칙에서 사용하지 않는 값(예: 600)을 선택합니다. 이전 동기화 규칙보다 더 높은 우선 순위 값(더 낮은 우선 순위)을 선택했으나 약간의 여유 공간도 확보해 두었으므로 추가 부서 동기화를 시작하려는 경우 필터링 동기화 규칙을 나중에 더 추가할 수 있습니다. **다음**을 클릭합니다. ![인바운드 7 설명](./media/active-directory-aadconnectsync-configure-filtering/inbound7.png)
+8. “*In from AD – User Catch-all filter*”와 같이 설명이 포함된 이름을 규칙에 지정합니다. 올바른 포리스트를 선택합니다. 즉, **CS 개체 형식**으로 **사용자**를 선택하고 **MV 개체 형식**으로 **개인**을 선택합니다. **연결 종류**로 **조인**을 선택하고 우선 순위 형식에서 현재 다른 동기화 규칙에서 사용하지 않는 값(예: 600)을 선택합니다. 이전 동기화 규칙보다 더 높은 우선 순위 값(더 낮은 우선 순위)을 선택했으나 약간의 여유 공간도 확보해 두었으므로 추가 부서 동기화를 시작하려는 경우 필터링 동기화 규칙을 나중에 더 추가할 수 있습니다. **다음**을 클릭합니다. ![인바운드 7 설명](./media/active-directory-aadconnectsync-configure-filtering/inbound7.png)
 9. **범위 지정 필터**를 비워 두고 **다음**을 클릭합니다. 빈 필터는 규칙이 모든 개체에 적용되어야 한다는 것을 나타냅니다.
 10. **조인**을 비워두고 **다음**을 클릭합니다.
-11. **변환 추가**를 클릭하고 **FlowType**을 **Constant**로 선택한 후 대상 특성 **cloudFiltered**를 선택하고 원본 텍스트 상자에 **True**를 입력합니다. **추가**를 클릭하여 규칙을 저장합니다. ![인바운드 3 변환](./media/active-directory-aadconnectsync-configure-filtering/inbound3.png)  
+11. **변환 추가**를 클릭하고 **FlowType**을 **상수**로 선택한 후 대상 특성 **cloudFiltered**를 선택하고 원본 텍스트 상자에 **True**를 입력합니다. **추가**를 클릭하여 규칙을 저장합니다. ![인바운드 3 변환](./media/active-directory-aadconnectsync-configure-filtering/inbound3.png)  
 12. 구성을 완료하려면 [변경 사항을 적용하고 확인합니다](#apply-and-verify-changes).
 
 필요에 따라 동기화에 점점 더 많은 개체를 포함하는 첫 번째 형식의 규칙을 더 많이 만들 수 있습니다.
@@ -246,4 +254,4 @@ Azure AD Connect를 설치하거나 최신 버전으로 업그레이드할 때 �
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

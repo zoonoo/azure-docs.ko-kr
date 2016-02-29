@@ -30,7 +30,7 @@
 
 이 자습서에서는 Mac을 사용하여 빈 Cordova 앱을 만들고 Mobile Engagement SDK를 통합합니다. 기본 분석 데이터를 수집하고 iOS용 APNS(Apple 푸시 알림 시스템) 및 Android용 GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받습니다. 테스트를 위해 iOS 또는 Android 장치에 이 앱을 배포합니다.
 
-> [AZURE.IMPORTANT]이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-KR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 무료 평가판</a>을 참조하세요.
+> [AZURE.IMPORTANT] 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-KR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 무료 평가판</a>을 참조하세요.
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
@@ -64,7 +64,7 @@
 		$ cordova platform add ios 
 		$ cordova run ios
 
-3. 다음을 실행하여 **Android**에 대한 프로젝트를 구성하고 Android 시뮬레이터에서 실행합니다.
+3. 다음을 실행하여 **Android**에 대한 프로젝트를 구성하고 Android 시뮬레이터에서 실행합니다. Android SDK 에뮬레이터 설정에서 대상이 Google API(Google Inc.)이고 CPU/ABI가 Google API ARM인지 확인합니다.
 
 		$ cordova platform add android
 		$ cordova run android
@@ -245,4 +245,4 @@ GCM 알림은 Android 에뮬레이터에서 지원되므로 에뮬레이터를 �
 [11]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-android.png
 [12]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-ios.png
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

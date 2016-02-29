@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/11/2016" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 # Multi-Factor Authentication을 사용자 지정 앱(SDK)으로 빌드하기
@@ -191,4 +191,4 @@ SDK 내에서 다음 항목을 찾을 수 있습니다.
 	    }
 	}
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

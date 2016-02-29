@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/20/2016"
+   ms.date="02/08/2016"
    ms.author="alkohli" />
 
 
@@ -26,7 +26,7 @@
 
 여기서 설명된 프로시저를 완료하려면 30분에서 1시간 정도가 소요됩니다. 이 문서에 게시된 정보는 StorSimple 가상 배열에만 적용됩니다.
 
->[AZURE.IMPORTANT]
+>[AZURE.IMPORTANT] 
 >
 >- StorSimple 가상 배열은 미기 보기 중이며 평가 및 배포 계획 용도로 사용됩니다. 프로덕션 환경에서는 이 미리 보기를 설치하도록 지원되지 않습니다. 
 >- StorSimple 가상 배열에서 문제가 발생하는 경우 [StorSimple MSDN 포럼](https://social.msdn.microsoft.com/Forums/home?forum=StorSimple)에 문제를 게시해 주세요.
@@ -99,6 +99,11 @@ StorSimple 가상 장치를 구성하고 설정하기 전에 다음 사항을 �
     5. 대화 상자가 표시됩니다. 지정된 형식으로 도메인 자격 증명을 입력합니다. 확인 아이콘![확인 아이콘](./media/storsimple-ova-deploy3-iscsi-setup/image15.png)을 클릭합니다. 도메인 자격 증명이 확인됩니다. 자격 증명이 올바르지 않으면 오류 메시지가 표시됩니다.
 
         ![자격 증명](./media/storsimple-ova-deploy3-iscsi-setup/image8.png)
+        
+           > [AZURE.NOTE]
+	   > 
+	   > iSCSI 서버를 도메인에 연결하는 경우 가상 배열이 Microsoft Azure Active Directory용 자체 OU(조직 구성 단위)에 있으며 GPO(그룹 정책 개체)가 적용되지 않았는지 확인합니다.
+	   
 
     6. **Apply**를 클릭합니다. 장치 설정이 적용되고 유효성 검사가 수행됩니다.
  
@@ -108,7 +113,7 @@ StorSimple 가상 장치를 구성하고 설정하기 전에 다음 사항을 �
 
     **웹 프록시** 페이지에서:
 
-    1. http://host-IP 주소 또는 FDQN:포트 번호 형식으로 **웹 프록시 URL**을 입력합니다. HTTPS URL은 지원되지 않습니다.
+    1. *http://host-IP 주소* 또는 *FDQN:포트 번호* 형식으로 **웹 프록시 URL**을 입력합니다. HTTPS URL은 지원되지 않습니다.
 
     2. **인증**은 **기본**, **NTLM** 또는 **없음**으로 지정합니다.
 
@@ -134,7 +139,7 @@ StorSimple 가상 장치를 구성하고 설정하기 전에 다음 사항을 �
 
     1. [StorSimple 가상 배열 배포 – 포털 준비](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key)의 **2단계: 서비스 등록 키 받기**에서 확보한 **서비스 등록 키**를 입력합니다.
 
-    2. 서비스에 장치를 처음으로 등록하는 경우가 아니라면 **서비스 데이터 암호화 키**를 제공해야 합니다. 이 키는 StorSimple Manager 서비스에 추가 장치를 등록하기 위한 서비스 등록 키에 필요합니다. 자세한 내용은 로컬 웹 UI의 [Get the service data encryption key](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key)(서비스 데이터 암호화 키 받기)를 참조하세요.
+    2. 서비스에 장치를 처음으로 등록하는 경우가 아니라면 **서비스 데이터 암호화 키**를 제공해야 합니다. 이 키는 StorSimple Manager 서비스에 추가 장치를 등록하기 위한 서비스 등록 키에 필요합니다. 자세한 내용은 로컬 웹 UI의 [서비스 데이터 암호화 키](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) 받기를 참조하세요.
 
     3. **Register**를 클릭합니다. 장치가 다시 시작됩니다. 장치 등록이 완료되기까지 2-3분 정도 기다려야 할 수 있습니다. 장치가 다시 시작된 후 로그인 페이지가 열립니다.
 
@@ -305,4 +310,4 @@ Windows Server 2012를 실행하는 Windows 호스트의 iSCSI 정규화된 이�
 <!--Reference link-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0218_2016-->

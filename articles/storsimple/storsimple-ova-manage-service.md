@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/26/2016"
+   ms.date="02/05/2016"
    ms.author="alkohli" />
 
 # StorSimple 가상 배열을 위한 StorSimple Manager 서비스 배포
@@ -105,10 +105,10 @@ StorSimple 장치를 배포하려는 경우 **빠른 생성** 옵션을 사용�
 
 ## 다음 단계
 
-- StorSimple 가상 배열 배포 [시작](storsimple-ova-deploy1-portal-prep.md) 방법에 대해 알아봅니다.
+- [StorSimple 가상 배열 시작](storsimple-ova-deploy1-portal-prep.md) 방법에 대해 알아봅니다.
 	
-- [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-ova-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
+- [StorSimple 장치 관리](storsimple-ova-web-ui-admin.md) 방법에 대해 알아봅니다.
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/16/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -26,7 +26,7 @@
 구성을 가정하는 몇 가지 일반적인 규칙이 있습니다.
 
 - 원본 Active Directory에서 가져오는 순서와 관계없이 최종 결과는 항상 동일해야 합니다.
-- 활성 계정은 항상 **userPrincipalName** 및**sourceAnchor**를 포함한 로그인 정보를 기여합니다.
+- 활성 계정은 항상 **userPrincipalName** 및**sourceAnchor**를 포함한 로그인 정보를 제공합니다.
 - 활성화된 계정이 없는 경우 비활성화된 계정이 연결된 사서함이 아니라면 userPrincipalName 및 sourceAnchor를 제공합니다.
 - 연결된 사서함이 있는 계정은 userPrincipalName 및 sourceAnchor에 대 해 사용되지 않습니다. 활성 계정이 나중에 검색되는 것으로 가정합니다.
 - 연락처 개체를 Azure AD에 사용자 또는 연락처로 프로비전할 수 있습니다. 모든 원본 Active Directory 포리스트가 처리 될 때까지 실제로 알지 못합니다.
@@ -56,4 +56,4 @@ Azure AD에 개체를 프로비전하는 경우에는 메타버스 특성 **sour
 * [Azure AD Connect Sync: 사용자 지정 동기화 옵션](active-directory-aadconnectsync-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

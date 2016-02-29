@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/16/2016"
 	ms.author="markusvi"/>
 
 
@@ -536,7 +536,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 
 **주의:** <br> 특성이 없거나, 빈 문자열로 존재하는 경우 True로 계산합니다.<br> 이 함수의 역원을 IsPresnt라고 합니다.
 
-**예:** <br> `IsNull([displayName])` <br> 특성이 없거나 CS 또는 MV에서 빈 문자열인 경우 True를 반환합니다.
+**예:** <br> `IsNullOrEmpty([displayName])` <br> 특성이 없거나 CS 또는 MV에서 빈 문자열인 경우 True를 반환합니다.
 
 
 
@@ -1058,4 +1058,4 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -17,9 +17,9 @@
  ms.date="01/08/2016"
  ms.author="larryfr"/>
 
-# Power BI(미리 보기)를 사용하여 Apache Storm 토폴로지에서 데이터 시각화
+# Power BI를 사용하여 Apache Storm 토폴로지에서 데이터 시각화
 
-Power BI 미리 보기를 사용하여 데이터를 보고서 또는 대시보드로 시각적으로 표시할 수 있습니다. Power BI REST API를 사용하면 HDInsight 클러스터의 Apache Storm에서 실행되는 토폴로지의 데이터를 Power BI에서 손쉽게 사용할 수 있습니다.
+Power BI를 사용하여 데이터를 보고서 또는 대시보드로 시각적으로 표시할 수 있습니다. Power BI REST API를 사용하면 HDInsight 클러스터의 Apache Storm에서 실행되는 토폴로지의 데이터를 Power BI에서 손쉽게 사용할 수 있습니다.
 
 이 문서에는 Power BI를 사용하여 Storm 토폴로지에서 생성된 데이터로 보고서 및 대시보드를 만드는 방법에 대해 알아봅니다.
 
@@ -139,4 +139,4 @@ Power BI 미리 보기를 사용하여 데이터를 보고서 또는 대시보�
 
 * [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

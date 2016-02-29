@@ -288,18 +288,23 @@ Azure 가상 컴퓨터는 Azure 리소스 관리자 템플릿을 통해 Azure �
         
         # Create the metaconfigurations
         # TODO: edit the below as needed for your use case
-        DscMetaConfigs `
-            -RegistrationUrl "<fill me in>" `
-            -RegistrationKey "<fill me in>" `
-            -ComputerName "<some VM to onboard>", "<some other VM to onboard>" `
-            -NodeConfigurationName "SimpleConfig.webserver" `
-            -RefreshFrequencyMins 30 `
-            -ConfigurationModeFrequencyMins 15 `
-            -RebootNodeIfNeeded $False `
-            -AllowModuleOverwrite $False `
-            -ConfigurationMode "ApplyAndMonitor" `
-            -ActionAfterReboot "ContinueConfiguration" `
-            -ReportOnly $False # Set to $True to have machines only report to AA DSC but not pull from it
+        $Params = @{
+             RegistrationUrl = '<fill me in>';
+             RegistrationKey = '<fill me in>';
+             ComputerName = @('<some VM to onboard>', '<some other VM to onboard>');
+             NodeConfigurationName = 'SimpleConfig.webserver';
+             RefreshFrequencyMins = 30;
+             ConfigurationModeFrequencyMins = 15;
+             RebootNodeIfNeeded = $False;
+             AllowModuleOverwrite = $False;
+             ConfigurationMode = 'ApplyAndMonitor';
+             ActionAfterReboot = 'ContinueConfiguration';
+             ReportOnly = $False;  # Set to $True to have machines only report to AA DSC but not pull from it
+        }
+        
+        # Use PowerShell splatting to pass parameters to the DSC configuration being invoked
+        # For more info about splatting, run: Get-Help -Name about_Splatting
+        DscMetaConfigs @Params
 
 3.	등록할 컴퓨터의 이름 뿐만 아니라 자동화 계정에 대한 등록 키 및 URL을 입력합니다. 모든 다른 매개 변수는 선택 사항입니다. 자동화 계정에 대한 등록 키와 등록 URL을 확인하려면 아래의 [**등록 보호**](#secure-registration) 섹션을 참조하세요.
 
@@ -316,7 +321,17 @@ PowerShell DSC 로컬 구성 관리자 기본값이 해당 사용 사례와 일�
 
 3.	노드를 등록하려는 자동화 계정에서 등록하려 컴퓨터에 대한 PowerShell DSC 메타 구성을 다운로드합니다.
 
-        Get-AzureRmAutomationDscOnboardingMetaconfig -ResourceGroupName MyResourceGroup -AutomationAccountName MyAutomationAccount -ComputerName MyServer1, MyServer2 -OutputFolder C:\Users\joe\Desktop
+        # Define the parameters for Get-AzureRmAutomationDscOnboardingMetaconfig using PowerShell Splatting
+        $Params = @{
+            ResourceGroupName = 'ContosoResources'; # The name of the ARM Resource Group that contains your Azure Automation Account
+            AutomationAccountName = 'ContosoAutomation'; # The name of the Azure Automation Account where you want a node on-boarded to
+            ComputerName = @('web01', 'web02', 'sql01'); # The names of the computers that the meta configuration will be generated for
+            OutputFolder = "$env:UserProfile\Desktop";
+        }
+        
+        # Use PowerShell splatting to pass parameters to the Azure Automation cmdlet being invoked
+        # For more info about splatting, run: Get-Help -Name about_Splatting
+        Get-AzureRmAutomationDscOnboardingMetaconfig @Params
 
 이제 ***DscMetaConfigs***라는 폴더가 있어야 하며 이는 등록할 컴퓨터에 대한 PowerShell DSC 메타 구성을 포함합니다.
 
@@ -359,4 +374,4 @@ Azure VM 필요 상태 구성 확장의 상태를 보거나 문제를 해결하�
 * [Azure 자동화 DSC cmdlets](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Azure 자동화 DSC 가격 책정](https://azure.microsoft.com/pricing/details/automation/)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

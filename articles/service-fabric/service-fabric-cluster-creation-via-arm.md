@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/29/2016"
+   ms.date="02/12/2016"
    ms.author="chackdan"/>
 
 
@@ -52,7 +52,9 @@
 
 ## Azure PowerShell을 사용하여 리소스 관리자 템플릿을 Azure에 배포합니다.
 
-PowerShell을 사용하여 템플릿을 배포하는 방법에 대한 자세한 참고 자료는 [PowerShell을 사용하여 리소스 관리자 템플릿 배포](resource-group-template-deploy.md)를 참조하세요.
+PowerShell을 사용하여 템플릿을 배포하는 방법에 대한 자세한 참고 자료는 [PowerShell을 사용하여 리소스 관리자 템플릿 배포](../resource-group-template-deploy.md)를 참조하세요.
+
+>[AZURE.NOTE] 가용성을 유지하고 상태를 보존하기 위해 서비스 패브릭 클러스터에서 특정 수의 노드가 항상 작동 상태를 유지해야 하며, 이 숫자를 "유지 관리 쿼럼"이라고 합니다. 따라서 [상태 전체 백업](service-fabric-reliable-services-backup-restore.md)을 처음으로 수행하는 경우를 제외하고 일반적으로 클러스터의 모든 컴퓨터를 종료하는 행위는 안전하지 않습니다.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 다음 단계
@@ -63,4 +65,4 @@ PowerShell을 사용하여 템플릿을 배포하는 방법에 대한 자세한 
 <!--Image references-->
 [DownloadTemplate]: ./media/service-fabric-cluster-creation-via-arm/DownloadTemplate.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

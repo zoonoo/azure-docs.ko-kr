@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 
@@ -33,7 +33,7 @@
 
 먼저 앱에 추가할 계정에 대한 QR 코드나 편리한 수동 입력을 위한 코드 및 URL이 있는지 확인하세요.
 
-> [AZURE.NOTE]QR 코드를 가져오는 방법을 잘 모르시나요? 지원 센터에 도움을 요청하세요.
+> [AZURE.NOTE] QR 코드를 가져오는 방법을 잘 모르시나요? 지원 센터에 도움을 요청하세요.
 > 
 > 새 앱으로 계정을 활성화할 수 없나요? 지원 센터에 문의하세요.
 >
@@ -164,4 +164,4 @@ Azure Authenticator를 통한 Touch ID 설정은 매우 간단합니다. PIN을 
 
 ![Touch ID](./media/multi-factor-authentication-azure-authenticator/touchid2.png)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

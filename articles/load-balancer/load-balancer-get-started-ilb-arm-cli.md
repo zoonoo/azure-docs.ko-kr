@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/16/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma" />
 
 # Azure CLI를 사용하여 내부 부하 분산 장치 만들기 시작
@@ -91,7 +91,7 @@ Azure 리소스 관리자의 모든 리소스는 리소스 그룹에 연결됩�
  	
 	azure network lb create -n nrprg -l westus
 
->[AZURE.NOTE]가상 네트워크 및 가상 네트워크 서브넷 같은 내부 부하 분산 장치의 모든 리소스는 동일한 리소스 그룹 및 동일한 지역에 속해야 합니다.
+>[AZURE.NOTE] 가상 네트워크 및 가상 네트워크 서브넷 같은 내부 부하 분산 장치의 모든 리소스는 동일한 리소스 그룹 및 동일한 지역에 속해야 합니다.
 
 
 ### 2단계 
@@ -148,7 +148,7 @@ Azure 리소스 관리자의 모든 리소스는 리소스 그룹에 연결됩�
 
 **-g** - 리소스 그룹 **-l** - 내부 부하 분산 장치 집합의 이름 **-n** - 상태 프로브의 이름 **-p** - 상태 프로브에서 사용되는 프로토콜 **-i** - 프로브 간격(초) **-c** - 검사 횟수
 
->[AZURE.NOTE]Microsoft Azure 플랫폼에서는 다양한 관리 시나리오에 공개적으로 라우팅할 수 있는 고정 IPv4 주소를 사용합니다. IP 주소는 168.63.129.16입니다. 이 IP 주소를 방화벽으로 차단하면 안 됩니다. 예기치 않은 동작이 발생할 수 있습니다. Azure 내부 부하 분산과 관련하여 이 IP 주소는 부하 분산된 집합에서 가상 컴퓨터의 상태를 확인하기 위해 부하 분산 장치에서 프로브를 모니터링하는 데 사용됩니다. 내부적으로 부하 분산된 집합의 Azure 가상 컴퓨터로 트래픽을 제한하는 네트워크 보안 그룹이 사용된 경우 168.63.129.16의 트래픽을 허용하도록 네트워크 보안 규칙을 추가해야 합니다.
+>[AZURE.NOTE] Microsoft Azure 플랫폼에서는 다양한 관리 시나리오에 공개적으로 라우팅할 수 있는 고정 IPv4 주소를 사용합니다. IP 주소는 168.63.129.16입니다. 이 IP 주소를 방화벽으로 차단하면 안 됩니다. 예기치 않은 동작이 발생할 수 있습니다. Azure 내부 부하 분산과 관련하여 이 IP 주소는 부하 분산된 집합에서 가상 컴퓨터의 상태를 확인하기 위해 부하 분산 장치에서 프로브를 모니터링하는 데 사용됩니다. 내부적으로 부하 분산된 집합의 Azure 가상 컴퓨터로 트래픽을 제한하는 네트워크 보안 그룹이 사용된 경우 168.63.129.16의 트래픽을 허용하도록 네트워크 보안 규칙을 추가해야 합니다.
 
 ## NIC 만들기
 
@@ -208,7 +208,7 @@ NIC를 만들고(또는 기존 NIC 수정) NAT 규칙, 부하 분산 장치 규�
 
 	azure vm create --resource-group nrprg --name DB1 --location eastus --vnet-name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic1-be --availset-name nrp-avset --storage-account-name web1nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
 
->[AZURE.IMPORTANT]부하 분산 장치의 VM은 동일한 가용성 집합에 있어야 합니다. `azure availset create`을(를) 사용하여 가용성 집합을 만듭니다.
+>[AZURE.IMPORTANT] 부하 분산 장치의 VM은 동일한 가용성 집합에 있어야 합니다. `azure availset create`을(를) 사용하여 가용성 집합을 만듭니다.
 
 ### 4단계
 
@@ -232,4 +232,4 @@ NIC를 만들고(또는 기존 NIC 수정) NAT 규칙, 부하 분산 장치 규�
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

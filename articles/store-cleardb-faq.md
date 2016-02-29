@@ -55,7 +55,7 @@ ClearDB는 MySQL 호스팅 서비스이며 MySQL 인프라를 관리합니다. A
 
 ## Azure 가상 컴퓨터에서 MySQL을 실행하고 있습니다. Azure 웹앱을 내 데이터베이스에 연결할 수 있나요?
 
-예. Azure VM에서 웹앱으로 원격 액세스할 수 있으면 웹앱을 데이터베이스에 연결할 수 있습니다. 자세한 내용을 보려면 여기를 클릭하세요.
+예. Azure VM에서 웹앱으로 원격 액세스할 수 있으면 웹앱을 데이터베이스에 연결할 수 있습니다. 자세한 내용은 [가상 컴퓨터에 MySQL 설치](../virtual-machines/virtual-machines-mysql-windows-server-2008r2.md)를 참조하세요.
 
 ## ClearDB 프리미엄 MySQL 클러스터가 지원되는 국가는 어디인가요?
 
@@ -84,6 +84,14 @@ ClearDB는 MySQL 호스팅 서비스이며 MySQL 인프라를 관리합니다. A
 ## 데이터베이스가 다운되었을 때 지원을 받으려면 누구에게 문의해야 하나요?
 
 데이터베이스 관련 문제에 대해서는 [ClearDB 지원](https://www.cleardb.com/developers/help/support)에 문의하세요. Azure 구독 정보를 제공해야 하므로 준비합니다.
+
+## ClearDB MySQL 데이터베이스 클러스터 솔루션에 대한 추가 사용자를 만들 수 있나요?  
+
+아니요. 추가 사용자를 만들 수는 없지만 ClearDB 데이터베이스 클러스터에서 추가 데이터베이스를 만들 수 있습니다.
+
+## 리소스를 하나의 구독에서 다른 구독으로 마이그레이션할 때 ClearDB MySQL 데이터베이스도 마이그레이션되나요?  
+
+구독 간에 리소스 마이그레이션을 수행할 때 일부 [제한 사항](app-service-move-resources.md)이 적용됩니다. ClearDB MySQL 데이터베이스는 타사 서비스이므로 Azure 구독 마이그레이션 중에 마이그레이션되지 않습니다. Azure 리소스를 마이그레이션하기 전에 MySQL 데이터베이스의 마이그레이션을 관리하지 않으면 ClearDB MySQL 데이터베이스가 사용할 수 없도록 설정될 수 있습니다. 먼저 수동으로 데이터베이스를 마이그레이션한 다음 웹앱에 대한 Azure 구독 마이그레이션을 수행합니다.
 
 ## EA(기업계약) 구독으로 확장성 있는 WordPress를 구매할 수 있나요?
 
@@ -116,4 +124,4 @@ EA 등록에서 요금 청구와 관련된 사항은 [엔터프라이즈 고객 
 
 [Azure 마켓플레이스 FAQ](/marketplace/faq/)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

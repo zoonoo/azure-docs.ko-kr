@@ -2,16 +2,7 @@
 
 Azure AD(Active Directory)에서 [Azure 리소스 관리자][lnk-authenticate-arm]를 사용하여 리소스에서 수행하는 모든 작업을 인증해야 합니다. 가장 쉽게 구성할 수 있는 방법은 PowerShell 또는 Azure CLI를 사용하는 것입니다.
 
-[Azure PowerShell 1.0][lnk-powershell-install]을 설치하지 않은 경우 다음 PowerShell 명령을 사용하여 수행할 수 있습니다. 관리자 권한으로 PowerShell을 실행해야 합니다.
-
-```
-# Install the Azure Resource Manager modules from PowerShell Gallery
-Install-Module AzureRM
-Install-AzureRM
-
-# Install the Azure Service Management module from PowerShell Gallery
-Install-Module Azure
-```
+계속하기 전에 [Azure PowerShell 1.0][lnk-powershell-install] 이상을 설치해야 합니다.
 
 다음 단계는 PowerShell을 사용하여 AD 응용 프로그램에 대해 암호 인증을 설정하는 방법을 보여 줍니다. 표준 PowerShell 세션에서 이러한 명령을 실행할 수 있습니다.
 
@@ -31,7 +22,7 @@ Install-Module Azure
     - **{암호}:** 앱에서 인증하기 위해 사용할 암호입니다.
 
     ```
-    New-AzureRmADApplication -DisplayName {Display name} -HomePage {Home page URL} IdentifierUris {Application identifier} -Password {Password}
+    New-AzureRmADApplication -DisplayName {Display name} -HomePage {Home page URL} -IdentifierUris {Application identifier} -Password {Password}
     ```
     
 4. 만든 응용 프로그램의 **ApplicationId**를 적어 둡니다. 이 ID는 나중에 필요합니다.
@@ -56,6 +47,6 @@ Install-Module Azure
 - 암호
 
 [lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
-[lnk-powershell-install]: https://azure.microsoft.com/ko-KR/blog/azps-1-0-pre/
+[lnk-powershell-install]: ../powershell-install-configure.md
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

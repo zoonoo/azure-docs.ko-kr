@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="02/04/2016"
+	ms.date="02/16/2016"
 	ms.author="jeffstok"/>
 
 # Azure 스트림 분석 작업 크기를 조정하여 스트림 데이터 처리량 증가
@@ -24,7 +24,7 @@
 ## 스트림 분석 작업은 무엇으로 구성되나요?
 스트림 분석 작업 정의에는 입력, 쿼리 및 출력이 포함됩니다. 입력은 작업이 데이터 스트림을 읽는 위치이고, 쿼리는 데이터 입력 스트림을 변환하는 데 사용되며, 출력은 작업이 작업 결과를 전송하는 위치입니다.
 
-작업에는 데이터 스트림에 대해 하나 이상의 입력 소스가 필요합니다. 데이터 스트림 입력 소스는 Azure 서비스 버스 이벤트 허브 또는 Azure Blob 저장소에 저장될 수 있습니다. 자세한 내용은[ Azure 스트림 분석 소개](stream-analytics-introduction.md), [Azure 스트림 분석 사용 시작](stream-analytics-get-started.md) 및 [Azure 스트림 분석 개발자 가이드](../stream-analytics-developer-guide.md)를 참조하세요.
+작업에는 데이터 스트림에 대해 하나 이상의 입력 소스가 필요합니다. 데이터 스트림 입력 소스는 Azure 서비스 버스 이벤트 허브 또는 Azure Blob 저장소에 저장될 수 있습니다. 자세한 내용은 [Azure 스트림 분석 소개](stream-analytics-introduction.md) 및 [Azure 스트림 분석 사용 시작](stream-analytics-get-started.md)을 참조하세요.
 
 ## 스트리밍 단위 구성
 SU(스트리밍 단위)는 Azure 스트림 분석 작업을 실행하는 리소스 및 능력을 나타냅니다. SU는 CPU, 메모리의 혼합된 측정치 및 읽기/쓰기 속도를 기반으로 상대적 이벤트 처리 용량을 설명하는 방법을 제공합니다. 각 스트리밍 단위는 대략 1MB/초의 처리량에 해당합니다.
@@ -71,7 +71,7 @@ SU(스트리밍 단위)는 Azure 스트림 분석 작업을 실행하는 리소�
     FROM Input1 Partition By PartitionId
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
 
-이 쿼리는 그룹화 키가 있으므로 동일한 키가 동일한 쿼리 인스턴스에서 처리되어야 합니다. 즉, 이벤트를 분할된 방식으로 이벤트 허브에 보내야 합니다. 어떤 키를 신경 써야 하나요? **PartitionId**는 작업 논리 개념이므로 실제로 신경 써야 하는 키는 **TollBoothId**입니다. 즉, 이벤트 허브에 보내는 이벤트 데이터의 **PartitionKey**가 이벤트의 **TollBoothId**가 되도록 설정해야 합니다. 쿼리에 **PartitionId**의 **Partition By**가 있으므로 이 부분에는 문제가 없습니다. 출력의 경우 Blob이므로 **PartitionKey** 구성을 염려하지 않아도 됩니다. 요구 사항 #4의 경우도 Blob이므로 염려할 필요가 없습니다. 이 토폴로지는 병렬 처리가 적합합니다.
+이 쿼리는 그룹화 키가 있으므로 동일한 키가 동일한 쿼리 인스턴스에서 처리되어야 합니다. 즉, 이벤트를 분할된 방식으로 이벤트 허브에 보내야 합니다. 어떤 키를 신경 써야 하나요? **PartitionId**는 작업 논리 개념이므로 실제로 신경 써야 하는 키는 **TollBoothId**입니다. 즉, 이벤트 허브에 보내는 이벤트 데이터의 **PartitionKey**가 이벤트의 **TollBoothId**가 되도록 설정해야 합니다. 쿼리에 **PartitionId**의 **Partition By**가 있으므로 이 부분에는 문제가 없습니다. 출력의 경우 BLOB이므로 **PartitionKey** 구성을 염려하지 않아도 됩니다. 요구 사항 #4의 경우도 Blob이므로 염려할 필요가 없습니다. 이 토폴로지는 병렬 처리가 적합합니다.
 
 ### 그룹화 키가 있는 다중 단계 쿼리 ###
 입력 - 8개의 파티션이 있는 이벤트 허브 출력 - 8개의 파티션이 있는 이벤트 허브
@@ -148,7 +148,7 @@ PowerBI 출력은 현재 분할을 지원하지 않습니다.
 
 단계를 분할하려면 다음 조건이 필요합니다.
 
-- 입력 소스는 분할해야 합니다. 자세한 내용은 [Azure 스트림 분석 개발자 가이드](../stream-analytics-developer-guide.md) 및 [이벤트 허브 프로그래밍 가이드](../event-hubs/event-hubs-programming-guide.md)를 참조하세요.
+- 입력 소스는 분할해야 합니다. 자세한 내용은 [이벤트 허브 프로그래밍 가이드](../event-hubs/event-hubs-programming-guide.md)를 참조하세요.
 - 쿼리의 **SELECT** 문은 분할된 입력 원본에서 읽어와야 합니다.
 - 단계 내의 쿼리에는 **Partition By** 키워드가 있어야 합니다.
 
@@ -345,11 +345,10 @@ Azure Preview 포털의 설정에서 크기 조정 설정을 액세스할 수 �
 [azure.management.portal]: http://manage.windowsazure.com
 [azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
 
-[stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-get-started.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

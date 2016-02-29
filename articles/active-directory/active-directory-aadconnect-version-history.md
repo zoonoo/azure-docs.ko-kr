@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
+   ms.date="02/16/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: 버전 릴리스 내역
@@ -26,6 +26,34 @@ Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect�
 
 - 업데이트를 적용하는 데 필요한 사용 권한은 [계정 및 사용 권한](active-directory-aadconnect-accounts-permissions.md#upgrade)을 참조하세요.
 - [Azure AD Connect 다운로드](http://go.microsoft.com/fwlink/?LinkId=615771)
+
+## 1\.1.105.0
+발표 날짜: 2016년 2월
+
+**새로운 기능:**
+
+- Express 설정 고객용 [자동 업그레이드](active-directory-aadconnect-feature-automatic-upgrade.md) 기능
+- 설치 마법사에서 MFA 및 PIM을 사용하여 전역 관리자 지원
+    - MFA를 사용하는 경우 https://secure.aadcdn.microsoftonline-p.com에 트래픽을 허용하려면 프록시도 허용해야 합니다.
+    - MFA가 올바르게 작동하려면 신뢰할 수 있는 사이트 목록에 https://secure.aadcdn.microsoftonline-p.com을 추가해야 합니다.
+- 초기 설치 후 사용자의 로그인 방법 변경 허용
+- 설치 마법사에서 [도메인 및 OU 필터링](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) 허용. 이는 일부 도메인을 사용할 수 없는 포리스트로의 연결도 허용합니다.
+- 동기화 엔진에 [스케줄러](active-directory-aadconnectsync-feature-scheduler.md) 기본 제공
+
+**미리 보기에서 GA로 승격되는 기능:**
+
+- [장치 쓰기 저장](active-directory-aadconnect-feature-device-writeback.md).
+- [디렉터리 확장](active-directory-aadconnectsync-feature-directory-extensions.md).
+
+**새로운 미리 보기 기능:**
+
+- 새 기본 동기화 주기 간격은 30분입니다. 이전 모든 릴리스에서는 3시간이었습니다. [스케줄러](active-directory-aadconnectsync-feature-scheduler.md) 동작 변경 지원이 추가되었습니다.
+
+**수정된 문제:**
+
+- DNS 도메인 확인 페이지에서 도메인을 항상 인식하지 않았습니다.
+- ADFS를 구성할 때 도메인 관리자 자격 증명을 묻는 메시지가 표시됩니다.
+- 온-프레미스 AD 계정이 루트 도메인이 아닌 다른 DNS 트리를 사용하는 도메인에 있는 경우 설치 마법사에서 인식하지 못합니다.
 
 ## 1\.0.9131.0
 릴리스 날짜: 2015년 12월
@@ -114,7 +142,7 @@ Azure AD Sync에서 Azure AD Connect로 이름을 변경했습니다.
 
 - [사용자 쓰기 저장](active-directory-aadconnect-feature-preview.md#user-writeback)
 - [그룹 쓰기 저장](active-directory-aadconnect-feature-preview.md#group-writeback)
-- [장치 쓰기 저장](active-directory-aadconnect-get-started-custom-device-writeback.md)
+- [장치 쓰기 저장](active-directory-aadconnect-feature-device-writeback.md)
 - [디렉터리 확장](active-directory-aadconnect-feature-preview.md#directory-extensions)
 
 
@@ -209,4 +237,4 @@ AD로부터 암호 해시를 읽을 수 있으려면 AD 계정에 추가 권한�
 ## 다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="데이터 집합 만들기" 
+	pageTitle="Azure 데이터 팩터리의 데이터 집합 | Microsoft Azure" 
 	description="Azure Data Factory 데이터 집합을 이해하고 만드는 방법을 알아봅니다." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="01/26/2016" 
 	ms.author="spelluru"/>
 
-# 데이터 집합
+# Azure 데이터 팩터리의 데이터 집합
 
 ## 설명
 데이터 집합은 데이터를 논리적으로 설명합니다. 설명되는 데이터는 단순한 바이트, CSV 파일과 같은 반구조적 데이터에서 관계형 테이블 또는 모델에 이르기까지 다양할 수 있습니다. 데이터에 액세스하는 메커니즘(주소, 프로토콜, 인증 체계)를 연결된 서비스에서 정의하고 데이터 집합 정의에서 참조합니다.
@@ -208,4 +208,4 @@ type | 열의 데이터 형식 | 아니요 | 해당 없음
 	  }
 	}
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="사이트 복구로 온-프레미스 Hyper-V 가상 컴퓨터와 Azure(VMM 없음) 간 복제 | Microsoft Azure"
-	description="Azure Site Recovery는 온-프레미스 Hyper-V 서버에 있는 가상 컴퓨터와 Azure 간의 복제, 장애 조치(Failover) 및 복구를 조정합니다."
+	description="이 문서에서는 컴퓨터가 VMM 클라우드에서 관리되지 않는 경우 Azure 사이트 복구를 사용하여 Azure에 Hyper-V 가상 컴퓨터를 복제하는 방법을 설명합니다."
 	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
@@ -13,19 +13,22 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="12/10/2015"
+	ms.date="02/16/2016"
 	ms.author="raynew"/>
 
 
 # Azure Site Recovery로 온-프레미스 Hyper-V 가상 컴퓨터와 Azure(VMM 없음) 간 복제
 
-Azure Site Recovery는 여러 배포 시나리오에서 가상 컴퓨터 및 물리적 서버의 복제, 장애 조치(Failover) 및 복구를 오케스트레이션하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. 사이트 복구에 대해 [자세히 알아보세요.](site-recovery-overview.md)
+Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제, 장애 조치(Failover) 및 복구를 오케스트레이션하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. 컴퓨터는 Azure 또는 보조 온-프레미스 데이터 센터로 복제할 수 있습니다. 빠른 개요를 알아보려면 [Azure Site Recovery란?](site-recovery-overview.md)을 확인하세요.
 
 ## 개요
 
-이 문서에서는 Windows Server 2012 R2를 실행하는 Hyper-V 호스트가 System Center VMM(Virtual Machine Manager) 클라우드에서 관리되지 않는 경우 Hyper-V 가상 컴퓨터를 복제하도록 사이트 복구를 배포하는 방법을 설명합니다.
+이 문서에서는 Hyper-V 호스트가 System Center VMM(Virtual Machine Manager) 클라우드에서 관리되지 않는 경우 Hyper-V 가상 컴퓨터를 복제하도록 사이트 복구를 배포하는 방법을 설명합니다.
 
-이 문서는 복제 설정을 구성하고 가상 컴퓨터에 대한 보호를 설정하도록 돕는 배포 필수 조건을 요약합니다. 끝으로, 장애 조치(Failover)를 테스트하여 모두 예상대로 작동하는지 확인합니다. 문제가 발생할 경우 [Azure 복구 서비스 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에 문의 사항을 게시하세요.
+이 문서는 복제 설정을 구성하고 가상 컴퓨터에 대한 보호를 설정하도록 돕는 배포 필수 조건을 요약합니다. 끝으로, 장애 조치(Failover)를 테스트하여 모두 예상대로 작동하는지 확인합니다.
+
+
+이 문서의 하단 또는 [Azure 복구 서비스 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에서 의견이나 질문을 게시합니다.
 
 
 ## 시작하기 전에
@@ -56,11 +59,11 @@ Azure Site Recovery 배포의 일환으로 Hyper-V 서버마다 Azure Site Recov
 - 항상 최신 버전의 공급자 및 에이전트를 실행하는 것이 좋습니다. 이에 대한 내용은 사이트 복구 포털에서 제공됩니다.
 - 자격 증명 모음의 모든 Hyper-V 서버는 동일한 버전의 공급자 및 에이전트를 포함해야 합니다.
 - 서버에서 실행되는 공급자는 인터넷을 통해 사이트 복구에 연결됩니다. 현재 Hyper-V 서버에 구성된 프록시 설정 또는 공급자 설치 중에 구성하는 사용자 지정 프록시 설정을 사용하여 프록시 없이 이를 수행할 수 있습니다. 사용하려는 프록시 서버가 Azure 연결을 위해 이러한 URL에 액세스할 수 있는지 확인해야 합니다.
-	- *.hypervrecoverymanager.windowsazure.com
-	- *.accesscontrol.windows.net
-	- *.backup.windowsazure.com
-	- *.blob.core.windows.net
-	- *.store.core.windows.net
+	- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
 	
 - 또한 [Azure 데이터센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653) 및 HTTPS(443) 프로토콜에 설명된 IP 주소를 허용합니다. 사용하려는 Azure 지역 및 미국 서부의 IP 범위를 허용해야 합니다.
 
@@ -224,7 +227,7 @@ Hyper-V 클러스터를 설치하는 경우 장애 조치 클러스터의 각 �
 		- **크기**: 장애 조치된 가상 컴퓨터의 대상 크기입니다.
 
 		![가상 컴퓨터 속성 구성](./media/site-recovery-hyper-v-site-to-azure/VMProperties.png)
-	- 다음을 포함하여 *보호된 항목** > **보호 그룹** > *protectiongroup\_name* > **가상 컴퓨터** *virtual\_machine\_name* > **구성**에서 추가적인 가상 컴퓨터의 설정을 구성합니다.
+	- 다음을 포함하여 **보호된 항목** > **보호 그룹** > *protectiongroup\_name* > **가상 컴퓨터** *virtual\_machine\_name* > **구성**에서 추가적인 가상 컴퓨터의 설정을 구성합니다.
 
 		- **네트워크 어댑터**: 네트워크 어댑터 수가 대상 가상 컴퓨터에 대해 지정하는 크기에 따라 결정됩니다. [가상 컴퓨터 크기 사양](../virtual-machines/virtual-machines-size-specs.md#size-tables)에서 가상 컴퓨터 크기에 의해 지원되는 NIC의 수를 확인하세요.
 
@@ -260,7 +263,7 @@ Azure 네트워크를 지정하지 않고 테스트 장애 조치(Failover)를 �
 Azure 대상 네트워크를 사용하여 테스트 장애 조치(Failover)를 실행하려면 Azure 프로덕션 네트워크에서 격리된 새 Azure 네트워크를 만듭니다.(Azure에서 새 네트워크를 만들 때의 기본 동작) 자세한 내용은 [테스트 장애 조치(Failover) 실행](site-recovery-failover.md#run-a-test-failover)을 살펴보세요.
 
 
-복제 및 네트워크 배포를 완벽하게 테스트하려면 복제된 가상 컴퓨터가 예상대로 작동하도록 인프라를 설정해야 합니다. 이렇게 하는 한 가지 방법은 DNS를 사용하여 가상 컴퓨터를 도메인 컨트롤러로 설정하고 사이트 복구를 사용하여 이를 Azure에 복제하고 테스트 장애 조치(Failover)를 실행하여 테스트 네트워크에 만드는 것입니다. Active Directory에 대한 테스트 장애 조치 고려 사항에 대해 [자세히 알아보세요.](site-recovery-active-directory.md#considerations-for-test-failover)
+복제 및 네트워크 배포를 완벽하게 테스트하려면 복제된 가상 컴퓨터가 예상대로 작동하도록 인프라를 설정해야 합니다. 이렇게 하는 한 가지 방법은 DNS를 사용하여 가상 컴퓨터를 도메인 컨트롤러로 설정하고 사이트 복구를 사용하여 이를 Azure에 복제하고 테스트 장애 조치(Failover)를 실행하여 테스트 네트워크에 만드는 것입니다. Active Directory에 대한 테스트 장애 조치 고려 사항에 [대해 자세히 알아보세요.](site-recovery-active-directory.md#considerations-for-test-failover)
 
 다음과 같이 테스트 장애 조치(Failover)를 실행합니다.
 
@@ -292,4 +295,4 @@ Azure 대상 네트워크를 사용하여 테스트 장애 조치(Failover)를 �
 
 배포가 설정되고 실행된 후 장애 조치에 대해 [알아봅니다](site-recovery-failover.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

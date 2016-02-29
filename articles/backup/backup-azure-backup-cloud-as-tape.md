@@ -6,10 +6,21 @@
    authors="Jim-Parker"
    manager="jwhit"
    editor=""/>
-<tags  ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="12/15/2015" ms.author="jimpark"; "aashishr"; "sammehta"/>
+<tags
+   ms.service="backup"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="storage-backup-recovery"
+   ms.date="02/09/2016"
+   ms.author="jimpark;"/>
 
 # Azure 백업을 사용하여 테이프 인프라 대체
-Azure 백업 및 System Center Data Protection Manager 고객은 다음을 수행할 수 있습니다. 조직이 원하는 가장 적합한 데이터 백업 일정 - 백업 데이터를 장기간 보관 - Azure를 장기간 보존의 일부로 (테이프 대신) 필요한 만큼 만듭니다.
+Azure 백업 및 System Center Data Protection Manager 고객은 다음을 수행할 수 있습니다.
+
+- 해당 조직의 요구에 가장 적합한 일정으로 데이터 백업
+- 백업 데이터를 더 오랜 기간 동안 보존
+- 장기 보존 시 (테이프 대신) Azure를 사용해 보세요.
 
 이 문서에서는 고객이 백업 및 보존 정책을 사용 하도록 설정하는 방법을 설명합니다. 테이프를 사용하여 장기 보존 요구 사항을 해결하는 고객들은 이제 이 기능을 사용하여 강력하고 실행 가능한 대안을 마련할 수 있습니다. 이 기능은 Azure 백업의 최신 릴리스([여기](http://aka.ms/azurebackup_agent)에서 사용 가능)에서 사용할 수 있습니다. SCDPM 고객은 UR5로 이동해야 이 기능을 사용할 수 있습니다.
 
@@ -60,4 +71,4 @@ Azure 백업에 대한 자세한 내용은 참조
 - [Azure 백업 소개](backup-introduction-to-azure-backup.md)
 - [Azure 백업 시도](backup-try-azure-backup-in-10-mins)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

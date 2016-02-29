@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="02/16/2016" 
 	ms.author="mimig"/>
 
 # DocumentDB 소개: NoSQL JSON 데이터베이스
@@ -77,11 +77,11 @@ Azure DocumentDB는 HTTP/HTTPS 요청을 수행할 수 있는 임의의 언어�
 다운로드 | 설명서
 --- | ---
 [.NET SDK](http://go.microsoft.com/fwlink/?LinkID=402989) | [.NET 라이브러리](https://msdn.microsoft.com/library/azure/dn948556.aspx)
-[Node.js SDK](http://go.microsoft.com/fwlink/?LinkID=402990) | [Node.js 라이브러리](http://dl.windowsazure.com/documentDB/nodedocs/)
-[Java SDK](http://go.microsoft.com/fwlink/?LinkID=402380) | [Java 라이브러리](http://dl.windowsazure.com/documentdb/javadoc/)
-[JavaScript SDK](http://go.microsoft.com/fwlink/?LinkID=402991) | [JavaScript 라이브러리](http://dl.windowsazure.com/documentDB/jsclientdocs/)
-해당 없음 | [서버 쪽 JavaScript SDK](http://dl.windowsazure.com/documentDB/jsserverdocs/)
-[Python SDK](https://pypi.python.org/pypi/pydocumentdb) | [Python 라이브러리](http://dl.windowsazure.com/documentDB/pythondocs/)
+[Node.js SDK](http://go.microsoft.com/fwlink/?LinkID=402990) | [Node.js 라이브러리](http://azure.github.io/azure-documentdb-node/)
+[Java SDK](http://go.microsoft.com/fwlink/?LinkID=402380) | [Java 라이브러리](http://azure.github.io/azure-documentdb-java/)
+[JavaScript SDK](http://go.microsoft.com/fwlink/?LinkID=402991) | [JavaScript 라이브러리](http://azure.github.io/azure-documentdb-js/)
+해당 없음 | [서버 쪽 JavaScript SDK](http://azure.github.io/azure-documentdb-js-server/)
+[Python SDK](https://pypi.python.org/pypi/pydocumentdb) | [Python 라이브러리](http://azure.github.io/azure-documentdb-python/)
 
 기본적인 만들기, 읽기, 업데이트 및 삭제 작업 외에도 DocumentDB는 JSON 문서 검색을 위한 풍부한 SQL 쿼리 인터페이스 및 JavaScript 응용 프로그램 논리의 트랜잭션 실행에 대한 서버 쪽 지원을 제공합니다. 쿼리 및 스크립트 실행 인터페이스는 모든 플랫폼 라이브러리 및 REST API를 통해 사용할 수 있습니다.
 
@@ -111,4 +111,4 @@ Azure 계정이 없는 경우
 [1]: ./media/documentdb-introduction/json-database-resources1.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

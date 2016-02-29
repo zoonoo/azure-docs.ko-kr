@@ -1,6 +1,6 @@
 <properties
    pageTitle="MongoDB를 사용하여 Node.js 응용 프로그램 배포 | Microsoft Azure"
-   description="여러 응용 프로그램을 패키지하여 Azure 서비스 패브릭 클러스터에 배포하는 방법에 대한 연습"
+   description="여러 게스트 실행 파일을 패키지하여 Azure 서비스 패브릭 클러스터에 배포하는 방법에 대한 연습"
    services="service-fabric"
    documentationCenter=".net"
    authors="bmscholl"
@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/17/2015"
+   ms.date="02/12/2016"
    ms.author="bscholl"/>
 
 
-# 여러 사용자 지정 응용 프로그램 배포
+# 여러 개의 게스트 실행 파일 배포
 
-이 문서에서는 [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool)에서 제공하는 서비스 패브릭 패키징 도구의 Preview 버전을 사용하여 여러 응용 프로그램을 패키지하고 Azure 서비스 패브릭에 배포하는 방법을 설명합니다.
+이 문서에서는 [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool)에서 제공하는 서비스 패브릭 패키징 도구의 Preview 버전을 사용하여 여러 게스트 실행 파일을 패키지하고 Azure 서비스 패브릭에 배포하는 방법을 설명합니다.
 
-서비스 패브릭 패키지를 수동으로 빌드하는 방법은 [서비스 패브릭에서 기존 응용 프로그램 배포](service-fabric-deploy-existing-app.md) 방법을 참조하세요.
+서비스 패브릭 패키지를 수동으로 빌드하는 방법은 [서비스 패브릭에 게스트 실행 파일 배포](service-fabric-deploy-existing-app.md) 방법을 참조하세요.
 
 이 연습에서는 MongoDB를 데이터 저장소로 사용하는 Node.js 프런트 엔드를 통해 응용 프로그램을 배포하는 방법을 보여 줍니다. 이 단계는 다른 응용 프로그램에 종속된 모든 응용 프로그램에 적용할 수 있습니다.
 
@@ -125,7 +125,7 @@ MongoDB를 패키지하려면 Mongod.exe 및 Mongo.exe를 패키지해야 합니
 ```
 mongod.exe --dbpath [path to data]
 ```
-> [AZURE.NOTE]MongoDB 데이터 디렉터리를 노드의 로컬 디렉터리에 넣으면 노드 오류 발생 시 데이터가 보존되지 않습니다. 데이터 손실을 방지하려면 지속형 저장소를 사용하거나 MongoDB 복제본 세트를 구현해야 합니다.
+> [AZURE.NOTE] MongoDB 데이터 디렉터리를 노드의 로컬 디렉터리에 넣으면 노드 오류 발생 시 데이터가 보존되지 않습니다. 데이터 손실을 방지하려면 지속형 저장소를 사용하거나 MongoDB 복제본 세트를 구현해야 합니다.
 
 PowerShell 또는 명령 셸에서 다음 매개 변수와 함께 패키징 도구를 실행합니다.
 
@@ -182,7 +182,7 @@ PowerShell 또는 명령 셸에서 다음 매개 변수와 함께 패키징 도�
 Connect-ServiceFabricCluster localhost:19000
 
 Write-Host 'Copying application package...'
-Copy-ServiceFabricApplicationPackage -ApplicationPackagePath '[yourtargetdirectory]' -ImageStoreConnectionString 'file:C:\SfDevCluster\Data\ImageStore' -ApplicationPackagePathInImageStore 'Store\NodeAppType'
+Copy-ServiceFabricApplicationPackage -ApplicationPackagePath '[yourtargetdirectory]' -ImageStoreConnectionString 'file:C:\SfDevCluster\Data\ImageStoreShare' -ApplicationPackagePathInImageStore 'Store\NodeAppType'
 
 Write-Host 'Registering application type...'
 Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'Store\NodeAppType'
@@ -196,6 +196,6 @@ New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationType
 
 ## 다음 단계
 
-- [단일 응용 프로그램을 수동으로 패키지](service-fabric-deploy-existing-app.md)하는 방법을 알아보세요.
+- [게스트 응용 프로그램을 수동으로 패키지](service-fabric-deploy-existing-app.md)하는 방법을 알아보세요.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0218_2016-->

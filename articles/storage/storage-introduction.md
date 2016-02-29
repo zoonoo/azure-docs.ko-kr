@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="02/16/2016"
 	ms.author="tamram"/>
 
 # Microsoft Azure 저장소 소개
@@ -28,9 +28,9 @@ Azure 저장소는 내구성, 가용성, 확장성을 활용하여 고객의 요
 - 중복 및 복제를 통해 Azure 저장소 데이터를 보호하는 방법
 - 첫 Azure 저장소 응용 프로그램을 작성하기 위한 다음 단계
 
-Azure 저장소를 빠르게 시작하려면 [5분 내에 Azure Blob, 테이블 및 큐 시작하기](storage-getting-started-guide.md)를 참조하세요.
+Azure 저장소를 빠르게 시작하려면 [5분 내에 Azure 저장소 시작](storage-getting-started-guide.md)을 참조하세요.
 
-Azure 저장소 작업을 위한 도구, 라이브러리 및 기타 리소스는 아래 [다음 단계](next-steps)를 참조하세요.
+Azure 저장소 작업을 위한 도구, 라이브러리 및 기타 리소스는 아래 [다음 단계](#next-steps)를 참조하세요.
 
 ## Azure 저장소란?
 
@@ -55,7 +55,7 @@ Azure 저장소 계정은 Azure 저장소의 서비스에 대한 액세스 권�
 - 표준 저장소 계정에는 Blob, 테이블, 큐 및 파일 저장소가 포함됩니다.
 - 프리미엄 저장소 계정은 현재 Azure 가상 컴퓨터 디스크만 지원합니다.
 
-저장소 계정을 만들려면 먼저 다양한 Azure 서비스에 대한 액세스 권한을 제공하는 계획인 Azure 구독이 있어야 합니다. [단일 구독으로 고유하게 명명된 저장소 계정을 최대 100개까지 만들 수 있습니다.](../azure-subscription-service-limits.md) 볼륨 가격에 대한 자세한 내용은 [저장소 가격 정보](https://azure.microsoft.com/pricing/details/storage/)를 참조하세요.
+저장소 계정을 만들려면 먼저 다양한 Azure 서비스에 대한 액세스 권한을 제공하는 계획인 Azure 구독이 있어야 합니다. [단일 구독으로 고유하게 명명된 저장소 계정을 최대 100개까지 만들 수 있습니다.](../azure-subscription-service-limits.md) 볼륨 가격에 대한 자세한 내용은 [Azure 저장소 가격 정보](https://azure.microsoft.com/pricing/details/storage/)를 참조하세요.
 
 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)으로 Azure를 시작할 수 있습니다. 계획을 구입하기로 결정하는 경우 다양한 [구입 옵션](https://azure.microsoft.com/pricing/purchase-options/) 중에서 선택할 수 있습니다. [MSDN 구독자](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)는 Azure 저장소를 포함한 Azure 서비스에 사용할 수 있는 무료 월별 크레딧을 받습니다.
 
@@ -74,7 +74,7 @@ Azure 저장소 계정은 Azure 저장소의 서비스에 대한 액세스 권�
 
 ![Azure 저장소 리소스](./media/storage-introduction/storage-concepts.png)
 
-표준 저장소 계정을 만드는 방법을 알아보려면 [저장소 계정 만들기, 관리 또는 삭제](storage-create-storage-account.md)를 참조하세요.
+표준 저장소 계정을 만드는 방법을 알아보려면 [저장소 계정 만들기](storage-create-storage-account.md#create-a-storage-account)를 참조하세요.
 
 ### 프리미엄 저장소 계정
 
@@ -99,7 +99,7 @@ Blob 저장소에는 블록 Blob, 추가 Blob 및 페이지 Blob(디스크)의 �
 
 페이지 Blob은 IaaS 디스크를 나타내고 임의 쓰기를 지원하기 위해 최적화되며 크기가 최대 1TB일 수 있습니다. Azure 가상 컴퓨터 네트워크에 추가된 IaaS 디스크는 페이지 Blob으로 저장된 VHD입니다.
 
-네트워크 제약 조건으로 인해 네트워크를 통해 Blob 저장소를 대상으로 데이터를 업로드하거나 다운로드하는 것이 불가능한 대규모 데이터 집합의 경우, 하드 드라이브를 Microsoft로 운송하여 [Azure 가져오기/내보내기 서비스](storage-import-export-service.md)(영문)를 사용해 데이터 센터에서 바로 데이터를 가져오거나 내보내도록 요청할 수 있습니다. 저장소 계정 내에서 또는 여러 저장소 계정에서 Blob 데이터를 복사할 수도 있습니다.
+네트워크 제약 조건으로 인해 네트워크를 통해 Blob 저장소를 대상으로 데이터를 업로드하거나 다운로드하는 것이 불가능한 대규모 데이터 집합의 경우, 하드 드라이브를 Microsoft로 운송하여 데이터 센터에서 바로 데이터를 가져오거나 내보내도록 요청할 수 있습니다. [Microsoft Azure 가져오기/내보내기 서비스를 사용하여 Blob 저장소로 데이터 전송](storage-import-export-service.md)을 참조하세요. 저장소 계정 내에서 또는 여러 저장소 계정에서 Blob 데이터를 복사할 수도 있습니다.
 
 ## 테이블 저장소
 
@@ -143,7 +143,7 @@ Azure 파일 저장소는 클라우드 기반 SMB 파일 공유를 제공하므�
 
 마지막으로, 컨테이너 및 해당 Blob 또는 특정 Blob을 공개적으로 액세스할 수 있게 지정할 수 있습니다. 컨테이너 또는 Blob을 공개로 지정하면 모든 사용자가 이 컨테이너 또는 Blob를 익명으로 읽을 수 있으며 인증이 필요 없습니다. 공용 컨테이너 및 Blob은 웹 사이트에서 호스트되는 미디어 및 문서와 같은 리소스를 노출하는 데 유용합니다. 전 세계의 대상을 위한 네트워크 대기 시간을 줄이려면 Azure CDN으로 웹 사이트에서 사용되는 Blob 데이터를 캐시할 수 있습니다.
 
-저장소 계정에 대한 안전한 액세스 정보를 보려면 [Azure 저장소 리소스에 대한 액세스 관리](storage-manage-access-to-resources.md) 및 [Azure 저장소 서비스에 대한 인증](https://msdn.microsoft.com/library/azure/dd179428.aspx)을 참조하세요.
+저장소 계정에 대한 안전한 액세스 정보를 보려면 [컨테이너 및 Blob에 대한 익명 읽기 권한 관리](storage-manage-access-to-resources.md) 및 [Azure 저장소 서비스에 대한 인증](https://msdn.microsoft.com/library/azure/dd179428.aspx)을 참조하세요.
 
 ## 내구성 및 고가용성을 위한 복제
 
@@ -155,20 +155,20 @@ Azure 저장소에 대한 요금은 사용한 저장소 용량, 선택한 복제
 
 저장소 용량은 데이터를 저장하는 데 사용하는 저장소 계정 서비스 단위가 어느 정도인지를 나타냅니다. 단순히 데이터를 저장하는 비용은 저장하는 데이터의 양과 복제 방법에 따라 결정됩니다. Azure 저장소에 대한 모든 읽기 및 쓰기 작업은 Azure 서비스에 대해 요청을 생성합니다. 데이터 송신은 Microsoft Azure 지역 외부에서 전송되는 데이터를 나타냅니다. 저장소 계정의 데이터에 동일한 지역에서 실행되지 않는 응용 프로그램이 액세스하는 경우 해당 응용 프로그램이 클라우드 서비스인지 다른 유형의 응용 프로그램인지 여부에 상관없이 데이터 송신 요금이 부과됩니다. Microsoft Azure 서비스의 경우 프로세스 및 데이터 송신 요금을 줄이거나 제거하기 위해 동일한 데이터 센터의 데이터와 서비스를 그룹화하는 조치를 취할 수 있습니다.
 
-[저장소 가격 정보](https://azure.microsoft.com/pricing/details/storage/) 페이지에서는 저장소 용량, 복제 및 트랜잭션에 대한 자세한 가격 정보를 제공합니다. [데이터 전송 가격 정보](https://azure.microsoft.com/pricing/details/data-transfers/)에서는 데이터 송신에 대한 자세한 가격 정보를 제공합니다. [Azure 저장소 가격 계산기](https://azure.microsoft.com/pricing/calculator/?scenario=data-management)를 사용하여 비용을 예측할 수 있습니다.
+[Azure 저장소 가격 책정](https://azure.microsoft.com/pricing/details/storage/) 페이지는 저장소 용량, 복제 및 트랜잭션에 대한 자세한 가격 정보를 제공합니다. [데이터 전송 가격 정보](https://azure.microsoft.com/pricing/details/data-transfers/)에서는 데이터 송신에 대한 자세한 가격 정보를 제공합니다. [Azure 저장소 가격 계산기](https://azure.microsoft.com/pricing/calculator/?scenario=data-management)를 사용하여 비용을 예측할 수 있습니다.
 
 ## 저장소에 대한 개발
 
 Azure 저장소는 HTTP/HTTPS 요청을 수행할 수 있는 임의의 언어로 호출할 수 있는 [REST API](http://msdn.microsoft.com/library/azure/dd179355.aspx)를 통해 저장소 리소스를 노출합니다. 또한 Azure 저장소는 많이 사용되는 몇 가지 언어를 위한 프로그래밍 라이브러리를 제공합니다. 이 라이브러리는 동기/비동기 호출, 작업 일괄 처리, 예외 관리, 자동 재시도, 작업자 동작 등과 같은 세부 사항을 처리하여 Azure 저장소 작업의 많은 측면을 간소화합니다. 현재 이 라이브러리는 파이프라인의 다른 라이브러리와 함께 다음 언어 및 플랫폼에 대해 사용할 수 있습니다.
 
 - [.NET](http://go.microsoft.com/fwlink/?LinkID=390731)
-- [네이티브 코드](http://msdn.microsoft.com/library/azure/dn495438.aspx)
+- [C++용 Microsoft Azure 저장소 클라이언트 라이브러리](https://github.com/Azure/azure-storage-cpp)
 - [Java/Android](/develop/java/)
 - [Node.JS](/develop/nodejs/)
 - [PHP](/develop/php/)
 - [Ruby](/develop/ruby/)
 - [Python](/develop/python/)
-- [PowerShell](http://msdn.microsoft.com/library/azure/dn495240.aspx)
+- [PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
 
 ## 다음 단계
 
@@ -189,7 +189,7 @@ Azure 저장소를 시작하려면 다음 리소스를 탐색하세요.
 
 - [Azure 저장소 설명서](https://azure.microsoft.com/documentation/services/storage/)
 - [Azure 저장소 서비스 REST API 참조](http://msdn.microsoft.com/library/azure/dd179355.aspx)
-- [AzCopy 명령줄 도구 참조](storage-use-azcopy.md)
+- [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)
 
 ### PowerShell 사용자
 - [Azure 저장소와 함께 Azure PowerShell 사용](storage-powershell-guide-full.md)
@@ -199,17 +199,18 @@ Azure 저장소를 시작하려면 다음 리소스를 탐색하세요.
 ### .NET 개발자
 
 - [.NET 클라이언트 라이브러리 참조](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
-- [.NET에서 Blob 저장소를 사용하는 방법](storage-dotnet-how-to-use-blobs.md)
-- [.NET에서 테이블 저장소를 사용하는 방법](storage-dotnet-how-to-use-tables.md)
-- [.NET에서 큐 저장소를 사용하는 방법](storage-dotnet-how-to-use-queues.md)
-- [PowerShell 및 .NET과 함께 파일 저장소를 사용하는 방법](storage-dotnet-how-to-use-files.md)
+- [.NET을 사용하여 Azure Blob 저장소 시작](storage-dotnet-how-to-use-blobs.md)
+- [.NET을 사용하여 Azure 테이블 저장소 시작](storage-dotnet-how-to-use-tables.md)
+- [.NET을 사용하여 Azure 큐 저장소 시작](storage-dotnet-how-to-use-queues.md)
+- [Windows에서 Azure 파일 저장소 시작](storage-dotnet-how-to-use-files.md)
 
 ### Java/Android 개발자
 
-- [Java 클라이언트 라이브러리 참조](http://dl.windowsazure.com/storage/javadoc/)
-- [Java/Android에서 Blob 저장소를 사용하는 방법](../storage-java-how-to-use-blob-storage/)
-- [Java/Android에서 테이블 저장소를 사용하는 방법](../storage-java-how-to-use-table-storage/)
-- [Java/Android에서 큐 저장소를 사용하는 방법](../storage-java-how-to-use-queue-storage/)
+- [Java 클라이언트 라이브러리 참조](http://azure.github.io/azure-storage-java/)
+- [Java/Android에서 Blob 저장소를 사용하는 방법](storage-java-how-to-use-blob-storage.md)
+- [Java/Android에서 테이블 저장소를 사용하는 방법](storage-java-how-to-use-table-storage.md)
+- [Java/Android에서 큐 저장소를 사용하는 방법](storage-java-how-to-use-queue-storage.md)
+- [Java에서 파일 저장소를 사용하는 방법](storage-java-how-to-use-file-storage.md) 
 
 ### Node.js 개발자
 
@@ -235,4 +236,4 @@ Azure 저장소를 시작하려면 다음 리소스를 탐색하세요.
 - [Python에서 테이블 저장소를 사용하는 방법](storage-python-how-to-use-table-storage.md)
 - [Python에서 큐 저장소를 사용하는 방법](storage-python-how-to-use-queue-storage.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

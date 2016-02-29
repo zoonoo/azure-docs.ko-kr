@@ -17,7 +17,7 @@
 	ms.date="01/28/2016"
 	ms.author="larryfr"/>
 
-#HDInsight의 Linux 기반 Hadoop와 함께 Apache Mahout를 사용하여 영화 추천 생성(미리 보기)
+#HDInsight의 Linux 기반 Hadoop와 함께 Apache Mahout를 사용하여 영화 추천 생성
 
 [AZURE.INCLUDE [mahout-selector](../../includes/hdinsight-selector-mahout.md)]
 
@@ -25,7 +25,7 @@ Azure HDInsight에서 [Apache Mahout](http://mahout.apache.org) 기계 학습 �
 
 Mahout은 Apache Hadoop용 [기계 학습][ml] 라이브러리입니다. Mahout에는 필터링, 분류 및 클러스터링과 같은 데이터 처리를 위한 알고리즘이 포함됩니다. 이 문서에서는 추천 엔진을 사용하여 친구가 본 영화를 기준으로 영화 추천을 생성합니다.
 
-> [AZURE.NOTE] 이 문서의 단계에는 HDInsight 클러스터의 Linux 기반 Hadoop가 필요합니다(미리 보기). Windows 기반 클러스터와 함께 Mahout 사용에 대한 자세한 내용은 [HDInsight에서 Windows 기반 Hadoop로 Apache Mahout을 사용하여 영화 추천 생성](hdinsight-mahout.md)을 참조하세요.
+> [AZURE.NOTE] 이 문서의 단계에는 HDInsight 클러스터의 Linux 기반 Hadoop가 필요합니다. Windows 기반 클러스터와 함께 Mahout 사용에 대한 자세한 내용은 [HDInsight에서 Windows 기반 Hadoop로 Apache Mahout을 사용하여 영화 추천 생성](hdinsight-mahout.md)을 참조하세요.
 
 ##필수 조건
 
@@ -267,4 +267,4 @@ Mahout 작업은 작업을 처리하는 동안 생성된 임시 데이터를 제
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -299,8 +299,8 @@ Azure 클래식 포털은 사용자 지정 구성 옵션이 있는 HDInsight 클
 
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication/HDInsight.HBase.Replication.Network.diagram.png
 
-[powershell-install]: ../install-configure-powershell.md
-[hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started.md
+[powershell-install]: powershell-install-configure.md
+[hdinsight-hbase-get-started]: hdinsight-hbase-tutorial-get-started.md
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-hbase-replication-vnet]: hdinsight-hbase-geo-replication-configure-VNets.md
@@ -309,6 +309,5 @@ Azure 클래식 포털은 사용자 지정 구성 옵션이 있는 HDInsight 클
 [hdinsight-sensor-data]: hdinsight-storm-sensor-data-analysis.md
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
-[hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

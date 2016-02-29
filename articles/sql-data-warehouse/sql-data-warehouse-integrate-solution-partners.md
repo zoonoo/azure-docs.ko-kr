@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="02/12/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스 솔루션 파트너
@@ -96,9 +96,9 @@ SQL 데이터 웨어하우스와의 통합에 대한 자세한 내용은 [SQL �
 [redpoint_global_more]: http://www.redpoint.net/
 [sisense_more]: http://www.sisense.com/
 [snaplogic_more]: http://www.snaplogic.com/
-[sql_sentry_more]: www.sqlsentry.com/solutions/business-analytics/
+[sql_sentry_more]: http://www.sqlsentry.com/solutions/business-analytics/
 [tableau_more]: http://www.tableau.com/
 [targit_more]: http://www.targit.com/en/
 [yellowfin_more]: http://www.yellowfinbi.com/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

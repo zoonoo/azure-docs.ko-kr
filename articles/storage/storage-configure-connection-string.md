@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="02/17/2016"
 	ms.author="tamram"/>
 
 # Azure 저장소 연결 문자열 구성
@@ -37,7 +37,7 @@
 
 사용자의 연결 문자열을 구성 파일 내에 저장하면 연결 문자열을 업데이트하여 저장소 에뮬레이터와 클라우드의 Azure 저장소 계정 사이에 전환하기 쉽습니다. 저장소 계정을 가리키도록 연결 문자열을 편집하기만 하면 됩니다.
 
-Azure [CloudConfigurationManager](https://msdn.microsoft.com/library/microsoft.windowsazure.cloudconfigurationmanager.aspx) 클래스를 사용하여 응용 프로그램이 실행 중인 위치와 상관없이 런타임에 사용자의 연결 문자열에 액세스할 수 있습니다.
+[Microsoft Azure 구성 관리자](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/) 클래스를 사용하여 응용 프로그램이 실행 중인 위치와 상관없이 런타임에 사용자의 연결 문자열에 액세스할 수 있습니다.
 
 ## 저장소 에뮬레이터에 연결 문자열 만들기
 
@@ -57,7 +57,7 @@ Azure 저장소 계정에 연결 문자열을 만들려면 아래 연결 문자�
 	AccountName=storagesample;
 	AccountKey=<account-key>
 
-> [AZURE.NOTE]Azure 저장소는 연결 문자열에서 HTTP 및 HTTPS를 모두 지원하지만 HTTPS를 사용하는 것이 좋습니다.
+> [AZURE.NOTE] Azure 저장소는 연결 문자열에서 HTTP 및 HTTPS를 모두 지원하지만 HTTPS를 사용하는 것이 좋습니다.
 
 ## 명시적 저장소 끝점에 대한 연결 문자열 만들기
 
@@ -119,4 +119,4 @@ Blob 서비스에 사용할 사용자 지정 도메인 이름을 등록한 경�
 	AccountKey=<account-key>;
 	EndpointSuffix=core.chinacloudapi.cn;
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

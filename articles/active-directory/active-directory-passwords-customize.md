@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="02/16/2016" 
 	ms.author="asteen"/>
 
 # 해당 조직의 요구에 맞게 사용자 지정 암호 관리
@@ -130,7 +130,7 @@
 ## 암호 관리 동작
 다음 테이블에서 각 컨트롤이 암호 재설정을 위해 등록하여 암호를 재설정하는 사용자의 경험에 미치는 영향을 설명합니다. [Azure 관리 포털](https://manage.windowsazure.com) 내 사용자 디렉터리의 **구성** 탭의 **사용자 암호 재설정 정책** 섹션에서 이 옵션을 구성할 수 있습니다.
 
-> [AZURE.NOTE]사용하는 관리자 계정에 이 정책 제어를 참조하기 위해 할당된 AAD Premium 라이선스가 있어야 합니다.<br><br>이 정책 제어는 관리자가 아닌 암호를 재설정하는 최종 사용자에게만 적용됩니다. **관리자에게는 대체 전자 메일 및/또는 휴대폰을 변경할 수 없는 Microsoft에서 지정한 기본 정책이 있습니다.**
+> [AZURE.NOTE] 사용하는 관리자 계정에 이 정책 제어를 참조하기 위해 할당된 AAD Premium 라이선스가 있어야 합니다.<br><br>이 정책 제어는 관리자가 아닌 암호를 재설정하는 최종 사용자에게만 적용됩니다. **관리자에게는 대체 전자 메일 및/또는 휴대폰을 변경할 수 없는 Microsoft에서 지정한 기본 정책이 있습니다.**
 
 <table>
             <tbody><tr>
@@ -860,7 +860,7 @@
 ## 암호 재설정 설명서에 대한 링크
 다음은 모든 Azure AD 암호 재설정 설명서 페이지에 대한 링크입니다.
 
-* [**자신의 암호 재설정**](active-directory-passwords-update-your-own-password.md) - 시스템 사용자로서 자신의 암호를 재설정하거나 변경하는 방법을 알아봅니다.
+* [**자신의 암호 재설정**](active-directory-passwords-update-your-own-password.md) - 시스템의 사용자로서 자신의 암호를 재설정 또는 변경하는 방법에 대해 알아봅니다.
 * [**작동 방식**](active-directory-passwords-how-it-works.md) - 6개의 다양한 구성 요소 서비스 및 기능에 대해 알아봅니다.
 * [**시작**](active-directory-passwords-getting-started.md) -사용자가 클라우드 또는 온-프레미스 암호를 다시 설정하고 변경할 수 있는 방법에 대해 알아봅니다.
 * [**모범 사례**](active-directory-passwords-best-practices.md) - 사용자의 조직에서 신속하게 배포하고 효과적으로 암호를 관리하는 방법에 대해 알아봅니다.
@@ -872,4 +872,4 @@
 
 [001]: ./media/active-directory-passwords-customize/001.jpg "Image_001.jpg"
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

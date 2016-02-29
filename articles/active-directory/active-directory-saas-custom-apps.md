@@ -15,7 +15,7 @@
 
 #Azure Active Directory 응용 프로그램 갤러리에 있지 않은 응용 프로그램에 Single Sign-On 구성
 
-이 문서에서는 관리자가 Azure Active Directory 앱 갤러리에 없는 응용 프로그램에 Single Sign-On을 *코드 작성 없이* 구성할 수 있도록 설정하는 기능에 대해 설명합니다. 이 기능은 2015년 11 월 18일에 기술 미리 보기에서 릴리스되었으며 [Azure Active Directory Premium](active-directory-editions.md)에 포함되어 있습니다. 이 문서 대신 사용자 지정 앱을 Azure AD와 통합하는 방법에 대한 개발자 지침을 찾으신다면 [Azure AD의 인증 시나리오](active-directory-authentication-scenarios.md)를 참조하세요.
+이 문서에서는 관리자가 Azure Active Directory 앱 갤러리에 없는 응용 프로그램에 Single Sign-On을 *코드 작성 없이* 구성할 수 있도록 설정하는 기능에 대해 설명합니다. 이 기능은 2015년 11월 18일 Technical Preview에서 발표되었으며 [Azure Active Directory Premium](active-directory-editions.md)에 포함되어 있습니다. 이 문서 대신 코드를 통해 사용자 지정 앱을 Azure AD와 통합하는 방법에 대한 개발자 참고 자료를 찾는다면 [Azure AD의 인증 시나리오](active-directory-authentication-scenarios.md)를 참조하세요.
 
 Azure Active Directory 응용 프로그램 갤러리는 [이 문서](active-directory-appssoaccess-whatis.md)에 설명한 대로 Azure Active Directory와의 Single Sign-On 형식을 지원하는 것으로 알려진 응용 프로그램 목록을 제공합니다. (조직에서 IT 전문가 또는 시스템 통합자인 경우)연결한 응용 프로그램을 찾으면 Azure 관리 포털에 Single Sign-On 활성화에 대해 제공된 단계별 지침을 따라 시작할 수 있습니다.
 
@@ -126,4 +126,4 @@ SAML URL 및 인증서가 Azure AD 및 응용 프로그램에서 구성되면 �
 [6]: ./media/active-directory-saas-custom-apps/customapp6.png
 [7]: ./media/active-directory-saas-custom-apps/customapp7.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

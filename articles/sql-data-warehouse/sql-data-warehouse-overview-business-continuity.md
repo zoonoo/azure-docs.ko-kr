@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="02/17/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 
@@ -66,7 +66,7 @@ SQL 데이터 웨어하우스는 계산과 저장소를 분리하기 때문에, 
 <!--Article references-->
 [business continuity overview]: ../sql-database/sql-database-business-continuity.md
 [Finalize a recovered database]: ../sql-database/sql-database-recovered-finalize.md
-[Azure 저장소 중복 옵션]: storage-redundancy/#read-access-geo-redundant-storage-ra-grs.md
+[Azure 저장소 중복 옵션]: ../storage/storage-redundancy.md#read-access-geo-redundant-storage
 [SQL 데이터베이스 비즈니스 연속성 개요]: ../sql-database/sql-database-business-continuity.md
 [사용자 오류로부터 복구]: sql-data-warehouse-business-continuity-recover-from-user-error.md
 
@@ -78,4 +78,4 @@ SQL 데이터 웨어하우스는 계산과 저장소를 분리하기 때문에, 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

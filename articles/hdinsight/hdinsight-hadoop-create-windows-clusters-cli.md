@@ -36,7 +36,7 @@ Azure CLI을 사용하여 HDInsight 클러스터를 만드는 방법을 알아�
 
 	azure login
 
-회사 또는 학교 계정을 사용하여 인증하는 방법에 대한 자세한 내용은 [Azure CLI에서 Azure 구독에 연결](xplat-cli-connect.md)을 참조하세요.
+회사 또는 학교 계정을 사용하여 인증하는 방법에 대한 자세한 내용은 [Azure CLI에서 Azure 구독에 연결](../xplat-cli-connect.md)을 참조하세요.
 	
 다음 명령을 사용하여 ARM 모드로 전환합니다.
 
@@ -129,9 +129,9 @@ ARM 템플릿을 호출하여 클러스터를 만기 위해 CLI를 사용할 수
 
 ## 참고 항목
 
-- [Azure HDInsight 시작](hdinsight-get-started.md) - HDInsight 클러스터를 시작하는 방법을 알아봅니다.
+- [Azure HDInsight 시작](hdinsight-hadoop-linux-tutorial-get-started.md) - HDInsight 클러스터를 시작하는 방법을 알아봅니다.
 - [프로그래밍 방식으로 Hadoop 작업 제출](hdinsight-submit-hadoop-jobs-programmatically.md) - 프로그래밍 방식으로 작업을 HDInsight에 제출하는 방법을 알아봅니다.
 - [Azure CLI를 사용하여 HDInsight의 Hadoop 클러스터 관리](hdinsight-administer-use-command-line.md)
-- [Azure 서비스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](virtual-machines-command-line-tools.md)
+- [Azure 서비스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](../virtual-machines/virtual-machines-command-line-tools.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

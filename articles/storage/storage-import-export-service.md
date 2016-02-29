@@ -57,10 +57,11 @@ Blob 저장소에서 가져오기 또는 내보내기 프로세스를 시작하�
 6.	**작업 최대 크기:** 작업 크기는 사용되는 하드 드라이브의 용량과 저장소 계정에 저장할 수 있는 데이터의 최대 크기에 따라 결정됩니다. 각 작업에는 10개 이하의 하드 드라이브가 포함될 수 있습니다.
 7.  **지원되는 운영 체제:** 고객은 다음 운영 체제 중 하나를 사용하여 Azure에 전달하기 전에 Azure 가져오기/내보내기 도구를 사용하는 하드 드라이브를 준비할 수 있습니다. - Windows 7, Windows 8, Windows 8.1, Windows 10*, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2  
 
-  > [AZURE.IMPORTANT] 
-    Windows 10 컴퓨터로 하드 드라이브를 준비하는 경우 특별 지침은 [FAQ 섹션](#frequently-asked-questions)을 참조하세요.
-    
-    - External hard disk drives that come with an in built USB adaptor are not supported by this service. Please do not prepare an external HDD. The disk inside the external casing also cannot be used for importing data. Use a 3.5" SATA II/III **internal** hard disk drive. If you cannot connect the SATA disk directly to your machine, use an external SATA to USB adaptor. See the list of recommended adaptors in FAQ section.
+  > [AZURE.IMPORTANT]
+  >  
+  >  - Windows 10 컴퓨터로 하드 드라이브를 준비하는 경우 특별 지침은 [FAQ 섹션](#frequently-asked-questions)을 참조하세요.
+  >  
+  >  - 기본 제공된 USB 어댑터와 함께 제공되는 외부 하드 디스크 드라이브는 이 서비스에서 지원되지 않습니다. 외부 HDD를 준비하지 마십시오. 또한 외부 케이스 안의 디스크를 데이터 가져오기에 사용할 수 없습니다. 3.5" SATA II/III **내부** 하드 디스크 드라이브를 사용합니다. SATA 디스크를 컴퓨터에 직접 연결할 수 없으면, USB 어댑터에 외부 SATA를 사용합니다. FAQ 섹션의 권장 어댑터 목록을 참조하세요.
 
 ## 클래식 포털에서 가져오기 작업 만들기##
 
@@ -290,4 +291,4 @@ windows 10을 사용하여 HDD를 준비하는 경우 아래 지침을 따릅니
 [export-job-03]: ./media/storage-import-export-service-classic-portal/export-job-03.png
 [export-job-bitlocker-keys]: ./media/storage-import-export-service-classic-portal/export-job-bitlocker-keys.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

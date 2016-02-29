@@ -636,7 +636,7 @@ Azure 모바일 앱 SDK는 테이블 끝점 및 사용자 지정 API에 대해 �
 		get: function (req, res, next) {
 			var date = { currentTime: Date.now() };
 			res.status(200).type('application/json').send(date);
-		});
+		}
 	};
 	// The GET methods must be authenticated.
 	api.get.access = 'authenticated';
@@ -671,6 +671,38 @@ Azure 모바일 앱 SDK는 [body-parser middleware](https://github.com/expressjs
 
 위에 표시된 50Mb 제한을 조정할 수 있습니다. 파일은 전송되기 전에 base-64로 인코딩되므로 실제 업로드 크기가 증가합니다.
 
+### <a name="howto-customapi-sql"></a>방법: 사용자 지정 SQL 문 실행
+
+Azure 모바일 앱 SDK를 사용하면 정의된 데이터 공급자에 대해 매개 변수화된 SQL 문을 쉽게 실행할 수 있는 요청 개체를 통해 전체 컨텍스트에 액세스할 수 있습니다.
+
+    var api = {
+        get: function (request, response, next) {
+            // Check for parameters - if not there, pass on to a later API call
+            if (typeof request.params.completed === 'undefined')
+                return next();
+
+            // Define the query - anything that can be handled by the mssql
+            // driver is allowed.
+            var query = {
+                sql: 'UPDATE TodoItem SET complete=@completed',
+                parameters: [{
+                    completed: request.params.completed
+                }]
+            };
+
+            // Execute the query.  The context for Azure Mobile Apps is available through
+            // request.azureMobile - the data object contains the configured data provider.
+            request.azureMobile.data.execute(query)
+            .then(function (results) {
+                response.json(results);
+            });
+        }
+    };
+
+    api.get.access = 'authenticated';
+    module.exports = api;
+
+이 끝점은 s에서 액세스될 수 있습니다.
 ## <a name="Debugging"></a>디버그 및 문제 해결
 
 Azure 앱 서비스는 Node.js 응용 프로그램에 대한 여러 디버깅 및 문제 해결 기술을 제공합니다. 이러한 기술을 모두 사용할 수 있습니다.
@@ -771,4 +803,4 @@ Azure 포털을 사용하면 로컬 컴퓨터에 프로젝트를 다운로드하
 [ExpressJS 미들웨어]: http://expressjs.com/guide/using-middleware.html
 [윈스턴]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

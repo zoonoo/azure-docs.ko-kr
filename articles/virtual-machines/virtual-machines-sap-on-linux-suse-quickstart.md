@@ -14,7 +14,7 @@
    ms.topic="campaign-page"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="na"
-   ms.date="11/26/2015"
+   ms.date="02/12/2016"
    ms.author="hermannd"/>
 
 # Microsoft Azure SUSE Linux VM에서 SAP NetWeaver 테스트
@@ -75,6 +75,21 @@ WALinuxAgent라고 하는 이 에이전트는 Azure 마켓플레이스 내 SLES 
 장치 ID를 통해 Azure 데이터 디스크를 Azure Linux VM에 절대 탑재하지 마세요. 대신 UUID를 사용하세요. Azure 데이터 디스크 탑재에 그래픽 도구 등을 사용하는 경우 주의해야 합니다. /etc/fstab의 항목을 재차 확인하세요.
 
 장치 ID의 문제점은 변경될 가능성이 있고 그렇게 되면 Azure VM이 부팅 프로세스에 머무를 수 있다는 점입니다. 문제를 완화시키기 위해서 /etc/fstab에 nofail 매개 변수를 추가할 수 있습니다. 하지만 nofail 응용프로그램은 전과 같이 탑재 지점을 사용할 수 있고, 외부 Azure 데이터 디스크가 부팅 중에 탑재되지 않은 경우에는 루트 파일 시스템에 쓸 수 있습니다.
+
+UUID를 통한 탑재와 관련하여 유일한 예외는 다음 섹션에 설명된 대로 문제 해결을 위해 OS 디스크를 연결하는 것과 관련이 있습니다.
+
+## 더 이상 액세스할 수 없는 SUSE VM 문제 해결
+
+Azure에서 SUSE VM 부팅 프로세스가 중지되는 상황이 발생할 수 있습니다(예: 디스크 탑재와 관련된 실수). 이 문제는 예를 들어 v2 VM에 대한 포털에서 부팅 진단 기능으로 확인할 수 있습니다([이 블로그 참조](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/)).
+
+문제를 해결하는 옵션은 Azure에서 손상된 VM의 OS 디스크를 다른 SUSE VM에 연결하고 /etc/fstab를 편집하거나 다음 섹션에 설명된 대로 네트워크 udev 규칙을 제거하는 등의 적절한 변경을 수행하는 것입니다.
+
+하지만 고려해야 할 한 가지 중요한 사항이 있습니다. 동일한 Azure 갤러리 이미지(예: SLES 11 SP4 )에서 여러 SUSE VM을 배포하면 OS 디스크가 항상 동일한 UUID로 탑재되는 것으로 나타납니다. 동일한 Azure 갤러리 이미지를 사용하여 배포된 UUID로 서로 다른 VM에서 OS 디스크를 연결하므로 두 개의 동일한 UUID가 발생합니다. 이로 인해 문제가 발생하며 문제 해결을 위해 VM이 사실상 원본 디스크 대신 연결 및 손상된 OS 디스크에서 부팅하는 것을 의미할 수 있습니다.
+
+두 가지 방법으로 이 문제를 방지할 수 있습니다.
+
+* VM 문제 해결을 위해 서로 다른 Azure 갤러리 이미지를 사용합니다(예를 들어, SLES 11 SP4 대신 SLES 12).
+* UUID 통해 다른 VM에서 손상된 OS 디스크를 연결하지 말고 다른 디스크를 사용합니다.
 
 ## 온-프레미스에서 Azure로 SUSE VM 업로드
 
@@ -147,4 +162,4 @@ SAP GUI, 브라우저, SAP 관리 콘솔 등 단일 VM 내에 전체 SAP 데모 
 
 가상화된 환경에서 Linux의 Oracle을 지원하는 것에 관한 제한 사항이 있습니다. 이는 일반 항목이며, Azure 관련 항목이 아닙니다. 그렇기는 하지만 상황을 이해하는 것이 중요합니다. SAP은 Azure와 같은 공용 클라우드에 있는 SUSE 또는 Red Hat에서 Oracle을 지원하지 않습니다. 이 문제를 논의하려면 고객이 Oracle에 직접 문의해야 합니다.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

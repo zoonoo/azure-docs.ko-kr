@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/17/2016"
 	ms.author="micurd"/>
 
 
@@ -32,7 +32,7 @@
 
 ## Node.js 응용 프로그램 만들기
 
-Node.js 응용 프로그램을 만드는 방법에 대한 지침은 [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포], [Node.js 클라우드 서비스][Node.js Cloud Service](Windows PowerShell 사용) 또는 [WebMatrix를 사용하는 웹앱]을 참조하세요.
+Node.js 응용 프로그램을 만드는 방법에 대한 지침은 [Azure 앱 서비스에서 Node.js 웹앱 만들기], [Azure 클라우드 서비스에 Node.js 응용 프로그램 빌드 및 배포](Windows PowerShell 사용) 또는 [Web Matrix를 사용하여 Azure에 Node.js 웹앱 빌드 및 배포]를 참조하세요.
 
 ## 저장소에 액세스하도록 응용 프로그램 구성
 
@@ -67,7 +67,7 @@ Azure 저장소를 사용하려면 저장소 REST 서비스와 통신하는 편�
 
 Azure 모듈은 및 또는 환경 변수를 읽고 `AZURE_STORAGE_ACCOUNT``AZURE_STORAGE_ACCESS_KEY`Azure 저장소 계정에 연결하는 데 `AZURE_STORAGE_CONNECTION_STRING`필요한 정보를 확인합니다. 이러한 환경 변수가 설정되어 있지 않은 경우 **createBlobService**를 호출할 때 계정 정보를 지정해야 합니다.
 
-Azure 웹앱의 [Azure 포털](https://portal.azure.com)에서 환경 변수를 설정하는 방법에 대한 예제는 [Node.js 웹 응용 프로그램 및 저장소]를 참조하세요.
+Azure 웹앱의 [Azure 포털](https://portal.azure.com)에서 환경 변수를 설정하는 방법에 대한 예제는 [Azure 테이블 서비스를 사용하여 Node.js 웹앱]을 참조하세요.
 
 ## 컨테이너 만들기
 
@@ -136,7 +136,7 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 
 ## 컨테이너에 Blob 업로드
 
-Blob은 블록 기반 또는 페이지 기반일 수 있습니다. 블록 Blob을 사용하면 큰 데이터를 더 효율적으로 업로드할 수 있고, 페이지 Blob은 읽기/쓰기 작업용으로 최적화되어 있습니다. 자세한 내용은 [블록 Blob 및 페이지 Blob 이해](http://msdn.microsoft.com/library/azure/ee691964.aspx)를 참조하세요.
+Blob은 블록 기반 또는 페이지 기반일 수 있습니다. 블록 Blob을 사용하면 큰 데이터를 더 효율적으로 업로드할 수 있고, 페이지 Blob은 읽기/쓰기 작업용으로 최적화되어 있습니다. 자세한 내용은 [블록 Blob,추가 Blob 및 페이지 Blob 이해](http://msdn.microsoft.com/library/azure/ee691964.aspx)를 참조하세요.
 
 ### 블록 Blob
 
@@ -364,17 +364,18 @@ ACL이 설정되고 나면 정책의 ID를 기반으로 공유 액세스 서명�
 -   [Azure 저장소 팀 블로그][]
 -   GitHub의 [Azure Storage SDK for Node][] 리포지토리
 -   [Node.js 개발자 센터](/develop/nodejs/)
--   [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy)
+-   [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)
 
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
-[Create and deploy a Node.js application to an Azure Web Site]: /develop/nodejs/tutorials/create-a-website-(mac)/
-[Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
-[Node.js 웹 응용 프로그램 및 저장소]: ../storage-nodejs-use-table-storage-web-site.md
-[WebMatrix를 사용하는 웹앱]: ../web-sites-nodejs-use-webmatrix.md
+
+[Azure 앱 서비스에서 Node.js 웹앱 만들기]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
+[Node.js Cloud Service with Storage]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
+[Azure 테이블 서비스를 사용하여 Node.js 웹앱]: ../app-service-web/storage-nodejs-use-table-storage-web-site.md
+[Web Matrix를 사용하여 Azure에 Node.js 웹앱 빌드 및 배포]: ../app-service-web/web-sites-nodejs-use-webmatrix.md
 [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
-[Azure Portal]: portal.azure.com
-[Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md
+[Azure Portal]: https://portal.azure.com
+[Azure 클라우드 서비스에 Node.js 응용 프로그램 빌드 및 배포]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
 [Node용 Azure 저장소 SDK API 참조]: http://dl.windowsazure.com/nodestoragedocs/index.html
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -10,7 +10,7 @@
 <tags
    ms.service="service-fabric"
    ms.devlang="dotNet"
-   ms.topic="hero-article"
+   ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="11/25/2015"
@@ -53,7 +53,7 @@
 
 DefaultValue 특성은 지정된 환경에 보다 구체적인 매개 변수가 없는 경우 사용될 값을 지정합니다.
 
->[AZURE.NOTE]모든 서비스 인스턴스 매개 변수가 환경 단위 구성에 적합하지는 않습니다. 파티션 범위가 환경이 아닌 데이터 도메인의 함수이기 때문에 위의 예에서 서비스의 파티션 구성표에 대한 LowKey 및 HighKey 값은 서비스의 모든 인스턴스에 대해 명시적으로 정의됩니다.
+>[AZURE.NOTE] 모든 서비스 인스턴스 매개 변수가 환경 단위 구성에 적합하지는 않습니다. 파티션 범위가 환경이 아닌 데이터 도메인의 함수이기 때문에 위의 예에서 서비스의 파티션 구성표에 대한 LowKey 및 HighKey 값은 서비스의 모든 인스턴스에 대해 명시적으로 정의됩니다.
 
 
 ### 환경 단위 서비스 구성 설정
@@ -81,7 +81,7 @@ DefaultValue 특성은 지정된 환경에 보다 구체적인 매개 변수가 
 
 이 매개 변수는 위에 표시된 대로 환경에서 구성될 수 있습니다. 매개 변수 섹션에서 해당 매개 변수를 선언하고 응용 프로그램 매개 변수 파일에서 환경 특정 값을 지정하여 수행할 수 있습니다.
 
->[AZURE.NOTE]서비스 구성 설정의 경우 키의 값을 설정할 수 있는 세 가지 위치는 다음과 같습니다. 서비스 구성 패키지, 응용 프로그램 매니페스트 및 응용 프로그램 매개 변수 파일. 서비스 패브릭은 (지정된 경우) 항상 응용 프로그램 매개 변수 파일에서 먼저 선택한 다음 응용 프로그램 매니페스트 및 마지막으로 구성 패키지에서 선택합니다.
+>[AZURE.NOTE] 서비스 구성 설정의 경우 키의 값을 설정할 수 있는 세 가지 위치는 다음과 같습니다. 서비스 구성 패키지, 응용 프로그램 매니페스트 및 응용 프로그램 매개 변수 파일. 서비스 패브릭은 (지정된 경우) 항상 응용 프로그램 매개 변수 파일에서 먼저 선택한 다음 응용 프로그램 매니페스트 및 마지막으로 구성 패키지에서 선택합니다.
 
 
 ### 응용 프로그램 매개 변수 파일
@@ -129,4 +129,4 @@ Visual Studio에서 응용 프로그램을 게시하는 경우 사용 가능한 
 [publishdialog]: ./media/service-fabric-manage-multiple-environment-app-configuration/publish-dialog-choose-app-config.png
 [app-parameters-solution-explorer]: ./media/service-fabric-manage-multiple-environment-app-configuration/app-parameters-in-solution-explorer.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

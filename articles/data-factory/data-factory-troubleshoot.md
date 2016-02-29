@@ -52,9 +52,9 @@ Azure 클래식 포털을 통해 SQL Server 연결된 서비스를 설치 또는
 2. SQL Server 인스턴스에 연결을 시도합니다. 이때 Azure 클래식 포털에서 SSMS(SQL Server Management Studio)를 사용하여 지정한 자격 증명을 사용합니다.
 
 
-## 문제: 입력 조각이 무기한 PendingExecution 또는 PendingValidation 상태임
+## 문제: 입력 조각이 무기한 대기 상태임
 
-몇 가지 이유로 인해 조각이 **PendingExecution** 또는 **PendingValidation** 상태일 수 있습니다. 일반적인 이유 중 하나는 **external** 속성이 **true**로 설정되지 않은 것입니다. Azure 데이터 팩터리의 외부에서 생성된 데이터 집합은 **external** 속성으로 표시되어야 합니다. 이 속성은 데이터가 외부이며 데이터 팩터리 내의 파이프라인에서 지원되지 않음을 나타냅니다. 해당 저장소에서 데이터를 사용할 수 있으면 데이터 조각이 **Ready**로 표시됩니다.
+몇 가지 이유로 인해 조각이 **대기** 상태일 수 있으며 일반적인 이유 중 하나는 **외부** 속성이 **true**로 설정되지 않은 것입니다. Azure 데이터 팩터리의 외부에서 생성된 데이터 집합은 **external** 속성으로 표시되어야 합니다. 이 속성은 데이터가 외부이며 데이터 팩터리 내의 파이프라인에서 지원되지 않음을 나타냅니다. 해당 저장소에서 데이터를 사용할 수 있으면 데이터 조각이 **Ready**로 표시됩니다.
 
 **external** 속성의 사용 방법은 다음 예제를 참조하세요. external을 true로 설정할 경우 선택적으로 **externalData***를 지정할 수 있습니다.
 
@@ -374,4 +374,4 @@ HDInsight 프로비저닝 클러스터를 프로비전할 때 기본값을 변�
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

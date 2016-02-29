@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="온-프레미스 SQL Server 데이터베이스에 출력 데이터 복사(Azure PowerShell)" 
+	pageTitle="연습: SQL Server 데이터베이스에 출력 데이터 복사(Azure PowerShell)" 
 	description="이 연습에서는 파이프라인이 출력 데이터를 SQL Server 데이터베이스에 복사하도록 Azure PowerShell을 사용하는 자습서를 확장합니다."
 	services="data-factory" 
 	documentationCenter="" 
@@ -17,7 +17,7 @@
 	ms.author="spelluru"/>
 
 
-# 연습: 캠페인 효율성 데이터를 온-프레미스 SQL Server 데이터베이스로 복사
+# 연습: 온-프레미스 SQL Server 데이터베이스에 출력 데이터 복사(Azure PowerShell)
 이 연습에서는 파이프라인에서 온-프레미스 데이터를 사용할 수 있도록 환경을 설정하는 방법을 배웁니다.
  
 분할 -> 보강 -> 분석 워크플로를 사용한 첫 번째 연습에서 로그 처리 시나리오의 마지막 단계에 마케팅 캠페인 효과 출력이 Azure SQL 데이터베이스에 복사되었습니다. 이 데이터를 조직 내에서 분석하기 위해 온-프레미스 SQL Server로 이동할 수도 있습니다.
@@ -170,4 +170,4 @@
 
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

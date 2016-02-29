@@ -63,7 +63,7 @@ HDInsight .NET SDK를 사용하여 Zeppelin을 설치하는 스크립트 작업�
 
 ### Azure PowerShell 사용
 
-다음 PowerShell 조각을 사용하여 Zeppelin이 설치된 HDInsight Linux에 Spark 클러스터를 만듭니다. 계속하려면 PowerShell이 설치되어 있어야 합니다. 자세한 내용은 [Azure PowerShell 설치 및 구성](../install-configure-powershell.md)을 참조하세요.
+다음 PowerShell 조각을 사용하여 Zeppelin이 설치된 HDInsight Linux에 Spark 클러스터를 만듭니다. 계속하려면 PowerShell이 설치되어 있어야 합니다. 자세한 내용은 [Azure PowerShell 설치 및 구성](../powershell-install-configure.md)을 참조하세요.
 
 	Login-AzureRMAccount
 	
@@ -322,14 +322,14 @@ SSH 터널링을 설정했으면 아래 단계에 따라 Spark 클러스터의 Z
 * [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](hdinsight-apache-spark-resource-manager.md)
 
 
-[hdinsight-versions]: ../hdinsight-component-versioning/
-[hdinsight-upload-data]: ../hdinsight-upload-data/
-[hdinsight-storage]: ../hdinsight-use-blob-storage/
+[hdinsight-versions]: hdinsight-component-versioning.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
-[azure-create-storageaccount]: ../storage-create-storage-account/
+[azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

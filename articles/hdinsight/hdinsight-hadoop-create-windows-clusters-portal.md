@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [선택기](../../includes/hdinsight-create-windows-cluster-selector.md)]
 
-Azure 포털을 사용하여 HDInsight에서 Hadoop 클러스터를 만드는 방법을 알아봅니다. Microsoft [Azure 포털](azure-portal-overview.md)은 Azure 리소스를 프로비전 및 관리할 수 있는 중앙 위치입니다. Azure 포털은 HDInsight에서 Linux 기반 또는 Windows 기반 Hadoop 클러스터를 만드는 데 사용할 수 있는 도구 중 하나입니다. 다른 클러스터 만들기 도구 및 기능은 이 페이지 맨 위에 있는 탭 선택을 클릭하거나 [클러스터 생성 방법](hdinsight-provision-clusters.md#cluster-creation-methods)을 참조하세요.
+Azure 포털을 사용하여 HDInsight에서 Hadoop 클러스터를 만드는 방법을 알아봅니다. Microsoft [Azure 포털](../azure-portal-overview.md)은 Azure 리소스를 프로비전하고 관리할 수 있는 중앙 위치입니다. Azure 포털은 HDInsight에서 Linux 기반 또는 Windows 기반 Hadoop 클러스터를 만드는 데 사용할 수 있는 도구 중 하나입니다. 다른 클러스터 만들기 도구 및 기능은 이 페이지 맨 위에 있는 탭 선택을 클릭하거나 [클러스터 생성 방법](hdinsight-provision-clusters.md#cluster-creation-methods)을 참조하세요.
 
 ###필수 조건:
 
@@ -73,7 +73,7 @@ Azure 포털을 사용하여 HDInsight에서 Hadoop 클러스터를 만드는 �
 
 			![Virtual network blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.6.png "Specify virtual network details")
 
-			>[AZURE.NOTE] Windows 기반 HDInsight 클러스터는 클래식 가상 네트워크에만 배치될 수 있습니다.
+			For information on using HDInsight with a Virtual Network, including specific configuration requirements for the Virtual Network, see [Extend HDInsight capbilities by using an Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
   
 
   		
@@ -136,8 +136,8 @@ Azure 포털을 사용하여 HDInsight에서 Hadoop 클러스터를 만드는 �
 ##다음 단계
 이 문서에서는 HDInsight 클러스터를 만드는 여러 가지 방법에 대해 알아보았습니다. 자세한 내용은 다음 문서를 참조하세요.
 
-* [Azure HDInsight 시작](hdinsight-get-started.md) - HDInsight 클러스터를 시작하는 방법을 알아봅니다.
+* [Azure HDInsight 시작](hdinsight-hadoop-linux-tutorial-get-started.md) - HDInsight 클러스터를 시작하는 방법을 알아봅니다.
 * [프로그래밍 방식으로 Hadoop 작업 제출](hdinsight-submit-hadoop-jobs-programmatically.md) - 프로그래밍 방식으로 작업을 HDInsight에 제출하는 방법을 알아봅니다.
 * [Azure 포털을 사용하여 HDInsight에서 Hadoop 클러스터 관리](hdinsight-administer-use-management-portal.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -138,7 +138,7 @@ Azure 포털의 빠른 시작 서버에서 **UseDefaultConfiguration()**을 호�
 
 ## <a name="publish-server-project"></a>방법: 서버 프로젝트 게시
 
-이 섹션에서는 Visual Studio에서 .NET 백 엔드 프로젝트를 게시하는 방법을 보여줍니다. [Azure 앱 서비스 배포 설명서](../app-service-web/web-site-deploy.md)에 나오는 Git 또는 다른 메서드를 사용하여 백 엔드 프로젝트를 배포할 수도 있습니다.
+이 섹션에서는 Visual Studio에서 .NET 백 엔드 프로젝트를 게시하는 방법을 보여줍니다. [Azure 앱 서비스 배포 설명서](../app-service-web/web-sites-deploy.md)에 나오는 Git 또는 다른 메서드를 사용하여 백 엔드 프로젝트를 배포할 수도 있습니다.
 
 1. Visual Studio에서 NuGet 패키지를 복원하려면 프로젝트를 빌드하십시오.
 
@@ -444,4 +444,4 @@ Azure 앱 서비스는 ASP.NET 응용 프로그램에 대한 여러 디버깅 �
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

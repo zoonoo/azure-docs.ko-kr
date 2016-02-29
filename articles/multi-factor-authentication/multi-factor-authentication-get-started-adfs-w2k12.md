@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 
@@ -73,7 +73,7 @@ MultiFactorAuthenticationAdfsAdapter.config Step| Sub step
 UseWebServiceSdk 노드를 true로 설정합니다.||
 WebServiceSdkUrl을 Multi-Factor Authentication 웹 서비스 SDK의 URL로 설정합니다.||
 옵션 1 - 사용자 이름 및 암호를 사용하여 웹 서비스 SDK를 구성합니다.|<ol><li>WebServiceSdkUsername을 PhoneFactor Admins 보안 그룹의 구성원 계정으로 설정합니다. <domain><username>형식을 사용합니다.<li>WebServiceSdkPassword를 해당 계정 암호로 설정합니다.</li></ol>
-옵션 2 - 클라이언트 인증서를 사용하여 웹 서비스 SDK를 구성합니다.|<ol><li>웹 서비스 SDK를 실행하는 서버에 대한 인증 기관에서 클라이언트 인증서를 가져옵니다.</li><li>웹 서비스 SDK를 실행하는 서버의 로컬 컴퓨터 개인 인증서 저장소로 클라이언트 인증서를 가져옵니다. 참고: 인증 기관의 공용 인증서가 신뢰할 수 있는 루트 인증서에 있는지 확인합니다.</li><li>클라이언트 인증서의 공개 키와 개인 키를 .pfx 파일로 내보냅니다.</li><li>base-64 형식의 공개 키를 .cer 파일로 내보냅니다.</li><li>서버 관리자에서 웹 서버(IIS)\\웹 서버\\보안\\클라이언트 인증서 매핑 인증 기능이 설치되어 있는지 확인합니다.</li><li>이 기능이 설치되어 있지 않으면 Add Roles and Features(역할 및 기능 추가)를 선택하여 이 기능을 추가합니다.</li><li>IIS 관리자에서 웹 서비스 SDK 가상 디렉터리가 포함된 웹 사이트의 Configuration Editor(구성 편집기)를 두 번 클릭합니다. 참고: 이 작업은 반드시 가상 디렉터리 수준이 아닌 웹 사이트 수준에서 수행해야 합니다. </li><li>system.webServer/security/authentication/iisClientCertificateMappingAuthentication 섹션으로 이동합니다.</li><li>enabled를 true로 설정합니다.</li><li>oneToOneCertificateMappingsEnabled를 true로 설정합니다.</li><li>oneToOneMappings 옆에 있는 ... 단추를 클릭합니다.</li><li>추가 링크를 클릭합니다.</li><li>이전에 내보낸 base-64 .cer 파일을 엽니다. -----BEGIN CERTIFICATE-----, -----END CERTIFICATE----- 및 줄바꿈을 제거합니다. 결과 문자열을 복사합니다.</li><li>인증서를 이전 단계에서 복사한 문자열로 설정합니다.</li><li>enabled를 true로 설정합니다.</li><li>userName을 PhoneFactor Admins 보안 그룹의 구성원 계정으로 설정합니다. <domain><username> 형식을 사용합니다.</li><li>password를 적절한 계정 암호로 설정합니다.</li><li>컬렉션 편집기를 닫습니다.</li><li>링크 적용을 클릭합니다.</li><li>웹 서비스 SDK 가상 디렉터리로 이동합니다.</li><li>인증을 두 번 클릭합니다.</li><li>ASP.NET 가장 및 기본 인증이 Enabled이고 다른 모든 항목은 Disabled인지 확인합니다.</li><li>웹 서비스 SDK 가상 디렉터리로 다시 이동합니다.</li><li>SSL 설정을 두 번 클릭합니다.</li><li>클라이언트 인증서를 수락으로 설정하고 적용을 클릭합니다.</li><li>이전에 AD FS 어댑터를 실행하는 서버로 내보낸 .pfx 파일을 복사합니다.</li><li>.pfx 파일을 로컬 컴퓨터의 개인 인증서 저장소로 가져옵니다.</li><li>오른쪽 클릭 메뉴에서 개인 키 관리를 선택하고 Active Directory Federation Services 서비스가 로그온된 계정에 읽기 액세스 권한을 부여합니다.</li><li>클라이언트 인증서를 열고 세부 정보 탭에서 지문을 복사합니다.</li><li>MultiFactorAuthenticationAdfsAdapter.config 파일의 WebServiceSdkCertificateThumbprint를 이전 단계에서 복사한 문자열로 설정합니다.</li></ol>
+옵션 2 - 클라이언트 인증서를 사용하여 웹 서비스 SDK를 구성합니다.|<ol><li>웹 서비스 SDK를 실행하는 서버에 대한 인증 기관에서 클라이언트 인증서를 가져옵니다.</li><li>웹 서비스 SDK를 실행하는 서버의 로컬 컴퓨터 개인 인증서 저장소로 클라이언트 인증서를 가져옵니다. 참고: 인증 기관의 공용 인증서가 신뢰할 수 있는 루트 인증서에 있는지 확인합니다.</li><li>클라이언트 인증서의 공개 키와 개인 키를 .pfx 파일로 내보냅니다.</li><li>base-64 형식의 공개 키를 .cer 파일로 내보냅니다.</li><li>서버 관리자에서 웹 서버(IIS)\\웹 서버\\보안\\클라이언트 인증서 매핑 인증 기능이 설치되어 있는지 확인합니다.</li><li>이 기능이 설치되어 있지 않으면 역할 및 기능 추가를 선택하여 이 기능을 추가합니다.</li><li>IIS 관리자에서 웹 서비스 SDK 가상 디렉터리가 포함된 웹 사이트의 구성 편집기를 두 번 클릭합니다. 참고: 이 작업은 반드시 가상 디렉터리 수준이 아닌 웹 사이트 수준에서 수행해야 합니다.</li><li>System.webServer/security/authentication/iisClientCertificateMappingAuthentication 섹션으로 이동합니다.</li><li>enabled를 true로 설정합니다.</li><li>oneToOneCertificateMappingsEnabled를 true로 설정합니다.</li><li>oneToOneMappings 옆에 있는 ... 단추를 클릭합니다.</li><li>추가 링크를 클릭합니다.</li><li>이전에 내보낸 base-64 .cer 파일을 엽니다. -----BEGIN CERTIFICATE-----, -----END CERTIFICATE----- 및 줄바꿈을 제거합니다. 결과 문자열을 복사합니다.</li><li>인증서를 이전 단계에서 복사한 문자열로 설정합니다.</li><li>enabled를 true로 설정합니다.</li><li>userName을 PhoneFactor Admins 보안 그룹의 구성원 계정으로 설정합니다. <domain><username> 형식을 사용합니다.</li><li>password를 적절한 계정 암호로 설정합니다.</li><li>컬렉션 편집기를 닫습니다.</li><li>링크 적용을 클릭합니다.</li><li>웹 서비스 SDK 가상 디렉터리로 이동합니다.</li><li>인증을 두 번 클릭합니다.</li><li>ASP.NET 가장 및 기본 인증이 Enabled이고 다른 모든 항목은 Disabled인지 확인합니다.</li><li>웹 서비스 SDK 가상 디렉터리로 다시 이동합니다.</li><li>SSL 설정을 두 번 클릭합니다.</li><li>클라이언트 인증서를 수락으로 설정하고 적용을 클릭합니다.</li><li>이전에 AD FS 어댑터를 실행하는 서버로 내보낸 .pfx 파일을 복사합니다.</li><li>.pfx 파일을 로컬 컴퓨터의 개인 인증서 저장소로 가져옵니다.</li><li>오른쪽 클릭 메뉴에서 개인 키 관리를 선택하고 Active Directory Federation Services 서비스가 로그온된 계정에 읽기 액세스 권한을 부여합니다.</li><li>클라이언트 인증서를 열고 세부 정보 탭에서 지문을 복사합니다.</li><li>MultiFactorAuthenticationAdfsAdapter.config 파일의 WebServiceSdkCertificateThumbprint를 이전 단계에서 복사한 문자열로 설정합니다.</li></ol>
 Register-MultiFactorAuthenticationAdfsAdapter.ps1 스크립트를 편집하고 Register-AdfsAuthenticationProvider 명령 끝에 -ConfigurationFilePath <path>을 추가합니다. 여기서 <path>는 MultiFactorAuthenticationAdfsAdapter.config 파일의 전체 경로입니다.|
 
 
@@ -229,4 +229,4 @@ PowerShell에서 \\Program Files\\Multi-Factor Authentication Server\\Register-M
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

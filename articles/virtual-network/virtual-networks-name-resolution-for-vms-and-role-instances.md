@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/02/2015"
+   ms.date="02/02/2016"
    ms.author="joaoma" />
 
 # VM 및 역할 인스턴스에 대한 이름 확인
@@ -158,7 +158,7 @@ Azure에서 제공하지 않는 이름 확인을 사용할 경우, 지정하는 
 
 ### 관리 포털에서 DNS 서버 지정
 
-관리 포털에서 가상 네트워크를 만들 경우, IP 주소 및 DNS 서버(다수의 서버 가능) 이름을 원하는 대로 지정할 수 있습니다. 가상 네트워크가 일단 만들어지면, 가상 네트워크에 배포한 가상 컴퓨터와 역할 인스턴스는 지정한 DNS 설정에 따라 자동으로 구성됩니다. 특정 클라우드 서비스(Azure 클래식)에 대해 지정된 DNS 서버 또는 네트워크 인터페이스 카드(ARM 기반 배포)는 가상 네트워크에 대해 지정된 것보다 우선합니다. [관리 포털에서 가상 네트워크 구성 정보](virtual-networks-settings.md)를 참조하세요.
+관리 포털에서 가상 네트워크를 만들 경우, IP 주소 및 DNS 서버(다수의 서버 가능) 이름을 원하는 대로 지정할 수 있습니다. 가상 네트워크가 일단 만들어지면, 가상 네트워크에 배포한 가상 컴퓨터와 역할 인스턴스는 지정한 DNS 설정에 따라 자동으로 구성됩니다. 특정 클라우드 서비스(Azure 클래식)에 대해 지정된 DNS 서버 또는 네트워크 인터페이스 카드(ARM 기반 배포)는 가상 네트워크에 대해 지정된 것보다 우선합니다.
 
 ### 구성 파일을 이용한 DNS 서버 지정(Azure 클래식)
 
@@ -177,8 +177,6 @@ Azure에서 제공하지 않는 이름 확인을 사용할 경우, 지정하는 
 
 [가상 네트워크 구성 스키마](https://msdn.microsoft.com/library/azure/jj157100)
 
-[관리 포털에서 가상 네트워크 설정 구성 정보](virtual-networks-settings.md)
-
 [네트워크 구성 파일을 사용하여 가상 네트워크 구성](virtual-networks-using-network-configuration-file.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

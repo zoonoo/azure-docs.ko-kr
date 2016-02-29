@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/08/2016"
 	ms.author="billmath"/>
 
 
@@ -21,7 +21,7 @@
 
 
 
-# Azure AD Connect Health Agent 설치 
+# Azure AD Connect Health Agent 설치
 
 이 문서는 AD FS 및 동기화를 위한 Azure AD Connect Health Agent를 설치하고 구성하는 방법을 설명합니다.
 
@@ -123,7 +123,7 @@ Windows Server 2008 R2 서버에 대해 다음을 수행합니다.
 
 - Azure AD Connect Health AadSync Insights Service
 - Azure AD Connect Health AadSync Monitoring Service
- 
+
 ![동기화에 대한 Azure AD Connect Health 확인](./media/active-directory-aadconnect-health-sync/services.png)
 
 >[Azure.NOTE] Azure AD Connect Health를 사용하려면 Azure AD Premium이 필요합니다. Azure AD Premium이 없는 경우 Azure 포털에서 구성을 완료할 수 없습니다. 자세한 내용은 [여기](active-directory-aadconnect-health.md#requirements)에서 요구 사항을 참조하세요.
@@ -176,7 +176,23 @@ Health Agent를 실행하는 각 서버에서 다음 PowerShell 명령을 실행
 	Get-AzureAdConnectHealthProxySettings
 
 
-[//]: # "에이전트 프록시 구성 섹션의 끝"
+## Azure AD Connect Health 서비스에 대한 테스트 연결
+Azure AD Connect Health 에이전트에서 Azure AD Connect Health 서비스와의 연결이 끊어지게 하는 문제가 발생할 수 있습니다. 여기에는 네트워크 문제, 권한 문제 또는 기타 다양한 이유가 포함됩니다.
+
+에이전트에서 3시간 이상 Azure AD Connect Health 서비스로 데이터를 보낼 수 없는 경우 "상태 서비스 데이터가 최신 상태가 아닙니다."라는 경고가 표시됩니다. 해당 문제가 발생한 에이전트가 있는 컴퓨터에서 다음 PowerShell 명령을 실행하여 Azure AD Connect Health 에이전트에서 Azure AD Connect Health 서비스로 데이터를 업로드할 수 있는지 여부를 테스트할 수 있습니다.
+
+    Test-AzureADConnectHealthConnectivity -Role Adfs
+
+역할 매개 변수가 현재 다음 값을 사용합니다.
+	
+- Adfs
+- 동기화
+
+명령에서 -ShowResults 플래그를 사용하면 자세한 내용을 볼 수 있습니다. 다음 예제를 사용합니다.
+
+    Test-AzureADConnectHealthConnectivity -Role Sync -ShowResults
+
+>[AZURE.NOTE]연결 도구를 사용하려면 먼저 에이전트 등록을 완료해야 합니다. 에이전트 등록을 완료할 수 없는 경우 Azure AD Connect Health에 대한 [요구 사항](active-directory-aadconnect-health.md#requirements)을 모두 충족했는지 확인합니다. 이 연결 테스트는 에이전트를 등록하는 동안 기본적으로 수행됩니다.
 
 
 ## 관련 링크
@@ -187,4 +203,4 @@ Health Agent를 실행하는 각 서버에서 다음 PowerShell 명령을 실행
 * [동기화에 대한 Azure AD Connect Health 사용](active-directory-aadconnect-health-sync.md)
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

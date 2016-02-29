@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 # PhoneFactor Agent를 Azure Multi-Factor Authentication 서버로 업그레이드
@@ -60,4 +60,4 @@ PhoneFactor Agent v5.x 및 이전 버전을 Azure Multi-Factor Authentication �
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

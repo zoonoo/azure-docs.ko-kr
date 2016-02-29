@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="Identity"
-   ms.date="01/21/2016"
+   ms.date="02/16/2016"
    ms.author="andkjell"/>
 
-# Azure AD Connect의 설계 개념
+# Azure AD Connect: 설계 개념
 이 토픽에서는 Azure AD Connect의 설계를 구현하는 중에 고려해야할 영역들을 설명합니다. 이 토픽은 특정 영역들을 심층 분석하고 이 개념들을 다른 토픽에서처럼 간단히 설명합니다.
 
 ## sourceAnchor
@@ -43,7 +43,6 @@ sourceAnchor 특성은 *개체의 수명 동안 변경할 수 없는 속성*으�
 - 대/소문자를 구분할 수 없으며 대/소문자에 따라 달라질 수 있는 값을 사용하지 않도록 해야 합니다.
 - 개체를 만들 때 할당되어야 합니다.
 
-
 선택된 sourceAnchor가 문자열 형식이 아닌 경우, Azure AD Connect는 특성 값에 특수 문자가 나타나지 않도록 Base64로 인코딩합니다. ADFS 이외의 다른 페더레이션 서버를 사용할 경우, 그 서버가 특성을 Base64로 인코딩할 수 있는지 확인하세요.
 
 SourceAnchor 특성은 대소문자를 구분합니다. "JohnDoe"의 값은 "johndoe"와 다릅니다.
@@ -68,4 +67,4 @@ sourceAnchor 특성값은 개체가 Azure AD에 생성되고 ID가 동기화된 
 ## 다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

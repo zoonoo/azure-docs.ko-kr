@@ -3,6 +3,7 @@
 	description="Azure Active Directory를 통해 네트워크 외부에서 개인 네트워크 내에 실행 중인 앱에 엑세스하도록 설정 합니다."
 	services="active-directory"
 	documentationCenter=""
+	keywords="응용 프로그램 액세스, 앱 프록시, 하이브리드 액세스"
 	authors="femila"
 	manager="stevenpo"
 	editor=""/>
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="02/10/2016"
 	ms.author="femila"/>
 
 # 앱 프록시를 사용하여 하이브리드 액세스 사용
@@ -43,4 +44,4 @@ Microsoft Azure Active Directory(AD) 응용 프로그램 프록시를 사용하�
 - [Azure AD 응용 프로그램 프록시 사용](active-directory-application-proxy-enable.md#step-1-enable-application-proxy-in-azure-ad)
 - [Azure AD 앱 프록시를 통해 응용 프로그램 게시](active-directory-application-proxy-publish.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

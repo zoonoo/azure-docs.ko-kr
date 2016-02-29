@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/13/2016"
+    ms.date="02/11/2016"
     ms.author="elizapo" />
 
 
@@ -32,26 +32,14 @@ Azure의 컬렉션 프로비전을 대기하는 중에 "GoldImageInvalid" 등의
 
 
 ## VNET에 네트워크 보안 그룹이 정의되어 있나요? ##
-컬렉션에 사용하고 있는 서브넷에 네트워크 보안 그룹이 정의되어 있는 경우 해당 서브넷 내에서 다음 URL에 액세스할 수 있는지 확인합니다.
-
-	https://management.remoteapp.windowsazure.com  
-	https://opsapi.mohoro.com  
-	https://telemetry.remoteapp.windowsazure.com  
-	https://*.remoteapp.windowsazure.com  
-	https://login.windows.net (if you have Active Directory)  
-	https://login.microsoftonline.com  
-	Azure storage *.remoteapp.windowsazure.com  
-	*.core.windows.net  
-	https://www.remoteapp.windowsazure.com  
-	https://www.remoteapp.windowsazure.com  
-
-가상 네트워크 서브넷에서 다음 포트를 엽니다.
-
-인바운드 - TCP: 3030, TCP: 443 아웃바운드 - TCP: 443
+컬렉션에 사용하고 있는 서브넷에 네트워크 보안 그룹이 정의되어 있는 경우 해당 서브넷 내에서 이러한 [URL 및 포트](remoteapp-ports.md)에 액세스할 수 있는지 확인합니다.
 
 더 엄격한 제어를 위해 서브넷에 배포한 VM에 네트워크 보안 그룹을 더 추가할 수 있습니다.
 
 ## 자체 DNS 서버를 사용하고 있나요? VNET 서브넷에서 이러한 DNS 서버에 액세스할 수 있나요? ##
+>[AZURE.NOTE] VNET의 DNS 서버가 항상 작동해야 하며 VNET에 호스팅된 가상 컴퓨터를 항상 확인할 수 있어야 합니다. 이 작업에 Google DNS를 사용하지 마십시오.
+
+
 하이브리드 컬렉션의 경우 자체 DNS 서버를 사용합니다. 가상 네트워크를 만드는 경우 관리 포털을 통해 지정하거나 네트워크 구성 스키마에 지정합니다. DNS 서버는 라운드 로빈과 반대인 장애 조치(Failover) 방식으로 지정된 순서대로 사용됩니다.
 
 컬렉션의 DNS 서버에 액세스할 수 있으며 이 컬렉션에 대해 지정한 VNET 서브넷에서 이러한 DNS 서버를 사용할 수 있는지 확인합니다.
@@ -79,4 +67,4 @@ Azure의 컬렉션 프로비전을 대기하는 중에 "GoldImageInvalid" 등의
 
 만들거나 추가한 도메인 이름은 내부 도메인 이름(Azure AD 도메인 이름이 아님)이어야 하며 확인할 수 있는 DNS 형식(contoso.local)이어야 합니다. 예를 들어 Active Directory 내부 이름(contoso.local) 및 Active Directory UPN(contoso.com)이 있는 경우 컬렉션을 만들 때 내부 이름을 사용해야 합니다.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0218_2016-->

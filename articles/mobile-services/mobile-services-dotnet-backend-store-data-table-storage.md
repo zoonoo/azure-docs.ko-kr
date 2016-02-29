@@ -11,17 +11,14 @@
 	ms.service="mobile-services"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
+	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="02/05/2016"
 	ms.author="glenga"/>
 
 # 테이블 저장소를 사용하는 .NET 백 엔드 모바일 서비스 빌드
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-
-&nbsp;
-
 
 이 항목에서는 .NET 백 엔드 모바일 서비스에 대한 비관계형 데이터 저장소를 사용하는 방법을 보여 줍니다. 이 자습서에서는 기본 Azure SQL 데이터베이스 데이터 저장소 대신 Azure 테이블 저장소를 사용하도록 Azure 모바일 서비스 빠른 시작 프로젝트를 수정합니다.
 
@@ -39,7 +36,7 @@
 
   	Azure 저장소 서비스에 대한 지원이 .NET 백 엔드 모바일 서비스 프로젝트에 추가됩니다.
 
-3. 저장소 계정을 만들지 않았다면 [저장소 계정을 만드는 방법](../storage-create-storage-account.md)을 참조하세요.
+3. 저장소 계정을 만들지 않았다면 [저장소 계정을 만드는 방법](../storage/storage-create-storage-account.md)을 참조하세요.
 
 4. [Azure 클래식 포털]에서 **저장소**를 클릭하고 저장소 계정을 클릭한 후 **키 관리**를 클릭합니다.
 
@@ -142,7 +139,7 @@ TodoList 빠른 시작 프로젝트는 Entity Framework를 사용하여 SQL 데�
 
 + [하이브리드 연결을 사용하여 온-프레미스 SQL Server에 연결](mobile-services-dotnet-backend-hybrid-connections-get-started.md)</br>하이브리드 연결을 통해 모바일 서비스를 온-프레미스 자산에 안전하게 연결할 수 있습니다. 이러한 방식으로 Azure를 사용하여 온-프레미스 데이터를 모바일 클라이언트에 액세스할 수 있게 됩니다. 지원되는 자산에는 Microsoft SQL Server, MySQL, HTTP 웹 API, 대부분의 사용자 지정 웹 서비스를 비롯하여 정적 TCP 포트에서 실행되는 모든 리소스가 포함됩니다.
 
-+ [모바일 서비스를 사용하여 Azure 저장소에 이미지 업로드](mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage.md)</br>이미지를 앱에서 Azure Blob 저장소에 업로드할 수 있도록 TodoList 샘플 프로젝트를 확장하는 방법을 보여 줍니다.
++ [모바일 서비스를 사용하여 Azure 저장소에 이미지 업로드](mobile-services-dotnet-backend-windows-universal-dotnet-upload-data-blob-storage.md)</br>이미지를 앱에서 Azure Blob 저장소에 업로드할 수 있도록 TodoList 샘플 프로젝트를 확장하는 방법을 보여 줍니다.
 
 <!-- Anchors. -->
 [Create a non-relational store]: #create-store
@@ -159,4 +156,4 @@ TodoList 빠른 시작 프로젝트는 Entity Framework를 사용하여 SQL 데�
 [What is the Table Service]: ../storage-dotnet-how-to-use-tables.md#what-is
 [MongoLab Add-on Page]: /gallery/store/mongolab/mongolab
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

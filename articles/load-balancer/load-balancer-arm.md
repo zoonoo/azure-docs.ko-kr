@@ -4,7 +4,7 @@
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags
    ms.service="load-balancer"
@@ -63,7 +63,7 @@ Azure 부하 분산 장치를 사용한 템플릿은 커뮤니티 생성 템플�
 
 [Azure 네트워킹 Cmdlet](https://msdn.microsoft.com/library/azure/mt163510.aspx)을 사용하여 부하 분산 장치를 만들 수 있습니다. ARM cmdlet 및 REST API 시작
 
-- [Azure 리소스 관리자를 사용하여 부하 분산 장치를 만드는 방법](../load-balancer-arm-powershell)
+- [Azure 리소스 관리자를 사용하여 부하 분산 장치를 만드는 방법](load-balancer-get-started-internet-arm-ps.md)
 
 - [Azure 리소스 관리에서 Azure CLI 사용](../xplat-cli-azure-resource-manager)
 
@@ -76,4 +76,4 @@ Azure 부하 분산 장치를 사용한 템플릿은 커뮤니티 생성 템플�
 
 응용 프로그램이 부하 분산 장치 뒤의 서버에 대한 연결을 유지해야 하는 경우 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정](load-balancer-tcp-idle-timeout.md)에 대해 자세히 이해할 수 있습니다. Azure 부하 분산 장치를 사용하는 경우 유휴 연결 동작에 대해 알아보는 데 도움이 됩니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

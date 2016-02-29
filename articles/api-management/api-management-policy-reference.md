@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="02/16/2016" 
 	ms.author="sdanie"/>
 
 # Azure API 관리 정책 참조
@@ -42,6 +42,7 @@
 	-	[요청 메서드 설정](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetRequestMethod) - 요청에 대한 HTTP 메서드를 변경할 수 있습니다.
 	-	[상태 설정](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetStatus) - 지정된 값으로 HTTP 상태 코드를 변경합니다.
 	-	[변수 설정][] - 나중에 액세스할 수 있도록 명명된 [context][] 변수의 값을 유지합니다.
+	-	[대기](https://msdn.microsoft.com/library/azure/dn894085.aspx#Wait) - 계속하기 전에 완료할 포함된 요청 전송, 캐시에서 값 가져오기 또는 흐름 제어 정책 등을 기다립니다.
 -	[인증 정책][]
 	-	[기본 사용 인증][] - 기본 인증을 사용하여 백 엔드 서비스를 인증합니다.
 	-	[클라이언트 인증서 사용 인증][] - 클라이언트 인증서를 사용하여 백 엔드 서비스를 인증합니다.
@@ -119,4 +120,4 @@
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

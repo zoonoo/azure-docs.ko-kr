@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="02/16/2016" 
 	ms.author="asteen"/>
 
 # 암호 관리에 대한 자세한 정보
@@ -101,7 +101,7 @@
 ### 암호 재설정에서 사용되는 데이터
 다음 테이블에는 암호 재설정 중에 이 데이터를 사용하는 위치와 방법이 나와 있으며 조직에 적합한 인증 옵션을 결정하는 데 도움이 되도록 설계되어 있습니다. 또한 이 테이블에서는 이 데이터의 유효성을 검사하지 않는 입력 경로에서 사용자를 대신하여 데이터를 제공하는 경우를 위한 형식 요구 사항도 보여줍니다.
 
-> [AZURE.NOTE]사무실 전화는 등록 포털에 나타나지 않는데, 사용자가 현재 디렉터리에서 이 속성을 편집할 수 없기 때문입니다.
+> [AZURE.NOTE] 사무실 전화는 등록 포털에 나타나지 않는데, 사용자가 현재 디렉터리에서 이 속성을 편집할 수 없기 때문입니다.
 
 <table>
           <tbody><tr>
@@ -365,7 +365,7 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 ## 암호 재설정 설명서에 대한 링크
 다음은 모든 Azure AD 암호 재설정 설명서 페이지에 대한 링크입니다.
 
-* [**자신의 암호 재설정**](active-directory-passwords-update-your-own-password.md) - 시스템 사용자로서 자신의 암호를 재설정하거나 변경하는 방법을 알아봅니다.
+* [**자신의 암호 재설정**](active-directory-passwords-update-your-own-password.md) - 시스템의 사용자로서 자신의 암호를 재설정 또는 변경하는 방법에 대해 알아봅니다.
 * [**작동 방식**](active-directory-passwords-how-it-works.md) - 6개의 다양한 구성 요소 서비스 및 기능에 대해 알아봅니다.
 * [**시작**](active-directory-passwords-getting-started.md) -사용자가 클라우드 또는 온-프레미스 암호를 다시 설정하고 변경할 수 있는 방법에 대해 알아봅니다.
 * [**사용자 지정**](active-directory-passwords-customize.md) - 모양과 느낌 및 조직의 요구에 맞게 서비스의 동작을 사용자 지정하는 방법에 대해 알아봅니다
@@ -379,4 +379,4 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 [001]: ./media/active-directory-passwords-learn-more/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-learn-more/002.jpg "Image_002.jpg"
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

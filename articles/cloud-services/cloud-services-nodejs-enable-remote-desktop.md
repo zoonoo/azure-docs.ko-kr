@@ -35,7 +35,7 @@
 
 앱에 대한 소스 파일이 포함된 컴퓨터에서 다음 단계를 수행합니다.
 
-1. **Azure PowerShell** 관리자 권한으로 실행합니다. (**시작 메뉴** 또는 **시작 화면**에서 **Azure PowerShell**을 검색합니다.)
+1. **Windows PowerShell**을 관리자 권한으로 실행합니다. (**시작 메뉴** 또는 **시작 화면**에서 **Windows PowerShell**을 검색합니다.)
 
 2.  서비스 정의(.csdef) 및 서비스 구성(.cscfg) 파일이 포함된 디렉터리로 이동합니다.
 
@@ -115,4 +115,4 @@
 [Azure 역할과 함께 원격 데스크톱 사용]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

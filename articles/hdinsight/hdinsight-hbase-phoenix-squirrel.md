@@ -20,7 +20,7 @@
 
 HDInsight에서 [Apache Phoenix](http://phoenix.apache.org/)를 사용하는 방법 및 워크스테이션에서 SQuirrel을 설치 및 구성하여 HDInsight에서 HBase 클러스터에 연결하는 방법에 대해 알아봅니다. Phoenix에 대한 자세한 내용은 [15분 이내의 Phoenix](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html)를 참조하세요. Phoenix 문법은 [피닉스 문법](http://phoenix.apache.org/language/index.html)을 참조하세요.
 
->[AZURE.NOTE]HDInsight의 Phoenix 버전 정보는 [HDInsight에서 제공하는 Hadoop 클러스터 버전의 새로운 기능][hdinsight-versions]을 참조하세요.
+>[AZURE.NOTE] HDInsight의 Phoenix 버전 정보는 [HDInsight에서 제공하는 Hadoop 클러스터 버전의 새로운 기능][hdinsight-versions]을 참조하세요.
 
 ##SQLLine 사용
 [SQLLine](http://sqlline.sourceforge.net/)은 SQL을 실행하는 명령줄 유틸리티입니다.
@@ -91,7 +91,7 @@ SQLLine을 시작하려면 다음이 있어야 합니다.
 
 - DNS 가상 컴퓨터를 사용하여 Azure 가상 네트워크에 배포한 HBase 클러스터. 자세한 내용은 [Azure 가상 네트워크에 HBase 클러스터 프로비전][hdinsight-hbase-provision-vnet]을 참조하세요. 
 
-	>[AZURE.IMPORTANT]가상 네트워크에 DNS 서버를 설치해야 합니다. 자세한 내용은 [두 Azure 가상 네트워크 간 DNS 구성](hdinsight-hbase-geo-replication-configure-DNS.md)을 참조하세요.
+	>[AZURE.IMPORTANT] 가상 네트워크에 DNS 서버를 설치해야 합니다. 자세한 내용은 [두 Azure 가상 네트워크 간 DNS 구성](hdinsight-hbase-geo-replication-configure-DNS.md)을 참조하세요.
 
 - HBase 클러스터 연결별 DNS 접미사를 가져옵니다. 이렇게 하려면 클러스터에 RDP를 연결하고 IPConfig를 실행합니다. DNS 접미사는 다음과 유사합니다.
 
@@ -155,7 +155,7 @@ X.509 인증서를 만드는 한 가지 방법은 [Microsoft Visual Studio Expre
 
 	명령 프롬프트를 닫지 마세요. 다음 절차에서 필요합니다.
 
-	>[AZURE.NOTE]클라이언트 인증서를 생성할 루트 인증서를 만들었기 때문에 이 인증서를 해당 개인 키와 함께 내보내고 복구 가능한 안전한 위치에 저장할 수 있습니다.
+	>[AZURE.NOTE] 클라이언트 인증서를 생성할 루트 인증서를 만들었기 때문에 이 인증서를 해당 개인 키와 함께 내보내고 복구 가능한 안전한 위치에 저장할 수 있습니다.
 
 **클라이언트 인증서를 만들려면**
 
@@ -216,7 +216,7 @@ X.509 인증서를 만드는 한 가지 방법은 [Microsoft Visual Studio Expre
 2. jar 파일을 엽니다/실행합니다. [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html)가 필요합니다.
 3. **다음**를 두 번 클릭합니다.
 4. 쓰기 권한이 있는 경로를 지정하고 **다음**을 클릭합니다.
-	>[AZURE.NOTE]기본 설치 폴더는 C:\\Program Files\\squirrel-sql-3.6 폴더에 있습니다. 이 경로에 쓰려면 설치 관리자에 관리자 권한이 부여되어야 합니다. 관리자 권한으로 명령 프롬프트를 열고 Java의 bin 폴더로 이동한 후 다음을 실행합니다.
+	>[AZURE.NOTE] 기본 설치 폴더는 C:\\Program Files\\squirrel-sql-3.6 폴더에 있습니다. 이 경로에 쓰려면 설치 관리자에 관리자 권한이 부여되어야 합니다. 관리자 권한으로 명령 프롬프트를 열고 Java의 bin 폴더로 이동한 후 다음을 실행합니다.
 	>
 	>     java.exe -jar [the path of the SQuirreL jar file] 
 5. **확인**을 클릭하여 대상 디렉터리 만들기를 확인합니다.
@@ -242,7 +242,7 @@ Phoenix 드라이버 jar 파일은 HBase 클러스터에 있습니다. 경로는
 	- **예제 URL**: jdbc:phoenix:zookeeper2.contoso-hbase-eu.f5.internal.cloudapp.net
 	- **클래스 이름**: org.apache.phoenix.jdbc.PhoenixDriver
 
-	>[AZURE.WARNING]예제 URL에는 모두 소문자를 사용합니다. 그 중 하나가 다운된 경우 전체 zookeeper 쿼럼을 사용할 수 있습니다. 호스트 이름은 zookeeper0, zookeeper1 및 zookeeper2입니다.
+	>[AZURE.WARNING] 예제 URL에는 모두 소문자를 사용합니다. 그 중 하나가 다운된 경우 전체 zookeeper 쿼럼을 사용할 수 있습니다. 호스트 이름은 zookeeper0, zookeeper1 및 zookeeper2입니다.
 
 	![HDInsight HBase Phoenix SQuirreL 드라이버][img-squirrel-driver]
 4. **확인**을 클릭합니다.
@@ -289,7 +289,7 @@ Phoenix 드라이버 jar 파일은 HBase 클러스터에 있습니다. 경로는
 [vnet-point-to-site-connectivity]: https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETPT
 
 [hdinsight-versions]: hdinsight-component-versioning.md
-[hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started.md
+[hdinsight-hbase-get-started]: hdinsight-hbase-tutorial-get-started.md
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md#connect-to-hdinsight-clusters-by-using-rdp
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md
@@ -306,4 +306,4 @@ Phoenix 드라이버 jar 파일은 HBase 클러스터에 있습니다. 경로는
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

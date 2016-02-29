@@ -4,7 +4,7 @@
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags
    ms.service="load-balancer"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/26/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma" />
 
 # Azure 리소스 관리자를 사용하여 인터넷 연결 부하 분산 장치 구성 시작
@@ -148,7 +148,7 @@ Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치�
 
 - 포트 3441로 들어오는 모든 트래픽을 포트 3389로 이동하는 NAT 규칙
 - 포트 3442로 들어오는 모든 트래픽을 포트 3389로 이동하는 두 번째 NAT 규칙
-- 공용 포트 80의 들어오는 모든 트래픽을 백엔드 주소 풀의 로컬 포트 80으로 부하 분산하는 부하 분산 장치 규칙
+- 공용 포트 80의 들어오는 모든 트래픽을 백 엔드 주소 풀의 로컬 포트 80으로 부하 분산하는 부하 분산 장치 규칙
 - 경로 "HealthProbe.aspx"에 대한 상태를 확인하는 프로브 규칙
 
 
@@ -272,7 +272,7 @@ Remove-AzureLoadBalancer 명령을 사용하여 “NRP-RG”라는 리소스 그
 
 	Remove-AzureLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
 
->[AZURE.NOTE]선택적 스위치 -Force를 사용하여 삭제에 대한 프롬프트를 방지할 수 있습니다.
+>[AZURE.NOTE] 선택적 스위치 -Force를 사용하여 삭제에 대한 프롬프트를 방지할 수 있습니다.
 
 
 ## 참고 항목
@@ -282,4 +282,4 @@ Remove-AzureLoadBalancer 명령을 사용하여 “NRP-RG”라는 리소스 그
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

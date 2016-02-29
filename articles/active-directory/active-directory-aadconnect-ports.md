@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/01/2016"
+	ms.date="02/09/2016"
 	ms.author="billmath"/>
 
 # 포트 및 프로토콜이 필요한 하이브리드 ID
@@ -74,15 +74,14 @@ Office 365 포트의 목록 및 IP 주소에 대한 자세한 내용은 [Office 
 다음 테이블은 Azure AD Connect Health 에이전트와 Azure AD 간의 통신에 필요한 끝점, 포트 및 프로토콜에 대해 설명합니다.
 
 ### 테이블 6a - Azure AD Connect Health 에이전트(AD FS/동기화)와 Azure AD에 대한 포트 및 프로토콜
-이 테이블은 Azure AD Connect Health 에이전트 및 Azure AD 간의 통신에 필요한 포트와 프로토콜에 대해 설명합니다.
+이 테이블은 Azure AD Connect Health 에이전트 및 Azure AD 간의 통신에 필요한 다음 아웃바운드 포트와 프로토콜에 대해 설명합니다.
 
 | 프로토콜 |포트 |설명
 | --------- | --------- |--------- |
-| HTTP|80(TCP/UDP)|
-|HTTPS|443(TCP/UDP)|
-|Azure 서비스 버스|5671(TCP/UDP)|
+|HTTPS|443(TCP/UDP)| 아웃바운드
+|Azure 서비스 버스|5671(TCP/UDP)| 아웃바운드
 
 ### 6b - Azure AD Connect Health 에이전트(AD FS/동기화)와 Azure AD에 대한 끝점
 끝점의 목록에 대한 자세한 내용은 [Azure AD Connect Health 에이전트에 대한 요구 사항 섹션](active-directory-aadconnect-health.md#requirements)을 참조하세요.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

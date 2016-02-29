@@ -71,7 +71,7 @@
 ### 필수 조건
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-- **HDInsight의 HBase 클러스터**. 클러스터 만들기 지침은 [HDInsight에서 Hadoop을 통해 HBase 사용 시작][hbase-get-started]을 참조하세요. 자습서를 완료하려면 다음 데이터가 필요합니다.
+- **HDInsight의 HBase 클러스터**. 클러스터 만들기에 대한 지침은 [HDInsight에서 Hadoop을 통해 HBase 사용 시작][hbase-get-started]을 참조하세요. 자습서를 완료하려면 다음 데이터가 필요합니다.
 
 
 	<table border="1">
@@ -600,9 +600,9 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
 	- **CLUSTERNAME**: HBase 클러스터 이름입니다(예: *https://<HBaseClusterName>.azurehdinsight.net/*). 
     - **HADOOPUSERNAME**: HBase 클러스터 Hadoop 사용자의 사용자 이름입니다. 기본 이름은 *admin*입니다.
     - **HADOOPUSERPASSWORD**: HBase 클러스터 Hadoop 사용자의 암호입니다.
-    - **HBASETABLENAME** = "tweets_by_words";
+    - **HBASETABLENAME** = "tweets\_by\_words";
 
-	HBase 테이블 이름은 **"tweets_by_words";**입니다. 값은 스트리밍 서비스에서 전송한 값과 일치해야 합니다. 그래야 웹 응용 프로그램이 같은 HBase 테이블에서 데이터를 읽을 수 있습니다.
+	HBase 테이블 이름은 **"tweets\_by\_words";**입니다. 값은 스트리밍 서비스에서 전송한 값과 일치해야 합니다. 그래야 웹 응용 프로그램이 같은 HBase 테이블에서 데이터를 읽을 수 있습니다.
 
 
 
@@ -1099,7 +1099,7 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
 
 **layout.cshtml을 수정하려면**
 
-1. **솔루션 탐색기**에서 **TweetSentimentWeb**, **뷰**, **공유**를 차례로 확장하고 _**Layout.cshtml** 을 두 번 클릭합니다.
+1. **솔루션 탐색기**에서 **TweetSentimentWeb**, **뷰**, **공유**를 차례로 확장하고 \__**Layout.cshtml**을 두 번 클릭합니다.
 2. 파일의 내용을 다음으로 바꿉니다.
 
 		<!DOCTYPE html>
@@ -1164,7 +1164,7 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
 
 **Index.cshtml을 수정하려면**
 
-1. **솔루션 탐색기**에서 **TweetSentimentWeb**, **뷰**, **홈**을 차례로 확장하고 _**Index.cshtml**을 두 번 클릭합니다.
+1. **솔루션 탐색기**에서 **TweetSentimentWeb**, **뷰**, **홈**을 차례로 확장하고 \_**Index.cshtml**을 두 번 클릭합니다.
 2. 파일의 내용을 다음으로 바꿉니다.
 
 		@{
@@ -1177,7 +1177,7 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
 
 **site.css 파일을 수정하려면**
 
-1. **솔루션 탐색기**에서 **TweetSentimentWeb**, **콘텐츠**를 차례로 확장하고 _**Site.css**를 두 번 클릭합니다.
+1. **솔루션 탐색기**에서 **TweetSentimentWeb**, **콘텐츠**를 차례로 확장하고 \_**Site.css**를 두 번 클릭합니다.
 2. 파일에 다음 코드를 추가합니다.
 		
 		/* make container, and thus map, 100% width */
@@ -1205,7 +1205,7 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
 
 		using System.Web.Http;
 
-2. **Application_Start()** 함수 내에 다음 줄을 추가합니다.
+2. **Application\_Start()** 함수 내에 다음 줄을 추가합니다.
 
 		// Register API routes
 		GlobalConfiguration.Configure(WebApiConfig.Register);
@@ -1237,7 +1237,7 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
 - [HDInsight용 Java MapReduce 프로그램 개발][hdinsight-develop-mapreduce]
 
 
-[hbase-get-started]: ../hdinsight-hbase-get-started.md
+[hbase-get-started]: ../hdinsight-hbase-tutorial-get-started.md
 [website-get-started]: ../web-sites-dotnet-get-started.md
 
 
@@ -1252,7 +1252,7 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
 [hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 [hdinsight-analyze-twitter-data]: hdinsight-analyze-twitter-data.md
-[hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started.md
+[hdinsight-hbase-get-started]: ../hdinsight-hbase-tutorial-get-started.md
 
 
 
@@ -1266,17 +1266,17 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
-[powershell-install]: ../install-configure-powershell.md
+[powershell-install]: powershell-install-configure.md
 [powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
-[hdinsight-storage-powershell]: ../hdinsight-use-blob-storage.md#powershell
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight-storage-powershell]: hdinsight-hadoop-use-blob-storage.md#powershell
 [hdinsight-analyze-flight-delay-data]: hdinsight-analyze-flight-delay-data.md
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

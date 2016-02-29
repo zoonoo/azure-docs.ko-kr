@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="02/01/2016"
    ms.author="v-sharos" />
 
 # StorSimple 관리자 서비스 대시보드 사용
@@ -22,8 +22,6 @@
 StorSimple 관리자 서비스 대시보드 페이지는 StorSimple 관리자 서비스에 연결된 모든 장치에 대한 요약 보기를 통해 시스템 관리자의 주의가 필요한 정보를 중점적으로 제공합니다. 이 자습서에서는 대시보드 페이지를 소개하고, 대시보드의 콘텐츠와 기능 및 이 페이지에서 수행할 수 있는 작업에 대해 설명합니다.
 
 ![서비스 대시보드](./media/storsimple-service-dashboard/HCS_ServiceDashboard.png)
-
-**그림 1: StorSimple 관리자 서비스 대시보드**
 
 StorSimple 관리자 서비스 대시보드에 다음 정보가 표시됩니다.
 
@@ -78,4 +76,4 @@ StorSimple 관리자 서비스 대시보드에 다음 정보가 표시됩니다.
 
 - [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

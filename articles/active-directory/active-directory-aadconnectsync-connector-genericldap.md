@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="01/21/2016"
+   ms.date="02/16/2016"
    ms.author="andkjell"/>
 
 # 일반 LDAP 커넥터 기술 참조
@@ -38,7 +38,7 @@ IETF RFC를 참조할 때 이 문서는 (RFC [RFC number]/[section in RFC docume
 
 | 기능 | 지원 |
 | --- | --- |
-| 연결된 데이터 원본 | 이 커넥터는 모든 LDAP v3 서버(RFC 4510 규격)를 통해 지원됩니다. 다음으로 테스트되었습니다: <li>Microsoft Active Directory Lightweight Directory Services (AD LDS)</li><li>Microsoft Active Directory 글로벌 카탈로그(AD GC)</li><li>389 디렉터리 서버</li><li>Apache 디렉터리 서버</li><li>IBM Tivoli DS</li><li>Isode 디렉터리</li><li>NetIQ eDirectory</li><li>Novell eDirectory</li><li>DJ 열기</li><li>DS 열기</li><li>LDAP 열기(openldap.org)</li><li>Oracle (이전에 Sun) 디렉터리 서버 Enterprise Edition</li><li>RadiantOne 가상 디렉터리 서버(VDS)</li><li>Sun One 디렉터리 서버</li>주목할 만한 디렉터리가 지원되지 않음: <li>Microsoft Active Directory 도메인 서비스(AD DS) [대신 기본 제공 Active Directory 커넥터 사용]</li><li>Oracle Internet Directory(OID)</li> |
+| 연결된 데이터 원본 | 이 커넥터는 모든 LDAP v3 서버(RFC 4510 규격)를 통해 지원됩니다. 아래와 같은 제품과 서비스에서 테스트되었습니다. <li>Microsoft AD LDS(Active Directory Lightweight Directory Services)</li><li>Microsoft AD GC(Active Directory 글로벌 카탈로그)</li><li>389 디렉터리 서버</li><li>Apache 디렉터리 서버</li><li>IBM Tivoli DS</li><li>Isode 디렉터리</li><li>NetIQ eDirectory</li><li>Novell eDirectory</li><li>Open DJ</li><li>Open DS</li><li>Open LDAP(openldap.org)</li><li>Oracle(이전의 Sun) 디렉터리 서버 Enterprise Edition</li><li>RadiantOne VDS(가상 디렉터리 서버)</li><li>Sun One 디렉터리 서버</li>**지원되지 않는 주목할 만한 디렉터리는 아래와 같습니다.** <li>Microsoft AD DS(Active Directory 도메인 서비스) [대신 기본 제공 Active Directory Connector 사용]</li><li>OID(Oracle Internet Directory)</li> |
 | 시나리오 | <li>개체 수명 주기 관리</li><li>그룹 관리</li><li>암호 관리</li> |
 | 작업 |모든 LDAP 디렉터리에서 다음 작업이 지원됩니다: <li>전체 가져오기</li><li>내보내기</li>다음 작업은 지정된 디렉터리에서만 지원됩니다:<li>델타 가져오기</li><li>암호 설정, 암호 변경</li> |
 | 스키마 | <li>스키마는 LDAP 스키마에서 검색됩니다(RFC3673 및 RFC4512/4.2)</li><li>구조 클래스, aux 클래스 및 extensibleObject 개체 클래스를 지원합니다(RFC4512/4.3)</li>
@@ -279,4 +279,4 @@ Novell eDirectory의 경우 델타 가져오기는 개체 삭제를 검색하지
 
 -	커넥터의 문제를 해결하기 위해 로깅을 사용하는 방법에 대한 자세한 내용은 [커넥터에 ETW 추적을 사용하는 방법](http://go.microsoft.com/fwlink/?LinkId=335731) 참조하세요.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

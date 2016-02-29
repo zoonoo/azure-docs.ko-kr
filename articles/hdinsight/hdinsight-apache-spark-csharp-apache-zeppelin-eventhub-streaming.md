@@ -34,7 +34,7 @@ Spark 스트리밍는 핵심 Spark API를 확장하여 뛰어난 확장성, 높�
 
 - Azure 구독. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 - Apache Spark 클러스터. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](hdinsight-apache-spark-provision-clusters.md)를 참조하세요.
-- [Azure 이벤트 허브](service-bus-event-hubs-csharp-ephcs-getstarted.md).
+- [Azure 이벤트 허브](../event-hubs/event-hubs-csharp-ephcs-getstarted.md).
 - Microsoft Visual Studio 2013이 설치된 워크스테이션입니다. 자세한 내용은 [Visual Studio 설치](https://msdn.microsoft.com/library/e2h7fzkw.aspx)를 참조하세요.
 
 ##<a name="createeventhub"></a>Azure 이벤트 허브 만들기
@@ -184,14 +184,14 @@ HDInsight에서 Spark 클러스터로 스트리밍 데이터를 받으려면 Zep
 * [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](hdinsight-apache-spark-resource-manager-v1.md)
 
 
-[hdinsight-versions]: ../hdinsight-component-versioning/
-[hdinsight-upload-data]: ../hdinsight-upload-data/
-[hdinsight-storage]: ../hdinsight-use-blob-storage/
+[hdinsight-versions]: hdinsight-component-versioning.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
-[azure-create-storageaccount]: ../storage-create-storage-account/
+[azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

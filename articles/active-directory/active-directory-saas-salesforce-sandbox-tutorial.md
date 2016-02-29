@@ -1,5 +1,6 @@
 <properties 
-    pageTitle="자습서: Salesforce Sandbox와 Azure Active Directory 통합 | Microsoft Azure" description="Azure Active Directory에서 Salesforce Sandbox를 사용하여 Single Sign-On, 자동화된 프로비저닝 등을 사용하도록 설정하는 방법을 알아봅니다." 
+    pageTitle="자습서: Salesforce Sandbox와 Azure Active Directory 통합 | Microsoft Azure"
+    description="Azure Active Directory에서 Salesforce Sandbox를 사용하여 Single Sign-On, 자동화된 프로비저닝 등을 사용하도록 설정하는 방법을 알아봅니다." 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -205,4 +206,4 @@ Salesforce.com에 유효한 샌드박스가 없는 경우 Salesforce에 문의�
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하세요.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -1,40 +1,40 @@
 <properties
-   pageTitle="Azure 서비스 패브릭에서 사용자 지정 응용 프로그램 배포 | Microsoft Azure"
+   pageTitle="Azure 서비스 패브릭에 기존 실행 파일 배포 | Microsoft Azure"
    description="Azure 서비스 패브릭 클러스터에 배포할 수 있도록 기존 응용 프로그램을 패키지 하는 방법에 대한 연습"
    services="service-fabric"
    documentationCenter=".net"
    authors="bmscholl"
    manager="timlt"
    editor=""/>
-
+   
 <tags
    ms.service="service-fabric"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/17/2015"
+   ms.date="02/12/2016"
    ms.author="bscholl"/>
 
-# 서비스 패브릭에 사용자 지정 응용 프로그램 배포
+# 서비스 패브릭에 게스트 실행 파일 배포
 
-Azure 서비스 패브릭에서 Node.js, Java 또는 네이티브 응용 프로그램과 같은 모든 유형의 기존 응용 프로그램을 실행할 수 있습니다. 서비스 패브릭은 상태 비저장 서비스와 마찬가지로 이러한 응용 프로그램을 처리하고 가용성 및 기타 메트릭에 따라 클러스터의 노드에 배치합니다. 이 문서에서는 서비스 패브릭 클러스터에 기존 응용 프로그램을 패키징 및 배포하는 방법을 설명합니다.
+Azure 서비스 패브릭에서 Node.js, Java 또는 네이티브 응용 프로그램과 같은 모든 유형의 응용 프로그램을 실행할 수 있습니다. 서비스 패브릭 용어에서는 이러한 종류의 응용 프로그램을 게스트 실행 파일이라고 부릅니다. 게스트 실행 파일은 서비스 패브릭에서 상태 비저장 서비스처럼 취급됩니다. 결과적으로 클러스터의 노드에 배치되며, 가용성 및 기타 메트릭을 기반으로 합니다. 이 문서에서는 서비스 패브릭 클러스터에 게스트 실행 파일을 패키징 및 배포하는 방법을 설명합니다.
 
-## 서비스 패브릭에서 사용자 지정 응용 프로그램을 실행할 때의 이점
+## 서비스 패브릭에서 게스트 실행 파일을 실행할 때의 이점
 
-서비스 패브릭 클러스터에서 응용 프로그램을 실행하면 몇 가지 장점이 있습니다.
+서비스 패브릭 클러스터에서 게스트 실행 파일을 실행하면 몇 가지 장점이 있습니다.
 
 - 고가용성. 서비스 패브릭에서 실행되는 응용 프로그램은 항상 바로 사용할 수 있습니다. 서비스 패브릭은 응용 프로그램의 한 인스턴스가 항상 실행되도록 보장합니다.
 - 상태 모니터링. 기본적으로 서비스 패브릭 상태 모니터링은 응용 프로그램이 실행 중인지 감지하고 오류가 발생할 경우 진단 정보를 제공합니다.   
 - 응용 프로그램 수명 주기 관리. 서비스 패브릭은 가동 중지 없이 업그레이드가 가능할 뿐 아니라 업그레이드하는 동안 문제가 발생하면 이전 버전으로 롤백할 수 있습니다.    
 - 밀도. 한 클러스터에서 여러 응용 프로그램을 실행할 수 있으므로 응용 프로그램을 고유의 하드웨어에서 실행할 필요가 없습니다.
 
-이 문서에서는 기존 응용 프로그램을 패키징하고 서비스 패브릭에 배포하는 기본 단계를 다룹니다.
+이 문서에서는 게스트 실행 파일을 패키징하고 서비스 패브릭에 배포하는 기본 단계를 다룹니다.
 
 
 ## 응용 프로그램 및 서비스 매니페스트 파일의 간략한 개요
 
-기존 응용 프로그램 배포의 세부 정보로 들어가기 전에 서비스 패브릭 패키징 및 배포 모델을 이해하는 것이 유용합니다. 서비스 패브릭 패키징 배포 모델은 주로 두 파일을 사용합니다.
+게스트 실행 파일 배포의 세부 정보로 들어가기 전에 서비스 패브릭 패키징 및 배포 모델을 이해하는 것이 유용합니다. 서비스 패브릭 패키징 배포 모델은 주로 두 파일을 사용합니다.
 
 
 * **응용 프로그램 매니페스트**
@@ -72,7 +72,7 @@ Azure 서비스 패브릭에서 Node.js, Java 또는 네이티브 응용 프로�
 
   서비스 매니페스트는 서비스의 구성 요소를 설명합니다. 서비스 매니페스트는 서비스의 이름 및 유형(서비스 패브릭이 서비스 관리에 사용하는 정보), 서비스 코드, 구성 및 데이터 구성 요소를 포함하고 있습니다. 또한 서비스 매니페스트는 서비스가 배포되면 서비스를 구성하는 데 사용할 수 있는 몇 가지 추가 매개 변수도 포함하고 있습니다.
 
-  서비스 매니페스트에서 사용할 수 있는 모든 매개 변수를 자세히 다루지는 않고, 기존 응용 프로그램을 서비스 패브릭에서 실행하는 데 필요한 하위 집합을 살펴보겠습니다.
+  서비스 매니페스트에서 사용할 수 있는 모든 매개 변수를 자세히 다루지는 않고, 게스트 실행 파일을 서비스 패브릭에서 실행하는 데 필요한 하위 집합을 살펴보겠습니다.
 
   ```xml
   <?xml version="1.0" encoding="utf-8"?>
@@ -127,14 +127,14 @@ Azure 서비스 패브릭에서 Node.js, Java 또는 네이티브 응용 프로�
 
 ## 기존 앱을 패키징하는 과정
 
-기존 응용 프로그램을 패키징하는 과정은 다음 단계를 기반으로 합니다.
+게스트 실행 파일을 패키징하는 과정은 다음 단계를 기반으로 합니다.
 
 1. 패키지 디렉터리 구조를 만듭니다.
 2. 응용 프로그램의 코드 및 구성 파일을 추가합니다.
 3. 서비스 매니페스트 파일을 편집합니다.
 4. 응용 프로그램 매니페스트 파일을 편집합니다.
 
->[AZURE.NOTE]ApplicationPackage를 자동으로 만들 수 있는 패키징 도구가 제공됩니다. 이 도구는 현재 미리 보기로 제공되고 있습니다. [여기](http://aka.ms/servicefabricpacktool)에서 다운로드할 수 있습니다.
+>[AZURE.NOTE] ApplicationPackage를 자동으로 만들 수 있는 패키징 도구가 제공됩니다. 이 도구는 현재 미리 보기로 제공되고 있습니다. [여기](http://aka.ms/servicefabricpacktool)에서 다운로드할 수 있습니다.
 
 ### 패키지 디렉터리 구조 만들기
 앞에서 설명한 것처럼 디렉터리 구조를 만들어서 시작할 수 있습니다.
@@ -144,7 +144,7 @@ Azure 서비스 패브릭에서 Node.js, Java 또는 네이티브 응용 프로�
 
 서비스 패브릭은 응용 프로그램 루트 디렉터리의 내용에 대한 xcopy를 수행하므로 두 상위 디렉터리인 code 및 settings를 만들지 않고도 사용할 수 있는 미리 정의된 구조가 없습니다. 하지만 원한다면 다른 이름을 선택할 수 있습니다. 자세한 내용은 다음 섹션을 참조하세요.
 
->[AZURE.NOTE]응용 프로그램이 필요한 모든 파일/종속성을 포함했는지 확인합니다. 서비스 패브릭은 응용 프로그램의 서비스를 배포할 클러스터의 모든 노드에서 응용 프로그램 패키지의 콘텐츠를 복사합니다. 패키지에는 응용 프로그램 실행에 필요한 모든 코드가 있어야 합니다. 종속성이 이미 설치되어 있다고 가정하는 것은 좋지 않습니다.
+>[AZURE.NOTE] 응용 프로그램이 필요한 모든 파일/종속성을 포함했는지 확인합니다. 서비스 패브릭은 응용 프로그램의 서비스를 배포할 클러스터의 모든 노드에서 응용 프로그램 패키지의 콘텐츠를 복사합니다. 패키지에는 응용 프로그램 실행에 필요한 모든 코드가 있어야 합니다. 종속성이 이미 설치되어 있다고 가정하는 것은 좋지 않습니다.
 
 ### 서비스 매니페스트 파일 편집
 다음 정보를 포함하도록 서비스 매니페스트 파일을 편집하는 것이 다음 단계입니다.
@@ -157,10 +157,7 @@ Azure 서비스 패브릭에서 Node.js, Java 또는 네이티브 응용 프로�
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ServiceManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
-		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		 Name="NodeApp" Version="1.0.0.0" 
-		 xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ServiceManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="NodeApp" Version="1.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
    <ServiceTypes>
       <StatelessServiceType ServiceTypeName="NodeApp" UseImplicitHost="true"/>
    </ServiceTypes>
@@ -275,7 +272,7 @@ SetupEntrypoint가 하나밖에 없으므로 응용 프로그램의 설치/구�
 ```
 
 ### 로깅 설정
-기존 응용 프로그램의 경우 응용 프로그램 및 구성 스크립트가 오류를 표시할 때 콘솔 로그를 볼 수 있으므로 매우 유용합니다. 콘솔 리디렉션은 `ConsoleRedirection` 요소를 사용하여 `ServiceManifest.xml` 파일에 구성할 수 있습니다.
+게스트 실행 파일의 경우 응용 프로그램 및 구성 스크립트가 오류를 표시할 때 콘솔 로그를 볼 수 있으므로 매우 유용합니다. 콘솔 리디렉션은 `ConsoleRedirection` 요소를 사용하여 `ServiceManifest.xml` 파일에 구성할 수 있습니다.
 
 ```xml
 <EntryPoint>
@@ -339,10 +336,10 @@ New-ServiceFabricService -ApplicationName 'fabric:/nodeapp' -ServiceName 'fabric
 
 
 ## 다음 단계
-이 문서에서는 기존 응용 프로그램을 패키징하고 서비스 패브릭에 배포하는 방법을 배웠습니다. 다음 단계로 이 항목에 대한 추가 콘텐츠를 확인할 수 있습니다.
+이 문서에서는 게스트 실행 파일을 패키징하고 서비스 패브릭에 배포하는 방법을 배웠습니다. 다음 단계로 이 항목에 대한 추가 콘텐츠를 확인할 수 있습니다.
 
-- 패키징 도구 시험판의 링크를 포함하여 [GitHub에 사용자 지정 응용 프로그램을 패키징 및 배포하는 샘플](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Custom/SimpleApplication)
-- [여러 사용자 지정 응용 프로그램 배포](service-fabric-deploy-multiple-apps.md)
+- 패키징 도구 시험판의 링크를 포함하여 [GitHub에 게스트 실행 파일을 패키징 및 배포하는 샘플](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Custom/SimpleApplication)
+- [여러 개의 게스트 실행 파일 배포](service-fabric-deploy-multiple-apps.md)
 - [Visual Studio를 사용하여 처음으로 서비스 패브릭 응용 프로그램 만들기](service-fabric-create-your-first-application-in-visual-studio.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0218_2016-->

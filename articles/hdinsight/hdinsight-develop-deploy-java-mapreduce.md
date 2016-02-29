@@ -202,7 +202,7 @@
 
 3. 명령이 완료되면 __wordcountjava\\target__ 디렉터리에 __wordcountjava-1.0-SNAPSHOT.jar__라는 파일이 포함됩니다.
 
-	> [AZURE.NOTE]__wordcountjava-1.0-SNAPSHOT.jar__ 파일이 uberjar입니다.
+	> [AZURE.NOTE] __wordcountjava-1.0-SNAPSHOT.jar__ 파일이 uberjar입니다.
 
 
 ##<a name="test"></a>에뮬레이터에서 프로그램 테스트
@@ -231,7 +231,7 @@ HDInsight Emulator에서 MapReduce 작업을 테스트하는 과정에는 다음
 
 이 자습서에서는 %hadoop\_home% 디렉터리에 있는 .txt 파일을 데이터 파일로 사용합니다.
 
-> [AZURE.NOTE]Hadoop HDFS 명령은 대/소문자를 구분합니다.
+> [AZURE.NOTE] Hadoop HDFS 명령은 대/소문자를 구분합니다.
 
 **에뮬레이터 HDFS로 데이터 파일 복사**
 
@@ -304,7 +304,7 @@ MapReduce 작업을 실행하는 다른 옵션은 Azure PowerShell을 사용하�
 
 
 ##<a id="upload"></a>Azure Blob 저장소에 데이터 및 응용 프로그램 업로드
-Azure HDInsight는 데이터 저장소에 Azure Blob 저장소를 사용합니다. HDInsight 클러스터를 프로비전할 때 시스템 파일을 저장하는 데 Azure Blob 저장소 컨테이너를 사용합니다. 데이터 파일을 저장하는 데 이러한 기본 컨테이너를 사용하거나 다른 컨테이너(동일한 Azure 저장소 계정 또는 클러스터와 동일한 데이터 센터에 있는 다른 저장소 계정의 컨테이너)를 사용할 수 있습니다.
+Azure HDInsight는 데이터 저장소에 Azure Blob 저장소를 사용합니다. HDInsight 클러스터를 프로비전할 때 시스템 파일을 저장하는 데 Azure Blob 저장소 컨테이너를 사용합니다. 데이터 파일을 저장하는 데 이러한 기본 컨테이너를 사용하거나 다른 컨테이너를 사용할 수 있습니다(동일한 Azure 저장소 계정 또는 클러스터와 동일한 지역에 있는 다른 저장소 계정의 컨테이너에서).
 
 이 자습서에서는 별도의 저장소 계정에 데이터 파일 및 MapReduce 응용 프로그램용 컨테이너를 만듭니다. 데이터 파일은 에뮬레이터 워크스테이션의 **C:\\hdp\\hadoop-2.4.0.2.1.3.0-1981\\share\\doc\\hadoop\\common** 디렉터리에 있는 텍스트 파일입니다.
 
@@ -316,7 +316,7 @@ Azure HDInsight는 데이터 저장소에 Azure Blob 저장소를 사용합니�
 		$subscriptionName = "<AzureSubscriptionName>"
 		$storageAccountName_Data = "<AzureStorageAccountName>"  
 		$containerName_Data = "<ContainerName>"
-		$location = "<MicrosoftDataCenter>"  # For example, "East US"
+		$location = "<Region>"  # For example, "East US"
 
 	**$subscripionName** 변수는 Azure 구독과 연결됩니다. **$storageAccountName\_Data** 및 **$containerName\_Data**를 명명해야 합니다. 명명 제한에 대해서는 [컨테이너와 Blob, 메타데이터의 명명 및 참조](http://msdn.microsoft.com/library/windowsazure/dd135715.aspx)를 참조하세요.
 
@@ -455,7 +455,7 @@ Azure HDInsight는 데이터 저장소에 Azure Blob 저장소를 사용합니�
 		# The Storage account and the HDInsight cluster variables
 		$subscriptionName = "<AzureSubscriptionName>"
 		$stringPrefix = "<StringForPrefix>"
-		$location = "<MicrosoftDataCenter>"     ### Must match the data Storage account location
+		$location = "<Region>"     ### Must match the data Storage account location
 		$clusterNodes = <NumberOFNodesInTheCluster>
 
 		$storageAccountName_Data = "<TheDataStorageAccountName>"
@@ -592,22 +592,22 @@ Azure HDInsight는 데이터 저장소에 Azure Blob 저장소를 사용합니�
 
 [hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 
-[hdinsight-get-started]: ../hdinsight-get-started.md
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-emulator]: ../hdinsight-get-started-emulator.md
 [hdinsight-emulator-wasb]: ../hdinsight-get-started-emulator.md#blobstorage
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
-[powershell-install-configure]: ../install-configure-powershell.md
+[powershell-install-configure]: powershell-install-configure.md
 
 
 
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0218_2016-->

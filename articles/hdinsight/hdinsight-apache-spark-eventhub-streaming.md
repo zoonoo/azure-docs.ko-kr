@@ -35,7 +35,7 @@ Spark 스트리밍은 핵심 Spark API를 확장하여 뛰어난 확장성, 높�
 - Oracle Java Development 키트. [여기](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)에서 설치할 수 있습니다.
 - Java IDE. 이 문서에서는 IntelliJ IDEA 15.0.1을 사용합니다. [여기](https://www.jetbrains.com/idea/download/)에서 설치할 수 있습니다.
 - SQL Server용 Microsoft JDBC 드라이버, v4.1 이상. SQL Server 데이터베이스에 이벤트 데이터를 작성해야 합니다. [여기](https://msdn.microsoft.com/sqlserver/aa937724.aspx)에서 설치할 수 있습니다.
-- Azure SQL 데이터베이스입니다. 자세한 내용은 [몇 분 만에 SQL 데이터베이스 만들기](sql-database/sql-database-get-started.md)를 참조하세요.
+- Azure SQL 데이터베이스입니다. 자세한 내용은 [몇 분 만에 SQL 데이터베이스 만들기](../sql-database/sql-database-get-started.md)를 참조하세요.
 
 ## 이 솔루션의 기능은 무엇입니까?
 
@@ -187,7 +187,7 @@ Livy를 사용하여 Spark 클러스터에서 스트리밍 응용 프로그램�
 
 		java -cp EventhubsSampleEventProducer.jar com.microsoft.eventhubs.client.example.EventhubsClientDriver --eventhubs-namespace "mysbnamespace" --eventhubs-name "myeventhub" --policy-name "mysendpolicy" --policy-key "<policy key>" --message-length 32 --thread-count 32 --message-count -1
 
-2. 스트리밍 jar(**microsoft-spark-streaming-examples.jar**)을 클러스터와 연결된 Azure Blob 저장소에 복사합니다. 이렇게 하면 jar이 Livy에 액세스할 수 있습니다. 이렇게 하기 위해 명령줄 유틸리티 [**AzCopy**](storage/storage-use-azcopy.md)를 사용할 수 있습니다. 데이터를 업로드하는 데 사용할 수 있는 다른 클라이언트도 많이 있습니다. [HDInsight에서 Hadoop 작업용 데이터 업로드](hdinsight-upload-data.md)에서 자세한 정보를 찾을 수 있습니다.
+2. 스트리밍 jar(**microsoft-spark-streaming-examples.jar**)을 클러스터와 연결된 Azure Blob 저장소에 복사합니다. 이렇게 하면 jar이 Livy에 액세스할 수 있습니다. 이렇게 하기 위해 명령줄 유틸리티 [**AzCopy**](../storage/storage-use-azcopy.md)를 사용할 수 있습니다. 데이터를 업로드하는 데 사용할 수 있는 다른 클라이언트도 많이 있습니다. [HDInsight에서 Hadoop 작업용 데이터 업로드](hdinsight-upload-data.md)에서 자세한 정보를 찾을 수 있습니다.
 
 3. 이러한 응용 프로그램을 실행 중인 컴퓨터에 CURL을 설치합니다. Livy 끝점을 호출하는 CURL을 사용하여 작업을 원격으로 실행합니다.
 
@@ -362,9 +362,9 @@ hive 테이블이 성공적으로 만들어졌는지 확인하려면 클러스�
 * [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](hdinsight-apache-spark-resource-manager.md)
 
 
-[hdinsight-versions]: ../hdinsight-component-versioning/
-[hdinsight-upload-data]: ../hdinsight-upload-data/
-[hdinsight-storage]: ../hdinsight-use-blob-storage/
+[hdinsight-versions]: hdinsight-component-versioning.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
@@ -372,4 +372,4 @@ hive 테이블이 성공적으로 만들어졌는지 확인하려면 클러스�
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

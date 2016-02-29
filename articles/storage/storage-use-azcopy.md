@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
+	ms.date="02/15/2016" 
 	ms.author="micurd"/>
 
 # AzCopy 명령줄 유틸리티로 데이터 전송
@@ -22,7 +22,7 @@
 
 AzCopy는 Microsoft Azure Blob, 파일 및 테이블 저장소에 대해 데이터를 복사하도록 설계된 명령줄 유틸리티입니다. AzCopy를 사용하면 간단한 명령과 최적의 성능으로 파일 시스템에서 Azure 저장소로 데이터를 마이그레이션하거나 Azure 저장소에서 파일 시스템으로 데이터를 마이그레이션할 수 있습니다. 또한 저장소 계정 내에서나 저장소 계정 사이에서 개체 간에 데이터 복사할 수 있습니다.
 
-> [AZURE.NOTE]이 설명서에서는 AzCopy 5.0 이상이 설치되어 있다고 가정합니다.
+> [AZURE.NOTE] 이 설명서에서는 AzCopy 5.0 이상이 설치되어 있다고 가정합니다.
 
 이제 [Nuget](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement)에서 Microsoft Azure 저장소 데이터 이동 라이브러리 미리 보기를 다운로드할 수 있습니다. 데이터 이동 라이브러리는 AzCopy의 기본 핵심 라이브러리입니다. 소스 코드는 [GitHub](https://github.com/Azure/azure-storage-net-data-movement)에서 제공됩니다. 자세한 내용은 [Azure 저장소 데이터 이동 라이브러리 미리 보기 소개](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)를 참조하세요.
 
@@ -38,7 +38,7 @@ AzCopy는 Microsoft Azure Blob, 파일 및 테이블 저장소에 대해 데이�
 
 	AzCopy /Source:<source> /Dest:<destination> /Pattern:<filepattern> [Options]
 
-> [AZURE.NOTE]AzCopy 버전 3.0.0부터 AzCopy 명령줄 구문에서는 모든 매개 변수가 매개 변수 이름을 포함하도록 지정해야 합니다(*예:* `/ParameterName:ParameterValue`).
+> [AZURE.NOTE] AzCopy 버전 3.0.0부터 AzCopy 명령줄 구문에서는 모든 매개 변수가 매개 변수 이름을 포함하도록 지정해야 합니다(*예:* `/ParameterName:ParameterValue`).
 
 ## 첫 번째 AzCopy 명령 작성
 
@@ -446,7 +446,7 @@ AzCopy를 사용하여 Blob 또는 파일을 복사할 때는 복사하는 동�
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
 
-저장소 액세스 키를 사용한 작업에 대한 자세한 내용은 [저장소 액세스 키 보기, 복사 및 다시 생성](../storage-create-storage-account/#regeneratestoragekeys)을 참조하세요.
+저장소 액세스 키를 사용한 작업에 대한 자세한 내용은 [저장소 액세스 키 관리](storage-create-storage-account.md#manage-your-storage-access-keys)를 참조하세요.
 
 ### 서버 쪽 복사를 통해 Blob 복사
 
@@ -936,7 +936,7 @@ FIPS 규격 알고리즘은 Windows 컴퓨터에는 기본적으로 사용되지
 
 ## AzCopy 버전
 
-> [AZURE.NOTE]새로운 기능 및 더 나은 성능을 얻으려면 최신 버전의 AzCopy를 설치하는 것이 좋습니다.
+> [AZURE.NOTE] 새로운 기능 및 더 나은 성능을 얻으려면 최신 버전의 AzCopy를 설치하는 것이 좋습니다.
 
 | 버전 | 새로운 기능 | 참조된 .NET 클라이언트 라이브러리 버전 | 대상 저장소 REST API 버전 |
 |---------|-----------------------------------------------------------------------------------------------------------------|--------|----------|
@@ -964,22 +964,21 @@ Azure 저장소 및 AzCopy에 대한 자세한 내용은 다음 리소스를 참
 
 ### Azure 저장소 설명서
 
-- [Azure 저장소 소개](storage-introduction.md)
-- [.NET에서 Blob 저장소를 사용하는 방법](storage-dotnet-how-to-use-blobs.md)
-- [.NET에서 파일 저장소를 사용하는 방법](storage-dotnet-how-to-use-files.md)
-- [.NET에서 테이블 저장소를 사용하는 방법](storage-dotnet-how-to-use-tables.md)
-- [저장소 계정을 만들거나, 관리하거나, 삭제하는 방법](storage-create-storage-account.md)
-- [가져오기/내보내기 서비스를 사용하여 Blob 저장소로 데이터 전송](storage-import-export-service.md)
+- [Microsoft Azure 저장소 소개](storage-introduction.md)
+- [.NET을 사용하여 Azure Blob 저장소 시작](storage-dotnet-how-to-use-blobs.md)
+- [Windows에서 Azure 파일 저장소 시작](storage-dotnet-how-to-use-files.md)
+- [.NET을 사용하여 Azure 테이블 저장소 시작](storage-dotnet-how-to-use-tables.md)
+- [Azure 저장소 계정 정보](storage-create-storage-account.md)
+- [Microsoft Azure 가져오기/내보내기 서비스를 사용하여 Blob 저장소로 데이터 전송](storage-import-export-service.md)
 
 ### Azure 저장소 블로그 게시물:
-- [DML: Azure 저장소 데이터 이동 라이브러리 미리 보기 소개](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
+- [Azure 저장소 데이터 이동 라이브러리 미리 보기 소개](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
 - [AzCopy: 동기 복사본 및 사용자 지정 콘텐츠 형식 소개(영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
 - [AzCopy: AzCopy 3.0의 일반 공급 및 테이블 및 파일을 지원하는 AzCopy 4.0의 미리 보기 릴리스 발표(영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
-- [AzCopy: 대량 복사 시나리오에 맞게 최적화(영문)](http://go.microsoft.com/fwlink/?LinkId=507682)
 - [Microsoft Azure 파일 서비스 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [AzCopy: 읽기 액세스 지역 중복 저장소 지원(영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
 - [AzCopy: 다시 시작 가능 모드 및 SAS 토큰으로 데이터 전송(영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
 - [AzCopy: 크로스 계정 Blob 복사 사용(영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 - [AzCopy: Azure Blob 파일 업로드/다운로드(영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

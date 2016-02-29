@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/30/2015"
+	ms.date="02/11/2016"
 	ms.author="donnam"/>
 
 # 모바일 서비스 앱에 인증 추가
@@ -78,7 +78,7 @@
             }
         }
 
-	> [AZURE.NOTE]Facebook 이외의 ID 공급자를 사용하는 경우 위의 **LoginAsync**에 전달된 값을 _Facebook_, _Twitter_, _Google_ 또는 _WindowsAzureActiveDirectory_ 중 하나로 변경합니다.
+	> [AZURE.NOTE] Facebook 이외의 ID 공급자를 사용하는 경우 위의 **LoginAsync**에 전달된 값을 _Facebook_, _Twitter_, _Google_ 또는 _WindowsAzureActiveDirectory_ 중 하나로 변경합니다.
 
 3. **ToDoItem** 테이블에 대한 요청을 **ToDoService** 생성자에서 새 메서드 **CreateTable**로 이동합니다.
 
@@ -155,4 +155,4 @@
 [완성된 예제 프로젝트]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 [Xamarin.iOS]: http://xamarin.com/download
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0218_2016-->

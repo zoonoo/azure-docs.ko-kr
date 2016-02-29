@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/11/2015"
+	ms.date="02/12/2016"
 	ms.author="yuridio"/>
 
 #강력한 ID 솔루션을 통해 데이터 보안을 향상하기 위한 계획
@@ -26,7 +26,8 @@
 
 하이브리드 ID 솔루션을 계획할 때 이러한 요구 사항을 가장 잘 수행할 수 있도록 비즈니스에 대한 데이터 보호 요구 사항 및 사용할 수 있는 옵션을 이해해야 합니다.
  
->[AZURE.NOTE]데이터 보안에 대한 계획을 완료하면 [Multi-Factor Authentication 요구 사항 확인](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)을 검토하여 Multi-Factor Authentication에 관한 선택이 이 섹션에서의 결정에 영향받지 않도록 합니다.
+>[AZURE.NOTE]
+데이터 보안에 대한 계획을 완료하면 [Multi-Factor Authentication 요구 사항 확인](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)을 검토하여 Multi-Factor Authentication에 관한 선택이 이 섹션에서의 결정에 영향받지 않도록 합니다.
 
 ## 데이터 보호 요구 사항 결정
 이동성의 시대에 회사에는 대부분 공통의 목표가 있습니다. 생산성을 향상시키기 위해 온-프레미스하는 동안 또는 어디서든 원격으로 사용자가 모바일 장치에서 생산성을 높일 수 있도록 합니다. 이것이 공통의 목적일 수 있는 반면 이러한 요구 사항이 있는 회사는 또한 회사의 데이터 보안을 유지하고 사용자의 개인 정보를 유지하기 위해 완화해야 하는 위협의 양에 관한 문제입니다. 각 회사는 이런 점에서 다른 요구 사항이 있을 수 있습니다. 회사가 행동하는 업계에 따라 달라질 수 있는 다른 규정 준수 규칙은 다른 설계 결정으로 이어질 수 있습니다.
@@ -53,14 +54,14 @@ IT가 해당 단계에서 각각 스스로 데어타를 보호할 수 있는 기
 
 - 회사는 미사용 데이터를 보호해야 합니까?
  - 그렇다면 하이브리드 ID 솔루션은 현재 온-프레미스 인프라와 통합할 수 있습니까?
- - 그렇다면 하이브리드 ID 솔루션은 클라우드에 위치한 워크로드와 통합할 수 있습니까?
+ - 그렇다면 하이브리드 ID 솔루션은 클라우드에 위치한 워크로드와 통합할 수 있나요?
 - 클라우드 ID 관리는 사용자의 자격 증명 및 클라우드에 저장된 다른 데이터를 보호할 수 있습니까?
 
 ## 전송 중인 데이터 보호
 장치와 데이터 센터 또는 장치와 클라우드 간에 전송 중인 데이터는 보호되어야 합니다. 그러나 전송 중인 상태는 반드시 클라우드 서비스 외부의 구성 요소와 통신 프로세스를 의미하지 않습니다. 또한 예를 들어 두 가상 네트워크 간에 내부적으로 이동합니다. 이 영역의 경우 다음 질문을 묻는지를 확인합니다.
 
-- 회사는 전송 중인 데이터를 보호해야 합니까?
- - 그렇다면 하이브리드 ID 솔루션은 SSL/TLS와 같은 안전한 제어와 통합할 수 있습니까?
+- 회사가 전송 중인 데이터를 보호해야 하나요?
+ - 그렇다면 하이브리드 ID 솔루션은 SSL/TLS와 같은 보안 제어와 통합할 수 있나요?
 - 클라우드 ID 관리는 서명된 디렉터리 저장소(내부 및 데이터 센터 간) 간에 트래픽을 유지합니까?
 
 
@@ -70,13 +71,14 @@ IT가 해당 단계에서 각각 스스로 데어타를 보호할 수 있는 기
 - 하이브리드 ID 솔루션은 비즈니스에 대한 규정 요구 사항을 준수합니까?
 - 하이브리드 ID 솔루션에는 회사가 규정 요구 사항을 준수할 수 있게 해주는 기본 제공 기능이 있습니다? 
  
->[AZURE.NOTE]각 답변을 주목하고 답변 이유를 이해해야 합니다. [데이터 보호 전략 정의](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)에서는 사용할 수 있는 옵션과 각 옵션의 장점/단점을 살펴봅니다. 질문에 답변함으로써 비즈니스 요구 사항에 가장 적합한 옵션을 선택할 수 있습니다.
+>[AZURE.NOTE]
+각 답변을 주목하고 답변 이유를 이해해야 합니다. [데이터 보호 전략 정의](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)에서는 사용할 수 있는 옵션과 각 옵션의 장점/단점을 살펴봅니다. 질문에 답변함으로써 비즈니스 요구 사항에 가장 적합한 옵션을 선택할 수 있습니다.
 
 ## 다음 단계
  [콘텐츠 관리 요구 사항 결정](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)
 
 
 ## 참고 항목
-[디자인 고려 사항 개요](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[설계 고려 사항 개요](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0218_2016-->

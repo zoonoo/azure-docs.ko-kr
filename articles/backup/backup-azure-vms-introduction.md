@@ -1,11 +1,12 @@
 <properties
 	pageTitle="Azure에서 VM 백업 인프라 계획 | Microsoft Azure"
-	description="Azure에서 VM 백업 인프라를 계획할 경우의 중요 고려 사항"
+	description="Azure에서 가상 컴퓨터를 백업하려고 할 때 중요한 고려 사항"
 	services="backup"
 	documentationCenter=""
 	authors="Jim-Parker"
 	manager="jwhit"
-	editor=""/>
+	editor=""
+	keywords="vm 백업, 가상 컴퓨터 백업"/>
 
 <tags
 	ms.service="backup"
@@ -13,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/19/2016"
+	ms.date="02/12/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Azure에서 VM 백업 인프라 계획
-이 문서에서는 가상 컴퓨터(VM) 백업 인프라를 계획할 때 염두에 두어야 하는 주요 고려 사항을 알아봅니다. [환경을 준비](backup-azure-vms-prepare.md)한 경우 이 단계는 [VM 백업](backup-azure-vms.md)을 시작하기 전의 다음 단계입니다. Azure 가상 컴퓨터에 대한 자세한 내용은 [가상 컴퓨터 설명서](https://azure.microsoft.com/documentation/services/virtual-machines/)를 참조하세요.
+이 문서에서는 Azure의 가상 컴퓨터를 백업하려고 할 때 유의해야 할 핵심 사항을 다룹니다. [환경을 준비](backup-azure-vms-prepare.md)한 경우 이 단계는 [VM 백업](backup-azure-vms.md)을 시작하기 전의 다음 단계입니다. Azure 가상 컴퓨터에 대한 자세한 내용은 [가상 컴퓨터 설명서](https://azure.microsoft.com/documentation/services/virtual-machines/)를 참조하세요.
 
 ## Azure에서 가상 컴퓨터를 백업하는 방법
 Azure 백업 서비스는 예약된 시간에 백업 작업을 시작할 때 시점 스냅숏을 만드는 백업 확장을 트리거합니다. 이 스냅숏은 가상 컴퓨터를 종료하지 않고도 가상 컴퓨터의 디스크에 대한 일관된 스냅숏을 가져오도록 VSS(볼륨 섀도 복사본 서비스)와 조정되어 생성됩니다.
@@ -120,4 +121,4 @@ Azure 백업을 통해 백업된 Azure 가상 컴퓨터에는 [Azure 백업 가�
 - [가상 컴퓨터 복원](backup-azure-restore-vms.md)
 - [VM 백업 문제 해결](backup-azure-vms-troubleshoot.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

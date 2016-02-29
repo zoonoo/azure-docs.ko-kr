@@ -3,7 +3,7 @@
 	description="Azure 미디어 인덱서를 사용하면 미디어 파일 콘텐츠를 검색 가능하게 만들고 선택 자막 및 키워드용 전체 텍스트 기록을 생성할 수 있습니다. 이 항목에서는 미디어 인덱서를 사용하는 방법을 보여 줍니다."
 	services="media-services"
 	documentationCenter=""
-	authors="Juliako,Asolanki,johndeu"
+	authors="Asolanki"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/15/2015"   
-	ms.author="juliako"/>
+	ms.date="02/17/2016"   
+	ms.author="juliako;adsolank;johndeu"/>
 
 
 # Azure 미디어 인덱서를 사용하여 미디어 파일 인덱싱
@@ -301,4 +301,4 @@ __features__ <br /><br /> 버전 1.2에 추가되었습니다. 현재 지원되�
 
 <!-- URLs. -->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

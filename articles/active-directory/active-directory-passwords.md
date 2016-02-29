@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="02/16/2016" 
 	ms.author="asteen"/>
 	
 
 # 사용자와 관리자에 대한 Azure AD 암호 재설정
 
-  >[AZURE.IMPORTANT]Azure 또는 O365 암호를 재설정하려고 하나요? 그렇다면 [이 섹션으로 건너뛰십시오](#users-how-to-manage-your-own-password).
+  >[AZURE.IMPORTANT] Azure 또는 O365 암호를 재설정하려고 하나요? 그렇다면 [이 섹션으로 건너뛰십시오](#users-how-to-manage-your-own-password).
   
 셀프 서비스는 오랫동안 비용 절감 및 노동 절감 수단으로 전세계 IT 부서에서의 주요 목표가 되어 왔습니다. 실제로, 시장은 클라우드 또는 온-프레미스에서 온-프레미스 그룹, 암호 또는 사용자 프로필을 관리할 수 있는 제품으로 넘쳐납니다. Azure AD는 사용하기 가장 쉬운 방법 및 오늘날 가능한 가장 강력한 셀프서비스 기능을 제공하여 이들 제품과 차별을 두었습니다.
 
@@ -242,7 +242,7 @@ Azure AD Premium 또는 기본 가격에 대한 자세한 내용은 [Active Dire
 ## 암호 재설정 설명서에 대한 링크
 다음은 모든 Azure AD 암호 재설정 설명서 페이지에 대한 링크입니다.
 
-* [**자신의 암호 재설정**](active-directory-passwords-update-your-own-password.md) - 시스템 사용자로서 자신의 암호를 재설정하거나 변경하는 방법을 알아봅니다.
+* [**자신의 암호 재설정**](active-directory-passwords-update-your-own-password.md) - 시스템의 사용자로서 자신의 암호를 재설정 또는 변경하는 방법에 대해 알아봅니다.
 * [**작동 방식**](active-directory-passwords-how-it-works.md) - 6개의 다양한 구성 요소 서비스 및 기능에 대해 알아봅니다.
 * [**시작**](active-directory-passwords-getting-started.md) -사용자가 클라우드 또는 온-프레미스 암호를 다시 설정하고 변경할 수 있는 방법에 대해 알아봅니다.
 * [**사용자 지정**](active-directory-passwords-customize.md) - 모양과 느낌 및 조직의 요구에 맞게 서비스의 동작을 사용자 지정하는 방법에 대해 알아봅니다
@@ -252,4 +252,4 @@ Azure AD Premium 또는 기본 가격에 대한 자세한 내용은 [Active Dire
 * [**문제해결**](active-directory-passwords-troubleshoot.md) -신속하게 서비스와의 문제를 해결하는 방법에 대해 알아봅니다.
 * [**자세히 알아보기**](active-directory-passwords-learn-more.md) -서비스의 작동 원리 방식의 기술적 측면을 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/09/2016"
+    ms.date="02/17/2016"
     ms.author="markvi"/>
 
 #Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록
@@ -23,6 +23,7 @@ Azure Active Directory와 모든 클라우드(SaaS) 응용 프로그램을 쉽�
 Azure AD에 사전 통합된 포괄적인 SaaS 앱 목록에 대해서는 [Active Directory 마켓플레이스](https://azure.microsoft.com/marketplace/active-directory/)를 참조하세요.
 
 ##자습서 목록
+
 
 | 로고| 앱 이름 |
 | --- | --- |
@@ -54,8 +55,10 @@ Azure AD에 사전 통합된 포괄적인 SaaS 앱 목록에 대해서는 [Activ
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Canvas.jpg)| [Canvas LMS](https://go.microsoft.com/fwLink/?LinkID=510249&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Capriza.jpg)| [Capriza](https://go.microsoft.com/fwLink/?LinkID=708671&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Central_Desktop.jpg)| [Central Desktop](https://go.microsoft.com/fwLink/?LinkID=403249&clcid=0x409)|
+| ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Certify.jpg)| [Certify](http://go.microsoft.com/fwlink/?LinkID=708681&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Cherwell.jpg)| [Cherwell](https://go.microsoft.com/fwLink/?LinkID=530225&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Chromeriver.png)| [Chromeriver](https://go.microsoft.com/fwLink/?LinkID=530233&clcid=0x409)|
+| ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Cimpl.jpg)| [Cimpl](https://go.microsoft.com/fwLink/?LinkID=708685&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_CiscoWebEx.jpg)| [Cisco Webex](https://go.microsoft.com/fwLink/?LinkID=403253&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_CritixGoToMeeting.jpg)| [Citrix GoToMeeting](https://go.microsoft.com/fwLink/?LinkID=309579&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_CritixShareFile.jpg)| [Citrix ShareFile](https://go.microsoft.com/fwLink/?LinkID=403238&clcid=0x409)|
@@ -87,9 +90,11 @@ Azure AD에 사전 통합된 포괄적인 SaaS 앱 목록에 대해서는 [Activ
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_GoogleApps.jpg)| [Google Apps](https://go.microsoft.com/fwLink/?LinkID=309577&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Greenhouse.jpg)| [Greenhouse](https://go.microsoft.com/fwLink/?LinkID=403252&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Halogen_Software.jpg)| [Halogen Software](https://go.microsoft.com/fwLink/?LinkID=530241&clcid=0x409)|
+| ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_HR2day.jpg)| [HR2day by Merces](https://go.microsoft.com/fwLink/?LinkID=708684&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Huddle.jpg)| [Huddle](https://go.microsoft.com/fwLink/?LinkID=403227&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_IdeaScale.jpg)| [IdeaScale](https://go.microsoft.com/fwLink/?LinkID=512746&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_IglooSoftware.jpg)| [Igloo Software](https://go.microsoft.com/fwLink/?LinkID=522555&clcid=0x409)|
+| ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_ImageRelay.jpg)| [Image Relay](https://go.microsoft.com/fwLink/?LinkID=708688&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Innotas.jpg)| [Innotas](https://go.microsoft.com/fwLink/?LinkID=510266&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_InsideView.jpg)| [InsideView](https://go.microsoft.com/fwLink/?LinkID=512719&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Intacct.jpg)| [Intacct](https://go.microsoft.com/fwLink/?LinkID=403230&clcid=0x409)|
@@ -100,9 +105,11 @@ Azure AD에 사전 통합된 포괄적인 SaaS 앱 목록에 대해서는 [Activ
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Kindling.jpg)| [Kindling](https://go.microsoft.com/fwLink/?LinkID=691856&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Kintone.jpg)| [Kintone](https://go.microsoft.com/fwLink/?LinkID=510252&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Kiteworks.jpg)| [Kiteworks](https://go.microsoft.com/fwLink/?LinkID=403222&clcid=0x409)|
+| ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Knowbe4.jpg)| [KnowBe4](http://go.microsoft.com/fwlink/?LinkId=708691&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Kontiki.jpg)| [Kontiki](https://go.microsoft.com/fwLink/?LinkID=512729&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Kudos.jpg)| [Kudos](https://go.microsoft.com/fwLink/?LinkID=510256&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Learningpool.jpg)| [Learningpool](https://go.microsoft.com/fwLink/?LinkID=530220&clcid=0x409)|
+| ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_LearnUpon.jpg)| [LearnUpon](https://go.microsoft.com/fwLink/?LinkID=708690&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Lessonly.jpg)| [Lesson.ly](https://go.microsoft.com/fwLink/?LinkID=708686&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Litmos.jpg)| [Litmos](https://go.microsoft.com/fwLink/?LinkID=691853&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_LogicMonitor.jpg)| [LogicMonitor](https://go.microsoft.com/fwLink/?LinkID=403233&clcid=0x409)|
@@ -195,9 +202,9 @@ Azure AD에 사전 통합된 포괄적인 SaaS 앱 목록에 대해서는 [Activ
 
 
 
-
 ##관련 문서
 
 - [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
+- [SaaS App을 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

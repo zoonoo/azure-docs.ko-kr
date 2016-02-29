@@ -18,7 +18,7 @@
 	ms.author="garye;bradsev" />
 
 
-# 다양한 데이터 원본에서 Azure 기계 학습 스튜디오로 학습 데이터를 가져오기
+# 로컬 파일에서 Azure 기계 학습 스튜디오로 학습 데이터 가져오기
 
 [AZURE.INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
 
@@ -40,4 +40,4 @@
 
 데이터가 업로드되면 데이터 집합 모듈에 저장되고 작업 영역의 모든 실험에서 사용할 수 있습니다. 실험을 편집할 때 모듈 팔레트에 있는 **저장된 데이터 집합** 목록에서 사전에 로드된 샘플 데이터 집합과 함께 데이터 집합을 찾을 수 있습니다. 추가 분석 및 기계 학습을 위해 데이터 집합을 사용하려고 할 때 데이터 집합을 실험 캔버스에 끌어서 놓을 수 있습니다.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -1,5 +1,6 @@
 <properties 
-    pageTitle="자습서: Azure Active Directory와 Zscaler ZSCloud 통합 | Microsoft Azure" description="Azure Active Directory에서 ZScaler ZScloud을 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
+    pageTitle="자습서: Azure Active Directory와 Zscaler ZSCloud 통합 | Microsoft Azure"
+    description="Azure Active Directory에서 ZScaler ZScloud을 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
     services="active-directory" 
     authors="markusvi"  
     documentationCenter="na" 
@@ -83,7 +84,7 @@
 
     ![앱 URL 구성](./media/active-directory-saas-zscaler-zscloud-tutorial/IC800280.png "앱 URL 구성")
 
-    >[AZURE.NOTE]필요한 경우 ZScaler ZScloud 지원 팀에서 사용자 환경에 대한 실제 값을 얻을 수 있습니다.
+    >[AZURE.NOTE] 필요한 경우 ZScaler ZScloud 지원 팀에서 사용자 환경에 대한 실제 값을 얻을 수 있습니다.
 
 4.  인증서를 다운로드 하려면**ZScaler ZSCloud에 Single Sign-On 구성** 페이지에서 **인증서 다운로드**를 클릭하여 컴퓨터에 인증서 파일을 저장합니다
 
@@ -181,7 +182,7 @@ Azure AD 사용자가 ZScaler ZSCloud에 로그인할 수 있도록 하려면 �
     1.  **사용자ID**, **사용자 표시 이름**, **암호**, **암호 확인**을 입력하고, 프로비전하고자 하는 유효한 AAD 계정의 **그룹** 및 **부서**를 선택합니다.
     2.  **Save**를 클릭합니다.
 
->[AZURE.NOTE]다른 ZScaler ZScloud 사용자 계정 생성 도구 또는 Zendesk에서 제공하는 APIs를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+>[AZURE.NOTE] 다른 ZScaler ZScloud 사용자 계정 생성 도구 또는 Zendesk에서 제공하는 APIs를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
 
 ##사용자 할당
   
@@ -201,4 +202,4 @@ Azure AD 사용자가 ZScaler ZSCloud에 로그인할 수 있도록 하려면 �
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

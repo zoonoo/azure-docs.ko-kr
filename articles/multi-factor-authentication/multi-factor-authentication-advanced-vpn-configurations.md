@@ -7,14 +7,7 @@
 	manager="stevenpo" 
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/19/2015" 
-	ms.author="billmath"/>
+<tags ms.service="multi-factor-authentication" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/16/2016"" ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication 및 타사 VPN을 사용한 고급 시나리오
 Azure Multi-Factor Authentication은 다양한 타사 VPN 솔루션과 원활하게 연결하는 데 사용할 수 있습니다. 여기에는 Cisco ® ASA VPN 어플라이언스, Citrix NetScaler SSL VPN 어플라이언스 및 Juniper Networks Secure Access/Pulse Secure Connect Secure SSL VPN 어플라이언스가 포함되어 있습니다.
@@ -43,4 +36,4 @@ Azure Multi-factor Authentication은 Juniper/Pulse Secure SSL VPN 로그인 및 
 [Juniper/Pulse Secure SSL VPN 및 LDAP를 위한 Azure MFA 구성](http://download.microsoft.com/download/6/5/8/6587B418-75B1-4FCB-84D4-984BC479309E/JuniperPulse_Azure_MFA_LDAP.docx)| Juniper/Pulse Secure SSL VPN 어플라이언스 및 LDAP를 사용하는 Azure MFA의 원활한 통합|
 [Juniper/Pulse Secure SSL VPN 및 RADIUS를 위한 Azure MFA 구성](http://download.microsoft.com/download/7/9/A/79AB3DAD-4799-4379-B1DA-B95ABDF231DC/JuniperPulse_Azure_MFA_RADIUS.docx) | Juniper/Pulse Secure SSL VPN 어플라이언스 및 RADIUS를 사용하는 Azure MFA의 원활한 통합
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

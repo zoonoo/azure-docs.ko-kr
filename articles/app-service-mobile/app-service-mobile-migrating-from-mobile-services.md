@@ -210,7 +210,7 @@ PublishSettings 파일이 컴퓨터에 다운로드됩니다. 일반적으로 _s
 
 > [AZURE.WARNING] **설정 메뉴에 인증 메커니즘을 사용하지 마십시오**
 >
-> Azure 앱 서비스는 _인증/권한 부여_ 설정 메뉴에서 별도의 "코드 없는" 인증 및 권한 부여 시스템 및 설정 메뉴에서 (사용되지 않는) _모바일 인증_ 옵션을 제공합니다. 이러한 옵션은 마이그레이션된 Azure 모바일 서비스와 호환되지 않습니다. [사이트를 업그레이드]하여 Azure 앱 서비스 인증을 활용할 수 있습니다.
+> Azure 앱 서비스는 _인증/권한 부여_ 설정 메뉴에서 별도의 "코드 없는" 인증 및 권한 부여 시스템 및 설정 메뉴에서 (사용되지 않는) _모바일 인증_ 옵션을 제공합니다. 이러한 옵션은 마이그레이션된 Azure 모바일 서비스와 호환되지 않습니다. [사이트를 업그레이드](app-service-mobile-net-upgrading-from-mobile-services.md)하여 Azure 앱 서비스 인증을 활용할 수 있습니다.
 
 ### <a name="easytables"></a>데이터
 
@@ -393,4 +393,4 @@ Azure 앱 서비스에서 정상적으로 진단 로깅을 사용합니다. 진�
 [VNet]: ../app-service-web/web-sites-integrate-with-vnet.md
 [WebJobs]: ../app-service-web/websites-webjobs-resources.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

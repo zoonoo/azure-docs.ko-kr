@@ -148,15 +148,6 @@ PKI 인프라를 보유하는 대안으로 다음을 수행하여 키 기반 Mic
 
 ## 질문과 대답
 
-###어떤 타사 MDM 공급 업체 제품이 Azure AD와 통합되나요?
-
-다음 공급 업체 제품은 통합된 등록 및 Windows 10에서 조건부 액세스의 경우 Azure AD와 통합됩니다.
-
-- AirWatch by VMware
-- Citrix Xenmobile
-- Lightspeed Mobile Manager
-- SOTI On-premises MDM
-
 ###Windows 10에서 작업 공간 가입은 어떠나요?
 Windows 8.1에서 작업 공간 가입은 BYOD를 활성화하는 데 사용되었습니다. Windows 10에서 BYOD는 이 문서의 앞부분에서 설명한 대로 회사 계정을 추가하여 활성화됩니다. Azure AD와 해당 MDM을 통합하지 않는 조직의 경우 사용자는 **설정** > **계정** > **액세스 작업**을 통해 수동으로 관리에 장치를 등록할 수 있습니다.
 
@@ -173,4 +164,4 @@ Windows 8.1에서 작업 공간 가입은 BYOD를 활성화하는 데 사용되�
 * [Windows 10 환경용 Azure AD에 도메인 가입된 장치 연결](active-directory-azureadjoin-devices-group-policy.md)
 * [Azure AD 조인 설정](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

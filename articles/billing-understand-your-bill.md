@@ -3,8 +3,8 @@
    description="Azure 청구서 이해"
    services=""
    documentationCenter="Azure"
-   authors="kareni"
-   manager="jocho"
+   authors="erihur"
+   manager="kareni"
    editor=""
    tags="billing"/>
 
@@ -14,38 +14,39 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/22/2015"
-   ms.author="kareni"/>
+   ms.date="02/04/2016"
+   ms.author="erihur"/>
 
 
 # Microsoft Azure 청구서 이해
 
-Microsoft Azure 구독 요금은 요금제에 따라 다릅니다. Visual Studio Ultimate with MSDN과 같은 일부 요금제에는 필요에 따라 Azure 서비스에서 사용할 수 있는 월별 크레딧이 포함되어 있습니다.
+Microsoft Azure 구독 요금은 요금제에 따라 다릅니다. Visual Studio Enterprise(MPN) 구독자와 같은 일부 요금제에는 필요에 따라 Azure 서비스에서 사용할 수 있는 월별 크레딧이 포함되어 있습니다.
 
 이전 청구 기간에서 최대 24시간의 잠재 사용량이 현재 청구 기간에 보고될 수 있습니다.
 
 소비와 요금 계획에 관한 자세한 내용은 [Microsoft Azure 구입 옵션 페이지](https://azure.microsoft.com/pricing/purchase-options/)를 참조하세요.
 
-아래 링크는 모든 Microsoft Azure 서비스의 전체 목록을 다룹니다.
+<!-- The below links cover a complete list of all Microsoft Azure services.
 
-- [서비스 세부 정보 목록 (csv1)](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv1.xlsx)
-- [서비스 세부 정보 목록 (csv2)](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv2.xlsx)
+<!-- - [Service Details list (csv1)](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv1.xlsx)
+<!-- - [Service Details list (csv2)](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv2.xlsx)
 
-*참고: **csv1** 링크는 csv version 1의 열 머리글 이름을 참조하고 **csv2** 링크는 csv version 2의 새 열 머리글 이름을 참조합니다. 이 파일들은 매달 업데이트 됩니다.*
+<!-- *NOTE: The **csv1** link refers to the column header names for csv version 1 and **csv2** link refers to the new column header names for csv version 2.  These files are updated monthly.*-->
 
+<!-- Below section commented out as a new "right nav" floating bar is created for each article and is no longer necessary to have this section.
 
-## 콘텐츠:
+## Content:
 
-이 항목에서는 청구서를 읽을 때 다음 작업을 도와줍니다.
+This topic helps you with the following tasks when reading your bill.
 
--  Azure 청구서 보기 또는 다운로드
--  고객 정보
--  청구서 요약 이해
--  현재 요금 이해
--  바닥글 정보
--  추가 정보 이해
--  세부 사용 요금 이해
--  일일 사용 데이터 분석
+-  View or Download a Bill for Azure
+-  Customer Information
+-  Understand the Invoice Summary
+-  Understand the Current Charges
+-  Footer Information
+-  Understand the Additional Information
+-  Understand Detailed Usage Charges
+-  Analyze Daily Usage Data -->
 
 ### Microsoft Azure 청구서 보기 또는 다운로드
 
@@ -77,8 +78,10 @@ Microsoft Azure 구독 요금은 요금제에 따라 다릅니다. Visual Studio
     ![요약 - 청구 내역 5](./media/billing-understand-your-bill/ContentViewaBillforMA5.png)
 
 
+***중요:*** *전세계 고객용 청구 명세서에 나열된 요금은 은행이 전환율에 대해 서로 다른 비용을 부과하므로 예측 용도로만 사용합니다.*
 
-**아래는 Microsoft Azure에서 사용 가능한 두 개의 제안에 대한 일부 샘플 문입니다.**
+
+아래는 Microsoft Azure에서 사용 가능한 두 개의 제안에 대한 일부 샘플 문입니다.
 
  **제품 유형** | **설명** | **다운로드** |
  :--------- |:-------- | :-------|
@@ -107,7 +110,7 @@ Pay-As-You-Go | 후불 월정액 | [샘플 파일](https://azurepricing.blob.cor
 Microsoft Azure 지불 주소입니다.
 
 ### 구독 제안
-구매한 구독 제안의 유형(예: Pay-As-You-Go, MSDN-Vidual Studio Ultimate 등)
+구매한 구독 제안의 유형(예: 종량제, MSDN-Visual Studio Enterprise)
 
 ### 계정 소유자 전자 메일
 Microsoft Azure 계정이 등록된 계정 전자 메일 주소입니다.
@@ -141,7 +144,7 @@ Microsoft Azure 계정이 등록된 계정 전자 메일 주소입니다.
 현재 청구서에 적용되는 서비스 할인은 이 품목에서 반영됩니다.
 
 ### 조정
-기타 조정은 현재 청구서에 적용되는 기타 크레딧 또는 미결제 요금입니다. 예를 들어 Visual Studio Ultimate with MSDN 제품을 사용하는 경우 이 품목에 월별 크레딧이 표시됩니다. 구독을 취소한 경우에는 현재 청구 기간부터 구독 취소일까지 제품에 포함된 월별 크레딧을 초과하는 월별 사용량에 대한 요금이 표시됩니다.
+기타 조정은 현재 청구서에 적용되는 기타 크레딧 또는 미결제 요금입니다. 예를 들어 Visual Studio Enterprise with MSDN 제품을 사용하는 경우 이 품목에 월별 크레딧이 표시됩니다. 구독을 취소한 경우에는 현재 청구 기간부터 구독 취소일까지 제품에 포함된 월별 크레딧을 초과하는 월별 사용량에 대한 요금이 표시됩니다.
 
 ## 바닥글 정보
 ![바닥글](./media/billing-understand-your-bill/footerinformation.png)
@@ -256,10 +259,10 @@ SKU | SKU | 각 Azure 리소스에 대한 고유한 시스템 식별자를 식�
 
 - [Microsoft Azure 계정에서 신용 카드를 변경](https://msdn.microsoft.com/library/azure/dn736050.aspx)
 
-- [Azure 구독이 비활성화될 경우 어떻게 해야 합니까?](https://msdn.microsoft.com/library/azure/dn736049.aspx)
+<!-- - [What do I do if my Azure subscription become disabled?](https://msdn.microsoft.com/library/azure/dn736049.aspx)-->
 
 
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

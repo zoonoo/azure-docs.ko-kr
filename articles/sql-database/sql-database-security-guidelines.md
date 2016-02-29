@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="11/24/2015"
+   ms.date="02/16/2016"
    ms.author="rickbyh"/>
 
 # Azure SQL 데이터베이스 보안 지침 및 제한 사항
@@ -37,7 +37,7 @@ ADO.NET 응용 프로그램 코드를 사용하여 인증서의 유효성을 검
 
 또한 SQL Server Management Studio는 인증서 유효성 검사를 지원합니다. **서버에 연결** 대화 상자의 **연결 속성** 탭에서 **연결 암호화**를 클릭합니다.
 
-> [AZURE.NOTE]SQL Server Management Studio는 SQL Server 2008 R2 이전 버전에서 SQL 데이터베이스에 연결을 지원하지 않습니다.
+> [AZURE.NOTE] SQL Server Management Studio는 SQL Server 2008 R2 이전 버전에서 SQL 데이터베이스에 연결을 지원하지 않습니다.
 
 SQLCMD이 SQL Server 2008부터 SQL 데이터베이스를 지원했지만 SQL Server 2008 R2 이전 버전에서는 인증서 유효성 검사를 지원하지 않습니다. SQL Server 2008 R2에서 시작하는 SQLCMD를 사용하는 인증서의 유효성을 검사하려면 ``-N`` 명령 줄 옵션을 사용하고 ``-C`` 옵션을 사용하지 않습니다. -N 옵션을 사용하여 SQLCMD가 암호화된 연결을 요청합니다. ``-C`` 옵션을 사용하지 않고 SQLCMD가 암시적으로 서버 인증서를 신뢰하지 않고 강제로 인증서의 유효성을 검사합니다.
 
@@ -49,7 +49,7 @@ Active Directory 인증(통합된 보안)은 SQL 데이터베이스 V12에서 �
 
 [SQL 데이터베이스 V12](sql-database-v12-whats-new.md) 사용자를 사용하면 포함된 데이터베이스 사용자를 사용하여 데이터베이스에서 인증할 수 있습니다. 자세한 내용은[ 포함된 데이터베이스 사용자 - 데이터베이스를 이식 가능하게 만들기](https://msdn.microsoft.com/library/ff929188.aspx), [CREATE USER(Transact-SQL)](https://technet.microsoft.com/library/ms173463.aspx) 및 [포함된 데이터베이스](https://technet.microsoft.com/library/ff929071.aspx)를 참조하세요.
 
-> [AZURE.NOTE]Microsoft는 포함된 데이터베이스 사용자를 사용하여 확장성을 향상하는 것을 권장합니다.
+> [AZURE.NOTE] Microsoft는 포함된 데이터베이스 사용자를 사용하여 확장성을 향상하는 것을 권장합니다.
 
 데이터베이스 엔진은 30분 이상 유휴 상태로 있는 연결을 닫습니다. 연결을 사용하기 전에 다시 로그인해야 합니다.
 
@@ -64,7 +64,7 @@ SQL 데이터베이스에서 로그인 및 사용자를 관리하는 경우 제�
 - 서버 수준 보안 주체 로그인에 해당하는 마스터 데이터베이스에서 데이터베이스 사용자를 변경하거나 삭제할 수 없습니다. 
 - 서버 수준 보안 주체 로그인이 **마스터** 데이터베이스에서 **dbmanager** 및 **loginmanager**라는 두 개의 데이터베이스 역할의 구성원이 아니라도 이 두 역할에 부여된 모든 사용 권한을 갖습니다.
 
-> [AZURE.NOTE]이 로그인은 서버를 프로비전하는 동안 만들어 지고 SQL Server의 인스턴스에서 **sa** 로그인과 비슷합니다.
+> [AZURE.NOTE] 이 로그인은 서버를 프로비전하는 동안 만들어 지고 SQL Server의 인스턴스에서 **sa** 로그인과 비슷합니다.
 
 모든 로그인의 경우 다음과 같은 제한 사항이 적용됩니다.
 
@@ -111,4 +111,4 @@ GO
 
 [SQL Server 데이터베이스 엔진 및 Azure SQL 데이터베이스 보안 센터](https://msdn.microsoft.com/library/bb510589)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

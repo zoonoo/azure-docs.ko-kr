@@ -1,8 +1,8 @@
 <properties
 	pageTitle="Azure 경고를 구성하여 다른 시스템에 보내는 방법"
 	description="Azure 경고를 다른 비Azure 시스템으로 경로를 전환합니다."
-	authors="rboucher"
-	manager="ronmart"
+	authors="kamathashwin"
+	manager=""
 	editor=""
 	services="azure-portal"
 	documentationCenter="na"/>
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/25/2015"
-	ms.author="robb"/>
+	ms.date="02/16/2016"
+	ms.author="ashwink"/>
 
 # 경고에 Webhooks를 구성하는 방법
 
@@ -73,7 +73,7 @@ Webhook URI는 유효한 HTTP 또는 HTTPS 끝점이어야 합니다. Azure 경�
 }
 ```
 
->[AZURE.NOTE]다음 새로 고침에서 이벤트에 경고에 대 한 지원을 추가합니다.(“conditionType” : “Event”)
+>[AZURE.NOTE] 다음 새로 고침에서 이벤트에 경고에 대 한 지원을 추가합니다.(“conditionType” : “Event”)
 
 
 | 필드 | 필수? | 값의 고정된 집합? | 참고 |
@@ -103,7 +103,7 @@ Webhook URI는 유효한 HTTP 또는 HTTPS 끝점이어야 합니다. Azure 경�
 |properties |N |옵션 |이벤트에 대한 세부 정보를 포함하는 <Key  Value> 쌍의 집합입니다.(즉, 사전<String  String>) 속성 필드는 선택 사항입니다. 워크플로에 기반한 사용자 지정 UI 또는 논리 앱에서 페이로드를 통해 전달될 수 있는 키/값을 입력할 수 있습니다. 사용자 지정 속성을 Webhook에 다시 전달할 대체 방법은 Webhook URI 자체를 통하는 것입니다.(쿼리 매개 변수로)|
 
 
->[AZURE.NOTE]포털을 통해 속성 필드를 사용할 수 없습니다. Insights SDK의 향후 릴리스에서 경고 API를 통해 속성을 설정할 수 있습니다.
+>[AZURE.NOTE] 포털을 통해 속성 필드를 사용할 수 없습니다. Insights SDK의 향후 릴리스에서 경고 API를 통해 속성을 설정할 수 있습니다.
 
 ## 다음 단계
 
@@ -123,4 +123,4 @@ Azure 경고를 사용하여 다른 서비스에 메시지를 보냅니다. 다�
 
 [논리 앱을 사용하여 Azure 큐에 메시지 보내기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0218_2016-->

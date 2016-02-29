@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="02/01/2016"
+   ms.date="02/16/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Azure SQL 데이터베이스 TRANSACT-SQL의 차이점
@@ -53,7 +53,7 @@ SQL 데이터베이스 V12에서는 해당 SQL Server 2016 TRANSACT-SQL 문에 �
 
 - 시스템 개체의 데이터 정렬
 - 연결 관련: 끝점 문, ORIGINAL\_DB\_NAME. 로그인 또는 포함된 데이터베이스 사용자에 대해 Windows 인증을 사용할 수 없습니다.
-- 삽입, 업데이트, 삭제 작업을 위한 데이터베이스 간 쿼리 (읽기 전용 데이터베이스 간 쿼리 지원)
+- 세 개 또는 네 개의 부분으로 된 이름을 사용하여 데이터베이스 쿼리를 교차합니다. (읽기 전용 데이터베이스 간 쿼리는 탄력적 데이터베이스 쿼리를 사용하여 지원됩니다.)
 - 데이터베이스 간 소유권 체인, TRUSTWORTHY 설정
 - 데이터 수집기
 - 데이터베이스 다이어그램
@@ -108,4 +108,4 @@ Transact-SQL 참조에는 현재까지 SQL Server 버전 2008과 관련된 항�
 
 경우에 따라 항목의 일반 제목이 제품에 사용될 수 있지만 제품 간에 약간의 차이가 있습니다. 차이점은 항목의 중간점에 적절히 표시됩니다.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -5,7 +5,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="09/25/2015"
+	ms.date="02/16/2016"
 	ms.author="paulettm"/>
 # HDInsight 응용 프로그램 파트너
 
@@ -41,4 +41,4 @@ RedPoint는 속도, 일치 품질 및 사용의 편리에 대한 사용자 설�
 
 ![](media/hdinsight-application-partners/kyvos8.png) Kyvos는 고유한 "Hadoop의 OLAP" 기술로 빅 데이터 분석의 힘을 개방하려고 합니다. 그렇게 하면 선형 확장성을 사용하여 Hadoop에서 큐브를 제대로 빌드하며 기존 OLAP 솔루션의 제한 사항을 제거하고 빅 데이터에 대화형 다차원 분석을 활성화시킬 수 있습니다. 사용자는 필요한 프로그래밍 없이 Hadoop에서 대화형으로 데이터를 시각화하고 탐색하며 분석할 수 있습니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0218_2016-->

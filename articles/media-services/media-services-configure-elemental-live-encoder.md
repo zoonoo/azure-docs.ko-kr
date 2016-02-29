@@ -3,7 +3,7 @@
 	description="이 항목에서는 Elemental 라이브 인코더를 구성하여 라이브 인코딩에 사용할 수 있는 AMS 채널에 단일 비트 전송률 스트림을 보내는 방법을 보여 줍니다." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako,cenkdin,anilmur" 
+	authors="cenkdin" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
-	ms.author="juliako"/>
+	ms.date="02/17/2016"
+	ms.author="cenkdin;anilmur;juliako"/>
 
 #Elemental 라이브 인코더를 사용하여 단일 비트 전송률 라이브 스트림 보내기
 
@@ -49,22 +49,22 @@
 
 ### 채널 만들기
 
-1.  AMSE 도구에서 **라이브** 탭으로 이동하고 채널 영역 안을 마우스 오른쪽 단추로 클릭합니다. 메뉴에서 **채널 만들기...**를 선택합니다.
+1.  AMSE 도구에서 **라이브** 탭으로 이동하고 채널 영역 안을 마우스 오른쪽 단추로 클릭합니다. 메뉴에서 **Create channel...**(채널 만들기...)을 선택합니다.
 
 ![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental1.png)
 
 2. 채널 이름을 지정합니다. 설명 필드는 선택 사항입니다. 채널 설정에서 라이브 인코딩 옵션에 대해 **표준**을 선택하고 입력 프로토콜은 **RTP(MPEG-TS)**로 설정합니다. 다른 모든 설정은 그대로 유지할 수 있습니다.
 
 
-**지금 새 채널 시작**이 선택되었는지 확인합니다.
+**새 채널 지금 시작**이 선택되었는지 확인합니다.
 
 3. **채널 만들기**를 클릭합니다. ![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental12.png)
 
->[AZURE.NOTE]채널을 시작하는 데 20분 정도 걸릴 수 있습니다.
+>[AZURE.NOTE] 채널을 시작하는 데 20분 정도 걸릴 수 있습니다.
 
 채널을 시작하는 동안 [인코더 구성](media-services-configure-elemental-live-encoder.md#configure_elemental_rtp)을 수행할 수 있습니다.
 
->[AZURE.IMPORTANT]채널이 준비 상태가 되는 즉시 요금이 청구되기 시작합니다. 자세한 내용은 [채널 상태](media-services-manage-live-encoder-enabled-channels.md#states)를 참조하세요.
+>[AZURE.IMPORTANT] 채널이 준비 상태가 되는 즉시 요금이 청구되기 시작합니다. 자세한 내용은 [채널 상태](media-services-manage-live-encoder-enabled-channels.md#states)를 참조하세요.
 
 ###<a id=configure_elemental_rtp></a>Elemental 라이브 인코더 구성 
 
@@ -95,7 +95,7 @@
 	
 	![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental13.png)
 	
-	>[AZURE.NOTE]스트림 오류가 발생한 경우 Elemental 이벤트에서 인코더를 다시 연결할 수 있도록 하는 "시스템 시계"로 설정하는 시간 코드를 갖는 것이 좋습니다.
+	>[AZURE.NOTE] 스트림 오류가 발생한 경우 Elemental 이벤트에서 인코더를 다시 연결할 수 있도록 하는 "시스템 시계"로 설정하는 시간 코드를 갖는 것이 좋습니다.
 
 4. 이제 출력이 만들어졌으므로 **스트림 추가**를 클릭합니다. 이제 출력 설정을 구성할 수 있습니다.
 5. 방금 만든 "스트림 1"까지 아래로 스크롤하고 왼쪽의 **비디오** 탭을 클릭하고 **고급** 설정 섹션을 확장합니다. 
@@ -115,9 +115,9 @@
 
 6. 채널의 입력 URL을 가져옵니다.
 	
-	AMSE 도구로 다시 이동하여 채널 완료 상태를 확인합니다. 상태가 **시작 중**에서 **실행 중**으로 변경되었으면 입력 URL을 가져올 수 있습니다.
+	AMSE 도구로 다시 이동하여 채널 완료 상태를 확인합니다. 상태가 **시작**에서 **실행**으로 변경되었으면 입력 URL을 가져올 수 있습니다.
 	  
-	채널이 실행 중일 때 채널 이름을 마우스 오른쪽 단추로 클릭하고 아래로 이동하여 **Copy Input URL to clipboard**(입력 URL을 클립보드로 복사)를 가리킨 다음 **Primary Input URL**(기본 입력 URL)을 선택합니다.
+	채널이 실행 중일 때 채널 이름을 마우스 오른쪽 단추로 클릭하고 아래로 이동하여 **입력 URL을 클립보드로 복사**를 가리킨 다음 **(기본 입력 URL**을 선택합니다.
 	
 	![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental6.png)
 	
@@ -127,9 +127,9 @@
 
 	추가 중복의 경우 UDP/TS 스트리밍에 대한 별도 "출력" 탭을 만들어서 보조 입력 URL로 이러한 단계를 반복합니다.
 	
-7. **만들기**(새 이벤트가 만들어진 경우) 또는 **업데이트**(기존 이벤트를 편집하는 경우)를 클릭하고 인코더 시작을 진행합니다.
+7. **만들기**(새 이벤트가 생성된 경우) 또는 **업데이트**(기존 이벤트를 편집하는 경우)를 클릭하고 인코더 시작을 진행합니다.
 
->[AZURE.IMPORTANT]Elemental 라이브 웹 인터페이스에서 **시작**을 클릭하기 전에 채널이 준비되었는지 **반드시** 확인해야 합니다. 또한 15분을 초과할 때까지 이벤트 없이 채널을 준비 상태로 그대로 두지 않도록 해야 합니다.
+>[AZURE.IMPORTANT] Elemental 라이브 웹 인터페이스에서 **시작**을 클릭하기 전에 채널이 준비되었는지 **반드시** 확인해야 합니다. 또한 15분을 초과할 때까지 이벤트 없이 채널을 준비 상태로 그대로 두지 않도록 해야 합니다.
 
 스트림을 30초 동안 실행한 후 AMSE 도구 및 테스트 재생으로 다시 이동합니다.
 
@@ -145,17 +145,17 @@
 
 ###프로그램 만들기
 
-1. 채널 재생이 확인되면 프로그램을 만듭니다. AMSE 도구의 **라이브** 탭에서 프로그램 영역 안을 마우스 오른쪽 단추로 클릭하고 **Create New Program**(새 프로그램 만들기)을 선택합니다.  
+1. 채널 재생이 확인되면 프로그램을 만듭니다. AMSE 도구의 **라이브** 탭에서 프로그램 영역 안을 마우스 오른쪽 단추로 클릭하고 **새 프로그램 만들기**를 선택합니다.  
 
 	![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental9.png)
 
 2. 프로그램 이름을 지정하고 필요한 경우 **보관 창 길이**(기본값은 4시간)를 조정합니다. 또한 저장소 위치를 지정하거나 기본값을 그대로 둘 수 있습니다.
-3. **Start the Program now**(지금 프로그램 시작) 상자를 선택합니다.
+3. **지금 프로그램 시작** 상자를 선택합니다.
 4. **프로그램 만들기**를 클릭합니다.  
   
 	참고: 프로그램 만들기는 채널 만들기보다 시간이 덜 걸립니다.
  
-5. 프로그램이 실행되고 있으면 프로그램을 마우스 오른쪽 단추로 클릭하고 **Playback the program(s)**(프로그램 재생)으로 이동한 다음 **with Azure Media Player**(Azure 미디어 플레이어 사용)를 선택하여 재생을 확인합니다.
+5. 프로그램이 실행되고 있으면 프로그램을 마우스 오른쪽 단추로 클릭하고 **프로그램 재생**으로 이동한 다음 **Azure 미디어 플레이어 사용**을 선택하여 재생을 확인합니다.
 6. 확인되면 프로그램을 마우스 오른쪽 단추로 다시 클릭하고 **Copy the Output URL to Clipboard**(클립보드로 출력 URL 복사)를 선택하거나 메뉴의 **Program information and settings**(프로그램 정보 및 설정) 옵션에서 이 정보를 검색합니다. 
 
 이제 스트림을 플레이어에 포함하거나 실시간 보기를 위해 대상 그룹에게 배포할 준비가 되었습니다.
@@ -173,4 +173,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

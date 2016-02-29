@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="02/10/2016" 
 	ms.author="femila"/>
 
 # Azure AD 연결에 대한 사용 시나리오와 배포 고려 사항 
@@ -92,4 +92,4 @@ Azure AD 연결은 현재 클라우드에서 업무용 ID를 작동 및 관리�
 * [Windows 10 환경용 Azure AD에 도메인 가입된 장치 연결](active-directory-azureadjoin-devices-group-policy.md)
 * [Azure AD 조인 설정](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

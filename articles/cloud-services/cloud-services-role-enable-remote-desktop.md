@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="01/19/2016" 
+ms.date="02/17/2016" 
 ms.author="saurabh"/>
 
 # Azure 클라우드 서비스의 역할에 대해 원격 데스크톱 연결 사용
@@ -93,7 +93,7 @@ Visual Studio의 서버 탐색기:
 
 이 방법을 사용하면 개발하는 동안 응용 프로그램에 대한 원격 데스크톱을 사용하도록 설정할 수 있습니다. 이 방법을 사용할 경우 암호화된 암호가 서비스 구성 파일에 저장되어야 하며 원격 데스크톱 구성을 업데이트하기 위해서는 응용 프로그램을 재배포해야 합니다. 이러한 단점이 방지하려면 위에서 설명하는 원격 데스크톱 확장 기반 접근 방법을 사용해야 합니다.
 
-Visual Studio를 사용하여 서비스 정의 파일 접근 방식을 통해 [원격 데스크톱 연결을 사용하도록 설정](https://msdn.microsoft.com/library/gg443832.aspx)할 수 있습니다. 아래 단계에서는 원격 데스크톱을 사용하도록 설정하기 위해 서비스 모델 파일에 필요한 변경 내용에 대해 설명합니다. 게시가 진행되면 Visual Studio에서 이러한 변경을 자동으로 수행합니다.
+Visual Studio를 사용하여 서비스 정의 파일 접근 방식을 통해 [원격 데스크톱 연결을 사용하도록 설정](../vs-azure-tools-remote-desktop-roles.md)할 수 있습니다. 아래 단계에서는 원격 데스크톱을 사용하도록 설정하기 위해 서비스 모델 파일에 필요한 변경 내용에 대해 설명합니다. 게시가 진행되면 Visual Studio에서 이러한 변경을 자동으로 수행합니다.
 
 ### 서비스 모델에서 연결 설정 
 **Imports** 요소를 사용하여 **RemoteAccess** 모듈 및 **RemoteForwarder** 모듈을 [ServiceDefinition.csdef](cloud-services-model-and-package.md#csdef) 파일로 가져옵니다.
@@ -121,7 +121,7 @@ Visual Studio를 사용하여 서비스 정의 파일 접근 방식을 통해 [�
     </WebRole>
 </ServiceDefinition>
 ```
-[ServiceConfiguration.cscfg](cloud-services-model-and-package.md#cscfg) 파일은 `<ConfigurationSettings>` 및 `<Certificates>` 요소가 추가된 다음 예제와 유사해야 합니다. 지정된 인증서를 [클라우드 서비스에 업로드](cloud-services-how-to-create-deploy/#how-to-upload-a-certificate-for-a-cloud-service)해야 합니다.
+[ServiceConfiguration.cscfg](cloud-services-model-and-package.md#cscfg) 파일은 `<ConfigurationSettings>` 및 `<Certificates>` 요소가 추가된 다음 예제와 유사해야 합니다. 지정된 인증서를 [클라우드 서비스에 업로드](../cloud-services-how-to-create-deploy.md#how-to-upload-a-certificate-for-a-cloud-service)해야 합니다.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -147,4 +147,4 @@ Visual Studio를 사용하여 서비스 정의 파일 접근 방식을 통해 [�
 
 [클라우드 서비스를 구성하는 방법](cloud-services-how-to-configure.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->
