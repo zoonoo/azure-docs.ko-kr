@@ -17,7 +17,10 @@
 	ms.author="heidist"/>
 
 # .NET에서 첫 Azure 검색 응용 프로그램 시작
-
+> [AZURE.SELECTOR]
+- [.NET](search-get-started-dotnet.md)
+- [Portal](search-get-started-portal.md)
+ 
 Visual Studio 2013 이상에서 검색 환경에 Azure 검색을 사용하는 사용자 지정 .NET 검색 응용 프로그램을 빌드하는 방법에 대해 알아봅니다. 이 자습서에서는 [Azure 검색 .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx)와 Azure 검색 서비스 REST API를 사용합니다.
 
 이 샘플을 실행하려면 Azure 검색 서비스가 필요합니다. 이 서비스는 [Azure 포털](https://portal.azure.com)에서 등록할 수 있습니다. 단계별 지침은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
@@ -671,4 +674,4 @@ Azure 검색을 처음 사용하세요? 다른 자습서를 통해 만들 수 �
 [11]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-1.PNG
 [12]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-2.PNG
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

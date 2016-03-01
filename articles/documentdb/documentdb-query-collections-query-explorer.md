@@ -1,81 +1,82 @@
-<properties 
-	pageTitle="쿼리 탐색기를 사용해서 DocumentDB 컬렉션에 대해 SQL 쿼리 만들기, 편집 및 실행 | Microsoft Azure" 
-	description="DocumentDB 컬렉션에 대해 SQL 쿼리를 만들고, 편집 및 실행할 수 있는 Azure 포털 도구인 DocumentDB 쿼리 탐색기에 대해 알아봅니다." 
-	services="documentdb" 
-	authors="AndrewHoh" 
-	manager="jhubbard" 
-	editor="monicar" 
+<properties
+	pageTitle="DocumentDB 쿼리 탐색기: SQL 쿼리 편집기 | Microsoft Azure"
+	description="DocumentDB 컬렉션에 대해 SQL 쿼리를 작성하고 실행하기 위해 Azure 포털의 SQL 쿼리 편집기인 DocumentDB 쿼리 탐색기에 대해 알아봅니다."
+	keywords="SQL 쿼리 작성, SQL 쿼리 편집기"
+	services="documentdb"
+	authors="AndrewHoh"
+	manager="jhubbard"
+	editor="monicar"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
+<tags
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/01/2015" 
+	ms.date="02/23/2016"
 	ms.author="anhoh"/>
 
-# 쿼리 탐색기를 사용해서 DocumentDB 컬렉션에 대해 SQL 쿼리 만들기, 편집 및 실행 #
+# 쿼리 탐색기를 사용하여 DocumentDB에 대한 SQL 쿼리 작성, 편집 및 실행 
 
-이 문서에서는 DocumentDB 컬렉션에 대해 쿼리를 만들고, 편집 및 실행할 수 있게 해주는 Microsoft Azure 포털 도구인 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 쿼리 탐색기의 개요를 제공합니다.
+이 문서에서는 [DocumentDB 컬렉션](documentdb-create-collection)에 대해 SQL 쿼리를 작성하고 편집하고 실행할 수 있게 해주는 Azure 포털 도구인 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 쿼리 탐색기에 대해 개괄적으로 설명합니다.
 
-이 자습서를 완료하면 다음 질문에 대답할 수 있습니다.
+1. Azure 포털의 이동 표시줄에서 **DocumentDB 계정**을 클릭합니다. **DocumentDB 계정**이 표시되지 않는 경우 **찾아보기**를 클릭한 다음 **DocumentDB 계정**을 클릭합니다.
 
--	웹 브라우저를 통해 DocumentDB 컬렉션에 대해 쿼리를 쉽게 만들고, 편집 및 실행하려면 어떻게 하나요?
--	웹 브라우저를 통해 DocumentDB 쿼리 결과 페이지를 쉽게 탐색하려면 어떻게 하나요?
--	내 DocumentDB 쿼리에서 구문 오류를 해결하려면 어떻게 하나요? 
+2. **DocumentDB 계정** 블레이드의 맨 위에 있는 **쿼리 탐색기**를 클릭합니다.
 
-##<a id="Launch"></a>쿼리 탐색기 실행 및 탐색##
+	![쿼리 탐색기가 강조 표시된 Azure 포털 스크린샷](./media/documentdb-query-collections-query-explorer/queryexplorercommand.png)
 
-쿼리 탐색기는 DocumentDB 계정, 데이터베이스 및 컬렉션 블레이드 중 어디에서나 실행할 수 있습니다.
-  
-1. DocumentDB 계정 또는 데이터베이스 블레이드의 위에서 **쿼리 탐색기** 명령을 클릭하면 됩니다.
+    >[AZURE.NOTE] 쿼리 탐색기는 데이터베이스 및 컬렉션 블레이드에도 표시됩니다.
 
-	![쿼리 탐색기 명령 스크린샷](./media/documentdb-query-collections-query-explorer/queryexplorercommand.png)
+3. **쿼리 탐색기** 블레이드에서, 드롭다운 목록에서 쿼리할 **데이터베이스** 및 **컬렉션**을 선택하고 실행할 쿼리를 입력합니다.
 
-2. 또는 각 블레이드 하단 근처에는 **쿼리 탐색기** 타일이 포함된 **개발자 도구** 렌즈가 있습니다.
-	
-	![쿼리 탐색기 파트 스크린샷](./media/documentdb-query-collections-query-explorer/queryexplorerpart.png)
+    **데이터베이스** 및 **컬렉션** 드롭다운 목록은 쿼리 탐색기를 실행하는 컨텍스트에 따라 미리 채워집니다.
 
-2. 쿼리 탐색기를 실행하려면 타일을 클릭합니다.
+    `SELECT TOP 100 * FROM c`의 기본 쿼리가 제공됩니다. 기본 쿼리를 적용하거나 [SQL 쿼리 치트 시트](documentdb-sql-query-cheat-sheet.md) 또는 [SQL 쿼리 및 SQL 구문](documentdb-sql-query.md) 문서에서 설명된 SQL 쿼리 언어를 사용 하여 고유의 쿼리를 생성할 수 있습니다.
 
-	**데이터베이스** 및 **컬렉션** 드롭다운 목록 상자는 쿼리 탐색기를 실행하는 컨텍스트에 따라 미리 채워집니다. 예를 들어 데이터베이스 블레이드에서 실행할 경우 현재 데이터베이스가 미리 채워집니다. 컬렉션 블레이드에서 실행할 경우에는 현재 컬렉션이 미리 채워집니다.
+    결과를 보려면 **쿼리 실행**을 클릭합니다.
 
-	![쿼리 탐색기 스크린샷](./media/documentdb-query-collections-query-explorer/queryexplorerinitial.png)
+	![SQL 쿼리 편집기인 쿼리 탐색기에서 SQL 쿼리 작성 스크린 샷](./media/documentdb-query-collections-query-explorer/queryexplorerinitial.png)
 
-##<a id="Create"></a>쿼리 탐색기를 사용하여 쿼리 만들기, 편집 및 실행##
+4. **결과** 블레이드에 쿼리의 출력가 표시됩니다.
 
-쿼리 탐색기를 사용하면 DocumentDB 컬렉션에 대해 쿼리를 쉽게 만들고, 편집 및 실행할 수 있으며, 쿼리 탐색기에는 쿼리 작성 환경을 향상시킬 수 있도록 기본적인 키워드 및 값이 강조 표시됩니다.
+	![쿼리 탐색기에서 SQL 쿼리를 작성한 결과의 스크린샷](./media/documentdb-query-collections-query-explorer/queryresults1.png)
 
-- 쿼리 탐색기를 처음에 열면 SELECT * FROM c의 기본 쿼리가 제공됩니다. 기본 쿼리를 사용하거나 고유 쿼리를 생성한 후 **쿼리 실행** 단추를 클릭하여 결과를 볼 수 있습니다. 쿼리 탐색기에서는 [쿼리 DocumentDB](documentdb-sql-query.md)에 설명된 대로 DocumentDB SQL 쿼리 언어가 지원됩니다.
+## 결과 작업
 
-	![쿼리 탐색기 쿼리 결과 스크린샷](./media/documentdb-query-collections-query-explorer/queryresults1.png)
+기본적으로 쿼리 탐색기는 100개 단위로 결과를 반환합니다. 쿼리로 생성되는 결과가 100개 이상이면 단순히 **다음 페이지** 및 **이전 페이지** 명령을 사용하여 결과 집합을 탐색할 수 있습니다.
 
-- 여러 쿼리를 입력하고 실행할 쿼리를 강조 표시한 다음 **쿼리 실행** 단추를 클릭하여 결과를 볼 수도 있습니다.
+![쿼리 탐색기 페이지 매김 스크린샷](./media/documentdb-query-collections-query-explorer/queryresultspagination.png)
 
-	![쿼리 탐색기 강조 표시 및 실행 스크린샷](./media/documentdb-query-collections-query-explorer/queryexplorerhighlightandrun.png)
+쿼리가 성공한 경우 **정보** 창에는 요청 비용, 쿼리의 왕복 횟수, 현재 표시된 결과 집합, 그리고 결과가 더 있는지 여부(앞에서 설명한 대로 **다음 페이지** 명령으로 액세스할 수 있음)와 같은 메트릭이 있습니다.
 
-- **파일 로드** 명령을 사용하여 기존 파일의 내용을 로드할 수 있습니다.
+![쿼리 탐색기 쿼리 정보 스크린샷](./media/documentdb-query-collections-query-explorer/queryinformation.png)
 
-	![쿼리 탐색기 파일 로드 스크린샷](./media/documentdb-query-collections-query-explorer/loadqueryfile.png)
+## 여러 쿼리 사용
 
-- 기본적으로 쿼리 탐색기는 100개 단위로 결과를 반환합니다. 쿼리로 생성되는 결과가 100개 이상이면 단순히 **다음 페이지** 및 **이전 페이지** 명령을 사용하여 결과 집합을 탐색할 수 있습니다.
+여러 쿼리를 사용하거나 쿼리 사이를 빠르게 전환하려는 경우, **쿼리 탐색기** 블레이드의 쿼리 텍스트 상자에 모든 쿼리를 입력하고 실행하려는 쿼리를 강조 표시한 다음 **쿼리 실행**을 클릭하여 결과를 봅니다.
 
-	![쿼리 탐색기 페이지 매김 스크린샷](./media/documentdb-query-collections-query-explorer/queryresultspagination.png)
+![쿼리 탐색기(SQL 쿼리 편집기)에서 여러 SQL 쿼리를 작성하고 개별 쿼리를 강조 표시하여 실행한 스크린 샷](./media/documentdb-query-collections-query-explorer/queryexplorerhighlightandrun.png)
 
-- 쿼리가 성공하면 요청 비용, 현재 표시 중인 결과 집합 및 추가 결과가 있는지 여부(앞에서 설명한 대로 **다음 페이지** 명령으로 쉽게 액세스할 수 있음)와 같은 정보가 제공됩니다.
+## 파일의 쿼리를 SQL 쿼리 편집기에 추가
 
-	![쿼리 탐색기 쿼리 정보 스크린샷](./media/documentdb-query-collections-query-explorer/queryinformation.png)
+**파일 로드** 명령을 사용하여 기존 파일의 내용을 로드할 수 있습니다.
 
-- 마찬가지로, 쿼리가 완료될 때 오류가 발생하면, 쿼리 탐색기에 문제 해결에 도움이 될 수 있는 오류 목록이 표시됩니다.
+![파일 로드를 사용하여 파일의 SQL 쿼리를 쿼리 탐색기에 로드하는 방법을 보여주는 스크린 샷](./media/documentdb-query-collections-query-explorer/loadqueryfile.png)
 
-	![쿼리 탐색기 쿼리 오류 스크린샷](./media/documentdb-query-collections-query-explorer/queryerror.png)
+## 문제 해결
 
-##<a name="NextSteps"></a>다음 단계
+쿼리가 완료될 때 오류가 발생하면, 쿼리 탐색기에 문제 해결에 도움이 될 수 있는 오류 목록이 표시됩니다.
 
-- DocumentDB에 대해 자세히 알아보려면 [여기](http://azure.com/docdb)를 클릭하세요.
-- 쿼리 탐색기에서 지원되는 DocumentDB SQL 문법에 대해 자세히 알아보려면 [여기](documentdb-sql-query.md)를 클릭하세요.
- 
+![쿼리 탐색기 쿼리 오류 스크린샷](./media/documentdb-query-collections-query-explorer/queryerror.png)
 
-<!---HONumber=AcomDC_0128_2016-->
+## 포털 외부 DocumentDB SQL 쿼리 실행
+
+Azure 포털의 쿼리 탐색기는 DocumentDB에 대해 SQL 쿼리를 실행하는 방법 중 한 가지입니다. 또한 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 또는 [클라이언트 SDK](documentdb-sdk-dotnet.md)를 사용하여 SQL 쿼리를 실행할 수도 있습니다. 다른 방법에 대한 자세한 내용은 [SQL 쿼리 실행](documentdb-sql-query.md#executing-sql-queries)을 참조하세요.
+
+## 다음 단계
+
+쿼리 탐색기에서 지원되는 DocumentDB SQL 문법에 대해 자세히 알아보려면 [SQL 쿼리 및 SQL 구문](documentdb-sql-query.md) 문서를 자세히 읽어보거나 [SQL 쿼리 치트 시트](documentdb-sql-query-cheat-sheet.md)를 인쇄합니다. 또한 샘플 데이터 집합을 사용하여 쿼리를 온라인으로 테스트할 수 있는 [쿼리 실습](https://www.documentdb.com/sql/demo)으로 실험할 수도 있습니다.
+
+<!---HONumber=AcomDC_0224_2016-->

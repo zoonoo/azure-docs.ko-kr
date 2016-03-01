@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/17/2015"
+	ms.date="02/17/2016"
 	ms.author="heidist"/>
 
 # REST 호출을 사용하여 Azure 검색의 쿼리 작성
@@ -68,4 +68,4 @@ Azure 검색은 매우 강력한 쿼리를 만드는 다양한 옵션을 제공�
 성공적인 쿼리 요청은 "200 확인"이라는 상태 코드에서 발생하고 검색 결과는 JSON 형식의 응답 본문에  
 서 찾을 수 있습니다. 자세한 내용은 "Response" 섹션의 [이 페이지](https://msdn.microsoft.com/library/azure/dn798927.aspx)를 방문합니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="02/05/2016"
+	ms.date="02/18/2016"
 	ms.author="heidist"/>
 
 # Azure 포털에서 Azure 검색 서비스 만들기
@@ -25,7 +25,7 @@ Azure 검색은 무료(공유)에서 표준에 이르는 가격 수준에서 제
 
 ## 무료 구독에 Azure 검색 추가
 
-관리자는 공유 서비스를 선택할 때 무료로 Azure 검색을 기존 Azure 구독에 추가할 수 있습니다. [무료 평가판 구독](../includes/free-trial-note.md)에 등록하여 평가를 시작할 수 있습니다.
+관리자는 공유 서비스를 선택할 때 무료로 Azure 검색을 기존 Azure 구독에 추가할 수 있습니다. [무료 평가판 구독](../../includes/free-trial-note.md)에 등록하여 평가를 시작할 수 있습니다.
 
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
@@ -126,4 +126,4 @@ Azure 검색 작업에는 저장소 및 서비스 복제본이 둘 다 필요합
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/10/2015"
+	ms.date="02/10/2016"
 	ms.author="heidist"/>
 
 #.NET에서 Azure 검색의 쿼리 작성
@@ -63,4 +63,4 @@
 
 두 번째 호출을 OData $filter 식, 범주 eq 'Luxury'를 사용합니다. 이는 범주 필드가 문자열 "Luxury"와 일치하는 문서만 반환하기 위해 검색을 제한합니다. [Azure 검색에 대한 OData 식 구문](https://msdn.microsoft.com/library/azure/dn798921.aspx)에서 OData 구문에 대해 자세히 확인할 수 있습니다.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

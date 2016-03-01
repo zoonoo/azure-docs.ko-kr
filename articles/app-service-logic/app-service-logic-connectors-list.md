@@ -4,7 +4,7 @@
 	services="app-service\logic"
 	documentationCenter=""
 	authors="MandiOhlinger"
-	manager="dwrede"
+	manager="erikre"
 	editor="cgronlun"/>
 
 <tags
@@ -12,17 +12,19 @@
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/03/2015"
+	ms.topic="get-started-article"
+	ms.date="02/11/2016"
 	ms.author="mandia"/>
 
 
 # 논리 앱에서 사용할 커넥터 및 API 앱 목록
+>[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다. 2015-08-01-미리 보기 스키마 버전에 대한 내용을 보려면 [API 목록](../connectors/apis-list.md)을 클릭하세요.
+
 논리 앱으로 사용하려는 Microsoft에서 만든 사용 가능한 모든 커넥터 및 API 앱에 대해 알아봅니다.
 
 가격 정보 및 각 서비스 계층에 포함된 항목의 목록은 [Azure 앱 서비스 가격](https://azure.microsoft.com/pricing/details/app-service/)을 참조하세요.
 
-> [AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동합니다. 앱 서비스에서 즉시 단기 스타터 논리 앱을 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> [AZURE.NOTE] Azure 계정에 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동하세요. 앱 서비스에서 단기 시작 논리 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ## 코어 커넥터
 다음 표에는 코어 커넥터로 사용할 수 있는 Microsoft에서 만든 사용 가능한 모든 커넥터 및 API 앱이 나열되어 있습니다.
@@ -32,8 +34,7 @@
 [Azure HDInsight](app-service-logic-connector-hdinsight.md) | 이 커넥터를 사용하여 Azure에서 Hadoop 클러스터를 만들고, 다른 Hadoop 작업 등을 제출합니다.
 [Azure 서비스 버스](app-service-logic-connector-azureservicebus.md) | 서비스 버스 큐 및 항목에서 메시지를 보내고 서비스 버스 엔큐 및 구독에서 메시지를 받을 수 있습니다.
 [Azure 저장소 Blob](app-service-logic-connector-azurestorageblob.md) | Blob 저장소에 연결하고 가져오기, 삭제, 나열 등을 할 수 있습니다. 
-Bing 검색 | 웹, 이미지, 뉴스 및 비디오에 대한 Bing을 검색합니다.
-Bing 번역 | Bing을 사용하여 텍스트를 다른 언어로 번역합니다.
+[Bing 번역기](https://azure.microsoft.com/marketplace/partners/microsoft_com/bingtranslator) | Bing을 사용하여 텍스트를 다른 언어로 번역합니다.
 [Box](app-service-logic-connector-box.md) | 상자에 연결하고 업로드, 가져오기, 삭제, 나열 및 추가 파일 작업을 수행할 수 있습니다.
 [Chatter](app-service-logic-connector-chatter.md) | Chatter에 연결하고 메시지를 게시 및 검색하며 새 메시지를 검색할 수 있습니다.
 [Dropbox](app-service-logic-connector-dropbox.md) | Dropbox에 연결하고 가져오기, 삭제, 나열 및 추가 파일 작업을 수행할 수 있습니다.
@@ -94,4 +95,4 @@ MQ | Windows 운영 체제를 실행하는 IBM WebSphere MQ Server 버전 8, 온
 ## 커넥터 및 API 앱에 대한 자세한 내용
 [커넥터 및 BizTalk API 앱 정의](app-service-logic-what-are-biztalk-api-apps.md) [Azure 앱 서비스에서 하이브리드 연결 관리자 사용](app-service-logic-hybrid-connection-manager.md) [기본 제공 API 앱 및 커넥터 관리 및 모니터링](app-service-logic-monitor-your-connectors.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -40,7 +40,7 @@ Azure 배치를 통해 클라우드에서 효율적으로 대규모 병렬 및 H
 * 엔지니어링 스트레스 분석
 * 소프트웨어 테스트
 
-또한 배치는 끝에 감소 단계가 있는 병렬 계산뿐만 아니라 메시지 전달 인터페이스(MPI) 응용 프로그램 등 보다 복잡한 HPC 워크로드도 수행할 수 있습니다.
+또한 배치는 끝에 감소 단계가 있는 병렬 계산뿐만 아니라 [메시지 전달 인터페이스(MPI)](batch-mpi.md) 응용 프로그램 등 보다 복잡한 HPC 워크로드도 수행할 수 있습니다.
 
 Azure에서 배치 및 다른 HPC 솔루션 간의 비교는 [배치 및 HPC 솔루션](batch-hpc-solutions.md)을 참조하세요.
 
@@ -56,7 +56,7 @@ Azure에서 배치 및 다른 HPC 솔루션 간의 비교는 [배치 및 HPC 솔
 
 배치 솔루션을 개발할 경우 Microsoft Azure에서는 다음 계정을 사용합니다.
 
-- **Azure 계정 및 구독** - Azure 계정이 없는 경우 [MSDN 구독자 혜택][msdn_benefits]을 활성화하거나 [무료 평가판][free_trial]을 등록할 수 있습니다. 계정을 만들면 기본 구독이 생성됩니다.
+- **Azure 계정 및 구독** - Azure 구독이 없는 경우 [MSDN 구독자 혜택][msdn_benefits]을 활성화하거나 [무료 Azure 계정][free_account]을 등록할 수 있습니다. 계정을 만들면 기본 구독이 생성됩니다.
 
 - **배치 계정** - 응용 프로그램이 배치 서비스와 상호 작용하는 경우 계정 이름, 계정의 URL 및 액세스 키가 자격 증명으로 사용됩니다. 풀, 계산 노드, 작업 및 태스크와 같은 모든 배치 리소스는 배치 계정과 연관됩니다. Azure 포털에서 [Azure 배치 계정을 만들고 관리](batch-account-create-portal.md)할 수 있습니다.
 
@@ -127,7 +127,7 @@ Azure 배치를 사용하여 솔루션을 빌드하려면 배치 .NET 클라이�
 [batch_ps]: https://msdn.microsoft.com/library/azure/mt125957.aspx
 [batch_rest]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
 [data_factory]: https://azure.microsoft.com/documentation/services/data-factory/
-[free_trial]: https://azure.microsoft.com/pricing/free-trial/
+[free_account]: https://azure.microsoft.com/free/
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
 [msdn_benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
@@ -136,4 +136,4 @@ Azure 배치를 사용하여 솔루션을 빌드하려면 배치 .NET 클라이�
 [1]: ./media/batch-technical-overview/tech_overview_01.png
 [2]: ./media/batch-technical-overview/tech_overview_02.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

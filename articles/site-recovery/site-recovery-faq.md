@@ -76,7 +76,7 @@ Site Recovery를 사용하여 가상 컴퓨터 또는 물리적 서버에서 실
 
 Windows 및 Linux를 실행하는 물리적 서버를 Azure 또는 보조 사이트로 복제하여 보호할 수 있습니다. 운영 체제 요구 사항에 대해 [알아보기](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment) 물리적 서버에서 Azure로 복사하든 아니면 보조 사이트로 복사하든 관계없이 동일한 제한 사항이 적용됩니다.
 
-온-프레미스 서버가 중지되면 물리적 서버가 Azure에서 VM으로 실행됩니다. 온-프레미스 물리적 서버로 장애 복구는 현재 지원되지 않습니다. VMware VM으로 복구해야 합니다.
+온-프레미스 서버가 중지되면 물리적 서버가 Azure에서 VM으로 실행됩니다. 온-프레미스 물리적 서버로 장애 복구는 현재 지원되지 않습니다. VMware에서 실행 중인 가상 컴퓨터에 대해서만 장애 복구(failback)할 수 있습니다.
 
 ### 어떤 VMware VM을 보호할 수 있습니까?
 
@@ -219,4 +219,4 @@ Azure Pack, 클라우드 플랫폼 시스템 및 시스템 센터 기반(2012 �
 - [Site Recovery 개요](site-recovery-overview.md) 보기
 - [Site Recovery 아키텍처](site-recovery-components.md)에 대해 알아보기  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

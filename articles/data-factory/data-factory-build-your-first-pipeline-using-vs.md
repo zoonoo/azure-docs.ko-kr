@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="02/16/2015"
+	ms.date="02/16/2016"
 	ms.author="spelluru"/>
 
 # Azure Data Factory 시작(Visual Studio)
@@ -418,6 +418,14 @@ Azure 저장소 연결 서비스에 대한 다음 JSON 정의를 고려해야 �
             "value": "String"
         }
 
+### 공백이 포함된 속성 이름
+속성 이름에 공백이 있으면 다음 예제(데이터베이스 서버 이름)와 같이 대괄호를 사용합니다.
+
+     {
+         "name": "$.properties.activities[1].typeProperties.webServiceParameters.['Database server name']",
+         "value": "MyAsqlServer.database.windows.net"
+     }
+
 
 ### 구성을 사용하여 솔루션 배포
 VS에서 Azure 데이터 팩터리 엔터티를 게시하는 경우 해당 게시 작업에 사용하려는 구성을 지정할 수 있습니다.
@@ -440,4 +448,4 @@ VS에서 Azure 데이터 팩터리 엔터티를 게시하는 경우 해당 게�
 이 문서에서 파이프라인과 주문형 HDInsight 클러스터에서 Hive 스크립트를 실행하는 변환 작업(HDInsight 작업)을 만들었습니다. 복사 작업을 사용하여 Azure Blob에서 Azure SQL로 데이터를 복사하는 방법은 [자습서: Azure Blob에서 Azure SQL로 데이터 복사](data-factory-get-started.md)를 참조하세요.
   
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

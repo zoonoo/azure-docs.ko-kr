@@ -12,7 +12,7 @@
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
-	ms.topic="get-started-article" 
+	ms.topic="hero-article" 
 	ms.date="11/17/2015"
 	ms.author="huvalo"/>
 
@@ -118,7 +118,7 @@ Bottle, Flask 및 Django 웹 프레임워크, MongoDB, Azure 테이블 저장소
 
 이 섹션에서는 방금 만든 MySQL 데이터베이스를 사용하도록 웹앱을 구성합니다. Django에서 MySQL 데이터베이스를 사용하는 데 필요한 추가 Python 패키지도 설치합니다. 그런 다음 웹앱을 로컬로 실행합니다.
 
-1.  Visual Studio에서 *ProjectName* 폴더의 **settings.py** 를 엽니다. 일시적으로 연결 문자열을 편집기에 붙여 넣습니다. 연결 문자열은 다음 형식입니다.
+1.  Visual Studio에서 **ProjectName** 폴더의 *settings.py*를 엽니다. 일시적으로 연결 문자열을 편집기에 붙여 넣습니다. 연결 문자열은 다음 형식입니다.
 
         Database=<NAME>;Data Source=<HOST>;User Id=<USER>;Password=<PASSWORD>
 
@@ -216,4 +216,4 @@ Python Tools for Visual Studio, Django 및 MySQL에 대해 자세히 알아보�
 [MySQL]: http://www.mysql.com/
  
 
-<!-----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

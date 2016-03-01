@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/09/2015"
+	ms.date="02/09/2016"
 	ms.author="heidist"/>
 
 # 포털을 사용하여 Azure 검색으로 데이터 가져오기
@@ -36,6 +36,8 @@ Azure 포털에는 Azure 검색 대시보드에서 Azure 검색에서 데이터 
 인덱서 또는 **데이터 가져오기** 명령을 사용하려면, 기본 데이터 원본은 Azure SQL 데이터베이스, Azure VM에 SQL Server 관계형 데이터베이스 또는 Azure DocumentDB 등 지원되는 데이터 원본 중 하나이어야 합니다.
 
 단일 테이블, 뷰 또는 동등한 데이터 구조에서만 가져올 수 있습니다. 올바른 메타데이터 및 데이터 입력을 검색 인덱스로 가져오려면 먼저 응용 프로그램 데이터 소스에이 데이터 구조를 만들어야 할 수 있습니다.
+
+샘플 데이터를 사용하여 이 워크플로를 시도해 볼 수 있습니다. [Azure 포털에서 Azure 검색 시작](search-get-started-portal.md)을 방문하여 시작합니다.
 
 ##데이터 가져오기 구성
 
@@ -74,4 +76,4 @@ Azure 포털에는 Azure 검색 대시보드에서 Azure 검색에서 데이터 
 
 서비스 대시보드에서 인덱서 타일을 두 번 클릭하여 구독에 대해 생성된 모든 인덱서 목록을 슬라이드 아웃합니다. 인덱서 중 하나를 두 번 클릭하여 실행하거나 편집하거나 삭제합니다.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0224_2016-->

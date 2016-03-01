@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="02/17/2016"
 	ms.author="adrianha"/>
 
@@ -61,4 +61,4 @@
 
 이 [자습서](app-service-mobile-migrating-from-mobile-services.md)에 따라 기존 모바일 서비스에 *앱 서비스*를 이용하기 시작할 수 있습니다.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

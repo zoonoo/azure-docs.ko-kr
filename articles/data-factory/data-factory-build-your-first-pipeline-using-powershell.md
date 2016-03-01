@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="spelluru"
 	manager="jhubbard"
-	editor="monicar"/>
+	editor="monicar"
+/>
 
 <tags
 	ms.service="data-factory"
@@ -42,6 +43,8 @@
 	2. **Get-AzureSubscription**을 실행하여 이 계정의 모든 구독을 확인합니다.
 	3. **Select-AzureSubscription**을 실행하여 사용하려는 구독을 선택합니다. 이 구독은 Azure 포털에서 사용한 것과 같아야 합니다.
 4. AzureResourceManager 모드로 전환합니다. Azure 데이터 팩터리 cmdlet은 **Switch-AzureMode AzureResourceManager** 모드에서 사용할 수 있습니다.
+
+자세한 내용은 [Azure PowerShell에서 Switch AzureMode 중단](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell)을 참조하세요.
 
 
 ## 1단계: 데이터 팩터리 만들기
@@ -351,4 +354,4 @@ Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이
 
 [cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

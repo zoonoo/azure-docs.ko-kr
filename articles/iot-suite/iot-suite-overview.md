@@ -14,7 +14,7 @@
      ms.topic="get-started-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="11/27/2015"
+     ms.date="02/19/2016"
      ms.author="dobett"/>
 
 # Azure IoT Suite의 개요
@@ -49,7 +49,7 @@ Azure IoT 서비스는 광범위한 기능을 제공합니다. 이러한 엔터�
 
 ## 미리 구성된 솔루션
 
-IoT 제품군은에 Azure IoT Suite가 가능하게 하는 일반적인 IoT 시나리오를 신속하게 시작하고 탐색해 볼 수 있는 미리 구성된 솔루션을 포함합니다. Azure 구독에 솔루션을 배포하고 완전한 종단 간 IoT 솔루션을 실행할 수 있습니다.
+IoT 제품군은에 Azure IoT Suite가 가능하게 하는 일반적인 IoT 시나리오(예: *원격 모니터링* 및 *예측 유지 관리*)를 신속하게 시작하고 탐색해 볼 수 있는 미리 구성된 솔루션을 포함합니다. Azure 구독에 이들 솔루션을 배포하여 완전한 종단 간 IoT 시나리오를 실행할 수 있습니다.
 
 ## 다음 단계
 
@@ -74,4 +74,4 @@ IoT 제품군은에 Azure IoT Suite가 가능하게 하는 일반적인 IoT 시�
 [lnk-preconfig-start]: iot-suite-getstarted-preconfigured-solutions/
 [lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/25/2015"
+	ms.date="02/18/2016"
 	ms.author="awills"/>
 
 
@@ -196,6 +196,7 @@ Server에서 Application Insights 상태 모니터에 대한 OS 지원:
 
 IIS 지원: IIS 7, 7.5, 8, 8.5(IIS 필요)
 
+
 ## <a name="next"></a>다음 단계
 
 * [웹 테스트를 만들어][availability] 사이트가 라이브 상태로 유지되고 있는지 확인합니다.
@@ -220,4 +221,4 @@ IIS 지원: IIS 7, 7.5, 8, 8.5(IIS 필요)
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

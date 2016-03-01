@@ -12,8 +12,8 @@
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.topic="get-started-article" 
+	ms.date="02/18/2016" 
 	ms.author="billmath"/>
 
 # MFA 서버 모바일 앱 웹 서비스 시작
@@ -89,4 +89,4 @@ Azure Multi-Factor Authentication 웹 서비스 SDK가 Azure Multi-Factor Authen
 
 <center>![Setup](./media/multi-factor-authentication-get-started-server-webservice/mobile.png)</center>
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="11/18/2015"
+	ms.date="02/19/2016"
 	ms.author="anhoh"/>
 
 # NoSQL 자습서: DocumentDB C# 콘솔 응용 프로그램 빌드 
@@ -478,4 +478,4 @@ Visual Studio에서 DocumentDB .NET SDK에 대한 참조를 복원하려면 솔�
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

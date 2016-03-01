@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="02/04/2016"
+	ms.date="02/13/2016"
 	ms.author="normesta"/>
 
 
@@ -33,7 +33,7 @@
 
 * 활성 Azure 계정. 계정이 없는 경우 Azure 평가판을 등록하고 최대 10개의 무료 모바일 앱을 가져올 수 있습니다. 이러한 앱은 평가판 사용 기간이 끝난 후에도 계속 사용할 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
-* [Visual Studio Community 2013] 이상 버전입니다. Visual Studio 커뮤니티 2013을 설치하는 경우 별도로 [Xamarin]을 설치합니다. Visual Studio 2015를 설치할 때 Xamarin 도구를 설치할 수 있습니다.
+* [Visual Studio Community 2013](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) 이상 버전입니다. Visual Studio 커뮤니티 2013을 설치하는 경우 별도로 [Xamarin]을 설치합니다. Visual Studio 2015를 설치할 때 Xamarin 도구를 설치할 수 있습니다.
 
 * [Xcode] v7.0 이상 및 [Xamarin Studio]가 설치된 Mac입니다.
 
@@ -119,4 +119,4 @@
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
 [Windows에서 Xamarin.iOS 설치]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -7,14 +7,7 @@
 	manager="stevenpo" 
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/16/2016" 
-	ms.author="billmath"/>
+<tags ms.service="multi-factor-authentication" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="02/18/2016"" ms.author="billmath"/>
 
 
 # Windows Server 2012 R2 AD FS와 Azure Multi-factor Authentication 서버를 사용하여 클라우드 및 온-프레미스 리소스 보안 유지
@@ -33,6 +26,7 @@ Azure Multi-Factor Authentication 서버를 설치하는 경우 다음 두 옵�
 이 작업을 시작하기 전에 다음 정보를 고려하세요.
 
 - Azure Multi-Factor Authentication 서버를 AD FS 페더레이션 서버에 반드시 설치해야 하는 것은 아니지만 AD FS용 Multi-Factor Authentication 어댑터를 AD FS가 실행되는 Windows Server 2012 R2에 설치해야 합니다. 지원되는 버전이기만 하면 다른 컴퓨터에 서버를 설치할 수 있으며, AD FS 어댑터를 AD FS 페더레이션 서버에 따로 설치할 수 있습니다. 어댑터를 별도로 설치하는 방법에 대한 지침은 아래 절차를 참조하세요.
+- Multi-factor Authentication 서버의 AD FS 어댑터를 설계할 때, AD FS가 응용 프로그램 이름으로 사용될 수 있는 신뢰 당사자 이름을 어댑터로 전달할 수 있을 것으로 예측했습니다. 그러나 이 경우 이에 해당하지 않은 것으로 나타났습니다. 문자 메시지 또는 모바일 앱 인증 방법을 사용하는 경우, 회사 설정에서 정의된 문자열에는 "<$ application\_name$ >" 자리 표시자가 있습니다. AD FS 어댑터를 사용하는 경우 이 자리 표시자는 바뀌지 않습니다. 이 때문에 AD FS를 보호할 때 적절한 문자열에서 자리 표시자를 제거하는 것이 좋습니다.
 
 - 로그온한 계정은 Active directory에서 보안 그룹을 만들 수 있는 권한이 있어야 합니다.
 
@@ -229,4 +223,4 @@ PowerShell에서 \\Program Files\\Multi-Factor Authentication Server\\Register-M
 
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

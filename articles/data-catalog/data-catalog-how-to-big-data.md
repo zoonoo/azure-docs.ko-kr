@@ -10,7 +10,7 @@
 <tags
    ms.service="data-catalog"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
    ms.date="02/08/2016"
@@ -68,4 +68,4 @@
 ## 요약
 데이터 소스를 **Azure 데이터 카탈로그**에 등록하면 보다 쉽게 검색하고 이해할 수 있습니다. 논리 데이터 집합을 나타내는 빅 데이터 파일 및 디렉터리를 등록하고 주석을 추가하면, 사용자는 필요한 빅 데이터 소스를 찾아 사용할 수 있습니다.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

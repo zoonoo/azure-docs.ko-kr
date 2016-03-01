@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/09/2016"
+   ms.date="02/23/2016"
    ms.author="terrylan"/>
 
 # Azure 보안 센터에서 보안 권장 사항 관리
@@ -38,7 +38,7 @@ Azure 보안 센터는 Azure 리소스의 보안에 대한 향상된 가시성�
 - 데이터 수집 사용.
 - 보안 정책의 일부로 표시될 권장 사항 선택.
 
-현재 정책 권장 사항은 시스템 업데이트, 기준 규칙, 맬웨어 방지 프로그램, [끝점에 대한 ACL](../virtual-machines/virtual-machines-set-up-endpoints.md), 서브넷 및 네트워크 인터페이스의 [네트워크 보안 그룹](../virtual-networks/virtual-networks-nsg.md), SQL 데이터베이스 감사, SQL 데이터베이스 투명한 데이터 암호화 및 웹 응용 프로그램 방화벽에 중점을 두고 있습니다. [보안 정책 설정](security-center-policies.md)은 각 권장 사항 옵션에 대한 설명을 제공합니다.
+현재 정책 권장 사항은 시스템 업데이트, 기준 규칙, 맬웨어 방지 프로그램, [끝점에 대한 ACL](../virtual-machines/virtual-machines-set-up-endpoints.md), 서브넷 및 네트워크 인터페이스의 [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md), SQL 데이터베이스 감사, SQL 데이터베이스 투명한 데이터 암호화 및 웹 응용 프로그램 방화벽에 중점을 두고 있습니다. [보안 정책 설정](security-center-policies.md)은 각 권장 사항 옵션에 대한 설명을 제공합니다.
 
 ### 권장 사항 모니터링
 보안 정책이 설정되면 보안 센터는 리소스의 보안 상태를 분석하여 잠재적인 취약성을 식별합니다. **보안 센터** 블레이드의 **권장 사항** 타일은 보안 센터에서 식별된 권장 사항의 총 수를 알려 줍니다.
@@ -64,15 +64,17 @@ Azure 보안 센터는 Azure 리소스의 보안에 대한 향상된 가시성�
 
 아래 테이블을 참조로 사용하여 제공되는 권장 사항을 이해하고 각 권장 사항을 적용할 경우 어떻게 되는지 이해할 수 있습니다.
 
+> [AZURE.NOTE] Azure 리소스의 [클래식 및 리소스 관리자 배포 모델](../azure-classic-rm.md)을 이해하게 됩니다.
+
 |권장 사항|설명|
 |-----|-----|
 |구독/가상 컴퓨터에 대해 데이터 수집 활성화|각각의 구독 또는 선택한 VM에 대해 보안 정책에서 데이터 수집을 켜는 것이 좋습니다.|
 |일치하지 않는 기준 규칙 해결|OS 구성을 권장 기준과 정렬하라는 권장 사항입니다. 예를 들어 암호 저장을 허용하지 않습니다.|
 |시스템 업데이트 적용|누락된 시스템 보안 및 중요 업데이트를 VM(Windows VM만 해당)에 배포하는 것이 좋습니다.|
-|끝점에 대한 ACL 구성|액세스 제어 목록을 구성하여 VM(클래식 VM만 해당)에 대한 인바운드 액세스를 제한하는 것이 좋습니다.|
-|웹 응용 프로그램 방화벽 추가|웹 끝점(리소스 관리자 VM만 해당)에 WAF(웹 응용 프로그램 방화벽)를 배포하는 것이 좋습니다.|
+|끝점에 대한 ACL 구성|액세스 제어 목록을 구성하여 VM(클래식에만 해당)에 대한 인바운드 액세스를 제한하는 것이 좋습니다.|
+|[웹 응용 프로그램 방화벽 추가](security-center-add-web-application-firewall.md)|웹 끝점에 WAF(웹 응용 프로그램 방화벽)를 배포하는 것이 좋습니다. 자동 프로비전 프로세스는 별도 VNet에 배포되는 WAF 패키지(리소스 관리자 배포 모델을 사용하여 만듦)을 기반으로 합니다. VM(클래식)에서 보호된 웹 응용 프로그램에 대한 액세스는 NSG를 사용하는 WAF 어플라이언스에만 제한됩니다. 이러한 지원은 나중에 WAF 패키지(클래식)의 완전 사용자 지정 배포로 확장됩니다.|
 |웹 응용 프로그램 방화벽 설정 완료|WAF 구성을 완료하려면 트래픽 경로가 WAF 어플라이언스로 전환되어야 합니다. 이 권장 사항을 따르면 필요한 설정 변경이 완료됩니다.|
-|맬웨어 방지 프로그램 활성화|VM(Windows VM만 해당)에 맬웨어 방지 프로그램을 프로비전하는 것이 좋습니다.|
+|[맬웨어 방지 프로그램 활성화](security-center-enable-antimalware.md)|VM(Windows VM만 해당)에 맬웨어 방지 프로그램을 프로비전하는 것이 좋습니다.|
 |서브넷/네트워크 인터페이스에서 네트워크 보안 그룹 활성화|서브넷 및 네트워크 인터페이스(리소스 관리자 VM만 해당)에서 NSG(네트워크 보안 그룹)를 활성화하는 것이 좋습니다.|
 |공용 외부 끝점을 통한 액세스 제한|NSG에 대한 인바운드 트래픽 규칙을 구성하라는 권장 사항입니다.|
 |서버 SQL 감사 활성화|Azure SQL 서버(Azure SQL 서비스만 해당, 가상 컴퓨터에서 실행되는 SQL 제외됨)에 감사를 사용하는 것이 좋습니다.|
@@ -101,35 +103,17 @@ Azure 보안 센터는 Azure 리소스의 보안에 대한 향상된 가시성�
 4. 맬웨어 방지 솔루션에 대한 추가 정보가 표시됩니다. **만들기**를 선택합니다.
 5. **확장 추가** 블레이드에서 필요한 구성 설정을 입력하고 **확인**을 선택합니다. ![][6]
 
-이제 선택한 가상 컴퓨터에서 [Microsoft 맬웨어 방지 프로그램](../azure-security/azure-security-antimalware.md)이 활성화됩니다.
+이제 선택한 가상 컴퓨터에서 [Microsoft 맬웨어 방지 프로그램](../azure-security-antimalware.md)이 활성화됩니다.
 
-### 권장된 파트너 솔루션 배포
-
-또 다른 권장 사항은 Microsoft 파트너에서 통합 보안 솔루션을 배포하는 것입니다. 이 작업을 수행하는 방법을 살펴보겠습니다.
-
-1. **권장 사항** 블레이드로 돌아갑니다.
-2.	**웹 응용 프로그램 방화벽을 사용하여 웹 응용 프로그램 보호** 권장 사항을 선택합니다. **보호되지 않는 웹 응용 프로그램** 블레이드가 열립니다. ![][7]
-3. 웹 응용 프로그램을 선택하면 **웹 응용 프로그램 방화벽 추가** 블레이드가 열립니다.
-4. **Barracuda Web Application Firewall**을 선택합니다. **Barracuda Web Application Firewall**에 대한 정보를 제공하는 블레이드가 열립니다.
-5. 정보 블레이드에서 **만들기**를 클릭합니다. **새 웹 응용 프로그램 방화벽** 블레이드가 열립니다 이 블레이드에서 **VM 구성** 단계를 수행하고 **WAF 정보**를 입력할 수 있습니다.
-6. **VM 구성**을 선택합니다. **VM 구성** 블레이드에서 WAF를 실행할 가상 컴퓨터를 스핀업하는 데 필요한 정보를 입력합니다. ![][8]
-7. **새 웹 응용 프로그램 방화벽** 블레이드로 돌아가서 **WAF 정보**를 선택합니다. **WAF 정보** 블레이드에서 WAF 자체를 구성합니다. 6단계에서는 WAF가 실행될 가상 컴퓨터를 구성하고 7단계에서는 WAF 자체를 프로비전할 수 있습니다.
-
-8. **권장 사항** 블레이드로 돌아갑니다. WAF를 만든 후에 **웹 응용 프로그램 방화벽 설정 완료**라고 하는 새 항목이 생성되었습니다. 새 항목을 사용하면 Azure 가상 네트워크 내에서 WAF를 연결하는 프로세스를 완료하여 응용 프로그램을 보호할 수 있다는 점을 알 수 있습니다. ![][9]
-
-9. **웹 응용 프로그램 방화벽 설정 완료**를 선택합니다. 새 블레이드가 열립니다. 해당 트래픽 경로를 전환해야 하는 웹 응용 프로그램을 확인할 수 있습니다.
-10. 웹 응용 프로그램을 선택합니다. 웹 응용 프로그램 방화벽 설정을 완료하는 단계를 알려주는 블레이드가 열립니다. 단계를 완료한 다음 **트래픽 제한**을 클릭합니다. 그려면 보안 센터가 연결을 수행합니다. ![][10]
-
-이제 해당 WAF의 로그가 완전히 통합되었습니다. 보안 센터에서 자동으로 로그를 수집 및 분석하기 시작하여 중요한 보안 경고를 사용자에게 드러낼 수 있습니다.
 
 ## 다음 단계
 이 문서에서는 보안 센터의 보안 권장 사항을 소개했습니다. 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
 - [Azure 보안 센터에서 보안 정책 설정](security-center-policies.md) -- 보안 정책을 구성하는 방법 알아보기.
-- [Azure 보안 센터에서 보안 상태 모니터링](security-center-monitoring.md) -- Azure 리소스의 상태를 모니터링하는 방법 알아보기.
-- [Azure 보안 센터에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) -- 보안 경고를 관리하고 대응하는 방법 알아보기.
-- [Azure 보안 센터 FAQ](security-center-faq.md) -- 서비스 사용에 관한 질문과 대답 찾기.
-- [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) -- Azure 보안 및 규정 준수에 관한 블로그 게시물 찾기.
+- [Azure 보안 센터에서 보안 상태 모니터링](security-center-monitoring.md)-–Azure 리소스의 상태를 모니터링하는 방법 알아보기
+- [Azure 보안 센터에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법 알아보기
+- [Azure 보안 센터 FAQ](security-center-faq.md)-–서비스 사용에 관한 질문과 대답 찾기
+- [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/)-–Azure 보안 및 규정 준수에 관한 블로그 게시물 찾기
 
 <!--Image references-->
 [2]: ./media/security-center-recommendations/recommendations-tile.png
@@ -137,9 +121,5 @@ Azure 보안 센터는 Azure 리소스의 보안에 대한 향상된 가시성�
 [4]: ./media/security-center-recommendations/dismiss-recommendations.png
 [5]: ./media/security-center-recommendations/select-enable-antimalware.png
 [6]: ./media/security-center-recommendations/install-antimalware.png
-[7]: ./media/security-center-recommendations/secure-web-application.png
-[8]: ./media/security-center-recommendations/vm-configuration.png
-[9]: ./media/security-center-recommendations/finalize-waf.png
-[10]: ./media/security-center-recommendations/restrict-traffic.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

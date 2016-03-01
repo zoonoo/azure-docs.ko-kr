@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="hero-article" 
-	ms.date="11/16/2015"
+	ms.date="02/19/2016"
 	ms.author="huvalo"/>
 
 
@@ -26,7 +26,7 @@
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 
 ## 필수 조건
@@ -57,7 +57,6 @@ Python 및 Git를 이미 설치했어야 하지만 Python 버전은 2.7 또는 3
 앱을 만드는 첫 번째 단계는 [Azure 포털](https://portal.azure.com)을 통해 웹앱을 만드는 것입니다.
 
 1. Azure 포털에 로그인하여 왼쪽 아래에 있는 **새로 만들기** 단추를 클릭합니다.
-2. **웹 + 모바일**을 클릭합니다.
 3. 검색 상자에 "python"을 입력합니다.
 4. 검색 결과에서 선택 **Django**를 선택하고 **만들기**를 클릭합니다.
 5. 새 Django 앱을 구성(예: 새 앱 서비스 계획 만들기)하고 해당 앱의 새 리소스 그룹을 구성합니다. 그런 다음에 **만들기**를 클릭합니다.
@@ -118,7 +117,7 @@ IIS 구성 파일. 배포 스크립트에서는 적절한 web.x.y.config를 사�
 
 ### 선택적 파일 - 배포 사용자 지정
 
-[AZURE.INCLUDE [web-sites-python-customizing-deployment](../../includes/web-sites-python-customizing-deployment.md)]
+[AZURE.INCLUDE [web-sites-python-django-customizing-deployment](../../includes/web-sites-python-django-customizing-deployment.md)]
 
 ### 선택적 파일 - Python 런타임
 
@@ -517,4 +516,4 @@ SQL 데이터베이스 및 MySQL 사용에 대한 자세한 정보:
 [Python Tools for Visual Studio 설명서]: http://aka.ms/ptvsdocs
 [Django 설명서]: https://www.djangoproject.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

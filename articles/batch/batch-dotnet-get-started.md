@@ -28,9 +28,9 @@
 
 ### 계정
 
-- **Azure 계정**--Azure 구독이 아직 없는 경우 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/)에서 몇 분 만에 무료 평가판 계정을 만들 수 있습니다.
+- **Azure 계정**--Azure 구독이 아직 없는 경우 [무료 Azure 계정][azure_free_account]을 만들 수 있습니다.
 - **배치 계정**--Azure 구독이 있으면 [Azure 배치 계정을 만들고 관리합니다](batch-account-create-portal.md).
-- **저장소 계정**--[Azure 저장소 계정 정보](../storage-create-storage-account.md)의 “저장소 계정 만들기” 섹션을 참조하세요.
+- **저장소 계정**--[Azure 저장소 계정 정보](./../storage/storage-create-storage-account.md)의 “저장소 계정 만들기” 섹션을 참조하세요.
 
 ### Visual Studio
 
@@ -626,6 +626,7 @@ Sample complete, hit ENTER to exit...
 - [TopNWords][github_topnwords] 샘플의 배치를 사용하여 "상위 n개 단어" 워크로드 처리의 다른 구현을 확인하세요.
 
 [azure_batch]: https://azure.microsoft.com/services/batch/
+[azure_free_account]: https://azure.microsoft.com/free/
 [azure_portal]: https://portal.azure.com
 [batch_explorer_blog]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
 [batch_learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
@@ -680,4 +681,4 @@ Sample complete, hit ENTER to exit...
 [10]: ./media/batch-dotnet-get-started/credentials_storage_sm.png "포털의 저장소 자격 증명"
 [11]: ./media/batch-dotnet-get-started/batch_workflow_minimal_sm.png "배치 솔루션 워크플로(최소 다이어그램)"
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

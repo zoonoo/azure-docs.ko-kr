@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/09/2016"
+	ms.date="02/19/2016"
 	ms.author="awills"/>
 
 # 웹 페이지용 Application Insights
@@ -170,7 +170,7 @@ Application Insights 리소스는 페이지의 성능 및 사용 현황에 대�
 
 > [AZURE.NOTE] 블레이드에서 브라우저 필터를 삭제하면 서버와 AJAX 종속성이 이 차트에 포함됩니다. 필터를 다시 구성하려면 기본값 복원을 클릭합니다.
 
-**실패한 Ajax 호출을 분석하기 위한** 빠른 방법 중 하나는 실패 차트를 표로 변경한 다음, 보려는 특정 인스턴스의 행을 클릭하는 것입니다.
+**실패한 Ajax 호출을 분석하려면** 종속성 실패 그리드로 아래로 스크롤한 다음, 보려는 특정 인스턴스의 행을 클릭합니다.
 
 ![](./media/app-insights-javascript/37.png)
 
@@ -238,4 +238,4 @@ Ajax 호출은 웹 페이지의 스크립트에서 이루어진 HTTP 호출을 �
 * [사용자 지정 이벤트 및 메트릭](app-insights-api-custom-events-metrics.md)
 * [빌드 - 측정 - 학습](app-insights-overview-usage.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

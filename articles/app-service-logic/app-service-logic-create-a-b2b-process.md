@@ -10,15 +10,15 @@
 <tags
    ms.service="app-service-logic"
    ms.devlang="multiple"
-   ms.topic="article"
+	ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="12/07/2015"
+   ms.date="02/18/2016"
    ms.author="rajram"/>
-
 
 # B2B 프로세스 만들기
 
+>[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다.
 
 ## 비즈니스 시나리오 
 Contoso와 Northwind는 두 비즈니스 파트너입니다. Contoso(소매점)가 AS2와 같은 업계 수준 전송을 통해 Northwind(공급자)로 구매 주문서를 보냅니다. Northwind는 들어오는 모든 주문을 클라우드 저장소에 저장합니다. 구매 주문서는 두 파트너 간의 XML 메시지입니다. 메시지가 Northwind의 클라우드 저장소에 저장되면 Northwind의 내부 프로세스가 해당 지점에서 주문을 처리합니다.
@@ -69,4 +69,4 @@ Contoso와 Northwind는 두 비즈니스 파트너입니다. Contoso(소매점)�
 [2]: ./media/app-service-logic-create-a-b2b-process/Tracking.png
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0224_2016-->

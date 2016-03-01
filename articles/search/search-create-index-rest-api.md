@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/17/2015"
+	ms.date="02/18/2016"
 	ms.author="heidist"/>
 
 # REST API를 사용하여 Azure 검색 인덱스 만들기
@@ -65,4 +65,4 @@ REST API를 사용하여 인덱스를 만들려면 Azure 검색 URL 끝점에 �
 
 성공적인 요청의 경우 상태 코드 "201 생성됨"이 표시되어야 합니다. REST API를 통해 인덱스를 만드는 방법에 대한 자세한 내용은 [이 페이지](https://msdn.microsoft.com/library/azure/dn798941.aspx)를 방문합니다.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0224_2016-->

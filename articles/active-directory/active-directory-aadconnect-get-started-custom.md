@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/18/2016"
+	ms.date="02/22/2016"
 	ms.author="billmath;andkjell"/>
 
 # Azure AD Connect의 사용자 지정 설치
@@ -26,7 +26,7 @@
 | 항목 | |
 | --------- | --------- |
 | **Azure AD Connect 다운로드** | [Azure AD Connect 다운로드](http://go.microsoft.com/fwlink/?LinkId=615771) |
-| **하드웨어 및 필수 조건** | [Azure AD Connect: 하드웨어 및 필수 조건](active-directory-aadconnect-prerequisites.md) |
+| **하드웨어 및 필수 조건** | [Azure AD Connect: 하드웨어 및 필수 조건](active-directory-aadconnect-prerequisites.md#hardware-requirements-for-azure-ad-connect) |
 | **설치에 사용되는 계정** | [Azure AD Connect 계정 및 사용 권한](active-directory-aadconnect-accounts-permissions.md) |
 | Express 설정을 사용하여 설치 | [Azure AD Connect의 빠른 설치](active-directory-aadconnect-get-started-express.md) |
 | DirSync에서 업그레이드 | [Azure AD Sync 도구(DirSync)에서 업그레이드](active-directory-aadconnect-dirsync-upgrade-get-started.md) |
@@ -228,4 +228,4 @@ Azure AD Connect를 설치했으므로 [설치를 확인하고 라이선스를 �
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

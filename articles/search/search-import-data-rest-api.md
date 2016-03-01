@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/17/2015"
+	ms.date="02/17/2016"
 	ms.author="heidist"/>
 
 # REST API를 사용하여 Azure 검색으로 데이터 가져오기
@@ -84,4 +84,4 @@ URL에서 서비스 이름 뿐만 아니라 적절한 API 버전을 제공해야
 
 문서 동작 및 성공/오류 응답에 대한 자세한 내용은 [이 페이지](https://msdn.microsoft.com/library/azure/dn798930.aspx)를 참조하세요.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0224_2016-->

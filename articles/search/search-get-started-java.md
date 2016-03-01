@@ -17,6 +17,9 @@
 	ms.author="heidist"/>
 
 # Java에서 Azure 검색 시작
+> [AZURE.SELECTOR]
+- [Portal](search-get-started-portal.md)
+- [.NET](search-get-started-dotnet.md)
 
 검색 환경에 Azure 검색을 사용하는 사용자 지정 Java 검색 응용 프로그램을 빌드하는 방법에 대해 알아봅니다. 이 자습서에서는 [Azure 검색 서비스 REST API](https://msdn.microsoft.com/library/dn798935.aspx)를 사용하여 이 연습에서 사용되는 개체 및 작업을 생성합니다.
 
@@ -182,7 +185,7 @@ USGS 데이터 집합에는 Rhode Island 주와 관련된 레코드가 포함되
 
 이것은 Java 및 USGS 데이터 집합을 기반으로 하는 첫 번째 Azure 검색 자습서입니다. 앞으로 이 자습서를 확장하여 사용자 지정 솔루션에서 사용할 수 있는 추가 검색 기능을 보여 드릴 예정입니다.
 
-Azure 검색에 대한 약간의 배경 지식이 있는 경우 [검색 페이지](search-pagination.md)를 보강하거나 [패싯 탐색](search-faceted-navigation.md)을 구현하는 등 이 샘플을 기반으로 추가 실험을 수행할 수 있습니다. 또한 사용자가 결과 페이지를 차례로 탐색할 수 있도록 개수를 추가하고 문서를 일괄 처리하여 검색 결과 페이지를 개선할 수 있습니다.
+Azure 검색에 대한 약간의 배경 지식이 있는 경우 [검색 페이지](search-pagination-page-layout.md)를 보강하거나 [패싯 탐색](search-faceted-navigation.md)을 구현하는 등 이 샘플을 기반으로 추가 실험을 수행할 수 있습니다. 또한 사용자가 결과 페이지를 차례로 탐색할 수 있도록 개수를 추가하고 문서를 일괄 처리하여 검색 결과 페이지를 개선할 수 있습니다.
 
 Azure 검색을 처음 사용하세요? 다른 자습서를 통해 만들 수 있는 항목에 대한 이해를 높여 보세요. 더 많은 리소스를 보려면 [설명서 페이지](https://azure.microsoft.com/documentation/services/search/)를 방문하세요. [비디오 및 자습서](search-video-demo-tutorial-list.md)의 링크를 통해 추가 정보를 확인할 수도 있습니다.
 
@@ -200,4 +203,4 @@ Azure 검색을 처음 사용하세요? 다른 자습서를 통해 만들 수 �
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

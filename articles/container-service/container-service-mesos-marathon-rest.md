@@ -1,6 +1,6 @@
 <properties
    pageTitle="REST API로 ACS 컨테이너 관리 | Microsoft Azure"
-   description="Marathon REST API를 사용하여 컨테이너를 Azure 컨테이너 서비스 클러스터 서비스에 배포합니다."
+   description="Marathon REST API를 사용하여 컨테이너를 Azure 컨테이너 서비스 Mesos 클러스터에 배포합니다."
    services="container-service"
    documentationCenter=""
    authors="neilpeterson"
@@ -20,13 +20,15 @@
    
 # REST API로 컨테이너 관리
 
-Mesos는 기본 하드웨어를 추상화하는 동안 클러스터형 워크로드를 배포 및 확장하기 위한 환경을 제공 합니다. Mesos의 상단에서 프레임워크가 계산 워크로드의 예약 및 실행을 관리합니다. 프레임워크는 수많은 워크로드에 사용할 수 있지만 이 문서에서는 Marathon으로 컨테이너 배포를 만들고 확장하는 방법에 대해 자세히 설명합니다. 이러한 예제를 통해 작업하기 전에 ACS에 Mesos 클러스터가 구성되어야 하고 이 클러스터에 대한 원격 연결이 있어야 합니다. 이러한 항목에 대한 자세한 내용은 다음 문서를 참조하세요.
+Mesos는 기본 하드웨어를 추상화하는 동안 클러스터형 워크로드를 배포 및 확장하기 위한 환경을 제공 합니다. Mesos의 상단에서 프레임워크가 계산 워크로드의 예약 및 실행을 관리합니다. 프레임워크는 수많은 워크로드에 사용할 수 있지만 이 문서에서는 Marathon으로 컨테이너 배포를 만들고 확장하는 방법에 대해 자세히 설명합니다.
+
+이러한 예제를 통해 작업하기 전에 ACS에 Mesos 클러스터가 구성되어야 하고 이 클러스터에 대한 원격 연결이 있어야 합니다. 이러한 항목에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [Azure 컨테이너 서비스 클러스터 배포](./container-service-deployment.md) 
 - [ACS 클러스터에 연결](./container-service-connect.md)
 
 
-SSH 터널이 설정되었으면 `http://localhost:LOCAL_PORT`를 통해 Mesos 관련 rest API에 액세스할 수 있습니다. 아래 예제에서는 포트 80에서 터널링 중이라고 가정합니다. 예를 들어 `http://localhost/marathon/v2`가 Marathon API에 대한 끝점이 됩니다. 사용할 수 있는 다양한 API에 대한 자세한 내용은 [Marathon API](https://mesosphere.github.io/marathon/docs/rest-api.html) 및 [Chronos API](https://mesos.github.io/chronos/docs/api.html)에 대한 Mesosphere 문서와 [Mesos Scheduler API](http://mesos.apache.org/documentation/latest/scheduler-http-api/)에 대한 Apache 문서를 참조하세요.
+ACS 클러스터에 연결되면 Mesos 및 관련된 REST API는 http://localhost:local-port을(를) 통해 액세스할 수 있습니다. 이 문서의 예제에서는 포트 80에서 터널링하는 것을 가정합니다. 예를 들어, Marathon 끝점은 있으신 `http://localhost/marathon/v2/`에 도달할 수 있습니다. 다양한 API에 대한 자세한 내용은 [Marathon API](https://mesosphere.github.io/marathon/docs/rest-api.html) 및 [Chronos API](https://mesos.github.io/chronos/docs/api.html)에 대한 Mesosphere 문서와 [Mesos Scheduler API](http://mesos.apache.org/documentation/latest/scheduler-http-api/)에 대한 Apache 문서를 참조하세요.
 
 ## Mesos 및 Marathon에서 정보 수집
 
@@ -36,7 +38,7 @@ Mesos 클러스터에 컨테이너를 배포하기 전에 이름, Mesos 에이�
 curl http://localhost/master/slaves
 ```
 
-이제는 Marathon `/apps` 끝점을 사용하여 Mesos 클러스터에 대한 현재 Marathon 배포를 확인합니다. 새 클러스터인 경우에 앱에 대한 빈 배열이 표시됩니다.
+이제는 Marathon `/apps` 끝점을 사용하여 Mesos 클러스터에 대한 현재 응용 프로그램 배포를 확인합니다. 새 클러스터인 경우에 앱에 대한 빈 배열이 표시됩니다.
 
 ```
 curl localhost/marathon/v2/apps
@@ -79,7 +81,7 @@ curl -X POST http://localhost/marathon/v2/groups -d @marathon.json -H "Content-t
 {"version":"2015-11-20T18:59:00.494Z","deploymentId":"b12f8a73-f56a-4eb1-9375-4ac026d6cdec"}
 ```
 
-이제 실행 중인 응용 프로그램에 대해 Marathon을 쿼리하면 이 새 응용 프로그램이 출력에 표시됩니다..
+이제 응용 프로그램에 대해 Marathon을 쿼리하면 이 새 응용 프로그램이 출력에 표시됩니다.
 
 ```
 curl localhost/marathon/v2/apps
@@ -101,13 +103,13 @@ curl localhost/marathon/v2/apps
 curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
 ```
 
-마지막으로, 응용 프로그램 인스턴스에 대해 Marathon 끝점을 쿼리합니다. 이제 세 개가 있음을 알 수 있습니다.
+마지막으로, 응용 프로그램에 대한 Marathon 끝점을 쿼리하면 이제 세 가지 nginx 컨테이너를 확인하게 됩니다.
 
 ```
 curl localhost/marathon/v2/apps
 ```
 
-## Marathon REST API PowerShell
+## Marathon REST API와 PowerShell 상호 작용
 
 Windows 시스템에서 PowerShell을 사용하여 이와 동일한 작업을 수행할 수 있습니다. 이 빠른 연습은 마지막 연습과 유사한 태스크를 완료하며 이때 PowerShell 명령을 사용합니다.
 
@@ -158,4 +160,4 @@ Invoke-WebRequest -Method Post -Uri http://localhost/marathon/v2/apps -ContentTy
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'
 ```
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

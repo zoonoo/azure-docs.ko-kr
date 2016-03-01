@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="12/18/2015"
+	ms.date="02/18/2016"
 	ms.author="heidist"/>
 
 # Fiddler를 사용하여 Azure 검색 REST API를 평가 및 테스트
@@ -239,4 +239,4 @@ Azure 검색을 관리 및 사용하는 코드 없는 접근 방식은 [Azure에
 [4]: ./media/search-fiddler/AzureSearch_Fiddler4_QueryResults.png
 [5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

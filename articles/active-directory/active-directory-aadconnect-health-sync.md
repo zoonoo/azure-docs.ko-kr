@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/16/2016"
+	ms.date="02/17/2016"
 	ms.author="billmath"/>
 
 # 동기화에 대한 Azure AD Connect Health 사용
@@ -54,5 +54,6 @@
 * [Azure AD Connect Health 작업](active-directory-aadconnect-health-operations.md)
 * [AD FS와 함께 Azure AD Connect Health 사용](active-directory-aadconnect-health-adfs.md)
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
+* [Azure AD Connect Health 버전 내역](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->
