@@ -38,4 +38,4 @@ GRS는 데이터의 복사본을 6개 유지 관리합니다. GRS를 사용하�
 
 ![LRS](./media/backup-create-vault/lrs.png)
 
-<!----HONumber=AcomDC_1203_2015-->
+<!-----HONumber=AcomDC_1203_2015-->

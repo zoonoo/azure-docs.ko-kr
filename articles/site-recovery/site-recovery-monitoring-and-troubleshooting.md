@@ -199,4 +199,4 @@ CS(구성 서버), PS(프로세스 서버), MT(마스터 대상) - [PS/CS가 VM�
 ### 장애 조치(Failover) 후 원격 데스크톱 문제 해결
 -   많은 고객이 Azure에서 장애 조치(Failover)된 VM에 연결하는 데 문제에 직면합니다. [문제 해결 문서를 사용하여 VM에 RDP를 연결합니다.](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
 
-<!----HONumber=AcomDC_1217_2015-->
+<!-----HONumber=AcomDC_1217_2015-->
