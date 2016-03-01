@@ -57,9 +57,11 @@ Elasticsearch는 여러 노드에 데이터를 분산하는 분할 및 고가용
 
 ![](media/guidance-elasticsearch-general-cluster1.png)
 
-**그림 1.** 기본 노드 2개와 복제본의 2개 집합으로 구성된 간단한 Elasticsearch 클러스터
+**그림 1.**
+기본 노드 2개와 복제본의 2개 집합으로 구성된 간단한 Elasticsearch 클러스터
 
-이 클러스터에서 기본 분할된 데이터베이스 1과 기본 분할된 데이터베이스 2는 서로 간의 부하 분산을 위해 별도의 노드에 위치합니다. 복제본도 마찬가지로 배포됩니다. 한 노드가 실패할 경우에 시스템의 지속적인 작동을 위해 필요한 충분한 정보가 나머지 노드에 있습니다. 필요 시 해당 기본 분할된 데이터베이스가 사용할 수 없게 될 경우 Elasticsearch가 분할된 데이터베이스 복제본을 기본 분할된 데이터베이스로 승격시킵니다. 노드가 실행을 시작하면 새 클러스터를 시작하거나(클러스터 내 최초 노드인 경우) 기존 클러스터에 연결할 수 있습니다. 노드가 속해 있는 클러스터는 *cluster.name* elasticsearch.yml 파일의 설정에 따라 결정됩니다.
+이 클러스터에서 기본 분할된 데이터베이스 1과 기본 분할된 데이터베이스 2는 서로 간의 부하 분산을 위해 별도의 노드에 위치합니다. 복제본도 마찬가지로 배포됩니다. 한 노드가 실패할 경우에 시스템의 지속적인 작동을 위해 필요한 충분한 정보가 나머지 노드에 있습니다. 필요 시 해당 기본 분할된 데이터베이스가 사용할 수 없게 될 경우 Elasticsearch가 분할된 데이터베이스 복제본을 기본 분할된 데이터베이스로 승격시킵니다.
+노드가 실행을 시작하면 새 클러스터를 시작하거나(클러스터 내 최초 노드인 경우) 기존 클러스터에 연결할 수 있습니다. 노드가 속해 있는 클러스터는 *cluster.name* elasticsearch.yml 파일의 설정에 따라 결정됩니다.
 
 ### 노드 역할
 
@@ -104,7 +106,8 @@ http.enabled: false
 
 ![](media/guidance-elasticsearch-general-cluster2.png)
 
-**그림 2.** 다양한 유형의 노드를 표시하는 Elasticsearch 클러스터
+**그림 2.**
+다양한 유형의 노드를 표시하는 Elasticsearch 클러스터
 
 ### 클라이언트 노드 사용의 비용과 이점
 
@@ -145,7 +148,8 @@ var client = new ElasticsearchClient(config);
 
 ![](media/guidance-elasticsearch-general-clientappinstances.png)
 
-**그림 3.** Azure Load Balancer를 통해 Elasticsearch 클러스터에 연결하는 클라이언트 응용 프로그램 인스턴스
+**그림 3.**
+Azure Load Balancer를 통해 Elasticsearch 클러스터에 연결하는 클라이언트 응용 프로그램 인스턴스
 
 **사용자 지정 부하 분산**: Azure Load Balancer 대신 [nginx][]를 역방향 프록시 서버로 사용할 수 있습니다. Nginx는 클라이언트의 IP 주소에 따라 라운드 로빈, 최소 연결(현재 연결 수가 가장 적은 대상에 요청 전달), 해시 등 몇 가지 부하 분산 방법을 제공합니다.
 
@@ -174,7 +178,8 @@ Azure VNET 내에 Elasticsearch 클러스터를 호스팅하는 경우, 클러�
 
 > [AZURE.NOTE] 현재 버전의 Azure Cloud Plugin에서는 Elasticsearch 노드의 Java 키 저장소에 Azure 구독에 대한 관리 인증서를 설치하고, elasticsearch.yml 파일에서 이 키 저장소 액세스를 위한 위치와 자격 증명을 제공해야 합니다. 이 파일은 일반 텍스트 형태이므로 Elasticsearch 서비스를 실행하는 계정만 액세스할 수 있도록 하는 것이 매우 중요합니다. 또한 이 방법은 Azure 리소스 관리자(ARM) 배포와 호환되지 않을 수 있습니다. 따라서 마스터 노드에 고정 IP 주소를 사용하고, 이 노드를 사용하여 클러스터 전체에서 Zen 검색 유니캐스트 메시징을 구현하는 것이 좋습니다. 다음 구성(동일한 데이터 노드에 대한 elasticsearch.yml 파일의 내용)에서 호스트 IP 주소는 클러스터의 마스터 노드를 참조합니다.
 
->`discovery.zen.ping.multicast.enabled: false` `discovery.zen.ping.unicast.hosts: ["10.0.0.10","10.0.0.11","10.0.0.12"]`
+>`discovery.zen.ping.multicast.enabled: false`  
+`discovery.zen.ping.unicast.hosts: ["10.0.0.10","10.0.0.11","10.0.0.12"]`
 
 ## 일반 시스템 지침
 
@@ -239,7 +244,9 @@ Windows 또는 Linux에서 Elasticsearch를 실행할 수 있습니다. Elastics
 
 ### Azure에서 Elasticsearch 배포
 
-Elasticsearch의 단일 인스턴스 배포는 어렵지 않지만, 많은 노드를 만들고 각각 Elasticsearch를 설치 및 구성하는 작업은 상당한 시간이 소요되며 오류가 발생하기 쉽습니다. Azure VM에서 Elasticsearch 실행을 고려할 때는 두 가지 옵션으로 오류 가능성을 낮출 수 있습니다. - [Azure 리소스 관리자(ARM) 템플릿](http://azure.microsoft.com/documentation/templates/elasticsearch/)을 사용하여 클러스터를 만듭니다. 이 템플릿은 완전히 매개 변수화되어 사용자가 노드를 구현하는 VM의 크기와 성능 계층, 사용할 디스크 수, 기타 공통 요소를 지정할 수 있습니다. 이 템플릿은 Windows Server 2012 또는 Ubuntu Linux 14.0.4 기반의 클러스터를 만들 수 있습니다. - 자동화 또는 무인 모드 실행이 가능한 스크립트를 사용합니다. Elasticsearch 클러스터를 만들고 배포할 수 있는 스크립트는 [Azure 빠른 시작 템플릿][] 사이트에서 제공합니다.
+Elasticsearch의 단일 인스턴스 배포는 어렵지 않지만, 많은 노드를 만들고 각각 Elasticsearch를 설치 및 구성하는 작업은 상당한 시간이 소요되며 오류가 발생하기 쉽습니다. Azure VM에서 Elasticsearch 실행을 고려할 때는 두 가지 옵션으로 오류 가능성을 낮출 수 있습니다.
+- [Azure 리소스 관리자(ARM) 템플릿](http://azure.microsoft.com/documentation/templates/elasticsearch/)을 사용하여 클러스터를 만듭니다. 이 템플릿은 완전히 매개 변수화되어 사용자가 노드를 구현하는 VM의 크기와 성능 계층, 사용할 디스크 수, 기타 공통 요소를 지정할 수 있습니다. 이 템플릿은 Windows Server 2012 또는 Ubuntu Linux 14.0.4 기반의 클러스터를 만들 수 있습니다.
+- 자동화 또는 무인 모드 실행이 가능한 스크립트를 사용합니다. Elasticsearch 클러스터를 만들고 배포할 수 있는 스크립트는 [Azure 빠른 시작 템플릿][] 사이트에서 제공합니다.
 
 ## 클러스터 및 노드 크기 조정과 확장성 고려 사항
 
@@ -251,7 +258,8 @@ Elasticsearch에서는 서로 다른 요구 사항과 규모 수준을 지원하
 
 ![](media/guidance-elasticsearch-general-startingpoint.png)
 
-**그림 4.** Azure에서 Elasticsearch 클러스터를 만들기 위한 권장 출발점
+**그림 4.**
+Azure에서 Elasticsearch 클러스터를 만들기 위한 권장 출발점
 
 이 토폴로지는 클라이언트 노드 3개, 마스터 노드 3개와 함께 6개의 데이터 노드로 구성됩니다(하나의 마스터 노드만 선택하며 다른 두 노드는 마스터 노드 실패 시 선택 가능). 각 노드는 별도 VM으로 구현됩니다. Azure 웹 응용 프로그램은 부하 분산 장치를 통해 클라이언트 노드로 전달됩니다. 이 예제에서는 모든 노드와 웹 응용 프로그램이 동일한 Azure VNET에 상주하여 외부로부터 효과적으로 분리됩니다. 클러스터가 외부에서 사용할 수 있어야 할 경우(온-프레미스 클라이언트를 통합하는 하이브리드 솔루션의 일부 등) Azure Load Balancer를 사용하여 공용 IP 주소를 사용할 수 있지만 클러스터에 대한 무단 액세스를 방지하기 위해 추가적인 보안 예방 조치가 필요합니다. 선택적 "Jump Box"는 관리자에게만 제공되는 VM입니다. 이 VM은 Azure VNET과의 네트워크 연결뿐 아니라, 외부 네트워크로부터의 관리자 로그온을 허용하는 외부 접촉 네트워크 연결이 있습니다(이 로그온은 강력한 암호나 인증서를 사용하여 보호되어야 함). 관리자는 Jump Box에 로그온한 다음 클러스터 내 아무 노드에나 직접 연결할 수 있습니다. 또는 조직과 VNET 간의 사이트 간 VPN이나 [ExpressRoute][] 회로를 사용하여 VNET에 연결합니다. 이 메커니즘에서는 클러스터를 공용 인터넷에 노출시키지 않고도 클러스터에 대한 관리자 액세스가 가능합니다.
 
@@ -269,7 +277,8 @@ VM 가용성을 유지하기 위해 데이터 노드를 동일한 Azure 가용�
 
 ![](media/guidance-elasticsearch-general-tribenode.png)
 
-**그림 5.** 내 노드를 통해 여러 클러스터에 액세스하는 클라이언트 응용 프로그램
+**그림 5.**
+내 노드를 통해 여러 클러스터에 액세스하는 클라이언트 응용 프로그램
 
 이 예에서 클라이언트 응용 프로그램은 클러스터 1의 내 노드에 연결하지만(동일한 지역에 함께 배치) 이 노드는 다른 지역에 있을 수 있는 클러스터 2 및 클러스터 3에 액세스할 수 있도록 구성할 수 있습니다. 클라이언트 응용 프로그램은 아무 클러스터에서나 데이터를 검색 또는 수정하는 요청을 보낼 수 있습니다.
 
@@ -284,13 +293,15 @@ VM 가용성을 유지하기 위해 데이터 노드를 동일한 Azure 가용�
 
 ![](media/guidance-elasticsearch-general-threenodecluster.png)
 
-**그림 6.** 분할된 데이터베이스 3개와 복제본이 있는 3노드 클러스터
+**그림 6.**
+분할된 데이터베이스 3개와 복제본이 있는 3노드 클러스터
 
 독립 실행형 컴퓨터에서 개발 설치를 실행할 경우 마스터, 클라이언트 및 데이터 저장소 역할을 수행하는 단일 노드의 클러스터를 구성할 수 있습니다. 또는 Elasticsearch의 여러 인스턴스를 시작하여 동일한 컴퓨터에서 클러스터로 실행되는 여러 노드를 시작할 수 있습니다. 그림 7은 예제를 보여 줍니다.
 
 ![](media/guidance-elasticsearch-general-developmentconfiguration.png)
 
-**그림 7.** 동일한 컴퓨터에서 여러 Elasticsearch 노드를 실행하는 개발 구성
+**그림 7.**
+동일한 컴퓨터에서 여러 Elasticsearch 노드를 실행하는 개발 구성
 
 개발 컴퓨터에 메모리가 매우 넉넉하고 여러 대의 빠른 디스크가 있지 않은 한 경합을 초래할 수 있으므로 프로덕션 환경에는 이 독립 실행형 구성이 권장되지 않습니다. 또한 고가용성을 보장할 수 없으므로 컴퓨터가 실패하면 모든 노드가 손실됩니다.
 
@@ -300,11 +311,18 @@ Elasticsearch에서는 수직적 확장(더 크고 강력한 컴퓨터 사용) �
 
 **Elasticsearch 데이터 노드의 수직 확장**
 
-Azure VM을 사용하여 Elasticsearch 클러스터를 호스팅할 경우 각 노드가 VM에 해당합니다. 노드에 대한 수직 확장 제한은 상당 부분 VM의 SKU와, 개별 저장소 계정 및 Azure 구독에 적용되는 전반적인 제한 사항에 따라 좌우됩니다. [Azure 구독 및 서비스 한도, 할당량 및 제약 조건](azure-subscription-service-limits/) 페이지에서는 이러한 제한을 상세히 설명하지만, Elasticsearch 클러스터 구축에 관한 한 다음 목록의 항목이 가장 크게 관련되어 있습니다. 또한 타당한 이유 없이 64GB가 넘는 메모리의 VM을 고려하지는 않을 것입니다. [메모리 요구 사항][]에서 설명한 대로 각 VM에서 30GB가 넘는 RAM을 JVM에 할당하고 운영 체제가 나머지 메모리를 I/O 버퍼링에 사용해서는 안 됩니다. - 각 저장소 계정은 - 20,000 IOPS로 제한됩니다. 동일한 저장소 계정을 사용하여 많은 VHD를 저장하면 해당 VHD의 성능이 제한될 수 있습니다. - VNET의 데이터 노드 수. Azure 리소스 관리자(ARM)를 사용하지 않는 경우 VNET당 최대 2048 VM 인스턴스로 제한됩니다. 대부분의 경우 이 값이 충분하지만 노드가 수천 개인 초대형 구성에서는 제약이 있을 수 있습니다. - 지역별 구독당 저장소 계정 수. 각 지역에서 Azure 구독당 최대 100개의 저장소 계정을 만들 수 있습니다. 저장소 계정은 가상 디스크를 저장하는 데 사용되며 각 저장소 계정의 공간 제약은 500TB입니다. - 구독당 코어 수. 기본 제한은 구독당 20개 코어이나 Microsoft를 통해 최대 10,000개 코어까지 증대할 수 있습니다. 일부 VM 크기(A9, A11, D14 및 DS14)는 16개 코어를, G5 VM은 32개 코어를 포함할 수 있습니다. - VM 크기당 메모리 크기. VM 크기가 작으면 사용 가능한 메모리 크기가 제한됩니다(D1 컴퓨터 3.5GB, D2 컴퓨터 7GB). 이러한 컴퓨터는 성능을 높이기 위해 Elasticsearch가 상당한 크기의 데이터를 캐시해야 하는 시나리오에는 적합하지 않을 수 있습니다(데이터 집계, 데이터 수집 중 대규모 문서 분석 등). - VM 크기당 최대 디스크 수. 이 제한은 클러스터의 성능과 크기를 제한할 수 있습니다. 디스크 수가 더 적으면 데이터를 더 적게 저장하며 스트라이핑에 사용 가능한 디스크 수가 줄어 성능이 낮아질 수 있습니다. - 사용 가능한 집합당 업데이트 도메인/장애 도메인 수. ARM을 사용하여 VM을 만들 때 각 가용성 집합은 최대 3개의 장애 도메인과 20개의 업데이트 도메인에 할당할 수 있습니다. 이 제한은 업데이트 배포가 잦은 대규모 클러스터의 복원력에 영향을 미칠 수 있습니다.
+Azure VM을 사용하여 Elasticsearch 클러스터를 호스팅할 경우 각 노드가 VM에 해당합니다. 노드에 대한 수직 확장 제한은 상당 부분 VM의 SKU와, 개별 저장소 계정 및 Azure 구독에 적용되는 전반적인 제한 사항에 따라 좌우됩니다. [Azure 구독 및 서비스 한도, 할당량 및 제약 조건](azure-subscription-service-limits/) 페이지에서는 이러한 제한을 상세히 설명하지만, Elasticsearch 클러스터 구축에 관한 한 다음 목록의 항목이 가장 크게 관련되어 있습니다. 또한 타당한 이유 없이 64GB가 넘는 메모리의 VM을 고려하지는 않을 것입니다. [메모리 요구 사항][]에서 설명한 대로 각 VM에서 30GB가 넘는 RAM을 JVM에 할당하고 운영 체제가 나머지 메모리를 I/O 버퍼링에 사용해서는 안 됩니다.
+- 각 저장소 계정은 - 20,000 IOPS로 제한됩니다. 동일한 저장소 계정을 사용하여 많은 VHD를 저장하면 해당 VHD의 성능이 제한될 수 있습니다.
+- VNET의 데이터 노드 수. Azure 리소스 관리자(ARM)를 사용하지 않는 경우 VNET당 최대 2048 VM 인스턴스로 제한됩니다. 대부분의 경우 이 값이 충분하지만 노드가 수천 개인 초대형 구성에서는 제약이 있을 수 있습니다.
+- 지역별 구독당 저장소 계정 수. 각 지역에서 Azure 구독당 최대 100개의 저장소 계정을 만들 수 있습니다. 저장소 계정은 가상 디스크를 저장하는 데 사용되며 각 저장소 계정의 공간 제약은 500TB입니다.
+- 구독당 코어 수. 기본 제한은 구독당 20개 코어이나 Microsoft를 통해 최대 10,000개 코어까지 증대할 수 있습니다. 일부 VM 크기(A9, A11, D14 및 DS14)는 16개 코어를, G5 VM은 32개 코어를 포함할 수 있습니다.
+- VM 크기당 메모리 크기. VM 크기가 작으면 사용 가능한 메모리 크기가 제한됩니다(D1 컴퓨터 3.5GB, D2 컴퓨터 7GB). 이러한 컴퓨터는 성능을 높이기 위해 Elasticsearch가 상당한 크기의 데이터를 캐시해야 하는 시나리오에는 적합하지 않을 수 있습니다(데이터 집계, 데이터 수집 중 대규모 문서 분석 등).
+- VM 크기당 최대 디스크 수. 이 제한은 클러스터의 성능과 크기를 제한할 수 있습니다. 디스크 수가 더 적으면 데이터를 더 적게 저장하며 스트라이핑에 사용 가능한 디스크 수가 줄어 성능이 낮아질 수 있습니다.
+- 사용 가능한 집합당 업데이트 도메인/장애 도메인 수. ARM을 사용하여 VM을 만들 때 각 가용성 집합은 최대 3개의 장애 도메인과 20개의 업데이트 도메인에 할당할 수 있습니다. 이 제한은 업데이트 배포가 잦은 대규모 클러스터의 복원력에 영향을 미칠 수 있습니다.
 
 여러 저장소 계정에 걸친 클러스터의 VM에 가상 디스크를 배포할 때는 I/O 제한 가능성을 줄일 수 있게 항상 이러한 제한 사항을 염두에 두어야 합니다. 매우 큰 클러스터에서는 논리적 인프라를 다시 설계하고 별도의 기능적 파트션으로 분할해야 할 수 있습니다. 예를 들어, VNET 연결이 필요하여 복잡성이 커질 수는 있지만 구독 간에 클러스터를 분할해야 할 수 있습니다.
 
->	[AZURE.NOTE] Be aware that with Azure, storage accounts are pinned to a specific storage stamp. This is an internal mechanism used to maintain consistency and availability. The paper [A Highly Available Cloud Storage Service with Strong Consistency][] provides more details on how this works. If you have a storage outage loca]lized to a specific stamp, you will get errors on all drives created using that account. When this occurs, any VMs using these drives may fail. Using multiple storage accounts to host the different drives for a VM can therefore increase the risk of failure for that VM. For this reason, it is recommended that you use a single storage account per node, and store the system drive and all data drives in that account.
+>	[AZURE.NOTE] Azure에서 저장소 계정은 특정 저장소 스탬프에 고정됩니다. 이는 일관성과 가용성을 유지하기 위한 내부 메커니즘입니다. 작동 방식은 [강력한 일관성을 지닌 항상 사용 가능한 클라우드 저장소 서비스(A Highly Available Cloud Storage Service with Strong Consistency)][] 라는 논문에 자세히 나와 있습니다. 특정 스탬프에서만 저장소 중단이 발생하는 경우, 해당 계정을 사용하여 만들어진 모든 드라이브에 오류가 발생합니다. 이러한 오류 발생 시, 이 드라이브를 사용하는 VM은 실행되지 않을 수 있습니다. 한 VM에 서로 다른 드라이브를 호스트하기 위해 여러 개의 저장소 계정을 사용하는 경우 해당 VM의 실패 위험성이 높아질 수 있습니다. 이러한 이유로 노드당 하나의 저장소 계정을 사용하고 해당 계정에 시스템 드라이브와 모든 데이터 드라이브를 저장하는 것이 좋습니다.
 
 **Elasticsearch 클러스터의 수평 확장**
 
@@ -382,7 +400,10 @@ HTTP 기본 인증 등, 다양한 형태의 인증을 수행할 수 있는 Elast
 
 ### 클라이언트 요청 인증
 
-권한 부여는 이 서비스를 제공하는 Elasticsearch 플러그인에 따라 결정됩니다. 예를 들어 기본 인증을 제공하는 플러그인은 보통 인증 수준을 정의하는 기능을 제공하는 반면 LDAP 또는 AD를 사용하는 플러그인은 보통 클라이언트를 역할과 연결한 다음 액세스 권한을 해당 역할에 할당합니다. 특정 플러그인을 사용할 때는 다음 사항을 고려해야 합니다. - 클라이언트가 수행할 수 있는 작업을 제한할 필요가 있습니까? 예를 들어, 클라이언트가 클러스터 상태를 모니터링하거나 인덱스를 만들고 삭제할 수 있어야 하는지 여부 - 클라이언트가 특정 인덱스로 제한되어야 합니까? 테넌트가 자체적인 특정 인덱스 집합을 할당 받을 수 있고 이 인덱스를 다른 테넌트에서 액세스할 수 없어야 하는 다중 테넌트 상황에서 유용합니다. - 클라이언트가 인덱스에 대한 데이터 읽기 및 쓰기가 가능해야 합니까? 예를 들어, 클라이언트가 인덱스를 사용하여 데이터를 가져오는 검색을 수행할 수 있지만 이 인덱스로부터 데이터를 추가하거나 삭제하는 작업은 차단되어야 합니다.
+권한 부여는 이 서비스를 제공하는 Elasticsearch 플러그인에 따라 결정됩니다. 예를 들어 기본 인증을 제공하는 플러그인은 보통 인증 수준을 정의하는 기능을 제공하는 반면 LDAP 또는 AD를 사용하는 플러그인은 보통 클라이언트를 역할과 연결한 다음 액세스 권한을 해당 역할에 할당합니다. 특정 플러그인을 사용할 때는 다음 사항을 고려해야 합니다.
+- 클라이언트가 수행할 수 있는 작업을 제한할 필요가 있습니까? 예를 들어, 클라이언트가 클러스터 상태를 모니터링하거나 인덱스를 만들고 삭제할 수 있어야 하는지 여부
+- 클라이언트가 특정 인덱스로 제한되어야 합니까? 테넌트가 자체적인 특정 인덱스 집합을 할당 받을 수 있고 이 인덱스를 다른 테넌트에서 액세스할 수 없어야 하는 다중 테넌트 상황에서 유용합니다.
+- 클라이언트가 인덱스에 대한 데이터 읽기 및 쓰기가 가능해야 합니까? 예를 들어, 클라이언트가 인덱스를 사용하여 데이터를 가져오는 검색을 수행할 수 있지만 이 인덱스로부터 데이터를 추가하거나 삭제하는 작업은 차단되어야 합니다.
 
 현재 대부분의 보안 플러그인은 작업 범위를 클러스터나 인덱스 수준으로 제한하며 인덱스 내 문서의 하위 집합에는 적용되지 않습니다. 이는 효율성 문제에 따른 것입니다. 따라서 요청을 단일 인덱스 내 특정 문서로 제한하기는 쉽지 않습니다. 이러한 수준까지의 세밀함이 필요할 경우 문서를 별도의 인덱스에 저장하고 인덱스를 하나로 그룹화하는 별칭을 사용합니다. 예를 들어 인사 시스템에서 사용자 A는 부서 X의 직원에 관한 정보를 포함하는 모든 문서에 액세스해야 하고, 사용자 B는 부서 Y의 직원에 관한 정보가 담긴 모든 문서에 액세스해야 하며, 사용자 C는 두 부서의 직원에 대한 정보가 담긴 모든 문서에 액세스해야 한다면 두 인덱스를 만들고(부서 X와 부서 Y에 대해) 두 인덱스를 모두 참조하는 별칭을 만듭니다. 사용자 A에게는 첫 번째 인덱스에 대한 읽기 권한을, 사용자 B에게는 두 번째 인덱스에 대한 읽기 권한을, 사용자 C에게는 별칭을 통해 두 인덱스 모두에 대한 읽기 액세스 권한을 부여합니다. 자세한 내용은 [별칭을 통한 사용자별 가장 인덱스][]를 참조하세요.
 
@@ -415,7 +436,8 @@ HTTP 기본 인증 등, 다양한 형태의 인증을 수행할 수 있는 Elast
 
 ### 데이터 보호
 
-SSL/TLS를 사용하여 처리 중인 데이터를 보호할 수 있지만 Elasticsearch는 디스크에 저장된 정보에 대한 기본적인 형태의 데이터 암호화를 제공하지 않습니다. 이 정보는 일반 디스크 파일에 보관되며 해당 파일에 액세스 권한이 있는 모든 사용자가 자체 클러스터에 파일을 복사하는 등의 방식으로 여기에 담긴 데이터를 손상시킬 수 있다는 점에 유의해야 합니다. 다음 사항을 고려합니다. -Elasticsearch에서 데이터를 보관하기 위해 사용하는 파일을 보호합니다. Elasticsearch 서비스 이외의 ID에 대한 임의의 읽기 또는 쓰기 액세스를 허용하지 않습니다.
+SSL/TLS를 사용하여 처리 중인 데이터를 보호할 수 있지만 Elasticsearch는 디스크에 저장된 정보에 대한 기본적인 형태의 데이터 암호화를 제공하지 않습니다. 이 정보는 일반 디스크 파일에 보관되며 해당 파일에 액세스 권한이 있는 모든 사용자가 자체 클러스터에 파일을 복사하는 등의 방식으로 여기에 담긴 데이터를 손상시킬 수 있다는 점에 유의해야 합니다. 다음 사항을 고려합니다.
+-Elasticsearch에서 데이터를 보관하기 위해 사용하는 파일을 보호합니다. Elasticsearch 서비스 이외의 ID에 대한 임의의 읽기 또는 쓰기 액세스를 허용하지 않습니다.
 
 - 파일 시스템 암호화를 사용하여 이러한 파일에 담긴 데이터를 암호화합니다.
 
@@ -436,7 +458,7 @@ SSL/TLS를 사용하여 처리 중인 데이터를 보호할 수 있지만 Elast
 
 운영 체제 수준에서는 운영 체제 특정 도구를 사용하여 모니터링을 수행할 수 있습니다. Windows에서는 여기에 적합한 성능 카운터가 있는 성능 모니터 등의 항목이 포함될 수 있지만 Linux에서는 *vmstat*, *iostat* 및 *top* 등의 도구를 사용할 수 있습니다. 운영 체제 수준에서의 모니터링을 위한 핵심 항목에는 CPU 사용률, 디스크 I/O 볼륨, 디스크 I/O 대기 시간, 네트워크 트래픽 등이 포함됩니다. 잘 튜닝된 Elasticsearch 클러스터에서 Elasticsearch 프로세스에 의한 CPU 사용률은 높고 디스크 I/O 대기 시간은 최소화되어야 합니다.
 
-소프트웨어 수준에서는 실패한 요청의 세부 정보와 함께, 요청의 처리량과 응답 시간을 모니터링해야 합니다. Elasticsearch는 클러스터의 다양한 측면에서 성능을 조사하는 데 사용할 수 있는 여러 API를 제공합니다. 가장 중요한 두 API는 *\_cluster/health* 및 *\_nodes/stats*입니다. *\_cluster/health* API를 사용하여 클러스터의 전반적 상태에 대한 스냅숏을 제공하고, 다음 예에서처럼 각 인덱스에 대한 상세 정보를 제공할 수 있습니다.
+소프트웨어 수준에서는 실패한 요청의 세부 정보와 함께, 요청의 처리량과 응답 시간을 모니터링해야 합니다. Elasticsearch는 클러스터의 다양한 측면에서 성능을 조사하는 데 사용할 수 있는 여러 API를 제공합니다. 가장 중요한 두 API는 *\_cluster/health* 및 *\_nodes/stats* 입니다. *\_cluster/health* API를 사용하여 클러스터의 전반적 상태에 대한 스냅숏을 제공하고, 다음 예에서처럼 각 인덱스에 대한 상세 정보를 제공할 수 있습니다.
 
 `GET _cluster/health?level=indices`
 
@@ -482,7 +504,8 @@ SSL/TLS를 사용하여 처리 중인 데이터를 보호할 수 있지만 Elast
 }
 ```
 
-이 클러스터에는 이름이 *systwo*와 *sysfour*인 두 인덱스가 포함됩니다. 각 인덱스를 모니터링하기 위한 핵심 통계는 status, active\_shards 및 unassigned\_shards입니다. 상태는 녹색이어야 하고, active\_shards는 number\_of\_shards 및 number\_of\_replicas를 반영하며 unassigned\_shards는 0이어야 합니다. 상태가 "빨강"이면 인덱스 일부가 누락되었거나 손상된 것입니다. *active\_shards* 설정이 *number\_of\_shards* - (*number\_of\_replicas* + 1) 미만이고 unassigned\_shards가 0이 아닌 경우 이를 확인할 수 있습니다. 상태가 노랑이면 인덱스가 전환 상태인 것으로, 다른 복제본이나 분할된 데이터베이스가 추가되어 재할당이 진행 중입니다. 전환이 완료되면 상태가 녹색으로 바뀌어야 합니다. 오랜 시간 동안 노랑 상태이거나 빨강으로 바뀌면 운영 체제 수준에서 중대한 I/O 이벤트(예: 디스크 또는 네트워크 오류)가 발생하지 않았는지 확인해야 합니다. \_nodes/stats API는 클러스터의 각 노드에 대해 광범위한 정보를 내보냅니다.
+이 클러스터에는 이름이 *systwo* 와 *sysfour* 인 두 인덱스가 포함됩니다. 각 인덱스를 모니터링하기 위한 핵심 통계는 status, active\_shards 및 unassigned\_shards입니다. 상태는 녹색이어야 하고, active\_shards는 number\_of\_shards 및 number\_of\_replicas를 반영하며 unassigned\_shards는 0이어야 합니다. 상태가 "빨강"이면 인덱스 일부가 누락되었거나 손상된 것입니다. *active\_shards* 설정이 *number\_of\_shards* - (*number\_of\_replicas* + 1) 미만이고 unassigned\_shards가 0이 아닌 경우 이를 확인할 수 있습니다. 상태가 노랑이면 인덱스가 전환 상태인 것으로, 다른 복제본이나 분할된 데이터베이스가 추가되어 재할당이 진행 중입니다. 전환이 완료되면 상태가 녹색으로 바뀌어야 합니다. 오랜 시간 동안 노랑 상태이거나 빨강으로 바뀌면 운영 체제 수준에서 중대한 I/O 이벤트(예: 디스크 또는 네트워크 오류)가 발생하지 않았는지 확인해야 합니다.
+\_nodes/stats API는 클러스터의 각 노드에 대해 광범위한 정보를 내보냅니다.
 
 `GET _nodes/stats`
 
@@ -527,6 +550,7 @@ Elasticsearch를 벤치마킹하거나 클러스터의 성능을 테스트하는
 [쿼리 튜닝]: #query-tuning
 
 [A Highly Available Cloud Storage Service with Strong Consistency]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx
+[강력한 일관성을 지닌 항상 사용 가능한 클라우드 저장소 서비스(A Highly Available Cloud Storage Service with Strong Consistency)]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx
 [Azure 클라우드 플러그인]: https://www.elastic.co/blog/azure-cloud-plugin-for-elasticsearch
 [Azure 포털의 Azure 진단]: https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/
 [Azure Operations Management Suite]: https://www.microsoft.com/server-cloud/operations-management-suite/overview.aspx
