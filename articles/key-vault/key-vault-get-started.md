@@ -116,7 +116,7 @@ Azure 계정은 이제 이 키 자격 증명 모음에서 모든 작업을 수�
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -KeyFilePath 'c:\softkey.pfx' -KeyFilePassword $securepfxpwd
 
 
-이제 해당 URI를 사용하여 Azure 키 자격 증명 모음을 만들거나 업로드하는 이 키를 참조할 수 있습니다. ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey**를 사용하면 항상 최신 버전을 가져오고 ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**를 사용하면 이 특정 버전을 가져옵니다.
+이제 해당 URI를 사용하여 Azure 키 자격 증명 모음을 만들거나 업로드하는 이 키를 참조할 수 있습니다. **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey**를 사용하면 항상 최신 버전을 가져오고 **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**를 사용하면 이 특정 버전을 가져옵니다.
 
 이 키에 대한 URI를 표시하려면 다음을 입력합니다.
 
@@ -130,7 +130,7 @@ Azure 계정은 이제 이 키 자격 증명 모음에서 모든 작업을 수�
 
 	$secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword' -SecretValue $secretvalue
 
-이제 해당 URI를 사용하여 Azure 키 자격 증명 모음에 추가한 이 암호를 참조할 수 있습니다. ****https://ContosoVault.vault.azure.net/secrets/SQLPassword**를 사용하면 항상 최신 버전을 가져오고 ****https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**를 사용하면 이 특정 버전을 가져옵니다.
+이제 해당 URI를 사용하여 Azure 키 자격 증명 모음에 추가한 이 암호를 참조할 수 있습니다. **https://ContosoVault.vault.azure.net/secrets/SQLPassword**를 사용하면 항상 최신 버전을 가져오고 **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**를 사용하면 이 특정 버전을 가져옵니다.
 
 이 비밀에 대한 URI를 표시하려면 다음을 입력합니다.
 
@@ -163,7 +163,7 @@ Azure Active Directory에 응용 프로그램을 등록하려면:
 3. **APPLICATIONS**를 클릭합니다. 디렉터리에 추가한 앱이 없는 경우 이 페이지에는 **앱 추가** 링크만 표시됩니다. 링크를 클릭하거나 명령 모음에서 **추가**를 클릭할 수 있습니다.
 4.	**응용 프로그램 추가** 마법사에서 **무엇을 하고 싶나요?** 페이지를 클릭하고, **조직에서 개발 중인 응용 프로그램 추가**를 클릭합니다.
 5.	**응용 프로그램 정보 제공** 페이지에서 응용 프로그램의 이름을 지정한 다음 **웹 응용 프로그램 및/또는 웹 API**(기본값)를 선택합니다. **다음** 아이콘을 클릭합니다.
-6.	**앱 속성** 페이지에서 웹 응용 프로그램에 대한 **로그인 URL** 및 **앱 ID URI**를 지정합니다. 응용 프로그램에 이러한 값이 없는 경우이 단계에서 만들 수 있습니다(예를 들어, 두 상자에 대해 http://test1.contoso.com를 지정할 수 있음). 이러한 사이트가 존재하는 지가 중요하지 않습니다. 사용자 디렉토리의 각 응용 프로그램에 대해 각 응용 프로그램의 앱 ID URI가 다르다는 것이 중요합니다. 디렉터리는 이 문자열을 사용하여 앱을 식별합니다.
+6.	**앱 속성** 페이지에서 웹 응용 프로그램에 대한 **로그인 URL** 및 **앱 ID URI**를 지정합니다. 응용 프로그램에 이러한 값이 없는 경우이 단계에서 만들 수 있습니다(예를 들어, 두 상자에 대해 http://test1.contoso.com 를 지정할 수 있음). 이러한 사이트가 존재하는 지가 중요하지 않습니다. 사용자 디렉토리의 각 응용 프로그램에 대해 각 응용 프로그램의 앱 ID URI가 다르다는 것이 중요합니다. 디렉터리는 이 문자열을 사용하여 앱을 식별합니다.
 7.	**완료** 아이콘을 클릭하여 마법사의 변경 내용을 저장합니다.
 8.	**빠른 시작** 페이지에서 **구성**을 클릭합니다.
 9.	**키** 섹션으로 스크롤하고 기간을 선택한 다음 **저장**을 클릭합니다. 페이지가 새로 고쳐지고 이제 키 값을 표시합니다. 이 키 값 및 **클라이언트 ID**가 있는 응용 프로그램을 구성해야 합니다. (이 구성에 대한 지침은 응용 프로그램에 특정된 것입니다.)

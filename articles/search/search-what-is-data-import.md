@@ -39,7 +39,7 @@ Azure 검색에서 서비스는 인덱스를 처리하거나 쿼리를 실행하
 
 ##데이터 끌어오기(탐색) 
 
-끌어오기 모델은 지원되는 데이터 소스를 탐색하고 사용자에 대한 인덱스를 로드합니다. Azure 검색에서 이 기능은 *인덱서*를 통해 구현되며 Azure SQL 데이터베이스, DocumentDB 및 Azure VM의 SQL Server에 사용할 수 있습니다. [인덱서](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)를 참조하여 Azure SQL 데이터의 업로드에 대해 알아봅니다.
+끌어오기 모델은 지원되는 데이터 소스를 탐색하고 사용자에 대한 인덱스를 로드합니다. Azure 검색에서 이 기능은 *인덱서* 를 통해 구현되며 Azure SQL 데이터베이스, DocumentDB 및 Azure VM의 SQL Server에 사용할 수 있습니다. [인덱서](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)를 참조하여 Azure SQL 데이터의 업로드에 대해 알아봅니다.
 
 인덱스에 데이터를 끌어오려면 포털, REST API 또는.NET SDK를 사용할 수 있습니다.
 

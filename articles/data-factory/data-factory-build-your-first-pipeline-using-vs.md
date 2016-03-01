@@ -261,7 +261,7 @@ Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이
 ### partitionweblogs.hql 및 input.log 종속성으로 추가 
 
 1. **솔루션 탐색기** 창에서 **종속성**을 마우스 오른쪽 단추로 클릭하고 **추가**를 가리킨 다음 **기존 항목**을 클릭합니다.  
-2. **C:\\ADFGettingStarted**로 이동하고 **partitionweblogs.hql**, **input.log** 파일을 선택한 다음 **추가**를 클릭합니다. [자습서 개요](data-factory-build-your-first-pipeline.md)에서 필수 구성 요소의 일부로 이 두 파일을 만들었습니다.
+2. **C:\ADFGettingStarted**로 이동하고 **partitionweblogs.hql**, **input.log** 파일을 선택한 다음 **추가**를 클릭합니다. [자습서 개요](data-factory-build-your-first-pipeline.md)에서 필수 구성 요소의 일부로 이 두 파일을 만들었습니다.
 
 다음 단계에서 솔루션을 게시할 때 **partitionweblogs.hql** 파일은 **adfgetstarted** Blob 저장소의 스크립트 컨테이너에 업로드됩니다.
 
@@ -291,7 +291,8 @@ Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이
 ## 4단계: 파이프라인 모니터링
 
 6. [Azure 포털](https://portal.azure.com/)에 로그인하고 다음을 수행합니다.
-	1. **찾아보기**를 클릭하고 **데이터 팩터리**를 선택합니다. ![데이터 팩터리 찾아보기](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
+	1. **찾아보기**를 클릭하고 **데이터 팩터리**를 선택합니다.
+		 ![데이터 팩터리 찾아보기](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
 	2. 데이터 팩터리의 목록에서 **FirstDataFactoryUsingVS**를 선택합니다. 
 7. 데이터 팩터리에 대한 홈페이지에서 **다이어그램**을 클릭합니다.
   
@@ -315,6 +316,7 @@ Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이
 
 	![데이터 집합](./media/data-factory-build-your-first-pipeline-using-vs/dataset-blade.png)
 9. 처리가 완료되면 **준비** 상태인 조각이 표시됩니다.
+
 	>[AZURE.IMPORTANT] 주문형 HDInsight 클러스터 만들기는 일반적으로 시간이 소요됩니다.(대략 20분)  
 
 	![데이터 집합](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png)

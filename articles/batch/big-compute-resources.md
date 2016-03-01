@@ -83,7 +83,7 @@ Linux HPC 클러스터를 배포하려면 이러한 Azure 템플릿을 사용합
 
 * [MS-MPI 참조(영문)](https://msdn.microsoft.com/library/dn473458.aspx)
 
-* [MPI 포럼](https://social.microsoft.com/Forums/ko-KR/home?forum=windowshpcmpi)
+* [MPI 포럼](https://social.microsoft.com/Forums/home?forum=windowshpcmpi)
 
 ## 계산 집약적 인스턴스
 
