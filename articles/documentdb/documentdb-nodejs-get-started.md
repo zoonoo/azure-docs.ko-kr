@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="node"
 	ms.topic="hero-article" 
-	ms.date="11/18/2015"
+	ms.date="02/19/2016"
 	ms.author="anhoh"/>
 
 # NoSQL Node.js 자습서: DocumentDB Node.js 콘솔 응용 프로그램  
@@ -442,4 +442,4 @@ npm을 통해 **documentdb** 모듈을 설치합니다. 다음 명령을 사용�
 
 [keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

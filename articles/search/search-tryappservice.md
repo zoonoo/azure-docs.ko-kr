@@ -13,14 +13,14 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="search" 
-   ms.date="01/13/2016"
+   ms.date="02/21/2016"
    ms.author="heidist"/>
 
 # Azure 앱 서비스에서 무료로 Azure 검색 시도
 
 [Azure 앱 서비스 시도](https://tryappservice.azure.com/)는 구독 등록 없이 **Azure 검색**을 비롯한 Azure 서비스를 사용해 보도록 한 시간 동안 무료로 제공되는 브라우저 기반 세션입니다. 사이트에서 선택할 수 있는 여러 템플릿을 제공합니다. Azure 검색을 포함한 ASP.NET 템플릿을 선택하면 선택한 서비스에서 지원하는 모든 기능을 갖춘 웹 사이트에 액세스할 수 있습니다.
 
-[Azure 앱 서비스](https://tryappservice.azure.com/) 기능의 일부로, Azure 검색 서비스가 이미 만들어져 있으며 검색 쿼리를 받을 준비가 되어 있습니다. 자신의 인덱스 또는 데이터를 업로드하거나 사용할 수 없지만 쿼리를 실행할 수 있고 사용자 환경을 새 형태로 만들도록 다양한 코드 변경을 수행할 수는 있습니다.
+**Azure 앱 서비스** 기능의 일부로, Azure 검색 서비스가 이미 만들어져 있으며 검색 쿼리를 받을 준비가 되어 있습니다. 자신의 인덱스 또는 데이터를 업로드하거나 사용할 수 없지만 쿼리를 실행할 수 있고 사용자 환경을 새 형태로 만들도록 다양한 코드 변경을 수행할 수는 있습니다.
 
 검색 데이터는 [미국 지리 설문 조사(USGS)](http://geonames.usgs.gov/domestic/download_data.htm)의 데이터로, 미국 전체 랜드마크, 유적지, 건물 및 기타 랜드마크 특징에 대한 약 3백만 행으로 구성됩니다.
 
@@ -28,7 +28,8 @@
 
 1시간 세션이 아직 시작되지 않은 경우 다음 단계를 따라 시작합니다.
 
-1. [https://tryappservice.azure.com](https://tryappservice.azure.com/)으로 이동하고 아래로 스크롤하여 **웹앱**을 선택합니다. 
+1. [https://tryappservice.azure.com](https://tryappservice.azure.com/)를 마우스 오른쪽 단추로 클릭하여 새 브라우저 창에서 이 사이트를 엽니다.
+2. 아래로 스크롤하여 **웹앱**을 선택합니다. 
 2. **다음**을 클릭합니다.
 3. **ASP.NET + Azure 검색 사이트** 템플릿을 선택합니다.
 
@@ -523,4 +524,4 @@ Azure 검색은 완전히 관리되는 [PaaS](https://en.wikipedia.org/wiki/Plat
 [13]: ./media/search-tryappservice/AzSearch-TryAppService-Schema.png
 [14]: ./media/search-tryappservice/AzSearch-TryAppService-HitHighlight.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

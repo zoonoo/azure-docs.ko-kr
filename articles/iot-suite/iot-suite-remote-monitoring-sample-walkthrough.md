@@ -78,11 +78,90 @@
 
 ### Azure 스트림 분석 작업
 
-**작업 1: 원격 분석**은 두 가지 명령을 사용하여 들어오는 장치 원격 분석 스트림에서 작동합니다. 첫 번째 명령은 모든 원격 분석 메시지를 장치에서 영구 Blob 저장소로 보냅니다. 두 번째 명령은 5분짜리 슬라이딩 윈도우를 통해 평균, 최소 및 최대 습도 값을 계산합니다. 이 데이터는 Blob 저장소에도 보내집니다.
+**작업 1: 원격 분석**은 두 가지 방식으로 들어오는 장치 원격 분석 스트림에서 작동합니다. 첫 번째 방식은 모든 원격 분석 메시지를 장치에서 영구 Blob 저장소로 보냅니다. 두 번째 방식은 5분짜리 슬라이딩 윈도우를 통해 평균, 최소 및 최대 습도 값을 계산합니다. 이 데이터는 Blob 저장소에도 보내집니다. 이 작업은 다음과 같은 쿼리 정의를 사용합니다.
 
-**작업 2: 장치 정보**는 들어오는 메시지 스트림에서 장치 정보 메시지를 필터링하고 이벤트 허브 끝점으로 보냅니다. 장치는 시작 시 그리고 **SendDeviceInfo** 명령에 반응하여 장치 정보 메시지를 보냅니다.
+```
+WITH 
+    [StreamData]
+AS (
+    SELECT
+        *
+    FROM 
+      [IoTHubStream] 
+    WHERE
+        [ObjectType] IS NULL -- Filter out device info and command responses
+) 
 
-**작업 3: 규칙**은 장치 단위 임계값에 대해 들어오는 온도 및 습도 원격 분석 값을 평가합니다. 임계값은 솔루션에 포함된 규칙 편집기에서 설정됩니다. 각 장치/값 쌍은 **참조 데이터**로서 스트림 분석에서 읽는 Blob의 타임스탬프에 의해 저장됩니다. 작업은 장치에 대해 설정한 임계값에 대해 비지 않은 값을 비교합니다. ' >' 조건을 초과하면, 작업은 **경보** 이벤트를 출력하여 임계값을 초과했음을 나타내고 장치, 값 및 타임스탬프 값을 제공합니다.
+SELECT
+    *
+INTO
+    [Telemetry]
+FROM
+    [StreamData]
+
+SELECT
+    DeviceId,
+    AVG (Humidity) AS [AverageHumidity], 
+    MIN(Humidity) AS [MinimumHumidity], 
+    MAX(Humidity) AS [MaxHumidity], 
+    5.0 AS TimeframeMinutes 
+INTO
+    [TelemetrySummary]
+FROM
+    [StreamData]
+WHERE
+    [Humidity] IS NOT NULL
+GROUP BY
+    DeviceId, 
+    SlidingWindow (mi, 5)
+```
+
+**작업 2: 장치 정보**는 들어오는 메시지 스트림에서 장치 정보 메시지를 필터링하고 이벤트 허브 끝점으로 보냅니다. 장치는 시작 시 그리고 **SendDeviceInfo** 명령에 반응하여 장치 정보 메시지를 보냅니다. 이 작업은 다음과 같은 쿼리 정의를 사용합니다.
+
+```
+SELECT * FROM DeviceDataStream Partition By PartitionId WHERE  ObjectType = 'DeviceInfo'
+```
+
+**작업 3: 규칙**은 장치 단위 임계값에 대해 들어오는 온도 및 습도 원격 분석 값을 평가합니다. 임계값은 솔루션에 포함된 규칙 편집기에서 설정됩니다. 각 장치/값 쌍은 **참조 데이터**로서 스트림 분석에서 읽는 Blob의 타임스탬프에 의해 저장됩니다. 작업은 장치에 대해 설정한 임계값에 대해 비지 않은 값을 비교합니다. ' >' 조건을 초과하면, 작업은 **경보** 이벤트를 출력하여 임계값을 초과했음을 나타내고 장치, 값 및 타임스탬프 값을 제공합니다. 이 작업은 다음과 같은 쿼리 정의를 사용합니다.
+
+```
+WITH AlarmsData AS 
+(
+SELECT
+     Stream.DeviceID,
+     'Temperature' as ReadingType,
+     Stream.Temperature as Reading,
+     Ref.Temperature as Threshold,
+     Ref.TemperatureRuleOutput as RuleOutput,
+     Stream.EventEnqueuedUtcTime AS [Time]
+FROM IoTTelemetryStream Stream
+JOIN DeviceRulesBlob Ref ON Stream.DeviceID = Ref.DeviceID
+WHERE
+     Ref.Temperature IS NOT null AND Stream.Temperature > Ref.Temperature
+
+UNION ALL
+
+SELECT
+     Stream.DeviceID,
+     'Humidity' as ReadingType,
+     Stream.Humidity as Reading,
+     Ref.Humidity as Threshold,
+     Ref.HumidityRuleOutput as RuleOutput,
+     Stream.EventEnqueuedUtcTime AS [Time]
+FROM IoTTelemetryStream Stream
+JOIN DeviceRulesBlob Ref ON Stream.DeviceID = Ref.DeviceID
+WHERE
+     Ref.Humidity IS NOT null AND Stream.Humidity > Ref.Humidity
+)
+
+SELECT *
+INTO DeviceRulesMonitoring
+FROM AlarmsData
+
+SELECT *
+INTO DeviceRulesHub
+FROM AlarmsData
+```
 
 ### 이벤트 프로세서
 
@@ -145,4 +224,4 @@
 
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_08.png)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

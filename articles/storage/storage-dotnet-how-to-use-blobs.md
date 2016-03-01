@@ -25,7 +25,13 @@
 
 Azure Blob 저장소는 클라우드에 파일 데이터를 저장하는 서비스입니다. Blob 저장소는 문서, 미디어 파일 또는 응용 프로그램 설치 프로그램과 같은 모든 종류의 텍스트 또는 이진 데이터를 저장할 수 있습니다. Blob 저장소를 개체 저장소라고도 합니다.
 
-이 자습서에서는 Azure Blob 저장소를 사용하여 몇 가지 일반적인 시나리오에 대한 .NET 코드를 작성하는 방법을 보여 줍니다. Blob 업로드, 나열, 다운로드 및 삭제 시나리오를 다룹니다. 이 자습서를 완료하는 데 1시간을 초과하지 않습니다.
+### 이 자습서 정보
+
+이 자습서에서는 Azure Blob 저장소를 사용하여 몇 가지 일반적인 시나리오에 대한 .NET 코드를 작성하는 방법을 보여 줍니다. Blob 업로드, 나열, 다운로드 및 삭제 시나리오를 다룹니다.
+
+**예상 완료 시간:** 45분
+
+**필수 구성 요소**
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -353,9 +359,9 @@ Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 **Delete** 메서
 - [.NET용 테이블 저장소 시작](storage-dotnet-how-to-use-tables.md)
 - [.NET용 큐 저장소 시작](storage-dotnet-how-to-use-queues.md)
 - [.NET용 파일 저장소 시작](storage-dotnet-how-to-use-files.md)
-- [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)
-- [.NET 응용 프로그램에서 Azure SQL 데이터베이스를 사용하는 방법](../sql-database/sql-database-dotnet-how-to-use.md)
+- [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy)
 - [WebJob SDK를 사용하여 Azure Blob 저장소로 작업하는 방법](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
+- [.NET(C#)에서 SQL 데이터베이스 사용하기](../sql-database/sql-database-dotnet-how-to-use.md)
 
   [Blob5]: ./media/storage-dotnet-how-to-use-blobs/blob5.png
   [Blob6]: ./media/storage-dotnet-how-to-use-blobs/blob6.png
@@ -368,4 +374,4 @@ Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 **Delete** 메서
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

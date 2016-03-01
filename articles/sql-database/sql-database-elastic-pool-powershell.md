@@ -14,7 +14,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="12/01/2015"
+    ms.date="02/23/2016"
     ms.author="adamkr; sstein"/>
 
 # 여러 SQL 데이터베이스에 대해 리소스를 확장하도록 PowerShell을 사용한 탄력적 데이터베이스 풀 만들기 
@@ -26,7 +26,7 @@
 
 PowerShell cmdlet을 사용하여 [탄력적 데이터베이스 풀](sql-database-elastic-pool.md)을 만들어 여러 데이터베이스를 관리하는 방법에 대해 알아봅니다.
 
-> [AZURE.NOTE]탄력적 데이터베이스 풀은 현재 미리 보기 상태이며, SQL 데이터베이스 V12 서버에서만 사용할 수 있습니다. SQL 데이터베이스 V11 서버가 있는 경우 한 단계에서 [PowerShell을 사용하여 V12로 업그레이드 및 풀 만들기](sql-database-upgrade-server.md)를 할 수 있습니다.
+> [AZURE.NOTE] 탄력적 데이터베이스 풀은 현재 미리 보기 상태이며, SQL 데이터베이스 V12 서버에서만 사용할 수 있습니다. SQL 데이터베이스 V11 서버가 있는 경우 한 단계에서 [PowerShell을 사용하여 V12로 업그레이드 및 풀 만들기](sql-database-upgrade-server-portal.md)를 할 수 있습니다.
 
 탄력적 데이터베이스 풀을 사용하면 여러 SQL 데이터베이스에 걸친 데이터베이스 리소스 및 관리를 확장할 수 있습니다.
 
@@ -47,7 +47,7 @@ PowerShell cmdlet을 실행하려면 Azure powershell을 설치하고 실행해�
 
 이제 Azure 리소스 관리자 모듈을 실행하고 있으므로 탄력적 데이터베이스 풀을 만들고 구성하는 데 필요한 모든 cmdlet에 액세스할 수 있습니다. 먼저 Azure 계정에 대한 액세스를 설정해야 합니다. 다음을 실행하면 자격 증명을 입력할 수 있는 로그인 화면이 나타납니다. Azure 포털에 로그인할 때 사용한 것과 동일한 메일과 암호를 사용합니다.
 
-	Add-AzureRmAccount
+	Login-AzureRmAccount
 
 로그인에 성공하면 액세스 권한이 있는 Azure 구독으로 로그인한 ID를 포함한 일부 정보가 화면에 표시됩니다.
 
@@ -237,4 +237,4 @@ CSV 파일로 내보내기:
 
 API 및 오류 세부 정보를 포함하여 탄력적 데이터베이스 및 탄력적 데이터베이스 풀에 대한 자세한 내용은 [탄력적 데이터베이스 참조](sql-database-elastic-pool-reference.md)를 참조하세요.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

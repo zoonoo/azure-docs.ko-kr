@@ -28,8 +28,8 @@ Azure 컨테이너 서비스는 인기 있는 오픈 소스 컨테이너 클러�
  
 Mesos 또는 Docker Swarm 클러스터를 배포하려면 다음 템플릿 중 하나를 선택합니다. **참고** - 이러한 두 템플릿은 기본 Orchestrator 선택을 제외하고 동일합니다.
  
-* Mesos: [https://github.com/Azure/azure-quickstart-templates/tree/master/acs-mesos](https://github.com/Azure/azure-quickstart-templates/tree/master/acs-mesos)
-* Swarm: [https://github.com/Azure/azure-quickstart-templates/tree/master/acs-swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/acs-swarm)
+* Mesos: [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
+* Swarm: [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
  
 각 템플릿 페이지에는 'Azure에 배포' 단추가 있으며 이 단추를 클릭하면 다음과 같은 양식의 Azure 포털이 시작됩니다. <br />
 
@@ -67,8 +67,8 @@ SSHRSAPUBLICKEY | 가상 컴퓨터에 대한 인증에 SSH를 사용할 때 필�
  
 Mesos 또는 Docker Swarm 클러스터를 배포하려면 다음 템플릿 중 하나를 선택합니다. **참고** - 이러한 두 템플릿은 기본 Orchestrator 선택을 제외하고 동일합니다.
  
-* Mesos: [https://github.com/Azure/azure-quickstart-templates/tree/master/acs-mesos](https://github.com/Azure/azure-quickstart-templates/tree/master/acs-mesos)
-* Swarm: [https://github.com/Azure/azure-quickstart-templates/tree/master/acs-swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/acs-swarm)
+* Mesos: [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
+* Swarm: [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
  
 다음으로, Azure CLI가 Azure 구독에 연결되어 있는지 확인합니다. 이는 다음 명령을 사용하여 수행할 수 있습니다.
 
@@ -127,8 +127,8 @@ ACS 클러스터는 PowerShell로 배포할 수도 있습니다. 이 문서는 �
 
 Mesos 또는 Docker Swarm 클러스터를 배포하려면 다음 템플릿 중 하나를 선택합니다. **참고** - 이러한 두 템플릿은 기본 Orchestrator 선택을 제외하고 동일합니다.
  
-* Mesos: [https://github.com/Azure/azure-quickstart-templates/tree/master/acs-mesos](https://github.com/Azure/azure-quickstart-templates/tree/master/acs-mesos)
-* Swarm: [https://github.com/Azure/azure-quickstart-templates/tree/master/acs-swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/acs-swarm)
+* Mesos: [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
+* Swarm: [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
 
 Azure 구독에서 클러스터를 만들기 전에 PowerShell 세션이 Azure에 로그인했는지 확인합니다. `Get-AzureRMSubscription` 명령으로 이 작업을 완료할 수 있습니다.
 
@@ -173,4 +173,4 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE\_GROUP\_NAME-Temp
 
  
 
-<!-----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

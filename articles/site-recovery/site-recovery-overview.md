@@ -13,13 +13,12 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="12/14/2015" 
+	ms.date="02/22/2016" 
 	ms.author="raynew"/>
 
 #  사이트 복구란?
 
-사이트 복구는 온-프레미스 서버 및 가상 컴퓨터의 복제를 보조 온-프레미스 데이터 센트 또는 Azure에 오케스트레이션하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여하는 Azure 서비스입니다. 사이트 복구는 복제를 처리하고 한 번 클릭하여 장애 조치 및 복구를 시작할 수 있습니다. [FAQ](site-recovery-faq.md)의 일반적인 질문 목록을 읽어봅니다.
-
+Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제, 장애 조치(Failover) 및 복구를 오케스트레이션하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. 컴퓨터는 Azure 또는 보조 온-프레미스 데이터 센터로 복제할 수 있습니다. [FAQ](site-recovery-faq.md)에서 몇 가지 일반적인 질문을 읽어 보세요.
 
 ## 사이트 복구를 사용하는 이유는? 
 
@@ -68,4 +67,4 @@ VMware 가상 컴퓨터 | 온-프레미스 VMware 서버 | VMware를 실행하�
 이 개요를 마친 후에 사이트 복구 아키텍처에 대해 [자세히 알아봅니다](site-recovery-components.md).
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/09/2015"
+	ms.date="02/18/2016"
 	ms.author="heidist"/>
 
 # .NET을 사용하여 Azure 검색 인덱스 만들기
@@ -66,4 +66,4 @@
 
 이 메서드는 새 인덱스의 스키마를 정의하는 `Field` 개체 목록과 함께 새 `Index` 개체를 만듭니다. 각 필드에는 이름, 데이터 유형, 그리고 검색 동작을 정의하는 몇 가지 특성이 있습니다. 필드 외에도, 점수 매기기 프로필, 서제스터 또는 CORS 옵션을 인덱스에 추가할 수도 있습니다(이들 필드는 간단하게 나타내기 위해 샘플에서 생략됩니다). [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.index_members.aspx)의 SDK 참조뿐만 아니라 [Azure 검색 REST API 참조](https://msdn.microsoft.com/library/azure/dn798935.aspx)에서 인덱스 개체와 그 구성 요소에 대한 자세한 정보를 찾을 수 있습니다.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

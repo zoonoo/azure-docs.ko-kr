@@ -12,8 +12,8 @@
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.topic="get-started-article" 
+	ms.date="02/18/2016" 
 	ms.author="billmath"/>
 
 # LDAP 인증 및 Azure Multi-Factor Authentication 서버 
@@ -63,4 +63,4 @@ LDAP 클라이언트를 구성하려면 다음 지침을 사용합니다.
 - LDAP 디렉터리를 사용하여 사용자 자격 증명의 유효성을 검사할 시간이 있도록 LDAP 제한 시간을 30-60초로 구성하고 2단계 인증을 수행하고 응답을 받은 다음 LDAP 액세스 요청에 응답합니다. 
 - LDAPS를 사용하는 경우 LDAP 쿼리를 만드는 어플라이언스 또는 서버는 Azure Multi-Factor Authentication 서버에 설치된 SSL 인증서를 신뢰해야 합니다.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

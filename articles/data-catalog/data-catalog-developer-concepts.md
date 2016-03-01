@@ -10,7 +10,7 @@
 <tags 
    ms.service="data-catalog"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
    ms.date="02/03/2016"
@@ -262,4 +262,4 @@ Azure 데이터 카탈로그는 두 가지 권한 부여 메커니즘을 사용�
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept2.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

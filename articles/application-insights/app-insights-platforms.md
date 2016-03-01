@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/07/2016"
+	ms.date="02/22/2016"
 	ms.author="awills"/>
 
 # Application Insights: 언어, 플랫폼 및 통합
@@ -39,10 +39,11 @@
 + [ASP.NET - 이미 운영 중인 앱용](app-insights-monitor-performance-live-website-now.md)
 + [ASP.NET 5](app-insights-asp-net-five.md)
 + [Android](https://github.com/Microsoft/ApplicationInsights-Android)
-+ [Azure 웹 앱 및 VM](../insights-perf-analytics.md)
++ [Azure 웹 앱 및 VM](../azure-portal/insights-perf-analytics.md)
 + [Azure 클라우드 서비스](app-insights-cloudservices.md)&#151;웹 및 작업자 역할 둘 다 포함
 + [Microsoft Dynamics CRM Online](app-insights-sample-mscrm.md)
 + [Docker](app-insights-docker.md)
++ [Glimpse](https://azure.microsoft.com/blog/glimpse-application-insights/)
 + [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 + [J2EE](app-insights-java-get-started.md)
 + [J2EE - 이미 운영 중인 앱용](app-insights-java-live.md)
@@ -83,4 +84,4 @@
 
 아직 사용자 언어나 플랫폼에 대한 SDK가 없다면 빌드하고자 합니까? [GitHub에서 Application Insights SDK 프로젝트](https://github.com/Microsoft/AppInsights-Home)에 나열된 기존 SDK의 코드를 살펴보십시오.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

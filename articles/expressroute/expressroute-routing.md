@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/08/2016"
+   ms.date="02/12/2016"
    ms.author="cherylmc"/>
 
 
@@ -118,7 +118,7 @@ Express 경로는 전송 라우터로 구성할 수 없습니다. 전송 라우�
 
 Microsoft는 공용 피어링 및 Microsoft 피어링을 통해 접두사가 호스팅된 지역을 나타내는 적절한 BGP 커뮤니티 값으로 보급된 접두사를 태그합니다. 적절한 라우팅을 결정하는 커뮤니티 값에 의존하여 고객에게 최적의 라우팅을 제공할 수 있습니다.
 
-| **지역** | **Microsoft Azure 지역(Office 365와 동일한 내용 적용)** | **BGP 커뮤니티 값** |
+| **지역** | **Microsoft Azure 지역** | **BGP 커뮤니티 값** |
 |---|---|---|
 | **북아메리카** | | |
 | | 미국 동부 | 12076:51004 |
@@ -174,4 +174,4 @@ Microsoft는 설정한 BGP 커뮤니티 값을 준수하지 않습니다. 피어
 	- [클래식 배포 모델용 라우팅 구성](expressroute-howto-routing-classic.md) 또는 [리소스 관리자 배포 모델용 라우팅 구성](expressroute-howto-routing-arm.md)
 	- [클래식 VNet를 Express 경로 회로에 연결](expressroute-howto-linkvnet-classic.md) 또는 [리소스 관리자 VNet를 Express 경로 회로에 연결](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="NoSQL 데이터베이스 계정 만들기 - 무료 평가판 | Microsoft Azure" 
+<properties
+	pageTitle="NoSQL 데이터베이스 계정 만들기 - 무료 평가판 | Microsoft Azure"
 	description="Azure DocumentDB용 온라인 데이터베이스 작성자인 JSON용 관리되는 NoSQL 문서 데이터베이스를 사용하여 데이터베이스 계정을 만드는 방법을 알아봅니다. 지금 무료 평가판을 사용해보세요."
 	keywords="무료 평가판, 온라인 데이터베이스 작성자, 데이터베이스 만들기, 데이터베이스 만들기, DocumentDB, Azure, Microsoft Azure"
-	services="documentdb" 
-	documentationCenter="" 
-	authors="mimig1" 
-	manager="jhubbard" 
+	services="documentdb"
+	documentationCenter=""
+	authors="mimig1"
+	manager="jhubbard"
 	editor="monicar"/>
 
-<tags 
-	ms.service="documentdb" 
+<tags
+	ms.service="documentdb"
 	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="12/17/2015" 
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="02/23/2016"
 	ms.author="mimig"/>
 
 # Azure 포털을 사용하여 DocumentDB 데이터베이스 계정을 만드는 방법
@@ -36,7 +36,7 @@ DocumentDB를 처음 사용하세요? Scott Hanselman 씨가 나오는 [이](htt
 - GitHub [azure-documentdb-net](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples) 리포지토리의 [DatabaseManagement](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/DatabaseManagement) 프로젝트에 있는 C# .NET 샘플
 - Azure 포털, [Azure 포털을 사용하여 DocumentDB 데이터베이스 만들기](documentdb-create-database.md)의 설명 참조.
 - 통합형 자습서: [.NET](documentdb-get-started.md), [.NET MVC](documentdb-dotnet-application.md), [Java](documentdb-java-application.md), [Node.js](documentdb-nodejs-application.md) 또는 [Python](documentdb-python-application.md).
-- [DocumentDB SDK](documentdb-sdk-dotnet.md). DocumentDB에는 .NET, Java, Python, Node.js 및 JavaScript API SDK가 있습니다. 
+- [DocumentDB SDK](documentdb-sdk-dotnet.md). DocumentDB에는 .NET, Java, Python, Node.js 및 JavaScript API SDK가 있습니다.
 
 
 데이터베이스를 만든 후에 데이터베이스에 [하나 이상의 컬렉션을 추가](documentdb-create-collection.md)한 다음, 이 컬렉션에 [문서를 추가](documentdb-view-json-document-explorer.md)해야 합니다.
@@ -48,6 +48,4 @@ DocumentDB에 대해 자세히 알아보려면 다음 리소스를 참조하세�
 -	[DocumentDB 학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 -	[DocumentDB 리소스 모델 및 개념](documentdb-resources.md)
 
- 
-
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

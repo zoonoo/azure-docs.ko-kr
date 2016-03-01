@@ -29,7 +29,7 @@ Azure AD와 온-프레미스 디렉터리를 통합하면 온-프레미스 및 �
 
 - 동기화 및 로그인에 대해 간편한 배포 환경을 제공하는 단일 도구입니다.
 
-- 시나리오에 대한 최신 기능을 제공합니다. Azure AD Connect는 DirSync 및 Azure AD Sync와 같은 이전 버전의 ID 통합 도구를 대체합니다. 자세한 내용은 [디렉터리 통합 도구 비교](active-directory-aadconnect-get-started-tools-comparison.md)를 참조하십시오.
+- 시나리오에 대한 최신 기능을 제공합니다. Azure AD Connect는 DirSync 및 Azure AD Sync와 같은 이전 버전의 ID 통합 도구를 대체합니다. 자세한 내용은 [하이브리드 ID 디렉터리 통합 도구 비교](active-directory-hybrid-identity-design-considerations-tools-comparison.md)를 참조하세요.
 
 
 ### Azure AD Connect 작동 방법
@@ -38,7 +38,7 @@ Azure Active Directory Connect는 기본 세 부분으로 구성됩니다. 이�
 
 <center>![Azure AD Connect Stack](./media/active-directory-aadconnect-how-it-works/AADConnectStack2.png) </center>
 
-- 동기화 - 이 부분은 이전에 [DirSync 및 Azure AD 동기화](active-directory-aadconnect-get-started-tools-comparison.md)로 릴리스된 구성 요소와 기능으로 이루어집니다. 사용자 및 그룹 생성을 담당하는 부분입니다. 또한 온-프레미스 환경의 사용자 및 그룹에 대한 정보가 클라우드 내의 정보와 일치하도록 만들기도 합니다.
+- 동기화 - 이 부분은 이전에 [DirSync 및 Azure AD 동기화](active-directory-hybrid-identity-design-considerations-tools-comparison.md)로 릴리스된 구성 요소와 기능으로 이루어집니다. 사용자 및 그룹 생성을 담당하는 부분입니다. 또한 온-프레미스 환경의 사용자 및 그룹에 대한 정보가 클라우드 내의 정보와 일치하도록 만들기도 합니다.
 - AD FS - Azure AD Connect의 선택적 부분이며 온-프레미스 AD FS 인프라를 사용하여 하이브리드 환경을 설정하는 데 사용할 수 있습니다. 이 부분은 조직에서 도메인 가입 SSO, AD 로그인 정책 강화, 스마트 카드나 타사 MFA 등이 포함된 복잡한 배포를 처리하는 데 사용될 수 있습니다.
 - 상태 모니터링 - Azure AD Connect Health는 강력한 모니터링을 제공하고 Azure 포털에서 중앙 위치를 제공하여 이 활동을 볼 수 있습니다. 자세한 내용은 [Azure Active Directory Connect Health](active-directory-aadconnect-health.md)를 참조하세요.
 
@@ -144,4 +144,4 @@ Azure AD Connect 동기화는 대부분의 고객 및 토폴로지에 대해 작
 
 [AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

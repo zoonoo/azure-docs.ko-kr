@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/12/2016"
+	ms.date="02/17/2016"
 	ms.author="stepsic"/>
 
 # SaaS 서비스에 연결하는 새 논리 앱 만들기
@@ -30,144 +30,30 @@
 
 - Azure 구독
 - Twitter 계정
-- Dropbox 계정
+- Office 365 계정
 
-<!--- TODO: Add try it now information here -->
+## 트윗으로 전자 메일을 보낼 새 논리 앱 만들기
 
-## 커넥터 가져오기
+1. Azure 포털 대시보드에서 **마켓플레이스**를 선택합니다. 
+2. 모든 경우에서 '논리 앱'을 검색한 다음 **논리 앱(미리 보기)**를 선택합니다. 또한 **새로 만들기**, **웹 + 모바일**을 선택하고 **논리 앱(미리 보기)**를 선택할 수도 있습니다 
+3. 논리 앱의 이름을 입력하고 앱 서비스 계획을 선택한 다음 **만들기**를 선택합니다. 이 단계에서는 앱 서비스 계획이 있고 필요한 속성에 익숙하다는 것으로 가정하겠습니다. 그렇지 않은 경우에도 [Azure 앱 서비스 계획의 포괄 개요](azure-web-sites-web-hosting-plans-in-depth-overview.md)를 시작할 수 있습니다. 
 
-먼저, 사용할 두 개의 커넥터인 [Dropbox 커넥터](app-service-logic-connector-dropbox.md)와 [Twitter 커넥터](app-service-logic-connector-twitter.md)를 만듭니다. Twitter API에 대한 제한 사항으로 인해 우리가 Twitter와 무료 응용 프로그램을 등록하도록 해야 합니다. 해당 커넥터를 만들려면:
+4. 논리 앱을 처음 열 때 트리거가 필요합니다. 예를 들어 **되풀이**를 사용할 수 있습니다.![되풀이](./media/app-service-logic-create-a-logic-app/recurrence.png)
 
-1. Azure 포털에 로그인합니다.
+	되풀이를 사용하면 논리 앱이 선택한 시간을 사용하여 지속적으로 실행됩니다. 예를 들어, 30초마다, 5시간마다, 매일 오전 8시(PST), 매일 오전 2시(EST) 등에 논리 앱을 실행할 수 있습니다. 또한 논리 앱에서 되풀이를 삭제할 수도 있습니다. 되풀이를 삭제하는 경우 논리 앱을 수동으로 시작할 수 있습니다.
 
-2. 홈 화면에서 [마켓플레이스](https://portal.azure.com/#blade/HubsExtension/GalleryFeaturedMenuItemBlade/selectedMenuItemId/apiapps/)를 클릭하고 Twitter를 검색합니다(또는 [여기 클릭](https://portal.azure.com/#create/microsoft_com.TwitterConnector.0.2.2/)).
+5. 그러나 이 자습서에서는 조건과 일치하는 트 윗될 때마다 트리거가 실행되도록 합니다. `...` 메뉴를 클릭하여 되풀이 트리거를 삭제합니다.
 
-3. **Twitter 커넥터**를 선택하고 **만들기**를 클릭합니다. 모든 설정에 대한 뷰를 가져올 수 있습니다. 이름을 **Twitter 커넥터**로 그대로 둡니다.
-4. **패키지 설정**을 선택합니다. 여기서 Twitter 응용 프로그램의 정보를 입력해야 합니다. 이러한 단계를 사용하여 무료 응용 프로그램을 설정할 수 있습니다.
-	1. [Twitter 앱 등록 페이지](http://apps.twitter.com)로 이동합니다.
-	2. 새 앱을 만듭니다.
-	3. 이름 및 설명을 지정합니다. 웹 사이트 및 콜백 URL에 URL을 입력할 수 있습니다.(비워두면 안됨)
-	4. 등록되면 Twitter의 **Consumer Key**를 Azure의 **clientId** 필드에 복사하고 Twitter의 **Consumer Secret**을 **clientSecret**에 복사합니다.
-	5. 다른 API 설정으로 돌아가려면 Azure 창에서 **확인**을 클릭합니다.
+6. 트리거 검색 상자에서 **twitter**를 검색하고 선택합니다.
 
-5. **새 앱 서비스 계획 만들기**에 계획 이름을 입력합니다.
+7. 이제 ![Twitter 검색](./media/app-service-logic-create-a-logic-app/twittersearch.png)에 대한 twitter를 검색하려는 키워드를 입력합니다.
 
-	>[AZURE.NOTE]이 섹션의 단계에서는 새 앱 서비스 요금제를 만들고 있다고 가정합니다. 기존 앱 서비스 요금제를 사용하는 경우 **기존 선택**을 클릭하고 기존 요금제를 선택하고 이 섹션에서 마지막 단계로 건너뜁니다. 모든 앱을 호스트할 계획이 필요합니다.
+5. 더하기 기호를 선택한 다음 **동작 추가** 또는 **조건 추가**를 선택합니다. ![더하기](./media/app-service-logic-create-a-logic-app/plus.png)
+6. **동작 추가**를 선택하면, 사용 가능한 작업과 모든 커넥터가 나열됩니다. 그런 다음 논리 앱에 추가할 커넥터 및 작업을 선택할 수 있습니다. 예를 들어, **Office 365 - 전자 메일 보내기**와 기타 Office 365 작업을 선택할 수 있습니다.![동작](./media/app-service-logic-create-a-logic-app/actions.png)
 
-6.  새 계획의 **가격 책정 계층**을 선택합니다.
+7. 이제 원하는 전자 메일에 대 한 매개 변수를 입력해야 합니다. ![매개 변수](./media/app-service-logic-create-a-logic-app/parameters.png)
 
-	>[AZURE.NOTE]기본적으로 앱 논리에 대한 권장 요금제만 표시됩니다. **모두 보기**를 클릭하여 사용 가능한 모든 계획을 확인합니다. 무료 계층에서 논리 앱을 실행할 경우 1시간에 한 번씩만 실행할 수 있으며, 매월 1,000개까지 작업을 사용할 수 있습니다.
-
-7. 흐름에 대한 **리소스 그룹**을 만듭니다.
-
-	리소스 그룹이 앱의 컨테이너 역할을 합니다. 앱에 대한 모든 리소스가 동일한 리소스 그룹에 존재합니다.
-
-8. Azure 구독이 둘 이상 있는 경우 사용할 구독을 하나 선택합니다.
-
-9. **위치**를 선택하여 논리 앱을 실행합니다.
-
-	![API 앱 만들기 뷰](./media/app-service-logic-create-a-logic-app/gallery.png)
-
-10. **만들기**를 클릭합니다. 프로비전 단계는 2분 이상 걸릴 수 있습니다.
-
-11. 이제 [Dropbox](https://portal.azure.com/#create/microsoft_com.DropboxConnector.0.2.2/)를 사용하여 프로세스를 반복합니다.
-
-## 논리 앱 시작
-
-이제 새 논리 앱을 만들어야 합니다.
-
-1. 화면의 왼쪽 아래에서 **+ 새로 만들기**를 클릭하고 **웹 + 모바일**을 확장한 다음 **논리 앱**을 클릭합니다.
-
- 	그러면 논리 앱 만들기 뷰가 표시되며, 여기서 시작할 몇 가지 기본 설정을 입력해야 합니다.
-
-	![논리 앱 만들기 뷰](./media/app-service-logic-create-a-logic-app/createlogicapp.png)
-
-2. **이름**에 논리 앱에 대한 의미 있는 이름을 입력합니다.
-
-3. 커넥터를 만들 때 사용한 **앱 서비스 계획**을 선택합니다. 그러면 위치, 구독 및 리소스 그룹이 자동으로 선택됩니다.
-
-그에 따라 기본 설정이 지정되지만 아직은 **만들기**를 클릭하지 마세요. 이제 워크플로에 트리거 및 작업을 추가합니다.
-
-## 트리거 추가
-
-트리거란 논리 앱을 실행하도록 설정하는 것입니다. 이제, 미리 정의된 일정에 따라 워크플로 시작하는 되풀이 트리거를 추가합니다.
-
-1. **논리 앱 만들기** 뷰에서 **트리거 및 작업**을 클릭합니다.
-
-	그러면 흐름을 표시하는 전체 화면 디자이너와 시작할 수 있는 일부 템플릿이 표시됩니다.
-	
-2. 이 자습서에서는 **처음부터 만들겠습니다**. 유용하다고 생각될 경우 언제나 템플릿을 사용할 수 있습니다.
-    
-    이제 오른쪽에 트리거를 포함할 수 있는 모든 서비스의 목록이 표시됩니다.
-
-3. 위쪽 섹션에서 **되풀이**를 클릭합니다.
-
-	그러면 되풀이 설정을 지정할 수 있는 상자가 추가됩니다.
-
-	![되풀이](./media/app-service-logic-create-a-logic-app/recurrence.png)
-
-4.  되풀이 **빈도** 및 **간격**(예: 1시간마다 한 번씩)을 선택하고 녹색 확인 표시를 클릭합니다.
-
-이제 흐름에 작업을 추가합니다.
-
-## Twitter 작업 추가
-
-작업은 워크플로에서 수행하는 내용입니다. 개수와 관계없이 작업을 포함할 수 있고 단일 작업의 정보가 다음 작업으로 전달되도록 구성할 수 있습니다.
-
-1. 오른쪽 창에서 **Twitter 커넥터**를 클릭합니다.
-
-2. 해당 커넥터가 로드되면 **권한 부여**를 클릭하고 Twitter 계정에 로그인한 다음 **앱 권한 부여**를 클릭합니다.
-
-	그러면 Twitter 계정에 대한 커넥터 액세스 권한이 부여됩니다. Twitter 커넥터에서 제공하는 가능한 작업의 목록이 표시됩니다.
-
-	![동작](./media/app-service-logic-create-a-logic-app/actions.png)
-
-	> [AZURE.NOTE] **권한 부여** 단추는 OAUTH 보안을 사용하여 Twitter 같은 SaaS 서비스에 연결합니다. OAUTH에 대한 자세한 내용은 [OAUTH 보안](app-service-logic-oauth-security.md)을 참조하세요.
-
-3. **트윗 검색**을 클릭한 다음, **쿼리 지정**에서 `#MicrosoftAzure`와 같은 내용을 입력하고 녹색 확인 표시를 클릭합니다.
-
-	![Twitter 검색](./media/app-service-logic-create-a-logic-app/twittersearch.png)
-
-Twitter 커넥터는 이제 워크플로의 일부입니다.
-
-## Dropbox 작업 추가 및 앱 만들기
-
-마지막 단계는 Dropbox 파일에 트윗을 업로드하는 동작을 추가하는 것입니다.
-
-1. 오른쪽 창에서 **Dropbox 커넥터**를 클릭합니다.
-
-2. 프로비전이 완료되면 **권한 부여**를 클릭하고, Dropbox 계정에 로그인한 다음 **허용**을 클릭합니다.
-
-	![Dropbox 커넥터 권한 부여](./media/app-service-logic-create-a-logic-app/authorize.png)
-
-	그러면 Dropbox 계정에 대한 커넥터 액세스 권한이 부여됩니다. Dropbox 커넥터에서 제공하는 가능한 작업의 목록이 표시됩니다.
-
-4. **파일 업로드**를 클릭합니다.
-
-	그러면 Twitter 검색을 통해 데이터를 Dropbox로 전달하기 위해 설정해야 하는 Dropbox 커넥터 설정이 표시됩니다.
-
-	![Dropbox](./media/app-service-logic-create-a-logic-app/dropbox.png)
-
-3. **FilePath** 필드에 `/tweet.txt`를 입력합니다.
-
-4. **콘텐츠** 필드에서 `...` 단추를 클릭하고 **트윗 텍스트** 옵션을 클릭합니다.
-
-	텍스트 상자에 `@first(body('twitterconnector')).TweetText` 값이 입력됩니다. 생성된 값에는 다음과 같은 부분이 포함됩니다.
-
-	콘텐츠 부분 | 설명
-	------------------------------------------ | ------------
-	 `@` | 실제 값 대신 함수를 입력하고 있음을 나타냅니다.
-	`actions('twitterconnector').outputs.body` | Twitter 커넥터 쿼리에 의해 반환된 트윗을 가져옵니다.
-	`first()` | 트윗 검색 동작에 의해 목록이 반환되지만 파일을 하나만 업로드하려고 합니다.
-	`.TweetText` | 트윗 메시지 속성을 선택합니다.
-
-5. 녹색 확인 표시를 클릭하여 커넥터 설정을 저장합니다.
-
-5. 디자인이 완료되었으므로 이제 디자이너의 왼쪽 위에서 **코드 보기**를 클릭하면 표시되는 코드가 디자이너에서 방금 만든 워크플로를 정의하는 JSON 코드인 것을 확인할 수 있습니다. [다음 항목](Use logic app features)에서 이 코드에 대해 자세히 살펴보겠습니다.
-
-6. 화면 맨 아래에서 **확인** 단추를 클릭한 다음 **만들기** 단추를 클릭합니다.
-
-	그러면 새 논리 앱이 생성됩니다.
+8. 마지막으로 **저장**을 선택하여 논리 앱을 라이브 상태로 만듭니다.
 
 ## 논리 앱 생성 후 관리
 
@@ -185,7 +71,6 @@ Twitter 커넥터는 이제 워크플로의 일부입니다.
 
 <!-- Shared links -->
 [Azure portal]: https://portal.azure.com
-[Use logic app features]: app-service-logic-use-logic-app-features.md
-[논리 앱 기능 사용]: app-service-logic-use-logic-app-features.md
+[논리 앱 기능 사용]: app-service-logic-create-a-logic-app.md
 
-<!----HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

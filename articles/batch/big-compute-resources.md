@@ -83,7 +83,7 @@ Linux HPC 클러스터를 배포하려면 이러한 Azure 템플릿을 사용합
 
 * [MS-MPI 참조(영문)](https://msdn.microsoft.com/library/dn473458.aspx)
 
-* [MPI 포럼](https://social.microsoft.com/Forums/ko-KR/home?forum=windowshpcmpi)
+* [MPI 포럼](https://social.microsoft.com/Forums/home?forum=windowshpcmpi)
 
 ## 계산 집약적 인스턴스
 
@@ -117,23 +117,32 @@ Azure는 Linux 및 Windows HPC 워크로드를 실행하도록 백 엔드 RDMA �
 
 ## 고객 사례
 
-* [Towers Watson](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18222)
 
-* [Milliman](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=14967)
-
-* [ANEO](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=4168)
+* [ANEO](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=4168) 
 
 * [d3View](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=22088)
-
-* [Schlumberger](http://azure.microsoft.com/blog/big-compute-for-large-engineering-simulations)
 
 * [Ludwig Institute of Cancer Research](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=5830)
 
 * [Microsoft Research](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=15634)
+
+* [Milliman](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=14967)
+
+* [Mitsubishi UFJ Securities International](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=26266)
+
+* [Schlumberger](http://azure.microsoft.com/blog/big-compute-for-large-engineering-simulations)
+
+* [Towers Watson](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18222)
+
+
+
+
+
+
 
 ## 다음 단계
 
 * 최신 공지 사항은 [Microsoft HPC 및 배치 팀 블로그](http://blogs.technet.com/b/windowshpc/) 및 [Azure 블로그](https://azure.microsoft.com/blog/tag/hpc/)를 참조하세요.
 * 또한 [배치의 새로운 기능](https://azure.microsoft.com/updates/?service=batch)을 참조하거나 [RSS 피드](https://azure.microsoft.com/updates/feed/?service=batch)를 구독하세요.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

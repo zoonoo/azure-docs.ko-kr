@@ -17,6 +17,9 @@
 	ms.author="heidist"/>
 
 # NodeJS에서 Azure 검색 시작
+> [AZURE.SELECTOR]
+- [Portal](search-get-started-portal.md)
+- [.NET](search-get-started-dotnet.md)
 
 검색 환경에 Azure 검색을 사용하는 사용자 지정 NodeJS 검색 응용 프로그램을 빌드하는 방법에 대해 알아봅니다. 이 자습서에서는 [Azure 검색 서비스 REST API](https://msdn.microsoft.com/library/dn798935.aspx)를 사용하여 이 연습에서 사용되는 개체 및 작업을 생성합니다.
 
@@ -118,4 +121,4 @@ Azure 검색을 처음 사용하세요? 다른 자습서를 통해 만들 수 �
 [5]: ./media/search-get-started-nodejs/AzSearch-NodeJS-configjs.png
 [9]: ./media/search-get-started-nodejs/rogerwilliamsschool.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

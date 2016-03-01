@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/03/2016"
+	ms.date="02/19/2016"
 	ms.author="awills"/>
 
 # Windows Phone 및 스토어 앱에 대한 분석
@@ -83,6 +83,7 @@ Windows 유니버설 앱인 경우 Windows Phone 및 Windows 프로젝트 모두
 4. ApplicationInsights.config 파일을 프로젝트의 루트에 추가하고 포털에서 복사한 계측 키를 삽입합니다. 이 구성파일에 대한 샘플 xml는 아래와 같습니다.
 
 	```xml
+
 		<?xml version="1.0" encoding="utf-8" ?>
 		<ApplicationInsights>
 			<InstrumentationKey>YOUR COPIED INSTRUMENTATION KEY</InstrumentationKey>
@@ -96,6 +97,7 @@ Windows 유니버설 앱인 경우 Windows Phone 및 Windows 프로젝트 모두
 5. 다음 초기화 코드를 추가합니다. 이 코드를 `App()` 생성자에 추가하는 것이 좋습니다. 다른 곳에서 추가하면 첫번째 pageviews의 자동 컬렉션을 누락할 수 있습니다.
 
 ```C#
+
 	public App()
 	{
 	   // Add this initilization line. 
@@ -207,4 +209,4 @@ Application Insights SDK는 앱의 서로 다른 유형의 데이터를 자동�
 [windowsCrash]: app-insights-windows-crashes.md
 [windowsUsage]: app-insights-windows-usage.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->
