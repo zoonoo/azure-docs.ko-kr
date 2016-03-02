@@ -121,4 +121,4 @@ IoT Hub는 소비자 그룹 끝점을 통해 받는 원격 분석 데이터를 �
 [lnk-preconf-get-started]: iot-suite-getstarted-preconfigured-solutions.md
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!-----HONumber=AcomDC_0224_2016-->
