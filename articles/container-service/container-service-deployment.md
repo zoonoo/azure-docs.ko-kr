@@ -156,9 +156,9 @@ New-AzureRmResourceGroupDeployment -Name DEPLOYMENT_NAME -ResourceGroupName RESO
  
 ### Provide template parameters
  
-If you are familiar with PowerShell, you know that you can cycle through the available parameters for a cmdlet by typing a minus sign (-) and then pressing the TAB key. This same functionality also works with parameters that you define in your template. As soon as you type the template name, the cmdlet fetches the template, parses the parameters, and adds the template parameters to the command dynamically. This makes it very easy to specify the template parameter values. And, if you forget a required parameter value, PowerShell prompts you for the value.
+PowerShell에 익숙한 경우 빼기 기호(-)를 입력하고 TAB 키를 눌러 Cmdlet에 사용할 수 있는 매개 변수를 순환시켜 볼 수 있습니다. 이 기능은 템플릿에 정의하는 매개 변수에 대해서도 작동합니다. 템플릿 이름을 입력하면, cmdlet이 템플릿을 가져오고 매개 변수를 구문 분석하여 템플릿 매개 변수를 명령에 동적으로 추가합니다. 따라서 템플릿 매개 변수 값을 매우 쉽게 지정할 수 있습니다. 필수 매개 변수 값을 잊은 경우 PowerShell이 값을 묻는 메시지를 표시합니다.
  
-Below is the full command with parameters included. You can provide your own values for the names of the resources.
+다음은 매개 변수가 포함된 전체 명령입니다. 리소스의 이름에 대한 고유한 값을 제공할 수 있습니다.
 
 ```
 New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE\_GROUP\_NAME-TemplateURI TEMPLATE\_URI -adminuser value1 -adminpassword value2 ....
@@ -173,4 +173,4 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE\_GROUP\_NAME-Temp
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!----HONumber=AcomDC_0224_2016-->
