@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure SQL 데이터베이스와 탄력적 데이터베이스 트랜잭션 개요(미리 보기)"
-   description="Azure SQL 데이터베이스와 탄력적 데이터베이스 트랜잭션 개요(미리 보기)"
+   pageTitle="Azure SQL 데이터베이스와 탄력적 데이터베이스 트랜잭션 개요"
+   description="Azure SQL 데이터베이스와 탄력적 데이터베이스 트랜잭션 개요"
    services="sql-database"
    documentationCenter=""
    authors="torsteng"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="sql-database"
-   ms.date="02/01/2016"
+   ms.date="02/23/2016"
    ms.author="torsteng"/>
 
-# Azure SQL 데이터베이스와 탄력적 데이터베이스 트랜잭션 개요(미리 보기)
+# Azure SQL 데이터베이스와 탄력적 데이터베이스 트랜잭션 개요
 
 Azure SQL 데이터베이스(SQL DB)용 탄력적 데이터베이스를 사용하면 SQL DB의 여러 데이터베이스에 걸쳐 트랜잭션을 실행할 수 있습니다. SQL DB용 탄력적 데이터베이스 트랜잭션은 ADO .NET을 사용하여 .NET 응용 프로그램에서 사용할 수 있고 [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) 클래스를 사용하여 친숙한 프로그래밍 환경과 통합될 수 있습니다. 라이브러리를 가져오려면 [.NET Framework 4.6.1(웹 설치 관리자)](https://www.microsoft.com/download/details.aspx?id=49981)을 참조하세요.
 
@@ -94,11 +94,13 @@ SQL DB용 탄력적 데이터베이스 트랜잭션은 확장된 데이터 층�
 	}
 
 
-## Azure 작업자 역할에 대한 설치
+## Azure 클라우드 서비스용 .NET 설치
 
-Azure에 대한 탄력적 데이터베이스 트랜잭션에 필요한 .NET 버전과 라이브러리의 설치 및 배포를 자동화할 수 있습니다(클라우드 서비스의 게스트 OS로). Azure 작업자 역할에 시작 작업을 사용합니다. 개념 및 단계는 [클라우드 서비스 역할에 .NET 설치](../cloud-services/cloud-services-dotnet-install-dotnet.md)에 문서화되어 있습니다.
+Azure에서는 .NET 응용 프로그램을 호스트하는 여러 제품을 제공합니다. [Azure 앱 서비스, 클라우드 서비스 및 가상 컴퓨터 비교](../app-service-web/choose-web-site-cloud-service-vm.md)에서 다양한 제품을 비교할 수 있습니다. 제품의 게스트 OS가 탄력적인 트랜잭션에 필요한 .NET 4.6.1보다 작은 경우 게스트 OS를 4.6.1로 업그레이드해야 합니다.
 
-.NET 4.6.1용 설치 관리자는 Azure 클라우드 서비스에서 프로세스를 부트스트랩하는 과정에서 .NET 4.6용 설치 관리자보다 더 많은 임시 저장 공간을 필요로 합니다. 성공적인 설치를 위해 다음 예에서처럼 LocalResources 섹션의 ServiceDefinition.csdef 파일과 시작 작업의 환경 설정에서 Azure 클라우드 서비스의 임시 저장 공간을 늘려야 합니다.
+Azure 앱 서비스의 경우에는 현재 게스트 OS 업그레이드가 지원되지 않습니다. Azure 가상 컴퓨터의 경우 VM에 로그인하여 최신 .NET Framework용 설치 관리자를 실행하기만 하면 됩니다. Azure 클라우드 서비스의 경우 최신 .NET 버전의 설치를 배포의 시작 작업에 포함해야 합니다. 개념 및 단계는 [클라우드 서비스 역할에 .NET 설치](../cloud-services/cloud-services-dotnet-install-dotnet.md)에 문서화되어 있습니다.
+
+.NET 4.6.1용 설치 관리자는 Azure 클라우드 서비스에서 프로세스를 부트스트랩하는 과정에서 .NET 4.6용 설치 관리자보다 더 많은 임시 저장 공간을 필요로 할 수 있습니다. 성공적인 설치를 위해 다음 예에서처럼 LocalResources 섹션의 ServiceDefinition.csdef 파일과 시작 작업의 환경 설정에서 Azure 클라우드 서비스의 임시 저장 공간을 늘려야 합니다.
 
 	<LocalResources>
 	...
@@ -118,6 +120,17 @@ Azure에 대한 탄력적 데이터베이스 트랜잭션에 필요한 .NET 버�
 			</Environment>
 		</Task>
 	</Startup>
+	
+## 여러 서버 간의 트랜잭션
+
+탄력적 데이터베이스 트랜잭션은 Azure SQL 데이터베이스의 여러 논리 서버에 걸쳐 지원됩니다. 트랜잭션이 논리 서버 경계를 교차하는 경우 참여하는 서버는 먼저 상호 통신 관계가 설정되어야 합니다. 통신 관계가 설정된 후에는 두 서버 중 하나의 모든 데이터베이스가 다른 서버 데이터베이스와의 탄력적인 트랜잭션에 참여할 수 있습니다. 트랜잭션이 둘 이상의 논리 서버에 걸친 경우 모든 논리 서버 쌍에 대해 통신 관계가 있어야 합니다.
+
+다음 PowerShell cmdlet을 사용하여 탄력적인 데이터베이스 트랜잭션에 대한 서버 간 통신 관계를 관리할 수 있습니다.
+
+* **New-AzureRmSqlServerCommunicationLink**: Azure SQL DB에서 두 개의 논리 서버 간에 새로운 통신 관계를 만들려면 이 cmdlet을 사용합니다. 관계는 대칭적입니다. 즉, 두 서버 모두 상대 서버와의 트랜잭션을 시작할 수 있습니다.
+* **Get-AzureRmSqlServerCommunicationLink**: 기존 통신 관계와 해당 속성을 검색하려면 이 cmdlet을 사용합니다.
+* **Remove-AzureRmSqlServerCommunicationLink**: 기존 통신 관계와 해당 속성을 제거하려면 이 cmdlet을 사용합니다. 
+
 
 ## 트랜잭션 상태 모니터링
 
@@ -136,7 +149,6 @@ SQL DB의 동적 관리 뷰(DMV)를 사용하여 진행 중인 탄력적 데이�
 * SQL DB의 데이터베이스 간 트랜잭션만 지원됩니다. 다른 [X/Open XA](https://en.wikipedia.org/wiki/X/Open_XA) 리소스 공급자 및 SQL DB 이외의 데이터베이스는 탄력적 데이터베이스 트랜잭션에 참여할 수 없습니다. 탄력적 데이터베이스 트랜잭션은 온-프레미스 SQL Server와 Azure SQL 데이터베이스 사이에서 확장될 수 없습니다. 온-프레미스 분산 트랜잭션을 위해서는 MSDTC를 계속 사용하세요. 
 * .NET 응용 프로그램의 클라이언트 조정 트랜잭션만 지원됩니다. BEGIN DISTRIBUTED TRANSACTION 같은 T-SQL에 대한 서버 쪽 지원이 계획되어 있지만 아직 제공되지 않습니다. 
 * Azure SQL DB V12의 데이터베이스만 지원됩니다.
-* SQL DB의 동일한 논리 서버에 속하는 데이터베이스만 지원됩니다.
 
 ## 자세한 정보
 
@@ -145,4 +157,4 @@ SQL DB의 동적 관리 뷰(DMV)를 사용하여 진행 중인 탄력적 데이�
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

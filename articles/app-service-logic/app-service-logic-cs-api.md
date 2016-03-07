@@ -13,14 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="01/19/2016"
+   ms.date="02/22/2016"
    ms.author="jehollan"/>
 
 #C# API 앱
-C# API 앱은 논리 앱을 실행하는 동안 간단한 C# 식을 실행하는 간편한 방법을 제공합니다.
+
+>[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다.
+
+C# API 앱은 *논리 앱을 실행하는 동안* 간단한 C# 식을 실행하는 간편한 방법을 제공합니다.
 
 ##이 API 앱을 언제 사용해야 할까요?
-이 API 앱의 주요 시나리오는 작성하는 코드의 수명 주기가 논리 앱과 동일하고 다른 시나리오에서는 해당 코드를 호출하지 않는 경우입니다.
+이 API 앱의 주요 시나리오는 작성하는 코드의 수명 주기가 논리 앱과 동일하고 다른 시나리오에서는 해당 코드를 호출하지 *않는* 경우입니다.
 
 반면, 논리 앱에 독립적인 수명 주기를 갖는 코드의 재사용 가능한 코드 조각을 원한다면 WebJobs API 앱을 사용하여 간단한 코드 식을 만들어 논리 앱에서 호출해야 합니다.
 
@@ -105,4 +108,4 @@ return YammerAttachments;
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="tbd"
-	ms.date="02/10/2016"
+	ms.date="02/21/2016"
 	ms.author="garye" />
 
 
@@ -127,7 +127,7 @@ RRS 또는 BES 서비스를 호출하는 데 필요한 정보에는 네 가지�
 
 도움말 페이지의 아래쪽에 코드 예제가 있습니다. 다음은 C# 구현에 대한 코드 샘플입니다.
 
-**샘플 코드**
+**C#의 샘플 코드**
 
 	using System;
 	using System.Collections.Generic;
@@ -199,6 +199,58 @@ RRS 또는 BES 서비스를 호출하는 데 필요한 정보에는 네 가지�
 	    }
 	}
 
+**Java의 샘플 코드**
+
+다음 샘플 코드에서는 Java에서 REST API 요청을 생성하는 방법을 보여 줍니다. 여기에서는 변수(apikey 및 apiurl)에 필요한 API 세부 정보가 있고 변수 jsonBody에 REST API에서 성공적인 예측을 하는 데 필요한 올바른 JSON 개체가 있다고 간주합니다. Github - [https://github.com/nk773/AzureML\_RRSApp](https://github.com/nk773/AzureML_RRSApp)에서 전체 코드를 다운로드할 수 있습니다. 이 Java 샘플을 사용하려면 [apache http 클라이언트 라이브러리](https://hc.apache.org/downloads.cgi)가 필요합니다.
+
+	/**
+	 * Download full code from github - [https://github.com/nk773/AzureML_RRSApp](https://github.com/nk773/AzureML_RRSApp)
+ 	 */
+    	/**
+     	  * Call REST API for retrieving prediction from Azure ML 
+     	  * @return response from the REST API
+     	  */	
+    	public static String rrsHttpPost() {
+        
+        	HttpPost post;
+        	HttpClient client;
+        	StringEntity entity;
+        
+        	try {
+            		// create HttpPost and HttpClient object
+            		post = new HttpPost(apiurl);
+            		client = HttpClientBuilder.create().build();
+            
+            		// setup output message by copying JSON body into 
+            		// apache StringEntity object along with content type
+            		entity = new StringEntity(jsonBody, HTTP.UTF_8);
+            		entity.setContentEncoding(HTTP.UTF_8);
+            		entity.setContentType("text/json");
+
+            		// add HTTP headers
+            		post.setHeader("Accept", "text/json");
+            		post.setHeader("Accept-Charset", "UTF-8");
+        
+            		// set Authorization header based on the API key
+            		post.setHeader("Authorization", ("Bearer "+apikey));
+            		post.setEntity(entity);
+
+            		// Call REST API and retrieve response content
+            		HttpResponse authResponse = client.execute(post);
+            
+            		return EntityUtils.toString(authResponse.getEntity());
+            
+        	}
+        	catch (Exception e) {
+            
+            		return e.toString();
+        	}
+    
+    	}
+    
+    	
+ 
+
 ### BES 예제
 RRS 서비스와 달리 BES는 비동기 서비스입니다. 즉, BES API는 실행할 작업을 큐에 넣기만 하고 호출자는 작업이 완료되었는지 확인하기 위해 작업 상태를 폴링합니다. 다음은 일괄 처리 작업에 대해 현재 지원되는 작업입니다.
 
@@ -213,7 +265,7 @@ Azure 기계 학습 서비스 끝점에 대한 일괄 작업을 만들 때 이 �
 
 * **Input**: 일괄 작업의 입력이 저장되는 Blob 참조를 나타냅니다.
 * **GlobalParameters**: 실험에 대해 정의할 수 있는 전역 매개 변수 집합을 나타냅니다. Azure 기계 학습 실험에는 서비스의 실행을 사용자 지정하는 필수 및 선택적 매개 변수가 모두 있을 수 있으며, 호출자는 해당되는 경우 필수 매개 변수를 모두 제공해야 합니다. 이러한 매개 변수는 키-값 쌍의 컬렉션으로 지정됩니다.
-* **Outputs**: 서비스에서 하나 이상의 출력을 정의한 경우 호출자는 그 중 하나를 Azure Blob 위치로 리디렉션할 수 있습니다. 이를 통해 서비스의 출력을 예측 가능한 이름으로 기본 설정 위치에 저장할 수 있습니다. 그렇지 않으면 출력 Blob 이름이 임의로 생성됩니다. 
+* **Outputs**: 서비스에서 하나 이상의 출력을 정의한 경우 호출자는 그중 하나를 Azure Blob 위치로 리디렉션할 수 있습니다. 이를 통해 서비스의 출력을 예측 가능한 이름으로 기본 설정 위치에 저장할 수 있습니다. 그렇지 않으면 출력 Blob 이름이 임의로 생성됩니다. 
 
     서비스는 해당 형식에 따라 출력 내용을 지원되는 형식으로 저장해야 합니다.
   - 데이터 집합 출력: **.csv,.tsv,.arff**로 저장할 수 있음
@@ -245,7 +297,7 @@ Azure 기계 학습 서비스 끝점에 대한 일괄 작업을 만들 때 이 �
 
 **2. 일괄 처리 실행 작업 시작**
 
-일괄 작업을 만들면 시스템 내에 등록되고 *Not started* 상태로 표시됩니다. 실제로 작업 실행을 예약하려면 서비스 끝점의 API 도움말 페이지에 설명된 **시작** API를 호출하고 작업을 만들 때 가져온 작업 ID를 제공합니다.
+일괄 작업을 만들면 시스템 내에 등록되고 *Not started* 상태로 표시됩니다. 실제로 작업 실행을 예약하려면 서비스 끝점의 API 도움말 페이지에 설명된 **start** API를 호출하고 작업을 만들 때 가져온 작업 ID를 제공합니다.
 
 **3. 일괄 처리 실행 작업의 상태 가져오기**
 
@@ -435,4 +487,202 @@ Azure 기계 학습 서비스 끝점에 대한 일괄 작업을 만들 때 이 �
 	    }
 	}
 
-<!---HONumber=AcomDC_0211_2016-->
+#### BES용 Java의 샘플 코드
+일괄 처리 실행 서비스 REST API는 아래와 같이 입력 샘플 csv 및 출력 샘플 csv에 대한 참조로 구성된 JSON을 사용하고 Azure ML에서 작업을 만들어 일괄 처리 예측을 수행합니다. [Github](https://github.com/nk773/AzureML_BESApp/tree/master/src/azureml_besapp)에서 전체 코드를 볼 수 있습니다. 이 Java 샘플을 사용하려면 [apache http 클라이언트 라이브러리](https://hc.apache.org/downloads.cgi)가 필요합니다.
+
+
+	{ "GlobalParameters": {}, 
+    	"Inputs": { "input1": { "ConnectionString": 	"DefaultEndpointsProtocol=https;
+			AccountName=myAcctName; AccountKey=Q8kkieg==", 
+        	"RelativeLocation": "myContainer/sampleinput.csv" } }, 
+    	"Outputs": { "output1": { "ConnectionString": 	"DefaultEndpointsProtocol=https;
+			AccountName=myAcctName; AccountKey=kjC12xQ8kkieg==", 
+        	"RelativeLocation": "myContainer/sampleoutput.csv" } } 
+	} 
+
+
+#####BES 작업 만들기	
+	    
+	    /**
+	     * Call REST API to create a job to Azure ML 
+	     * for batch predictions
+	     * @return response from the REST API
+	     */	
+	    public static String besCreateJob() {
+	        
+	        HttpPost post;
+	        HttpClient client;
+	        StringEntity entity;
+	        
+	        try {
+	            // create HttpPost and HttpClient object
+	            post = new HttpPost(apiurl);
+	            client = HttpClientBuilder.create().build();
+	            
+	            // setup output message by copying JSON body into 
+	            // apache StringEntity object along with content type
+	            entity = new StringEntity(jsonBody, HTTP.UTF_8);
+	            entity.setContentEncoding(HTTP.UTF_8);
+	            entity.setContentType("text/json");
+	
+	            // add HTTP headers
+	            post.setHeader("Accept", "text/json");
+	            post.setHeader("Accept-Charset", "UTF-8");
+	        
+	            // set Authorization header based on the API key
+				// note a space after the word "Bearer " - don't miss that
+	            post.setHeader("Authorization", ("Bearer "+apikey));
+	            post.setEntity(entity);
+	
+	            // Call REST API and retrieve response content
+	            HttpResponse authResponse = client.execute(post);
+	            
+	            jobId = EntityUtils.toString(authResponse.getEntity()).replaceAll(""", "");
+	            
+	            
+	            return jobId;
+	            
+	        }
+	        catch (Exception e) {
+	            
+	            return e.toString();
+	        }
+	    
+	    }
+	    
+#####이전에 만든 BES 작업 시작	        
+	    /**
+	     * Call REST API for starting prediction job previously submitted 
+	     * 
+	     * @param job job to be started 
+	     * @return response from the REST API
+	     */	
+	    public static String besStartJob(String job){
+	        HttpPost post;
+	        HttpClient client;
+	        StringEntity entity;
+	        
+	        try {
+	            // create HttpPost and HttpClient object
+	            post = new HttpPost(startJobUrl+"/"+job+"/start?api-version=2.0");
+	            client = HttpClientBuilder.create().build();
+	         
+	            // add HTTP headers
+	            post.setHeader("Accept", "text/json");
+	            post.setHeader("Accept-Charset", "UTF-8");
+	        
+	            // set Authorization header based on the API key
+	            post.setHeader("Authorization", ("Bearer "+apikey));
+	
+	            // Call REST API and retrieve response content
+	            HttpResponse authResponse = client.execute(post);
+	            
+	            if (authResponse.getEntity()==null)
+	            {
+	                return authResponse.getStatusLine().toString();
+	            }
+	            
+	            return EntityUtils.toString(authResponse.getEntity());
+	            
+	        }
+	        catch (Exception e) {
+	            
+	            return e.toString();
+	        }
+	    }
+#####이전에 만든 BES 작업 취소
+	    
+	    /**
+	     * Call REST API for canceling the batch job 
+	     * 
+	     * @param job job to be started 
+	     * @return response from the REST API
+	     */	
+	    public static String besCancelJob(String job) {
+	        HttpDelete post;
+	        HttpClient client;
+	        StringEntity entity;
+	        
+	        try {
+	            // create HttpPost and HttpClient object
+	            post = new HttpDelete(startJobUrl+job);
+	            client = HttpClientBuilder.create().build();
+	         
+	            // add HTTP headers
+	            post.setHeader("Accept", "text/json");
+	            post.setHeader("Accept-Charset", "UTF-8");
+	        
+	            // set Authorization header based on the API key
+	            post.setHeader("Authorization", ("Bearer "+apikey));
+	
+	            // Call REST API and retrieve response content
+	            HttpResponse authResponse = client.execute(post);
+	         
+	            if (authResponse.getEntity()==null)
+	            {
+	                return authResponse.getStatusLine().toString();
+	            }
+	            return EntityUtils.toString(authResponse.getEntity());
+	            
+	        }
+	        catch (Exception e) {
+	            
+	            return e.toString();
+	        }
+	    }
+	    
+###다른 프로그래밍 환경
+API 도움말 페이지에서 swagger 문서를 사용하고 [swagger.io](http://swagger.io/) 사이트에 제공된 지침에 따라 여러 가지 다른 언어로 코드를 생성할 수도 있습니다. [swagger.io](http://swagger.io/swagger-codegen/)로 이동하여 지침에 따라 swagger 코드, java 및 apache mvn을 다운로드합니다. 다음은 다른 프로그래밍 환경에 대해 swagger를 설정하는 지침 요약입니다.
+
+* Java 7 이상이 설치되어 있는지 확인
+* apache mvn 설치(ubuntu에서는 *apt-get install mvn* 사용 가능)
+* swagger에 대한 Github로 이동하여 swagger 프로젝트를 zip 파일로 다운로드
+* swagger 압축 풀기
+* swagger의 원본 디렉터리에서 *mvn package*를 실행하여 swagger 도구 빌드
+
+이제 swagger 도구 중 하나를 사용할 수 있습니다. 다음은 Java 클라이언트 코드를 생성하는 지침입니다.
+
+* Azure ML API 도움말 페이지(예제 [여기](https://studio.azureml.net/apihelp/workspaces/afbd553b9bac4c95be3d040998943a4f/webservices/4dfadc62adcc485eb0cf162397fb5682/endpoints/26a3afce1767461ab6e73d5a206fbd62/jobs))로 이동
+* Azure ML REST API에 대한 swagger.json의 URL 찾기(API 도움말 페이지 맨 위에서 마지막 두 번째 글머리 기호)
+* swagger 문서 링크(예제 [여기](https://management.azureml.net/workspaces/afbd553b9bac4c95be3d040998943a4f/webservices/4dfadc62adcc485eb0cf162397fb5682/endpoints/26a3afce1767461ab6e73d5a206fbd62/apidocument)) 클릭
+* [swagger의 추가 정보 파일](https://github.com/swagger-api/swagger-codegen/blob/master/README.md)에 표시된 대로 다음 명령을 사용하여 클라이언트 코드 생성
+
+**클라이언트 코드를 생성하는 샘플 명령줄**
+
+	java -jar swagger-codegen-cli.jar generate\
+	 -i https://ussouthcentral.services.azureml.net:443/workspaces/\
+	fb62b56f29fc4ba4b8a8f900c9b89584/services/26a3afce1767461ab6e73d5a206fbd62/swagger.json\
+	 -l java -o /home/username/sample
+
+* 필드 호스트에서 아래 표시된 [API 도움말 페이지](https://management.azureml.net/workspaces/afbd553b9bac4c95be3d040998943a4f/webservices/4dfadc62adcc485eb0cf162397fb5682/endpoints/26a3afce1767461ab6e73d5a206fbd62/apidocument)의 swagger 샘플에 있는 basePath 및 "/swagger.json" 값을 결합하여 위의 명령줄에서 사용되는 swagger URL을 생성합니다.
+
+**샘플 API 도움말 페이지**
+
+
+	{
+	  "swagger": "2.0",
+	  "info": {
+	    "version": "2.0",
+	    "title": "Sample 5: Binary Classification with Web Service: Adult Dataset [Predictive Exp.]",
+	    "description": "No description provided for this web service.",
+	    "x-endpoint-name": "default"
+	  },
+	  "host": "ussouthcentral.services.azureml.net:443",
+	  "basePath": "/workspaces/afbd553b9bac4c95be3d040998943a4f/services/26a3afce1767461ab6e73d5a206fbd62",
+	  "schemes": [
+	    "https"
+	  ],
+	  "consumes": [
+	    "application/json"
+	  ],
+	  "produces": [
+	    "application/json"
+	  ],
+	  "paths": {
+	    "/swagger.json": {
+	      "get": {
+	        "summary": "Get swagger API document for the web service",
+	        "operationId": "getSwaggerDocument",
+	        
+
+<!---HONumber=AcomDC_0224_2016-->

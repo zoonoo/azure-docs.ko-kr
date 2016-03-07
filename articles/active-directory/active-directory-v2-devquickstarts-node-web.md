@@ -1,5 +1,5 @@
 <properties
-	pageTitle="앱 모델 v2.0 Node.js 웹앱 | Microsoft Azure"
+	pageTitle="Azure AD v2.0 NodeJS 웹앱 | Microsoft Azure"
 	description="개인 Microsoft 계정과 회사 또는 학교 계정 둘 다로 사용자를 로그인하는 Node JS 웹앱을 빌드하는 방법입니다."
 	services="active-directory"
 	documentationCenter="nodejs"
@@ -13,30 +13,25 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="02/20/2016"
 	ms.author="brandwe"/>
 
-# 앱 모델 v2.0 미리 보기: nodeJS 웹앱에 로그인 추가
+# NodeJS 웹앱에 로그인 추가
 
 
-  >[AZURE.NOTE]
-    이 정보는 v2.0 앱 모델 공개 미리 보기에 적용됩니다. 일반 공급 Azure AD 서비스와 통합하는 방법에 대한 지침은 [Azure Active Directory 개발자 가이드](active-directory-developers-guide.md)를 참조하세요.
+> [AZURE.NOTE]
+	일부 Azure Active Directory 시나리오 및 기능만 v2.0 끝점에서 지원합니다. v2.0 끝점을 사용해야 하는지 확인하려면 [v2.0 제한 사항](active-directory-v2-limitations.md)을 참조하세요.
 
 
 여기서는 Passport를 통해 다음 작업을 수행합니다.
 
-- Azure AD 및 v2.0 앱 모델을 사용하여 사용자를 앱에 로그인합니다.
+- Azure AD 및 v2.0 끝점을 사용하여 사용자를 앱에 로그인합니다.
 - 사용자에 대한 일부 정보를 표시합니다.
 - 앱에서 사용자를 로그아웃합니다.
 
 **Passport**는 Node.js에 대한 인증 미들웨어입니다. 매우 유연한 모듈식 Passport는 어떤 Express 기반 또는 Resitify 웹 응용 프로그램에도 원활하게 추가할 수 있습니다. 포괄적인 전략 모음이 사용자 이름 및 암호, Facebook, Twitter 등을 사용하는 인증을 지원합니다. Microsoft는 Microsoft Azure Active Directory에 대한 전략을 개발했습니다. 여기서는 이 모듈을 설치하고 Microsoft Azure Active Directory `passport-azure-ad` 플러그 인을 추가하겠습니다.
 
-이 작업을 수행하려면 다음 작업이 필요합니다.
-
-1. 앱을 등록합니다.
-2. Passport-azure-ad 전략을 사용하도록 앱을 설정합니다.
-3. Passport를 사용하여 Azure AD에 로그인 및 로그아웃 요청을 실행합니다.
-4. 사용자에 대한 데이터를 출력합니다.
+## 다운로드
 
 이 자습서에 대한 코드는 [GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs)에서 유지 관리됩니다. 자습서에 따라 [.zip으로 앱 구조를 다운로드](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs/archive/skeleton.zip)하거나 구조를 복제할 수 있습니다.
 
@@ -44,14 +39,14 @@
 
 전체 응용 프로그램은 이 자습서 마지막 부분에서도 제공됩니다.
 
-## 1. 앱 등록
+## 1\. 앱 등록
 [apps.dev.microsoft.com](https://apps.dev.microsoft.com)에서 새 앱을 만들거나 다음 [자세한 단계](active-directory-v2-app-registration.md)를 따르십시오. 다음을 수행해야 합니다.
 
 - 곧 필요하게 되므로 앱에 할당된 **응용 프로그램 ID**를 적어둡니다.
 - 앱에 대한 **웹** 플랫폼을 추가합니다.
 - 올바른 **리디렉션 URI**를 입력합니다. 리디렉션 URI는 인증 응답을 보내야 하는 Azure AD를 나타냅니다. 이 자습서에 대한 기본값은 `http://localhost:3000/auth/openid/return`입니다.
 
-## 2. pre requisities를 디렉터리에 추가
+## 2\. pre requisities를 디렉터리에 추가
 
 명령줄에서 루트 폴더가 없는 경우 디렉터리를 루트 폴더로 변경하고 다음 명령을 실행합니다.
 
@@ -68,14 +63,14 @@
 - `npm install express-session`
 - `npm install cookie-parser`
 
-- 또한 빠른 시작의 뼈대에 Preview를 위해 `passport-azure-ad`를 사용했습니다.
+- 또한 빠른 시작의 뼈대에 `passport-azure-ad`를 사용했습니다.
 
 - `npm install passport-azure-ad`
 
 
 이는 passport-azure-ad가 의존하는 라이브러리를 설치합니다.
 
-## 3. passport-node-js 전략을 사용하도록 앱을 설정합니다.
+## 3\. passport-node-js 전략을 사용하도록 앱을 설정합니다.
 여기서는 OpenID Connect 인증 프로토콜을 사용하도록 Express 미들웨어를 구성합니다. passport는 로그인 및 로그아웃 요청을 실행하고, 사용자의 세션을 관리하고, 사용자에 대한 정보를 가져오는 데 사용됩니다.
 
 -	먼저 프로젝트의 루트에서 `config.js` 파일을 열고 `exports.creds` 섹션에 앱의 구성 값을 입력합니다.
@@ -419,8 +414,8 @@ exports.list = function(req, res){
 
 이제 좀 더 고급 항목으로 이동할 수 있습니다. 다음 작업을 시도할 수 있습니다.
 
-[node.js에서 v2.0 앱 모델을 사용하여 Web API 보안 유지 >>](active-directory-v2-devquickstarts-webapi-nodejs.md)
+[V 2.0 끝점을 사용하여 node.js 웹앱의 보안 유지 >>](active-directory-v2-devquickstarts-node-api.md)
 
-추가 리소스는 다음을 확인해보세요. - [앱 모델 v2.0 미리 보기 >>](active-directory-appmodel-v2-overview.md) - [스택 오버플로 "azure-active-directory" 태그 >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+추가 리소스는 다음을 확인해보세요. - [v2.0 개발자 가이드 >>](active-directory-appmodel-v2-overview.md) - [스택 오버플로 "azure-active-directory" 태그 >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -89,7 +89,7 @@
 
     PS C:\> $webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite
     PS C:\> $plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan
-    PS C:\> Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId ($webapp.ResourceId, $plan.ResourceId)
+    PS C:\> Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
 
 새 구독으로 이동하려면 **DestinationSubscriptionId** 매개 변수 값을 포함합니다.
 
@@ -117,4 +117,4 @@
 - [Azure 포털을 사용하여 리소스 관리](azure-portal/resource-group-portal.md)
 - [태그를 사용하여 리소스 구성](./resource-group-using-tags.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="01/09/2016" 
+	ms.date="02/21/2016" 
 	ms.author="robmcm"/>
 
 # Hudson Continuous Integration 솔루션과 함께 Azure 저장소 사용
@@ -28,7 +28,7 @@
 
 Hudson은 개발자가 코드 변경을 쉽게 통합하고 자동으로 자주 빌드를 생성하도록 하여 개발자의 생산성을 증가시켜 소프트웨어 프로젝트의 연속 통합을 가능하게 합니다. 빌드에는 버전이 지정되고 빌드 아티팩트는 다양한 리포지토리에 업로드될 수 있습니다. 이 문서에서는 Azure Blob 저장소를 빌드 아티팩트의 리포지토리로 사용하는 방법을 보여 줍니다. Azure Blob 저장소에서 종속성을 다운로드하는 방법도 보여 줍니다.
 
-Hudson에 관한 자세한 정보는 [Meet Hudson][](영문)에서 찾을 수 있습니다.
+Hudson에 관한 자세한 정보는 [Meet Hudson](http://wiki.eclipse.org/Hudson-ci/Meet_Hudson)(영문)에서 찾을 수 있습니다.
 
 ## Blob 서비스를 사용할 경우의 이점 ##
 
@@ -62,7 +62,7 @@ Hudson CI 솔루션으로 Blob 서비스를 사용하려면 다음이 있어야 
 
 - Azure 계정. <http://www.azure.com>에서 Azure 계정에 등록할 수 있습니다.
 
-- Azure 저장소 계정. 저장소 계정이 없으면 [저장소 계정을 만드는 방법][]에 나온 단계를 통해 계정을 만들 수 있습니다.
+- Azure 저장소 계정. 저장소 계정이 아직 없으면 [저장소 계정 만들기](storage-create-storage-account.md#create-a-storage-account)에 설명된 단계를 따라 계정을 만들 수 있습니다.
 
 - Hudson CI 솔루션은 필수는 아니지만 알아 두는 것이 좋습니다. 다음 내용에서 기본 예제를 통해 Blob 서비스를 Hudson CI 빌드 아티팩트의 리포지토리로 사용할 때 필요한 단계를 보여 주기 때문입니다.
 
@@ -121,7 +121,7 @@ Hudson으로 Blob 서비스를 사용하려면 Azure 저장소 플러그 인을 
 
     **Execute Windows batch command** 스크립트를 입력한 아래 **Command** 섹션은 Hudson에서 인식하는 환경 변수에 대한 링크입니다. 환경 변수 이름과 설명을 알아보려면 이 링크를 클릭합니다. **BUILD\_URL** 환경 변수와 같은 특수 문자가 포함된 환경 변수는 컨테이너 이름이나 일반 가상 경로로 사용할 수 없습니다.
 
-8. 이 예의 경우 **Make new container public by default**를 클릭합니다. (개인 컨테이너를 사용하려는 경우 액세스를 허용하려면 공유 액세스 서명을 만들어야 합니다. 이 내용은 이 문서에서 다루지 않습니다. [공유 액세스 서명 만들기](http://go.microsoft.com/fwlink/?LinkId=279889)에서 공유 액세스 서명에 대한 자세한 내용을 알아볼 수 있습니다.)
+8. 이 예의 경우 **Make new container public by default**를 클릭합니다. (개인 컨테이너를 사용하려는 경우 액세스를 허용하려면 공유 액세스 서명을 만들어야 합니다. 이 내용은 이 문서에서 다루지 않습니다. [공유 액세스 서명: SAS 모델 이해](storage-dotnet-shared-access-signature-part-1.md)에서 SAS에 대해 자세히 알아볼 수 있습니다.
 9. [옵션] 빌드 아티팩트를 업로드하기 전에 컨테이너에서 내용을 지우려면 **Clean container before uploading**을 클릭합니다. 컨테이너의 내용을 지우지 않으려면 선택 취소한 상태로 둡니다.
 10. **List of Artifacts to upload**에 대해 **text/*.txt**를 입력합니다.
 11. **Common virtual path for uploaded artifacts**에 대해 **${BUILD\_ID}/${BUILD\_NUMBER}**를 입력합니다.
@@ -161,7 +161,7 @@ Azure Blob 저장소에서 다운로드할 추가 항목이 있는 경우에는 
 
 - **저장소 계정:** Azure 저장소에 대한 모든 액세스는 저장소 계정을 통해 수행됩니다. 이는 Blob 액세스를 위한 가장 높은 수준의 네임스페이스입니다. 전체 크기가 100TB를 초과하지 않을 경우 한 계정에 포함될 수 있는 컨테이너 수는 제한이 없습니다.
 - **컨테이너**: 컨테이너는 Blob 집합 그룹화를 제공합니다. 모든 Blob은 컨테이너에 있어야 합니다. 한 계정에 포함될 수 있는 컨테이너 수에는 제한이 없습니다. 한 컨테이너에 저장될 수 있는 Blob 수에도 제한이 없습니다.
-- **Blob**: 모든 형식과 크기의 파일입니다. Azure Blob 저장소 서비스에 저장할 수 있는 Blob 유형에는 블록과 페이지 Blob 두 가지가 있습니다. 대부분의 파일은 블록 Blob입니다. 단일 블록 Blob의 크기는 최대 200GB일 수 있습니다. 이 자습서에서는 블록 Blob을 사용합니다. 다른 Blob 유형인 페이지 Blob의 크기는 최대 1TB일 수 있으며, 파일의 바이트 범위가 자주 수정되는 경우 더 효율적입니다. Blob에 대한 자세한 내용은 [블록 Blob 및 페이지 Blob 이해](http://msdn.microsoft.com/library/azure/ee691964.aspx)를 참조하세요.
+- **Blob**: 모든 형식과 크기의 파일입니다. Azure Blob 저장소 서비스에 저장할 수 있는 Blob 유형에는 블록과 페이지 Blob 두 가지가 있습니다. 대부분의 파일은 블록 Blob입니다. 단일 블록 Blob의 크기는 최대 200GB일 수 있습니다. 이 자습서에서는 블록 Blob을 사용합니다. 다른 Blob 유형인 페이지 Blob의 크기는 최대 1TB일 수 있으며, 파일의 바이트 범위가 자주 수정되는 경우 더 효율적입니다. Blob에 대한 자세한 내용은 [블록 Blob, 추가 Blob 및 페이지 Blob 이해](http://msdn.microsoft.com/library/azure/ee691964.aspx)를 참조하세요.
 - **URL 형식**: Blob에 다음 URL 형식을 사용하여 주소를 지정할 수 있습니다.
 
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
@@ -174,7 +174,12 @@ Azure Blob 저장소에서 다운로드할 추가 항목이 있는 경우에는 
 
 ## 다음 단계
 
-  [저장소 계정을 만드는 방법]: http://go.microsoft.com/fwlink/?LinkId=279823
-  [Meet Hudson]: http://wiki.eclipse.org/Hudson-ci/Meet_Hudson
+- [Meet Hudson](http://wiki.eclipse.org/Hudson-ci/Meet_Hudson)
+- [Java용 Azure 저장소 SDK](https://github.com/azure/azure-storage-java)
+- [Azure 저장소 클라이언트 SDK 참조](http://dl.windowsazure.com/storage/javadoc/)
+- [Azure 저장소 서비스 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+- [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)
 
-<!---HONumber=AcomDC_0128_2016-->
+자세한 내용은 [Java개발자 센터](https://azure.microsoft.com/develop/java/)를 참조하세요.
+
+<!---HONumber=AcomDC_0224_2016-->

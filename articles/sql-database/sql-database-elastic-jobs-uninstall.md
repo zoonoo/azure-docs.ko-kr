@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
+	ms.date="02/23/2016" 
 	ms.author="ddove; sidneyh"/>
 
 #탄력적 데이터베이스 작업 구성 요소 제거
@@ -29,7 +29,7 @@
 
 ##PowerShell을 사용하여 탄력적 데이터베이스 작업 구성 요소 제거
 
-1.	Microsoft Azure PowerShell 명령 창을 시작하고 Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x 폴더 아래의 tools 하위 디렉터리로 이동합니다. cd tools를 입력합니다.
+1.	Microsoft Azure PowerShell 명령 창을 시작하고 Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x 폴더 아래의 tools 하위 디렉터리로 이동합니다. **cd tools**를 입력합니다.
 
 		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd tools
 
@@ -61,7 +61,5 @@
 탄력적 데이터베이스 작업의 개요는 [탄력적 데이터베이스 작업 개요](sql-database-elastic-jobs-overview.md)를 참조하세요.
 
 <!--Image references-->
-[1]: ./media/sql-database-elastic-job-uninstall/
- 
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

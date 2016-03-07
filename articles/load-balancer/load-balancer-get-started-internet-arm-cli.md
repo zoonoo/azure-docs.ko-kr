@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/16/2015"
+   ms.date="02/12/2015"
    ms.author="joaoma" />
 
 # Azure CLI를 사용하여 인터넷 연결 부하 분산 장치 구성 시작
@@ -49,7 +49,7 @@ Azure 리소스 관리자의 분산 장치 구성 요소에 대한 자세한 내
 
 ## 리소스 관리자를 사용하도록 CLI 설치
 
-1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](xplat-cli.md)을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
+1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](../../articles/xplat-cli-install.md)을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
 
 2. 아래와 같이 **azure config mode** 명령을 실행하여 리소스 관리자 모드로 전환합니다.
 
@@ -106,19 +106,19 @@ DNS 이름이 *loadbalancernrp.eastus.cloudapp.azure.com* 인 프런트 엔드 I
 
 아래 예제에서는 다음 항목을 만듭니다.
 
-- 포트 3441~포트 3389<sup>1</sup>에서 들어오는 모든 트래픽을 변환하는 NAT 규칙
-- 포트 3442~포트 3389에서 들어오는 모든 트래픽을 변환하는 NAT 규칙
+- 포트 21~포트 22에서 들어오는 모든 트래픽을 변환하는 NAT 규칙<sup>1</sup>
+- 포트 23~포트 22에서 들어오는 모든 트래픽을 변환하는 NAT 규칙
 - 포트 80~포트 80에서 들어오는 모든 트래픽을 백 엔드 풀에 있는 주소로 분산하는 부하 분산 장치 규칙
 - 경로 *HealthProbe.aspx* 페이지에 대한 상태를 확인하는 프로브 규칙
 
-<sup>1</sup> NAT 규칙은 부하 분산 장치 뒤에 특정 가상 컴퓨터 인스턴스와 관련이 있습니다. 3341 포트로 들어오는 네트워크 트래픽은 아래 예에서 NAT 규칙과 관련된 포트 3389의 특정 가상 컴퓨터로 전송됩니다. NAT 규칙, UDP 또는 TCP 프로토콜을 선택해야 합니다. 두 프로토콜을 모두 동일한 포트에 할당할 수 없습니다.
+<sup>1</sup> NAT 규칙은 부하 분산 장치 뒤에 특정 가상 컴퓨터 인스턴스와 관련이 있습니다. 포트 21로 들어오는 네트워크 트래픽은 아래 예에서 NAT 규칙과 관련된 포트 22의 특정 가상 컴퓨터로 전송됩니다. NAT 규칙, UDP 또는 TCP 프로토콜을 선택해야 합니다. 두 프로토콜을 모두 동일한 포트에 할당할 수 없습니다.
 
 ### 1단계
 
 NAT 규칙을 만듭니다.
 
-	azure network lb inbound-nat-rule create -g nrprg -l nrplb -n rdp1 -p tcp -f 3441 -b 3389
-	azure network lb inbound-nat-rule create -g nrprg -l nrplb -n rdp2 -p tcp -f 3442 -b 3389
+	azure network lb inbound-nat-rule create -g nrprg -l nrplb -n ssh1 -p tcp -f 21 -b 22
+	azure network lb inbound-nat-rule create -g nrprg -l nrplb -n ssh2 -p tcp -f 23 -b 22
 
 매개 변수:
 
@@ -184,20 +184,20 @@ NAT 규칙을 만듭니다.
 	data:      Backend address pool          : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool
 	data:
 	data:    Inbound NAT rules:
-	data:      Name                          : rdp1
+	data:      Name                          : ssh1
 	data:      Provisioning state            : Succeeded
 	data:      Protocol                      : Tcp
-	data:      Frontend port                 : 3441
-	data:      Backend port                  : 3389
+	data:      Frontend port                 : 21
+	data:      Backend port                  : 22
 	data:      Enable floating IP            : false
 	data:      Idle timeout in minutes       : 4
 	data:      Frontend IP configuration     : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/frontendIPConfigurations/NRPfrontendpool
 	data:
-	data:      Name                          : rdp2
+	data:      Name                          : ssh2
 	data:      Provisioning state            : Succeeded
 	data:      Protocol                      : Tcp
-	data:      Frontend port                 : 3442
-	data:      Backend port                  : 3389
+	data:      Frontend port                 : 23
+	data:      Backend port                  : 22
 	data:      Enable floating IP            : false
 	data:      Idle timeout in minutes       : 4
 	data:      Frontend IP configuration     : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/frontendIPConfigurations/NRPfrontendpool
@@ -226,8 +226,8 @@ NIC를 만들고(또는 기존 NIC 수정) NAT 규칙, 부하 분산 장치 규�
 
 - **-g** - 리소스 그룹 이름
 - **-n** - NIC 리소스 이름
-- **--subnet-name** - 서브넷 이름 
-- **--subnet-vnet-name** -가상 네트워크 이름
+- **-subnet-name** - 서브넷 이름 
+- **-서브넷-vnet-이름--subnet-vnet-name** -가상 네트워크 이름
 - **-d** - /subscription/{subscriptionID/resourcegroups/<resourcegroup-name>/providers/Microsoft.Network/loadbalancers/<load-balancer-name>/backendaddresspools/<name-of-the-backend-pool>로 시작하는 백 엔드 풀 리소스의 ID 
 - **-e** - /subscriptions/####################################/resourceGroups/<resourcegroup-name>/providers/Microsoft.Network/loadBalancers/<load-balancer-name>/inboundNatRules/<nat-rule-name>로 시작하는 NIC 리소스에 연결될 NAT 규칙의 ID
 
@@ -322,10 +322,10 @@ NIC를 만들고(또는 기존 NIC 수정) NAT 규칙, 부하 분산 장치 규�
 
 ## 다음 단계
 
-[내부 부하 분산 장치 구성 시작](load-balancer-internal-getstarted.md)
+[내부 부하 분산 장치 구성 시작](load-balancer-get-started-ilb-arm-cli.md)
 
 [부하 분산 장치 배포 모드 구성](load-balancer-distribution-mode.md)
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

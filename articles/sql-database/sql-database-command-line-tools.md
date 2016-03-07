@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
+	ms.date="02/23/2016" 
 	ms.author="sstein"/>
 
 # PowerShell을 사용하여 Azure SQL 데이터베이스 관리
@@ -35,7 +35,7 @@ PowerShell cmdlet을 실행하려면 Azure powershell을 설치하고 실행해�
 
 Azure 구독에 대한 PowerShell cmdlet을 실행 하려면 먼저 Azure 계정에 대한 액세스를 설정 해야 합니다. 다음을 실행하면 자격 증명을 입력할 수 있는 로그인 화면이 나타납니다. Azure 클래식 포털에 로그인할 때 사용한 것과 동일한 메일과 암호를 사용합니다.
 
-	Add-AzureRmAccount
+	Login-AzureRmAccount
 
 로그인에 성공하면 액세스 권한이 있는 Azure 구독으로 로그인한 ID를 포함한 일부 정보가 화면에 표시됩니다.
 
@@ -127,4 +127,4 @@ Azure SQL 리소스를 다시 만들거나 유사한 리소스를 만들 경우 
 
 - [Azure SQL 데이터베이스 cmdlet](https://msdn.microsoft.com/library/azure/mt574084.aspx)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/05/2016" 
+	ms.date="02/19/2016" 
 	ms.author="tamram"/>
 
 # 컨테이너 및 Blob에 대한 익명 읽기 권한 관리
@@ -40,7 +40,7 @@
 
 - [Azure 포털](https://portal.azure.com)의 경우.
 - 프로그래밍 방식으로 저장소 클라이언트 라이브러리 또는 REST API 사용
-- PowerShell 사용 Azure PowerShell에서 컨테이너 권한을 설정하는 방법에 관해 알아보려면 [Azure 저장소와 Azure PowerShell 사용](storage-powershell-guide-full#how-to-manage-azure-blobs)을 참조하세요.
+- PowerShell 사용 Azure PowerShell에서 컨테이너 권한을 설정하는 방법에 관해 알아보려면 [Azure 저장소와 Azure PowerShell 사용](storage-powershell-guide-full.md#how-to-manage-azure-blobs)을 참조하세요.
 
 ### Azure 포털에서 컨테이너 권한 설정
 
@@ -155,4 +155,4 @@
 - [공유 액세스 서명: SAS 모델 이해하기](storage-dotnet-shared-access-signature-part-1.md)
 - [공유 액세스 서명을 사용하여 액세스 위임](https://msdn.microsoft.com/library/azure/ee395415.aspx) 
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

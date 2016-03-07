@@ -2,7 +2,7 @@
 	pageTitle="논리 앱에서 FTP 커넥터 사용 | Microsoft Azure 앱 서비스"
 	description="FTP 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
 	authors="rajram"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
 	services="app-service\logic"
 	documentationCenter=""/>
@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/30/2015"
+	ms.date="02/11/2016"
 	ms.author="rajram"/>
 
 # FTP 커넥터 시작 및 논리 앱에 추가
+>[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다. 2015-08-01-미리 보기 스키마 버전에 대한 내용을 보려면 [FTP API](../connectors/create-api-ftp.md)를 클릭하세요.
+
 FTP 서버에 연결하여 데이터 또는 파일을 이동합니다. FTP 커넥터의 주요 기능은 다음과 같습니다.
 
 - 요청 시 FTP 서버에서 파일 끌어오기
@@ -138,7 +140,7 @@ Content를 원하는 값으로 설정할 수 있습니다. 이것은 예로 든 
 ## 커넥터의 추가 기능
 이제 커넥터를 만들었으므로 논리 앱을 사용하여 비즈니스 워크플로에 추가할 수 있습니다. [논리 앱 정의](app-service-logic-what-are-logic-apps.md)를 참조하세요.
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동합니다. 앱 서비스에서 즉시 단기 스타터 논리 앱을 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동합니다. 앱 서비스에서 즉시 단기 스타터 논리 앱을 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 [커넥터 및 API 앱 참조](http://go.microsoft.com/fwlink/p/?LinkId=529766)의 Swagger REST API 참조를 봅니다.
 
@@ -160,4 +162,4 @@ Content를 원하는 값으로 설정할 수 있습니다. 이것은 예로 든 
 [13]: ./media/app-service-logic-connector-ftp/ConfiguredUploadFile.PNG
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

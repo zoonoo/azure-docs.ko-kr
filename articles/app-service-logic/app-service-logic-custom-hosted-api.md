@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"	
 	ms.topic="article"
-	ms.date="01/04/2016"
+	ms.date="02/23/2016"
 	ms.author="stepsic"/>
 	
 # 논리 앱으로 앱 서비스에서 호스팅되는 사용자 지정 API 사용
@@ -22,28 +22,20 @@
 
 ## 웹앱 배포
 
-우선 API를 앱 서비스에서 웹앱으로 배포해야 합니다. 여기서 지침은 기본 배포, [ASP.NET 웹앱 만들기](web-sites-dotnet-get-started.md)를 다룹니다.
+우선 API를 앱 서비스에서 웹앱으로 배포해야 합니다. 여기서 지침은 기본 배포, [ASP.NET 웹앱 만들기](../app-service-web/web-sites-dotnet-get-started.md)를 다룹니다. 논리 앱에서 API를 호출할 수 있지만 최상의 경험을 위해 논리 앱 작업과 쉽게 통합하도록 Swagger 메타데이터를 추가하는 것이 좋습니다. [swagger 추가](../app-service-api/app-service-api-dotnet-get-started.md/#use-swagger-metadata-and-ui)에서 세부정보를 찾을 수 있습니다.
 
-웹앱의 **URL**을 가져오도록 합니다. 이는 웹앱의 맨 위에 **Essentials**을 표시합니다.
+### API 설정
+
+논리 앱 디자이너가 사용자 Swagger를 구문 분석하려면 CORS를 사용하도록 설정하고 웹앱의 APIDefinition 속성을 설정해야 합니다. Azure 포털 내에서 이 속성을 쉽게 설정할 수 있습니다. 웹앱의 설정 블레이드를 열고 API 섹션 아래에서 'API 정의'를 swagger.json 파일의 URL로 설정합니다. 이는 일반적으로 https://{name}.azurewebsites.net/swagger/docs/v1)이며, 논리 앱 디자이너에서 요청할 수 있도록 '*'에 대한 CORS 정책을 추가합니다.
 
 ## API로 호출
 
-새 빈 논리 앱을 만들어 시작합니다. 만든 새 논리 앱이 있으면 **편집** 또는 **트리거 및 작업**을 클릭하고 **처음부터 만들기**를 선택합니다.
+논리 앱 포털 내에 있을 때 CORS 및 API 정의 속성을 설정한 경우 사용자의 흐름 내에서 사용자 지정 API 작업을 쉽게 추가할 수 있어야 합니다. 디자이너에서 구독 웹 사이트를 탐색하여 swagger URL이 정의된 웹 사이트를 나열하도록 선택할 수 있습니다. 또한 HTTP + Swagger 작업을 사용하여 swagger를 가리키고 사용 가능한 작업 및 입력을 나열할 수 있습니다. 마지막으로 언제나 HTTP 작업을 사용하여 API(swagger 문서가 없거나 이 문서를 노출하지 않는 API도 가능)를 호출하는 요청을 만들 수 있습니다.
 
-우선 되풀이 트리거를 사용하거나 **수동으로 해당 논리 실행**을 클릭하려고 합니다. 다음으로 실제로 API에 호출을 하려 합니다. 그러려면 오른쪽에서 녹색 **HTTP**를 클릭합니다.
+API를 보호하려면 두 가지 다른 방법이 있습니다.
 
-1. **메서드**를 선택합니다. 이는 API의 코드에서 정의됩니다.
-2. **URL** 섹션에서 배포된 웹앱에 대한 **URL**을 붙여넣습니다.
-3. **헤더**가 필요한 경우 다음과 같이 JSON 형식에 포함합니다. `{"Content-type" : "application/json", "Accept" : "application/json" }`
-4. API가 공개이면 **인증**을 비워둘 수 있습니다. API에 호출을 보호하려면 다음 섹션을 참조하세요.
-5. 마지막으로 API에서 정의된 질문의 **본문**을 포함합니다.
-
-명령 모음에서 **저장**을 클릭합니다. **지금 실행**을 클릭하면 실행된 목록에서 API 및 응답에 호출이 표시되어야 합니다.
-
-이 방식은 공용 API가 있는 경우 효과적입니다. 하지만 API를 보호하려면 두 가지 다른 방법이 있습니다.
-
-1. *코드 변경 필요하지 않음* - Azure Active Directory를 사용하여 코드 변경 또는 다시 배포 없이 API를 보호할 수 있습니다.
-2. API의 코드에서 기본 인증, AAD 인증 또는 인증서 인증을 적용합니다. 
+1. 코드 변경 필요하지 않음 - Azure Active Directory를 사용하여 코드 변경 또는 다시 배포 없이 API를 보호할 수 있습니다.
+1. API의 코드에서 기본 인증, AAD 인증 또는 인증서 인증을 적용합니다.
 
 ## 코드 변경 없이 API에 호출 보호 
 
@@ -141,7 +133,7 @@ AAD를 사용하는 빈 웹앱 및 논리 앱을 함께 배포하는 자동 배�
 
 ### 인증서 인증
 
-클라이언트 인증서를 사용하여 웹앱에 들어오는 요청을 확인할 수 있습니다. 코드를 설치하는 방법은 [웹앱에 대 한 TLS 상호 인증을 구성하는 방법](app-service-web-configure-tls-mutual-auth.md)을 참조하세요.
+클라이언트 인증서를 사용하여 웹앱에 들어오는 요청을 확인할 수 있습니다. 코드를 설치하는 방법은 [웹앱에 대 한 TLS 상호 인증을 구성하는 방법](../app-service-web/app-service-web-configure-tls-mutual-auth.md)을 참조하세요.
 
 *권한 부여* 섹션에서 다음을 제공해야 합니다. `{"type": "clientcertificate","password": "test","pfx": "long-pfx-key"}`
 
@@ -169,8 +161,8 @@ AAD를 사용하는 빈 웹앱 및 논리 앱을 함께 배포하는 자동 배�
 
 예를 들어 코드에서 논리 앱에 API를 제한하려는 경우 JWT을 포함하고 호출자를 검사하는 헤더를 추출할 수 있으며 이는 일치하지 않는 요청을 거부합니다.
 
-계속 진행하면 포털 기능을 활용하지 않고 고유의 코드에서 완전히 구현하려는 경우 다음 문서를 읽습니다. [Azure 앱 서비스에서 인증을 위해 Active Directory 사용](web-sites-authentication-authorization.md).
+계속 진행하면 포털 기능을 활용하지 않고 고유의 코드에서 완전히 구현하려는 경우 다음 문서를 읽습니다. [Azure 앱 서비스에서 인증을 위해 Active Directory 사용](../app-service-web/web-sites-authentication-authorization.md).
 
 위의 단계를 계속해서 수행하여 논리 앱에 대한 응용 프로그램 ID를 만들고 해당 ID를 사용하여 API를 호출해야 합니다.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0224_2016-->

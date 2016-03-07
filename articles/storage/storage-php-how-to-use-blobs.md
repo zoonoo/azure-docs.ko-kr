@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="02/17/2016"
 	ms.author="tomfitz"/>
 
 # PHP에서 Blob 저장소를 사용하는 방법
@@ -42,7 +42,7 @@ Azure Blob 서비스에 액세스하는 PHP 응용 프로그램을 만드는 데
 
 Azure Blob 서비스 API를 사용하려면 다음을 수행해야 합니다.
 
-1. [require\_once][require_once] 문을 사용하여 자동 로더 파일 참조
+1. [require\_once] 문을 사용하여 자동 로더 파일 참조
 2. 사용할 수 있는 모든 클래스 참조
 
 다음 예제에서는 자동 로더 파일을 포함하고 **ServicesBuilder** 클래스를 참조하는 방법을 보여 줍니다.
@@ -291,9 +291,9 @@ Blob을 삭제하려면 컨테이너 이름 및 Blob 이름을 **BlobRestProxy->
 이제 Azure Blob 서비스의 기본 사항을 배웠으므로 다음 링크를 따라 좀더 복잡한 저장소 작업에 대해 알아보세요.
 
 - [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)(영문)를 방문하세요.
-- <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/BlockBlobExample.php>에서 PHP 블록 Blob 예를 참조하세요.
-- <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/PageBlobExample.php>에서 PHP 페이지 Blob 예를 참조하세요.
-- [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy)
+- [PHP 블록 Blob 예](https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/BlockBlobExample.php)를 참조하세요.
+- [PHP 페이지 Blob 예](https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/PageBlobExample.php)를 참조하세요.
+- [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)
  
 자세한 내용은 [PHP 개발자 센터](/develop/php/)도 참조하세요.
 
@@ -302,8 +302,8 @@ Blob을 삭제하려면 컨테이너 이름 및 Blob 이름을 **BlobRestProxy->
 [container-acl]: http://msdn.microsoft.com/library/azure/dd179391.aspx
 [error-codes]: http://msdn.microsoft.com/library/azure/dd179439.aspx
 [file_get_contents]: http://php.net/file_get_contents
-[require_once]: http://php.net/require_once
+[require\_once]: http://php.net/require_once
 [fopen]: http://www.php.net/fopen
 [stream-get-contents]: http://www.php.net/stream_get_contents
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

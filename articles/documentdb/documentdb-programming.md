@@ -6,7 +6,7 @@
 	documentationCenter="" 
 	authors="aliuy" 
 	manager="jhubbard" 
-	editor="cgronlun"/>
+	editor="mimig"/>
 
 <tags 
 	ms.service="documentdb" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/11/2015" 
+	ms.date="02/16/2016" 
 	ms.author="andrl"/>
 
 # DocumentDB 서버 쪽 프로그래밍: 저장 프로시저, 데이터베이스 트리거 및 UDF
@@ -50,7 +50,9 @@ DocumentDB의 JavaScript 언어 통합 트랜잭션 실행을 사용해서 개�
 	-	원시 데이터 위에 추상 계층이 추가되므로 데이터 설계자가 데이터와 독립적으로 응용 프로그램을 개발할 수 있습니다. 데이터를 직접 처리해야 할 경우 응용 프로그램에 포함되어야 할 수 있는 가정으로 인해 데이터에 스키마가 사용되지 않을 경우 이러한 장점은 특히 유용할 수 있습니다.  
 	-	이 추상화는 스크립트에서의 액세스를 간소화하여 기업이 데이터 보안을 유지할 수 있게 합니다.  
 
-데이터베이스 트리거, 저장 프로시저 및 사용자 지정 쿼리 연산자의 생성 및 실행은 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 및 .NET, Node.js 및 JavaScript를 비롯한 많은 플랫폼의 [클라이언트 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx)를 통해 지원됩니다. **이 자습서에서는 [Node.js SDK](http://dl.windowsazure.com/documentDB/nodedocs/)**를 사용하여 저장 프로시저, 트리거 및 UDF의 구문 및 사용법을 설명합니다.
+데이터베이스 트리거, 저장 프로시저 및 사용자 지정 쿼리 연산자의 만들기 및 실행은 .NET, Node.js 및 JavaScript를 비롯한 많은 플랫폼의 [클라이언트 SDK](documentdb-sdk-dotnet.md), [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 및 [DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases)를 통해 지원됩니다.
+
+**이 자습서에서는 [Q Promise와 함께 Node.js SDK](http://azure.github.io/azure-documentdb-node-q/)를 사용하여** 저장 프로시저, 트리거 및 UDF의 구문 및 사용법을 설명합니다.
 
 ## 저장 프로시저
 
@@ -92,7 +94,7 @@ DocumentDB의 JavaScript 언어 통합 트랜잭션 실행을 사용해서 개�
 		});
 
 
-컨텍스트 개체는 DocumentDB 저장소에서 수행될 수 있는 모든 작업에 대한 액세스와 요청 및 응답 개체에 대한 액세스를 제공합니다. 여기서는 응답 개체를 사용하여 클라이언트로 전송되는 응답의 본문을 설정했습니다. 자세한 내용은 [DocumentDB JavaScript 서버 SDK 설명서](http://dl.windowsazure.com/documentDB/jsserverdocs/)를 참조하세요.
+컨텍스트 개체는 DocumentDB 저장소에서 수행될 수 있는 모든 작업에 대한 액세스와 요청 및 응답 개체에 대한 액세스를 제공합니다. 여기서는 응답 개체를 사용하여 클라이언트로 전송되는 응답의 본문을 설정했습니다. 자세한 내용은 [DocumentDB JavaScript 서버 SDK 설명서](http://azure.github.io/azure-documentdb-js-server/)를 참조하세요.
 
 이 예제를 확장하여 저장 프로시저에 데이터베이스 관련 기능을 더 추가하겠습니다. 저장 프로시저는 컬렉션 내의 문서와 첨부 파일을 만들고 업데이트하고 읽고 쿼리 및 삭제할 수 있습니다.
 
@@ -475,9 +477,9 @@ UDF(사용자 정의 함수)는 DocumentDB SQL 쿼리 언어 문법을 확장하
 ## JavaScript 언어 통합 쿼리 API
 DocumentDB의 SQL 문법을 사용하여 쿼리를 발급하는 것 외에도 서버 쪽 SDK를 사용하면 SQL의 지식 없이도 흐름 JavaScript 인터페이스를 사용하여 최적화된 쿼리를 수행할 수 있습니다. JavaScript 쿼리 API를 사용하면 조건자 함수를 ECMAScript5의 배열 기본 제공 항목과 익숙한 구문 및 lodash와 같은 인기 있는 JavaScript 라이브러리가 포함된 연결 가능한 함수 호출에 전달하여 쿼리를 프로그래밍 방식으로 작성할 수 있습니다. 쿼리는 DocumentDB의 인덱스를 사용하여 효율적으로 실행되도록 JavaScript 런타임으로 구문 분석됩니다.
 
-> [AZURE.NOTE]`__`(이중 밑줄)은(는) `getContext().getCollection()`에 대한 별칭입니다.
-> <br/>
-> 즉 `__` 또는 `getContext().getCollection()`을(를) 사용하여 JavaScript 쿼리 API에 액세스할 수 있습니다.
+> [AZURE.NOTE] `__`(이중 밑줄)은 `getContext().getCollection()`에 대한 별칭입니다.
+> <br/><
+> 즉 `__` 또는 `getContext().getCollection()`을 사용하여 JavaScript 쿼리 API에 액세스할 수 있습니다.
 
 지원되는 함수는 다음을 포함합니다:
 <ul>
@@ -551,7 +553,7 @@ DocumentDB의 SQL 문법을 사용하여 쿼리를 발급하는 것 외에도 �
 * 흐름 제어(예: if, for, while)
 * 함수 호출
 
-자세한 내용은 [서버 쪽 JSDocs](http://dl.windowsazure.com/documentDB/jsserverdocs/)를 참조하세요.
+자세한 내용은 [서버 쪽 JSDocs](http://azure.github.io/azure-documentdb-js-server/)를 참조하세요.
 
 ### 예: JavaScript 쿼리 API를 사용하여 저장된 프로시저 작성
 
@@ -750,7 +752,7 @@ __.chain()
 </table>
 
 ## 런타임 지원
-[DocumentDB JavaScript 서버 쪽 SDK](http://dl.windowsazure.com/documentDB/jsserverdocs/)는 [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)에서 표준화된 일반 JavaScript 언어 기능을 대부분 지원합니다.
+[DocumentDB JavaScript 서버 쪽 SDK](http://azure.github.io/azure-documentdb-js-server/)는 [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)에서 표준화된 일반 JavaScript 언어 기능을 대부분 지원합니다.
 
 ### 보안
 JavaScript 저장 프로시저와 트리거는 한 스크립트의 결과가 데이터베이스 수준의 스냅숏 트랜잭션 격리를 통과하지 않고 다른 스크립트로 누출되지 않도록 샌드박스됩니다. 런타임 환경은 풀링되지만 각 실행 후에 컨텍스트가 정리됩니다. 따라서 서로 간의 의도치 않은 파생 작업으로부터 보호됩니다.
@@ -759,7 +761,7 @@ JavaScript 저장 프로시저와 트리거는 한 스크립트의 결과가 데
 저장 프로시저, 트리거 및 UDF는 각 스크립트 호출 시 컴파일 비용을 방지하기 위해 암시적으로 바이트 코드 형식으로 사전 컴파일됩니다. 이렇게 하면 저장 프로시저 호출이 빠르며 사용 공간이 적습니다.
 
 ## 클라이언트 SDK 지원
-[Node.js](http://dl.windowsazure.com/documentDB/nodedocs/) 클라이언트 외에도 DocumentDB에서는 [.NET](https://msdn.microsoft.com/library/azure/dn948556.aspx), [Java](http://dl.windowsazure.com/documentdb/javadoc/), [JavaScript](http://dl.windowsazure.com/documentDB/jsclientdocs/) 및 [Python SDKs](http://dl.windowsazure.com/documentDB/pythondocs/)가 지원됩니다. 이러한 SDK를 사용하여 저장 프로시저, 트리거 및 UDF를 만들고 실행할 수도 있습니다. 다음 예제에서는 .NET 클라이언트를 사용하여 저장 프로시저를 만들고 실행하는 방법을 보여 줍니다. .NET 유형을 저장 프로시저에 JSON으로 전달하고 다시 읽는 방법을 확인합니다.
+[Node.js](documentdb-sdk-node.md) 클라이언트 외에도 DocumentDB에서는 [.NET](documentdb-sdk-dotnet.md), [Java](documentdb-sdk-java.md), [JavaScript](http://azure.github.io/azure-documentdb-js/) 및 [Python SDKs](documentdb-sdk-python.md)가 지원됩니다. 이러한 SDK를 사용하여 저장 프로시저, 트리거 및 UDF를 만들고 실행할 수도 있습니다. 다음 예제에서는 .NET 클라이언트를 사용하여 저장 프로시저를 만들고 실행하는 방법을 보여 줍니다. .NET 유형을 저장 프로시저에 JSON으로 전달하고 다시 읽는 방법을 확인합니다.
 
 	var markAntiquesSproc = new StoredProcedure
 	{
@@ -902,7 +904,7 @@ JavaScript 저장 프로시저와 트리거는 한 스크립트의 결과가 데
 
 ## 샘플 코드
 
-[Github 리포지토리](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples)에서 더 많은 서버 쪽 코드 예제를 찾을 수 있습니다.([upsert](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/upsert.js), [bulk-delete](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js) 및 [업데이트](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js)를 포함)
+[Github 리포지토리](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples)에서 더 많은 서버 쪽 코드 예제([bulk-delete](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js) 및 [update](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js) 포함)를 찾을 수 있습니다.
 
 저장된 프로시저를 공유하시겠습니까? 끌어오기 요청을 보내주세요.
 
@@ -913,11 +915,12 @@ JavaScript 저장 프로시저와 트리거는 한 스크립트의 결과가 데
 또한 DocumentDB 서버 쪽 프로그래밍에 대한 자세한 내용을 보려면 경로에서 다음의 참조 자료 및 리소스가 유용합니다.
 
 - [Azure DocumentDB SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx)
+- [DocumentDB 스튜디오](https://github.com/mingaliu/DocumentDBStudio/releases)
 - [JSON](http://www.json.org/) 
 - [JavaScript ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
--	[JavaScript – JSON 형식 시스템](http://www.json.org/js.html) 
--	[안전하고 이식 가능한 데이터베이스 확장성](http://dl.acm.org/citation.cfm?id=276339) 
--	[서비스 지향 데이터베이스 아키텍처](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
--	[Microsoft SQL server에서 .NET 런타임 호스팅](http://dl.acm.org/citation.cfm?id=1007669)  
+- [JavaScript – JSON 형식 시스템](http://www.json.org/js.html) 
+- [안전하고 이식 가능한 데이터베이스 확장성](http://dl.acm.org/citation.cfm?id=276339) 
+- [서비스 지향 데이터베이스 아키텍처](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
+- [Microsoft SQL server에서 .NET 런타임 호스팅](http://dl.acm.org/citation.cfm?id=1007669)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -105,4 +105,4 @@ StorSimple 가상 컴퓨터에 대한 비활성화는 가상 장치의 할당을
 
 - StorSimple Manager 서비스를 사용하는 방법을 자세히 알아보려면 [StorSimple Manager 서비스를 사용하여 StorSimple 장치 관리](storsimple-manager-service-administration.md)로 이동하세요.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

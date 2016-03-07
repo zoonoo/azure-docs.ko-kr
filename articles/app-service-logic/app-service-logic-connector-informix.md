@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="gplarsen"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,10 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="12/03/2015"
+   ms.date="02/10/2016"
    ms.author="plarsen"/>
 
 # Informix 커넥터
+>[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다.
 
 Informix용 Microsoft 커넥터는 Azure 앱 서비스를 통해 IBM Informix 데이터베이스에 저장된 리소스에 응용 프로그램을 연결하기 위한 API 앱입니다. 커넥터는 Azure 서비스 버스 릴레이를 사용하여 온-프레미스 Informix 서버에 Azure 하이브리드 연결을 비롯한 TCP/IP 네트워크 연결을 통해 원격 Informix 서버 컴퓨터에 연결하는 Microsoft 클라이언트를 포함합니다. 커넥터는 다음 데이터베이스 작업을 지원합니다.
 
@@ -66,10 +67,10 @@ PollToAlterData | 아니요 | 논리 앱 트리거와 함께 사용하는 UPDATE
 ## Informix 커넥터 작업을 통해 데이터를 추가하는 논리 앱 ##
 API 삽입 또는 OData 항목에 게시 작업을 사용하여 Informix 테이블에 데이터를 추가하기 위해 논리 앱 작업을 정의할 수 있습니다. 예를 들어 ID 열로 정의된 테이블에 대해 SQL INSERT 문을 처리하거나 논리 앱에 영향을 준 ID 값 또는 행을 반환하여 새 고객 주문 레코드를 삽입할 수 있습니다.(최종 테이블에서 ORDID 선택(NEWORDERS (CUSTID,SHIPNAME,SHIPADDR,SHIPCITY,SHIPREG,SHIPZIP) 값에 삽입(?,?,?,?,?,?)))
 
-> [AZURE.TIP]Informix 연결 "*EntitySet에 게시*"는 ID 열 값을 반환하고 "*API 삽입*"은 영향을 받는 행을 반환합니다.
+> [AZURE.TIP] Informix 연결 "*EntitySet에 게시*"는 ID 열 값을 반환하고 "*API 삽입*"은 영향을 받는 행을 반환합니다.
 
 1. Azure 시작 보드에서 **+**(더하기 기호), **웹 + 모바일**, **논리 앱**을 차례로 선택합니다.
-2. 이름(예: “NewOrdersInformix”), 앱 서비스 계획, 다른 속성을 입력한 다음 **만들기**를 선택합니다.
+2. 이름(예: "NewOrdersInformix"), 앱 서비스 계획, 다른 속성을 입력한 다음 **만들기**를 선택합니다.
 3. Azure 시작 보드에서 방금 만든 논리 앱, **설정**, **트리거 및 동작**을 차례로 선택합니다.
 4. 트리거 및 동작 블레이드의 논리 앱 템플릿 내에서 **처음부터 새로 만들기**를 선택합니다.
 5. API 앱 패널에서 **되풀이**를 선택하고 빈도 및 간격, **확인 표시**를 차례로 설정합니다.
@@ -105,7 +106,7 @@ SHIPZIP | 99362
 API 대량 삽입 작업을 사용하여 Informix 테이블에 데이터를 추가하기 위해 논리 앱 작업을 정의할 수 있습니다. 예를 들어 ID 열로 정의된 테이블에 대해 행 값의 배열을 사용하는 SQL INSERT 문을 처리하거나 논리 앱에 영향을 준 행을 반환하여 두 개의 새 고객 주문 레코드를 삽입할 수 있습니다.(최종 테이블에서 ORDID 선택(NEWORDERS (CUSTID,SHIPNAME,SHIPADDR,SHIPCITY,SHIPREG,SHIPZIP) 값에 삽입(?,?,?,?,?,?)))
 
 1. Azure 시작 보드에서 **+**(더하기 기호), **웹 + 모바일**, **논리 앱**을 차례로 선택합니다.
-2. 이름(예: “NewOrdersBulkInformix”), 앱 서비스 계획, 다른 속성을 입력한 다음 **만들기**를 선택합니다.
+2. 이름(예: "NewOrdersBulkInformix"), 앱 서비스 계획, 다른 속성을 입력한 다음 **만들기**를 선택합니다.
 3. Azure 시작 보드에서 방금 만든 논리 앱, **설정**, **트리거 및 동작**을 차례로 선택합니다.
 4. 트리거 및 동작 블레이드의 논리 앱 템플릿 내에서 **처음부터 새로 만들기**를 선택합니다.
 5. API 앱 패널에서 **되풀이**를 선택하고 빈도 및 간격, **확인 표시**를 차례로 설정합니다.
@@ -161,7 +162,7 @@ PollToAlterData | &lt;CURSOR&gt;인 곳의 NEWORDERS 삭제
 이 예제에서 논리 앱은 Informix 테이블의 데이터를 폴링하고 읽으며 업데이트한 다음 다시 읽습니다.
 
 1. Azure 시작 보드에서 **+**(더하기 기호), **웹 + 모바일**, **논리 앱**을 차례로 선택합니다.
-2. 이름(예: “ShipOrdersInformix”), 앱 서비스 계획, 다른 속성을 입력한 다음 **만들기**를 선택합니다.
+2. 이름(예: "ShipOrdersInformix"), 앱 서비스 계획, 다른 속성을 입력한 다음 **만들기**를 선택합니다.
 3. Azure 시작 보드에서 방금 만든 논리 앱, **설정**, **트리거 및 동작**을 차례로 선택합니다.
 4. 트리거 및 동작 블레이드의 논리 앱 템플릿 내에서 **처음부터 새로 만들기**를 선택합니다.
 5. API 앱 패널에서 **Informix 커넥터**를 선택하고 빈도 및 간격, **확인 표시**를 차례로 설정합니다.
@@ -199,7 +200,7 @@ Azure 마켓플레이스 내에서 새 논리 앱을 만들고 Informix 커넥�
 **참고:** 논리 앱 설계자는 테이블 이름을 자릅니다. 예를 들어 작업 **NEWORDERS에서 조건부 삭제**는 **N에서 조건부 삭제**에 잘립니다.
 
 
-> [AZURE.TIP]다음 SQL 문을 사용하여 샘플 테이블 및 저장 프로시저를 만듭니다.
+> [AZURE.TIP] 다음 SQL 문을 사용하여 샘플 테이블 및 저장 프로시저를 만듭니다.
 
 다음 Informix SQL DDL 문을 사용하여 샘플 NEWORDERS 테이블을 만들 수 있습니다.
  
@@ -242,7 +243,7 @@ Azure 마켓플레이스 내에서 새 논리 앱을 만들고 Informix 커넥�
 
 ## 하이브리드 구성(선택 사항)
 
-> [AZURE.NOTE]이 단계는 방화벽 뒤의 DB2 커넥터 온-프레미스를 사용하는 경우에만 필요합니다.
+> [AZURE.NOTE] 이 단계는 방화벽 뒤의 DB2 커넥터 온-프레미스를 사용하는 경우에만 필요합니다.
 
 앱 서비스는 하이브리드 구성 관리자를 사용하여 온-프레미스 시스템에 안전하게 연결합니다. 커넥터가 Windows용 온-프레미스 IBM DB2 Server를 사용하는 경우 하이브리드 연결 관리자가 필요합니다.
 
@@ -273,4 +274,4 @@ REST API를 사용하여 API 앱을 만듭니다. [커넥터 및 API 앱 참조]
 [13]: ./media/app-service-logic-connector-informix/LogicApp_RemoveOrdersInformix_TriggersActions.png
 [14]: ./media/app-service-logic-connector-informix/LogicApp_RemoveOrdersInformix_Outputs.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0224_2016-->

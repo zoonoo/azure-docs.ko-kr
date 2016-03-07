@@ -12,11 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/21/2016"
+   ms.date="02/18/2016"
    ms.author="joaoma"/>
 
-# 응용 프로그램 게이트웨이란?
-
+# 응용 프로그램 게이트웨이 개요
 
 Microsoft Azure 응용 프로그램 게이트웨이는 계층 7 부하 분산을 기반으로 한 Azure-관리 HTTP 부하 분산 솔루션을 제공합니다.
 
@@ -26,8 +25,8 @@ Microsoft Azure 응용 프로그램 게이트웨이는 계층 7 부하 분산을
 
 - HTTP 부하 분산
 - 쿠키 기반 세션 선호도
-- SSL(Secure Sockets Layer) 오프로드
-
+- [SSL(Secure Sockets Layer) 오프로드](application-gateway-ssl-arm.md)
+- [URL 기반 콘텐츠 라우팅](application-gateway-url-route-overview.md) 
 
 ## HTTP 계층 7 부하 분산
 
@@ -41,7 +40,7 @@ HTTP 계층 7 부하 분산은 다음에 유용합니다.
 - 응용 프로그램은 SSL 종료 오버헤드에서 웹 서버 팜을 무료로 원합니다.
 - 콘텐츠 배달 네트워크와 같은 응용 프로그램은 다른 서버로 라우팅 또는 부하 분산을 위해 여러 HTTP 요청을 동일한 장기 실행 TCP 연결에서 요구합니다.
 
-
+ 
 ## 게이트웨이 크기 및 인스턴스
 
 응용 프로그램 게이트웨이는 현재 소형, 중형 및 대형의 3가지 크기를 제공합니다. 소규모 인스턴스 크기는 개발 및 테스트 시나리오를 위해 사용 됩니다.
@@ -59,6 +58,7 @@ HTTP 계층 7 부하 분산은 다음에 유용합니다.
 
 >[AZURE.NOTE] 이는 응용 프로그램 게이트웨이 처리량에 대한 대략적인 지침입니다. 실제 처리량은 평균 페이지 크기, 백 엔드 인스턴스의 위치 및 페이지 처리 시간 등 다양한 환경 세부 사항에 따라 달라집니다.
 
+
 ## 상태 모니터링
 
 Azure 응용 프로그램 게이트웨이는 백 엔드 인스턴스의 상태를 자동으로 모니터링합니다. 자세한 내용은 [응용 프로그램 게이트웨이 상태 모니터링 개요](application-gateway-probe-overview.md)를 참조하세요.
@@ -72,4 +72,6 @@ Azure 응용 프로그램 게이트웨이는 백 엔드 인스턴스의 상태�
 
 응용 프로그램 게이트웨이에 대해 학습한 후에 [응용 프로그램 게이트웨이를 만들](application-gateway-create-gateway.md)거나 [응용 프로그램 게이트웨이 SSL 오프로드를 만들](application-gateway-ssl.md)어서 HTTPS 연결의 부하를 분산할 수 있습니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+URL 기반 콘텐츠 라우팅을 사용하여 응용 프로그램 게이트웨이를 만드는 방법에 대한 자세한 내용은 [URL 기반 라우팅을 사용하여 응용 프로그램 게이트웨이 만들기](application-gateway-create-url-route-arm-ps.md)를 참조하세요.
+
+<!---HONumber=AcomDC_0224_2016-->

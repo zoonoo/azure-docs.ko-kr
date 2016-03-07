@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure RemoteApp에서 Powershell 시작하기 | Microsoft Azure"
-   description="Azure RemoteApp에서 Powershell을 시작하는 방법을 알아봅니다."
+   pageTitle="Azure RemoteApp에서 PowerShell cmdlet 사용 | Microsoft Azure"
+   description="Azure RemoteApp에서 Windows PowerShell cmdlet을 사용하는 방법을 알아봅니다."
    services="remoteapp"
    documentationCenter=""
    authors="guscatalano"
@@ -13,24 +13,35 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="12/05/2015"
-   ms.author="guscatal;spatnaik;elizapo"/>
+   ms.date="02/23/2016"
+   ms.author="elizapo"/>
 
 
 
-# Azure RemoteApp에서 Powershell 시작하기
+# Azure RemoteApp에서 Windows PowerShell cmdlet 사용
 =====================================
 
+ Azure RemoteApp PowerShell cmdlet을 사용하여 컬렉션을 유지 관리할 수 있습니다. 시작하려면 다음 정보를 사용합니다.
 
-## cmdlet 받기
+## cmdlet 받기 
 -------------
-먼저 [여기](http://go.microsoft.com/?linkid=9811175)에서 Azure Powershell cmdlet을 받아야 합니다. RemoteApp도 여기에 포함되어 있습니다.
+먼저 [여기](http://go.microsoft.com/?linkid=9811175)에서 Azure Powershell cmdlet을 다운로드합니다. 여기에 RemoteApp cmdlet이 포함되어 있습니다.
 
-Azure RemoteApp cmdlet 도움말을 [여기](https://msdn.microsoft.com/library/mt428031.aspx)에서 확인하세요.
+[Azure RemoteApp cmdlet 도움말](https://msdn.microsoft.com/library/mt428031.aspx)을 확인하세요.
 
 ## 구독을 사용하도록 Azure cmdlet 구성
 ------------------
 Azure 구독에 대해 cmdlet을 사용할 수 있도록 [이 가이드](../powershell-install-configure.md)를 따릅니다.
+
+다음 단계를 사용하여 빠르게 시작할 수 있습니다.
+
+1.	[Azure PowerShell cmdlet](http://go.microsoft.com/?linkid=9811175)을 다운로드하여 설치합니다.
+2.	Microsoft Azure PowerShell을 시작합니다.
+3.	**Add-AzureAccount**를 실행하여 Azure 구독을 인증합니다. 메시지가 나타나면 Azure 포털에 로그인하는 데 사용하는 것과 동일한 사용자 이름 및 암호를 입력합니다.  
+4.	**Get-AzureSubscription**을 실행하여 사용자 계정과 연경된 구독을 나열합니다. 
+5.	**Select-AzureSubscription**을 실행하고 PowerShell 콘솔에서 사용할 구독 이름 또는 ID를 지정합니다.
+
+축하합니다. Azure PowerShell 콘솔이 사용할 수 있도록 구성되었습니다. Azure PowerShell 콘솔을 시작할 때마다 2~5단계를 반복해야 합니다.
 
 ## 클라우드 컬렉션 만들기
 --------------------
@@ -99,5 +110,6 @@ RemoteApp 템플릿 이미지 cmdlet:
 - Get-AzureRemoteAppWorkspace
 - Set-AzureRemoteAppWorkspace
 - Get-AzureRemoteAppOperationResult
+ 
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0224_2016-->

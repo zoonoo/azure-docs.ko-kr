@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -34,7 +34,7 @@ Azure 클래식 포털 또는 Windows PowerShell을 통해 정기적으로 업�
 
 일반 업데이트는 장치가 표준 모드에 있을 때 설치할 수 있는 무중단 업데이트입니다. 이 업데이트는 Microsoft Update 웹사이트를 통해 각 장치 컨트롤러에 적용됩니다.
 
-> [AZURE.IMPORTANT]컨트롤러 장애 조치는 업데이트 과정에서 발생할 수 있습니다. 그러나 시스템 가용성 또는 작업에 영향을 주지 않습니다.
+> [AZURE.IMPORTANT] 컨트롤러 장애 조치는 업데이트 과정에서 발생할 수 있습니다. 그러나 시스템 가용성 또는 작업에 영향을 주지 않습니다.
 
 - Azure 클래식 포털을 통해 정기적인 업데이트를 설치하는 방법에 대한 자세한 내용은 [Azure 클래식 포털을 통해 일반 업데이트 설치](#install-regular-updates-via-the-azure-classic-portal)를 참조하세요.
 
@@ -46,7 +46,7 @@ Azure 클래식 포털 또는 Windows PowerShell을 통해 정기적으로 업�
 
 유지 관리 모드 업데이트를 설치하는 방법에 대한 세부 정보는 [StorSimple용 Windows PowerShell을 통해 유지 관리 모드 업데이트 설치](#install-maintenance-mode-updates-via-windows-powershell-for-storsimple)를 참조하세요.
 
-> [AZURE.IMPORTANT]유지 관리 모드 업데이트는 각 컨트롤러에 개별적으로 적용되어야 합니다.
+> [AZURE.IMPORTANT] 유지 관리 모드 업데이트는 각 컨트롤러에 개별적으로 적용되어야 합니다.
 
 ## Azure 클래식 포털을 통해 일반 업데이트 설치
 
@@ -58,7 +58,7 @@ Azure 클래식 포털을 사용하여 StorSimple 장치에 업데이트를 적�
 
 또는, StorSimple 용 Windows PowerShell을 사용하여 일반(표준 모드) 업데이트를 적용할 수 있습니다.
 
-> [AZURE.IMPORTANT]StorSimple용 Windows PowerShell을 사용하여 정기적으로 업데이트를 설치할 수 있지만 Azure 클래식 포털을 통해 정기적으로 업데이트를 설치하는 것이 좋습니다. 업데이트 1부터, 포털에서 업데이트를 설치하기 전에 사전 검사를 수행합니다. 이러한 검사는 오류의 사전 파악과 더 원활한 환경을 위한 것입니다.
+> [AZURE.IMPORTANT] StorSimple용 Windows PowerShell을 사용하여 정기적으로 업데이트를 설치할 수 있지만 Azure 클래식 포털을 통해 정기적으로 업데이트를 설치하는 것이 좋습니다. 업데이트 1부터, 포털에서 업데이트를 설치하기 전에 사전 검사를 수행합니다. 이러한 검사는 오류의 사전 파악과 더 원활한 환경을 위한 것입니다.
 
 [AZURE.INCLUDE [storsimple-install-regular-updates-powershell](../../includes/storsimple-install-regular-updates-powershell.md)]
 
@@ -68,7 +68,7 @@ StorSimple용 Windows PowerShell을 사용하여 유지 관리 모드 업데이�
 
 유지 관리 모드 업데이트를 적용해야 하는 경우 설치해야 하는 업데이트가 있다는 경고를 Azure 클래식 포털을 통해 수신합니다. 이 경고는 StorSimple용 Windows PowerShell을 사용하여 업데이트를 설치하기 위한 지침을 포함합니다. 장치를 업데이트한 후, 동일한 절차에 따라 장치를 일반 모드로 변경합니다. 단계별 지침은 [4단계: 유지 관리 모드를 종료](#step4)를 참조하세요.
 
-> [AZURE.IMPORTANT]
+> [AZURE.IMPORTANT] 
 > 
 > - 유지 관리 모드에 들어가기 전에 Azure 클래식 포털의 **유지 관리** 페이지에서 **하드웨어 상태**를 확인하여 두 장치 컨트롤러 모두가 정상 상태인지 확인합니다. 컨트롤러가 정상 상태가 아니면 다음 단계는 Microsoft 지원에 문의하세요. 자세한 내용은 Microsoft 지원에 문의로 이동합니다. 
 > - 유지 관리 모드에 있는 경우, 업데이트를 먼저 하나의 컨트롤러에 적용한 다음 다른 컨트롤러에 적용해야 합니다.
@@ -119,4 +119,4 @@ Microsoft Azure StorSimple에 대한 업데이트와 달리 핫픽스는 공유 
 - [StorSimple용 Windows PowerShell을 사용하여 StorSimple 장치를 관리](storsimple-windows-powershell-administration.md)하는 방법을 자세히 알아봅니다.
 - [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="02/21/2016"
 	ms.author="tarcher"/>
 
 # 내 WebJob 프로젝트(Visual Studio Azure 저장소 연결 서비스)의 변경 내용
@@ -34,6 +34,6 @@ Azure Storage NuGet 패키지가 Visual Studio 프로젝트에 추가 또는 업
 ## 추가된 Azure 저장소에 대한 연결 문자열
 프로젝트의 App.config 파일에서 **AzureWebJobsStorage** 및 **AzureWebJobsDashboard** 항목이 선택한 저장소 계정의 연결 문자열과 키로 업데이트되었습니다.
 
-자세한 내용은 [Azure WebJob 권장 리소스](http://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
+자세한 내용은 [Azure WebJob 설명서 리소스](http://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

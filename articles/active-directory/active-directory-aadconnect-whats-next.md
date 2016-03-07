@@ -58,6 +58,8 @@ AD FS에 로그인하고 PSH를 사용하여 이렇게 구성하여 AD FS 로그
 
 <center>![Cloud](./media/active-directory-aadconnect-whats-next/startsynch.png)</center>
 
+Azure AD Connect 동기화: 스케줄러에 대한 자세한 내용은 [Azure AD Connect 스케줄러](active-directory-aadconnectsync-feature-scheduler.md) 참조
+
 
 ## Azure AD Connect에서 사용할 수 있는 추가 작업
 Azure AD Connect의 초기 설치 후, Azure AD Connect 시작 페이지 또는 바탕 화면 바로 가기에서 항상 마법사를 다시 시작할 수 있습니다. 마법사를 다시 실행하면 몇가지 새로운 옵션이 추가 작업의 형태로 제공됩니다.
@@ -76,4 +78,4 @@ Azure AD Connect의 초기 설치 후, Azure AD Connect 시작 페이지 또는 
 ## 다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

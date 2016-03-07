@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016"    
+	ms.date="02/18/2016"    
 	ms.author="juliako"/>
 
 
@@ -135,14 +135,33 @@
 				    return job.OutputMediaAssets[0];
 				}
 		
-		        static public IAsset EncodeWithOverlay(IAsset assetSource, IAsset assetOverlay, string customPresetFileName)
+		        static public IAsset UploadMediaFilesFromFolder(string folderPath)
+		        {
+		            IAsset asset = _context.Assets.CreateFromFolder(folderPath, AssetCreationOptions.None);
+		
+		            foreach (var af in asset.AssetFiles)
+		            {
+		                // The following code assumes 
+		                // you have an input folder with one MP4 and one overlay image file.
+		                if (af.Name.Contains(".mp4"))
+		                    af.IsPrimary = true;
+		                else
+		                    af.IsPrimary = false;
+		
+		                af.Update();
+		            }
+		
+		            return asset;
+		        }
+		
+		
+		        static public IAsset EncodeWithOverlay(IAsset assetSource, string customPresetFileName)
 		        {
 		            // Declare a new job.
 		            IJob job = _context.Jobs.Create("Media Encoder Standard Job");
 		            // Get a media processor reference, and pass to it the name of the 
 		            // processor to use for the specific task.
 		            IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
-		
 		
 		            // Load the XML (or JSON) from the local file.
 		            string configuration = File.ReadAllText(customPresetFileName);
@@ -154,8 +173,8 @@
 		                TaskOptions.None);
 		
 		            // Specify the input assets to be encoded.
+		            // This asset contains a source file and an overlay file.
 		            task.InputAssets.Add(assetSource);
-		            task.InputAssets.Add(assetOverlay);
 		
 		            // Add an output asset to contain the results of the job. 
 		            task.OutputAssets.AddNew("Output asset",
@@ -167,6 +186,7 @@
 		
 		            return job.OutputMediaAssets[0];
 		        }
+		
 
 		        private static void JobStateChanged(object sender, JobStateChangedEventArgs e)
 		        {
@@ -669,9 +689,15 @@
 
 미디어 인코더 표준을 사용하면 이미지를 기존 비디오에 오버레이할 수 있습니다. 현재 png, jpg, gif 및 bmp 형식이 지원됩니다. 아래에 정의된 사전 설정은 비디오 오버레이의 기본적인 예입니다.
 
->[AZURE.NOTE]현재 오버레이 불투명도 설정이 지원되지 않습니다.
+또한 사전 설정 파일을 정의하는 것 외에도 미디어 서비스를 통해 오버레이 이미지에 해당하는 자산의 파일 및 이미지를 오버레이하려는 원본 비디오에 해당하는 파일을 알 수 있습니다. 비디오 파일은 **기본** 파일이어야 합니다.
 
-또한 사전 설정 파일을 정의하는 것 외에도 미디어 서비스를 통해 오버레이 이미지를 포함하는 자산 및 이미지를 오버레이하려는 원본 비디오 포함하는 자산을 알 수 있습니다. 위에 정의된 **EncodeWithOverlay** 메서드의 .NET 예제를 확인합니다.
+위의 .NET 예제에서는 두 함수 **UploadMediaFilesFromFolder** 및 **EncodeWithOverlay**를 정의합니다. UploadMediaFilesFromFolder 함수는 폴더에서 파일(예: BigBuckBunny.mp4 및 Image001.png)을 업로드하고 mp4 파일을 자신의 기본 파일로 설정합니다. **EncodeWithOverlay** 함수는 전달된 사용자 지정 사전 설정 파일(예: 다음에 나오는 사전 설정)을 사용하여 인코딩 작업을 만듭니다.
+
+>[AZURE.NOTE]현재 제한 사항:
+>
+>오버레이 불투명도 설정이 지원되지 않습니다.
+>
+>원본 비디오 파일과 오버레이 파일이 같은 자산에 있어야 합니다.
 
 ###JSON 사전 설정
 	
@@ -699,7 +725,7 @@
 	              "InputLoop": true
 	            }
 	          ],
-	          "Source": "Image001.jpg",
+	          "Source": "Image001.png",
 	          "Clip": {
 	            "Duration": "00:00:05"
 	          },
@@ -759,7 +785,7 @@
 	      <Streams />
 	      <Filters>
 	        <VideoOverlay>
-	          <Source>Image001.jpg</Source>
+	          <Source>Image001.png</Source>
 	          <Clip Duration="PT5S" />
 	          <FadeInDuration Duration="PT1S" />
 	          <FadeOutDuration StartTime="PT3S" Duration="PT4S" />
@@ -884,4 +910,4 @@
 
 [미디어 서비스 인코딩 개요](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

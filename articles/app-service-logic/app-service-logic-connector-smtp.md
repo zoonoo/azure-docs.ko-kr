@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="rajeshramabathiran"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/11/2015"
+   ms.date="02/11/2016"
    ms.author="rajram"/>
 
 
 # SMTP 커넥터 시작 및 논리 앱에 추가
+>[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다. 2015-08-01-미리 보기 스키마 버전에 대한 내용을 보려면 [SMTP API](../connectors/create-api-smtp.md)를 클릭하세요.
+
 SMTP 서버에 연결하고 첨부 파일이 있는 메일을 비롯한 메일을 보냅니다. SMTP 커넥터 "메일 보내기" 동작을 사용하면 지정된 메일 주소로 메일을 보낼 수 있습니다.
 
 논리 앱은 다양한 데이터 원본을 기반으로 트리거하고 워크플로의 일부로 데이터를 가져오고 처리하기 위한 커넥터를 제공할 수 있습니다. SMTP 커넥터를 비즈니스 워크플로에 추가하고 논리 앱 내에서 이 워크플로의 일부로 데이터를 처리할 수 있습니다.
@@ -89,7 +91,7 @@ SMTP 커넥터에서 사용할 수 있는 트리거와 동작은 다음과 같�
 ## 커넥터의 추가 기능
 이제 커넥터를 만들었으므로 논리 앱을 사용하여 비즈니스 워크플로에 추가할 수 있습니다. [논리 앱 정의](app-service-logic-what-are-logic-apps.md)를 참조하세요.
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동합니다. 앱 서비스에서 즉시 단기 스타터 논리 앱을 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동합니다. 앱 서비스에서 즉시 단기 스타터 논리 앱을 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 [커넥터 및 API 앱 참조](http://go.microsoft.com/fwlink/p/?LinkId=529766)의 Swagger REST API 참조를 봅니다.
 
@@ -103,4 +105,4 @@ SMTP 커넥터에서 사용할 수 있는 트리거와 동작은 다음과 같�
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

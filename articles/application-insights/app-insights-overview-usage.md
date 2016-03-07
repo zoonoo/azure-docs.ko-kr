@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="11/24/2015"
+	ms.date="02/19/2016"
 	ms.author="awills"/>
 
 # Application Insights를 사용하여 사용량 분석
@@ -25,7 +25,7 @@ Application Insights는 독립 실행형 앱(iOS, Android 및 Windows)과 웹앱
 
 ## 프로젝트에 Application Insights 추가
 
-작업을 시작하려면 [Microsoft Azure](https://azure.com)를 구독해야 합니다. 무료 평가판이 있으며 평가 기간 후에도 서비스의 무료 계층으로 계속 사용할 수 있습니다.
+시작하려면 [Microsoft Azure](https://azure.com)에서 무료 계정을 얻습니다. 평가 기간 후에도 서비스의 무료 계층으로 계속 사용할 수 있습니다.
 
 [Azure 포털](https://portal.azure.com)에서 Application Insights 리소스를 만듭니다. 여기서 앱의 사용 현황 및 성능 데이터를 볼 수 있습니다.
 
@@ -288,4 +288,4 @@ Global.asax.cs 같은 앱 이니셜라이저에서:
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

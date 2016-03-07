@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-management" 
-	ms.date="12/01/2015" 
+	ms.date="02/23/2016" 
 	ms.author="sstein"/>
 
 
@@ -35,7 +35,7 @@ SQL 데이터베이스 V12가 최신 버전이므로 SQL 데이터베이스 V12�
 
 V12로 업그레이드하는 과정에서 Web/Business 데이터베이스를 새로운 서비스 계층으로 업데이트하게 됩니다. 따라서 Web/Business 데이터베이스 업그레이드에 대한 지침도 포함되어 있습니다.
 
-또한 [탄력적 데이터베이스 풀](sql-database-elastic-pool.md)로 마이그레이션하는 것이 단일 데이터베이스에 대한 개별 성능 수준(가격 책정 계층)으로 업그레이드하는 것보다 비용 면에서 효율적일 수 있습니다. 개별 데이터베이스의 성능 수준을 개별적으로 관리하지 않고 풀의 성능 설정만 관리하면 되므로, 풀은 데이터베이스 관리를 간소화합니다. 여러 서버에 데이터베이스가 있는 경우에는 이 데이터베이스를 동일한 서버로 이동해서 풀로 유용하게 관리하는 것이 좋습니다. [PowerShell을 사용하여 V11 서버에서 탄력적 데이터베이스 풀로 직접 데이터베이스를 자동 마이그레이션](sql-database-upgrade-server.md)하는 작업을 손쉽게 수행할 수 있습니다. 포털을 사용하여 V11 데이터베이스를 풀로 마이그레이션할 수도 있지만, 포털에 이미 V12 서버가 있어야 풀을 만들 수 있습니다. [풀을 활용할 수 있는 데이터베이스](sql-database-elastic-pool-guidance.md)가 이미 있는 경우에는 이 문서 뒷부분에서 제공되는 서버 업그레이드 후 풀 만들기 지침을 참조하세요.
+또한 [탄력적 데이터베이스 풀](sql-database-elastic-pool.md)로 마이그레이션하는 것이 단일 데이터베이스에 대한 개별 성능 수준(가격 책정 계층)으로 업그레이드하는 것보다 비용 면에서 효율적일 수 있습니다. 개별 데이터베이스의 성능 수준을 개별적으로 관리하지 않고 풀의 성능 설정만 관리하면 되므로, 풀은 데이터베이스 관리를 간소화합니다. 여러 서버에 데이터베이스가 있는 경우에는 이 데이터베이스를 동일한 서버로 이동해서 풀로 유용하게 관리하는 것이 좋습니다. [PowerShell을 사용하여 V11 서버에서 탄력적 데이터베이스 풀로 직접 데이터베이스를 자동 마이그레이션](sql-database-upgrade-server-powershell.md)하는 작업을 손쉽게 수행할 수 있습니다. 포털을 사용하여 V11 데이터베이스를 풀로 마이그레이션할 수도 있지만, 포털에 이미 V12 서버가 있어야 풀을 만들 수 있습니다. [풀을 활용할 수 있는 데이터베이스](sql-database-elastic-pool-guidance.md)가 이미 있는 경우에는 이 문서 뒷부분에서 제공되는 서버 업그레이드 후 풀 만들기 지침을 참조하세요.
 
 데이터베이스는 업그레이드 작업 동안 온라인 상태로 유지되며 계속 작동합니다. 실제로 새 성능 수준으로 전환할 때 아주 짧은 시간(보통 90초 정도이지만 최대 5분일 수도 있음) 동안 데이터베이스 연결이 일시적으로 끊어질 수 있습니다. 응용 프로그램에 [연결 종료에 대한 일시적인 오류 처리](sql-database-connect-central-recommendations.md) 기능이 있을 경우 업그레이드 종료 시의 연결 끊김을 방지할 수 있습니다.
 
@@ -132,7 +132,7 @@ V12로 업그레이드 한 직후에는 서비스가 새 서버의 워크로드�
 추가 모니터링 정보:
 
 - [단일 데이터베이스의 Azure SQL 데이터베이스 성능 지침](http://msdn.microsoft.com/library/azure/dn369873.aspx)
-- [탄력적 데이터베이스 풀의 가격 및 성능 고려 사항](sql-database=elastic-pool-guidance.md)
+- [탄력적 데이터베이스 풀의 가격 및 성능 고려 사항](sql-database-elastic-pool-guidance.md)
 - [동적 관리 뷰를 사용하여 Azure SQL 데이터베이스 모니터링](sql-database-monitoring-with-dmvs.md)
 
 
@@ -140,7 +140,7 @@ V12로 업그레이드 한 직후에는 서비스가 새 서버의 워크로드�
 
 **경고:** 업그레이드된 데이터베이스의 DTU 사용량이 지정된 높은 수준에 도달하면 알리도록 Azure 포털에서 '경고'를 설정합니다. 데이터베이스 경고는 DTU, CPU, IO 및 로그와 같은 다양한 성능 메트릭에 대해 Azure 포털에서 설정할 수 있습니다. 데이터베이스로 이동한 후 **설정** 블레이드에서 **경고 규칙**을 선택하면 됩니다.
 
-예를 들어 평균 DTU 백분율 값이 최근 5분 동안 75%를 초과할 경우 "DTU 백분율"에 대해 메일 경고를 설정할 수 있습니다. 경고 알림을 구성하는 방법에 대한 내용은 [경고 알림 받기](insights-receive-alert-notifications.md)를 참조하세요.
+예를 들어 평균 DTU 백분율 값이 최근 5분 동안 75%를 초과할 경우 "DTU 백분율"에 대해 메일 경고를 설정할 수 있습니다. 경고 알림을 구성하는 방법에 대한 내용은 [경고 알림 받기](../azure-portal/insights-receive-alert-notifications.md)를 참조하세요.
 
 
 
@@ -169,4 +169,4 @@ V12로 업그레이드 한 직후에는 서비스가 새 서버의 워크로드�
 [6]: ./media/sql-database-upgrade-server-portal/recommendations.png
 [7]: ./media/sql-database-upgrade-server-portal/new-elastic-pool.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

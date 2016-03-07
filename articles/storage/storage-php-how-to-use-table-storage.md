@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="02/17/2016"
 	ms.author="tomfitz"/>
 
 
@@ -23,7 +23,7 @@
 
 ## 개요
 
-이 가이드에서는 Azure 테이블 서비스를 사용하여 일반 시나리오를 수행하는 방법을 설명합니다. 샘플은 PHP로 작성되었으며 [PHP용 Azure SDK][download]를 사용합니다. **테이블 만들기 및 삭제, 테이블에서 엔터티 삽입, 삭제 및 쿼리** 등의 시나리오를 다룹니다. Azure 테이블 서비스에 대한 자세한 내용은 [다음 단계](#NextSteps) 섹션을 참조하세요.
+이 가이드에서는 Azure 테이블 서비스를 사용하여 일반 시나리오를 수행하는 방법을 설명합니다. 샘플은 PHP로 작성되었으며 [PHP용 Azure SDK][download]를 사용합니다. **테이블 만들기 및 삭제, 테이블에서 엔터티 삽입, 삭제 및 쿼리** 등의 시나리오를 다룹니다. Azure 테이블 서비스에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하세요.
 
 [AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -109,7 +109,7 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
 		// http://msdn.microsoft.com/library/azure/dd179438.aspx
 	}
 
-테이블 이름의 제한 사항에 대한 자세한 내용은 [테이블 서비스 데이터 모델 이해][table-data-model]를 참조하십시오.
+테이블 이름의 제한 사항에 대한 자세한 내용은 [테이블 서비스 데이터 모델 이해][table-data-model]를 참조하세요.
 
 ## 테이블에 엔터티 추가
 
@@ -145,7 +145,7 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
 		$error_message = $e->getMessage();
 	}
 
-테이블 속성 및 유형에 대한 자세한 내용은 [테이블 서비스 데이터 모델 이해][table-data-model]를 참조하세요.
+테이블 속성 및 유형에 대한 자세한 내용은 [테이블 서비스 데이터 모델 이해][table-data-model]를 참조하십시오.
 
 **TableRestProxy** 클래스는 엔터티 삽입을 위한 2 개의 대체 메서드를 제공합니다: **insertOrMergeEntity** 및 **insertOrReplaceEntity**. 이러한 메서드를 사용하려면 새 **Entity**를 만들어 두 메서드 중 하나에 매개 변수로 전달합니다. 각 메서드는 엔터티가 없을 경우 해당 엔터티를 삽입합니다. 엔터티가 이미 있을 경우, **insertOrMergeEntity**는 속성이 이미 있으면 속성 값을 업데이트하고 속성이 없으면 새 속성을 추가하지만 **insertOrReplaceEntity**는 기존 엔터티를 완전히 바꿉니다. 다음 예제에서는 **insertOrMergeEntity**를 사용하는 방법을 보여 줍니다. `PartitionKey`"tasksSeattle”과 `RowKey`"1"인 엔터티가 아직 없으면 이 엔터티가 삽입됩니다. 그러나 위의 예제와 같이 엔터티가 이미 삽입되어 있으면 `DueDate` 속성이 업데이트되고 `Status` 속성이 추가됩니다. `Description`및`Location` 속성도 업데이트되지만 실질적으로 변경하지 않은 상태로 유지하는 값으로 업데이트됩니다. 이 2개의 속성이 예제와 같이 추가되지는 않지만 대상 엔터티에 이미 있는 경우, 두 속성의 기존 값은 변경되지 않습니다.
 
@@ -250,7 +250,7 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
 
 ## 파티션의 엔터티 하위 집합 검색
 
-이전 예제에서 사용된 동일한 패턴을 파티션의 엔터티 하위 집합 검색에 사용할 수 있습니다. 검색되는 엔터티 하위 집합은 사용하는 필터에 의해 결정됩니다(자세한 내용은 [Querying Tables and Entities][filters] 참조). 다음 예제에서는 필터를 사용하여 특정 `Location`과 지정한 날짜보다 작은 `DueDate`를 갖는 모든 엔터티를 검색하는 방법을 보여 줍니다.
+이전 예제에서 사용된 동일한 패턴을 파티션의 엔터티 하위 집합 검색에 사용할 수 있습니다. 검색되는 엔터티 하위 집합은 사용하는 필터에 의해 결정됩니다(자세한 내용은 [테이블 및 엔터티 쿼리][filters] 참조). 다음 예제에서는 필터를 사용하여 특정 `Location`과 지정한 날짜보다 작은 `DueDate`를 갖는 모든 엔터티를 검색하는 방법을 보여 줍니다.
 
 	require_once 'vendor\autoload.php';
 
@@ -478,4 +478,4 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
 [filters]: http://msdn.microsoft.com/library/azure/dd894031.aspx
 [entity-group-transactions]: http://msdn.microsoft.com/library/azure/dd894038.aspx
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0224_2016-->

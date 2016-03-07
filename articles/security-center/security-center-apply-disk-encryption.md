@@ -1,5 +1,5 @@
 <properties
-   pageTitle="디스크 암호화 적용 | Microsoft Azure"
+   pageTitle="Azure 보안 센터에서 디스크 암호화 적용 | Microsoft Azure"
    description="이 문서에서는 보안 센터 권장 사항 **디스크 암호화 적용**을 구현하는 방법을 보여줍니다."
    services="security-center"
    documentationCenter="na"
@@ -10,13 +10,13 @@
 <tags
    ms.service="security-center"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/09/2016"
+   ms.date="02/23/2016"
    ms.author="terrylan"/>
 
-# 디스크 암호화 적용
+# Azure 보안 센터에서 디스크 암호화 적용
 
 Azure 보안 센터는 암호화되지 않은 Windows 또는 Linux VM 디스크가 있는 경우 Azure 디스크 암호화를 사용하여 디스크 암호화를 적용하도록 권장합니다. 디스크 암호화를 사용하면 Windows 및 Linux IaaS VM 디스크를 암호화할 수 있습니다. VM에서 OS 및 데이터 볼륨에 암호화를 사용하는 것이 좋습니다.
 
@@ -54,4 +54,4 @@ Azure 보안 센터는 암호화되지 않은 Windows 또는 Linux VM 디스크�
 <!--Image references-->
 [1]: ./media/security-center-apply-disk-encryption/apply-disk-encryption.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="01/12/2016"
+   ms.date="02/10/2016"
    ms.author="sameerch"/>
 
 
 # HDInsight 커넥터 시작 및 논리 앱에 추가
+>[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다.
+
 HDInsight 커넥터를 사용하면 Azure에서 Hadoop 클러스터를 생성하고 Hive, Pig, MapReduce 및 스트리밍 MapReduce와 같은 다양한 Hadoop 작업을 제출할 수 있습니다. Azure HDInsight 서비스는 빅 데이터를 관리, 분석 및 보고하기 위한 소프트웨어 프레임워크를 제공하여 클라우드에서 Apache Hadoop 클러스터를 배포하고 프로비전합니다. Hadoop 코어는 HDFS(Hadoop Distributed File System)을 사용하는 안정적인 데이터 저장소와 이 분산 시스템에 저장된 데이터를 병렬로 처리 및 분석하는 간단한 MapReduce 프로그래밍 모델을 제공합니다. HDInsight 커넥터를 사용하여 클러스터를 만들거나 삭제하고 작업을 제출하고 작업이 완료되기를 기다릴 수 있습니다.
 
 커넥터는 논리 앱에 사용하여 흐름의 일부로 데이터 가져오기, 처리 또는 푸시를 수행할 수 있습니다. HDInsight 커넥터를 비즈니스 워크플로에 추가하고 논리 앱 내에서 이 워크플로의 일부로 데이터를 처리할 수 있습니다.
@@ -45,7 +47,7 @@ HDInsight 커넥터를 사용하면 Azure에서 Hadoop 클러스터를 생성하
 
 ## 인증서 구성(선택 사항) ##
 
-> [AZURE.NOTE]이 단계는 논리 앱에서 관리 작업(클러스터 만들기 및 삭제)을 수행하고자 하는 경우에만 필요합니다.
+> [AZURE.NOTE] 이 단계는 논리 앱에서 관리 작업(클러스터 만들기 및 삭제)을 수행하고자 하는 경우에만 필요합니다.
 
 방금 만든 HDInsight 커넥터 API 앱으로 이동하면 'Security' 구성 요소에서 0를 확인할 수 있으며 이것은 업로드된 관리 인증서가 없음을 의미합니다. ![][2]
 
@@ -58,7 +60,7 @@ API 앱에 관리 인증을 업로드하려면 다음을 수행해야 합니다.
 
 인증서가 성공적으로 업로드되면 인증서 세부 정보가 표시됩니다. ![][3]
 
-> [AZURE.NOTE]인증서를 변경하려는 경우, 기존 인증서를 대치할 다른 인증서를 업로드할 수 있습니다.
+> [AZURE.NOTE] 인증서를 변경하려는 경우, 기존 인증서를 대치할 다른 인증서를 업로드할 수 있습니다.
 
 ## 논리 앱에서 커넥터 사용하기 ##
 
@@ -87,7 +89,7 @@ HDInsight 커넥터는 논리 앱에서 동작으로만 사용할 수 있습니�
 ## 커넥터의 추가 기능
 이제 커넥터를 만들었으므로 논리 앱을 사용하여 비즈니스 워크플로에 추가할 수 있습니다. [논리 앱 정의](app-service-logic-what-are-logic-apps.md)를 참조하세요.
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동합니다. 앱 서비스에서 즉시 단기 스타터 논리 앱을 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동합니다. 앱 서비스에서 즉시 단기 스타터 논리 앱을 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 [커넥터 및 API 앱 참조](http://go.microsoft.com/fwlink/p/?LinkId=529766)의 Swagger REST API 참조를 봅니다.
 
@@ -107,4 +109,4 @@ HDInsight 커넥터는 논리 앱에서 동작으로만 사용할 수 있습니�
 [11]: ./media/app-service-logic-connector-hdinsight/LogicApp7.png
 [12]: ./media/app-service-logic-connector-hdinsight/LogicApp8.PNG
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0224_2016-->

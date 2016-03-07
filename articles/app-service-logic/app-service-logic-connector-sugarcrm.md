@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/30/2015"
+   ms.date="02/10/2016"
    ms.author="sameerch"/>
 
 
 # SugarCRM 커넥터 시작 및 논리 앱에 추가
+>[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다.
+
 SugarCRM 커넥터를 사용하여 계정, 잠재 고객, 연락처 등과 같은 다양한 엔터티를 만들고 수정할 수 있습니다. 다음은 SugarCRM과 관련된 일반적인 통합 시나리오입니다.
 
 - SugarCRM과 ERP 시스템(예: SAP) 간의 계정 동기화
@@ -57,7 +59,7 @@ SugarCRM 커넥터를 사용하여 계정, 잠재 고객, 연락처 등과 같�
 
 	이름 | 필수 | 설명
 --- | --- | ---
-사이트 URL | 예 | SugarCRM 인스턴스의 URL을 입력합니다. 예를 들어 https://abcde1234.sugarcrm.com를 입력합니다.
+사이트 URL | 예 | SugarCRM 인스턴스의 URL을 입력합니다. 예를 들어 https://abcde1234.sugarcrm.com을 입력합니다.
 클라이언트 ID | 예 | SugarCRM에서 OAUTH 2.0 키의 소비자 키를 입력합니다. 
 클라이언트 암호 | 예 | OAUTH의 소비자 암호를 입력합니다.
 사용자 이름 | 예 | SugarCRM 사용자의 사용자 이름을 입력합니다.
@@ -100,7 +102,7 @@ SugarCRM에서 계정을 만들고 동일한 계정의 청구 주소 정보를 �
 ## 커넥터의 추가 기능
 이제 커넥터를 만들었으므로 논리 앱을 사용하여 비즈니스 워크플로에 추가할 수 있습니다. [논리 앱 정의](app-service-logic-what-are-logic-apps.md)를 참조하세요.
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동합니다. 앱 서비스에서 즉시 단기 스타터 논리 앱을 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동합니다. 앱 서비스에서 즉시 단기 스타터 논리 앱을 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 [커넥터 및 API 앱 참조](http://go.microsoft.com/fwlink/p/?LinkId=529766)의 Swagger REST API 참조를 봅니다.
 
@@ -117,4 +119,4 @@ SugarCRM에서 계정을 만들고 동일한 계정의 청구 주소 정보를 �
 [8]: ./media/app-service-logic-connector-sugarcrm/8_Update_Account_Address.png
 [9]: ./media/app-service-logic-connector-sugarcrm/9_Create_new_SugarCRM_connector.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

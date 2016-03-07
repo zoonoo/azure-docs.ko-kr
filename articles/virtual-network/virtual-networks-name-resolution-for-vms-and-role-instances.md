@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/02/2016"
+   ms.date="02/20/2016"
    ms.author="joaoma" />
 
 # VM 및 역할 인스턴스에 대한 이름 확인
@@ -23,26 +23,26 @@ IaaS, PaaS, 하이브리드 솔루션 호스팅에 Azure를 어떻게 사용할�
 
 - [Azure에서 제공하는 이름 확인](#azure-provided-name-resolution)
 
-- [자체 DNS 서버를 사용한 이름 확인](#name-resolution-using-your-own-dns-server)
+- [자체 DNS 서버를 이용한 이름 확인](#name-resolution-using-your-own-dns-server)(Azure에서 제공하는 DNS 서버에 쿼리를 전달할 수 있음)
 
 어떤 방법으로 이름을 확인할지는 사용하는 VM 및 역할 인스턴스가 서로 어떻게 통신해야 하는지에 따라 다릅니다.
 
 **다음 표에 각 시나리오 별로 해당하는 이름 확인 방법이 나와 있습니다.**
 
-| **시나리오** | **제공된 이름 확인:** | **자세한 내용은 다음을 참조하세요.** |
-|--------------|----------------------------------|-------------------------------|
-| 역할 인스턴스 또는 VM이 동일한 클라우드 서비스에 위치할 경우 | Azure에서 제공하는 이름 확인 | [Azure에서 제공하는 이름 확인](#azure-provided-name-resolution)|
-| VM과 역할 인스턴스가 동일한 가상 네트워크에 위치할 경우 | Azure에서 제공하는 이름 확인(ARM 기반 배포만 해당) 또는 자체 DNS 서버를 이용한 이름 확인 | [Azure에서 제공하는 이름 확인](#azure-provided-name-resolution), [자체 DNS 서버를 이용한 이름 확인](#name-resolution-using-your-own-dns-server) 및 [DNS 서버 요구 사항](#dns-server-requirements) |
-| VM와 역할 인스턴스가 동일한 가상 네트워크에 위치하지 않을 경우 | 자체 DNS 서버를 이용한 이름 확인| [자체 DNS 서버를 이용한 이름 확인](#name-resolution-using-your-own-dns-server) 및 [DNS 서버 요구 사항](#dns-server-requirements)|
-| 프레미스 간 이름 확인: Azure와 온-프레미스 컴퓨터 간에 역할 인스턴스나 VM을 연결할 경우| 자체 DNS 서버를 이용한 이름 확인| [자체 DNS 서버를 이용한 이름 확인](#name-resolution-using-your-own-dns-server) 및 [DNS 서버 요구 사항](#dns-server-requirements)|
-| 내부 IP 역방향 조회| 자체 DNS 서버를 이용한 이름 확인| [자체 DNS 서버를 이용한 이름 확인](#name-resolution-using-your-own-dns-server) 및 [DNS 서버 요구 사항](#dns-server-requirements)|
-| 비-공용 도메인에 대한 이름 확인(예: Active Directory 도메인)| 자체 DNS 서버를 이용한 이름 확인| [자체 DNS 서버를 이용한 이름 확인](#name-resolution-using-your-own-dns-server) 및 [DNS 서버 요구 사항](#dns-server-requirements)|
-| 역할 인스턴스가 서로 다른 클라우드 서비스에 위치하며 가상 네트워크에 존재하지 않을 경우| 사용할 수 없습니다. 가상 네트워크 외부에 있는 VM과 역할 인스턴스가 서로 다른 클라우드 서비스에 위치한 경우에는 연결을 지원하지 않습니다.| 사용할 수 없습니다.|
+| **시나리오** | **솔루션** | **접미사** |
+|--------------|--------------|----------|
+| 동일한 클라우드 서비스 또는 가상 네트워크에 위치한 역할 인스턴스 또는 VM 간 이름 확인 | [Azure에서 제공하는 이름 확인](#azure-provided-name-resolution)| 호스트 이름 또는 FQDN |
+| 서로 다른 네트워크에 위치한 역할 인스턴스 또는 VM 간 이름 확인 | 고객이 관리하는 DNS 서버가 Azure(DNS 프록시)에서 확인을 위해 vnet 간의 쿼리를 전달합니다. [자체 DNS 서버를 이용한 이름 확인](#name-resolution-using-your-own-dns-server)을 참조하세요.| FQDN만 |
+| Azure의 VM 또는 역할 인스턴스에서 온-프레미스 컴퓨터와 서비스 이름 확인 | 고객이 관리하는 DNS 서버(예: 온-프레미스 도메인 컨트롤러, 로컬 읽기 전용 도메인 컨트롤러 또는 영역 전송을 사용하여 동기화된 DNS 보조)입니다. [자체 DNS 서버를 이용한 이름 확인](#name-resolution-using-your-own-dns-server)을 참조하세요.|FQDN만 |
+| 온-프레미스 컴퓨터에서 Azure 호스트 이름 확인 | 해당 vnet에서 고객이 관리하는 DNS 프록시 서버에 쿼리를 전달하면 프록시 서버는 이름 확인을 위해 Azure에 쿼리를 전달합니다. [자체 DNS 서버를 이용한 이름 확인](#name-resolution-using-your-own-dns-server)을 참조하세요.| FQDN만 |
+| 내부 IP에 대한 역방향 DNS | [자체 DNS 서버를 사용한 이름 확인](#name-resolution-using-your-own-dns-server) | 해당 없음 |
+| 서로 다른 클라우드 서비스에 위치하며 가상 네트워크에 존재하지 않는 VM 또는 역할 인스턴스 간 이름 확인| 사용할 수 없습니다. 가상 네트워크 외부에 있는 VM과 역할 인스턴스가 서로 다른 클라우드 서비스에 위치한 경우에는 연결을 지원하지 않습니다.| 해당 없음 |
+
 
 
 ## Azure에서 제공하는 이름 확인
 
-Azure에서는 공용 DNS 이름 확인과 함께, 동일한 가상 네트워크 또는 클라우드 서비스 내에 있는 VM 및 역할 인스턴스에 대한 내부 이름 확인을 제공합니다. 클라우드 서비스의 VM/인스턴스는 동일한 DNS 접미사를 공유하므로 호스트 이름만으로도 충분하지만 클래식 가상 네트워크에서는 여러 클라우드 서비스에 여러 DNS 접미사가 있으므로 여러 클라우드 서비스에서 이름을 확인하려면 FQDN이 필요합니다. ARM 기반 가상 네트워크에서는 DNS 접미사가 가상 네트워크에서 동일하므로 FQDN이 필요하지 않으며 NIC 또는 가상 컴퓨터에 DNS 이름을 할당할 수 있습니다. Azure에서 제공한 이름 확인은 별도로 구성할 필요가 없으나, 위의 표에 나온 바와 같이 모든 배포 서비스에서 선택할 수 있는 것은 아닙니다.
+Azure에서는 공용 DNS 이름 확인과 함께, 동일한 가상 네트워크 또는 클라우드 서비스 내에 있는 VM 및 역할 인스턴스에 대한 내부 이름 확인을 제공합니다. 클라우드 서비스의 VM/인스턴스는 동일한 DNS 접미사를 공유하므로 호스트 이름만으로도 충분하지만 클래식 가상 네트워크에서는 여러 클라우드 서비스에 여러 DNS 접미사가 있으므로 여러 클라우드 서비스에서 이름을 확인하려면 FQDN이 필요합니다. ARM 기반 가상 네트워크에서는 DNS 접미사가 가상 네트워크에서 일관되며(따라서 FQDN이 필요하지 않음) NIC 또는 VM 모두에 DNS 이름을 할당할 수 있습니다. Azure에서 제공한 이름 확인은 별도로 구성할 필요가 없으나, 위의 표에 나온 바와 같이 모든 배포 서비스에서 선택할 수 있는 것은 아닙니다.
 
 > [AZURE.NOTE] 웹 역할 및 작업자 역할의 경우, Azure 서비스 관리 REST API를 사용하면 역할 이름과 인스턴스 번호를 통해 역할 인스턴스의 내부 IP 주소를 접속할 수도 있습니다. 자세한 내용은 [서비스 관리 REST API 참조](https://msdn.microsoft.com/library/azure/ee460799.aspx)를 참조하세요.
 
@@ -54,21 +54,21 @@ Azure에서는 공용 DNS 이름 확인과 함께, 동일한 가상 네트워크
 
 - Azure에서 제공하는 이름 확인 서비스는 항상 사용 가능하며 사용자 고유 DNS 서버의 클러스터를 만들고 관리해야 하는 필요성을 줄여줍니다.
 
+- 온-프레미스와 Azure 호스트 이름을 모두 확인하기 위해 자체 DNS 서버와 함께 사용할 수 있습니다.
+
 - 역할 인스턴스/VM이 동일한 클라우드 서비스에 위치할 경우에 이름 확인이 제공되며 FQDN이 필요하지 않습니다.
 
 - ARM 기반 가상 네트워크에서는 VM 간에 이름 확인이 제공되므로 FQDN이 필요하지 않으며 클래식 가상 네트워크에서는 서로 다른 클라우드 서비스에서 이름을 확인할 때 FQDN이 필요합니다.
 
-- 자동 생성되는 이름 대신에 배포를 가장 잘 설명해주는 호트스 이름을 만들 수 있습니다.
+- 자동 생성되는 이름 대신에 배포를 가장 잘 설명해주는 호스트 이름을 사용할 수 있습니다.
 
 **고려 사항:**
-
-- 가상 네트워크 간, Azure 및 온-프레미스 컴퓨터 간에 이름 확인을 사용할 수 없습니다.
 
 - Azure에서 만든 DNS 접미사는 수정할 수 없습니다.
 
 - 사용자 고유의 레코드를 수동으로 등록할 수 없습니다.
 
-- WINS 및 NetBIOS는 지원되지 않습니다. (Windows 탐색기에서 네트워크 브라우저에 있는 가상 컴퓨터를 나열할 수 없습니다.)
+- WINS 및 NetBIOS는 지원되지 않습니다. (Windows 탐색기에 VM은 표시되지 않습니다.)
 
 - 호스트 이름이 DNS와 호환될 수 있어야 합니다. (0-9, a-z 및 '-'만 사용이 가능하며, '-'로 시작하거나 끝날 수 없습니다. RFC 3696 섹션을 2를 참조하세요.)
 
@@ -127,27 +127,29 @@ resolv.conf 파일은 일반적으로 자동으로 생성되며 편집할 수 �
 	- 'service network restart'를 실행하여 업데이트합니다.
 
 ## 자체 DNS 서버를 이용한 이름 확인
+이름 확인 요구 사항이 Azure에서 제공하는 기능을 벗어날 수 있는 여러 상황이 있습니다. 예를 들어 Active Directory 도메인을 사용할 때나 vnet(가상 네트워크) 간의 DNS 확인이 요구될 때와 같은 상황입니다. 이러한 시나리오를 해결하기 위해 Azure는 자체 DNS 서버를 사용할 수 있는 기능을 제공합니다.
 
-이름 확인 요구 사항이 Azure에서 제공하는 기능을 벗어나는 경우 자체 DNS 서버를 사용할 수 있습니다. 자체 DNS 서버를 사용하면 DNS 레코드 관리를 직접 담당해야 합니다.
+가상 네트워크 내에서 DNS 서버는 해당 가상 네트워크 내에서 호스트 이름을 확인하기 위해 Azure의 재귀 확인자에게 DNS 쿼리를 전달할 수 있습니다. 예를 들어 Azure에서 실행 중인 DC(도메인 컨트롤러)는 해당 도메인에 대한 DNS 쿼리에 응답하고 Azure에 다른 모든 쿼리를 전달할 수 있습니다. 이렇게 하면 VM은 온-프레미스 리소스(DC를 통해)와 Azure에서 제공하는 호스트 이름(전달자를 통해)을 확인할 수 있습니다. Azure의 재귀 확인자에 대한 액세스는 가상 IP 168.63.129.16을 통해 제공됩니다.
 
-> [AZURE.NOTE] 배포 시나리오에서 필요한 경우가 아니면 외부 DNS 서버를 사용하지 않는 것이 좋습니다.
+또한 DNS 전달로 vnet 간 DNS 확인이 가능하며 온-프레미스 컴퓨터는 Azure에서 제공하는 호스트 이름을 확인할 수 있습니다. VM의 호스트 이름을 확인하려면 DNS 서버 VM이 동일한 가상 네트워크에 있어야 하며 Azure에 호스트 이름 쿼리를 전달하도록 구성되어야 합니다. DNS 접미사는 각 vnet마다 다르기 때문에 확인을 위해 올바른 vnet에 DNS 쿼리를 보내도록 조건부 전달 규칙을 사용할 수 있습니다. 다음 이미지에서는 두 vnet과 온-프레미스 네트워크가 이 메서드를 사용하여 vnet 간 DNS 확인을 수행하는 것을 보여 줍니다.
 
-## DNS 서버 요구 사항
+![Vnet 간 DNS](./media/virtual-networks-name-resolution-for-vms-and-role-instances/inter-vnet-dns.png)
 
-Azure에서 제공하지 않는 이름 확인을 사용할 경우, 지정하는 DNS 서버에서 다음을 지원해야 합니다.
+Azure에서 제공하는 이름 확인을 사용하는 경우 DHCP를 사용하여 각 VM에 내부 DNS 접미사를 제공합니다. 자체 이름 확인 솔루션을 사용하는 경우 이 접미사는 다른 DNS 아키텍처에 방해가 되기 때문에 VM에 제공되지 않습니다. FQDN으로 컴퓨터를 참조하거나 VM에 접미사를 구성하려면 PowerShell 또는 API를 사용하여 접미사를 확인할 수 있습니다.
 
-- DNS 서버가 Azure에서 제공되는 서버를 대체하기 때문에 DNS 솔루션은 VM 간 통신 요구 사항을 수용해야 합니다. VM 간 통신을 위해 호스트 이름에 의존하는 경우 이러한 호스트 이름을 DNS 서버에 등록해야 합니다. 이는 많은 요인에 달려 있지만 [이 문서](virtual-networks-name-resolution-ddns.md)에서 제공되는 몇 가지 유용한 지침을 참조하세요.
+-  ARM에서 관리하는 vnet의 경우 접미사는 [네트워크 인터페이스 카드](https://msdn.microsoft.com/library/azure/mt163668.aspx) 리소스 또는 [Get-AzureRmNetworkInterface](https://msdn.microsoft.com/library/mt619434.aspx) cmdlet을 통해 사용할 수 있습니다.    
+-  클래식 배포의 경우 접미사는 [배포 API 가져오기](https://msdn.microsoft.com/library/azure/ee460804.aspx) 호출 또는 [Get-AzureVM -Debug](https://msdn.microsoft.com/library/azure/dn495236.aspx) cmdlet을 통해 사용할 수 있습니다.
 
-- 동적 DNS에 의존하는 경우 DNS 서버의 레코드 청소 기능을 꺼야 합니다. Azure에서 IP 주소는 장기 DHCP 임대를 하므로 청소하는 동안 DNS 서버에서 레코드가 제거될 수 있습니다.
 
-- DNS 서버에서 재귀 기능을 사용해 외부 도메인 이름 확인을 허용해야 합니다.
+Azure에 전달하는 쿼리가 사용자 요구에 적합하지 않은 경우 자체 DNS 솔루션을 제공해야 합니다. DNS 솔루션은 다음을 수행해야 합니다:
 
-- 클라이언트 이름 확인 요청과 이름이 등록될 서비스 및 가상 컴퓨터에 의해 DNS 서버에 엑세스할 수 있어야 합니다( TCP/UDP port 53 이용).
+-  예를 들어 [DDNS](virtual-networks-name-resolution-ddns.md)를 통해 적절한 호스트 이름 확인을 제공해야 합니다. DDNS를 사용하는 경우 Azure의 DHCP 임대는 매우 길고 청소는 DNS 레코드를 중간에 제거할 수 있기 때문에 DNS 레코드 청소를 사용하지 않도록 설정해야 합니다. 
+-  외부 도메인 이름을 확인할 수 있도록 적절한 재귀 확인을 제공해야 합니다.
+-  제공하는 클라이언트에서 액세스 가능해야 하고(포트 53에서 TCP 및 UDP) 인터넷에 액세스할 수 있어야 합니다.
+-  외부 에이전트로 인해 나타나는 위험을 완화하기 위해 인터넷의 액세스로부터 보호되어야 합니다.
 
-- 또한 많은 보트들이 열려 있는 재귀 DNS 해결자를 검색하므로 인터넷에서 엑세스할 수 없더록 DNS 서버를 보호하는 것이 좋습니다.
+> [AZURE.NOTE] 최상의 성능을 위해 DNS 서버로 Azure VM을 사용할 때는 IPv6을 사용하지 않도록 설정하고 [인스턴스 수준 공용 IP](virtual-networks-instance-level-public-ip.mp)를 각 DNS 서버 VM에 할당해야 합니다. Windows Server를 DNS 서버로 사용하려고 선택한 경우 [이 문서](http://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx)에서 추가로 성능을 분석하고 최적화하는 방법을 참조하세요.
 
-- 최상의 성능을 위해 DNS 서버로 Azure VM을 사용할 때는 IPv6을 사용하지 않도록 설정하고 [인스턴스 수준 공용 IP](virtual-networks-instance-level-public-ip.mp)를 각 DNS 서버 VM에 할당해야 합니다.
-	- Windows Server를 DNS 서버로 사용하려고 선택한 경우 [이 문서](http://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx)에서 추가로 성능을 분석하고 최적화하는 방법을 참조하세요.
 
 
 ## DNS 서버 지정
@@ -164,7 +166,7 @@ Azure에서 제공하지 않는 이름 확인을 사용할 경우, 지정하는 
 
 클래식 가상 네트워크에 대해 DNS 설정을 지정하려면 두 개의 구성 파일을 사용합니다. *네트워크 구성* 파일과 *서비스 구성* 파일입니다.
 
-네트워크 구성 파일은 구독에서 가상 네트워크를 설명합니다. 가상 네트워크에 있는 클라우드 서비스에 역할 인스턴스나 VM을 추가할 경우, 네트워크 구성 파일에 따른 DNS 설정이 각 역할 인스턴스나 VM에 적용됩니다(단, 클라우드 서비스 특정 DNS 서버가 지정되지 않은 경우).
+네트워크 구성 파일은 구독의 가상 네트워크를 설명합니다. 가상 네트워크에 있는 클라우드 서비스에 역할 인스턴스나 VM을 추가할 경우, 네트워크 구성 파일에 따른 DNS 설정이 각 역할 인스턴스나 VM에 적용됩니다(단, 클라우드 서비스 특정 DNS 서버가 지정되지 않은 경우).
 
 서비스 구성 파일은 Azure에 클라우드 서비스 파일을 추가할 때마다 생성됩니다. 역할 인스턴스나 VM을 클라우드 서비스에 추가할 경우, 서비스 구성 파일의 DNS 설정이 각 역할 인스턴스나 VM에 적용됩니다.
 
@@ -179,4 +181,4 @@ Azure에서 제공하지 않는 이름 확인을 사용할 경우, 지정하는 
 
 [네트워크 구성 파일을 사용하여 가상 네트워크 구성](virtual-networks-using-network-configuration-file.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

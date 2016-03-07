@@ -101,7 +101,6 @@ Azure 포털을 사용하면 데이터 팩터리를 다이어그램으로 볼 �
 <td>ValidationRetry</td><td>유효성 검사를 다시 시도하기를 기다리고 있습니다.</td>
 </tr>
 <tr>
-&lt;tr
 <td rowspan="2">InProgress</td><td>유효성 검사 중</td><td>유효성 검사가 진행 중입니다.</td>
 </tr>
 <td></td>
@@ -295,6 +294,8 @@ Azure 이벤트는 Azure 리소스에서 일어나는 일에 대한 유용한 �
 - 주문형 HDInsight 클러스터가 생성되고 제거되는 경우.
 
 이러한 사용자 이벤트에 대한 경고를 만들고 구독의 관리자 및 공동 관리자에게 메일 알림을 보내도록 구성할 수 있습니다. 또한 조건이 충족되는 경우 전자 메일 알림을 수신해야 하는 사용자의 추가 메일 주소를 지정할 수 있습니다. 데이터 팩터리를 지속적으로 모니터링하지 않고 오류에 대한 알림을 받으려는 경우에 유용합니다.
+
+> [AZURE.NOTE] 현재는 이벤트에 대한 경고가 포털에 표시되지 않습니다. 모든 경고를 보려면 [모니터링 및 관리 앱](data-factory-monitor-manage-app.md)을 사용하세요.
 
 #### 경고 정의 지정:
 경고 정의를 지정하려면, 경고를 표시하려는 작업을 설명하는 JSON 파일로 만들 수 있습니다. 아래 예에서 경고는 RunFinished 작업에 대해 전자 메일 알림을 보냅니다. 구체적으로 데이터 팩터리에서 실행이 완료되고 실행이 실패한 경우(상태 = FailedExecution) 전자 메일 알림이 전송됩니다.
@@ -570,4 +571,13 @@ OnDemandClusterDeleted | Succeeded
 
 **Add-AlertRule** cmdlet을 사용하여 경고 규칙을 배포할 수 있습니다. 세부 정보 및 예제는 [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx) 항목을 참조하세요.
 
-<!---HONumber=AcomDC_0218_2016-->
+## 다른 리소스 그룹 또는 구독으로 데이터 팩터리 이동
+데이터 팩터리의 홈 페이지에서 **이동** 명령 모음 단추를 사용하여 다른 리소스 그룹이나 다른 구독으로 데이터 팩터리를 이동할 수 있습니다.
+
+![데이터 팩터리 이동](./media/data-factory-monitor-manage-pipelines/MoveDataFactory.png)
+
+데이터 팩터리와 함께 관련된 모든 리소스(예: 데이터 팩터리와 관련된 경고)를 이동할 수도 있습니다.
+
+![리소스 이동 대화 상자](./media/data-factory-monitor-manage-pipelines/MoveResources.png)
+
+<!---HONumber=AcomDC_0224_2016-->

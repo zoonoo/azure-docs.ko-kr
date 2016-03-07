@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/06/2015" 
+	ms.date="02/06/2016" 
 	ms.author="spelluru"/>
 
 # Azure 기계 학습 작업을 사용하여 예측 파이프라인 만들기   
@@ -61,7 +61,7 @@ Azure 데이터 팩터리를 사용하여 데이터 이동 및 처리를 오케�
 ### 시나리오: Azure Blob 저장소의 데이터를 참조하는 웹 서비스 입력/출력을 사용하여 실험
 이 시나리오에서는 Azure 기계 학습 웹 서비스는 Azure Blob 저장소의 파일에서 데이터를 사용하여 예측을 만들고 Blob 저장소에 예측 결과를 저장합니다. 다음 JSON은 AzureMLBatchExecution 작업이 포함된 Azure 데이터 팩터리 파이프라인을 정의합니다. 작업에는 입력으로 데이터 집합 **DecisionTreeInputBlob** 및 출력으로 **DecisionTreeResultBlob**이 있습니다. **DecisionTreeInputBlob**은 **webServiceInput** JSON 속성을 사용하여 웹 서비스에 입력으로 전달되고 **DecisionTreeResultBlob**은 **webServiceOutputs** JSON 속성을 사용하여 웹 서비스에 출력으로 전달됩니다.
 
-> [AZURE.NOTE]**webServiceInput** 및 **webServiceOutputs** 속성(**typeProperties**)에서 참조하는 데이터 집합은 **inputs** 및 **outputs** 작업에 포함되어야 합니다.
+> [AZURE.NOTE] **webServiceInput** 및 **webServiceOutputs** 속성(**typeProperties**)에서 참조하는 데이터 집합은 **inputs** 및 **outputs** 작업에 포함되어야 합니다.
 
 
 	{
@@ -104,7 +104,7 @@ Azure 데이터 팩터리를 사용하여 데이터 이동 및 처리를 오케�
 	  }
 	}
 
-> [AZURE.NOTE]AzureMLBatchExecution 작업의 입력 및 출력만 웹 서비스에 매개 변수로 전달될 수 있습니다. 예를 들어 위의 JSON 조각에서 DecisionTreeInputBlob은 webServiceInput 매개 변수를 통해 웹 서비스에 입력으로 전달되는 AzureMLBatchExecution 작업에 대한 입력입니다.
+> [AZURE.NOTE] AzureMLBatchExecution 작업의 입력 및 출력만 웹 서비스에 매개 변수로 전달될 수 있습니다. 예를 들어 위의 JSON 조각에서 DecisionTreeInputBlob은 webServiceInput 매개 변수를 통해 웹 서비스에 입력으로 전달되는 AzureMLBatchExecution 작업에 대한 입력입니다.
 
 ### 예
 
@@ -218,7 +218,7 @@ Azure 데이터 팩터리를 사용하여 데이터 이동 및 처리를 오케�
 		}
 5. 끝으로, **AzureMLBatchExecution** 작업이 포함된 파이프라인을 작성합니다. 이 파이프라인은 입력 데이터 집합에서 입력 파일의 위치를 가져오고, Azure 기계 학습 배치 실행 API를 호출하며, 배치 실행 출력을 출력 데이터 집합의 지정된 Blob에 복사합니다. 
 
-	> [AZURE.NOTE]AzureMLBatchExecution 작업에는 0개 이상의 입력 및 1개 이상의 출력이 있을 수 있습니다.
+	> [AZURE.NOTE] AzureMLBatchExecution 작업에는 0개 이상의 입력 및 1개 이상의 출력이 있을 수 있습니다.
 
 		{
 		  "name": "PredictivePipeline",
@@ -262,7 +262,7 @@ Azure 데이터 팩터리를 사용하여 데이터 이동 및 처리를 오케�
 
 	**시작** 및 **끝** 모두는 [ISO 형식](http://en.wikipedia.org/wiki/ISO_8601)이어야 합니다. 예: 2014-10-14T16:32:41Z. **end** 시간은 선택 사항입니다. **end** 속성 값을 지정하지 않는 경우 "**start + 48시간**"으로 계산됩니다. 파이프라인을 무기한 실행하려면 **end** 속성 값으로 **9999-09-09**를 지정합니다. JSON 속성에 대한 자세한 내용은 [JSON 스크립트 참조](https://msdn.microsoft.com/library/dn835050.aspx)를 참조하세요.
 
-	> [AZURE.NOTE]AzureMLBatchExecution 작업에 대한 입력 지정은 선택 사항입니다.
+	> [AZURE.NOTE] AzureMLBatchExecution 작업에 대한 입력 지정은 선택 사항입니다.
 
 ### 시나리오: 다양한 저장소의 데이터를 참조하는 판독기/기록기 모듈을 사용하여 실험
 
@@ -270,7 +270,7 @@ Azure ML 실험을 만들 때 다른 일반적인 시나리오는 판독기 및 
 
 판독기 및 작성기 모듈을 사용하는 경우 해당 판독기/기록기 모듈의 각 속성에 대해 웹 서비스 매개 변수를 사용하는 것이 좋습니다. 이러한 웹 매개 변수를 통해 런타임 중 값을 구성할 수 있습니다. 예를 들어 Azure SQL 데이터베이스: XXX.database.windows.net을 사용하는 판독기 모듈을 사용하여 실험을 만들 수 있습니다. 웹 서비스를 배포한 후 웹 서비스의 소비자가 YYY.database.windows.net이라는 다른 Azure SQL Server를 지정할 수 있도록 하려고 합니다. 웹 서비스 매개 변수를 사용하여 이 값을 구성할 수 있습니다.
 
-> [AZURE.NOTE]웹 서비스 입력 및 출력은 웹 서비스 매개 변수와 다릅니다. 첫 번째 시나리오에서 Azure ML 웹 서비스에 대해 입력 및 출력을 지정할 수 있는 방법을 살펴보았습니다. 이 시나리오에서는 판독기/기록기 모듈의 속성에 해당하는 웹 서비스에 대한 매개 변수를 전달합니다.
+> [AZURE.NOTE] 웹 서비스 입력 및 출력은 웹 서비스 매개 변수와 다릅니다. 첫 번째 시나리오에서 Azure ML 웹 서비스에 대해 입력 및 출력을 지정할 수 있는 방법을 살펴보았습니다. 이 시나리오에서는 판독기/기록기 모듈의 속성에 해당하는 웹 서비스에 대한 매개 변수를 전달합니다.
 
 웹 서비스 매개 변수를 사용하는 시나리오를 살펴보겠습니다. Azure 기계 학습 지원 데이터 원본(예: Azure SQL 데이터베이스) 중의 데이터를 읽는 판독기 모듈을 사용하는 Azure 기계 학습 웹 서비스를 배포했습니다. 배치 실행이 수행된 후 기록기 모듈(Azure SQL 데이터베이스)을 사용하여 결과가 기록됩니다. 웹 서비스 입력 및 출력이 실험에서 정의되지 않습니다. 이 경우 판독기 및 기록기 모듈에 대한 관련 웹 서비스 매개 변수를 설정하는 것이 좋습니다. 이렇게 하면 AzureMLBatchExecution 작업을 사용하는 경우 판독기/기록기 모듈을 구성할 수 있습니다. 다음과 같이 작업 JSON의 **globalParameters** 섹션에서 웹 서비스 매개 변수를 지정합니다.
 
@@ -290,7 +290,7 @@ Azure ML 실험을 만들 때 다른 일반적인 시나리오는 판독기 및 
     	}
   	}
  
-> [AZURE.NOTE]웹 서비스 매개 변수는 대/소문자를 구분하므로 작업 JSON에서 지정한 이름이 웹 서비스에 의해 노출된 이름과 일치해야 합니다.
+> [AZURE.NOTE] 웹 서비스 매개 변수는 대/소문자를 구분하므로 작업 JSON에서 지정한 이름이 웹 서비스에 의해 노출된 이름과 일치해야 합니다.
 
 ### Azure Blob에서 여러 파일의 데이터를 읽는 판독기 모듈 사용
 빅 데이터 파이프라인(Pig, Hive 등)은 확장명 없이 하나 이상의 출력 파일을 만들 수 있습니다. 예를 들어 외부 Hive 테이블을 지정하는 경우 외부 Hive 테이블에 대한 데이터는 다음 이름 000000\_0으로 Azure Blob 저장소에 저장될 수 있습니다. 실험에서 판독기 모듈을 사용하여 여러 파일을 읽고 예측에 사용할 수 있습니다.
@@ -755,7 +755,7 @@ AzureMLBatchScoring 작업을 사용하여 계속하려면 이 섹션을 계속 
     	}
   	}
  
-> [AZURE.NOTE]웹 서비스 매개 변수는 대/소문자를 구분하므로 작업 JSON에서 지정한 이름이 웹 서비스에 의해 노출된 이름과 일치해야 합니다.
+> [AZURE.NOTE] 웹 서비스 매개 변수는 대/소문자를 구분하므로 작업 JSON에서 지정한 이름이 웹 서비스에 의해 노출된 이름과 일치해야 합니다.
 
 ## 참고 항목
 
@@ -772,4 +772,4 @@ AzureMLBatchScoring 작업을 사용하여 계속하려면 이 섹션을 계속 
 
  
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

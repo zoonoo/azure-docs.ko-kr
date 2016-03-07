@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="12/01/2015"
+    ms.date="02/23/2016"
     ms.author="sstein"/>
 
 # PowerShell로 Azure SQL 데이터베이스에 대한 지역에서 복제 구성
@@ -36,7 +36,7 @@ Standard 데이터베이스는 읽을 수 없는 보조를 하나를 가질 수 
 
 지역에서 복제를 구성하려면 다음이 필요합니다.
 
-- Azure 구독. Azure 구독이 필요할 경우 이 페이지 위쪽에서 **무료 평가판**을 클릭하고 되돌아와 이 문서를 완료합니다.
+- Azure 구독. Azure 구독이 필요할 경우 이 페이지 위쪽에서 **무료 계정**을 클릭하고 되돌아와 이 문서를 완료합니다.
 - Azure SQL 데이터베이스 - 다른 지역으로 복제하려는 주 데이터베이스입니다.
 - Azure PowerShell 1.0 이상 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)에 따라 Azure PowerShell 모듈을 다운로드하여 설치할 수 있습니다.
 
@@ -215,4 +215,4 @@ Standard 데이터베이스는 읽을 수 없는 보조를 하나를 가질 수 
 - [비즈니스 연속성 개요](sql-database-business-continuity.md)
 - [SQL 데이터베이스 설명서](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

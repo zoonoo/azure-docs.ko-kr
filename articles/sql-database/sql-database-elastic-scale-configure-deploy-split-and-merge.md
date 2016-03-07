@@ -4,7 +4,7 @@
 	services="sql-database"  
 	documentationCenter=""
 	authors="sidneyh"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/23/2016"
 	ms.author="sidneyh" />
 
 # 탄력적 데이터베이스 분할/병합 도구 자습서
@@ -42,9 +42,9 @@
 
 ### 분할/병합 서비스 구성
 
-1. 분할/병합 비트를 다운로드한 폴더에서 **SplitMergeService.cspkg**와 함께 제공된 **ServiceConfiguration.Template.cscfg** 파일의 복사본을 만들고 이름을 **ServiceConfiguration.cscfg**로 지정합니다.
+1. 분할/병합 어셈블리를 다운로드한 폴더에서 **SplitMergeService.cspkg**와 함께 제공된 **ServiceConfiguration.Template.cscfg** 파일의 복사본을 만들고 이름을 **ServiceConfiguration.cscfg**로 바꿉니다.
 
-2. 원하는 텍스트 편집기에서 ServiceConfiguration.cscfg를 엽니다. Visual Studio를 사용하여 인증서 지문의 형식과 같은 입력의 유효성을 검사하는 것이 좋습니다.
+2. Visual Studio와 같은 텍스트 편집기에서 인증서 지문 형식과 같은 입력의 유효성을 검사하는 **ServiceConfiguration.cscfg**를 엽니다.
 
 3. 새 데이터베이스를 만들거나 분할/병합 작업에 대한 상태 데이터베이스로 사용할 기존 데이터베이스를 선택하고 해당 데이터베이스의 연결 문자열을 검색합니다.
 
@@ -334,4 +334,4 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

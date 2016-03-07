@@ -32,11 +32,11 @@ SQL 데이터 웨어하우스 데이터베이스 복원: Azure PowerShell 및 RE
 
 ### PowerShell
 
-프로그래밍 방식으로 데이터베이스 복원을 수행하려면 Azure PowerShell을 사용합니다. Azure PowerShell 모듈을 다운로드하려면 [Microsoft 웹 플랫폼 설치 관리자](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)를 실행합니다.
+프로그래밍 방식으로 데이터베이스 복원을 수행하려면 Azure PowerShell을 사용합니다. Azure PowerShell 모듈을 다운로드하려면 [Microsoft 웹 플랫폼 설치 관리자](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)를 실행합니다. Get-Module -ListAvailable -Name Azure를 실행하여 버전을 확인할 수 있습니다. 이 문서는 Microsoft Azure PowerShell 버전 1.0.4를 기반으로 합니다.
 
 데이터베이스를 복원하려면 [Start-AzureSqlDatabaseRestore][] cmdlet을 사용합니다.
 
-1. Microsoft Azure PowerShell을 엽니다.
+1. Windows PowerShell을 엽니다.
 2. Azure 계정에 연결하고 사용자 계정과 연결된 모든 구독을 나열합니다.
 3. 복원할 데이터베이스가 포함된 구독을 선택합니다.
 4. 데이터베이스에 대한 복원 지점을 나열합니다(Azure 리소스 관리 모드 필요).
@@ -46,23 +46,26 @@ SQL 데이터 웨어하우스 데이터베이스 복원: Azure PowerShell 및 RE
 
 ```
 
-Add-AzureAccount
-Get-AzureSubscription
-Select-AzureSubscription -SubscriptionName "<Subscription_name>"
+Login-AzureRmAccount
+Get-AzureRmSubscription
+Select-AzureRmSubscription -SubscriptionName "<Subscription_name>"
 
-# List database restore points
-Switch-AzureMode AzureResourceManager
-Get-AzureSqlDatabaseRestorePoints -ServerName "<YourServerName>" -DatabaseName "<YourDatabaseName>" -ResourceGroupName "<YourResourceGroupName>"
+# List the last 10 database restore points
+((Get-AzureRMSqlDatabaseRestorePoints -ServerName "<YourServerName>" -DatabaseName "<YourDatabaseName>" -ResourceGroupName "<YourResourceGroupName>").RestorePointCreationDate)[-10 .. -1]
+
+	# Or for all restore points
+	Get-AzureRmSqlDatabaseRestorePoints -ServerName "<YourServerName>" -DatabaseName "<YourDatabaseName>" -ResourceGroupName "<YourResourceGroupName>"
 
 # Pick desired restore point using RestorePointCreationDate
 $PointInTime = "<RestorePointCreationDate>"
 
-# Get the specific database to restore
-Switch-AzureMode AzureServiceManagement
-$Database = Get-AzureSqlDatabase -ServerName "<YourServerName>" –DatabaseName "<YourDatabaseName>"
+# Get the specific database name to restore
+(Get-AzureRmSqlDatabase -ServerName "<YourServerName>" -ResourceGroupName "<YourResourceGroupName>").DatabaseName | where {$_ -ne "master" }
+#or
+Get-AzureRmSqlDatabase -ServerName "<YourServerName>" –ResourceGroupName "<YourResourceGroupName>"
 
 # Restore database
-$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceServerName "<YourServerName>" -SourceDatabase $Database -TargetDatabaseName "<NewDatabaseName>" -PointInTime $PointInTime
+$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceServerName "<YourServerName>" -SourceDatabaseName "<YourDatabaseName>" -TargetDatabaseName "<NewDatabaseName>" -PointInTime $PointInTime
 
 # Monitor progress of restore operation
 Get-AzureSqlDatabaseOperation -ServerName "<YourServerName>" –OperationGuid $RestoreRequest.RequestID
@@ -138,4 +141,4 @@ Get-AzureSqlDatabaseOperation –ServerName "<YourServerName>" –OperationGuid 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

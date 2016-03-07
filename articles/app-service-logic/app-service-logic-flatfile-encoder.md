@@ -13,10 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="01/19/2016"
+   ms.date="02/18/2016"
    ms.author="rajram"/>
 
 # BizTalk 플랫 파일 인코더
+
+>[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다.
 
 BizTalk 플랫 파일 인코더 커넥터를 사용하여 플랫 파일 데이터(예: Excel 또는 CSV 파일)와 XML 데이터 간을 상호 운용합니다. 지정된 플랫 파일 인스턴스를 XML로 변환하거나 그 반대로 변환할 수 있습니다.
 
@@ -69,4 +71,4 @@ Input Xml|string|입력 Xml 내용
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

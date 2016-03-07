@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="02/08/2015"
+   ms.date="02/08/2016"
    ms.author="sstein"/>
 
 # SQL 데이터베이스 가격 책정 계층 권장 사항
@@ -26,7 +26,7 @@
 다음 작업 중 가격 책정 계층 권장 사항을 가져옵니다.
 
 - [SQL 데이터베이스의 서비스 계층 및 성능 수준(가격 책정 계층) 변경](sql-database-scale-up.md)
-- [Azure SQL Server를 V12로 업그레이드](sql-database-v12-upgrade.md)
+- [Azure SQL Server를 V12로 업그레이드](sql-database-upgrade-server-portal.md)
 - V12 서버로 찾아보기 - 데이터베이스가 [탄력적인 데이터베이스 풀에서 활용](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools)할 수 있는 경우 서버 블레이드는 권장된 풀을 나타내는 메시지를 표시합니다. 권장되는 풀을 만들려면 메시지를 클릭합니다.
 - [탄력적 데이터베이스 풀 생성](sql-database-elastic-pool.md#elastic-database-pool-pricing-tier-recommendations)
 
@@ -56,7 +56,7 @@ SQL 데이터베이스 서비스는 SQL 데이터베이스의 과거 리소스 �
 
 ## 가격 책정 계층 권장 사항 가져오기
 
-기존 Web 또는 Business 데이터베이스를 선택하고 **모든 설정**, **가격 책정 계층(배율 DTU)**을 차례로 클릭하여 가격 책정 계층 권장 사항을 가져옵니다. 가격 책정 계층 권장 사항은 [Azure SQL Server를 V12로 업그레이드](sql-database-v12-upgrade.md)하는 경우에도 제공됩니다.
+기존 Web 또는 Business 데이터베이스를 선택하고 **모든 설정**, **가격 책정 계층(배율 DTU)**을 차례로 클릭하여 가격 책정 계층 권장 사항을 가져옵니다. 가격 책정 계층 권장 사항은 [Azure SQL Server를 V12로 업그레이드](sql-database-upgrade-server-portal.md)하는 경우에도 제공됩니다.
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 2. **찾아보기** > **SQL 데이터베이스**를 클릭합니다.
@@ -96,4 +96,4 @@ SQL 데이터베이스 서비스는 SQL 데이터베이스의 과거 리소스 �
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

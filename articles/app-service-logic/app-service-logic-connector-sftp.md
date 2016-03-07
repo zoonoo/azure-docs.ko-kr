@@ -2,7 +2,7 @@
 	pageTitle="논리 앱에서 SFTP 커넥터 사용 | Microsoft Azure 앱 서비스"
 	description="SFTP 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
 	authors="anuragdalmia"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
 	services="app-service\logic"
 	documentationCenter=""/>
@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/30/2015"
+	ms.date="02/11/2016"
 	ms.author="sameerch"/>
 
 # SFTP 커넥터 시작 및 논리 앱에 추가
+>[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다. 2015-08-01-미리 보기 스키마 버전에 대한 내용을 보려면 [SFTP API](../connectors/create-api-sftp.md)를 클릭하세요.
+
 SFTP 커넥터를 사용하여 SFTP 서버에서 또는 서버로 데이터를 이동할 수 있습니다. SFTP 서버에서 또는 서버로 파일을 다운로드 또는 업로드하거나 파일을 나열할 수 있습니다.
 
 논리 앱은 다양한 데이터 원본을 기반으로 트리거하고 흐름의 일부로 데이터를 가져오고 처리하기 위한 커넥터를 제공할 수 있습니다. SFTP 커넥터를 비즈니스 워크플로에 추가하고 논리 앱 내에서 이 워크플로의 일부로 데이터를 처리할 수 있습니다.
@@ -105,4 +107,4 @@ API 앱을 만들고 나면 이제 SFTP 커넥터를 논리 앱에 대한 트리
 [11]: ./media/app-service-logic-connector-sftp/img11.PNG
 [12]: ./media/app-service-logic-connector-sftp/img12.PNG
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

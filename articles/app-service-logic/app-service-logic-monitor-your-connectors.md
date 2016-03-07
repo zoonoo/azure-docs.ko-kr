@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="02/18/2016" 
 	ms.author="mandia"/>
 
 # 기본 제공 API 앱 및 커넥터 관리 및 모니터
+
+>[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다.
 
 기본 제공 API 앱을 만들었습니다. 이제 어떻게 합니까?
 
@@ -57,7 +59,7 @@ API 앱을 열 때 사용할 수 있는 여러 기능과 작업은 다음과 같
 	
 	![][hostsettings]
 
-4. 변경을 원하는 설정을 클릭하고 새 값을 입력한 다음 변경 내용을 **저장**합니다.
+4. 변경을 원하는 설정을 클릭하여 새 값을 입력 후, 변경 내용을 **저장**합니다.
 
 
 ## 하이브리드 연결 관리자 설치 - 선택적
@@ -94,7 +96,7 @@ API 앱 역할 기반 보안을 사용합니다. 이러한 역할은 API 앱과 
 판독기 | 암호를 제외한 모든 리소스를 볼 수 있습니다.
 사용자 액세스 관리자 | 모든 리소스를 볼 수 있고, 역할 및 지원 티켓을 생성 및 관리할수 있습니다.
 
-[Microsoft Azure 포털에서의 역할 기반 액세스 제어](role-based-access-control-configure.md)를 참조하세요.
+[Microsoft Azure 포털에서의 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)를 참조하세요.
 
 사용자를 쉽게 추가하고 API 앱에 특정 역할을 할당할 수 있습니다. 포털에서는 사용자의 권한과 할당된 역할을 보여줍니다.
 
@@ -105,8 +107,8 @@ API 앱 역할 기반 보안을 사용합니다. 이러한 역할은 API 앱과 
 
 
 ## 더 좋은 정보
-- **API 정의**를 선택하여 특정 API 앱에 대해 자동으로 만들어진 Swagger 파일을 엽니다.
-- **종속성**을 선택하여 API 앱이 요구하는 파일을 봅니다. 예를 들어, SAP 커넥터를 사용하는 경우 일부 추가 파일을 온-프레미스 하이브리드 연결 관리자에서 설치 합니다. 이러한 종속성은 API 앱 블레이드에서 보여 줍니다. 
+- **API 정의**선택하여 특정 API 앱에 대해 자동으로 만들어진 Swagger 파일을 엽니다.
+- **종속성**을 선택하여 API 앱이 요구하는 파일을 볼 수 있습니다. 예를 들어, SAP 커넥터를 사용하는 경우 일부 추가 파일을 온-프레미스 하이브리드 연결 관리자에서 설치 합니다. 이러한 종속성은 API 앱 블레이드에서 보여 줍니다. 
 
 > [AZURE.IMPORTANT]API 앱 속성을 열면 **Essentials** 아래에 새 블레이드를 여는 **호스트** 및 **게이트웨이** 링크가 있습니다.
 > 
@@ -115,15 +117,13 @@ API 앱 역할 기반 보안을 사용합니다. 이러한 역할은 API 앱과 
 > 이 속성은 API 앱을 호스팅하는 웹사이트에 한정됩니다. 기본 제공 API 앱이나 커넥터를 사용할 때 대부분의 속성들이 실제로 적용되지 않기 때문에 이 속성들을 업데이트하는 것을 권장하지는 않습니다. 비주얼 스튜디오에서 API 앱을 생성하거나 Azure 구독을 배포할 때, 호스트와 게이트웨이 블레이드를 사용할 수 있습니다. [API 앱 관리](../app-service-api/app-service-api-manage-in-portal.md)는 사용자가 직접 만든 앱과 함께 이 블레이드에서 수행할 수 있는 더 많은 정보를 제공합니다. 
 
 
-
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동합니다. 앱 서비스에서 즉시 단기 스타터 논리 앱을 만들 수 있습니다. 신용 카드 및 약정은 필요하지 않습니다.
-
+>[AZURE.NOTE] Azure 계정에 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동하세요. 수명이 짧은 스타터 논리 앱을 앱 서비스에서 만들 수 있습니다. 신용 카드 및 약정은 필요하지 않습니다.
 
 ## 자세히 알아보기
 
 [논리 앱 모니터링](app-service-logic-monitor-your-logic-apps.md)<br/>
 [ 앱 서비스의 커넥터 및 API 앱 목록](app-service-logic-connectors-list.md)<br/>
-[Microsoft Azure 포털에서 역할 기반 액세스 제어](role-based-access-control-configure.md)<br/>
+[Microsoft Azure 포털에서 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)<br/>
 [Azure 앱 서비스에서 하이브리드 연결 관리자 사용](app-service-logic-hybrid-connection-manager.md)
 
 
@@ -137,4 +137,4 @@ API 앱 역할 기반 보안을 사용합니다. 이러한 역할은 API 앱과 
 [hostsettings]: ./media/app-service-logic-monitor-your-connectors/hostsettings.png
 [apiapphost]: ./media/app-service-logic-monitor-your-connectors/apiapphost.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0224_2016-->

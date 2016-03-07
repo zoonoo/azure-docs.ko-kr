@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="PowerShell을 사용하여 ARM 모드에서 정적 개인 IP를 설정하는 방법 | Microsoft Azure"
-   description="정적 IP(DIP) 및 PowerShell을 사용하여 ARM 모드에서 관리 방법 이해"
+   pageTitle="PowerShell을 사용하여 Azure 리소스 관리자에서 정적 개인 IP 주소를 설정하는 방법 | Microsoft Azure"
+   description="정적 개인 IP 주소를 이해하고 PowerShell을 사용하여 Azure 리소스 관리자에서 이를 관리하는 방법을 알아봅니다."
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/20/2015"
+   ms.date="02/23/2016"
    ms.author="telmos" />
 
-# PowerShell에서 정적 개인 IP 주소를 설정하는 방법
+# PowerShell을 사용하여 리소스 관리자에서 정적 개인 IP 주소를 설정하는 방법
 
 [AZURE.INCLUDE [virtual-networks-static-private-ip-selectors-arm-include](../../includes/virtual-networks-static-private-ip-selectors-arm-include.md)]
 
@@ -192,4 +192,4 @@
 - [ILPIP(인스턴스 수준 공용 IP)](../virtual-networks-instance-level-public-ip) 주소에 대해 알아봅니다.
 - [예약된 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)를 참조합니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -20,8 +20,9 @@
 
 자세한 릴리스 정보 및 SDK에 대한 업데이트 지침은 다음과 같습니다.
 
-* [.NET](app-insights-release-notes-dotnet.md)
-* [.NET 로깅 어댑터](app-insights-release-notes-dotnet-logging.md)
+* [ASP.NET 웹 서버 SDK](https://github.com/Microsoft/ApplicationInsights-server-dotnet/releases)
+* [.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-dotnet/releases) 
+* [.NET 로깅 어댑터](https://github.com/Microsoft/ApplicationInsights-dotnet-logging/releases)
 * [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-aspnet5/releases)
 * [Android](https://github.com/Microsoft/ApplicationInsights-Android/releases)
 * [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
@@ -34,4 +35,4 @@
 
 또한 전체적으로 Application Insights 서비스의 주요 개선 사항을 요약하는 [서비스 업데이트](https://azure.microsoft.com/updates/?service=application-insights)를 읽으세요.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

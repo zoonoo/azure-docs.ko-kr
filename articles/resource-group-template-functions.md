@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/15/2016"
+   ms.date="02/22/2016"
    ms.author="tomfitz"/>
 
 # Azure 리소스 관리자 템플릿 함수
@@ -556,6 +556,7 @@ baseUri와 relativeUri 문자열을 결합하여 절대 URI를 만듭니다.
 리소스 관리자는 리소스 값을 가져오기 위한 다음 함수를 제공합니다.
 
 - [listkeys](#listkeys)
+- [list*](#list)
 - [providers](#providers)
 - [reference](#reference)
 - [resourceGroup](#resourcegroup)
@@ -569,11 +570,11 @@ baseUri와 relativeUri 문자열을 결합하여 절대 URI를 만듭니다.
 
 **listKeys (resourceName or resourceIdentifier, apiVersion)**
 
-저장소 계정의 키를 반환합니다. [resourceId 함수](./#resourceid) 또는 **providerNamespace/resourceType/resourceName** 형식을 사용하여 resourceId를 지정할 수 있습니다. 이 함수를 사용하여 primaryKey 및 secondaryKey를 가져올 수 있습니다.
+listKeys 작업을 지원하는 모든 리소스 형식에 대한 키를 반환합니다. [resourceId 함수](./#resourceid) 또는 **providerNamespace/resourceType/resourceName** 형식을 사용하여 resourceId를 지정할 수 있습니다. 이 함수를 사용하여 primaryKey 및 secondaryKey를 가져올 수 있습니다.
   
 | 매개 변수 | 필수 | 설명
 | :--------------------------------: | :------: | :----------
-| resourceName 또는 resourceIdentifier | 예 | 저장소 계정의 고유 식별자입니다.
+| resourceName 또는 resourceIdentifier | 예 | 리소스에 대한 고유 식별자.
 | apiVersion | 예 | 리소스 런타임 상태의 API 버전입니다.
 
 다음 예에서는 출력 섹션의 저장소 계정에서 키를 반환하는 방법을 보여 줍니다.
@@ -584,6 +585,19 @@ baseUri와 relativeUri 문자열을 결합하여 절대 URI를 만듭니다.
         "type" : "object" 
       } 
     } 
+
+<a id="list" />
+### list*
+
+**list* (resourceName 또는 resourceIdentifier, apiVersion)**
+
+**목록**으로 시작하는 작업은 템플릿에서 함수로 사용됩니다. 위에 표시된 것처럼 **listKeys** 뿐만 아니라 **목록**, **listAdminKeys** 및 **listStatus**와 같은 작업도 포함합니다. 함수를 호출할 때 list*가 아닌 함수의 실제 이름을 사용합니다. 목록 작업이 있는 리소스 유형을 확인하려면 다음 PowerShell 명령을 사용합니다.
+
+    PS C:\> Get-AzureRmProviderOperation -OperationSearchString *  | where {$_.Operation -like "*list*"} | FT Operation
+
+또는 Azure CLI를 사용하여 목록을 검색합니다. 다음 예제에서는 **apiapps**에 대한 모든 작업을 검색하고 JSON 유틸리티 [jq](http://stedolan.github.io/jq/download/)를 사용하여 목록 작업을 필터링합니다.
+
+    azure provider operations show --operationSearchString */apiapps/* --json | jq ".[] | select (.operation | contains("list"))"
 
 <a id="providers" />
 ### providers
@@ -657,7 +671,7 @@ baseUri와 relativeUri 문자열을 결합하여 절대 URI를 만듭니다.
 		}
 	}
 
-템플릿에 API 버전을 직접 지정하려면 아래와 같이 [providers](#providers) 함수를 사용하고 최신 버전 등의 값을 검색할 수 있습니다.
+템플릿에 API 버전을 직접 지정하려면 아래와 같이 [공급자](#providers) 함수를 사용하고 최신 버전 등의 값을 검색할 수 있습니다.
 
     "outputs": {
 		"BlobUri": {
@@ -792,4 +806,4 @@ baseUri와 relativeUri 문자열을 결합하여 절대 URI를 만듭니다.
 - 리소스 유형을 만들 때 지정된 횟수만큼 반복하려면 [Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
 - 만든 템플릿을 배포하는 방법을 보려면 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

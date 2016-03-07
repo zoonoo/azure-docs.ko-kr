@@ -206,11 +206,9 @@ SQL Server가 호스팅되는 온-프레미스 또는 Azure IaaS(Infrastructure-
 	   }
 	}
 
-> [AZURE.NOTE] 위의 예에서 **sqlReaderQuery**는 SqlSource에 지정됩니다. 복사 작업은 데이터를 가져오는 SQL Server 데이터베이스 원본에 대해 이 쿼리를 실행합니다.
->  
-> 또는 **sqlReaderStoredProcedureName** 및 **storedProcedureParameters**를 지정하여 저장 프로시저를 지정할 수 있습니다(저장 프로시저가 매개 변수를 사용하는 경우).
->  
-> sqlReaderQuery 또는 sqlReaderStoredProcedureName 중 하나를 지정하지 않으면 JSON 데이터 집합의 구조 섹션에 정의된 열이 SQL Server 데이터베이스에 대해 실행되는 쿼리를 작성하는 데 사용됩니다(mytable에서 column1, column2 선택). 데이터 집합 정의에 구조가 없는 경우 모든 열은 테이블에서 선택됩니다.
+위의 예에서 **sqlReaderQuery**는 SqlSource에 지정됩니다. 복사 작업은 데이터를 가져오는 SQL Server 데이터베이스 원본에 대해 이 쿼리를 실행합니다. 또는 **sqlReaderStoredProcedureName** 및 **storedProcedureParameters**를 지정하여 저장 프로시저를 지정할 수 있습니다(저장 프로시저가 매개 변수를 사용하는 경우).
+ 
+sqlReaderQuery 또는 sqlReaderStoredProcedureName 중 하나를 지정하지 않으면 JSON 데이터 집합의 구조 섹션에 정의된 열이 SQL Server 데이터베이스에 대해 실행되는 쿼리를 작성하는 데 사용됩니다(mytable에서 column1, column2 선택). 데이터 집합 정의에 구조가 없는 경우 모든 열은 테이블에서 선택됩니다.
 
 
 SqlSource 및 BlobSink에서 지원하는 속성 목록은 [Sql 원본](#sqlsource) 섹션 및 [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties)를 참조하세요.
@@ -469,6 +467,8 @@ typeProperties 섹션은 데이터 집합의 각 형식에 따라 다르며 데�
 
 sqlReaderQuery 또는 sqlReaderStoredProcedureName 중 하나를 지정하지 않으면 JSON 데이터 집합의 구조 섹션에 정의된 열이 SQL Server 데이터베이스에 대해 실행되는 쿼리를 작성하는 데 사용됩니다(mytable에서 column1, column2 선택). 데이터 집합 정의에 구조가 없는 경우 모든 열은 테이블에서 선택됩니다.
 
+> [AZURE.NOTE] **sqlReaderStoredProcedureName**을 사용하는 경우에도 데이터 집합 JSON에서 **tableName** 속성 값을 지정해야 합니다. 이는 제품의 현재 제한 사항입니다. 그러나 이 테이블에 대해 수행되는 유효성 검사는 없습니다.
+
 ### SqlSink
 
 **SqlSink**는 다음 속성을 지원합니다.
@@ -505,6 +505,76 @@ sqlReaderQuery 또는 sqlReaderStoredProcedureName 중 하나를 지정하지 �
 	자세한 내용은 [포트 및 보안 고려 사항](data-factory-move-data-between-onprem-and-cloud.md#port-and-security-considerations)을 참조하세요.
 	>   
 	> 연결/게이트웨이 관련 문제 해결에 대한 팁은 [게이트웨이 문제 해결](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting)을 참조하세요.
+
+## 대상 데이터베이스의 ID 열
+이 섹션에서는 ID 열이 없는 원본 테이블에서 ID 열이 있는 대상 테이블로 데이터를 복사하는 예제를 제공합니다.
+
+**원본 테이블:**
+
+	create table dbo.SourceTbl
+	(
+	       name varchar(100),
+	       age int
+	)
+
+**대상 테이블:**
+
+	create table dbo.TargetTbl
+	(
+	       id int identity(1,1),
+	       name varchar(100),
+	       age int
+	)
+
+
+대상 테이블에 ID 열이 있는지 확인합니다.
+
+**원본 데이터 집합 JSON 정의**
+
+	{
+	    "name": "SampleSource",
+	    "properties": {
+	        "published": false,
+	        "type": " SqlServerTable",
+	        "linkedServiceName": "TestIdentitySQL",
+	        "typeProperties": {
+	            "tableName": "SourceTbl"
+	        },
+	        "availability": {
+	            "frequency": "Hour",
+	            "interval": 1
+	        },
+	        "external": true,
+	        "policy": {}
+	    }
+	}
+
+**대상 데이터 집합 JSON 정의**
+
+	{
+	    "name": "SampleTarget",
+	    "properties": {
+	        "structure": [
+	            { "name": "name" },
+	            { "name": "age" }
+	        ],
+	        "published": false,
+	        "type": "AzureSqlTable",
+	        "linkedServiceName": "TestIdentitySQLSource",
+	        "typeProperties": {
+	            "tableName": "TargetTbl"
+	        },
+	        "availability": {
+	            "frequency": "Hour",
+	            "interval": 1
+	        },
+	        "external": false,
+	        "policy": {}
+	    }	
+	}
+
+
+원본 테이블과 대상 테이블의 스키마가 서로 다릅니다(대상에 ID가 포함된 추가 열이 있음). 이 시나리오에서는 ID 열을 포함하지 않는 대상 데이터 집합 정의에서 **structure** 속성을 지정해야 합니다.
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
@@ -567,4 +637,4 @@ Azure SQL, SQL server, Sybase에서 데이터를 이동하는 경우 SQL 형식�
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

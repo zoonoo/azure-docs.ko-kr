@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="PowerShell을 사용하여 ARM 모드에서 NSG를 만드는 방법 | Microsoft Azure"
-   description="PowerShell을 사용하여 ARM에서 NSG를 만들고 배포하는 방법을 알아봅니다."
+   pageTitle="PowerShell을 사용하여 Azure 리소스 관리자에서 NSG를 만드는 방법 | Microsoft Azure"
+   description="PowerShell을 사용하여 Azure 리소스 관리자에서 NSG를 만들고 배포하는 방법을 알아봅니다."
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/20/2015"
+   ms.date="02/23/2016"
    ms.author="telmos" />
 
-# PowerShell에서 NSG를 만드는 방법
+# PowerShell을 사용하여 리소스 관리자에서 NSG를 만드는 방법
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
 
@@ -34,7 +34,7 @@
 
 [AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
 
-1. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure.md)을 참조하고 지침을 끝까지 따르면서 Azure에 로그인하고 구독을 선택합니다.
+1. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하고 지침을 끝까지 따르면서 Azure에 로그인하고 구독을 선택합니다.
 
 3. 인터넷에서 포트 3389에 액세스할 수 있도록 허용하는 보안 규칙을 만듭니다.
 
@@ -123,7 +123,7 @@
 		                        "ProvisioningState": "Succeeded"
 		                      }
 
->[AZURE.WARNING]위의 명령에 대한 출력에서는 PowerShell을 실행 중인 컴퓨터에만 존재하는 가상 네트워크 구성 개체에 대한 콘텐츠를 보여 줍니다. 이러한 설정을 Azure에 저장하려면 **Set-AzureVirtualNetwork** cmdlet을 실행해야 합니다.
+>[AZURE.WARNING] 위의 명령에 대한 출력에서는 PowerShell을 실행 중인 컴퓨터에만 존재하는 가상 네트워크 구성 개체에 대한 콘텐츠를 보여 줍니다. 이러한 설정을 Azure에 저장하려면 `Set-AzureRmVirtualNetwork` cmdlet을 실행해야 합니다.
 
 7. Azure에 새 VNet 설정을 저장합니다.
 
@@ -182,4 +182,4 @@
 
 		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

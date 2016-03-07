@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="harishkragarwal"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/30/2015"
+   ms.date="02/18/2016"
    ms.author="sameerch"/>
 
 
 # SAP 커넥터 시작 및 논리 앱에 추가
+>[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다.
+
 온-프레미스 SAP에 연결하여 RFC를 호출하거나 메타데이터를 가져옵니다. 온-프레미스 및 방화벽 뒤에 설치되는 SAP를 사용해야 하는 경우가 있습니다. 흐름에서 SAP 커넥터를 활용하여 다양한 시나리오를 얻을 수 있습니다. 몇 가지 예:
 
 1.	웹 또는 모바일 사용자 프런트 엔드를 통해 SAP에 상주하는 데이터의 섹션을 표시합니다.
@@ -60,6 +62,8 @@ SAP 커넥터는 *모든* SAP 끝점을 연결하는 데 하이브리드 연결�
 3. 시작된 설치 프로세스를 따르고 메시지가 표시되면 기본 연결 문자열을 제공합니다.
 4. 설치 프로세스가 완료되면 다음과 유사한 대화 상자가 표시됩니다. ![][3]
 
+More on [온-프레미스 SAP 서버와 통합](app-service-logic-integrate-with-an-on-premise-sap-server.md)에 대한 자세한 내용.
+
 이제 생성된 API 앱으로 다시 이동하면 하이브리드 연결 상태가 연결됨인 것을 확인할 수 있습니다. ![][4]
 
 참고: 보조 연결 문자열로 전환하려는 경우 하이브리드 설치 프로세스를 다시 수행하고 기본 연결 문자열 대신 보조 연결 문자열을 제공합니다.
@@ -79,7 +83,7 @@ SAP 커넥터는 논리 앱에서 작업/단계로만 사용할 수 있습니다
 ## 커넥터의 추가 기능
 이제 커넥터를 만들었으므로 논리 앱을 사용하여 비즈니스 워크플로에 추가할 수 있습니다. [논리 앱 정의](app-service-logic-what-are-logic-apps.md)를 참조하세요.
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동합니다. 앱 서비스에서 즉시 단기 스타터 논리 앱을 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동합니다. 앱 서비스에서 즉시 단기 스타터 논리 앱을 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 [커넥터 및 API 앱 참조](http://go.microsoft.com/fwlink/p/?LinkId=529766)의 Swagger REST API 참조를 봅니다.
 
@@ -94,4 +98,4 @@ SAP 커넥터는 논리 앱에서 작업/단계로만 사용할 수 있습니다
 [6]: ./media/app-service-logic-connector-sap/LogicApp2.jpg
 [7]: ./media/app-service-logic-connector-sap/LogicApp3.jpg
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="12/17/2015"
+   ms.date="02/22/2016"
    ms.author="carlrab"/>
 
-# SQL 데이터베이스로 마이그레이션하기 전에 SQL Server 데이터베이스 호환성 문제 해결
+# SQL 데이터베이스로 마이그레이션하기 전에 SSDT를 사용하여 SQL Server 데이터베이스 호환성 문제 해결
 
 원본 SQL Server 데이터베이스가 호환되지 않는 것으로 확인될 경우 다양한 옵션을 사용하여 식별한 데이터베이스 호환성 문제를 해결할 수 있습니다.
 
@@ -31,10 +31,10 @@ Visual Studio용 SSDT("SQL Server Data Tools")를 사용하여 데이터베이�
 
   ![VSSSDT 마이그레이션 다이어그램](./media/sql-database-cloud-migrate/03VSSSDTDiagram.png)
 
-  >[AZURE.NOTE]스키마만 마이그레이션해야 할 경우 Visual Studio에서 Azure SQL 데이터베이스로 직접 스키마를 게시할 수 있습니다. 데이터베이스 스키마가 마이그레이션 마법사 하나로 처리될 수 있는 것보다 많은 변경 내용이 필요한 경우 이 메서드를 사용합니다.
+  > [AZURE.NOTE] 스키마만 마이그레이션해야 할 경우 Visual Studio에서 Azure SQL 데이터베이스로 직접 스키마를 게시할 수 있습니다. 데이터베이스 스키마가 마이그레이션 마법사 하나로 처리될 수 있는 것보다 많은 변경 내용이 필요한 경우 이 메서드를 사용합니다.
 
 ## 다음 단계: 마이그레이션 방법을 선택하고 마이그레이션 수행
 
 [마이그레이션 방법을 선택합니다](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0224_2016-->

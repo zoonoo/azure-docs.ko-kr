@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
+	ms.date="02/04/2016" 
 	ms.author="heidist"/>
 
 #미리보기 api-버전=2014*에서 api-버전=2015*로 전환#
@@ -144,4 +144,4 @@ API 버전`2015-02-28`은 SLA에 따릅니다. 지원 티켓을 만들기 위해
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

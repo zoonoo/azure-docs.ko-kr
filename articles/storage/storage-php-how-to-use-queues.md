@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="02/17/2016"
 	ms.author="tomfitz"/>
 
 # PHP에서 큐 저장소를 사용하는 방법
@@ -42,12 +42,13 @@ Azure 큐 저장소에 액세스하는 PHP 응용 프로그램을 만들 때 충
 
 Azure 큐 저장소에 대한 API를 사용하려면 다음을 수행해야 합니다.
 
-1. [require\_once][require_once] 문을 사용하여 자동 로더 파일을 참조합니다.
+1. [require\_once] 문을 사용하여 자동 로더 파일을 참조합니다.
 2. 사용할 수 있는 모든 클래스를 참조합니다.
 
 다음 예제에서는 자동 로더 파일을 포함하고 **ServicesBuilder** 클래스를 참조하는 방법을 보여 줍니다.
 
-> [AZURE.NOTE]이 예제 및 이 문서의 다른 예제에서는 작성기를 통해 Azure용 PHP 클라이언트 라이브러리를 설치했다고 가정합니다. 라이브러리를 수동으로 또는 PEAR 패키지로 설치한 경우 `WindowsAzure.php` 자동 로더 파일을 참조해야 합니다.
+> [AZURE.NOTE]
+이 예제 및 이 문서의 다른 예제에서는 작성기를 통해 Azure용 PHP 클라이언트 라이브러리를 설치했다고 가정합니다. 라이브러리를 수동으로 또는 PEAR 패키지로 설치한 경우 `WindowsAzure.php` 자동 로더 파일을 참조해야 합니다.
 
 	require_once 'vendor\autoload.php';
 	use WindowsAzure\Common\ServicesBuilder;
@@ -115,7 +116,7 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
 		echo $code.": ".$error_message."<br />";
 	}
 
-> [AZURE.NOTE]메타데이터 키에서 대/소문자를 구분하려고 하면 안 됩니다. 모든 키는 서비스에서 소문자로 읽혀집니다.
+> [AZURE.NOTE] 메타데이터 키에서 대/소문자를 구분하려고 하면 안 됩니다. 모든 키는 서비스에서 소문자로 읽혀집니다.
 
 
 ## 큐에 메시지 추가
@@ -380,7 +381,7 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
 자세한 내용은 [PHP 개발자 센터](/develop/php/)도 참조하세요.
 
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
-[require_once]: http://www.php.net/manual/en/function.require-once.php
-[Azure Portal]: portal.azure.com
+[require\_once]: http://www.php.net/manual/en/function.require-once.php
+[Azure Portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0224_2016-->

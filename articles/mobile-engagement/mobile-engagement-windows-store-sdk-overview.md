@@ -32,11 +32,9 @@
 
 ##릴리스 정보
 
-###3\.3.0(2016/01/22)
+###3\.3.1(2016/02/18)
 
--   릴리스 모드에서 실행되는 UWP 앱에서 충돌 서식을 수정합니다.
--   유니버설 8.1 앱에 대한 알림의 1px margin을 수정합니다.
--   ms-appx 및 ms-appdata 스키마를 작업 URL에 사용할 수 있습니다.
+-   웹 알림의 HTML 콘텐츠와 SDK의 HTML 페이지 간 충돌을 해결합니다.
 -   안정성 향상
 
 이전 버전에 대한 내용은 [전체 릴리스 정보](mobile-engagement-windows-store-release-notes.md)를 참조하세요.
@@ -56,4 +54,4 @@
 
 [업그레이드 절차](mobile-engagement-windows-store-upgrade-procedure/)를 참조하세요.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

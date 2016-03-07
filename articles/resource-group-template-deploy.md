@@ -16,13 +16,13 @@
    ms.date="02/17/2016"
    ms.author="tomfitz"/>
 
-# Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포
+# Azure Resource Manager 템플릿으로 리소스 그룹 배포
 
-이 항목에서는 Azure 리소스 관리자 템플릿을 사용하여 Azure에 응용 프로그램을 배포하는 방법을 설명합니다. 여기서는 Azure PowerShell, Azure CLI, REST API 또는 Azure 포털을 사용하여 응용 프로그램을 배포합니다.
+이 항목에서는 Azure Resource Manager 템플릿을 사용하여 Azure에 리소스를 배포하는 방법을 설명합니다. 여기서는 Azure PowerShell, Azure CLI, REST API 또는 Azure 포털을 사용하여 리소스를 배포합니다.
 
 리소스 관리자에 대한 소개는 [Azure 리소스 관리자 개요](./resource-group-overview.md)를 참조하세요. 템플릿을 만드는 방법에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 
-템플릿을 사용하여 응용 프로그램을 배포할 때는 매개 변수 값을 제공하여 리소스가 만들어지는 방식을 사용자 지정할 수 있습니다. 이 매개 변수의 값은 인라인 또는 매개 변수 파일로 지정할 수 있습니다.
+템플릿을 사용하여 응용 프로그램 정의를 배포할 때 매개 변수 값을 제공하여 리소스가 만들어지는 방법을 사용자 지정할 수 있습니다. 이 매개 변수의 값은 인라인 또는 매개 변수 파일로 지정할 수 있습니다.
 
 ## 증분 및 전체 배포
 
@@ -284,4 +284,4 @@ Azure 리소스 관리자와 포털 사용에 대한 자세한 내용은 [Azure 
 
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

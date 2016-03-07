@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="02/09/2016"
+	ms.date="02/23/2016"
 	ms.author="billmath"/>
 
 
@@ -92,7 +92,7 @@ Microsoft에는 클라우드 ID, 동기화된 ID 및 페더레이션된 ID는 3�
 몇년에 걸쳐 여러 동기화 도구가 존재했고 다양한 시나리오에 사용되었습니다. 현재 Azure AD Connect는 모든 시나리오에 가장 널리 쓰이는 도구입니다. 또한 AAD 동기화 및 DirSync은 여전히 있으며 사용자 환경에서 표시되기도 합니다.
 
 >[AZURE.NOTE]
-각 도구의 지원되는 기능에 관한 최신 정보는 [디렉터리 통합 도구 비교](active-directory-aadconnect-get-started-tools-comparison.md) 문서를 읽습니다.
+각 도구의 지원되는 기능에 관한 최신 정보는 [디렉터리 통합 도구 비교](active-directory-hybrid-identity-design-considerations-tools-comparison.md) 문서를 읽습니다.
 
 ### 지원되는 토폴로지
 동기화 전략을 정의할 때 사용되는 토폴로지를 결정해야 합니다. 2단계에서 확인된 정보에 따라 어떤 토폴로지를 사용하는 것이 적절한지를 결정할 수 있습니다. 단일 포리스트, 단일 Azure AD 토폴로지는 가장 일반적이고 단일 Active Directory 포리스트 및 Azure AD의 단일 인스턴스를 구성합니다. 이 시나리오 대부분에서 사용되며 아래 그림에 표시된 대로 Azure AD Connect Express 설치를 사용하는 경우 예상되는 토폴로지입니다.
@@ -197,4 +197,4 @@ Multi-Factor 설계 옵션:
 ## 참고 항목
 [설계 고려 사항 개요](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/25/2016"
+   ms.date="02/12/2016"
    ms.author="hascipio" />
 
 # Azure 마켓플레이스에 제품을 게시하는 방법
@@ -38,7 +38,7 @@
 | **1단계: 개발자 계정 등록** | [Microsoft 개발자 계정: 생성 및 등록][link-accts] | [Microsoft 개발자 계정: 생성 및 등록][link-accts] | [Microsoft 개발자 계정: 생성 및 등록][link-accts] | [Microsoft 개발자 계정: 생성 및 등록][link-accts] |
 |**2단계: 제품 만들기**| [일반 비기술적인 필수 요건](marketplace-publishing-pre-requisites.md)| [일반 비기술적인 필수 요건](marketplace-publishing-pre-requisites.md)| [일반 비기술적인 필수 요건](marketplace-publishing-pre-requisites.md)| [일반 비기술적인 필수 요건](marketplace-publishing-pre-requisites.md)|
 || [VM 기술적인 필수 조건][link-single-vm-prereq] | 개발자 서비스 기술적인 필수 조건 | [데이터 서비스 기술적인 필수 조건](marketplace-publishing-data-service-creation-prerequisites.md) | [솔루션 템플릿 기술적인 필수 조건](marketplace-publishing-solution-template-creation-prerequisites.md) |
-|| [VM 이미지 게시 가이드][link-single-vm] | 개발자 서비스 게시 가이드 | [데이터 서비스 게시 가이드](marketplace-publishing-data-service-creation.md) | [솔루션 템플릿 게시 가이드](marketplace-publishing-solution-template-creation.md) |
+||[VM 이미지 게시 가이드][link-single-vm] | 개발자 서비스 게시 가이드 | [데이터 서비스 게시 가이드](marketplace-publishing-data-service-creation.md) | [솔루션 템플릿 게시 가이드](marketplace-publishing-solution-template-creation.md) |
 || [Azure 마켓플레이스 마케팅 콘텐츠 가이드][link-pushstaging] | [Azure 마켓플레이스 마케팅 콘텐츠 가이드][link-pushstaging] | [Azure 마켓플레이스 마케팅 콘텐츠 가이드][link-pushstaging] | [Azure 마켓플레이스 마케팅 콘텐츠 가이드][link-pushstaging] |
 | **3단계: 제품을 스테이징으로 푸시** | [스테이징에서 VM 제품 테스트](marketplace-publishing-vm-image-test-in-staging.md) | 스테이징에서 개발자 서비스 제품 테스트 | [스테이징에서 데이터 서비스 제품 테스트](marketplace-publishing-data-service-test-in-staging.md) | [스테이징에서 솔루션 템플릿 테스트](marketplace-publishing-solution-template-test-in-staging.md) |
 | **4단계: 마켓플레이스로 제품 배포** | [마켓플레이스로 제품 배포][link-pushprod] | [마켓플레이스로 제품 배포][link-pushprod] | [마켓플레이스로 제품 배포][link-pushprod] | [마켓플레이스로 제품 배포][link-pushprod] |
@@ -47,6 +47,7 @@
 - [게시자로 지원 받기][suppt-general]
 - [판매자 통찰력 보고 이해][suppt-rpt-insights]
 - [지급 보고 이해][suppt-rpt-payouts]
+- [클라우드 솔루션 공급자 대리점 인센티브를 변경하는 방법](marketplace-publishing-csp-incentive.md)
 - [마켓플레이스에서 일반적인 게시 문제 해결][suppt-common]
 
 ## 추가 리소스
@@ -81,4 +82,4 @@
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 [link-pushprod]: marketplace-publishing-push-to-production.md
 
-<!----HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

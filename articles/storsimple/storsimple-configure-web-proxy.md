@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -67,7 +67,7 @@
 
 4. 인증 유형으로 **NTLM**, **기본** 또는 **없음**을 선택합니다. 기본은 프록시 서버 구성에 대한 최소한의 보안 인증입니다. NT LAN 관리자(NTLM)는 3방향 메시징 시스템을 사용(추가 무결성이 필요하면 4방향)하여 사용자를 인증하는 안전하고 복잡한 인증 프로토콜입니다. 기본 인증은 NTLM입니다. 자세한 내용은 [기본](http://hc.apache.org/httpclient-3.x/authentication.html) 및 [NTLM 인증](http://hc.apache.org/httpclient-3.x/authentication.html)을 참조하세요.
 
-	> [AZURE.IMPORTANT]**StorSimple 관리자 서비스에서 해당 장치에 대한 프록시 서버 구성에서 기본 또는 NTLM 인증이 사용되면 장치 모니터링 차트가 동작하지 않습니다. 작업할 차트를 모니터링하기 위해 인증이 NONE으로 설정되어 있는지 확인해야 합니다.**
+	> [AZURE.IMPORTANT] **StorSimple 관리자 서비스에서 해당 장치에 대한 프록시 서버 구성에서 기본 또는 NTLM 인증이 사용되면 장치 모니터링 차트가 동작하지 않습니다. 작업할 차트를 모니터링하기 위해 인증이 NONE으로 설정되어 있는지 확인해야 합니다.**
 
 5. 인증을 사용하면 **웹 프록시 사용자 이름** 및 **웹 프록시 암호**를 제공합니다. 암호를 확인해야 합니다.
 
@@ -100,7 +100,7 @@
 
 웹 프록시는 기본적으로 사용하지 않도록 설정되어 있습니다. StorSimple 장치에서 웹 프록시 설정을 구성한 후에 StorSimple용 Windows PowerShell을 사용하여 웹 프록시 설정을 활성화해야 합니다.
 
-> [AZURE.NOTE]**설치 마법사를 사용하여 웹 프록시를 구성하는 경우 이 단계가 필요하지 않습니다. 웹 프록시는 설치 마법사 세션 후 기본적으로 자동으로 사용하도록 설정됩니다.**
+> [AZURE.NOTE] **설치 마법사를 사용하여 웹 프록시를 구성하는 경우 이 단계가 필요하지 않습니다. 웹 프록시는 설치 마법사 세션 후 기본적으로 자동으로 사용하도록 설정됩니다.**
 
 장치에서 웹 프록시를 사용하려면 StorSimple용 Windows PowerShell에서 다음 단계를 수행합니다.
 
@@ -140,7 +140,7 @@
 |6\.|0x8007138f - 클러스터 리소스를 찾을 수 없음|플랫폼 서비스 클러스터 리소스를 찾을 수 없습니다. 설치가 올바르지 않은 경우 발생할 수 있습니다.|장치에서 공장 재설정을 수행해야 합니다. 플랫폼 리소스를 만들어야 합니다. 다음 단계는 Microsoft 지원에 문의하세요.|
 |7\.|0x8007138c - 클러스터 리소스는 온라인 상태가 아님|플랫폼 또는 데이터 경로 클러스터 리소스는 온라인 상태가 아닙니다.|데이터 경로 및 플랫폼 서비스 리소스가 온라인 상태인지 확인하려면 Microsoft 지원에 문의하세요.|
 
-> [AZURE.NOTE]
+> [AZURE.NOTE] 
 > 
 > -  위의 오류 메시지 목록은 전체 목록이 아닙니다. 
 > - 웹 프록시 설정에 관련된 오류는 StorSimple 관리자 서비스의 Azure 클래식 포털에 나타나지 않습니다. 구성이 완료된 후에 웹 프록시에 문제가 있다면 클래식 포털에서 장치 상태가 **오프라인**으로 변경됩니다. |
@@ -151,4 +151,4 @@
 
 - StorSimple Manager 서비스를 사용하는 방법을 알아보려면 [StorSimple Manager 서비스를 사용하여 StorSimple 장치 관리](storsimple-manager-service-administration.md)로 이동하세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/17/2016"
 	ms.author="dastrock"/>
 
 # Azure AD B2C 미리 보기: .NET 웹앱에서 Web API 호출
@@ -36,7 +36,7 @@ Azure AD B2C를 사용하기 전에 디렉터리 또는 테넌트를 만들어�
 
 - 응용 프로그램에서 **웹앱/웹 API** 포함
 - `https://localhost:44316/`을 **회신 URL**로 입력 - 이 코드 샘플에 대한 기본 URL입니다.
-- 응용 프로그램에 **응용 프로그램 암호**를 만들고 복사합니다. 곧 필요합니다.
+- 응용 프로그램에 **응용 프로그램 암호**를 만들고 복사합니다. 곧 필요합니다. 참고로 이 값은 사용하기 전에 [XML 이스케이프](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape)되어야 합니다.
 - 앱에 할당된 **응용 프로그램 ID**를 복사합니다. 또한 곧 필요합니다.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
@@ -387,4 +387,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

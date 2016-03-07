@@ -1,11 +1,4 @@
-<properties
-	pageTitle="Azure AD B2C 미리 보기: Android 응용 프로그램에서 Web API 호출하기 | Microsoft Azure"
-	description="이 문서에서는 OAuth 2.0 전달자 토큰을 사용하여 node.js Web API를 호출하는 Android "할 일 목록" 앱을 만드는 방법을 보여줍니다. Android 앱과 Web API 모두는 Azure AD B2C를 사용하여 사용자 ID를 관리하고 사용자를 인증합니다."
-	services="active-directory-b2c"
-	documentationCenter="android"
-	authors="brandwe"
-	manager="msmbaldwin"
-	editor=""/>
+<properties pageTitle="Azure AD B2C Preview: Calling a Web API from an Android application | Microsoft Azure" description="This article will show you how to create an Android "To-Do List" app that calls a node.js web API using OAuth 2.0 bearer tokens. Android 앱과 Web API 모두는 Azure AD B2C를 사용하여 사용자 ID를 관리하고 사용자를 인증합니다." services="active-directory-b2c" documentationCenter="android" authors="brandwe" manager="msmbaldwin" editor=""/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -13,7 +6,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="02/17/2016"
 	ms.author="brandwe"/>
 
 # Azure AD B2C 미리 보기: Android 응용 프로그램에서 Web API 호출하기
@@ -47,9 +40,9 @@ Azure AD B2C를 사용하기 전에 디렉터리 또는 테넌트를 만들어�
 
 이제 B2C 디렉터리에 앱을 만들어야 하며 Azure AD가 앱과 안전하게 통신해야 한다는 일부 정보를 제공합니다. 이 경우 하나의 논리 앱을 구성하기 때문에 앱과 Web API 모두는 단일 **응용 프로그램 ID**에서 표현됩니다. 앱을 만들려면 [다음 지침](active-directory-b2c-app-registration.md)에 따릅니다. 반드시
 
-- 응용 프로그램에서 **웹앱/Web API** 포함
+- 응용 프로그램에서 **웹앱/웹 API** 포함
 - `urn:ietf:wg:oauth:2.0:oob`을 **회신 URL**로 입력 - 이 코드 샘플에 대한 기본 URL입니다.
-- 응용 프로그램에 **응용 프로그램 암호**를 만들고 복사합니다. 곧 필요합니다.
+- 응용 프로그램에 **응용 프로그램 암호**를 만들고 복사합니다. 곧 필요합니다. 참고로 이 값은 사용하기 전에 [XML 이스케이프](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape)되어야 합니다.
 - 앱에 할당된 **응용 프로그램 ID**를 적복사합니다. 또한 곧 필요합니다.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
@@ -62,7 +55,7 @@ Azure AD B2C에서 모든 사용자 환경은 [**정책**](active-directory-b2c-
 
 - 등록 정책에서 **표시 이름** 및 다른 몇 가지 등록 특성을 선택합니다.
 - 모든 정책에서 **표시 이름** 및 **개체 ID** 응용 프로그램 클레임을 선택합니다. 물론 다른 클레임을 선택할 수 있습니다.
-- 각 정책을 만든 후에 **이름**을 복사합니다. 접두사 `b2c_1_`가 있어야 합니다. 이러한 정책 이름이 곧 필요합니다. 
+- 각 정책을 만든 후에 **이름**을 복사합니다. 접두사 `b2c_1_`이 있어야 합니다. 이러한 정책 이름이 곧 필요합니다. 
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
@@ -1011,7 +1004,4 @@ CookieSyncManager.getInstance().sync();
 쿠키에 대한 추가 정보: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
  
 
-<!---HONumber=AcomDC_1125_2015-->
-
-
-
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="02/20/2016"
 	ms.author="jahogg"/>
 
 # Microsoft Azure 저장소에서 동시성 관리
@@ -49,7 +49,7 @@ Azure 저장소 서비스는 세 가지 전략을 모두 지원하지만 특히 
 4.	Blob의 현재 ETag 값이 요청의 **If-Match** 조건부 헤더에 포함된 ETag와 다른 버전이면 서비스는 클라이언트에 412 오류를 반환합니다. 클라이언트는 이 오류를 통해 Blob를 검색한 후 다른 프로세스에서 Blob를 업데이트했음을 확인할 수 있습니다.
 5.	Blob의 현재 ETag 값이 요청의 **If-Match** 조건부 헤더에 포함된 ETag와 같은 버전이면 서비스는 요청된 작업을 수행하며 Blob의 현재 ETag 값을 업데이트하여 새 버전을 만들었음을 표시합니다.  
 
-클라이언트 저장소 라이브러리 4.2.0을 사용하는 다음 C# 코드 조각은 이전에 검색했거나 삽입한 Blob의 속성에서 액세스할 수 있는 ETag 값을 기준으로 **If-Match AccessCondition**을 생성하는 방법의 간단한 예제를 보여 줍니다. 그런 다음 Blob을 업데이트할 때**AccessCondition** 개체를 사용합니다: **AccessCondition** 개체는 요청에 **If-match** 헤더를 추가합니다. 다른 프로세스가 Blob을 업데이트한 경우 Blob 서비스는 HTTP 412(전재 조건 실패) 상태 메시지를 반환합니다. 전체 샘플은 [여기](http://code.msdn.microsoft.com/windowsazure/Managing-Concurrency-using-56018114)에서 다운로드할 수 있습니다.
+클라이언트 저장소 라이브러리 4.2.0을 사용하는 다음 C# 코드 조각은 이전에 검색했거나 삽입한 Blob의 속성에서 액세스할 수 있는 ETag 값을 기준으로 **If-Match AccessCondition**을 생성하는 방법의 간단한 예제를 보여 줍니다. 그런 다음 Blob을 업데이트할 때**AccessCondition** 개체를 사용합니다: **AccessCondition** 개체는 요청에 **If-match** 헤더를 추가합니다. 다른 프로세스가 Blob을 업데이트한 경우 Blob 서비스는 HTTP 412(전재 조건 실패) 상태 메시지를 반환합니다. [Azure 저장소를 사용하여 동시성 관리](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)에서 전체 샘플을 다운로드할 수 있습니다.
 
 	// Retrieve the ETag from the newly created blob
 	// Etag is already populated as UploadText should cause a PUT Blob call
@@ -128,7 +128,7 @@ Blob 삭제| 아니요| 예 |
 
 임대를 사용하면 배타적 쓰기/공유 읽기, 배타적 쓰기/배타적 읽기, 공유 쓰기/배타적 읽기 등의 다양한 동기화 전략을 지원할 수 있습니다. 임대가 있는 상태에서 저장소 서비스가 배타적 쓰기(배치, 설정 및 삭제 작업)를 강제로 수행하지만 읽기 작업에 대해 독점성을 보장하는 경우 개발자는 모든 클라이언트 응용 프로그램에서 임대 ID를 사용하고 한 번에 한 클라이언트만 유효한 임대 ID를 사용하도록 해야 합니다. 임대 ID를 포함하지 않는 읽기 작업에서는 공유 읽기가 수행됩니다.
 
-다음 C# 코드 조각은 Blob에 대해 30초 동안 배타적 임대를 획득하고 Blob의 내용을 업데이트한 후에 임대를 해제하는 예제를 보여 줍니다. 새 임대를 획득하려 할 때 Blob에 대해 유효한 임대가 이미 있으면 Blob 서비스는 "HTTP(409) 충돌" 상태 결과를 반환합니다. 아래 코드 조각은 저장소 서비스에서 Blob를 업데이트하기 위한 요청을 할 때 **AccessCondition** 개체를 사용하여 임대 정보를 캡슐화합니다. 전체 샘플은 [여기](http://code.msdn.microsoft.com/windowsazure/Managing-Concurrency-using-56018114)에서 다운로드할 수 있습니다.
+다음 C# 코드 조각은 Blob에 대해 30초 동안 배타적 임대를 획득하고 Blob의 내용을 업데이트한 후에 임대를 해제하는 예제를 보여 줍니다. 새 임대를 획득하려 할 때 Blob에 대해 유효한 임대가 이미 있으면 Blob 서비스는 "HTTP(409) 충돌" 상태 결과를 반환합니다. 아래 코드 조각은 저장소 서비스에서 Blob를 업데이트하기 위한 요청을 할 때 **AccessCondition** 개체를 사용하여 임대 정보를 캡슐화합니다. [Azure 저장소를 사용하여 동시성 관리](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)에서 전체 샘플을 다운로드할 수 있습니다.
 
 	// Acquire lease for 15 seconds
 	string lease = blockBlob.AcquireLease(TimeSpan.FromSeconds(15), null);
@@ -209,7 +209,7 @@ Blob 삭제| 아니요| 예 |
 
 Blob 서비스와 달리 테이블 서비스에서는 클라이언트가 업데이트 요청에 **If-Match** 헤더를 포함해야 합니다. 그러나 클라이언트가 요청에서 **If-Match** 헤더를 와일드카드 문자(*)로 설정하는 경우에는 무조건 업데이트(마지막 작성자의 업데이트 적용 전략)를 강제 지정하고 동시성 검사를 무시할 수 있습니다.
 
-다음 C# 코드 조각은 이전에 만들거나 검색한 customer 엔터티의 메일 주소를 업데이트하는 작업을 보여 줍니다. 초기 삽입 또는 검색 작업에서는 ETag 값을 customer 개체에 저장합니다. 이 샘플은 바꾸기 작업을 실행할 때 같은 개체 인스턴스를 사용하므로 ETag 값을 테이블 서비스에 자동으로 다시 보내기 때문에 서비스가 동시성 위반을 검사할 수 있습니다. 다른 프로세스가 테이블 저장소에서 엔터티를 업데이트한 경우 서비스는 HTTP 412(전재 조건 실패) 상태 메시지를 반환합니다. 전체 샘플은 [여기](http://code.msdn.microsoft.com/windowsazure/Managing-Concurrency-using-56018114)에서 다운로드할 수 있습니다.
+다음 C# 코드 조각은 이전에 만들거나 검색한 customer 엔터티의 메일 주소를 업데이트하는 작업을 보여 줍니다. 초기 삽입 또는 검색 작업에서는 ETag 값을 customer 개체에 저장합니다. 이 샘플은 바꾸기 작업을 실행할 때 같은 개체 인스턴스를 사용하므로 ETag 값을 테이블 서비스에 자동으로 다시 보내기 때문에 서비스가 동시성 위반을 검사할 수 있습니다. 다른 프로세스가 테이블 저장소에서 엔터티를 업데이트한 경우 서비스는 HTTP 412(전재 조건 실패) 상태 메시지를 반환합니다. [Azure 저장소를 사용하여 동시성 관리](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)에서 전체 샘플을 다운로드할 수 있습니다.
 
 	try
 	{
@@ -274,13 +274,13 @@ Microsoft Azure 저장소 서비스는 개발자가 기본적으로 제공하려
 
 이 블로그에서 참조하는 전체 샘플 응용 프로그램은 다음 문서를 참조하세요.
 
-- [Azure 저장소를 사용하여 동시성 관리 - 샘플 응용 프로그램](http://code.msdn.microsoft.com/windowsazure/Managing-Concurrency-using-56018114)  
+- [Azure 저장소를 사용하여 동시성 관리 - 샘플 응용 프로그램](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)  
 
 Azure 저장소에 대한 자세한 내용은 다음을 참조하세요.
 
 - [Microsoft Azure 저장소 홈페이지](https://azure.microsoft.com/services/storage/)
 - [Azure 저장소 소개](storage-introduction.md)
-- [Blob](storage-dotnet-how-to-use-blobs.md), [테이블](storage-dotnet-how-to-use-tables.md) 및 [큐](storage-dotnet-how-to-use-queues.md)에 대한 저장소 시작 가이드
-- 저장소 아키텍처 – [Microsoft Azure 저장소: 강력한 일관성과 함께 항상 사용 가능한 클라우드 저장소 서비스](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
+- [Blob](storage-dotnet-how-to-use-blobs.md), [테이블](storage-dotnet-how-to-use-tables.md), [큐](storage-dotnet-how-to-use-queues.md) 및 [파일](storage-dotnet-how-to-use-files.md)에 대한 저장소 시작
+- 저장소 아키텍처 – [Azure 저장소: 강력한 일관성과 함께 항상 사용 가능한 클라우드 저장소 서비스](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

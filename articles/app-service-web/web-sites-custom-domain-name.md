@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/23/2015"
+	ms.date="02/16/2016"
 	ms.author="cephalin"/>
 
 # Azure 앱 서비스에서 사용자 지정 도메인 이름 구성
@@ -112,7 +112,7 @@ CNAME 레코드를 만들 경우에는 이 단계를 건너뛰십시오. A 레�
 - 168\.62.48.183에 매핑된 **contoso.com**
 - **contoso.azurewebsites.net**에 매핑된 **www.contoso.com**
 
->[AZURE.NOTE] Azure DNS를 사용하여 웹앱에 필요한 도메인 레코드를 호스트할 수 있습니다. 사용자 지정 도메인을 구성하고 사용자 레코드를 만들려면 Azure DNS에서 [웹앱에 대한 사용자 지정 DNS 레코드 만들기](../dns-web-sites-custom-domain)를 참조하세요.
+>[AZURE.NOTE] Azure DNS를 사용하여 웹앱에 필요한 도메인 레코드를 호스트할 수 있습니다. 사용자 지정 도메인을 구성하고 사용자 레코드를 만들려면 Azure DNS에서 [웹앱에 대한 사용자 지정 DNS 레코드 만들기](../dns/dns-web-sites-custom-domain)를 참조하세요.
 
 <a name="awverify" />
 ## awverify 레코드 만들기(A 레코드 전용)
@@ -155,4 +155,4 @@ A 레코드를 만들면 웹 앱에서 특수 CNAME 레코드도 필요하며, �
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

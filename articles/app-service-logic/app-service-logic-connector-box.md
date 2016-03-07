@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="rajeshramabathiran"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,10 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/11/2015"
+   ms.date="02/11/2016"
    ms.author="rajram"/>
 
 # Box 커넥터 시작 및 논리 앱에 추가 
+>[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다. 2015-08-01-미리 보기 스키마 버전에 대한 내용을 보려면 [Box API](../connectors/create-api-box.md)를 클릭하세요.
+
 Box에 연결하여 파일을 가져오고, 업로드, 삭제 등을 수행합니다. 커넥터는 논리 앱에서 "워크플로"의 일부로 사용됩니다.
 
 방화벽 외부에 있는 사용자와도 안전하게 데이터를 공유할 수 있게 해주는 Box를 사용해야 하는 시나리오가 있을 수 있습니다. 논리 앱은 다양한 데이터 원본을 기반으로 트리거하고 흐름의 일부로 데이터를 가져오고 처리하기 위한 커넥터를 제공할 수 있습니다.
@@ -33,7 +35,7 @@ a. *파일 나열*: 이 작업은 폴더의 모든 파일에 대한 정보를 �
 --- | --- | ---
 폴더 경로 | 나열할 폴더의 경로입니다. | 예
 
-> [AZURE.NOTE]파일 내용은 반환하지 않습니다.
+> [AZURE.NOTE] 파일 내용은 반환하지 않습니다.
 
 b. *파일 가져오기*: 이 작업은 내용 및 속성을 비롯하여 파일을 검색합니다. 동작에 필요한 매개 변수 목록은 다음과 같습니다.
 
@@ -42,7 +44,7 @@ b. *파일 가져오기*: 이 작업은 내용 및 속성을 비롯하여 파일
 File Path(파일 경로) | 파일이 있는 폴더의 경로입니다. | 예
 파일 형식 | 파일이 텍스트인지 또는 이진인지를 지정합니다. | 아니요
 
-> [AZURE.NOTE]이 작업에서는 파일을 읽은 후 삭제하지 않습니다.
+> [AZURE.NOTE] 이 작업에서는 파일을 읽은 후 삭제하지 않습니다.
 
 
 c. *파일 업로드*: 이름에서 알 수 있듯이 이 동작은 파일을 Box 계정에 업로드합니다. 파일이 이미 있는 경우 파일을 덮어쓰지 않고 오류가 발생합니다. 동작에 필요한 매개 변수 목록은 다음과 같습니다.
@@ -94,7 +96,7 @@ API 앱을 만들고 나면 이제 Box 커넥터를 논리 앱의 동작으로 �
 ## 커넥터의 추가 기능
 이제 커넥터를 만들었으므로 논리 앱을 사용하여 비즈니스 워크플로에 추가할 수 있습니다. [논리 앱 정의](app-service-logic-what-are-logic-apps.md)를 참조하세요.
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동합니다. 앱 서비스에서 즉시 단기 스타터 논리 앱을 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동합니다. 앱 서비스에서 즉시 단기 스타터 논리 앱을 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 [커넥터 및 API 앱 참조](http://go.microsoft.com/fwlink/p/?LinkId=529766)의 Swagger REST API 참조를 봅니다.
 
@@ -107,4 +109,4 @@ API 앱을 만들고 나면 이제 Box 커넥터를 논리 앱의 동작으로 �
 [4]: ./media/app-service-logic-connector-box/image_3.jpg
 [5]: ./media/app-service-logic-connector-box/image_4.jpg
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="01/06/2016"
+   ms.date="02/21/2016"
    ms.author="tamram" />
 
 # Azure 저장소 샘플
@@ -28,12 +28,12 @@
 
 .NET 샘플을 탐색하려면 [.NET 저장소 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage/)를 NuGet에서 다운로드합니다. .NET 저장소 클라이언트 라이브러리를 [Azure SDK for.NET](https://azure.microsoft.com/downloads/)에서도 사용할 수 있습니다.
 
-* [5분 만에 Azure Blob, 테이블 및 큐 시작](storage-getting-started-guide.md)
+* [5분 만에 Azure 저장소 시작](storage-getting-started-guide.md)
 * [Azure 저장소를 사용하여 동시성 관리 - 샘플 응용 프로그램](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)
 * [Blob 시작](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/VisualStudioQuickStarts/DataBlobStorage)
 * [테이블 시작](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/VisualStudioQuickStarts/DataTableStorage)
 * [큐 시작](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/VisualStudioQuickStarts/DataStorageQueue)
-* [파일 시작](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/VisualStudioQuickStarts/DataTableStorage)
+* [파일 시작](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/VisualStudioQuickStarts/DataFileStorage)
 
 ## Java 샘플
 
@@ -85,4 +85,4 @@ C++ 샘플을 탐색하려면 [C++ 저장소 클라이언트 라이브러리](ht
 - [C++ 저장소 클라이언트 라이브러리에 대한 소스 코드](https://github.com/Azure/azure-storage-cpp)
 - [C++ 클라이언트 라이브러리 참조](http://azure.github.io/azure-storage-cpp/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="점수 매기기 프로필(Azure 검색 REST API 버전 2015-02-28-Preview) | Microsoft Azure | 호스트된 클라우드 검색 서비스"
+	pageTitle="점수 매기기 프로필(Azure 검색 REST API 버전 2015-02-28-Preview) | Microsoft Azure | Azure 검색 미리 보기 API"
 	description="Azure 검색은 사용자가 정의한 점수 매기기 프로필을 기초로 순위의 결과를 조정할 수 있도록 하는 호스팅되는 클라우드 검색 서비스입니다."
 	services="search"
 	documentationCenter=""
@@ -14,11 +14,11 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.author="heidist"
-	ms.date="11/04/2015" />
+	ms.date="02/18/2016" />
 
 # 점수 매기기 프로필(Azure 검색 REST API 버전 2015-02-28-Preview)
 
-> [AZURE.NOTE]이 문서에서는 [2015-02-28-Preview](search-api-2015-02-28-preview.md)에서 제공되는 점수 매기기 프로필을 설명합니다. 현재 [MSDN](http://msdn.microsoft.com/library/azure/mt183328.aspx)에 설명된 `2015-02-28` 버전과 여기에 설명된 `2015-02-28-Preview` 버전 간의 차이는 없습니다.
+> [AZURE.NOTE] 이 문서에서는 [2015-02-28-Preview](search-api-2015-02-28-preview.md)에서 제공되는 점수 매기기 프로필을 설명합니다. 현재 [MSDN](http://msdn.microsoft.com/library/azure/mt183328.aspx)에 문서화된 `2015-02-28` 버전과 여기에 설명된 `2015-02-28-Preview` 버전 간에 차이는 없지만 이 문서에서는 전체 API를 다룹니다.
 
 ## 개요
 
@@ -55,7 +55,7 @@ Azure 검색에서는 점수를 계산할 때 기본 점수 매기기 기능을 
 
     GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation:-122.123,44.77233&api-version=2015-02-28-Preview
 
-이 쿼리는 용어 'inn'을 검색하고 현재 위치를 전달합니다. 이 쿼리에는 `scoringParameter` 등의 다른 매개 변수도 포함되어 있습니다. 쿼리 매개 변수에 대해서는 [문서 검색(Azure 검색 API)](search-api-2015-02-28-preview/#SearchDocs.md)에서 설명합니다.
+이 쿼리는 용어 'inn'을 검색하고 현재 위치를 전달합니다. 이 쿼리에는 `scoringParameter` 등의 다른 매개 변수도 포함되어 있습니다. 쿼리 매개 변수에 대해서는 [문서 검색(Azure 검색 API)](search-api-2015-02-28-preview/#SearchDocs)에서 설명합니다.
 
 점수 매기기 프로필에 대한 자세한 예제를 검토하려면 [예제](#example)를 클릭하세요.
 
@@ -372,4 +372,4 @@ Azure 검색에서는 점수를 계산할 때 기본 점수 매기기 기능을 
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
 
-<!----HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0224_2016-->

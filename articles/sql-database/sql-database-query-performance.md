@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="02/03/2015"
+   ms.date="02/03/2016"
    ms.author="sstein"/>
 
 # Azure SQL 데이터베이스 쿼리 성능 Insight
@@ -33,7 +33,7 @@
  
 ## 권한
 
-쿼리 성능 Insight를 사용하려면 다음 [역할 기반 액세스 제어](role-based-access-control-configure.md) 권한이 필요합니다.
+쿼리 성능 Insight를 사용하려면 다음 [역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md) 권한이 필요합니다.
 
 - 최상위 리소스 사용 쿼리 및 차트를 보려면 **판독기**, **소유자**, **참여자**, **SQL DB 참여자** 또는 **SQL Server 참여자** 권한이 필요합니다. 
 - 쿼리 텍스트를 보려면 **소유자**, **참여자**, **SQL DB 참여자** 또는 **SQL Server 참여자** 권한이 필요합니다.
@@ -170,4 +170,4 @@ SQL 데이터베이스의 성능 향상을 위한 추가 권장 사항은 **Quer
 [2]: ./media/sql-database-query-performance/top-queries.png
 [3]: ./media/sql-database-query-performance/query-details.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -20,7 +20,7 @@
 
 #HDInsight에서 Linux 기반 Hadoop 클러스터 만들기
 
-[AZURE.INCLUDE [선택기](../../includes/hdinsight-create-linux-cluster-selector.md)]
+[AZURE.INCLUDE [선택기](../../includes/hdinsight-selector-create-clusters.md)]
 
 이 문서에서는 Azure에서 Linux 기반 HDInsight 클러스터를 만드는 다양한 방법과 클러스터에 사용할 수 있는 선택적 구성에 대해 알아봅니다. HDInsight는 Azure 클라우드 플랫폼의 서비스로 Apache Hadoop, Apache Storm 및 Apache HBase를 제공합니다.
 
@@ -268,4 +268,4 @@ Metastore 구성 옵션을 사용하여 SQL 데이터베이스를 사용하는 �
 
   [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "HDInsight에서 Sqoop 사용"
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

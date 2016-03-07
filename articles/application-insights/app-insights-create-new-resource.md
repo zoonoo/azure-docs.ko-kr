@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/06/2015" 
+	ms.date="02/16/2016" 
 	ms.author="awills"/>
 
 # 새 Application Insights 리소스 만들기
@@ -31,7 +31,7 @@ Visual Studio Application Insights는 Microsoft Azure *리소스*에 응용 프�
 
 또한 [Microsoft Azure](http://azure.com)를 구독해야 합니다. 팀 또는 조직이 Azure를 구독하는 경우 소유자가 사용자의 Windows Live ID를 사용하여 사용자를 구독에 추가할 수 있습니다.
 
-또는 새 구독을 만들 수 있습니다. 무료 평가판을 사용하면 Azure의 모든 기능을 이용할 수 있습니다. 평가 기간이 만료된 후부터는 무료 서비스에 대해 요금이 부과되지 않으므로 종량제 구독이 적합할 수 있습니다.
+또는 새 구독을 만들 수 있습니다. 무료 계정을 사용하면 Azure의 모든 기능을 이용할 수 있습니다. 평가 기간이 만료된 후부터는 무료 서비스에 대해 요금이 부과되지 않으므로 종량제 구독이 적합할 수 있습니다.
 
 구독에 액세스할 수 있으면 [http://portal.azure.com](https://portal.azure.com)에서 Application Insights에 로그인하고 Live ID를 사용하여 로그인합니다.
 
@@ -94,4 +94,4 @@ SDK는 표준 모듈을 포함하고 있기 때문에 원격 분석을 전송할
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

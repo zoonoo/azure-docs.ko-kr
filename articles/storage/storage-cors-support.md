@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/07/2016"
+	ms.date="02/19/2016"
 	ms.author="tamram"/>
 
 # Azure 저장소 서비스에 대한 CORS(Cross-Origin Resource Sharing) 지원
@@ -22,7 +22,7 @@
 
 [Blob 서비스 속성 설정](https://msdn.microsoft.com/library/hh452235.aspx), [큐 서비스 속성 설정](https://msdn.microsoft.com/library/hh452232.aspx) 및 [테이블 서비스 속성 설정](https://msdn.microsoft.com/library/hh452240.aspx)을 호출하여 각 저장소 서비스에 대해 CORS 규칙을 개별적으로 설정할 수 있습니다. 서비스에 대해 CORS 규칙을 설정하고 나면 다른 도메인에서 해당 서비스에 대해 수행하는 적절하게 인증된 요청을 평가하여 지정된 규칙에 따라 해당 요청이 허용되는지 여부를 결정합니다.
 
->[AZURE.NOTE]CORS는 인증 메커니즘이 아닙니다. CORS를 사용하도록 설정한 상태에서 저장소 리소스에 대해 수행하는 모든 요청은 적절한 인증 서명을 포함하거나 공용 자원에 대한 요청이어야 합니다.
+>[AZURE.NOTE] CORS는 인증 메커니즘이 아닙니다. CORS를 사용하도록 설정한 상태에서 저장소 리소스에 대해 수행하는 모든 요청은 적절한 인증 서명을 포함하거나 공용 자원에 대한 요청이어야 합니다.
 
 ## CORS 요청 이해
 
@@ -147,7 +147,7 @@ CORS 규칙에는 다음 제한이 적용됩니다.
 
 세 번째 요청은 원본 도메인과 메서드가 두 번째 규칙과 일치하므로 규칙을 추가로 평가하지 않습니다. 그러나 *x-ms-client-request-id header*는 두 번째 규칙에서 허용되지 않으므로 세 번째 규칙의 의미 체계에서 해당 요청이 성공하도록 허용하더라도 요청은 실패합니다.
 
->[AZURE.NOTE]이 예제에서는 제한 수준이 낮은 규칙이 높은 규칙보다 먼저 표시되어 있지만 일반적으로는 가장 제한적인 규칙을 목록에 먼저 포함하는 것이 좋습니다.
+>[AZURE.NOTE] 이 예제에서는 제한 수준이 낮은 규칙이 높은 규칙보다 먼저 표시되어 있지만 일반적으로는 가장 제한적인 규칙을 목록에 먼저 포함하는 것이 좋습니다.
 
 ## Vary 헤더 설정 방법 이해
 
@@ -195,4 +195,4 @@ GET/HEAD가 아닌 메서드를 사용하는 요청의 경우 저장소 서비�
 
 [W3C 교차 원본 자원 공유 사양](http://www.w3.org/TR/cors/)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0224_2016-->

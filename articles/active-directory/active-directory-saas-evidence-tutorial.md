@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
+	ms.date="02/23/2016"
 	ms.author="asmalser"/>
 
 
@@ -107,4 +107,4 @@ Azure AD 사용자가 로그인할 수 있도록 Evidence.com 응용 프로그�
  
 4.	페이지 바닥글에서 **할당** 단추를 클릭합니다.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0224_2016-->

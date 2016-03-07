@@ -12,7 +12,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="search" 
-	ms.date="11/04/2015" 
+	ms.date="02/18/2016" 
 	ms.author="heidist"/>
 
 # Azure 검색 개발자 사례 연구
@@ -64,7 +64,7 @@ Azure 검색은 우리 프로젝트의 판도를 바꾸어 놓았습니다. Azur
 
 - [Azure 검색](https://azure.microsoft.com/services/search/)
 - [MVC 4를 사용하는 Azure 웹 사이트](https://azure.microsoft.com/services/websites/)
-- [예약된 작업을 위한 Azure WebJobs](../websites-webjobs-resources.md)
+- [예약된 작업을 위한 Azure WebJobs](../app-service-web/websites-webjobs-resources.md)
 - [Azure SQL 데이터베이스](https://azure.microsoft.com/services/sql-database/)
 - [Azure Blob 저장소](https://azure.microsoft.com/services/storage/)
 - [SendGrid 전자 메일 서비스](https://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/)
@@ -421,4 +421,4 @@ Azure 검색만 놀라움을 선사한 것이 아니었습니다. 우리는 WebJ
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

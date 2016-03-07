@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/11/2015"
+	ms.date="02/20/2016"
 	ms.author="dastrock"/>
 
 # v2.0 프로토콜 - OAuth 2.0 인증 코드 흐름
@@ -24,23 +24,39 @@ OAuth 2.0 인증 코드 권한은 장치에 설치된 앱에서 사용하여 Web
 <!-- TODO: Need link to libraries -->
 
 > [AZURE.NOTE]
-    이 정보는 v2.0 앱 모델 공개 미리 보기에 적용됩니다. 일반 공급 Azure AD 서비스와 통합하는 방법에 대한 지침은 [Azure Active Directory 개발자 가이드](active-directory-developers-guide.md)를 참조하세요.
+	일부 Azure Active Directory 시나리오 및 기능만 v2.0 끝점에서 지원합니다. v2.0 끝점을 사용해야 하는지 확인하려면 [v2.0 제한 사항](active-directory-v2-limitations.md)을 참조하세요.
 
-OAuth 2.0 인증 코드 흐름은 [OAuth 2.0 사양의 섹션 4.1](http://tools.ietf.org/html/rfc6749)에서 설명합니다. [웹앱](active-directory-v2-flows.md#web-apps) 및 [기본적으로 설치된 앱](active-directory-v2-flows.md#mobile-and-native-apps)을 포함하여 대부분의 앱 형식에서 인증 및 권한 부여를 수행하는 데 사용됩니다. v2.0 앱 모델을 사용하여 보안된 리소스에 액세스하는 데 사용할 수 있는 access\_token을 앱이 안전하게 획득할 수 있도록 합니다.
+OAuth 2.0 인증 코드 흐름은 [OAuth 2.0 사양의 섹션 4.1](http://tools.ietf.org/html/rfc6749)에서 설명합니다. [웹앱](active-directory-v2-flows.md#web-apps) 및 [기본적으로 설치된 앱](active-directory-v2-flows.md#mobile-and-native-apps)을 포함하여 대부분의 앱 형식에서 인증 및 권한 부여를 수행하는 데 사용됩니다. v2.0 끝점을 사용하여 보안된 리소스에 액세스하는 데 사용할 수 있는 access\_token을 앱이 안전하게 획득할 수 있도록 합니다.
 
+## 프로토콜 다이어그램
+높은 수준에서 네이티브/모바일 응용 프로그램에 대한 전체 인증 흐름은 다음과 같습니다.
 
+![OAuth 인증 코드 흐름](../media/active-directory-v2-flows/convergence_scenarios_native.png)
 
 ## 인증 코드 요청
 인증 코드 흐름은 클라이언트가 사용자를 `/authorize` 끝점으로 보내는 것으로 시작됩니다. 이 요청에서 클라이언트는 사용자로부터 얻어야 하는 사용 권한을 나타냅니다.
 
 ```
+// Line breaks for legibility only
+
+https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
+client_id=6731de76-14a6-49ae-97bc-6eba6914391e
+&response_type=code
+&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
+&response_mode=query
+&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
+&state=12345
+```
+
+> [AZURE.TIP] 아래 요청을 브라우저에 붙여 넣으세요!
+
+```
 https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345
 ```
 
-> [AZURE.TIP] 이 요청을 브라우저에 붙여 넣으세요!
-
 | 매개 변수 | | 설명 |
 | ----------------------- | ------------------------------- | --------------- |
+| tenant | 필수 | 요청의 경로에 있는 `{tenant}` 값을 사용하여 응용 프로그램에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다. 자세한 내용은 [프로토콜 기본](active-directory-v2-protocols.md#endpoints)을 참조하세요. |
 | client\_id | 필수 | 등록 포털([apps.dev.microsoft.com](https://apps.dev.microsoft.com))에서 앱에 할당한 응용 프로그램 ID입니다. |
 | response\_type | 필수 | 인증 코드 흐름에 대한 `code`를 포함해야 합니다. |
 | redirect\_uri | 권장 | 앱이 인증 응답을 보내고 받을 수 있는 앱의 redirect\_uri입니다. URL로 인코드되어야 한다는 점을 제외하고 포털에서 등록한 redirect\_uri 중 하나와 정확히 일치해야 합니다. 네이티브 및 모바일 앱의 경우 `urn:ietf:wg:oauth:2.0:oob`의 기본값을 사용해야 합니다. |
@@ -89,7 +105,7 @@ authorization\_code를 획득하고 사용자가 사용 권한을 부여했으�
 ```
 // Line breaks for legibility only
 
-POST /common/oauth2/v2.0/token HTTP/1.1
+POST /{tenant}/oauth2/v2.0/token HTTP/1.1
 Host: https://login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
@@ -110,6 +126,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Content-Type: application/x-www-fo
 
 | 매개 변수 | | 설명 |
 | ----------------------- | ------------------------------- | --------------------- |
+| tenant | 필수 | 요청의 경로에 있는 `{tenant}` 값을 사용하여 응용 프로그램에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다. 자세한 내용은 [프로토콜 기본](active-directory-v2-protocols.md#endpoints)을 참조하세요. |
 | client\_id | 필수 | 등록 포털([apps.dev.microsoft.com](https://apps.dev.microsoft.com))에서 앱에 할당한 응용 프로그램 ID입니다. |
 | grant\_type | 필수 | 인증 코드 흐름에 대한 `authorization_code`여야 합니다. |
 | scope | 필수 | 공백으로 구분된 범위 목록입니다. 이 레그에서 요청된 범위가 첫 번째 레그에서 요청된 범위와 동일하거나 하위 집합이어야 합니다. 이 요청에 지정된 범위가 여러 리소스 서버에 걸쳐 있는 경우 v2.0 끝점은 첫 번째 범위에 지정된 리소스에 대한 토큰을 반환합니다. 범위에 대한 자세한 설명은 [사용 권한, 동의 및 범위](active-directory-v2-scopes.md)를 참조하세요. |
@@ -124,7 +141,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Content-Type: application/x-www-fo
 {
 	"access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...",
 	"token_type": "Bearer",
-	"expires_in": "3600",
+	"expires_in": 3599,
 	"scope": "https%3A%2F%2Fgraph.microsoft.com%2Fmail.read",
 	"refresh_token": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGAMxZGUTdM0t4B4...",
 	"id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctOD...",
@@ -137,7 +154,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Content-Type: application/x-www-fo
 | expires\_in | 액세스 토큰이 유효한 기간(초)입니다. |
 | scope | access\_token이 유효한 범위입니다. |
 | refresh\_token | OAuth 2.0 새로 고침 토큰입니다. 앱은 현재 액세스 토큰이 만료된 후 이 토큰을 사용하여 추가 액세스 토큰을 획득할 수 있습니다. refresh\_token은 수명이 길며, 오랜 시간 동안 리소스에 대한 액세스를 유지하는 데 사용할 수 있습니다. 자세한 내용은 [v2.0 토큰 참조](active-directory-v2-tokens.md)를 참조하세요. |
-| id\_token | 서명되지 않은 JWT(JSON 웹 토큰)입니다. 앱은 이 토큰의 세그먼트를 base64Url로 디코드하여 로그인한 사용자에 대한 정보를 요청할 수 있습니다. 앱은 값을 캐시하고 표시할 수 있지만 권한 부여 또는 보안 경계에 대해 의존해서는 안 됩니다. id\_token에 대한 자세한 내용은 [v2.0 앱 모델 토큰 참조](active-directory-v2-tokens.md)를 참조하세요. |
+| id\_token | 서명되지 않은 JWT(JSON 웹 토큰)입니다. 앱은 이 토큰의 세그먼트를 base64Url로 디코드하여 로그인한 사용자에 대한 정보를 요청할 수 있습니다. 앱은 값을 캐시하고 표시할 수 있지만 권한 부여 또는 보안 경계에 대해 의존해서는 안 됩니다. id\_token에 대한 자세한 내용은 [v2.0 끝점 토큰 참조](active-directory-v2-tokens.md)를 참조하세요. |
 
 #### 오류 응답
 오류 응답은 다음과 같습니다.
@@ -185,7 +202,7 @@ access\_token은 수명이 짧으며, 만료되면 새로 고쳐야 리소스에
 ```
 // Line breaks for legibility only
 
-POST /common/oauth2/v2.0/token HTTP/1.1
+POST /{tenant}/oauth2/v2.0/token HTTP/1.1
 Host: https://login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
@@ -205,6 +222,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Content-Type: application/x-www-fo
 
 | 매개 변수 | | 설명 |
 | ----------------------- | ------------------------------- | -------- |
+| tenant | 필수 | 요청의 경로에 있는 `{tenant}` 값을 사용하여 응용 프로그램에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다. 자세한 내용은 [프로토콜 기본](active-directory-v2-protocols.md#endpoints)을 참조하세요. |
 | client\_id | 필수 | 등록 포털([apps.dev.microsoft.com](https://apps.dev.microsoft.com))에서 앱에 할당한 응용 프로그램 ID입니다. |
 | grant\_type | 필수 | 이 인증 코드 흐름 범례에 대한 `refresh_token`이어야 합니다. |
 | scope | 필수 | 공백으로 구분된 범위 목록입니다. 이 레그에서 요청된 범위가 원래 authorization\_code 요청 레그에서 요청된 범위와 동일하거나 하위 집합이어야 합니다. 이 요청에 지정된 범위가 여러 리소스 서버에 걸쳐 있는 경우 v2.0 끝점은 첫 번째 범위에 지정된 리소스에 대한 토큰을 반환합니다. 범위에 대한 자세한 설명은 [사용 권한, 동의 및 범위](active-directory-v2-scopes.md)를 참조하세요. |
@@ -219,7 +237,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Content-Type: application/x-www-fo
 {
 	"access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...",
 	"token_type": "Bearer",
-	"expires_in": "3600",
+	"expires_in": 3599,
 	"scope": "https%3A%2F%2Fgraph.microsoft.com%2Fmail.read",
 	"refresh_token": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGAMxZGUTdM0t4B4...",
 	"id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctOD...",
@@ -232,7 +250,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Content-Type: application/x-www-fo
 | expires\_in | 액세스 토큰이 유효한 기간(초)입니다. |
 | scope | access\_token이 유효한 범위입니다. |
 | refresh\_token | 새 OAuth 2.0 새로 고침 토큰입니다. 이전 새로 고침 토큰을 새로 얻은 새로 고침 토큰으로 대체하여 새로 고침 토큰을 최대한 오랫동안 유효한 상태로 유지해야 합니다. |
-| id\_token | 서명되지 않은 JWT(JSON 웹 토큰)입니다. 앱은 이 토큰의 세그먼트를 base64Url로 디코드하여 로그인한 사용자에 대한 정보를 요청할 수 있습니다. 앱은 값을 캐시하고 표시할 수 있지만 권한 부여 또는 보안 경계에 대해 의존해서는 안 됩니다. id\_token에 대한 자세한 내용은 [v2.0 앱 모델 토큰 참조](active-directory-v2-tokens.md)를 참조하세요. |
+| id\_token | 서명되지 않은 JWT(JSON 웹 토큰)입니다. 앱은 이 토큰의 세그먼트를 base64Url로 디코드하여 로그인한 사용자에 대한 정보를 요청할 수 있습니다. 앱은 값을 캐시하고 표시할 수 있지만 권한 부여 또는 보안 경계에 대해 의존해서는 안 됩니다. id\_token에 대한 자세한 내용은 [v2.0 끝점 토큰 참조](active-directory-v2-tokens.md)를 참조하세요. |
 
 #### 오류 응답
 ```
@@ -257,9 +275,4 @@ curl -X POST -H "Cache-Control: no-cache" -H "Content-Type: application/x-www-fo
 | trace\_id | 진단에 도움이 될 수 있는 요청에 대한 고유 식별자입니다. |
 | correlation\_id | 여러 구성 요소에서 진단에 도움이 될 수 있는 요청에 대한 고유 식별자입니다. |
 
-## 요약
-높은 수준에서 네이티브/모바일 응용 프로그램에 대한 전체 인증 흐름은 다음과 같습니다.
-
-![OAuth 인증 코드 흐름](../media/active-directory-v2-flows/convergence_scenarios_native.png)
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

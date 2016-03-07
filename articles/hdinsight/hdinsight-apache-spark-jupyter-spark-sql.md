@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="02/17/2016"
 	ms.author="nitinme"/>
 
 
@@ -110,13 +110,22 @@ HDInsight에서 Apache Spark 클러스터를 만든 다음 [Jupyter](https://jup
 
 10. 만들기가 완료되면 시작 보드에서 Spark 클러스터 타일을 클릭하여 클러스터 블레이드를 시작합니다.
 
-
-
 ## <a name="jupyter"></a>Jupyter 노트북을 사용하여 Spark SQL 쿼리 실행
 
-이 섹션에서는 Jupyter 노트북을 사용하여 Spark 클러스터에 대해 Spark SQL 쿼리를 실행합니다.
+이 섹션에서는 Jupyter 노트북을 사용하여 Spark 클러스터에 대해 Spark SQL 쿼리를 실행합니다. 기본적으로 Jupyter 노트북은 **Python2** 커널과 함께 제공됩니다. HDInsight Spark 클러스터는 Jupyter 노트북에 사용할 수 있는 두 개의 추가 커널을 제공합니다. 다음과 같습니다.
 
-1. [Azure Preview 포털](https://portal.azure.com/)의 시작 보드에서 Spark 클러스터 타일을 클릭합니다(Spark 클러스터를 시작 보드에 고정한 경우). **모두 찾아보기** > **HDInsight 클러스터**에서 클러스터로 이동할 수도 있습니다.   
+* **PySpark**(Python에서 작성한 응용 프로그램용)
+* **Spark**(Scala에서 작성한 응용 프로그램용)
+
+이 문서에서는 PySpark 커널을 사용합니다. PySpark 커널을 사용할 경우의 이점에 대한 자세한 내용은 [Spark HDInsight 클러스터와 함께 Jupyter 노트북에서 사용 가능한 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels) 문서를 참조하세요. PySpark 커널을 사용할 경우의 주요 이점은 다음과 같습니다.
+
+* Spark, SQL 및 Hive에 대한 컨텍스트를 설정할 필요가 없습니다. 자동으로 설정됩니다.
+* 여러 셀 magic(예: %%sql 또는 %%hive)을 사용하여 이전 코드 조각 없이 직접 SQL 또는 Hive 쿼리를 실행할 수 있습니다.
+* SQL 또는 Hive 쿼리의 출력은 자동으로 시각화됩니다.
+
+### PySpark 커널을 사용하여 Jupyter 노트북 만들기 
+
+1. [Azure Preview 포털](https://portal.azure.com/)의 시작 보드에서 Spark 클러스터 타일을 클릭합니다.(Spark 클러스터를 시작 보드에 고정한 경우) **모두 찾아보기** > **HDInsight 클러스터**에서 클러스터로 이동할 수도 있습니다.   
 
 2. Spark 클러스터 블레이드에서 **빠른 연결**을 클릭한 다음 **클러스터 대시보드** 블레이드에서 **Jupyter Notebook**을 클릭합니다. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다.
 
@@ -124,7 +133,7 @@ HDInsight에서 Apache Spark 클러스터를 만든 다음 [Jupyter](https://jup
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-2. 새 Notebook을 만듭니다. **새로 만들기**를 클릭한 다음 **Python2**를 클릭합니다.
+2. 새 Notebook을 만듭니다. **새로 만들기**를 클릭한 다음 **PySpark**를 클릭합니다.
 
 	![새 Jupyter 노트북 만들기](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.createnotebook.png "새 Jupyter 노트북 만들기")
 
@@ -132,17 +141,11 @@ HDInsight에서 Apache Spark 클러스터를 만든 다음 [Jupyter](https://jup
 
 	![노트북에 대한 이름 제공](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.notebook.name.png "노트북에 대한 이름 제공")
 
-4. 필요한 모듈을 가져오고 Spark 및 SQL 컨텍스트를 만듭니다. 빈 셀에 다음 코드를 붙여넣은 다음 **Shift + Enter**를 누릅니다.
+4. PySpark 커널을 사용하여 노트북을 만들었기 때문에 컨텍스트를 명시적으로 만들 필요가 없습니다. 첫 번째 코드 셀을 실행하면 Spark, SQL 및 Hive 컨텍스트가 자동으로 만들어집니다. 이 시나리오에 필요한 형식을 가져와 시작할 수 있습니다. 이렇게 하려면 셀에 다음 코드 조각을 붙여 넣은 다음 **Shift+Enter**를 누릅니다.
 
-		from pyspark import SparkContext
-		from pyspark.sql import SQLContext
 		from pyspark.sql.types import *
 		
-		# Create Spark and SQL contexts
-		sc = SparkContext('yarn-client')
-		sqlContext = SQLContext(sc)
-
-	Jupyter에서 작업을 실행할 때마다, 웹 브라우저 창 제목에 Notebook 제목과 함께 **(사용 중)** 상태가 표시됩니다. 또한 오른쪽 위 모서리에 있는 **Python 2** 텍스트 옆에 단색 원도 표시됩니다. 작업이 완료되면 속이 빈 원으로 변경됩니다.
+	Jupyter에서 작업을 실행할 때마다, 웹 브라우저 창 제목에 Notebook 제목과 함께 **(사용 중)** 상태가 표시됩니다. 또한 오른쪽 위 모서리에 있는 **PySpark** 텍스트 옆에 단색 원도 표시됩니다. 작업이 완료되면 속이 빈 원으로 변경됩니다.
 
 	 ![Jupyter 노트북 작업의 상태](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.jupyter.job.status.png "Jupyter 노트북 작업의 상태")
 
@@ -164,37 +167,19 @@ HDInsight에서 Apache Spark 클러스터를 만든 다음 [Jupyter](https://jup
 		
 		# Register the data fram as a table to run queries against
 		hvacdf.registerTempTable("hvac")
+
+5. PySpark 커널을 사용하기 때문에 이제 `%%sql` magic을 사용하여 방금 만든 임시 테이블 **hvac**에서 SQL 쿼리를 직접 실행할 수 있습니다. `%%sql` magic 및 기타 PySpark 커널에서 사용 가능한 magic에 대한 자세한 내용은 [Spark HDInsight 클러스터와 함께 Jupyter 노트북에서 사용 가능한 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels)을 참조하세요.
 		
-		# Run queries against the table and display the data
-		data = sqlContext.sql("select buildingID, (targettemp - actualtemp) as temp_diff, date from hvac where date = "6/1/13"")
-		data.show()
+		%%sql
+		SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = "6/1/13"")
 
-5. 작업이 성공적으로 완료되면 다음 출력이 표시됩니다.
+5. 작업이 성공적으로 완료되면 기본적으로 다음 테이블 형식의 출력이 표시됩니다.
 
-		+----------+---------+------+
-		|buildingID|temp_diff|  date|
-		+----------+---------+------+
-		|         4|        8|6/1/13|
-		|         3|        2|6/1/13|
-		|         7|      -10|6/1/13|
-		|        12|        3|6/1/13|
-		|         7|        9|6/1/13|
-		|         7|        5|6/1/13|
-		|         3|       11|6/1/13|
-		|         8|       -7|6/1/13|
-		|        17|       14|6/1/13|
-		|        16|       -3|6/1/13|
-		|         8|       -8|6/1/13|
-		|         1|       -1|6/1/13|
-		|        12|       11|6/1/13|
-		|         3|       14|6/1/13|
-		|         6|       -4|6/1/13|
-		|         1|        4|6/1/13|
-		|        19|        4|6/1/13|
-		|        19|       12|6/1/13|
-		|         9|       -9|6/1/13|
-		|        15|      -10|6/1/13|
-		+----------+---------+------+
+ 	![쿼리 결과의 테이블 출력](./media/hdinsight-apache-spark-jupyter-spark-sql/tabular.output.png "쿼리 결과의 테이블 출력")
+
+	다른 시각화로 결과를 볼 수도 있습니다. 예를 들어 동일한 출력에 대한 영역 그래프는 다음과 같습니다.
+
+	![쿼리 결과의 영역 그래프](./media/hdinsight-apache-spark-jupyter-spark-sql/area.output.png "쿼리 결과의 영역 그래프")
 
 
 6. 응용 프로그램 실행을 완료한 후 리소스를 해제하도록 노트북을 종료해야 합니다. 이렇게 하기 위해 Notebook의 **파일** 메뉴에서 **Close and Halt**를 클릭합니다. 그러면 Notebook이 종료되고 닫힙니다.
@@ -250,4 +235,4 @@ HDInsight에서 Apache Spark 클러스터를 만든 다음 [Jupyter](https://jup
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

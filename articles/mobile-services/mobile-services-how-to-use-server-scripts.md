@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="javascript" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
+	ms.date="02/23/2016" 
 	ms.author="ricksal"/>
 
 
@@ -106,7 +106,7 @@ JavaScript 백 엔드 모바일 서비스에서 사용자 지정 비즈니스 �
  
 + **respond 함수**: 사용자 지정 응답이 반환됩니다.
 
-> [AZURE.IMPORTANT]스크립트에 **execute** 또는 **respond**가 호출되지 않는 코드 경로가 있는 경우 작업이 응답하지 않을 수도 있습니다.
+> [AZURE.IMPORTANT] 스크립트에 **execute** 또는 **respond**가 호출되지 않는 코드 경로가 있는 경우 작업이 응답하지 않을 수도 있습니다.
 
 다음 스크립트는 **execute** 함수를 호출하여 클라이언트가 요청한 데이터 작업을 완료합니다.
 
@@ -513,7 +513,7 @@ npm(Node.js 패키지 관리자)과 함께 소스 제어를 사용하여 모바�
 
 모바일 서비스에 대한 리포지토리에 package.json 파일 또는 사용자 지정 모듈을 커밋한 후 **require**를 사용하여 모듈을 이름으로 참조합니다.
 
->[AZURE.NOTE]package.json에 지정하거나 모바일 서비스에 업로드한 모듈은 서버 스크립트 코드에서만 사용됩니다. 이러한 모듈은 모바일 서비스 런타임에서 사용되지 않습니다.
+>[AZURE.NOTE] package.json에 지정하거나 모바일 서비스에 업로드한 모듈은 서버 스크립트 코드에서만 사용됩니다. 이러한 모듈은 모바일 서비스 런타임에서 사용되지 않습니다.
 
 ###<a name="helper-functions"></a>방법: 도우미 함수 사용
 
@@ -661,7 +661,7 @@ npm(Node.js 패키지 관리자)과 함께 소스 제어를 사용하여 모바�
 
 		var todoItemsTable = request.service.tables.getTable('TodoItem');
 
-> [AZURE.NOTE]공유 함수는 **테이블** 개체에 직접 액세스할 수 없습니다. 공유 함수에서 테이블 개체를 함수에 전달해야 합니다.
+> [AZURE.NOTE] 공유 함수는 **테이블** 개체에 직접 액세스할 수 없습니다. 공유 함수에서 테이블 개체를 함수에 전달해야 합니다.
 
 [table 개체]가 있으면 insert, update, delete 또는 read와 같은 하나 이상의 테이블 작업 함수를 호출할 수 있습니다. 다음 예제에서는 permissions 테이블에서 사용자 권한을 읽습니다.
 
@@ -924,7 +924,7 @@ Stream|지원되지 않음
 
 로그에 쓰려면 전역 [console 개체]를 사용합니다. **log** 또는 **info** 함수를 사용하여 정보 수준의 경고를 기록할 수 있습니다. **warning** 및 **error** 함수는 로그에서 호출되는 해당 수준을 기록합니다.
 
-> [AZURE.NOTE]모바일 서비스에 대한 로그를 보려면 [Azure 클래식 포털](https://manage.windowsazure.com/)에 로그온하여 모바일 서비스를 선택한 후 **로그** 탭을 선택합니다.
+> [AZURE.NOTE] 모바일 서비스에 대한 로그를 보려면 [Azure 클래식 포털](https://manage.windowsazure.com/)에 로그온하여 모바일 서비스를 선택한 후 **로그** 탭을 선택합니다.
 
 [console 개체]의 로깅 함수를 사용하여 매개 변수를 통해 메시지 서식을 지정할 수도 있습니다. 다음 예제에서는 JSON 개체를 메시지 문자열에 매개 변수로 제공합니다.
 
@@ -1056,4 +1056,4 @@ Stream|지원되지 않음
 [Azure 모바일 서비스에서 package.json 지원]: http://go.microsoft.com/fwlink/p/?LinkId=391036
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0224_2016-->

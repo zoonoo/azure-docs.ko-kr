@@ -19,7 +19,7 @@
 
 # HDInsight에서 Windows 기반 Hadoop 클러스터 만들기
 
-[AZURE.INCLUDE [선택기](../../includes/hdinsight-create-windows-cluster-selector.md)]
+[AZURE.INCLUDE [선택기](../../includes/hdinsight-selector-create-clusters.md)]
 
 HDInsight 클러스터를 만드는 계획을 세우는 방법에 대해 알아봅니다.
 
@@ -79,24 +79,24 @@ HDInsight 클러스터를 만드는 계획을 세우는 방법에 대해 알아�
 
 	![HDInsight Hadoop 클러스터 역할](./media/hdinsight-provision-clusters/HDInsight.HBase.roles.png)
 
-	HDInsight용 HBase 클러스터는 세 가지 역할로 배포됩니다.
-	- 헤드 서버(노드 2개)
-	- 지역 서버(노드 1개 이상)
+	HDInsight용 HBase 클러스터는 세 가지 역할로 배포됩니다. 
+	- 헤드 서버(노드 2개) 
+	- 지역 서버(노드 1개 이상) 
 	- 마스터/Zookeeper 노드(노드 3개)
 
 	![HDInsight Hadoop 클러스터 역할](./media/hdinsight-provision-clusters/HDInsight.Storm.roles.png)
 
-	HDInsight용 Storm 클러스터는 세 가지 역할로 배포됩니다.
-	- Nimbus 노드(노드 2개)
-	- 감독자 서버(노드 1개 이상)
+	HDInsight용 Storm 클러스터는 세 가지 역할로 배포됩니다. 
+	- Nimbus 노드(노드 2개) 
+	- 감독자 서버(노드 1개 이상) 
 	- Zookeeper 노드(노드 3개)
 
 
 	![HDInsight Hadoop 클러스터 역할](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png)
 
-	HDInsight용 Spark 클러스터는 세 가지 역할로 배포됩니다.
-	- 헤드 노드(노드 2개)
-	- 작업자 노드(노드 1개 이상)
+	HDInsight용 Spark 클러스터는 세 가지 역할로 배포됩니다. 
+	- 헤드 노드(노드 2개) 
+	- 작업자 노드(노드 1개 이상) 
 	- Zookeeper 노드(노드 3개) (A1 Zookeeper의 경우 무료)
 
 	고객은 클러스터의 수명 기간 동안 해당 노드의 사용량에 대한 대금이 청구됩니다. 대금 청구는 클러스터를 만들면 시작되고 클러스터가 삭제되면 중지됩니다(클러스터를 할당 해제하거나 보류할 수 없음). 클러스터 크기는 클러스터 가격에 영향을 줍니다. 학습 목적인 경우는 데이터 노드를 하나 사용하는 것이 좋습니다. HDInsight 가격에 대한 자세한 내용은 [HDInsight 가격](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409)을 참조하세요.
@@ -220,4 +220,4 @@ HDInsight 클러스터를 만드는 계획을 세우는 방법에 대해 알아�
 | [.NET SDK](hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
 | [ARM 템플릿](hdinsight-hadoop-create-windows-clusters-arm-templates.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

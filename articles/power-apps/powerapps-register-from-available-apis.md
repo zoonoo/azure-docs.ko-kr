@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="12/17/2015"
+   ms.date="01/21/2016"
    ms.author="guayan"/>
 
 # Microsoft 관리 API 또는 IT 관리 API 등록
@@ -75,7 +75,7 @@ API | 설명 | 단계 링크
 
 
 #### IT 관리 API
-> [AZURE.NOTE]참고로 **모든** Microsoft 관리 API는 IT 관리형일 수도 있습니다. 다음 API는 IT 관리 전용이며 Microsoft 관리형일 수 없습니다.
+> [AZURE.NOTE] 참고로 **모든** Microsoft 관리 API는 IT 관리형일 수도 있습니다. 다음 API는 IT 관리 전용이며 Microsoft 관리형일 수 없습니다.
 
 API | 설명 | 단계 링크
 --- | --- | ---
@@ -107,17 +107,18 @@ API | 설명 | 단계 링크
 
 ## Microsoft 관리 API 또는 IT 관리 API 등록
 
-1. [Azure 포털](https://portal.azure.com/)에서 **PowerApps**를 선택한 다음 **API 관리**를 선택합니다. ![][17]
-2. API 관리에서 **추가**를 클릭합니다. ![][18]  
-3. **API 추가**에 API 속성을 입력합니다.  
+1. [Azure 포털](https://portal.azure.com/)에서 회사 계정(*yourUserName*@*YourCompany*.com)으로 로그인합니다. 그러면 회사 구독에 자동으로 로그인됩니다.
+2. **찾아보기**, **PowerApps**, **API 관리**를 차례로 선택합니다. ![][17]
+3. API 관리에서 **추가**를 클릭합니다. ![][18]  
+4. **API 추가**에서 API 속성을 입력합니다.  
 
 	- **이름**에 API에 대한 이름을 입력합니다. 여기서 입력하는 이름은 API의 런타임 URL에 포함됩니다. 이름을 조직에서 의미 있고 고유하게 만듭니다.
 	- **원본**에서 **사용 가능한 API에서**를 선택합니다. ![][19]
-4. **API**를 선택하고 등록할 API를 선택합니다. ![][20]
-5. 특정 API를 선택하고 구성 가능한 속성을 추가합니다.
-6. **추가**를 선택하여 이 단계를 완료합니다.
+5. **API**를 선택하고 등록할 API를 선택합니다. ![][20]
+6. 특정 API를 선택하고 구성 가능한 속성을 추가합니다.
+7. **추가**를 선택하여 이 단계를 완료합니다.
 
-> [AZURE.TIP]API를 등록하는 경우 API를 앱 서비스 환경에 등록하는 것입니다. 앱 서비스 환경에 있는 경우 동일한 앱 서비스 환경 내의 다른 앱에서 사용할 수 있습니다.
+> [AZURE.TIP] API를 등록하는 경우 API를 앱 서비스 환경에 등록하는 것입니다. 앱 서비스 환경에 있는 경우 동일한 앱 서비스 환경 내의 다른 앱에서 사용할 수 있습니다.
 
 
 ## 요약 및 다음 단계
@@ -151,4 +152,4 @@ API | 설명 | 단계 링크
 [42]: ./media/powerapps-register-from-available-apis/sqlserver.png
 [43]: ./media/powerapps-register-from-available-apis/twitter.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0224_2016-->

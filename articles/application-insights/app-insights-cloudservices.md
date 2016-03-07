@@ -258,6 +258,10 @@ Application Insights 포털에서 표시된 예는 다음과 같습니다.
 
 [예제](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService)는 웹 역할 및 두 작업자 역할이 포함되는 서비스를 모니터링합니다.
 
+## Azure 클라우드 서비스에서 실행할 때의 "메서드를 찾을 수 없음" 예외
+
+.NET 4.6용으로 빌드하셨나요? 4.6은 Azure 클라우드 서비스 역할에서 자동으로 지원되지 않습니다. 앱을 실행하기 전에 [각 역할에 4.6을 설치](../cloud-services/cloud-services-dotnet-install-dotnet.md)합니다.
+
 ## 관련된 항목
 
 * [Application Insights에 Azure 진단을 보내도록 구성](app-insights-azure-diagnostics.md)
@@ -279,4 +283,4 @@ Application Insights 포털에서 표시된 예는 다음과 같습니다.
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

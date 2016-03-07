@@ -12,8 +12,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="02/03/2016"
-	ms.author="bwren" />
+	ms.date="02/18/2016"
+	ms.author="magoedte;bwren" />
 
 
 # Azure 자동화용 Runbook 및 모듈 갤러리
@@ -24,13 +24,13 @@ Runbook은 [Runbook 갤러리](#runbooks-in-runbook-gallery)에서, 모듈은 [P
 
 ## Runbook 갤러리의 Runbook
 
-[Runbook 갤러리](http://gallery.technet.microsoft.com/scriptcenter/site/search?f[0].Type=RootCategory&f[0].Value=WindowsAzure&f[1].Type=SubCategory&f[1].Value=WindowsAzure_automation&f[1].Text=Automation)는 Azure 자동화로 가져올 수 있는 Microsoft 및 커뮤니티에서 제작한 다양한 Runbook을 제공합니다. [TechNet 스크립트 센터](http://gallery.technet.microsoft.com/)에서 호스팅되는 갤러리로부터 Runbook을 다운로드하거나, Azure 포털 및 Azure Preview 포털의 갤러리에서 Runbook을 직접 가져올 수 있습니다.
+[Runbook 갤러리](http://gallery.technet.microsoft.com/scriptcenter/site/search?f[0].Type=RootCategory&f[0].Value=WindowsAzure&f[1].Type=SubCategory&f[1].Value=WindowsAzure_automation&f[1].Text=Automation)는 Azure 자동화로 가져올 수 있는 Microsoft 및 커뮤니티에서 제작한 다양한 Runbook을 제공합니다. [TechNet 스크립트 센터](http://gallery.technet.microsoft.com/)에서 호스팅되는 갤러리로부터 Runbook을 다운로드하거나, Azure 클래식 포털 또는 Azure 포털의 갤러리에서 Runbook을 직접 가져올 수 있습니다.
 
-Azure 포털 또는 Azure Preview 포털을 사용하는 Runbook 갤러리에서만 직접 가져올 수 있습니다. Windows PowerShell을 사용하여 이 함수를 수행할 수 없습니다.
+Azure 클래식 포털 또는 Azure 포털을 사용하는 Runbook 갤러리에서만 직접 가져올 수 있습니다. Windows PowerShell을 사용하여 이 함수를 수행할 수 없습니다.
 
 >[AZURE.NOTE] 프러덕션 환경에서 설치 및 실행할 때는 Runbook 갤러리에서 가져올 Runbook 내용의 유효성을 검사해야 하며 세심한 주의가 필요합니다.|
 
-### Azure 포털을 사용하여 Runbook 갤러리에서 Runbook을 가져오려면
+### Azure 클래식 포털을 사용하여 Runbook 갤러리에서 Runbook을 가져오려면
 
 1. Azure 관리 포털에서 **새로 만들기**, **앱 서비스**, **자동화**, **Runbook**, **갤러리에서**를 클릭합니다.
 2. 관련 Runbook을 볼 범주를 선택하고 Runbook을 선택하여 세부 내용을 확인합니다. 원하는 Runbook을 선택했으면 오른쪽 화살표 단추를 클릭합니다.<br> ![Runbook 갤러리](media/automation-runbook-gallery/runbook-gallery.png)
@@ -38,9 +38,9 @@ Azure 포털 또는 Azure Preview 포털을 사용하는 Runbook 갤러리에서
 4. Runbook의 세부 정보를 입력하고 확인 표시 단추를 클릭합니다. Runbook 이름은 이미 입력되어 있습니다.
 5. 이 Runbook이 자동화 계정의**Runbook** 탭에 표시됩니다.
 
-### Azure Preview 포털을 사용하여 Runbook 갤러리에서 Runbook을 가져오려면
+### Azure 포털을 사용하여 Runbook 갤러리에서 Runbook을 가져오려면
 
-1. Azure Preview 포털에서 자동화 계정을 엽니다. 
+1. Azure 포털에서 자동화 계정을 엽니다. 
 2. **Runbook** 타일을 클릭하여 Runbook 목록을 엽니다.
 3. **갤러리 찾아보기** 단추를 클릭합니다. <br> ![갤러리 찾아보기 단추](media/automation-runbook-gallery/browse-gallery-button.png)
 4. 원하는 갤러리 항목을 찾아 선택하여 세부 정보를 확인합니다. <br> ![갤러리 찾아보기](media/automation-runbook-gallery/browse-gallery.png)
@@ -81,18 +81,18 @@ Microsoft에서는 다른 고객에게 유용하다고 생각하는 Runbook을 R
 
 ## PowerShell 갤러리의 모듈
 
-PowerShell 모듈에는 Runbook에 사용할 수 있는 cmdlet이 있으며, Azure 자동화에서 설치할 수 있는 기존 모듈을 [PowerShell 갤러리](http://www.powershellgallery.com)에서 사용할 수 있습니다. Azure Preview 포털에서 이 갤러리를 실행하여 Azure 자동화에 직접 설치하거나, 수동으로 다운로드하여 설치할 수 있습니다. Azure 포털에서 모듈을 직접 설치할 수는 없지만 다운로드하여 다른 모듈처럼 설치할 수 있습니다.
+PowerShell 모듈에는 Runbook에 사용할 수 있는 cmdlet이 있으며, Azure 자동화에서 설치할 수 있는 기존 모듈을 [PowerShell 갤러리](http://www.powershellgallery.com)에서 사용할 수 있습니다. Azure 포털에서 이 갤러리를 실행하여 Azure 자동화에 직접 설치하거나, 수동으로 다운로드하여 설치할 수 있습니다. Azure 클래식 포털에서 모듈을 직접 설치할 수는 없지만 다운로드하여 다른 모듈처럼 설치할 수 있습니다.
 
-### Azure Preview 포털을 사용하여 PowerShell 갤러리에서 모듈을 가져오려면
+### Azure 포털을 사용하여 PowerShell 갤러리에서 모듈을 가져오려면
 
-1. Azure Preview 포털에서 자동화 계정을 엽니다. 
+1. Azure 포털에서 자동화 계정을 엽니다. 
 2. **자산** 타일을 클릭하여 자산 목록을 엽니다.
 3. **모듈** 타일을 클릭하여 모듈 목록을 엽니다.
 3. **PowerShell 갤러리** 단추를 클릭하여 다른 브라우저 창에 PowerShell 갤러리를 실행합니다. <br> ![PowerShell 갤러리](media/automation-runbook-gallery/powershell-gallery-button.png)
 4. **모듈** 메뉴를 클릭하여 사용 가능한 모듈 목록에 액세스합니다.<br> ![PowerShell 갤러리 단추](media/automation-runbook-gallery/powershell-gallery.png)
 4. 관심이 있는 모듈을 찾아 선택하여 세부 내용을 확인합니다.
 5. Azure 자동화에 직접 모듈을 설치하려면 **Azure 자동화에 배포** 단추를 클릭합니다.<br> ![PowerShell 갤러리 단추](media/automation-runbook-gallery/powershell-gallery-detail.png)
-6. Azure Preview 포털의 **사용자 지정 배포** 창으로 돌아갑니다. **새 또는 기존 자동화 계정** 및 **자동화 계정 이름**에서 모듈 설치 여부를 지정합니다. 기존 계정을 사용할 경우 **자동화 계정 위치**가 무시됩니다. 
+6. Azure 포털의 **사용자 지정 배포** 창으로 돌아갑니다. **새 또는 기존 자동화 계정** 및 **자동화 계정 이름**에서 모듈 설치 여부를 지정합니다. 기존 계정을 사용할 경우 **자동화 계정 위치**가 무시됩니다. 
 7. **리소스 그룹**을 선택하고 기존 리소스 그룹을 지정하거나 모듈에 대해 새 그룹을 만듭니다.
 6. **약관**을 선택하고 **구입**을 클릭해야 합니다. 이 단추의 이름과는 달리 모듈 설치에 실제 청구되는 비용은 없습니다.
 7. **만들기**를 클릭하여 모듈을 가져옵니다. 각 활동을 추출해야 하므로 몇 분이 걸릴 수 있습니다.  
@@ -108,4 +108,4 @@ PowerShell 모듈에는 Runbook에 사용할 수 있는 cmdlet이 있으며, Azu
 - [Azure 자동화에서 Runbook 만들기 또는 가져오기](automation-creating-importing-runbook.md)
 - [PowerShell 워크플로 학습](automation-powershell-workflow.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

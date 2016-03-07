@@ -12,7 +12,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="12/18/2015" 
+    ms.date="02/22/2016" 
     ms.author="jeedes" />
 
 
@@ -45,7 +45,7 @@ Salesforce.com에 유효한 샌드박스가 없는 경우 Salesforce에 문의�
 
 ###Salesforce 샌드박스에 응용 프로그램 통합을 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-1.  Azure 관리 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+1.  Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
     ![Active Directory](./media/active-directory-saas-salesforce-sandbox-tutorial/IC700993.png "Active Directory")
 
@@ -72,7 +72,7 @@ Salesforce.com에 유효한 샌드박스가 없는 경우 Salesforce에 문의�
 
 ###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
-1.  Azure AD 포털의 **Salesforce Sandbox** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
+1.  Azure 클래식 포털의 **Salesforce Sandbox** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-salesforce-sandbox-tutorial/IC749323.png "Single Sign-On 구성")
 
@@ -112,17 +112,17 @@ Salesforce.com에 유효한 샌드박스가 없는 경우 Salesforce에 문의�
     ![SAML Singl Sign On 설정](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781027.png "SAML Singl Sign On 설정")
 
     1.  이름 텍스트 상자에 구성의 이름을 입력합니다(예: *SPSSOWAAD\_Test*).
-    2.  Azure 포털의 **Salesforce Sandbox에서 Single Sign-On 구성** 대화 상자 페이지에서 **발급자 URL** 값을 복사한 다음 **발급자** 텍스트 상자에 붙여 넣습니다.
+    2.  Azure 클래식 포털의 **Salesforce Sandbox에서 Single Sign-On 구성** 대화 상자 페이지에서 **발급자 URL** 값을 복사한 다음 **발급자** 텍스트 상자에 붙여 넣습니다.
     3.  디렉터리에 처음으로 추가하는 Salesforce Sandbox 인스턴스인 경우 **엔터티 ID** 텍스트 상자에 **https://test.salesforce.com**을 입력합니다. Salesforce Sandbox의 인스턴스를 이미 추가한 경우에는 **엔터티 ID**에 **로그온 URL**을 입력합니다. 형식은 다음과 같아야 합니다. `http://company.my.salesforce.com`
     4.  다운로드한 인증서를 업로드하려면 **찾아보기**를 클릭합니다.
     5.  **SAML ID 유형**으로 **사용자 개체에서 페더레이션 ID를 포함하는 어설션**을 선택합니다.
     6.  **SAML ID 위치**로 **Subject 문의 NameIdentifier 요소에 ID 포함**을 선택합니다.
-    7.  Azure 포털의 **Salesforce Sandbox에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **ID 공급자 로그인 URL** 텍스트 상자에 붙여 넣습니다.
-    8.  Azure 포털의 **Salesforce Sandbox에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그아웃 URL** 값을 복사한 다음 **ID 공급자 로그아웃 URL** 텍스트 상자에 붙여 넣습니다.
+    7.  Azure 클래식 포털의 **Salesforce Sandbox에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **ID 공급자 로그인 URL** 텍스트 상자에 붙여 넣습니다.
+    8.  Azure 클래식 포털의 **Salesforce Sandbox에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그아웃 URL** 값을 복사한 다음 **ID 공급자 로그아웃 URL** 텍스트 상자에 붙여 넣습니다.
     9.  **서비스 공급자가 시작한 요청 바인딩**에서 **HTTP POST**를 선택합니다.
     10. **Save**를 클릭합니다.
 
-10. Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
+10. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781028.png "Single Sign-On 구성")
 
@@ -167,7 +167,7 @@ Salesforce.com에 유효한 샌드박스가 없는 경우 Salesforce에 문의�
 
 6.  이 이메일을 검토하고 보안 토큰 값을 복사합니다.
 
-7.  Azure 관리 포털의 **Salesforce Sandbox** 응용 프로그램 통합 페이지에서 **사용자 프로비저닝 구성**을 클릭하여 **사용자 프로비저닝 구성** 대화 상자를 엽니다.
+7.  Azure 클래식 포털의 **Salesforce Sandbox** 응용 프로그램 통합 페이지에서 **사용자 프로비저닝 구성**을 클릭하여 **사용자 프로비저닝 구성** 대화 상자를 엽니다.
 
     ![사용자 프로비저닝 구성](./media/active-directory-saas-salesforce-sandbox-tutorial/IC769573.png "사용자 프로비저닝 구성")
 
@@ -192,9 +192,9 @@ Salesforce.com에 유효한 샌드박스가 없는 경우 Salesforce에 문의�
 
 ###Salesforce Sandbox에 사용자를 할당하려면 다음 단계를 수행합니다.
 
-1.  Azure AD 포털에서 테스트 계정을 만듭니다.
+1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
 
-2.  **Salesforce Sandbox**응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+2.  **Salesforce Sandbox **응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
 
     ![사용자 할당](./media/active-directory-saas-salesforce-sandbox-tutorial/IC769574.png "사용자 할당")
 
@@ -206,4 +206,4 @@ Salesforce.com에 유효한 샌드박스가 없는 경우 Salesforce에 문의�
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하세요.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

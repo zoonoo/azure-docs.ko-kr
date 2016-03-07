@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure AD v2.0 토큰 참조 | Microsoft Azure"
-	description="v2.0 끝점에서 내보내는 토큰 및 클레임 형식입니다."
+	description="v2.0 끝점에서 내보내는 토큰 및 클레임 형식"
 	services="active-directory"
 	documentationCenter=""
 	authors="dstrockis"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/11/2016"
+	ms.date="02/20/2016"
 	ms.author="dastrock"/>
 
 # V2.0 토큰 참조
@@ -21,7 +21,7 @@
 v2.0 끝점은 각 [인증 흐름](active-directory-v2-flows.md)의 처리 과정에서 여러 유형의 보안 토큰을 내보냅니다. 이 문서에서는 각 토큰 유형의 형식, 보안 특성 및 내용을 설명합니다.
 
 > [AZURE.NOTE]
-	이 정보는 v2.0 앱 모델 공개 미리 보기에 적용됩니다. 일반 공급 Azure AD 서비스와 통합하는 방법에 대한 지침은 [Azure Active Directory 개발자 가이드](active-directory-developers-guide.md)를 참조하십시오.
+	일부 Azure Active Directory 시나리오 및 기능만 v2.0 끝점에서 지원합니다. v2.0 끝점을 사용해야 하는지 확인하려면 [v2.0 제한 사항](active-directory-v2-limitations.md)을 참조하세요.
 
 ## 토큰 형식
 
@@ -51,11 +51,11 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | 이름 | 클레임 | 예제 값 | 설명 |
 | ----------------------- | ------------------------------- | ------------ | --------------------------------- |
 | 대상 | `aud` | `6731de76-14a6-49ae-97bc-6eba6914391e` | 토큰의 의도한 수신자를 식별합니다. Id\_token에서 대상은 앱 등록 포털에서 앱에 할당된 앱의 응용 프로그램 ID입니다. 앱은 이 값의 유효성을 검사하고 일치하지 않을 경우 토큰을 거부해야 합니다. |
-| 발급자 | `iss` | `https://login.microsoftonline.com/b9419818-09af-49c2-b0c3-653adc1f376e/v2.0` | 사용자가 인증된 Azure AD 테넌트뿐 아니라 토큰을 생성하고 반환하는 STS(보안 토큰 서비스)를 식별합니다. 앱은 발급자 클레임의 유효성을 검사하여 토큰이 v2.0 끝점에서 제공된 것인지 확인해야 합니다. 또한 클레임의 guid 부분을 사용하여 앱에 로그인할 수 있는 테넌트 집합을 제한할 수 있습니다. |
+| 발급자 | `iss` | `https://login.microsoftonline.com/b9419818-09af-49c2-b0c3-653adc1f376e/v2.0 ` | 사용자가 인증된 Azure AD 테넌트뿐 아니라 토큰을 생성하고 반환하는 STS(보안 토큰 서비스)를 식별합니다. 앱은 발급자 클레임의 유효성을 검사하여 토큰이 v2.0 끝점에서 제공된 것인지 확인해야 합니다. 또한 클레임의 guid 부분을 사용하여 앱에 로그인할 수 있는 테넌트 집합을 제한해야 합니다. 사용자가 Microsoft 계정의 소비자 사용자임을 나타내는 guid는 `9188040d-6c67-4c5b-b112-36a304b66dad`입니다. |
 | 발급 시간 | `iat` | `1452285331` | epoch 시간으로 표시된, 토큰이 발급된 시간입니다. |
 | 만료 시간 | `exp` | `1452289231` | epoch 시간으로 표시된, 토큰이 무효화되는 시간입니다. 앱은 이 클레임을 사용하여 토큰 수명의 유효성을 확인해야 합니다. |
 | 이전이 아님 | `nbf` | `1452285331` | epoch 시간으로 표시된, 토큰이 유효화되는 시간입니다. 발급 시간과 일반적으로 동일합니다. 앱은 이 클레임을 사용하여 토큰 수명의 유효성을 확인해야 합니다. |
-| 버전 | `ver` | `2.0` | Azure AD에서 정의된 id\_token 버전입니다. 앱 모델 v2.0의 경우 이 값은 `2.0`입니다. |
+| 버전 | `ver` | `2.0` | Azure AD에서 정의된 id\_token 버전입니다. V2.0 끝점에 대한 값은 `2.0`입니다. |
 | 테넌트 ID | `tid` | `b9419818-09af-49c2-b0c3-653adc1f376e` | 사용자가 속해 있는 Azure AD 테넌트를 나타내는 guid입니다. 회사 및 학교 계정의 경우 guid는 사용자가 속해 있는 조직의 변경 불가능 테넌트 ID입니다. 개인 계정의 경우 이 값은 `9188040d-6c67-4c5b-b112-36a304b66dad`입니다. `profile` 범위는 이 클레임을 받기 위해 필요합니다. |
 | 코드 해시 | `c_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | 코드 해시는 OAuth 2.0 인증 코드와 함께 id\_token이 발급된 경우에만 id\_token에 포함됩니다. 인증 코드의 신뢰성이 유효한지 검사하는 데 사용할 수 있습니다. 이 유효성 검사를 수행하는 방법에 대한 자세한 내용은 [OpenID Connect 사양](http://openid.net/specs/openid-connect-core-1_0.html)을 참조하세요. |
 | 액세스 토큰 해시 | `at_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | 액세스 토큰 해시는 OAuth 2.0 액세스 토큰과 함께 id\_token이 발급된 경우에만 id\_token에 포함됩니다. 액세스 토큰의 신뢰성이 유효한지 검사하는 데 사용할 수 있습니다. 이 유효성 검사를 수행하는 방법에 대한 자세한 내용은 [OpenID Connect 사양](http://openid.net/specs/openid-connect-core-1_0.html)을 참조하세요. |
@@ -66,7 +66,6 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | 제목  
  | `sub` | `MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q` | 앱 사용자 등 토큰에서 정보를 어설션하는 보안 주체입니다. 이 값은 변경할 수 없으며 재할당 또는 재사용할 수 없습니다. 따라서 예를 들어 리소스 액세스에 토큰을 사용할 때 이 값을 사용하면 안전하게 인증 검사를 수행할 수 있습니다. Azure AD에서 발급하는 토큰에는 항상 주체가 있기 때문에 이 값을 일반 용도의 인증 시스템에 사용하는 것이 좋습니다. |
 | ObjectId | `oid` | `a1dbdde8-e4f9-4571-ad93-3059e3750d23` | Azure AD 시스템에서 회사 또는 학교 계정의 개체 ID입니다. 이 클레임은 개인 Microsoft 계정에 대해 발급되지 않습니다. `profile` 범위는 이 클레임을 받기 위해 필요합니다. |
-
 
 
 ## 액세스 토큰
@@ -88,7 +87,6 @@ v2.0 끝점의 액세스 토큰을 요청하는 경우 앱이 사용할 수 있�
 새로 고침 토큰은 앱에 완전히 불투명하며 항상 그럴 것입니다. 새로 고침 토큰은 Azure AD v2.0 끝점에서 발급되며 Azure AD v2.0 끝점에서만 검사되고 해석됩니다. 또한 새로 고침 토큰은 수명이 길지만 일정 기간 지속될 것으로 예상하도록 앱을 작성해서는 안 됩니다. 다양한 이유로 언제든지 새로 고침 토큰이 무효화될 수 있기 때문입니다. 앱에서 새로 고침 토큰이 유효한지 확인하는 유일한 방법은 v2.0 끝점에 대한 토큰 요청을 수행하여 교환하는 것입니다.
 
 새로 고침 토큰을 새 액세스 토큰으로 교환할 때 앱에 `offline_access` 범위가 부여된 경우 토큰 응답에 새로운 새로 고침 토큰을 받게 됩니다. 새로 발급된 새로 고침 토큰을 저장하고 요청에 사용한 토큰을 대체해야 합니다. 이렇게 하면 새로 고침 토큰이 최대한 오랫동안 유효한 상태로 유지됩니다.
-
 
 ## 토큰 유효성 검사
 
@@ -157,4 +155,4 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 | 인증 코드(회사 또는 학교 계정) | 10분 | 인증 코드는 의도적으로 수명이 짧으므로 받는 즉시 access\_token 및 refresh\_token으로 교환해야 합니다. |
 | 인증 코드(개인 계정) | 5분 | 인증 코드는 의도적으로 수명이 짧으므로 받는 즉시 access\_token 및 refresh\_token으로 교환해야 합니다. 또한 개인 계정 대신 발급된 인증 코드는 일회용으로 사용됩니다. |
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

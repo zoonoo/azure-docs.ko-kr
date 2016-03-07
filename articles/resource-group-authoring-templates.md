@@ -20,7 +20,7 @@
 
 Azure 응용 프로그램은 일반적으로 원하는 목표를 충족시키기 위해 리소스(예: 데이터베이스 서버, 데이터베이스 또는 웹 사이트)의 조합이 필요합니다. 각 리소스를 개별적으로 배포하고 관리하는 대신, 응용 프로그램의 모든 리소스를 하나의 조정된 작업으로 배포하고 프로비전하는 Azure 리소스 관리자 템플릿을 만들 수 있습니다. 템플릿에서 응용 프로그램에 필요한 리소스를 정의하고 다양한 환경에 따라 값을 입력하는 배포 매개 변수를 지정합니다. 템플릿은 배포에 대한 값을 생성하는 데 사용할 수 있는 식과 JSON으로 구성됩니다. 이 항목에서는 템플릿의 섹션에 대해 설명합니다.
 
-Visual Studio는 템플릿 생성 작업을 도와주는 도구를 제공합니다. 템플릿으로 Visual Studio를 사용하는 방법에 대한 자세한 내용은 [Visual Studio를 통해 Azure 리소스 그룹 생성 및 배포](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) 및 [Visual Studio를 사용하여 리소스 관리자 편집](vs-azure-tools-resource-group-adding-resources.md)을 참조하세요.
+Visual Studio는 템플릿 생성 작업을 도와주는 도구를 제공합니다. 템플릿으로 Visual Studio를 사용하는 방법에 대한 자세한 내용은 [Visual Studio를 통해 Azure 리소스 그룹 생성 및 배포](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)를 참조하세요.
 
 템플릿의 크기는 1MB로, 각 매개 변수 파일의 크기는 64KG로 제한해야 합니다. 1MB의 제한은 반복적인 리소스 정의로 확장된 후 템플릿의 마지막 상태와 변수 및 매개변수 값에 적용됩니다.
 
@@ -171,7 +171,7 @@ parameters 섹션 내에서는 다른 매개 변수 값을 생성하는 매개 �
        }
     }
 
-배포 중에 매개 변수 값을 입력하는 방법에 대한 내용은 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](../resource-group-template-deploy/#parameter-file)를 참조하세요.
+배포 중에 매개 변수 값을 입력하는 방법은 [Azure Resource Manager 템플릿을 사용하여 응용 프로그램 배포](../resource-group-template-deploy/#parameter-file)를 참조하세요.
 
 ## 변수
 
@@ -295,7 +295,7 @@ resources 섹션에서 배포 또는 업데이트되는 리소스를 정의합�
 
 
 
-다음 예제에는 자식 **Extensions** 리소스가 있는 **Microsoft.Web/serverfarms** 리소스 및 **Microsoft.Web/sites** 리소스가 나와 있습니다. 서버 팜이 존재해야 사이트를 배포할 수 있기 때부터 해당 사이트는 서버 팜에 대한 종속으로 표시됩니다. **Extensions** 리소스는 사이트의 자식입니다.
+다음 예제는 하위 **확장** 리소스가 있는 **Microsoft.Web/serverfarms** 리소스 및 **Microsoft.Web/sites** 리소스를 보여줍니다. 서버 팜이 존재해야 사이트를 배포할 수 있기 때부터 해당 사이트는 서버 팜에 대한 종속으로 표시됩니다. **확장** 리소스는 사이트의 하위 항목입니다.
 
     "resources": [
         {
@@ -474,4 +474,4 @@ Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 예를 �
 - 응용 프로그램 배포에 대한 자세한 예는 [Azure에서 마이크로 서비스를 예측 가능하게 프로비전 및 배포](app-service-web/app-service-deploy-complex-application-predictably.md)를 참조하세요.
 - 사용할 수 있는 스키마는 [Azure 리소스 관리자 스키마](https://github.com/Azure/azure-resource-manager-schemas)를 참조하세요.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

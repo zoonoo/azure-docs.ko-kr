@@ -15,14 +15,14 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="11/17/2015"
+      ms.date="02/22/2016"
       ms.author="v-jibran@microsoft.com"/>
 
 # Azure AD Graph API 빠른 시작
 
 Azure AD(Active Directory) Graph API는 OData REST API 끝점을 통해 Azure AD에 프로그래밍 방식으로 액세스할 수 있게 합니다. 응용 프로그램은 Graph API를 사용하여 디렉터리 데이터 및 개체에 대한 CRUD(만들기, 읽기, 업데이트 및 삭제) 작업을 수행할 수 있습니다. 예를 들어 Graph API를 사용하여 새 사용자를 만들고, 사용자 속성을 보거나 업데이트하고, 사용자 암호를 변경하고, 역할 기반 액세스를 위한 그룹 구성원 자격을 확인하고, 사용자를 사용하지 않도록 설정 또는 삭제할 수 있습니다. Graph API 기능 및 응용 프로그램 시나리오에 대한 자세한 내용은 [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) 및 [Azure AD Graph API 필수 조건](https://msdn.microsoft.com/library/hh974476(Azure.100).aspx)을 참조하세요.
 
-> [AZURE.IMPORTANT]Azure AD Graph API 기능은 [Microsoft Graph](https://graph.microsoft.io/)를 통해서도 사용 가능하며, Outlook, OneDrive, OneNote, Planner 및 Office Graph와 같은 다른 Microsoft 서비스의 API를 포함하는 통합 API로, 단일 끝점과 단일 액세스 토큰을 통해 액세스 가능합니다.
+> [AZURE.IMPORTANT] Azure AD Graph API 기능은 [Microsoft Graph](https://graph.microsoft.io/)를 통해서도 사용 가능하며, Outlook, OneDrive, OneNote, Planner 및 Office Graph와 같은 다른 Microsoft 서비스의 API를 포함하는 통합 API로, 단일 끝점과 단일 액세스 토큰을 통해 액세스 가능합니다.
 
 ## Graph API URL을 생성하는 방법
 
@@ -60,7 +60,7 @@ Graph API 메타데이터 파일을 반환하려면 URL에서 테넌트 식별�
 
 Azure AD Graph API용 Graph Explorer를 사용하여 응용 프로그램을 빌드할 때 디렉터리 데이터를 쿼리할 수 있습니다.
 
-> [AZURE.IMPORTANT]Graph Explorer는 디렉터리에서 데이터 삭제 또는 쓰기를 지원하지 않습니다. Graph Explorer에서는 Azure AD 디렉터리에 대한 읽기 작업만 수행할 수 있습니다.
+> [AZURE.IMPORTANT] Graph Explorer는 디렉터리에서 데이터 삭제 또는 쓰기를 지원하지 않습니다. Graph Explorer에서는 Azure AD 디렉터리에 대한 읽기 작업만 수행할 수 있습니다.
 
 다음은 Graph Explorer로 이동하고 Use Demo Company를 선택한 다음 `https://graph.windows.net/GraphDir1.OnMicrosoft.com/users?api-version=1.5`를 입력하여 데모 디렉터리에 있는 모든 사용자를 표시하는 경우 나타나는 출력입니다.
 
@@ -94,7 +94,7 @@ Graph Explorer의 다음 기능 및 제한 사항을 확인합니다. 리소스 
 2. 새 보안 그룹을 생성하려고 하므로 풀다운 메뉴에서 **Post**를 HTTP 메서드로 선택합니다. 그룹 개체의 작업 및 사용 권한에 대한 자세한 내용은 [Azure AD Graph REST API 참조](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) 내에서 [그룹](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#GroupEntity)을 참조하세요.
 3. **Post** 옆에 있는 필드에 다음을 요청 URL로 입력합니다. `https://graph.windows.net/mytenantdomain/groups?api-version=1.5`.
 
-    > [AZURE.NOTE]mytenantdomain을 고유한 Azure AD 디렉터리의 도메인 이름으로 대체해야 합니다.
+    > [AZURE.NOTE] mytenantdomain을 고유한 Azure AD 디렉터리의 도메인 이름으로 대체해야 합니다.
 
 4. Post 풀다운 바로 아래에 있는 필드에 다음을 입력합니다.
 
@@ -104,7 +104,7 @@ Authorization: your access token
 Content-Type: application/json
 ```
 
-    > [AZURE.NOTE]&lt;액세스 토큰gt;을 Azure AD 디렉터리에 대한 액세스 토큰으로 대체합니다.
+    > [AZURE.NOTE] &lt;액세스 토큰gt;을 Azure AD 디렉터리에 대한 액세스 토큰으로 대체합니다.
 
 5. **요청 본문** 필드에 다음을 입력합니다.
 
@@ -125,4 +125,4 @@ Graph에 의해 노출되는 Azure AD 엔터티 및 형식에 대한 자세한 �
 
 [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)에 대해 자세히 알아보세요.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0224_2016-->

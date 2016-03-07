@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="12/04/2015"
+    ms.date="02/19/2016"
     ms.author="prkhad"/>
 
 
@@ -31,11 +31,11 @@ Azure VM은 여러 프리미엄 저장소 디스크의 연결을 지원하므로
 
 전체 마이그레이션 프로세스를 완료하기 위해서는 이 가이드에 제공된 단계 전과 후에 추가 작업이 필요할 수 있습니다. 이러한 작업의 예에는 가상 네트워크 또는 끝점을 구성하거나 응용 프로그램 자체 내에서 코드를 변경하는 것이 포함됩니다. 이러한 작업은 각 응용 프로그램에 대해 고유하며 프리미엄 저장소로 가능한 한 원활하게 완전히 전환하기 위해서는 이 가이드에 제공된 단계에 따라 완료해야 합니다.
 
-프리미엄 저장소의 기능 개요는 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](storage-premium-storage-preview-portal.md)를 참조하세요.
+프리미엄 저장소의 기능 개요는 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](storage-premium-storage.md)를 참조하세요.
 
 이 가이드는 다음과 같이 두 가지 마이그레이션 시나리오를 설명하는 두 섹션으로 구성되어 있습니다.
 
-- [Azure 외부에서 Azure 프리미엄 저장소로 VM 마이그레이션](#migrating-vms-from-outside-azure-to-azure-premium-storage)
+- [다른 플랫폼에서 Azure 프리미엄 저장소로 VM 마이그레이션](#migrating-vms-from-other-platforms-to-azure-premium-storage)
 - [기존 Azure VM을 Azure 프리미엄 저장소로 마이그레이션](#migrating-existing-azure-vms-to-azure-premium-storage)
 
 시나리오에 따라 관련 섹션에 지정된 단계를 따릅니다.
@@ -45,7 +45,7 @@ Azure VM은 여러 프리미엄 저장소 디스크의 연결을 지원하므로
 ### 필수 조건
 - Azure 구독이 필요합니다. 구독할 수 없다면, 한 달의 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 구독하거나 [Azure 가격 책정](https://azure.microsoft.com/pricing/)을 방문하여 추가 옵션을 참고합니다.
 - PowerShell cmdlet을 실행하려면 Microsoft Azure PowerShell 모듈이 필요합니다. 모듈을 다운로드하려면 [Microsoft Azure 다운로드](https://azure.microsoft.com/downloads/)(영문)를 참조하세요.
-- 프리미엄 저장소에서 실행되는 Azure VM을 사용하려는 경우 DS 시리즈 또는 GS 시리즈 VM을 사용해야 합니다. DS 시리즈 VM에는 표준 및 프리미엄 저장소 디스크를 모두 사용할 수 있습니다. 프리미엄 저장소 디스크를 나중에 더 많은 VM 형식으로 사용할 수 있습니다. 사용 가능한 Azure VM 디스크 유형 및 크기에 대한 자세한 내용은 [Azure용 가상 컴퓨터 및 클라우드 서비스 크기](http://msdn.microsoft.com/library/azure/dn197896.aspx)를 참조하세요.
+- 프리미엄 저장소에서 실행되는 Azure VM을 사용하려는 경우 DS 시리즈 또는 GS 시리즈 VM을 사용해야 합니다. DS 시리즈 VM에는 표준 및 프리미엄 저장소 디스크를 모두 사용할 수 있습니다. 프리미엄 저장소 디스크를 나중에 더 많은 VM 형식으로 사용할 수 있습니다. 사용 가능한 Azure VM 디스크 유형 및 크기에 대한 자세한 내용은 [가상 컴퓨터 크기](../virtual-machines/virtual-machines-size-specs.md) 및 [클라우드 서비스 크기](../cloud-services/cloud-services-sizes-specs.md)를 참조하세요.
 
 ### 고려 사항
 
@@ -64,16 +64,16 @@ VM에서 사용할 수 있는 디스크에는 세 종류가 있으며 각 종류
 
 #### 저장소 계정의 확장성 목표
 
-프리미엄 저장소 계정에는 [Azure 저장소 확장성 및 성능 목표](http://msdn.microsoft.com/library/azure/dn249410.aspx) 이외에 다음 확장성 목표가 있습니다. 응용 프로그램의 요구가 단일 저장소 계정의 확장성 목표를 초과하는 경우, 여러 저장소 계정을 사용하도록 응용 프로그램을 빌드하고 데이터를 이러한 저장소 계정에 분할합니다.
+프리미엄 저장소 계정에는 [Azure 저장소 확장성 및 성능 목표](storage-scalability-targets.md) 이외에 다음 확장성 목표가 있습니다. 응용 프로그램의 요구가 단일 저장소 계정의 확장성 목표를 초과하는 경우, 여러 저장소 계정을 사용하도록 응용 프로그램을 빌드하고 데이터를 이러한 저장소 계정에 분할합니다.
 
 |총 계정 용량|로컬 중복 저장소 계정의 총 대역폭|
 |:--|:---|
 |디스크 용량: 35TB<br />스냅숏 용량: 10TB|인바운드+아웃바운드에 대해 초당 최대 50기가비트|
 
-프리미엄 저장소 사양에 대한 자세한 내용은 [프리미엄 저장소를 사용하는 경우 확장성 및 성능 목표](storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whko-KRing-premium-storage)를 참조하세요.
+프리미엄 저장소 사양에 대한 자세한 내용은 [프리미엄 저장소를 사용하는 경우 확장성 및 성능 목표](storage-premium-storage.md#scalability-and-performance-targets-whko-KRing-premium-storage)를 참조하세요.
 
 #### 추가 데이터 디스크
-사용자 워크로드에 따라 추가 데이터 디스크가 VM에 필요한 경우를 결정합니다. VM에 여러 영구 데이터 디스크를 연결할 수 있습니다. 필요한 경우, 볼륨의 성능과 용량을 늘리도록 디스크에 걸쳐 스트라이핑 할 수 있습니다. [저장소 공간](http://technet.microsoft.com/library/hh831739.aspx)을 사용하여 프리미엄 저장소 데이터 디스크를 스트라이프하는 경우, 사용되는 각 디스크에 대해 하나의 열로 구성해야 합니다. 그렇지 않은 경우, 디스크에서의 고르지 못한 트래픽 분배로 스트라이프 볼륨의 전반적인 성능이 예상보다 저하될 수 있습니다. Linux VM의 경우 *mdadm* 유틸리티를 사용하여 동일한 작업을 수행할 수 있습니다. 자세한 내용은 [Linux에서 소프트웨어 RAID 구성](../virtual-machines-linux-configure-raid.md) 문서를 참조하세요.
+사용자 워크로드에 따라 추가 데이터 디스크가 VM에 필요한 경우를 결정합니다. VM에 여러 영구 데이터 디스크를 연결할 수 있습니다. 필요한 경우, 볼륨의 성능과 용량을 늘리도록 디스크에 걸쳐 스트라이핑 할 수 있습니다. [저장소 공간](http://technet.microsoft.com/library/hh831739.aspx)을 사용하여 프리미엄 저장소 데이터 디스크를 스트라이프하는 경우, 사용되는 각 디스크에 대해 하나의 열로 구성해야 합니다. 그렇지 않은 경우, 디스크에서의 고르지 못한 트래픽 분배로 스트라이프 볼륨의 전반적인 성능이 예상보다 저하될 수 있습니다. Linux VM의 경우 *mdadm* 유틸리티를 사용하여 동일한 작업을 수행할 수 있습니다. 자세한 내용은 [Linux에서 소프트웨어 RAID 구성](../virtual-machines/virtual-machines-linux-configure-raid.md) 문서를 참조하세요.
 
 #### 디스크 캐싱 정책
 기본적으로 디스크 캐싱 정책은 VM에 연결된 프리미엄 운영 체제 디스크의 경우 *읽기/쓰기*이고 모든 프리미엄 데이터 디스크의 경우 *읽기 전용*입니다. 응용 프로그램의 IO에 대한 최적의 성능을 얻으려면 이 구성 설정이 좋습니다. 쓰기가 많거나 쓰기 전용인 디스크의 경우(예: SQL Server 로그 파일) 더 나은 응용 프로그램 성능을 얻기 위해 디스크 캐싱을 사용하지 않도록 설정합니다. [Azure 포털](https://portal.azure.com) 또는 *Set-AzureDataDisk* cmdlet의 *-HostCaching* 매개 변수를 사용하여 기존 데이터 디스크에 대한 캐시 설정을 업데이트할 수 있습니다.
@@ -99,11 +99,11 @@ Vm을 마이그레이션하려면 다음이 필요 합니다.
 
 - Azure 구독, 저장소 계정 및 저장소 계정이 VHD를 복사하려는 컨테이너입니다. 요구 사항에 따라 대상 저장소 계정은 표준 또는 프리미엄 저장소 계정일 수 있습니다.
 - 여러 VM 인스턴스를 만들 계획인 경우 VHD를 일반화하는 도구입니다. 예를 들어 Ubuntu용 virt-sysprep 또는 Windows용 sysprep입니다.
-- VHD 파일을 저장소 계정에 업로드하는 도구입니다. 예를들어, [AzCopy](storage-use-azcopy.md) 또는 [Azure 저장소 탐색기](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx)입니다. 이 가이드는 AzCopy 도구를 사용하여 VHD 복사를 설명합니다.
+- VHD 파일을 저장소 계정에 업로드하는 도구입니다. [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)을 참조하거나 [Azure 저장소 탐색기](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx)를 사용하세요. 이 가이드는 AzCopy 도구를 사용하여 VHD 복사를 설명합니다.
 
 > [AZURE.NOTE] 최적의 성능을 위해 대상 저장소 계정과 동일한 지역에 있는 Azure VM에서 이러한 도구 중 하나를 실행 하여 VHD를 복사 합니다. 다른 지역에는 Azure VM에서 VHD를 복사 하는 경우 성능이 느려질 수 있습니다.
 >
-> 대역폭이 제한된 많은 양의 데이터를 복사하는 의 경우, [Microsoft Azure 가져오기/내보내기 서비스](storage-import-export-service.md)를 사용하여 하드 디스크 드라이브를 Azure 데이터 센터에 전달하고 사용자 데이터를 전송하는 방법을 고려해야합니다. 가져오기/내보내기 서비스를 사용하여 표준 저장소 계정에만 데이터를 복사할 수 있습니다. 데이터가 표준 저장소 계정에 있는 경우 [복사 Blob API](https://msdn.microsoft.com/library/azure/dd894037.aspx) 또는 AzCopy를 사용하여 프리미엄 저장소 계정에 데이터를 전송할 수 있습니다.
+> 대역폭이 제한된 많은 양의 데이터를 복사하는 경우 [Azure 가져오기/내보내기 서비스를 사용하여 Blob 저장소로 데이터 전송](storage-import-export-service.md)을 사용하는 것이 좋습니다. 이렇게 하면 디스크 드라이브를 Azure 데이터 센터에 전달하여 데이터를 전송할 수 있습니다. 가져오기/내보내기 서비스를 사용하여 표준 저장소 계정에만 데이터를 복사할 수 있습니다. 데이터가 표준 저장소 계정에 있는 경우 [복사 Blob API](https://msdn.microsoft.com/library/azure/dd894037.aspx) 또는 AzCopy를 사용하여 프리미엄 저장소 계정에 데이터를 전송할 수 있습니다.
 >
 > Microsoft Azure는 고정된 크기의 VHD 파일만을 지원합니다. 동적 VHD 또는 VHDX 파일은 지원되지 않습니다. 동적 VHD를 설정한 경우 [CONVERT-VHD](http://technet.microsoft.com/library/hh848454.aspx) cmdlet을 사용하여 고정된 크기를 변환할 수 있습니다.
 
@@ -115,7 +115,7 @@ Vm을 마이그레이션하려면 다음이 필요 합니다.
 
 여러 일반 Azure VM 인스턴스를 만드는데 사용할 VHD를 업로드하는 경우 , sysprep 유틸리티를 사용하여 VHD를 먼저 일반화해야 합니다. 온-프레미스 또는 클라우드에 있는 VHD에 적용됩니다. Sysprep는 VHD에서 모든 컴퓨터의 특정 정보를 제거합니다.
 
->[AZURE.IMPORTANT] 스냅숏을 찍거나 VM을 백업하기 전에 일반화합니다. Sysprep를 실행 중인 VM 인스턴스를 삭제합니다. Windows 운영 체제 VHD를 sysprep 하려면 아래 단계를 따르세요. Sysprep 명령을 가상 컴퓨터 종료를 해야한다는 것을 참고하세요. Sysprep에 대한 자세한 내용은 [Sysprep 개요](http://technet.microsoft.com/library/hh825209.aspx) 또는 [Sysprep 기술 참조](http://technet.microsoft.com/library/cc766049(v=ws.10).aspx))를 참조하세요.
+>[AZURE.IMPORTANT] 스냅숏을 찍거나 VM을 백업하기 전에 일반화합니다. Sysprep를 실행 중인 VM 인스턴스를 삭제합니다. Windows 운영 체제 VHD를 sysprep 하려면 아래 단계를 따르세요. Sysprep 명령을 가상 컴퓨터 종료를 해야한다는 것을 참고하세요. Sysprep에 대한 자세한 내용은 [Sysprep 개요](http://technet.microsoft.com/library/hh825209.aspx) 또는 [Sysprep 기술 참조](http://technet.microsoft.com/library/cc766049.aspx)를 참조하세요.
 
 1. 관리자로 명령 프롬프트 창을 엽니다.
 2. 다음 명령을 입력하여 Sysprep을 엽니다.
@@ -197,7 +197,7 @@ AzCopy를 사용하여 인터넷을 통해 VHD를 쉽게 업로드할 수 있습
  - **/BlobType: page:** 대상을 페이지 Blob으로 지정합니다.
  - **/Pattern: *&lt;file-name&gt;:*** 복사할 VHD의 파일 이름을 지정합니다.
 
-AzCopy 도구를 사용하는 방법에 대한 자세한 내용은 [AzCopy 명령줄 유틸리티 시작](storage-use-azcopy.md)을 참조하세요.
+AzCopy 도구 사용에 대한 자세한 내용은 [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)을 참조하세요.
 
 ### PowerShell를 사용하여 VHD 복사
 또한 PowerShell cmdlet Start-AzureStorageBlobCopy를 사용하여 VHD 파일을 복사할 수도 있습니다. Azure PowerShell에서 다음 명령을 사용하여 VHD를 복사합니다. 원본 및 대상 저장소 계정에서 해당 값으로 <>의 값을 대체합니다. 이 명령을 사용하려면 대상 저장소 계정에 vhd라는 컨테이너가 있어야 합니다. 컨테이너가 존재하지 않으면 명령을 실행하기 전에 하나를 만듭니다.
@@ -212,7 +212,7 @@ AzCopy 도구를 사용하는 방법에 대한 자세한 내용은 [AzCopy 명�
 또한 다음과 같은 방법 중 하나를 사용하여 저장소 계정에 VHD를 업로드할 수 있습니다.
 
 - [Azure 저장소 Blob 복사 API](https://msdn.microsoft.com/library/azure/dd894037.aspx)
-- [Azure 가져오기/내보내기 서비스](https://msdn.microsoft.com/library/dn529096.aspx)
+- [저장소 가져오기/내보내기 서비스 REST API 참조](https://msdn.microsoft.com/library/dn529096.aspx)
 
 >[AZURE.NOTE] 가져오기/내보내기를 사용하여 표준 저장소 계정만 복사할 수 있습니다. AzCopy와 같은 도구를 사용하여 표준 저장소에서 프리미엄 저장소 계정으로 복사해야 합니다.
 
@@ -663,18 +663,18 @@ OS 이미지나 OS 디스크가 등록되면 새 DS 시리즈 또는 GS 시리�
 가상 컴퓨터 마이그레이션에 대한 특정 시나리오에 대한 다음 리소스를 확인합니다.
 
 - [저장소 계정 간에 Azure 가상 컴퓨터 마이그레이션](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
-- [Windows Server VHD를 만들고 Azure에 업로드합니다.](../virtual-machines-create-upload-vhd-windows-server.md)
-- [Linux 운영 체제를 포함하는 가상 하드 디스크 만들기 및 업로드](../virtual-machines-linux-create-upload-vhd.md)
+- [Windows Server VHD를 만들고 Azure에 업로드합니다.](../virtual-machines/virtual-machines-create-upload-vhd-windows-server.md)
+- [Linux 운영 체제를 포함하는 가상 하드 디스크 만들기 및 업로드](../virtual-machines/virtual-machines-linux-create-upload-vhd.md)
 - [Amazon AWS에서 Microsoft Azure로 가상 컴퓨터 마이그레이션](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
 Azure 저장소 및 Azure 가상 컴퓨터에 대한 자세한 내용을 보려면 다음 리소스도 확인합니다.
 
 - [Azure 저장소](https://azure.microsoft.com/documentation/services/storage/)
 - [Azure 가상 컴퓨터](https://azure.microsoft.com/documentation/services/virtual-machines/)
-- [프리미엄 저장소: Azure 가상 컴퓨터 워크로드를 위한 고성능 저장소](storage-premium-storage-preview-portal.md)
+- [프리미엄 저장소: Azure 가상 컴퓨터 워크로드를 위한 고성능 저장소](storage-premium-storage.md)
 
 [1]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [2]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,12 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="02/18/2016"
 	ms.author="sameerch"/>
 
 
 # 온-프레미스 SAP 서버와 통합
-SAP 커넥터를 사용하여 Azure 앱 서비스 웹, 모바일 및 논리 앱을 기존 SAP 서버에 연결할 수 있습니다. 이렇게 하면 온-프레미스 방화벽 뒤에 있더라도 RFC, BAPI, tRFC를 호출할 뿐만 아니라 SAP 서버로 IDocs를 보낼 수 있습니다.
+
+>[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다.
+
+[SAP 커넥터](app-service-logic-connector-sap.md)를 사용하여 Azure 앱 서비스 웹, 모바일 및 논리 앱을 기존 SAP 서버에 연결할 수 있습니다. 이렇게 하면 온-프레미스 방화벽 뒤에 있더라도 RFC, BAPI, tRFC를 호출할 뿐만 아니라 SAP 서버로 IDocs를 보낼 수 있습니다.
 
 온-프레미스 SAP 서버가 있는 경우 하이브리드 수신기를 사용하여 다음에 표시된 것처럼 SAP 커넥터와 연결을 설정합니다.
 
@@ -106,7 +109,7 @@ SAP 커넥터가 생성되면 논리 앱 워크플로에서 해당 커넥터를 
 
 오른쪽 창에서 SAP 커넥터를 선택하고 동작 탭에서 동작을 선택합니다.
 
-> [AZURE.NOTE]동작 목록은 SAP 커넥터를 만들 때 입력한 구성을 기반으로 합니다.
+> [AZURE.NOTE] 동작 목록은 SAP 커넥터를 만들 때 입력한 구성을 기반으로 합니다.
 
 선택한 동작에 대한 입력 및 출력 매개 변수가 표시됩니다. 동작에 대한 입력을 입력하고 다른 API 앱에서 현재 동작의 출력을 사용하여, 워크플로의 추가 의사 결정에 사용할 수 습니다.
 
@@ -121,4 +124,4 @@ SAP 커넥터가 생성되면 논리 앱 워크플로에서 해당 커넥터를 
 [8]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/SAPConnector.HybridConnection.Connected.PNG
 [9]: http://www.microsoft.com/download/details.aspx?id=35552
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0224_2016-->

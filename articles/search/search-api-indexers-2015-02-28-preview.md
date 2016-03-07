@@ -1,10 +1,10 @@
 <properties 
-pageTitle="인덱서 작업(Azure 검색 서비스 REST API: 2015-02-28-Preview) | Microsoft Azure | 호스트된 클라우드 검색 서비스" 
+pageTitle="인덱서 작업(Azure 검색 서비스 REST API: 2015-02-28-Preview) | Azure 검색 미리 보기 API" 
 description="인덱서 작업(Azure 검색 서비스 REST API: 2015-02-28-Preview)" 
 services="search" 
 documentationCenter="" 
-authors="HeidiSteen" 
-manager="mblythe" 
+authors="chaosrealm" 
+manager="pablocas"
 editor="" />
 
 <tags 
@@ -13,16 +13,16 @@ ms.devlang="rest-api"
 ms.workload="search" 
 ms.topic="article"  
 ms.tgt_pltfrm="na" 
-ms.date="11/04/2015" 
-ms.author="heidist" />
+ms.date="02/18/2016" 
+ms.author="eugenesh" />
 
 #인덱서 작업(Azure 검색 서비스 REST API: 2015-02-28-Preview)#
 
-> [AZURE.NOTE] 이 문서에서는 [2015-02-28-Preview](./search-api-2015-02-28-preview)의 인덱서를 설명합니다. 현재 [MSDN](http://go.mirosoft.com/fwlink/p/?LinkID=528173)에 설명된 `2015-02-28` 버전과 여기에 설명된 `2015-02-28-Preview` 버전 간의 차이는 없습니다. 이 API가 변경되지 않은 경우에도 이 문서를 제공하는 이유는 `2015-02-28-Preview`에 대한 전체 설명서 집합을 제공하기 위한 것입니다.
+> [AZURE.NOTE] 이 문서에서는 [2015-02-28-Preview](./search-api-2015-02-28-preview)의 인덱서를 설명합니다. 이 API 버전에는 문서 추출 기능이 있는 Azure Blob 저장소 인덱서와 기타 향상된 기능이 추가되었습니다.
 
 ## 개요 ##
 
-Azure 검색은 Microsoft Azure에서 호스팅되는 클라우드 검색 서비스입니다. 코드를 작성하여 데이터를 인덱싱하지 않고도 일부 일반적인 데이터 원본과 Azure 검색을 직접 통합할 수 있습니다. 이를 설정하기 위해 Azure 검색 API를 호출하여 **인덱서** 및 **데이터 원본**을 만들고 관리할 수 있습니다.
+코드를 작성하여 데이터를 인덱싱하지 않고도 일부 일반적인 데이터 원본과 Azure 검색을 직접 통합할 수 있습니다. 이를 설정하기 위해 Azure 검색 API를 호출하여 **인덱서** 및 **데이터 원본**을 만들고 관리할 수 있습니다.
 
 **인덱서**는 데이터 원본을 대상 검색 인덱스에 연결하는 리소스입니다. 인덱서는 다음과 같은 방법으로 사용됩니다.
 
@@ -36,10 +36,11 @@ Azure 검색은 Microsoft Azure에서 호스팅되는 클라우드 검색 서비
 
 현재 지원되는 데이터 원본은 다음과 같습니다.
 
-- Azure SQL 데이터베이스와 Azure VM의 SQL Server
-- Azure DocumentDB 
-
-향후 추가 데이터 원본에 대한 지원을 추가할 예정입니다. 이러한 의사 결정의 우선 순위를 지정하는 데 도움이 되도록 [Azure 검색 사용자 의견 포럼](https://feedback.azure.com/forums/263029-azure-search/)에서 사용자 의견을 제공해 주시기 바랍니다.
+- **Azure SQL 데이터베이스** 및 **Azure VM의 SQL Server** 대상 연습은 [이 문서](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28/)를 참조하세요. 
+- **Azure DocumentDB** 대상 연습은 [이 문서](../documentdb/documentdb-search-indexer)를 참조하세요. 
+- **Azure Blob 저장소** - PDF, Microsoft Office(DOCX/DOC, XSLX/XLS, PPTX/PPT, MSG), HTML, XML, ZIP 및 일반 텍스트 파일(JSON 포함) 문서 형식을 포함합니다. 대상 연습은 [이 문서](search-howto-indexing-azure-blob-storage.md)를 참조하세요.
+	 
+향후 추가 데이터 원본에 대한 지원을 추가할 예정입니다. 이러한 의사 결정의 우선 순위를 지정하는 데 도움이 되도록 [Azure 검색 사용자 의견 포럼](http://feedback.azure.com/forums/263029-azure-search)에서 사용자 의견을 제공해 주시기 바랍니다.
 
 인덱서 및 데이터 원본 리소스와 관련된 최대 제한은 [서비스 제한](search-limits-quotas-capacity.md)을 참조하세요.
 
@@ -93,7 +94,7 @@ Azure 검색에서 데이터 원본은 인덱서와 함께 사용되며 대상 �
 - `Content-Type`: 필수 사항입니다. `application/json`으로 설정합니다.
 - `api-key`: 필수 사항입니다. `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스에 고유한 문자열 값입니다. **데이터 원본 만들기** 요청은 쿼리 키가 아니라 관리 키로 설정된 `api-key` 헤더를 포함해야 합니다. 
  
-요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 [Azure 클래식 포털](https://portal.azure.com/)의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
+요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 [Azure 관리 포털](https://portal.azure.com/)의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
 
 <a name="CreateDataSourceRequestSyntax"></a> **요청 본문 구문**
 
@@ -105,9 +106,9 @@ Azure 검색에서 데이터 원본은 인덱서와 함께 사용되며 대상 �
     { 
 		"name" : "Required for POST, optional for PUT. The name of the data source",
     	"description" : "Optional. Anything you want, or nothing at all",
-    	"type" : "Required. Must be 'azuresql' or 'documentdb'",
+    	"type" : "Required. Must be one of 'azuresql', 'documentdb', or 'azureblob'",
     	"credentials" : { "connectionString" : "Required. Connection string for your data source" },
-    	"container" : { "name" : "Required. The name of the table or collection you wish to index" },
+    	"container" : { "name" : "Required. The name of the table, collection, or blob container you wish to index" },
     	"dataChangeDetectionPolicy" : { Optional. See below for details }, 
     	"dataDeletionDetectionPolicy" : { Optional. See below for details }
 	}
@@ -119,22 +120,28 @@ Azure 검색에서 데이터 원본은 인덱서와 함께 사용되며 대상 �
 - `type`: 필수 사항입니다. 다음과 같은 지원되는 데이터 원본 유형 중 하나여야 합니다.
 	- `azuresql` - Azure SQL 데이터베이스 또는 Azure VM의 SQL Server
 	- `documentdb` - Azure DocumentDB
+	- `azureblob` - Azure Blob 저장소
 - `credentials`:
 	- 필수 `connectionString` 속성은 데이터 원본의 연결 문자열을 지정합니다. 연결 문자열의 형식은 데이터 원본 유형에 따라 달라 집니다. 
-		- Azure SQL의 경우 일반적인 SQL Server 연결 문자열입니다. Azure 클래식 포털을 사용하여 연결 문자열을 검색하는 경우 `ADO.NET connection string` 옵션을 사용합니다.
-		- DocumentDB의 경우 연결 문자열은 `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"` 형식이어야 합니다. 모든 값이 필요합니다. [Azure 클래식 포털](https://portal.azure.com/)에서 이러한 값을 확인할 수 있습니다.   
+		- Azure SQL의 경우 일반적인 SQL Server 연결 문자열입니다. Azure 포털을 사용하여 연결 문자열을 검색하는 경우 `ADO.NET connection string` 옵션을 사용합니다.
+		- DocumentDB의 경우 연결 문자열은 `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"` 형식이어야 합니다. 모든 값이 필요합니다. [Azure 포털](https://portal.azure.com/)에서 이러한 값을 확인할 수 있습니다.  
+		- Azure Blob 저장소의 경우 저장소 계정 연결 문자열입니다. 형식은 [여기](https://azure.microsoft.com/documentation/articles/storage-configure-connection-string/)에서 설명합니다. HTTPS 끝점 프로토콜이 필요합니다.  
 		
-- `container`:
-	- 필수 `name` 속성은 인덱싱할 테이블/보기(Azure SQL 데이터 원본의 경우) 또는 컬렉션(DocumentDB 데이터 원본의 경우)을 지정합니다. 
-	- SQL 데이터 원본의 경우 컨테이너가 테이블 또는 뷰 이름만으로 구성되도록 dbo. 같은 구성표 접두사를 생략합니다.
-	- DocumentDB 데이터 원본은 선택적 `query` 속성을 지원합니다. 이 속성을 사용하면 Azure 검색에서 인덱싱할 수 있는 플랫 스키마로 임의 JSON 문서 레이아웃을 평면화하는 쿼리를 지정할 수 있습니다.   
-- 아래에 선택적 `dataChangeDetectionPolicy` 및 `dataDeletionDetectionPolicy`에 대한 설명이 나와 있습니다.
+- `container`, 필수: `name` 및 `query` 속성을 사용하여 인덱스에 데이터를 지정합니다:
+	- `name`, 필수:
+		- Azure SQL: 테이블 또는 뷰를 지정합니다. `[dbo].[mytable]`과 같은 스키마로 한정된 이름을 사용할 수 있습니다.
+		- DocumentDB: 컬렉션을 지정합니다. 
+		- Azure Blob 저장소: 저장소 컨테이너를 지정합니다. 
+	- `query`, 선택 사항:
+		- DocumentDB: Azure 검색에서 인덱싱할 수 있는 플랫 스키마로 임의 JSON 문서 레이아웃을 평면화하는 쿼리를 지정할 수 있습니다.  
+		- Azure Blob 저장소: Blob 컨테이너 내에 가상 폴더를 지정할 수 있습니다. 예를 들어 Blob 경로 `mycontainer/documents/blob.pdf`, `documents`의 경우 가상 폴더로 사용할 수 있습니다.
+		- Azure SQL: 쿼리는 지원되지 않습니다. 이 기능이 필요하면 [이 제안](https://feedback.azure.com/forums/263029-azure-search/suggestions/9893490-support-user-provided-query-in-sql-indexer)에 응답해 주세요.
+   
+- 선택적 `dataChangeDetectionPolicy` 및 `dataDeletionDetectionPolicy` 속성은 아래 설명되어 있습니다.
 
 <a name="DataChangeDetectionPolicies"></a> **데이터 변경 검색 정책**
 
 데이터 변경 감지 정책의 목적은 변경된 데이터 항목을 효율적으로 식별하는 것입니다. 지원되는 정책은 데이터 원본 형식에 따라 다릅니다. 아래 섹션에서 각 정책에 대해 설명합니다.
-
-**참고:** 인덱서를 이미 만든 경우 [인덱서 다시 설정](#ResetIndexer) API를 사용하여 데이터 검색 정책을 전환할 수 있습니다.
 
 ***상위 워터마크 변경 검색 정책***
 
@@ -147,14 +154,16 @@ Azure 검색에서 데이터 원본은 인덱서와 함께 사용되며 대상 �
 
 예를 들어 Azure SQL 데이터 원본을 사용하는 경우 상위 워터마크 정책을 사용하기에 적합한 열은 인덱싱된 `rowversion` 열입니다.
 
-DocumentDB 데이터 원본을 사용할 때는 DocumentDB에서 제공되는 `_ts` 속성을 사용해야 합니다.
- 
 이 정책은 다음과 같이 지정할 수 있습니다.
 
 	{ 
 		"@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
 		"highWaterMarkColumnName" : "[a row version or last_updated column name]" 
 	} 
+
+> [AZURE.NOTE] DocumentDB 데이터 원본을 사용할 때는 DocumentDB에서 제공되는 `_ts` 속성을 사용해야 합니다.
+
+> [AZURE.NOTE] Azure Blob 데이터 원본을 사용하는 경우 Azure 검색은 Blob의 마지막 수정 타임스탬프를 기반으로 상위 워터마크 변경 감지 정책을 자동으로 사용하므로 이러한 정책을 직접 지정할 필요가 없습니다.
 
 ***SQL 통합 변경 검색 정책***
 
@@ -225,11 +234,19 @@ HTTP PUT 요청을 사용하여 기존 데이터 원본을 업데이트할 수 �
 
 `api-key`는 쿼리 키가 아니라 관리 키여야 합니다. 키에 대한 자세한 내용은 [검색 서비스 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx)에서 인증 섹션을 참조하세요. [포털에서 검색 서비스 만들기](search-create-service-portal.md)에서는 요청에 사용된 서비스 URL 및 키 속성을 가져오는 방법을 설명합니다.
 
-**요청** 요청 본문 구문은 [데이터 원본 만들기 요청](#CreateDataSourceRequestSyntax)의 본문 구문과 같습니다.
+**요청**
 
-**응답** 요청이 성공적으로 실행되면 새 데이터 원본이 생성된 경우 ‘201 생성됨’이 반환되고 기존 데이터 원본이 업데이트된 경우 ‘204 콘텐츠 없음’이 반환됩니다.
+요청 본문 구문은 [데이터 원본 만들기 요청](#CreateDataSourceRequestSyntax)의 본문 구문과 같습니다.
 
-**참고:** 기존 데이터 원본의 경우 일부 속성을 업데이트할 수 없습니다. 예를 들어 기존 데이터 원본의 형식은 변경할 수 없습니다.
+> [AZURE.NOTE]
+기존 데이터 원본의 경우 일부 속성을 업데이트할 수 없습니다. 예를 들어 기존 데이터 원본의 형식은 변경할 수 없습니다.
+
+> [AZURE.NOTE]
+기존 데이터 원본에 대한 연결 문자열을 변경하지 않으려면 연결 문자열에 대해 `<unchanged>` 리터럴을 지정할 수 있습니다. 데이터 원본을 업데이트해야 하지만 보안에 민감한 데이터라서 연결 문자열에 액세스하는 것이 힘든 경우에 유용합니다.
+
+**응답**
+
+요청이 성공적으로 실행되면 새 데이터 원본이 생성된 경우 ‘201 생성됨’이 반환되고 기존 데이터 원본이 업데이트된 경우 ‘204 콘텐츠 없음’이 반환됩니다.
 
 <a name="ListDataSource"></a>
 ## 데이터 원본 나열 ##
@@ -303,7 +320,7 @@ HTTP PUT 요청을 사용하여 기존 데이터 원본을 업데이트할 수 �
 			"softDeleteMarkerValue" : "true" }
 	}
 
-**참고** 이 API를 호출할 때는 `Accept` 요청 헤더를 `application/json;odata.metadata=none`으로 설정하지 마세요. 이렇게 설정하면 `@odata.type` 특성이 응답에서 생략되며, 서로 다른 유형의 데이터 변경 및 데이터 삭제 검색 정책을 구분할 수 없습니다.
+> [AZURE.NOTE] 이 API를 호출할 때는 `Accept` 요청 헤더를 `application/json;odata.metadata=none`으로 설정하지 마세요. 이렇게 설정하면 `@odata.type` 특성이 응답에서 생략되며, 서로 다른 유형의 데이터 변경 및 데이터 삭제 검색 정책을 구분할 수 없습니다.
 
 <a name="DeleteDataSource"></a>
 ## 데이터 원본 삭제 ##
@@ -313,7 +330,7 @@ HTTP PUT 요청을 사용하여 기존 데이터 원본을 업데이트할 수 �
     DELETE https://[service name].search.windows.net/datasources/[datasource name]?api-version=[api-version]
     api-key: [admin key]
 
-**참고** 삭제하는 데이터 원본을 참조하는 인덱서가 있어도 삭제 작업은 진행됩니다. 그러나 이러한 인덱서는 다음에 실행할 때 오류 상태로 전환됩니다.
+> [AZURE.NOTE] 삭제하는 데이터 원본을 참조하는 인덱서가 있어도 삭제 작업은 진행됩니다. 그러나 이러한 인덱서는 다음에 실행할 때 오류 상태로 전환됩니다.
 
 `api-version`은 필수 사항입니다. 현재 버전은 `2015-02-28`입니다. [Azure 검색 버전 관리](https://msdn.microsoft.com/library/azure/dn864560.aspx)에서는 대체 버전에 대한 세부 정보 및 추가 정보를 제공합니다.
 
@@ -336,7 +353,7 @@ HTTP POST 요청을 사용하여 Azure 검색 서비스 내에서 새 인덱서�
 
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=[api-version]
 
-**참고**: 허용되는 최대 인덱서 수는 가격 책정 계층에 따라 다릅니다. 무료 서비스에서는 인덱서를 3개까지 사용할 수 있으며 표준 서비스에서는 50개까지 사용할 수 있습니다. 자세한 내용은 [서비스 제한](search-limits-quotas-capacity.md)을 참조하세요.
+> [AZURE.NOTE] 허용되는 최대 인덱서 수는 가격 책정 계층에 따라 다릅니다. 무료 서비스에서는 인덱서를 3개까지 사용할 수 있으며 표준 서비스에서는 50개까지 사용할 수 있습니다. 자세한 내용은 [서비스 제한](search-limits-quotas-capacity.md)을 참조하세요.
 
 `api-version`은 필수 사항입니다. 현재 버전은 `2015-02-28`입니다. [Azure 검색 버전 관리](https://msdn.microsoft.com/library/azure/dn864560.aspx)에서는 대체 버전에 대한 세부 정보 및 추가 정보를 제공합니다.
 
@@ -365,7 +382,7 @@ HTTP POST 요청을 사용하여 Azure 검색 서비스 내에서 새 인덱서�
 
 인덱서는 선택적으로 일정을 지정할 수 있습니다. 일정이 제공된 경우, 인덱서가 일정에 따라 주기적으로 실행됩니다. 일정은 다음과 같은 특성을 갖습니다.
 
-- `interval`: 필수 사항입니다. 인덱서 실행 간격 또는 기간을 지정하는 기간 값입니다. 허용되는 가장 작은 간격은 5분이고 가장 긴 간격은 1일입니다. 형식은 XSD "dayTimeDuration" 값([ISO 8601 기간](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) 값의 제한된 하위 집합)이어야 합니다. 해당 패턴은 `P[nD][T[nH][nM]]`입니다. 예를 들어 15분 간격이면 `PT15M`, 2시간 간격이면 `PT2H`입니다. 
+- `interval`: 필수 사항입니다. 인덱서 실행 간격 또는 기간을 지정하는 기간 값입니다. 허용되는 가장 작은 간격은 5분이고 가장 긴 간격은 1일입니다. 형식은 XSD "dayTimeDuration" 값([ISO 8601 기간](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) 값의 제한된 하위 집합)이어야 합니다. 해당 패턴은 `"P[nD][T[nH][nM]]"`입니다. 예를 들어 15분 간격이면 `PT15M`, 2시간 간격이면 `PT2H`입니다. 
 
 - `startTime`: 필수 사항입니다. 인덱서 실행을 시작해야 하는 UTC 날짜/시간입니다.
 
@@ -378,6 +395,9 @@ HTTP POST 요청을 사용하여 Azure 검색 서비스 내에서 새 인덱서�
 - `maxFailedItemsPerBatch`: 인덱서 실행을 실패한 것으로 간주하기 전까지 각 일괄 처리에서 허용되는 인덱싱 실패 가능 항목의 수입니다. 기본값은 0입니다.
 
 - `base64EncodeKeys`: 문서 키를 base-64로 인코딩할지 여부를 지정합니다. Azure 검색에서는 문서 키에 포함할 수 있는 문자에 제한이 적용됩니다. 그러나 원본 데이터의 값은 유효하지 않은 문자를 포함할 수 있습니다. 이러한 값을 문서 키로 인덱싱해야 하는 경우에는 이 플래그를 true로 설정할 수 있습니다. 기본값은 `false`입니다.
+
+- `batchSize`: 성능을 향상시키기 위해 단일 배치로 인덱싱되고 데이터 원본에서 읽는 항목 수를 지정합니다. 기본값은 데이터 원본 형식에 따라 달라 집니다. Azure SQL 및 DocumentDB의 경우 1000, Azure Blob 저장소의 경우 10입니다.
+
 
 **필드 매핑**
 
@@ -777,4 +797,4 @@ HTTP PUT 요청을 사용하여 기존 인덱서를 업데이트할 수 있습�
 </tr>
 </table>
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

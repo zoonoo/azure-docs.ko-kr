@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="02/17/2016" 
 	ms.author="nitinme"/>
 
 # 사용자 지정 라이브러리(Linux)를 사용하여 HDInsight Spark에서 로그 분석
 
 이 노트북에서는 HDInsight의 Spark와 함께 사용자 지정 라이브러리를 사용하여 로그 데이터를 분석하는 방법을 보여 줍니다. 사용하는 사용자 지정 라이브러리는 **iislogparser.py**라는 Python 라이브입니다.
 
-> [AZURE.TIP] 이 자습서는 HDInsight에서 만드는 Spark(Linux) 클러스터에서 Jupyter 노트북으로 사용할 수도 있습니다. 노트북 경험을 통해 노트북 자체에서 Python 코드 조각을 실행할 수 있습니다. 노트북 내에서 자습서를 수행하려면 Spark 클러스터를 만들고 Jupyter 노트북(`https://CLUSTERNAME.azurehdinsight.net/jupyter`)을 시작한 다음 **Python** 폴더 아래의 노트북 **사용자 지정 library.ipynb를 사용하여 Spark로 로그 분석**을 실행합니다.
+> [AZURE.TIP] 이 자습서는 HDInsight에서 만드는 Spark(Linux) 클러스터에서 Jupyter 노트북으로 사용할 수도 있습니다. Notebook 환경을 통해 Notebook 자체에서 Python 코드 조각을 실행할 수 있습니다. 노트북 내에서 자습서를 수행하려면 Spark 클러스터를 만들고 Jupyter 노트북(`https://CLUSTERNAME.azurehdinsight.net/jupyter`)을 시작한 다음 **PySpark** 폴더 아래의 노트북 **사용자 지정 library.ipynb를 사용하여 Spark로 로그 분석**을 실행합니다.
 
 **필수 조건:**
 
@@ -44,7 +44,7 @@
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-2. 새 Notebook을 만듭니다. **새로 만들기**를 클릭한 후 **Python 2**를 클릭합니다.
+2. 새 Notebook을 만듭니다. **새로 만들기**를 클릭한 다음 **PySpark**를 클릭합니다.
 
 	![새 Jupyter 노트북 만들기](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdispark.note.jupyter.createnotebook.png "새 Jupyter 노트북 만들기")
 
@@ -52,21 +52,11 @@
 
 	![노트북에 대한 이름 제공](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdispark.note.jupyter.notebook.name.png "노트북에 대한 이름 제공")
 
-4. 필요한 모듈을 가져오고 Spark 및 SQL 컨텍스트를 만듭니다. 빈 셀에 다음 코드 조각을 붙여넣은 다음 **SHIFT + ENTER**를 누릅니다.
+4. PySpark 커널을 사용하여 노트북을 만들었기 때문에 컨텍스트를 명시적으로 만들 필요가 없습니다. 첫 번째 코드 셀을 실행하면 Spark, SQL 및 Hive 컨텍스트가 자동으로 만들어집니다. 이 시나리오에 필요한 형식을 가져와 시작할 수 있습니다. 빈 셀에 다음 코드 조각을 붙여넣은 다음 **SHIFT + ENTER**를 누릅니다.
 
 
-		import pyspark
-		from pyspark import SparkConf
-		from pyspark import SparkContext
-		from pyspark.sql import SQLContext
-		%matplotlib inline
-		import matplotlib.pyplot as plt
 		from pyspark.sql import Row
 		from pyspark.sql.types import *
-		import atexit
-		sc = SparkContext(conf=SparkConf().setMaster('yarn-client'))
-		sqlContext = SQLContext(sc)
-		atexit.register(lambda: sc.stop())
 
 
 5. 클러스터에서 이미 사용할 수 있는 샘플 로그 데이터를 사용하는 RDD를 만듭니다. **\\HdiSamples\\HdiSamples\\WebsiteLogSampleData\\SampleLog\\909f2b.log**의 클러스터와 연결된 기본 저장소 계정의 데이터에 액세스할 수 있습니다.
@@ -93,11 +83,9 @@
 
 ## 사용자 지정 Python 라이브러리를 사용하여 로그 데이터 분석
 
-7. 위의 출력에서 처음 몇 줄은 헤더 정보를 포함하고 나머지 줄은 해당 헤더에 설명된 스키마와 일치합니다. 이러한 로그를 구문 분석하는 것은 복잡할 수 있습니다. 따라서 이러한 로그를 훨씬 쉽게 구문 분석하는 사용자 지정 Python 라이브러리(**iislogparser.py**)를 사용합니다. 기본적으로 이 라이브러리는 HDInsight의 Spark 클러스터에 포함되어 있습니다.
+7. 위의 출력에서 처음 몇 줄은 헤더 정보를 포함하고 나머지 줄은 해당 헤더에 설명된 스키마와 일치합니다. 이러한 로그를 구문 분석하는 것은 복잡할 수 있습니다. 따라서 이러한 로그를 훨씬 쉽게 구문 분석하는 사용자 지정 Python 라이브러리(**iislogparser.py**)를 사용합니다. 기본적으로 이 라이브러리는 HDInsight의 Spark 클러스터(**/HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py**)에 포함됩니다.
 
-	그러나 이 라이브러리는 `PYTHONPATH`에 있지 않으므로 `import iislogparser`와(과) 같은 import 문을 사용하여 사용할 수 없습니다. 이 라이브러리를 사용하려면 모든 작업자 노드에 배포해야 합니다.
-
-	그런 다음 다음 코드 조각을 실행하여 Spark 클러스터의 모든 작업자 노드에 라이브러리를 배포해야 합니다.
+	그러나 이 라이브러리는 `PYTHONPATH`에 있지 않으므로 `import iislogparser`와(과) 같은 import 문을 사용하여 사용할 수 없습니다. 이 라이브러리를 사용하려면 모든 작업자 노드에 배포해야 합니다. 다음 조각을 실행합니다.
 
 
 		sc.addPyFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py')
@@ -184,12 +172,35 @@
 		 (u'/blogposts/mvc4/step1.png', 98.0)]
 
 
-13. 그림의 형식에 이 정보를 제공할 수도 있습니다. 그림은 특정 시간에 특수한 대기 시간 급증 현상이 없는지 확인하도록 시간으로 로그를 그룹화합니다.
+13. 그림의 형식에 이 정보를 제공할 수도 있습니다. 플롯을 만드는 첫 번째 단계로, 먼저 임시 테이블 **AverageTime**을 만듭니다. 이 테이블은 특정 시간에 특수한 대기 시간 급증 현상이 없는지 확인하도록 시간으로 로그를 그룹화합니다.
 
 		avgTimeTakenByMinute = avgTimeTakenByKey(logLines.map(lambda p: (p.datetime.minute, p))).sortByKey()
-		minutes = avgTimeTakenByMinute.map(lambda pair: pair[0]).collect()
-		time = avgTimeTakenByMinute.map(lambda pair: pair[1]).collect()
-		plt.plot(minutes, time, marker='o', linestyle='--')
+		schema = StructType([StructField('Minutes', IntegerType(), True),
+		                     StructField('Time', FloatType(), True)])
+		                     
+		avgTimeTakenByMinuteDF = sqlContext.createDataFrame(avgTimeTakenByMinute, schema)
+		avgTimeTakenByMinuteDF.registerTempTable('AverageTime')
+
+14. 다음 SQL 쿼리를 실행하여 **AverageTime** 테이블의 모든 레코드를 가져올 수 있습니다.
+
+		%%sql -o averagetime
+		SELECT * FROM AverageTime
+
+	`-o averagetime` 앞의 `%%sql` magic은 쿼리 출력이 Jupyter 서버(일반적으로 클러스터의 헤드 노드)에서 로컬로 유지되도록 합니다. 출력은 **averagetime**이라는 이름이 지정된 [Pandas](http://pandas.pydata.org/) 데이터 프레임으로 유지됩니다.
+
+	다음과 유사한 출력이 표시됩니다.
+
+	![SQL 쿼리 출력](./media/hdinsight-apache-spark-custom-library-website-log-analysis/sql.output.png "SQL 쿼리 출력")
+
+	`%%sql` magic 및 기타 PySpark 커널에서 사용 가능한 magic에 대한 자세한 내용은 [Spark HDInsight 클러스터와 함께 Jupyter 노트북에서 사용 가능한 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels)을 참조하세요.
+
+15. 이제 데이터 시각화를 구성하는 데 사용되는 라이브러리인 Matplotlib를 사용하여 플롯을 만들 수 있습니다. 로컬로 유지되는 **averagetime** 데이터 프레임에서 플롯을 만들어야 하므로 코드 조각은 `%%local` magic으로 시작해야 합니다. 그러면 코드가 Jupyter 서버에서 로컬로 실행됩니다.
+
+		%%local
+		%matplotlib inline
+		import matplotlib.pyplot as plt
+		
+		plt.plot(averagetime['Minutes'], averagetime['Time'], marker='o', linestyle='--')
 		plt.xlabel('Time (min)')
 		plt.ylabel('Average time taken for request (ms)')
 
@@ -197,7 +208,7 @@
 
 	![Matplotlib 출력](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdi-apache-spark-web-log-analysis-plot.png "Matplotlib 출력")
 
-14. 응용 프로그램 실행을 완료한 후 리소스를 해제하도록 노트북을 종료해야 합니다. 이렇게 하기 위해 Notebook의 **파일** 메뉴에서 **Close and Halt**를 클릭합니다. 그러면 Notebook이 종료되고 닫힙니다.
+16. 응용 프로그램 실행을 완료한 후 리소스를 해제하도록 노트북을 종료해야 합니다. 이렇게 하기 위해 Notebook의 **파일** 메뉴에서 **Close and Halt**를 클릭합니다. 그러면 Notebook이 종료되고 닫힙니다.
 	
 
 ## <a name="seealso"></a>참고 항목
@@ -233,4 +244,4 @@
 
 * [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

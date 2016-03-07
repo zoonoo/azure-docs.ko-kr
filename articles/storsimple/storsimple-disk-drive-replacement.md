@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -27,7 +27,7 @@
 
 - 교체 디스크 드라이브 설치
 
->[AZURE.IMPORTANT]디스크 드라이브를 꺼내고 교체하기 전에 [StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)에서 안전 정보를 검토하세요.
+>[AZURE.IMPORTANT] 디스크 드라이브를 꺼내고 교체하기 전에 [StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)에서 안전 정보를 검토하세요.
 
 ## 조작 방지 잠금 해제
 
@@ -37,7 +37,7 @@
 
 1. 핸들의 입구와 해당 소켓에 잠금 키(Microsoft에서 제공한 "조작 방지" T10 드라이버)를 조심해서 삽입합니다. 
 
-    >[AZURE.NOTE]조작 방지 잠금이 활성화되면 입구에 빨간색 표시기가 표시됩니다.
+    >[AZURE.NOTE] 조작 방지 잠금이 활성화되면 입구에 빨간색 표시기가 표시됩니다.
 
     ![잠긴 디스크 드라이브](./media/storsimple-disk-drive-replacement/IC741056.png)
 
@@ -118,10 +118,10 @@ Microsoft Azure StorSimple 장치에서 드라이브 오류가 발생하고 드�
 
 5. Azure 클래식 포털에 액세스한 다음 **유지 관리** > **하드웨어 상태**로 이동하여 교체에 성공했으며 드라이브가 작동하는지 확인합니다. **공유 구성 요소** 또는 **EBOD 엔클로저 공유 구성 요소** 아래에서 드라이브 상태가 정상임을 나타내는 녹색이어야 합니다.
 
-    >[AZURE.NOTE]교체 후 디스크 상태가 녹색으로 바뀌는 데 몇 시간이 걸릴 수 있습니다.
+    >[AZURE.NOTE] 교체 후 디스크 상태가 녹색으로 바뀌는 데 몇 시간이 걸릴 수 있습니다.
 
 ## 다음 단계
 
 [StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -58,6 +58,8 @@ SQL 데이터 웨어하우스의 고유한 특징은 요청 시 계산을 일시
 
 일시 중지 작업은 계산 리소스를 데이터 센터 내에서 사용 가능한 리소스 풀로 되돌리며, 다시 시작 작업은 설정한 DWU에 필요한 계산 리소스를 확보한 다음 데이터 웨어하우스 인스턴스에 할당합니다.
 
+> [AZURE.NOTE] 저장소는 계산과는 별도이기 때문에 저장소는 일시 중지에 영향을 받지 않습니다.
+
 계산 능력의 일시 중지 및 다시 시작은 [Azure 클래식 포털][]을 통해 REST API 또는 Powershell을 사용하여 가능합니다. 일시 중지는 실행 중이거나 대기 중인 모든 활동을 취소하며 돌아왔을 때는 몇 초 만에 계산 리소스를 다시 시작할 수 있습니다.
 
 아래 코드는 PowerShell을 사용하여 일시 중지를 수행하는 방법을 보여줍니다.
@@ -73,9 +75,9 @@ PowerShell을 사용하면 서비스를 다시 시작하는 것이 매우 간단
 Resume-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
 ```
 
-PowerShell을 사용하는 방법에 대한 자세한 내용은 [PowerShell cmdlet 소개][] 문서를 참조하세요.
+PowerShell을 사용하는 방법에 대한 자세한 내용은 [SQL 데이터 웨어하우스에서 PowerShell cmdlet 및 REST API 사용][]을 참조하세요.
 
-> [Azure.Note]저장소는 계산과는 별도이기 때문에 저장소는 일시 중지에 영향을 받지 않습니다.
+
 
 ## 다음 단계
 성능 개요는 [성능 개요][]를 참조하세요.
@@ -84,7 +86,7 @@ PowerShell을 사용하는 방법에 대한 자세한 내용은 [PowerShell cmdl
 
 <!--Article references-->
 [성능 개요]: sql-data-warehouse-overview-performance.md
-[PowerShell cmdlet 소개]: sql-data-warehouse-get-started-powershell-cmdlets.md
+[SQL 데이터 웨어하우스에서 PowerShell cmdlet 및 REST API 사용]: sql-data-warehouse-reference-powershell-cmdlets.md
 
 <!--MSDN references-->
 
@@ -93,4 +95,4 @@ PowerShell을 사용하는 방법에 대한 자세한 내용은 [PowerShell cmdl
 
 [Azure 클래식 포털]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0224_2016-->

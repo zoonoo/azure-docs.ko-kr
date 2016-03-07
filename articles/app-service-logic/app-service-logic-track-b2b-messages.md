@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="12/07/2015"
+   ms.date="02/18/2016"
    ms.author="rajram"/>
 
 
 # B2B 메시지 추적
+
+>[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다.
 
 ## B2B 추적 정보
 B2B 통신에는 거래 업체 간의 메시지 처리가 필요합니다. 관계는 두 거래 업체 간의 계약으로 정의됩니다. 통신이 설정되면 통신이 예상대로 수행되는지 모니터링할 수 있는 방법이 있어야 합니다.
@@ -45,4 +47,4 @@ X12 API 앱 인스턴스를 만들면 해당 인스턴스를 찾아서 **추적*
 [1]: ./media/app-service-logic-track-b2b-messages/AS2Tracking.png
 [2]: ./media/app-service-logic-track-b2b-messages/EDIFACTTracking.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -15,13 +15,13 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/16/2016" 
+	ms.date="02/18/2016" 
 	ms.author="jeffstok"
 />
 
-# 스트림 분석을 사용하여 IOT 솔루션 빌드 #
+# 스트림 분석을 사용하여 IOT 솔루션 빌드
 
-## 소개 ##
+## 소개
 
 이 자습서에서는 Azure 스트림 분석을 사용하여 데이터에서 실시간으로 통찰력을 얻는 방법을 배웁니다. Azure 스트림 처리 서비스를 통해 개발자는 클릭 스트림과 같은 데이터 스트림, 로그 및 장치에서 생성된 이벤트를 기록 레코드 또는 참조 데이터와 결합함으로써 쉽게 데이터 공간을 처리하여 쉽고 빠르게 비즈니스 인사이트를 얻을 수 있습니다. Azure 스트림 분석은 Microsoft Azure에 호스트된 완전히 관리되는 실시간 스트림 계산 서비스로, 기본 제공 복원력, 낮은 대기 시간 및 확장성을 제공하여 몇 분 안에 실행할 수 있습니다.
 
@@ -33,7 +33,7 @@
 -   자신있게 Azure 스트리밍 분석을 사용하여 고객에 대한 스트리밍 솔루션 개발
 -   모니터링 및 로깅 경험을 사용하여 문제 해결
 
-## 필수 조건 ##
+## 필수 조건
 
 이 자습서를 성공적으로 완료하려면 다음과 같은 필수 조건을 갖추어야 합니다.
 
@@ -41,20 +41,21 @@
 -   Visual Studio 2015 또는 무료 [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)
 -   [Azure 구독](https://azure.microsoft.com/pricing/free-trial/)
 -   컴퓨터에 대한 관리자 권한
--   [GitHub](https://github.com/streamanalytics/samples/releases)에서 최신 릴리스 TollApp.zip 다운로드
+-   Microsoft 다운로드 센터에서 [TollApp.zip](http://download.microsoft.com/download/D/4/A/D4A3C379-65E8-494F-A8C5-79303FD43B0A/TollApp.zip)을 다운로드합니다.
+-   선택 사항: [GitHub](https://github.com/streamanalytics/samples/tree/master/TollApp)의 TollApp 이벤트 생성기에 대한 소스 코드
 
-## 시나리오 소개 - "안녕, 통행료!" ##
+## 시나리오 소개 - "안녕, 통행료!"
 
 
 요금소는 전세계의 많은 고속도로, 다리, 터널에서 흔히 볼 수 있습니다. 각 요금소에는 여러 개의 요금 창구가 있어서 수동인 경우는 정차해서 징수원에게 통행료를 내야 하고 자동인 경우는 요금 창구를 지날 때 창구 위쪽에 있는 센서가 차량 앞 유리에 부착된 RFID 카드를 스캔합니다. 이러한 요금소를 통과하는 차량 흐름을 흥미로운 작업을 수행할 수 있는 이벤트 스트림으로 쉽게 시각화할 수 있습니다.
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image1.jpg)
 
-## 들어오는 데이터 ##
+## 들어오는 데이터
 
 요금소의 입구와 출구에 설치된 센서에서 생성되는 두 데이터 스트림 및 차량 등록 데이터가 있는 정적 조회 데이터 집합을 사용하여 작업합니다.
 
-### 진입 데이터 스트림 ###
+### 진입 데이터 스트림
 
 진입 데이터 스트림에는 요금소로 들어가는 자동차에 대한 정보가 포함됩니다.
   
@@ -108,7 +109,7 @@
 | ExitTime | 차량이 요금소를 빠져 나가는 날짜 및 시간(UTC) |
 | LicensePlate | 차량 번호판 번호 |
 
-###화물 차량 등록 데이터
+### 화물 차량 등록 데이터
 
 화물 차량 등록 데이터베이스의 정적 스냅숏을 사용합니다.
   
@@ -148,7 +149,7 @@ Azure 계정이 없는 경우 <http://azure.microsoft.com/pricing/free-trial/>�
 
 GitHub에 있는 TollApp 폴더의 Setup.ps1 스크립트를 사용하여 필요한 모든 리소스를 만들 수 있습니다. 시간 형편상 이를 실행하는 것이 좋습니다. Azure 포털에서 이러한 리소스를 구성하는 방법에 대해 자세히 알아보려면 "Azure 포털에서 자습서 리소스 구성" 부록을 참조하세요.
 
-[TollApp](https://github.com/streamanalytics/samples/releases) 폴더 및 파일 지원을 다운로드하고 저장합니다. 최신 릴리스를 다운로드해야 합니다.
+[TollApp](http://download.microsoft.com/download/D/4/A/D4A3C379-65E8-494F-A8C5-79303FD43B0A/TollApp.zip) 폴더 및 파일 지원을 다운로드하고 저장합니다.
 
 "Microsoft Azure PowerShell" 창을 **관리자 권한으로** 엽니다. Azure PowerShell이 아직 없는 경우 [Azure PowerShell 설치 및 구성](../powershell-install-configure.md) 지침에 따라 설치합니다.
 
@@ -224,7 +225,7 @@ Get-ExecutionPolicy를 실행하여 명령이 작동하는지 확인합니다.
 
 포트 번호 없이 서버 이름(예: *servername*.database.windows.net)을 복사합니다.
 
-##Visual Studio에서 데이터베이스에 연결
+## Visual Studio에서 데이터베이스에 연결
 
 Visual Studio를 사용하여 출력 데이터베이스의 쿼리 결과에 액세스합니다.
 
@@ -256,7 +257,7 @@ Visual Studio에서 Azure 데이터베이스(대상)에 연결합니다.
   
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image19.jpg)
   
-##이벤트 생성기 - TollApp 샘플 프로젝트
+## 이벤트 생성기 - TollApp 샘플 프로젝트
 
 PowerShell 스크립트는 TollApp 응용 프로그램 예제를 사용하여 이벤트 보내기를 자동으로 시작합니다. 추가 단계를 수행할 필요가 없습니다.
 
@@ -278,7 +279,7 @@ Azure 포털에서 스트림 분석을 열고 페이지의 왼쪽 아래에 있�
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image22.png)
 
-##입력 원본 정의
+## 입력 원본 정의
 
 포털에서 만든 분석 작업을 클릭합니다.
 
@@ -344,7 +345,7 @@ Azure 포털에서 스트림 분석을 열고 페이지의 왼쪽 아래에 있�
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image36.jpg)
 
-##출력 정의
+## 출력 정의
 
 "출력" 탭으로 이동하고 "출력 추가"를 클릭합니다.
 
@@ -358,7 +359,7 @@ Azure 포털에서 스트림 분석을 열고 페이지의 왼쪽 아래에 있�
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image38.jpg)
 
-##Azure 스트림 분석 쿼리
+## Azure 스트림 분석 쿼리
 
 쿼리 탭에는 들어오는 데이터에 대해 변환을 수행하는 SQL 쿼리가 있습니다.
 
@@ -368,7 +369,7 @@ Azure 포털에서 스트림 분석을 열고 페이지의 왼쪽 아래에 있�
 
 첫 번째 Azure 스트림 분석 작업을 시작하기 전에 몇 가지 시나리오 및 쿼리 구문을 살펴보겠습니다.
 
-##Azure 스트림 분석 쿼리 언어 소개
+## Azure 스트림 분석 쿼리 언어 소개
 -----------------------------------------------------
 
 요금 창구에 들어가는 차량 수를 계산해야 한다고 가정해봅시다. 이 작업은 연속 이벤트 스트림이므로 반드시 "기간"을 정의해야 합니다. 따라서 질문을 "3분 동안 요금 창구에 들어가는 차량 수"로 수정해야 합니다. 이를 일반적으로 연속 개수(Tumbling Count)라고 합니다.
@@ -383,7 +384,7 @@ Azure 포털에서 스트림 분석을 열고 페이지의 왼쪽 아래에 있�
 
 자세한 내용을 보려면 MSDN의 쿼리에 사용된 [시간 관리](https://msdn.microsoft.com/library/azure/mt582045.aspx) 및 [창 작업](https://msdn.microsoft.com/library/azure/dn835019.aspx) 구문을 참조하세요.
 
-##Azure 스트림 분석 쿼리 테스트
+## Azure 스트림 분석 쿼리 테스트
 
 이제 첫 번째 Azure 스트림 분석 쿼리를 작성했으므로 아래 경로의 TollApp 폴더에 있는 샘플 데이터 파일을 사용하여 테스트해보겠습니다.
 
@@ -411,7 +412,7 @@ Azure 관리 포털을 열고 만든 Azure 스트림 분석 작업으로 이동�
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image42.jpg)
 
-##질문 2 - 각 차량이 요금 창구를 통과하는 총 시간 보고
+## 질문 2 - 각 차량이 요금 창구를 통과하는 총 시간 보고
 
 효율성 및 고객 환경을 평가하기 위해 차량이 요금소를 통과하는 데 필요한 평균 시간을 구하려고 합니다.
 
@@ -435,7 +436,7 @@ Azure 관리 포털을 열고 만든 Azure 스트림 분석 작업으로 이동�
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image45.png)
 
-##질문 3 – 등록 기간이 만료된 모든 화물 차량 보고
+## 질문 3 – 등록 기간이 만료된 모든 화물 차량 보고
 
 Azure 스트림 분석은 데이터의 정적 스냅숏을 사용하여 임시 데이터 스트림과 조인할 수 있습니다. 이 기능을 보여 주기 위해 다음 샘플 질문을 사용하겠습니다.
 
@@ -457,7 +458,7 @@ Azure 스트림 분석은 데이터의 정적 스냅숏을 사용하여 임시 �
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image47.png)
 
-##스트림 분석 작업 시작
+## 스트림 분석 작업 시작
 
 
 이제 첫 번째 Azure 스트림 분석 쿼리를 작성했으므로 구성을 완료하고 작업을 시작하겠습니다. 질문 3의 쿼리를 저장하면 출력 테이블 **TollDataRefJoin**의 스키마와 일치하는 출력이 생성됩니다.
@@ -474,13 +475,13 @@ Azure 스트림 분석은 데이터의 정적 스냅숏을 사용하여 임시 �
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image50.jpg)
 
-##Visual Studio에서 결과 확인
+## Visual Studio에서 결과 확인
 
 Visual Studio 서버 탐색기를 열고 TollDataRefJoin 테이블을 마우스 오른쪽 단추로 클릭합니다. "테이블 데이터 표시"를 선택하면 작업의 출력을 볼 수 있습니다.
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image51.jpg)
 
-##Azure 스트림 분석 작업 규모 확장
+## Azure 스트림 분석 작업 규모 확장
 
 Azure 스트림 분석은 탄력적으로 크기를 조정하여 높은 부하의 데이터를 처리할 수 있도록 디자인되었습니다. Azure 스트림 분석 쿼리에서 **PARTITION BY** 절을 사용하면 이 단계에서 확장하는 시스템을 알 수 있습니다. PartitionId는 입력(이벤트 허브)의 파티션 ID와 일치하는 시스템에서 추가한 특수 열입니다.
 
@@ -500,7 +501,7 @@ Azure 스트림 분석은 탄력적으로 크기를 조정하여 높은 부하�
 
 이제 작업을 시작하면 Azure 스트림 분석이 더 많은 계산 리소스에 작업을 배포하고 처리량을 높일 수 있습니다. TollApp 응용 프로그램이 TollId로 분할된 이벤트를 보내고 있다는 것에 유의하세요.
 
-##모니터링
+## 모니터링
 
 모니터링 탭에는 실행 중인 작업에 대한 통계가 들어 있습니다.
 
@@ -516,13 +517,13 @@ Azure 스트림 분석은 탄력적으로 크기를 조정하여 높은 부하�
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image56.png)
 
-##결론
+## 결론
 
 이 자습서에서는 Azure 스트림 분석 서비스에 대해 소개합니다. 스트림 분석 작업에 대해 입력 및 출력을 구성하는 방법을 보여 줍니다. 지금까지 요금 데이터 시나리오를 통해 동작 중인 데이터 공간에서 발생하는 일반적인 문제 유형과 Azure 스트림 분석에서 간단한 SQL 유사 쿼리를 사용하여 이러한 문제를 해결하는 방법을 설명했습니다. 임시 데이터 작업을 위한 SQL 확장 구성을 설명했습니다. 데이터 스트림을 조인하는 방법 및 정적 참조 데이터를 사용하여 데이터 스트림을 보강하는 방법을 설명했습니다. 처리량을 높일 수 있도록 쿼리를 확장하는 방법을 설명했습니다.
 
 이 자습서가 개요에 해당하는 내용을 잘 소개하고는 있지만 완전하지는 않습니다. [여기](stream-analytics-stream-analytics-query-patterns.md)에 있는 SAQL 언어를 사용하여 더 많은 쿼리 패턴을 찾을 수 있습니다. Azure 스트림 분석에 대한 자세한 내용을 알아보려면 [온라인 설명서](https://azure.microsoft.com/documentation/services/stream-analytics/)를 참조하세요.
 
-##Azure 계정 정리
+## Azure 계정 정리
 
 Azure 포털에서 스트림 분석 작업을 중지하세요.
 
@@ -534,4 +535,4 @@ PowerShell 창에서 ".\\Cleanup.ps1"을 입력합니다. 그러면 자습서에
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image57.png)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

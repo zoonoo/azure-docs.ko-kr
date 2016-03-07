@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/16/2016"
+   ms.date="02/18/2016"
    ms.author="v-sharos" />
 
 # StorSimple 가상 배열을 위한 StorSimple Manager 서비스 대시보드 사용(미리 보기)
@@ -62,4 +62,4 @@ StorSimple 관리자 서비스 대시보드에 다음 정보가 표시됩니다.
 
 로컬 웹 UI를 사용하여 [StorSimple 가상 배열을 관리](storsimple-ova-web-ui-admin.md)하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

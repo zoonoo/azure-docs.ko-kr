@@ -19,7 +19,7 @@
 
 #Azure CLI를 사용하여 HDInsight에서 Linux 기반 클러스터 만들기
 
-[AZURE.INCLUDE [선택기](../../includes/hdinsight-create-linux-cluster-selector.md)]
+[AZURE.INCLUDE [선택기](../../includes/hdinsight-selector-create-clusters.md)]
 
 Azure CLI는 Azure 서비스를 관리할 수 있도록 하는 크로스 플랫폼 명령줄 유틸리티입니다. Azure 리소스 관리 템플릿과 함께 사용하여 HDInsight 클러스터를 연결된 저장소 계정 및 기타 서비스와 함께 만들 수 있습니다.
 
@@ -121,4 +121,4 @@ HDInsight 클러스터를 성공적으로 만들었으므로 다음을 사용하
 * [HDInsight의 Storm에서 Python 구성 요소 사용](hdinsight-storm-develop-python-topology.md)
 * [HDInsight에서 Storm을 사용하는 토폴로지 배포 및 모니터링](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

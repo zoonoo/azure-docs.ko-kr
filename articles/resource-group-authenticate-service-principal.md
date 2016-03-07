@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="11/18/2015"
+   ms.date="02/21/2016"
    ms.author="tomfitz"/>
 
 # Azure 리소스 관리자를 사용하여 서비스 주체 인증
@@ -27,7 +27,9 @@ Mac, Linux 및 Windows용 Azure PowerShell 또는 Azure CLI 중 하나를 사용
 ## 개념
 1. AAD(Azure Active Directory) - 클라우드에 대한 ID 및 액세스 관리 서비스입니다. 자세한 내용은 [Azure Active Directory란](active-directory/active-directory-whatis.md)을 참조하세요.
 2. 서비스 사용자 - 다른 리소스에 액세스해야 하는 디렉터리의 응용 프로그램 인스턴스입니다.
-3. AD 응용 프로그램 - AAD에 응용 프로그램을 식별하는 디렉터리 레코드입니다. 자세한 내용은 [Azure AD의 인증 기본 사항](https://msdn.microsoft.com/library/azure/874839d9-6de6-43aa-9a5c-613b0c93247e#BKMK_Auth)을 참조하세요.
+3. AD 응용 프로그램 - AAD에 응용 프로그램을 식별하는 디렉터리 레코드입니다.
+
+응용 프로그램 및 서비스 주체에 대한 자세한 내용은 [응용 프로그램 개체 및 서비스 주체 개체](active-directory/active-directory-application-objects.md)를 참조하세요. Active Directory 인증에 대한 자세한 내용은 [Azure AD에 대한 인증 시나리오](active-directory/active-directory-authentication-scenarios.md)를 참조하세요.
 
 ## 암호로 서비스 주체 인증 - PowerShell
 
@@ -312,4 +314,4 @@ Mac, Linux 및 Windows용 Azure PowerShell 또는 Azure CLI 중 하나를 사용
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -2,7 +2,7 @@
 	pageTitle="논리 앱에서 Slack 커넥터 사용 | Microsoft Azure 앱 서비스"
 	description="Slack 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
 	authors="rajeshramabathiran" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="app-service\logic" 
 	documentationCenter=""/>
@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/11/2015"
+	ms.date="02/11/2016"
 	ms.author="rajram"/>
 
 # Slack 커넥터 시작 및 논리 앱에 추가
+>[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다. 2015-08-01-preview 스키마 버전에 대한 내용을 보려면 [Slack API](../connectors/create-api-slack.md)을 클릭하세요.
+
 Slack 채널에 연결하고 팀에 메시지를 게시합니다. 커넥터는 논리 앱에서 다양한 작업을 수행하기 위한 "워크플로"의 일부로 사용될 수 있습니다. 워크플로에서 Slack 커넥터를 활용하면 다른 커넥터를 사용하여 다양한 시나리오를 수행할 수 있습니다. 예를 들어 워크플로의 [Facebook 커넥터](app-service-logic-connector-facebook.md)를 사용하여 Slack 채널에 메시지를 게시할 수 있습니다.
 
 ## 트리거 및 작업
@@ -43,7 +45,7 @@ Slack 커넥터에서 사용할 수 있는 트리거와 동작은 다음과 같�
 
 ## 논리 앱에서 커넥터를 동작으로 사용
 
-> [AZURE.IMPORTANT]커넥터 및 논리 앱은 항상 동일한 리소스 그룹에서 만들어집니다.
+> [AZURE.IMPORTANT] 커넥터 및 논리 앱은 항상 동일한 리소스 그룹에서 만들어집니다.
 
 Slack 커넥터를 만든 후 논리 앱에 동작으로 추가할 수 있습니다.
 
@@ -85,7 +87,7 @@ Slack 커넥터를 만든 후 논리 앱에 동작으로 추가할 수 있습니
 ## 커넥터의 추가 기능
 이제 커넥터를 만들었으므로 논리 앱을 사용하여 비즈니스 워크플로에 추가할 수 있습니다. [논리 앱 정의](app-service-logic-what-are-logic-apps.md)를 참조하세요.
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동합니다. 앱 서비스에서 즉시 단기 스타터 논리 앱을 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동합니다. 앱 서비스에서 즉시 단기 스타터 논리 앱을 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 [커넥터 및 API 앱 참조](http://go.microsoft.com/fwlink/p/?LinkId=529766)의 Swagger REST API 참조를 봅니다.
 
@@ -103,4 +105,4 @@ Slack 커넥터를 만든 후 논리 앱에 동작으로 추가할 수 있습니
 [8]: ./media/app-service-logic-connector-slack/img8.PNG
 [9]: ./media/app-service-logic-connector-slack/img9.PNG
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

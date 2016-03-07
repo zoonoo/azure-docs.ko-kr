@@ -18,12 +18,13 @@
 	ms.author="jodebrui"/>
 
 
-# 메모리 내(미리 보기)를 사용하여 SQL 데이터베이스에서 응용 프로그램의 성능 향상
+# 메모리 내 OLTP(미리 보기)를 사용하여 SQL 데이터베이스에서 응용 프로그램의 성능 향상
 
-[메모리 내](sql-database-in-memory.md) 기능을 사용하여 기존 [Premium](sql-database-service-tiers.md) Azure SQL 데이터베이스의 트랜잭션 성능을 최적화하려면 다음 단계를 수행합니다.
+[메모리 내 OLTP](sql-database-in-memory.md)를 사용하면 성능 수준을 높이지 않고 [Premium](sql-database-service-tiers.md) Azure SQL 데이터베이스에서 OLTP 워크로드의 성능을 개선할 수 있습니다.
 
+기존 데이터베이스에서 메모리 내 OLTP를 채택하려면 다음 단계를 따르세요.
 
-## 1단계: Premium 데이터베이스로 메모리 지원
+## 1단계: Premium 데이터베이스가 메모리 내 OLTP를 지원하는지 확인
 
 2015년 11월 이후에 만든 Premium 데이터베이스는 메모리 내 기능을 지원합니다. 다음 Transact-SQL 문을 실행하여 Premium 데이터베이스가 메모리 내 기능을 지원하는지를 확인할 수 있습니다. 반환된 결과가 1인 경우(0이 아님) 메모리 내가 지원됩니다.
 
@@ -236,4 +237,4 @@ CREATE PROCEDURE schemaname.procedurename
 
 - [메모리 최적화 관리자](http://msdn.microsoft.com/library/dn284308.aspx)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

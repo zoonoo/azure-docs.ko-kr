@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="02/04/2016"
+	ms.date="02/18/2016"
 	ms.author="jeffstok"/>
 
 
@@ -29,8 +29,9 @@
 뉴스 미디어 웹 사이트는 독자와 직접적으로 관련이 있는 사이트 콘텐츠를 부각시켜 경쟁 우위를 확보하는 데 관심이 있습니다. 이러한 웹 사이트에서는 Twitter 데이터를 실시간으로 정서를 분석하여 독자와 관련된 항목에 대한 소셜 미디어 정보를 사용합니다. 특히 Twitter에서 실시간으로 추세를 분석할 토픽을 식별하기 위해 주요 토픽에 대한 트윗 볼륨 및 정서에 대한 실시간 분석이 필요합니다. 따라서 기본적으로 이 소셜 미디어 피드를 기반으로 하는 정서 분석 엔진이 필요합니다.
 
 ## 필수 조건
-1.	이 자습서에는 Twitter 계정이 필요합니다.  
-2.	이 연습은 GitHub에 있는 Twitter 클라이언트 응용 프로그램을 사용합니다. [여기](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClient)에서 다운로드하여 아래 단계에 따라 솔루션을 설정합니다.
+1.	Twitter 계정 및 [OAuth 액세스 토큰](https://dev.twitter.com/oauth/overview/application-owner-access-tokens) 
+2.	Microsoft 다운로드 센터의 [TwitterClient.zip](http://download.microsoft.com/download/1/7/4/1744EE47-63D0-4B9D-9ECF-E379D15F4586/TwitterClient.zip)
+3.	선택 사항: twitter 클라이언트의 소스 코드([Github](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClient)) 
 
 ## 이벤트 허브 입력 및 소비자 그룹 만들기
 
@@ -55,16 +56,15 @@ Microsoft에서는 매개 변수화된 항목 집합에 대한 트윗 이벤트�
 
 다음 단계에 따라 응용 프로그램을 설치합니다.
 
-1.	[TwitterClient 솔루션을 다운로드합니다.](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClient)
-2.	App.config를 열고 oauth\_consumer\_key, oauth\_consumer\_secret, oauth\_token, oauth\_token\_secret을 원하는 값의 Twitter 토큰으로 바꿉니다.  
+1.	[TwitterClient 솔루션을 다운로드합니다.](http://download.microsoft.com/download/1/7/4/1744EE47-63D0-4B9D-9ECF-E379D15F4586/TwitterClient.zip)
+2.	TwitterClient.exe.config를 열고 oauth\_consumer\_key, oauth\_consumer\_secret, oauth\_token, oauth\_token\_secret을 원하는 값의 Twitter 토큰으로 바꿉니다.  
 
 	[OAuth 액세스 토큰을 생성하는 단계](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)
 
 	토큰을 생성하는 빈 응용 프로그램을 만들어야 합니다.  
-3.	App.config의 EventHubConnectionString 및 EventHubName 값을 이벤트 허브 연결 문자열 및 이름으로 바꿉니다.
-4.	*선택 사항:* 검색할 키워드를 조정합니다. 기본적으로 이 응용 프로그램은 "Azure,Skype,XBox,Microsoft,Seattle"을 찾습니다. 필요한 경우 App.config에서 twitter\_keywords 값을 조정할 수 있습니다.
-5.	솔루션을 빌드합니다.
-6.	응용 프로그램을 시작합니다. CreatedAt, Topic 및 SentimentScore 값이 이벤트 허브로 전송 중인 트윗 이벤트가 표시됩니다.
+3.	TwitterClient.exe.config의 EventHubConnectionString 및 EventHubName 값을 이벤트 허브 연결 문자열 및 이름으로 바꿉니다.
+4.	*선택 사항:* 검색할 키워드를 조정합니다. 기본적으로 이 응용 프로그램은 "Azure,Skype,XBox,Microsoft,Seattle"을 찾습니다. 필요한 경우 TwitterClient.exe.config에서 twitter\_keywords 값을 조정할 수 있습니다.
+5.	**TwitterClient.exe**를 실행하여 응용 프로그램을 시작합니다. CreatedAt, Topic 및 SentimentScore 값이 이벤트 허브로 전송 중인 트윗 이벤트가 표시됩니다.
 
 	![정서 분석: 이벤트 허브로 전송되는 SentimentScore 값](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-sentiment-output-to-event-hub.png)
 
@@ -236,4 +236,4 @@ Blob 저장소의 컨테이너가 없는 경우 아래 단계에 따라 만듭�
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

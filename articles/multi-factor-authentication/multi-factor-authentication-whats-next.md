@@ -195,7 +195,7 @@ Azure AD 테넌트의 유형| 사용 가능한 신뢰할 수 있는 IP 옵션
 6. 서비스 설정 페이지의 신뢰할 수 있는 IP에서 다음 중 하나를 선택합니다.
 
 	- 내 인트라넷에서 발생한 페더레이션된 사용자의 요청에 대해 회사 네트워크에서 로그인하는 모든 페더레이션된 사용자는 AD FS에서 발급한 클레임을 사용하는 Multi-Factor Authentication을 바이패스합니다. 
-	- 공용 IP 중 특정 범위의 요청에 대해 CIDR 표기법을 사용하여 제공된 상자에 IP 주소를 입력합니다. 예를 들어 xxx.xxx.xxx.1 – xxx.xxx.xxx.254 범위의 IP 주소에 xxx.xxx.xxx.0/24, 또는 단일 IP 주소에 xxx.xxx.xxx.xxx/32입니다. 최대 12개의 IP 주소 범위를 입력할 수 있습니다.
+	- 공용 IP 중 특정 범위의 요청에 대해 CIDR 표기법을 사용하여 제공된 상자에 IP 주소를 입력합니다. 예를 들어 xxx.xxx.xxx.1 – xxx.xxx.xxx.254 범위의 IP 주소에 xxx.xxx.xxx.0/24, 또는 단일 IP 주소에 xxx.xxx.xxx.xxx/32입니다. 최대 50개의 IP 주소 범위를 입력할 수 있습니다.
 
 7. 저장을 클릭합니다.
 8. 업데이트를 적용하면 닫기를 클릭합니다.
@@ -376,4 +376,4 @@ Azure AD는 온-프레미스 Windows Server Active Directory 도메인 서비스
 9. 저장을 클릭합니다.
 10. 닫기를 클릭합니다.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

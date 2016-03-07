@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="02/18/2016"
 	ms.author="tarcher"/>
 
 # Azure DevTest Lab에 아티팩트를 사용하여 VM 추가
+
+> [AZURE.NOTE] 이 문서와 함께 제공되는 비디오를 보려면 다음 링크를 클릭하세요. [DevTest Lab에서 아티팩트를 사용하여 VM을 만드는 방법](/documentation/videos/how-to-create-vms-with-artifacts-in-a-devtest-lab)
 
 ## 개요
 
@@ -96,6 +98,6 @@ VM에 아티팩트를 추가하고 구성할 때 현재 아티팩트의 수를 �
 
 ## 다음 단계
 
-[VM에 대한 사용자 지정 아티팩트 작성](devtest-lab-artifact-author.md) 방법에 대해 알아봅니다.
+- [VM에 대한 사용자 지정 아티팩트 작성](devtest-lab-artifact-author.md) 방법에 대해 알아봅니다.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

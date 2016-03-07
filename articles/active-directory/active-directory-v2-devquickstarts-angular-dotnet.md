@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD AngularJS 시작 | Microsoft Azure"
+	pageTitle="Azure AD v2.0 AngularJS 시작 | Microsoft Azure"
 	description="개인 Microsoft 계정과 회사 또는 학교 계정이 있는 사용자로 로그인하는 Angular JS 단일 페이지 앱을 빌드하는 방법입니다."
 	services="active-directory"
 	documentationCenter=""
@@ -13,22 +13,25 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="02/20/2016"
 	ms.author="dastrock"/>
 
 
-# 앱 모델 v2.0 미리 보기: AngularJS 단일 페이지 앱에 로그인 추가 - .NET
+# AngularJS 단일 페이지 앱에 로그인 추가 - .NET
 
-이 문서에서는 Azure Active Directory 앱 모델 v2.0을 사용하여 Microsoft 지원 계정을 사용한 로그인을 AngularJS 앱에 추가합니다. 앱 모델 v2.0을 사용하면 앱 내에서 단일 통합을 수행할 수 있고 개인 및 회사/학교 계정을 사용하여 사용자를 인증할 수 있습니다.
+이 문서에서는 Azure Active Directory v2.0 끝점을 사용하여 Microsoft 지원 계정을 사용한 로그인을 AngularJS 앱에 추가합니다. v2.0 끝점을 사용하면 앱 내에서 단일 통합을 수행할 수 있고 개인 및 회사/학교 계정을 사용하여 사용자를 인증할 수 있습니다.
 
-이 샘플은 Azure AD의 OAuth 전달자 토큰을 사용하여 보안이 유지되고 .NET 4.5 MVC 프레임워크를 사용하여 작성된, 백 엔드 REST API에 작업을 저장하는 간단한 할 일 모음 단일 페이지 앱입니다. AngularJS 앱은 오픈 소스 JavaScript 인증 라이브러리 [adal.js](https://github.com/AzureAD/azure-activedirectory-library-for-js)를 사용하여 전반적인 로그인 프로세스를 처리하고 REST API 호출용 토큰을 가져옵니다. 동일한 패턴이 [Microsoft Graph](https://graph.microsoft.com) 또는 Azure 리소스 관리자 API와 같은 다른 REST API에 대한 인증에 적용될 수 있습니다.
+이 샘플은 Azure AD의 OAuth 전달자 토큰을 사용하여 보안이 유지되고 .NET 4.5 MVC 프레임워크를 사용하여 작성된, 백 엔드 REST API에 작업을 저장하는 간단한 할 일 모음 단일 페이지 앱입니다. AngularJS 앱은 오픈 소스 JavaScript 인증 라이브러리 [adal.js](https://github.com/AzureAD/azure-activedirectory-library-for-js)를 사용하여 전반적인 로그인 프로세스를 처리하고 REST API 호출용 토큰을 가져옵니다. 동일한 패턴이 [Microsoft Graph](https://graph.microsoft.com)와 같은 다른 REST API에 대한 인증에 적용될 수 있습니다.
+
+> [AZURE.NOTE]
+	일부 Azure Active Directory 시나리오 및 기능만 v2.0 끝점에서 지원합니다. v2.0 끝점을 사용해야 하는지 확인하려면 [v2.0 제한 사항](active-directory-v2-limitations.md)을 참조하세요.
 
 ## 다운로드
 
 시작하려면 Visual Studio를 다운로드해서 설치해야 합니다. 그 후 골격 앱을 복제하거나 [다운로드](https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-DotNet/archive/skeleton.zip)합니다.
 
 ```
-git clone --branch skeleton https://github.com/AzureADQuickStarst/AppModelv2-SinglePageApp-AngularJS-DotNet.git
+git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-DotNet.git
 ```
 
 골격 앱은 간단한 AngularJS 앱에 대한 모든 상용구 코드를 포함하지만 ID 관련 부분은 전혀 포함하지 않습니다. 따라서 진행하지 않으려면 전체 샘플을 대신 복제하거나 [다운로드](https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-DotNet/archive/complete.zip)합니다.
@@ -219,10 +222,10 @@ return $http.get('/api/tasks');
 
 축하합니다. Azure AD 통합 단일 페이지 앱이 완성되었습니다. 수고 많으셨습니다. 이제 앱에서 사용자를 인증하고, OpenID Connect를 사용하여 백 엔드 REST API를 안전하게 호출하고, 사용자에 대한 기본 정보를 가져올 수 있습니다. 기본적으로, 개인 Microsoft 계정이나 Azure AD의 회사/학교 계정이 있는 모든 사용자를 지원합니다. 앱을 실행하고 브라우저에서 `https://localhost:44326/`으로 이동합니다. 개인 Microsoft 계정 또는 회사/학교 계정을 사용하여 로그인합니다. 사용자의 할 일 모음에 작업을 추가하고 로그아웃합니다. 다른 유형의 계정으로 로그인을 시도합니다. Azure AD 테넌트에서 회사/학교 사용자를 만들어야 하는 경우에는 [여기에서 만드는 방법을 알아봅니다(무료)](active-directory-howto-tenant.md).
 
-앱 모델 v2.0 미리 보기에 대해 계속 알아보려면, [v2.0 개발자 가이드](active-directory-appmodel-v2-overview.md)로 돌아가세요. 추가 리소스는 다음을 확인해보세요.
+v2.0 끝점에 대해 계속 알아보려면, [v2.0 개발자 가이드](active-directory-appmodel-v2-overview.md)로 돌아가세요. 추가 리소스는 다음을 확인해보세요.
 
 - [GitHub의 Azure 샘플(영문) >>](https://github.com/Azure-Samples)
 - [스택 오버플로의 Azure AD(영문) >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 - [Azure.com >>](https://azure.microsoft.com/documentation/services/active-directory/)의 Azure AD 설명서
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -119,7 +119,7 @@ Visual Studio 2015는 IDE 내에서 Node.js 응용 프로그램 개발하도록 
         // Azure Mobile Apps Initialization
         var mobile = azureMobileApps();
         mobile.tables.add('TodoItem');
-        app.use('mobile');
+        app.use(mobile);
 
     파일을 저장합니다.
 
@@ -803,4 +803,4 @@ Azure 포털을 사용하면 로컬 컴퓨터에 프로젝트를 다운로드하
 [ExpressJS 미들웨어]: http://expressjs.com/guide/using-middleware.html
 [윈스턴]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

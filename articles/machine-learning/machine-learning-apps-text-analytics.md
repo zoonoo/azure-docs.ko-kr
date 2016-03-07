@@ -1,6 +1,6 @@
 <properties
 	pageTitle="기계 학습 API: 텍스트 분석 | Microsoft Azure"
-	description="Azure 기계 학습에서 제공된 텍스트 분석 API입니다. 이 API를 사용하여 정서 분석, 핵심 구문 추출 및 언어 검색을 위해 구조화되지 않은 텍스트를 분석할 수 있습니다."
+	description="Microsoft의 기계 학습 텍스트 분석 API를 사용하여 정서 분석, 핵심 문구 추출, 언어 검색 및 항목 검색에 대해 구조화되지 않은 텍스트를 분석할 수 있습니다."
 	services="machine-learning"
 	documentationCenter=""
 	authors="onewth"
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/17/2015"
+	ms.date="02/22/2016"
 	ms.author="onewth"/>
 
 
-# 기계 학습 API: 정서, 핵심 구문 추출 및 언어 검색을 위한 텍스트 분석
+# 기계 학습 API: 정서, 핵심 구문 추출, 언어 검색 및 항목 검색을 위한 텍스트 분석
 
 ## 개요
 
-텍스트 분석 API는 Azure 기계 학습을 사용하여 빌드한 텍스트 분석 [웹 서비스](https://datamarket.azure.com/dataset/amla/text-analytics) 제품군입니다. 이 API를 사용하여 정서 분석, 핵심 문구 추출 및 언어 검색과 같은 작업에 대한 구조화되지 않은 텍스트를 분석할 수 있습니다. 학습 데이터 없이 이 API를 사용할 수 있으며, 텍스트 데이터를 가져오기만 하면 됩니다. 이 API는 고급 자연어 처리 기술을 사용하여 클래스 예측을 가장 잘 전달합니다.
+텍스트 분석 API는 Azure 기계 학습을 사용하여 빌드한 텍스트 분석 [웹 서비스](https://datamarket.azure.com/dataset/amla/text-analytics) 제품군입니다. 이 API를 사용하여 정서 분석, 핵심 문구 추출, 언어 검색 및 항목 검색과 같은 작업에 대한 구조화되지 않은 텍스트를 분석할 수 있습니다. 학습 데이터 없이 이 API를 사용할 수 있으며, 텍스트 데이터를 가져오기만 하면 됩니다. 이 API는 고급 자연어 처리 기술을 사용하여 클래스 예측을 가장 잘 전달합니다.
 
 [데모 사이트](https://text-analytics-demo.azurewebsites.net/)에서 작업에 대한 텍스트 분석을 볼 수 있으며 이 사이트에는 C# 및 Python에서 텍스트 분석을 구현하는 방법에 대한 [샘플](https://text-analytics-demo.azurewebsites.net/Home/SampleCode)도 있습니다.
 
@@ -40,6 +40,10 @@
 ## 언어 검색
 
 API는 검색된 언어 및 0에서 1 사이의 숫자 점수를 반환합니다. 점수가 1에 가까울수록 식별된 언어가 true라는 100% 확실성을 나타냅니다. 총 120개의 언어가 지원됩니다.
+
+## 항목 검색
+
+새로 발표된 API이며 제출된 텍스트 레코드 목록에 대해 검색된 상위 항목을 반환합니다. 항목은 핵심 문구로 식별되며 하나 이상의 관련 단어를 가질 수 있습니다. 이 API는 제출되는 텍스트 레코드 수가 100개 이상 필요하지만 수백 개에서 수천 개의 레코드에서 항목을 검색할 수 있습니다. 이 API는 제출된 텍스트 레코드당 하나의 트랜잭션을 사용합니다. 이 API는 리뷰와 사용자 피드백 등 짧고 직접 작성한 텍스트 사용 시 더 효과적입니다.
 
 ---
 
@@ -161,14 +165,14 @@ API는 검색된 언어 및 0에서 1 사이의 숫자 점수를 반환합니다
 	{"Inputs":
 	[
 	    {"Id":"1","Text":"hello world"},
-    	    {"Id":"2","Text":"hello foo world"},
-    	    {"Id":"3","Text":"hello my world"},
+	    {"Id":"2","Text":"hello foo world"},
+	    {"Id":"3","Text":"hello my world"},
 	]}
 
 아래 응답에서 텍스트 ID와 연결된 점수 목록을 확인할 수 있습니다.
 
 	{
-	  "odata.metadata":"https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/$metadata", 
+	  "odata.metadata":"<url>", 
 	  "SentimentBatch":
 	  [
 		{"Score":0.9549767,"Id":"1"},
@@ -210,7 +214,7 @@ API는 검색된 언어 및 0에서 1 사이의 숫자 점수를 반환합니다
 
 아래 응답에서 텍스트 ID와 연결된 핵심 문구 목록을 확인할 수 있습니다.
 
-	{ "odata.metadata":"https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/$metadata",
+	{ "odata.metadata":"<url>",
 	 	"KeyPhrasesBatch":
 		[
 		   {"KeyPhrases":["unique decor","friendly staff","wonderful hotel"],"Id":"1"},
@@ -261,4 +265,122 @@ API는 검색된 언어 및 0에서 1 사이의 숫자 점수를 반환합니다
        "Errors": []
     }
 
-<!---HONumber=AcomDC_1125_2015-->
+---
+
+## 항목 검색 API
+
+새로 발표된 API이며 제출된 텍스트 레코드 목록에 대해 검색된 상위 항목을 반환합니다. 항목은 핵심 문구로 식별되며 하나 이상의 관련 단어를 가질 수 있습니다. 이 API는 제출된 텍스트 레코드당 하나의 트랜잭션을 사용합니다.
+
+이 API는 제출되는 텍스트 레코드 수가 100개 이상 필요하지만 수백 개에서 수천 개의 레코드에서 항목을 검색할 수 있습니다.
+
+
+### 항목 - 작업 제출
+
+**URL**
+
+	https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/StartTopicDetection
+
+**예제 요청**
+
+
+아래 POST 호출에서는 100개 문서 집합에 대해 항목을 요청하여 첫 번째 및 마지막 입력 문서를 표시하고 두 개의 StopPhrases를 포함합니다.
+
+	POST https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/StartTopicDetection HTTP/1.1
+
+본문 요청:
+
+	{"Inputs":[
+		{"Id":"1","Text":"I loved the food at this restaurant"},
+		...,
+		{"Id":"100","Text":"I hated the decor"}
+	],
+	"StopPhrases":[
+		"restaurant", “visitor"
+	]}
+
+아래 응답에서 제출된 작업에 대한 JobId를 가져옵니다.
+
+	{
+		"odata.metadata":"<url>",
+		"JobId":"<JobId>"
+	}
+
+항목으로 반환할 수 없는 한 단어 또는 여러 단어 문구의 목록입니다. 매우 일반적인 항목을 필터링하는 데 사용할 수 있습니다. 예를 들어 호텔 리뷰에 대한 데이터 집합에서 "호텔" 및 "호스텔"은 합리적인 중지 문구가 될 수 있습니다.
+
+### 항목 - 작업 결과에 대한 설문 조사
+
+**URL**
+
+	https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetTopicDetectionResult
+
+**예제 요청**
+
+'작업 제출' 단계에서 반환된 JobId를 전달하여 결과를 가져옵니다. 응답에 Status='Complete'가 표시될 때까지 1분마다 이 끝점을 호출하는 것이 좋습니다. 한 작업을 완료하는 데 약 10분의 시간이 소요되며 레코드 수가 수천 개인 작업의 경우 더 오랜 시간이 걸립니다.
+
+	GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetTopicDetectionResult?JobId=<JobId>
+
+
+처리하는 동안 다음과 같은 응답이 표시됩니다.
+
+	{
+		"odata.metadata":"<url>",
+		"Status":"Running",
+ 		"TopicInfo":[],
+		"TopicAssignment":[],
+		"Errors":[]
+	}
+
+
+API는 다음과 같은 형식의 JSON 형식으로 출력을 반환합니다.
+
+	{
+		"odata.metadata":"<url>",
+		"Status":"Finished",
+		"TopicInfo":[
+		{
+			"TopicId":"ed00480e-f0a0-41b3-8fe4-07c1593f4afd",
+			"Score":8.0,
+			"KeyPhrase":"food"
+		},
+		...
+		{
+			"TopicId":"a5ca3f1a-fdb1-4f02-8f1b-89f2f626d692",
+			"Score":6.0,
+			"KeyPhrase":"decor"
+    		}
+  		],
+		"TopicAssignment":[
+		{
+			"Id":"1",
+			"TopicId":"ed00480e-f0a0-41b3-8fe4-07c1593f4afd",
+			"Distance":0.7809
+		},
+		...
+		{
+			"Id":"100",
+			"TopicId":"a5ca3f1a-fdb1-4f02-8f1b-89f2f626d692",
+			"Distance":0.8034
+		}
+		],
+		"Errors":[]
+
+
+응답의 각 부분에 대한 속성은 다음과 같습니다.
+
+**TopicInfo 속성**
+
+| 키 | 설명 |
+|:-----|:----|
+| TopicId | 각 항목에 대한 고유 식별자입니다. |
+| Score | 항목에 할당된 레코드 개수입니다. |
+| KeyPhrase | 항목에 대한 요약 단어 또는 구입니다. 한 단어 또는 여러 단어가 될 수 있습니다. |
+
+**TopicAssignment 속성**
+
+| 키 | 설명 |
+|:-----|:----|
+| Id | 레코드에 대한 식별자입니다. 입력에 포함된 ID와 같습니다. |
+| TopicId | 레코드가 할당된 항목 ID입니다. |
+| Distance | 레코드가 항목에 속할 신뢰도입니다. Distance가 0에 가까울수록 신뢰도가 높아집니다. |
+
+<!---HONumber=AcomDC_0224_2016-->

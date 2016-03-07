@@ -1,5 +1,5 @@
 <properties
-	pageTitle="앱 모델 v2.0 Node.js Web API | Microsoft Azure"
+	pageTitle="Azure AD v2.0 NodeJS 웹 API | Microsoft Azure"
 	description="개인 Microsoft 계정과 회사 또는 학교 계정 둘 다의 토큰을 허용하는 NodeJS Web API를 빌드하는 방법입니다."
 	services="active-directory"
 	documentationCenter="nodejs"
@@ -13,24 +13,19 @@
   	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="02/20/2016"
 	ms.author="brandwe"/>
 
-# 앱 모델 v2.0 미리 보기: node.js를 사용하여 Web API 보안 유지
+# node.js를 사용하여 Web API 보안 유지
 
 > [AZURE.NOTE]
-이 정보는 v2.0 앱 모델 공개 미리 보기에 적용됩니다. 일반 공급 Azure AD 서비스와 통합하는 방법에 대한 지침은 [Azure Active Directory 개발자 가이드](active-directory-developers-guide.md)를 참조하세요.
+	일부 Azure Active Directory 시나리오 및 기능만 v2.0 끝점에서 지원합니다. v2.0 끝점을 사용해야 하는지 확인하려면 [v2.0 제한 사항](active-directory-v2-limitations.md)을 참조하세요.
 
-v2.0 앱 모델에서는 [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) 액세스 토큰을 사용하여 Web API를 보호함으로써 개인 Microsoft 계정과 회사 또는 학교 계정 둘 다를 가진 사용자가 Web API에 안전하게 액세스할 수 있도록 합니다.
+Azure Active Directory v2.0 끝점을 사용하면 [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) 액세스 토큰을 사용하여 Web API를 보호함으로써 개인 Microsoft 계정과 회사 또는 학교 계정 둘 다를 가진 사용자가 Web API에 안전하게 액세스할 수 있도록 합니다.
 
 **Passport**는 Node.js에 대한 인증 미들웨어입니다. 매우 유연한 모듈식 Passport는 어떤 Express 기반 또는 Resitify 웹 응용 프로그램에도 원활하게 추가할 수 있습니다. 포괄적인 전략 모음이 사용자 이름 및 암호, Facebook, Twitter 등을 사용하는 인증을 지원합니다. Microsoft는 Microsoft Azure Active Directory에 대한 전략을 개발했습니다. 여기서는 이 모듈을 설치하고 Microsoft Azure Active Directory `passport-azure-ad` 플러그 인을 추가하겠습니다.
 
-이 작업을 수행하려면 다음 작업이 필요합니다.
-
-1. Azure AD에 응용 프로그램을 등록합니다.
-2. Passport의 azure-ad-passport 플러그 인을 사용하도록 앱을 설정합니다.
-3. To Do List Web API를 호출하도록 클라이언트 응용 프로그램 구성
-
+## 다운로드
 이 자습서에 대한 코드는 [GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs)에서 유지 관리됩니다. 자습서에 따라 [.zip으로 앱 구조를 다운로드](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs/archive/skeleton.zip)하거나 구조를 복제할 수 있습니다.
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs.git```
@@ -38,7 +33,7 @@ v2.0 앱 모델에서는 [OAuth 2.0](active-directory-v2-protocols.md#oauth2-aut
 전체 응용 프로그램은 이 자습서 마지막 부분에서도 제공됩니다.
 
 
-## 1. 앱 등록
+## 1\. 앱 등록
 [apps.dev.microsoft.com](https://apps.dev.microsoft.com)에서 새 앱을 만들거나 다음 [자세한 단계](active-directory-v2-app-registration.md)를 따르십시오. 다음을 수행해야 합니다.
 
 - 곧 필요하게 되므로 앱에 할당된 **응용 프로그램 ID**를 적어둡니다.
@@ -49,15 +44,15 @@ v2.0 앱 모델에서는 [OAuth 2.0](active-directory-v2-protocols.md#oauth2-aut
 ## 2: 사용자 플랫폼을 위한 node.js 다운로드
 이 샘플을 사용하려면 작동하는 Node.js 설치가 있어야 합니다.
 
-[http://nodejs.org](http://nodejs.org) 에서 Node.js를 설치합니다.
+[http://nodejs.org](http://nodejs.org)에서 Node.js를 설치합니다.
 
 ## 3: 사용 중인 플랫폼에 MongoDB 설치
 
 이 샘플을 사용하려면 작동하는 MongoDB 설치가 있어야 합니다. MongoDB를 사용하여 REST API가 서버 인스턴스 간에 지속되도록 할 것입니다.
 
-[http://mongodb.org](http://www.mongodb.org) 에서 MongoDB를 설치합니다.
+[http://mongodb.org](http://www.mongodb.org)에서 MongoDB를 설치합니다.
 
-> [AZURE.NOTE]이 연습에서는 연습 과정을 작성할 때의 MongoDB에 대한 기본 설치 및 서버 끝점인 mongodb://localhost을(를) 사용한다고 가정합니다.
+> [AZURE.NOTE] 이 연습에서는 연습 과정을 작성할 때의 MongoDB에 대한 기본 설치 및 서버 끝점인 mongodb://localhost을(를) 사용한다고 가정합니다.
 
 ## 4: Web API에 Restify 모듈 설치
 
@@ -126,7 +121,7 @@ Restify는 DTrace를 사용하여 REST 호출을 추적하는 강력한 메커�
 	├── verror@1.3.6 (extsprintf@1.0.2)
 	├── csv@0.3.6
 	├── http-signature@0.10.0 (assert-plus@0.1.2, asn1@0.1.11, ctype@0.5.2)
-	└── bunyan@0.22.0 (mv@0.0.5)
+	└── bunyan@0.22.0(mv@0.0.5)
 
 
 ## 5: Web API에 Passport.js 설치
@@ -656,7 +651,7 @@ consoleMessage += '+++++++++++++++++++++++++++++++++++++++++++++++++++++ \n\n';
 `$ curl -isS http://127.0.0.1:8080 | json`
 
 ```Shell
-HTTP/1.1 200 OK
+HTTP/1.1 2.0OK
 Connection: close
 Content-Type: application/json
 Content-Length: 171
@@ -770,7 +765,7 @@ Passport는 모든 전략 작성자가 준수하는 유사한 패턴을 모든 �
 > [AZURE.IMPORTANT]
 위 코드는 서버에 인증하는 모든 사용자를 사용합니다. 이를 자동 등록이라고 합니다. 프로덕션 서버에서는 결정한 등록 프로세스를 먼저 통과해야만 사용자 액세스를 허용하려 합니다. 일반적으로 이는 Facebook으로 등록할 수 있도록 하지만 추가 정보를 입력하도록 요구하는 소비자 앱에서 나타나는 패턴입니다. 명령줄 프로그램이 아니라면 반환된 토큰 개체에서 메일을 추출하고 추가 정보를 입력하도록 요구할 수 있습니다. 테스트 서버이므로 메모리 내 데이터베이스에 추가합니다.
 
-### 2. 마지막으로 일부 끝점 보호
+### 2\. 마지막으로 일부 끝점 보호
 
 사용하려는 프로토콜을 통해 passport.authenticate() 호출을 지정하여 끝점을 보호합니다.
 
@@ -854,10 +849,8 @@ Restify 및 OAuth2를 사용하여 REST API를 구현하는 방법에 대한 정
 
 이제 좀 더 고급 항목으로 이동할 수 있습니다. 다음 작업을 시도할 수 있습니다.
 
-[Node.js에서 v2.0 앱 모델을 사용하여 웹앱 보안 유지 >>](active-directory-v2-devquickstarts-node-web.md)
+[V 2.0 끝점을 사용하여 Node.js 웹앱의 보안 유지 >>](active-directory-v2-devquickstarts-node-web.md)
 
-추가 리소스는 다음을 확인해보세요.
-- [앱 모델 v2.0 미리 보기 >>](active-directory-appmodel-v2-overview.md)
-- [스택 오버플로 "azure-active-directory" 태그 >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+추가 리소스는 다음을 확인해보세요. - [v2.0 개발자 가이드 >>](active-directory-appmodel-v2-overview.md) - [스택 오버플로 "azure-active-directory" 태그 >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

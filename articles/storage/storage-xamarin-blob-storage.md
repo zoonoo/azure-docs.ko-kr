@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="02/21/2016"
 	ms.author="micurd"/>
 
 # Xamarin에서 Blob 저장소를 사용하는 방법(미리 보기)
@@ -49,7 +49,7 @@ Xamarin용 Azure 저장소 클라이언트 라이브러리와 함께 개발할 �
 
 컨테이너에서 만든 공유 액세스 서명이 다음 날 유효해집니다. 서명은 컨테이너 내에서 Blob에 대한 모든 권한을 부여합니다(*예*: 읽기, 쓰기, 삭제 및 나열).
 
-공유된 액세스 서명에 대한 자세한 내용은 [.NET용 SAS 자습서](storage-dotnet-shared-access-signature-part-2.md)를 참조하십시오.
+공유 액세스 서명에 대한 자세한 내용은 [공유 액세스 서명: SAS를 만들고 Blob 저장소에서 사용](storage-dotnet-shared-access-signature-part-2.md)을 참조하세요.
 
 ## 새 Xamarin 응용 프로그램 만들기
 
@@ -173,9 +173,11 @@ Xamarin용 Azure 저장소 클라이언트 라이브러리와 함께 개발할 �
 
 다음 링크를 확인하여 blob, 테이블 및 큐에 대해 자세히 알아봅니다.
 
-[Microsoft Azure 저장소 소개](storage-introduction.md)  
-[.NET에서 Blob 저장소를 사용하는 방법](storage-dotnet-how-to-use-blobs.md)  
-[.NET에서 테이블 저장소를 사용하는 방법](storage-dotnet-how-to-use-tables.md)  
-[.NET에서 큐 저장소를 사용하는 방법](storage-dotnet-how-to-use-queues.md)
+- [Microsoft Azure 저장소 소개](storage-introduction.md)
+- [.NET을 사용하여 Azure Blob 저장소 시작](storage-dotnet-how-to-use-blobs.md)
+- [.NET을 사용하여 Azure 테이블 저장소 시작](storage-dotnet-how-to-use-tables.md)
+- [.NET을 사용하여 Azure 큐 저장소 시작](storage-dotnet-how-to-use-queues.md)
+- [Windows에서 Azure 파일 저장소 시작](storage-dotnet-how-to-use-files.md)
+- [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

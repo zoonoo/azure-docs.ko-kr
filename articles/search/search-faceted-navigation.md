@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure 검색에서 패싯 탐색을 구현하는 방법 | Microsoft Azure | 호스트된 클라우드 검색 서비스" 
+	pageTitle="Azure 검색에서 패싯 탐색을 구현하는 방법 | Microsoft Azure | 검색 탐색 범주" 
 	description="Microsoft Azure에서 클라우드 호스팅되는 검색 서비스인 Azure 검색과 통합되는 응용 프로그램에 패싯 탐색을 추가합니다." 
 	services="search" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
+	ms.date="02/18/2016" 
 	ms.author="heidist"/>
 
 #Azure 검색에서 패싯 탐색을 구현하는 방법
@@ -29,10 +29,6 @@
 패싯 탐색의 구현은 검색 기술에 따라 다르고 매우 복잡할 수 있습니다. Azure 검색에서는 이전에 스키마에 지정한 특성 필드를 사용하여 쿼리 시 패싯 탐색이 작성됩니다. 응용 프로그램에서 작성한 쿼리는 해당 문서 결과 집합에서 사용 가능한 패싯 필터 값을 받기 위해 *패싯 쿼리 매개 변수*를 보내야 합니다. 실제로 문서 결과 집합을 자르려면 응용 프로그램에서 `$filter` 식을 적용해야 합니다.
 
 응용 프로그램 개발 측면에서 쿼리를 생성하는 코드 작성은 대량 작업을 구성합니다. 범위 설정 및 패싯 결과 수 가져오기에 대한 기본 제공 지원을 포함하여 패싯 탐색에서 원하는 응용 프로그램 동작의 대부분은 서비스에서 제공됩니다. 서비스에는 다루기 힘든 탐색 구조를 방지하는 데 도움이 되는 적절한 기본값이 포함되어 있습니다.
-
-이 실습에서는 CodePlex의 샘플인 [Azure 검색 AdventureWorks Catalog](https://azuresearchadventureworksdemo.codeplex.com/)를 사용하는 것이 좋습니다.
-
-[Azure 검색 심층 정보](http://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410)를 살펴보는 것도 좋습니다. 45분 25초 구간에 패싯을 구현하는 방법에 대한 데모가 있습니다.
 
 이 문서에는 다음 섹션이 포함되어 있습니다.
 
@@ -128,7 +124,7 @@ Azure 검색에서는 사용자가 입력한 용어에 따라 검색 결과를 �
   ![][2]
  
 
-> [AZURE.TIP]검색 결과 페이지를 디자인할 때 패싯을 지우는 메커니즘을 추가해야 합니다. 확인란을 사용하면 사용자가 필터의 선택을 취소하는 방법을 쉽게 이해할 수 있습니다. 다른 레이아웃에는 이동 경로 탐색 패턴 또는 다른 창의적인 방법이 필요할 수 있습니다. 예를 들어 AdventureWorks Catalog 샘플 응용 프로그램에서 제목인 AdventureWorks를 클릭하여 검색 페이지를 다시 설정할 수 있습니다.
+> [AZURE.TIP] 검색 결과 페이지를 디자인할 때 패싯을 지우는 메커니즘을 추가해야 합니다. 확인란을 사용하면 사용자가 필터의 선택을 취소하는 방법을 쉽게 이해할 수 있습니다. 다른 레이아웃에는 이동 경로 탐색 패턴 또는 다른 창의적인 방법이 필요할 수 있습니다. 예를 들어 AdventureWorks Catalog 샘플 응용 프로그램에서 제목인 AdventureWorks를 클릭하여 검색 페이지를 다시 설정할 수 있습니다.
 
 <a name="buildindex"></a>
 ##인덱스 작성
@@ -143,7 +139,7 @@ Azure 검색에서는 사용자가 입력한 용어에 따라 검색 결과를 �
  
 ID 또는 이름과 같이 패싯으로 사용해서는 안 되는 문자열 필드에 대해 `Facetable`이 해제되어 있는 것을 볼 수 있습니다. 필요 없는 패싯을 해제하면 인덱스 크기를 작게 유지하는 데 도움이 되며 일반적으로 성능이 향상됩니다.
 
-> [AZURE.TIP]각 필드의 전체 인덱스 특성 집합을 포함하는 것이 가장 좋습니다. `Facetable`은 거의 모든 필드에 대해 기본적으로 설정되지만 각 특성을 의도적으로 설정하는 것이 각 스키마 의사 결정의 의미를 검토하는 데 도움이 됩니다.
+> [AZURE.TIP] 각 필드의 전체 인덱스 특성 집합을 포함하는 것이 가장 좋습니다. `Facetable`은 거의 모든 필드에 대해 기본적으로 설정되지만 각 특성을 의도적으로 설정하는 것이 각 스키마 의사 결정의 의미를 검토하는 데 도움이 됩니다.
 
 <a name="checkdata"></a>
 ##데이터 품질 확인 
@@ -227,7 +223,7 @@ Numeric 및 DateTime 값에 한해, 패싯 필드에서 값을 명시적으로 �
 
 패싯 결과와 검색 결과의 차이에 주의하세요. 검색 결과는 쿼리와 일치하는 모든 문서입니다. 패싯 결과는 각 패싯 값에 대한 일치 항목입니다. 이 예제에서 검색 결과에는 패싯 분류 목록(이 예제의 경우 5)에 없는 City 이름을 포함됩니다. 패싯 탐색을 통해 필터링된 결과는 사용자가 패싯을 지우거나 City 이외의 다른 패싯을 선택한 경우에 사용자에게 표시됩니다.
 
-> [AZURE.NOTE]두 가지 이상의 형식이 있을 때 `count`를 설명하면 혼동을 일으킬 수 있습니다. 다음 표에서는 Azure 검색 API, 샘플 코드 및 설명서에서 용어가 사용되는 방식에 대한 간략한 요약을 제공합니다.
+> [AZURE.NOTE] 두 가지 이상의 형식이 있을 때 `count`를 설명하면 혼동을 일으킬 수 있습니다. 다음 표에서는 Azure 검색 API, 샘플 코드 및 설명서에서 용어가 사용되는 방식에 대한 간략한 요약을 제공합니다.
 
 - `@colorFacet.count`<br/> 프레젠테이션 코드에는 패싯 결과 수를 표시하는 데 사용되는 count 매개 변수가 패싯에 표시됩니다. 패싯 결과에서 count는 패싯 용어 또는 범위와 일치하는 문서 수를 나타냅니다.
 
@@ -302,7 +298,7 @@ Azure 검색에는 **geo.distance**와 **geo.intersects**라는 두 개의 지�
 
 Codeplex의 Azure 검색 Adventure Works 데모에는 이 문서에 나와 있는 예제가 포함되어 있습니다. 검색 결과로 작업할 때 쿼리 구문의 변경 내용에 대한 URL을 확인하세요. 이 응용 프로그램은 선택 시 URI에 패싯을 추가합니다.
 
-1.	샘플 응용 프로그램을 구성합니다(지침은 [첫 응용 프로그램 만들기](search-create-first-solution.md) 참조). 
+1.	서비스 URL 및 api-key를 사용하도록 샘플 응용 프로그램을 구성합니다. 
 
 	CatalogIndexer 프로젝트의 Program.cs 파일에 정의된 스키마를 확인합니다. 이 스키마는 color, listPrice, size, weight, categoryName 및 modelName에 대한 패싯 가능한 필드를 지정합니다. 이 중에서 일부(color, listPrice, categoryName)만 패싯 탐색에서 실제로 구현됩니다.
 
@@ -335,6 +331,8 @@ Codeplex의 Azure 검색 Adventure Works 데모에는 이 문서에 나와 있�
 
 - [패싯 검색을 위한 디자인](http://www.uie.com/articles/faceted_search/)
 - [디자인 패턴: 패싯 탐색](http://alistapart.com/article/design-patterns-faceted-navigation)
+
+[Azure 검색 심층 정보](http://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410)를 살펴보는 것도 좋습니다. 45분 25초 구간에 패싯을 구현하는 방법에 대한 데모가 있습니다.
 
 <!--Anchors-->
 [How to build it]: #howtobuildit
@@ -372,4 +370,4 @@ Codeplex의 Azure 검색 Adventure Works 데모에는 이 문서에 나와 있�
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

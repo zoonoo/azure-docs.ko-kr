@@ -2,7 +2,7 @@
 	pageTitle="논리 앱에서 OneDrive 커넥터 사용 | Microsoft Azure 앱 서비스"
 	description="OneDrive 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
 	authors="rajeshramabathiran"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
 	services="app-service\logic"
 	documentationCenter=""/>
@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/11/2015"
+	ms.date="02/11/2016"
 	ms.author="rajram"/>
 
 # OneDrive 커넥터 시작 및 논리 앱에 추가
+>[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다. 2015-08-01-미리 보기 스키마 버전에 대한 내용을 보려면 [OneDrive API](../connectors/create-api-onedrive.md)를 클릭하세요.
+
 OneDrive에 연결하여 파일을 업로드, 다운로드 및 삭제합니다. 논리 앱은 다양한 데이터 원본을 기반으로 트리거하고 흐름의 일부로 데이터를 가져오고 처리하기 위한 커넥터를 제공할 수 있습니다. OneDrive 커넥터를 비즈니스 워크플로에 추가하고 논리 앱 내에서 이 워크플로의 일부로 데이터를 처리할 수 있습니다.
 
 ## 논리 앱용 OneDrive 커넥터 만들기 ##
@@ -26,7 +28,7 @@ OneDrive 커넥터를 사용하려면 먼저 OneDrive 커넥터 API 앱의 인�
 2.	“모든 항목”에서 “OneDrive 커넥터”를 검색합니다.
 3.	다음과 같이 OneDrive 커넥터를 구성합니다.
 
-	![][1]
+	![][1] 
 	- **이름** - OneDrive 커넥터의 이름 입력
 	- **앱 서비스 계획** - 앱 서비스 계획 선택 또는 만들기
 	- **가격 계층** - 커넥터에 대한 가격 책정 계층 선택
@@ -78,7 +80,7 @@ API 앱을 만들고 나면 이제 OneDrive 커넥터를 논리 앱에 대한 �
 ## 커넥터의 추가 기능
 이제 커넥터를 만들었으므로 논리 앱을 사용하여 비즈니스 워크플로에 추가할 수 있습니다. [논리 앱 정의](app-service-logic-what-are-logic-apps.md)를 참조하세요.
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동합니다. 앱 서비스에서 즉시 단기 스타터 논리 앱을 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동합니다. 앱 서비스에서 즉시 단기 스타터 논리 앱을 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 [커넥터 및 API 앱 참조](http://go.microsoft.com/fwlink/p/?LinkId=529766)의 Swagger REST API 참조를 봅니다.
 
@@ -97,4 +99,4 @@ API 앱을 만들고 나면 이제 OneDrive 커넥터를 논리 앱에 대한 �
 [새 논리 앱을 만듭니다]: app-service-logic-create-a-logic-app.md
 [OneDrive API 정의]: https://msdn.microsoft.com/library/dn974227.aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
+	ms.date="02/23/2016" 
 	ms.author="sstein"/>
 
 # PowerShell을 사용하여 Azure SQL 데이터베이스 V12로 업그레이드
@@ -66,7 +66,7 @@ Azure 구독에 대한 PowerShell cmdlet을 실행 하려면 먼저 Azure 계정
 
 로그인에 성공하면 액세스 권한이 있는 Azure 구독으로 로그인한 ID를 포함한 일부 정보가 화면에 표시됩니다.
 
-사용할 구독을 선택하려면 구독 ID(**-SubscriptionId**) 또는 구독 이름(**-SubscriptionName**)이 필요합니다. 이전 단계에서 해당 정보를 복사하거나, 구독이 여러 개일 경우 **Get-AzureRmSubscription** cmdlet를 실행하고 결과 집합에서 원하는 구독 정보를 복사할 수 있습니다.
+사용할 구독을 선택하려면 구독 ID(**-SubscriptionId**) 또는 구독 이름(**-SubscriptionName**)이 필요합니다. 이전 단계에서 해당 정보를 복사하거나, 구독이 여러 개일 경우 **Get-AzureRmSubscription** cmdlet을 실행하고 결과 집합에서 원하는 구독 정보를 복사할 수 있습니다.
 
 현재 구독을 설정 하 여 구독 정보로 다음 cmdlet을 실행 합니다.
 
@@ -177,14 +177,14 @@ ElasticPoolCollection 및 DatabaseCollection 매개 변수는 선택적임:
 추가 모니터링 정보:
 
 - [단일 데이터베이스의 Azure SQL 데이터베이스 성능 지침](http://msdn.microsoft.com/library/azure/dn369873.aspx)
-- [탄력적 데이터베이스 풀의 가격 및 성능 고려 사항](sql-database=elastic-pool-guidance.md)
+- [탄력적 데이터베이스 풀의 가격 및 성능 고려 사항](sql-database-elastic-pool-guidance.md)
 - [동적 관리 뷰를 사용하여 Azure SQL 데이터베이스 모니터링](sql-database-monitoring-with-dmvs.md)
 
 
 
 **경고:** 업그레이드된 데이터베이스의 DTU 사용량이 지정된 높은 수준에 도달하면 알리도록 Azure 포털에서 '경고'를 설정합니다. 데이터베이스 경고는 DTU, CPU, IO 및 로그와 같은 다양한 성능 메트릭에 대해 Azure 포털에서 설정할 수 있습니다. 데이터베이스로 이동한 후 **설정** 블레이드에서 **경고 규칙**을 선택하면 됩니다.
 
-예를 들어 평균 DTU 백분율 값이 최근 5분 동안 75%를 초과할 경우 "DTU 백분율"에 대해 메일 경고를 설정할 수 있습니다. 경고 알림을 구성하는 방법에 대한 내용은 [경고 알림 받기](insights-receive-alert-notifications.md)를 참조하세요.
+예를 들어 평균 DTU 백분율 값이 최근 5분 동안 75%를 초과할 경우 "DTU 백분율"에 대해 메일 경고를 설정할 수 있습니다. 경고 알림을 구성하는 방법에 대한 내용은 [경고 알림 받기](../azure-portal/insights-receive-alert-notifications.md)를 참조하세요.
 
 
 
@@ -201,4 +201,4 @@ ElasticPoolCollection 및 DatabaseCollection 매개 변수는 선택적임:
 - [Start-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt619403.aspx)
 - [Stop-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603589.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0224_2016-->

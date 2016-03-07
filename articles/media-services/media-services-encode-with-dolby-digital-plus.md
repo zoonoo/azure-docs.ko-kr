@@ -3,7 +3,7 @@
 	description="이 항목에서는 Dolby Digital Plus를 사용하여 미디어를 인코딩하는 방법에 대해 설명합니다." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="anilmur" 
+	authors="juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="02/17/2016"   
-	ms.author="anilmur"/>
+	ms.author="juliako"/>
 
 #Dolby Digital Plus를 사용하여 미디어 인코딩
 
@@ -659,4 +659,4 @@ true‐peak 측정 내에서 강조 필터가 사용되는지(true) 사용되지
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->
