@@ -102,13 +102,17 @@ public void ConfigureAuth(IAppBuilder app) { app.SetDefaultSignInAsAuthenticatio
 			 }
 ```
 
-## Send authentication requests
-Your app is now properly configured to communicate with the v2.0 endpoint using the OpenID Connect authentication protocol.  OWIN has taken care of all of the ugly details of crafting authentication messages, validating tokens from Azure AD, and maintaining user session.  All that remains is to give your users a way to sign in and sign out.
+## 3. OWIN을 사용하여 Azure AD에 로그인 및 로그아웃 요청 실행
+이제 앱이 OpenID Connect 인증 프로토콜을 사용하여 v2.0 끝점 끝점과 통신하도록 올바르게 구성되었습니다.  OWIN이 인증 메시지를 작성하고, Azure AD에서 토큰의 유효성을 검사하고, 사용자 세션을 유지 관리하는 까다로운 모든 세부 과정을 처리했습니다.  이제 사용자에게 로그인하고 로그아웃하는 방법을 알려주기만 하면 됩니다.
 
 - You can use authorize tags in your controllers to require that user signs in before accessing a certain page.  Open `Controllers\HomeController.cs`, and add the `[Authorize]` tag to the About controller.
 
 ```C#
-[Authorize] public ActionResult About() { ... ```
+[Authorize]
+public ActionResult About()
+{
+  ...
+```
 
 -	또한 OWIN을 사용하여 코드 내에서 직접 인증 요청을 실행할 수도 있습니다. `Controllers\AccountController.cs`을(를) 엽니다. SignIn() 및 SignOut() 작업에서 각각 OpenID Connect 챌린지 및 로그아웃 요청을 실행합니다.
 

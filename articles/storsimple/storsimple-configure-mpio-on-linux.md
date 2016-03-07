@@ -21,7 +21,7 @@
 
 이 절차는 StorSimple 8000 시리즈 장치의 모든 모델에 적용할 수 있습니다.
 
->[AZURE.NOTE] StorSimple 가상 장치에 이 절차를 사용할 수 없습니다. 자세한 내용은 가상 장치에 호스트 서버를 구성하는 방법을 참조하세요.
+>[AZURE.NOTE]StorSimple 가상 장치에 이 절차를 사용할 수 없습니다. 자세한 내용은 가상 장치에 호스트 서버를 구성하는 방법을 참조하세요.
 
 ## 다중 경로에 대해 
 
@@ -207,7 +207,7 @@ StorSimple 장치에는 다음이 있어야 합니다.
 
 위의 구성은 호스트와 데이터 인터페이스가 라우팅될 수 있는 경우 장치와 호스트 사이에 4개의 개별 경로를 생성합니다.
 
->[AZURE.IMPORTANT] 
+>[AZURE.IMPORTANT]
 >
 >- 다중 경로에 1GbE 및 10GbE 네트워크 인터페이스를 혼용하지 않는 것이 좋습니다. 두 네트워크 인터페이스를 사용하면 두 인터페이스 모두 동일한 형식이어야 합니다.
 >- StorSimple 장치에서 DATA0, DATA1, DATA4 및 DATA5는 1GbE 인터페이스인 반면 DATA2 및 DATA3은 10GbE 네트워크 인터페이스입니다. |
@@ -467,23 +467,23 @@ A. 장치를 허용 목록에 추가되었는지를 확인하려면 다음 문�
 |형식|명령|설명|
 |---|---|---|
 |**iSCSI**|`service iscsid start`|iSCSI 서비스 시작|
-|`service iscsid stop`|iSCSI 서비스 중지|
-|`service iscsid restart`|iSCSI 서비스 다시 시작|
-|`iscsiadm -m discovery -t sendtargets -p <TARGET_IP>`|지정된 주소에서 사용할 수 있는 대상 검색|
-|`iscsiadm -m node --login -T <TARGET_IQN>`|iSCSI 대상에 로그인|
-|`iscsiadm -m node --logout -p <Target_IP>`|iSCSI 대상에서 로그아웃|
-|`cat /etc/iscsi/initiatorname.iscsi`|iSCSI 초기자 이름 인쇄|
-|`iscsiadm –m session –s <sessionid> -P 3`|iSCSI 세션 및 호스트에서 검색된 볼륨의 상태 확인|
-|`iscsi –m session`|호스트와 StorSimple 장치 간에 설정된 모든 iSCSI 세션 표시|
+||`service iscsid stop`|iSCSI 서비스 중지|
+||`service iscsid restart`|iSCSI 서비스 다시 시작|
+||`iscsiadm -m discovery -t sendtargets -p <TARGET_IP>`|지정된 주소에서 사용할 수 있는 대상 검색|
+||`iscsiadm -m node --login -T <TARGET_IQN>`|iSCSI 대상에 로그인|
+||`iscsiadm -m node --logout -p <Target_IP>`|iSCSI 대상에서 로그아웃|
+||`cat /etc/iscsi/initiatorname.iscsi`|iSCSI 초기자 이름 인쇄|
+||`iscsiadm –m session –s <sessionid> -P 3`|iSCSI 세션 및 호스트에서 검색된 볼륨의 상태 확인|
+||`iscsi –m session`|호스트와 StorSimple 장치 간에 설정된 모든 iSCSI 세션 표시|
 | | | |
 |**다중 경로 지정**|`service multipathd start`|다중 경로 디먼 시작|
-|`service multipathd stop`|다중 경로 디먼 중지|
-|`service multipathd restart`|다중 경로 디먼 다시 시작|
-|`chkconfig multipathd on` </br> 또는 </br> `mpathconf –with_chkconfig y`|부팅 시 시작되도록 다중 경로 디먼 설정|
-|`multipathd –k`|문제 해결을 위한 대화형 콘솔 시작|
-|`multipath –l`|다중 경로 연결 및 장치 나열|
-|`mpathconf --enable`|`/etc/mulitpath.conf`에서 샘플 mulitpath.conf 파일 만들기|
-|
+||`service multipathd stop`|다중 경로 디먼 중지|
+||`service multipathd restart`|다중 경로 디먼 다시 시작|
+||`chkconfig multipathd on` </br> 또는 </br> `mpathconf –with_chkconfig y`|부팅 시 시작되도록 다중 경로 디먼 설정|
+||`multipathd –k`|문제 해결을 위한 대화형 콘솔 시작|
+||`multipath –l`|다중 경로 연결 및 장치 나열|
+||`mpathconf --enable`|`/etc/mulitpath.conf`에서 샘플 mulitpath.conf 파일 만들기|
+||||
 
 ## 다음 단계
 

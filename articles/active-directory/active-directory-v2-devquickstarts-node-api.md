@@ -645,7 +645,8 @@ consoleMessage += '+++++++++++++++++++++++++++++++++++++++++++++++++++++ \n\n';
 
 그런 다음 해당 디렉터리로 변경하고 curl을 시작합니다.
 
-`$ cd azuread` `$ node server.js`
+`$ cd azuread` 
+`$ node server.js`
 
 `$ curl -isS http://127.0.0.1:8080 | json`
 

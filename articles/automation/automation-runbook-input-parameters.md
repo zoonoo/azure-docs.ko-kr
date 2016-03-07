@@ -6,7 +6,7 @@
    authors="SnehaGunda"
    manager="stevenka"
    editor="tysonn" />
-<tags
+<tags 
    ms.service="automation"
    ms.devlang="na"
    ms.topic="article"
@@ -29,7 +29,7 @@ Azure 자동화에서 PowerShell 및 [PowerShell 워크플로 Runbook](automatio
 
 | **속성** | **설명** |
 |:--- |:---|
-| 형식 | 필수입니다. 매개 변수 값에 필요한 데이터 형식입니다. 모든 .NET 형식이 유효합니다. |
+| 형식 | 필수입니다. 매개 변수 값에 필요한 데이터 형식입니다. 모든 .Net 형식이 유효합니다. |
 | 이름 | 필수입니다. 매개 변수의 이름입니다. 이름은 Runbook 내에서 고유해야 하고 문자, 숫자 또는 밑줄 문자를 포함할 수 있습니다. 문자로 시작해야 합니다. |
 | 필수 | 선택 사항입니다. 매개 변수에 대해 값을 제공해야 하는지 여부를 지정합니다. 이 값을 **$true**로 설정한 경우 Runbook이 시작될 때 값을 지정해야 합니다. 이 값을 **$false**로 설정한 경우 값은 선택 사항입니다. |
 | 기본값 | 선택 사항입니다. Runbook이 시작될 때 값을 전달하지 않으면 매개 변수에 대해 사용될 값을 지정합니다. 기본값을 매개 변수에 대해 설정할 수 있으며 필수 설정에 관계 없이 자동으로 매개 변수를 선택적으로 만듭니다. |
@@ -98,11 +98,19 @@ Azure를 사용하여 인증하는 [**Add-AzureAccount**](https://msdn.microsoft
 
 4. **Get-AzureVM** 활동에서 사용될 다음 속성을 가진 두 개의 매개 변수를 만듭니다.
 
-    * **매개 변수1:** 이름--VMName, 형식--문자열, 필수--아니오
+    * **매개 변수1:** 
+    이름--VMName,
+    형식--문자열,
+    필수--아니오
 
-    * **매개 변수2:** 이름--ServiceName, 형식--문자열, 필수--아니오, 기본값--사용자 지정, 사용자 지정 기본값--<가상 컴퓨터를 포함하는 기본 서비스의 이름>
+    * **매개 변수2:** 
+    이름--ServiceName,
+    형식--문자열,
+    필수--아니오,
+    기본값--사용자 지정,
+    사용자 지정 기본값--<가상 컴퓨터를 포함하는 기본 서비스의 이름>
 
-5. 매개 변수를 추가하면 **확인**을 클릭합니다. 이제 **입력 및 출력 블레이드**에서 볼 수 있습니다. 다시 **확인**을 클릭한 다음 Runbook을 **저장**하고 **게시**하도록 클릭합니다.
+5. 매개 변수를 추가하면 **확인** 을 클릭합니다. 이제 **입력 및 출력 블레이드** 에서 볼 수 있습니다. 다시 **확인**을 클릭한 다음 Runbook을 **저장**하고 **게시** 하도록 클릭합니다.
 
 ## Runbook의 입력 매개 변수에 값 할당
 
@@ -131,7 +139,8 @@ Runbook은 Azure 포털 UI, webhook, PowerShell cmdlet, REST API 및 SDK 등 여
 
     **예제:**
 
-      ``` $params = @{“VMName”=”WSVMClassic”; ”ServiceName”=”WSVMClassicSG”}
+      ```
+        $params = @{“VMName”=”WSVMClassic”; ”ServiceName”=”WSVMClassicSG”}
 
         Start-AzureAutomationRunbook -AutomationAccountName “TestAutomation” -Name “Get-AzureVMGraphical” -Parameters $params
       ```
@@ -141,9 +150,10 @@ Runbook은 Azure 포털 UI, webhook, PowerShell cmdlet, REST API 및 SDK 등 여
 
     **예제:**
 
-      ``` $params = @{“VMName”=”WSVMClassic”;”ServiceName”=”WSVMClassicSG”}
+      ``` 
+         $params = @{“VMName”=”WSVMClassic”;”ServiceName”=”WSVMClassicSG”}
 
-        Start-AzureRmAutomationRunbook -AutomationAccountName “TestAutomationRG” -Name “Get-AzureVMGraphical” –ResourceGroupName “RG1” -Parameters $params
+        Start-AzureRMAutomationRunbook -AutomationAccountName “TestAutomationRG” -Name “Get-AzureVMGraphical” –ResourceGroupName “RG1” -Parameters $params
       ```
 
 >[AZURE.NOTE] PowerShell cmdlet을 사용하여 Runbook을 시작할 때 기본 매개 변수인 **MicrosoftApplicationManagementStartedBy**는 **PowerShell** 값을 사용하여 만들어집니다. **작업 세부 정보** 블레이드에서 이 매개 변수를 볼 수 있습니다.
@@ -157,7 +167,7 @@ Runbook은 Azure 포털 UI, webhook, PowerShell cmdlet, REST API 및 SDK 등 여
         {
             var response = AutomationClient.Jobs.Create(automationAccount, new JobCreateParameters
             {
-                Properties = new JobCreateProperties
+                Properties = new JobCreateProperties 
                 {
                     Runbook = new RunbookAssociationProperty
                     {
@@ -169,7 +179,7 @@ Runbook은 Azure 포털 UI, webhook, PowerShell cmdlet, REST API 및 SDK 등 여
             return response.Job;
         }
     ```
-
+      
     - **Azure 리소스 관리자 방법:** 프로그래밍 언어의 SDK를 사용하여 Runbook을 시작할 수 있습니다. 다음은 자동화 계정의 Runbook을 시작하기 위한 C# 코드 조각입니다. [GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs)에 있는 모든 코드를 볼 수 있습니다.  
 
     ```
@@ -177,7 +187,7 @@ Runbook은 Azure 포털 UI, webhook, PowerShell cmdlet, REST API 및 SDK 등 여
         {
            var response = AutomationClient.Jobs.Create(resourceGroup, automationAccount, new JobCreateParameters
            {
-               Properties = new JobCreateProperties
+               Properties = new JobCreateProperties 
                {
                    Runbook = new RunbookAssociationProperty
                    {
@@ -210,12 +220,12 @@ Runbook은 Azure 포털 UI, webhook, PowerShell cmdlet, REST API 및 SDK 등 여
     https://management.core.windows.net/<subscription-id>/cloudServices/<cloud-service-name>/resources/automation/~/automationAccounts/<automation-account-name>/jobs/<job-id>?api-version=2014-12-08
 
 요청 URI에서 다음 매개 변수를 바꿉니다.
-
+ 
 * **subscription-id:** Azure 구독 ID입니다.  
 * **cloud-service-name:** 요청을 보낼 클라우드 서비스의 이름입니다.  
 * **automation-account-name:** 지정된 클라우드 서비스 내에 호스팅된 자동화 계정의 이름입니다.  
 * **job-id:** 작업에 대한 GUID입니다. **[GUID]::NewGuid().ToString()** 명령을 사용하여 PowerShell에서 GUID를 만들 수 있습니다.
-
+	
 Runbook 작업에 매개 변수를 전달하기 위해 요청 본문을 사용합니다. JSON 형식으로 제공되는 다음 두 가지 속성을 사용합니다.
 
 * **Runbook 이름**--필수입니다. 시작할 작업 시작에 대한 Runbook의 이름입니다.  

@@ -51,7 +51,9 @@ HDInsight 클러스터를 만드는 계획을 세우는 방법에 대해 알아�
 	
 - **운영 체제**
 
-	다음 두 운영 체제 중 하나에서 HDInsight 클러스터를 만들 수 있습니다. - **Windows의 HDInsight(Windows Server 2012 R2 Datacenter)** - **Linux의 HDInsight(Linux용 Ubuntu 12.04 LTS)**: HDInsight는 Azure에서 Linux 클러스터를 구성하는 옵션을 제공합니다. Linux 기반으로 작성된 Hadoop 에코 시스템 구성 요소와 쉽게 통합 또는 Linux 또는 Unix를 사용하고 기존 Hadoop Linux 기반 솔루션에서 마이그레이션에 익숙한 경우에 Linux 클러스터를 구성합니다. 자세한 내용은 [Linux 기반 HDInsight에서 Hadoop 시작](hdinsight-hadoop-linux-tutorial-get-started.md)을 참조하세요.
+	다음 두 운영 체제 중 하나에서 HDInsight 클러스터를 만들 수 있습니다.
+	- **Windows의 HDInsight(Windows Server 2012 R2 Datacenter)**
+	- **Linux의 HDInsight(Linux용 Ubuntu 12.04 LTS)**: HDInsight는 Azure에서 Linux 클러스터를 구성하는 옵션을 제공합니다. Linux 기반으로 작성된 Hadoop 에코 시스템 구성 요소와 쉽게 통합 또는 Linux 또는 Unix를 사용하고 기존 Hadoop Linux 기반 솔루션에서 마이그레이션에 익숙한 경우에 Linux 클러스터를 구성합니다. 자세한 내용은 [Linux 기반 HDInsight에서 Hadoop 시작](hdinsight-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 
 - **클러스터 형식** 및 **클러스터 크기(데이터 노드라고도 함)**
 
@@ -77,16 +79,25 @@ HDInsight 클러스터를 만드는 계획을 세우는 방법에 대해 알아�
 
 	![HDInsight Hadoop 클러스터 역할](./media/hdinsight-provision-clusters/HDInsight.HBase.roles.png)
 
-	HDInsight용 HBase 클러스터는 세 가지 역할로 배포됩니다. - 헤드 서버(노드 2개) - 지역 서버(노드 1개 이상) - 마스터/Zookeeper 노드(노드 3개)
+	HDInsight용 HBase 클러스터는 세 가지 역할로 배포됩니다. 
+	- 헤드 서버(노드 2개) 
+	- 지역 서버(노드 1개 이상) 
+	- 마스터/Zookeeper 노드(노드 3개)
 
 	![HDInsight Hadoop 클러스터 역할](./media/hdinsight-provision-clusters/HDInsight.Storm.roles.png)
 
-	HDInsight용 Storm 클러스터는 세 가지 역할로 배포됩니다. - Nimbus 노드(노드 2개) - 감독자 서버(노드 1개 이상) - Zookeeper 노드(노드 3개)
+	HDInsight용 Storm 클러스터는 세 가지 역할로 배포됩니다. 
+	- Nimbus 노드(노드 2개) 
+	- 감독자 서버(노드 1개 이상) 
+	- Zookeeper 노드(노드 3개)
 
 
 	![HDInsight Hadoop 클러스터 역할](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png)
 
-	HDInsight용 Spark 클러스터는 세 가지 역할로 배포됩니다. - 헤드 노드(노드 2개) - 작업자 노드(노드 1개 이상) - Zookeeper 노드(노드 3개) (A1 Zookeeper의 경우 무료)
+	HDInsight용 Spark 클러스터는 세 가지 역할로 배포됩니다. 
+	- 헤드 노드(노드 2개) 
+	- 작업자 노드(노드 1개 이상) 
+	- Zookeeper 노드(노드 3개) (A1 Zookeeper의 경우 무료)
 
 	고객은 클러스터의 수명 기간 동안 해당 노드의 사용량에 대한 대금이 청구됩니다. 대금 청구는 클러스터를 만들면 시작되고 클러스터가 삭제되면 중지됩니다(클러스터를 할당 해제하거나 보류할 수 없음). 클러스터 크기는 클러스터 가격에 영향을 줍니다. 학습 목적인 경우는 데이터 노드를 하나 사용하는 것이 좋습니다. HDInsight 가격에 대한 자세한 내용은 [HDInsight 가격](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409)을 참조하세요.
 

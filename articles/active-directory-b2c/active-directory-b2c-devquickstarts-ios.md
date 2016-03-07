@@ -314,7 +314,7 @@ GitHub에서 골격을 다운로드한 경우 샘플 응용 프로그램에 도�
 
 ```
 
-첫 번째 부분은 친숙해 보여야 합니다. `Settings.plist`에서 제공하는 설정을 로드하고 `data`에 할당합니다. iOS용 ADAL에서 발생한 오류를 처리하는 `ADAuthenticationError`를 설정합니다. 또한 ADAL에 호출을 설정하는 `authContext`를 만듭니다. 이를 *기관*에 전달하여 작업을 시작합니다. 또한 부모 컨트롤러에 `authContext`를 참조로 제공하여 돌아갈 수 있도록 합니다. 또한 `settings.plist`에서 문자열인 `redirectURI`을 예상된 NSURL 형식 ADAL로 변환합니다. 마지막으로 클라이언트에서 서버에, 그리고 반대로 호출을 수행할 수 있는 UUID인 `correlationId`를 설정합니다. 디버깅에 유용합니다.
+첫 번째 부분은 친숙해 보여야 합니다. `Settings.plist`에서 제공하는 설정을 로드하고 `data`에 할당합니다. iOS용 ADAL에서 발생한 오류를 처리하는 `ADAuthenticationError`를 설정합니다. 또한 ADAL에 호출을 설정하는 `authContext`를 만듭니다. 이를 *기관* 에 전달하여 작업을 시작합니다. 또한 부모 컨트롤러에 `authContext`를 참조로 제공하여 돌아갈 수 있도록 합니다. 또한 `settings.plist`에서 문자열인 `redirectURI`을 예상된 NSURL 형식 ADAL로 변환합니다. 마지막으로 클라이언트에서 서버에, 그리고 반대로 호출을 수행할 수 있는 UUID인 `correlationId`를 설정합니다. 디버깅에 유용합니다.
 
 이제 ADAL에 대한 실제 호출을 가져오면 호출이 iOS 용 ADAL을 이전에 사용했을 때 예상한 대로 변경하는 위치입니다.
 
