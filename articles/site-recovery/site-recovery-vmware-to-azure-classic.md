@@ -754,4 +754,4 @@ The complete file may be found on the [Microsoft Download Center](http://go.micr
 
 Azure에서 실행 중인 장애 조치(failover)된 컴퓨터를 온-프레미스 환경으로 [장애 복구(failback)하는 방법에 대해 자세히 알아봅니다](site-recovery-failback-azure-to-vmware-classic.md).
 
-<!-------HONumber=AcomDC_0218_2016-->
+<!---------HONumber=AcomDC_0218_2016-->
