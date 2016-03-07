@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/27/2016"
-   ms.author="bwren" />
+   ms.date="02/18/2016"
+   ms.author="magoedte;bwren" />
 
 # Azure 자동화의 변수 자산
 
@@ -67,7 +67,7 @@ Azure 포털에서 변수를 만들 때 드롭다운 목록에서 해당 데이�
 1. 마법사를 완료하고 새 변수를 저장하는 확인란을 클릭합니다.
 
 
-### Azure Preview 포털을 사용하여 새 변수를 만들려면
+### Azure 포털을 사용하여 새 자격 증명을 만들려면
 
 1. 자동화 계정에서 **자산** 파트를 클릭하여 **자산** 블레이드를 엽니다.
 1. **변수** 파트를 클릭하여 **변수** 블레이드를 엽니다.
@@ -188,4 +188,4 @@ Azure 포털에서 변수를 만들 때 드롭다운 목록에서 해당 데이�
 - [그래픽 작성의 링크](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

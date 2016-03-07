@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="rajeshramabathiran"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/11/2015"
+   ms.date="02/11/2016"
    ms.author="rajram"/>
 
 
 # Facebook 커넥터 시작 및 논리 앱에 추가
+>[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다. 2015-08-01-preview 스키마 버전에 대한 내용을 보려면 [Facebook API](../connectors/create-api-facebook.md)를 클릭하세요.
+
 Facebook 계정에 연결하여 메시지를 게시하거나 사진을 게시합니다. 논리 앱은 다양한 데이터 원본을 기반으로 트리거하고 흐름의 일부로 데이터를 가져오고 처리하기 위한 커넥터를 제공할 수 있습니다.
 
 Facebook 커넥터를 사용하여 다음을 수행할 수 있습니다.
@@ -56,12 +58,12 @@ API 앱을 만들고 나면 이제 Facebook Connector를 논리 앱의 트리거
 
 비슷한 방식으로 Facebook Connector 동작을 사용하여 흐름을 만들 수 있습니다. 아래 흐름에서는 Yammer 그룹에 게시된 새 메시지를 검색하여 사용자가 관리하는 Facebook 페이지에 동일한 게시물을 게시합니다. ![][11]
 
-> [AZURE.TIP]Facebook 페이지 ID 또는 Yammer 그룹 ID를 가져오려면 URL에서 숫자 코드를 찾습니다.
+> [AZURE.TIP] Facebook 페이지 ID 또는 Yammer 그룹 ID를 가져오려면 URL에서 숫자 코드를 찾습니다.
 
 ## 커넥터의 추가 기능
 이제 커넥터를 만들었으므로 논리 앱을 사용하여 비즈니스 워크플로에 추가할 수 있습니다. [논리 앱 정의](app-service-logic-what-are-logic-apps.md)를 참조하세요.
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동합니다. 앱 서비스에서 즉시 단기 스타터 논리 앱을 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동합니다. 앱 서비스에서 즉시 단기 스타터 논리 앱을 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 [커넥터 및 API 앱 참조](http://go.microsoft.com/fwlink/p/?LinkId=529766)의 Swagger REST API 참조를 봅니다.
 
@@ -80,4 +82,4 @@ API 앱을 만들고 나면 이제 Facebook Connector를 논리 앱의 트리거
 [10]: ./media/app-service-logic-connector-facebook/img10.png
 [11]: ./media/app-service-logic-connector-facebook/img11.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

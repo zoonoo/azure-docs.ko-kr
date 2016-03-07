@@ -191,8 +191,12 @@ ApplicationInsights.config의 계측 키는 원격 분석이 전송되는 위치
 
 도시, 지역 및 국가 차원이 IP 주소에서 파생되며 항상 정확하지는 않습니다.
 
+## Azure 클라우드 서비스에서 실행할 때의 "메서드를 찾을 수 없음" 예외
+
+.NET 4.6용으로 빌드하셨나요? 4.6은 Azure 클라우드 서비스 역할에서 자동으로 지원되지 않습니다. 앱을 실행하기 전에 [각 역할에 4.6을 설치](../cloud-services/cloud-services-dotnet-install-dotnet.md)합니다.
+
 ## 여전히 작동하지 않습니다.
 
 * [Application Insights 포럼](https://social.msdn.microsoft.com/Forums/vstudio/ko-KR/home?forum=ApplicationInsights)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

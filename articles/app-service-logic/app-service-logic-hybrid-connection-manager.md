@@ -13,10 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="02/18/2016" 
 	ms.author="mandia"/>
 
 # 하이브리드 연결 관리자를 사용하여 Azure 앱 서비스에서 온-프레미스 커넥터에 연결
+
+>[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다.
+
 온-프레미스 시스템을 사용하기 위해 Azure 앱 서비스가 하이브리드 연결 관리자를 사용합니다. 일부 커넥터는 SQL Server, SAP, SharePoint 등의 온-프레미스 시스템에 연결할 수 있습니다.
 
 하이브리드 연결 관리자(HCM)는 방화벽 뒤의 네트워크 내에서 IIS 서버에 설치된 원클릭 설치 관리자입니다. Azure 서비스 버스 릴레이를 사용하여 HCM이 Azure의 커넥터로 온-프레미스 시스템을 인증합니다.
@@ -106,7 +109,7 @@ TCP 포트 | 이유
 
 ## FAQ
 
-**질문**: 두 하이브리드 연결 관리자가 있습니다. 차이점은 무엇입니까?<br/> **대답**: 웹 앱(이전의 웹 사이트) 및 모바일 앱(이전의 모바일 서비스)을 온-프레미스에 연결할 때 주로 사용한 [하이브리드 연결](../integration-hybrid-connection-overview.md) 기술이 있습니다. 이 하이브리드 연결 관리자는 자체 [설치 관리자](../integration-hybrid-connection-create-manage.md)가 있으며 백그라운드에서 Azure BizTalk 서비스를 사용합니다. 이는 TCP 및 HTTP 프로토콜만 지원합니다.
+**질문**: 두 하이브리드 연결 관리자가 있습니다. 차이점은 무엇입니까?<br/> **대답**: 웹 앱(이전의 웹 사이트) 및 모바일 앱(이전의 모바일 서비스)을 온-프레미스에 연결할 때 주로 사용한 [하이브리드 연결](../biztalk-services/integration-hybrid-connection-overview.md) 기술이 있습니다. 이 하이브리드 연결 관리자는 자체 [설치 관리자](../biztalk-services/integration-hybrid-connection-create-manage.md)가 있으며 백그라운드에서 Azure BizTalk 서비스를 사용합니다. 이는 TCP 및 HTTP 프로토콜만 지원합니다.
 
 Azure 앱 서비스 커넥터를 사용할 경우 하이브리드 연결 관리자도 있습니다. 이 하이브리드 연결 관리자는 백그라운드에서 Azure BizTalk 서비스를 사용하지 *않고* TCP 및 HTTP 프로토콜보다 더 많은 것을 지원합니다. [커넥터 및 API 앱 목록](app-service-logic-connectors-list.md)을 참조하세요.
 
@@ -114,7 +117,7 @@ Azure 앱 서비스 커넥터를 사용할 경우 하이브리드 연결 관리�
 
 **질문**: 사용자 지정 API 앱을 만들 때 앱 서비스 하이브리드 연결 관리자를 사용하여 온-프레미스에 연결할 수 있습니까? <br/> **대답**: 일반적인 경우 연결할 수 없습니다. 기본 제공 커넥터를 사용하여 앱 서비스 하이브리드 연결 관리자를 구성하고 온-프레미스 시스템에 연결할 수 있습니다. 그런 다음 논리 앱을 사용하여 사용자 지정 API 앱으로 이 커넥터를 사용합니다. 현재 사용자 고유의 하이브리드 API 앱(SQL 커넥터 또는 파일 커넥터 같은)을 개발하거나 만들 수는 없습니다.
 
-사용자 지정 API에서 TCP 또는 HTTP 포트를 사용하는 경우 [하이브리드 연결](../integration-hybrid-connection-overview.md) 및 하이브리드 연결 관리자를 사용할 수 있습니다. 이 시나리오에서는 Azure BizTalk 서비스를 사용합니다. [웹 앱에서 온-프레미스 SQL Server에 연결](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md)이 도움이 될 것입니다.
+사용자 지정 API에서 TCP 또는 HTTP 포트를 사용하는 경우 [하이브리드 연결](../biztalk-services/integration-hybrid-connection-overview.md) 및 하이브리드 연결 관리자를 사용할 수 있습니다. 이 시나리오에서는 Azure BizTalk 서비스를 사용합니다. [웹 앱에서 온-프레미스 SQL Server에 연결](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md)이 도움이 될 것입니다.
 
 
 ## 자세히 알아보기
@@ -133,4 +136,4 @@ Azure 앱 서비스 커넥터를 사용할 경우 하이브리드 연결 관리�
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

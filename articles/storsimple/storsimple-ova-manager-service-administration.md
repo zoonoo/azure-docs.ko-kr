@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/16/2016"
+   ms.date="02/18/2016"
    ms.author="v-sharos" />
 
 # StorSimple 관리자 서비스를 사용하여 StorSimple 가상 배열 관리(미리 보기)
@@ -75,13 +75,15 @@ StorSimple Manager 서비스 UI에 대한 탐색 기록이 다음 테이블에 �
 |수행하려는 작업 ...|이 UI 페이지로 이동 ...|이 절차 사용|
 |---|---|---|
 |서비스 만들기</br>서비스 삭제</br>서비스 등록 키 얻기</br>서비스 등록 키 다시 생성|StorSimple 관리자 서비스|[StorSimple 관리자 서비스 배포](storsimple-ova-manage-service.md)|
+|서비스 데이터 암호화 키 변경</br>작업 로그 보기|StorSimple Manager 서비스 → 대시보드|[StorSimple 서비스 대시보드 사용](storsimple-ova-service-dashboard.md)|
 |가상 배열 비활성화</br>가상 배열 삭제|StorSimple Manager 서비스 → 장치|[가상 배열 비활성화 또는 삭제](storsimple-ova-deactivate-and-delete-device.md)|
 |재해 복구 및 장치 장애 조치(Failover)</br>장애 조치(Failover) 필수 구성 요소</br>가상 장치에 장애 조치(Failover)</br>비즈니스 연속성 재해 복구(BCDR)</br>재해 복구 중 오류|StorSimple Manager 서비스 → 장치|[StorSimple 가상 배열에 대한 재해 복구 및 장치 장애 조치(failover)](storsimple-ova-failover-dr.md)|
 |공유 및 볼륨 백업</br>수동 백업 수행</br>백업 일정 변경</br>기존 백업 확인|StorSimple 관리자 서비스 → 백업 카탈로그|[StorSimple 가상 배열 백업](storsimple-ova-backup.md)|
 |백업 세트에서 공유 복원</br>백업 세트에서 볼륨 복원</br>항목 수준 복구(파일 서버에만 해당)|StorSimple Manager 서비스 → 백업 카탈로그|[StorSimple 가상 배열의 백업에서 복원](storsimple-ova-restore.md)|
 |저장소 계정 정보</br>저장소 계정 추가</br>저장소 계정 편집</br>저장소 계정 삭제|StorSimple Manager 서비스 → 구성|[StorSimple 가상 배열에 대한 저장소 계정 관리](storsimple-ova-manage-storage-accounts.md)|
 |액세스 제어 레코드 정보</br>액세스 제어 레코드 추가 또는 수정</br>액세스 제어 레코드 삭제|StorSimple Manager 서비스 → 구성|[StorSimple 가상 배열에 대한 액세스 제어 레코드 관리](storsimple-ova-manage-acrs.md)|
-|경고 설정 구성</br>경고 알림 받기</br>경고 관리</br>경고 검토|StorSimple Manager 서비스 → 경고|[StorSimple 가상 배열에 대한 경고 보기 및 관리](storsimple-ova-manage-alerts.md)
+|작업 세부 정보 보기|StorSimple Manager 서비스 → 작업| [StorSimple 가상 배열 작업 관리](storsimple-ova-manage-jobs.md)|
+|경고 설정 구성</br>경고 알림 받기</br>경고 관리</br>경고 검토|StorSimple Manager 서비스 → 경고|[StorSimple 가상 배열에 대한 경고 보기 및 관리](storsimple-ova-manage-alerts.md)|
 |장치 관리자 암호 수정|StorSimple Manager 서비스 → 장치 → 구성|[StorSimple 가상 배열 장치 관리자 암호 변경](storsimple-ova-change-device-admin-password.md)|
 |소프트웨어 업데이트 설치|StorSimple Manager 서비스 → 장치 → 유지 관리|[가상 배열 업데이트](storsimple-ova-update.md)|
 
@@ -94,4 +96,4 @@ StorSimple Manager 서비스 UI에 대한 탐색 기록이 다음 테이블에 �
 ##다음 단계
 웹 UI 및 사용 방법에 대한 자세한 내용은 [StorSimple 웹 UI를 사용하여 StorSimple 가상 배열 관리](storsimple-ova-web-ui-admin.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

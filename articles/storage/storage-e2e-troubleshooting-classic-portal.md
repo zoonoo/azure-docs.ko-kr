@@ -3,7 +3,7 @@
 	description="Azure 저장소 분석, AzCopy 및 Microsoft Message Analyzer를 사용한 종단 간 문제 해결을 보여 주는 자습서" 
 	services="storage" 
 	documentationCenter="dotnet" 
-	authors="tamram" 
+	authors="robinsh" 
 	manager="carmonm"/>
 
 <tags 
@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="tamram"/>
+	ms.date="02/23/2016" 
+	ms.author="robinsh"/>
 
 # Azure 저장소 메트릭 및 로깅, AzCopy 및 Message Analyzer를 사용한 종단 간 문제 해결 
 
@@ -58,7 +58,7 @@ Azure 저장소 작업은 299보다 큰 HTTP 상태 코드를 정상적인 기�
 
 아래 예제에서는 Azure Blob 저장소에 대한 몇 가지 400번대 요청 오류 및 가능한 해당 원인의 샘플링을 보여 줍니다. 이러한 오류는 물론 300번대 및 500번대 오류로 인해 낮은 성공률이 나타날 수 있습니다.
 
-참고로 아래 목록이 전체 목록은 아닙니다. Azure 저장소 일반 오류 및 각 저장소 서비스에 고유한 오류에 대한 자세한 내용은 MSDN에서 [상태 및 오류 코드](http://msdn.microsoft.com/library/azure/dd179382.aspx)를 참조하세요.
+참고로 아래 목록이 전체 목록은 아닙니다. Azure 저장소 일반 오류 및 각 저장소 서비스에 고유한 오류에 대한 자세한 내용은 [상태 및 오류 코드](http://msdn.microsoft.com/library/azure/dd179382.aspx)를 참조하세요.
 
 **상태 코드 404(찾을 수 없음) 예제**
 
@@ -88,7 +88,7 @@ Blob 또는 컨테이너를 찾을 수 없어서 컨테이너 또는 Blob에 대
 
 ### 서버 쪽 로깅 및 메트릭 구성
 
-먼저 Azure 저장소 로깅 및 메트릭을 구성하여 분석할 클라이언트 응용 프로그램의 데이터를 수집해야 합니다. [Azure 클래식 포털](https://manage.windowsazure.com)을 통해, PowerShell을 사용하여 또는 프로그래밍 방식 등의 다양한 방법으로 로깅 및 메트릭을 구성할 수 있습니다. 로깅 및 메트릭 구성에 대한 자세한 내용은 MSDN에서 [저장소 메트릭 사용 및 메트릭 데이터 보기](http://msdn.microsoft.com/library/azure/dn782843.aspx) 및 [저장소 로깅 사용 및 로그 데이터 액세스](http://msdn.microsoft.com/library/azure/dn782840.aspx)를 참조하세요.
+먼저 Azure 저장소 로깅 및 메트릭을 구성하여 분석할 클라이언트 응용 프로그램의 데이터를 수집해야 합니다. [Azure 클래식 포털](https://manage.windowsazure.com)을 통해, PowerShell을 사용하여 또는 프로그래밍 방식 등의 다양한 방법으로 로깅 및 메트릭을 구성할 수 있습니다. 로깅 및 메트릭 구성에 대한 자세한 내용은 [저장소 메트릭 사용 및 메트릭 데이터 보기](http://msdn.microsoft.com/library/azure/dn782843.aspx) 및 [저장소 로깅 사용 및 로그 데이터 액세스](http://msdn.microsoft.com/library/azure/dn782840.aspx)를 참조하세요.
 
 **Azure 클래식 포털을 통해**
 
@@ -130,7 +130,7 @@ Azure용 PowerShell을 시작하려면 [Azure PowerShell을 설치 및 구성하
 
 ### .NET 클라이언트 쪽 로깅 구성
 
-.NET 응용 프로그램에 대해 클라이언트 쪽 로깅을 구성하려면 응용 프로그램의 구성 파일(web.config 또는 app.config)에서 .NET 진단을 사용하도록 설정합니다. 자세한 내용은 MSDN에서 [.NET 저장소 클라이언트 라이브러리를 사용한 클라이언트 쪽 로깅](http://msdn.microsoft.com/library/azure/dn782839.aspx) 및 [Microsoft Azure Storage SDK for Java를 사용한 클라이언트 쪽 로깅](http://msdn.microsoft.com/library/azure/dn782844.aspx)을 참조하세요.
+.NET 응용 프로그램에 대해 클라이언트 쪽 로깅을 구성하려면 응용 프로그램의 구성 파일(web.config 또는 app.config)에서 .NET 진단을 사용하도록 설정합니다. 자세한 내용은 [.NET 저장소 클라이언트 라이브러리를 사용한 클라이언트 쪽 로깅](http://msdn.microsoft.com/library/azure/dn782839.aspx) 및 [Microsoft Azure Storage SDK for Java를 사용한 클라이언트 쪽 로깅](http://msdn.microsoft.com/library/azure/dn782844.aspx)을 참조하세요.
 
 클라이언트 쪽 로그에는 클라이언트가 요청을 준비하고 응답을 받아 처리하는 방법에 대한 자세한 정보가 포함됩니다.
 
@@ -347,18 +347,7 @@ Message Analyzer를 사용하여 로그 데이터를 분석하는 데 익숙해�
 | 큐에서 메시지 배달의 예기치 않은 지연 | AzureStorageClientDotNetV4.Description은 "다시 시도 중 작업이 실패 했습니다."를 포함 | 클라이언트 |
 | PercentThrottlingError에서 HTTP 증가 | HTTP.Response.StatusCode == 500 || HTTP.Response.StatusCode == 503 | 네트워크 |
 | PercentTimeoutError의 증가 | HTTP.Response.StatusCode == 500 | 네트워크 |
-| PercentTimeoutError의 증가(모두) |    *StatusCode == 500 | 모두 |
-| PercentNetworkError의 증가 | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | 클라이언트 |
-| HTTP 403(사용할 수 없음) 메시지 | HTTP.Response.StatusCode == 403 | 네트워크 |
-| HTTP 404(찾을 수 없음) 메시지 | HTTP.Response.StatusCode == 404 | 네트워크 |
-| 404(모두) | *StatusCode == 404 | 모두 |
-| SAS(공유 액세스 서명) 권한 부여 문제 | AzureStorageLog.RequestStatus == "SASAuthorizationError" | 네트워크 |
-| HTTP 409(충돌) 메시지 | HTTP.Response.StatusCode == 409 | 네트워크 |
-| 409(모두) | *StatusCode == 409 | 모두 |
-| 낮은 PercentSuccess 또는 분석 로그 항목에 ClientOtherErrors의 트랜잭션 상태와 함께 작업이 있음 | AzureStorageLog.RequestStatus == "ClientOtherError" | 서버 |
-| Nagle 경고 | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) and (AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | 서버 |
-| 서버 및 네트워크 로그의 시간 범위 | #Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 | 서버, 네트워크 |
-| 서버 로그의 시간 범위 | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 and AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | 서버 |
+| PercentTimeoutError의 증가(모두) |    **StatusCode == 500 | 모두 | | PercentNetworkError의 증가 | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | 클라이언트 | | HTTP 403(사용할 수 없음) 메시지 | HTTP.Response.StatusCode == 403 | 네트워크 | | HTTP 404(찾을 수 없음) 메시지 | HTTP.Response.StatusCode == 404 | 네트워크 | | 404(모두) | *StatusCode == 404 | 모두 | | SAS(공유 액세스 서명) 권한 부여 문제 | AzureStorageLog.RequestStatus == "SASAuthorizationError" | 네트워크 | | HTTP 409(충돌) 메시지 | HTTP.Response.StatusCode == 409 | 네트워크 | | 409(모두) | *StatusCode == 409 | 모두 | | 낮은 PercentSuccess 또는 분석 로그 항목에 ClientOtherErrors의 트랜잭션 상태와 함께 작업이 있음 | AzureStorageLog.RequestStatus == "ClientOtherError" | 서버 | | Nagle 경고 | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) and (AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | 서버 | | 서버 및 네트워크 로그의 시간 범위 | #Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 | 서버, 네트워크 | | 서버 로그의 시간 범위 | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 and AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | 서버 |
 
 
 ## 다음 단계
@@ -373,4 +362,4 @@ Azure 저장소의 종단 간 시나리오 문제 해결에 대한 자세한 내
  
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

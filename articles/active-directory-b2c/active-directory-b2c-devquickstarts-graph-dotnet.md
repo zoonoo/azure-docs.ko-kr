@@ -348,9 +348,6 @@ B2CGraphClient를 사용하여 B2C 테넌트에 정의된 사용자 지정 특�
 - Graph API를 호출할 때 [`api-version=beta`](http://blogs.msdn.com/b/aadgraphteam/archive/2015/04/10/graph-api-versioning-and-the-new-beta-version.aspx)를 사용합니다.
 - 소비자 사용자를 만들고 업데이트하는 경우 위에서 설명한 몇 가지 필수 속성이 있습니다.
 
-> [AZURE.IMPORTANT]
-B2C 앱에서 Azure AD Graph API를 사용할 때 Azure AD B2C의 기반이 되는 디렉터리 서비스의 복제 특성을 설명해야 합니다(자세한 내용은 [이](http://blogs.technet.com/b/ad/archive/2014/09/02/azure-ad-under-the-hood-of-our-geo-redundant-highly-available-geo-distributed-cloud-directory.aspx) 문서 참조). 소비자가 **등록** 정책을 사용하여 B2C 앱에 등록한 후, 즉시 앱에서 Azure AD Graph API를 사용하여 사용자 개체를 읽으려고 하면 해당 개체를 사용할 수 없습니다. 복제 프로세스가 완료될 때까지 몇 초 동안 기다려야 합니다. 일반 공급 시에 Azure AD Graph API 및 디렉터리 서비스에서 제공하는 “읽기-쓰기 정합성 보장"에 대한 보다 구체적인 지침을 게시할 예정입니다.
-
 B2C 테넌트에서 Graph API를 사용하여 수행하려는 작업에 대한 질문이나 요청이 있는 경우 언제든지 알려주세요. 문서에 의견을 남기거나 코드 샘플 GitHub 리포지토리에 문제를 제출하세요.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

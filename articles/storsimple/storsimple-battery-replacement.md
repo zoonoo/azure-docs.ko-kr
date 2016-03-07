@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -27,7 +27,7 @@ Microsoft Azure StorSimple 장치의 기본 엔클로저 PCM(전원 및 냉각 �
 - 새 백업 배터리 모듈 설치
 - 백업 배터리 모듈 유지 관리
 
->[AZURE.IMPORTANT]백업 배터리 모듈을 꺼내고 교체하기 전에 [StorSimple 하드웨어 구성 요소 교체 소개](storsimple-hardware-component-replacement.md)에서 안전 정보를 검토하세요.
+>[AZURE.IMPORTANT] 백업 배터리 모듈을 꺼내고 교체하기 전에 [StorSimple 하드웨어 구성 요소 교체 소개](storsimple-hardware-component-replacement.md)에서 안전 정보를 검토하세요.
 
 ## 백업 배터리 모듈 꺼내기
 
@@ -97,7 +97,7 @@ StorSimple 장치의 기본 엔클로저에 교체 배터리 모듈을 설치하
 
 Azure 클래식 포털에서 **유지 관리** 페이지의 **하드웨어 상태**는 배터리가 오작동하는지 또는 사용 기간 종료가 임박하는지 여부를 나타냅니다. 배터리 상태는 **공유 구성 요소**에서 **PCM 0의 배터리** 또는 **PCM 1의 배터리**로 표시됩니다. 이 페이지에서 사용 기간 종료가 임박한 경우 **DEGRADED** 상태가 표시되고 사용 기간이 종료된 경우 **FAILED** 상태가 표시됩니다.
 
->[AZURE.NOTE]단순히 충전이 필요한 경우 배터리에서 **FAILED**를 보고할 수 있습니다.
+>[AZURE.NOTE] 단순히 충전이 필요한 경우 배터리에서 **FAILED**를 보고할 수 있습니다.
  
 **DEGRADED** 상태가 표시되는 경우 다음 작업을 수행하는 것이 좋습니다.
 
@@ -109,10 +109,10 @@ Azure 클래식 포털에서 **유지 관리** 페이지의 **하드웨어 상�
 
 - 연결된 AC 전원 손실이 없으며 PCM이 켜져 있고 AC 전원에 연결된 경우 배터리를 교체해야 합니다. 교체 백업 배터리 모듈을 주문하려면 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요.
 
->[AZURE.IMPORTANT]국가 및 지역 규정에 따라 오류가 발생한 배터리를 폐기합니다.
+>[AZURE.IMPORTANT] 국가 및 지역 규정에 따라 오류가 발생한 배터리를 폐기합니다.
 
 ## 다음 단계
 
 [StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

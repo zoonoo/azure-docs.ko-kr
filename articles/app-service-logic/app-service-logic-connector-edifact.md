@@ -1,11 +1,11 @@
 <properties 
-   pageTitle="논리 앱에서 BizTalk Edifact 커넥터 사용 | Microsoft Azure 앱 서비스"
-	description="BizTalk Edifact 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
-	services="app-service\logic"
-	documentationCenter=".net,nodejs,java"
-	authors="rajeshramabathiran"
-	manager="dwrede"
-	editor=""/>
+   pageTitle="논리 앱에서 BizTalk Edifact 커넥터 사용 | Microsoft Azure 앱 서비스" 
+   description="BizTalk Edifact 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법" 
+   services="app-service\logic" 
+   documentationCenter=".net,nodejs,java" 
+   authors="rajeshramabathiran" 
+   manager="erikre" 
+   editor=""/>
 
 <tags
    ms.service="app-service-logic"
@@ -13,10 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="12/17/2015"
+   ms.date="02/10/2016"
    ms.author="rajram"/>
 
 # BizTalk Edifact 커넥터 시작 및 논리 앱에 추가  
+>[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다.
+
 Edifact 서비스를 사용하여 B2B 커뮤니케이션에서 Edifact 프로토콜을 통해 메시지를 주고받을 수 있습니다. Edifact는 일반적으로 ASC(공인 표준 위원회) Edifact라고도 하며 여러 산업에서 널리 사용됩니다.
 
 BizTalk Edifact 커넥터를 비즈니스 워크플로에 추가하고 논리 앱 내에서 이 워크플로의 일부로 데이터를 처리할 수 있습니다.
@@ -39,25 +41,17 @@ Edifact 커넥터는 트리거 또는 작업으로 사용할 수 있습니다.
 
 ### 트리거
 - Azure 논리 앱 흐름 디자이너를 시작합니다.
-- 오른쪽 창에서 Edifact 커넥터를 클릭합니다.  
-![트리거 설정][3]
-- ->를 클릭합니다.  
-![트리거 옵션][4]
-- EDIFACT 커넥터에 하나의 트리거가 표시됩니다. *일괄 처리 릴리스*를 선택합니다.  
-![일괄 처리 릴리스 입력][5]
-- 이 트리거는 입력이 없습니다. ->를 클릭합니다.  
-![구성된 일괄 처리 릴리스][6]
+- 오른쪽 창에서 Edifact 커넥터를 클릭합니다.![트리거 설정][3]
+- ->를 클릭합니다. ![트리거 옵션][4]
+- EDIFACT 커넥터에 하나의 트리거가 표시됩니다. *일괄 처리 릴리스*를 선택합니다. ![일괄 처리 릴리스 입력][5]
+- 이 트리거는 입력이 없습니다. ->를 클릭합니다. ![구성된 일괄 처리 릴리스][6]
 - 출력의 일부로 커넥터는 Edifact 페이로드, 규약 ID 뿐 아니라 메시지가 일괄 처리되었는지 아닌지에 대한 정보도 반환합니다.
 
 ### 작업
-- 오른쪽 창에서 Edifact 커넥터를 클릭합니다.  
-![작업 설정][7]
-- ->를 클릭합니다.  
-![작업 목록][8]
-- Edifact 커넥터는 여러 작업을 지원합니다. *인코딩*을 선택합니다.  
-![입력 인코딩][9]
-- 작업에 대한 입력 제공 및 구성  
-![구성된 인코딩][10]
+- 오른쪽 창에서 Edifact 커넥터를 클릭합니다.![작업 설정][7]
+- ->를 클릭합니다. ![작업 목록][8]
+- Edifact 커넥터는 여러 작업을 지원합니다. *인코딩*을 선택합니다. ![입력 인코딩][9]
+- 동작에 대한 입력을 제공하고 구성합니다. ![구성된 인코딩][10]
 
 	매개 변수|형식|매개 변수에 대한 설명
 ---|---|---
@@ -78,7 +72,7 @@ Segment Terminator Suffix|string|세그먼트 마침 표시 접미사
 ## 커넥터의 추가 기능
 이제 커넥터를 만들었으므로 논리 앱을 사용하여 비즈니스 흐름에 추가할 수 있습니다. [논리 앱 정의](app-service-logic-what-are-logic-apps.md)를 참조하세요.
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동합니다. 앱 서비스에서 즉시 단기 스타터 논리 앱을 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동합니다. 앱 서비스에서 즉시 단기 스타터 논리 앱을 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 [커넥터 및 API 앱 참조](http://go.microsoft.com/fwlink/p/?LinkId=529766)의 Swagger REST API 참조를 봅니다.
 
@@ -97,4 +91,4 @@ Segment Terminator Suffix|string|세그먼트 마침 표시 접미사
 [9]: ./media/app-service-logic-connector-edifact/EncodeInput.PNG
 [10]: ./media/app-service-logic-connector-edifact/EncodeConfigured.PNG
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0224_2016-->

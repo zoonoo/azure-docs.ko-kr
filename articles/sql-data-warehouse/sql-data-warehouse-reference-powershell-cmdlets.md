@@ -1,9 +1,9 @@
 <properties
-   pageTitle="SQL 데이터 웨어하우스에서 cmdlet 시작"
+   pageTitle="SQL 데이터 웨어하우스에서 PowerShell cmdlet 및 REST API 사용"
    description="PowerShell cmdlet을 사용하여 SQL 데이터 웨어하우스 일시 중단 후 다시 시작"
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sidneyh"
+   authors="barbkess"
    manager="barbkess"
    editor=""/>
 
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/11/2016"
-   ms.author="mausher;sidneyh;barbkess;sonyama"/>
+   ms.date="02/22/2016"
+   ms.author="barbkess;mausher;sonyama"/>
 
-# Azure 데이터 웨어하우스 cmdlet 및 REST API 시작
+# SQL 데이터 웨어하우스에서 PowerShell cmdlet 및 REST API 사용
 
 SQL 데이터 웨어하우스는 Azure PowerShell cmdlet 또는 REST API를 사용하여 관리할 수 있습니다.
 
@@ -133,4 +133,4 @@ $retorePoints
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

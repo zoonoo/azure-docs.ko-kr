@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Application Insights에 대한 배포 주석 | Microsoft Azure"
+    pageTitle="Application Insights에 대한 릴리스 주석 | Microsoft Azure"
     description="Application Insights에서 배포 또는 빌드 표식을 메트릭 탐색기 차트에 추가합니다."
     services="application-insights"
     documentationCenter=".net"
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="01/19/2016"
+	ms.date="02/22/2016"
     ms.author="awills"/>
 
 # Application Insights의 릴리스 주석
@@ -42,7 +42,7 @@ Visual Studio Team Services 계정에 대해 이 작업을 한 번만 수행하�
 1. [Microsoft Azure 포털](https://portal.azure.com)에 로그인하고 응용 프로그램을 모니터링하는 Application Insights 리소스를 엽니다. (또는 아직 만들지 않은 경우 [지금 만듭니다](app-insights-overview.md).)
 2. **설정**, **API 액세스**를 차례로 열어 **Application Insights ID**를 복사합니다.
 
-    ![portal.azure.com에서 Application Insights 리소스를 열고 설정을 선택합니다. API 액세스를 엽니다. 이제](./media/app-insights-annotations/20.png)
+    ![portal.azure.com에서 Application Insights 리소스를 열고 설정을 선택합니다. API 액세스를 엽니다. 응용 프로그램 ID를 복사합니다.](./media/app-insights-annotations/20.png)
 
 2. 별도의 브라우저 창에서, Visual Studio Team Services에서 배포를 관리하는 릴리스 템플릿을 열거나 만듭니다.
 
@@ -69,8 +69,13 @@ Visual Studio Team Services 계정에 대해 이 작업을 한 번만 수행하�
 
 5. 마지막으로 릴리스 정의를 **저장**합니다.
 
-## 배포 주석
+## 릴리스 주석
 
 이제 릴리스 템플릿을 사용하여 새 릴리스를 배포할 때마다 주석이 Application Insights로 전송됩니다. 주석은 메트릭 탐색기의 차트에 표시됩니다.
 
-<!---HONumber=AcomDC_0121_2016-->
+주석 마커를 클릭하면 요청자, 소스 제어 분기, 릴리스 정의, 환경 등 릴리스에 대한 세부 정보가 열립니다.
+
+
+![릴리스 주석 마커를 클릭합니다.](./media/app-insights-annotations/60.png)
+
+<!---HONumber=AcomDC_0224_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD v2.0 앱 모델로 변경 | Microsoft Azure"
+	pageTitle="Azure AD v2.0 끝점으로 바꾸기 | Microsoft Azure"
 	description="앱 모델 v2.0 공개 미리보기 프로토콜에 적용될 변경 사항에 대한 설명"
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/11/2016"
+	ms.date="02/20/2016"
 	ms.author="dastrock"/>
 
 # v2.0 인증 프로토콜에 대한 중요 업데이트
@@ -67,12 +67,10 @@ OpenID Connect 메타데이터 끝점에서 검색된 토큰의 서명 유효성
 https://login.microsoftonline.com/common/oauth2/v2.0/token
 ```
 
-응답은 다음과 같은 JSON 개체처럼 보입니다.
-
-```
+응답은 다음과 같은 JSON 개체처럼 보입니다. ```
 { 
 	"token_type": "Bearer",
-	"expires_in": "3599",
+	"expires_in": 3599,
 	"scope": "https://outlook.office.com/mail.read",
 	"access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
 	"refresh_token": "OAAABAAAAiL9Kn2Z27UubvWFPbm0gL...",
@@ -87,7 +85,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 ```
 { 
 	"token_type": "Bearer",
-	"expires_in": "3599",
+	"expires_in": 3599,
 	"scope": "https://outlook.office.com/mail.read",
 	"access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
 	"refresh_token": "OAAABAAAAiL9Kn2Z27UubvWFPbm0gL...",
@@ -113,7 +111,7 @@ https://myapp.com?id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...&id_token_exp
 ```
 { 
 	"token_type": "Bearer",
-	"id_token_expires_in": "3599",
+	"id_token_expires_in": 3599,
 	"scope": "openid",
 	"id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
 	"refresh_token": "OAAABAAAAiL9Kn2Z27UubvWFPbm0gL...",
@@ -145,7 +143,7 @@ client_id=...
 ```
 { 
 	"aud": "580e250c-8f26-49d0-bee8-1c078add1609",
-	"iss": "https://login.microsoftonline.com/b9410318-09af-49c2-b0c3-653adc1f376e/v2.0",
+	"iss": "https://login.microsoftonline.com/b9410318-09af-49c2-b0c3-653adc1f376e/v2.0 ",
 	"iat": 1449520283,
 	"nbf": 1449520283,
 	"exp": 1449524183,
@@ -186,7 +184,7 @@ https://login.microsoftonline.com/{some-guid}/v2.0/
 이 양식에서 GUID는 토큰을 발급한 Azure AD 테넌트의 tenantId입니다. 이러한 변경 사항과 함께 발급자 값은
 
 ```
-https://login.microsoftonline.com/{some-guid}/v2.0
+https://login.microsoftonline.com/{some-guid}/v2.0 
 ```
 
 두 토큰과 OpenID Connect Discovery 문서에 나와 있습니다.
@@ -212,12 +210,10 @@ https://login.microsoftonline.com/{some-guid}/v2.0
 ## 프로토콜은 얼마나 자주 변경합니까?
 이후 인증 프로토콜의 주요 변경을 예상하지 않습니다. 이러한 유형의 업데이트 과정을 너무 자주 거치지 않도록 의도적으로 이러한 변경 사항들을 하나의 릴리스로 묶습니다. 물론, 수렴형 v2.0 인증 서비스를 활용하도록 기능을 계속해서 추가할 것이지만, 이러한 변경 사항을 추가할 뿐 기존 코드를 변경하지 않습니다.
 
-앞서 언급한 대로, v2.0 끝점은 아직 미리보기 상태입니다. 이는 종속되는 프로덕션 앱을 릴리스할 때 주의해야 하고, 이와 같은 상황이 발생하는 경우 변경할 준비를 해야 함을 의미합니다. v2.0 끝점이 GA에 도달하는 경우에만 개발자가 서비스의 현재 상태에 대한 종속성을 취하도록 권장합니다.
-
 마지막으로, 이번 미리보기 기간 동안 작업을 시도해주신데 대해 감사 말씀을 드립니다. 지금까지 최초 도입자의 통찰력과 경험은 매우 소중했으며, 계속 의견 및 아이디어를 공유해주시기를 바랍니다.
 
 즐거운 코딩 작업이 되길 바랍니다!
 
 Microsoft ID 부서
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

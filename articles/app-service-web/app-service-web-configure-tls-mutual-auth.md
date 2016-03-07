@@ -20,6 +20,8 @@
 
 ## 개요 ##
 다양 한 유형에 대 한 인증을 사용하여 Azure 웹앱에 대한 액세스를 제한할 수 있습니다. 이렇게 하는 한 가지 방법은 TLS/SSL을 통해 요청되면 클라이언트 인증서를 사용하여 인증하는 것입니다. 이 메커니즘은 TLS 상호 인증 또는 클라이언트 인증서 인증이라고 하고, 이 문서에서는 클라이언트 인증서 인증을 사용하여 웹앱을 설치하는 방법을 자세히 다룹니다.
+> **참고:** HTTP를 통해 사이트에 액세스하고 HTTPS를 통해서는 액세스하지 않는 경우 클라이언트 인증서가 제공되지 않습니다. 따라서 응용 프로그램에 클라이언트 인증서가 필요한 경우 HTTP를 통한 응용 프로그램 요청을 허용해서는 안 됩니다.
+> 
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -39,7 +41,7 @@
 
 
 ## 웹앱에서 클라이언트 인증서에 액세스 ##
-웹앱은 클라이언트 인증서 인증을 사용 하도록 구성 된, 클라이언트 인증서 "X ARR ClientCert" 요청 헤더의 base64 인코딩 값을 통해 응용 프로그램에서 사용할 수 있습니다. 응용 프로그램은 이 값으로부터 인증서를 생성하고, 응용 프로그램에서 인증 및 권한 부여 목적으로 사용할 수 있습니다.
+ASP.NET을 사용할 때 클라이언트 인증서 인증을 사용하도록 앱을 구성한 경우 **HttpRequest.ClientCertificate** 속성을 통해 인증서를 사용할 수 있습니다. 다른 응용 프로그램 스택의 경우 "X-ARR-ClientCert" 요청 헤더의 Base64로 인코딩된 값을 통해 앱에서 클라이언트 인증서를 사용할 수 있습니다. 응용 프로그램은 이 값으로부터 인증서를 생성하고, 응용 프로그램에서 인증 및 권한 부여 목적으로 사용할 수 있습니다.
 
 ## 인증서 유효성 검사에 대한 특별 고려 사항 ##
 응용 프로그램으로 가는 클라이언트 인증서는 AZure 웹앱 플랫폼에 의해 모든 유효성 검사를 통해 가지 않습니다. 이 인증서의 유효성을 검사하는 것은 웹앱의 책임입니다. 인증을 위해 인증서 속성의 유효성을 검사하는 샘플 ASP.NET 코드는 다음과 같습니다.
@@ -121,7 +123,7 @@
                 if (certificate == null || !String.IsNullOrEmpty(errorString)) return false;
                 
                 // 1. Check time validity of certificate
-                if (DateTime.Compare(DateTime.Now, certificate.NotBefore) < 0 && DateTime.Compare(DateTime.Now, certificate.NotAfter) > 0) return false;
+                if (DateTime.Compare(DateTime.Now, certificate.NotBefore) < 0 || DateTime.Compare(DateTime.Now, certificate.NotAfter) > 0) return false;
                 
                 // 2. Check subject name of certificate
                 bool foundSubject = false;
@@ -179,4 +181,4 @@
         }
     }
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0224_2016-->

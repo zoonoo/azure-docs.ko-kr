@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/04/2015"
-   ms.author="kunalds"/>
+   ms.date="02/12/2016"
+   ms.author="toddabel"/>
 
 
 # 로컬 컴퓨터 개발 설정에서의 모니터링 및 진단 서비스
@@ -60,4 +60,4 @@
 ## 다음 단계
 위에서 로컬 진단을 위해 응용 프로그램에 추가한 것과 동일한 추적 코드는 Azure 클러스터에서 응용 프로그램을 실행할 때 이 이벤트를 보는 데 이용할 수 있는 도구와 함께 작동합니다. 도구의 다양한 옵션과 옵션 설정 방법에 대해 설명하는 다음 문서를 살펴보세요. * [Azure 진단 및 Operational Insights의 서비스 패브릭 클러스터에서 로그 수집](service-fabric-diagnostics-how-to-setup-wad-operational-insights.md) * [서비스 패브릭 응용 프로그램 추적 저장소와 같은 ElasticSearch 사용](service-fabric-diagnostic-how-to-use-elasticsearch.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

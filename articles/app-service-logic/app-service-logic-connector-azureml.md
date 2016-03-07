@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,24 +13,26 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/11/2015"
+   ms.date="02/11/2016"
    ms.author="jehollan"/>
    
 # 개요
+>[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다.
+
 논리 앱용 Azure ML 커넥터를 통해 일괄 처리 점수 매기기(배치 실행 서비스) 및 재학습을 위한 Azure ML API를 호출할 수 있습니다. 논리 앱 트리거와 이러한 기능을 함께 사용하여 배치 작업을 예약하고 모델에 대해 예약된 재학습을 설정할 수 있습니다.
 
  ![][1]
  
 ## Azure 기계 학습 커넥터 시작 및 논리 앱에 추가
-시작하려면 Azure 기계 학습 스튜디오에서 실험을 만든 후 웹 서비스를 설정 및 배포합니다. 그런 다음 배치 실행 도움말 페이지에 있는 API URL 및 BES Post URL의 Key를 사용할 수 있습니다([자세한 정보](https://github.com/Azure/azure-content/blob/master/articles/machine-learning/machine-learning-walkthrough-5-publish-web-service.md)).
+시작하려면 Azure 기계 학습 스튜디오에서 실험을 만든 후 웹 서비스를 설정 및 배포합니다. 그런 다음 배치 실행 도움말 페이지에 있는 API URL 및 BES Post URL의 Key를 사용할 수 있습니다. ([기계 학습 연습](../machine-learning/machine-learning-walkthrough-5-publish-web-service.md))
 
-커넥터를 사용하여 BES 작업을 실행하려면 Azure ML 커넥터를 논리 앱에 추가합니다. 그런 다음 필요한 정보를 입력합니다(이에 대한 자세한 내용은 아래 참조). 재학습을 설정하려면 두 번째 Azure ML 커넥터를 추가하고 입력 매개 변수를 제공합니다(재학습을 위한 모델 설정에 대한 자세한 내용은 [여기](machine-learning-retrain-models-programmatically.md) 참조).
+커넥터를 사용하여 BES 작업을 실행하려면 Azure ML 커넥터를 논리 앱에 추가합니다. 그런 다음 필요한 정보를 입력합니다(이에 대한 자세한 내용은 아래 참조). 재학습을 설정하려면 두 번째 Azure ML 커넥터를 추가하고 입력 매개 변수를 제공합니다([재학습을 위한 모델 설정](../machine-learning/machine-learning-retrain-models-programmatically.md) 참조).
 
 ## Azure ML 배치 실행 작업 실행
 Azure ML 커넥터는 배치 실행(BES) 작업을 실행하기 위한 다음 네 가지 옵션을 제공합니다. 1. 입력 및 출력이 있는 배치 작업: 실험에 웹 서비스 입력 및 출력 모듈이 있음 2. 입력 및 출력이 없는 배치 작업: 실험에 웹 서비스 입력 또는 출력 모듈이 없음(예: 판독기 및 기록기 모듈 사용) 3. 입력만 있는 배치 작업: 실험에 웹 서비스 입력 모듈이 있으나 웹 서비스 출력 모듈은 없음(예: 기록기 모듈 사용) 4. 출력만 있는 배치 작업: 실험에 웹 서비스 입력 모듈이 없으나 웹 서비스 출력 모듈은 있음(예: 판독기 모듈 사용) BES는 비동기 요청이며 데이터 크기 및 모델의 복잡성에 따라 완료하는 데 시간이 소요될 수 있습니다. 작업이 완료되면 커넥터는 출력 결과를 반환합니다.
 
 ### 배치 실행: 입력 및 출력 포함
-스튜디오 실험에 웹 서비스 입력 및 출력 모듈이 있는 경우 저장소 Blob 계정 및 위치에 대한 정보를 제공해야 합니다([여기서 자세히 보기](machine-learning-consume-web-services.md)). 또한 실험에 설정하는 경우 전역(웹 서비스) 매개 변수를 포함할 수 있습니다([여기서 자세히 보기](machine-learning-web-service-parameters.md)).
+스튜디오 실험에 웹 서비스 입력 및 출력 모듈이 있는 경우 ([저장소 Blob 계정 및 위치에 대한 정보를 제공](../machine-learning/machine-learning-consume-web-services.md))해야 합니다. 또한 실험에 설정하는 경우 전역(웹 서비스) 매개 변수를 포함할 수 있습니다([기계 학습 웹 서비스 매개 변수](../machine-learning/machine-learning-web-service-parameters.md)).
 
 ![][2]
 
@@ -77,4 +79,4 @@ Azure ML 커넥터는 배치 실행(BES) 작업을 실행하기 위한 다음 �
 [6]: ./media/app-service-logic-connector-azureml/img6.png
 [7]: ./media/app-service-logic-connector-azureml/img7.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

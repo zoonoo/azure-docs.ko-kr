@@ -16,10 +16,6 @@ Azure는 **다음 조건 모두가 참일 경우** 응용 프로그램에서 Pyt
 
     \.skipPythonDeployment
 
-Django 응용 프로그램에 대한 정적 파일 수집을 건너뛰려는 경우:
-
-    \.skipDjango 
-
 배포를 더 효율적으로 제어하려면 다음 파일을 만들어 기본 배포 스크립트를 재정하면 됩니다.
 
     \.deployment
@@ -33,4 +29,4 @@ Django 응용 프로그램에 대한 정적 파일 수집을 건너뛰려는 경
 
 [Azure 명령줄 인터페이스]: http://azure.microsoft.com/downloads/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

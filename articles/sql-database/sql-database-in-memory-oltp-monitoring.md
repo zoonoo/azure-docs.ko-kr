@@ -20,7 +20,7 @@
 
 # 메모리 내 OLTP 저장소 모니터링
 
-[메모리 내](sql-database-in-memory.md)를 사용하는 경우 메모리에 최적화된 테이블 및 테이블 변수에 있는 데이터는 메모리 내 OLTP 저장소에 상주합니다. 각 Premium 서비스 계층은 최대 메모리 내 저장소 크기가 있으며 이는 [SQL 데이터베이스 서비스 계층 문서](sql-database-service-tiers.md#service-tiers-for-single-databases)에서 설명합니다. 이 제한이 초과되면 삽입 및 업데이트 작업이 실패하기 시작할 수 있습니다.(오류 41805로) 해당 시점에서 데이터를 삭제하여 하나에 메모리를 회수하거나 데이터베이스의 성능 계층을 업그레이드해야 합니다.
+[메모리 내 OLTP](sql-database-in-memory.md)를 사용하는 경우 메모리에 최적화된 테이블 및 테이블 변수에 있는 데이터는 메모리 내 OLTP 저장소에 상주합니다. 각 Premium 서비스 계층은 최대 메모리 내 저장소 크기가 있으며 이는 [SQL 데이터베이스 서비스 계층 문서](sql-database-service-tiers.md#service-tiers-for-single-databases)에서 설명합니다. 이 제한이 초과되면 삽입 및 업데이트 작업이 실패하기 시작할 수 있습니다.(오류 41805로) 해당 시점에서 데이터를 삭제하여 하나에 메모리를 회수하거나 데이터베이스의 성능 계층을 업그레이드해야 합니다.
 
 ## 데이터가 메모리 내 저장소 용량에 맞는지 여부 결정
 
@@ -58,4 +58,4 @@
 ## 다음 단계
 [동적 관리 뷰를 사용하여 Azure SQL 데이터베이스 모니터링](sql-database-monitoring-with-dmvs.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

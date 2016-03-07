@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="02/24/2016"
 	ms.author="genli"/>
 
 #  Azure 청구 및 구독 FAQ
@@ -44,6 +44,18 @@
 - [Azure 서비스 수준 계약은 현재 온-프레미스 Microsoft 라이선스 계약과 함께 어떻게 적용되나요?](#how-will-azure-service-level-agreements-work-with-current-on-premises-microsoft-licensing-agreements)
 
 **구독**
+
+- [Azure 지원은 어떻게 구입하나요?](#how-do-i-purchase-azure-support)
+
+- [월간 요금은 단일 Azure 플랜에 해당하나요, 아니면 전체 계정에 해당하나요?](#does-the-monthly-rate-cover-a-single-azure-plan-or-the-entire-account)
+
+- [더 높은 계층의 Azure 지원 계획으로 업그레이드하려면 어떻게 해야 하나요?](#how-do-i-upgrade-to-a-higher-tier-azure-support-plan)
+
+-	[Azure 지원 요금은 언제 청구되나요?](#when-will-i-be-billed-for-azure-support)
+
+- [구독 기간이 끝나면 어떻게 되나요?](#what-happens-at-the-end-of-the-term)
+
+- [Azure 지원 플랜을 취소하려면 어떻게 해야 하나요?](#how-do-i-cancel-my-azure-support-plan)
 
 - [내 Azure 구독에 대한 데이터 및 서비스를 새 구독으로 마이그레이션하려면 어떻게 해야 하나요?](#how-do-i-migrate-data-and-services-for-my-azure-subscription-to-a-new-subscription)
 
@@ -133,6 +145,39 @@ Azure 서비스 수준 계약은 온-프레미스 Microsoft 라이선스 계약�
 
 ## 구독
 
+### Azure 지원은 어떻게 구입하나요?
+Azure 지원 플랜은 온라인으로 또는 기업계약을 통해 구입할 수 있습니다. 개발자, 표준 또는 전문가 지원 플랜은 [Azure 지원 플랜](https://azure.microsoft.com/support/plans/) 페이지에서 온라인으로 사용할 수 있습니다. 지원 계획을 구매하려면 Microsoft Azure 계정 소유자여야 합니다.
+
+EA(기업계약)를 통해 Microsoft Azure를 구매하는 경우 LAR(대기업 고객 대상 재판매인)에 연락하여 표준 또는 전문가 지원 플랜을 기업 계약에 추가할 수 있습니다. 개발자 지원은 기업계약을 통해 제공되지 않습니다.
+
+### 월간 요금은 단일 Azure 플랜에 해당하나요, 아니면 전체 계정에 해당하나요?
+
+해당 계정에 보유하고 있는 구독 또는 사용자 수에 관계없이 Azure 지원의 고정 월간 요금은 단일 계정에 적용됩니다.
+
+계정의 모든 구독은 동일한 지원 플랜을 공유하고, 지원 플랜이 있는 계정의 모든 구독에 대해 관리자/소유자 액세스 권한이 있는 모든 사용자는 액세스할 수 있는 특정 계정 구독에 대해 지원을 받을 자격이 있습니다.
+
+Microsoft Azure 계정에는 [Azure 계정 센터](https://account.windowsazure.com/Home/Index)에서 액세스할 수 있습니다. 여기에서 해당 계정에 속하는 구독 목록을 볼 수 있으며 지원을 받을 자격을 얻게 됩니다.
+
+### 더 높은 계층의 Azure 지원 계획으로 업그레이드하려면 어떻게 해야 하나요?
+
+[지원 요청을 제출](billing-how-to-create-billing-support-ticket.md)하고 “구독 관리”를 선택하여 상위 계층 플랜으로 업그레이드할 수 있습니다. 원래 Azure 지원 플랜에 대한 남은 결제가 적용되지 않으며 최초 약정의 남은 개월 수에 대해 더 높은 계층 수준의 요금이 청구됩니다.
+
+### Azure 지원 요금은 언제 청구되나요?
+
+Azure 지원 플랜을 온라인으로 구입할 때 첫 달에 대한 요금이 즉시 청구됩니다. 이후 각 청구 주기의 첫 번째 일에 월간 요금이 청구됩니다. EA(기업계약) 구매는 계약 청구 주기를 따릅니다.
+
+### 구독 기간이 끝나면 어떻게 되나요?
+
+6개월 기간이 끝나면 같은 결제 방법을 사용하여 이후의 6개월에 대해 동일한 Azure 지원 플랜으로 플랜이 자동 갱신됩니다. 계정 소유자는 [Azure 계정 센터](https://account.windowsazure.com/Home/Index)에서 자동 갱신 기능 해제를 선택할 수 있습니다.
+
+자동 갱신을 원하지 않는 경우 [Azure 계정 센터](https://account.windowsazure.com/Home/Index)에 로그인하고 해당하는 지원 플랜을 선택한 다음 "갱신 세부 정보 변경"을 클릭하고 기본 옵션인 자동 갱신의 선택을 취소합니다.
+
+### Azure 지원 플랜을 취소하려면 어떻게 해야 하나요?
+
+계정 소유자는 [Azure 계정 센터](https://account.windowsazure.com/Home/Index)에 로그인한 후 "계정 센터"를 선택하고 "구독"을 선택하여 Azure 지원 플랜을 취소할 수 있습니다. 구독이 있는 경우 구독 목록이 표시됩니다. 취소하려는 구독을 선택합니다. 그러면 구독 세부 정보가 표시되고 화면 오른쪽에 옵션 목록이 표시됩니다. “취소”를 선택하고 계속합니다. 구독이 없으면 “구독이 없습니다.”가 표시됩니다.
+
+Azure 지원 플랜 기간은 6개월이며, Microsoft는 해당 기간에 지속적인 현금 약정 금액을 요구합니다. 이 기간이 만료되기 전에 취소해도 나머지 약정이 면제되는 것은 아니며 선불 금액이 환불되지도 않습니다. 자세한 내용은 [Azure 구독을 취소하는 방법](billing-how-to-cancel-azure-subscription.md)을 참조하세요.
+
 ### 내 Azure 구독에 대한 데이터 및 서비스를 새 구독으로 마이그레이션하려면 어떻게 해야 하나요?
 
 자세한 내용은 [Azure 지원](https://azure.microsoft.com/support/options/)에 문의하세요. Azure 구독에 대한 데이터 및 서비스를 새 구독으로 마이그레이션하는 지원 티켓을 만들려면 문서 [Azure 청구 및 구독 문제에 대한 지원 티켓을 만드는 방법](billing-how-to-create-billing-support-ticket.md)을 참조하세요.
@@ -172,7 +217,7 @@ Azure 계정 정보를 보고 편집하려면 계정 관리자로 Azure 계정 �
 2.	구독 페이지에서 지불 방법을 업데이트할 구독을 클릭합니다.
 3.	**구독** 요약 페이지에서 지불 방법 변경을 클릭합니다. 별도의 창에 **지불 방법 변경** 도구가 표시됩니다.
 
-**참고:** Microsoft Azure 클래식 포털에서도 계정 센터에 액세스할 수 있습니다. 이렇게 하려면 계정 이름을 클릭한 후 내 청구서 보기를 클릭합니다. 4. **지불 방법 선택** 페이지에서 드롭다운 목록을 클릭하고 업데이트할 지불 방법을 선택한 다음 **편집**을 클릭합니다. 5. 세부 정보 페이지에서 올바른 신용 카드 종류와 카드 번호를 선택했는지 확인합니다. 6. 카드 정보를 수정한 후 **다음**을 클릭합니다.
+**참고:** Microsoft Azure 클래식 포털에서도 계정 센터에 액세스할 수 있습니다. 이렇게 하려면 계정 이름을 클릭한 후 내 청구서 보기를 클릭합니다. 4. **지불 방법 선택** 페이지에서 드롭다운 목록을 클릭하고 업데이트할 지불 방법을 선택한 다음 **편집**을 클릭합니다. 5. 세부 정보 페이지에서 올바른 신용 카드 종류와 카드 번호를 선택했는지 확인합니다. 6. 카드 세부 정보를 필요에 따라 변경하고 **다음**을 클릭합니다.
 
 자세한 내용은 [Azure 구독 지불에 사용하는 신용 카드를 변경하는 방법](billing-how-to-change-credit-card.md) 문서를 참조하세요.
 
@@ -210,4 +255,4 @@ Azure는 전 세계 140여 개 국가에서 구매할 수 있으며 여러 가�
 
 현재 SPLA를 통해 Azure 또는 SQL 데이터베이스를 사용할 수 있는 계획은 없습니다.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

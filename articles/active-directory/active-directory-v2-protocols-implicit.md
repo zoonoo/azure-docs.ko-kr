@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/11/2016"
+	ms.date="02/20/2016"
 	ms.author="dastrock"/>
 
 # v2.0 프로토콜 - 암시적 흐름을 사용하는 SPA
-v2.0 앱을 사용하면, Microsoft 개인 계정 및 회사/학교 계정을 사용하여 단일 페이지 앱에 사용자를 로그인할 수 있습니다. 주로 브라우저에서 실행되는 단일 페이지 앱 및 기타 JavaScript 앱에는 인증과 관련된 흥미로운 난제가 몇 가지 있습니다.
+v2.0 끝점을 사용하면, Microsoft 개인 계정 및 회사/학교 계정을 사용하여 단일 페이지 앱에 사용자를 로그인할 수 있습니다. 주로 브라우저에서 실행되는 단일 페이지 앱 및 기타 JavaScript 앱에는 인증과 관련된 흥미로운 난제가 몇 가지 있습니다.
 
 - 이러한 앱의 보안적인 특성은 기존의 서버 기반 웹 응용 프로그램과 확실한 차이가 있습니다.
-- 다수의 인증 서버 및 ID 공급자는 문서에 의해 충분히 입증된 보안상의 이유로 CORS 요청을 지원하지 않습니다.
+- 다수의 인증 서버 및 ID 공급자는 CORS 요청을 지원하지 않습니다.
 - 앱에서 멀어지는 전체 페이지 브라우저 리디렉션은 사용자 환경에 특히 방해가 됩니다.
 
 이러한 응용 프로그램(예: AngularJS, Ember.js, React.js 등)에 대해 Azure AD는 OAuth 2.0 암시적 허용 흐름을 지원합니다. 암시적 흐름은 [OAuth 2.0 사양(영문)](http://tools.ietf.org/html/rfc6749#section-4.2)에 설명되어 있습니다. 이것의 주요 이점은 앱이 백 엔드 서버 자격 증명 교환을 수행하지 않고 Azure AD에서 토큰을 가져오도록 허용한다는 것입니다. 따라서 앱은 사용자 로그인, 세션 유지 관리, 다른 웹 API에 대한 토큰 가져오기를 모두 클라이언트 JavaScript 코드 내에서 수행할 수 있습니다. 암시적인 흐름을 사용하는 경우(구체적으로 [클라이언트](http://tools.ietf.org/html/rfc6749#section-10.3) 및 [사용자 가장](http://tools.ietf.org/html/rfc6749#section-10.3)과 관련하여) 참작해야 하는 몇 가지 중요한 보안 고려 사항이 있습니다.
@@ -30,20 +30,39 @@ v2.0 앱을 사용하면, Microsoft 개인 계정 및 회사/학교 계정을 �
 단일 페이지 앱에 라이브러리를 사용하지 않고 직접 프로토콜 메시지를 보내려면 아래의 일반적인 단계에 따릅니다.
 
 > [AZURE.NOTE]
-    이 정보는 v2.0 앱 모델 공개 미리 보기에 적용됩니다. 일반 공급 Azure AD 서비스와 통합하는 방법에 대한 지침은 [Azure Active Directory 개발자 가이드](active-directory-developers-guide.md)를 참조하십시오.
+	일부 Azure Active Directory 시나리오 및 기능만 v2.0 끝점에서 지원합니다. v2.0 끝점을 사용해야 하는지 확인하려면 [v2.0 제한 사항](active-directory-v2-limitations.md)을 참조하세요.
+    
+## 프로토콜 다이어그램
+전체 암시적 로그인 흐름은 다음과 같습니다. - 각 단계를 아래에서 자세히 설명합니다.
+
+![OpenId Connect 스윔 레인](../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
 
 ## 로그인 요청 보내기
 
 사용자를 앱에 처음으로 로그인하려면 [OpenID Connect](active-directory-v2-protocols-oidc.md) 권한 부여 요청을 보내고 v2.0 끝점으로부터 `id_token`을 받습니다.
 
 ```
+// Line breaks for legibility only
+
+https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
+client_id=6731de76-14a6-49ae-97bc-6eba6914391e
+&response_type=id_token+token
+&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
+&scope=openid%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
+&response_mode=fragment
+&state=12345
+&nonce=678910
+```
+
+> [AZURE.TIP] 아래 요청을 브라우저에 붙여 넣으세요!
+
+```
 https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token+token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&response_mode=fragment&state=12345&nonce=678910
 ```
-> [AZURE.TIP] 이 요청을 브라우저에 붙여 넣으세요!
-
 
 | 매개 변수 | | 설명 |
 | ----------------------- | ------------------------------- | --------------- |
+| tenant | 필수 | 요청의 경로에 있는 `{tenant}` 값을 사용하여 응용 프로그램에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다. 자세한 내용은 [프로토콜 기본](active-directory-v2-protocols.md#endpoints)을 참조하세요. |
 | client\_id | 필수 | 등록 포털([apps.dev.microsoft.com](https://apps.dev.microsoft.com))에서 앱에 할당한 응용 프로그램 ID입니다. |
 | response\_type | 필수 | OpenID Connect 로그인을 위한 `id_token`이 포함되어야 합니다. response\_type `token`을 포함할 수도 있습니다. `token`을 여기서 사용하면 앱은 권한 부여 끝점에 두 번째 요청을 수행하지 않고 권한 부여 끝점에서 즉시 액세스 토큰을 받을 수 있습니다. `token` response\_type을 사용하는 경우 `scope` 매개 변수는 토큰을 발행할 리소스를 나타내는 범위를 포함해야 합니다. |
 | redirect\_uri | 권장 | 앱이 인증 응답을 보내고 받을 수 있는 앱의 redirect\_uri입니다. URL로 인코드되어야 한다는 점을 제외하고 포털에서 등록한 redirect\_uri 중 하나와 정확히 일치해야 합니다. |
@@ -60,6 +79,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de7
 사용자가 인증하고 동의하면 v2.0 끝점이 `response_mode` 매개 변수에 지정된 방법을 사용하여 표시된 `redirect_uri`에서 해당 앱에 응답을 반환합니다.
 
 #### 성공적인 응답
+
 읽기 쉽도록 줄 바꿈을 포함하여 `response_mode=fragment` 및 `response_type=id_token+token`을 사용하는 성공적인 응답은 다음과 같이 표시됩니다.
 
 ```
@@ -80,7 +100,6 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | scope | `response_type`이 `token`을 포함하는 경우 포함됩니다. access\_token이 유효한 범위를 나타냅니다. |
 | id\_token | 앱이 요청한 id\_token입니다. id\_token을 사용하여 사용자 ID를 확인하고 사용자와 세션을 시작할 수 있습니다. Id\_token 및 해당 콘텐츠에 대한 자세한 내용은 [v2.0 끝점 토큰 참조](active-directory-v2-tokens.md)에 포함되어 있습니다. |
 | state | 요청에 state 매개 변수가 포함되어 있으면 동일한 값이 응답에도 나타나야 합니다. 앱은 요청 및 응답의 상태 값이 동일한지 확인해야 합니다. |
-| id\_token\_expires\_in | id\_token이 유효한 기간(초)입니다. |
 
 
 #### 오류 응답
@@ -108,7 +127,7 @@ id\_token을 받는 것만으로는 사용자를 인증하는 데 충분하지 �
 - 사용자에게 적절한 권한 부여/권한이 있는지 확인
 - 다단계 인증과 같은 특정 강도의 인증이 발생했는지 확인
 
-id\_token의 클레임에 대한 자세한 내용은 [v2.0 앱 모델 토큰 참조](active-directory-v2-tokens.md)를 참조하세요.
+id\_token의 클레임에 대한 자세한 내용은 [v2.0 끝점 토큰 참조](active-directory-v2-tokens.md)를 참조하세요.
 
 id\_token의 유효성을 완전히 검사한 후 사용자와 세션을 시작하고 id\_token의 클레임을 사용하여 앱에서 사용자 정보를 가져올 수 있습니다. 이 정보는 표시, 레코드, 권한 부여 등에 사용될 수 있습니다.
 
@@ -119,13 +138,28 @@ id\_token의 유효성을 완전히 검사한 후 사용자와 세션을 시작�
 일반적인 OpenID Connect/OAuth 흐름에서는 v2.0 `/token` 끝점에 요청을 보내어 이 작업을 수행합니다. 하지만 v2.0 끝점은 CORS 요청을 지원하지 않기 때문에 AJAX 호출이 토큰을 가져오고 새로 고치도록 하는 것은 불가능합니다. 그 대신, 숨겨진 iFrame에 암시적 흐름을 사용하여 다른 웹 API에 대한 새 토큰을 가져올 수 있습니다.
 
 ```
+// Line breaks for legibility only
+
+https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
+client_id=6731de76-14a6-49ae-97bc-6eba6914391e
+&response_type=token
+&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
+&scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&response_mode=fragment
+&state=12345&nonce=678910
+&prompt=none
+&domain_hint=organizations
+&login_hint=myuser@mycompany.com
+```
+
+> [AZURE.TIP] 아래 요청을 브라우저에 붙여 넣으세요!(하지만 성공하려면 먼저 domain\_hint & login\_hint 값을 수정합니다.)
+
+```
 https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&response_mode=fragment&state=12345&nonce=678910&prompt=none&domain_hint=organizations&login_hint=myuser@mycompany.com
 ```
 
-> [AZURE.TIP] 이 요청을 브라우저에 붙여 넣으세요!(하지만 성공하려면 먼저 domain\_hint & login\_hint 값을 수정합니다.)
-
 | 매개 변수 | | 설명 |
 | ----------------------- | ------------------------------- | --------------- |
+| tenant | 필수 | 요청의 경로에 있는 `{tenant}` 값을 사용하여 응용 프로그램에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다. 자세한 내용은 [프로토콜 기본](active-directory-v2-protocols.md#endpoints)을 참조하세요. |
 | client\_id | 필수 | 등록 포털([apps.dev.microsoft.com](https://apps.dev.microsoft.com))에서 앱에 할당한 응용 프로그램 ID입니다. |
 | response\_type | 필수 | OpenID Connect 로그인을 위한 `id_token`이 포함되어야 합니다. `code`와 같은 다른 response\_types을 포함할 수도 있습니다. |
 | redirect\_uri | 권장 | 앱이 인증 응답을 보내고 받을 수 있는 앱의 redirect\_uri입니다. URL로 인코드되어야 한다는 점을 제외하고 포털에서 등록한 redirect\_uri 중 하나와 정확히 일치해야 합니다. |
@@ -147,7 +181,7 @@ GET https://localhost/myapp/#
 access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &state=12345
 &token_type=Bearer
-&expires_in=3600
+&expires_in=3599
 &scope=https%3A%2F%2Fgraph.windows.net%2Fdirectory.read
 ```
 
@@ -182,7 +216,7 @@ iFrame 요청에 이러한 오류를 수신하면, 사용자는 새 토큰을 �
 
 ## 로그아웃 요청 보내기
 
-OpenIdConnect `end_session_endpoint`는 현재 v2.0 앱 모델 미리 보기에서 지원되지 않습니다. 즉, 앱이 v2.0 끝점에 요청을 보내 사용자 세션을 종료하고 v2.0 끝점에서 설정한 쿠키를 지울 수 없습니다. 사용자를 로그아웃하기 위해 앱은 단순히 사용자와의 해당 세션을 종료하고 v2.0 끝점과의 사용자 세션을 그대로 둡니다. 다음에 사용자가 로그인하려고 하면 자주 로그인한 계정이 나열된 "계정 선택" 페이지가 표시됩니다. 해당 페이지에서 사용자는 계정을 로그아웃하고 v2.0 끝점과의 세션을 종료할 수 있습니다.
+OpenIdConnect `end_session_endpoint`는 현재 v2.0 끝점에서 지원되지 않습니다. 즉, 앱이 v2.0 끝점에 요청을 보내 사용자 세션을 종료하고 v2.0 끝점에서 설정한 쿠키를 지울 수 없습니다. 사용자를 로그아웃하기 위해 앱은 단순히 사용자와의 해당 세션을 종료하고 v2.0 끝점과의 사용자 세션을 그대로 둡니다. 다음에 사용자가 로그인하려고 하면 자주 로그인한 계정이 나열된 "계정 선택" 페이지가 표시됩니다. 해당 페이지에서 사용자는 계정을 로그아웃하고 v2.0 끝점과의 세션을 종료할 수 있습니다.
 
 <!--
 
@@ -201,4 +235,4 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 -->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -264,7 +264,7 @@ H, I | 호스트(예: 파일 서버)
 
 - 가능하면 각 컨트롤러의 네트워크 인터페이스를 2개의 다른 스위치에 연결하여 스위치 장애 시 가용성을 보장합니다. 이 그림은 2개의 다른 스위치에 연결된 각 컨트롤러에서 2개의 10GbE 네트워크 인터페이스, DATA 2 및 DATA 3을 나타냅니다. 자세한 정보는 [StorSimple 장치에 대한 고가용성 요구 사항](storsimple-system-requirements.md#high-availability-requirements-for-storsimple) 아래의 **네트워크 인터페이스**를 참조하세요.
 
->[AZURE.NOTE]10GbE 네트워크 인터페이스에서 SFP + 트랜시버를 사용하는 경우 제공된 QSFP-SFP + 어댑터를 사용합니다. 자세한 내용은 [StorSimple 장치의 10GbE 네트워크 인터페이스에 대해 지원되는 하드웨어](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)로 이동합니다.
+>[AZURE.NOTE] 10GbE 네트워크 인터페이스에서 SFP + 트랜시버를 사용하는 경우 제공된 QSFP-SFP + 어댑터를 사용합니다. 자세한 내용은 [StorSimple 장치의 10GbE 네트워크 인터페이스에 대해 지원되는 하드웨어](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)로 이동합니다.
 
 ### 직렬 포트 케이블 연결
 
@@ -289,7 +289,7 @@ H, I | 호스트(예: 파일 서버)
 
 6. 콘솔에서 Enter 키를 눌러 연결이 작동하는지 확인합니다. 그러면 직렬 콘솔 메뉴가 나타납니다.
 
-> [AZURE.NOTE]**정전 시 관리:** 장치가 원격 데이터센터나 접근이 제한된 컴퓨터실에 설치되어 있다면 두 컨트롤러에 대한 직렬 연결이 항상 직렬 콘솔 스위치나 유사한 장치에 연결되어 있는지 확인해야 합니다. 이렇게 하면 네트워크 중단 또는 예기치 않은 장애 발생 시 대역 외 원격 제어 및 지원 작업이 허용됩니다.
+> [AZURE.NOTE] **정전 시 관리:** 장치가 원격 데이터센터나 접근이 제한된 컴퓨터실에 설치되어 있다면 두 컨트롤러에 대한 직렬 연결이 항상 직렬 콘솔 스위치나 유사한 장치에 연결되어 있는지 확인해야 합니다. 이렇게 하면 네트워크 중단 또는 예기치 않은 장애 발생 시 대역 외 원격 제어 및 지원 작업이 허용됩니다.
 
 이제 전원, 네트워크 액세스 및 직렬 연결을 위한 장치의 케이블 연결이 완료되었습니다. 다음 단계는 장치에서 소프트웨어를 구성하는 것입니다.
 
@@ -298,4 +298,4 @@ H, I | 호스트(예: 파일 서버)
 이제 [온-프레미스 StorSimple 장치를 배포 및 구성](storsimple-deployment-walkthrough.md)할 준비가 되었습니다.
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -20,18 +20,17 @@
 
 ## 개요
 
-이 문서는 고객은 Capptain에서 Azure Mobile Engagement로 마이그레이션하려 하고 이전에 API를 사용한 고객을 위한 부록 가이드입니다. 이 문서에서는 새로운 API에 대해 인증 메커니즘을 작동하는 방법을 자세하게 설명합니다.
+이 문서에서는 새로운 API에 대해 인증 메커니즘을 작동하는 방법을 자세히 설명합니다.
 
 여러분이 유효한 Azure 구독을 보유하고 있고 [개발자 자습서](mobile-engagement-windows-store-dotnet-get-started.md) 중 하나를 사용하여 Mobile Engagement 앱을 만들었다고 가정합니다.
 
 ## 인증
 
-Capptain API에서 새로운 Azure Mobile Engagement API로 마이그레이션할 때 가장 큰 차이점은 인증입니다. 이전에 API가 기본 인증을 지원했습니다. 이제는 Microsoft Azure Active Directory 기반 OAuth 토큰을 사용하여 인증해야 합니다.
+Microsoft Azure Active Directory 기반 OAuth 토큰을 사용하여 인증해야 합니다.
 
 API 요청을 인증하려면 모든 요청에 인증 헤더를 추가해야 합니다. 다음과 같은 형식이어야 합니다.
 
 	Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGmJlNmV2ZWJPamg2TTNXR1E...
-
 
 >[AZURE.NOTE] Azure Active Directory 토큰은 1시간 후에 만료됩니다.
 
@@ -130,9 +129,7 @@ PowerShell 스크립트를 사용하여 앞에서 언급한 단계를 수행하�
 
 	이러한 값을 참조용으로 복사해 둡니다. 이제 액세스 토큰을 얻기 위해 TenantId를 `{TENANT_ID}`로, ApplicationId `{CLIENT_ID}`로, Secret을 `{CLIENT_SECRET}`으로 사용합니다.
 
-
 8. Azure 관리 포털에서 새 AD 응용 프로그램이 **회사가 보유한 응용 프로그램 표시** 아래에 있는지 확인합니다.
-
 
 #### 유효한 토큰을 얻는 단계
 
@@ -166,9 +163,7 @@ PowerShell 스크립트를 사용하여 앞에서 언급한 단계를 수행하�
 
 401 상태 코드가 반환되면 응답 본문을 검사합니다. 토큰이 만료되었을 수도 있습니다. 토큰이 만료된 경우 새 토큰을 가져옵니다.
 
-
 ##API 사용
-
 
 이제 유효한 토큰이 있으니 API 호출을 만들 준비가 완료되었습니다.
 
@@ -187,7 +182,6 @@ PowerShell 스크립트를 사용하여 앞에서 언급한 단계를 수행하�
 
 	![](./media/mobile-engagement-api-authentication/mobile-engagement-api-uri-params.png)
 
-
 >[AZURE.NOTE] <br/> 1. 이 API 루트 주소는 이전 API의 것이므로 무시합니다.<br/> 2. 응용 프로그램 이름 자체와 다른 응용 프로그램 리소스 이름을 사용해야 합니다.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

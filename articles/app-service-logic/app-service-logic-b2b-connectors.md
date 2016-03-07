@@ -4,8 +4,8 @@
 	services="app-service\logic" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
-	manager="dwrede" 
-	editor="cgronlun"/>
+	manager="erikre" 
+	editor=""/>
 
 <tags 
 	ms.service="app-service-logic" 
@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/04/2016" 
+	ms.date="02/11/2016" 
 	ms.author="mandia"/>
 
 # Microsoft Azure 앱 서비스의 B2B 커넥터 및 API 앱
+>[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다.
+
 Microsoft Azure 앱 서비스(또는 줄여서 앱 서비스)에는 통합 환경에 중요한 여러 BizTalk API 앱이 포함되어 있습니다. 이러한 API 앱은 BizTalk Server 내에서 사용되는 개념과 도구를 기반으로 하지만 이제 Azure 앱 서비스의 일부로 사용할 수 있습니다.
 
 이러한 API 앱의 한 가지 범주는 B2B(기업 간) API 앱입니다. 이러한 B2B API 앱을 사용하면 파트너 추가, 규약 만들기와 EDI, AS2 및 EDIFACT를 사용하여 온-프레미스에서 수행하는 모든 작업을 쉽게 수행할 수 있습니다.
@@ -49,8 +51,8 @@ B2B API 앱을 만들 때 필요한 몇 가지 리소스가 있습니다. 다른
 
 요구 사항 | 설명
 --- | ---
-Azure SQL 데이터베이스 | 파트너, 스키마, 인증서 및 규약을 비롯한 B2B 항목을 저장합니다. 각 B2B API 앱에는 자체 Azure SQL 데이터베이스가 필요합니다.<br/><br/>**참고** 이 데이터베이스에 연결 문자열을 복사합니다.<br/><br/>[Azure SQL 데이터베이스 만들기](../sql-database-get-started.md)
-Azure Blob 저장소 컨테이너 | AS2 보관을 사용하도록 설정한 경우 메시지 속성을 저장합니다. AS2 메시지 보관이 불필요한 경우에는 저장소 컨테이너가 필요하지 않습니다.<br/><br/>**참고** 보관을 사용하도록 설정하는 경우 이 Blob 저장소에 연결 문자열을 복사합니다.<br/><br/>[Azure 저장소 계정 정보](../storage-create-storage-account.md)
+Azure SQL 데이터베이스 | 파트너, 스키마, 인증서 및 규약을 비롯한 B2B 항목을 저장합니다. 각 B2B API 앱에는 자체 Azure SQL 데이터베이스가 필요합니다.<br/><br/>**참고** 이 데이터베이스에 연결 문자열을 복사합니다.<br/><br/>[Azure SQL 데이터베이스 만들기](../sql-database/sql-database-get-started.md)
+Azure Blob 저장소 컨테이너 | AS2 보관을 사용하도록 설정한 경우 메시지 속성을 저장합니다. AS2 메시지 보관이 불필요한 경우에는 저장소 컨테이너가 필요하지 않습니다.<br/><br/>**참고** 보관을 사용하도록 설정하는 경우 이 Blob 저장소에 연결 문자열을 복사합니다.<br/><br/>[Azure 저장소 계정 정보](../storage/storage-create-storage-account.md)
 서비스 버스 네임스페이스 및 해당 키 값 | X12 및 EDIFACT 일괄 처리 데이터를 저장합니다. 일괄 처리가 불필요한 경우 서비스 버스 네임스페이스가 필요하지 않습니다.<br/><br/>**참고** 일괄 처리를 사용하도록 설정하는 경우 이러한 값을 복사합니다.<br/><br/>[서비스 버스 네임스페이스 만들기](http://msdn.microsoft.com/library/azure/hh690931.aspx)
 TPM 인스턴스 | BizTalk TPM(거래 업체 관리) 인스턴스는 AS2 커넥터 및 X12 또는 EDIFACT API 앱을 만드는 데 필요합니다. TPM API 앱을 만들 때 TPM 인스턴스를 만듭니다.<br/><br/>**참고** TPM API 앱의 이름을 확인합니다. 
 
@@ -71,7 +73,7 @@ Azure 포털에서 논리 앱, 웹앱 또는 모바일 앱을 만들 때 B2B API
 
 #### BizTalk TPM(거래 업체 관리) API 앱 만들기
 
-> [AZURE.NOTE]BizTalk TPM(거래 업체 관리) 인스턴스는 AS2 커넥터 및 X12 또는 EDIFACT API 앱을 만드는 데 필요합니다. TPM API 앱을 만들 때 TPM 인스턴스를 만듭니다.
+> [AZURE.NOTE] BizTalk TPM(거래 업체 관리) 인스턴스는 AS2 커넥터 및 X12 또는 EDIFACT API 앱을 만드는 데 필요합니다. TPM API 앱을 만들 때 TPM 인스턴스를 만듭니다.
 
 다음 단계에서는 TPM 인스턴스를 만듭니다.
 
@@ -175,7 +177,7 @@ Microsoft Azure 앱 서비스는 이러한 B2B API 앱에서 사용할 수 있�
 
 앱 내에서, 갤러리에서 B2B API 앱을 선택하기만 하면 자동으로 앱에 추가됩니다.
 
-> [AZURE.IMPORTANT]이전에 만든 커넥터 및 API 앱을 추가하려면 동일한 리소스 그룹에서 논리 앱, 모바일 앱 또는 웹앱을 만듭니다.
+> [AZURE.IMPORTANT] 이전에 만든 커넥터 및 API 앱을 추가하려면 동일한 리소스 그룹에서 논리 앱, 모바일 앱 또는 웹앱을 만듭니다.
 
 다음 단계에서는 논리 앱, 모바일 앱 또는 웹앱에 B2B API 앱을 추가합니다.
 
@@ -187,11 +189,11 @@ Microsoft Azure 앱 서비스는 이러한 B2B API 앱에서 사용할 수 있�
 
 3. **갤러리**에서 B2B API 앱을 선택하면 자동으로 앱에 추가됩니다. 새 B2B API 앱을 만들 수도 있습니다.
 
-	> [AZURE.IMPORTANT]AS2 커넥터 및 X12, EDIFACT API 앱에는 TPM 인스턴스가 필요합니다. 따라서 새 B2B API 앱을 만드는 경우 먼저 TPM API 앱을 만든 후 AS2 커넥터, X12 API 앱 또는 EDIFACT API 앱을 만듭니다.
+	> [AZURE.IMPORTANT] AS2 커넥터 및 X12, EDIFACT API 앱에는 TPM 인스턴스가 필요합니다. 따라서 새 B2B API 앱을 만드는 경우 먼저 TPM API 앱을 만든 후 AS2 커넥터, X12 API 앱 또는 EDIFACT API 앱을 만듭니다.
 
 4. **확인**을 선택하여 변경 내용을 저장합니다.
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동합니다. 앱 서비스에서 즉시 단기 스타터 논리 앱을 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] Azure 계정에 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱을 사용해 보세요](https://tryappservice.azure.com/?appservice=logic). 앱 서비스에서 단기 시작 논리 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ## 추가 B2B 리소스
 
@@ -206,4 +208,4 @@ Microsoft Azure 앱 서비스는 이러한 B2B API 앱에서 사용할 수 있�
 
 [커넥터 및 API 앱 목록](app-service-logic-connectors-list.md)<br/><br/> [커넥터 및 BizTalk API 앱 정의](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0224_2016-->

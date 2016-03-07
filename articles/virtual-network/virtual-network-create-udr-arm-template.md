@@ -1,6 +1,6 @@
 <properties 
    pageTitle="템플릿을 사용하여 리소스 관리자에서 라우팅 제어 및 가상 어플라이언스 사용 | Microsoft Azure"
-   description="템플릿을 사용하여 Azure에서 라우팅 제어 및 가상 어플라이언스 사용 방법 알아보기"
+   description="템플릿을 사용하여 Azure 리소스 관리자에서 라우팅을 제어하고 가상 어플라이언스를 사용하는 방법을 알아봅니다."
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/20/2015"
+   ms.date="02/23/2016"
    ms.author="telmos" />
 
-#템플릿을 사용하여 사용자 정의 경로(UDR) 만들기
+#템플릿을 사용하여 리소스 관리자에서 UDR(사용자 정의 경로) 만들기
 
 [AZURE.INCLUDE [virtual-network-create-udr-arm-selectors-include.md](../../includes/virtual-network-create-udr-arm-selectors-include.md)]
 
@@ -31,7 +31,7 @@
 
 [샘플 템플릿](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR)을 보고 다운로드할 수 있습니다.
 
-아래 섹션에서는 위의 시나리오를 기반으로 azuredeploy-vnet-nsg-udr.json 파일에 있는 프런트 엔드 UDR의 정의를 보여줍니다.
+아래 섹션에서는 위의 시나리오를 기반으로 **azuredeploy-vnet-nsg-udr.json** 파일에 있는 프런트 엔드 UDR의 정의를 보여줍니다.
 
 	"apiVersion": "2015-06-15",
 	"type": "Microsoft.Network/routeTables",
@@ -116,13 +116,17 @@ PowerShell을 사용하여 다운로드한 ARM 템플릿을 배포하려면 다�
 
 [AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
 
-1. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure.md)을 참조하고 지침을 끝까지 따라서 Azure에 로그인하고 구독을 선택합니다.
+1. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하고 지침을 끝까지 따르면서 Azure에 로그인하고 구독을 선택합니다.
 
-3. **New-AzureRMResourceGroup** cmdlet을 실행하고 템플릿을 사용하여 리소스 그룹을 만듭니다.
+2. `New-AzureRmResourceGroup` cmdlet을 실행하여 리소스 그룹을 만듭니다.
 
-		New-AzureRmResourceGroup -Name TestRG -Location westus `
-		    -TemplateFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.json' `
-		    -TemplateParameterFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json'	
+		New-AzureRmResourceGroup -Name TestRG -Location westus
+
+3. `New-AzureRmResourceGroupDeployment` cmdlet을 실행하여 템플릿을 배포합니다.
+
+		New-AzureRmResourceGroupDeployment -Name DeployUDR -ResourceGroupName TestRG `
+		    -TemplateUri https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.json `
+		    -TemplateParameterUri https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json	    	
 
 	예상된 출력:
 
@@ -164,14 +168,14 @@ PowerShell을 사용하여 다운로드한 ARM 템플릿을 배포하려면 다�
 		                    testvnetstorageprm  Microsoft.Storage/storageAccounts        westus  
 		                    testvnetstoragestd  Microsoft.Storage/storageAccounts        westus  
 		                    
-		ResourceId        : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG
+		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
 
 ## Azure CLI를 사용하여 ARM 템플릿 배포
 
 Azure CLI를 사용하여 ARM 템플릿을 배포하려면 아래 단계를 따르세요.
 
-1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](xplat-cli.md)을 참조하고 Azure 계정 및 구독을 선택하는 부분까지의 관련 지침을 따릅니다.
-2. 아래와 같이 **azure config mode** 명령을 실행하여 리소스 관리자 모드로 전환합니다.
+1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](../xplat-cli-install.md)을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
+2. 다음과 같이 `azure config mode` 명령을 실행하여 리소스 관리자 모드로 전환합니다.
 
 		azure config mode arm
 
@@ -390,6 +394,6 @@ Azure CLI를 사용하여 ARM 템플릿을 배포하려면 아래 단계를 따�
 		data:    
 		info:    group show command OK
 
->[AZURE.TIP]모든 리소스가 표시되지 않으면 **azure group deployment show** 명령을 실행하여 배포의 프로비전 상태가 *성공*인지 확인합니다.
+>[AZURE.TIP] 일부 리소스가 표시되지 않으면 `azure group deployment show` 명령을 실행하여 배포의 프로비전 상태가 *성공*인지 확인합니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

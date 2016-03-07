@@ -1,5 +1,5 @@
 <properties
-	pageTitle="점수 매기기 프로필(Azure 검색 REST API 버전 2015-02-28-Preview) | Microsoft Azure | 호스트된 클라우드 검색 서비스"
+	pageTitle="점수 매기기 프로필(Azure 검색 REST API 버전 2015-02-28-Preview) | Microsoft Azure | Azure 검색 미리 보기 API"
 	description="Azure 검색은 사용자가 정의한 점수 매기기 프로필을 기초로 순위의 결과를 조정할 수 있도록 하는 호스팅되는 클라우드 검색 서비스입니다."
 	services="search"
 	documentationCenter=""
@@ -14,11 +14,11 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.author="heidist"
-	ms.date="11/04/2015" />
+	ms.date="02/18/2016" />
 
 # 점수 매기기 프로필(Azure 검색 REST API 버전 2015-02-28-Preview)
 
-> [AZURE.NOTE]이 문서에서는 [2015-02-28-Preview](search-api-2015-02-28-preview.md)에서 제공되는 점수 매기기 프로필을 설명합니다. 현재 [MSDN](http://msdn.microsoft.com/library/azure/mt183328.aspx)에 설명된 `2015-02-28` 버전과 여기에 설명된 `2015-02-28-Preview` 버전 간의 차이는 없습니다.
+> [AZURE.NOTE] 이 문서에서는 [2015-02-28-Preview](search-api-2015-02-28-preview.md)에서 제공되는 점수 매기기 프로필을 설명합니다. 현재 [MSDN](http://msdn.microsoft.com/library/azure/mt183328.aspx)에 문서화된 `2015-02-28` 버전과 여기에 설명된 `2015-02-28-Preview` 버전 간에 차이는 없지만 이 문서에서는 전체 API를 다룹니다.
 
 ## 개요
 
@@ -55,7 +55,7 @@ Azure 검색에서는 점수를 계산할 때 기본 점수 매기기 기능을 
 
     GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation:-122.123,44.77233&api-version=2015-02-28-Preview
 
-이 쿼리는 용어 'inn'을 검색하고 현재 위치를 전달합니다. 이 쿼리에는 `scoringParameter` 등의 다른 매개 변수도 포함되어 있습니다. 쿼리 매개 변수에 대해서는 [문서 검색(Azure 검색 API)](search-api-2015-02-28-preview/#SearchDocs.md)에서 설명합니다.
+이 쿼리는 용어 'inn'을 검색하고 현재 위치를 전달합니다. 이 쿼리에는 `scoringParameter` 등의 다른 매개 변수도 포함되어 있습니다. 쿼리 매개 변수에 대해서는 [문서 검색(Azure 검색 API)](search-api-2015-02-28-preview/#SearchDocs)에서 설명합니다.
 
 점수 매기기 프로필에 대한 자세한 예제를 검토하려면 [예제](#example)를 클릭하세요.
 
@@ -302,7 +302,7 @@ Azure 검색에서는 점수를 계산할 때 기본 점수 매기기 기능을 
 </tr><tr>
 <td>freshness</td>	<td>freshness 점수 매기기 함수는 DateTimeOffset 필드의 값을 기준으로 항목의 순위 점수를 변경하는 데 사용됩니다. 예를 들어 보다 최근 날짜의 항목에 오래된 날짜의 항목보다 더 높은 순위를 지정할 수 있습니다. (참고로 현재 날짜에 더 가까운 항목 같은 미래 날짜를 가진 일정 이벤트 등의 항목을 더 먼 미래의 항목보다 높게 순위를 설정할 수 있습니다.) 현재 서비스 릴리스에서는 범위의 한쪽 끝이 현재 시간으로 고정됩니다. 반대쪽은 'boostingDuration'을 기반으로 하는 과거의 시간입니다. 나중에 시간 범위를 늘리려면 음수 'boostingDuration'을 사용합니다. 상승 기준이 최대 범위에서 최소 범위로 변경되는 비율은 점수 매기기 프로필에 적용되는 보간을 통해 결정됩니다(아래 그림 참조). 적용된 상승 계수의 방향을 바꾸려면 1보다 작은 상승 계수를 선택합니다.</td>
 </tr><tr>
-<td>freshness | boostingDuration</td>	<td>특정 문서에 대해 상승을 중지할 만료 기간을 설정합니다. 구문 및 예제는 다음 섹션의 [boostingDuration 설정](#bkmk_boostdur)을 참조하세요.</td>
+<td>freshness | boostingDuration</td>	<td>특정 문서에 대해 상승을 중지할 만료 기간을 설정합니다. 구문 및 예제는 다음 섹션의 [boostingDuration 설정][#bkmk_boostdur]을 참조하세요.</td>
 </tr><tr>
 <td>distance</td>	<td>distance 점수 매기기 함수는 참조 지리적 위치와의 거리를 기준으로 문서 점수를 변경하는 데 사용됩니다. 참조 위치는 쿼리의 일부로 ‘scoringParameterquery’ 문자열 옵션을 사용하여 매개 변수에서 lon, lat 인수로 제공됩니다.</td>
 </tr><tr>
@@ -372,4 +372,4 @@ Azure 검색에서는 점수를 계산할 때 기본 점수 매기기 기능을 
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
 
-<!----HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0224_2016-->

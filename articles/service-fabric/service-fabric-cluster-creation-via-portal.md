@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/29/2016"
+   ms.date="02/12/2016"
    ms.author="chackdan"/>
 
 
@@ -189,11 +189,16 @@
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
+## VMSS(가상 컴퓨터 크기 집합) 인스턴스 또는 클러스터 노드로 RDP 연결 
+
+클러스터에서 지정한 각 NodeType에 따라 VMSS가 설정됩니다. 자세한 내용은 [VMSS 인스턴스로 RDP 연결하는 방법](service-fabric-cluster-nodetypes.md)을 참조하세요.
+
 ## 다음 단계
 
 - [Visual Studio에서 서비스 패브릭 응용 프로그램 관리](service-fabric-manage-application-in-visual-studio.md)
 - [서비스 패브릭 클러스터 보안](service-fabric-cluster-security.md)
 - [서비스 패브릭 상태 모델 소개](service-fabric-health-introduction.md)
+- [VMSS 인스턴스로 RDP 연결하는 방법](service-fabric-cluster-nodetypes.md)
 
 <!--Image references-->
 [SearchforServiceFabricClusterTemplate]: ./media/service-fabric-cluster-creation-via-portal/SearchforServiceFabricClusterTemplate.png
@@ -207,4 +212,4 @@
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [SecureConnection]: ./media/service-fabric-cluster-creation-via-portal/SecureConnection.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

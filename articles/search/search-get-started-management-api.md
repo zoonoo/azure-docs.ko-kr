@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
+	ms.date="02/04/2016" 
 	ms.author="heidist"/>
 
 # Azure 검색 관리 REST API 시작
@@ -39,11 +39,11 @@ Azure 검색 REST 관리 API는 포털에서 프로그래밍 방식으로 관리
 
 ##응용 프로그램 구성
 
-샘플 응용 프로그램을 실행하려면 먼저 클라이언트 응용 프로그램에서 리소스 관리자 끝점으로 보낸 요청을 수락할 수 있도록 인증을 사용하도록 설정해야 합니다. 인증 요구 사항은 검색 서비스 관리와 관련된 작업을 포함하여 API를 통해 요청된 모든 포털 관련 작업에 대한 기반이 되는 [Azure 리소스 관리자](http://msdn.microsoft.com/library/azure/dn790568.aspx)에서 시작됩니다. Azure 검색의 서비스 관리 API는 단순히 Azure 리소스 관리자의 확장이므로 해당 종속성을 상속합니다.
+샘플 응용 프로그램을 실행하려면 먼저 클라이언트 응용 프로그램에서 리소스 관리자 끝점으로 보낸 요청을 수락할 수 있도록 인증을 사용하도록 설정해야 합니다. 인증 요구 사항은 검색 서비스 관리와 관련된 작업을 포함하여 API를 통해 요청된 모든 포털 관련 작업에 대한 기반이 되는 [Azure 리소스 관리자](https://msdn.microsoft.com/library/azure/dn790568.aspx)에서 시작됩니다. Azure 검색의 서비스 관리 API는 단순히 Azure 리소스 관리자의 확장이므로 해당 종속성을 상속합니다.
 
 Azure 리소스 관리자에는 ID 공급자로서 Azure Active Directory 서비스가 필요합니다.
 
-요청이 리소스 관리자에 연결되도록 허용하는 액세스 토큰을 가져오기 위해 클라이언트 응용 프로그램에는 Active Directory를 호출하는 코드 세그먼트가 포함됩니다. 코드 세그먼트와 코드 세그먼트 사용의 필수 조건 단계는 [Azure 리소스 관리자 요청 인증](http://msdn.microsoft.com/library/azure/dn790557.aspx) 문서에서 인용하였습니다.
+요청이 리소스 관리자에 연결되도록 허용하는 액세스 토큰을 가져오기 위해 클라이언트 응용 프로그램에는 Active Directory를 호출하는 코드 세그먼트가 포함됩니다. 코드 세그먼트와 코드 세그먼트 사용의 필수 조건 단계는 [Azure 리소스 관리자 요청 인증]() 문서에서 인용하였습니다.
 
 위 링크의 지침에 따르거나, 자습서를 단계별로 진행하려고 이 문서의 단계를 사용할 수 있습니다.
 
@@ -54,7 +54,7 @@ Azure 리소스 관리자에는 ID 공급자로서 Azure Active Directory 서비
 1. 다운로드한 샘플 클라이언트 응용 프로그램에 대한 세부 정보를 등록하여 AD 응용 프로그램 구성
 1. 요청에 대한 권한을 얻는 데 사용할 값과 함께 샘플 클라이언트 응용 프로그램 로드
 
-> [AZURE.NOTE]이러한 링크는 Azure Active Directory를 사용하여 리소스 관리자: [Azure 리소스 관리자](http://msdn.microsoft.com/library/azure/dn790568.aspx), [Azure 리소스 관리자 요청 인증](http://msdn.microsoft.com/library/azure/dn790557.aspx) 및 [Azure Active Directory](http://msdn.microsoft.com/library/azure/jj673460.aspx)에 대한 클라이언트 요청을 인증하는 작업에 관한 배경 지식을 제공합니다.
+> [AZURE.NOTE] 이러한 링크는 Azure Active Directory를 사용하여 리소스 관리자: [Azure 리소스 관리자](http://msdn.microsoft.com/library/azure/dn790568.aspx), [Azure 리소스 관리자 요청 인증](http://msdn.microsoft.com/library/azure/dn790557.aspx) 및 [Azure Active Directory](http://msdn.microsoft.com/library/azure/jj673460.aspx)에 대한 클라이언트 요청을 인증하는 작업에 관한 배경 지식을 제공합니다.
 
 ###Active Directory 서비스 만들기
 
@@ -204,4 +204,4 @@ Azure 리소스 관리자에는 ID 공급자로서 Azure Active Directory 서비
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0224_2016-->

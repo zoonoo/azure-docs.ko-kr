@@ -13,16 +13,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="12/14/2015"
+	ms.date="02/22/2016"
 	ms.author="raynew"/>
 
 
 # Azure Site Recovery를 사용하여 두 개의 온-프레미스 데이터 센터 간에 Hyper-V 가상 컴퓨터 복제에 대한 저장소 매핑 준비
 
 
-Azure Site Recovery는 가상 컴퓨터와 물리적 서버의 복제, 장애 조치(Failover) 및 복구를 오케스트레이션하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. 이 문서에서는 두 개의 온-프레미스 데이터 센터 간에 Hyper-V 가상 컴퓨터를 복제하기 위해 사이트 복구를 사용하는 경우 저장소를 최적으로 사용하도록 저장소 매핑을 설명합니다.
+Azure Site Recovery는 가상 컴퓨터와 물리적 서버의 복제, 장애 조치(Failover) 및 복구를 오케스트레이션하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. 이 문서에서는 두 개의 온-프레미스 VMM 데이터 센터 간에 Hyper-V 가상 컴퓨터를 복제하기 위해 사이트 복구를 사용하는 경우 저장소를 최적으로 사용하도록 저장소 매핑을 설명합니다.
 
-이 문서를 읽은 후 문의 사항은 [Azure 복구 서비스 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에 게시합니다.
+이 문서의 하단 또는 [Azure 복구 서비스 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에서 의견이나 질문을 게시합니다.
 
 ## 개요
 
@@ -98,4 +98,4 @@ VM5 | C:\\ClusterStorage\\SourceVolume3 | 해당 없음 | 매핑이 없어 Hyper
 
 저장소 매핑을 보다 이해했으므로 [Azure Site Recovery 배포를 준비](site-recovery-best-practices.md)합니다.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

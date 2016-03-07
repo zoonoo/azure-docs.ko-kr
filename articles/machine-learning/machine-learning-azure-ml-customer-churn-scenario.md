@@ -221,7 +221,7 @@ Azure 기계 학습에서 제공되는 또 다른 흥미로운 기능은 이미 
 
 [4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] Cortana 분석 갤러리의 [Telco churn model template](https://caqs.azure.net/#gallery/telcocustomerchurn)
+[5] Cortana 분석 갤러리의 [Telco churn model template](http://gallery.cortanaanalytics.com/Experiment/Telco-Customer-Churn-5)
 ##부록
 
 ![][10]
@@ -233,11 +233,11 @@ Azure 기계 학습에서 제공되는 또 다른 흥미로운 기능은 이미 
 [2]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-2.png
 [3]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-3.png
 [4]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-4.png
-\[5]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-5.png
+[5]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-5.png
 [6]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-6.png
 [7]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-7.png
 [8]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-8.png
 [9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="01/23/2015"
+   ms.date="01/23/2016"
    ms.author="sstein"/>
 
 # SQL 데이터베이스 인덱스 관리자
@@ -33,7 +33,7 @@ Azure SQL 데이터베이스 인덱스 관리자는 현재 쿼리 성능을 향�
 
 ### 권한
 
-보고, 만들 인덱스 권장사항, Azure에서 올바른 [역할 기반 액세스 제어](role-based-access-control-configure.md)허가가 필요합니다.
+보고, 만들 인덱스 권장사항, Azure에서 올바른 [역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)허가가 필요합니다.
 
 - **판독기**, **SQL DB 참가자** 권장 구성을 보려면 권한이 필요 합니다.
 - **소유자**, **SQL DB 참가자** 모든 동작을 실행, 만들기 또는 인덱스를 삭제 및 생성 그리고 취소 하려면 권한이 필요 합니다.
@@ -179,4 +179,4 @@ Azure SQL 데이터베이스 인덱스 관리자는 현재 쿼리 성능을 향�
 
 인덱스 권장사항을 모니터링하고 개선된 성능을 계속 적용합니다. 데이터베이스 워크로드는 동적 이며 지속적으로 변경합니다. 인덱스 관리자는 모니터링 및 데이터베이스 성능을 잠재적으로 향상시킬 인덱스를 계속 추천하고 모니터링 할 것입니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

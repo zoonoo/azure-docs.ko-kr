@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/30/2016"
+	ms.date="02/21/2016"
 	ms.author="tarcher"/>
 
 # Azure 큐 저장소 및 Visual Studio 연결된 서비스 시작(WebJob 프로젝트)
@@ -24,13 +24,13 @@
 
 이 문서에서는 Azure 큐 저장소 서비스에서 Azure WebJobs SDK 버전 1.x를 사용하는 방법을 보여 주는 C# 코드 샘플을 제공합니다.
 
-Azure 큐 저장소는 HTTP 또는 HTTPS를 사용하여 인증된 호출을 통해 전 세계 어디에서나 액세스할 수 있는 다수의 메시지를 저장하기 위한 서비스입니다. 단일 큐 메시지의 크기는 최대 64KB일 수 있으며, 하나의 큐에 저장소 계정의 총 용량 제한까지 수백만 개의 메시지가 포함될 수 있습니다. 자세한 내용은 [.NET에서 큐 저장소를 사용하는 방법](storage-dotnet-how-to-use-queues.md)(영문)을 참조하세요. ASP.NET에 대한 자세한 내용은 [ASP.NET(영문)](http://www.asp.net)을 참조하세요.
+Azure 큐 저장소는 HTTP 또는 HTTPS를 사용하여 인증된 호출을 통해 전 세계 어디에서나 액세스할 수 있는 다수의 메시지를 저장하기 위한 서비스입니다. 단일 큐 메시지의 크기는 최대 64KB일 수 있으며, 하나의 큐에 저장소 계정의 총 용량 제한까지 수백만 개의 메시지가 포함될 수 있습니다. 자세한 내용은 [.NET을 사용하여 Azure 큐 저장소 시작](storage-dotnet-how-to-use-queues.md)을 참조하세요. ASP.NET에 대한 자세한 내용은 [ASP.NET(영문)](http://www.asp.net)을 참조하세요.
 
 
 
 ## 큐 메시지를 받을 때 함수를 트리거하는 방법
 
-큐 메시지가 수신될 때 WebJobs SDK에서 호출하는 함수를 작성하려면 **QueueTrigger** 특성을 사용합니다. 특성 생성자는 폴링할 큐의 이름을 지정하는 문자열 매개 변수를 사용합니다. [큐 이름을 동적으로 설정](how-to-set-configuration-options)할 수도 있습니다
+큐 메시지가 수신될 때 WebJobs SDK에서 호출하는 함수를 작성하려면 **QueueTrigger** 특성을 사용합니다. 특성 생성자는 폴링할 큐의 이름을 지정하는 문자열 매개 변수를 사용합니다. 큐 이름을 동적으로 설정하는 방법을 알아보려면 [구성 옵션을 설정하는 방법](#how-to-set-configuration-options)을 참조하세요.
 
 ### 문자열 큐 메시지
 
@@ -259,7 +259,7 @@ SDK에서 자동으로 개체를 JSON으로 serialize합니다. 개체가 null�
 
 ## 큐 메시지를 처리하는 동안 Blob 및 테이블을 읽고 쓰는 방법
 
-**Blob** 및 **Table** 특성을 사용하여 Blob과 테이블을 읽고 쓸 수 있습니다. 이 섹션의 샘플은 Blob에 적용됩니다. Blob가 생성되거나 업데이트될 때 프로세스를 트리거하는 방법을 보여 주는 코드 샘플은 [WebJobs SDK를 사용하여 Azure Blob 저장소로 작업하는 방법](/app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)을 참조하고, 테이블을 읽고 쓰는 코드 샘플은 [WebJobs SDK를 사용하여 Azure 테이블 저장소로 작업하는 방법](/app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md)을 참조하세요.
+**Blob** 및 **Table** 특성을 사용하여 Blob과 테이블을 읽고 쓸 수 있습니다. 이 섹션의 샘플은 Blob에 적용됩니다. Blob가 생성되거나 업데이트될 때 프로세스를 트리거하는 방법을 보여 주는 코드 샘플은 [WebJobs SDK를 사용하여 Azure Blob 저장소로 작업하는 방법](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)을 참조하고, 테이블을 읽고 쓰는 코드 샘플은 [WebJobs SDK를 사용하여 Azure 테이블 저장소로 작업하는 방법](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md)을 참조하세요.
 
 ### Blob 작업을 트리거하는 문자열 큐 메시지
 
@@ -275,7 +275,7 @@ SDK에서 자동으로 개체를 JSON으로 serialize합니다. 개체가 null�
 		    blobInput.CopyTo(blobOutput, 4096);
 		}
 
-**Blob** 특성 생성자는 컨테이너 및 Blob 이름을 지정하는 **blobPath** 매개 변수를 가져옵니다. 이 자리 표시자에 대한 자세한 내용은 [WebJob SDK를 사용하여 Azure Blob 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)을 참조하세요
+**Blob** 특성 생성자는 컨테이너 및 Blob 이름을 지정하는 **blobPath** 매개 변수를 가져옵니다. 이 자리 표시자에 대한 자세한 내용은 [WebJobs SDK에서 Azure blob 저장소를 사용하는 방법](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)을 참조하세요.
 
 특성이 **Stream** 개체를 데코레이팅하는 경우 또 다른 생성자 매개 변수가 **FileAccess** 모드를 읽기, 쓰기 또는 읽기/쓰기로 지정합니다.
 
@@ -290,7 +290,7 @@ SDK에서 자동으로 개체를 JSON으로 serialize합니다. 개체가 null�
 
 ### POCO([Plain Old CLR Object](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) 큐 메시지
 
-큐 메시지에 JSON으로 저장된 POCO의 경우 **Queue** 특성의 **blobPath** 매개 변수에서 개체 속성의 이름을 지정하는 자리 표시자를 사용할 수 있습니다. [큐 메타데이터 속성 이름](#get-queue-or-queue-message-metadata)을 자리 표시자로 사용할 수도 있습니다.
+큐 메시지에 JSON으로 저장된 POCO의 경우 **Queue** 특성의 **blobPath** 매개 변수에서 개체 속성의 이름을 지정하는 자리 표시자를 사용할 수 있습니다. 큐 메타데이터 속성 이름을 자리 표시자로 사용할 수도 있습니다. [큐 또는 큐 메시지 메타데이터 가져오기](#get-queue-or-queue-message-metadata)를 참조하세요.
 
 다음 예제에서는 Blob을 확장명이 다른 새 Blob에 복사합니다. 큐 메시지는 **BlobName** 및 **BlobNameWithoutExtension** 속성을 포함하는 **BlobInformation** 개체입니다. 속성 이름은 **Blob** 특성에 대한 Blob 경로에서 자리 표시자로 사용됩니다.
 
@@ -308,7 +308,7 @@ SDK에서 자동으로 개체를 JSON으로 serialize합니다. 개체가 null�
 		var queueMessage = new CloudQueueMessage(JsonConvert.SerializeObject(blobInfo));
 		logQueue.AddMessage(queueMessage);
 
-Blob을 개체에 바인딩하기 전에 함수에서 일부 작업을 수행해야 하는 경우 [앞의 Queue 특성처럼](#use-webjobs-sdk-attributes-in-the-body-of-a-function) 함수 본문에 특성을 사용할 수 있습니다
+개체에 blob을 바인딩하기 전에 함수에서 일부 작업을 수행해야 하는 경우 [함수 본문에서 WebJobs SDK 특성 사용](#use-webjobs-sdk-attributes-in-the-body-of-a-function)에 표시된 대로 함수 본문에서 특성을 사용할 수 있습니다.
 
 ###Blob 특성을 사용할 수 있는 유형
 
@@ -332,7 +332,7 @@ Blob을 개체에 바인딩하기 전에 함수에서 일부 작업을 수행해
 
 ### 자동 포이즌 메시지 처리
 
-SDK는 최대 5회까지 함수를 호출하여 큐 메시지를 처리합니다. 다섯 번째 시도가 실패하면 메시지가 포이즌 큐로 이동됩니다. [최대 다시 시도 횟수는 구성 가능합니다](#how-to-set-configuration-options).
+SDK는 최대 5회까지 함수를 호출하여 큐 메시지를 처리합니다. 다섯 번째 시도가 실패하면 메시지가 포이즌 큐로 이동됩니다. [구성 옵션을 설정하는 방법](#how-to-set-configuration-options)에서 최대 다시 시도 횟수를 구성하는 방법을 확인할 수 있습니다.
 
 포이즌 큐의 이름은 *{originalqueuename}*-poison으로 지정됩니다. 메시지를 기록하거나 수동 작업이 필요하다는 알림을 보내 포이즌 큐의 메시지를 처리하는 함수를 작성할 수 있습니다.
 
@@ -501,7 +501,7 @@ SDK는 최대 5회까지 함수를 호출하여 큐 메시지를 처리합니다
 
 콘솔 출력은 프로그램이 Azure WebJob에서 실행되는 경우에만 대시보드에 표시되고, 프로그램이 로컬로 실행되거나 다른 환경에서 실행되는 경우에는 표시되지 않습니다.
 
-[대시보드 연결 문자열을 null로 설정](#how-to-set-configuration-options)하여 로깅을 사용하지 않도록 설정할 수 있습니다
+대시보드 연결 문자열을 null로 설정하면 로깅을 사용하지 않도록 설정할 수 있습니다. 자세한 내용은 [구성 옵션을 설정하는 방법](#how-to-set-configuration-options)을 참조하세요.
 
 다음 예제에서는 로그를 작성하는 여러 가지 방법을 보여 줍니다.
 
@@ -541,6 +541,6 @@ Azure 테이블에서 **Console.Out** 및 **Console.Error** 로그는 다음과 
 
 ##다음 단계
 
-이 문서에서는 Azure 큐 작업에 대한 일반적인 시나리오를 처리하는 방법을 보여 주는 코드 샘플을 제공했습니다. Azure WebJob 및 WebJob SDK를 사용하는 방법에 대한 자세한 내용은 [Azure WebJob 권장 리소스](http://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
+이 문서에서는 Azure 큐 작업에 대한 일반적인 시나리오를 처리하는 방법을 보여 주는 코드 샘플을 제공했습니다. Azure Webjob 및 Webjob SDK를 사용하는 방법에 대한 자세한 내용은 [Azure WebJobs 설명서 리소스](http://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/21/2015" 
+	ms.date="02/19/2016" 
 	ms.author="awills"/>
 
 #  Application Insights 리소스를 만들기 위한 PowerShell 스크립트
@@ -27,49 +27,63 @@ PowerShell을 사용하여 새 리소스의 생성을 자동화할 수 있습니
 
 ## Application Insights 리소스를 만들기 위한 스크립트
 
-*출력*
+관련 cmdlet 사양을 참조하세요.
 
-* App Insights 이름 = mytestapp
-* IKey 00000000-0000-0000-0000-000000000000 =
+* [New-AzureRmResource](https://msdn.microsoft.com/library/mt652510.aspx)
+* [New-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt678995.aspx)
+
 
 *PowerShell 스크립트*
 
 ```PowerShell
 
-cls
 
-
-##################################################################
+###########################################
 # Set Values
-##################################################################
+###########################################
 
-#If running manually, comment this out before the first execution to login to the Azure Portal:
+# If running manually, uncomment before the first 
+# execution to login to the Azure Portal:
 
-#Add-AzureAccount
+# Add-AzureRmAccount
 
-#Set the name of the Application Insights Resource
+# Set the name of the Application Insights Resource
+
 $appInsightsName = "TestApp"
 
-#Set the application name used for the value of the Tag "AppInsightsApp" - http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-tags/
+# Set the application name used for the value of the Tag "AppInsightsApp" 
+# - http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-tags/
 $applicationTagName = "MyApp"
 
-#Set the name of the Resource Group to use.  By default will use the application name as a starter
+# Set the name of the Resource Group to use.  
+# Default is the application name.
 $resourceGroupName = "MyAppResourceGroup"
 
-##################################################################
+###################################################
 # Create the Resource and Output the name and iKey
-##################################################################
-#Set the script to Resource Manager - http://azure.microsoft.com/documentation/articles/powershell-azure-resource-manager/
-Switch-AzureMode AzureResourceManager
+###################################################
 
 #Select the azure subscription
 Select-AzureSubscription -SubscriptionName "MySubscription"
 
-#Create the App Insights Resource
-$resource = New-AzureResource -ResourceName $appInsightsName -ResourceGroupName $resourceGroupName -Tag @{ Name = "AppInsightsApp"; Value = $applicationTagName} -ResourceType "Microsoft.Insights/Components" -Location "Central US" -ApiVersion "2014-08-01" -PropertyObject @{"Type"="ASP.NET"} -Force -OutputObjectFormat New
+# Create the App Insights Resource
 
-#Give team owner access - http://azure.microsoft.com/documentation/articles/role-based-access-control-powershell/
-New-AzureRoleAssignment -Mail "myTeam@fabrikam.com" -RoleDefinitionName Owner -Scope $resource.ResourceId | Out-Null
+$resource = New-AzureRmResource `
+  -ResourceName $appInsightsName `
+  -ResourceGroupName $resourceGroupName `
+  -Tag @{ Name = "AppInsightsApp"; Value = $applicationTagName} `
+  -ResourceType "Microsoft.Insights/Components" `
+  -Location "Central US" `
+  -PropertyObject @{"Type"="ASP.NET"} `
+  -Force
+
+# Give owner access to the team
+
+New-AzureRmRoleAssignment `
+  -SignInName "myteam@fabrikam.com" `
+  -RoleDefinitionName Owner `
+  -Scope $resource.ResourceId 
+
 
 #Display iKey
 Write-Host "App Insights Name = " $resource.Name
@@ -99,4 +113,4 @@ SDK에 사용할 수 있는 iKey에는 두 가지가 있습니다:
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -1,0 +1,123 @@
+<properties
+   pageTitle="호출 가능 끝점인 논리 앱"
+   description="HTTP 리스너를 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
+   editor=""/>
+
+<tags
+   ms.service="app-service-logic"
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration"
+   ms.date="02/17/2016"
+   ms.author="stepsic"/>
+
+
+# 호출 가능 끝점인 논리 앱
+
+논리 앱의 이전 스키마 버전(*2014-12-01-preview*)에서는 동기적으로 호출할 수 있는 HTTP 끝점을 노출하기 위해 **HTTP 수신기**라는 API 앱이 필요했습니다. 최신 스키마(*2015-08-01-preview*) 논리 앱은 기본적으로 동기 HTTP 끝점을 노출할 수 있습니다.
+
+## 정의에 트리거 추가
+첫 번째 단계는 들어오는 요청을 받을 수 있는 논리 앱 정의에 트리거를 추가하는 것입니다. 요청을 받을 수 있는 세 가지 유형의 트리거, * manual * apiConnectionWebhook * httpWebhook이 있습니다.
+
+문서의 나머지 부분에서는 **manual**을 예로 사용하지만 모든 주체는 다른 두 가지 유형의 트리거에 동일하게 적용합니다. 워크플로 정의에 이 트리거를 추가하면 다음과 같습니다.
+
+```
+{
+    "$schema": "http://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+    "triggers" : {
+        "myendpointtrigger" : {
+            "type" : "manual"
+        }
+    }
+}
+```
+
+이렇게 하면 다음과 같이 URL에서 호출할 수 있는 끝점이 만들어집니다.
+ 
+```
+https://prod-03.brazilsouth.logic.azure.com:443/workflows/080cb66c52ea4e9cabe0abf4e197deff/triggers/myendpointtrigger?...
+```
+
+사용자 인터페이스에서 또는 호출하여 이 끝점을 가져올 수 있습니다.
+
+```
+POST https://management.azure.com/{resourceID of your logic app}/triggers/myendpointtrigger/listCallbackURL?api-version=2015-08-01-preview
+```
+
+## 논리 앱 트리거의 끝점 호출
+트리거의 끝점을 만든 후 백 엔드 시스템에 저장하고 `POST`를 통해 전체 URL로 호출할 수 있습니다. 추가 쿼리 매개 변수, 헤더 및 모든 콘텐츠를 본문에 포함할 수 있습니다.
+
+content-type이 `application/json`이면 요청 내에서 속성을 참조할 수 있습니다. 이 형식이 아니면 다른 API에 전달할 수 있지만 내부 참조할 수 없는 단일 이진 단위로 처리됩니다.
+
+## 들어오는 요청의 콘텐츠 참조
+`@triggerOutputs()` 함수는 들어오는 요청의 콘텐츠를 출력합니다. 예를 들어 다음과 같습니다.
+
+```
+{
+    "headers" : {
+        "content-type" : "application/json"
+    },
+    "body" : {
+        "myprop" : "a value"
+    }
+}
+```
+
+특히 `body` 속성에 액세스하는 데 `@triggerBody()` 바로 가기를 사용할 수 있습니다.
+
+이 점이 `@triggerOutputs().body.Content`와 같은 함수를 통해 HTTP 수신기의 본문에 액세스하는 *2014-12-01-preview* 버전과 약간 다른 점입니다.
+
+## 요청에 응답
+논리 앱을 시작하는 일부 요청의 경우 일부 콘텐츠를 사용하여 호출자에게 응답할 수 있습니다. 응답에 대한 상태 코드, 본문 및 헤더를 생성하는 데 사용할 수 있는 **response**라는 새 동작 유형이 있습니다. **response** 셰이프가 없으면 논리 앱 끝점은 **202 수락됨**(HTTP 수신기에서 *자동으로 응답 보내기*에 해당)으로 *즉시* 응답을 보냅니다.
+
+```
+"myresponse" : {
+    "type" : "response",
+    "inputs" : {
+        "statusCode" : 200,
+        "body" : {
+            "contentFieldOne" : "value100",
+            "anotherField" : 10.001
+        },
+        "headers" : {
+            "x-ms-date" : "@utcnow()",
+            "Content-type" : "application/json"
+        }
+    },
+    "conditions" : []
+}
+```
+
+응답은 다음과 같습니다.
+
+| ( 속성 사용) | 설명 |
+| -------- | ----------- |
+| statusCode | 들어오는 요청에 응답하는 HTTP 상태 코드입니다. 2xx, 4xx, 5xx로 시작하는 모든 유효한 상태 코드가 될 수 있습니다. 3xx 상태 코드는 허용되지 않습니다. | 
+| body | 문자열, JSON 개체 또는 이전 단계에서 참조한 이진 콘텐츠일 수도 있는 본문 개체입니다. | 
+| headers | 응답에 포함될 헤더의 수를 정의할 수 있습니다. | 
+
+논리 앱에서 응답을 받는 데 필요한 모든 단계는 요청을 받는 데 원래 요청에 대해 *60초* 내에 완료해야 합니다. 60초 내에 도달하는 응답 작업이 없으면 들어오는 요청은 시간 초과되어 **408 클라이언트 시간 제한** HTTP 응답을 수신합니다.
+
+## 고급 끝점 구성
+논리 앱은 직접 액세스 끝점에 대한 지원이 내장되어 실행을 시작하는 데 항상 `POST` 메서드를 사용합니다. 또한 **HTTP 수신기** API 앱은 이전에 URL 세그먼트 및 HTTP 메서드 변경을 지원했습니다. API 앱 호스트(API 앱을 호스트하는 웹앱)에 추가하여 추가 보안 또는 사용자 지정 도메인을 설정할 수도 있습니다.
+
+이 기능은 다음과 같은 **API 관리**를 통해 사용할 수 있습니다. * [요청 메서드 변경](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetRequestMethod) * [요청 URL 세그먼트 변경](https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#RewriteURL) * 클래식 Azure 포털의 **구성** 탭에서 API 관리 도메인 설정 * 기본 인증을 확인하는 정책 설정(**링크 필요**)
+
+## 2014-12-01-preview에서 마이그레이션 요약
+
+| 2014-12-01-preview | 2015-08-01-preview |
+|---------------------|--------------------|
+| **HTTP 수신기** API 앱 클릭 | **수동 트리거** 클릭(API 앱 필요 없음) |
+| HTTP 수신기 설정 "*자동으로 응답 보내기*" | **response** 작업 포함 또는 워크플로 정의에 없음 |
+| 기본 또는 OAuth 인증 구성 | API 관리를 통해 |
+| HTTP 메서드 구성 | API 관리를 통해 |
+| 상대 경로 구성 | API 관리를 통해 |
+| `@triggerOutputs().body.Content`를 통해 들어오는 본문 참조 | `@triggerOutputs().body`를 통해 참조 |
+| HTTP 수신기에서 **HTTP 응답 보내기** 작업 | **HTTP 요청에 응답** 클릭(API 앱 필요 없음)
+
+<!---HONumber=AcomDC_0224_2016-->

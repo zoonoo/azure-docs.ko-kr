@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor=""/>
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="02/16/2016"
+   ms.date="02/22/2016"
    ms.author="v-sharos" />
 
 # StorSimple 가상 배열을 위해 StorSimple 관리자 서비스를 사용하여 작업 보기(미리 보기)
@@ -60,8 +60,16 @@
  
     ![작업 세부 정보 페이지](./media/storsimple-ova-manage-jobs/ovajobs2.png)
 
+#### 가상 컴퓨터가 하이퍼바이저에서 일시 중지되는 경우 작업 실패
+
+StorSimple 가상 배열에서 작업이 진행 중인 경우 장치(하이퍼바이저에 프로비전된 가상 컴퓨터)가 15분 넘게 일시 중지되면 작업이 실패합니다. 이는 StorSimple 가상 배열 시간과 Microsoft Azure 시간이 동기화 해제되기 때문입니다. 복원 작업 실패에 대한 예제는 다음 스크린샷에 나와 있습니다.
+
+![복원 작업 실패](./media/storsimple-ova-manage-jobs/restorejobfailure.png)
+
+이러한 실패는 백업, 복원, 업데이트 및 장애 조치(failover) 작업에 적용됩니다. 가상 컴퓨터가 Hyper-V에 프로비전된 경우 이 컴퓨터는 최종적으로 하이퍼바이저와 시간을 동기화합니다. 이러한 동기화 후 작업을 다시 시작할 수 있습니다.
+
 ## 다음 단계
 
-[로컬 웹 UI를 사용하여 StorSimple 가상 배열을 관리하는 방법을 알아봅니다](storsimple-ova-web-ui-admin.md).
+[로컬 웹 UI를 사용하여 StorSimple 가상 배열을 관리하는 방법을 알아봅니다.](storsimple-ova-web-ui-admin.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="인덱서를 사용하여 Azure 검색에 Azure SQL 데이터베이스 연결 | Microsoft Azure | 호스트된 클라우드 검색 서비스" 
+	pageTitle="인덱서를 사용하여 Azure 검색에 Azure SQL 데이터베이스 연결 | Microsoft Azure | 인덱서" 
 	description="인덱서를 사용하여 Azure SQL 데이터베이스에서 Azure 검색 인덱스로 데이터를 가져오는 방법에 대해 알아봅니다." 
 	services="search" 
 	documentationCenter="" 
@@ -275,4 +275,4 @@ A: 예. 그러나 한 번에 하나의 인덱서만 실행할 수 있습니다. 
 
 A: 예. 인덱서는 검색 서비스의 노드 중 하나에서 실행되므로 해당 노드의 리소스가 인덱싱 및 쿼리 지원 트래픽과 다른 API 요청 간에 공유됩니다. 많은 인덱싱 및 쿼리 작업을 실행하는 경우 503 오류가 자주 발생하거나 응답 시간이 증가하면 검색 서비스를 확장하는 것이 좋습니다.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

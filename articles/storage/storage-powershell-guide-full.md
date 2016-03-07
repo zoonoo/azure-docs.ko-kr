@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/24/2016"
+	ms.date="02/19/2016"
 	ms.author="robinsh"/>
 
 # Azure 저장소와 함께 Azure PowerShell 사용
@@ -34,7 +34,7 @@ Azure PowerShell은 Windows PowerShell을 통해 Azure를 관리하기 위한 cm
 
 **Azure에 새로 만들기:** Microsoft Azure 구독 및 해당 구독과 연결된 Microsoft 계정을 가져옵니다. Azure 구입 옵션에 대한 자세한 내용은 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/), [구입 옵션](https://azure.microsoft.com/pricing/purchase-options/) 및 [회원 제안](https://azure.microsoft.com/pricing/member-offers/)(MSDN, Microsoft 파트너 네트워크, BizSpark 및 기타 Microsoft 프로그램의 회원인 경우)을 참조하세요.
 
-Azure 구독에 대한 자세한 내용은 [계정, 구독 및 관리 역할 관리](https://msdn.microsoft.com/library/azure/hh531793.aspx)를 참조하세요.
+Azure 구독에 대한 자세한 내용은 [Azure AD(Azure Active Directory)에서 관리자 역할 할당](https://msdn.microsoft.com/library/azure/hh531793.aspx)을 참조하세요.
 
 **Microsoft Azure 구독 및 계정을 만든 후:**
 
@@ -236,7 +236,7 @@ Azure 저장소 컨텍스트는 저장소 자격 증명을 캡슐화하는 Power
 컴퓨터를 설정하고 Azure PowerShell을 사용하여 구독 및 저장소 계정을 관리하는 방법을 알아보았습니다. 다음 섹션으로 이동하여 Azure Blob 및 스냅숏 Blob을 관리하는 방법을 알아보세요.
 
 ## Azure Blob 관리 방법
-Azure Blob 저장소는 HTTP 또는 HTTPS를 통해 전 세계 어디에서든 액세스할 수 있는 다량의 구조화되지 않은 데이터(예: 텍스트 또는 이진 데이터)를 저장할 수 있는 서비스입니다. 이 섹션에서는 Azure Blob 저장소 서비스 개념에 이미 익숙하다고 가정합니다. 자세한 내용은 [.NET에서 Blob 저장소를 사용하는 방법](storage-dotnet-how-to-use-blobs.md) 및 [Blob 서비스 개념](http://msdn.microsoft.com/library/azure/dd179376.aspx)을 참조하세요.
+Azure Blob 저장소는 HTTP 또는 HTTPS를 통해 전 세계 어디에서든 액세스할 수 있는 다량의 구조화되지 않은 데이터(예: 텍스트 또는 이진 데이터)를 저장할 수 있는 서비스입니다. 이 섹션에서는 Azure Blob 저장소 서비스 개념에 이미 익숙하다고 가정합니다. 자세한 내용은 [.NET을 사용하여 Blob 저장소 시작](storage-dotnet-how-to-use-blobs.md) 및 [Blob 서비스 개념](http://msdn.microsoft.com/library/azure/dd179376.aspx)을 참조하세요.
 
 ### 컨테이너를 만드는 방법
 Azure 저장소의 모든 Blob은 컨테이너에 있어야 합니다. New-AzureStorageContainer cmdlet을 사용하여 개인 컨테이너를 만들 수 있습니다.
@@ -244,10 +244,10 @@ Azure 저장소의 모든 Blob은 컨테이너에 있어야 합니다. New-Azure
     $StorageContainerName = "yourcontainername"
     New-AzureStorageContainer -Name $StorageContainerName -Permission Off
 
-> [AZURE.NOTE] 익명 읽기 액세스의 세가지 수준은 **해제**, **Blob**, 및 **컨테이너**입니다. Blob에 대한 익명 액세스를 방지하려면 권한 매개 변수를 **해제**로 설정합니다. 기본적으로 새 컨테이너는 전용이며 계정 소유자만 액세스할 수 있습니다. 익명 공용 읽기 권한을 Blob 리소스에 대해 허용하지만 컨테이너 메타데이터나 컨테이너의 Blob 목록에 대해서는 허용하지 않으려면, 사용 권한 매개 변수를 **Blob**으로 설정하세요. Blob 리소스, 컨테이너 메타데이터 및 컨테이너의 Blob 목록에 대한 전체 공용 읽기 권한을 허용하려면, 권한 매개 변수를 **컨테이너**로 설정하세요. 자세한 내용은 [Azure 저장소 리소스에 대한 액세스 관리](storage-manage-access-to-resources.md)를 참조하세요.
+> [AZURE.NOTE] 익명 읽기 액세스의 세가지 수준은 **해제**, **Blob**, 및 **컨테이너**입니다. Blob에 대한 익명 액세스를 방지하려면 권한 매개 변수를 **해제**로 설정합니다. 기본적으로 새 컨테이너는 전용이며 계정 소유자만 액세스할 수 있습니다. 익명 공용 읽기 권한을 Blob 리소스에 대해 허용하지만 컨테이너 메타데이터나 컨테이너의 Blob 목록에 대해서는 허용하지 않으려면, 사용 권한 매개 변수를 **Blob**으로 설정하세요. Blob 리소스, 컨테이너 메타데이터 및 컨테이너의 Blob 목록에 대한 전체 공용 읽기 권한을 허용하려면, 권한 매개 변수를 **컨테이너**로 설정하세요. 자세한 내용은 [컨테이너 및 Blob에 대한 익명읽기 권한 관리](storage-manage-access-to-resources.md)를 참조하세요.
 
 ### 컨테이너에 Blob을 업로드하는 방법
-Azure Blob 저장소는 블록 Blob 및 페이지 Blob을 지원합니다. 자세한 내용은 [블록 Blob 및 페이지 Blob 이해](http://msdn.microsoft.com/library/azure/ee691964.aspx)를 참조하세요.
+Azure Blob 저장소는 블록 Blob 및 페이지 Blob을 지원합니다. 자세한 내용은 [블록 Blob,추가 Blob 및 페이지 Blob 이해](http://msdn.microsoft.com/library/azure/ee691964.aspx)를 참조하세요.
 
 컨테이너에 Blob을 업로드하기 위해 [Set-AzureStorageBlobContent](http://msdn.microsoft.com/library/azure/dn806379.aspx) cmdlet을 사용할 수 있습니다. 기본적으로 이 명령은 로컬 파일을 블록 Blob에 업로드합니다. Blob의 종류를 지정하기 위해 -BlobType 매개 변수를 사용할 수 있습니다.
 
@@ -373,7 +373,7 @@ Blob의 스냅숏을 복사하여 Blob의 스냅숏을 복원할 수 있습니�
 Azure PowerShell을 사용하여 Azure Blob 및 스냅숏 Blob을 관리하는 방법을 알아보았습니다. 다음 섹션으로 이동하여 테이블, 큐 및 파일을 관리하는 방법을 알아보세요.
 
 ## Azure 테이블 및 테이블 엔터티를 관리하는 방법
-Azure 테이블 저장소 서비스는 구조화된 비관계형 데이터의 거대 집합을 저장하고 쿼리하는 데 사용할 수 있는 NoSQL 데이터 저장소입니다. 서비스의 주요 구성 요소로는 테이블, 엔터티 및 속성이 있습니다. 테이블은 엔터티 컬렉션입니다. 엔터티는 속성의 집합입니다. 각 엔터티는 모두 이름 값 쌍으로 구성된 속성을 최대 252개 가질 수 있습니다. 이 섹션에서는 Azure 테이블 저장소 서비스 개념에 이미 익숙하다고 가정합니다. 자세한 내용은 [테이블 서비스 데이터 모델 이해](http://msdn.microsoft.com/library/azure/dd179338.aspx) 및 [.NET에서 테이블 저장소를 사용하는 방법](storage-dotnet-how-to-use-tables.md)(영문)을 참조하세요.
+Azure 테이블 저장소 서비스는 구조화된 비관계형 데이터의 거대 집합을 저장하고 쿼리하는 데 사용할 수 있는 NoSQL 데이터 저장소입니다. 서비스의 주요 구성 요소로는 테이블, 엔터티 및 속성이 있습니다. 테이블은 엔터티 컬렉션입니다. 엔터티는 속성의 집합입니다. 각 엔터티는 모두 이름 값 쌍으로 구성된 속성을 최대 252개 가질 수 있습니다. 이 섹션에서는 Azure 테이블 저장소 서비스 개념에 이미 익숙하다고 가정합니다. 자세한 내용은 [테이블 서비스 데이터 모델 이해](http://msdn.microsoft.com/library/azure/dd179338.aspx) 및 [.NET을 사용하여 Azure 테이블 저장소 시작](storage-dotnet-how-to-use-tables.md)을 참조하세요.
 
 다음 하위 섹션에서는 Azure PowerShell을 사용하여 Azure 테이블 저장소 서비스를 관리하는 방법을 알아봅니다. 여기서 다루는 시나리오에는 **테이블** **생성**, **삭제**, **검색**뿐만 아니라 테이블 엔터티 **삭제**, **추가**, **쿼리**도 포함됩니다.
 
@@ -514,7 +514,7 @@ Azure 테이블 저장소 서비스는 구조화된 비관계형 데이터의 �
     }
 
 ## Azure 큐 및 큐 메시지를 관리하는 방법
-Azure 큐 저장소는 HTTP 또는 HTTPS를 사용하여 인증된 호출을 통해 전 세계 어디에서나 액세스할 수 있는 다수의 메시지를 저장하기 위한 서비스입니다. 이 섹션에서는 Azure 큐 저장소 서비스 개념에 이미 익숙하다고 가정합니다. 자세한 내용은 [.NET에서 큐 저장소를 사용하는 방법](storage-dotnet-how-to-use-queues.md)(영문)을 참조하세요.
+Azure 큐 저장소는 HTTP 또는 HTTPS를 사용하여 인증된 호출을 통해 전 세계 어디에서나 액세스할 수 있는 다수의 메시지를 저장하기 위한 서비스입니다. 이 섹션에서는 Azure 큐 저장소 서비스 개념에 이미 익숙하다고 가정합니다. 자세한 내용은 [.NET을 사용하여 Azure 큐 저장소 시작](storage-dotnet-how-to-use-queues.md)을 참조하세요.
 
 이 섹션에서는 Azure PowerShell을 사용하여 Azure 큐 저장소 서비스를 관리하는 방법을 보여 줍니다. 여기서 다루는 시나리오에는 큐 메시지 **삽입** 및 **삭제**뿐만 아니라 큐 **생성**, **삭제**, 및 **검색**도 포함됩니다.
 
@@ -592,7 +592,7 @@ Azure 큐 서비스에 대한 명명 규칙에 대해서는 [큐 및 메타데�
 ## Azure 파일 공유 및 파일을 관리하는 방법
 Azure 파일 저장소는 표준 SMB 프로토콜을 사용하여 응용 프로그램을 위한 공유 저장소를 제공합니다. Microsoft Azure 가상 컴퓨터 및 클라우드 서비스는 탑재된 공유를 통해 여러 응용 프로그램 구성 요소에서 파일 데이터를 공유할 수 있으며 온-프레미스 응용 프로그램은 파일 저장소 API 또는 Azure PowerShell을 통해 공유의 파일 데이터에 액세스할 수 있습니다.
 
-Azure 파일 저장소에 대한 자세한 내용은 [Windows에서 Azure 파일 저장소를 사용하는 방법](storage-dotnet-how-to-use-files.md) 및 [파일 서비스 REST API](http://msdn.microsoft.com/library/azure/dn167006.aspx)를 참조하세요.
+Azure 파일 저장소에 대한 자세한 내용은 [Windows에서 Azure 파일 저장소 시작](storage-dotnet-how-to-use-files.md) 및 [파일 서비스 REST API](http://msdn.microsoft.com/library/azure/dn167006.aspx)를 참조하세요.
 
 ## 저장소 분석을 설정 및 쿼리하는 방법
 [Azure 저장소 분석](storage-analytics.md)을 통해 Azure 저장소 계정에서 메트릭(저장소 메트릭)을 수집하고 저장소 계정에 전송된 요청에 대한 데이터(저장소 로깅)를 기록할 수 있습니다. 저장소 메트릭을 사용하여 저장소 계정의 상태를 모니터링하고, 저장소 로깅을 사용하여 저장소 계정에 대한 문제를 진단 및 해결할 수 있습니다. 기본적으로 저장소 메트릭은 저장소 서비스에 대해 사용되지 않습니다. Azure 포털 또는 Windows PowerShell을 사용하거나 저장소 클라이언트 라이브러리를 사용하여 프로그래밍 방식으로 모니터링을 사용하도록 설정할 수 있습니다. 저장소 로깅은 서버 쪽에서 발생하며, 이를 통해 저장소 계정의 성공한 요청 및 실패한 요청에 대한 세부 정보를 기록할 수 있습니다. 이러한 로그를 사용하여 테이블, 큐 및 Blob에 대한 읽기, 쓰기 및 삭제 작업뿐만 아니라 실패한 요청의 이유에 대한 세부 정보를 볼 수 있습니다.
@@ -613,7 +613,7 @@ PowerShell을 사용하여 로깅 데이터 저장소 사용 및 검색하는 �
 - **Ad hoc SAS**: 애드혹 SAS를 만들 때 SAS의 시작 시간, 만료 시간 및 사용 권한이 SAS URI에 모두 지정됩니다. 이 유형의 SAS는 컨테이너, Blob, 테이블 또는 큐에서 만들 수 있으며, 취소할 수 없습니다.
 - **저장된 액세스 정책 사용 SAS:** 저장된 액세스 정책은 리소스 컨테이너(Blob 컨테이너, 테이블 또는 큐)에서 정의되며, 하나 이상의 공유 액세스 서명에 대한 제약 조건을 관리하는 데 사용할 수 있습니다. SAS를 공유 액세스 정책과 연결할 경우 SAS는 저장된 액세스 정책에 대해 정의된 제약 조건(시작 시간, 만료 시간 및 사용 권한)을 상속합니다. 이 유형의 SAS는 취소할 수 있습니다.
 
-자세한 내용은 [공유 액세스 서명 자습서](storage-dotnet-shared-access-signature-part-1.md) 및 [Azure 저장소 리소스에 대한 액세스 관리](storage-manage-access-to-resources.md)를 참조하세요.
+자세한 내용은 참조 [공유 액세스 서명: SAS 모델 이해](storage-dotnet-shared-access-signature-part-1.md) 및 [컨테이너 및 blob에 대한 익명 읽기 액세스 관리](storage-manage-access-to-resources.md)를 참조하세요.
 
 다음 섹션에서는 Azure 테이블에 대한 공유 액세스 서명 토큰 및 저장된 액세스 정책을 만드는 방법을 배웁니다. Azure PowerShell은 컨테이너, Blob, 큐에 대해 유사한 cmdlet을 제공합니다. 이 섹션의 스크립트를 실행하려면 [Azure PowerShell 버전 0.8.14](http://go.microsoft.com/?linkid=9811175&clcid=0x409) 이상을 다운로드하세요.
 
@@ -647,7 +647,7 @@ Azure 저장소 테이블에서 저장된 액세스 정책을 삭제하려면 Re
 
 
 ## 미국 정부 및 Azure 중국용 Azure 저장소를 사용하는 방법
-[미국 정부용 Azure Government](https://azure.microsoft.com/features/gov/), [글로벌 Azure용 AzureCloud](https://manage.windowsazure.com) 및 [중국의 21Vianet에서 운영하는 Azure용 AzureChinaCloud](http://www.windowsazure.cn/) 등의 Azure 환경은 Microsoft Azure의 독자적인 배포입니다. 미국 정부 및 Azure 중국을 위한 새로운 Azure 환경을 배포할 수 있습니다.
+[미국 정부용 Azure Government](https://azure.microsoft.com/features/gov/), [글로벌 Azure용 AzureCloud](https://portal.azure.com) 및 [중국의 21Vianet에서 운영하는 Azure용 AzureChinaCloud](http://www.windowsazure.cn/) 등의 Azure 환경은 Microsoft Azure의 독자적인 배포입니다. 미국 정부 및 Azure 중국을 위한 새로운 Azure 환경을 배포할 수 있습니다.
 
 AzureChinaCloud와 함께 Azure 저장소를 사용하려면 AzureChinaCloud와 연결된 저장소 컨텍스트를 만들어야 합니다. 시작하려면 다음 단계를 따르세요.
 
@@ -676,7 +676,7 @@ AzureChinaCloud와 함께 Azure 저장소를 사용하려면 AzureChinaCloud와 
 자세한 내용은 다음을 참조하세요.
 
 - [Microsoft Azure Government 개발자 가이드](../azure-government-developer-guide.md)
-- [글로벌 Azure용 AzureCloud와 중국의 21Vianet에서 운영하는 Azure용 AzureChinaCloud 간의 차이점](https://msdn.microsoft.com/library/azure/dn578439.aspx)
+- [중국 서비스에서 응용 프로그램을 만들 때의 차이점 개요](https://msdn.microsoft.com/library/azure/dn578439.aspx)
 
 ## 다음 단계
 이 가이드에서는 Azure PowerShell을 사용하여 Azure 저장소를 관리하는 방법에 대해 알아보았습니다. 다음은 자세한 내용을 확인할 수 있는 몇 가지 관련 항목 및 리소스입니다.
@@ -730,4 +730,4 @@ AzureChinaCloud와 함께 Azure 저장소를 사용하려면 AzureChinaCloud와 
 [Next Steps]: #next
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -28,6 +28,7 @@ Azure SQL 데이터베이스는 사용자 오류나 의도하지 않은 데이�
 Azure SQL 데이터베이스는 항상 새로운 데이터베이스로 복원됩니다. 이러한 복원 기능은 모든 기본, 표준 및 프리미엄 데이터베이스에 대해 제공됩니다.
 
 ##지정 시간 복원
+
 사용자 오류나 의도하지 않은 데이터 수정 시, 지정 시간 복원 기능을 사용하여 데이터베이스 보존 기간 내의 지정된 임의의 시간으로 데이터베이스를 복원할 수 있습니다.
 
 기본 데이터베이스는 7일 동안 보존되고 표준 데이터베이스는 14일 동안, 프리미엄 데이터베이스는 35일 동안 보존됩니다. 데이터베이스 보존에 대해 자세히 알아보려면 [비즈니스 연속성 개요](sql-database-business-continuity.md)를 참조하세요.
@@ -35,6 +36,8 @@ Azure SQL 데이터베이스는 항상 새로운 데이터베이스로 복원됩
 > [AZURE.NOTE] 데이터베이스를 복원하면 새 데이터베이스가 생성됩니다. 복원하는 서버에 새 데이터베이스를 위한 충분한 DTU 용량이 있는지 확인하는 것이 중요합니다. [지원 센터에 연락](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/)하여 이 할당량을 늘리도록 요청할 수 있습니다.
 
 ###Azure 포털
+> [AZURE.NOTE] 탄력적 데이터베이스 풀에 있는 데이터베이스의 경우 Azure 포털에서는 동일한 풀로의 특정 시점 복원만 지원됩니다. 데이터베이스를 독립 실행형 데이터베이스로 특정 시점 복원하려면 REST API를 사용하세요.
+
 Azure 포털에서 특정 시점 복원을 사용하려면 다음 단계를 사용하세요.
 
 1. [Azure 포털](https://portal.Azure.com)에 로그인합니다.
@@ -55,13 +58,7 @@ PowerShell을 사용하여 프로그래밍 방식으로 [Start-azuresqldatabaser
 		 
 
 ###REST API 
-프로그래밍 방식으로 데이터베이스 복원을 수행하려면 REST를 사용합니다.
-
-1. [데이터베이스 가져오기](http://msdn.microsoft.com/library/azure/dn505708.aspx) 작업을 통해 복원할 데이터베이스를 가져옵니다.
-
-2.	[데이터베이스 복원 요청 만들기](http://msdn.microsoft.com/library/azure/dn509571.aspx) 작업을 통해 복원 요청을 만듭니다.
-	
-3.	[데이터베이스 작업 상태](http://msdn.microsoft.com/library/azure/dn720371.aspx) 작업을 통해 복원 요청을 추적합니다.
+프로그래밍 방식으로 데이터베이스 복원을 수행하려면 REST를 사용합니다. 이렇게 하려면 [데이터베이스 만들기](https://msdn.microsoft.com/library/azure/mt163685.aspx) 작업을 사용하여 복원 요청을 만들고 **만들기 모드**를 **PointInTimeRestore**로 지정합니다.
 
 ##삭제된 데이터베이스 복원
 데이터베이스가 삭제된 경우, Azure SQL 데이터베이스를 사용하면 삭제된 데이터베이스를 지정된 삭제 시점으로 복원할 수 있습니다. Azure SQL 데이터베이스는 데이터베이스 보존 기간 동안 삭제된 데이터베이스의 백업을 저장합니다.
@@ -106,4 +103,4 @@ PowerShell을 사용하여 삭제된 데이터베이스를 복원하려면 [Star
 	
 4.	[데이터베이스 작업 상태](http://msdn.microsoft.com/library/azure/dn720371.aspx) 작업을 사용하여 복원 상태를 추적합니다.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

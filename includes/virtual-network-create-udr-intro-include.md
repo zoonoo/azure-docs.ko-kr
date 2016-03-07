@@ -5,6 +5,6 @@
 - 침입 감지 시스템(IDS)을 사용하여 트래픽 모니터링
 - 방화벽을 사용하여 트래픽 제어
 
-UDR 및 IP 전달에 대한 자세한 내용은 [사용자 정의 경로 및 IP 전달](./virtual-networks-udr-overview.md)을 참조하세요.
+UDR 및 IP 전달에 대한 자세한 내용은 [사용자 정의 경로 및 IP 전달](../articles/virtual-network/virtual-networks-udr-overview.md)을 참조하세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

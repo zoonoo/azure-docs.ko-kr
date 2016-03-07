@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="02/18/2016"
 	ms.author="tarcher"/>
 
 # DevTest Lab에 소유자 및 사용자 추가
+
+> [AZURE.NOTE] 이 문서와 함께 제공되는 비디오를 보려면 다음 링크를 클릭하세요. [DevTest Lab에서 보안을 설정하는 방법](/documentation/videos/how-to-set-security-in-your-devtest-lab)
 
 ## 개요
 
@@ -101,4 +103,4 @@ DevTest Lab은 랩이 포함된 Azure 구독의 소유자를 해당 랩의 소�
 
 	1. **사용자** 블레이드에 추가된 역할 및 사용자가 표시됩니다.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="앱 모델 v2.0 Windows 유니버설 앱 | Microsoft Azure"
+	pageTitle="Azure AD v2.0 Windows 범용 앱 | Microsoft Azure"
 	description="개인 Microsoft 계정과 회사 또는 학교 계정 둘 다로 사용자를 로그인하는 Windows 유니버설 앱을 빌드하는 방법입니다."
 	services="active-directory"
 	documentationCenter=""
@@ -11,15 +11,14 @@
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.topic="article"
-  ms.tgt_pltfrm="mobile-windows-store"
+  	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
-	ms.date="12/09/2015"
+	ms.date="02/20/2016"
 	ms.author="dastrock"/>
 
-  # 앱 모델 v2.0 미리 보기: Windows 유니버설 앱에 로그인 추가
+  # v2.0 끝점을 사용하여 Windows 범용 앱에 로그인을 추가합니다. Windows 범용 앱에 대한 빠른 시작 자습서는 아직 준비되지 않았습니다... 나중에 다시 Twitter에서 @AzureAD를 다시 방문하여 업데이트를 확인하세요.
 
-  Windows 유니버설 앱에 대한 빠른 시작 자습서는 완전히 준비되지 않았습니다. 나중에 다시 Twitter에서 @AzureAD를 다시 방문하여 업데이트를 확인하세요.
+> [AZURE.NOTE]
+	일부 Azure Active Directory 시나리오 및 기능만 v2.0 끝점에서 지원합니다. v2.0 끝점을 사용해야 하는지 확인하려면 [v2.0 제한 사항](active-directory-v2-limitations.md)을 참조하세요.
 
-  >[AZURE.NOTE]이 정보는 v2.0 앱 모델 공개 미리 보기에 적용됩니다. 일반 공급 Azure AD 서비스와 통합하는 방법에 대한 지침은 [Azure Active Directory 개발자 가이드](active-directory-developers-guide.md)를 참조하세요.
-
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

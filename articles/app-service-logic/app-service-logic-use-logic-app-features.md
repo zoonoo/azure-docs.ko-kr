@@ -13,19 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
+	ms.date="02/23/2016"
 	ms.author="stepsic"/>
 	
 # 논리 앱 기능 사용
 
-[이전 항목][Create a new logic app]에서는 첫 번째 논리 앱을 만들었습니다. 이제 앱 서비스 논리 앱을 사용하여 보다 완전한 프로세스를 빌드하는 방법을 설명하겠습니다. 이 항목에서는 다음과 같은 새 논리 앱 개념을 소개합니다.
+[이전 항목](app-service-logic-create-a-logic-app.md)에서는 첫 번째 논리 앱을 만들었습니다. 이제 앱 서비스 논리 앱을 사용하여 보다 완전한 프로세스를 빌드하는 방법을 설명하겠습니다. 이 항목에서는 다음과 같은 새 논리 앱 개념을 소개합니다.
 
 - 조건부 논리 - 특정 조건이 충족될 때만 작업을 실행합니다.
-- 반복 작업.
 - 기존 논리 앱을 편집하기 위한 코드 보기.
 - 워크플로 시작 옵션.
 
-이 항목을 완료하기 전에 [새 논리 앱 만들기]의 단계를 완료해야 합니다. [Azure 포털]에서 논리 앱을 찾은 다음 요약에서 **트리거 및 동작**을 클릭하여 논리 앱 정의를 편집합니다.
+이 항목을 완료하기 전에 [새 논리 앱 만들기](app-service-logic-create-a-logic-app.md)의 단계를 완료해야 합니다. [Azure 포털]에서 논리 앱을 찾은 다음 요약에서 **트리거 및 동작**을 클릭하여 논리 앱 정의를 편집합니다.
 
 ## 참조 자료
 
@@ -34,43 +33,33 @@
 - [관리와 런타임 REST API](https://msdn.microsoft.com/library/azure/dn948513.aspx) - 논리 앱을 직접 호출 하는 방법 포함
 - [언어 참조](https://msdn.microsoft.com/library/azure/dn948512.aspx) - 모든 지원 되는 함수/식의 포괄적인 목록
 - [트리거 및 작업 형식](https://msdn.microsoft.com/library/azure/dn948511.aspx) - 다양한 유형의 동작 및 동작에 필요한 입력
-- [앱 서비스의 개요](app-service-value-prop-what-is.md) - 솔루션을 구축하는 시점을 선택하는 구성 요소의 설명
+- [앱 서비스의 개요](../app-service/app-service-value-prop-what-is.md) - 솔루션을 구축하는 시점을 선택하는 구성 요소의 설명
 
-## 조건부 논리 및 반복 추가
+## 조건부 논리 추가
 
-원래 흐름이 제대로 작동해도 향상시킬 수 있는 일부 영역이 있습니다. 첫째, 작업이 반환된 최상위 트윗만 보냅니다. 논리적으로 키워드가 포함된 모든 트윗을 받고 싶을 것입니다. 반환된 트윗과 같은 항목 목록에 대해 작업을 반복하려면 `repeat` 속성을 사용해야 합니다.
+원래 흐름이 제대로 작동해도 향상시킬 수 있는 일부 영역이 있습니다.
 
-### 반복
-반복은 항목 목록을 사용하여 해당 목록의 각 항목에 대해 동작을 실행합니다. 다음 단계에서는 반복을 사용하도록 기존 작업을 업데이트하며, 이것이 트윗 목록에 더 적합합니다.
-
-1. 만든 워크플로로 돌아가 **필수 항목**에서 **정의** 링크를 클릭합니다. 
-
-2. **Dropbox 커넥터** 동작을 편집하려면 연필 아이콘을 클릭합니다.
-
-3. 기어 아이콘을 클릭하고 **목록에서 반복**을 선택합니다.
- 
-2. **반복** 상자 옆에 있는 `...`을 클릭하고 **본문**을 선택합니다. 이렇게 하면
-
-    	@body('twitterconnector')
-
-	가 텍스트 상자에 입력됩니다. 이 함수는 트윗 목록을 출력합니다.
-
-3. **콘텐츠** 텍스트 상자에서 모든 텍스트를 선택하고 삭제합니다. 그런 다음 `...`을 클릭하고 **트윗 텍스트**를 선택합니다. 목록에 있는 각 요소를 반환하는 **repeatItem()** 함수가 삽입됩니다.
-
-끝으로, 반복 작업의 출력은 특별합니다. 예를 들어 Dropbox 작업의 결과를 참조하려는 경우 일반적인 `@actions('dropboxconnector').outputs.body`를 수행하지 *않을* 수 있습니다. `@actions('dropboxconnector').outputs.repeatItems`를 대신 수행합니다. 그러면 작업이 실행된 모든 시간 목록과 각 실행의 출력이 반환됩니다. 예를 들어 `@first(actions('dropboxconnector').outputs.repeatItems).outputs.body.FilePath`는 업로드된 첫 번째 파일의 경로를 반환합니다.
 
 ### 조건부
-이 논리 앱은 여전히 많은 파일이 Dropbox로 업로드되게 합니다. 다음 단계에서는 논리를 더 추가하여 트윗에 특정 개수의 리트윗이 있을 경우 파일만 받도록 합니다.
+이 논리 앱에서는 많은 전자 메일을 받을 수 있습니다. 다음 단계에서는 특정 수의 팔로워를 보유한 사람으로부터 트윗이 제공된 경우에만 전자 메일을 받도록 하는 논리를 추가합니다.
 
-1. 동작 맨 위에 있는 기어 아이콘을 클릭하고 **충족할 조건 추가**를 선택합니다.
+1. 더하기를 클릭하고 Twitter에 대한 *Get User* 작업을 찾습니다.
 
-2. 텍스트 상자에 다음을 입력합니다.
+2. Twitter 사용자에 대한 정보를 가져오기 위해 트리거에서 **Tweeted by** 필드를 전달합니다.
 
-    	@greater(repeatItem().Retweet_Count , 5)
-    
-	**greater** 함수는 두 값을 비교하고 첫 번째 값이 두 번째 값보다 큰 경우에만 작업을 실행할 수 있게 합니다. 위의 `.Retweet_Count`와 같이 점(.) 뒤에 속성 이름을 입력하여 지정된 속성에 액세스합니다.
+	![사용자 가져오기](./media/app-service-logic-use-logic-app-features/getuser.png)
 
-3. 확인 표시를 클릭하여 Dropbox 작업을 저장합니다.
+3. 더하기를 다시 클릭하되 이번에는 **Add Condition**을 선택합니다.
+
+4. 첫 번째 상자에서 **Get User** 아래의 **...**를 클릭하여 **Followers count** 필드를 찾습니다.
+
+5. 드롭다운에서 **Greater than**을 선택합니다.
+
+6. 두 번째 상자에서 원하는 사용자의 팔로워 수를 입력합니다.
+
+	![조건부](./media/app-service-logic-use-logic-app-features/conditional.png)
+
+7.  마지막으로 전자 메일 상자를 **If Yes** 상자로 끌어 놓습니다. 그러면 팔로워 수가 충족되는 경우에만 전자 메일이 제공됩니다.
 
 ## 코드 보기를 사용하여 논리 앱 편집
 
@@ -100,11 +89,7 @@
     
 2. `twitterconnector` 동작으로 스크롤하고 쿼리 값을 찾은 다음 `#@{parameters('topic')}`으로 바꿉니다. **concat** 함수를 사용하여 둘 이상의 문자열을 함께 조인할 수 있습니다. 예를 들어 `@concat('#',parameters('topic'))`는 위의 동일합니다
  
-3. 끝으로, `dropboxconnector` 동작으로 이동하여 다음과 같이 topic 매개 변수를 추가합니다.
-
-    	/tweets/@{parameters('topic')}/@{repeatItem().TweetID}.txt
-
-매개 변수는 자주 변경하는 값을 끌어오는 좋은 방법입니다. 다양한 환경에서 매개 변수를 재정의해야 하는 경우에 특히 유용합니다. 환경에 따라 매개 변수를 재정의하는 방법에 대한 자세한 내용은 [REST API 설명서](http://go.microsoft.com/fwlink/?LinkID=525617&clcid=0x409)를 참조하세요.
+매개 변수는 자주 변경하는 값을 끌어오는 좋은 방법입니다. 다양한 환경에서 매개 변수를 재정의해야 하는 경우에 특히 유용합니다. 환경에 따라 매개 변수를 재정의하는 방법에 대한 자세한 내용은 [REST API 설명서](http://msdn.microsoft.com/library/mt643788(Azure.100).aspx)를 참조하세요.
 
 이제 **저장**을 클릭하면 리트윗이 5개를 초과한 새 트윗은 매시간마다 Dropbox의 **tweets** 폴더로 배달됩니다.
 
@@ -117,30 +102,9 @@
 되풀이 트리거는 지정한 간격마다 실행됩니다. 트리거에 조건부 논리가 있을 경우 트리거가 워크플로를 실행할지 여부를 결정합니다. 트리거는 `200` 상태 코드를 반환하여 워크플로를 실행하도록 지정합니다. 실행할 필요가 없는 경우 `202` 상태 코드를 반환합니다.
 
 ### REST API를 사용한 콜백
-서비스에서 논리 앱 끝점을 호출하여 워크플로를 시작할 수 있습니다. 논리 앱의 **설정** 명령 모음 단추에서 **속성** 블레이드로 이동하면 액세스할 끝점을 찾을 수 있습니다.
-
-이 콜백을 사용하여 사용자 지정 응용 프로그램 내에서 논리 앱을 호출할 수 있습니다. **기본** 인증을 사용해야 합니다. 사용자 이름 `default`가 자동으로 만들어지며, 암호는 **속성** 블레이드의 **기본 액세스 키**입니다. 예:
-
-        POST https://<< your endpoint >>/run?api-version=2015-02-01-preview
-        Content-type: application/json
-        Authorization: Basic << base-64 encoded string of default:<access key> >>
-        {
-            "name" : "nameOfTrigger",
-            "outputs" : { "property" : "value" }
-        }
-
-워크플로에 출력을 전달하고 워크플로에서 참조할 수 있습니다. 예를 들어 위 트리거를 사용할 경우 `@triggers().outputs.property`를 포함하면 `value`가 반환됩니다.
-
-자세한 내용은 [REST 설명서](http://go.microsoft.com/fwlink/?LinkID=525617&clcid=0x409)를 참조하세요.
-
-### 수동 실행
-트리거가 없는 논리 앱을 정의할 수 있습니다. 이 경우 워크플로가 요청 시 시작되어야 합니다. 이러한 종류의 논리 앱은 가끔씩만 실행하면 되는 프로세스에 적합합니다. 트리거가 없는 논리 앱을 만들려면 디자이너의 **논리 시작** 상자에서 **수동으로 이 논리 실행**을 선택합니다.
-
-요청 시 논리 앱을 시작하려면 명령 모음에서 **지금 실행** 단추를 클릭합니다.
+서비스에서 논리 앱 끝점을 호출하여 워크플로를 시작할 수 있습니다. 자세한 내용은 [호출 가능 끝점인 논리 앱](app-service-logic-connector-http.md)을 참조하세요. 요청 시 이러한 종류의 논리 앱을 시작하려면 명령 모음에서 **지금 실행** 단추를 클릭합니다.
 
 <!-- Shared links -->
-[Create a new logic app]: app-service-logic-create-a-logic-app.md
-[새 논리 앱 만들기]: app-service-logic-create-a-logic-app.md
 [Azure 포털]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0224_2016-->

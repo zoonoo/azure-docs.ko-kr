@@ -12,12 +12,14 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/22/2016" 
+	ms.date="02/19/2016" 
 	ms.author="awills"/>
  
 # PowerShell을 사용하여 Application Insights에서 경고 설정
 
 [Visual Studio Application Insights](app-insights-overview.md)에서 [경고](app-insights-alerts.md)의 구성을 자동화할 수 있습니다.
+
+또한 [webhook를 설정하여 경고에 대한 응답을 자동화](../azure-portal/insights-webhooks-alerts.md)할 수 있습니다.
 
 ## 일 회 설정
 
@@ -31,7 +33,7 @@
 
 ## Azure에 연결
 
-Azure PowerShell을 시작하고 [구독에 연결](powershell-install-configure.md)합니다.
+Azure PowerShell을 시작하고 [구독에 연결](../powershell-install-configure.md)합니다.
 
 ```PowerShell
 
@@ -131,6 +133,9 @@ performanceCounter | [성능](app-insights-configuration-with-applicationinsight
 remoteDependencyFailed| [종속성](app-insights-configuration-with-applicationinsights-config.md#nuget-package-1)
 request,<br/>requestFailed|[서버 요청](app-insights-configuration-with-applicationinsights-config.md#nuget-package-2)
 
+## Webhook
+
+[경고에 대한 응답을 자동화](../azure-portal/insights-webhooks-alerts.md)할 수 있습니다. 경고가 발생한 경우 Azure에서 사용자가 선택한 웹 주소를 호출합니다.
 
 ## 참고 항목
 
@@ -138,8 +143,9 @@ request,<br/>requestFailed|[서버 요청](app-insights-configuration-with-appli
 * [Application Insights를 구성하는 스크립트](app-insights-powershell-script-create-resource.md)
 * [서식 파일에서 Application Insights 및 웹 테스트 리소스 만들기](app-insights-powershell.md)
 * [Application Insights에 Microsoft Azure 진단 결합 자동화](app-insights-powershell-azure-diagnostics.md)
+* [경고에 대한 응답 자동화](../azure-portal/insights-webhooks-alerts.md)
 
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

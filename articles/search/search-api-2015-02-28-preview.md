@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure 검색 서비스 REST API 버전 2015-02-28-Preview | Microsoft Azure"
+   pageTitle="Azure 검색 서비스 REST API 버전 2015-02-28-Preview | Microsoft Azure | Azure 검색 미리 보기 API"
    description="Azure 검색 서비스 REST API 버전 2015-02-28-Preview에는 자연어 분석기 및 moreLikeThis 검색과 같은 실험적 기능이 포함되어 있습니다."
    services="search"
    documentationCenter="na"
@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="02/04/2016"
+   ms.date="02/16/2016"
    ms.author="heidist"/>
 
 # Azure 검색 서비스 REST API: 버전 2015-02-28-Preview
 
 이 문서는 `api-version=2015-02-28-Preview`에 대한 참조 설명서입니다. 이 미리 보기는 다음과 같은 실험적 기능을 제공하여 현재 일반적으로 사용할 수 있는 버전인 [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx)을 확장합니다.
 
-- 이제 [Lucene 쿼리 구문](https://msdn.microsoft.com/library/mt589323.aspx)을 Azure 검색의 쿼리에 사용할 수 있습니다. Lucene 쿼리 파서를 사용하려면 검색 작업에서 `queryType`을 지정하세요. `moreLikeThis`는 [검색 작업](#SearchDocs)에서 다른 특정 문서와 관련된 다른 문서를 찾는 데 사용되는 쿼리 매개 변수입니다.
+- [문서 검색](#SearchDocs) API의 `moreLikeThis` 쿼리 매개 변수. 이 매개 변수는 다른 특정 문서와 관련된 다른 문서를 찾습니다.
 
-`2015-02-28-Preview`의 몇 가지 추가 기능에 대해서는 별도로 설명합니다. 내용은 다음과 같습니다.
+`2015-02-28-Preview` REST API의 몇 가지 추가 파트는 별도로 설명됩니다. 내용은 다음과 같습니다.
 
 - [점수 매기기 프로필](search-api-scoring-profiles-2015-02-28-preview.md)
 - [인덱서](search-api-indexers-2015-02-28-preview.md)
@@ -619,7 +619,7 @@ Lucene 영어 분석기는 표준 분석기를 확장합니다. 이 분석기는
 
 기본 점수 매기기 프로필은 결과 집합에 있는 모든 항목에 대한 검색 점수를 계산하기 위해 백그라운드에서 작동합니다. 이름이 지정되지 않은 내부 점수 매기기 프로필을 사용할 수 있습니다. 또는 사용자 지정 프로필이 쿼리 문자열에서 지정되지 않을 때마다 호출되는 기본으로 사용자 지정 프로필을 사용하도록 `defaultScoringProfile`을(를) 설정합니다.
 
-세부 정보는 [검색 인덱스(Azure 검색 서비스 REST API)에 점수 매기기 프로필 추가](search-api-scoring-profiles-2015-02-28.md)를 참조하세요.
+세부 정보는 [검색 인덱스(Azure 검색 서비스 REST API)에 점수 매기기 프로필 추가](search-api-scoring-profiles-2015-02-28-preview.md)를 참조하세요.
 
 **CORS 옵션**
 
@@ -1029,7 +1029,7 @@ HTTP POST를 사용하여 지정한 인덱스에서 문서를 업로드, 병합,
 - `Content-Type`: 필수 사항입니다. `application/json`으로 설정합니다.
 - `api-key`: 필수 사항입니다. `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스에 고유한 문자열 값입니다. **문서 추가** 요청은 쿼리 키가 아니라 관리 키로 설정된 `api-key` 헤더를 포함해야 합니다.
 
-요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](.search-create-service-portal.md)를 참조하세요.
+요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
 
 **요청 본문**
 
@@ -1150,7 +1150,7 @@ ________________________________________
 
 **GET 대신 POST를 사용하는 경우**
 
-HTTP GET을 사용하여 **검색** API를 호출하는 경우 요청 URL의 길이는 8KB를 초과할 수 없습니다. 이 크기는 일반적으로 대부분의 응용 프로그램에서 충분합니다. 그러나 일부 응용 프로그램은 매우 큰 쿼리 또는 OData 필터 식을 생성합니다. 이러한 응용 프로그램의 경우 GET보다 더 많은 필터와 쿼리를 허용할 수 있는 HTTP POST를 사용하는 것이 좋습니다. POST를 사용하면 쿼리의 절 또는 용어 수는 제한되지만 POST의 요청 크기 제한이 17MB 가까이 되므로 원시 쿼리의 크기는 제한되지 않습니다.
+HTTP GET을 사용하여 **검색** API를 호출하는 경우 요청 URL의 길이는 8KB를 초과할 수 없습니다. 이 크기는 일반적으로 대부분의 응용 프로그램에서 충분합니다. 그러나 일부 응용 프로그램은 매우 큰 쿼리 또는 OData 필터 식을 생성합니다. 이러한 응용 프로그램의 경우 GET보다 더 많은 필터와 쿼리를 허용할 수 있는 HTTP POST를 사용하는 것이 좋습니다. POST를 사용하면 쿼리의 절 또는 용어 수는 제한되지만 POST의 요청 크기 제한이 약 16MB이므로 원시 쿼리의 크기는 제한되지 않습니다.
 
 > [AZURE.NOTE] POST 요청 크기 제한이 매우 크긴 하지만 검색 쿼리 및 필터 식을 임의로 복잡하게 작성할 수는 없습니다. 검색 쿼리 및 필터 복잡성 제한에 대한 자세한 내용은 [Lucene 쿼리 구문](https://msdn.microsoft.com/library/mt589323.aspx) 및 [OData 식 구문](https://msdn.microsoft.com/library/dn798921.aspx)을 참조하세요. **요청**
 
@@ -1223,7 +1223,7 @@ URL 인코딩은 위 쿼리 매개 변수에만 권장됩니다. 실수로 전�
 - `interval`(숫자의 경우 0보다 큰 정수 간격 또는 날짜/시간 값의 경우 `minute`, `hour`, `day`, `week`, `month`, `quarter`, `year`)
   - 예: `facet=baseRate,interval:100`은 기본 요금 범위 100을 기준으로 버킷을 생성합니다. 예를 들어 기본 요금이 모두 $60에서 $600 사이에 속한 경우 0-100, 100-200, 200-300, 300-400, 400-500 및 500-600에 대한 버킷이 생성됩니다.
   - 예: `facet=lastRenovationDate,interval:year`는 호텔이 리노베이션된 각 연도에 대해 하나의 버킷을 생성합니다.
-- `timeoffset` ([+-]hh:mm, [+-]hhmm 또는 [+-]hh) `timeoffset`는 선택 사항입니다. `interval` 옵션과 함께 `Edm.DateTimeOffset` 형식의 필드에 적용할 때만 사용할 수 있습니다. 이 값은 설정 시간 경계에서 고려할 UTC 시간 오프셋을 지정합니다.
+- `timeoffset`([+-]hh:mm, [+-]hhmm 또는 [+-]hh). `timeoffset`은 선택 사항입니다. `interval` 옵션과 함께 `Edm.DateTimeOffset` 형식의 필드에 적용할 때만 사용할 수 있습니다. 이 값은 설정 시간 경계에서 고려할 UTC 시간 오프셋을 지정합니다.
   - 예를 들어 `facet=lastRenovationDate,interval:day,timeoffset:-01:00`에서는 01:00:00 UTC(대상 표준 시간대의 자정)부터 시작하는 날짜 경계를 사용합니다.
 - **참고**: `count`와 `sort`는 동일한 패싯 사양에서 함께 사용할 수 있지만 `interval` 또는 `values` 및 `interval`과 `values`는 함께 사용할 수 없습니다.
 - **참고**: `timeoffset`을 지정하지 않은 경우 날짜 시간의 간격 패싯은 UTC 시간을 기준으로 계산됩니다. 예를 들어 `facet=lastRenovationDate,interval:day`인 경우 날짜 경계는 00:00:00 UTC에 시작합니다. 
@@ -1639,7 +1639,9 @@ OData 구문을 사용하여 '3' 키가 있는 문서 조회
 
 **GET 대신 POST를 사용하는 경우**
 
-HTTP GET을 사용하여 **제안** API를 호출하는 경우 요청 URL의 길이는 8KB를 초과할 수 없습니다. 이 크기는 일반적으로 대부분의 응용 프로그램에서 충분합니다. 그러나 일부 응용 프로그램은 매우 큰 쿼리, 특히 OData 필터 식을 생성합니다. 이러한 응용 프로그램에서는 HTTP POST를 사용하는 것이 더 좋습니다. POST에 대한 요청 크기 제한은 17MB 가까이 되는데, 이 크기는 가장 복잡한 쿼리에서도 충분한 공간을 제공합니다.
+HTTP GET을 사용하여 **제안** API를 호출하는 경우 요청 URL의 길이는 8KB를 초과할 수 없습니다. 이 크기는 일반적으로 대부분의 응용 프로그램에서 충분합니다. 그러나 일부 응용 프로그램은 매우 큰 쿼리, 특히 OData 필터 식을 생성합니다. 이러한 응용 프로그램의 경우 GET보다 더 많은 필터를 허용할 수 있는 HTTP POST를 사용하는 것이 좋습니다. POST를 사용하면 필터의 절 수는 제한되지만 POST의 요청 크기 제한이 약 16MB이므로 원시 필터 문자열의 크기는 제한되지 않습니다.
+
+> [AZURE.NOTE] POST 요청 크기 제한이 매우 크긴 하지만 필터 식을 임의로 복잡하게 작성할 수는 없습니다. 필터 복잡성 제한에 대한 자세한 내용은 [OData 식 구문](https://msdn.microsoft.com/library/dn798921.aspx)을 참조하세요.
 
 **요청**
 
@@ -1772,4 +1774,4 @@ POST의 경우:
       "suggesterName": "sg"
     }
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="누가 Azure 검색을 사용하는가: 사례 연구 및 고객 스토리| Microsoft Azure | 호스트된 클라우드 검색 서비스"
+	pageTitle="Azure 검색을 사용하는 사람: 사례 연구 및 고객 사례 | Microsoft Azure | 사용자 시나리오"
 	description="Microsoft Azure에서 호스팅되는 클라우드 검색 서비스인 Azure 검색과 관련한 사례 연구 및 고객 스토리"
 	services="search"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="11/13/2015"
+	ms.date="02/18/2016"
 	ms.author="heidist"/>
 
 # Azure 검색을 사용하는 사람: 사례 연구 및 고객 사례
@@ -61,4 +61,4 @@ Weichert Realtors는 클라우드로 이동하고 있으며 비즈니스를 수�
 [5]: ./media/search-case-studies/weichert_m.png
 [xomni]: ./media/search-case-studies/xomni_m.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0224_2016-->

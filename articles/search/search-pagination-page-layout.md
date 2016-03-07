@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
+	ms.date="02/04/2016" 
 	ms.author="heidist"/>
 
 #Azure 검색에서 검색 결과를 페이징하는 방법#
@@ -22,7 +22,7 @@
  
 아래에서 설명한 모든 경우에 데이터 또는 정보를 검색 결과 페이지에 적용하는 페이지 관련 옵션은 Azure 검색 서비스에 전송된 [문서 검색](http://msdn.microsoft.com/library/azure/dn798927.aspx) 요청을 통해 지정됩니다. 요청에는 GET 명령, 경로 및 서비스에 필요한 것과 응답을 작성하는 방법을 서비스에 알려주는 쿼리 매개 변수가 포함됩니다.
 
-> [AZURE.NOTE]유효한 요청에는 서비스 URL 및 경로, HTTP 동사, `api-version` 등과 같은 요소의 숫자가 포함됩니다. 요약하자면, 페이지 매김에 관련된 구문만 강조하기 위해 예제를 잘라냈습니다. 요청 구분에 대한 자세한 설명서는 [Azure 검색 서비스 REST API](http://msdn.microsoft.com/library/azure/dn798935.aspx)를 참조하십시오.
+> [AZURE.NOTE] 유효한 요청에는 서비스 URL 및 경로, HTTP 동사, `api-version` 등과 같은 요소의 숫자가 포함됩니다. 요약하자면, 페이지 매김에 관련된 구문만 강조하기 위해 예제를 잘라냈습니다. 요청 구분에 대한 자세한 설명서는 [Azure 검색 서비스 REST API](http://msdn.microsoft.com/library/azure/dn798935.aspx)를 참조하십시오.
 
 ## 총 적중 수 및 페이지 수 ##
 
@@ -82,7 +82,7 @@ Azure 검색에서는 `"Sortable": true.`(으)로 인덱싱되는 모든 필드�
 
  ![][5]
  
-> [AZURE.NOTE]기본 점수 매기기는 다양한 시나리오에 적용할 수 있으므로 대신 사용자 지정 점수 매기기 프로필의 관련성에 기반하는 것이 좋습니다. 사용자 지정 점수 매기기 프로필은 비즈니스에 더 많은 이점을 제공하는 항목 강화 방법을 제공합니다. 자세한 내용은 [점수 매기기 프로필 추가](http://msdn.microsoft.com/library/azure/dn798928.aspx)를 참조하십시오.
+> [AZURE.NOTE] 기본 점수 매기기는 다양한 시나리오에 적용할 수 있으므로 대신 사용자 지정 점수 매기기 프로필의 관련성에 기반하는 것이 좋습니다. 사용자 지정 점수 매기기 프로필은 비즈니스에 더 많은 이점을 제공하는 항목 강화 방법을 제공합니다. 자세한 내용은 [점수 매기기 프로필 추가](http://msdn.microsoft.com/library/azure/dn798928.aspx)를 참조하십시오.
 
 ## 패싯 탐색 ##
 
@@ -114,4 +114,4 @@ Azure 검색에서는 `"Sortable": true.`(으)로 인덱싱되는 모든 필드�
 [4]: ./media/search-pagination-page-layout/Pages-4-SortbyRelevance.png
 [5]: ./media/search-pagination-page-layout/Pages-5-BuildSort.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

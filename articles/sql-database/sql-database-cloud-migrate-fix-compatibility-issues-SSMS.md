@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="12/17/2015"
+   ms.date="02/22/2016"
    ms.author="carlrab"/>
 
-# SQL 데이터베이스로 마이그레이션하기 전에 SQL Server 데이터베이스 호환성 문제 해결
+# SQL 데이터베이스로 마이그레이션하기 전에 SSMS를 사용하여 SQL Server 데이터베이스 호환성 문제 해결
 
 원본 SQL Server 데이터베이스가 호환되지 않는 것으로 확인될 경우 다양한 옵션을 사용하여 식별한 데이터베이스 호환성 문제를 해결할 수 있습니다.
 
@@ -33,4 +33,4 @@ SQL Server Management Studio를 사용하여 **ALTER DATABASE** 등 다양한 Tr
 
 [마이그레이션 방법을 선택합니다](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0224_2016-->

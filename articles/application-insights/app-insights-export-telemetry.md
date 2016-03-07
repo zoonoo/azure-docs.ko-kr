@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/15/2015" 
+	ms.date="02/19/2016" 
 	ms.author="awills"/>
  
 # Application Insights에서 원격 분석 내보내기
@@ -42,7 +42,7 @@ Application Insights 포털의 응용 프로그램 개요 블레이드에서 연
 
 ![아래로 스크롤하여 연속 내보내기 클릭](./media/app-insights-export-telemetry/01-export.png)
 
-내보내기를 추가하고 데이터를 넣으려는 [Azure 저장소 계정](../storage-introduction.md)을 선택합니다.
+내보내기를 추가하고 데이터를 넣으려는 [Azure 저장소 계정](../storage/storage-introduction.md)을 선택합니다.
 
 ![추가, 내보내기 대상, 저장소 계정을 클릭한 다음 새 저장소를 만들거나 기존 저장소 선택](./media/app-insights-export-telemetry/02-add.png)
 
@@ -170,7 +170,6 @@ blob 저장소를 열면 blob 파일 집합이 포함된 컨테이너가 보입�
 
     계정이 조직 소유인 경우 소유자 또는 참여자 그룹의 구성원이어야 합니다.
 
-    <!-- Your account has to be either a paid-for account, or in the free trial period. -->
 
 * *나만의 온-프레미스 저장소로 직접 내보낼 수 있나요?*
 
@@ -210,4 +209,4 @@ blob 저장소를 열면 blob 파일 집합이 포함된 컨테이너가 보입�
 
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

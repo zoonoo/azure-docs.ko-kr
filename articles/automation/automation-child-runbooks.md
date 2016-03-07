@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/09/2016"
-   ms.author="bwren" />
+   ms.date="02/18/2016"
+   ms.author="magoedte;bwren" />
 
 # Azure 자동화의 자식 runbook
 
@@ -94,4 +94,4 @@ cmdlet으로 시작된 자식 runbook에서 작업은 부모 runbook의 별도 �
 - [Azure 자동화에서 Runbook 시작](automation-starting-a-runbook.md)
 - [Azure 자동화에서 Runbook 출력 및 메시지](automation-runbook-output-and-messages.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

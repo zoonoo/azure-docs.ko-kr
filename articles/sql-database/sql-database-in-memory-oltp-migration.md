@@ -18,12 +18,13 @@
 	ms.author="jodebrui"/>
 
 
-# 메모리 내(미리 보기)를 사용하여 SQL 데이터베이스에서 응용 프로그램의 성능 향상
+# 메모리 내 OLTP(미리 보기)를 사용하여 SQL 데이터베이스에서 응용 프로그램의 성능 향상
 
-[메모리 내](sql-database-in-memory.md) 기능을 사용하여 기존 [Premium](sql-database-service-tiers.md) Azure SQL 데이터베이스의 트랜잭션 성능을 최적화하려면 다음 단계를 수행합니다.
+[메모리 내 OLTP](sql-database-in-memory.md)를 사용하면 성능 수준을 높이지 않고 [Premium](sql-database-service-tiers.md) Azure SQL 데이터베이스에서 OLTP 워크로드의 성능을 개선할 수 있습니다.
 
+기존 데이터베이스에서 메모리 내 OLTP를 채택하려면 다음 단계를 따르세요.
 
-## 1단계: Premium 데이터베이스로 메모리 지원
+## 1단계: Premium 데이터베이스가 메모리 내 OLTP를 지원하는지 확인
 
 2015년 11월 이후에 만든 Premium 데이터베이스는 메모리 내 기능을 지원합니다. 다음 Transact-SQL 문을 실행하여 Premium 데이터베이스가 메모리 내 기능을 지원하는지를 확인할 수 있습니다. 반환된 결과가 1인 경우(0이 아님) 메모리 내가 지원됩니다.
 
@@ -67,9 +68,7 @@ SELECT DatabasePropertyEx(Db_Name(), 'IsXTPSupported');
 
 SSMS는 활성 워크로드를 사용하여 데이터베이스에 대해 실행할 수 있는 **트랜잭션 성능 분석 개요** 보고서를 포함합니다. 보고서는 메모리 내 OLTP로 마이그레이션하기 위한 후보인 테이블 및 저장된 프로시저를 식별합니다.
 
-SSMS에서 보고서를 생성하려면:
-- **개체 탐색기**에서 마우스 오른쪽 단추로 데이터베이스 노드를 클릭합니다.
-- **보고서** > **표준 보고서** > **트랜잭션 성능 분석 개요**를 클릭합니다.
+SSMS에서 보고서를 생성하려면: - **개체 탐색기**에서 마우스 오른쪽 단추로 데이터베이스 노드를 클릭합니다. - **보고서** > **표준 보고서** > **트랜잭션 성능 분석 개요**를 클릭합니다.
 
 자세한 내용은 [테이블 또는 저장 프로시저가 메모리 내 OLTP로 이식되어야 하는지 결정](http://msdn.microsoft.com/library/dn205133.aspx)을 참조하세요.
 
@@ -84,8 +83,7 @@ SSMS에서 보고서를 생성하려면:
 
 1. SSMS를 사용하여 테스트 데이터베이스에 연결합니다.
 
-2. 쿼리에서 WITH(스냅숏) 옵션의 필요를 방지하려면 다음 T-SQL 문에서와 같이 데이터베이스 옵션을 설정합니다.
-```
+2. 쿼리에서 WITH(스냅숏) 옵션의 필요를 방지하려면 다음 T-SQL 문에서와 같이 데이터베이스 옵션을 설정합니다. ```
 ALTER DATABASE CURRENT
 	SET
 		MEMORY_OPTIMIZED_ELEVATE_TO_SNAPSHOT = ON;
@@ -110,7 +108,7 @@ ALTER DATABASE CURRENT
  - **테이블 메모리 최적화 관리자** 마법사가 표시됩니다.
 
 3. 마법사에서 **마이그레이션 유효성 검사**(또는 **다음** 단추)을 클릭하여 메모리에 최적화된 테이블에서 지원하지 않는 지원되지 않는 기능이 테이블에 있는지 확인합니다. 자세한 내용은 다음을 참조하세요.
- - [메모리 최적화 관리자](http://msdn.microsoft.com/library/dn284308.aspx)의 *메모리 최적화 검사 목록* .
+ - [메모리 최적화 관리자](http://msdn.microsoft.com/library/dn284308.aspx)의 *메모리 최적화 검사 목록*.
  - [메모리 내 OLTP에서 지원되지 않는 TRANSACT-SQL 항목](http://msdn.microsoft.com/library/dn246937.aspx).
  - [메모리 내 OLTP로 마이그레이션](http://msdn.microsoft.com/library/dn247639.aspx).
 
@@ -236,4 +234,4 @@ CREATE PROCEDURE schemaname.procedurename
 
 - [메모리 최적화 관리자](http://msdn.microsoft.com/library/dn284308.aspx)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

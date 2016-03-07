@@ -207,6 +207,16 @@ Azure 데이터 팩터리 서비스가 사용자의 온-프레미스 Oracle 데�
 	   }
 	}
 
+
+Oracle 데이터베이스에서 날짜가 구성된 방식에 따라 쿼리 문자열을 조정해야 합니다. 다음 오류 메시지가 표시되는 경우
+
+	Message=Operation failed in Oracle Database with the following error: 'ORA-01861: literal does not match format string'.,Source=,''Type=Oracle.DataAccess.Client.OracleException,Message=ORA-01861: literal does not match format string,Source=Oracle Data Provider for .NET,'.
+
+to\_date 함수를 사용하여 아래와 같이 쿼리를 변경해야 할 수 있습니다.
+
+	"oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= to_date(\\'{0:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\')  AND timestampcolumn < to_date(\\'{1:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') ', WindowStart, WindowEnd)"
+
+
 ## Oracle 연결된 서비스 속성
 
 다음 표에서는 Oracle 연결된 서비스와 관련된 JSON 요소에 대한 설명을 제공합니다.
@@ -302,4 +312,4 @@ XML | String
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

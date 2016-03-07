@@ -1,5 +1,5 @@
 <properties
-	pageTitle="사이트 복구에서 가상 컴퓨터 및 물리적 서버 보호를 위한 용량 계획 | Microsoft Azure"
+	pageTitle="Azure Site Recovery에서 가상 컴퓨터 및 물리적 서버를 보호하기 위한 용량 계획 | Microsoft Azure"
 	description="Azure Site Recovery는 온-프레미스에 있는 가상 컴퓨터와 물리적 서버의 복제, 장애 조치 및 복구를 Azure 또는 보조 온-프레미스 사이트로 조정합니다." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,17 +13,17 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="12/14/2015" 
+	ms.date="02/22/2016" 
 	ms.author="raynew"/>
 
-# Azure Site Recovery에서 가상 컴퓨터 및 물리적 서버 보호를 위한 용량 계획
+# Azure Site Recovery에서 가상 컴퓨터 및 물리적 서버를 보호하기 위한 용량 계획
 
-Capacity Planner 도구를 사용하면 Azure Site Recovery로 Hyper-V VM, VMware VM 및 Windows/Linux 물리적 서버를 보호하기 위한 용량 요구 사항을 파악할 수 있습니다.
+Azure Site Recovery Capacity Planner 도구를 사용하면 Azure Site Recovery로 Hyper-V VM, VMware VM 및 Windows/Linux 물리적 서버를 보호하기 위한 용량 요구 사항을 파악할 수 있습니다.
 
 
 ## 개요
 
-이 도구를 사용하여 원본 환경 및 워크로드를 분석하고 대역폭 요구, 원본 위치에 필요할 서버 리소스 및 대상 위치에 필요할 리소스(가상 컴퓨터 및 저장소 등)를 파악합니다.
+Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를 분석하고 대역폭 요구, 원본 위치에 필요할 서버 리소스 및 대상 위치에 필요할 리소스(가상 컴퓨터 및 저장소 등)를 파악합니다.
 
 두 가지 모드로 도구를 실행할 수 있습니다.
 
@@ -121,7 +121,7 @@ Capacity Planner 도구를 사용하면 Azure Site Recovery로 Hyper-V VM, VMwar
 	-  VM4는 두 번째 표준 저장소 계정을 사용할 수 있습니다.
 	-  VM5 및 VM6에는 프리미엄 저장소 계정이 필요하고 둘 다 단일 계정을 사용할 수 있습니다.
 
-	>[AZURE.NOTE]표준 및 프리미엄 저장소의 IOPS는 디스크 수준이 아니라 VM 수준에서 계산됩니다. 표준 가상 컴퓨터는 디스크당 최대 500개의 IOPS를 처리할 수 있습니다. 디스크의 IOPS가 500개보다 많은 경우 프리미엄 저장소가 필요합니다. 그러나 디스크의 IOPS가 500개보다 많지만 총 VM 디스크의 IOPS가 지원되는 표준 Azure VM 제한(VM 크기, 디스크 수, 어댑터 수, CPU, 메모리) 내에 속하는 경우에는 플래너가 DS 또는 GS 시리즈 대신 표준 VM을 선택합니다. 적절한 DS 또는 GS 시리즈 VM을 사용하여 매핑 Azure 크기 셀을 수동으로 업데이트해야 합니다.
+	>[AZURE.NOTE]  표준 및 프리미엄 저장소의 IOPS는 디스크 수준이 아니라 VM 수준에서 계산됩니다. 표준 가상 컴퓨터는 디스크당 최대 500개의 IOPS를 처리할 수 있습니다. 디스크의 IOPS가 500개보다 많은 경우 프리미엄 저장소가 필요합니다. 그러나 디스크의 IOPS가 500개보다 많지만 총 VM 디스크의 IOPS가 지원되는 표준 Azure VM 제한(VM 크기, 디스크 수, 어댑터 수, CPU, 메모리) 내에 속하는 경우에는 플래너가 DS 또는 GS 시리즈 대신 표준 VM을 선택합니다. 적절한 DS 또는 GS 시리즈 VM을 사용하여 매핑 Azure 크기 셀을 수동으로 업데이트해야 합니다.
 
 5. 모든 세부 정보가 올바르게 배치되었으면 **플래너 도구에 데이터 전송**을 클릭하여 강조 표시된 **Capacity Planner** 워크로드를 열고 보호에 적합한지 여부를 확인합니다.
 
@@ -133,4 +133,4 @@ Capacity Planner 도구를 사용하면 Azure Site Recovery로 Hyper-V VM, VMwar
 
 	![Capacity Planner](./media/site-recovery-capacity-planner/capacity-planner.png)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

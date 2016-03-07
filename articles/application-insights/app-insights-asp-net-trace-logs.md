@@ -12,21 +12,34 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/25/2015" 
+	ms.date="02/22/2016" 
 	ms.author="awills"/>
  
 # Application Insights에서 .NET 추적 로그 탐색  
 
 ASP.NET 응용 프로그램에서 진단 추적에 NLog, log4Net 또는 System.Diagnostics.Trace를 사용하는 경우 [Visual Studio Application Insights][start]로 로그를 보내서 탐색 및 검색할 수 있습니다. 서비스를 제공하는 각 사용자 요청과 연결된 추적을 식별하고 다른 이벤트 및 예외 보고서와 상호 연결할 수 있도록 로그가 응용 프로그램에서 들어오는 다른 원격 분석과 병합됩니다.
 
-> [AZURE.NOTE]로그 캡처 모듈이 필요한가요? 타사 로거에 대한 유용한 어댑터지만 NLog, log4Net 또는 System.Diagnostics.Trace를 사용하지 않는 경우 [Application Insights TrackTrace()](app-insights-api-custom-events-metrics.md#track-trace)를 직접 호출하는 것이 좋습니다.
-
-아직 [프로젝트에 Application Insights를 설정][start]하지 않았다면 지금 설정하세요. 프로젝트에 파일 `ApplicationInsights.config` 및 NuGet 패키지 `Microsoft.ApplicationInsights.Web`이 있어야 합니다.
+> [AZURE.NOTE] 로그 캡처 모듈이 필요한가요? 타사 로거에 대한 유용한 어댑터지만 NLog, log4Net 또는 System.Diagnostics.Trace를 사용하지 않는 경우 [Application Insights TrackTrace()](app-insights-api-custom-events-metrics.md#track-trace)를 직접 호출하는 것이 좋습니다.
 
 
-##  로깅 프레임워크 어댑터 설치
+## 앱에 대한 로깅 설치
 
-로깅 프레임워크(log4Net, NLog 또는 System.Diagnostics.Trace)를 사용하는 경우 다른 원격 분석과 함께 이러한 로그를 Application Insights로 전송하는 어댑터를 설치할 수 있습니다.
+프로젝트에서 선택한 로깅 프레임워크를 설치합니다. 그러면 app.config 또는 web.config에 항목이 생성됩니다.
+
+> System.Diagnostics.Trace를 사용하는 경우 web.config에 항목을 추가해야 합니다.
+
+## 로그를 수집하도록 Application Insights 구성
+
+**[프로젝트에 Application Insights를 추가](app-insights-asp-net.md)**하지 않은 경우 지금 추가합니다. 로그 수집기를 포함하는 옵션이 나타납니다.
+
+또는 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하여 **Application Insights를 구성**합니다. 로그 수집기를 포함하는 옵션을 선택합니다.
+
+*Application Insights 메뉴 또는 로그 수집기 옵션이 없습니까?* [문제 해결](#troubleshooting)을 시도해 보세요.
+
+
+## 수동 설치
+
+프로젝트 형식이 Application Insights 설치 관리자에서 지원되지 않는 경우(예: Windows 데스크톱 프로젝트) 이 방법을 사용합니다.
 
 1. Log4Net 또는 NLog를 사용하려는 경우 프로젝트에 설치합니다. 
 2. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다.
@@ -41,7 +54,7 @@ ASP.NET 응용 프로그램에서 진단 추적에 NLog, log4Net 또는 System.D
 
 NuGet 패키지는 필요한 어셈블리를 설치하고 web.config 또는 app.config를 수정합니다.
 
-#### 진단 로그 호출 삽입
+## 진단 로그 호출 삽입
 
 System.Diagnostics.Trace를 사용하는 경우 일반적인 호출 방법은 다음과 같습니다.
 
@@ -66,6 +79,8 @@ TrackTrace의 장점은 메시지에 상대적으로 긴 데이터를 넣을 수
 
 ## 로그 탐색
 
+디버그 모드에서 앱을 실행하거나 실시간으로 배포합니다.
+
 [Application Insights 포털][portal]에서, 앱의 개요 블레이드에서 [검색][diagnostic]을 선택합니다.
 
 ![Application Insights에서 검색 선택](./media/app-insights-asp-net-trace-logs/020-diagnostic-search.png)
@@ -79,7 +94,7 @@ TrackTrace의 장점은 메시지에 상대적으로 긴 데이터를 넣을 수
 * 동일한 사용자 요청에 관련된, 다시 말해서 OperationId가 같은 다른 원격 분석을 찾습니다. 
 * 이 페이지의 구성을 즐겨찾기로 저장합니다.
 
-> [AZURE.NOTE]**샘플링** 응용 프로그램이 대량의 데이터를 전송하고 ASP.NET 버전 2.0.0-beta3 또는 그 이상에서의 Application Insights SDK를 사용하는 경우 적응 샘플링 기능이 작동하고 원격 분석의 백분율만 보낼 수 있습니다. [샘플링에 대해 자세히 알아봅니다.](app-insights-sampling.md)
+> [AZURE.NOTE] **샘플링** 응용 프로그램이 대량의 데이터를 전송하고 ASP.NET 버전 2.0.0-beta3 또는 그 이상에서의 Application Insights SDK를 사용하는 경우 적응 샘플링 기능이 작동하고 원격 분석의 백분율만 보낼 수 있습니다. [샘플링에 대해 자세히 알아봅니다.](app-insights-sampling.md)
 
 ## 다음 단계
 
@@ -90,6 +105,22 @@ TrackTrace의 장점은 메시지에 상대적으로 긴 데이터를 넣을 수
 
 
 ## 문제 해결
+
+### Java의 경우 이 작업을 어떻게 수행하나요?
+
+[Java 로그 어댑터](app-insights-java-trace-logs.md)를 사용합니다.
+
+### 프로젝트 상황에 맞는 메뉴에 Application Insights 옵션이 없습니다.
+
+* Application Insights 도구가 이 개발 컴퓨터에 설치되어 있는지 확인합니다. Visual Studio 메뉴 도구, 확장 및 업데이트에서 Application Insights 도구를 찾습니다. 설치됨 탭에 없는 경우 온라인 탭을 열고 설치합니다.
+* Application Insights 도구에서 지원되지 않는 프로젝트 형식일 수 있습니다. [수동 설치](#manual-installation)를 사용하세요.
+
+### 구성 도구에 로그 어댑터 옵션이 없습니다.
+
+* 먼저 로깅 프레임워크를 설치해야 합니다.
+* System.Diagnostics.Trace를 사용하는 경우 [`web.config`에서 구성](https://msdn.microsoft.com/library/system.diagnostics.eventlogtracelistener.aspx)했는지 확인합니다.
+* 최신 버전의 Application Insights 도구가 있으신가요? Visual Studio **도구** 메뉴에서 **확장 및 업데이트**를 선택하고 **업데이트** 탭을 엽니다. Application Insights 도구가 있으면 클릭하여 업데이트합니다.
+
 
 ### <a name="emptykey"></a>"계측 키는 비워 둘 수 없습니다." 오류가 발생합니다.
 
@@ -129,4 +160,4 @@ Application Insights를 설치하지 않고 로깅 어댑터 Nuget 패키지를 
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

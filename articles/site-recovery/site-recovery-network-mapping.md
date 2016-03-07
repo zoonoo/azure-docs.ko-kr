@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="12/01/2015"
+	ms.date="02/22/2016"
 	ms.author="raynew"/>
 
 
@@ -23,7 +23,7 @@ Azure Site Recovery는 가상 컴퓨터와 물리적 서버의 복제, 장애 �
 
 이 문서에서는 네트워크 매핑을 설명하며 이는 사이트 복구를 사용하여 두 개의 온-프레미스 데이터 센터 또는 온-프레미스 데이터 센터와 Azure 간의 VMM 클라우드에 있는 Hyper-V 가상 컴퓨터를 복제하는 경우 최적으로 네트워크 설정을 구성하는 데 도움이 됩니다. VMM 클라우드없이 Hyper-V VM을 복제하거나 VMware VM 또는 물리적 서버를 복제하는 경우 이 문서는 관련이 없습니다.
 
-이 문서를 읽은 후 문의 사항은 [Azure 복구 서비스 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에 게시합니다.
+이 문서의 하단 또는 [Azure 복구 서비스 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에서 의견이나 질문을 게시합니다.
 
 
 ## 개요
@@ -123,4 +123,4 @@ VMNetwork1-시카고의 네트워크 매핑이 변경됨 | VM-1이 현재 VMNetw
 
 네트워크 매핑을 보다 이해했으므로 [Azure Site Recovery 배포를 시작](site-recovery-best-practices.md)합니다.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

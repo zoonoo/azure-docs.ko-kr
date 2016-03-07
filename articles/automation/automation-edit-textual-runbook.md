@@ -12,8 +12,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="01/19/2016"
-	ms.author="bwren" />
+	ms.date="02/18/2016"
+	ms.author="magoedte;bwren" />
 
 # Azure 자동화에서 텍스트 Runbook 편집
 
@@ -25,7 +25,7 @@ Azure 자동화의 각 Runbook에는 초안과 게시 등 두 버전이 있습�
 
 [그래픽 Runbook](automation-runbook-types.md#graphical-runbooks) 작업은 [Azure 자동화에서 그래픽 작성](automation-graphical-authoring-intro.md)을 참조하세요.
 
-## Azure Preview 포털을 사용하여 Runbook을 편집하려면
+## Azure 포털을 사용하여 Runbook을 편집하려면
 
 다음 절차를 사용하여 텍스트 편집기에서 편집할 Runbook을 엽니다.
 
@@ -144,4 +144,4 @@ Windows PowerShell을 사용하여 Runbook을 편집하려면 원하는 편집�
 - [일정](automation-schedules.md)
 - [변수](automation-variables.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

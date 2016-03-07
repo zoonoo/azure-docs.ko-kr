@@ -4,7 +4,7 @@
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
    authors="rajeshramabathiran" 
-   manager="dwrede" 
+   manager="erikre" 
    editor=""/>
 
 <tags
@@ -13,10 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="12/17/2015"
+   ms.date="02/18/2016"
    ms.author="rajram"/>
 
 # AS2 커넥터 시작 및 논리 앱에 추가
+>[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다.
+
 AS2 커넥터를 사용하여 B2B 통신에서 AS2(Applicability Statement 2) 전송 프로토콜을 통해 메시지를 주고받을 수 있습니다. 데이터는 인터넷을 통해 안전하고 안정적으로 전송됩니다. 보안은 디지털 인증서 및 암호화를 사용하여 수행됩니다.
 
 AS2 커넥터를 비즈니스 워크플로에 추가하고 논리 앱 내에서 B2B 워크플로의 일부로 데이터를 처리할 수 있습니다.
@@ -36,8 +38,8 @@ AS2 커넥터는 논리 앱에서 트리거 또는 동작으로 사용할 수 �
 요구 사항 | 설명
 --- | ---
 TPM API 앱 | AS2 커넥터를 만들기 전에 [BizTalk 거래 업체 관리 커넥터][1]를 만들어야 합니다. <br/><br/>**참고** TPM API 앱의 이름을 확인하세요. 
-Azure SQL 데이터베이스 | 파트너, 스키마, 인증서 및 규약을 비롯한 B2B 항목을 저장합니다. 각 B2B API 앱에는 자체 Azure SQL 데이터베이스가 필요합니다.<br/><br/>**참고** 이 데이터베이스에 연결 문자열을 복사합니다.<br/><br/>[Azure SQL 데이터베이스 만들기](../sql-database-get-started.md)
-Azure Blob 저장소 컨테이너 | AS2 보관을 사용하도록 설정한 경우 메시지 속성을 저장합니다. AS2 메시지 보관이 불필요한 경우에는 저장소 컨테이너가 필요하지 않습니다. <br/><br/>**참고** 보관을 사용하도록 설정하는 경우 이 Blob 저장소에 연결 문자열을 복사합니다.<br/><br/>[Azure 저장소 계정 정보](../storage-create-storage-account.md).
+Azure SQL 데이터베이스 | 파트너, 스키마, 인증서 및 규약을 비롯한 B2B 항목을 저장합니다. 각 B2B API 앱에는 자체 Azure SQL 데이터베이스가 필요합니다.<br/><br/>**참고** 이 데이터베이스에 연결 문자열을 복사합니다.<br/><br/>[Azure SQL 데이터베이스 만들기](../sql-database/sql-database-get-started.md)
+Azure Blob 저장소 컨테이너 | AS2 보관을 사용하도록 설정한 경우 메시지 속성을 저장합니다. AS2 메시지 보관이 불필요한 경우에는 저장소 컨테이너가 필요하지 않습니다. <br/><br/>**참고** 보관을 사용하도록 설정하는 경우 이 Blob 저장소에 연결 문자열을 복사합니다.<br/><br/>[Azure 저장소 계정 정보](../storage/storage-create-storage-account.md).
 
 ## AS2 커넥터 만들기
 
@@ -97,9 +99,11 @@ Enable Archiving | boolean | 아웃바운드 메시지를 보관해야 하는지
 작업이 성공적으로 완료되면 HTTP 200 응답 코드를 반환합니다.
 
 ## 커넥터의 추가 기능
+[AS2 메시지를 보관](app-service-logic-archive-as2-messages.md)할 수 있습니다.
+
 논리 앱에 대한 자세한 내용은 [논리 앱 정의](app-service-logic-what-are-logic-apps.md)를 참조하세요.
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동합니다. 앱 서비스에서 즉시 단기 스타터 논리 앱을 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] Azure 계정에 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱을 사용해 보세요](https://tryappservice.azure.com/?appservice=logic). 앱 서비스에서 단기 시작 논리 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 [커넥터 및 API 앱 참조](http://go.microsoft.com/fwlink/p/?LinkId=529766)의 Swagger REST API 참조를 봅니다.
 
@@ -117,4 +121,4 @@ Enable Archiving | boolean | 아웃바운드 메시지를 보관해야 하는지
 [9]: ./media/app-service-logic-connector-as2/EncodeAndSendInput.PNG
 [10]: ./media/app-service-logic-connector-as2/EncodeAndSendConfigured.PNG
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0224_2016-->

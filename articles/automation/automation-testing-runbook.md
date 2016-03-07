@@ -12,20 +12,20 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="02/03/2016"
-	ms.author="bwren" />
+	ms.date="02/18/2016"
+	ms.author="magoedte;bwren" />
 
 # Azure 자동화에서 Runbook 테스트
 Runbook을 테스트할 때 [초안 버전](automation-creating-importing-runbook.md#publishing-a-runbook)이 실행되며 해당 Runbook에서 수행하는 모든 작업이 완료됩니다. 작업 기록은 만들어지지 않지만 [출력](automation-runbook-output-and-messages.md#output-stream)과 [경고 및 오류](automation-runbook-output-and-messages.md#message-streams) 스트림은 테스트 출력 창에 표시됩니다. [자세한 정보 스트림](automation-runbook-output-and-messages.md#message-streams)에 대한 메시지는 [$VerbosePreference 변수](automation-runbook-output-and-messages.md#preference-variables)가 Continue로 설정되는 경우에만 출력 창에 표시됩니다.
 
 초안 버전이 실행 중이어도 Runbook은 여전히 정상적으로 워크플로를 실행하고 해당 환경에서 리소스에 대해 모든 작업을 수행합니다. 이러한 이유로 프로덕션이 아닌 리소스에서만 Runbook을 테스트해야 합니다.
 
-각 [Runbook 유형](automation-runbook-types.md)을 테스트하는 절차는 동일하며 Azure Preview 포털에서 테스트할 때 텍스트 편집기와 그래픽 편집기 간에 차이가 없습니다.
+각 [Runbook 유형](automation-runbook-types.md)을 테스트하는 절차는 동일하며 Azure 포털에서 테스트할 때 텍스트 편집기와 그래픽 편집기 간에 차이가 없습니다.
 
 
-## Azure Preview 포털에서 Runbook을 테스트하려면
+## Azure 포털에서 Runbook을 테스트하려면
 
-Azure Preview 포털에서 모든 [Runbook 유형](automation-runbook-types.md) 작업을 수행할 수 있습니다.
+Azure 포털에서 모든 [Runbook 유형](automation-runbook-types.md) 작업을 수행할 수 있습니다.
 
 1. [텍스트 편집기](automation-editing-a-runbook#Portal) 또는 [그래픽 편집기](automation-graphical-authoring-intro.md)에서 Runbook의 초안 버전을 엽니다.
 2. **테스트** 단추를 클릭하여 테스트 블레이드를 엽니다.
@@ -55,4 +55,4 @@ Azure 포털에서는 [PowerShell 워크플로 Runbook](automation-runbook-types
 - [Azure 자동화에서 텍스트 Runbook 편집](automation-edit-textual-runbook.md)
 - [Azure 자동화에서 Runbook 출력 및 메시지](automation-runbook-output-and-messages.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

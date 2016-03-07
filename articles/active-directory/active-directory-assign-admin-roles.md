@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="02/18/2016"
 	ms.author="curtand"/>
 
 # Azure AD(Azure Active Directory)에서 관리자 역할 할당
@@ -31,8 +31,8 @@
 - **암호 관리자**: 암호를 재설정하고, 서비스 요청을 관리하고, 서비스 상태를 모니터링합니다. 암호 관리자는 사용자 및 다른 암호 관리자에 대해서만 암호를 다시 설정할 수 있습니다.
 
 - **서비스 관리자**: 서비스 요청을 관리하고 서비스 상태를 모니터링합니다.
-> [AZURE.NOTE]
-> 사용자에게 서비스 관리자 역할을 할당하려면 전역 관리자가 먼저 Exchange Online 등의 서비스에서 사용자에게 관리 권한을 할당한 다음 Azure 클래식 포털에서 해당 사용자에게 서비스 관리자 역할을 할당해야 합니다.
+
+	> [AZURE.NOTE] 사용자에게 서비스 관리자 역할을 할당하려면 전역 관리자가 먼저 Exchange Online 등의 서비스에서 사용자에게 관리 권한을 할당한 다음 Azure 클래식 포털에서 해당 사용자에게 서비스 관리자 역할을 할당해야 합니다.
 
 - **사용자 관리자**: 암호를 다시 설정하고, 서비스 상태를 모니터링하고, 사용자 계정과 사용자 그룹 및 서비스 요청을 관리합니다. 사용자 관리 관리자의 권한에 몇 가지 제한이 적용됩니다. 예를 들어 전역 관리자를 삭제하거나 다른 관리자를 만들 수 없습니다. 또한 대금 청구 관리자, 전역 관리자, 서비스 관리자의 암호를 재설정할 수 없습니다.
 
@@ -94,7 +94,7 @@
 
 - Microsoft Azure에서 리소스 액세스를 제어하는 방법에 대해 자세히 알아보려면 [Azure의 리소스 액세스 이해](active-directory-understanding-resource-access.md)를 참조하세요.
 
-- Azure 구독에 Azure Active Directory가 연결되는 방법에 대한 자세한 내용은 [Azure 구독을 Azure Active Directory에 연결하는 방법](active-directory-how-subscriptions-associated directory.md)을 참조하세요.
+- Azure 구독에 Azure Active Directory가 연결되는 방법에 대한 자세한 내용은 [Azure 구독을 Azure Active Directory에 연결하는 방법](active-directory-how-subscriptions-associated-directory.md)을 참조하세요.
 
 - [사용자 관리](active-directory-create-users.md)
 
@@ -102,4 +102,4 @@
 
 - [그룹 관리](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

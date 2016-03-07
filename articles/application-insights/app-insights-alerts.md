@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/22/2016" 
+	ms.date="02/19/2016" 
 	ms.author="awills"/>
  
 # Application Insights에서 경고 설정
@@ -100,6 +100,10 @@ Application Insights는 [다양한 플랫폼][platforms]에서 라이브 앱을 
 * **서버 응답 시간** 및 서버 쪽 웹 응용 프로그램에 대한 **실패한 요청**. 경고 설정 외에도 이러한 메트릭을 주시하여 메트릭이 불균형적으로 변하고 요청 속도가 빠른지 살펴보는 것이 좋습니다. 앱 리소스가 부족하다는 의미일 수 있습니다.
 * **서버 예외**를 보려면 일부 [추가 설치](app-insights-asp-net-exceptions.md) 작업을 수행해야 합니다.
 
+## 자동화
+
+* [PowerShell을 사용하여 경고 설정 자동화](app-insights-powershell-alerts.md)
+* [Webhook를 사용하여 경고에 대한 응답 자동화](../azure-portal/insights-webhooks-alerts.md)
 
 ## 참고 항목
 
@@ -119,4 +123,4 @@ Application Insights는 [다양한 플랫폼][platforms]에서 라이브 앱을 
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 9/23/15-->
+<!--author=alkohli last changed:02/22/16-->
 
 #### SAS 케이블을 연결하려면
 
@@ -13,7 +13,7 @@
     |1|기본 인클로저|
     |2|EBOD 인클로저|
 
-2. 기본 엔클로저 및 EBOD 엔클로저에서 일련번호를 찾습니다. 일련 번호 스티커는 각 엔클로저의 뒷면 귀에 붙어 있습니다. 일련 번호는 두 인클로저 모두에서 동일해야 합니다. 일련 번호가 일치하지 않으면 즉시 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요. 다음 그림을 참조하여 일련 번호를 찾습니다.
+2. 기본 엔클로저 및 EBOD 엔클로저에서 일련번호를 찾습니다. 일련 번호 스티커는 각 엔클로저의 뒷면 귀에 붙어 있습니다. 일련 번호는 두 인클로저 모두에서 동일해야 합니다. 일련 번호가 일치하지 않으면 즉시 [Microsoft 지원에 문의](../articles/storsimple/storsimple-contact-microsoft-support.md)하세요. 다음 그림을 참조하여 일련 번호를 찾습니다.
 
     ![일련 번호가 표시된 엔클로저의 뒷면 보기](./media/storsimple-sas-cable-8600/HCSRearviewofenclosureindicatinglocationofserialnumbersticker.png)
 
@@ -46,4 +46,4 @@
     |5, 6|기본 인클로저(EBOD 레이블)에서 SAS 포트|
     |7, 8|EBOD 엔클로저의 SAS 포트(포트 A)|
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

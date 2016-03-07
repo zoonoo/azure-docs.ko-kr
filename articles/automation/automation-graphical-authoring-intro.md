@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/19/2016"
-   ms.author="bwren" />
+   ms.date="02/18/2016"
+   ms.author="magoedte;bwren" />
 
 # Azure 자동화에서 그래픽 작성
 
@@ -30,7 +30,7 @@ Azure 자동화의 모든 Runbook은 Windows PowerShell 워크플로입니다. �
 
 ## 그래픽 편집기 개요
 
-그래픽 Runbook을 만들거나 편집하여 Azure Preview 포털에서 그래픽 편집기를 열 수 있습니다.
+그래픽 Runbook을 만들거나 편집하여 Azure 포털에서 그래픽 편집기를 열 수 있습니다.
 
 ![그래픽 작업 영역](media/automation-graphical-authoring-intro/graphical-editor.png)
 
@@ -79,7 +79,7 @@ Runbook을 추가할 때 **가져오기** 옵션을 선택하여 그래픽 Runbo
 
 ### 그래픽 Runbook 테스트
 
-게시된 버전의 Runbook을 변경되지 않은 상태로 두고 Azure Preview 포털에서 초안 버전의 Runbook을 테스트하거나, Runbook을 게시한 후 새 Runbook을 테스트할 수 있습니다. 이를 통해 게시된 버전을 바꾸기 전에 Runbook이 올바르게 작동하는지 확인할 수 있습니다. Runbook을 테스트할 때 초안 Runbook이 실행되며 해당 Runbook에서 수행하는 모든 작업이 완료됩니다. 작업 기록은 만들어지지 않지만 테스트 출력 창에 출력이 표시됩니다.
+게시된 버전의 Runbook을 변경되지 않은 상태로 두고 Azure 포털에서 초안 버전의 Runbook을 테스트하거나, Runbook을 게시한 후 새 Runbook을 테스트할 수 있습니다. 이를 통해 게시된 버전을 바꾸기 전에 Runbook이 올바르게 작동하는지 확인할 수 있습니다. Runbook을 테스트할 때 초안 Runbook이 실행되며 해당 Runbook에서 수행하는 모든 작업이 완료됩니다. 작업 기록은 만들어지지 않지만 테스트 출력 창에 출력이 표시됩니다.
 
 편집용 Runbook을 열고 **테스트 창** 단추를 클릭하여 Runbook의 테스트 컨트롤을 엽니다.
 
@@ -298,9 +298,9 @@ Runbook을 시작할 때와 각 검사점 이후에 인증해야 합니다. 즉,
 
 ### Runbook 입력
 
-Runbook에는 사용자의 입력(사용자가 Azure Preview 포털을 통해 Runbook을 시작하는 경우) 또는 다른 Runbook의 입력(현재 Runbook이 자식 Runbook으로 사용되는 경우)이 필요할 수 있습니다. 예를 들어 가상 컴퓨터를 만드는 Runbook이 있는 경우 Runbook을 시작할 때마다 가상 컴퓨터의 이름 및 기타 속성과 같은 정보를 제공해야 할 수 있습니다.
+Runbook에는 사용자의 입력(사용자가 Azure 포털을 통해 Runbook을 시작하는 경우) 또는 다른 Runbook의 입력(현재 Runbook이 자식 Runbook으로 사용되는 경우)이 필요할 수 있습니다. 예를 들어 가상 컴퓨터를 만드는 Runbook이 있는 경우 Runbook을 시작할 때마다 가상 컴퓨터의 이름 및 기타 속성과 같은 정보를 제공해야 할 수 있습니다.
 
-하나 이상의 입력 매개 변수를 정의하여 Runbook에 대한 입력을 허용합니다. Runbook을 시작할 때마다 이러한 매개 변수의 값을 제공합니다. Azure Preview 포털을 사용하여 Runbook을 시작하는 경우 Runbook의 각 입력 매개 변수 값을 제공하라는 메시지가 표시됩니다.
+하나 이상의 입력 매개 변수를 정의하여 Runbook에 대한 입력을 허용합니다. Runbook을 시작할 때마다 이러한 매개 변수의 값을 제공합니다. Azure 포털을 사용하여 Runbook을 시작하는 경우 Runbook의 각 입력 매개 변수 값을 제공하라는 메시지가 표시됩니다.
 
 Runbook 도구 모음에서 **입력 및 출력** 단추를 클릭하여 Runbook의 입력 매개 변수에 액세스할 수 있습니다.
 
@@ -316,7 +316,7 @@ Runbook 도구 모음에서 **입력 및 출력** 단추를 클릭하여 Runbook
 |:---|:---|
 | 이름 | 매개 변수의 고유한 이름입니다. 영숫자 문자만 포함할 수 있으며, 공백을 포함할 수 없습니다. |
 | 설명 | 입력 매개 변수에 대한 선택적 설명입니다. |
-| 형식 | 매개 변수 값에 필요한 데이터 형식입니다. Azure Preview 포털에서는 입력 메시지를 표시할 때 각 매개 변수의 데이터 형식에 대한 적절한 컨트롤을 제공합니다. |
+| 형식 | 매개 변수 값에 필요한 데이터 형식입니다. Azure 포털에서는 입력 메시지를 표시할 때 각 매개 변수의 데이터 형식에 대한 적절한 컨트롤을 제공합니다. |
 | 필수 | 매개 변수에 대해 값을 제공해야 하는지 여부를 지정합니다. 기본값이 정의되지 않은 각 필수 매개 변수의 값을 제공하지 않으면 Runbook을 시작할 수 없습니다. |
 | 기본값 | 값을 제공하지 않은 경우 매개 변수에 사용되는 값을 지정합니다. Null 또는 특정 값일 수 있습니다. |
 
@@ -419,4 +419,4 @@ Runbook의 이전 작업에서 출력을 사용하려면 다음 구문을 사용
 - [연산자](https://technet.microsoft.com/library/hh847732.aspx)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

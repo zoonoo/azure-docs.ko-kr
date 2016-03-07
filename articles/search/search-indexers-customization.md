@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
+	ms.date="02/04/2016" 
 	ms.author="eugenesh"/>
 
 #Azure 검색 인덱서 사용자 지정
@@ -117,4 +117,4 @@ Azure 검색에서 문서 키 필드 내부의 문자는 URL 안전 문자로 �
 오늘은 여기까지 하겠습니다. 향후 콘텐츠 아이디어에 대해 의견이나 제안이 있다면 #AzureSearch 해시 태그를 사용하여 트윗하거나 [UserVoice 페이지](https://feedback.azure.com/forums/263029-azure-search/)에 아이디어를 제출하세요.
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

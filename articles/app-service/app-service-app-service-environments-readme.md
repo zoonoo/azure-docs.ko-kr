@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/09/2016" 
-	ms.author="yochay"/>
+	ms.date="02/18/2016" 
+	ms.author="stefsch"/>
 
 # 개요
 
@@ -32,7 +32,23 @@
 
 앱에서는 내부 데이터베이스 및 웹 서비스와 같은 회사 리소스에 자주 액세스해야 합니다. 앱 서비스 환경에서 실행 중인 앱은 [사이트 간][SiteToSite] VPN 및 [Azure Express 경로][ExpressRoute] 연결을 통해 접근 가능한 리소스에 액세스할 수 있습니다.
 
+* [앱 서비스 환경이란?](../app-service-web/app-service-app-service-environment-intro.md)
+* [앱 서비스 환경 만들기](../app-service-web/app-service-web-how-to-create-an-app-service-environment.md)
+* [앱 서비스 환경에서 앱 만들기](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md)
+* [앱 서비스 환경 구성](../app-service-web/app-service-web-configure-an-app-service-environment.md) 
+* [앱 서비스 환경에서 앱 확장](../app-service-web/app-service-web-scale-a-web-app-in-an-app-service-environment.md)
+* [네트워크 보안 및 아키텍처](../app-service-web/app-service-app-service-environment-network-architecture-overview.md)
+
+## 방법
+
 [AZURE.INCLUDE [app-service-blueprint-app-service-environment](../../includes/app-service-blueprint-app-service-environment.md)]
+
+
+## 비디오
+[AZURE.VIDEO azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps]
+
+[AZURE.VIDEO microsoft-ignite-2015-running-enterprise-web-and-mobile-apps-on-azure-app-service]
+
 
 <!-- LINKS -->
 [PremiumTier]: http://azure.microsoft.com/pricing/details/app-service/
@@ -43,4 +59,4 @@
 [SiteToSite]: https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

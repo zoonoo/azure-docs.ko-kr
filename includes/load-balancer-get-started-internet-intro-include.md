@@ -2,8 +2,8 @@
  
 부하 분산 장치를 구성할 수 있습니다.
 
-- 들어오는 인터넷 트래픽을 가상 컴퓨터(VM)에 부하 분산합니다. 이 시나리오에서 부하 분산 장치를 [인터넷 연결 부하 분산 장치](load-balancer-internet-overview.md)라고 합니다.
-- 가상 네트워크(VNet)의 VM 간, 클라우드 서비스의 VM 간 또는 크로스-프레미스 가상 네트워크의 온-프레미스 컴퓨터와 VM 간에 트래픽을 부하 분산합니다. 이 시나리오에서 부하 분산 장치를 [내부 부하 분산 장치(ILB)](load-balancer-internal-overview.md)라고 합니다.
+- 들어오는 인터넷 트래픽을 가상 컴퓨터(VM)에 부하 분산합니다. 이 시나리오에서 부하 분산 장치를 [인터넷 연결 부하 분산 장치](../articles/load-balancer/load-balancer-internet-overview.md)라고 합니다.
+- 가상 네트워크(VNet)의 VM 간, 클라우드 서비스의 VM 간 또는 크로스-프레미스 가상 네트워크의 온-프레미스 컴퓨터와 VM 간에 트래픽을 부하 분산합니다. 이 시나리오에서 부하 분산 장치를 [내부 부하 분산 장치(ILB)](../articles/load-balancer/load-balancer-internal-overview.md)라고 합니다.
 - 	외부 트래픽을 특정 VM 인스턴스로 전달합니다.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0224_2016-->

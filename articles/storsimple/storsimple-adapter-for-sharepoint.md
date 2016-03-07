@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -23,7 +23,7 @@ SharePoint용 StorSimple 어댑터는 Microsoft Azure StorSimple 유연한 저�
 
 SharePoint용 StorSimple 어댑터는 원격 BLOB 저장소(RBS) 공급자로서 기능하며 SQL Server 원격 BLOB 저장소 기능을 사용하여 StorSimple 장치에서 지원하는 파일 서버에 구조화되지 않은 SharePoint 콘텐츠(Blob 형식)를 저장합니다.
 
->[AZURE.NOTE]SharePoint용 StorSimple 어댑터는 SharePoint Server 2010 원격 BLOB 저장소(RBS)를 지원합니다. SharePoint Server 2010 외부 BLOB 저장소(EBS)를 지원하지 않습니다.
+>[AZURE.NOTE] SharePoint용 StorSimple 어댑터는 SharePoint Server 2010 원격 BLOB 저장소(RBS)를 지원합니다. SharePoint Server 2010 외부 BLOB 저장소(EBS)를 지원하지 않습니다.
 
 - SharePoint용 StorSimple 어댑터를 다운로드하려면 Microsoft 다운로드 센터에서 [SharePoint용 StorSimple 어댑터][1]로 이동합니다.
 
@@ -89,7 +89,7 @@ RBS를 구성하기 전에 다음을 검토합니다.
 
 - StorSimple 장치에 콘텐츠 데이터베이스를 저장하지 않는 경우 RBS를 지원하는 기존의 SQL Server 고가용성 모범 사례를 사용합니다. SQL Server 미러링이 지원하지 않는 반면 SQL Server 클러스터링은 RBS를 지원합니다.
 
->[AZURE.WARNING]RBS를 사용하도록 설정하지 않은 경우 콘텐츠 데이터베이스를 StorSimple 장치로 이동하지 않는 것이 좋습니다. 테스트되지 않은 구성입니다.
+>[AZURE.WARNING] RBS를 사용하도록 설정하지 않은 경우 콘텐츠 데이터베이스를 StorSimple 장치로 이동하지 않는 것이 좋습니다. 테스트되지 않은 구성입니다.
  
 ## SharePoint용 StorSimple 어댑터 설치
 
@@ -115,7 +115,7 @@ SharePoint용 StorSimple 어댑터는 다음 하드웨어 및 소프트웨어와
 
 StorSimple 장치는 블록 장치이며 따라서 데이터를 호스팅할 수 있는 파일 서버가 필요합니다. SharePoint 팜의 기존 서버보다 별도 서버를 사용하는 것이 좋습니다. 이 파일 서버는 콘텐츠 데이터베이스를 호스팅하는 SQL Server 컴퓨터와 동일한 로컬 영역 네트워크(LAN)에 있어야 합니다.
 
->[AZURE.TIP]
+>[AZURE.TIP] 
 >
 >- 또한 고가용성을 위해 SharePoint 팜을 구성하는 경우 고가용성을 위해 파일 서버를 배포해야 합니다.
 >
@@ -131,11 +131,11 @@ StorSimple 장치를 제대로 구성하고 SharePoint 배포를 지원하기 �
 
 - SharePoint 서버 팜을 구성하여 볼륨에 써야 합니다.
 
->[AZURE.NOTE]어댑터를 설치하고 구성한 후에 모든 BLOB 표면화는 StorSimple 장치를 통해 이동해야 합니다.(장치는 볼륨을 SQL Server에 표시하고 저장소 계층을 관리합니다) BLOB 표면화에 다른 대상을 사용할 수 없습니다.
+>[AZURE.NOTE] 어댑터를 설치하고 구성한 후에 모든 BLOB 표면화는 StorSimple 장치를 통해 이동해야 합니다.(장치는 볼륨을 SQL Server에 표시하고 저장소 계층을 관리합니다) BLOB 표면화에 다른 대상을 사용할 수 없습니다.
  
 StorSimple 스냅숏 관리자를 사용하여 BLOB 및 데이터베이스 데이터의 스냅숏을 만드는 경우 데이터베이스 서버에 StorSimple 스냅숏 관리자를 설치하므로 SQL 기록기 서비스를 사용하여 Windows 볼륨 섀도 복사본 서비스(VSS)를 구현할 수 있습니다.
 
->[AZURE.IMPORTANT]StorSimple 스냅숏 관리자는 SharePoint VSS 기록기를 지원하지 않으며 응용 프로그램이 일관된 SharePoint 데이터의 스냅숏을 사용할 수 없습니다. SharePoint 시나리오에서 StorSimple 스냅숏 관리자는 크래시 일관성이 있는 백업만 제공합니다.
+>[AZURE.IMPORTANT] StorSimple 스냅숏 관리자는 SharePoint VSS 기록기를 지원하지 않으며 응용 프로그램이 일관된 SharePoint 데이터의 스냅숏을 사용할 수 없습니다. SharePoint 시나리오에서 StorSimple 스냅숏 관리자는 크래시 일관성이 있는 백업만 제공합니다.
  
 ## SharePoint 팜 필수 구성 요소
 
@@ -188,7 +188,7 @@ SharePoint용 StorSimple 어댑터를 설치하려면 다음 단계를 따르세
 
 SharePoint용 StorSimple 어댑터를 설치한 후에 다음 절차에서 설명한 대로 RBS를 구성합니다.
 
->[AZURE.TIP]SharePoint 중앙 관리 페이지에 SharePoint용 StorSimple 어댑터를 꽂으면 SharePoint 팜의 각 콘텐츠 데이터베이스에서 RBS를 사용하거나 사용하지 못하도록 합니다. 그러나 콘텐츠 데이터베이스에서 RBS를 활성화 또는 비활성화하면 IIS가 재설정되어 팜 구성에 따라 일시적으로 SharePoint 웹 프런트 엔드(WFE)의 가용성을 중단될 수 있습니다. (프런트 엔드 부하 분산 장치의 사용, 현재 서버 워크로드 등의 요인으로 이 중단을 제거하거나 제한할 수 있습니다.) 중단에서 사용자를 보호하려면 계획된 유지 관리 기간 동안 RBS를 사용하거나 사용하지 않도록 설정하는 것이 좋습니다.
+>[AZURE.TIP] SharePoint 중앙 관리 페이지에 SharePoint용 StorSimple 어댑터를 꽂으면 SharePoint 팜의 각 콘텐츠 데이터베이스에서 RBS를 사용하거나 사용하지 못하도록 합니다. 그러나 콘텐츠 데이터베이스에서 RBS를 활성화 또는 비활성화하면 IIS가 재설정되어 팜 구성에 따라 일시적으로 SharePoint 웹 프런트 엔드(WFE)의 가용성을 중단될 수 있습니다. (프런트 엔드 부하 분산 장치의 사용, 현재 서버 워크로드 등의 요인으로 이 중단을 제거하거나 제한할 수 있습니다.) 중단에서 사용자를 보호하려면 계획된 유지 관리 기간 동안 RBS를 사용하거나 사용하지 않도록 설정하는 것이 좋습니다.
 
 [AZURE.INCLUDE [storsimple-sharepoint-adapter-configure-rbs](../../includes/storsimple-sharepoint-adapter-configure-rbs.md)]
  
@@ -197,11 +197,11 @@ SharePoint용 StorSimple 어댑터를 설치한 후에 다음 절차에서 설�
 
 개체가 SharePoint 사이트에서 삭제되면 RBS 저장소 볼륨에서 자동으로 삭제되지 않습니다. 대신 비동기 백그라운드 유지 관리 프로그램이 삭제 파일에서 분리된 BLOB를 삭제합니다. 시스템 관리자는 이 프로세스가 주기적으로 실행되도록 예약하거나 필요할 때마다 프로세스를 시작할 수 있습니다.
 
-RBS를 사용하도록 설정하면 이 유지 관리 프로그램(Microsoft.Data.SqlRemoteBlobs.Maintainer.exe)은 모든 SharePoint WFE 서버 및 응용 프로그램 서버에 자동으로 설치됩니다. 프로그램은 다음 위치에 설치됩니다. 부팅 드라이브:\\Program Files\\Microsoft SQL Remote Blob Storage 10.50\\Maintainer\\
+RBS를 사용하도록 설정하면 이 유지 관리 프로그램(Microsoft.Data.SqlRemoteBlobs.Maintainer.exe)은 모든 SharePoint WFE 서버 및 응용 프로그램 서버에 자동으로 설치됩니다. 프로그램은 다음 위치에 설치됩니다. *부팅 드라이브*:\\Program Files\\Microsoft SQL Remote Blob Storage 10.50\\Maintainer\\
 
 유지 관리 프로그램을 구성 및 사용하는 방법에 대한 자세한 내용은 [SharePoint Server 2013에서 RBS 유지 관리][8]를 참조하세요.
 
->[AZURE.IMPORTANT]RBS 유지 관리 프로그램은 많은 리소스를 사용합니다. SharePoint 팜에서 활동이 적은 기간 동안 실행되도록 예약해야 합니다.
+>[AZURE.IMPORTANT] RBS 유지 관리 프로그램은 많은 리소스를 사용합니다. SharePoint 팜에서 활동이 적은 기간 동안 실행되도록 예약해야 합니다.
 
 ### 분리된 BLOB 즉시 삭제
 
@@ -218,7 +218,7 @@ RBS를 사용하도록 설정하면 이 유지 관리 프로그램(Microsoft.Dat
 
 다음 절차를 사용하여 SharePoint 서버를 업그레이드한 다음 SharePoint용 StorSimple 어댑터를 다시 설치하거나 기존 SharePoint 서버 팜에서 어댑터를 업그레이드거나 다시 설치합니다.
 
->[AZURE.IMPORTANT]SharePoint 소프트웨어를 업그레이드 및/또는 SharePoint용 StorSimple 어댑터를 업그레이드하거나 다시 설치하기 전에 다음 정보를 검토합니다.
+>[AZURE.IMPORTANT] SharePoint 소프트웨어를 업그레이드 및/또는 SharePoint용 StorSimple 어댑터를 업그레이드하거나 다시 설치하기 전에 다음 정보를 검토합니다.
 >
 >- 다시 설치가 완료되고 RBS 기능을 다시 사용하도록 설정할 때까지 이전에 RBS를 통해 외부 저장소에 이동된 모든 파일은 사용할 수 없습니다. 사용자 영향을 제한하려면 계획된 유지 관리 기간 동안 업그레이드 또는 다시 설치를 수행합니다.
 >
@@ -234,7 +234,7 @@ RBS를 사용하도록 설정하면 이 유지 관리 프로그램(Microsoft.Dat
 
 다음 절차에서는 Blob을 SQL Server 콘텐츠 데이터베이스로 다시 이동한 다음 SharePoint용 StorSimple 어댑터를 제거하는 방법을 설명합니다.
 
->[AZURE.IMPORTANT]어댑터 소프트웨어를 제거하기 전에 Blob을 콘텐츠 데이터베이스로 다시 이동해야 합니다.
+>[AZURE.IMPORTANT] 어댑터 소프트웨어를 제거하기 전에 Blob을 콘텐츠 데이터베이스로 다시 이동해야 합니다.
 
 ### 시작하기 전에 
 
@@ -308,4 +308,4 @@ Blob을 SQL Server 콘텐츠 데이터베이스로 다시 이동한 후 다음 �
 [5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
 [8]: https://technet.microsoft.com/ko-KR/library/ff943565.aspx
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

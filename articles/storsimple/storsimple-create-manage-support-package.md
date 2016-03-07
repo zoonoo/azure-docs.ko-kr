@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -123,7 +123,7 @@ Export-HcsSupportPackage cmdlet과 함께 사용할 수 있는 다른 매개 변
 
 지원 패키지를 생성한 후에 패키지를 편집하여 로그 파일에서 볼륨 이름, 장치 IP 주소 및 백업 이름과 같은 고객과 관련된 정보를 제거해야 할 수도 있습니다.
 
-> [AZURE.IMPORTANT]StorSimple용 Windows PowerShell을 통해 생성된 지원 패키지를 편집할 수 있습니다. StorSimple 관리 서비스로 Azure 클래식 포털에서 생성한 패키지를 편집할 수 없습니다.
+> [AZURE.IMPORTANT] StorSimple용 Windows PowerShell을 통해 생성된 지원 패키지를 편집할 수 있습니다. StorSimple 관리 서비스로 Azure 클래식 포털에서 생성한 패키지를 편집할 수 없습니다.
 
 Microsoft 지원 사이트에 업로드하기 전에 지원 패키지를 편집하려면 지원 패키지의 암호를 해독하고 파일을 편집한 다음 다시 암호화해야 합니다. 지원 패키지를 편집하려면 다음 단계를 수행합니다.
 
@@ -137,7 +137,7 @@ Microsoft 지원 사이트에 업로드하기 전에 지원 패키지를 편집�
  
 	`Import-module <Path to the folder that contains the Windows PowerShell script>`
 
-4. 지원 패키지 폴더를 엽니다. 모든 파일은 압축 및 암호화된 .aes 파일입니다. 파일을 엽니다. 파일을 열려면 다음을 입력합니다.
+4. 지원 패키지 폴더를 엽니다. 모든 파일은 압축 및 암호화된 *.aes* 파일입니다. 파일을 엽니다. 파일을 열려면 다음을 입력합니다.
 
 	`Open-HcsSupportPackage <Path to the folder that contains support package files>`
 
@@ -200,4 +200,4 @@ Microsoft 지원 사이트에 업로드하기 전에 지원 패키지를 편집�
 
 - [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

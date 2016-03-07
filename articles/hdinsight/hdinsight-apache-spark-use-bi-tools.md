@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="02/17/2016" 
 	ms.author="nitinme"/>
 
 
@@ -50,7 +50,7 @@ Azure HDInsight에서 Apache Spark를 사용하여 다음을 수행하는 방법
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-2. 새 Notebook을 만듭니다. **새로 만들기**를 클릭한 후 **Python 2**를 클릭합니다.
+2. 새 Notebook을 만듭니다. **새로 만들기**를 클릭한 다음 **PySpark**를 클릭합니다.
 
 	![새 Jupyter 노트북 만들기](./media/hdinsight-apache-spark-use-bi-tools/hdispark.note.jupyter.createnotebook.png "새 Jupyter 노트북 만들기")
 
@@ -58,22 +58,12 @@ Azure HDInsight에서 Apache Spark를 사용하여 다음을 수행하는 방법
 
 	![노트북에 대한 이름 제공](./media/hdinsight-apache-spark-use-bi-tools/hdispark.note.jupyter.notebook.name.png "노트북에 대한 이름 제공")
 
-4. 필요한 모듈을 가져오고 Spark 및 Hive 컨텍스트를 만듭니다. 빈 셀에 다음 코드 조각을 붙여넣은 다음 **Shift + Enter**를 누릅니다.
+4. PySpark 커널을 사용하여 노트북을 만들었기 때문에 컨텍스트를 명시적으로 만들 필요가 없습니다. 첫 번째 코드 셀을 실행하면 Spark, SQL 및 Hive 컨텍스트가 자동으로 만들어집니다. 이 시나리오에 필요한 형식을 가져와 시작할 수 있습니다. 그렇게 하려면 셀에 커서를 놓고 **Shift + Enter**를 누릅니다.
 
-		from pyspark import SparkContext
 		from pyspark.sql import *
-		from pyspark.sql import HiveContext
-		from pyspark.sql import Row
 		
-		# Create Spark and Hive contexts
-		sc = SparkContext('yarn-client')
-		hiveCtx = HiveContext(sc)
-
-	Jupyter에서 작업을 실행할 때마다, 웹 브라우저 창 제목에 Notebook 제목과 함께 **(사용 중)** 상태가 표시됩니다. 또한 오른쪽 위 모서리에 있는 **Python 2** 텍스트 옆에 단색 원도 표시됩니다. 작업이 완료되면 속이 빈 원으로 변경됩니다.
-
-	 ![Jupyter 노트북 작업의 상태](./media/hdinsight-apache-spark-use-bi-tools/hdispark.jupyter.job.status.png "Jupyter 노트북 작업의 상태")
-
-4. 샘플 데이터를 임시 테이블에 로드합니다. HDInsight에서 Spark 클러스터를 만들면 샘플 데이터 파일인 **hvac.csv**가 **\\HdiSamples\\HdiSamples\\SensorSampleData\\hvac** 아래 연결된 저장소 계정에 복사됩니다.
+	
+5. 샘플 데이터를 임시 테이블에 로드합니다. HDInsight에서 Spark 클러스터를 만들면 샘플 데이터 파일인 **hvac.csv**가 **\\HdiSamples\\HdiSamples\\SensorSampleData\\hvac** 아래 연결된 저장소 계정에 복사됩니다.
 
 	빈 셀에서 다음 코드 조각을 붙여넣고 **Shift + Enter**를 누릅니다. 이 코드 조각은 **hvac**라는 하이브 테이블에 데이터로 등록됩니다.
 
@@ -94,9 +84,10 @@ Azure HDInsight에서 Apache Spark를 사용하여 다음을 수행하는 방법
 		dfw = DataFrameWriter(hvacTable)
 		dfw.saveAsTable('hvac')
 
-5. 테이블이 성공적으로 만들어졌는지 확인합니다. 노트북의 빈 셀에서 다음 코드 조각을 복사하고 **SHIFT + ENTER**를 누릅니다.
+5. 테이블이 성공적으로 만들어졌는지 확인합니다. `%%hive` magic을 사용하여 Hive 쿼리를 직접 실행할 수 있습니다. `%%hive` magic 및 기타 PySpark 커널에서 사용 가능한 magic에 대한 자세한 내용은 [Spark HDInsight 클러스터와 함께 Jupyter 노트북에서 사용 가능한 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels)을 참조하세요.
 
-		hiveCtx.sql("SHOW TABLES").show()
+		%%hive
+		SHOW TABLES
 
 	다음과 유사한 결과가 표시됩니다.
 
@@ -113,7 +104,8 @@ Azure HDInsight에서 Apache Spark를 사용하여 다음을 수행하는 방법
 
 6. 테이블에 원하는 데이터가 들어 있는지 확인합니다. Notebook의 빈 셀에서 다음 코드 조각을 복사하고 **Shift + Enter**를 누릅니다.
 
-		hiveCtx.sql("SELECT * FROM hvac LIMIT 10").show()
+		%%hive
+		SELECT * FROM hvac LIMIT 10
 	
 7. 이제 Notebook을 종료하여 리소스를 해제할 수 있습니다. 이렇게 하기 위해 Notebook의 **파일** 메뉴에서 **Close and Halt**를 클릭합니다. 그러면 Notebook이 종료되고 닫힙니다.
 
@@ -239,4 +231,4 @@ Azure HDInsight에서 Apache Spark를 사용하여 다음을 수행하는 방법
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

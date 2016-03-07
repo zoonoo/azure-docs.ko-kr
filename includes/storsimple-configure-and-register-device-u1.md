@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 12/01/15-->
+<!--author=alkohli last changed: 02/22/2016-->
 
 
 ### 장치를 구성 및 등록하려면
@@ -27,9 +27,9 @@
    - 게이트웨이
    - 주 DNS 서버의 IP 주소
     
-		프로세스의 각 단계가 완료된 후 시스템에서 네트워크 설정의 유효성을 검사합니다.
-   
-      > [AZURE.NOTE] 서브넷 마스크 및 DNS 설정을 적용하려면 몇 분간 대기할 수 있습니다. "데이터 0에 대한 네트워크 연결을 확인합니다." 오류 메시지를 받게되면, 활성 컨트롤러의 데이터 0 네트워크 인터페이스에서 실제 네트워크 연결을 확인합니다.
+	프로세스의 각 단계가 완료된 후 시스템에서 네트워크 설정의 유효성을 검사합니다.
+		   
+	> [AZURE.NOTE] 서브넷 마스크 및 DNS 설정을 적용하려면 몇 분간 대기할 수 있습니다. "데이터 0에 대한 네트워크 연결을 확인합니다." 오류 메시지를 받게되면, 활성 컨트롤러의 데이터 0 네트워크 인터페이스에서 실제 네트워크 연결을 확인합니다.
 
 8. (선택 사항) 웹 프록시 서버를 구성합니다. 웹 프록시 구성은 선택 사항이지만 **웹 프록시를 사용하면 여기서만 구성할 수 있습니다**. 자세한 내용은 [장치에 웹 프록시 구성](../articles/storsimple/storsimple-configure-web-proxy.md)으로 이동합니다.
 
@@ -58,14 +58,14 @@
   2. **연결된 장치 보기**를 클릭합니다.
   3. **장치** 페이지에서 상태를 조회하여 장치가 서비스에 성공적으로 연결되었는지 확인합니다. 장치 상태는 **온라인**이어야 합니다.
    
-    	![StorSimple Devices page](./media/storsimple-configure-and-register-device-u1/HCS_DevicesPageM_U1-include.png) 
+	![StorSimple 장치 페이지](./media/storsimple-configure-and-register-device-u1/HCS_DevicesPageM_U1-include.png)
   
 	장치 상태가 **오프라인**이면 장치가 온라인 상태가 될 때까지 몇 분 정도 기다립니다.
-	      
-	몇분 후 장치가 여전히 오프라인 상태인 경우, [StorSimple 장치에 대한 네트워크 요구 사항](../articles/storsimple/storsimple-system-requirements.md)에 설명된 대로 방화벽 네트워크가 구성되었는지 확인해야 합니다.
-	
-	HTTP 1.1이 지원되지 않는 경우 포트 9354가 아웃바운드 통신을 위해 열려 있는지 확인합니다. 이 포트는 StorSimple Manager 서비스와 StorSimple 장치 간의 통신에 사용됩니다.
+
+	몇분 후 장치가 여전히 오프라인 상태인 경우, [StorSimple 장치에 대한 네트워킹 요구 사항](../articles/storsimple/storsimple-system-requirements.md)에 설명된 대로 방화벽 네트워크가 구성되었는지 확인해야 합니다.
+
+	9354 포트가 StorSimple Manager 서비스와 장치 간 통신용 서비스 버스에 의해 사용될 때 아웃바운드 통신을 위해 열리는지 확인합니다.
      
        
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

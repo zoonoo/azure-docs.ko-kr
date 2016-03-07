@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/14/2015"
+	ms.date="01/14/2016"
 	ms.author="sstein"/>
 
 # SQL 데이터베이스 자습서: 상시 암호화(Windows 인증서 저장소)로 중요한 데이터 보호
@@ -52,7 +52,7 @@
 ## 빈 SQL 데이터베이스 만들기
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 2. **새로 만들기** > **데이터 + 저장소** > **SQL 데이터베이스**를 클릭합니다.
-3. 새 또는 기존 서버에 **클리닉**이라는 **빈** 데이터베이스를 만듭니다. Azure 포털에서 데이터베이스를 만드는 자세한 지침은 [몇 분 만에 SQL 데이터베이스 만들기](sql-database-getting-started.md)를 참조하세요.
+3. 새 또는 기존 서버에 **클리닉**이라는 **빈** 데이터베이스를 만듭니다. Azure 포털에서 데이터베이스를 만드는 자세한 지침은 [몇 분 만에 SQL 데이터베이스 만들기](sql-database-get-started.md)를 참조하세요.
 
 	![빈 데이터베이스 만들기](./media/sql-database-always-encrypted/create-database.png)
 
@@ -545,4 +545,4 @@ SSMS를 사용하여 일반 텍스트 데이터에 액세스하려면 **열 암�
 - [상시 암호화 마법사](https://msdn.microsoft.com/library/mt459280.aspx)
 - [상시 암호화 블로그](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always%20encrypted/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

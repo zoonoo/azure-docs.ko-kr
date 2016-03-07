@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/17/2016"
 	ms.author="billmath"/>
 
 # Azure AD Connect Health 작업
@@ -116,8 +116,7 @@ Azure AD Connect Health내에서 *모든 서비스 인스턴스* 수준으로 �
 
 이러한 단계는 할당된 역할에 맞춰 나열된 사용자 및 그룹 액세스에 따라 허용합니다.
 >[AZURE.NOTE]
-- 전역 관리자는 항상 모든 작업에 모든 권한을 갖지만 전역 관리자 계정은 위의 목록에 표시되지 않습니다. 
-- "사용자 초대" 기능은 Azure AD Connect Health 내에서 지원되지 않습니다.
+- 전역 관리자는 항상 모든 작업에 모든 권한을 갖지만 전역 관리자 계정은 위의 목록에 표시되지 않습니다. - "사용자 초대" 기능은 Azure AD Connect Health 내에서 지원되지 않습니다.
 
 #### 3단계: 사용자 또는 그룹을 사용하여 블레이드 위치 공유
 1. 사용 권한을 할당한 후에 사용자는[http://aka.ms/aadconnecthealth](http://aka.ms/aadconnecthealth)에 이동하여 Azure AD Connect Health를 액세스할 수 있습니다.
@@ -138,5 +137,6 @@ Azure AD Connect Health내에서 *모든 서비스 인스턴스* 수준으로 �
 * [AD FS와 함께 Azure AD Connect Health 사용](active-directory-aadconnect-health-adfs.md)
 * [동기화에 대한 Azure AD Connect Health 사용](active-directory-aadconnect-health-sync.md)
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
+* [Azure AD Connect Health 버전 내역](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

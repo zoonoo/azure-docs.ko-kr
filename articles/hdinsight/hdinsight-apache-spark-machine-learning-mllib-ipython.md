@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="02/17/2016" 
 	ms.author="nitinme"/>
 
 
@@ -63,7 +63,7 @@
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-2. 새 Notebook을 만듭니다. **새로 만들기**를 클릭한 후 **Python 2**를 클릭합니다.
+2. 새 Notebook을 만듭니다. **새로 만들기**를 클릭한 다음 **PySpark**를 클릭합니다.
 
 	![새 Jupyter 노트북 만들기](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/hdispark.note.jupyter.createnotebook.png "새 Jupyter 노트북 만들기")
 
@@ -71,27 +71,15 @@
 
 	![노트북에 대한 이름 제공](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/hdispark.note.jupyter.notebook.name.png "노트북에 대한 이름 제공")
 
-3. 기계 학습 응용 프로그램 빌드를 시작합니다. Pyspark 환경을 설정하여 시작합니다. 그렇게 하려면 셀에 커서를 놓고 **Shift + Enter**를 누릅니다.
+3. PySpark 커널을 사용하여 노트북을 만들었기 때문에 컨텍스트를 명시적으로 만들 필요가 없습니다. 첫 번째 코드 셀을 실행하면 Spark, SQL 및 Hive 컨텍스트가 자동으로 만들어집니다. 이 시나리오에 필요한 형식을 가져와 기계 학습 응용 프로그램 빌드를 시작할 수 있습니다. 그렇게 하려면 셀에 커서를 놓고 **Shift + Enter**를 누릅니다.
 
 
-		import pyspark
-		from pyspark import SparkConf
-		from pyspark import SparkContext
-		from pyspark.sql import SQLContext
-		%matplotlib inline
-		import matplotlib.pyplot as plt
 		from pyspark.ml import Pipeline
 		from pyspark.ml.classification import LogisticRegression
 		from pyspark.ml.feature import HashingTF, Tokenizer
 		from pyspark.sql import Row
 		from pyspark.sql.functions import UserDefinedFunction
 		from pyspark.sql.types import *
-		import atexit
-		
-		sc = SparkContext(conf=SparkConf().setMaster('yarn-client'))
-		sqlContext = SQLContext(sc)
-		atexit.register(lambda: sc.stop())
-
 
 ## 입력 데이터 프레임 구축
 
@@ -143,19 +131,21 @@
 	      '(41.97583445690982, -87.7107455232781)']]
 
 
-3. 위의 출력을 보면 입력 파일의 스키마를 알 수 있습니다. 파일에는 모든 회사의 이름, 회사의 종류, 주소, 검사 데이터 및 위치가 포함되어 있습니다. 예측 분석에 유용한 열 몇 개를 골라서 결과를 데이터 프레임으로 그룹화해 보겠습니다.
+3. 위의 출력을 보면 입력 파일의 스키마를 알 수 있습니다. 파일에는 모든 회사의 이름, 회사의 종류, 주소, 검사 데이터 및 위치가 포함되어 있습니다. 예측 분석에 유용한 열 몇 개를 골라서 결과를 데이터 프레임으로 그룹화한 다음 이를 사용하여 임시 테이블을 만들어 보겠습니다.
 
 
 		schema = StructType([
-		        StructField("id", IntegerType(), False), 
-		        StructField("name", StringType(), False), 
-		        StructField("results", StringType(), False), 
-		        StructField("violations", StringType(), True)])
-		
+        StructField("id", IntegerType(), False), 
+        StructField("name", StringType(), False), 
+        StructField("results", StringType(), False), 
+        StructField("violations", StringType(), True)])
+
 		df = sqlContext.createDataFrame(inspections.map(lambda l: (int(l[0]), l[1], l[12], l[13])) , schema)
+		df.registerTempTable('CountResults')
 
-4. 이제 우리에게는 분석을 수행할 수 있는 *데이터 프레임* `df`가 있습니다. 이 데이터 프레임에 우리가 관심이 있는 4개의 열 **ID**, **이름**, **결과** 및 **위반**을 넣었습니다. 작은 데이터 샘플을 가져오겠습니다.
-
+4. 이제 우리에게는 분석을 수행할 수 있는 *데이터 프레임* `df`가 있습니다. 임시 테이블 호출 **CountResults**도 있습니다. 이 데이터 프레임에 우리가 관심이 있는 4개의 열 **ID**, **이름**, **결과** 및 **위반**을 넣었습니다.
+	
+	작은 데이터 샘플을 가져오겠습니다.
 
 		df.show(5)
 
@@ -177,81 +167,96 @@
 
 ## 데이터 이해
 
-데이터 집합에 무엇이 들어 있는지 알아보겠습니다. 예를 들어 **결과** 열에 어떤 값이 있을까요?
+1. 데이터 집합에 무엇이 들어 있는지 알아보겠습니다. 예를 들어 **결과** 열에 어떤 값이 있을까요?
 
 
 	df.select('results').distinct().show()
 
 	
-다음과 유사한 출력이 표시됩니다.
+	다음과 유사한 출력이 표시됩니다.
 
-    # -----------------
-	# THIS IS AN OUTPUT
-	# -----------------
-
-	+--------------------+
-    |             results|
-    +--------------------+
-    |                Fail|
-    |Business Not Located|
-    |                Pass|
-    |  Pass w/ Conditions|
-    |     Out of Business|
-    +--------------------+
+	    # -----------------
+		# THIS IS AN OUTPUT
+		# -----------------
+	
+		+--------------------+
+	    |             results|
+	    +--------------------+
+	    |                Fail|
+	    |Business Not Located|
+	    |                Pass|
+	    |  Pass w/ Conditions|
+	    |     Out of Business|
+	    +--------------------+
     
-신속한 시각화는 이러한 결과 분포가 나온 이유를 알 수 있게 도와줍니다.
+2. 신속한 시각화는 이러한 결과 분포가 나온 이유를 알 수 있게 도와줍니다. 임시 테이블 **CountResults**에 데이터가 이미 있습니다. 테이블에 대해 다음 SQL 쿼리를 실행하여 결과가 배포되는 방법을 보다 잘 이해할 수 있습니다.
 
-	countResults = df.groupBy('results').count().collect()
-	labels = [row.results for row in countResults]
-	sizes = [row.count for row in countResults]
-	colors = ['turquoise', 'seagreen', 'mediumslateblue', 'palegreen', 'coral']
-	plt.pie(sizes, labels=labels, autopct='%1.1f%%', colors=colors)
-	plt.axis('equal')
+		%%sql -o countResultsdf
+		SELECT results, COUNT(results) AS cnt FROM CountResults GROUP BY results
 
+	`-o countResultsdf` 앞의 `%%sql` magic은 쿼리 출력이 Jupyter 서버(일반적으로 클러스터의 헤드 노드)에서 로컬로 유지되도록 합니다. 출력은 **countResultsdf**라는 이름이 지정된 [Pandas](http://pandas.pydata.org/) 데이터 프레임으로 유지됩니다.
+	
+	다음과 유사한 출력이 표시됩니다.
+	
+	![SQL 쿼리 출력](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/query.output.png "SQL 쿼리 출력")
 
-다음과 유사한 출력이 표시됩니다.
+	`%%sql` magic 및 기타 PySpark 커널에서 사용 가능한 magic에 대한 자세한 내용은 [Spark HDInsight 클러스터와 함께 Jupyter 노트북에서 사용 가능한 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels)을 참조하세요.
 
-    
-![결과 출력](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/output_13_1.png)
+3. 또한 데이터 시각화를 구성하는 데 사용되는 라이브러리인 Matplotlib를 사용하여 플롯을 만들 수 있습니다. 로컬로 유지되는 **countResultsdf** 데이터 프레임에서 플롯을 만들어야 하므로 코드 조각은 `%%local` magic으로 시작해야 합니다. 그러면 코드가 Jupyter 서버에서 로컬로 실행됩니다.
 
+		%%local
+		%matplotlib inline
+		import matplotlib.pyplot as plt
+		
+		
+		labels = countResultsdf['results']
+		sizes = countResultsdf['cnt']
+		colors = ['turquoise', 'seagreen', 'mediumslateblue', 'palegreen', 'coral']
+		plt.pie(sizes, labels=labels, autopct='%1.1f%%', colors=colors)
+		plt.axis('equal')
 
-아래는 검사에서 나올 수 있는 5가지 고유한 결과입니다.
+	다음과 유사한 출력이 표시됩니다.
 
-* 회사를 찾을 수 없음 
-* 불합격
-* 합격
-* 조건부 합격
-* 폐업 
-
-위반이 있을 때 음식 검사의 결과를 추측할 수 있는 모델을 개발해 보겠습니다. 로지스틱 회귀는 이진 분류 방법이므로 데이터를 **합격** 및 **불합격**의 두 가지 범주로 그룹화할 수 있습니다. "조건부 합격"도 합격이기 때문에 모델을 학습할 때 두 가지 결과를 동일한 것으로 간주해야 합니다. 나머지 결과("회사를 찾을 수 없음", "폐업")는 쓸모가 없으므로 학습 집합에서 제거할 것입니다. 이 두 범주는 결과의 극히 일부분에 불과하기 때문에 제거해도 상관 없습니다.
-
-계속해서 기존 데이터 프레임(`df`)을 각 검사가 레이블-위반 쌍으로 표시되는 새 데이터 프레임으로 변환하겠습니다. 이 예에서 레이블 `0.0`은 불합격, 레이블 `1.0`은 합격, 레이블 `-1.0`은 앞의 두 결과를 제외한 기타 결과를 나타냅니다. 새 데이터 프레임을 계산할 때 이러한 기타 결과를 필터링할 것입니다.
-
-
-	def labelForResults(s):
-	    if s == 'Fail':
-	        return 0.0
-	    elif s == 'Pass w/ Conditions' or s == 'Pass':
-	        return 1.0
-	    else:
-	        return -1.0
-	label = UserDefinedFunction(labelForResults, DoubleType())
-	labeledData = df.select(label(df.results).alias('label'), df.violations).where('label >= 0')
+	![결과 출력](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/output_13_1.png)
 
 
-레이블이 지정된 데이터의 한 행을 검색하여 어떤 모양인지 살펴보겠습니다.
+4. 아래는 검사에서 나올 수 있는 5가지 고유한 결과입니다.
+	
+	* 회사를 찾을 수 없음 
+	* 불합격
+	* 합격
+	* 조건부 합격
+	* 폐업 
+
+	위반이 있을 때 음식 검사의 결과를 추측할 수 있는 모델을 개발해 보겠습니다. 로지스틱 회귀는 이진 분류 방법이므로 데이터를 **합격** 및 **불합격**의 두 가지 범주로 그룹화할 수 있습니다. "조건부 합격"도 합격이기 때문에 모델을 학습할 때 두 가지 결과를 동일한 것으로 간주해야 합니다. 나머지 결과("회사를 찾을 수 없음", "폐업")는 쓸모가 없으므로 학습 집합에서 제거할 것입니다. 이 두 범주는 결과의 극히 일부분에 불과하기 때문에 제거해도 상관 없습니다.
+
+5. 계속해서 기존 데이터 프레임(`df`)을 각 검사가 레이블-위반 쌍으로 표시되는 새 데이터 프레임으로 변환하겠습니다. 이 예에서 레이블 `0.0`은 불합격, 레이블 `1.0`은 합격, 레이블 `-1.0`은 앞의 두 결과를 제외한 기타 결과를 나타냅니다. 새 데이터 프레임을 계산할 때 이러한 기타 결과를 필터링할 것입니다.
 
 
-	labeledData.take(1)
+		def labelForResults(s):
+		    if s == 'Fail':
+		        return 0.0
+		    elif s == 'Pass w/ Conditions' or s == 'Pass':
+		        return 1.0
+		    else:
+		        return -1.0
+		label = UserDefinedFunction(labelForResults, DoubleType())
+		labeledData = df.select(label(df.results).alias('label'), df.violations).where('label >= 0')
 
 
-다음과 유사한 출력이 표시됩니다.
+	레이블이 지정된 데이터의 한 행을 검색하여 어떤 모양인지 살펴보겠습니다.
 
-    # -----------------
-	# THIS IS AN OUTPUT
-	# -----------------
 
-	[Row(label=0.0, violations=u"41. PREMISES MAINTAINED FREE OF LITTER, UNNECESSARY ARTICLES, CLEANING  EQUIPMENT PROPERLY STORED - Comments: All parts of the food establishment and all parts of the property used in connection with the operation of the establishment shall be kept neat and clean and should not produce any offensive odors.  REMOVE MATTRESS FROM SMALL DUMPSTER. | 35. WALLS, CEILINGS, ATTACHED EQUIPMENT CONSTRUCTED PER CODE: GOOD REPAIR, SURFACES CLEAN AND DUST-LESS CLEANING METHODS - Comments: The walls and ceilings shall be in good repair and easily cleaned.  REPAIR MISALIGNED DOORS AND DOOR NEAR ELEVATOR.  DETAIL CLEAN BLACK MOLD LIKE SUBSTANCE FROM WALLS BY BOTH DISH MACHINES.  REPAIR OR REMOVE BASEBOARD UNDER DISH MACHINE (LEFT REAR KITCHEN). SEAL ALL GAPS.  REPLACE MILK CRATES USED IN WALK IN COOLERS AND STORAGE AREAS WITH PROPER SHELVING AT LEAST 6' OFF THE FLOOR.  | 38. VENTILATION: ROOMS AND EQUIPMENT VENTED AS REQUIRED: PLUMBING: INSTALLED AND MAINTAINED - Comments: The flow of air discharged from kitchen fans shall always be through a duct to a point above the roofline.  REPAIR BROKEN VENTILATION IN MEN'S AND WOMEN'S WASHROOMS NEXT TO DINING AREA. | 32. FOOD AND NON-FOOD CONTACT SURFACES PROPERLY DESIGNED, CONSTRUCTED AND MAINTAINED - Comments: All food and non-food contact equipment and utensils shall be smooth, easily cleanable, and durable, and shall be in good repair.  REPAIR DAMAGED PLUG ON LEFT SIDE OF 2 COMPARTMENT SINK.  REPAIR SELF CLOSER ON BOTTOM LEFT DOOR OF 4 DOOR PREP UNIT NEXT TO OFFICE.")]
+		labeledData.take(1)
+
+
+	다음과 유사한 출력이 표시됩니다.
+	
+	    # -----------------
+		# THIS IS AN OUTPUT
+		# -----------------
+	
+		[Row(label=0.0, violations=u"41. PREMISES MAINTAINED FREE OF LITTER, UNNECESSARY ARTICLES, CLEANING  EQUIPMENT PROPERLY STORED - Comments: All parts of the food establishment and all parts of the property used in connection with the operation of the establishment shall be kept neat and clean and should not produce any offensive odors.  REMOVE MATTRESS FROM SMALL DUMPSTER. | 35. WALLS, CEILINGS, ATTACHED EQUIPMENT CONSTRUCTED PER CODE: GOOD REPAIR, SURFACES CLEAN AND DUST-LESS CLEANING METHODS - Comments: The walls and ceilings shall be in good repair and easily cleaned.  REPAIR MISALIGNED DOORS AND DOOR NEAR ELEVATOR.  DETAIL CLEAN BLACK MOLD LIKE SUBSTANCE FROM WALLS BY BOTH DISH MACHINES.  REPAIR OR REMOVE BASEBOARD UNDER DISH MACHINE (LEFT REAR KITCHEN). SEAL ALL GAPS.  REPLACE MILK CRATES USED IN WALK IN COOLERS AND STORAGE AREAS WITH PROPER SHELVING AT LEAST 6' OFF THE FLOOR.  | 38. VENTILATION: ROOMS AND EQUIPMENT VENTED AS REQUIRED: PLUMBING: INSTALLED AND MAINTAINED - Comments: The flow of air discharged from kitchen fans shall always be through a duct to a point above the roofline.  REPAIR BROKEN VENTILATION IN MEN'S AND WOMEN'S WASHROOMS NEXT TO DINING AREA. | 32. FOOD AND NON-FOOD CONTACT SURFACES PROPERLY DESIGNED, CONSTRUCTED AND MAINTAINED - Comments: All food and non-food contact equipment and utensils shall be smooth, easily cleanable, and durable, and shall be in good repair.  REPAIR DAMAGED PLUG ON LEFT SIDE OF 2 COMPARTMENT SINK.  REPAIR SELF CLOSER ON BOTTOM LEFT DOOR OF 4 DOOR PREP UNIT NEXT TO OFFICE.")]
 
 
 ## 입력 데이터 프레임으로 로지스틱 회귀 모델 만들기
@@ -275,79 +280,106 @@ MLLib는 이 작업을 간단하게 수행할 수 있는 방법을 제공합니�
 
 앞에 만든 모델을 사용하여 관찰된 위반을 기반으로 새 검사의 결과를 *예측*할 수 있습니다. 우리는 데이터 집합 **Food\_Inspections1.csv**에 이 모델을 학습했습니다. 두 번째 데이터 집합 **Food\_Inspections2.csv**를 사용하여 이 모델이 새 데이터에서 얼마나 강력한 성능을 보이는지 *평가*해 보겠습니다. 클러스터와 연결된 기본 저장소 컨테이너에 이 두 번째 데이터 집합(**Food\_Inspections2.csv**)이 이미 있어야 합니다.
 
-아래는 모델에서 생성한 예측을 포함하는 새 데이터 프레임 **predictionsDf**를 만드는 코드 조각입니다.
+1. 아래는 모델에서 생성한 예측을 포함하는 새 데이터 프레임 **predictionsDf**를 만드는 코드 조각입니다. 이 조각은 데이터 프레임을 기반으로 임시 테이블 **Predictions**도 만듭니다.
 
 
-	testData = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
+		testData = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
 	             .map(csvParse) \
 	             .map(lambda l: (int(l[0]), l[1], l[12], l[13]))
-	testDf = sqlContext.createDataFrame(testData, schema).where("results = 'Fail' OR results = 'Pass' OR results = 'Pass w/ Conditions'")
-	predictionsDf = model.transform(testDf)
-	predictionsDf.columns
+		testDf = sqlContext.createDataFrame(testData, schema).where("results = 'Fail' OR results = 'Pass' OR results = 'Pass w/ Conditions'")
+		predictionsDf = model.transform(testDf)
+		predictionsDf.registerTempTable('Predictions')
+		predictionsDf.columns
 
 
-다음과 유사한 출력이 표시됩니다.
-
-    # -----------------
-	# THIS IS AN OUTPUT
-	# -----------------
+	다음과 유사한 출력이 표시됩니다.
 	
-	['id',
-     'name',
-     'results',
-     'violations',
-     'words',
-     'features',
-     'rawPrediction',
-     'probability',
-     'prediction']
+	    # -----------------
+		# THIS IS AN OUTPUT
+		# -----------------
+		
+		['id',
+	     'name',
+	     'results',
+	     'violations',
+	     'words',
+	     'features',
+	     'rawPrediction',
+	     'probability',
+	     'prediction']
 
-예측 중 하나를 살펴보겠습니다. 이 코드 조각을 실행합니다.
+2. 예측 중 하나를 살펴보겠습니다. 이 코드 조각을 실행합니다.
 
-	predictionsDf.take(1)
+		predictionsDf.take(1)
 
-테스트 데이터 집합에서 첫 번째 항목에 대한 예측을 볼 수 있습니다.
+	테스트 데이터 집합에서 첫 번째 항목에 대한 예측을 볼 수 있습니다.
 
-`model.transform()` 메서드는 스키마가 같은 모든 새 데이터에 동일한 변환 방법을 적용하여 데이터 분류 방법에 대한 예측에 도달합니다. 몇 가지 간단한 통계를 수행하여 예측의 정확도를 알아볼 수 있습니다.
+3. `model.transform()` 메서드는 스키마가 같은 모든 새 데이터에 동일한 변환 방법을 적용하여 데이터 분류 방법에 대한 예측에 도달합니다. 몇 가지 간단한 통계를 수행하여 예측의 정확도를 알아볼 수 있습니다.
 
 
-	numSuccesses = predictionsDf.where("""(prediction = 0 AND results = 'Fail') OR 
-	                                      (prediction = 1 AND (results = 'Pass' OR 
-	                                                           results = 'Pass w/ Conditions'))""").count()
-	numInspections = predictionsDf.count()
+		numSuccesses = predictionsDf.where("""(prediction = 0 AND results = 'Fail') OR 
+		                                      (prediction = 1 AND (results = 'Pass' OR 
+		                                                           results = 'Pass w/ Conditions'))""").count()
+		numInspections = predictionsDf.count()
+		
+		print "There were", numInspections, "inspections and there were", numSuccesses, "successful predictions"
+		print "This is a", str((float(numSuccesses) / float(numInspections)) * 100) + "%", "success rate"
+
+	출력은 다음과 같이 표시됩니다.
 	
-	print "There were", numInspections, "inspections and there were", numSuccesses, "successful predictions"
-	print "This is a", str((float(numSuccesses) / float(numInspections)) * 100) + "%", "success rate"
-
-출력은 다음과 같이 표시됩니다.
-
-    # -----------------
-	# THIS IS AN OUTPUT
-	# -----------------
-
-	There were 9315 inspections and there were 8087 successful predictions
-    This is a 86.8169618894% success rate
-
-
-Spark에서 로지스틱 회귀를 사용하면 영어로 된 위반 설명과 특정 회사의 음식 검사 합격 또는 불합격 가능성 사이의 관계를 정확하게 예측하는 모델을 얻을 수 있습니다. 이 테스트 결과의 이유를 파악하는 데 도움이 되는 최종 시각화를 만들 수 있습니다.
-
+	    # -----------------
+		# THIS IS AN OUTPUT
+		# -----------------
 	
-	failSuccess = predictionsDf.where("prediction = 0 AND results = 'Fail'").count()
-	failFailure = predictionsDf.where("prediction = 0 AND results <> 'Fail'").count()
-	passSuccess = predictionsDf.where("prediction = 1 AND results <> 'Fail'").count()
-	passFailure = predictionsDf.where("prediction = 1 AND results = 'Fail'").count()
-	labels = ['True positive', 'False positive', 'True negative', 'False negative']
-	sizes = [failSuccess, failFailure, passSuccess, passFailure]
-	plt.pie(sizes, labels=labels, autopct='%1.1f%%', colors=colors)
-	plt.axis('equal')
+		There were 9315 inspections and there were 8087 successful predictions
+	    This is a 86.8169618894% success rate
 
 
-다음 출력이 표시되어야 합니다.
+	Spark에서 로지스틱 회귀를 사용하면 영어로 된 위반 설명과 특정 회사의 음식 검사 합격 또는 불합격 가능성 사이의 관계를 정확하게 예측하는 모델을 얻을 수 있습니다.
 
-![예측 출력](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/output_26_1.png)
+## 예측의 시각적 표현 만들기
+
+이 테스트 결과의 이유를 파악하는 데 도움이 되는 최종 시각화를 만들 수 있습니다.
+
+1. 먼저 이전에 만든 **Predictions** 임시 테이블에서 여러 예측 및 결과를 추출합니다.
+
+		%%sql -o predictionstable
+		SELECT prediction, results FROM Predictions
+
+2. 위 조각에서 **predictionstable**은 SQL 쿼리의 출력을 유지하는 Jupyter 서버의 로컬 데이터 프레임입니다. 이제 `%%local` magic을 사용하여 로컬로 유지되는 데이터 프레임에 대해 후속 코드 조각을 실행할 수 있습니다.
+
+		%%local
+		failSuccess = predictionstable[(predictionstable.prediction == 0) & (predictionstable.results == 'Fail')]['prediction'].count()
+		failFailure = predictionstable[(predictionstable.prediction == 0) & (predictionstable.results <> 'Fail')]['prediction'].count()
+		passSuccess = predictionstable[(predictionstable.prediction == 1) & (predictionstable.results <> 'Fail')]['prediction'].count()
+		passFailure = predictionstable[(predictionstable.prediction == 1) & (predictionstable.results == 'Fail')]['prediction'].count()
+		failSuccess,failFailure,passSuccess,passFailure
+
+	출력은 다음과 같이 표시됩니다.
+	
+		# -----------------
+		# THIS IS AN OUTPUT
+		# -----------------
+	
+		(276, 46, 1917, 261)
+
+3. 마지막으로, 다음 조각을 사용하여 플롯을 생성합니다.
+
+		%%local
+		%matplotlib inline
+		import matplotlib.pyplot as plt
+		
+		labels = ['True positive', 'False positive', 'True negative', 'False negative']
+		sizes = [failSuccess, failFailure, passSuccess, passFailure]
+		plt.pie(sizes, labels=labels, autopct='%1.1f%%')
+		plt.axis('equal')
+	
+	다음 출력이 표시되어야 합니다.
+	
+	![예측 출력](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/output_26_1.png)
 
 
-이 차트에서 "긍정" 결과는 불합격한 음식 검사를 참조하는 반면, 부정 결과는 합격한 검사를 참조합니다. 대략적으로 거짓 부정 비율이 12.6%, 거짓 긍정 비율이 16.0%로 나타납니다.
+	이 차트에서 "긍정" 결과는 불합격한 음식 검사를 참조하는 반면, 부정 결과는 합격한 검사를 참조합니다.
 
 ## Notebook 종료
 
@@ -387,4 +419,4 @@ Spark에서 로지스틱 회귀를 사용하면 영어로 된 위반 설명과 �
 
 * [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

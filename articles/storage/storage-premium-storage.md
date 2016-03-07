@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
-	ms.author="robinsh;prkhad"/>
+	ms.date="02/20/2016"
+	ms.author="prkhad"/>
 
 
 # 프리미엄 저장소: Azure 가상 컴퓨터 작업용 고성능 저장소
@@ -35,9 +35,9 @@ Azure 프리미엄 저장소를 시작하려면 방문 [무료로 시작 하기]
 
 다음은 프리미엄 저장소 사용 시 또는 이전에 고려해야 하는 중요 사항 목록입니다.
 
-- 프리미엄 저장소를 사용하려면 프리미엄 저장소 계정이 있어야 합니다. 프리미엄 저장소 계정을 만드는 방법에 대한 자세한 내용은 [디스크용 프리미엄 저장소 계정 만들기 및 사용](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)을 참조하세요.
+- 프리미엄 저장소를 사용하려면 프리미엄 저장소 계정이 있어야 합니다. 프리미엄 저장소 계정을 만드는 방법에 대한 자세한 내용은 [가상 컴퓨터 데이터 디스크용 프리미엄 저장소 계정 만들기 및 사용](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)을 참조하세요.
 
-- 프리미엄 저장소는 [Azure 포털](https://portal.azure.com)에서 사용할 수 있으며, SDK 라이브러리([저장소 REST API](http://msdn.microsoft.com//library/azure/dd179355.aspx) 버전 2014-02-14 이상, [서비스 관리 REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx) 버전 2014-10-01 이상(클래식 배포), [저장소 리소스 공급자 API](http://msdn.microsoft.com/library/azure/mt163683.aspx)(ARM 배포) 및 [Azure PowerShell](../install-configure-powershell.md) 버전 0.8.10 이상)를 통해 액세스할 수 있습니다.
+- 프리미엄 저장소는 [Azure 포털](https://portal.azure.com)에서 사용할 수 있으며, SDK 라이브러리([저장소 REST API](http://msdn.microsoft.com//library/azure/dd179355.aspx) 버전 2014-02-14 이상, [서비스 관리 REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx) 버전 2014-10-01 이상(클래식 배포), [Azure 저장소 리소스 공급자 REST API 참조](http://msdn.microsoft.com/library/azure/mt163683.aspx)(ARM 배포) 및 [Azure PowerShell](../powershell-install-configure.md) 버전 0.8.10 이상)를 통해 액세스할 수 있습니다.
 
 - 현재 프리미엄 저장소를 지원하는 지역 목록은 [지역별 Azure 서비스](https://azure.microsoft.com/regions/#services)를 참조하세요.
 
@@ -63,7 +63,7 @@ Azure는 저장소 계정을 운영 체제(OS) 및 데이터 디스크의 컨테
 
 기존 가상 컴퓨터를 프리미엄 저장소로 마이그레이션하는 것과 관련된 정보는 [Azure 프리미엄 저장소로 마이그레이션](storage-migration-to-premium-storage.md)을 참조하세요.
 
-프리미엄 저장소의 혜택을 활용하려면 먼저 *Premium\_LRS* 계정 유형을 사용하여 프리미엄 저장소 계정을 만듭니다. 이렇게 하려면 [Azure 포털](https://portal.azure.com), [Azure PowerShell](../install-configure-powershell.md), [서비스 관리 REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx)(클래식 배포) 또는 [저장소 리소스 공급자 REST API](http://msdn.microsoft.com/library/azure/mt163683.aspx)(ARM 배포)를 사용하면 됩니다. 단계별 지침은 [디스크용 프리미엄 저장소 계정 만들기 및 사용](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)을 참조하세요.
+프리미엄 저장소의 혜택을 활용하려면 먼저 *Premium\_LRS* 계정 유형을 사용하여 프리미엄 저장소 계정을 만듭니다. 이렇게 하려면 [Azure 포털](https://portal.azure.com), [Azure PowerShell](../powershell-install-configure.md), [서비스 관리 REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx)(클래식 배포) 또는 [저장소 리소스 공급자 REST API](http://msdn.microsoft.com/library/azure/mt163683.aspx)(ARM 배포)를 사용하면 됩니다. 단계별 지침은 [가상 컴퓨터 데이터 디스크에 대한 프리미엄 저장소 계정 만들기 및 사용](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)을 참조하세요.
 
 ### 중요:
 
@@ -79,7 +79,7 @@ Azure는 저장소 계정을 운영 체제(OS) 및 데이터 디스크의 컨테
 
 - 동일한 DS 시리즈 VM 또는 GS 시리즈 VM에 프리미엄 및 표준 저장소 디스크를 모두 사용할 수 있습니다.
 - 프리미엄 저장소를 사용하여 DS 시리즈 VM을 프로비전할 수 있으며 여러 영구 데이터 디스크를 VM에 연결할 수 있습니다. 필요한 경우, 볼륨의 성능과 용량을 늘리도록 디스크에 걸쳐 스트라이핑 할 수 있습니다. [저장소 공간](http://technet.microsoft.com/library/hh831739.aspx)을 사용하여 프리미엄 저장소 데이터 디스크를 스트라이프하는 경우, 사용되는 각 디스크에 대해 하나의 열로 구성해야 합니다. 그렇지 않은 경우, 디스크에서의 고르지 못한 트래픽 분배로 스트라이프 볼륨의 전반적인 성능이 예상보다 저하될 수 있습니다. 기본적으로 서버 관리자 사용자 인터페이스(UI)를 사용하면 최대 8개의 디스크를 열로 설정할 수 있습니다. 하지만 디스크가 8개 이상인 경우, 볼륨을 만들고 열 수를 수동으로 지정하려면 PowerShell을 사용해야 합니다. 그렇지 않은 경우 서버 관리자 UI는 더 많은 디스크가 있더라도 8개의 열을 사용하여 계속합니다. 예를 들어 단일 스트라이프 세트에 32개의 디스크가 있다면 32개의 열을 지정해야 합니다. [New-VirtualDisk](http://technet.microsoft.com/library/hh848643.aspx) PowerShell cmdlet의 *NumberOfColumns* 매개 변수를 사용하여 가상 디스크에서 사용되는 열 수를 지정할 수 있습니다. 자세한 내용은 [저장소 공간 개요](http://technet.microsoft.com/library/hh831739.aspx) 및 [저장소 공간 질문과 대답](http://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx)을 참조하세요.
-- DS 시리즈 VM을 비 DS 시리즈 VM을 포함하는 기존 클라우드 서비스에 추가하지 마십시오. 가능한 해결 방법은 DS 시리즈 VM만 실행 중인 새 클라우드 서비스로 기존 VHD를 마이그레이션하는 것입니다. DS 시리즈 VM을 호스트하는 새 클라우드 서비스에 동일한 VIP(가상 IP 주소)를 유지하려는 경우, [예약된 IP 주소](virtual-networks-configure-vnet-to-vnet-connection.md) 기능을 사용합니다. GS 시리즈 VM은 G 시리즈 VM만을 실행 중인 기존 클라우드 서비스에 추가될 수 있습니다.
+- DS 시리즈 VM을 비 DS 시리즈 VM을 포함하는 기존 클라우드 서비스에 추가하지 마십시오. 가능한 해결 방법은 DS 시리즈 VM만 실행 중인 새 클라우드 서비스로 기존 VHD를 마이그레이션하는 것입니다. DS 시리즈 VM을 호스트하는 새 클라우드 서비스에 동일한 VIP(가상 IP 주소)를 유지하려는 경우, [예약된 IP 주소](../virtual-network/virtual-networks-instance-level-public-ip.md) 기능을 사용합니다. GS 시리즈 VM은 G 시리즈 VM만을 실행 중인 기존 클라우드 서비스에 추가될 수 있습니다.
 - 표준 저장소 계정 또는 프리미엄 저장소 계정에서 호스팅된 운영 체제(OS) 디스크를 사용하도록 Azure 가상 컴퓨터의 DS 시리즈를 구성할 수 있습니다. 부팅에 대해서만 OS 디스크를 사용하는 경우에 OS 디스크 기반 표준 저장소 사용을 고려할 수 있습니다. 이렇게 하면 부팅 후 프리미엄 저장소와 유사한 비용 혜택 및 유사한 성능 결과가 제공됩니다. 부팅이 아닌 OS 디스크에서 추가 작업을 수행하는 경우 더 나은 성능 결과를 제공하므로 프리미엄 저장소를 사용합니다. 예를 들어 응용프로그램이 OS 디스크를 읽고/쓰는 경우 OS 디스크 기반 프리미엄 저장소를 사용하면 VM에 더 나은 성능을 제공합니다.
 - 프리미엄 저장소와 함께 [Azure CLI(Azure 명령줄 인터페이스)](../xplat-cli-install.md)를 사용할 수 있습니다. Azure CLI를 사용하여 디스크 중 하나에서 캐시 정책을 변경하려면 다음 명령을 실행합니다.
 
@@ -191,7 +191,7 @@ Azure에서 디스크를 생성하는 경우 용량, 성능, 확장성 및 최�
 
 - 단일 Blob의 스냅숏 수는 100개로 제한됩니다. 최대 10분마다 스냅숏을 생성할 수 있습니다.
 - 프리미엄 저장소 계정당 최대 스냅숏 용량은 10TB입니다. 스냅숏 용량은 스냅숏의 총 데이터 양을 나타낼 뿐이며 기본 Blob의 데이터는 포함하지 않습니다.
-- 스냅숏의 지역 중복 복사본을 유지하려면 AzCopy 또는 Blob 복사를 사용하여 프리미엄 저장소 계정에서 지역 중복 표준 저장소 계정으로 스냅숏을 복사할 수 있습니다. 자세한 내용은 [Microsoft Azure 저장소와 함께 AzCopy를 사용하는 방법](storage-use-azcopy.md) 및 [Blob 복사](http://msdn.microsoft.com/library/azure/dd894037.aspx)를 참조하세요.
+- 스냅숏의 지역 중복 복사본을 유지하려면 AzCopy 또는 Blob 복사를 사용하여 프리미엄 저장소 계정에서 지역 중복 표준 저장소 계정으로 스냅숏을 복사할 수 있습니다. 자세한 내용은 [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md) 및 [Blob 복사](http://msdn.microsoft.com/library/azure/dd894037.aspx)를 참조하세요.
 - 프리미엄 저장소 계정에서 페이지 Blob에 대한 REST 작업을 수행하는 방법에 대한 자세한 내용은 MSDN 라이브러리에서 [Azure 프리미엄 저장소와 함께 Blob 서비스 작업 사용](http://go.microsoft.com/fwlink/?LinkId=521969)을 참조하세요.
 
 ## 프리미엄 저장소와 Linux VM 사용
@@ -265,12 +265,12 @@ OpenLogic CentOS VM을 실행하는 고객은 다음 명령을 실행하여 최�
 
 5.	**저장소 계정** 블레이드에서 **리소스 그룹**, **구독**, **위치** 및 **진단**의 기본값을 유지합니다. **만들기**를 클릭합니다.
 
-Azure 환경 내의 전체 연습은 [Azure 포털에서 Windows 가상 컴퓨터 만들기](../virtual-machines-windows-tutorial.md)를 참조하세요.
+Azure 환경 내의 전체 연습은 [Azure 포털에서 Windows 가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-tutorial.md)를 참조하세요.
 
 ### Azure PowerShell을 통해 프리미엄 저장소를 사용하여 Azure 가상 컴퓨터 만들기
 이 PowerShell 예제에서는 새 프리미엄 저장소 계정을 만들고 새 Azure 가상 컴퓨터에 해당 계정을 사용하는 데이터 디스크를 연결하는 방법을 보여 줍니다.
 
-1. [Azure PowerShell을 설치 및 구성하는 방법](../install-configure-powershell.md)에 제공된 단계에 따라 PowerShell 환경을 설정합니다.
+1. [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)에 제공된 단계에 따라 PowerShell 환경을 설정합니다.
 2. PowerShell 콘솔을 시작하고, 구독에 연결한 후 콘솔 창에서 다음 PowerShell cmdlet을 실행합니다. 이 PowerShell 문에 표시된 대로 프리미엄 저장소 계정을 만드는 경우 **Type** 매개 변수를 **Premium\_LRS**로 지정해야 합니다.
 
 		New-AzureStorageAccount -StorageAccountName "yourpremiumaccount" -Location "West US" -Type "Premium_LRS"
@@ -330,10 +330,10 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 
 - [Azure 프리미엄 저장소와 함께 Blob 서비스 작업 사용](http://go.microsoft.com/fwlink/?LinkId=521969)
 - [Azure 프리미엄 저장소로 마이그레이션](storage-migration-to-premium-storage.md)
-- [Azure 포털에서 Windows 가상 컴퓨터 만들기](../virtual-machines-windows-tutorial.md)
+- [Azure 포털에서 Windows 가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-tutorial.md)
 - [가상 컴퓨터에 적합한 크기](../virtual-machines/virtual-machines-size-specs.md)
 - [저장소 설명서](https://azure.microsoft.com/documentation/services/storage/)
 
 [Image1]: ./media/storage-premium-storage/Azure_pricing_tier.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

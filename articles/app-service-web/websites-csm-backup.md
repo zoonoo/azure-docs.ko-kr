@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/18/2015"
+	ms.date="02/23/2016"
 	ms.author="nicking"/>
 
 # REST를 사용하여 앱 서비스 앱 백업 및 복원
@@ -92,7 +92,7 @@ HTTP 요청에 포함할 수 있는 여러 선택적 매개 변수를 포함하�
 }
 ```
 
->[AZURE.NOTE]오류 메시지는 HTTP 응답의 로그 속성에서 확인할 수 있습니다.
+>[AZURE.NOTE] 오류 메시지는 HTTP 응답의 로그 속성에서 확인할 수 있습니다.
 
 <a name="schedule-automatic-backups"></a>
 ## 자동 백업 예약
@@ -225,9 +225,9 @@ Azure 앱 서비스에서는 백업을 만들 때 제공된 SAS URL을 사용하
 }
 ```
 
->[AZURE.NOTE]보안을 위해 특정 백업에 대한 GET 요청을 보낼 때 백업과 연결된 SAS URL이 반환되지 않습니다. 백업과 연결된 SAS URL을 보고 싶으면 위와 동일한 URL에 POST 요청을 보내고 요청 본문에 빈 JSON 개체를 넣으세요. 서버의 응답에 SAS URL을 포함하여 해당 백업의 모든 정보가 들어 있을 것입니다.
+>[AZURE.NOTE] 보안을 위해 특정 백업에 대한 GET 요청을 보낼 때 백업과 연결된 SAS URL이 반환되지 않습니다. 백업과 연결된 SAS URL을 보고 싶으면 위와 동일한 URL에 POST 요청을 보내고 요청 본문에 빈 JSON 개체를 넣으세요. 서버의 응답에 SAS URL을 포함하여 해당 백업의 모든 정보가 들어 있을 것입니다.
 
 <!-- IMAGES -->
 [SampleWebsiteInformation]: ./media/websites-csm-backup/01siteconfig.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0224_2016-->
