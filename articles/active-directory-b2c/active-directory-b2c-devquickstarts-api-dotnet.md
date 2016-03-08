@@ -219,13 +219,16 @@ public IEnumerable<Models.Task> Get()
 
 ## 청책 편집
 
-Azure AD B2C를 사용하여 API를 보호한 후 앱의 정책을 시험해 보고 API에서 효과(또는 부족)를 확인할 수 있습니다. 정책에서 응용 프로그램 클레임을 <!--add **identity providers** to the policies, allowing you users to sign into the Task Client using social accounts.  You can also -->조작하고 Web API에서 사용할 수 있는 사용자 정보를 변경할 수 있습니다. 이 문서의 앞에서 설명한 것처럼 추가한 모든 클레임은 `ClaimsPrincipal` 개체의 .NET MVC Web API에서 사용할 수 있습니다.
+Azure AD B2C를 사용하여 API를 보호한 후 앱의 정책을 시험해 보고 API에서 효과(또는 부족)를 확인할 수 있습니다. 정책에서 응용 프로그램 클레임을 
+<!--add **identity providers** 
+to the policies, allowing you users to sign into the Task Client using social accounts.  You can also 
+--> 조작하고 Web API에서 사용할 수 있는 사용자 정보를 변경할 수 있습니다. 이 문서의 앞에서 설명한 것처럼 추가한 모든 클레임은 `ClaimsPrincipal` 개체의 .NET MVC Web API에서 사용할 수 있습니다.
 
 <!--
 
 ## Next steps
 
-You can now move onto more advanced B2C topics. You may try:
+이제 좀 더 고급 B2C 항목으로 이동할 수 있습니다. You may try:
 
 [Call a web API from a web app]()
 
