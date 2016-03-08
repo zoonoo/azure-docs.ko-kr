@@ -51,11 +51,12 @@ azure-content 리포지토리의 내용은 [Azure.Microsoft.com](http://azure.mi
 
 *\articles* 폴더는 *.md* 확장을 사용하여 마크다운 파일 형식의 설명서를 포함합니다.
 
-루트 디렉터리의 문서는 경로 **http://azure.microsoft.com/documentation/articles/{article-name-without-md}/*의 Azure.Microsoft.com에 게시됩니다.
+루트 디렉터리의 문서는 경로 *http://azure.microsoft.com/documentation/articles/{article-name-without-md}/*의 Azure.Microsoft.com에 게시됩니다.
 
 * **문서 파일 이름:** [파일 명명 지침](./contributor-guide/file-names-and-locations.md)을 참조하세요.
 
-고유한 서비스 폴더 내의 문서는 경로 **http://azure.microsoft.com/documentation/articles/service-folder/{article-name-without-md}/*의 Azure.Microsoft.com에 게시됩니다
+고유한 서비스 폴더 내의 문서는 경로 
+*http://azure.microsoft.com/documentation/articles/service-folder/{article-name-without-md}/*의 Azure.Microsoft.com에 게시됩니다
 
 * **미디어 하위 폴더:** *\articles* 폴더는 루트 디렉터리 문서 미디어 파일에 대한 *\media* 폴더를 포함하며 이 안에는 각 아티클에 대한 이미지가 담긴 하위 폴더가 있습니다. 서비스 폴더는 각 서비스 폴더 내에서 문서에 대한 별도의 미디어 폴더를 포함합니다. 문서 이미지 폴더는 *.md* 파일 확장을 뺀 문서 파일과 이름이 동일합니다.
 
@@ -103,4 +104,4 @@ GitBash를 설치하고 로컬에서 작동하도록 선택하면 새 로컬 작
 
 모든 지침 항목은 [참가자 가이드의 인덱스](./contributor-guide/contributor-guide-index.md)를 참조하세요.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0307_2016-->
