@@ -11,9 +11,8 @@
 	ms.service="multi-factor-authentication" 
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="02/16/2016" 
+	ms.devlang="na" ms.topic="get-started-article" 
+	ms.date="02/25/2016" 
 	ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication 및 Active Directory Federation Services 시작
@@ -55,4 +54,4 @@ Azure Multi-Factor Authentication 또는 AD FS를 통한 Azure Multi-factor Auth
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

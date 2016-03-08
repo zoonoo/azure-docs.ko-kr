@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/16/2016" 
+	ms.date="02/24/2016" 
 	ms.author="billmath"/>
 
 #다단계 보안 솔루션 선택
@@ -73,7 +73,7 @@ MFA 보고서 | ● | ●
 전화 통화에 대한 사용자 지정 인사말 | ● | ● 
 전화 통화에 대한 사용자 지정 가능한 발신자 번호 | ● | ● 
 신뢰할 수 있는 IP | ● | ● 
-기억된 장치에 대한 MFA 일시 중단(공개 미리 보기) | ● |  
+신뢰할 수 있는 장치에 대한 MFA 기억(공개 미리 보기) | ● |  
 조건부 액세스 | ● | ● 
 캐시 | ● | ● 
 
@@ -81,4 +81,4 @@ MFA 보고서 | ● | ●
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -4,17 +4,10 @@
 	services="media-services"
 	documentationCenter=""
 	authors="Juliako,Mingfeiy"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
-<tags
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article" 
-	ms.date="02/02/2016" 
-	ms.author="juliako"/>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="03/01/2016"" ms.author="juliako"/>
 
 
 #PlayReady 및/또는 Widevine 동적 일반 암호화 사용
@@ -544,7 +537,7 @@ Azure 미디어 서비스를 사용하여 Widevine를 암호화할 때 제한 �
 		                new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
 		                {
 		                            {AssetDeliveryPolicyConfigurationKey.PlayReadyLicenseAcquisitionUrl, acquisitionUrl.ToString()},
-		                            {AssetDeliveryPolicyConfigurationKey.WidevineLicenseAcquisitionUrl, widevineURl.ToString()},
+		                            {AssetDeliveryPolicyConfigurationKey.WidevineBaseLicenseAcquisitionUrl, widevineURl.ToString()},
 		
 		                };
 		
@@ -631,4 +624,4 @@ Azure 미디어 서비스를 사용하여 Widevine를 암호화할 때 제한 �
 
 [Azure 미디어 서비스에서 Google Widevine 라이선스 전달 서비스 발표](https://azure.microsoft.com/blog/announcing-general-availability-of-google-widevine-license-services/)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

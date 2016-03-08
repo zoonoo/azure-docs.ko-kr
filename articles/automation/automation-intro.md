@@ -3,7 +3,7 @@
 	description="Azure 자동화가 제공하는 가치 및 일반적인 질문에 대한 답을 얻으므로 사용자가 Runbook 및 Azure 자동화 DSC를 사용하여 시작할 수 있습니다."
 	services="automation"
 	documentationCenter=""
-	authors="SnehaGunda"
+	authors="mgoedtel"
 	manager="stevenka"
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="02/18/2016"
+	ms.date="02/23/2016"
 	ms.author="magoedte;bwren"/>
 
 # Azure 자동화 개요
@@ -101,4 +101,4 @@ Azure 자동화의 Runbook은 Windows PowerShell 또는 Windows PowerShell 워�
 
 **사용자 의견을 보내 주세요!** Azure 자동화 Runbook 솔루션 또는 통합 모듈을 찾고 있는 경우 스크립트 센터에 스크립트 요청을 게시하세요. Azure 자동화에 대한 의견이나 기능 요청이 있는 경우 [사용자 음성](http://feedback.windowsazure.com/forums/34192--general-feedback)에 게시하세요. 감사합니다.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

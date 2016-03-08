@@ -13,8 +13,8 @@
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/03/2015"
+	ms.topic="get-started-article"
+	ms.date="02/29/2016"
 	ms.author="jgao"/>
 
 
@@ -38,7 +38,7 @@ Apache Zookeeper|3\.4.6|3\.4.6|3\.4.5|3\.4.5|
 Apache Storm|0\.10.0|0\.9.3|0\.9.1||
 Apache Mahout|0\.9.0+|0\.9.0|0\.9.0||
 Apache Phoenix|4\.4.0|4\.2.0|4\.0.0.2.1.7.0-2162||
-Apache Spark|1\.3.1|1\.3.1|||
+Apache Spark|1\.5.2(Linux만 해당/ 실험적 빌드)|1\.3.1(Windows만 해당)|||
 
 
 **현재 구성 요소 버전 정보 가져오기**
@@ -57,7 +57,7 @@ HDInsight Windows PowerShell cmdlet 또는 HDInsight .NET SDK를 통해 클러�
 ##주요 기능
 HDInsight 플랫폼의 몇 가지 두드러진 기능은 다음과 같습니다.
 
-- **Spark** - Apache Spark는 메모리 내 처리를 지원하여 빅 데이터 분석 응용 프로그램의 성능을 향상하는 오픈 소스 병렬 처리 프레임워크입니다. Spark는 메모리 내 계산 기능을 지원하여 기계 학습 및 그래프 계산의 반복 알고리즘에 적합합니다.
+- **Spark**는 메모리 내 처리를 지원하여 빅 데이터 분석 응용 프로그램의 성능을 향상하는 오픈 소스 병렬 처리 프레임워크입니다. Spark는 메모리 내 계산 기능을 지원하여 기계 학습 및 그래프 계산의 반복 알고리즘에 적합합니다.
 
 	Spark를 사용하여 기존 디스크 기반 데이터 처리를 수행할 수도 있습니다. Spark는 중간 단계에서 디스크에 쓰기를 방지하여 기존 MapReduce 프레임워크를 향상시킵니다. 또한 Spark는 HDFS(Hadoop Distributed File System) 및 Azure Blob 저장소와 호환되므로 Spark를 통해 기존 데이터를 쉽게 처리할 수 있습니다.
 
@@ -123,7 +123,7 @@ SLA는 "지원 기간" 면에서 정의됩니다. 지원 기간은 Microsoft 고
 
 **사용 중단 날짜**는 HDInsight에서 해당 클러스터 버전을 만들 수 없게 되는 날짜입니다.
 
-> [AZURE.NOTE]HDInsight 2.1 및 3.0 클러스터는 모두 64비트 버전의 Windows Server 2012 R2를 사용하고 .NET Framework 4.0, 4.5 및 4.5.1을 지원하는 Azure 게스트 OS [제품군 4](../cloud-services-guestos-update-matrix.md)에서 실행됩니다.
+> [AZURE.NOTE] HDInsight 2.1 및 3.0 클러스터는 모두 64비트 버전의 Windows Server 2012 R2를 사용하고 .NET Framework 4.0, 4.5 및 4.5.1을 지원하는 Azure 게스트 OS [제품군 4](../cloud-services/cloud-services-guestos-update-matrix.md)에서 실행됩니다.
 
 ## HDInsight 버전과 관련된 Hortonworks 릴리스 정보##
 
@@ -167,4 +167,4 @@ SLA는 "지원 기간" 면에서 정의됩니다. 지원 기간은 Microsoft 고
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

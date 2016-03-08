@@ -11,8 +11,8 @@
     ms.workload="compute"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
-    ms.topic="article"
-    ms.date="12/04/2015"
+    ms.topic="hero-article"
+    ms.date="02/25/2016"
     ms.author="elizapo" />
 
 # Azure RemoteApp에서 Microsoft Outlook 사용
@@ -31,4 +31,4 @@ Azure RemoteApp에서 Outlook 내의 검색을 사용하는 데는 제한 사항
 
 Outlook 2016은 Exchange 2016에서 호스트(또는 Office 365에서 호스트)되는 사서함에 대해 새로운 온라인 검색 환경을 제공하여 이를 해결하는 솔루션을 포함합니다. 여기서는 로컬 캐시(OST)에 대해 서버 검색 결과를 사용합니다. Outlook은 일부 시나리오에서 검색 인덱서를 사용하도록 대체할 수 있으나 대부분의 검색은 온라인 모드를 사용합니다. 메일 검색이 매우 중요한 시나리오인 경우 Azure RemoteApp에서 권장되는 방법은 Outlook 2016을 사용하는 것입니다.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

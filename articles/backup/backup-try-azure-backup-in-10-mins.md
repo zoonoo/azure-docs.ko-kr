@@ -62,9 +62,9 @@ Windows 컴퓨터의 파일과 데이터를 Azure에 백업하려면 데이터�
 
     저장소 중복 옵션을 선택하기에 가장 좋은 시기는 자격 증명 모음을 만든 후 자격 증명 모음에 컴퓨터를 등록하기 바로 직전입니다. 항목이 자격 증명 모음에 등록되고 나면 저장소 중복 옵션 잠기고 수정할 수 없습니다.
 
-    기본 백업 저장소 끝점으로 Azure를 사용 중인 경우(예: Windows Server에서 Azure로 백업하는 경우) 지역 중복 저장소 옵션(기본값)을 선택하는 것이 좋습니다.
+    기본 백업 저장소 끝점으로 Azure를 사용 중인 경우(예: Windows Server에서 Azure로 백업하는 경우) [지역 중복 저장소 옵션](../storage/storage-redundancy.md#geo-redundant-storage)(기본값)을 선택하는 것이 좋습니다.
 
-    3차 백업 저장소 끝점으로 Azure를 사용 중인 경우(예: 온-프레미스에 로컬 백업 복사본을 보관하기 위해 SCDPM을 사용하는 경우 및 장기 보존 요구를 해결하기 위해 Azure를 사용하는 경우) 로컬 중복 저장소를 선택하는 것이 좋습니다. 이렇게 하면 Azure에 데이터를 저장하는 비용을 크게 줄일 수 있지만 3차 복사본에 허용될 수 있는 데이터 영속성 수준이 낮아집니다.
+    3차 백업 저장소 끝점으로 Azure를 사용 중인 경우(예: 온-프레미스에 로컬 백업 복사본을 보관하기 위해 SCDPM을 사용하는 경우 및 장기 보존 요구를 해결하기 위해 Azure를 사용하는 경우) [로컬 중복 저장소](../storage/storage-redundancy.md#locally-redundant-storage)를 선택하는 것이 좋습니다. 이렇게 하면 Azure에 데이터를 저장하는 비용을 크게 줄일 수 있지만 3차 복사본에 허용될 수 있는 데이터 영속성 수준이 낮아집니다.
 
     a. 방금 만든 자격 증명 모음을 클릭합니다.
 
@@ -77,8 +77,6 @@ Windows 컴퓨터의 파일과 데이터를 Azure에 백업하려면 데이터�
     **지역 중복**이 기본 옵션이기 때문에 **로컬 중복**을 선택한 경우 **저장**을 클릭해야 합니다.
 
     ![GRS](./media/backup-try-azure-backup-in-10-mins/geo-redundant.png)
-
-    >[AZURE.NOTE] 이 [개요](../storage/storage-redundancy.md) 문서에서 저장소 중복 옵션을 선택하는 방법에 대해 자세히 알 수 있습니다.
 
     d. 왼쪽 탐색 창에서 **복구 서비스**를 클릭하면 **복구 서비스**의 리스소 목록으로 돌아갑니다.
 
@@ -162,7 +160,7 @@ Windows 컴퓨터의 파일과 데이터를 Azure에 백업하려면 데이터�
 
     ![암호화](./media/backup-try-azure-backup-in-10-mins/encryption.png)
 
-    **서버 등록 마법사**가 Microsoft Azure 백업에 서버를 등록합니다.
+    **서버 등록 마법사**는 Microsoft Azure 백업에 서버를 등록합니다.
 
     ![암호화](./media/backup-try-azure-backup-in-10-mins/registering-server.png)
 
@@ -248,4 +246,4 @@ Windows 컴퓨터의 파일과 데이터를 Azure에 백업하려면 데이터�
 - [Windows Server 백업](backup-azure-backup-windows-server.md)에 대한 자세한 내용 보기
 - [Azure 백업 포럼](http://go.microsoft.com/fwlink/p/?LinkId=290933)을 방문하세요.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

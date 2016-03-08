@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-kindle"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="11/04/2015"
+	ms.date="02/29/2016"
 	ms.author="wesmc"/>
 
 # Kindle 앱에 대한 알림 허브 시작
@@ -74,7 +74,7 @@
 
 ## 응용 프로그램 설정
 
-> [AZURE.NOTE]응용 프로그램을 만들 때 API Level 17 이상을 사용합니다.
+> [AZURE.NOTE] 응용 프로그램을 만들 때 API Level 17 이상을 사용합니다.
 
 Eclipse 프로젝트에 ADM 라이브러리를 추가합니다.
 
@@ -251,7 +251,7 @@ ADM을 지원하도록 앱 매니페스트를 편집합니다.
 2. 에뮬레이터에서 위에서 아래로 살짝 밀고 **설정**, **내 계정**을 차례로 클릭한 다음 유효한 Amazon 계정을 등록합니다.
 3. Eclipse에서 앱을 실행합니다.
 
-> [AZURE.NOTE]문제가 발생하면 에뮬레이터 또는 장치의 시간을 확인합니다. 시간 값이 정확해야 합니다. Kindle 에뮬레이터의 시간을 변경하려면 Android SDK 플랫폼 도구 디렉터리에서 다음 명령을 실행할 수 있습니다.
+> [AZURE.NOTE] 문제가 발생하면 에뮬레이터 또는 장치의 시간을 확인합니다. 시간 값이 정확해야 합니다. Kindle 에뮬레이터의 시간을 변경하려면 Android SDK 플랫폼 도구 디렉터리에서 다음 명령을 실행할 수 있습니다.
 
 		adb shell  date -s "yyyymmdd.hhmmss"
 
@@ -281,4 +281,4 @@ ADM을 지원하도록 앱 매니페스트를 편집합니다.
 [6]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-new-java-class.png
 [7]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-notification.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

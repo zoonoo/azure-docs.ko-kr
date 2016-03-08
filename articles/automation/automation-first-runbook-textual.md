@@ -3,7 +3,7 @@
     description="PowerShell 워크플로를 사용하여 간단한 텍스트 Runbook의 생성, 테스트, 게시 과정을 안내하는 자습서입니다."
     services="automation"
     documentationCenter=""
-    authors="bwren"
+    authors="mgoedtel"
     manager="stevenka"
     editor=""/>
 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="02/18/2016"
+    ms.date="02/23/2016"
     ms.author="magoedte;bwren"/>
 
 # 내 첫 번째 PowerShell 워크플로 Runbook
@@ -117,4 +117,4 @@ Runbook이 Azure 구독에서 인증을 받으므로 리소스를 관리할 수 
 -	[내 첫 번째 그래픽 Runbook](automation-first-runbook-graphical.md)
 -	[내 첫 번째 PowerShell Runbook](automation-first-runbook-textual-PowerShell.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="09/22/2015"
+	ms.date="02/29/2016"
 	ms.author="piyushjo" />
 
 # Windows Phone Silverlight 앱용 Azure Mobile Engagement 시작
 
 > [AZURE.SELECTOR]
-- [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md)
+- [Windows 범용](mobile-engagement-windows-store-dotnet-get-started.md)
 - [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
 - [iOS | Obj C](mobile-engagement-ios-get-started.md)
 - [iOS | Swift](mobile-engagement-ios-swift-get-started.md)
@@ -28,14 +28,14 @@
 
 이 항목에서는 Azure Mobile Engagement를 사용하여 Windows Phone Silverlight 응용 프로그램에서 구분된 사용자에게 푸시 알림을 보내고 앱 사용량을 파악하는 방법을 설명합니다. 이 자습서에서는 Mobile Engagement를 사용하는 간단한 브로드캐스트 시나리오를 보여 줍니다. 여기서는 MPNS(Microsoft 푸시 알림 서비스)를 사용하여 푸시 알림을 받고 기본적인 데이터를 수집하는 빈 Windows Phone Silverlight 앱을 만듭니다.
 
-> [AZURE.NOTE]Windows Phone 8.1(비 Silverlight)을 대상으로 하는 경우 [Windows 유니버설 자습서](mobile-engagement-windows-store-dotnet-get-started.md)를 참조하세요.
+> [AZURE.NOTE] Windows Phone 8.1(비 Silverlight)을 대상으로 하는 경우 [Windows 유니버설 자습서](mobile-engagement-windows-store-dotnet-get-started.md)를 참조하세요.
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
 + Visual Studio 2013
 + [MicrosoftAzure.MobileEngagement] Nuget 패키지
 
-> [AZURE.IMPORTANT]Windows Phone Silverlight 앱용 모든 기타 Mobile Engagement 자습서를 완료하려면 이 자습서를 먼저 완료해야 합니다. 그러려면 활성 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-KR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 무료 평가판</a>을 참조하세요.
+> [AZURE.IMPORTANT] Windows Phone Silverlight 앱용 모든 기타 Mobile Engagement 자습서를 완료하려면 이 자습서를 먼저 완료해야 합니다. 그러려면 활성 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-KR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 무료 평가판</a>을 참조하세요.
 
 ##<a id="setup-azme"></a>Windows Phone 앱용 Mobile Engagement 설정
 
@@ -172,4 +172,4 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 [5]: ./media/mobile-engagement-windows-phone-get-started/reach-capabilities.png
 [6]: ./media/mobile-engagement-windows-phone-get-started/push-screenshot.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

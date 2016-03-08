@@ -57,4 +57,16 @@ Azure Data Factory에는 입력 및 출력 데이터, 처리 이벤트, 필요�
 
 데이터 집합, 활동, 파이프라인, 연결된 서비스라는 네 가지의 단순한 개념만으로 시작할 준비가 되었습니다. 처음부터 시작하여 [첫 번째 파이프라인을 빌드](data-factory-build-your-first-pipeline.md)하거나 [Data Factory 샘플](data-factory-samples.md)에 있는 지침에 따라 즉시 사용 가능한 샘플을 배포할 수 있습니다.
 
-<!---HONumber=AcomDC_0211_2016-->
+## 지원되는 지역
+이번에는 **미국 서부** 및 **북유럽** 지역에서 데이터 팩터리를 만들 수 있습니다. 그러나 데이터 팩터리는 계산 서비스를 사용하여 데이터 저장소 간에 데이터를 이동하고 데이터를 처리하도록 다른 Azure 지역에서 데이터 저장소 및 계산 서비스에 액세스할 수 있습니다.
+
+Azure 데이터 팩터리 자체는 데이터를 저장하지 않습니다. 데이터 기반 흐름을 만들어서 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores) 간의 데이터 이동을 조정하고 다른 지역 또는 온-프레미스 환경에서 [계산 서비스](data-factory-compute-linked-services.md)를 사용하여 데이터의 처리를 조정할 수 있습니다. 또한 프로그래밍 방식 및 UI 메커니즘을 모두 사용하여 [워크플로를 모니터링하고 관리](data-factory-monitor-manage-pipelines.md)할 수 있습니다.
+
+자체 Azure 데이터 팩터리가 **미국 서부** 및 **북유럽** 지역에서만 사용할 수 있지만, 여러 지역에서 데이터 팩터리의 데이터 이동을 지원하는 서비스를 [전역적으로](data-factory-data-movement-activities.md#global) 사용할 수 있습니다. 데이터 저장소가 방화벽 뒤에 있는 경우 온-프레미스 환경에 설치된 [데이터 관리 게이트웨이](data-factory-move-data-between-onprem-and-cloud.md)가 대신 데이터를 이동시킵니다.
+
+예를 들어 Azure HDInsight 클러스터 및 Azure 기계 학습과 같은 계산 환경이 서유럽 지역 외부에서 실행되고 있다고 가정해보겠습니다. 북유럽에서 Azure 데이터 팩터리 인스턴스를 만들고 활용할 수 있으며 이를 사용하여 서유럽의 계산 환경에 작업을 예약할 수 있습니다. 데이터 팩터리 서비스에서 계산 환경에 작업을 트리거하는 데는 몇 밀리초가 걸리지만 사용자의 계산 환경에서 작업을 실행하는 데는 걸리는 시간은 변경되지 않습니다.
+
+나중에 Azure에서 지원하는 모든 지리적 위치에서 Azure 데이터 팩터리를 사용하게 될 예정입니다.
+  
+
+<!---HONumber=AcomDC_0302_2016-->

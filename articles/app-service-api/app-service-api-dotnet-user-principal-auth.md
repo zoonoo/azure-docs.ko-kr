@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="get-started-article"
 	ms.date="01/26/2016"
 	ms.author="tdykstra"/>
 
@@ -114,7 +114,7 @@ API 앱에 대한 .NET 시작 시리즈를 따르고 있고 이미 [첫 번째](
 
 	![](./media/app-service-api-dotnet-user-principal-auth/aadsettings.png)
 
-	**Express** 옵션을 사용하면 Azure AD [테넌트](https://msdn.microsoft.com/en-us/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant)에서 앱 서비스가 자동으로 Azure AD 응용 프로그램을 만듭니다.
+	**Express** 옵션을 사용하면 Azure AD [테넌트](https://msdn.microsoft.com/ko-KR/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant)에서 앱 서비스가 자동으로 Azure AD 응용 프로그램을 만듭니다.
 
 	자동으로 모든 Azure 계정에 하나씩 있기 때문에 테넌트를 만들 필요가 없습니다.
 
@@ -337,4 +337,4 @@ ToDoListAPI 프로젝트를 다음과 같이 변경합니다.
 
 이 자습서에서는 API 앱에 앱 서비스 인증을 사용하는 방법과, ADAL JS 라이브러리를 사용하여 API 앱을 호출하는 방법을 배웠습니다. 다음 자습서에서는 [서비스 간 시나리오에 대해 API 앱에 대한 액세스를 보호](app-service-api-dotnet-service-principal-auth.md)하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

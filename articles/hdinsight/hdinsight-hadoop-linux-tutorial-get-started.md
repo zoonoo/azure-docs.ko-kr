@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="02/11/2016"
+   	ms.date="03/01/2016"
    	ms.author="jgao"/>
 
 # Hadoop 자습서: HDInsight에서 Linux 기반 Hadoop 사용 시작
@@ -37,7 +37,7 @@ Hadoop과 빅 데이터를 처음 사용하는 경우 [Apache Hadoop](http://go.
 
 Hadoop 작업의 대부분은 배치 작업입니다. 클러스터를 만들고 일부 작업을 실행합니다. 이 섹션에서는 [Azure ARM 템플릿](../resource-group-template-deploy.md)을 사용하여 HDInsight에서 Linux 기반 Hadoop 클러스터를 만듭니다. 이 자습서를 따라하는 데 Azure ARM 템플릿에 대한 경험이 필요하지는 않습니다. 기타 클러스터 생성 방법 및 설정에 대한 이해는 [HDInsight 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요. ARM 템플릿을 사용하여 HDInsight에서 Hadoop 클러스터를 만드는 방법에 대한 자세한 내용은 [ARM 템플릿을 사용하여 HDInsight에서 Hadoop 클러스터 만들기](hdinsight-hadoop-create-windows-clusters-arm-templates.md)를 참조하세요.
 
-1. Azure 포털에서 ARM 템플릿을 열려면 다음 이미지를 클릭합니다. ARM 템플릿은 공용 BLOB 컨테이너에 있습니다. 
+1. Azure 포털에서 ARM 템플릿을 열려면 다음 이미지를 클릭합니다. ARM 템플릿은 URL **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json*이 있는 공용 BLOB 컨테이너에 있습니다.
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/ko-KR/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
@@ -45,12 +45,14 @@ Hadoop 작업의 대부분은 배치 작업입니다. 클러스터를 만들고 
 
     - **ClusterName**: 만들려는 Hadoop 클러스터의 이름을 입력합니다.
     - **ClusterStorageAccountName**: 각 클러스터에는 Azure Blob 저장소 계정 종속성이 있습니다. 클러스터를 삭제한 후에는 데이터가 저장소 계정에 유지됩니다.
-    - **Cluster login name and password**(클러스터 로그인 이름 및 암호): 기본 로그인 이름은 **admin**입니다.
-    - **SSH username and password**(SSH 사용자 이름 및 암호): 기본 사용자 이름은 **sshuser**입니다. 이름은 변경할 수 있습니다. 다른 매개 변수는 선택 사항입니다. 그대로 유지해도 됩니다.  
+    - **클러스터 로그인 이름 및 암호**: 기본 로그인 이름은 **admin**입니다.
+    - **SSH 사용자 이름 및 암호**: 기본 사용자 이름은 **sshuser**입니다. 이름은 변경할 수 있습니다. 
+    
+    다른 매개 변수는 선택 사항입니다. 그대로 유지해도 됩니다. 클러스터 기본 저장소 계정 이름은 "저장소"가 추가된 클러스터 이름이입니다. 템플릿의 변수 섹션에서 하드 코딩됩니다.
 3. **확인**을 클릭하여 매개 변수를 저장합니다.
-4. **사용자 지정 배포** 블레이드에서 **리소스 그룹**을 클릭한 후 **새로 만들기**를 클릭하여 새 리소스 그룹을 만듭니다. 리소스 그룹은 클러스터, 종속 저장소 계정 및 기타 연결된 리소스를 그룹화하는 컨테이너입니다.
+4. **사용자 지정 배포** 블레이드에서 **리소스 그룹**을 클릭한 후 **새로 만들기**를 클릭하여 새 리소스 그룹을 만듭니다. 리소스 그룹은 클러스터, 종속 저장소 계정 및 기타 연결된 리소스를 그룹화하는 컨테이너입니다. 리소스 그룹 위치는 클러스터 위치와 다를 수 있습니다.
 5. **약관**을 클릭한 후에 **만들기**를 클릭합니다.
-6. **만들기**를 클릭합니다. **템플릿 배포 배포 제출 중**이라는 새 타일 제목이 표시됩니다. 클러스터를 만들려면 20분 정도가 걸립니다. 클러스터가 만들어졌으면 포털에서 클러스터 블레이드를 클릭하면 열립니다.
+6. **만들기**를 클릭합니다. **템플릿 배포에 배포 제출**이라는 제목의 새 타일이 표시됩니다. 클러스터를 만들려면 20분 정도가 걸립니다. 클러스터가 만들어졌으면 포털에서 클러스터 블레이드를 클릭하면 열립니다.
 
 이 자습서를 완료한 후에 클러스터를 삭제할 수 있습니다. HDInsight를 사용하면 데이터가 Azure 저장소에 저장되기 때문에 클러스터를 사용하지 않을 때 안전하게 삭제할 수 있습니다. HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩니다. 클러스터에 대한 요금이 저장소에 대한 요금보다 몇 배 더 많기 때문에, 클러스터를 사용하지 않을 때는 삭제하는 것이 경제적인 면에서 더 합리적입니다. 클러스터 삭제에 대한 내용은 [Azure 포털을 사용하여 HDInsight에서 Hadoop 클러스터 관리](hdinsight-administer-use-management-portal.md#delete-clusters)를 참조하세요.
 
@@ -76,7 +78,7 @@ Hadoop 작업의 대부분은 배치 작업입니다. 클러스터를 만들고 
 
         SELECT * FROM hivesampletable;
 
-Hive 작업을 완료한 후에는 [결과를 Azure SQL 데이터베이스 또는 SQL Server 데이터베이스로 내보내고](hdinsight-use-sqoop-mac-linux.md), [Excel을 사용하여 결과를 시각화](hdinsight-connect-excel-power-query.md)할 수도 있습니다. HDInsight에서 Hive를 사용하는 방법에 대한 자세한 내용은 [샘플 Apache log4j 파일 분석을 위해 HDInsight에서 Hadoop와 함께 Hive 및 HiveQL 사용](hdinsight-use-hive.md)을 참조하세요.
+Hive 작업을 완료한 후에 [결과를 Azure SQL 데이터베이스 또는 SQL Server 데이터베이스로 내보내고](hdinsight-use-sqoop-mac-linux.md), [Excel을 사용하여 결과를 시각화](hdinsight-connect-excel-power-query.md)할 수도 있습니다. HDInsight에서 Hive를 사용하는 방법에 대한 자세한 내용은 [샘플 Apache log4j 파일 분석을 위해 HDInsight에서 Hadoop와 함께 Hive 및 HiveQL 사용](hdinsight-use-hive.md)을 참조하세요.
 
 ## 다음 단계
 
@@ -133,4 +135,4 @@ HDInsight 클러스터를 만들거나 관리하는 방법에 대해 자세히 �
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

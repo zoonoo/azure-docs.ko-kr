@@ -9,10 +9,10 @@
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/14/2015"
+   ms.date="03/02/2016"
    ms.author="cherylmc" />
 
 # 사이트 간 VPN 게이트웨이 연결에 대한 VPN 장치 정보
@@ -44,18 +44,18 @@ VPN 장치를 구성하려면 적절한 장치 패밀리에 해당하는 링크�
 | Barracuda Networks, Inc. | Barracuda Firewall | Barracuda Firewall 6.5 | [Barracuda Firewall](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) | 호환되지 않음 |
 | Brocade | Vyatta 5400 vRouter | Virtual Router 6.6R3 GA | [구성 지침](http://www1.brocade.com/downloads/documents/html_product_manuals/vyatta/vyatta_5400_manual/wwhelp/wwhimpl/js/html/wwhelp.htm#href=VPN_Site-to-Site%20IPsec%20VPN/Preface.1.1.html) | 호환되지 않음 |
 | Check Point | Security Gateway | R75.40, R75.40VS | [구성 지침](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) | [구성 지침](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
-| Cisco | ASA | 8\.3 | [Cisco 샘플](http://go.microsoft.com/fwlink/p/?LinkID=717348) | 호환되지 않음 |
-| Cisco | ASR | IOS 15.1(정책 기반), IOS 15.2(경로 기반) | [Cisco 샘플](http://go.microsoft.com/fwlink/p/?LinkID=717348) | [Cisco 샘플](http://go.microsoft.com/fwlink/p/?LinkID=717348) |
-| Cisco | ISR | IOS 15.0(정책 기반), IOS 15.1(경로 기반) | [Cisco 샘플](http://go.microsoft.com/fwlink/p/?LinkID=717348) | [Cisco 샘플](http://go.microsoft.com/fwlink/p/?LinkID=717348) |
+| Cisco | ASA | 8\.3 | [Cisco 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) | 호환되지 않음 |
+| Cisco | ASR | IOS 15.1(정책 기반), IOS 15.2(경로 기반) | [Cisco 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) | [Cisco 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
+| Cisco | ISR | IOS 15.0(정책 기반), IOS 15.1(경로 기반) | [Cisco 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) | [Cisco 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
 | Citrix | CloudBridge MPX 어플라이언스 또는 VPX 가상 어플라이언스 | 해당 없음 | [통합 지침](https://www.citrix.com/welcome.html?resource=%2Fdownloads%2Fcloudbridge%2Fbetas-and-tech-previews%2Fcloudbridge-azure-integration) | 호환되지 않음 |
 | Dell SonicWALL | TZ 시리즈, NSA 시리즈, SuperMassive 시리즈 E-Class NSA 시리즈 | SonicOS 5.8.x, [SonicOS 5.9.x](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=850), [SonicOS 6.x](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=646) | [지침 - SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646) [지침 - SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) | [지침 - SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646) [지침 - SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |
 | F5 | BIG-IP 시리즈 | 해당 없음 | [구성 지침](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) | 호환되지 않음 |
 | Fortinet | FortiGate | FortiOS 5.0.7 | [구성 지침](http://docs.fortinet.com/fortigate/admin-guides) | [구성 지침](http://docs.fortinet.com/fortigate/admin-guides) |
 | IIJ(Internet Initiative Japan) | SEIL 시리즈 | SEIL/X 4.60, SEIL/B1 4.60, SEIL/x86 3.20 | [구성 지침](http://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) | 호환되지 않음 |
-| Juniper | SRX | JunOS 10.2(정책 기반), JunOS 11.4(경로 기반) | [Juniper 샘플](http://go.microsoft.com/fwlink/p/?LinkId=717760) | [Juniper 샘플](http://go.microsoft.com/fwlink/p/?LinkId=717760) |
-| Juniper | J 시리즈 | JunOS 10.4r9(정책 기반), JunOS 11.4(경로 기반) | [Juniper 샘플](http://go.microsoft.com/fwlink/p/?LinkId=717760) | [Juniper 샘플](http://go.microsoft.com/fwlink/p/?LinkId=717760) |
-| Juniper | ISG | ScreenOS 6.3(정책 기반 및 경로 기반) | [Juniper 샘플](http://go.microsoft.com/fwlink/p/?LinkId=717760) | [Juniper 샘플](http://go.microsoft.com/fwlink/p/?LinkId=717760) |
-| Juniper | SSG | ScreenOS 6.2(정책 기반 및 경로 기반) | [Juniper 샘플](http://go.microsoft.com/fwlink/p/?LinkId=717760) | [Juniper 샘플](http://go.microsoft.com/fwlink/p/?LinkId=717760) |
+| Juniper | SRX | JunOS 10.2(정책 기반), JunOS 11.4(경로 기반) | [Juniper 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) | [Juniper 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) |
+| Juniper | J 시리즈 | JunOS 10.4r9(정책 기반), JunOS 11.4(경로 기반) | [Juniper 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) | [Juniper 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) |
+| Juniper | ISG | ScreenOS 6.3(정책 기반 및 경로 기반) | [Juniper 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG) | [Juniper 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG) |
+| Juniper | SSG | ScreenOS 6.2(정책 기반 및 경로 기반) | [Juniper 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) | [Juniper 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |
 | Microsoft | 라우팅 및 원격 액세스 서비스 | Windows Server 2012 | 호환되지 않음 | [Microsoft 샘플](http://go.microsoft.com/fwlink/p/?LinkId=717761) |
 | Openswan | Openswan | 2\.6.32 | (출시 예정) | 호환되지 않음 |
 | Palo Alto Networks | PAN-OS 5.0 이상을 실행하는 모든 장치 | PAN-OS 5x 이상 | [Palo Alto Networks](https://support.paloaltonetworks.com/) | 호환되지 않음 |
@@ -112,11 +112,7 @@ VPN 장치를 구성하려면 적절한 장치 패밀리에 해당하는 링크�
 |--------------------------------------------------------------------------|------------------------------------------------|--------------------------------------------------------------------|
 | IKE 버전 | IKEv1 | IKEv2 |
 | 해시 알고리즘 | SHA1(SHA128) | SHA1(SHA128) |
-| 2단계 SA(보안 연결) 수명(시간) | 3,600초 | - |
-| 2단계 SA(보안 연결) 수명(처리량) | 102,400,000KB | - |
-| IPsec SA 암호화 및 인증 제안(우선 순위 순서로) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. 해당 없음 | *경로 기반 게이트웨이 IPsec SA(보안 연결) 제안 참조*(아래) |
-| PFS(Perfect Forward Secrecy) | 아니요 | 예(DH Group1) |
-| DPD(Dead Peer Detection) | 지원되지 않음 | 지원됨 |
+| 2단계 SA(보안 연결) 수명(시간) | 3,600초 | - | | 2단계 SA(보안 연결) 수명(처리량) | 102,400,000KB | - | | IPsec SA 암호화 및 인증 제안(우선 순위 순서로) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. 해당 없음 | *경로 기반 게이트웨이 IPsec SA(보안 연결) 제안 참조*(아래) | | PFS(Perfect Forward Secrecy) | 아니요 | 예(DH Group1) | | DPD(Dead Peer Detection) | 지원되지 않음 | 지원됨 |
 
 ### 경로 기반 게이트웨이 IPsec SA(보안 연결) 제안
 
@@ -140,12 +136,11 @@ VPN 장치를 구성하려면 적절한 장치 패밀리에 해당하는 링크�
 | 14 | AH MD5(ESP DES null HMAC 사용), 제안된 수명 없음 | AH MD5(ESP DES MD5 사용), 수명 없음 |
 | 15 | AH SHA1(ESP DES SHA1 사용), 수명 없음 | ESP SHA, 수명 없음 |
 | 16 | AH MD5(ESP DES MD5 사용), 수명 없음 | ESP MD5, 수명 없음 |
-| 17 | - | AH SHA, 수명 없음 |
-| 18 | - | AH MD5, 수명 없음 |
+| 17 | - | AH SHA, 수명 없음 | | 18 | - | AH MD5, 수명 없음 |
 
 
 - 경로 기반 및 고성능 VPN 게이트웨이를 사용하여 IPsec ESP NULL 암호화를 지정할 수 있습니다. Null 기반 암호화는 전송 중인 데이터를 보호하지 않으며, 최대 처리량 및 최소 대기 시간이 필요한 경우에만 사용됩니다. 클라이언트에서는 VNet 간 통신 시나리오 또는 솔루션의 다른 곳에서 암호화가 적용된 경우에 이 암호화를 사용할 수 있습니다.
 
 - 인터넷을 통한 프레미스 간 연결의 경우 중요한 통신의 보안을 보장하려면 위의 표에 나열된 암호화 및 해시 알고리즘을 사용하는 기본 Azure VPN 게이트웨이 설정을 사용하세요.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

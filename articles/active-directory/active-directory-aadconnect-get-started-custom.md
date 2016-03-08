@@ -163,7 +163,9 @@ Azure AD Connect를 사용하여 AD FS를 구성하는 것은 단 몇 번의 클
 여기에서 웹 응용 프로그램 프록시 서버로 원하는 특정 서버를 입력합니다. 웹 응용 프로그램 프록시 서버는 DMZ(엑스트라넷 연결)에 배포되며 엑스트라넷에서 인증 요청을 지원합니다. 용량 계획 요구 사항에 따라 하나 이상의 서버를 추가할 수 있습니다. 테스트 및 파일럿 배포를 위한 단일 웹 응용 프로그램 프록시 서버를 설치하고 초기 설치 후에 Azure AD Connect를 열어 추가 서버를 배포하고 웹 응용 프로그램 프록시를 추가 서버에 배포하는 것이 좋습니다. 일반적으로 인트라넷에서 인증을 충족하기 위해 동일한 수의 프록시 서버가 있는 것이 좋습니다.
 
 > [AZURE.NOTE]
-<li> Azure AD Connect를 설치하는 데 사용하는 계정이 AD FS 서버에서 로컬 관리자가 아닌 경우 충분한 권한이 있는 계정의 자격 증명에 대한 메시지가 표시됩니다.</li> <li> 이 단계를 구성하기 전에 Azure AD Connect 서버와 웹 응용 프로그램 프록시 서버 간의 HTTP/HTTPS 연결이 되었는지 확인합니다.</li> <li> 또한 웹 응용 프로그램 서버와 AD FS 서버 간의 HTTP/HTTPS 연결을 통해 인증 요청이 허용되는지 확인합니다.</li>
+<li> Azure AD Connect를 설치하는 데 사용하는 계정이 AD FS 서버에서 로컬 관리자가 아닌 경우 충분한 권한이 있는 계정의 자격 증명을 입력하라는 메시지가 표시됩니다.</li>
+<li> 이 단계를 구성하기 전에 Azure AD Connect 서버와 웹 응용 프로그램 프록시 서버 간의 HTTP/HTTPS 연결이 되었는지 확인합니다.</li>
+<li> 또한 전달할 인증 요청이 허용하기 위해 웹 응용 프로그램 서버와 AD FS 서버 간의 HTTP/HTTPS 연결이 되었는지 확인합니다.</li>
 
 ![웹앱](./media/active-directory-aadconnect-get-started-custom/adfs3.png)
 
@@ -191,6 +193,14 @@ AD FS 서비스가 Active Directory에서 사용자를 인증하고 사용자 �
 ![Azure AD 도메인](./media/active-directory-aadconnect-get-started-custom/adfs6.png)
 
 
+### 페더레이션에 선택한 Azure AD 도메인 확인
+
+온-프레미스 디렉터리로 페더레이션할 도메인을 선택하면 도메인이 확인되지 않은 경우 Azure AD Connect는 도메인 확인에 필요한 정보를 제공합니다. 이 페이지에서는 도메인 이름 등록자에 만들어야 하거나 DNS가 호스팅된 위치에 도메인 확인을 완료하기 위해 DNS 레코드를 제공합니다.</br>
+
+![Azure AD 도메인](./media/active-directory-aadconnect-get-started-custom/verifyfeddomain.png)
+
+> [AZURE.NOTE] AD Connect는 구성 단계에서 도메인을 확인하려고 합니다. 필요한 DNS 레코드를 도메인 DNS가 호스트되는 위치에 추가하지 않고 계속 구성하는 경우 마법사는 구성을 완료할 수 없습니다.</br>
+
 ## 페이지 구성 및 확인
 이 페이지에서 구성은 실제로 일어납니다.
 
@@ -217,8 +227,8 @@ AD FS 서비스가 Active Directory에서 사용자를 인증하고 사용자 �
 
 또한 다음 확인 단계를 수행합니다.
 
-- 인트라넷에서 Internet Explorer에서 도메인 가입된 컴퓨터에서 브라우저 로그인의 유효성 검사: https://myapps.microsoft.com에 연결하고 로그인한 계정으로 로그인을 확인합니다. **참고:** 기본 제공 AD DS 관리자 계정은 동기화되지 않고 확인을 위해 사용될 수 없습니다.
-- 엑스트라넷의 모든 장치에서 브라우저 로그인의 유효성 검사: 홈 컴퓨터 또는 모바일 장치에서 https://myapps.microsoft.com에 연결하고 로그인 ID 및 암호 자격 증명을 제공합니다.
+- 인트라넷의 Internet Explorer에 있는 도메인 가입된 컴퓨터에서 브라우저 로그인의 유효성 검사: https://myapps.microsoft.com에 연결하고 로그인한 계정의 로그인을 확인합니다. **참고:** 기본 제공 AD DS 관리자 계정은 동기화되지 않고 확인을 위해 사용될 수 없습니다.
+- 엑스트라넷의 장치에서 브라우저 로그인의 유효성 검사: 홈 컴퓨터 또는 모바일 장치에서 https://myapps.microsoft.com에 연결하고 로그인 ID 및 암호 자격 증명을 제공합니다.
 - 리치 클라이언트 로그인의 유효성 검사: https://testconnectivity.microsoft.com에 연결하고 **Office 365** 탭을 선택하고 **Office 365 Single Sign-On 테스트**를 선택합니다.
 
 ## 다음 단계
@@ -228,4 +238,4 @@ Azure AD Connect를 설치했으므로 [설치를 확인하고 라이선스를 �
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

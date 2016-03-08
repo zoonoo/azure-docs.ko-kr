@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na" 
-	ms.date="12/24/2015"
+	ms.date="02/26/2016"
 	ms.author="cfowler"/>
 
 # Azure 앱 서비스의 API 앱에 웹앱 연결
@@ -47,7 +47,7 @@
 
 	![기존 API 앱 선택](./media/app-service-web-connect-web-app-to-saas-api/4-Add-Azure-API-App-SDK-Dialog.png)
 
-	>[AZURE.NOTE]API 앱에 연결하기 위한 클라이언트 코드가 Swagger API 끝점에서 자동으로 생성됩니다.
+	>[AZURE.NOTE] API 앱에 연결하기 위한 클라이언트 코드가 Swagger API 끝점에서 자동으로 생성됩니다.
 
 1. 생성된 API 코드를 활용하려면 HomeController.cs 파일을 열고 `Contact` 동작을 다음 코드로 바꿉니다.
 
@@ -64,28 +64,29 @@
 	![HomeController.cs 코드 업데이트](./media/app-service-web-connect-web-app-to-saas-api/5-Write-Code-Which-Leverages-Swagger-Generated-Code.png)
 
 1. 아래 코드를 사용하여 동적 연락처 목록을 반영하도록 `Contact` 보기를 업데이트합니다.
-	<pre>// Add to the very top of the view file
-	@model IList&lt;MyContactsList.Web.Models.Contact&gt;
+	<pre>// 뷰 파일의 최상위에 추가
+	@model IList&lt;MyContactsList.Web.Models.Contact>
 	
-	// Replace the default email addresses with the following
-    &lt;h3&gt;Public Contacts&lt;/h3&gt;
-    &lt;ul&gt;
-        @foreach (var contact in Model)
-        {
-            &lt;li&gt;&lt;a href=&quot;mailto:@contact.EmailAddress&quot;&gt;@contact.Name &amp;lt;@contact.EmailAddress&amp;gt;&lt;/a&gt;&lt;/li&gt;
-        }
-    &lt;/ul&gt; 
+	// 기본 메일 주소를 다음 메일 주소로 바꿉니다.
+	&lt;h3>Public Contacts&lt;/h3>
+	&lt;ul>
+	    @foreach (var contact in Model)
+	    {
+	        &lt;li>&lt;a href="mailto:@contact.EmailAddress">@contact.Name &amp;lt;@contact.EmailAddress&amp;gt;&lt;/a>&lt;/li>
+	    }
+	&lt;/ul> 
 	</pre>
+
 	![Contact.cshtml 코드 업데이트](./media/app-service-web-connect-web-app-to-saas-api/6-Update-View-To-Reflect-Changes.png)
 
 ## 앱 서비스에서 웹앱에 웹 응용 프로그램 배포
 
 [Azure 웹앱을 배포하는 방법](web-sites-deploy.md)에 있는 지침을 따르세요.
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0302_2016-->

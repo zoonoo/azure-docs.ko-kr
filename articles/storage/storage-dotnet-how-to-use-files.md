@@ -3,17 +3,17 @@
     		description="Azure 파일 저장소를 사용하여 클라우드에 파일 데이터를 저장하고 Azure 가상 컴퓨터(VM) 또는 Windows를 실행하는 온-프레미스 응용 프로그램에서 클라우드 파일 공유를 탑재합니다."
             services="storage"
             documentationCenter=".net"
-            authors="robinsh"
-            manager="carmonm"
-            editor="" />
+            authors="mine-msft"
+            manager="aungoo"
+            editor="tysonn" />
 
 <tags ms.service="storage"
       ms.workload="storage"
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="02/19/2016"
-      ms.author="robinsh" />
+      ms.date="02/29/2016"
+      ms.author="minet" />
 
 # Windows에서 Azure 파일 저장소 시작
 
@@ -580,6 +580,14 @@ AzCopy를 사용하여 파일을 다른 파일로 복사하거나 blob을 파일
 
 	다수의 파일을 파일 저장소로 전송하려면 네트워크 전송을 위해 최적화된 도구인 AzCopy, Azure Powershell(Windows) 또는 Azure CLI(Linux/Unix)를 사용하는 것이 좋습니다.
 
+13. **Azure 파일로 성능 저하 문제를 해결하기 위해 출시된 패치**
+
+	Windows 팀은 고객이 Windows 8.1 또는 Windows Server 2012 R2에서 Azure 파일 저장소에 액세스할 때 발생하는 성능 저하 문제를 해결하기 위해 최근에 패치를 출시했습니다. 자세한 내용은 관련된 기술 자료 문서인 [Windows 8.1 또는 Server 2012 R2에서 Azure 파일 저장소에 액세스할 때 성능 저하](https://support.microsoft.com/ko-KR/kb/3114025)를 확인합니다.
+
+14. **IBM MQ로 Azure 파일 저장소 사용**
+
+	IBM은 해당 서비스로 Azure 파일 저장소를 구성할 때 IBM MQ 고객을 안내하는 문서를 출시했습니다. 자세한 내용은 [Microsoft Azure 파일 서비스와 IBM MQ 다중 인스턴스 큐 관리자를 설치하는 방법](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service)을 참조하세요.
+
 ## 다음 단계
 
 Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합니다.
@@ -607,4 +615,4 @@ Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합�
 - [Microsoft Azure 파일 서비스 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Microsoft Azure 파일에 대한 연결 유지](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->
