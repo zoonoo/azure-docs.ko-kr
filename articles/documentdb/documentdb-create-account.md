@@ -10,7 +10,7 @@
 
 <tags
 	ms.service="documentdb"
-	ms.workload="data-services" 
+	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
@@ -20,8 +20,8 @@
 # Azure 포털을 사용하여 DocumentDB 데이터베이스 계정을 만드는 방법
 
 > [AZURE.SELECTOR]
-- [Azure Portal](documentdb-create-account.md)
-- [Azure CLI and ARM](documentdb-automation-resource-manager-cli.md)
+- [Azure 포털](documentdb-create-account.md)
+- [Azure CLI 및 ARM](documentdb-automation-resource-manager-cli.md)
 
 Microsoft Azure DocumentDB를 사용하려면 Azure 포털, Azure 리소스 관리자 템플릿 또는 Azure 명령줄 인터페이스(CLI)를 사용하여 DocumentDB 데이터베이스 계정을 만들어야 합니다. 이 문서에서는 Azure 포털에서 데이터베이스 계정을 만드는 방법을 보여 줍니다. Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 계정을 만들려면 [DocumentDB 데이터베이스 만들기 자동화](documentdb-automation-resource-manager-cli.md)를 참조하세요.
 
@@ -48,4 +48,4 @@ DocumentDB에 대해 자세히 알아보려면 다음 리소스를 참조하세�
 -	[DocumentDB 학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 -	[DocumentDB 리소스 모델 및 개념](documentdb-resources.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

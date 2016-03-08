@@ -36,7 +36,7 @@ SQL 데이터베이스의 [탄력적 데이터베이스 풀](sql-database-elasti
 
 — 단일이든 또는 탄력적이든 — 구애 받지 않습니다. 단일 데이터베이스를 탄력적 데이터베이스 풀과 혼합하고 단일 데이터베이스와 풀의 서비스 계층을 변경하여 혁신적인 디자인을 만들 수 있습니다. 또한 Azure의 성능 및 도달 범위를 바탕으로 Azure 서비스를 SQL 데이터베이스와 조합하여 사용하면 고유한 현대적 응용 프로그램 설계 요구를 충족시키고, 비용 및 리소스를 효율적으로 운용하고, 새로운 비즈니스 기회를 만들 수 있습니다.
 
-하지만 데이터베이스와 데이터베이스 풀의 상대적 성능을 비교하려면 어떻게 해야 합니까? 확장 및 축소할 때 마우스 오른쪽 단추 클릭이 정지하는 것을 어떻게 알 수 있습니까? 단일 데이터베이스에 데이터베이스 트랜잭션 장치를 선택하고 탄력적 데이터베이스와 데이터베이스 풀에 탄력적 DTU(eDTU)를 선택하는 것이 답입니다.
+하지만 데이터베이스와 데이터베이스 풀의 상대적 성능을 비교하려면 어떻게 해야 합니까? 확장 및 축소할 때 마우스 오른쪽 단추 클릭이 정지하는 것을 어떻게 알 수 있습니까? 단일 데이터베이스에 데이터베이스 트랜잭션 장치(DTU)를 선택하고 탄력적 데이터베이스와 데이터베이스 풀에 탄력적 DTU(eDTU)를 선택하는 것이 답입니다.
 
 ## DTU 이해
 
@@ -61,4 +61,4 @@ SQL 데이터베이스에 대한 소개를 읽고 질문 "SQL 데이터베이스
 
 - [첫 번째 데이터베이스 만들기](sql-database-get-started.md)로 시작합니다. 그런 다음 [C#](sql-database-connect-query.md), [Java](sql-database-develop-java-simple-windows.md), [Node.js](sql-database-develop-nodejs-simple-windows.md), [PHP](sql-database-develop-php-retry-windows.md), [Python](sql-database-develop-python-simple-windows.md) 또는 [Ruby](sql-database-develop-ruby-simple-linux)에서 첫 앱을 만듭니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

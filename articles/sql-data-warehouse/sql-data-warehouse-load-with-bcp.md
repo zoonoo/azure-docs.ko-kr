@@ -10,17 +10,17 @@
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="02/25/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 
 # bcp를 사용하여 데이터 로드
 
 > [AZURE.SELECTOR]
-- [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
+- [데이터 팩터리](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
 - [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
 - [BCP](sql-data-warehouse-load-with-bcp.md)
 
@@ -49,7 +49,7 @@ bcp를 사용하면 다음과 같은 작업을 수행할 수 있습니다.
 - 설치된 bcp 명령줄 유틸리티
 - 설치된 SQLCMD 명령줄 유틸리티
 
->[AZURE.NOTE] [Microsoft 다운로드 센터][]에서 bcp 및 sqlcmd 유틸리티를 다운로드할 수 있습니다.
+>[AZURE.NOTE] [Microsoft 다운로드 센터][]에서 bcp 및 sqlcmd 유틸리티를 다운로드할 수 있습니다.
 
 ## SQL 데이터 웨어하우스로 데이터 로드
 
@@ -78,7 +78,7 @@ WITH
 );
 GO
 ```
->[AZURE.NOTE]WITH 절에서 사용 가능한 옵션에 대한 자세한 내용은 항목의 개발 그룹에서 [테이블 설계][] 항목을 참조하세요.
+>[AZURE.NOTE] WITH 절에서 사용 가능한 옵션에 대한 자세한 내용은 항목의 개발 그룹에서 [테이블 설계][] 항목을 참조하세요.
 
 ### 2단계: 원본 데이터 파일 만들기
 
@@ -101,7 +101,7 @@ GO
 
 로컬 임시 디렉터리, C:\\Temp\\DimDate2.txt로 저장합니다.
 
-> [AZURE.NOTE]해당 bcp.exe는 UTF-8 파일 인코딩을 지원하지 않습니다. bcp.exe 사용 시 파일에 ASCII 인코딩 파일 또는 UTF-16 인코딩을 사용하세요.
+> [AZURE.NOTE] 해당 bcp.exe는 UTF-8 파일 인코딩을 지원하지 않습니다. bcp.exe 사용 시 파일에 ASCII 인코딩 파일 또는 UTF-16 인코딩을 사용하세요.
 
 ### 3단계: 데이터 연결 및 가져오기
 bcp를 사용하여, 연결하고 값을 적절하게 대체하는 다음 명령을 사용하여 데이터를 가져올 수 있습니다.
@@ -174,7 +174,7 @@ bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name>
 20150101,1,3
 ```
 
->[AZURE.NOTE]분산된 시스템의 특성상 데이터 순서는 SQL 데이터 웨어하우스 데이터베이스에서 동일하지 않을 수 있습니다. 선택적으로 queryout 매개변수를 사용하여 실행할 TRANSACT-SQL 쿼리를 지정합니다.
+>[AZURE.NOTE] 분산된 시스템의 특성상 데이터 순서는 SQL 데이터 웨어하우스 데이터베이스에서 동일하지 않을 수 있습니다. 선택적으로 queryout 매개변수를 사용하여 실행할 TRANSACT-SQL 쿼리를 지정합니다.
 
 ## 다음 단계
 로드 개요는 [SQL 데이터 웨어하우스로 데이터 로드][]를 참조하세요. 더 많은 개발 팁은 [SQL 데이터 웨어하우스 개발 개요][]를 참조하세요.
@@ -196,4 +196,4 @@ bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name>
 <!--Other Web references-->
 [Microsoft 다운로드 센터]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0302_2016-->

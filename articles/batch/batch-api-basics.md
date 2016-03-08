@@ -13,8 +13,8 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="01/21/2016"
-	ms.author="yidingz;v-marsma"/>
+	ms.date="02/25/2016"
+	ms.author="yidingz;marsma"/>
 
 # Azure 배치 기능 개요
 
@@ -44,26 +44,17 @@
 
 ## <a name="resource"></a>배치 서비스의 리소스
 
-Azure 배치 서비스를 사용하는 경우 다음 리소스를 활용할 수 있습니다.
+Azure 배치 서비스를 사용하는 경우 다음 리소스를 사용할 수 있습니다.
 
 - [계정](#account)
-
 - [계산 노드](#computenode)
-
 - [풀](#pool)
-
 - [작업](#job)
-
 - [Task](#task)
-
 	- [시작 태스크](#starttask)
-
 	- [작업 관리자 태스크](#jobmanagertask)
-
 	- [작업 준비 및 해제 태스크](#jobpreprelease)
-
 	- [다중 인스턴스 작업](#multiinstance)
-
 - [JobSchedule](#jobschedule)
 
 ### <a name="account"></a>계정
@@ -231,11 +222,11 @@ Azure 배치 솔루션을 디자인할 때 디자인 결정은 풀을 만드는 
 
 ## <a name="scaling"></a>응용 프로그램 크기 조정
 
-[자동 크기 조정](batch-automatic-scaling.md)을 사용하면 필요한 계산을 수용하도록 응용 프로그램을 자동으로 쉽게 확장하거나 축소할 수 있습니다. 현재 워크로드 및 리소스 사용량 통계에 따라 풀의 노드 수를 동적으로 조정할 수 있습니다. 이를 통해 필요한 리소스만 사용하여 전반적인 응용 프로그램 실행 비용을 절감할 수 있습니다. 풀이 만들어질 때 크기 조정 설정을 지정할 수 있고 언제든지 이 구성을 업데이트할 수 있습니다.
+[자동 크기 조정](batch-automatic-scaling.md)으로 배치 서비스가 계산 시나리오의 현재 워크로드 및 리소스 사용량에 따라 풀의 계산 노드 수를 동적으로 조정하도록 할 수 있습니다. 그러면 필요한 리소스만을 사용하고 필요하지 않은 리소스를 해제하여 응용 프로그램을 실행하는 전체 비용을 낮출 수 있습니다. 나중에 크기 조정을 만들거나 사용할 때 풀에 대한 자동 크기 조정 설정을 지정할 수 있으며 자동 크기 조정을 사용하는 풀에서 크기 조정 설정을 업데이트할 수 있습니다.
 
-노드 수를 자동으로 줄이는 경우 현재 실행 중인 태스크를 고려해야 합니다. 노드를 즉시 제거하기 위해 실행 중인 태스크를 중지할지 여부나 노드가 제거되기 전에 태스크를 완료할 수 있도록 허용할지 여부를 결정하는 할당 취소 정책을 지정합니다. 작업을 마칠 때 목표 노드 수를 0으로 설정하지만 실행 중인 태스크를 완료할 수 있도록 허용하면 사용률이 극대화됩니다.
+풀에 대한 **자동 크기 조정 수식**을 지정하여 자동 크기 조정을 수행합니다. 배치 서비스는 이 수식을 사용하여 다음 크기 조정 간격(지정할 수 있는 간격)에 대한 풀의 노드 대상 수를 확인합니다.
 
-일련의 크기 조정 수식을 지정하여 응용 프로그램의 자동 크기 조정을 지정합니다. 다음 크기 조정 간격에 대해 풀에 있는 노드의 목표 수를 확인하는 데 이러한 수식을 사용할 수 있습니다. 예를 들어 작업에서 실행을 예약할 많은 태스크를 제출해야 할 수 있습니다. 현재 보류 중인 태스크 수 및 이러한 태스크의 완료율에 따라 풀의 크기(노드 수)를 지정하는 크기 조정 수식을 풀에 할당할 수 있습니다. 배치 서비스는 수식을 정기적으로 계산하고 워크로드에 따라 풀 크기를 조정합니다.
+예를 들어 작업에서 실행을 예약할 많은 태스크를 제출해야 할 수 있습니다. 현재 보류 중인 태스크 수 및 이러한 태스크의 완료율에 따라 풀의 노드 수를 지정하는 크기 조정 수식을 풀에 할당할 수 있습니다. 배치 서비스는 수식을 정기적으로 계산하고 워크로드 및 수식 설정에 따라 풀 크기를 조정합니다.
 
 크기 조정 수식은 다음 메트릭을 기반으로 할 수 있습니다.
 
@@ -245,10 +236,11 @@ Azure 배치 솔루션을 디자인할 때 디자인 결정은 풀을 만드는 
 
 - **태스크 메트릭** - 활성, 보류 중 및 완료됨과 같은 태스크 상태를 기반으로 합니다.
 
-자동으로 응용 프로그램 크기를 조정하는 방법에 대한 자세한 내용은 [Azure 배치 풀에서 자동으로 계산 노드 크기 조정](batch-automatic-scaling.md)을 참조하세요.
+자동 크기 조정이 풀의 계산 노드 수를 감소시키는 경우 현재 실행 중인 작업을 고려해야 합니다. 이를 돕기 위해 풀에서 노드가 제거 되기 전에 실행 중인 태스크를 즉시 중지하거나 완료할 수 있도록 지정하는 노드 할당 취소 정책 설정을 노드에 포함할 수 있습니다.
 
-> [AZURE.TIP]
- 자주 필요하지는 않지만, 풀에서 제거할 개별 노드를 지정할 수 있습니다. 예를 들어 신뢰할 수 없는 것으로 의심되는 노드가 있는 경우 풀에서 제거하여 추가 태스크가 할당되는 것을 방지할 수 있습니다.
+> [AZURE.TIP] 계산 리소스 사용률을 극대화하기 위해 작업 끝에서 목표 노드 수를 0으로 설정하지만 실행 중인 태스크를 완료할 수 있도록 합니다.
+
+자동으로 응용 프로그램 크기를 조정하는 방법에 대한 자세한 내용은 [Azure 배치 풀에서 자동으로 계산 노드 크기 조정](batch-automatic-scaling.md)을 참조하세요.
 
 ## <a name="cert"></a>인증서를 사용한 보안
 
@@ -322,9 +314,27 @@ Azure 배치 솔루션을 디자인할 때 디자인 결정은 풀을 만드는 
 
 일시적인 문제로 인해 태스크가 응답하지 않거나 실행하는 데 너무 오래 걸릴 수도 있습니다. 태스크에 대해 최대 실행 시간을 설정할 수 있으며, 초과할 경우 배치가 태스크 응용 프로그램을 중단합니다.
 
-### "잘못된" 노드에 대한 조정
+### "불량" 계산 노드 문제 해결
 
-풀의 각 노드에는 고유 ID가 지정되며, 태스크가 실행되는 노드는 태스크 메타데이터에 포함됩니다. 특정 노드에서 태스크가 실패한 경우 배치 클라이언트 응용 프로그램에서 이를 확인할 수 있으며, 의심되는 노드를 풀에서 삭제할 수 있습니다. 삭제된 노드에서 실행 중인 태스크가 있는 경우 이러한 태스크는 다른 노드에서 실행되도록 자동으로 큐에 다시 대기됩니다.
+태스크가 실패한 경우 배치 클라이언트 응용 프로그램 또는 서비스는 실패한 작업의 메타데이터를 검사하여 오동작 노드를 식별할 수 있습니다. 풀의 각 노드에는 고유 ID가 지정되며, 태스크가 실행되는 노드는 태스크 메타데이터에 포함됩니다. 식별하게 되면 여러 가지 작업을 수행할 수 있습니다.
+
+- **노드 다시 시작** ([REST][rest_reboot] | [.NET][net_reboot])
+
+	노드를 다시 시작하면 경우에 따라 충돌 또는 중단 프로세스와 같은 잠재적인 문제를 해소할 수 있습니다. 풀에서 시작 태스크를 사용하거나 작업에서 준비 태스크를 사용하는 경우 노드가 다시 시작될 때 실행됩니다.
+
+- **노드 이미지로 다시 설치** ([REST][rest_reimage] | [.NET][net_reimage])
+
+	노드에서 운영 체제를 다시 설치합니다. 노드를 다시 시작할 때와 마찬가지로 태스크를 시작하고 노드가 이미지로 다시 설치된 후에 작업 준비 태스크를 다시 실행합니다.
+
+- **풀에서 노드 제거** ([REST][rest_remove] | [.NET][net_remove])
+
+	경우에 따라 풀에서 노드를 완전히 제거해야 합니다.
+
+- **노드에서 작업 일정 사용 안 함** ([REST][rest_offline] | [.NET][net_offline])
+
+	효과적으로 노드 "오프라인"을 사용하므로 해당 노드에 더 이상 작업이 할당되지 않지만 노드가 풀에서 실행되도록 유지할 수 있습니다. 그러면 실패한 태스크에 데이터 손실이나 노드에 추가 작업 오류를 발생시키지 않고 실패의 원인을 조사할 수 있습니다. 예를 들어 노드에서 태스크 일정을 사용하지 않은 다음 원격으로 로그인하여 노드의 이벤트 로그를 검사하거나 다른 문제를 해결할 수 있습니다. 조사를 완료하면 태스크 일정([REST][rest_online], [.NET][net_online])을 사용하여 노드를 다시 온라인 상태로 되돌리거나 위에서 설명한 다른 작업 중 하나를 수행할 수 있습니다.
+
+> [AZURE.IMPORTANT] 태스크 일정을 다시 시작, 이미지로 다시 설치, 제거, 사용 안 함 등 위의 작업으로 동작을 수행할 때 노드에서 현재 실행 중인 태스크를 처리하는 방법을 지정할 수 있습니다. 예를 들어 태스크 일정을 배치 .NET 클라이언트 라이브러리가 있는 노드에서 사용하지 않으면 [DisableComputeNodeSchedulingOption][net_offline_option] 열거형 값을 지정하여 작업 실행을 **종료**하거나, 다른 노드에서 예약을 **다시 대기**하거나 또는 동작(**TaskCompletion**)을 수행하기 전에 완료할 태스크 실행을 허용할지를 지정할 수 있습니다.
 
 ## 다음 단계
 
@@ -353,6 +363,12 @@ Azure 배치 솔루션을 디자인할 때 디자인 결정은 풀을 만드는 
 [net_getfile_task]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.getnodefile.aspx
 [net_multiinstancesettings]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.multiinstancesettings.aspx
 [net_rdp]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.getrdpfile.aspx
+[net_reboot]: https://msdn.microsoft.com/library/azure/mt631495.aspx
+[net_reimage]: https://msdn.microsoft.com/library/azure/mt631496.aspx
+[net_remove]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.removefrompoolasync.aspx
+[net_offline]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.disableschedulingasync.aspx
+[net_online]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.enableschedulingasync.aspx
+[net_offline_option]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.common.disablecomputenodeschedulingoption.aspx
 
 [batch_rest_api]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
 [rest_add_job]: https://msdn.microsoft.com/library/azure/mt282178.aspx
@@ -365,5 +381,10 @@ Azure 배치 솔루션을 디자인할 때 디자인 결정은 풀을 만드는 
 [rest_multiinstancesettings]: https://msdn.microsoft.com/library/azure/dn820105.aspx#multiInstanceSettings
 [rest_update_job]: https://msdn.microsoft.com/library/azure/dn820162.aspx
 [rest_rdp]: https://msdn.microsoft.com/library/azure/dn820120.aspx
+[rest_reboot]: https://msdn.microsoft.com/library/azure/dn820171.aspx
+[rest_reimage]: https://msdn.microsoft.com/library/azure/dn820157.aspx
+[rest_remove]: https://msdn.microsoft.com/library/azure/dn820194.aspx
+[rest_offline]: https://msdn.microsoft.com/library/azure/mt637904.aspx
+[rest_online]: https://msdn.microsoft.com/library/azure/mt637907.aspx
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

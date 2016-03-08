@@ -45,7 +45,7 @@ Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 계정을 만�
 
 모든 작업을 실행하기 전에 데이터 레이크 분석 계정이 있어야 합니다. 데이터 레이크 분석 계정을 만들려면 다음을 지정해야 합니다.
 
-- **Azure 리소스 그룹**: Azure 리소스 그룹 내에서 데이터 레이크 분석 계정을 만들어야 합니다. [Azure 리소스 관리자](resource-group-overview.md)를 사용하면 그룹으로 응용 프로그램에서 리소스와 함께 사용할 수 있습니다. 응용 프로그램에 대한 모든 리소스의 배포, 업데이트 또는 삭제를 조정된 단일 작업으로 수행할 수 있습니다.  
+- **Azure 리소스 그룹**: Azure 리소스 그룹 내에서 데이터 레이크 분석 계정을 만들어야 합니다. [Azure 리소스 관리자](../resource-group-overview.md)를 사용하면 그룹으로 응용 프로그램에서 리소스와 함께 사용할 수 있습니다. 응용 프로그램에 대한 모든 리소스의 배포, 업데이트 또는 삭제를 조정된 단일 작업으로 수행할 수 있습니다.  
 
 	구독에 대한 리소스 그룹을 나열하려면:
     
@@ -68,7 +68,7 @@ Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 계정을 만�
 	        -Name "<Your Data Lake account name>" `
 	        -Location "<Azure Data Center>"  # For example, "East US 2"
 
-	> [AZURE.NOTE]데이터 레이크 계정 이름은 소문자와 숫자만 포함해야 합니다.
+	> [AZURE.NOTE] 데이터 레이크 계정 이름은 소문자와 숫자만 포함해야 합니다.
 
 
 
@@ -135,9 +135,9 @@ Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 계정을 만�
 	$dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
 	$dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticName).Properties.DefaultDataLakeAccount
 
->[AZURE.NOTE]Azure 포털은 기본 데이터 레이크 저장소 계정에 샘플 데이터 파일을 복사하는 사용자 인터페이스를 제공합니다. 자세한 내용은 [Azure 포털을 사용하여 Azure 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md#upload-data-to-the-default-data-lake-store-account)을 참조하세요.
+>[AZURE.NOTE] Azure 포털은 기본 데이터 레이크 저장소 계정에 샘플 데이터 파일을 복사하는 사용자 인터페이스를 제공합니다. 자세한 내용은 [Azure 포털을 사용하여 Azure 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md#upload-data-to-the-default-data-lake-store-account)을 참조하세요.
 
-데이터 레이크 분석은 Azure Blob 저장소에 액세스할 수도 있습니다. Azure Blob 저장소에 데이터를 업로드하려면 [Azure 저장소와 Azure PowerShell 사용](storage-powershell-guide-full.md)을 참조하세요.
+데이터 레이크 분석은 Azure Blob 저장소에 액세스할 수도 있습니다. Azure Blob 저장소에 데이터를 업로드하려면 [Azure 저장소와 Azure PowerShell 사용](../storage/storage-powershell-guide-full.md)을 참조하세요.
 
 ##데이터 레이크 분석 작업 제출
 
@@ -174,7 +174,7 @@ Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 계정을 만�
     
         wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
 
-    >[AZURE.NOTE]공용 Blob 또는 공용 컨테이너 액세스 권한이 있는 Azure Blob 컨테이너는 현재 지원되지 않습니다.
+    >[AZURE.NOTE] 공용 Blob 또는 공용 컨테이너 액세스 권한이 있는 Azure Blob 컨테이너는 현재 지원되지 않습니다.
     
 	
 **작업을 제출하려면**
@@ -217,4 +217,4 @@ Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 계정을 만�
 - 관리 작업을 보려면 [Azure 포털을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-manage-use-portal.md)를 참조하세요.
 - 데이터 레이크 분석에 대한 개요를 보려면 [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0302_2016-->

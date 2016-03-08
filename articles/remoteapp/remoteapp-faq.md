@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/02/2016" 
+	ms.date="02/25/2016" 
 	ms.author="elizapo"/>
 
 # Azure RemoteApp FAQ
@@ -30,7 +30,7 @@ Azure RemoteApp과 관련된 질문은 다음과 같습니다. 다른 질문이 
 - **이 서비스를 무료로 사용해 볼 수 있나요?** 예. 30일 동안 사용할 수 있는 무료 평가판이 있습니다. 평가 기간이 끝난 후 유료 계정으로 전환하거나(프로덕션 환경에서 사용할 수 있음) 서비스 사용을 중지할 수 있습니다. [portal.azure.com](http://portal.azure.com)으로 이동하여 무료 평가판을 시작하고 RemoteApp의 새 인스턴스를 만듭니다. 무료 평가판으로 인스턴스당 10명의 사용자와 RemoteApp의 인스턴스를 2개 만들 수 있습니다. 이 평가판은 30일 동안만 사용할 수 있습니다.
 ## Azure RemoteApp 구독 세부 정보 ##
 
-- **서비스의 제한 사항은 무엇입니까?** [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](azure-subscription-service-limits.md)에서 Azure RemoteApp의 기본 설정 및 서비스 제한 사항에 대해 자세히 알아볼 수 있습니다. 추가 질문이 있으면 알려주세요.
+- **서비스의 제한 사항은 무엇입니까?** [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)에서 Azure RemoteApp의 기본 설정 및 서비스 제한 사항에 대해 자세히 알아볼 수 있습니다. 추가 질문이 있으면 알려주세요.
 - **얼마나 많은 사용자가 필요합니까?** 최소 20명의 사용자입니다. 분명히 알아두어야 합니다. 최소 20명입니다. 20명에 대한 비용이 청구됩니다. 
 - **RemoteApp 비용은 얼마인가요?** [Azure RemoteApp 가격 정보](../../../pricing/details/remoteapp/)를 확인하세요.
 - **한 가지 형식의 컬렉션이 다른 것 보다 비용이 듭니까?** 예, 컬렉션 요구 사항에 따라 다를 수 있습니다. 하이브리드 컬렉션은 Azure RemoteApp에서 온-프레미스 네트워크까지 연결을 필요로 합니다. 기존 VNET/Express 경로를 사용하면 추가 비용이 없습니다. 하지만 새 Azure VNET 및 게이트웨이 또는 Express 경로를 사용하는 경우 [VPN 게이트웨이](../../../pricing/details/vpn-gateway) 또는 [Express 경로](../../../pricing/details/expressroute/)의 비용이 청구됩니다. 해당 비용(링크에 자세히 설명됨)은 월별 Azure RemoteApp 비용에 우선합니다.
@@ -114,4 +114,4 @@ Azure RemoteApp과 관련된 질문은 다음과 같습니다. 다른 질문이 
 ### 의견 보내기 
 이 기사에 대한 등급을 매기고 아래에 의견을 다는 것은 물론 문서를 직접 변경할 수 있다는 사실을 알고 계셨나요? 누락된 부분이 있나요? 잘못된 부분이 있나요? 혼동을 줄 수 있는 부분이 있나요? 위로 스크롤하여 **GitHub에서 편집**을 클릭하면 변경할 수 있습니다. 당사에서 변경 사항을 검토하고 승인하면 변경 및 개선 사항을 바로 여기서 확인할 수 있습니다.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -11,16 +11,16 @@
 	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
+	ms.devlang="python"
 	ms.topic="hero-article" 
-	ms.date="11/17/2015"
+	ms.date="02/25/2016"
 	ms.author="huvalo"/>
 
 # Azure의 Django 및 MySQL과 Python Tools 2.2 for Visual Studio 
 
 > [AZURE.SELECTOR]
 - [.Net](web-sites-dotnet-get-started.md)
-- [Node.js](web-sites-nodejs-develop-deploy-mac.md)
+- [Node.JS](web-sites-nodejs-develop-deploy-mac.md)
 - [Java](web-sites-java-get-started.md)
 - [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
 - [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
@@ -39,6 +39,7 @@ Bottle, Flask 및 Django 웹 프레임워크, MongoDB, Azure 테이블 저장소
  - [Python Tools 2.2 for Visual Studio Samples VSIX]
  - [Azure SDK Tools for VS 2013] 또는 [Azure SDK Tools for VS 2015]
  - [Python 2.7 32비트]
+ - Django 1.6 또는 이전
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
@@ -118,7 +119,7 @@ Bottle, Flask 및 Django 웹 프레임워크, MongoDB, Azure 테이블 저장소
 
 이 섹션에서는 방금 만든 MySQL 데이터베이스를 사용하도록 웹앱을 구성합니다. Django에서 MySQL 데이터베이스를 사용하는 데 필요한 추가 Python 패키지도 설치합니다. 그런 다음 웹앱을 로컬로 실행합니다.
 
-1.  Visual Studio에서 **ProjectName** 폴더의 *settings.py*를 엽니다. 일시적으로 연결 문자열을 편집기에 붙여 넣습니다. 연결 문자열은 다음 형식입니다.
+1.  Visual Studio에서 *ProjectName* 폴더의 **settings.py** 를 엽니다. 일시적으로 연결 문자열을 편집기에 붙여 넣습니다. 연결 문자열은 다음 형식입니다.
 
         Database=<NAME>;Data Source=<HOST>;User Id=<USER>;Password=<PASSWORD>
 
@@ -216,4 +217,4 @@ Python Tools for Visual Studio, Django 및 MySQL에 대해 자세히 알아보�
 [MySQL]: http://www.mysql.com/
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/20/2015"
+   ms.date="02/26/2016"
    ms.author="seanmck"/>
 
 # 로컬 클러스터에서 응용 프로그램 배포 및 업그레이드 시작
@@ -117,6 +117,10 @@ SDK는 Windows PowerShell 스크립트 및 로컬 클러스터 관리자 시스�
 
 3. 마지막으로 WordCountService에 대한 파티션의 목록을 살펴봅니다.
 
+    ```powershell
+    Get-ServiceFabricPartition 'fabric:/WordCount/WordCountService'
+    ```
+
     ![PowerShell에서 서비스 파티션 보기][ps-getsfpartitions]
 
     모든 서비스 패브릭 PowerShell 명령처럼 사용된 명령 집합은 로컬 또는 원격에 연결할 수 있는 모든 클러스터에 사용할 수 있습니다.
@@ -166,7 +170,7 @@ SDK는 Windows PowerShell 스크립트 및 로컬 클러스터 관리자 시스�
 
 ## 다음 단계
 - 미리 작성된 응용 프로그램을 배포하고 업그레이드했으니 [Visual Studio에서 응용 프로그램 빌드](service-fabric-create-your-first-application-in-visual-studio.md)를 수행해 보겠습니다.
-- 이 문서의 로컬 클러스터에 수행하는 작업은 모두 [Azure 클러스터](service-fabric-cluster-creation-via-portal.md)에서도 수행할 수 있습니다.
+- 이 문서의 로컬 클러스터에 수행된 작업은 모두 [Azure 클러스터](service-fabric-cluster-creation-via-portal.md)에서도 수행할 수 있습니다.
 - 이 문서에서 수행하는 업그레이드는 매우 기본적이었습니다. 서비스 패브릭 업그레이드의 성능과 유연성에 대해 자세히 알아보려면 [업그레이드 설명서](service-fabric-application-upgrade.md)를 참조하세요.
 
 <!-- Images -->
@@ -186,4 +190,4 @@ SDK는 Windows PowerShell 스크립트 및 로컬 클러스터 관리자 시스�
 [sfx-upgradeprogress]: ./media/service-fabric-get-started-with-a-local-cluster/SfxUpgradeOverview.png
 [sfx-service-overview]: ./media/service-fabric-get-started-with-a-local-cluster/sfx-service-overview.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

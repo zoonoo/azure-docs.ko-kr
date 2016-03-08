@@ -10,7 +10,7 @@ editor="cgronlun"/>
 <tags
 ms.service="hdinsight"
 ms.devlang="na"
-ms.topic="article"
+ms.topic="get-started-article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
 ms.date="01/12/2016"
@@ -45,13 +45,13 @@ Ambari의 여러 메뉴는 클러스터에서 실행되는 다른 Hadoop 서비�
 
 * SSH 클라이언트. Linux 및 Unix 배포 또는 Macintosh OS X의 경우 `ssh` 명령은 운영 체제에 제공됩니다. Windows의 경우 [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)가 좋습니다.
 
-	> [AZURE.NOTE]`ssh` 또는 PuTTY 이외의 다른 SSH 클라이언트를 사용하려는 경우 SSH 터널을 설정하는 방법에 대해 클라이언트를 위한 설명서를 참조하세요.
+	> [AZURE.NOTE] `ssh` 또는 PuTTY 이외의 다른 SSH 클라이언트를 사용하려는 경우 SSH 터널을 설정하는 방법에 대해 클라이언트를 위한 설명서를 참조하세요.
 
 * SOCKS 프록시를 사용하도록 구성할 수 있는 웹 브라우저
 
 * __(선택 사항)__: 터널을 통해 특정 요청을 라우팅하는 규칙을 적용할 수 있는 [FoxyProxy](http://getfoxyproxy.org/,)와 같은 플러그인
 
-	> [AZURE.WARNING]FoxyProxy와 같은 플러그인 없이 브라우저를 통해 만들어진 모든 요청은 터널을 통해 라우팅될 수 있습니다. 이 경우 브라우저에서 웹 페이지의 로딩 속도가 느릴 수 있습니다.
+	> [AZURE.WARNING] FoxyProxy와 같은 플러그인 없이 브라우저를 통해 만들어진 모든 요청은 터널을 통해 라우팅될 수 있습니다. 이 경우 브라우저에서 웹 페이지의 로딩 속도가 느릴 수 있습니다.
 
 ##<a name="usessh"></a>SSH 명령을 사용하여 터널 만들기
 
@@ -105,13 +105,13 @@ PuTTY를 사용하여 SSH 터널을 만들려면 다음 단계를 사용합니�
 
 ##브라우저에서 터널 사용
 
-> [AZURE.NOTE]이 섹션의 단계는 Linux, Unix, Macintosh OS X 및 Windows 시스템에 자유롭게 사용할 수 있으므로 FireFox 브라우저를 사용합니다. Google Chrome, Microsoft Edge 또는 Apple Safari와 같은 다른 최신 브라우저도 제대로 작동하지만 일부 단계에 사용된 FoxyProxy 플러그인은 모든 브라우저에 대해 사용할 수 없습니다.
+> [AZURE.NOTE] 이 섹션의 단계는 Linux, Unix, Macintosh OS X 및 Windows 시스템에 자유롭게 사용할 수 있으므로 FireFox 브라우저를 사용합니다. Google Chrome, Microsoft Edge 또는 Apple Safari와 같은 다른 최신 브라우저도 제대로 작동하지만 일부 단계에 사용된 FoxyProxy 플러그인은 모든 브라우저에 대해 사용할 수 없습니다.
 
 1. 브라우저를 구성하여 **SOCKS v5** 프록시로 **localhost:9876**을 사용합니다. Firefox 설정은 다음과 같습니다. 9876이 아닌 다른 포트를 사용한 경우 포트를 사용한 포트로 변경합니다.
 
 	![Firefox 설정 이미지](./media/hdinsight-linux-ambari-ssh-tunnel/socks.png)
 
-	> [AZURE.NOTE]**Remote DNS**를 선택하면 HDInsight 클러스터를 통해 DNS(Domain Name System) 요청이 확인됩니다. 선택하지 않은 경우 DNS가 로컬로 확인됩니다.
+	> [AZURE.NOTE] **Remote DNS**를 선택하면 HDInsight 클러스터를 통해 DNS(Domain Name System) 요청이 확인됩니다. 선택하지 않은 경우 DNS가 로컬로 확인됩니다.
 
 2. Firefox에서 프록시 설정을 사용하거나 사용하지 않도록 설정한 상태에서 [http://www.whatismyip.com/](http://www.whatismyip.com/)과 같은 사이트를 방문하여 트래픽이 터널을 통해 라우팅되는지 확인합니다. 설정이 활성화되어 있는 동안 IP 주소는 Microsoft Azure 데이터 센터에 있는 컴퓨터의 주소입니다.
 
@@ -173,16 +173,16 @@ FoxyProxy 표준을 설치한 경우 터널을 통해 HDInsight에 대한 트래
 
 	![확장된 빠른 링크 메뉴의 이미지](./media/hdinsight-linux-ambari-ssh-tunnel/yarnquicklinks.png)
 
-	> [AZURE.NOTE]인터넷 연결이 느리거나 헤드 노드의 사용량이 많은 경우 __빠른 링크__를 선택하면 메뉴 대신에 대기 표시기가 나타납니다. 그럴 경우 데이터를 서버에서 받을 때까지 기다렸다가 목록을 다시 시도하세요.
+	> [AZURE.NOTE] 인터넷 연결이 느리거나 헤드 노드의 사용량이 많은 경우 __빠른 링크__를 선택하면 메뉴 대신에 대기 표시기가 나타납니다. 그럴 경우 데이터를 서버에서 받을 때까지 기다렸다가 목록을 다시 시도하세요.
 
 
-	> [AZURE.TIP]해상도 모니터가 낮거나 브라우저 창이 최대화되지 않은 경우 __빠른 링크__ 메뉴의 일부 항목이 화면 오른쪽으로 잘릴 수 있습니다. 그럴 경우 마우스를 사용하여 메뉴를 확장한 다음 오른쪽 화살표 키를 사용하여 메뉴의 나머지 부분을 볼 수 있도록 오른쪽으로 화면을 스크롤합니다.
+	> [AZURE.TIP] 해상도 모니터가 낮거나 브라우저 창이 최대화되지 않은 경우 __빠른 링크__ 메뉴의 일부 항목이 화면 오른쪽으로 잘릴 수 있습니다. 그럴 경우 마우스를 사용하여 메뉴를 확장한 다음 오른쪽 화살표 키를 사용하여 메뉴의 나머지 부분을 볼 수 있도록 오른쪽으로 화면을 스크롤합니다.
 
 4. 다음과 유사한 페이지가 표시됩니다.
 
 	![YARN ResourceManager UI의 이미지](./media/hdinsight-linux-ambari-ssh-tunnel/yarnresourcemanager.png)
 
-	> [AZURE.TIP]이 페이지에 대한 URL은 \_\___http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster__와(과) 유사해야 합니다. 노드의 내부 정규화된 도메인 이름(FQDN)을 사용하며 SSH 터널을 사용하지 않고 액세스할 수 없습니다.
+	> [AZURE.TIP] 이 페이지에 대한 URL은 \_\___http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster__와(과) 유사해야 합니다. 노드의 내부 정규화된 도메인 이름(FQDN)을 사용하며 SSH 터널을 사용하지 않고 액세스할 수 없습니다.
 
 ##다음 단계
 
@@ -196,4 +196,4 @@ HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음�
 
 * [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0302_2016-->

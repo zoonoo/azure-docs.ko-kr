@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/16/2016"
+	ms.date="02/29/2016"
 	ms.author="andkjell;billmath"/>
 
 # Azure Active Directory와 온-프레미스 ID 통합
@@ -49,11 +49,11 @@ Azure Active Directory Connect는 기본 세 부분으로 구성됩니다. 이�
 
 | 해결 방법 | 시나리오 |
 | ----- | ----- |
-| 시작하기 전에 | <li>[Azure AD Connect: 하드웨어 및 필수 조건](active-directory-aadconnect-prerequisites.md)</li> |
+| 시작하기 전에 - [하드웨어 및 필수 구성 요소](active-directory-aadconnect-prerequisites.md) | <li>Azure AD Connect 설치를 시작하기 전에 완료할 단계입니다.</li> |
 | [Express 설정](active-directory-aadconnect-get-started-express.md) | <li>단일 포리스트 AD가 있는 경우 권장되는 기본 옵션입니다.</li> <li>사용자가 암호 동기화를 사용하여 동일한 암호로 로그인합니다.</li>
 | [사용자 지정된 설정](active-directory-aadconnect-get-started-custom.md) | <li>여러 포리스트가 있는 경우 사용됩니다. 다양한 온-프레미스 [토폴로지](active-directory-aadconnect-topologies.md)를 지원합니다.</li> <li>페더레이션에 ADFS와 같은 로그인 옵션을 사용자 지정하거나 타사 ID 공급자를 사용합니다.</li> <li>필터링 및 쓰기 저장 등의 동기화 기능을 사용자 지정합니다.</li>
 | [DirSync에서 업그레이드](active-directory-aadconnect-dirsync-upgrade-get-started.md) | <li>기존 DirSync 서버를 이미 실행 중인 경우입니다.</li>
-| Azure AD Sync에서 업그레이드 | <li>원활하게 바로 업그레이드합니다.</li>
+| [Azure AD Sync 또는 Azure AD Connect에서 업그레이드](active-directory-aadconnect-upgrade-previous-version.md)| <li>기본 설정에 따라 여러 가지 방법이 있습니다.</li>
 
 
 [설치 후](active-directory-aadconnect-whats-next.md) 예상 대로 작동되는지 확인하고 사용자에게 라이선스를 할당해야 합니다.
@@ -93,7 +93,7 @@ Azure AD Connect는 필요에 따라 기본적으로 키거나 사용할 수 있
 
 [실수로 인한 삭제 방지](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) 기능은 기본적으로 켜지고 동시에 클라우드 디렉터리가 삭제되지 않도록 보호합니다. 기본적으로 실행 당 500건이 삭제되고 조직의 크기에 따라 변경될 수 있습니다.
 
-[자동 업그레이드](active-directory-aadconnect-feature-automatic-upgrade.md)는 기본 설정 설치에 기본적으로 사용되고 Azure AD Connect 사용자가 항상 최신 릴리스로 업데이트되도록 합니다.
+[자동 업그레이드](active-directory-aadconnect-feature-automatic-upgrade.md)는 빠른 설정 설치에 기본적으로 사용되고 Azure AD Connect가 항상 최신 릴리스로 업데이트되도록 합니다.
 
 ### 기능을 구성하는 다음 단계
 
@@ -131,7 +131,7 @@ Azure AD Connect 동기화는 대부분의 고객 및 토폴로지에 대해 작
 | 항목 | |
 | --------- | --------- |
 | 버전 기록 | [버전 기록](active-directory-aadconnect-version-history.md) |
-| DirSync, Azure ADSync 및 Azure AD Connect 비교 | [디렉터리 통합 도구 비교](active-directory-aadconnect-get-started-tools-comparison.md) |
+| DirSync, Azure ADSync 및 Azure AD Connect 비교 | [디렉터리 통합 도구 비교](active-directory-hybrid-identity-design-considerations-tools-comparison.md) |
 | 동기화된 특성 | [동기화된 특성](active-directory-aadconnectsync-attributes-synchronized.md) |
 | Azure AD Connect Health를 사용하여 모니터링 | [Azure AD Connect Health](active-directory-aadconnect-health.md) |
 | 질문과 대답 | [Azure AD Connect FAQ](active-directory-aadconnect-faq.md) |
@@ -144,4 +144,4 @@ Azure AD Connect 동기화는 대부분의 고객 및 토폴로지에 대해 작
 
 [AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

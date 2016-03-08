@@ -3,7 +3,7 @@
 	description="Azure 가상 컴퓨터 백업에 대한 이 절차를 사용하여 가상 컴퓨터 검색, 등록 및 백업합니다."
 	services="backup"
 	documentationCenter=""
-	authors="Jim-Parker"
+	authors="markgalioto"
 	manager="jwhit"
 	editor=""
 	keywords="가상 컴퓨터 백업; 가상 컴퓨터 백업 백업; 백업 및 재해 복구; VM 백업"/>
@@ -41,7 +41,7 @@ Azure 가상 컴퓨터 백업에는 3가지 주요 단계가 포함됩니다.
     ![워크로드 선택](./media/backup-azure-vms/discovery-select-workload.png)
 
 3. 페이지 맨 아래에서 **검색**을 클릭합니다.
-    ![검색 단추](./media/backup-azure-vms/discover-button-only.png)
+ ![검색 단추](./media/backup-azure-vms/discover-button-only.png)
 
     검색 프로세스는 가상 컴퓨터를 표로 정리하는 동안 몇 분이 걸릴 수 있습니다. 화면 맨 아래에 있는 알림은 프로세스가 실행되고 있다는 것을 알려줍니다.
 
@@ -61,7 +61,7 @@ Azure 가상 컴퓨터를 등록하여 Azure 백업 서비스와 연결합니다
     ![워크로드 선택](./media/backup-azure-vms/discovery-select-workload.png)
 
 3. 페이지의 맨 아래에서 **등록**을 클릭합니다.
-    ![등록 단추](./media/backup-azure-vms/register-button-only.png)
+ ![등록 단추](./media/backup-azure-vms/register-button-only.png)
 
 4. **등록 항목** 바로 가기 메뉴에서 등록하려는 가상 컴퓨터를 선택합니다. 동일한 이름을 가진 가상 컴퓨터가 두 개 이상 있는 경우 클라우드 서비스를 사용하여 가상 컴퓨터를 구분합니다.
 
@@ -164,4 +164,4 @@ Azure 가상 컴퓨터를 등록하여 Azure 백업 서비스와 연결합니다
 - [가상 컴퓨터 관리 및 모니터링](backup-azure-manage-vms.md)
 - [가상 컴퓨터 복원](backup-azure-restore-vms.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

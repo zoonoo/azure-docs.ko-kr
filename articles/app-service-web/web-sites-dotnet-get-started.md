@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="12/07/2015"
+	ms.date="02/29/2016"
 	ms.author="tdykstra"/>
 
 # Azure 앱 서비스에서 ASP.NET 웹 응용 프로그램 만들기
 
 > [AZURE.SELECTOR]
 - [.Net](web-sites-dotnet-get-started.md)
-- [Node.js](web-sites-nodejs-develop-deploy-mac.md)
+- [Node.JS](web-sites-nodejs-develop-deploy-mac.md)
 - [Java](web-sites-java-get-started.md)
 - [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
 - [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
@@ -79,7 +79,7 @@ Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려는 경�
 
 3. **.NET Framework 4.5.2**가 대상 프레임워크로 선택되었는지 확인합니다.
 
-4.  [Azure Application Insights](app-insights-overview.md)는 웹앱의 가용성, 성능 및 사용량을 모니터링합니다. 평가하지 않으려면 **프로젝트에 Application Insights 추가** 확인란의 선택을 취소합니다.
+4.  [Azure Application Insights](../application-insights/app-insights-overview.md)는 웹앱의 가용성, 성능 및 사용량을 모니터링합니다. 평가하지 않으려면 **프로젝트에 Application Insights 추가** 확인란의 선택을 취소합니다.
 
 4. 응용 프로그램 이름을 **MyExample**로 지정합니다.
 
@@ -301,4 +301,4 @@ Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려는 경�
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스 및 기존 Azure 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)를 참조하세요.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

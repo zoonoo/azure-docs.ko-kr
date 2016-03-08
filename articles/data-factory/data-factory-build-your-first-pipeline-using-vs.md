@@ -18,11 +18,11 @@
 
 # Azure Data Factory 시작(Visual Studio)
 > [AZURE.SELECTOR]
-- [Tutorial Overview](data-factory-build-your-first-pipeline.md)
-- [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
-- [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
-- [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
-- [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
+- [자습서 개요](data-factory-build-your-first-pipeline.md)
+- [데이터 팩터리 편집기 사용](data-factory-build-your-first-pipeline-using-editor.md)
+- [PowerShell 사용](data-factory-build-your-first-pipeline-using-powershell.md)
+- [Visual Studio 사용](data-factory-build-your-first-pipeline-using-vs.md)
+- [리소스 관리자 템플릿 사용](data-factory-build-your-first-pipeline-using-arm.md)
 
 
 이 문서에서는 Microsoft Visual Studio를 사용하여 첫 번째 Azure Data Factory를 만드는 방법을 알아봅니다.
@@ -116,7 +116,7 @@
 #### 입력 데이터 집합 만들기
 
 1. **솔루션 탐색기**에서 **테이블**을 마우스 오른쪽 단추로 클릭하고 **추가**를 가리킨 다음 **새 항목**을 클릭합니다. 
-2. 목록에서 **Azure Blob**를 선택하고 파일의 이름을 **OutputDataset.json**로 변경한 다음 **추가**를 클릭합니다.
+2. 목록에서 **Azure Blob**를 선택하고 파일의 이름을 **InputDataSet.json**로 변경한 다음 **추가**를 클릭합니다.
 3. 편집기에서 **JSON**을 다음으로 바꿉니다. 
 
 	JSON 조각에서 파이프라인의 활동에 대한 입력 데이터를 나타내는 **AzureBlobInput**라는 데이터 집합을 만듭니다. 또한 결과가 **adfgetstarted**라는 Blob 컨테이너 및 **inputdata**라는 폴더에 저장되도록 지정합니다.
@@ -261,7 +261,7 @@ Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이
 ### partitionweblogs.hql 및 input.log 종속성으로 추가 
 
 1. **솔루션 탐색기** 창에서 **종속성**을 마우스 오른쪽 단추로 클릭하고 **추가**를 가리킨 다음 **기존 항목**을 클릭합니다.  
-2. **C:\ADFGettingStarted**로 이동하고 **partitionweblogs.hql**, **input.log** 파일을 선택한 다음 **추가**를 클릭합니다. [자습서 개요](data-factory-build-your-first-pipeline.md)에서 필수 구성 요소의 일부로 이 두 파일을 만들었습니다.
+2. **C:\\ADFGettingStarted**로 이동하고 **partitionweblogs.hql**, **input.log** 파일을 선택한 다음 **추가**를 클릭합니다. [자습서 개요](data-factory-build-your-first-pipeline.md)에서 필수 구성 요소의 일부로 이 두 파일을 만들었습니다.
 
 다음 단계에서 솔루션을 게시할 때 **partitionweblogs.hql** 파일은 **adfgetstarted** Blob 저장소의 스크립트 컨테이너에 업로드됩니다.
 
@@ -292,7 +292,7 @@ Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이
 
 6. [Azure 포털](https://portal.azure.com/)에 로그인하고 다음을 수행합니다.
 	1. **찾아보기**를 클릭하고 **데이터 팩터리**를 선택합니다.
-		 ![데이터 팩터리 찾아보기](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
+ 		![데이터 팩터리 찾아보기](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
 	2. 데이터 팩터리의 목록에서 **FirstDataFactoryUsingVS**를 선택합니다. 
 7. 데이터 팩터리에 대한 홈페이지에서 **다이어그램**을 클릭합니다.
   
@@ -316,7 +316,6 @@ Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이
 
 	![데이터 집합](./media/data-factory-build-your-first-pipeline-using-vs/dataset-blade.png)
 9. 처리가 완료되면 **준비** 상태인 조각이 표시됩니다.
-
 	>[AZURE.IMPORTANT] 주문형 HDInsight 클러스터 만들기는 일반적으로 시간이 소요됩니다.(대략 20분)  
 
 	![데이터 집합](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png)
@@ -365,7 +364,7 @@ Azure 저장소 연결 서비스에 대한 다음 JSON 정의를 고려해야 �
 다음 단계를 수행하여 각 환경에 대한 구성 파일을 추가합니다.
 
 1. Visual Studio 솔루션의 데이터 팩터리 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가**를 가리킨 다음 **새 항목**을 클릭합니다.
-2. 왼쪽에 있는 설치된 템플릿 목록에서 **구성**을 선택하고 **구성 파일**를 입력하한 다음, 구성 파일의 **이름**을 입력하고 **추가**를 클릭합니다.
+2. 왼쪽에 있는 설치된 템플릿 목록에서 **구성**을 선택하고 **구성 파일**을 입력하한 다음, 구성 파일의 **이름**을 입력하고 **추가**를 클릭합니다.
 
 	![구성 파일 추가](./media/data-factory-build-your-first-pipeline-using-vs/add-config-file.png)
 3. 아래에 나와 있는 형식으로 구성 매개 변수와 해당 값을 추가합니다.
@@ -434,9 +433,9 @@ VS에서 Azure 데이터 팩터리 엔터티를 게시하는 경우 해당 게�
 
 구성 파일을 사용하여 Azure 데이터 팩터리 프로젝트에서 엔터티를 게시하려면
 
-1. 데이터 팩터리 프로젝트를 마우스 오른쪽 단추로 클릭 하고 **게시**를 클릭하여 **게시 항목** 대화 상자를 표시합니다. 
-2. 기존 데이터 팩터리의 선택 하거나 **데이터 팩터리 구성** 페이지에서 새 데이터 팩터리를 만들기 위한 값을 지정하고 **다음**을 클릭합니다.   
-3. **항목 게시** 페이지에서 **배포 구성 선택** 필드에서 사용 가능한 구성이 있는 드롭다운 목록이 나타납니다.
+1. 데이터 팩터리 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 클릭하여 **게시 항목** 대화 상자를 표시합니다. 
+2. 기존 데이터 팩터리를 선택하거나 **데이터 팩터리 구성** 페이지에서 새 데이터 팩터리를 만들기 위한 값을 지정하고 **다음**을 클릭합니다.   
+3. **항목 게시** 페이지에서 **배포 구성 선택** 필드에 사용 가능한 구성이 있는 드롭다운 목록이 표시됩니다.
 
 	![구성 파일 선택](./media/data-factory-build-your-first-pipeline-using-vs/select-config-file.png)
 
@@ -450,4 +449,4 @@ VS에서 Azure 데이터 팩터리 엔터티를 게시하는 경우 해당 게�
 이 문서에서 파이프라인과 주문형 HDInsight 클러스터에서 Hive 스크립트를 실행하는 변환 작업(HDInsight 작업)을 만들었습니다. 복사 작업을 사용하여 Azure Blob에서 Azure SQL로 데이터를 복사하는 방법은 [자습서: Azure Blob에서 Azure SQL로 데이터 복사](data-factory-get-started.md)를 참조하세요.
   
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -12,7 +12,7 @@
 	ms.workload="identity"
   	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.date="02/17/2016"
 	ms.author="brandwe"/>
 
@@ -881,4 +881,4 @@ Restify 및 OAuth2를 사용하여 REST API를 구현하는 방법에 대한 정
 
 [B2C로 iOS를 사용하여 Web API에 연결](active-directory-b2c-devquickstarts-ios.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -10,7 +10,7 @@
 <tags
    ms.service="data-catalog"
    ms.devlang="NA"
-   ms.topic=" hero-article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
    ms.date="01/28/2016"
@@ -172,4 +172,4 @@ Nancy와 그녀의 팀이 높은 가치의 데이터 원본을 쉽게 찾을 수
 -	[데이터 원본에 주석 추가](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources)
 - [메타데이터 크라우드소싱](data-catalog-get-started.md#exercise-5-crowdsourcing-metadata)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

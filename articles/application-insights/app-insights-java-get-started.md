@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Java 웹 프로젝트에서 Application Insights 시작 | Microsoft Azure"
-	description="Application Insights로 Java 웹 사이트의 성능 및 사용량 모니터링"
+	pageTitle="Application Insights로 Java 웹앱 분석 | Microsoft Azure"
+	description="Application Insights로 Java 웹 사이트의 성능 및 사용량을 모니터링합니다."
 	services="application-insights"
     documentationCenter="java"
 	authors="alancameronwills"
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/24/2016"
+	ms.date="03/02/2016"
 	ms.author="awills"/>
 
 # Java 웹 프로젝트에서 Application Insights 시작하기
@@ -52,7 +52,7 @@ Application Insights는 Linux, Unix 또는 Windows 기반의 Java 앱을 지원�
 
 *프로젝트에 적합한 방법을 선택합니다.*
 
-#### Eclipse에서 동적 웹 프로젝트를 만드는 경우...
+#### Eclipse를 사용하여 Maven 또는 동적 웹 프로젝트를 만드는 경우...
 
 [Java 플러그인용 Application Insights SDK][eclipse]를 사용합니다.
 
@@ -80,7 +80,7 @@ Application Insights는 Linux, Unix 또는 Windows 기반의 Java 앱을 지원�
     </dependencies>
 
 
-* *빌드 또는 체크섬 유효성 검사 오류가 있는 경우* `<version>1.0.n</version>`과(와) 같은 특정 버전을 사용해 봅니다. [SDK 릴리스 정보](app-insights-release-notes-java.md) 또는 [Maven 아티팩트](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights)에서 최신 버전을 찾을 수 있습니다.
+* *빌드 또는 체크섬 유효성 검사 오류가 있는 경우* `<version>1.0.n</version>`과(와) 같은 특정 버전을 사용해 봅니다. [SDK 릴리스 정보](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) 또는 [Maven 아티팩트](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights)에서 최신 버전을 찾을 수 있습니다.
 * *새 SDK로 업데이트해야 하는 경우* 프로젝트의 종속성을 새로 고칩니다.
 
 #### Gradle을 사용하는 경우...
@@ -98,7 +98,7 @@ Application Insights는 Linux, Unix 또는 Windows 기반의 Java 앱을 지원�
       // or applicationinsights-core for bare API
     }
 
-* *빌드 또는 체크섬 유효성 검사 오류가 있나요? 다음과 같은 특정 버전을 사용해 봅니다.* `version:'1.0.n'`. *[SDK 릴리스 정보](app-insights-release-notes-java.md)에서 최신 버전을 찾을 수 있습니다.*
+* *빌드 또는 체크섬 유효성 검사 오류가 있나요? 다음과 같은 특정 버전을 사용해 봅니다.* `version:'1.0.n'`. *[SDK 릴리스 정보](https://github.com/Microsoft/ApplicationInsights-Java#release-notes)에서 최신 버전을 찾을 수 있습니다.*
 * *새 SDK로 업데이트하려면*
  * 프로젝트의 종속성을 새로 고칩니다.
 
@@ -118,7 +118,7 @@ Application Insights는 Linux, Unix 또는 Windows 기반의 Java 앱을 지원�
 
 * *변경 내용을 게시하는 경우 해당 SDK를 업데이트하려면*
  * 최신 버전의 [Java용 Application Insights SDK](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.zip)를 다운로드하여 이전 버전을 대체합니다.
- * 변경 내용은 [SDK 릴리스 정보](app-insights-release-notes-java.md)에 설명되어 있습니다.
+ * 변경 내용은 [SDK 릴리스 정보](https://github.com/Microsoft/ApplicationInsights-Java#release-notes)에 설명되어 있습니다.
 
 
 
@@ -398,4 +398,4 @@ Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

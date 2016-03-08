@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.topic="get-started-article"
+	ms.date="02/25/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 미리 보기: Azure AD B2C 테넌트 만들기
@@ -74,4 +74,4 @@ Azure 구독이 이미 있는 경우 이 단계를 건너뜁니다. 그렇지 �
 
 [Azure Active Directory B2C 미리 보기: 응용 프로그램 등록](active-directory-b2c-app-registration.md)을 읽어서 Azure AD B2C에 응용 프로그램을 등록하고 빠른 시작 응용 프로그램을 빌드하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

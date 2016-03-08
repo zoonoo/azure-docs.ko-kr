@@ -11,7 +11,7 @@
 <tags
    ms.service="hdinsight"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="01/08/2016"
@@ -35,7 +35,7 @@ HDInsight의 Apache Storm은 Azure 환경에 통합된 관리되는 클러스터
 
 	* 혼합 프로그래밍 언어 지원: Java를 사용하여 데이터를 읽은 다음 C#을 사용하여 처리
 	
-		> [AZURE.NOTE]C# 토폴로지는 Windows 기반 HDInsight 클러스터에서만 지원됩니다.
+		> [AZURE.NOTE] C# 토폴로지는 Windows 기반 HDInsight 클러스터에서만 지원됩니다.
 
 	* **Trident** Java 인터페이스를 사용하여 "정확히 한 번"의 메시지 처리, "트랜잭션" 데이터 저장소 지속성 및 일반 스트림 분석 작업 집합을 지원하는 Storm 토폴로지 만들기
 
@@ -101,7 +101,7 @@ Apache Storm의 기본 구성에는 하나의 Nimbus 노드만 있습니다. HDI
 
 만드는 동안 클러스터의 노드 수를 지정할 수 있지만 작업과 일치하도록 클러스터를 확장하거나 축소할 수도 있습니다. 모든 HDInsight 클러스터에서는 데이터를 처리하는 동안 클러스터의 노드 수를 변경할 수 있습니다.
 
-> [AZURE.NOTE]확장을 통해 추가된 새 노드를 이용하려면 클러스터 크기를 증가시키기 전에 시작된 토폴로지의 균형을 다시 조정해야 합니다.
+> [AZURE.NOTE] 확장을 통해 추가된 새 노드를 이용하려면 클러스터 크기를 증가시키기 전에 시작된 토폴로지의 균형을 다시 조정해야 합니다.
 
 ###지원
 
@@ -137,7 +137,7 @@ Apache Storm에서는 HDInsight 또는 Hadoop에서 친숙한 MapReduce 작업 �
 
 * **Spout**: 데이터 원본의 데이터를 사용하며 **스트림**을 하나 이상 내보냅니다.
 
-	> [AZURE.NOTE]대부분의 경우에는 Kafka, Azure 서비스 버스 큐 또는 이벤트 허브와 같은 큐에서 데이터를 읽습니다. 이처럼 큐가 사용되므로 가동 중지 시에도 데이터가 유지됩니다.
+	> [AZURE.NOTE] 대부분의 경우에는 Kafka, Azure 서비스 버스 큐 또는 이벤트 허브와 같은 큐에서 데이터를 읽습니다. 이처럼 큐가 사용되므로 가동 중지 시에도 데이터가 유지됩니다.
 
 * **Bolt**: **스트림**을 사용하고 **튜플** 처리를 수행하며 **스트림**을 내보낼 수 있습니다. 또한 Bolt는 큐, HDInsight HBase, Blob 또는 기타 데이터 저장소와 같은 외부 저장소에 데이터를 씁니다.
 
@@ -219,4 +219,4 @@ HDInsight의 Apache Storm을 사용한 실시간 분석 솔루션에 대해 자�
 [apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
 [gettingstarted]: hdinsight-apache-storm-tutorial-get-started-linux.md
 
-<!---HONumber=AcomDC_0114_2016--->
+<!---HONumber=AcomDC_0302_2016-->

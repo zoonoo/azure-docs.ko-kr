@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="node"
 	ms.topic="get-started-article"
-	ms.date="11/27/2015"
+	ms.date="02/25/2015"
 	ms.author="bradygaster"/>
 
 # Azure 앱 서비스에서 Node.js API 앱 빌드 및 배포
@@ -21,7 +21,7 @@
 [AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
 ## 필수 조건
-1. 개발 컴퓨터에서 실행되는 [Node.js](nodejs.org)(이 샘플에서는 Node.js 버전 4.2.2가 설치된 것으로 가정함)
+1. 개발 컴퓨터에서 실행되는 [Node.js](http://nodejs.org)(이 샘플에서는 Node.js 버전 4.2.2가 설치된 것으로 가정함)
 1. [GitHub](https://github.com/) 계정
 1. Microsoft Azure [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)
 1. 로컬 개발 워크스테이션에 설치된 Git
@@ -243,4 +243,4 @@ Azure 앱 서비스에서 기본 제공하는 지속적인 업데이트 기능�
 
 이 샘플을 작성하려면 데이터베이스 또는 API 앱 인스턴스의 디스크에 데이터를 저장하는 코드를 처리기에 추가할 수 있습니다. 연속 배포를 연결했으므로 코드를 변경하고 Git 리포지토리에 푸시하는 간단한 방법으로 API 앱의 기능을 변경하고 확장할 수 있습니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

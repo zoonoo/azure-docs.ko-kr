@@ -1,11 +1,11 @@
 <properties
 	pageTitle="하이브리드 연결 개요 | Microsoft Azure"
-	description="보안, TCP 포트 및 지원되는 구성 등을 포함한 하이브리드 연결에 대해 알아봅니다. MABS, WABS"
+	description="하이브리드 연결, 보안, TCP 포트 및 지원되는 구성에 대해 알아봅니다. MABS, WABS"
 	services="biztalk-services"
 	documentationCenter=""
 	authors="MandiOhlinger"
-	manager="dwrede"
-	editor="cgronlun"/>
+	manager="erikre"
+	editor=""/>
 
 <tags
 	ms.service="biztalk-services"
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/01/2015"
+	ms.date="02/29/2016"
 	ms.author="mandia"/>
 
 
 # 하이브리드 연결 개요
-이 문서에서는 하이브리드 연결을 소개하고, 지원되는 구성과 필요한 TCP 포트를 설명합니다.
+하이브리드 연결을 소개하고, 지원되는 구성과 필수 TCP 포트를 설명합니다.
 
 
 ## 하이브리드 연결 정의
@@ -35,7 +35,7 @@
 - 하이브리드 연결을 사용하는 응용 프로그램은 하이브리드 연결을 통해 게시되는 특정 온-프레미스 리소스에만 액세스합니다.
 - SQL Server, MySQL, HTTP Web API 및 대부분의 사용자 지정 웹 서비스와 같이 정적 TCP 포트를 사용하는 모든 온-프레미스 리소스에 연결할 수 있습니다.
 
-	> [AZURE.NOTE]동적 포트(예: FTP 수동 모드 또는 확장 수동 모드)를 사용하는 TCP 기반 서비스는 현재 지원되지 않습니다.
+	> [AZURE.NOTE] 동적 포트(예: FTP 수동 모드 또는 확장 수동 모드)를 사용하는 TCP 기반 서비스는 현재 지원되지 않습니다.
 
 - 웹앱에서 지원하는 모든 프레임워크(.NET, PHP, Java, Python, Node.js) 및 모바일 앱에서 지원하는 모든 프레임워크(Node.js, .NET)에서 사용할 수 있습니다.
 - 웹앱 및 모바일 앱은 웹이나 모바일 앱이 로컬 네트워크에 위치하는 것처럼 정확히 동일한 방식으로 온-프레미스 리소스에 액세스할 수 있습니다. 예를 들어 온-프레미스에 사용되는 동일한 연결 문자열을 Azure에서도 사용할 수 있습니다.
@@ -91,7 +91,7 @@
 
 ## 다음 단계
 
-[하이브리드 연결 만들기 및 관리](integration-hybrid-connection-create-manage.md)<br/> [Azure 웹 사이트에 온-프레미스 리소스 연결](../web-sites-hybrid-connection-get-started.md)<br/> [Azure 웹앱으로부터 온-프레미스 SQL Server에 연결](../web-sites-hybrid-connection-connect-on-premises-sql-server.md)<br/> [Azure 모바일 서비스 및 하이브리드 연결](../mobile-services-dotnet-backend-hybrid-connections-get-started.md)
+[하이브리드 연결 만들기 및 관리](integration-hybrid-connection-create-manage.md)<br/> [Azure 웹 사이트에 온-프레미스 리소스 연결](../app-service-web/web-sites-hybrid-connection-get-started.md)<br/> [Azure 웹앱으로부터 온-프레미스 SQL Server에 연결](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md)<br/> [Azure 모바일 서비스 및 하이브리드 연결](../mobile-services/mobile-services-dotnet-backend-hybrid-connections-get-started.md)
 
 
 ## 참고 항목
@@ -103,4 +103,4 @@
 [HCOnPremSetup]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

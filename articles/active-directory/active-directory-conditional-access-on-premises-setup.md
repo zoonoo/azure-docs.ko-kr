@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.topic="get-started-article"
+	ms.date="02/26/2016"
 	ms.author="femila"/>
 
 
@@ -42,23 +42,23 @@ Azure Active Directory Device Registration 서비스 조건부 액세스 정책�
 * Azure Active Directory 테넌트
 * Windows Server Active Directory(Windows Server 2008 이상)
 * Windows Server 2012 R2에서 업데이트된 스키마
-* Azure Active Directory Premium 구독
+* Azure Active Directory Premium에 대한 라이선스
 * Azure AD에 대해 SSO로 구성된 Windows Server 2012 R2 페더레이션 서비스
 * Windows Server 2012 R2 웹 응용 프로그램 프록시 Microsoft Azure Active Directory Connect(Azure AD Connect). [여기에서 Azure AD Connect를 다운로드하세요](http://www.microsoft.com/ko-KR/download/details.aspx?id=47594).
-* 확인된 도메인. 
+* 확인된 도메인.
 
 이 릴리스의 알려진 문제
 -------------------------------------------------------------------------------
 * 장치 기반 조건부 액세스 정책을 사용하려면 Azure Active Directory에서 Active Directory로 장치 개체를 쓰기 저장해야 합니다. Active Directory에 장치 개체를 다시 쓰기 저장하는 데 최대 3시간이 걸릴 수 있습니다.
-* iOS 7 장치는 항상 클라이언트 인증서 인증 도중 인증서를 선택하라는 메시지를 사용자에게 표시합니다. 
-* iOS8의 일부 버전, iOS 8.3 버전은 작동하지 않습니다. 
+* iOS 7 장치는 항상 클라이언트 인증서 인증 도중 인증서를 선택하라는 메시지를 사용자에게 표시합니다.
+* iOS8의 일부 버전, iOS 8.3 버전은 작동하지 않습니다.
 
 ## 시나리오의 가정
-이 시나리오는 사용자에게 Azure AD 테넌트와 로컬 Active Directory로 구성된 하이브리드 환경이 있다고 가정합니다. 이러한 테넌트는 Azure AD Connect를 사용하여 연결되어야 하며 확인된 도메인과 SSO용 AD FS도 필요합니다. 아래 검사 목록을 통해 위에서 설명한 상태로 환경이 구성되었는지 확인해 보세요.
+이 시나리오는 사용자에게 Azure AD 테넌트와 온-프레미스 Active Directory로 구성된 하이브리드 환경이 있다고 가정합니다. 이러한 테넌트는 Azure AD Connect를 사용하여 연결되어야 하며 확인된 도메인과 SSO용 AD FS도 필요합니다. 아래 검사 목록을 통해 위에서 설명한 상태로 환경이 구성되었는지 확인해 보세요.
 
-검사 목록: 조건부 액세스 시나리오를 위한 필수 조건
+검사 목록: 조건부 액세스 시나리오를 위한 필수 구성 요소
 --------------------------------------------------------------
-Azure AD 테넌트를 로컬 Active Directory에 연결합니다.
+온-프레미스 Active Directory로 Azure AD 테넌트를 연결합니다.
 
 ## Azure Active Directory Device Registration 서비스 구성
 이 가이드를 사용하여 조직에 맞게 Azure Active Directory Device Registration 서비스를 배포하고 구성할 수 있습니다.
@@ -89,11 +89,11 @@ Azure Active Directory Device Registration 서비스 및 Azure Active Directory 
 | 작업 | 참조 |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
 | Azure AD Connect에서 장치 쓰기 저장 사용의 2부를 완료합니다. 완료되면 이 가이드로 돌아옵니다. | [Azure AD Connect에서 장치 쓰기 저장 사용](#Active Directory 도메인 서비스 스키마 업그레이드) |
-	 
+
 
 ##[선택 사항] 4부: Multi-Factor Authentication 사용
 
-Multi-Factor Authentication을 위한 여러 옵션 중 하나를 구성하는 것이 좋습니다. MFA가 필요하도록 하려면 [다단계 보안 솔루션 선택](multi-factor-authentication-get-started.md)을 참조하세요. 여기에는 각 솔루션에 대한 설명, 선택한 솔루션을 구성하는 데 도움이 되는 링크가 포함되어 있습니다.
+Multi-Factor Authentication을 위한 여러 옵션 중 하나를 구성하는 것이 좋습니다. MFA가 필요하도록 하려면 [다단계 보안 솔루션 선택](../multi-factor-authentication/multi-factor-authentication-get-started.md)을 참조하세요. 여기에는 각 솔루션에 대한 설명, 선택한 솔루션을 구성하는 데 도움이 되는 링크가 포함되어 있습니다.
 
 ## 5부: 확인
 
@@ -109,20 +109,20 @@ Multi-Factor Authentication을 위한 여러 옵션 중 하나를 구성하는 �
 
 
 
-## Azure Active Directory와 로컬 Active Directory 통합
-이렇게 하면 Azure AD Connect를 사용하여 Azure AD 테넌트를 로컬 Active Directory와 통합하는 데 도움이 됩니다. 이 단계는 Azure 포털에도 설명되어 있으나 이 섹션에서 설명하는 특별 지침을 참조하십시오.
+## 온-프레미스 Active Directory와 Azure Active Directory 통합
+이렇게 하면 Azure AD Connect를 사용하여 온-프레미스 Active Directory와 Azure AD 테넌트를 통합하는 데 도움이 됩니다. 이 단계는 Azure 클래식 포털에도 설명되어 있으나 이 섹션에서 나열한 특별 지침을 참조하십시오.
 
-1.	관리자 권한으로 Azure 포털에 로그온합니다.
+1.	Azure AD의 전역 관리자인 계정을 사용하여 Azure 클래식 포털에 로그인합니다.
 2.	왼쪽 창에서 **Active Directory**를 선택합니다.
 3.	**디렉터리** 탭에서 해당 디렉터리를 선택합니다.
 4.	**디렉터리 통합** 탭을 선택합니다.
-5.	**배포 및 관리** 섹션에서 1-3단계에 따라 Azure Active Directory를 로컬 디렉터리와 통합합니다.
+5.	**배포 및 관리** 섹션에서 1-3단계에 따라 온-프레미스 디렉터리와 Azure Active Directory를 통합합니다.
   1.	도메인을 추가합니다.
   2.	Azure AD Connect 설치 및 실행: [Azure AD Connect의 사용자 지정 설치](active-directory-aadconnect-get-started-custom.md) 지침을 사용하여 Azure AD Connect를 설치합니다.
   3. 디렉터리 동기화를 확인하고 관리합니다. 이 단계에는 SSO(Single Sign-On) 지침이 포함되어 있습니다.
   >[AZURE.NOTE] 아래 링크의 문서에 설명된 대로 AD FS와의 페더레이션을 구성합니다.[AZURE.NOTE] 미리 보기 기능은 구성할 필요 없습니다.
-  
-   
+
+
 
 
 ## Active Directory 도메인 서비스 스키마 업그레이드
@@ -130,7 +130,7 @@ Multi-Factor Authentication을 위한 여러 옵션 중 하나를 구성하는 �
 Active Directory 스키마 업그레이드는 취소할 수 없습니다. 먼저 테스트 환경에서 이 작업을 수행하는 것이 좋습니다.
 
 1. Enterprise Admin 및 Schema Admin 권한이 둘 다 있는 계정으로 도메인 컨트롤러에 로그인합니다.
-2. **[media]\\support\\adprep** 디렉터리와 하위 디렉터리를 Active Directory 도메인 컨트롤러 중 하나로 복사합니다. 
+2. **[media]\\support\\adprep** 디렉터리와 하위 디렉터리를 Active Directory 도메인 컨트롤러 중 하나로 복사합니다.
 3. 여기서 [media]는 Windows Server 2012 R2 설치 미디어의 경로입니다.
 4. 명령 프롬프트에서 adprep 디렉터리로 이동한 다음 **adprep.exe /forestprep**을 실행합니다. 화면의 지시에 따라 스키마 업그레이드를 완료합니다.
 
@@ -163,7 +163,7 @@ Active Directory 스키마 업그레이드는 취소할 수 없습니다. 먼저
 
 ### 장치 쓰기 저장을 위해 Azure AD Connect 준비
 
-1.	1부 완료: AAD Connect를 준비합니다. 
+1.	1부 완료: Azure AD Connect 준비
 
 
 ## Azure Active Directory Device Registration을 사용하여 작업 공간에 장치 연결
@@ -249,4 +249,4 @@ LDP.exe 또는 ADSI 편집을 사용하여 장치 개체가 Active Directory에 
 
 - [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

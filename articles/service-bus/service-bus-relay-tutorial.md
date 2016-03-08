@@ -475,7 +475,7 @@ namespace Microsoft.ServiceBus.Samples
 	using System.ServiceModel;
 	```
 
-1. 앞의 단계를 반복하여 Microsoft.ServiceBus.dll에 대한 참조와 [Microsoft.ServiceBus](https://msdn.microsoft.com/library/microsoft.servicebus.aspx) 네임스페이스를 프로젝트에 추가합니다.
+1. [서비스 버스 NuGet 패키지](https://www.nuget.org/packages/WindowsAzure.ServiceBus)를 설치합니다.
 
 1. 다음 예제와 같이 서비스 계약 정의를 네임스페이스에 추가합니다. 이 정의는 **서비스** 프로젝트에 사용되는 정의와 동일합니다. 이 코드는 `Microsoft.ServiceBus.Samples` 네임스페이스 위쪽에 추가해야 합니다.
 
@@ -823,4 +823,4 @@ namespace Microsoft.ServiceBus.Samples
 
 [Azure 클래식 포털]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

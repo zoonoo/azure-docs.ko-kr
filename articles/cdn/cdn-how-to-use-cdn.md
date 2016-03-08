@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="CDN을 사용하는 방법 | Microsoft Azure" 
-	description="Azure CDN(콘텐츠 배달 네트워크)을 사용하여 Blob 및 정적 콘텐츠를 캐시해 고대역폭 콘텐츠를 배달하는 방법을 알아봅니다." 
-	services="cdn" 
-	documentationCenter=".net" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="CDN을 사용하는 방법 | Microsoft Azure"
+	description="Azure CDN(콘텐츠 배달 네트워크)을 사용하여 Blob 및 정적 콘텐츠를 캐시해 고대역폭 콘텐츠를 배달하는 방법을 알아봅니다."
+	services="cdn"
+	documentationCenter=".net"
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="01/20/2016" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="02/25/2016"
 	ms.author="casoper"/>
 
 
@@ -27,20 +27,20 @@ CDN을 사용하여 Azure 데이터를 캐시할 경우의 혜택은 다음과 �
 - 제품 런칭 등의 이벤트를 시작할 때 순간적인 높은 부하를 더 효율적으로 처리하기 위한 대규모 분산
 - 사용자 요청을 분산하고 글로벌 에지 POP에서 콘텐츠를 제공하여 원본으로 전송되는 트래픽 양이 감소합니다.
 
->[AZURE.TIP]Azure CDN는 다양한 원본에서 콘텐츠를 분산할 수 있습니다. Azure 내에서 통합된 원본은 앱 서비스, 클라우드 서비스, blob 저장소 및 미디어 서비스를 포함합니다. 또한 공개적으로 액세스할 수 있는 웹 주소를 사용하여 사용자 지정 원본을 정의할 수 있습니다.
+>[AZURE.TIP] Azure CDN는 다양한 원본에서 콘텐츠를 분산할 수 있습니다. Azure 내에서 통합된 원본은 앱 서비스, 클라우드 서비스, blob 저장소 및 미디어 서비스를 포함합니다. 또한 공개적으로 액세스할 수 있는 웹 주소를 사용하여 사용자 지정 원본을 정의할 수 있습니다.
 
 ##CDN을 사용하는 방법
 
 1. 원본이 가리키는 끝점을 통한 CDN 프로필 만들기
 
 	CDN 프로필은 CDN 끝점의 컬렉션입니다. 각 프로필에는 CDN 끝점이 하나 이상 있습니다. CDN 프로필을 만든 후에 선택한 원본을 사용하여 새 CDN 끝점을 만들 수 있습니다.
-	
-	>[AZURE.NOTE]기본적으로 단일 Azure 구독은 CDN 프로필이 네 개로 제한됩니다. 각 CDN 프로필은 CDN 끝점이 열 개로 제한됩니다.
+
+	>[AZURE.NOTE] 기본적으로 단일 Azure 구독은 CDN 프로필이 네 개로 제한됩니다. 각 CDN 프로필은 CDN 끝점이 열 개로 제한됩니다.
 	>
 	> CDN 가격 책정은 CDN 프로필 수준에서 적용됩니다. 다양한 표준 및 프리미엄 CDN 기능을 사용하려는 경우 여러 CDN 프로필이 필요합니다.
-	
+
 	CDN 프로필 및 끝점을 만드는 방법에 대한 자세한 자습서는 [Azure에 콘텐츠 배달 네트워크를 사용하는 방법](cdn-create-new-endpoint.md)을 참조하세요.
-	
+
 2. CDN 구성 설정
 
 	CDN 끝점에 대해 [캐싱 정책](cdn-caching-policy.md), [쿼리 문자열 캐싱](cdn-query-string.md), [규칙 엔진](cdn-rules-engine.md) 등의 다양한 기능을 사용하도록 설정할 수 있습니다. 자세한 내용은 왼쪽에서 **관리** 메뉴를 참조하세요.
@@ -55,10 +55,12 @@ Azure 저장소 계정에서 CDN을 사용하도록 설정하면 공용 컨테�
 
 최상의 성능을 얻으려면 크기가 10GB 미만인 Blob을 배달할 때는 CDN 에지 캐싱을 사용하세요.
 
-저장소 계정에 대해 CDN 액세스를 사용하도록 설정하면 관리 포털에서 CDN 도메인 이름을 다음 형식으로 제공합니다. `http://<identifier>.azureedge.net/`. 이 도메인 이름을 사용하여 공용 컨테이너의 Blob에 액세스할 수 있습니다. 예를 들어 myaccount라는 이름의 저장소 계정에 music이라는 이름의 공용 컨테이너가 있을 경우 사용자는 다음의 두 개의 URL 중 하나를 사용하여 그 컨테이너의 Blob에 액세스할 수 있습니다.
+저장소 계정에 대해 CDN 액세스를 사용하도록 설정하면 관리 포털에서 CDN 도메인 이름을 다음 형식으로 제공합니다. `http://<identifier>.azureedge.net/`. 이 도메인 이름을 사용하여 공용 컨테이너의 Blob에 액세스할 수 있습니다. 예를 들어 공용 컨테이너가 지정되면 사용자는 다음 두 개의 URL 중 하나를 사용하여 해당 컨테이너의 Blob에 액세스할 수 있습니다.
 
-- **Azure Blob 서비스 URL**: `http://myAccount.blob.core.windows.net/music/` 
-- **Azure CDN URL**: `http://<identifier>.azureedge.net/music/` 
+- **Azure Blob 서비스 URL**: `http://<account>.blob.core.windows.net/<container>/`
+- **Azure CDN URL**: `http://<identifier>.azureedge.net/<container>/`
+
+> [AZURE.TIP] 위의 예에서 *전체* 저장소 계정의 CDN 끝점을 가리켰습니다. 마찬가지로 CDN URL은 URL의 컨테이너를 포함해야 합니다. **원본 경로** 매개 변수를 사용하여 특정 컨테이너에 루트 CDN URL을 가리킬 수 있습니다.
 
 ## Azure 웹 사이트의 콘텐츠 캐시
 
@@ -66,9 +68,9 @@ Azure 저장소 계정에서 CDN을 사용하도록 설정하면 공용 컨테�
 
 웹 사이트에 대해 CDN 액세스를 사용하도록 설정하면 관리 포털에서 CDN 도메인 이름을 다음 형식으로 제공합니다. `http://<identifier>.azureedge.net/`. 이 도메인 이름을 사용하여 웹 사이트에서 개체를 검색할 수 있습니다. 예를 들어 cdn이라는 공용 컨테이너와 music.png라는 이미지 파일이 있을 경우 사용자는 다음 두 개의 URL 중 하나를 사용하여 개체에 액세스할 수 있습니다.
 
-- **Azure 웹 사이트 URL**: `http://mySiteName.azurewebsites.net/cdn/music.png` 
+- **Azure 웹 사이트 URL**: `http://mySiteName.azurewebsites.net/cdn/music.png`
 - **Azure CDN URL**: `http://<identifier>.azureedge.net/cdn/music.png`
- 
+
 ## Azure 클라우드 서비스의 콘텐츠 캐시
 
 Azure 클라우드 서비스에서 제공하는 개체를 CDN에 캐시할 수 있습니다.
@@ -78,7 +80,7 @@ Azure 클라우드 서비스에서 제공하는 개체를 CDN에 캐시할 수 �
 
 - CDN을 사용하여 정적 콘텐츠만 캐시해야 합니다.
 
-	>[AZURE.WARNING]volatile 콘텐츠나 동적 콘텐츠를 캐시하면 성능이 저하되거나 콘텐츠 문제가 발생할 수 있으며 모두 비용 증가를 초래합니다.
+	>[AZURE.WARNING] volatile 콘텐츠나 동적 콘텐츠를 캐시하면 성능이 저하되거나 콘텐츠 문제가 발생할 수 있으며 모두 비용 증가를 초래합니다.
 - 프로덕션 배포에 클라우드 서비스를 배포해야 합니다.
 - 클라우드 서비스는 HTTP를 사용하여 포트 80에서 개체를 제공해야 합니다.
 - 클라우드 서비스는 캐시하거나 배달할 콘텐츠를 클라우드 서비스의 /cdn 폴더에 배치해야 합니다.
@@ -86,8 +88,8 @@ Azure 클라우드 서비스에서 제공하는 개체를 CDN에 캐시할 수 �
 클라우드 서비스에 대해 CDN 액세스를 사용하도록 설정하면 관리 포털에서 CDN 도메인 이름을 다음 형식으로 제공합니다. `http://<identifier>.azureedge.net/`. 이 도메인 이름을 사용하여 클라우드 서비스에서 개체를 검색할 수 있습니다. 예를 들어 myHostedService라는 클라우드 서비스와 콘텐츠를 배달하는 music.aspx라는 ASP.NET 웹 페이지가 있을 경우 사용자는 다음 두 개의 URL 중 하나를 사용하여 개체에 액세스할 수 있습니다.
 
 
-- **Azure 클라우드 서비스 URL**: `http://myHostedService.cloudapp.net/music.aspx` 
-- **Azure CDN URL**: `http://<identifier>.azureedge.net/music.aspx` 
+- **Azure 클라우드 서비스 URL**: `http://myHostedService.cloudapp.net/music.aspx`
+- **Azure CDN URL**: `http://<identifier>.azureedge.net/music.aspx`
 
 ## 사용자 지정 원본에서 콘텐츠 캐싱
 
@@ -97,14 +99,14 @@ Azure 클라우드 서비스에서 제공하는 개체를 CDN에 캐시할 수 �
 
 - CDN을 사용하여 정적 콘텐츠만 캐시해야 합니다.
 
-	>[AZURE.WARNING]volatile 콘텐츠나 동적 콘텐츠를 캐시하면 성능이 저하되거나 콘텐츠 문제가 발생할 수 있으며 모두 비용 증가를 초래합니다.
+	>[AZURE.WARNING] volatile 콘텐츠나 동적 콘텐츠를 캐시하면 성능이 저하되거나 콘텐츠 문제가 발생할 수 있으며 모두 비용 증가를 초래합니다.
 - 공용 IP 주소를 사용하여 서버에서 사용자 지정 원본의 콘텐츠를 호스팅해야 합니다. CDN 에지 노드는 방화벽 뒤의 인트라넷 서버에서 자산을 검색할 수 있습니다.
 
 사용자 지정 원본에 대해 CDN 액세스를 사용하도록 설정하면 Azure 포털에서 CDN 도메인 이름을 다음 형식으로 제공합니다. `http://<identifier>.azureedge.net/`. 이 도메인 이름을 사용하여 사용자 지정 원본에서 개체를 검색할 수 있습니다. 예를 들어 www.contoso.com에 위치한 사이트 및 콘텐츠를 배달하는 music.aspx라는 ASP.NET 웹 페이지가 있을 경우 사용자는 다음 두 개의 URL 중 하나를 사용하여 개체에 액세스할 수 있습니다.
 
 
-- **사용자 지정 원본 URL**: `http://www.contoso.com/music.aspx` 
-- **Azure CDN URL**: `http://<identifier>.azureedge.net/music.aspx` 
+- **사용자 지정 원본 URL**: `http://www.contoso.com/music.aspx`
+- **Azure CDN URL**: `http://<identifier>.azureedge.net/music.aspx`
 
 ## 쿼리 문자열을 사용하여 특정 콘텐츠 캐시
 
@@ -147,4 +149,4 @@ Microsoft Azure CDN은 [CDN 리소스 공급자 REST API](https://msdn.microsoft
 - [Azure CDN 끝점 삭제](cdn-purge-endpoint.md)
 - [CDN 리소스 공급자 REST API](https://msdn.microsoft.com/library/mt634456.aspx)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0302_2016-->

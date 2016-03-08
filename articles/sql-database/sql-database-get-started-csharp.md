@@ -11,7 +11,7 @@
 <tags
    ms.service="sql-database"
    ms.devlang="NA"
-   ms.topic="get-started-article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
    ms.date="01/22/2016"
@@ -22,7 +22,7 @@
 **단일 데이터베이스**
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-get-started.md)
+- [Azure 포털](sql-database-get-started.md)
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
@@ -34,7 +34,7 @@ SQL 및 C#으로 단일 데이터베이스를 만들어 SQL 데이터베이스�
 
 개별 코드 조각은 명확성을 위해 세분화되었으며 샘플 콘솔 응용 프로그램은 이 문서의 하단에 있는 섹션에서 모든 명령을 합칩니다.
 
-.NET용 Azure SQL 데이터베이스 라이브러리는 [리소스 관리자 기반 SQL 데이터베이스 REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx)를 래핑하는 [Azure 리소스 관리자](resource-group-overview.md) 기반 API를 제공합니다. 이 클라이언트 라이브러리는 리소스 관리자 기반 클라이언트 라이브러리의 일반적인 패턴을 따릅니다. 리소스 관리자는 리소스 그룹을 필요로 하며 AAD([Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx))로 인증합니다.
+.NET용 Azure SQL 데이터베이스 라이브러리는 [리소스 관리자 기반 SQL 데이터베이스 REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx)를 래핑하는 [Azure 리소스 관리자](../resource-group-overview.md) 기반 API를 제공합니다. 이 클라이언트 라이브러리는 리소스 관리자 기반 클라이언트 라이브러리의 일반적인 패턴을 따릅니다. 리소스 관리자는 리소스 그룹을 필요로 하며 AAD([Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx))로 인증합니다.
 
 <br>
 
@@ -50,7 +50,7 @@ SQL 및 C#으로 단일 데이터베이스를 만들어 SQL 데이터베이스�
 
 ## 필요한 라이브러리 설치
 
-C#으로 SQL 데이터베이스를 설정하려면 Visual Studio (**도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**)의 [패키지 관리자 콘솔](http://docs.nuget.org/Consume/Package-Manager-Console)을 사용해 다음의 패키지를 설치하고 필요한 관리자 라이브러리를 가져옵니다.
+C#으로 SQL 데이터베이스를 설정하려면 Visual Studio(**도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**)의 [패키지 관리자 콘솔](http://docs.nuget.org/Consume/Package-Manager-Console)을 사용하는 다음 패키지를 설치하여 필요한 관리자 라이브러리를 가져옵니다.
 
     Install-Package Microsoft.Azure.Management.Sql –Pre
     Install-Package Microsoft.Azure.Management.Resources –Pre
@@ -270,7 +270,7 @@ SQL 데이터베이스는 서버에 포함되어 있습니다. 서버 이름은 
 
 ## 샘플 C&#x23; 콘솔 응용 프로그램
 
-다음 샘플은 리소스 그룹, 서버, 방화벽 규칙 및 SQL 데이터베이스를 만듭니다. 이 문서 위쪽에 있는 *Azure Active Directory로 인증 구성* 섹션은 clientId, redirectUri, 및 domainName 변수의 값을 가져올 수 있는 위치를 보여줍니다.
+다음 샘플은 리소스 그룹, 서버, 방화벽 규칙 및 SQL 데이터베이스를 만듭니다. 이 문서 위쪽에 있는 *Azure Active Directory로 인증 구성* 섹션은 clientId, redirectUri 및 domainName 변수의 값을 가져올 수 있는 위치를 보여줍니다.
 
 
     using Microsoft.Azure;
@@ -463,4 +463,4 @@ SQL 데이터베이스는 서버에 포함되어 있습니다. 서버 이름은 
 [8]: ./media/sql-database-get-started-csharp/add-application2.png
 [9]: ./media/sql-database-get-started-csharp/clientid.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

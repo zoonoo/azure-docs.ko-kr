@@ -12,16 +12,16 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # 자습서: 데이터 팩터리 편집기를 사용하여 복사 작업이 있는 파이프라인 만들기
 > [AZURE.SELECTOR]
-- [Tutorial Overview](data-factory-get-started.md)
-- [Using Data Factory Editor](data-factory-get-started-using-editor.md)
-- [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
-- [Using Visual Studio](data-factory-get-started-using-vs.md)
+- [자습서 개요](data-factory-get-started.md)
+- [데이터 팩터리 편집기 사용](data-factory-get-started-using-editor.md)
+- [Visual Studio 사용](data-factory-get-started-using-vs.md)
+- [PowerShell 사용](data-factory-monitor-manage-using-powershell.md)
 
 
 
@@ -33,11 +33,13 @@
 [1단계: Azure Data Factory 만들기](#CreateDataFactory) | 이 단계에서는 **ADFTutorialDataFactory**라는 Azure Data Factory를 만듭니다.  
 [2단계: 연결된 서비스 만들기](#CreateLinkedServices) | 이 단계에서는 2개의 연결된 서비스 **StorageLinkedService** 및 **AzureSqlLinkedService**를 만듭니다. StorageLinkedService는 Azure 저장소를 연결하고, AzureSqlLinkedService는 Azure SQL 데이터베이스를 ADFTutorialDataFactory에 연결합니다. 파이프라인에 대한 입력 데이터는 Azure Blob 저장소의 Blob 컨테이너에 있고, 출력 데이터는 Azure SQL 데이터베이스의 테이블에 저장됩니다. 따라서 이러한 두 데이터 저장소를 연결된 서비스로 데이터 팩터리에 추가합니다.      
 [3단계: 입력 및 출력 테이블 만들기](#CreateInputAndOutputDataSets) | 이전 단계에서는 입출력 데이터가 포함된 데이터 저장소를 참조하는 연결된 서비스를 만들었습니다. 이 단계에서는 데이터 저장소에 저장된 입출력 데이터를 나타내는 2개의 데이터 팩터리 테이블 **EmpTableFromBlob** 및 **EmpSQLTable**을 정의합니다. EmpTableFromBlob에 대해 원본 데이터가 있는 Blob을 포함하는 Blob 컨테이너를 지정하고, EmpSQLTable에 대해 출력 데이터를 저장할 SQL 테이블을 지정합니다. 데이터 구조, 데이터 가용성 등의 기타 속성도 지정합니다. 
-[4단계: 파이프라인 만들기 및 실행](#CreateAndRunAPipeline) | 이 단계에서는 ADFTutorialDataFactory에 **ADFTutorialPipeline**이라는 파이프라인을 만듭니다. 이 파이프라인에는 Azure Blob에서 출력 Azure SQL 테이블로 입력 데이터를 복사하는 **복사 작업**이 있습니다.
+[4단계: 파이프라인 만들기 및 실행](#CreateAndRunAPipeline) | 이 단계에서는 ADFTutorialDataFactory에 **ADFTutorialPipeline**이라는 파이프라인을 만듭니다. 이 파이프라인에는 Azure Blob에서 출력 Azure SQL 테이블로 입력 데이터를 복사하는 **복사 작업**이 있습니다. 복사 작업은 Azure Data Factory에서 데이터 이동을 수행합니다. 이 작업은 다양한 데이터 저장소 간에 데이터를 안전하고 안정적이며 확장성 있는 방법으로 복사할 수 있는 전역적으로 사용 가능한 서비스를 통해 이루어집니다. 복사 작업에 대한 자세한 내용은 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 참조하세요. 
 [5단계: 조각 및 파이프라인 모니터링](#MonitorDataSetsAndPipeline) | 이 단계에서는 Azure 포털을 사용하여 입력 및 출력 테이블의 조각을 모니터링합니다.
- 
 
-## <a name="CreateDataFactory"></a>1단계: Azure 데이터 팩터리 만들기
+> [AZURE.IMPORTANT] 
+[자습서 개요](data-factory-get-started.md) 문서를 살펴보고 이 자습서를 수행하기 전에 필수 단계를 완료합니다.
+
+## <a name="CreateDataFactory"></a>1단계: Azure Data Factory 만들기
 이 단계에서는 Azure 포털을 사용하여 **ADFTutorialDataFactory**라는 Azure Data Factory를 만듭니다.
 
 1.	[Azure 포털][azure-portal]에 로그인한 후에 왼쪽 아래에서 **새로 만들기**를 클릭하고 **만들기** 블레이드에서 **데이터 분석**을 선택한 다음 **데이터 분석** 블레이드에서 **데이터 팩터리**를 클릭합니다. 
@@ -375,13 +377,11 @@
 1.	Azure **데이터 팩터리**를 만듭니다.
 2.	데이터 저장소와 계산(**연결된 서비스**라고 함)을 데이터 팩터리에 연결하는** 연결된 서비스**를 만듭니다.
 3.	파이프라인의 입력 데이터와 출력 데이터를 설명하는 **테이블**을 만듭니다.
-4.	**파이프라인**을 만듭니다. 파이프라인은 하나 이상의 작업으로 구성되며 입력을 처리하고 출력을 생성합니다. 파이프라인에 대한 **시작** 시간 및 **종료** 시간을 지정하여 파이프라인에 대한 활성 기간을 설정합니다. 활성 기간은 데이터 조각이 생성되는 기간을 정의합니다. 
+4.	**파이프라인**을 만듭니다. 파이프라인은 하나 이상의 작업으로 구성되며 입력을 처리하고 출력을 생성합니다. 파이프라인에 대한 **시작** 시간 및 **종료** 시간을 지정하여 파이프라인에 대한 활성 기간을 설정합니다. 활성 기간은 데이터 조각이 생성되는 기간을 정의합니다.
 
 
-지원되는 작업 목록은 [파이프라인 및 작업][msdn-activities] 항목을 참조하고, 지원되는 연결된 서비스 목록은 MSDN 라이브러리의 [연결된 서비스][msdn-linkedservices] 항목을 참조하세요.
- 
-Azure PowerShell을 사용하여 이 자습서를 수행하려면 [Azure PowerShell을 사용하여 데이터 팩터리 만들기 및 모니터링][monitor-manage-using-powershell]을 참조하세요.
-
+## 참고 항목
+Azure Data Factory의 **복사 작업**에 대한 자세한 내용은 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 참조하세요.
 
 <!--Link references-->
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
@@ -459,4 +459,4 @@ Azure PowerShell을 사용하여 이 자습서를 수행하려면 [Azure PowerSh
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

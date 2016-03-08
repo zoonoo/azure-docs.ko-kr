@@ -3,7 +3,7 @@
    description="초기 사용을 위해 Azure 자동화를 구성하는 데 필요한 단계를 설명합니다."
    services="automation"
    documentationCenter=""
-   authors="SnehaGunda"
+   authors="MGoedtel"
    manager="stevenka"
    editor="tysonn" />
 <tags
@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/18/2016"
+   ms.date="02/23/2016"
    ms.author="magoedte;bwren" />
 
 # Azure 자동화 구성
@@ -94,4 +94,4 @@ Runbook의 모든 [검사점](http://technet.microsoft.com/library/dn469257.aspx
 - [Azure 자동화: Azure Active Directory를 사용하여 Azure에 인증](https://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

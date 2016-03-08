@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="ASP.NET용 Application Insights" 
-	description="Application Insights를 사용하여 온-프레미스 또는 Microsoft Azure 웹 응용 프로그램의 성능, 가용성 및 사용 패턴을 분석합니다." 
+	pageTitle="Application Insights로 ASP.NET에 대한 웹앱 분석" 
+	description="ASP.NET 웹 사이트, 호스팅된 온-프레미스 또는 Azure에 대한 성능, 가용성 및 사용 현황 분석입니다." 
 	services="application-insights" 
     documentationCenter=".net"
 	authors="alancameronwills" 
@@ -11,8 +11,8 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.topic="get-started-article" 
+	ms.date="02/28/2016" 
 	ms.author="awills"/>
 
 
@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
-Application Insights SDK는 라이브 웹 응용 프로그램에서 로그인하고 앱의 성능 및 사용에 대한 차트를 볼 수 있는 Azure 포털로 원격 분석을 보냅니다.
+Application Insights SDK는 라이브 웹 응용 프로그램에서 로그인하고 앱의 성능 및 사용에 대한 차트를 볼 수 있는 Azure 포털로 분석 원격 분석을 보냅니다.
 
 ![예제 성능 모니터링 차트](./media/app-insights-asp-net/10-perf.png)
 
@@ -68,13 +68,13 @@ Azure 로그인으로 계정을 선택합니다. 자격 증명을 다시 입력�
 2. [Azure 포털][portal]에 Application Insights 리소스를 만듭니다. 이곳에서 사용자의 데이터를 볼 수 있습니다. 리소스를 식별하는 *계측 키*를 검색합니다.
 3. `ApplicationInsights.config`에 계측 키를 삽입하여 SDK가 포털에 원격 분석을 보낼 수 있습니다.
 
-처음 Azure에 로그인하지 않은 경우 SDK는 리소스에 연결하지 않고 설치됩니다. 디버깅 하는 동안 Visual Studio 진단 허브에서 Application Insights 원격 분석 데이터를 확인하고 검색할 수 있습니다. 나중에 다른 단계를 완료할 수 있습니다.
+처음 Azure에 로그인하지 않은 경우 SDK는 리소스에 연결하지 않고 설치됩니다. 디버깅하는 동안 Visual Studio 검색 창에서 Application Insights 원격 분석을 확인하고 검색할 수 있습니다. 나중에 다른 단계를 완료할 수 있습니다.
 
 ## <a name="run"></a> 프로젝트 실행
 
 F5 키를 사용하여 응용 프로그램을 실행하고 여러 페이지를 열어 원격 분석을 생성해 봅니다.
 
-Visual Studio에 전송한 이벤트 수가 표시됩니다.
+Visual Studio에 로그된 이벤트 수가 표시됩니다.
 
 ![Visual Studio에서 Application Insights 단추는 디버깅하는 동안 표시됩니다.](./media/app-insights-asp-net/appinsights-09eventcount.png)
 
@@ -83,7 +83,7 @@ Visual Studio에 전송한 이벤트 수가 표시됩니다.
 
 ### 진단 검색
 
-검색 창에서는 Application Insights 포털에 전송한 이벤트가 표시됩니다. (포털에 동일한 검색 기능이 있습니다.)
+검색 창에서는 기록된 이벤트를 보여줍니다. (Azure에 로그인한 경우 Application Insights를 설정할 때 포털에서 동일한 이벤트를 검색할 수 있습니다.)
 
 ![프로젝트를 마우스 오른쪽 단추로 클릭하고 Application Insights 및 검색을 선택합니다.](./media/app-insights-asp-net/34.png)
 
@@ -105,6 +105,8 @@ Visual Studio에 전송한 이벤트 수가 표시됩니다.
 [Azure 포털][portal]에서 Application Insights 리소스를 엽니다.
 
 ![프로젝트를 마우스 오른쪽 단추로 클릭하고 Azure 포털을 엽니다.](./media/app-insights-asp-net/appinsights-04-openPortal.png)
+
+이 앱에 Application Ingsights를 추가했을 때 Azure에 로그인하지 않은 경우 지금 로그인합니다. **Application Insights 구성**을 선택합니다. 그렇게 하면 배포한 후에 라이브 앱에서 원격 분석을 계속 볼 수 있습니다. 원격 분석은 Application Insights 포털에 표시됩니다.
 
 ### 메트릭: 집계된 데이터
 
@@ -161,7 +163,7 @@ Visual Studio에 전송한 이벤트 수가 표시됩니다.
 
 포털에 원격 분석을 보내기 전에 디버깅하려는 [사용자 지정 원격 분석](app-insights-api-custom-events-metrics.md)이 있는 경우 특히 유용합니다.
 
-* *처음에 Application Insights를 완전하게 구성하여 포털에 원격 분석을 전송했습니다. 하지만 이제 Visual Studio에서만 원격 분석을 확인하려 합니다.*
+* *우선 Application Insights를 완전히 구성하여 포털에 원격 분석을 전송했습니다. 하지만 이제 Visual Studio에서만 원격 분석을 확인하려 합니다.*
 
     ApplicationInsights.config에서 `<instrumentationkey>...` 줄의 주석으로 처리합니다. 원격 분석을 포털에 다시 보낼 준비가 되면 주석 처리를 제거합니다.
 
@@ -212,4 +214,4 @@ ApplicationInsights.config에 대한 사용자 지정을 변경한 경우, 업�
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -19,7 +19,7 @@
 
 > [AZURE.SELECTOR]
 - [.Net](web-sites-dotnet-get-started.md)
-- [Node.js](web-sites-nodejs-develop-deploy-mac.md)
+- [Node.JS](web-sites-nodejs-develop-deploy-mac.md)
 - [Java](web-sites-java-get-started.md)
 - [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
 - [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
@@ -27,9 +27,9 @@
 
 이 자습서는 [Azure 포털](https://portal.azure.com/)을 사용하여 Java [Azure 앱 서비스에서 웹앱](http://go.microsoft.com/fwlink/?LinkId=529714)을 만드는 방법을 보여 줍니다. Azure 포털은 Azure 리소스를 관리하는 데 사용할 수 있는 웹 인터페이스입니다.
 
-> [AZURE.NOTE] 이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우 [Visual Studio 구독자 혜택을 활성화][]하거나 [무료 평가판을 등록][]할 수 있습니다.
+> [AZURE.NOTE] 이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우 [Visual Studio 구독자 혜택을 활성화]하거나 [무료 평가판을 등록]할 수 있습니다.
 >
-> Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려는 경우 [앱 서비스 평가][]로 이동하세요. 여기서 신용 카드와 약정 없이 앱 서비스에서 수명이 짧은 스타터 웹앱을 즉시 만들 수 있습니다.
+> Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려는 경우 [앱 서비스 평가]로 이동하세요. 여기서 신용 카드와 약정 없이 앱 서비스에서 수명이 짧은 스타터 웹앱을 즉시 만들 수 있습니다.
 
 ## Java 응용 프로그램 옵션
 
@@ -53,7 +53,7 @@
 	* 사용자가 직접 처음부터 웹 컨테이너를 구성하려고 합니다. 
 	* 앱 서비스에서 지원하지 않는 Java 버전을 사용하고 사용자가 직접 업로드하려고 합니다.
 
-	이러한 경우 Azure 포털을 사용하여 앱을 만든 다음 적절한 런타임 파일을 수동으로 제공할 수 있습니다. 이 경우 파일은 앱 서비스 계획에 대한 저장소 공간 할당량에 대해 계산됩니다. 자세한 내용은 [Azure에 사용자 지정 Java 웹앱 업로드](https://acom-sandbox.azurewebsites.net/ko-KR/documentation/articles/web-sites-java-custom-upload/)를 참조하세요.
+	이러한 경우 Azure 포털을 사용하여 앱을 만든 다음 적절한 런타임 파일을 수동으로 제공할 수 있습니다. 이 경우 파일은 앱 서비스 계획에 대한 저장소 공간 할당량에 대해 계산됩니다. 자세한 내용은 [Azure에 사용자 지정 Java 웹앱 업로드](web-sites-java-custom-upload.md)를 참조하세요.
 
 ## <a name="portal"></a> Java 웹앱 만들기 및 구성
 
@@ -176,7 +176,6 @@ Azure에서 Java 응용 프로그램을 개발하는 방법에 대한 자세한 
 <!-- External Links -->
 [Visual Studio 구독자 혜택을 활성화]: http://go.microsoft.com/fwlink/?LinkId=623901
 [무료 평가판을 등록]: http://go.microsoft.com/fwlink/?LinkId=623901
-
 [앱 서비스 평가]: http://go.microsoft.com/fwlink/?LinkId=523751
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

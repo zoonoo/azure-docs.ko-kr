@@ -12,19 +12,21 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
-# 자습서: Azure PowerShell을 사용하여 데이터 팩터리 만들기 및 모니터링
+# 자습서: Azure PowerShell을 사용하여 복사 작업이 있는 파이프라인 만들기
 > [AZURE.SELECTOR]
-- [Tutorial Overview](data-factory-get-started.md)
-- [Using Data Factory Editor](data-factory-get-started-using-editor.md)
-- [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
-- [Using Visual Studio](data-factory-get-started-using-vs.md)
+- [자습서 개요](data-factory-get-started.md)
+- [데이터 팩터리 편집기 사용](data-factory-get-started-using-editor.md)
+- [Visual Studio 사용](data-factory-get-started-using-vs.md)
+- [PowerShell 사용](data-factory-monitor-manage-using-powershell.md)
 
 
-[Azure Data Factory 시작][adf-get-started] 자습서에서는 [Azure 포털][azure-portal]을 사용하여 Azure Data Factory를 만들고 모니터링하는 방법을 보여 줍니다. 이 자습서에서는 Azure PowerShell cmdlet을 사용하여 Azure Data Factory를 만들고 모니터링합니다. 이 자습서에서 만드는 데이터 팩터리의 파이프라인은 Azure Blob에서 Azure SQL 데이터베이스로 데이터를 복사합니다.
+[Azure Data Factory 시작][adf-get-started] 자습서에서는 [Azure 포털][azure-portal]을 사용하여 Azure Data Factory를 만들고 모니터링하는 방법을 보여 줍니다. 이 자습서에서는 Azure PowerShell cmdlet을 사용하여 Azure Data Factory를 만들고 모니터링합니다. 이 자습서에서 만든 데이터 팩터리의 파이프라인은 복사 작업을 사용하여 Azure Blob에서 Azure SQL 데이터베이스로 데이터를 복사합니다.
+
+복사 작업은 Azure Data Factory에서 데이터 이동을 수행합니다. 이 작업은 다양한 데이터 저장소 간에 데이터를 안전하고 안정적이며 확장성 있는 방법으로 복사할 수 있는 전역적으로 사용 가능한 서비스를 통해 이루어집니다. 복사 작업에 대한 자세한 내용은 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 참조하세요.
 
 > [AZURE.IMPORTANT] 
 [자습서 개요](data-factory-get-started.md) 문서를 살펴보고 이 자습서를 수행하기 전에 필수 단계를 완료합니다.
@@ -57,7 +59,7 @@
 [4단계: 파이프라인 만들기 및 실행](#CreateAndRunAPipeline) | 이 단계에서는 데이터 팩터리 **ADFTutorialDataFactoryPSH**에 **ADFTutorialPipeline**이라는 파이프라인을 만듭니다. 이 파이프라인에는 Azure Blob에서 출력 Azure 데이터베이스 테이블로 데이터를 복사하는 **복사 작업**이 있습니다.
 [5단계: 데이터 집합 및 파이프라인 모니터링](#MonitorDataSetsAndPipeline) | 이 단계에서는 Azure PowerShell을 사용하여 데이터 집합 및 파이프라인을 모니터링합니다.
 
-## <a name="CreateDataFactory"></a> 1단계: Azure 데이터 팩터리 만들기
+## <a name="CreateDataFactory"></a>1단계: Azure 데이터 팩터리 만들기
 이 단계에서는 명명 된는 Azure 데이터 팩터리를 만들려면 Azure PowerShell을 사용 **ADFTutorialDataFactoryPSH**.
 
 1. Azure PowerShell을 시작하고 다음 명령을 실행합니다. 이 자습서를 마칠 때까지 Azure PowerShell을 열어 두세요. 닫은 후 다시 여는 경우 이러한 명령을 다시 실행해야 합니다.
@@ -422,6 +424,8 @@
 
 데이터 팩터리 cmdlet에 대한 포괄적인 설명서는 [데이터 팩터리 Cmdlet 참조][cmdlet-reference](영문)를 참조하세요.
 
+## 참고 항목
+Azure 데이터 팩터리의 **복사 작업**에 대한 자세한 내용은 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 참조하세요.
 
 
 [adf-tutorial]: data-factory-tutorial.md
@@ -443,4 +447,4 @@
 [sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

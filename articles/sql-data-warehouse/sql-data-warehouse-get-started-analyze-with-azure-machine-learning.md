@@ -10,10 +10,10 @@
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="02/25/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # Azure 기계 학습을 사용하여 데이터 분석
@@ -140,4 +140,4 @@ AdventureWorksDW 데이터베이스의 dbo.vTargetMail 보기에서 데이터를
 [샘플 데이터를 수동으로 로드]: sql-data-warehouse-get-started-manually-load-samples.md
 [SQL 데이터 웨어하우스에 만들기]: sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

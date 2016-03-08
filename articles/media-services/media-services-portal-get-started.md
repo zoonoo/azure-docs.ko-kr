@@ -4,7 +4,7 @@
 	services="media-services"
 	documentationCenter=""
 	authors="Juliako"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/03/2016"
+	ms.date="02/25/2016"
 	ms.author="juliako"/>
 
 
@@ -139,7 +139,7 @@ Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나
 
 ### 인코딩
 
-이 섹션에서는 Azure 클래식 포털을 사용하여 Azure 미디어 인코더로 콘텐츠를 인코딩할 수 있는 단계를 설명합니다.
+이 섹션에서는 Azure 클래식 포털을 사용하여 미디어 인코더 표준으로 콘텐츠를 인코드할 수 있는 단계를 설명합니다.
 
 1.  인코딩하려는 파일을 선택합니다. 이 파일 형식에 대해 인코딩이 지원되는 경우에는 콘텐츠 페이지 아래쪽에서 **프로세스** 단추를 사용할 수 있습니다.
 4. **프로세스** 대화 상자에서 **미디어 인코더 표준** 프로세서를 선택합니다.
@@ -253,4 +253,4 @@ Azure 클래식 포털에서는 비디오를 테스트하는 데 사용할 수 �
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->
