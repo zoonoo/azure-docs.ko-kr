@@ -32,7 +32,7 @@
 
 > [AZURE.NOTE] Azure 마켓플레이스에서 작업을 시작하기 전에 사전 승인을 받아야 합니다. 데이터 서비스 게시자에는 해당하지 않습니다.
 
-|가상 컴퓨터 이미지 |개발자 서비스 | 데이터 서비스 | 솔루션 템플릿 |
+||가상 컴퓨터 이미지 |개발자 서비스 | 데이터 서비스 | 솔루션 템플릿 |
 |----|----|----|----|----|
 | **사전 승인 받기** | [Microsoft Azure 인증][link-certification] | [Microsoft Azure 인증][link-certification] | 해당 없음 | [Microsoft Azure 인증][link-certification] |
 | **1단계: 개발자 계정 등록** | [Microsoft 개발자 계정: 생성 및 등록][link-accts] | [Microsoft 개발자 계정: 생성 및 등록][link-accts] | [Microsoft 개발자 계정: 생성 및 등록][link-accts] | [Microsoft 개발자 계정: 생성 및 등록][link-accts] |
@@ -82,4 +82,4 @@
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 [link-pushprod]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!----HONumber=AcomDC_0224_2016-->

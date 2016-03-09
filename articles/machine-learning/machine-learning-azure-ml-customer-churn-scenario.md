@@ -221,7 +221,7 @@ Azure 기계 학습에서 제공되는 또 다른 흥미로운 기능은 이미 
 
 [4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] Cortana 분석 갤러리의 [Telco churn model template](http://gallery.cortanaanalytics.com/Experiment/Telco-Customer-Churn-5)
+\[5] Cortana 분석 갤러리의 [Telco churn model template](http://gallery.cortanaanalytics.com/Experiment/Telco-Customer-Churn-5)
 ##부록
 
 ![][10]
@@ -240,4 +240,4 @@ Azure 기계 학습에서 제공되는 또 다른 흥미로운 기능은 이미 
 [9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!----HONumber=AcomDC_0224_2016-->
