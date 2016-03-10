@@ -103,4 +103,4 @@ Azure에서 실행 중인 모바일 서비스에 대해 새 클라이언트 앱�
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [JavaScript 백 엔드 버전]: mobile-services-ios-get-started.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0211_2016-->

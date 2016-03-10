@@ -444,4 +444,4 @@ Azure 테이블 저장소는 클라우드에 구조화되지 않은 NoSQL 데이
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
 
-<!---HONumber=AcomDC_0218_2016-->
+<!----HONumber=AcomDC_0218_2016-->

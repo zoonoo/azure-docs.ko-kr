@@ -328,4 +328,4 @@ Apple [Local and Push Notification Programming Guide]에서 가능한 모든 페
 [WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS
 [Azure 포털]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0218_2016-->
+<!----HONumber=AcomDC_0218_2016-->
