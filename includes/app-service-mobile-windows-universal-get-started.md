@@ -7,4 +7,4 @@
 
 이 자습서를 완료해야 다른 모든 Windows 스토어 및 Windows Phone 스토어 앱용 모바일 앱 자습서를 진행할 수 있습니다.
 
-<!---HONumber=Nov15_HO1-->
+<!-----HONumber=Nov15_HO1-->
