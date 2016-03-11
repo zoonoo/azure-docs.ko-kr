@@ -89,9 +89,17 @@ JMeter 서버 컴퓨터에 다음 테스트 스크립트 매개 변수 파일을
 
 * [query-config-win.ini](https://github.com/mspnp/azure-guidance/blob/master/ingestion-and-query-tests/query-config-win.ini) 및 [query-config-nix.ini](https://github.com/mspnp/azure-guidance/blob/master/ingestion-and-query-tests/query-config-nix.ini). 이 두 파일에는 다음과 같은 동일한 정보가 있습니다. *win* 파일은 Windows 파일 이름 및 경로 대한 형식이고 *nix* 파일은 Linux 파일 이름 및 경로에 대한 형식입니다.
 
-  ```ini [DEFAULT] debug=true #true가 콘솔 로그를 표시하는 경우
+  ```ini
+  [DEFAULT]
+  debug=true #true가 콘솔 로그를 표시하는 경우
 
-  [실행] pathreports=C:\\Users\\administrator1\\jmeter\\test-results\\ #path where tests results are saved. jmx=C:\\Users\\administrator1\\testplan.jmx #JMeter 테스트 계획에 대한 경로 machines=10.0.0.1,10.0.02,10.0.0.3 #쉼표로 구분된 Elasticsearch 데이터 노드의 IP. reports=aggr,err,tps,waitio,cpu,network,disk,response,view #쉼표로 구분된 보고서의 이름. tests=idx1 #테스트할 Elasticsearch 인덱스 이름. properties=run.properties #속성 파일의 이름. ```
+  [실행]
+  pathreports=C:\\Users\\administrator1\\jmeter\\test-results\\ #path where tests results are saved.
+  jmx=C:\\Users\\administrator1\\testplan.jmx #JMeter 테스트 계획에 대한 경로
+  machines=10.0.0.1,10.0.02,10.0.0.3 #쉼표로 구분된 Elasticsearch 데이터 노드의 IP.
+  reports=aggr,err,tps,waitio,cpu,network,disk,response,view #쉼표로 구분된 보고서의 이름. tests=idx1 #테스트할 Elasticsearch 인덱스 이름.
+  properties=run.properties #속성 파일의 이름.
+  ```
 
   이 파일을 편집하여 테스트 결과의 위치, 실행할 JMeter 테스트 계획의 이름, Elasticsearch 데이터 노드의 IP 주소, 생성될 원시 성능 데이터를 포함하는 보고서 및 테스트 중인 인덱스의 이름(또는 이름들)을 지정합니다. *run.properties* 파일이 다른 폴더 또는 디렉터리에 위치한 경우 이 파일에 전체 경로를 지정합니다.
 
@@ -116,4 +124,4 @@ JMeter 서버 컴퓨터에 다음 테스트 스크립트 매개 변수 파일을
 [Elasticsearch 성능을 테스트하기 위한 JMeter JUnit 샘플러 배포]: guidance-elasticsearch-deploying-jmeter-junit-sampler.md
 [Elasticsearch 성능을 테스트하기 위해 JMeter JUnit 샘플러 배포]: guidance-elasticsearch-deploying-jmeter-junit-sampler.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!-------HONumber=AcomDC_0224_2016-->
