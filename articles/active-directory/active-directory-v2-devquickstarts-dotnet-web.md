@@ -203,4 +203,4 @@ public ActionResult About()
 
 추가 리소스는 다음을 확인해보세요. - [v2.0 개발자 가이드 >>](active-directory-appmodel-v2-overview.md) - [스택 오버플로 "azure-active-directory" 태그 >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0224_2016-->
