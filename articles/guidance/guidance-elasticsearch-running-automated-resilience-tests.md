@@ -121,7 +121,11 @@ JMeter 마스터가 linux에서 실행 중인 경우 PLINK를 다운로드할 �
 | `verbose` | 스크립트가 세부 정보 표시 모드로 출력하는지 여부를 나타냅니다. | `true` |
 | `remote` | jmeter 테스트가 로컬로 또는 원격 서버에서 실행되는지 여부를 나타냅니다 | `true` |
 | `cluster.clusterName` | Elasticsearch 클러스터의 이름입니다. | `elasticsearch` |
-| `cluster.jumpboxIp` | jumpbox 컴퓨터의 IP 주소. |-| | `cluster.username` | 클러스터를 배포하는 동안 만든 관리자 사용자 |-| | `cluster.password` | 관리자 사용자에 대한 암호 |-| | `cluster.loadBalancer.ip` | Elasticsearch의 부하 분산 장치의 IP 주소 |-| | `cluster.loadBalancer.url` | 부하 분산 장치의 기본 URL |-|
+| `cluster.jumpboxIp` | jumpbox 컴퓨터의 IP 주소. |-| 
+| `cluster.username` | 클러스터를 배포하는 동안 만든 관리자 사용자 |-| 
+| `cluster.password` | 관리자 사용자에 대한 암호 |-| 
+| `cluster.loadBalancer.ip` | Elasticsearch의 부하 분산 장치의 IP 주소 |-| 
+| `cluster.loadBalancer.url` | 부하 분산 장치의 기본 URL |-|
 
 ## 테스트 실행
 

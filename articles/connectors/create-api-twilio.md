@@ -234,7 +234,6 @@ Twilio API에는 다음 작업이 포함됩니다. 트리거는 없습니다.
 |속성 이름 | 데이터 형식 |필수|
 |---|---|---|
 |카테고리|string|no|
-|usage|string|no|
 |usage\_unit|string|no|
 |description|string|no|
 |가격|number|no|

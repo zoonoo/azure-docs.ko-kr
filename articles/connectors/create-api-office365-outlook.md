@@ -723,14 +723,11 @@ Subject, Body, To
 |원본|string|
 |참조|string|
 |Bcc|string|
-|제목  
-|string|
+|제목|string|
 |본문|string|
-|중요도  
-|string|
+|중요도|string|
 |IsHtml|부울|
-|받는 사람  
-|string|
+|받는 사람|string|
 
 
 
@@ -770,14 +767,11 @@ Subject, Body, To
 |원본|string|
 |참조|string|
 |Bcc|string|
-|제목  
-|string|
+|제목|string|
 |본문|string|
-|중요도  
-|string|
+|중요도|string|
 |IsHtml|부울|
-|받는 사람  
-|string|
+|받는 사람|string|
 
 
 
@@ -811,15 +805,12 @@ Subject, Digest, To
 
 | 이름 | 데이터 형식 |
 |---|---|
-|제목  
-|string|
+|제목|string|
 |본문|string|
-|중요도  
-|string|
+|중요도|string|
 |Digest|array|
 |첨부 파일|array|
-|받는 사람  
-|string|
+|받는 사람|string|
 
 
 
@@ -947,15 +938,12 @@ Subject, Options, To
 
 | 이름 | 데이터 형식 |
 |---|---|
-|제목  
-|string|
+|제목|string|
 |옵션|string|
 |본문|string|
-|중요도  
-|string|
+|중요도|string|
 |첨부 파일|array|
-|받는 사람  
-|string|
+|받는 사람|string|
 
 
 
@@ -1008,12 +996,10 @@ Subject, Options, To
 
 | 이름 | 데이터 형식 |
 |---|---|
-|제목  
-|string|
+|제목|string|
 |옵션|string|
 |본문|string|
-|중요도  
-|string|
+|중요도|string|
 |첨부 파일|array|
 |받는 사람  
 |string|
