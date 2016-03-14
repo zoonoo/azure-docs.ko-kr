@@ -419,7 +419,7 @@ DocumentDB와 같은 스키마 없는 데이터 저장소의 경우 Data Factory
 
 	**대답:** 레코드에 "ID" 필드가 있고 복사 작업이 동일한 ID를 가진 레코드를 삽입하려고 시도하는 경우 복사 작업에서 오류가 발생합니다.
  
-3. **질문:** 데이터 팩터리는 [범위 또는 해시 기반 데이터 분할](https://azure.microsoft.com/documentation/articles/documentdb-partition-data/)을 지원합니까?
+3. **질문:** 데이터 팩터리는 [범위 또는 해시 기반 데이터 분할]( https://azure.microsoft.com/documentation/articles/documentdb-partition-data/)을 지원합니까?
 
 	**대답:** 아니요. 
 4. **질문:** 하나의 테이블에 대해 하나 이상의 DocumentDB 컬렉션을 지정할 수 있습니까?
@@ -427,4 +427,4 @@ DocumentDB와 같은 스키마 없는 데이터 저장소의 경우 Data Factory
 	**대답:** 아니요. 이 경우 하나의 컬렉션만 지정할 수 있습니다.
      
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016--->
