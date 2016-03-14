@@ -136,9 +136,16 @@ NAT 규칙을 만듭니다.
 
 ### 3단계
 
-상태 프로브를 만듭니다.
-
+상태 프로브를 만듭니다. 프로브를 구성하는 방법은 두 가지가 있습니다.
+ 
+HTTP 프로브
+	
 	$healthProbe = New-AzureRmLoadBalancerProbeConfig -Name HealthProbe -RequestPath 'HealthProbe.aspx' -Protocol http -Port 80 -IntervalInSeconds 15 -ProbeCount 2
+또는
+
+TCP 프로브
+	
+	$healthProbe = New-AzureRmLoadBalancerProbeConfig -Name HealthProbe -Protocol Tcp -Port 80 -IntervalInSeconds 15 -ProbeCount 2
 
 ### 4단계
 
@@ -295,10 +302,10 @@ Set-AzureLoadBalancer를 사용하여 새 구성 저장
 
 ## 다음 단계
 
-[내부 부하 분산 장치 구성 시작](load-balancer-internal-getstarted.md)
+[내부 부하 분산 장치 구성 시작](load-balancer-get-started-ilb-arm-ps.md)
 
 [부하 분산 장치 배포 모드 구성](load-balancer-distribution-mode.md)
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

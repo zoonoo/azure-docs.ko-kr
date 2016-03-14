@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 # FTP API 시작
-FTP 서버에 연결하여 파일을 관리합니다. FTP 서버에서 파일 업로드, 파일 삭제 등의 다양한 작업을 수행할 수 있습니다.
+FTP 서버에 연결하여 파일 업로드, 파일 삭제 등을 포함하여 파일을 관리합니다. FTP API를 다음에서 사용할 수 있습니다.
 
-논리 앱에서 FTP API를 사용할 수 있습니다.
+- 논리 앱
 
 >[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다. 2014-12-01-preview 스키마 버전에 대한 내용을 보려면 [FTP 커넥터](../app-service-logic/app-service-logic-connector-ftp.md)를 클릭하세요.
 
@@ -56,6 +56,7 @@ FTP에서 사용할 수 있는 트리거와 작업은 다음과 같습니다.
 >[AZURE.TIP] 다른 논리 앱에서 이와 동일한 FTP 연결을 사용할 수 있습니다.
 
 ## Swagger REST API 참조
+적용 버전: 1.0
 
 ### 파일 만들기
 FTP 서버에 파일을 업로드합니다. ```POST: /datasets/default/files```
@@ -246,4 +247,4 @@ FTP 서버에서 파일을 업데이트합니다. ```PUT: /datasets/default/file
 
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

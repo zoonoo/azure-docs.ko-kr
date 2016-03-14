@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="02/29/2016" 
 	ms.author="piyushjo" />
 
 #Windows Phone Silverlight Engagement SDK 통합
 
 > [AZURE.SELECTOR] 
-- [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md) 
+- [Windows 범용](mobile-engagement-windows-store-integrate-engagement.md) 
 - [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md) 
 - [iOS](mobile-engagement-ios-integrate-engagement.md) 
 - [Android](mobile-engagement-android-integrate-engagement.md) 
@@ -35,7 +35,7 @@ Windows Silverlight용 Mobile Engagement SDK는 다음을 대상으로 하는 �
 -   Windows Phone 8.0
 -   Windows Phone 8.1 Silverlight
 
-> [AZURE.NOTE]Windows Phone 8.1(비 Silverlight)을 대상으로 하는 경우 [Windows 범용](mobile-engagement-windows-store-integrate-engagement.md) 통합 절차를 참조하세요.
+> [AZURE.NOTE] Windows Phone 8.1(비 Silverlight)을 대상으로 하는 경우 [Windows 범용](mobile-engagement-windows-store-integrate-engagement.md) 통합 절차를 참조하세요.
 
 ##Mobile Engagement Silverlight SDK를 설치합니다.
 
@@ -95,7 +95,7 @@ Engagement 구성은 프로젝트의 `Resources\EngagementConfiguration.xml` 파
 		   EngagementAgent.Instance.OnActivated(e);
 		}
 
-> [AZURE.WARNING]응용 프로그램의 다른 위치에는 Engagement 초기화를 추가하지 않는 것이 좋습니다. 그러나 `EngagementAgent.Instance.Init` 메서드는 UI 스레드가 아닌 전용 스레드에서 실행됩니다.
+> [AZURE.WARNING] 응용 프로그램의 다른 위치에는 Engagement 초기화를 추가하지 않는 것이 좋습니다. 그러나 `EngagementAgent.Instance.Init` 메서드는 UI 스레드가 아닌 전용 스레드에서 실행됩니다.
 
 ##기본 보고
 
@@ -137,7 +137,7 @@ Engagement에서 사용자, 세션, 활동, 작동 중단 및 기술 통계를 �
 		  }
 		}
 
-> [AZURE.WARNING]페이지가 `OnNavigatedTo` 메서드에서 상속하는 경우에는 `base.OnNavigatedTo(e)` 호출을 허용해야 합니다. 그렇지 않으면 활동이 보고되지 않습니다. 실제로 `EngagementPage`은(는) `OnNavigatedTo` 메서드 내에서 `StartActivity`을(를) 호출합니다.
+> [AZURE.WARNING] 페이지가 `OnNavigatedTo` 메서드에서 상속하는 경우에는 `base.OnNavigatedTo(e)` 호출을 허용해야 합니다. 그렇지 않으면 활동이 보고되지 않습니다. 실제로 `EngagementPage`은(는) `OnNavigatedTo` 메서드 내에서 `StartActivity`을(를) 호출합니다.
 
 #### XAML 파일
 
@@ -199,7 +199,7 @@ PhoneApplicationPage 페이지의 `OnNavigatedTo` 메서드 내에서 `StartActi
 		   EngagementAgent.Instance.StartActivity("MyPage");
 		}
 
-> [AZURE.IMPORTANT]세션을 올바르게 종료해야 합니다.
+> [AZURE.IMPORTANT] 세션을 올바르게 종료해야 합니다.
 >
 > 응용 프로그램이 닫힐 때 SDK에서 `EndActivity` 메서드를 자동으로 호출합니다. 따라서 사용자 활동이 변경될 때마다 `StartActivity` 메서드를 호출하는 것이 **상당히** 좋으며 `EndActivity` 메서드는 호출하지 **않는** 것이 좋습니다. 이 메서드는 현재 사용자가 응용 프로그램을 떠난 Engagement 서버에 메시지를 보내며 이는 모든 응용 프로그램 로그에 영향을 미칩니다.
 
@@ -215,7 +215,7 @@ PhoneApplicationPage 페이지의 `OnNavigatedTo` 메서드 내에서 `StartActi
 
 Engagement의 자동 작동 중단 보고를 사용하지 않도록 설정할 수 있습니다. 이렇게 하면 처리되지 않은 예외 발생 시 Engagement에서 아무런 작업도 수행하지 않습니다.
 
-> [AZURE.WARNING]이 기능을 사용하지 않도록 설정하려는 경우 앱에서 처리되지 않은 작동 중단이 발생해도 Engagement에서 작동 중단을 전송하지 않으며 **또한** 세션 및 작업도 닫지 않습니다.
+> [AZURE.WARNING] 이 기능을 사용하지 않도록 설정하려는 경우 앱에서 처리되지 않은 작동 중단이 발생해도 Engagement에서 작동 중단을 전송하지 않으며 **또한** 세션 및 작업도 닫지 않습니다.
 
 자동 작동 중단 보고를 사용하지 않도록 설정하려면 구성을 선언한 방식에 따라 사용자 지정합니다.
 
@@ -244,7 +244,7 @@ EngagementConfiguration 개체를 사용하여 작동 중단 보고를 false로 
 
 버스트 모드를 사용하는 경우 배터리 수명은 약간 길어지지만 Engagement 모니터에 영향을 주게 됩니다. 모든 세션 및 작업 기간이 버스트 임계값으로 반올림되므로 버스트 임계값보다 짧은 세션과 작업은 표시되지 않을 수도 있습니다. 30000(30초) 이하의 버스트 임계값을 사용하는 것이 좋습니다. 저장된 로드는 300개 항목으로 제한됩니다. 보내는 로그가 너무 길면 일부 로그가 손실될 수 있습니다.
 
-> [AZURE.WARNING]1초보다 짧은 기간으로 버스트 임계값을 구성할 수는 없습니다. 버스트 임계값을 1초보다 짧게 구성하면 SDK에는 오류가 포함된 추적이 표시되며, 값은 자동으로 기본값인 0초로 다시 설정됩니다. 그러면 SDK에서 실시간 로그 보고가 트리거됩니다.
+> [AZURE.WARNING] 1초보다 짧은 기간으로 버스트 임계값을 구성할 수는 없습니다. 버스트 임계값을 1초보다 짧게 구성하면 SDK에는 오류가 포함된 추적이 표시되며, 값은 자동으로 기본값인 0초로 다시 설정됩니다. 그러면 SDK에서 실시간 로그 보고가 트리거됩니다.
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

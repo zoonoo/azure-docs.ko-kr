@@ -1,8 +1,8 @@
 <properties
 	pageTitle="가져오기/내보내기를 사용하여 Blob 저장소로 데이터 전송| Microsoft Azure"
 	description="Blob 저장소로 데이터를 전송하기 위해 Azure 클래식 포털에서 가져오기 및 내보내기 작업을 만드는 방법에 대해 알아봅니다."
-	authors="robinsh"
-	manager="carmonm"
+	authors="renashahmsft"
+	manager="aungoo"
 	editor="tysonn"
 	services="storage"
 	documentationCenter=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/19/2016"
+	ms.date="02/29/2016"
 	ms.author="renash"/>
 
 
@@ -51,7 +51,7 @@ Blob 저장소에서 가져오기 또는 내보내기 프로세스를 시작하�
 
 1.	**구독 및 저장소 계정:** 가져오기/내보내기 서비스를 사용하려면 기존 Azure 구독과 하나 이상의 클래식 저장소 계정이 있어야 합니다. 각 작업은 하나의 클래식 저장소 계정에서만 데이터 전송에 사용될 수 있습니다. 다시 말해, 하나의 작업이 여러 저장소 계정에서 사용될 수 없습니다. 새 저장소 계정 만들기에 대한 자세한 내용은 [저장소 계정을 만드는 방법](storage-create-storage-account.md#create-a-storage-account)(영문)을 참조하세요. 
 
-  > [AZURE.NOTE] ARM 저장소 계정이 있는 경우 Azure 지원에 문의하세요.
+  > [AZURE.NOTE] ARM 모델을 사용하는 저장소 계정은 아직 지원되지 않습니다.
 
 2.	**하드 드라이브:** 3.5인치 SATA II/III 내부 하드 드라이브만 가져오기/내보내기 서비스에서 사용하도록 지원됩니다. 최대 8TB의 하드 드라이브를 지원합니다. 가져오기 작업의 경우 드라이브의 첫 번째 데이터 볼륨만 처리됩니다. 데이터 볼륨은 NTFS로 포맷되어 있어야 합니다. 외부 SATA II/III USB 어댑터를 사용하여 외부에서 대부분의 컴퓨터에 SATA II/III 디스크를 연결할 수 있습니다.
 3.	**BitLocker 암호화:** 하드 드라이브에 저장된 모든 데이터는 숫자 암호로 보호되는 암호화 키가 포함된 BitLocker를 사용하여 암호화되어야 합니다.
@@ -230,7 +230,8 @@ Azure 가져오기/내보내기 도구는 각 드라이브가 준비되면 각 �
 
 - 아니요. 모든 드라이브는 BitLocker로 준비된 상태여야 합니다.
 
-**내보내기 작업을 만들 때 디스크를 준비해야 합니까?** - 아니요. 하지만 일부 사전 검사를 수행하는 것이 좋습니다. Azure 가져오기/내보내기 도구의 PreviewExport 명령을 사용하여 필요한 디스크 수를 확인합니다. 자세한 내용은 [내보내기 작업에 대한 드라이브 사용량 미리 보기](https://msdn.microsoft.com/library/azure/dn722414.aspx)를 참조하세요. 사용하고자 하는 드라이브의 크기에 따라 선택한 Blob에 대한 드라이브 사용량을 미리볼 수 있습니다. 또한 내보내기 작업에 대해 제공될 하드 드라이브에 읽거나/쓸 수 있는지 확인합니다.
+**내보내기 작업을 만들 때 디스크를 준비해야 하나요?**
+- 아니요, 하지만 일부 사전 검사를 수행하는 것이 좋습니다. Azure 가져오기/내보내기 도구의 PreviewExport 명령을 사용하여 필요한 디스크 수를 확인합니다. 자세한 내용은 [내보내기 작업에 대한 드라이브 사용량 미리 보기](https://msdn.microsoft.com/library/azure/dn722414.aspx)를 참조하세요. 사용하고자 하는 드라이브의 크기에 따라 선택한 Blob에 대한 드라이브 사용량을 미리볼 수 있습니다. 또한 내보내기 작업에 대해 제공될 하드 드라이브에 읽거나/쓸 수 있는지 확인합니다.
 
 ### 발송
 
@@ -274,7 +275,7 @@ Azure 가져오기/내보내기 도구는 각 드라이브가 준비되면 각 �
 
 - 하드 드라이브만 배송하고 전원 공급 장치 케이블이나 USB 케이블과 같은 품목은 포함하지 마세요.
 
-**운송업체 웹 사이트에 내 패키지가 배달된 것으로 표시되어 있는데 클래식 포털의 작업 상태가 *전달*로 표시되는 이유는 무엇입니까?**
+**운송업체 웹 사이트에 내 패키지가 배달된 것으로 표시되어 있는데 클래식 포털의 작업 상태가 *전달*로 표시되는 이유는 무엇인가요?**
 
 - 드라이브 처리가 시작되면 포털 상태가 *전달*에서 *전송*으로 변경됩니다. 드라이브가 시설에 도착했지만 처리가 시작되지 않은 경우에는 작업 상태가 *전달*로 표시됩니다.
 
@@ -287,4 +288,4 @@ Azure 가져오기/내보내기 도구는 각 드라이브가 준비되면 각 �
 [export-job-03]: ./media/storage-import-export-service-classic-portal/export-job-03.png
 [export-job-bitlocker-keys]: ./media/storage-import-export-service-classic-portal/export-job-bitlocker-keys.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

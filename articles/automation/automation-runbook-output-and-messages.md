@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="Azure 자동화에서 Runbook 출력 및 메시지 | Microsoft Azure"
    description="Azure 자동화의 runbook에서 출력 및 오류 메시지를 만들고 검색하는 방법을 설명합니다."
    services="automation"
    documentationCenter=""
-   authors="bwren"
+   authors="mgoedtel"
    manager="stevenka"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="automation"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/27/2016"
-   ms.author="bwren" />
+   ms.date="03/02/2016"
+   ms.author="magoedte;bwren" />
 
 # Azure 자동화에서 Runbook 출력 및 메시지
 
@@ -51,7 +51,7 @@ Runbook에 포함된 함수에 출력 스트림을 작성하는 경우 출력은
 	   Write-Verbose "Verbose outside of function"
 	   Write-Output "Output outside of function"
 	   $functionOutput = Test-Function
-	
+
 	   Function Test-Function
 	   {
 	      Write-Verbose "Verbose inside of function"
@@ -77,7 +77,7 @@ Runbook 작업에 대한 자세한 정보 표시 스트림은 다음과 같습�
 	Workflow Test-Runbook
 	{
 	   [OutputType([string])]
-	
+
 	   $output = "This is some string output."
 	   Write-Output $output
 	}
@@ -93,7 +93,7 @@ Runbook 작업에 대한 자세한 정보 표시 스트림은 다음과 같습�
 [Write-Warning](https://technet.microsoft.com/library/hh849931.aspx) 또는 [Write-Error](http://technet.microsoft.com/library/hh849962.aspx) cmdlet를 사용하여 경고 또는 오류 메시지를 만듭니다. 또한 활동은 이러한 스트림에 쓸 수 있습니다.
 
 	#The following lines create a warning message and then an error message that will suspend the runbook.
-	
+
 	$ErrorActionPreference = "Stop"
 	Write-Warning –Message "This is a warning message."
 	Write-Error –Message "This is an error message that will stop the runbook because of the preference variable."
@@ -107,7 +107,7 @@ Runbook 작업에 대한 자세한 정보 표시 스트림은 다음과 같습�
 [Write-Verbose](http://technet.microsoft.com/library/hh849951.aspx) cmdlet를 사용하여 자세한 정보 표시 메시지를 만듭니다.
 
 	#The following line creates a verbose message.
-	
+
 	Write-Verbose –Message "This is a verbose message."
 
 ### 디버그 스트림
@@ -152,20 +152,42 @@ Windows PowerShell에서 [Get AzureAutomationJobOutput](http://msdn.microsoft.co
 
 다음 예제는 샘플 runbook를 시작한 다음 완료되기를 기다립니다. 완료되면 해당 출력 스트림을 작업에서 수집합니다.
 
-	$job = Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" 
-	
+	$job = Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
+
 	$doLoop = $true
 	While ($doLoop) {
 	   $job = Get-AzureAutomationJob –AutomationAccountName "MyAutomationAccount" -Id $job.Id
 	   $status = $job.Status
-	   $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped") 
+	   $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped")
 	}
-	
+
 	Get-AzureAutomationJobOutput –AutomationAccountName "MyAutomationAccount" -Id $job.Id –Stream Output
+
+### 그래픽 작성
+
+그래픽 Runbook의 경우 추가 로깅은 작업 수준 추적의 형식으로 사용할 수 있습니다. 추적에는 기본 및 자세히, 두 가지 수준이 있습니다. 기본 추적에서는 작업의 시도 횟수 및 시작 시간과 같이 Runbook의 각 작업의 시작 및 종료 시간과 작업 다시 시도와 관련된 정보를 볼 수 있습니다. 자세히 추적에서는 기본 추적 외에도 각 작업에 대한 입력 및 출력 데이터를 얻습니다. 현재 추적 레코드는 자세한 정보 표시 스트림을 사용하여 기록되므로 추적을 사용하도록 설정할 경우 자세한 정보 로깅을 사용하도록 설정해야 합니다. 추적을 사용하는 그래픽 Runbook의 경우 기본 추적이 같은 용도로 사용되고 자세한 정보를 제공하기 때문에 진행률 레코드를 기록할 필요가 없습니다.
+
+![그래픽 작성 작업 스트림 보기](media/automation-runbook-output-and-messages/job_streams_view_blade.png)
+
+그래픽 Runbook에 대한 자세한 정보 로깅 및 추적을 사용하도록 설정하면 프로덕션 작업 스트림 보기에서 훨씬 더 많은 정보를 사용할 수 있는 것을 위의 스크린샷에서 볼 수 있습니다. 이러한 추가 정보는 Runbook을 사용하는 프로덕션 문제 해결에 필요할 수 있으므로 그 목적으로만 사용하고 일반적으로는 사용하지 않습니다. 추적 레코드는 특히 많을 수 있습니다. 그래픽 Runbook 추적을 사용하면 기본 추적 또는 자세히 추적을 구성했는지에 따라 작업당 2~4개의 레코드를 얻을 수 있습니다. 문제 해결에 대한 Runbook의 진행 상황을 추적하는 데 이 정보가 필요하지 않은 한 추적을 끈 상태로 유지하고 싶어 할 수 있습니다.
+
+**작업 수준 추적을 사용하려면 다음 단계를 수행합니다.**
+
+ 1. Azure 포털에서 자동화 계정을 엽니다.
+
+ 2. **Runbook** 타일을 클릭하여 Runbook 목록을 엽니다.
+
+ 3. Runbook 블레이드의 Runbook 목록에서 그래픽 Runbook을 선택하도록 클릭합니다.
+
+ 4. 선택한 Runbook에 대한 설정 블레이드에서 **로깅 및 추적**을 클릭합니다.
+
+ 5. 로깅 및 추적 블레이드의 상세 레코드 기록에서 자세한 정보 로깅을 사용하도록 설정하려면 **켜기**를 클릭하고 작업 수준 추적에서 필요한 추적 수준에 따라 추적 수준을 **기본** 또는 **자세히**로 변경합니다.<br>
+
+    ![그래픽 작성 로깅 및 추적 블레이드](media/automation-runbook-output-and-messages/logging_and_tracing_settings_blade.png)
 
 ## 관련된 문서
 
 - [Runbook 작업 추적](automation-runbook-execution.md)
 - [자식 Runbook](http://msdn.microsoft.com/library/azure/dn857355.aspx)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

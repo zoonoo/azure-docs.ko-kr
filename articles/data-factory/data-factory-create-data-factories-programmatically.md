@@ -31,14 +31,14 @@
 ## 연습
 1. Visual Studio 2012 또는 2013을 사용하여 C# .NET 콘솔 응용 프로그램을 만듭니다.
 	<ol type="a">
-	<li><b>Visual Studio 2012</b> 또는 <b>Visual Studio 2013</b>을 시작합니다.</li>
-	<li><b>파일</b>을 클릭하고 <b>새로 만들기</b>를 가리킨 다음 <b>프로젝트</b>를 클릭합니다.</li> 
-	<li><b>템플릿</b>을 확장하고 <b>Visual C#</b>을 선택합니다. 이 연습에서는 C#을 사용하지만 모든 .NET 언어를 사용할 수 있습니다.</li> 
-	<li>오른쪽의 프로젝트 형식 목록에서 <b>콘솔 응용 프로그램</b>을 선택합니다.</li>
-	<li><b>DataFactoryAPITestApp</b>을 <b>이름</b>으로 입력합니다.</li> 
-	<li><b>C:\ADFGetStarted</b>를 <b>위치</b>로 선택합니다.</li>
-	<li><b>확인</b>을 클릭하여 프로젝트를 만듭니다.</li>
-</ol>
+		<li><b>Visual Studio 2012</b> 또는 <b>Visual Studio 2013</b>을 시작합니다.</li>
+		<li><b>파일</b>을 클릭하고 <b>새로 만들기</b>를 가리킨 다음 <b>프로젝트</b>를 클릭합니다.</li> 
+		<li><b>템플릿</b>을 확장하고 <b>Visual C#</b>을 선택합니다. 이 연습에서는 C#을 사용하지만 모든 .NET 언어를 사용할 수 있습니다.</li> 
+		<li>오른쪽의 프로젝트 형식 목록에서 <b>콘솔 응용 프로그램</b>을 선택합니다.</li>
+		<li><b>DataFactoryAPITestApp</b>을 <b>이름</b>으로 입력합니다.</li> 
+		<li><b>C:\ADFGetStarted</b>를 <b>위치</b>로 선택합니다.</li>
+		<li><b>확인</b>을 클릭하여 프로젝트를 만듭니다.</li>
+	</ol>
 2. <b>도구</b>를 클릭하고 <b>NuGet 패키지 관리자</b>를 가리킨 다음 <b>패키지 관리자 콘솔</b>을 클릭합니다.
 3.	<b>패키지 관리자 콘솔</b>에서 다음 명령을 하나씩 실행합니다.</b> 
 
@@ -205,6 +205,8 @@
 
 11. **파이프라인을 만들고 활성화**하는 다음 코드를 **Main** 메서드에 추가합니다. 이 파이프라인에는 **BlobSource**를 원본으로 사용하고 **BlobSink**를 싱크로 사용하는 **CopyActivity**가 포함되어 있습니다.
 
+복사 작업이 Azure Data Factory의 데이터 이동을 수행합니다. 이 작업은 다양한 데이터 저장소 간에 데이터를 안전하고, 안정적이고, 확장성 있는 방법으로 복사할 수 있는 전역적으로 사용 가능한 서비스를 통해 이루어집니다. 복사 작업에 대한 자세한 내용은 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 참조하세요.
+
             // create a pipeline
         Console.WriteLine("Creating a pipeline");
         DateTime PipelineActivePeriodStartTime = new DateTime(2014, 8, 9, 0, 0, 0, 0, DateTimeKind.Utc);
@@ -261,7 +263,7 @@
 
 	
 
-12. **Main** 메서드에 사용되는 다음 도우미 클래스를 **Program** 클래스에 추가합니다. 이 메서드는 Azure 클래식 포털에 로그인하는 데 사용하는 **사용자 이름** 및 **암호**를 입력할 수 있는 대화 상자를 표시합니다.
+12. **Main** 메서드에 사용되는 다음 도우미 클래스를 **Program** 클래스에 추가합니다. 이 메서드는 Azure 클래식 포털에 로그인하는 데 사용하는 **사용자 이름** 및 **암호**를 입력할 수 있는 대화 상자를 표시합니다. 
  
 		public static string GetAuthorizationHeader()
         {
@@ -392,4 +394,4 @@
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

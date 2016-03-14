@@ -66,9 +66,6 @@
 12. 그리고 `MyHandler` 클래스에 대한 다음 멤버를 추가합니다.
 
 		public static final int NOTIFICATION_ID = 1;
-		private NotificationManager mNotificationManager;
-		NotificationCompat.Builder builder;
-		Context ctx;
 
 
 13. `MyHandler` 클래스에서 다음 코드를 추가하여 장치를 모바일 서비스 알림 허브에 등록하는 **onRegistered** 메서드를 재정의합니다.
@@ -76,7 +73,7 @@
 		@Override
 		public void onRegistered(Context context,  final String gcmRegistrationId) {
 		    super.onRegistered(context, gcmRegistrationId);
-	
+		
 		    new AsyncTask<Void, Void, Void>() {
 		    		    	
 		    	protected Void doInBackground(Void... params) {
@@ -93,34 +90,28 @@
 		}
 
 
-
 14. `MyHandler` 클래스에서 다음 코드를 추가하여 **onReceive** 메서드를 재정의하면 알림 수신 시 표시됩니다.
 
 		@Override
 		public void onReceive(Context context, Bundle bundle) {
-		    ctx = context;
-		    String nhMessage = bundle.getString("message");
-	
-		    sendNotification(nhMessage);
-		}
-	
-		private void sendNotification(String msg) {
-			mNotificationManager = (NotificationManager)
-		              ctx.getSystemService(Context.NOTIFICATION_SERVICE);
-	
-		    PendingIntent contentIntent = PendingIntent.getActivity(ctx, 0,
-		          new Intent(ctx, ToDoActivity.class), 0);
-	
-		    NotificationCompat.Builder mBuilder =
-		          new NotificationCompat.Builder(ctx)
-		          .setSmallIcon(R.drawable.ic_launcher)
-		          .setContentTitle("Notification Hub Demo")
-		          .setStyle(new NotificationCompat.BigTextStyle()
-		                     .bigText(msg))
-		          .setContentText(msg);
-	
-		     mBuilder.setContentIntent(contentIntent);
-		     mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
+        		String msg = bundle.getString("message");
+		
+        		PendingIntent contentIntent = PendingIntent.getActivity(context,
+                		0, // requestCode
+                		new Intent(context, ToDoActivity.class),
+                		0); // flags
+
+        		Notification notification = new NotificationCompat.Builder(context)
+                		.setSmallIcon(R.drawable.ic_launcher)
+                		.setContentTitle("Notification Hub Demo")
+                		.setStyle(new NotificationCompat.BigTextStyle().bigText(msg))
+                		.setContentText(msg)
+                		.setContentIntent(contentIntent)
+                		.build();
+
+        		NotificationManager notificationManager = (NotificationManager)
+                		context.getSystemService(Context.NOTIFICATION_SERVICE);
+        		notificationManager.notify(NOTIFICATION_ID, notification);
 		}
 
 
@@ -131,4 +122,4 @@
 
     이제 앱이 푸시 알림을 지원하도록 업데이트됩니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

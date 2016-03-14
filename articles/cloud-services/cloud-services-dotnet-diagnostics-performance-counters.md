@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/25/2015"
+   ms.date="02/29/2016"
    ms.author="robb" />
 
 # Azure 응용 프로그램에서 성능 카운터 만들기 및 사용
@@ -21,10 +21,10 @@
 
 Windows Server, IIS 및 ASP.NET에서 사용할 수 있는 성능 카운터를 수집하여 Azure 웹 역할, 작업자 역할 및 가상 컴퓨터의 상태를 확인하는 데 사용할 수도 있습니다. 사용자 지정 성능 카운터를 만들고 사용할 수도 있습니다.
 
-성능 카운터 데이터 
-1을 검사할 수 있습니다. 원격 데스크톱 
-2를 사용하여 액세스된 성능 모니터 도구와 응용 프로그램 호스트에서 직접. Azure 관리 팩 
-3을 사용하여 System Center Operations Manager를 통해. Azure 저장소로 전송되는 진단 데이터에 액세스하는 다른 모니터링 도구를 통해. 자세한 내용은 [Azure 저장소에서 진단 데이터 저장 및 보기](https://msdn.microsoft.com/library/azure/hh411534.aspx)를 참조하세요.
+성능 카운터 데이터를 다음과 같이 검사할 수 있습니다.
+1. 원격 데스크톱을 사용하여 액세스된 성능 모니터 도구와 응용 프로그램 호스트에서 직접
+2. Azure 관리 팩을 사용하여 System Center Operations Manager를 통해
+3. Azure 저장소로 전송되는 진단 데이터에 액세스하는 다른 모니터링 도구를 통해. 자세한 내용은 [Azure 저장소에서 진단 데이터 저장 및 보기](https://msdn.microsoft.com/library/azure/hh411534.aspx)를 참조하세요.  
 
 [Azure 클래식 포털](http://manage.azure.com/)에서의 응용 프로그램 성능 모니터링에 대한 내용은 [클라우드 서비스를 모니터링하는 방법](https://www.azure.com/manage/services/cloud-services/how-to-monitor-a-cloud-service/)을 참조하세요.
 
@@ -56,22 +56,13 @@ Azure는 Windows Server, IIS 및 ASP.NET 스택에 사용할 수 있는 성능 �
 |ASP.NET v4.0.30319 |거부된 요청 |ASP.NET용 성능 카운터|
 |메모리 |Available MBytes |메모리 성능 카운터|
 |메모리 |커밋된 바이트 |메모리 성능 카운터|
-|Processor(\_Total) |% Processor Time |Performance Counters for ASP.NET|
-|TCPv4 |Connection Failures |TCP Object|
-|TCPv4 |Connections Established |TCP Object|
-|TCPv4 |Connections Reset |TCP Object|
-|TCPv4 |Segments Sent/sec |TCP Object|
-|Network Interface(*) |Bytes Received/sec |Network Interface Object|
-|Network Interface(*) |Bytes Sent/sec |Network Interface Object|
-|Network Interface(Microsoft Virtual Machine Bus Network Adapter \_2)|Bytes Received/sec|Network Interface Object|
-|Network Interface(Microsoft Virtual Machine Bus Network Adapter \_2)|Bytes Sent/sec|Network Interface Object|
-|Network Interface(Microsoft Virtual Machine Bus Network Adapter \_2)|Bytes Total/sec|Network Interface Object|
+|Processor(\_Total) |% Processor Time |Performance Counters for ASP.NET| |TCPv4 |Connection Failures |TCP Object| |TCPv4 |Connections Established |TCP Object| |TCPv4 |Connections Reset |TCP Object| |TCPv4 |Segments Sent/sec |TCP Object| |Network Interface(*) |Bytes Received/sec |Network Interface Object| |Network Interface(*) |Bytes Sent/sec |Network Interface Object| |Network Interface(Microsoft Virtual Machine Bus Network Adapter \_2)|Bytes Received/sec|Network Interface Object| |Network Interface(Microsoft Virtual Machine Bus Network Adapter \_2)|Bytes Sent/sec|Network Interface Object| |Network Interface(Microsoft Virtual Machine Bus Network Adapter \_2)|Bytes Total/sec|Network Interface Object|
 
 ## 응용 프로그램에 사용자 지정 성능 카운터 만들기 및 추가
 
 Azure는 웹 역할 및 작업자 역할에 대한 사용자 지정 성능 카운터 만들기 및 수정에 대해 지원합니다. 카운터는 응용 프로그램 관련 동작을 추적하고 모니터링하는 데 사용될 수도 있습니다. 승격된 권한으로 시작 작업, 웹 역할 또는 작업자 역할에서 사용자 지정 성능 카운터 범주 및 지정자를 만들고 삭제할 수 있습니다.
 
->[AZURE.NOTE]사용자 지정 성능 카운터를 변경하는 코드에는 실행할 승격된 권한이 있어야 합니다. 코드가 웹 역할 또는 작업자 역할에 있는 경우 역할은 올바르게 초기화하기 위해 ServiceDefinition.csdef 파일에 <Runtime executionContext="elevated" /> 태그를 포함해야 합니다.
+>[AZURE.NOTE] 사용자 지정 성능 카운터를 변경하는 코드에는 실행할 승격된 권한이 있어야 합니다. 코드가 웹 역할 또는 작업자 역할에 있는 경우 역할은 올바르게 초기화하기 위해 ServiceDefinition.csdef 파일에 <Runtime executionContext="elevated" /> 태그를 포함해야 합니다.
 
 진단 에이전트를 사용하여 Azure 저장소에 사용자 지정 성능 카운터 데이터를 보낼 수 있습니다.
 
@@ -83,7 +74,7 @@ Azure는 기타 진단 정보와 함께 성능 카운터 데이터를 캐시합�
 
 구성된 각 성능 카운터 인스턴스는 지정된 샘플링 속도로 기록되고 샘플링된 데이터는 예약된 전송 요청 또는 주문형 전송 요청으로 저장소 계정에 전송됩니다. 자동 전송은 매 분마다 예약할 수 있습니다. 진단 에이전트에 의해 전송된 성능 카운터 데이터는 저장소 계정의 테이블, WADPerformanceCountersTable에 저장됩니다. 표준 Azure 저장소 API 메서드를 사용하여 이 테이블에 액세스 및 쿼리할 수 있습니다. WADPerformanceCountersTable 테이블에서 성능 카운터 데이터 쿼리 및 표시의 예제는 [Microsoft Azure PerformanceCounters 샘플](http://code.msdn.microsoft.com/Windows-Azure-PerformanceCo-7d80ebf9)을 참조하세요.
 
->[AZURE.NOTE]진단 에이전트 전송 빈도 및 큐 대기 시간에 따라 저장소 계정의 가장 최근 성능 카운터 데이터는 몇 분 정도 지연될 수 있습니다.
+>[AZURE.NOTE] 진단 에이전트 전송 빈도 및 큐 대기 시간에 따라 저장소 계정의 가장 최근 성능 카운터 데이터는 몇 분 정도 지연될 수 있습니다.
 
 ## 진단 구성 파일을 사용하여 성능 카운터를 사용하도록 설정
 
@@ -144,7 +135,7 @@ counterSpecifier 특성은 수집할 성능 카운터를 지정합니다.sampleR
 
 Azure SDK 2.5에서는 저장소 계정이 diagnostics.wadcfgx 파일에서 지정될 수 있습니다.
 
->[AZURE.NOTE]이러한 지침은 Azure SDK 2.4 이하에만 적용됩니다. Azure SDK 2.5에서는 저장소 계정이 diagnostics.wadcfgx 파일에서 지정될 수 있습니다.
+>[AZURE.NOTE] 이러한 지침은 Azure SDK 2.4 이하에만 적용됩니다. Azure SDK 2.5에서는 저장소 계정이 diagnostics.wadcfgx 파일에서 지정될 수 있습니다.
 
 연결 문자열을 설정하려면
 
@@ -179,7 +170,7 @@ Azure 진단 에이전트는 시작 1분 후 .wadcfg 파일에서 성능 카운�
 2. Runtime 요소를 WebRole 또는 WorkerRole 요소에 추가하여 관리자 권한으로 실행할 수 있도록 합니다.
 
     ```
-    <RuntimeexecutionContext="elevated"/>
+    <runtime executioncontext="elevated"/>
     ```
 3. 파일을 저장합니다.
 4. 진단 파일(SDK 2.4 이하에서 diagnostics.wadcfg 또는 SDK 2.5 이상에서 diagnostics.wadcfgx)을 열고 다음을 DiagnosticMonitorConfiguration에 추가 
@@ -318,11 +309,6 @@ Azure 진단 모니터가 사용자 지정 성능 카운터 데이터를 수집�
 
 
 ## 다음 단계
+[Azure 진단에 대한 추가 문서 보기](../azure-diagnostics.md)
 
-이제 성능 카운터 수집의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 문제 해결 시나리오를 구현하는 방법을 알아보십시오.
-
-[Azure 응용 프로그램 개발 문제 해결 모범 사례](https://msdn.microsoft.com/library/azure/hh771389.aspx)(영문)
-
-[클라우드 서비스를 모니터링하는 방법](./how-to-monitor-a-cloud-service.md)
-
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

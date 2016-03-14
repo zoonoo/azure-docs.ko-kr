@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="python" 
 	ms.devlang="php" 
 	ms.topic="article" 
-	ms.date="11/01/2015" 
-	ms.author="yuaxu"/>
+	ms.date="02/29/2016" 
+	ms.author="wesmc"/>
 
 # Python에서 알림 허브를 사용하는 방법
 [AZURE.INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 		
 MSDN [항목 알림 허브 REST API](http://msdn.microsoft.com/library/dn223264.aspx)에 설명된 대로 알림 허브 REST 인터페이스를 사용하여 Java/PHP/Python/Ruby 백 엔드에서 모든 알림 허브 기능에 액세스할 수 있습니다.
 
-> [AZURE.NOTE]이는 Python에서 알림 보내기를 구현하기 위한 샘플 참조 구현이며 공식적으로 지원되는 알림 허브 Python SDK가 아닙니다.
+> [AZURE.NOTE] 이는 Python에서 알림 보내기를 구현하기 위한 샘플 참조 구현이며 공식적으로 지원되는 알림 허브 Python SDK가 아닙니다.
 
-> [AZURE.NOTE]이 샘플은 Python 3.4를 사용하여 작성되었습니다.
+> [AZURE.NOTE] 이 샘플은 Python 3.4를 사용하여 작성되었습니다.
 
 이 항목에서는 다음 방법을 보여 줍니다.
 
@@ -33,7 +33,7 @@ MSDN [항목 알림 허브 REST API](http://msdn.microsoft.com/library/dn223264.
 
 선택한 모바일 플랫폼에 대한 [시작 자습서](notification-hubs-windows-store-dotnet-get-started.md)에 따라 Python에서 백 엔드 부분을 구현할 수 있습니다.
 
-> [AZURE.NOTE]샘플 범위는 알림 보내기로만 제한되며 등록 관리는 수행하지 않습니다.
+> [AZURE.NOTE] 샘플 범위는 알림 보내기로만 제한되며 등록 관리는 수행하지 않습니다.
 
 ## 클라이언트 인터페이스
 기본 클라이언트 인터페이스에서는 [.NET 알림 허브 SDK](http://msdn.microsoft.com/library/jj933431.aspx)에서 제공되는 것과 같은 메서드를 제공할 수 있습니다. 따라서 현재 이 사이트에서 사용 가능하며 인터넷 커뮤니티에서 제공한 모든 자습서 및 샘플을 직접 변환할 수 있습니다.
@@ -391,4 +391,4 @@ HTTP 요청에 추가되는 태그 HTTP 헤더를 확인합니다. 아래 예제
 [5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

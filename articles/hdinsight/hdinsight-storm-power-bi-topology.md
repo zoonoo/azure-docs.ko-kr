@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="01/08/2016"
+ ms.date="03/01/2016"
  ms.author="larryfr"/>
 
 # Power BI를 사용하여 Apache Storm 토폴로지에서 데이터 시각화
@@ -63,7 +63,7 @@ Power BI를 사용하여 데이터를 보고서 또는 대시보드로 시각적
 
 ## 예제 다운로드
 
-[HDInsight C# Storm Power BI 예제](https://github.com/Blackmist/hdinsight-csharp-storm-powerbi)를 다운로드합니다. 다운로드하려면 [git](http://git-scm.com/)를 사용하여 포크/복제하거나, **다운로드** 링크를 사용하여 .zip 보관 파일을 다운로드합니다.
+[HDInsight C# Storm Power BI 예제](https://github.com/Azure-Samples/hdinsight-dotnet-storm-powerbi)를 다운로드합니다. 다운로드하려면 [git](http://git-scm.com/)를 사용하여 포크/복제하거나, **다운로드** 링크를 사용하여 .zip 보관 파일을 다운로드합니다.
 
 ## 샘플 구성
 
@@ -139,4 +139,4 @@ Power BI를 사용하여 데이터를 보고서 또는 대시보드로 시각적
 
 * [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="Azure 자동화의 일반 오류에 대한 문제 해결 팁| Microsoft Azure"
    description="이 문서에서는 Azure 자동화를 사용할 때 발생할 수 있는 일반적인 오류 해결 기본 단계를 설명합니다."
    services="automation"
    documentationCenter=""
-   authors="SnehaGunda"
+   authors="mgoedtel"
    manager="stevenka"
-   editor="tysonn" 
+   editor="tysonn"
    tags="top-support-issue"/>
-<tags 
+<tags
    ms.service="automation"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/25/2016"
+   ms.date="03/02/2016"
    ms.author="sngun; v-reagie"/>
 
 # Azure 자동화의 일반 오류에 대한 문제 해결 팁
@@ -42,7 +42,7 @@
 
 3. 인증이 로컬에서 실패하면 Azure Active Directory 자격 증명을 올바르게 설정하지 않았다는 뜻입니다. Azure Active Directory 계정을 올바르게 설정하는 방법은 [Azure Active Directory를 사용하여 Azure에 인증](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) 블로그 게시물을 참조하세요.
 
-  <br/>
+
 ### 시나리오: Azure 구독을 찾을 수 없음
 
 **오류:** Select-AzureSubscription 또는 Select-AzureRmSubscription cmdlet을 사용하면 "``<subscription name>`` 구독을 찾을 수 없음" 오류가 수신됩니다.
@@ -57,33 +57,32 @@
     * 출력에 구독 세부 정보가 보이지 않으면 아직 구독이 초기화되지 않았다는 뜻입니다.  
     * 출력에 구독 세부 정보가 보이면 **Select-AzureSubscription** cmdlet을 사용하여 올바른 구독 이름 또는 ID를 사용하고 있는지 확인합니다.   
 
-  <br/>
+
 ### 시나리오: Multi-Factor Authentication이 활성화되어 Azure 인증에 실패
 
 **오류:** Azure 사용자 이름 및 암호를 사용하여 Azure에 인증하면 “Add-AzureAccount: AADSTS50079: 강력한 인증 등록(증명)이 필요합니다” 오류가 수신됩니다.
 
-**오류의 원인:** Azure 계정에서 다단계 인증을 사용 중이면 Azure Active Directory 사용자를 사용하여 Azure에 인증할 수 없습니다. 그 대신 인증서 또는 서비스 주체를 사용하여 Azure에 인증해야 합니다.
+**오류의 원인:** Azure 계정에서 Multi-Factor Authentication을 사용 중이면 Azure Active Directory 사용자를 사용하여 Azure에 인증할 수 없습니다. 그 대신 인증서 또는 서비스 주체를 사용하여 Azure에 인증해야 합니다.
 
-**문제 해결 팁:** Azure 서비스 관리 cmdlet에 인증서를 사용하려면 [인증서를 만들고 추가하여 Azure 서비스 관리](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx)를 참조하세요. Azure 리소스 관리자 cmdlet에 서비스 주체를 사용하려면 [Azure 포털을 사용하여 서비스 주체 만들기](./resource-group-create-service-principal-portal.md) 및 [Azure 리소스 관리자를 사용하여 서비스 주체 인증](./resource-group-authenticate-service-principal.md)을 참조하세요.
+**문제 해결 팁:** Azure 서비스 관리 cmdlet에 인증서를 사용하려면 [인증서를 만들고 추가하여 Azure 서비스 관리](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx)를 참조하세요. Azure Resource Manager cmdlet에 서비스 주체를 사용하려면 [Azure 포털을 사용하여 서비스 주체 만들기](./resource-group-create-service-principal-portal.md) 및 [Azure Resource Manager를 사용하여 서비스 주체 인증](./resource-group-authenticate-service-principal.md)을 참조하세요.
 
-  <br/>
-## Runbook을 사용할 때 발생하는 일반적인 오류 해결  
+
+## Runbook을 사용할 때 발생하는 일반적인 오류 해결
+
 ### 시나리오: 역직렬화된 개체로 인해 Runbook 실패
 
-**오류:** "``<ParameterName>`` 매개 변수를 바인딩할 수 없습니다. 역직렬화된 유형 ``<ParameterType>``의 ``<ParameterType>`` 값을 ``<ParameterType>``(으)로 변환할 수 없습니다" 오류와 함께 Runbook이 실패합니다.
+**오류:** "``<ParameterName>`` 매개 변수를 바인딩할 수 없습니다. Deserialized 유형 ``<ParameterType>``의 ``<ParameterType>`` 값을 ``<ParameterType>``(으)로 변환할 수 없습니다" 오류와 함께 Runbook이 실패합니다.
 
 **오류의 원인:** Runbook이 PowerShell 워크플로인 경우 워크플로가 일시 중단되더라도 Runbook 상태를 유지하기 위해 복합 개체를 역직렬화된 형식으로 저장합니다.
 
-**문제 해결 팁:**
-
-다음 세 가지 해결 방법 중 하나로 이 문제를 해결할 수 있습니다.
+**문제 해결 팁:** 다음 세 가지 해결 방법 중 하나로 이 문제를 해결할 수 있습니다.
 
 1. 한 cmdlet에서 다른 cmdlet으로 복합 개체를 파이핑하는 경우 이러한 cmdlet을 InlineScript에 래핑합니다.  
 2. 개체 전체를 전달하지 말고 복합 개체에서 필요한 이름 또는 값만 전달합니다.  
 
 3. PowerShell 워크플로 Runbook 대신 PowerShell Runbook을 사용합니다.
 
-  <br/>
+
 ### 시나리오: 할당된 할당량을 초과하여 Runbook 작업 실패
 
 **오류:** "이 구독에 할당된 월간 총 작업 실행에 도달했습니다" 오류와 함께 Runbook이 실패합니다.
@@ -97,7 +96,7 @@
 3. **설정** > **가격 책정 계층 및 사용 현황** > **가격 책정 계층**을 클릭합니다.  
 4. **가격 책정 계층 선택** 블레이드에서 **기본**을 선택합니다.    
 
-  <br/>
+
 ### 시나리오: Runbook을 실행해도 cmdlet이 인식되지 않음
 
 **오류:** "``<cmdlet name>``: ``<cmdlet name>``이라는 용어가 cmdlet의 이름, 함수, 스크립트 파일 또는 사용이 가능한 프로그램으로 인식되지 않습니다" 오류와 함께 Runbook 작업이 실패합니다.
@@ -114,8 +113,15 @@
 
 - Hybrid Worker 그룹에서 runbook 온-프레미스를 실행하는 경우 모듈/cmdlet이 Hybrid Worker를 호스트하는 시스템에 설치되어야 합니다.
 
-  <br/>
-## 모듈을 가져올 때 발생하는 일반적인 오류 해결 
+
+### 시나리오: 장기 실행 runbook이 “동일한 검사점에서 반복적으로 제거되어 작업을 계속 실행할 수 없습니다.” 예외로 인해 지속적으로 실패함
+
+**오류의 원인:** Azure 자동화 내의 프로세스에 대한 “공평 분배” 모니터링으로 인한 의도된 동작입니다. 이 동작은 runbook이 3시간 넘게 실행되는 경우 자동으로 일시 중단합니다. 그러나 반환된 오류 메시지에서는 "다음 단계" 옵션을 제공하지 않습니다. runbook은 다양한 이유로 일시 중단될 수 있습니다. 일시 중단은 주로 오류로 인해 발생합니다. 예를 들어 runbook의 catch되지 않은 예외, 네트워크 오류 또는 runbook을 실행하는 Runbook Worker의 작동 중단은 모두 runbook을 일시 중단시키며, 재개 시 마지막 검사점에서 시작되도록 합니다.
+
+**문제 해결 팁:** 이 문제를 방지하기 위한 문서화된 해결 방법은 워크플로에서 검사점을 사용하는 것입니다. 자세한 내용은 [PowerShell 워크플로 학습](automation-powershell-workflow.md#Checkpoints)을 참조하세요. "공평 분배" 및 검사점에 대한 자세한 설명은 [Runbook에서 검사점 사용](https://azure.microsoft.com/ko-KR/blog/azure-automation-reliable-fault-tolerant-runbook-execution-using-checkpoints/) 블로그 문서에서 확인 수 있습니다.
+
+
+## 모듈을 가져올 때 발생하는 일반적인 오류 해결
 
 ### 시나리오: 모듈이 가져오기를 실패하거나 가져오기를 실행한 후 cmdlet을 실행할 수 없음
 
@@ -131,9 +137,7 @@
 
 - **New-AzureRmAutomationModule** cmdlet이 모듈 업로드에 사용되고 있으며, 사용자가 공개적으로 액세스 가능한 URL을 사용하여 저장소 전체 경로를 입력하거나 모듈을 로드하지 않았습니다.
 
-**문제 해결 팁:**
-
-다음 해결 방법 중 하나로 이 문제를 해결할 수 있습니다.
+**문제 해결 팁:** 다음 해결 방법 중 하나로 이 문제를 해결할 수 있습니다.
 
 - 모듈이 다음 형식을 따르는지 확인합니다. ModuleName.Zip **->** ModuleName 또는 버전 번호 **->** (ModuleName.psm1, ModuleName.psd1)
 
@@ -141,7 +145,6 @@
 
 - 모듈 폴더에 참조되는 .dll이 있는지 확인합니다.
 
-  <br/>
 
 ## DSC(필요한 상태 구성)으로 작업하는 경우 일반적인 오류 문제 해결  
 
@@ -180,16 +183,16 @@
 
 **문제 해결 팁:** 문제 해결을 위해 [DSC 알려진 문제 및 제한 사항](https://msdn.microsoft.com/powershell/wmf/limitation_dsc) 블로그 게시물의 지침을 따릅니다.
 
-### 시나리오: DSC 구성에서 자격 증명을 사용할 수 없습니다. 
+
+### 시나리오: DSC 구성에서 자격 증명을 사용할 수 없습니다.
 
 **오류:** DSC 컴파일 작업이 "``<some resource name>`` 형식의 'Credential' 속성을 처리하는 동안 System.InvalidOperationException 오류가 발생했습니다. PSDscAllowPlainTextPassword가 true로 설정된 경우에만 암호화된 암호를 일반 텍스트로 변환하고 저장할 수 있습니다." 오류로 인해 일시 중단되었습니다.
 
 **오류에 대한 원인:** 구성에서 자격 증명을 사용하지만 각 노드 구성에 대해 **PSAllowPlainTextPassword**를 true로 설정하는 적절한 **ConfigurationData**를 제공하지 않았습니다.
 
-**문제 해결 팁:** 적절한 **ConfigurationData**에 전달하여 구성에서 언급한 각 노드의 구성에 대해 **PSDscAllowPlainTextPassword**를 true로 설정하도록 합니다. 자세한 내용은 [Azure 자동화 DSC의 자산](automation-dsc-compile.md#assets)을 참조하세요.
+**문제 해결 팁:**
+- 적절한 **ConfigurationData**에 전달하여 구성에서 언급한 각 노드의 구성에 대해 **PSDscAllowPlainTextPassword**를 true로 설정하도록 합니다. 자세한 내용은 [Azure 자동화 DSC의 자산](automation-dsc-compile.md#assets)을 참조하세요.
 
-
-  <br/>
 
 ## 다음 단계
 
@@ -203,4 +206,4 @@
 
 - Azure 자동화에 대한 의견이나 기능 요청이 있으면 [사용자 음성](https://feedback.azure.com/forums/34192--general-feedback)에 게시하세요.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

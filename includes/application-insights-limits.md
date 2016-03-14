@@ -14,6 +14,7 @@
 속성 값 길이 | 1000 | 1000
 추적 및 예외 메시지 길이 | 10000 | 10000
 메트릭 이름 길이 | 100 | 100
+가용성 테스트 | 10 | 10
 
 <sup>1</sup> 데이터 요소는 개별 메트릭 값 또는 이벤트로, 연결된 속성 및 측정 값이 있습니다.
 
@@ -21,4 +22,4 @@
  
 [Application Insights의 가격 책정 및 할당량 정보](../articles/application-insights/app-insights-pricing.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

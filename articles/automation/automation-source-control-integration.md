@@ -3,7 +3,7 @@
     description="이 문서에서는 Azure 자동화에서 GitHub를 사용하는 원본 제어 통합을 설명합니다."
     services="automation"
     documentationCenter=""
-    authors="SnehaGunda"
+    authors="mgoedtel"
     manager="stevenka"
     editor="tysonn" />    
 <tags 
@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="infrastructure-services"
-    ms.date="02/18/2016"
+    ms.date="02/23/2016"
     ms.author="magoedte;sngun" />
 
 # Azure 자동화에서 원본 제어 통합
@@ -50,9 +50,9 @@ Azure 자동화에 연결하려는 GitHub 계정 및 리포지토리가 이미 �
 
 3. 예를 들어 **RootFolder**라는 폴더를 포함하는 **PowerShellScripts**라는 리포지토리가 있는 경우 이는 **SubFolder**라는 폴더를 포함합니다. 다음 문자열을 사용하여 각 폴더 수준을 동기화할 수 있습니다.
 
-    1. **리포지토리**에서 Runbook을 동기화하려면 Runbook 폴더 경로는 */* 입니다.
-    2. **RootFolder**에서 Runbook을 동기화하려면 Runbook 폴더 경로는 */RootFolder* 입니다.
-    3. **SubFolder**에서 Runbook을 동기화하려면 Runbook 폴더 경로는 */RootFolder/SubFolder* 입니다.
+    1. **리포지토리**에서 Runbook을 동기화하려면 Runbook 폴더 경로는 */*입니다.
+    2. **RootFolder**에서 Runbook을 동기화하려면 Runbook 폴더 경로는 */RootFolder*입니다.
+    3. **SubFolder**에서 Runbook을 동기화하려면 Runbook 폴더 경로는 */RootFolder/SubFolder*입니다.
   
 
 4. 매개 변수를 구성한 후에 **원본 제어 설정 블레이드**에 표시됩니다.
@@ -75,11 +75,11 @@ Azure 자동화에 연결하려는 GitHub 계정 및 리포지토리가 이미 �
     | 값 | {"Branch":<*Your branch name*>,"RunbookFolderPath":<*Runbook folder path*>,"ProviderType":<*has a value 1 for GitHub*>,"Repository":<*Name of your repository*>,"Username":<*Your GitHub user name*>} | <br>
 
 
-    * **Microsoft.Azure.Automation.SourceControl.OauthToken** 변수는 OAuthToken의 안전하고 암호화된 값을 포함합니다.  
+    * **Microsoft.Azure.Automation.SourceControl.OAuthToken** 변수는 OAuthToken의 안전하고 암호화된 값을 포함합니다.  
 
     |**매개 변수** |**값** |
     |:---|:---|
-    | 이름 | Microsoft.Azure.Automation.SourceControl.OauthToken |
+    | 이름 | Microsoft.Azure.Automation.SourceControl.OAuthToken |
     | 형식 | 알수 없음(암호화됨) |
     | 값 | <*암호화된 OAuthToken*> |  
 
@@ -104,7 +104,7 @@ Runbook 체크 인을 사용하면 Azure 자동화에서 Runbook에 대한 변�
     ![체크 인 단추](media/automation-source-control-integration/automation_06_CheckinButton.png)
 
 
-     >[AZURE.NOTE]Azure 자동화에서 체크 인은 원본 제어에 현재 존재하는 코드를 덮어씁니다. 체크 인할 Git와 동등한 명령줄 지침은 **git 추가 + git 커밋 + git 푸시**입니다.
+     >[AZURE.NOTE] Azure 자동화에서 체크 인은 원본 제어에 현재 존재하는 코드를 덮어씁니다. 체크 인할 Git와 동등한 명령줄 지침은 **git 추가 + git 커밋 + git 푸시**입니다.
 
 3. **체크 인**을 클릭하면 확인 메시지가 표시되고 계속하려면 예를 클릭합니다.
 
@@ -114,7 +114,7 @@ Runbook 체크 인을 사용하면 Azure 자동화에서 Runbook에 대한 변�
 
     ![체크 인 Runbook](media/automation-source-control-integration/automation_08_CheckinRunbook.png)
 
-    >[AZURE.NOTE]원본 제어 Runbook은 보거나 편집할 수 없는 특별한 자동화 Runbook입니다. Runbook 목록에 표시되지 않지만 작업 목록에서 동기화 작업을 확인할 수 있습니다.
+    >[AZURE.NOTE] 원본 제어 Runbook은 보거나 편집할 수 없는 특별한 자동화 Runbook입니다. Runbook 목록에 표시되지 않지만 작업 목록에서 동기화 작업을 확인할 수 있습니다.
  
 5. 수정된 runbook의 이름은 입력 매개 변수로 체크 인 runbook에 전송됩니다. **리포지토리 동기화** 블레이드에서 Runbook을 확장하여 [작업 세부 정보를 볼](automation-runbook-execution.md#viewing-job-status-using-the-azure-management-portal) 수 있습니다.
 
@@ -137,7 +137,7 @@ Runbook 체크 인을 사용하면 Azure 자동화에서 Runbook에 대한 변�
     ![동기화 Runbook](media/automation-source-control-integration/automation_11_SyncRunbook.png)
 
  
-    >[AZURE.NOTE]원본 제어의 동기화는 현재 원본 제어에 있는 **모든** Runbook에 대한 자동화 계정에 현재 존재하는 Runbook의 초안 버전을 덮어씁니다. 동기화할 Git와 동등한 명령줄 명령은 **git 끌어오기**입니다.
+    >[AZURE.NOTE] 원본 제어의 동기화는 현재 원본 제어에 있는 **모든** Runbook에 대한 자동화 계정에 현재 존재하는 Runbook의 초안 버전을 덮어씁니다. 동기화할 Git와 동등한 명령줄 명령은 **git 끌어오기**입니다.
 
 
 ## 원본 제어 문제 해결
@@ -156,6 +156,9 @@ GitHub 계정에서 연결을 끊으려면 리포지토리 동기화 블레이�
 
 ## 다음 단계
 
-원본 제어 통합에 대한 자세한 내용은 다음 리소스를 참조하세요.- [Azure 자동화: Azure 자동화의 원본 제어 통합](https://azure.microsoft.com/blog/azure-automation-source-control-13/) - [즐겨 찾는 원본 제어 시스템에 대한 투표](https://www.surveymonkey.com/r/?sm=2dVjdcrCPFdT0dFFI8nUdQ%3d%3d) - [Azure 자동화: Visual Studio Team Services를 사용하여 Runbook 원본 제어 통합](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)
+원본 제어 통합에 대한 자세한 내용은 다음 리소스를 참조하세요.
+- [Azure 자동화: Azure 자동화에서 원본 제어 통합](https://azure.microsoft.com/blog/azure-automation-source-control-13/)  
+- [즐겨 찾는 원본 제어 시스템에 대한 투표](https://www.surveymonkey.com/r/?sm=2dVjdcrCPFdT0dFFI8nUdQ%3d%3d)  
+- [Azure 자동화: Visual Studio Team Services를 사용하여 Runbook 원본 제어 통합](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -3,7 +3,7 @@
 	description="Azure 자동화에서 Runbook을 게시하기 전에 테스트하여 예상대로 작동하는지 확인할 수 있습니다. 이 문서에서는 Runbook을 테스트하고 해당 출력을 보는 방법에 대해 설명합니다."
 	services="automation"
 	documentationCenter=""
-	authors="bwren"
+	authors="mgoedtel"
 	manager="stevenka"
 	editor="tysonn" />
 <tags 
@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="02/18/2016"
+	ms.date="02/23/2016"
 	ms.author="magoedte;bwren" />
 
 # Azure 자동화에서 Runbook 테스트
@@ -55,4 +55,4 @@ Azure 포털에서는 [PowerShell 워크플로 Runbook](automation-runbook-types
 - [Azure 자동화에서 텍스트 Runbook 편집](automation-edit-textual-runbook.md)
 - [Azure 자동화에서 Runbook 출력 및 메시지](automation-runbook-output-and-messages.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

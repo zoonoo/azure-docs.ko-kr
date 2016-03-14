@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/18/2015"
+	ms.date="02/29/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@
 
 - O.C.에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다. Tanner - AppreciateHub 
 - 사용자가 자동으로 O.C.에 로그온하도록 설정할 수 있습니다. Tanner - Azure AD 계정이 포함된 AppreciateHub(Single Sign-On)
-- 단일 중앙 위치인 Azure Active Directory 포털에서 계정을 관리할 수 있습니다.
+- 단일 중앙 위치인 Azure 클래식 포털에서 계정을 관리할 수 있습니다.
 
 Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](active-directory-appssoaccess-whatis.md)을 참조하세요.
 
@@ -35,7 +35,7 @@ O.C.와 Azure AD 통합을 구성하려면 Tanner - AppreciateHub, 다음 사항
 - O.C. Tanner - AppreciateHub Single-Sign On이 설정된 구독
 
 
-> [AZURE.NOTE]이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
+> [AZURE.NOTE] 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
 
 
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
@@ -56,7 +56,7 @@ O.C.의 통합을 구성하려면 Tanner - Azure AD에서 AppreciateHub, O.C.를
 
 **O.C.를 추가하려면 Tanner - 갤러리에서 AppreciateHub, 다음 단계를 수행합니다.**
 
-1. **Azure 관리 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.<br><br> ![Active Directory][1] <br>
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. <br><br>![Active Directory][1] <br>
 
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 
@@ -88,11 +88,11 @@ O.C.를 사용하여 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
 ### Azure AD Single Sign-On 구성
 
-이 섹션은 Azure AD 포털에서 Azure AD Single Sign-on을 사용하도록 설정하고 O.C.에서 Single Sign-On을 구성하는 방법을 설명하기 위한 것입니다. Tanner - AppreciateHub 응용 프로그램.<br>
+이 섹션은 Azure 클래식 포털에서 Azure AD Single Sign-On을 사용하도록 설정하고 O.C에서 Single Sign-On을 구성하는 방법을 설명하기 위한 것입니다. Tanner - AppreciateHub 응용 프로그램.<br>
 
 **O.C.를 사용하여 Azure AD Single Sign-On을 구성하려면 Tanner - AppreciateHub, 다음 단계를 수행합니다.**
 
-1. Azure AD 포털의 **O.C.에서 Tanner - AppreciateHub** 응용 프로그램 통합 페이지, **Single Sign-on 구성**을 클릭하여 **Single Sign-on 구성** 대화 상자를 엽니다.<br><br> ![Single Sign-On 구성][6]
+1. Azure 클래식 포털의 **O.C에서 Tanner - AppreciateHub** 응용 프로그램 통합 페이지, **Single Sign-on 구성**을 클릭하여 **Single Sign-on 구성** 대화 상자를 엽니다.<br><br> ![Single Sign-On 구성][6]
 
 2. **사용자가 O.C.에 어떻게 로그온하는지에서 Tanner - AppreciateHub** 페이지, **Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.<br><br> ![Azure AD Single Sign-On][7]
 
@@ -106,7 +106,7 @@ O.C.를 사용하여 Azure AD Single Sign-On을 구성하고 테스트하려면 
      
      d. **Sign-on URL** 텍스트 상자에서 이전 단계에 얻은 값보다 큽니다.
 
-     >[AZURE.NOTE]메타데이터 파일에서 회신 URL을 가져오는 문제가 발생하는 경우 O.C.에 문의합니다. Tanner - [sso@octanner.com](mailto:sso@octanner.com)을 통한 AppreciateHub 지원팀.
+     > [AZURE.NOTE] 메타데이터 파일에서 회신 URL을 가져오는 문제가 발생하는 경우 O.C.에 문의합니다. Tanner - [sso@octanner.com](mailto:sso@octanner.com)을 통한 AppreciateHub 지원팀.
 
      e. **다음**을 클릭합니다.
  
@@ -115,7 +115,7 @@ O.C.를 사용하여 Azure AD Single Sign-On을 구성하고 테스트하려면 
 5. O.C.에 문의 Tanner - xyz를 통한 AppreciateHub 지원팀, 메타데이터 파일을 제공하고 사용자를 위해 SSO를 사용하도록 해야 한다는 점을 통보합니다.
 
 
-6. Azure AD 포털에서 Single Sign-On 구성 확인을 선택한 후 **다음**을 클릭합니다. <br><br>![Azure AD Connect의 정의][10]
+6. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다. <br><br>![Azure AD Connect의 정의][10]
 
 7. **Single Sign-on 확인** 페이지에서 **완료**를 클릭합니다. <br><br>![Azure AD Connect의 정의][11]
 
@@ -123,11 +123,11 @@ O.C.를 사용하여 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
 
 ### Azure AD 테스트 사용자 만들기
-이 섹션은 Azure 포털에서 Britta Simon이라는 테스트 사용자를 만들기 위한 것입니다.<br> 사용자 목록에서 **Britta Simon**을 선택합니다.<br><br>![Azure AD 사용자 만들기][20]<br>
+이 섹션의 목적은 Azure 클래식 포털에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.<br> 사용자 목록에서 **Britta Simon**을 선택합니다.<br><br>![Azure AD 사용자 만들기][20]<br>
 
 **Azure AD에서 테스트 사용자를 만들려면 다음 단계를 수행하세요.**
 
-1. **Azure 관리 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.<br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_02.png) 
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. <br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_02.png) 
 
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 
@@ -151,7 +151,7 @@ O.C.를 사용하여 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
     c. **표시 이름** 텍스트 상자에 **Britta Simon**을 입력합니다.
 
-    d. **역할** 목록에서 **사용자**를 선택합니다.e. **다음**을 클릭합니다.
+    d. **역할** 목록에서 **사용자**를 선택합니다. e. **다음**을 클릭합니다.
 
 7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다.<br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_07.png)
  
@@ -178,7 +178,7 @@ O.C.를 사용하여 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
 **Britta Simon를 O.C.에 할당하려면 Tanner - AppreciateHub, 다음 단계를 수행합니다.**
 
-1. Azure 포털에서 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.<br> <br><br>![사용자 할당][201]
+1. Azure 클래식 포털에서 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다. <br> <br><br>![사용자 할당][201]
 2. 응용 프로그램 목록에서 **O.C.를 선택합니다. Tanner - AppreciateHub**. <br><br>![사용자 할당][202]
 1. 위쪽 메뉴에서 **사용자**를 클릭합니다.<br> <br><br>![사용자 할당][203]
 1. 사용자 목록에서 **Britta Simon**을 선택합니다.
@@ -223,4 +223,4 @@ O.C.를 사용하여 Azure AD Single Sign-On을 구성하고 테스트하려면 
 [204]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0302_2016-->

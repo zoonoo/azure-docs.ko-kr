@@ -14,18 +14,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 
 # SQL Azure API 시작
 SQL Azure에 연결하여 행 삽입, 테이블 가져오기 등 테이블 및 행을 관리합니다.
 
-논리 앱에서 SQL Azure API를 사용할 수 있습니다.
+SQL Azure API를 다음에서 사용할 수 있습니다.
+
+- 논리 앱 
 
 >[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다. 2014-12-01-preview 스키마 버전에 대한 내용을 보려면 [SQL 커넥터](../app-service-logic/app-service-logic-connector-sql.md)를 클릭하세요.
 
-SQL을 사용하여 다음을 수행할 수 있습니다.
+SQL Azure로 다음을 수행할 수 있습니다.
 
 - SQL Azure에서 가져온 데이터를 기반으로 비즈니스 흐름을 빌드합니다. 
 - 행 가져오기, 행 삽입 등의 작업을 사용합니다. 이러한 작업을 사용하여 응답을 가져오고 출력을 다른 작업에 사용할 수 있도록 설정합니다. 예를 들어 SQL Azure에서 데이터 행을 가져와 Excel에 추가할 수 있습니다. 
@@ -53,7 +55,8 @@ SQL에는 다음 작업이 포함됩니다. 트리거는 없습니다.
 
 >[AZURE.TIP] 다른 논리 앱에서 이 연결을 사용할 수 있습니다.
 
-## REST API 참조
+## Swagger REST API 참조
+적용 버전: 1.0
 
 ### 행 가져오기 
 SQL 테이블에서 단일 행을 검색합니다. ```GET: /datasets/default/tables/{table}/items/{id}```
@@ -224,4 +227,4 @@ SQL 테이블에서 기존 행을 업데이트합니다. ```PATCH: /datasets/def
 
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

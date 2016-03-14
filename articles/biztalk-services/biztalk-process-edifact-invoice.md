@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="msftman"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="12/02/2015"
-   ms.author="Deonhe"/>
+   ms.date="02/29/2016"
+   ms.author="deonhe"/>
 
 # 자습서: Azure BizTalk 서비스를 사용하여 EDIFACT 송장 처리
 BizTalk 서비스 포털을 사용하여 X12 및 EDIFACT 규약을 구성 및 배포할 수 있습니다. 이 자습서에서는 거래 파트너 간에 송장 교환을 위해 EDIFACT 규약을 만드는 방법에 대해 살펴봅니다. 이 자습서는 EDIFACT 메시지를 교환하는 두 거래 업체 Northwind와 Contoso를 포함하는 종단 간 비즈니스 솔루션에 대해 작성되었습니다.
@@ -46,7 +46,7 @@ BizTalk 서비스 포털을 사용하여 X12 및 EDIFACT 규약을 구성 및 �
 
 ## 필수 조건
 
-*   서비스 버스 네임스페이스가 있어야 합니다. 네임스페이스를 만드는 방법에 대한 지침은 [방법: 서비스 버스 서비스 네임스페이스 만들기 또는 수정](https://msdn.microsoft.com/library/hh690931.aspx)을 참조하세요. **edifactbts**라는 프로비전된 서비스 버스 네임스페이스가 있다고 가정합니다.
+*   서비스 버스 네임스페이스가 있어야 합니다. 네임스페이스를 만드는 방법에 대한 지침은 [방법: 서비스 버스 서비스 네임스페이스 만들기 또는 수정](https://msdn.microsoft.com/library/azure/hh674478.aspx)을 참조하세요. **edifactbts**라는 프로비전된 서비스 버스 네임스페이스가 있다고 가정합니다.
 
 *   BizTalk 서비스 구독이 있어야 합니다. 자세한 내용은 [Azure 클래식 포털을 사용하여 BizTalk 서비스 만들기](http://go.microsoft.com/fwlink/?LinkID=302280)를 참조하세요. 이 자습서의 경우 **contosowabs**라는 BizTalk 서비스 구독을 보유했다고 가정합니다.
 
@@ -113,7 +113,7 @@ Contoso와 Northwind 간의 거래 업체 규약을 만듭니다. 거래 업체 
     3.  **스키마** 섹션 아래의 **프로토콜** 탭에서 **EFACT\_D93A\_INVOIC.xsd** 스키마를 업로드합니다. 이 스키마는 샘플 패키지와 함께 사용할 수 있습니다.
 
         ![][4]  
-    4.  **전송** 탭에서 서비스 버스 큐에 대한 세부 정보를 지정합니다. 송신 측 규약의 경우 **northwindreceive** 큐를 사용하여 Northwind에 EDIFACT 송장을 보내고 **일시 중단** 큐를 사용하여 처리하는 동안 실패 및 일시 중단된 모든 메시지를 라우팅합니다. [1단계: 서비스 버스 큐 만들기](#BKMK_Queue)에서 해당 큐를 만들었습니다.
+    4.  **전송** 탭에서 서비스 버스 큐에 대한 세부 정보를 지정합니다. 송신 측 규약의 경우 **northwindreceive** 큐를 사용하여 Northwind에 EDIFACT 송장을 보내고 **일시 중단** 큐를 사용하여 처리하는 동안 실패 및 일시 중단된 모든 메시지를 라우팅합니다. 이 항목의 **1단계: 서비스 버스 큐 만들기**에서 해당 큐를 만들었습니다.
 
         ![][5]
 
@@ -129,9 +129,10 @@ Contoso와 Northwind 간의 거래 업체 규약을 만듭니다. 거래 업체 
 
     4.  **경로** 탭에서 northwind에서의 승인만 Contoso로 라우팅되도록 하는 필터를 만듭니다. **경로 설정** 아래에서 **추가**를 클릭하여 라우팅 필터를 만듭니다.
 
-        ![][6] 1. 이미지와 같이 **규칙 이름**, **경로 규칙** 및 **경로 대상**에 대한 값을 제공합니다.
+        ![][6]
+        1.  이미지와 같이 **규칙 이름**, **경로 규칙** 및 **경로 대상**에 대한 값을 제공합니다.
 
-        2.  **저장**을 클릭합니다.
+        2.  **Save**를 클릭합니다.
 
     5.  **경로** 탭에서 일시 중단된 승인(처리 중 실패한 승인)이 라우팅될 경로를 지정합니다. Azure 서비스 버스에 대한 전송 방식, **큐**에 대한 라우팅 대상 유형, **공유 액세스 서명**(SAS)에 대한 인증 유형을 설정하고 서비스 버스 네임스페이스에 대한 SAS 연결 문자열을 제공한 다음 **일시 중단됨**으로 큐 이름을 입력합니다.
 
@@ -312,4 +313,4 @@ BizTalk 서비스 EDI 브리지는 나가는 메시지의 일괄 처리도 지�
 [17]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-17.PNG
 [18]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-18.PNG
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

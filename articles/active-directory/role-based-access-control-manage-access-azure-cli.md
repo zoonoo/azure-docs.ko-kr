@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="01/22/2016"
+	ms.date="02/29/2016"
 	ms.author="kgremban"/>
 
 # Azure 명령줄 인터페이스를 사용하여 역할 기반 액세스 제어 관리
@@ -24,6 +24,9 @@
 - [REST API](role-based-access-control-manage-access-rest.md)
 
 ## 역할 기반 액세스 제어(RBAC) 역할 목록
+
+>[AZURE.IMPORTANT] 이 문서의 cmdlet을 사용하려면 먼저 [Azure CLI를 설치](../xplat-cli-install.md)해야 합니다.
+
 ###	사용 가능한 모든 역할 나열
 사용 가능한 역할을 모두 사용하려면 다음을 사용합니다.
 
@@ -54,7 +57,7 @@
 
 ###	사용자 그룹에 할당된 역할을 비롯해 사용자에 대한 역할 할당 나열
 
-다음 예제에는 사용자 **sameert@aaddemo.com*에 적용되는 역할 할당을 보여줍니다.
+다음 예제에는 사용자 **sameert@aaddemo.com*에 적용되는 역할 할당을 보여 줍니다.
 
 ![RBAC Azure 명령줄 - 사용자별 azure role assignment list - 스크린샷](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-2.png)
 
@@ -121,7 +124,7 @@
 
 사용자 지정 역할을 수정하려면 먼저 `azure role show` 명령을 사용하여 역할 정의를 검색합니다. 그런 다음 역할 정의를 원하는 대로 변경합니다. 마지막으로 `azure role set`을 사용하여 수정한 역할 정의를 저장합니다.
 
-다음 예제에서는 **Actions**에 Microsoft.Insights/diagnosticSettings/* 작업을 추가하고 Virtual Machine Operator 사용자 지정 역할의 **AssignableScopes**에 Azure 구독을 추가합니다.
+다음 예제에서는 **작업**에 Microsoft.Insights/diagnosticSettings/* 작업을 추가하고 Virtual Machine Operator 사용자 지정 역할의 **AssignableScopes**에 Azure 구독을 추가합니다.
 
 ![JSON - 사용자 지정 역할 수정 정의 - 스크린샷](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set-1.png)
 
@@ -129,7 +132,7 @@
 
 ## 사용자 지정 역할 삭제
 
-사용자 지정 역할을 삭제하려면 먼저 `azure role show` 명령을 사용하여 역할의 **Id**를 확인합니다. 그런 다음 `azure role delete` 명령을 사용하여 **Id**를 지정하여 역할을 삭제합니다.
+사용자 지정 역할을 삭제하려면 먼저 `azure role show` 명령을 사용하여 역할의 **ID**를 확인합니다. 그런 다음 `azure role delete` 명령을 사용하여 **ID**를 지정하여 역할을 삭제합니다.
 
 다음 예제에서는 *Virtual Machine Operator* 사용자 지정 역할을 제거합니다.
 
@@ -154,4 +157,4 @@
 ## RBAC 항목
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -386,7 +386,7 @@ Azure Blob 저장소를 Azure 데이터 팩터리에 연결하는 데 사용할 
 | 속성 | 설명 | 필수 |
 | -------- | ----------- | -------- | 
 | folderPath | blob 저장소에서 컨테이너 및 폴더에 대한 경로입니다. 예제: myblobcontainer\\myblobfolder\\ | 예 |
-| fileName | <p>Blob의 이름입니다. fileName은 선택 사항입니다. </p><p>filename을 지정하면 활동(복사 포함)이 특정 Blob에서 작동합니다.</p><p> fileName이 지정되지 않으면 복사는 입력 데이터 집합에 대한 folderPath의 모든 Blob를 포함합니다.</p><p>fileName이 출력 데이터 집합에 대해 지정되지 않으면 다음 이 서식에서 생성된 파일의 이름이 표시됩니다. 데이터.<Guid>.txt (예를 들어: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p> | 아니요 |
+| fileName | <p>Blob 이름. fileName은 선택 사항이며 대/소문자를 구분합니다.</p><p>filename을 지정하면 활동(복사 포함)이 특정 Blob에서 작동합니다.</p><p> fileName이 지정되지 않으면 복사는 입력 데이터 집합에 대한 folderPath의 모든 Blob을 포함합니다.</p><p>fileName이 출력 데이터 집합에 대해 지정되지 않으면 다음 서식으로 생성된 파일의 이름이 표시됩니다. 데이터.<Guid>.txt(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p> | 아니요 |
 | partitionedBy | partitionedBy는 선택적 속성입니다. 동적 folderPath 및 시계열 데이터에 대한 filename을 지정하는 데 사용할 수 있습니다. 예를 들어 folderPath는 매시간 데이터에 대한 매개 변수화됩니다. 자세한 내용과 예제는 아래 [partitionedBy 속성 활용 섹션](#Leveraging-partitionedBy-property)을 참조하세요. | 아니요
 | format | **TextFormat**, **AvroFormat**과 같은 두 서식 유형이 지원됩니다. 값이 있으면 이 중 하나로 서식에서 형식 속성을 설정해야 합니다. 서식이 TextFormat인 경우 형식에 선택적 추가 속성을 지정할 수 있습니다. 자세한 내용은 아래 [TextFormat 지정](#specifying-textformat) 섹션을 참조하세요. | 아니요
 | 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate** 및 **BZip2**이고 지원되는 수준은 **최적** 및 **가장 빠름**입니다. 현재 **AvroFormat**의 데이터에 대한 압축 설정은 지원되지 않습니다. 자세한 내용은 [압축 지원](#compression-support) 섹션을 참조하세요. | 아니요 |
@@ -478,7 +478,7 @@ Hive 테이블에서 Avro 형식을 사용하려는 경우 [Apache Hive의 자�
 
 | 속성 | 설명 | 허용되는 값 | 필수 |
 | -------- | ----------- | -------------- | -------- | 
-| treatEmptyAsNull | Null 또는 빈 문자열을 null 값으로 처리할지 여부를 지정합니다. | TRUE<br/>FALSE | 아니요 |
+| treatEmptyAsNull | Null 또는 빈 문자열을 null 값으로 처리할지 여부를 지정합니다. <p>**quoteChar** 속성을 지정한 경우 따옴표로 묶인 빈 문자열도 이 속성을 사용하여 null로 처리될 수 있습니다.</p> | TRUE(기본값) <br/>FALSE | 아니요 |
 | skipHeaderLineCount | 건너뛰어야 하는 줄 수를 나타냅니다. 입력 데이터 집합이 **TextFormat**을 사용하는 경우에만 해당합니다. | 0에서 Max. 사이의 정수입니다. | 아니요 | 
 | recursive | 하위 폴더에서 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. | True(기본값), False | 아니요 | 
 
@@ -511,4 +511,4 @@ false | mergeFiles | <p>다음 구조를 가진 원본 폴더 Folder1의 경우:
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

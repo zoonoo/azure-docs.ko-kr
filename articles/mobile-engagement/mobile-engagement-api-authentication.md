@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="02/17/2016"
+	ms.date="02/29/2016"
 	ms.author="wesmc"/>
 
 # Azure Mobile Engagement - 인증에 API 사용
@@ -92,11 +92,9 @@ API 요청을 인증하려면 모든 요청에 인증 헤더를 추가해야 합
 
 PowerShell 스크립트를 사용하여 앞에서 언급한 단계를 수행하는 대체 방법입니다.
 
-1. Azure PowerShell 최신 버전을 받습니다.
+1. Azure PowerShell 최신 버전을 받습니다. 지침을 다운로드하려면 이 [링크](../powershell-install-configure.md)를 참조하세요. 
 
-	현재 [여기](https://github.com/Azure/azure-powershell/releases/tag/v1.2.1-February2016)서 1.2.1 버전을 다운로드할 수 있습니다.
-
-2. 관리자 모드에서 Windows PowerShell을 열고 [Azure 리소스 관리자 cmdlet](https://msdn.microsoft.com/library/mt125356.aspx)이 설치되어 있는지 확인합니다.
+2. 관리자 모드에서 Windows PowerShell을 열고 [Azure Resource Manager cmdlet](https://msdn.microsoft.com/library/mt125356.aspx)이 설치되어 있는지 확인합니다.
 
 		Install-Module AzureRM
 		Install-AzureRM
@@ -155,7 +153,7 @@ PowerShell 스크립트를 사용하여 앞에서 언급한 단계를 수행하�
 	5391911","resource":"https://management.core.windows.net/","access_token":{ACCESS_T
 	OKEN}}
 
-이 예에서는 POST 매개 변수의 URL 인코딩을 포함했으며, `resource` 값은 실제로 `https://management.core.windows.net/`입니다. 또한 URL에 특수 문자가 포함될 수 있으므로 `{CLIENT_SECRET}` URL 인코딩에 주의해야 합니다.
+이 예제에서는 POST 매개 변수의 URL 인코딩을 포함했으며, `resource` 값은 실제로 `https://management.core.windows.net/`입니다. 또한 URL에 특수 문자가 포함될 수 있으므로 `{CLIENT_SECRET}` URL 인코드에 주의해야 합니다.
 
 이제 모든 API 호출에 권한 부여 요청 헤더를 포함합니다.
 
@@ -182,6 +180,7 @@ PowerShell 스크립트를 사용하여 앞에서 언급한 단계를 수행하�
 
 	![](./media/mobile-engagement-api-authentication/mobile-engagement-api-uri-params.png)
 
->[AZURE.NOTE] <br/> 1. 이 API 루트 주소는 이전 API의 것이므로 무시합니다.<br/> 2. 응용 프로그램 이름 자체와 다른 응용 프로그램 리소스 이름을 사용해야 합니다.
+>[AZURE.NOTE] <br/>
+>1. 이 API 루트 주소는 이전 API의 것이므로 무시합니다.<br/> 2. 응용 프로그램 이름 자체와 다른 응용 프로그램 리소스 이름을 사용해야 합니다. 
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

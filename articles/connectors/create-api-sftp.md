@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 # SFTP API 시작
-SFTP 서버에 연결하여 파일을 관리합니다. SFTP 서버에서 파일 업로드, 파일 삭제 등의 다양한 작업을 수행할 수 있습니다.
+SFTP 서버에 연결하여 파일을 관리합니다. SFTP 서버에서 파일 업로드, 파일 삭제 등의 다양한 작업을 수행할 수 있습니다. SFTP API를 다음에서 사용할 수 있습니다.
 
-논리 앱에서 SFTP API를 사용할 수 있습니다.
+- 논리 앱
 
 >[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다. 2014-12-01-preview 스키마 버전에 대한 내용을 보려면 [SFTP 커넥터](../app-service-logic/app-service-logic-connector-sftp.md)를 클릭하세요.
 
@@ -38,7 +38,7 @@ SFTP API에서 사용할 수 있는 트리거와 작업은 다음과 같습니�
 
 트리거 | 동작
 --- | ---
-<ul><li>파일을 만들거나 수정할 때</li></ul> | <ul><li>파일 만들기</li><li>파일 복사</li><li>파일 삭제</li><li>폴더 추출</li><li>파일 콘텐츠 가져오기</li><li>경로를 사용하여 파일 콘텐츠 가져오기</li><li>파일 메타데이터 가져오기</li><li>경로를 사용하여 파일 메타데이터 가져오기</li><li>파일 업데이트</li><li>파일을 만들거나 수정할 때</li></ul>
+<ul><li>파일을 만들거나 수정할 때 </li></ul> | <ul><li>파일 만들기</li><li>파일 복사</li><li>파일 삭제</li><li>폴더 추출</li><li>파일 콘텐츠 가져오기</li><li>경로를 사용하여 파일 콘텐츠 가져오기</li><li>파일 메타데이터 가져오기</li><li>경로를 사용하여 파일 메타데이터 가져오기</li><li>파일 업데이트</li><li>파일을 만들거나 수정할 때</li></ul>
 
 모든 API는 JSON 및 XML 형식의 데이터를 지원합니다.
 
@@ -59,6 +59,7 @@ SFTP API에서 사용할 수 있는 트리거와 작업은 다음과 같습니�
 
 
 ## Swagger REST API 참조
+적용 버전: 1.0
 
 ### 파일 만들기
 SFTP에 파일을 업로드합니다. ```POST: /datasets/default/files```
@@ -249,4 +250,4 @@ SFTP에서 파일을 수정할 때 흐름을 트리거합니다. ```GET: /datase
 ## 다음 단계
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

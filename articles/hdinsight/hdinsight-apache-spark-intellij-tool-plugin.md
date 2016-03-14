@@ -71,8 +71,6 @@ IntelliJ IDEA 설치가 Scala 플러그 인 활성화를 묻지 않은 경우 In
 
 2. 다음 창에서 프로젝트 세부 정보를 제공합니다.
 
-	![Spark Scala 응용 프로그램 만들기](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-project-details.png)
-
 	* 프로젝트 이름과 프로젝트 위치를 제공합니다.
 	* **프로젝트 SDK**의 경우 7보다 높은 Java 버전을 제공해야 합니다.
 	* **Scala SDK**의 경우 **만들기**를 클릭하고 **다운로드**를 클릭한 다음 사용할 Scala의 버전을 선택합니다. **2.11.x 버전은 사용하지 마세요**. 이 샘플에서는 버전 **2.10.6**을 사용합니다.
@@ -80,6 +78,9 @@ IntelliJ IDEA 설치가 Scala 플러그 인 활성화를 묻지 않은 경우 In
 		![Spark Scala 응용 프로그램 만들기](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-version.png)
 
 	* **Spark SDK**의 경우 [여기](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409)에서 SDK를 다운로드하여 사용합니다.
+
+		![Spark Scala 응용 프로그램 만들기](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-project-details.png)
+
 	* **마침**을 클릭합니다.
 
 3. 클러스터에서 실행되는 코드가 최종적으로 포함되는 아티팩트(패키지에 포함된 jar)를 만들도록 프로젝트 구조를 정의합니다.
@@ -204,8 +205,6 @@ Windows 컴퓨터에서 로컬 Spark Scala 응용 프로그램을 실행하는 �
 
 2. 다음 창에서 프로젝트 세부 정보를 제공합니다.
 
-	![Spark Scala 응용 프로그램 만들기](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-local-project-details.png)
-
 	* 프로젝트 이름과 프로젝트 위치를 제공합니다.
 	* **프로젝트 SDK**의 경우 7보다 높은 Java 버전을 제공해야 합니다.
 	* **Scala SDK**의 경우 **만들기**를 클릭하고 **다운로드**를 클릭한 다음 사용할 Scala의 버전을 선택합니다. **2.11.x 버전은 사용하지 마세요**. 이 샘플에서는 버전 **2.10.6**을 사용합니다.
@@ -214,6 +213,8 @@ Windows 컴퓨터에서 로컬 Spark Scala 응용 프로그램을 실행하는 �
 
 	* **Spark SDK**의 경우 [여기](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409)에서 SDK를 다운로드하여 사용합니다.
 	* **마침**을 클릭합니다.
+
+		![Spark Scala 응용 프로그램 만들기](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-local-project-details.png)
 
 3. 클러스터에서 실행되는 코드가 최종적으로 포함되는 아티팩트(패키지에 포함된 jar)를 만들도록 프로젝트 구조를 정의합니다.
 
@@ -317,4 +318,4 @@ Windows 컴퓨터에서 로컬 Spark Scala 응용 프로그램을 실행하는 �
 
 * [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

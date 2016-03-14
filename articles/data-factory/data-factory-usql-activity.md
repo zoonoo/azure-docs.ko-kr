@@ -62,8 +62,8 @@ sessionId | OAuth 권한 부여 세션의 세션 ID입니다. 각 세션 ID는 �
  
 | 사용자 유형 | 다음 시간 후에 만료 |
 | :-------- | :----------- | 
-| Azure Active Directory에서 관리되지 않는 사용자(@hotmail.com, @live.com 등) | 12시간 |
-| AAD(Azure Active Directory)에서 관리되는 사용자 | | 마지막 조각 실행 후 14일 동안 OAuth 기반 연결된 서비스 실행을 기반으로 하는 조각이 없는 경우 마지막 조각 실행일로부터 14일 후 <p>OAuth 기반 연결된 서비스를 기반으로 하는 조각이 14일마다 한 번 이상 실행된 경우 90일</p> |
+| Azure Active Directory에서 관리되지 않는 사용자 계정(@hotmail.com, @live.com 등) | 12시간 |
+| AAD(Azure Active Directory)에서 관리되는 사용자 계정 | | 마지막 조각이 실행된 후 14일 <p>OAuth 기반 연결된 서비스를 기반으로 하는 조각이 14일마다 한 번 이상 실행된 경우 90일</p> |
 
 이 오류를 방지/해결하려면 **토큰이 만료**되면 **권한 부여** 단추를 사용하여 다시 인증하고 연결된 서비스를 다시 배포해야 합니다. 다음 섹션의 코드를 사용하여 프로그래밍 방식으로 **sessionId** 및 **권한 부여** 속성의 값을 생성할 수도 있습니다.
 
@@ -156,7 +156,7 @@ sessionId | OAuth 권한 부여 세션의 세션 ID입니다. 각 세션 ID는 �
 속성 | 설명 | 필수
 :-------- | :----------- | :--------
 type | type 속성은 **DataLakeAnalyticsU-SQL**로 설정되어야 합니다. | 예
-scriptPath | U-SQL 스크립트가 포함된 폴더 경로입니다. | 아니요(스크립트를 사용하는 경우)
+scriptPath | U-SQL 스크립트가 포함된 폴더 경로입니다. 파일 이름은 대/소문자를 구분합니다. | 아니요(스크립트를 사용하는 경우)
 scriptLinkedService | 스크립트가 포함된 저장소를 Data Factory에 연결하는 연결된 서비스입니다. | 아니요(스크립트를 사용하는 경우)
 script | ScriptPath 및 scriptLinkedService를 지정하는 대신 인라인 스크립트를 지정합니다. 예: "script" : "CREATE DATABASE test" | 아니요(scriptPath 및 scriptLinkedService를 사용하는 경우)
 degreeOfParallelism | 작업을 실행하는 데 동시에 사용되는 최대 노드 수입니다. | 아니요
@@ -257,4 +257,4 @@ degreeOfParallelism | 작업을 실행하는 데 동시에 사용되는 최대 �
 
 Azure 데이터 레이크 분석 서비스에서 실행되는 작업에 대한 파이프라인 정의뿐 아니라 다른 속성 viz. degreeOfParallelism, 우선 순위 등을 지정할 수 있습니다.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

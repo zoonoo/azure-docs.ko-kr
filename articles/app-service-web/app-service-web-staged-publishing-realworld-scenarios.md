@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="web"
-   ms.date="12/24/2015"
+   ms.date="02/26/2016"
    ms.author="sumuth"/>
 
 # 웹 앱에서 DevOps 환경을 효과적으로 사용하기
@@ -287,8 +287,8 @@ WebMatrix나 FTP, Git, PhpMyAdmin과 같은 사용자 선택 도구를 사용하
 
 ![Wordpress에 대한 변경 내용 미리 보기 교환](./media/app-service-web-staged-publishing-realworld-scenarios/6swaps1.png)
 
- >[AZURE.NOTE]
- > 파일 푸시만 필요한 시나리오의 경우(데이터베이스 업데이트 없음), 교환을 수행하기 전에 Azure 포털 내의 웹앱 블레이드에서 모든 데이터베이스 관련 *앱 설정* 및 *연결 문자열 설정*에 대해 **슬롯 설정**을 **선택**합니다. 이 경우 **교환**을 수행할 때DB\_NAME, DB\_HOST, DB\_PASSWORD, DB\_USER, 기본 연결 문자열 설정이 변경 내용 미리 보기에 표시되지 않아야 합니다. 이 시점에서 **교환** 작업을 완료하면 WordPress 웹앱에 업데이트 파일**만** 있습니다.
+ > [AZURE.NOTE]
+ 파일 푸시만 필요한 시나리오의 경우(데이터베이스 업데이트 없음), 교환을 수행하기 전에 Azure 포털 내의 웹앱 블레이드에서 모든 데이터베이스 관련 *앱 설정* 및 *연결 문자열 설정*에 대해 **슬롯 설정**을 **확인**합니다. 이 경우 **교환**을 수행할 때DB\_NAME, DB\_HOST, DB\_PASSWORD, DB\_USER, 기본 연결 문자열 설정이 변경 내용 미리 보기에 표시되지 않아야 합니다. 이 시점에서 **교환** 작업을 완료하면 WordPress 웹앱에 업데이트 파일**만** 있습니다.
 
 교환 수행 전 프로덕션 WordPress 웹앱 ![슬롯 교환 전 프로덕션 웹앱](./media/app-service-web-staged-publishing-realworld-scenarios/7bfswap.png)
 
@@ -296,7 +296,7 @@ WebMatrix나 FTP, Git, PhpMyAdmin과 같은 사용자 선택 도구를 사용하
 
 ![슬롯 교환 후 프로덕션 웹앱](./media/app-service-web-staged-publishing-realworld-scenarios/8afswap.png)
 
-**롤백**이 필요한 상황에서 프로덕션 웹앱 설정으로 이동하여 **교환** 단추를 클릭하면 웹앱과 데이터베이스가 프로덕션에서 준비 슬롯으로 교환됩니다. 특정 시점에 **교환** 작업에 데이터베이스 변경이 포함된 경우 다음번에 준비 웹앱을 재배포할 때 이전 프로덕션 데이터베이스 또는 준비 데이터베이스일 수 있는 준비 웹앱에 대한 현재 데이터베이스에 데이터베이스 변경 내용을 배포해야 한다는 점을 기억해야 합니다.
+**롤백**이 필요한 상황에서 프로덕션 웹앱 설정으로 이동하고 **교환** 단추를 클릭하여 웹앱과 데이터베이스가 프로덕션에서 스테이징 슬롯으로 교환됩니다. 특정 시점에 **교환** 작업에 데이터베이스 변경이 포함된 경우 다음번에 스테이징 웹앱을 재배포할 때 이전 프로덕션 데이터베이스 또는 스테이징 데이터베이스일 수 있는 스테이징 웹앱에 대한 현재 데이터베이스에 데이터베이스 변경 내용을 배포해야 한다는 점을 기억해야 합니다.
 
 #### 요약
 데이터베이스가 있는 모든 응용 프로그램에 대해 프로세스를 일반화하려면
@@ -324,7 +324,7 @@ WebMatrix나 FTP, Git, PhpMyAdmin과 같은 사용자 선택 도구를 사용하
 #### 스테이징 환경 설정
 Umbraco CMS 웹앱에 대해 위에서 언급한 배포 슬롯을 만듭니다. 이미 Umbraco CMS 웹앱을 가동 및 실행 중이라고 가정합니다. 없으면 마켓플레이스에서 만들 수 있습니다.
 
-새로 만든 데이터베이스 **umbraco-stage-db**를 가리키도록 준비 배포 슬롯에 대한 연결 문자열을 업데이트합니다. 프로덕션 웹앱(umbraositecms-1)과 스테이징 웹앱(umbracositecms-1-stage)은 다른 데이터베이스를 가리켜야 **합니다**.
+새로 만든 데이터베이스 **umbraco-stage-db**를 가리키도록 스테이지 배포 슬롯에 대한 연결 문자열을 업데이트합니다. 프로덕션 웹앱(umbraositecms-1)과 스테이징 웹앱(umbracositecms-1-stage)은 다른 데이터베이스를 가리켜야 **합니다**.
 
 ![새 스테이징 데이터베이스를 통해 스테이징 웹앱의 연결 문자열 업데이트](./media/app-service-web-staged-publishing-realworld-scenarios/9umbconnstr.png)
 
@@ -372,7 +372,7 @@ Courier2 패키지를 [여기](https://our.umbraco.org/projects/umbraco-pro/umbr
   </repositories>
  ```
 
-`<repositories>`에서 프로덕션 사이트 URL 및 사용자 정보를 입력하세요. 기본 Umbraco 멤버 자격 공급자를 사용 중인 경우 <user> 섹션에서 관리 사용자의 ID를 추가하세요. 사용자 정의 Umbraco 멤버 자격 공급자를 사용 중인 경우 `<login>`,`<password>`을(를) Courier2 모듈에 사용하세요.  자세한 정보는 Courier 모듈 [설명서](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) 를 확인하세요.
+`<repositories>`에서 프로덕션 사이트 URL 및 사용자 정보를 입력하세요. 기본 Umbraco 멤버 자격 공급자를 사용 중인 경우 <user> 섹션에서 관리 사용자의 ID를 추가하세요. 사용자 정의 Umbraco 멤버 자격 공급자를 사용 중인 경우 `<login>`,`<password>`를 Courier2 모듈에 사용하여 프로덕션 사이트에 연결하는 방법을 알아봅니다. 자세한 내용은 Courier 모듈에 대한 [설명서](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation)를 확인하세요.
 
 마찬가지로, 여기에 표시된 대로 프로덕션 사이트에 Courier 모듈을 설치하고 각 courier.config 파일에서 스테이지 웹 앱에 연결하도록 구성하세요.
 
@@ -428,7 +428,10 @@ Courier는 Umbraco CMS의 한 버전을 다른 버전으로 업그레이드하�
 
 ![Umbraco CMS 배포를 위한 교환 미리보기](./media/app-service-web-staged-publishing-realworld-scenarios/22umbswap.png)
 
-교환은 웹앱과 데이터베이스에 모두 혜택이 있습니다. 1. 응용 프로그램에 문제가 있는 경우 다른 **교환**을 통해 웹앱의 이전 버전으로 롤백할 수 있습니다. 2. 업그레이드하려면 스테이징 웹앱의 파일과 데이터베이스를 프로덕션 웹앱과 데이터베이스에 배포해야 합니다. 파일 및 데이터베이스를 배포할 때는 여러 가지가 잘못될 수 있습니다. 슬롯 **교환** 기능을 사용하면 업그레이드 중 가동 중지 시간을 줄이고 변경 내용 배포 시 발생할 수 있는 실패 위험을 낮출 수 있습니다. 3. [프로덕션에서 테스트](https://azure.microsoft.com/documentation/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/) 기능을 사용하여 **A/B 테스트**를 수행할 수 있습니다.
+교환은 웹앱과 데이터베이스에 모두 혜택이 있습니다.
+1. 응용 프로그램에 문제가 있는 경우 다른 **교환**을 통해 웹앱의 이전 버전으로 롤백할 수 있습니다.
+2. 업그레이드하려면 스테이징 웹앱의 파일과 데이터베이스를 프로덕션 웹앱과 데이터베이스에 배포해야 합니다. 파일 및 데이터베이스를 배포할 때는 여러 가지가 잘못될 수 있습니다. 슬롯 **교환** 기능을 사용하면 업그레이드 중 가동 중지 시간을 줄이고 변경 내용 배포 시 발생할 수 있는 실패 위험을 낮출 수 있습니다.
+3. [프로덕션에서 테스트](https://azure.microsoft.com/documentation/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/) 기능을 사용하여 **A/B 테스트**를 수행할 수 있습니다.
 
 이 예에서는 전체 환경에서 배포를 관리하기 위해 Umbraco Courier 모듈과 유사한 사용자 지정 모듈을 구축할 수 있는 플랫폼 유연성을 보여줍니다.
 
@@ -439,4 +442,4 @@ Courier는 Umbraco CMS의 한 버전을 다른 버전으로 업그레이드하�
 
 [비 프로덕션 배포 슬롯에 대한 웹 액세스를 차단하는 방법](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

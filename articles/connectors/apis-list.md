@@ -1,5 +1,5 @@
 <properties
-	pageTitle="관리되는 API 목록 | Microsoft Azure 앱 서비스"
+	pageTitle="Microsoft 관리 API 목록 | Microsoft Azure 앱 서비스"
 	description="Azure 앱 서비스에서 논리 앱을 빌드하는 데 사용할 수 있는 Microsoft 관리 API의 전체 목록 가져오기"
 	services="app-service\logic"
 	documentationCenter=""
@@ -14,12 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/23/2016"
+	ms.date="03/02/2016"
 	ms.author="deonhe"/>
 
-# 앱을 빌드하는 데 필요한 Microsoft 관리 API 목록
+# 관리되는 API의 목록
 
-이러한 서비스를 호출하는 앱을 빌드하기 위해 이러한 API를 신속하게 활용하는 방법에 대해 알아보려면 아이콘을 선택합니다. 이러한 API는 논리 앱이나 파워 앱 또는 둘 다를 빌드하는 데 사용할 수 있습니다.
+>[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다. 2014-12-01-preview 스키마 버전에 대한 내용을 보려면 [커넥터 목록](../app-service-logic/app-service-logic-connectors-list.md)를 클릭합니다.
+
+이러한 서비스를 호출하는 앱을 빌드하기 위해 이러한 API를 신속하게 활용하는 방법에 대해 알아보려면 아이콘을 선택합니다. 이러한 API는 논리 앱이나 PowerApps 또는 둘 다를 빌드하는 데 사용할 수 있습니다.
 
 가격 정보 및 각 서비스 계층에 포함된 항목의 목록은 [Azure 앱 서비스 가격](https://azure.microsoft.com/pricing/details/app-service/)을 참조하세요.
 
@@ -31,14 +33,12 @@
 |[![API 아이콘][dropboxicon]<br/>**Dropbox**][dropboxdoc]|[![API 아이콘][facebookicon]<br/>**Facebook**][facebookdoc]|[![API 아이콘][ftpicon]<br/>**FTP**][ftpdoc]|[![API 아이콘][googledriveicon]<br/>**Google 드라이브**][googledrivedoc]|
 |[![API 아이콘][microsofttranslatoricon]<br/>**Translator**][microsofttranslatordoc]|[![API 아이콘][office365icon]<br/>**Office 365**<br/>**Outlook**][office365outlookdoc]|[![API 아이콘][office365icon]<br/>**Office 365**<br/>**사용자**][office365usersdoc]|[![API 아이콘][office365icon]<br/>**Office 365**<br/>**비디오**][office365videodoc]|
 |[![API 아이콘][onedriveicon]<br/>**OneDrive**][onedrivedoc]|[![API 아이콘][salesforceicon]<br/>**Salesforce**][salesforcedoc]|[![API 아이콘][servicebusicon]<br/>**서비스 버스**][servicebusdoc]|[![API 아이콘][sftpicon]<br/>**SFTP**][sftpdoc]|
-|[![API 아이콘][sharepointicon]<br/>**SharePoint**<br/>**서버**][sharepointdoc]|[![API 아이콘][slackicon]<br/>**Slack**<br/>][slackdoc]|[![API 아이콘][smtpicon]<br/>**SMTP**][smtpdoc]|[![API 아이콘][sqlicon]<br/>**SQL Azure**][sqldoc]|
+|[![API 아이콘][sharepointicon]<br/>**SharePoint**<br/>**Online**][sharepointdoc]|[![API 아이콘][slackicon]<br/>**Slack**<br/>][slackdoc]|[![API 아이콘][smtpicon]<br/>**SMTP**][smtpdoc]|[![API 아이콘][sqlicon]<br/>**SQL Azure**][sqldoc]|
 |[![API 아이콘][twilioicon]<br/>**Twilio**][twiliodoc]|[![API 아이콘][twittericon]<br/>**Twitter**][twitterdoc]|[![API 아이콘][yammericon]<br/>**Yammer**][yammerdoc] | |
 
 
-> [AZURE.NOTE] 이러한 API는 2015-12-01-preview 버전의 서비스로 작동합니다.
-
 ### API는 트리거가 될 수 있습니다.
-몇몇 API는 특정 이벤트가 발생할 때 앱에 알릴 수 있는 트리거를 제공합니다. 예를 들어 FTP API에는 OnUpdatedFile 트리거가 있습니다. 이 트리거를 수신 대기하고 트리거가 발생될 때마다 작업을 수행하는 논리 앱 또는 파워 앱을 빌드할 수 있습니다.
+몇몇 API는 특정 이벤트가 발생할 때 앱에 알릴 수 있는 트리거를 제공합니다. 예를 들어 FTP API에는 OnUpdatedFile 트리거가 있습니다. 이 트리거를 수신 대기하고 트리거가 발생될 때마다 작업을 수행하는 논리 앱 또는 PowerApp을 빌드할 수 있습니다.
 
 트리거에는 두 가지 유형이 있습니다.
 
@@ -50,7 +50,7 @@
 API는 앱 내에서 작업으로 사용될 수도 있습니다. 작업은 앱의 실행에 사용될 수 있는 데이터를 조회하는 데 유용합니다. 예를 들어 주문을 처리할 때 SQL 데이터베이스에서 고객 데이터를 조회해야 할 수 있습니다. 또는 대상 테이블에서 데이터를 작성, 업데이트 또는 삭제해야 할 수 있습니다. API가 제공하는 작업을 사용하여 이를 수행할 수 있습니다. 작업은 Swagger 메타데이터에 정의된 작업에 매핑됩니다.
 
 
-[새로운 기능](../app-service-logic/app-service-logic-schema-2015-08-01.md) [이제 논리 앱 빌드](../app-service-logic/app-service-logic-create-a-logic-app.md) [파워 앱 시작](../power-apps/powerapps-get-started-azure-portal.md)
+[새로운 기능](../app-service-logic/app-service-logic-schema-2015-08-01.md) [이제 논리 앱 빌드](../app-service-logic/app-service-logic-create-a-logic-app.md) [이제 PowerApps 시작](../power-apps/powerapps-get-started-azure-portal.md)
 
 <!--API Documentation-->
 [azureblobdoc]: ./create-api-azureblobstorage.md "Blob 컨테이너에서 파일을 관리하는 Azure Blob에 연결합니다."
@@ -70,7 +70,7 @@ API는 앱 내에서 작업으로 사용될 수도 있습니다. 작업은 앱�
 [onedrivedoc]: ./create-api-onedrive.md "사용자 개인 Microsoft OneDrive에 연결하여 파일 등을 업로드, 삭제, 나열합니다."
 [salesforcedoc]: ./create-api-salesforce.md "Salesforce 계정에 연결하고 계정, 잠재 고객, 영업 기회 등을 관리합니다."
 [servicebusdoc]: ./create-api-servicebus.md "서비스 버스 큐 및 항목에서 메시지를 보내고 서비스 버스 엔큐 및 구독에서 메시지를 받을 수 있습니다."
-[sharepointdoc]: ./create-api-sharepointserver.md "온-프레미스 Microsoft SharePoint Server 또는 SharePoint Online에 연결하여 문서를 관리하고 목록을 나열합니다. 기본 자격 증명, OAuth 2.0, Windows 인증 및 양식 기반 인증과 같은 다양한 인증 방법이 지원됩니다."
+[sharepointdoc]: ./create-api-sharepointonline.md "문서 및 목록 항목을 관리하려면 SharePoint Online에 연결합니다."
 [slackdoc]: ./create-api-slack.md "Slack에 연결하고 Slack 채널에 메시지를 게시합니다."
 [sftpdoc]: ./create-api-sftp.md "SFTP에 연결하고 파일 등을 업로드하고, 가져오고 삭제할 수 있습니다."
 [smtpdoc]: ./create-api-smtp.md "SMTP 서버에 연결하여 첨부 파일과 함께 전자 메일을 보냅니다."
@@ -103,4 +103,4 @@ API는 앱 내에서 작업으로 사용될 수도 있습니다. 작업은 앱�
 [twittericon]: ./media/apis-list/twittericon.png
 [yammericon]: ./media/apis-list/yammericon.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

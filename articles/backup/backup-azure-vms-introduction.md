@@ -3,7 +3,7 @@
 	description="Azure에서 가상 컴퓨터를 백업하려고 할 때 중요한 고려 사항"
 	services="backup"
 	documentationCenter=""
-	authors="Jim-Parker"
+	authors="markgalioto"
 	manager="jwhit"
 	editor=""
 	keywords="vm 백업, 가상 컴퓨터 백업"/>
@@ -121,4 +121,4 @@ Azure 백업을 통해 백업된 Azure 가상 컴퓨터에는 [Azure 백업 가�
 - [가상 컴퓨터 복원](backup-azure-restore-vms.md)
 - [VM 백업 문제 해결](backup-azure-vms-troubleshoot.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

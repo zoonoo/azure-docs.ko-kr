@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2016" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
  
 # Eclipse에서 Java를 사용하여 Application Insights 시작하기
@@ -49,7 +49,16 @@ Application Insights SDK가 Java 웹 응용 프로그램에서 원격 분석을 
 ## Azure에서 Application Insights 리소스 만들기
 
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
-2. 
+2. 새 Application Insights 리소스를 만듭니다.  
+
+    ![\+를 클릭하고 Application Insights 선택](./media/app-insights-java-eclipse/01-create.png)  
+3. Java 웹 응용 프로그램에 대한 응용 프로그램 종류를 설정합니다.  
+
+    ![이름을 채우고 Java 웹 앱을 선택하여 만들기 클릭](./media/app-insights-java-eclipse/02-create.png)  
+4. 새 리소스의 계측 키를 찾습니다. 코드 프로젝트에 곧바로 붙여넣어야 합니다.  
+
+    ![새 리소스 개요에서 속성을 클릭하고 계측 키 복사](./media/app-insights-java-eclipse/03-key.png)
+
 
 ## 프로젝트에 Application Insights 추가
 
@@ -260,4 +269,4 @@ Java 웹 응용 프로그램에 몇 줄의 코드를 삽입하여 이를 사용�
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

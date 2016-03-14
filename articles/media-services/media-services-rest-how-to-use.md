@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
- 	ms.date="02/11/2016"  
+ 	ms.date="03/01/2016"  
 	ms.author="juliako"/>
 
 
@@ -27,11 +27,25 @@ Microsoft Azure 미디어 서비스는 OData 기반의 HTTP 요청을 허용하�
 
 REST를 사용할 때 적용되는 고려 사항은 다음과 같습니다.
 
-
-- JSON을 사용하는 경우 Accept 헤더를 [JSON Verbose 형식](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/)으로 설정해야 합니다. verbose로 설정하지 않으면 Odata에서 \_\_metadata 속성을 인식하지 못합니다.
-
-	**Accept**: application/json;odata=verbose
 - 엔터티를 쿼리할 때 한 번에 반환되는 엔터티 수는 최대 1000개입니다. 공용 REST v2에서는 쿼리 결과를 1000개로 제한하기 때문입니다. [이 .NET 예제](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) 및 [이 REST API 예제](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities)에 설명된 대로 **Skip** 및 **Take**(.NET)/**top**(REST)을 사용해야 합니다. 
+
+- JSON을 사용하고 요청(예: 연결된 개체 참조)에서 **\_\_metadata** 키워드를 사용하도록 지정할 때 **Accept** 헤더를 [JSON 자세한 정보 표시 형식](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/)(아래 예제 참조)으로 설정해야 합니다. verbose로 설정하지 않으면 Odata에서 **\_\_metadata** 속성을 인식하지 못합니다.
+
+		POST https://media.windows.net/API/Jobs HTTP/1.1
+		Content-Type: application/json;odata=verbose
+		Accept: application/json;odata=verbose
+		DataServiceVersion: 3.0
+		MaxDataServiceVersion: 3.0
+		x-ms-version: 2.11
+		Authorization: Bearer <token> 
+		Host: media.windows.net
+		
+		{
+			"Name" : "NewTestJob", 
+			"InputMediaAssets" : 
+				[{"__metadata" : {"uri" : "https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3Aba5356eb-30ff-4dc6-9e5a-41e4223540e7')"}}]
+		. . . 
+		
 
 ## 미디어 서비스에서 지원하는 표준 HTTP 요청 헤더
 
@@ -118,4 +132,4 @@ HEAD|GET 응답에 대한 개체의 메타데이터를 반환합니다.
 
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

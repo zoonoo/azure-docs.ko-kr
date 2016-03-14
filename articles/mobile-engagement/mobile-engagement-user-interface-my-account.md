@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="11/22/2015"
+   ms.date="02/29/2016"
    ms.author="piyushjo"/>
 
 # 계정 프로필 및 테스트 장치를 관리하는 방법
  
-이 문서에서는 **Mobile Engagement** 포털의 **홈** 페이지를 설명합니다. **Mobile Engagement** 포털을 사용하여 모바일 앱을 모니터링하고 관리합니다. 포털 사용을 시작하려면 먼저 **Azure Mobile Engagement** 계정을 만들어야 합니다. 자세한 내용은 [Azure Mobile Engagement 계정 만들기](mobile-engagement-create-account.md)를 참조하세요.
+이 문서에서는 **Mobile Engagement** 포털의 **홈** 페이지를 설명합니다. **Mobile Engagement** 포털을 사용하여 모바일 앱을 모니터링하고 관리합니다.
  
 내 계정 페이지를 보려면 페이지 위쪽의 계정을 클릭합니다.
 
@@ -27,7 +27,7 @@ UI의 내 계정 섹션에서는 프로필 설정, 테스트 장치 ID 등 계�
 ![MyAccount1][7]
 
 ## 프로필
-계정 설정을 확인하거나 변경할 수 있습니다. [홈](mobile-engagement-interface-home.md)의 전자 메일 주소를 기준으로 다른 사용자에게 응용 프로그램 사용 권한을 부여할 수도 있습니다.
+계정 설정을 확인하거나 변경할 수 있습니다. [홈](mobile-engagement-user-interface-home.md)의 전자 메일 주소를 기준으로 다른 사용자에게 응용 프로그램 사용 권한을 부여할 수도 있습니다.
 
 ![MyAccount2][8]
 
@@ -151,4 +151,4 @@ UI의 내 계정 섹션에서는 프로필 설정, 테스트 장치 ID 등 계�
  
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

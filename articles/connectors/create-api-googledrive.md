@@ -15,13 +15,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 # Google 드라이브 API 시작
-Google 드라이브에 연결하여 파일 만들기, 행 가져오기 등의 작업을 수행합니다.
+Google 드라이브에 연결하여 파일 만들기, 행 가져오기 등의 작업을 수행합니다. Google 드라이브 API를 다음에서 사용할 수 있습니다.
 
-Google 드라이브 API는 PowerApps 및 논리 앱에서 사용할 수 있습니다.
+- PowerApps 
+- 논리 앱 
 
 Google 드라이브를 사용하면 다음과 같은 작업을 수행할 수 있습니다.
 
@@ -29,7 +30,7 @@ Google 드라이브를 사용하면 다음과 같은 작업을 수행할 수 있
 - 이미지 검색, 뉴스 검색 등의 작업을 사용합니다. 이러한 작업을 사용하여 응답을 가져오고 출력을 다른 작업에 사용할 수 있도록 설정합니다. 예를 들어 비디오를 검색한 다음 Twitter를 사용하여 Twitter 피드에 해당 비디오를 게시할 수 있습니다.
 - PowerApps 엔터프라이즈에 Google 드라이브 API를 추가합니다. 이렇게 하면 사용자가 앱 내에서 이 API를 사용할 수 있습니다. 
 
-PowerApps 엔터프라이즈에서 API를 추가하는 방법을 보려면 [Register an API in PowerApps](../power-apps/powerapps-register-from-available-apis.md)(PowerApps에서 API 등록)로 이동하세요.
+PowerApps 엔터프라이즈에서 API를 추가하는 방법을 보려면 [PowerApps에서 API 등록](../power-apps/powerapps-register-from-available-apis.md)으로 이동하세요.
 
 논리 앱에 작업을 추가하려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
 
@@ -49,7 +50,7 @@ Google 드라이브에는 다음 작업이 포함됩니다. 트리거는 없습�
 ### PowerApps에 구성 추가
 PowerApps 엔터프라이즈에 Google 드라이브를 추가할 때 Google 드라이브 응용 프로그램의 **앱 키**와 **앱 암호**를 입력합니다. 또한 **URL 리디렉션** 값도 Google 응용 프로그램에서 사용됩니다. Google 드라이브 응용 프로그램이 없는 경우 다음 단계를 사용하여 응용 프로그램을 만들 수 있습니다.
 
-1. [Google 개발자 콘솔][5]에 로그인하고 **빈 프로젝트 생성**을 선택합니다. ![Google 개발자 콘솔][6]
+1. [Google 개발자 콘솔][5]에 로그인하고 **빈 프로젝트 생성**를 선택합니다. ![Google 개발자 콘솔][6]
 
 2. 응용 프로그램 속성을 입력하고 **만들기**를 선택합니다.
 3. **Google API 사용**을 선택합니다. ![Google API 사용][8]  
@@ -76,7 +77,7 @@ PowerApps 엔터프라이즈에 Google 드라이브를 추가할 때 Google 드�
 논리 앱에 이 API를 추가할 때 Google 드라이브에 연결할 권한을 논리 앱에 부여해야 합니다.
 
 1. Google 드라이브 계정에 로그인합니다.
-2. **권한 부여**를 선택하고 논리 앱에서 Google 드라이브에 연결하고 사용할 수 있도록 허용합니다. 
+2. 논리 앱에서 Google 드라이브에 연결하고 사용할 수 있도록 허용합니다. 
 
 연결을 만든 후에 폴더 경로 또는 파일 이름 등의 Google 드라이브 속성을 입력합니다. 이 항목의 **REST API 참조**에서는 이러한 속성에 대해 설명합니다.
 
@@ -84,6 +85,7 @@ PowerApps 엔터프라이즈에 Google 드라이브를 추가할 때 Google 드�
 
 
 ## Swagger REST API 참조
+적용 버전: 1.0
 
 ### 파일 만들기    
 Google 드라이브에 파일을 업로드합니다. ```POST: /datasets/default/files```
@@ -376,4 +378,4 @@ PowerApps 엔터프라이즈에 Google 드라이브를 추가한 후 해당 앱�
 [13]: ./media/create-api-googledrive/configure-consent-screen.png
 [14]: ./media/create-api-googledrive/create-client-id.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

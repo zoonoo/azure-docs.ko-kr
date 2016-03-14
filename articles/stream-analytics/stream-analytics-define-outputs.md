@@ -3,7 +3,7 @@
 	description="스트림 분석 데이터 변환 출력을 데이터 저장소 옵션에 연결하는 방법에 대해 알아보세요. 또한 분석 결과에 Power BI를 사용해 보세요."
 	keywords="데이터 변환, 분석 결과, 데이터 저장소 옵션"
 	services="stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage"
-	documentationCenter=""
+	documentationCenter="" 
 	authors="jeffstokes72"
 	manager="paulettm"
 	editor="cgronlun"/>
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="02/04/2016"
+	ms.date="03/02/2016"
 	ms.author="jeffstok"/>
 
 # 스트림 분석 데이터 변환 출력을 분석 도구 및 데이터 저장소 옵션에 연결
@@ -39,7 +39,7 @@
 
 ## Blob 저장소 ##
 
-클라우드에서 대량의 구조화되지 않은 데이터를 저장하는 경우 Blob 저장소는 비용 효율적이고 확장성 있는 솔루션을 제공합니다. Azure Blob 저장소 및 사용법에 대한 소개 내용은 [Blob 사용 방법](./articles/storage-dotnet-how-to-use-blobs.md) 설명서를 참조하세요.
+클라우드에서 대량의 구조화되지 않은 데이터를 저장하는 경우 Blob 저장소는 비용 효율적이고 확장성 있는 솔루션을 제공합니다. Azure Blob 저장소 및 사용법에 대한 소개 내용은 [Blob 사용 방법](../storage/storage-dotnet-how-to-use-blobs.md) 설명서를 참조하세요.
 
 다음 테이블은 Blob 출력을 만들기 위한 속성 이름 및 해당 설명을 나열합니다.
 
@@ -118,7 +118,7 @@
 
 [Power BI](https://powerbi.microsoft.com/)를 스트림 분석 작업의 출력으로 사용하여 분석 결과에 대한 풍부한 시각화 환경을 제공할 수 있습니다. 작업 대시보드, 보고서 생성 및 메트릭 제어 보고에 이 기능을 이용할 수 있습니다.
 
-> [AZURE.NOTE] 이때 Power BI 출력의 생성 및 구성은 Azure Preview 포털에서 지원되지 않습니다.
+> [AZURE.NOTE] 이때 Power BI 출력의 생성 및 구성은 Azure 클래식 포털에서만 지원됩니다.
 
 ### Power BI 계정 권한 부여
 
@@ -159,7 +159,7 @@ Power BI 출력을 포함하는 모든 작업에 대해 90일마다 인증 토�
 
 ## 테이블 저장소
 
-[Azure 테이블 저장소](./articles/storage-introduction.md)는 가용성이 높고 확장성이 큰 저장소를 제공하므로, 응용 프로그램이 사용자 요구에 맞게 자동으로 확장할 수 있습니다. 테이블 저장소는 스키마에 대한 제약 조건이 적은 구조화된 데이터에 활용할 수 있는 Microsoft의 NoSQL 키/특성 저장소입니다. Azure 테이블 저장소는 지속적이고 효율적인 검색을 위해 데이터를 저장하는 데 사용할 수 있습니다.
+[Azure 테이블 저장소](../storage/storage-introduction.md)는 가용성이 높고 확장성이 큰 저장소를 제공하므로, 응용 프로그램이 사용자 요구에 맞게 자동으로 확장할 수 있습니다. 테이블 저장소는 스키마에 대한 제약 조건이 적은 구조화된 데이터에 활용할 수 있는 Microsoft의 NoSQL 키/특성 저장소입니다. Azure 테이블 저장소는 지속적이고 효율적인 검색을 위해 데이터를 저장하는 데 사용할 수 있습니다.
 
 다음 테이블은 테이블 출력을 만들기 위한 속성 이름 및 해당 설명을 나열합니다.
 
@@ -267,4 +267,4 @@ Power BI 출력을 포함하는 모든 작업에 대해 90일마다 인증 토�
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

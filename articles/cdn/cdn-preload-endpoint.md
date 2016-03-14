@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Azure CDN 끝점에 자산 미리 로드" 
-	description="CDN 끝점에 캐시된 콘텐츠를 미리 로드하는 방법을 알아봅니다." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="Azure CDN 끝점에 자산 미리 로드"
+	description="CDN 끝점에 캐시된 콘텐츠를 미리 로드하는 방법을 알아봅니다."
+	services="cdn"
+	documentationCenter=".NET"
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/20/2016" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/25/2016" 
 	ms.author="casoper"/>
-	
+
 # Azure CDN 끝점에 자산 미리 로드
 
 기본적으로 요청되었으므로 자산이 먼저 캐시됩니다. 즉, 가장자리 서버는 캐시된 콘텐츠가 없고 요청을 원본 서버에 전달해야 하므로 각 지역의 첫 번째 요청은 오래 걸릴 수 있습니다. 콘텐츠를 미리 로드하면 첫 번째 적중 대기 시간이 발생하지 않습니다.
@@ -33,28 +33,28 @@
 2. 목록에서 끝점을 클릭합니다. 끝점 블레이드가 열립니다.
 
 3. CDN 끝점 블레이드에서 로드 단추를 클릭합니다.
-	
+
 	![CDN 끝점 블레이드](./media/cdn-preload-endpoint/cdn-endpoint-blade.png)
-	
+
 	로드 블레이드가 열립니다.
-	
+
 	![CDN 로드 블레이드](./media/cdn-preload-endpoint/cdn-load-blade.png)
-	
+
 4. 로드하려는 각 자산의 전체 경로를 **경로** 텍스트 상자에 입력합니다(예: */pictures/kitten.png*).
 
 	> [AZURE.TIP] 여러 자산 목록을 작성할 수 있도록 하는 텍스트를 입력한 후에 더 많은 **경로** 텍스트 상자가 표시됩니다. 목록에서 줄임표(...) 단추를 클릭하여 자산을 삭제할 수 있습니다.
 	>
 	> 경로는 상대 URL이어야 합니다. 별표(*)를 와일드 카드로 사용할 수 있습니다.
-	
+
     ![로드 단추](./media/cdn-preload-endpoint/cdn-load-paths.png)
-    
+
 5. **로드** 단추를 클릭합니다.
 
 	![로드 단추](./media/cdn-preload-endpoint/cdn-load-button.png)
-	
+
 
 ## 참고 항목
 - [Azure CDN 끝점 제거](cdn-purge-endpoint.md)
 - [Azure CDN REST API 참조 - 끝점 제거 또는 미리 로드](https://msdn.microsoft.com/library/mt634451.aspx)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

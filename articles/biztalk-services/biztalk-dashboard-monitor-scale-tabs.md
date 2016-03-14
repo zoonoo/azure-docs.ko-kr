@@ -4,8 +4,8 @@
 	services="biztalk-services" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
-	manager="dwrede" 
-	editor="cgronlun"/>
+	manager="erikre" 
+	editor=""/>
 
 <tags 
 	ms.service="biztalk-services" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="02/29/2016" 
 	ms.author="mandia"/>
 
 
@@ -33,9 +33,9 @@ BizTalk 서비스 버전에 따라 나열된 일부 옵션을 사용하지 못�
     <tr>
         <td><strong>도구 얻기</strong></td>
 
-        <td>BizTalk 서비스 SDK를 다운로드하여 온-프레미스 개발 컴퓨터에 Visual Studio 프로젝트 템플릿을 설치합니다. 이러한 템플릿은 BizTalk 서비스에 배포되는 <strong>BizTalk 서비스</strong>(브리지) 및 <strong>BizTalk 서비스 아티팩트</strong> (변형) Visual Studio 프로젝트를 만듭니다.
+        <td>BizTalk 서비스 SDK를 다운로드하여 온-프레미스 개발 컴퓨터에 Visual Studio 프로젝트 템플릿을 설치합니다. 이러한 템플릿은 BizTalk 서비스에 배포되는 <strong>BizTalk 서비스</strong>(브리지) 및 <strong>BizTalk 서비스 아티팩트</strong>(변형) Visual Studio 프로젝트를 만듭니다.
         <br/><br/>
-		<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335">Azure BizTalk 서비스 SDK로 시작하는 방법</a> 및 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">Azure BizTalk 서비스 SDK 설치</a>(영문)에서 시작 단계를 나열합니다. 
+		<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335">Azure BizTalk 서비스 SDK로 시작하는 방법</a> 및 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">Azure BizTalk 서비스 SDK 설치</a>(영문)에서 시작 단계를 나열합니다.
         </td>
     </tr>
 
@@ -236,17 +236,14 @@ BizTalk 서비스 이름을 선택하면 다음 항목이 표시된 모니터 �
 
 ##### 그래프에서 메트릭을 제거하거나 표시하려면
 1. **모니터** 탭을 선택합니다.
-2. 작업 표시줄에서 **메트릭 추가**를 선택합니다.  
-![메트릭 추가 선택][AddMetrics]
+2. 작업 표시줄에서 **메트릭 추가**를 선택합니다.![메트릭 추가 선택][AddMetrics]
 3. 표시할 성능 메트릭을 선택합니다.
 4. 확인 표시를 선택하여 **모니터** 탭으로 돌아갑니다.
 5. 메트릭 옆에 있는 원을 선택하여 그래프에 메트릭 값을 표시합니다.  
 
-	예를 들어 **CPU 사용량** 메트릭이 회색으로 표시되면 이 메트릭의 출력이 그래프에 표시되지 않습니다.  
-![CPU 사용량 메트릭이 회색으로 표시됨][GrayedMetric]  
+	예를 들어 **CPU 사용량** 메트릭이 회색으로 표시되면 이 메트릭의 출력이 그래프에 표시되지 않습니다.![CPU 사용량 메트릭이 회색으로 표시됨][GrayedMetric]
 
-	**CPU 사용량** 메트릭의 출력을 그래프에 표시하려면 회색으로 표시된 원을 선택합니다.  
-![CPU 사용량 메트릭 사용][EnabledMetric]
+	**CPU 사용량** 메트릭의 출력을 그래프에 표시하려면 회색으로 표시된 원을 선택합니다.![CPU 사용량 메트릭 사용][EnabledMetric]
 
 6. 디스플레이 그래프 및 목록에서 메트릭을 제거하려면 작업 표시줄에서 **메트릭 삭제**를 선택합니다. 목록에 메트릭을 다시 추가하려면 작업 표시줄에서 **메트릭 추가**를 선택하고 메트릭을 선택한 후 확인 표시를 선택하여 **모니터** 탭으로 돌아갑니다. 회색으로 표시된 원을 선택하면 해당 메트릭이 활성화됩니다.
 
@@ -339,7 +336,7 @@ BizTalk 서비스 이름을 선택하면 다음 항목이 표시된 모니터 �
 
 Azure 웹 사이트에서 하이브리드 연결을 만들려면 [하이브리드 연결: Azure 웹 사이트를 온-프레미스 리소스에 연결](http://go.microsoft.com/fwlink/p/?LinkId=397538)을 참조하세요.
 
-Azure 모바일 서비스에서 하이브리드 연결을 사용하려면 [Azure 모바일 서비스 및 하이브리드 연결](../mobile-services-dotnet-backend-hybrid-connections-get-started.md)을 참조하세요.
+Azure 모바일 서비스에서 하이브리드 연결을 사용하려면 [Azure 모바일 서비스 및 하이브리드 연결](../mobile-services/mobile-services-dotnet-backend-hybrid-connections-get-started.md)을 참조하세요.
 
 Azure BizTalk 서비스에서 하이브리드 연결을 만들거나 관리하려면 [하이브리드 연결](integration-hybrid-connection-overview.md)을 참조하세요.
 
@@ -365,4 +362,4 @@ Azure BizTalk 서비스에서 하이브리드 연결을 만들거나 관리하�
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

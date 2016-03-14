@@ -18,7 +18,7 @@
 
 # Azure Resource Manager 템플릿으로 리소스 그룹 배포
 
-이 항목에서는 Azure Resource Manager 템플릿을 사용하여 Azure에 리소스를 배포하는 방법을 설명합니다. 여기서는 Azure PowerShell, Azure CLI, REST API 또는 Azure 포털을 사용하여 리소스를 배포합니다.
+이 항목에서는 Azure Resource Manager 템플릿을 사용하여 Azure에 리소스를 배포하는 방법을 설명합니다. 여기서는 Azure PowerShell, Azure CLI, REST API 또는 Azure 포털을 사용하여 리소스를 배포하는 방법을 보여 줍니다.
 
 리소스 관리자에 대한 소개는 [Azure 리소스 관리자 개요](./resource-group-overview.md)를 참조하세요. 템플릿을 만드는 방법에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 
@@ -284,4 +284,4 @@ Azure 리소스 관리자와 포털 사용에 대한 자세한 내용은 [Azure 
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

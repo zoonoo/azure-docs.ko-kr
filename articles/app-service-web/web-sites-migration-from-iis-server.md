@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
+	ms.date="02/26/2016" 
 	ms.author="cephalin"/>
 
 # Azure 앱 서비스에서 엔터프라이즈 웹 앱 마이그레이션
 
 IIS(인터넷 정보 서비스) 6 이상을 실행하는 기존 웹 사이트를 [앱 서비스 웹 앱](http://go.microsoft.com/fwlink/?LinkId=529714)으로 쉽게 마이그레이션할 수 있습니다.
 
->[AZURE.IMPORTANT]Windows Server 2003은 2015년 7월 14일에 지원이 종료됩니다. 현재 웹 사이트가 Windows Server 2003을 사용하는 IIS 서버에 있는 경우 웹 앱이 위험, 비용 및 충돌을 줄이면서 웹 사이트를 온라인으로 유지할 수 있는 방법이며, Web App Migration Assistant를 사용하면 마이그레이션 프로세스를 자동화할 수 있습니다.
+>[AZURE.IMPORTANT] Windows Server 2003은 2015년 7월 14일에 지원이 종료됩니다. 현재 웹 사이트가 Windows Server 2003을 사용하는 IIS 서버에 있는 경우 웹 앱이 위험, 비용 및 충돌을 줄이면서 웹 사이트를 온라인으로 유지할 수 있는 방법이며, Web App Migration Assistant를 사용하면 마이그레이션 프로세스를 자동화할 수 있습니다.
 
 [Web App Migration Assistant](https://www.movemetothecloud.net/)는 IIS 서버 설치를 분석하고, 앱 서비스로 마이그레이션할 수 있는 사이트를 식별하고, 마이그레이션할 수 없거나 플랫폼에서 지원되지 않는 요소를 강조 표시한 후, 웹 사이트 및 관련 데이터베이스를 Azure로 마이그레이션합니다.
 
@@ -66,7 +66,7 @@ Migration Assistant에서는 온-프레미스 IIS에서 Azure 앱 서비스 웹 
 
 	![](./media/web-sites-migration-from-iis-server/install-page.png)
 
-	>[AZURE.NOTE]**Download for offline install**을 클릭하여 인터넷에 연결되지 않은 서버에 설치하기 위한 ZIP 파일을 다운로드할 수도 있습니다. 또는 **Upload an existing migration readiness report**를 클릭할 수 있으며, 이 고급 옵션을 선택하면 이전에 생성한 기존 마이그레이션 준비 보고서로 작업할 수 있습니다(나중에 설명).
+	>[AZURE.NOTE] **Download for offline install**을 클릭하여 인터넷에 연결되지 않은 서버에 설치하기 위한 ZIP 파일을 다운로드할 수도 있습니다. 또는 **Upload an existing migration readiness report**를 클릭할 수 있으며, 이 고급 옵션을 선택하면 이전에 생성한 기존 마이그레이션 준비 보고서로 작업할 수 있습니다(나중에 설명).
 
 5.	**응용 프로그램 설치** 화면에서 **설치**를 클릭하여 컴퓨터에 설치합니다. 필요한 경우 웹 배포, DacFX, IIS와 같은 해당하는 종속성도 설치됩니다.
 
@@ -74,7 +74,7 @@ Migration Assistant에서는 온-프레미스 IIS에서 Azure 앱 서비스 웹 
 
 	설치가 끝나면 Web App Migration Assistant가 자동으로 시작합니다.
   
-6.	**원격 서버에서 Azure로 사이트 및 데이터베이스 마이그레이션**를 선택합니다. 원격 서버의 관리자 자격 증명을 입력하고 **Continue**를 클릭합니다.
+6.	**Migrate sites and databases from a remote server to Azure**를 선택합니다. 원격 서버의 관리자 자격 증명을 입력하고 **Continue**를 클릭합니다.
 
 	![](./media/web-sites-migration-from-iis-server/migrate-from-remote.png)
 
@@ -94,7 +94,7 @@ Migration Assistant에서는 온-프레미스 IIS에서 Azure 앱 서비스 웹 
  
 	![](./media/web-sites-migration-from-iis-server/readiness-assessment.png)
 
-12.	**Begin Migration**을 클릭하여 마이그레이션을 시작합니다. 이제 계정으로 로그인하기 위해 Azure로 리디렉션됩니다. 활성 Azure 구독이 있는 계정으로 로그인해야 합니다. Azure 계정이 없는 경우 여기에서 무료 평가판에 등록할 수 있습니다.
+12.	**Begin Migration**을 클릭하여 마이그레이션을 시작합니다. 이제 계정으로 로그인하기 위해 Azure로 리디렉션됩니다. 활성 Azure 구독이 있는 계정으로 로그인해야 합니다. Azure 계정이 없는 경우 [여기](https://azure.microsoft.com/pricing/free-trial/?WT.srch=1&WT.mc_ID=SEM_)에서 무료 평가판에 등록할 수 있습니다.
 
 13.	마이그레이션한 Azure 웹 앱 및 데이터베이스에 사용할 테넌트 계정, Azure 구독 및 지역을 선택한 다음 **Start Migration**을 클릭합니다. 나중에 마이그레이션할 웹 사이트를 선택할 수 있습니다.
 
@@ -111,7 +111,7 @@ Migration Assistant에서는 온-프레미스 IIS에서 Azure 앱 서비스 웹 
 
 	![](./media/web-sites-migration-from-iis-server/migration-settings.png)
 
-	>[AZURE.NOTE]사용자 지정 설정에서 **Enable Azure Active Directory** 확인란을 선택하면 Azure 웹 앱이 [Azure Active Directory](active-directory-whatis.md)(**기본 디렉터리**)와 통합됩니다. Azure Active Directory를 온-프레미스 Active Directory와 동기화하는 방법에 대한 자세한 내용은 [디렉터리 통합](http://msdn.microsoft.com/library/jj573653)을 참조하세요.
+	>[AZURE.NOTE] 사용자 지정 설정에서 **Enable Azure Active Directory** 확인란을 선택하면 Azure 웹 앱이 [Azure Active Directory](active-directory-whatis.md)(**기본 디렉터리**)와 통합됩니다. Azure Active Directory를 온-프레미스 Active Directory와 동기화하는 방법에 대한 자세한 내용은 [디렉터리 통합](http://msdn.microsoft.com/library/jj573653)을 참조하세요.
 
 16.	 원하는 대로 모두 변경했으면 **Create**를 클릭하여 마이그레이션 프로세스를 시작합니다. 마이그레이션 도구에서는 Azure SQL 데이터베이스와 Azure 웹 앱을 만들고 웹 사이트 콘텐츠와 데이터베이스를 게시합니다. 마이그레이션 진행률이 마이그레이션 도구에 명확히 표시되며 끝에 마이그레이션된 사이트, 마이그레이션 성공 여부, 새로 만든 Azure 웹 앱에 대한 링크를 자세히 설명하는 요약 화면이 표시됩니다.
 
@@ -129,10 +129,10 @@ Migration Assistant에서는 온-프레미스 IIS에서 Azure 앱 서비스 웹 
 
 	![](./media/web-sites-migration-from-iis-server/TimeTrackerMigrated.png)
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0302_2016-->

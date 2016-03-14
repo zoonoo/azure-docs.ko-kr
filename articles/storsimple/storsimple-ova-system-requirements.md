@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/07/2016"
+   ms.date="03/01/2016"
    ms.author="alkohli"/>
 
-# StorSimple 가상 배열 시스템 요구 사항(미리 보기)
+# StorSimple 가상 배열 시스템 요구 사항
 
 ## 개요
 
@@ -34,10 +34,6 @@
  
 - 7000 시리즈 장치는 [System requirements for your StorSimple 5000-7000 series device](http://onlinehelp.storsimple.com/1_StorSimple_System_Requirements)(StorSimple 5000-7000 시리즈 장치에 대한 시스템 요구 사항)을 참조하세요.
 
-> [AZURE.IMPORTANT]
-> 
-> - 이 공개 미리 보기는 평가 용도로만 사용됩니다. 프로덕션 환경에서는 이 미리 보기를 설치하도록 지원되지 않습니다.
-> - StorSimple 가상 배열에서 문제가 발생하는 경우 [StorSimple MSDN 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=StorSimple)에 문제를 게시해 주세요.  
 
 ## 소프트웨어 요구 사항
 
@@ -61,7 +57,7 @@
 | 최소 네트워크 인터페이스 수 | 1 |
 | 최소 인터넷 대역폭<sup>2</sup> | 5Mbps |
 
-<sup>1</sup> - 씬 프로비전된
+<sup>1</sup> - 씬 프로비전됨
 
 <sup>2</sup> - 네트워크 요구 사항은 일일 데이터 변경률에 따라 달라질 수 있습니다. 예를 들어, 장치에서 하루 동안 10GB 이상을 백업해야 한다면, 5Mbps 연결을 통한 매일 백업에는 최대 4.25 시간이 소요될 수 있습니다(데이터를 압축하거나 중복 제거할 수 없는 경우).
 
@@ -90,7 +86,7 @@
 | TCP 80(HTTP) | 아웃 | WAN | 아니요 | 업데이트 복구를 위한 인터넷 액세스에는 아웃바운드 포트가 사용됩니다. <br></br>아웃바운드 웹 프록시는 사용자가 구성할 수 있습니다. |
 | TCP 443(HTTPS) | 아웃 | WAN | 예 | 아웃바운드 포트는 클라우드의 데이터에 액세스하는 데 사용됩니다. <br></br>아웃바운드 웹 프록시는 사용자가 구성할 수 있습니다. |
 | UDP 53(DNS) | 아웃 | WAN | 일부 경우에는 메모를 참조하십시오. | 이 포트는 인터넷 기반 DNS 서버로 사용하는 경우에만 필요합니다. <br></br> **참고**: 파일 서버를 배포하는 경우에는 로컬 DNS 서버를 사용하는 것이 좋습니다.|
-| UDP 123(NTP) | 아웃 | WAN | 일부 경우에는 메모를 참조하십시오. | 이 포트는 인터넷 기반 NTP 서버를 사용하는 경우에만 필요합니다.<br></br> **참고:** 파일 서버를 배포하는 경우에는 Active Directory 도메인 컨트롤러와 시간을 동기화하는 것이 좋습니다. |
+| UDP 123(NTP) | 아웃 | WAN | 일부 경우에는 메모를 참조하십시오. | 이 포트는 인터넷 기반 NTP 서버로 사용하는 경우에만 필요합니다.<br></br> **참고:** 파일 서버를 배포하는 경우에는 Active Directory 도메인 컨트롤러와 시간을 동기화하는 것이 좋습니다. |
 |TCP 9354 | 아웃 | WAN | 예 | 아웃바운드 포트는 StorSimple 장치에서 StorSimple 관리자 서비스와 통신하는 데 사용됩니다.|
 | TCP 80(HTTP) | 그런 다음 | LAN | 예 | 로컬 관리용 StorSimple 장치의 로컬 UI에 대한 인바운드 포트입니다. <br></br> **참고**: HTTP를 통해 로컬 UI에 액세스하면 자동으로 HTTPS에 리디렉션됩니다.|
 | TCP 443(HTTPS) | 그런 다음 | LAN | 예 | 로컬 관리용 StorSimple 장치의 로컬 UI에 대한 인바운드 포트입니다.|
@@ -102,4 +98,4 @@
 
 -   [StorSimple 가상 배열 배포를 위한 포털 준비](storsimple-ova-deploy1-portal-prep.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

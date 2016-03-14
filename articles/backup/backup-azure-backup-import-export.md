@@ -30,7 +30,7 @@ Azure 백업 및 Azure 가져오기/내보내기를 사용하면 디스크를 �
 2. 워크플로를 시작하기 전에 Azure 백업 자격 증명 모음이 생성되었고, 자격 증명 모음 자격 증명이 다운로드되었고, Windows Server/Windows 클라이언트 또는 System Center Data Protection Manager(SCDPM) 서버에 Azure 백업 에이전트가 설치되었고, Azure 백업 자격 증명 모음에 컴퓨터가 등록되었는지 확인합니다.
 3. [여기](https://manage.windowsazure.com/publishsettings)에서 데이터를 백업하려는 컴퓨터의 Azure 게시 설정 파일을 다운로드합니다.
 4. *준비 위치*를 준비합니다. 네트워크 공유 나 컴퓨터의 추가 드라이브가 될 수 있습니다. 준비 위치에 초기 복사본을 저장할 디스크 공간이 충분한지 확인합니다. 예를 들어 500GB 파일 서버를 백업하려는 경우 준비 영역이 500GB인지 확인합니다(실제로는 이보다 작은 크기가 사용됨). 준비 영역은 '임시 저장소'이며 이 워크플로 중에 일시적으로 사용됩니다.
-5. 외부 SATA 드라이브 기록기 및 외부 3.5인치 SATA 드라이브입니다. 3.5인치 SATA II/III 하드 드라이브만 가져오기/내보내기 서비스에서 사용하도록 지원됩니다. 6TB보다 큰 하드 드라이브는 지원되지 않습니다. SATA II/III USB 어댑터를 사용하여 외부에서 대부분의 컴퓨터에 SATA II/III 디스크를 연결할 수 있습니다. Azure 가져오기/내보내기 설명서에서 이 서비스에서 지원되는 최신 드라이브를 확인하세요.
+5. 외부 SATA 드라이브 기록기 및 외부 3.5인치 SATA 드라이브입니다. 3.5인치 SATA II/III 하드 드라이브만 가져오기/내보내기 서비스에서 사용하도록 지원됩니다. 8TB보다 큰 하드 드라이브는 지원되지 않습니다. SATA II/III USB 어댑터를 사용하여 외부에서 대부분의 컴퓨터에 SATA II/III 디스크를 연결할 수 있습니다. Azure 가져오기/내보내기 설명서에서 이 서비스에서 지원되는 최신 드라이브를 확인하세요.
 6. SATA 드라이브 기록기가 연결된 컴퓨터에서 BitLocker를 활성화합니다.
 7. [여기](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409)에 있는 Azure 가져오기/내보내기 도구를 SATA 드라이브 기록기가 연결된 컴퓨터에 다운로드합니다.
 
@@ -119,4 +119,4 @@ Azure 백업 및 Azure 가져오기/내보내기를 사용하면 디스크를 �
 - Azure 가져오기/내보내기 워크플로에 대한 질문이 있으면 이 [문서](../storage/storage-import-export-service.md)를 참조하세요.
 - 워크플로에 대한 질문이 있으면 Azure 백업 [FAQ](backup-azure-backup-faq.md)의 오프라인 백업 섹션을 참조하세요.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

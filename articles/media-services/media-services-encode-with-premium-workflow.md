@@ -3,8 +3,8 @@
 	description="미디어 인코더 Premium 워크플로를 사용하여 인코딩하는 방법에 대해 알아봅니다. 코드 샘플은 C#으로 작성되었으며 Media Services SDK for .NET을 사용합니다." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,anilmur" 
-	manager="dwrede" 
+	authors="juliako" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2016" 
+	ms.date="02/25/2016" 
 	ms.author="juliako"/>
 
 #미디어 인코더 Premium 워크플로를 사용한 고급 인코딩
@@ -30,7 +30,7 @@ Microsoft Azure 미디어 서비스는 **미디어 인코더 Premium 워크플�
 
 - [미디어 인코더 Premium 워크플로에서 지원하는 형식](media-services-premium-workflow-encoder-formats.md) – **미디어 인코더 Premium 워크플로**에서 지원하는 파일 형식 및 코덱에 대해 설명합니다.
 
-- [인코더 비교](media-services-encode-asset.md#compare_encoders) 섹션에서는 **미디어 인코더 Premium 워크플로**, **미디어 인코더 표준** 및 **Azure 미디어 인코더**의 인코딩 기능을 비교합니다.
+- [인코더 비교](media-services-encode-asset.md#compare_encoders) 섹션에서는 **미디어 인코더 프리미엄 워크플로** 및 **미디어 인코더 표준**의 인코딩 기능을 비교합니다.
 
 이 항목에서는 .NET을 사용하여 **미디어 인코더 Premium 워크플로**로 인코딩하는 방법을 보여 줍니다.
 
@@ -279,4 +279,4 @@ Microsoft Azure 미디어 서비스는 **미디어 인코더 Premium 워크플�
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

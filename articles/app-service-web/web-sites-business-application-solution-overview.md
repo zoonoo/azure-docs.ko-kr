@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
+	ms.date="02/26/2016" 
 	ms.author="cephalin"/>
 
 
@@ -117,6 +117,7 @@ Azure 또는 타사 도구를 사용하여 웹 앱의 성능을 최신 상태로
 [Azure Redis Cache]: /blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/
 [ASP.NET 세션 상태]: https://msdn.microsoft.com/library/azure/dn690522.aspx
 [출력 캐시]: https://msdn.microsoft.com/library/azure/dn798898.aspx
+[Azure 트래픽 관리자]: http://www.hanselman.com/blog/CloudPowerHowToScaleAzureWebsitesGloballyWithTrafficManager.aspx
 
 [한 눈에 볼 수]: web-sites-monitor.md
 [Azure Application Insights]: http://blogs.msdn.com/b/visualstudioalm/archive/2015/01/07/application-insights-and-azure-websites.aspx
@@ -125,4 +126,4 @@ Azure 또는 타사 도구를 사용하여 웹 앱의 성능을 최신 상태로
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/16/2016"
+   ms.date="02/26/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect 동기화: 스케줄러
@@ -49,6 +49,8 @@ Azure AD Connect 동기화는 스케줄러를 사용하여 온-프레미스 디�
 - **IsStagingModeEnabled**. [준비 모드](active-directory-aadconnectsync-operations.md#staging-mode)를 사용할 수 있는지 표시합니다.
 
 `Set-ADSyncScheduler`로 이러한 모든 설정을 수정할 수 있습니다. 매개 변수 IsStagingModeEnabled는 설치 마법사에서만 설정할 수 있습니다.
+
+스케줄러 구성은 Azure AD에 저장됩니다. 스테이징 서버가 있는 경우 주 서버를 변경하면 스테이징 서버에도 영향을 줍니다(IsStagingModeEnabled 제외).
 
 ## 스케줄러 시작
 스케줄러는 기본적으로 30분마다 실행됩니다. 경우에 따라 예약된 주기 사이에서 동기화 주기를 실행하려고 하거나 다른 종류를 실행해야 합니다.
@@ -96,4 +98,4 @@ Azure AD Connect 동기화는 스케줄러를 사용하여 온-프레미스 디�
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

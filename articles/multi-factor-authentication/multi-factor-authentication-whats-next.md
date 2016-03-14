@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="02/26/2016" 
 	ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication 구성
@@ -35,7 +35,7 @@ MFA 서비스 설정 페이지를 통해 MFA 관리 포털에 액세스하려면
 [캐싱](#caching)|캐싱을 사용하면 특정 시간 기간을 설정하여 후속 인증 시도가 자동으로 성공하도록 할 수 있습니다. |인증 캐싱을 설정 및 구성하는 방법입니다.
 [신뢰할 수 있는 IP](#trusted-ips)|신뢰할 수 있는 IP는 관리 또는 페더레이션된 테넌트의 관리자가 회사의 로컬 인트라넷에서 로그인하는 사용자를 위해 Multi-Factor Authentication을 바이패스할 수 있도록 하는 Multi-Factor Authentication의 기능입니다.|Multi-Factor Authentication에서 제외된 IP 주소 구성 및 설정	
 [앱 암호](#app-passwords)|앱 암호를 사용하면 mfa를 인식하지 않는 응용 프로그램은 Multi-Factor Authentication를 바이패스하고 계속 작업할 수 있습니다.|앱 암호에 대한 정보입니다.
-[기억된 장치 및 브라우저(공개 미리 보기)용 Multi-Factor Authentication 일시 중단](#suspend-multi-factor-authentication-for-remembered-devices-and-browsers-public-preview)|사용자가 MFA를 사용하여 성공적으로 로그인한 일수 집합에 MFA를 일시 중단할 수 있습니다.|이 기능을 활성화하고 일 수를 설정하는 방법에 대한 정보입니다.
+[기억된 장치 및 브라우저용 Multi-Factor Authentication 기억](#remember-multi-factor-authentication-for-devices-users-trust)|사용자가 MFA를 사용하여 성공적으로 로그인한 후 정해진 일수 동안 장치를 기억할 수 있습니다.|이 기능을 활성화하고 일 수를 설정하는 방법에 대한 정보입니다.
 [선택 가능한 확인 방법(공개 미리 보기)](#selectable-verification-methods-public-preview)|사용자가 사용할 수 있는 인증 방법을 선택할 수 있습니다.|전화 또는 문자 메시지 같은 특정 인증 방법을 활성화 또는 비활성화하는 방법에 대한 정보입니다.
 
 
@@ -331,25 +331,25 @@ Azure AD는 온-프레미스 Windows Server Active Directory 도메인 서비스
 
 ![앱 암호](./media/multi-factor-authentication-whats-next/myapp.png)
 
-## 기억된 장치 및 브라우저(공개 미리 보기)용 Multi-Factor Authentication 일시 중단
+## 사용자가 신뢰하는 장치에 대한 Multi-Factor Authentication 기억
 
-기억된 장치 및 브라우저에 대한 Multi-Factor Authentication 일시 중단은 사용자가 성공적으로 MFA를 사용하는 로그인을 수행한 후에 일수 집합에 대한 MFA를 일시 중단하는 옵션을 부여할 수 있도록 하는 기능입니다. 모든 MFA 사용자에 대한 무료 기능이며 사용자를 위한 유용성을 향상시킵니다. 그러나 사용자가 MFA를 일시 중단할 수 있으므로 이 기능은 계정 보안을 줄일 수 있습니다.
+사용자가 신뢰하는 장치 및 브라우저에 대한 Multi-Factor Authentication 기억은 모든 MFA 사용자에 대해 무료로 사용할 수 있는 기능입니다. 이를 통해 사용자에게 MFA를 사용하여 성공적으로 로그인한 후 설정된 일수 동안 MFA를 바이패스하는 옵션을 제공할 수 있습니다. 이 기능은 사용자의 가용성을 강화할 수 있습니다.
 
-사용자 계정의 보안이 유지되도록 장치에서 다음의 시나리오 중 하나에 대해 Multi-Factor Authentication를 복원해야 합니다.
+그러나 신뢰할 수 있는 장치에 대한 MFA를 기억하도록 하기 때문에 이 기능은 계정 보안을 저하시킬 수 있습니다. 계정의 보안이 유지되도록 장치에서 다음의 시나리오 중 하나에 대해 Multi-Factor Authentication을 복원해야 합니다.
 
 - 자신의 회사 계정이 손상될 경우
 - 기억된 장치를 분실하거나 도난당한 경우
 
 > [AZURE.NOTE] 이 기능은 브라우저 쿠키 캐시로 구현됩니다. 브라우저 쿠키를 사용할 수 없는 경우 작동하지 않습니다.
 
-### 기억된 장치 및 집합에 대해 MFA 일시 중단을 설정/해제하는 방법
+### 다단계 인증 기억을 사용하거나 사용하지 않는 방법
 
 1. Azure 클래식 포털에 로그인합니다.
 2. 왼쪽에서 Active Directory를 클릭합니다.
-3. Active Directory 아래에서 기억된 장치에 대한 Multi-Factor Authentication 일시 중단을 설정하려는 디렉터리를 클릭합니다.
+3. Active Directory 아래에서 장치에 대한 Multi-Factor Authentication 기억을 설정하려는 디렉터리를 클릭합니다.
 4. 선택한 디렉터리에서 구성을 클릭합니다.
 5. Multi-factor Authentication 섹션에서 서비스 설정 관리를 클릭합니다.
-6. 서비스 설정 페이지의 사용자 장치 설정 관리 아래에서 **사용자가 장치를 기억하도록 하여 Multi-Factor Authentication을 일시 중단할 수 있습니다**를 선택/선택 취소합니다. ![장치 일시 중단](./media/multi-factor-authentication-manage-users-and-devices/suspend.png)
+6. 서비스 설정 페이지의 사용자 장치 설정 관리 아래에서 **사용자가 신뢰하는 장치에 다단계 인증을 기억하도록 허용**을 선택/선택 취소합니다. ![장치 기억](./media/multi-factor-authentication-whats-next/remember.png)
 8. 일시 중단을 허용하려는 일 수를 설정합니다. 기본값은 14일입니다.
 9. 저장을 클릭합니다.
 10. 닫기를 클릭합니다.
@@ -372,8 +372,8 @@ Azure AD는 온-프레미스 Windows Server Active Directory 도메인 서비스
 3. Active Directory에서 인증 방법을 활성화 또는 비활성화하려는 디렉터리를 클릭합니다.
 4. 선택한 디렉터리에서 구성을 클릭합니다.
 5. Multi-factor Authentication 섹션에서 서비스 설정 관리를 클릭합니다.
-6. 서비스 설정 페이지의 확인 옵션에서 사용할 옵션을 선택/선택 취소합니다.</br></br> ![장치 일시 중단](./media/multi-factor-authentication-whats-next/authmethods.png)
+6. 서비스 설정 페이지의 확인 옵션에서 사용할 옵션을 선택/선택 취소합니다.</br></br> ![확인 옵션](./media/multi-factor-authentication-whats-next/authmethods.png)
 9. 저장을 클릭합니다.
 10. 닫기를 클릭합니다.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

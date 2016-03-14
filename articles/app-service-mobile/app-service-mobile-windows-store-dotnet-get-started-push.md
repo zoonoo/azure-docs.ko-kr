@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="03/02/2016"
 	ms.author="glenga"/>
 
 # Windows 런타임 8.1 범용 앱에 푸시 알림 추가
@@ -24,7 +24,7 @@
 
 이 항목은 Azure 앱 서비스 모바일 앱 및 Azure 알림 허브를 사용하여 Windows 런타임 8.1 범용 앱에 푸시 알림을 보내는 방법을 보여줍니다. 이 시나리오에서는 새 항목이 추가되는 경우 모바일 앱 백 엔드가 Windows 알림 서비스(WNS)와 함께 등록된 모든 Windows 앱에 푸시 알림을 보냅니다.
 
-이 자습서는 앱 서비스 모바일 앱 퀵 스타트를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 빠른 시작 자습서 [Windows 앱 만들기](../app-service-mobile-windows-store-dotnet-get-started.md)를 완료해야 합니다. 다운로드한 빠른 시작 서버 프로젝트를 사용하지 않는 경우 프로젝트에 푸시 알림 확장 패키지를 추가해야 합니다. 서버 확장 패키지에 대한 자세한 내용은 [Azure 모바일 앱용 .NET 백 엔드 서버 SDK 사용](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)을 참조하세요.
+이 자습서는 앱 서비스 모바일 앱 퀵 스타트를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 빠른 시작 자습서 [Windows 앱 만들기](app-service-mobile-windows-store-dotnet-get-started.md)를 완료해야 합니다. 다운로드한 빠른 시작 서버 프로젝트를 사용하지 않는 경우 프로젝트에 푸시 알림 확장 패키지를 추가해야 합니다. 서버 확장 패키지에 대한 자세한 내용은 [Azure 모바일 앱용 .NET 백 엔드 서버 SDK 사용](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)을 참조하세요.
 
 ##필수 조건
 
@@ -32,7 +32,7 @@
 
 * 활성 [Microsoft 스토어 계정](http://go.microsoft.com/fwlink/p/?LinkId=280045)
 * [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934)
-* [빠른 시작 자습서](../app-service-mobile-windows-store-dotnet-get-started.md)를 완료합니다.
+* [빠른 시작 자습서](app-service-mobile-windows-store-dotnet-get-started.md)를 완료합니다.
 
 
 ##<a name="create-hub"></a>알림 허브 만들기
@@ -153,7 +153,7 @@ Azure에서 Windows 앱으로 푸시 알림을 보내기 전에 앱을 Windows �
 
 2. 로컬 컴퓨터에서 파일을 편집할 때 서버 프로젝트를 다시 게시합니다.
 
-##<a id="update-service"></a>앱에 푸시 알림 추가
+##<a id="update-app"></a>앱에 푸시 알림 추가
 
 1. 공유 **App.xaml.cs** 프로젝트 파일을 열고 다음 `using` 문을 추가합니다.
 
@@ -185,6 +185,8 @@ Azure에서 Windows 앱으로 푸시 알림을 보내기 전에 앱을 Windows �
 
     이제 응용 프로그램을 시작할 때마다 단기 ChannelURI가 등록됩니다.
 
+    >[AZURE.NOTE] 또한 인증을 사용할 수 있으면 푸시 알림을 등록하기 전에 사용자가 로그인해야 합니다. 자세한 내용은 빠른 시작 전체 샘플에서 [먼저 인증](https://github.com/Azure-Samples/app-service-mobile-windows-quickstart/blob/master/README.md#authenticate-first)을 참조하세요.
+
 4. 솔루션 탐색기에서 Windows 스토어 앱의 **Package.appxmanifest**를 두 번 클릭하고 **알림**에서 **알림 가능**을 **예**로 설정합니다.
 
     **파일** 메뉴에서 **모두 저장**을 클릭합니다.
@@ -209,5 +211,6 @@ Azure에서 Windows 앱으로 푸시 알림을 보내기 전에 앱을 Windows �
 [Azure Portal]: https://portal.azure.com/
 
 <!-- Images. -->
+))) )
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/14/2016" 
+	ms.date="03/01/2016" 
 	ms.author="juliako"/>
 
 
@@ -21,8 +21,8 @@
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-get-media-processor.md)
-- [REST](media-services-rest-get-media-processor.md)
- 
+- [REST (영문)](media-services-rest-get-media-processor.md)
+
 
 ##개요
 
@@ -32,28 +32,28 @@
 
 미디어 프로세서 이름|설명|추가 정보
 ---|---|---
-Azure 미디어 인코더|Azure 미디어 인코더를 사용하여 인코딩 작업을 실행할 수 있습니다.|[Azure 미디어 인코더](media-services-encode-asset.md#azure_media_encoder)
-미디어 인코더 표준|미디어 인코더 표준을 사용하여 인코딩 작업을 실행할 수 있습니다.|[Azure 미디어 인코더](media-services-encode-asset.md#media_encoder_standard)
-미디어 인코더 Premium 워크플로|미디어 인코더 Premium 워크플로를 사용하여 인코딩 작업을 실행할 수 있습니다.|[미디어 인코더 Premium 워크플로](media-services-encode-asset.md#media_encoder_premium_wokrflow)
-Azure 미디어 인덱서| 미디어 파일과 콘텐츠를 검색 가능하도록 설정할 수 있으며 선택 캡션 트랙과 키워드를 생성할 수 있습니다.|[Azure 미디어 인덱서를 사용하여 미디어 파일 인덱싱](media-services-index-content.md).
-Azure 미디어 Hyperlapse(미리 보기)|비디오 안정화를 통해 비디오에서 "범프"를 부드럽게 할 수 있습니다. 사용 가능한 클립으로 만들어 콘텐츠 속도를 높일 수도 있습니다.|		[Azure 미디어 Hyperlapse](https://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db)</a>
-저장소 암호 해독| 저장소 암호 해독을 사용하여 암호화된 미디어 자산의 암호를 해독할 수 있습니다.|해당 없음
-Azure Media Packager|미디어 자산을 .mp4에서 부드러운 스트리밍 형식으로 변환할 수 있습니다. 또한 미디어 자산을 부드러운 스트리밍에서 Apple HLS(HTTP 라이브 스트리밍) 형식으로 변환할 수 있습니다.|[Azure Media Packager용 작업 기본 설정 문자열](http://msdn.microsoft.com/library/hh973635.aspx)
-Azure Media Encryptor|PlayReady Protection을 사용하여 미디어 자산을 암호화할 수 있습니다.|[Azure Media Packager용 작업 기본 설정 문자열](http://msdn.microsoft.com/library/hh973610.aspx)
+미디어 인코더 표준|주문형 인코딩에 대한 표준 기능을 제공합니다. |[Azure 주문형 미디어 인코더 개요 및 비교](media-services-encode-asset.md)
+미디어 인코더 Premium 워크플로|미디어 인코더 Premium 워크플로를 사용하여 인코딩 작업을 실행할 수 있습니다.|[Azure 주문형 미디어 인코더 개요 및 비교](media-services-encode-asset.md)
+Azure 미디어 인덱서| 미디어 파일과 콘텐츠를 검색 가능하도록 설정할 수 있으며 선택 캡션 트랙과 키워드를 생성할 수 있습니다.|[Azure 미디어 인덱서](media-services-index-content.md)
+Azure 미디어 Hyperlapse(미리 보기)|비디오 안정화를 통해 비디오에서 "범프"를 부드럽게 할 수 있습니다. 사용 가능한 클립으로 만들어 콘텐츠 속도를 높일 수도 있습니다.|[Azure 미디어 Hyperlapse](media-services-hyperlapse-content.md)
+Azure 미디어 인코더|사용 중단됨
+저장소 암호 해독| 사용 중단됨|
+Azure Media Packager|사용 중단됨|
+Azure Media Encryptor|사용 중단됨|
 
 ##미디어 프로세서 가져오기
 
-다음 메서드는 미디어 프로세서 인스턴스를 가져오는 방법을 보여 줍니다. 이 코드 예제에서는 **\_context**라는 모듈 수준 변수를 사용하여 [방법: 프로그래밍 방식으로 미디어 서비스에 연결] 섹션에 설명된 대로 서버 컨텍스트를 참조한다고 가정합니다.
+다음 메서드는 미디어 프로세서 인스턴스를 가져오는 방법을 보여 줍니다. 이 코드 예제에서는 **\_context**라는 모듈 수준 변수를 사용하여 [방법: 프로그래밍 방식으로 미디어 서비스에 연결](media-services-dotnet-connect_programmatically.md) 섹션에 설명된 대로 서버 컨텍스트를 참조한다고 가정합니다.
 
 	private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
 	{
-	     var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
-	        ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
-	
-	    if (processor == null)
-	        throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
-	
-	    return processor;
+		var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
+		ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
+		
+		if (processor == null)
+		throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+		
+		return processor;
 	}
 
 
@@ -66,10 +66,7 @@ Azure Media Encryptor|PlayReady Protection을 사용하여 미디어 자산을 �
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ##다음 단계
-미디어 프로세서 인스턴스를 가져오는 방법을 알아보았으므로 이제 Azure Media Encoder를 사용하여 자산을 인코드하는 방법을 보여 주는 [자산을 인코드하는 방법][](영문) 항목으로 이동합니다.
 
-[자산을 인코드하는 방법]: media-services-encode-asset.md
-[Task Preset Strings for the Azure Media Encoder]: http://msdn.microsoft.com/library/jj129582.aspx
-[방법: 프로그래밍 방식으로 미디어 서비스에 연결]: ../media-services-set-up-computer/
+미디어 프로세서 인스턴스를 가져오는 방법을 알아보았으므로 이제 미디어 인코더 표준을 사용하여 자산을 인코드하는 방법을 보여 주는 [자산을 인코드하는 방법](media-services-dotnet-encode-with-media-encoder-standard.md) 항목으로 이동합니다.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

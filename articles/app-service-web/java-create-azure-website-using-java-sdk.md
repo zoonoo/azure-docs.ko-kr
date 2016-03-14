@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="02/25/2016" 
 	ms.author="v-donntr"/>
 
 
@@ -541,7 +541,14 @@ FTP를 사용하여 새로 만든 웹 앱에 응용 프로그램 파일을 배�
 1. FileZilla에서 **파일 > 사이트 관리자**를 클릭합니다.
 2. **사이트 관리자** 대화 상자에서 **새 사이트**를 클릭합니다. 비어 있는 새 FTP 사이트는 이름을 입력하라는 메시지를 표시하는 **항목 선택**에 나타납니다. 이 절차에 대한 이름을 `AzureWebDemo-FTP`로 지정합니다.
 
-    **일반** 탭에서 다음 설정을 지정합니다. **호스트:** 대시보드에서 복사한 **FTP 호스트 이름**을 입력합니다. **포트:** (공백으로 둠, 수동 전송이며 서버는 사용할 포트를 결정함)- **프로토콜:** FTP 파일 전송 프로토콜- **암호화:** 일반 FTP 사용 - **로그온 유형:** 보통- **사용자:** 대시보드에서 복사한 배포 / FTP 사용자를 입력합니다. 전체 FTP 사용자 이름으로, *webappname\\username* 형식입니다.- **암호:** 배포 자격 증명을 설정하는 경우 지정된 암호를 입력합니다.
+    **일반** 탭에서 다음 설정을 지정합니다.
+    - **호스트:** 대시보드에서 복사한 **FTP 호스트 이름**을 입력합니다.
+    - **포트:** 이 항목은 수동 전송이고 서버가 사용할 포트를 결정하므로 비워 둡니다.
+    - **프로토콜:** FTP 파일 전송 프로토콜
+    - **암호화:** 일반 FTP 사용
+    - **로그온 유형:** 일반
+    - **사용자:** 대시보드에서 복사한 배포/FTP 사용자를 입력합니다. 완전한 FTP 사용자 이름으로, *webappname\\username* 형식입니다.
+    - **암호:** 배포 자격 증명을 설정할 때 지정한 암호를 입력합니다.
 
     **전송 설정** 탭에서 **수동**을 선택합니다.
 
@@ -594,11 +601,11 @@ FTP를 사용하여 새로 만든 웹 앱에 응용 프로그램 파일을 배�
 [Eclipse용 Azure Toolkit]: https://msdn.microsoft.com/library/azure/hh690946.aspx
 [Azure 클래식 포털]: https://manage.windowsazure.com
 [Azure AD 디렉터리란?]: http://technet.microsoft.com/library/jj573650.aspx
-[Azure 용 관리 인증서 만들기 및 업로드]: http://msdn.microsoft.com/library/azure/gg551722.aspx
-[Azure용 관리 인증서 만들기 및 업로드]: http://msdn.microsoft.com/library/azure/gg551722.aspx
+[Azure 용 관리 인증서 만들기 및 업로드]: ../cloud-services/cloud-services-certs-create.md
+[Azure용 관리 인증서 만들기 및 업로드]: ../cloud-services/cloud-services-certs-create.md
 [키 및 인증서 관리 도구(keytool)]: http://docs.oracle.com/javase/6/docs/technotes/tools/windows/keytool.html
-[WebSiteManagementClient]: http://dl.windowsazure.com/javadoc/com/microsoft/windowsazure/management/websites/WebSiteManagementClient.html
+[WebSiteManagementClient]: http://azure.github.io/azure-sdk-for-java/com/microsoft/azure/management/websites/WebSiteManagementClient.html
 [WebSpaceNames]: http://dl.windowsazure.com/javadoc/com/microsoft/windowsazure/management/websites/models/WebSpaceNames.html
 [Azure 포털]: https://portal.azure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

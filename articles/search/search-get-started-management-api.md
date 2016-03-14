@@ -17,6 +17,10 @@
 	ms.author="heidist"/>
 
 # Azure 검색 관리 REST API 시작
+> [AZURE.SELECTOR]
+- [포털](search-manage.md)
+- [PowerShell](search-manage-powershell.md)
+- [REST API](search-get-started-management-api.md)
 
 Azure 검색 REST 관리 API는 포털에서 프로그래밍 방식으로 관리 작업을 수행하는 대체 방법입니다. 서비스 관리 작업에는 서비스 만들기 또는 삭제, 서비스 확장, 키 관리가 포함됩니다. 이 자습서는 서비스 관리 API를 보여 주는 샘플 클라이언트 응용 프로그램과 함께 제공됩니다. 로컬 개발 환경에서 샘플을 실행하는 데 필요한 구성 단계도 포함됩니다.
 
@@ -119,7 +123,7 @@ Azure 리소스 관리자에는 ID 공급자로서 Azure Active Directory 서비
         private const string SubscriptionId = "<your subscription id>";
         private static readonly Uri RedirectUrl = new Uri("<your redirect url>");
 
-아직 [Github에서 샘플 응용 프로그램을 다운로드](https://github.com/Azure-Samples/search-dotnet-management-api/)하지 않았으면 이 단계를 위해 다운로드해야 합니다.
+아직 [Github에서 응용 프로그램 예제를 다운로드](https://github.com/Azure-Samples/search-dotnet-management-api/)하지 않았으면 이 단계를 위해 다운로드해야 합니다.
 
 1. Visual Studio에서 **ManagementAPI.sln**을 엽니다.
 
@@ -204,4 +208,4 @@ Azure 리소스 관리자에는 ID 공급자로서 Azure Active Directory 서비
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/10/2015" 
+	ms.date="02/29/2016" 
 	ms.author="piyushjo" />
 
 #Android에서 Engagement API를 사용하는 방법
@@ -40,7 +40,7 @@ Engagement API는 `EngagementAgent` 클래스를 통해 제공됩니다. 이 클
 
 ##활동 보고
 
-> [AZURE.IMPORTANT]Android에서 Engagement를 통합하는 방법 문서에 설명된 `EngagementActivity` 클래스와 변형을 사용하는 경우 이 섹션에 설명된 것과 같은 활동을 보고할 필요가 없습니다.
+> [AZURE.IMPORTANT] Android에서 Engagement를 통합하는 방법 문서에 설명된 `EngagementActivity` 클래스와 변형을 사용하는 경우 이 섹션에 설명된 것과 같은 활동을 보고할 필요가 없습니다.
 
 ### 사용자가 새 활동을 시작함
 
@@ -233,9 +233,9 @@ Engagement API는 `EngagementAgent` 클래스를 통해 제공됩니다. 이 클
 
 이 데이터는 구조화될 수 있으며, Android의 번들 클래스를 사용합니다. 이 클래스는 실제로 Android Intent의 추가 매개 변수처럼 작동합니다. 번들은 배열이나 다른 번들 인스턴스를 포함할 수 있습니다.
 
-> [AZURE.IMPORTANT]패키지 가능한 또는 직렬화 가능한 매개 변수를 넣는 경우 해당 `toString()` 메서드가 사람이 읽을 수 있는 문자열을 반환하도록 구현됩니다. `bundle.putSerializable("key",value);`을(를) 호출하면 직렬화 가능하지 않은 영구 필드를 포함하는 직렬화 가능한 클래스가 Android 충돌을 일으킵니다.
+> [AZURE.IMPORTANT] 패키지 가능한 또는 직렬화 가능한 매개 변수를 넣는 경우 해당 `toString()` 메서드가 사람이 읽을 수 있는 문자열을 반환하도록 구현됩니다. `bundle.putSerializable("key",value);`을(를) 호출하면 직렬화 가능하지 않은 영구 필드를 포함하는 직렬화 가능한 클래스가 Android 충돌을 일으킵니다.
 
-> [AZURE.WARNING]추가 매개 변수의 스파스 배열은 지원되지 않습니다. 즉, 배열로 직렬화되지 않습니다. 추가 매개 변수에서 배열을 사용하기 전에 표준 배열로 변환해야 합니다.
+> [AZURE.WARNING] 추가 매개 변수의 스파스 배열은 지원되지 않습니다. 즉, 배열로 직렬화되지 않습니다. 추가 매개 변수에서 배열을 사용하기 전에 표준 배열로 변환해야 합니다.
 
 ### 예
 
@@ -298,4 +298,4 @@ Engagement API는 `EngagementAgent` 클래스를 통해 제공됩니다. 이 클
 			{"expiration":"2016-12-07","status":"premium"}
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

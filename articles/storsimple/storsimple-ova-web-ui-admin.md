@@ -12,21 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="02/17/2016"
+   ms.date="03/01/2016"
    ms.author="alkohli" />
 
-# 웹 UI를 사용하여 StorSimple 가상 배열 관리(미리 보기)
+# 웹 UI를 사용하여 StorSimple 가상 배열 관리
 
 ![설정 프로세스 흐름](./media/storsimple-ova-web-ui-admin/manage4.png)
 
 ## 개요
 
-이 문서의 자습서는 1.1.1.0(미리 보기) 버전을 실행하는 Microsoft Azure StorSimple 가상 배열(StorSimple 온-프레미스 가상 장치라고도 함)에 적용됩니다. 이 문서는 StorSimple 가상 배열에서 수행할 수 있는 복잡한 워크플로 및 관리 작업 중 일부를 설명합니다. StorSimple 가상 배열을 관리하는 데 사용될 수 있는 UI는 StorSimple Manager 서비스 UI(포털 UI라고 함) 및 장치에 대한 로컬 웹 UI 이렇게 두 가지입니다. 이 문서는 웹 UI를 사용하여 수행할 수 있는 작업에 중점을 둡니다.
-
->[AZURE.IMPORTANT] 
->
->- StorSimple 가상 배열은 미기 보기 중이며 평가 및 배포 계획 용도로 사용됩니다. 프로덕션 환경에서는 이 미리 보기를 설치하도록 지원되지 않습니다. 
->- StorSimple 가상 배열에서 문제가 발생하는 경우 [StorSimple MSDN 포럼](https://social.msdn.microsoft.com/Forums/home?forum=StorSimple)에 문제를 게시해 주세요.
+이 문서의 자습서는 2016년 3월 일반 GA(공급) 버전을 실행하는 Microsoft Azure StorSimple 가상 배열(StorSimple 온-프레미스 가상 장치라고도 함)에 적용됩니다. 이 문서는 StorSimple 가상 배열에서 수행할 수 있는 복잡한 워크플로 및 관리 작업 중 일부를 설명합니다. StorSimple Manager 서비스 UI(포털 UI라고 함) 및 장치에 대한 로컬 웹을 사용하여 StorSimple 가상 배열을 관리할 수 있습니다. 이 문서는 웹 UI를 사용하여 수행할 수 있는 작업에 중점을 둡니다.
 
 이 문서에는 다음 자습서가 포함되어 있습니다.
 
@@ -47,7 +42,7 @@
 
     ![서비스 데이터 암호화 키 가져오기 1](./media/storsimple-ova-web-ui-admin/image27.png)
 
-2. 페이지 아래쪽에서 **Get service data encryption key**(서비스 데이터 암호화 키 가져오기)를 클릭합니다. 키가 표시됩니다. 이 키를 복사하여 저장합니다.
+2. 페이지 아래쪽에서 **서비스 데이터 암호화 키 가져오기**를 클릭합니다. 키가 표시됩니다. 이 키를 복사하여 저장합니다.
 
     ![서비스 데이터 암호화 키 가져오기 2](./media/storsimple-ova-web-ui-admin/image28.png)
 
@@ -62,7 +57,7 @@
 
     ![진단 실행 1](./media/storsimple-ova-web-ui-admin/image29.png)
 
-2. 페이지 아래쪽에서 **Run Diagnostic Tests**(진단 테스트 실행)를 클릭합니다. 네트워크, 장치, 웹 프록시, 시간 또는 클라우드 설정에서 문제가 될만한 내용을 진단하는 테스트가 시작됩니다. 장치에서 테스트가 실행 중이라는 메시지가 표시됩니다.
+2. 페이지 아래쪽에서 **진단 테스트 실행**을 클릭합니다. 네트워크, 장치, 웹 프록시, 시간 또는 클라우드 설정에서 문제가 될만한 내용을 진단하는 테스트가 시작됩니다. 장치에서 테스트가 실행 중이라는 메시지가 표시됩니다.
 
 3. 테스트가 완료된 후 결과가 표시됩니다. 다음 예제는 진단 테스트의 결과를 보여줍니다. 웹 프록시 설정이 장치에 구성되어 있지 않기 때문에 웹 프록시 테스트가 실행되지 않았습니다. 네트워크 설정, DNS 서버, 시간 설정에 대한 다른 모든 테스트는 성공적으로 수행되었습니다.
 
@@ -74,11 +69,11 @@
 
 #### 로그 패키지를 생성하려면
 
-1. 로컬 웹 UI에서 **문제 해결** > **System logs**(시스템 로그)로 이동합니다.
+1. 로컬 웹 UI에서 **문제 해결** > **시스템 로그**로 이동합니다.
 
     ![로그 패키지 생성 1](./media/storsimple-ova-web-ui-admin/image31.png)
 
-2. 페이지 아래쪽에서 **Create log package**(로그 패키지 만들기)를 클릭합니다. 시스템 로그 패키지가 만들어집니다. 이 작업에 몇 분 정도가 소요됩니다.
+2. 페이지 아래쪽에서 **로그 패키지 만들기**를 클릭합니다. 시스템 로그 패키지가 만들어집니다. 이 작업에 몇 분 정도가 소요됩니다.
 
     ![로그 패키지 생성 2](./media/storsimple-ova-web-ui-admin/image32.png)
 
@@ -86,7 +81,7 @@
 
     ![로그 패키지 생성 3](./media/storsimple-ova-web-ui-admin/image33.png)
 
-3. **Download log package**(로그 패키지 다운로드)를 클릭합니다. 압축된 패키지가 시스템에 다운로드됩니다.
+3. **로그 패키지 다운로드**를 클릭합니다. 압축된 패키지가 시스템에 다운로드됩니다.
 
     ![로그 패키지 생성 4](./media/storsimple-ova-web-ui-admin/image34.png)
 
@@ -136,4 +131,4 @@
 
 [StorSimple Manager 서비스를 사용하여 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

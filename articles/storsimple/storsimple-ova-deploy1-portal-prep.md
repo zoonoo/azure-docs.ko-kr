@@ -13,24 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/27/2016"
+   ms.date="03/01/2016"
    ms.author="alkohli"/>
 
-# StorSimple 가상 배열 배포 – 포털 준비(미리 보기)
+# StorSimple 가상 배열 배포 – 포털 준비
 
 ![](./media/storsimple-ova-deploy1-portal-prep/getstarted4.png)
 
 ## 개요 
 
-이 문서는 1.1.1.0(공개 미리 보기) 버전을 실행하는 Microsoft Azure StorSimple 가상 배열(StorSimple 온-프레미스 가상 장치 또는 StorSimple 가상 장치라고도 함)에만 적용됩니다. 가상 배열을 파일 서버 또는 iSCSI 서버로 완전히 배포하는 데 필요한 배포 자습서 시리즈의 첫 번째 문서입니다. 이 문서는 가상 배열을 프로비전하기 전에 StorSimple Manager 서비스를 만들고 구성하는 데 필요한 준비 사항을 설명합니다. 이 문서는 배포 구성 검사 목록 뿐만 아니라 필수 조건과도 연관됩니다.
+이 문서는 2016년 3월 GA(일반 공급) 버전을 실행하는 Microsoft Azure StorSimple 가상 배열(StorSimple 온-프레미스 가상 장치 또는 StorSimple 가상 장치라고도 함)에 적용됩니다. 가상 배열을 파일 서버 또는 iSCSI 서버로 완전히 배포하는 데 필요한 배포 자습서 시리즈의 첫 번째 문서입니다. 이 문서는 가상 배열을 프로비전하기 전에 StorSimple Manager 서비스를 만들고 구성하는 데 필요한 준비 사항을 설명합니다. 이 문서는 배포 구성 검사 목록 뿐만 아니라 필수 조건과도 연관됩니다.
 
 설치 및 구성 프로세스를 완료하려면 관리자 권한이 필요합니다. 시작하기 전에 배포 구성 검사 목록을 검토하는 것이 좋습니다. 포털 준비에는 10분 미만이 소요됩니다.
 
 이 문서에 게시된 StorSimple 배포 정보는 StorSimple 가상 배열에만 적용됩니다.
-
-> [AZURE.IMPORTANT]
-> 
-> 이 공개 미리 보기는 평가 및 배포 계획 용도로만 사용됩니다. 프로덕션 환경에서는 이 미리 보기를 설치하도록 지원되지 않습니다.
 
 ### 시작
 
@@ -43,7 +39,7 @@ StorSimple 가상 배열을 배포하려면 다음 문서를 지정된 순서대
 | **#** | **단계** | **수행할 사항** | **이러한 문서를 사용합니다.**|
 |------|-------------------------------------------|--------------------------------------------------------------------------------|------------------------|
 |1\. | **Azure 클래식 포털 설정** | StorSimple 가상 장치를 프로비전하기 전에 StorSimple Manager 서비스를 만들고 구성합니다. |[포털 준비](storsimple-ova-deploy1-portal-prep.md)| 
-|2\. | **가상 배열 프로비전** | Hyper-V의 경우, Hyper-V 2008 R2, Hyper-V 2012 또는 Hyper-V 2012 R2를 실행하는 호스트 시스템에서 StorSimple 가상 장치에 프로비전하고 연결합니다. <br></br> <br></br> VMware의 경우, VMware ESXi 5.5 이상을 실행하는 호스트 시스템에서 StorSimple 온-프레미스 가상 장치에 프로비전하고 연결합니다.| [Hyper-V에서 가상 배열 프로비전](storsimple-ova-deploy2-provision-hyperv.md) <br></br> <br></br> [VMware에서 가상 배열 프로비전](storsimple-ova-deploy2-provision-vmware.md)|
+|2\. | **가상 배열 프로비전** | Hyper-V의 경우, Hyper-V 2008 R2, Hyper-V 2012 또는 Hyper-V 2012 R2를 실행하는 호스트 시스템에서 StorSimple 가상 장치에 프로비전하고 연결합니다. <br></br> <br></br> VMware의 경우, VMware ESXi 5.5 이상을 실행하는 호스트 시스템에서 StorSimple 온-프레미스 가상 장치에 프로비전하고 연결합니다.<br></br>| [Hyper-V에서 가상 배열 프로비전](storsimple-ova-deploy2-provision-hyperv.md) <br></br> <br></br> [VMware에서 가상 배열 프로비전](storsimple-ova-deploy2-provision-vmware.md)|
 |3\. | **가상 배열 설정** | 파일 서버에 대해 초기 설정을 수행하고 StorSimple 파일 서버를 등록하고 장치 설정을 완료합니다. 그런 다음 SMB 공유를 프로비전할 수 있습니다. <br></br> <br></br> iSCSI 서버에 대해 초기 설정을 수행하고 StorSimple iSCSI 서버를 등록하고 장치 설정을 완료합니다. 그런 다음 iSCSI 볼륨을 프로비전할 수 있습니다.| [파일 서버로 가상 배열 설정](storsimple-ova-deploy3-fs-setup.md)<br></br> <br></br>[iSCSI 서버로 가상 배열 설정](storsimple-ova-deploy3-iscsi-setup.md)|
 
 #### 배포 동영상
@@ -143,6 +139,9 @@ StorSimple 관리자 서비스를 실행한 후에는 서비스 등록 키를 �
 
 서비스 등록 키를 확보한 후에는 호스트 시스템에 가상 장치를 프로비전할 적절한 가상 장치 이미지를 다운로드해야 합니다. 가상 장치 이미지는 운영 체제 별로 구분되며 Azure 클래식 포털의 빠른 시작 페이지에서 다운로드할 수 있습니다.
 
+> [AZURE.IMPORTANT] StorSimple 가상 배열에서 실행되는 소프트웨어는 Storsimple Manager 서비스와 함께 사용해야 합니다.
+
+
 [Azure 클래식 포털](https://manage.windowsazure.com/)에서 다음 단계를 수행합니다.
 
 #### 가상 장치 이미지를 가져오려면
@@ -150,15 +149,20 @@ StorSimple 관리자 서비스를 실행한 후에는 서비스 등록 키를 �
 1.  **StorSimple 관리자 서비스** 페이지에서 작성한 서비스를 클릭합니다. 그러면 **빠른 시작** 페이지로 이동합니다. 언제든지 빠른 시작 아이콘 ![](./media/storsimple-ova-deploy1-portal-prep/image8.png)을 클릭하여 **빠른 시작** 페이지에 액세스할 수 있습니다.
 
 
-1.  데이터 센터의 네트워크 공유에 적절한 VHD를 다운로드합니다. 별도의 VHD를 다음에 대해 사용할 수 있습니다.
+1.  데이터 센터의 네트워크 공유에 적절한 VHD 또는 VHDX를 다운로드합니다. 별도 이미지를 사용할 수 있는 버전은 다음과 같습니다.
 
+	-   Hyper-V 2012 이상
+	
 	-   Hyper-V 2008 R2 이상
 
 	-   VMWare ESXi 5.5 이상
 
+	> [AZURE.IMPORTANT] StorSimple 가상 배열에서 실행되는 소프트웨어는 Storsimple Manager 서비스와 함께 사용해야 합니다.
+
+
 1.  가상 장치를 프로비전하는 데 사용할 호스트 운영 체제의 이미지를 클릭합니다. 이렇게 하면 Microsoft 다운로드 센터로 이동합니다.
 
-1.  Hyper-V를 사용하는 경우 Hyper-V 2008 R2 이상에 대한 VHD를 다운로드합니다. VMware를 사용하는 경우 VMDK를 다운로드합니다. VHD는 4.77GB의 압축된 파일이며 VMDK는 4.75GB 파일입니다. 파일을 다운로드하는 시간은 인터넷 연결에 따라 다릅니다.
+1.  Hyper-V를 사용하는 경우 Hyper-V 2012용 VHDX 또는 Hyper-V 2008 R2용 VHD를 다운로드합니다. VMware를 사용하는 경우 VMDK를 다운로드합니다. VHDX는 4.77GB의 압축된 파일이며 VHD는 4.77GB 파일이고 VMDK는 4.75GB 파일입니다. 파일을 다운로드하는 시간은 인터넷 연결에 따라 다릅니다.
 
 2.  파일 압축을 풀고 로컬 드라이브에 압축을 푼 위치를 기록합니다.
 
@@ -207,4 +211,4 @@ StorSimple 가상 배열을 시작하는 단계별 지침에 대한 동영상을
 
 -   [VMware에서 StorSimple 가상 배열 프로비전](storsimple-ova-deploy2-provision-vmware.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

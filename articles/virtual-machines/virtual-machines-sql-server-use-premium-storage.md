@@ -22,7 +22,7 @@
 
 ## 개요
 
-[Azure 프리미엄 저장소](../storage-premium-storage-preview-portal.md)는 대기 시간이 짧고 처리량 IO가 높은 차세대 저장소로, IaaS [가상 컴퓨터](https://azure.microsoft.com/services/virtual-machines/)의 SQL Server와 같이 IO를 많이 사용하는 주요 작업에서 매우 효율적입니다.
+[Azure 프리미엄 저장소](../storage/storage-premium-storage.md)는 대기 시간이 짧고 처리량 IO가 높은 차세대 저장소로, IaaS [가상 컴퓨터](https://azure.microsoft.com/services/virtual-machines/)의 SQL Server와 같이 IO를 많이 사용하는 주요 작업에서 매우 효율적입니다.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
 
@@ -89,7 +89,7 @@ DS* VM에 대해 VM을 호스팅하는 VNET(가상 네트워크)을 해당 지�
 
 프리미엄 저장소용으로 구성된 새 저장소 계정을 만들어야 합니다. 프리미엄 저장소 사용은 개별 VHD가 아니라 저장소 계정에서 설정되지만 DS* 시리즈 VM을 사용할 때는 프리미엄 및 표준 저장소 계정에서 VHD를 연결할 수 있습니다. 프리미엄 저장소 계정에 OS VHD를 배치하지 않으려는 경우 이러한 방식을 사용할 수 있습니다.
 
-아래에 나와 있는 "Premium_LRS" **Type**을 사용하는 **New-AzureStorageAccountPowerShell** 명령은 프리미엄 저장소 계정을 만듭니다.
+아래에 나와 있는 "Premium\_LRS" **Type**을 사용하는 **New-AzureStorageAccountPowerShell** 명령은 프리미엄 저장소 계정을 만듭니다.
 
     $newstorageaccountname = "danpremstor"
     New-AzureStorageAccount -StorageAccountName $newstorageaccountname -Location "West Europe" -Type "Premium_LRS"   
@@ -149,7 +149,7 @@ VHD를 연결한 후에는 캐시 설정을 변경할 수 없습니다. 설정�
 
 저장소 성능은 지정한 DS* VM 크기와 VHD 크기에 따라 달라집니다. VM마다 연결할 수 있는 VHD 수와 지원하는 최대 대역폭(MB/s)이 다릅니다. 구체적인 대역폭 수치는 [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](virtual-machines-size-specs.md)를 참조하세요.
 
-디스크가 클수록 IOPS가 높아집니다. 마이그레이션 경로를 고려할 때는 이 점에 유의해야 합니다. 자세한 내용은 [IOPS 및 디스크 유형 표](../storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whko-KRing-premium-storage)를 참조하세요.
+디스크가 클수록 IOPS가 높아집니다. 마이그레이션 경로를 고려할 때는 이 점에 유의해야 합니다. 자세한 내용은 [IOPS 및 디스크 유형 표](../storage-premium-storage.md#scalability-and-performance-targets-whko-KRing-premium-storage)를 참조하세요.
 
 마지막으로, VM이 연결된 모든 디스크에 대해 지원하는 최대 디스크 대역폭이 서로 다르다는 점도 고려해야 합니다. 부하가 높을 때는 해당 VM 역할 크기에 사용 가능한 최대 디스크 대역폭을 모두 사용하게 될 수 있습니다. 예를 들어 Standard\_DS14는 최대 512MB/s를 지원하므로 P30 디스크가 3개인 경우 VM의 디스크 대역폭이 모두 사용됩니다. 그러나 이 예제에서는 읽기 및 쓰기 IO 조합에 따라 처리량 제한을 초과할 수도 있습니다.
 
@@ -380,7 +380,7 @@ Microsoft Azure에서는 VM의 NIC에 IP 주소를 하나만 할당할 수 있�
 1. **기존 AlwaysOn 클러스터에 보조 복제본 더 추가**
 1. **새 AlwaysOn 클러스터로 마이그레이션**
 
-#### 1. 기존 AlwaysOn 클러스터에 보조 복제본 더 추가
+#### 1\. 기존 AlwaysOn 클러스터에 보조 복제본 더 추가
 
 전략 중 하나는 AlwaysOn 가용성 그룹에 보조 복제본을 더 추가하는 것입니다. 이러한 복제본을 새 클라우드 서비스에 추가하고 새 부하 분산 장치 IP로 수신기를 업데이트해야 합니다.
 
@@ -402,7 +402,6 @@ IO 처리량을 높이기 위해 VM 내에서 Windows 저장소 풀을 사용하
 1. **NORECOVERY**를 사용하여 전체 백업 및 복원을 복사합니다.
 1. 로그인 등의 사용자 DB 외부에 있는 종속 개체를 복사합니다.
 1. 새 ILB(내부 부하 분산 장치) 또는 ELB(외부 부하 분산 장치)를 만든 다음 두 새 노드에 모두 부하 분산된 끝점을 설정합니다.
-
 > [AZURE.NOTE] 계속하기 전에 모든 노드의 끝점 구성이 올바른지 확인합니다.
 
 1. 저장소 풀을 사용 중인 경우 SQL Server에 대한 사용자/응용 프로그램 액세스를 중지합니다.
@@ -428,7 +427,7 @@ IO 처리량을 높이기 위해 VM 내에서 Windows 저장소 풀을 사용하
 - 보조 복제본을 설정하는 동안 SQL 데이터 전송 시간이 길어질 수 있습니다.
 - 새 컴퓨터를 병렬로 실행하면 마이그레이션 중에 추가 비용이 발생할 수 있습니다.
 
-#### 2. 새 AlwaysOn 클러스터로 마이그레이션
+#### 2\. 새 AlwaysOn 클러스터로 마이그레이션
 
 두 번째 전략은 새 클라우드 서비스에서 새 노드를 사용하여 AlwaysOn 클러스터를 새로 만든 다음 클라이언트가 해당 클러스터를 사용하도록 리디렉션하는 것입니다.
 
@@ -459,7 +458,7 @@ IO 처리량을 높이기 위해 VM 내에서 Windows 저장소 풀을 사용하
 1. **기존 보조 복제본 활용: 단일 사이트**
 1. **기존 보조 복제본 활용: 다중 사이트**
 
-#### 1. 기존 보조 복제본 활용: 단일 사이트
+#### 1\. 기존 보조 복제본 활용: 단일 사이트
 
 가동 중지 시간을 최소화하는 전략 중 하나는 기존의 클라우드 보조 복제본을 가져온 다음 현재 클라우드 서비스에서 제거하는 것입니다. 그런 다음 새 프리미엄 저장소 계정에 VHD를 복사하고 새 클라우드 서비스에서 VM을 만듭니다. 그리고 나서 클러스터링 및 장애 조치(failover)에서 수신기를 업데이트합니다.
 
@@ -505,7 +504,7 @@ IO 처리량을 높이기 위해 VM 내에서 Windows 저장소 풀을 사용하
 - 5ii단계를 사용하는 경우 추가된 IP 주소 리소스의 가능한 소유자로 SQL1 추가
 - 장애 조치(failover) 테스트
 
-#### 2. 기존 보조 복제본 활용: 다중 사이트
+#### 2\. 기존 보조 복제본 활용: 다중 사이트
 
 둘 이상의 Azure DC(데이터 센터)에 노드가 있거나 하이브리드 환경을 사용하는 경우에는 이 환경에서 AlwaysOn 구성을 사용하여 가동 중지 시간을 최소화할 수 있습니다.
 
@@ -1118,7 +1117,7 @@ IP 주소를 추가하려면 [부록](#appendix-migrating-a-multisite-alwayson-c
 	![Appendix15][25]
 
 ## 추가 리소스
-- [Azure 프리미엄 저장소](../storage-premium-storage-preview-portal.md)
+- [Azure 프리미엄 저장소](../storage/storage-premium-storage.md)
 - [가상 컴퓨터](https://azure.microsoft.com/services/virtual-machines/)
 - [Azure 가상 컴퓨터의 SQL Server](virtual-machines-sql-server-infrastructure-services.md)
 
@@ -1149,4 +1148,4 @@ IP 주소를 추가하려면 [부록](#appendix-migrating-a-multisite-alwayson-c
 [24]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_14.png
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
 
-<!-----HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

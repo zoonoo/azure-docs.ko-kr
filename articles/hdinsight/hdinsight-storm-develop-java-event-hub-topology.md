@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/28/2016"
+   ms.date="03/01/2016"
    ms.author="larryfr"/>
 
 # HDInsight의 Storm으로 Azure 이벤트 허브에서 이벤트 처리(Java)
@@ -52,7 +52,7 @@ Azure 이벤트 허브를 사용하면 웹 사이트, 앱 및 장치에서 대�
 
 ##예제 이해
 
-[hdinsight-java-storm-eventhub](https://github.com/Blackmist/hdinsight-java-storm-eventhub) 예제는 두 토폴로지를 포함합니다.
+[hdinsight-java-storm-eventhub](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub) 예제는 두 토폴로지를 포함합니다.
 
 __com.microsoft.example.EventHubWriter__는 임의 데이터를 Azure 이벤트 허브에 기록합니다. 데이터는 Spout에서 생성되는 임의의 장치 ID 및 장치 값입니다. 따라서 문자열 ID 및 숫자 값을 내보내는 하드웨어 일부를 시뮬레이션 중입니다.
 
@@ -280,10 +280,12 @@ Java 및 JDK를 설치할 때 사용자의 개발 워크스테이션에 다음 �
 4. **구성**을 선택하고 다음 정보를 사용하여 새 액세스 정책 두 개를 만듭니다.
 
 	<table>
-<tr><th>이름</th><th>권한</th></tr>
-<tr><td>기록기</td><td>보내기</td></tr>
-<tr><td>읽기 권한자</td><td>수신 대기</td></tr>
-</table>권한을 만든 후 페이지 아래쪽의 **저장** 아이콘을 선택합니다. 그러면 이 이벤트 허브로 보내고(기록기) 수신하는(판독기) 데 사용되는 공유 액세스 정책이 만들어집니다.
+	<tr><th>이름</th><th>권한</th></tr>
+	<tr><td>기록기</td><td>보내기</td></tr>
+	<tr><td>읽기 권한자</td><td>수신 대기</td></tr>
+	</table>
+
+	권한을 만든 후 페이지 아래쪽의 **저장** 아이콘을 선택합니다. 그러면 이 이벤트 허브로 보내고(기록기) 수신하는(판독기) 데 사용되는 공유 액세스 정책이 만들어집니다.
 
 	![정책](./media/hdinsight-storm-develop-csharp-event-hub-topology/policy.png)
 
@@ -291,7 +293,7 @@ Java 및 JDK를 설치할 때 사용자의 개발 워크스테이션에 다음 �
 
 ## 프로젝트 다운로드 및 빌드
 
-1. GitHub에서 프로젝트 다운로드: [hdinsight-java-storm-eventhub](https://github.com/Blackmist/hdinsight-java-storm-eventhub)입니다. zip 아카이브로 패키지를 다운로드하거나 [git](https://git-scm.com/)를 사용하여 프로젝트를 로컬로 복제할 수 있습니다.
+1. GitHub에서 프로젝트 다운로드: [hdinsight-java-storm-eventhub](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub)입니다. zip 아카이브로 패키지를 다운로드하거나 [git](https://git-scm.com/)를 사용하여 프로젝트를 로컬로 복제할 수 있습니다.
 
 2. 다음 명령을 사용하여 프로젝트에 포함된 패키지를 로컬 Maven 리포지토리에 설치합니다. 이를 사용하면 이벤트 허브 Spout 및 Bolt 뿐만 아니라 Azure 저장소(WASB)에 작성하는 HdfsBolt를 사용하는 기능을 사용할 수 있습니다.
 
@@ -476,4 +478,4 @@ Storm UI를 사용하는 방법에 대한 자세한 내용은 다음 항목을 �
 
 * [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

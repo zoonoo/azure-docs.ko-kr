@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/09/2015"
+	ms.date="02/29/2016"
 	ms.author="wesmc"/>
 
 #.NET 백엔드를 통한 Azure 알림 허브의 사용자 알림
@@ -48,7 +48,7 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
 
 
 
-> [AZURE.NOTE]모바일 서비스를 백 엔드 서비스로 사용 중인 경우 이 자습서의 [모바일 서비스 버전](../mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users.md)을 참조하세요.
+> [AZURE.NOTE] 모바일 서비스를 백 엔드 서비스로 사용 중인 경우 이 자습서의 [모바일 서비스 버전](../mobile-services/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md)을 참조하세요.
 
 
 
@@ -387,4 +387,4 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
 [알림 허브를 사용하여 뉴스 속보 보내기]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 [알림 허브 지침]: http://msdn.microsoft.com/library/jj927170.aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

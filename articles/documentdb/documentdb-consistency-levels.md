@@ -1,26 +1,26 @@
-<properties 
-	pageTitle="DocumentDB에서 일관성 수준 | Microsoft Azure" 
-	description="DocumentDB에는 결과적 일관성, 가용성 및 대기 시간을 절충하여 조정하는 데 유용한 네 가지 일관성 수준 및 관련된 성능 수준이 있습니다." 
+<properties
+	pageTitle="DocumentDB에서 일관성 수준 | Microsoft Azure"
+	description="DocumentDB에는 결과적 일관성, 가용성 및 대기 시간을 절충하여 조정하는 데 유용한 네 가지 일관성 수준 및 관련된 성능 수준이 있습니다."
 	keywords="최종 일관성, Documentdb, Azure, Microsoft Azure"
-	services="documentdb" 
-	authors="mimig1" 
-	manager="jhubbard" 
-	editor="cgronlun" 
+	services="documentdb"
+	authors="mimig1"
+	manager="jhubbard"
+	editor="cgronlun"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/23/2015" 
+<tags
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/24/2016"
 	ms.author="mimig"/>
 
 # 일관성 수준을 사용하여 DocumentDB에서 가용성 및 성능 최대화
 
 개발자는 강력한 일관성과 최종 일관성의 양 극단 사이에서 선택을 고민해야 하는 경우가 많습니다. 실제로는 두 극단 사이에 조정할 수 있는 다양한 일관성 수준이 있습니다. 대부분의 실제 시나리오에서 응용 프로그램은 일관성, 가용성, 대기 시간 간의 세분화된 절충을 활용합니다. DocumentDB에서는 잘 정의된 네 가지 일관성 수준과 관련 성능 수준을 제공합니다. 따라서 응용 프로그램 개발자가 일관성, 가용성 및 대기 시간을 예측 가능하게 절충할 수 있습니다.
- 
+
 데이터베이스 계정, 데이터베이스, 컬렉션, 사용자 및 사용 권한을 비롯한 모든 시스템 리소스는 읽기 및 쿼리에 대해 항상 강력한 일관성을 유지합니다. 일관성 수준은 사용자 정의 리소스에만 적용됩니다. 문서, 첨부 파일, 저장 프로시저, 트리거 및 UDF를 비롯한 사용자 정의 리소스에 대한 쿼리 및 읽기 작업에 대해 DocumentDB는 다음과 같은 네 가지 일관성 수준을 제공합니다.
 
  - 강력한 일관성
@@ -34,17 +34,17 @@
 
 데이터베이스 계정 아래의 모든 컬렉션(모든 데이터베이스)에 적용되는 기본 일관성 수준을 데이터베이스 계정에 구성할 수 있습니다. 기본적으로 사용자 정의 리소스에 대해 실행되는 모든 읽기 및 쿼리는 데이터베이스 계정에 지정된 기본 일관성 수준을 사용합니다. 그러나 [x-ms-consistency-level] 요청 헤더를 지정하여 특정 읽기/쿼리 요청의 일관성 수준을 낮출 수 있습니다. DocumentDB 복제 프로토콜에서 지원하는 네 가지 일관성 수준을 아래에서 간략하게 설명합니다.
 
->[AZURE.NOTE]이후 릴리스에서는 컬렉션 단위의 기본 일관성 수준 재정의를 지원할 예정입니다.
+>[AZURE.NOTE] 이후 릴리스에서는 컬렉션 단위의 기본 일관성 수준 재정의를 지원할 예정입니다.
 
 **강력함**: 강력한 일관성은 과반수 쿼럼의 복제본에서 지속적으로 커밋된 후에만 쓰기가 표시되도록 합니다. 쓰기는 동기적으로 주 복제본 및 쿼럼의 보조 복제본 둘 다에서 지속적으로 커밋되거나 중단됩니다. 읽기는 항상 과반수의 읽기 쿼럼에서 승인됩니다. 클라이언트는 커밋되지 않은 쓰기나 부분 쓰기를 볼 수 없으며 항상 승인된 최신 쓰기를 읽습니다.
- 
+
 강력한 일관성은 절대적인 데이터 일관성을 보장하지만 읽기 및 쓰기 성능 수준이 가장 낮습니다.
 
 **제한된 부실**: 제한된 부실 일관성은 쓰기의 전체 전파 순서를 보장하고 읽기가 최대 K 접두사만큼 쓰기보다 지연될 수 있습니다. 읽기는 항상 과반수 쿼럼의 복제본에서 승인됩니다. 읽기 요청의 응답은 K와 관련해서 상대 새로 고침을 지정합니다. 제한된 부실의 경우 읽기에 부실의 구성 가능한 임계값을 (접두사 또는 시간으로) 설정하여 안정적인 상태에서 대기 시간 및 일관성의 균형을 유지할 수 있습니다.
 
 제한된 부실은 보다 예측 가능한 읽기 일관성 동작을 제공하며 쓰기 대기 시간이 가장 짧습니다. 읽기가 과반수 쿼럼에서 승인되기 때문에 읽기 대기 시간은 가장 짧은 시스템 제공 값이 아닙니다. 제한된 부실은 강력한 일관성을 원하지만 강력한 일관성이 실용적이지 않은 시나리오에 대한 옵션입니다. 제한된 부실 일관성이 임의적으로 크도록 "부실 간격"을 구성하는 경우 쓰기의 총 전역 순서를 여전히 유지합니다. 세션 또는 최종 보다 강력하게 보장합니다.
 
->[AZURE.NOTE]제한된 부실은 명시적인 읽기 요청에 대해서만 단조 읽기를 보장합니다. 쓰기 요청에 대해 에코된 서버 응답은 제한된 부실 보증을 제공하지 않습니다.
+>[AZURE.NOTE] 제한된 부실은 명시적인 읽기 요청에 대해서만 단조 읽기를 보장합니다. 쓰기 요청에 대해 에코된 서버 응답은 제한된 부실 보증을 제공하지 않습니다.
 
 **세션**: 강력 및 제한된 부실 일관성에서 제공하는 전체 일관성 모델과 달리 "세션" 일관성은 특정 클라이언트 세션에 맞게 조정됩니다. 세션 일관성은 일정한 읽기 및 쓰기를 보장하고 고유한 쓰기를 읽는 기능을 제공하므로 대체로 충분합니다. 세션 일관성을 위한 읽기 요청은 클라이언트 요청 버전을 처리할 수 있는 복제본에 대해 실행됩니다(세션 쿠키의 일부).
 
@@ -60,11 +60,15 @@
 
 2. **DocumentDB 계정** 블레이드에서 수정할 데이터베이스 계정을 선택합니다.
 
-3. 계정 블레이드에 있는 **구성** 렌즈에서 **기본 일관성** 타일을 클릭합니다.
+3. 계정 블레이드에서 **설정** 블레이드가 아직 열려 있지 않은 경우 맨 위 명령 모음에서 **설정** 아이콘을 클릭합니다.
 
-4. **기본 일관성** 블레이드에서 새 일관성 수준을 선택하고 **저장**을 클릭합니다.
+4. **모든 설정** 블레이드의 **기능**에서 **기본 일관성** 항목을 클릭합니다.
 
-	![기본 일관성 타일, 일관성 설정 및 저장 단추를 강조 표시하는 스크린샷](./media/documentdb-consistency-levels/database-consistency-level.png)
+	![설정 아이콘 및 기본 일관성 항목이 강조 표시된 스크린샷](./media/documentdb-consistency-levels/database-consistency-level-1.png)
+
+5. **기본 일관성** 블레이드에서 새 일관성 수준을 선택하고 **저장**을 클릭합니다.
+
+	![일관성 수준 및 저장 단추가 강조 표시된 스크린샷](./media/documentdb-consistency-levels/database-consistency-level-2.png)
 
 ## 쿼리에 대한 일관성 수준
 
@@ -83,9 +87,8 @@
 
 -	Doug Terry. 야구를 통해 복제된 데이터 일관성을 설명합니다. [http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
 -	Doug Terry. 약하게 일관된 복제 데이터에 대한 세션 보장입니다. [http://dl.acm.org/citation.cfm?id=383631](http://dl.acm.org/citation.cfm?id=383631)
--	Daniel Abadi. 최신 분산 데이터베이스 시스템 디자인에서 일관성 균형: CAP는 스토리의 일부일 뿐입니다”. [http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html) 
+-	Daniel Abadi. 최신 분산 데이터베이스 시스템 디자인에서 일관성 균형: CAP는 스토리의 일부일 뿐입니다”. [http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
 -	Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica. 실용적인 부분 쿼럼에 대한 PBS(확률적 제한된 부실)입니다. [http://vldb.org/pvldb/vol5/p776\_peterbailis\_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 -	Werner Vogels. 최종 일관성 - 재고되었습니다. [http://allthingsdistributed.com/2008/12/eventually\_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
- 
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0302_2016-->

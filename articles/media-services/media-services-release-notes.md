@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/11/2016"
+ 	ms.date="03/01/2016"
 	ms.author="juliako"/>
 
 
@@ -25,6 +25,7 @@
 
 - [현재 알려진 문제](#issues)
 - [REST API 버전 기록](#rest_version_history)
+- [2016년 2월 릴리스](#feb_changes16)
 - [2016년 1월 릴리스](#jan_changes_16)
 - [2015년 12월 릴리스](#dec_changes_15)
 - [2015년 11월 릴리스](#nov_changes_15)
@@ -79,6 +80,16 @@ SDK의 미디어 서비스 개체는 직렬화할 수 없으며, 결과적으로
 
 미디어 서비스 REST API 버전 기록에 대한 자세한 내용은 [Azure 미디어 서비스 REST API 참조]를 참조하세요.
 
+##<a id="feb_changes16"></a>2016년 2월 릴리스
+
+최신 버전의 .NET용 Azure 미디어 서비스 SDK(3.5.3)에는 Widevine 관련 버그 수정이 포함되어 있습니다. 문제: Widevine으로 암호화된 여러 자산에 대해 AssetDeliveryPolicy를 다시 사용할 수 없습니다. 이 버그 수정의 일환으로 **WidevineBaseLicenseAcquisitionUrl** 속성이 SDK에 추가되었습니다.
+	
+	Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
+	    new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
+	{
+	    {AssetDeliveryPolicyConfigurationKey.WidevineBaseLicenseAcquisitionUrl,"http://testurl"},
+	    
+	};
 
 ##<a id="jan_changes_16"></a>2016년 1월 릴리스
 
@@ -644,4 +655,4 @@ Azure 미디어 서비스 .NET SDK Extensions는 코드를 단순화하고 Azure
 [미디어 서비스 작업 알림 처리]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

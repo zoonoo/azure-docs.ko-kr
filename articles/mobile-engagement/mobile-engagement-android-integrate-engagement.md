@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="08/10/2015"
+	ms.date="02/29/2016"
 	ms.author="piyushjo" />
 
 #Android에서 Engagement를 통합하는 방법
 
 > [AZURE.SELECTOR]
-- [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md)
+- [Windows 범용](mobile-engagement-windows-store-integrate-engagement.md)
 - [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
 - [iOS](mobile-engagement-ios-integrate-engagement.md)
 - [Android](mobile-engagement-android-integrate-engagement.md)
 
 이 절차는 Android 응용 프로그램에서 Engagement의 분석 및 모니터링 기능을 활성화하는 가장 간단한 방법을 설명합니다.
 
-> [AZURE.IMPORTANT]Android SDK API의 최소 수준은 10 이상(Android 2.3.3 이상)이어야 합니다.
+> [AZURE.IMPORTANT] Android SDK API의 최소 수준은 10 이상(Android 2.3.3 이상)이어야 합니다.
 
 다음 단계를 통해 사용자, 세션, 작업, 크래시 및 기술과 관련된 모든 통계를 계산하는 데 필요한 로그의 보고서를 활성화할 수 있습니다. 이벤트, 오류, 작업 등의 기타 통계는 응용 프로그램별로 다르므로, 해당 통계를 계산하는 데 필요한 로그 보고는 Engagement API를 사용하여 수동으로 수행해야 합니다. 관련 설명은 [Android에서 고급 Mobile Engagement 태깅 API를 사용하는 방법](mobile-engagement-android-use-engagement-api.md)을 참조하세요.
 
@@ -34,7 +34,8 @@
 
 [여기](https://aka.ms/vq9mfn)에서 Android SDK를 다운로드합니다. `mobile-engagement-VERSION.jar`을 가져와서 Android 프로젝트의 폴더에 넣습니다(`libs` 폴더가 아직 존재하지 않는 경우 생성).
 
-> [AZURE.IMPORTANT]ProGuard로 응용 프로그램 패키지를 빌드하는 경우 일부 클래스를 유지해야 합니다. 다음 구성 코드 조각을 사용할 수 있습니다.
+> [AZURE.IMPORTANT]
+ProGuard로 응용 프로그램 패키지를 빌드하는 경우 일부 클래스를 유지해야 합니다. 다음 구성 코드 조각을 사용할 수 있습니다.
 >
 >
 			-keep public class * extends android.os.IInterface
@@ -65,11 +66,11 @@
 
 -   `<Your application name>`은(는) 응용 프로그램의 이름으로 바꿉니다.
 
-> [AZURE.TIP]`android:label` 특성을 통해 휴대폰의 "서비스 실행 중" 화면에서 최종 사용자에게 표시될 참여 서비스의 이름을 선택할 수 있습니다. 이 특성을 `"<Your application name>Service"`(예: `"AcmeFunGameService"`)(으)로 설정하는 것이 좋습니다.
+> [AZURE.TIP] `android:label` 특성을 통해 휴대폰의 "서비스 실행 중" 화면에서 최종 사용자에게 표시될 참여 서비스의 이름을 선택할 수 있습니다. 이 특성을 `"<Your application name>Service"`(예: `"AcmeFunGameService"`)(으)로 설정하는 것이 좋습니다.
 
 또한 `android:process` 특성을 지정하면 Engagement 서비스가 자체 프로세스에서 실행됩니다. 그리고 응용 프로그램과 동일한 프로세스에서 Engagement를 실행하면 주/UI 스레드의 응답성이 떨어질 수 있습니다.
 
-> [AZURE.NOTE]`Application.onCreate()` 및 기타 응용 프로그램 콜백에 배치한 코드는 Engagement 서비스를 비롯하여 모든 응용 프로그램 프로세스에서 실행됩니다. 이로 인해 Engagement 프로세스, 중복 브로드캐스트 수신기 또는 서비스에서의 불필요한 메모리 할당 및 스레드와 같은 원치 않는 부작용이 발생할 수 있습니다.
+> [AZURE.NOTE] `Application.onCreate()` 및 기타 응용 프로그램 콜백에 배치한 코드는 Engagement 서비스를 비롯하여 모든 응용 프로그램 프로세스에서 실행됩니다. 이로 인해 Engagement 프로세스, 중복 브로드캐스트 수신기 또는 서비스에서의 불필요한 메모리 할당 및 스레드와 같은 원치 않는 부작용이 발생할 수 있습니다.
 
 `Application.onCreate()`을(를) 재정의하는 경우 `Application.onCreate()` 함수의 시작 부분에 다음 코드 조각을 추가하는 것이 좋습니다.
 
@@ -125,7 +126,7 @@ Engagement에서 사용자, 세션, 작업, 충돌 및 기술 통계를 계산�
 			  }
 			}
 
-> [AZURE.IMPORTANT]`EngagementListActivity` 또는 `EngagementExpandableListActivity`을(를) 사용할 경우 `super.onCreate(...);`을(를) 호출하기 전에 `requestWindowFeature(...);`을(를) 호출해야 합니다. 그렇지 않으면 충돌이 발생합니다.
+> [AZURE.IMPORTANT] `EngagementListActivity` 또는 `EngagementExpandableListActivity`을(를) 사용할 경우 `super.onCreate(...);`을(를) 호출하기 전에 `requestWindowFeature(...);`을(를) 호출해야 합니다. 그렇지 않으면 충돌이 발생합니다.
 
 `FragmentActivity` 및 `MapActivity`의 하위 클래스를 제공하지만, **ProGuard**를 사용하는 응용 프로그램에 문제가 발생하지 않도록 `engagement.jar`에 해당 클래스를 포함하지 않습니다.
 
@@ -135,7 +136,7 @@ Engagement에서 사용자, 세션, 작업, 충돌 및 기술 통계를 계산�
 
 `Activity` 클래스를 오버로드할 수 없거나 오버로드하지 않으려는 경우 `EngagementAgent`의 메서드를 직접 호출하여 작업을 시작하고 종료할 수 있습니다.
 
-> [AZURE.IMPORTANT]Android SDK는 응용 프로그램이 닫힐 때에도 `endActivity()` 메서드를 호출하지 않습니다(Android에서 응용 프로그램은 실제로 닫히지 않음). 따라서 *모든* 작업의 `onResume` 콜백에서는 `startActivity()` 메서드를, *모든* 작업의 `onPause()` 콜백에서는 `endActivity()` 메서드를 호출하는 것이 *상당히* 좋습니다. 이것이 세션이 손실되지 않도록 하는 유일한 방법입니다. 세션이 손실되는 경우 Engagement 서비스의 Engagement 백 엔드에 대한 연결이 끊기지 않습니다(세션이 보류 중인 한 서비스가 연결된 상태를 유지하므로).
+> [AZURE.IMPORTANT] Android SDK는 응용 프로그램이 닫힐 때에도 `endActivity()` 메서드를 호출하지 않습니다(Android에서 응용 프로그램은 실제로 닫히지 않음). 따라서 *모든* 작업의 `onResume` 콜백에서는 `startActivity()` 메서드를, *모든* 작업의 `onPause()` 콜백에서는 `endActivity()` 메서드를 호출하는 것이 *상당히* 좋습니다. 이것이 세션이 손실되지 않도록 하는 유일한 방법입니다. 세션이 손실되는 경우 Engagement 서비스의 Engagement 백 엔드에 대한 연결이 끊기지 않습니다(세션이 보류 중인 한 서비스가 연결된 상태를 유지하므로).
 
 다음은 예제입니다.
 
@@ -231,7 +232,7 @@ Engagement에서 사용자, 세션, 작업, 충돌 및 기술 통계를 계산�
     engagementConfiguration.setBackgroundRealtimeLocationReport(true);
     EngagementAgent.getInstance(this).init(engagementConfiguration);
 
-> [AZURE.NOTE]응용 프로그램이 백그라운드에서 실행될 때 GPS를 활성화한 경우에도 네트워크 기반 위치만 보고됩니다.
+> [AZURE.NOTE] 응용 프로그램이 백그라운드에서 실행될 때 GPS를 활성화한 경우에도 네트워크 기반 위치만 보고됩니다.
 
 백그라운드 위치 보고는 사용자가 해당 장치를 재부팅하는 경우 중지됩니다. 다음을 추가하면 부팅 시 자동으로 다시 시작하도록 설정할 수 있습니다.
 
@@ -381,4 +382,4 @@ Engagement는 이 설정을 관리하기 위한 기본 설정 파일 내에서 �
 <!-- URLs. -->
 [Device API]: http://go.microsoft.com/?linkid=9876094
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

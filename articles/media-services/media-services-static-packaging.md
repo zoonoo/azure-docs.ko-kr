@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/14/2016"   
+	ms.date="03/01/2016"   
 	ms.author="juliako"/>
 
 
@@ -31,24 +31,24 @@
 
 그러나 정적 패키징이 필요한 일부 시나리오가 있습니다.
 
-- 외부 인코더로 인코딩된 적응 비트 전송률 MP4 유효성 검사(예: 타사 인코더 사용)
+- 외부 인코더로 인코드된 적응 비트 전송률 MP4 유효성 검사(예: 타사 인코더 사용)
 
 또한 정적 패키징을 사용하여 다음 작업을 수행할 수 있습니다. 그러나 동적 암호화를 사용하는 것이 좋습니다.
 
-- 정적 암호화를 사용하여 PlayReady로 부드러운 및 MPEG DASH 보호
+- 정적 암호화를 사용하여 PlayReady로 부드러운 스트리밍 및 MPEG DASH 보호
 - 정적 암호화를 사용하여 AES-128로 HLSv3 보호
 - 정적 암호화를 사용하여 PlayReady로 HLSv3 보호
 
 
 ## 외부 인코더로 인코딩된 적응 비트 전송률 MP4 유효성 검사
 
-Media Services Encoder로 인코딩되지 않은 적응 비트 전송률(다중 비트 전송률) MP4 파일 집합을 사용하려는 경우 추가 처리 전에 파일을 확인해야 합니다. Media Services Packager는 MP4 파일 집합이 포함된 자산 유효성을 검사하고 자산이 부드러운 스트리밍 또는 HLS로 패키징할 수 있는지 여부를 확인할 수 있습니다. 유효성 검사 작업이 실패하면 작업을 처리 중이었던 작업이 오류와 함께 완료됩니다. 유효성 검사 작업에 대한 사전 설정을 정의하는 XML은 [Azure Media Packager의 작업 미리 설정](http://msdn.microsoft.com/library/azure/hh973635.aspx) 항목에서 찾을 수 있습니다.
+미디어 서비스 인코더로 인코드되지 않은 적응 비트 전송률(다중 비트 전송률) MP4 파일 집합을 사용하려는 경우 추가 처리 전에 파일을 확인해야 합니다. Media Services Packager는 MP4 파일 집합이 포함된 자산 유효성을 검사하고 자산이 부드러운 스트리밍 또는 HLS로 패키징할 수 있는지 여부를 확인할 수 있습니다. 유효성 검사 작업이 실패하면 작업을 처리 중이었던 작업이 오류와 함께 완료됩니다. 유효성 검사 작업에 대한 사전 설정을 정의하는 XML은 [Azure Media Packager의 작업 미리 설정](http://msdn.microsoft.com/library/azure/hh973635.aspx) 항목에서 찾을 수 있습니다.
 
->[AZURE.NOTE]Media Services Encoder를 사용하여 생성하거나 Media Services Packager를 사용하여 런타임 문제를 방지하기 위해 콘텐츠 유효성을 검사합니다. 주문형 스트리밍 서버가 런타임에 원본 파일을 구문 분석할 수 없는 경우 HTTP 1.1 오류 "415 지원되지 않는 미디어 유형"을 받게 됩니다. 반복적으로 서버가 소스 파일에 대한 구문 분석 장애를 일으키면 주문형 스트리밍 서버의 성능에 영향을 주며 다른 요청에 사용할 수 있는 대역폭을 줄일 수 있습니다. Azure Media Services에서는 주문형 스트리밍 서비스에 대해 서비스 수준 계약(SLA)을 제공하지만 서버가 위에서 설명한 방식으로 잘못 사용되면 이 SLA는 적용될 수 없습니다.
+>[AZURE.NOTE]미디어 인코더 표준을 사용하여 생성하거나 Media Services Packager를 사용하여 런타임 문제를 방지하기 위해 콘텐츠 유효성을 검사합니다. 주문형 스트리밍 서버가 런타임에 원본 파일을 구문 분석할 수 없는 경우 HTTP 1.1 오류 "415 지원되지 않는 미디어 유형"을 받게 됩니다. 반복적으로 서버가 소스 파일에 대한 구문 분석 장애를 일으키면 주문형 스트리밍 서버의 성능에 영향을 주며 다른 요청에 사용할 수 있는 대역폭을 줄일 수 있습니다. Azure Media Services에서는 주문형 스트리밍 서비스에 대해 서비스 수준 계약(SLA)을 제공하지만 서버가 위에서 설명한 방식으로 잘못 사용되면 이 SLA는 적용될 수 없습니다.
 
 이 섹션에서는 유효성 검사 작업을 처리하는 방법을 보여 줍니다. 또한 JobStatus.Error를 사용하여 완료하는 작업의 상태 및 오류 메시지를 참조하는 방법을 보여 줍니다.
 
-Media Services Packager를 사용하여 MP4 파일의 유효성을 검사하려면 자신의 매니페스트(.ism) 파일을 만들고 미디어 서비스 계정에 원본 파일과 함께 업로드해야 합니다. 다음은 Azure Media Encoder에서 생성된 .ism 파일 샘플입니다. 파일 이름은 대/소문자를 구분합니다. 또한 .ism 파일의 텍스트는 UTF-8로 인코딩되어야 합니다.
+Media Services Packager를 사용하여 MP4 파일의 유효성을 검사하려면 자신의 매니페스트(.ism) 파일을 만들고 미디어 서비스 계정에 원본 파일과 함께 업로드해야 합니다. 다음은 미디어 인코더 표준에서 생성된 .ism 파일 샘플입니다. 파일 이름은 대/소문자를 구분합니다. 또한 .ism 파일의 텍스트는 UTF-8로 인코딩되어야 합니다.
 
 	
 	<?xml version="1.0" encoding="utf-8" standalone="yes"?>
@@ -519,13 +519,13 @@ PlayReady를 사용하여 콘텐츠를 보호하려는 경우 [동적 암호화]
 	        /// <returns>The output asset.</returns>
 	        private static IAsset EncodeMP4IntoMultibitrateMP4sTask(IJob job, IAsset asset)
 	        {
-	            // Get the SDK extension method to  get a reference to the Azure Media Encoder.
+	            // Get the SDK extension method to  get a reference to the Media Encoder Standard.
 	            IMediaProcessor encoder = _context.MediaProcessors.GetLatestMediaProcessorByName(
-	                MediaProcessorNames.AzureMediaEncoder);
+	                MediaProcessorNames.MediaEncoderStandard);
 	
 	            ITask adpativeBitrateTask = job.Tasks.AddNew("MP4 to Adaptive Bitrate Task",
 	               encoder,
-	               "H264 Adaptive Bitrate MP4 Set 720p",
+	               "H264 Multiple Bitrate 720p",
 	               TaskOptions.None);
 	
 	            // Specify the input Asset
@@ -864,13 +864,13 @@ AES-128을 사용하여 HLS를 암호화하려는 경우 동적 암호화(권장
 	        /// <returns>The output asset.</returns>
 	        private static IAsset EncodeSingleMP4IntoMultibitrateMP4sTask(IJob job, IAsset asset)
 	        {
-	            // Get the SDK extension method to  get a reference to the Azure Media Encoder.
+	            // Get the SDK extension method to  get a reference to the Media Encoder Standard.
 	            IMediaProcessor encoder = _context.MediaProcessors.GetLatestMediaProcessorByName(
-	                MediaProcessorNames.AzureMediaEncoder);
+	                MediaProcessorNames.MediaEncoderStandard);
 	
 	            ITask adpativeBitrateTask = job.Tasks.AddNew("MP4 to Adaptive Bitrate Task",
 	               encoder,
-	               "H264 Adaptive Bitrate MP4 Set 720p",
+	               "H264 Multiple Bitrate 720p",
 	               TaskOptions.None);
 	
 	            // Specify the input Asset
@@ -1235,13 +1235,13 @@ PlayReady를 사용하여 콘텐츠를 보호하려는 경우 [동적 암호화]
 	        /// <returns>The output asset.</returns>
 	        private static IAsset EncodeSingleMP4IntoMultibitrateMP4sTask(IJob job, IAsset asset)
 	        {
-	            // Get the SDK extension method to  get a reference to the Azure Media Encoder.
+	            // Get the SDK extension method to  get a reference to the Media Encoder Standard.
 	            IMediaProcessor encoder = _context.MediaProcessors.GetLatestMediaProcessorByName(
-	                MediaProcessorNames.AzureMediaEncoder);
+	                MediaProcessorNames.MediaEncoderStandard);
 	
 	            ITask adpativeBitrateTask = job.Tasks.AddNew("MP4 to Adaptive Bitrate Task",
 	               encoder,
-	               "H264 Adaptive Bitrate MP4 Set 720p",
+	               "H264 Multiple Bitrate 720p",
 	               TaskOptions.None);
 	
 	            // Specify the input Asset
@@ -1447,4 +1447,4 @@ PlayReady를 사용하여 콘텐츠를 보호하려는 경우 [동적 암호화]
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

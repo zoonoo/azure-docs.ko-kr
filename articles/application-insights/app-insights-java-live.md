@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/24/2015" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
  
 # 이미 라이브 상태인 Java 웹앱용 Application Insights
@@ -23,7 +23,7 @@ J2EE 서버에서 이미 실행 중인 웹 응용 프로그램이 있는 경우 
 
 [Microsoft Azure](https://azure.com)를 구독해야 합니다.
 
-> [AZURE.NOTE]이 페이지의 절차는 런타임에서 웹앱에 SDK를 추가합니다. 소스 코드를 업데이트하거나 다시 작성하지 않을 경우에 유용한 방식입니다. 하지만 가능하면 [소스 코드에 SDK를 추가](app-insights-java-get-started.md)할 것을 권장합니다. 그러면 사용자 활동을 추적하는 코드를 작성하는 등 추가 옵션이 제공됩니다.
+> [AZURE.NOTE] 이 페이지의 절차는 런타임에서 웹앱에 SDK를 추가합니다. 소스 코드를 업데이트하거나 다시 작성하지 않을 경우에 유용한 방식입니다. 하지만 가능하면 [소스 코드에 SDK를 추가](app-insights-java-get-started.md)할 것을 권장합니다. 그러면 사용자 활동을 추적하는 코드를 작성하는 등 추가 옵션이 제공됩니다.
 
 ## 1\. Application Insights 계측 키 가져오기
 
@@ -139,4 +139,4 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

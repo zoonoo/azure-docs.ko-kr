@@ -8,12 +8,12 @@
 	editor=""/>
 
 <tags
-	ms.service="app-service"
+	ms.service="app-service-mobile"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="03/02/2016"
 	ms.author="glenga"/>
 
 # Azure 모바일 앱에 관리되는 클라이언트를 사용하는 방법
@@ -54,8 +54,7 @@ C#에서 해당하는 형식화된 클라이언트 쪽 형식은 다음과 같�
 
 다음 코드는 모바일 앱 백 엔드에 액세스하는 데 사용되는 `MobileServiceClient` 개체를 만듭니다.
 
-	MobileServiceClient client = new MobileServiceClient(
-		"MOBILE_APP_URL");
+	MobileServiceClient client = new MobileServiceClient("MOBILE_APP_URL");
 
 위의 코드에서 `MOBILE_APP_URL`을 모바일 앱 백 엔드의 URL로 대체하며 이는 [Azure 포털](https://portal.azure.com/)의 모바일 앱 백 엔드에 대한 블레이드에서 찾을 수 있습니다.
 
@@ -258,12 +257,7 @@ C#에서 해당하는 형식화된 클라이언트 쪽 형식은 다음과 같�
 
 	await todoTable.UpdateAsync(todoItem);
 
-형식화되지 않은 데이터를 삽입하려면 다음과 같이 Json.NET을 이용할 수 있습니다.
-	JObject jo = new JObject();
-	jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D");
-	jo.Add("Text", "Hello World");
-	jo.Add("Complete", false);
-	var inserted = await table.UpdateAsync(jo);
+형식화되지 않은 데이터를 삽입하려면 다음과 같이 Json.NET을 이용할 수 있습니다. JObject jo = new JObject(); jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D"); jo.Add("Text", "Hello World"); jo.Add("Complete", false); var inserted = await table.UpdateAsync(jo);
 
 업데이트할 때 ID를 지정해야 합니다. 백 엔드가 업데이트할 인스턴스를 식별하는 방법입니다. ID는 `InsertAsync` 호출의 결과에서 가져올 수 있습니다. "ID" 값을 제공하지 않고 항목을 업데이트하려고 할 때 `ArgumentException`이 발생합니다.
 
@@ -583,7 +577,7 @@ Azure Active Directory를 사용하여 응용 프로그램에 사용자가 로�
 
 ## <a name="package-sid"></a>방법: Windows 스토어 패키지 SID 가져오기
 
-Windows 앱의 경우 푸시 알림 및 특정 인증 모드를 사용할 수 있도록 하려면 패키지 SID가 필요합니다. 이 값을 가져오려면
+Windows 앱의 경우 푸시 알림 사용에 패키지 SID가 필요합니다. 이 값을 가져오려면
 
 1. Visual Studio 솔루션 탐색기에서 Windows 스토어 앱 프로젝트를 마우스 오른쪽 단추로 클릭하고 **스토어** > **스토어와 앱을 연결...**을 클릭합니다.
 2. 마법사에서 **다음**을 클릭하고 Microsoft 계정으로 로그인하고 **새로운 앱 이름 예약**에서 앱 이름을 입력한 후 **예약**을 클릭합니다.
@@ -676,7 +670,7 @@ In the most simplified form, you can use the client flow as shown in this snippe
 
 ####Single sign-in using Microsoft Account with the Live SDK
 
-To be able to authenticate users, you must register your app at the Microsoft account Developer Center. You must then connect this registration with your Mobile App backend. Complete the steps in [Register your app to use a Microsoft account login](mobile-services-how-to-register-microsoft-authentication.md) to create a Microsoft account registration and connect it to your Mobile App backend. If you have both Windows Store and Windows Phone 8/Silverlight versions of your app, register the Windows Store version first.
+To be able to authenticate users, you must register your app at the Microsoft account Developer Center. You must then connect this registration with your Mobile App backend. Complete the steps in [Register your app to use a Microsoft account login](app-service-mobile-how-to-configure-microsoft-authentication.md) to create a Microsoft account registration and connect it to your Mobile App backend. If you have both Windows Store and Windows Phone 8/Silverlight versions of your app, register the Windows Store version first.
 
 The following code authenticates using Live SDK and uses the returned token to sign-in to your Mobile App backend.
 
@@ -844,7 +838,7 @@ For Windows Phone apps, you may encrypt and cache data using the [ProtectedData]
 
 
 <!-- URLs. -->
-[Add authentication to your app]: mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md
+[Add authentication to your app]: app-service-mobile-windows-store-dotnet-get-started-users.md
 [Azure 모바일 앱에 대해 .NET 백 엔드 서버 SDK로 작업]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [PasswordVault]: http://msdn.microsoft.com/library/windows/apps/windows.security.credentials.passwordvault.aspx
 [ProtectedData]: http://msdn.microsoft.com/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
@@ -854,8 +848,6 @@ For Windows Phone apps, you may encrypt and cache data using the [ProtectedData]
 [UserID]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx
 [MobileServiceAuthenticationToken]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md/#Commands_to_manage_mobile_services
-[Optimistic Concurrency Tutorial]: mobile-services-windows-store-dotnet-handle-database-conflicts.md
 [MobileServiceClient]: http://msdn.microsoft.com/library/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx
 [IncludeTotalCount]: http://msdn.microsoft.com/library/windowsazure/dn250560.aspx
 [Skip]: http://msdn.microsoft.com/library/windowsazure/dn250573.aspx
@@ -865,4 +857,4 @@ For Windows Phone apps, you may encrypt and cache data using the [ProtectedData]
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 [DelegatingHandler]: https://msdn.microsoft.com/library/system.net.http.delegatinghandler(v=vs.110).aspx
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

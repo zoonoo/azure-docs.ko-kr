@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="02/29/2016"
 	ms.author="jgao"/>
 
 # HDInsight에서 Hadoop 작업 제출
@@ -58,7 +58,7 @@ HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하�
 1. Visual Studio를 사용하여 C# 콘솔 응용 프로그램을 만듭니다.
 2. NuGet 패키지 관리자 콘솔에서 다음 명령을 실행합니다.
 
-		Install-Package Microsoft.Azure.Common.Authentication -pre
+		Install-Package Microsoft.Azure.Common.Authentication -Pre
 		Install-Package Microsoft.Azure.Management.HDInsight -Pre
 		Install-Package Microsoft.Azure.Management.HDInsight.Job -Pre
 2. 다음 코드를 사용합니다.
@@ -98,7 +98,10 @@ HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하�
 		
 					var tokenCreds = GetTokenCloudCredentials();
 					var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
-		
+
+					var resourceManagementClient = new ResourceManagementClient(subCloudCredentials);  
+ 					var rpResult = resourceManagementClient.Providers.Register("Microsoft.HDInsight");  
+
 					_hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
 		
 					var clusterCredentials = new BasicAuthenticationCloudCredentials { Username = ExistingClusterUsername, Password = ExistingClusterPassword };
@@ -266,4 +269,4 @@ Visual Studio용 HDInsight 도구를 사용하여 Hive 쿼리 및 Pig 스크립�
 
 [apache-hive]: http://hive.apache.org/
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

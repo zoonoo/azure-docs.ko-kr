@@ -12,7 +12,7 @@
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="01/14/2016" 
 	ms.author="ccompy"/>
 
@@ -30,7 +30,13 @@ ASE 만들기에는 다음 정보를 제공하는 고객이 필요합니다.
 - 서브넷과 함께 Azure 가상 네트워크(VNET) 선택
 - ASE 리소스 풀 정의
 
-각 항목에 중요한 세부 사항이 있습니다. - ASE의 이름은 ASE에서 수행하는 앱에 대한 서브도메인에 사용됩니다. - ASE에서 만든 모든 앱은 ASE 자체와 같은 구독에 위치합니다. - ASE를 만드는 데 사용된 구독에 액세스하지 않는 경우 앱을 만드는 데 ASE를 사용할 수 없습니다. - ASE를 호스팅하는 데 사용된 VNET는 지역별 클래식 "v1" VNET이어야 합니다. - ASE를 호스트하는 데 사용된 서브넷은 다른 계산 리소스를 포함해야 합니다. - 서브넷에는 하나의 ASE만 존재할 수 있습니다.
+각 해당 항목에 몇 가지 중요한 세부 정보가 있습니다.
+- 해당 ASE에 만든 모든 앱에 대한 하위 도메인에서 ASE의 이름이 사용됩니다.
+- ASE에 만든 모든 앱은 ASE 자체와 동일한 구독에 포함됩니다.
+- ASE를 만드는 데 사용된 구독에 액세스할 수 없는 경우 ASE는 앱을 만드는 데 사용할 수 없습니다.
+- ASE를 호스트하는 데 사용되는 VNET은 지역 클래식 "v1" VNET이어야 합니다. 
+- ASE를 호스트하는 데 사용되는 서브넷은 다른 계산 리소스를 포함해서는 안 됩니다.
+- 하나의 ASE만 서브넷에 있을 수 있습니다.
 
 각 ASE 배포는 Azure에서 관리 및 유지 보수하는 호스팅 서비스입니다. 고객은 인스턴스의 양과 크기를 관리할 수 있지만 ASE 시스템 역할을 호스트하는 계산 리소스에는 액세스할 수 없습니다.
 
@@ -68,7 +74,9 @@ VNET 만들기 UI로 이동하려면 다음을 제공해야 합니다.
 
 ASE가 해당 VNET에 배포되기 때문에 VNET의 위치는 ASE의 위치입니다.
 
-VNET을 지정하거나 선택한 후에 서브넷을 적절하게 만들거나 선택해야 합니다. 다음은 제공해야 하는 세부 정보입니다. - 서브넷 이름 - CIDR 표기법에서 서브넷 범위
+VNET을 지정하거나 선택한 후에 서브넷을 적절하게 만들거나 선택해야 합니다. 다음은 제공해야 할 세부 정보입니다.
+- 서브넷 이름
+- CIDR 표기법의 서브넷 범위
 
 CIDR(Classless Inter-domain Routing) 표기에 대해 잘 모른다면 CIDR 값에서 슬래시로 구분되는 IP 주소 형태를 사용합니다. *10.0.0.0/22*과 같이 표시됩니다. CIDR 값은 표시된 IP 주소에 대해 마스킹된 주도 비트 수를 나타냅니다. 여기의 개념을 쉽게 표현하는 방법은 CIDR 값이 IP 범위를 제공하는 것입니다. 이 예제에서 10.0.0.0/22는 1024개의 주소 범위 또는 10.0.0.0~10.0.3.255.의 주소 범위를 의미합니다. /23은 512개의 주소 등을 의미합니다.
 
@@ -155,4 +163,4 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

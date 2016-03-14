@@ -14,14 +14,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/23/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 
 # Twitter API 시작
-Twitter에 연결하여 트윗 게시, 사용자의 타임라인 가져오기 등의 작업을 수행합니다.
+Twitter에 연결하여 트윗 게시, 사용자의 타임라인 가져오기 등의 작업을 수행합니다. Twitter API를 다음에서 사용할 수 있습니다.
 
-Twitter API는 PowerApps 엔터프라이즈 및 논리 앱에서 사용할 수 있습니다.
+- PowerApps 
+- 논리 앱 
 
 >[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다. 2014-12-01-preview 스키마 버전에 대한 내용을 보려면 [Twitter 커넥터](../app-service-logic/app-service-logic-connector-twitter.md)를 클릭하세요.
 
@@ -32,7 +33,7 @@ Twitter를 사용하면 다음과 같은 작업을 수행할 수 있습니다.
 - 트윗 게시, 트윗 검색 등의 작업을 사용합니다. 이러한 작업을 사용하여 응답을 가져오고 출력을 다른 작업에 사용할 수 있도록 설정합니다. 예를 들어 새 트윗이 있으면 이 트윗을 Facebook에 게시할 수 있습니다.
 - PowerApps 엔터프라이즈에 Twitter API를 추가합니다. 이렇게 하면 사용자가 앱 내에서 이 API를 사용할 수 있습니다. 
 
-PowerApps 엔터프라이즈에서 API를 추가하는 방법을 보려면 [Register an API in PowerApps](../power-apps/powerapps-register-from-available-apis.md)(PowerApps에서 API 등록)로 이동하세요.
+PowerApps 엔터프라이즈에서 API를 추가하는 방법을 보려면 [PowerApps에서 API 등록](../power-apps/powerapps-register-from-available-apis.md)으로 이동하세요.
 
 논리 앱에 작업을 추가하려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
 
@@ -79,6 +80,7 @@ PowerApps 엔터프라이즈에 Twitter를 추가할 때 Twitter 응용 프로�
 
 
 ## Swagger REST API 참조
+적용 버전: 1.0
 
 ### 새 트윗 게시 
 트윗합니다. ```POST: /posttweet```
@@ -325,4 +327,4 @@ PowerApps 엔터프라이즈에 Dropbox API를 추가한 후 해당 앱에서 AP
 [6]: ./media/create-api-twitter/twitter-apps-page.png
 [7]: ./media/create-api-twitter/twitter-app-create.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

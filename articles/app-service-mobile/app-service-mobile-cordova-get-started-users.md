@@ -40,9 +40,9 @@
 
 ##<a name="add-authentication"></a>앱에 인증 추가
 
-1. **Visual Studio**에서 프로젝트를 연 다음 편집을 위해 <tt>www/index.html</tt> 파일을 엽니다.
+1. **Visual Studio**에서 프로젝트를 연 다음 편집을 위해 `www/index.html` 파일을 엽니다.
 
-2. 헤드 섹션에서 `Content-Security-Policy` Meta 태그를 찾습니다. 허용된 원본 목록에 OAuth 호스트를 추가해야 합니다.
+2. 헤드 섹션에서 `Content-Security-Policy` META 태그를 찾습니다. 허용된 원본 목록에 OAuth 호스트를 추가해야 합니다.
 
     | 공급자 | SDK 공급자 이름 | OAuth 호스트 |
     | :--------------------- | :---------------- | :-------------------------- |
@@ -54,16 +54,17 @@
 
     다음은 Content-Security-Policy(Azure Active Directory용으로 구현됨) 예제입니다.
 
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://login.windows.net https://yourapp.azurewebsites.net; style-src 'self'">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' 
+			data: gap: https://login.windows.net https://yourapp.azurewebsites.net; style-src 'self'">
 
-    <tt>https://login.windows.net</tt>을 위 표의 OAuth 호스트로 바꿔야 합니다. 이 Meta 태그에 대한 자세한 내용은 [Content-Security-Policy 설명서]를 참조하세요.
+    `https://login.windows.net`을 위 표의 OAuth 호스트로 바꿔야 합니다. 이 Meta 태그에 대한 자세한 내용은 [Content-Security-Policy 설명서]를 참조하세요.
 
     일부 인증 공급자에서는 적절한 모바일 장치에서 사용하는 경우 Content-Security-Policy 변경이 필요하지 않습니다. 예를 들어 Android 장치에서 Google 인증을 사용하는 경우 Content-Security-Policy를 변경하지 않아도 됩니다.
 
-3. 편집을 위해 <tt>www/js/index.js</tt> 파일을 엽니다. 프로젝트가 빌드되고 이미 변경된 내용으로 실행되지만 로그인 작업을 시작하는 데 login() 메서드를 명시적으로 호출하는 것이 모범 사례로 간주됩니다. `onDeviceReady()` 메서드를 찾습니다. 클라이언트 생성 코드에서 다음을 추가합니다.
+3. 편집을 위해 `www/js/index.js` 파일을 열고 `onDeviceReady()` 메서드를 찾아 클라이언트 생성 코드에서 다음을 추가합니다.
 
         // Login to the service
-        client.login('SDK Provider_Name')
+        client.login('SDK_Provider_Name')
             .then(function () {
 
                 // BEGINNING OF ORIGINAL CODE
@@ -82,11 +83,11 @@
 
             }, handleError);
 
-    예를 들어 Azure Active Directory의 경우 다음을 사용합니다.
+    테이블 참조를 만들고 UI를 새로 고치는 기존 코드를 이 코드로 바꿉니다.
 
-        client.login('aad')
+    login() 메서드는 공급자를 사용하여 인증을 시작합니다. login() 메서드는 JavaScript 프라미스를 반환하는 비동기 함수입니다. 초기화의 나머지는 login() 메서드가 완료될 때까지 실행되지 않도록 프라미스 응답 안에 배치됩니다.
 
-    login() 메서드는 JavaScript 프라미스를 반환하는 비동기 함수입니다. 초기화의 나머지는 login() 메서드가 완료될 때까지 실행되지 않도록 프라미스 응답 안에 배치됩니다.
+4. 방금 추가한 코드에서 `SDK_Provider_Name`를 로그인 공급자 이름으로 바꿉니다. 예를 들어 Azure Active Directory의 경우 `client.login('aad')`를 사용합니다.
 
 4. 프로젝트를 실행합니다. 프로젝트 초기화가 완료되면 응용 프로그램에서 선택한 인증 공급자에 대한 OAuth 로그인 페이지를 표시합니다.
 
@@ -101,4 +102,4 @@
 [푸시 알림]: app-service-mobile-cordova-get-started-push.md
 [인증 정보]: app-service-mobile-auth.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

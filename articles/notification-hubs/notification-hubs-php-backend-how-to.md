@@ -3,7 +3,7 @@
 	description="PHP 백 엔드에서 Azure 알림 허브를 사용하는 방법에 대해 알아봅니다." 
 	services="notification-hubs" 
 	documentationCenter="" 
-	authors="ysxu" 
+	authors="wesmc7777" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="php" 
 	ms.devlang="php" 
 	ms.topic="article" 
-	ms.date="11/01/2015" 
-	ms.author="yuaxu"/>
+	ms.date="02/29/2016" 
+	ms.author="wesmc"/>
 
 # PHP에서 알림 허브를 사용하는 방법
 [AZURE.INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -248,10 +248,10 @@ iOS 기본 알림을 보내려면 다음을 수행합니다.
 * [속보 자습서]에서 알림 허브 태그 지정 기능에 대해 계속 알아봅니다.
 * [사용자에게 알림 자습서]에서 개별 사용자에게 알림을 게시하는 방법을 알아봅니다.
 
-자세한 내용은 [PHP 개발자 센터](/develop/php/)도 참조하세요.
+자세한 내용은 [PHP 개발자 센터](/develop/php/)를 참조하세요.
 
 [PHP REST 래퍼 샘플]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
 [시작 자습서]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -12,7 +12,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="na"
-  ms.date="10/21/2015"
+  ms.date="02/20/2016"
   ms.author="robb" />
 
 # Azure 저장소에서 진단 데이터 저장 및 보기
@@ -52,7 +52,7 @@ SDK 2.5 이상의 경우 구성 파일을 통해 진단 데이터 전송 요청�
 SDK 2.4 및 이전 버전의 경우 프로그래밍 방식으로 구성 파일을 통해 진단 데이터 전송을 요청할 수 있습니다. 프로그래밍 방식을 사용하면 주문형 전송을 수행할 수 있습니다.
 
 
->[AZURE.IMPORTANT]Azure 저장소 계정에 진단 데이터를 전송하는 경우 진단 데이터를 사용하는 저장소 리소스에 대한 비용이 발생합니다.
+>[AZURE.IMPORTANT] Azure 저장소 계정에 진단 데이터를 전송하는 경우 진단 데이터를 사용하는 저장소 리소스에 대한 비용이 발생합니다.
 
 ## 진단 데이터 저장
 
@@ -83,14 +83,15 @@ SDK 2.4 및 이전 버전의 경우 프로그래밍 방식으로 구성 파일�
 ## 진단 데이터를 볼 도구
 여러 도구를 사용하여 저장소로 전송된 후 데이터를 볼 수 있습니다. 예:
 
-- **Visual Studio의 서버 탐색기** -Microsoft Visual Studio용 Azure Tools를 설치한 경우 서버 탐색기에서 Azure 저장소 노드를 사용하여 Azure 저장소 계정에서 읽기 전용 Blob 및 테이블 데이터를 볼 수 있습니다. 로컬 저장소 에뮬레이터 계정 및 Azure용으로 만든 저장소 계정에서 데이터를 표시할 수 있습니다. 자세한 내용은 [서버 탐색기로 저장소 리소스 찾아보기](https://msdn.microsoft.com/library/ff683677.aspx)를 참조하세요.
+- Visual Studio의 서버 탐색기 - Microsoft Visual Studio용 Azure 도구를 설치한 경우 서버 탐색기에서 Azure 저장소 노드를 사용하여 Azure 저장소 계정에서 읽기 전용 Blob 및 테이블 데이터를 볼 수 있습니다. 로컬 저장소 에뮬레이터 계정 및 Azure용으로 만든 저장소 계정에서 데이터를 표시할 수 있습니다. 자세한 내용은 [서버 탐색기로 저장소 리소스 탐색 및 관리](../vs-azure-tools-storage-resources-server-explorer-browse-manage.md)를 참조하세요.
 
-- **Neudesic 제공 Azure 저장소 탐색기** - [Azure 저장소 탐색기](http://azurestorageexplorer.codeplex.com/)는 Azure 응용 프로그램의 로그를 포함한 Azure 저장소 프로젝트의 데이터 검사 및 변경을 위한 유용한 그래픽 사용자 인터페이스 도구입니다. 이 도구를 다운로드하려면 [Azure 저장소 탐색기](http://azurestorageexplorer.codeplex.com/)를 참조하세요.
+- [Neudesic 제공 Azure 저장소 탐색기](http://azurestorageexplorer.codeplex.com/)는 Azure 응용 프로그램의 로그를 포함한 Azure 저장소 프로젝트의 데이터 검사 및 변경을 위한 유용한 그래픽 사용자 인터페이스 도구입니다.
 
-- Cerebrata 제공 Azure 진단 관리자 - [Azure 진단 관리자](http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx)는 Azure 진단을 관리하기 위한 Windows(WPF) 기반 클라이언트입니다. 이 도구를 통해 Azure에서 실행 중인 응용 프로그램이 수집한 진단 데이터를 보고 다운로드하고 관리할 수 있습니다. 도구를 다운로드하려면 [Azure 진단 관리자](http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx)를 참조하세요.
+- [Azure Management Studio](http://www.cerebrata.com/products/azure-management-studio/introduction)에는 Azure에서 실행되는 응용 프로그램으로 수집된 진단 데이터를 보고 다운로드하고 관리할 수 있는 Azure 진단 관리자가 있습니다.
+
 
 ## 다음 단계
 
 [Azure 진단으로 클라우드 서비스 응용 프로그램의 흐름 추적](cloud-services-dotnet-diagnostics-trace-flow.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0302_2016-->

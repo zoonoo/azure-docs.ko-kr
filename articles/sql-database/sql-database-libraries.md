@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/23/2016"
 	ms.author="pehteh"/>
 
 # SQL 데이터베이스 및 SQL Server용 연결 라이브러리
@@ -28,10 +28,10 @@
 | :--- | :--- | :--- | :--- | :--- | :-- |
 | .NET | 크로스 플랫폼(.NET) | [ADO.NET, System .Data .SqlClient](http://www.microsoft.com/download/details.aspx?id=30653) | 4\.5 이상 | .NET Framework에 대한 SQL Server 공급자 | . |
 | PHP | Windows | [PHP for SQL Server](http://www.microsoft.com/download/details.aspx?id=20098) | 2\.0 이상 | SQL Server용 PHP 드라이버 | [링크](http://msdn.microsoft.com/library/dn865013.aspx) |
-| Java | Windows | [JDBC for SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) | 2\.0 이상 | 표준 JDBC API를 통해 데이터베이스를 연결하는 Type 4 JDBC 드라이버 | [링크](http://msdn.microsoft.com/library/dn425070.aspx) |
+| Java | Windows | [JDBC for SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) | 2\.0 이상 | 표준 JDBC API를 통해 데이터베이스를 연결하는 Type 4 JDBC 드라이버 | [링크](https://msdn.microsoft.com/library/mt654048.aspx) |
 | ODBC | Windows | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=36434) | 11\.0 이상 | SQL Server용 Microsoft ODBC 드라이버 | [링크](http://msdn.microsoft.com/library/jj730308.aspx) |
-| ODBC | Suse Linux | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11\.0 이상 | SQL Server용 Microsoft ODBC 드라이버 | . |
-| ODBC | Redhat Linux | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11\.0 이상 | SQL Server용 Microsoft ODBC 드라이버 | . |
+| ODBC | Suse Linux | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11\.0 이상 | SQL Server용 Microsoft ODBC 드라이버 | [링크](https://msdn.microsoft.com/ko-KR/library/hh568451.aspx) |
+| ODBC | Redhat Linux | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11\.0 이상 | SQL Server용 Microsoft ODBC 드라이버 | [링크](https://msdn.microsoft.com/ko-KR/library/hh568451.aspx) |
 
 ### ODBC 지원
 
@@ -52,20 +52,22 @@ Microsoft OLE DB Provider for DB2 버전 5.0 (데이터 공급자)를 사용 하
 
 ## 타사 라이브러리
 
-> [AZURE.IMPORTANT]다음은 타사 라이선스 조건에 따라 타사에서 출시한 라이브러리 표입니다. 이러한 라이브러리를 사용하려면 사용자는 관련된 타사 라이선스를 확인하고 준수할 책임이 있습니다. 이러한 라이브러리를 사용하여 발생하는 위험은 사용자의 책임입니다. Microsoft는 여기에 제공된 정보에 대해 어떠한 명시적 또는 묵시적 보증도 하지 않으며, 사용자의 편의를 위해 정보를 제공할 뿐입니다. 여기에 포함된 그 어떤 것도 Microsoft의 보증을 의미하지 않습니다. <br/><br/>GitHub.com에 있는 **Azure** 소유의 [azure-content](http://github.com/Azure/azure-content/) 리포지토리를 사용하여 이 "타사 라이브러리" 섹션의 정보를 업데이트 및 유지 관리하는 것은 개발자 공개 커뮤니티의 몫입니다. Microsoft에서는 개발자들이 이 섹션을 업데이트하기를 권장합니다. Microsoft 직원은 이 섹션의 정보를 유지 관리하지 *않습니다*. 그 이유 중 하나는, 다른 사람들이 특정 타사 라이브러리에 대해 우리보다 잘 알고 있기 때문입니다. 감사합니다.
+> [AZURE.IMPORTANT] 다음은 타사 라이선스 조건에 따라 타사에서 출시한 라이브러리 표입니다. 이러한 라이브러리를 사용하려면 사용자는 관련된 타사 라이선스를 확인하고 준수할 책임이 있습니다. 이러한 라이브러리를 사용하여 발생하는 위험은 사용자의 책임입니다. Microsoft는 여기에 제공된 정보에 대해 어떠한 명시적 또는 묵시적 보증도 하지 않으며, 사용자의 편의를 위해 정보를 제공할 뿐입니다. 여기에 포함된 그 어떤 것도 Microsoft의 보증을 의미하지 않습니다. <br/><br/>GitHub.com에 있는 **Azure** 소유의 [azure-content](http://github.com/Azure/azure-content/) 리포지토리를 사용하여 이 "타사 라이브러리" 섹션의 정보를 업데이트 및 유지 관리하는 것은 개발자 공개 커뮤니티의 몫입니다. Microsoft에서는 개발자들이 이 섹션을 업데이트하기를 권장합니다. Microsoft 직원은 이 섹션의 정보를 유지 관리하지 *않습니다*. 그 이유 중 하나는, 다른 사람들이 특정 타사 라이브러리에 대해 우리보다 잘 알고 있기 때문입니다. 감사합니다.
 
 다음은 타사 또는 타 커뮤티니 같은 제3자가 출시한 라이브러리 표입니다. Microsoft에서 출시한 라이브러리는 이 항목의 앞부분에 있습니다.
 
 | 플랫폼 | 라이브러리 |
 | :-- | :-- |
-| Python | [pymssql*(org, stable)*](http://pymssql.org/en/stable/)<br/><br/>[pymssql*(org)*](http://pymssql.org/) |
-| Node.js | [Tedious*(npmjs)*](http://www.npmjs.com/package/tedious) |
-| Node.js | [Node-MSSQL*(github, patriksimek)*](https://github.com/patriksimek/node-mssql)<br/><br/>[Node-MSSQL*(npmjs)*](https://www.npmjs.com/package/node-mssql)<br/><br/>[Node-MSSQL-Connector*(npmjs)*](https://www.npmjs.com/package/node-mssql-connector) |
-| Node.js | [Edge.js*(github com, tjanczuk)*](https://github.com/tjanczuk/edge)<br/><br/>[Edge.js*(tjanczuk, github io)*](http://tjanczuk.github.io/edge/) |
-| . | [FreeTDS*(org)*](http://www.freetds.org/) |
+| Ruby | [tinytds*(org, stable)*](https://rubygems.org/gems/tiny_tds/versions/0.7.0) |
+| GO | [go-mssqldb*(org, stable)*](https://github.com/denisenkom/go-mssqldb) |
+| Python | [pymssql*(org, stable)*](http://pymssql.org/en/stable/) |
+| Node.js | [NODE-MSSQL*(npmjs)*](https://www.npmjs.com/package/node-mssql)<br/><br/>[Node-MSSQL-Connector*(npmjs)*](https://www.npmjs.com/package/node-mssql-connector) |
+| C++ | [FreeTDS*(org)*](http://www.freetds.org/) |
+
+
 
 <!--
 https://en.wikipedia.org/wiki/Draft:Microsoft_SQL_Server_Libraries/Drivers
 -->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

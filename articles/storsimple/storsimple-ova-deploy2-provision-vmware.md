@@ -13,22 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/20/2016"
+   ms.date="03/01/2016"
    ms.author="alkohli"/>
 
 
-# StorSimple 가상 배열 배포 - VMware에서 가상 배열 프로비전(미리 보기)
+# StorSimple 가상 배열 배포 - VMware에서 가상 배열 프로비전
 
 ![](./media/storsimple-ova-deploy2-provision-vmware/vmware4.png)
 
 ## 개요 
-이 프로비전 자습서는 1.1.1.0(공개 미리 보기) 버전을 실행하는 StorSimple 가상 배열(StorSimple 온-프레미스 가상 장치 또는 StorSimple 가상 장치라고도 함)에만 적용됩니다. 이 자습서는 VMware ESXi 5.5 이상을 실행하는 호스트 시스템에 StorSimple 가상 배열을 프로비전하고 연결하는 방법을 설명합니다.
+이 프로비전 자습서는 2016년 3월 GA(일반 공급) 버전을 실행하는 StorSimple 가상 배열(StorSimple 온-프레미스 가상 장치 또는 StorSimple 가상 장치라고도 함)에 적용됩니다. 이 자습서는 VMware ESXi 5.5 이상을 실행하는 호스트 시스템에 StorSimple 가상 배열을 프로비전하고 연결하는 방법을 설명합니다.
 
 가상 장치를 프로비전하고 연결하려면 관리자 권한이 필요합니다. 프로비전 및 초기 설정을 완료하는 데 10분 정도가 소요됩니다.
 
-> [AZURE.IMPORTANT]
-> 
-> 이 공개 미리 보기는 평가 용도로만 사용됩니다. 프로덕션 환경에서는 이 미리 보기를 설치하도록 지원되지 않습니다.
 
 ## 프로비전 필수 조건
 
@@ -108,15 +105,15 @@
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image3.png)
 
-1.  오른쪽 창의 **Datastores**(데이터 저장소) 아래에서 VMDK를 업로드할 데이터 저장소를 선택합니다. 데이터 저장소에는 OS 및 데이터 디스크에 충분한 여유 공간이 있어야 합니다.
+1.  오른쪽 창의 **데이터 저장소** 아래에서 VMDK를 업로드할 데이터 저장소를 선택합니다. 데이터 저장소에는 OS 및 데이터 디스크에 충분한 여유 공간이 있어야 합니다.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image4.png)
 
-1.  마우스 오른쪽 단추를 클릭하고 **Browse Datastore**(데이터 저장소 찾아보기)를 선택합니다.
+1.  마우스 오른쪽 단추를 클릭하고 **데이터 저장소 찾아보기**를 선택합니다.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image5.png)
 
-1.  **Datastore Browser**(데이터 저장소 찾아보기) 창이 표시됩니다.
+1.  **데이터 저장소 브라우저** 창이 표시됩니다.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image6.png)
 
@@ -124,7 +121,7 @@
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image8.png)
 
-1.  새 폴더가 **Datastore Browser**(데이터 저장소 찾아보기)의 오른쪽 창에 표시됩니다.
+1.  새 폴더가 **데이터 저장소 브라우저**의 오른쪽 창에 표시됩니다.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image9.png)
 
@@ -158,7 +155,7 @@
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image18.png)
 
-1.  **Virtual Machine Version**(가상 컴퓨터 버전) 페이지에서 **Virtual Machine Version: 8**(가상 컴퓨터 버전: 8)을 선택합니다. 이 릴리스에는 이 옵션만 지원됩니다.
+1.  **가상 컴퓨터 버전** 페이지에서 **가상 컴퓨터 버전: 8**을 선택합니다. 이 릴리스에는 이 옵션만 지원됩니다.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image19.png)
 
@@ -166,7 +163,7 @@
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image20.png)
 
-1.  **CPU** 페이지에서 **Total number of cores**(총 코어 수)가 4(또는 그 이상)가 되도록 **Number of virtual sockets**(가상 소켓의 수) 및 **Number of cores per virtual socket**(가상 소켓 당 코어의 수)를 조정합니다. **다음**을 클릭합니다.
+1.  **CPU** 페이지에서 **총 코어 수**가 4(또는 그 이상)가 되도록 **가상 소켓의 수** 및 **가상 소켓당 코어의 수**를 조정합니다. **다음**을 클릭합니다.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image21.png)
 
@@ -178,15 +175,15 @@
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image23.png)
 
-1.  **SCSI 컨트롤러** 페이지에서 기본 **LSI Logic SAS controller**(LSI Logic SAS 컨트롤러)를 그대로 둡니다.
+1.  **SCSI 컨트롤러** 페이지에서 기본 **LSI Logic SAS 컨트롤러**를 그대로 둡니다.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image24.png)
 
-1.  **디스크 선택** 페이지에서 **Use an existing virtual disk**(기존 가상 디스크 사용)을 선택합니다. **다음**을 클릭합니다.
+1.  **디스크 선택** 페이지에서 **기존 가상 디스크 사용**을 선택합니다. **다음**을 클릭합니다.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image25.png)
 
-1.  **Select Existing Disk**(기존 디스크 선택) 페이지의 **Disk File Path**(디스크 파일 경로) 아래에서 **찾아보기**를 클릭합니다. **Browse Datastores**(데이터 저장소 찾아보기) 대화 상자가 열립니다. VMDK를 업로드한 위치로 이동합니다. 파일을 선택하고 **확인**을 클릭합니다. **다음**을 클릭합니다.
+1.  **기존 디스크 선택** 페이지의 **디스크 파일 경로** 아래에서 **찾아보기**를 클릭합니다. **데이터 저장소 찾아보기** 대화 상자가 열립니다. VMDK를 업로드한 위치로 이동합니다. 파일을 선택하고 **확인**을 클릭합니다. **다음**을 클릭합니다.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image26.png)
 
@@ -194,23 +191,23 @@
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image27.png)
 
-1.  **Ready to Complete**(완료 준비) 페이지에서 새 가상 컴퓨터와 관련된 모든 설정을 검토합니다. **Edit the virtual machine settings before completion**(완료하기 전에 가상 컴퓨터 설정 편집)을 클릭합니다. **계속**을 클릭합니다.
+1.  **완료 준비** 페이지에서 새 가상 컴퓨터와 관련된 모든 설정을 검토합니다. **완료하기 전에 가상 컴퓨터 설정 편집**을 클릭합니다. **계속**을 클릭합니다.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image28.png)
 
-1.  **Virtual Machines Properties**(가상 컴퓨터 속성) 페이지의 **하드웨어** 탭에서 장치 하드웨어를 찾습니다. **새 하드 디스크**를 선택합니다. **추가**를 클릭합니다.
+1.  **가상 컴퓨터 속성** 페이지의 **하드웨어** 탭에서 장치 하드웨어를 찾습니다. **새 하드 디스크**를 선택합니다. **추가**를 클릭합니다.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image29.png)
 
-1.  **하드웨어 추가** 창이 표시됩니다. **장치 유형** 페이지의 **Choose the type of device you wish to add**(추가할 장치 유형 선택)에서 **하드 디스크**를 선택하고 **다음**을 클릭합니다.
+1.  **하드웨어 추가** 창이 표시됩니다. **장치 유형** 페이지의 **추가할 장치 유형 선택**에서 **하드 디스크**를 선택하고 **다음**을 클릭합니다.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image30.png)
 
-1.  **디스크 선택** 페이지에서 **Create a new virtual disk**(새 가상 디스크 만들기)를 선택합니다. **다음**을 클릭합니다.
+1.  **디스크 선택** 페이지에서 **새 가상 디스크 만들기**를 선택합니다. **다음**을 클릭합니다.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image31.png)
 
-1.  **디스크 만들기** 페이지에서 **디스크 크기**를 500GB(또는 그 이상)로 변경합니다. **Disk Provisioning**(디스크 프로비전)에서 **Thin Provision**(씬 프로비전)을 선택합니다. **다음**을 클릭합니다.
+1.  **디스크 만들기** 페이지에서 **디스크 크기**를 500GB(또는 그 이상)로 변경합니다. **디스크 프로비전**에서 **씬 프로비전**을 선택합니다. **다음**을 클릭합니다.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image32.png)
 
@@ -218,7 +215,7 @@
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image33.png)
 
-1.  **Ready to Complete**(완료 준비) 페이지에서 디스크 옵션을 검토합니다. **마침**을 클릭합니다.
+1.  **완료 준비** 페이지에서 디스크 옵션을 검토합니다. **마침**을 클릭합니다.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image34.png)
 
@@ -242,7 +239,7 @@
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image37.png)
 
-1.  설정 태스크를 완료하려면 몇 분 정도 걸립니다. 장치가 실행되면 **콘솔** 탭으로 이동합니다. Ctrl+Alt+Delete 키를 눌러서 장치에 로그온합니다. 또는, 콘솔 창의 커서를 가리키고 Ctrl+Alt+Insert 키를 누릅니다. 기본 사용자는 StorSimpleAdmin이고 기본 암호는 Password1입니다.
+1.  설정 태스크를 완료하려면 몇 분 정도 걸립니다. 장치가 실행되면 **콘솔** 탭으로 이동합니다. Ctrl+Alt+Delete 키를 눌러서 장치에 로그온합니다. 또는, 콘솔 창의 커서를 가리키고 Ctrl+Alt+Insert 키를 누릅니다. 기본 사용자는 *StorSimpleAdmin*이고 기본 암호는 *Password1*입니다.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image38.png)
 
@@ -295,4 +292,4 @@
 
 -   [StorSimple 가상 배열을 iSCSI 서버로 설정](storsimple-ova-deploy3-iscsi-setup.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0302_2016-->

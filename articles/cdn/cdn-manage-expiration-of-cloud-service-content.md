@@ -1,18 +1,18 @@
-<properties 
- pageTitle="Azure CDN(콘텐츠 배달 네트워크)에서 클라우드 서비스 콘텐츠의 만료를 관리하는 방법" 
- description="" 
- services="cdn" 
- documentationCenter=".NET" 
- authors="camsoper" 
- manager="dwrede" 
+<properties
+ pageTitle="Azure CDN(콘텐츠 배달 네트워크)에서 클라우드 서비스 콘텐츠의 만료를 관리하는 방법"
+ description=""
+ services="cdn"
+ documentationCenter=".NET"
+ authors="camsoper"
+ manager="erikre"
  editor=""/>
-<tags 
- ms.service="cdn" 
- ms.workload="media" 
- ms.tgt_pltfrm="na" 
- ms.devlang="dotnet" 
- ms.topic="article" 
- ms.date="12/02/2015" 
+<tags
+ ms.service="cdn"
+ ms.workload="media"
+ ms.tgt_pltfrm="na"
+ ms.devlang="dotnet"
+ ms.topic="article"
+ ms.date="02/25/2016" 
  ms.author="casoper"/>
 
 #Azure CDN(콘텐츠 배달 네트워크)에서 클라우드 서비스 콘텐츠의 만료를 관리하는 방법
@@ -25,12 +25,12 @@ Azure CDN 캐싱이 가장 도움이 되는 개체는 TTL(Time-To-Live) 기간 �
 
 다음 XML은 최대 보존 기간을 3일로 지정하는 **clientCache** 설정 예제를 보여 줍니다.
 
-	<configuration> 
-	  <system.webServer> 
-	        <staticContent> 
-	            <clientCache cacheControlMode="UseMaxAge" cacheControlMaxAge="3.00:00:00" /> 
-	        </staticContent> 
-	  </system.webServer> 
+	<configuration>
+	  <system.webServer>
+	        <staticContent>
+	            <clientCache cacheControlMode="UseMaxAge" cacheControlMaxAge="3.00:00:00" />
+	        </staticContent>
+	  </system.webServer>
 	</configuration>
 
 **UseMaxAge**를 지정하면 **CacheControlMaxAge** 특성에 지정된 값에 따라 Cache-Control: max-age=<nnn> 헤더가 응답에 추가됩니다. **cacheControlMaxAge** 특성에 대한 시간 범위의 형식은 <days>.<hours>:<min>:<sec>입니다. **clientCache** 노드에 대한 자세한 내용은 [클라이언트 캐시 <clientCache>](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)(영문)를 참조하세요.
@@ -50,4 +50,4 @@ Azure CDN 캐싱이 가장 도움이 되는 개체는 TTL(Time-To-Live) 기간 �
 
 [Azure CDN(콘텐츠 배달 네트워크)에서 Blob 콘텐츠의 만료를 관리하는 방법](./cdn-manage-expiration-of-blob-content.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

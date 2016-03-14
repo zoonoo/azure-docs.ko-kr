@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="08/05/2015"
+	ms.date="02/29/2016"
 	ms.author="MehrdadMzfr" />
 
 #iOS에서 Engagement 도달률을 통합하는 방법
 
-> [AZURE.IMPORTANT]이 가이드의 작업을 수행하기 전에 iOS에서 Engagement를 통합하는 방법 문서에서 설명하는 통합 절차를 수행해야 합니다.
+> [AZURE.IMPORTANT] 이 가이드의 작업을 수행하기 전에 iOS에서 Engagement를 통합하는 방법 문서에서 설명하는 통합 절차를 수행해야 합니다.
 
 
 ### 앱이 자동 푸시 알림을 받을 수 있도록 설정
@@ -116,7 +116,7 @@ Apple 푸시 알림을 받도록 응용 프로그램을 준비하는 방법 가�
 		[[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:handler];
 	}
 
-> [AZURE.NOTE]위의 메서드는 iOS 7에서에서 도입되었습니다. iOS 7 이전 버전을 대상으로 하는 경우 응용 프로그램 대리자에서 메서드 `application:didReceiveRemoteNotification:`를 구현하고 `handler` 인수 대신에 nil을 전달하여 EngagementAgent에서 `applicationDidReceiveRemoteNotification`를 호출해야 합니다.
+> [AZURE.NOTE] 위의 메서드는 iOS 7에서에서 도입되었습니다. iOS 7 이전 버전을 대상으로 하는 경우 응용 프로그램 대리자에서 메서드 `application:didReceiveRemoteNotification:`를 구현하고 `handler` 인수 대신에 nil을 전달하여 EngagementAgent에서 `applicationDidReceiveRemoteNotification`를 호출해야 합니다.
 
 	- (void)application:(UIApplication*)application
 	didReceiveRemoteNotification:(NSDictionary*)userInfo
@@ -124,7 +124,7 @@ Apple 푸시 알림을 받도록 응용 프로그램을 준비하는 방법 가�
 		[[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:nil];
 	}
 
-> [AZURE.IMPORTANT]기본적으로 Engagement 도달률이 completionHandler를 제어합니다. 코드의 `handler` 블록에 수동으로 응답하려는 경우 `handler` 인수에 대한 nil을 전달하고 완료 블록을 제어할 수 있습니다. 가능한 값의 목록에 대한 `UIBackgroundFetchResult` 형식을 참조하세요.
+> [AZURE.IMPORTANT] 기본적으로 Engagement 도달률이 completionHandler를 제어합니다. 코드의 `handler` 블록에 수동으로 응답하려는 경우 `handler` 인수에 대한 nil을 전달하고 완료 블록을 제어할 수 있습니다. 가능한 값의 목록에 대한 `UIBackgroundFetchResult` 형식을 참조하세요.
 
 
 ### 전체 예제
@@ -216,7 +216,7 @@ Apple 푸시 알림을 받도록 응용 프로그램을 준비하는 방법 가�
 -   하위 뷰는 제공된 nib 파일 `AENotificationView.xib` 내의 하위 뷰와 같은 형식이어야 합니다.
 -   하위 뷰는 제공된 nib 파일 `AENotificationView.xib` 내의 하위 뷰와 같은 태그를 포함해야 합니다.
 
-> [AZURE.TIP]제공된 nib 파일 `AENotificationView.xib`을(를) 복사하여 해당 위치에서 작업을 시작하면 됩니다. 그러나 이 nib 파일 내의 뷰는 클래스 `AENotificationView`에 연결되어 있습니다. 이 클래스는 컨텍스트에 따라 하위 뷰를 이동하고 크기를 조정하도록 메서드 `layoutSubViews`을(를) 다시 정의합니다. 해당 메서드를 `UIView` 또는 사용자 지정 뷰 클래스로 바꿀 수 있습니다.
+> [AZURE.TIP] 제공된 nib 파일 `AENotificationView.xib`을(를) 복사하여 해당 위치에서 작업을 시작하면 됩니다. 그러나 이 nib 파일 내의 뷰는 클래스 `AENotificationView`에 연결되어 있습니다. 이 클래스는 컨텍스트에 따라 하위 뷰를 이동하고 크기를 조정하도록 메서드 `layoutSubViews`을(를) 다시 정의합니다. 해당 메서드를 `UIView` 또는 사용자 지정 뷰 클래스로 바꿀 수 있습니다.
 
 코드에서 뷰를 직접 로드하려는 등의 경우 알림을 보다 상세하게 사용자 지정하려면 제공된 소스 코드와 `Protocol ReferencesDefaultNotifier` 및 `AENotifier`의 클래스 설명서를 확인하는 것이 좋습니다.
 
@@ -240,7 +240,7 @@ Apple 푸시 알림을 받도록 응용 프로그램을 준비하는 방법 가�
 -   범주 처리를 처음부터 구현한 경우처럼 `AEDefaultNotifier`을(를) 확장하지 않은 경우
 -   `prepareNotificationView:forContent:`을(를) 재정의한 경우. 이 경우에는 `onNotificationActioned` 또는 `onNotificationExited`을(를) 하나 이상 UI 컨트롤에 매핑해야 합니다.
 
-> [AZURE.WARNING]`handleNotification:`에서 예외를 throw하는 경우 콘텐츠가 삭제되고 `drop`이(가) 호출되며 이 예외가 통계에 보고됩니다. 그리고 나면 다음 캠페인을 처리할 수 있습니다.
+> [AZURE.WARNING] `handleNotification:`에서 예외를 throw하는 경우 콘텐츠가 삭제되고 `drop`이(가) 호출되며 이 예외가 통계에 보고됩니다. 그리고 나면 다음 캠페인을 처리할 수 있습니다.
 
 #### 기존 뷰의 일부로 알림 포함
 
@@ -264,7 +264,7 @@ Apple 푸시 알림을 받도록 응용 프로그램을 준비하는 방법 가�
 
 `NOTIFICATION_AREA_VIEW_TAG` 매크로는 `AEDefaultNotifier.h`에 있습니다.
 
-> [AZURE.NOTE]기본 알림 구성 요소는 이 뷰에 알림 레이아웃이 포함되어 있음을 자동으로 검색하여 해당 뷰에 대한 오버레이를 추가하지 않습니다.
+> [AZURE.NOTE] 기본 알림 구성 요소는 이 뷰에 알림 레이아웃이 포함되어 있음을 자동으로 검색하여 해당 뷰에 대한 오버레이를 추가하지 않습니다.
 
 ### 알림 및 설문 조사
 
@@ -283,7 +283,7 @@ Apple 푸시 알림을 받도록 응용 프로그램을 준비하는 방법 가�
 	AEReachModule* reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
 	[reach registerAnnouncementController:[MyCustomAnnouncementViewController class] forCategory:@"my_category"];
 
-> [AZURE.NOTE]사용자가 "my\_category" 범주의 알림에 대한 알림을 클릭하면 메서드 `initWithAnnouncement:`을(를) 호출하여 등록된 뷰 컨트롤러(여기서는 `MyCustomAnnouncementViewController`)를 초기화한 다음 현재 응용 프로그램 창에 뷰를 추가합니다.
+> [AZURE.NOTE] 사용자가 "my\_category" 범주의 알림에 대한 알림을 클릭하면 메서드 `initWithAnnouncement:`을(를) 호출하여 등록된 뷰 컨트롤러(여기서는 `MyCustomAnnouncementViewController`)를 초기화한 다음 현재 응용 프로그램 창에 뷰를 추가합니다.
 
 `AEAnnouncementViewController` 클래스 구현에서는 하위 뷰를 초기화하려면 속성 `announcement`을(를) 읽어야 합니다. 두 개의 레이블이 `AEReachAnnouncement` 클래스의 `title` 및 `body` 속성을 사용하여 초기화되는 아래 예제를 살펴보세요.
 
@@ -316,7 +316,7 @@ Apple 푸시 알림을 받도록 응용 프로그램을 준비하는 방법 가�
 
 이번에는 제공된 `MyCustomPollViewController`이(가) `AEPollViewController`을(를) 확장해야 합니다. 기본 컨트롤러인 `AEDefaultPollViewController`에서 확장할 수도 있습니다.
 
-> [AZURE.IMPORTANT]뷰 컨트롤러가 해제되기 전에 `action`(사용자 지정 설문 조사 뷰 컨트롤러의 경우 `submitAnswers:`) 또는 `exit` 메서드를 호출해야 합니다. 이렇게 하지 않으면 통계가 전송되지 않아 캠페인이 분석되지 않습니다. 또한 응용 프로그램 프로세스를 다시 시작할 때까지 다음 캠페인에 알림이 전달되지 않습니다.
+> [AZURE.IMPORTANT] 뷰 컨트롤러가 해제되기 전에 `action`(사용자 지정 설문 조사 뷰 컨트롤러의 경우 `submitAnswers:`) 또는 `exit` 메서드를 호출해야 합니다. 이렇게 하지 않으면 통계가 전송되지 않아 캠페인이 분석되지 않습니다. 또한 응용 프로그램 프로세스를 다시 시작할 때까지 다음 캠페인에 알림이 전달되지 않습니다.
 
 ##### 구현 예제
 
@@ -416,4 +416,4 @@ Apple 푸시 알림을 받도록 응용 프로그램을 준비하는 방법 가�
 
 	@end
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

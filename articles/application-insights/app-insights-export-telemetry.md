@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2016" 
+	ms.date="03/01/2016" 
 	ms.author="awills"/>
  
 # Application Insights에서 원격 분석 내보내기
@@ -21,7 +21,10 @@
 
 연속 내보내기는 무료 평가 기간에 사용할 수 있고 [표준 및 프리미엄 요금제](https://azure.microsoft.com/pricing/details/application-insights/)에서 확인할 수 있습니다.
 
-(단순히 메트릭에서 보거나 블레이드를 검색할 내용의 [일회성 내보내기](app-insights-metrics-explorer.md#export-to-excel)를 수행하려면 블레이드 맨 위의 내보내기를 클릭합니다. Power BI에서 데이터를 확인하려는 경우 연속 내보내기를 사용하지 *않는* [어댑터](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)를 사용합니다.)
+>[AZURE.NOTE] [Power BI에서 데이터를 탐색](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)하려는 경우 연속 내보내기를 사용하지 않고 탐색할 수 있습니다.
+>
+>단순히 메트릭에서 보거나 블레이드를 검색할 내용의 [일회성 내보내기](app-insights-metrics-explorer.md#export-to-excel)를 수행하려면 블레이드 맨 위의 내보내기를 클릭합니다.
+
 
 ## 저장소 계정 만들기
 
@@ -209,4 +212,4 @@ blob 저장소를 열면 blob 파일 집합이 포함된 컨테이너가 보입�
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -1,26 +1,26 @@
-<properties 
-	pageTitle="Azure CDN(콘텐츠 배달 네트워크) POP 위치" 
-	description="이 항목은 Azure CDN(콘텐츠 배달 네트워크) POP 위치를 나열합니다." 
-	services="cdn" 
-	documentationCenter="" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="Azure CDN(콘텐츠 배달 네트워크) POP 위치"
+	description="이 항목은 Azure CDN(콘텐츠 배달 네트워크) POP 위치를 나열합니다."
+	services="cdn"
+	documentationCenter=""
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
+<tags
+	ms.service="cdn"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/25/2016" 
 	ms.author="casoper"/>
 
 
 #Azure CDN(콘텐츠 배달 네트워크) POP 위치
 
 이 항목은 현재 Microsoft Azure CDN 상호 접속(POP) 위치를 나열합니다.
-   
+
 
 ![CDN POP 위치](./media/cdn-pop-locations/CDN_POP_locations_update.png)
 
@@ -76,6 +76,6 @@
 ##오스트레일리아
 
 - 멜버른
-- 시드니 
+- 시드니
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
  
 # 종속성, 예외 및 Java 웹앱에서의 실행 시간을 모니터링합니다.
@@ -80,7 +80,7 @@ xml 파일의 내용을 설정합니다. 다음 예제를 편집하여 원하는
                 void methodTwo(String, int) -->
            <Method name="methodTwo"
               reportExecutionTime="true"
-              signature="(Ljava/lang/String:I)V" />
+              signature="(Ljava/lang/String;I)V" />
         </Class>
         
       </Instrumentation>
@@ -122,4 +122,4 @@ Application Insights 리소스에서 원격 종속성과 메서드 실행 시간
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0302_2016-->

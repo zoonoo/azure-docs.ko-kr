@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="01/22/2016"
+   	ms.date="02/29/2016"
    	ms.author="larryfr"/>
 
 #Azure CLI를 사용하여 HDInsight에서 Linux 기반 클러스터 만들기
@@ -57,8 +57,8 @@ Azure 리소스 관리 템플릿은 __리소스 그룹__ 및 그 안에 모든 �
 
 4. HDInsight 클러스터에 대한 템플릿을 만듭니다. 다음은 기본 예제 템플릿 일부입니다.
 
-    * [SSH 공개 키를 사용하는 Linux 기반 클러스터](https://github.com/Azure/azure-quickstart-templates/tree/master/hdinsight-linux-ssh-publickey)
-    * [SSH 계정에 암호를 사용하는 Linux 기반 클러스터](https://github.com/Azure/azure-quickstart-templates/tree/master/hdinsight-linux-ssh-password)
+    * [SSH 공개 키를 사용하는 Linux 기반 클러스터](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-publickey)
+    * [SSH 계정에 암호를 사용하는 Linux 기반 클러스터](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password)
 
     또한 이러한 템플릿은 모두 HDInsight에서 사용되는 기본 Azure 저장소 계정을 만듭니다.
 
@@ -83,7 +83,7 @@ Azure 리소스 관리 템플릿은 __리소스 그룹__ 및 그 안에 모든 �
 5. 다음을 사용하여 빈 리소스 그룹을 만듭니다. __RESOURCEGROUPNAME__을 이 그룹에 사용하려는 이름으로 바꿉니다. __LOCATION__을 HDInsight 클러스터를 만들려는 데이터센터로 바꿉니다.
 
         azure group create RESOURCEGROUPNAME LOCATION
-    
+
     > [AZURE.NOTE] 위치 이름이 공백을 포함하는 경우 이중 따옴표로 묶습니다. 예를 들어 "미국 중남부"입니다.
 
 6. 다음 명령을 사용하여 이 리소스 그룹에 초기 배포를 만듭니다. __PATHTOTEMPLATE__를 __azuredeploy.json__ 템플릿 파일에 대한 경로로 바꿉니다. __PATHTOPARAMETERSFILE__를 __azuredeploy.parameters.json__ 파일에 대한 경로로 바꿉니다. __RESOURCEGROUPNAME__를 이전 단계에서 만든 그룹의 이름으로 바꿉니다.
@@ -95,7 +95,7 @@ Azure 리소스 관리 템플릿은 __리소스 그룹__ 및 그 안에 모든 �
 7. 배포를 완료하려면 약 15분 정도의 시간이 걸릴 수 있습니다. 다음 명령을 사용하여 배포에 대한 정보를 볼 수 있습니다. __RESOURCEGROUPNAME__를 이전 단계에서 사용한 리소스 그룹의 이름으로 바꿉니다.
 
         azure group log show -l RESOURCEGROUPNAME
-    
+
     배포가 완료되면 __상태__ 필드에 __성공__ 값이 포함됩니다. 배포 중에 오류가 발생하는 경우 다음 명령을 사용하여 오류에 대한 자세한 정보를 얻을 수 있습니다.
 
         azure group log show -l -v RESOURCEGROUPNAME
@@ -121,4 +121,4 @@ HDInsight 클러스터를 성공적으로 만들었으므로 다음을 사용하
 * [HDInsight의 Storm에서 Python 구성 요소 사용](hdinsight-storm-develop-python-topology.md)
 * [HDInsight에서 Storm을 사용하는 토폴로지 배포 및 모니터링](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

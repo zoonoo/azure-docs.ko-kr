@@ -13,13 +13,18 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="02/23/2016"
+ms.date="03/02/2016"
 ms.author="deonhe"/>
 
 # CRM API 시작
-Dynamics CRM Online에 연결하여 새 레코드 만들기, 항목 업데이트 등의 작업을 수행합니다.
+Dynamics CRM Online에 연결하여 새 레코드 만들기, 항목 업데이트 등의 작업을 수행합니다. CRM Online API를 다음에서 사용할 수 있습니다.
 
-CRM Online API는 PowerApps 엔터프라이즈 및 논리 앱에서 사용할 수 있습니다.
+- 논리 앱
+- PowerApps
+
+> [AZURE.SELECTOR]
+- [논리 앱](../articles/connectors/create-api-crmonline.md)
+- [PowerApps 엔터프라이즈](../articles/power-apps/powerapps-create-api-crmonline.md)
 
 CRM Online을 사용하면 다음과 같은 작업을 수행할 수 있습니다.
 
@@ -27,20 +32,21 @@ CRM Online을 사용하면 다음과 같은 작업을 수행할 수 있습니다
 - 레코드 삭제, 엔터티 가져오기 등의 작업을 사용합니다. 이러한 작업을 사용하여 응답을 가져오고 출력을 다른 작업에 사용할 수 있도록 설정합니다. 예를 들어 CRM에서 항목이 업데이트되면 Office 365를 사용하여 메일을 보낼 수 있습니다.
 
 
-PowerApps 엔터프라이즈에서 API를 추가하는 방법을 보려면 [Register an API in PowerApps](../power-apps/powerapps-register-from-available-apis.md)(PowerApps에서 API 등록)로 이동하세요.
+PowerApps 엔터프라이즈에서 API를 추가하는 방법을 보려면 [PowerApps에서 API 등록](../power-apps/powerapps-register-from-available-apis.md)으로 이동하세요.
 
 논리 앱에 작업을 추가하려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
 
 ## 트리거 및 작업
 CRM API에는 다음 작업이 포함됩니다. 트리거는 없습니다.
 
-| 트리거 | 동작|
+| 트리거 | actions|
 | --- | --- |
 |없음| <ul><li>새 레코드 만들기</li><li>레코드 가져오기</li><li>레코드 삭제</li><li>레코드 가져오기</li><li>엔터티 가져오기</li><li>항목 업데이트</li></ul>
 
 모든 API는 JSON 및 XML 형식의 데이터를 지원합니다.
 
 ## CRM Online에 대한 연결 만들기
+
 
 ### PowerApps에 구성 추가
 PowerApps 엔터프라이즈에 CRM Online을 추가할 때 Dynamics CRM Online AAD(Azure Active Directory) 응용 프로그램의 **클라이언트 ID** 및 **앱 키** 값을 입력합니다. 또한 **URL 리디렉션** 값도 CRM Online 응용 프로그램에서 사용됩니다. 응용 프로그램이 없는 경우 다음 단계를 사용하여 응용 프로그램을 만들 수 있습니다.
@@ -68,14 +74,27 @@ PowerApps 엔터프라이즈에 CRM Online을 추가할 때 Dynamics CRM Online 
 이제 Azure 포털의 CRM Online 구성에서 **클라이언트 ID** 및 **앱 키** 값을 복사하여 붙여넣습니다.
 
 ### 논리 앱에 구성 추가
-논리 앱에 이 API를 추가할 때 Dynamic CRM Online에 로그인해야 합니다.
+논리 앱에 이 API를 추가할 때 Dynamics CRM Online에 로그인해야 합니다.
+
+다음 단계를 따라 CRM Online에 로그인하고 논리 앱의 **연결** 구성을 완료합니다.
+
+1. **되풀이**를 선택합니다.
+2. **빈도**를 선택하고 **간격**을 입력합니다.
+3. **작업 추가**를 선택합니다. ![CRM 온라인 구성][13]
+4. 검색 상자에 CRM을 입력하고 이름에 CRM이 있는 모든 항목이 반환될 때까지 검색을 기다립니다.
+5. **Dynamics CRM Online - 새 레코드 만들기**를 선택합니다.
+6. **Dynamics CRM Online에 로그인**을 선택합니다. ![CRM 온라인 구성][14]
+7. CRM Online 자격 증명을 제공하여 로그인하고 응용 프로그램에 권한을 부여합니다. ![CRM 온라인 구성][15]  
+8. 로그인한 후 다른 트리거 및 필요한 동작을 추가하여 완료하기 위해 논리 앱으로 돌아갑니다.
+9. 위의 메뉴 모음에서 **저장**을 선택하여 작업을 저장합니다.
+
 
 연결을 만든 후에 테이블 또는 데이터 집합 등의 CRM Online 속성을 입력합니다. 이 항목의 **REST API 참조**에서는 이러한 속성에 대해 설명합니다.
 
 >[AZURE.TIP] 다른 논리 앱에서 이 연결을 사용할 수 있습니다.
 
 ## Swagger REST API 참조
-#### 이 문서 적용 버전: 1.0
+적용 버전: 1.0
 
 ### 새 레코드 만들기 
 엔터티에 새 레코드를 만듭니다. ```POST: /datasets/{dataset}/tables/{table}/items```
@@ -276,5 +295,8 @@ PowerApps 엔터프라이즈에 CRM 온라인 API를 추가한 후 해당 앱에
 [9]: ./media/create-api-crmonline/aad-tenant-applications-add-appinfo.png
 [10]: ./media/create-api-crmonline/aad-tenant-applications-add-app-properties.png
 [12]: ./media/create-api-crmonline/contoso-aad-app-configure.png
+[13]: ./media/create-api-crmonline/crmconfig1.png
+[14]: ./media/create-api-crmonline/crmconfig2.png
+[15]: ./media/create-api-crmonline/crmconfig3.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

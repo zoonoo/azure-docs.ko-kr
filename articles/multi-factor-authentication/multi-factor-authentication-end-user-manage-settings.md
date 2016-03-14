@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="02/25/2016" 
 	ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication에 문제가 있는 경우
@@ -124,6 +124,9 @@ Azure에서 Multi-Factor Authentication을 사용하는 경우 Azure 포털을 �
 
 새 전화를 구입했고 mfa에서 사용할 기본 연락처 번호를 변경해야 하는 경우 두 가지 방법 중 하나로 이 작업을 수행할 수 있습니다.
 
+>[AZURE.IMPORTANT]
+보조 인증 전화 번호를 구성하는 것이 중요합니다. 기본 전화 번호 및 모바일 앱은 아마도 동일한 전화상에 있으므로 보조 전화 번호는 전화를 분실하거나 도난당한 경우 사용자 계정으로 돌아갈 수 있는 유일한 방법입니다.
+
 첫 번째 방법은 보조 인증 방법을 사용하는 것입니다. 보조 인증 전화 번호를 지정한 경우 이를 사용하여 로그인할 수 있습니다. ![설정](./media/multi-factor-authentication-end-user-manage/altphone.png) 위의 스크린샷에서 두 개의 전화 번호가 설정되었습니다. 67 및 30에서 하나씩 끝납니다.
   
 대체 전화 번호를 사용하여 로그인하려면 일반적으로 로그인한 다음 **다른 인증 옵션 사용**을 선택하면 됩니다. ![다양한 확인](./media/multi-factor-authentication-end-user-manage/differentverification.png)
@@ -131,9 +134,6 @@ Azure에서 Multi-Factor Authentication을 사용하는 경우 Azure 포털을 �
 그런 다음 다른 전화번호를 선택합니다. 이 경우 **다음 번호로 호출: +X XXXXXXXX30**을 선택합니다.
 
 ![대체 전화](./media/multi-factor-authentication-end-user-manage/altphone2.png)
-
->[AZURE.IMPORTANT]
-보조 인증 전화 번호를 구성하는 것이 중요합니다. 기본 전화 번호 및 모바일 앱은 아마도 동일한 전화상에 있으므로 보조 전화 번호는 전화를 분실하거나 도난당한 경우 사용자 계정으로 돌아갈 수 있는 유일한 방법입니다.
 
 두 번째는 관리자 또는 mfa를 설정한 사람에게 문의하는 방법입니다. 보조 인증 전화 번호를 구성하지 않은 경우 이 작업을 수행해야 합니다. 그렇지 않은 경우 관리자 또는 mfa를 설정한 사람에게 설정을 삭제하도록 문의하여 다음 번 로그인 시 [Multi-Factor Authentication 설정](multi-factor-authentication-manage-users-and-devices.md#require-selected-users-to-provide-contact-methods-again)을 다시 하라는 메시지가 나타나도록 해야 합니다.
 
@@ -172,4 +172,4 @@ Azure에서 Multi-Factor Authentication을 사용하는 경우 Azure 포털을 �
 
 마지막으로, 이 페이지를 업데이트하고 보다 많은 정보를 제공하여 지속적으로 개선할 수 있도록 이 페이지에 자세한 피드백을 남겨야 합니다.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

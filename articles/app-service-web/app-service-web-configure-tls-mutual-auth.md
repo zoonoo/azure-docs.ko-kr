@@ -13,15 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="02/27/2016" 
 	ms.author="naziml"/>
 
 # 웹앱에 대 한 TLS 상호 인증을 구성하는 방법
 
 ## 개요 ##
 다양 한 유형에 대 한 인증을 사용하여 Azure 웹앱에 대한 액세스를 제한할 수 있습니다. 이렇게 하는 한 가지 방법은 TLS/SSL을 통해 요청되면 클라이언트 인증서를 사용하여 인증하는 것입니다. 이 메커니즘은 TLS 상호 인증 또는 클라이언트 인증서 인증이라고 하고, 이 문서에서는 클라이언트 인증서 인증을 사용하여 웹앱을 설치하는 방법을 자세히 다룹니다.
+
 > **참고:** HTTP를 통해 사이트에 액세스하고 HTTPS를 통해서는 액세스하지 않는 경우 클라이언트 인증서가 제공되지 않습니다. 따라서 응용 프로그램에 클라이언트 인증서가 필요한 경우 HTTP를 통한 응용 프로그램 요청을 허용해서는 안 됩니다.
-> 
+
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -181,4 +182,4 @@ ASP.NET을 사용할 때 클라이언트 인증서 인증을 사용하도록 앱
         }
     }
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

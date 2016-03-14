@@ -14,22 +14,20 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/23/2016"
+ms.date="02/25/2016"
 ms.author="deonhe"/>
 
 # Excel API 시작
 
-Excel에 연결하여 행을 삽입하거나 삭제하는 등의 작업을 수행합니다.
+Excel에 연결하여 행을 삽입하거나 삭제하는 등의 작업을 수행합니다. Excel API를 다음에서 사용할 수 있습니다.
 
-Excel API는 PowerApps 엔터프라이즈에서 사용할 수 있습니다.
+- PowerApps
 
 Excel을 사용하여 다음을 수행할 수 있습니다.
 
 - PowerApps 엔터프라이즈에 Excel API를 추가합니다. 이렇게 하면 사용자가 앱 내에서 이 API를 사용할 수 있습니다. 
 
-PowerApps 엔터프라이즈에서 API를 추가하는 방법을 보려면 [Register an API in PowerApps](../power-apps/powerapps-register-from-available-apis.md)(PowerApps에서 API 등록)로 이동하세요.
-
-논리 앱에 작업을 추가하려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
+PowerApps 엔터프라이즈에서 API를 추가하는 방법을 보려면 [PowerApps에서 API 등록](../power-apps/powerapps-register-from-available-apis.md)으로 이동하세요.
 
 ## 트리거 및 작업
 Excel에는 다음 작업이 포함됩니다. 트리거는 없습니다.
@@ -41,11 +39,10 @@ Excel에는 다음 작업이 포함됩니다. 트리거는 없습니다.
 모든 API는 JSON 및 XML 형식의 데이터를 지원합니다.
 
 ## Swagger REST API 참조
-#### 이 문서 적용 버전: 1.0
-
+적용 버전: 1.0
 
 ### Excel 테이블에 새 행을 삽입합니다.
-**```POST: /datasets/{dataset}/tables/{table}/items```**로 바꿉니다.
+```POST: /datasets/{dataset}/tables/{table}/items```
 
 
 
@@ -62,12 +59,12 @@ Excel에는 다음 작업이 포함됩니다. 트리거는 없습니다.
 |---|---|
 |200|확인|
 |기본값|작업이 실패했습니다.|
-------
+
 
 
 
 ### Excel 테이블에서 단일 행을 검색합니다.
-**```GET: /datasets/{dataset}/tables/{table}/items/{id}```**로 바꿉니다.
+```GET: /datasets/{dataset}/tables/{table}/items/{id}```
 
 
 
@@ -84,12 +81,12 @@ Excel에는 다음 작업이 포함됩니다. 트리거는 없습니다.
 |---|---|
 |200|확인|
 |기본값|작업이 실패했습니다.|
-------
+
 
 
 
 ### Excel 테이블에서 행을 삭제합니다.
-**```DELETE: /datasets/{dataset}/tables/{table}/items/{id}```**로 바꿉니다.
+```DELETE: /datasets/{dataset}/tables/{table}/items/{id}```
 
 
 
@@ -106,12 +103,12 @@ Excel에는 다음 작업이 포함됩니다. 트리거는 없습니다.
 |---|---|
 |200|확인|
 |기본값|작업이 실패했습니다.|
-------
+
 
 
 
 ### Excel 테이블에서 기존 행을 업데이트합니다.
-**```PATCH: /datasets/{dataset}/tables/{table}/items/{id}```**로 바꿉니다.
+```PATCH: /datasets/{dataset}/tables/{table}/items/{id}```
 
 
 
@@ -129,7 +126,7 @@ Excel에는 다음 작업이 포함됩니다. 트리거는 없습니다.
 |---|---|
 |200|확인|
 |기본값|작업이 실패했습니다.|
-------
+
 
 
 
@@ -211,4 +208,4 @@ Excel에는 다음 작업이 포함됩니다. 트리거는 없습니다.
 ## 다음 단계
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md) [파워 앱 만들기](../power-apps/powerapps-get-started-azure-portal.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 # Box API 시작
-Box에 연결하여 파일 만들기, 파일 삭제 등의 작업을 수행합니다.
+Box에 연결하여 파일 만들기, 파일 삭제 등의 작업을 수행합니다. Box API는 다음에서 사용할 수 있습니다.
 
-논리 앱에서 Box API를 사용할 수 있습니다.
+- 논리 앱 
 
 >[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다. 2014-12-01-preview 스키마 버전에 대한 내용을 보려면 [Box 커넥터](../app-service-logic/app-service-logic-connector-box.md)를 클릭하세요.
 
@@ -52,6 +52,7 @@ Box에는 다음 트리거 및 작업이 포함됩니다.
 >[AZURE.TIP] 다른 논리 앱에서 이와 동일한 Box 연결을 사용할 수 있습니다.
 
 ## Swagger REST API 참조
+적용 버전: 1.0
 
 ### 파일 만들기
 Box에 파일을 업로드합니다. ```POST: /datasets/default/files```
@@ -261,4 +262,4 @@ Box 폴더에서 파일을 수정할 때 흐름을 트리거합니다. ```GET: /
 
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

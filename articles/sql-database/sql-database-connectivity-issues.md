@@ -13,7 +13,7 @@
 	ms.workload="sql-database"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="02/17/2016"
 	ms.author="daleche"/>
 
@@ -80,7 +80,7 @@
 
 첫 번째 재시도 전에 5초간 지연하는 것이 좋습니다. 5초보다 짧은 지연 후 재시도는 클라우드 서비스에 많은 위험이 있습니다. 각 후속 재시도에 대해 지연 시간은 최대 60초까지 기하급수적으로 증가해야 합니다.
 
-ADO.NET을 사용하는 클라이언트에 대한 *차단 기간* 의 설명은 [SQL Server 연결 풀링(ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)에서 사용 가능합니다.
+ADO.NET을 사용하는 클라이언트에 대한 *차단 기간*의 설명은 [SQL Server 연결 풀링(ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)에서 사용 가능합니다.
 
 또한 프로그램이 자체적으로 종료하기 전까지 최대 재시도 횟수를 설정할 수 있습니다.
 
@@ -397,9 +397,9 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 ## Enterprise Library 6
 
 
-Enterprise Library 6(EntLib60)은 Azure SQL 데이터베이스를 포함한 견고한 클라우드 서비스 클라이언트를 구현할 수 있는 .NET 클래스의 프레임워크입니다. 가장 먼저
+Enterprise Library 6(EntLib60)은 Azure SQL 데이터베이스를 포함한 견고한 클라우드 서비스 클라이언트를 구현할 수 있는 .NET 클래스의 프레임워크입니다. 가장 먼저 다음을 참조하여 EntLib60을 이용할 수 있는 각 영역에 해당하는 항목을 찾을 수 있습니다.
 
-- Enterprise Library 6 – 2013년 4월을 참조하여 EntLib60을 이용할 수 있는 각 영역에 해당하는 항목을 찾을 수 있습니다.
+- [Enterprise Library 6 – 2013년 4월](http://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx)
 
 
 일시적 오류 처리에 대한 재시도 논리는 EntLib60을 이용할 수 있는 한 가지 영역입니다.
@@ -407,9 +407,9 @@ Enterprise Library 6(EntLib60)은 Azure SQL 데이터베이스를 포함한 견�
 - [4 - 모든 성공의 인내와 비밀: 일시적 오류 처리 응용 프로그램 블록 사용](http://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)
 
 
-재시도 논리에서 EntLib60을 사용하는 간단한 C# 코드 샘플은
+재시도 논리에서 EntLib60을 사용하는 간단한 C# 코드 샘플을 다음에서 사용할 수 있습니다.
 
-- 코드 샘플: Enterprise Library 6에서 SQL 데이터베이스에 연결하기 위한 C#의 재시도 논리에서 다운로드할 수 있습니다.
+- [코드 샘플: C#의 Enterprise Library 6에서 SQL 데이터베이스 연결을 위한 논리 재시도](sql-database-develop-entlib-csharp-retry-windows.md)
 
 
 > [AZURE.NOTE] EntLib60에 대한 소스 코드는 공용 [다운로드](http://go.microsoft.com/fwlink/p/?LinkID=290898)에 대해 사용할 수 있습니다. Microsoft는 EntLib에 추가 기능 또는 유지 관리를 업데이트할 계획이 없습니다.
@@ -550,4 +550,4 @@ public bool IsTransient(Exception ex)
 
 - [*Retrying*은 임의 항목에 재시도 동작을 추가하는 작업을 간소화하기 위해 Apache 2.0 라이선스 하에 **Python**으로 작성한 일반 목적의 재시도 라이브러리입니다.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

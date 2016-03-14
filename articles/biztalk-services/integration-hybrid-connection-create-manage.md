@@ -4,8 +4,8 @@
 	services="biztalk-services" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
-	manager="dwrede" 
-	editor="cgronlun"/>
+	manager="erikre" 
+	editor=""/>
 
 <tags 
 	ms.service="biztalk-services" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="02/29/2016" 
 	ms.author="mandia"/>
 
 
@@ -33,7 +33,7 @@
 
 하이브리드 연결은 웹앱**또는** BizTalk 서비스를 사용하여 Azure 포털에서 만들 수 있습니다.
 
-**웹앱을 사용하여 하이브리드 연결을 만들려면** [Azure 웹앱을 온-프레미스 리소스에 연결](../web-sites-hybrid-connection-get-started.md)을 참조하세요.
+**웹앱을 사용하여 하이브리드 연결을 만들려면** [Azure 웹앱을 온-프레미스 리소스에 연결](../app-service-web/web-sites-hybrid-connection-get-started.md)을 참조하세요.
 
 **BizTalk 서비스에서 하이브리드 연결을 만들려면**
 
@@ -61,9 +61,9 @@
 
 ## <a name="LinkWebSite"></a>Azure 웹앱 또는 Azure 모바일 앱 연결
 
-Azure 웹앱을 기존 하이브리드 연결에 연결하려면 하이브리드 연결 블레이드에서 **기존 하이브리드 연결 사용**을 선택합니다. [Azure 웹앱을 온-프레미스 리소스](../web-sites-hybrid-connection-get-started.md)에 연결을 참조하세요.
+Azure 웹앱을 기존 하이브리드 연결에 연결하려면 하이브리드 연결 블레이드에서 **기존 하이브리드 연결 사용**을 선택합니다. [Azure 웹앱을 온-프레미스 리소스](../app-service-web/web-sites-hybrid-connection-get-started.md)에 연결을 참조하세요.
 
-Azure 모바일 앱을 기존 하이브리드 연결에 연결하려면 모바일 서비스를 변경하거나 만들 때 **하이브리드 연결 추가**를 선택합니다. [Azure 모바일 서비스 및 하이브리드 연결](../mobile-services-dotnet-backend-hybrid-connections-get-started.md)(영문)을 참조하세요.
+Azure 모바일 앱을 기존 하이브리드 연결에 연결하려면 모바일 서비스를 변경하거나 만들 때 **하이브리드 연결 추가**를 선택합니다. [Azure 모바일 서비스 및 하이브리드 연결](../mobile-services/mobile-services-dotnet-backend-hybrid-connections-get-started.md)(영문)을 참조하세요.
 
 
 ## <a name="InstallHCM"></a>온-프레미스에 하이브리드 연결 관리자 설치
@@ -85,7 +85,7 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 3. On the on-premises resource, install the Hybrid Connection Manager from the MSI file. 
 4. Using Windows PowerShell, type: 
 > Add-HybridConnection -ConnectionString “*Your On-Premises Connection String that you copied*” 
--->
+--> 
 
 #### 추가 항목
 - 하이브리드 연결은 다음 운영 체제에 설치된 온-프레미스 리소스를 지원합니다.
@@ -119,7 +119,9 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 
 	**연결 관리**에는 응용 프로그램 및 온-프레미스 연결 문자열이 나열됩니다. 연결 문자열을 복사하거나 연결 문자열에 사용된 액세스 키를 다시 생성할 수 있습니다.
 
-	**다시 생성을 선택하면** 연결 문자열에 사용된 공유 선택키가 변경됩니다. 다음을 수행합니다. Azure 클래식 포털의 Azure 응용 프로그램에서 **키 동기화**를 선택합니다. **온-프레미스 설치**를 다시 실행합니다. 온-프레미스 설치를 다시 실행하면 온-프레미스 리소스가 업데이트된 기본 연결 문자열을 사용하도록 자동으로 구성됩니다.
+	**다시 생성을 선택하면** 연결 문자열에 사용된 공유 선택키가 변경됩니다. 다음을 수행합니다.
+	- Azure 클래식 포털의 Azure 응용 프로그램에서 **키 동기화**를 선택합니다.
+	- **온-프레미스 설치**를 다시 실행합니다. 온-프레미스 설치를 다시 실행하면 온-프레미스 리소스가 업데이트된 기본 연결 문자열을 사용하도록 자동으로 구성됩니다.
 
 
 #### 그룹 정책을 사용하여 하이브리드 연결에 사용되는 온-프레미스 리소스를 제어합니다.
@@ -138,7 +140,7 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 
 ## 다음
 
-[Azure 웹앱을 온-프레미스 리소스에 연결](../web-sites-hybrid-connection-get-started.md) [Azure 웹앱에서 온-프레미스 SQL Server에 연결](../web-sites-hybrid-connection-connect-on-premises-sql-server.md) [Azure 모바일 서비스 및 하이브리드 연결](../mobile-services-dotnet-backend-hybrid-connections-get-started.md) [하이브리드 연결 개요](integration-hybrid-connection-overview.md)
+[Azure 웹앱을 온-프레미스 리소스에 연결](../app-service-web/web-sites-hybrid-connection-get-started.md) [Azure 웹앱에서 온-프레미스 SQL Server에 연결](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md) [Azure 모바일 서비스 및 하이브리드 연결](../mobile-services/mobile-services-dotnet-backend-hybrid-connections-get-started.md) [하이브리드 연결 개요](integration-hybrid-connection-overview.md)
 
 
 ## 참고 항목
@@ -150,4 +152,4 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

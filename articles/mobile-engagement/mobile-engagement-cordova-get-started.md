@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="mobile-phonegap"
 	ms.devlang="js"
 	ms.topic="article" 
-	ms.date="09/22/2015"
+	ms.date="02/29/2016"
 	ms.author="piyushjo" />
 
 # Cordova/Phonegap용 Azure Mobile Engagement 시작
 
 > [AZURE.SELECTOR]
-- [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md)
+- [Windows 범용](mobile-engagement-windows-store-dotnet-get-started.md)
 - [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
 - [iOS | Obj C](mobile-engagement-ios-get-started.md)
 - [iOS | Swift](mobile-engagement-ios-swift-get-started.md)
@@ -64,7 +64,7 @@
 		$ cordova platform add ios 
 		$ cordova run ios
 
-3. 다음을 실행하여 **Android**에 대한 프로젝트를 구성하고 Android 시뮬레이터에서 실행합니다. Android SDK 에뮬레이터 설정에서 대상이 Google API(Google Inc.)이고 CPU/ABI가 Google API ARM인지 확인합니다.
+3. 다음을 실행하여 **Android**에 대한 프로젝트를 구성하고 Android 에뮬레이터에서 실행합니다. Android SDK 에뮬레이터 설정에서 대상이 Google API(Google Inc.)이고 CPU/ABI가 Google API ARM인지 확인합니다.
 
 		$ cordova platform add android
 		$ cordova run android
@@ -245,4 +245,4 @@ GCM 알림은 Android 에뮬레이터에서 지원되므로 에뮬레이터를 �
 [11]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-android.png
 [12]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-ios.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

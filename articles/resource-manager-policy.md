@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="12/18/2015"
+	ms.date="02/26/2016"
 	ms.author="gauravbh;tomfitz"/>
 
 # 정책을 사용하여 리소스 및 컨트롤 액세스 관리
@@ -46,7 +46,7 @@ RBAC는 **사용자**가 서로 다른 범위에서 수행할 수 있는 작업�
 
 ## 정책 정의 구조
 
-정책 정의 JSON는 JSON을 사용하여 생성됩니다. 이는 작업을 정의하는 하나 이상의 조건/논리 연산자 및 조건이 충족될 때 일어나는 일을 알려 주는 효과로 구성됩니다.
+정책 정의 JSON는 JSON을 사용하여 생성됩니다. 이는 작업을 정의하는 하나 이상의 조건/논리 연산자 및 조건이 충족될 때 일어나는 일을 알려 주는 효과로 구성됩니다. 스키마는 [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json)에 게시되어 있습니다.
 
 기본적으로 정책은 다음을 포함합니다.
 
@@ -90,15 +90,45 @@ RBAC는 **사용자**가 서로 다른 범위에서 수행할 수 있는 작업�
 
 ## 필드 및 소스
 
-조건은 필드와 소스를 사용하여 형성됩니다. 필드는 리소스 요청 페이로드의 속성을 나타냅니다. 원본은 요청 자체의 특성을 나타냅니다.
+조건은 필드와 소스를 사용하여 형성됩니다. 필드는 리소스의 상태를 설명하는 데 사용되는 리소스 요청 페이로드의 속성을 나타냅니다. 원본은 요청 자체의 특성을 나타냅니다.
 
 다음과 같은 필드와 소스가 지원됩니다.
 
-필드: **name**, **kind**, **type**, **location**, **tags**, **tags.***.
+필드: **name**, **kind**, **type**, **location**, **tags**, **tags.***, **property alias**.
 
 원본: **action**.
 
+속성 별칭은 설정 및 sku와 같은 리소스 종류 특정 속성에 액세스하는 정책 정의에 사용될 수 있는 이름입니다. 속성이 존재하는 모든 API 버전에서 작동합니다. 아래 REST API를 사용하여 별칭을 검색할 수 있습니다(Powershell 지원은 향후 추가될 예정).
+
+    GET /subscriptions/{id}/providers?$expand=resourceTypes/aliases&api-version=2015-11-01
+	
+별칭 정의는 다음과 같습니다. 여기에서 볼 수 있듯이 별칭은 속성 이름을 변경하는 경우에도 서로 다른 API 버전에 경로를 정의합니다.
+
+    "aliases": [
+      {
+        "name": "Microsoft.Storage/storageAccounts/sku.name",
+        "paths": [
+          {
+            "path": "Properties.AccountType",
+            "apiVersions": [ "2015-06-15", "2015-05-01-preview" ]
+          }
+        ]
+      }
+    ]
+
+현재 지원되는 별칭:
+
+| 별칭 이름 | 설명 |
+| ---------- | ----------- |
+| {resourceType}/sku.name | 지원되는 리소스 종류: Microsoft.Storage/storageAccounts,<br />Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft... CDN/profiles |
+| {resourceType}/sku.family | 지원되는 리소스 종류: Microsoft.Cache/Redis |
+| {resourceType}/sku.capacity | 지원되는 리소스 종류: Microsoft.Cache/Redis |
+| Microsoft.Cache/Redis/enableNonSslPort | |
+| Microsoft.Cache/Redis/shardCount | |
+
+
 작업에 대한 자세한 내용은 [RBAC - 기본 제공 역할](active-directory/role-based-access-built-in-roles.md)을 참조하세요. 현재 정책은 PUT 요청에만 작동합니다.
+
 
 ## 정책 정의 예제
 
@@ -168,6 +198,35 @@ RBAC는 **사용자**가 서로 다른 범위에서 수행할 수 있는 작업�
         "effect" : "deny"
       }
     }
+
+### 승인된 SKU 사용
+
+아래 예제에서는 SKU를 제한하는 속성 별칭의 사용을 보여 줍니다. 아래 예제에서는 Standard\_LRS 및 Standard\_GRS만 저장소 계정에 대한 사용이 승인됩니다.
+
+    {
+      "if": {
+        "allOf": [
+          {
+            "source": "action",
+            "like": "Microsoft.Storage/storageAccounts/*"
+          },
+          {
+            "not": {
+              "allof": [
+                {
+                  "field": "Microsoft.Storage/storageAccounts/accountType",
+                  "in": ["Standard_LRS", "Standard_GRS"]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "then": {
+        "effect": "deny"
+      }
+    }
+    
 
 ### 명명 규칙
 
@@ -327,4 +386,4 @@ Get-AzureRmPolicyDefinition, Set-AzureRmPolicyDefinition 및 Remove-AzureRmPolic
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
     
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

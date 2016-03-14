@@ -103,7 +103,7 @@ Azure AD Connect를 사용하는 온-프레미스 디렉터리 통합에 대한 
 
 ## 온-프레미스 디렉터리와의 페더레이션을 위해 사용자 지정 도메인 확인
 
-1.  Azure AD Connect 다운로드 및 실행 Azure AD Connect 도구가 [제공하는 DNS 항목을 추가](active-directory-aadconnect-get-started-custom.md#select-the-azure-ad-domain-that-you-wish-to-federate)하라는 메시지를 표시합니다.
+1.  Azure AD Connect 다운로드 및 실행 Azure AD Connect 도구가 [제공하는 DNS 항목을 추가하라는 메시지를 표시](active-directory-aadconnect-get-started-custom.md#verify-the-azure-ad-domain-selected-for-federation)합니다.
 
 ## 세 번째 수준 도메인 이름
 
@@ -125,4 +125,4 @@ PowerShell 및 Graph를 사용하여 이러한 단계를 완료할 수도 있습
 - [사용자 지정 도메인 이름의 DNS 등록 기관 변경](active-directory-add-domain-change-registrar.md)
 - [Azure Active Directory에서 사용자 지정 도메인 삭제](active-directory-add-domain-delete-domain.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

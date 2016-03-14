@@ -15,13 +15,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="03/02/2016"
    ms.author="mandia"/>
 
 # Bing 검색 API 시작 
-Bing 검색에 연결하여 뉴스 검색, 비디오 검색 등의 작업을 수행합니다.
+Bing 검색에 연결하여 뉴스 검색, 비디오 검색 등의 작업을 수행합니다. Bing 검색 API를 다음에서 사용할 수 있습니다.
 
-Bing 검색 API는 PowerApps 및 논리 앱에서 사용할 수 있습니다.
+- 논리 앱 
+- PowerApps
+
+> [AZURE.SELECTOR]
+- [논리 앱](../articles/connectors/create-api-bingsearch.md)
+- [PowerApps 엔터프라이즈](../articles/power-apps/powerapps-create-api-bingsearch.md)
+
 
 Bing 검색을 사용하면 다음과 같은 작업을 수행할 수 있습니다.
 
@@ -29,7 +35,7 @@ Bing 검색을 사용하면 다음과 같은 작업을 수행할 수 있습니�
 - 이미지 검색, 뉴스 검색 등의 작업을 사용합니다. 이러한 작업을 사용하여 응답을 가져오고 출력을 다른 작업에 사용할 수 있도록 설정합니다. 예를 들어 비디오를 검색한 다음 Twitter를 사용하여 Twitter 피드에 해당 비디오를 게시할 수 있습니다.
 - PowerApps 엔터프라이즈에 Bing 검색 API를 추가합니다. 이렇게 하면 사용자가 앱 내에서 이 API를 사용할 수 있습니다. 
 
-PowerApps 엔터프라이즈에서 API를 추가하는 방법을 보려면 [Register an API in PowerApps](../power-apps/powerapps-register-from-available-apis.md)(PowerApps에서 API 등록)로 이동하세요.
+PowerApps 엔터프라이즈에서 API를 추가하는 방법을 보려면 [PowerApps에서 API 등록](../power-apps/powerapps-register-from-available-apis.md)으로 이동하세요.
 
 논리 앱에 작업을 추가하려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
 
@@ -82,7 +88,7 @@ Bing 검색에서 비디오를 검색합니다. ```GET: /Video```
 |market|string|no|쿼리|없음 |검색 범위를 좁힐 시장 또는 지역(예: ko-KR)|
 |longitude|number|no|쿼리|없음 |검색 범위를 좁힐 경도(동/서 좌표)(예: 47.603450)|
 |latitude|number|no|쿼리|없음 |검색 범위를 좁힐 위도(남/북 좌표)(예: -122.329696)|
-|videoFilters|string|no|쿼리|없음 |크기, 측면, 색, 스타일, 서체 또는 둘의 조합을 기반으로 검색을 필터링합니다. 유효한 값: <ul><li>Duration:Short</li><li>Duration:Medium</li><li>Duration:Long</li><li>Aspect:Standard</li><li>Aspect:Widescreen</li><li>Resolution:Low</li><li>Resolution:Medium</li><li>Resolution:High</li></ul> <p>예: 'Duration:Short+Resolution:High'</p>|
+|videoFilters|string|no|쿼리|없음 |크기, 측면, 색, 스타일, 서체 또는 둘의 조합을 기반으로 검색을 필터링합니다. 유효한 값: <ul><li>Duration:Short</li><li>Duration:Medium</li><li>Duration:Long</li><li>Aspect:Standard</li><li>Aspect:Widescreen</li><li>Resolution:Low</li><li>Resolution:Medium</li><li>Resolution:High</li></ul> <br/><br/>예: 'Duration:Short+Resolution:High'|
 |videoSortBy|string|no|쿼리|없음 |결과의 정렬 순서입니다. 유효한 값: <ul><li>Date</li><li>Relevance</li></ul> <p>날짜 정렬 순서는 내림차순입니다.</p>|
 
 #### 응답
@@ -104,7 +110,7 @@ Bing 검색에서 이미지를 검색합니다. ```GET: /Image```
 |market|string|no|쿼리|없음 |검색 범위를 좁힐 시장 또는 지역(예: ko-KR)|
 |longitude|number|no|쿼리| 없음|검색 범위를 좁힐 경도(동/서 좌표)(예: 47.603450)|
 |latitude|number|no|쿼리|없음 |검색 범위를 좁힐 위도(남/북 좌표)(예: -122.329696)|
-|imageFilters|string|no|쿼리|없음 |크기, 측면, 색, 스타일, 서체 또는 둘의 조합을 기반으로 검색을 필터링합니다. 유효한 값: <ul><li>Size:Small</li><li>Size:Medium</li><li>Size:Large</li><li>Size:Width:[Width]</li><li>Size:Height:[Height]</li><li>Aspect:Square</li><li>Aspect:Wide</li><li>Aspect:Tall</li><li>Color:Color</li><li>Color:Monochrome</li><li>Style:Photo</li><li>Style:Graphics</li><li>Face:Face</li><li>Face:Portrait</li><li>Face:Other</li></ul><p>예: 'Size:Small+Aspect:Square'</p>|
+|imageFilters|string|no|쿼리|없음 |크기, 측면, 색, 스타일, 서체 또는 둘의 조합을 기반으로 검색을 필터링합니다. 유효한 값: <ul><li>Size:Small</li><li>Size:Medium</li><li>Size:Large</li><li>Size:Width:[Width]</li><li>Size:Height:[Height]</li><li>Aspect:Square</li><li>Aspect:Wide</li><li>Aspect:Tall</li><li>Color:Color</li><li>Color:Monochrome</li><li>Style:Photo</li><li>Style:Graphics</li><li>Face:Face</li><li>Face:Portrait</li><li>Face:Other</li></ul><br/><br/>예: 'Size:Small+Aspect:Square'|
 
 #### 응답
 |이름|설명|
@@ -127,7 +133,7 @@ Bing 검색에서 뉴스 결과를 검색합니다. ```GET: /News```
 |latitude|number|no|쿼리|없음 |검색 범위를 좁힐 위도(남/북 좌표)(예: -122.329696)|
 |newsSortBy|string|no|쿼리| 없음|결과의 정렬 순서입니다. 유효한 값: <ul><li>Date</li><li>Relevance</li></ul> <p>날짜 정렬 순서는 내림차순입니다.</p>|
 |newsCategory|string|no|쿼리| |검색 범위를 좁힐 뉴스의 범주(예: 'rt\_Business')|
-|newsLocationOverride|string|no|쿼리|없음 |Bing 위치 검색을 재정의합니다. 이 매개 변수는 ko-KR 지역/국가에서만 적용할 수 있습니다. 입력 형식은 US입니다./<state />(예: 'US.WA')|
+|newsLocationOverride|string|no|쿼리|없음 |Bing 위치 검색을 재정의합니다. 이 매개 변수는 ko-KR 지역/국가에서만 적용할 수 있습니다. 입력 형식은 US./<state />(예: 'US.WA')입니다.|
 
 #### 응답
 |이름|설명|
@@ -189,12 +195,12 @@ Bing 검색에서 모든 웹 사이트, 비디오, 이미지 등을 검색합니
 |longitude|number|no|쿼리|없음 |검색 범위를 좁힐 경도(동/서 좌표)(예: 47.603450)|
 |latitude|number|no|쿼리|없음 |검색 범위를 좁힐 위도(남/북 좌표)(예: -122.329696)|
 |webFileType|string|no|쿼리|없음 |검색 범위를 좁힐 파일 형식(예: 'DOC')|
-|videoFilters|string|no|쿼리|없음 |크기, 측면, 색, 스타일, 서체 또는 둘의 조합을 기반으로 검색을 필터링합니다. 유효한 값: <ul><li>Duration:Short</li><li>Duration:Medium</li><li>Duration:Long</li><li>Aspect:Standard</li><li>Aspect:Widescreen</li><li>Resolution:Low</li><li>Resolution:Medium</li><li>Resolution:High</li></ul> <p>예: 'Duration:Short+Resolution:High'</p>|
+|videoFilters|string|no|쿼리|없음 |크기, 측면, 색, 스타일, 서체 또는 둘의 조합을 기반으로 검색을 필터링합니다. 유효한 값: <ul><li>Duration:Short</li><li>Duration:Medium</li><li>Duration:Long</li><li>Aspect:Standard</li><li>Aspect:Widescreen</li><li>Resolution:Low</li><li>Resolution:Medium</li><li>Resolution:High</li></ul> <br/><br/>예: 'Duration:Short+Resolution:High'|
 |videoSortBy|string|no|쿼리|없음 |결과의 정렬 순서입니다. 유효한 값: <ul><li>Date</li><li>Relevance</li></ul> <p>날짜 정렬 순서는 내림차순입니다.</p>|
-|imageFilters|string|no|쿼리|없음 |크기, 측면, 색, 스타일, 서체 또는 둘의 조합을 기반으로 검색을 필터링합니다. 유효한 값: <ul><li>Size:Small</li><li>Size:Medium</li><li>Size:Large</li><li>Size:Width:[Width]</li><li>Size:Height:[Height]</li><li>Aspect:Square</li><li>Aspect:Wide</li><li>Aspect:Tall</li><li>Color:Color</li><li>Color:Monochrome</li><li>Style:Photo</li><li>Style:Graphics</li><li>Face:Face</li><li>Face:Portrait</li><li>Face:Other</li></ul><p>예: 'Size:Small+Aspect:Square'</p>|
+|imageFilters|string|no|쿼리|없음 |크기, 측면, 색, 스타일, 서체 또는 둘의 조합을 기반으로 검색을 필터링합니다. 유효한 값: <ul><li>Size:Small</li><li>Size:Medium</li><li>Size:Large</li><li>Size:Width:[Width]</li><li>Size:Height:[Height]</li><li>Aspect:Square</li><li>Aspect:Wide</li><li>Aspect:Tall</li><li>Color:Color</li><li>Color:Monochrome</li><li>Style:Photo</li><li>Style:Graphics</li><li>Face:Face</li><li>Face:Portrait</li><li>Face:Other</li></ul><br/><br/>예: 'Size:Small+Aspect:Square'|
 |newsSortBy|string|no|쿼리|없음 |결과의 정렬 순서입니다. 유효한 값: <ul><li>Date</li><li>Relevance</li></ul> <p>날짜 정렬 순서는 내림차순입니다.</p>|
 |newsCategory|string|no|쿼리|없음 |검색 범위를 좁힐 뉴스의 범주(예: 'rt\_Business')|
-|newsLocationOverride|string|no|쿼리|없음 |Bing 위치 검색을 재정의합니다. 이 매개 변수는 ko-KR 지역/국가에서만 적용할 수 있습니다. 입력 형식은 US입니다./<state />(예: 'US.WA')|
+|newsLocationOverride|string|no|쿼리|없음 |Bing 위치 검색을 재정의합니다. 이 매개 변수는 ko-KR 지역/국가에서만 적용할 수 있습니다. 입력 형식은 US./<state />(예: 'US.WA')입니다.|
 
 #### 응답
 |이름|설명|
@@ -280,7 +286,7 @@ Bing 검색에서 모든 웹 사이트, 비디오, 이미지 등을 검색합니
 |WebResultsTotal|정수|no|
 |ImageResultsTotal|정수|no|
 |VideoResultsTotal|정수|no|
-|NewsResultsTotal|정수|
+|NewsResultsTotal|정수|no|
 |SpellSuggestionsTotal|정수|no|
 |WebResults|array|no|
 |ImageResults|array|no|
@@ -295,4 +301,4 @@ PowerApps 엔터프라이즈에 Bing 검색 API를 추가한 후 해당 앱에�
 
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->
