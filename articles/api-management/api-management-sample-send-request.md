@@ -1,20 +1,20 @@
 <properties
-   pageTitle="API 관리 서비스를 사용하여 HTTP 요청 생성"
-   description="API 관리에서 요청 및 응답 정책을 사용하여 API에서 외부 서비스를 호출하는 방법을 알아봅니다."
-   services="api-management"
-   documentationCenter=""
-   authors="darrelmiller"
-   manager=""
-   editor=""/>
+	pageTitle="API 관리 서비스를 사용하여 HTTP 요청 생성"
+	description="API 관리에서 요청 및 응답 정책을 사용하여 API에서 외부 서비스를 호출하는 방법을 알아봅니다."
+	services="api-management"
+	documentationCenter=""
+	authors="darrelmiller"
+	manager=""
+	editor=""/>
 
 <tags
-   ms.service="api-management"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="02/01/2016"
-   ms.author="v-darmi"/>
+	ms.service="api-management"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="02/19/2016"
+	ms.author="v-darmi"/>
 
 
 # Azure API 관리 서비스에서 외부 서비스 사용
@@ -269,4 +269,4 @@ Azure API 관리 서비스는 HTTP 트래픽에 선택적으로 적용할 수 �
 
 > [AZURE.VIDEO send-request-and-return-response-policies]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

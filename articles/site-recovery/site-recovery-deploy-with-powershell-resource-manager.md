@@ -31,7 +31,8 @@ ARM에 대한 Azure PowerShell과 함께 사용할 수 있는 Azure Site Recover
 
 > [AZURE.NOTE] Azure Site Recovery PowerShell cmdlet을 사용하여 VMM 사이트에서 VMM 사이트로, VMM 사이트에서 Azure로, Hyper-V 사이트에서 Azure 시나리오로 구성할 수 있습니다. 다른 ASR 시나리오에 대한 지원은 곧 추가될 예정입니다.
 
-이 문서를 사용하기 위해 PowerShell 전문가가 될 필요는 없지만 모듈, cmdlet 및 세션과 같은 기본 개념을 이해한다고 가정합니다. Windows PowerShell에 대한 자세한 내용은 [Azure PowerShell을 사용하여 시작](http://technet.microsoft.com/library/hh857337.aspx)을 참조하세요. 자세한 내용은 [Azure 리소스 관리자를 사용하여 Azure PowerShell 사용](../powershell-azure-resource-manager.md)을 읽어보세요.
+이 문서를 사용하기 위해 PowerShell 전문가가 될 필요는 없지만 모듈, cmdlet 및 세션과 같은 기본 개념을 이해한다고 가정합니다. Windows PowerShell에 대한 자세한 내용은 [Windows PowerShell 시작](http://technet.microsoft.com/library/hh857337.aspx)(영문)을 참조하십시오.
+- [Azure Resource Manager에서 Azure PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하세요.
 
 
 ## 주요 기능
@@ -109,7 +110,7 @@ ARM에 대한 Azure PowerShell과 함께 사용할 수 있는 Azure Site Recover
 
 2. 다음과 같이 새 Azure 복구 서비스 자격 증명 모음을 만듭니다.
 
-		$vault = New-AzureRmRecoveryServicesVault -Name <string> -ResouceGroupName <string> -Location <string>
+		$vault = New-AzureRmRecoveryServicesVault -Name <string> -ResourceGroupName <string> -Location <string>
 
 	`Get-AzureRmRecoveryServicesVault` cmdlet을 사용하여 기존 자격 증명 모음의 목록을 검색할 수 있습니다.
 
@@ -261,4 +262,4 @@ ARM에 대한 Azure PowerShell과 함께 사용할 수 있는 Azure Site Recover
 
     	$TFjob = Resume-AzureRmSiteRecoveryJob -Job $TFjob
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

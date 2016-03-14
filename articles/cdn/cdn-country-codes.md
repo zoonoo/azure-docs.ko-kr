@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="CDN - 국가 코드" 
-	description="국가 필터링 기능은 국가 코드를 사용하여 보안된 디렉터리에 대해 요청이 허용 또는 차단될 국가를 정의합니다." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="CDN - 국가 코드"
+	description="국가 필터링 기능은 국가 코드를 사용하여 보안된 디렉터리에 대해 요청이 허용 또는 차단될 국가를 정의합니다."
+	services="cdn"
+	documentationCenter=".NET"
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/25/2016" 
 	ms.author="casoper"/>
 
 #국가 코드
@@ -23,11 +23,11 @@
 | 코드 | 국가 | 추가 정보                                                                                                                                                                                                                               
 |--------------|----------------------------------------------|------------------------------------------------------|
 | A1 | 익명 프록시 | 이 국가 코드는 익명성 도구 또는 VPN 서비스에서 사용되는 IP 주소 집합을 식별합니다. 이러한 유형의 서비스를 사용하여 IP 지리적 위치 제한을 우회할 수도 있습니다. |                                                                        
-| A2 | 위성 공급자 | 이 국가 코드는 위성 ISP가 여러 국가(예: 나이지리아 및 가나)에 인터넷 서비스를 제공하는 데 사용하는 IP 주소 집합을 식별합니다. | 
+| A2 | 위성 공급자 | 이 국가 코드는 위성 ISP가 여러 국가(예: 나이지리아 및 가나)에 인터넷 서비스를 제공하는 데 사용하는 IP 주소 집합을 식별합니다. |
 | AF | 아프가니스탄 | |
 | AL | 알바니아 | |
-| DZ | 알제리 | | 
-| AS | 미국령 사모아 | | 
+| DZ | 알제리 | |
+| AS | 미국령 사모아 | |
 | AD | 안도라 | |
 | AO | 앙골라 | |
 | AI | 앵귈라 | |
@@ -39,10 +39,10 @@
 | AP | 아시아/태평양 지역 | 이 국가 코드는 아시아/태평양 지역에 분산된 IP 주소 집합을 식별합니다. 이 IP 주소 집합의 출처 국가는 알 수 없습니다. 더욱이, 이 국가 코드는 아시아/태평양 지역의 일부 IP 주소를 다루지 않습니다. [자세히 알아봅니다](https://my.edgecast.com/uploads/ubers/1/docs/webhelp/w/CDNHelpCenter/Content/Knowledge_Base/Geolocation_EU_AP.htm).|     
 | AU | 오스트레일리아 | |
 | AT | 오스트리아 | |
-| AZ | 아제르바이잔 | | 
+| AZ | 아제르바이잔 | |
 | BS | 바하마 | |
-| BH | 바레인 | | 
-| BD | 방글라데시 | | 
+| BH | 바레인 | |
+| BD | 방글라데시 | |
 | BB | 바베이도스 | |
 | BY | 벨로루시 | |
 | BE | 벨기에 | |
@@ -268,4 +268,4 @@
 | ZM | 잠비아 | |
 | ZW | 짐바브웨 | |
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

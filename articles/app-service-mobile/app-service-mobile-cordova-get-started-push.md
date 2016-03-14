@@ -76,18 +76,24 @@ Apache Cordova 앱 프로젝트가 푸시 알림을 처리할 준비가 되었�
 
 ### Apache Cordova 푸시 플러그 인 설치
 
-Apache Cordova 응용 프로그램에서는 기본적으로 장치 또는 네트워크 기능을 처리하지 않습니다. 이러한 기능은 [npm] 또는 GitHub에 게시된 플러그 인에서 제공됩니다. `phonegap-plugin-push` 플러그 인은 네트워크 푸시 알림을 처리하는 데 사용됩니다. 명령줄에서 설치하려면
+Apache Cordova 응용 프로그램에서는 기본적으로 장치 또는 네트워크 기능을 처리하지 않습니다. 이러한 기능은 [npm](https://www.npmjs.com/) 또는 GitHub에 게시된 플러그 인에서 제공됩니다. `phonegap-plugin-push` 플러그 인은 네트워크 푸시 알림을 처리하는 데 사용됩니다.
+
+이러한 방법 중 하나로 푸시 플러그 인을 설치할 수 있습니다.
+
+**명령 프롬프트에서:**
 
     cordova plugin add phonegap-plugin-push
 
-Visual Studio 내에서 플러그 인을 설치하려면
+**Visual Studio 내에서:**
 
-1.  솔루션 탐색기 내에서 `config.xml` 파일을 엽니다.
-2.  **플러그 인**(왼쪽을 따라)과 **사용자 지정**(위쪽을 따라)을 차례로 클릭합니다.
-3.  **Git**를 설치 원본으로 선택합니다. `https://github.com/phonegap/phonegap-plugin-push`를 원본으로 입력합니다.
+1.  솔루션 탐색기에서 `config.xml` 파일을 엽니다.
+2.  **플러그 인** > **사용자 지정**을 클릭하고 설치 원본으로 **Git**를 선택한 다음 원본으로 `https://github.com/phonegap/phonegap-plugin-push`를 입력합니다.
+	
+	![](./media/app-service-mobile-cordova-get-started-push/add-push-plugin.png)
+	
 4.  설치 원본 옆의 화살표를 클릭한 다음 **추가**를 클릭합니다.
 
-푸시 플러그 인이 설치됩니다.
+이제 푸시 플러그 인이 설치되었습니다.
 
 ### Android Google Play Services 설치
 
@@ -107,64 +113,69 @@ PhoneGap 푸시 플러그 인은 푸시 알림용으로 Google Play Services를 
 
 ### 시작 시 푸시용 장치 등록
 
-로그인 프로세스에 대한 콜백 중 `registerForPushNotifications()`에 또는 `onDeviceReady()` 메서드의 맨 아래에 호출을 추가합니다.
+1. 로그인 프로세스에 대한 콜백 중에 또는 **onDeviceReady** 메서드 맨 아래에 **registerForPushNotifications** 호출을 추가합니다.
 
-    // Login to the service
-    client.login('google')
-        .then(function () {
-            // Create a table reference
-            todoItemTable = client.getTable('todoitem');
+ 
+		// Login to the service.
+		client.login('google')
+		    .then(function () {
+		        // Create a table reference
+		        todoItemTable = client.getTable('todoitem');
+		
+		        // Refresh the todoItems
+		        refreshDisplay();
+		
+		        // Wire up the UI Event Handler for the Add Item
+		        $('#add-item').submit(addItemHandler);
+		        $('#refresh').on('click', refreshDisplay);
+		
+				// Added to register for push notifications.
+		        registerForPushNotifications();
+		
+		    }, handleError);
 
-            // Refresh the todoItems
-            refreshDisplay();
+	이 예제에서는 인증에 성공한 후 앱에 푸시 알림 및 인증을 모두 사용하는 경우 권장되는 **registerForPushNotifications** 호출을 보여 줍니다.
 
-            // Wire up the UI Event Handler for the Add Item
-            $('#add-item').submit(addItemHandler);
-            $('#refresh').on('click', refreshDisplay);
+2. 다음과 같이 새 `registerForPushNotifications()` 메서드를 추가합니다.
 
-            registerForPushNotifications();
+	    // Register for Push Notifications.
+		// Requires that phonegap-plugin-push be installed.
+	    var pushRegistration = null;
+	    function registerForPushNotifications() {
+	        pushRegistration = PushNotification.init({
+	            android: {
+	                senderID: 'Your_Project_ID'
+	            },
+	            ios: {
+	                alert: 'true',
+	                badge: 'true',
+	                sound: 'true'
+	            },
+	            wns: {
+	
+	            }
+	        });
+	
+	        pushRegistration.on('registration', function (data) {
+	            client.push.register('gcm', data.registrationId);
+	        });
+	
+	        pushRegistration.on('notification', function (data, d2) {
+	            alert('Push Received: ' + data.message);
+	        });
+	
+	        pushRegistration.on('error', handleError);
+	    }
 
-        }, handleError);
-
-다음과 같이 `registerForPushNotifications()`를 구현합니다.
-
-    /**
-     * Register for Push Notifications - requires the phonegap-plugin-push be installed
-     */
-    var pushRegistration = null;
-    function registerForPushNotifications() {
-        pushRegistration = PushNotification.init({
-            android: {
-                senderID: 'YourProjectID'
-            },
-            ios: {
-                alert: 'true',
-                badge: 'true',
-                sound: 'true'
-            },
-            wns: {
-
-            }
-        });
-
-        pushRegistration.on('registration', function (data) {
-            client.push.register('gcm', data.registrationId);
-        });
-
-        pushRegistration.on('notification', function (data, d2) {
-            alert('Push Received: ' + data.message);
-        });
-
-        pushRegistration.on('error', handleError);
-    }
-
-[Google 개발자 콘솔]에서 _YourProjectID_를 앱용 프로젝트 ID 번호로 바꿉니다.
+3. 위 코드에서는 `Your_Project_ID`를 [Google 개발자 콘솔]의 앱에 대한 숫자 프로젝트 ID로 바꿉니다.
 
 ## 게시된 모바일 서비스에 대해 앱 테스트
 
 Android 휴대폰을 USB 케이블로 직접 연결하여 앱을 테스트할 수 있습니다. **Google Android 에뮬레이터** 대신 **장치**를 선택합니다. Visual Studio에서 장치에 응용 프로그램을 다운로드하고 응용 프로그램을 실행합니다. 그런 다음 장치에서 응용 프로그램을 조작합니다.
 
 개발 환경을 개선합니다. [Mobizen]과 같은 화면 공유 응용 프로그램은 Android 화면을 PC의 웹 브라우저에 표시하여 Android 응용 프로그램을 개발하는 데 도움을 줍니다.
+
+또한 Android 에뮬레이터에서 Android 앱을 테스트할 수 있습니다. 먼저 에뮬레이터에 Google 계정을 추가해야 합니다.
 
 ##<a name="next-steps"></a>다음 단계
 
@@ -185,4 +196,4 @@ Android 휴대폰을 USB 케이블로 직접 연결하여 앱을 테스트할 �
 [Visual Studio Tools for Apache Cordova]: https://www.visualstudio.com/ko-KR/features/cordova-vs.aspx
 [알림 허브]: ../notification-hubs/notification-hubs-overview.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

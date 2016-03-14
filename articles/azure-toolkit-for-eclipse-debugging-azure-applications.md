@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="11/30/2015" 
+    ms.date="02/26/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690949.aspx -->
@@ -30,12 +30,11 @@ Windows 운영 체제를 사용하는 경우 Eclipse용 Azure 도구 키트를 �
 
 ## Azure에서 실행되는 동안 응용 프로그램을 디버그하려면 ##
 
->[AZURE.WARNING]원격 Java 디버깅에 대한 도구 키트의 현재 지원은 주로 Azure 계산 에뮬레이터에서 실행 중인 배포를 위한 것입니다. 디버깅 연결은 안전하지 않으므로 프로덕션 배포에서 원격 디버깅을 사용하지 마십시오. Azure 클라우드에서 실행되는 응용 프로그램을 디버그해야 할 경우 스테이징 배포를 사용하지만 스테이징 배포이더라도 클라우드 배포의 IP 주소를 아는 사람이 있는 경우 디버그 세션에 대한 무단 액세스가 가능할 수 있습니다.
+>[AZURE.WARNING] 원격 Java 디버깅에 대한 도구 키트의 현재 지원은 주로 Azure 계산 에뮬레이터에서 실행 중인 배포를 위한 것입니다. 디버깅 연결은 안전하지 않으므로 프로덕션 배포에서 원격 디버깅을 사용하지 마십시오. Azure 클라우드에서 실행되는 응용 프로그램을 디버그해야 할 경우 스테이징 배포를 사용하지만 스테이징 배포이더라도 클라우드 배포의 IP 주소를 아는 사람이 있는 경우 디버그 세션에 대한 무단 액세스가 가능할 수 있습니다.
 
 1. 에뮬레이터에서 테스트용 프로젝트 빌드: Eclipse의 프로젝트 탐색기에서 마우스 오른쪽 단추로 **MyAzureProject**를 클릭하고 **Properties**, **Azure**를 차례로 클릭하고 **Build for**를 **Deployment to cloud**로 설정합니다.
 1. 프로젝트 다시 빌드: Eclipse 메뉴에서 **Project**를 클릭한 다음 **Build All**을 클릭합니다.
 1. Azure의 *준비*에 응용 프로그램을 배포합니다.
-
     >[AZURE.IMPORTANT] 위에서 설명했듯이 대부분의 경우에는 계산 에뮬레이터에서 디버그한 다음 추가 디버깅이 필요한 경우에만 스테이징 환경에서 디버그하는 것이 좋습니다. 프로덕션 환경에서 디버그하지 않는 것이 좋습니다.
 1. Azure에서 배포가 준비되면 [Azure 관리 포털][]에서 배포에 대한 DNS 이름을 가져옵니다. 스테이징 배포는 http://*&lt;guid&gt;*.cloudapp.net의 형식으로 DNS 이름을 가지며 여기서 *&lt;guid&gt;*은(는) Azure에서 할당된 GUID 값입니다.
 1. Eclipse의 Project Explorer에서 **WorkerRole1**을 마우스 오른쪽 단추로 클릭하고 **Azure**를 클릭한 후 **Debugging**을 클릭합니다.
@@ -60,7 +59,7 @@ Windows 운영 체제를 사용하는 경우 Eclipse용 Azure 도구 키트를 �
 1. **Debug Configurations** 대화 상자에서 왼쪽 창의 **Remote Java Application**을 확장하고 **Azure Cloud (WorkerRole1)**를 선택한 다음 **Debug**를 클릭합니다.
 1. 브라우저 내에서 스테이징된 응용 프로그램, ****http://***&lt;guid&gt;***.cloudapp.net/MyHelloWorld**, *&lt;guid&gt;*에 대한 DNS 이름에서 GUID 대체를 실행합니다. **Confirm Perspective Switch** 대화 상자로 메시지가 표시된 경우 **Yes**를 클릭합니다. 중단점을 설정한 코드 줄에 지금 디버그 세션을 실행해야 합니다.
 
->[AZURE.NOTE]여러 역할 인스턴스를 실행하는 배포에 원격 디버깅 연결을 시작하려는 경우 Azure 부하 분산 장치에서 인스턴스를 임의로 선택하므로 디버거가 처음에 연결되는 인스턴스를 제어할 수 없습니다. 해당 인스턴스로 연결되더라도 동일한 인스턴스 디버깅을 계속합니다. 또한 4분 이상의 비활성화가 있는 경우(예: 너무 오랫동안 중단점에서 중지되어 있는 경우) Azure에서 연결을 닫을 수 있습니다.
+>[AZURE.NOTE] 여러 역할 인스턴스를 실행하는 배포에 원격 디버깅 연결을 시작하려는 경우 Azure 부하 분산 장치에서 인스턴스를 임의로 선택하므로 디버거가 처음에 연결되는 인스턴스를 제어할 수 없습니다. 해당 인스턴스로 연결되더라도 동일한 인스턴스 디버깅을 계속합니다. 또한 4분 이상의 비활성화가 있는 경우(예: 너무 오랫동안 중단점에서 중지되어 있는 경우) Azure에서 연결을 닫을 수 있습니다.
 
 ## 다중 인스턴스 배포에서 특정 역할 인스턴스 디버깅 ##
 
@@ -78,7 +77,7 @@ Windows 운영 체제를 사용하는 경우 Eclipse용 Azure 도구 키트를 �
 
 ## Windows에만 해당: 계산 에뮬레이터에서 실행하는 동안 응용 프로그램을 디버그하려면 ##
 
->[AZURE.NOTE]Azure 에뮬레이터는 Windows에서만 사용할 수 있습니다. Windows 이외의 운영 체제를 사용하는 경우 이 섹션을 건너뜁니다.
+>[AZURE.NOTE] Azure 에뮬레이터는 Windows에서만 사용할 수 있습니다. Windows 이외의 운영 체제를 사용하는 경우 이 섹션을 건너뜁니다.
 
 1. 에뮬레이터에서 테스트용 프로젝트 빌드: Eclipse의 프로젝트 탐색기에서 마우스 오른쪽 단추로 **MyAzureProject**를 클릭하고 **Properties**, **Azure**를 차례로 클릭하고 **Build for**를 **Testing in emulator**로 설정합니다.
 1. 프로젝트 다시 빌드: Eclipse 메뉴에서 **Project**를 클릭한 다음 **Build All**을 클릭합니다.
@@ -134,4 +133,4 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 [ic719504]: ./media/azure-toolkit-for-eclipse-debugging-azure-applications/ic719504.png
 [ic551537]: ./media/azure-toolkit-for-eclipse-debugging-azure-applications/ic551537.png
 
-<!----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

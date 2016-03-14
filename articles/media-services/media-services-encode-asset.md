@@ -3,8 +3,8 @@
 	description="이 항목에서는 Azure 주문형 미디어 인코더 개요 및 비교를 제공합니다." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,anilmur" 
-	manager="dwrede" 
+	authors="juliako" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
+ 	ms.date="02/25/2016"  
 	ms.author="juliako"/>
 
 #Azure 주문형 미디어 인코더 개요 및 비교
@@ -34,7 +34,6 @@ Azure 미디어 서비스는 클라우드에서 미디어의 인코딩에 대한
 미디어 서비스는 이 문서에서 설명하는 다음 주문형 인코더를 지원합니다.
 
 - [미디어 인코더 표준](media-services-encode-asset.md#media-encoder-standard)
-- [Azure 미디어 인코더](media-services-encode-asset.md#azure-media-encoder)
 - [미디어 인코더 Premium 워크플로](media-services-encode-asset.md#media-encoder-premium-workflow)
 
 이 문서에서는 주문형 미디어 인코더에 대한 간략한 개요와 보다 자세한 정보를 제공하는 문서에 대한 링크를 제공합니다. 또한 항목에서는 인코더에 대한 비교를 제공합니다.
@@ -42,17 +41,6 @@ Azure 미디어 서비스는 클라우드에서 미디어의 인코딩에 대한
 기본적으로 각 미디어 서비스 계정은 한번에 하나의 인코딩 작업을 활성화할 수 있습니다. 구입한 각 인코딩 예약 단위에 대해 하나씩, 여러 인코딩 작업을 동시에 실행할 수 있는 인코딩 단위를 예약할 수 있습니다. 자세한 내용은 [인코딩 단위 크기 조정](media-services-portal-encoding-units.md)을 참조하세요.
 
 ##미디어 인코더 표준
-
-###개요
-
-미디어 인코더 표준 인코더를 사용하는 것이 좋습니다. 그러나 Azure 클래식 포털에는 현재 노출되지 않습니다.
-
-Azure 미디어 인코더에 비해 더 입력 및 출력 형식과 코덱을 지원합니다. 기타 이점은 다음과 같습니다.
-
-- 입력 파일을 생성하는 방법이 보다 허용적
-- Azure 미디어 인코더보다 H.264 코덱 품질 우수
-- 최신의 보다 유연한 파이프라인을 기반으로 함
-- 보다 견고하고 복원적
 
 ###사용 방법
 
@@ -88,46 +76,6 @@ Azure 미디어 인코더에 비해 더 입력 및 출력 형식과 코덱을 �
 
 [미디어 서비스 블로그](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
  
-##Azure 미디어 인코더
-
-###개요
-
-Azure 미디어 인코더는 미디어 서비스에서 지원하는 인코더 중 하나입니다. 2015년 7월부터 [미디어 인코더 표준](media-services-encode-asset.md#media_encoder_standard)을 사용하는 것이 좋습니다.
-
-###사용 방법
-
-[Azure 미디어 인코더로 인코딩하는 방법](media-services-dotnet-encode-asset.md)
-
-###형식
-
-[형식 및 코덱](media-services-azure-media-encoder-formats.md)
-
-###기본 설정
-
-Azure 미디어 인코더는 [여기](https://msdn.microsoft.com/library/azure/dn619392.aspx)서 설명하는 인코더 기본 설정 중 하나를 사용하여 구성됩니다. [여기](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/Azure%20Media%20Encoder)서 실제 Azure 미디어 인코더 기본 설정 파일을 가져올 수도 있습니다.
-
-###입력 및 출력 메타데이터
-
-인코더 입력 메타데이터는 [여기](http://msdn.microsoft.com/library/azure/dn783120.aspx)에서 설명합니다.
-
-인코더 출력 메타데이터는 [여기](http://msdn.microsoft.com/library/azure/dn783217.aspx)에서 설명합니다.
-
-###미리 보기
-
-[미리 보기 만들기](https://msdn.microsoft.com/library/hh973624.aspx)
-
-###오디오 및/또는 비디오 오버레이
-
-[오버레이 만들기](media-services-azure-media-customize-ame-presets.md#creating-overlays)
-
-###명명 규칙
-
-[출력 파일 이름을 수정하는 방법](media-services-azure-media-customize-ame-presets.md#controlling-azure-media-encoder-output-file-names)
-
-###참고 항목
-
-[Dolby Digital Plus를 사용하여 미디어 인코딩](media-services-encode-with-dolby-digital-plus.md)
-
 ##미디어 인코더 Premium 워크플로
 
 ###개요
@@ -152,107 +100,106 @@ Azure 미디어 인코더는 [여기](https://msdn.microsoft.com/library/azure/d
 미디어 프로세서 이름|적용 가능한 가격|참고 사항
 ---|---|---
 **미디어 인코더 표준** |인코더|인코딩 작업은 출력 자산의 크기(기가바이트 단위)에 따라 [여기][1](인코더 열 아래)에 지정된 비율로 청구됩니다.
-**Azure 미디어 인코더** |인코더|인코딩 작업은 출력 자산의 크기(기가바이트 단위)에 따라 [여기][1](인코더 열 아래)에 지정된 비율로 청구됩니다.
 **미디어 인코더 Premium 워크플로** |프리미엄 인코더|인코딩 작업은 출력 자산의 크기(기가바이트 단위)에 따라 [여기][1](프리미엄 인코더 열 아래)에 지정된 비율로 청구됩니다.
 
 
-이 섹션에서는 **미디어 인코더 표준**, **Azure 미디어 인코더**, **미디어 인코더 Premium 워크플로**의 인코딩 기능을 비교합니다.
+이 섹션에서는 **미디어 인코더 표준** 및 **미디어 인코더 프리미엄 워크플로**의 인코딩 기능을 비교합니다.
 
 
 ###입력 컨테이너/파일 형식
 
-입력 컨테이너/파일 형식|미디어 인코더 표준|Azure 미디어 인코더|미디어 인코더 Premium 워크플로
----|---|---|---
-Adobe® Flash® F4V |예|아니요 |예
-MXF/SMPTE 377M |예|제한|예
-GXF |예|아니요 |예
-MPEG-2 전송 스트림 |예|예 |예
-MPEG-2 프로그램 스트림 |예|예 |예
-MPEG-4/MP4 |예|예 |예
-Windows Media/ASF |예|예 |예
-AVI(압축되지 않은 8비트/10비트)|예|예 |예
-3GPP/3GPP2 |예|예 |아니요
-부드러운 스트리밍 파일 형식(PIFF 1.3)|예|예|아니요
-[DVR-MS(Microsoft Digital Video Recording)](https://msdn.microsoft.com/library/windows/desktop/dd692984)|예|아니요|아니요
-Matroska/WebM |예|아니요|아니요
-QuickTime(.mov) |예|아니요|아니요
+입력 컨테이너/파일 형식|미디어 인코더 표준|미디어 인코더 Premium 워크플로
+---|---|---
+Adobe® Flash® F4V |예|예
+MXF/SMPTE 377M |예|예
+GXF |예|예
+MPEG-2 전송 스트림 |예|예
+MPEG-2 프로그램 스트림 |예|예
+MPEG-4/MP4 |예|예
+Windows Media/ASF |예|예
+AVI(압축되지 않은 8비트/10비트)|예|예
+3GPP/3GPP2 |예|아니요
+부드러운 스트리밍 파일 형식(PIFF 1.3)|예|아니요
+[DVR-MS(Microsoft Digital Video Recording)](https://msdn.microsoft.com/library/windows/desktop/dd692984)|예|아니요
+Matroska/WebM |예|아니요
+QuickTime(.mov) |예|아니요
 
 ###입력 비디오 코덱
 
-입력 비디오 코덱|미디어 인코더 표준|Azure 미디어 인코더|미디어 인코더 Premium 워크플로
----|---|---|---
-AVC 8비트/10비트, 최대 4:2:2, AVCIntra 포함 |8비트 4:2:0 및 4:2:2|8비트 4:2:0만|예
-Avid DNxHD(MXF) |예|아니요|예
-DVCPro/DVCProHD(MXF) |예|아니요|예
-JPEG2000 |예|아니요|예
-MPEG-2(최대 422 프로필 및 높은 수준, XDCAM, XDCAM HD, XDCAM IMX, CableLabs® 및 D10과 같은 변형 포함)|최대 422 프로필|최대 422 프로필|예
-MPEG-1 |예|예|예
-Windows Media 비디오/VC-1 |예|예|예
-Canopus HQ/HQX |아니요|예|아니요
-Mpeg-4 2부 |예|아니요|아니요
-[Theora](https://en.wikipedia.org/wiki/Theora) |예|아니요|아니요
-Apple ProRes 422 |예|아니요|아니요
-Apple ProRes 422 LT |예|아니요|아니요
-Apple ProRes 422 HQ |예|아니요|아니요
-Apple ProRes Proxy|예|아니요|아니요
-Apple ProRes 4444 |예|아니요|아니요
-Apple ProRes 4444 XQ |예|아니요|아니요
+입력 비디오 코덱|미디어 인코더 표준|미디어 인코더 Premium 워크플로
+---|---|---
+AVC 8비트/10비트, 최대 4:2:2, AVCIntra 포함 |8비트 4:2:0 및 4:2:2|예
+Avid DNxHD(MXF) |예|예
+DVCPro/DVCProHD(MXF) |예|예
+JPEG2000 |예|예
+MPEG-2(최대 422 프로필 및 높은 수준, XDCAM, XDCAM HD, XDCAM IMX, CableLabs® 및 D10과 같은 변형 포함)|최대 422 프로필|예
+MPEG-1 |예|예
+Windows Media 비디오/VC-1 |예|예
+Canopus HQ/HQX |아니요|아니요
+Mpeg-4 2부 |예|아니요
+[Theora](https://en.wikipedia.org/wiki/Theora) |예|아니요
+Apple ProRes 422 |예|아니요
+Apple ProRes 422 LT |예|아니요
+Apple ProRes 422 HQ |예|아니요
+Apple ProRes Proxy|예|아니요
+Apple ProRes 4444 |예|아니요
+Apple ProRes 4444 XQ |예|아니요
 
 ###입력 오디오 코덱
 
-입력 오디오 코덱|미디어 인코더 표준|Azure 미디어 인코더|미디어 인코더 Premium 워크플로
----|---|---|---
-AES(SMPTE 331M 및 302M, AES3-2003) |아니요|아니요|예
-Dolby® E |아니요|아니요|예
-Dolby® Digital(AC3) |아니요|예|예
-Dolby® Digital Plus(E-AC3) |아니요|아니요|예
-AAC(AAC-LC, AAC-HE 및 AAC-HEv2, 최대 5.1)|예|예|예
-MPEG Layer 2|예|예|예
-MP3(MPEG-1 Audio Layer 3)|예|예|예
-Windows Media 오디오|예|예|예
-WAV/PCM|예|예|예
-[FLAC](https://en.wikipedia.org/wiki/FLAC)</a>|예|아니요|아니요
-[Opus](https://en.wikipedia.org/wiki/Opus_(audio_format) |예|아니요|아니요
-[Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a>|예|아니요|아니요
+입력 오디오 코덱|미디어 인코더 표준|미디어 인코더 Premium 워크플로
+---|---|---
+AES(SMPTE 331M 및 302M, AES3-2003) |아니요|예
+Dolby® E |아니요|예
+Dolby® Digital(AC3) |아니요|예
+Dolby® Digital Plus(E-AC3) |아니요|예
+AAC(AAC-LC, AAC-HE 및 AAC-HEv2, 최대 5.1)|예|예
+MPEG Layer 2|예|예
+MP3(MPEG-1 Audio Layer 3)|예|예
+Windows Media 오디오|예|예
+WAV/PCM|예|예
+[FLAC](https://en.wikipedia.org/wiki/FLAC)</a>|예|아니요
+[Opus](https://en.wikipedia.org/wiki/Opus_(audio_format) |예|아니요
+[Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a>|예|아니요
 
 
 ###출력 컨테이너/파일 형식
 
-출력 컨테이너/파일 형식|미디어 인코더 표준|Azure 미디어 인코더|미디어 인코더 Premium 워크플로
----|---|---|---
-Adobe® Flash® F4V|아니요|아니요|예
-MXF(OP1a, XDCAM 및 AS02)|아니요|아니요|예
-DPP(AS11 포함)|아니요|아니요|예
-GXF|아니요|아니요|예
-MPEG-4/MP4|예|예|예
-MPEG-TS|예|아니요|예
-Windows Media/ASF|아니요|예|예
-AVI(압축되지 않은 8비트/10비트)|아니요|아니요|예
-부드러운 스트리밍 파일 형식(PIFF 1.3)|아니요|예|예
+출력 컨테이너/파일 형식|미디어 인코더 표준|미디어 인코더 Premium 워크플로
+---|---|---
+Adobe® Flash® F4V|아니요|예
+MXF(OP1a, XDCAM 및 AS02)|아니요|예
+DPP(AS11 포함)|아니요|예
+GXF|아니요|예
+MPEG-4/MP4|예|예
+MPEG-TS|예|예
+Windows Media/ASF|아니요|예
+AVI(압축되지 않은 8비트/10비트)|아니요|예
+부드러운 스트리밍 파일 형식(PIFF 1.3)|아니요|예
 
 ###출력 비디오 코덱
 
-출력 비디오 코덱|미디어 인코더 표준|Azure 미디어 인코더|미디어 인코더 Premium 워크플로
----|---|---|---
-AVC(H.264, 8비트, 최대 High Profile, 수준 5.2, 4K Ultra HD, AVC Intra)|8비트 4:2:0만|8비트 4:2:0만 최대 1080p|예
-Avid DNxHD(MXF)|아니요|아니요|예
-DVCPro/DVCProHD(MXF)|아니요|아니요|예
-MPEG-2(최대 422 프로필 및 높은 수준, XDCAM, XDCAM HD, XDCAM IMX, CableLabs® 및 D10과 같은 변형 포함)|아니요|아니요|예
-MPEG-1|아니요|아니요|예
-Windows Media 비디오/VC-1|아니요|예|예
-JPEG 축소판 그림 만들기|아니요|예|예
+출력 비디오 코덱|미디어 인코더 표준|미디어 인코더 Premium 워크플로
+---|---|---
+AVC(H.264, 8비트, 최대 High Profile, 수준 5.2, 4K Ultra HD, AVC Intra)|8비트 4:2:0만|예
+Avid DNxHD(MXF)|아니요|예
+DVCPro/DVCProHD(MXF)|아니요|예
+MPEG-2(최대 422 프로필 및 높은 수준, XDCAM, XDCAM HD, XDCAM IMX, CableLabs® 및 D10과 같은 변형 포함)|아니요|예
+MPEG-1|아니요|예
+Windows Media 비디오/VC-1|아니요|예
+JPEG 축소판 그림 만들기|아니요|예
 
 ###출력 오디오 코덱
 
-출력 오디오 코덱|미디어 인코더 표준|Azure 미디어 인코더|미디어 인코더 Premium 워크플로
----|---|---|---
-AES(SMPTE 331M 및 302M, AES3-2003)|아니요|아니요|예
-Dolby® Digital(AC3)|아니요|예|예
-Dolby® Digital Plus(E-AC3) 최대 7.1|아니요|최대 5.1|예
-AAC(AAC-LC, AAC-HE 및 AAC-HEv2, 최대 5.1)|예|예|예
-MPEG Layer 2|아니요|아니요|예
-MP3(MPEG-1 Audio Layer 3)|아니요|아니요|예
-Windows Media 오디오|아니요|예|예
+출력 오디오 코덱|미디어 인코더 표준|미디어 인코더 Premium 워크플로
+---|---|---
+AES(SMPTE 331M 및 302M, AES3-2003)|아니요|예
+Dolby® Digital(AC3)|아니요|예
+Dolby® Digital Plus(E-AC3) 최대 7.1|아니요|예
+AAC(AAC-LC, AAC-HE 및 AAC-HEv2, 최대 5.1)|예|예
+MPEG Layer 2|아니요|예
+MP3(MPEG-1 Audio Layer 3)|아니요|예
+Windows Media 오디오|아니요|예
 
 
 ##오류 코드  
@@ -295,4 +242,4 @@ TransientError|일시적인 문제를 포함하는 오류 범주(예: Azure 저�
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

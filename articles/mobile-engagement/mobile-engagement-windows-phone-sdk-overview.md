@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/10/2015" 
+	ms.date="02/29/2016" 
 	ms.author="piyushjo" />
 
 #Azure Mobile Engagement의 Windows Phone Silverlight SDK 개요
@@ -55,4 +55,4 @@
 [업그레이드 절차](mobile-engagement-windows-phone-upgrade-procedure/)를 참조하세요.
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

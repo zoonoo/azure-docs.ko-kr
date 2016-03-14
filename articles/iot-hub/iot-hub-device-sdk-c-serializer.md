@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="11/10/2015"
+     ms.date="02/23/2016"
      ms.author="obloch"/>
 
 # C용 Microsoft Azure IoT 장치 SDK – 직렬 변환기에 대한 자세한 정보
@@ -528,17 +528,25 @@ EXECUTE_COMMAND_RESULT SetAirResistance(ContosoAnemometer* device, int Position)
 
 ## 매크로 구성
 
-**Serializer** 라이브러리를 사용하는 경우 알아야 할 SDK의 중요한 내용은 다음에 있습니다.
+**Serializer** 라이브러리를 사용하는 경우 알아야 할 SDK의 중요한 내용은 azure-c-shared-utility 라이브러리에 있습니다. --recursive 옵션을 사용하여 GitHub에서 Azure-iot-sdks 리포지토리를 복제한 경우 이 공유 유틸리티 라이브러리를 다음에서 찾을 수 있습니다.
 
 ```
-.\\c\\common\\tools\\macro\_utils\_h\_generator.
+.\\c\\azure-c-shared-utility
+```
+
+라이브러리를 복제하지 않은 경우 [여기](https://github.com/Azure/azure-c-shared-utility)에서 찾을 수 있습니다.
+
+공유 유틸리티 라이브러리 내에서 다음 폴더를 찾을 수 있습니다.
+
+```
+azure-c-shared-utility\\macro\_utils\_h\_generator.
 ```
 
 이 폴더에는 **macro\_utils\_h\_generator.sln**이라는 Visual Studio 솔루션이 포함되어 있습니다.
 
   ![](media/iot-hub-device-sdk-c-serializer/01-macro_utils_h_generator.PNG)
 
-이 솔루션에 있는 프로그램은 .\\c\\common\\inc 디렉터리에 있는 **macro\_utils.h** 파일을 생성합니다. SDK에 포함된 기본 macro\_utils.h 파일이 있습니다. 이 솔루션을 사용하면 일부 매개 변수를 수정하고 이러한 매개 변수를 기반으로 헤더 파일을 다시 작성할 수 있습니다.
+이 솔루션의 프로그램은 **macro\_utils.h** 파일을 생성합니다. SDK에 포함된 기본 macro\_utils.h 파일이 있습니다. 이 솔루션을 사용하면 일부 매개 변수를 수정하고 이러한 매개 변수를 기반으로 헤더 파일을 다시 작성할 수 있습니다.
 
 여기서 고려할 두 가지 핵심 매개 변수는 **nArithmetic** 및 **nMacroParameters**이며 macro\_utils.tt에 있는 다음 두 줄로 정의됩니다.
 
@@ -618,7 +626,7 @@ WITH_DATA(int, MyData)
 
 하위 수준 API가 이전 문서에서 설명한 것과 정확히 동일하게 작동한다는 것입니다. 백그라운드 스레드에서 이벤트 전송 및 메시지 수신을 처리하도록 하려면 첫 번째 API 집합을 사용하면 됩니다. IoT Hub에서 데이터를 전송 및 수신할 때 명시적으로 제어하려면 두 번째 API 집합을 사용합니다. 어떤 API 집합을 사용하든 **serializer** 라이브러리에서 모두 잘 작동합니다.
 
-**serializer** 라이브러리와 하위 수준 API를 사용하는 방법에 대한 예는 **simplesample\_http** 응용 프로그램을 참조하세요.
+**serializer** 라이브러리와 하위 수준 API를 사용하는 방법에 대한 예제는 **simplesample\_http** 응용 프로그램을 참조하세요.
 
 ## 추가 항목
 
@@ -658,4 +666,4 @@ serializer_deinit();
 
 또한 **C용 Azure IoT 장치 SDK**로 응용 프로그램을 개발하는 방법에 대한 3부로 구성된 시리즈를 완료합니다. API를 시작하는 방법뿐만 아니라 API의 작동 방식을 매우 정확하게 이해할 수 있는 충분한 정보를 제공합니다. 자세한 정보를 위해 여기에서 다루지 않은 몇 가지 샘플이 SDK에 제공됩니다. 또는 [SDK 설명서](https://github.com/Azure/azure-iot-sdks)가 추가 정보를 얻을 수 있는 훌륭한 리소스입니다.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

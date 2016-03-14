@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/24/2015" 
+	ms.date="02/22/2016" 
 	ms.author="bradyg"/>
 
 # Swashbuckle 생성 API 정의 사용자 지정 
@@ -201,7 +201,7 @@ Visual Studio를 사용하여 REST API에 대한 클라이언트 코드를 다�
         	    throw ex;
 		}
 
-이 데모에 대한 코드는 [이 GitHub 리포지토리](https://github.com/Azure-Samples/API-Apps-DotNet-Swashbuckle-Customization-MultipleResponseCodes)에 있을 수 있습니다. XML 문서 주석으로 표시된 Web API 프로젝트와 함께 이 API에 대해 생성된 클라이언트를 포함하는 콘솔 응용 프로그램이 제공됩니다.
+이 데모에 대한 코드는 [이 GitHub 리포지토리](https://github.com/Azure-Samples/app-service-api-dotnet-swashbuckle-swaggerresponse)에 있을 수 있습니다. XML 문서 주석으로 표시된 Web API 프로젝트와 함께 이 API에 대해 생성된 클라이언트를 포함하는 콘솔 응용 프로그램이 제공됩니다.
 
 ### SwaggerResponse 특성을 사용하여 예상되는 응답 코드 사용자 지정
 
@@ -250,4 +250,4 @@ Visual Studio를 사용하여 REST API에 대한 클라이언트 코드를 다�
 이 문서에서는 Swashbuckle이 작업 ID 및 유효한 응답 코드를 생성하는 방법을 사용자 지정하는 방법을 설명했습니다. 자세한 내용은 [GitHub의 Swashbuckle](https://github.com/domaindrivendev/Swashbuckle)을 참조하세요.
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

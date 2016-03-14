@@ -14,13 +14,14 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/22/2016"
+ms.date="02/25/2016"
 ms.author="deonhe"/>
 
 # Salesforce API 시작
-Salesforce에 연결하여 개체 만들기, 개체 가져오기 등의 작업을 수행합니다.
+Salesforce에 연결하여 개체 만들기, 개체 가져오기 등의 작업을 수행합니다. Salesforce API를 다음에서 사용할 수 있습니다.
 
-Salesforce API는 PowerApps 엔터프라이즈 및 논리 앱에서 사용할 수 있습니다.
+- PowerApps 
+- 논리 앱 
 
 >[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다. 2014-12-01-preview 스키마 버전에 대한 내용을 보려면 [Salesforce API](../app-service-logic/app-service-logic-connector-salesforce.md)를 클릭하세요.
 
@@ -31,7 +32,7 @@ Salesforce를 사용하면 다음과 같은 작업을 수행할 수 있습니다
 - 개체 만들기, 개체 삭제 등의 작업을 사용합니다. 이러한 작업을 사용하여 응답을 가져오고 출력을 다른 작업에 사용할 수 있도록 설정합니다. 예를 들어 Salesforce에서 새 개체가 만들어지면 Office 365를 사용하여 메일을 보낼 수 있습니다.
 - PowerApps 엔터프라이즈에 Salesforce API를 추가합니다. 이렇게 하면 사용자가 앱 내에서 이 API를 사용할 수 있습니다. 
 
-PowerApps 엔터프라이즈에서 API를 추가하는 방법을 보려면 [Register an API in PowerApps](../power-apps/powerapps-register-from-available-apis.md)(PowerApps에서 API 등록)로 이동하세요.
+PowerApps 엔터프라이즈에서 API를 추가하는 방법을 보려면 [PowerApps에서 API 등록](../power-apps/powerapps-register-from-available-apis.md)으로 이동하세요.
 
 논리 앱에 작업을 추가하려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
 
@@ -82,7 +83,7 @@ PowerApps 엔터프라이즈에 Salesforce를 추가할 때 Salesforce 응용 �
 >[AZURE.TIP] 다른 논리 앱에서 이와 동일한 연결을 사용할 수 있습니다.
 
 ## Swaggers REST API 참조
-#### 이 문서 적용 버전: 1.0
+적용 버전: 1.0
 
 
 ### 개체 만들기
@@ -284,4 +285,4 @@ PowerApps 엔터프라이즈에 Salesforce API를 추가한 후 해당 앱에서
 [7]: ./media/create-api-salesforce/salesforce-create-app.png
 [8]: ./media/create-api-salesforce/salesforce-new-app.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

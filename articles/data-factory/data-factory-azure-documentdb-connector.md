@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="02/24/2016" 
 	ms.author="spelluru"/>
 
 # Azure 데이터 팩터리를 사용하여 DocumentDB 간 데이터 이동
@@ -379,6 +379,14 @@ typeProperties 섹션은 데이터 집합의 각 형식에 따라 다르며 데�
 	  }
 	}
 
+### Data Factory에서의 스키마
+DocumentDB와 같은 스키마 없는 데이터 저장소의 경우 Data Factory 서비스는 다음 방법 중 하나로 스키마를 유추합니다.
+
+1.	데이터 집합 정의에서 **structure** 속성을 사용하여 데이터의 구조를 지정하는 경우 Data Factory 서비스는 이 구조를 스키마로 인식합니다. 이 경우 행에 열의 값이 포함되어 있지 않으면 null 값이 제공됩니다.
+2.	데이터 집합 정의에서 **structure** 속성을 사용하여 데이터의 구조를 지정하지 않는 경우 Data Factory 서비스는 데이터의 첫 번째 행을 사용하여 스키마를 유추합니다. 이 경우 첫 번째 행에 전체 스키마가 포함되어 있지 않으면 일부 열이 복사 작업의 결과에서 누락됩니다.
+
+따라서 스키마 없는 데이터 원본에 대한 모범 사례는 **structure** 속성을 사용하여 데이터의 구조를 지정하는 것입니다.
+
 ## Azure DocumentDB 복사 작업 형식 속성
 
 활동 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하십시오. 이름, 설명, 입력 및 출력 테이블, 다양한 정책 등과 같은 속성은 모든 유형의 활동에 사용할 수 있습니다.
@@ -419,4 +427,4 @@ typeProperties 섹션은 데이터 집합의 각 형식에 따라 다르며 데�
 	**대답:** 아니요. 이 경우 하나의 컬렉션만 지정할 수 있습니다.
      
 
-<!----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016--->

@@ -12,21 +12,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/22/2016"
+   ms.date="03/01/2016"
    ms.author="alkohli" />
 
-# StorSimple 가상 배열 백업(미리 보기)
+# StorSimple 가상 배열 백업
 
 ## 개요 
 
-이 자습서는 1.1.1.0(미리 보기) 버전을 실행하는 Microsoft Azure StorSimple 가상 배열(StorSimple 온-프레미스 가상 장치 또는 StorSimple 가상 장치라고도 함)에만 적용됩니다.
+이 자습서는 2016년 3월 GA(일반 공급) 버전을 실행하는 Microsoft Azure StorSimple 가상 배열(StorSimple 온-프레미스 가상 장치 또는 StorSimple 가상 장치라고도 함)에 적용됩니다.
 
 StorSimple 가상 배열은 파일 서버 또는 iSCSI 서버로 구성할 수 있는 하이브리드 클라우드 저장소 온-프레미스 가상 장치입니다. 백업을 만들고, 백업에서 복원하고, 재해 복구가 필요하면 장치 장애 조치를 수행할 수 있습니다. 파일 서버로 구성하면 항목 수준 복구도 가능합니다. 이 자습서는 Azure 클래식 포털 또는 StorSimple 웹 UI를 사용하여 가상 배열의 예약된 백업 및 수동 백업을 만드는 방법을 설명합니다.
 
->[AZURE.IMPORTANT] 
->
->- StorSimple 가상 배열은 미기 보기 중이며 평가 및 배포 계획 용도로 사용됩니다. 프로덕션 환경에서는 이 미리 보기를 설치하도록 지원되지 않습니다. 
->- StorSimple 가상 배열에서 문제가 발생하는 경우 [StorSimple MSDN 포럼](https://social.msdn.microsoft.com/Forums/home?forum=StorSimple)에 문제를 게시해 주세요.
 
 ## 백업 공유 및 볼륨
 
@@ -56,7 +52,7 @@ StorSimple 가상 장치에는 하루 중 지정된 시간(22:30)에 시작하�
 
 1. **공유** 탭 또는 **볼륨** 탭으로 이동합니다.
 
-2. 페이지 맨 아래에 있는 **모두 백업**을 클릭합니다. 지금 백업을 수행할지 묻는 메시지가 표시됩니다. 확인 아이콘![확인 아이콘](./media/storsimple-ova-backup/image3.png)을 클릭하여 백업을 진행합니다.
+2. 페이지 맨 아래에 있는 **모두 백업**을 클릭합니다. 지금 백업을 수행할지 묻는 메시지가 표시됩니다. 확인 아이콘 ![확인 아이콘](./media/storsimple-ova-backup/image3.png)을 클릭하여 백업을 진행합니다.
 
     ![백업 확인](./media/storsimple-ova-backup/image4.png)
 
@@ -74,7 +70,7 @@ StorSimple 가상 장치에는 하루 중 지정된 시간(22:30)에 시작하�
 
     ![백업 완료됨](./media/storsimple-ova-backup/image8.png)
 
-5. 적절한 장치, 백업 정책 및 시간 범위로 필터 선택을 설정한 후 확인 아이콘![확인 아이콘](./media/storsimple-ova-backup/image3.png)을 클릭합니다.
+5. 적절한 장치, 백업 정책 및 시간 범위로 필터 선택을 설정한 후 확인 아이콘 ![확인 아이콘](./media/storsimple-ova-backup/image3.png)을 클릭합니다.
 
     카탈로그에 표시되는 백업 세트의 목록에 백업이 나타납니다.
 
@@ -108,4 +104,4 @@ StorSimple 가상 배열에서 공유를 만들고, 공유를 백업하고, 데�
 
 [StorSimple 가상 배열 관리](storsimple-ova-web-ui-admin.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

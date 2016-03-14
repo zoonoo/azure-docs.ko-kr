@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/08/2016"
+   ms.date="02/25/2016"
    ms.author="mbaldwin" />
 
 # Azure Active Directory Graph API
 
-> [AZURE.IMPORTANT]Azure AD Graph API 기능은 [Microsoft Graph](https://graph.microsoft.io/)를 통해서도 사용 가능하며, Outlook, OneDrive, OneNote, Planner 및 Office Graph와 같은 다른 Microsoft 서비스의 API를 포함하는 통합 API로, 단일 끝점과 단일 액세스 토큰을 통해 액세스 가능합니다.
+> [AZURE.IMPORTANT] Azure AD Graph API 기능은 [Microsoft Graph](https://graph.microsoft.io/)를 통해서도 사용 가능하며, Outlook, OneDrive, OneNote, Planner 및 Office Graph와 같은 다른 Microsoft 서비스의 API를 포함하는 통합 API로, 단일 끝점과 단일 액세스 토큰을 통해 액세스 가능합니다.
 
 Azure Active Directory Graph API는 REST API 끝점을 통해 Azure AD에 프로그래밍 방식으로 액세스할 수 있게 합니다. 응용 프로그램은 Graph API를 사용하여 디렉터리 데이터 및 개체에 대한 CRUD(만들기, 읽기, 업데이트 및 삭제) 작업을 수행할 수 있습니다. 예를 들어, Graph API는 사용자 개체에 대한 다음과 같은 일반적인 작업을 지원합니다.
 
@@ -66,4 +66,4 @@ Graph API는 많은 응용 프로그램 시나리오를 사용할 수 있습니�
 
 [Azure Active Directory 개발자 가이드](active-directory-developers-guide.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0302_2016-->

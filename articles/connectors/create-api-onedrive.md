@@ -14,14 +14,15 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/22/2016"
-ms.author="deonhe"/>
+ms.date="02/25/2016"
+ms.author="mandia"/>
 
 # OneDrive API 시작
 
-OneDrive에 연결하여 파일을 관리합니다. OneDrive에서 파일에 대해 업로드, 업데이트, 가져오기 및 삭제와 같은 다양한 작업을 수행할 수 있습니다.
+OneDrive에 연결하여 파일 업로드, 가져오기, 삭제 등을 포함하여 파일을 관리합니다. OneDrive API를 다음에서 사용할 수 있습니다.
 
-OneDrive API는 PowerApps 엔터프라이즈 및 논리 앱에서 사용할 수 있습니다.
+- PowerApps 
+- 논리 앱 
 
 >[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다. 2014-12-01-preview 스키마 버전에 대한 내용을 보려면 [OneDrive API](../app-service-logic/app-service-logic-connector-onedrive.md)를 클릭하세요.
 
@@ -32,7 +33,7 @@ OneDrive를 사용하면 다음과 같은 작업을 수행할 수 있습니다.
 - 파일 만들기, 파일 삭제 등의 작업을 사용합니다. 이러한 작업을 사용하여 응답을 가져오고 출력을 다른 작업에 사용할 수 있도록 설정합니다. 예를 들어 OneDrive에서 새 파일이 만들어지면 Office 365를 사용하여 해당 파일을 메일로 보낼 수 있습니다.
 - PowerApps 엔터프라이즈에 OneDrive API를 추가합니다. 이렇게 하면 사용자가 앱 내에서 이 API를 사용할 수 있습니다. 
 
-PowerApps 엔터프라이즈에서 API를 추가하는 방법을 보려면 [Register an API in PowerApps](../power-apps/powerapps-register-from-available-apis.md)(PowerApps에서 API 등록)로 이동하세요.
+PowerApps 엔터프라이즈에서 API를 추가하는 방법을 보려면 [PowerApps에서 API 등록](../power-apps/powerapps-register-from-available-apis.md)으로 이동하세요.
 
 논리 앱에 작업을 추가하려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
 
@@ -52,8 +53,7 @@ PowerApps 엔터프라이즈에 OneDrive를 추가할 때 OneDrive 응용 프로
 
 1. _Microsoft 계정 개발자 센터_의 [앱 만들기 페이지][5]로 이동하고 _Microsoft 계정_으로 로그인합니다.
 
-2. **응용 프로그램 이름**을 입력하고 계약에 동의합니다.  
-![OneDrive 새 앱][6]
+2. **응용 프로그램 이름**을 입력하고 계약에 동의합니다. ![OneDrive 새 앱][6]
 
 3. 설정에서 다음을 수행합니다.
 
@@ -76,7 +76,7 @@ PowerApps 엔터프라이즈에 OneDrive를 추가할 때 OneDrive 응용 프로
 >[AZURE.TIP] 다른 논리 앱에서 이와 동일한 연결을 사용할 수 있습니다.
 
 ## Swagger REST API 참조
-#### 이 문서 적용 버전: 1.0
+적용 버전: 1.0
 
 
 ### ID를 사용하여 파일 메타데이터 가져오기
@@ -324,4 +324,4 @@ PowerApps 엔터프라이즈에 OneDrive API를 추가한 후 해당 앱에서 A
 [6]: ./media/create-api-onedrive/onedrive-new-app.png
 [7]: ./media/create-api-onedrive/onedrive-app-api-settings.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

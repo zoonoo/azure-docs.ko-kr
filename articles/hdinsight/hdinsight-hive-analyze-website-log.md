@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/29/2015" 
+	ms.date="02/25/2016" 
 	ms.author="nitinme"/>
 
 # HDInsight와 함께 Hive를 사용하여 웹 사이트의 로그 분석
@@ -47,7 +47,7 @@ HDInsight와 함께 HiveQL을 사용하여 웹 사이트의 로그를 분석하�
 	
 	메시지가 표시되면 클러스터를 프로비전할 때 사용한 관리자 사용자 이름과 암호를 사용하여 인증합니다.
   
-2. 그러면 열리는 웹 페이지에서 **시작 갤러리** 탭을 클릭하고 **샘플** 범주에서 **웹 사이트 로그 분석** 샘플을 클릭합니다.
+2. 웹 페이지가 열리면 **갤러리 시작** 탭을 클릭하고 **샘플 데이터가 있는 솔루션** 범주에서 **웹 사이트 데이터 분석** 샘플을 클릭합니다.
 
 3. 웹 페이지에서 제공되는 지침에 따라 샘플을 완료합니다.
 
@@ -61,4 +61,4 @@ HDInsight와 함께 HiveQL을 사용하여 웹 사이트의 로그를 분석하�
 [img-hdi-weblogs-sample]: ./media/hdinsight-hive-analyze-website-log/hdinsight-weblogs-sample.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

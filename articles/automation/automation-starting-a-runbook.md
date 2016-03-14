@@ -3,7 +3,7 @@
    description="Azure 포털과 Windows PowerShell을 사용하여 Azure 자동화에서 Runbook을 시작하고 세부 정보를 제공하는 데 사용할 수 있는 여러 방법을 요약합니다."
    services="automation"
    documentationCenter=""
-   authors="bwren"
+   authors="mgoedtel"
    manager="stevenka"
    editor="tysonn" />
 <tags 
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/19/2016"
+   ms.date="02/23/2016"
    ms.author="magoedte;bwren"/>
 
 # Azure 자동화에서 Runbook 시작
@@ -189,4 +189,4 @@ jsmith
 
 -	현재 문서의 Runbook 아키텍처에서는 Hybrid Runbook에 대한 대략적인 설명을 제공합니다. 자세한 내용을 확인하려면 [Azure 자동화의 자식 Runbook](automation-child-runbooks.md)을 참조하세요
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

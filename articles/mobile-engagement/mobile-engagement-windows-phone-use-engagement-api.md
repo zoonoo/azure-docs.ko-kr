@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="02/29/2016" 
 	ms.author="piyushjo" />
 
 #Windows Phone Silverlight에서 Engagement API를 사용하는 방법
@@ -48,7 +48,7 @@ Engagement API는 `EngagementAgent` 클래스를 통해 제공됩니다. 해당 
 
 사용자 활동이 변경될 때마다 `StartActivity()`을(를) 호출해야 합니다. 이 함수를 처음 호출하면 새 사용자 세션이 시작됩니다.
 
-> [AZURE.IMPORTANT]응용 프로그램을 닫을 때 SDK는 EndActivity 메서드를 자동으로 호출합니다. 따라서 사용자 활동이 변경될 때마다 StartActivity 메서드를 호출하는 것이 좋으며 EndActivity 메서드는 호출하지 않는 것이 좋습니다. EndActivity 메서드를 호출하면 현재 세션이 강제로 종료되기 때문입니다.
+> [AZURE.IMPORTANT] 응용 프로그램을 닫을 때 SDK는 EndActivity 메서드를 자동으로 호출합니다. 따라서 사용자 활동이 변경될 때마다 StartActivity 메서드를 호출하는 것이 좋으며 EndActivity 메서드는 호출하지 않는 것이 좋습니다. EndActivity 메서드를 호출하면 현재 세션이 강제로 종료되기 때문입니다.
 
 #### 예
 
@@ -324,7 +324,7 @@ extras 데이터는 serialize되므로 원하는 형식을 extras에 삽입하�
 			
 			EngagementAgent.Instance.SendEvent("Event", extras);
 
-> [AZURE.WARNING]다른 형식의 개체를 추가할 때는 사용자가 읽을 수 있는 문자열을 반환하도록 해당 ToString() 메서드를 구현해야 합니다.
+> [AZURE.WARNING] 다른 형식의 개체를 추가할 때는 사용자가 읽을 수 있는 문자열을 반환하도록 해당 ToString() 메서드를 구현해야 합니다.
 
 ### 제한
 
@@ -379,4 +379,4 @@ SendAppInfo() 함수를 사용하면 추적 정보 또는 기타 응용 프로�
 			{"subscription":"2013-12-07","premium":"true"}
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

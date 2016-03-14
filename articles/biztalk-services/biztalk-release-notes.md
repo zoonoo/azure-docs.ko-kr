@@ -4,8 +4,8 @@
 	services="biztalk-services" 
 	documentationCenter="" 
 	authors="msftman" 
-	manager="dwrede" 
-	editor="cgronlun"/>
+	manager="erikre" 
+	editor=""/>
 
 <tags 
 	ms.service="biztalk-services" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="02/29/2016" 
 	ms.author="deonhe"/>
 
 # Azure BizTalk 서비스에 대한 릴리스 정보
@@ -49,7 +49,9 @@ Microsoft Azure BizTalk 서비스에 대한 릴리스 정보는 이 릴리스의
 문제를 해결하려면 Visual Studio 2012 업데이트 3 RC 1을 설치합니다.
 
 ### 사용자 지정 바인딩 프로젝트 참조
-Visual Studio 솔루션의 BizTalk 서비스 프로젝트에서 다음 상황을 고려해 보세요. * 동일한 Visual Studio 솔루션에 BizTalk 서비스 프로젝트와 사용자 지정 바인딩 프로젝트가 있습니다. BizTalk 서비스 프로젝트에 이 사용자 지정 바인딩 프로젝트 파일에 대한 참조가 있습니다. * BizTalk 서비스 프로젝트에 사용자 지정 바인딩/동작 DLL에 대한 참조가 있습니다.
+Visual Studio 솔루션의 BizTalk 서비스 프로젝트에서 다음과 같은 상황을 고려합니다.
+* 동일한 Visual Studio 솔루션에 BizTalk 서비스 프로젝트와 사용자 지정 바인딩 프로젝트가 있습니다. BizTalk 서비스 프로젝트에 이 사용자 지정 바인딩 프로젝트 파일에 대한 참조가 있습니다. 
+* BizTalk 서비스 프로젝트에 사용자 지정 바인딩/동작 DLL에 대한 참조가 있습니다.
 
 Visual Studio에서 솔루션을 성공적으로 '빌드'합니다. 그런 다음 솔루션을 '다시 빌드'하거나 '정리'합니다. 그 후에 한 번 더 다시 빌드 또는 정리하면 다음과 같은 오류가 발생합니다. 파일 <Path to DLL>을(를) "bin\\Debug\\FileName.dll"에 복사할 수 없습니다. 'bin\\Debug\\FileName.dll' 파일은 다른 프로세스에서 사용 중이므로 프로세스에서 액세스할 수 없습니다.
 
@@ -83,9 +85,10 @@ AS2 메시지의 첨부 파일의 송신 및 수신은 지원되지 않습니다
 ### 리소스: 경로 기억  
 **리소스**를 추가하는 경우 대화 상자 창에서 리소스를 추가하기 위해 이전에 사용한 경로를 기억하지 못할 수 있습니다. 이전에 사용한 경로를 기억하려면 Internet Explorer에서 BizTalk 서비스 포털 웹 사이트를 **신뢰할 수 있는 사이트**에 추가해 보세요.
 ### 브리지의 엔터티 이름을 바꾸고 변경 내용을 저장하지 않고 프로젝트를 닫은 경우 엔터티를 다시 열면 오류가 발생
-다음과 같은 순서로 시나리오를 고려해 보세요. * BizTalk 서비스 프로젝트에 브리지(예: XML 단방향 브리지) 추가
+다음과 같은 순서로 시나리오를 고려합니다.
+* BizTalk 서비스 프로젝트에 브리지(예: XML 단방향 브리지)를 추가합니다.  
 
-* 엔터티 이름 속성에 대한 값을 지정하여 브리지 이름을 바꿉니다. 그러면 지정된 이름으로 연결된.bridgeconfig 파일의 이름이 변경됩니다.  
+* 엔터티 이름 속성에 대한 값을 지정하여 브리지 이름을 바꿉니다. 그러면 지정된 이름으로 연결된.bridgeconfig 파일의 이름이 변경됩니다.
 
 * 변경 내용을 저장하지 않고 .bcs 파일(Visual Studio에서 탭 닫기)을 닫습니다.
 
@@ -97,7 +100,8 @@ BizTalk 서비스 프로젝트에서 프로젝트에 추가된 스키마가 다�
 ### XML 요청-회신 브리지에 대한 응답 메시지는 항상 UTF-8 문자 집합임
 이 릴리스의 경우 XML 요청-회신 브리지의 응답 메시지에 대한 문자 집합은 항상 UTF-8로 설정됩니다.
 ### 사용자 정의 데이터 형식
-BizTalk 어댑터 서비스 기능 내의 BizTalk Adapter Pack 어댑터는 어댑터 작업을 위한 사용자 정의 데이터 형식을 활용할 수 있습니다. 사용자 정의 데이터 형식을 사용하는 경우 파일을 드라이브:\\Program Files\\Microsoft BizTalk Adapter Service\\BAServiceRuntime\\bin\\ 또는 BizTalk 어댑터 서비스를 호스팅하는 서버의 전역 어셈블리 캐시(GAC)에 복사합니다. 그렇지 않으면 클라이언트에서 다음과 같은 오류가 발생할 수 있습니다. ```<s:Fault xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+BizTalk 어댑터 서비스 기능 내의 BizTalk Adapter Pack 어댑터는 어댑터 작업을 위한 사용자 정의 데이터 형식을 활용할 수 있습니다. 사용자 정의 데이터 형식을 사용하는 경우 파일을 드라이브:\\Program Files\\Microsoft BizTalk Adapter Service\\BAServiceRuntime\\bin\\ 또는 BizTalk 어댑터 서비스를 호스팅하는 서버의 전역 어셈블리 캐시(GAC)에 복사합니다. 그러지 않으면 클라이언트에서 다음과 같은 오류가 발생할 수 있습니다.
+```<s:Fault xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
   <faultcode>s:Client</faultcode>
   <faultstring xml:lang="ko-KR">The UDT with FullName "File, FileUDT, Version=Value, Culture=Value, PublicKeyToken=Value" could not be loaded. Try placing the assembly containing the UDT definition in the Global Assembly Cache.</faultstring>
   <detail>
@@ -105,8 +109,8 @@ BizTalk 어댑터 서비스 기능 내의 BizTalk Adapter Pack 어댑터는 어�
       <ExceptionCode>ERROR_IN_SENDING_MESSAGE</ExceptionCode>
     </AFConnectRuntimeFault>
   </detail>
-</s:Fault> ```
-> [AZURE.IMPORTANT]GACUtil.exe를 사용하여 전역 어셈블리 캐시에 파일을 설치하는 것이 좋습니다. GACUtil.exe는 이 도구와 Visual Studio 명령줄 옵션을 사용하는 방법을 설명합니다.
+</s:Fault> ```  
+> [AZURE.IMPORTANT] GACUtil.exe를 사용하여 전역 어셈블리 캐시에 파일을 설치하는 것이 좋습니다. GACUtil.exe는 이 도구와 Visual Studio 명령줄 옵션을 사용하는 방법을 설명합니다.
 
 ### BizTalk 어댑터 서비스 웹 사이트 다시 시작
 **BizTalk 어댑터 서비스 런타임***을 설치하면 **BizTalk 어댑터 서비스** 웹 사이트가 **BAService** 응용 프로그램을 포함하는 IIS에 만들어집니다. **BAService** 응용 프로그램은 내부적으로 릴레이 바인딩을 사용하여 온-프레미스 서비스 끝점의 도달률을 클라우드로 확장합니다. 온-프레미스에 호스팅된 서비스의 경우 해당 릴레이 끝점은 온-프레미스 서비스가 시작될 때만 서비스 버스에 등록됩니다.
@@ -119,11 +123,18 @@ LOB 구성 요소의 주소 및 엔터티 이름에 특수 문자를 사용하�
 ### TestMap 속성이 표시되지 않음
 **TestMap** 속성이 Visual Studio에 표시되지 않습니다. **속성** 창 및 **솔루션 탐색기** 창이 동시에 도킹되지 않는 경우 이러한 현상이 발생할 수 있습니다. 이 문제를 해결하려면 **속성** 및 **솔루션 탐색기** 창을 도킹합니다.
 ### DateTime 서식 다시 지정 드롭다운이 회색 표시됨
-DateTime 서식 다시 지정 매핑 작업이 디자인 화면에 추가되고 구성된 경우 서식 드롭다운 목록이 회색 표시될 수 있습니다. 컴퓨터 디스플레이가 **보통 – 125%** 또는 **크게 – 150%**로 설정된 경우 이러한 현상이 발생할 수 있습니다. 해결하려면 디스플레이를 아래 단계에 따라 **작게 – 100%(기본값)**로 설정합니다. 1. **제어판**을 열고 **모양 및 개인 설정**을 클릭합니다. 2. **디스플레이**를 클릭합니다. 3. **작게 – 100%(기본값)**를 클릭하고 **적용**을 클릭합니다.
+DateTime 서식 다시 지정 매핑 작업이 디자인 화면에 추가되고 구성된 경우 서식 드롭다운 목록이 회색 표시될 수 있습니다. 컴퓨터 디스플레이가 **보통 – 125%** 또는 **크게 – 150%**로 설정된 경우 이러한 현상이 발생할 수 있습니다. 해결하려면 디스플레이를 아래 단계에 따라 **작게 – 100%(기본값)**로 설정합니다.
+1. **제어판**을 열고 **모양 및 개인 설정**을 클릭합니다.
+2. **디스플레이**를 클릭합니다.
+3. **작게 – 100%(기본값)**를 클릭하고 **적용**을 클릭합니다.
 
 이제 **서식** 드롭다운 목록이 예상대로 작동합니다.
 ### BizTalk 서비스 포털의 중복 규약
-다음과 같은 시나리오를 고려해 보세요. 1. 거래 업체 관리 OM API를 사용하여 규약을 만듭니다. 2. BizTalk 서비스 포털에서 서로 다른 두 탭의 규약을 엽니다. 3. 두 탭에서 규약을 배포합니다. 4. 결과적으로 두 규약이 배포되고 BizTalk 서비스 포털에 중복 항목이 발생합니다.
+다음과 같은 시나리오를 고려해 보세요.
+1. 거래 업체 관리 OM API를 사용하여 규약을 만듭니다.
+2. BizTalk 서비스 포털에서 서로 다른 두 탭의 규약을 엽니다.
+3. 두 탭에서 규약을 배포합니다.
+4. 결과적으로 두 규약이 배포되고 BizTalk 서비스 포털에 중복 항목이 발생합니다.
 
 **해결 방법**. BizTalk 서비스 포털에서 중복 규약 중 하나를 열고 배포 취소합니다.
 
@@ -147,7 +158,8 @@ Microsoft Azure SQL 데이터베이스(배포된 아티팩트 및 파이프라�
 ### WCF를 사용하여 브리지에 메시지 전송할 때 확장되지 않음
 WCF를 사용하여 브리지에 전송되는 메시지가 확장되지 않습니다. 확장성 있는 클라이언트를 원하는 경우 대신 HttpWebRequest를 사용해야 합니다.
 ### 업그레이드: BizTalk 서비스 미리 보기에서 GA(일반 공급)로 업그레이드한 후 토큰 공급자 오류
-활성 배치가 있는 EDI 또는 AS2 규약이 있습니다. BizTalk 서비스를 미리 보기에서 GA로 업그레이드하는 경우 다음이 발생할 수 있습니다. * 오류: 토큰 공급자가 보안 토큰을 제공할 수 없습니다. 토큰 공급자 반환 메시지: 원격 이름을 확인할 수 없습니다.
+활성 배치가 있는 EDI 또는 AS2 규약이 있습니다. BizTalk 서비스를 미리 보기에서 GA로 업그레이드하는 경우 다음이 발생할 수 있습니다.
+* 오류: 토큰 공급자가 보안 토큰을 제공할 수 없습니다. 토큰 공급자 반환 메시지: 원격 이름을 확인할 수 없습니다.
 
 * 배치 작업이 취소됩니다.
 
@@ -174,4 +186,4 @@ BizTalk 서비스 미리 보기 구독에 배포된 XML 브리지가 있는 시�
 
 [BizTalk 서비스](https://msdn.microsoft.com/library/azure/hh689864.aspx)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

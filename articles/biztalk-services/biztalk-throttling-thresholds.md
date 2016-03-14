@@ -4,8 +4,8 @@
 	services="biztalk-services" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
-	manager="dwrede" 
-	editor="cgronlun"/>
+	manager="erikre" 
+	editor=""/>
 
 <tags 
 	ms.service="biztalk-services" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="02/29/2016" 
 	ms.author="mandia"/>
 
 
@@ -28,10 +28,10 @@ Azure BizTalk 서비스는 메모리 사용량과 동시 메시지 처리 수의
 
 다음 표에서는 제한 원본 및 임계값을 나열합니다.
 
-|| 설명| 낮은 임계값| 높은 임계값|
+||설명|낮은 임계값|높은 임계값|
 |---|---|---|---|
-|메모리| 사용 가능한 총 시스템 메모리의 %/PageFileBytes입니다. <p><p>사용 가능한 총 PageFileBytes는 시스템 RAM의 약 2배입니다.|60%|70%|
-|메시지 처리|동시에 처리하는 메시지 수|40 * 코어 수|100 * 코어 수|
+|메모리|사용 가능한 총 시스템/PageFileBytes 백분율 <p><p>사용 가능한 총 PageFileBytes는 시스템 RAM의 대략 2배입니다.|60%|70%|
+|메시지 처리|동시 메시지 처리 수|40 * 코어 수|100 * 코어 수|
 
 높은 임계값에 도달하면 Azure BizTalk 서비스에서 제한을 시작합니다. 낮은 임계값에 도달하면 제한이 중지됩니다. 예를 들어 서비스에서 65% 시스템 메모리를 사용하고 있다고 가정합니다. 이런 상황에서는 서비스가 제한하지 않습니다. 그러나 서비스가 70%의 시스템 메모리를 사용하기 시작하면 상황이 달라집니다. 서비스가 제한을 시작하여 60%(낮은 임계값)의 시스템 메모리를 사용할 때까지 계속 제한합니다.
 
@@ -70,4 +70,4 @@ Azure BizTalk 서비스가 제한 상태에 들어가면 다음과 같은 상황
 - [BizTalk 서비스: 발급자 이름 및 발급자 키](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

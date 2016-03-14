@@ -68,7 +68,7 @@ inputs | Hive 작업에서 사용하는 입력 | 아니요
 outputs | Pig 작업에서 생성하는 출력 | 예
 linkedServiceName | 데이터 팩토리에서 연결된 서비스로 등록된 HDInsight 클러스터에 대한 참조 | 예
 script | Pig 스크립트 인라인 지정 | 아니요
-script path | Pig 스크립트를 Azure blob 저장소에 저장하고 파일에 대한 경로를 제공합니다. 'script' 또는 'scriptPath' 속성을 사용합니다. 둘 모두를 사용할 수는 없습니다. | 아니요
+script path | Pig 스크립트를 Azure blob 저장소에 저장하고 파일에 대한 경로를 제공합니다. 'script' 또는 'scriptPath' 속성을 사용합니다. 둘 모두를 사용할 수는 없습니다. 파일 이름은 대/소문자를 구분합니다. | 아니요
 defines | Pig 스크립트 내에서 참조하기 위해 매개 변수를 키/값 쌍으로 지정 | 아니요
 
 ## 예
@@ -186,4 +186,4 @@ defines | Pig 스크립트 내에서 참조하기 위해 매개 변수를 키/�
 		PigSampleOut = Foreach GroupProfile Generate PigSampleIn.ProfileID, SUM(PigSampleIn.Duration);		
 		Store PigSampleOut into '$Output' USING PigStorage (','); 
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

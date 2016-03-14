@@ -2,7 +2,7 @@
     pageTitle="자습서: Azure Active Directory와 Zscaler ZSCloud 통합 | Microsoft Azure"
     description="Azure Active Directory에서 ZScaler ZScloud을 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="02/29/2016" 
+    ms.author="jeedes" />
 
 
 #자습서: Azure Active Directory와 Zscaler ZSCloud 통합
@@ -40,7 +40,7 @@
 
 ###ZScaler ZSCloud에 응용 프로그램 통합을 사용하려면 다음 단계를 수행합니다.
 
-1.  Azure 관리 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+1.  Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
     ![Active Directory](./media/active-directory-saas-zscaler-zscloud-tutorial/IC700993.png "Active Directory")
 
@@ -72,7 +72,7 @@
 
 ###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
-1.  Azure 포털의 **ZScaler ZSCloud** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Configure Single Sign On ** 대화 상자를 엽니다.
+1.  Azure 클래식 포털의 **ZScaler ZSCloud** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign On 구성** 대화 상자를 엽니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-zscaler-zscloud-tutorial/IC800278.png "Single Sign-On 구성")
 
@@ -111,7 +111,7 @@
 
     ![SSO(Single sign-on)](./media/active-directory-saas-zscaler-zscloud-tutorial/IC800209.png "SSO(Single sign-on)")
 
-    1.  Azure 포털의 **ZScaler ZSCloud에서 Single Sign-On 구성** 대화 상자 페이지에서 **인증 요청 URL** 값을 복사하고 **사용자가 인증을 위해 보낸 SAML 포털의 URL** 텍스트 상자에 붙여넣기 합니다.
+    1.  Azure 클래식 포털의 **ZScaler ZSCloud에서 Single Sign-On 구성** 대화 상자 페이지에서 **인증 요청 URL** 값을 복사하고 **사용자가 인증을 위해 보낸 SAML 포털의 URL** 텍스트 상자에 붙여넣습니다.
     2.  **로그인 이름을 포함한 특성** 텍스트 상자에 **NameID**를 입력합니다.
     3.  **Zscaler pem**을 클릭하여 다운로드한 인증서를 업로드합니다.
     4.  **SAML 자동 프로비전 사용**을 선택합니다.
@@ -123,7 +123,7 @@
     1.  **Save**를 클릭합니다.
     2.  **지금 활성화**를 클릭합니다.
 
-11. Azure 포털의 ZScaler **ZSCloud에서 Single Sign-On 구성** 대화 상자 페이지에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭합니다.
+11. Azure 클래식 포털의 ZScaler **ZSCloud에서 Single Sign-On 구성** 대화 상자 페이지에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭합니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-zscaler-zscloud-tutorial/IC800282.png "Single Sign-On 구성")
 
@@ -190,7 +190,7 @@ Azure AD 사용자가 ZScaler ZSCloud에 로그인할 수 있도록 하려면 �
 
 ###ZScaler ZSCloud에 사용자를 할당하려면 다음 단계를 수행합니다.
 
-1.  Azure AD 포털에서 테스트 계정을 만듭니다.
+1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
 
 2.  **ZScaler ZSCloud** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
 
@@ -202,4 +202,4 @@ Azure AD 사용자가 ZScaler ZSCloud에 로그인할 수 있도록 하려면 �
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -15,13 +15,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="03/02/2016"
    ms.author="mandia"/>
 
 # Dropbox API 시작 
-Dropbox에 연결하여 파일 만들기, 파일 가져오기 등 파일을 관리합니다.
+Dropbox에 연결하여 파일 만들기, 파일 가져오기 등 파일을 관리합니다. Dropbox API를 다음에서 사용할 수 있습니다.
 
-Dropbox API는 PowerApps 엔터프라이즈 및 논리 앱에서 사용할 수 있습니다.
+- 논리 앱 
+- PowerApps
+
+> [AZURE.SELECTOR]
+- [논리 앱](../articles/connectors/create-api-dropbox.md)
+- [PowerApps 엔터프라이즈](../articles/power-apps/powerapps-create-api-dropbox.md)
 
 Dropbox를 사용하여 다음과 같은 작업을 수행할 수 있습니다.
 
@@ -30,7 +35,7 @@ Dropbox를 사용하여 다음과 같은 작업을 수행할 수 있습니다.
 - 파일 만들기, 파일 삭제 등의 작업을 사용합니다. 이러한 작업을 사용하여 응답을 가져오고 출력을 다른 작업에 사용할 수 있도록 설정합니다. 예를 들어 Dropbox에서 새 파일이 만들어지면 Office 365를 사용하여 해당 파일을 메일로 보낼 수 있습니다.
 - PowerApps 엔터프라이즈에 Dropbox API를 추가합니다. 이렇게 하면 사용자가 앱 내에서 이 API를 사용할 수 있습니다. 
 
-PowerApps 엔터프라이즈에서 API를 추가하는 방법을 보려면 [Register an API in PowerApps](../power-apps/powerapps-register-from-available-apis.md)(PowerApps에서 API 등록)로 이동하세요.
+PowerApps 엔터프라이즈에서 API를 추가하는 방법을 보려면 [PowerApps에서 API 등록](../power-apps/powerapps-register-from-available-apis.md)으로 이동하세요.
 
 논리 앱에 작업을 추가하려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
 
@@ -79,6 +84,7 @@ PowerApps 엔터프라이즈에 Dropbox를 추가할 때 Dropbox 응용 프로�
 >[AZURE.TIP] 다른 논리 앱에서 이와 동일한 Dropbox 연결을 사용할 수 있습니다.
 
 ## Swagger REST API 참조
+적용 버전: 1.0
 
 ### 파일 만들기    
 Dropbox에 파일을 업로드합니다. ```POST: /datasets/default/files```
@@ -298,4 +304,4 @@ PowerApps 엔터프라이즈에 Dropbox API를 추가한 후 해당 앱에서 AP
 [10]: ./media/create-api-dropbox/dropbox-create-app-page1.png
 [11]: ./media/create-api-dropbox/dropbox-create-app-page2.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

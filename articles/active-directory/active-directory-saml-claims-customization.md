@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="02/26/2016"
 	ms.author="asmalser"/>
 
 #Azure Active Directory의 사전 통합된 앱에 대한 SAML 토큰에서 발급된 클레임 사용자 지정
@@ -54,9 +54,7 @@ SAML 토큰 특성 테이블의 행 중 하나에 마우스를 가져갈 때마�
 
 지정된 사용자에 대해 선택한 특성에 대한 값이 저장되어 있지 않으면 해당 클레임이 토큰에서 발급되지 않아야 합니다.
 
-**참고:** **user.onpremisesecurityidentifier** 및 **user.onpremisesamaccountname**은 AAD Connect 도구의 최신 Preview 버전을 사용하여 온-프레미스 Active Directory의 사용자 데이터를 동기화할 때만 지원됩니다. 아래 링크에서 Connect 도구의 Preview 버전을 다운로드할 수 있습니다.
-
-http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=53949
+**참고:** **user.onpremisesecurityidentifier** 및 **user.onpremisesamaccountname**은 [Azure AD Connect 도구](active-directory-aadconnect.md)를 사용하여 온-프레미스 Active Directory의 사용자 데이터를 동기화할 때만 지원됩니다.
 
 ## 관련 문서
 
@@ -70,4 +68,4 @@ http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=
 [3]: ./media/active-directory-saml-claims-customization/claimscustomization3.png
 [4]: ./media/active-directory-saml-claims-customization/claimscustomization4.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

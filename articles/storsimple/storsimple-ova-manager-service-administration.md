@@ -3,7 +3,7 @@
    description="Azure 클래식 포털에서 StorSimple 관리자 서비스를 사용하여 StorSimple 온-프레미스 가상 배열을 관리하는 방법을 알아봅니다."
    services="storsimple"
    documentationCenter=""
-   authors="SharS"
+   authors="alkohli"
    manager="carmonm"
    editor="" />
 <tags 
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/18/2016"
-   ms.author="v-sharos" />
+   ms.date="03/01/2016"
+   ms.author="alkohli" />
 
-# StorSimple 관리자 서비스를 사용하여 StorSimple 가상 배열 관리(미리 보기)
+# StorSimple Manager 서비스를 사용하여 StorSimple 가상 배열 관리
 
 ![설정 프로세스 흐름](./media/storsimple-ova-manager-service-administration/manage4.png)
 
@@ -58,11 +58,11 @@ StorSimple Manager 서비스 UI에 대한 탐색 기록이 다음 테이블에 �
 |방문 페이지|서비스 수준 페이지|장치 수준 페이지|
 |---|---|---|
 |StorSimple 관리자 서비스|대시보드(서비스)|대시보드(장치)|
-|장치 →|모니터|
-|백업 카탈로그|공유(파일 서버) 또는 </br>볼륨(iSCSI 서버)|
-|구성(서비스)|구성(장치)|
-|작업|유지 관리|
-|경고|
+||장치 →|모니터|
+||백업 카탈로그|공유(파일 서버) 또는 </br>볼륨(iSCSI 서버)|
+||구성(서비스)|구성(장치)|
+||작업|유지 관리|
+||경고|
 
 ## StorSimple 관리자 서비스를 사용하여 관리 작업 수행
 
@@ -96,4 +96,4 @@ StorSimple Manager 서비스 UI에 대한 탐색 기록이 다음 테이블에 �
 ##다음 단계
 웹 UI 및 사용 방법에 대한 자세한 내용은 [StorSimple 웹 UI를 사용하여 StorSimple 가상 배열 관리](storsimple-ova-web-ui-admin.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

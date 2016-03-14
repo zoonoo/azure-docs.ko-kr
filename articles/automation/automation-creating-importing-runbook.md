@@ -1,19 +1,19 @@
-<properties 
+<properties
 	pageTitle="Azure 자동화에서 Runbook 만들기 또는 가져오기"
 	description="이 문서에서는 Azure 자동화에서 새 Runbook을 만들거나 파일에서 가져오는 방법을 설명합니다."
 	services="automation"
 	documentationCenter=""
-	authors="bwren"
+	authors="mgoedtel"
 	manager="stevenka"
 	editor="tysonn" />
-<tags 
+<tags
 	ms.service="automation"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="02/09/2016"
-	ms.author="bwren" />
+	ms.date="02/29/2016"
+	ms.author="magoedte;bwren" />
 
 # Azure 자동화에서 Runbook 만들기 또는 가져오기
 
@@ -23,19 +23,19 @@
 
 Azure 포털 또는 Windows PowerShell 중 하나를 사용하여 Azure 자동화에서 새 Runbook을 만들 수 있습니다. Runbook를 만든 후에는 [ PowerShell 워크플로 학습](automation-powershell-workflow.md) 및 [Azure 자동화에서 그래픽 제작](automation-graphical-authoring-intro.md)의 정보를 사용하여 편집할 수 있습니다.
 
-### Azure 포털에서 새 Azure 자동화 Runbook을 만들려면
+### Azure 클래식 포털에서 새 Azure 자동화 Runbook을 만들려면
 
 Azure 포털에서는 [PowerShell 워크플로 Runbook](automation-runbook-types.md#powershell-workflow-runbooks)을 사용한 작업만 가능합니다.
 
-1. Azure 포털에서 **새로 만들기**, **앱 서비스**, **자동화**, **Runbook**, **빠른 생성**을 차례로 클릭합니다.
+1. Azure 클래식 포털에서 **새로 만들기**, **앱 서비스**, **자동화**, **Runbook**, **빨리 만들기**를 차례로 클릭합니다.
 2. 필요한 정보를 입력한 다음 **만들기**를 클릭합니다. Runbook 이름은 문자로 시작해야 하며 문자, 숫자, 언더바, 대시 등이 포함될 수 있습니다.
 3. 지금 runbook을 편집하려면 **Runbook 편집**을 클릭합니다. 그렇지 않은 경우 **확인**을 클릭합니다.
 4. 새 Runbook이 **Runbook** 탭에 표시됩니다.
 
 
-### Azure Preview 포털에서 새 Azure 자동화 Runbook을 만들려면
+### Azure 포털에서 새 Azure 자동화 Runbook을 만들려면
 
-1. Azure Preview 포털에서 자동화 계정을 엽니다. 
+1. Azure 포털에서 자동화 계정을 엽니다.
 2. **Runbook** 타일을 클릭하여 Runbook 목록을 엽니다.
 3. **Runbook 추가** 단추를 클릭하고 **새 Runbook 만들기**를 클릭합니다.
 2. Runbook의 **이름**을 입력하고 [유형](automation-runbook-types.md)을 선택합니다. Runbook 이름은 문자로 시작해야 하며 문자, 숫자, 언더바, 대시 등이 포함될 수 있습니다.
@@ -50,7 +50,7 @@ Azure 포털에서는 [PowerShell 워크플로 Runbook](automation-runbook-types
 
     $automationAccountName = "MyAutomationAccount"
     $runbookName = "Sample-TestRunbook"
-    New-AzureAutomationRunbook –AutomationAccountName $automationAccountName –Name $runbookName 
+    New-AzureAutomationRunbook –AutomationAccountName $automationAccountName –Name $runbookName
 
 ## 파일의 Runbook을 Azure 자동화로 가져오기
 
@@ -60,8 +60,8 @@ PowerShell 스크립트나 PowerShell 워크플로(.ps1 확장명) 또는 내보
 - PowerShell 워크플로를 포함하는.ps1 파일은 [PowerShell 워크플로 Runbook](automation-runbook-types.md#powershell-workflow-runbooks)에만 가져올 수 있습니다. 파일에 여러 PowerShell 워크플로 있으면 가져오기가 실패합니다. 각 워크플로를 자체 파일에 저장하 고 각각 개별적으로 가져와야 합니다.
 - 워크플로를 포함하지 않은 .ps1 파일은 [PowerShell Runbook](automation-runbook-types.md#powershell-runbooks) 또는 [PowerShell Workflow Runbook](automation-runbook-types.md#powershell-workflow-runbooks)으로 가져올 수 있습니다. PowerShell 워크플로 Runbook에 가져오면 워크플로로 변환되며 Runbook에 적용된 변경 내용을 명시하는 메모가 포함됩니다.
 
-### Azure 포털을 사용하여 파일에서 Runbook을 가져오려면
-Azure 자동화에 스크립트 파일을 가져오려면 다음 절차를 사용할 수 있습니다. 이 포털을 사용하는 PowerShell 워크플로 Runbook에만 .ps1 파일을 가져올 수 있습니다. 다른 유형에는 Azure Preview 포털을 사용해야 합니다.
+### Azure 클래식 포털로 파일에서 Runbook을 가져오려면
+Azure 자동화에 스크립트 파일을 가져오려면 다음 절차를 사용할 수 있습니다. 이 포털을 사용하는 PowerShell 워크플로 Runbook에만 .ps1 파일을 가져올 수 있습니다. 다른 유형에는 Azure 포털을 사용해야 합니다.
 
 1. Azure 관리 포털에서 **자동화**를 선택한 다음 자동화 계정을 클릭합니다.
 2. **가져오기**를 클릭합니다.
@@ -71,10 +71,10 @@ Azure 자동화에 스크립트 파일을 가져오려면 다음 절차를 사�
 6. 실행에 앞서 [Runbook을 게시](#publishing-a-runbook)해야 합니다.
 
 
-### Azure Preview 포털로 파일에서 Runbook을 가져오려면
+### Azure 포털을 사용하여 파일에서 Runbook을 가져오려면
 Azure 자동화에 스크립트 파일을 가져오려면 다음 절차를 사용할 수 있습니다. 이 포털을 사용하는 PowerShell 워크플로 Runbook에만 .ps1 파일을 가져올 수 있습니다.
 
-1. Azure Preview 포털에서 자동화 계정을 엽니다. 
+1. Azure 포털에서 자동화 계정을 엽니다.
 2. **Runbook** 타일을 클릭하여 Runbook 목록을 엽니다.
 3. **Runbook 추가** 단추를 클릭하고 **가져오기**를 클릭합니다.
 4. **Runbook 파일**을 클릭하여 가져올 파일을 선택합니다.
@@ -101,15 +101,15 @@ Azure 자동화에 스크립트 파일을 가져오려면 다음 절차를 사�
 
 새 Runbook을 만들거나 가져올 때는 게시해야 실행할 수 있습니다. Azure 자동화의 각 Runbook에는 초안 버전과 게시된 버전이 있습니다. 게시된 버전만 실행할 수 있으며 초안 버전만 편집할 수 있습니다. 초안 버전을 변경해도 게시된 버전은 영향을 받지 않습니다. 초안 버전을 사용할 수 있게 되면 이를 게시합니다. 그러면 초안 버전이 게시된 버전을 덮어씁니다.
 
-## Azure 포털을 사용하여 Runbook을 게시하려면
+## Azure 클래식 포털을 사용하여 Runbook을 게시하려면
 
-1. Azure 포털에서 Runbook을 엽니다.
+1. Azure 클래식 포털에서 Runbook을 엽니다.
 1. 화면 맨 위에서 **작성자**를 클릭합니다.
 1. 화면 아래쪽에서 **게시**를 클릭한 다음 확인 메시지에서 **예**를 클릭합니다.
 
-## Azure Preview 포털을 사용하여 Runbook을 게시하려면
+## Azure 포털을 사용하여 Runbook을 게시하려면
 
-1. Azure Preview 포털에서 Runbook을 엽니다.
+1. Azure 포털에서 Runbook을 엽니다.
 1. **Edit** 단추를 클릭합니다.
 1. **게시** 단추를 클릭한 다음 확인 메시지에서 **예**를 클릭합니다.
 
@@ -120,7 +120,7 @@ Azure 자동화에 스크립트 파일을 가져오려면 다음 절차를 사�
 
 	$automationAccountName = "MyAutomationAccount"
 	$runbookName = "Sample-TestRunbook"
-	
+
 	Publish-AzureAutomationRunbook –AutomationAccountName $automationAccountName –Name $runbookName
 
 
@@ -131,4 +131,4 @@ Azure 자동화에 스크립트 파일을 가져오려면 다음 절차를 사�
 - [Azure 자동화에서 텍스트 Runbook 편집](automation-edit-textual-runbook.md)
 - [Azure 자동화에서 그래픽 작성](automation-graphical-authoring-intro.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

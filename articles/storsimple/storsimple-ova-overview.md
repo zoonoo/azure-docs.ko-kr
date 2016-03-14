@@ -3,8 +3,8 @@
    description="온-프레미스 가상 장치와 Microsoft Azure 클라우드 저장소 간의 저장소 작업을 관리하는 통합된 저장소 솔루션인 StorSimple 가상 배열을 설명합니다."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
+   authors="alkohli"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,20 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/13/2016"
-   ms.author="v-sharos" />
+   ms.date="03/01/2016"
+   ms.author="alkohli" />
 
-# StorSimple 가상 배열 소개(미리 보기)
+# StorSimple 가상 배열 소개
 
 ## 개요
 
 하이퍼바이저 및 Microsoft Azure 클라우드 저장소에서 실행되는 온-프레미스 가상 장치 간의 저장소 작업을 관리하는 통합된 저장소 솔루션인 Microsoft Azure StorSimple 가상 배열을 시작합니다. 가상 배열(StorSimple 온-프레미스 가상 장치라고도 함)은 엔터프라이즈 저장소 및 데이터 보호와 관련된 다양한 문제와 비용을 없애는 효율적이고, 비용 효과적이며, 관리가 용이한 파일 서버 또는 iSCSI 서버 솔루션입니다. 가상 배열은 원격 사무실/지점 시나리오에 특히 적합합니다.
-
->[AZURE.IMPORTANT]
->
-> StorSimple 가상 배열은 미기 보기 중이며 평가 및 배포 계획 용도로 사용됩니다. 프로덕션 환경에서는 이 미리 보기를 설치하도록 지원되지 않습니다.
->
-> StorSimple 가상 배열에서 문제가 발생하는 경우 [StorSimple MSDN 포럼](https://social.msdn.microsoft.com/Forums/home?forum=StorSimple)에 문제를 게시해 주세요.
 
 이 개요는 가상 배열에 중점을 두고 있습니다.
 
@@ -93,13 +87,13 @@ Azure 클래식 포털에서 실행되는 StorSimple Manager 서비스를 사용
 
 - **볼륨 또는 공유 복원** – 복원을 새로운 워크플로로 사용하여 볼륨 또는 공유를 복원합니다. 이 접근 방식을 사용하여 전체 볼륨 또는 공유를 복원합니다.
 - **항목 수준 복구** – 공유를 통해 최근 백업에 간편하게 액세스할 수 있습니다. 클라우드에서 사용할 수 있는 특별한 .backup 폴더에서 개별 파일을 손쉽게 복원할 수 있습니다. 이러한 복원 기능은 사용자를 기반으로 하며 관리자의 개입이 필요하지 않습니다.
-- **재해 복구** – 장애 조치 기능을 사용하여 모든 볼륨 또는 공유를 새로운 가상 배열에 복구합니다. 새로운 가상 배열을 만들고 StorSimple Manager 서비스에 등록한 후에 원본 가상 배열을 장애 조치합니다. 새로운 가상 배열은 프로비전된 리소스를 맡게 됩니다. 
+- **재해 복구** – 장애 조치(failover) 기능을 사용하여 모든 볼륨 또는 공유를 새로운 가상 배열에 복구합니다. 새로운 가상 배열을 만들고 StorSimple Manager 서비스에 등록한 후에 원본 가상 배열을 장애 조치합니다. 새로운 가상 배열은 프로비전된 리소스를 맡게 됩니다. 
 
 ## 가상 배열 구성 요소
 
 가상 배열에는 다음 구성 요소가 포함됩니다.
 
-- [가상 배열](#virtual-array) – 가상화된 환경 또는 하이퍼바이저에 프로비전된 가상 컴퓨터를 기반으로 하는 하이브리드 클라우드 저장소 장치입니다.  
+- [가상 배열](#virtual-array) – 가상화된 환경 또는 하이퍼바이저에 프로비전된 가상 컴퓨터를 기반으로 하는 하이브리드 클라우드 저장 장치입니다.  
 - [StorSimple Manager 서비스](#storsimple-manager-service) – 다양한 지리적 위치에서 액세스할 수 있는 단일 웹 인터페이스에서 하나 이상의 StorSimple 장치를 관리할 수 있는 Azure 클래식 포털의 확장입니다. StorSimple Manager 서비스를 사용하여 서비스를 만들고 관리하고, 장치와 경고를 보고 관리하고, 볼륨, 공유, 기존 스냅숏을 관리할 수 있습니다.
 - [로컬 웹 사용자 인터페이스](#local-web-user-interface) – 로컬 네트워크에 연결할 수 있도록 장치를 구성한 후에 StorSimple Manager 서비스에 장치를 등록하는 데 사용되는 웹 기반 UI입니다. 
 - [명령줄 인터페이스](#command-line-interface) – 가상 배열의 지원 세션을 시작하는 데 사용할 수 있는 Windows PowerShell 인터페이스입니다. 다음 섹션에서는 이러한 각 구성 요소를 자세히 설명하고 솔루션이 데이터를 정렬하고, 저장소를 할당하고 저장소 관리 및 데이터 보호를 용이하게 방법에 대해 설명합니다.
@@ -118,7 +112,7 @@ Azure 클래식 포털에서 실행되는 StorSimple Manager 서비스를 사용
 - 백업이 클라우드에 저장되기 때문에, 재해 복구를 수월하게 하고 항목 수준 복구(ILR)를 간소화시킬 수 있습니다. 
 - 업데이트를 물리적 장치에 적용하듯이 가상 배열에 적용할 수 있습니다.
 
->[AZURE.NOTE]가상 배열을 확장할 수 없습니다. 따라서 가상 장치를 만들 때 충분한 저장소를 프로비전하는 것이 중요합니다.
+>[AZURE.NOTE] 가상 배열을 확장할 수 없습니다. 따라서 가상 장치를 만들 때 충분한 저장소를 프로비전하는 것이 중요합니다.
 
 ### StorSimple 관리자 서비스
 
@@ -140,7 +134,7 @@ StorSimple Manager 서비스를 사용하여 가상 배열의 일상적인 관�
 
 가상 배열은 장치의 일회성 구성 및 StorSimple Manager 서비스 등록에 사용되는 웹 기반 UI를 포함합니다. 이것을 사용하여 가상 배열을 종료하고 다시 시작하고, 진단 테스트를 실행하고, 소프트웨어를 업데이트하고, 장치 관리자 암호를 변경하고, 시스템 로그를 보고, 서비스 요청을 위해 Microsoft 지원으로 문의할 수 있습니다.
 
-웹 기반 UI 사용에 대한 자세한 내용은 [Use the web-based UI to administer your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md)(웹 기반 UI를 사용하여 StorSimple 가상 배열 관리)를 참조하세요.
+웹 기반 UI 사용에 대한 자세한 내용은 [웹 기반 UI를 사용하여 StorSimple 가상 배열 관리](storsimple-ova-web-ui-admin.md)를 참조하세요.
 
 ### 명령줄 인터페이스
 
@@ -163,7 +157,7 @@ StorSimple Manager 서비스를 사용하여 가상 배열의 일상적인 관�
 
 ![자동 저장소 계층화](./media/storsimple-ova-overview/automatic-storage-tiering.png)
 
->[AZURE.NOTE]볼륨이 로컬로 고정되도록 지정할 수 있으며, 이런 경우 해당 데이터는 가상 배열에 머무르고 절대 클라우드에 계층화되지 않습니다. 자세한 내용은 [로컬로 고정된 공유 및 볼륨](#locally-pinned-shares-and-volumes)을 참조하세요.
+>[AZURE.NOTE] 볼륨이 로컬로 고정되도록 지정할 수 있으며, 이런 경우 해당 데이터는 가상 배열에 머무르고 절대 클라우드에 계층화되지 않습니다. 자세한 내용은 [로컬로 고정된 공유 및 볼륨](#locally-pinned-shares-and-volumes)을 참조하세요.
 
 ### 로컬로 고정된 공유 및 볼륨
 
@@ -180,7 +174,7 @@ StorSimple Manager 서비스를 사용하여 가상 배열의 일상적인 관�
 
 StorSimple은 중복 제거 및 데이터 압축을 사용하여 클라우드의 저장소 요구 사항 많이 감소시킵니다. 중복 제거는 저장된 데이터 집합에서 중복을 제거하여 저장된 데이터의 전체 크기를 줄일 수 있습니다. 정보가 변경되면 StorSimple은 변경되지 않은 데이터를 무시하고 변경 내용만 캡처합니다. 또한 StorSimple은 중복 정보를 식별하고 제거하여 저장된 데이터의 양을 줄입니다.
 
->[AZURE.NOTE]가상 배열에 저장되는 데이터는 중복 제거되거나 압축되지 않습니다. 모든 중복 제거 및 압축은 데이터를 클라우드로 보내기 바로 전에 발생합니다.
+>[AZURE.NOTE] 가상 배열에 저장되는 데이터는 중복 제거되거나 압축되지 않습니다. 모든 중복 제거 및 압축은 데이터를 클라우드로 보내기 바로 전에 발생합니다.
 
 ### 예약된 백업 및 주문형 백업
 
@@ -190,4 +184,4 @@ StorSimple 데이터 보호 기능을 통해 주문형 백업을 만들 수 있�
 
 [가상 배열 포털을 준비](storsimple-ova-deploy1-portal-prep.md)하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0302_2016-->

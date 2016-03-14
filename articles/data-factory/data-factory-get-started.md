@@ -1,5 +1,5 @@
 <properties
-	pageTitle="자습서: Azure Data Factory 파이프라인에서 복사 작업 사용"
+	pageTitle="자습서: Azure Blob 저장소에서 Azure SQL 데이터베이스로 데이터 복사"
 	description="이 자습서에서는 Azure Data Factory 파이프라인에 Azure Blob에서 Azure SQL 데이터베이스로 데이터를 복사하는 복사 작업을 사용하는 방법을 보여 줍니다."
 	services="data-factory"
 	documentationCenter=""
@@ -16,14 +16,16 @@
 	ms.date="02/01/2016"
 	ms.author="spelluru"/>
 
-# 자습서: Azure Blob에서 Azure SQL로 데이터 복사
+# 자습서: Azure Blob 저장소에서 Azure SQL 데이터베이스로 데이터 복사
 > [AZURE.SELECTOR]
-- [Tutorial Overview](data-factory-get-started.md)
-- [Using Data Factory Editor](data-factory-get-started-using-editor.md)
-- [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
-- [Using Visual Studio](data-factory-get-started-using-vs.md)
+- [자습서 개요](data-factory-get-started.md)
+- [Data Factory 편집기 사용](data-factory-get-started-using-editor.md)
+- [PowerShell 사용](data-factory-monitor-manage-using-powershell.md)
+- [Visual Studio 사용](data-factory-get-started-using-vs.md)
 
-이 문서의 자습서는 Azure Data Factory 서비스 사용을 빠르게 시작하는 데 도움이 됩니다. 이 자습서에서는 Azure Data Factory를 만들고 Azure Blob 저장소에서 Azure SQL 데이터베이스로 데이터를 복사하는 파이프라인을 데이터 팩터리에 만듭니다.
+이 자습서에서는 Azure Data Factory를 만들고 Azure Blob 저장소에서 Azure SQL 데이터베이스로 데이터를 복사하는 복사 작업을 사용하여 파이프라인을 만듭니다.
+
+복사 작업이 Azure Data Factory의 데이터 이동을 수행합니다. 이 작업은 다양한 데이터 저장소 간에 데이터를 안전하고, 안정적이고, 확장성 있는 방법으로 복사할 수 있는 전역적으로 사용 가능한 서비스를 통해 이루어집니다. 복사 작업에 대한 자세한 내용은 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 참조하세요.
 
 > [AZURE.NOTE] 데이터 팩터리 서비스에 대한 자세한 개요는 [Azure Data Factory 소개][data-factory-introduction] 문서를 참조하세요.
 
@@ -98,7 +100,9 @@
 - 맨 위의 [데이터 팩터리 편집기 사용](data-factory-get-started-using-editor.md) 링크를 클릭하여 Azure 클래식 포털의 일부인 데이터 팩터리 편집기를 통해 자습서를 수행합니다.
 - 맨 위의 [PowerShell 사용](data-factory-monitor-manage-using-powershell.md) 링크를 클릭하여 Azure PowerShell을 통해 자습서를 수행합니다.
 - Visual Studio 2013을 사용해서 자습서를 수행하려면 맨 위의 [Visual Studio 사용](data-factory-get-started-using-vs.md) 링크를 클릭합니다.
- 
+
+## 복사 작업
+Azure Data Factory의 복사 작업에 대한 자세한 내용은 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 참조하세요.
 
 
 <!--Link references-->
@@ -111,4 +115,4 @@
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database/sql-database-get-started.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

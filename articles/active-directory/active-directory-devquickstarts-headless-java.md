@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="11/14/2015"
+	ms.date="02/19/2016"
 	ms.author="brandwe"/>
 
 
@@ -23,7 +23,10 @@
 
 Azure AD를 사용하면 단순하고 간편하게 웹앱의 ID 관리를 아웃소싱하고 몇 개의 코드 줄만으로 단일 로그인 및 로그아웃을 제공할 수 있습니다. Java 웹앱에서는 Microsoft에서 구현한 커뮤니티 기반 ADAL4J를 사용하여 이 작업을 수행할 수 있습니다.
 
-  다음의 경우 ADAL4J를 사용합니다. - Azure AD를 ID 공급자로 사용하여 사용자를 앱에 로그인합니다. - 사용자에 대한 일부 정보를 표시합니다. - 사용자를 앱에서 로그아웃합니다.
+  다음의 경우 ADAL4J를 사용합니다.
+- ID 공급자로 Azure AD를 사용하여 사용자를 앱에 로그인합니다.
+- 사용자에 대한 일부 정보를 표시합니다.
+- 앱에서 사용자를 로그아웃합니다.
 
 이 작업을 수행하려면 다음 작업이 필요합니다.
 
@@ -265,4 +268,4 @@ public class PublicClient {
 
 ```git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git```
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

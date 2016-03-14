@@ -31,7 +31,8 @@
   ![그리기][img-pubportal-sol-templ-new]
 
 ### 3\. 토폴로지로 시작
-솔루션 템플릿은 해당하는 모든 토폴로지의 "부모"입니다. 하나의 제품/솔루션 템플릿에서 여러 토폴로지를 정의할 수 있습니다. 제품이 스테이징으로 푸시될 때 해당 토폴로지도 모두 함께 푸시됩니다. 아래 단계를 수행하여 제품을 정의합니다. - 토폴로지 만들기: "토폴로지 식별자"는 일반적으로 솔루션 템플릿의 토폴로지 이름입니다. 토폴로지 식별자는 아래와 같은 URL에서 사용됩니다.
+솔루션 템플릿은 해당하는 모든 토폴로지의 "부모"입니다. 하나의 제품/솔루션 템플릿에서 여러 토폴로지를 정의할 수 있습니다. 제품이 스테이징으로 푸시될 때 해당 토폴로지도 모두 함께 푸시됩니다. 아래 단계를 따라 제품을 정의합니다.
+- 토폴로지 만들기: "토폴로지 식별자"는 일반적으로 솔루션 템플릿의 토폴로지 이름입니다. 토폴로지 식별자는 아래와 같은 URL에서 사용됩니다.
 
   Azure 마켓플레이스: http://azure.microsoft.com/marketplace/partners/{PublisherNamespace}/{OfferIdentifier}{TopologyIdentifier}
 
@@ -40,7 +41,9 @@
 - 새 버전을 추가합니다.
 
 ### 4\. 토폴로지 버전 인증받기
-해당하는 특정 토폴로지 버전을 프로비전하는 데 필요한 모든 파일이 포함된 zip 파일을 업로드합니다. 이 zip 파일에는 다음이 포함되어 있어야 합니다. - 루트 디렉터리의 *mainTemplate.json* 및 *createUiDefinition.json* 파일 - 연결된 모든 템플릿 및 모든 필수 스크립트
+해당하는 특정 토폴로지 버전을 프로비전하는 데 필요한 모든 파일이 포함된 zip 파일을 업로드합니다. 이 zip 파일에는 다음이 포함되어 있어야 합니다.
+- 루트 디렉터리의 *mainTemplate.json* 및 *createUiDefinition.json* 파일
+- 연결된 모든 템플릿 및 모든 필수 스크립트
 
 Zip 파일을 업로드한 후 **인증 요청**을 클릭합니다. Microsoft 인증 팀이 파일을 검토하고 토폴로지를 인증합니다.
 
@@ -67,11 +70,11 @@ Zip 파일을 업로드한 후 **인증 요청**을 클릭합니다. Microsoft �
 
 - Azure 리소스 관리자: [Azure ARM 템플릿 작성](../resource-group-authoring-templates/) 및 [간단한 ARM 템플릿 예제](https://github.com/rjmax/ArmExamples)
 
-- 저장소 계정 제한: [저장소 계정 제한을 모니터링하는 방법](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx) 및 [프리미엄 저장소](../storage/storage-premium-storage-preview-portal/#scalability-and-performance-targets-whko-KRing-premium-storage)
+- 저장소 계정 제한: [저장소 계정 제한을 모니터링하는 방법](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx) 및 [프리미엄 저장소](../storage/storage-premium-storage.md#scalability-and-performance-targets-whko-KRing-premium-storage)
 
 [img-pubportal-menu-sol-templ]: media/marketplace-publishing-solution-template-creation/pubportal-menu-solution-templates.png
 [img-pubportal-sol-templ-new]: media/marketplace-publishing-solution-template-creation/pubportal-solution-template-new.png
 [link-acct-creation]: marketplace-publishing-microsoft-accounts-creation-registration.md
 [link-pubportal]: https://publish.windowsazure.com
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -20,7 +20,7 @@
 # Azure 백업 서버를 사용하여 워크로드 백업 준비
 
 > [AZURE.SELECTOR]
-- [Azure Backup Server](backup-azure-microsoft-azure-backup.md)
+- [Azure 백업 서버](backup-azure-microsoft-azure-backup.md)
 - [System Center DPM](backup-azure-dpm-introduction.md)
 
 이 문서는 Azure 백업 서버를 사용하여 워크로드를 백업하기 위한 환경을 준비하는 방법에 대해 설명합니다. Azure 백업 서버로 Hyper-V VM, Microsoft SQL Server, SharePoint Server, 단일 콘솔의 Microsoft Exchange 및 Windows 클라이언트와 같은 응용 프로그램 워크로드를 보호할 수 있습니다.
@@ -66,7 +66,7 @@ Azure에 백업 데이터를 전송하거나 로컬로 유지하거나 관계없
 
 6. 자격 증명 모음이 성공적으로 만들어졌으며 복구 서비스 페이지에 활성 상태로 나열됨을 확인하는 메시지가 나타납니다. ![백업 자격 증명 모음 목록](./media/backup-azure-microsoft-azure-backup/backup_vaultslist.png)
 
-  > [AZURE.IMPORTANT] 자격 증명 모음이 생성된 후 즉시 적절한 저장소 중복 옵션을 선택해야 합니다. [백업 자격 증명 모음에서 저장소 중복 옵션 설정](backup-configure-vault.md#azure-backup---storage-redundancy-options)에 대해 자세히 알아보세요.
+  > [AZURE.IMPORTANT] 자격 증명 모음이 생성된 후 즉시 적절한 저장소 중복 옵션을 선택해야 합니다. 이 [개요](../storage/storage-redundancy.md)의 [지역 중복](../storage/storage-redundancy.md#geo-redundant-storage) 및 [로컬 중복](../storage/storage-redundancy.md#locally-redundant-storage) 옵션에 대해 자세히 알아봅니다.
 
 
 ## 3\. 소프트웨어 패키지
@@ -108,7 +108,7 @@ Azure에 백업 데이터를 전송하거나 로컬로 유지하거나 관계없
 
     ![Microsoft Azure 백업 설치 마법사](./media/backup-azure-microsoft-azure-backup/launch-screen2.png)
 
-2. 시작 화면에서 **다음** 단추를 클릭합니다. *필수 조건 확인* 섹션으로 이동합니다. 이 화면에서 **확인** 단추를 클릭하여 Azure 백업 서버에 대한 하드웨어 및 소프트웨어 필수 조건이 충족되었는지 확인합니다. 모든 필수 조건이 성공적으로 충족되면 컴퓨터가 요구 사항을 만족한다는 것을 나타내는 메시지가 표시됩니다. **다음** 단추를 클릭합니다.
+2. 시작 화면에서 **다음** 단추를 클릭합니다. 그러면 *필수 조건 확인* 섹션으로 이동합니다. 이 화면에서 **확인** 단추를 클릭하여 Azure 백업 서버에 대한 하드웨어 및 소프트웨어 필수 조건이 충족되었는지 확인합니다. 모든 필수 조건이 성공적으로 충족되면 컴퓨터가 요구 사항을 만족한다는 것을 나타내는 메시지가 표시됩니다. **다음** 단추를 클릭합니다.
 
     ![Azure 백업 서버 - 시작 및 필수 조건 확인](./media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
 
@@ -212,4 +212,4 @@ Microsoft Azure 백업 서버를 사용하여 워크로드 보호를 더 깊이 
 - [SharePoint 서버 백업](backup-azure-backup-sharepoint.md)
 - [대체 서버 백업](backup-azure-alternate-dpm-server.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

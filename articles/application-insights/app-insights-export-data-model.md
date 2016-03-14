@@ -475,11 +475,13 @@
 
     ipv4 context.location.clientip      
 * 
-    Xxx.xxx. xxx.xxx 형식의 클라이언트 IPv4 주소입니다.   
+    Xxx.xxx. xxx.xxx 형식의 클라이언트 IPv4 주소입니다.
+
+     개인 정보 문제를 해결하기 위해 마지막 옥텟은 항상 0으로 설정됩니다.
 
     *기본:* null인 경우 데이터 컬렉션 끝점에서 캡처된 HTTP IP로 설정됩니다.
 
-    *예제*<br/> 0.123.63.143<br/>123.203.131.197
+    *예*<br/> 186.123.63.0<br/>123.203.131.0
 
 **continent**
 
@@ -629,7 +631,7 @@
 
     *파생:* &lt;telemetryType.name&gt;으로 표준화됩니다.
 
-**remoteDependencyType**
+**type**
 
     string remotedependency.remotedependencytype      Max: 100
 * 
@@ -989,4 +991,4 @@
 * [연속 내보내기](app-insights-export-telemetry.md)
 * [코드 샘플](app-insights-export-telemetry.md#code-samples)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0302_2016-->

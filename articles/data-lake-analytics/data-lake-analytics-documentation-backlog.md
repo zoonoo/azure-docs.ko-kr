@@ -48,7 +48,7 @@ U-SQL | ADLS 인증 옵션 | 1 | Pending | [@ArindamC](https://github.com/mikery
 
 영역 |항목 | location
 ------------- | ------------- | -------------- 
-부여 | ARM 템플릿을 사용하여 데이터 레이크 분석의 배포를 다른 Azure 서비스와 조정 | [위치](../data-lake-analytics-manage-use-powershell.md)
+부여 | ARM 템플릿을 사용하여 데이터 레이크 분석의 배포를 다른 Azure 서비스와 조정 | [위치](data-lake-analytics-manage-use-powershell.md)
 
 ## 백로그에서 피드백을 제공하는 방법
 백로그에서 피드백을 제공하는 몇 가지 옵션이 있습니다.
@@ -57,4 +57,4 @@ U-SQL | ADLS 인증 옵션 | 1 | Pending | [@ArindamC](https://github.com/mikery
 * [Azure 콘텐츠 리포지토리](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)에서 이 문서에 대한 끌어오기 요청 제출
 * [microsoft.com의 adlafeedback](mailto:adlafeedback@microsoft.com?subject=DocBacklog)으로 메일 보내기
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

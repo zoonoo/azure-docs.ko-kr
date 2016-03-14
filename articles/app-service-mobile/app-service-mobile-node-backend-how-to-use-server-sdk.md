@@ -74,6 +74,7 @@ Azure 앱 서비스 모바일 앱은 모바일에 최적화된 데이터 액세�
 이 응용 프로그램은 동적 스키마를 사용하여 기본 SQL 데이터 저장소에 대한 인증되지 않은 액세스를 제공하는 단일 끝점(`/tables/TodoItem`)으로 간단하고 모바일에 최적화된 WebAPI를 만듭니다. 다음의 클라이언트 라이브러리 빠른 시작에 적합합니다.
 
 - [Android 클라이언트 빠른 시작]
+- [Apache Cordova 클라이언트 빠른 시작]
 - [iOS 클라이언트 빠른 시작]
 - [Windows 스토어 클라이언트 빠른 시작]
 - [Xamarin.iOS 클라이언트 빠른 시작]
@@ -159,7 +160,7 @@ Azure 앱 서비스에는 배포하기 전에 검토해야 하는 Node.js 응용
 - [노드 버전 지정]하는 방법
 - [노드 모듈 사용]하는 방법
 
-### <a name="howto-enable-homepage"></a>방법: 응용 프로그램에 홈 페이지 사용
+### <a name="howto-enable-homepage"></a>방법: 응용 프로그램에 대한 홈페이지 사용
 
 대부분의 응용 프로그램은 웹앱 및 모바일 앱의 조합이고 ExpressJS 프레임워크를 사용하면 두 가지 측면을 결합할 수 있습니다. 그러나 때로는 모바일 인터페이스를 구현하려고 할 수 있습니다. 앱 서비스를 실행하도록 하기 위해 방문 페이지를 제공하는 것이 유용합니다. 고유한 홈 페이지에 제공하거나 임시 홈 페이지를 사용할 수 있습니다. 임시 홈 페이지를 사용하려면 다음에 모바일 앱 생성자를 조정합니다.
 
@@ -430,6 +431,67 @@ Azure SQL 데이터베이스를 데이터 저장소로 사용하면 모든 Azure
 
 액세스 속성을 정의하지 않으면 인증되지 않은 액세스가 허용됩니다.
 
+### <a name="howto-tables-getidentity"></a>방법: 테이블을 사용하여 인증 클레임 사용
+
+인증이 설정될 때 요청되는 클레임을 여러 개 설정할 수 있습니다. 이러한 클레임은 `context.user` 개체를 통해 정상적으로 사용할 수 없습니다. 그러나 `context.user.getIdentity()` 메서드를 사용하여 검색할 수 있습니다. `getIdentity()` 메서드는 개체로 확인되는 프라미스를 반환합니다. 개체는 인증 방법(facebook, google, twitter, microsoftaccount 또는 aad)을 키로 사용합니다.
+
+예를 들어 Microsoft 계정 인증을 설정하고 메일 주소 클레임을 요청하는 경우 레코드에 메일 주소를 다음으로 추가할 수 있습니다.
+
+    var azureMobileApps = require('azure-mobile-apps');
+
+    // Create a new table definition
+    var table = azureMobileApps.table();
+
+    table.columns = {
+        "emailAddress": "string",
+        "text": "string",
+        "complete": "boolean"
+    };
+    table.dynamicSchema = false;
+    table.access = 'authenticated';
+
+    /**
+    * Limit the context query to those records with the authenticated user email address
+    * @param {Context} context the operation context
+    * @returns {Promise} context execution Promise
+    */
+    function queryContextForEmail(context) {
+        return context.user.getIdentity().then((data) => {
+            context.query.where({ emailAddress: data.microsoftaccount.claims.emailaddress });
+            return context.execute();
+        });
+    }
+
+    /**
+    * Adds the email address from the claims to the context item - used for
+    * insert operations
+    * @param {Context} context the operation context
+    * @returns {Promise} context execution Promise
+    */
+    function addEmailToContext(context) {
+        return context.user.getIdentity().then((data) => {
+            context.item.emailAddress = data.microsoftaccount.claims.emailaddress;
+            return context.execute();
+        });
+    }
+
+    // Configure specific code when the client does a request
+    // READ - only return records belonging to the authenticated user
+    table.read(queryContextForEmail);
+
+    // CREATE - add or overwrite the userId based on the authenticated user
+    table.insert(addEmailToContext);
+
+    // UPDATE - only allow updating of record belong to the authenticated user
+    table.update(queryContextForEmail);
+
+    // DELETE - only allow deletion of records belong to the authenticated uer
+    table.delete(queryContextForEmail);
+
+    module.exports = table;
+
+사용할 수 있는 클레임을 보려면 웹 브라우저를 사용하여 사이트의 `/.auth/me` 끝점을 봅니다.
+
 ### <a name="howto-tables-disabled"></a>방법: 특정 테이블 작업에 대한 액세스 사용 안 함
 
 테이블에 나타나는 것 외에도 액세스 속성은 개별 작업을 제어하는 데 사용될 수 있습니다. 네 가지 작업이 있습니다.
@@ -561,7 +623,7 @@ Azure 앱 서비스 모바일 앱은 기본 제공 [Swagger]를 지원합니다.
 
     var mobile = azureMobileApps({ swagger: process.env.NODE_ENV !== 'production' });
 
-Swagger 끝점은 http://_yoursite_.azurewebsites.net/swagger에 있습니다. `/swagger/ui` 끝점을 통해 Swagger UI에 액세스할 수 있습니다. 전체 응용 프로그램에서 인증을 요구하도록 선택한 경우 Swagger는 / 끝점에 오류를 생성합니다. 최상의 결과를 위해 Azure 앱 서비스 인증/ 권한 부여 설정 및 `table.access` 속성을 사용하는 제어 인증에서 인증되지 않은 요청을 허용하도록 선택합니다.
+Swagger 끝점은 http://_yoursite_.azurewebsites.net/swagger에 있습니다. `/swagger/ui` 끝점을 통해 Swagger UI에 액세스할 수 있습니다. 전체 응용 프로그램에서 인증을 요구하도록 선택한 경우 Swagger는 / 끝점에 오류를 생성합니다. 최상의 결과를 위해 Azure 앱 서비스 인증/권한 부여 설정 및 `table.access` 속성을 사용하는 제어 인증에서 인증되지 않은 요청을 허용하도록 선택합니다.
 
 또한 로컬로 개발할 때 Swagger 지원을 원하는 경우 `azureMobile.js` 파일에 Swagger 옵션을 추가할 수 있습니다.
 
@@ -647,7 +709,7 @@ Azure 모바일 앱 SDK는 테이블 끝점 및 사용자 지정 API에 대해 �
 
 ### <a name="howto-customapi-auth"></a>방법: 대용량 파일 업로드 처리
 
-Azure 모바일 앱 SDK는 [body-parser middleware](https://github.com/expressjs/body-parser)를 사용하여 제출하는 본문 내용을 허용 및 디코딩합니다. 더 큰 파일 업로드를 허용하도록 body-parser를 미리 구성할 수 있습니다.
+Azure 모바일 앱 SDK는 [body-parser middleware](https://github.com/expressjs/body-parser)를 사용하여 제출하는 본문 내용을 허용 및 디코드합니다. 더 큰 파일 업로드를 허용하도록 body-parser를 미리 구성할 수 있습니다.
 
 	var express = require('express'),
         bodyParser = require('body-parser'),
@@ -766,6 +828,7 @@ Azure 포털을 사용하면 로컬 컴퓨터에 프로젝트를 다운로드하
 
 <!-- URLs -->
 [Android 클라이언트 빠른 시작]: app-service-mobile-android-get-started.md
+[Apache Cordova 클라이언트 빠른 시작]: app-service-mobile-cordova-get-started.md
 [iOS 클라이언트 빠른 시작]: app-service-mobile-ios-get-started.md
 [Xamarin.iOS 클라이언트 빠른 시작]: app-service-mobile-xamarin-ios-get-started.md
 [Xamarin.Android 클라이언트 빠른 시작]: app-service-mobile-xamarin-android-get-started.md
@@ -803,4 +866,4 @@ Azure 포털을 사용하면 로컬 컴퓨터에 프로젝트를 다운로드하
 [ExpressJS 미들웨어]: http://expressjs.com/guide/using-middleware.html
 [윈스턴]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

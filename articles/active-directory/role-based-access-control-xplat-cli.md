@@ -20,7 +20,7 @@
 
 > [AZURE.SELECTOR]
 - [Windows PowerShell](role-based-access-control-powershell.md)
-- [Azure CLI](/role-based-access-control-xplat-cli-install.md)
+- [Azure CLI](role-based-access-control-xplat-cli.md)
 
 Azure 포털 및 Azure 리소스 관리자 API의 RBAC(역할 기반 액세스 제어)를 사용하면 세밀한 수준에서 구독과 리소스에 대한 액세스를 관리할 수 있습니다. 이 기능을 통해 특정 범위에서 Active Directory 사용자, 그룹 또는 서비스 사용자에게 일부 역할을 할당하여 액세스 권한을 부여할 수 있습니다.
 
@@ -33,7 +33,7 @@ Azure 포털 및 Azure 리소스 관리자 API의 RBAC(역할 기반 액세스 �
 Azure CLI를 사용하여 RBAC를 관리하려면 다음 항목이 필요합니다.
 
 - Azure CLI 버전 0.8.8 이상을 사용하세요. 최신 버전을 설치하고 Azure 구독에 연결하려면 [Azure CLI 설치 및 구성 방법](../xplat-cli-install.md)을 참조하세요.
-- Azure CLI에서 Azure 리소스 관리자를 설치하고 사용하는 방법을 익히려면 다음 자습서도 확인하세요. [리소스 관리자에서 Azure CLI 사용](../xplat-cli-azure-resource-manager.md)
+- Azure CLI에서 Azure Resource Manager를 설치하고 사용하는 방법을 익히려면 [Resource Manager에서 Azure CLI 사용](../xplat-cli-azure-resource-manager.md) 자습서도 확인하세요.
 
 ## 자습서 내용 ##
 
@@ -140,12 +140,12 @@ Azure 구독에 연결하려면 다음을 입력합니다.
 
 Azure CLI를 사용하여 역할 기반 액세스 제어를 관리하는 방법과 관련 항목에 대해 자세히 알아보려면 다음 항목을 참조하세요.
 
-- [Azure의 역할 기반 액세스 제어](../role-based-access-control-configure.md)
+- [Azure의 역할 기반 액세스 제어](role-based-access-control-configure.md)
 - [Azure CLI 설치 및 구성](../xplat-cli-install.md)
 - [리소스 관리자에서 Azure CLI 사용](../xplat-cli-azure-resource-manager.md)
-- [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-preview-portal-using-resource-groups.md): Azure 관리 포털에서 리소스 그룹을 만들고 관리하는 방법에 대해 알아봅니다.
+- [Azure 포털을 사용하여 Azure 리소스 관리](../azure-portal/resource-group-portal.md): Azure 포털에서 리소스 그룹을 만들고 관리하는 방법에 대해 알아봅니다.
 - [Azure 블로그](http://blogs.msdn.com/windowsazure): Azure의 새로운 기능에 대해 알아봅니다.
 - [Windows PowerShell을 사용하여 역할 기반 액세스 제어 구성](role-based-access-control-powershell.md)
 - [역할 기반 액세스 제어 문제 해결](role-based-access-control-troubleshooting.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

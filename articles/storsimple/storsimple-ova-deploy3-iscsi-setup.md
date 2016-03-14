@@ -12,24 +12,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="02/18/2016"
+   ms.date="03/01/2016"
    ms.author="alkohli" />
 
 
-# StorSimple 가상 배열 배포 – 가상 장치를 iSCSI 서버로 설정(미기 보기)
+# StorSimple 가상 배열 배포 – 가상 장치를 iSCSI 서버로 설정
 
 ![iscsi 설정 프로세스 흐름](./media/storsimple-ova-deploy3-iscsi-setup/iscsi4.png)
 
 ## 개요
 
-이 배포 자습서는 1.1.1.0 버전 공개 미리 보기 릴리스를 실행하는 Microsoft Azure StorSimple 가상 배열(StorSimple 온-프레미스 가상 장치 또는 StorSimple 가상 장치라고도 함)에 적용됩니다. 이 자습서는 초기 설정을 수행하고, StorSimple iSCSI 서버를 등록하고, 장치 설정을 완료하고, StorSimple 가상 장치 iSCSI 서버에서 볼륨을 만들고, 탑재하고, 초기화하고, 포맷하는 방법을 설명합니다. 이 문서의 StorSimple 설정 정보는 StorSimple 가상 배열에만 적용됩니다.
+이 배포 자습서는 2016년 3월 GA(일반 공급) 버전을 실행하는 Microsoft Azure StorSimple 가상 배열(StorSimple 온-프레미스 가상 장치 또는 StorSimple 가상 장치라고도 함)에 적용됩니다. 이 자습서는 초기 설정을 수행하고, StorSimple iSCSI 서버를 등록하고, 장치 설정을 완료하고, StorSimple 가상 장치 iSCSI 서버에서 볼륨을 만들고, 탑재하고, 초기화하고, 포맷하는 방법을 설명합니다. 이 문서의 StorSimple 설정 정보는 StorSimple 가상 배열에만 적용됩니다.
 
 여기서 설명된 프로시저를 완료하려면 30분에서 1시간 정도가 소요됩니다. 이 문서에 게시된 정보는 StorSimple 가상 배열에만 적용됩니다.
-
->[AZURE.IMPORTANT] 
->
->- StorSimple 가상 배열은 미기 보기 중이며 평가 및 배포 계획 용도로 사용됩니다. 프로덕션 환경에서는 이 미리 보기를 설치하도록 지원되지 않습니다. 
->- StorSimple 가상 배열에서 문제가 발생하는 경우 [StorSimple MSDN 포럼](https://social.msdn.microsoft.com/Forums/home?forum=StorSimple)에 문제를 게시해 주세요.
 
 ## 설정 필수 조건
 
@@ -39,7 +34,7 @@ StorSimple 가상 장치를 구성하고 설정하기 전에 다음 사항을 �
 
 - StorSimple 가상 장치를 관리하려고 만든 StorSimple Manager 서비스의 서비스 등록 키가 있습니다. 자세한 내용은 [StorSimple 가상 배열 배포 – 포털 준비](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key)의 **2단계: 서비스 등록 키 받기**를 참조하세요.
 
-- 기존 StorSimple Manager 서비스에 가상 장치를 두 번째 또는 후속으로 등록하는 경우에는 서비스 데이터 암호화 키가 있어야 합니다. 이 키는 서비스에 첫 번째 장치가 등록될 때 생성되었습니다. 이 키를 잃어버린 경우에는 [Use the Web UI to administer your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key)(웹 UI를 사용하여 StorSimple 가상 배열 관리)의 **Get the service data encryption key**(서비스 데이터 암호화 키 받기)를 참조하세요.
+- 기존 StorSimple Manager 서비스에 가상 장치를 두 번째 또는 후속으로 등록하는 경우에는 서비스 데이터 암호화 키가 있어야 합니다. 이 키는 서비스에 첫 번째 장치가 등록될 때 생성되었습니다. 이 키를 잃어버린 경우에는 [웹 UI를 사용하여 StorSimple 가상 배열 관리](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key)의 **서비스 데이터 암호화 키 가져오기**를 참조하세요.
 
 ## 단계별 설정 
 
@@ -72,7 +67,7 @@ StorSimple 가상 장치를 구성하고 설정하기 전에 다음 사항을 �
 
 4. **네트워크 설정** 페이지의 **네트워크 인터페이스**에서 DATA 0이 자동으로 구성됩니다. 각 네트워크 인터페이스는 IP 주소를 자동으로 가져오도록(DHCP) 기본 설정됩니다. 따라서 IP 주소, 서브넷 및 게이트웨이가 자동으로 할당됩니다(IPv4 및 IPv6 모두에 대해).
 
-    장치를 iSCSI 서버(블록 저장소를 프로비전하기 위해)로 배포할 계획이므로, **Get IP address automatically**(자동으로 IP 주소 받기) 옵션을 사용하지 않도록 설정하고 고정 IP 주소를 구성하는 것이 좋습니다.
+    장치를 iSCSI 서버(블록 저장소를 프로비전하기 위해)로 배포할 계획이므로, **자동으로 IP 주소 받기** 옵션을 사용하지 않도록 설정하고 고정 IP 주소를 구성하는 것이 좋습니다.
 
     ![네트워크 설정 페이지](./media/storsimple-ova-deploy3-iscsi-setup/image6.png)
 
@@ -127,7 +122,7 @@ StorSimple 가상 장치를 구성하고 설정하기 전에 다음 사항을 �
 
     **시간 설정** 페이지에서:
 
-    1. 드롭다운 목록에서 장치가 배포되는 지리적 위치에 기반하여 **표준 시간대**를 설정합니다. 장치의 기본 표준 시간대는 PST입니다. 장치는 모든 예약된 작업에 대해 이 표준 시간대를 사용합니다.
+    1. 드롭다운 목록에서 장치가 배포되는 지리적 위치를 기반으로 **표준 시간대**를 설정합니다. 장치의 기본 표준 시간대는 PST입니다. 장치는 모든 예약된 작업에 대해 이 표준 시간대를 사용합니다.
 
     2. 장치에 **기본 NTP 서버**를 지정하거나 time.windows.com의 기본값을 적용합니다. 네트워크에서 NTP 트래픽이 데이터 센터에서 인터넷으로 전달되도록 허용하는지 확인합니다.
 
@@ -139,7 +134,7 @@ StorSimple 가상 장치를 구성하고 설정하기 전에 다음 사항을 �
 
     1. [StorSimple 가상 배열 배포 – 포털 준비](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key)의 **2단계: 서비스 등록 키 받기**에서 확보한 **서비스 등록 키**를 입력합니다.
 
-    2. 서비스에 장치를 처음으로 등록하는 경우가 아니라면 **서비스 데이터 암호화 키**를 제공해야 합니다. 이 키는 StorSimple Manager 서비스에 추가 장치를 등록하기 위한 서비스 등록 키에 필요합니다. 자세한 내용은 로컬 웹 UI의 [서비스 데이터 암호화 키](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) 받기를 참조하세요.
+    2. 서비스에 장치를 처음으로 등록하는 경우가 아니라면 **서비스 데이터 암호화 키**를 제공해야 합니다. 이 키는 StorSimple Manager 서비스에 추가 장치를 등록하기 위한 서비스 등록 키에 필요합니다. 자세한 내용은 로컬 웹 UI의 [서비스 데이터 암호화 키 가져오기](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key)를 참조하세요.
 
     3. **Register**를 클릭합니다. 장치가 다시 시작됩니다. 장치 등록이 완료되기까지 2-3분 정도 기다려야 할 수 있습니다. 장치가 다시 시작된 후 로그인 페이지가 열립니다.
 
@@ -310,4 +305,4 @@ Windows Server 2012를 실행하는 Windows 호스트의 iSCSI 정규화된 이�
 <!--Reference link-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

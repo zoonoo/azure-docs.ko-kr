@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="06/18/2015"
+   ms.date="02/29/2016"
    ms.author="piyushjo"/>
 
 # 서비스 문제에 대한 문제 해결 가이드
@@ -89,4 +89,4 @@
     - 최대 파일 크기인 35MB보다 작은 파일을 사용합니다.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

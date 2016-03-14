@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="02/29/2016"
 	ms.author="billmath"/>
 
 # Azure AD Connect FAQ
@@ -28,11 +28,14 @@
 ## 네트워크
 **Q: 방화벽, 네트워크 장치 또는 네트워크에서 열려 있는 상태로 유지할 수 있는 최대 시간 연결을 제한하는 다른 요소가 있습니다. Azure AD Connect를 사용하는 경우 클라이언트 쪽 기간 내 클라이언트 쪽 시간 제한 임계값은 얼마나 길어야 합니까?** 모든 네트워킹 소프트웨어, 물리적 장치 또는 열린 상태로 둘 수 있는 최대 시간 연결을 제한하는 다른 것은 Azure AD Connect 클라이언트를 설치한 서버와 Azure Active Directory 간의 연결에 대해 적어도 5분(300초)의 임계값을 사용해야 합니다. 이는 이전에 릴리스된 모든 Microsoft ID 동기화 도구에 적용됩니다.
 
-**Q: Office 365 인증서를 갱신하라는 메일을 받는 경우 어떻게 해야 하나요?** 인증서를 갱신하는 방법은 [인증서 갱신](active-directory-aadconnect-o365-certs.md) 항목에 설명된 참고 자료를 사용하세요.
-
 **Q: SLD(단일 레이블 도메인)가 지원되나요?** 아니요 Azure AD Connect는 SLD를 사용하는 온-프레미스 포리스트/도메인을 지원하지 않습니다.
 
 **Q: "마침표"를 포함하는 NetBios 이름이 지원되나요?** 아니요, Azure AD Connect는 NetBios 이름에 마침표 "."를 포함하는 온-프레미스 포리스트/도메인을 지원하지 않습니다.
+
+## 페더레이션
+**Q: 내 Office 365 인증서를 갱신하라는 메일을 받는 경우 어떻게 해야 하나요?** 인증서를 갱신하는 방법은 [인증서 갱신](active-directory-aadconnect-o365-certs.md) 항목에 설명된 참고 자료를 사용하세요.
+
+**Q: O365 신뢰 당사자에 대해 "신뢰 당사자 자동 업데이트"를 설정했습니다. 토큰 서명 인증서가 자동으로 롤오버될 때 어떤 조치를 취해야 하나요?** [인증서 갱신](active-directory-aadconnect-o365-certs.md) 문서에 설명된 참고 자료를 사용하세요.
 
 ## Environment
 **Q: Azure AD Connect를 설치한 후에 서버 이름을 변경하는 것이 지원되나요?** 아니요. 서버 이름을 변경하면 동기화 엔진이 SQL 데이터베이스에 연결할 수 없게 되고 서비스를 시작할 수 없게 됩니다.
@@ -46,7 +49,7 @@
 ## 사용자 지정 구성
 **Q: Azure AD Connect에 대한 PowerShell cmdlet 설명서는 어디에 있나요?** 이 사이트에 설명되어 있는 cmdlet을 제외하고, Azure AD Connect에 나오는 다른 PowerShell cmdlet은 고객 사용이 지원되지 않습니다.
 
-**Q: *Synchronization Service Manager*의 "서버 내보내기/서버 가져오기"를 사용하여 서버 간에 구성을 이동할 수 있나요?** 아니요. 이 옵션은 모든 구성 설정을 가져오는 것이 아니므로 사용하지 말아야 합니다. 그 대신 마법사를 사용하여 두 번째 서버에 기본 구성을 만들고 동기화 규칙 편집기를 사용하여 PowerShell 스크립트를 생성하여 서버 간에 사용자 지정 규칙을 이동할 수 있습니다.
+**Q: *Synchronization Service Manager*의 "서버 내보내기/서버 가져오기"를 사용하여 서버 간에 구성을 이동할 수 있나요?** 아니요. 이 옵션은 모든 구성 설정을 가져오는 것이 아니므로 사용하지 말아야 합니다. 그 대신 마법사를 사용하여 두 번째 서버에 기본 구성을 만들고 동기화 규칙 편집기를 사용하여 PowerShell 스크립트를 생성하여 서버 간에 사용자 지정 규칙을 이동할 수 있습니다. [활성 서버에서 스테이징 서버로 사용자 지정 구성 이동](active-directory-aadconnect-upgrade-previous-version.md#move-custom-configuration-from-active-to-staging-server)을 참조하세요.
 
 ## 문제 해결
 **Q: Azure AD Connect에 대한 도움을 받으려면 어떻게 합니까?**
@@ -63,4 +66,4 @@
 
 - Azure 포털을 통해 지원을 받으려면 이 링크를 사용합니다.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -3,7 +3,7 @@
 	description="Application Insights에 대한 Visual Studio Tools의 최신 업데이트입니다." 
 	services="application-insights" 
     documentationCenter=""
-	authors="dimazaid" 
+	authors="aruna" 
 	manager="douge"/>
 <tags 
 	ms.service="application-insights" 
@@ -11,10 +11,29 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/19/2016" 
-	ms.author="dimazaid"/>
+	ms.date="02/26/2016" 
+	ms.author="acearun"/>
  
-# Application Insights Tools for Visual Studio v 4.2에 대한 릴리스 정보
+# Application Insights Tools for Visual Studio에 대한 릴리스 정보
+
+## 버전 4.3
+### 로컬 디버그 세션에서 원격 분석 검색
+이 릴리스에서는 Visual Studio 디버그 세션에서 생성되는 Application Insights 원격 분석에 대한 검색 기능을 도입합니다. 이전에는 Application Insights로 앱을 등록한 경우에만 검색이 가능했습니다. 이 릴리스에서 앱은 로컬 원격 분석에 대해 검색하기 위해 설치된 Application Insights SDK만 필요합니다.
+
+#### Application Insights SDK를 사용하는 ASP.NET 응용 프로그램이 있는 경우
+
+- 응용 프로그램을 디버그합니다.
+- 다음 방법 중 하나를 사용하여 Application Insights 검색을 엽니다.
+	- 보기 메뉴-> 다른 창 -> Application Insights 검색
+	- Application Insights 도구 모음 단추 클릭
+	- 솔루션 탐색기에서 ApplicationInsights.config 확장 -> 디버그 세션 원격 분석 검색
+- Application Insights에 등록하지 않은 경우 '디버그 세션 원격 분석' 모드에서 검색 창이 열립니다.
+- 검색 아이콘을 클릭하여 로컬 원격 분석을 확인합니다.
+
+![업로드 완료](./media/app-insights-release-notes-vsix/LocalSearch.png)
+
+
+
 ##버전 4.2
 이 릴리스에서는 이벤트의 컨텍스트에서 데이터 검색을 더 쉽게 할 수 있는 기능, 더 많은 데이터 이벤트에서 코드로 점프할 수 있는 기능 및 더 간편하게 로깅 데이터를 Application Insights에 보내는 환경을 추가했습니다. 이 확장은 매달 업데이트됩니다. 피드백 또는 기능 요청이 있는 경우 aidevtools@microsoft.com에 보내세요.
 ###- 0-클릭 로깅 환경
@@ -87,4 +106,4 @@ Application Insights 포털에서 검색하는 것과 마찬가지로 이벤트 
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="02/11/2016"
-	ms.author="emgerner"/>
+	ms.date="02/29/2016"
+	ms.author="jehine"/>
 
 # Python에서 Azure Blob 저장소를 사용하는 방법
 
@@ -57,14 +57,14 @@
 
 ## 컨테이너에 Blob 업로드
 
-블록 blob을 만들고 데이터를 업로드하려면 **create\_block\_blob\_from\_path**, **create\_block\_blob\_from\_stream**, **create\_block\_blob\_from\_bytes** 또는 **create\_block\_blob\_from\_text** 메서드를 사용합니다. 이러한 메서드는 데이터의 크기가 64MB를 초과할 경우 필요한 청크를 수행하는 고급 메서드입니다.
+블록 blob을 만들고 데이터를 업로드하려면 **create\_blob\_from\_path**, **create\_blob\_from\_stream**, **create\_blob\_from\_bytes** 또는 **create\_blob\_from\_text** 메서드를 사용합니다. 이러한 메서드는 데이터의 크기가 64MB를 초과할 경우 필요한 청크를 수행하는 고급 메서드입니다.
 
-**create\_block\_blob\_from\_path**는 지정된 경로에서 파일의 내용을 업로드하고, **create\_block\_blob\_from\_stream**은 이미 열린 파일/스트림에서 내용을 업로드합니다. **create\_block\_blob\_from\_bytes**는 바이트 배열을 업로드하고, **create\_block\_blob\_from\_text**는 지정된 인코딩을 사용하여 지정된 텍스트 값을 업로드합니다(기본값은 UTF-8).
+**create\_blob\_from\_path**는 지정된 경로에서 파일의 내용을 업로드하고, **create\_blob\_from\_stream**은 이미 열린 파일/스트림에서 내용을 업로드합니다. **create\_blob\_from\_bytes**는 바이트 배열을 업로드하고, **create\_blob\_from\_text**는 지정된 인코딩을 사용하여 지정된 텍스트 값을 업로드합니다(기본값은 UTF-8).
 
 다음 예제에서는 **sunset.png** 파일의 내용을 **myblob** Blob에 업로드합니다.
 
 	from azure.storage.blob import ContentSettings
-	block_blob_service.create_block_blob_from_path(
+	block_blob_service.create_blob_from_path(
         'mycontainer',
         'myblockblob',
         'sunset.png',
@@ -125,4 +125,4 @@ Blob에서 데이터를 다운로드하려면 **get\_blob\_to\_path**, **get\_bl
 [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
 [Microsoft Azure Storage SDK for Python]: https://github.com/Azure/azure-storage-python
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

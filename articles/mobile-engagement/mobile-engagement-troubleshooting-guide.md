@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="10/22/2015"
+   ms.date="02/26/2016"
    ms.author="piyushjo"/>
 
 # Azure Mobile Engagement - 문제 해결 가이드
@@ -28,7 +28,7 @@
 1. [시작 자습서](mobile-engagement-windows-store-dotnet-get-started.md)에 설명한 대로 통합에 필요한 모든 단계를 수행했는지 확인합니다.
 2. 최신 버전의 플랫폼 SDK를 사용합니다. 
 3. 일부 문제는 에뮬레이터에만 관련이 있으므로 실제 장치와 에뮬레이터 모두에서 테스트합니다. 
-4. [여기](azure-subscription-service-limits.md)에서 문서화된 모바일 고객 관리에서 모든 제한/한계에 도달하지 않습니다.
+4. [여기](../azure-subscription-service-limits.md)에서 문서화된 모바일 고객 관리에서 모든 제한/한계에 도달하지 않습니다.
 5. 모바일 고객 관리 서비스 백 엔드에 연결할 수 없거나 데이터가 지속적으로 로드되지 않는 경우 [여기](https://azure.microsoft.com/status/)에서 확인하여 진행 중인 서비스 문제가 없는지 확인합니다.
 
 ## '모니터' 문제
@@ -89,6 +89,7 @@
 	    	<meta-data android:name="engagement:gcm:sender" android:value="************\n" />
 	    
 	- Android 매니페스트 파일에 권한이 누락되거나 잘못 구성되었는지 확인합니다.
+	- 클라이언트에 추가할 프로젝트 번호가 GCM 서버 키를 가져온 동일한 계정에서 가져온 것인지 확인합니다. 계정이 일치하지 않으면 푸시를 내보낼 수 없습니다. 
 	- 앱 내가 아닌 시스템 알림을 수신하는 경우 Android 매니페스트 파일에서 올바른 아이콘을 지정하지 않았을 수도 있으므로 [알림 섹션 아이콘 지정](mobile-engagement-android-get-started.md)을 검토합니다. 
 	- BigPicture 알림을 전송하는 경우 외부 이미지 서버가 있는지 확인한 다음 HTTP "GET" 및 "HEAD"를 지원할 수 있어야 합니다.
 
@@ -120,4 +121,4 @@
 	- 모바일 고객 관리 SDK 버전(예: Android SDK v2.1.0)
 	- 정확한 오류 메시지 및 시나리오가 있는 오류 세부 정보
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

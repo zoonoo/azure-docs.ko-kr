@@ -1,0 +1,66 @@
+<properties
+	pageTitle="스트레치 데이터베이스 관리자를 실행하여 스트레치 데이터베이스에 대한 데이터베이스 및 테이블 식별 | Microsoft Azure"
+	description="스트레치 데이터베이스의 후보인 데이터베이스 및 테이블을 식별하는 방법에 대해 알아봅니다."
+	services="sql-server-stretch-database"
+	documentationCenter=""
+	authors="douglasl"
+	manager="jhubbard"
+	editor="monicar"/>
+
+<tags
+	ms.service="sql-server-stretch-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/26/2016"
+	ms.author="douglasl"/>
+
+# 스트레치 데이터베이스 관리자를 실행하여 스트레치 데이터베이스에 대한 데이터베이스 및 테이블 식별
+
+스트레치 데이터베이스의 후보인 데이터베이스 및 테이블을 식별하려면 SQL Server 2016 업그레이드 관리자를 다운로드하고 스트레치 데이터베이스 관리자를 실행합니다. 스트레치 데이터베이스 관리자는 차단 문제도 식별합니다.
+
+## 업그레이드 관리자 다운로드 및 설치
+[여기](http://go.microsoft.com/fwlink/?LinkID=613421)에서 업그레이드 관리자를 다운로드 및 설치합니다. 이 도구는 SQL Server 설치 미디어에 없습니다.
+
+## 스트레치 데이터베이스 관리자 실행
+
+1.  업그레이드 관리자를 실행합니다.
+
+2.  **시나리오**를 선택한 다음 **스트레치 데이터베이스 관리자 실행**을 선택합니다.
+
+3.  **스트레치 데이터베이스 관리자 실행** 블레이드에서 **분석할 데이터베이스 선택**을 클릭합니다.
+
+4.  **데이터베이스 선택** 블레이드에서 **SQL 인스턴스**를 클릭합니다.
+
+5.  **SQL 인스턴스에 연결** 블레이드에서 SQL Server 인스턴스의 이름을 입력합니다. 그런 다음 **연결**을 클릭합니다.
+
+6.  **데이터베이스 선택** 블레이드에서 분석할 데이터베이스를 선택합니다. 그런 다음 **선택**을 클릭합니다.
+
+7.  **스트레치 데이터베이스 관리자 실행** 블레이드에서 **실행**을 클릭합니다. 분석이 실행됩니다.
+
+## 결과 검토
+
+1.  분석이 완료되면 **스트레치 데이터베이스 관리자** 블레이드에서 분석한 데이터베이스 중 하나를 선택하여 **분석 결과** 블레이드를 표시합니다.
+
+    **분석 결과** 블레이드에서 기본 권장 조건과 일치하는 선택된 데이터베이스의 권장 테이블이 나열됩니다. 필요에 따라 최소 크기와 행 수를 조정하여 권장 테이블 목록을 확장하거나 축소합니다.
+
+2.  **분석 결과** 블레이드의 권장 테이블 목록에서 권장 테이블 중 하나를 선택하여 **테이블 결과** 블레이드를 표시합니다.
+
+    **테이블 결과** 블레이드에 선택한 테이블에 대한 차단 문제가 나열됩니다. 스트레치 데이터베이스 관리자에서 검색한 차단 문제에 대한 자세한 정보는 [스트레치 데이터베이스에 대한 노출 영역 제한 사항 및 차단 문제](sql-server-stretch-database-limitations.md)를 참조하세요.
+
+3.  **테이블 결과** 블레이드의 차단 문제 목록에서 문제 하나를 선택하여 **규칙 결과** 블레이드를 표시합니다.
+
+    **규칙 결과** 블레이드에서 선택한 문제를 설명하고 완화 단계를 제시합니다. 스트레치 데이터베이스에 대한 선택한 테이블을 구성하려는 경우 제시한 완화 단계를 구현합니다.
+
+## 다음 단계
+스트레치 데이터베이스를 사용하도록 설정합니다.
+
+-   **데이터베이스**에서 스트레치 데이터베이스를 사용하도록 설정하려면 [Enable Stretch Database for a database(데이터베이스에 스트레치 데이터베이스를 사용하도록 설정)](sql-server-stretch-database-enable-database.md)를 참조하세요.
+
+-   스트레치가 데이터베이스에 이미 설정된 경우 다른 **테이블**에 스트레치 데이터베이스를 사용하도록 설정하려면 [Enable Stretch Database for a table(테이블에 스트레치 데이터베이스를 사용하도록 설정)](sql-server-stretch-database-enable-table.md)을 참조하세요.
+
+## 참고 항목
+[스트레치 데이터베이스에 대한 노출 영역 제한 사항 및 차단 문제](sql-server-stretch-database-limitations.md) [Enable Stretch Database for a database(데이터베이스에 스트레치 데이터베이스를 사용하도록 설정)](sql-server-stretch-database-enable-database.md) [Enable Stretch Database for a table(테이블에 스트레치 데이터베이스를 사용하도록 설정)](sql-server-stretch-database-enable-table.md)
+
+<!---HONumber=AcomDC_0302_2016-->

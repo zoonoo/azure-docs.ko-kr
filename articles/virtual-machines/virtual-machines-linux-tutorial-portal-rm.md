@@ -20,10 +20,10 @@
 # Azure 포털을 사용하여 Linux를 실행하는 가상 컴퓨터 만들기
 
 > [AZURE.SELECTOR]
-- [Portal - Windows](virtual-machines-windows-tutorial.md)
+- [포털 - Windows](virtual-machines-windows-tutorial.md)
 - [PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
-- [PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
-- [Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
+- [PowerShell - 템플릿](virtual-machines-create-windows-powershell-resource-manager-template.md)
+- [포털 - Linux](virtual-machines-linux-tutorial-portal-rm.md)
 - [CLI](virtual-machines-linux-tutorial.md)
 
 <br>
@@ -33,7 +33,7 @@
 
 Linux를 실행하는 Azure 가상 컴퓨터(VM) 만들기는 쉽습니다. 이 자습서에서는 Azure 포털을 사용하여 Linux를 실행하는 Azure 가상 컴퓨터를 빨리 만드는 방법과 `~/.ssh/id_rsa.pub` 공개 키 파일을 사용하여 VM에 연결된 **SSH** 연결 보안을 설정하는 방법을 보여줍니다. [사용자 고유의 이미지를 템플릿](virtual-machines-linux-create-upload-vhd.md)으로 사용하여 Linux VM을 만들 수도 있습니다.
 
-> [AZURE.NOTE]이 자습서에서는 Azure 리소스 그룹 API에 의해 관리되는 Azure 가상 컴퓨터를 만듭니다. 자세한 내용은 [ Azure 리소스 그룹 개요](resource-group-overview.md)를 참조하세요.
+> [AZURE.NOTE] 이 자습서에서는 Azure 리소스 그룹 API에 의해 관리되는 Azure 가상 컴퓨터를 만듭니다. 자세한 내용은 [ Azure 리소스 그룹 개요](../resource-group-overview.md)를 참조하세요.
 
 </br>
 
@@ -49,7 +49,7 @@ Preview 포털의 Azure 마켓플레이스로 이동하여 원하는 Windows Ser
 
 	![VM 이미지 선택](media/virtual-machines-linux-tutorial-portal-rm/chooseubuntuvm.png)
 
-	> [AZURE.TIP]다른 이미지를 찾으려면 **마켓플레이스**를 클릭하고 사용 가능한 항목을 검색하거나 필터링합니다.
+	> [AZURE.TIP] 다른 이미지를 찾으려면 **마켓플레이스**를 클릭하고 사용 가능한 항목을 검색하거나 필터링합니다.
 
 3. **Ubuntu Server 14.04 LTS** 페이지의 맨 아래에서 **리소스 관리자 스택 사용**을 선택하여 Azure 리소스 관리자에서 VM을 만듭니다. 대부분의 새 작업에 대해 리소스 관리자 스택을 사용하는 것이 좋습니다. 고려 사항은 [Azure 리소스 관리자의 Azure 계산, 네트워크 및 저장소 공급자](virtual-machines-azurerm-versus-azuresm.md)를 참조하세요.
 
@@ -65,11 +65,11 @@ Preview 포털의 Azure 마켓플레이스로 이동하여 원하는 Windows Ser
 
 	![](media/virtual-machines-linux-tutorial-portal-rm/step-1-thebasics.png)
 
-	> [AZURE.NOTE]여기에서 사용자 이름/암호 인증을 선택할 수 있고 공개 및 개인 키 교환으로 **ssh** 세션의 보안을 설정하지 않으려는 경우 해당 정보를 입력할 수 있습니다.
+	> [AZURE.NOTE] 여기에서 사용자 이름/암호 인증을 선택할 수 있고 공개 및 개인 키 교환으로 **ssh** 세션의 보안을 설정하지 않으려는 경우 해당 정보를 입력할 수 있습니다.
 
 2. **크기**를 클릭하고 요구에 적합한 VM 크기를 선택합니다. 각각의 크기는 계산 코어, 메모리 및 기타 기능(예: 프리미엄 저장소에 대한 지원)의 수를 지정하며 가격에 영향을 미칩니다. Azure는 선택하는 이미지에 따라 특정 크기를 자동으로 권장합니다. 완료하면 ![선택 단추](media/virtual-machines-linux-tutorial-portal-rm/selectbutton-size.png) 단추를 클릭합니다.
 
-	>[AZURE.NOTE]프리미엄 저장소는 특정 지역에서 DS 시리즈 가상 컴퓨터에 대해 사용할 수 있습니다. 프리미엄 저장소는 데이터베이스와 같은 데이터 집약적인 작업에 대해 최상의 저장소 옵션입니다. 자세한 내용은 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](storage-premium-storage-preview-portal.md)를 참조하세요.
+	>[AZURE.NOTE] 프리미엄 저장소는 특정 지역에서 DS 시리즈 가상 컴퓨터에 대해 사용할 수 있습니다. 프리미엄 저장소는 데이터베이스와 같은 데이터 집약적인 작업에 대해 최상의 저장소 옵션입니다. 자세한 내용은 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../storage/storage-premium-storage.md)를 참조하세요.
 
 3. **설정**을 클릭하여 새 VM에 대한 저장소 및 네트워킹 설정을 봅니다. 첫 번째 VM에 대해 일반적으로 기본 설정을 적용할 수 있습니다. 지원하는 VM 크기를 선택한 경우 **디스크 유형** 아래에서 **프리미엄(SSD)**을 선택하여 프리미엄 저장소를 사용해 볼 수 있습니다. 완료하면 ![확인 단추](media/virtual-machines-linux-tutorial-portal-rm/okbutton.png) 단추를 클릭합니다.
 
@@ -81,7 +81,7 @@ Preview 포털의 Azure 마켓플레이스로 이동하여 원하는 Windows Ser
 
 8. Azure에서 VM을 만드는 동안 허브 메뉴의 **알림**에서 진행 상황을 확인할 수 있습니다. Azure에서 VM을 만든 후 **가상 컴퓨터 만들기** 블레이드에서 **시작 보드에 고정**을 해제하지 않으면 시작 보드에서 해당 VM을 볼 수 있습니다.
 
-	> [AZURE.NOTE]요약에는 서비스 관리 계산 스택을 사용하여 클라우드 서비스 내부에 VM이 만들어진 때와 같은 방식으로 공용 DNS 이름이 포함되지 않습니다.
+	> [AZURE.NOTE] 요약에는 서비스 관리 계산 스택을 사용하여 클라우드 서비스 내부에 VM이 만들어진 때와 같은 방식으로 공용 DNS 이름이 포함되지 않습니다.
 
 ## **ssh**를 사용하여 Azure Linux VM에 연결
 
@@ -124,7 +124,7 @@ Preview 포털의 Azure 마켓플레이스로 이동하여 원하는 Windows Ser
 	ops@ubuntuvm:~$
 
 
-> [AZURE.NOTE]또한 포털에서 가상 컴퓨터에 정규화된 도메인 이름 (FQDN)을 구성할 수 있습니다. [포털에서 FQDN 만들기](virtual-machines-create-fqdn-on-portal.md)에 대해 자세히 알아봅니다.
+> [AZURE.NOTE] 또한 포털에서 가상 컴퓨터에 정규화된 도메인 이름 (FQDN)을 구성할 수 있습니다. [포털에서 FQDN 만들기](virtual-machines-create-fqdn-on-portal.md)에 대해 자세히 알아봅니다.
 
 ## 다음 단계
 
@@ -138,4 +138,4 @@ Azure의 Linux에 대한 자세한 내용은 다음 을 참조하세요.
 
 - [Azure의 Linux용 Docker 가상 컴퓨터 확장](virtual-machines-docker-vm-extension.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0302_2016-->

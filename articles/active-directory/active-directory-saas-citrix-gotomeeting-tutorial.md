@@ -8,10 +8,11 @@
 
 <tags 
     ms.service="active-directory" 
-    ms.devlang="na" ms.topic="article" 
+    ms.devlang="na" 
+    ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="12/18/2015" 
+    ms.date="02/29/2016" 
     ms.author="jeedes" />
 
 #자습서: Citrix GoToMeeting과 Azure Active Directory 통합  
@@ -38,7 +39,7 @@ Azure에 적용합니다.
 
 ###Citrix GoToMeeting에 응용 프로그램 통합을 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-1.  Azure 관리 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+1.  Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
     ![Active Directory](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC700993.png "Active Directory")
 
@@ -90,17 +91,17 @@ Azure에 적용합니다.
 
      6\.1. **수동** 선택
 
-     6\.2. Azure 포털의 **Citrix GoToMeeting에 대한 Single Sign-on 구성** 대화 상자 페이지에서 **Sign-In 페이지 URL** 값을 복사한 다음 **로그인 페이지 URL** 텍스트 상자에 붙여넣습니다.
+     6\.2. Azure 클래식 포털의 **Citrix GoToMeeting에 대한 Single Sign-On 구성** 대화 상자 페이지에서 **로그인 페이지 URL** 값을 복사한 다음 **로그인 페이지 URL** 텍스트 상자에 붙여넣습니다.
 
-     6\.3. Azure 포털의 **Citrix GoToMeeting에 대한 Single Sign-on 구성** 대화 상자 페이지에서 **로그아웃 페이지 URL** 값을 복사한 다음 **로그아웃 페이지 URL** 텍스트 상자에 붙여넣습니다.
+     6\.3. Azure 클래식 포털의 **Citrix GoToMeeting에 대한 Single Sign-On 구성** 대화 상자 페이지에서 **로그아웃 페이지 URL** 값을 복사한 다음 **로그아웃 페이지 URL** 텍스트 상자에 붙여넣습니다.
 
-     6\.4. Azure 포털의 **Citrix GoToMeeting에 Single Sign-on 구성** 대화 상자 페이지에서 **엔터티 ID** 값을 복사한 다음 **ID 공급자 엔터티 ID** 텍스트 상자에 붙여넣습니다.
+     6\.4. Azure 클래식 포털의 **Citrix GoToMeeting에 Single Sign-On 구성** 대화 상자 페이지에서 **엔터티 ID** 값을 복사한 다음 **ID 공급자 엔터티 ID** 텍스트 상자에 붙여넣습니다.
 
      6\.5. 다운로드한 인증서를 업로드하려면 **인증서 업로드**를 클릭합니다.
 
      6\.6. **Save**를 클릭합니다.
 
-6.  Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.
+6.  Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769000.png "Single Sign-On 구성")
 
@@ -115,9 +116,9 @@ Azure에 적용합니다.
 
 이 섹션은 Citrix GoToMeeting에 Active Directory 사용자 계정을 프로비전할 수 있도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
 
-###사용자 프로비전을 구성하려면
+###사용자 프로비저닝을 구성하려면
 
-1.  Azure 관리 포털의 **Citrix GoToMeeting** 응용 프로그램 통합 페이지에서 **사용자 프로비저닝 구성**을 클릭하여 **사용자 프로비전 구성** 대화 상자를 엽니다.
+1.  Azure 클래식 포털의 **Citrix GoToMeeting** 응용 프로그램 통합 페이지에서 **사용자 프로비저닝 구성**을 클릭하여 **사용자 프로비저닝 구성** 대화 상자를 엽니다.
 
     ![사용자 프로비저닝 구성](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769001.png "사용자 프로비저닝 구성")
 
@@ -140,19 +141,19 @@ Azure에 적용합니다.
 
 ###Citrix GoToMeeting에 사용자를 할당하려면 다음 단계를 수행합니다.
 
-1.  Azure AD 포털에서 테스트 계정을 만듭니다.
+1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
 
 2.  **Citrix GoToMeeting** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
 
     ![사용자 할당](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769003.png "사용자 할당")
 
-3.  테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 사용자의 할당을 확인합니다.
+3.  테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 할당을 확인합니다.
 
     ![예](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC767830.png "예")
 
 이제 10분 동안 기다린 후 계정이 비즈니스용 Dropbox에 동기화되었는지 확인해야 합니다.
 
-첫 번째 확인 단계로 Azure 관리 포털의 **Citrix GoToMeeting** 응용 프로그램 통합 페이지에서 D의 대시보드를 클릭하여 프로비전 상태를 확인할 수 있습니다.
+첫 번째 확인 단계로 Azure 클래식 포털의 **Citrix GoToMeeting** 응용 프로그램 통합 페이지에서 D의 대시보드를 클릭하여 프로비전 상태를 확인할 수 있습니다.
 
 ![대시보드](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769004.png "대시보드")
 
@@ -164,4 +165,4 @@ Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다.
 
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0302_2016-->

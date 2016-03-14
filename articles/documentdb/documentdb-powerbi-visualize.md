@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="02/26/2016" 
 	ms.author="hawong"/>
 
 # DocumentDB에 대한 Power BI 자습서: Power BI 커넥터를 사용하여 데이터 시각화
@@ -194,4 +194,4 @@ Power BI Desktop 보고서 보기에서는 데이터를 시각화하는 보고�
 - Power BI에 대해 자세히 알아보려면 [여기](https://support.powerbi.com/knowledgebase)를 클릭하세요.
 - DocumentDB에 대해 자세히 알아보려면 [여기](https://azure.microsoft.com/documentation/services/documentdb/)를 클릭하세요.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

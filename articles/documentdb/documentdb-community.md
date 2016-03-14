@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="01/29/2016"
+  ms.date="02/24/2016"
   ms.author="andrl"/>
 
 # 커뮤니티 포털
@@ -62,6 +62,15 @@ API 앱으로 쉽게 배포할 수 있는 DocumentDB REST API Swagger 파일입�
 
 [GitHub](https://github.com/HEDIDIN/DocumentDB-REST/tree/master/DocumentDBRestApi)에서 확인하세요.
 
+
+### fluent-plugin-documentdb
+
+*Yoichi Kawasaki 작성*
+
+fluent-plugin-documentdb는 Azure Document DB로 출력하기 위한 Fluentd 플러그 인입니다.
+
+[Github](https://github.com/yokawasa/fluent-plugin-documentdb) 및 [rubygems](https://rubygems.org/gems/fluent-plugin-documentdb)에서 확인하세요.
+
 <br/><br/>
 
 *[GitHub](https://github.com/search?p=4&q=documentdb&type=Repositories)에서 공개 소스 DocumentDB 프로젝트를 찾습니다.*
@@ -80,7 +89,13 @@ API 앱으로 쉽게 배포할 수 있는 DocumentDB REST API Swagger 파일입�
 
 **커뮤니티 게시물:**
 
-* [**Azure DocumentDB 서버 쪽 스크립팅**](https://www.simple-talk.com/cloud/cloud-data/azure-documentdb-server-side-scripting/) - *Robert Sheldon*
+* [**Collecting logs into Azure DocumentDB using fluent-plugin-documentdb(fluent-plugin-documentdb를 사용하여 Azure DocumentDB에 로그 수집)**](http://unofficialism.info/posts/collecting-logs-into-azure-documentdb-using-fluent-plugin-documentdb/) - *Yoichi Kawasaki 작성*
+
+* [**DocumentDB revisited Part 1/2 – The theory(DocumentDB 재고 파트 1/2 - 이론)**](https://peterintheazuresky.wordpress.com/2016/02/19/documentdb-revisited-part-12-the-theory/) - *Peter Mannerhult 작성*
+
+* [**What to love and hate about Azure’s DocumentDB(Azure DocumentDB의 장점과 단점)**](http://blog.falafel.com/4-what-to-love-and-hate-about-azures-documentdb/) - *George Saadeh 작성*
+
+* [**Azure DocumentDB Server-Side Scripting(Azure DocumentDB 서버 쪽 스크립팅)**](https://www.simple-talk.com/cloud/cloud-data/azure-documentdb-server-side-scripting/) - *Robert Sheldon 작성*
 
 * [**Azure 스트림 분석에 대한 데이터 싱크로 DocumentDB**](http://janatdevelopment.com/2015/12/11/documentdb-as-a-data-sink-for-azure-stream-analytics/?utm_source=twitterfeed&utm_medium=twitter) - *Jan Hentschel 작성*
 
@@ -138,7 +153,7 @@ API 앱으로 쉽게 배포할 수 있는 DocumentDB REST API Swagger 파일입�
 | [Meetup: Azure Austin](http://www.meetup.com/azureaustin/events/228209275/) | Merwan Chinta | Austin, TX | 2016년 1월 28일 | 해당 없음 |
 | [모임: msdevmtl](http://www.meetup.com/msdevmtl/events/223839818/) | Vincent-Philippe Lauzon | 몬트리올, QC, 캐나다 | 2015년 12월 1일 | 해당 없음 |
 | [Meetup: SeattleJS](http://www.meetup.com/seattlejs/events/220102664/) | David Makogon | 시애틀, WA | 2015년 11월 12일 | 해당 없음 |
-| [PASS 회담 2015](http://www.sqlpass.org/summit/2015/) | Jeff Renz, Andrew Hoh, Aravind Ramachandran, John Macintyre | 시애틀, WA | 2015년 10월 27-30일 | 해당 없음 |
+| [PASS 회담 2015](http://www.sqlpass.org/summit/2015/) | Jeff Renz, Andrew Hoh, Aravind Ramachandran, John Macintyre | 시애틀, WA | 2015년 10월 27-30일 | [Azure에서 최신 응용 프로그램 개발](https://www.youtube.com/watch?v=k5Z24HX-RyQ) |
 | [CloudDevelop 2015](http://www.clouddevelop.org/) | David Makogon, Ryan Crawcour | 콜롬버스, OH | 2015년 10월 23일 | 해당 없음 |
 | [SQL Saturday #430 - 소피아 2015](http://www.sqlsaturday.com/430/eventhome.aspx) | Leonard Lobel | 소피아, 불가리아 | 2015년 10월 10일 | 해당 없음 |
 | [SQL Saturday #429 - 오포르토 2015](http://www.sqlsaturday.com/429/eventhome.aspx) | Leonard Lobel | 오포르토, 포르투갈 | 2015년 10월 3일 | 해당 없음 |
@@ -167,6 +182,8 @@ API 앱으로 쉽게 배포할 수 있는 DocumentDB REST API Swagger 파일입�
 
 | 표시 | 발표자 | Date | 에피소드 |
 | ------------------------------------------- | ----------------------- | ------------------ | ------- |
+| 통합 사용자 그룹 | Han Wong | 2016년 2월 17일 | [Analyze and visualize non-relational data with DocumentDB + Power BI(DocumentDB + Power BI로 비관계형 데이터 분석 및 시각화)](http://www.integrationusergroup.com/analyze-visualize-non-relational-data-documentdb-power-bi/) |
+| 채널 9: 최신 응용 프로그램 | Tara Shankar Jana | 2016년 12월 13일 | [Take a modern approach to data in your apps(앱에서 데이터에 대해 최신 접근 방식 사용)](https://channel9.msdn.com/Series/Modern-Applications/Take-a-modern-approach-to-data-in-your-apps) |
 | NinjaTips | Miguel Quintero | 2015년 12월 10일 | [DocumentDB - Un vistazo 일반](https://channel9.msdn.com/Series/Ninja-Tips/31-NinjaTips-Desarrollo-DocumentDB-1-Vistazo-general) |
 | 통합 사용자 그룹 | Howard Edidin | 2015년 11월 9일 | [의료 서비스 통합을 위한 Azure DocumentDB - 2부](http://www.integrationusergroup.com/azure-documentdb-for-healthcare-integration-part-2/) |
 | 통합 사용자 그룹 | Howard Edidin | 2015년 10월 5일 | [의료 서비스 통합을 위한 Azure DocumentDB](http://www.integrationusergroup.com/?event=azure-documentdb-and-biztalk) |
@@ -267,4 +284,4 @@ DocumentDB 마법사는 다른 사용자가 Azure DocumentDB에서 경험을 최
 
 DocumentDB 마법사가 되고 싶으세요? DocumentDB 마법사가 되기 위한 벤치마크는 없지만 몇 가지 평가 기준에는 StackOverflow 및 MSDN과 같은 온라인 포럼, wiki 및 온라인 콘텐츠, 회의 및 사용자 그룹, 팟캐스트, 웹 사이트, 블로그 및 소셜 미디어, 기사 및 저서와 관련된 후보자의 영향력이 포함됩니다. [메일을 보내](mailto:askdocdb@microsoft.com) 자신이나 다른 사용자를 후보로 지명할 수 있습니다.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

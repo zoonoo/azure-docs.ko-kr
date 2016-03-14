@@ -63,11 +63,11 @@
 3. **전체 데이터에 해당 구성 확장** 실행 결과 및 성능에 만족하면 데이터 집합 정의 및 파이프라인 활성 기간을 확장하여 그림에서 전체 데이터를 포함할 수 있습니다.
 
 ## 성능 참조
-> [AZURE.IMPORTANT]**고지 사항:** 아래 데이터는 지침 및 높은 수준의 계획을 목적으로 게시되었습니다. 대역폭, 하드웨어, 구성 등이 해당 클래스에서 최고라고 가정합니다. 참조용으로만 사용합니다. 관찰하는 데이터 이동 처리량은 변수 범위의 영향을 받습니다. 나중에 섹션을 참조하여 데이터 이동 요구 사항에 대한 성능을 조정하고 개선하는 방법에 대해 알아봅니다. 이 데이터는 성능 개선 사항 및 기능을 추가할 때 업데이트됩니다.
+> [AZURE.IMPORTANT] **고지 사항:** 아래 데이터는 지침 및 높은 수준의 계획을 목적으로 게시되었습니다. 대역폭, 하드웨어, 구성 등이 해당 클래스에서 최고라고 가정합니다. 참조용으로만 사용합니다. 관찰하는 데이터 이동 처리량은 변수 범위의 영향을 받습니다. 나중에 섹션을 참조하여 데이터 이동 요구 사항에 대한 성능을 조정하고 개선하는 방법에 대해 알아봅니다. 이 데이터는 성능 개선 사항 및 기능을 추가할 때 업데이트됩니다.
 
 ![성능 매트릭스](./media/data-factory-copy-activity-performance/CopyPerfRef.png)
 
-> [AZURE.NOTE]**출시 예정:** 기본 성능 특성을 개선하는 중이며 위의 테이블에서 더 나은 처리량 수치를 곧 확인하게 될 것입니다.
+> [AZURE.NOTE] **출시 예정:** 기본 성능 특성을 개선하는 중이며 위의 테이블에서 더 나은 처리량 수치를 곧 확인하게 될 것입니다.
 
 주의할 사항:
 
@@ -76,19 +76,19 @@
 - Microsoft Azure 데이터 저장소의 경우 원본 및 싱크는 동일한 Azure 지역에 있습니다.
 - 하이브리드(온-프레미스와 클라우드 또는 클라우드와 온-프레미스) 데이터 이동의 경우 데이터 관리 게이트웨이(단일 인스턴스)는 다음 구성을 사용하여 온-프레미스 데이터 저장소가 아닌 다른 컴퓨터에서 호스팅되었습니다. 게이트웨이에서 실행 중인 단일 작업을 통해 복사 작업은 이 컴퓨터의 CPU/메모리 리소스 및 네트워크 대역폭의 작은 부분을 사용합니다.
 	<table>
-<tr>
-	<td>CPU</td>
-	<td>32 코어 2.20GHz Intel Xeon® E5-2660 v2</td>
-</tr>
-<tr>
-	<td>메모리</td>
-	<td>128GB</td>
-</tr>
-<tr>
-	<td>네트워크</td>
-	<td>인터넷 인터페이스: 10Gbps. 인트라넷 인터페이스: 40Gbps</td>
-</tr>
-</table>
+	<tr>
+		<td>CPU</td>
+		<td>32 코어 2.20GHz Intel Xeon® E5-2660 v2</td>
+	</tr>
+	<tr>
+		<td>메모리</td>
+		<td>128GB</td>
+	</tr>
+	<tr>
+		<td>네트워크</td>
+		<td>인터넷 인터페이스: 10Gbps. 인트라넷 인터페이스: 40Gbps</td>
+	</tr>
+	</table>
 
 ## 원본에 대한 고려 사항
 ### 일반
@@ -218,10 +218,10 @@ Microsoft 데이터 저장소의 경우 데이터 저장소 성능 특성를 이
 다음은 지원되는 데이터 저장소에 대한 몇 가지 성능 모니터링 및 튜닝 참조입니다.
 
 - Azure 저장소(Azure Blob, Azure 테이블 포함): [Azure 저장소 확장성 목표](../storage/storage-scalability-targets.md) 및 [Azure 저장소 성능 및 확장성 검사 목록](../storage//storage-performance-checklist.md)입니다.
-- Azure SQL 데이터베이스: [성능을 모니터링](../sql-database/sql-database-service-tiers.md#monitoring-performance)하고 데이터베이스 처리량 단위(DTU) 비율을 확인할 수 있습니다.
+- Azure SQL 데이터베이스: [성능을 모니터링](../sql-database/sql-database-service-tiers.md#monitoring-performance)하고 DTU(데이터베이스 트랜잭션 단위) 비율을 확인할 수 있습니다.
 - Azure SQL 데이터 웨어하우스: 해당 기능은 데이터 웨어하우스 단위(DWU)로 측정됩니다. [SQL 데이터 웨어하우스를 통한 탄력적인 성능과 확장](../sql-data-warehouse/sql-data-warehouse-performance-scale.md)을 참조합니다.
 - Azure DocumentDB: [DocumentDB의 성능 수준](../documentdb/documentdb-performance-levels.md)입니다.
 - 온-프레미스 SQL Server: [성능에 대한 모니터링 및 튜닝](https://msdn.microsoft.com/library/ms189081.aspx)을 수행합니다.
 - 온-프레미스 파일 서버: [파일 서버에 대한 성능 튜닝](https://msdn.microsoft.com/library/dn567661.aspx)입니다.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0302_2016-->

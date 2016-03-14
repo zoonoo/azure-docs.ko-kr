@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Application Insights란?" 
-	description="라이브 웹 또는 장치 응용 프로그램의 사용 현황 및 성능을 추적합니다. 문제를 감지, 심사 및 진단합니다. 지속적인 모니터링을 통해 사용자와 더불어 성공할 수 있도록 개선합니다." 
+	pageTitle="Application Insights를 사용한 분석" 
+	description="장치 및 웹앱 분석입니다. 라이브 웹 응용 프로그램의 사용 현황 및 성능을 추적합니다. 문제를 감지, 심사 및 진단합니다. 지속적인 모니터링을 통해 사용자와 더불어 성공할 수 있도록 개선합니다." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
  
 # Application Insights란?
@@ -151,4 +151,4 @@ ASP.NET 서버 및 Azure 웹앱의 경우 두 가지 용도로 사용되는 [상
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="01/20/2016"
+   ms.date="02/25/2016"
    ms.author="daleche" />
 
 # 시작에 실패한 클라우드 서비스 역할의 문제 해결
@@ -71,7 +71,7 @@
 
 1. Azure SDK 1.3 이상이 설치되어야 합니다.
 
-2. Visual Studio를 사용하여 솔루션을 배포하는 동안 "원격 데스크톱 연결 구성..."을 선택합니다. 원격 데스크톱 연결 구성에 대한 자세한 내용은 [Azure 역할과 함께 원격 데스크톱 사용](https://msdn.microsoft.com/library/gg443832.aspx)을 참조하세요.
+2. Visual Studio를 사용하여 솔루션을 배포하는 동안 "원격 데스크톱 연결 구성..."을 선택합니다. 원격 데스크톱 연결 구성에 대한 자세한 내용은 [Azure 역할과 함께 원격 데스크톱 사용](../vs-azure-tools-remote-desktop-roles.md)을 참조하세요.
 
 3. Microsoft Azure 클래식 포털에서 인스턴스 상태가 **준비**로 표시되면 역할 인스턴스 중 하나를 클릭합니다.
 
@@ -167,4 +167,4 @@ IntelliTrace를 사용하는 서비스를 배포하려면 다음 단계를 수�
 
 Azure PaaS 컴퓨터 진단 데이터를 사용하여 클라우드 서비스 역할 문제를 해결하는 방법을 알아보려면 [Kevin Williamson의 블로그 시리즈](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx)를 참조하세요.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

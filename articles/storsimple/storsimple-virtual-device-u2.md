@@ -37,7 +37,7 @@ StorSimple 가상 장치 모델은 두 가지 모델 즉, 표준 8010(이전의 
 | **Azure VM** | Standard\_A3(4 코어, 7GB 메모리) | Standard\_DS3 (4 코어, 14GB 메모리) |
 | **버전 호환성** | 사전 업데이트 2 이상을 실행하는 버전 | 업데이트 2 이상을 실행하는 버전 |
 | **지역 가용성** | 모든 Azure 지역 | 프리미엄 저장소를 지원하는 Azure 지역<br></br>하위 지역 목록은 [8020에 대해 지원되는 하위 지역](#supported-regions-for-8020)을 참조하세요. |
-| **저장소 유형** | Azure 표준 저장소 사용<br></br> [표준 저장소 계정을 만드는]() 방법 알아보기 | Azure 프리미엄 저장소 사용<br></br> [프리미엄 저장소 계정을 만드는](storage-premium-storage-preview-portal.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) 방법 알아보기 |
+| **저장소 유형** | Azure 표준 저장소 사용<br></br> [표준 저장소 계정을 만드는]() 방법 알아보기 | Azure 프리미엄 저장소 사용<br></br> [프리미엄 저장소 계정을 만드는](storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) 방법 알아보기 |
 | **워크로드 지침** | 백업으로부터 항목 수준 파일 읽어오기 | 클라우드 개발 및 테스트 시나리오, 짧은 대기 시간, 높은 성능 워크로드 <br></br>재해 복구용 보조 장치 |
  
 <sup>1</sup> *이전에 1100로 알려짐*.
@@ -118,7 +118,7 @@ StorSimple 가상 장치는 Microsoft Azure 가상 컴퓨터의 단일 노드에
 
 - 가상 장치에 대해 호스트 서버가 될 VM에 대해 [액세스 제어 레코드](storsimple-manage-acrs.md)를 추가합니다.
 
-- 가상 장치와 동일한 지역에 [저장소 계정](storsimple-manage-storage-accounts.md#add-a-storage-account)을 사용합니다. 다른 영역의 저장소 계정으로 성능이 저하될 수 있습니다. 가상 장치에 표준 또는 프리미엄 저장소 계정을 사용할 수 있습니다. 자세한 내용은 [표준 저장소 계정]() 또는 [프리미엄 저장소 계정](storage-premium-storage-preview-portal.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)을 만드는 방법을 참조하세요.
+- 가상 장치와 동일한 지역에 [저장소 계정](storsimple-manage-storage-accounts.md#add-a-storage-account)을 사용합니다. 다른 영역의 저장소 계정으로 성능이 저하될 수 있습니다. 가상 장치에 표준 또는 프리미엄 저장소 계정을 사용할 수 있습니다. 자세한 내용은 [표준 저장소 계정]() 또는 [프리미엄 저장소 계정](storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)을 만드는 방법을 참조하세요.
 
 - 데이터에 사용된 계정이 아닌 가상 장치 생성을 위해 다른 저장소 계정을 사용합니다. 동일한 저장소 계정을 사용하면 성능이 저하될 수 있습니다.
 
@@ -282,4 +282,4 @@ StorSimple 가상 장치를 이전에 구성하고 사용했지만 이제 용도
  
 - [백업 세트에서 StorSimple 볼륨을 복원](storsimple-restore-from-backup-set.md)하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

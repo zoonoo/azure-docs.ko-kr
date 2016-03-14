@@ -30,7 +30,7 @@
 위의 상위 수준 단계를 이미 모두 수행한 경우 [Windows 컴퓨터 백업](backup-azure-backup-windows-server.md)을 시작할 수 있습니다. 그렇지 않은 경우 아래 세부 단계를 계속 진행하여 사용자 환경이 준비되었는지 확인합니다.
 
 ## 시작하기 전에
-Windows 컴퓨터 백업 환경을 준비하기 위해서는 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 [무료 평가판 계정](https://azure.microsoft.com/pricing/free-trial/)을 만들 수 있습니다.
+Windows 컴퓨터 백업 환경을 준비하기 위해서는 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 [무료 계정](https://azure.microsoft.com/free/)을 만들 수 있습니다.
 
 ## 백업 자격 증명 모음 만들기
 Windows 컴퓨터 또는 Data Protection Manager(DPM)의 파일과 데이터를 Azure에 백업하거나 IaaS VM을 Azure에 백업하려면 데이터를 저장하려는 지역에 백업 자격 증명 모음을 만들어야 합니다.
@@ -53,16 +53,40 @@ Windows 컴퓨터 또는 Data Protection Manager(DPM)의 파일과 데이터를 
 
     ![자격 증명 모음을 만드는 중](./media/backup-configure-vault/creatingvault1.png)
 
-    백업 자격 증명 모음을 만든 후 자격 증명 모음이 성공적으로 생성되었다는 메시지가 나타납니다. 자격 증명 모음이 복구 서비스에 대한 리소스에 **활성**으로 표시됩니다.![자격 증명 모음을 만드는 중 상태](./media/backup-configure-vault/backupvaultstatus1.png)
+    백업 자격 증명 모음을 만든 후 자격 증명 모음이 성공적으로 생성되었다는 메시지가 나타납니다. 자격 증명 모음이 복구 서비스에 대한 리소스에 **활성**으로 표시됩니다.
 
-> [AZURE.IMPORTANT] 저장소 중복 옵션을 지정하기에 가장 좋은 시기는 자격 증명 모음을 만든 후 자격 증명 모음에 컴퓨터를 등록하기 바로 직전입니다. 항목이 자격 증명 모음에 등록되고 나면 저장소 중복 옵션 잠기고 수정할 수 없습니다.
->
-> **저장소 중복 옵션을 선택하는 방법에 대한 자세한 내용은 [개요](backup-azure-storage-redundancy-options.md)를 참조하세요.**
+    ![자격 증명 모음을 만드는 중 상태](./media/backup-configure-vault/backupvaultstatus1.png)
+
+    >[AZURE.IMPORTANT] 저장소 중복 옵션을 지정하기에 가장 좋은 시기는 자격 증명 모음을 만든 후 자격 증명 모음에 컴퓨터를 등록하기 바로 직전입니다. 항목이 자격 증명 모음에 등록되고 나면 저장소 중복 옵션 잠기고 수정할 수 없습니다.
+
+4. **저장소 중복** 옵션을 선택합니다.
+
+    기본 백업 저장소 끝점으로 Azure를 사용 중인 경우(예: Windows Server에서 Azure로 백업하는 경우) [지역 중복 저장소](../storage/storage-redundancy.md#geo-redundant-storage) 옵션(기본값)을 선택하는 것이 좋습니다.
+
+    3차 백업 저장소 끝점으로 Azure를 사용 중인 경우(예: 온-프레미스에 로컬 백업 복사본을 보관하기 위해 SCDPM을 사용하는 경우 및 장기 보존 요구를 해결하기 위해 Azure를 사용하는 경우) [로컬 중복 저장소](../storage/storage-redundancy.md#locally-redundant-storage)를 선택하는 것이 좋습니다. 이렇게 하면 Azure에 데이터를 저장하는 비용을 크게 줄일 수 있지만 3차 복사본에 허용될 수 있는 데이터 영속성 수준이 낮아집니다.
+
+    이 [개요](../storage/storage-redundancy.md)의 [지역 중복](../storage/storage-redundancy.md#geo-redundant-storage) 및 [로컬 중복](../storage/storage-redundancy.md#locally-redundant-storage) 저장소 옵션에 대해 자세히 알아봅니다.
+
+    a. 방금 만든 자격 증명 모음을 클릭합니다.
+
+    b. 빠른 시작 페이지에서 **구성**을 선택합니다.
+
+    ![자격 증명 모음 상태 구성](./media/backup-try-azure-backup-in-10-mins/configure-vault.png)
+
+    c. 적절한 저장소 중복 옵션을 선택합니다.
+
+    **지역 중복**이 기본 옵션이기 때문에 **로컬 중복**을 선택한 경우 **저장**을 클릭해야 합니다.
+
+    ![GRS](./media/backup-try-azure-backup-in-10-mins/geo-redundant.png)
+
+    d. 왼쪽 탐색 창에서 **복구 서비스**를 클릭하면 **복구 서비스**의 리소스 목록으로 돌아갑니다.
+
+    ![백업 자격 증명 모음 선택](./media/backup-try-azure-backup-in-10-mins/rs-left-nav.png)
 
 ## 자격 증명 모음 자격 증명 파일 다운로드
 온-프레미스 서버(Windows 클라이언트 또는 Windows Server 또는 데이터 보호 관리자 서버)는 백업 자격 증명 모음을 인증해야 Azure에 데이터를 백업할 수 있습니다. 인증은 "자격 증명 모음 자격 증명"을 사용하여 수행됩니다. 자격 증명 모음 파일은 Azure 포털의 보안 채널을 통해 다운로드되며, Azure 백업 서비스는 포털 또는 서비스에 유지되지 않도록 인증서의 개인 키를 인식하지 않습니다.
 
-[Azure 백업 서비스로 인증하기 위한 자격 증명 모음 자격 증명](backup-introduction-to-azure-backup.md#what-is-the-vault-credential-file)에 대한 자세한 내용을 알아보려면
+[자격 증명 모음 자격 증명을 사용하여 Azure 백업 서비스 인증](backup-introduction-to-azure-backup.md#what-is-the-vault-credential-file)에 대한 자세한 내용을 알아보려면
 
 **로컬 컴퓨터에 자격 증명 모음 자격 증명 파일을 다운로드하려면**
 
@@ -101,7 +125,7 @@ Azure 백업 자격 증명 모음을 만든 후에는 각 Windows 컴퓨터(Wind
 
     ![에이전트 저장](./media/backup-configure-vault/agent.png)
 
-4. *MARSagentinstaller.exe* 다운로드가 완료되면 **실행**을 클릭합니다(또는 저장된 위치에서**MARSAgentInstaller.exe**를 두 번 클릭합니다). *설치 폴더* 및 *에이전트*에 필요한 스크래치 폴더를 선택하고 **다음**을 클릭합니다.
+4. *MARSagentinstaller.exe* 다운로드가 완료되면 **실행**을 클릭합니다(또는 저장된 위치에서**MARSAgentInstaller.exe**를 두 번 클릭합니다). 에이전트에 필요한 *설치 폴더* 및 *캐시 폴더*를 선택하고 **다음**을 클릭합니다.
 
     지정된 캐시 위치에 백업 데이터의 5% 이상에 해당하는 여유 공간이 있어야 합니다.
 
@@ -115,7 +139,7 @@ Azure 백업 자격 증명 모음을 만든 후에는 각 Windows 컴퓨터(Wind
 
     ![등록](./media/backup-configure-vault/register.png)
 
-7. **자격 증명 모음 식별 화면**에서 이전에 다운로드한 *자격 증명 모음 자격 증명 파일*로 이동하여 선택합니다.
+7. **자격 증명 모음 식별** 화면에서 이전에 다운로드한 *자격 증명 모음 자격 증명 파일*로 이동하여 선택합니다.
 
     ![자격 증명 모음 자격 증명](./media/backup-configure-vault/vc.png)
 
@@ -125,7 +149,7 @@ Azure 백업 자격 증명 모음을 만든 후에는 각 Windows 컴퓨터(Wind
 
     잘못된 자격 증명 모음 자격 증명 오류(예: "잘못된 자격 증명 모음 자격 증명을 제공했습니다.")가 발생하는 경우 파일이 손상되었거나 복구 서비스와 연결된 최신 자격 증명이 없습니다. 포털에서 새 자격 증명 모음 자격 증명 파일을 다운로드한 후에 작업을 다시 시도합니다. 이 오류는 일반적으로 사용자가 *자격 증명 모음 자격 증명 다운로드* 옵션을 빠르게 연속적으로 클릭할 경우에 표시됩니다. 이 경우 마지막 자격 증명 모음 자격 증명 파일만 유효합니다.
 
-8. **암호화 설정** 화면에서 암호를 *생성*하거나 암호를 *제공*합니다.(최소 16자) 암호를 안전한 위치에 저장해야 합니다.
+8. **암호화 설정** 화면에서 암호를 *생성*하거나 암호를 *제공*합니다(최소 16자). 암호를 안전한 위치에 저장해야 합니다.
 
     ![암호화](./media/backup-configure-vault/encryption.png)
 
@@ -136,9 +160,9 @@ Azure 백업 자격 증명 모음을 만든 후에는 각 Windows 컴퓨터(Wind
     이제 컴퓨터가 자격 증명 모음에 성공적으로 등록되고 이제 Microsoft Azure에 백업을 시작할 준비가 완료된 것입니다.
 
 ## 다음 단계
-- [무료 Azure 평가판 계정](https://azure.microsoft.com/pricing/free-trial/) 등록
+- [무료 Azure 계정](https://azure.microsoft.com/free/) 등록
 - [Windows 서버 또는 클라이언트 컴퓨터를 백업합니다](backup-azure-backup-windows-server.md).
 - 여전히 답변이 없는 질문이 있는 경우 [Azure 백업 FAQ](backup-azure-backup-faq.md)를 살펴보세요.
 - [Azure 백업 포럼](http://go.microsoft.com/fwlink/p/?LinkId=290933)을 방문하세요.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

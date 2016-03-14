@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/17/2015"
+   ms.date="02/25/2016"
    ms.author="mbaldwin" />
 
 # Azure Active Directory 인증 라이브러리
@@ -28,7 +28,7 @@ ADAL은 다양한 플랫폼에서 사용할 수 있습니다.
 |OS X, iOS|Objective-C용 ADAL(Azure AD 인증 라이브러리)|클라이언트|[Objective-C용 ADAL(CocoaPods)](https://cocoapods.org/?q=adal%20io)|[Objective-C용 ADAL(Github)](https://github.com/AzureAD/azure-activedirectory-library-for-objc)|샘플: [NativeClient-iOS(Github)](https://github.com/AzureADSamples/NativeClient-iOS)|
 |Android|Android용 ADAL(Azure AD 인증 라이브러리)|클라이언트|[Android용 ADAL(중앙 리포지토리)](http://search.maven.org/remotecontent?filepath=com/microsoft/aad/adal/)|[Android용 ADAL(Github)](https://github.com/AzureAD/azure-activedirectory-library-for-android)|샘플: [NativeClient-Android (Github)](https://github.com/AzureADSamples/NativeClient-Android)|
 |Node.js|Node.js용 ADAL(Azure AD 인증 라이브러리)|클라이언트|[Node.js용 ADAL(npm)](https://www.npmjs.com/package/adal-node)|[Node.js용 ADAL(Github)](https://github.com/AzureAD/azure-activedirectory-library-for-nodejs)|샘플: [WebAPI-Nodejs(Github)](https://github.com/AzureADSamples/WebAPI-Nodejs)|
-|Node.js|노드에 대한 Windows Azure Active Directory Passport 인증 미들웨어|클라이언트|[Node.js용 Azure Active Directory Passport(npm)](https://www.npmjs.com/package/passport-azure-ad)|[Node.js용 Azure Active Directory(Github)](https://github.com/AzureAD/passport-azure-ad)||
+|Node.js|노드에 대한 Microsoft Azure Active Directory Passport 인증 미들웨어|클라이언트|[Node.js용 Azure Active Directory Passport(npm)](https://www.npmjs.com/package/passport-azure-ad)|[Node.js용 Azure Active Directory(Github)](https://github.com/AzureAD/passport-azure-ad)||
 |Java|Java용 ADAL(Azure AD 인증 라이브러리)|클라이언트|[Java용 ADAL(Github)](https://github.com/AzureAD/azure-activedirectory-library-for-java)|[Java용 ADAL(Github)](https://github.com/AzureAD/azure-activedirectory-library-for-java)||
 |.NET|Microsoft.NET Framework 4.5용 ID 프로토콜 확장|서버|[Microsoft.IdentityModel.Protocol.Extensions (NuGet)](https://www.nuget.org/packages/Microsoft.IdentityModel.Protocol.Extensions)|[.NET용 Azure AD ID 모델 확장(Github)](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet)||
 |.NET|Microsoft .Net Framework 4.5용 JSON 웹 토큰 처리기|서버|[System.IdentityModel.Tokens.Jwt (NuGet)](https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt)|[.NET용 Azure AD ID 모델 확장(Github)](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet)||
@@ -63,4 +63,4 @@ Azure AD에 대한 인증을 사용하여 이 시나리오를 설명하는 코�
 
 [Azure Active Directory 코드 샘플](active-directory-code-samples.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0302_2016-->

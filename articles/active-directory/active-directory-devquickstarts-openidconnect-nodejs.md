@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="02/25/2016"
 	ms.author="brandwe"/>
 
 # Azure AD를 사용하는 웹앱 로그인 및 로그아웃
@@ -245,9 +245,9 @@ app.post('/auth/openid/return',
 
 ## 4. Passport를 사용하여 Azure AD에 로그인 및 로그아웃 요청 실행
 
-이제 앱이 OpenID Connect 인증 프로토콜을 사용하여 v2.0 끝점 끝점과 통신하도록 올바르게 구성되었습니다.  `passport-azure-ad` 이 인증 메시지를 작성하고, Azure AD에서 토큰의 유효성을 검사하고, 사용자 세션을 유지 관리하는 까다로운 모든 세부 과정을 처리했습니다.  이제 사용자에게 로그인 및 로그아웃하는 방법을 알려주고 로그인한 사용자에 대한 추가 정보를 수집하기만 하면 됩니다.
+이제 앱이 OpenID Connect 인증 프로토콜을 사용하여 v2.0 끝점과 통신하도록 올바르게 구성되었습니다. `passport-azure-ad`가 인증 메시지를 작성하고, Azure AD에서 토큰의 유효성을 검사하고, 사용자 세션을 유지 관리하는 까다로운 모든 세부 과정을 처리했습니다. 이제 사용자에게 로그인 및 로그아웃하는 방법을 알려주고 로그인한 사용자에 대한 추가 정보를 수집하기만 하면 됩니다.
 
-- 먼저 `app.js`  파일에 default, login, account 및 logout 메서드를 추가합니다.
+- 먼저 `app.js` 파일에 기본, 로그인, 계정 및 로그아웃 메서드를 추가합니다.
 
 ```JavaScript
 
@@ -276,13 +276,13 @@ app.get('/logout', function(req, res){
 ```
 
 -	자세히 살펴보겠습니다.
-    -	`/`  경로는 요청에 사용자를 전달하여(있는 경우) index.ejs 뷰로 리디렉션됩니다.
-    - `/account`  경로는 먼저 ***인증되었는지 확인***하고(아래에서 구현) 사용자에 대한 추가 정보를 얻을 수 있도록 요청에 사용자를 전달합니다.
-    - `/login`  경로는 `passport-azuread` 에서 azuread-openidconnect 인증자를 호출하고, 실패할 경우 사용자를 다시 /login으로 리디렉션합니다.
-    - `/logout` 은 쿠키를 지우는 logout.ejs(및 경로)를 호출하고 사용자를 다시 index.ejs로 돌려보냅니다.
+    -	`/` 경로는 요청에 사용자를 전달하여(있는 경우) index.ejs 뷰로 리디렉션됩니다.
+    - `/account` 경로는 먼저 ***인증되었는지 확인***하고(아래에서 구현) 사용자에 대한 추가 정보를 얻을 수 있도록 요청에 사용자를 전달합니다.
+    - `/login` 경로는 `passport-azuread`에서 azuread-openidconnect 인증자를 호출하고, 실패할 경우 사용자를 다시 /login으로 리디렉션합니다.
+    - `/logout`은(는) 쿠키를 지우는 logout.ejs(및 경로)를 호출하고 사용자를 다시 index.ejs로 돌려보냅니다.
 
 
-- `app.js` 의 마지막 부분을 위해 위의 `/account` 에서 사용된 EnsureAuthenticated 메서드를 추가하겠습니다.
+- `app.js`의 마지막 부분을 위해 위의 `/account`에서 사용된 EnsureAuthenticated 메서드를 추가하겠습니다.
 
 ```JavaScript
 
@@ -309,7 +309,7 @@ app.listen(3000);
 
 ## 5. 웹 사이트에서 사용자에게 표시할 뷰와 경로를 빠르게 만들기
 
-`app.js`이(가) 완료되었습니다. 이제 얻은 정보를 사용자에게 표시할 경로와 뷰를 추가하고 만든 `/logout` 및 `/login` 경로를 처리하기만 하면 됩니다.
+`app.js`가 완료되었습니다. 이제 얻은 정보를 사용자에게 표시할 경로와 뷰를 추가하고 만든 `/logout` 및 `/login` 경로를 처리하기만 하면 됩니다.
 
 - 루트 디렉터리 아래에 `/routes/index.js` 경로를 만듭니다.
 
@@ -348,7 +348,6 @@ exports.list = function(req, res){
 	<a href="/account">Account Info</a></br>
 	<a href="/logout">Log Out</a>
 <% } %>
-
 ```
 
 - `passport-azuread`가 사용자 요청에 포함한 추가 정보를 볼 수 있도록 루트 디렉터리 아래에 `/views/account.ejs` 뷰를 만듭니다.
@@ -368,7 +367,6 @@ exports.list = function(req, res){
 <p></p>
 <a href="/logout">Log Out</a>
 <% } %>
-
 ```
 
 - 마지막으로, 레이아웃을 추가하여 모양을 개선합니다. 루트 디렉터리 아래에 '/views/layout.ejs' 뷰 만들기
@@ -416,4 +414,4 @@ exports.list = function(req, res){
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0302_2016-->

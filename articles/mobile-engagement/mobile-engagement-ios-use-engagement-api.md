@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/10/2015"
+	ms.date="02/29/2016"
 	ms.author="piyushjo" />
 
 
@@ -51,7 +51,7 @@ API를 호출하기 전에 메서드 `[EngagementAgent init:@"Endpoint={YOUR_APP
 
 			[[EngagementAgent shared] endActivity];
 
-> [AZURE.WARNING]단일 응용 프로그램 사용을 여러 세션으로 분할하려는 경우를 제외하고는 이 함수를 직접 호출하면 **안 됩니다**. 이 함수를 호출하면 현재 세션이 즉시 종료되므로 `startActivity()`를 후속 호출 시 새 세션이 시작됩니다. 응용 프로그램을 닫으면 SDK에서 이 함수를 자동으로 호출합니다.
+> [AZURE.WARNING] 단일 응용 프로그램 사용을 여러 세션으로 분할하려는 경우를 제외하고는 이 함수를 직접 호출하면 **안 됩니다**. 이 함수를 호출하면 현재 세션이 즉시 종료되므로 `startActivity()`를 후속 호출 시 새 세션이 시작됩니다. 응용 프로그램을 닫으면 SDK에서 이 함수를 자동으로 호출합니다.
 
 ##이벤트 보고
 
@@ -219,7 +219,7 @@ API를 호출하기 전에 메서드 `[EngagementAgent init:@"Endpoint={YOUR_APP
 
 extras는`arrays(NSArray, NSMutableArray)`, `numbers(NSNumber class)`, `strings(NSString, NSMutableString)`, `urls(NSURL)`, `data(NSData, NSMutableData)` 또는 기타 `NSDictionary` 인스턴스를 포함할 수 있습니다.
 
-> [AZURE.NOTE]extras 매개 변수는 JSON에서 serialize됩니다. 위에서 설명한 것과 다른 개체를 전달하려는 경우에는 클래스에서 다음 메서드를 구현해야 합니다.
+> [AZURE.NOTE] extras 매개 변수는 JSON에서 serialize됩니다. 위에서 설명한 것과 다른 개체를 전달하려는 경우에는 클래스에서 다음 메서드를 구현해야 합니다.
 >
 			 -(NSString*)JSONRepresentation;
 >
@@ -283,4 +283,4 @@ extras 이벤트와 마찬가지로 `NSDictionary` 클래스도 응용 프로그
 
 	{"birthdate":"1983-12-07","gender":"female"}
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

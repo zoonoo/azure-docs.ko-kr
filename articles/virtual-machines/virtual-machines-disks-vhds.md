@@ -47,7 +47,7 @@ Azure는 사용자가 이미지에서 가상 컴퓨터를 만들 때 운영 체�
 
 ## VHD에 대하여
 
-Azure에서 사용되는 VHD는 Azure의 표준 또는 프리미엄 저장소 계정에서 페이지 blob으로 저장되는 .vhd 파일입니다. (프리미엄 저장소는 특정 지역에서만 사용할 수 있습니다.) 페이지 Blob에 대한 자세한 내용은 [블록 Blob 및 페이지 Blob 이해하기](https://msdn.microsoft.com/library/ee691964.aspx)를 참조하세요. 프리미엄 저장소에 대한 자세한 내용은 [프리미엄 저장소: Azure 가상 컴퓨터에 대한 고성능 저장소](storage-premium-storage-preview-portal.md)를 참조하세요.
+Azure에서 사용되는 VHD는 Azure의 표준 또는 프리미엄 저장소 계정에서 페이지 blob으로 저장되는 .vhd 파일입니다. (프리미엄 저장소는 특정 지역에서만 사용할 수 있습니다.) 페이지 Blob에 대한 자세한 내용은 [블록 Blob 및 페이지 Blob 이해하기](https://msdn.microsoft.com/library/ee691964.aspx)를 참조하세요. 프리미엄 저장소에 대한 자세한 내용은 [프리미엄 저장소: Azure 가상 컴퓨터에 대한 고성능 저장소](../storage/storage-premium-storage.md)를 참조하세요.
 
 Azure 외부에서 가상 하드 디스크는 VHD 또는 VHDX 형식을 사용할 수 있습니다. 또한 고정, 동적 확장 또는 차이점 보관용 디스크일 수도 있습니다. Azure는 VHD 형식의 고정 디스크를 지원합니다. 고정 형식은 디스크 오프셋 X가 blob 오프셋 X에 저장되도록 파일 내에 선형적으로 논리적 디스크를 배치합니다. blob 끝의 작은 바닥글에서는 VHD의 속성을 설명합니다. 고정 형식은 대부분의 디스크에서 사용되지 않는 공간 범위가 크기 때문에 공간이 낭비되는 경우가 많습니다. 하지만 Azure에서는 .vhd 파일을 스파스 형식으로 저장하기 때문에 고정 및 동적 디스크의 장점을 동시에 얻을 수 있습니다. 자세한 내용은 [가상 하드 디스크 시작](https://technet.microsoft.com/library/dd979539.aspx)을 참조하세요.
 
@@ -74,4 +74,4 @@ Windows 가상 컴퓨터:
 -  [Windows 가상 컴퓨터를 캡쳐](virtual-machines-capture-image-windows-server.md)
 -  [디스크를 분리](storage-windows-detach-disk.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

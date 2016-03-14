@@ -74,7 +74,7 @@
 
 이 시점에서 더 이상 모바일 서비스 SDK를 참조하지 않는 프로젝트가 있습니다.
 
-다음으로 모바일 앱 SDK 참조를 추가합니다. 이 업그레이드를 위해 대부분의 개발자는 `Micrsoft.Azure.Mobile.Server.Quickstart` 패키지를 다운로드하고 설치할 수 있으며, 전체 필수 집합으로 가져오게 됩니다.
+다음으로 모바일 앱 SDK 참조를 추가합니다. 이 업그레이드를 위해 대부분의 개발자는 `Microsoft.Azure.Mobile.Server.Quickstart` 패키지를 다운로드하고 설치할 수 있으며, 전체 필수 집합으로 가져오게 됩니다.
 
 SDK 간의 차이로 인해 발생하는 몇 가지 컴파일러 오류가 있지만 쉽게 해결할 수 있으며 이 섹션의 나머지 부분에서 다루게 됩니다.
 
@@ -277,4 +277,4 @@ AAD, Facebook, Google 등의 일부 공급자의 경우 복사 응용 프로그�
 [앱 서비스 가격 책정]: https://azure.microsoft.com/ko-KR/pricing/details/app-service/
 [.NET 서버 SDK 개요]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

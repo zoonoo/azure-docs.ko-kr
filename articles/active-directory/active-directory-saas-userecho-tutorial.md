@@ -120,9 +120,9 @@ UserEcho에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     a. **SAML 사용**을 **예**로 선택합니다.
 
-    b. Azure 클래식 포털의 **UserEcho에서 Single Sign-On 구성** 대화 상자 페이지에서 **Single Sign-On 서비스 URL** 값을 복사하고 붙여넣습니다. 메모장에서 다운로드한 인증서를 연 다음 **SAML SSO URL** 텍스트 상자에 붙여넣습니다.
+    b. Azure 클래식 포털의 UserEcho에서 Single Sign-On 구성 대화 상자 페이지에서 **Single Sign-On 서비스 URL** 값을 복사한 다음 **SAML SSO URL** 텍스트 상자에 붙여넣습니다.
 
-    c. Azure 클래식 포털의 **UserEcho에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그아웃 URL** 값을 복사한 다음 **원격 로그아웃 URL** 텍스트 상자에 붙여넣습니다.
+    c. Azure 클래식 포털의 UserEcho에서 Single Sign-On 구성 대화 상자 페이지에서 **원격 로그아웃 URL** 값을 복사한 다음 **원격 로그아웃 URL** 텍스트 상자에 붙여넣습니다.
 
     d. 다운로드한 인증서를 메모장에서 열고, 내용을 복사한 다음 전체 인증서를 **X.509 인증서** 텍스트 상자에 붙여넣습니다.
 
@@ -253,4 +253,4 @@ UserEcho를 사용하여 시작할 수 있는 초대장이 Britta에게 전송�
 [204]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

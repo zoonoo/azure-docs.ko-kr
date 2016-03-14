@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/12/2015"
+   ms.date="02/24/2016"
    ms.author="joaoma" />
 
 # Azure CLI를 사용하여 인터넷 연결 부하 분산 장치 구성 시작
@@ -78,7 +78,7 @@ DNS 이름이 *loadbalancernrp.eastus.cloudapp.azure.com* 인 프런트 엔드 I
 	azure network public-ip create -g NRPRG -n NRPPublicIP -l eastus -d loadbalancernrp -a static -i 4
 
 
->[AZURE.IMPORTANT]부하 분산 장치는 FQDN으로 공용 IP의 도메인 레이블을 사용합니다. 이는 부하 분산 장치 FQDN으로 클라우드 서비스를 사용하는 클래식 배포의 변경입니다. 이 예제에서는 FQDN이 *loadbalancernrp.eastus.cloudapp.azure.com* 입니다.
+>[AZURE.IMPORTANT] 부하 분산 장치는 FQDN으로 공용 IP의 도메인 레이블을 사용합니다. 이는 부하 분산 장치 FQDN으로 클라우드 서비스를 사용하는 클래식 배포의 변경입니다. 이 예제에서는 FQDN이 *loadbalancernrp.eastus.cloudapp.azure.com* 입니다.
 
 ## 부하 분산 장치 만들기
 
@@ -328,4 +328,4 @@ NIC를 만들고(또는 기존 NIC 수정) NAT 규칙, 부하 분산 장치 규�
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

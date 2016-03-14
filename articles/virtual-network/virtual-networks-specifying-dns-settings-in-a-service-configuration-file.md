@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="02/24/2016"
    ms.author="joaoma" />
 
 # 서비스 구성 파일에서 DNS 설정 지정
@@ -29,7 +29,7 @@
         <DnsServer name="ID3" IPAddress="IPAddress3" />
       </DnsServers>
 
->[AZURE.WARNING]**DnsServer** 요소 내 **이름** 특성은 참조 이름으로만 사용됩니다. DNS 서버에 대한 호스트 이름은 표시되지 않습니다. 각 **DnsServer** 특성 값은 전체 Microsoft Azure 구독에서 고유해야 합니다.
+>[AZURE.WARNING] **DnsServer** 요소 내 **이름** 특성은 참조 이름으로만 사용됩니다. DNS 서버에 대한 호스트 이름은 표시되지 않습니다. 각 **DnsServer** 특성 값은 전체 Microsoft Azure 구독에서 고유해야 합니다.
 
 ## 참고 항목
 
@@ -41,4 +41,4 @@
 
 [관리 포털의 가상 네트워크 설정 정보](http://go.microsoft.com/fwlink/?LinkId=248092)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

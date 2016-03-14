@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="08/10/2015"
+	ms.date="02/29/2016"
 	ms.author="piyushjo" />
 
 #GCM과 Mobile Engagement를 통합하는 방법
 
-> [AZURE.IMPORTANT]이 가이드를 수행하기 전에 Android 문서의 Engagement를 통합하는 방법에 설명된 통합 절차를 따라야 합니다.
+> [AZURE.IMPORTANT] 이 가이드를 수행하기 전에 Android 문서의 Engagement를 통합하는 방법에 설명된 통합 절차를 따라야 합니다.
 >
 > 이 문서는 상시 캠페인을 지원하기 위해 도달률 모듈을 통합하는 경우에만 유용합니다. 응용 프로그램에서 도달률 캠페인을 통합하려면 먼저 Android에서 Engagement 도달률을 통합하는 방법을 읽어보세요.
 
@@ -28,7 +28,7 @@ GCM을 통합하면 응용 프로그램을 푸시할 수 있습니다.
 
 SDK로 푸시된 GCM 페이로드는 데이터 개체에 항상 `azme` 키를 포함합니다. 따라서 응용 프로그램에서 다른 용도로 GCM을 사용하는 경우 해당 키에 따라 푸시를 필터링할 수 있습니다.
 
-> [AZURE.IMPORTANT]Android 2.2 이상을 실행하고, Google Play를 설치하고, Google 백그라운드 연결이 활성화된 장치만 GCM을 사용해 푸시될 수 있지만 지원되지 않는 장치(단지 의도만 이용하는 장치)에서 이 코드를 안전하게 통합할 수 있습니다.
+> [AZURE.IMPORTANT] Android 2.2 이상을 실행하고, Google Play를 설치하고, Google 백그라운드 연결이 활성화된 장치만 GCM을 사용해 푸시될 수 있지만 지원되지 않는 장치(단지 의도만 이용하는 장치)에서 이 코드를 안전하게 통합할 수 있습니다.
 
 ##GCM에 등록 및 GCM 서비스 사용
 
@@ -40,7 +40,7 @@ SDK로 푸시된 GCM 페이로드는 데이터 개체에 항상 `azme` 키를 �
 
 이 절차에서는 **프로젝트 번호**가 **GCM 보낸 사람 ID**(이 절차의 뒷부분에서 필요)로 사용된다는 것을 설명합니다.
 
-> [AZURE.IMPORTANT]**프로젝트 번호**는 **프로젝트 ID**와 혼동하지 않아야 합니다. 이제 프로젝트 ID는 다를 수 있습니다(새 프로젝트의 이름). Engagement SDK에서 통합해야 하는 것은 **프로젝트 번호**이고, 이 번호는 [Google 개발자 콘솔]의 **개요** 메뉴에 표시됩니다.
+> [AZURE.IMPORTANT] **프로젝트 번호**는 **프로젝트 ID**와 혼동하지 않아야 합니다. 이제 프로젝트 ID는 다를 수 있습니다(새 프로젝트의 이름). Engagement SDK에서 통합해야 하는 것은 **프로젝트 번호**이고, 이 번호는 [Google 개발자 콘솔]의 **개요** 메뉴에 표시됩니다.
 
 ##SDK 통합
 
@@ -103,7 +103,7 @@ Engagement 푸시 서비스에 장치의 등록 ID를 전달하고 해당 알림
 
 이제 도달률 알림 및 설문 조사를 만들 때 "Any Time"을 선택할 수 있습니다.
 
-> [AZURE.IMPORTANT]Engagement에서 실제로 **서버 키**를 요구하지만, Engagement 서버에서 Android 키를 사용할 수는 없습니다.
+> [AZURE.IMPORTANT] Engagement에서 실제로 **서버 키**를 요구하지만, Engagement 서버에서 Android 키를 사용할 수는 없습니다.
 
 ##테스트
 
@@ -115,4 +115,4 @@ Engagement 푸시 서비스에 장치의 등록 ID를 전달하고 해당 알림
 [GCM 클라이언트 라이브러리]: http://developer.android.com/guide/google/gcm/gs.html#libs
 [Google 개발자 콘솔]: https://cloud.google.com/console
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

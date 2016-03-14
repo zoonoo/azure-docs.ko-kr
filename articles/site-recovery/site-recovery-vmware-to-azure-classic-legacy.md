@@ -12,18 +12,18 @@
 # Azure Site Recovery를 사용하여 Azure에 VMware 가상 컴퓨터 및 물리적 서버 복제(레거시)
 
 > [AZURE.SELECTOR]
-- [Enhanced](site-recovery-vmware-to-azure-classic.md)
-- [Legacy](site-recovery-vmware-to-azure-classic-legacy.md)
+- [향상된](site-recovery-vmware-to-azure-classic.md)
+- [레거시](site-recovery-vmware-to-azure-classic-legacy.md)
 
 
-Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제, 장애 조치(Failover) 및 복구를 오케스트레이션하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. 컴퓨터는 Azure 또는 보조 온-프레미스 데이터 센터로 복제할 수 있습니다. 빠른 개요를 알아보려면 [Azure Site Recovery란?](site-recovery-overview.md)을 확인하세요.
+Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제, 장애 조치(Failover) 및 복구를 오케스트레이션하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. 컴퓨터는 Azure 또는 보조 온-프레미스 데이터 센터로 복제할 수 있습니다. 빠른 개요를 알아보려면 [Azure Site Recovery란?](site-recovery-overview.md)을 참조하세요.
 
 ## 개요
 
 이 문서에서는 다음과 같이 방법을 설명합니다.
 
-- **Azure에 VMware 가상 컴퓨터 복제** - 온-프레미스 VMware 가상 컴퓨터에서 Azure 저장소로 복제, 장애 조치(Failover), 복구 조정을 위해 사이트 복구를 배포합니다.
-- **Azure에 물리적 서버 복제** - 온-프레미스 Windows 및 Linux 물리적 서버에서 Azure로 복제, 장애 조치(Failover), 복구 조정을 위해 Azure Site Recovery를 배포합니다.
+- **Azure에 VMware 가상 컴퓨터 복제** - 온-프레미스 VMware 가상 컴퓨터에서 Azure 저장소로 복제, 장애 조치(failover), 복구 조정을 위해 사이트 복구를 배포합니다.
+- **Azure에 물리적 서버 복제** - 온-프레미스 Windows 및 Linux 물리적 서버에서 Azure로 복제, 장애 조치(failover), 복구 조정을 위해 Azure Site Recovery를 배포합니다.
 
 >[AZURE.NOTE] 이 문서에 설명된 시나리오는 **레거시 지침**을 포함합니다. 새 배포인 경우 이 문서를 사용하지 마세요. 대신 클래식 포털을 위한 [향상된 배포](site-recovery-vmware-to-azure-classic.md) 지침을 사용합니다. 이 문서에 설명된 방법을 사용하여 이미 배포한 경우 아래 설명된 대로 새 버전으로 마이그레이션하는 것이 좋습니다.
 
@@ -51,7 +51,7 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 1. [향상된 기능](site-recovery-vmware-to-azure-classic.md#enhanced-deployment)을 참조하여 새 [아키텍처](site-recovery-vmware-to-azure-classic.md#scenario-architecture)를 이해하고 [필수 조건](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment)에서 향상된 배포를 확인하세요.
 2. 현재 보호 중인 컴퓨터에서 모바일 서비스를 제거합니다. 컴퓨터를 새 보호 그룹에 추가하면 새 버전의 모바일 서비스가 해당 컴퓨터에 설치됩니다.
 3. [자격 증명 모음 등록 키](site-recovery-vmware-to-azure-classic.md#step-4-download-a-vault-registration-key)를 가져오고 [통합 설치 마법사를 실행](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server)하여 구성 서버, 프로세스 서버를 설치하고 관리 서버에 마스터 대상 서버 구성 요소를 설치합니다. [용량 계획](site-recovery-vmware-to-azure-classic.md#capacity-planning)에 대해 자세히 알아보세요.
-4. VMware vCenter Server가 있는 경우 액세스할 [자격 증명을 설정](site-recovery-vmware-to-azure-classic.md#step-6-set-up-credentials-for-the-vcenter-server)하여 사이트 복구에서 관리하는 VM을 자동으로 검색할 수 있도록 합니다. [필요한 사용 권한](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access)에 대해 자세히 알아보세요.
+4. VMware vCenter Server가 있는 경우 액세스할 [자격 증명을 설정](site-recovery-vmware-to-azure-classic.md#step-6-set-up-credentials-for-the-vcenter-server)하여 Site Recovery에서 관리하는 VM을 자동으로 검색할 수 있도록 합니다. [필요한 사용 권한](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access)에 대해 자세히 알아보세요.
 5. [vCenter Server 또는 ESXi 호스트](site-recovery-vmware-to-azure-classic.md#step-7-add-vcenter-servers-and-esxi-hosts)를 추가합니다. 포털을 새로 고침하여 자격 증명이 표시될 때까지는 최대 15분까지 소요될 수 있습니다.
 6. [새 보호 그룹](site-recovery-vmware-to-azure-classic.md#step-8-create-a-protection-group)을 만듭니다. 포털을 새로 고침하여 가상 컴퓨터가 검색 및 표시될 때까지는 최대 15분까지 소요될 수 있습니다. 기다리지 않으려면 관리 서버 이름(클릭 안 함) > **새로 고침**을 강조 표시하면 됩니다.
 7. 새 보호 그룹에서 **컴퓨터 마이그레이션**을 클릭합니다.
@@ -176,7 +176,7 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 마스터 대상 서버의 용량 계획은 다음에 따라 달라집니다.
 
 - Azure 저장소의 성능 및 제한 사항
-	- 표준 계층 VM에 대해 자주 활용되는 디스크의 최대 수는 단일 저장소 계정에서 약 40(디스크당 20,000/500 IOPS)입니다. [표준 저장소에 계정의 확장성 목표](../storage/storage-scalability-targets.md#scalability-targets-for-standard-storage-accounts) 및 [프리미엄 저장소 계정](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts)에 대해 알아봅니다.
+	- 표준 계층 VM에 대해 자주 활용되는 디스크의 최대 수는 단일 저장소 계정에서 약 40(디스크당 20,000/500 IOPS)입니다. [프리미엄 저장소 계정](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts) 및 [표준 저장소에 계정의 확장성 목표](../storage/storage-scalability-targets.md#scalability-targets-for-standard-storage-accounts)에 대해 알아봅니다.
 -	일일 데이터 변경률 
 -	보존 볼륨 저장소.
 
@@ -197,7 +197,7 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 **구성 요소** | **요구 사항** | **세부 정보**
 --- | --- | --- 
 **Azure 계정** | [Microsoft Azure](https://azure.microsoft.com/) 계정이 있어야 합니다. [무료 평가판](pricing/free-trial/)으로 시작할 수 있습니다.
-**Azure 저장소** | <p>복제 데이터를 저장하려면 Azure 저장소 계정이 필요합니다.</p><p>계정은 [표준 지역 중복 저장소 계정](../storage/storage-redundancy.md#geo-redundant-storage) 또는 [프리미엄 저장소 계정](../storage/storage-premium-storage-preview-portal.md)이어야 합니다.</p><p>Azure Site Recovery 서비스와 동일한 하위 지역에 있어야 하며 동일한 구독에 연결되어야 합니다.</p><p>자세히 알아보려면 [Microsoft Azure 저장소 소개](../storage/storage-introduction.md)를 참조하세요.</p>
+**Azure 저장소** | <p>복제 데이터를 저장하려면 Azure 저장소 계정이 필요합니다.</p><p>계정은 [표준 지역 중복 저장소 계정](../storage/storage-redundancy.md#geo-redundant-storage) 또는 [프리미엄 저장소 계정](../storage/storage-premium-storage.md)이어야 합니다.</p><p>Azure Site Recovery 서비스와 동일한 하위 지역에 있어야 하며 동일한 구독에 연결되어야 합니다.</p><p>자세히 알아보려면 [Microsoft Azure 저장소 소개](../storage/storage-introduction.md)를 참조하세요.</p>
 **Azure 가상 네트워크** | 구성 서버와 마스터 대상 서버를 배포할 Azure 가상 네트워크가 필요합니다. 이 네트워크는 Azure Site Recovery 자격 증명 모음과 동일한 구독 및 지역에 있어야 합니다. Express 경로 또는 VPN 연결을 통해 데이터를 복제하려는 경우 Azure 가상 네트워크가 Express 경로 연결 또는 사이트 간 VPN을 통해 온-프레미스 네트워크에 연결되어야 합니다.
 **Azure 리소스** | 모든 구성 요소를 배포하기에 충분한 Azure 리소스가 있는지 확인합니다. [Azure 구독 제한](../azure-subscription-service-limits.md)을 참조하세요.
 **Azure 가상 컴퓨터** | <p>보호하려는 가상 컴퓨터가 [Azure 필수 구성 요소](site-recovery-best-practices.md)를 준수해야 합니다.</p><p>**디스크 수**—단일 보호 서버에서 최대 31개 디스크가 지원됩니다.</p><p>**디스크 크기**—개별 디스크 용량은 1023GB보다 클 수 없습니다.</p><p>**클러스터링**—클러스터링된 서버는 지원되지 않습니다.</p><p>**부팅**—UEFI(Unified Extensible Firmware Interface)/EFI(Extensible Firmware Interface) 부팅은 지원되지 않습니다.</p><p>**볼륨**—Bitlocker 암호화된 볼륨은 지원되지 않습니다.</p><p> **서버 이름**—이름은 1~63자(문자, 숫자, 하이픈)를 포함해야 합니다. 이름은 문자나 숫자로 시작하고 문자나 숫자로 끝나야 합니다. 컴퓨터가 보호된 후 Azure 이름을 수정할 수 있습니다.</p>
@@ -382,7 +382,7 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 
 내부 Azure 사용을 위해 모든 서브넷의 맨 앞 4개 IP 주소가 예약됩니다. 사용 가능한 다른 IP 주소를 사용하세요.
 
->[AZURE.NOTE] [프리미엄 저장소 계정](../storage/storage-premium-storage-preview-portal.md)을 사용하여 IO를 많이 사용하는 작업을 호스팅하기 위해 일관된 고성능과 짧은 대기 시간이 요구되는 워크로드에 대한 보호를 구성하는 경우 표준 DS4를 선택합니다.
+>[AZURE.NOTE] [프리미엄 저장소 계정](../storage/storage-premium-storage.md)을 사용하여 IO를 많이 사용하는 작업을 호스팅하기 위해 일관된 고성능과 짧은 대기 시간이 요구되는 워크로드에 대한 보호를 구성하는 경우 표준 DS4를 선택합니다.
 
 
 3. Windows 마스터 대상 서버 가상 컴퓨터는 이러한 끝점(배포 유형이 공용 인터넷인 경우에만 공용 끝점이 생성됩니다)을 사용하여 생성됩니다.
@@ -695,7 +695,7 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 3. **가상 컴퓨터 선택**에서 VMware 가상 컴퓨터를 보호하는 경우 가상 컴퓨터(EXSi 호스트를 실행 중인 경우 EXSi 호스트)를 관리하는 vCenter Server를 선택한 다음 컴퓨터를 선택합니다.
 
 	![V-Center Server 추가](./media/site-recovery-vmware-to-azure-classic-legacy/select-vms.png)	
-4. **대상 리소스 지정**에서 복제에 사용할 마스터 대상 서버 및 저장소를 선택하고 설정을 모든 워크로드에 사용해야 할지 여부를 선택합니다. IO를 많이 사용하는 작업을 호스트하기 위해 일관된 IO 고성능과 짧은 대기 시간이 요구되는 워크로드에 대한 보호를 구성하는 동안에는 [프리미엄 저장소 계정](../storage/storage-premium-storage-preview-portal.md)을 선택합니다. 워크로드 디스크에 프리미엄 저장소 계정을 사용하려는 경우 DS 시리즈의 마스터 대상을 사용해야 합니다. DS 시리즈가 아닌 마스터 대상의 경우 프리미엄 저장소 디스크를 사용할 수 없습니다.
+4. **대상 리소스 지정**에서 복제에 사용할 마스터 대상 서버 및 저장소를 선택하고 설정을 모든 워크로드에 사용해야 할지 여부를 선택합니다. IO를 많이 사용하는 작업을 호스트하기 위해 일관된 IO 고성능과 짧은 대기 시간이 요구되는 워크로드에 대한 보호를 구성하는 동안에는 [프리미엄 저장소 계정](../storage/storage-premium-storage.md)을 선택합니다. 워크로드 디스크에 프리미엄 저장소 계정을 사용하려는 경우 DS 시리즈의 마스터 대상을 사용해야 합니다. DS 시리즈가 아닌 마스터 대상의 경우 프리미엄 저장소 디스크를 사용할 수 없습니다.
 
 	![vCenter Server](./media/site-recovery-vmware-to-azure-classic-legacy/machine-resources.png)
 
@@ -804,4 +804,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

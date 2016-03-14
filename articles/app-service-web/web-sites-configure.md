@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="02/26/2016" 
 	ms.author="tdykstra"/>
 
 
@@ -72,7 +72,7 @@
 
 연결된 리소스의 연결 문자열입니다.
 
-.NET 앱의 경우, 이 연결 문자열이 런타임 시 .NET 구성 `connectionStrings` 설정에 주입되어 키가 연결된 데이터베이스 이름과 같은 기존 항목을 재정의합니다,
+.NET 앱의 경우, 이 연결 문자열이 런타임 시 .NET 구성 `connectionStrings` 설정에 주입되어 키가 연결된 데이터베이스 이름과 같은 기존 항목을 재정의합니다.
 
 PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 이러한 설정을 환경 변수로 사용할 수 있으며, 환경 변수 앞에는 연결 형식이 옵니다. 환경 변수 접두사는 다음과 같습니다.
 
@@ -177,4 +177,4 @@ PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 이러한 �
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

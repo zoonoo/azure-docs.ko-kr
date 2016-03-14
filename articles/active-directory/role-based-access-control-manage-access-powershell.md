@@ -13,16 +13,21 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="01/22/2016"
+	ms.date="02/29/2016"
 	ms.author="kgremban"/>
 
 # Azure PowerShell을 사용하여 역할 기반 액세스 제어 관리
+
 > [AZURE.SELECTOR]
 - [PowerShell](role-based-access-control-manage-access-powershell.md)
 - [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
 - [REST API](role-based-access-control-manage-access-rest.md)
 
+
 ## 역할 기반 액세스 제어(RBAC) 역할 목록
+
+>[AZURE.IMPORTANT] 이 문서의 cmdlet을 사용하려면 먼저 PowerShell에서 [Azure Resource Manager cmdlet을 설치](https://msdn.microsoft.com/library/mt125356.aspx)해야 합니다.
+
 ### 사용 가능한 모든 역할 나열
 할당할 수 있는 RBAC 역할을 나열하고 액세스 권한을 부여하는 작업을 검사하려면 다음을 사용합니다.
 
@@ -151,4 +156,4 @@ Azure AD 서비스 주체에 대한 개체 ID를 찾으려면 다음을 사용�
 ## RBAC 항목
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

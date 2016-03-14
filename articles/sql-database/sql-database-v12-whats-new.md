@@ -53,7 +53,7 @@ SQL 데이터베이스에서 아직 지원되지 않는 작은 집합의 기능�
 ## 자세한 프리미엄 성능, 새로운 성능 수준
 
 
-V12에서 추가 비용 없이 25% 씩 모든 프리미엄 성능 수준에 할당된 데이터베이스 처리량 단위(DTU)가 증가되었습니다. 다음과 같은 새로운 기능으로 보다 큰 성능 향상을 수행할 수 있습니다.
+V12에서 추가 비용 없이 25%씩 모든 프리미엄 성능 수준에 할당된 DTU(데이터베이스 트랜잭션 단위)가 증가되었습니다. 다음과 같은 새로운 기능으로 보다 큰 성능 향상을 수행할 수 있습니다.
 
 
 - 메모리 내 [columnstore 인덱스](http://msdn.microsoft.com/library/gg492153.aspx)에 대한 지원.
@@ -161,4 +161,4 @@ V12 논리 서버에만 V12 데이터베이스를 호스팅할 수 있습니다.
 
 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

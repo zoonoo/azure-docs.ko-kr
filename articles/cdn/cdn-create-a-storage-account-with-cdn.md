@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="CDN을 사용하는 방법 | Microsoft Azure" 
-	description="Azure CDN(콘텐츠 배달 네트워크)을 사용하여 Blob 및 정적 콘텐츠를 캐시해 고대역폭 콘텐츠를 배달하는 방법을 알아봅니다." 
-	services="cdn" 
-	documentationCenter=".net" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="CDN을 사용하는 방법 | Microsoft Azure"
+	description="Azure CDN(콘텐츠 배달 네트워크)을 사용하여 Blob 및 정적 콘텐츠를 캐시해 고대역폭 콘텐츠를 배달하는 방법을 알아봅니다."
+	services="cdn"
+	documentationCenter=".net"
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/25/2016" 
 	ms.author="casoper"/>
 
 
@@ -71,7 +71,7 @@ CDN 프로필은 CDN 끝점의 컬렉션입니다. 각 프로필에는 CDN 끝�
 1. [Azure 관리 포털](https://portal.azure.com)의 왼쪽 위에서 **새로 만들기**를 클릭합니다. **새로 만들기** 블레이드에서 **미디어 + CDN**, **CDN**을 차례로 선택합니다.
 
     새 CDN 프로필 블레이드가 나타납니다.
-    
+
     ![새 CDN 프로필][new-cdn-profile]
 
 2. CDN 프로필에 대한 이름을 입력합니다.
@@ -93,15 +93,15 @@ CDN 프로필은 CDN 끝점의 컬렉션입니다. 각 프로필에는 CDN 끝�
 1. [Azure 관리 포털](https://portal.azure.com)에서 CDN 프로필로 이동합니다. 이전 단계에서 대시보드에 고정해 놓았을 수 있습니다. 그렇지 않은 경우 **찾아보기**, **CDN 프로필**을 차례로 클릭한 다음 끝점을 추가하려는 프로필을 클릭하면 찾을 수 있습니다.
 
     CDN 프로필 블레이드가 나타납니다.
-    
+
     ![CDN 프로필][cdn-profile-settings]
-    
+
 2. **끝점 추가** 단추를 클릭합니다.
 
     ![끝점 추가 단추][cdn-new-endpoint-button]
 
     **끝점 추가** 블레이드가 나타납니다.
-    
+
     ![끝점 추가 블레이드][cdn-add-endpoint]
 
 3. 이 CDN 끝점에 대한 **이름**을 입력합니다. 이 이름은 `<EndpointName>.azureedge.net` 도메인의 캐시된 리소스에 액세스하기 위해 사용됩니다.
@@ -154,4 +154,4 @@ CDN에 이미 캐시된 개체는 개체의 TTL(Time-to-Live) 기간이 만료�
 [cdn-add-endpoint]: ./media/cdn-create-a-storage-account-with-cdn/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-a-storage-account-with-cdn/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

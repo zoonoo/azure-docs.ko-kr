@@ -1,28 +1,28 @@
-<properties 
-	pageTitle="Azure CDN과 클라우드 서비스 통합" 
-	description="통합 Azure CDN 끝점에서 콘텐츠를 제공하는 클라우드 서비스의 배포 방법에 대해 설명하는 자습서입니다." 
-	services="cdn, cloud-services" 
-	documentationCenter=".net" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="Azure CDN과 클라우드 서비스 통합"
+	description="통합 Azure CDN 끝점에서 콘텐츠를 제공하는 클라우드 서비스의 배포 방법에 대해 설명하는 자습서입니다."
+	services="cdn, cloud-services"
+	documentationCenter=".net"
+	authors="camsoper"
+	manager="erikre"
 	editor="tysonn"/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="02/25/2016" 
 	ms.author="casoper"/>
 
 
-# <a name="intro"></a> Azure CDN과 클라우드 서비스 통합 
+# <a name="intro"></a> Azure CDN과 클라우드 서비스 통합
 
 클라우드 서비스는 Azure CDN과 통합되어 클라우드 서비스의 위치에 있는 모든 콘텐츠를 제공할 수 있습니다. 이 접근 방식을 통해 다음과 같은 장점을 얻을 수 있습니다.
 
 - 클라우드 서비스 프로젝트 디렉터리의 이미지, 스크립트 및 스타일시트를 쉽게 배포 및 업데이트
-- jQuery 또는 부트스트랩 버전과 같은 클라우드 서비스의 NuGet 패키지를 쉽게 업그레이드 
+- jQuery 또는 부트스트랩 버전과 같은 클라우드 서비스의 NuGet 패키지를 쉽게 업그레이드
 - 동일한 Visual Studio 인터페이스에서 웹 응용 프로그램 및 CDN 제공 콘텐츠 모두 관리
 - 웹 응용 프로그램 및 CDN 제공 콘텐츠에 대한 통합 배포 워크플로
 - ASP.NET 묶음 및 축소를 Azure CDN과 통합
@@ -35,7 +35,7 @@
 -	[클라우드 서비스의 정적 콘텐츠에 대한 캐시 설정 구성](#caching)
 -	[Azure CDN을 통해 컨트롤러 작업의 콘텐츠 제공](#controller)
 -	[Visual Studio의 스크립트 디버깅 환경은 유지하면서 Azure CDN을 통해 묶이고 축소된 콘텐츠 제공](#bundling)
--	[Azure CDN이 오프라인인 경우 스크립트 및 CSS 대체 구성](#fallback) 
+-	[Azure CDN이 오프라인인 경우 스크립트 및 CSS 대체 구성](#fallback)
 
 ## 빌드할 내용 ##
 
@@ -49,7 +49,7 @@
 -	[Azure SDK](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409)를 설치한 Visual Studio 2015
 
 > [AZURE.NOTE] 이 자습서를 완료하려면 Azure 계정이 있어야 합니다.
-> + [Azure 계정을 무료로 개설](/pricing/free-trial/)할 수 있음 - 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스(예: 웹 사이트)를 사용할 수 있습니다. 
+> + [Azure 계정을 무료로 개설](/pricing/free-trial/)할 수 있음 - 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스(예: 웹 서비스)를 사용할 수 있습니다.
 > + [MSDN 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/)할 수 있음 - MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
 
 <a name="deploy"></a>
@@ -93,7 +93,7 @@
 	>[AZURE.NOTE] 클라우드 서비스를 게시하는 프로세스는 시간이 조금 걸립니다. 모든 웹 역할에 대해 웹 배포 사용 옵션을 사용하면 웹 역할에 대한 신속한(하지만 임시적) 업데이트를 제공함으로써 클라우드 서비스를 훨씬 빠르게 디버깅할 수 있습니다. 이 옵션에 대한 자세한 내용은 [Azure Tools를 사용하여 클라우드 서비스 게시](http://msdn.microsoft.com/library/ff683672.aspx)를 참조하세요.
 
 	**Microsoft Azure 활동 로그**에서 게시 상태가 **완료**로 표시된 경우 이 클라우드 서비스와 통합된 CDN 끝점을 만들 수 있습니다.
-	
+
 	>[AZURE.WARNING] 게시 후, 배포된 클라우드 서비스에서 오류 화면을 표시하는 경우 개발한 클라우드 서비스가 [.NET 4.5.2가 포함되지 않은 게스트 OS](../cloud-services/cloud-services-guestos-update-matrix.md#news-updates)를 사용하고 있기 때문일 수 있습니다. [시작 작업으로 .NET 4.5.2를 배포](../cloud-services/cloud-services-dotnet-install-dotnet.md)하여 이 문제를 해결할 수 있습니다.
 
 ## 새 CDN 프로필 만들기
@@ -107,7 +107,7 @@ CDN 프로필은 CDN 끝점의 컬렉션입니다. 각 프로필에는 CDN 끝�
 1. [Azure 관리 포털](https://portal.azure.com)의 왼쪽 위에서 **새로 만들기**를 클릭합니다. **새로 만들기** 블레이드에서 **미디어 + CDN**, **CDN**을 차례로 선택합니다.
 
     새 CDN 프로필 블레이드가 나타납니다.
-    
+
     ![새 CDN 프로필][new-cdn-profile]
 
 2. CDN 프로필에 대한 이름을 입력합니다.
@@ -129,15 +129,15 @@ CDN 프로필은 CDN 끝점의 컬렉션입니다. 각 프로필에는 CDN 끝�
 1. [Azure 관리 포털](https://portal.azure.com)에서 CDN 프로필로 이동합니다. 이전 단계에서 대시보드에 고정해 놓았을 수 있습니다. 그렇지 않은 경우 **찾아보기**, **CDN 프로필**을 차례로 클릭한 다음 끝점을 추가하려는 프로필을 클릭하면 찾을 수 있습니다.
 
     CDN 프로필 블레이드가 나타납니다.
-    
+
     ![CDN 프로필][cdn-profile-settings]
-    
+
 2. **끝점 추가** 단추를 클릭합니다.
 
     ![끝점 추가 단추][cdn-new-endpoint-button]
 
     **끝점 추가** 블레이드가 나타납니다.
-    
+
     ![끝점 추가 블레이드][cdn-add-endpoint]
 
 3. 이 CDN 끝점에 대한 **이름**을 입력합니다. 이 이름은 `<EndpointName>.azureedge.net` 도메인의 캐시된 리소스에 액세스하기 위해 사용됩니다.
@@ -155,7 +155,7 @@ CDN 프로필은 CDN 끝점의 컬렉션입니다. 각 프로필에는 CDN 끝�
     ![CDN 끝점][cdn-endpoint-success]
 
     > [AZURE.NOTE] 끝점은 즉시 사용할 수 없습니다. CDN 네트워크를 통해 등록을 전파하는 데 최대 90분까지 걸릴 수 있습니다. 사용자가 CDN 도메인 이름을 즉시 사용하려고 시도할 경우 CDN을 통해 콘텐츠를 사용할 수 있을 때까지 상태 코드 404가 표시될 수 있습니다.
-	
+
 ## CDN 끝점 테스트
 
 게시 상태가 **완료됨**인 경우 브라우저 창을 열고 **http://<cdnName>*.azureedge.net/Content/bootstrap.css**로 이동합니다. 이 자습서 설정에서 이 URL은 다음과 같습니다.
@@ -174,7 +174,7 @@ CDN 프로필은 CDN 끝점의 컬렉션입니다. 각 프로필에는 CDN 끝�
 
 -	/Script 경로의 .js 파일
 -	/Content 경로의 모든 콘텐츠 파일
--	모든 controller/action 
+-	모든 controller/action
 -	CDN 끝점에서 쿼리 문자열을 사용하도록 설정한 경우 쿼리 문자열이 포함된 모든 URL
 
 실제로 위의 구성으로 **http://*&lt;cdnName>*.azureedge.net/**에서 전체 클라우드 서비스를 호스트할 수 있습니다. ****http://camservice.azureedge.net/**으로 이동한 경우 Home/Index에서 작업 결과를 가져옵니다.
@@ -184,7 +184,7 @@ CDN 프로필은 CDN 끝점의 컬렉션입니다. 각 프로필에는 CDN 끝�
 그러나 Azure CDN을 통해 전체 클라우드 서비스를 제공하는 것이 일반적으로 좋은 생각이거나 항상 좋은 생각은 아닐 수도 있습니다. 다음 사항을 주의해야 합니다.
 
 -	현재 Azure CDN이 개인 콘텐츠를 제공할 수 없으므로 이 접근 방식에서는 전체 사이트가 공용이어야 합니다.
--	예정된 유지 관리 또는 사용자 오류든, 어떤 이유로 CDN 끝점이 오프라인 상태가 된 경우 고객이 원본 URL인 **http://*&lt;serviceName>*.cloudapp.net/**으로 리디렉션되지 않은 한 전체 클라우드 서비스가 오프라인 상태가 됩니다. 
+-	예정된 유지 관리 또는 사용자 오류든, 어떤 이유로 CDN 끝점이 오프라인 상태가 된 경우 고객이 원본 URL인 **http://*&lt;serviceName>*.cloudapp.net/**으로 리디렉션되지 않은 한 전체 클라우드 서비스가 오프라인 상태가 됩니다.
 -	사용자 지정 캐시 컨트롤 설정([클라우드 서비스의 정적 파일에 대한 캐싱 옵션 구성](#caching) 참조)이 있는 경우에도 CDN 끝점이 높은 수준의 동적 콘텐츠의 성능을 개선하지는 않습니다. 위와 같이 CDN 끝점에서 홈페이지를 로드하려는 경우 상당히 단순한 페이지인 기본 홈페이지를 처음 로드하는 데도 5초 이상이 걸립니다. 이 페이지에 매분 업데이트되어야 하는 동적 콘텐츠가 포함되어 있다면 클라이언트 환경이 어떨지 상상해 보세요. CDN 끝점에서 동적 콘텐츠를 제공하려면 캐시 만료가 짧아야 하며 이는 CDN 끝점에서 빈번한 캐시 누락이 발생함을 의미합니다. 그러면 클라우드 서비스의 성능이 저하되며 CDN의 목적이 무산됩니다.
 
 대안은 클라우드 서비스의 사례별로 Azure CDN에서 제공할 콘텐츠를 판단하는 것입니다. 이를 위해 CDN 끝점에서 개별 콘텐츠 파일에 액세스하는 방법을 이미 알아보았습니다. [Azure CDN을 통해 컨트롤러 작업의 콘텐츠 제공](#controller)에서는 CDN 끝점을 통해 특정 컨트롤러 작업을 제공하는 방법을 설명하겠습니다.
@@ -242,18 +242,18 @@ CDN 프로필은 CDN 끝점의 컬렉션입니다. 각 프로필에는 CDN 끝�
 		using System.Web.Hosting;
 		using System.Web.Mvc;
 		using System.Web.UI;
-		
+
 		namespace WebRole1.Controllers
 		{
 		    public class MemeGeneratorController : Controller
 		    {
 		        static readonly Dictionary<string, Tuple<string ,string>> Memes = new Dictionary<string, Tuple<string, string>>();
-		
+
 		        public ActionResult Index()
 		        {
 		            return View();
 		        }
-		
+
 		        [HttpPost, ActionName("Index")]
 		        public ActionResult Index_Post(string top, string bottom)
 		        {
@@ -262,10 +262,10 @@ CDN 프로필은 CDN 끝점의 컬렉션입니다. 각 프로필에는 CDN 끝�
 		            {
 		                Memes.Add(identifier, new Tuple<string, string>(top, bottom));
 		            }
-		
+
 		            return Content("<a href="" + Url.Action("Show", new {id = identifier}) + "">here's your meme</a>");
 		        }
-		
+
 		        [OutputCache(VaryByParam = "*", Duration = 1, Location = OutputCacheLocation.Downstream)]
 		        public ActionResult Show(string id)
 		        {
@@ -274,7 +274,7 @@ CDN 프로필은 CDN 끝점의 컬렉션입니다. 각 프로필에는 CDN 끝�
 		            {
 		                return new HttpStatusCodeResult(HttpStatusCode.NotFound);
 		            }
-		
+
 		            if (Debugger.IsAttached) // Preserve the debug experience
 		            {
 		                return Redirect(string.Format("/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
@@ -284,13 +284,13 @@ CDN 프로필은 CDN 끝점의 컬렉션입니다. 각 프로필에는 CDN 끝�
 		                return Redirect(string.Format("http://<yourCdnName>.azureedge.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
 		            }
 		        }
-		
+
 		        [OutputCache(VaryByParam = "*", Duration = 3600, Location = OutputCacheLocation.Downstream)]
 		        public ActionResult Generate(string top, string bottom)
 		        {
 		            string imageFilePath = HostingEnvironment.MapPath("~/Content/chuck.bmp");
 		            Bitmap bitmap = (Bitmap)Image.FromFile(imageFilePath);
-		
+
 		            using (Graphics graphics = Graphics.FromImage(bitmap))
 		            {
 		                SizeF size = new SizeF();
@@ -303,23 +303,23 @@ CDN 프로필은 CDN 끝점의 컬렉션입니다. 각 프로필에는 CDN 끝�
 		                    graphics.DrawString(bottom.ToUpperInvariant(), arialFont, Brushes.White, new PointF(((bitmap.Width - size.Width) / 2), bitmap.Height - 10f - arialFont.Height));
 		                }
 		            }
-		
+
 		            MemoryStream ms = new MemoryStream();
 		            bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
 		            return File(ms.ToArray(), "image/png");
 		        }
-		
+
 		        private Font FindBestFitFont(Image i, Graphics g, String text, Font font, out SizeF size)
 		        {
 		            // Compute actual size, shrink if needed
 		            while (true)
 		            {
 		                size = g.MeasureString(text, font);
-		
+
 		                // It fits, back out
 		                if (size.Height < i.Height &&
 		                     size.Width < i.Width) { return font; }
-		
+
 		                // Try a smaller font (90% of old size)
 		                Font oldFont = font;
 		                font = new Font(font.Name, (float)(font.Size * .9), font.Style);
@@ -340,7 +340,7 @@ CDN 프로필은 CDN 끝점의 컬렉션입니다. 각 프로필에는 CDN 끝�
 4. 새로운 *Views\\MemeGenerator\\Index.cshtml* 파일을 열고 내용을 다음과 같이 최상급을 제출하는 간단한 HTML로 바꿉니다.
 
 		<h2>Meme Generator</h2>
-		
+
 		<form action="" method="post">
 		    <input type="text" name="top" placeholder="Enter top text here" />
 		    <br />
@@ -371,7 +371,7 @@ CDN 프로필은 CDN 끝점의 컬렉션입니다. 각 프로필에는 CDN 끝�
 			return Redirect(string.Format("http://<yourCDNName>.azureedge.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
 		}
 	}
-	
+
 로컬 디버거가 연결되어 있다면 로컬로 리디렉션되면서 정규 디버그 환경이 구현됩니다. 클라우드 서비스에서 실행 중인 경우에는 다음으로 리디렉션됩니다.
 
 	http://<yourCDNName>.azureedge.net/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
@@ -433,22 +433,22 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 		    var version = System.Reflection.Assembly.GetAssembly(typeof(Controllers.HomeController))
 		        .GetName().Version.ToString();
 		    var cdnUrl = "http://<yourCDNName>.azureedge.net/{0}?v=" + version;
-		
+
 		    bundles.Add(new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery")).Include(
 		                "~/Scripts/jquery-{version}.js"));
-		
+
 		    bundles.Add(new ScriptBundle("~/bundles/jqueryval", string.Format(cdnUrl, "bundles/jqueryval")).Include(
 		                "~/Scripts/jquery.validate*"));
-		
+
 		    // Use the development version of Modernizr to develop with and learn from. Then, when you're
 		    // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
 		    bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizer")).Include(
 		                "~/Scripts/modernizr-*"));
-		
+
 		    bundles.Add(new ScriptBundle("~/bundles/bootstrap", string.Format(cdnUrl, "bundles/bootstrap")).Include(
 		                "~/Scripts/bootstrap.js",
 		                "~/Scripts/respond.js"));
-		
+
 		    bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css")).Include(
 		                "~/Content/bootstrap.css",
 		                "~/Content/site.css"));
@@ -465,31 +465,31 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 		new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "http://<yourCDNName>.azureedge.net/bundles/jquery?v=<W.X.Y.Z>"))
 
 	이 생성자에 따라 ASP.NET 묶음 및 축소가 로컬에서 디버깅될 때 개별 스크립트 파일을 렌더링하지만 지정된 CDN 주소를 사용하여 해당 스크립트에 액세스합니다. 그러나 신중하게 만든 이 CDN URL의 두 가지 중요한 특징에서 다음을 주의해야 합니다.
-	
+
 	-	이 CDN URL의 원본은 `http://<yourCloudService>.cloudapp.net/bundles/jquery?v=<W.X.Y.Z>`이며, 실제로는 클라우드 서비스에서 스크립트 번들의 가상 디렉터리입니다.
 	-	CDN 생성자를 사용하고 있으므로 번들의 CDN 스크립트 태그가 더 이상 렌더링된 URL에 자동으로 생성된 버전 문자열을 포함하지 않습니다. 스크립트 번들이 Azure CDN에서 캐시 누락을 강제하도록 수정될 때마다 고유한 버전 문자열을 수동으로 생성해야 합니다. 동시에 고유한 버전 문자열은 전 배포 수명 동안 일정하게 유지되어 번들이 배포된 이후 Azure CDN에서 캐시 적중을 극대화해야 합니다.
 	-	쿼리 문자열 v=<W.X.Y.Z>는 웹 역할 프로젝트의 *Properties\\AssemblyInfo.cs* 파일에서 가져옵니다. Azure에 게시할 때마다 어셈블리 버전 증분 등의 기능을 포함하는 배포 워크플로를 설정할 수 있습니다. 또는 간단히 와일드카드 문자(*)를 사용하여 빌드할 때마다 버전 문자열을 자동으로 증분하도록 프로젝트의 *Properties\\AssemblyInfo.cs* 파일을 수정할 수 있습니다. 예:
 
 			[assembly: AssemblyVersion("1.0.0.*")]
-	
+
 		배포 수명 동안의 고유한 문자열 생성을 간소화하는 다른 전략도 효과가 있을 수 있습니다.
 
 3. 클라우드 서비스를 다시 게시하고 홈페이지에 액세스합니다.
- 
+
 4. 페이지의 HTML 코드를 확인합니다. 변경 내용을 클라우드 서비스에 다시 게시할 때마다 고유한 버전 문자열과 함께 렌더링된 CDN URL이 표시됩니다. 예:
 
 		...
-		
+
 		<link href="http://camservice.azureedge.net/Content/css?v=1.0.0.25449" rel="stylesheet"/>
-		
+
 		<script src="http://camservice.azureedge.net/bundles/modernizer?v=1.0.0.25449"></script>
-		
+
 		...
-		
+
 		<script src="http://camservice.azureedge.net/bundles/jquery?v=1.0.0.25449"></script>
-		
+
 		<script src="http://camservice.azureedge.net/bundles/bootstrap?v=1.0.0.25449"></script>
-		
+
 		...
 
 5. Visual Studio로 돌아가 `F5` 키를 눌러 Visual Studio에서 클라우드 서비스를 디버깅합니다.
@@ -497,19 +497,19 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 6. 페이지의 HTML 코드를 확인합니다. 개별적으로 렌더링된 각 스크립트 파일을 살펴볼 수 있으므로 Visual Studio의 일관된 디버그 환경을 구현할 수 있습니다.
 
 		...
-		
+
 		    <link href="/Content/bootstrap.css" rel="stylesheet"/>
 		<link href="/Content/site.css" rel="stylesheet"/>
-		
+
 		    <script src="/Scripts/modernizr-2.6.2.js"></script>
-		
+
 		...
-		
+
 		    <script src="/Scripts/jquery-1.10.2.js"></script>
-		
+
 		    <script src="/Scripts/bootstrap.js"></script>
 		<script src="/Scripts/respond.js"></script>
-		
+
 		...   
 
 <a name="fallback"></a>
@@ -527,41 +527,41 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 		        .GetName().Version.ToString();
 		    var cdnUrl = "http://cdnurl.azureedge.net/.../{0}?" + version;
 		    bundles.UseCdn = true;
-		
-		    bundles.Add(new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery")) 
+
+		    bundles.Add(new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery"))
 						{ CdnFallbackExpression = "window.jquery" }
 		                .Include("~/Scripts/jquery-{version}.js"));
-		
-		    bundles.Add(new ScriptBundle("~/bundles/jqueryval", string.Format(cdnUrl, "bundles/jqueryval")) 
+
+		    bundles.Add(new ScriptBundle("~/bundles/jqueryval", string.Format(cdnUrl, "bundles/jqueryval"))
 						{ CdnFallbackExpression = "$.validator" }
 		            	.Include("~/Scripts/jquery.validate*"));
-		
+
 		    // Use the development version of Modernizr to develop with and learn from. Then, when you're
 		    // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
-		    bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizer")) 
+		    bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizer"))
 						{ CdnFallbackExpression = "window.Modernizr" }
 						.Include("~/Scripts/modernizr-*"));
-		
+
 		    bundles.Add(new ScriptBundle("~/bundles/bootstrap", string.Format(cdnUrl, "bundles/bootstrap")) 	
 						{ CdnFallbackExpression = "$.fn.modal" }
 		        		.Include(
 			              		"~/Scripts/bootstrap.js",
 			              		"~/Scripts/respond.js"));
-		
+
 		    bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css")).Include(
 		                "~/Content/bootstrap.css",
 		                "~/Content/site.css"));
 		}
 
 	`CdnFallbackExpression`이 null이 아니면 스크립트가 HTML에 삽입되어 번들이 제대로 로드되는지 테스트하고 제대로 로드되지 않는 경우 원본 웹 서버에서 직접 번들에 액세스합니다. 이 속성은 각각의 CDN 번들이 제대로 로드되는지 테스트하는 JavaScript 식으로 설정되어야 합니다. 각 번들을 테스트하는 데 필요한 식은 콘텐츠에 따라 다릅니다. 위 기본 번들의 경우는 다음과 같습니다.
-	
+
 	-	`window.jquery`는 jquery-{version}.js에 정의되어 있습니다.
 	-	`$.validator`는 jquery.validate.js에 정의되어 있습니다.
 	-	`window.Modernizr`는 modernizer-{version}.js에 정의되어 있습니다.
 	-	`$.fn.modal`은 bootstrap.js에 정의되어 있습니다.
-	
+
 	여기서는 `~/Cointent/css` 번들에 대해 CdnFallbackExpression을 설정하지 않았습니다. 그 이유는 현재 필요한 `<link>` 태그 대신 대체 CSS의 `<script>` 태그를 삽입하는 [System.Web.Optimization에 버그](https://aspnetoptimization.codeplex.com/workitem/104)(영문)가 있기 때문입니다.
-	
+
 	그러나 [Ember 컨설팅 그룹](https://github.com/EmberConsultingGroup/StyleBundleFallback)(영문)에서 제공한 우수한 [스타일 번들 대체](https://github.com/EmberConsultingGroup)(영문)를 사용할 수 있습니다.
 
 2. 이 CSS 해결 방법을 사용하려면 *StyleBundleExtensions.cs*라고 하는 웹 역할 프로젝트의 *App\_Start* 폴더에서 새로운 .cs 파일을 만들어 해당 내용을 [GitHub의 코드(영문)](https://github.com/EmberConsultingGroup/StyleBundleFallback/blob/master/Website/App_Start/StyleBundleExtensions.cs)로 바꿉니다.
@@ -583,7 +583,7 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 5. 페이지의 HTML 코드를 확인합니다. 다음과 비슷한 삽입 스크립트가 표시됩니다.
 
 		...
-		
+
 	    <link href="http://az632148.azureedge.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
 		<script>(function() {
 		                var loadFallback,
@@ -603,18 +603,18 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 		                }
 		                return true;
 		            }())||document.write('<script src="/Content/css"><\/script>');</script>
-		
+
 		    <script src="http://camservice.azureedge.net/bundles/modernizer?v=1.0.0.25474"></script>
 		<script>(window.Modernizr)||document.write('<script src="/bundles/modernizr"><\/script>');</script>
-		
-		... 
-		
+
+		...
+
 		    <script src="http://camservice.azureedge.net/bundles/jquery?v=1.0.0.25474"></script>
 		<script>(window.jquery)||document.write('<script src="/bundles/jquery"><\/script>');</script>
-		
+
 		    <script src="http://camservice.azureedge.net/bundles/bootstrap?v=1.0.0.25474"></script>
 		<script>($.fn.modal)||document.write('<script src="/bundles/bootstrap"><\/script>');</script>
-		
+
 		...
 
 
@@ -637,4 +637,4 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 [cdn-add-endpoint]: ./media/cdn-cloud-service-with-cdn/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-cloud-service-with-cdn/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

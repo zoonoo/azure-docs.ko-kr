@@ -13,22 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/20/2016"
+   ms.date="03/01/2016"
    ms.author="alkohli"/>
 
-# StorSimple 가상 배열 배포 - Hyper-V에서 가상 배열 프로비전(미리 보기)
+# StorSimple 가상 배열 배포 - Hyper-V에서 가상 배열 프로비전
 
 ![](./media/storsimple-ova-deploy2-provision-hyperv/hyperv4.png)
 
 ## 개요 
 
-이 프로비전 자습서는 1.1.1.0(공개 미리 보기) 버전을 실행하는 Microsoft Azure StorSimple 가상 배열(StorSimple 온-프레미스 가상 장치 또는 StorSimple 가상 장치라고도 함)에만 적용됩니다. 이 자습서는 Hyper-V 2008 R2, Hyper-V 2012 또는 Hyper-V 2012 R2를 실행하는 호스트 시스템에 StorSimple 가상 배열을 프로비전하는 방법을 설명합니다.
+이 프로비전 자습서는 2016년 3월 GA(일반 공급) 버전을 실행하는 Microsoft Azure StorSimple 가상 배열(StorSimple 온-프레미스 가상 장치 또는 StorSimple 가상 장치라고도 함)에 적용됩니다. 이 자습서는 Hyper-V 2008 R2, Hyper-V 2012 또는 Hyper-V 2012 R2를 실행하는 호스트 시스템에 StorSimple 가상 배열을 프로비전하는 방법을 설명합니다.
 
 가상 장치를 프로비전하고 구성하려면 관리자 권한이 필요합니다. 프로비전 및 초기 설정을 완료하는 데 10분 정도가 소요됩니다.
 
-> [AZURE.IMPORTANT]
-> 
-> 이 공개 미리 보기는 평가 용도로만 사용됩니다. 프로덕션 환경에서는 이 미리 보기를 설치하도록 지원되지 않습니다.
 
 ## 프로비전 필수 조건
 
@@ -41,6 +38,8 @@
 -   [StorSimple 가상 배열용 포털 준비](storsimple-ova-deploy1-portal-prep.md)의 모든 단계를 완료했습니다.
 
 -   Azure 포털에서 Hyper-V용 가상 장치 이미지를 다운로드했습니다. 자세한 내용은 [3단계: 가상 장치 이미지 다운로드](storsimple-ova-deploy1-portal-prep.md#step-3-download-the-virtual-device-image)를 참조하세요.
+	
+	> [AZURE.IMPORTANT] StorSimple 가상 배열에서 실행되는 소프트웨어는 Storsimple Manager 서비스와 함께 사용해야 합니다.
 
 ### StorSimple 가상 장치의 경우 
 
@@ -97,7 +96,7 @@
 
 #### 가상 장치를 프로비전하려면
 
-1.  Windows Server 호스트에서 로컬 드라이브에 가상 장치 이미지를 복사합니다. 이것은 Azure 포털을 통해 다운로드해 놓은 이미지입니다. 이미지를 복사한 위치를 나중에 나오는 단계에서 사용할 수 있도록 기록해 둡니다.
+1.  Windows Server 호스트에서 로컬 드라이브에 가상 장치 이미지를 복사합니다. 이는 Azure 포털을 통해 다운로드해 놓은 이미지(VHD 또는 VHDX)입니다. 이미지를 복사한 위치를 나중에 나오는 단계에서 사용할 수 있도록 기록해 둡니다.
 
 2.  **서버 관리자**를 엽니다. 오른쪽 위 모서리에서 **도구**를 클릭하고 **Hyper-V 관리자**를 선택합니다.
 
@@ -117,7 +116,7 @@
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image4.png)
 
-1.  **세대 지정** 페이지에서 **세대 1**을 선택합니다. **다음**을 클릭합니다.
+1.  **세대 지정** 페이지에서 VHD를 사용하는 경우 **1세대**를 선택합니다. VHDX(Windows Server 2012 이상)를 사용하는 경우 **2세대**를 선택합니다. **다음**을 클릭합니다.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image5.png)
 
@@ -194,7 +193,10 @@
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image19.png)
 
-1.  **설정** 페이지로 돌아갑니다. **확인**을 클릭하여 **설정** 페이지를 닫고 Hyper-V 관리자 창으로 돌아갑니다.
+1.  **설정** 페이지로 돌아갑니다. VHDX를 사용하는 경우에만 이 단계를 수행합니다. VHD 및 1세대 가상 컴퓨터를 사용하는 경우 이 단계를 건너뛰고 다음 단계로 이동합니다. 이제 가상 컴퓨터에서 보안 부팅을 사용하지 않도록 설정해야 합니다. 보안 부팅은 기본적으로 새 2세대 가상 컴퓨터를 만들 때 사용하도록 설정됩니다. 2세대 가상 컴퓨터에 대한 **설정** 페이지에서 **하드웨어** 아래 **펌웨어**를 선택한 다음 **보안 부팅 사용** 확인란을 선택 취소합니다.
+
+
+2.  **설정** 페이지로 돌아갑니다. **확인**을 클릭하여 **설정** 페이지를 닫고 Hyper-V 관리자 창으로 돌아갑니다.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image20.png)
 
@@ -274,4 +276,4 @@ Hyper-V에서 StorSimple 가상 배열을 프로비전하는 방법을 보려면
 
 -   [StorSimple 가상 배열을 iSCSI 서버로 설정](storsimple-ova-deploy3-iscsi-setup.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

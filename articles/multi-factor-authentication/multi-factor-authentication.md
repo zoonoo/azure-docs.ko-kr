@@ -13,8 +13,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article" 
-	ms.date="02/16/2016"
+	ms.topic="article" 
+	ms.date="02/29/2016"
 	ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication 정의
@@ -117,9 +117,10 @@ MFA 보고서| | | *
 전화 통화에 대한 발신자 번호 사용자 지정| | | *
 이벤트 확인| | | *
 신뢰할 수 있는 IP| | | *
-기억된 장치에 대한 MFA 일시 중단(공개 미리 보기)| | | *
+신뢰할 수 있는 장치에 대한 MFA 기억 |* | * | *
 MFA SDK| | | *
 MFA 서버를 사용한 온-프레미스 응용프로그램에 대한 MFA| | | *
+선택 가능한 확인 옵션(공개 미리 보기)|* | * | *
 
 
 ## Azure Multi-Factor Authentication 획득 방법
@@ -135,6 +136,8 @@ Azure Multi-Factor Authentication 제공자를 사용하는 경우 Azure 구독�
 
 - **사용자당**. 규칙적으로 인증이 필요한 고정된 수의 직원에 대해 다단계 인증을 사용하려는 기업에 일반적입니다.
 - **인증 당**. 비규칙적으로 인증이 필요한 큰 그룹의 외부 사용자에 대해 다단계 인증을 사용하려는 기업에 일반적입니다.
+
+Azure Multi-Factor Authentication은 클라우드와 서버 모두에 대해 선택 가능한 확인 방법을 제공합니다. 즉, 다단계 인증을 사용할 때 사용자에게 제공할 방법을 선택할 수 있다는 것을 의미합니다. 이 기능은 현재 다단계 인증의 클라우드 버전에 대한 공개 미리 보기 상태입니다. 자세한 내용은 [선택 가능한 확인 방법](multi-factor-authentication-whats-next.md#selectable-verification-methods-public-preview)을 참조하세요.
 
 가격 책정에 대한 자세한 내용은 [Azure MFA 가격 책정](https://azure.microsoft.com/pricing/details/multi-factor-authentication/)을 참조하십시오.
 
@@ -198,7 +201,7 @@ MFA 보고서 | ● | ●
 전화 통화에 대한 사용자 지정 인사말 | ● | ●
 전화 통화에 대한 사용자 지정 가능한 발신자 번호 | ● | ●
 신뢰할 수 있는 IP | ● | ●
-기억된 장치에 대한 MFA 일시 중단(공개 미리 보기) | ● |  
+신뢰할 수 있는 장치에 대한 MFA 기억(공개 미리 보기) | ● |  
 조건부 액세스 | ● | ●
 캐시 | ● | ●
 
@@ -206,4 +209,4 @@ MFA 보고서 | ● | ●
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

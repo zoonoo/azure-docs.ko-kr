@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="02/29/2016" 
 	ms.author="cephalin"/>
 
 
@@ -42,14 +42,14 @@ Visual Studio에서 기본 ASP.NET MVC 템플릿을 사용하여 Azure 앱 서�
 -	[.NET용 Azure SDK](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)을 사용하는 Visual Studio 2015 Visual Studio를 사용하는 경우 단계가 달라질 수 있습니다.
 
 > [AZURE.NOTE] 이 자습서를 완료하려면 Azure 계정이 있어야 합니다.
-> + [Azure 계정을 무료로 개설](/pricing/free-trial/)할 수 있음 - 유료 Azure 서비스를 사용해 볼 수 있는 크레딧을 받게 되며, 크레딧을 모두 사용한 후에도 계정을 유지하고 웹앱과 같은 무료 Azure 서비스를 사용할 수 있습니다. 
-> + [Visual Studio 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/)할 수 있음 - Visual Studio 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
+> + [Azure 계정을 무료로 개설](/pricing/free-trial/)할 수 있음 - 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 웹앱과 같은 무료 Azure 서비스를 사용할 수 있습니다.
+> + [Visual Studio 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/)할 수 있음: Visual Studio 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
 >
-> Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ## 통합 CDN 끝점으로 Azure에 웹앱 배포 ##
 
-이 섹션에서는 Visual Studio 2013의 기본 ASP.NET MVC 응용 프로그램 템플릿을 앱 서비스에 배포한 후 새로운 CDN 끝점과 통합합니다. 아래의 지침을 따르세요.
+이 섹션에서는 Visual Studio 2015의 기본 ASP.NET MVC 응용 프로그램 템플릿을 앱 서비스에 배포한 후 새로운 CDN 끝점과 통합합니다. 아래의 지침을 따르세요.
 
 1. Visual Studio 2015의 메뉴 모음에서 **파일 > 새로 만들기 > 프로젝트 > 웹 >ASP.NET 웹 응용 프로그램**으로 이동하여 새 ASP.NET 웹 응용 프로그램을 만듭니다. 해당 서비스의 이름을 지정하고 **확인**을 클릭합니다.
 
@@ -77,36 +77,49 @@ Visual Studio에서 기본 ASP.NET MVC 템플릿을 사용하여 Azure 앱 서�
 
 	게시가 완료되면 브라우저에 게시된 웹앱이 표시됩니다.
 
-1. CDN 끝점을 만들려면 [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다.
-2. **새로 만들기** > **앱 서비스** > **CDN** > **빠른 생성**을 클릭합니다. **http://*&lt;sitename>*.azurewebsites.net/**을 선택하고 **만들기**를 클릭합니다.
+1. CDN 끝점을 만들려면 [Azure 포털](https://portal.azure.com)에 로그인합니다.
+2. **+ 새로 만들기** > **미디어 + CDN** > **CDN**을 클릭합니다.
+
+	![](media/cdn-websites-with-cdn/create-cdn-profile.png)
+
+3. **CDN**, **위치**, **리소스 그룹**, **가격 책정 계층**을 지정한 다음 **만들기**를 클릭합니다.
 
 	![](media/cdn-websites-with-cdn/7-create-cdn.png)
 
-	> [AZURE.NOTE] CDN 끝점이 생성되면 클래식 포털에 해당 URL 및 통합된 원본 도메인이 표시됩니다. 그러나 새 CDN 끝점의 구성이 모든 CDN 노드 위치에 완전히 전파되는 데는 시간이 조금 걸릴 수 있습니다.
+4. **CDN 프로필** 블레이드에서 **+ 끝점** 단추를 클릭합니다. 이름을 지정하고 **원본 유형** 드롭다운에서 **웹앱**을 선택하고 **원본 호스트 이름** 드롭다운에서 해당 웹앱을 선택한 다음 **추가**를 클릭합니다.
 
-3. 클래식 포털로 돌아가 **CDN** 탭에서 방금 만든 CDN 끝점의 이름을 클릭합니다.
+	![](media/cdn-websites-with-cdn/cdn-profile-blade.png)
+
+
+
+	> [AZURE.NOTE] CDN 끝점이 생성되면 **끝점** 블레이드에서 해당 CDN URL 및 통합된 원본 도메인이 표시됩니다. 그러나 새 CDN 끝점의 구성이 모든 CDN 노드 위치에 완전히 전파되는 데는 시간이 조금 걸릴 수 있습니다.
+
+3. **끝점** 블레이드로 돌아가 방금 만든 CDN 끝점의 이름을 클릭합니다.
 
 	![](media/cdn-websites-with-cdn/8-select-cdn.png)
 
-3. **쿼리 문자열 사용**을 클릭하여 CDN 캐시에서 쿼리 문자열을 사용하도록 설정합니다. 쿼리 문자열을 사용하도록 설정하면 다른 쿼리 문자열로 액세스하는 동일 링크가 별도의 항목으로 캐시됩니다.
+3. **구성** 단추를 클릭합니다. **구성** 블레이드의 **쿼리 문자열 캐싱 동작** 드롭다운에서 **각 고유한 URL 캐시**를 선택한 다음 **저장** 단추를 클릭합니다.
+
 
 	![](media/cdn-websites-with-cdn/9-enable-query-string.png)
 
-	>[AZURE.NOTE] 이 자습서 섹션에서는 쿼리 문자열을 사용하지 않아도 되지만, 여기서 변경한 사항이 모든 CDN 노드에 전파되는 데 시간이 걸리기 때문에 그리고 쿼리 문자열을 사용하지 않는 콘텐츠가 CDN 캐시를 막는 것을 방지하기 위해 편의상 가능한 한 빨리 쿼리 문자열을 사용하도록 설정할 수 있습니다(CDN 콘텐츠 업데이트에 대해서는 뒷부분에서 설명).
+쿼리 문자열을 사용하도록 설정하면 다른 쿼리 문자열로 액세스하는 동일 링크가 별도의 항목으로 캐시됩니다.
 
-2. 이제 CDN 끝점 주소를 클릭합니다. 끝점이 준비되면 웹앱이 표시됩니다. **HTTP 404** 오류가 발생하는 경우 CDN 끝점이 준비되지 않은 것입니다. CDN 구성이 모든 에지 노드로 전파될 때까지 최대 1시간 정도 기다려야 할 수 있습니다.
+>[AZURE.NOTE] 이 자습서 섹션에서는 쿼리 문자열을 사용하지 않아도 되지만, 여기서 변경한 사항이 모든 CDN 노드에 전파되는 데 시간이 걸리기 때문에 그리고 쿼리 문자열을 사용하지 않는 콘텐츠가 CDN 캐시를 막는 것을 방지하기 위해 편의상 가능한 한 빨리 쿼리 문자열을 사용하도록 설정할 수 있습니다(CDN 콘텐츠 업데이트에 대해서는 뒷부분에서 설명).
+
+2. 이제 CDN 끝점 주소로 이동합니다. 끝점이 준비되면 웹앱이 표시됩니다. **HTTP 404** 오류가 발생하는 경우 CDN 끝점이 준비되지 않은 것입니다. CDN 구성이 모든 에지 노드로 전파될 때까지 최대 1시간 정도 기다려야 할 수 있습니다. 
 
 	![](media/cdn-websites-with-cdn/11-access-success.png)
 
-1. 다음으로 ASP.NET 프로젝트의 **~/Content/bootstrap.css** 파일에 액세스합니다. 브라우저 창에서 **http://*&lt;cdnName>*.vo.msecnd.net/Content/bootstrap.css**로 이동합니다. 이 자습서 설정에서 이 URL은 다음과 같습니다.
+1. 다음으로 ASP.NET 프로젝트의 **~/Content/bootstrap.css** 파일에 액세스합니다. 브라우저 창에서 **http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css**로 이동합니다. 이 자습서 설정에서 이 URL은 다음과 같습니다.
 
-		http://az673227.vo.msecnd.net/Content/bootstrap.css
+		http://az673227.azureedge.net/Content/bootstrap.css
 
 	이는 CDN 끝점의 다음 원본 URL과 일치합니다.
 
 		http://cdnwebapp.azurewebsites.net/Content/bootstrap.css
 
-	**http://*&lt;cdnName>*.vo.msecnd.net/Content/bootstrap.css**로 이동하면 Azure의 웹앱에서 제공된 bootstrap.css를 다운로드하라는 메시지가 표시됩니다.
+	**http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css**로 이동하면 Azure의 웹앱에서 제공된 bootstrap.css를 다운로드하라는 메시지가 표시됩니다.
 
 	![](media/cdn-websites-with-cdn/12-file-access.png)
 
@@ -217,7 +230,7 @@ Azure 웹앱을 Azure CDN과 통합하는 경우 Azure CDN을 통해 컨트롤�
               }
               else // Get content from Azure CDN
               {
-                return Redirect(string.Format("http://<yourCDNName>.vo.msecnd.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
+                return Redirect(string.Format("http://<yourCDNName>.azureedge.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
               }
             }
 
@@ -303,13 +316,13 @@ Azure 웹앱을 Azure CDN과 통합하는 경우 Azure CDN을 통해 컨트롤�
       }
       else // Get content from Azure CDN
       {
-        return Redirect(string.Format("http://<yourCDNName>.vo.msecnd.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
+        return Redirect(string.Format("http://<yourCDNName>.azureedge.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
       }
     }
 
 로컬 디버거가 연결되어 있다면 로컬로 리디렉션되면서 정규 디버그 환경이 구현됩니다. Azure 웹앱에서 실행 중인 경우에는 다음으로 리디렉션됩니다.
 
-	http://<yourCDNName>.vo.msecnd.net/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
+	http://<yourCDNName>.azureedge.net/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
 
 이는 CDN 끝점의 다음 원본 URL과 일치합니다.
 
@@ -369,7 +382,7 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
           bundles.UseCdn = true;
           var version = System.Reflection.Assembly.GetAssembly(typeof(Controllers.HomeController))
             .GetName().Version.ToString();
-          var cdnUrl = "http://<yourCDNName>.vo.msecnd.net/{0}?v=" + version;
+          var cdnUrl = "http://<yourCDNName>.azureedge.net/{0}?v=" + version;
 
           bundles.Add(new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery")).Include(
                 "~/Scripts/jquery-{version}.js"));
@@ -400,7 +413,7 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 
 	이 코드는 다음과 같습니다.
 
-		new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "http://<yourCDNName>.vo.msecnd.net/bundles/jquery?v=<W.X.Y.Z>"))
+		new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "http://<yourCDNName>.azureedge.net/bundles/jquery?v=<W.X.Y.Z>"))
 
 	이 생성자에 따라 ASP.NET 묶음 및 축소가 로컬에서 디버깅될 때 개별 스크립트 파일을 렌더링하지만 지정된 CDN 주소를 사용하여 해당 스크립트에 액세스합니다. 그러나 신중하게 만든 이 CDN URL의 두 가지 중요한 특징에서 다음을 주의해야 합니다.
 	
@@ -417,11 +430,11 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 4. 페이지의 HTML 코드를 확인합니다. 변경 내용을 Azure 웹앱에 다시 게시할 때마다 고유한 버전 문자열과 함께 렌더링된 CDN URL이 표시됩니다. 예:
 	
         ...
-        <link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25449" rel="stylesheet"/>
-        <script src="http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25449"></script>
+        <link href="http://az673227.azureedge.net/Content/css?v=1.0.0.25449" rel="stylesheet"/>
+        <script src="http://az673227.azureedge.net/bundles/modernizer?v=1.0.0.25449"></script>
         ...
-        <script src="http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25449"></script>
-        <script src="http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25449"></script>
+        <script src="http://az673227.azureedge.net/bundles/jquery?v=1.0.0.25449"></script>
+        <script src="http://az673227.azureedge.net/bundles/bootstrap?v=1.0.0.25449"></script>
         ...
 
 5. Visual Studio에서 `F5` 키를 눌러 ASP.NET 응용 프로그램을 디버그합니다.
@@ -450,7 +463,7 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
         {
           var version = System.Reflection.Assembly.GetAssembly(typeof(BundleConfig))
             .GetName().Version.ToString();
-          var cdnUrl = "http://cdnurl.vo.msecnd.net/.../{0}?" + version;
+          var cdnUrl = "http://cdnurl.azureedge.net/.../{0}?" + version;
           bundles.UseCdn = true;
 
           bundles.Add(new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery")) 
@@ -508,13 +521,13 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 	
 	```
 	...
-	<link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
+	<link href="http://az673227.azureedge.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
 <script>(function() {
                 var loadFallback,
                     len = document.styleSheets.length;
                 for (var i = 0; i < len; i++) {
                     var sheet = document.styleSheets[i];
-                    if (sheet.href.indexOf('http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474') !== -1) {
+    		 if (sheet.href.indexOf('http://az673227.azureedge.net/Content/css?v=1.0.0.25474') !== -1) {
                         var meta = document.createElement('meta');
                         meta.className = 'sr-only';
                         document.head.appendChild(meta);
@@ -528,24 +541,24 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
                 return true;
             }())||document.write('<script src="/Content/css"><\/script>');</script>
 
-	<script src="http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25474"></script>
+	<script src="http://az673227.azureedge.net/bundles/modernizer?v=1.0.0.25474"></script>
  	<script>(window.Modernizr)||document.write('<script src="/bundles/modernizr"><\/script>');</script>
 	... 
-	<script src="http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25474"></script>
+	<script src="http://az673227.azureedge.net/bundles/jquery?v=1.0.0.25474"></script>
 	<script>(window.jquery)||document.write('<script src="/bundles/jquery"><\/script>');</script>
 
- 	<script src="http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25474"></script>
+ 	<script src="http://az673227.azureedge.net/bundles/bootstrap?v=1.0.0.25474"></script>
  	<script>($.fn.modal)||document.write('<script src="/bundles/bootstrap"><\/script>');</script>
 	...
 	```
 
-	CSS 번들의 삽입 스크립트에서 다음 줄에 여전히 `CdnFallbackExpression` 속성의 나머지 잘못된 부분이 포함되어 있습니다.
+	CSS 번들의 삽입 스크립트에서 여전히 다음과 같은 줄에 `CdnFallbackExpression` 속성의 잘못된 나머지 부분이 포함되어 있습니다.
 
 		}())||document.write('<script src="/Content/css"><\/script>');</script>
 
-	그러나 || 식의 첫 부분이 항상 true(바로 위의 줄에서)를 반환하므로 document.write() 함수가 실행되지 않습니다.
+	그러나 || 식의 첫 부분이 항상 true를 반환하므로(바로 위의 줄에서) document.write() 함수가 실행되지 않습니다.
 
-6. 대체(fallback) 스크립트가 작동 중인지를 테스트하려면 CDN 끝점의 대시보드로 돌아간 후 **끝점 사용 안 함**을 클릭합니다.
+6. 대체(fallback) 스크립트가 작동 중인지를 테스트하려면 CDN 끝점의 블레이드로 돌아간 후 **중지**를 클릭합니다.
 
 	![](media/cdn-websites-with-cdn/13-test-fallback.png)
 
@@ -563,4 +576,4 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

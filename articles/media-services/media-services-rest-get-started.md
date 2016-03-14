@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/28/2016" 
+ 	ms.date="03/01/2016" 
 	ms.author="juliako"/>
 
 #REST API를 사용한 주문형 콘텐츠 제공 시작
@@ -81,20 +81,17 @@ Azure 미디어 서비스에 액세스하려면 두 가지가 필요합니다. A
 다음 단계는 미디어 서비스 REST API를 사용하여 미디어 서비스에 연결할 때 가장 일반적인 워크플로를 설명합니다.
 
 1. 액세스 토큰을 가져옵니다. 
-2. 미디어 서비스 URI에 연결합니다. 
-	
-	>[AZURE.NOTE]
-	https://media.windows.net에 연결하면 다른 미디어 서비스 URI를 지정하는 301 리디렉션을 받게 됩니다. 사용자는 새 URI에 대한 후속 호출을 해야 합니다.
-	> 
-	> ODATA API 메타데이터 설명을 포함하는 HTTP/1.1 200 응답을 받을 수도 있습니다.
+2. 미디어 서비스 URI에 연결합니다.  
+
+	https://media.windows.net에 연결하면 다른 미디어 서비스 URI를 지정하는 301 리디렉션을 받게 되는 것에 주의하세요. 사용자는 새 URI에 대한 후속 호출을 해야 합니다. ODATA API 메타데이터 설명을 포함하는 HTTP/1.1 200 응답을 받을 수도 있습니다.
 3. 새 URL에 후속 API 호출을 게시합니다. 
 	
-	예를 들어 연결을 시도한 후 다음 항목을 받은 경우.
+		예를 들어 연결을 시도한 후 다음 항목을 받은 경우.
 		
-		HTTP/1.1 301 Moved Permanently
-		Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
+			HTTP/1.1 301 Moved Permanently
+			Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
 
-	https://wamsbayclus001rest-hs.cloudapp.net/api/에 대한 후속 API 호출을 게시해야 합니다.
+		https://wamsbayclus001rest-hs.cloudapp.net/api/에 대한 후속 API 호출을 게시해야 합니다.
 
 ###액세스 토큰 가져오기
 
@@ -368,7 +365,7 @@ blob 저장소에 모든 파일을 업로드하기 전에 자산에 쓰기 위�
 	
 	{"Name":"NewUploadPolicy", "DurationInMinutes":"440", "Permissions":"2"} 
 
-**HTTP 요청**
+**HTTP 응답 **
 
 	If successful, the following response is returned:
 	
@@ -726,7 +723,7 @@ Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나
 
 각 작업을 수행하려는 처리 유형에 따라 하나 이상의 작업을 가질 수 있습니다. REST API를 통해 두 방법 중 하나로 작업 및 관련된 작업을 만들 수 있습니다. 작업은 작업 엔터티에 대한 작업 탐색 속성 또는 OData 배치를 통해 인라인으로 정의될 수 있습니다. 미디어 서비스 SDK 는 일괄 처리를 사용하지만 이 항목에 있는 코드 예제 가독성의 경우 작업은 인라인으로 정의됩니다. 일괄 처리에 대한 정보는 [Open Data Protocol(OData) 일괄 처리](http://www.odata.org/documentation/odata-version-3-0/batch-processing/)를 참조하세요.
 
-다음 예제에서는 특정 해상도와 품질로 비디오를 인코딩하기 위해 하나의 작업 집합으로 작업을 만들어 게시하는 방법을 보여 줍니다. 다음 설명서 섹션은 미디어 인코더 표준 프로세서에서 지원하는 모든 [작업 사전 설정](https://msdn.microsoft.com/ko-KR/library/mt269960) 목록을 포함합니다.
+다음 예제에서는 특정 해상도와 품질로 비디오를 인코딩하기 위해 하나의 작업 집합으로 작업을 만들어 게시하는 방법을 보여 줍니다. 다음 설명서 섹션은 미디어 인코더 표준 프로세서에서 지원하는 모든 [작업 사전 설정](http://msdn.microsoft.com/library/mt269960) 목록을 포함합니다.
 
 **HTTP 요청**
 	
@@ -1201,13 +1198,9 @@ MPEG DASH를 스트리밍하려면 "/매니페스트" 뒤에 추가(format=mpd-t
 
 이 항목이 예상했던 사항을 포함하지 않거나 누락한 경우 또는 일부가 사용자 요구를 충족하지 않은 경우 아래 Disqus 스레드를 사용하여 피드백을 주시기 바랍니다.
 
-##추가 리소스
-- <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Azure 미디어 서비스 101 - 지금 온라인으로 비디오 받기!</a>
-- <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-102-Dynamic-Packaging-and-Mobile-Devices">Azure 미디어 서비스 102 - 동적 패키징 및 모바일 장치</a>
-
 
 
 <!-- URLs. -->
   [Azure 클래식 포털]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

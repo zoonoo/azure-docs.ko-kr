@@ -12,12 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="02/26/2016" 
 	ms.author="awills"/>
  
 # 질문 - ASP.NET용 Application Insights
 
-## 문제 해결
+## 구성 문제
 
 *다음을 설정하는 데 문제가 있습니다.*
 
@@ -153,4 +153,4 @@ Application Insights 리소스를 만들고 업데이트하는 [PowerShell scrip
 
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

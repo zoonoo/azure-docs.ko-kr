@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
+	ms.date="02/29/2016" 
 	ms.author="tdykstra"/>
 
 
@@ -246,7 +246,7 @@ Azure에 배포할 응용 프로그램을 만들기 위해 지금 수행해야 �
 	![클래스 선택](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms12.png)  
 	**새 항목 추가** 대화 상자가 표시됩니다.  
 
-2. 이 새 클래스 이름을 *Contacts.cs*로 지정하고 **추가**를 클릭합니다. 
+2. 이 새 클래스 이름을 *Contacts.cs*로 지정하고 **추가**를 클릭합니다.
 	![새 항목 추가 대화 상자](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13.png)
 3. 기본 코드를 다음 코드로 바꿉니다.  
 
@@ -690,7 +690,7 @@ ASP.NET ID를 사용하여 관리자 역할을 추가하고 해당 역할에 사
 	![게시 메뉴 옵션](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms22.png)  
 	**웹 게시** 대화 상자가 표시됩니다.  
 	![웹 게시 대화 상자](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms22a.png)  
-3. 아직 선택하지 않았으면 **프로필** 탭에서 **Azure 앱 서비스**를 게시 대상으로 선택합니다.
+3. 아직 선택하지 않았으면 **프로필** 탭에서 **Azure 앱 서비스**를 게시 대상으로 선택합니다. 
 	![웹 게시 대화 상자](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms23.png)  
 4. 아직 로그인하지 않은 경우 **로그인**을 클릭합니다.
 5. **기존 웹 앱** 드롭다운에서, 이 자습서의 앞부분에서 만든 기존 웹 앱을 선택하고 **확인** 단추를 클릭합니다.  
@@ -780,4 +780,4 @@ ASP.NET Web Forms에 대해 자세한 내용은 ASP.NET 웹 앱 및 [Microsoft A
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

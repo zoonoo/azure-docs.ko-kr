@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="02/29/2016"
 	ms.author="krisragh"/>
 
 # iOS 모바일 앱에 대해 오프라인 동기화 사용
@@ -88,10 +88,7 @@ Azure 모바일 앱의 오프라인 데이터 동기화 기능을 사용하면 �
 
     `pullWithQuery`에 대한 두 번째 매개 변수는 *증분 동기화*에 사용되는 쿼리 ID입니다. 증분 동기화는 레코드의 `UpdatedAt` 타임스탬프(로컬 저장소에서는 `updatedAt`이라고 함)를 사용하여 마지막 동기화 이후에 수정된 레코드만 검색합니다. 쿼리 ID는 앱의 각 논리 쿼리에 고유한 설명 문자열이어야 합니다. 증분 동기화를 옵트아웃하려면 `nil`을 쿼리 ID로 전달합니다. 이 경우 각 끌어오기 작업에서 모든 레코드가 검색되므로 비효율적일 수 있습니다.
 
-	<!--     >[AZURE.NOTE] To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to purge the local store.
- -->
-
-5. `QSTodoService` 클래스에서 `syncData` 메서드는 데이터, `addItem` 및 `completeItem`을 수정하는 작업 뒤에 호출됩니다. 사용자가 새로 고침 제스처를 수행할 때마다 최신 데이터를 가져오도록 `QSTodoListViewController.refresh`에서도 호출됩니다. `QSTodoListViewController.init`이(가) `refresh`을(를) 호출하므로 앱이 시작될 때도 동기화를 수행합니다.
+5. `QSTodoService` 클래스에서 `syncData` 메서드는 데이터, `addItem` 및 `completeItem`을(를) 수정하는 작업 뒤에 호출됩니다. 사용자가 새로 고침 제스처를 수행할 때마다 최신 데이터를 가져오도록 `QSTodoListViewController.refresh`에서도 호출됩니다. `QSTodoListViewController.init`이(가) `refresh`을(를) 호출하므로 앱이 시작될 때도 동기화를 수행합니다.
 
     `syncData`는 데이터가 수정될 때마다 호출되므로 이 앱은 데이터를 편집할 때마다 사용자가 온라인 상태인 것으로 가정합니다. 다른 섹션에서는 오프라인 상태일 때도 편집할 수 있도록 앱을 업데이트합니다.
 
@@ -223,8 +220,6 @@ Azure 모바일 앱에 대한 일반적인 CRUD 작업은 앱이 계속 연결�
 
     증분 동기화를 옵트아웃하려면 `nil`을 쿼리 ID로 전달합니다. 이 경우 `pullWithQuery`에 대한 모든 호출에서 모든 레코드가 검색되므로 이는 잠재적으로 비효율적입니다.
 
-<!-- * To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to remove records from the local database, in case they have been deleted in the remote service.
- -->
 
 ## 추가 리소스
 
@@ -246,4 +241,4 @@ Azure 모바일 앱에 대한 일반적인 CRUD 작업은 앱이 계속 연결�
 [Cloud Cover: Azure 모바일 서비스에서 오프라인 동기화]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

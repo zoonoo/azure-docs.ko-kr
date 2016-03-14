@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="article"
-    ms.date="11/10/2015"
+    ms.date="02/19/2016"
     ms.author="v-darmi"/>
 
 # Azure API 관리, 이벤트 허브 및 Runscope를 사용하여 API 모니터링
@@ -268,4 +268,4 @@ Azure API 관리 서비스는 API간을 이동하는 HTTP 트래픽을 캡처하
 	-	[log-to-eventhub 정책 참조](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
 	
 
-<!-----HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

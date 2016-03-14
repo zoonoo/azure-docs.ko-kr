@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="cloud-services"
-	ms.workload="tbd"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/15/2015"
+	ms.date="02/20/2016"
 	ms.author="robb"/>
 
 
@@ -43,7 +43,7 @@ Visual Studio에서 제공되는 서식 파일을 사용하는 경우 수신기�
 ### 추적 수신기 추가
 
 1. 사용자의 역할에 대한 web.config 또는 app.config 파일을 엽니다.
-2. 파일에 다음 코드를 추가합니다.
+2. 파일에 다음 코드를 추가합니다. 참조할 어셈블리의 버전 번호를 사용하려면 버전 특성을 변경합니다. 어셈블리 버전은 업데이트가 없는 경우 각 Azure SDK 릴리스로 변경할 필요는 없습니다.
 
 	```
 	<system.diagnostics>
@@ -51,7 +51,7 @@ Visual Studio에서 제공되는 서식 파일을 사용하는 경우 수신기�
 			<listeners>
 				<add type="Microsoft.WindowsAzure.Diagnostics.DiagnosticMonitorTraceListener,
 		          Microsoft.WindowsAzure.Diagnostics,
-		          Version=1.0.0.0,
+		          Version=2.8.0.0,
 		          Culture=neutral,
 		          PublicKeyToken=31bf3856ad364e35"
 		          name="AzureDiagnostics">
@@ -61,8 +61,8 @@ Visual Studio에서 제공되는 서식 파일을 사용하는 경우 수신기�
 		</trace>
 	</system.diagnostics>
 	```
-	>[AZURE.IMPORTANT]Microsoft.WindowsAzure.Diagnostics 어셈블리에 대한 프로젝트 참조가 있어야 합니다. 참조된 Microsoft.WindowsAzure.Diagnostics 어셈블리의 버전과 일치하도록 위의 xml의 버전 번호를 업데이트합니다.
-	
+	>[AZURE.IMPORTANT] Microsoft.WindowsAzure.Diagnostics 어셈블리에 대한 프로젝트 참조가 있어야 합니다. 참조된 Microsoft.WindowsAzure.Diagnostics 어셈블리의 버전과 일치하도록 위의 xml의 버전 번호를 업데이트합니다.
+
 3. 구성 파일을 저장합니다.
 
 수신기에 대한 자세한 내용은 [추적 수신기](https://msdn.microsoft.com/library/4y5y10s7.aspx)를 참조하세요.
@@ -73,10 +73,11 @@ Visual Studio에서 제공되는 서식 파일을 사용하는 경우 수신기�
 ### 코드에 추적 문을 추가하려면
 
 1. 응용 프로그램에 대한 소스 파일을 엽니다. 예를 들어 작업자 역할 또는 웹 역할에 대한 <RoleName>.cs 파일입니다.
-2. 추가되지 않은 경우 문을 사용하여 다음을 추가합니다. ```
+2. 아직 추가되지 않은 경우 문을 사용하여 다음을 추가합니다.
+	```
 	    using System.Diagnostics;
 	```
 3. 응용 프로그램의 상태에 대한 정보를 캡처하려는 추적 문을 추가합니다. 다양한 메서드를 사용하여 추적 문의 출력을 포맷할 수 있습니다. 자세한 내용은 [방법: 응용 프로그램 코드에 추적 문 추가](https://msdn.microsoft.com/library/zd83saa2.aspx)를 참조하세요.
 4. 소스 파일을 저장합니다.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0302_2016-->

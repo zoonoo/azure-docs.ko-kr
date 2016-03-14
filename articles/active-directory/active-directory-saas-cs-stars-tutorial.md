@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/18/2015"
+	ms.date="02/29/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@
 
 - CS Stars에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다. 
 - 사용자가 해당 Azure AD 계정으로 CS Stars에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
-- 단일 중앙 위치인 Azure Active Directory 포털에서 계정을 관리할 수 있습니다.
+- 단일 중앙 위치인 Azure 클래식 포털에서 계정을 관리할 수 있습니다.
 
 Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](active-directory-appssoaccess-whatis.md)을 참조하세요.
 
@@ -35,7 +35,7 @@ CS Stars와의 Azure AD 통합을 구성하려면 다음 항목이 필요합니�
 - CS Stars Single Sign-On이 설정된 구독
 
 
-> [AZURE.NOTE]이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
+> [AZURE.NOTE] 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
 
 
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
@@ -56,7 +56,7 @@ CS Stars의 Azure AD 통합을 구성하려면 갤러리의 CS Stars를 관리�
 
 **갤러리에서 CS Stars를 추가하려면 다음 단계를 수행합니다.**
 
-1. **Azure 관리 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. <br><br>![Active Directory][1]<br>
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. <br><br>![Active Directory][1]<br>
 
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 
@@ -87,11 +87,11 @@ CS Stars에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 ### Azure AD Single Sign-On 구성
 
-이 섹션은 Azure AD 포털에서 Azure AD Single Sign-on을 사용하도록 설정하고 CS Stars에서 Single Sign-On을 구성하는 방법을 설명하기 위한 것입니다.<br>
+이 섹션은 Azure 클래식 포털에서 Azure AD Single Sign-On을 사용하도록 설정하고 CS Stars에서 Single Sign-On을 구성하는 방법을 설명하기 위한 것입니다.<br>
 
 **CS Stars에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure AD 포털의 **CS Stars** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다. <br><br>![Single Sign-On 구성][6]<br>
+1. Azure 클래식 포털의 **CS Stars** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다. <br><br>![Single Sign-On 구성][6]<br>
 
 2. **CS Stars에 대한 사용자 로그온 방법 선택** 페이지에서 **Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.<br><br>![Azure AD Single Sign-On][7]<br>
 
@@ -99,7 +99,7 @@ CS Stars에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
  
      **로그인 URL** 텍스트 상자의 3.1에 사용자가 CS Stars 응용 프로그램에 로그인하는 데 사용하는 URL을 입력합니다.(예: **https://uat.csstars.com/enterprise/default.cmdx?ssoclient=C234UAT2*))
 
-     >[AZURE.NOTE]올바른 값이 무엇인지 모르는 경우 Marsh ClearSight 담당자에게 문의합니다.
+     > [AZURE.NOTE] 올바른 값이 무엇인지 모르는 경우 Marsh ClearSight 담당자에게 문의합니다.
 
      3\.2. **다음**을 클릭합니다.
  
@@ -108,7 +108,7 @@ CS Stars에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 5. CS Stars에 사용된 Single Sign-On을 얻으려면 Marsh ClearSight 담당자에 게 문의하고 메타데이터 파일을 제출합니다.
 
 
-6. Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.<br><br>![Azure AD Connect의 정의][10]<br>
+6. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다. <br><br>![Azure AD Connect의 정의][10]<br>
 
 7. **Single Sign-on 확인** 페이지에서 **완료**를 클릭합니다. <br><br>![Azure AD Connect의 정의][11]<br>
 
@@ -116,11 +116,11 @@ CS Stars에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 
 ### Azure AD 테스트 사용자 만들기
-이 섹션의 목적은 Azure 포털에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.<br> 사용자 목록에서 **Britta Simon**을 선택합니다. <br><br>![Azure AD 사용자 만들기][20]<br>
+이 섹션의 목적은 Azure 클래식 포털에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.<br> 사용자 목록에서 **Britta Simon**을 선택합니다. <br><br>![Azure AD 사용자 만들기][20]<br>
 
 **Azure AD에서 테스트 사용자를 만들려면 다음 단계를 수행하세요.**
 
-1. **Azure 관리 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. <br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-amazon-web-service/create_aaduser_02.png)<br> 
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. <br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-amazon-web-service/create_aaduser_02.png)<br> 
 
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 
@@ -163,7 +163,7 @@ CS Stars에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 **Britta Simon을 CS Stars에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure 포털에서 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.<br><br>![사용자 할당][201]<br>
+1. Azure 클래식 포털에서 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다. <br><br>![사용자 할당][201]<br>
 2. 응용 프로그램 목록에서 **CS Stars**를 선택합니다. <br><br>![사용자 할당][202]<br>
 1. 위쪽의 메뉴에서 **사용자**를 클릭합니다.<br> <br><br>![사용자 할당][203]<br>
 1. 사용자 목록에서 **Britta Simon**을 선택합니다.
@@ -205,4 +205,4 @@ CS Stars에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 [400]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_csstars_403.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="예약된 IP | Microsoft Azure"
    description="예약된 IP 및 관리 방법에 대해 알아봅니다."
    services="virtual-network"
@@ -6,7 +6,7 @@
    authors="telmosampaio"
    manager="carmonm"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
@@ -34,12 +34,12 @@ Azure에서 [IP 주소](virtual-network-ip-addresses-overview-classic.md)가 어
   - 예약된 IP는 VM 및 VIP를 통해 노출되는 클라우드 서비스 인스턴스 역할에만 사용할 수 있습니다.
 1. 예약된 IP를 몇 개까지 사용할 수 있나요?  
   - 현재 모든 Azure 구독은 20개의 예약된 IP를 사용할 권한이 있습니다. 그러나 예약된 IP를 추가로 요청할 수 있습니다. 자세한 내용은 [구독 및 서비스 제한](../azure-subscription-service-limits/) 페이지를 참조하세요.
-1. 예약된 IP는 사용 요금이 있나요? 
+1. 예약된 IP는 사용 요금이 있나요?
   - 가격 정보는 [예약된 IP 주소 가격 정보](http://go.microsoft.com/fwlink/?LinkID=398482)를 참조하세요.
-1. IP 주소를 어떻게 예약하나요? 
-  - PowerShell 또는 [Azure 관리 REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)를 사용하여 특정 지역에서 예약된 IP를 요청할 수 있습니다. Azure에서는 해당 지역의 IP 주소를 예약하고 구독에 대한 상관관계를 지정합니다. 그러면 해당 지역에서 예약된 IP를 사용할 수 있습니다. 관리 포털을 사용하여 IP 주소를 예약할 수는 없습니다.
-1. 선호도 그룹 기반 VNet에서 예약된 IP를 사용할 수 있나요? 
-  - 예약된 IP는 지역 VNet에서만 지원됩니다. 선호도 그룹과 연결된 VNet에 대해서는 지원되지 않습니다. VNet을 지역 또는 선호도 그룹과 연결하는 방법에 대한 자세한 내용은 [지역 VNet 및 선호도 그룹 정보](virtual-networks-migrate-to-regional-vnet.md)를 참조하세요. 
+1. IP 주소를 어떻게 예약하나요?
+  - PowerShell 또는 [Azure 관리 REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)를 사용하여 특정 지역에서 IP 주소를 예약할 수 있습니다. 이 예약된 IP 주소는 구독에 연결됩니다. 관리 포털을 사용하여 IP 주소를 예약할 수는 없습니다.
+1. 선호도 그룹 기반 VNet에서 예약된 IP를 사용할 수 있나요?
+  - 예약된 IP는 지역 VNet에서만 지원됩니다. 선호도 그룹과 연결된 VNet에 대해서는 지원되지 않습니다. VNet을 지역 또는 선호도 그룹과 연결하는 방법에 대한 자세한 내용은 [지역 VNet 및 선호도 그룹 정보](virtual-networks-migrate-to-regional-vnet.md)를 참조하세요.
 
 ## 예약된 VIP를 관리하는 방법
 
@@ -54,12 +54,12 @@ Azure에서 [IP 주소](virtual-network-ip-addresses-overview-classic.md)가 어
 	ReservedIPName       : MyReservedIP
 	Address              : 23.101.114.211
 	Id                   : d73be9dd-db12-4b5e-98c8-bc62e7c42041
-	Label                : 
+	Label                :
 	Location             : Central US
 	State                : Created
 	InUse                : False
-	ServiceName          : 
-	DeploymentName       : 
+	ServiceName          :
+	DeploymentName       :
 	OperationDescription : Get-AzureReservedIP
 	OperationId          : 55e4f245-82e4-9c66-9bd8-273e815ce30a
 	OperationStatus      : Succeeded
@@ -67,6 +67,13 @@ Azure에서 [IP 주소](virtual-network-ip-addresses-overview-classic.md)가 어
 IP를 예약하면 예약된 IP는 삭제될 때까지 계속 구독에 연결됩니다. 위에 나온 예약된 IP를 삭제하려면 다음 PowerShell 명령을 실행합니다.
 
 	Remove-AzureReservedIP -ReservedIPName "MyReservedIP"
+
+## 기존 클라우드 서비스의 IP 주소를 예약하는 방법
+
+*-ServiceName* 매개 변수를 추가하여 기존 클라우드 서비스의 IP 주소를 예약할 수 있습니다. *미국 중부* 위치에서 클라우드 서비스 *TestService*의 IP 주소를 예약하려면 다음 PowerShell 명령을 실행합니다.
+
+	New-AzureReservedIP –ReservedIPName MyReservedIP –Location "Central US" -ServiceName TestService
+
 
 ## 예약된 IP를 새 클라우드 서비스에 연결하는 방법
 아래 스크립트는 예약된 IP를 새로 만든 후 *TestService*라는 이름의 새 클라우드 서비스에 연결합니다.
@@ -97,7 +104,7 @@ IP를 예약하면 예약된 IP는 삭제될 때까지 계속 구독에 연결�
 
 ## 서비스 구성 파일을 사용하여 클라우드 서비스에 예약된 IP를 연결하는 방법
 서비스 구성(CSCFG) 파일을 사용하여 클라우드 서비스에 예약된 IP를 연결할 수도 있습니다. 아래 샘플 xml에서는 *MyReservedIP*라는 예약된 VIP를 사용하도록 클라우드 서비스를 구성하는 방법을 보여 줍니다.
-	
+
 	<?xml version="1.0" encoding="utf-8"?>
 	<ServiceConfiguration serviceName="ReservedIPSample" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2014-01.2.3">
 	  <Role name="WebRole1">
@@ -123,4 +130,4 @@ IP를 예약하면 예약된 IP는 삭제될 때까지 계속 구독에 연결�
 
 - [ILPIP(인스턴스 수준 공용 IP) 주소](../virtual-networks-instance-level-public-ip)에 대해 알아봅니다.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

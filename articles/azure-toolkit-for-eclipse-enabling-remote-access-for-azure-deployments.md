@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="11/30/2015" 
+    ms.date="02/26/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690951.aspx -->
@@ -24,7 +24,7 @@
 
 ## Azure에 배포하기 전에 원격 액세스를 사용하도록 설정하는 방법 ##
 
->[AZURE.NOTE]Azure에 응용 프로그램을 배포하기 전에 원격 액세스를 사용하도록 설정하려면 Windows에서 Eclipse를 실행해야 합니다.
+>[AZURE.NOTE] Azure에 응용 프로그램을 배포하기 전에 원격 액세스를 사용하도록 설정하려면 Windows에서 Eclipse를 실행해야 합니다.
 
 다음 이미지는 원격 액세스를 활성화하는 데 사용되는 **원격 액세스** 속성 대화 상자를 보여 줍니다.
 
@@ -85,7 +85,7 @@ Azure에 배포한 후 원격 액세스를 사용하도록 설정하려면 다�
 * 원격으로 로그인하는 또 다른 방법은 <a href="http://go.microsoft.com/fwlink/?LinkID=512959">Azure 관리 포털</a>을 통해서 입니다.
     * Azure 관리 포털의 **클라우드 서비스** 보기 내에서 **인스턴스**를 클릭하고 특정 인스턴스를 클릭한 다음 **연결** 단추를 클릭합니다. **연결** 단추가 명령 모음에서 다음과 같이 나타납니다. 
     ![][ic659273]  
-    >[AZURE.NOTE]비 Windows 운영 체제에 있는 경우 운영 체제와 호환되는 원격 데스크톱 클라이언트를 사용하고 다운로드한 RDP 파일의 설정을 사용하여 해당 클라이언트를 구성하는 단계를 수행해야 합니다.
+    >[AZURE.NOTE] 비 Windows 운영 체제에 있는 경우 운영 체제와 호환되는 원격 데스크톱 클라이언트를 사용하고 다운로드한 RDP 파일의 설정을 사용하여 해당 클라이언트를 구성하는 단계를 수행해야 합니다.
     * **연결** 단추를 클릭한 후 RDP 파일을 열라는 메시지가 나타납니다 파일을 열고 프롬프트를 따릅니다. (이 파일을 로컬 컴퓨터에 저장한 다음 두 번 클릭하여 파일을 실행하여 관리 포털로 먼저 이동하지 않고도 가상 컴퓨터에 원격으로 로그인할 수도 있습니다.)
     * 사용자 이름 및 암호를 묻는 메시지가 나타나면 원격 사용자에 대해 지정한 값을 입력하고 로그인할 수 있게 됩니다.
 
@@ -114,4 +114,4 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 [ic719494]: ./media/azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments/ic719494.png
 [ic659273]: ./media/azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments/ic659273.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

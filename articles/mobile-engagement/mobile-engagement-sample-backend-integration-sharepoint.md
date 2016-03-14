@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/12/2015" 
+	ms.date="02/29/2016" 
 	ms.author="piyushjo" />
 
 # Azure Mobile Engagement - API 통합
@@ -26,7 +26,7 @@
 
 이 자습서에서는 SharePoint 비즈니스 사용자가 SharePoint 목록을 마케팅 데이터로 채우고 자동화된 프로세스가 목록에서 항목을 선택하고 Mobile Engagement 시스템과 연결하여 사용 가능한 REST API를 통해 SharePoint 데이터에서 마케팅 캠페인을 만드는 시나리오를 살펴봅니다.
  
-> [AZURE.IMPORTANT]일반적으로 이 샘플에서는 API 호출의 두 가지 주요 측면인 매개 변수 인증 및 전달에 대해 자세히 설명하므로 이 샘플을 기반으로 Mobile Engagement REST API를 호출하는 방법을 이해할 수 있습니다.
+> [AZURE.IMPORTANT] 일반적으로 이 샘플에서는 API 호출의 두 가지 주요 측면인 매개 변수 인증 및 전달에 대해 자세히 설명하므로 이 샘플을 기반으로 Mobile Engagement REST API를 호출하는 방법을 이해할 수 있습니다.
 
 ## SharePoint 통합
 1. 샘플 SharePoint 목록은 다음과 같습니다. **Title**, **Category**, **NotificationTitle**, **Message** 및 **URL**은 공지를 만드는 데 사용됩니다. 콘솔 프로그램 형식으로 샘플 자동화 프로세스에서 사용되는 **IsProcessed**라는 열이 있습니다. 이 콘솔 프로그램을 Azure WebJob으로 실행하여 예약하거나 직접 SharePoint 워크플로를 사용하여 항목이 SharePoint 목록에 삽입될 때 공지를 만들고 활성화하도록 프로그래밍할 수 있습니다. 이 샘플에서는 SharePoint 목록의 항목을 확인하고 Azure Mobile Engagement에서 각 항목에 대한 공지를 만들고 나서 마지막으로 공지를 성공적으로 만들었을 때 **IsProcessed** 플래그를 true로 표시하는 콘솔 프로그램을 사용합니다.
@@ -105,7 +105,7 @@
             return returnValue;
         }  
 
-3. 공지 유형 캠페인을 만들려면 [설명서](https://msdn.microsoft.com/library/dn913754.aspx)를 참조하세요. 캠페인 `kind`를 *공지* 및 [페이로드](https://msdn.microsoft.com/library/dn913749.aspx)로 지정하고 FormUrlEncodedContent로 전달하는지 확인해야 합니다.
+3. 공지 유형 캠페인을 만들려면 [설명서](https://msdn.microsoft.com/library/azure/mt683750.aspx)를 참조하세요. 캠페인 `kind`를 *공지* 및 [페이로드](https://msdn.microsoft.com/library/azure/mt683751.aspx)로 지정하고 FormUrlEncodedContent로 전달하는지 확인해야 합니다.
 
 		static async Task<int> CreateAzMECampaign(string campaignName, string notificationTitle, 
             string notificationMessage, string notificationCategory, string actionURL)
@@ -195,7 +195,7 @@
 
 8. 공지 캠페인이 만들어지고 나면 IsProcessed = false가 표시된 목록이 True로 설정되었음을 알 수 있습니다.
 
-이 샘플에서는 대부분 필수 속성을 지정하여 간단한 공지 캠페인을 만들었습니다. [여기](https://msdn.microsoft.com/library/dn913749.aspx)에서 정보를 사용하여 포털에서 원하는 만큼 이 샘플을 사용자 지정할 수 있습니다.
+이 샘플에서는 대부분 필수 속성을 지정하여 간단한 공지 캠페인을 만들었습니다. [여기](https://msdn.microsoft.com/library/azure/mt683751.aspx)에서 정보를 사용하여 포털에서 원하는 만큼 이 샘플을 사용자 지정할 수 있습니다.
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-sample-backend-integration-sharepoint/sharepointlist.png
@@ -207,4 +207,4 @@
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

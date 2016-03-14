@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="02/29/2016" 
     ms.author="jeedes" />
 
 #자습서: Dropbox for Business와 Azure Active Directory 통합
@@ -110,18 +110,16 @@
 
      5.3. 다운로드한 인증서에서 **Base-64로 인코딩된** 파일을 만듭니다.  
 
-     >[AZURE.TIP] 자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
+	> [AZURE.TIP] 자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하세요.
 
 
-     5.4. **인증서 선택**을 클릭한 다음 **base-64로 인코딩된 인증서 파일**을 업로드합니다.
+     5.4. **인증서 선택** 단추를 클릭한 다음 **base-64로 인코드된 인증서 파일**을 업로드합니다.
 
 
-     5.5. **변경 내용 저장**을 클릭하여 DropBox for Business 테넌트의 구성을 완료할 수 있습니다.
+     5.5. **변경 내용 저장** 단추를 클릭하여 DropBox for Business 테넌트의 구성을 완료할 수 있습니다.
 
 
 6. Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다. <br><br> ![Single Sign-On 구성](./media/active-directory-saas-dropboxforbusiness-tutorial/IC749329.png "Single Sign-On 구성")
-
-
 
 
 
@@ -190,4 +188,4 @@ Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다.
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0302_2016-->

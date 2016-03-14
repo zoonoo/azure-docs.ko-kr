@@ -68,8 +68,8 @@ Microsoft Azure IoT 서비스 SDK에는 장치와 보안을 관리하기 위해 
 [Java용 Azure IoT 서비스 SDK]: https://github.com/Azure/azure-iot-sdks/blob/master/java/service/readme.md
 [Node.js용 Azure IoT 장치 SDK]: https://github.com/Azure/azure-iot-sdks/blob/master/node/device/readme.md
 [Node.js용 Azure IoT 서비스 SDK]: https://github.com/Azure/azure-iot-sdks/blob/master/node/service/README.md
-[OS Platforms and hardware compatibility]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
-[IoT용 Microsoft Azure 인증 프로그램]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md#certified
+[OS Platforms and hardware compatibility]: iot-hub-tested-configurations.md
+[IoT용 Microsoft Azure 인증 프로그램]: iot-hub-tested-configurations.md#microsoft-azure-certified-for-iot
 
 [IoT(사물 인터넷) .NET]: https://msdn.microsoft.com/library/mt488521.aspx
 [C용 Microsoft Azure IoT 장치 SDK]: http://azure.github.io/azure-iot-sdks/c/api_reference/index.html
@@ -79,4 +79,4 @@ Microsoft Azure IoT 서비스 SDK에는 장치와 보안을 관리하기 위해 
 [Java용 Microsoft Azure IoT 서비스 SDK]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/index.html
 [Node.js용 Microsoft Azure IoT 서비스 SDK]: http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iothub/1.0.0/index.html
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/16/2016"
+   ms.date="02/29/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: 버전 릴리스 내역
@@ -24,8 +24,19 @@ Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect�
 
 관련 링크:
 
+- Azure AD Connect 릴리스를 [이전 버전에서 최신 버전으로 업그레이드](active-directory-aadconnect-upgrade-previous-version.md)하는 다른 방법입니다.
 - 업데이트를 적용하는 데 필요한 사용 권한은 [계정 및 사용 권한](active-directory-aadconnect-accounts-permissions.md#upgrade)을 참조하세요.
 - [Azure AD Connect 다운로드](http://go.microsoft.com/fwlink/?LinkId=615771)
+
+## 1\.1.110.0
+발표 날짜: 2016년 2월
+
+**수정된 문제:**
+
+- 설치 파일이 기본 **C:\\Program Files** 폴더에 없는 경우 이전 릴리스에서 업그레이드되지 않습니다.
+- 설치하고 설치 마법사의 마지막에 **동기화 프로세스..시작**을 선택 취소하는 경우 설치 마법사를 다시 실행하면 스케줄러를 사용할 수 없습니다.
+- 스케줄러는 날짜/시간 형식이 US-en이 아닌 서버에서는 작동하지 않습니다. 또한 올바른 시간을 반환하는 `Get-ADSyncScheduler`도 차단합니다.
+- 로그인 옵션으로 ADFS를 사용하는 Azure AD Connect의 이전 릴리스를 설치했고 업그레이드하는 경우 설치 마법사를 다시 실행할 수 없습니다.
 
 ## 1\.1.105.0
 발표 날짜: 2016년 2월
@@ -42,8 +53,8 @@ Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect�
 
 **미리 보기에서 GA로 승격되는 기능:**
 
-- [장치 쓰기 저장](active-directory-aadconnect-feature-device-writeback.md).
-- [디렉터리 확장](active-directory-aadconnectsync-feature-directory-extensions.md).
+- [장치 쓰기 저장](active-directory-aadconnect-feature-device-writeback.md)
+- [디렉터리 확장](active-directory-aadconnectsync-feature-directory-extensions.md)
 
 **새로운 미리 보기 기능:**
 
@@ -237,4 +248,4 @@ AD로부터 암호 해시를 읽을 수 있으려면 AD 계정에 추가 권한�
 ## 다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

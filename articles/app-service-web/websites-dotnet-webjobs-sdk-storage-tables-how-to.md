@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/14/2015" 
+	ms.date="02/29/2016" 
 	ms.author="tdykstra"/>
 
 # WebJob SDK를 사용하여 Azure 테이블 저장소로 작업하는 방법
@@ -141,7 +141,7 @@ Azure 저장소 API로 직접 작업하려는 경우 메서드 서명에 `CloudS
 		    tableBinding.Execute(insertOperation);
 		}
 
-`CloudTable` 개체를 사용하는 방법에 대한 자세한 내용은 [.NET에서 테이블 저장소를 사용하는 방법](../storage-dotnet-how-to-use-tables.md)을 참조하세요
+`CloudTable` 개체를 사용하는 방법에 대한 자세한 내용은 [.NET에서 테이블 저장소를 사용하는 방법](../storage/storage-dotnet-how-to-use-tables.md)을 참조하세요
 
 ## <a id="queues"></a>큐 방법 문서에서 다루는 관련 항목
 
@@ -163,5 +163,4 @@ Azure 저장소 API로 직접 작업하려는 경우 메서드 서명에 `CloudS
 이 가이드에서는 Azure 테이블 작업에 대한 일반적인 시나리오를 처리하는 방법을 보여 주는 코드 샘플을 제공했습니다. Azure WebJob 및 WebJob SDK를 사용하는 방법에 대한 자세한 내용은 [Azure WebJob 권장 리소스](http://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
  
 
-<!---HONumber=AcomDC_0107_2016-->
-
+<!---HONumber=AcomDC_0302_2016-->

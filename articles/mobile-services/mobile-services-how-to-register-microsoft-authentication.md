@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="02/25/2016" 
 	ms.author="glenga"/>
 
 # 앱을 등록하여 Microsoft 계정을 인증에 사용
@@ -31,7 +31,7 @@
 
 ##Windows 개발자 센터에서 Windows 스토어 앱 등록
 
-먼저 Windows 개발자 센터에 Windows 스토어 앱이 등록되어야 합니다.
+먼저 Windows 개발자 센터에 Windows 스토어 앱이 등록되어야 합니다. Windows 앱을 등록하면 Single Sign-On 동작을 사용할 수 있습니다.
 
 >[AZURE.NOTE]Windows Phone 8, Windows Phone 8.1 Silverlight 및 비Windows 앱은 섹션을 건너뛸 수 있습니다.
 
@@ -48,12 +48,16 @@
 6. 새 앱의 Windows 개발자 센터 페이지로 돌아가서 **서비스** > **푸시 알림**을 클릭합니다.
 
 7. **푸시 알림** 페이지에서 **WNS(Windows 푸시 알림 서비스) 및 Microsoft Azure 모바일 서비스** 아래의 **Live 서비스 사이트**를 클릭합니다.
+ 
+	앱에 대한 Microsoft 계정 앱 설정 페이지를 표시합니다.
 
-이 응용 프로그램에 대한 Microsoft 계정 페이지를 표시합니다. 다음으로, Azure에서 사용자 앱에 Microsoft 인증을 사용하는 데 필요한 인증 자격 증명을 가져옵니다.
+8. **패키지 SID** 값을 적어 둡니다. Azure 포털에 이 SID를 저장하면 Windows 앱에 Single Sign-On과 푸시 알림을 모두 사용할 수 있습니다.
+
+다음으로 Windows 앱에 대한 Microsoft 계정 인증을 구성하는 네 가지 단계를 다음 섹션에서 시작합니다.
 
 ## Microsoft 계정 등록 구성 및 모바일 서비스에 연결
 
-이 섹션의 첫 번째 단계는 Windows Phone 8, Windows Phone 8.1 Silverlight 및 비Windows 스토어 앱에만 적용됩니다. 이러한 앱의 경우, Windows 스토어 앱에만 사용할 수 있는 패키지 SID(보안 식별자)를 무시할 수도 있습니다.
+이전 섹션에서 이미 Windows 앱을 등록한 경우 2단계로 건너뛸 수 있습니다.
 
 1. 비 Windows 스토어 앱의 경우, Microsoft 계정 개발자 센터의 [내 응용 프로그램](http://go.microsoft.com/fwlink/p/?LinkId=262039) 페이지로 이동하여 Microsoft 계정으로 로그온하고(필요한 경우), **응용 프로그램 만들기**를 클릭한 다음 **응용 프로그램 이름**을 입력하고 **동의함**을 클릭합니다.
 
@@ -74,7 +78,7 @@
    	![Microsoft 계정 앱 설정](./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-win8-app-push-auth.png)
 
 
-    > [AZURE.NOTE]클라이언트 암호는 중요한 보안 자격 증명입니다. 다른 사람과 클라이언트 암호를 공유하거나 앱과 함께 배포하지 마세요. Windows 스토어 앱 등록에서만 패키지 SID 필드가 보입니다.
+    > [AZURE.NOTE] 클라이언트 암호는 중요한 보안 자격 증명입니다. 다른 사람과 클라이언트 암호를 공유하거나 앱과 함께 배포하지 마세요. Windows 스토어 앱 등록에서만 패키지 SID 필드가 보입니다.
 
 4. [Azure 클래식 포털]에서 모바일 서비스에 대한 **ID** 탭을 클릭하고 ID 공급자로부터 얻은 클라이언트 ID, 클라이언트 암호 및 패키지 SID를 입력한 다음 **저장**을 클릭합니다.
 
@@ -93,4 +97,4 @@
 
 [Azure 클래식 포털]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

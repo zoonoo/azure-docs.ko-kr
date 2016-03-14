@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="02/26/2016" 
 	ms.author="stefsch"/>
 
 # 앱 서비스 환경의 네트워크 아키텍처 개요
@@ -31,7 +31,7 @@
 
 앱 서비스 환경은 다양한 개인 고객 끝점과 통신할 수 있습니다. 예를들어, 앱 서비스 환경에서 실행 중인 앱은 동일한 가상 네트워크 토폴로지 안의 Iaas 가상 컴퓨터에서 실행되는 데이터베이스 서버에 연결할 수 있습니다.
 
-[AZURE.IMPORTANT] 네트워크 다이어그램을 보면 "다른 컴퓨터 리소스"는 앱 서비스 환경에서 다른 서브넷에 배포됩니다. ASE와 동일한 서브넷에 리소스를 배포하면 (특정 ASE 내 라우팅을 제외하고) ASE에서 해당 리소스로 연결을 차단합니다. 대신 (동일한 VNET에서) 다른 서브넷에 배포합니다. 앱 서비스 환경에 연결할 수 있게 됩니다. 추가 구성은 필요하지 않습니다.
+>[AZURE.IMPORTANT] 네트워크 다이어그램을 보면 "다른 컴퓨터 리소스"는 앱 서비스 환경에서 다른 서브넷에 배포됩니다. ASE와 동일한 서브넷에 리소스를 배포하면 (특정 ASE 내 라우팅을 제외하고) ASE에서 해당 리소스로 연결을 차단합니다. 대신 (동일한 VNET에서) 다른 서브넷에 배포합니다. 앱 서비스 환경에 연결할 수 있게 됩니다. 추가 구성은 필요하지 않습니다.
 
 앱 서비스 환경 역시 관리 및 운영에 필요한 sql DB 및 Azure 저장소와 통신할 수 있습니다. 앱 서비스 환경과 통신하는 일부 SQL 및 저장소 리소스는 앱 서비스 환경과 같은 지역에 위치해 있는 반면, 나머지는 Azure 지역과 멀리 위치해 있습니다. 결과적으로, 인터넷에 대한 아웃 바운드 연결은 항상 제대로 작동하는 앱 서비스 환경에 필요 합니다.
 
@@ -89,4 +89,4 @@
 [OutboundNetworkAddresses]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundNetworkAddresses-1.png
 [CallsBetweenAppServiceEnvironments]: ./media/app-service-app-service-environment-network-architecture-overview/CallsBetweenEnvironments-1.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -30,7 +30,9 @@
 
 아래 제한에서는 Azure 리소스 관리자를 사용할 때 제한에 차이를 반영할 수 있도록 새로운 테이블이 추가되었습니다. 예를 들어, **구독 제한** 테이블 및 **구독 제한 - Azure 리소스 관리자** 테이블이 있습니다. 두 시나리오에 모두 제한이 적용되면 첫 번째 테이블에서만 표시됩니다. 별도로 지정하지 않으면 제한은 모든 지역에 걸쳐 전역으로 적용됩니다.
 
-> [AZURE.NOTE] Azure 리소스 그룹의 리소스에 대한 할당량은 구독을 통해 지역별로 액세스할 수 있으며, 구독별로는 액세스할 수 없는데 서비스 관리 할당량이 구독별로 액세스되기 때문입니다. 코어 할당량을 한 예로 살펴보겠습니다. 코어를 지원하는 할당량 증가를 요청해야 하는 경우 어떤 지역에서 얼마나 많은 코어를 사용할 것인지 결정한 다음, 원하는 금액 및 지역에 대한 Azure 리소스 그룹 코어 할당량에 대해 특정 요청을 만들어야 합니다. 따라서 서유럽 지역에서 응용 프로그램을 실행하려면 30개의 코어를 사용해야 하는 경우, 확실하게 서유럽에서 30개의 코어를 요청해야 합니다. 하지만 다른 지역에는 코어 할당량 증가가 없고 서유럽만 30개의 코어 할당량이 있게 됩니다. <!-- --> 따라서 어떤 한 지역에서 워크로드에 필요한 Azure 리소스 그룹 할당량을 결정하고 배포를 고려 중인 각 지역에서 해당 금액을 요청하는 것이 유용할 수 있습니다. 특정 지역의 현재 할당량 검색에 대한 자세한 내용은 [배포 문제 해결](resource-group-deploy-debug.md##authentication-subscription-role-and-quota-issues)을 참조하세요.
+> [AZURE.NOTE] Azure 리소스 그룹의 리소스에 대한 할당량은 구독을 통해 지역별로 액세스할 수 있으며, 구독별로는 액세스할 수 없는데 서비스 관리 할당량이 구독별로 액세스되기 때문입니다. 코어 할당량을 한 예로 살펴보겠습니다. 코어를 지원하는 할당량 증가를 요청해야 하는 경우 어떤 지역에서 얼마나 많은 코어를 사용할 것인지 결정한 다음, 원하는 금액 및 지역에 대한 Azure 리소스 그룹 코어 할당량에 대해 특정 요청을 만들어야 합니다. 따라서 서유럽 지역에서 응용 프로그램을 실행하려면 30개의 코어를 사용해야 하는 경우, 확실하게 서유럽에서 30개의 코어를 요청해야 합니다. 하지만 다른 지역에는 코어 할당량 증가가 없고 서유럽만 30개의 코어 할당량이 있게 됩니다.
+<!-- -->
+따라서 어떤 한 지역에서 워크로드에 필요한 Azure 리소스 그룹 할당량을 결정하고 배포를 고려 중인 각 지역에서 해당 금액을 요청하는 것이 유용할 수 있습니다. 특정 지역의 현재 할당량 검색에 대한 자세한 내용은 [배포 문제 해결](resource-group-deploy-debug.md##authentication-subscription-role-and-quota-issues)을 참조하세요.
 
 
 ## 서비스 특정 제한
@@ -47,6 +49,7 @@
 - [CDN](#cdn-limits)
 - [클라우드 서비스](#cloud-services-limits)
 - [데이터 팩터리](#data-factory-limits)
+- [데이터 레이크 분석](#data-lake-analytics-limits)
 - [DNS](#dns-limits)
 - [DocumentDB](#documentdb-limits)
 - [IoT 허브](#iot-hub-limits)
@@ -123,7 +126,7 @@ Azure 리소스 관리자 및 Azure 리소스 그룹을 사용하는 경우 다�
 
 [AZURE.INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
-#### 가상 컴퓨터 디스크 제한 
+#### 가상 컴퓨터 디스크 제한
 
 [AZURE.INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
@@ -178,17 +181,15 @@ Azure 리소스 관리자 및 Azure 리소스 그룹을 사용하는 경우 다�
 
 ### 검색 제한
 
-가격 책정 계층은 검색 서비스의 용량 및 제한을 결정합니다.
+가격 책정 계층은 검색 서비스의 용량 및 제한을 결정합니다. 계층은 다음을 포함합니다.
 
-####표준 계층
+- **무료** 다중 테넌트 서비스는 다른 Azure 구독자와 공유되며 평가 및 소규모 개발 프로젝트용으로 사용하기 위한 것입니다.
+- **기본(미리 보기)**은 소규모의 프로덕션 워크로드를 위한 전용 컴퓨팅 리소스를 제공합니다. 이 계층은 현재 미리 보기 상태이며 할인 요금으로 제공됩니다.
+- **표준(S1 및 S2)**은 프로덕션 워크로드용입니다. 대용량 버전(**S2**)은 요청 시 사용할 수 있습니다. azuresearch_contact@microsoft.com)로 메일을 보내세요.
 
-[AZURE.INCLUDE [azure-search-limits-standard](../includes/azure-search-limits-standard.md)]
+[AZURE.INCLUDE [azure-search-limits-all](../includes/azure-search-limits-all.md)]
 
-####표준 계층(무료 Azure 구독자에게 무료로 제공되는 다중 테넌트 서비스의 일부)
-
-[AZURE.INCLUDE [azure-search-limits-free](../includes/azure-search-limits-free.md)]
-
-키 제한, 복제본-파티션 조합, 요청, 응답 및 여러 워크로드에 대해 고가용성을 달성하는 방법에 대한 자세한 내용은 [Azure 검색의 서비스 제한 사항](search/search-limits-quotas-capacity.md)을 참조하세요.
+문서 크기, 키, 요청 및 응답 등의 다른 제한 사항에 대한 자세한 내용은 [Azure 검색의 서비스 제한 사항](search/search-limits-quotas-capacity.md)을 참조하세요.
 
 ### 미디어 서비스 제한
 
@@ -219,6 +220,8 @@ Azure 리소스 관리자 및 Azure 리소스 그룹을 사용하는 경우 다�
 
 [AZURE.INCLUDE [azure-data-factory-limits](../includes/azure-data-factory-limits.md)]
 
+### Data Lake 분석 제한
+[AZURE.INCLUDE [azure-data-lake-analytics-limits](../includes/azure-data-lake-analytics-limits.md)]
 
 ### 스트림 분석 제한
 
@@ -281,4 +284,4 @@ SQL 데이터베이스 제한은 [SQL 데이터베이스 리소스 제한](sql-d
 
 [클라우드 서비스 크기](cloud-services/cloud-services-sizes-specs.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

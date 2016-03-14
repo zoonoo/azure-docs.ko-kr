@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="02/29/2016" 
 	ms.author="piyushjo" />
 
 # Windows 유니버설 앱 도달률 SDK 통합
@@ -24,7 +24,7 @@
 
 별도로 추가할 항목은 없습니다. `EngagementReach` 참조 및 리소스가 이미 프로젝트에 포함되어 있습니다.
 
-> [AZURE.TIP]프로젝트의 `Resources` 폴더에 있는 이미지, 특히 기본적으로 Engagement 아이콘을 사용하는 브랜드 아이콘을 사용자 지정할 수 있습니다. 유니버설 앱에서 공유 프로젝트의 `Resources` 폴더를 이동하여 앱 사이의 콘텐츠를 공유할 수도 있지만 플랫폼에 종속된 기본 위치에 `Resources\EngagementConfiguration.xml` 파일을 유지해야 합니다.
+> [AZURE.TIP] 프로젝트의 `Resources` 폴더에 있는 이미지, 특히 기본적으로 Engagement 아이콘을 사용하는 브랜드 아이콘을 사용자 지정할 수 있습니다. 유니버설 앱에서 공유 프로젝트의 `Resources` 폴더를 이동하여 앱 사이의 콘텐츠를 공유할 수도 있지만 플랫폼에 종속된 기본 위치에 `Resources\EngagementConfiguration.xml` 파일을 유지해야 합니다.
 
 ## Windows 알림 서비스를 사용하도록 설정
 
@@ -50,7 +50,7 @@ Microsoft 계정 및 Engagement 플랫폼에 앱을 동기화해야 합니다. �
 
 	`EngagementReach.Instance.Init`은(는) 전용 스레드에서 실행됩니다. 직접 실행할 필요가 없습니다.
 
-> [AZURE.NOTE]응용 프로그램의 다른 곳에서 푸시 알림을 사용 중인 경우 Engagement 도달률에 [푸시 채널을 공유](#push-channel-sharing)해야 합니다.
+> [AZURE.NOTE] 응용 프로그램의 다른 곳에서 푸시 알림을 사용 중인 경우 Engagement 도달률에 [푸시 채널을 공유](#push-channel-sharing)해야 합니다.
 
 ## 통합
 
@@ -60,7 +60,7 @@ Engagement는 도달률 알림 및 공지를 구현하는 두 가지 방법(오�
 
 웹 보기 통합은 구현이 더 복잡합니다. 하지만 앱 페이지가 "Page" 이외의 다른 개체에서 상속해야 하는 경우에는 웹 보기와 해당 동작을 통합해야 합니다.
 
-> [AZURE.TIP]모든 페이지 내용을 포함하려면 루트 수준 `<Grid></Grid>` 요소 추가를 고려해야 합니다. 웹 보기 통합에서는 웹 보기를 이 Grid 요소의 자식으로 추가하기만 하면 됩니다. 다른 위치에 Engagement 구성 요소를 설정해야 하는 경우 표시 크기를 직접 관리해야 합니다.
+> [AZURE.TIP] 모든 페이지 내용을 포함하려면 루트 수준 `<Grid></Grid>` 요소 추가를 고려해야 합니다. 웹 보기 통합에서는 웹 보기를 이 Grid 요소의 자식으로 추가하기만 하면 됩니다. 다른 위치에 Engagement 구성 요소를 설정해야 하는 경우 표시 크기를 직접 관리해야 합니다.
 
 ### 오버레이 통합
 
@@ -297,7 +297,7 @@ App.xaml.cs의 "Public App(){}"에 다음 코드를 추가합니다.
 
 각 메서드의 콜백에서는 부울이 반환됩니다. Engagement에서는 데이터 푸시를 디스패치한 후 해당 백 엔드로 피드백을 전송합니다. 콜백에서 false를 반환하면 `exit` 피드백이 전송됩니다. 그렇지 않으면 `action`이(가) 반환됩니다. 이벤트에 대해 콜백이 설정되어 있지 않으면 `drop` 피드백이 Engagement에 반환됩니다.
 
-> [AZURE.WARNING]Engagement는 데이터 푸시에 대해 여러 피드백을 수신할 수 없습니다. 이벤트에 대해 여러 처리기를 설정하려는 경우 피드백은 마지막으로 전송된 항목에 해당합니다. 이 경우에는 프런트 엔드에서 피드백을 혼동하지 않도록 항상 같은 값을 반환하는 것이 좋습니다.
+> [AZURE.WARNING] Engagement는 데이터 푸시에 대해 여러 피드백을 수신할 수 없습니다. 이벤트에 대해 여러 처리기를 설정하려는 경우 피드백은 마지막으로 전송된 항목에 해당합니다. 이 경우에는 프런트 엔드에서 피드백을 혼동하지 않도록 항상 같은 값을 반환하는 것이 좋습니다.
 
 ## UI 사용자 지정(선택 사항)
 
@@ -330,7 +330,7 @@ UI를 사용자 지정하려면 `EngagementReachHandler` 클래스의 서브클�
 			  // Engagement Agent and Reach initialization
 			}
 
-> [AZURE.NOTE]Engagement는 기본적으로 자체 `EngagementReachHandler` 구현을 사용합니다. 따라서 구현을 직접 작성할 필요는 없으며 직접 작성하더라도 모든 메서드를 재정의하지는 않아도 됩니다. 기본 동작에서는 Engagement 기준 개체가 선택됩니다.
+> [AZURE.NOTE] Engagement는 기본적으로 자체 `EngagementReachHandler` 구현을 사용합니다. 따라서 구현을 직접 작성할 필요는 없으며 직접 작성하더라도 모든 메서드를 재정의하지는 않아도 됩니다. 기본 동작에서는 Engagement 기준 개체가 선택됩니다.
 
 ### 웹 보기
 
@@ -405,7 +405,7 @@ Engagement 개체를 보존하는 경우 원하는 알림 및 공지 웹 보기�
 
 `App.xaml.cs` 파일의 "Public App(){}" 메서드에서 콜백을 설정할 수 있으며 `EngagementReach.Instance.Init()` 호출 앞에 설정하는 것이 좋습니다.
 
-> [AZURE.TIP]UI 스레드에서 각 처리기를 호출합니다. 따라서 MessageBox 또는 UI 관련 항목을 사용할 때는 별도의 작업을 수행할 필요가 없습니다.
+> [AZURE.TIP] UI 스레드에서 각 처리기를 호출합니다. 따라서 MessageBox 또는 UI 관련 항목을 사용할 때는 별도의 작업을 수행할 필요가 없습니다.
 
 ##<a id="push-channel-sharing"></a> 푸시 채널 공유
 
@@ -469,4 +469,4 @@ Engagement 개체를 보존하는 경우 원하는 알림 및 공지 웹 보기�
 			  #endregion
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0302_2016-->

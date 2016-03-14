@@ -4,7 +4,7 @@
 	services="biztalk-services" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="02/29/2016" 
 	ms.author="mandia"/>
 
 
@@ -59,7 +59,7 @@ Visual Studio에서 BizTalk 어댑터 서비스로 LOB 릴레이 만들기 | 서
 
 왼쪽 탐색 창에서 **Active Directory**를 선택하여 액세스 제어 값을 검색할 수도 있습니다.
 
-> [AZURE.IMPORTANT]**Active Directory**를 사용하여 액세스 제어 네임스페이스를 만들 때 서비스 ID는 자동으로 만들어지지 **않습니다**. BizTalk 서비스를 프로비전할 때 액세스 제어 네임스페이스, "owner"라는 서비스 ID(발급자 이름), 암호(발급자 키) 및 대칭 키가 자동으로 만들어집니다.<br /> [방법: ACS 관리 서비스를 사용하여 서비스 ID 구성](http://go.microsoft.com/fwlink/p/?LinkID=303942)에서 액세스 제어 서비스 ID에 대한 자세한 정보를 제공합니다.
+> [AZURE.IMPORTANT] **Active Directory**를 사용하여 액세스 제어 네임스페이스를 만들 때 서비스 ID는 자동으로 만들어지지 **않습니다**. BizTalk 서비스를 프로비전할 때 액세스 제어 네임스페이스, "owner"라는 서비스 ID(발급자 이름), 암호(발급자 키) 및 대칭 키가 자동으로 만들어집니다.<br /> [방법: ACS 관리 서비스를 사용하여 서비스 ID 구성](http://go.microsoft.com/fwlink/p/?LinkID=303942)에서 액세스 제어 서비스 ID에 대한 자세한 정보를 제공합니다.
 
 
 ## 서비스 버스 발급자 이름 및 발급자 키
@@ -94,4 +94,4 @@ Visual Studio에서 BizTalk 어댑터 서비스로 LOB 릴레이 만들기 | 서
 - [BizTalk 서비스: 제한](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

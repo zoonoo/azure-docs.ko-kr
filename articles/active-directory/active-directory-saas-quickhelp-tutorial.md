@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="02/29/2016"
 	ms.author="jeedes"/>
 
 
@@ -93,7 +93,7 @@ QuickHelp에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
  
      a. **로그온 URL** 텍스트 상자에 사용자가 QuickHelp 사이트에 로그온하는 데 사용하는 URL(예: *https://quickhelp.com/bsiazure/*))을 입력합니다.
 
-     >[AZURE.NOTE] 로그인 URL 값을 모를 경우 QuickHelp 지원에 문의합니다.
+     > [AZURE.NOTE] 로그인 URL 값을 모를 경우 QuickHelp 지원에 문의합니다.
 
      b. **다음**을 클릭합니다.
 
@@ -255,4 +255,4 @@ QuickHelp는 Just-In-Time 프로비전을 지원합니다. 즉, 필요한 경우
 [401]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_401.png
 [402]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_402.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

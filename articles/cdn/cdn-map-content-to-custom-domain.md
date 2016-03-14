@@ -1,18 +1,18 @@
-<properties 
-	 pageTitle="CDN(콘텐츠 배달 네트워크) 콘텐츠를 사용자 지정 도메인에 매핑하는 방법" 
-	 description="이 항목에서는 CDN 콘텐츠를 사용자 지정 도메인에 매핑하는 방법을 설명합니다." 
-	 services="cdn" 
-	 documentationCenter="" 
-	 authors="camsoper" 
-	 manager="dwrede" 
+<properties
+	 pageTitle="CDN(콘텐츠 배달 네트워크) 콘텐츠를 사용자 지정 도메인에 매핑하는 방법"
+	 description="이 항목에서는 CDN 콘텐츠를 사용자 지정 도메인에 매핑하는 방법을 설명합니다."
+	 services="cdn"
+	 documentationCenter=""
+	 authors="camsoper"
+	 manager="erikre"
 	 editor=""/>
-<tags 
-	 ms.service="cdn" 
-	 ms.workload="media" 
-	 ms.tgt_pltfrm="na" 
-	 ms.devlang="na" 
-	 ms.topic="article" 
-	 ms.date="01/22/2016" 
+<tags
+	 ms.service="cdn"
+	 ms.workload="media"
+	 ms.tgt_pltfrm="na"
+	 ms.devlang="na"
+	 ms.topic="article"
+	 ms.date="02/25/2016" 
 	 ms.author="casoper"/>
 
 # 사용자 지정 도메인을 CDN(콘텐츠 배달 네트워크) 끝점에 매핑하는 방법
@@ -20,12 +20,12 @@ azureedge.net의 하위 도메인을 사용하는 대신 캐시된 콘텐츠에 
 
 사용자 지정 도메인을 CDN 끝점에 매핑하는 두 가지 방법이 있습니다.
 
-1. [도메인 등록 기관을 사용하여 CNAME 레코드를 만들고 사용자 지정 도메인과 하위 도메인을 CDN 끝점에 매핑](#register-a-custom-domain-for-an-azure-cdn-endpoint) 
-	
+1. [도메인 등록 기관을 사용하여 CNAME 레코드를 만들고 사용자 지정 도메인과 하위 도메인을 CDN 끝점에 매핑](#register-a-custom-domain-for-an-azure-cdn-endpoint)
+
 	CNAME 레코드는 원본 도메인을 대상 도메인에 매핑하는 DNS 기능입니다. 이 경우 원본 도메인은 사용자 지정 도메인과 하위 도메인입니다(하위 도메인은 항상 필수임). 대상 도메인은 CDN 끝점입니다.
 
 	그러나 사용자 지정 도메인을 CDN 끝점에 매핑하는 프로세스로 인해 Azure 포털에서 도메인을 등록하는 동안 도메인이 잠시 가동 중지될 수 있습니다.
-	 
+
 2. [**cdnverify**를 사용하여 중간 등록 단계 추가](#register-a-custom-domain-for-an-azure-cdn-endpoint-using-the-intermediary-cdnverify-subdomain)
 
 	사용자 지정 도메인에서 가동 중지 시간이 없어야 하는 SLA(서비스 수준 계약)가 설정된 응용 프로그램을 현재 지원하고 있는 경우 DNS 매핑이 진행되는 동안 사용자가 도메인에 액세스할 수 있도록 중간 등록 단계를 제공하는 데 Azure **cdnverify** 하위 도메인을 사용할 수 있습니다.
@@ -66,7 +66,7 @@ azureedge.net의 하위 도메인을 사용하는 대신 캐시된 콘텐츠에 
 8. **사용자 지정 도메인 추가** 블레이드로 돌아가 하위 도메인을 포함하는 사용자 지정 도메인을 대화 상자에 입력합니다. 예를 들어 **www.mydomain.com** 또는 **cdn.mydomain.com** 형식으로 도메인 이름을 입력합니다. 이 단계에서는 하위 도메인 앞에 **cdnverify**를 추가할 필요가 없습니다.  
 
 	Azure에서 입력한 cdnverify 도메인 이름에 대한 CNAME 레코드가 있는지 확인합니다.
-9. 이제 사용자 지정 도메인이 Azure에서 확인되었지만 도메인에 대한 트래픽은 아직 CDN 끝점으로 라우팅되지 않습니다. 사용자 지정 도메인 설정이 CDN 가장자리 노드로 전파되도록 허용하는 데 90분을 기다린 후 DNS 등록 기관의 웹 사이트로 돌아가고 하위 도메인을 CDN 끝점에 매핑하는 다른 CNAME 레코드를 만듭니다. 예를 들어 하위 도메인을 **www** 또는 **cdn**으로 지정하고 호스트 이름을 **&lt;EndpointName>.azureedge.net**으로 지정합니다. 이 단계에서 사용자 지정 도메인 등록이 완료됩니다. 
+9. 이제 사용자 지정 도메인이 Azure에서 확인되었지만 도메인에 대한 트래픽은 아직 CDN 끝점으로 라우팅되지 않습니다. 사용자 지정 도메인 설정이 CDN 가장자리 노드로 전파되도록 허용하는 데 90분을 기다린 후 DNS 등록 기관의 웹 사이트로 돌아가고 하위 도메인을 CDN 끝점에 매핑하는 다른 CNAME 레코드를 만듭니다. 예를 들어 하위 도메인을 **www** 또는 **cdn**으로 지정하고 호스트 이름을 **&lt;EndpointName>.azureedge.net**으로 지정합니다. 이 단계에서 사용자 지정 도메인 등록이 완료됩니다.
 10.	끝으로, **cdnverify**를 사용하여 만든 CNAME 레코드는 중간 단계로만 필요하므로 삭제할 수 있습니다.  
 
 
@@ -81,6 +81,4 @@ azureedge.net의 하위 도메인을 사용하는 대신 캐시된 콘텐츠에 
 
 [Azure에 대해 CDN(콘텐츠 배달 네트워크)을 사용하도록 설정하는 방법](./cdn-create-new-endpoint.md)
 
- 
-
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

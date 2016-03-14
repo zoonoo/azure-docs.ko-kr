@@ -3,7 +3,7 @@
 	description="이 자습서를 사용하여 Azure 백업 저장소 및 서버를 관리하는 방법을 알아봅니다."
 	services="backup"
 	documentationCenter=""
-	authors="aashishr"
+	authors="Jim-Parker"
 	manager="jwhit"
 	editor="tysonn"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="12/15/2015"
-	ms.author="jimpark; aashishr; giridham"/>
+	ms.author="jimpark; markgal"/>
 
 
 # Azure 백업 자격 증명 모음 및 서버 관리
@@ -54,4 +54,4 @@
 - Azure 백업에 대한 자세한 내용은 [Azure 백업 개요](backup-introduction-to-azure-backup.md)를 참조하세요.
 - [Azure 백업 포럼](http://go.microsoft.com/fwlink/p/?LinkId=290933)을 방문하세요.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0302_2016-->
