@@ -86,12 +86,12 @@ Azure 미디어 서비스에 액세스하려면 두 가지가 필요합니다. A
 	https://media.windows.net에 연결하면 다른 미디어 서비스 URI를 지정하는 301 리디렉션을 받게 되는 것에 주의하세요. 사용자는 새 URI에 대한 후속 호출을 해야 합니다. ODATA API 메타데이터 설명을 포함하는 HTTP/1.1 200 응답을 받을 수도 있습니다.
 3. 새 URL에 후속 API 호출을 게시합니다. 
 	
-	예를 들어 연결을 시도한 후 다음 항목을 받은 경우.
+		예를 들어 연결을 시도한 후 다음 항목을 받은 경우.
 		
-		HTTP/1.1 301 Moved Permanently
-		Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
+			HTTP/1.1 301 Moved Permanently
+			Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
 
-	https://wamsbayclus001rest-hs.cloudapp.net/api/에 대한 후속 API 호출을 게시해야 합니다.
+		https://wamsbayclus001rest-hs.cloudapp.net/api/에 대한 후속 API 호출을 게시해야 합니다.
 
 ###액세스 토큰 가져오기
 
@@ -146,9 +146,9 @@ REST API를 통해 바로 미디어 서비스에 액세스하려면 ACS에서 �
 	
 
 >[AZURE.NOTE]
-외부 저장소에 "access\_token" 및 "expires\_in" 값을 캐시하는 것이 좋습니다. 나중에 저장소에서 토큰 데이터를 검색하여 미디어 서비스 REST API 호출에서 다시 사용할 수 있습니다. 여러 프로세스 또는 컴퓨터 사이에서 토큰을 안전하게 공유할 수 있는 시나리오에 특히 유용합니다.
+외부 저장소에 "access_token" 및 "expires_in" 값을 캐시하는 것이 좋습니다. 나중에 저장소에서 토큰 데이터를 검색하여 미디어 서비스 REST API 호출에서 다시 사용할 수 있습니다. 여러 프로세스 또는 컴퓨터 사이에서 토큰을 안전하게 공유할 수 있는 시나리오에 특히 유용합니다.
 
-액세스 토큰의 "expires\_in" 값을 모니터링하고 필요에 따라 REST API 호출을 새 토큰으로 업데이트해야 합니다.
+액세스 토큰의 "expires_in" 값을 모니터링하고 필요에 따라 REST API 호출을 새 토큰으로 업데이트해야 합니다.
 
 ###미디어 서비스 URI에 연결
 

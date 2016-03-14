@@ -35,6 +35,7 @@ Linux를 실행하는 Azure 가상 컴퓨터(VM) 만들기는 쉽습니다. 이 
 
 > [AZURE.NOTE] 이 자습서에서는 Azure 리소스 그룹 API에 의해 관리되는 Azure 가상 컴퓨터를 만듭니다. 자세한 내용은 [ Azure 리소스 그룹 개요](../resource-group-overview.md)를 참조하세요.
 
+</br>
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 

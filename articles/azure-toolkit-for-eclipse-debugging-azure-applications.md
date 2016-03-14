@@ -42,6 +42,7 @@ Windows 운영 체제를 사용하는 경우 Eclipse용 Azure 도구 키트를 �
     1. **Enable remote debugging for this role**을 선택합니다.
     1. **Input endpoint to use**에 대해 **Debugging (public:8090, private:8090)**을 사용합니다.
     1. **Start JVM in suspended mode, waiting for a debugger connection**이 선택 취소되었는지 확인합니다.
+
         >[AZURE.IMPORTANT] **Start JVM in suspended mode, waiting for a debugger connection** 옵션은 계산 에뮬레이터에서 고급 디버깅 시나리오를 위한 것입니다(클라우드 배포용이 아님). **Start JVM in suspended mode, waiting for a debugger connection** 옵션을 사용하는 경우 Eclipse 디버거가 해당 JVM에 연결될 때까지 서버의 시작 프로세스를 일시 중단합니다. 계산 에뮬레이터를 사용하여 디버깅 세션에 이 옵션을 사용할 수도 있지만 클라우드 배포에서 디버깅 세션에 사용하지 마십시오. 서버 초기화는 Azure 시작 작업에서 수행되고 Azure 클라우드는 시작 작업이 완료될 때까지 사용 가능한 공용 끝점을 만들지 않습니다. 따라서 외부 Eclipse 클라이언트에서 연결을 수신할 수 없기 때문에 클라우드 배포에서 이 옵션을 사용하는 경우 시작 프로세스가 올바르게 완료되지 않습니다.
     1. **Create Debug Configurations**를 클릭합니다.
 1. **Azure Debug Configuration** 대화 상자에서:
@@ -85,6 +86,7 @@ Windows 운영 체제를 사용하는 경우 Eclipse용 Azure 도구 키트를 �
     1. **Enable remote debugging for this role**을 선택합니다.
     1. **Input endpoint to use**에 대해 **Debugging (public:8090, private:8090)**에 나열된 도구 키트에 의해 자동으로 생성된 기본 끝점을 사용합니다.
     1. **Start JVM in suspended mode, waiting for a debugger connection** 옵션이 선택 취소되었는지 확인합니다.
+
         >[AZURE.IMPORTANT] **Start JVM in suspended mode, waiting for a debugger connection** 옵션은 계산 에뮬레이터에서 고급 디버깅 시나리오를 위한 것입니다(클라우드 배포용이 아님). **Start JVM in suspended mode, waiting for a debugger connection** 옵션을 사용하는 경우 Eclipse 디버거가 해당 JVM에 연결될 때까지 서버의 시작 프로세스를 일시 중단합니다. 계산 에뮬레이터를 사용하여 디버깅 세션에 이 옵션을 사용할 수도 있지만 클라우드 배포에서 디버깅 세션에 사용하지 마십시오. 서버 초기화는 Azure 시작 작업에서 수행되고 Azure 클라우드는 시작 작업이 완료될 때까지 사용 가능한 공용 끝점을 만들지 않습니다. 따라서 외부 Eclipse 클라이언트에서 연결을 수신할 수 없기 때문에 클라우드 배포에서 이 옵션을 사용하는 경우 시작 프로세스가 올바르게 완료되지 않습니다.
     1. **Create Debug Configurations**를 클릭합니다.
 1. **Azure Debug Configuration** 대화 상자에서:

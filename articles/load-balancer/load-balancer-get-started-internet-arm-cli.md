@@ -63,26 +63,26 @@ Azure 리소스 관리자의 분산 장치 구성 요소에 대한 자세한 내
 
 ### 1단계
 
-*NRPRG*라는 리소스 그룹을 사용하여 미국 동부 위치에 *NRPVnet*이라는 가상 네트워크(VNet)를 만듭니다.
+*NRPRG* 라는 리소스 그룹을 사용하여 미국 동부 위치에 *NRPVnet* 이라는 가상 네트워크(VNet)를 만듭니다.
 
 	azure network vnet create NRPRG NRPVnet eastUS -a 10.0.0.0/16
 
-*NRPVnet*에서 10.0.0.0/24의 CIDR 블록으로 *NRPVnetSubnet*이라는 서브넷을 만듭니다.
+*NRPVnet* 에서 10.0.0.0/24의 CIDR 블록으로 *NRPVnetSubnet* 이라는 서브넷을 만듭니다.
 
 	azure network vnet subnet create NRPRG NRPVnet NRPVnetSubnet -a 10.0.0.0/24
 
 ### 2단계
 
-DNS 이름이 *loadbalancernrp.eastus.cloudapp.azure.com*인 프런트 엔드 IP 풀에서 사용할 *NRPPublicIP*라는 공용 IP 주소를 만듭니다. 아래 명령은 정적 할당 형식 및 4분의 유휴 상태 시간 제한을 사용합니다.
+DNS 이름이 *loadbalancernrp.eastus.cloudapp.azure.com* 인 프런트 엔드 IP 풀에서 사용할 *NRPPublicIP* 라는 공용 IP 주소를 만듭니다. 아래 명령은 정적 할당 형식 및 4분의 유휴 상태 시간 제한을 사용합니다.
 
 	azure network public-ip create -g NRPRG -n NRPPublicIP -l eastus -d loadbalancernrp -a static -i 4
 
 
->[AZURE.IMPORTANT] 부하 분산 장치는 FQDN으로 공용 IP의 도메인 레이블을 사용합니다. 이는 부하 분산 장치 FQDN으로 클라우드 서비스를 사용하는 클래식 배포의 변경입니다. 이 예제에서는 FQDN이 *loadbalancernrp.eastus.cloudapp.azure.com*입니다.
+>[AZURE.IMPORTANT] 부하 분산 장치는 FQDN으로 공용 IP의 도메인 레이블을 사용합니다. 이는 부하 분산 장치 FQDN으로 클라우드 서비스를 사용하는 클래식 배포의 변경입니다. 이 예제에서는 FQDN이 *loadbalancernrp.eastus.cloudapp.azure.com* 입니다.
 
 ## 부하 분산 장치 만들기
 
-다음 예제에서 아래 명령은 *미국 동부* Azure 위치의 *NRPRG* 리소스 그룹에 *NRPlb*라는 부하 분산 장치를 만듭니다.
+다음 예제에서 아래 명령은 *미국 동부* Azure 위치의 *NRPRG* 리소스 그룹에 *NRPlb* 라는 부하 분산 장치를 만듭니다.
 
 	azure network lb create NRPRG NRPlb eastus
 
@@ -218,7 +218,7 @@ NIC를 만들고(또는 기존 NIC 수정) NAT 규칙, 부하 분산 장치 규�
 
 ### 1단계 
 
-*lb-nic1-be*라는 NIC를 만들고 *rdp1* NAT 규칙 및 *NRPbackendpool* 백 엔드 주소 풀과 연결합니다.
+*lb-nic1-be* 라는 NIC를 만들고 *rdp1* NAT 규칙 및 *NRPbackendpool* 백 엔드 주소 풀과 연결합니다.
 	
 	azure network nic create -g nrprg -n lb-nic1-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet -d "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool" -e "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp1" eastus
 
@@ -260,17 +260,17 @@ NIC를 만들고(또는 기존 NIC 수정) NAT 규칙, 부하 분산 장치 규�
 
 ### 2단계
 
-*lb-nic2-be*라는 NIC를 만들고 *rdp2* NAT 규칙 및 *NRPbackendpool* 백 엔드 주소 풀과 연결합니다.
+*lb-nic2-be* 라는 NIC를 만들고 *rdp2* NAT 규칙 및 *NRPbackendpool* 백 엔드 주소 풀과 연결합니다.
 
  	azure network nic create -g nrprg -n lb-nic2-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet -d "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool" -e "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp2" eastus
 
 ### 3단계 
 
-*web1*이라는 VM(가상 컴퓨터)을 만들고 *lb-nic1-be*라는 NIC에 연결합니다. *web1nrp*라는 저장소 계정은 아래 명령을 실행하기 전에 만들어졌습니다.
+*web1* 이라는 VM(가상 컴퓨터)을 만들고 *lb-nic1-be* 라는 NIC에 연결합니다. *web1nrp* 라는 저장소 계정은 아래 명령을 실행하기 전에 만들어졌습니다.
 
 	azure vm create --resource-group nrprg --name web1 --location eastus --vnet-name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic1-be --availset-name nrp-avset --storage-account-name web1nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
 
->[AZURE.IMPORTANT] 부하 분산 장치의 VM은 동일한 가용성 집합에 있어야 합니다. `azure availset create`를 사용하여 가용성 집합을 만듭니다.
+>[AZURE.IMPORTANT]부하 분산 장치의 VM은 동일한 가용성 집합에 있어야 합니다. `azure availset create`를 사용하여 가용성 집합을 만듭니다.
 
 출력은 다음과 같습니다.
 
@@ -291,13 +291,13 @@ NIC를 만들고(또는 기존 NIC 수정) NAT 규칙, 부하 분산 장치 규�
 	+ Creating VM "web1"
 	info:    vm create command OK
 
->[AZURE.NOTE] 부하 분산 장치에 대해 만든 NIC가 부하 분산 장치 공용 IP 주소를 사용하여 인터넷에 연결되기 때문에 정보 메시지 **publicIP 구성 없는 NIC입니다**가 나타납니다.
+>[AZURE.NOTE]부하 분산 장치에 대해 만든 NIC가 부하 분산 장치 공용 IP 주소를 사용하여 인터넷에 연결되기 때문에 정보 메시지 **publicIP 구성 없는 NIC입니다**가 나타납니다.
 
-*lb-nic1-be* NIC는 *rdp1* NAT 규칙에 연결되어 있으므로 부하 분산 장치의 포트 3441을 통해 RDP를 사용하여 *web1*에 연결할 수 있습니다.
+*lb-nic1-be* NIC는 *rdp1* NAT 규칙에 연결되어 있으므로 부하 분산 장치의 포트 3441을 통해 RDP를 사용하여 *web1* 에 연결할 수 있습니다.
 
 ### 4단계
 
-*web2*라는 VM(가상 컴퓨터)을 만들고 *lb-nic2-be*라는 NIC에 연결합니다. *web1nrp*라는 저장소 계정은 아래 명령을 실행하기 전에 만들어졌습니다.
+*web2* 라는 VM(가상 컴퓨터)을 만들고 *lb-nic2-be* 라는 NIC에 연결합니다. *web1nrp* 라는 저장소 계정은 아래 명령을 실행하기 전에 만들어졌습니다.
 
 	azure vm create --resource-group nrprg --name web2 --location eastus --vnet-	name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic2-be --availset-name nrp-avset --storage-account-name web2nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
 

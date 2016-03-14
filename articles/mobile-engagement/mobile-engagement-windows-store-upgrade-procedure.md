@@ -280,7 +280,7 @@ Engagement 구성은 프로젝트의 `Resources\EngagementConfiguration.xml` 파
 
 ### 항목 이름 변경
 
-이름에 *capptain*이 포함된 모든 항목은 이름에 *engagement*를 포함하도록 지정됩니다. 마찬가지로 *Capptain*은 *Engagement*로 지정됩니다.
+이름에 *capptain* 이 포함된 모든 항목은 이름에 *engagement* 를 포함하도록 지정됩니다. 마찬가지로 *Capptain* 은 *Engagement* 로 지정됩니다.
 
 일반적으로 사용되는 Capptain 항목의 예제:
 

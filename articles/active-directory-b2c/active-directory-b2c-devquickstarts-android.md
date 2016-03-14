@@ -1,4 +1,11 @@
-<properties pageTitle="Azure Active Directory B2C 미리 보기: Android 응용 프로그램에서 Web API 호출 | Microsoft Azure" description="이 문서는 OAuth 2.0 전달자 토큰을 사용하여 Node.js Web API를 호출하는 Android "할 일 목록" 앱을 만드는 방법을 보여줍니다. Android 앱과 Web API 모두는 Azure Active Directory B2C를 사용하여 사용자 ID를 관리하고 사용자를 인증합니다." services="active-directory-b2c" documentationCenter="android" authors="brandwe" manager="msmbaldwin" editor=""/>
+<properties
+	pageTitle="Azure Active Directory B2C 미리 보기: Android 응용 프로그램에서 Web API 호출 | Microsoft Azure" 
+	description="이 문서는 OAuth 2.0 전달자 토큰을 사용하여 Node.js Web API를 호출하는 Android "할 일 목록" 앱을 만드는 방법을 보여줍니다. Android 앱과 Web API 모두는 Azure Active Directory B2C를 사용하여 사용자 ID를 관리하고 사용자를 인증합니다." 
+	services="active-directory-b2c"
+	documentationCenter="android"
+	authors="brandwe"
+	manager="msmbaldwin"
+	editor=""/>
 
 <tags
 	ms.service="active-directory-b2c"

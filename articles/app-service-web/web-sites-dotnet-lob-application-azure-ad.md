@@ -63,7 +63,8 @@
 
 1.	[WebApp-RoleClaims-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims)에서 로컬 디렉터리에 예제 솔루션을 복제하거나 다운로드합니다.
 
-2.	[단일 테넌트 앱으로 샘플을 실행하는 방법](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims#how-to-run-the-sample-as-a-single-tenant-app)의 지침에 따라 Azure Active Directory 응용 프로그램 및 프로젝트를 설정합니다. 모든 지침을 따라 다중 테넌트에서 단일 테넌트로 응용 프로그램을 변환해야 합니다.
+2.	[단일 테넌트 앱으로 샘플을 실행하는 방법](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims#how-to-run-the-sample-as-a-single-tenant-app)의 지침에 따라 Azure Active Directory 응용 프로그램 및 프로젝트를 설정합니다.
+모든 지침을 따라 다중 테넌트에서 단일 테넌트로 응용 프로그램을 변환해야 합니다.
 
 3.	방금 만든 Azure Active Directory 응용 프로그램에 대한 [Azure 클래식 포털](https://manage.windowsazure.com) 보기에서 **사용자** 탭을 클릭합니다. 그런 다음 원하는 역할에 원하는 사용자를 할당합니다.
 
@@ -142,7 +143,7 @@
 
 	> [AZURE.NOTE] 여기에서 필요한 정확한 권한은 응용 프로그램의 원하는 기능에 따라 다릅니다. 일부 권한에는 **전역 관리자** 역할을 설정해야 하지만 이 자습서에는 **사용자** 역할만 필요합니다.
 
-9.  **저장**을 클릭합니다.
+9.  **저장**을 클릭합니다.  
 
 10.  저장한 구성 페이지에서 나가기 전에 다음 정보를 텍스트 편집기에 복사합니다.
 

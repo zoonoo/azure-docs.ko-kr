@@ -56,7 +56,16 @@ Azure는 Windows Server, IIS 및 ASP.NET 스택에 사용할 수 있는 성능 �
 |ASP.NET v4.0.30319 |거부된 요청 |ASP.NET용 성능 카운터|
 |메모리 |Available MBytes |메모리 성능 카운터|
 |메모리 |커밋된 바이트 |메모리 성능 카운터|
-|Processor(\_Total) |% Processor Time |Performance Counters for ASP.NET| |TCPv4 |Connection Failures |TCP Object| |TCPv4 |Connections Established |TCP Object| |TCPv4 |Connections Reset |TCP Object| |TCPv4 |Segments Sent/sec |TCP Object| |Network Interface(*) |Bytes Received/sec |Network Interface Object| |Network Interface(*) |Bytes Sent/sec |Network Interface Object| |Network Interface(Microsoft Virtual Machine Bus Network Adapter \_2)|Bytes Received/sec|Network Interface Object| |Network Interface(Microsoft Virtual Machine Bus Network Adapter \_2)|Bytes Sent/sec|Network Interface Object| |Network Interface(Microsoft Virtual Machine Bus Network Adapter \_2)|Bytes Total/sec|Network Interface Object|
+|Processor(\_Total) |% Processor Time |Performance Counters for ASP.NET|
+|TCPv4 |Connection Failures |TCP Object|
+|TCPv4 |Connections Established |TCP Object|
+|TCPv4 |Connections Reset |TCP Object|
+|TCPv4 |Segments Sent/sec |TCP Object|
+|Network Interface(*) |Bytes Received/sec |Network Interface Object|
+|Network Interface(*) |Bytes Sent/sec |Network Interface Object|
+|Network Interface(Microsoft Virtual Machine Bus Network Adapter \_2)|Bytes Received/sec|Network Interface Object|
+|Network Interface(Microsoft Virtual Machine Bus Network Adapter \_2)|Bytes Sent/sec|Network Interface Object|
+|Network Interface(Microsoft Virtual Machine Bus Network Adapter \_2)|Bytes Total/sec|Network Interface Object|
 
 ## 응용 프로그램에 사용자 지정 성능 카운터 만들기 및 추가
 
