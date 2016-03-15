@@ -124,4 +124,4 @@ JMeter 서버 컴퓨터에 다음 테스트 스크립트 매개 변수 파일을
 [Elasticsearch 성능을 테스트하기 위한 JMeter JUnit 샘플러 배포]: guidance-elasticsearch-deploying-jmeter-junit-sampler.md
 [Elasticsearch 성능을 테스트하기 위해 JMeter JUnit 샘플러 배포]: guidance-elasticsearch-deploying-jmeter-junit-sampler.md
 
-<!-------HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -251,4 +251,4 @@ LDP.exe 또는 ADSI 편집을 사용하여 장치 개체가 Active Directory에 
 
 - [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 
-<!-----HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-->
