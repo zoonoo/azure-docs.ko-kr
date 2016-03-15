@@ -573,14 +573,11 @@ ID별로 메시지 첨부 파일 검색 ```GET: /Mail/{messageId}/Attachments/{a
 |원본|string|no|
 |참조|string|no|
 |Bcc|string|no|
-|제목  
-|string|yes|
+|제목|string|yes|
 |본문|string|yes|
-|중요도  
-|string|no|
+|중요도 |string|no|
 |IsHtml|부울|no|
-|받는 사람  
-|string|yes|
+|받는 사람|string|yes|
 
 #### SendAttachment: 첨부 파일
 
@@ -603,14 +600,11 @@ ID별로 메시지 첨부 파일 검색 ```GET: /Mail/{messageId}/Attachments/{a
 |원본|string|no|
 |참조|string|no|
 |Bcc|string|no|
-|제목  
-|string|yes|
+|제목|string|yes|
 |본문|string|yes|
-|중요도  
-|string|no|
+|중요도|string|no|
 |IsHtml|부울|no|
-|받는 사람  
-|string|yes|
+|받는 사람|string|yes|
 
 
 #### ReceiveAttachment: 첨부 파일 받기
@@ -628,15 +622,13 @@ ID별로 메시지 첨부 파일 검색 ```GET: /Mail/{messageId}/Attachments/{a
 
 | 이름 | 데이터 형식 |필수|
 |---|---|---|
-|제목  
-|string|yes|
+|제목|string|yes|
 |본문|string|no|
 |중요도  
 |string|no|
 |Digest|array|yes|
 |첨부 파일|array|no|
-|받는 사람  
-|string|yes|
+|받는 사람|string|yes|
 
 #### TriggerBatchResponse[ReceiveMessage]
 
@@ -694,15 +686,12 @@ ID별로 메시지 첨부 파일 검색 ```GET: /Mail/{messageId}/Attachments/{a
 
 | 이름 | 데이터 형식 |필수|
 |---|---|---|
-|제목  
-|string|yes|
+|제목|string|yes|
 |옵션|string|yes|
 |본문|string|no|
-|중요도  
-|string|no|
+|중요도|string|no|
 |첨부 파일|array|no|
-|받는 사람  
-|string|yes|
+|받는 사람|string|yes|
 
 #### SubscriptionResponse: 승인 전자 메일 구독에 대한 모델
 
@@ -730,11 +719,9 @@ ID별로 메시지 첨부 파일 검색 ```GET: /Mail/{messageId}/Attachments/{a
 |string|yes|
 |옵션|string|yes|
 |본문|string|no|
-|중요도  
-|string|no|
+|중요도|string|no|
 |첨부 파일|array|no|
-|받는 사람  
-|string|yes|
+|받는 사람|string|yes|
 
 #### ApprovalEmailResponse: 승인 전자 메일 응답
 
@@ -822,4 +809,4 @@ PowerApps 엔터프라이즈에 Office 365 API를 추가한 후 해당 앱에서
 [12]: ./media/create-api-office365-outlook/contoso-aad-app-delegate-office365-outlook.png
 [13]: ./media/create-api-office365-outlook/contoso-aad-app-delegate-office365-outlook-permissions.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!----HONumber=AcomDC_0302_2016-->
