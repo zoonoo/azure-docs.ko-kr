@@ -57,7 +57,8 @@ SMTP API를 사용하여 다음 작업을 수행할 수 있습니다. 트리거�
 적용 버전: 1.0
 
 ### 전자 메일 보내기
-하나 이상의 받는 사람에게 메일을 보냅니다. ```POST: /SendEmail```
+하나 이상의 받는 사람에 게 전자 메일을 보냅니다.  
+```POST: /SendEmail```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
@@ -69,17 +70,14 @@ SMTP API를 사용하여 다음 작업을 수행할 수 있습니다. 트리거�
 
 | 이름 | 데이터 형식 | 필수|
 |---|---|---|
-|받는 사람  
-|string|no|
+|받는 사람|string|no|
 |CC|string|no|
-|제목  
-|string|no|
+|제목|string|no|
 |본문|string|no|
 |원본|string|no|
 |IsHtml|부울|no|
 |Bcc|string|no|
-|중요도  
-|string|no|
+|중요도|string|no|
 |첨부 파일|array|no|
 
 
@@ -97,4 +95,4 @@ SMTP API를 사용하여 다음 작업을 수행할 수 있습니다. 트리거�
 ## 다음 단계
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!-----HONumber=AcomDC_0302_2016-->
