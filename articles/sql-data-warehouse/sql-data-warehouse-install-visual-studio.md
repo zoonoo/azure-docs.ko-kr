@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스용 Visual Studio 2015 및/또는 SSDT 설치
@@ -29,10 +29,10 @@ Visual Studio를 설치할 경우 SQL 데이터 웨어하우스에 Visual Studio
 
 Visual Studio 2015를 설치하려면 다음을 수행합니다.
 
-1. Visual Studio Team Services에서 [Visual Studio 2015를 다운로드](https://www.visualstudio.com/downloads)합니다. 
+1. Visual Studio Team Services에서 [Visual Studio 2015를 다운로드](https://www.visualstudio.com/downloads)합니다.
 2. MSDN의 [Visual Studio 설치](https://msdn.microsoft.com/library/e2h7fzkw.aspx) 지침을 따르고 기본 구성을 선택하여 설치합니다.
 
-## 2단계: 최신 SSDT(SQL Server 데이터 도구) 다운로드 및 설치 
+## 2단계: 최신 SSDT(SQL Server 데이터 도구) 다운로드 및 설치
 
 Visual Studio가 설치되어 있는지 여부와 상관없이 SQL 데이터 웨어하우스를 지원하는 최신 버전의 SSDT(SQL Server 데이터 도구)가 필요합니다.
 
@@ -49,4 +49,4 @@ Visual Studio가 설치되어 있는지 여부와 상관없이 SQL 데이터 웨
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

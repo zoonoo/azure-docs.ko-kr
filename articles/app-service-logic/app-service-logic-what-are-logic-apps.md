@@ -12,17 +12,17 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="02/22/2016"
+	ms.topic="hero-article" 
+	ms.date="03/01/2016"
 	ms.author="klam"/>
 
 #논리 앱이란 무엇인가요?
 
 | 빠른 참조 |
 | --------------- |
-| [논리 앱 정의 언어](https://msdn.microsoft.com/library/azure/dn948512.aspx?f=255&MSPPError=-2147217396) |
+| [논리 앱 정의 언어](https://msdn.microsoft.com/library/azure/mt643789.aspx) |
 | [논리 앱 관리 API 설명서](https://azure.microsoft.com/documentation/articles/apis-list) |
-| [논리 앱 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=azurelogicapps) |
+| [논리 앱 포럼](https://social.msdn.microsoft.com/Forums/home?forum=azurelogicapps) |
 
 Azure 앱 서비스는 웹앱, 모바일 앱 및 통합 앱을 쉽게 빌드할 수 있게 해주는 완전히 관리되는 개발자용 PaaS(Platform as a Service)입니다. 논리 앱은 이 제품군의 일부로, 기술 사용자나 개발자가 사용하기 쉬운 비주얼 디자이너를 사용하여 비즈니스 프로세스 실행 및 워크플로를 자동화할 수 있게 합니다.
 
@@ -30,9 +30,14 @@ Azure 앱 서비스는 웹앱, 모바일 앱 및 통합 앱을 쉽게 빌드할 
 
 ![흐름 앱 디자이너](./media/app-service-logic-what-are-logic-apps/LogicAppCapture2.png)
 
-자동으로 SQL DB에 새 레코드를 복제하고 프런트 데스크에 메일을 보낼 수 있습니다. 또는 부정적인 트윗을 자동으로 찾아 여유 시간 채널에 보낼 수 있습니다.
+언급했듯이 논리 앱과 함께 비즈니스 프로세스를 자동화할 수 있습니다. 다음은 몇 가지 예입니다.
+ 
+* 자동으로 SQL DB에 새 레코드를 복제하고 프런트 데스크에 메일을 보낼 수 있습니다.   
+* 부정적인 트윗을 자동으로 찾아 여유 시간 채널에 보낼 수 있습니다.
 
-##논리 앱 사용 이유
+이와 같은 시나리오는 비주얼 디자이너에서 코드를 전혀 작성하지 않고도 구성될 수 있습니다. [이제 논리 앱을 구축][create]을 시작합니다.
+
+## 논리 앱 사용 이유
 
 논리 앱을 통해 개발자는 트리거에서 시작된 다음 일련의 단계를 실행하는 워크플로를 디자인할 수 있습니다. 각 단계는 검사점 설정 및 지속적 실행과 같은 모범 사례 및 인증을 안전하게 처리하는 동시에 API를 호출합니다.
 
@@ -69,9 +74,9 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 [biztalk]: app-service-logic-what-are-biztalk-api-apps.md
 [appservice]: ../app-service/app-service-value-prop-what-is.md
 [create]: app-service-logic-create-a-logic-app.md
-[managedapis]: app-service-logic-connectors-list.md
+[managedapis]: ../connectors/apis-list.md
 [tpm]: app-service-logic-create-a-trading-partner-agreement.md
 [rules]: app-service-logic-use-biztalk-rules.md
 [templates]: app-service-logic-use-logic-app-templates.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

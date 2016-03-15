@@ -4,7 +4,7 @@
 	services="mobile-services"
 	documentationCenter="android"
 	authors="RickSaling"
-	manager="dwrede"
+	manager="reikre"
 	editor=""/>
 
 <tags
@@ -13,20 +13,17 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="02/05/2016"
+	ms.date="03/05/2016"
 	ms.author="ricksal"/>
 
 # Android에 대해 모바일 서비스 시작(JavaScript 백 엔드)
-
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-
-&nbsp;
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> 이 항목에 해당하는 모바일 앱 버전은 [Azure 모바일 앱에서 Android 앱 만들기](../app-service-mobile/app-service-mobile-android-get-started.md)를 참조하세요.
 
 이 자습서는 Azure 모바일 서비스를 사용하여 Android 앱에 클라우드 기반 백 엔드 서비스를 추가하는 방법을 보여 줍니다. 이 자습서에서는 새 모바일 서비스와 새 모바일 서비스에 앱 데이터를 저장하는 간단한 **할 일 모음** 앱을 둘 다 만듭니다.
 
@@ -97,4 +94,4 @@
 [푸시 알림 시작]: mobile-services-javascript-backend-android-get-started-push.md
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

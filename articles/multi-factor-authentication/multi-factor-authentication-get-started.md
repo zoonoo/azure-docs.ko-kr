@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/24/2016" 
+	ms.date="03/03/2016" 
 	ms.author="billmath"/>
 
 #다단계 보안 솔루션 선택
@@ -65,20 +65,20 @@ Azure AD 및 DirSync를 사용한 온-프레미스 AD, Azure AD Sync, Azure AD C
 두 번째 단계로 양방향 SMS | | ● 
 두 번째 단계로 하드웨어 토큰 | | ● 
 MFA를 지원하지 않는 클라이언트에 대한 앱 암호 | ● |  
-인증 방법에 대한 관리자 제어 | | ● 
+인증 방법에 대한 관리자 제어 | (공개 미리 보기) | ● 
 PIN 모드 | | ●
 사기 행위 경고 | ● | ●
 MFA 보고서 | ● | ● 
-일회성 바이패스 | ● | ● 
+일회성 바이패스 | | ● 
 전화 통화에 대한 사용자 지정 인사말 | ● | ● 
 전화 통화에 대한 사용자 지정 가능한 발신자 번호 | ● | ● 
 신뢰할 수 있는 IP | ● | ● 
 신뢰할 수 있는 장치에 대한 MFA 기억(공개 미리 보기) | ● |  
 조건부 액세스 | ● | ● 
-캐시 | ● | ● 
+캐시 | | ● 
 
 클라우드 다단계 인증 또는 MFA 서버 온-프레미스 사용 여부를 결정했으므로 Azure Multi-Factor Authentication을 설정하고 사용을 시작할 수 있습니다. **시나리오를 나타내는 아이콘을 선택하십시오!**
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

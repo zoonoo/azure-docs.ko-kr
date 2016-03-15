@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/12/2016"
+   ms.date="03/07/2016"
    ms.author="larryfr"/>
 
 
@@ -25,6 +25,8 @@ Apache Storm은 데이터 스트림 처리용 확장 가능한 분산형 실시�
 > [AZURE.NOTE] 이 문서의 단계는 Linux 기반 HDInsight 클러스터를 만듭니다. HDInsight 클러스터에서 Linux 기반 Storm을 만드는 단계에 대해서는 [Apache Storm 자습서: HDInsight에서 빅 데이터 분석을 사용하여 Storm Starter 샘플 시작](hdinsight-apache-storm-tutorial-get-started.md)을 참조하세요.
 
 ## 시작하기 전에
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 이 Apache Storm 자습서를 성공적으로 완료하려면 다음 항목이 필요합니다.
 
@@ -52,7 +54,7 @@ HDInsight의 Storm에서는 Azure Blob 저장소를 사용하여 클러스터에
 
 	__Ubuntu__를 선택하여 Linux 기반 HDInsight 클러스터를 만듭니다.
     
-    > [AZURE.NOTE] 이 문서의 단계에 대한 기본 값에 __버전__ 필드를 둡니다.
+    > [AZURE.NOTE] 이 문서의 단계에 대한 기본 값에 __버전__ 필드를 남겨둡니다.
 	
 4. 둘 이상의 구독이 있는 경우 __구독__ 항목을 선택하여 클러스터에 사용할 Azure 구독을 선택합니다.
 
@@ -64,7 +66,7 @@ HDInsight의 Storm에서는 Azure Blob 저장소를 사용하여 클러스터에
 
 	![클러스터 자격 증명 블레이드](./media/hdinsight-administer-use-portal-linux/clustercredentials.png)
 
-	HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
+	HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음 문서 중 하나를 참조하세요.
 
 	* [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
 
@@ -78,7 +80,7 @@ HDInsight의 Storm에서는 Azure Blob 저장소를 사용하여 클러스터에
 	
 	- __선택 방법__: 구독에서 저장소 계정을 찾을 수 있도록 하려면 이 항목을 __From all subscriptions(모든 구독에서)__로 설정합니다. 기존 저장소 계정의 __저장소 이름__ 및 __선택키__를 입력하려면 __선택키__로 설정합니다.
     
-    - __저장소 계정 선택__: 구독에 저장소 계정이 이미 있는 경우 이를 사용하여 이 클러스터에 사용할 계정을 선택합니다.
+    - __저장소 계정 선택__: 구독에 저장소 계정이 이미 있는 경우 이를 사용하여 클러스터에 사용할 계정을 선택합니다.
 	
 	- __새로 만들기__: 새 저장소 계정을 만들려면 사용합니다. 저장소 계정의 이름을 입력할 때 나타나는 필드를 사용합니다. 이름을 사용할 수 있는 경우 녹색 확인 표시가 나타납니다.
 	
@@ -88,9 +90,9 @@ HDInsight의 Storm에서는 Azure Blob 저장소를 사용하여 클러스터에
 	
 		> [AZURE.IMPORTANT] 기본 데이터 원본의 위치를 선택하면 HDInsight 클러스터의 위치도 설정됩니다. 클러스터와 기본 데이터 원본은 같은 지역에 있어야 합니다.
     
-    - __클러스터 AAD ID__: 이를 사용하여 Azure 데이터 레이크 저장소에 액세스하는 클러스터에서 사용할 수 있는 Azure Active Directory ID를 선택합니다.
+    - __클러스터 AAD ID__: 이를 사용하여 Azure Data Lake 저장소에 액세스하는 클러스터에서 사용할 수 있는 Azure Active Directory ID를 선택합니다.
     
-        > [AZURE.NOTE] 이 문서에서 사용되지 않으며 기본 설정에 남아 있을 수 있습니다. 이 항목 및 Azure 데이터 레이크 저장소를 HDInsight와 함께 사용하는 데 대한 자세한 내용은 [Azure 데이터 레이크 저장소를 사용하는 HDInsight 클러스터 만들기](data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요.
+        > [AZURE.NOTE] 이 문서에서 사용되지 않으며 기본 설정에 남아 있을 수 있습니다. 이 항목 및 Azure Data Lake 저장소를 HDInsight와 함께 사용하는 데 대한 자세한 내용은 [Azure Data Lake 저장소를 사용하는 HDInsight 클러스터 만들기](data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요.
 		
 	- __선택__: 데이터 원본 구성을 저장하려면 이 항목을 사용합니다.
 	
@@ -102,11 +104,11 @@ HDInsight의 Storm에서는 Azure Blob 저장소를 사용하여 클러스터에
     
 	__선택__ 단추를 사용하여 __노드 가격 책정 계층__ 정보를 저장합니다.
 
-8. __선택적 구성__을 선택합니다. 이 블레이드를 사용하면 클러스터가 __가상 네트워크__에 조인하고 __스크립트 작업__을 사용하여 클러스터를 사용자 지정하거나 __사용자 지정 메타__를 사용하여 Hive 및 Oozie에 대한 데이터를 확보할 수 있습니다.
+8. __선택적 구성__을 선택합니다. 이 블레이드를 사용하면 클러스터가 __가상 네트워크__에 조인하고 __스크립트 작업__을 사용하여 클러스터를 사용자 지정하거나 __사용자 지정 Metastore__를 사용하여 Hive 및 Oozie에 대한 데이터를 확보할 수 있습니다.
 
 	![선택적 구성 블레이드](./media/hdinsight-apache-storm-tutorial-get-started-linux/optionalconfiguration.png)
     
-    이 문서의 단계에 대한 이러한 설정을 __구성되지 않음__으로 둡니다.
+    이 문서의 단계에서 이러한 설정을 __구성되지 않음__으로 둡니다.
 
 9. __시작 보드에 고정__이 선택되어 있는지 확인한 다음 __만들기__를 선택합니다. 그러면 클러스터가 만들어지고 Azure 포털의 시작 보드에 클러스터 타일이 추가됩니다. 아이콘이 클러스터를 프로비전 중임을 나타내고 프로비전이 완료되면 변경되어 HDInsight 아이콘을 표시합니다.
 
@@ -215,6 +217,10 @@ Storm UI를 사용하여 토폴로지를 모니터링하려면 다음 단계를 
 
 단어 개수 토폴로지에 대한 **토폴로지 요약** 페이지로 돌아가 **토폴로지 동작** 섹션에서 **중단** 단추를 선택합니다. 메시지가 표시되면 토폴로지를 중지하기 전에 대기할 시간(초)으로 10을 입력합니다. 제한 시간이 지난 후에는 대시보드의 **Storm UI** 섹션을 방문한 경우 토폴로지가 더 이상 표시되지 않습니다.
 
+##클러스터 삭제
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 ##요약
 
 이 Apache Storm 자습서에서는 Storm Starter를 사용하여 HDInsight의 Storm 클러스터를 만드는 방법 및 Storm 대시보드를 사용하여 Storm 토폴로지를 배포, 모니터링 및 관리하는 방법에 대해 알아보았습니다.
@@ -233,4 +239,4 @@ Storm UI를 사용하여 토폴로지를 모니터링하려면 다음 단계를 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

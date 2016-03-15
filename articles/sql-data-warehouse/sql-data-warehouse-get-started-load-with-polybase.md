@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/25/2016"
+   ms.date="03/03/2016"
    ms.author="sahajs;barbkess;jrj;sonyama"/>
 
 
@@ -119,7 +119,7 @@ Blob 저장소에 업로드한 파일을 보려면:
 2. 컨테이너에서 **datacontainer**를 두 번 클릭합니다.
 3. 데이터가 있는 경로로 이동하려는 경우 **datedimension** 폴더를 클릭하면 업로드한 **DimDate2.txt** 파일이 표시됩니다.
 4. 속성을 보려면 **DimDate2.txt**를 클릭합니다.
-5. Blob 속성 블레이드에서 파일을 다운로드하거나 삭제할 수 있습니다. 
+5. Blob 속성 블레이드에서 파일을 다운로드하거나 삭제할 수 있습니다.
 
     ![Azure 저장소 Blob 보기](./media/sql-data-warehouse-get-started-load-with-polybase/view-blob.png)
 
@@ -151,12 +151,12 @@ CREATE MASTER KEY;
 
 -- B: Create a database scoped credential
 -- IDENTITY: Provide any string, it is not used for authentication to Azure storage.
--- SECRET: Provide your Azure storage account key. 
+-- SECRET: Provide your Azure storage account key.
 
 
-CREATE DATABASE SCOPED CREDENTIAL AzureStorageCredential 
-WITH 
-    IDENTITY = 'user', 
+CREATE DATABASE SCOPED CREDENTIAL AzureStorageCredential
+WITH
+    IDENTITY = 'user',
     SECRET = '<azure_storage_account_key>'
 ;
 
@@ -165,12 +165,12 @@ WITH
 -- LOCATION: Provide Azure storage account name and blob container name.
 -- CREDENTIAL: Provide the credential created in the previous step.
 
-CREATE EXTERNAL DATA SOURCE AzureStorage 
-WITH (	
-    TYPE = HADOOP, 
+CREATE EXTERNAL DATA SOURCE AzureStorage
+WITH (
+    TYPE = HADOOP,
     LOCATION = 'wasbs://<blob_container_name>@<azure_storage_account_name>.blob.core.windows.net',
     CREDENTIAL = AzureStorageCredential
-); 
+);
 
 
 -- D: Create an external file format
@@ -178,26 +178,26 @@ WITH (
 -- FORMAT_OPTIONS: Specify field terminator, string delimiter, date format etc. for delimited text files.
 -- Specify DATA_COMPRESSION method if data is compressed.
 
-CREATE EXTERNAL FILE FORMAT TextFile 
+CREATE EXTERNAL FILE FORMAT TextFile
 WITH (
-    FORMAT_TYPE = DelimitedText, 
+    FORMAT_TYPE = DelimitedText,
     FORMAT_OPTIONS (FIELD_TERMINATOR = ',')
 );
 
 
 -- E: Create the external table
--- Specify column names and data types. This needs to match the data in the sample file. 
--- LOCATION: Specify path to file or directory that contains the data (relative to the blob container). 
+-- Specify column names and data types. This needs to match the data in the sample file.
+-- LOCATION: Specify path to file or directory that contains the data (relative to the blob container).
 -- To point to all files under the blob container, use LOCATION='.'
 
 CREATE EXTERNAL TABLE dbo.DimDate2External (
-    DateId INT NOT NULL, 
-    CalendarQuarter TINYINT NOT NULL, 
+    DateId INT NOT NULL,
+    CalendarQuarter TINYINT NOT NULL,
     FiscalQuarter TINYINT NOT NULL
 )
 WITH (
-    LOCATION='/datedimension/', 
-    DATA_SOURCE=AzureStorage, 
+    LOCATION='/datedimension/',
+    DATA_SOURCE=AzureStorage,
     FILE_FORMAT=TextFile
 );
 
@@ -212,28 +212,28 @@ SELECT count(*) FROM dbo.DimDate2External;
 
 외부 테이블이 생성되면, 새 테이블에 데이터를 로드하거나 기존 테이블에 데이터를 삽입할 수 있습니다.
 
-- 새 테이블로 데이터를 로드하려면 [CREATE TABLE AS SELECT(Transact-SQL)][] 문을 실행합니다. 새 테이블에는 쿼리에 명명된 열이 포함됩니다. 열의 데이터 형식은 외부 테이블 정의에 있는 데이터 형식과 일치합니다. 
-- 기존 테이블에 데이터를 로드하려면 [INSERT...SELECT (Transact-SQL)][] 문을 사용합니다. 
+- 새 테이블로 데이터를 로드하려면 [CREATE TABLE AS SELECT(Transact-SQL)][] 문을 실행합니다. 새 테이블에는 쿼리에 명명된 열이 포함됩니다. 열의 데이터 형식은 외부 테이블 정의에 있는 데이터 형식과 일치합니다.
+- 기존 테이블에 데이터를 로드하려면 [INSERT...SELECT (Transact-SQL)][] 문을 사용합니다.
 
 ```
 -- Load the data from Azure blob storage to SQL Data Warehouse
 
 CREATE TABLE dbo.DimDate2
-WITH 
+WITH
 (   
     CLUSTERED COLUMNSTORE INDEX,
     DISTRIBUTION = ROUND_ROBIN
 )
-AS 
+AS
 SELECT * FROM [dbo].[DimDate2External];
 ```
-	
+
 
 Visual Studio의 SQL Server 개체 탐색기에 외부 파일 형식, 외부 데이터 원본, DimDate2External 테이블이 표시됩니다.
 
 ![외부 테이블 보기](./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png)
 
-## 5단계: 새로 로드한 데이터에 대한 통계 만들기 
+## 5단계: 새로 로드한 데이터에 대한 통계 만들기
 
 SQL 데이터 웨어하우스는 통계 자동 만들기 또는 자동 업데이트를 수행하지 않습니다. 따라서 높은 쿼리 성능을 달성하려면, 처음 로드한 후에 각 테이블의 각 열에 대한 통계를 만드는 것이 중요합니다. 데이터에 상당한 변화가 발생한 후에는 통계를 업데이트하는 것이 중요합니다.
 
@@ -286,4 +286,4 @@ PolyBase를 사용하는 솔루션을 개발하면서 알아야 하는 추가적
 [데이터베이스 범위 자격 증명 만들기(Transact-SQL)]: https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

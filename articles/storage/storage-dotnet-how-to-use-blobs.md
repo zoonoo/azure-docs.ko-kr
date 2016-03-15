@@ -1,6 +1,6 @@
 <properties
 	pageTitle=".NET을 사용하여 Azure Blob 저장소 시작 | Microsoft Azure"
-	description="Azure Blob(개체) 저장소를 사용하여 클라우드에 파일 데이터를 저장합니다. 컨테이너 만들기 및 Blob 콘텐츠 업로드, 다운로드, 나열 및 삭제를 포함하여 간단한 Blob 저장소 작업을 시작합니다."
+	description="Azure Blob 저장소(개체 저장소)를 사용하여 클라우드에 파일 데이터를 저장합니다. 컨테이너 만들기 및 Blob 콘텐츠 업로드, 다운로드, 나열 및 삭제를 포함하여 간단한 Blob 저장소 작업을 시작합니다."
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="02/14/2016"
+	ms.date="02/25/2016"
 	ms.author="tamram"/>
 
 
@@ -23,7 +23,7 @@
 
 ## 개요
 
-Azure Blob 저장소는 클라우드에 파일 데이터를 저장하는 서비스입니다. Blob 저장소는 문서, 미디어 파일 또는 응용 프로그램 설치 프로그램과 같은 모든 종류의 텍스트 또는 이진 데이터를 저장할 수 있습니다. Blob 저장소를 개체 저장소라고도 합니다.
+Azure Blob 저장소는 클라우드에 파일 데이터를 저장하는 서비스입니다. Blob 저장소는 문서, 미디어 파일 또는 응용 프로그램 설치 프로그램과 같은 모든 종류의 텍스트 또는 이진 데이터를 저장할 수 있습니다. 또한 Blob 저장소를 개체 저장소라고 합니다.
 
 ### 이 자습서 정보
 
@@ -32,6 +32,12 @@ Azure Blob 저장소는 클라우드에 파일 데이터를 저장하는 서비�
 **예상 완료 시간:** 45분
 
 **필수 구성 요소**
+
+- [Microsoft Visual Studio](https://www.visualstudio.com/ko-KR/visual-studio-homepage-vs.aspx)
+- [.NET용 Azure 저장소 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage/)
+- [.NET용 Azure 구성 관리자](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
+- [Azure 저장소 계정](storage-create-storage-account.md#create-a-storage-account).
+
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -374,4 +380,4 @@ Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 **Delete** 메서
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

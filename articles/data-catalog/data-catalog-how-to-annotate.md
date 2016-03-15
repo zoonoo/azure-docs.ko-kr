@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="02/08/2016"
+   ms.date="03/03/2016"
    ms.author="maroche"/>
 
 
@@ -58,4 +58,7 @@
 ## 요약
 데이터 원본을 **Azure 데이터 카탈로그**에 등록하면 구조적 메타데이터 및 설명이 포함된 메타데이터를 데이터 원본에서 카탈로그 서비스로 복사하여 데이터를 검색할 수 있게 합니다. 데이터 원본이 등록되면 사용자가 **Azure 데이터 카탈로그** 포털 내에서 보다 쉽게 검색하고 이해할 수 있도록 주석을 제공할 수 있습니다.
 
-<!---HONumber=AcomDC_0224_2016-->
+## 참고 항목
+- 데이터 원본에 주석을 추가하는 방법에 대한 단계별 세부 정보에 대한 [Azure 데이터 카탈로그 시작](data-catalog-get-started.md) 자습서.
+
+<!---HONumber=AcomDC_0309_2016-->

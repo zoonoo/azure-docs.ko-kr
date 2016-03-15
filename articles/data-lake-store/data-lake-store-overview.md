@@ -1,18 +1,18 @@
-<properties 
-   pageTitle="Azure 데이터 레이크 저장소 개요 | Azure" 
-   description="Azure 데이터 레이크 저장소 및 기타 데이터 저장소를 통해 제공하는 값 이해" 
-   services="data-lake-store" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="paulettm" 
+<properties
+   pageTitle="Azure 데이터 레이크 저장소 개요 | Azure"
+   description="Azure 데이터 레이크 저장소 및 기타 데이터 저장소를 통해 제공하는 값 이해"
+   services="data-lake-store"
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
    editor="cgronlun"/>
- 
+
 <tags
    ms.service="data-lake-store"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
+   ms.workload="big-data"
    ms.date="01/22/2016"
    ms.author="nitinme"/>
 
@@ -83,9 +83,8 @@ Hadoop 환경에서 새 파일 시스템, AzureDataLakeFilesystem(adl://), (HDIn
 
 Azure 포털을 사용하여 데이터 레이크 저장소를 프로비전하는 방법은 [Azure 포털을 사용하여 데이터 레이크 저장소 시작](data-lake-store-get-started-portal.md)을 참조하세요. Azure 데이터 레이크를 프로비전하면 데이터 레이크 저장소를 통해 Azure 데이터 레이크 분석 또는 Azure HDInsight와 같은 빅 데이터 제공을 사용하는 방법을 배울 수 있습니다. 또한 .NET 응용 프로그램을 만들어 Azure 데이터 레이크 저장소 계정을 만들고 데이터 업로드, 데이터 다운로드 등과 같은 작업을 수행할 수 있습니다.
 
-- [Azure 데이터 레이크 분석 시작](data-lake-analytics/data-lake-analytics-get-started-portal.md)
+- [Azure 데이터 레이크 분석 시작](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [데이터 레이크 저장소와 함께 Azure HDInsight 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [.NET SDK를 사용하여 Azure 데이터 레이크 저장소 시작](data-lake-store-get-started-net-sdk.md)
-  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

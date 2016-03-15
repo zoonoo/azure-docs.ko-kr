@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/25/2016"
+   ms.date="03/03/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # TRANSACT-SQL(TSQL)를 사용하여 SQL 데이터 웨어하우스 데이터베이스 만들기
@@ -61,4 +61,4 @@ SQL 데이터 웨어하우스에서 프로비전을 완료한 후 [샘플 데이
 [샘플 데이터를 로드]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [가격 책정 페이지]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

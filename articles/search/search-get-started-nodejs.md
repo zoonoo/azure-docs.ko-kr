@@ -3,8 +3,8 @@
 	description="NodeJS를 프로그래밍 언어로 사용하여 사용자 지정 Azure에서 호스트된 클라우드 검색 서비스의 검색 응용 프로그램을 빌드하는 과정을 안내합니다."
 	services="search"
 	documentationCenter=""
-	authors="HeidiSteen"
-	manager="mblythe"
+	authors="EvanBoyle"
+	manager="pablocas"
 	editor="v-lincan"/>
 
 <tags
@@ -13,19 +13,19 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="01/11/2016"
-	ms.author="heidist"/>
+	ms.date="03/08/2016"
+	ms.author="evboyle"/>
 
 # NodeJS에서 Azure 검색 시작
 > [AZURE.SELECTOR]
-- [Portal](search-get-started-portal.md)
-- [.NET](search-get-started-dotnet.md)
+- [포털](search-get-started-portal.md)
+- [.NET](search-howto-dotnet-sdk.md)
 
 검색 환경에 Azure 검색을 사용하는 사용자 지정 NodeJS 검색 응용 프로그램을 빌드하는 방법에 대해 알아봅니다. 이 자습서에서는 [Azure 검색 서비스 REST API](https://msdn.microsoft.com/library/dn798935.aspx)를 사용하여 이 연습에서 사용되는 개체 및 작업을 생성합니다.
 
 이 코드를 개발하고 테스트하는 데에는 [NodeJS](https://nodejs.org) 및 NPM, [Sublime Text 3](http://www.sublimetext.com/3) 및 Windows 8.1의 Windows PowerShell이 사용되었습니다.
 
-이 샘플을 실행하려면 Azure 검색 서비스가 있어야 합니다. 이 서비스는 [Azure 포털](https://portal.azure.com)에서 등록할 수 있습니다. 단계별 지침은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
+이 샘플을 실행하려면 [Azure 포털](https://portal.azure.com)에서 등록할 수 있는 Azure 검색 서비스가 있어야 합니다. 단계별 지침은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
 
 ## 데이터 정보
 
@@ -33,7 +33,7 @@
 
 이 응용 프로그램에서 **DataIndexer** 프로그램은 [Indexer](https://msdn.microsoft.com/library/azure/dn798918.aspx) 구문을 사용하여 인덱스를 빌드 및 로드하며, 이를 통해 Azure SQL 데이터베이스에서 필터링된 USGS 데이터 집합을 검색합니다. 온라인 데이터 원본에 대한 자격 증명 및 연결 정보는 프로그램 코드에서 제공됩니다. 추가 구성은 필요하지 않습니다.
 
-> [AZURE.NOTE] 무료 가격 책정 계층의 문서 제한(10,000개) 미만으로 유지하기 위해 이 데이터 집합에 필터를 적용했습니다. 표준 계층을 사용하는 경우에는 이 제한이 적용되지 않습니다. 각 가격 책정 계층의 용량에 대한 자세한 내용은 [제한 및 제약 조건](search-limits-quotas-capacity.md)을 참조하세요.
+> [AZURE.NOTE] 무료 가격 책정 계층의 문서 제한(10,000개) 미만으로 유지하기 위해 이 데이터 집합에 필터를 적용했습니다. 표준 계층을 사용하는 경우에는 이 제한이 적용되지 않습니다. 각 가격 책정 계층의 용량에 대한 자세한 내용은 [검색 서비스 제한](search-limits-quotas-capacity.md)을 참조하세요.
 
 
 <a id="sub-2"></a>
@@ -121,4 +121,4 @@ Azure 검색을 처음 사용하세요? 다른 자습서를 통해 만들 수 �
 [5]: ./media/search-get-started-nodejs/AzSearch-NodeJS-configjs.png
 [9]: ./media/search-get-started-nodejs/rogerwilliamsschool.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

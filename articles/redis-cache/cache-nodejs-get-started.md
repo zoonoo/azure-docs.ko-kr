@@ -4,7 +4,7 @@
 	services="redis-cache"
 	documentationCenter=""
 	authors="steved0x"
-	manager="dwrede"
+	manager="erikre"
 	editor="v-lincan"/>
 
 <tags
@@ -13,14 +13,14 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="12/03/2015"
+	ms.date="03/04/2016"
 	ms.author="sdanie"/>
 
 # Azure Redis Cache를 Node.js와 함께 사용하는 방법
 
 > [AZURE.SELECTOR]
 - [.Net](cache-dotnet-how-to-use-azure-redis-cache.md)
-- [Node.js](cache-nodejs-get-started.md)
+- [Node.JS](cache-nodejs-get-started.md)
 - [Java](cache-java-get-started.md)
 - [Python](cache-python-get-started.md)
 
@@ -89,4 +89,4 @@ client.get("foo",  function(err, reply) {
 
 [Azure 웹 사이트에서 Socket.IO를 사용하여 Node.js 채팅 응용 프로그램 빌드]: ../app-service-web/web-sites-nodejs-chat-app-socketio.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -22,9 +22,9 @@
 Azure 응용 프로그램 게이트웨이는 계층 7 부하 분산 장치입니다. 클라우드 또는 온-프레미스이든 상관없이 서로 다른 서버 간에 장애 조치(Failover), 성능 라우팅 HTTP 요청을 제공합니다. 응용 프로그램 게이트웨이의 응용 프로그램 전달 기능에는 HTTP 부하 분산, 쿠키 기반 세션 선호도, SSL(Secure Sockets Layer) 오프로드 등이 있습니다.
 
 > [AZURE.SELECTOR]
-- [Azure Classic PowerShell](application-gateway-create-gateway.md)
+- [Azure 클래식 PowerShell](application-gateway-create-gateway.md)
 - [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
-- [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
+- [Azure Resource Manager 템플릿](application-gateway-create-gateway-arm-template.md)
 
 <BR>
 
@@ -54,7 +54,7 @@ GitHub에서 기존 Azure 리소스 관리자 템플릿을 다운로드한 후 �
 
 GitHub에서 가상 네트워크 및 두 개의 서브넷을 만들기 위한 기존 Azure 리소스 관리자 템플릿을 다운로드하고 원하는 대로 변경한 후 다시 사용할 수 있습니다. 이 작업을 수행하려면 다음 단계를 따르세요.
 
-1. https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-create-application-gateway/로 이동합니다.
+1. [응용 프로그램 게이트웨이 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-application-gateway-create)로 이동합니다.
 2. **azuredeploy.json**을 클릭하고 **RAW**를 클릭합니다.
 3. 파일을 컴퓨터의 로컬 폴더에 저장합니다.
 4. Azure 리소스 관리자 템플릿에 익숙한 경우 7단계로 건너뜁니다.
@@ -116,7 +116,7 @@ GitHub에서 가상 네트워크 및 두 개의 서브넷을 만들기 위한 �
 
 ## PowerShell을 사용하여 Azure 리소스 관리자 템플릿 배포
 
-Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure.md)을 참조하고 지침을 끝까지 따르면서 Azure에 로그인하고 구독을 선택합니다.
+Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하고 지침을 끝까지 따르면서 Azure에 로그인하고 구독을 선택합니다.
 
 ### 1단계
 
@@ -191,7 +191,7 @@ Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 �
 
 Azure CLI를 사용하여 다운로드한 Azure 리소스 관리자 템플릿을 배포하려면 다음 단계를 수행합니다.
 
-1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](xplat-cli-install.md)을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
+1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](../xplat-cli-install.md)을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
 2. 아래와 같이 **azure config mode** 명령을 실행하여 리소스 관리자 모드로 전환합니다.
 
 		azure config mode arm
@@ -200,13 +200,13 @@ Azure CLI를 사용하여 다운로드한 Azure 리소스 관리자 템플릿을
 
 		info:	New mode is arm
 
-3. 필요한 경우 아래와 같이 **azure group create** 명령을 실행하여 새 리소스 그룹을 만듭니다. 명령의 출력을 확인합니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다. 리소스 그룹에 대한 자세한 내용은 [Azure 리소스 관리자 개요](resource-group-overview.md)를 참조하세요.
+3. 필요한 경우 아래와 같이 **azure group create** 명령을 실행하여 새 리소스 그룹을 만듭니다. 명령의 출력을 확인합니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다. 리소스 그룹에 대한 자세한 내용은 [Azure 리소스 관리자 개요](../resource-group-overview.md)를 참조하세요.
 
 		azure group create -n appgatewayRG -l eastus
 
-**-n (or --name)**. 새 리소스 그룹의 이름입니다. 이 시나리오에서는 *appgatewayRG* 입니다.
+**-n(또는 --name)**. 새 리소스 그룹의 이름입니다. 이 시나리오에서는 *appgatewayRG*입니다.
 
-**-l (or --location)**. 새 리소스 그룹이 생성되는 Azure 지역입니다. 이 시나리오에서는 *Eastus* 입니다.
+**-l(또는 --location)**. 새 리소스 그룹이 생성되는 Azure 지역입니다. 이 시나리오에서는 *eastus*입니다.
 
 4. **azure group deployment create** cmdlet을 실행하고 위에서 다운로드한 후 수정한 템플릿 및 매개 변수를 사용하여 새 가상 네트워크를 배포합니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다.
 
@@ -284,4 +284,4 @@ SSL 오프로드를 구성하려는 경우 [SSL 오프로드에 대해 응용 �
 - [Azure 부하 분산 장치](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure 트래픽 관리자](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

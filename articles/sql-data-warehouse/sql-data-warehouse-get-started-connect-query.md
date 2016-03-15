@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Visual Studio를 사용하여 연결 및 쿼리
@@ -46,7 +46,7 @@
 
 1. Visual Studio를 엽니다.
 2. 보기 메뉴에서 **SQL Server 개체 탐색기**를 엽니다.
- 
+
 ![][2]
 
 3. **SQL Server 추가** 단추 클릭
@@ -91,4 +91,4 @@
 [3]: ./media/sql-data-warehouse-get-started-connect-query/connection-dialog.png
 [4]: ./media/sql-data-warehouse-get-started-connect-query/new-query.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

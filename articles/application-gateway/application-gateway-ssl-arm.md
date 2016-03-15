@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="application-gateway"
    authors="joaoma"
-   manager="jdial"
+   manager="carmonm"
    editor="tysonn"/>
 <tags
    ms.service="application-gateway"
@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/24/2015"
+   ms.date="03/03/2016"
    ms.author="joaoma"/>
 
 # Azure 리소스 관리자를 사용하여 SSL 오프로드에 대한 응용 프로그램 게이트웨이 구성
@@ -63,7 +63,7 @@ Azure 클래식 배포 모델 및 Azure 리소스 관리자 간의 차이점은 
 
 ## 리소스 관리자에 대한 리소스 그룹 만들기
 
-Azure 리소스 관리자 cmdlet을 사용하려면 PowerShell 모드로 전환해야 합니다. 자세한 내용은 [리소스 관리자에서 Windows PowerShell](powershell-azure-resource-manager.md) 사용을 참조하세요.
+Azure 리소스 관리자 cmdlet을 사용하려면 PowerShell 모드로 전환해야 합니다. 자세한 내용은 [리소스 관리자에서 Windows PowerShell](../powershell-azure-resource-manager.md) 사용을 참조하세요.
 
 ### 1단계
 
@@ -199,4 +199,4 @@ ILB(내부 부하 분산 장치)에서 사용되도록 응용 프로그램 게�
 - [Azure 부하 분산 장치](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure 트래픽 관리자](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

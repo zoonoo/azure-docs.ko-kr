@@ -82,7 +82,9 @@ Windows 시스템으로 Putty를 다운로드하고 응용 프로그램을 실�
 
 ![Putty 연결](media/putty2.png)
 
-`Tunnels`을 선택하고 다음 전달된 포트를 `configure`합니다. - **원본 포트:** 기본 설정(Mesos의 경우 80 및 Swarm의 경우 2375) - **대상:** localhost:80(Mesos) 또는 localhost:2375(Swarm)
+`Tunnels`을 선택하고 다음 전달된 포트를 `configure`합니다.
+- **원본 포트:** 기본 설정(Mesos의 경우 80 및 Swarm의 경우 2375)
+- **대상:** localhost:80(Mesos) 또는 localhost:2375(Swarm)
 
 다음 예제에서는 Mesos에 대해 구성되었지만 Docker Swarm에 대한 구성도 이와 유사합니다.
 
@@ -108,4 +110,4 @@ Mesos 또는 Swarm으로 컨테이너를 배포 및 관리합니다.
  
 - [ACS 및 Mesos 작업](./container-service-mesos-marathon-rest.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

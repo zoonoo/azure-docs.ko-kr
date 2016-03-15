@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/01/2016"
+   ms.date="03/03/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Visual Studio를 사용하여 SQL 데이터 웨어하우스에 연결
@@ -26,7 +26,7 @@
 
 ## 필수 조건
 
-+ SQL 데이터 웨어하우스의AdventureWorksDW 샘플 데이터베이스 만들려면 [SQL 데이터 웨어하우스 데이터베이스 만들기](sql-data-warehouse-get-started-provision.md)를 참조하세요. 
++ SQL 데이터 웨어하우스의AdventureWorksDW 샘플 데이터베이스 만들려면 [SQL 데이터 웨어하우스 데이터베이스 만들기](sql-data-warehouse-get-started-provision.md)를 참조하세요.
 + Visual Studio용 SQL Server 데이터 도구 설치 지침 및 옵션은 [Visual Studio 및/또는 SSDT 설치](sql-data-warehouse-install-visual-studio.md)를 참조하세요.
 
 ## Step 1: 정규화된 Azure SQL 서버 이름 찾기
@@ -45,7 +45,7 @@
 
 1. Visual Studio를 엽니다.
 2. SQL Server 개체 탐색기를 엽니다. 그렇게 하려면 **보기** > **SQL Server 개체 탐색기**를 선택합니다.
- 
+
     ![SQL Server 개체 탐색기][2]
 
 3. **SQL Server 추가** 아이콘을 클릭합니다.
@@ -70,7 +70,7 @@
 
 이제 서버에 연결했으므로 계속해서 쿼리를 작성합니다.
 
-1. SQL Server 개체 탐색기에서 데이터베이스를 마우스 오른쪽 단추로 클릭합니다. 
+1. SQL Server 개체 탐색기에서 데이터베이스를 마우스 오른쪽 단추로 클릭합니다.
 
 2. **새 쿼리**를 선택합니다. 새 쿼리 창이 열립니다.
 
@@ -108,4 +108,4 @@
 [7]: ./media/sql-data-warehouse-get-started-connect/run-query.png
 [8]: ./media/sql-data-warehouse-get-started-connect/query-results.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

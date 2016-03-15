@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="12/22/2015"
+   ms.date="03/08/2016"
    ms.author="shkurhek"/>
 
 # SQL 데이터베이스 정의 SQL 데이터베이스, 기술 세부 정보 및 DTU의 설명에 대한 소개
@@ -61,4 +61,6 @@ SQL 데이터베이스에 대한 소개를 읽고 질문 "SQL 데이터베이스
 
 - [첫 번째 데이터베이스 만들기](sql-database-get-started.md)로 시작합니다. 그런 다음 [C#](sql-database-connect-query.md), [Java](sql-database-develop-java-simple-windows.md), [Node.js](sql-database-develop-nodejs-simple-windows.md), [PHP](sql-database-develop-php-retry-windows.md), [Python](sql-database-develop-python-simple-windows.md) 또는 [Ruby](sql-database-develop-ruby-simple-linux)에서 첫 앱을 만듭니다.
 
-<!---HONumber=AcomDC_0302_2016-->
+- [Azure SQL 데이터베이스 서비스에 대한 모든 항목](sql-database-index-all-articles.md)에 대한 제목 및 설명 인덱스를 참조하세요.
+
+<!---HONumber=AcomDC_0309_2016-->

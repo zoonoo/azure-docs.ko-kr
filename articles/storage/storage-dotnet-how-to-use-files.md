@@ -12,7 +12,7 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="02/29/2016"
+      ms.date="03/03/2016"
       ms.author="minet" />
 
 # Windows에서 Azure 파일 저장소 시작
@@ -255,29 +255,11 @@ Azure 파일 공유를 마운트하는 방법을 보여 주기 위해 Windows를
 
 ## 파일 저장소를 사용하여 개발
 
-파일 저장소를 프로그래밍 방식으로 다루려면 .NET 및 Java 또는 Azure 저장소 REST API용 저장소 클라이언트 라이브러리를 사용할 수 있습니다. 이 섹션의 예제에서는 데스크톱에서 실행하는 간단한 콘솔 응용 프로그램에서 [Azure.NET 저장소 클라이언트 라이브러리](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)를 사용하여 파일 공유를 다루는 방법을 보여줍니다.
+파일 저장소를 프로그래밍 방식으로 다루려면 .NET 및 Java 또는 Azure 저장소 REST API용 저장소 클라이언트 라이브러리를 사용할 수 있습니다. 이 섹션의 예제에서는 데스크톱에서 실행 중인 간단한 콘솔 응용 프로그램에서 [.NET용 Azure 저장소 클라이언트 라이브러리](https://msdn.microsoft.com/library/mt347887.aspx)를 사용하여 파일 공유로 작업하는 방법을 설명합니다.
 
-### 콘솔 응용 프로그램 만들기 및 어셈블리 가져오기
+[AZURE.INCLUDE [storage-dotnet-install-library-include](../../includes/storage-dotnet-install-library-include.md)]
 
-Visual Studio에서 새 콘솔 응용 프로그램을 만들고 Azure 저장소 NuGet 패키지를 설치하려면
-
-1. Visual Studio에서 **파일 > 새 프로젝트**를 선택한 다음 Visual C# 템플릿 목록에서 **Windows > 콘솔 응용 프로그램**을 선택합니다.
-2. 콘솔 응용 프로그램 이름을 지정한 다음 **확인**을 클릭합니다.
-3. 프로젝트가 만들어지면 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다. 온라인에서 "WindowsAzure.Storage"를 검색하고 **설치**를 클릭하여 Azure 저장소 패키지와 종속성을 설치합니다.
-
-### 저장소 계정 자격 증명을 app.config 파일에 저장
-
-다음에는 프로젝트의 app.config 파일에 자격 증명을 저장합니다. 다음과 비슷하게 app.config 파일을 편집합니다. 여기서는 `myaccount`을(를) 저장소 계정 이름으로 바꾸고 `mykey`을(를) 저장소 계정 키로 바꿉니다.
-
-	<?xml version="1.0" encoding="utf-8" ?>
-	<configuration>
-	    <startup>
-	        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
-	    </startup>
-	    <appSettings>
-	        <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=StorageAccountKeyEndingIn==" />
-	    </appSettings>
-	</configuration>
+[AZURE.INCLUDE [storage-dotnet-save-connection-string-include](../../includes/storage-dotnet-save-connection-string-include.md)]
 
 > [AZURE.NOTE] 최신 버전의 Azure 저장소 에뮬레이터는 파일 저장소를 지원하지 않습니다. 연결 문자열은 파일 저장소를 다룰 Azure 저장소 계정을 대상으로 해야 합니다.
 
@@ -285,8 +267,8 @@ Visual Studio에서 새 콘솔 응용 프로그램을 만들고 Azure 저장소 
 
 솔루션 탐색기에서 program.cs 파일을 열고 파일 맨 위에 다음 네임스페이스 선언을 추가합니다.
 
-	using Microsoft.WindowsAzure;
-	using Microsoft.WindowsAzure.Storage;
+	using Microsoft.Azure; // Namespace for Azure Configuration Manager
+	using Microsoft.WindowsAzure.Storage; // Namespaces for Storage Client Library
 	using Microsoft.WindowsAzure.Storage.Blob;
 	using Microsoft.WindowsAzure.Storage.File;
 
@@ -419,13 +401,13 @@ Azure 저장소 클라이언트 라이브러리 버전 5.x부터 파일 공유 �
         Console.WriteLine(fileSas.DownloadText());
     }
 
-공유 액세스 서명 생성 및 사용에 대한 자세한 내용은 [공유 액세스 서명: SAS 모델 이해](storage-dotnet-shared-access-signature-part-1.md) 및 [Blob 저장소를 통해 SAS 생성 및 사용](storage-dotnet-shared-access-signature-part-2.md)을 참조하세요.
+공유 액세스 서명을 생성하고 사용하는 자세한 내용은 [공유 액세스 서명: SAS 모델 이해](storage-dotnet-shared-access-signature-part-1.md) 및 [Blob 저장소로 SAS 생성 및 사용](storage-dotnet-shared-access-signature-part-2.md)을 참조하세요.
 
 ### 파일 복사
 
 Azure 저장소 클라이언트 라이브러리 버전 5.x부터 파일을 다른 파일로, 파일을 blob으로 또는 blob을 파일로 복사할 수 있습니다. 다음 섹션에는 이러한 복사 작업을 프로그래밍 방식으로 수행하는 방법이 나와 있습니다.
 
-AzCopy를 사용하여 파일을 다른 파일로 복사하거나 blob을 파일로 복사할 수도 있고 그 반대로 복사할 수도 있습니다. [AzCopy를 사용하여 Azure 파일 저장소에 파일 복사](storage-use-azcopy.md#copy-files-in-azure-file-storage-with-azcopy)를 참조하세요.
+AzCopy를 사용하여 파일을 다른 파일로 복사하거나 blob을 파일로 복사할 수도 있고 그 반대로 복사할 수도 있습니다. [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)을 참조하세요.
 
 > [AZURE.NOTE] blob을 파일에 복사하거나 파일을 blob에 복사하는 경우 두 항목이 동일한 저장소 계정 내에 있더라도 SAS(공유 액세스 서명)를 사용하여 원본 개체를 인증해야 합니다.
 
@@ -528,6 +510,55 @@ AzCopy를 사용하여 파일을 다른 파일로 복사하거나 blob을 파일
 
 [Azure 포털](https://portal.azure.com)에서 파일 저장소에 대한 메트릭을 사용하도록 설정할 수 있습니다. 또한 REST API 또는 저장소 클라이언트 라이브러리의 유사한 기능 중 하나를 통해 파일 서비스 설정 속성을 호출하여 프로그래밍 방식으로 메트릭을 사용하도록 설정할 수도 있습니다.
 
+다음 코드 예제에서는 .NET용 저장소 클라이언트 라이브러리를 사용하여 파일 저장소에 대한 메트릭을 사용하도록 설정하는 방법을 보여줍니다.
+
+먼저 위에서 추가한 항목 이외에 다음 `using` 문을 program.cs 파일에 추가합니다.
+
+	using Microsoft.WindowsAzure.Storage.File.Protocol;
+	using Microsoft.WindowsAzure.Storage.Shared.Protocol;
+
+Blob, 테이블 및 큐 저장소가 `Microsoft.WindowsAzure.Storage.Shared.Protocol` 네임스페이스에서 공유 `ServiceProperties` 형식을 사용하는 반면 파일 저장소는 `Microsoft.WindowsAzure.Storage.File.Protocol` 네임스페이스에서 고유한 `FileServiceProperties`형식을 사용합니다. 그러나 두 네임스페이스는 컴파일할 다음 코드의 경우 코드에서 참조되어야 합니다.
+
+    // Parse your storage connection string from your application's configuration file.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+            Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+    // Create the File service client.
+    CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
+
+    // Set metrics properties for File service.
+    // Note that the File service currently uses its own service properties type,
+    // available in the Microsoft.WindowsAzure.Storage.File.Protocol namespace.
+    fileClient.SetServiceProperties(new FileServiceProperties()
+    {
+        // Set hour metrics
+        HourMetrics = new MetricsProperties()
+        {
+            MetricsLevel = MetricsLevel.ServiceAndApi,
+            RetentionDays = 14,
+            Version = "1.0"
+        },
+        // Set minute metrics
+        MinuteMetrics = new MetricsProperties()
+        {
+            MetricsLevel = MetricsLevel.ServiceAndApi,
+            RetentionDays = 7,
+            Version = "1.0"
+        }
+    });
+
+    // Read the metrics properties we just set.
+    FileServiceProperties serviceProperties = fileClient.GetServiceProperties();
+    Console.WriteLine("Hour metrics:");
+    Console.WriteLine(serviceProperties.HourMetrics.MetricsLevel);
+    Console.WriteLine(serviceProperties.HourMetrics.RetentionDays);
+    Console.WriteLine(serviceProperties.HourMetrics.Version);
+    Console.WriteLine();
+    Console.WriteLine("Minute metrics:");
+    Console.WriteLine(serviceProperties.MinuteMetrics.MetricsLevel);
+    Console.WriteLine(serviceProperties.MinuteMetrics.RetentionDays);
+    Console.WriteLine(serviceProperties.MinuteMetrics.Version);
+
+
 ## 파일 저장소 FAQ
 
 1. **파일 저장소에서 Active Directory 기반 인증을 지원합니까?** 
@@ -615,4 +646,4 @@ Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합�
 - [Microsoft Azure 파일 서비스 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Microsoft Azure 파일에 대한 연결 유지](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!----HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

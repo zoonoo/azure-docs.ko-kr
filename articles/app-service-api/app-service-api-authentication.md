@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/21/2016"
+	ms.date="03/04/2016"
 	ms.author="tdykstra"/>
 
 # Azure 앱 서비스의 API 앱에 대한 인증 및 권한 부여
@@ -85,7 +85,7 @@ Azure 앱 서비스는 [OAuth 2.0](#oauth) 및 [OpenID Connect](#oauth)를 구�
 
 앱 서비스 논리 앱에서 API 앱으로 서비스 계정 인증은 [논리 앱으로 앱 서비스에서 호스팅되는 사용자 지정 API 사용](../app-service-logic/app-service-logic-custom-hosted-api.md)에 설명된 특수 사례입니다.
 
-## 클라이언트 인증
+## 모바일 클라이언트 인증
 
 모바일 클라이언트에서 인증을 처리하는 방법에 대한 내용은 [모바일 앱 인증에 대한 설명서](../app-service-mobile/app-service-mobile-ios-get-started-users.md)를 참조하세요. 앱 서비스 인증은 모바일 앱 및 API 앱에서 동일한 방식으로 작동합니다.
   
@@ -102,7 +102,7 @@ OAuth 2.0, OpenID Connect 및 JSON 웹 토큰(JWT)에 대한 자세한 내용은
 * [OAuth2, OpenID Connect 및 JSON 웹 토큰(JWT) 소개 - PluralSight 코스](http://www.pluralsight.com/courses/oauth2-json-web-tokens-openid-connect-introduction) 
 * [ASP.NET에서 여러 클라이언트를 위한 RESTful API 구축 및 보호 - PluralSight 코스](http://www.pluralsight.com/courses/building-securing-restful-api-aspdotnet)
 
-Azure Active Directory를 사용한 인증에 대한 자세한 내용은 다음 리소스를 참조하세요.
+Azure Active Directory에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
 * [Azure AD 시나리오](http://aka.ms/aadscenarios)
 * [Azure AD 개발자 가이드](http://aka.ms/aaddev)
@@ -110,6 +110,6 @@ Azure Active Directory를 사용한 인증에 대한 자세한 내용은 다음 
 
 ## 다음 단계
 
-이 문서에서는 API 앱에 사용할 수 있는 앱 서비스의 인증 및 권한 부여 기능을 설명했습니다. 다음 자습서에서는 [웹 서비스 API 앱의 사용자 인증](app-service-api-dotnet-user-principal-auth.md)을 구현하는 방법을 배우게 됩니다.
+이 문서에서는 API 앱에 사용할 수 있는 앱 서비스의 인증 및 권한 부여 기능을 설명했습니다. 시작 시리즈의 다음 자습서는 [앱 서비스 API 앱의 사용자 인증](app-service-api-dotnet-user-principal-auth.md)을 구현하는 방법을 보여 줍니다.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

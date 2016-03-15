@@ -14,7 +14,7 @@
   ms.topic="get-started-article"
   ms.tgt_pltfrm="na"
   ms.workload="na"
-  ms.date="11/17/2015"
+  ms.date="03/02/2016"
   ms.author="araguila"/>
    
 # IoT Suite에 대한 질문과 대답
@@ -43,4 +43,4 @@ Eric Golpe의 블로그 게시물 [Azure AD 테넌트 삭제 연습(영문)][lnk
 [lnk-classic-portal]: https://manage.windowsazure.com
 [lnk-delete-aad-tennant]: http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

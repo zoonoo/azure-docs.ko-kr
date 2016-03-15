@@ -358,7 +358,7 @@ PowerShell에 익숙한 경우 빼기 기호(-)를 입력하고 TAB 키를 눌�
     (Type !? for Help.)
     administratorLoginPassword: ********
 
-템플릿에 템플릿을 배포하는 명령의 매개 변수 중 하나와 일치하는 이름을 가진 매개 변수를 포함하는 경우(예: 템플릿에 [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx) cmdlet의 **ResourceGroupName** 매개 변수와 동일한 **ResourceGroupName**이라는 매개 변수 포함) **FromTemplate** 후위가 있는 매개 변수(예: **ResourceGroupNameFromTemplate**)에 대한 값을 제공하라는 메시지가 표시됩니다. 일반적으로 배포 작업에 사용되는 매개 변수와 동일한 이름을 가진 매개 변수를 명명하지 않음으로써 이러한 혼동이 발생하지 않도록 해야 합니다.
+템플릿이 해당 템플릿을 배포하는 명령의 매개 변수 중 하나와 일치하는 이름을 가진 매개 변수를 포함하는 경우(예: [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx) cmdlet의 **ResourceGroupName** 매개 변수와 동일한 **ResourceGroupName**이라는 매개 변수를 템플릿에 포함) **FromTemplate** 후위가 있는 매개 변수(예: **ResourceGroupNameFromTemplate**)에 대한 값을 제공하라는 메시지가 표시됩니다. 일반적으로 배포 작업에 사용되는 매개 변수와 동일한 이름을 가진 매개 변수를 명명하지 않음으로써 이러한 혼동이 발생하지 않도록 해야 합니다.
 
 명령이 실행되고 리소스가 만들어질 때 메시지를 반환합니다. 결국 배포 결과를 표시합니다.
 
@@ -397,7 +397,7 @@ PowerShell에 익숙한 경우 빼기 기호(-)를 입력하고 TAB 키를 눌�
 		
 		...
 
-      특정 리소스 그룹만 가져오려면 **Name** 매개 변수를 제공합니다.
+      특정 리소스 그룹을 가져오려면 **이름** 매개 변수를 제공합니다.
       
           PS C:\> Get-AzureRmResourceGroup -Name TestRG1
 
@@ -416,7 +416,7 @@ PowerShell에 익숙한 경우 빼기 기호(-)를 입력하고 TAB 키를 눌�
                 
         ...
 	        
-- 위의 템플릿에는 하나의 리소스에 대한 태그가 포함됩니다. 태그를 사용하여 구독에서 리소스를 논리적으로 구성할 수 있습니다. **Find-AzureRmResource** 및 **Find-AzureRmResourceGroup** 명령을 사용하여 태그별로 리소스를 쿼리할 수 있습니다.
+- 위의 템플릿에는 하나의 리소스에 대한 태그가 포함됩니다. 태그를 사용하여 구독에서 리소스를 논리적으로 구성할 수 있습니다. **Find-AzureRmResource** 및 **Find-AzureRmResourceGroup** 명령을 사용하여 태그별로 리소스를 쿼리합니다.
 
         PS C:\> Find-AzureRmResource -TagName team
 
@@ -442,7 +442,7 @@ PowerShell에 익숙한 경우 빼기 기호(-)를 입력하고 TAB 키를 눌�
 
 - 리소스 그룹에서 리소스를 삭제하려면 **Remove-AzureRmResource** cmdlet를 사용합니다. 이 cmdlet은 리소스를 삭제하지만 리소스 그룹은 삭제하지 않습니다.
 
-	이 명령은 TestRG 리소스 그룹에서 TestSite 웹 사이트를 제거합니다.
+	이 명령은 TestRG1 리소스 그룹에서 TestSite 웹 사이트를 제거합니다.
 
 		Remove-AzureRmResource -Name TestSite -ResourceGroupName TestRG1 -ResourceType "Microsoft.Web/sites" -ApiVersion 2015-08-01
 
@@ -463,4 +463,4 @@ PowerShell에 익숙한 경우 빼기 기호(-)를 입력하고 TAB 키를 눌�
 - 프로젝트 배포의 자세한 예제를 보려면 [Azure에서 예측 가능한 방식으로 microservices 배포](app-service-web/app-service-deploy-complex-application-predictably.md)를 참조하세요.
 - 실패한 배포 문제 해결에 대해 알아보려면 [Azure에서 리소스 그룹 배포 문제 해결](./virtual-machines/resource-group-deploy-debug.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -233,6 +233,10 @@ Visual Studio Enterprise 또는 Ultimate를 사용하여 웹 세션을 기록합
 
 서비스에 대한 유지 관리를 수행하는 동안 웹 테스트를 사용하지 않도록 설정할 수 있습니다.
 
+## 자동화
+
+[PowerShell 스크립트를 사용하여 웹 테스트를 자동으로 설정](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)할 수 있습니다.
+
 ## 질문이 있으십니까? 문제가 있습니까?
 
 * *웹 테스트에서 코드를 호출할 수 있나요?*
@@ -389,4 +393,4 @@ Visual Studio Enterprise 또는 Ultimate를 사용하여 웹 세션을 기록합
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!----HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

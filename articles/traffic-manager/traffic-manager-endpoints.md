@@ -12,18 +12,18 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="03/03/2016"
    ms.author="joaoma" />
 
 # 끝점 추가, 사용 안 함, 사용 또는 삭제
 
 Azure 앱 서비스의 웹앱은 웹 사이트 모드에 관계없이 데이터 센터 내의 웹 사이트에 대해 이미 장애 조치(Failover) 및 라운드 로빈 트래픽 라우팅 기능을 제공합니다. Azure 트래픽 관리자를 통해 다른 데이터 센터의 웹 사이트와 클라우드 서비스에 대해 장애 조치(Failover) 및 라운드 로빈 트래픽 라우팅을 지정할 수 있습니다. 해당 기능을 제공하는 데 필요한 첫 번째 단계는 트래픽 관리자에 클라우드 서비스 또는 웹 사이트 끝점을 추가하는 것입니다.
 
->[AZURE.NOTE]Azure 클래식 포털을 사용하여 외부 위치나 트래픽 관리자 프로필을 끝점으로 추가할 수 없습니다. REST API [정의 만들기](http://go.microsoft.com/fwlink/p/?LinkId=400772) 또는 Windows PowerShell [Add-AzureTrafficManagerEndpoint](http://go.microsoft.com/fwlink/p/?LinkId=400774)를 사용해야 합니다.
+>[AZURE.NOTE] Azure 클래식 포털을 사용하여 외부 위치나 트래픽 관리자 프로필을 끝점으로 추가할 수 없습니다. REST API [정의 만들기](http://go.microsoft.com/fwlink/p/?LinkId=400772) 또는 Windows PowerShell [Add-AzureTrafficManagerEndpoint](http://go.microsoft.com/fwlink/p/?LinkId=400774)를 사용해야 합니다.
 
 트래픽 관리자 프로필의 일부인 개별 끝점을 사용하지 않도록 설정할 수도 있습니다. 끝점에는 클라우드 서비스와 웹 사이트가 둘 다 포함됩니다. 끝점을 사용하지 않도록 설정하는 경우 프로필의 일부로 유지되지만 끝점이 없는 것처럼 프로필이 작동합니다. 이 작업은 유지 관리 모드이거나 다시 배포할 예정인 끝점을 일시적으로 제거하는 데 매우 유용합니다. 끝점이 다시 작동하여 실행되면 사용하도록 설정할 수 있습니다.
 
->[AZURE.NOTE]끝점을 사용하지 않도록 설정하는 경우 Azure의 끝점 배포 상태에는 영향을 주지 않습니다. 정상 끝점은 실행 상태로 유지되며 트래픽 관리자에서 사용하지 않도록 설정된 경우에도 트래픽을 수신할 수 있습니다. 또한 한 프로필에서 끝점을 사용하지 않도록 설정해도 다른 프로필의 해당 끝점 상태에는 영향을 주지 않습니다.
+>[AZURE.NOTE] 끝점을 사용하지 않도록 설정하는 경우 Azure의 끝점 배포 상태에는 영향을 주지 않습니다. 정상 끝점은 실행 상태로 유지되며 트래픽 관리자에서 사용하지 않도록 설정된 경우에도 트래픽을 수신할 수 있습니다. 또한 한 프로필에서 끝점을 사용하지 않도록 설정해도 다른 프로필의 해당 끝점 상태에는 영향을 주지 않습니다.
 
 ## 클라우드 서비스 또는 웹 사이트 끝점을 추가하려면
 
@@ -36,7 +36,7 @@ Azure 앱 서비스의 웹앱은 웹 사이트 모드에 관계없이 데이터 
 6. 목록에서 웹 사이트를 선택하여 이 프로필에 대한 끝점으로 추가합니다. 웹 사이트 이름을 지우면 끝점 목록에서 제거됩니다. Azure 데이터 센터(지역이라고도 함)당 하나의 웹 사이트만 선택할 수 있습니다. 여러 웹 사이트를 호스트하는 데이터 센터에서 웹 사이트를 선택하는 경우 첫 번째 웹 사이트를 선택하면 동일한 데이터 센터의 다른 웹 사이트는 선택할 수 없게 됩니다. 또한 표준 웹 사이트만 나열됩니다.
 7. 이 프로필에 대한 끝점을 선택한 후 오른쪽 아래에 있는 확인 표시를 클릭하여 변경 내용을 저장합니다.
 
->[AZURE.NOTE]*장애 조치(Failover)* 트래픽 라우팅 방법을 사용하는 경우 끝점을 추가하거나 제거한 후 구성에 사용할 장애 조치(Failover) 순서를 반영하도록 구성 페이지의 장애 조치(Failover) 우선 순위 목록을 조정해야 합니다. 자세한 내용은 [장애 조치(Failover) 트래픽 라우팅 구성](traffic-manager-configure-failover-load-balancing.md)을 참조하세요.
+>[AZURE.NOTE] *장애 조치(Failover)* 트래픽 라우팅 방법을 사용하는 경우 끝점을 추가하거나 제거한 후 구성에 사용할 장애 조치(Failover) 순서를 반영하도록 구성 페이지의 장애 조치(Failover) 우선 순위 목록을 조정해야 합니다. 자세한 내용은 [장애 조치(Failover) 트래픽 라우팅 구성](traffic-manager-configure-failover-routing-method.md)을 참조하세요.
 
 ## 끝점을 사용하지 않도록 설정하려면
 
@@ -60,7 +60,7 @@ Azure 앱 서비스의 웹앱은 웹 사이트 모드에 관계없이 데이터 
 3. 끝점 페이지에서, 프로필에서 삭제할 끝점의 이름을 클릭합니다.
 4. 페이지 맨 아래에서 **삭제**를 클릭합니다.
 
->[AZURE.NOTE]Azure 클래식 포털을 사용하여 외부 위치나 트래픽 관리자 프로필을 끝점으로 삭제할 수 없습니다. Windows PowerShell을 사용해야 합니다. 자세한 내용은 [Remove-AzureTrafficManagerEndpoint](https://msdn.microsoft.com/library/dn690251.aspx)를 참조하세요.
+>[AZURE.NOTE] Azure 클래식 포털을 사용하여 외부 위치나 트래픽 관리자 프로필을 끝점으로 삭제할 수 없습니다. Windows PowerShell을 사용해야 합니다. 자세한 내용은 [Remove-AzureTrafficManagerEndpoint](https://msdn.microsoft.com/library/dn690251.aspx)를 참조하세요.
 
 ## 다음 단계
 
@@ -75,4 +75,4 @@ Azure 앱 서비스의 웹앱은 웹 사이트 모드에 관계없이 데이터 
 
 [트래픽 관리자 작업(REST API 참조)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

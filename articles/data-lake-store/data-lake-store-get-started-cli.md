@@ -1,29 +1,29 @@
-<properties 
+<properties
    pageTitle="플랫폼 간 명령줄을 사용하여 데이터 레이크 저장소 시작 | Microsoft Azure"
-   description="Azure 플랫폼 간 명령줄을 사용하여 데이터 레이크 저장소 계정을 만들고 기본 작업을 수행합니다." 
-   services="data-lake-store" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="paulettm" 
+   description="Azure 플랫폼 간 명령줄을 사용하여 데이터 레이크 저장소 계정을 만들고 기본 작업을 수행합니다."
+   services="data-lake-store"
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
    editor="cgronlun"/>
- 
+
 <tags
    ms.service="data-lake-store"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
+   ms.workload="big-data"
    ms.date="01/04/2016"
    ms.author="nitinme"/>
 
 # Azure 명령줄을 사용하여 Azure 데이터 레이크 저장소 시작
 
 > [AZURE.SELECTOR]
-- [Using Portal](data-lake-store-get-started-portal.md)
-- [Using PowerShell](data-lake-store-get-started-powershell.md)
-- [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
-- [Using Azure CLI](data-lake-store-get-started-cli.md)
-- [Using Node.js](data-lake-store-manage-use-nodejs.md)
+- [포털 사용](data-lake-store-get-started-portal.md)
+- [PowerShell 사용](data-lake-store-get-started-powershell.md)
+- [.NET SDK 사용](data-lake-store-get-started-net-sdk.md)
+- [Azure CLI 사용](data-lake-store-get-started-cli.md)
+- [Node.js 사용](data-lake-store-manage-use-nodejs.md)
 
 Azure 명령줄 인터페이스를 사용하여 Azure 데이터 레이크 저장소 계정을 만들고 폴더 만들기, 데이터 파일 업로드 및 다운로드, 계정 삭제 등의 기본 작업을 수행하는 방법에 대해 알아봅니다. 데이터 레이크 저장소에 대한 자세한 내용은 [데이터 레이크 저장소 개요](data-lake-store-overview.md)를 참조하세요.
 
@@ -35,12 +35,12 @@ Azure CLI는 Node.js로 구현되며 Windows, Mac, Linux를 포함하여 Node.js
 이 문서를 시작하기 전에 다음이 있어야 합니다.
 
 - **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-- 데이터 레이크 저장소 공개 미리 보기를 위해 **Azure 구독을 사용하도록 설정합니다**. [지침](data-lake-store-get-started-portal.md#signup)을 참조하세요. 
+- 데이터 레이크 저장소 공개 미리 보기를 위해 **Azure 구독을 사용하도록 설정합니다**. [지침](data-lake-store-get-started-portal.md#signup)을 참조하세요.
 - **Azure CLI** - 설치 및 구성 정보는 [Azure CLI 설치 및 구성](../xplat-cli-install.md)을 참조하세요. CLI를 설치한 후 컴퓨터를 다시 부팅해야 합니다.
 
 ##Azure 구독에 로그인
 
-[Azure CLI(Azure 명령줄 인터페이스)에서 Azure 구독에 연결](xplat-cli-connect.md)에서 설명된 단계를 따라 __로그인__ 방법을 사용하여 구독에 연결합니다.
+[Azure CLI(Azure 명령줄 인터페이스)에서 Azure 구독에 연결](../xplat-cli-connect.md)에서 설명된 단계를 따라 __로그인__ 방법을 사용하여 구독에 연결합니다.
 
 
 ## Azure 데이터 레이크 저장소 계정 만들기
@@ -146,12 +146,12 @@ Azure 데이터 레이크 저장소 계정에서 폴더를 만들어 데이터�
 
 * **파일을 삭제하려면** 다음 명령을 사용합니다.
 
-		azure datalake store filesystem delete <dataLakeStoreAccountName> <path> 
+		azure datalake store filesystem delete <dataLakeStoreAccountName> <path>
 
 	예:
 
 		azure datalake store filesystem delete mynewdatalakestore /mynewfolder/vehicle1_09142014_copy.csv
-	
+
 	메시지가 표시되면 **Y**를 입력하여 항목을 삭제합니다.
 
 ## 데이터 레이크 저장소의 폴더에 대한 액세스 제어 목록 보기
@@ -187,10 +187,10 @@ Azure 데이터 레이크 저장소 계정에서 폴더를 만들어 데이터�
 ## 다음 단계
 
 - [데이터 레이크 저장소의 데이터 보호](data-lake-store-secure-data.md)
-- [Azure 데이터 레이크 분석에 데이터 레이크 저장소 사용](data-lake-analytics-get-started-portal.md)
+- [Azure 데이터 레이크 분석에 데이터 레이크 저장소 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Azure HDInsight에 데이터 레이크 저장소 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 
 
 [azure-command-line-tools]: ../xplat-cli-install.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

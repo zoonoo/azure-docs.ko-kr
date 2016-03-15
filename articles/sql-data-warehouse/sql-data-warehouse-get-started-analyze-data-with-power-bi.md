@@ -13,15 +13,15 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Power BI를 사용하여 데이터 시각화
 
 이 자습서에서는 Power BI를 사용하여 SQL 데이터 웨어하우스에 연결하고 몇 가지 기본적인 시각화를 만드는 방법을 보여줍니다.
 
-> [AZURE.NOTE]이 자습서를 완료하려면 AdventureWorksDW 예제 데이터베이스가 미리 로그된 SQL 데이터 웨어하우스 데이터베이스가 필요합니다. [SQL 데이터 웨어하우스 만들기](sql-data-warehouse-get-started-provision.md)는 만드는 방법을 보여줍니다.
-> 
+> [AZURE.NOTE] 이 자습서를 완료하려면 AdventureWorksDW 예제 데이터베이스가 미리 로그된 SQL 데이터 웨어하우스 데이터베이스가 필요합니다. [SQL 데이터 웨어하우스 만들기](sql-data-warehouse-get-started-provision.md)는 만드는 방법을 보여줍니다.
+>
 > SQL 데이터 웨어하우스 데이터베이스는 있지만 샘플 데이터가 없는 경우 [샘플 데이터를 수동으로 로드][]할 수 있습니다.
 
 > [AZURE.VIDEO azure-sql-data-warehouse-sample-data-and-powerbi]
@@ -31,7 +31,7 @@
 Power BI를 열고 AdventureWorksDW 데이터베이스에 연결하려면
 
 1. [Azure 포털][]에 로그인합니다.
-2. **SQL 데이터베이스**를 클릭하고 AdventureWorks SQL 데이터 웨어하우스 데이터베이스를 선택합니다. 
+2. **SQL 데이터베이스**를 클릭하고 AdventureWorks SQL 데이터 웨어하우스 데이터베이스를 선택합니다.
 
     ![데이터베이스 찾기][1]
 
@@ -57,7 +57,7 @@ Power BI를 열고 AdventureWorksDW 데이터베이스에 연결하려면
 
 이제 Power BI를 사용하여 AdventureWorksDW 샘플 데이터를 분석할 준비가 되었습니다. 분석을 수행하기 위해 AdventureWorksDW에는 AggregateSales라는 뷰가 포함되어 있습니다. 이 뷰는 회사의 판매를 분석하기 위한 주요 메트릭 중 일부를 포함합니다.
 
-1. 우편 번호에 따라 판매액 지도를 만들려면 오른쪽 필드 창에서 AggregateSales 뷰를 클릭하여 확장합니다. PostalCode 및 SalesAmount 열을 클릭하여 선택합니다. 
+1. 우편 번호에 따라 판매액 지도를 만들려면 오른쪽 필드 창에서 AggregateSales 뷰를 클릭하여 확장합니다. PostalCode 및 SalesAmount 열을 클릭하여 선택합니다.
 
     ![Power BI AggregateSales 선택][6]
 
@@ -66,7 +66,7 @@ Power BI를 열고 AdventureWorksDW 데이터베이스에 연결하려면
     ![Power BI 맵][7]
 
 2. 이 단계에서는 고객 수익당 매출액을 보여주는 막대 그래프를 만듭니다. 이 그래프를 만들려면 확장된 AggregateSales 보기로 이동합니다. SalesAmount 필드를 클릭합니다. 고객 수익 필드를 왼쪽으로 끌어 축에 놓습니다.
-    
+
     ![Power BI 축 선택][8]
 
     가로 막대형 차트를 왼쪽으로 이동했습니다.
@@ -110,4 +110,4 @@ Power BI를 열고 AdventureWorksDW 데이터베이스에 연결하려면
 [connecting to SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
 [Create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->
