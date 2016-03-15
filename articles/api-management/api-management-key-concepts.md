@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -12,8 +12,8 @@
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.topic="hero-article" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 #API 관리란?
@@ -26,7 +26,7 @@ API 관리를 사용하려면 관리자가 API를 만듭니다. 각 API는 하�
 
 이 항목에서는 API 관리의 주요 개념을 간략하게 설명합니다.
 
->[AZURE.NOTE]자세한 내용은 [클라우드 기반 API 관리: API 기능을 활용](http://j.mp/ms-apim-whitepaper) PDF 백서를 참조하세요. CITO Research의 API 관리에 대한 이 소개 백서는 다음을 설명합니다.
+>[AZURE.NOTE] 자세한 내용은 [클라우드 기반 API 관리: API 기능을 활용](http://j.mp/ms-apim-whitepaper) PDF 백서를 참조하세요. CITO Research의 API 관리에 대한 이 소개 백서는 다음을 설명합니다.
 >
 > - 공통 API 요구 사항 및 특징
 >     - API 분리 및 외관 제공
@@ -114,4 +114,4 @@ API 관리 정책의 전체 목록을 보려면 [정책 참조][](영문)를 참
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!----HONumber=AcomDC_0309_2016-->

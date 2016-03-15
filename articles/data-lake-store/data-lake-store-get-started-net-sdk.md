@@ -1,19 +1,19 @@
-<properties 
-   pageTitle="데이터 레이크 저장소 .NET SDK를 사용하여 응용 프로그램 개발 | Azure" 
-   description="Azure 데이터 레이크 저장소 .NET SDK를 사용하여 응용 프로그램 개발" 
-   services="data-lake-store" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="paulettm" 
+<properties
+   pageTitle="데이터 레이크 저장소 .NET SDK를 사용하여 응용 프로그램 개발 | Azure"
+   description="Azure 데이터 레이크 저장소 .NET SDK를 사용하여 응용 프로그램 개발"
+   services="data-lake-store"
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
    editor="cgronlun"/>
- 
+
 <tags
    ms.service="data-lake-store"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
-   ms.date="02/29/2016"
+   ms.workload="big-data"
+   ms.date="03/07/2016"
    ms.author="nitinme"/>
 
 # .NET SDK를 사용하여 Azure 데이터 레이크 저장소 시작
@@ -69,13 +69,13 @@ Azure 데이터 레이크 저장소 .NET SDK를 사용하여 Azure 데이터 레
 	1. 솔루션 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭합니다.
 	2. **Nuget 패키지 관리자** 탭에서 **패키지 원본**이 **nuget.org**로 설정되어 있고 **Include Prerelease**(시험판 포함) 확인란이 선택되어 있는지 확인합니다.
 	3. 다음 데이터 레이크 저장소 패키지를 검색하고 설치합니다.
-	
+
 		* `Microsoft.Azure.Management.DataLake.Store`
 		* `Microsoft.Azure.Management.DataLake.StoreUploader`
 
 		![Nuget 원본 추가](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "새 Azure 데이터 레이크 계정 만들기")
 
-	4. 또한 Azure Active Directory 인증에 대한 `Microsoft.IdentityModel.Clients.ActiveDirectory` 패키지를 설치합니다.
+	4. 또한 Azure Active Directory 인증에 대한 `Microsoft.IdentityModel.Clients.ActiveDirectory` 패키지를 설치합니다. 이 패키지의 안정적인 버전을 설치하도록 **시험판 포함** 확인란을 *선택 취소*합니다.
 
 		![Nuget 원본 추가](./media/data-lake-store-get-started-net-sdk/adl.install.azure.auth.png "새 Azure 데이터 레이크 계정 만들기")
 
@@ -85,7 +85,7 @@ Azure 데이터 레이크 저장소 .NET SDK를 사용하여 Azure 데이터 레
 7. **Program.cs**를 열고 기존 코드 블록을 다음 코드로 바꿉니다. 또한 **\_adlsAccountName**, **\_resourceGroupName** 등의 코드 조각에서 호출되는 매개 변수의 값을 제공하고 **APPLICATION-CLIENT-ID**, **APPLICATION-REPLY-URI** 및 **SUBSCRIPTION-ID**의 자리 표시자를 바꿉니다.
 
 	이 코드는 데이터 레이크 저장소 계정 만들기, 저장소에서 폴더 만들기, 파일 업로드, 파일 다운로드, 마지막으로 계정을 삭제하는 프로세스를 진행합니다. 업로드할 일부 샘플 데이터를 찾는 경우 [Azure 데이터 레이크 Git 리포지토리](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData)의 **Ambulance Data** 폴더에 있을 수 있습니다.
-	
+
         using System;
         using System.IO;
         using System.Security;
@@ -115,16 +115,16 @@ Azure 데이터 레이크 저장소 .NET SDK를 사용하여 Azure 데이터 레
                     _adlsAccountName = "<DATA-LAKE-STORE-NAME>"; // TODO: Replace this value with the name for a NEW Store account.
                     _resourceGroupName = "<RESOURCE-GROUP-NAME>"; // TODO: Replace this value. This resource group should already exist.
                     _location = "East US 2";
-                    
+
                     string localFolderPath = @"C:\local_path"; // TODO: Make sure this exists and can be overwritten.
                     string localFilePath = @"C:\local_path\file.txt"; // TODO: Make sure this exists and can be overwritten.
                     string remoteFolderPath = "/data_lake_path/";
                     string remoteFilePath = remoteFolderPath + "file.txt";
-                    
+
                     // Authenticate the user
                     var tokenCreds = AuthenticateUser("common", "https://management.core.windows.net/",
                         "<APPLICATION-CLIENT-ID>", new Uri("https://<APPLICATION-REPLY-URI>")); // TODO: Replace bracketed values.
-                    
+
                     SetupClients(tokenCreds, "<SUBSCRIPTION-ID>"); // TODO: Replace bracketed value.
 
                     // Run sample scenarios
@@ -185,7 +185,7 @@ Azure 데이터 레이크 저장소 .NET SDK를 사용하여 Azure 데이터 레
 
                 // Authenticate the user with AAD through an interactive popup.
                 // You need to have an application registered with AAD in order to authenticate.
-                //   For more information and instructions on how to register your application with AAD, see: 
+                //   For more information and instructions on how to register your application with AAD, see:
                 //   https://azure.microsoft.com/ko-KR/documentation/articles/resource-group-create-service-principal-portal/
                 public static TokenCredentials AuthenticateUser(string tenantId, string resource, string appClientId, Uri appRedirectUri, string userId = "")
                 {
@@ -199,7 +199,7 @@ Azure 데이터 레이크 저장소 .NET SDK를 사용하여 Azure 데이터 레
 
                 // Authenticate the application with AAD through the application's secret key.
                 // You need to have an application registered with AAD in order to authenticate.
-                //   For more information and instructions on how to register your application with AAD, see: 
+                //   For more information and instructions on how to register your application with AAD, see:
                 //   https://azure.microsoft.com/ko-KR/documentation/articles/resource-group-create-service-principal-portal/
                 public static TokenCredentials AuthenticateApplication(string tenantId, string resource, string appClientId, Uri appRedirectUri, SecureString clientSecret)
                 {
@@ -240,7 +240,7 @@ Azure 데이터 레이크 저장소 .NET SDK를 사용하여 Azure 데이터 레
                 {
                     var response = _adlsClient.Account.List(_adlsAccountName);
                     var accounts = new List<DataLakeStoreAccount>(response);
-                    
+
                     while (response.NextPageLink != null)
                     {
                         response = _adlsClient.Account.ListNext(response.NextPageLink);
@@ -320,4 +320,4 @@ Azure 데이터 레이크 저장소 .NET SDK를 사용하여 Azure 데이터 레
 - [Azure 데이터 레이크 분석에 데이터 레이크 저장소 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Azure HDInsight에 데이터 레이크 저장소 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!----HONumber=AcomDC_0309_2016-->

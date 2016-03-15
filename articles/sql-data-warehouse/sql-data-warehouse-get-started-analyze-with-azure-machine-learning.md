@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/25/2016"
+   ms.date="03/03/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # Azure 기계 학습을 사용하여 데이터 분석
@@ -29,16 +29,16 @@
 [SQL 데이터 웨어하우스에 만들기][]는 샘플 데이터로 데이터베이스를 프로비전하는 방법을 보여 줍니다. SQL 데이터 웨어하우스 데이터베이스는 있지만 샘플 데이터가 없는 경우 [샘플 데이터를 수동으로 로드][]할 수 있습니다.
 
 
-## 1단계: 데이터 가져오기 
+## 1단계: 데이터 가져오기
 AdventureWorksDW 데이터베이스의 dbo.vTargetMail 보기에서 데이터를 읽습니다.
 
 1. [Azure 기계 학습 스튜디오][]에 로그인하고 내 실험을 클릭합니다.
 2. **+새로 만들기**를 클릭하고 **빈 실험**을 선택합니다.
 3. 실험: 대상 마케팅에 대한 이름을 입력합니다.
 4. 모듈 창에서 **판독기** 모듈을 캔버스로 끌어서 놓습니다.
-5. 속성 창에서 SQL 데이터 웨어하우스 데이터베이스에 대한 세부 정보를 지정합니다. 
+5. 속성 창에서 SQL 데이터 웨어하우스 데이터베이스에 대한 세부 정보를 지정합니다.
 6. 관련 데이터를 읽을 데이터베이스 **쿼리**를 지정합니다.
-   
+
    ```
    SELECT [CustomerKey]
       ,[GeographyKey]
@@ -140,4 +140,4 @@ AdventureWorksDW 데이터베이스의 dbo.vTargetMail 보기에서 데이터를
 [샘플 데이터를 수동으로 로드]: sql-data-warehouse-get-started-manually-load-samples.md
 [SQL 데이터 웨어하우스에 만들기]: sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=AcomDC_0302_2016-->
+<!----HONumber=AcomDC_0309_2016-->

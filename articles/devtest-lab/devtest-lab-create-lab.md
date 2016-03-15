@@ -28,7 +28,7 @@ DevTest Lab을 만들려면 다음이 필요합니다.
 
 ## 랩 만들기
 
-1. [Azure Preview 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
 1. **찾아보기**를 탭합니다.
 
@@ -61,4 +61,4 @@ DevTest Lab을 만들려면 다음이 필요합니다.
 
 - [Azure DevTest Lab에 아티팩트를 사용하여 VM 추가](devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!----HONumber=AcomDC_0309_2016-->

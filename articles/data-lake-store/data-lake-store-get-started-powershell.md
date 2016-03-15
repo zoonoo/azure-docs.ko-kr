@@ -1,29 +1,29 @@
-<properties 
-   pageTitle="데이터 레이크 저장소 시작 | Azure" 
-   description="Azure PowerShell을 사용하여 데이터 레이크 저장소 계정을 만들고 기본 작업을 수행합니다." 
-   services="data-lake-store" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="paulettm" 
+<properties
+   pageTitle="데이터 레이크 저장소 시작 | Azure"
+   description="Azure PowerShell을 사용하여 데이터 레이크 저장소 계정을 만들고 기본 작업을 수행합니다."
+   services="data-lake-store"
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
    editor="cgronlun"/>
- 
+
 <tags
    ms.service="data-lake-store"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
+   ms.workload="big-data"
    ms.date="01/04/2016"
    ms.author="nitinme"/>
 
 # Azure PowerShell을 사용하여 Azure 데이터 레이크 저장소 시작
 
 > [AZURE.SELECTOR]
-- [Using Portal](data-lake-store-get-started-portal.md)
-- [Using PowerShell](data-lake-store-get-started-powershell.md)
-- [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
-- [Using Azure CLI](data-lake-store-get-started-cli.md)
-- [Using Node.js](data-lake-store-manage-use-nodejs.md)
+- [포털 사용](data-lake-store-get-started-portal.md)
+- [PowerShell 사용](data-lake-store-get-started-powershell.md)
+- [.NET SDK 사용](data-lake-store-get-started-net-sdk.md)
+- [Azure CLI 사용](data-lake-store-get-started-cli.md)
+- [Node.js 사용](data-lake-store-manage-use-nodejs.md)
 
 Azure PowerShell을 사용하여 Azure 데이터 레이크 저장소 계정을 만들고 폴더 만들기, 데이터 파일 업로드 및 다운로드, 계정 삭제 등의 기본 작업을 수행하는 방법에 대해 알아봅니다. 데이터 레이크 저장소에 대한 자세한 내용은 [데이터 레이크 저장소 개요](data-lake-store-overview.md)를 참조하세요.
 
@@ -37,7 +37,7 @@ Azure PowerShell을 사용하여 Azure 데이터 레이크 저장소 계정을 �
 
 ##Azure PowerShell 1.0 이상 설치
 
-[Azure 리소스 관리자로 Azure PowerShell 사용](powershell-azure-resource-manager.md#prerequisites)의 필수 조건 섹션을 참조하세요.
+[Azure 리소스 관리자로 Azure PowerShell 사용](../powershell-azure-resource-manager.md#prerequisites)의 필수 조건 섹션을 참조하세요.
 
 ## Azure 데이터 레이크 저장소 계정 만들기
 
@@ -45,15 +45,15 @@ Azure PowerShell을 사용하여 Azure 데이터 레이크 저장소 계정을 �
 
         # Log in to your Azure account
 		Login-AzureRmAccount
-        
+
 		# List all the subscriptions associated to your account
 		Get-AzureRmSubscription
-		
-		# Select a subscription 
+
+		# Select a subscription
 		Set-AzureRmContext -SubscriptionId <subscription ID>
-        
+
 		# Register for Azure Data Lake Store
-		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore" 
+		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 
 
 2. Azure 데이터 레이크 저장소 계정은 Azure 리소스 그룹과 연결됩니다. Azure 리소스 그룹을 만드는 작업부터 시작합니다.
@@ -118,8 +118,8 @@ Azure 데이터 레이크 저장소 계정에서 디렉터리를 만들어 데�
 
 파일을 삭제하려면 다음 명령을 사용합니다.
 
-	Remove-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Paths $myrootdir\mynewdirectory\vehicle1_09142014_Copy.csv 
-	
+	Remove-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Paths $myrootdir\mynewdirectory\vehicle1_09142014_Copy.csv
+
 메시지가 표시되면 **Y**를 입력하여 항목을 삭제합니다. 삭제할 파일이 둘 이상 있는 경우 쉼표로 구분하여 모든 경로를 입력할 수 있습니다.
 
 	Remove-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Paths $myrootdir\mynewdirectory\vehicle1_09142014.csv, $myrootdir\mynewdirectoryvehicle1_09142014_Copy.csv
@@ -143,7 +143,7 @@ Azure 데이터 레이크 저장소 계정에서 디렉터리를 만들어 데�
 ## 다음 단계
 
 - [데이터 레이크 저장소의 데이터 보호](data-lake-store-secure-data.md)
-- [Azure 데이터 레이크 분석에 데이터 레이크 저장소 사용](data-lake-analytics-get-started-portal.md)
+- [Azure 데이터 레이크 분석에 데이터 레이크 저장소 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Azure HDInsight에 데이터 레이크 저장소 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0309_2016-->

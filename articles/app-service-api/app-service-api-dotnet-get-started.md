@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="02/05/2016"
+	ms.date="03/09/2016"
 	ms.author="tdykstra"/>
 
 # Azure 앱 서비스에서 API 앱 및 ASP.NET 시작
@@ -185,7 +185,7 @@ ASP.NET Web API 프로젝트는 [Swashbuckle](https://www.nuget.org/packages/Swa
 
 5. 프로젝트를 다시 실행합니다.
 
-3. 브라우저의 주소 표시줄에서 줄 끝에 `swagger`를 추가한 다음 Enter 키를 누릅니다. URL은 `http://localhost:45914/swagger`입니다.
+3. 브라우저의 주소 표시줄에서 줄 끝에 `swagger`을 추가한 다음 Enter 키를 누릅니다. URL은 `http://localhost:45914/swagger`입니다.
 
 4. Swagger UI 페이지가 나타나면 **ToDoList**를 클릭하여 사용 가능한 메서드를 확인합니다.
 
@@ -461,9 +461,10 @@ ToDoListAPI 프로젝트에는 생성된 클라이언트 코드가 이미 있지
  
 4. API 앱의 **응용 프로그램 설정** 블레이드에서 **앱 설정** 섹션까지 아래로 스크롤하고 다음 키와 값을 추가합니다.
 
-	|키|값|예
-	|---|---|---|
-	|toDoListDataAPIURL|https://{your 데이터 계층 API 앱 이름}.azurewebsites.net|https://todolistdataapi0121.azurewebsites.net|
+	| **키** | toDoListDataAPIURL |
+	|---|---|
+	| **값** | https://{your 데이터 계층 API 앱 이름}.azurewebsites.net |
+	| **예제** | https://todolistdataapi0121.azurewebsites.net |
 
 4. **Save**를 클릭합니다.
 
@@ -477,7 +478,7 @@ ToDoListAPI 프로젝트에는 생성된 클라이언트 코드가 이미 있지
 
 13. 브라우저 주소 표시줄에서 URL에 "swagger"를 추가한 다음 Enter 키를 누릅니다. URL은 `http://{apiappname}.azurewebsites.net/swagger`입니다.
 
-	브라우저가 ToDoListDataAPI에 대해 앞서 살펴본 동일한 Swagger UI를 표시하지만 중간 계층 API 앱이 해당 값을 데이터 계층 API 앱에 보내기 때문에 이제 `owner`는 가져오기 작업의 필수 필드가 아닙니다. (인증 자습서를 수행하는 경우 중간 계층은 `owner` 매개 변수에 대한 실제 사용자 ID를 보냅니다. 지금은 별표를 하드 코딩합니다.)
+	브라우저가 ToDoListDataAPI에 대해 앞서 살펴본 동일한 Swagger UI를 표시하지만 중간 계층 API 앱이 해당 값을 데이터 계층 API 앱에 보내고 있기 때문에 이제 `owner`은 가져오기 작업에서 필수 필드가 아닙니다. (인증 자습서를 수행하는 경우 중간 계층은 `owner` 매개 변수에 대한 실제 사용자 ID를 보냅니다. 지금은 별표를 하드 코딩하고 있습니다.)
 
 12. 가져오기 메서드 및 다른 메서드를 사용하여 중간 계층 API 앱이 데이터 계층 API 앱을 성공적으로 호출하는지 유효성을 검사합니다.
 
@@ -485,11 +486,11 @@ ToDoListAPI 프로젝트에는 생성된 클라이언트 코드가 이미 있지
 
 ## <a id="creating"></a> 선택 사항: 처음부터 API 앱 프로젝트 만들기
 
-이 자습서에서는 처음부터 새 프로젝트를 만들지 않고 ASP.NET Web API 프로젝트를 다운로드하여 앱 서비스에 배포합니다. API 앱에 배포하기 위한 프로젝트를 만들려 일반적인 Web API 프로젝트를 만들고 Swashbuckle 패키지를 설치하거나 **Azure API 앱** 새 프로젝트 템플릿을 사용할 수 있습니다. 해당 탬플릿을 사용하려면 **파일 > 새로 만들기 > 프로젝트 > ASP.NET 웹 응용 프로그램 > Azure API 앱**을 클릭합니다.
+이 자습서에서는 처음부터 새 프로젝트를 만들지 않고 ASP.NET Web API 프로젝트를 다운로드하여 앱 서비스에 배포합니다. API 앱에 배포하기 위해 프로젝트를 만들려면 일반적인 Web API 프로젝트를 만들고 Swashbuckle 패키지를 설치하거나 **Azure API 앱** 새 프로젝트 템플릿을 사용할 수 있습니다. 해당 템플릿을 사용하려면 **파일 > 새로 만들기 > 프로젝트 > ASP.NET 웹 응용 프로그램 > Azure API 앱**을 클릭합니다.
 
 ![](./media/app-service-api-dotnet-get-started/apiapptemplate.png)
 
-**Azure API 앱** 프로젝트 탬플릿은 **빈** ASP.NET 4.5.2 탬플릿을 선택하고, 확인란을 클릭하여 Web API 지원을 추가하고, Swashbuckle 패키지를 설치하는 것과 동일합니다. 또한 탬플릿은 중복 Swagger 작업 ID가 만들어지지 않도록 하기 위해 설계된 일부 Swashbuckle 구성 코드를 추가합니다.
+**Azure API 앱** 프로젝트 템플릿은 **빈** ASP.NET 4.5.2 템플릿을 선택하고, 확인란을 클릭하여 Web API 지원을 추가하고, Swashbuckle 패키지를 설치하는 것과 동일합니다. 또한 탬플릿은 중복 Swagger 작업 ID가 만들어지지 않도록 하기 위해 설계된 일부 Swashbuckle 구성 코드를 추가합니다.
 
 ## 선택 사항: 앱 형식 변경
 
@@ -501,7 +502,7 @@ ToDoListAPI 프로젝트에는 생성된 클라이언트 코드가 이미 있지
 
 2. 왼쪽 탐색 창에서 **구독**을 확장한 다음, 작업하고 있던 구독을 확장합니다.
 
-4. **resourceGroups**를 확장한 다음, 작업하고 있던 리소스 그룹을 확장합니다.
+4. **resourceGroups**을 확장한 다음, 작업하고 있던 리소스 그룹을 확장합니다.
 
 5. **Microsoft.Web**을 확장하고 **사이트**를 확장한 다음 변경하려는 API 앱을 선택합니다.
 
@@ -511,15 +512,15 @@ ToDoListAPI 프로젝트에는 생성된 클라이언트 코드가 이미 있지
 
 	![](./media/app-service-api-dotnet-get-started/resexp.png)
 
-9. **Put**을 클릭합니다.
+9. **배치**를 클릭합니다.
 
 10. Azure 포털로 이동하면 새 앱 형식을 반영하는 변경된 아이콘이 표시됩니다.
 
-## 선택 사항: Azure 리소스 관리자 탬플릿에서 API 정의 URL
+## 선택 사항: Azure Resource Manager 탬플릿에서 API 정의 URL
 
-이 자습서에서는 Visual Studio와 Azure 포털에서 API 정의 URL을 확인했습니다. 명령줄 도구에서 [Azure PowerShell](../powershell-install-configure.md)과 [Azure CLI](../xplat-cli-install.md) 등의 [Azure 리소스 관리자 도구](../resource-group-authoring-templates.md)를 사용하여 API 앱에 대한 API 정의 URL을 구성할 수도 있습니다.
+이 자습서에서는 Visual Studio와 Azure 포털에서 API 정의 URL을 확인했습니다. 또한 [Azure PowerShell](../powershell-install-configure.md)과 [Azure CLI](../xplat-cli-install.md) 등 명령줄 도구의 [Azure Resource Manager 도구](../resource-group-authoring-templates.md)를 사용하여 API 앱에 대한 API 정의 URL을 구성할 수 있습니다.
 
-API 정의 속성을 설정하는 Azure 리소스 관리자 템플릿의 예를 보려면 [이 자습서의 샘플 응용 프로그램에 대한 리포지토리에 있는 azuredeploy.json 파일](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json)을 엽니다. 다음 예제와 같은 탬플릿의 섹션을 찾습니다.
+API 정의 속성을 설정하는 Azure Resource Manager 템플릿의 예를 보려면 [이 자습서의 샘플 응용 프로그램에 대한 리포지토리에 있는 azuredeploy.json 파일](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json)을 엽니다. 다음 예제와 같은 탬플릿의 섹션을 찾습니다.
 
 		"apiDefinition": {
 		  "url": "https://todolistdataapi.azurewebsites.net/swagger/docs/v1"
@@ -529,4 +530,4 @@ API 정의 속성을 설정하는 Azure 리소스 관리자 템플릿의 예를 
 
 이 자습서에서는 API 앱을 만들고, 이 앱에 코드를 배포하고, 클라이언트 코드를 생성하고, .NET 클라이언트에서 이를 사용하는 방법을 살펴보았습니다. API 앱 시작 시리즈의 다음 자습서에서는 [CORS를 사용하여 JavaScript 클라이언트에서 API 앱을 사용](app-service-api-cors-consume-javascript.md)하는 방법을 보여 줍니다.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!----HONumber=AcomDC_0309_2016-->

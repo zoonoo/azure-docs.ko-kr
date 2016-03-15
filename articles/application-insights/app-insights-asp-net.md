@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/28/2016" 
+	ms.date="03/06/2016" 
 	ms.author="awills"/>
 
 
@@ -94,7 +94,7 @@ Visual Studio에 로그된 이벤트 수가 표시됩니다.
 
 ### 예외
 
-[예외 모니터링을 설정](app-insights-asp-net-exception-mvc.md)한 경우 예외 보고서는 검색 창에 표시됩니다.
+[예외 모니터링을 설정](app-insights-asp-net-exceptions.md)한 경우 예외 보고서는 검색 창에 표시됩니다.
 
 예외를 클릭하여 스택 추적을 가져옵니다. 앱의 코드가 Visual Studio에서 열린 경우 스택 추적에서 코드의 관련된 줄까지 클릭할 수 있습니다.
 
@@ -126,7 +126,7 @@ Visual Studio에 로그된 이벤트 수가 표시됩니다.
 
 [검색에 대한 자세한 정보](app-insights-diagnostic-search.md)
 
-* *연결된 이벤트가 없나요?* [서버 예외](app-insights-asp-net-exception-mvc.md) 및 [종속성](app-insights-asp-net-dependencies.md)을 설정합니다.
+* *연결된 이벤트가 없나요?* [서버 예외](app-insights-asp-net-exceptions.md) 및 [종속성](app-insights-asp-net-dependencies.md)을 설정합니다.
 
 
 ## 데이터가 없나요?
@@ -172,7 +172,7 @@ Visual Studio에 로그된 이벤트 수가 표시됩니다.
 ## 다음 단계
 
 - [사용자 및 페이지 데이터](../article/application-insights/app-insights-javascript.md#selector1)
-- [예외](../article/application-insights/app-insights-asp-net-exception-mvc.md#selector1)
+- [예외](../article/application-insights/app-insights-asp-net-exceptions.md#selector1)
 - [종속성](../article/application-insights/app-insights-asp-net-dependencies.md#selector1)
 - [Availability](../article/application-insights/app-insights-monitor-web-app-availability.md#selector1)
 
@@ -214,4 +214,4 @@ ApplicationInsights.config에 대한 사용자 지정을 변경한 경우, 업�
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!----HONumber=AcomDC_0309_2016-->

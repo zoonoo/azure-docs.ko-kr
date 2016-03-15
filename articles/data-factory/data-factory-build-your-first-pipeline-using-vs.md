@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Data Factory 시작(Visual Studio)"
+	pageTitle="첫 번째 데이터 팩터리(Visual Studio) 빌드 | Microsoft Azure"
 	description="이 자습서에서는 Visual Studio를 사용하여 샘플 Azure Data Factory 파이프라인을 만듭니다."
 	services="data-factory"
 	documentationCenter=""
@@ -16,7 +16,7 @@
 	ms.date="02/16/2016"
 	ms.author="spelluru"/>
 
-# Azure Data Factory 시작(Visual Studio)
+# Microsoft Visual Studio를 사용하여 첫 번째 Azure Data Factory 빌드
 > [AZURE.SELECTOR]
 - [자습서 개요](data-factory-build-your-first-pipeline.md)
 - [데이터 팩터리 편집기 사용](data-factory-build-your-first-pipeline-using-editor.md)
@@ -256,6 +256,7 @@ Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이
 
 	작업 JSON에서 Hive 스크립트가 **linkedServiceName** – **HDInsightOnDemandLinkedService**에서 지정된 계산에서 실행되도록 지정합니다.
 
+	> [ACOM.참고] 위의 예에서 사용된 JSON 속성에 대한 내용은 [파이프라인의 분석](data-factory-create-pipelines.md#anatomy-of-a-pipeline)을 참조하세요. 
 3. **HiveActivity1.json** 파일을 저장합니다.
 
 ### partitionweblogs.hql 및 input.log 종속성으로 추가 
@@ -449,4 +450,4 @@ VS에서 Azure 데이터 팩터리 엔터티를 게시하는 경우 해당 게�
 이 문서에서 파이프라인과 주문형 HDInsight 클러스터에서 Hive 스크립트를 실행하는 변환 작업(HDInsight 작업)을 만들었습니다. 복사 작업을 사용하여 Azure Blob에서 Azure SQL로 데이터를 복사하는 방법은 [자습서: Azure Blob에서 Azure SQL로 데이터 복사](data-factory-get-started.md)를 참조하세요.
   
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

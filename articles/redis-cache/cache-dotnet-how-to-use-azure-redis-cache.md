@@ -4,7 +4,7 @@
 	services="redis-cache,app-service" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -20,7 +20,7 @@
 
 > [AZURE.SELECTOR]
 - [.Net](cache-dotnet-how-to-use-azure-redis-cache.md)
-- [Node.js](cache-nodejs-get-started.md)
+- [Node.JS](cache-nodejs-get-started.md)
 - [Java](cache-java-get-started.md)
 - [Python](cache-python-get-started.md)
 
@@ -57,7 +57,7 @@ Azure Redis 캐시를 시작하기는 쉽습니다. 먼저 캐시를 프로비�
 
 ![새 캐시][NewCacheMenu]
 
->[AZURE.NOTE] Azure 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험][]을 참조하세요.
+>[AZURE.NOTE] Azure 계정이 없는 경우 몇 분 만에 무료 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험][]을 참조하세요.
 
 **새 Redis Cache** 블레이드에서 원하는 캐시 구성을 지정합니다.
 
@@ -335,4 +335,4 @@ Azure Redis 캐시는 .NET 개체 및 기본 데이터 형식을 캐시할 수 �
 
 [Azure 무료 체험]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
 
-<!---HONumber=AcomDC_0128_2016-->
+<!----HONumber=AcomDC_0309_2016-->

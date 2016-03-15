@@ -3,8 +3,8 @@
 	description="Java를 프로그래밍 언어로 사용하여 Azure에서 호스트된 클라우드 검색 응용 프로그램을 빌드하는 방법입니다."
 	services="search"
 	documentationCenter=""
-	authors="HeidiSteen"
-	manager="mblythe"
+	authors="EvanBoyle"
+	manager="pablocas"
 	editor="v-lincan"/>
 
 <tags
@@ -13,17 +13,17 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="01/11/2016"
-	ms.author="heidist"/>
+	ms.date="03/08/2016"
+	ms.author="evboyle"/>
 
 # Java에서 Azure 검색 시작
 > [AZURE.SELECTOR]
-- [Portal](search-get-started-portal.md)
-- [.NET](search-get-started-dotnet.md)
+- [포털](search-get-started-portal.md)
+- [.NET](search-howto-dotnet-sdk.md)
 
 검색 환경에 Azure 검색을 사용하는 사용자 지정 Java 검색 응용 프로그램을 빌드하는 방법에 대해 알아봅니다. 이 자습서에서는 [Azure 검색 서비스 REST API](https://msdn.microsoft.com/library/dn798935.aspx)를 사용하여 이 연습에서 사용되는 개체 및 작업을 생성합니다.
 
-이 샘플을 실행하려면 Azure 검색 서비스가 있어야 합니다. 이 서비스는 [Azure 포털](https://portal.azure.com)에서 등록할 수 있습니다. 단계별 지침은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
+이 샘플을 실행하려면 [Azure 포털](https://portal.azure.com)에서 등록할 수 있는 Azure 검색 서비스가 있어야 합니다. 단계별 지침은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
 
 이 샘플을 빌드 및 테스트하는 데 사용된 소프트웨어는 다음과 같습니다.
 
@@ -95,7 +95,7 @@ Azure 검색에 대한 모든 REST API 호출에는 서비스 URL 및 api-key를
 
 1. **Project Explorer**에서 **config.properties**를 두 번 클릭하여 서버 이름 및 api-key가 포함된 구성 설정을 편집합니다.
 
-2. [Azure 포털](https://portal.azure.com)에서 서비스 URL 및 api-key를 찾은 이 문서의 이전 단계를 참조하여 **config.properties**에 입력할 값을 가져옵니다.
+2. 이 문서의 이전 단계를 참조하여 **config.properties**에 입력할 값을 가져오도록 [Azure 포털](https://portal.azure.com)에서 서비스 URL 및 api-key를 찾습니다.
 
 3. **config.properties**에서 "Api Key"를 서비스의 api-key로 바꿉니다. 그러면 서비스 이름(URL http://servicename.search.windows.net의 첫 번째 구성 요소)이 동일한 파일의 "service name"을 대체합니다.
 
@@ -117,7 +117,7 @@ Azure 검색에 대한 모든 REST API 호출에는 서비스 URL 및 api-key를
 
 	![][7]
 
-6. 다음 페이지에서 Tomcat 설치 디렉터리를 지정합니다. Windows 컴퓨터의 경우 일반적으로 C:\\Program Files\\Apache Software Foundation\\Tomcat *버전* 입니다.
+6. 다음 페이지에서 Tomcat 설치 디렉터리를 지정합니다. Windows 컴퓨터의 경우 일반적으로 C:\\Program Files\\Apache Software Foundation\\Tomcat *버전*입니다.
 
 6. **마침**을 클릭합니다.
 
@@ -203,4 +203,4 @@ Azure 검색을 처음 사용하세요? 다른 자습서를 통해 만들 수 �
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!----HONumber=AcomDC_0309_2016-->

@@ -13,7 +13,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="01/25/2016"
 	ms.author="paulettm"/>
 
@@ -25,7 +25,7 @@
 
 **Azure 기계 학습이란 무엇인가요?**
 
-Azure 기계 학습은 완벽하게 관리되는 서비스로, 이 서비스를 통해 클라우드에 예측 분석 솔루션을 만들고, 테스트하고, 운영하고, 관리할 수 있습니다. 브라우저만 있으면 로그인하고 데이터를 업로드하고 즉시 기계 학습 실험을 시작할 수 있습니다. 끌어서 놓기 예측 모델링, 모듈의 대형 팔레트 및 시작 템플릿의 라이브러리를 활용하면 일반적인 기계 학습 작업을 간단히, 빠르게 수행할 수 있습니다. 자세한 내용은 [Azure 기계 학습 서비스 개요](/services/machine-learning/)를 참조하세요. 주요 용어 및 개념을 다루는 기계 학습 소개는 [Azure 기계 학습 소개](machine-learning-what-is-machine-learning.md)를 참조하세요.
+Azure 기계 학습은 완벽하게 관리되는 서비스로, 이 서비스를 통해 클라우드에 예측 분석 솔루션을 만들고, 테스트하고, 운영하고, 관리할 수 있습니다. 브라우저만 있으면 로그인하고 데이터를 업로드하고 즉시 기계 학습 실험을 시작할 수 있습니다. 끌어서 놓기 예측 모델링, 모듈의 대형 팔레트 및 시작 템플릿의 라이브러리를 활용하면 일반적인 기계 학습 작업을 간단히, 빠르게 수행할 수 있습니다. 자세한 내용은 [Azure 기계 학습 서비스 개요](https://azure.microsoft.com/services/machine-learning/)를 참조하세요. 주요 용어 및 개념을 다루는 기계 학습 소개는 [Azure 기계 학습 소개](machine-learning-what-is-machine-learning.md)를 참조하세요.
 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -63,7 +63,7 @@ Azure 기계 학습은 완벽하게 관리되는 서비스로, 이 서비스를 
 ### 기계 학습 데이터 가져오기 및 내보내기
 **기계 학습에서 지원하는 데이터 원본은 무엇인가요?**
 
-로컬 파일을 데이터 집합으로 업로드하거나 Reader 모듈을 사용하여 데이터를 가져오는 두 가지 방법으로 기계 학습 스튜디오에 데이터를 로드할 수 있습니다. 기계 학습 스튜디오에서 새 데이터 집합을 추가하여 로컬 파일을 업로드할 수 있습니다. 지원된 파일 형식에 대한 자세한 내용은 [기계 학습 스튜디오로 학습 데이터 가져오기](machine-learning-import-data.md)를 참조하세요.
+로컬 파일을 데이터 집합으로 업로드하거나 Reader 모듈을 사용하여 데이터를 가져오는 두 가지 방법으로 기계 학습 스튜디오에 데이터를 로드할 수 있습니다. 기계 학습 스튜디오에서 새 데이터 집합을 추가하여 로컬 파일을 업로드할 수 있습니다. 지원된 파일 형식에 대한 자세한 내용은 [기계 학습 스튜디오로 학습 데이터 가져오기](machine-learning-data-science-import-data.md)를 참조하세요.
 
 
 #### <a id="ModuleLimit"></a>모듈에 대해 설정할 수 있는 데이터 집합의 크기는 어느 정도인가요?
@@ -93,7 +93,7 @@ Azure 기계 학습은 완벽하게 관리되는 서비스로, 이 서비스를 
 
 **Amazon S3에서 데이터를 읽을 수 있나요?**
 
-소량의 데이터를 http URL을 통해 노출하려는 경우 [Reader][reader] 모듈을 사용할 수 있습니다. Azure 저장소로 전송할 데이터가 많은 경우에는 먼저 [Reader][reader] 모듈을 사용하여 실험으로 가져옵니다.
+소량의 데이터를 http URL을 통해 노출하려는 경우 [Reader][reader] 모듈을 사용할 수 있습니다. Azure 저장소로 전송할 데이터가 많은 경우에는 먼저 [판독기][reader] 모듈을 사용하여 실험으로 가져옵니다.
 <!--
 <SEE CLOUD DS PROCESS>
 -->
@@ -220,7 +220,7 @@ RRS(요청-응답 서비스)는 대기 시간이 짧고, 확장성이 높은 웹
 RRS의 경우 웹 서비스 응답은 일반적으로 결과를 보는 위치입니다. Blob으로 작성할 수도 있습니다. BES의 경우 기본적으로 출력은 Blob에 기록됩니다. 기록기 모듈을 사용하여 출력을 데이터베이스 또는 테이블에 기록할 수도 있습니다.
 
  **스튜디오에서 만든 모델에서만 웹 서비스를 만들 수 있나요? 아니요. Jupyter 노트북 및 RStudio에서 직접 웹 서비스를 만들 수도 있습니다.
- 
+
  ****오류 코드에 대한 정보를 어디서 찾을 수 있습니까? 오류 코드는 [여기](https://msdn.microsoft.com/library/azure/dn905910.aspx)에 설명되어 있습니다.
 
 ## 확장성
@@ -292,7 +292,7 @@ RRS의 경우 웹 서비스 응답은 일반적으로 결과를 보는 위치입
 
 **Azure 기계 학습에 대한 교육은 어디에서 받을 수 있나요?**
 
-[Azure 기계 학습 설명서 센터](/services/machine-learning/)에서 비디오 자습서와 방법 가이드를 호스트합니다. 이러한 단계별 가이드에서는 서비스를 소개하고, 데이터 가져오기, 데이터 정리, 예측 모델 구성, Azure 기계 학습에서 프로덕션으로 전환의 데이터 과학 수명 주기 전체를 안내해 줍니다.
+[Azure 기계 학습 설명서 센터](https://azure.microsoft.com/services/machine-learning/)에서 비디오 자습서와 방법 가이드를 호스트합니다. 이러한 단계별 가이드에서는 서비스를 소개하고, 데이터 가져오기, 데이터 정리, 예측 모델 구성, Azure 기계 학습에서 프로덕션으로 전환의 데이터 과학 수명 주기 전체를 안내해 줍니다.
 
 Microsoft는 기계 학습 센터에 새로운 자료를 계속 추가할 예정입니다. [사용자 피드백 포럼](https://windowsazure.uservoice.com/forums/257792-machine-learning)에서 기계 학습 센터의 추가 학습 자료를 제출할 수 있습니다.
 
@@ -313,4 +313,4 @@ Azure 기계 학습에 대한 기술 지원을 받으려면 [Azure 지원](/supp
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

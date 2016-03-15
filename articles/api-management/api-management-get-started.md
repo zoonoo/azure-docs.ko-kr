@@ -4,7 +4,7 @@
 	services="api-management"
 	documentationCenter=""
 	authors="steved0x"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="12/07/2015"
+	ms.date="03/04/2016"
 	ms.author="sdanie"/>
 
 # Azure API 관리에서 첫 번째 API 관리
@@ -59,7 +59,7 @@ Azure API 관리를 통해 원하는 백 엔드를 사용하고 해당 백 엔�
 
 ## <a name="create-service-instance"> </a>API 관리 인스턴스 만들기
 
->[AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판][]을 참조하세요.
+>[AZURE.NOTE] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판][]을 참조하세요.
 
 API 관리 작업의 첫 번째 단계는 서비스 인스턴스를 만드는 것입니다. [Azure 클래식 포털][]에 로그인하고 **새로 만들기**, **앱 서비스**, **API 관리**, **만들기**를 클릭합니다.
 
@@ -73,13 +73,13 @@ API 관리 작업의 첫 번째 단계는 서비스 인스턴스를 만드는 �
 
 **조직 이름**으로 **Contoso Ltd.**를 입력하고 **관리자 메일** 필드에 메일 주소를 입력합니다.
 
->[AZURE.NOTE]이 전자 메일 주소는 API 관리 시스템에서 알림을 보내는 데 사용됩니다. 자세한 내용은 [Azure API 관리에서 알림 및 메일 템플릿을 구성하는 방법][]을 참조하세요.
+>[AZURE.NOTE] 이 전자 메일 주소는 API 관리 시스템에서 알림을 보내는 데 사용됩니다. 자세한 내용은 [Azure API 관리에서 알림 및 메일 템플릿을 구성하는 방법][]을 참조하세요.
 
 ![새 API 관리 서비스][api-management-create-instance-step2]
 
 API 관리 서비스 인스턴스는 Developer, Standard, Premium의 세 가지 계층으로 제공됩니다. 기본적으로 새 API 관리 서비스 인스턴스는 개발자 계층에서 만들어집니다. Standard 또는 Premium 계층을 선택하려면 **고급 설정** 확인란을 선택하고 다음 화면에서 원하는 계층을 선택합니다.
 
->[AZURE.NOTE]개발자 계층은 고가용성이 문제가 되지 않는 개발, 테스트 및 파일럿 API 프로그램용입니다. Standard 및 Premium 계층에서는 예약 단위 수를 확장하여 더 많은 트래픽을 처리할 수 있습니다. Standard 및 Premium 계층은 API 관리 서비스에 가장 많은 처리 능력과 성능을 제공합니다. 임의 계층을 사용하여 이 자습서를 완료할 수 있습니다. API 관리 계층에 대한 자세한 내용은 [API 관리 가격][]을 참조하세요.
+>[AZURE.NOTE] 개발자 계층은 고가용성이 문제가 되지 않는 개발, 테스트 및 파일럿 API 프로그램용입니다. Standard 및 Premium 계층에서는 예약 단위 수를 확장하여 더 많은 트래픽을 처리할 수 있습니다. Standard 및 Premium 계층은 API 관리 서비스에 가장 많은 처리 능력과 성능을 제공합니다. 임의 계층을 사용하여 이 자습서를 완료할 수 있습니다. API 관리 계층에 대한 자세한 내용은 [API 관리 가격][]을 참조하세요.
 
 확인란을 클릭하여 서비스 인스턴스를 만듭니다.
 
@@ -93,7 +93,7 @@ API는 클라이언트 응용 프로그램에서 호출할 수 있는 작업 집
 
 API를 만들고 작업을 수동으로 추가하거나 API를 가져올 수 있습니다. 이 자습서에서는 Microsoft에서 제공하고 Azure에서 호스트하는 샘플 계산기 웹 서비스에 대한 API를 가져옵니다.
 
->[AZURE.NOTE]API를 만들고 작업을 수동으로 추가하는 방법에 대해서는 [API를 만드는 방법](api-management-howto-create-apis.md) 및 [API에 작업을 추가하는 방법](api-management-howto-add-operations.md)을 참조하세요.
+>[AZURE.NOTE] API를 만들고 작업을 수동으로 추가하는 방법에 대해서는 [API를 만드는 방법](api-management-howto-create-apis.md) 및 [API에 작업을 추가하는 방법](api-management-howto-add-operations.md)을 참조하세요.
 
 API는 Azure 클래식 포털을 통해 액세스할 수 있는 게시자 포털에서 구성됩니다. 게시자 포털에 연결하려면 API 관리 서비스에 대해 Azure 클래식 포털에서 **관리**를 클릭합니다.
 
@@ -111,6 +111,8 @@ API는 Azure 클래식 포털을 통해 액세스할 수 있는 게시자 포털
 4. **저장**을 클릭하여 API를 가져옵니다.
 
 ![새 API 추가][api-management-import-new-api]
+
+>[AZURE.NOTE] **API 관리**는 현재 가져오기에 대한 Swagger 문서의 1.2 및 2.0 버전을 지원합니다. [Swagger 2.0 사양](http://swagger.io/specification)이 `host`, `basePath` 및 `schemes` 속성이 선택 사항이라고 선언하더라도 Swagger 2.0 문서는 해당 속성을 **반드시** 포함해야 합니다. 그렇지 않으면 가져오지 않습니다.
 
 API를 가져오면 API에 대한 요약 페이지가 게시자 포털에 표시됩니다.
 
@@ -163,7 +165,7 @@ API 및 작업과 함께 가져온 매개 변수와 샘플 설명을 참고하�
 
 **기본 계산기** 차트 위로 마우스를 가져가서 주어진 기간의 API 사용 관련 특정 메트릭을 표시합니다.
 
->[AZURE.NOTE]차트에 아무런 줄도 표시되지 않는 경우 개발자 포털로 다시 전환하여 API를 호출한 후 몇 분 정도 기다렸다가 대시보드로 다시 돌아옵니다.
+>[AZURE.NOTE] 차트에 아무런 줄도 표시되지 않는 경우 개발자 포털로 다시 전환하여 API를 호출한 후 몇 분 정도 기다렸다가 대시보드로 다시 돌아옵니다.
 
 **자세히 보기**를 클릭하여 API에 대한 요약 페이지를 표시합니다. 여기에는 더 크게 표시되는 메트릭 버전도 포함됩니다.
 
@@ -243,4 +245,4 @@ API 및 작업과 함께 가져온 매개 변수와 샘플 설명을 참고하�
 [api-management-]: ./media/api-management-get-started/api-management-.png
 [api-management-]: ./media/api-management-get-started/api-management-.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!----HONumber=AcomDC_0309_2016-->

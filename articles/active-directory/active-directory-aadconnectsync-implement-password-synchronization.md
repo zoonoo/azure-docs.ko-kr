@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/12/2016"
+	ms.date="03/07/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -71,7 +71,7 @@ Azure AD에서 이 서비스를 사용하는 경우 암호 동기화 옵션에�
 
 **암호 만료 정책**
 
-사용자가 암호 동기화 범위 내에 있을 경우 클라우드 계정 암호는 "*사용 기간 제한 없음*"으로 설정됩니다. 즉, 사용자의 암호가 온-프레미스 환경에서 만료되어도 만료된 암호를 사용하여 클라우드 서비스에 계속 로그인할 수 있습니다.
+사용자가 암호 동기화 범위 내에 있을 경우 클라우드 계정 암호는 "*사용 기간 제한 없음*"으로 설정됩니다. 즉, 사용자의 암호가 온-프레미스 환경에서 만료되어도 다음 암호 동기화 주기 후에 새로운 암호를 사용하여 클라우드 서비스에 계속 로그인할 수 있습니다.
 
 클라우드 암호는 사용자가 온-프레미스 환경의 암호를 변경한 후에 업데이트됩니다.
 
@@ -159,4 +159,4 @@ Azure AD Connect를 설치할 때 사용자 지정 설정을 사용하는 경우
 * [Azure AD Connect Sync: 사용자 지정 동기화 옵션](active-directory-aadconnectsync-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!----HONumber=AcomDC_0309_2016-->

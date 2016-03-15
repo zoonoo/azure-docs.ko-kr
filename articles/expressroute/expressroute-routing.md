@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/12/2016"
+   ms.date="03/03/2016"
    ms.author="cherylmc"/>
 
 
@@ -127,11 +127,15 @@ Microsoft는 공용 피어링 및 Microsoft 피어링을 통해 접두사가 호
 | | 미국 중북부 | 12076:51007 |
 | | 미국 중남부 | 12076:51008 |
 | | 미국 중부 | 12076:51009 |
+| | 캐나다 중부 | 12076:51020 |
+| | 캐나다 동부 | 12076:51021 |
 | **남미** | | |
 | | 브라질 남부 | 12076:51014 |
 | **유럽** | | |
 | | 북유럽 | 12076:51003 |
 | | 서유럽 | 12076:51002 |
+| | 영국 북부 | 12076:51022 |
+| | 영국 남부 2 | 12076:51023 |
 | **아시아 태평양** | | |
 | | 동아시아 | 12076:51010 |
 | | 동남아시아 | 12076:51011 |
@@ -170,8 +174,8 @@ Microsoft는 설정한 BGP 커뮤니티 값을 준수하지 않습니다. 피어
 
 - Express 경로 연결을 구성합니다.
 
-	- [클래식 배포 모델용 Express 경로 회로 만들기](expressroute-howto-circuit-classic.md) 또는 [Azure 리소스 관리자를 사용하여 Express 경로 회로 만들기 및 수정](expressroute-howto-circuit-arm.md)
+	- [클래식 배포 모델용 Express 경로 회로 만들기](expressroute-howto-circuit-classic.md) 또는 [Azure Resource Manager를 사용하여 Express 경로 회로 만들기 및 수정](expressroute-howto-circuit-arm.md)
 	- [클래식 배포 모델용 라우팅 구성](expressroute-howto-routing-classic.md) 또는 [리소스 관리자 배포 모델용 라우팅 구성](expressroute-howto-routing-arm.md)
-	- [클래식 VNet를 Express 경로 회로에 연결](expressroute-howto-linkvnet-classic.md) 또는 [리소스 관리자 VNet를 Express 경로 회로에 연결](expressroute-howto-linkvnet-arm.md)
+	- [Express 경로 회로에 클래식 VNet 연결](expressroute-howto-linkvnet-classic.md) 또는 [Express 경로 회로에 리소스 관리자 VNet 연결](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!----HONumber=AcomDC_0309_2016-->

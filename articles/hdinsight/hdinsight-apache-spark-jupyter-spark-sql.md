@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/17/2016"
+	ms.date="03/07/2016"
 	ms.author="nitinme"/>
 
 
@@ -23,6 +23,8 @@
 HDInsight에서 Apache Spark 클러스터를 만든 다음 [Jupyter](https://jupyter.org) 노트북을 사용하여 Spark 클러스터에서 Spark SQL 대화형 쿼리를 실행하는 방법을 알아봅니다.
 
    ![HDInsight에서 Apache Spark 사용 시작](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.getstartedflow.png "HDInsight에서 Apache Spark 사용 시작 자습서입니다. 설명된 단계: 저장소 계정 만들기, 클러스터 만들기, Spark SQL 문 실행")
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 **필수 조건:**
 
@@ -52,7 +54,7 @@ HDInsight에서 Apache Spark 클러스터를 만든 다음 [Jupyter](https://jup
 
     ![Azure Preview 포털에서 새 클러스터 만들기](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.createcluster.1.png "Azure Preview 포털에서 새 클러스터 만들기")
 
-3. **클러스터 이름**을 입력하고 **클러스터 형식**으로 **Hadoop**을 선택하고 **클러스터 운영 체제** 드롭다운 메뉴에서 **Ubuntu**를 선택한 다음 Spark 버전을 선택합니다. 클러스터 이름을 사용할 수 있는 경우 클러스터 이름 옆에 녹색 확인 표시가 나타납니다.
+3. **클러스터 이름**을 입력하고 **클러스터 형식**에 **Spark**를 선택하고 **클러스터 운영 체제** 드롭다운 메뉴에서 **Linux**를 선택한 다음 Spark의 버전을 선택합니다. 클러스터 이름을 사용할 수 있는 경우 클러스터 이름 옆에 녹색 확인 표시가 나타납니다.
 
 	![클러스터 이름 및 유형 입력](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.createcluster.2.png "클러스터 이름 및 유형 입력")
 
@@ -117,7 +119,7 @@ HDInsight에서 Apache Spark 클러스터를 만든 다음 [Jupyter](https://jup
 * **PySpark**(Python에서 작성한 응용 프로그램용)
 * **Spark**(Scala에서 작성한 응용 프로그램용)
 
-이 문서에서는 PySpark 커널을 사용합니다. PySpark 커널을 사용할 경우의 이점에 대한 자세한 내용은 [Spark HDInsight 클러스터와 함께 Jupyter 노트북에서 사용 가능한 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels) 문서를 참조하세요. PySpark 커널을 사용할 경우의 주요 이점은 다음과 같습니다.
+이 문서에서는 PySpark 커널을 사용합니다. PySpark 커널을 사용하는 이점에 대한 세부 정보는 [Spark HDInsight 클러스터와 함께 Jupyter Notebook에서 사용 가능한 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels) 문서를 참조하세요. PySpark 커널을 사용할 경우의 주요 이점은 다음과 같습니다.
 
 * Spark, SQL 및 Hive에 대한 컨텍스트를 설정할 필요가 없습니다. 자동으로 설정됩니다.
 * 여러 셀 magic(예: %%sql 또는 %%hive)을 사용하여 이전 코드 조각 없이 직접 SQL 또는 Hive 쿼리를 실행할 수 있습니다.
@@ -141,11 +143,11 @@ HDInsight에서 Apache Spark 클러스터를 만든 다음 [Jupyter](https://jup
 
 	![노트북에 대한 이름 제공](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.notebook.name.png "노트북에 대한 이름 제공")
 
-4. PySpark 커널을 사용하여 노트북을 만들었기 때문에 컨텍스트를 명시적으로 만들 필요가 없습니다. 첫 번째 코드 셀을 실행하면 Spark, SQL 및 Hive 컨텍스트가 자동으로 만들어집니다. 이 시나리오에 필요한 형식을 가져와 시작할 수 있습니다. 이렇게 하려면 셀에 다음 코드 조각을 붙여 넣은 다음 **Shift+Enter**를 누릅니다.
+4. PySpark 커널을 사용하여 노트북을 만들었기 때문에 컨텍스트를 명시적으로 만들 필요가 없습니다. 첫 번째 코드 셀을 실행하면 Spark, SQL 및 Hive 컨텍스트가 자동으로 만들어집니다. 이 시나리오에 필요한 형식을 가져와 시작할 수 있습니다. 이렇게 하려면 셀에 다음 코드 조각을 붙여 넣고 **SHIFT + ENTER**를 누릅니다.
 
 		from pyspark.sql.types import *
 		
-	Jupyter에서 작업을 실행할 때마다, 웹 브라우저 창 제목에 Notebook 제목과 함께 **(사용 중)** 상태가 표시됩니다. 또한 오른쪽 위 모서리에 있는 **PySpark** 텍스트 옆에 단색 원도 표시됩니다. 작업이 완료되면 속이 빈 원으로 변경됩니다.
+	Jupyter에서 작업을 실행할 때마다, 웹 브라우저 창 제목에 Notebook 제목과 함께 **(사용 중)** 상태가 표시됩니다. 또한 오른쪽 위 모서리에 있는 **PySpark** 텍스트 옆에 단색 원이 표시됩니다. 작업이 완료되면 속이 빈 원으로 변경됩니다.
 
 	 ![Jupyter 노트북 작업의 상태](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.jupyter.job.status.png "Jupyter 노트북 작업의 상태")
 
@@ -168,7 +170,7 @@ HDInsight에서 Apache Spark 클러스터를 만든 다음 [Jupyter](https://jup
 		# Register the data fram as a table to run queries against
 		hvacdf.registerTempTable("hvac")
 
-5. PySpark 커널을 사용하기 때문에 이제 `%%sql` magic을 사용하여 방금 만든 임시 테이블 **hvac**에서 SQL 쿼리를 직접 실행할 수 있습니다. `%%sql` magic 및 기타 PySpark 커널에서 사용 가능한 magic에 대한 자세한 내용은 [Spark HDInsight 클러스터와 함께 Jupyter 노트북에서 사용 가능한 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels)을 참조하세요.
+5. PySpark 커널을 사용하기 때문에 이제 `%%sql` 매직을 사용하여 방금 만든 임시 테이블 **hvac**에서 SQL 쿼리를 직접 실행할 수 있습니다. `%%sql` 매직 및 기타 PySpark 커널에서 사용 가능한 매직에 대한 자세한 내용은 [Spark HDInsight 클러스터와 함께 Jupyter Notebook에서 사용 가능한 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels)을 참조하세요.
 		
 		%%sql
 		SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = "6/1/13"")
@@ -183,6 +185,10 @@ HDInsight에서 Apache Spark 클러스터를 만든 다음 [Jupyter](https://jup
 
 
 6. 응용 프로그램 실행을 완료한 후 리소스를 해제하도록 노트북을 종료해야 합니다. 이렇게 하기 위해 Notebook의 **파일** 메뉴에서 **Close and Halt**를 클릭합니다. 그러면 Notebook이 종료되고 닫힙니다.
+
+##클러스터 삭제
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 
 ## <a name="seealso"></a>참고 항목
@@ -235,4 +241,4 @@ HDInsight에서 Apache Spark 클러스터를 만든 다음 [Jupyter](https://jup
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0302_2016-->
+<!----HONumber=AcomDC_0309_2016-->

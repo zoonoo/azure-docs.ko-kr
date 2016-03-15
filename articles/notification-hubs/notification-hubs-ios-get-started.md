@@ -42,7 +42,7 @@
 + iOS 8(이상) 지원 장치
 + iOS 개발자 프로그램 멤버 자격
 
-   >[AZURE.NOTE] 푸시 알림에 대한 구성 요구 사항 때문에 iOS 시뮬레이터 대신 iOS 지원 장치(iPhone 또는 iPad)에서 푸시 알림을 배포 및 테스트해야 합니다.
+   > [AZURE.NOTE] 푸시 알림에 대한 구성 요구 사항 때문에 iOS 시뮬레이터 대신 iOS 지원 장치(iPhone 또는 iPad)에서 푸시 알림을 배포 및 테스트해야 합니다.
 
 이 자습서를 완료해야 다른 모든 iOS 앱용 알림 허브 자습서를 진행할 수 있습니다.
 
@@ -56,7 +56,7 @@
 
 [AZURE.INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-<ol start="7">
+<ol start="6">
 <li>
 <p>위쪽의 <b>구성</b> 탭을 클릭하고 인증서 지문을 업로드하는 Apple 알림 설정에서 <b>업로드</b> 단추를 클릭합니다. 그런 다음 앞서 내보낸 <b>.p12</b> 인증서 및 인증서의 암호를 선택합니다.</p>
 <p>개발용이므로 <b>샌드박스</b> 모드를 선택합니다. 스토어에서 앱을 구매한 사용자에게 푸시 알림을 보내려는 경우에만 <b>프로덕션</b>을 사용합니다.</p>
@@ -324,7 +324,7 @@
 		}
 
 
-8. Ctrl을 클릭한 상태에서 **알림 전송** 버튼을 ViewController.m으로 끌어 **Touch Down** 이벤트에 **SendNotificationMessage**라는 작업을 추가합니다. 다음 코드로 메서드를 업데이트하여 REST API를 사용하여 알림을 전송합니다.
+8. Ctrl 키를 누른 채로 **알림 전송** 버튼을 ViewController.m으로 끌어 **Touch Down** 이벤트에 **SendNotificationMessage**라는 작업을 추가합니다. 다음 코드로 메서드를 업데이트하여 REST API를 사용하여 알림을 전송합니다.
 
 		- (IBAction)SendNotificationMessage:(id)sender
 		{
@@ -507,4 +507,4 @@ iOS에서 푸시 알림을 테스트하려면 장치에 앱을 배포해야 합�
 
 [로컬 및 푸시 알림 프로그래밍 가이드]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!---HONumber=AcomDC_0128_2016-->
+<!----HONumber=AcomDC_0309_2016-->

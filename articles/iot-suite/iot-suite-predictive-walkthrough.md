@@ -14,7 +14,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="12/02/2015"
+ ms.date="03/02/2016"
  ms.author="araguila"/>
 
 # 미리 구성된 예측 유지 관리 솔루션 연습
@@ -124,4 +124,4 @@ RUL가 160(데모를 위해 선택한 대 한 임의의 임계값) 보다 작은
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!----HONumber=AcomDC_0309_2016-->

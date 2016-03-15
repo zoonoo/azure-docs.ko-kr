@@ -135,7 +135,9 @@ Windows Server 2008 R2 서버에 대해 다음을 수행합니다.
 HTTP 프록시와 작동하도록 Azure AD Connect Health Agent를 구성할 수 있습니다.
 
 >[AZURE.NOTE]
-- 에이전트에서 Microsoft Windows HTTP 서비스 대신 System.Net을 사용하여 웹 요청을 하므로 “Netsh WinHttp set ProxyServerAddress” 사용이 작동하지 않습니다. - 구성된 HTTP 프록시 주소가 암호화된 HTTPS 메시지를 통과시키는 데 사용됩니다. - 인증된 프록시(HTTPBasic 사용)가 지원되지 않습니다.
+- 에이전트가 Microsoft Windows HTTP Services 대신 System.Net을 사용하여 웹 요청을 수행했으므로 “Netsh WinHttp set ProxyServerAddress” 사용이 작동하지 않습니다.
+- 구성된 Http 프록시 주소는 통화 암호화된 Https 메시지에 사용됩니다.
+- 인증된 프록시(HTTPBasic 사용)는 지원되지 않습니다.
 
 ### Health Agent 프록시 구성 변경
 HTTP 프록시를 사용하도록 Azure AD Connect Health Agent를 구성하는 옵션은 다음과 같습니다.
@@ -190,7 +192,7 @@ Azure AD Connect Health 에이전트에서 Azure AD Connect Health 서비스와�
 
 명령에서 -ShowResults 플래그를 사용하면 자세한 내용을 볼 수 있습니다. 다음 예제를 사용합니다.
 
-    Test-AzureADConnectHealthConnectivity -Role Sync -ShowResults
+    Test-AzureADConnectHealthConnectivity -Role Sync -ShowResult
 
 >[AZURE.NOTE]연결 도구를 사용하려면 먼저 에이전트 등록을 완료해야 합니다. 에이전트 등록을 완료할 수 없는 경우 Azure AD Connect Health에 대한 [요구 사항](active-directory-aadconnect-health.md#requirements)을 모두 충족했는지 확인합니다. 이 연결 테스트는 에이전트를 등록하는 동안 기본적으로 수행됩니다.
 
@@ -204,4 +206,4 @@ Azure AD Connect Health 에이전트에서 Azure AD Connect Health 서비스와�
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health 버전 내역](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!----HONumber=AcomDC_0309_2016-->

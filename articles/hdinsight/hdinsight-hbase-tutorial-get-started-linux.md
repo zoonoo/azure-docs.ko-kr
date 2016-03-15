@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/04/2016"
+	ms.date="03/03/2016"
 	ms.author="jgao"/>
 
 
@@ -26,6 +26,8 @@
 HDInsight에서 HBase 클러스터를 만들고, HBase 테이블을 만들고 Hive를 사용하여 테이블을 쿼리하는 방법에 대해 알아봅니다. 일반 HBase 정보는 [HDInsight HBase 개요][hdinsight-hbase-overview]를 참조하세요.
 
 이 문서에 있는 정보는 Linux 기반 HDInsight 클러스터에 지정됩니다. Windows 기반 클러스터에 대한 내용을 보려면, 페이지 상단의 탭 선택기를 사용하여 전환합니다.
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ###필수 조건
 
@@ -41,17 +43,21 @@ HDInsight에서 HBase 클러스터를 만들고, HBase 테이블을 만들고 Hi
 
 1. Azure 포털에서 ARM 템플릿을 열려면 다음 이미지를 클릭합니다. ARM 템플릿은 공용 BLOB 컨테이너에 있습니다. 
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2FHbase.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/ko-KR/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. **매개 변수** 블레이드에서 다음을 입력합니다.
 
     - **ClusterName**: 만들려는 HBase 클러스터의 이름을 입력합니다.
-    - **ClusterStorageAccountName**: 각 클러스터에는 Azure Blob 저장소 계정 종속성이 있습니다. 클러스터를 삭제한 후에는 데이터가 저장소 계정에 유지됩니다.
     - **Cluster login name and password**(클러스터 로그인 이름 및 암호): 기본 로그인 이름은 **admin**입니다.
-    - **SSH username and password**(SSH 사용자 이름 및 암호): 기본 사용자 이름은 **sshuser**입니다. 이름은 변경할 수 있습니다. 다른 매개 변수는 선택 사항입니다.  
+    - **SSH username and password**(SSH 사용자 이름 및 암호): 기본 사용자 이름은 **sshuser**입니다. 이름은 변경할 수 있습니다.
+     
+    다른 매개 변수는 선택 사항입니다.
+    
+    각 클러스터에는 Azure Blob 저장소 계정 종속성이 있습니다. 클러스터를 삭제한 후에는 데이터가 저장소 계정에 유지됩니다. 클러스터 기본 저장소 계정 이름은 "저장소"가 추가된 클러스터 이름이입니다. 템플릿 변수 섹션에서 하드 코딩됩니다.
+        
 3. **확인**을 클릭하여 매개 변수를 저장합니다.
-4. **사용자 지정 배포** 블레이드에서 **리소스 그룹**을 클릭한 후 **새로 만들기**를 클릭하여 새 리소스 그룹을 만듭니다. 리소스 그룹은 클러스터, 종속 저장소 계정 및 기타 연결된 리소스를 그룹화하는 컨테이너입니다.
-5. **약관**을 클릭한 후에 **만들기**를 클릭합니다.
+4. **사용자 지정 배포** 블레이드에서 **리소스 그룹** 드롭다운 상자를 클릭한 다음 **새로 만들기**를 클릭하여 새 리소스 그룹을 만듭니다. 리소스 그룹은 클러스터, 종속 저장소 계정 및 기타 연결된 리소스를 그룹화하는 컨테이너입니다.
+5. **약관**을 클릭한 다음 **만들기**를 클릭합니다.
 6. **만들기**를 클릭합니다. 클러스터를 만들려면 20분 정도가 걸립니다.
 
 
@@ -59,7 +65,7 @@ HDInsight에서 HBase 클러스터를 만들고, HBase 테이블을 만들고 Hi
 
 ## 테이블 만들기 및 데이터 삽입
 
-SSH를 사용하여 HBase 클러스터를 연결하고 HBase 셸을 사용하여 HBase 테이블을 만들고 데이터 및 쿼리 데이터를 삽입할 수 있습니다. Linux, Unix, OS X 및 Windows에서 SSH 사용에 대한 자세한 내용은 [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md) 및 [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)을 참조하세요.
+SSH를 사용하여 HBase 클러스터를 연결하고 HBase 셸을 사용하여 HBase 테이블을 만들고 데이터 및 쿼리 데이터를 삽입할 수 있습니다. Linux, Unix, OS X 및 Windows에서 SSH 사용에 대한 자세한 내용은 [Linux, Unix 또는 OS X에서 HDInsight의 Linux 기반 Hadoop로 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md) 및 [Windows에서 HDInsight의 Linux 기반 Hadoop로 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)을 참조하세요.
  
 
 대부분의 사람들의 경우, 데이터는 테이블 형식으로 나타납니다.
@@ -110,7 +116,7 @@ BigTable의 구현인 HBase에서 동일한 데이터는 다음과 같이 표시
 HBase는 테이블로 데이터를 로드하는 여러 방법을 포함합니다. 자세한 내용은 [대량 로드](http://hbase.apache.org/book.html#arch.bulk.load)를 참조하세요.
 
 
-샘플 데이터 파일은 공용 Blob 컨테이너, *wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*로 업로드되었습니다. 데이터 파일 내용은 다음과 같습니다.
+샘플 데이터 파일은 공용 Blob 컨테이너인 **wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*로 업로드되었습니다. 데이터 파일 내용은 다음과 같습니다.
 
 	8396	Calvin Raji		230-555-0191	230-555-0191	5415 San Gabriel Dr.
 	16600	Karen Wu		646-555-0113	230-555-0192	9265 La Paz
@@ -201,7 +207,7 @@ Hive를 사용하여 HBase 테이블의 데이터를 쿼리할 수 있습니다.
 
 HDInsight에서 HBase는 클러스터 모니터링에 대한 웹 UI와 함께 제공됩니다. 웹 UI를 사용하여 지역에 대한 정보 또는 통계를 요청할 수 있습니다.
 
-SSH는 웹 요청과 같은 로컬 요청을 HDInsight 클러스터에 터널링하는 데 사용할 수도 있습니다. HDInsight 클러스터 헤드 노드에서 발생하는 경우 요청이 요청된 리소스에 라우팅됩니다. 자세한 내용은 [Windows에서 HDInsight의 Linux 기반 Hadoop로 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md#tunnel)를 참조하세요.
+SSH는 웹 요청과 같은 로컬 요청을 HDInsight 클러스터에 터널링하는 데 사용할 수도 있습니다. HDInsight 클러스터 헤드 노드에서 발생하는 경우 요청이 요청된 리소스에 라우팅됩니다. 자세한 내용은 [Windows에서 HDInsight의 Linux 기반 Hadoop로 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md#tunnel)을 참조하세요.
 
 **SSH 터널링 세션을 설정하려면**
 
@@ -250,7 +256,9 @@ SSH는 웹 요청과 같은 로컬 요청을 HDInsight 클러스터에 터널링
 
 고가용성 클러스터에서 WebUI를 호스트하는 현재 활성 HBase 마스터 노드에 대한 링크를 찾을 수 있습니다.
 
+##클러스터 삭제
 
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## 다음 단계
 HDInsight에 대한 이 HBase 자습서에서는 HBase 클러스터를 만드는 방법 및 테이블을 만들고 HBase 셸에서 가져온 데이터를 이 테이블에서 보는 방법을 알아보았습니다. 또한 HBase 테이블에서 데이터에 대해 Hive 쿼리를 사용하는 방법 및 HBase C# REST API를 사용하여 HBase 테이블을 만들고 이 테이블에서 데이터를 검색하는 방법도 알아보았습니다.
@@ -287,4 +295,4 @@ HDInsight에 대한 이 HBase 자습서에서는 HBase 클러스터를 만드는
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png
 
-<!----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 데이터 팩터리 시작(Azure 리소스 관리자 템플릿)"
+	pageTitle="첫 번째 데이터 팩터리(ARM 템플릿) 빌드 | Microsoft Azure"
 	description="이 자습서에서는 Azure 리소스 관리자 템플릿을 사용하여 샘플 Azure Data Factory 파이프라인을 만듭니다."
 	services="data-factory"
 	documentationCenter=""
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="01/05/2016"
+	ms.date="03/03/2016"
 	ms.author="spelluru"/>
 
-# Azure 리소스 관리자 템플릿을 사용하여 첫 번째 Azure Data Factory 파이프라인 빌드
+# 자습서: Azure 리소스 관리자 템플릿을 사용하여 첫 번째 Azure Data Factory 빌드
 > [AZURE.SELECTOR]
-- [Tutorial Overview](data-factory-build-your-first-pipeline.md)
-- [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
-- [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
-- [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
-- [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
+- [자습서 개요](data-factory-build-your-first-pipeline.md)
+- [데이터 팩터리 편집기 사용](data-factory-build-your-first-pipeline-using-editor.md)
+- [PowerShell 사용](data-factory-build-your-first-pipeline-using-powershell.md)
+- [Visual Studio 사용](data-factory-build-your-first-pipeline-using-vs.md)
+- [리소스 관리자 템플릿 사용](data-factory-build-your-first-pipeline-using-arm.md)
 
 
 이 문서에서는 Azure 리소스 관리자(ARM) 템플릿을 사용하여 첫 번째 Azure Data Factory를 만드는 방법을 알아봅니다.
@@ -252,4 +252,4 @@
 10. 조각이 **준비** 상태에 있으면 출력 데이터에 대한 blob 저장소의 **adfgetstarted** 컨테이너에 있는 **partitioneddata** 폴더를 확인합니다.  
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!----HONumber=AcomDC_0309_2016-->

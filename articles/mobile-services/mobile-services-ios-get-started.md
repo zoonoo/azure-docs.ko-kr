@@ -18,15 +18,12 @@
 
 # <a name="getting-started"> </a>모바일 서비스 시작
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
-
-[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
-
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> 이 항목에 해당하는 모바일 앱 버전은 [Azure 모바일 앱에서 iOS 앱 만들기](../app-service-mobile/app-service-mobile-android-get-started.md)를 참조하세요.
 
 이 자습서는 Azure 모바일 서비스를 사용하여 iOS 앱에 클라우드 기반 백 엔드 서비스를 추가하는 방법을 보여 줍니다.
 
@@ -95,4 +92,4 @@ Azure 클래식 포털에서 쉬운 빠른 시작을 수행하여 모바일 서�
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [.NET 백 엔드 버전]: mobile-services-dotnet-backend-ios-get-started.md
 
-<!----HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0309_2016-->

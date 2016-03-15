@@ -14,7 +14,7 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="12/03/2015"
+     ms.date="03/02/2016"
      ms.author="dobett"/>
 
 # 자습서: 미리 구성된 IoT 솔루션 시작
@@ -33,6 +33,8 @@ Azure IoT Suite의 [미리 구성된 솔루션][lnk-preconfigured-solutions]은 
 
 1.  Azure 계정 자격 증명을 사용하여 [azureiotsuite.com][lnk-azureiotsuite]에 로그온한 다음 **+**를 클릭하여 새 솔루션을 만듭니다.
 
+    > [AZURE.NOTE] 솔루션을 프로비전하는 데 필요한 사용 권한에 문제가 있는 경우 [azureiotsuite.com 사이트에 대한 사용 권한](iot-suite-permissions.md) 지침을 살펴보세요.
+
 2.  **원격 모니터링** 타일에서 **선택**을 클릭합니다.
 
 3.  미리 구성된 원격 모니터링 솔루션에 **솔루션 이름**을 입력합니다.
@@ -41,7 +43,21 @@ Azure IoT Suite의 [미리 구성된 솔루션][lnk-preconfigured-solutions]은 
 
 5.  **솔루션 만들기**를 클릭하여 프로비전 프로세스를 시작합니다. 일반적으로 이 작업을 실행하는 데 몇 분 정도 걸립니다.
 
+## 프로비전 프로세스가 완료될 때까지 대기
+
+1. **프로비전** 상태인 솔루션 타일을 클릭합니다.
+ 
+2. Azure 서비스가 Azure 구독에 배포될 때 **프로비전 상태**입니다.
+
+3. 프로비전이 완료되면 **준비** 상태로 바뀝니다.
+
+4. 타일을 클릭하면 오른쪽 창에 솔루션의 세부 정보가 표시됩니다.
+
+목록에는 없지만 솔루션에 대해 참조하고 싶은 세부 정보가 있나요? [사용자 의견](https://feedback.azure.com/forums/321918-azure-iot)에 기능 제안을 보내주세요.
+
 ## 원격 모니터링 솔루션 대시보드 보기
+
+솔루션 대시보드를 사용하면 배포된 솔루션을 관리할 수 있습니다. 예를 들어 원격 분석 보기, 장치 추가 및 규칙 구성 작업을 수행할 수 있습니다.
 
 1.  프로비전이 완료되고 미리 구성된 솔루션에 대한 타일이 **준비**를 가리키면 **시작**을 클릭하여 새 탭에서 원격 모니터링 솔루션 포털을 엽니다.
 
@@ -52,6 +68,8 @@ Azure IoT Suite의 [미리 구성된 솔루션][lnk-preconfigured-solutions]은 
     ![][img-dashboard]
 
 ## 솔루션 장치 목록 보기
+
+장치 목록에 솔루션에 등록된 모든 장치가 표시됩니다. 장치 메타데이터 보기 및 편집, 장치 추가 및 제거, 장치에 명령 보내기 작업을 수행합니다.
 
 1.  왼쪽 메뉴에서 **장치**를 클릭하여 해당 솔루션에 대한 *장치 목록*을 표시합니다.
 
@@ -64,6 +82,8 @@ Azure IoT Suite의 [미리 구성된 솔루션][lnk-preconfigured-solutions]은 
     ![][img-devicedetails]
 
 ## 장치에 명령 보내기
+
+장치 세부 정보 창에 장치가 지원하는 모든 명령이 표시되고 이 창에서 특정 장치에 명령을 보낼 수 있습니다.
 
 1.  선택한 장치에 대한 장치 세부 정보 창에서 **명령**을 클릭합니다.
 
@@ -101,7 +121,13 @@ Azure IoT Suite의 [미리 구성된 솔루션][lnk-preconfigured-solutions]은 
 
     ![][img-runningnew]
 
+## 새 물리적 장치 추가
+
+솔루션에 새 물리적 장치를 추가하려면 [미리 구성된 IoT Suite 원격 모니터링 솔루션에 장치 연결][lnk-connecting-devices]을 참조하세요.
+
 ## 솔루션 규칙 보기 및 편집
+
+미리 구성된 솔루션이 SampleDevice001에 대한 두 개의 규칙을 프로비전합니다. 이 규칙은 온도 또는 습도 값이 임계값을 초과하는 경우 대시보드의 **경보 기록** 타일을 통해 알려줍니다.
 
 1.  솔루션 대시보드로 돌아가서 **경보 기록** 타일을 봅니다.
 
@@ -113,11 +139,9 @@ Azure IoT Suite의 [미리 구성된 솔루션][lnk-preconfigured-solutions]은 
 
     ![][img-rules]
 
-4.  미리 구성된 솔루션이 두 개의 규칙을 프로비전합니다.
-
 5.  규칙 목록에서 **온도** 규칙을 클릭하여 규칙 속성을 봅니다.
 
-6.  규칙 속성 창에서 **편집**을 클릭합니다.
+6.  규칙을 수정하려면 규칙 속성 창에서 **편집**을 클릭합니다.
 
     ![][img-displayrule]
 
@@ -135,7 +159,7 @@ Azure IoT Suite의 [미리 구성된 솔루션][lnk-preconfigured-solutions]은 
 
 ## 다음 단계
 
-이제 미리 구성된 작업 솔루션을 구축했으므로 다음 시나리오 이동할 수 있습니다.
+이제 미리 구성된 작업 솔루션을 구축했으므로 다음 연습으로 이동할 수 있습니다.
 
 -   [미리 구성된 솔루션 사용자 지정에 대한 지침][lnk-customize]
 -   [예측 정비 사전 구성 솔루션 개요][lnk-predictive]
@@ -161,5 +185,6 @@ Azure IoT Suite의 [미리 구성된 솔루션][lnk-preconfigured-solutions]은 
 [lnk-azureiotsuite]: https://www.azureiotsuite.com
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 [lnk-predictive]: iot-suite-predictive-overview.md
+[lnk-connecting-devices]: iot-suite-connecting-devices.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0309_2016-->

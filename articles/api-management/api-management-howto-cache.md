@@ -4,7 +4,7 @@
 	services="api-management"
 	documentationCenter=""
 	authors="steved0x"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/16/2015"
+	ms.date="03/04/2016"
 	ms.author="sdanie"/>
 
 # Azure API 관리에서 캐싱을 추가하여 성능 향상
@@ -22,7 +22,7 @@
 
 이 가이드에서는 API에 대해 응답 캐싱을 추가하고 샘플 Echo API 작업에 대한 정책을 구성하는 방법을 보여 줍니다. 그런 다음 개발자 포털에서 작업을 호출하여 캐싱 작동을 확인할 수 있습니다.
 
->[AZURE.NOTE]정책 식을 사용하여 키별 캐싱 항목에 대한 자세한 내용은 [Azure API 관리에서 사용자 지정 캐싱](api-management-sample-cache-by-key.md)을 참조하세요.
+>[AZURE.NOTE] 정책 식을 사용하여 키별 캐싱 항목에 대한 자세한 내용은 [Azure API 관리에서 사용자 지정 캐싱](api-management-sample-cache-by-key.md)을 참조하세요.
 
 ## 필수 조건
 
@@ -32,7 +32,7 @@
 
 이 단계에서는 샘플 Echo API의 **GET Resource(캐시됨)** 작업에 대한 캐싱 설정을 검토합니다.
 
->[AZURE.NOTE]각 API 관리 서비스 인스턴스는 실험해 보고 API 관리에 대해 알아보는 데 사용할 수 있는 Echo API가 미리 구성되어 제공됩니다. 자세한 내용은 [Azure API 관리 시작][]을 참조하세요.
+>[AZURE.NOTE] 각 API 관리 서비스 인스턴스는 실험해 보고 API 관리에 대해 알아보는 데 사용할 수 있는 Echo API가 미리 구성되어 제공됩니다. 자세한 내용은 [Azure API 관리 시작][]을 참조하세요.
 
 시작하려면 API 관리 서비스에 대해 Azure 클래식 포털에서 **관리**를 클릭합니다. API 관리 게시자 포털로 이동됩니다.
 
@@ -89,7 +89,7 @@
 		</outbound>
 	</policies>
 
->[AZURE.NOTE]정책 편집기의 캐싱 정책 변경 내용은 작업의 **캐싱** 탭에 반영되며, 그 반대도 가능합니다.
+>[AZURE.NOTE] 정책 편집기의 캐싱 정책 변경 내용은 작업의 **캐싱** 탭에 반영되며, 그 반대도 가능합니다.
 
 ## <a name="test-operation"> </a>작업 호출 및 캐싱 테스트
 
@@ -164,4 +164,4 @@
 [Call an operation and test the caching]: #test-operation
 [Next steps]: #next-steps
 
-<!----HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_0309_2016-->

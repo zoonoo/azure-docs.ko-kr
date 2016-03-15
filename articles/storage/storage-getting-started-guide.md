@@ -12,7 +12,7 @@
 	ms.workload="storage" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="02/14/2016" 
 	ms.author="tamram"/>
 
@@ -110,4 +110,4 @@ Azure 저장소에 대한 자세한 내용은 다음 리소스를 참조하세�
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!----HONumber=AcomDC_0309_2016-->

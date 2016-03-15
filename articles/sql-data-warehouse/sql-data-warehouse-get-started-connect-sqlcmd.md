@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # SQLCMD를 사용하여 연결 및 쿼리
@@ -78,9 +78,9 @@ Sqlcmd 대한 추가 정보는 [sqlcmd 설명서](https://msdn.microsoft.com/lib
 이제 연결 및 쿼리할 수 있으므로 [PowerBI로 연결][]해 보세요.
 
 [PowerBI로 연결]: ./sql-data-warehouse-integrate-power-bi.md
- 
+
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-get-started-connect/get-server-name.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!----HONumber=AcomDC_0309_2016-->

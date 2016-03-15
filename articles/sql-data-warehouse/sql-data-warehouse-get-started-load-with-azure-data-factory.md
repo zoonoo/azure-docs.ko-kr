@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/16/2016"
+   ms.date="03/03/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Azure Data Factory를 사용하여 데이터 로드
@@ -40,7 +40,7 @@ Azure 데이터 팩터리를 익히려면 [Azure 데이터 팩터리 소개](../
 
 이 자습서를 시작하기 전에 다음 리소스를 마련해야 합니다.
 
-   + **Azure 저장소 Blob**: 이 자습서에서는 Azure 데이터 팩터리 파이프라인에 대한 데이터 원본으로 Azure Blob 저장소를 사용하므로 샘플 데이터를 저장할 Azure Blob 저장소가 필요합니다. 아직 없는 경우 [저장소 계정을 만드는](../storage/storage-create-storage-account/#create-a-storage-accoun/) 방법을 알아봅니다. 
+   + **Azure 저장소 Blob**: 이 자습서에서는 Azure 데이터 팩터리 파이프라인에 대한 데이터 원본으로 Azure Blob 저장소를 사용하므로 샘플 데이터를 저장할 Azure Blob 저장소가 필요합니다. 아직 없는 경우 [저장소 계정을 만드는](../storage/storage-create-storage-account/#create-a-storage-accoun/) 방법을 알아봅니다.
 
    + **SQL 데이터 웨어하우스**: 이 자습서는 Azure 저장소 Blob에서 SQL 데이터 웨어하우스로 데이터를 이동하므로 AdventureWorksDW 샘플 데이터와 함께 로드되는 데이터 웨어하우스 온라인이 필요합니다. 데이터 웨어하우스가 아직 없는 경우 [프로비전하는](sql-data-warehouse-get-started-provision.md) 방법을 알아봅니다. 데이터 웨어하우스가 있지만 샘플 데이터를 사용하여 프로비전하지 않은 경우 [수동으로 로드](sql-data-warehouse-get-started-manually-load-samples.md)할 수 있습니다.
 
@@ -158,7 +158,7 @@ Azure 저장소 계정과 SQL 데이터 웨어하우스를 데이터 팩터리�
     "name": "<Pipeline Name>",
     "properties": {
         "description": "<Description>",
-        "activities": [ 
+        "activities": [
           {
             "type": "Copy",
     		"typeProperties": {
@@ -215,4 +215,4 @@ Azure 저장소 계정과 SQL 데이터 웨어하우스를 데이터 팩터리�
 - [자습서: Azure 저장소 Blob에서 Azure SQL 데이터베이스로 데이터 복사](../data-factory/data-factory-get-started.md) 이 자습서에서는 Azure 저장소 Blob에서 Azure SQL 데이터베이스로 데이터를 복사하는 파이프라인을 Azure 데이터 팩터리에 만듭니다.
 - [실제 시나리오 자습서](../data-factory/data-factory-tutorial.md). Azure 데이터 팩터리 사용에 대한 자세한 자습서입니다.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!----HONumber=AcomDC_0309_2016-->

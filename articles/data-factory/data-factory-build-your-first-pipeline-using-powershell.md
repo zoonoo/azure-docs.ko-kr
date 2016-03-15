@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 데이터 팩터리 시작(Azure PowerShell)"
+	pageTitle="첫 번째 데이터 팩터리(PowerShell) 빌드 | Microsoft Azure"
 	description="이 자습서에서는 Azure PowerShell을 사용하여 샘플 Azure Data Factory 파이프라인을 만듭니다."
 	services="data-factory"
 	documentationCenter=""
@@ -14,16 +14,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="12/18/2015"
+	ms.date="03/03/2016"
 	ms.author="spelluru"/>
 
-# Azure 데이터 팩터리 시작(Azure PowerShell)
+# Azure PowerShell을 사용하여 첫 번째 Azure Data Factory 빌드
 > [AZURE.SELECTOR]
-- [Tutorial Overview](data-factory-build-your-first-pipeline.md)
-- [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
-- [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
-- [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
-- [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
+- [자습서 개요](data-factory-build-your-first-pipeline.md)
+- [데이터 팩터리 편집기 사용](data-factory-build-your-first-pipeline-using-editor.md)
+- [PowerShell 사용](data-factory-build-your-first-pipeline-using-powershell.md)
+- [Visual Studio 사용](data-factory-build-your-first-pipeline-using-vs.md)
+- [리소스 관리자 템플릿 사용](data-factory-build-your-first-pipeline-using-arm.md)
 
 
 이 문서에서는 Azure PowerShell을 사용하여 첫 번째 Azure Data Factory를 만드는 방법을 알아봅니다.
@@ -283,6 +283,8 @@ Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이
 	파이프라인의 **시작** 및 **끝** 속성은 파이프라인의 활성 기간을 지정합니다.
 
 	작업 JSON에서 Hive 스크립트가 **linkedServiceName** – **HDInsightOnDemandLinkedService**에서 지정된 계산에서 실행되도록 지정합니다.
+
+	> [ACOM.참고] 위의 예에서 사용된 JSON 속성에 대한 내용은 [파이프라인의 분석](data-factory-create-pipelines.md#anatomy-of-a-pipeline)을 참조하세요. 
 2.  Azure Blob 저장소의 **adfgetstarted/inputdata** 폴더에서 **input.log** 파일이 표시되는지 확인하고 다음 명령을 실행하여 파이프라인을 배포합니다. **시작** 및 **끝** 시간이 과거에 설정되고 **isPaused**가 false로 설정되었기 때문에 파이프라인(파이프라인의 활동)은 실행을 배포한 후에 즉시 실행됩니다. 
 
 		New-AzureRmDataFactoryPipeline $df -File .\MyFirstPipelinePSH.json
@@ -354,4 +356,4 @@ Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이
 
 [cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
 
-<!---HONumber=AcomDC_0224_2016-->
+<!----HONumber=AcomDC_0309_2016-->

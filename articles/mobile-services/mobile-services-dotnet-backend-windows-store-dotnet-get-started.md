@@ -4,7 +4,7 @@
 	services="mobile-services"
 	documentationCenter="windows"
 	authors="ggailey777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,20 +13,18 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="02/10/2016"
+	ms.date="03/05/2016"
 	ms.author="glenga"/>
 
 
 # <a name="getting-started"> </a>모바일 서비스 시작
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
-
->[AZURE.TIP] Microsoft Azure를 사용하는 모바일 개발이 처음이라면 Azure 모바일 서비스 대신 [Azure 모바일 앱부터 시작](app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md)하세요. 모바일 앱이 [추가적인 이점](app-service-mobile-value-prop-migration-from-mobile-services-preview.md)을 제공합니다.
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> 이 항목에 해당하는 모바일 앱 버전은 [Azure 모바일 앱으로 Windows 앱 만들기](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started.md)를 참조하세요.
 
 이 자습서에서는 Azure 모바일 서비스를 사용하여 범용 Windows 앱에 클라우드 기반 백 엔드 서비스를 추가하는 방법을 보여 줍니다. 유니버설 Windows 앱 솔루션에는 Windows 스토어 8.1 및 Windows Phone 스토어 8.1 앱용 프로젝트와 공통 공유 프로젝트가 포함됩니다. 자세한 내용은 [Windows 및 Windows Phone을 대상으로 하는 범용 Windows 앱 작성](http://msdn.microsoft.com/library/windows/apps/xaml/dn609832.aspx)을 참조하세요.
 
@@ -34,7 +32,7 @@
 
 >[AZURE.NOTE]이 항목에서는 Azure 클래식 포털을 사용하여 새 모바일 서비스 프로젝트 및 범용 Windows 앱을 만드는 방법을 보여 줍니다. Visual Studio 2013 업데이트 3를 사용하면 기존 Visual Studio 솔루션에 새 모바일 서비스 프로젝트를 추가할 수도 있습니다. 자세한 내용은 [기존 앱에 모바일 서비스 추가](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md)를 참조하세요.
 
->Windows Phone 8.0 또는 Windows Phone Silverlight 8.1 앱 프로젝트에 모바일 서비스를 추가하려면 [기존 Windows Phone 앱에 모바일 서비스 추가](mobile-services-dotnet-backend-windows-phone-get-started-data.md)를 참조하세요.
+>Windows Phone 8.0 또는 Windows Phone Silverlight 8.1 앱 프로젝트에 모바일 서비스를 추가하려면 [기존 Windows Phone 앱에 모바일 서비스 추가](mobile-services-windows-phone-get-started-data.md)를 참조하세요.
 
 [AZURE.INCLUDE [mobile-services-windows-universal-get-started](../../includes/mobile-services-windows-universal-get-started.md)]
 
@@ -99,14 +97,14 @@
 ## 다음 단계
 이제 퀵 스타트를 완료했으며 모바일 서비스에서 중요한 추가 작업을 수행하는 방법을 알아보겠습니다.
 
-* [기존 앱에 모바일 서비스 추가][Get started with data] 
-<br/>모바일 서비스를 사용하여 데이터를 저장 및 쿼리하는 방법을 자세히 알아봅니다.
+* [기존 앱에 모바일 서비스 추가][Get started with data]
+  <br/>모바일 서비스를 사용하여 데이터를 저장 및 쿼리하는 방법을 자세히 알아봅니다.
 
-* [오프라인 데이터 동기화 시작] 
-<br/>오프라인 데이터 동기화를 활용하여 응답성과 견고성이 뛰어난 앱을 제작하는 방법을 알아봅니다.
+* [오프라인 데이터 동기화 시작]
+  <br/>오프라인 데이터 동기화를 활용하여 응답성과 견고성이 뛰어난 앱을 제작하는 방법을 알아봅니다.
 
 * [모바일 서비스 앱에 인증 추가][Get started with authentication]
- <br/>ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
+  <br/>ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
 
 * [앱에 푸시 알림 추가][Get started with push notifications]
   <br/>기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
@@ -137,4 +135,4 @@
 [Azure 클래식 포털]: https://manage.windowsazure.com/
 [모바일 서비스 .NET 백 엔드 문제 해결]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->
