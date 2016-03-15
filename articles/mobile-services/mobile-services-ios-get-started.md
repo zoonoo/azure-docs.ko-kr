@@ -92,4 +92,4 @@ Azure 클래식 포털에서 쉬운 빠른 시작을 수행하여 모바일 서�
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [.NET 백 엔드 버전]: mobile-services-dotnet-backend-ios-get-started.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->

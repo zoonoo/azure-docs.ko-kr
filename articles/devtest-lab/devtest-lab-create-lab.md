@@ -61,4 +61,4 @@ DevTest Lab을 만들려면 다음이 필요합니다.
 
 - [Azure DevTest Lab에 아티팩트를 사용하여 VM 추가](devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->

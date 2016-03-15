@@ -184,4 +184,4 @@ Azure 가상 컴퓨터에서 Azure SQL 데이터베이스 또는 SQL Server와 �
 [6]: ./media/search-get-started-portal/AzureSearch-GetStart-IndexerList.png
 [7]: ./media/search-get-started-portal/search-data-import-wiz-btn.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->

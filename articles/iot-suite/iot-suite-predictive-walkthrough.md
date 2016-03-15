@@ -124,4 +124,4 @@ RUL가 160(데모를 위해 선택한 대 한 임의의 임계값) 보다 작은
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->

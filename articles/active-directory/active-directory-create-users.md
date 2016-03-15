@@ -126,4 +126,4 @@ Azure AD에서, 사용자가 소속된 다른 Azure AD 디렉터리에서 Micros
 [1]: ./media/active-directory-create-users/RBACDirConfigTab.png
 [2]: ./media/active-directory-create-users/RBACGuestAccessControls.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->

@@ -178,4 +178,4 @@ Azure에서 Java 응용 프로그램을 개발하는 방법에 대한 자세한 
 [무료 평가판을 등록]: http://go.microsoft.com/fwlink/?LinkId=623901
 [앱 서비스 평가]: http://go.microsoft.com/fwlink/?LinkId=523751
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->

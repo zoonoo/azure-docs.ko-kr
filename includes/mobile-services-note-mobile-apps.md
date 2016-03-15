@@ -8,4 +8,4 @@
 >
 > Azure 모바일 앱을 시작하려면 [Azure 모바일 앱 설명서 센터](/documentation/learning-paths/appservice-mobileapps/)를 참조하세요.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->

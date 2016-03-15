@@ -26,4 +26,4 @@ Microsoft Azure 저장소 계정의 데이터는 항상 내구성 및 고가용�
 
 Azure 저장소를 통한 지속성에 대한 구조적인 세부 사항은 [SOSP 문서 - Azure 저장소: 일관성과 가용성이 뛰어난 클라우드 저장소 서비스](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)를 참조하세요.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->

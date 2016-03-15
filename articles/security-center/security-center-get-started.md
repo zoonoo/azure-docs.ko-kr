@@ -99,4 +99,4 @@ Azure 구독 및 리소스 그룹에 대한 보안 정책을 구성할 수 있�
 [7]: ./media/security-center-get-started/security-alert.png
 [8]: ./media/security-center-get-started/security-alert-detail.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->

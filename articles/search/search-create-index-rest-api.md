@@ -96,4 +96,4 @@ Azure 검색 서비스를 프로비전했다면 REST API를 사용하여 서비�
 ## 다음
 Azure 검색 인덱스를 만든 후에 데이터를 검색하기 시작할 수 있도록 콘텐츠를 인덱스에 업로드할 준비가 되었습니다. 자세한 내용은 [REST API를 사용하여 Azure 검색으로 데이터 가져오기](search-import-data-rest-api.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->

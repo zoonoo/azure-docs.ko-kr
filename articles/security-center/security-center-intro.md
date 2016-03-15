@@ -150,4 +150,4 @@ Azure 보안 센터, 주요 기능 및 작동 방법에 대해 알아봅니다.
 [7]: ./media/security-center-intro/security-alert.png
 [8]: ./media/security-center-intro/security-alert-detail.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->

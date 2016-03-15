@@ -123,4 +123,4 @@ Azure 검색 작업에는 저장소 및 서비스 복제본이 둘 다 필요합
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->

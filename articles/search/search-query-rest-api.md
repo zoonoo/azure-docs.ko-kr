@@ -166,4 +166,4 @@ api-key: [query key]
 
 자세한 내용은 [문서 검색](https://msdn.microsoft.com/library/azure/dn798927.aspx)의 "응답" 섹션을 방문합니다. 오류가 발생한 경우 반환될 수 있는 기타 HTTP 상태 코드에 대한 자세한 내용은 [HTTP 상태 코드(Azure 검색)](https://msdn.microsoft.com/library/azure/dn798925.aspx)를 참조하세요.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->

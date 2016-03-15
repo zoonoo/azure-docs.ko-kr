@@ -219,4 +219,4 @@ Azure Pack, 클라우드 플랫폼 시스템 및 시스템 센터 기반(2012 �
 - [Site Recovery 개요](site-recovery-overview.md) 보기
 - [Site Recovery 아키텍처](site-recovery-components.md)에 대해 알아보기  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->

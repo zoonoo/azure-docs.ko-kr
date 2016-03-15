@@ -19,4 +19,4 @@ Visual Studio 2013이 설치된 경우 [Visual Studio 2013용 최신 Azure SDK�
 
 이 자습서는 Azure 앱 서비스로 ASP.NET MVC 5를 사용하는 방법을 설명합니다. ASP.NET 웹 응용 프로그램을 개발하는 방법을 가르치지 않습니다. ASP.NET MVC 5에 대한 소개는 [ASP.NET](http://asp.net/) 사이트에서 [ASP.NET MVC 5 시작](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started)을 참조하세요.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->

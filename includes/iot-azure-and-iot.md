@@ -49,4 +49,4 @@ IoT 솔루션은 자동 피드백 루프를 포함할 수 있습니다. 예를 �
 [Azure IoT Suite]: http://azure.microsoft.com/solutions/iot
 [lnk-protocol-gateway]: iot-hub-protocol-gateway.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->

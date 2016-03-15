@@ -178,4 +178,4 @@ Microsoft는 설정한 BGP 커뮤니티 값을 준수하지 않습니다. 피어
 	- [클래식 배포 모델용 라우팅 구성](expressroute-howto-routing-classic.md) 또는 [리소스 관리자 배포 모델용 라우팅 구성](expressroute-howto-routing-arm.md)
 	- [Express 경로 회로에 클래식 VNet 연결](expressroute-howto-linkvnet-classic.md) 또는 [Express 경로 회로에 리소스 관리자 VNet 연결](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->
