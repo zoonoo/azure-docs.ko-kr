@@ -62,8 +62,8 @@ PowerApps 엔터프라이즈에 CRM Online을 추가할 때 Dynamics CRM Online 
 
 3. **앱 속성**에서:
 
-	1. 응용 프로그램의 **로그온 URL**을 입력합니다. PowerApps에 대해 AAD로 인증하기 때문에 로그온 URL을 \__https://login.windows.net_으로 설정합니다.
-2. 앱에 대해 올바른 **앱 ID URI**를 입력합니다.  
+	1. 응용 프로그램의 **로그온 URL**을 입력합니다. PowerApps에 대해 AAD로 인증하기 때문에 로그온 URL을 _https://login.windows.net_으로 설정합니다.
+	2. 앱에 대해 올바른 **앱 ID URI**를 입력합니다.  
 	3. **확인**을 선택합니다.  
 
 	![AAD 응용 프로그램 추가 - 앱 속성][10]
@@ -80,11 +80,14 @@ PowerApps 엔터프라이즈에 CRM Online을 추가할 때 Dynamics CRM Online 
 
 1. **되풀이**를 선택합니다.
 2. **빈도**를 선택하고 **간격**을 입력합니다.
-3. **작업 추가**를 선택합니다. ![CRM 온라인 구성][13]
+3. **작업 추가**를 선택합니다.  
+![CRM 온라인 구성][13]
 4. 검색 상자에 CRM을 입력하고 이름에 CRM이 있는 모든 항목이 반환될 때까지 검색을 기다립니다.
 5. **Dynamics CRM Online - 새 레코드 만들기**를 선택합니다.
-6. **Dynamics CRM Online에 로그인**을 선택합니다. ![CRM 온라인 구성][14]
-7. CRM Online 자격 증명을 제공하여 로그인하고 응용 프로그램에 권한을 부여합니다. ![CRM 온라인 구성][15]  
+6. **Dynamics CRM Online에 로그인**을 선택합니다.  
+![CRM 온라인 구성][14]
+7. CRM Online 자격 증명을 제공하여 로그인하고 응용 프로그램에 권한을 부여합니다.
+![CRM 온라인 구성][15]  
 8. 로그인한 후 다른 트리거 및 필요한 동작을 추가하여 완료하기 위해 논리 앱으로 돌아갑니다.
 9. 위의 메뉴 모음에서 **저장**을 선택하여 작업을 저장합니다.
 
@@ -300,3 +303,5 @@ PowerApps 엔터프라이즈에 CRM 온라인 API를 추가한 후 해당 앱에
 [15]: ./media/create-api-crmonline/crmconfig3.png
 
 <!---HONumber=AcomDC_0302_2016-->
+
+
