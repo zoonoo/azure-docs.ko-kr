@@ -91,7 +91,7 @@ Azure 미디어 서비스에 액세스하려면 두 가지가 필요합니다. A
 			HTTP/1.1 301 Moved Permanently
 			Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
 
-		https://wamsbayclus001rest-hs.cloudapp.net/api/에 대한 후속 API 호출을 게시해야 합니다.
+	https://wamsbayclus001rest-hs.cloudapp.net/api/에 대한 후속 API 호출을 게시해야 합니다.
 
 ###액세스 토큰 가져오기
 

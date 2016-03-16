@@ -53,7 +53,8 @@ Office 365 Outlook API에서 사용할 수 있는 트리거와 작업은 다음�
 PowerApps 엔터프라이즈에 이 API를 추가할 때 Office 365 AAD(Azure Active Directory) 응용 프로그램의 **앱 키** 및 **앱 암호** 값을 입력합니다. 또한 **URL 리디렉션** 값도 Office 365 응용 프로그램에서 사용됩니다. Office 365 응용 프로그램이 없는 경우 다음 단계를 사용하여 응용 프로그램을 만들 수 있습니다.
 
 1. [Azure 포털][5]에서 **Active Directory**를 열고 조직의 테넌트 이름을 엽니다.
-2. **응용 프로그램** 탭을 선택한 다음 **추가**를 선택합니다. ![AAD 테넌트 응용 프로그램][7]
+2. **응용 프로그램** 탭을 선택한 다음 **추가**를 선택합니다.  
+![AAD 테넌트 응용 프로그램][7]
 
 3. **응용 프로그램 추가**에서:
 
@@ -65,17 +66,20 @@ PowerApps 엔터프라이즈에 이 API를 추가할 때 Office 365 AAD(Azure Ac
 
 6. **앱 속성**에서:
 
-	1. 응용 프로그램의 **로그온 URL**을 입력합니다. PowerApps에 대해 AAD로 인증하기 때문에 로그온 URL을 \__https://login.windows.net_으로 설정합니다.
-2. 앱에 대해 올바른 **앱 ID URI**를 입력합니다.  
+	1. 응용 프로그램의 **로그온 URL**을 입력합니다. PowerApps에 대해 AAD로 인증하기 때문에 로그온 URL을 _https://login.windows.net_으로 설정합니다.
+	2. 앱에 대해 올바른 **앱 ID URI**를 입력합니다.  
 	3. **확인**을 선택합니다.  
 
 	![AAD 응용 프로그램 추가 - 앱 속성][9]
 
-7. 완료하면 새 AAD 앱이 열립니다. **구성**을 선택합니다. ![Contoso AAD 앱][10]
+7. 완료하면 새 AAD 앱이 열립니다. **구성**을 선택합니다.  
+![Contoso AAD 앱][10]
 
-8. _OAuth 2_ 섹션에서 **회신 URL**을 Azure 포털에서 Office 365 Outlook API를 추가했을 때 표시된 URL 리디렉션 값으로 설정합니다. **응용 프로그램 추가**를 선택합니다. ![Contoso AAD 앱 구성][11]
+8. _OAuth 2_ 섹션에서 **회신 URL**을 Azure 포털에서 Office 365 Outlook API를 추가했을 때 표시된 URL 리디렉션 값으로 설정합니다. **응용 프로그램 추가**를 선택합니다.  
+![Contoso AAD 앱 구성][11]
 
-9. **다른 응용 프로그램에 대한 권한**에서 **Office 365 Exchange Online**을 선택하고 **확인**을 선택합니다. ![Contoso 앱 대리자][12]
+9. **다른 응용 프로그램에 대한 권한**에서 **Office 365 Exchange Online**을 선택하고 **확인**을 선택합니다.  
+![Contoso 앱 대리자][12]
 
 	구성 페이지로 돌아가 보면 _Office 365 Exchange Online_이 _다른 응용 프로그램에 대한 권한_ 목록에 추가되었습니다.
 
@@ -110,7 +114,8 @@ PowerApps 엔터프라이즈에 이 API를 추가할 때 Office 365 AAD(Azure Ac
 
 
 ### 곧 시작되는 이벤트 
-예정된 일정 이벤트를 시작할 때 흐름 트리거 ```GET: /Events/OnUpcomingEvents```
+예정된 일정 이벤트를 시작할 때 흐름 트리거  
+```GET: /Events/OnUpcomingEvents```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
@@ -130,7 +135,8 @@ PowerApps 엔터프라이즈에 이 API를 추가할 때 Office 365 AAD(Azure Ac
 
 
 ### 전자 메일 가져오기 
-폴더에서 전자 메일 검색 ```GET: /Mail```
+폴더에서 전자 메일 검색  
+```GET: /Mail```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
@@ -155,7 +161,8 @@ PowerApps 엔터프라이즈에 이 API를 추가할 때 Office 365 AAD(Azure Ac
 
 
 ### 전자 메일 보내기 
-전자 메일 메시지 전송 ```POST: /Mail```
+전자 메일 메시지 전송  
+```POST: /Mail```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
@@ -175,7 +182,8 @@ PowerApps 엔터프라이즈에 이 API를 추가할 때 Office 365 AAD(Azure Ac
 
 
 ### 전자 메일 삭제 
-ID로 전자 메일 메시지 삭제 ```DELETE: /Mail/{messageId}```
+ID로 전자 메일 메시지 삭제  
+```DELETE: /Mail/{messageId}```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
@@ -194,7 +202,8 @@ ID로 전자 메일 메시지 삭제 ```DELETE: /Mail/{messageId}```
 
 
 ### 읽은 상태로 표시 
-전자 메일 메시지를 읽은 것으로 표시 ```POST: /Mail/MarkAsRead/{messageId}```
+전자 메일 메시지를 읽은 것으로 표시  
+```POST: /Mail/MarkAsRead/{messageId}```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
@@ -213,7 +222,8 @@ ID로 전자 메일 메시지 삭제 ```DELETE: /Mail/{messageId}```
 
 
 ### 메시지에 회신 
-전자 메일 메시지에 회신 ```POST: /Mail/ReplyTo/{messageId}```
+전자 메일 메시지에 회신  
+```POST: /Mail/ReplyTo/{messageId}```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
@@ -234,7 +244,8 @@ ID로 전자 메일 메시지 삭제 ```DELETE: /Mail/{messageId}```
 
 
 ### 첨부 파일 가져오기 
-ID별로 메시지 첨부 파일 검색 ```GET: /Mail/{messageId}/Attachments/{attachmentId}```
+ID별로 메시지 첨부 파일 검색  
+```GET: /Mail/{messageId}/Attachments/{attachmentId}```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
@@ -254,7 +265,8 @@ ID별로 메시지 첨부 파일 검색 ```GET: /Mail/{messageId}/Attachments/{a
 
 
 ### 새 전자 메일에 
-새 전자 메일이 도착했을 때 흐름 트리거 ```GET: /Mail/OnNewEmail```
+새 전자 메일이 도착했을 때 흐름 트리거  
+```GET: /Mail/OnNewEmail```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
@@ -280,7 +292,8 @@ ID별로 메시지 첨부 파일 검색 ```GET: /Mail/{messageId}/Attachments/{a
 
 
 ### 옵션을 사용하여 메일 전송 
-여러 옵션이 포함된 전자 메일을 보내고 받는 사람이 옵션 중 하나를 사용하여 다시 응답하기를 기다립니다. ```POST: /mailwithoptions/$subscriptions```
+여러 옵션이 포함된 전자 메일을 보내고 받는 사람이 옵션 중 하나를 사용하여 다시 응답하기를 기다립니다.  
+```POST: /mailwithoptions/$subscriptions```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
@@ -300,7 +313,8 @@ ID별로 메시지 첨부 파일 검색 ```GET: /Mail/{messageId}/Attachments/{a
 
 
 ### 승인 전자 메일 보내기 
-승인 전자 메일을 보내고 받는 사람으로부터 응답을 기다립니다. ```POST: /approvalmail/$subscriptions```
+승인 전자 메일을 보내고 받는 사람으로부터 응답을 기다립니다.  
+```POST: /approvalmail/$subscriptions```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
@@ -323,7 +337,8 @@ ID별로 메시지 첨부 파일 검색 ```GET: /Mail/{messageId}/Attachments/{a
 
 
 ### 일정 가져오기 
-일정 검색 ```GET: /datasets/calendars/tables```
+일정 검색  
+```GET: /datasets/calendars/tables```
 
 이 호출에 대한 매개 변수는 없습니다.
 
@@ -338,7 +353,8 @@ ID별로 메시지 첨부 파일 검색 ```GET: /Mail/{messageId}/Attachments/{a
 
 
 ### 이벤트 가져오기 
-일정에서 항목 검색 ```GET: /datasets/calendars/tables/{table}/items```
+일정에서 항목 검색  
+```GET: /datasets/calendars/tables/{table}/items```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
@@ -357,7 +373,8 @@ ID별로 메시지 첨부 파일 검색 ```GET: /Mail/{messageId}/Attachments/{a
 
 
 ### 이벤트 만들기 
-새 이벤트 만들기 ```POST: /datasets/calendars/tables/{table}/items```
+새 이벤트 만들기  
+```POST: /datasets/calendars/tables/{table}/items```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
@@ -373,7 +390,8 @@ ID별로 메시지 첨부 파일 검색 ```GET: /Mail/{messageId}/Attachments/{a
 
 
 ### 이벤트 가져오기 
-일정에서 특정 항목 검색 ```GET: /datasets/calendars/tables/{table}/items/{id}```
+일정에서 특정 항목 검색  
+```GET: /datasets/calendars/tables/{table}/items/{id}```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
@@ -389,7 +407,8 @@ ID별로 메시지 첨부 파일 검색 ```GET: /Mail/{messageId}/Attachments/{a
 
 
 ### 이벤트 삭제 
-일정 항목 삭제 ```DELETE: /datasets/calendars/tables/{table}/items/{id}```
+일정 항목 삭제  
+```DELETE: /datasets/calendars/tables/{table}/items/{id}```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
@@ -405,7 +424,8 @@ ID별로 메시지 첨부 파일 검색 ```GET: /Mail/{messageId}/Attachments/{a
 
 
 ### 이벤트 업데이트 
-일정 항목 부분적 업데이트 ```PATCH: /datasets/calendars/tables/{table}/items/{id}```
+일정 항목 부분적 업데이트  
+```PATCH: /datasets/calendars/tables/{table}/items/{id}```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
@@ -422,7 +442,8 @@ ID별로 메시지 첨부 파일 검색 ```GET: /Mail/{messageId}/Attachments/{a
 
 
 ### 새 항목에 
-새 일정 항목이 만들어질 때 트리거됨 ```GET: /datasets/calendars/tables/{table}/onnewitems```
+새 일정 항목이 만들어질 때 트리거됨  
+```GET: /datasets/calendars/tables/{table}/onnewitems```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
@@ -441,7 +462,8 @@ ID별로 메시지 첨부 파일 검색 ```GET: /Mail/{messageId}/Attachments/{a
 
 
 ### 업데이트된 항목에 
-일정 항목이 수정될 때 트리거됨 ```GET: /datasets/calendars/tables/{table}/onupdateditems```
+일정 항목이 수정될 때 트리거됨  
+```GET: /datasets/calendars/tables/{table}/onupdateditems```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
@@ -460,7 +482,8 @@ ID별로 메시지 첨부 파일 검색 ```GET: /Mail/{messageId}/Attachments/{a
 
 
 ### 연락처 폴더 가져오기 
-연락처 폴더 검색 ```GET: /datasets/contacts/tables```
+연락처 폴더 검색  
+```GET: /datasets/contacts/tables```
 
 이 호출에 대한 매개 변수는 없습니다.
 
@@ -473,7 +496,8 @@ ID별로 메시지 첨부 파일 검색 ```GET: /Mail/{messageId}/Attachments/{a
 
 
 ### 연락처 가져오기 
-연락처 폴더에서 연락처 검색 ```GET: /datasets/contacts/tables/{table}/items```
+연락처 폴더에서 연락처 검색  
+```GET: /datasets/contacts/tables/{table}/items```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
@@ -492,7 +516,8 @@ ID별로 메시지 첨부 파일 검색 ```GET: /Mail/{messageId}/Attachments/{a
 
 
 ### 연락처 만들기 
-새 연락처 만들기 ```POST: /datasets/contacts/tables/{table}/items```
+새 연락처 만들기  
+```POST: /datasets/contacts/tables/{table}/items```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
@@ -508,7 +533,8 @@ ID별로 메시지 첨부 파일 검색 ```GET: /Mail/{messageId}/Attachments/{a
 
 
 ### 연락처 가져오기 
-연락처 폴더에서 특정 연락처 검색 ```GET: /datasets/contacts/tables/{table}/items/{id}```
+연락처 폴더에서 특정 연락처 검색  
+```GET: /datasets/contacts/tables/{table}/items/{id}```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
@@ -524,7 +550,8 @@ ID별로 메시지 첨부 파일 검색 ```GET: /Mail/{messageId}/Attachments/{a
 
 
 ### 연락처 삭제 
-연락처 삭제 ```DELETE: /datasets/contacts/tables/{table}/items/{id}```
+연락처 삭제  
+```DELETE: /datasets/contacts/tables/{table}/items/{id}```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
@@ -540,7 +567,8 @@ ID별로 메시지 첨부 파일 검색 ```GET: /Mail/{messageId}/Attachments/{a
 
 
 ### 연락처 업데이트 
-연락처 부분적 업데이트 ```PATCH: /datasets/contacts/tables/{table}/items/{id}```
+연락처 부분적 업데이트  
+```PATCH: /datasets/contacts/tables/{table}/items/{id}```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
@@ -810,3 +838,4 @@ PowerApps 엔터프라이즈에 Office 365 API를 추가한 후 해당 앱에서
 [13]: ./media/create-api-office365-outlook/contoso-aad-app-delegate-office365-outlook-permissions.png
 
 <!----HONumber=AcomDC_0302_2016-->
+
