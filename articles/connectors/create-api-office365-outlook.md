@@ -837,5 +837,5 @@ PowerApps 엔터프라이즈에 Office 365 API를 추가한 후 해당 앱에서
 [12]: ./media/create-api-office365-outlook/contoso-aad-app-delegate-office365-outlook.png
 [13]: ./media/create-api-office365-outlook/contoso-aad-app-delegate-office365-outlook-permissions.png
 
-<!----HONumber=AcomDC_0302_2016-->
+<!-------HONumber=AcomDC_0302_2016-->
 

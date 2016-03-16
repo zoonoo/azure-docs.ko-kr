@@ -305,4 +305,4 @@ Azure Active Directory는 구독에 대해 리소스 관리자로 작동하므�
 - 리소스 관리자 템플릿을 만드는 방법에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 - 리소스 배포에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
 
-<!------HONumber=AcomDC_0302_2016-->
+<!------------HONumber=AcomDC_0302_2016-->
