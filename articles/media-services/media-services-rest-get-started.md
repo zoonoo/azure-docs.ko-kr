@@ -86,7 +86,7 @@ Azure 미디어 서비스에 액세스하려면 두 가지가 필요합니다. A
 	https://media.windows.net에 연결하면 다른 미디어 서비스 URI를 지정하는 301 리디렉션을 받게 되는 것에 주의하세요. 사용자는 새 URI에 대한 후속 호출을 해야 합니다. ODATA API 메타데이터 설명을 포함하는 HTTP/1.1 200 응답을 받을 수도 있습니다.
 3. 새 URL에 후속 API 호출을 게시합니다. 
 	
-		예를 들어 연결을 시도한 후 다음 항목을 받은 경우.
+	예를 들어 연결을 시도한 후 다음 항목을 받은 경우.
 		
 			HTTP/1.1 301 Moved Permanently
 			Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
