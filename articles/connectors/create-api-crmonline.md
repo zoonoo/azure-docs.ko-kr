@@ -62,7 +62,7 @@ PowerApps 엔터프라이즈에 CRM Online을 추가할 때 Dynamics CRM Online 
 
 3. **앱 속성**에서:
 
-	1. 응용 프로그램의 **로그온 URL**을 입력합니다. PowerApps에 대해 AAD로 인증하기 때문에 로그온 URL을 _https://login.windows.net_으로 설정합니다.
+	1. 응용 프로그램의 **로그온 URL**을 입력합니다. PowerApps에 대해 AAD로 인증하기 때문에 로그온 URL을 _https://login.windows.net_ 으로 설정합니다.
 	2. 앱에 대해 올바른 **앱 ID URI**를 입력합니다.  
 	3. **확인**을 선택합니다.  
 

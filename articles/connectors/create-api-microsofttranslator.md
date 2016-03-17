@@ -54,7 +54,7 @@ Microsoft Translator를 PowerApps 엔터프라이즈에 추가할 때 Microsoft 
 
 	1. **클라이언트 ID** 값을 입력합니다.
 	2. 응용 프로그램의 **이름**을 입력합니다.
-	3. **URL 리디렉션**의 더미 값을 입력합니다. 예를 들어 *https://contosoredirecturl*를 입력합니다.
+	3. **URL 리디렉션**의 더미 값을 입력합니다. 예를 들어 *https://contosoredirecturl* 를입력합니다.
 	4. **설명**을 입력합니다.
 	5. **만들기**를 선택합니다.  
 

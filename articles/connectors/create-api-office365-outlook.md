@@ -66,7 +66,7 @@ PowerApps 엔터프라이즈에 이 API를 추가할 때 Office 365 AAD(Azure Ac
 
 6. **앱 속성**에서:
 
-	1. 응용 프로그램의 **로그온 URL**을 입력합니다. PowerApps에 대해 AAD로 인증하기 때문에 로그온 URL을 _https://login.windows.net_으로 설정합니다.
+	1. 응용 프로그램의 **로그온 URL**을 입력합니다. PowerApps에 대해 AAD로 인증하기 때문에 로그온 URL을 _https://login.windows.net_ 으로 설정합니다.
 	2. 앱에 대해 올바른 **앱 ID URI**를 입력합니다.  
 	3. **확인**을 선택합니다.  
 
@@ -837,5 +837,5 @@ PowerApps 엔터프라이즈에 Office 365 API를 추가한 후 해당 앱에서
 [12]: ./media/create-api-office365-outlook/contoso-aad-app-delegate-office365-outlook.png
 [13]: ./media/create-api-office365-outlook/contoso-aad-app-delegate-office365-outlook-permissions.png
 
-<!-------HONumber=AcomDC_0302_2016-->
+<!----HONumber=AcomDC_0302_2016-->
 
