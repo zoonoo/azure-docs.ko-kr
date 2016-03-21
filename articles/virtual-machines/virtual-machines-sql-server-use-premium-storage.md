@@ -98,7 +98,7 @@ DS* VM에 대해 VM을 호스팅하는 VNET(가상 네트워크)을 해당 지�
 
 프리미엄 저장소 계정의 일부분인 디스크를 만들 때의 기본적인 차이점은 디스크 캐시 설정입니다. SQL Server 데이터 볼륨 디스크의 경우에는 ‘**Read Caching**’을 사용하는 것이 좋습니다. 트랜잭션 로그 볼륨의 경우에는 디스크 캐시 설정을 ‘**None**’으로 지정해야 합니다. 이러한 설정은 표준 저장소 계정에 대한 권장 사항과는 다릅니다.
 
-VHD를 연결한 후에는 캐시 설정을 변경할 수 없습니다. 설정을 변경하려면 VHD를 분리했다가 업데이트된 캐시 설정으로 다시 연결해야 합니다.
+VHD를 연결한 후에는 캐시 설정을 변경할 수 없습니다. 업데이트된 캐시 설정으로 VHD를 분리했다가 다시 연결해야 합니다.
 
 ### Windows 저장소 공간
 
@@ -1148,4 +1148,4 @@ IP 주소를 추가하려면 [부록](#appendix-migrating-a-multisite-alwayson-c
 [24]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_14.png
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="NA"
     ms.devlang="NA"
     ms.topic="article"
-    ms.date="02/16/2016"
+    ms.date="03/08/2016"
     ms.author="elizapo" />
 
 # Azure RemoteApp의 예정된 기능
@@ -29,7 +29,7 @@ Microsoft는 고객의 의견에 따라 Azure RemoteApp을 개선하기 위해 �
 |ARM(Azure 리소스 관리자) 지원||X|
 |Azure v2 리소스 지원| |X|
 |CSP(클라우드 솔루션 공급자)||X|
-|인도 지역의 서비스 제공|X||
+|인도 지역의 서비스 제공||X|
 |영국 지역의 서비스 제공||X|
 
 
@@ -47,4 +47,4 @@ Microsoft는 고객의 의견에 따라 Azure RemoteApp을 개선하기 위해 �
 - 오스트레일리아 데이터 센터의 가용성
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="논리 앱에 Office 365 사용자 API 추가 | Microsoft Azure"
+	pageTitle="PowerApps 엔터프라이즈 또는 논리 앱에 Office 365 사용자 API 추가 | Microsoft Azure"
 	description="REST API 매개 변수를 사용하는 Office 365 사용자 API 개요"
 	services=""	
 	documentationCenter="" 	
@@ -14,15 +14,21 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="02/25/2016"
+ms.date="03/03/2016"
 ms.author="deonhe"/>
 
 # Office 365 사용자 API 시작
 
 Office 365 사용자에 연결하여 프로필 가져오기, 사용자 검색 등을 수행합니다. Office 365 사용자 API를 다음에서 사용할 수 있습니다.
 
-- PowerApps 
 - 논리 앱 
+- PowerApps
+
+> [AZURE.SELECTOR]
+- [논리 앱](../articles/connectors/create-api-office365-users.md)
+- [PowerApps 엔터프라이즈](../articles/power-apps/powerapps-create-api-office365-users.md)
+
+&nbsp;
 
 >[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다. 2014-12-01-preview 스키마 버전에 대한 내용을 보려면 [Office 365 API](../app-service-logic/app-service-logic-connector-office365.md)를 클릭하세요.
 
@@ -50,47 +56,6 @@ Office 365 사용자 API에서는 다음과 같은 작업을 사용할 수 있�
 
 ## Office 365 사용자에 대한 연결 만들기
 
-### PowerApps에 구성 추가
-PowerApps 엔터프라이즈에 이 API를 추가할 때 Office 365 AAD(Azure Active Directory) 응용 프로그램의 **클라이언트 ID** 및 **클라이언트 암호** 값을 입력합니다. 또한 **URL 리디렉션** 값도 Office 365 응용 프로그램에서 사용됩니다. Office 365 응용 프로그램이 없는 경우 다음 단계를 사용하여 응용 프로그램을 만들 수 있습니다.
-
-1. [Azure 포털][5]에서 **Active Directory**를 열고 조직의 테넌트 이름을 엽니다.
-2. **응용 프로그램** 탭을 선택한 다음 **추가**를 선택합니다.  
-![AAD 테넌트 응용 프로그램][7]
-
-3. **응용 프로그램 추가**에서:  
-
-	1. 응용 프로그램의 **이름**을 입력합니다.  
-	2. 응용 프로그램 형식은 그대로 **웹**으로 유지합니다.  
-	3. **다음**을 선택합니다.  
-
-	![AAD 응용 프로그램 추가 - 앱 정보][8]
-
-4. **앱 속성**에서:  
-
-	1. 응용 프로그램의 **로그온 URL**을 입력합니다. PowerApps에 대해 AAD로 인증하기 때문에 로그온 URL을 _https://login.windows.net_ 으로 설정합니다.  
-	2. 앱에 대해 올바른 **앱 ID URI**를 입력합니다.  
-	3. **확인**을 선택합니다.  
-
-	![AAD 응용 프로그램 추가 - 앱 속성][9]
-
-5. 완료하면 새 AAD 앱이 열립니다. **구성**을 선택합니다.  
-![Contoso AAD 앱][10]
-
-6. **OAuth 2** 섹션에서 **회신 URL**을 Azure 포털에서 Office 365 사용자 API를 추가했을 때 표시된 URL 리디렉션 값으로 설정합니다. **응용 프로그램 추가**를 선택합니다.  
-![Contoso AAD 앱 구성][11]
-
-7. **다른 응용 프로그램에 대한 권한**에서 **Office 365 통합 API(미리 보기)**를 선택하고 **확인**을 선택합니다.
-
-	구성 페이지로 돌아가 보면 _Office 365 통합 API(미리 보기)_가 _다른 응용 프로그램에 대한 권한_ 목록에 추가되었습니다.
-
-8. **Office 365 Exchange Online**에 대해 **위임된 권한**을 선택하고 **모든 사용자의 기본 프로필 읽기** 권한을 선택합니다.
-
-새 Azure Active Directory 앱이 만들어졌습니다. Azure 포털의 Office 365 사용자 API 구성에서 **클라이언트 ID** 및 **클라이언트 암호** 값을 복사하여 붙여넣을 수 있습니다.
-
-[응용 프로그램을 Azure AD에 추가하는 방법 및 이유](../active-directory/active-directory-how-applications-are-added.md)에서 AAD 응용 프로그램에 대한 몇 가지 좋은 정보를 참조하세요.
-
-
-### 논리 앱에 구성 추가
 논리 앱에 이 API를 추가할 때 Office 365 사용자 계정에 로그인하고 논리 앱을 계정에 연결해야 합니다.
 
 1. Office 365 사용자 계정에 로그인합니다.
@@ -105,7 +70,7 @@ PowerApps 엔터프라이즈에 이 API를 추가할 때 Office 365 AAD(Azure Ac
 적용 버전: 1.0
 
 ### 내 프로필 가져오기 
-현재 사용자에 대한 프로필을 검색합니다.  
+현재 사용자에 대한 프로필을 검색합니다. 
 ```GET: /users/me```
 
 이 호출에 대한 매개 변수는 없습니다.
@@ -124,7 +89,7 @@ PowerApps 엔터프라이즈에 이 API를 추가할 때 Office 365 AAD(Azure Ac
 
 
 ### 사용자 프로필 가져오기 
-특정 사용자 프로필을 검색합니다.  
+특정 사용자 프로필을 검색합니다. 
 ```GET: /users/{userId}```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
@@ -145,7 +110,7 @@ PowerApps 엔터프라이즈에 이 API를 추가할 때 Office 365 AAD(Azure Ac
 
 
 ### 관리자 가져오기 
-지정된 사용자의 관리자에 대한 사용자 프로필을 검색합니다.  
+지정된 사용자의 관리자에 대한 사용자 프로필을 검색합니다. 
 ```GET: /users/{userId}/manager```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
@@ -167,7 +132,7 @@ PowerApps 엔터프라이즈에 이 API를 추가할 때 Office 365 AAD(Azure Ac
 
 
 ### 부하 직원을 가져옵니다. 
-부하 직원을 가져옵니다.  
+부하 직원을 가져옵니다. 
 ```GET: /users/{userId}/directReports```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
@@ -189,7 +154,7 @@ PowerApps 엔터프라이즈에 이 API를 추가할 때 Office 365 AAD(Azure Ac
 
 
 ### 사용자 검색 
-사용자 프로필 검색 결과를 가져옵니다.  
+사용자 프로필 검색 결과를 가져옵니다. 
 ```GET: /users```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
@@ -214,7 +179,7 @@ PowerApps 엔터프라이즈에 이 API를 추가할 때 Office 365 AAD(Azure Ac
 
 #### User: 사용자 모델 클래스입니다.
 
-| 이름 | 데이터 형식 |필수
+|속성 이름 | 데이터 형식 |필수
 |---|---|---|
 |DisplayName|string|no|
 |GivenName|string|no|
@@ -231,9 +196,10 @@ PowerApps 엔터프라이즈에 이 API를 추가할 때 Office 365 AAD(Azure Ac
 
 
 ## 다음 단계
-PowerApps 엔터프라이즈에 Office 365 API를 추가한 후 해당 앱에서 API를 사용할 [권한을 사용자에게 부여](../power-apps/powerapps-manage-api-connection-user-access.md)합니다.
 
-[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[논리 앱을 만듭니다](../app-service-logic/app-service-logic-create-a-logic-app.md).
+
+[API 목록](apis-list.md)으로 돌아갑니다.
 
 <!--References-->
 [5]: https://portal.azure.com
@@ -243,6 +209,4 @@ PowerApps 엔터프라이즈에 Office 365 API를 추가한 후 해당 앱에서
 [10]: ./media/create-api-office365-users/contoso-aad-app.PNG
 [11]: ./media/create-api-office365-users/contoso-aad-app-configure.PNG
 
-<!---HONumber=AcomDC_0302_2016-->
-
-
+<!---HONumber=AcomDC_0309_2016-->

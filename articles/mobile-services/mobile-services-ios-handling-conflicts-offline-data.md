@@ -3,7 +3,7 @@
 	description="iOS 응용 프로그램에서 오프라인 데이터를 동기화할 때 Azure 모바일 서비스를 사용하여 충돌을 처리하는 방법에 대해 알아보기"
 	documentationCenter="ios"
 	authors="krisragh"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
 	services="mobile-services"/>
 
@@ -13,29 +13,31 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="03/06/2016"
 	ms.author="krisragh;donnam"/>
 
 
 # 모바일 서비스에서 오프라인 데이터 동기화를 사용하여 충돌 처리
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-offline-conflicts](../../includes/mobile-services-selector-offline-conflicts.md)]
 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-offline-conflicts](../../includes/mobile-services-selector-offline-conflicts.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
 
 이 항목에서는 Azure 모바일 서비스의 오프라인 기능을 사용할 때 데이터를 동기화하고 충돌을 처리하는 방법을 보여 줍니다. 이 자습서는 [오프라인 데이터 시작] 자습서를 기반으로 합니다.
 
->[AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure 무료 평가판</a>을 참조하세요.
+>[AZURE.NOTE] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure 무료 평가판</a>을 참조하세요.
 
 
 ## iOS 프로젝트 다운로드
 
 이 자습서의 경우 [Github에서 업데이트된 Xcode 프로젝트](https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/iOS)를 다운로드합니다. [오프라인 데이터 시작] 자습서의 끝에 있는 Xcode 프로젝트를 시작 지점으로 사용한 후 항목 편집을 허용하도록 업데이트했습니다. 또한 다음 섹션에서 충돌 처리기를 추가할 수 있도록 지원 클래스 및 메서드를 추가했습니다.
 
-이 자습서의 끝에서, 두 휴대폰에서 이 앱을 실행하고 두 휴대폰에서 동일한 항목을 로컬로 변경한 다음 서버에 변경 내용을 다시 푸시하는 경우 각 휴대폰의 사용자가 유지할 버전을 다음 중에서 선택할 수 있습니다. * 클라이언트 버전 유지(서버의 버전이 재정의됨), * 서버 버전 유지(클라이언트 로컬 테이블이 업데이트됨) 또는 * 두 버전을 모두 유지하지 않음(푸시가 취소되고 작업이 보류 중 상태로 유지됨).
+이 자습서의 끝에서, 두 휴대폰에서 이 앱을 실행하고 두 휴대폰에서 동일한 항목을 로컬로 변경한 다음 서버에 변경 내용을 다시 푸시하는 경우 각 휴대폰의 사용자가 유지할 버전을 다음 중에서 선택할 수 있습니다.
+  * 클라이언트 버전 유지(서버의 버전이 재정의됨)
+  * 서버 버전 유지(클라이언트 로컬 테이블이 업데이트됨) 또는
+  * 두 버전을 모두 유지하지 않음(푸시가 취소되고 작업이 보류 중 상태로 유지됨)
 
 이제 이 기능을 사용할 수 있도록 하는 충돌 처리기를 추가하겠습니다.
 
@@ -144,4 +146,4 @@
 [오프라인 데이터 시작]: mobile-services-ios-get-started-offline-data.md
 [Get started with Mobile Services]: mobile-services-ios-get-started.md
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0309_2016-->

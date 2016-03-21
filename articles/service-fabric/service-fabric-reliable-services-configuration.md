@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/26/2016"
+   ms.date="02/29/2016"
    ms.author="sumukhs"/>
 
 # 상태 저장 신뢰할 수 있는 서비스 구성
@@ -52,7 +52,7 @@ ReplicatorConfig
 |ReplicatorEndpoint|해당 없음|기본값 없음--필수 매개 변수|주/보조 복제자가 복제본 세트의 다른 복제자와 통신하는 데 사용할 IP 주소 및 포트. 서비스 매니페스트의 TCP 리소스 끝점을 참조해야 합니다. 서비스 매니페스트에서 끝점 리소스를 정의하는 방법에 대한 자세한 내용은 [서비스 매니페스트 리소스](service-fabric-service-manifest-resources.md)를 참조하세요. |
 |MaxPrimaryReplicationQueueSize|작업의 수|8192|기본 큐의 최대 작업 수. 작업은 주 복제자가 모든 보조 복제자로부터 승인을 받은 후 해제됩니다. 이 값은 64보다 크고 2의 제곱이어야 합니다.|
 |MaxSecondaryReplicationQueueSize|작업의 수|16384|보조 큐의 최대 작업 수. 작업은 지속성을 통해 상태를 항상 사용 가능하도록 설정한 후 해제됩니다. 이 값은 64보다 크고 2의 제곱이어야 합니다.|
-|CheckpointThresholdInMB|MB|200|상태가 검사점이 된 후의 로그 파일 공간 크기|
+|CheckpointThresholdInMB|MB|50|상태가 검사점이 된 후의 로그 파일 공간 크기|
 |MaxRecordSizeInKB|KB|1024|복제자가 로그에 기록할 수 있는 최대 레코드 크기. 이 값은 4의 배수이고 16보다 커야 합니다.|
 |OptimizeLogForLowerDiskUsage|Boolean|true|True일 경우 NTFS 스파스 파일을 사용하여 복제본의 전용 로그 파일을 만들도록 로그가 구성됩니다. 이렇게 하면 파일의 실제 디스크 공간 사용이 줄어듭니다. False일 경우 파일이 고정 할당으로 생성되고, 최상의 쓰기 성능을 제공합니다.|
 |MaxRecordSizeInKB|KB|1024|복제자가 로그에 기록할 수 있는 최대 레코드 크기. 이 값은 4의 배수이고 16보다 커야 합니다.|
@@ -107,4 +107,4 @@ MaxRecordSizeInKB 설정은 복제자가 로그 파일에 쓸 수 있는 레코�
 
 SharedLogId 및 SharedLogPath 설정은 항상 함께 사용되며 서비스가 노드에 대한 기본 공유 로그에서 별도의 공유 로그를 사용하도록 합니다. 최상의 효율성을 위해 최대한 많은 서비스가 동일한 공유 로그를 지정해야 합니다. 공유 로그 파일에만 사용되는 디스크에 공유 로그 파일을 배치해야 헤드 이동 경합이 감소합니다. 이 값은 드문 경우에만 변경되어야 합니다.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

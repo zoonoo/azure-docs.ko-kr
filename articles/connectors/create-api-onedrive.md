@@ -14,15 +14,21 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/25/2016"
+ms.date="03/03/2016"
 ms.author="mandia"/>
 
 # OneDrive API 시작
 
 OneDrive에 연결하여 파일 업로드, 가져오기, 삭제 등을 포함하여 파일을 관리합니다. OneDrive API를 다음에서 사용할 수 있습니다.
 
-- PowerApps 
 - 논리 앱 
+- PowerApps
+
+> [AZURE.SELECTOR]
+- [논리 앱](../articles/connectors/create-api-onedrive.md)
+- [PowerApps 엔터프라이즈](../articles/power-apps/powerapps-create-api-onedrive.md)
+
+&nbsp;
 
 >[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다. 2014-12-01-preview 스키마 버전에 대한 내용을 보려면 [OneDrive API](../app-service-logic/app-service-logic-connector-onedrive.md)를 클릭하세요.
 
@@ -48,26 +54,6 @@ OneDrive API에는 다음 트리거 및 작업이 포함됩니다.
 
 ## OneDrive에 대한 연결 만들기
 
-### PowerApps에 구성 추가
-PowerApps 엔터프라이즈에 OneDrive를 추가할 때 OneDrive 응용 프로그램의 **앱 키**와 **앱 암호**를 입력합니다. 또한 **URL 리디렉션** 값도 OneDrive 응용 프로그램에서 사용됩니다. OneDrive 응용 프로그램이 없는 경우 다음 단계를 사용하여 응용 프로그램을 만들 수 있습니다.
-
-1. _Microsoft 계정 개발자 센터_의 [앱 만들기 페이지][5]로 이동하고 _Microsoft 계정_으로 로그인합니다.
-
-2. **응용 프로그램 이름**을 입력하고 계약에 동의합니다.
-
-	![OneDrive 새 앱][6]
-
-3. 설정에서 다음을 수행합니다.
-
-	1. **API 설정**을 선택합니다.  
-	2. **URL 리디렉션**을 Azure 포털에 새 OneDrive API를 추가할 때 표시된 값으로 설정합니다.  
-	3. 변경 내용을 **저장**합니다.  
-
-	![OneDrive 앱 API 설정][7]
-
-이제 Azure 포털의 OneDrive 구성에서 **앱 키** 및 **앱 암호** 값을 복사하여 붙여넣습니다.
-
-### 논리 앱에 구성 추가
 논리 앱에 이 API를 추가할 때 OneDrive에 연결할 권한을 논리 앱에 부여해야 합니다.
 
 1. OneDrive 계정에 로그인합니다.
@@ -234,7 +220,7 @@ OneDrive 폴더에서 새 파일을 만들 때 흐름을 트리거합니다. ```
 
 
 ### OneDrive 폴더에서 파일을 수정할 때 흐름을 트리거합니다.
-OneDrive 폴더에서 파일을 수정할 때 흐름을 트리거합니다. ```GET: /datasets/default/triggers/onupdatedfile```
+OneDrive 폴더에서 파일을 수정할 때 흐름을 트리거합니다.```GET: /datasets/default/triggers/onupdatedfile```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
@@ -317,13 +303,13 @@ OneDrive로 폴더를 추출합니다. ```POST: /datasets/default/extractFolderV
 
 
 ## 다음 단계
-PowerApps 엔터프라이즈에 OneDrive API를 추가한 후 해당 앱에서 API를 사용할 [권한을 사용자에게 부여합니다](../power-apps/powerapps-manage-api-connection-user-access.md).
 
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
+[API 목록](apis-list.md)으로 돌아갑니다.
 
 [5]: https://account.live.com/developers/applications/create
 [6]: ./media/create-api-onedrive/onedrive-new-app.png
 [7]: ./media/create-api-onedrive/onedrive-app-api-settings.png
 
-<!-----HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -5,7 +5,7 @@
     suite="powerapps"
 	documentationCenter="" 
 	authors="rajeshramabathiran"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -14,10 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="03/03/2016"
    ms.author="litran"/>
 
-# 조직의 앱 서비스 환경에서 새 Excel API 만들기
+# PowerApps 엔터프라이즈에 새 Excel API 만들기
+
+조직의 (테넌트) 앱 서비스 환경에 Excel API를 추가합니다.
 
 ## Azure 포털에서 API 만들기
 
@@ -53,4 +55,4 @@
 [4]: ./media/powerapps-create-api-excel/browseall.png
 [5]: ./media/powerapps-create-api-excel/allresources.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

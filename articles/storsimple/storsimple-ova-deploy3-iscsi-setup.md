@@ -95,9 +95,7 @@ StorSimple 가상 장치를 구성하고 설정하기 전에 다음 사항을 �
 
         ![자격 증명](./media/storsimple-ova-deploy3-iscsi-setup/image8.png)
         
-           > [AZURE.NOTE]
-	   > 
-	   > iSCSI 서버를 도메인에 연결하는 경우 가상 배열이 Microsoft Azure Active Directory용 자체 OU(조직 구성 단위)에 있으며 GPO(그룹 정책 개체)가 적용되지 않았는지 확인합니다.
+	   	> [AZURE.NOTE] iSCSI 서버를 도메인에 연결하는 경우 가상 배열이 Microsoft Azure Active Directory용 자체 OU(조직 구성 단위)에 있으며 GPO(그룹 정책 개체)가 적용되지 않았는지 확인합니다.
 	   
 
     6. **Apply**를 클릭합니다. 장치 설정이 적용되고 유효성 검사가 수행됩니다.
@@ -108,11 +106,11 @@ StorSimple 가상 장치를 구성하고 설정하기 전에 다음 사항을 �
 
     **웹 프록시** 페이지에서:
 
-    1. *http://host-IP 주소* 또는 *FDQN:포트 번호* 형식으로 **웹 프록시 URL**을 입력합니다. HTTPS URL은 지원되지 않습니다.
+    1. 다음 형식으로 **웹 프록시 URL** 공급: *http://host-IP 주소* 또는 *FDQN:포트 번호*. HTTPS URL은 지원되지 않습니다.
 
-    2. **인증**은 **기본**, **NTLM** 또는 **없음**으로 지정합니다.
+    2. **인증**을 **기본**, **NTLM** 또는 **없음**으로 지정합니다.
 
-    3. 인증을 사용하는 경우 **사용자 이름** 및 **암호**를 입력해야 합니다.
+    3. 인증을 사용하는 경우에는 **사용자 이름** 및 **암호**도 제공해야 합니다.
 
     4. **Apply**를 클릭합니다. 구성된 웹 프록시 설정의 유효성을 검사하고 적용합니다.
  
@@ -122,17 +120,17 @@ StorSimple 가상 장치를 구성하고 설정하기 전에 다음 사항을 �
 
     **시간 설정** 페이지에서:
 
-    1. 드롭다운 목록에서 장치가 배포되는 지리적 위치를 기반으로 **표준 시간대**를 설정합니다. 장치의 기본 표준 시간대는 PST입니다. 장치는 모든 예약된 작업에 대해 이 표준 시간대를 사용합니다.
+    1. 드롭다운 목록에서 해당 장치가 배포되는 지리적 위치를 기반으로 **시간대**를 선택합니다. 장치의 기본 표준 시간대는 PST입니다. 장치는 모든 예약된 작업에 대해 이 표준 시간대를 사용합니다.
 
-    2. 장치에 **기본 NTP 서버**를 지정하거나 time.windows.com의 기본값을 적용합니다. 네트워크에서 NTP 트래픽이 데이터 센터에서 인터넷으로 전달되도록 허용하는지 확인합니다.
+    2. 자신의 장치에 대해 **주 NTP 서버**를 지정하거나 time.windows.com의 기본값을 그대로 사용합니다. 네트워크에서 NTP 트래픽이 데이터 센터에서 인터넷으로 전달되도록 허용하는지 확인합니다.
 
-    3. 선택적으로 장치에 대한 **보조 NTP 서버**를 지정합니다.
+    3. 자신의 장치에 대해 선택적으로 **보조 NTP 서버**를 지정합니다.
 
     4. **Apply**를 클릭합니다. 구성된 시간 설정의 유효성을 검사하고 적용합니다.
 
 9. 장치에 대한 클라우드 설정을 구성합니다. 이 단계에서는 로컬 장치 구성을 완료한 후 StorSimple Manager 서비스에 장치를 등록합니다.
 
-    1. [StorSimple 가상 배열 배포 – 포털 준비](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key)의 **2단계: 서비스 등록 키 받기**에서 확보한 **서비스 등록 키**를 입력합니다.
+    1. [StorSimple 가상 배열 배포 - 포털 준비](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key)에서 **2단계:서비스 등록 키 얻기**에서 얻은 **서비스 등록 키**를 입력합니다.
 
     2. 서비스에 장치를 처음으로 등록하는 경우가 아니라면 **서비스 데이터 암호화 키**를 제공해야 합니다. 이 키는 StorSimple Manager 서비스에 추가 장치를 등록하기 위한 서비스 등록 키에 필요합니다. 자세한 내용은 로컬 웹 UI의 [서비스 데이터 암호화 키 가져오기](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key)를 참조하세요.
 
@@ -286,7 +284,7 @@ StorSimple 장치의 구성을 완료하려면 다음 사항이 필요합니다.
 
 ## 다음 단계
 
-로컬 웹 UI를 사용하여 [StorSimple 가상 배열을 관리](storsimple-ova-web-ui-admin.md)하는 방법을 알아봅니다.
+로컬 웹 UI를 사용하여 [StorSimple 가상 배열을 관리](storsimple-ova-web-ui-admin.md)하는 방법을 배웁니다.
 
 ## 부록 A: Windows Server 호스트의 IQN 가져오기
 
@@ -305,4 +303,4 @@ Windows Server 2012를 실행하는 Windows 호스트의 iSCSI 정규화된 이�
 <!--Reference link-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

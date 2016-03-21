@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="01/21/2016"
+   ms.date="03/04/2016"
    ms.author="joaoma"/>
 
 # PowerShell을 사용하여 DNS 레코드를 관리하는 방법
@@ -24,7 +24,7 @@
 - [PowerShell](dns-operations-recordsets.md)
 
 
-이 가이드에서는 DNS 영역에 대한 레코드 집합 및 레코드를 관리하는 방법을 보여 줍니다.
+이 가이드에서는 Azure PowerShell을 사용하여 DNS 영역에 대한 레코드 집합 및 레코드를 관리하는 방법을 보여 줍니다.
 
 DNS 레코드 집합과 개별 DNS 레코드의 차이점을 이해하는 것이 중요합니다. 레코드 집합은 영역 내에서 동일한 이름과 형식을 가진 레코드 컬렉션입니다. 자세한 내용은 [레코드 집합 및 레코드 이해](../dns-getstarted-create-recordset#Understanding-record-sets-and-records)를 참조하세요.
 
@@ -38,13 +38,14 @@ New-AzureRmDnsRecordSet cmdlet을 사용하여 레코드 집합을 만듭니다.
 
 Azure DNS는 A, AAAA, CNAME, MX, NS, SOA, SRV, TXT 등의 레코드 형식을 지원합니다. SOA 형식의 레코드 집합은 각 영역과 함께 자동으로 생성되며 별도로 만들 수 없습니다.
 
-	PS C:\> $rs = New-AzureRmDnsRecordSet -Name www -Zone $zone -RecordType A -Ttl 300 [-Tag $tags] [-Overwrite] [-Force]
+	PS C:\> $rs = New-AzureRmDnsRecordSet -Name www -RecordType A -Ttl 300 -ZoneName contoso.com -ResouceGroupName MyAzureResouceGroup [-Tag $tags] [-Overwrite] [-Force]
 
 레코드 집합이 존재하는 경우 -Overwrite 스위치를 사용하지 않으면 명령이 실패합니다. '-Overwrite' 옵션은 확인 프롬프트를 트리거하며, -Force 스위치를 사용하여 표시되지 않도록 할 수 있습니다.
 
-위 예제에서는 AzureRmDnsZone 또는 New-AzureRmDnsZone에서 반환된 영역 개체를 사용하여 영역을 지정합니다. 또는 영역 이름 및 리소스 그룹 이름으로 영역을 지정할 수도 있습니다.
+위의 예제에서는 영역 이름 및 리소스 그룹 이름을 사용하여 영역을 지정합니다. 또는 Get-AzureRmDnsZone이나 New-AzureRmDnsZone에서 반환되는 영역 개체를 지정할 수 있습니다.
 
-	PS C:\> $rs = New-AzureRmDnsRecordSet -Name www –ZoneName contoso.com –ResourceGroupName MyAzureResourceGroup -RecordType A -Ttl 300 [-Tag $tags] [-Overwrite] [-Force]
+	PS C:\> $zone = Get-AzureRmDnsZone -ZoneName contoso.com –ResourceGroupName MyAzureResourceGroup
+	PS C:\> $rs = New-AzureRmDnsRecordSet -Name www -RecordType A -Ttl 300 –Zone $zone [-Tag $tags] [-Overwrite] [-Force]
 
 New-AzureRmDnsRecordSet는 Azure DNS에 생성된 레코드 집합을 나타내는 로컬 개체를 반환합니다.
 
@@ -62,12 +63,13 @@ Azure DNS는 [와일드카드 레코드](https://en.wikipedia.org/wiki/Wildcard_
 
 기존 레코드 집합을 가져오려면 레코드 집합 상대 이름, 레코드 형식 및 영역을 지정하여 'Get-AzureRmDnsRecordSet'를 사용합니다.
 
+	PS C:\> $rs = Get-AzureRmDnsRecordSet –Name www –RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+
+New-AzureRmDnsRecordSet와 마찬가지로, 레코드 이름은 영역 이름을 제외한 상대 이름이어야 합니다. 영역 개체를 사용하거나 영역 이름 및 리소스 그룹 이름을 사용하여 영역을 지정할 수 있습니다.
+
+	PS C:\> $zone = Get-AzureRmDnsZone -Name contoso.com -ResouceGroupName MyAzureResourceGroup
 	PS C:\> $rs = Get-AzureRmDnsRecordSet -Name www –RecordType A -Zone $zone
-
-New-AzureRmDnsRecordSet와 마찬가지로, 레코드 이름은 영역 이름을 제외한 상대 이름이어야 합니다. 위와 같이 영역 개체를 사용하거나 영역 이름 및 리소스 그룹 이름으로 영역을 지정할 수 있습니다.
-
-	PS C:\> $rs = Get-AzureRmDnsRecordSet –Name www –RecordType A -Zonename contoso.com -ResourceGroupName MyAzureResourceGroup
-
+	
 Get-AzureRmDnsRecordSet는 Azure DNS에 생성된 레코드 집합을 나타내는 로컬 개체를 반환합니다.
 
 ## 레코드 집합 나열
@@ -77,15 +79,18 @@ Get-AzureRmDnsRecordSet는 Azure DNS에 생성된 레코드 집합을 나타내�
 
 모든 레코드 집합을 나열합니다. 이름 또는 레코드 형식에 관계없이 모든 레코드 집합을 반환합니다.
 
-	PS C:\> $list = Get-AzureRmDnsRecordSet -Zone $zone
+	PS C:\> $list = Get-AzureRmDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 
 ### 옵션 2 
 
 지정된 레코드 형식의 레코드 집합을 나열합니다. 지정된 레코드 형식(이 경우 A 레코드)과 일치하는 모든 레코드 집합을 반환합니다.
 
-	PS C:\> $list = Get-AzureRmDnsRecordSet –RecordType A -Zone $zone 
+	PS C:\> $list = Get-AzureRmDnsRecordSet –RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup 
 
-위의 두 경우 모두, 표시된 것처럼 영역 개체를 사용하거나 -ZoneName 및 -ResourceGroupName 매개 변수를 지정하여 영역을 지정할 수 있습니다.
+위의 두 경우 모두, 영역은 표시된 것처럼 -ZoneName 및 -ResourceGroupName 매개 변수를 사용하여 지정하거나 영역 개체를 지정하여 지정될 수 있습니다.
+
+	PS C:\> $zone = Get-AzureRmDnsZone -Name contoso.com -ResouceGroupName MyAzureResourceGroup
+	PS C:\> $list = Get-AzureRmDnsRecordSet -Zone $zone
 
 ## 레코드 집합에 레코드 추가
 
@@ -93,29 +98,29 @@ Add-AzureRmDnsRecordConfig cmdlet을 사용하여 레코드 집합에 레코드�
 
 레코드 집합에 레코드를 추가하기 위한 매개 변수는 레코드 집합 형식에 따라 달라집니다. 예를 들어 'A' 형식의 레코드 집합을 사용하는 경우 'IPv4Address' 매개 변수를 통해서만 레코드를 지정할 수 있습니다.
 
-Add-AzureRmDnsRecordConfig를 추가로 호출하여 각 레코드 집합에 레코드를 추가할 수 있습니다. 레코드 집합에 최대 100개의 레코드를 추가할 수 있습니다. 그러나 CNAME 형식의 레코드 집합은 최대 1개의 레코드를 포함할 수 있으며 레코드 집합에 두 개의 동일한 레코드가 포함될 수 없습니다. 빈 레코드 집합(0개 레코드 포함)을 만들 수 있지만 Azure DNS 이름 서버에는 표시되지 않습니다.
+Add-AzureRmDnsRecordConfig를 추가로 호출하여 각 레코드 집합에 레코드를 추가할 수 있습니다. 레코드 집합에 최대 20개의 레코드를 추가할 수 있습니다. 그러나 CNAME 형식의 레코드 집합은 최대 1개의 레코드를 포함할 수 있으며 레코드 집합에 두 개의 동일한 레코드가 포함될 수 없습니다. 빈 레코드 집합(0개 레코드 포함)을 만들 수 있지만 Azure DNS 이름 서버에는 표시되지 않습니다.
 
 레코드 집합에 원하는 레코드 컬렉션을 포함한 후에는 Set-AzureRmDnsRecordSet cmdlet을 사용하여 커밋해야 합니다. 이 cmdlet은 Azure DNS의 기존 레코드 집합을 제공된 레코드 집합으로 바꿉니다. 다음 예제에서는 단일 레코드를 포함하는 각 레코드 형식의 레코드 집합을 만드는 방법을 보여 줍니다.
 
 ### 단일 레코드를 포함하는 A 레코드 집합 만들기
 
-	PS C:\> $rs = New-AzureRmDnsRecordSet -Name "test-a" -RecordType A -Zone $zone -Ttl 60
+	PS C:\> $rs = New-AzureRmDnsRecordSet -Name "test-a" -RecordType A -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup 
 	PS C:\> Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address "1.2.3.4"
 	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs
 
 레코드 집합 개체를 매개 변수로 전달하는 대신 파이프를 통해 전달하여 레코드를 만드는 작업 시퀀스를 '파이프'할 수도 있습니다. 예:
 
-	PS C:\> New-AzureRmDnsRecordSet -Name "test-a" -RecordType A -Zone $zone -Ttl 60 | Add-AzureRmDnsRecordConfig -Ipv4Address "1.2.3.4" | Set-AzureRmDnsRecordSet
+	PS C:\> New-AzureRmDnsRecordSet -Name "test-a" -RecordType A -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup | Add-AzureRmDnsRecordConfig -Ipv4Address "1.2.3.4" | Set-AzureRmDnsRecordSet
 
 ### 단일 레코드를 포함하는 AAAA 레코드 집합 만들기
 
-	PS C:\> $rs = New-AzureRmDnsRecordSet -Name "test-aaaa" -RecordType AAAA -Zone $zone -Ttl 60
+	PS C:\> $rs = New-AzureRmDnsRecordSet -Name "test-aaaa" -RecordType AAAA -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	PS C:\> Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv6Address "2607:f8b0:4009:1803::1005"
 	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs
 
 ### 단일 레코드를 포함하는 CNAME 레코드 집합 만들기
 
-	PS C:\> $rs = New-AzureRmDnsRecordSet -Name "test-cname" -RecordType CNAME -Zone $zone -Ttl 60
+	PS C:\> $rs = New-AzureRmDnsRecordSet -Name "test-cname" -RecordType CNAME -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	PS C:\> Add-AzureRmDnsRecordConfig -RecordSet $rs -Cname "www.contoso.com"
 	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs
 
@@ -123,13 +128,13 @@ Add-AzureRmDnsRecordConfig를 추가로 호출하여 각 레코드 집합에 레
 
 이 예제에서는 레코드 집합 이름을 "@"로 사용하여 영역 구로에 MX 레코드를 만듭니다(예: "contoso.com"). MX 레코드에 공통됩니다.
 
-	PS C:\> $rs = New-AzureRmDnsRecordSet -Name "@" -RecordType MX -Zone $zone -Ttl 60
+	PS C:\> $rs = New-AzureRmDnsRecordSet -Name "@" -RecordType MX -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	PS C:\> Add-AzureRmDnsRecordConfig -RecordSet $rs -Exchange "mail.contoso.com" -Preference 5
 	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs
 
 ### 단일 레코드를 포함하는 NS 레코드 집합 만들기
 
-	PS C:\> $rs = New-AzureRmDnsRecordSet -Name "test-ns" -RecordType NS -Zone $zone -Ttl 60
+	PS C:\> $rs = New-AzureRmDnsRecordSet -Name "test-ns" -RecordType NS -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	PS C:\> Add-AzureRmDnsRecordConfig -RecordSet $rs -Nsdname "ns1.contoso.com"
 	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs
 
@@ -137,13 +142,13 @@ Add-AzureRmDnsRecordConfig를 추가로 호출하여 각 레코드 집합에 레
 
 영역 루트에 SRV 레코드를 만드는 경우 레코드 이름에 \_service 및 \_protocol만 지정하면 됩니다. 레코드 이름에 '.@'도 포함할 필요가 없습니다.
 
-	PS C:\> $rs = New-AzureRmDnsRecordSet -Name "_sip._tls" -RecordType SRV -Zone $zone -Ttl 60
+	PS C:\> $rs = New-AzureRmDnsRecordSet -Name "_sip._tls" -RecordType SRV -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	PS C:\> Add-AzureRmDnsRecordConfig -RecordSet $rs –Priority 0 –Weight 5 –Port 8080 –Target "sip.contoso.com"
 	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs
 
 ### 단일 레코드를 포함하는 TXT 레코드 집합 만들기
 
-	PS C:\> $rs = New-AzureRmDnsRecordSet -Name "test-txt" -RecordType TXT -Zone $zone -Ttl 60
+	PS C:\> $rs = New-AzureRmDnsRecordSet -Name "test-txt" -RecordType TXT -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	PS C:\> Add-AzureRmDnsRecordConfig -RecordSet $rs -Value "This is a TXT record"
 	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs
 
@@ -161,7 +166,7 @@ Add-AzureRmDnsRecordConfig를 추가로 호출하여 각 레코드 집합에 레
 
 이 예제에서는 기존 A 레코드의 IP 주소를 변경합니다.
 
-	PS C:\> $rs = Get-AzureRmDnsRecordSet -name "test-a" -RecordType A -Zone $zone 
+	PS C:\> $rs = Get-AzureRmDnsRecordSet -name "test-a" -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	PS C:\> $rs.Records[0].Ipv4Address = "134.170.185.46"
 	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs 
 
@@ -169,11 +174,11 @@ Set-AzureRmDnsRecordSet cmdlet은 'Etag' 검사를 사용하여 동시 변경 �
 
 ### SOA 레코드 수정
 
->[AZURE.NOTE] 영역 루트(이름 = '@')에 자동으로 생성된 SOA 레코드 집합에서 레코드를 추가하거나 제거할 수는 없지만 SOA 레코드 내의 매개 변수 및 레코드 집합 TTL을 수정할 수 있습니다.
+>[AZURE.NOTE] 영역 루트(이름 = '@')에 자동으로 생성된 SOA 레코드 집합에서 레코드를 추가하거나 제거할 수는 없지만 SOA 레코드('Host' 제외) 내의 모든 매개 변수 및 레코드 집합 TTL을 수정할 수 있습니다.
 
 다음 예제에서는 SOA 레코드의 'Email' 속성을 변경하는 방법을 보여 줍니다.
 
-	PS C:\> $rs = Get-AzureRmDnsRecordSet -Name "@" -RecordType SOA -Zone $zone
+	PS C:\> $rs = Get-AzureRmDnsRecordSet -Name "@" -RecordType SOA -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	PS C:\> $rs.Records[0].Email = "admin.contoso.com"
 	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs 
 
@@ -183,7 +188,7 @@ Set-AzureRmDnsRecordSet cmdlet은 'Etag' 검사를 사용하여 동시 변경 �
 
 다음 예제에서는 NS 레코드 집합의 TTL 속성을 변경하는 방법을 보여 줍니다.
 
-	PS C:\> $rs = Get-AzureRmDnsRecordSet -Name "@" -RecordType NS -Zone $zone
+	PS C:\> $rs = Get-AzureRmDnsRecordSet -Name "@" -RecordType NS -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	PS C:\> $rs.Ttl = 300
 	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs 
 
@@ -191,7 +196,7 @@ Set-AzureRmDnsRecordSet cmdlet은 'Etag' 검사를 사용하여 동시 변경 �
 
 이 예제에서는 기존 레코드 집합에 두 개의 MX 레코드를 더 추가합니다.
 
-	PS C:\> $rs = Get-AzureRmDnsRecordSet -name "test-mx" -RecordType MX -Zone $zone
+	PS C:\> $rs = Get-AzureRmDnsRecordSet -name "test-mx" -RecordType MX -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	PS C:\> Add-AzureRmDnsRecordConfig -RecordSet $rs -Exchange "mail2.contoso.com" -Preference 10
 	PS C:\> Add-AzureRmDnsRecordConfig -RecordSet $rs -Exchange "mail3.contoso.com" -Preference 20
 	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs 
@@ -203,17 +208,17 @@ Remove-AzureRmDnsRecordConfig를 사용하여 레코드 집합에서 레코드�
 레코드 집합에서 마지막 레코드를 제거해도 레코드 집합은 삭제되지 않습니다. 자세한 내용은 아래의 [레코드 집합 삭제](#delete-a-record-set)를 참조하세요.
 
 
-	PS C:\> $rs = Get-AzureRmDnsRecordSet -Name "test-a" -RecordType A –Zone $zone
+	PS C:\> $rs = Get-AzureRmDnsRecordSet -Name "test-a" -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	PS C:\> Remove-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address "1.2.3.4"
 	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs
 
 레코드 집합 개체를 매개 변수로 전달하는 대신 파이프를 통해 전달하여 레코드 집합에서 레코드를 제거하는 작업 시퀀스를 '파이프'할 수도 있습니다. 예:
 
-	PS C:\> Get-AzureRmDnsRecordSet -Name "test-a" -RecordType A -Zone $zone | Remove-AzureRmDnsRecordConfig -Ipv4Address "1.2.3.4" | Set-AzureRmDnsRecordSet
+	PS C:\> Get-AzureRmDnsRecordSet -Name "test-a" -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup | Remove-AzureRmDnsRecordConfig -Ipv4Address "1.2.3.4" | Set-AzureRmDnsRecordSet
 
 ### 레코드 집합에서 AAAA 레코드 제거
 
-	PS C:\> $rs = Get-AzureRmDnsRecordSet -Name "test-aaaa" -RecordType AAAA –Zone $zone
+	PS C:\> $rs = Get-AzureRmDnsRecordSet -Name "test-aaaa" -RecordType AAAA -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	PS C:\> Remove-AzureRmDnsRecordConfig -RecordSet $rs -Ipv6Address "2607:f8b0:4009:1803::1005"
 	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs
 
@@ -221,31 +226,31 @@ Remove-AzureRmDnsRecordConfig를 사용하여 레코드 집합에서 레코드�
 
 CNAME 레코드 집합은 최대 1개의 레코드를 포함할 수 있으므로 해당 레코드를 제거하면 빈 레코드 집합이 남습니다.
 
-	PS C:\> $rs =  Get-AzureRmDnsRecordSet -name "test-cname" -RecordType CNAME –Zone $zone	
+	PS C:\> $rs =  Get-AzureRmDnsRecordSet -name "test-cname" -RecordType CNAME -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup	
 	PS C:\> Remove-AzureRmDnsRecordConfig -RecordSet $rs -Cname "www.contoso.com"
 	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs
 
 ### 레코드 집합에서 MX 레코드 제거
 
-	PS C:\> $rs = Get-AzureRmDnsRecordSet -name "test-mx" -RecordType 'MX' –Zone $zone	
+	PS C:\> $rs = Get-AzureRmDnsRecordSet -name "test-mx" -RecordType MX -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup	
 	PS C:\> Remove-AzureRmDnsRecordConfig -RecordSet $rs -Exchange "mail.contoso.com" -Preference 5
 	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs
 
 ### 레코드 집합에서 NS 레코드 제거
 	
-	PS C:\> $rs = Get-AzureRmDnsRecordSet -Name "test-ns" -RecordType NS -Zone $zone
+	PS C:\> $rs = Get-AzureRmDnsRecordSet -Name "test-ns" -RecordType NS -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	PS C:\> Remove-AzureRmDnsRecordConfig -RecordSet $rs -Nsdname "ns1.contoso.com"
 	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs
 
 ### 레코드 집합에서 SRV 레코드 제거
 
-	PS C:\> $rs = Get-AzureRmDnsRecordSet -Name "_sip._tls" -RecordType SRV -Zone $zone
+	PS C:\> $rs = Get-AzureRmDnsRecordSet -Name "_sip._tls" -RecordType SRV -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	PS C:\> Remove-AzureRmDnsRecordConfig -RecordSet $rs –Priority 0 –Weight 5 –Port 8080 –Target "sip.contoso.com"
 	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs
 
 ### 레코드 집합에서 TXT 레코드 제거
 
-	PS C:\> $rs = Get-AzureRmDnsRecordSet -Name "test-txt" -RecordType TXT -Zone $zone
+	PS C:\> $rs = Get-AzureRmDnsRecordSet -Name "test-txt" -RecordType TXT -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	PS C:\> Remove-AzureRmDnsRecordConfig -RecordSet $rs -Value "This is a TXT record"
 	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs
 
@@ -260,7 +265,7 @@ Remove-AzureRmDnsRecordSet cmdlet을 사용하여 레코드 집합을 삭제할 
 
 모든 매개 변수를 이름으로 지정합니다.
 
-	PS C:\> Remove-AzureRmDnsRecordSet -Name "test-a" -RecordType A -Zonename "contoso.com" -ResourceGroupName MyAzureResourceGroup [-Force]
+	PS C:\> Remove-AzureRmDnsRecordSet -Name "test-a" -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup [-Force]
 
 선택적 '-Force' 스위치를 사용하여 확인 메시지가 표시되지 않도록 할 수 있습니다.
 
@@ -268,23 +273,25 @@ Remove-AzureRmDnsRecordSet cmdlet을 사용하여 레코드 집합을 삭제할 
 
 이름 및 형식으로 레코드 집합을 지정하고 개체를 통해 영역을 지정합니다.
 
+	PS C:\> $zone = Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
 	PS C:\> Remove-AzureRmDnsRecordSet -Name "test-a" -RecordType A -Zone $zone [-Force]
 
 ### 옵션 3
 
 개체를 통해 레코드 집합을 지정합니다.
 
+	PS C:\> $rs = Get-AzureRmDnsRecordSet -Name "test-a" -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	PS C:\> Remove-AzureRmDnsRecordSet –RecordSet $rs [-Overwrite] [-Force]
 
 개체를 사용하여 레코드 집합을 지정하면 동시 변경 내용을 삭제하지 않도록 'Etag' 검사가 사용됩니다. 선택적 '-Overwrite' 플래그를 사용하면 이러한 검사가 무시됩니다. 자세한 내용은 [Etag 및 태그](../dns-getstarted-create-dnszone#Etags-and-tags)를 참조하세요.
 
 레코드 집합 개체를 매개 변수로 전달하는 대신 파이프할 수도 있습니다.
 
-	PS C:\> Get-AzureRmDnsRecordSet -Name "test-a" -RecordType A -Zone $zone | Remove-AzureRmDnsRecordSet [-Overwrite] [-Force]
+	PS C:\> Get-AzureRmDnsRecordSet -Name "test-a" -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup | Remove-AzureRmDnsRecordSet [-Overwrite] [-Force]
 
 ##참고 항목
 
 [레코드 집합 및 레코드 만들기 시작](dns-getstarted-create-recordset.md)<BR> [DNS 영역 관리](dns-operations-dnszones.md)<BR> [.NET SDK로 작업 자동화](dns-sdk.md)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

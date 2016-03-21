@@ -17,7 +17,7 @@
    ms.date="11/01/2015"
    ms.author="kundanap"/>
 
-# Azure 리소스 관리자 템플릿과 함께 사용자 지정 스크립트 확장 사용
+# Azure Resource Manager 템플릿을 사용하여 사용자 지정 스크립트 확장 사용
 
 이 문서에서는 Linux 또는 Windows VM의 작업을 부트스트랩하기 위해 사용자 지정 스크립트 확장을 사용하여 Azure 리소스 관리자 템플릿을 작성하는 방법을 간략하게 설명합니다.
 
@@ -45,7 +45,7 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스 간의 종속성�
 
 ## 사용자 지정 스크립트 확장 사용
 
-템플릿을 배포하는 경우 Azure 서비스 관리 API에 사용할 수 있는 동일한 버전의 사용자 지정 스크립트 확장을 사용합니다. 확장은 Azure 저장소 계정 또는 Github 위치에 파일을 업로드하는 동일한 매개 변수 및 시나리오를 지원합니다. 템플릿을 사용하는 동안 중요한 차이점은 majorversion.* 형식에서 버전을 지정하는 대신 확장의 정확한 버전을 지정해야 한다는 점입니다.
+템플릿으로 배포를 위해서는 Azure 서비스 관리 API에 사용할 수 있는 동일한 버전의 사용자 지정 스크립트 확장을 사용하십시오. 확장은 Azure 저장소 계정 또는 Github 위치에 파일을 업로드하는 동일한 매개 변수 및 시나리오를 지원합니다. 템플릿을 사용하는 동안 중요한 차이점은 majorversion.* 형식에서 버전을 지정하는 대신 확장의 정확한 버전을 지정해야 한다는 점입니다.
 
  ## Linux VM의 템플릿 예제
 
@@ -96,10 +96,10 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스 간의 종속성�
 
 위의 예제에서 사용자 고유의 설정으로 파일 URL 및 파일 이름을 바꿉니다.
 
-템플릿을 제작한 후에 Azure CLI 또는 Azure Powershell를 사용하여 배포할 수 있습니다.
+템플릿을 제작한 후 Azure CLI 또는 Azure PowerShell을 사용하여 배포할 수 있습니다.
 
 사용자 지정 스크립트 확장을 사용하여 VM에서 응용 프로그램을 구성하는 전체 샘플은 아래 예제를 참조하세요.
 
 <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/" target="_blank">Linux VM의 사용자 지정 스크립트 확장</a>. </br> <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="_blank">Windows VM의 사용자 지정 스크립트 확장</a>
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

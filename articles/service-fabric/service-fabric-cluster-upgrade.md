@@ -75,7 +75,9 @@ Azure 포털(아래 참조)에서 또는 servicefabric.cluster 리소스의 PUT 
 
 ![Azure 포털의 인증서 지문을 보여 주는 스크린샷][CertificateUpgrade]
 
->[AZURE.NOTE] 클러스터 리소스에 사용할 인증서를 식별하려면 먼저 다음 단계를 완료해야 합니다. 그렇지 않으면 새 인증서가 사용되지 않습니다. 1. Azure 키 자격 증명 모음에 새 인증서를 업로드합니다. 지침은 [서비스 패브릭 보안](service-fabric-cluster-security.md)을 참조하세요. 해당 문서의 2단계로 시작합니다. 2. 인증서가 배포되도록 클러스터를 구성하는 모든 VM(가상 컴퓨터)을 업데이트합니다. 이를 수행하려면 [Azure 키 자격 증명 모음 팀 블로그](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx)를 참조하세요.
+>[AZURE.NOTE] 클러스터 리소스에 사용할 인증서를 식별하려면 먼저 다음 단계를 완료해야 합니다. 그러지 않으면 새 인증서가 사용되지 않습니다.
+1. Azure 키 자격 증명 모음에 새 인증서를 업로드합니다. 지침은 [서비스 패브릭 보안](service-fabric-cluster-security.md)을 참조하세요. 해당 문서의 2단계로 시작합니다.
+2. 인증서가 배포되도록 클러스터를 구성하는 모든 VM(가상 컴퓨터)을 업데이트합니다. 이를 수행하려면 [Azure 주요 자격 증명 모음 팀 블로그](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx)를 참조하세요.
 
 ### 응용 프로그램 포트
 
@@ -100,11 +102,11 @@ Azure 포털(아래 참조)에서 또는 servicefabric.cluster 리소스의 PUT 
 
 각 노드 유형의 경우 사용하려는 사용자 지정 배치 속성을 응용 프로그램에 추가할 수 있습니다. NodeType은 명시적으로 추가하지 않고 사용할 수 있는 기본 속성입니다.
 
->[AZURE.NOTE] 배치 속성 사용에 대한 세부 정보는 [배치 제약 조건 개요](service-fabric-placement-constraint.md)를 참조하세요.
+>[AZURE.NOTE] 배치 제약 조건과 노드 속성 사용 및 정의 방법에 대한 자세한 내용은 서비스 패브릭 클러스터 리소스 관리자 문서의 [클러스터 설명](service-fabric-cluster-resource-manager-cluster-description.md)에 있는 "배치 제약 조건 및 노드 속성" 섹션을 참조하세요.
 
 ### 용량 메트릭
 
-각 노드 유형의 경우 부하를 보고하도록 사용하려는 사용자 용량 메트릭을 응용 프로그램에 추가할 수 있습니다. 부하 보고를 위한 용량 메트릭 사용에 대한 세부 정보는 [동적 부하 보고 개요](service-fabric-resource-balancer-dynamic-load-reporting.md)를 참조하세요.
+각 노드 유형의 경우 부하를 보고하도록 사용하려는 사용자 용량 메트릭을 응용 프로그램에 추가할 수 있습니다. 부하를 보고하는 용량 메트릭 사용에 대한 자세한 내용은 서비스 패브릭 클러스터 리소스 관리자 설명서에서 [클러스터 설명](service-fabric-cluster-resource-manager-cluster-description.md) 및 [메트릭 및 부하](service-fabric-cluster-resource-manager-metrics.md)를 참조하세요.
 
 ### 클러스터를 구성하는 VM의 OS 패치
 
@@ -124,4 +126,4 @@ Azure 포털(아래 참조)에서 또는 servicefabric.cluster 리소스의 PUT 
 [AddingProbes]: ./media/service-fabric-cluster-upgrade/addingProbes.png
 [AddingLBRules]: ./media/service-fabric-cluster-upgrade/addingLBRules.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

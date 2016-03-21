@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="03/05/2016" 
 	ms.author="awills"/>
  
 # Application Insights에서 경고 설정
@@ -48,6 +48,8 @@ Application Insights는 [다양한 플랫폼][platforms]에서 라이브 앱을 
 
 *경고 추가 단추가 보이지 않습니다.* - 조직 계정을 사용 중이신가요? 이 응용 프로그램 리소스에 소유자 또는 참가자 액세스가 가능하면 경고를 설정할 수 있습니다. 설정 -> 사용자를 살펴보세요. [액세스 제어에 대해 자세히 알아보세요][roles].
 
+> [AZURE.NOTE] 경고 블레이드에 [NRT 사전 진단](app-insights-nrt-proactive-diagnostics.md) 경고 설정이 이미 있습니다. 이는 특정 메트릭, 요청 실패율을 모니터링하는 자동 경고입니다. 따라서 이를 사용하지 않으려는 경우가 아니면 요청 실패율에 대한 자체 경고를 설정할 필요가 없습니다.
+
 ## 경고 보기
 
 알림 상태가 비활성 및 활성 간에 변경될 때 전자 메일이 제공됩니다.
@@ -58,13 +60,10 @@ Application Insights는 [다양한 플랫폼][platforms]에서 라이브 앱을 
 
 ![](./media/app-insights-alerts/010-alert-drop.png)
 
-상태 변경 내역은 작업 이벤트 로그에 있습니다.
+상태 변경 내역은 감사 로그에 있습니다.
 
-![하단 근처의 개요 블레이드에서 '지난 주의 이벤트'를 클릭합니다.](./media/app-insights-alerts/09-alerts.png)
+![개요 블레이드에서 설정, 감사 로그를 클릭합니다.](./media/app-insights-alerts/09-alerts.png)
 
-*이러한 "이벤트"가 원격 분석 이벤트 또는 사용자 지정 이벤트와 관련이 있나요?*
-
-* 아니요. 이러한 작업 이벤트는 이 응용 프로그램 리소스에 발생한 일에 대한 기록일 뿐입니다. 
 
 
 ## 경고 작동 방식
@@ -127,4 +126,4 @@ Application Insights는 [다양한 플랫폼][platforms]에서 라이브 앱을 
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -21,7 +21,7 @@ Microsoft Visual Studio용 Azure 도구를 설치한 경우 Azure 저장소 계�
 
 Visual Studio에서 서버 탐색기를 보려면, 메뉴 모음에서 **보기**, **서버 탐색기**를 선택합니다. 저장소 노드는 연결된 Azure 구독/인증서 아래에 존재하는 모든 저장소 계정을 보여줍니다. 저장소 계정이 나타나지 않으면 [이 항목의 뒷부분에 나오는](#add-storage-accounts-by-using-server-explorer) 다음의 지침을 따라 추가할 수 있습니다.
 
-Azure SDK 2.7부터 새로운 클라우드 탐색기를 사용해 Azure 리소스를 확인 및 관리할 수 있습니다. 자세한 내용은 [클라우드 탐색기를 사용하여 Azure 리소스 관리](https://msdn.microsoft.com/library/azure/mt185741.aspx)를 참조하세요.
+Azure SDK 2.7부터 새로운 클라우드 탐색기를 사용해 Azure 리소스를 확인 및 관리할 수 있습니다. 자세한 내용은 [클라우드 탐색기를 사용하여 Azure 리소스 관리](vs-azure-tools-resources-managing-with-cloud-explorer)를 참조하세요.
 
 
 ## Visual Studio에서 저장소 리소스를 확인 및 관리합니다.
@@ -193,7 +193,8 @@ Azure 테이블 저장소 서비스는 다량의 구조화된 데이터를 저�
 
     ![테이블 엔터티 추가 또는 편집](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC656238.png)
 
-    단일 테이블의 엔터티는 속성 (열)과 동일한 집합을 가질 필요가 없습니다. 테이블 데이터 보기 및 편집에 대한 다음 제한 사항에 유의하세요. 이진 데이터(바이트 형식)를 보거나 편집할 수는 없지만 테이블에 저장할 수 있습니다.
+    단일 테이블의 엔터티는 속성 (열)과 동일한 집합을 가질 필요가 없습니다. 테이블 데이터 보기 및 편집에 대한 다음의 제한 사항에 유의하십시오.
+    - 이진 데이터 (byte 형식)를 보거나 편집할 수 없지만 테이블에 저장할 수는 있습니다.
 
     - Azure에서 테이블 저장소는 **PartitionKey** 또는 **RowKey** 값의 편집을 지원하지 않으므로 해당 작업을 할 수 없습니다.
 
@@ -313,4 +314,4 @@ Azure 테이블 저장소 서비스는 다량의 구조화된 데이터를 저�
 
 Azure 저장소 서비스를 사용하는 방법에 대해 자세히 알아보려면 [Azure 저장소 서비스 액세스](https://msdn.microsoft.com/library/azure/ee405490.aspx)를 참조하세요.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

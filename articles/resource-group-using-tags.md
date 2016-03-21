@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="AzurePortal"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/23/2016"
+	ms.date="03/07/2016"
 	ms.author="tomfitz"/>
 
 
@@ -31,7 +31,7 @@
 
 ## 템플릿의 태그
 
-배포 중에 리소스에 태그를 추가하기는 매우 쉽습니다. 배포할 리소스에 **tags** 요소를 추가하고 태그 이름 및 값을 제공하기만 하면 됩니다. 태그 이름 및 값은 구독에 미리 존재할 필요가 없습니다. 각 리소스에 최대 15개의 태그를 제공할 수 있습니다.
+배포 중 리소스에 태그를 지정하려면 배포할 리소스에 **tags** 요소를 추가하고 태그 이름 및 값을 제공하기만 하면 됩니다. 태그 이름 및 값은 구독에 미리 존재할 필요가 없습니다. 각 리소스에 최대 15개의 태그를 제공할 수 있습니다.
 
 다음 예제에서는 태그가 있는 저장소 계정을 보여 줍니다.
 
@@ -84,7 +84,7 @@
 
 ## 포털의 태그
 
-포털에서 리소스 및 리소스 그룹에 쉽게 태그를 지정할 수 있습니다. 찾아보기 허브를 사용하여 태그를 지정할 리소스 또는 리소스 그룹으로 이동한 후 블레이드 위쪽의 개요 섹션에서 태그 부분을 클릭합니다.
+포털을 통해 기존 리소스 및 리소스 그룹에 태그를 추가할 수 있습니다. 찾아보기 허브를 사용하여 태그를 지정할 리소스 또는 리소스 그룹으로 이동한 후 블레이드 위쪽의 개요 섹션에서 태그 부분을 클릭합니다.
 
 ![리소스 및 리소스 그룹 블레이드에서 태그 파트](./media/resource-group-using-tags/tag-icon.png)
 
@@ -100,85 +100,82 @@
 
 ![시작 보드에 태그 고정](./media/resource-group-using-tags/pin-tags.png)
 
-## PowerShell을 사용한 태그 지정
-
-[AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
+## 태그 및 PowerShell
 
 태그는 리소스 및 리소스 그룹에 직접 존재하므로 이미 적용된 태그를 확인하기 위해서는 **Get-AzureRmResource** 또는 **Get-AzureRmResourceGroup**이 있는 리소스나 리소스 그룹을 파악하기만 하면 됩니다. 리소스 그룹부터 살펴보겠습니다.
 
-    PS C:\> Get-AzureRmResourceGroup tag-demo
+    PS C:\> Get-AzureRmResourceGroup -Name tag-demo-group
 
-    ResourceGroupName : tag-demo
+    ResourceGroupName : tag-demo-group
+    Location          : westus
+    ProvisioningState : Succeeded
+    Tags              :
+                    Name         Value
+                    ===========  ==========
+                    Dept         Finance
+                    Environment  Production
+
+
+이 cmdlet은 적용된 태그를 포함하여 리소스 그룹의 일부 메타데이터를 반환합니다.
+
+리소스에 대한 메타데이터를 가져올 때 태그가 직접 표시되지 않습니다. 태그는 아래와 같이 Hashtable 개체로만 표시됩니다.
+
+    PS C:\> Get-AzureRmResource -ResourceName tfsqlserver -ResourceGroupName tag-demo-group
+
+    Name              : tfsqlserver
+    ResourceId        : /subscriptions/{guid}/resourceGroups/tag-demo-group/providers/Microsoft.Sql/servers/tfsqlserver
+    ResourceName      : tfsqlserver
+    ResourceType      : Microsoft.Sql/servers
+    Kind              : v12.0
+    ResourceGroupName : tag-demo-group
+    Location          : westus
+    SubscriptionId    : {guid}
+    Tags              : {System.Collections.Hashtable}
+
+실제 태그를 보려면 **Tags** 속성을 검색합니다.
+
+    PS C:\> (Get-AzureRmResource -ResourceName tfsqlserver -ResourceGroupName tag-demo-group).Tags | %{ $_.Name + ": " + $_.Value }
+    Dept: Finance
+    Environment: Production
+
+특정 리소스 그룹 또는 리소스에 대한 태그를 보는 대신 특정 태그 및 값이 있는 모든 리소스 또는 리소스 그룹을 검색하려고 할 수 있습니다. 특정 태그가 있는 리소스 그룹을 가져오려면 **-Tag** 매개 변수와 함께 **Find-AzureRmResourceGroup** cmdlet을 사용합니다.
+
+    PS C:\> Find-AzureRmResourceGroup -Tag @{ Name="Dept"; Value="Finance" } | %{ $_.Name }
+    tag-demo-group
+    web-demo-group
+
+특정 태그 및 값이 있는 모든 리소스를 가져오려면 **Find-AzureRmResource** cmdlet을 사용합니다.
+
+    PS C:\> Find-AzureRmResource -TagName Dept -TagValue Finance | %{ $_.ResourceName }
+    tfsqlserver
+    tfsqldatabase
+
+기존 태그가 없는 리소스 그룹에 태그를 추가하려면 **Set-AzureRmResourceGroup** 명령을 사용하여 태그 개체를 지정합니다.
+
+    PS C:\> Set-AzureRmResourceGroup -Name test-group -Tag @( @{ Name="Dept"; Value="IT" }, @{ Name="Environment"; Value="Test"} )
+
+    ResourceGroupName : test-group
     Location          : southcentralus
     ProvisioningState : Succeeded
     Tags              :
-    Permissions       :
-                    Actions  NotActions
-                    =======  ==========
-                    *
+                    Name          Value
+                    =======       =====
+                    Dept          IT
+                    Environment   Test
+                    
+**SetAzureRmResource** 명령을 사용하여 기존 태그가 없는 리소스에 태그를 추가할 수 있습니다.
 
-    Resources         :
-                    Name                             Type                                  Location
-                    ===============================  ====================================  ==============
-                    CPUHigh ExamplePlan              microsoft.insights/alertrules         eastus
-                    ForbiddenRequests tag-demo-site  microsoft.insights/alertrules         eastus
-                    LongHttpQueue ExamplePlan        microsoft.insights/alertrules         eastus
-                    ServerErrors tag-demo-site       microsoft.insights/alertrules         eastus
-                    ExamplePlan-tag-demo             microsoft.insights/autoscalesettings  eastus
-                    tag-demo-site                    microsoft.insights/components         centralus
-                    ExamplePlan                      Microsoft.Web/serverFarms             southcentralus
-                    tag-demo-site                    Microsoft.Web/sites                   southcentralus
+    PS C:\> Set-AzureRmResource -Tag @( @{ Name="Dept"; Value="IT" }, @{ Name="Environment"; Value="Test"} ) -ResourceId /subscriptions/{guid}/resourceGroups/test-group/providers/Microsoft.Web/sites/examplemobileapp
 
-
-이 cmdlet은 적용된 태그를 포함하여 리소스 그룹의 일부 메타데이터를 반환합니다. 리소스 그룹에 태그를 지정하려면 **Set-AzureRmResourceGroup** 명령을 사용하고 태그 이름 및 값을 지정합니다.
-
-    PS C:\> Set-AzureRmResourceGroup tag-demo -Tag @( @{ Name="project"; Value="tags" }, @{ Name="env"; Value="demo"} )
-
-    ResourceGroupName : tag-demo
-    Location          : southcentralus
-    ProvisioningState : Succeeded
-    Tags              :
-                    Name     Value
-                    =======  =====
-                    project  tags
-                    env      demo
-
-태그는 전체적으로 업데이트되므로 이미 태그가 지정된 리소스에 태그를 추가하려는 경우 유지하려는 모든 태그가 있는 배열을 사용해야 합니다. 이렇게 하려면 먼저 기존 태그를 선택하고 새 태그를 추가하면 됩니다.
+태그는 전체적으로 업데이트되므로 이미 태그가 지정된 리소스에 태그를 추가하려는 경우 유지하려는 모든 태그가 있는 배열을 사용해야 합니다. 이렇게 하려면 먼저 기존 태그를 선택하고 해당 집합에 새 태그를 추가한 다음 모든 태그를 다시 적용합니다.
 
     PS C:\> $tags = (Get-AzureRmResourceGroup -Name tag-demo).Tags
     PS C:\> $tags += @{Name="status";Value="approved"}
-    PS C:\> Set-AzureRmResourceGroup tag-demo -Tag $tags
-
-    ResourceGroupName : tag-demo
-    Location          : southcentralus
-    ProvisioningState : Succeeded
-    Tags              :
-                    Name     Value
-                    =======  ========
-                    project  tags
-                    env      demo
-                    status   approved
-
+    PS C:\> Set-AzureRmResourceGroup -Name test-group -Tag $tags
 
 태그를 하나 이상 제거하려는 경우에는 제거하려는 태그가 없는 배열을 저장하면 됩니다.
 
 프로세스는 **Get-AzureRmResource** 및 **Set-AzureRmResource** cmdlet을 사용한다는 점을 제외하고 리소스에 대한 프로세스와 동일합니다.
-
-특정 태그가 있는 리소스 그룹을 가져오려면 **-Tag** 매개 변수와 함께 **Find-AzureRmResourceGroup** cmdlet을 사용합니다.
-
-    PS C:\> Find-AzureRmResourceGroup -Tag @{ Name="env"; Value="demo" } | %{ $_.ResourceGroupName }
-    rbacdemo-group
-    tag-demo
-
-Azure PowerShell 1.0 이전 버전의 경우 다음 명령을 사용하여 특정 태그가 있는 리소스를 가져옵니다.
-
-    PS C:\> Get-AzureResourceGroup -Tag @{ Name="env"; Value="demo" } | %{ $_.ResourceGroupName }
-    rbacdemo-group
-    tag-demo
-    PS C:\> Get-AzureResource -Tag @{ Name="env"; Value="demo" } | %{ $_.Name }
-    rbacdemo-web
-    rbacdemo-docdb
-    ...    
 
 PowerShell을 사용하여 구독 내의 모든 태그 목록을 가져오려면 **Get-AzureRmTag** cmdlet을 사용합니다.
 
@@ -192,12 +189,69 @@ PowerShell을 사용하여 구독 내의 모든 태그 목록을 가져오려면
 
 **New-AzureRmTag** cmdlet을 사용하여 분류에 새 태그를 추가합니다. 이러한 태그는 아직 리소스 또는 리소스 그룹에 적용되지 않았더라도 자동 완성에 포함됩니다. 태그 이름/값을 제거하려면 먼저 함께 사용될 수 있는 모든 리소스에서 태그를 제거하고 **Remove-AzureRmTag** cmdlet을 사용하여 분류에서 제거합니다.
 
-## REST API를 사용하여 태그 지정
+## 태그 및 Azure CLI
+
+태그는 리소스 및 리소스 그룹에 직접 존재하므로 이미 적용된 태그를 확인하기 위해서는 **azure group show**가 있는 리소스나 리소스 그룹을 파악하기만 하면 됩니다.
+
+    azure group show -n tag-demo-group
+    info:    Executing command group show
+    + Listing resource groups
+    + Listing resources for the group
+    data:    Id:                  /subscriptions/{guid}/resourceGroups/tag-demo-group
+    data:    Name:                tag-demo-group
+    data:    Location:            westus
+    data:    Provisioning State:  Succeeded
+    data:    Tags: Dept=Finance;Environment=Production
+    data:    Resources:
+    data:
+    data:      Id      : /subscriptions/{guid}/resourceGroups/tag-demo-group/providers/Microsoft.Sql/servers/tfsqlserver
+    data:      Name    : tfsqlserver
+    data:      Type    : servers
+    data:      Location: eastus2
+    data:      Tags    : Dept=Finance;Environment=Production
+    ...
+
+리소스 그룹에 대한 태그만 가져오려면 [jq](http://stedolan.github.io/jq/download/)와 같은 JSON 유틸리티를 사용합니다.
+
+    azure group show -n tag-demo-group --json | jq ".tags"
+    {
+      "Dept": "Finance",
+      "Environment": "Production" 
+    }
+
+**azure resource show**를 사용하여 특정 리소스에 대한 태그를 볼 수 있습니다.
+
+    azure resource show -g tag-demo-group -n tfsqlserver -r Microsoft.Sql/servers -o 2014-04-01-preview --json | jq ".tags"
+    {
+      "Dept": "Finance",
+      "Environment": "Production"
+    }
+    
+아래와 같이 특정 태그와 값을 가진 리소스를 모두 검색할 수 있습니다.
+
+    azure resource list --json | jq ".[] | select(.tags.Dept == "Finance") | .name"
+    "tfsqlserver"
+    "tfsqlserver/tfsqldata"
+
+태그는 전체적으로 업데이트되므로 이미 태그가 지정된 리소스에 하나의 태그를 추가하려는 경우 유지하려는 모든 기존 태그를 검색해야 합니다. 리소스 그룹에 대한 태그 값을 설정하려면 **azure group set**를 사용하여 리소스 그룹에 모든 태그를 제공합니다.
+
+    azure group set -n tag-demo-group -t Dept=Finance;Environment=Production;Project=Upgrade
+    info:    Executing command group set
+    ...
+    data:    Name:                tag-demo-group
+    data:    Location:            westus
+    data:    Provisioning State:  Succeeded
+    data:    Tags: Dept=Finance;Environment=Production;Project=Upgrade
+    ...
+    
+**azure tag list**를 사용하여 구독에 있는 기존 태그를 나열하고 **azure tag create**를 사용하여 새 태그를 추가할 수 있습니다. 구독에 대한 분류에서 태그를 제거하려면 먼저 함께 사용될 수 있는 모든 리소스에서 태그를 제거하고 **azure tag delete**를 사용하여 태그를 제거합니다.
+
+## 태그 및 REST API
 
 포털 및 PowerShell 둘 다 백그라운드에서 [리소스 관리자 REST API](https://msdn.microsoft.com/library/azure/dn848368.aspx)를 사용합니다. 태그를 다른 환경으로 통합해야 하는 경우 리소스 ID에 대해 GET을 사용하여 태그를 얻고 PATCH 호출을 통해 태그 집합을 업데이트할 수 있습니다.
 
 
-## 태그 지정 및 대금 청구
+## 태그 및 청구
 
 지원 되는 서비스에 대한 청구 데이터를 그룹화하는 데 태그를 사용할 수 있습니다. 예를 들어, [Azure 리소스 관리자와 통합된 가상 컴퓨터](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md)를 사용하면 가상 컴퓨터에 대한 청구 사용을 구성하는 태그를 정의하고 적용할 수 있습니다. 서로 다른 조직에 여러 VM을 실행하는 경우 비용 센터에 따라 그룹 사용에 대한 태그를 사용할 수 있습니다. 또한 프로덕션 환경에서 실행 중인 VM에 대한 청구 사용과 같이 런타임 환경으로 비용을 분류하는 데 태그를 사용할 수 있습니다.
 
@@ -214,4 +268,4 @@ PowerShell을 사용하여 구독 내의 모든 태그 목록을 가져오려면
 - 리소스 배포 시 Azure CLI 사용에 대한 소개는 [Azure 리소스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](./xplat-cli-azure-resource-manager.md)을 참조하세요.
 - 포털 사용에 대한 소개는 [Azure 포털을 사용하여 Azure 리소스 관리](./azure-portal/resource-group-portal.md)를 참조하세요.  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

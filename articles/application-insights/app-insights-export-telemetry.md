@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="03/06/2016" 
 	ms.author="awills"/>
  
 # Application Insights에서 원격 분석 내보내기
@@ -31,7 +31,7 @@
 "클래식" 저장소 계정이 없는 경우 지금 만듭니다.
 
 
-1. [Azure 포털](https://portal.azure.com)에서 구독에 "클래식" 저장소 계정을 만듭니다.
+1. [Azure 포털](https://portal.azure.com)에서 구독에 저장소 계정을 만듭니다.
 
     ![Azure 포털에서 새로 만들기, 데이터, 저장소 선택](./media/app-insights-export-telemetry/030.png)
 
@@ -212,4 +212,4 @@ blob 저장소를 열면 blob 파일 집합이 포함된 컨테이너가 보입�
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

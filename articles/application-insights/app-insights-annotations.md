@@ -12,12 +12,12 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="02/22/2016"
+	ms.date="03/03/2016"
     ms.author="awills"/>
 
 # Application Insights의 릴리스 주석
 
-[메트릭 탐색기](app-insights-metrics-explorer.md) 차트의 릴리스 주석은 새 빌드를 배포한 위치를 표시합니다. 릴리스 주석으로 변경 내용이 응용 프로그램의 성능에 영향을 주는지 여부를 쉽게 확인할 수 있습니다. 릴리스 주석은 [Visual Studio Team Services 빌드 시스템](https://www.visualstudio.com/ko-KR/get-started/build/build-your-app-vs)에서 자동으로 만들 수 있습니다.
+[메트릭 탐색기](app-insights-metrics-explorer.md) 차트의 릴리스 주석은 새 빌드를 배포한 위치를 표시합니다. 릴리스 주석으로 변경 내용이 응용 프로그램의 성능에 영향을 주는지 여부를 쉽게 확인할 수 있습니다. [Visual Studio Team Services 빌드 시스템](https://www.visualstudio.com/ko-KR/get-started/build/build-your-app-vs)에서 자동으로 만들 수 있고 사용자가 [PowerShell에서 직접 만들 수도](#create-annotations-from-powershell) 있습니다.
 
 ![서버 응답 시간과 상관 관계가 표시된 주석 예제](./media/app-insights-annotations/00.png)
 
@@ -69,6 +69,24 @@ Visual Studio Team Services 계정에 대해 이 작업을 한 번만 수행하�
 
 5. 마지막으로 릴리스 정의를 **저장**합니다.
 
+## PowerShell에서 주석 만들기
+
+VS Team 시스템을 사용하지 않고 원하는 모든 프로세스에서 주석을 만들 수도 있습니다.
+
+[GitHub에서 Powershell 스크립트](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)를 가져옵니다.
+
+다음과 같이 사용합니다.
+
+    .\CreateReleaseAnnotation.ps1 `
+      -applicationId "<applicationId>" `
+      -apiKey "<apiKey>" `
+      -releaseName "<myReleaseName>" `
+      -releaseProperties @{
+          "ReleaseDescription"="a description";
+          "TriggerBy"="My Name" }
+
+Application Insights 리소스에서 `applicationId` 및 `apiKey`를 가져옵니다. 설정, API 액세스를 차례로 열고 응용 프로그램 ID를 복사합니다. 그런 다음 API 키 만들기를 클릭하고 해당 키를 복사합니다.
+
 ## 릴리스 주석
 
 이제 릴리스 템플릿을 사용하여 새 릴리스를 배포할 때마다 주석이 Application Insights로 전송됩니다. 주석은 메트릭 탐색기의 차트에 표시됩니다.
@@ -78,4 +96,4 @@ Visual Studio Team Services 계정에 대해 이 작업을 한 번만 수행하�
 
 ![릴리스 주석 마커를 클릭합니다.](./media/app-insights-annotations/60.png)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

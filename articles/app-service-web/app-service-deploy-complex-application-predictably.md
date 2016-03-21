@@ -76,7 +76,7 @@ Azure PowerShell 설치는 버전 0.8.0부터 Azure 모듈 외에도 Azure 리�
  
 	![](./media/app-service-deploy-complex-application-predictably/gettemplate-1-deploybuttonui.png)
 
-4.	그런 다음 배포 프로세스를 시작하려면 **배포**를 클릭합니다. 프로세스가 완료되면 배포된 응용 프로그램을 탐색하기 위해 http://todoapp*XXXX*.azure.websites.net 링크를 클릭합니다.
+4.	그런 다음 배포 프로세스를 시작하려면 **배포**를 클릭합니다. 프로세스가 완료되면 배포된 응용 프로그램을 탐색하기 위해 http://todoapp*XXXX*.azurewebsites.net 링크를 클릭합니다.
 
 	![](./media/app-service-deploy-complex-application-predictably/gettemplate-2-deployprogress.png)
 
@@ -305,4 +305,4 @@ DevOps에서 반복성 및 예측 가능성은 마이크로 서비스로 구성�
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

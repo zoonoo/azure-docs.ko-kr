@@ -133,10 +133,14 @@ Power BI를 사용하여 데이터를 보고서 또는 대시보드로 시각적
 
     ![토폴로지 요약의 Kill 단추](./media/hdinsight-storm-power-bi-topology/killtopology.png)
 
+## 클러스터 삭제
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 ## 다음 단계
 
 이 문서에서는 REST를 사용하여 Storm 토폴로지에서 Power BI로 데이터를 보내는 방법을 알아보았습니다. 다른 Azure 기술을 사용하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
 * [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

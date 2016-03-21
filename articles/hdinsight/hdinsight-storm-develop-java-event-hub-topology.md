@@ -464,6 +464,10 @@ EventHubSpout는 해당 상태의 검사점을 큐에서 읽은 메시지의 현
 
 > [AZURE.NOTE] 데이터가 기본 저장소 컨테이너에 유지되므로 새 클러스터는 **반드시** 이전 클러스터와 동일한 저장소 계정 및 컨테이너를 사용해야 합니다.
 
+## 클러스터 삭제
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 ##문제 해결
 
 /devicedata 위치에 저장되지 않은 파일이 표시되지 않으면(`hadoop fs -ls /devicedata` 명령 또는 쿼리 콘솔에서 Hive 명령을 사용하여) Storm UI를 사용하여 토폴로지에서 반환된 오류를 찾습니다.
@@ -478,4 +482,4 @@ Storm UI를 사용하는 방법에 대한 자세한 내용은 다음 항목을 �
 
 * [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

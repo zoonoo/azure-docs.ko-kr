@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/07/2016" 
+	ms.date="03/04/2016" 
 	ms.author="sunliangms;fashah;garye;bradsev" />
 
 #<a name="heading"></a>Azure Blob 저장소에서 데이터 샘플링
@@ -34,7 +34,7 @@
 ## 데이터 다운로드 및 저해상도로 처리
 1. 다음 샘플 Python 코드에서 Blob 서비스를 사용하여 Azure Blob 저장소에서 데이터를 다운로드합니다. 
 
-	    from azure.storage import BlobService
+	    from azure.storage.blob import BlobService
     	import tables
     	
 		STORAGEACCOUNTNAME= <storage_account_name>
@@ -77,7 +77,7 @@
 
 2. 다음 샘플 코드를 사용하여 Azure Blob에 로컬 파일을 업로드합니다.
 
-		from azure.storage import BlobService
+		from azure.storage.blob import BlobService
     	import tables
 
 		STORAGEACCOUNTNAME= <storage_account_name>
@@ -108,4 +108,4 @@
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

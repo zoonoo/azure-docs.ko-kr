@@ -12,10 +12,10 @@
 <tags
    ms.service="hdinsight"
    ms.devlang="java"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/05/2016"
+   ms.date="03/07/2016"
    ms.author="larryfr"/>
 
 
@@ -25,7 +25,9 @@ Apache Storm은 데이터 스트림 처리용 확장 가능한 분산형 실시�
 
 > [AZURE.NOTE] 이 문서의 단계는 Windows 기반 HDInsight 클러스터를 만듭니다. HDInsight 클러스터에서 Linux 기반 Storm을 만드는 단계에 대해서는 [Apache Storm 자습서: HDInsight에서 데이터 분석을 사용하여 Storm Starter 샘플 시작](hdinsight-apache-storm-tutorial-get-started-linux.md)을 참조하세요.
 
-## 필수 조건
+## 시작하기 전에
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 이 Apache Storm 자습서를 성공적으로 완료하려면 다음 항목이 필요합니다.
 
@@ -203,6 +205,10 @@ Storm UI를 사용하여 토폴로지를 모니터링할 수 있습니다.
 
 단어 개수 토폴로지에 대한 **토폴로지 요약** 페이지로 돌아가 **토폴로지 동작** 섹션에서 **중단**을 선택합니다. 메시지가 표시되면 토폴로지를 중지하기 전에 대기할 시간(초)으로 10을 입력합니다. 시간 제한이 지난 후에는 대시보드의 **Storm UI** 섹션을 방문한 경우 토폴로지가 더 이상 표시되지 않습니다.
 
+##클러스터 삭제
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 ## 요약
 
 이 Apache Storm 자습서에서는 Storm Starter를 사용하여 HDInsight의 Storm 클러스터를 만드는 방법 및 Storm 대시보드를 사용하여 Storm 토폴로지를 배포, 모니터링 및 관리하는 방법에 대해 알아보았습니다.
@@ -239,4 +245,4 @@ Storm UI를 사용하여 토폴로지를 모니터링할 수 있습니다.
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

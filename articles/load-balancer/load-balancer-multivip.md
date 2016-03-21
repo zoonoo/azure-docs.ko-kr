@@ -18,7 +18,7 @@
 # 클라우드 서비스당 여러 VIP
 Azure에서 제공하는 IP 주소를 사용하여 공용 인터넷을 통해 Azure 클라우드 서비스에 액세스할 수 있습니다. 이 공용 IP 주소는 Azure 부하 분산 장치에 연결되며 실제로 클라우드 서비스 내의 VM 인스턴스가 아니기 때문에 VIP(가상 IP)라고 합니다. 단일 VIP를 사용하여 클라우드 서비스 내의 모든 VM 인스턴스에 액세스할 수 있습니다.
 
-그러나 동일한 클라우드 서비스에 대한 진입점으로 둘 이상의 VIP가 필요할 수 있는 시나리오도 있습니다. 예를 들어 클라우드 서비스가 기본 SLSL 포트 443을 사용하는 SSL 연결이 필요한 여러 웹 사이트를 호스트하고, 각 사이트가 서로 다른 고객 또는 테넌트에 대해 호스트될 수 있습니다. 이러한 시나리오에서는 각 웹 사이트에 대해 다른 공용 연결 IP 주소를 사용해야 합니다. 아래 다이어그램은 동일한 공용 포트에 여러 SSL 인증서가 필요한 일반적인 다중 테넌트 웹 호스팅을 보여 줍니다.
+그러나 동일한 클라우드 서비스에 대한 진입점으로 둘 이상의 VIP가 필요할 수 있는 시나리오도 있습니다. 예를 들어 클라우드 서비스가 기본 포트 443을 사용하는 SSL 연결이 필요한 여러 웹 사이트를 호스트하고, 각 사이트가 서로 다른 고객 또는 테넌트에 대해 호스트될 수 있습니다. 이러한 시나리오에서는 각 웹 사이트에 대해 다른 공용 연결 IP 주소를 사용해야 합니다. 아래 다이어그램은 동일한 공용 포트에 여러 SSL 인증서가 필요한 일반적인 다중 테넌트 웹 호스팅을 보여 줍니다.
 
 ![다중 VIP SSL 시나리오](./media/load-balancer-multivip/Figure1.png)
 
@@ -148,11 +148,11 @@ PowerShell을 통해 클라우드 서비스에서 사용하는 VIP를 확인하�
 
 [인터넷 연결 부하 분산 장치 개요](load-balancer-internet-overview.md)
 
-[인터넷 연결 부하 분산 장치 시작](load-balancer-internet-getstarted.md)
+[인터넷 연결 부하 분산 장치 시작](load-balancer-get-started-internet-arm-ps.md)
 
 [가상 네트워크 개요](../virtual-network/virtual-networks-overview.md)
 
 [예약된 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

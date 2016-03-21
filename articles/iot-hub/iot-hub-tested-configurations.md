@@ -36,7 +36,7 @@ Azure IoT 라이브러리는 다음 운영 체제 플랫폼에서 테스트되�
 
 |Windows OS 플랫폼 | 버전|
 |:---------------|:------------:|
-|Windows 데스크톱| 7,8,10 |
+|Windows 데스크톱| 10 |
 |Windows IoT 코어| 10 |
 |Windows Server| 2012 R2|
 
@@ -53,12 +53,12 @@ Azure IoT 라이브러리는 다음 운영 체제 플랫폼에서 테스트되�
 
 |OS 플랫폼| 버전|프로토콜|
 |:---------|:----------:|:----------:|
-|Debian Linux| 7\.5 | HTTPS, AMQP, MQTT |
-|Fedora Linux| 20 | HTTPS, AMQP, MQTT |
+|Debian Linux| 7\.5 | WebSocket을 통한 HTTPS, AMQP, MQTT, AMQP |
+|Fedora Linux| 20 | WebSocket을 통한 HTTPS, AMQP, MQTT, AMQP |
 |mbed OS| 2\.0 | HTTPS, AMQP |
 |TI-RTOS| 2\.x | HTTPS |
-|Ubuntu Linux| 14\.04 | HTTPS, AMQP, MQTT |
-|Windows 데스크톱| 7,8,10 | HTTPS, AMQP, MQTT |
+|Ubuntu Linux| 14\.04 | WebSocket을 통한 HTTPS, AMQP, MQTT, AMQP |
+|Windows 데스크톱| 10 | WebSocket을 통한 HTTPS, AMQP, MQTT, AMQP |
 |Yocto Linux|2\.1 | HTTPS, AMQP|
 
 
@@ -70,7 +70,7 @@ Azure IoT 라이브러리는 다음 운영 체제 플랫폼에서 테스트되�
 
 |런타임| 버전|프로토콜|
 |:---------|:----------:|:----:|
-|Node.js| 4\.1.0 | HTTPS|
+|Node.js| 4\.1.0 | WebSocket을 통한 HTTPS, AMQP, MQTT, AMQP |
 
 
 
@@ -80,14 +80,14 @@ Azure IoT 라이브러리는 다음 운영 체제 플랫폼에서 테스트되�
 
 |런타임| 버전|프로토콜|
 |:---------|:----------:|----|
-|Java SE(Windows)| 1\.7 | HTTPS, AMQP |
-|Java SE(Linux)| 1\.8 | HTTPS, AMQP|
+|Java SE(Windows)| 1\.8 | HTTPS, AMQP, MQTT |
+|Java SE(Linux)| 1\.8 | HTTPS, AMQP, MQTT|
 
 Java용 Microsoft Azure IoT 서비스 SDK는 다음 구성에서 테스트되었습니다.
 
 |런타임| 버전|프로토콜|
 |:---------|:----------:|:-----|
-|Java SE| 1\.8 | HTTPS, AMQP |
+|Java SE| 1\.8 | HTTPS, AMQP, MQTT |
 
 
 ## CSharp
@@ -96,8 +96,8 @@ Java용 Microsoft Azure IoT 서비스 SDK는 다음 구성에서 테스트되었
 
 |OS 플랫폼| 버전|프로토콜|
 |:---------|:----------:|:----------:|
-|Windows 데스크톱| 7,8,10 | HTTPS, AMQP|
-|Windows IoT 코어|10 | HTTPS|
+|Windows 데스크톱| 10 | WebSocket을 통한 HTTPS, AMQP, MQTT, AMQP |
+|Windows IoT 코어|10 | HTTPS |
 
 관리된 에이전트 코드는 Microsoft .NET Framework 4.5가 필요함
 
@@ -127,6 +127,7 @@ Java용 Microsoft Azure IoT 서비스 SDK는 다음 구성에서 테스트되었
 |[ADLINK MXE-200](http://www.adlinktech.com/PD/web/PD_detail.php?cKind=&pid=1505&seq=&id=&sid=&category=Fanless-Embedded-Computer_Integrated-Embedded-Computer&utm_source=) |Windows 10 | C#|
 |[ADLINK MXE 202i](http://www.adlinktech.com/PD/web/PD_detail.php?pid=1589) |Wind River | JavaScript|
 |[ADLINK MXE-5400](http://www.adlinktech.com/PD/web/PD_detail.php?pid=1318) |Windows 10 | C#|
+|[ADLINK NuPRO-E43](http://www.adlinktech.com/index.php) |Windows 10 | C#|
 |[Advantech Co., ARK-2121L](http://www.advantech.com/products/ark-2000_series_embedded_box_pcs/ark-2121l/mod_dd092808-0832-44bc-b38a-945eb7e016bd) |Windows 10 | C#|
 |[Advantech Co., ARK-1123C](http://www.advantech.com/products/92d96fda-cdd3-409d-aae5-2e516c0f1b01/ark-1123c/mod_0b91165c-aa8c-485d-8d25-fde6f88f4873) |Windows 10 | C#|
 |[Advantech Co., LTD UNO-1372G](http://www.advantech.com/products/gf-bvl2/uno-1372g/mod_8e63b3c9-b606-4725-a1af-94fccb98bb1a) |Windows 10 | C#|
@@ -186,4 +187,4 @@ Java용 Microsoft Azure IoT 서비스 SDK는 다음 구성에서 테스트되었
 
 [lnk-iot-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

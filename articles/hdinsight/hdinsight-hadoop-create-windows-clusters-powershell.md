@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/23/2016"
+   ms.date="03/08/2016"
    ms.author="jgao"/>
 
 # Azure PowerShell을 사용하여 HDInsight의 Windows 기반 Hadoop 클러스터 만들기
@@ -24,7 +24,9 @@
 Azure PowerShell을 사용하여 HDInsight 클러스터를 만드는 방법을 알아봅니다. Azure PowerShell은 Windows PowerShell로 Azure를 관리하기 위한 cmdlet을 제공하는 모듈입니다. 다른 클러스터 만들기 도구 및 기능은 이 페이지 맨 위에 있는 탭 선택을 클릭하거나 [클러스터 생성 방법](hdinsight-provision-clusters.md#cluster-creation-methods)을 참조하세요.
 
 
-###필수 조건:
+##필수 조건:
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 이 문서의 지침을 시작하기 전에 다음이 있어야 합니다.
 
@@ -154,4 +156,4 @@ Azure PowerShell을 사용하여 HDInsight 클러스터를 만드는 ARM 템플�
 [ssisclustercreate]: http://msdn.microsoft.com/library/mt146774(v=sql.120).aspx
 [ssisclusterdelete]: http://msdn.microsoft.com/library/mt146778(v=sql.120).aspx
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,7 +13,7 @@
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="02/29/2016"
 	ms.author="jgao"/>
 
@@ -167,4 +167,4 @@ SLA는 "지원 기간" 면에서 정의됩니다. 지원 기간은 Microsoft 고
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

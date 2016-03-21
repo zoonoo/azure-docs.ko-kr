@@ -40,11 +40,11 @@
 
 	![CDN 로드 블레이드](./media/cdn-preload-endpoint/cdn-load-blade.png)
 
-4. 로드하려는 각 자산의 전체 경로를 **경로** 텍스트 상자에 입력합니다(예: */pictures/kitten.png*).
+4. 로드하려는 각 자산의 전체 경로(예: `/pictures/kitten.png`)를 **경로** 텍스트 상자에 입력합니다.
 
 	> [AZURE.TIP] 여러 자산 목록을 작성할 수 있도록 하는 텍스트를 입력한 후에 더 많은 **경로** 텍스트 상자가 표시됩니다. 목록에서 줄임표(...) 단추를 클릭하여 자산을 삭제할 수 있습니다.
 	>
-	> 경로는 상대 URL이어야 합니다. 별표(*)를 와일드 카드로 사용할 수 있습니다.
+	> 경로는 다음 [정규식](https://msdn.microsoft.com/library/az24scfc.aspx)에 맞는 상대 URL이어야 합니다. `^(?:\/[a-zA-Z0-9-_.\u0020]+)+$` 각 자산에는 자체 경로가 있어야 합니다. 미리 로드한 자산에 대한 와일드카드 기능은 없습니다.
 
     ![로드 단추](./media/cdn-preload-endpoint/cdn-load-paths.png)
 
@@ -52,9 +52,10 @@
 
 	![로드 단추](./media/cdn-preload-endpoint/cdn-load-button.png)
 
+> [AZURE.NOTE] 로드 요청은 CDN 프로필별로 분당 10개로 제한됩니다.
 
 ## 참고 항목
 - [Azure CDN 끝점 제거](cdn-purge-endpoint.md)
 - [Azure CDN REST API 참조 - 끝점 제거 또는 미리 로드](https://msdn.microsoft.com/library/mt634451.aspx)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

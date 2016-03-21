@@ -23,7 +23,7 @@
 
 	1.  **StorSimple 관리자 만들기**를 클릭하여 서비스를 만듭니다.
 
-		![](./media/storsimple-ova-create-new-service/image1-include.png)
+		![](./media/storsimple-ova-create-new-service/image1m-include.png)
 
 	**서비스** 방문 페이지로 이동됩니다. 서비스 만들기에는 몇 분 정도 소요됩니다. 서비스가 성공적으로 만들어진 후 적절한 알림이 표시됩니다.
 
@@ -31,4 +31,4 @@
 
 	서비스의 상태가 **활성**으로 변경됩니다.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

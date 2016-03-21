@@ -17,7 +17,7 @@
    ms.author="bharatn@microsoft.com"/>
 
 # Reliable Services에 대한 WCF 기반 통신 스택
-Reliable Services 프레임워크를 사용하면 서비스 작성자가 서비스에 사용하려는 통신 스택을 결정할 수 있습니다. 선택한 통신 스택을 [CreateServiceReplicaListeners 또는 CreateServiceInstanceListeners](service-fabric-reliable-service-communication.md) 메서드에서 반환되는 **ICommunicationListener**를 통해 플러그인할 수 있습니다. 이 프레임워크는 WCF 기반 통신을 사용하려는 서비스 작성자를 위한 WCF(Windows Communication Foundation) 기반 통신 스택 구현을 제공합니다.
+Reliable Services 프레임워크를 사용하면 서비스 작성자가 서비스에 사용하려는 통신 스택을 결정할 수 있습니다. 선택한 통신 스택을 [CreateServiceReplicaListeners 또는 CreateServiceInstanceListeners](service-fabric-reliable-services-communication.md) 메서드에서 반환되는 **ICommunicationListener**를 통해 플러그인할 수 있습니다. 이 프레임워크는 WCF 기반 통신을 사용하려는 서비스 작성자를 위한 WCF(Windows Communication Foundation) 기반 통신 스택 구현을 제공합니다.
 
 ## WCF 통신 수신기
 **ICommunicationListener**의 WCF 관련 구현은 **Microsoft.ServiceFabric.Services.Communication.Wcf.Runtime.WcfCommunicationListener** 클래스에서 제공됩니다.
@@ -47,7 +47,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 ```
 
 ## WCF 통신 스택에 대한 클라이언트 작성
-WCF를 사용하여 서비스와 통신하는 클라이언트를 작성하는 경우 이 프레임워크에서는 [ClientCommunicationFactoryBase](service-fabric-reliable-service-communication.md)의 WCF 특정 구현인 **WcfClientCommunicationFactory**를 제공합니다.
+WCF를 사용하여 서비스와 통신하는 클라이언트를 작성하는 경우 이 프레임워크에서는 [ClientCommunicationFactoryBase](service-fabric-reliable-services-communication.md)의 WCF 특정 구현인 **WcfClientCommunicationFactory**를 제공합니다.
 
 ```csharp
 
@@ -114,4 +114,4 @@ var result = calculatorServicePartitionClient.InvokeWithRetryAsync(
 
 * [Reliable Services에서 OWIN을 사용하는 Web API](service-fabric-reliable-services-communication-webapi.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

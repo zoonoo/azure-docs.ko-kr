@@ -3,7 +3,7 @@
    description="StorSimple Manager 서비스 작업 페이지에 대해 설명하고 이 페이지를 사용하여 StorSimple 가상 배열에 대한 최근 및 현재 작업을 추적하는 방법을 설명합니다."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="carmonm"
    editor=""/>
 <tags 
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="02/22/2016"
-   ms.author="v-sharos" />
+   ms.date="03/02/2016"
+   ms.author="alkohli" />
 
-# StorSimple 가상 배열을 위해 StorSimple 관리자 서비스를 사용하여 작업 보기(미리 보기)
+# StorSimple 관리자 서비스를 사용하여 StorSimple 가상 배열에 대한 작업 보기
 
 ## 개요
 
@@ -72,4 +72,4 @@ StorSimple 가상 배열에서 작업이 진행 중인 경우 장치(하이퍼�
 
 [로컬 웹 UI를 사용하여 StorSimple 가상 배열을 관리하는 방법을 알아봅니다.](storsimple-ova-web-ui-admin.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

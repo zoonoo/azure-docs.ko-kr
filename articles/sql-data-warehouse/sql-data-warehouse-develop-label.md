@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스에서 레이블을 사용하여 쿼리 계측
@@ -37,9 +37,9 @@ SQL 데이터 웨어하우스는 쿼리 레이블이라는 개념을 지원합�
 	FROM    sys.dm_pdw_exec_requests r
 	WHERE   r.[label] = 'My Query Label'
 	;
-	``` 
+	```
 
-> [AZURE.NOTE]쿼리할 때 반드시 단어 레이블을 대괄호 또는 큰따옴표로 묶어야 합니다. 레이블은 예약어이며 구분하지 않으면 오류를 야기합니다.
+> [AZURE.NOTE] 쿼리할 때 반드시 단어 레이블을 대괄호 또는 큰따옴표로 묶어야 합니다. 레이블은 예약어이며 구분하지 않으면 오류를 야기합니다.
 
 
 ## 다음 단계
@@ -54,4 +54,4 @@ SQL 데이터 웨어하우스는 쿼리 레이블이라는 개념을 지원합�
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="03/04/2016" 
 	ms.author="fashah;garye;bradsev" />
 
 #Pandas를 사용하여 Azure Blob 저장소의 데이터 탐색
@@ -38,7 +38,7 @@
 
 1. blob 서비스를 사용하여 다음 Python 코드 샘플로 Azure blob에서 데이터를 다운로드합니다. 아래의 코드 변수를 사용자가 원하는 값으로 대체합니다. 
 
-	    from azure.storage import BlobService
+	    from azure.storage.blob import BlobService
     	import tables
     	
 		STORAGEACCOUNTNAME= <storage_account_name>
@@ -117,4 +117,4 @@
 		#correlation between column_a and column_b
 		dataframe_blobdata[['<column_a>', '<column_b>']].corr()
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

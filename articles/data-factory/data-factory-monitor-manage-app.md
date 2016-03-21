@@ -18,8 +18,8 @@
 
 # 새 모니터링 및 관리 앱을 사용하여 Azure 데이터 팩터리 파이프라인 모니터링 및 관리
 > [AZURE.SELECTOR]
-- [Using Azure Portal/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
-- [Using Monitoring and Management App](data-factory-monitor-manage-app.md)
+- [Azure 포털/Azure PowerShell 사용](data-factory-monitor-manage-pipelines.md)
+- [모니터링 및 관리 앱 사용](data-factory-monitor-manage-app.md)
 
 이 문서는 **모니터링 및 관리 앱**을 사용하여 파이프라인을 모니터링하고 관리하고 디버그하는 방법을 설명합니다. 응용 프로그램을 사용하여 경고를 생성하고 오류에 대한 알림을 받는 방법에 대한 정보도 제공합니다.
       
@@ -268,7 +268,7 @@
 2. 데이터 팩터리 서비스에서 경고를 보낼 **이벤트**, **상태** 및 **하위 상태**(선택 사항)를 선택하고 **다음**을 클릭합니다. **받는 사람** 페이지가 표시되어야 합니다.
 
 	![경고 만들기 - 받는 사람 페이지](./media/data-factory-monitor-manage-app/CreateAlertRecipientsPage.png) 
-3. **구독 관리자 전자 메일** 옵션을 선택하거나/하고 **추가 관리자 전자 메일**을 입력하며 **마침**을 클릭합니다. 목록에서 경고가 표시되어야 합니다. 
+3. **구독 관리자 전자 메일** 옵션을 선택하거나/하고 **추가 관리자 전자 메일**을 입력한 다음 **마침**을 클릭합니다. 목록에서 경고가 표시되어야 합니다. 
 	
 	![경고 목록](./media/data-factory-monitor-manage-app/AlertsList.png)
 
@@ -281,7 +281,7 @@
 -------------- | ------ | ----------
 작업 실행 시작 | Started | 시작 중
 작업 실행 완료 | Succeeded | Succeeded 
-작업 실행 완료 | Failed| 실패한 리소스 할당<p>실패한 실행</p><p>시간 초과</p><p>실패한 유효성 검사</p><p>중단</p>
+작업 실행 완료 | Failed| 실패한 리소스 할당<br/><br/>실패한 실행<br/><br/>시간 초과<br/><br/>실패한 유효성 검사<br/><br/>중단
 주문형 HDI 클러스터 만들기 시작 | 시작 | &nbsp; |
 주문형 HDI 클러스터 성공적으로 생성 | Succeeded | &nbsp; |
 주문형 HDI 클러스터 삭제 | Succeeded | &nbsp; |
@@ -295,4 +295,4 @@
     
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -4,7 +4,7 @@
    services="redis-cache"
    documentationCenter="na"
    authors="steved0x"
-   manager="dwrede"
+   manager="erikre"
    editor="tysonn" />
 <tags 
    ms.service="cache"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="tbd"
-   ms.date="12/17/2015"
+   ms.date="03/04/2016"
    ms.author="sdanie" />
 
 # Azure Redis Cache에 대한 ASP.NET 세션 상태 제공자
@@ -29,7 +29,7 @@ Redis 캐시 세션 상태 NuGet 패키지를 사용하여 Visual Studio에서 �
 
 온라인 검색 텍스트 상자에 **RedisSessionStateProvider**를 입력하여 결과에서 선택한 후 설치를 클릭합니다.
 
->[AZURE.IMPORTANT]프리미엄 계층에서 클러스터링 기능을 사용하는 경우 [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 이상을 사용하지 않으면 예외가 throw됩니다. 주요 변경 내용입니다. 자세한 내용은 [v2.0.0 주요 변경 세부 사항](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details)을 참조하세요.
+>[AZURE.IMPORTANT] 프리미엄 계층에서 클러스터링 기능을 사용하는 경우 [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 이상을 사용하지 않으면 예외가 throw됩니다. 주요 변경 내용입니다. 자세한 내용은 [v2.0.0 주요 변경 세부 사항](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details)을 참조하세요.
 
 ![Azure Redis Cache 세션 상태 제공자](./media/cache-asp.net-session-state-provider/IC751730.png)
 
@@ -90,7 +90,7 @@ Web.config 파일에서 표준 InProc 세션 상태 제공자 섹션을 주석�
 
 이 단계를 수행하면, 응용 프로그램은 Redis Cache 섹션 상태 제공자를 사용하도록 구성됩니다. 응용 프로그램에서 세션 상태를 사용하는 경우 Azure Redis Cache 인스턴스에 저장됩니다.
 
->[AZURE.NOTE]기본값 메모리 내 ASP.NET 세션 상태 제공자에 저장될 수 있는 데이터와 달리 캐시에 저장된 데이터는 직렬화할 수 있어야 합니다. Redis에 세션 상태 제공자를 사용하면 세션 상태에 저장되는 데이터 형식을 직렬화할 수 있는지 확인해야 합니다.
+>[AZURE.NOTE] 기본값 메모리 내 ASP.NET 세션 상태 제공자에 저장될 수 있는 데이터와 달리 캐시에 저장된 데이터는 직렬화할 수 있어야 합니다. Redis에 세션 상태 제공자를 사용하면 세션 상태에 저장되는 데이터 형식을 직렬화할 수 있는지 확인해야 합니다.
 
 ## ASP.NET 세션 상태 옵션
 
@@ -106,4 +106,4 @@ Web.config 파일에서 표준 InProc 세션 상태 제공자 섹션을 주석�
 
 [Azure Redis Cache에 대한 ASP.NET 출력 캐시 제공자](cache-asp.net-output-cache-provider.md)를 확인합니다.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -1,11 +1,12 @@
 <properties
-pageTitle="논리 앱에 Office 365 Outlook API 추가 | Microsoft Azure"
-description="REST API 매개 변수를 사용하는 Office 365 Outlook API 개요"
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="dwrede"	
-editor="" tags="connectors" />
+	pageTitle="PowerApps 엔터프라이즈 또는 논리 앱에 Office 365 Outlook API 추가 | Microsoft Azure"
+	description="REST API 매개 변수를 사용하는 Office 365 Outlook API 개요"
+	services=""	
+	documentationCenter="" 	
+	authors="msftman"	
+	manager="erikre"	
+	editor="" 
+	tags="connectors" />
 
 <tags
 ms.service="multiple"
@@ -13,15 +14,21 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="02/25/2016"
+ms.date="03/03/2016"
 ms.author="mandia"/>
 
 # Office365 Outlook API 시작 
 
 Office 365 Outlook에 연결하여 전자 메일 받기, 전자 메일 회신, 일정 및 연락처 업데이트 등을 수행할 수 있습니다. Office 365 Outlook API는 다음에서 사용할 수 있습니다.
 
-- PowerApps 
 - 논리 앱 
+- PowerApps
+
+> [AZURE.SELECTOR]
+- [논리 앱](../articles/connectors/create-api-office365-outlook.md)
+- [PowerApps 엔터프라이즈](../articles/power-apps/powerapps-create-api-office365-outlook.md)
+
+&nbsp;
 
 >[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다. 2014-12-01-preview 스키마 버전에 대한 내용을 보려면 [Office 365 API](../app-service-logic/app-service-logic-connector-office365.md)를 클릭하세요.
 
@@ -42,64 +49,13 @@ Office 365 Outlook API에서 사용할 수 있는 트리거와 작업은 다음�
 
 | 트리거 | actions|
 | --- | --- |
-|<ul><li>곧 시작되는 이벤트</li><li>새 전자 메일</li><li>새 항목</li><li>업데이트된 항목</li></ul>| <ul><li>연락처 만들기</li><li>이벤트 만들기</li><li>승인 전자 메일 보내기</li><li>전자 메일 보내기</li><li>연락처 삭제</li><li>전자 메일 삭제</li><li>이벤트 삭제</li><li>첨부 파일 가져오기</li><li>일정 가져오기</li><li>연락처 가져오기</li><li>연락처 폴더 가져오기</li><li>연락처 가져오기</li><li>전자 메일 가져오기</li><li>이벤트 가져오기</li><li>이벤트 가져오기</li><li>읽은 상태로 표시</li><li>이벤트 곧 시작</li><li>새 전자 메일</li><li>새 항목</li><li>업데이트된 항목</li><li>메시지에 회신</li><li>옵션과 함께 전자 메일 보내기</li><li>연락처 업데이트</li><li>이벤트 업데이트</li></ul> |
+|<ul><li>곧 시작되는 이벤트</li><li>새 메일</li><li>새 항목</li><li>업데이트된 항목</li></ul>| <ul><li>연락처 만들기</li><li>이벤트 만들기</li><li>승인 메일 보내기</li><li>메일 보내기</li><li>연락처 삭제</li><li>메일 삭제</li><li>이벤트 삭제</li><li>첨부 파일 가져오기</li><li>일정 가져오기</li><li>연락처 가져오기</li><li>연락처 폴더 가져오기</li><li>연락처 가져오기</li><li>메일 가져오기</li><li>이벤트 가져오기</li><li>이벤트 가져오기</li><li>읽은 상태로 표시</li><li>이벤트 곧 시작</li><li>새 메일</li><li>새 항목</li><li>업데이트된 항목</li><li>메시지에 회신</li><li>옵션과 함께 메일 보내기</li><li>연락처 업데이트</li><li>이벤트 업데이트</li></ul> |
 
 모든 API는 JSON 및 XML 형식의 데이터를 지원합니다.
 
 
 ## Office365에 대한 연결 만들기
 
-### PowerApps에 구성 추가
-PowerApps 엔터프라이즈에 이 API를 추가할 때 Office 365 AAD(Azure Active Directory) 응용 프로그램의 **앱 키** 및 **앱 암호** 값을 입력합니다. 또한 **URL 리디렉션** 값도 Office 365 응용 프로그램에서 사용됩니다. Office 365 응용 프로그램이 없는 경우 다음 단계를 사용하여 응용 프로그램을 만들 수 있습니다.
-
-1. [Azure 포털][5]에서 **Active Directory**를 열고 조직의 테넌트 이름을 엽니다.
-2. **응용 프로그램** 탭을 선택한 다음 **추가**를 선택합니다.  
-![AAD 테넌트 응용 프로그램][7]
-
-3. **응용 프로그램 추가**에서:
-
-	1. 응용 프로그램의 **이름**을 입력합니다.  
-	2. 응용 프로그램 형식은 그대로 **웹**으로 유지합니다.  
-	3. **다음**을 선택합니다.  
-
-	![AAD 응용 프로그램 추가 - 앱 정보][8]
-
-6. **앱 속성**에서:
-
-	1. 응용 프로그램의 **로그온 URL**을 입력합니다. PowerApps에 대해 AAD로 인증하기 때문에 로그온 URL을 _https://login.windows.net_ 으로 설정합니다.
-	2. 앱에 대해 올바른 **앱 ID URI**를 입력합니다.  
-	3. **확인**을 선택합니다.  
-
-	![AAD 응용 프로그램 추가 - 앱 속성][9]
-
-7. 완료하면 새 AAD 앱이 열립니다. **구성**을 선택합니다.  
-![Contoso AAD 앱][10]
-
-8. _OAuth 2_ 섹션에서 **회신 URL**을 Azure 포털에서 Office 365 Outlook API를 추가했을 때 표시된 URL 리디렉션 값으로 설정합니다. **응용 프로그램 추가**를 선택합니다.  
-![Contoso AAD 앱 구성][11]
-
-9. **다른 응용 프로그램에 대한 권한**에서 **Office 365 Exchange Online**을 선택하고 **확인**을 선택합니다.  
-![Contoso 앱 대리자][12]
-
-	구성 페이지로 돌아가 보면 _Office 365 Exchange Online_이 _다른 응용 프로그램에 대한 권한_ 목록에 추가되었습니다.
-
-10. **Office 365 Exchange Online**에서 **위임된 권한**을 선택하고 다음과 같은 권한을 선택합니다.
-
-	- 사용자 연락처 읽기 및 쓰기
-	- 사용자 연락처 읽기
-	- 사용자 달력 읽기 및 쓰기
-	- 사용자 달력 읽기
-	- 사용자로 메일 보내기
-	- 사용자 메일 읽기 및 쓰기
-	- 사용자 메일 읽기
-
-	![Contoso 앱 대리자 권한][13]
-
-새 Azure Active Directory 앱이 만들어졌습니다. Azure 포털의 Office 365 Outlook 구성에 **앱 키** 및 **앱 암호** 값을 복사하여 붙여 넣을 수 있습니다.
-
-[응용 프로그램을 Azure AD에 추가하는 방법 및 이유](../active-directory/active-directory-how-applications-are-added.md)에서 AAD 응용 프로그램에 대한 몇 가지 좋은 정보를 참조하세요.
-
-### 논리 앱에 구성 추가
 논리 앱에 이 API를 추가할 때 Office 365 Outlook 계정에 로그인하고 논리 앱을 계정에 연결해야 합니다.
 
 1. Office 365 Outlook 계정에 로그인합니다.
@@ -114,7 +70,7 @@ PowerApps 엔터프라이즈에 이 API를 추가할 때 Office 365 AAD(Azure Ac
 
 
 ### 곧 시작되는 이벤트 
-예정된 일정 이벤트를 시작할 때 흐름 트리거  
+예정된 일정 이벤트를 시작할 때 흐름을 트리거합니다. 
 ```GET: /Events/OnUpcomingEvents```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
@@ -135,7 +91,7 @@ PowerApps 엔터프라이즈에 이 API를 추가할 때 Office 365 AAD(Azure Ac
 
 
 ### 전자 메일 가져오기 
-폴더에서 전자 메일 검색  
+폴더에서 메일을 검색합니다. 
 ```GET: /Mail```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
@@ -161,7 +117,7 @@ PowerApps 엔터프라이즈에 이 API를 추가할 때 Office 365 AAD(Azure Ac
 
 
 ### 전자 메일 보내기 
-전자 메일 메시지 전송  
+메일 메시지를 전송합니다. 
 ```POST: /Mail```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
@@ -182,7 +138,7 @@ PowerApps 엔터프라이즈에 이 API를 추가할 때 Office 365 AAD(Azure Ac
 
 
 ### 전자 메일 삭제 
-ID로 전자 메일 메시지 삭제  
+ID로 메일 메시지를 삭제합니다. 
 ```DELETE: /Mail/{messageId}```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
@@ -202,7 +158,7 @@ ID로 전자 메일 메시지 삭제
 
 
 ### 읽은 상태로 표시 
-전자 메일 메시지를 읽은 것으로 표시  
+메일 메시지를 읽은 것으로 표시합니다. 
 ```POST: /Mail/MarkAsRead/{messageId}```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
@@ -222,8 +178,8 @@ ID로 전자 메일 메시지 삭제
 
 
 ### 메시지에 회신 
-전자 메일 메시지에 회신  
-```POST: /Mail/ReplyTo/{messageId}```
+메일 메시지에 회신합니다.
+ ```POST: /Mail/ReplyTo/{messageId}```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
@@ -244,7 +200,7 @@ ID로 전자 메일 메시지 삭제
 
 
 ### 첨부 파일 가져오기 
-ID별로 메시지 첨부 파일 검색  
+ID별로 메시지 첨부 파일을 검색합니다. 
 ```GET: /Mail/{messageId}/Attachments/{attachmentId}```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
@@ -265,7 +221,7 @@ ID별로 메시지 첨부 파일 검색
 
 
 ### 새 전자 메일에 
-새 전자 메일이 도착했을 때 흐름 트리거  
+새 메일이 도착했을 때 흐름을 트리거합니다.
 ```GET: /Mail/OnNewEmail```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
@@ -292,7 +248,7 @@ ID별로 메시지 첨부 파일 검색
 
 
 ### 옵션을 사용하여 메일 전송 
-여러 옵션이 포함된 전자 메일을 보내고 받는 사람이 옵션 중 하나를 사용하여 다시 응답하기를 기다립니다.  
+여러 옵션이 포함된 메일을 보내고 받는 사람이 옵션 중 하나를 사용하여 다시 응답하기를 기다립니다. 
 ```POST: /mailwithoptions/$subscriptions```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
@@ -313,7 +269,7 @@ ID별로 메시지 첨부 파일 검색
 
 
 ### 승인 전자 메일 보내기 
-승인 전자 메일을 보내고 받는 사람으로부터 응답을 기다립니다.  
+승인 메일을 보내고 받는 사람으로부터 응답을 기다립니다. 
 ```POST: /approvalmail/$subscriptions```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
@@ -337,7 +293,7 @@ ID별로 메시지 첨부 파일 검색
 
 
 ### 일정 가져오기 
-일정 검색  
+일정을 검색합니다.
 ```GET: /datasets/calendars/tables```
 
 이 호출에 대한 매개 변수는 없습니다.
@@ -353,7 +309,7 @@ ID별로 메시지 첨부 파일 검색
 
 
 ### 이벤트 가져오기 
-일정에서 항목 검색  
+일정에서 항목을 검색합니다.
 ```GET: /datasets/calendars/tables/{table}/items```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
@@ -373,7 +329,7 @@ ID별로 메시지 첨부 파일 검색
 
 
 ### 이벤트 만들기 
-새 이벤트 만들기  
+새 이벤트를 만듭니다. 
 ```POST: /datasets/calendars/tables/{table}/items```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
@@ -390,7 +346,7 @@ ID별로 메시지 첨부 파일 검색
 
 
 ### 이벤트 가져오기 
-일정에서 특정 항목 검색  
+일정에서 특정 항목을 검색합니다. 
 ```GET: /datasets/calendars/tables/{table}/items/{id}```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
@@ -407,7 +363,7 @@ ID별로 메시지 첨부 파일 검색
 
 
 ### 이벤트 삭제 
-일정 항목 삭제  
+일정 항목을 삭제합니다. 
 ```DELETE: /datasets/calendars/tables/{table}/items/{id}```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
@@ -424,7 +380,7 @@ ID별로 메시지 첨부 파일 검색
 
 
 ### 이벤트 업데이트 
-일정 항목 부분적 업데이트  
+일정 항목을 부분적으로 업데이트합니다. 
 ```PATCH: /datasets/calendars/tables/{table}/items/{id}```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
@@ -442,7 +398,7 @@ ID별로 메시지 첨부 파일 검색
 
 
 ### 새 항목에 
-새 일정 항목이 만들어질 때 트리거됨  
+새 일정 항목이 만들어질 때 트리거됩니다. 
 ```GET: /datasets/calendars/tables/{table}/onnewitems```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
@@ -462,7 +418,7 @@ ID별로 메시지 첨부 파일 검색
 
 
 ### 업데이트된 항목에 
-일정 항목이 수정될 때 트리거됨  
+일정 항목이 수정될 때 트리거됩니다. 
 ```GET: /datasets/calendars/tables/{table}/onupdateditems```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
@@ -482,7 +438,7 @@ ID별로 메시지 첨부 파일 검색
 
 
 ### 연락처 폴더 가져오기 
-연락처 폴더 검색  
+연락처 폴더 검색 
 ```GET: /datasets/contacts/tables```
 
 이 호출에 대한 매개 변수는 없습니다.
@@ -496,7 +452,7 @@ ID별로 메시지 첨부 파일 검색
 
 
 ### 연락처 가져오기 
-연락처 폴더에서 연락처 검색  
+연락처 폴더에서 연락처 검색 
 ```GET: /datasets/contacts/tables/{table}/items```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
@@ -516,7 +472,7 @@ ID별로 메시지 첨부 파일 검색
 
 
 ### 연락처 만들기 
-새 연락처 만들기  
+새 연락처 만들기 
 ```POST: /datasets/contacts/tables/{table}/items```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
@@ -533,7 +489,7 @@ ID별로 메시지 첨부 파일 검색
 
 
 ### 연락처 가져오기 
-연락처 폴더에서 특정 연락처 검색  
+연락처 폴더에서 특정 연락처 검색 
 ```GET: /datasets/contacts/tables/{table}/items/{id}```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
@@ -550,7 +506,7 @@ ID별로 메시지 첨부 파일 검색
 
 
 ### 연락처 삭제 
-연락처 삭제  
+연락처를 삭제합니다. 
 ```DELETE: /datasets/contacts/tables/{table}/items/{id}```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
@@ -567,7 +523,7 @@ ID별로 메시지 첨부 파일 검색
 
 
 ### 연락처 업데이트 
-연락처 부분적 업데이트  
+연락처를 부분적으로 업데이트합니다. 
 ```PATCH: /datasets/contacts/tables/{table}/items/{id}```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
@@ -823,9 +779,10 @@ ID별로 메시지 첨부 파일 검색
 
 
 ## 다음 단계
-PowerApps 엔터프라이즈에 Office 365 API를 추가한 후 해당 앱에서 API를 사용할 [권한을 사용자에게 부여](../power-apps/powerapps-manage-api-connection-user-access.md)합니다.
 
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
+
+[API 목록](apis-list.md)으로 돌아갑니다.
 
 <!--References-->
 [5]: https://portal.azure.com
@@ -837,5 +794,4 @@ PowerApps 엔터프라이즈에 Office 365 API를 추가한 후 해당 앱에서
 [12]: ./media/create-api-office365-outlook/contoso-aad-app-delegate-office365-outlook.png
 [13]: ./media/create-api-office365-outlook/contoso-aad-app-delegate-office365-outlook-permissions.png
 
-<!----HONumber=AcomDC_0302_2016-->
-
+<!---HONumber=AcomDC_0309_2016-->

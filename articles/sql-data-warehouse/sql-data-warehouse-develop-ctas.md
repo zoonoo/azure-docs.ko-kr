@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스의 CTAS(Create Table As Select)
@@ -58,13 +58,13 @@ CREATE TABLE FactInternetSales
 
 ```
 CREATE TABLE FactInternetSales_new
-WITH 
+WITH
 (
     CLUSTERED COLUMNSTORE INDEX,
     DISTRIBUTION = HASH(ProductKey),
     PARTITION
     (
-        OrderDateKey RANGE RIGHT FOR VALUES 
+        OrderDateKey RANGE RIGHT FOR VALUES
         (
         20000101,20010101,20020101,20030101,20040101,20050101,20060101,20070101,20080101,20090101,
         20100101,20110101,20120101,20130101,20140101,20150101,20160101,20170101,20180101,20190101,
@@ -84,19 +84,19 @@ RENAME OBJECT FactInternetSales_new TO FactInternetSales;
 DROP TABLE FactInternetSales_old;
 ```
 
-> [AZURE.NOTE]Azure SQL 데이터 웨어하우스는 자동 만들기 또는 통계 자동 업데이트를 아직 지원하지 않습니다. 쿼리에서 최상의 성능을 얻으려면, 데이터를 처음 로드하거나 데이터에 상당한 변화가 발생한 후에 모든 테이블의 모든 열에서 통계가 만들어지는 것이 중요합니다. 통계에 대한 자세한 설명은 개발 항목 그룹의 [통계][] 항목을 참조하세요.
+> [AZURE.NOTE] Azure SQL 데이터 웨어하우스는 자동 만들기 또는 통계 자동 업데이트를 아직 지원하지 않습니다. 쿼리에서 최상의 성능을 얻으려면, 데이터를 처음 로드하거나 데이터에 상당한 변화가 발생한 후에 모든 테이블의 모든 열에서 통계가 만들어지는 것이 중요합니다. 통계에 대한 자세한 설명은 개발 항목 그룹의 [통계][] 항목을 참조하세요.
 
 ## CTAS를 사용하여 지원되지 않는 기능 해결
 
 CTAS는 아래 나열된 다수의 지원되지 않는 기능을 해결하는 경우에도 사용될 수 있습니다. 많은 경우 이는 코드가 규정을 준수하면서도 SQL 데이터 웨어하우스에서 더 빠르게 실행되는 윈/윈 상황으로 입증될 수 있습니다. 이는 완전히 병렬화된 디자인의 결과입니다. CTAS로 해결할 수 있는 시나리오는 다음과 같습니다.
 
 - SELECT..INTO
-- UPDATE에 대한 ANSI JOINS 
+- UPDATE에 대한 ANSI JOINS
 - DELETE에 대한 ANSI JOIN
 - MERGE 문
 
-> [AZURE.NOTE]"CTAS를 먼저" 생각해 보십시오. CTAS를 사용하여 문제를 해결할 수 있다고 생각한다면, 그 결과로 더 많은 데이터를 작성한다 하더라도 이는 일반적으로 최선의 문제 해결 방법입니다.
-> 
+> [AZURE.NOTE] "CTAS를 먼저" 생각해 보십시오. CTAS를 사용하여 문제를 해결할 수 있다고 생각한다면, 그 결과로 더 많은 데이터를 작성한다 하더라도 이는 일반적으로 최선의 문제 해결 방법입니다.
+>
 
 ## SELECT..INTO
 사용자 솔루션의 여러 위치에 SELECT..INTO를 사용할 수 있습니다.
@@ -123,7 +123,7 @@ FROM    [dbo].[FactInternetSales]
 ;
 ```
 
-> [AZURE.NOTE]현재 CTAS는 배포 열 지정이 필요합니다. 배포 열을 의도적으로 변경하려는 것이 아니라면, CTAS는 기본 테이블과 동일한 배포 열을 선택하면 이 전략이 데이터 이동을 방지하기 때문에 가장 빠르게 수행됩니다. 성능이 요인이 아닌 작은 테이블을 만드는 경우에는 배포 열을 결정하지 않아도 되도록 ROUND\_ROBIN을 지정할 수 있습니다.
+> [AZURE.NOTE] 현재 CTAS는 배포 열 지정이 필요합니다. 배포 열을 의도적으로 변경하려는 것이 아니라면, CTAS는 기본 테이블과 동일한 배포 열을 선택하면 이 전략이 데이터 이동을 방지하기 때문에 가장 빠르게 수행됩니다. 성능이 요인이 아닌 작은 테이블을 만드는 경우에는 배포 열을 결정하지 않아도 되도록 ROUND\_ROBIN을 지정할 수 있습니다.
 
 ## Update 문에 대한 ANSI 조인 대체
 
@@ -192,7 +192,7 @@ GROUP BY
 ,		[CalendarYear]
 ;
 
--- Use an implicit join to perform the update 
+-- Use an implicit join to perform the update
 UPDATE  AnnualCategorySales
 SET     AnnualCategorySales.TotalSalesAmount = CTAS_ACS.TotalSalesAmount
 FROM    CTAS_acs
@@ -212,7 +212,7 @@ CTAS를 사용하여 데이터를 삭제하는 것이 최선의 방법인 경우
 
 ```
 CREATE TABLE dbo.DimProduct_upsert
-WITH 
+WITH
 (   Distribution=HASH(ProductKey)
 ,   CLUSTERED INDEX (ProductKey)
 )
@@ -220,8 +220,8 @@ AS -- Select Data you wish to keep
 SELECT     p.ProductKey
 ,          p.EnglishProductName
 ,          p.Color
-FROM       dbo.DimProduct p 
-RIGHT JOIN dbo.stg_DimProduct s 
+FROM       dbo.DimProduct p
+RIGHT JOIN dbo.stg_DimProduct s
 ON         p.ProductKey = s.ProductKey
 ;
 
@@ -236,11 +236,11 @@ Merge 문을 최소한 일부는 CTAS를 사용하여 대체할 수 있습니다
 
 ```
 CREATE TABLE dbo.[DimProduct_upsert]
-WITH 
+WITH
 (   DISTRIBUTION = HASH([ProductKey])
 ,   CLUSTERED INDEX ([ProductKey])
 )
-AS 
+AS
 -- New rows and new versions of rows
 SELECT      s.[ProductKey]
 ,           s.[EnglishProductName]
@@ -278,7 +278,7 @@ CREATE TABLE result
 WITH (DISTRIBUTION = ROUND_ROBIN)
 
 INSERT INTO result
-SELECT @d*@f 
+SELECT @d*@f
 ;
 ```
 
@@ -334,9 +334,13 @@ AS
 SELECT ISNULL(CAST(@d*@f AS DECIMAL(7,2)),0) as result
 ```
 
-유의할 사항: - CAST 또는 CONVERT가 사용되었을 수 있습니다. - ISNULL은 COALESCE가 아닌 null 허용 여부를 강제 적용하기 위해 사용됩니다. - ISNULL의 두 번째 부분은 상수, 즉 0입니다.
+다음 사항에 유의하세요.
+- CAST 또는 CONVERT가 사용되었을 수 있습니다.
+- ISNULL은 COALESCE가 아닌 null 허용 여부를 강제 적용하는 데 사용됩니다.
+- ISNULL은 가장 바깥쪽 함수입니다.
+- ISNULL의 두 번째 부분은 상수, 즉 0입니다.
 
-> [AZURE.NOTE]null 허용 여부를 올바르게 설정하려면 COALESCE가 아닌 ISNULL을 사용해야 합니다. COALESCE는 결정적 함수가 아니므로 식의 결과는 언제나 null을 허용합니다. ISNULL은 다릅니다. 이는 결정적입니다. 따라서 ISNULL 함수의 두 번째 부분이 상수 또는 리터럴이면 결과 값은 NOT NULL입니다.
+> [AZURE.NOTE] null 허용 여부를 올바르게 설정하려면 COALESCE가 아닌 ISNULL을 사용해야 합니다. COALESCE는 결정적 함수가 아니므로 식의 결과는 언제나 null을 허용합니다. ISNULL은 다릅니다. 이는 결정적입니다. 따라서 ISNULL 함수의 두 번째 부분이 상수 또는 리터럴이면 결과 값은 NOT NULL입니다.
 
 이 팁은 계산의 무결성을 보장하기 위해 중요할 뿐만 아니라, 테이블 파티션 전환을 위해서도 중요합니다. 이 테이블을 사용자의 실제 정보로 정의했다고 가정해 보겠습니다.
 
@@ -350,14 +354,14 @@ CREATE TABLE [dbo].[Sales]
 ,   [price]     MONEY   NOT NULL
 ,   [amount]    MONEY   NOT NULL
 )
-WITH 
+WITH
 (   DISTRIBUTION = HASH([product])
 ,   PARTITION   (   [date] RANGE RIGHT FOR VALUES
                     (20000101,20010101,20020101
                     ,20030101,20040101,20050101
                     )
                 )
-) 
+)
 ;
 ```
 
@@ -377,8 +381,8 @@ WITH
 AS
 SELECT
     [date]    
-,   [product] 
-,   [store] 
+,   [product]
+,   [store]
 ,   [quantity]
 ,   [price]   
 ,   [quantity]*[price]  AS [amount]
@@ -401,8 +405,8 @@ WITH
 AS
 SELECT
     [date]    
-,   [product] 
-,   [store] 
+,   [product]
+,   [store]
 ,   [quantity]
 ,   [price]   
 ,   ISNULL(CAST([quantity]*[price] AS MONEY),0) AS [amount]
@@ -429,4 +433,4 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create');
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

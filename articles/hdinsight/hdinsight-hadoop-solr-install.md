@@ -51,16 +51,18 @@
 	![스크립트 작업을 사용하여 클러스터 사용자 지정](./media/hdinsight-hadoop-solr-install/hdi-script-action-solr.png "스크립트 작업을 사용하여 클러스터 사용자 지정")
 
 	<table border='1'>
-	<tr><th>속성</th><th>값</th></tr>
-	<tr><td>이름</td>
-		<td>스크립트 작업의 이름을 지정합니다. 예를 들면 <b>Install Solr</b>과 같습니다.</td></tr>
-	<tr><td>스크립트 URI</td>
-		<td>클러스터를 사용자 지정하기 위해 호출되는 스크립트에 URI(Uniform Resource Identifier)를 지정합니다. 예를 들면 <i>https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1</i>과 같습니다.</td></tr>
-	<tr><td>노드 유형</td>
-		<td>사용자 지정 스크립트가 실행되는 노드를 지정합니다. <b>모든 노드</b>, <b>헤드 노드만</b> 또는 <b>작업자 노드만</b>을 선택할 수 있습니다.
-	<tr><td>매개 변수</td>
-		<td>스크립트에 필요한 경우 매개 변수를 지정합니다. Solr을 설치하는 스크립트에는 매개 변수가 필요하지 않으므로 비워 둘 수 있습니다.</td></tr>
-</table>두 개 이상의 스크립트 작업을 추가하여 클러스터에 여러 구성 요소를 설치할 수 있습니다. 스크립트를 추가한 후 확인 표시를 클릭하여 클러스터 만들기를 시작합니다.
+		<tr><th>속성</th><th>값</th></tr>
+		<tr><td>이름</td>
+			<td>스크립트 작업의 이름을 지정합니다. 예를 들면 <b>Install Solr</b>과 같습니다.</td></tr>
+		<tr><td>스크립트 URI</td>
+			<td>클러스터를 사용자 지정하기 위해 호출되는 스크립트에 URI(Uniform Resource Identifier)를 지정합니다. 예를 들면 <i>https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1</i>과 같습니다.</td></tr>
+		<tr><td>노드 유형</td>
+			<td>사용자 지정 스크립트가 실행되는 노드를 지정합니다. <b>모든 노드</b>, <b>헤드 노드만</b> 또는 <b>작업자 노드만</b>을 선택할 수 있습니다.
+		<tr><td>매개 변수</td>
+			<td>스크립트에 필요한 경우 매개 변수를 지정합니다. Solr을 설치하는 스크립트에는 매개 변수가 필요하지 않으므로 비워 둘 수 있습니다.</td></tr>
+	</table>
+
+	두 개 이상의 스크립트 작업을 추가하여 클러스터에 여러 구성 요소를 설치할 수 있습니다. 스크립트를 추가한 후 확인 표시를 클릭하여 클러스터 만들기를 시작합니다.
 
 
 ## Solr 사용
@@ -175,7 +177,7 @@
 
 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster.md#call_scripts_using_powershell)을 참조하세요. 샘플은 Azure PowerShell을 사용하여 Spark를 설치하는 방법을 보여줍니다. 스크립트를 사용자 지정하여 [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1)을 사용해야 합니다.
 
-## .NET SDK를 사용하여 Sole 설치
+## .NET SDK를 사용하여 Solr 설치
 
 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster.md#call_scripts_using_azure_powershell)을 참조하세요. 샘플은 .NET SDK를 사용하여 Spark를 설치하는 방법을 보여줍니다. 스크립트를 사용자 지정하여 [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1)을 사용해야 합니다.
 
@@ -198,4 +200,4 @@
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

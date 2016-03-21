@@ -14,7 +14,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="09/29/2015"
+     ms.date="03/02/2016"
      ms.author="stevehob"/>
 
 # 미리 구성된 솔루션 사용자 지정
@@ -26,21 +26,39 @@ Azure IoT Suite와 함께 제공되는 미리 구성된 솔루션은 제품 내�
 미리 구성된 솔루션에 대한 소스 코드는 다음 리포지토리의 GitHub에서 사용할 수 있습니다.
 
 - 원격 모니터링: [https://www.github.com/Azure/azure-iot-remote-monitoring](https://github.com/Azure/azure-iot-remote-monitoring)
+- 예측 유지 관리: [https://github.com/Azure/azure-iot-predictive-maintenance](https://github.com/Azure/azure-iot-predictive-maintenance)
 
-이 원본은 Azure IoT Suite를 사용하여 원격 모니터링의 핵심 기능을 구현하는 패턴을 설명하기 위해 제공됩니다.
+미리 구성된 솔루션에 대한 소스 코드는 패턴과 Azure IoT Suite를 사용하여 IoT 솔루션의 종단 간 기능을 구현하는 데 사용하는 작업 방식과 패턴을 보여 주기 위해 제공됩니다. 명령줄에서 빌드 및 배포하는 지침은 미리 구성된 각 솔루션에 대한 GitHub wiki에 있습니다.
+
+- [원격 모니터링 Wiki](https://github.com/Azure/azure-iot-remote-monitoring/wiki)
+- [예측 유지 관리 Wiki](https://github.com/Azure/azure-iot-predictive-maintenance/wiki)
+
+## 미리 구성된 솔루션에서 사용 권한 관리
+미리 구성된 각 솔루션에 대한 솔루션 포털은 새 Azure Active Directory 응용 프로그램으로 생성됩니다. 솔루션 포털(AAD 응용 프로그램)에 대해 다음과 같은 사용 권한을 관리할 수 있습니다.
+
+1. [Azure 클래식 포털](https://manage.windowsazure.com)을 엽니다.
+2. **회사가 보유한 응용 프로그램**을 선택한 후 확인 표시를 클릭하여 AAD 응용 프로그램으로 이동합니다.
+3. **사용자**로 이동하고 Azure Active Directory 테넌트의 멤버를 역할에 할당합니다. 
+
+기본적으로 응용 프로그램은 **관리자**, **읽기 전용** 및 **암시적 읽기 전용** 역할로 프로비전됩니다. **암시적 읽기 전용**은 Azure Active Directory 테넌트의 구성원이지만 역할에 할당되지 않은 사용자에게 부여됩니다. GitHub 리포지토리를 분기한 후에는 [RolePermissions.cs](https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs)를 수정한 후 솔루션을 다시 배포할 수 있습니다.
 
 ## 미리 구성된 규칙 변경
 
-원격 모니터링 솔루션은 대시보드에 표시되는 원격 분석 및 경보 논리를 구현하는 두 개의 [Azure 스트림 분석](https://azure.microsoft.com/services/stream-analytics/) 작업을 포함합니다.
+원격 모니터링 솔루션은 솔루션에 대해 표시되는 장치 정보, 원격 분석 및 규칙 논리를 구현하는 세 개의 [Azure 스트림 분석](https://azure.microsoft.com/services/stream-analytics/) 작업을 포함합니다.
 
-첫 번째 작업은 원격 분석의 들어오는 스트림에서 모든 데이터를 선택하고 서로 다른 두 출력을 만듭니다. 작업은 **[솔루션 이름]-원격 분석**으로 이름이 지정됩니다.
+세 개의 스트림 분석 작업 및 해당 구문은 [미리 구성된 원격 모니터링 솔루션 연습](iot-suite-remote-monitoring-sample-walkthrough.md)에서 자세히 설명됩니다.
 
-- 첫 번째 출력은 `SELECT *`을 사용하여 모든 데이터를 획득하고 Blob 저장소에 출력합니다. 이 Blob 저장소는 대시보드가 해당 차트를 만드는 원시 값을 읽는 위치입니다.
-- 두 번째 출력은 5분 슬라이딩 창을 통해 `AVG()`, `MIN()` 및 `MAX()` 계산을 수행합니다. 이 데이터는 대시보드에 다이얼로 표시됩니다.
+논리를 변경하거나 시나리오에 관련된 논리를 추가하도록 이러한 작업을 직접 편집할 수 있습니다. 다음과 같이 스트림 분석 작업을 찾을 수 있습니다.
+ 
+1. [Azure 포털](https://portal.azure.com)로 이동합니다.
+2. IoT 솔루션과 이름이 동일한 새 리소스 그룹으로 이동합니다. 
+3. 수정하려는 Azure 스트림 분석 작업을 선택합니다. 
+4. 명령 집합에서 **중지**를 선택하여 작업을 중지합니다. 
+5. 입력, 쿼리 및 출력을 편집합니다.
 
-스트림 분석 사용자 인터페이스를 사용하여 논리를 변경하거나 시나리오에 관련된 논리를 추가하도록 이러한 작업을 직접 편집할 수 있습니다.
+    간단한 수정 사항은 **">"** 대신 **"<"**를 사용하도록 **규칙** 작업에 대한 쿼리를 변경하는 것입니다. 규칙을 편집할 때 솔루션 포털에 **">"**가 여전히 표시되지만 기본 작업이 변경되어 동작이 반대로 됩니다.
 
-두 번째 작업은 솔루션의 **규칙** 페이지에서 만든 장치-임계값에서 작동합니다. 해당 작업은 각 장치에 대해 설정된 임계값을 참조 데이터로 사용합니다. 임계값이 실제 값보다 큰지(`>`) 비교합니다. 예를 들어 해당 작업을 수정하여 비교 연산자를 변경할 수 있습니다.
+6. 작업 시작
 
 > [AZURE.NOTE] 원격 모니터링 대시보드는 특정 데이터에 따라 달라지므로 작업 변경은 대시보드 실패를 일으킬 수 있습니다.
 
@@ -58,6 +76,8 @@ Azure IoT Suite와 함께 제공되는 미리 구성된 솔루션은 제품 내�
 
 .NET 시뮬레이터는 원격 모니터링 솔루션 소스 코드(위 참조)에 포함되어 있습니다. 이 시뮬레이터는 솔루션의 일부로 프로비전되었으며 다른 메타데이터, 원격 분석을 보내거나 다른 명령에 응답하도록 변경될 수 있습니다.
 
+원격 모니터링 미리 구성된 솔루션에서 미리 구성된 시뮬레이터는 온도 및 습도 원격 분석을 내보내는 냉각 장치이며 GitHub 리포지토리를 분기한 경우 [Simulator.WebJob](https://github.com/Azure/azure-iot-remote-monitoring/tree/master/Simulator/Simulator.WebJob) 프로젝트에서 시뮬레이터를 수정할 수 있습니다.
+
 또한 Azure IoT는 미리 구성된 원격 모니터링 솔루션과 함께 사용하도록 설계된 [C SDK 샘플](https://github.com/Azure/azure-iot-sdks/c/serializer/samples/remote_monitoring)을 제공합니다.
 
 ### 고유한 (물리적) 장치 빌드 및 사용
@@ -66,8 +86,10 @@ Azure IoT Suite와 함께 제공되는 미리 구성된 솔루션은 제품 내�
 
 ## 다음 단계
 
+이 문서에서 포함했으면 하는 사용자 지정이 있나요? [사용자 의견](https://feedback.azure.com/forums/321918-azure-iot)에 기능 제안을 추가하거나 이 문서 아래 의견을 입력하거나 iotsolhelp@microsoft.com으로 메일을 보내 주시기 바랍니다.
+
 IoT 장치에 대한 자세한 내용은 [Azure IoT 개발자 사이트](https://azure.microsoft.com/develop/iot/)를 참조하여 링크 및 설명서를 찾을 수 있습니다.
 
 [IoT 장치 SDK]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

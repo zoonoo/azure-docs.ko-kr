@@ -4,7 +4,7 @@
 	services="redis-cache"
 	documentationCenter="na"
 	authors="steved0x"
-	manager="dwrede"
+	manager="erikre"
 	editor="tysonn" />
 <tags 
 	ms.service="cache"
@@ -12,14 +12,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="12/16/2015"
+	ms.date="03/04/2016"
 	ms.author="sdanie" />
 
 # Azure Redis 캐시 구성 방법
 
 이 항목에서는 Azure Redis 캐시 인스턴스에 대한 구성을 검토하고 업데이트하는 방법과 Azure Redis 캐시 인스턴스에 대한 기본 Redis 서버 구성을 살펴봅니다.
 
->[AZURE.NOTE]프리미엄 캐시 기능 사용 및 구성에 대한 자세한 내용은 [프리미엄 Azure Redis Cache에 지속성을 구성하는 방법](cache-how-to-premium-persistence.md), [프리미엄 Azure Redis Cache에 클러스터링을 구성하는 방법](cache-how-to-premium-clustering.md) 및 [프리미엄 Azure Redis Cache에 가상 네트워크 지원을 구성하는 방법](cache-how-to-premium-vnet.md)을 참조하세요.
+>[AZURE.NOTE] 프리미엄 캐시 기능 사용 및 구성에 대한 자세한 내용은 [프리미엄 Azure Redis Cache에 지속성을 구성하는 방법](cache-how-to-premium-persistence.md), [프리미엄 Azure Redis Cache에 클러스터링을 구성하는 방법](cache-how-to-premium-clustering.md) 및 [프리미엄 Azure Redis Cache에 가상 네트워크 지원을 구성하는 방법](cache-how-to-premium-vnet.md)을 참조하세요.
 
 ## Redis 캐시 설정 구성
 
@@ -90,7 +90,7 @@ Maxmemory 정책에 대한 자세한 내용은 [제거 정책](http://redis.io/t
 
 **maxmemory-reserved** 설정은 장애 조치(failover) 중 복제와 같은 비캐시 작업을 위해 예약되는 메모리의 양을 MB 단위로 구성합니다. 조각화 비율이 높을 때 사용할 수도 있습니다. 이 값을 설정하면 부하가 달라져도 Redis 서버 환경이 더 일관되도록 할 수 있습니다. 이 값은 쓰기 작업이 많은 워크로드에 더 높게 설정되어야 합니다. 이러한 작업을 위해 메모리가 예약된 경우 이는 캐시된 데이터의 저장에는 사용할 수 없습니다.
 
->[AZURE.IMPORTANT]**maxmemory-reserved** 설정은 표준 및 프리미엄 캐시에만 사용할 수 있습니다.
+>[AZURE.IMPORTANT] **maxmemory-reserved** 설정은 표준 및 프리미엄 캐시에만 사용할 수 있습니다.
 
 ## Keyspace 알림(고급 설정)
 
@@ -98,7 +98,7 @@ Maxmemory 정책에 대한 자세한 내용은 [제거 정책](http://redis.io/t
 
 ![Redis 캐시 고급 설정](./media/cache-configure/IC808319.png)
 
->[AZURE.IMPORTANT]Keyspace 알림과 **notify-keyspace-events** 설정은 표준 및 프리미엄 캐시에만 사용할 수 있습니다.
+>[AZURE.IMPORTANT] Keyspace 알림과 **notify-keyspace-events** 설정은 표준 및 프리미엄 캐시에만 사용할 수 있습니다.
 
 자세한 내용은 [Redis Keyspace 알림](http://redis.io/topics/notifications)을 참조하세요. 샘플 코드는 [Hello world](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) 샘플의 [KeySpaceNotifications.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/KeySpaceNotifications.cs) 파일을 참조하세요.
 
@@ -116,20 +116,20 @@ Redis 지속성을 사용하려면 **사용**을 클릭하여 RDB(Redis 데이�
 
 **확인**을 클릭하여 지속성 구성을 저장합니다.
 
->[AZURE.IMPORTANT]Redis 데이터 지속성은 프리미엄 캐시에만 사용할 수 있습니다. 자세한 내용은 [프리미엄 Azure Redis Cache에 지속성을 구성하는 방법](cache-how-to-premium-persistence.md)을 참조하세요.
+>[AZURE.IMPORTANT] Redis 데이터 지속성은 프리미엄 캐시에만 사용할 수 있습니다. 자세한 내용은 [프리미엄 Azure Redis Cache에 지속성을 구성하는 방법](cache-how-to-premium-persistence.md)을 참조하세요.
 
 <a name="cluster-size"></a>
 ## Redis 클러스터 크기
 
 **(미리 보기) Redis 클러스터 크기**를 클릭하여 클러스터링을 사용하도록 설정되어 있는 실행 중인 프리미엄 캐시에 대한 클러스터 크기를 변경합니다.
 
->[AZURE.NOTE]Azure Redis Cache 프리미엄 계층은 일반 공급으로 출시된 반면 Redis 클러스터 크기 기능은 현재 미리 보기 상태입니다.
+>[AZURE.NOTE] Azure Redis Cache 프리미엄 계층은 일반 공급으로 출시된 반면 Redis 클러스터 크기 기능은 현재 미리 보기 상태입니다.
 
 ![Redis 클러스터 크기](./media/cache-configure/redis-cache-redis-cluster-size.png)
 
 클러스터 크기를 변경하려면 슬라이더를 사용하거나 **분할된 데이터베이스 수** 텍스트 상자에 1에서 10 사이의 수를 입력하고 **확인**을 클릭하여 저장합니다.
 
->[AZURE.IMPORTANT]Redis 클러스터링은 프리미엄 캐시에만 사용할 수 있습니다. 자세한 내용은 [프리미엄 Azure Redis Cache에 클러스터링을 구성하는 방법](cache-how-to-premium-clustering.md)을 참조하세요.
+>[AZURE.IMPORTANT] Redis 클러스터링은 프리미엄 캐시에만 사용할 수 있습니다. 자세한 내용은 [프리미엄 Azure Redis Cache에 클러스터링을 구성하는 방법](cache-how-to-premium-clustering.md)을 참조하세요.
 
 
 ## 사용자 및 태그
@@ -144,7 +144,7 @@ Redis 지속성을 사용하려면 **사용**을 클릭하여 RDB(Redis 데이�
 
 새 Azure Redis 캐시 인스턴스는 다음과 같은 기본 Redis 구성 값으로 구성됩니다.
 
->[AZURE.NOTE]이 섹션의 설정은 `StackExchange.Redis.IServer.ConfigSet` 메서드를 사용하여 변경할 수 없습니다. 이 메서드를 이 섹션의 명령 중 하나와 함께 호출하면 다음과 유사한 예외가 발생됩니다.
+>[AZURE.NOTE] 이 섹션의 설정은 `StackExchange.Redis.IServer.ConfigSet` 메서드를 사용하여 변경할 수 없습니다. 이 메서드를 이 섹션의 명령 중 하나와 함께 호출하면 다음과 유사한 예외가 발생됩니다.
 >
 >`StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`
 >  
@@ -178,7 +178,7 @@ Redis 지속성을 사용하려면 **사용**을 클릭하여 RDB(Redis 데이�
 
 ## Azure Redis Cache에서 지원되지 않는 Redis 명령
 
->[AZURE.IMPORTANT]Azure Redis Cache 인스턴스의 구성과 관리는 Microsoft가 관리하므로 다음 명령이 비활성화됩니다. 이러한 명령을 호출하려고 하면 `"(error) ERR unknown command"`와 유사한 오류 메시지가 표시됩니다.
+>[AZURE.IMPORTANT] Azure Redis Cache 인스턴스의 구성과 관리는 Microsoft가 관리하므로 다음 명령이 비활성화됩니다. 이러한 명령을 호출하려고 하면 `"(error) ERR unknown command"`와 유사한 오류 메시지가 표시됩니다.
 >
 >-	BGREWRITEAOF
 >-	BGSAVE
@@ -195,7 +195,7 @@ Redis 명령에 대한 자세한 내용은 [http://redis.io/commands](http://red
 
 표준 및 프리미엄 캐시에서 사용할 수 있는 **Redis 콘솔**을 사용하면 Azure Redis Cache 인스턴스에 대해 안전하게 명령을 실행할 수 있습니다.
 
->[AZURE.IMPORTANT]Redis 콘솔은 VNET 또는 클러스터링과 작동되지 않습니다.
+>[AZURE.IMPORTANT] Redis 콘솔은 VNET 또는 클러스터링과 작동되지 않습니다.
 >
 >-	[VNET](cache-how-to-premium-vnet.md) - 캐시가 VNET의 일부인 경우 VNET의 클라이언트만 캐시에 액세스할 수 있습니다. Redis 콘솔은 VNET의 일부가 아닌 VM에서 호스팅되는 redis-cli.exe 클라이언트를 사용하므로 캐시에 연결할 수 없습니다.
 >-	[클러스터링](cache-how-to-premium-clustering.md) - Redis 콘솔은 현재 클러스터링을 지원하지 않는 redis-cli.exe 클라이언트를 사용합니다. GitHub에서 Redis 리포지토리의 [불안정한](http://redis.io/download) 분기에 있는 redis-cli 유틸리티는 `-c` 스위치로 시작된 경우 기본 지원을 구현합니다. 자세한 내용은 [Redis 클러스터 자습서](http://redis.io/topics/cluster-tutorial)의 [http://redis.io](http://redis.io)에서 [클러스터 작업](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster)을 참조하세요.
@@ -213,4 +213,4 @@ Azure Redis Cache에 대해 사용할 수 없도록 설정된 Redis 명령 목�
 ## 다음 단계
 -	Redis 명령을 사용하는 방법은 [어떻게 Redis 명령을 실행할 수 있나요?](cache-faq.md#how-can-i-run-redis-commands)를 참조하세요.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0309_2016-->

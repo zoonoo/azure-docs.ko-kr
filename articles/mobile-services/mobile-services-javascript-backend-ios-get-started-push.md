@@ -20,6 +20,11 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
+&nbsp;
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> 이 항목에 해당하는 모바일 앱 버전은 [iOS 앱에 푸시 알림 추가](../app-service-mobile/app-service-mobile-ios-get-started-push.md)를 참조하세요.
+
 이 항목에서는 [빠른 시작 프로젝트](mobile-services-ios-get-started.md)에 푸시 알림을 추가하는 방법을 보여주어 레코드를 삽입할 때마다 모바일 서비스가 푸시 알림을 보냅니다. 먼저 [모바일 서비스 시작]을 완료해야 합니다.
 
 > [AZURE.NOTE] [iOS 시뮬레이터는 푸시 알림을 지원하지 않으므로](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html) 실제 iOS 장치를 사용해야 합니다. [Apple 개발자 프로그램 멤버 자격](https://developer.apple.com/programs/ios/)에 유료 등록해야 합니다.
@@ -117,4 +122,4 @@
 [Send template-based notifications to subscribers]: ../notification-hubs-ios-send-localized-breaking-news.md
 [Mobile Services Objective-C how-to conceptual reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 
-<!---HONumber=AcomDC_0114_2016--->
+<!---HONumber=AcomDC_0309_2016-->

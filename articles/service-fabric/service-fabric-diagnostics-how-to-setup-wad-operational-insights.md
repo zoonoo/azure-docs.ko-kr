@@ -31,7 +31,9 @@ Operational Insights는 서비스 패브릭 클러스터에서 업로드되는 �
 * [Azure 리소스 관리자](https://azure.microsoft.com/resource-group-overview/)
 
 ## 필수 조건
-이 문서의 일부 작업을 수행하는 데 * [Azure PowerShell](https://azure.microsoft.com/powershell-install-configure/) * [ARM 리소스 관리자 클라이언트](https://github.com/projectkudu/ARMClient) 등의 도구가 사용됩니다.
+이러한 도구는 이 문서의 일부 작업을 수행하는 데 사용됩니다.
+* [Azure PowerShell](https://azure.microsoft.com/powershell-install-configure/)
+* [Azure Resource Manager 클라이언트](https://github.com/projectkudu/ARMClient)
 
 ## 수집하려는 다양한 로그 원본
 1. **서비스 패브릭 로그:** 플랫폼에서 표준 ETW와 EventSource 채널로 내보냅니다. 로그는 여러 유형 중 하나일 수 있습니다.
@@ -123,7 +125,7 @@ New-AzureResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $de
                 }
             }
     },
-                    "StorageAccount": "[parameters('applicationDiagnosticsStorageAccountNamee')]"
+                    "StorageAccount": "[parameters('applicationDiagnosticsStorageAccountName')]"
                 },
                 "protectedSettings": {
                     "storageAccountName": "[parameters('applicationDiagnosticsStorageAccountName')]",
@@ -325,4 +327,4 @@ Operational Insights 작업 영역이 특정 저장소 계정에서 로그를 �
 ## 다음 단계
 문제를 해결하는 동안 조사해야 하는 이벤트에 대한 자세한 내용을 확인하려면 [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) 및 [Reliable Services](service-fabric-reliable-services-diagnostics.md)가 내보낸 진단 이벤트를 확인합니다.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

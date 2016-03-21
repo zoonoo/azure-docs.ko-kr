@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="03/04/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -36,11 +36,14 @@ Azure Active Directory Connect 동기화 서비스(Azure AD Connect Sync)는 클
 | [선언적 프로비전 식 이해](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) | 구성 모델의 작동 방식과 식 언어에 대한 구문을 심도 있게 설명합니다. |
 | [기본 구성 변경에 대한 모범 사례](active-directory-aadconnectsync-best-practices-changing-default-configuration.md) | 위의 토픽에 대한 세부 정보를 알고 시나리오 또는 요구 사항에 맞게 기본 구성을 변경해야 하는 경우 도움이 됩니다. |
 | [필터링 구성](active-directory-aadconnectsync-configure-filtering.md) | 어떤 개체를 Azure AD에 동기화할지 제한하는 방법에 대한 다양한 옵션을 설명하고 이를 구성하는 방법을 단계별로 설명합니다. |
-| **기능** ||
-| [암호 동기화 구현](active-directory-aadconnectsync-implement-password-synchronization.md) | 암호 동기화의 작동 방식, 구현 방법, 작동 및 문제 해결 방법에 대해 설명합니다. |
+| **기능 및 시나리오** ||
 | [실수로 인한 삭제 방지](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) | *실수로 인한 삭제 방지* 기능과 이를 구성하는 방법을 설명합니다. |
 | [스케줄러](active-directory-aadconnectsync-feature-scheduler.md) | 데이터를 가져오고 동기화하고 내보내는 기본 제공 스케줄러를 설명합니다. |
-| **작업** ||
+| [암호 동기화 구현](active-directory-aadconnectsync-implement-password-synchronization.md) | 암호 동기화의 작동 방식, 구현 방법, 작동 및 문제 해결 방법에 대해 설명합니다. |
+| [장치 쓰기 저장](active-directory-aadconnect-feature-device-writeback.md) | Azure AD Connect에서 장치 쓰기 저장이 작동하는 방식에 대해 설명합니다. |
+| [디렉터리 확장](active-directory-aadconnectsync-feature-directory-extensions.md) | 자체 사용자 지정 특성을 사용하여 Azure AD 스키마를 확장하는 방법에 대해 설명합니다. |
+| **작업 및 UI** ||
+| [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md) | [작업](active-directory-aadconnectsync-service-manager-ui-operations.md), [커넥터](active-directory-aadconnectsync-service-manager-ui-connectors.md), [메타버스 디자이너](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) 및 [메타버스 검색](active-directory-aadconnectsync-service-manager-ui-mvsearch.md) 탭 등 Synchronization Service Manager UI를 설명합니다.|
 | [운영 작업 및 고려 사항](active-directory-aadconnectsync-operations.md) | 재해 복구와 같은 운영 문제에 대해 설명합니다. |
 | **자세한 내용 및 참조** ||
 | [포트](active-directory-aadconnect-ports.md) | 동기화 엔진, 온-프레미스 디렉터리 및 Azure AD 간에 열어야 하는 포트를 나열합니다. |
@@ -51,4 +54,4 @@ Azure Active Directory Connect 동기화 서비스(Azure AD Connect Sync)는 클
 
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

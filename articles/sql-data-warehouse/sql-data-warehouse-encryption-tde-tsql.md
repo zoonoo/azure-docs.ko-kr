@@ -1,24 +1,24 @@
-<properties 
-   pageTitle="SQL 데이터 웨어하우스 투명한 데이터 암호화(TDE) TSQL 시작 | Microsoft Azure" 
-   description="SQL 데이터 웨어하우스 투명한 데이터 암호화(TDE) TSQL 시작" 
-   services="sql-data-warehouse" 
-   documentationCenter="" 
-   authors="twounder" 
-   manager="barbkess" 
+<properties
+   pageTitle="SQL 데이터 웨어하우스 투명한 데이터 암호화(TDE) TSQL 시작 | Microsoft Azure"
+   description="SQL 데이터 웨어하우스 투명한 데이터 암호화(TDE) TSQL 시작"
+   services="sql-data-warehouse"
+   documentationCenter=""
+   authors="twounder"
+   manager="barbkess"
    editor=""/>
 
-<tags 
-   ms.service="sql-data-warehouse" 
-   ms.workload="data-management" 
-   ms.tgt_pltfrm="na" 
-   ms.devlang="na" 
-   ms.topic="article" 
-   ms.date="01/07/2016" 
+<tags
+   ms.service="sql-data-warehouse"
+   ms.workload="data-management"
+   ms.tgt_pltfrm="na"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.date="03/03/2016" 
    ms.author="mausher;barbkess;sonyama"/>
- 
+
 # 투명한 데이터 암호화(TDE) 시작
 > [AZURE.SELECTOR]
-- [Azure Classic Portal](sql-data-warehouse-encryption-tde.md)
+- [Azure 클래식 포털](sql-data-warehouse-encryption-tde.md)
 - [TSQL](sql-data-warehouse-encryption-tde-tsql.md)
 
 Azure SQL 데이터 웨어하우스 투명한 데이터 암호화(TDE)는 응용 프로그램에 대한 변경 요구 없이 데이터베이스, 연결된 백업 및 저장된 트랜잭션 로그 파일에 대한 실시간 암호화 및 암호 해독을 수행하여 악의적인 활동의 위협으로부터 보호합니다.
@@ -64,7 +64,7 @@ FROM
 
 ```1```의 결과는 암호화된 데이터베이스를 나타내고 ```0```은(는) 암호화되지 않은 데이터베이스를 나타냅니다.
 
- 
+
 <!--Anchors-->
 [투명한 데이터 암호화(TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
 
@@ -73,4 +73,4 @@ FROM
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

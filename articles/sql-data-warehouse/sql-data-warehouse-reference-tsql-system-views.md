@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/26/2016"
+   ms.date="03/03/2016"
    ms.author="barbkess;sonyama"/>
 
 # 시스템 뷰
@@ -230,4 +230,4 @@ SQL 데이터 웨어하우스는 Microsoft의 MPP 기술을 기반으로 하므�
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

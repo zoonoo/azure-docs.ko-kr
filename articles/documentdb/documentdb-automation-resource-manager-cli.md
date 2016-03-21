@@ -15,14 +15,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="03/04/2016" 
 	ms.author="mimig"/>
 
 # Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 DocumentDB 계정 자동화
 
 > [AZURE.SELECTOR]
-- [Azure Portal](documentdb-create-account.md)
-- [Azure CLI and ARM](documentdb-automation-resource-manager-cli.md)
+- [Azure 포털](documentdb-create-account.md)
+- [Azure CLI 및 ARM](documentdb-automation-resource-manager-cli.md)
 
 이 문서에서는 Azure 리소스 관리자 템플릿 또는 Azure 명령줄 인터페이스 (CLI)를 사용하여 DocumentDB 계정을 만드는 방법을 보여 줍니다. Azure 포털을 사용하여 DocumentDB 계정을 만들려면 [Azure 포털을 사용하여 DocumentDB 데이터베이스 계정 만들기](documentdb-create-account.md)를 참조하세요.
 
@@ -75,9 +75,10 @@ Azure 리소스 관리 템플릿을 사용하려면 회사 또는 학교 계정 
 
 또한 명령 셸은 다음과 같은 출력을 제공합니다.
 
-    -info:    Added subscription Visual Studio Ultimate with MSDN
-	+
-	info:    login command OK
+    /info:    Added subscription Visual Studio Ultimate with MSDN
+    info:    Setting subscription "Visual Studio Ultimate with MSDN" as default
+    +
+    info:    login command OKK
 
 여기서 설명한 대화형 로그인 방법 외에 사용 가능한 추가 Azure CLI 로그인 방법이 있습니다. 다른 방법에 대한 자세한 내용 및 여러 구독 처리에 대한 자세한 내용은 [Azure 명령줄 인터페이스(Azure CLI)에서 Azure 구독에 연결](../xplat-cli-connect.md)을 참조하세요.
 
@@ -89,7 +90,9 @@ Azure 리소스 관리 템플릿을 사용하려면 회사 또는 학교 계정 
 
 다음과 같은 출력을 제공합니다.
 
-	info:    New mode is arm
+    info:    Executing command config mode
+    info:    New mode is arm
+    info:    config mode command OK
 
 `azure config mode asm`을 입력하여 기본 명령 집합으로 다시 전환할 수 있습니다.
 
@@ -268,8 +271,8 @@ DocumentDB 계정을 만들려면 먼저 리소스 그룹이 필요합니다. �
 
     azure group deployment create -f <PathToTemplate> -e <PathToParameterFile> -g <resourcegroupname> -n <deploymentname>
 
- - `<PathToTemplate>`은 1단계에서 만든 azuredeploy.json 파일에 대한 경로입니다.
- - `<PathToParameterFile>`은 1단계에서 만든 azuredeploy.parameters.json 파일에 대한 경로입니다.
+ - `<PathToTemplate>`은 1단계에서 만든 azuredeploy.json 파일에 대한 경로입니다. 경로 이름에 공백이 있으면 이 매개 변수 앞뒤에 큰따옴표를 배치합니다.
+ - `<PathToParameterFile>`은 1단계에서 만든 azuredeploy.parameters.json 파일에 대한 경로입니다. 경로 이름에 공백이 있으면 이 매개 변수 앞뒤에 큰따옴표를 배치합니다.
  - `<resourcegroupname>`은 DocumentDB 데이터베이스 계정을 추가할 기존 리소스 그룹의 이름입니다. 
  - `<deploymentname>`은 배포의 선택적 이름입니다.
 
@@ -351,4 +354,4 @@ DocumentDB에 대해 자세히 알아보려면 다음 리소스를 참조하세�
 
 사용할 수 있는 더 많은 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)을 참조하세요.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

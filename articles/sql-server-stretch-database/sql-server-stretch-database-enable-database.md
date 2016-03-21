@@ -3,9 +3,9 @@
 	description="스트레치 데이터베이스에 대해 데이터베이스를 구성하는 방법을 알아봅니다."
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="03/09/2016"
 	ms.author="douglasl"/>
 
 # 데이터베이스에 대해 스트레치 데이터베이스를 사용하도록 설정
@@ -128,6 +128,8 @@ GO
 -   [스트레치 지원 데이터베이스 백업 및 복원](sql-server-stretch-database-backup.md)
 
 ## 참고 항목
-[스트레치 데이터베이스에 대한 데이터베이스 및 테이블 식별](sql-server-stretch-database-identify-databases.md) [ALTER DATABASE SET 옵션(Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
+[스트레치 데이터베이스에 대한 데이터베이스 및 테이블 식별](sql-server-stretch-database-identify-databases.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+[ALTER DATABASE SET 옵션(TRANSACT-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
+
+<!---HONumber=AcomDC_0309_2016-->

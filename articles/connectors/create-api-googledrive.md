@@ -15,14 +15,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/25/2016"
+   ms.date="03/02/2016"
    ms.author="mandia"/>
 
 # Google 드라이브 API 시작
 Google 드라이브에 연결하여 파일 만들기, 행 가져오기 등의 작업을 수행합니다. Google 드라이브 API를 다음에서 사용할 수 있습니다.
 
-- PowerApps 
 - 논리 앱 
+- PowerApps
+
+> [AZURE.SELECTOR]
+- [논리 앱](../articles/connectors/create-api-googledrive.md)
+- [PowerApps 엔터프라이즈](../articles/power-apps/powerapps-create-api-googledrive.md)
 
 Google 드라이브를 사용하면 다음과 같은 작업을 수행할 수 있습니다.
 
@@ -47,33 +51,6 @@ Google 드라이브에는 다음 작업이 포함됩니다. 트리거는 없습�
 
 ## Google 드라이브에 대한 연결 만들기
 
-### PowerApps에 구성 추가
-PowerApps 엔터프라이즈에 Google 드라이브를 추가할 때 Google 드라이브 응용 프로그램의 **앱 키**와 **앱 암호**를 입력합니다. 또한 **URL 리디렉션** 값도 Google 응용 프로그램에서 사용됩니다. Google 드라이브 응용 프로그램이 없는 경우 다음 단계를 사용하여 응용 프로그램을 만들 수 있습니다.
-
-1. [Google 개발자 콘솔][5]에 로그인하고 **빈 프로젝트 생성**를 선택합니다. ![Google 개발자 콘솔][6]
-
-2. 응용 프로그램 속성을 입력하고 **만들기**를 선택합니다.
-3. **Google API 사용**을 선택합니다. ![Google API 사용][8]  
-4. 개요에서 **드라이브 API**를 선택합니다. ![Google 드라이브 API 개요][9]  
-5. **API 사용 설정**을 선택합니다. ![Google 드라이브 API 사용][10]  
-6. 드라이브 API를 사용하도록 설정할 때 **자격 증명**, **OAuth 2.0 클라이언트 ID**를 차례로 선택합니다. ![자격 증명 추가][12]  
-7. **동의 화면 구성**을 선택합니다.
-8. **OAuth 동의 화면**에서 **제품 이름**을 입력하고 **저장**을 선택합니다. ![동의 화면 구성][13]  
-9. 클라이언트 ID 만들기 페이지에서:  
-
-	1. **응용 프로그램 형식**에서 **웹 응용 프로그램**을 선택합니다.
-	2. 클러스터의 이름을 입력합니다.
-	3. Azure 포털에 Google 드라이브 API를 추가할 때 표시되는 URL 리디렉션 값을 입력합니다.
-	4. **만들기**를 선택합니다.  
-
-	![클라이언트 ID 만들기][14]
-
-11. 등록한 응용 프로그램의 클라이언트 ID와 클라이언트 암호가 표시됩니다.
-
-이제 Azure 포털의 Google 드라이브 API 구성에서 **앱 키** 및 **앱 암호** 값을 복사하여 붙여넣습니다.
-
-
-### 논리 앱에 구성 추가
 논리 앱에 이 API를 추가할 때 Google 드라이브에 연결할 권한을 논리 앱에 부여해야 합니다.
 
 1. Google 드라이브 계정에 로그인합니다.
@@ -363,9 +340,10 @@ Google 시트의 행을 업데이트합니다. ```PATCH: /datasets/{dataset}/tab
 
 
 ## 다음 단계
-PowerApps 엔터프라이즈에 Google 드라이브를 추가한 후 해당 앱에서 API를 사용할 [권한을 사용자에게 부여](../power-apps/powerapps-manage-api-connection-user-access.md)합니다.
 
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
+
+[API 목록](apis-list.md)으로 돌아갑니다.
 
 
 <!--References-->
@@ -378,4 +356,4 @@ PowerApps 엔터프라이즈에 Google 드라이브를 추가한 후 해당 앱�
 [13]: ./media/create-api-googledrive/configure-consent-screen.png
 [14]: ./media/create-api-googledrive/create-client-id.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

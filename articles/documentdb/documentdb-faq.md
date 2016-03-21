@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="03/04/2016" 
 	ms.author="mimig"/>
 
 
@@ -51,8 +51,8 @@ DocumentDB는 현재 HIPAA 규정을 준수하지 않지만 HIPAA 규정 준수 
 ### Microsoft Azure DocumentDB 비용은 얼마인가요?
 자세한 내용은 [DocumentDB 가격 책정 세부 정보](http://go.microsoft.com/fwlink/p/?LinkID=402317) 페이지를 참조하세요. DocumentDB 사용 요금은 사용 중인 컬렉션 수, 컬렉션이 온라인이었던 시간, 각 컬렉션의 [성능 수준](documentdb-performance-levels.md)으로 결정됩니다.
 
-### 무료 평가판이 있나요?
-Azure를 처음 사용하는 경우 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록하면 30일간 제공된 ₩240,000로 모든 Azure 서비스를 사용해 볼 수 있습니다. 또는 Visual Studio 구독이 있다면 모든 Azure 서비스에 사용할 수 있는 [월별 $150의 무료 Azure 크레딧](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)에 대한 자격이 주어집니다.
+### 무료 계정을 사용할 수 있나요?
+Azure를 처음 사용하는 경우 [Azure 무료 계정](https://azure.microsoft.com/pricing/free-trial/)에 등록하면 30일간 제공된 $200로 모든 Azure 서비스를 사용해 볼 수 있습니다. 또는 Visual Studio 구독이 있다면 모든 Azure 서비스에 사용할 수 있는 [월별 $150의 무료 Azure 크레딧](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)에 대한 자격이 주어집니다.
 
 ### DocumentDB 추가 도움말은 어떻게 구할 수 있나요?
 도움이 필요한 경우 [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-documentdb), [Azure DocumentDB MSDN 개발자 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB)을 통해 문의하거나 [DocumentDB 엔지니어링 팀과의 1:1 채팅](http://www.askdocdb.com/)을 예약하세요. 최신 DocumentDB 소식과 기능에 대한 최신 동향을 파악하려면 [Twitter](https://twitter.com/DocumentDB)를 팔로우하세요.
@@ -66,7 +66,7 @@ Microsoft Azure DocumentDB는 [Azure 포털][azure-portal]에 있습니다. 먼�
 마스터 키는 계정의 모든 리소스에 액세스할 수 있는 보안 토큰입니다. 이 키가 있는 개인은 데이터베이스 계정의 모든 리소스에 대해 읽기 및 쓰기 액세스 권한을 가집니다. 마스터 키를 배포할 때 주의하세요. 주 마스터 키 및 보조 마스터 키는 [Azure 포털][azure-portal]의 **키** 블레이드에서 사용할 수 있습니다. 키에 대한 자세한 내용은 [액세스 키 보기, 복사 및 다시 생성](documentdb-manage-account.md#keys)을 참조하세요.
 
 ### 데이터베이스를 어떻게 만드나요?
-[DocumentDB 데이터베이스 만들기](documentdb-create-database.md)의 설명대로 [Azure 포털]()을 사용하거나 [DocumentDB SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 중 하나를 사용하거나 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx)를 통해 데이터베이스를 만들 수 있습니다.
+[DocumentDB 데이터베이스 만들기](documentdb-create-database.md)의 설명대로 [Azure 포털]()을 사용하거나 [DocumentDB SDK](documentdb-sdk-dotnet.md) 중 하나를 사용하거나 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx)를 통해 데이터베이스를 만들 수 있습니다.
 
 ### 컬렉션이란 무엇인가요?
 컬렉션은 JSON 문서 및 관련 JavaScript 응용 프로그램 논리의 컨테이너입니다. 쿼리와 트랜잭션의 범위는 컬렉션으로 지정됩니다. 단일 컬렉션 내에서 다른 유형의 JSON 문서 집합을 저장할 수 있으며, 모든 문서는 자동으로 인덱싱됩니다.
@@ -77,17 +77,17 @@ Microsoft Azure DocumentDB는 [Azure 포털][azure-portal]에 있습니다. 먼�
 각 컬렉션은 데이터베이스 저장소가 할당되어 제공되며 지원되는 [성능 수준](documentdb-performance-levels.md) 중 하나에서 처리량을 프로비전합니다. 또한 할당량은 서비스에서 관리하는 각 리소스에 적합합니다. 모든 제한 목록은 [DocumentDB 제한](documentdb-limits.md)을 참조하세요. 사용자의 계정 제한에 대해 변경을 요청하려면 [DocumentDB 계정 제한 증가 요청](documentdb-increase-limits.md)을 참조하세요.
 
 ### 사용자 및 사용 권한을 어떻게 설정하나요?
-[DocumentDB SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 중 하나를 사용하거나 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx)를 통해 사용자 및 사용 권한을 만들 수 있습니다.
+[DocumentDB SDK](documentdb-sdk-dotnet.md) 중 하나를 사용하거나 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx)를 통해 사용자 및 사용 권한을 만들 수 있습니다.
 
 ## Microsoft Azure DocumentDB에 대한 개발과 관련된 데이터베이스 질문
 
 ### DocumentDB에 대해 어떻게 개발을 시작하나요?
-[SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx)는 .NET, Python, Node.js, JavaScript 및 Java용으로 제공됩니다. 또한 개발자는 [RESTful HTTP API](https://msdn.microsoft.com/library/azure/dn781481.aspx)를 사용하여 다양한 플랫폼 및 언어의 DocumentDB 리소스를 조작할 수 있습니다.
+[SDK](documentdb-sdk-dotnet.md)는 .NET, Python, Node.js, JavaScript 및 Java용으로 제공됩니다. 또한 개발자는 [RESTful HTTP API](https://msdn.microsoft.com/library/azure/dn781481.aspx)를 사용하여 다양한 플랫폼 및 언어의 DocumentDB 리소스를 조작할 수 있습니다.
 
 GitHub에서 샘플 DocumentDB [.NET](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](https://github.com/Azure/azure-documentdb-node/tree/master/samples), 및 [Python](https://github.com/Azure/azure-documentdb-python) SDK를 받을 수 있습니다.
 
 ### DocumentDB에서 SQL을 지원하나요?
-DocumentDB SQL 쿼리 언어는 JavaScript 기반 UDF(사용자 정의 함수)를 통해 다양한 계층 구조 및 관계형 연산자를 제공합니다. JSON 문법은 트리 노드로 레이블이 지정된 트리로 JSON 문서 모델링을 허용합니다. 이 내용은 DocumentDB 자동 인덱싱 기술 및 DocumentDB의 SQL 쿼리 언어 모두에 사용됩니다. SQL 문법을 사용하는 방법에 대한 자세한 내용은 [DocumentDB 쿼리][query] 문서를 참조하세요.
+DocumentDB SQL 쿼리 언어는 SQL에서 지원하는 쿼리 기능의 향상된 하위 집합입니다. DocumentDB SQL 쿼리 언어는 JavaScript 기반 UDF(사용자 정의 함수)를 통해 다양한 계층 구조 및 관계형 연산자를 제공합니다. JSON 문법은 트리 노드로 레이블이 지정된 트리로 JSON 문서 모델링을 허용합니다. 이 내용은 DocumentDB 자동 인덱싱 기술 및 DocumentDB의 SQL 쿼리 언어 모두에 사용됩니다. SQL 문법을 사용하는 방법에 대한 자세한 내용은 [DocumentDB 쿼리][query] 문서를 참조하세요.
 
 ### DocumentDB에서 지원하는 데이터 형식은 무엇인가요?
 DocumentDB에서 지원되는 기본 데이터 형식은 JSON과 동일합니다. JSON에는 문자열, 숫자(IEEE754 배정밀도), 부울(true 및 false) 및 Null로 구성된 단순한 형식 시스템이 있습니다. DateTime, Guid, Int64 및 Geometry와 같은 더욱 복잡한 데이터 형식은 { } 연산자를 사용하는 중첩 개체 및 [ ] 연산자를 사용하는 배열의 생성을 통해 JSON 및 DocumentDB로 표시될 수 있습니다.
@@ -115,4 +115,4 @@ DocumentDB에 문서를 일괄 삽입하는 세 가지 방법이 있습니다.
 [query]: documentdb-sql-query.md
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

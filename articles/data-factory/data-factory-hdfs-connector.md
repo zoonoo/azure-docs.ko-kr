@@ -260,10 +260,10 @@
 
 속성 | 설명 | 필수
 -------- | ----------- | --------
-folderPath | 파일의 경로입니다. 예제: myfolder<p>문자열의 특수 문자에 이스케이프 문자 '\\'를 사용합니다. 예를 들어 folder\\subfolder, folder\\subfolder 및 d:\\samplefolder에 d:\\samplefolder를 지정합니다.</p><p>**partitionBy**로 이를 결합하여 조각 시작/종료 날짜-시간에 따라 폴더 경로를 가질 수 있습니다.</p> | 예
-fileName | 폴더에서 특정 파일을 참조하기 위해 테이블을 사용하려는 경우 **folderPath**에 있는 파일의 이름을 지정합니다. 이 속성에 값을 지정하지 않으면 테이블은 폴더에 있는 모든 파일을 가리킵니다.<p>출력 데이터 집합에 fileName을 지정하지 않으면 생성된 파일의 이름은 다음 이 서식에 있습니다.</p><p>데이터.<Guid>.txt(예를 들어 Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p> | 아니요
+folderPath | 파일의 경로입니다. 예제: myfolder<br/><br/>문자열의 특수 문자에 이스케이프 문자 '\\'를 사용합니다. 예를 들어 folder\\subfolder, folder\\subfolder 및 d:\\samplefolder에 d:\\samplefolder를 지정합니다.<br/><br/>**partitionBy**로 이를 결합하여 조각 시작/종료 날짜-시간에 따라 폴더 경로를 가질 수 있습니다. | 예
+fileName | 폴더에서 특정 파일을 참조하기 위해 테이블을 사용하려는 경우 **folderPath**에 있는 파일의 이름을 지정합니다. 이 속성에 값을 지정하지 않으면 테이블은 폴더에 있는 모든 파일을 가리킵니다.<br/><br/>fileName이 출력 데이터 집합에 대해 지정되지 않으면 생성된 파일의 이름은 다음 형식을 사용합니다.<br/><br/>Data.<Guid>.txt(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) | 아니요
 partitionedBy | 동적 folderPath, 시계열 데이터에 대 한 filename을 지정 하려면 partitionedBy는 활용할 수 있습니다. 예를 들어 매시간 데이터에 대한 매개 변수가 있는 folderPath입니다. | 아니요
-fileFilter | 모든 파일이 아닌 folderPath의 파일 하위 집합을 선택하는데 사용할 필터를 지정합니다. <p>허용되는 값은 다음과 같습니다. *(여러 문자) 및 ?(한 개의 문자).</p><p>예제 1: "fileFilter": "*.log"</p>예제 2: "fileFilter":2014-1-?.txt"</p><p>**참고**: fileFilter는 입력 FileShare 데이터 집합에 적용됩니다.</p> | 아니요
+fileFilter | 모든 파일이 아닌 folderPath의 파일 하위 집합을 선택하는데 사용할 필터를 지정합니다. <br/><br/>허용되는 값은 다음과 같습니다. *(여러 문자) 및 ?(한 개의 문자).<br/><br/>예제 1: "fileFilter": "*.log"<br/>예제 2: "fileFilter":2014-1-?.txt"<br/><br/>**참고**: fileFilter는 입력 FileShare 데이터 집합에 적용됩니다. | 아니요
 | 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate** 및 **BZip2**이고 지원되는 수준은 **최적** 및 **가장 빠름**입니다. 현재 **AvroFormat**의 데이터에 대한 압축 설정은 지원되지 않습니다. 자세한 내용은 [압축 지원](#compression-support) 섹션을 참조하세요. | 아니요 |
 | format | **TextFormat**, **AvroFormat**과 같은 두 서식 유형이 지원됩니다. 값이 있으면 이 중 하나로 서식에서 형식 속성을 설정해야 합니다. 서식이 TextFormat인 경우 형식에 선택적 추가 속성을 지정할 수 있습니다. 자세한 내용은 아래 [TextFormat 지정](#specifying-textformat) 섹션을 참조하세요. | 아니요
 
@@ -309,9 +309,9 @@ fileFilter | 모든 파일이 아닌 folderPath의 파일 하위 집합을 선�
 | -------- | ----------- | -------- |
 | columnDelimiter | 파일에서 문자는 열 구분 기호로 사용됩니다. 이때 하나의 문자만 허용됩니다. 이 태그는 선택 사항입니다. 기본값은 쉼표(,)입니다. | 아니요 |
 | rowDelimiter | 파일에서 문자는 원시 구분 기호로 사용됩니다. 이때 하나의 문자만 허용됩니다. 이 태그는 선택 사항입니다. 기본값은 다음 중 하나입니다. ["\\r\\n", "\\r", "\\n"] | 아니요 |
-| escapeChar | <p>열 구분 기호를 이스케이프하는 데 사용되는 특수 문자가 콘텐츠에 표시됩니다. 이 태그는 선택 사항입니다. 기본값은 없습니다. 이 속성에 한 개의 문자만을 지정해야 합니다.</p><p>예를 들어 열 구분 기호로 쉼표(,)가 있지만 텍스트에서 쉼표 문자를 쓰려는 경우(예: "Hello, world") '$'를 이스케이프 문자로 정의하고 원본에서 "$Hello, world" 문자열을 사용할 수 있습니다.</p><p>테이블에 escapeChar 및 quoteChar 모두를 지정할 수 없습니다.</p> | 아니요 | 
-| quoteChar | <p>특수 문자는 문자열 값을 따옴표로 묶는 데 사용됩니다. 인용 문자 내의 열 및 행 구분 기호는 문자열 값의 일부로 간주됩니다. 이 태그는 선택 사항입니다. 기본값은 없습니다. 이 속성에 한 개의 문자만을 지정해야 합니다.</p><p>예를 들어 열 구분 기호로 쉼표(,)가 있지만 텍스트에서 쉼표 문자를 쓰려는 경우(예: <Hello  world>) ‘"’를 인용 문자로 정의하고 원본에서 <"Hello, world"> 문자열을 사용할 수 있습니다. 이 속성은 입력 및 출력 테이블 모두에 적용됩니다.</p><p>테이블에 escapeChar 및 quoteChar을 모두 지정할 수 없습니다.</p> | 아니요 |
-| nullValue | <p>Blob 파일 콘텐츠에서 null 값을 나타내는 데 사용되는 문자입니다. 이 태그는 선택 사항입니다. 기본값은 "\\N"입니다.</p><p>예를 들어 위의 예제에 따라 blob의 "NaN"이 예를 들어 SQL Server에 복사되는 동안 null 값으로 변환됩니다.</p> | 아니요 |
+| escapeChar | 열 구분 기호를 이스케이프 하는데 사용되는 특수 문자가 내용에 표시됩니다. 이 태그는 선택 사항입니다. 기본값은 없습니다. 이 속성에 한 개의 문자만을 지정해야 합니다.<br/><br/>예를 들어 열 구분 기호로 쉼표(,)가 있지만 텍스트에서 쉼표 문자를 쓰려는 경우(예: "Hello, world") '$'를 이스케이프 문자로 정의하고 원본에서 "Hello$, world" 문자열을 사용할 수 있습니다.<br/><br/>테이블에 escapeChar 및 quoteChar 모두를 지정할 수 없습니다. | 아니요 | 
+| quoteChar | 특수 문자는 문자열 값을 따옴표로 묶는 데 사용됩니다. 인용 문자 내의 열 및 행 구분 기호는 문자열 값의 일부로 간주됩니다. 이 태그는 선택 사항입니다. 기본값은 없습니다. 이 속성에 한 개의 문자만을 지정해야 합니다.<br/><br/>예를 들어 열 구분 기호로 쉼표(,)가 있지만 텍스트에서 쉼표 문자를 쓰려는 경우(예: <Hello  world>) ‘"’를 인용 문자로 정의하고 원본에서 <"Hello, world"> 문자열을 사용할 수 있습니다. 이 속성은 입력 및 출력 테이블 모두에 적용됩니다.<br/><br/>테이블에 escapeChar 및 quoteChar을 모두 지정할 수 없습니다. | 아니요 |
+| nullValue | Blob 파일 내용에서 null 값을 나타내는 데 사용되는 문자입니다. 이 태그는 선택 사항입니다. 기본값은 "\\N"입니다.<br/><br/>예를 들어 위의 예제에 따라 blob의 "NaN"이 예를 들어 SQL Server에 복사되는 동안 null 값으로 변환됩니다. | 아니요 |
 | encodingName | 인코딩 이름을 지정합니다. 올바른 인코딩 이름 목록은 [Encoding.EncodingName Property](https://msdn.microsoft.com/library/system.text.encoding.aspx) 속성을 참조하세요. 예: windows-1250 또는 shift\_jis 기본값은 UTF-8입니다. | 아니요 | 
 
 #### 샘플
@@ -365,4 +365,4 @@ Hive 테이블에서 Avro 형식을 사용하려는 경우 [Apache Hive의 자�
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="02/08/2016"
+ms.date="03/08/2016"
 ms.author="eugenesh" />
 
 # Azure 검색으로 Azure Blob 저장소에서 문서 인덱싱
@@ -205,8 +205,22 @@ BLOB에 BLOB 인덱싱 및 문서 추출 프로세스의 특정 측면을 제어
 AzureSearch\_Skip | "true" | BLOB 인덱서에 BLOB를 완전히 건너뛰도록 지시합니다. 메타데이터와 콘텐츠 추출을 시도하지 않습니다. 특정 콘텐츠 형식을 건너뛰거나 특정 BLOB가 반복적으로 실패하고 인덱싱 프로세스를 중단하는 경우 유용합니다.
 AzureSearch\_SkipContent | "true" | Blob 인덱서에게 메타데이터만 인덱싱하고 Blob의 콘텐츠를 압축 해제하는 과정을 건너뛰도록 지시합니다. Blob 콘텐츠에는 관심이 없지만 Blob에 연결된 메타데이터는 인덱싱하려는 경우 유용합니다.
 
+<a name="IndexerParametersConfigurationControl"></a>
+## 인덱서 매개 변수를 사용하여 문서 추출 제어
+
+각 Blob에 개별적으로 사용자 지정 메타데이터를 추가해야 하는 대신 인덱서 구성 개체를 사용하여 모든 Blob에 대한 콘텐츠 추출을 건너뛸 수 있습니다. 이렇게 하려면 `parameters` 개체의 `true`에 `SkipContent` 구성 속성을 설정합니다.
+
+ 	PUT https://[service name].search.windows.net/indexers/<your indexer name>?api-version=2015-02-28-Preview
+	Content-Type: application/json
+	api-key: [admin key]
+
+	{
+	  ... other parts of indexer definition
+	  "parameters" : { "configuration" : { "SkipContent" : true } }
+	}
+
 ## Azure 검색 개선 지원
 
 기능 요청 또는 개선에 대한 아이디어가 있는 경우 [UserVoice 사이트](https://feedback.azure.com/forums/263029-azure-search/)를 통해 연락해 주세요.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

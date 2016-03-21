@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스에 솔루션 마이그레이션
@@ -28,7 +28,7 @@ SQL 데이터 웨어하우스는 Microsoft Azure를 기반으로 하는 플랫�
 - [스키마 마이그레이션][]
 - [데이터 마이그레이션][]
 - [코드 마이그레이션][]
- 
+
 ## 다음 단계
 추가 개발 팁은 [개발 개요][]를 참조하세요.
 
@@ -52,4 +52,4 @@ SQL 데이터 웨어하우스는 Microsoft Azure를 기반으로 하는 플랫�
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Azure Mobile Engagement 인증 API 시작하기"
-	description="이전에 Capptain API 인증을 사용하다가 이제 새 Azure Mobile Enagagement API 인증을 사용해야 하는 고객을 위한 마이그레이션 가이드입니다." 
+	pageTitle="Mobile Engagement REST API를 사용한 인증"
+	description="Azure Mobile Engagement REST API를 사용한 인증 방법 설명" 
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="wesmc7777"
+	authors="piyushjo"
 	manager="erikre"
 	editor=""/>
 
@@ -13,10 +13,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="02/29/2016"
+	ms.date="03/07/2016"
 	ms.author="wesmc"/>
 
-# Azure Mobile Engagement - 인증에 API 사용
+# Mobile Engagement REST API를 사용한 인증
 
 ## 개요
 
@@ -183,4 +183,4 @@ PowerShell 스크립트를 사용하여 앞에서 언급한 단계를 수행하�
 >[AZURE.NOTE] <br/>
 >1. 이 API 루트 주소는 이전 API의 것이므로 무시합니다.<br/> 2. 응용 프로그램 이름 자체와 다른 응용 프로그램 리소스 이름을 사용해야 합니다. 
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

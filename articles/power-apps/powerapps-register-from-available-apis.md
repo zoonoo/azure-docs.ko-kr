@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="01/21/2016"
+   ms.date="03/02/2016"
    ms.author="guayan"/>
 
 # Microsoft 관리 API 또는 IT 관리 API 등록
@@ -22,13 +22,12 @@
 
 IT 관리 API를 사용하여 메모리, 연결, 트러스트 등을 포함하여 모든 사항을 모니터링합니다. IT 관리 API는 SQL Server 및 SharePoint Server와 같은 온-프레미스 시스템에 연결할 수 있는 API도 포함하고 있습니다.
 
-**Microsoft 관리** 또는 **IT 관리** API를 사용하려면 Azure 포털에 해당 API를 "등록"해야 합니다. 등록한 후 앱에서 이러한 API를 사용할 수 있습니다. 사용할 수 있는 옵션은 다음과 같습니다.
+> [AZURE.SELECTOR]
+- [관리되는 API](../articles/power-apps/powerapps-register-from-available-apis.md)
+- [ASE의 API](../articles/power-apps/powerapps-register-api-hosted-in-app-service.md)
+- [Swagger API](../articles/power-apps/powerapps-register-existing-api-from-api-definition.md)
 
-- 미리 빌드된 Microsoft 관리 API 또는 IT 관리 API 등록(이 항목)
-- [앱 서비스 환경](powerapps-register-api-hosted-in-app-service.md) 내에서 호스트되는 웹앱, API 앱 및 모바일 앱 등록
-- [Swagger 2.0 API 정의](powerapps-register-existing-api-from-api-definition.md)를 사용하여 사용자 고유의 Swagger API 중 하나 등록
-
-이 문서에서는 **미리 빌드된 Microsoft 관리 API 및 IT 관리 API 등록**을 중점적으로 설명합니다.
+이 항목에서는 첫 번째 옵션 - **Microsoft 관리 API 및 IT 관리 API 등록**에 초점을 둡니다.
 
 #### 시작하기 위한 필수 조건
 
@@ -108,17 +107,13 @@ API | 설명 | 단계 링크
 ## Microsoft 관리 API 또는 IT 관리 API 등록
 
 1. [Azure 포털](https://portal.azure.com/)에서 회사 계정(*yourUserName*@*YourCompany*.com)으로 로그인합니다. 그러면 회사 구독에 자동으로 로그인됩니다.
-2. **찾아보기**, **PowerApps**, **API 관리**를 차례로 선택합니다.  
-![][17]
-3. API 관리에서 **추가**를 클릭합니다.  
-![][18]  
+2. **찾아보기**, **PowerApps**, **API 관리**를 차례로 선택합니다. ![][17]
+3. API 관리에서 **추가**를 클릭합니다. ![][18]  
 4. **API 추가**에서 API 속성을 입력합니다.  
 
 	- **이름**에 API에 대한 이름을 입력합니다. 여기서 입력하는 이름은 API의 런타임 URL에 포함됩니다. 이름을 조직에서 의미 있고 고유하게 만듭니다.
-	- **원본**에서 **사용 가능한 API에서**를 선택합니다.  
-	![][19]
-5. **API**를 선택하고 등록할 API를 선택합니다.  
-![][20]
+	- **원본**에서 **사용 가능한 API에서**를 선택합니다. ![][19]
+5. **API**를 선택하고 등록할 API를 선택합니다. ![][20]
 6. 특정 API를 선택하고 구성 가능한 속성을 추가합니다.
 7. **추가**를 선택하여 이 단계를 완료합니다.
 
@@ -156,4 +151,4 @@ API | 설명 | 단계 링크
 [42]: ./media/powerapps-register-from-available-apis/sqlserver.png
 [43]: ./media/powerapps-register-from-available-apis/twitter.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

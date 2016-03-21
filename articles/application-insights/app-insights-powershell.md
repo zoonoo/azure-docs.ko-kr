@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/22/2016" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
  
 # PowerShell을 사용하여 Application Insights 리소스 만들기
@@ -317,7 +317,8 @@ Azure에서는 엄격한 순서로 리소스를 설정해야 합니다. 다음 �
 
 * [Application Insights 리소스 만들기](app-insights-powershell-script-create-resource.md) - 템플릿을 사용하지 않는 빠른 방법입니다.
 * [경고 설정](app-insights-powershell-alerts.md)
+* [웹 테스트 만들기](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
 * [Application Insights에 Azure 진단 보내기](app-insights-powershell-azure-diagnostics.md)
 * [릴리스 주석 만들기](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

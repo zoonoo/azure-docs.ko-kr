@@ -53,6 +53,6 @@ StatefulService 기본 클래스는 대부분의 상태 저장 서비스에 충�
 
 - [문제 해결을 위해 시스템 상태 보고서 사용](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 
-- [배치 제약 조건 개요](service-fabric-placement-constraint.md)
+- [서비스 패브릭 클러스터 리소스 관리자를 사용한 서비스 구성](service-fabric-cluster-resource-manager-configure-services.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

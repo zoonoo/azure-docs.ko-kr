@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/13/2016"
+	ms.date="03/04/2016"
 	ms.author="gokuma;weig;bradsev" />
 
 # 데이터 과학 가상 컴퓨터로 할 수 있는 10가지 일 
@@ -321,7 +321,7 @@ Azure 기계 학습 스튜디오에서 **판독기 모듈**을 사용하여 Blob
 	from time import time
 	import pyodbc
 	import os
-	from azure.storage import BlobService
+	from azure.storage.blob import BlobService
 	import tables
 	import time
 	import zipfile
@@ -894,4 +894,4 @@ Microsoft에서는 다양한 일반 데이터 분석 요구 사항을 해결할 
 ## 요약
 이는 Microsoft 데이터 과학 가상 컴퓨터에서 할 수 있는 여러 가지 일 중의 극히 일부에 불과합니다. 그 외에도 다양한 방법으로 효과적인 분석 환경을 만들 수 있습니다.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

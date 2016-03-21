@@ -5,7 +5,7 @@
     suite="powerapps"
 	documentationCenter="" 
 	authors="MandiOhlinger"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="03/02/2016"
    ms.author="litran"/>
 
 
@@ -38,7 +38,7 @@ PowerApps 엔터프라이즈를 사용하도록 설정하고 사용할 준비가
 4. **사용자**에서 **추가**를 선택합니다.
 5. **소유자** 역할을 선택합니다. ![][2]  
 
-	> [AZURE.IMPORTANT]누군가를 PowerApps 관리자로 지정하는 경우 **소유자** 역할을 선택해야 합니다. 나열된 다른 역할은 PowerApps를 관리하는 전체 액세스 권한을 사용자에게 부여하지 않습니다.
+	> [AZURE.IMPORTANT] 누군가를 PowerApps 관리자로 지정하는 경우 **소유자** 역할을 선택해야 합니다. 나열된 다른 역할은 PowerApps를 관리하는 전체 액세스 권한을 사용자에게 부여하지 않습니다.
 
 6. 사용자 또는 그룹을 선택합니다.
 7. **확인**을 선택하여 단계를 완료합니다.
@@ -49,7 +49,7 @@ PowerApps 엔터프라이즈에 관리자를 추가하면 관리자로 추가하
 - 모든 앱뿐만 아니라 해당 사용자 액세스도 관리합니다.
 - 청구는 변경할 수 없습니다.
 
-> [AZURE.IMPORTANT]PowerApps 관리자는 앱 서비스 환경의 리소스 그룹에 대한 소유자 역할을 부여 받을 때까지 앱 서비스 환경을 변경할 수 없습니다. 이렇게 하려면 [이 문서](powerapps-get-started-azure-portal.md)를 참조하세요.
+> [AZURE.IMPORTANT] PowerApps 관리자는 앱 서비스 환경의 리소스 그룹에 대한 소유자 역할을 부여 받을 때까지 앱 서비스 환경을 변경할 수 없습니다. 이 작업을 수행하려면 [PowerApps 엔터프라이즈 시작](powerapps-get-started-azure-portal.md)을 참조하세요.
 
 앱 서비스 환경의 리소스 그룹에 소유자 역할을 부여하면 PowerApps 관리자가 다음을 수행할 수도 있습니다.
 
@@ -98,7 +98,7 @@ PowerApps 관리자는 PowerApps에 대해 사용자 및 그룹을 추가 또는
 2. **모든 앱** 타일에서 **논리 앱**을 선택합니다. ![][8]  
 3. 앱의 세부 정보를 확인할 논리 앱을 선택합니다. 올바른 논리 앱을 나열하려면 PowerApps에 대한 수정 구독을 선택해야 합니다. ![][7]  
 
-	> [AZURE.IMPORTANT]공개 미리 보기에서 탐색 블레이드의 논리 앱 개수와 주 PowerApps 블레이드에 표시된 개수에 일부 불일치가 발생할 수 있습니다. 예상된 동작입니다. 포털은 모든 호스팅 계획의 모든 앱을 표시하며 PowerApps에 대해 배포된 앱 서비스 환경 아래의 논리 앱을 필터링하지 않습니다. 이 동작은 이후 업데이트에서 수정될 예정입니다.
+	> [AZURE.IMPORTANT] 공개 미리 보기에서 탐색 블레이드의 논리 앱 개수와 주 PowerApps 블레이드에 표시된 개수에 일부 불일치가 발생할 수 있습니다. 예상된 동작입니다. 포털은 모든 호스팅 계획의 모든 앱을 표시하며 PowerApps에 대해 배포된 앱 서비스 환경 아래의 논리 앱을 필터링하지 않습니다. 이 동작은 이후 업데이트에서 수정될 예정입니다.
 
 	**논리 앱 및 이들을 관리하는 방법에 대해 자세히 알아보려면 [이 지침](https://azure.microsoft.com/documentation/services/app-service/logic/)을 참조하세요.**
 
@@ -166,4 +166,4 @@ PowerApps 관리자는 PowerApps에 대해 사용자 및 그룹을 추가 또는
 [9]: ./media/powerapps-manage-monitor-usage/webapps.png
 [10]: ./media/powerapps-manage-monitor-usage/mobileapps.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

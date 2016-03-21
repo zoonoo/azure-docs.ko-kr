@@ -77,25 +77,27 @@ Azure AD 테넌트가 없는 경우 [여기에서 가져오는 방법에 대한 
 
 ## *1. Azure AD에 응용 프로그램 등록*
 
-참고: 이 단계는 옵션입니다. 이 자습서는 자체 테넌트에서 프로비전을 수행하지 않고도 작동하는 샘플을 볼 수 있도록 하는 미리 프로비전된 값을 제공합니다. 그러나 자체 응용 프로그램을 만들 때 필요하므로 이 단계를 수행하고 프로세스에 익숙해지는 것이 좋습니다.
+참고: 이 __단계는 선택 사항__입니다. 이 자습서는 자체 테넌트에서 프로비전을 수행하지 않고도 작동하는 샘플을 볼 수 있도록 하는 미리 프로비전된 값을 제공합니다. 그러나 자체 응용 프로그램을 만들 때 필요하므로 이 단계를 수행하고 프로세스에 익숙해지는 것이 좋습니다.
 
 Azure AD는 알려진 응용 프로그램으로만 토큰을 발급합니다. 앱에서 Azure AD를 사용하려면 먼저 테넌트에서 해당 항목을 만들어야 합니다. 테넌트에 새 응용 프로그램을 등록하려면
 
-- Azure 관리 포털에 로그인합니다.
-- 왼쪽 탐색 창에서 Active Directory를 클릭합니다.
-- 응용 프로그램을 등록할 테넌트를 선택합니다.
-- 응용 프로그램 탭을 클릭하고 아래쪽 서랍에서 추가를 클릭합니다.
-- 프롬프트에 따라 새 "네이티브 클라이언트 응용 프로그램"을 만듭니다.
-    - 응용 프로그램의 이름은 최종 사용자에게 응용 프로그램을 설명하는 항목입니다.
-    -	"리디렉션 URI"는 앱에 토큰을 반환하는 데 사용되는 URI입니다. `http://MyDirectorySearcherApp`을 입력합니다.
+-	[Azure 관리 포털](https://manage.windowsazure.com)에 로그인합니다.
+-	왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+-	응용 프로그램을 등록할 테넌트를 선택합니다.
+-	**응용 프로그램** 탭을 클릭하고 아래쪽 서랍에서 **추가**를 클릭합니다.
+-	프롬프트에 따라 새 **네이티브 클라이언트 응용 프로그램**을 만듭니다. Cordova 앱은 HTML 기반이지만 여기에 네이티브 클라이언트 응용 프로그램을 만들므로 `Native Client Application` 옵션을 선택해야 합니다. 그러지 않으면 응용 프로그램이 작동하지 않습니다.
+    -	응용 프로그램의 **이름**은 최종 사용자에게 응용 프로그램을 설명하는 항목입니다.
+    -	**리디렉션 URI**는 앱에 토큰을 반환하는 데 사용되는 URI입니다. `http://MyDirectorySearcherApp`을 입력합니다.
 
-등록이 끝나면 AAD는 앱에 고유한 클라이언트 식별자를 할당합니다. 이 값은 다음 섹션에 필요하며, 새로 만든 앱의 구성 탭에서 찾을 수 있습니다.
+등록이 끝나면 AAD는 앱에 고유한 클라이언트 식별자를 할당합니다. 이 값은 다음 섹션에 필요하며, 새로 만든 앱의 **구성** 탭에서 찾을 수 있습니다.
 
-## *2. 자습서에 필요한 리포지토리 복제*
+`DirSearchClient Sample`을 실행하기 위해 새로 만든 앱에 _Azure AD Graph API_를 쿼리하는 권한을 부여합니다.
+-	**구성** 탭에서 "다른 응용 프로그램에 대한 권한" 섹션을 찾습니다. "Azure Active Directory" 응용 프로그램의 경우 **위임된 권한**에서 **로그인한 사용자로 디렉터리 액세스** 권한을 추가합니다. 이렇게 하면 응용 프로그램은 Graph API에서 사용자를 쿼리할 수 있습니다.
+
+## *2. 자습서에 필요한 샘플 앱 리포지토리 복제*
 
 셸 또는 명령줄에서 다음 명령을 입력합니다.
 
-    git clone https://github.com/AzureAD/azure-activedirectory-library-for-cordova.git
     git clone -b skeleton https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-Cordova.git
 
 ## *3. Cordova 앱 만들기*
@@ -111,17 +113,17 @@ Azure AD는 알려진 응용 프로그램으로만 토큰을 발급합니다. �
 
 Graph API를 호출하는 데 필요한 허용 목록 플러그 인을 추가합니다.
 
-     cordova plugin add https://github.com/apache/cordova-plugin-whitelist.git
+     cordova plugin add cordova-plugin-whitelist
 
 그럼 후 지원할 모든 플랫폼을 추가합니다. 작업 예제를 사용하려면 아래 명령 중 하나 이상을 실행해야 합니다. Windows에서는 iOS를, Mac에서는 Windows/Windows Phone을 에뮬레이트할 수 없습니다.
 
-    cordova platform add android@97718a0a25ec50fedf7b023ae63bfcffbcfafb4b
+    cordova platform add android
     cordova platform add ios
     cordova platform add windows
 
 마지막으로 Cordova용 ADAL 플러그 인을 프로젝트에 추가할 수 있습니다.
 
-    cordova plugin add ../azure-activedirectory-library-for-cordova
+    cordova plugin add cordova-plugin-ms-adal
 
 ## *3. 사용자를 인증하고 AAD에서 토큰을 가져오기 위한 코드 추가*
 
@@ -164,14 +166,17 @@ Graph API를 호출하는 데 필요한 허용 목록 플러그 인을 추가합
 
     },
 ```
-두 주요 부분에서 분석하여 해당 함수를 검토해 보겠습니다. 이 샘플은 특정 테넌트에만 국한되지 않고 어떤 테넌트에서도 작동하도록 디자인되어 있습니다. 이 샘플은 인증 시에 사용자가 임의 계정을 입력하도록 하고 계정이 속하는 테넌트로 요청을 전달하는 "/common" 끝점을 사용합니다. 이 메서드의 첫 번째 부분에서는 ADAL 캐시를 조사하여 저장된 토큰이 이미 있는지 확인합니다. 토큰이 있으면 ADAL을 다시 초기화하기 위해 해당 토큰이 있던 테넌트를 사용합니다. "/common"을 사용하면 항상 사용자에게 새 계정을 입력하라는 메시지가 표시되므로 불필요한 확인 메시지가 표시되지 않도록 해야 합니다. ```javascript
+두 주요 부분에서 분석하여 해당 함수를 검토해 보겠습니다. 이 샘플은 특정 테넌트에만 국한되지 않고 어떤 테넌트에서도 작동하도록 디자인되어 있습니다. 이 샘플은 인증 시에 사용자가 임의 계정을 입력하도록 하고 계정이 속하는 테넌트로 요청을 전달하는 "/common" 끝점을 사용합니다. 이 메서드의 첫 번째 부분에서는 ADAL 캐시를 조사하여 저장된 토큰이 이미 있는지 확인합니다. 토큰이 있으면 ADAL을 다시 초기화하기 위해 해당 토큰이 있던 테넌트를 사용합니다. "/common"을 사용하면 항상 사용자에게 새 계정을 입력하라는 메시지가 표시되므로 불필요한 확인 메시지가 표시되지 않도록 해야 합니다.
+```javascript
         app.context = new Microsoft.ADAL.AuthenticationContext(authority);
         app.context.tokenCache.readItems().then(function (items) {
             if (items.length > 0) {
                 authority = items[0].authority;
                 app.context = new Microsoft.ADAL.AuthenticationContext(authority);
             }
-``` 이 메서드의 두 번째 부분에서는 적절한 tokewn 요청을 수행합니다. `acquireTokenSilentAsync` 메서드는 UX를 표시하지 않고 ADAL에 지정된 리소스에 대한 토큰의 반환을 요청합니다. 캐시에 이미 적합한 액세스 토큰이 저장되어 있거나 확인 메시지를 표시하지 않고 새 액세스 토큰을 가져오는 데 사용할 수 있는 새로 고침 토큰이 있는 경우 이러한 작업이 진행될 수 있습니다. 이 시도가 실패하면 사용자에게 인증을 요구하는 메시지를 표시하는 `acquireTokenAsync`로 대체할 것입니다. ```javascript
+```
+이 메서드의 두 번째 부분에서는 적절한 토큰 요청을 수행합니다. `acquireTokenSilentAsync` 메서드는 UX를 표시하지 않고 ADAL에 지정된 리소스에 대한 토큰의 반환을 요청합니다. 캐시에 이미 적합한 액세스 토큰이 저장되어 있거나 확인 메시지를 표시하지 않고 새 액세스 토큰을 가져오는 데 사용할 수 있는 새로 고침 토큰이 있는 경우 이러한 작업이 진행될 수 있습니다. 이 시도가 실패하면 사용자에게 인증을 요구하는 메시지를 표시하는 `acquireTokenAsync`로 대체할 것입니다.
+```javascript
             // Attempt to authorize user silently
             app.context.acquireTokenSilentAsync(resourceUri, clientId)
             .then(authCompletedCallback, function () {
@@ -181,7 +186,8 @@ Graph API를 호출하는 데 필요한 허용 목록 플러그 인을 추가합
                     app.error("Failed to authenticate: " + err);
                 });
             });
-``` 이제 토큰이 있으므로 마지막으로 Graph API를 호출하고 원하는 검색 쿼리를 수행할 수 있습니다. `authenticate` 정의 바로 아래에 다음 코드 조각을 삽입합니다.
+```
+이제 토큰이 있으므로 마지막으로 Graph API를 호출하고 원하는 검색 쿼리를 수행할 수 있습니다. `authenticate` 정의 바로 아래에 다음 코드 조각을 삽입합니다.
 
 ```javascript
 // Makes Api call to receive user list.
@@ -213,22 +219,29 @@ Graph API를 호출하는 데 필요한 허용 목록 플러그 인을 추가합
 ## *4. 실행*
 앱을 실행할 준비가 되었습니다. 작동은 매우 간단합니다. 앱이 시작되면 텍스트 상자에 찾으려는 사용자의 별칭을 입력하고 단추를 클릭합니다. 인증을 위한 메시지가 표시됩니다. 성공적으로 인증하고 검색하면 검색된 사용자의 특성이 표시됩니다. 이전에 가져온 토큰이 캐시에 있기 때문에 후속 검색은 인증을 요구하지 않고 진행됩니다. 앱을 실행하는 구체적인 단계는 플랫폼에 따라 다릅니다.
 
+####Windows 10:
 
-##### Windows Tablet/PC 응용 프로그램 버전을 빌드하고 실행하려면
+   태블릿/PC: `cordova run windows --archs=x64 -- --appx=uap`
+
+   모바일(Windows 10 Mobile 장치가 PC에 연결되어야 함): `cordova run windows --archs=arm -- --appx=uap --phone`
+
+   __참고__: 처음 실행할 때는 개발자 라이선스를 확인하기 위해 로그인하라는 메시지가 표시될 수 있습니다. 자세한 내용은 [개발자 라이선스](https://msdn.microsoft.com/library/windows/apps/hh974578.aspx)를 참조하세요.
+
+####Windows 8.1 태블릿/PC:
 
    `cordova run windows`
 
    __참고__: 처음 실행할 때는 개발자 라이선스를 확인하기 위해 로그인하라는 메시지가 표시될 수 있습니다. 자세한 내용은 [개발자 라이선스](https://msdn.microsoft.com/library/windows/apps/hh974578.aspx)를 참조하세요.
 
-
-##### Windows Phone 8.1에서 응용 프로그램을 빌드하고 실행하려면
+####Windows Phone 8.1:
 
    연결된 장치에서 실행하려면: `cordova run windows --device -- --phone`
 
    기본 에뮬레이터에서 실행하려면: `cordova emulate windows -- --phone`
 
    사용 가능한 모든 대상을 보려면 `cordova run windows --list -- --phone`을 사용하고, 특정 장치 또는 에뮬레이터에서 응용 프로그램을 실행하려면 `cordova run windows --target=<target_name> -- --phone`을 사용합니다(예: `cordova run windows --target="Emulator 8.1 720P 4.7 inch" -- --phone`).
-##### Android 장치에서 빌드하고 실행하려면
+
+####Android:
 
    연결된 장치에서 실행하려면: `cordova run android --device`
 
@@ -238,7 +251,7 @@ Graph API를 호출하는 데 필요한 허용 목록 플러그 인을 추가합
 
    사용 가능한 모든 대상을 보려면 `cordova run android --list`을 사용하고, 특정 장치 또는 에뮬레이터에서 응용 프로그램을 실행하려면 `cordova run android --target=<target_name>`을 사용합니다(예: `cordova run android --target="Nexus4_emulator"`).
 
-##### iOS 장치에서 빌드하고 실행하려면
+####iOS:
 
    연결된 장치에서 실행하려면: `cordova run ios --device`
 
@@ -250,10 +263,10 @@ Graph API를 호출하는 데 필요한 허용 목록 플러그 인을 추가합
 
 `cordova run --help`를 사용하여 추가 빌드 및 실행 옵션을 참조하세요.
 
-참조를 위해 완성된 샘플(사용자 구성 값 제외)이 여기에 제공됩니다. 이제 좀 더 자세하고 좀 더 흥미로운 시나리오를 진행해 보겠습니다. 다음 작업을 시도할 수 있습니다.
+참조를 위해 완성된 샘플(사용자 구성 값 제외)이 [여기](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-Cordova/tree/complete/DirSearchClient)에 제공됩니다. 이제 좀 더 자세하고 좀 더 흥미로운 시나리오를 진행해 보겠습니다. 다음 작업을 시도할 수 있습니다.
 
 [Azure AD를 사용하여 Node.js Web API 보안 유지 >>](active-directory-devquickstarts-webapi-nodejs.md)
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

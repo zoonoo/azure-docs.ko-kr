@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="03/06/2016" 
 	ms.author="awills"/>
 
 #  Microsoft Azure 앱용 Application Insights
@@ -28,8 +28,13 @@
 
 * [Azure 웹앱](app-insights-asp-net.md)
 * [Azure 클라우드 서비스 앱 - 웹 및 작업자 역할](app-insights-cloudservices.md)
-* [Azure VM의 IIS에 있는 웹 앱](../app-insights-asp-net.md)
+* [Azure VM의 IIS에 있는 웹 앱](app-insights-asp-net.md)
 * [Azure 외부 응용 프로그램](app-insights-overview.md)
+
+
+추가 원격 분석
+
+* [Application Insights에 Azure 진단 로그 표시하기](app-insights-azure-diagnostics.md)
 
 
 
@@ -40,4 +45,4 @@
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0309_2016-->

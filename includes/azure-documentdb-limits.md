@@ -24,10 +24,10 @@ Id 속성의 최대 길이|255자
 쿼리당 최대 AND 절 수* |20
 쿼리당 최대 OR 절 수* |20
 IN 식당 최대 값 수* |200
-ST\_WITHIN 쿼리의 다각형 인수에 있는 점의 최대 수* |16
+ST\_WITHIN 쿼리의 다각형 인수에 있는 점의 최대 수* |256
 분당 최대 컬렉션 생성 수* |5
 분당 최대 크기 조정 작업 수* |5
 
 별표(*)가 표시된 할당량은 [Azure 지원부에 문의하여 조정할 수 있습니다](../articles/documentdb/documentdb-increase-limits.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

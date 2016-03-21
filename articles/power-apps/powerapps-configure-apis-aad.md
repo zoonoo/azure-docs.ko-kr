@@ -5,7 +5,7 @@
     suite="powerapps"
 	documentationCenter="" 
 	authors="MandiOhlinger"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="03/02/2016"
    ms.author="guayan"/>
 
 # API를 Azure Active Directory 도메인의 백 엔드 리소스에 연결하도록 구성
@@ -41,20 +41,20 @@ AAD 도메인의 백 엔드 시스템에 액세스하려면 AAD 응용 프로그
 5. **Single Sign-On**에서 ``https://<your App Service Environment name>.azure-apim.net:456/redirect``를 **회신 URL**로 추가합니다.
 6. **다른 응용 프로그램에 대한 권한**에서:  
 
-	a) **응용 프로그램 추가**를 선택합니다. 팝업 창에서 기존 백 엔드를 보호하는 AAD 응용 프로그램을 선택합니다. ![][17]
+	1. **응용 프로그램 추가**를 선택합니다. 팝업 창에서 기존 백 엔드를 보호하는 AAD 응용 프로그램을 선택합니다. ![][17]  
 
-	b) 드롭다운 목록을 사용하여 사용 권한을 추가합니다. ![][18]
+	2. 드롭다운 목록을 사용하여 사용 권한을 추가합니다. ![][18]
 
 7. 아래쪽의 **저장**을 선택합니다.
 8. **클라이언트 ID** 및 **키**를 복사하여 저장합니다. 키는 Azure 포털을 닫은 후 다시 표시되지 않습니다. 
 
-AAD 응용 프로그램에 대해 더 자세히 알아보려면 [Azure Active Directory와 응용 프로그램 통합](../active-directory-integrating-applications.md)을 참조하세요.
+AAD 응용 프로그램에 대해 더 자세히 알아보려면 [Azure Active Directory와 응용 프로그램 통합](../active-directory/active-directory-integrating-applications.md)을 참조하세요.
 
 ## 2단계: Azure PowerShell을 사용하여 AP를 구성
 
 이 시점에서 Azure 포털에서는 API에 필요한 구성을 초기화할 수 없습니다. Azure 포털에서 API를 구성하려면 다음 Auzre PowerShell 스크립트를 사용합니다.
 
-> [AZURE.TIP]Azure PowerShell을 설치, 구성 및 실행하는 방법에 대해 알아보려면 [Azure PowerShell 설치 및 구성 방법][11]을 참조하세요. 다음 스크립트는 Azure PowerShell 1.0 미리 보기 이상에서 작동합니다.
+> [AZURE.TIP] Azure PowerShell을 설치, 구성 및 실행하는 방법에 대해 알아보려면 [Azure PowerShell 설치 및 구성 방법][11]을 참조하세요. 다음 스크립트는 Azure PowerShell 1.0 미리 보기 이상에서 작동합니다.
 
 ```powershell
 # get the API resource
@@ -134,7 +134,7 @@ PowerApps에서 앱을 엽니다. **사용 가능한 연결**에 새 API가 나�
 </policies>
 ```
 
-이 정책을 살펴보면 기본적으로 **tokens** 변수를 사용하여 **x-ms-apim-tokens** 헤더의 값을 디코딩된 JObject로 참조할 수 있습니다. 그런 다음 **set-header** 정책을 사용하여 실제 AAD 토큰을 가져와서 **권한 부여** 헤더로 설정할 수 있습니다. 이 정책은 [Azure API 관리](https://azure.microsoft.com/services/api-management/)에서 사용하는 정책과 동일합니다. 더 자세히 알아보려면 [Azure API 관리의 정책](../api-management-howto-policies.md)을 참조하세요.
+이 정책을 살펴보면 기본적으로 **tokens** 변수를 사용하여 **x-ms-apim-tokens** 헤더의 값을 디코딩된 JObject로 참조할 수 있습니다. 그런 다음 **set-header** 정책을 사용하여 실제 AAD 토큰을 가져와서 **권한 부여** 헤더로 설정할 수 있습니다. 이 정책은 [Azure API 관리](https://azure.microsoft.com/services/api-management/)에서 사용하는 정책과 동일합니다. 더 자세히 알아보려면 [Azure API 관리의 정책](../api-management/api-management-howto-policies.md)을 참조하세요.
 
 **여기서** 속성 이름 **토큰**은 설정을 구성할 때 사용한 연결 매개 변수 이름과 일치합니다.
 
@@ -157,4 +157,4 @@ PowerApps에서 앱을 엽니다. **사용 가능한 연결**에 새 API가 나�
 [20]: https://tools.ietf.org/html/rfc4648
 [21]: ./media/powerapps-configure-apis-aad/api-settings-aad.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

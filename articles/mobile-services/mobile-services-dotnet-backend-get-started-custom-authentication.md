@@ -19,8 +19,7 @@
 # 사용자 지정 인증 시작
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-
-&nbsp;
+> 이 항목에 해당하는 모바일 앱 버전은 [방법: 응용 프로그램에 대한 사용자 지정 인증 사용](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth)을 참조하세요.
 
 
 ## 개요
@@ -424,4 +423,4 @@
 [ClaimsIdentity]: https://msdn.microsoft.com/library/system.security.claims.claimsidentity(v=vs.110).aspx
 [ProviderCredentials]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

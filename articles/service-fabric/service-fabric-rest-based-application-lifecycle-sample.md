@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/07/2015"
+   ms.date="03/03/2016"
    ms.author="ryanwi"/>
 
 # REST 기반 응용 프로그램 수명 주기 샘플
@@ -709,4 +709,4 @@ namespace ServiceFabricRestCaller
 
 [서비스 패브릭 응용 프로그램 수명 주기](service-fabric-application-lifecycle.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0309_2016-->

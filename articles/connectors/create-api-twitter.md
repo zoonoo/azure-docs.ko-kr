@@ -14,15 +14,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/25/2016"
+   ms.date="03/03/2016"
    ms.author="mandia"/>
 
 
 # Twitter API 시작
 Twitter에 연결하여 트윗 게시, 사용자의 타임라인 가져오기 등의 작업을 수행합니다. Twitter API를 다음에서 사용할 수 있습니다.
 
-- PowerApps 
 - 논리 앱 
+- PowerApps
+
+> [AZURE.SELECTOR]
+- [논리 앱](../articles/connectors/create-api-twitter.md)
+- [PowerApps 엔터프라이즈](../articles/power-apps/powerapps-create-api-twitter.md)
+
+&nbsp;
 
 >[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다. 2014-12-01-preview 스키마 버전에 대한 내용을 보려면 [Twitter 커넥터](../app-service-logic/app-service-logic-connector-twitter.md)를 클릭하세요.
 
@@ -50,25 +56,6 @@ Twitter에는 다음 트리거 및 작업이 포함됩니다.
 
 ## Twitter에 대한 연결 만들기
 
-### PowerApps에 구성 추가
-PowerApps 엔터프라이즈에 Twitter를 추가할 때 Twitter 응용 프로그램의 **소비자 키** 및 **소비자 암호** 값을 입력합니다. 또한 **URL 리디렉션** 값도 Twitter 응용 프로그램에서 사용됩니다. Twitter 응용 프로그램이 없는 경우 다음 단계를 사용하여 응용 프로그램을 만들 수 있습니다.
-
-1. [Twitter](https://apps.twitter.com)에 로그인합니다.
-
-2. **새 앱 만들기**를 선택합니다. ![Twitter 앱 페이지][6]
-
-3. **응용 프로그램 만들기**에서:
-   
-	1. **이름**, **설명** 및 **웹 사이트**에 원하는 값을 입력합니다.
-	2. **콜백 URL**에서 Azure 포털에 Twitter API를 추가할 때 표시된 **URL 리디렉션** 값을 입력합니다.
-	5. 계약에 동의하고 **Twitter 응용 프로그램을 만듭니다**.  
-
-	![Twitter 앱 만들기][7]
-
-이제 Azure 포털의 Twitter 구성에서 **소비자 키** 및 **소비자 암호** 값을 복사하여 붙여넣습니다.
-
-
-### 논리 앱에 구성 추가
 논리 앱에 이 API를 추가할 때 Twitter 계정에 연결할 권한을 논리 앱에 부여해야 합니다.
 
 1. Twitter 계정에 로그인합니다.
@@ -318,13 +305,14 @@ PowerApps 엔터프라이즈에 Twitter를 추가할 때 Twitter 응용 프로�
 
 
 ## 다음 단계
-PowerApps 엔터프라이즈에 Dropbox API를 추가한 후 해당 앱에서 API를 사용할 [권한을 사용자에게 부여](../power-apps/powerapps-manage-api-connection-user-access.md)합니다.
 
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
+
+[API 목록](apis-list.md)으로 돌아갑니다.
 
 <!--References-->
 
 [6]: ./media/create-api-twitter/twitter-apps-page.png
 [7]: ./media/create-api-twitter/twitter-app-create.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

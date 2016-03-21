@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/21/2016" 
+	ms.date="03/09/2016" 
 	ms.author="spelluru"/>
 
 # 온-프레미스 원본과 클라우드 간에 데이터 관리 게이트웨이로 데이터 이동
@@ -607,11 +607,11 @@ Windows 방화벽 수준에서 이러한 아웃바운드 포트는 일반적으�
 7.	**자격 증명** 블레이드에서 **자격 증명을 안전하게 설정하려면 여기를 클릭하세요**를 클릭합니다.
 8.	**자격 증명 설정** 대화 상자에서 다음을 수행합니다.
 
-	![자격 증명 대화 상자 설정](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png) 
-	1. 데이터 팩터리 서비스가 사용하려는 **인증**을 선택하여 데이터베이스에 연결합니다. 
-	2. **USERNAME** 설정에 대해 데이터베이스에 액세스할 수 있는 사용자의 이름을 입력합니다. 
-	3. **PASSWORD** 설정에 대해 사용자 암호를 입력합니다. 
-	4. **확인**을 클릭하여 대화 상자를 닫습니다. 
+	![자격 증명 대화 상자 설정](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png)
+	1.	데이터 팩터리 서비스가 사용하려는 **인증**을 선택하여 데이터베이스에 연결합니다. 
+	2.	**USERNAME** 설정에 대해 데이터베이스에 액세스할 수 있는 사용자의 이름을 입력합니다. 
+	3.	**PASSWORD** 설정에 대해 사용자 암호를 입력합니다.  
+	4.	**확인**을 클릭하여 대화 상자를 닫습니다. 
 4. **확인**을 클릭하여 **자격 증명** 블레이드를 닫습니다. 
 5. **새 데이터 저장소** 블레이드에서 **확인**을 클릭합니다. 	
 6. **SqlServerLinkedService**의 상태가 연결된 서비스 블레이드에서 온라인으로 설정되었는지 확인합니다.
@@ -634,19 +634,17 @@ Azure 포털에서 시작된 "자격 증명 설정" 응용 프로그램을 사�
 이 섹션에서는 Azure PowerShell cmdlet을 사용하여 게이트웨이를 만들고 등록하는 방법에 대해 설명합니다.
 
 1. **Azure PowerShell**을 관리자 모드로 시작합니다. 
-2. Azure 데이터 팩터리 cmdlet은 **AzureResourceManager** 모드에서 사용할 수 있습니다. 다음 명령을 실행하여 **AzureResourceManager** 모드로 전환합니다.     
+2. 다음 명령을 실행하고 Azure 자격 증명을 입력하여 Azure 계정에 로그인합니다. 
 
-        switch-azuremode AzureResourceManager
-
-
+	Login-AzureRmAccount
 2. 다음과 같이 **New-AzureRmDataFactoryGateway** cmdlet를 사용하여 논리 게이트웨이를 만듭니다.
 
-		New-AzureRmDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
+		$MyDMG = New-AzureRmDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
 
 	**예제 명령 및 출력**:
 
 
-		PS C:\> New-AzureRmDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
+		PS C:\> $MyDMG = New-AzureRmDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
 
 		Name              : MyGateway
 		Description       : gateway for walkthrough
@@ -658,30 +656,32 @@ Azure 포털에서 시작된 "자격 증명 설정" 응용 프로그램을 사�
 		LastConnectTime   :
 		ExpiryTime        :
 		ProvisioningState : Succeeded
-
-
-3. **New-AzureRmDataFactoryGatewayKey** cmdlet를 사용하여 새로 만든 게이트웨이의 등록 키를 생성하고 이 키를 지역 변수 **$Key**에 저장합니다.
-
-		New-AzureRmDataFactoryGatewayKey -GatewayName <gatewayname> -ResourceGroupName ADF -DataFactoryName <dataFactoryName>
-
-	
-	**예제 명령 출력:**
-
-
-		PS C:\> $Key = New-AzureRmDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
+		Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
 
 	
 4. Azure PowerShell에서 **C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\PowerShellScript** 폴더로 전환하고 다음 명령에 표시된 대로 지역 변수 **$Key**와 연결된 **RegisterGateway.ps1** 스크립트를 실행하여 컴퓨터에 설치된 클라이언트 에이전트를 앞에서 만든 논리 게이트웨이에 등록합니다.
 
-		PS C:\> .\RegisterGateway.ps1 $Key.GatewayKey
+		PS C:\> .\RegisterGateway.ps1 $MyDMG.Key
 		
 		Agent registration is successful!
+
+	IsRegisterOnRemoteMachine 매개 변수를 사용하여 원격 컴퓨터에서 게이트웨이를 등록할 수 있습니다. 예제:
+		
+		.\RegisterGateway.ps1 $MyDMG.Key -IsRegisterOnRemoteMachine true
 
 5. **Get-AzureRmDataFactoryGateway** cmdlet를 사용하여 데이터 팩터리의 게이트웨이 목록을 가져올 수 있습니다. **상태**에 **online**이 표시되어 있으면 게이트웨이를 사용할 준비가 되었음을 나타냅니다.
 
 		Get-AzureRmDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
 
 게이트웨이를 제거하려면 **Remove-AzureRmDataFactoryGateway** cmdlet를 사용하고 게이트웨이 설명을 업데이트하려면 **Set-AzureRmDataFactoryGateway** cmdlet를 사용합니다. 이러한 cmdlet에 대한 구문 및 기타 세부 정보는 데이터 팩터리 Cmdlet 참조를 참조하세요.
+
+## PowerShell을 사용하여 게이트웨이 나열
+
+	Get-AzureRmDataFactoryGateway -DataFactoryName jasoncopyusingstoredprocedure -ResourceGroupName ADF_ResourceGroup
+
+## PowerShell을 사용하여 게이트웨이 제거
+	
+	Remove-AzureRmDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName ADF_ResourceGroup -DataFactoryName jasoncopyusingstoredprocedure -Force 
 
 
 ## 데이터 관리 게이트웨이를 사용하는 복사에 대한 데이터 흐름
@@ -697,4 +697,4 @@ Azure 포털에서 시작된 "자격 증명 설정" 응용 프로그램을 사�
 5.	게이트웨이는 동일한 인증서로 자격 증명의 암호를 해독하고 적절한 인증 형식으로 온-프레미스 데이터 저장소에 연결합니다.
 6.	게이트웨이는 데이터 파이프라인에서 복사 활동을 구성하는 방법에 따라 온-프레미스 저장소에서 클라우드 저장소에 또는 클라우드 저장소에서 온-프레미스 데이터 저장소에 데이터를 복사합니다. 참고: 이 단계의 경우 게이트웨이는 보안(HTTPS) 채널을 통해 클라우드 기반 저장소 서비스(예: Azure Blob, Azure SQL 등)와 직접 통신합니다.
 
-<!----HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

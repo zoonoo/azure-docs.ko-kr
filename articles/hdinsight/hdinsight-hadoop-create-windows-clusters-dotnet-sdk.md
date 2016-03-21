@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/13/2016"
+   ms.date="03/08/2016"
    ms.author="jgao"/>
 
 # .NET SDK를 사용하여 HDInsight의 Windows 기반 Hadoop 클러스터 만들기
@@ -25,7 +25,9 @@
 .NET SDK를 사용하여 HDInsight 클러스터를 만드는 방법을 알아봅니다. 다른 클러스터 만들기 도구 및 기능은 이 페이지 맨 위에 있는 탭 선택을 클릭하거나 [클러스터 생성 방법](hdinsight-provision-clusters.md#cluster-creation-methods)을 참조하세요.
 
 
-###필수 조건:
+##필수 조건:
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 이 문서의 지침을 시작하기 전에 다음이 있어야 합니다.
 
@@ -46,7 +48,7 @@ HDInsight .NET SDK는 .NET Framework 응용 프로그램에서 HDInsight로 더 
 		Install-Package Microsoft.Azure.Management.HDInsight -Pre
 		Install-Package Microsoft.Azure.Management.Resources -Pre
 
-6. 솔루션 탐색기에서 **Program.cs**를 두 번 클릭하여 열고 다음 코드를 붙여넣은 후 변수에 값을 제공합니다.
+6. 솔루션 탐색기에서 **Program.cs**를 두 번 클릭하여 열고 다음 코드를 붙여넣은 후 변수 값을 제공합니다.
 
 		using System;
 		using System.Security;
@@ -225,4 +227,4 @@ HDInsight .NET SDK는 .NET Framework 응용 프로그램에서 HDInsight로 더 
     Write-host "Default Storage Account Key: $defaultStorageAccountKey"
     Write-host "Default Blob Container Name: $defaultBlobContainerName"
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

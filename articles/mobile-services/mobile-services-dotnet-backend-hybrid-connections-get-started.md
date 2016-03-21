@@ -13,18 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="02/07/2016"
+	ms.date="03/05/2016"
 	ms.author="glenga"/>
 
 
 # 하이브리드 연결을 사용하여 Azure 모바일 서비스에서 온-프레미스 SQL Server에 연결
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> 이 항목에 해당하는 모바일 앱 버전은 [Azure 앱 서비스에서 하이브리드 연결을 사용하여 온-프레미스 리소스에 액세스](../app-service-web/web-sites-hybrid-connection-get-started.md)를 참조하세요.
 
-&nbsp;
-
-
-엔터프라이즈를 클라우드로 전환하는 경우 모든 자산을 지금 바로 마이그레이션할 수 없을 수도 있습니다. 하이브리드 연결로 Azure 모바일 서비스를 온-프레미스 자산에 안전하게 연결할 수 있습니다. 이러한 방식으로 Azure를 사용하여 온-프레미스 데이터를 모바일 클라이언트에 액세스할 수 있게 됩니다. 지원되는 자산에는 Microsoft SQL Server, MySQL, HTTP 웹 API, 대부분의 사용자 지정 웹 서비스를 비롯하여 정적 TCP 포트에서 실행되는 모든 리소스가 포함됩니다. 하이브리드 연결은 SAS(공유 액세스 서명) 권한 부여를 사용하여 모바일 서비스 및 온-프레미스 하이브리드 연결 관리자에서 하이브리드 연결로의 연결에 대한 보안을 유지합니다. 자세한 내용은 [하이브리드 연결 개요](../integration-hybrid-connection-overview.md)를 참조하십시오.
+엔터프라이즈를 클라우드로 전환하는 경우 모든 자산을 지금 바로 마이그레이션할 수 없을 수도 있습니다. 하이브리드 연결로 Azure 모바일 서비스를 온-프레미스 자산에 안전하게 연결할 수 있습니다. 이러한 방식으로 Azure를 사용하여 온-프레미스 데이터를 모바일 클라이언트에 액세스할 수 있게 됩니다. 지원되는 자산에는 Microsoft SQL Server, MySQL, HTTP 웹 API, 대부분의 사용자 지정 웹 서비스를 비롯하여 정적 TCP 포트에서 실행되는 모든 리소스가 포함됩니다. 하이브리드 연결은 SAS(공유 액세스 서명) 권한 부여를 사용하여 모바일 서비스 및 온-프레미스 하이브리드 연결 관리자에서 하이브리드 연결로의 연결에 대한 보안을 유지합니다. 자세한 내용은 [하이브리드 연결 개요](../biztalk-services/integration-hybrid-connection-overview.md)를 참조하십시오.
 
 이 자습서에서는 서비스와 함께 프로비전된 기본 Azure SQL 데이터베이스가 아닌 로컬 온-프레미스 SQL Server 데이터베이스를 사용하도록 .NET 백 엔드 모바일 서비스를 수정하는 방법을 알아봅니다. [이 문서](http://blogs.msdn.com/b/azuremobile/archive/2014/05/12/connecting-to-an-external-database-with-node-js-backend-in-azure-mobile-services.aspx)에 설명된 대로 JavaScript 백 엔드 모바일 서비스에서도 하이브리드 연결이 지원됩니다.
 
@@ -128,8 +126,8 @@ Azure에 게시하고 하이브리드 연결을 사용하기 전에 로컬로 �
 ##참고 항목##
 
 + [하이브리드 연결 웹 사이트](../../services/biztalk-services/)
-+ [하이브리드 연결 개요](../integration-hybrid-connection-overview.md)
-+ [BizTalk 서비스: 대시보드, 모니터, 확장, 구성 및 하이브리드 연결 탭](../biztalk-dashboard-monitor-scale-tabs.md)
++ [하이브리드 연결 개요](../biztalk-services/integration-hybrid-connection-overview.md)
++ [BizTalk 서비스: 대시보드, 모니터, 확장, 구성 및 하이브리드 연결 탭](../biztalk-services/biztalk-dashboard-monitor-scale-tabs.md)
 + [.NET 백 엔드 모바일 서비스에 대한 데이터 모델 변경 방법](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md)
 
 <!-- IMAGES -->
@@ -139,4 +137,4 @@ Azure에 게시하고 하이브리드 연결을 사용하기 전에 로컬로 �
 [Azure 클래식 포털]: http://manage.windowsazure.com
 [모바일 서비스 시작]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

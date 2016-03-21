@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="02/16/2016"
+   ms.date="03/04/2016"
    ms.author="andkjell;billmath"/>
 
 
@@ -107,7 +107,7 @@ Express 설정을 사용하는 경우 계정은 동기화에 사용되는 Active
 ![AD 계정](./media/active-directory-aadconnect-accounts-permissions/adsyncserviceaccount.png)
 
 ### Azure AD Connect 동기화 서비스 계정
-로컬 서비스 계정은 설치 마법사에서 만듭니다.(사용자 지정 설정에 사용할 계정을 지정하지 않으면) 계정은 **AAD\_**를 접두사로 하며 실행할 실제 동기화 서비스에 사용됩니다. 도메인 컨트롤러에 Azure AD Connect를 설치하는 경우 계정은 도메인에 만들어집니다. 원격 서버에서 SQL Server가 실행되는 경우 **AAD\_** 서비스 계정이 도메인에 있어야 합니다.
+로컬 서비스 계정은 설치 마법사에서 만듭니다.(사용자 지정 설정에 사용할 계정을 지정하지 않으면) 계정은 **AAD\_**를 접두사로 하며 실행할 실제 동기화 서비스에 사용됩니다. 도메인 컨트롤러에 Azure AD Connect를 설치하는 경우 계정은 도메인에 만들어집니다. SQL Server를 실행하는 원격 서버를 사용하거나 인증이 필요한 프록시를 사용하는 경우 **AAD\_** 서비스 계정이 도메인에 있어야 합니다.
 
 ![서비스 계정 동기화](./media/active-directory-aadconnect-accounts-permissions/syncserviceaccount.png)
 
@@ -134,4 +134,4 @@ Azure AD의 계정은 동기화 서비스의 사용에 만들어집니다. 이 �
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

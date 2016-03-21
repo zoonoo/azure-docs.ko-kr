@@ -365,27 +365,40 @@ SID는 공급자 특정 사용자 ID에서 파생되고 지정된 사용자 및 
 
 이제 등록된 장치에 푸시 알림을 보내는 데 알림 허브 클라이언트를 사용할 수 있습니다. 자세한 내용은 [앱에 푸시 알림 추가](app-service-mobile-ios-get-started-push.md)를 참조하세요. 알림 허브를 통해 수행할 수 있는 모든 것에 대한 자세한 내용은 [알림 허브 개요](../notification-hubs/notification-hubs-overview.md)를 참조하세요.
 
-##<a name="tags"></a>방법: 태그에 푸시를 사용하도록 설정하기 위해 장치 설치에 태그 추가
+##<a name="tags"></a>방법: 대상이 지정된 푸시를 사용하도록 설정하기 위해 장치 설치에 태그 추가
 
-위의 **방법: 사용자 지정 API 컨트롤러 정의**를 따라 특정 장치 설치에 태그를 추가하려면 알림 허브를 사용하여 작업하도록 백 엔드에 사용자 지정 API를 설정하는 것이 좋습니다. 클라이언트 로컬 저장소에 저장된 설치 ID와 추가하려는 태그(백 엔드에서 직접 태그를 지정할 수 있으므로 선택적임)를 전달해야 합니다. 태그를 장치 설치 ID에 태그를 추가하려면 알림 허브를 사용하여 작업하도록 다음 코드 조각을 컨트롤러에 추가해야 합니다.
+알림 허브를 사용하면 태그를 사용하여 특정 등록에 대상이 지정된 알림을 보낼 수 있습니다. 자동으로 생성되는 태그는 지정된 장치에서 앱의 인스턴스에 해당하는 설치 ID입니다. 설치 ID를 사용하는 등록을 *설치*라고도 합니다. 설치 ID를 사용하여 태그 추가와 같은 설치를 관리할 수 있습니다. **MobileServiceClient**의 **installationId** 속성에서 설치 ID에 액세스할 수 있습니다.
 
-[Azure 알림 허브 NuGet](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) 사용([참조](https://msdn.microsoft.com/library/azure/mt414893.aspx)):
+다음 예제에서는 설치 ID를 사용하여 알림 허브에서 특정 설치에 태그를 추가하는 방법을 보여 줍니다.
 
-		var hub = NotificationHubClient.CreateClientFromConnectionString("my-connection-string", "my-hub");
+	hub.PatchInstallation("my-installation-id", new[]
+	{
+	    new PartialUpdateOperation
+	    {
+	        Operation = UpdateOperationType.Add,
+	        Path = "/tags",
+	        Value = "{my-tag}"
+	    }
+	});
 
-		hub.PatchInstallation("my-installation-id", new[]
-		{
-		    new PartialUpdateOperation
-		    {
-		        Operation = UpdateOperationType.Add,
-		        Path = "/tags",
-		        Value = "{my-tag}"
-		    }
-		});
+설치를 만들 때 푸시 알림 등록을 수행하는 동안 클라이언트가 제공한 태그는 백 엔드에서 무시됩니다. 클라이언트를 사용하여 설치에 태그를 추가하려면 위의 패턴을 사용하여 태그를 추가하는 새 사용자 지정 API를 만들어야 합니다. 클라이언트가 설치에 태그를 추가하도록 하는 사용자 지정 API 컨트롤러의 예제를 보려면 .NET 백 엔드에 대한 앱 서비스 모바일 앱이 완료된 빠른 시작 샘플에서 [클라이언트 추가 푸시 알림 태그](https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#client-added-push-notification-tags)를 참조하세요.
 
-이러한 태그에 푸시하려면 [알림 허브 API](https://msdn.microsoft.com/library/azure/dn495101.aspx)를 사용하여 작업합니다.
+##<a name="push-user"></a>방법: 인증된 사용자에게 푸시 알림 보내기
 
-또한 백 엔드에서 직접 알림 허브를 사용하여 장치 설치를 등록하기 위한 사용자 지정 API를 구축할 수 있습니다.
+인증된 사용자가 푸시 알림에 등록하면 사용자 ID 태그가 등록에 자동으로 추가됩니다. 이 태그를 사용하여 특정 사용자가 등록된 모든 장치에 푸시 알림을 보낼 수 있습니다. 다음 코드는 요청을 만드는 사용자의 SID를 가져오고 해당 사용자에 대한 모든 장치 등록에 템플릿 푸시 알림을 보냅니다.
+
+    // Get the current user SID and create a tag for the current user.
+    var claimsPrincipal = this.User as ClaimsPrincipal;
+    string sid = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier).Value;
+    string userTag = "_UserId:" + sid;
+
+    // Build a dictionary for the template with the item message text.
+    var notification = new Dictionary<string, string> { { "message", item.Text } };
+
+    // Send a template notification to the user ID.
+    await hub.SendTemplateNotificationAsync(notification, userTag);
+    
+인증된 클라이언트의 푸시 알림을 등록할 때 등록을 시도하기 전에 인증이 완료되었는지 확인합니다. 자세한 내용은 .NET 백 엔드에 대한 앱 서비스 모바일 앱이 완료된 빠른 시작 샘플에서 [사용자에게 푸시 알림 보내기](https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#push-to-users)를 참조하세요.
 
 ## 방법: .NET 서버 SDK 디버그 및 문제 해결
 
@@ -444,4 +457,4 @@ Azure 앱 서비스는 ASP.NET 응용 프로그램에 대한 여러 디버깅 �
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

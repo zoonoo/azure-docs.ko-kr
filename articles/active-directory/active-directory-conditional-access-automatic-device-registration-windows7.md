@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.date="03/07/2016"
 	ms.author="femila"/>
 
 # Windows 7 도메인 가입 장치에 대한 자동 장치 등록 구성
@@ -48,7 +48,8 @@ Windows 7 도메인 가입 장치에 대한 장치 등록은 사용자 인터페
     
     %ProgramFiles%\Microsoft Workplace Join\AutoWorkplace.exe /leave
 
->[AZURE.NOTE]이 명령은 컴퓨터에 로그인한 각 도메인 사용자의 컨텍스트에서 실행해야 합니다. Windows 7 도메인 가입 장치에 대한 이벤트 뷰어 및 오류
+>[AZURE.NOTE]
+이 명령은 컴퓨터에 로그인한 각 도메인 사용자의 컨텍스트에서 실행해야 합니다. Windows 7 도메인 가입 장치에 대한 이벤트 뷰어 및 오류
 
 Windows 7 컴퓨터의 Windows 이벤트 로그에는 작업 공간 연결과 관련된 메시지가 표시됩니다. 성공 및 실패 작업 공간 연결 이벤트에 대한 메시지를 모두 확인할 수 있습니다. 이벤트 로그는 이벤트 뷰어의 응용 프로그램 및 서비스 로그 > Microsoft 작업 공간 연결 아래에 있습니다.
 
@@ -57,7 +58,8 @@ Windows 7 컴퓨터의 Windows 이벤트 로그에는 작업 공간 연결과 �
 - [Azure Active Directory Device Registration 개요](active-directory-conditional-access-device-registration-overview.md)
 - [도메인 가입 Windows 장치의 Azure Active Directory 자동 장치 등록](active-directory-conditional-access-automatic-device-registration.md)
 - [Windows 8.1 도메인 가입 장치에 대한 자동 장치 등록 구성](active-directory-conditional-access-automatic-device-registration-windows8_1.md)
+- [Windows 10 도메인에 가입된 장치의 Azure Active Directory 자동 장치 등록](active-directory-azureadjoin-devices-group-policy.md)
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -3,9 +3,9 @@
 	description="스트레치 데이터베이스에 대해 테이블을 구성하는 방법을 알아봅니다."
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -74,4 +74,4 @@ ALTER TABLE <table name>
 ## 참고 항목
 [ALTER TABLE(Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

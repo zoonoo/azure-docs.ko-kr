@@ -4,7 +4,7 @@
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -39,7 +39,7 @@ Azure Redis Cache VNET 통합은 **가상 네트워크(클래식)** 블레이드
 
 >[AZURE.NOTE] Azure Redis Cache는 클래식 VNET과 함께 작동합니다. 클래식 VNET을 만드는 방법에 대한 정보는 [Azure 포털을 사용하여 가상 네트워크(클래식) 만들기](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)를 참조하세요. ARM VNET에 클래식 VNET을 연결하는 내용은 [새 VNet에 클래식 VNet 연결](../virtual-network/virtual-networks-arm-asm-s2s.md)을 참조하세요.
 
-**새 Redis 캐시** 블레이드에서 **가상 네트워크(클래식)**를 클릭하고 드롭다운 목록에서 원하는 VNET을 선택하여 VNET을 선택 및 구성합니다.
+**새 Redis Cache** 블레이드에서 **가상 네트워크(클래식)**를 클릭하고 드롭다운 목록에서 원하는 VNET을 선택하여 VNET을 선택 및 구성합니다.
 
 ![가상 네트워크][redis-cache-vnet]
 
@@ -119,4 +119,4 @@ VNET은 프리미엄 캐시에만 사용할 수 있습니다.
 
 [redis-cache-vnet-info]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-info.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

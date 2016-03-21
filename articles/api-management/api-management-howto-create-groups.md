@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # Azure API 관리에서 개발자 계정을 관리하는 그룹을 만들고 사용하는 방법
@@ -30,7 +30,7 @@ API 관리에는 다음과 같은 변경할 수 없는 시스템 그룹이 있�
 
 이 가이드에서는 API 관리 인스턴스의 관리자가 새 그룹을 추가하고 이 그룹과 새 제품 및 개발자를 연결하는 방법을 보여 줍니다.
 
->[AZURE.NOTE]게시자 포털에서 그룹 만들기 및 관리 외에도 API 관리 REST API [그룹](https://msdn.microsoft.com/library/azure/dn776329.aspx) 엔터티를 사용하여 그룹을 만들고 관리할 수 있습니다.
+>[AZURE.NOTE] 게시자 포털에서 그룹 만들기 및 관리 외에도 API 관리 REST API [그룹](https://msdn.microsoft.com/library/azure/dn776329.aspx) 엔터티를 사용하여 그룹을 만들고 관리할 수 있습니다.
 
 ## <a name="create-group"> </a>그룹 만들기
 
@@ -64,7 +64,7 @@ API 관리에는 다음과 같은 변경할 수 없는 시스템 그룹이 있�
 
 ![표시 여부 설정][api-management-add-group-to-product-visibility]
 
->[AZURE.NOTE]Azure Active Directory 그룹을 추가하려면 [Azure API 관리에서 Azure Active Directory를 사용하여 개발자 계정에 권한을 부여하는 방법](api-management-howto-aad.md)을 참조하세요.
+>[AZURE.NOTE] Azure Active Directory 그룹을 추가하려면 [Azure API 관리에서 Azure Active Directory를 사용하여 개발자 계정에 권한을 부여하는 방법](api-management-howto-aad.md)을 참조하세요.
 >
 >제품에 대한 **표시 여부** 탭에서 그룹을 구성하려면 **그룹 관리**를 클릭합니다.
 
@@ -111,4 +111,4 @@ API 관리에는 다음과 같은 변경할 수 없는 시스템 그룹이 있�
 [Azure API 관리 시작]: api-management-get-started.md#create-service-instance
 [연관된 Azure Active Directory 테넌트에서 외부 그룹을 가져올 수 있습니다.]: api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

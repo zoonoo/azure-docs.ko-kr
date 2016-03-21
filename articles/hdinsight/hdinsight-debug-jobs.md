@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="03/02/2016"
 	ms.author="jgao"/>
 
 # HDInsight 로그 분석
@@ -337,6 +337,8 @@ Azure 포털에서 HDInsight HBase 클러스터 이름을 클릭하여 클러스
 
 ## 다음 단계
 
-[Ambari 보기를 사용하여 HDInsight에서 Tez 작업 디버깅](hdinsight-debug-ambari-tez-view.md) [Linux 기반 HDInsight에서 Hadoop 서비스에 대한 힙 덤프 사용](hdinsight-hadoop-collect-debug-heap-dump-linux.md) [Ambari 웹 UI를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md)
+- [HDInsight에서 Ambari 뷰를 사용하여 Tez 작업 디버깅](hdinsight-debug-ambari-tez-view.md)
+- [Linux 기반 HDInsight에서 Hadoop 서비스에 힙 덤프 사용](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+- [Ambari 웹 UI를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

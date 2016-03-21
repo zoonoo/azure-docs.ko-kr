@@ -4,7 +4,7 @@
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # 프리미엄 Azure Redis Cache에 Redis 클러스터링을 구성하는 방법
@@ -58,7 +58,9 @@ Azure에서 Redis 클러스터는 각각의 분할된 데이터베이스가 복�
 
 StackExchange.Redis 클라이언트를 통해 클러스터링으로 작업하는 샘플 코드의 경우 [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) 샘플의 [clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) 부분을 참조하세요.
 
->[AZURE.IMPORTANT]StackExchange.Redis를 사용하여 클러스터링을 사용하도록 설정된 Azure Redis Cache에 연결하는 경우 문제가 발생하고 `MOVE` 예외를 받을 수 있습니다. 그 이유는 StackExchange.Redis 캐시 클라이언트가 캐시 클러스터에서 노드에 대한 정보를 수집할 때 짧은 간격이 생기기 때문입니다. 이러한 예외는 클라이언트가 이 정보 수집을 완료하지 않은 상태에서 처음으로 캐시에 연결하고 그 즉시 캐시를 호출하는 경우 발생할 수 있습니다. 응용 프로그램에서 이 문제를 해결하는 가장 간단한 방법은 캐시에 연결한 다음 1초 동안 기다렸다가 캐시를 호출하는 것입니다. 이렇게 하려면 다음 샘플 코드와 같이 `Thread.Sleep(1000)`을 추가하면 됩니다. 캐시에 처음 연결할 때만 `Thread.Sleep(1000)`이 발생합니다. 자세한 내용은 [StackExchange.Redis.RedisServerException - MOVED #248](https://github.com/StackExchange/StackExchange.Redis/issues/248)을 참조하세요. 이 문제를 해결하기 위해 개발 작업이 진행되고 있으며 업데이트되는 대로 여기에 게시할 예정입니다.
+<a name="move-exceptions"></a>
+>[AZURE.IMPORTANT] StackExchange.Redis를 사용하여 클러스터링을 사용하도록 설정된 Azure Redis Cache에 연결하는 경우 문제가 발생하고 `MOVE` 예외를 받을 수 있습니다. 그 이유는 StackExchange.Redis 캐시 클라이언트가 캐시 클러스터에서 노드에 대한 정보를 수집할 때 짧은 간격이 생기기 때문입니다. 이러한 예외는 클라이언트가 이 정보 수집을 완료하지 않은 상태에서 처음으로 캐시에 연결하고 그 즉시 캐시를 호출하는 경우 발생할 수 있습니다. 응용 프로그램에서 이 문제를 해결하는 가장 간단한 방법은 캐시에 연결한 다음 1초 동안 기다렸다가 캐시를 호출하는 것입니다. 이렇게 하려면 다음 샘플 코드와 같이 `Thread.Sleep(1000)`을 추가하면 됩니다. 캐시에 처음 연결할 때만 `Thread.Sleep(1000)`이 발생합니다. 자세한 내용은 [StackExchange.Redis.RedisServerException - MOVED #248](https://github.com/StackExchange/StackExchange.Redis/issues/248)을 참조하세요. 이 문제를 해결하기 위해 개발 작업이 진행되고 있으며 업데이트되는 대로 여기에 게시할 예정입니다. **업데이트**: 이 문제는 StackExchange.Redis의 최신 [시험판 1.1.572-alpha](https://www.nuget.org/packages/StackExchange.Redis/1.1.572-alpha) 빌드에서 해결됩니다. 최신 빌드에 대한 내용은 [StackExchange.Redis NuGet 페이지](https://www.nuget.org/packages/StackExchange.Redis/)를 확인합니다.
+
 
 	private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
 	{
@@ -85,7 +87,7 @@ StackExchange.Redis 클라이언트를 통해 클러스터링으로 작업하는
 
 클러스터링이 사용하도록 설정되어 있는 실행 중인 프리미엄 캐시에서 클러스터 크기를 변경하려면 **설정** 블레이드에서 **(미리 보기) Redis 클러스터 크기**를 클릭합니다.
 
->[AZURE.NOTE]Azure Redis Cache 프리미엄 계층은 일반 공급으로 출시된 반면 Redis 클러스터 크기 기능은 현재 미리 보기 상태입니다.
+>[AZURE.NOTE] Azure Redis Cache 프리미엄 계층은 일반 공급으로 출시된 반면 Redis 클러스터 크기 기능은 현재 미리 보기 상태입니다.
 
 ![Redis 클러스터 크기][redis-cache-redis-cluster-size]
 
@@ -124,7 +126,7 @@ StackExchange.Redis 클라이언트를 통해 동일한 분할된 데이터베�
 
 현재 일부 클라이언트가 Redis 클러스터링을 지원합니다. 이를 지원하는 클라이언트는 StackExchange.Redis입니다. 다른 클라이언트에 대한 자세한 내용은 [Redis 클러스터 자습서](http://redis.io/topics/cluster-tutorial)의 [클러스터 작업](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) 섹션을 참조하세요.
 
->[AZURE.NOTE]StackExchange.Redis를 클라이언트로 사용하는 경우 클러스터링이 제대로 작동할 수 있게 [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/) 1.0.481 이상의 최신 버전을 사용합니다.
+>[AZURE.NOTE] StackExchange.Redis를 클라이언트로 사용하는 경우 클러스터링이 제대로 작동할 수 있게 [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/) 1.0.481 이상의 최신 버전을 사용합니다. 이동 예외에 문제가 있을 경우 자세한 내용은 [이동 예외](#move-exceptions)를 참조하세요.
 
 ## 클러스터링을 사용할 때 캐시에 어떻게 연결하나요?
 
@@ -183,4 +185,4 @@ SSL에서는 `1300N`을 `1500N`으로 대체합니다.
 
 [redis-cache-redis-cluster-size]: ./media/cache-how-to-premium-clustering/redis-cache-redis-cluster-size.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0309_2016-->

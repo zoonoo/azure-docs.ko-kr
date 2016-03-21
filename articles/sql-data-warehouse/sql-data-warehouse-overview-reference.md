@@ -13,14 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스에 대한 참조 항목
 
 이러한 문서에는 SQL 데이터 웨어하우스에 대한 참조 정보가 포함되어 있습니다.
 
-[Transact-SQL 언어 요소][] [Transact-SQL 구문][] [Transact-SQL 시스템 뷰][] [PowerShell cmdlets][]
+[TRANSACT-SQL 언어 요소][]
+
+[TRANSACT-SQL 문][]
+
+[TRANSACT-SQL 시스템 뷰][]
+
+[PowerShell cmdlet][]
 
 
 
@@ -31,12 +37,12 @@
 
 <!--Article references-->
 [개발 개요]: sql-data-warehouse-overview-develop.md
-[Transact-SQL 언어 요소]: sql-data-warehouse-reference-tsql-language-elements.md
-[Transact-SQL 구문]: sql-data-warehouse-reference-tsql-statements.md
-[Transact-SQL 시스템 뷰]: sql-data-warehouse-reference-tsql-system-views.md
-[PowerShell cmdlets]: sql-data-warehouse-reference-powershell-cmdlets.md
+[TRANSACT-SQL 언어 요소]: sql-data-warehouse-reference-tsql-language-elements.md
+[TRANSACT-SQL 문]: sql-data-warehouse-reference-tsql-statements.md
+[TRANSACT-SQL 시스템 뷰]: sql-data-warehouse-reference-tsql-system-views.md
+[PowerShell cmdlet]: sql-data-warehouse-reference-powershell-cmdlets.md
 
 
 <!--MSDN references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

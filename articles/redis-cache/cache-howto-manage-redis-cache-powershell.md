@@ -4,7 +4,7 @@
 	services="redis-cache"
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags
@@ -81,7 +81,7 @@ Azure Government 클라우드 내에 캐시를 만들려면 다음 위치 중 �
 -	USGov 버지니아
 -	미국 정부 아이오와
 
-Azure Government 클라우드에 대한 자세한 내용은 [Microsoft Azure Government](https://azure.microsoft.com/features/gov/) 및 [Microsoft Azure Government 개발자 가이드](azure-government-developer-guide.md)를 참조하세요.
+Azure Government 클라우드에 대한 자세한 내용은 [Microsoft Azure Government](https://azure.microsoft.com/features/gov/) 및 [Microsoft Azure Government 개발자 가이드](../azure-government-developer-guide.md)를 참조하세요.
 
 ### Azure 중국 클라우드에 연결하려면
 
@@ -609,4 +609,4 @@ Azure에서 Windows PowerShell 사용에 대한 자세한 내용은 다음 리�
 - [Windows PowerShell 블로그](http://blogs.msdn.com/powershell): Windows PowerShell의 새로운 기능에 대해 알아봅니다.
 - ["Hey, Scripting Guy!" 블로그](http://blogs.technet.com/b/heyscriptingguy/): Windows PowerShell 커뮤니티에서 실제 팁과 요령을 확인합니다.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

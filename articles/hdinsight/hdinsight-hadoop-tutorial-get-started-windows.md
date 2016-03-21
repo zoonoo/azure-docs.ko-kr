@@ -12,10 +12,10 @@
 <tags
    ms.service="hdinsight"
    ms.devlang="na"
-   ms.topic="hero-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/25/2016"
+   ms.date="03/07/2016"
    ms.author="nitinme"/>
 
 
@@ -38,6 +38,8 @@ Windows의 Hadoop에 대해 알아보고 HDInsight를 사용하여 시작하는 
 **[YouTube에서 HDInsight용 Hadoop 자습서 보기](https://www.youtube.com/watch?v=Y4aNjnoeaHA&list=PLDrz-Fkcb9WWdY-Yp6D4fTC1ll_3lU-QS)**
 
 Azure HDInsight의 일반적인 가용성과 더불어 Microsoft는 Azure용 HDInsight Emulator(이전의 *Microsoft HDInsight Developer Preview*)도 제공합니다. 이 Emulator는 개발자 시나리오를 대상으로 하기 때문에 단일 노드 배포만 지원합니다. HDInsight Emulator 사용에 대한 자세한 내용은 [HDInsight Emulator 시작][hdinsight-emulator]을 참조하세요.
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ### 필수 조건
 
@@ -177,7 +179,9 @@ HDInsight 클러스터에서는 포털에서 샘플을 직접 실행하기 위�
 [웹 사이트 로그 분석][hdinsight-weblogs-sample] | HDInsight를 사용하여 웹 사이트 로그 파일을 분석해 외부 웹 사이트로부터의 일일 웹 사이트 방문 빈도를 파악하고 사용자에게 발생하는 웹 사이트 오류의 요약을 확인하는 방법에 대해 알아봅니다.
 [Twitter 추세 분석](hdinsight-analyze-twitter-data.md) | HDInsight를 사용하여 Twitter에서 추세를 분석하는 방법에 대해 알아봅니다.
 
+##클러스터 삭제
 
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ##다음 단계
 이 Hadoop 자습서에서는 HDInsight에서 Windows에 Hadoop 클러스터를 만들고 데이터에 대해 Hive 쿼리를 실행하며 Excel로 결과를 가져오는 방법을 배웠습니다. 여기서 비즈니스 인텔리전스 도구를 사용하여 추가 처리하고 그래픽으로 표시할 수 있습니다. 자세한 내용은 다음 자습서를 참조하세요.
@@ -251,4 +255,4 @@ HDInsight 클러스터에서는 포털에서 샘플을 직접 실행하기 위�
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!----HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->
