@@ -14,10 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="03/03/2016"
    ms.author="litran"/>
 
-# 조직의 앱 서비스 환경에서 새 Microsoft Translator API 만들기
+# PowerApps 엔터프라이즈에 새 Microsoft Translator API 만들기
+
+> [AZURE.SELECTOR]
+- [논리 앱](../articles/connectors/create-api-microsofttranslator.md)
+- [PowerApps 엔터프라이즈](../articles/power-apps/powerapps-create-api-microsofttranslator.md)
+
+조직의 (테넌트) 앱 서비스 환경에 Microsoft Translator API를 추가합니다.
 
 ## Azure 포털에서 API 만들기
 
@@ -55,12 +61,19 @@ ID와 암호 값을 가진 기존 Microsoft Translator 앱이 없는 경우 다�
 
 3. **응용 프로그램 등록**에서:
 
-	a) **클라이언트 ID**에 대한 값을 입력합니다. b) 응용 프로그램의 **이름**을 입력합니다. c) **리디렉션 URL**에 더미 값을 입력합니다. 예를 들어 **https://contosoredirecturl*을 입력합니다. d) **설명**을 입력합니다. e) **만들기**를 선택합니다.
+	1. **클라이언트 ID** 값을 입력합니다.  
+	2. 응용 프로그램의 **이름**을 입력합니다.  
+	3. **리디렉션 URL**의 더미 값을 입력합니다. 예를 들어 **https://contosoredirecturl*를 입력합니다.
+4. **설명**을 입력합니다.  
+	5. **만들기**를 선택합니다.  
 
 	![응용 프로그램 등록][6]
 
 새 Microsoft Translator 앱이 만들어졌습니다. 이 앱을 Azure 포털의 Microsoft Translator API 구성에서 사용할 수 있습니다.
 
+## REST API 참조
+
+[Microsoft Translator REST API](../connectors/create-api-microsofttranslator.md) 참조.
 
 ## 요약 및 다음 단계
 이 항목에서는 PowersApps 엔터프라이즈에 Microsoft Translator API를 추가했습니다. 그 다음에는 이 API를 사용자의 앱에 추가할 수 있도록 사용자에게 이 API에 대한 액세스 권한을 부여합니다.
@@ -78,4 +91,4 @@ ID와 암호 값을 가진 기존 Microsoft Translator 앱이 없는 경우 다�
 [7]: ./media/powerapps-create-api-microsofttranslator/browseall.png
 [8]: ./media/powerapps-create-api-microsofttranslator/allresources.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

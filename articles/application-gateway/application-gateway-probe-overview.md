@@ -16,7 +16,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/17/2015"
+   ms.date="03/03/2016"
    ms.author="joaoma" />
 
 # 응용 프로그램 게이트웨이 상태 모니터링 개요
@@ -67,4 +67,4 @@ Azure 응용 프로그램 게이트웨이는 기본적으로 백 엔드 풀의 �
 
 응용 프로그램 게이트웨이 상태 모니터링에 대해 학습한 후 Azure 리소스 관리자용 [사용자 지정 상태 프로브](application-gateway-create-probe-ps.md) 또는 Azure 클래식 배포 모델용 [사용자 지정 상태 프로브](application-gateway-create-probe-classic-ps.md)를 구성할 수 있습니다.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

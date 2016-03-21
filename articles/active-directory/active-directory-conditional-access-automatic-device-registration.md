@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.date="03/07/2016"
 	ms.author="femila"/>
 
-# 도메인 가입 Windows 장치의 Azure Active Directory 자동 장치 등록
+# Windows 도메인에 가입된 장치의 Azure Active Directory 자동 장치 등록
 
 IT 관리자는 도메인 가입 Windows 장치를 Azure AD(Azure Active Directory)에 자동으로 등록하도록 선택할 수 있습니다. 이 기능은 AD FS에서 온-프레미스로 관리하는 Office365 응용 프로그램에 대한 장치 기반 조건부 액세스 정책을 구성한 경우에 유용할 수 있습니다. [Azure Active Directory 장치 등록 개요](active-directory-conditional-access-device-registration-overview.md)를 읽으면 장치 등록 시나리오에 대해 자세히 알아볼 수 있습니다.
 
@@ -24,7 +24,7 @@ Azure Active Directory 자동 장치 등록은 Active Directory 도메인에 가
 
 도메인 가입 Windows 장치를 Azure AD에 등록하는 작업을 시작하려면 아래 필수 조건을 따르세요. 필수 조건을 완료한 후 도메인 가입 Windows 장치에 대해 자동 장치 등록을 구성합니다.
 
-## 도메인 가입 Windows 장치의 Azure Active Directory 자동 장치 등록을 위한 필수 조건
+## Windows 도메인에 가입된 장치의 Azure Active Directory 자동 장치 등록을 위한 필수 조건
 
 Azure Active Directory Connect를 사용하여 AD FS 배포 및 Azure Active Directory에 연결
 ----------------------------------------------------------------------------------------------
@@ -33,7 +33,7 @@ Azure Active Directory Connect를 사용하여 AD FS 배포 및 Azure Active Dir
 3. AD FS 관리 콘솔을 열고 **AD FS**>**트러스트 관계>신뢰 당사자 트러스트**로 이동합니다. Microsoft Office 365 ID 플랫폼 신뢰 당사자 트러스트 개체를 마우스 오른쪽 단추로 클릭하고 **클레임 규칙 편집...**을 선택합니다.
 4. **발급 변환 규칙** 탭에서 **규칙 추가**를 선택합니다.
 5. **클레임 규칙** 템플릿 드롭다운 상자에서 **사용자 지정 규칙을 사용하여 클레임 보내기**를 선택합니다. **다음**을 선택합니다.
-6. **클레임 규칙 이름:** 텍스트 상자에 *인증 방법 클레임 규칙* 을 입력합니다.
+6. **클레임 규칙 이름:** 텍스트 상자에 *인증 방법 클레임 규칙*을 입력합니다.
 7. **클레임 규칙:** 텍스트 상자에 다음 클레임 규칙을 입력합니다.
 
         c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"]
@@ -87,6 +87,8 @@ Windows 7 및 Windows 8.1 장치는 사용자 계정 이름을 잘 알려진 장
 
 * [Windows 7 도메인 가입 장치에 대해 자동 장치 등록 구성](active-directory-conditional-access-automatic-device-registration-windows7.md)
 
+* [Windows 10 도메인에 가입된 장치의 Azure Active Directory 자동 장치 등록](active-directory-azureadjoin-devices-group-policy.md)
+
 추가 참고 사항
 --------------------------------------------------------------------
 
@@ -101,5 +103,6 @@ Azure AD 장치 등록은 가장 광범위한 장치 기능을 제공합니다. 
 - [Azure Active Directory Device Registration 개요](active-directory-conditional-access-device-registration-overview.md)
 - [Windows 7 도메인 가입 장치에 대한 자동 장치 등록 구성](active-directory-conditional-access-automatic-device-registration-windows7.md)
 - [Windows 8.1 도메인 가입 장치에 대한 자동 장치 등록 구성](active-directory-conditional-access-automatic-device-registration-windows8_1.md)
+- [Windows 10 도메인에 가입된 장치의 Azure Active Directory 자동 장치 등록](active-directory-azureadjoin-devices-group-policy.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

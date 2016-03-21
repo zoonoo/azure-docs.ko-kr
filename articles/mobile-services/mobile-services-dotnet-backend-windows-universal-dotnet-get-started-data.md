@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/10/2015"
+	ms.date="03/07/2016"
 	ms.author="glenga"/>
 
 # 기존 앱에 모바일 서비스 추가
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-
+[AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)]
+ 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> 이 항목에 해당하는 모바일 앱 버전은 [Azure 모바일 앱에 관리되는 클라이언트를 사용하는 방법](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md)을 참조하세요.
 
 ##개요
 
@@ -31,9 +31,7 @@
 
 이 자습서에서 만들 모바일 서비스는 .NET 백 엔드 모바일 서비스입니다. .NET 백 엔드를 사용하면 모바일 서비스에서 서버 쪽 비즈니스 논리에 .NET 언어 및 Visual Studio를 사용할 수 있으며, 로컬 컴퓨터에서 모바일 서비스를 실행 및 디버그할 수 있습니다. JavaScript에서 서버 쪽 비즈니스 논리를 작성하는 데 사용할 수 있는 모바일 서비스를 만들려면 이 항목의 JavaScript 백 엔드 버전을 참조하세요.
 
->[AZURE.NOTE]이 항목에서는 Visual Studio Professional 2013 업데이트 3의 도구를 사용하여 새 모바일 서비스를 범용 Windows 앱에 연결하는 방법을 보여 줍니다. 같은 단계를 사용하여 모바일 서비스를 Windows 스토어 또는 Windows Phone 스토어 8.1 앱에 연결할 수 있습니다. 모바일 서비스를 Windows Phone 8.0 또는 Windows Phone Silverlight 8.1 앱에 연결하려면 [Windows Phone에서 데이터 시작](mobile-services-dotnet-backend-windows-phone-get-started-data.md)을 참조하세요.
-
-> Visual Studio Professional 2013 업데이트 3으로 업그레이드할 수 없거나 Windows 스토어 앱 솔루션에 모바일 서비스 프로젝트를 수동으로 추가하려는 경우에는 항목의 [이 버전](../mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md)을 참조하세요.
+>[AZURE.NOTE]이 항목에서는 Visual Studio Professional 2013 업데이트 3의 도구를 사용하여 새 모바일 서비스를 범용 Windows 앱에 연결하는 방법을 보여 줍니다. 같은 단계를 사용하여 모바일 서비스를 Windows 스토어 또는 Windows Phone 스토어 8.1 앱에 연결할 수 있습니다. 모바일 서비스를 Windows Phone 8.0 또는 Windows Phone Silverlight 8.1 앱에 연결하려면 [Windows Phone에서 데이터 시작](mobile-services-windows-phone-get-started-data.md)을 참조하세요.
 
 ##필수 조건
 
@@ -98,14 +96,11 @@
 
 이 자습서에서는 범용 Windows 앱 프로젝트가 모바일 서비스의 데이터를 사용하도록 설정하기 위한 기본 사항에 대해 설명했습니다. 다음으로 다른 항목 중 하나를 읽는 것이 좋습니다.
 
-* [인증 시작]
-   <br/>앱 사용자를 인증하는 방법을 알아봅니다.
+* [인증 시작] <br/>앱 사용자를 인증하는 방법을 알아봅니다.
 
-* [푸시 알림 시작]
-  <br/>기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
+* [푸시 알림 시작] <br/>기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
 
-* [모바일 서비스 C# 방법 개념 참조](mobile-services-windows-dotnet-how-to-use-client-library.md)
-  <br/>.NET과 함께 모바일 서비스를 사용하는 방법을 자세히 알아봅니다.
+* [모바일 서비스 C# 방법 개념 참조](mobile-services-dotnet-how-to-use-client-library.md) <br/>.NET과 함께 모바일 서비스를 사용하는 방법을 자세히 알아봅니다.
 
 
 <!-- Images. -->
@@ -119,11 +114,11 @@
 [인증 시작]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md
 [푸시 알림 시작]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md
 
-[오프라인 데이터 동기화 시작]: mobile-services-windows-store-dotnet-get-started-offline-data.md
+[Get started with offline data sync]: mobile-services-windows-store-dotnet-get-started-offline-data.md
 
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
-[개발자 코드 샘플 사이트]: http://go.microsoft.com/fwlink/p/?LinkID=510826
+[Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkID=510826
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

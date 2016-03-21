@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="01/09/2016"
+	ms.date="03/04/2016"
 	ms.author="robmcm" />
 
 # Azure 앱 서비스 웹앱에서 io.js를 사용하는 방법
@@ -31,7 +31,7 @@ Node.js 앱을 배포하면 앱 서비스 웹앱에서 몇 가지 간단한 명�
 
 첫 번째 파일인 **.deployment**는 배포 시 **deploy.cmd**를 실행하도록 웹앱에 지시합니다. 이 스크립트는 Node.js 응용 프로그램에 대한 모든 일반적인 단계를 실행할 뿐만 아니라 최신 버전의 io.js를 다운로드합니다. 마지막으로 **IISNode.yml**은 미리 설치된 Node.js 이진 파일 대신 방금 다운로드한 io.js 이진 파일을 사용하도록 웹앱을 구성합니다.
 
-> [AZURE.NOTE]사용한 io.js 이진 파일을 업데이트하려면 응용 프로그램을 다시 배포하기만 하면 됩니다. 응용 프로그램이 배포될 때마다 스크립트가 새 버전의 io.js를 다운로드합니다.
+> [AZURE.NOTE] 사용한 io.js 이진 파일을 업데이트하려면 응용 프로그램을 다시 배포하기만 하면 됩니다. 응용 프로그램이 배포될 때마다 스크립트가 새 버전의 io.js를 다운로드합니다.
 
 <a id="manualinstallation"></a>
 ## 수동 설치 사용
@@ -47,12 +47,12 @@ Node.js 앱을 배포하면 앱 서비스 웹앱에서 몇 가지 간단한 명�
 
 이 문서에서는 제공된 배포 스크립트와 수동 설치를 모두 사용하여 앱 서비스 웹앱에서 io.js를 사용하는 방법에 대해 알아보았습니다.
 
-> [AZURE.NOTE]io.js는 집중적으로 개발되고 있으며, Node.js보다 자주 업데이트됩니다. 여러 Node.js 모듈이 io.js와 함께 작동하지 않을 수 있으므로 문제 해결은 [GitHub의 io.js]를 참조하세요.
+> [AZURE.NOTE] io.js는 집중적으로 개발되고 있으며, Node.js보다 자주 업데이트됩니다. 여러 Node.js 모듈이 io.js와 함께 작동하지 않을 수 있으므로 문제 해결은 [GitHub의 io.js]를 참조하세요.
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 [io.js]: https://iojs.org
 [io.js distribution]: https://iojs.org/dist/
@@ -60,4 +60,4 @@ Node.js 앱을 배포하면 앱 서비스 웹앱에서 몇 가지 간단한 명�
 [io.js Deployment Script]: https://github.com/felixrieseberg/iojs-azure
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

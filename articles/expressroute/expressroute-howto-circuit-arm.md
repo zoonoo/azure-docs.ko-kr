@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/04/2015"
+   ms.date="03/03/2016"
    ms.author="cherylmc"/>
 
 # 리소스 관리자 및 PowerShell을 사용하여 Express 경로 회로 만들기 및 수정
@@ -90,7 +90,7 @@ PS C:\> Get-AzureRmExpressRouteServiceProvider
 아직 리소스 그룹이 없는 경우 Express 경로 회로를 만들기 전에 먼저 리소스 그룹을 만들어야 합니다. 다음 명령을 실행하여 수행할 수 있습니다.
 
 ```
-New-AzureRmResourceGroup -Name “ExpressRouteResourceGroup” -Location "West US"
+New-AzureRmResourceGroup -Name "ExpressRouteResourceGroup" -Location "West US"
 ```
 
 아래 예제에서는 Equinix 실리콘밸리를 통해 200Mbps Express 경로 회로를 만드는 방법을 보여 줍니다. 다른 공급자와 다른 설정을 사용하는 경우, 요청을 수행할 때 해당 정보를 대체합니다. 다음은 새 서비스 키에 대한 예제 요청입니다.
@@ -300,7 +300,7 @@ You can enable the ExpressRoute premium add-on for your existing circuit by usin
 ```
 $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-$ckt.Sku.Name = "Premium" $ckt.sku.Name = "Premium\_MeteredData"
+$ckt.Sku.Tier = "Premium" $ckt.sku.Name = "Premium\_MeteredData"
 
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
@@ -363,4 +363,4 @@ Express 경로 회로 서비스 공급자 프로비전 상태를 사용할 경�
 - [Express 경로 회로의 라우팅 만들기 및 수정](expressroute-howto-routing-arm.md)
 - [가상 네트워크를 Express 경로 회로에 연결](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/02/2015"
+   ms.date="03/04/2016"
    ms.author="jgao"/>
 
 # 두 Azure 가상 네트워크 간의 DNS 구성
 
 > [AZURE.SELECTOR]
-- [Configure VPN connectivity](../hdinsight-hbase-geo-replication-configure-VNETs.md)
-- [Configure DNS](hdinsight-hbase-geo-replication-configure-DNS.md)
-- [Configure HBase replication](hdinsight-hbase-geo-replication.md) 
+- [VPN 연결 구성](../hdinsight-hbase-geo-replication-configure-VNETs.md)
+- [DNS 구성](hdinsight-hbase-geo-replication-configure-DNS.md)
+- [HBase 복제 구성](hdinsight-hbase-geo-replication.md) 
 
 
 Azure 가상 네트워크에 DNS 서버를 추가하고 구성하여 가상 네트워크 내부 및 가상 네트워크 간에 이름 확인을 처리하는 방법에 대해 알아봅니다.
@@ -220,4 +220,4 @@ DNS 서버 구성을 업데이트하려면 가상 네트워크에 배포된 모�
 
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-DNS/HDInsight.HBase.VPN.diagram.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

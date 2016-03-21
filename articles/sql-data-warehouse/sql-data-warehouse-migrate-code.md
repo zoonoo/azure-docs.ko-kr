@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스에 SQL 코드 마이그레이션
@@ -55,9 +55,23 @@
 ### 공통 테이블 식
 현재 구현된 SQL 데이터 웨어하우스 내부의 CTE(공통 테이블 식)에는 다음과 같은 기능 및 제한 사항이 있습니다.
 
-**CTE 기능** + SELECT 문에서 CTE를 지정할 수 있습니다. + CREATE VIEW 문에서 CTE를 지정할 수 있습니다. + CREATE TABLE AS SELECT (CTAS) 문에서 CTE를 지정할 수 있습니다. + CREATE REMOTE TABLE AS SELECT (CRTAS) 문에서 CTE를 지정할 수 있습니다. + CREATE EXTERNAL TABLE AS SELECT (CETAS) 문에서 CTE를 지정할 수 있습니다. + CTE에서 원격 테이블을 참조할 수 있습니다. + CTE에서 외부 테이블을 참조할 수 있습니다. + CTE에서 여러 CTE 쿼리 정의를 정의할 수 있습니다.
+**CTE 기능**
++ SELECT 문에서 CTE를 지정할 수 있습니다.
++ CREATE VIEW 문에서 CTE를 지정할 수 있습니다.
++ (CTAS)CREATE TABLE AS SELECT 문에서 CTE를 지정할 수 있습니다.
++ (CRTAS)CREATE REMOTE TABLE AS SELECT 문에서 CTE를 지정할 수 있습니다.
++ (CETAS)CREATE EXTERNAL TABLE AS SELECT 문에서 CTE를 지정할 수 있습니다.
++ CTE로부터 원격 테이블을 참조할 수 있습니다.
++ CTE로부터 외부 테이블을 참조할 수 있습니다.
++ CTE에 여러 개의 CTE 쿼리 정의를 정의할 수 있습니다.
 
-**CTE 제한** + 단일 SELECT 문 뒤에 CTE가 와야 합니다. INSERT, UPDATE, DELETE 및 MERGE 문은 지원되지 않습니다. + 그 자체(재귀 공통 테이블 식)에 대한 참조가 포함된 공통 테이블 식은 지원되지 않습니다(아래 섹션 참조). + CTE에서 WITH 절을 두 개 이상 사용하여 지정할 수 없습니다. 예를 들어 CTE\_query\_definition에 하위 쿼리가 포함되어 있는 경우 그 하위 쿼리에 또 다른 CTE를 정의하는 중첩된 WITH 절이 있으면 안 됩니다. + TOP 절이 지정된 경우를 제외하고 ORDER BY 절을 CTE\_query\_definition에 사용할 수 없습니다. + 배치에 포함된 문에 CTE를 사용할 경우 배치 앞에 있는 문 다음에 세미콜론을 붙여야 합니다. + sp\_prepare를 통해 준비된 문에 사용할 경우 CTE는 PDW의 다른 SELECT 문과 동일한 방식으로 작동합니다. 그러나 sp\_prepare를 통해 준비된 CETAS의 일부로 CTE를 사용할 경우 sp\_prepare에 대해 구현되는 바인딩 방식이 다르기 때문에 동작이 SQL Server 및 다른 PDW와 다를 수 있습니다. CTE를 참조하는 SELECT 문이 CTE에 없는 잘못된 열을 사용할 경우 오류를 감지하지 않고 sp\_prepare를 통과합니다. 대신 sp\_execute 동안 오류가 throw됩니다.
+**CTE 제한 사항**
++ CTE는 단일 SELECT 문 뒤에 와야 합니다. INSERT, UPDATE, DELETE 및 MERGE 문은 지원되지 않습니다.
++ 자체에 대한 참조를 포함하는 공통 테이블 식(재귀 공통 테이블 식)은 지원되지 않습니다(아래 섹션 참조).
++ CTE에 둘 이상의 WITH 절을 지정할 수 없습니다. 예를 들어 CTE\_query\_definition에 하위 쿼리가 포함된 경우 해당 하위 쿼리에는 다른 CTE를 정의하는 중첩된 WITH 절을 포함할 수 없습니다.
++ TOP 절이 지정된 경우를 제외하고 ORDER BY 절은 CTE\_query\_definition에서 사용할 수 없습니다.
++ 일괄 처리의 일부인 문에서 CTE가 사용되는 경우 그 전의 문 뒤에 세미콜론이 와야 합니다.
++ Sp\_prepare에 의해 준비된 문에서 사용할 경우 CTE는 PDW에서 다른 SELECT 문과 동일한 방식으로 작동합니다. 그러나 sp\_prepare를 통해 준비된 CETAS의 일부로 CTE를 사용할 경우 sp\_prepare에 대해 구현되는 바인딩 방식이 다르기 때문에 동작이 SQL Server 및 다른 PDW와 다를 수 있습니다. CTE를 참조하는 SELECT 문이 CTE에 없는 잘못된 열을 사용할 경우 오류를 감지하지 않고 sp\_prepare를 통과합니다. 대신 sp\_execute 동안 오류가 throw됩니다.
 
 ### 재귀 공통 테이블 식(CTE)
 
@@ -80,17 +94,17 @@
 예를 들어, 아래의 코드는 @@ROWCOUNT 정보를 검색하는 대체 솔루션입니다.
 
 ```
-SELECT  SUM(row_count) AS row_count 
-FROM    sys.dm_pdw_sql_requests 
-WHERE   row_count <> -1 
-AND     request_id IN 
-                    (   SELECT TOP 1    request_id 
-                        FROM            sys.dm_pdw_exec_requests 
-                        WHERE           session_id = SESSION_ID() 
+SELECT  SUM(row_count) AS row_count
+FROM    sys.dm_pdw_sql_requests
+WHERE   row_count <> -1
+AND     request_id IN
+                    (   SELECT TOP 1    request_id
+                        FROM            sys.dm_pdw_exec_requests
+                        WHERE           session_id = SESSION_ID()
                         ORDER BY end_time DESC
                     )
 ;
-``` 
+```
 
 ## 다음 단계
 코드 개발에 대한 조언은 [개발 개요][]를 참조하세요.
@@ -117,4 +131,4 @@ AND     request_id IN
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

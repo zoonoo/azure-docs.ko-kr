@@ -13,12 +13,17 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/11/2015" 
+	ms.date="03/05/2016" 
 	ms.author="glenga"/>
 
 # 인증된 사용자에게 푸시 알림 보내기
 
 [AZURE.INCLUDE [mobile-services-selector-push-users](../../includes/mobile-services-selector-push-users.md)]
+
+&nbsp;
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> 이 항목에 해당하는 모바일 앱 버전은 [방법: 인증된 사용자에게 태그를 사용하여 푸시 알림 보내기](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#push-user)를 참조하세요.
 
 ##개요
 이 항목에서는 등록된 모든 장치에서 인증된 사용자에게 푸시 알림을 보내는 방법을 보여 줍니다. 이전의 [앱에 푸시 알림 추가] 자습서와 달리, 이 자습서에서는 먼저 사용자가 인증된 후에야 클라이언트가 푸시 알림을 받기 위해 알림 허브에 등록할 수 있도록 모바일 서비스를 변경합니다. 할당된 사용자 ID에 따라 태그를 추가하도록 등록도 수정됩니다. 마지막으로 서버 스크립트는 모든 등록 대신 인증된 사용자에게만 알림을 보내도록 업데이트됩니다.
@@ -95,4 +100,4 @@
 [앱에 인증 추가]: ../mobile-services-windows-store-dotnet-get-started-users.md
 [앱에 푸시 알림 추가]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

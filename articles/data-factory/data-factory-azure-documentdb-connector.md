@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="DocumentDB 간 데이터 이동 | Azure 데이터 팩터리" 
+	pageTitle="DocumentDB 간 데이터 이동 | Microsoft Azure" 
 	description="Azure 데이터 팩터리를 사용하여 Azure DocumentDB 컬렉션 간 데이터를 이동하는 방법에 대해 알아봅니다." 
 	services="data-factory, documentdb" 
 	documentationCenter="" 
@@ -399,15 +399,15 @@ DocumentDB와 같은 스키마 없는 데이터 저장소의 경우 Data Factory
 
 | **속성** | **설명** | **허용되는 값** | **필수** |
 | ------------ | --------------- | ------------------ | ------------ |
-| 쿼리 | 데이터를 읽는 쿼리를 지정합니다. | DocumentDB에서 지원하는 쿼리 문자열입니다. <p>예: SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > "2009-01-01T00:00:00"</p> | 아니요 <p>실행되는 SQL 문을 지정하지 않으면 mycollection </p>에서 <columns defined in structure>를 선택합니다.
-| nestingSeparator | 문서가 중첩됨을 나타내는 특수 문자 | 모든 character입니다. <p>DocumentDB는 중첩된 구조를 허용하는 JSON 문서용 NoSQL 저장소입니다. Azure 데이터 팩터리를 사용하면 nestingSeparator 즉, 위의 예에서 "."를 통해 계층 구조를 표시할 수 있습니다. 테이블 정의에서 "Name.First", "Name.Middle" 및 "Name.Last"에 따르면 구분 기호를 사용하여 복사 작업이 3개의 자식 요소(처음, 중간 및 마지막)가 있는 "Name" 개체를 생성합니다.</p> | 아니요
+| 쿼리 | 데이터를 읽는 쿼리를 지정합니다. | DocumentDB에서 지원하는 쿼리 문자열입니다. <br/><br/>예: SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > "2009-01-01T00:00:00" | 아니요 <br/><br/>지정하지 않는 경우 실행되는 SQL 문: select <columns defined in structure> from mycollection 
+| nestingSeparator | 문서가 중첩됨을 나타내는 특수 문자 | 모든 character입니다. <br/><br/>DocumentDB는 중첩된 구조를 허용하는 JSON 문서용 NoSQL 저장소입니다. Azure 데이터 팩터리를 사용하면 nestingSeparator 즉, 위의 예에서 "."를 통해 계층 구조를 표시할 수 있습니다. 테이블 정의에서 "Name.First", "Name.Middle" 및 "Name.Last"에 따르면 구분 기호를 사용하여 복사 작업이 3개의 자식 요소(처음, 중간 및 마지막)가 있는 "Name" 개체를 생성합니다. | 아니요
 
 **DocumentDbCollectionSink**는 다음 속성을 지원합니다.
 
 | **속성** | **설명** | **허용되는 값** | **필수** |
 | -------- | ----------- | -------------- | -------- |
-| nestingSeparator | 중첩된 해당 문서를 나타내는 원본 열 이름에 특수 문자가 필요합니다. <p>위의 예에서 출력 테이블의 Name.First은 DocumentDB 문서에서 다음 JSON 구조를 생성합니다.</p><p>"이름": {<br/> "처음": "John"<br/>},</p> | 중첩 수준을 구분하는데 사용되는 문자입니다.<p>기본값은 .(점)입니다.</p> | 중첩 수준을 구분하는데 사용되는 문자입니다. <p>기본값은 .(점)입니다.</p> | 아니요 | 
-| writeBatchSize | 병렬 수가 DocumentDB 서비스에 문서를 만들도록 요청합니다.<p>이 속성을 사용하여 DocumentDB에서 데이터를 복사하는 경우 성능을 미세 조정할 수 있습니다. DocumentDB에 더 많은 병렬 요청이 전송되기 때문에 writeBatchSize 증가하는 경우 더 나은 성능을 기대할 수 있습니다. 하지만 "요청 속도가 큽니다."라는 오류 메시지를 발생할 수 있는 제한을 방지해야 합니다. </p><p>제한은 문서 크기, 문서에서 용어 수, 대상 컬렉션의 인덱싱 정책 등을 포함하는 많은 요인으로 결정됩니다. 복사 작업의 경우 더 나은 컬렉션(예를 들어 S3)을 사용하여 사용할 수 있는 처리량을 보유할 수 있습니다.(2,500개의 요청 단위/초)</p> | 정수 값 | 아니요 |
+| nestingSeparator | 중첩된 해당 문서를 나타내는 원본 열 이름에 특수 문자가 필요합니다. <br/><br/>위의 예에서 출력 테이블의 Name.First는 DocumentDB 문서에서 다음 JSON 구조를 생성합니다.<br/><br/>"이름": {<br/> "First": "John"<br/>}, | 중첩 수준을 구분하는데 사용되는 문자입니다.<br/><br/>기본값은 .(점)입니다. | 중첩 수준을 구분하는데 사용되는 문자입니다. <br/><br/>기본값은 .(점)입니다. | 아니요 | 
+| writeBatchSize | 병렬 수가 DocumentDB 서비스에 문서를 만들도록 요청합니다.<br/><br/>이 속성을 사용하여 DocumentDB에서 데이터를 복사하는 경우 성능을 미세 조정할 수 있습니다. DocumentDB에 더 많은 병렬 요청이 전송되기 때문에 writeBatchSize 증가하는 경우 더 나은 성능을 기대할 수 있습니다. 하지만 "요청 속도가 큽니다."라는 오류 메시지를 발생할 수 있는 제한을 방지해야 합니다. <br/><br/>제한은 문서 크기, 문서에서 용어 수, 대상 컬렉션의 인덱싱 정책 등을 포함하는 많은 요인으로 결정됩니다. 복사 작업의 경우 더 나은 컬렉션(예: S3)을 사용하여 사용할 수 있는 처리량(2,500개의 요청 단위/초)을 보유할 수 있습니다. | 정수 값 | 아니요 |
 | writeBatchTimeout | 시간이 초과 되기 전에 완료하려는 작업을 위한 대기 시간입니다. | (단위 = timespan) 예를 들어 “00:30:00”(30분)입니다. | 아니요 |
  
 ## 부록
@@ -419,7 +419,7 @@ DocumentDB와 같은 스키마 없는 데이터 저장소의 경우 Data Factory
 
 	**대답:** 레코드에 "ID" 필드가 있고 복사 작업이 동일한 ID를 가진 레코드를 삽입하려고 시도하는 경우 복사 작업에서 오류가 발생합니다.
  
-3. **질문:** 데이터 팩터리는 [범위 또는 해시 기반 데이터 분할]( https://azure.microsoft.com/documentation/articles/documentdb-partition-data/)을 지원합니까?
+3. **질문:** 데이터 팩터리는 [범위 또는 해시 기반 데이터 분할](https://azure.microsoft.com/documentation/articles/documentdb-partition-data/)을 지원합니까?
 
 	**대답:** 아니요. 
 4. **질문:** 하나의 테이블에 대해 하나 이상의 DocumentDB 컬렉션을 지정할 수 있습니까?
@@ -427,4 +427,4 @@ DocumentDB와 같은 스키마 없는 데이터 저장소의 경우 Data Factory
 	**대답:** 아니요. 이 경우 하나의 컬렉션만 지정할 수 있습니다.
      
 
-<!---HONumber=AcomDC_0302_2016--->
+<!---HONumber=AcomDC_0309_2016-->

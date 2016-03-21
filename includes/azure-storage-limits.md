@@ -28,7 +28,7 @@
 저장소 계정당<sup>2</sup> 최대 수신(유럽 및 아시아 지역)|GRS/ZRS<sup>3</sup>을 사용하는 경우 5Gbps, LRS의 경우 10Gbps
 저장소 계정당<sup>2</sup> 최대 송신(유럽 및 아시아 지역)|RA-GRS/GRS/ZRS<sup>3</sup>을 사용하는 경우 10Gbps, LRS의 경우 15Gbps
 
-<sup>1</sup>저장소 계정이 100개보다 많이 필요한 경우 [Azure 지원](https://azure.microsoft.com/support/faq/)에 문의하세요.
+<sup>1</sup>저장소 계정이 100개 이상 필요한 경우 [Azure 지원](https://azure.microsoft.com/support/faq/)에 요청합니다. Azure 저장소 팀은 비즈니스 사례를 검토합니다. 이에 대해 승인하면 최대 250개의 저장소 계정을 사용할 수 있습니다.
 
 <sup>2</sup>*수신*은 저장소 계정으로 전송되는 모든 데이터(요청)를 가리킵니다. *송신*은 저장소 계정에서 수신되는 모든 데이터(응답)를 가리킵니다.
 
@@ -39,4 +39,4 @@
 - **ZRS**: 영역 중복 저장소. 블록 Blob에 대해서만 사용 가능합니다. 
 - **LRS**: 로컬 중복 저장소 
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

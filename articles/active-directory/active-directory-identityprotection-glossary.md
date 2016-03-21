@@ -1,8 +1,8 @@
 <properties
-	pageTitle="ID 보호 용어집 | Microsoft Azure"
-	description="ID 보호 용어집입니다."
+	pageTitle="Azure Active Directory ID 보호 용어집 | Microsoft Azure"
+	description="Azure Active Directory ID 보호 용어집"
 	services="active-directory"
-	keywords="Azure Active Directory ID 보호, 클라우드 앱 검색, 응용 프로그램 관리"
+	keywords="Azure Active Directory ID 보호, Cloud App Discovery, 응용 프로그램 관리, 보안, 위험, 위험 수준, 취약성, 보안 정책, 용어집"
 	documentationCenter=""
 	authors="markusvi"
 	manager="stevenpo"
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/01/2016"
+	ms.date="03/04/2016"
 	ms.author="markvi"/>
 
-# ID 보호 용어집 
+# Azure Active Directory ID 보호 용어집 
 
 
 ### 위험(사용자)	
@@ -164,4 +164,4 @@ Azure Active Directory에서 ID를 인증하는 프로세스 또는 동작이며
 
 - [Azure Active Directory ID 보호](active-directory-identityprotection.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

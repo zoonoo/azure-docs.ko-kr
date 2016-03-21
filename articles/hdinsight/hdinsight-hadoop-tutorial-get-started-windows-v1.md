@@ -11,10 +11,10 @@
 <tags
    ms.service="hdinsight"
    ms.devlang="na"
-   ms.topic="hero-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/25/2016"
+   ms.date="03/07/2016"
    ms.author="nitinme"/>
 
 
@@ -29,6 +29,8 @@ Windows의 Hadoop에 대해 알아보고 HDInsight를 사용하여 시작하는 
 [AZURE.INCLUDE [hdinsight-azure-portal](../../includes/hdinsight-azure-portal.md)]
 
 * [Windows의 HDInsight에서 Hadoop 시작](hdinsight-hadoop-tutorial-get-started-windows.md)
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## 이 Hadoop 자습서의 목표
 
@@ -207,6 +209,9 @@ Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDInsight의 작�
 
 9. 왼쪽 위 구석에서 **닫은 후 로드**를 클릭하여 Hive 작업 출력을 Excel로 가져옵니다.
 
+##클러스터 삭제
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ##<a name="nextsteps"></a>다음 단계
 이 Hadoop 자습서에서는 HDInsight에서 Windows에 Hadoop 클러스터를 프로비전하고, 데이터에 대해 Hive 쿼리를 실행한 후, 비즈니스 인텔리전스 도구를 사용하여 추가 처리하고 그래픽으로 표시할 수 있는 Excel로 결과를 가져오는 방법을 배웠습니다. 자세한 내용은 다음 자습서를 참조하세요.
@@ -280,4 +285,4 @@ Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDInsight의 작�
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows-v1/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!----HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

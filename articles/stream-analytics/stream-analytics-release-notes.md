@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="스트림 분석 릴리스 정보 | Microsoft Azure" 
-	description="스트림 분석 GA 릴리스 정보" 
+	description="스트림 분석 릴리스 정보" 
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -13,10 +13,18 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/16/2016" 
+	ms.date="03/03/2016" 
 	ms.author="jeffstok"/>
 
 #스트림 분석 릴리스 정보
+
+## 스트림 분석의 03/03/2016 릴리스 정보 ##
+
+이 릴리스에는 다음 업데이트가 포함됩니다.
+
+제목 | 설명
+---|---
+새 스트림 분석 쿼리 언어 항목 | SAQL에 이제 [GetType](https://msdn.microsoft.com/library/azure/mt643890.aspx "GetType MSDN 페이지"), [TRY\_CAST](https://msdn.microsoft.com/library/azure/mt643735.aspx "TRY_CAST MSDN 페이지") 및 [REGEXMATCH](https://msdn.microsoft.com/library/azure/mt643891.aspx "REGEXMATCH MSDN 페이지")가 있습니다.
 
 ## 스트림 분석의 2015/12/10 릴리스에 대한 정보 ##
 
@@ -25,7 +33,7 @@
 제목 | 설명
 ---|---
 REST API 버전 업데이트 | REST API 버전은 2015-10-01에 업데이트되었습니다. 자세한 내용은 MSDN의 [스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx) 및 [스트림 분석에서 기계 학습 통합](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)에서 확인할 수 있습니다.
-Azure 기계 학습 통합 | 이 릴리스에서는 Azure 기계 학습 사용자 정의 함수에 대해 지원합니다. 자습서를 [여기](stream-analytics-machine-learning-integration-tutorial.md)에서 찾을 수 있을 뿐만 아니라 일반 블로그 알림도 [여기](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx)에서 찾을 수 있습니다.
+Azure 기계 학습 통합 | 이 릴리스에서는 Azure 기계 학습 사용자 정의 함수에 대해 지원합니다. 추가 정보는 [자습서](stream-analytics-machine-learning-integration-tutorial.md) 및 [일반 블로그 알림](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx)을 참조합니다.
 
 ## 스트림 분석의 2015/11/12 릴리스에 대한 정보 ##
 
@@ -133,4 +141,4 @@ PowerBI 데이터 집합은 하나의 테이블만 포함할 수 있습니다.|P
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -14,16 +14,22 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/25/2016"
+ms.date="03/03/2016"
 ms.author="deonhe"/>
 
 # Salesforce API 시작
 Salesforce에 연결하여 개체 만들기, 개체 가져오기 등의 작업을 수행합니다. Salesforce API를 다음에서 사용할 수 있습니다.
 
-- PowerApps 
 - 논리 앱 
+- PowerApps
 
->[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다. 2014-12-01-preview 스키마 버전에 대한 내용을 보려면 [Salesforce API](../app-service-logic/app-service-logic-connector-salesforce.md)를 클릭하세요.
+> [AZURE.SELECTOR]
+- [논리 앱](../articles/connectors/create-api-salesforce.md)
+- [PowerApps 엔터프라이즈](../articles/power-apps/powerapps-create-api-salesforce.md)
+
+&nbsp;
+
+>[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다. 2014-12-01-preview 스키마 버전에 대한 내용을 보려면 [Salesforce 커넥터](../app-service-logic/app-service-logic-connector-salesforce.md)를 클릭하세요.
 
 Salesforce를 사용하면 다음과 같은 작업을 수행할 수 있습니다.
 
@@ -47,32 +53,6 @@ Salesforce API에는 다음 트리거 및 작업이 포함됩니다.
 
 ## Salesforce에 대한 연결 만들기 
 
-### PowerApps에 구성 추가
-PowerApps 엔터프라이즈에 Salesforce를 추가할 때 Salesforce 응용 프로그램의 **앱 키**와 **앱 암호**를 입력합니다. 또한 **URL 리디렉션** 값도 Salesforce 응용 프로그램에서 사용됩니다. Salesforce 응용 프로그램이 없는 경우 다음 단계를 사용하여 응용 프로그램을 만들 수 있습니다.
-
-1. [Salesforce 개발자 홈 페이지에 로그인][5]하고, 프로필을 선택한 다음 **Setup**을 클릭합니다. ![Salesforce 홈페이지][6]
-
-3. **만들기**를 선택하고 **앱**을 선택합니다. **Apps** 페이지의 **Connected Apps**에서 **New**를 선택합니다. ![Salesforce 앱 만들기][7]
-
-4. **새 연결된 앱**에서:
-
-	1. **Connected App Name**의 값을 입력합니다.  
-	2. **API Name**의 값을 입력합니다.  
-	3. **Contact Email**의 값을 입력합니다.  
-	4. _API (Enable OAuth Settings)_에서 **Enable OAuth Settings**를 선택하고 **Callback URL**을 Azure 포털에서 새 Salesforce API를 추가할 때 표시된 값으로 설정합니다.  
-
-5. _선택한 OAuth 범위_에서 다음 범위를 **선택한 OAuth 범위**에 추가합니다.
-
-	- Chatter 데이터(chatter\_API) 액세스 및 관리
-	- 데이터 액세스 및 관리(API)
-	- 고유 식별자(openid)에 대한 액세스 허용
-	- 언제든지 대신해서 요청 수행(refresh\_token, offline\_access)
-
-6. 변경 내용을 **저장**합니다. ![Salesforce 새 앱][8]
-
-이제 Azure 포털의 Salesforce 구성에서 **앱 키** 및 **앱 암호** 값을 복사하여 붙여넣습니다.
-
-### 논리 앱에 구성 추가
 논리 앱에 이 API를 추가할 때 Salesforce에 연결할 권한을 논리 앱에 부여해야 합니다.
 
 1. Salesforce 계정에 로그인합니다.
@@ -275,9 +255,10 @@ Salesforce에서 개체를 수정할 때 흐름을 트리거합니다. ```GET: /
 
 
 ## 다음 단계
-PowerApps 엔터프라이즈에 Salesforce API를 추가한 후 해당 앱에서 API를 사용할 [권한을 사용자에게 부여](../power-apps/powerapps-manage-api-connection-user-access.md)합니다.
 
-[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[논리 앱을 만듭니다](../app-service-logic/app-service-logic-create-a-logic-app.md).
+
+[API 목록](apis-list.md)으로 돌아갑니다.
 
 
 [5]: https://developer.salesforce.com
@@ -285,4 +266,4 @@ PowerApps 엔터프라이즈에 Salesforce API를 추가한 후 해당 앱에서
 [7]: ./media/create-api-salesforce/salesforce-create-app.png
 [8]: ./media/create-api-salesforce/salesforce-new-app.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -1,11 +1,11 @@
 <properties
-	pageTitle="마이그레이션할 행을 선택하는 인라인 테이블 값 함수(스트레치 데이터베이스) 작성 | Microsoft Azure"
-	description="마이그레이션할 행을 선택 하는 필터 조건자를 만드는 방법에 대해 알아봅니다."
+	pageTitle="필터 조건자를 사용하여 마이그레이션할 행 선택(스트레치 데이터베이스) | Microsoft Azure"
+	description="필터 조건자를 사용하여 마이그레이션할 행을 선택하는 방법을 알아봅니다."
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -16,7 +16,7 @@
 	ms.date="02/26/2016"
 	ms.author="douglasl"/>
 
-# 마이그레이션할 행을 선택하는 인라인 테이블 값 함수(스트레치 데이터베이스) 작성
+# 필터 조건자를 사용하여 마이그레이션할 행 선택(스트레치 데이터베이스)
 
 기록 데이터를 별도 테이블에 저장 하는 경우 전체 테이블을 마이그레이션할 스트레치 데이터베이스를 구성할 수 있습니다. 반면, 테이블이 기록 및 현재 데이터를 포함하는 경우 필터 조건자를 지정하여 마이그레이션할 행을 선택할 수 있습니다. 필터 조건자는 인라인 테이블 값 함수를 호출해야 합니다. 이 항목은 마이그레이션할 행을 선택하는 인라인 테이블 값 함수를 작성하는 방법을 설명합니다.
 
@@ -409,4 +409,4 @@ GO
 ## 참고 항목
 [ALTER TABLE(Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -62,4 +62,4 @@ API 관리에서 제품은 하나 이상의 API뿐만 아니라 사용 할당량
 [작업과 함께 API의 정의를 가져오는 방법]: api-management-howto-import-api.md
 [고급 제품 설정을 만들고 구성하는 방법]: api-management-howto-product-with-rules.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -18,11 +18,12 @@
 
 # Android 모바일 서비스 앱에 오프라인 데이터 동기화 추가
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> 이 항목에 해당하는 모바일 앱 버전은 [Android 모바일 앱용 오프라인 동기화 사용](../app-service-mobile/app-service-mobile-android-get-started-offline-data.md)을 참조하세요.
 
 ## 요약
 
@@ -199,7 +200,7 @@ One thing which is important to point out: if there are pending changes in the l
 
 * [클라우드 커버: Azure 모바일 서비스의 오프라인 동기화]
 
-* [Azure Friday: Azure 모바일 서비스의 오프라인 지원 앱] \(참고: 데모는 Windows용이지만 기능 설명은 모든 플랫폼에 적용)
+* [Azure Friday: Azure 모바일 서비스의 오프라인 지원 앱](참고: 데모는 Windows용이지만 기능 설명은 모든 플랫폼에 적용)
 
 
 <!-- URLs. -->
@@ -223,4 +224,4 @@ One thing which is important to point out: if there are pending changes in the l
 
 [모바일 서비스 빠른 시작 자습서]: mobile-services-android-get-started.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

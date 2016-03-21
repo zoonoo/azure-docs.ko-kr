@@ -1,5 +1,5 @@
 <properties
-	pageTitle="복사 작업 성능 및 조정 가이드"
+	pageTitle="복사 작업 성능 및 조정 가이드 | Microsoft Azure"
 	description="복사 작업을 통한 Azure Data Factory의 데이터 이동의 성능에 영향을 주는 주요 요소에 대해 알아봅니다."
 	services="data-factory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="03/07/2016"
 	ms.author="spelluru"/>
 
 
@@ -224,4 +224,4 @@ Microsoft 데이터 저장소의 경우 데이터 저장소 성능 특성를 이
 - 온-프레미스 SQL Server: [성능에 대한 모니터링 및 튜닝](https://msdn.microsoft.com/library/ms189081.aspx)을 수행합니다.
 - 온-프레미스 파일 서버: [파일 서버에 대한 성능 튜닝](https://msdn.microsoft.com/library/dn567661.aspx)입니다.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

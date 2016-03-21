@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="02/05/2016"
+   ms.date="03/02/2016"
    ms.author="alkohli" />
 
-# StorSimple Manager 서비스를 사용하여 저장소 계정 관리(미리 보기)
+# StorSimple 관리자 서비스를 사용하여 저장소 계정 관리
 
 ## 개요
 
@@ -24,7 +24,7 @@
 - 저장소 계정 
 - 액세스 제어 레코드 
 
-이 자습서에서는 **구성** 페이지를 사용하여 StorSimple 가상 배열에 대한 저장소 계정을 추가, 편집 또는 삭제하는 방법에 대해 설명합니다. 이 자습서의 정보는 공개 미리 보기 소프트웨어를 실행하는 StorSimple 가상 배열에만 적용됩니다.
+이 자습서에서는 **구성** 페이지를 사용하여 StorSimple 가상 배열에 대한 저장소 계정을 추가, 편집 또는 삭제하는 방법에 대해 설명합니다. 이 자습서의 정보는 2016년 3월 GA 릴리스 소프트웨어를 실행하는 StorSimple 가상 배열에만 적용됩니다.
 
  ![구성 페이지](./media/storsimple-ova-manage-storage-accounts/configure_service_page.png)
 
@@ -101,4 +101,4 @@ StorSimple 장치에서 사용할 수 있는 저장소 계정에는 다음과 �
 
 - [StorSimple 가상 배열을 관리](storsimple-ova-web-ui-admin.md)하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="09/29/2015"
+     ms.date="02/03/2016"
      ms.author="elioda"/>
 
 # 자습서: IoT Hub를 사용하여 장치에서 클라우드로 파일을 업로드하는 방법
@@ -39,7 +39,7 @@ Azure IoT Hub는 수백만의 IoT 장치와 응용 프로그램 백 엔드 간�
 
 + Microsoft Visual Studio 2015
 
-+ 활성 Azure 계정. <br/>계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdevelop%2Fiot%2Ftutorials%2Ffile-upload%2F target="\_blank")을 참조하세요.
++ 활성 Azure 계정. <br/>계정이 없는 경우 몇 분 만에 무료 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdevelop%2Fiot%2Ftutorials%2Ffile-upload%2F target="\_blank")을 참조하세요.
 
 
 [AZURE.INCLUDE [iot-hub-file-upload-cloud-csharp](../../includes/iot-hub-file-upload-cloud-csharp.md)]
@@ -82,8 +82,8 @@ IoT Hub에 대한 추가 정보:
 
 [Azure 포털]: https://portal.azure.com/
 
-[Azure 데이터 팩터리]: https://azure.microsoft.com/ko-KR/documentation/services/data-factory/
-[Hadoop]: https://azure.microsoft.com/ko-KR/documentation/services/hdinsight/
+[Azure 데이터 팩터리]: https://azure.microsoft.com/documentation/services/data-factory/
+[Hadoop]: https://azure.microsoft.com/documentation/services/hdinsight/
 
 [Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [IoT Hub로 클라우드-장치 메시지 보내기]: iot-hub-csharp-csharp-c2d.md
@@ -101,4 +101,4 @@ IoT Hub에 대한 추가 정보:
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [Azure IoT 개발자 센터]: http://www.azure.com/develop/iot
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

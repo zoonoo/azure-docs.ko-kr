@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 
@@ -37,7 +37,7 @@ Azure 저장소 계정 키를 회전하는 것은 간단한 3단계 프로세스
 3. 새 외부 테이블을 끌어 놓고 새 외부 데이터 원본을 가리키는 외부 테이블을 만듭니다.
 
 외부 테이블을 새 외부 데이터 원본으로 모두 마이그레이션한 후에 정리 작업을 수행할 수 있습니다.
- 
+
 1. 첫번째 외부 데이터 원본을 끌어 놓습니다.
 2. 기본 저장소 액세스 키를 기반으로 첫 번째 데이터베이스 범위 자격 증명을 끌어 놓습니다.
 3. Azure에 로그인하고 다음번에 사용할 준비가 된 기본 액세스 키를 다시 생성합니다.
@@ -47,13 +47,13 @@ Azure 저장소 계정 키를 회전하는 것은 간단한 3단계 프로세스
 
 ```
 
--- Query Azure storage resident data via external table. 
+-- Query Azure storage resident data via external table.
 SELECT * FROM [ext].[CarSensor_Data]
 ;
 
 ```
 
-> [AZURE.NOTE]외부 테이블에 대한 쿼리가 *"쿼리가 중단되었습니다. 외부 소스에서 읽는 동안 최대 거부 임계값에 도달했습니다."* 오류로 인해 실패할 수 있습니다. 이는 외부 데이터에 *더티* 레코드가 포함되어 있음을 나타냅니다. 열의 실제 데이터 형식/개수가 외부 테이블의 열 정의와 일치하지 않거나 데이터가 지정된 외부 파일 형식에 맞지 않는 경우 데이터 레코드가 '더티'로 간주됩니다. 이 문제를 해결하려면 외부 테이블 및 외부 파일 형식 정의가 올바른지, 그리고 외부 데이터가 이러한 정의를 준수하는지 확인합니다. 외부 데이터 레코드의 하위 집합이 더티인 경우 CREATE EXTERNAL TABLE DDL의 거부 옵션을 사용하여 쿼리에 대해 해당 레코드를 거부하도록 선택할 수 있습니다.
+> [AZURE.NOTE] 외부 테이블에 대한 쿼리가 *"쿼리가 중단되었습니다. 외부 소스에서 읽는 동안 최대 거부 임계값에 도달했습니다."* 오류로 인해 실패할 수 있습니다. 이는 외부 데이터에 *더티* 레코드가 포함되어 있음을 나타냅니다. 열의 실제 데이터 형식/개수가 외부 테이블의 열 정의와 일치하지 않거나 데이터가 지정된 외부 파일 형식에 맞지 않는 경우 데이터 레코드가 '더티'로 간주됩니다. 이 문제를 해결하려면 외부 테이블 및 외부 파일 형식 정의가 올바른지, 그리고 외부 데이터가 이러한 정의를 준수하는지 확인합니다. 외부 데이터 레코드의 하위 집합이 더티인 경우 CREATE EXTERNAL TABLE DDL의 거부 옵션을 사용하여 쿼리에 대해 해당 레코드를 거부하도록 선택할 수 있습니다.
 
 
 ## Azure Blob 저장소에서 데이터 로드
@@ -66,16 +66,16 @@ SELECT * FROM [ext].[CarSensor_Data]
 CREATE TABLE AS SELECT는 SQL 데이터 웨어하우스의 모든 계산 노드에 병렬로 데이터를 로드하는 높은 성능의 Transact-SQL 문입니다. 분석 플랫폼 시스템에는 방대한 병렬 처리(MPP) 엔진을 처음 개발했으며 이제 SQL 데이터 웨어하우스에 포함되었습니다.
 
 ```
--- Load data from Azure blob storage to SQL Data Warehouse 
+-- Load data from Azure blob storage to SQL Data Warehouse
 
 CREATE TABLE [dbo].[Customer_Speed]
-WITH 
+WITH
 (   
     CLUSTERED COLUMNSTORE INDEX
 ,	DISTRIBUTION = HASH([CarSensor_Data].[CustomerKey])
 )
-AS 
-SELECT * 
+AS
+SELECT *
 FROM   [ext].[CarSensor_Data]
 ;
 ```
@@ -129,7 +129,7 @@ WHERE
 ### 작은 파일에 대한 간단한 예
 
 다음은 파일을 만드는 간단한 한 줄 짜리 Powershell 스크립트입니다.
- 
+
 ```
 Get-Content <input_file_name> -Encoding Unicode | Set-Content <output_file_name> -Encoding utf8
 ```
@@ -210,4 +210,4 @@ SQL 데이터 웨어하우스에 데이터를 이동하는 방법에 대한 자�
 [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

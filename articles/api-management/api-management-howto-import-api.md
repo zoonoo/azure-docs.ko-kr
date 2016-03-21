@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # Azure API 관리에서 작업과 함께 API의 정의를 가져오는 방법
@@ -54,7 +54,7 @@ API 사양을 제공한 후 오른쪽의 라디오 단추를 사용하여 사양
 
 모든 값을 입력한 후에는 **저장**을 클릭하여 API 및 연결된 작업을 만듭니다.
 
->[AZURE.NOTE]Swagger 형식의 기본 계산기 API의 자습서는 [Azure API 관리에서 첫번째 API 관리](api-management-get-started.md)를 참조하세요.
+>[AZURE.NOTE] Swagger 형식의 기본 계산기 API의 자습서는 [Azure API 관리에서 첫번째 API 관리](api-management-get-started.md)를 참조하세요.
 
 ## <a name="export-api"> </a>API 내보내기
 
@@ -95,4 +95,4 @@ API를 만들고 작업을 가져온 후 추가 설정을 검토 및 구성하�
 [API를 만드는 방법]: api-management-howto-create-apis.md
 [API 설정을 구성하는 방법]: api-management-howto-create-apis.md#configure-api-settings
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -14,12 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="03/08/2016"
 	ms.author="jgao"/>
 
 # 부트스트랩을 사용하여 HDInsight 클러스터 사용자 지정
-
-[AZURE.INCLUDE [선택기](../../includes/hdinsight-create-windows-cluster-selector.md)]
 
 경우에 따라 다음과 같이 구성 파일을 구성해야 할 수 있습니다.
 
@@ -81,7 +79,7 @@ Bootstrap을 사용하는 방법은 3가지가 있습니다.
 7. **Configs** 탭을 클릭합니다.
 8. 왼쪽 메뉴에서 **Hive**를 클릭합니다.
 9. **고급** 탭을 클릭합니다.
-10. 스크롤을 내린 다음 **고급 hive 사이트**를 확장합니다.
+10. 스크롤을 내린 다음 **고급 Hive 사이트**를 확장합니다.
 11. 섹션에서 **hive.metastore.client.socket.timeout**을 찾습니다.
 
 다른 구성 파일을 사용자 지정하는 추가 샘플:
@@ -251,4 +249,4 @@ ARM 템플릿에 부트스트랩을 사용할 수 있습니다.
 
     #endregion
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -19,7 +19,7 @@ Azure 저장소에 메시지를 안정적으로 기록하려면 심플은 [블�
 ### Azure 저장소 계정 및 서비스 버스 큐 프로비전
 [EventProcessorHost] 클래스를 사용하기 위해서는 **EventProcessorHost** 검사점 정보를 기록하도록 하는 Azure 저장소 계정이 있어야 합니다. 기존 저장소 계정을 사용하거나 [Azure 저장소 정보]의 지침에 따라 새 계정을 만들 수 있습니다. 저장소 계정 연결 문자열을 기록해 둡니다.
 
-대화형 메시지의 신뢰할 수 있는 처리를 활성화하려면 서비스 버스 큐가 필요합니다. [서비스 버스 큐를 사용하는 방법][Service Bus Queue]에서 설명한 것처럼 1시간 중복 제거 창을 사용하여 프로그래밍 방식으로 큐를 만들거나 다음 단계를 따라 [Azure 포털]을 사용할 수 있습니다.
+대화형 메시지의 신뢰할 수 있는 처리를 활성화하려면 서비스 버스 큐가 필요합니다. [서비스 버스 큐를 사용하는 방법][Service Bus Queue]에서 설명한 것처럼 1시간 중복 제거 창을 사용하여 프로그래밍 방식으로 큐를 만들거나 다음 단계를 따라 [Azure 클래식 포털]을 사용할 수 있습니다.
 
 1. 왼쪽 아래에서 **새로 만들기**를 클릭한 다음 **앱 서비스**, **서비스 버스**, **큐**, **사용자 지정 만들기**를 차례로 클릭합니다. 이름인 **d2ctutorial**을 입력하고 영역을 선택하며 기존 네임스페이스를 사용하거나 새로 만든 후에 다음 페이지에서 **중복 검색 사용**을 선택하고 **중복 검색 기록 기간**을 1시간으로 설정합니다. 그런 다음 확인 표시를 클릭하여 큐 구성을 저장합니다.
 
@@ -294,7 +294,7 @@ Azure 저장소에 메시지를 안정적으로 기록하려면 심플은 [블�
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 [이벤트 허브 프로그래밍 가이드]: ../event-hubs/event-hubs-programming-guide.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[Azure 포털]: https://manage.windowsazure.com/
+[Azure Portal]: https://manage.windowsazure.com/
 [Service Bus Queue]: ../service-bus/service-bus-dotnet-how-to-use-queues.md
 [서비스 버스를 통해 다중 계층 응용 프로그램 빌드]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 [IoT Hub 시작]: iot-hub-csharp-csharp-getstarted.md
@@ -312,4 +312,4 @@ Azure 저장소에 메시지를 안정적으로 기록하려면 심플은 [블�
 [31]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue3.png
 [32]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue4.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

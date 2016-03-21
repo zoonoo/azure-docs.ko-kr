@@ -195,9 +195,13 @@ END 이벤트의 검색은 START 이벤트의 검색과 동일하게 동작합�
 
 토폴로지의 중지가 준비되면 Visual Studio에서 **CorrelationTopology** 프로젝트로 돌아갑니다. **Storm 토폴로지 보기**에서 토폴로지를 선택하고 토폴로지의 상단에 있는 **Kill** 단추를 사용합니다.
 
+##클러스터 삭제
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 ##다음 단계
 
 더 많은 Storm 예제는 [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)를 참조하십시오.
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

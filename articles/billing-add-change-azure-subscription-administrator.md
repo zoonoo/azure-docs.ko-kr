@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="03/07/2016"
 	ms.author="genli"/>
 
 # Azure 관리자 역할을 추가 또는 변경하는 방법
@@ -29,7 +29,7 @@ Microsoft Azure에는 세 종류의 관리자 역할이 있습니다.
 
 > [AZURE.NOTE] Azure Active Directory RBAC(역할 기반 액세스 제어)를 사용하면 사용자를 여러 역할에 추가할 수 있습니다. 자세한 내용은 [Azure Active Directory 역할 기반 액세스 제어](./active-directory/role-based-access-control-configure.md)를 참조하세요.
 
-## 구독에 공동 관리자를 추가하는 방법
+## 구독에 대한 관리자를 추가하는 방법
 
 1. [Azure 클래식 포털](https://manage.windowsazure.com/)에 로그인합니다.
 
@@ -46,7 +46,7 @@ Microsoft Azure에는 세 종류의 관리자 역할이 있습니다.
 * **Microsoft 계정**(이전의 Windows Live ID) </br> Microsoft 계정을 사용하여 Outlook(Hotmail), Skype(MSN), OneDrive, Windows Phone 및 Xbox LIVE와 같은 모든 소비자 지향 Microsoft 제품 및 클라우드 서비스에 로그인할 수 있습니다.
 * **조직 계정**</br> 조직 계정은 Azure Active Directory에 만들어지는 계정입니다. 조직 계정 주소는 user@&lt;your domain&gt;.onmicrosoft.com 형식과 유사합니다.
 
-## 제한 사항
+### 제한 사항
 
  * 구독은 각각 Azure AD 디렉터리(기본 디렉터리라고도 함)와 연결됩니다. 구독이 연결된 기본 디렉터리를 찾으려면 [Azure 클래식 포털](https://manage.windowsazure.com/)로 이동하여 **설정** > **구독**을 선택합니다. 구독 ID를 확인하여 기본 디렉터리를 찾습니다.
 
@@ -56,13 +56,14 @@ Microsoft Azure에는 세 종류의 관리자 역할이 있습니다.
 
  * 이제 조직 계정으로 Azure에 로그인할 수 있으므로 서비스 관리자 및 공동 관리자 계정 요구 사항이 다음과 같이 변경되었습니다.
 
-	| 로그인 방법| 기본 디렉터리 내에서 Microsoft 계정 또는 사용자를 CA 또는 SA로 추가하나요? |동일한 조직의 조직 계정을 CA 또는 SA로 추가하나요? |다른 조직의 조직 계정을 CA 또는 SA로 추가하나요?
-	| ------------- | ------------- |---------------|---------------|
-	|Microsoft 계정 |예|아니요|아니요|
-	|조직 계정|예|예|아니요|
+	로그인 방법| 기본 디렉터리 내에서 Microsoft 계정 또는 사용자를 CA 또는 SA로 추가하나요? |동일한 조직의 조직 계정을 CA 또는 SA로 추가하나요? |다른 조직의 조직 계정을 CA 또는 SA로 추가하나요?
+	------------- | ------------- |---------------|---------------
+	Microsoft 계정 |예|아니요|아니요
+	조직 계정|예|예|아니요
 
 ## 구독에 대한 서비스 관리자를 변경하는 방법
-계정 관리자만 구독에 대한 서비스 관리자를 변경할 수 있습니다.
+
+Azure 클래식 포털: 계정 관리자만 구독에 대한 서비스 관리자를 변경할 수 있습니다.
 
 1. 계정 관리자를 사용하여.[계정 관리 포털](https://account.windowsazure.com/subscriptions)에 로그온합니다.
 
@@ -88,4 +89,4 @@ Azure 계정의 소유권을 다른 계정에 양도하려면 [Azure 구독 양�
 
 * Azure 구독에 Azure Active Directory가 연결되는 방법에 대한 자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](./active-directory/active-directory-assign-admin-roles.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

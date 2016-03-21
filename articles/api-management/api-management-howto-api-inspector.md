@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # API 검사기를 사용하여 Azure API 관리에서 호출을 추적하는 방법
@@ -24,7 +24,7 @@ API 검사기는 작업 추적 외에 [정책 식](https://msdn.microsoft.com/li
 
 이 안내서는 API 검사기 사용을 단계적으로 안내해 줍니다.
 
->[AZURE.NOTE]API 검사기 추적은 [관리자](api-management-howto-create-groups.md) 계정에 속하는 구독 키가 포함된 요청에 대해서만 생성되고 사용할 수 있습니다.
+>[AZURE.NOTE] API 검사기 추적은 [관리자](api-management-howto-create-groups.md) 계정에 속하는 구독 키가 포함된 요청에 대해서만 생성되고 사용할 수 있습니다.
 
 ## <a name="trace-call"> </a>API 검사기를 사용하여 호출 추적
 
@@ -261,4 +261,4 @@ API 검사기를 사용하려면 **ocp-apim-trace: true** 요청 헤더를 작�
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

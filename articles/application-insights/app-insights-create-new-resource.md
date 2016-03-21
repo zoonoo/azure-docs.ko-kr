@@ -12,14 +12,10 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
 
 # 새 Application Insights 리소스 만들기
-
-
-
-[AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
 Visual Studio Application Insights는 Microsoft Azure *리소스*에 응용 프로그램에 대한 데이터를 표시합니다. 따라서 새 리소스 만들기는 [새 응용 프로그램을 모니터링하도록 Application Insights를 설정][start]하는 과정에 포함됩니다. 대부분의 경우 이 작업은 IDE에 의해 자동으로 수행될 수 있으며, 가능하면 이 방법을 사용하는 것이 좋습니다. 하지만 경우에 따라 리소스를 수동으로 만듭니다.
 
@@ -94,4 +90,4 @@ SDK는 표준 모듈을 포함하고 있기 때문에 원격 분석을 전송할
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

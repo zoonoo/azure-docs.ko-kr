@@ -28,6 +28,11 @@ Dropbox에 연결하여 파일 만들기, 파일 가져오기 등 파일을 관�
 - [논리 앱](../articles/connectors/create-api-dropbox.md)
 - [PowerApps 엔터프라이즈](../articles/power-apps/powerapps-create-api-dropbox.md)
 
+&nbsp;
+
+>[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다. 2014-12-01-preview 스키마 버전에 대한 내용을 보려면 [Dropbox 커넥터](../app-service-logic/app-service-logic-connector-dropbox.md)를 클릭하세요.
+
+
 Dropbox를 사용하여 다음과 같은 작업을 수행할 수 있습니다.
 
 - Dropbox에서 가져온 데이터를 기반으로 비즈니스 흐름을 빌드합니다. 
@@ -50,30 +55,6 @@ Dropbox에는 다음 트리거 및 작업이 포함됩니다.
 
 ## Dropbox에 대한 연결 만들기
 
-### PowerApps에 구성 추가
-PowerApps 엔터프라이즈에 Dropbox를 추가할 때 Dropbox 응용 프로그램의 **앱 키**와 **앱 암호**를 입력합니다. 또한 **URL 리디렉션** 값도 Dropbox 응용 프로그램에서 사용됩니다. Dropbox 응용 프로그램이 없는 경우 다음 단계를 사용하여 응용 프로그램을 만들 수 있습니다.
-
-1. [Dropbox][1]에 로그인합니다.
-2. Dropbox 개발자 사이트로 이동하여 **My Apps**를 선택합니다. ![Dropbox 개발자 사이트][8]  
-3. **Create app**을 선택합니다. ![Dropbox 앱 만들기][9]  
-4. **Create a new app on the Dropbox platform**에서:  
-
-	1. **Choose API**에서 **Dropbox API**를 선택합니다.
-	2. **Choose the type of access you need**에서 **Full Dropbox...**를 선택합니다.  
-	3. 앱의 이름을 입력합니다.  
-
-	![Dropbox 앱 만들기 페이지 1][10]
-
-5. 앱 설정 페이지에서:
-
-	1. **OAuth 2**에서 Azure 포털에 Dropbox API를 추가할 때 표시된 **URL 리디렉션** 값을 입력합니다. **추가**를 선택합니다.  
-	2. **표시** 링크를 선택하여 **앱 암호**를 나타냅니다.  
-
-	![Dropbox 앱 만들기 페이지 2][11]
-
-이제 Azure 포털의 Dropbox 구성에서 **앱 키** 및 **앱 암호** 값을 복사하여 붙여넣습니다.
-
-### 논리 앱에 구성 추가
 논리 앱에 이 API를 추가할 때 Dropbox에 연결할 권한을 논리 앱에 부여해야 합니다.
 
 1. Dropbox 계정에 로그인합니다.
@@ -290,9 +271,10 @@ Dropbox 폴더에서 파일을 수정할 때 흐름을 트리거합니다. ```GE
 |FileLocator|string|no|
 
 ## 다음 단계
-PowerApps 엔터프라이즈에 Dropbox API를 추가한 후 해당 앱에서 API를 사용할 [권한을 사용자에게 부여](../power-apps/powerapps-manage-api-connection-user-access.md)합니다.
 
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
+
+[API 목록](apis-list.md)으로 돌아갑니다.
 
 
 <!--References-->
@@ -304,4 +286,4 @@ PowerApps 엔터프라이즈에 Dropbox API를 추가한 후 해당 앱에서 AP
 [10]: ./media/create-api-dropbox/dropbox-create-app-page1.png
 [11]: ./media/create-api-dropbox/dropbox-create-app-page2.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

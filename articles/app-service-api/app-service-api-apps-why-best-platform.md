@@ -22,7 +22,7 @@ API 앱은 [Azure 앱 서비스](../app-service/app-service-value-prop-what-is.m
 
 ![](./media/app-service-api-apps-why-best-platform/appservicesuite.png)
 
-[앱 서비스](../app-service/app-service-value-prop-what-is.md)는 웹, 모바일 및 통합 시나리오에 풍부한 기능 집합을 제공하는 완전히 관리되는 플랫폼입니다. 앱 서비스의 API 앱은 클라우드 및 온-프레미스에서 API를 더욱 쉽게 빌드, 호스트 및 사용하는 기능을 제공합니다. 앱 서비스에서 사용자의 API를 API 앱으로 배포하고 엔터프라이즈급 보안, 단순 액세스 제어, 하이브리드 연결, 자동 SDK 생성, 그리고 [논리 앱](../app-service-logic/app-service-logic-what-are-logic-apps.md)과의 원활한 통합에서 이점을 얻을 수 있습니다.
+[앱 서비스](../app-service/app-service-value-prop-what-is.md)는 웹, 모바일 및 통합 시나리오에 풍부한 기능 집합을 제공하는 완벽하게 관리되는 플랫폼입니다. 앱 서비스의 API 앱은 클라우드 및 온-프레미스에서 API를 더욱 쉽게 빌드, 호스트 및 사용하는 기능을 제공합니다. 앱 서비스에서 사용자의 API를 API 앱으로 배포하고 엔터프라이즈급 보안, 단순 액세스 제어, 하이브리드 연결, 자동 SDK 생성, 그리고 [논리 앱](../app-service-logic/app-service-logic-what-are-logic-apps.md)과의 원활한 통합에서 이점을 얻을 수 있습니다.
 
 ## API 앱을 사용하는 이유
 
@@ -40,7 +40,16 @@ API 앱은 다음과 같은 기능을 제공합니다.
 
 또한 API 앱, 웹앱 및 모바일 앱에서 제공하는 기능은 서로 바꿔 사용할 수 있습니다. 즉, API 앱의 인스턴스는 웹앱 및 모바일 앱이 제공하는 웹 및 모바일 개발과 호스팅에 대한 기능을 활용할 수 있습니다. 반대로도 마찬가지입니다. 예를 들어 웹앱을 사용하여 API를 호스트할 수 있으며 도메인 간 브라우저 액세스를 위해 클라이언트 코드 생성 및 CORS의 경우에도 Swagger 메타데이터를 활용할 수 있습니다. 자세한 내용은 [웹앱 개요](../app-service-web/app-service-web-overview.md) 및 [모바일 앱 개요](../app-service-mobile/app-service-mobile-value-prop.md)를 참조하세요.
 
->[AZURE.NOTE] [Azure API 관리](../api-management/api-management-key-concepts.md)를 사용하여 앱 서비스 API 앱에서 호스트되는 API에 대한 클라이언트 액세스를 제어할 수 있습니다. API 앱이 인증 서비스를 제공하는 반면 액세스 관리 끝점 통합 및 제한 등 API 관리에서 제공하는 다른 기능을 제공하지 않습니다.
+## Azure API 관리를 사용하여 API 앱을 보강하는 방법 
+
+API 앱 및 [Azure API 관리](../api-management/api-management-key-concepts.md)는 보완 서비스입니다.
+
+* API 관리는 API를 관리하는 것입니다. API에 API 관리 프런트 엔드를 배치하여 사용량을 모니터링 및 제한하고, 입력 및 출력을 조작하며, 몇 가지 API를 하나로 통합합니다. 관리되는 API는 어디서나 호스팅할 수 있습니다.
+* API 앱은 API를 호스팅하는 것입니다. 이 서비스에는 API 개발 및 사용 방법을 용이하게 하는 기능이 포함되어 있지만 API 관리가 수행하는 것을 모니터링, 제한, 조작하거나 통합하는 유형의 작업은 수행하지 않습니다. 
+
+API 관리를 사용하여 API 앱이 호스트하는 API를 관리하거나, API 앱을 API 관리 없이 사용할 수 있습니다.
+
+API 관리 및 API 앱의 일부 기능에는 유사한 함수가 있습니다. 예를 들어, 두 가지 모두 CORS 지원을 자동화할 수 있습니다. 두 서비스를 함께 사용하면 API 앱에 대한 프런트 엔드로 작동하므로 CORS에 대한 API 관리를 사용합니다.
 
 ## <a id="concepts"></a> API 앱 개념
 
@@ -57,4 +66,4 @@ API 앱의 알려진 문제 목록을 보려면 [API 앱의 알려진 문제 포
 
 Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스](../app-service/app-service-value-prop-what-is.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

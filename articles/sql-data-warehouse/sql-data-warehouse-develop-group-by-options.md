@@ -13,14 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스의 GROUP BY 옵션
 
 [GROUP BY] 절을 사용하여 데이터를 요약 행 집합으로 집계합니다. 또한 Azure SQL 데이터 웨어하우스에서 직접 지원하지 않기 때문에 해결해야 하는 기능을 확장하는 몇 가지 옵션이 있습니다.
 
-GROUP BY ROLLUP - GROUPING SETS - GROUP BY with CUBE가 그러한 옵션입니다.
+이들 옵션은
+- GROUP BY with ROLLUP
+- 그룹화 집합
+- GROUP BY with CUBE
 
 ## 롤업 및 그룹화 집합 옵션
 여기서 가장 간단한 옵션은 명시적 구문에 의존하는 대신 `UNION ALL`을 사용하여 롤업을 수행하는 것입니다. 결과는 완전히 동일합니다.
@@ -40,7 +43,10 @@ GROUP BY ROLLUP (
 ;
 ```
 
-롤업을 사용하여 다음과 같은 집계를 요청했습니다. - 국가 및 하위 지역 - 국가 - 총합계
+ROLLUP을 사용하여 다음과 같은 집계를 요청했습니다.
+- 국가 및 지역
+- 국가
+- 총합계
 
 이 요청을 바꾸려면 `UNION ALL`을 사용해야 하며, 동일한 결과가 반환되도록 필요한 집계를 명시적으로 지정합니다.
 
@@ -50,7 +56,7 @@ SELECT [SalesTerritoryCountry]
 ,      SUM(SalesAmount) AS TotalSalesAmount
 FROM  dbo.factInternetSales s
 JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritoryKey
-GROUP BY 
+GROUP BY
        [SalesTerritoryCountry]
 ,      [SalesTerritoryRegion]
 UNION ALL
@@ -59,7 +65,7 @@ SELECT [SalesTerritoryCountry]
 ,      SUM(SalesAmount) AS TotalSalesAmount
 FROM  dbo.factInternetSales s
 JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritoryKey
-GROUP BY 
+GROUP BY
        [SalesTerritoryCountry]
 UNION ALL
 SELECT NULL
@@ -80,7 +86,7 @@ UNION ALL 접근방식을 사용하여 GROUP BY WITH CUBE를 만들 수 있습�
 
 ```
 CREATE TABLE #Cube
-WITH 
+WITH
 (   DISTRIBUTION = ROUND_ROBIN
 ,   LOCATION = USER_DB
 )
@@ -99,9 +105,9 @@ CROSS JOIN ( SELECT 'SalesTerritoryRegion' as Region
            ) r
 )
 SELECT Cols
-,      CASE WHEN SUBSTRING(GroupBy,LEN(GroupBy),1) = ',' 
-            THEN SUBSTRING(GroupBy,1,LEN(GroupBy)-1) 
-            ELSE GroupBy 
+,      CASE WHEN SUBSTRING(GroupBy,LEN(GroupBy),1) = ','
+            THEN SUBSTRING(GroupBy,1,LEN(GroupBy)-1)
+            ELSE GroupBy
        END AS GroupBy  --Remove Trailing Comma
 ,Seq
 FROM GrpCube;
@@ -114,7 +120,7 @@ CTAS의 결과는 아래와 같습니다.
 두 번째 단계는 중간 결과를 저장할 대상 테이블을 지정하는 것입니다.
 
 ```
-DECLARE 
+DECLARE
  @SQL NVARCHAR(4000)
 ,@Columns NVARCHAR(4000)
 ,@GroupBy NVARCHAR(4000)
@@ -150,7 +156,7 @@ BEGIN
               FROM  dbo.factInternetSales s
               JOIN  dbo.DimSalesTerritory t  
               ON s.SalesTerritoryKey = t.SalesTerritoryKey
-              '+CASE WHEN @GroupBy <>'' 
+              '+CASE WHEN @GroupBy <>''
                      THEN 'GROUP BY '+@GroupBy ELSE '' END
 
     EXEC sp_executesql @SQL;
@@ -161,7 +167,7 @@ END
 마지막으로 #Results 임시 테이블을 읽어서 결과를 반환할 수 있습니다.
 
 ```
-SELECT * 
+SELECT *
 FROM #Results
 ORDER BY 1,2,3
 ;
@@ -185,4 +191,4 @@ ORDER BY 1,2,3
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

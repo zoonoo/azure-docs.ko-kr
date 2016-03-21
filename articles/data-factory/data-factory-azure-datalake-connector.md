@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 데이터 레이크 저장소 간 데이터 이동 | Azure 데이터 팩터리"
+	pageTitle="Azure Data Lake 저장소 간 데이터 이동 | Azure Data Factory"
 	description="Azure 데이터 팩터리를 사용하여 Azure 데이터 레이크 저장소 간 데이터를 이동하는 방법에 대해 알아봅니다."
 	services="data-factory"
 	documentationCenter=""
@@ -418,9 +418,9 @@ Azure 저장소 연결된 서비스를 사용하여 Azure 저장소 계정을 Az
 | 사용자 유형 | 다음 시간 후에 만료 |
 | :-------- | :----------- | 
 | Azure Active Directory에서 관리되지 않는 사용자 계정(@hotmail.com, @live.com 등) | 12시간 |
-| AAD(Azure Active Directory)에서 관리되는 사용자 계정 | | 마지막 조각이 실행된 후 14일 <p>OAuth 기반 연결된 서비스를 기반으로 하는 조각이 14일마다 한 번 이상 실행된 경우 90일</p> |
+| AAD(Azure Active Directory)에서 관리되는 사용자 계정 | 마지막 조각이 실행된 후 14일 <br/><br/>OAuth 기반 연결된 서비스를 기반으로 하는 조각이 14일마다 한 번 이상 실행된 경우 90일 |
 
-이 오류를 방지하거나 해결하려면 **토큰이 만료**될 때 **권한 부여** 단추를 사용하여 다시 인증하고 연결된 서비스를 다시 배포해야 합니다. 다음 섹션의 코드를 사용하여 프로그래밍 방식으로 **sessionId** 및 **authorization** 속성의 값을 생성할 수도 있습니다.
+이 오류를 방지/해결하려면 **토큰이 만료**되면 **권한 부여** 단추를 사용하여 다시 인증하고 연결된 서비스를 다시 배포해야 합니다. 다음 섹션의 코드를 사용하여 프로그래밍 방식으로 **sessionId** 및 **authorization** 속성의 값을 생성할 수도 있습니다.
 
 ### 프로그래밍 방식으로 sessionId와 권한 부여 값을 생성하려면 
 
@@ -459,7 +459,7 @@ Azure 저장소 연결된 서비스를 사용하여 Azure 저장소 계정을 Az
 | 속성 | 설명 | 필수 |
 | :-------- | :----------- | :-------- |
 | folderPath | Azure 데이터 레이크 저장소의 컨테이너 및 폴더에 대한 경로입니다. | 예 |
-| fileName | <p>Azure Data Lake 저장소에 있는 파일의 이름입니다. fileName은 선택 사항이며 대/소문자를 구분합니다. </p><p>filename을 지정하면 활동(복사 포함)이 특정 파일에서 작동합니다.</p><p> fileName이 지정되지 않으면 복사는 입력 데이터 집합에 대한 folderPath의 모든 파일을 포함합니다.</p><p>fileName이 출력 데이터 집합에 대해 지정되지 않으면 생성된 파일의 이름이 Data.<Guid>.txt(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p> 형식으로 표시됩니다. | 아니요 |
+| fileName | Azure Data Lake 저장소에 있는 파일의 이름입니다. fileName은 선택 사항이며 대/소문자를 구분합니다. <br/><br/>filename을 지정하면 활동(복사 포함)이 특정 파일에서 작동합니다.<br/><br/> fileName이 지정되지 않으면 복사는 입력 데이터 집합에 대한 folderPath의 모든 파일을 포함합니다.<br/><br/>fileName이 출력 데이터 집합에 대해 지정되지 않으면 생성된 파일의 이름이 Data.<Guid>.txt(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) 형식으로 표시됩니다. | 아니요 |
 | partitionedBy | partitionedBy는 선택적 속성입니다. 동적 folderPath 및 시계열 데이터에 대한 filename을 지정하는 데 사용할 수 있습니다. 예를 들어 folderPath는 매시간 데이터에 대한 매개 변수화됩니다. 자세한 내용과 예제는 아래 partitionedBy 속성 활용 섹션을 참조하세요. | 아니요 |
 | format | **TextFormat**, **AvroFormat**과 같은 두 서식 유형이 지원됩니다. 값이 있으면 이 중 하나로 서식에서 형식 속성을 설정해야 합니다. 서식이 TextFormat인 경우 형식에 선택적 추가 속성을 지정할 수 있습니다. 자세한 내용은 아래 [TextFormat 지정](#specifying-textformat) 섹션을 참조하세요. | 아니요 |
 | 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate** 및 **BZip2**이고 지원되는 수준은 **최적** 및 **가장 빠름**입니다. 현재 **AvroFormat**의 데이터에 대한 압축 설정은 지원되지 않습니다. 자세한 내용은 [압축 지원](#compression-support) 섹션을 참조하세요. | 아니요 |
@@ -501,9 +501,9 @@ Azure 저장소 연결된 서비스를 사용하여 Azure 저장소 계정을 Az
 | -------- | ----------- | -------- |
 | columnDelimiter | 파일에서 문자는 열 구분 기호로 사용됩니다. 이때 하나의 문자만 허용됩니다. 이 태그는 선택 사항입니다. 기본값은 쉼표(,)입니다. | 아니요 |
 | rowDelimiter | 파일에서 문자는 원시 구분 기호로 사용됩니다. 이때 하나의 문자만 허용됩니다. 이 태그는 선택 사항입니다. 기본값은 다음 중 하나입니다. ["\\r\\n", "\\r", "\\n"] | 아니요 |
-| escapeChar | <p>열 구분 기호를 이스케이프하는 데 사용되는 특수 문자가 콘텐츠에 표시됩니다. 이 태그는 선택 사항입니다. 기본값은 없습니다. 이 속성에 한 개의 문자만을 지정해야 합니다.</p><p>예를 들어 열 구분 기호로 쉼표(,)가 있지만 텍스트에서 쉼표 문자를 쓰려는 경우(예: "Hello, world") '$'를 이스케이프 문자로 정의하고 원본에서 "$Hello, world" 문자열을 사용할 수 있습니다.</p><p>테이블에 escapeChar 및 quoteChar 모두를 지정할 수 없습니다.</p> | 아니요 | 
-| quoteChar | <p>특수 문자는 문자열 값을 따옴표로 묶는 데 사용됩니다. 인용 문자 내의 열 및 행 구분 기호는 문자열 값의 일부로 간주됩니다. 이 태그는 선택 사항입니다. 기본값은 없습니다. 이 속성에 한 개의 문자만을 지정해야 합니다.</p><p>예를 들어 열 구분 기호로 쉼표(,)가 있지만 텍스트에서 쉼표 문자를 쓰려는 경우(예: <Hello  world>) ‘"’를 인용 문자로 정의하고 원본에서 <"Hello, world"> 문자열을 사용할 수 있습니다. 이 속성은 입력 및 출력 테이블 모두에 적용됩니다.</p><p>테이블에 escapeChar 및 quoteChar을 모두 지정할 수 없습니다.</p> | 아니요 |
-| nullValue | <p>Blob 파일 콘텐츠에서 null 값을 나타내는 데 사용되는 문자입니다. 이 태그는 선택 사항입니다. 기본값은 "\\N"입니다.</p><p>예를 들어 위의 예제에 따라 blob의 "NaN"이 예를 들어 SQL Server에 복사되는 동안 null 값으로 변환됩니다.</p> | 아니요 |
+| escapeChar | 열 구분 기호를 이스케이프 하는데 사용되는 특수 문자가 내용에 표시됩니다. 이 태그는 선택 사항입니다. 기본값은 없습니다. 이 속성에 한 개의 문자만을 지정해야 합니다.<br/><br/>예를 들어 열 구분 기호로 쉼표(,)가 있지만 텍스트에서 쉼표 문자를 쓰려는 경우(예: "Hello, world") '$'를 이스케이프 문자로 정의하고 원본에서 "Hello$, world" 문자열을 사용할 수 있습니다.<br/><br/>테이블에 escapeChar 및 quoteChar 모두를 지정할 수 없습니다. | 아니요 | 
+| quoteChar | 특수 문자는 문자열 값을 따옴표로 묶는 데 사용됩니다. 인용 문자 내의 열 및 행 구분 기호는 문자열 값의 일부로 간주됩니다. 이 태그는 선택 사항입니다. 기본값은 없습니다. 이 속성에 한 개의 문자만을 지정해야 합니다.<br/><br/>예를 들어 열 구분 기호로 쉼표(,)가 있지만 텍스트에서 쉼표 문자를 쓰려는 경우(예: <Hello  world>) ‘"’를 인용 문자로 정의하고 원본에서 <"Hello, world"> 문자열을 사용할 수 있습니다. 이 속성은 입력 및 출력 테이블 모두에 적용됩니다.<br/><br/>테이블에 escapeChar 및 quoteChar을 모두 지정할 수 없습니다. | 아니요 |
+| nullValue | Blob 파일 내용에서 null 값을 나타내는 데 사용되는 문자입니다. 이 태그는 선택 사항입니다. 기본값은 "\\N"입니다.<br/><br/>예를 들어 위의 예제에 따라 blob의 "NaN"이 예를 들어 SQL Server에 복사되는 동안 null 값으로 변환됩니다. | 아니요 |
 | encodingName | 인코딩 이름을 지정합니다. 올바른 인코딩 이름 목록은 [Encoding.EncodingName Property](https://msdn.microsoft.com/library/system.text.encoding.aspx) 속성을 참조하세요. 예: windows-1250 또는 shift\_jis 기본값은 UTF-8입니다. | 아니요 | 
 
 #### 샘플
@@ -598,7 +598,7 @@ Hive 테이블에서 Avro 형식을 사용하려는 경우 [Apache Hive의 자�
 
 | 속성 | 설명 | 허용되는 값 | 필수 |
 | -------- | ----------- | -------------- | -------- |
-| copyBehavior | 복사 동작을 지정합니다. | <p>**PreserveHierarchy:** 대상 폴더의 파일 계층 구조를 유지합니다. 즉, 원본 폴더에 대한 원본 파일의 상대 경로가 대상 폴더에 대한 대상 파일의 상대 경로와 동일합니다.</p><p>**FlattenHierarchy:** 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준이 됩니다. 대상 파일은 자동 생성된 이름을 갖습니다.</p><p>**MergeFiles:** 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 파일/Blob 이름이 지정된 경우 지정된 이름이 병합된 파일 이름이 됩니다. 그렇지 않으면 자동 생성된 파일 이름이 병합된 파일 이름이 됩니다.</p> | 아니요 |
+| copyBehavior | 복사 동작을 지정합니다. | **PreserveHierarchy:** 대상 폴더의 파일 계층 구조를 유지합니다. 즉, 원본 폴더에 대한 원본 파일의 상대 경로가 대상 폴더에 대한 대상 파일의 상대 경로와 동일합니다.<br/><br/>**FlattenHierarchy:** 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준이 됩니다. 대상 파일은 자동 생성된 이름을 갖습니다.<br/><br/>**MergeFiles:** 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 파일/Blob 이름이 지정된 경우 지정된 이름이 병합된 파일 이름이 됩니다. 그렇지 않으면 자동 생성된 파일 이름이 병합된 파일 이름이 됩니다. | 아니요 |
 
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
@@ -607,4 +607,4 @@ Hive 테이블에서 Avro 형식을 사용하려는 경우 [Apache Hive의 자�
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

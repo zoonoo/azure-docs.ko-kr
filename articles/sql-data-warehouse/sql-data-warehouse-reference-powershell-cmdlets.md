@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/22/2016"
+   ms.date="03/03/2016"
    ms.author="barbkess;mausher;sonyama"/>
 
 # SQL 데이터 웨어하우스에서 PowerShell cmdlet 및 REST API 사용
@@ -26,7 +26,7 @@ SQL 데이터 웨어하우스는 Azure PowerShell cmdlet 또는 REST API를 사�
 
 ## Azure PowerShell cmdlet을 다운로드하여 실행합니다.
 
-1. Azure PowerShell 모듈을 다운로드하려면 [Microsoft 웹 플랫폼 설치 관리자](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)를 실행합니다. 
+1. Azure PowerShell 모듈을 다운로드하려면 [Microsoft 웹 플랫폼 설치 관리자](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)를 실행합니다.
 2. 모듈을 실행하려면 시작 창에서 **Windows PowerShell**을 입력합니다.
 3. 아직 컴퓨터에 계정을 추가하지 않았다면 다음 cmdlet을 실행합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법]()을 참조하세요.
 
@@ -42,14 +42,14 @@ SQL 데이터 웨어하우스는 Azure PowerShell cmdlet 또는 REST API를 사�
 
 ## Suspend-AzureRmSqlDatabase
 
-명령 참조는 [Suspend-AzureRmSQLDatabase](https://msdn.microsoft.com/library/mt619337.aspx)를 참조하세요.
+명령 참조에 대해서는 [Suspend AzureRmSqlDatabase](https://msdn.microsoft.com/library/mt619337.aspx)를 참조하세요.
 
 ### 예 1: 서버에서 이름으로 데이터베이스 일시 중지
 
 이 예제에서는 "Server01."라는 서버에서 호스트하는 "Database02"라는 데이터베이스를 일시 중지합니다. 서버는 "ResourceGroup1."이라는 Azure 리소스 그룹 내에 있습니다.
 
 ```
-Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
+Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 ```
 
 ### 예 2: 데이터베이스 개체 일시 중지
@@ -57,7 +57,7 @@ Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName 
 이 예에서는 "ResourceGroup1."이라는 리소스 그룹에 포함된 "Server01"이라는 서버에서 "Database02"라는 데이터베이스를 검색 합니다. 검색된 개체를 **Suspend-AzureRmSqlDatabase**에 파이프합니다. 그 결과로 데이터베이스가 일시 중지됩니다. 마지막 명령은 결과를 보여 줍니다.
 
 ```
-$database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
+$database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 $resultDatabase = $database | Suspend-AzureRmSqlDatabase
 $resultDatabase
 ```
@@ -71,7 +71,7 @@ $resultDatabase
 이 예제에서는 "Server01."이라는 서버에서 호스트하는 "Database02"라는 데이터베이스의 작동을 다시 시작합니다. 서버는 "ResourceGroup1."이라는 리소스 그룹 내에 있습니다.
 
 ```
-Resume-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" -DatabaseName "Database02"
+Resume-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" -DatabaseName "Database02"
 ```
 
 ### 예 2: 데이터베이스 개체 다시 시작
@@ -79,7 +79,7 @@ Resume-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "
 이 예에서는 "ResourceGroup1."이라는 리소스 그룹에 포함된 "Server01"이라는 서버에서 "Database02"라는 데이터베이스를 검색합니다. 개체가 **Resume-AzureRmSqlDatabase**에 파이프됩니다.
 
 ```
-$database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
+$database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 $resultDatabase = $database | Resume-AzureRmSqlDatabase
 ```
 
@@ -96,8 +96,8 @@ RestorePointCreationDate |백업 스냅숏 시간(restorePointType = DISCRETE인
 ### 예 1: 서버에서 이름으로 데이터베이스의 복원 지점 검색
 이 예에서는 "ResourceGroup1."이라는 리소스 그룹에 포함된 "Server01"이라는 서버에서 "Database02"라는 데이터베이스에 대한 복원 지점을 검색합니다.
 
-```	
-$restorePoints = Get-AzureRmSqlDatabaseRestorePoints –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
+```
+$restorePoints = Get-AzureRmSqlDatabaseRestorePoints –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 $restorePoints
 ```
 
@@ -107,13 +107,13 @@ $restorePoints
 이 예에서는 "ResourceGroup1."이라는 리소스 그룹에 포함된 "Server01"이라는 서버에서 "Database02"라는 데이터베이스를 검색합니다. 데이터베이스 개체는 **Get-AzureRmSqlDatabase**로 파이프되며 결과가 데이터베이스의 복원 지점입니다. 마지막 명령은 결과를 출력합니다.
 
 ```
-$database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
+$database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 $restorePoints = $database | Get-AzureRmSqlDatabaseRestorePoints
 $retorePoints
 ```
 
 
-> [AZURE.NOTE] 서버가 foo.database.windows.net인 경우 Powershell cmdlet에서 -ServerName로 "foo"를 사용합니다.
+> [AZURE.NOTE] 서버가 foo.database.windows.net인 경우 PowerShell cmdlet의 ServerName으로 "foo"를 사용합니다.
 
 
 ## 다음 단계
@@ -133,4 +133,4 @@ $retorePoints
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

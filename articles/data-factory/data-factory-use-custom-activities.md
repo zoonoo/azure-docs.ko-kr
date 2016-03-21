@@ -73,14 +73,14 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
 ### 절차: 
 1.	.NET 클래스 라이브러리 프로젝트를 만듭니다.
 	<ol type="a">
-	<li><b>Visual Studio 2012</b> 또는 <b>Visual Studio 2013</b>을 시작합니다.</li>
-	<li><b>파일</b>을 클릭하고 <b>새로 만들기</b>를 가리킨 다음 <b>프로젝트</b>를 클릭합니다.</li>
-	<li><b>템플릿</b>을 확장하고 <b>Visual C#</b>을 선택합니다. 이 연습에서는 C#을 사용하지만 다른 .NET 언어를 사용하여 사용자 지정 작업을 개발할 수도 있습니다.</li>
-	<li>오른쪽의 프로젝트 형식 목록에서 <b>클래스 라이브러리</b>를 선택합니다.</li>
-	<li><b>MyDotNetActivity</b>를 <b>이름</b>으로 입력합니다.</li>
-	<li><b>C:\ADFGetStarted</b>를 <b>위치</b>로 선택합니다.</li>
-	<li><b>확인</b>을 클릭하여 프로젝트를 만듭니다.</li>
-</ol>
+		<li><b>Visual Studio 2012</b> 또는 <b>Visual Studio 2013</b>을 시작합니다.</li>
+		<li><b>파일</b>을 클릭하고 <b>새로 만들기</b>를 가리킨 다음 <b>프로젝트</b>를 클릭합니다.</li>
+		<li><b>템플릿</b>을 확장하고 <b>Visual C#</b>을 선택합니다. 이 연습에서는 C#을 사용하지만 다른 .NET 언어를 사용하여 사용자 지정 작업을 개발할 수도 있습니다.</li>
+		<li>오른쪽의 프로젝트 형식 목록에서 <b>클래스 라이브러리</b>를 선택합니다.</li>
+		<li><b>MyDotNetActivity</b>를 <b>이름</b>으로 입력합니다.</li>
+		<li><b>C:\ADFGetStarted</b>를 <b>위치</b>로 선택합니다.</li>
+		<li><b>확인</b>을 클릭하여 프로젝트를 만듭니다.</li>
+	</ol>
 2.  <b>도구</b>를 클릭하고 <b>NuGet 패키지 관리자</b>를 가리킨 다음 <b>패키지 관리자 콘솔</b>을 클릭합니다.
 3.	<b>패키지 관리자 콘솔</b>에서 다음 명령을 실행하여 <b>Microsoft.Azure.Management.DataFactories</b>를 가져옵니다.
 
@@ -608,7 +608,7 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 	- **AssemblyName**을 DLL의 이름 **MyActivities.dll**로 설정합니다.
 	- **EntryPoint**를 **MyDotNetActivityNS.MyDotNetActivity**로 설정합니다.
 	- **PackageLinkedService**가 사용자 지정 작업 zip 파일을 포함하는 Blob 저장소를 가리키는 **StorageLinkedService**로 설정됩니다. 입/출력 파일 및 사용자 지정 작업 zip 파일에 대해 서로 다른 Azure 저장소 계정을 사용하는 경우 다른 Azure 저장소 연결된 서비스를 만들어야 합니다. 이 문서에서는 동일한 Azure 저장소 계정을 사용 중이라고 가정합니다.
-	- **PackageFile**을 **customactivitycontainer/MyDotNetActivity.zip**으로 설정합니다. <containerforthezip>/<nameofthezip.zip> 형식입니다.
+	- **PackageFile**을 **customactivitycontainer/MyDotNetActivity.zip**으로 설정합니다. containerforthezip/nameofthezip.zip 형식입니다.
 	- 사용자 지정 작업은 입력으로 **InputDataset**을, 출력으로 **OutputDataset**을 사용합니다.
 	- 사용자 지정 활동의 linkedServiceName 속성은 **HDInsightLinkedService**를 가리키며 Azure Data Factory에 사용자 지정 작업을 Azure HDInsight 클러스터에서 실행해야 함을 알려줍니다.
 	- **isPaused** 속성은 기본적으로 **false**로 설정됩니다. 이 예제에서는 조각이 이전에 시작되므로 파이프라인이 즉시 실행됩니다. 파이프라인을 일시 중지하려면 이 속성을 true로 설정하고 다시 시작하려면 false로 다시 설정할 수 있습니다. 
@@ -803,4 +803,4 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

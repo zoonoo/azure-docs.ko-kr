@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/07/2016"
+	ms.date="02/24/2016"
 	ms.author="tamram"/>
 	
 # Windows 스토어 앱에서 Azure 저장소를 사용하는 방법
@@ -22,9 +22,9 @@
 
 ## 필요한 도구 다운로드
 
-- [Visual Studio 2012](http://msdn.microsoft.com/library/windows/apps/br211384)를 사용하면 Windows 스토어 앱을 쉽게 빌드, 디버그, 지역화, 패키지 및 배포할 수 있습니다.
-- [Windows Runtime용 Azure 저장소 클라이언트 라이브러리](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/05/windows-azure-storage-client-library-for-windows-runtime.aspx)는 Azure 저장소와 함께 작업하기 위해 클래스 라이브러리를 제공합니다.
-- [Windows 스토어 앱용 WCF 데이터 서비스 도구](http://www.microsoft.com/download/details.aspx?id=30714)는 Visual Studio 2012 이상에서 Windows 스토어 앱용 클라이언트 쪽 OData 지원으로 서비스 참조 추가까지 경험하게 해줍니다.
+- [Visual Studio](https://www.visualstudio.com/ko-KR/visual-studio-homepage-vs.aspx)는 Windows 스토어 앱을 쉽게 빌드, 디버그, 지역화, 패키징 및 배포할 수 있게 해줍니다. Visual Studio 2012 이상이 필요합니다.
+- [Azure 저장소 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage)는 Azure 저장소 작업을 위한 Windows 런타임 클래스 라이브러리를 제공합니다.
+- [Windows 스토어 앱을 위한 WCF 데이터 서비스 도구](http://www.microsoft.com/download/details.aspx?id=30714)는 Visual Studio에서 Windows 스토어 앱 용 클라이언트쪽 OData 지원으로 서비스 참조 추가 환경을 확장합니다.
 
 ## 앱 개발
 
@@ -87,4 +87,4 @@ WCF 데이터 서비스 NuGet 패키지를 참조한 경우 단추의 **Click** 
 [store-apps-storage-choose-library]: ./media/storage-use-store-apps/store-apps-storage-choose-library.png
 [store-apps-storage-package-manager]: ./media/storage-use-store-apps/store-apps-storage-package-manager.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

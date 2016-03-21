@@ -22,7 +22,7 @@
 - [Azure CLI](dns-operations-dnszones-cli.md)
 - [PowerShell](dns-operations-dnszones.md)
 
-이 가이드에서는 DNS 영역을 관리하는 방법을 보여 줍니다. DNS 영역을 관리하기 위해 수행하는 작업 시퀀스를 이해하는 데 도움이 됩니다.
+이 가이드에서는 플랫폼 간 Azure CLI를 사용하여 DNS 영역 리소스를 관리하는 방법을 보여 줍니다.
 
 >[AZURE.NOTE] Azure DNS는 Azure 리소스 관리자 전용 서비스입니다. 여기에는 ASM API가 없습니다. 따라서 'azure config mode arm' 명령을 사용하여 Azure CLI가 리소스 관리자 모드를 사용하도록 구성되었는지 확인해야 합니다.
 
@@ -76,6 +76,6 @@ Azure DNS에서 DNS 영역을 삭제하기 전에 영역을 만들 때 자동으
 ## 다음 단계
 
 
-[DNS 레코드를 관리하는 방법](dns-operations-recordsets-cli.md) 및 [.NET SDK를 사용하여 작업을 자동화](dns-sdk.md)하는 방법을 알아봅니다
+[DNS 레코드를 관리하는 방법](dns-operations-recordsets-cli.md) 및 [.NET SDK를 사용하여 작업을 자동화](dns-sdk.md)하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

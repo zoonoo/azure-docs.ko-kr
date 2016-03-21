@@ -3,7 +3,7 @@
    description="ACR(액세스 제어 레코드)을 관리하여 어떤 호스트가 StorSimple 가상 배열의 볼륨에 연결할 수 있는지 지정하는 방법에 대해 설명합니다."
    services="storsimple"
    documentationCenter=""
-   authors="SharS"
+   authors="alkohli"
    manager="carmonm"
    editor="" />
 <tags 
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/18/2016"
-   ms.author="v-sharos" />
+   ms.date="03/02/2016"
+   ms.author="alkohli" />
 
-# StorSimple 가상 배열을 위해 StorSimple 관리자 서비스를 사용하여 액세스 제어 레코드 관리(미리 보기)
+# StorSimple 관리자 서비스를 사용하여 StorSimple 가상 배열에 대한 액세스 제어 레코드 관리 
 
 ## 개요
 
@@ -114,4 +114,4 @@ Azure 클래식 포털의 **구성** 페이지에서 ACR을 삭제합니다.
 
 - [볼륨 추가 및 ACR 구성](storsimple-ova-deploy3-iscsi-setup.md#step-3-add-a-volume)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

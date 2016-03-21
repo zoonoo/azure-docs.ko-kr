@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Azure Active Directory Reporting 백필 시간 | Microsoft Azure"
-   description="Azure Active Directory에 이전 보고 이벤트를 표시하는 데 걸리는 시간"
+   pageTitle="Azure Active Directory 보고서 백필 시간 | Microsoft Azure"
+   description="Azure AD 디렉터리에 이전 보고 이벤트를 표시하는 데 걸리는 시간"
    services="active-directory"
    documentationCenter=""
-   authors="kenhoff"
-   manager="mbaldwin"
+   authors="dhanyahk"
+   manager="stevepo"
    editor=""/>
 
 <tags
@@ -13,24 +13,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/07/2015"
-   ms.author="kenhoff"/>
+   ms.date="03/07/2016"
+   ms.author="dhanyahk"/>
 
 # Azure Active Directory 보고서 백필 시간
 
 *이 설명서는 [Azure Active Directory Reporting 가이드](active-directory-reporting-guide.md)의 일부입니다.*
 
-디렉터리가 보고서에 옵트인된 후 특정 일수에 대한 보고서 백필 데이터가 여기에 표시됩니다.
+디렉터리가 보고서에 옵트인(opt in)된 후 특정 일수에 대한 보고서 백필 데이터가 여기에 표시됩니다.
 
 보고서 | 설명
 ------------------------------------------------------- | -----------
 알 수 없는 원본에서 로그인 | 0일
 여러 번의 실패 후 로그인 | 0일
 여러 지역에서의 로그인 | 0일
-의심스러운 활동을 포함하는 IP 주소의 로그인 | 0일
-감염 가능성이 있는 장치에서의 로그인 | 0일
-비정상적인 로그인 활동 | 0일
-비정상적인 로그인 활동을 포함하는 사용자 보고서 | 0일
+의심스러운 작업이 있는 IP 주소에서 로그인 | 0일
+감염 가능성이 있는 장치에서 로그인 | 0일
+비정상적인 로그인 작업 | 0일
+비정상적인 로그인 활동을 포함하는 사용자 | 0일
 자격 증명이 손실된 사용자 | 0일
 감사 보고서 | 30일
 암호 재설정 활동(Azure AD) | 0일
@@ -48,4 +48,4 @@ RMS 사용 현황 | 0일
 RMS 장치 사용 | 0일
 RMS 사용 응용 프로그램 사용 현황 | 0일
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

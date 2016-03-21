@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="SSalahAhmed"
-	manager="gchander"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/17/2015"
+	ms.date="03/04/2016"
 	ms.author="saah;kenhoff"/>
 
 # 알 수 없는 원본에서 로그인
-<p>이 보고서에는 Microsoft에서 익명 프록시 IP 주소(Tor IP)로 인식한 클라이언트 IP 주소가 디렉터리에 할당되는 동안 사용자의 디렉터리에 로그인한 다른 사용자가 포함됩니다. 이 프록시는 흔히 자신의 컴퓨터의 IP 주소를 숨기려는 사용자가 사용하며 악의적인 의도로 사용될 수 있습니다. </p><p> 이 보고서의 결과는 사용자가 해당 주소 및 프록시의 IP 주소에서 디렉터리에 로그인한 횟수를 보여 줍니다.</p>
+이 보고서에는 Microsoft에서 익명 프록시 IP 주소로 인식한 클라이언트 IP 주소가 디렉터리에 할당되는 동안 사용자의 디렉터리에 로그인한 다른 사용자가 포함됩니다. 이 프록시는 흔히 자신의 컴퓨터의 IP 주소를 숨기려는 사용자가 사용하며 악의적인 의도로 사용될 수 있습니다.
+
+이 보고서의 결과는 사용자가 해당 주소 및 프록시의 IP 주소에서 디렉터리에 로그인한 횟수를 보여 줍니다.
 
 
 ![알 수 없는 원본에서 로그인](./media/active-directory-reporting-sign-ins-from-unknown-sources/signInsFromUnknownSources.PNG)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0309_2016-->

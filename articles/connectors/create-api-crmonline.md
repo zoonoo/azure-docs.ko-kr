@@ -47,50 +47,15 @@ CRM API에는 다음 작업이 포함됩니다. 트리거는 없습니다.
 
 ## CRM Online에 대한 연결 만들기
 
+논리 앱에 이 API를 추가할 때 Dynamics CRM Online에 로그인해야 합니다. 다음 단계를 따라 CRM Online에 로그인하고 논리 앱의 **연결** 구성을 완료합니다.
 
-### PowerApps에 구성 추가
-PowerApps 엔터프라이즈에 CRM Online을 추가할 때 Dynamics CRM Online AAD(Azure Active Directory) 응용 프로그램의 **클라이언트 ID** 및 **앱 키** 값을 입력합니다. 또한 **URL 리디렉션** 값도 CRM Online 응용 프로그램에서 사용됩니다. 응용 프로그램이 없는 경우 다음 단계를 사용하여 응용 프로그램을 만들 수 있습니다.
-
-1. [Azure 포털](https://portal.azure.com)에서 **Active Directory**를 열고 조직의 테넌트 이름을 선택합니다.
-2. 응용 프로그램 탭에서 **추가**를 선택합니다. **응용 프로그램 추가**에서:  
-
-	1. 응용 프로그램의 **이름**을 입력합니다.  
-	2. 응용 프로그램 형식은 그대로 **웹**으로 유지합니다.  
-	3. **다음**을 선택합니다.
-
-	![AAD 응용 프로그램 추가 - 앱 정보][9]
-
-3. **앱 속성**에서:
-
-	1. 응용 프로그램의 **로그온 URL**을 입력합니다. PowerApps에 대해 AAD로 인증하기 때문에 로그온 URL을 _https://login.windows.net_ 으로 설정합니다.
-	2. 앱에 대해 올바른 **앱 ID URI**를 입력합니다.  
-	3. **확인**을 선택합니다.  
-
-	![AAD 응용 프로그램 추가 - 앱 속성][10]
-
-4. 새 응용 프로그램에서 **구성**을 선택합니다.
-5. _OAuth 2_에서 **회신 URL**을 Azure 포털에서 CRM Online API를 추가할 때 표시된 URL 리디렉션 값으로 설정합니다. ![Contoso AAD 앱 구성][12]
-
-이제 Azure 포털의 CRM Online 구성에서 **클라이언트 ID** 및 **앱 키** 값을 복사하여 붙여넣습니다.
-
-### 논리 앱에 구성 추가
-논리 앱에 이 API를 추가할 때 Dynamics CRM Online에 로그인해야 합니다.
-
-다음 단계를 따라 CRM Online에 로그인하고 논리 앱의 **연결** 구성을 완료합니다.
-
-1. **되풀이**를 선택합니다.
-2. **빈도**를 선택하고 **간격**을 입력합니다.
-3. **작업 추가**를 선택합니다.  
-![CRM 온라인 구성][13]
+1. 논리 앱에서 **작업 추가**를 선택합니다. ![CRM 온라인 구성][13]
 4. 검색 상자에 CRM을 입력하고 이름에 CRM이 있는 모든 항목이 반환될 때까지 검색을 기다립니다.
 5. **Dynamics CRM Online - 새 레코드 만들기**를 선택합니다.
-6. **Dynamics CRM Online에 로그인**을 선택합니다.  
-![CRM 온라인 구성][14]
-7. CRM Online 자격 증명을 제공하여 로그인하고 응용 프로그램에 권한을 부여합니다.
-![CRM 온라인 구성][15]  
+6. **Dynamics CRM Online에 로그인**을 선택합니다. ![CRM 온라인 구성][14]
+7. CRM Online 자격 증명을 제공하여 로그인하고 응용 프로그램에 권한을 부여합니다. ![CRM 온라인 구성][15]  
 8. 로그인한 후 다른 트리거 및 필요한 동작을 추가하여 완료하기 위해 논리 앱으로 돌아갑니다.
 9. 위의 메뉴 모음에서 **저장**을 선택하여 작업을 저장합니다.
-
 
 연결을 만든 후에 테이블 또는 데이터 집합 등의 CRM Online 속성을 입력합니다. 이 항목의 **REST API 참조**에서는 이러한 속성에 대해 설명합니다.
 
@@ -290,9 +255,10 @@ CRM 인스턴스에 있는 엔터티 목록을 가져오는 데 사용됩니다.
 
 
 ## 다음 단계
-PowerApps 엔터프라이즈에 CRM 온라인 API를 추가한 후 해당 앱에서 API를 사용할 [권한을 사용자에게 부여](../power-apps/powerapps-manage-api-connection-user-access.md)합니다.
 
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
+
+[API 목록](apis-list.md)으로 돌아갑니다.
 
 
 [9]: ./media/create-api-crmonline/aad-tenant-applications-add-appinfo.png
@@ -302,6 +268,4 @@ PowerApps 엔터프라이즈에 CRM 온라인 API를 추가한 후 해당 앱에
 [14]: ./media/create-api-crmonline/crmconfig2.png
 [15]: ./media/create-api-crmonline/crmconfig3.png
 
-<!---HONumber=AcomDC_0302_2016-->
-
-
+<!---HONumber=AcomDC_0309_2016-->

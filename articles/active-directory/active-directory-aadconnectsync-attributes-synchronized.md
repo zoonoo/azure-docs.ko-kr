@@ -3,7 +3,7 @@
 	description="Azure Active Directory에 동기화된 특성을 나열합니다."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="andkjell"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,14 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="03/07/2016"
 	ms.author="markusvi;andkjell"/>
 
 
 # Azure AD Connect 동기화: Azure Active Directory에 동기화된 특성
 
-이 항목에서는 Azure AD Connect 동기화에 의해 동기화되는 특성을 보여줍니다.<br> 특성은 관련된 Azure AD 앱으로 그룹화되었습니다.
+이 항목에서는 Azure AD Connect 동기화에 의해 동기화되는 특성을 보여 줍니다. 특성은 관련된 Azure AD 앱으로 그룹화되었습니다.
 
+## 동기화할 특성
+일반적으로 *동기화할 최소 특성 목록*에 대해 궁금해 합니다. 기본 및 권장되는 접근 방법은 클라우드에서 전체 GAL(전체 주소 목록)을 생성할 수 있도록 기본 특성을 유지하는 것입니다. 경우에 따라 조직에서 클라우드로 동기화하지 않으려는 일부 특성이 있습니다. 이 경우 아래 특성의 목록으로 시작하고 PII(개인 식별 정보)를 포함하고 동기화할 수 없는 특성을 식별합니다. 그런 다음 [Azure AD 앱 및 특성 필터링](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering)을 사용하여 설치 중에 이러한 특성을 선택 취소합니다.
+
+특성을 선택 취소하는 경우 주의해야 하고 동기화가 불가능한 특성만 선택 취소해야 합니다.
 
 ## Office 365 ProPlus
 
@@ -456,4 +460,4 @@ Active Directory에 장치 개체를 만듭니다. 이러한 장치 개체는 Az
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

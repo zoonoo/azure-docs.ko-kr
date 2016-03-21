@@ -3,9 +3,9 @@
 	description="스트레치 데이터베이스를 사용하도록 설정하기 전에 먼저 해결해야 하는 차단 문제에 대해 알아봅니다."
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -92,4 +92,4 @@ SQL Server 2016의 현재 미리 보기 릴리스에서 스트레치 사용 테�
 ## 참고 항목
 [스트레치 데이터베이스 관리자를 실행하여 스트레치 데이터베이스에 대한 데이터베이스 및 테이블 식별](sql-server-stretch-database-identify-databases.md) [Enable Stretch Database for a database(데이터베이스에 스트레치 데이터베이스를 사용하도록 설정)](sql-server-stretch-database-enable-database.md) [Enable Stretch Database for a table(테이블에 스트레치 데이터베이스를 사용하도록 설정)](sql-server-stretch-database-enable-table.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

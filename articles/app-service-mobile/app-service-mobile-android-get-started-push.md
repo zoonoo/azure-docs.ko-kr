@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="02/04/2016"
-	ms.author="yuaxu"/>
+	ms.date="03/04/2016"
+	ms.author="yuaxu;ricksal"/>
 
 # Android 앱에 푸시 알림 추가
 
@@ -81,4 +81,4 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 
 [Google Play Services SDK 설정]: https://developers.google.com/android/guides/setup
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -3,7 +3,7 @@
    description="공개 및 비공개 미리 보기로 제공되는 Azure Active Directory 보고서"
    services="active-directory"
    documentationCenter=""
-   authors="kenhoff"
+   authors="dhanyahk"
    manager="mbaldwin"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/07/2015"
-   ms.author="kenhoff"/>
+   ms.date="03/07/2016"
+   ms.author="dhanyahk"/>
 
 # Azure Active Directory 보고서 미리 보기
 
@@ -23,13 +23,13 @@
 보고서 | Availability
 ------------------------------------------------------- | --------------------
 **보안 보고서** |
-비정상적인 로그인 활동 | 일반 공급
+비정상적인 로그인 작업 | 일반 공급
 알 수 없는 원본에서 로그인 | 일반 공급
 여러 번의 실패 후 로그인 | 일반 공급
 여러 지역에서의 로그인 | 일반 공급
-의심스러운 활동을 포함하는 IP 주소의 로그인 | 일반 공급
-감염 가능성이 있는 장치에서의 로그인 | 일반 공급
-비정상적인 로그인 활동을 포함하는 사용자 보고서 | 공개 미리 보기
+의심스러운 작업이 있는 IP 주소에서 로그인 | 일반 공급
+감염 가능성이 있는 장치에서 로그인 | 일반 공급
+비정상적인 로그인 활동을 포함하는 사용자 | 공개 미리 보기
 자격 증명이 손실된 사용자 | 공개 미리 보기
 **응용 프로그램 보고서** |
 계정 프로비전 활동 | 일반 공급
@@ -54,4 +54,4 @@ RMS 사용 응용 프로그램 사용 현황 | 공개 미리 보기
 **비공개 미리 보기 보고서** |
 모든 사용자 로그인 작업 | 비공개 미리 보기
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

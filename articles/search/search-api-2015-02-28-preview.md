@@ -3,8 +3,8 @@
    description="Azure 검색 서비스 REST API 버전 2015-02-28-Preview에는 자연어 분석기 및 moreLikeThis 검색과 같은 실험적 기능이 포함되어 있습니다."
    services="search"
    documentationCenter="na"
-   authors="HeidiSteen"
-   manager="mblythe"
+   authors="brjohnstmsft"
+   manager="pablocas"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="02/16/2016"
-   ms.author="heidist"/>
+   ms.date="03/08/2016"
+   ms.author="brjohnst"/>
 
 # Azure 검색 서비스 REST API: 버전 2015-02-28-Preview
 
@@ -1054,7 +1054,7 @@ HTTP POST를 사용하여 지정한 인덱스에서 문서를 업로드, 병합,
 - `upload`: 업로드 작업은 새 문서는 삽입하고 기존 문서는 업데이트/교체하는 "upsert"와 비슷합니다. 업데이트 시에는 모든 필드가 바뀝니다.
 - `merge`: 병합에서는 기존 문서를 지정한 필드로 업데이트합니다. 문서가 없으면 병합하지 못합니다. 문서의 기존 필드는 병합에서 지정하는 필드로 바뀝니다. 여기에는 `Collection(Edm.String)` 형식 필드가 포함됩니다. 예를 들어 값이 `["budget"]`인 "tags" 필드가 포함되어 있는 문서에서 "tags"에 대해 `["economy", "pool"]` 값과의 병합을 실행하면 "tags" 필드의 최종 값은 `["economy", "pool"]`이 됩니다. `["budget", "economy", "pool"]`이 **아닙니다**.
 - `mergeOrUpload`: 이 작업은 지정된 키를 포함하는 문서가 인덱스에 이미 있는 경우 `merge`와 동일하게 동작합니다. 문서가 없는 경우에는 새 문서에 대해 `upload`와 같이 동작합니다.
-- `delete`: 삭제 시에는 지정된 문서를 인덱스에서 제거합니다. `delete` 작업에서는 key 필드 값만 지정합니다. name 필드 등의 다른 필드를 지정하려고 하면 HTTP 400 오류가 발생합니다. 개별 필드를 문서에서 제거하려는 경우에는 대신 `merge`를 사용하고 필드를 명시적으로 `null`로 설정합니다.
+- `delete`: 삭제 시에는 지정된 문서를 인덱스에서 제거합니다. `delete` 작업에서 키 필드 외의 지정한 모든 필드는 무시됩니다. 개별 필드를 문서에서 제거하려는 경우에는 대신 `merge`를 사용하고 필드를 명시적으로 `null`로 설정합니다.
 
 **응답**
 
@@ -1774,4 +1774,4 @@ POST의 경우:
       "suggesterName": "sg"
     }
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

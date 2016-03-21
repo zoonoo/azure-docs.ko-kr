@@ -14,10 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="03/03/2016"
    ms.author="litran"/>
 
-# 조직의 앱 서비스 환경에서 새 Salesforce API 만들기
+# PowerApps 엔터프라이즈에 새 Salesforce API 만들기
+
+> [AZURE.SELECTOR]
+- [논리 앱](../articles/connectors/create-api-salesforce.md)
+- [PowerApps 엔터프라이즈](../articles/power-apps/powerapps-create-api-salesforce.md)
+
+조직의(테넌트) 앱 서비스 환경에 Salesforce API를 추가합니다.
 
 ## Azure 포털에서 API 만들기
 
@@ -39,7 +45,7 @@
 
 9. Salesforce 응용 프로그램의 *앱 키*와 *앱 암호*를 입력합니다. 없는 경우 이 항목의 "PowerApps에서 사용할 Salesforce 앱 등록” 섹션을 참조하여 필요한 키와 암호 값을 만듭니다.
 
-	> [AZURE.IMPORTANT]**리디렉션 URL**을 저장합니다. 이 항목 뒷부분에서 이 값이 필요할 수 있습니다.
+	> [AZURE.IMPORTANT] **리디렉션 URL**을 저장합니다. 이 항목 뒷부분에서 이 값이 필요할 수 있습니다.
 
 10. **확인**을 선택하여 이 단계를 완료합니다.
 
@@ -58,7 +64,10 @@
 
 4. **새 연결된 앱**에서:
 
-	a) **연결된 앱 이름**에 대한 값을 입력합니다. b) **API 이름**에 대한 값을 입력합니다. c) **연락처 메일**에 대한 값을 입력합니다. d) _API(OAuth 설정 사용)_에서 **OAuth 설정 사용**을 선택하고 **콜백 URL**을 이 항목의 Azure 포털에서 새 Salesforce API를 추가했을 때 받은 리디렉션 URL로 설정합니다.
+	1. **Connected App Name**의 값을 입력합니다.  
+	2. **API Name**의 값을 입력합니다.  
+	3. **Contact Email**의 값을 입력합니다.  
+	4. API (Enable OAuth Settings)에서 **Enable OAuth Settings**를 선택하고 **Callback URL**을 이 항목의 Azure 포털에서 새 Salesforce API를 추가했을 때 받은 URL 리디렉션 값으로 설정합니다.  
 
 5. _선택한 OAuth 범위_에서 다음 범위를 **선택한 OAuth 범위**에 추가합니다.
 
@@ -70,6 +79,10 @@
 6. 변경 내용을 **저장**합니다. ![Salesforce 새 앱][8]
 
 새 Salesforce 앱이 만들어졌습니다. 이 앱을 Azure 포털의 Salesforce API 구성에서 사용할 수 있습니다.
+
+## REST API 참조
+
+[Salesforce REST API](../connectors/create-api-salesforce.md) 참조입니다.
 
 ## 요약 및 다음 단계
 이 항목에서는 PowersApps 엔터프라이즈에 Salesforce API를 추가했습니다. 그 다음에는 이 API를 사용자의 앱에 추가할 수 있도록 사용자에게 이 API에 대한 액세스 권한을 부여합니다.
@@ -88,4 +101,4 @@
 [14]: ./media/powerapps-create-api-salesforce/browseall.png
 [15]: ./media/powerapps-create-api-salesforce/allresources.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

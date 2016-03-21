@@ -3,7 +3,7 @@
 	description="Azure 모바일 서비스를 사용하여 iOS 응용 프로그램에서 오프라인 데이터를 캐시 및 동기화하는 방법에 대해 알아봅니다."
 	documentationCenter="ios"
 	authors="krisragh"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
 	services="mobile-services"/>
 
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="03/05/2016"
 	ms.author="krisragh;donnam"/>
 
 # 모바일 서비스에서 오프라인 데이터 동기화 시작
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-
+[AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
+ 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> 이 항목에 해당하는 모바일 앱 버전은 [iOS 모바일 앱에 대해 오프라인 동기화 사용](../app-service-mobile/app-service-mobile-ios-get-started-offline-data.md)을 참조하세요.
 
 오프라인 동기화를 사용하면 네트워크에 연결되어 있지 않은 경우에도 모바일 앱의 데이터를 보거나, 추가하거나, 수정할 수 있습니다. 이 자습서에서는 로컬 오프라인 데이터베이스에서 변경 내용을 자동으로 저장하는 방법 및 온라인으로 돌아갈 때마다 해당 변경 내용을 동기화하는 방법에 대해 알아봅니다.
 
@@ -275,4 +275,4 @@ Azure 모바일 서비스의 오프라인 동기화를 사용하면 최종 사�
 
 [모바일 서비스 퀵 스타트 자습서]: mobile-services-ios-get-started.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

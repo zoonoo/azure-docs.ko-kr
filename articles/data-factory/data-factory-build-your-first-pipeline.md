@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure Data Factory 시작"
-	description="이 자습서에서는 Azure HDInsight를 사용하여 데이터를 변환하는 샘플 데이터 파이프라인을 만드는 방법을 보여 줍니다."
+	pageTitle="첫 번째 데이터 팩터리 빌드 | Microsoft Azure"
+	description="이 자습서에서는 Azure HDInsight를 사용하여 데이터를 변환하는 데이터 파이프라인이 있는 데이터 팩터리를 만드는 방법을 보여 줍니다."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="12/18/2015"
+	ms.date="03/03/2016"
 	ms.author="spelluru"/>
 
-# Azure Data Factory 시작
+# 자습서: 첫 번째 데이터 팩터리 빌드(개요)
 > [AZURE.SELECTOR]
-- [Tutorial Overview](data-factory-build-your-first-pipeline.md)
-- [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
-- [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
-- [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
-- [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
+- [자습서 개요](data-factory-build-your-first-pipeline.md)
+- [데이터 팩터리 편집기 사용](data-factory-build-your-first-pipeline-using-editor.md)
+- [PowerShell 사용](data-factory-build-your-first-pipeline-using-powershell.md)
+- [Visual Studio 사용](data-factory-build-your-first-pipeline-using-vs.md)
+- [리소스 관리자 템플릿 사용](data-factory-build-your-first-pipeline-using-arm.md)
 
 이 문서는 Azure 데이터 팩터리 작성을 처음 시작할 때 도움이 됩니다.
 
@@ -222,4 +222,4 @@ HDInsight Hive 작업을 사용하여 파이프라인에서 파일이 처리될 
 - Visual Studio
 - Azure 리소스 관리자 템플릿 
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

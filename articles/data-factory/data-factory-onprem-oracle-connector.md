@@ -24,7 +24,7 @@
 Azure 데이터 팩터리 서비스가 사용자의 온-프레미스 Oracle 데이터베이스에 연결할 수 있도록 하려면 다음을 설치해야 합니다.
 
 - 데이터 관리 게이트웨이를 데이터베이스를 호스팅하는 컴퓨터와 같은 컴퓨터에 설치하거나 데이터베이스와 리소스 경쟁을 피하려면 별도의 컴퓨터에 설치합니다. 데이터 관리 게이트웨이는 온-프레미스 데이터 원본을 클라우드 서비스에 안전하고 관리되는 방식으로 연결하는 소프트웨어입니다. 데이터 관리 게이트웨이에 대한 자세한 내용은 [온-프레미스 및 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md)을 참조하세요. 
-- [Oracle Data Access Components (ODAC) for Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/index.html). 이 프로그램은 게이트웨이가 설치되어 있는 호스트 컴퓨터에 설치해야 합니다.
+- .NET용 Oracle 데이터 공급자입니다. 이 제품은 [Windows용 ODAC(Oracle Data Access Components)](http://www.oracle.com/technetwork/topics/dotnet/downloads/index.html)에 포함됩니다. 게이트웨이가 설치되어 있는 호스트 컴퓨터에 해당 버전(32/64비트)을 설치합니다. 
 
 > [AZURE.NOTE] 연결/게이트웨이 관련 문제 해결에 대한 팁은 [게이트웨이 문제 해결](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting)을 참조하세요.
 
@@ -251,7 +251,7 @@ tableName | 연결된 서비스가 참조하는 Oracle 데이터베이스에 있
 속성 | 설명 |허용되는 값 | 필수
 -------- | ----------- | ------------- | --------
 oracleReaderQuery | 사용자 지정 쿼리를 사용하여 데이터를 읽습니다. | SQL 쿼리 문자열. 
-예: select * from MyTable <p>지정하지 않는 경우 실행되는 SQL 문: select * from MyTable</p> | 아니요(**dataset**의 **tableName**이 지정된 경우)
+예: select * from MyTable <br/><br/>지정하지 않는 경우 실행되는 SQL 문: select * from MyTable | 아니요(**dataset**의 **tableName**이 지정된 경우)
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -301,7 +301,7 @@ XML | String
 
 **해결 방법**
 
-1. .NET Provider for Oracle을 설치하지 않았으면 [해당 항목을 설치](http://www.oracle.com/technetwork/topics/dotnet/utilsoft-086879.html)한 후 시나리오를 다시 시도합니다. 
+1. .NET Provider for Oracle을 설치하지 않았으면 [해당 항목을 설치](http://www.oracle.com/technetwork/topics/dotnet/downloads/index.html)한 후 시나리오를 다시 시도합니다. 
 2. Provider를 설치한 후에도 오류 메시지가 표시되면 다음을 수행합니다. 
 	1. <system disk>:\\Windows\\Microsoft.NET\\Framework64\\v2.0.50727\\CONFIG\\machine.config 폴더에서 .NET 2.0 machine config 파일을 엽니다.
 	2. **Oracle Data Provider for .NET**을 검색하여 **system.data** -> **DbProviderFactories**에서 “<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />”와 같은 항목을 찾습니다.
@@ -312,4 +312,4 @@ XML | String
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

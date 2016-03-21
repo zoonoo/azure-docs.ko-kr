@@ -24,7 +24,7 @@
 
     이 메서드는 **SimulatedDevice** 프로젝트의 **SendDeviceToCloudMessagesAsync** 메서드와 매우 비슷합니다. 유일한 차이점은 이제 **MessageId** 시스템 속성 및 **messageType**라는 사용자 속성을 설정한 것합니다. 코드는 **MessageId** 속성에 전역 고유 식별자(guid)를 할당합니다. 해당 서비스 버스는 받은 메시지의 중복을 제거하는 데 사용할 수 있습니다. 샘플은 **messageType** 속성을 사용하여 데이터 요소 메시지에서 대화형 메시지를 구분합니다. 응용 프로그램은 정보를 메시지 본문 대신 메시지 속성에 전달하므로 이벤트 프로세서가 메시지 라우팅을 수행하기 위해 전체 메시지를 역직렬화할 필요가 없습니다.
 
-    > [AZURE.NOTE]일시적인 네트워크 통신 또는 다른 오류는 장치에서 동일한 메시지를 여러 번 전송할 수 있으므로 장치 코드에서 대화형 메시지의 중복을 제거하는 데 사용되는 **MessageId**을 만드는 것이 중요합니다. 또한 guid 대신 의미 체계 메시지 ID(예: 관련 메시지 데이터 필드의 해시)를 사용할 수 있습니다.
+    > [AZURE.NOTE] 일시적인 네트워크 통신 또는 다른 오류는 장치에서 동일한 메시지를 여러 번 전송할 수 있으므로 장치 코드에서 대화형 메시지의 중복을 제거하는 데 사용되는 **MessageId**을 만드는 것이 중요합니다. 또한 guid 대신 의미 체계 메시지 ID(예: 관련 메시지 데이터 필드의 해시)를 사용할 수 있습니다.
 
 2. **Main** 메서드에서 `Console.ReadLine()` 줄 바로 앞에 다음 메서드를 추가합니다.
 
@@ -32,10 +32,10 @@
     SendDeviceToCloudInteractiveMessagesAsync();
     ````
 
-    > [AZURE.NOTE]간단히 하기 위해 이 자습서에서는 다시 시도 정책을 구현하지 않습니다. 프로덕션 코드에서는 MSDN 문서 [일시적인 오류 처리]에서 제시한 대로 다시 시도 정책(예: 지수 백오프)을 구현해야 합니다.
+    > [AZURE.NOTE] 간단히 하기 위해 이 자습서에서는 다시 시도 정책을 구현하지 않습니다. 프로덕션 코드에서는 MSDN 문서 [일시적인 오류 처리]에서 제시한 대로 다시 시도 정책(예: 지수 백오프)을 구현해야 합니다.
 
 <!-- Links -->
-[일시적인 오류 처리]: https://msdn.microsoft.com/ko-KR/library/hh675232.aspx
+[일시적인 오류 처리]: https://msdn.microsoft.com/library/hh675232.aspx
 [IoT Hub 시작]: iot-hub-csharp-csharp-getstarted.md
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0309_2016-->

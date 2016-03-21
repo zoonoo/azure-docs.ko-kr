@@ -14,10 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="03/03/2016"
    ms.author="litran"/>
 
-# 조직의 앱 서비스 환경에서 새 SharePoint Online API 만들기
+# PowerApps 엔터프라이즈에서 새 SharePoint Online API 만들기
+
+조직의 (테넌트) 앱 서비스 환경에 SharePoint Online API를 추가합니다.
 
 ## Azure 포털에서 API 만들기
 
@@ -39,7 +41,7 @@
 
 9. SharePoint Online AAD(Azure Active Directory) 응용 프로그램의 *클라이언트 ID*와 *앱 암호*를 입력합니다. 없는 경우 이 항목의 "PowerApps에서 사용할 AAD 앱 등록" 섹션을 참조하여 필요한 ID와 암호 값을 만듭니다.
 
-	> [AZURE.IMPORTANT]**리디렉션 URL**을 저장합니다. 이 항목 뒷부분에서 이 값이 필요할 수 있습니다.
+	> [AZURE.IMPORTANT] **리디렉션 URL**을 저장합니다. 이 항목 뒷부분에서 이 값이 필요할 수 있습니다.
 
 10. **확인**을 선택하여 이 단계를 완료합니다.
 
@@ -52,7 +54,7 @@
 
 2. **찾아보기**를 선택한 다음 **Active Directory**를 선택합니다.
 
-	> [AZURE.NOTE]그러면 Azure 클래식 포털에서 Active Directory가 열립니다.
+	> [AZURE.NOTE] 그러면 Azure 클래식 포털에서 Active Directory가 열립니다.
 
 3. 조직의 테넌트 이름을 선택합니다. ![Azure Active Directory 시작][6]
 
@@ -110,4 +112,4 @@
 [14]: ./media/powerapps-create-api-sharepointonline/browseall.png
 [15]: ./media/powerapps-create-api-sharepointonline/allresources.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure 테이블 간 데이터 이동 | Azure 데이터 팩터리" 
+	pageTitle="Azure 테이블 간 데이터 이동 | Microsoft Azure" 
 	description="Azure 데이터 팩터리를 사용하여 Azure 테이블 저장소 간 데이터를 이동하는 방법에 대해 알아봅니다." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -380,7 +380,7 @@ Azure 테이블과 같은 스키마 없는 데이터 저장소의 경우 Data Fa
 
 속성 | 설명 | 허용되는 값 | 필수
 -------- | ----------- | -------------- | -------- 
-azureTableSourceQuery | 사용자 지정 쿼리를 사용하여 데이터를 읽습니다. | <p>Azure 테이블 쿼리 문자열입니다. 아래 예제를 참조하세요. | 아니요
+azureTableSourceQuery | 사용자 지정 쿼리를 사용하여 데이터를 읽습니다. | Azure 테이블 쿼리 문자열. 아래 예제를 참조하세요. | 아니요
 azureTableSourceIgnoreTableNotFound | 존재하지 않는 테이블의 예외를 받아들이는지를 나타냅니다. | TRUE<br/>FALSE | 아니요 |
 
 ### azureTableSourceQuery 예제
@@ -526,4 +526,4 @@ lastlogindate | Edm.DateTime
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

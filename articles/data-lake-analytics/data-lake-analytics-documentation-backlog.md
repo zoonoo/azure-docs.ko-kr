@@ -40,7 +40,8 @@ U-SQL | 문법 레일로드 다이어그램 | 1 | 진행 중, [이 웹 사이트
 도구 | 진단 도구 사용 | 1 | Pending | [@mumian](https://github.com/mumian) | 
 U-SQL | 범위 기반 JOIN을 수행 하기 위한 기술 설명 | 1 | Pending | [@MikeRys](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
 U-SQL | ADLS 인증 옵션 | 1 | Pending | [@ArindamC](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
-
+U-SQL | 플랫폼 간 CLI 작업 제출 | 1 | Pending | [@edmacauley](https://github.com/edmacauley) |[@mwinkle](https://github.com/mwinkle) 
+U-SQL | 감소 및 결합에 대한 참조 문서 업데이트 | 1 | Pending | [@edmacauley](https://github.com/edmacauley) |[@mwinkle](https://github.com/mwinkle)
 
 
 
@@ -57,4 +58,4 @@ U-SQL | ADLS 인증 옵션 | 1 | Pending | [@ArindamC](https://github.com/mikery
 * [Azure 콘텐츠 리포지토리](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)에서 이 문서에 대한 끌어오기 요청 제출
 * [microsoft.com의 adlafeedback](mailto:adlafeedback@microsoft.com?subject=DocBacklog)으로 메일 보내기
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

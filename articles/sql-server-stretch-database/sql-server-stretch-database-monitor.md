@@ -3,9 +3,9 @@
 	description="데이터 마이그레이션 상태를 모니터링하는 방법에 대해 알아봅니다."
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -49,4 +49,4 @@ SQL Server Management Studio의 데이터베이스에 대해 **작업 | 스트�
 <!--Image references-->
 [StretchMonitorImage1]: ./media/sql-server-stretch-database-monitor/StretchDBMonitor.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

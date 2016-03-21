@@ -84,17 +84,17 @@
 
         commandMessage.Ack = DeliveryAcknowledgement.Full;
 
-4.  **F5** 키를 눌러서 앱을 실행하고 세 응용 프로그램이 모두 시작하는지 확인해야 합니다. **SendCloudToDevice** 창을 선택하고 **Enter** 키를 눌러서 시뮬레이트된 앱에서 메시지를 받는지 확인하고 몇 초 후에 **SendCloudToDevice** 앱에서 피드백 메시지를 받는지 확인해야 합니다.
+4.  **F5** 키를 눌러서 앱을 실행하고 세 응용 프로그램이 모두 시작하는지 확인해야 합니다. **SendCloudToDevice** 창을 선택하고 **Enter** 키를 눌러서 시뮬레이트된 앱에서 메시지를 받는지 확인하고 몇 초 후에 **SendCloudToDevice** 응용 프로그램에서 피드백 메시지를 받는지 확인해야 합니다.
 
     ![][22]
 
-> [AZURE.NOTE]간단히 하기 위해 이 자습서에서는 다시 시도 정책을 구현하지 않습니다. 프로덕션 코드에서는 MSDN 문서 [일시적인 오류 처리]에서 제시한 대로 다시 시도 정책(예: 지수 백오프)을 구현하는 것이 좋습니다.
+> [AZURE.NOTE] 간단히 하기 위해 이 자습서에서는 다시 시도 정책을 구현하지 않습니다. 프로덕션 코드에서는 MSDN 문서 [일시적인 오류 처리]에서 제시한 대로 다시 시도 정책(예: 지수 백오프)을 구현하는 것이 좋습니다.
 
 <!-- Links -->
 
 [IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
 [Azure IoT - 서비스 SDK NuGet 패키지]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
-[일시적인 오류 처리]: https://msdn.microsoft.com/ko-KR/library/hh680901(v=pandp.50).aspx
+[일시적인 오류 처리]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [IoT Hub 시작]: iot-hub-csharp-csharp-getstarted.md
 
 <!-- Images -->
@@ -102,4 +102,4 @@
 [21]: ./media/iot-hub-c2d-cloud-csharp/sendc2d1.png
 [22]: ./media/iot-hub-c2d-cloud-csharp/sendc2d2.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

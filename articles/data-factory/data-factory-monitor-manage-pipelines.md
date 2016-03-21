@@ -19,8 +19,8 @@
 
 # Azure Data Factory 파이프라인 모니터링 및 관리
 > [AZURE.SELECTOR]
-- [Using Azure Portal/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
-- [Using Monitoring and Management App](data-factory-monitor-manage-app.md)
+- [Azure 포털/Azure PowerShell 사용](data-factory-monitor-manage-pipelines.md)
+- [모니터링 및 관리 앱 사용](data-factory-monitor-manage-app.md)
 
 데이터 팩터리 서비스는 저장소, 처리 및 데이터 이동 서비스의 안정적이고 완전한 뷰를 제공합니다. 이 서비스는 신속하게 종단 간 데이터 파이프라인 상태를 평가하고 문제를 파악하여 필요한 경우 수정 동작을 수행할 수 있도록 도와줍니다. 또한 모든 원본에서 데이터 간의 관계 및 데이터 연결을 시각적으로 추적하고 단일 모니터링 대시보드에서 작업 실행, 시스템 상태 및 종속성의 전체 기록을 확인할 수도 있습니다.
 
@@ -101,6 +101,7 @@ Azure 포털을 사용하면 데이터 팩터리를 다이어그램으로 볼 �
 <td>ValidationRetry</td><td>유효성 검사를 다시 시도하기를 기다리고 있습니다.</td>
 </tr>
 <tr>
+&lt;tr
 <td rowspan="2">InProgress</td><td>유효성 검사 중</td><td>유효성 검사가 진행 중입니다.</td>
 </tr>
 <td></td>
@@ -276,9 +277,9 @@ Azure Data Factory는 Azure 클래식 포털 및 Azure PowerShell을 통해 파�
 
 Set-AzureRmDataFactorySliceStatus cmdlet을 사용하여 실패를 다시 실행할 수 있습니다. cmdlet에 대한 구문 및 기타 세부 정보는 [Set-AzureRmDataFactorySliceStatus](https://msdn.microsoft.com/library/mt603522.aspx) 항목을 참조하세요.
 
-**예제:** 다음 예제에서는 Azure 데이터 팩토리 'WikiADF'에서 'DAWikiAggregatedData' 테이블의 모든 조각 상태를 '대기'로 설정합니다.
+**예제:** 다음 예제에서는 Azure Data Factory 'WikiADF'에서 'DAWikiAggregatedData' 테이블의 모든 조각 상태를 'Waiting'으로 설정합니다.
 
-**참고:** UpdateType이 UpstreamInPipeline으로 설정되며 이것은 파이프라인에서 작업에 대한 입력 테이블로 사용되는 테이블과 모든 종속(업스트림) 테이블에 대한 각 조각의 상태를 "대기"로 설정합니다. 이 매개 변수에 사용할 수 있는 다른 값은 "Individual"입니다.
+**참고:** UpdateType이 UpstreamInPipeline으로 설정되며 이것은 파이프라인에서 작업에 대한 입력 테이블로 사용되는 테이블과 모든 종속(업스트림) 테이블에 대한 각 조각의 상태를 "Waiting"으로 설정합니다. 이 매개 변수에 사용할 수 있는 다른 값은 "Individual"입니다.
 
 	Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -TableName DAWikiAggregatedData -Status Waiting -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
 
@@ -348,7 +349,7 @@ Azure 이벤트는 Azure 리소스에서 일어나는 일에 대한 유용한 �
 작업 이름 | 상태 | 하위 상태
 -------------- | ------ | ----------
 RunStarted | Started | Starting
-RunFinished | Failed / Succeeded | <p>FailedResourceAllocation</p><p>Succeeded</p><p>FailedExecution</p><p>TimedOut</p><p><Canceled/p><p>FailedValidation</p><p>Abandoned</p>
+RunFinished | Failed / Succeeded | FailedResourceAllocation<br/><br/>Succeeded<br/><br/>FailedExecution<br/><br/>TimedOut<br/><br/><Canceled<br/><br/>FailedValidation<br/><br/>Abandoned
 OnDemandClusterCreateStarted | 시작
 OnDemandClusterCreateSuccessful | Succeeded
 OnDemandClusterDeleted | Succeeded
@@ -544,7 +545,9 @@ OnDemandClusterDeleted | Succeeded
  
 위 샘플의 subscriptionId, resourceGroupName, dataFactoryName을 적절한 값으로 변경합니다.
 
-현재 *metricName*은 FailedRuns 및 SuccessfulRuns의 2가지 값을 지원합니다.
+metricName은 현재 두 가지 값을 지원합니다.
+- FailedRuns
+- SuccessfulRuns
 
 **경고 배포:**
 
@@ -572,7 +575,7 @@ OnDemandClusterDeleted | Succeeded
 **Add-AlertRule** cmdlet을 사용하여 경고 규칙을 배포할 수 있습니다. 세부 정보 및 예제는 [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx) 항목을 참조하세요.
 
 ## 다른 리소스 그룹 또는 구독으로 데이터 팩터리 이동
-데이터 팩터리의 홈 페이지에서 **이동** 명령 모음 단추를 사용하여 다른 리소스 그룹이나 다른 구독으로 데이터 팩터리를 이동할 수 있습니다.
+Data Factory의 홈 페이지에서 **이동** 명령 모음 단추를 사용하여 다른 리소스 그룹이나 다른 구독으로 데이터 팩터리를 이동할 수 있습니다.
 
 ![데이터 팩터리 이동](./media/data-factory-monitor-manage-pipelines/MoveDataFactory.png)
 
@@ -580,4 +583,4 @@ OnDemandClusterDeleted | Succeeded
 
 ![리소스 이동 대화 상자](./media/data-factory-monitor-manage-pipelines/MoveResources.png)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

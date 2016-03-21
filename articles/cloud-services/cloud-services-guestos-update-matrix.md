@@ -420,4 +420,4 @@ Microsoft Azure는 지속적으로 업데이트를 릴리스하고 있습니다.
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -3,8 +3,8 @@
    description="Azure 백업이 Azure 가져오기/내보내기 서비스를 사용하여 네트워크를 통해 데이터를 보내는 방법에 대해 알아봅니다. 이 문서에서는 Azure 가져오기 내보내기 서비스를 사용한 초기 백업 데이터의 오프라인 시드 작업을 설명합니다."
    services="backup"
    documentationCenter=""
-   authors="Jim-Parker"
-   manager="jwhit"
+   authors="nkolli1"
+   manager="shivamg"
    editor=""/>
 <tags
    ms.service="backup"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
    ms.date="01/28/2016"
-   ms.author="jimpark;"/>
+   ms.author="jimpark;nkolli;trinadhk"/>
 
 # Azure 백업의 오프라인 백업 워크플로
 Azure 백업에는 네트워크 및 저장소 비용을 절감하기 위해 수많은 효율성 기능이 내장되어 있습니다. Azure 백업은 데이터를 압축할 뿐만 아니라 전체 콘텐츠를 한 번만 백업하고 그 이후에는 델타/증분만 백업합니다. 예를 들어 백업되는 파일 볼륨이 10TB라면 Azure 백업은 초기 복제(IR)의 일부로 10TB를 보내고 델타 복제의 일부로 델타만 보냅니다. 따라서 IR 동안에는 최대 WAN 대역폭이 필요합니다. IR 동안 WAN 종속성을 줄이기 위해 Azure 백업은 Azure 가져오기/내보내기 서비스를 이용한 오프라인 백업을 지원합니다.
@@ -119,4 +119,4 @@ Azure 백업 및 Azure 가져오기/내보내기를 사용하면 디스크를 �
 - Azure 가져오기/내보내기 워크플로에 대한 질문이 있으면 이 [문서](../storage/storage-import-export-service.md)를 참조하세요.
 - 워크플로에 대한 질문이 있으면 Azure 백업 [FAQ](backup-azure-backup-faq.md)의 오프라인 백업 섹션을 참조하세요.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

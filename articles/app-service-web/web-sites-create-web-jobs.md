@@ -76,7 +76,7 @@ Azure WebJobs SDK는 많은 웹 작업 프로그래밍 작업을 간소화합니
 
 ## <a name="CreateScheduledCRON"></a>CRON 식을 사용하여 예정된 WebJob 만들기
 
-이 기술은 표준 또는 프리미엄 모드에서 실행 중인 웹앱에 사용할 수 있으며 앱에서 활성화하도록 **Always On** 설정이 필요합니다.
+이 기술은 기본, 표준 또는 프리미엄 모드에서 실행 중인 웹앱에 제공되며 앱에서 **Always On** 설정을 활성화해야 합니다.
 
 주문형 WebJob을 예정된 WebJob으로 설정하려면 WebJob zip 파일의 루트에 `settings.job` 파일을 포함하면 됩니다. 이 JSON 파일에는 아래 예제별로 [CRON 식](https://en.wikipedia.org/wiki/Cron)이 포함된 `schedule` 속성이 포함되어야 합니다.
 
@@ -239,4 +239,4 @@ Azure 포털은 아직 예약된 웹 작업을 만들 수 없지만, [클래식 
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/05/2015" 
+	ms.date="03/06/2015" 
 	ms.author="awills"/>
 
 # ApplicationInsights.config 또는 .xml로 Application Insights SDK 구성
@@ -285,4 +285,4 @@ SDK의 메모리 내 저장소에 저장할 수 있는 원격 분석 항목의 �
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

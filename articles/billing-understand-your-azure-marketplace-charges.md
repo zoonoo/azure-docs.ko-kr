@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="03/07/2016"
 	ms.author="cjiang"/>
 
 # Azure 마켓플레이스 요금의 이해
@@ -28,10 +28,14 @@
 
 1. 조직 ID를 사용하여 Azure 계정 포털에 로그인합니다.
 2. **마켓플레이스**를 클릭합니다. 표시되는 목록은 해당 Azure 계정을 통해 발주된 마켓플레이스 주문의 전체 목록입니다. 주문이 부모 Azure 구독 이름 및 ID별로 그룹화된 것을 볼 수 있습니다. ![마켓플레이스 주문](./media/billing-understand-your-azure-marketplace-charges/marketplace-orders.png)
-3. 표시된 주문 중 하나를 클릭하면 현재 청구 주기에 대한 해당 주문의 요약 개요로 이동됩니다. 다른 가격 책정 모델에 대한 설명은 [마켓플레이스 FAQ]( https://azure.microsoft.com/marketplace/faq/)에서 찾을 수 있습니다.
-![주문 요약](./media/billing-understand-your-azure-marketplace-charges/order-summary.png)
+3. 표시된 주문 중 하나를 클릭하면 현재 청구 주기에 대한 해당 주문의 요약 개요로 이동됩니다. 다른 가격 책정 모델에 대한 설명은 [마켓플레이스 FAQ](https://azure.microsoft.com/marketplace/faq/)에서 찾을 수 있습니다. ![주문 요약](./media/billing-understand-your-azure-marketplace-charges/order-summary.png)
 
-요약 보기에는 각 주문에 대한 다음 정보가 포함되어 있습니다. - 가격 - 청구 주기 - 구매 날짜 - 연결된 부모 구독 - 청구 통화
+요약 보기에는 각 주문에 대해 다음 정보가 있습니다.
+- 가격
+- 대금 청구 주기
+- 구매 날짜
+- 연결된 부모 구독
+- 청구 통화
 
 이 정보가 표시되는 방식이 약간 바뀌었습니다. 이전에는 세금을 포함한 주문 가격이 표시되었지만 이제는 사용자가 소속된 국가에 따라 세금이 포함된 가격이 표시될 수도 있고 세금을 제외한 가격이 표시될 수도 있습니다. 그리고 가격의 위치가 오른쪽 탐색에서 가운데로 이동되었습니다. 또한 이러한 요금이 어떤 Azure 구독에 연결되는지 간편하게 추적할 수 있도록 오른쪽 탐색에 Azure 구독 이름 및 ID와 **지불 방법 변경** 옵션이 추가되었습니다.
 
@@ -52,7 +56,10 @@
 ## 주문 관리
 요약 개요 페이지에는 **주문 관리** 링크가 표시됩니다. 이 링크를 클릭하면 모든 마켓플레이스 주문을 보고, 서비스 상태를 보고, 지원을 요청할 수 있는 포털로 이동됩니다. ![포털](./media/billing-understand-your-azure-marketplace-charges/portal.jpg)
 
-지원을 요청하려면 **도움말 + 지원** 타일을 클릭합니다. 그러면 다음과 같은 작업을 수행할 수 있는 **도움말 + 지원** 페이지로 이동됩니다. - 새 지원 요청을 엽니다. - 기존 지원 요청을 관리합니다. - 리소스 상태를 관리합니다.
+지원을 요청하려면 **도움말 + 지원** 타일을 클릭합니다. 그러면 다음을 수행할 수 있는 **도움말 + 지원** 페이지로 이동합니다.
+- 새 지원 요청을 엽니다.
+- 기존 지원 요청을 관리합니다.
+- 리소스 상태를 관리합니다.
 
 ![지원 요청](./media/billing-understand-your-azure-marketplace-charges/request-support.jpg)
 
@@ -63,7 +70,7 @@
 
 실제 요금을 보려면 다음 단계를 수행합니다.
 
-1. **청구 내역** 페이지에서 **요금 보기**를 클릭합니다. [주문 내역](https://account.microsoft.com/billing/orders#/)을 보여 주는 새 탭이 열릴 것입니다. 청구 및 계정 관리 포털에서 가공되지 않은 사용량 정보에 액세스하려면 페이지 하단의 지원 링크를 클릭하여 지원을 요청해야 합니다. ![주문 내역](./media/billing-understand-your-azure-marketplace-charges/order-history.jpg)
+1. **청구 내역** 페이지에서 **요금 보기**를 클릭합니다. [주문 내역](https://account.microsoft.com/billing/orders#/)을 보여 주는 새 탭이 열립니다. 청구 및 계정 관리 포털에서 가공되지 않은 사용량 정보에 액세스하려면 페이지 하단의 지원 링크를 클릭하여 지원을 요청해야 합니다. ![주문 내역](./media/billing-understand-your-azure-marketplace-charges/order-history.jpg)
 2. 검토하려는 주문을 찾아서 **세부 정보**를 클릭하면 소계, 세금 및 총 요금이 포함된 요금 명세서를 볼 수 있습니다. ![주문 세부 정보](./media/billing-understand-your-azure-marketplace-charges/order-details.jpg)
 
-<!----HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="mausher;jrj;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스의 이름 바꾸기
@@ -53,4 +53,4 @@ ALTER SCHEMA dbo TRANSFER OBJECT::product.item;
 <!--Article references-->
 [개발 개요]: sql-data-warehouse-overview-develop.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/01/2016"
+   ms.date="03/03/2016"
    ms.author="alkohli"/>
 
 
@@ -257,13 +257,13 @@
 
 1.  6-8단계는 DHCP 환경이 아닌 곳에서 부팅하는 경우에만 적용됩니다. DHCP 환경인 경우에는 이 단계를 건너뛰고 9단계로 이동하세요. DHCP 환경이 아닌 곳에서 장치를 부팅하는 경우에는 다음 화면이 표시됩니다.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image42.png)
+	![](./media/storsimple-ova-deploy2-provision-vmware/image42m.png)
 
 	이제 네트워크를 구성해야 합니다.
 
 1.  `Get-HcsIpAddress` 명령을 사용하여 가상 장치에 사용하도록 설정된 네트워크 인터페이스 목록을 표시합니다. 장치에 사용하도록 설정된 네트워크 인터페이스가 하나인 경우에는 `Ethernet`이라는 기본 이름이 인터페이스에 할당됩니다.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image43.png)
+	![](./media/storsimple-ova-deploy2-provision-vmware/image43m.png)
 
 1.  Set-HcsIpAddress cmdlet을 사용하여 네트워크를 구성합니다. 아래에 예가 나와 있습니다.
 
@@ -274,7 +274,7 @@
 
 1.  초기 설정이 완료된 후 장치가 부팅되면 장치 배너 텍스트가 표시됩니다. 장치 관리를 위해 배너 텍스트에 표시되는 IP 주소와 URL을 기록해 둡니다. IP 주소를 사용하여 가상 장치의 웹 UI를 연결하고 로컬 설정 및 등록을 완료합니다.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image45.png)
+	![](./media/storsimple-ova-deploy2-provision-vmware/image45m.png)
 
 장치가 최소 구성 요구 사항을 충족하지 못하면 배너 텍스트에 오류(아래 참고)가 표시됩니다. 최소 요구 사항을 충족하기에 충분한 리소스를 확보하도록 장치 구성을 수정해야 합니다. 그런 다음 다시 시작하고 장치에 연결합니다. [1단계: 호스트 시스템이 최소 가상 장치 요구 사항을 충족하도록 합니다.](#step-1-ensure-host-system-meets-minimum-virtual-device-requirements)에서 최소 구성 요구 사항을 참조하세요.
 
@@ -292,4 +292,4 @@
 
 -   [StorSimple 가상 배열을 iSCSI 서버로 설정](storsimple-ova-deploy3-iscsi-setup.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

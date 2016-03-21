@@ -48,9 +48,6 @@ Bing 검색에는 다음 작업이 포함됩니다. 트리거는 없습니다.
 
 모든 API는 JSON 및 XML 형식의 데이터를 지원합니다.
 
-## 구성 추가
-Bing 검색을 PowerApps 엔터프라이즈에 추가하면 계정 키를 입력하라는 메시지가 표시됩니다. Bing 검색 키가 없는 경우 무료 [Bing 검색 제안](https://datamarket.azure.com/dataset/bing/search)을 사용하여 키를 가져옵니다.
-
 
 ## Swagger REST API 참조
 적용 버전: 1.0
@@ -297,8 +294,8 @@ Bing 검색에서 모든 웹 사이트, 비디오, 이미지 등을 검색합니
 
 ## 다음 단계
 
-PowerApps 엔터프라이즈에 Bing 검색 API를 추가한 후 해당 앱에서 API를 사용할 [권한을 사용자에게 부여](../power-apps/powerapps-manage-api-connection-user-access.md)합니다.
-
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+[API 목록](apis-list.md)으로 돌아갑니다.
+
+<!---HONumber=AcomDC_0309_2016-->

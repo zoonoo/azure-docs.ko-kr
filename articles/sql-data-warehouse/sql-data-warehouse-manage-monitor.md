@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # DMV를 사용하여 작업 모니터링
@@ -38,10 +38,10 @@ SELECT * FROM sys.dm_pdw_nodes_exec_sessions;
 
 ```
 
-SELECT * 
-FROM sys.dm_pdw_nodes_exec_connections AS c 
-   JOIN sys.dm_pdw_nodes_exec_sessions AS s 
-   ON c.session_id = s.session_id 
+SELECT *
+FROM sys.dm_pdw_nodes_exec_connections AS c
+   JOIN sys.dm_pdw_nodes_exec_sessions AS s
+   ON c.session_id = s.session_id
 WHERE c.session_id = @@SPID;
 
 ```
@@ -70,7 +70,7 @@ SELECT * FROM sys.dm_pdw_exec_requests ORDER BY total_elapsed_time DESC;
 쿼리의 요청 ID를 저장합니다.
 
 
-  
+
 ### 2단계: 쿼리가 리소스를 대기 중인지 확인
 
 ```
@@ -81,15 +81,15 @@ SELECT * FROM sys.dm_pdw_exec_requests ORDER BY total_elapsed_time DESC;
 SELECT waits.session_id,
       waits.request_id,  
       requests.command,
-      requests.status, 
+      requests.status,
       requests.start_time,  
       waits.type,  
-      waits.object_type, 
+      waits.object_type,
       waits.object_name,  
       waits.state  
-FROM   sys.dm_pdw_waits waits 
+FROM   sys.dm_pdw_waits waits
    JOIN  sys.dm_pdw_exec_requests requests
-   ON waits.request_id=requests.request_id 
+   ON waits.request_id=requests.request_id
 WHERE waits.request_id = 'QID33188'
 ORDER BY waits.object_name, waits.object_type, waits.state;
 
@@ -112,7 +112,7 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 
 -- Find the distributed query plan steps for a specific query.
 -- Replace request_id with value from Step 1.
- 
+
 SELECT * FROM sys.dm_pdw_request_steps
 WHERE request_id = 'QID33209'
 ORDER BY step_index;
@@ -148,7 +148,7 @@ WHERE request_id = 'QID33209' AND step_index = 2;
 
 ```
 
--- Find the SQL Server execution plan for a query running on a specific SQL Data Warehouse Compute or Control node. 
+-- Find the SQL Server execution plan for a query running on a specific SQL Data Warehouse Compute or Control node.
 -- Replace distribution_id and spid with values from previous query.
 
 DBCC PDW_SHOWEXECUTIONPLAN(1, 78);
@@ -165,13 +165,13 @@ DBCC PDW_SHOWEXECUTIONPLAN(1, 78);
 
 -- Find the information about all the workers completing a Data Movement Step.
 -- Replace request_id and step_index with values from Step 1 and 3.
- 
+
 SELECT * FROM sys.dm_pdw_dms_workers
 WHERE request_id = 'QID33209' AND step_index = 2;
 
 ```
 
-- *total\_elapsed\_time* 열을 검사하여 특정 배포에서 데이터 이동 시간이 다른 배포보다 오래 걸리는지 확인합니다. 
+- *total\_elapsed\_time* 열을 검사하여 특정 배포에서 데이터 이동 시간이 다른 배포보다 오래 걸리는지 확인합니다.
 - 장기 실행 배포의 경우 *rows\_processed* 열을 검사하여 해당 배포에서 이동되는 행 수가 다른 배포보다 훨씬 큰지 확인합니다. 이는 쿼리에 데이터 기울이기가 있음을 보여 줍니다.
 
 
@@ -203,4 +203,4 @@ SQL 데이터 웨어하우스 관리에 대한 자세한 팁은 [관리 개요][
 
 <!--MSDN references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="mausher;jrj;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스의 임시 테이블
@@ -124,7 +124,7 @@ DROP TABLE #stats_ddl;
 
 이 기능을 사용하여 인라인 및 다중 문 함수가 대체될 수 있는 경우도 있습니다.
 
-> [AZURE.NOTE]또한 이 솔루션을 확장할 수 있습니다. 예를 들어 단일 테이블만 업데이트하려는 경우 #stats\_ddl 테이블을 필터링하기만 하면 됩니다.
+> [AZURE.NOTE] 또한 이 솔루션을 확장할 수 있습니다. 예를 들어 단일 테이블만 업데이트하려는 경우 #stats\_ddl 테이블을 필터링하기만 하면 됩니다.
 
 ## 임시 테이블 제한 사항
 임시 테이블을 구현하는 경우 SQL 데이터 웨어하우스는 두 가지 제한 사항을 적용합니다.
@@ -147,4 +147,4 @@ DROP TABLE #stats_ddl;
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

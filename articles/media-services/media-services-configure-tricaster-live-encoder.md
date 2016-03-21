@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="03/01/2016"   
+	ms.date="03/02/2016"   
 	ms.author="juliako"/>
 
 #NewTek TriCaster 인코더를 사용하여 단일 비트 전송률 라이브 스트림 보내기
@@ -28,7 +28,7 @@
 
 이 자습서에서는 AMSE(Azure 미디어 서비스 탐색기) 도구를 사용하여 AMS(Azure 미디어 서비스)를 관리하는 방법을 보여 줍니다. 이 도구는 Windows PC에서만 실행됩니다. Mac 또는 Linux에서는 Azure 클래식 포털을 사용하여 [채널](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) 및 [프로그램](media-services-portal-creating-live-encoder-enabled-channel#create-and-manage-a-program)을 만듭니다.
 
->[AZURE.NOTE]기여 피드에서 Azure 미디어 서비스에 보내기 위해 Tricaster를 사용할 때 피드 간에 빠르게 잘라내기, 슬레이트 간 전환과 같은 Tricaster의 특정 기능을 사용하는 경우 라이브 이벤트에 비디오/오디오 결함이 있을 수 있습니다. AMS 팀에서 이러한 문제를 해결하기 위해 노력하고 있으며 그때까지 이러한 기능을 사용하지 않는 것이 좋습니다.
+>[AZURE.NOTE]기여 피드에서 라이브 인코딩에 사용할 수 있는 AMS 채널에 보내기 위해 Tricaster를 사용할 때 피드 간에 빠르게 잘라내기, 슬레이트 간 전환과 같은 Tricaster의 특정 기능을 사용하는 경우 라이브 이벤트에 비디오/오디오 결함이 있을 수 있습니다. AMS 팀에서 이러한 문제를 해결하기 위해 노력하고 있으며 그때까지 이러한 기능을 사용하지 않는 것이 좋습니다.
 
 
 ##필수 조건
@@ -165,4 +165,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

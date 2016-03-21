@@ -3,7 +3,7 @@
    description="모든 Azure Active Directory Reporting 문서가 포함된 가이드"
    services="active-directory"
    documentationCenter=""
-   authors="kenhoff"
+   authors="dhanyahk"
    manager="mbaldwin"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/07/2015"
-   ms.author="kenhoff"/>
+   ms.date="03/07/2016"
+   ms.author="dhanyahk"/>
 
 
 # Azure Active Directory Reporting 가이드
@@ -30,4 +30,4 @@
  - [Azure Active Directory 모든 사용자 로그인 활동 보고서](active-directory-reporting-all-user-sign-in-activity-report.md)
  - [액세스 및 사용 보고서 보기](active-directory-view-access-usage-reports.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

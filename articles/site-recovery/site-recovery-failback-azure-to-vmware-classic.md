@@ -19,8 +19,8 @@
 # 온-프레미스 사이트로 VMWare 가상 컴퓨터 및 물리적 서버 장애 복구
 
 > [AZURE.SELECTOR]
-- [Enhanced](site-recovery-failback-azure-to-vmware-classic.md)
-- [Legacy](site-recovery-failback-azure-to-vmware-classic-legacy.md)
+- [향상된](site-recovery-failback-azure-to-vmware-classic.md)
+- [레거시](site-recovery-failback-azure-to-vmware-classic-legacy.md)
 
 
 이 문서에서는 Azure의 Azure 가상 컴퓨터를 온-프레미스 사이트로 장애 복구하는 방법을 설명합니다. 이 [자습서](site-recovery-vmware-to-azure-classic.md)를 사용하여 온-프레미스 사이트에서 Azure로 장애 조치한 후 VMware 가상 컴퓨터 또는 Windows/Linux 물리적 서버 장애 복구가 준비된 경우 이 문서의 지침에 따릅니다.
@@ -31,7 +31,13 @@
 
 이 다이어그램은 이 시나리오에 대한 장애 복구 아키텍처를 보여 줍니다.
 
+프로세스 서버가 온-프레미스이고 Express 경로를 사용할 경우 이 아키텍처를 사용합니다.
+
 ![](./media/site-recovery-failback-azure-to-vmware-classic/architecture.png)
+
+프로세스 서버가 Azure에 있고 VPN 또는 Express 경로를 연결할 경우 이 아키텍처를 사용합니다.
+
+![](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.PNG)
 
 장애 복구의 작동 방식은 다음과 같습니다.
 
@@ -72,7 +78,7 @@ VMware VM을 장애 조치한 경우 온-프레미스에 아직 있는 경우 �
 
 Azure에 프로세스 서버를 설치해야 Azure VM이 데이터를 온-프레미스 마스터 대상 서버에 다시 보낼 수 있습니다.
 
-1.  사이트 복구 포털> **구성 서버**에서 선택하여 새 프로세스 서버를 추가합니다.
+1.  사이트 복구 포털 > **구성 서버**에서 선택하여 새 프로세스 서버를 추가합니다.
 
 	![](./media/site-recovery-failback-azure-to-vmware-classic/ps1.png)
 
@@ -181,4 +187,4 @@ VPN 연결 또는 Azure Express 경로를 통해 장애 복구할 수 있습니�
 - Express 경로는 원본 컴퓨터가 장애 조치되고 장애 조치가 발생한 후 Azure VM이 위치하는 Azure 가상 네트워크에 설치되어 있어야 합니다.
 - 데이터는 공용 끝점의 Azure 저장소 계정에 복제됩니다. Express 경로를 사용하려면 사이트 복구 복제에 대한 대상 데이터 센터로 Express 경로에 공용 피어링을 설정해야 합니다.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

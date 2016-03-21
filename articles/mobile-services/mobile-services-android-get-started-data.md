@@ -19,37 +19,27 @@
 # 기존 Android 앱에 모바일 서비스 추가(JavaScript 백 엔드)
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> 이 항목에 해당하는 모바일 앱 버전은 [모바일 앱용 Android 클라이언트 라이브러리를 사용하는 방법](../app-service-mobile/app-service-mobile-android-how-to-use-client-library.md)을 참조하세요.
 
 ## 요약
 
-<div class="dev-onpage-video-clear clearfix">
-<div class="dev-onpage-left-content">
+이 항목에서는 Azure 모바일 서비스를 사용하여 Android 앱에 영구 데이터를 추가하는 방법을 보여 줍니다. 이 자습서에서는 데이터를 메모리에 저장하는 앱을 다운로드하여 새 모바일 서비스를 만들고 모바일 서비스와 앱을 통합하여 로컬 대신 Azure 모바일 서비스에서 데이터를 저장하고 업데이트한 후 Azure 클래식 포털을 사용하여 앱을 실행할 때 변경된 데이터를 확인합니다.
 
-<p>이 항목에서는 Azure 모바일 서비스를 사용하여 Android 앱에 영구 데이터를 추가하는 방법을 보여 줍니다. 이 자습서에서는 데이터를 메모리에 저장하는 앱을 다운로드하여 새 모바일 서비스를 만들고 모바일 서비스와 앱을 통합하여 로컬 대신 Azure 모바일 서비스에서 데이터를 저장하고 업데이트한 후 Azure 클래식 포털을 사용하여 앱을 실행할 때 변경된 데이터를 확인합니다.</p>
-
-</div>
-
-
-<div class="dev-onpage-video-wrapper">
-<a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-With-Data-Connecting-your-app-to-Windows-Azure-Mobile-Services" target="_blank" class="label">자습서 보기</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-android-get-started-data-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-With-Data-Connecting-your-app-to-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">동영상 재생</span></a><span class="time">오후 3:32:00</span></div>
-</div>
-
-
-<p>이 자습서에서는 Azure 모바일 서비스가 Android 앱에서 데이터를 검색하고 저장할 수 있는 방법에 대해 자세히 설명합니다. 따라서 모바일 서비스 퀵 스타트 자습서에서 이미 완료한 여러 단계를 순서대로 안내합니다. 모바일 서비스를 처음 사용하는 경우 먼저 <a href="/ko-KR/develop/mobile/tutorials/get-started-android">모바일 서비스 시작</a> 자습서를 완료하는 것이 좋습니다.</p>
+이 자습서에서는 Azure 모바일 서비스가 Android 앱에서 데이터를 검색하고 저장할 수 있는 방법에 대해 자세히 설명합니다. 따라서 모바일 서비스 퀵 스타트 자습서에서 이미 완료한 여러 단계를 순서대로 안내합니다. 모바일 서비스를 처음 사용하는 경우 먼저 [모바일 서비스 시작](mobile-services-android-get-started.md) 자습서를 완료하는 것이 좋습니다.
 
 ## 필수 조건
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-- Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AED8DE357" target="_blank">Azure 무료 평가판</a>을 참조하세요.
+- Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AED8DE357)을 참조하세요.
 
 
 - [Azure 모바일 서비스 Android SDK]
-- Android SDK를 포함하는 <a  href="https://developer.android.com/sdk/index.html" target="_blank">Android Studio 통합 개발 환경</a> 및 Android 4.2 이상 버전. 다운로드한 GetStartedWithData 프로젝트에는 Android 4.2 이후 버전이 필요합니다. 하지만 모바일 서비스 SDK에 필요한 Android는 2.2 이상 버전이면 됩니다.
+- Android SDK를 포함하는 [Android Studio 통합 개발 환경](https://developer.android.com/sdk/index.html) 및 Android 4.2 이상 버전. 다운로드한 GetStartedWithData 프로젝트에는 Android 4.2 이후 버전이 필요합니다. 하지만 모바일 서비스 SDK에 필요한 Android는 2.2 이상 버전이면 됩니다.
 
 ## 샘플 코드
 
-완료된 원본 코드를 확인하려면 <a href="https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithData/AndroidStudio">여기</a>로 이동합니다.
+완료된 원본 코드를 확인하려면 [여기](https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithData/AndroidStudio)로 이동합니다.
 
 ## GetStartedWithData 프로젝트 다운로드
 
@@ -106,19 +96,11 @@
 
 ## 다음 단계
 
-이 자습서에서는 Android 앱에서 모바일 서비스의 데이터로 작업하기 위한 기본 사항에 대해 설명했습니다.
+이 자습서에서는 Android 앱에서 모바일 서비스의 데이터로 작업하기 위한 기본 사항에 대해 설명했습니다. 다른 Android 자습서를 시도해보십시오.
 
-다음에는 이 자습서에서 만든 GetStartedWithData 앱을 기반으로 하는 다음 자습서 중 하나를 완료해보십시오.
+* [인증 시작](mobile-services-android-get-started-users.md) <br/>앱 사용자를 인증하는 방법을 알아봅니다.
 
-* [스크립트를 사용하여 데이터 유효성 검사 및 수정] <br/>모바일 서비스에서 서버 스크립트를 사용하여 앱에서 전송된 데이터의 유효성을 검사하고 변경하는 방법을 자세히 알아봅니다.
-
-* [페이징을 사용하여 쿼리 구체화] <br/>쿼리에 페이징을 사용하여 단일 요청으로 처리되는 데이터 양을 제어하는 방법을 알아봅니다.
-
-데이터 시리즈를 완료한 후에는 다른 Android 자습서 중 하나를 시도해 보십시오.
-
-* [인증 시작] <br/>앱 사용자를 인증하는 방법을 알아봅니다.
-
-* [푸시 알림 시작] <br/>모바일 서비스를 사용하여 기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
+* [푸시 알림 시작](mobile-services-javascript-backend-android-get-started-push.md) <br/>모바일 서비스를 사용하여 기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
 
 <!-- Anchors. -->
 [Download the Android app project]: #download-app
@@ -138,16 +120,10 @@
 
 
 <!-- URLs. -->
-[스크립트를 사용하여 데이터 유효성 검사 및 수정]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-[페이징을 사용하여 쿼리 구체화]: /develop/mobile/tutorials/add-paging-to-data-android
-[Get started with Mobile Services]: /develop/mobile/tutorials/get-started-android
-[Get started with data]: /develop/mobile/tutorials/get-started-with-data-android
-[인증 시작]: /develop/mobile/tutorials/get-started-with-users-android
-[푸시 알림 시작]: /develop/mobile/tutorials/get-started-with-push-android
 
 [Azure 클래식 포털]: https://manage.windowsazure.com/
 [Azure 모바일 서비스 Android SDK]: http://aka.ms/Iajk6q
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkID=282122
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0309_2016-->

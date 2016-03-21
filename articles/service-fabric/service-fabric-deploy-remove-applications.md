@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/10/2015"
+   ms.date="03/08/2016"
    ms.author="seanmck"/>
 
 # 응용 프로그램 배포
@@ -24,7 +24,7 @@
 2. 응용 프로그램 형식 등록
 3. 응용 프로그램 인스턴스 생성
 
->[AZURE.NOTE]로컬 개발 클러스터에서 개발 및 배포에 Visual Studio를 사용하는 경우 아래에 설명한 모든 단계는 응용 프로그램 프로젝트의 스크립트 폴더에 있는 PowerShell 스크립트를 통해 자동으로 처리됩니다. 이 문서에서는 해당 스크립트가 하는 일과, 그로 인해 Visual Studio 외부에서 동일한 작업을 수행할 수 있는 배경을 설명합니다.
+>[AZURE.NOTE] 로컬 개발 클러스터에서 개발 및 배포에 Visual Studio를 사용하는 경우 아래에 설명한 모든 단계는 응용 프로그램 프로젝트의 스크립트 폴더에 있는 PowerShell 스크립트를 통해 자동으로 처리됩니다. 이 문서에서는 해당 스크립트가 하는 일과, 그로 인해 Visual Studio 외부에서 동일한 작업을 수행할 수 있는 배경을 설명합니다.
 
 ## 응용 프로그램 패키지 업로드
 
@@ -59,7 +59,7 @@ D:\TEMP\MYAPPLICATIONTYPE
     └───MyData
             init.dat
 
-PS D:\temp> Copy-ServiceFabricApplicationPackage MyApplicationType
+PS D:\temp> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath MyApplicationType -ImageStoreConnectionString (Get-ImageStoreConnectionStringFromClusterManifest(Get-ServiceFabricClusterManifest))
 Copy application package succeeded
 
 PS D:\temp>
@@ -225,4 +225,4 @@ PS D:\temp>
 [10]: service-fabric-application-model.md
 [11]: service-fabric-application-upgrade.md
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0309_2016-->

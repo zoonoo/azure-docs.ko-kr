@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="02/10/2016" 
 	ms.author="fashah;mohabib;bradsev" />
 
 # Azure 가상 컴퓨터에서 SQL Server로 데이터 이동
@@ -38,16 +38,16 @@
 
 이 문서는 SQL Server Management Studio 또는 Visual Studio 데이터베이스 탐색기에서 SQL 명령을 실행하는 것으로 가정합니다.
 
-> [AZURE.TIP] 하나의 대안으로, [Azure 데이터 팩터리](https://azure.microsoft.com/services/data-factory/)를 사용하여 Azure의 SQL Server VM으로 데이터를 이동하는 파이프라인을 만들고 예약할 수 있습니다. 자세한 내용은 [Azure 데이터 팩터리를 사용하여 데이터 복사(복사 작업)](data-factory-data-movement-activities.md)를 참조하세요.
+> [AZURE.TIP] 하나의 대안으로, [Azure 데이터 팩터리](https://azure.microsoft.com/services/data-factory/)를 사용하여 Azure의 SQL Server VM으로 데이터를 이동하는 파이프라인을 만들고 예약할 수 있습니다. 자세한 내용은 [Azure 데이터 팩터리를 사용하여 데이터 복사(복사 작업)](../data-factory/data-factory-data-movement-activities.md)를 참조하세요.
 
 
 ## <a name="prereqs"></a>필수 조건
 이 자습서에서는 사용자가 다음을 보유하고 있다고 가정합니다.
 
 * **Azure 구독**. 구독이 없는 경우 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 등록할 수 있습니다.
-* **Azure 저장소 계정**. 이 자습서에서는 데이터 저장을 위해 Azure 저장소 계정을 사용합니다. Azure 저장소 계정이 없는 경우 [저장소 계정 만들기](storage-create-storage-account.md#create-a-storage-account) 문서를 참조하세요. 저장소 계정을 만든 후에는 저장소 액세스에 사용되는 계정 키를 확보해야 합니다. [저장소 액세스 키 보기, 복사 및 다시 생성](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)을 참조하세요.
+* **Azure 저장소 계정**. 이 자습서에서는 데이터 저장을 위해 Azure 저장소 계정을 사용합니다. Azure 저장소 계정이 없는 경우 [저장소 계정 만들기](../storage/storage-create-storage-account.md#create-a-storage-account) 문서를 참조하세요. 저장소 계정을 만든 후에는 저장소 액세스에 사용되는 계정 키를 확보해야 합니다. [저장소 액세스 키 보기, 복사 및 다시 생성](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)을 참조하세요.
 * 프로비전된 **Azure VM의 SQL Server**. 자세한 내용은 [고급 분석을 위해 Azure SQL Server 가상 컴퓨터를 IPython Notebook 서버로 설정](machine-learning-data-science-setup-sql-server-virtual-machine.md)을 참조하세요.
-* 로컬로 설치 및 구성된 **Azure PowerShell**. 자세한 내용은 [Azure PowerShell 설치 및 구성법](powershell-install-configure.md)을 참조하세요.
+* 로컬로 설치 및 구성된 **Azure PowerShell**. 자세한 내용은 [Azure PowerShell 설치 및 구성법](../powershell-install-configure.md)을 참조하세요.
 
 
 ## <a name="filesource_to_sqlonazurevm"></a> 플랫 파일 원본에서 Azure VM의 SQL Server로 데이터 이동
@@ -63,7 +63,7 @@
 
 BCP는 SQL Server와 함께 설치되는 명령줄 유틸리티로, 데이터를 이동하는 가장 빠른 방법 중 하나입니다. 이는 모든 SQL Server 버전(온-프레미스 SQL Server, SQL Azure 및 Azure 기반의 SQL Server VM)에서 작동합니다.
 
-> [AZURE.NOTE] **BCP를 사용하려면 데이터가 어디에 있어야 하나요?** 필수 사항은 아니지만 원본 데이터가 포함된 파일을 대상 SQL 서버와 같은 컴퓨터에 배치하면 전송 속도가 빨라집니다(네트워크 속도와 로컬 디스크 IO 속도 차이). [AZCopy](../storage-use-azcopy.md), [Azure 저장소 탐색기](https://azurestorageexplorer.codeplex.com/), Windows 복사/붙여넣기, RDP(원격 데스크톱 프로토콜) 등 다양한 파일 복사 도구를 사용하여 데이터가 포함된 플랫 파일을 SQL Server가 설치된 컴퓨터로 이동할 수 있습니다.
+> [AZURE.NOTE] **BCP를 사용하려면 데이터가 어디에 있어야 하나요?** 필수 사항은 아니지만 원본 데이터가 포함된 파일을 대상 SQL 서버와 같은 컴퓨터에 배치하면 전송 속도가 빨라집니다(네트워크 속도와 로컬 디스크 IO 속도 차이). [AZCopy](../storage/storage-use-azcopy.md), [Azure 저장소 탐색기](http://storageexplorer.com/), Windows 복사/붙여넣기, RDP(원격 데스크톱 프로토콜) 등 다양한 파일 복사 도구를 사용하여 데이터가 포함된 플랫 파일을 SQL Server가 설치된 컴퓨터로 이동할 수 있습니다.
 
 1. 대상 SQL Server 데이터베이스에 데이터베이스 및 테이블이 생성되었는지 확인합니다. 다음은 `Create Database` 및 `Create Table` 명령을 사용하여 이 작업을 수행하는 예제입니다.
 
@@ -224,4 +224,4 @@ SQL Server는 다음을 지원합니다.
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

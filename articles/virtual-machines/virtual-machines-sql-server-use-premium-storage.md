@@ -89,7 +89,7 @@ DS* VM에 대해 VM을 호스팅하는 VNET(가상 네트워크)을 해당 지�
 
 프리미엄 저장소용으로 구성된 새 저장소 계정을 만들어야 합니다. 프리미엄 저장소 사용은 개별 VHD가 아니라 저장소 계정에서 설정되지만 DS* 시리즈 VM을 사용할 때는 프리미엄 및 표준 저장소 계정에서 VHD를 연결할 수 있습니다. 프리미엄 저장소 계정에 OS VHD를 배치하지 않으려는 경우 이러한 방식을 사용할 수 있습니다.
 
-아래에 나와 있는 "Premium_LRS" **Type**을 사용하는 **New-AzureStorageAccountPowerShell** 명령은 프리미엄 저장소 계정을 만듭니다.
+아래에 나와 있는 "Premium\_LRS" **Type**을 사용하는 **New-AzureStorageAccountPowerShell** 명령은 프리미엄 저장소 계정을 만듭니다.
 
     $newstorageaccountname = "danpremstor"
     New-AzureStorageAccount -StorageAccountName $newstorageaccountname -Location "West Europe" -Type "Premium_LRS"   
@@ -98,7 +98,7 @@ DS* VM에 대해 VM을 호스팅하는 VNET(가상 네트워크)을 해당 지�
 
 프리미엄 저장소 계정의 일부분인 디스크를 만들 때의 기본적인 차이점은 디스크 캐시 설정입니다. SQL Server 데이터 볼륨 디스크의 경우에는 ‘**Read Caching**’을 사용하는 것이 좋습니다. 트랜잭션 로그 볼륨의 경우에는 디스크 캐시 설정을 ‘**None**’으로 지정해야 합니다. 이러한 설정은 표준 저장소 계정에 대한 권장 사항과는 다릅니다.
 
-VHD를 연결한 후에는 캐시 설정을 변경할 수 없습니다. 설정을 변경하려면 VHD를 분리했다가 업데이트된 캐시 설정으로 다시 연결해야 합니다.
+VHD를 연결한 후에는 캐시 설정을 변경할 수 없습니다. 업데이트된 캐시 설정으로 VHD를 분리했다가 다시 연결해야 합니다.
 
 ### Windows 저장소 공간
 
@@ -380,7 +380,7 @@ Microsoft Azure에서는 VM의 NIC에 IP 주소를 하나만 할당할 수 있�
 1. **기존 AlwaysOn 클러스터에 보조 복제본 더 추가**
 1. **새 AlwaysOn 클러스터로 마이그레이션**
 
-#### 1. 기존 AlwaysOn 클러스터에 보조 복제본 더 추가
+#### 1\. 기존 AlwaysOn 클러스터에 보조 복제본 더 추가
 
 전략 중 하나는 AlwaysOn 가용성 그룹에 보조 복제본을 더 추가하는 것입니다. 이러한 복제본을 새 클라우드 서비스에 추가하고 새 부하 분산 장치 IP로 수신기를 업데이트해야 합니다.
 
@@ -427,7 +427,7 @@ IO 처리량을 높이기 위해 VM 내에서 Windows 저장소 풀을 사용하
 - 보조 복제본을 설정하는 동안 SQL 데이터 전송 시간이 길어질 수 있습니다.
 - 새 컴퓨터를 병렬로 실행하면 마이그레이션 중에 추가 비용이 발생할 수 있습니다.
 
-#### 2. 새 AlwaysOn 클러스터로 마이그레이션
+#### 2\. 새 AlwaysOn 클러스터로 마이그레이션
 
 두 번째 전략은 새 클라우드 서비스에서 새 노드를 사용하여 AlwaysOn 클러스터를 새로 만든 다음 클라이언트가 해당 클러스터를 사용하도록 리디렉션하는 것입니다.
 
@@ -458,7 +458,7 @@ IO 처리량을 높이기 위해 VM 내에서 Windows 저장소 풀을 사용하
 1. **기존 보조 복제본 활용: 단일 사이트**
 1. **기존 보조 복제본 활용: 다중 사이트**
 
-#### 1. 기존 보조 복제본 활용: 단일 사이트
+#### 1\. 기존 보조 복제본 활용: 단일 사이트
 
 가동 중지 시간을 최소화하는 전략 중 하나는 기존의 클라우드 보조 복제본을 가져온 다음 현재 클라우드 서비스에서 제거하는 것입니다. 그런 다음 새 프리미엄 저장소 계정에 VHD를 복사하고 새 클라우드 서비스에서 VM을 만듭니다. 그리고 나서 클러스터링 및 장애 조치(failover)에서 수신기를 업데이트합니다.
 
@@ -504,7 +504,7 @@ IO 처리량을 높이기 위해 VM 내에서 Windows 저장소 풀을 사용하
 - 5ii단계를 사용하는 경우 추가된 IP 주소 리소스의 가능한 소유자로 SQL1 추가
 - 장애 조치(failover) 테스트
 
-#### 2. 기존 보조 복제본 활용: 다중 사이트
+#### 2\. 기존 보조 복제본 활용: 다중 사이트
 
 둘 이상의 Azure DC(데이터 센터)에 노드가 있거나 하이브리드 환경을 사용하는 경우에는 이 환경에서 AlwaysOn 구성을 사용하여 가동 중지 시간을 최소화할 수 있습니다.
 
@@ -1148,4 +1148,4 @@ IP 주소를 추가하려면 [부록](#appendix-migrating-a-multisite-alwayson-c
 [24]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_14.png
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

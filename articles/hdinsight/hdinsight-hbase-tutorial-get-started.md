@@ -13,7 +13,7 @@
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="02/05/2016"
 	ms.author="jgao"/>
 
@@ -29,7 +29,9 @@ HDInsight에서 HBase 클러스터를 만들고, HBase 테이블을 만들고 Ap
 
 > [AZURE.NOTE] Windows 기반 HDInsight의 HBase(버전 0.98.0)는 HDInsight 3.1 클러스터에서만 사용할 수 있습니다.(Apache Hadoop 및 YARN 2.4.0 기준) 버전 정보는 [HDInsight에서 제공하는 Hadoop 클러스터 버전의 새로운 기능][hdinsight-versions](영문)을 참조하세요.
 
-###필수 조건
+###시작하기 전에
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 이 HBase 자습서를 시작하기 전에 다음이 있어야 합니다.
 
@@ -291,7 +293,9 @@ HDInsight에서 HBase는 클러스터 모니터링에 대한 웹 UI와 함께 �
 
 고가용성 클러스터에서 WebUI를 호스트하는 현재 활성 HBase 마스터 노드에 대한 링크를 찾을 수 있습니다.
 
+##클러스터 삭제
 
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 
 ## 다음 작업
@@ -331,4 +335,4 @@ HDInsight에 대한 이 HBase 자습서에서는 HBase 클러스터를 만드는
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

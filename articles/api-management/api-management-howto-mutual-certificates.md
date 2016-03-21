@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # Azure API 관리에서 클라이언트 인증서 인증을 사용하여 백 엔드 서비스를 보호하는 방법
@@ -24,7 +24,7 @@ API 관리 REST API를 사용하여 인증서를 관리하는 방법에 대한 �
 
 ## <a name="prerequisites"> </a>필수 조건
 
-이 가이드에서는 클라이언트 인증서 인증을 사용하여 API의 백 엔드 서비스에 액세스하도록 API 관리 서비스 인스턴스를 구성하는 방법을 설명합니다. 이 항목의 단계를 수행하기 전에 클라이언트 인증서 인증을 사용하도록 백 엔드 서비스를 구성해야 하며 API 관리 게시자 포털에서 업로드할 인증서 및 해당 인증서의 암호에 액세스할 수 있어야 합니다.
+이 가이드에서는 클라이언트 인증서 인증을 사용하여 API의 백 엔드 서비스에 액세스하도록 API 관리 서비스 인스턴스를 구성하는 방법을 설명합니다. 이 항목의 단계를 수행하기 전에 클라이언트 인증서 인증을 사용하도록 백 엔드 서비스를 구성해야 하며([Azure 웹 사이트에서 인증서 인증을 구성하려면 이 문서 참조][]) API 관리 게시자 포털에서 업로드할 인증서 및 해당 인증서의 암호에 액세스할 수 있어야 합니다.
 
 ## <a name="step1"> </a>클라이언트 인증서 업로드
 
@@ -129,6 +129,7 @@ HTTP 기본 또는 공유 암호 인증과 같은 백 엔드 서비스를 보호
 
 [Azure API 관리 REST API 인증서 엔터티]: http://msdn.microsoft.com/library/azure/dn783483.aspx
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
+[Azure 웹 사이트에서 인증서 인증을 구성하려면 이 문서 참조]: https://azure.microsoft.com/ko-KR/documentation/articles/app-service-web-configure-tls-mutual-auth/
 
 [Prerequisites]: #prerequisites
 [Upload a client certificate]: #step1
@@ -138,7 +139,6 @@ HTTP 기본 또는 공유 암호 인증과 같은 백 엔드 서비스를 보호
 [Next steps]: #next-steps
 
 
-
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -4,7 +4,7 @@
 	services="api-management"
 	documentationCenter=""
 	authors="antonba"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -68,4 +68,4 @@ API 관리 서비스가 VPN에 연결되면 가상 네트워크 내에서 웹 �
 [자습서: 사이트 간 연결용 프레미스 간 가상 네트워크 만들기]: ../virtual-networks-create-site-to-site-cross-premises-connectivity
 [API 검사기를 사용하여 Azure API 관리에서 호출을 추적하는 방법]: api-management-howto-api-inspector.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

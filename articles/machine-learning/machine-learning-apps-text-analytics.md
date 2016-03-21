@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/22/2016"
+	ms.date="03/08/2016"
 	ms.author="onewth"/>
 
 
@@ -58,7 +58,7 @@ API는 검색된 언어 및 0에서 1 사이의 숫자 점수를 반환합니다
                
 	Where <creds> = ConvertToBase64(“AccountKey:” + yourActualAccountKey);  
 
-[Azure 데이터 마켓](https://datamarket.azure.com/account/keys)에서 계정의 계정 키를 찾을 수 있습니다.
+[Azure 데이터 마켓](https://datamarket.azure.com/account/keys)에서 계정의 계정 키를 찾을 수 있습니다. 현재는 JSON의 경우에만 입력 및 출력 형식이 허용됩니다. XML은 지원되지 않습니다.
 
 ---
 
@@ -383,4 +383,4 @@ API는 다음과 같은 형식의 JSON 형식으로 출력을 반환합니다.
 | TopicId | 레코드가 할당된 항목 ID입니다. |
 | Distance | 레코드가 항목에 속할 신뢰도입니다. Distance가 0에 가까울수록 신뢰도가 높아집니다. |
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

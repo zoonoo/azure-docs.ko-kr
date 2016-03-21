@@ -46,7 +46,8 @@ Azure Active Directory Device Registration 서비스를 사용하도록 설정�
 1. **사용자가 장치에 작업 공간을 연결할 수 있습니다.**에 대해 **모두**를 선택합니다.
 1. 사용자당 권한을 부여하려는 최대 장치 수를 선택합니다.
 
->[AZURE.NOTE]Office 365에 대한 모바일 장치 관리 및 Microsoft Intune에 등록하려면 작업 공간 연결이 필요합니다. 이러한 서비스 중 하나를 구성한 경우 모두가 선택되고 없음 단추는 사용할 수 없습니다.
+>[AZURE.NOTE]
+Office 365에 대한 모바일 장치 관리 및 Microsoft Intune에 등록하려면 작업 공간 연결이 필요합니다. 이러한 서비스 중 하나를 구성한 경우 모두가 선택되고 없음 단추는 사용할 수 없습니다.
 
 
 기본적으로 2단계 인증은 서비스에 대해 사용되지 않습니다. 그러나 장치를 등록하는 경우 2단계 인증을 사용하는 것이 좋습니다.
@@ -82,5 +83,6 @@ Azure AD 장치 등록을 사용하여 Windows 7 및 Windows 8.1 도메인 가�
 - [도메인 가입 Windows 장치의 Azure Active Directory 자동 장치 등록](active-directory-conditional-access-automatic-device-registration.md) 
 - [Windows 7 도메인 가입 장치에 대한 자동 장치 등록 구성](active-directory-conditional-access-automatic-device-registration-windows7.md)
 - [Windows 8.1 도메인 가입 장치에 대한 자동 장치 등록 구성](active-directory-conditional-access-automatic-device-registration-windows8_1.md)
+- [Windows 10 도메인에 가입된 장치의 Azure Active Directory 자동 장치 등록](active-directory-azureadjoin-devices-group-policy.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

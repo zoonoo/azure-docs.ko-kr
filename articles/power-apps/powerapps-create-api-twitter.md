@@ -14,10 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="03/03/2016"
    ms.author="litran"/>
 
-# 조직의 앱 서비스 환경에서 새 Twitter API 만들기
+# PowerApps 엔터프라이즈에 새 Twitter API 만들기
+
+> [AZURE.SELECTOR]
+- [논리 앱](../articles/connectors/create-api-twitter.md)
+- [PowerApps 엔터프라이즈](../articles/power-apps/powerapps-create-api-twitter.md)
+
+조직의(테넌트) 앱 서비스 환경에 Twitter API를 추가합니다.
 
 ## Azure 포털에서 API 만들기
 
@@ -39,7 +45,7 @@
 
 9. Twitter 응용 프로그램의 *소비자 키* 및 *소비자 암호*를 입력합니다. 없는 경우 이 항목의 "PowerApps에서 사용할 Twitter 앱 등록” 섹션을 참조하여 필요한 키와 암호 값을 만듭니다.
 
-	> [AZURE.IMPORTANT]**리디렉션 URL**을 저장합니다. 이 항목 뒷부분에서 이 값이 필요할 수 있습니다.
+	> [AZURE.IMPORTANT] **리디렉션 URL**을 저장합니다. 이 항목 뒷부분에서 이 값이 필요할 수 있습니다.
 
 10. **확인**을 선택하여 이 단계를 완료합니다.
 
@@ -56,13 +62,22 @@
 
 3. **응용 프로그램 만들기**에서:
    
-	a) **이름**에 대한 값을 입력합니다. b) **설명**에 대한 값을 입력합니다. c) **웹 사이트**에 대한 값을 입력합니다. d) **콜백 URL**을 이 항목의 Azure 포털에서 새 Twitter API를 추가한 리디렉션 URL로 설정합니다. e) 개발자 계약에 동의하고 **Twitter 응용 프로그램 만들기**를 선택합니다.
+	1. **Name** 값을 입력합니다.  
+	2. **Description** 값을 입력합니다.  
+	3. **Website** 값을 입력합니다.  
+	4. **Callback url**을 이 항목의 Azure 포털에서 새 Twitter API를 추가했을 때 받은 URL 리디렉션으로 설정합니다.  
+	5. 개발자 계약에 동의하고 **Create your Twitter application**을 선택합니다.  
 
 	![Twitter 앱 만들기][7]
 
 4. 성공적으로 앱이 만들어지면 앱 페이지로 리디렉션됩니다.
 
 새 Twitter 앱이 만들어졌습니다. 이 앱을 Azure 포털의 Twitter API 구성에서 사용할 수 있습니다.
+
+## REST API 참조
+
+[Twitter REST API](../connectors/create-api-twitter.md) 참조
+
 
 ## 요약 및 다음 단계
 이 항목에서는 PowersApps 엔터프라이즈에 Twitter API를 추가했습니다. 그 다음에는 이 API를 사용자의 앱에 추가할 수 있도록 사용자에게 이 API에 대한 액세스 권한을 부여합니다.
@@ -81,4 +96,4 @@
 [14]: ./media/powerapps-create-api-sqlserver/browseall.png
 [15]: ./media/powerapps-create-api-sqlserver/allresources.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

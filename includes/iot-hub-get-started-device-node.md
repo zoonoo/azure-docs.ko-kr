@@ -39,28 +39,43 @@
     function printResultFor(op) {
       return function printResult(err, res) {
         if (err) console.log(op + ' error: ' + err.toString());
-        if (res) console.log(op + ': message sent');
+        if (res) console.log(op + ' status: ' + res.constructor.name);
       };
     }
     ```
 
-7. **setInterval** 함수를 사용하여 새 메시지를 1초마다 IoT 허브에 보냅니다.
+7. 콜백을 생성하고 **setInterval** 함수를 사용하여 새 메시지를 1초마다 IoT Hub에 보냅니다.
 
     ```
-    setInterval(function(){
-      var windSpeed = 10 + (Math.random() * 4);
-      var data = JSON.stringify({ deviceId: 'myFirstDevice', windSpeed: windSpeed });
-      var message = new Message(data);
-      console.log("Sending message: " + message.getData());
-      client.sendEvent(message, printResultFor('send'));
-    }, 1000);
+    var connectCallback = function (err) {
+      if (err) {
+        console.log('Could not connect: ' + err);
+      } else {
+        console.log('Client connected');
+
+        // Create a message and send it to the IoT Hub every second
+        setInterval(function(){
+            var windSpeed = 10 + (Math.random() * 4);
+            var data = JSON.stringify({ deviceId: 'mydevice', windSpeed: windSpeed });
+            var message = new Message(data);
+            console.log("Sending message: " + message.getData());
+            client.sendEvent(message, printResultFor('send'));
+        }, 2000);
+      }
+    };
     ```
 
-8. **SimulatedDevice.js** 파일을 저장하고 닫습니다.
+8. IoT Hub에 대한 연결을 열고 메시지를 보내기 시작합니다.
+
+    ```
+    client.open(connectCallback);
+    ```
+
+9. **SimulatedDevice.js** 파일을 저장하고 닫습니다.
 
 > [AZURE.NOTE] 간단히 하기 위해 이 자습서에서는 다시 시도 정책을 구현하지 않습니다. 프로덕션 코드에서는 MSDN 문서 [일시적인 오류 처리][lnk-transient-faults]에서 제시한 대로 다시 시도 정책(예: 지수 백오프)을 구현해야 합니다.
 
 <!-- Links -->
-[lnk-transient-faults]: https://msdn.microsoft.com/ko-KR/library/hh680901(v=pandp.50).aspx
+[lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->
