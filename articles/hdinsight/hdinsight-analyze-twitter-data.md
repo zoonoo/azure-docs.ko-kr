@@ -218,7 +218,7 @@ OAuth를 사용하는 첫 단계는 Twitter 개발자 사이트에서 새 응용
 
 		Write-Host "Completed!" -ForegroundColor Green
 
-3. 스크립트에서 첫 번째 5~8개의 변수를 설정합니다.
+3. 스크립트에서 첫 번째 5\~8개의 변수를 설정합니다.
 
 
 변수|설명

@@ -68,7 +68,7 @@ IoT Hub를 인식하지 않는 SDK(또는 제품 통합)를 사용하는 경우 
 
     ![][img-eventhubcompatible]
 
-> [AZURE.NOTE] 경우에 따라 SDK는 **Hostname** 또는 **네임스페이스** 값을 필요로 합니다. 이 경우 **이벤트 허브 호환 끝점**에서 구성표를 제거합니다. 예를 들어 이벤트 허브와 호환 가능한 끝점이 ****sb://iothub-ns-myiothub-1234.servicebus.windows.net/**인 경우 **호스트 이름**은 **iothub-ns-myiothub-1234.servicebus.windows.net**이고 **네임스페이스**는 **iothub-ns-myiothub-1234**입니다.
+> [AZURE.NOTE] 경우에 따라 SDK는 **Hostname** 또는 **네임스페이스** 값을 필요로 합니다. 이 경우 **이벤트 허브 호환 끝점**에서 구성표를 제거합니다. 예를 들어 이벤트 허브와 호환 가능한 끝점이 **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**인 경우 **호스트 이름**은 **iothub-ns-myiothub-1234.servicebus.windows.net**이고 **네임스페이스**는 **iothub-ns-myiothub-1234**입니다.
 
 지정된 이벤트 허브에 연결할 수 있는 **ServiceConnect** 권한이 있는 공유 액세스 보안 정책을 사용할 수 있습니다.
 
