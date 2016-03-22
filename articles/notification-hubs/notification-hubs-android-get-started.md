@@ -67,7 +67,7 @@
 
    	![Android Studio - 새 프로젝트][13]
 
-2. **Phone and Tablet** 폼 팩터와 지원할 **Minimum SDK**를 선택합니다. 그런 후 **Next**를 클릭합니다.
+2. **휴대폰 및 태블릿** 폼 팩터와 지원할 **Minimum SDK**를 선택합니다. 그런 후 **Next**를 클릭합니다.
 
    	![Android Studio - 프로젝트 만들기 워크플로][14]
 
