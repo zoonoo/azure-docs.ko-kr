@@ -36,12 +36,12 @@
 - 이 문서는 Azure Data Factory 서비스에 대한 개념적 개요를 제공하지 않습니다. 서비스에 대한 자세한 개요는 [Azure Data Factory 소개](data-factory-introduction.md)를 읽어보세요. 
 - Azure 리소스 관리자(ARM) 템플릿에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](../resource-group-authoring-templates.md)을 참조하세요. 
 
+> [AZURE.IMPORTANT]
+이 문서를 연습하려면 [자습서 개요](data-factory-build-your-first-pipeline.md)의 필수 단계를 완료해야 합니다.
 
 ## 1단계: ARM 템플릿 만들기
 
 **C:\\ADFGetStarted** 폴더에 다음과 같은 내용으로 **ADFTutorialARM.json**이라는 JSON 파일을 만듭니다.
-
-> [AZURE.IMPORTANT] **storageAccountName** 및 **storageAccountKey** 변수에 대한 값을 변경합니다. 이름은 고유해야 하기 때문에 **dataFactoryName**도 변경합니다.
 
 템플릿을 사용하면 다음 데이터 팩터리 엔터티를 만들 수 있습니다.
 
@@ -51,6 +51,9 @@
 
 **데이터 팩터리 편집기 사용** 탭을 클릭하여 이 템플릿에서 사용된 JSON 속성에 대한 세부 정보가 있는 문서로 전환합니다.
 
+> [AZURE.IMPORTANT] **storageAccountName** 및 **storageAccountKey** 변수에 대한 값을 변경합니다. 이름은 고유해야 하기 때문에 **dataFactoryName**도 변경합니다.
+
+
 	{
 	    "contentVersion": "1.0.0.0",
 	    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -58,10 +61,10 @@
 	    },
 	    "variables": {
 	        "dataFactoryName":  "TutorialDataFactoryARM",
-	        "storageAccountName":  "<stroage account name>" ,
-	        "storageAccountKey":  "<storage account key>",
+	        "storageAccountName":  "<AZURE STORAGE ACCOUNT NAME>" ,
+	        "storageAccountKey":  "<AZURE STORAGE ACCOUNT KEY>",
 	        "apiVersion": "2015-10-01",
-	        "storageLinkedServiceName": "StorageLinkedService",
+	        "storageLinkedServiceName": "AzureStorageLinkedService",
 	        "hdInsightOnDemandLinkedServiceName": "HDInsightOnDemandLinkedService",
 	        "blobInputDataset": "AzureBlobInput",
 	        "blobOutputDataset": "AzureBlobOutput",
@@ -96,12 +99,13 @@
 	                    "apiVersion": "[variables('apiVersion')]",
 	                    "properties": {
 	                        "type": "HDInsightOnDemand",
-	                        "typeProperties": {
-	                            "version": "3.2",
-	                            "clusterSize": 1,
-	                            "timeToLive": "00:30:00",
-	                            "linkedServiceName": "StorageLinkedService"
-	                        }
+        					"typeProperties": {
+                                "clusterSize": 4,
+                                "version":  "3.2",
+            					"timeToLive": "00:05:00",
+                                "osType": "linux",
+            					"linkedServiceName": "[variables('storageLinkedServiceName')]",
+    						}
 	                    }
 	                },
 	                {
@@ -114,7 +118,7 @@
 	                    "apiVersion": "[variables('apiVersion')]",
 						    "properties": {
 						        "type": "AzureBlob",
-						        "linkedServiceName": "StoraegLinkedService",
+						        "linkedServiceName": "[variables('storageLinkedServiceName')]",
 						        "typeProperties": {
 						            "fileName": "input.log",
 						            "folderPath": "adfgetstarted/inputdata",
@@ -142,7 +146,7 @@
 						    "properties": {
 						        "published": false,
 						        "type": "AzureBlob",
-						        "linkedServiceName": "StorageLinkedService",
+						        "linkedServiceName": "[variables('storageLinkedServiceName')]",
 						        "typeProperties": {
 						            "folderPath": "adfgetstarted/partitioneddata",
 						            "format": {
@@ -174,7 +178,7 @@
 						                "type": "HDInsightHive",
 						                "typeProperties": {
 						                    "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
-						                    "scriptLinkedService": "StorageLinkedService",
+						                    "scriptLinkedService": "[variables('storageLinkedServiceName')]",
 						                    "defines": {
 		                        				"inputtable": "[concat('wasb://adfgetstarted@', variables('storageAccountName'), '.blob.core.windows.net/inputdata')]",
 		                        				"partitionedtable": "[concat('wasb://adfgetstarted@', variables('storageAccountName'), '.blob.core.windows.net/partitioneddata')]"
@@ -212,10 +216,11 @@
 	    ]
 	}
 
+**데이터 팩터리 편집기 사용** 탭을 클릭하여 이 템플릿에서 사용된 JSON 속성에 대한 세부 정보가 있는 문서로 전환합니다.
 
 다음 사항에 유의하세요.
 
-- 데이터 팩터리는 사용자에 대해 **Windows 기반** HDInsight 클러스터를 JSON 위에 만듭니다. **Linux 기반** HDInsight 클러스터를 만들도록 지정할 수도 있습니다. 자세한 내용은 [주문형 HDInsight 연결된 서비스](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)를 참조하세요. 
+- 데이터 팩터리는 사용자 대신 위의 JSON을 사용하여 **Linux 기반** HDInsight 클러스터를 만듭니다. 데이터 팩터리가 **Windows 기반** HDInsight 클러스터를 만들도록 지정할 수도 있습니다. 자세한 내용은 [주문형 HDInsight 연결된 서비스](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)를 참조하세요. 
 - 주문형 HDInsight 클러스터를 사용하는 대신 **고유의 HDInsight 클러스터**를 사용할 수 있습니다. 자세한 내용은 [HDInsight 연결된 서비스](data-factory-compute-linked-services.md#azure-hdinsight-linked-service)를 참조하세요.
 - HDInsight 클러스터는 JSON (**linkedServiceName**)에서 지정한 Blob 저장소에 **기본 컨테이너**를 만듭니다. HDInsight는 클러스터가 삭제될 때 이 컨테이너를 삭제하지 않습니다. 의도적인 작동입니다. 주문형 HDInsight 연결된 서비스에서는 기존 라이브 클러스터(**timeToLive**)가 없는 한 슬라이스를 처리해야 할 때마다 HDInsight 클러스터가 만들어지며 처리가 완료되면 삭제됩니다.
 
@@ -227,10 +232,9 @@
 
 ## 2단계: ARM 템플릿을 사용하여 데이터 팩터리 엔터티 배포
 
-1. Azure PowerShell을 시작하고 다음 명령을 실행합니다. 이 자습서를 마칠 때까지 Azure PowerShell을 열어 두세요. 닫은 후 다시 여는 경우 이러한 명령을 다시 실행해야 합니다.
+1. **Azure PowerShell**을 시작하고 다음 명령을 실행합니다. 
 	- **Login-AzureRmAccount**를 실행하고 Azure 포털에 로그인하는 데 사용하는 사용자 이름 및 암호를 입력합니다.  
-	- **Get-AzureSubscription**을 실행하여 이 계정의 모든 구독을 확인합니다.
-	- **Select-AzureSubscription SubscriptionName**을 실행하여 사용하려는 구독을 선택합니다. 이 구독은 Azure 포털에서 사용한 것과 같아야 합니다.
+	- 다음 명령을 실행하여 데이터 팩터리를 만들려는 구독을 선택합니다. Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext
 1. 1단계에서에서 만든 ARM 템플릿을 사용하여 데이터 팩터리 엔터티를 배포하려면 다음 명령을 실행합니다. 
 
 		New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFTutorialARM.json
@@ -252,4 +256,4 @@
 10. 조각이 **준비** 상태에 있으면 출력 데이터에 대한 blob 저장소의 **adfgetstarted** 컨테이너에 있는 **partitioneddata** 폴더를 확인합니다.  
  
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

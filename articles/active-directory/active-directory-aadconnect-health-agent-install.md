@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/17/2016"
+	ms.date="03/08/2016"
 	ms.author="billmath"/>
 
 
@@ -121,13 +121,31 @@ Windows Server 2008 R2 서버에 대해 다음을 수행합니다.
 
 에이전트가 설치되었는지 확인하려면 서비스를 열고 다음 사항을 확인합니다. 구성을 완료한 경우 다음 서비스가 실행되고 있어야 합니다. 그렇지 않은 경우 구성이 완료될 때까지 서비스가 시작되지 않습니다.
 
-- Azure AD Connect Health AadSync Insights Service
-- Azure AD Connect Health AadSync Monitoring Service
+- Azure AD Connect Health Sync Insights Service
+- Azure AD Connect Health Sync Monitoring Service
 
 ![동기화에 대한 Azure AD Connect Health 확인](./media/active-directory-aadconnect-health-sync/services.png)
 
 >[Azure.NOTE] Azure AD Connect Health를 사용하려면 Azure AD Premium이 필요합니다. Azure AD Premium이 없는 경우 Azure 포털에서 구성을 완료할 수 없습니다. 자세한 내용은 [여기](active-directory-aadconnect-health.md#requirements)에서 요구 사항을 참조하세요.
 
+
+## 동기화에 대한 Azure AD Connect Health 수동 등록
+Azure AD Connect를 성공적으로 설치한 후 동기화에 대한 Azure AD Connect Health 등록이 실패할 경우 다음 PowerShell 명령을 사용하여 수동으로 에이전트를 등록할 수 있습니다.
+
+>[AZURE.IMPORTANT] 이 PowerShell 명령은 Azure AD Connect를 설치한 후 에이전트 등록에 실패하는 경우에만 필요합니다.
+
+아래 PowerShell 명령은 Azure AD Connect를 성공적으로 설치 및 구성한 후에도 Health 에이전트 등록이 실패하는 경우에만 필요합니다. 이러한 경우 Azure AD Connect Health 서비스는 에이전트가 등록될 때까지 시작되지 않습니다.
+ 	
+다음 PowerShell 명령을 사용하여 동기화에 대한 Azure AD Connect Health 에이전트를 수동으로 등록할 수 있습니다.
+
+`Register-AzureADConnectHealthSyncAgent -AttributeFiltering $false -StagingMode $false`
+
+이 명령은 다음 매개 변수를 사용합니다.
+
+- AttributeFiltering: Azure AD Connect가 기본 특성 집합을 동기화하지 않으며 필터링된 특성 집합을 사용하도록 사용자 지정된 경우에는 $true(기본값)이고, 그렇지 않으면 $false입니다.
+- StagingMode: Azure AD Connect 서버가 준비 모드에 있지 않으면 $false(기본값)이고, 서버가 준비 모드에 있도록 구성되면 $true입니다.
+ 
+인증하라는 메시지가 표시되면 Azure AD Connect 구성에 사용한 것과 동일한 전역 관리자 계정(예: admin@domain.onmicrosoft.com)을 사용해야 합니다.
 
 
 
@@ -206,4 +224,4 @@ Azure AD Connect Health 에이전트에서 Azure AD Connect Health 서비스와�
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health 버전 내역](active-directory-aadconnect-health-version-history.md)
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

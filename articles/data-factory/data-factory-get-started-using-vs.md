@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/01/2016" 
+	ms.date="03/07/2016" 
 	ms.author="spelluru"/>
 
 # 자습서: Visual Studio를 사용하여 복사 작업이 있는 파이프라인 만들기
@@ -22,7 +22,7 @@
 - [데이터 팩터리 편집기 사용](data-factory-get-started-using-editor.md)
 - [Visual Studio 사용](data-factory-get-started-using-vs.md)
 - [PowerShell 사용](data-factory-monitor-manage-using-powershell.md)
-
+- [복사 마법사 사용](data-factory-copy-data-wizard-tutorial.md)
 
 ##자습서 내용
 이 자습서에서는 Visual Studio 2013을 사용하여 다음을 수행합니다.
@@ -229,10 +229,8 @@
 ## 서버 탐색기를 사용하여 데이터 팩터리 엔터티를 검토합니다.
 
 1. **Visual Studio**의 메뉴에서 **보기**를 클릭한 다음 **서버 탐색기**를 클릭합니다.
-2. 서버 탐색기 창에서 **Azure**를 확장한 다음 **데이터 팩터리**를 확장합니다. **Visual Studio에 로그인**이 표시되면 Azure 구독과 연결된 **계정**을 입력하고 **계속**을 클릭합니다. **암호**를 입력하고 **로그인**을 클릭합니다. Visual Studio에서는 구독에 있는 모든 Azure Data Factory에 대한 정보를 가져오려고 시도합니다. **데이터 팩터리 작업 목록** 창에 이 작업의 상태가 표시됩니다.  
-	![서버 탐색기](./media/data-factory-get-started-using-vs/server-explorer.png)
-3. 데이터 팩터리를 마우스 오른쪽 단추로 클릭하고 새 프로젝트로 데이터 팩터리 내보내기를 선택하여 기존 데이터 팩터리에 따라 Visual Studio 프로젝트를 만들 수 있습니다.  
-	![VS 프로젝트로 데이터 팩터리 내보내기](./media/data-factory-get-started-using-vs/export-data-factory-menu.png)  
+2. 서버 탐색기 창에서 **Azure**를 확장한 다음 **데이터 팩터리**를 확장합니다. **Visual Studio에 로그인**이 표시되면 Azure 구독과 연결된 **계정**을 입력하고 **계속**을 클릭합니다. **암호**를 입력하고 **로그인**을 클릭합니다. Visual Studio에서는 구독에 있는 모든 Azure Data Factory에 대한 정보를 가져오려고 시도합니다. **데이터 팩터리 작업 목록** 창에 이 작업의 상태가 표시됩니다. ![서버 탐색기](./media/data-factory-get-started-using-vs/server-explorer.png)
+3. 데이터 팩터리를 마우스 오른쪽 단추로 클릭하고 새 프로젝트로 데이터 팩터리 내보내기를 선택하여 기존 데이터 팩터리에 따라 Visual Studio 프로젝트를 만들 수 있습니다. ![VS 프로젝트로 데이터 팩터리 내보내기](./media/data-factory-get-started-using-vs/export-data-factory-menu.png)  
 
 ## Visual Studio용 데이터 팩터리 도구 업데이트
 Visual Studio용 Azure Data Factory 도구를 업데이트하려면 다음을 수행합니다.
@@ -246,4 +244,4 @@ Azure 포털을 사용하여 이 자습서에서 만든 파이프라인 및 데�
 ## 참고 항목
 Azure 데이터 팩터리의 **복사 작업**에 대한 자세한 내용은 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 참조하세요.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

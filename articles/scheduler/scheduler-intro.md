@@ -11,8 +11,8 @@
  ms.workload="infrastructure-services"
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
- ms.topic="get-started-article"
- ms.date="12/04/2015"
+ ms.topic="hero-article"
+ ms.date="03/09/2016"
  ms.author="krisragh"/>
 
 # Azure 스케줄러 정의
@@ -50,4 +50,4 @@ Azure 스케줄러를 사용하면 클라우드에서 실행할 작업을 선언
 
  [Azure 스케줄러 아웃바운드 인증](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

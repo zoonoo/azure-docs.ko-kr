@@ -13,15 +13,15 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="hero-article" 
-	ms.date="02/19/2016"
+	ms.topic="hero-article"
+	ms.date="03/09/2016"
 	ms.author="anhoh"/>
 
-# NoSQL 자습서: DocumentDB C# 콘솔 응용 프로그램 빌드 
+# NoSQL 자습서: DocumentDB C# 콘솔 응용 프로그램 빌드
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-get-started.md)
-- [Node.js](documentdb-nodejs-get-started.md)
+- [Node.JS](documentdb-nodejs-get-started.md)
 
 DocumentDB .NET SDK용 NoSQL 자습서를 시작합니다. 이 자습서를 따라하면 DocumentDB 리소스를 만들고 쿼리하는 콘솔 응용 프로그램이 생깁니다.
 
@@ -141,6 +141,7 @@ DocumentDB 계정에 연결하여 **DocumentClient** 클래스의 인스턴스�
 **DocumentClient** 클래스의 [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) 메서드를 사용하여 [컬렉션](documentdb-resources.md#collections)을 만들 수 있습니다. 컬렉션은 JSON 문서 및 관련 JavaScript 응용 프로그램 논리의 컨테이너입니다. 새로 만든 컬렉션은 [S1 성능 수준](documentdb-performance-levels.md)에 매핑됩니다. **GetStartedDemo** 메서드에서 데이터베이스를 만든 후 이름이 **FamilyCollection**인 새 컬렉션을 만듭니다.
 
     // Check to verify a document collection with the id=FamilyCollection does not exist
+    // dbs is prepended to the id to identify the parent resource: databases
     DocumentCollection documentCollection = client.CreateDocumentCollectionQuery("dbs/" + database.Id).Where(c => c.Id == "FamilyCollection").AsEnumerable().FirstOrDefault();
 
 	// If the document collection does not exist, create a new collection
@@ -205,6 +206,7 @@ DocumentDB 계정에 연결하여 **DocumentClient** 클래스의 인스턴스�
 다음으로, **GetStartedDemo** 비동기 메서드 내에 문서를 만듭니다.
 
     // Check to verify a document with the id=AndersenFamily does not exist
+    // colls is prepended to the id to identify the parent resource: collections, along with the rest of the resource path: dbs/FamilyRegistry
     Document document = client.CreateDocumentQuery("dbs/" + database.Id + "/colls/" + documentCollection.Id).Where(d => d.Id == "AndersenFamily").AsEnumerable().FirstOrDefault();
 
 	// If the document does not exist, create a new document
@@ -221,24 +223,25 @@ DocumentDB 계정에 연결하여 **DocumentClient** 클래스의 인스턴스�
 	        },
 	        Children = new Child[] {
 	            new Child
-	            { 
-	                FirstName = "Henriette Thaulow", 
-	                Gender = "female", 
-	                Grade = 5, 
+	            {
+	                FirstName = "Henriette Thaulow",
+	                Gender = "female",
+	                Grade = 5,
 	                Pets = new Pet[] {
-	                    new Pet { GivenName = "Fluffy" } 
+	                    new Pet { GivenName = "Fluffy" }
 	                }
-	            } 
+	            }
 	        },
 	        Address = new Address { State = "WA", County = "King", City = "Seattle" },
 	        IsRegistered = true
 	    };
-	
+
 	    // id based routing for the first argument, "dbs/FamilyRegistry/colls/FamilyCollection"
 	    await client.CreateDocumentAsync("dbs/" + database.Id + "/colls/" + documentCollection.Id, andersonFamily);
 	}
 
     // Check to verify a document with the id=AndersenFamily does not exist
+    // colls is prepended to the id to identify the parent resource: collections, along with the rest of the resource path: dbs/FamilyRegistry
     document = client.CreateDocumentQuery("dbs/" + database.Id + "/colls/" + documentCollection.Id).Where(d => d.Id == "WakefieldFamily").AsEnumerable().FirstOrDefault();
 
     if (document == null)
@@ -253,9 +256,9 @@ DocumentDB 계정에 연결하여 **DocumentClient** 클래스의 인스턴스�
             },
             Children = new Child[] {
                 new Child {
-                    FamilyName= "Merriam", 
-                    FirstName= "Jesse", 
-                    Gender= "female", 
+                    FamilyName= "Merriam",
+                    FirstName= "Jesse",
+                    Gender= "female",
                     Grade= 8,
                     Pets= new Pet[] {
                         new Pet { GivenName= "Goofy" },
@@ -263,9 +266,9 @@ DocumentDB 계정에 연결하여 **DocumentClient** 클래스의 인스턴스�
                     }
                 },
                 new Child {
-                    FamilyName= "Miller", 
-                    FirstName= "Lisa", 
-                    Gender= "female", 
+                    FamilyName= "Miller",
+                    FirstName= "Lisa",
+                    Gender= "female",
                     Grade= 1
                 }
             },
@@ -476,6 +479,5 @@ Visual Studio에서 DocumentDB .NET SDK에 대한 참조를 복원하려면 솔�
 [documentdb-create-account]: documentdb-create-account.md
 [documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
- 
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/09/2016"
+    ms.date="03/10/2016"
     ms.author="brjohnst"/>
 
 # .NET SDK를 사용하여 Azure 검색 인덱스 만들기
@@ -77,8 +77,8 @@ SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, n
 var definition = new Index()
 {
     Name = "hotels",
-    Fields = new[] 
-    { 
+    Fields = new[]
+    {
         new Field("hotelId", DataType.String)                       { IsKey = true, IsFilterable = true },
         new Field("baseRate", DataType.Double)                      { IsFilterable = true, IsSortable = true, IsFacetable = true },
         new Field("description", DataType.String)                   { IsSearchable = true },
@@ -121,6 +121,6 @@ serviceClient.Indexes.Delete("hotels");
 > [AZURE.NOTE] 이 문서의 예제 코드는 간단히 하기 위해 Azure 검색.NET SDK의 동기 메서드를 사용합니다. 확장성과 응답성이 유지하기 위해 사용 중인 응용 프로그램에서 비동기 메서드를 사용하는 것이 좋습니다. 예를 들어 위의 예제에서 `Create` 및 `Delete` 대신 `CreateAsync` 및 `DeleteAsync`를 사용할 수 있습니다.
 
 ## 다음
-Azure 검색 인덱스를 만든 후에 데이터를 검색하기 시작할 수 있도록 콘텐츠를 인덱스에 업로드할 준비가 되었습니다. 자세한 내용은 [.NET SDK를 사용하여 Azure 검색으로 데이터 가져오기](search-import-data-dotnet.md)를 참조하세요.
+Azure 검색 인덱스를 만든 후에 데이터를 검색하기 시작할 수 있도록 [콘텐츠를 인덱스에 업로드](search-what-is-data-import.md)할 준비가 되었습니다.
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

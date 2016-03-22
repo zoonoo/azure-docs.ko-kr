@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="02/25/2016"
+	ms.date="03/11/2016"
 	ms.author="yidingz;marsma"/>
 
 # Azure 배치 기능 개요
@@ -44,7 +44,7 @@
 
 ## <a name="resource"></a>배치 서비스의 리소스
 
-Azure 배치 서비스를 사용하는 경우 다음 리소스를 사용할 수 있습니다.
+배치를 사용하는 경우 다음과 같은 리소스를 사용하게 됩니다. 이러한 리소스 중 계정, 계산 노드, 풀, 작업(job), 작업(task) 등의 일부 리소스는 모든 배치 솔루션에서 사용됩니다. 작업 일정, 응용 프로그램 패키지 등의 기타 리소스는 유용하기는 하지만 선택적 기능입니다.
 
 - [계정](#account)
 - [계산 노드](#computenode)
@@ -55,7 +55,9 @@ Azure 배치 서비스를 사용하는 경우 다음 리소스를 사용할 수 
 	- [작업 관리자 태스크](#jobmanagertask)
 	- [작업 준비 및 해제 태스크](#jobpreprelease)
 	- [다중 인스턴스 작업](#multiinstance)
-- [JobSchedule](#jobschedule)
+    - [작업 종속성](#taskdep)
+- [작업 일정](#jobschedule)
+- [응용 프로그램 패키지](#appkg)
 
 ### <a name="account"></a>계정
 
@@ -141,6 +143,7 @@ Azure 배치 풀은 코어 Azure 계산 플랫폼을 기반으로 합니다. 배
 - [작업 관리자 태스크](#jobmanagertask)
 - [작업 준비 및 해제 태스크](#jobmanagertask)
 - [다중 인스턴스 작업](#multiinstance)
+- [작업 종속성](#taskdep)
 
 #### <a name="starttask"></a>시작 태스크
 
@@ -187,9 +190,21 @@ Azure 배치 풀은 코어 Azure 계산 플랫폼을 기반으로 합니다. 배
 
 Batch .NET 라이브러리를 사용하여 일괄 처리에서 MPI 작업 실행에 대한 자세한 내용은 [다중 인스턴스 작업을 사용하여 Azure 배치에서 MPI(Message Passing Interface) 응용 프로그램 실행](batch-mpi.md)을 확인합니다.
 
+#### <a name="taskdep"></a>작업 종속성
+
+작업 종속성은 그 이름에서 알 수 있듯이, 한 작업이 실행되기 전까지 하나 이상의 다른 작업에 종속되도록 지정할 수 있습니다. "다운스트림" 작업은 "업스트림" 작업의 출력을 사용할 수도 있고, 또는 아마도 업스트림 작업이 수행하는 일부 초기화에 종속됩니다. 이러한 시나리오의 경우 작업에서 작업 종속성을 사용하도록 지정한 후 다른 작업(또는 다른 여러 작업)에 종속된 각 작업에 대해 해당 작업이 종속되는 작업을 지정할 수 있습니다.
+
 ### <a name="jobschedule"></a>예약된 작업
 
 작업 일정을 사용하여 배치 서비스 내에서 되풀이되는 작업을 만들 수 있습니다. 작업 일정은 작업을 실행할 시간을 지정하며, 실행할 작업에 대한 사양을 포함합니다. 작업 일정에서는 일정의 기간(일정이 적용되는 시점 및 기간) 및 해당 기간 동안 작업을 만들어야 하는 빈도에 대한 사양을 지정할 수 있습니다.
+
+### <a name="appkg"></a>응용 프로그램 패키지
+
+[응용 프로그램 패키지](batch-application-packages.md) 기능은 풀의 계산 노드에 응용 프로그램을 간편하게 관리 및 배포할 수 있는 방법을 제공합니다. 응용 프로그램 패키지를 사용하면 이진 및 지원 파일을 포함하여 작업에서 실행하는 여러 응용 프로그램 버전을 간편하게 업로드 및 관리할 수 있으며, 풀의 계산 노드에 하나 이상의 이러한 응용 프로그램을 자동으로 배포할 수 있습니다.
+
+배치는 백그라운드의 세부적인 Azure 저장소 작업을 처리하여 응용 프로그램 패키지를 안전하게 저장하고 계산 노드에 배포합니다. 따라서 코드와 관리 오버헤드가 간소화됩니다.
+
+응용 프로그램 패키지 기능에 대한 자세한 내용은 [Azure 배치 응용 프로그램 패키지를 사용하여 응용 프로그램 배포](batch-application-packages.md)를 참조하세요.
 
 ## <a name="files"></a>파일 및 디렉터리
 
@@ -377,7 +392,7 @@ Azure 배치 솔루션을 디자인할 때 디자인 결정은 풀을 만드는 
 [rest_add_task]: https://msdn.microsoft.com/library/azure/dn820105.aspx
 [rest_create_user]: https://msdn.microsoft.com/library/azure/dn820137.aspx
 [rest_get_task_info]: https://msdn.microsoft.com/library/azure/dn820133.aspx
-[rest_multiinstance]: https://msdn.microsoft.com/ko-KR/library/azure/mt637905.aspx
+[rest_multiinstance]: https://msdn.microsoft.com/en-us/library/azure/mt637905.aspx
 [rest_multiinstancesettings]: https://msdn.microsoft.com/library/azure/dn820105.aspx#multiInstanceSettings
 [rest_update_job]: https://msdn.microsoft.com/library/azure/dn820162.aspx
 [rest_rdp]: https://msdn.microsoft.com/library/azure/dn820120.aspx
@@ -387,4 +402,4 @@ Azure 배치 솔루션을 디자인할 때 디자인 결정은 풀을 만드는 
 [rest_offline]: https://msdn.microsoft.com/library/azure/mt637904.aspx
 [rest_online]: https://msdn.microsoft.com/library/azure/mt637907.aspx
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -12,7 +12,7 @@
 	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.date="02/26/2016"
 	ms.author="douglasl"/>
 
@@ -96,10 +96,12 @@
 ## <a name="Network"></a>IP 주소 선택
 SQL Server의 공용 IP 주소를 사용하거나 IP 주소 범위를 입력하여 SQL Server에서 원격 Azure 서버와 통신할 수 있도록 해주는 Azure 방화벽 규칙을 만듭니다.
 
+이 페이지에서 제공하는 IP 주소 또는 주소는 SQL Server에서 시작된 들어오는 데이터, 쿼리 및 관리 작업을 허용하도록 Azure 서버에 지시하여 Azure 방화벽을 통과합니다. 마법사는 SQL Server의 방화벽 설정에서 아무 것도 변경하지 않습니다.
+
 ![스트레치 데이터베이스 마법사의 IP 주소 페이지 선택][StretchWizardImage7]
 
 ## <a name="Summary"></a>요약
-입력한 값과 마법사에서 선택한 옵션을 검토합니다. 그 다음 **마침**을 선택하여 스트레치를 사용합니다.
+입력한 값과 마법사에서 선택한 옵션을 검토합니다. 그런 다음 **마침**을 선택하여 스트레치를 사용하도록 설정합니다.
 
 ![스트레치 데이터베이스 마법사의 요약 페이지][StretchWizardImage8]
 
@@ -114,9 +116,9 @@ SQL Server의 공용 IP 주소를 사용하거나 IP 주소 범위를 입력하�
 ## 다음 단계
 스트레치 데이터베이스에 추가 테이블 사용 데이터 마이그레이션 모니터링 및 스트레치 지원 데이터베이스 및 테이블 관리
 
--   [테이블에 대해 스트레치 데이터베이스 사용](sql-server-stretch-database-enable-table.md)으로 추가 테이블을 사용합니다.
+-   [테이블에 대해 스트레치 데이터베이스를 사용하도록 설정](sql-server-stretch-database-enable-table.md)하여 추가 테이블을 사용합니다.
 
--   [스트레치 데이터베이스 모니터링](sql-server-stretch-database-monitor.md)으로 데이터 마이그레이션의 상태를 봅니다.
+-   [스트레치 데이터베이스를 모니터링](sql-server-stretch-database-monitor.md)하여 데이터 마이그레이션 상태를 확인합니다.
 
 -   [스트레치 데이터베이스 일시 중지 및 다시 시작](sql-server-stretch-database-pause.md)
 
@@ -125,7 +127,10 @@ SQL Server의 공용 IP 주소를 사용하거나 IP 주소 범위를 입력하�
 -   [스트레치 지원 데이터베이스 백업 및 복원](sql-server-stretch-database-backup.md)
 
 ## 참고 항목
-[데이터베이스에 대해 스트레치 데이터베이스 사용](sql-server-stretch-database-enable-database.md) [테이블에 대해 스트레치 데이터베이스 사용](sql-server-stretch-database-enable-table.md)
+
+[데이터베이스에 대해 스트레치 데이터베이스를 사용하도록 설정](sql-server-stretch-database-enable-database.md)
+
+[테이블에 대해 스트레치 데이터베이스를 사용하도록 설정](sql-server-stretch-database-enable-table.md)
 
 [StretchWizardImage1]: ./media/sql-server-stretch-database-wizard/stretchwiz1.png
 [StretchWizardImage2]: ./media/sql-server-stretch-database-wizard/stretchwiz2.png
@@ -136,4 +141,4 @@ SQL Server의 공용 IP 주소를 사용하거나 IP 주소 범위를 입력하�
 [StretchWizardImage7]: ./media/sql-server-stretch-database-wizard/stretchwiz7.png
 [StretchWizardImage8]: ./media/sql-server-stretch-database-wizard/stretchwiz8.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->
