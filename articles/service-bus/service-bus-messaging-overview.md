@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
-	ms.date="12/09/2015"
+	ms.date="03/09/2016"
 	ms.author="sethm"/>
 
 
@@ -56,4 +56,4 @@ WCF "릴레이" 바인딩 모음을 사용하여 온-프레미스 서비스와 �
 - [서비스 버스 토픽을 사용하는 방법](service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

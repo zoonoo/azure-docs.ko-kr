@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/03/2016"
+	ms.date="03/09/2016"
 	ms.author="garye"/>
 
 
@@ -39,6 +39,6 @@
 5.	[웹 서비스 배포](machine-learning-walkthrough-5-publish-web-service.md)
 6.	[웹 서비스 액세스](machine-learning-walkthrough-6-access-web-service.md)
 
-이 연습은 [Cortana 분석 갤러리](http://gallery.cortanaanalytics.com/)의 [이진 분류: 신용 위험 예측](../machine-learning-sample-credit-risk-prediction.md) 샘플 실험의 간소화된 버전을 기반으로 합니다.
+이 연습은 [Cortana 분석 갤러리](http://gallery.cortanaanalytics.com/)의 [이진 분류: 신용 위험 예측](http://go.microsoft.com/fwlink/?LinkID=525270) 샘플 실험의 간소화된 버전을 기반으로 합니다.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

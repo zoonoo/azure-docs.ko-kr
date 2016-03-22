@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/01/2016"
+	ms.date="03/09/2016"
 	ms.author="awills"/>
 
 
@@ -154,7 +154,7 @@ Azure 웹앱의 제어판에서 Application Insights 확장을 추가합니다.
  -	`management.azure.com:443`
  -	`login.windows.net:443`
  -	`login.microsoftonline.com:443`
- -	`secure.addcdn.microsoftonline-p.com:443`
+ -	`secure.aadcdn.microsoftonline-p.com:443`
  -	`auth.gfx.ms:443`
  -	`login.live.com:443`
 + 설치:
@@ -219,4 +219,4 @@ IIS 지원: IIS 7, 7.5, 8, 8.5(IIS 필요)
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!----HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/01/2016" 
+	ms.date="03/07/2016" 
 	ms.author="spelluru"/>
 
 # 자습서: 데이터 팩터리 편집기를 사용하여 복사 작업이 있는 파이프라인 만들기
@@ -22,7 +22,7 @@
 - [데이터 팩터리 편집기 사용](data-factory-get-started-using-editor.md)
 - [Visual Studio 사용](data-factory-get-started-using-vs.md)
 - [PowerShell 사용](data-factory-monitor-manage-using-powershell.md)
-
+- [복사 마법사 사용](data-factory-copy-data-wizard-tutorial.md)
 
 
 ##자습서 내용
@@ -39,7 +39,7 @@
 > [AZURE.IMPORTANT] 
 [자습서 개요](data-factory-get-started.md) 문서를 살펴보고 이 자습서를 수행하기 전에 필수 단계를 완료합니다.
 
-## <a name="CreateDataFactory"></a>1단계: Azure Data Factory 만들기
+## <a name="CreateDataFactory"></a>1단계: Azure 데이터 팩터리 만들기
 이 단계에서는 Azure 포털을 사용하여 **ADFTutorialDataFactory**라는 Azure Data Factory를 만듭니다.
 
 1.	[Azure 포털][azure-portal]에 로그인한 후에 왼쪽 아래에서 **새로 만들기**를 클릭하고 **만들기** 블레이드에서 **데이터 분석**을 선택한 다음 **데이터 분석** 블레이드에서 **데이터 팩터리**를 클릭합니다. 
@@ -381,7 +381,7 @@
 
 
 ## 참고 항목
-Azure Data Factory의 **복사 작업**에 대한 자세한 내용은 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 참조하세요.
+Azure 데이터 팩터리의 **복사 작업**에 대한 자세한 내용은 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 참조하세요.
 
 <!--Link references-->
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
@@ -459,4 +459,4 @@ Azure Data Factory의 **복사 작업**에 대한 자세한 내용은 [데이터
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

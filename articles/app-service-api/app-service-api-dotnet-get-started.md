@@ -255,7 +255,9 @@ Swashbuckle은 모든 ASP.NET Web API 프로젝트에서 작동합니다. Swagge
 
 	![](./media/app-service-api-dotnet-get-started/apptype.png)
 
-	앱 형식은 새 API 앱, 웹앱 또는 모바일 앱에 대해 사용할 수 있는 기능을 결정하지 않습니다. 이 자습서에 표시된 API 앱의 모든 기능을 모두 세 가지 형식에 대해 사용 수 있습니다. 유일한 차이점은 앱 형식을 식별하기 위해 Azure 포털이 표시하는 아이콘 및 텍스트와 포털의 일부 페이지에 나열되는 기능의 순서입니다. 자습서의 후반부에서 Azure 포털을 확인할 수 있습니다. 이는 Azure 리소스를 관리하기 위한 웹 인터페이스입니다.
+	<a id="apptype"></a> 앱 형식은 새 API 앱, 웹 앱 또는 모바일 앱에 대해 사용할 수 있는 기능을 결정하지 않습니다. 이 자습서에 표시된 API 앱의 모든 기능을 모두 세 가지 형식에 대해 사용 수 있습니다. 유일한 차이점은 앱 형식을 식별하기 위해 Azure 포털이 표시하는 아이콘 및 텍스트와 포털의 일부 페이지에 나열되는 기능의 순서입니다. 자습서의 후반부에서 Azure 포털을 확인할 수 있습니다. 이는 Azure 리소스를 관리하기 위한 웹 인터페이스입니다.
+
+	이 자습서의 경우 SPA 프런트 엔드가 웹 앱에서 실행되고 각 웹 API 백 엔드가 API 앱에서 실행되지만, 세 개 모두 웹 앱이거나 세 개 모두 API 앱인 경우에는 모두 똑같은 방식으로 작동합니다. 또한 단일 API 앱 또는 웹 앱이 SPA 프런트 엔드와 중간 계층 백 엔드를 모두 호스트할 수 있습니다.
 
 4. 도메인을 고유하게 만드는 ToDoListDataAPI와 숫자 등 *azurewebsites.net* 도메인에서 고유한 **API 앱 이름**을 입력합니다.
 
@@ -309,7 +311,7 @@ Swashbuckle은 모든 ASP.NET Web API 프로젝트에서 작동합니다. Swagge
 
 	![](./media/app-service-api-dotnet-get-started/connnext.png)
 
-	다음 탭은 **설정** 탭입니다. 여기에서 빌드 구성 탭을 변경하여 [원격 디버깅](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug)을 위한 디버그 빌드를 배포할 수 있습니다. 탭도 몇 가지 **파일 게시 옵션**을 제공합니다.
+	다음 탭은 **설정** 탭입니다. 여기에서 빌드 구성 탭을 변경하여 [원격 디버깅](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug)을 위한 디버그 빌드를 배포할 수 있습니다. 이 탭은 몇 가지 **파일 게시 옵션**도 제공합니다.
 
 	* 대상에 있는 추가적인 파일을 제거합니다.
 	* 게시 중 미리 컴파일합니다.
@@ -484,6 +486,8 @@ ToDoListAPI 프로젝트에는 생성된 클라이언트 코드가 이미 있지
 
 	![](./media/app-service-api-dotnet-get-started/midtierget.png)
 
+생성된 클라이언트에 대한 자세한 내용은 [AutoRest GitHub 리포지토리](https://github.com/azure/autorest)를 참조하세요. 생성된 클라이언트 사용과 관련하여 도움이 필요하면 [AutoRest 리포지토리의 문제](https://github.com/azure/autorest/issues)를 참조하세요.
+
 ## <a id="creating"></a> 선택 사항: 처음부터 API 앱 프로젝트 만들기
 
 이 자습서에서는 처음부터 새 프로젝트를 만들지 않고 ASP.NET Web API 프로젝트를 다운로드하여 앱 서비스에 배포합니다. API 앱에 배포하기 위해 프로젝트를 만들려면 일반적인 Web API 프로젝트를 만들고 Swashbuckle 패키지를 설치하거나 **Azure API 앱** 새 프로젝트 템플릿을 사용할 수 있습니다. 해당 템플릿을 사용하려면 **파일 > 새로 만들기 > 프로젝트 > ASP.NET 웹 응용 프로그램 > Azure API 앱**을 클릭합니다.
@@ -494,7 +498,7 @@ ToDoListAPI 프로젝트에는 생성된 클라이언트 코드가 이미 있지
 
 ## 선택 사항: 앱 형식 변경
 
-앞에서 설명한 대로 API 앱, 웹앱 및 모바일 앱의 유일한 차이점은 포털에 표시되는 방식입니다. 모두 동일한 기능을 가지고 있기 때문에 앱 형식을 변경할 필요가 없습니다.
+[앞에서](#apptype) 설명한 대로 API 앱, 웹 앱 및 모바일 앱의 유일한 차이점은 포털에 표시되는 방식입니다. 모두 동일한 기능을 가지고 있기 때문에 앱 형식을 변경할 필요가 없습니다.
 
 그러나 포털 표시를 변경하려는 경우 쉽게 변경할 수는 있습니다. 예를 들어, 다음 단계를 수행하여 방금 만든 API 앱 중 하나를 웹앱으로 변경할 수 있습니다.
 
@@ -528,6 +532,6 @@ API 정의 속성을 설정하는 Azure Resource Manager 템플릿의 예를 보
 
 ## 다음 단계
 
-이 자습서에서는 API 앱을 만들고, 이 앱에 코드를 배포하고, 클라이언트 코드를 생성하고, .NET 클라이언트에서 이를 사용하는 방법을 살펴보았습니다. API 앱 시작 시리즈의 다음 자습서에서는 [CORS를 사용하여 JavaScript 클라이언트에서 API 앱을 사용](app-service-api-cors-consume-javascript.md)하는 방법을 보여 줍니다.
+이 자습서에서는 API 앱을 만들고, 이 앱에 코드를 배포하고, 클라이언트 코드를 생성하고, .NET 클라이언트에서 이를 사용하는 방법을 살펴보았습니다. API 앱 시작 시리즈의 다음 자습서에서는 [CORS를 사용하여 JavaScript 클라이언트에서 API 앱을 사용](app-service-api-cors-consume-javascript.md)하는 방법을 보여 줍니다. 시리즈의 후반부 자습서에서는 인증 및 권한 부여를 구현하는 방법을 보여 줍니다.
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

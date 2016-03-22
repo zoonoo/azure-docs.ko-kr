@@ -12,15 +12,15 @@
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/03/2016"
+	ms.topic="get-started-article"
+	ms.date="03/08/2016"
 	ms.author="juliako"/>
 
 
 #Azure 클래식 포털을 사용하여 단일 비트 전송률에서 다중 비트 전송률 스트림으로 라이브 인코딩을 수행하는 채널 만들기
 
 > [AZURE.SELECTOR]
-- [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
+- [포털](media-services-portal-creating-live-encoder-enabled-channel.md)
 - [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 - [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
@@ -276,4 +276,4 @@ MPEG DASH 스트리밍 URL을 작성하려면 URL에 (format=mpd-time-csf)를 �
 [standard4]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard4.png
 [standard5]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard_encode.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

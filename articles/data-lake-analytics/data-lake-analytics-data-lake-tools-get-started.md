@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="02/10/2016"
+   ms.date="03/15/2016"
    ms.author="jgao"/>
 
 # 자습서: Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트 개발
@@ -106,7 +106,7 @@ U-SQL은 데이터 레이크 등에서 데이터를 준비하고 변환하고 �
 		    SELECT *
 		    FROM @searchlog;        
 
-        OUTPUT @searchlog   
+        OUTPUT @res   
             TO "/Output/SearchLog-from-Data-Lake.csv"
         USING Outputters.Csv();
 
@@ -132,10 +132,10 @@ U-SQL은 데이터 레이크 등에서 데이터를 준비하고 변환하고 �
 		 
 		카탈로그 엔터티(데이터베이스, 스키마, 테이블, UDO 등)용 IntelliSense는 사용자의 계산 계정과 관련됩니다. 상단 도구 모음에서 현재 활성 계산 계정, 데이터베이스, 스키마를 확인하고 드롭다운 목록을 통해 전환할 수 있습니다.
  
-    - *** 열 확장**
+    - **열 확장**
 
         \*의 오른쪽을 클릭하면 * 아래에 파란색 밑줄이 표시됩니다. 파란색 밑줄에 마우스 커서를 가져간 다음 아래쪽 화살표를 클릭합니다.  
-    	![데이터 레이크 visual studio 도구 확장 *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
+	![데이터 레이크 visual studio 도구 확장*](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
 
         **열 확장**을 클릭하면 도구가 열 이름으로 *을 대체합니다.
     
@@ -364,4 +364,4 @@ Azure 데이터 레이크 분석 서비스에 C# 어셈블리를 제출하고 �
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

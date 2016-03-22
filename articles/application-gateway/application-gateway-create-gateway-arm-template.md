@@ -81,7 +81,7 @@ GitHub에서 가상 네트워크 및 두 개의 서브넷을 만들기 위한 �
 	- **name**. 리소스의 이름입니다. **[parameters('applicationGatewayName')]**이 사용됩니다. 이것은 해당 이름이 배포 중에 사용자 또는 매개 변수 파일에 의한 입력으로 제공됨을 의미합니다.
 	- **properties**. 리소스의 속성 목록입니다. 이 템플릿은 응용 프로그램 게이트웨이를 만드는 동안 가상 네트워크 및 공용 IP 주소를 사용합니다.
 
-7. https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-create-application-gateway/azuredeploy.json로 돌아갑니다.
+7. https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create/로 돌아갑니다.
 8. **azuredeploy-paremeters.json**을 클릭하고 **RAW**를 클릭합니다.
 9. 파일을 컴퓨터의 로컬 폴더에 저장합니다.
 10. 방금 저장한 파일을 열고 매개 변수 값을 편집합니다. 아래의 값을 사용하여 이 시나리오에 설명된 응용 프로그램 게이트웨이를 배포합니다.
@@ -204,9 +204,9 @@ Azure CLI를 사용하여 다운로드한 Azure 리소스 관리자 템플릿을
 
 		azure group create -n appgatewayRG -l eastus
 
-**-n(또는 --name)**. 새 리소스 그룹의 이름입니다. 이 시나리오에서는 *appgatewayRG*입니다.
+**-n(또는 --name)**. 새 리소스 그룹의 이름입니다. 이 시나리오에서는 *appgatewayRG* 입니다.
 
-**-l(또는 --location)**. 새 리소스 그룹이 생성되는 Azure 지역입니다. 이 시나리오에서는 *eastus*입니다.
+**-l(또는 --location)**. 새 리소스 그룹이 생성되는 Azure 지역입니다. 이 시나리오에서는 *eastus* 입니다.
 
 4. **azure group deployment create** cmdlet을 실행하고 위에서 다운로드한 후 수정한 템플릿 및 매개 변수를 사용하여 새 가상 네트워크를 배포합니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다.
 
@@ -284,4 +284,4 @@ SSL 오프로드를 구성하려는 경우 [SSL 오프로드에 대해 응용 �
 - [Azure 부하 분산 장치](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure 트래픽 관리자](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

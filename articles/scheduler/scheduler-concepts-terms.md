@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="get-started-article"
- ms.date="12/04/2015"
+ ms.date="03/09/2016" 
  ms.author="krisragh"/>
 
 # 스케줄러 개념, 용어 + 엔터티 계층 구조
@@ -190,7 +190,7 @@ JSON 정의에 지정된 되풀이 개체가 있으면 작업이 반복됩니다
 ## 참고 항목
 
  [스케줄러란?](scheduler-intro.md)
- 
+
  [Azure 포털에서 스케줄러 사용 시작](scheduler-get-started-portal.md)
 
  [Azure 스케줄러의 버전 및 요금 청구](scheduler-plans-billing.md)
@@ -207,4 +207,4 @@ JSON 정의에 지정된 되풀이 개체가 있으면 작업이 반복됩니다
 
  [Azure 스케줄러 아웃바운드 인증](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

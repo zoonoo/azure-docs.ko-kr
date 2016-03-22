@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/01/2016" 
+	ms.date="03/07/2016" 
 	ms.author="spelluru"/>
 
 # 자습서: Azure PowerShell을 사용하여 복사 작업이 있는 파이프라인 만들기
@@ -22,7 +22,7 @@
 - [데이터 팩터리 편집기 사용](data-factory-get-started-using-editor.md)
 - [Visual Studio 사용](data-factory-get-started-using-vs.md)
 - [PowerShell 사용](data-factory-monitor-manage-using-powershell.md)
-
+- [복사 마법사 사용](data-factory-copy-data-wizard-tutorial.md)
 
 [Azure Data Factory 시작][adf-get-started] 자습서에서는 [Azure 포털][azure-portal]을 사용하여 Azure Data Factory를 만들고 모니터링하는 방법을 보여 줍니다. 이 자습서에서는 Azure PowerShell cmdlet을 사용하여 Azure Data Factory를 만들고 모니터링합니다. 이 자습서에서 만든 데이터 팩터리의 파이프라인은 복사 작업을 사용하여 Azure Blob에서 Azure SQL 데이터베이스로 데이터를 복사합니다.
 
@@ -447,4 +447,4 @@ Azure 데이터 팩터리의 **복사 작업**에 대한 자세한 내용은 [�
 [sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->
