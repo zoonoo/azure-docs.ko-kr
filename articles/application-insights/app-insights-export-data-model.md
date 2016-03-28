@@ -88,7 +88,7 @@
 * 
     페이지 보기, 이벤트, 요청 또는 RDD의 URL입니다. 전체 URL이며, 전체 텍스트 검색 및 내보내기에서 지원됩니다. 이 필드는 매우 높은 카디널리티를 가질 수 있으며 특성에 해당합니다. 메트릭 탐색기에서 집계에 대해 사용할 수 있는 urlData 데이터 항목 집합으로 구문 분석됩니다. 
 
-    *기본:*R2: remotedepencyType에서 dependencyType = HTTP이면 이 필드는 필수입니다.<br/>clientperformanceType에 이 필드는 필수입니다.
+    *기본* :R2: remotedepencyType에서 dependencyType = HTTP이면 이 필드는 필수입니다.<br/>clientperformanceType에 이 필드는 필수입니다.
 
     *예제*<br/> https://icecream.contoso.com/main.aspx?etc=3&extraqs=%3fetc%3d3%26formid%3dc40d07a7-1cf1-4e1d-b00e-e61876d1284e&pagemode=iframe&pagetype=entityrecord<br/>http://fabrikam-oats.azurewebsites.net/index.htm
 
@@ -991,4 +991,4 @@
 * [연속 내보내기](app-insights-export-telemetry.md)
 * [코드 샘플](app-insights-export-telemetry.md#code-samples)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!----HONumber=AcomDC_0302_2016-->
