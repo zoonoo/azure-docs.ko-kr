@@ -106,4 +106,4 @@ FC 디스크 | 지원되지 않음 | 지원되지 않는 경우 필수 구성 �
 - [SAN을 사용하여 Hyper-V VM을 보조 사이트로 복제](site-recovery-vmm-san.md)
 - [단일 VMM 서버를 사용하여 Hyper-V VM 복제](site-recovery-single-vmm.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->
