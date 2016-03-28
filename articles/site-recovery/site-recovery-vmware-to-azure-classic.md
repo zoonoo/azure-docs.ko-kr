@@ -28,8 +28,8 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 
 이 문서에서는 다음과 같이 방법을 설명합니다.
 
-- **Azure에 VMware 가상 컴퓨터 복제**—온-프레미스 VMware 가상 컴퓨터에서 Azure 저장소로 복제, 장애 조치(Failover), 복구 조정을 위해 사이트 복구를 배포합니다.
-- **Azure에 물리적 서버 복제**—온-프레미스 Windows 및 Linux 물리적 서버에서 Azure로 복제, 장애 조치(Failover), 복구 조정을 위해 Azure Site Recovery를 배포합니다.
+- **Azure에 VMware 가상 컴퓨터 복제** - 온-프레미스 VMware 가상 컴퓨터에서 Azure 저장소로 복제, 장애 조치(Failover), 복구 조정을 위해 사이트 복구를 배포합니다.
+- **Azure에 물리적 서버 복제** - 온-프레미스 Windows 및 Linux 물리적 서버에서 Azure로 복제, 장애 조치(Failover), 복구 조정을 위해 Azure Site Recovery를 배포합니다.
 
 >[AZURE.NOTE] 이 문서에서는 Azure에 복제하는 방법을 설명합니다. VMware VM 또는 Windows/Linux 물리적 서버를 보조 데이터 센터에 복제하려면 [이 문서](site-recovery-vmware-to-vmware.md)의 지침을 따릅니다.
 
@@ -80,14 +80,14 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 
 용량을 계획하는 경우 고려해야 할 항목은 다음과 같습니다.
 
-- **원본 환경**—용량 계획 또는 VMware 인프라, 원본 컴퓨터 요구 사항.
-- ** 관리 서버**—사이트 복구 구성 요소를 실행하는 온-프레미스 관리 서버 계획.
+- **원본 환경** - 용량 계획 또는 VMware 인프라, 원본 컴퓨터 요구 사항.
+- ** 관리 서버** - 사이트 복구 구성 요소를 실행하는 온-프레미스 관리 서버 계획.
 - **원본에서 대상까지 네트워크 대역폭**-원본과 Azure 간 복제에 필요한 네트워크 대역폭 계획
 
 ### 원본 환경 고려 사항
 
-- **일일 최대 변경률**—보호된 컴퓨터는 하나의 프로세스 서버만 사용할 수 있으며 단일 프로세스 서버는 일별 최대 2TB의 데이터 변경을 처리할 수 있습니다. 따라서 2TB는 보호되는 컴퓨터에 대해 지원되는 최대 일일 데이터 변경률입니다.
-- **최대 처리량**—복제된 컴퓨터는 Azure에서 하나의 저장소 계정에 속할 수 있습니다. 표준 저장소 계정은 초당 최대 20,000개의 요청을 처리할 수 있으며 원본 컴퓨터 간에 IOPS 수를 20,000으로 유지하는 것이 좋습니다 예를 들어 원본 컴퓨터의 디스크가 5개이고 각 디스크가 원본에서 120 IOPS(8K 크기)를 생성할 경우 Azure 내에서 디스크당 IOPS 한도인 500을 초과하지 않습니다. 필요한 저장소 계정 수 = 총 원본 IOPS/20000. 
+- **일일 최대 변경률** - 보호된 컴퓨터는 하나의 프로세스 서버만 사용할 수 있으며 단일 프로세스 서버는 일별 최대 2TB의 데이터 변경을 처리할 수 있습니다. 따라서 2TB는 보호되는 컴퓨터에 대해 지원되는 최대 일일 데이터 변경률입니다.
+- **최대 처리량** - 복제된 컴퓨터는 Azure에서 하나의 저장소 계정에 속할 수 있습니다. 표준 저장소 계정은 초당 최대 20,000개의 요청을 처리할 수 있으며 원본 컴퓨터 간에 IOPS 수를 20,000으로 유지하는 것이 좋습니다 예를 들어 원본 컴퓨터의 디스크가 5개이고 각 디스크가 원본에서 120 IOPS(8K 크기)를 생성할 경우 Azure 내에서 디스크당 IOPS 한도인 500을 초과하지 않습니다. 필요한 저장소 계정 수 = 총 원본 IOPS/20000. 
  
 
 ### 관리 서버 고려 사항
@@ -236,11 +236,11 @@ VMware 가상 컴퓨터를 복제하려는 경우 관리 서버에 다음과 같
 ## 5단계: 관리 서버 설치
 > [AZURE.TIP] 관리 서버에서 다음 URL에 액세스할 수 있는지 확인합니다.
 >
-- **.hypervrecoverymanager.windowsazure.com
-- **.accesscontrol.windows.net
-- **.backup.windowsazure.com
-- **.blob.core.windows.net
-- **.store.core.windows.net
+- *.hypervrecoverymanager.windowsazure.com
+- *.accesscontrol.windows.net
+- *.backup.windowsazure.com
+- *.blob.core.windows.net
+- *.store.core.windows.net
 - https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi
 - https://www.msftncsi.com/ncsi.txt
 
@@ -303,7 +303,10 @@ VMware 가상 컴퓨터를 복제하려는 경우 관리 서버에 다음과 같
 	![요약](./media/site-recovery-vmware-to-azure-classic/combined-wiz10.png)
 >[AZURE.WARNING] Microsoft Azure 복구 서비스 에이전트 프록시를 설치해야 합니다. 설치가 완료되면 Windows 시작 메뉴에서 "Microsoft Azure 복구 서비스 셸"이라는 응용 프로그램을 시작합니다. 열리는 명령 창에서 다음과 같은 명령 집합을 실행하여 프록시 서버 설정을 설정합니다.
 >
-	$pwd = ConvertTo-SecureString -String ProxyUserPassword Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumb – ProxyUserName domain\\username -ProxyPassword $pwd net stop obengine net start obengine
+	$pwd = ConvertTo-SecureString -String ProxyUserPassword
+	Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumb – ProxyUserName domain\\username -ProxyPassword $pwd 
+	net stop obengine
+	net start obengine
 	 
 
 
@@ -753,4 +756,4 @@ The complete file may be found on the [Microsoft Download Center](http://go.micr
 
 Azure에서 실행 중인 장애 조치(failover)된 컴퓨터를 온-프레미스 환경으로 [장애 복구(failback)하는 방법에 대해 자세히 알아봅니다](site-recovery-failback-azure-to-vmware-classic.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!----HONumber=AcomDC_0316_2016-->

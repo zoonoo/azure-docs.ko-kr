@@ -91,4 +91,4 @@ git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
 
 이제 **지금 실행** 단추 또는 자체 응용 프로그램을 사용하여 정책을 다시 실행할 수 있습니다. 두 경우 모두 동일한 샘플 HTML 및 CSS를 사용했으므로 결과는 거의 동일한 모양이어야 합니다. 하지만 사용자의 정책은 자신의 Azure Blob 저장소 인스턴스를 참조하며 원하는 대로 파일을 편집하고 다시 업로드할 수 있습니다. HTML 및 CSS 사용자 지정에 대한 자세한 내용은 [주요 UI 사용자 지정 문서](active-directory-b2c-reference-ui-customization.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!----HONumber=AcomDC_0316_2016-->

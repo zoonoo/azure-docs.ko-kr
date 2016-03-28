@@ -230,7 +230,7 @@ Azure PowerShell을 설치하려면 이전 섹션 **Azure PowerShell 설치 및 
 |TFS Url|팀 프로젝트에 대한 URL을 입력합니다(예: `https://[your-VSTS-account-name].visualstudio.com`).|
 |에이전트 풀|에이전트 풀의 이름을 입력합니다. 에이전트 풀을 만들지 않은 경우 기본 값을 적용합니다.|
 |작업 폴더|기본값을 적용합니다. 빌드 에이전트가 실제로 응용 프로그램을 빌드하는 폴더입니다. 참고: ASP.NET 5 웹 서비스 구축을 계획 중이라면 배포 중 PathTooLongExceptions 오류가 발생하지 않게 이 폴더에 가능한 가장 짧은 이름을 선택하는 것이 좋습니다.|
-|Windows 서비스로 설치?|기본값은 N입니다. 이 값을 **Y**로 변경합니다.|
+|Windows 서비스로 설치?|기본값은 N입니다. 이 값을 **Y** 로 변경합니다.|
 |서비스를 실행하는 사용자 계정|기본값(`NT AUTHORITY\LocalService`)을 적용합니다.|
 |기존 에이전트 구성 취소?|기본값(**N**)을 적용합니다.|
 
@@ -362,7 +362,7 @@ Azure PowerShell을 설치하려면 이전 섹션 **Azure PowerShell 설치 및 
 
 4.	**스크립트 파일 이름** 옆의 **...** 버튼을 선택합니다. 자동화 스크립트의 압축을 푼 위치로 이동한 다음 **ProvisionAndDeploy-SecureCluster.ps1**을 선택합니다.
 
-5.	**인수**에 `-ServicePrincipalPassword "$(ServicePrincipalPassword)" -ServiceFabricClusterAdminPassword "$(ServiceFabricClusterAdminPassword)"`를 입력합니다.
+5.	**인수** 에 `-ServicePrincipalPassword "$(ServicePrincipalPassword)" -ServiceFabricClusterAdminPassword "$(ServiceFabricClusterAdminPassword)"`를 입력합니다.
 
 6.	빌드 정의를 저장합니다.
 
