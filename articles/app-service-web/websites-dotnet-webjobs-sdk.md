@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/14/2015" 
+	ms.date="03/14/2016" 
 	ms.author="tdykstra"/>
 
 # Azure WebJobs SDK 정의
@@ -180,4 +180,4 @@ WebJobs SDK에 대한 자세한 내용은 [Azure WebJobs 권장 리소스](http:
 WebJobs SDK의 최신 개선 사항에 대한 정보는 [릴리스 정보](https://github.com/Azure/azure-webjobs-sdk/wiki/Release-Notes)를 참조하세요.
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0316_2016-->

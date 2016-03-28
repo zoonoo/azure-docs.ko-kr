@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="03/14/2016"
 	ms.author="meetb"/>
 
 
@@ -123,4 +123,4 @@ SQL 데이터베이스에 연결하는 데 [pymssql.connect](http://pymssql.org/
 
 자세한 내용은 [Python 개발자 센터](/develop/python/)를 참조하세요.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -3,8 +3,8 @@
 	description="Enterprise Library는 일시적인 오류에 대한 재시도 논리의 통합을 비롯해 클라우드 서비스의 클라이언트 프로그램에 대한 여러 작업을 쉽게 하기 위해 설계되었습니다."
 	services="sql-database"
 	documentationCenter=""
-	authors="MightyPen"
-	manager="jeffreyg"
+	authors="annemill"
+	manager="jhubbard"
 	editor="" />
 
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/17/2015"
-	ms.author="genemi"/>
+	ms.date="03/15/2016"
+	ms.author="annemill"/>
 
 
 # 코드 샘플: C&#x23;의 Enterprise Library 6에서 SQL 데이터베이스 연결을 위한 논리를 재시도합니다.
@@ -326,4 +326,4 @@ SELECT TOP 3
 
 - [SQL 데이터베이스에 대한 클라이언트 빠른 시작 코드 샘플](sql-database-develop-quick-start-client-code-samples.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="서비스 패브릭 클러스터 리소스 관리자 - 선호도"
+   pageTitle="서비스 패브릭 클러스터 리소스 관리자 - 선호도 | Microsoft Azure"
    description="서비스 패브릭 서비스에 대한 추가 배치 정책 및 규칙 개요"
    services="service-fabric"
    documentationCenter=".net"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/03/2016"
+   ms.date="03/10/2016"
    ms.author="masnider"/>
 
-# 선호도
+# 서비스 패브릭에서 서비스 선호도 구성 및 사용
 
 선호도는 적어도 얼핏 보기에 마이크로 서비스 환경에는 그다지 적합하지 않은 항목 중 하나입니다. 그리고 마이크로 서비스 환경에서는 그다지 적합하지 않기 때문입니다. 선호도는 주로 이전의 더 큰 모놀리식 응용 프로그램을 클라우드 및 마이크로 서비스 환경으로 쉽게 전환하도록 해주는 컨트롤입니다.
 
@@ -48,25 +48,24 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 
 ![선호도 모드 및 그 영향][Image1]
 
-#### 최상의 노력이 필요한 상태
+### 최상의 노력이 필요한 상태
 선호도와 모놀리식 아키텍처 간에는 몇 가지 차이점이 있습니다. 두 서비스는 선호도 관계가 최상의 노력이라는 점에서 거의 같지만, 기본적으로 서로 다른 서비스이기 때문에 이들은 각각 실패할 수 있습니다. 또 한 가지 사항으로 용량 제한 등으로 인해 서비스의 서로 다른 복제본이 분리될 수 있습니다.
 
 
-#### 체인 모양과 별 모양의 비교
+### 체인 모양과 별 모양의 비교
 현재 선호도 관계의 체인을 모델링할 수는 없습니다. 즉, 한 선호도 관계에서 자식인 서비스는 다른 선호도 관계에서 부모가 될 수 없습니다. 이러한 유형의 관계를 모델링하려는 경우, "중간" 자식의 부모에 최하위 자식을 부모로 지정하여 체인 모양보다는 별 모양으로 모델링해야 효과적입니다.
 
 ![선호도 관계의 컨텍스트에서 체인 모양과 별 모양의 비교][Image2]
 
 또 다른 사항으로 현재의 선호도 관계에는 방향성이 있다는 점입니다. 이것은 미세하지만 효과적입니다. 즉, "선호도" 규칙은 부모가 있는 곳에만 자식이 있도록 합니다. 부모가 갑자기 다른 노드에 대한 장애 조치를 수행해야 하는 경우(또는 부모만 이동시키는 기타 제한된 작업) 리소스 관리자는 자식이 부모와 함께 있지 않다는 것을 알 때까지 어떤 문제가 있다고 생각하지 않습니다. 관계는 즉시 적용되지 않기 때문입니다.
 
-#### 분할 지원
+### 분할 지원
 마지막으로 선호도에 대해 알아두어야 할 사항으로 선호도 관계는 부모가 분할된 곳에서는 지원되지 않습니다. 이는 나중에 지원하겠지만, 지금은 허용되지 않습니다.
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 다음 단계
-- [서비스 구성에 대해 알아보기](service-fabric-cluster-resource-manager-configure-services.md)
+- 서비스 구성에 사용할 수 있는 기타 옵션에 대한 자세한 내용은 [서비스 구성에 대해 알아보기](service-fabric-cluster-resource-manager-configure-services.md)에서 다른 클러스터 리소스 관리자 구성에 대한 항목을 확인하세요.
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-advanced-placement-rules-affinity/cluster-resrouce-manager-affinity-modes.png
 [Image2]: ./media/service-fabric-cluster-resource-manager-advanced-placement-rules-affinity/cluster-resource-manager-chains-vs-stars.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

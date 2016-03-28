@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
+ 	ms.date="03/14/2016"  
 	ms.author="juliako"/>
 
 #방법: 자산 배달 정책 구성
@@ -456,4 +456,4 @@ Widevine DRM을 사용하여 콘텐츠를 보호하려는 경우 값 7인 Widevi
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -24,7 +24,7 @@
 
 ## 필수 조건
 * Azure 구독. 무료 평가판에 대해서는 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* Azure PowerShell 버전 0.8.16 이상. [웹 플랫폼 설치 관리자](http://go.microsoft.com/fwlink/p/?linkid=320376)를 통해 최신 버전(0.9.5)을 설치합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
+* Azure PowerShell. [웹 플랫폼 설치 관리자](http://go.microsoft.com/fwlink/p/?linkid=320376)를 사용하여 최신 버전을 설치합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
 * [NuGet 명령줄 유틸리티](https://nuget.org/nuget.exe)는 탄력적 데이터베이스 작업 패키지를 설치하는 데 사용됩니다. 자세한 내용은 http://docs.nuget.org/docs/start-here/installing-nuget을 참조하세요.
 
 ## 탄력적 데이터베이스 작업 PowerShell 패키지 다운로드 및 가져오기
@@ -188,4 +188,4 @@
 [4]: ./media/sql-database-elastic-jobs-service-installation/not-done.png
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

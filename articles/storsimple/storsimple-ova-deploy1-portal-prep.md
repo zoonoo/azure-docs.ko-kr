@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/01/2016"
+   ms.date="03/10/2016"
    ms.author="alkohli"/>
 
 # StorSimple 가상 배열 배포 – 포털 준비
@@ -26,8 +26,8 @@
 
 설치 및 구성 프로세스를 완료하려면 관리자 권한이 필요합니다. 시작하기 전에 배포 구성 검사 목록을 검토하는 것이 좋습니다. 포털 준비에는 10분 미만이 소요됩니다.
 
-이 문서에 게시된 StorSimple 배포 정보는 StorSimple 가상 배열에만 적용됩니다.
-
+이 문서에 게시된 정보는 Microsoft Azure Government 클라우드뿐만 아니라 Azure 클래식 포털에서 StorSimple 가상 배열의 배포에 적용됩니다.
+ 
 ### 시작
 
 배포 워크플로는 포털 준비, 가상화된 환경에 가상 배열 프로비전, 설치 완료로 구성됩니다. 파일 서버 또는 iSCSI 서버로 StorSimple 가상 배열 배포를 시작하려면 다음 표에 준비된 리소스(문서 및 동영상)를 참고해야 합니다.
@@ -38,7 +38,7 @@ StorSimple 가상 배열을 배포하려면 다음 문서를 지정된 순서대
 
 | **#** | **단계** | **수행할 사항** | **이러한 문서를 사용합니다.**|
 |------|-------------------------------------------|--------------------------------------------------------------------------------|------------------------|
-|1\. | **Azure 클래식 포털 설정** | StorSimple 가상 장치를 프로비전하기 전에 StorSimple Manager 서비스를 만들고 구성합니다. |[포털 준비](storsimple-ova-deploy1-portal-prep.md)| 
+|1\. | **Azure 클래식 포털 설정** | StorSimple 가상 장치를 프로비전하기 전에 StorSimple Manager 서비스를 만들고 구성합니다. |[포털 준비](storsimple-ova-deploy1-portal-prep.md)|
 |2\. | **가상 배열 프로비전** | Hyper-V의 경우, Hyper-V 2008 R2, Hyper-V 2012 또는 Hyper-V 2012 R2를 실행하는 호스트 시스템에서 StorSimple 가상 장치에 프로비전하고 연결합니다. <br></br> <br></br> VMware의 경우, VMware ESXi 5.5 이상을 실행하는 호스트 시스템에서 StorSimple 온-프레미스 가상 장치에 프로비전하고 연결합니다.<br></br>| [Hyper-V에서 가상 배열 프로비전](storsimple-ova-deploy2-provision-hyperv.md) <br></br> <br></br> [VMware에서 가상 배열 프로비전](storsimple-ova-deploy2-provision-vmware.md)|
 |3\. | **가상 배열 설정** | 파일 서버에 대해 초기 설정을 수행하고 StorSimple 파일 서버를 등록하고 장치 설정을 완료합니다. 그런 다음 SMB 공유를 프로비전할 수 있습니다. <br></br> <br></br> iSCSI 서버에 대해 초기 설정을 수행하고 StorSimple iSCSI 서버를 등록하고 장치 설정을 완료합니다. 그런 다음 iSCSI 볼륨을 프로비전할 수 있습니다.| [파일 서버로 가상 배열 설정](storsimple-ova-deploy3-fs-setup.md)<br></br> <br></br>[iSCSI 서버로 가상 배열 설정](storsimple-ova-deploy3-iscsi-setup.md)|
 
@@ -211,4 +211,4 @@ StorSimple 가상 배열을 시작하는 단계별 지침에 대한 동영상을
 
 -   [VMware에서 StorSimple 가상 배열 프로비전](storsimple-ova-deploy2-provision-vmware.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

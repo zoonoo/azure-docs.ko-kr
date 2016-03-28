@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure 서비스 패브릭 클러스터 리소스 관리자를 사용한 클러스터 분산"
+   pageTitle="Azure 서비스 패브릭 클러스터 리소스 관리자를 사용한 클러스터 분산 | Microsoft Azure"
    description="서비스 패브릭 클러스터 리소스 관리자를 사용한 클러스터 분산에 대한 소개"
    services="service-fabric"
    documentationCenter=".net"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/03/2016"
+   ms.date="03/10/2016"
    ms.author="masnider"/>
 
 # 서비스 패브릭 클러스터 분산
@@ -25,6 +25,7 @@
 2.	제약 조건 검사 - 이 단계에서는 시스템 내에서 여러 배치 제약 조건(규칙)을 검사하고 위반을 수정합니다. 규칙의 예는 노드 용량을 초과하지 않고 서비스 배치 제약 조건(나중에 자세히 다룸)을 충족하도록 하는 것들입니다.
 3.	분산 - 다른 메트릭에 대한 분산의 원하는 구성 수준에 따라 사전 균형 조정이 필요한지 그리고 좀더 균형이 잡힌 클러스터의 배열을 찾을지 검사합니다.
 
+## 클러스터 리소스 관리자 단계 및 타이머 구성
 각 단계는 빈도를 제어하는 다른 타이머에 의해 제어됩니다. 예를 들어, 클러스터에 새로운 서비스 작업 부하를 매 시간 배치하는 것만 처리하려하되(모두 일괄 처리) 몇 초마다 정규 분산 검사를 수행하려는 경우, 이를 적용할 수 있습니다. 각 타이머가 시작되면, 리소스 관리자의 의무의 해당 부분을 처리해야 한다고 알려주는 플래그가 설정되고 상태 시스템을 통해 다음 전체 스윕에서 선택됩니다(이러한 이유로 이들 구성은 "최소 간격"으로 정의됩니다). 기본적으로 리소스 관리자는 상태를 검색하여 1/10초마다 업데이트를 적용하고, 1초마다 배치 및 제약 조건 검사 플래그를, 5초마다 분산 플래그를 설정합니다.
 
 ClusterManifest.xml:
@@ -60,7 +61,10 @@ ClusterManifest.xml:
 
 ![분산 임계값 예제 작업][Image2]
 
-아래 분산 임계값을 가져오는 것이 명시적 목표가 아닙니다. 분산 임계값은 단지 트리거일 뿐입니다. 활동 임계값 노드가 상대적으로 불균형되기도 하지만 클러스터의 총 부하 양은 낮습니다. 이러한 현상은 시간이기 때문이거나 클러스터가 새롭고 이제 막 부트스트랩되기 때문에 발생합니다. 두 경우 모두, 실제 얻는 것이 거의 없기 때문에 분산하는 데 시간을 낭비하고 싶지 않을 것입니다. 대신, 네트워크와 계산 리소스를 사용하여 부하를 이동시키려 할 것입니다. 활동 임계값으로 알려진 리소스 관리자 내부의 다른 컨트롤을 통해 활동에 대한 일부 절대 하한값을 지정할 수 있습니다. 이 정도 부하량을 가진 노드가 없는 경우 조정 임계값을 충족하더라도 분산이 트리거되지 않습니다. 예를 들어 이러한 노드의 총 소비량이 포함된 보고서가 있다고 가정해 봅시다. 또한 분산 임계값이 3으로 유지되었지만 활동 임계값이 이제 1536이 되었다고 가정해 봅시다. 첫 번째 경우에서 클러스터는 분산 임계값에 따라 불균형되었지만 최소 활동 임계값을 충족하는 노드가 없기 때문에 그대로 둡니다. 아래 예제에서 Node1은 활동 임계값을 훨씬 초과했기 때문에 분산이 수행됩니다.
+아래 분산 임계값을 가져오는 것이 명시적 목표가 아닙니다. 분산 임계값은 단지 트리거일 뿐입니다.
+
+## 활동 임계값
+경우에 따라 노드가 상대적으로 불균형되기도 하지만 클러스터의 총 부하 양은 낮습니다. 이러한 현상은 시간이기 때문이거나 클러스터가 새롭고 이제 막 부트스트랩되기 때문에 발생합니다. 두 경우 모두, 실제 얻는 것이 거의 없기 때문에 분산하는 데 시간을 낭비하고 싶지 않을 것입니다. 대신, 네트워크와 계산 리소스를 사용하여 부하를 이동시키려 할 것입니다. 활동 임계값으로 알려진 리소스 관리자 내부의 다른 컨트롤을 통해 활동에 대한 일부 절대 하한값을 지정할 수 있습니다. 이 정도 부하량을 가진 노드가 없는 경우 조정 임계값을 충족하더라도 분산이 트리거되지 않습니다. 예를 들어 이러한 노드의 총 소비량이 포함된 보고서가 있다고 가정해 봅시다. 또한 분산 임계값이 3으로 유지되었지만 활동 임계값이 이제 1536이 되었다고 가정해 봅시다. 첫 번째 경우에서 클러스터는 분산 임계값에 따라 불균형되었지만 최소 활동 임계값을 충족하는 노드가 없기 때문에 그대로 둡니다. 아래 예제에서 Node1은 활동 임계값을 훨씬 초과했기 때문에 분산이 수행됩니다.
 
 ![활동 임계값 예][Image3]
 
@@ -87,11 +91,10 @@ ClusterManifest.xml:
 
 ![분산 서비스 함께 사용][Image5]
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 다음 단계
-- [매트릭에 대해 알아보기](service-fabric-cluster-resource-manager-metrics.md)
-- [리소스 관리자 스로틀에 대해 알아보기](service-fabric-cluster-resource-manager-advanced-throttling.md)
-- [서비스 이동 비용에 대해 알아보기](service-fabric-cluster-resource-manager-movement-cost.md)
+- 메트릭은 서비스 패브릭 클러스터 리소스 관리자가 클러스터의 소비와 용량을 관리하는 방법입니다. 메트릭 및 구성 방법에 대한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-metrics.md)를 확인하세요.
+- 이동 비용은 특정 서비스가 다른 서비스에 비해 이동하는 데 비용이 더 많이 드는 것을 클러스터 리소스 관리자에게 알리는 한 가지 방법입니다. 이동 비용에 대한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-movement-cost.md)를 참조하세요.
+- 클러스터 리소스 관리자에는 클러스터에서 이탈을 늦추도록 구성할 수 있는 몇 가지 제한이 있습니다. 일반적으로 필요하지는 않지만 필요할 경우 [여기](service-fabric-cluster-resource-manager-advanced-throttling.md)에서 알아볼 수 있습니다.
 
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resrouce-manager-balancing-thresholds.png
@@ -100,4 +103,4 @@ ClusterManifest.xml:
 [Image4]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together1.png
 [Image5]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together2.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

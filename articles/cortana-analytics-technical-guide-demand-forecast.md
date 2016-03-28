@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/24/2016"
-	ms.author="yijichen"/>
+	ms.author="inqiu;yijichen"/>
 
 # 에너지 수요 예측을 위한 Cortana 분석 솔루션 템플릿 기술 가이드
 
@@ -26,14 +26,12 @@
 
 이 문서의 목적은 참조 아키텍처 및 이 솔루션 템플릿의 일부로 구독에 프로비전된 다른 구성 요소를 설명하는 것입니다. 문서는 사용자 고유 데이터에서 통찰력/예측을 볼 수 있도록 샘플 데이터를 사용자 고유의 실제 데이터로 대체하는 방법에 대해서도 설명합니다. 또한 문서는 사용자 고유 데이터로 솔루션을 사용자 지정하려는 경우 수정되어야 하는 솔루션 템플릿의 부분을 설명합니다. 이 솔루션 템플릿에 대한 Power BI 대시보드를 빌드하는 방법에 대한 지침은 끝에 제공됩니다.
 
->[AZURE.TIP] [이 문서의 PDF 버전](http://github.com/yijichen/document-public/raw/master/Demand%20Forecasting%20for%20Engery%20Solution%20Template.pdf)을 다운로드 및 인쇄할 수 있습니다.
-
 ## **큰 그림**
 
 ![](media\cortana-analytics-technical-guide-demand-forecast\ca-topologies-energy-forecasting.png)
 
 ### 아키텍처 설명
-솔루션이 배포되면 Cortana Analytics Suite 내의 여러 Azure 서비스가 활성화됩니다(*즉,* 이벤트 허브, 스트림 분석, HDInsight, 데이터 팩터리, 기계 학습 *등*). 위의 아키텍처 다이어그램은 높은 수준에서 에너지 솔루션 템플릿에 대한 수요 예측이 종단 간에서 생성되는 방법을 보여 줍니다. 솔루션의 배포를 사용하여 만든 솔루션 템플릿 다이어그램을 클릭하여 이러한 서비스를 조사할 수 있습니다. 다음 섹션은 각 부분을 설명합니다.
+솔루션이 배포되면 Cortana 분석 제품군 내의 여러 Azure 서비스가 활성화됩니다(*즉,* 이벤트 허브, 스트림 분석, HDInsight, 데이터 팩터리, 기계 학습 *등*). 위의 아키텍처 다이어그램은 높은 수준에서 에너지 솔루션 템플릿에 대한 수요 예측이 종단 간에서 생성되는 방법을 보여 줍니다. 솔루션의 배포를 사용하여 만든 솔루션 템플릿 다이어그램을 클릭하여 이러한 서비스를 조사할 수 있습니다. 다음 섹션은 각 부분을 설명합니다.
 
 ## **데이터 원본 및 수집**
 
@@ -104,11 +102,11 @@ Azure HD Insight 서비스는 Azure 스트림 분석 서비스를 사용하여 �
 
 -   선택
 
-    -   쿼리 입력을 보려면 ***입력***
+    -   쿼리 입력을 보려면 ***INPUTS***
 
-    -   쿼리 자체를 보려면 ***쿼리***
+    -   쿼리 자체를 보려면 ***QUERY***
 
-    -   다른 출력을 보려면 ***출력***
+    -   다른 출력을 보려면 ***OUTPUTS***
 
 Azure 스트림 분석 쿼리 생성에 대한 정보는 MSDN의 [스트림 분석 쿼리 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)에서 찾을 수 있습니다.
 
@@ -290,4 +288,4 @@ Azure 스트림 분석 쿼리 생성에 대한 정보는 MSDN의 [스트림 분�
 
 -   [Microsoft Azure 비용 추정 도구(데스크톱)](http://www.microsoft.com/download/details.aspx?id=43376)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

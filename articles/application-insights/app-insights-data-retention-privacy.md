@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="03/15/2016" 
 	ms.author="awills"/>
 
 # Application Insights 데이터 수집, 보존 및 저장소 
@@ -64,7 +64,7 @@ Application Insights SDK는 다음과 같은 응용 프로그램 형식에 사�
 주요 범주는 다음과 같습니다.
 
 * [웹 서버 원격 분석](app-insights-asp-net.md) - HTTP가 요청합니다. URI, 요청, 응답 코드, 클라이언트 IP 주소를 처리하는 데 걸린 시간입니다. 세션 ID.
-* [웹 페이지](app-insights-javascript.md) -페이지, 사용자 및 세션 수입니다. 페이지 로드 시간. 예외. AJAX 호출.
+* [웹 페이지](app-insights-javascript.md) -페이지, 사용자 및 세션 수입니다. 페이지 로드 시간. 예외. Ajax 호출.
 * 성능 카운터 - 메모리, CPU, IO, 네트워크 선점입니다.
 * 클라이언트 및 서버 컨텍스트 - OS, 로캘, 장치 형식, 브라우저, 화면 해상도입니다.
 * [예외](app-insights-asp-net-exceptions.md) 및 작동 중단 - **스택 덤프**, 작성 ID, CPU 형식입니다. 
@@ -80,6 +80,8 @@ Visual Studio를 사용하여 앱을 개발하는 경우 디버그(F5) 모드에
 
 ![](./media/app-insights-data-retention-privacy/06-vs.png)
 
+진단 창에 보다 읽기 쉬운 보기도 있습니다.
+
 웹 페이지의 경우 브라우저의 디버깅 창을 엽니다.
 
 ![F12 키를 누르고 네트워크 탭을 엽니다.](./media/app-insights-data-retention-privacy/08-browser.png)
@@ -94,9 +96,9 @@ Visual Studio를 사용하여 앱을 개발하는 경우 디버그(F5) 모드에
 
 [계획 가격](https://azure.microsoft.com/pricing/details/application-insights/)에 따라 다릅니다.
 
-원시 데이터 요소(즉, 진단 검색에서 검사할 수 있는 항목): 7일에서 30일 사이입니다.
+원시 데이터 요소(즉, 진단 검색에서 검사할 수 있는 항목): 7일입니다. 이보다 더 오래 데이터를 보존해야 하는 경우 [연속 내보내기](app-insights-export-telemetry.md)를 사용하여 해당 데이터를 저장소 계정에 복사할 수 있습니다.
 
-집계 데이터(즉, 메트릭 탐색기에 표시되는 개수, 평균 및 기타 통계 데이터)는 30일 동안 1분 단위로 보존되고, 13개월 동안 형식에 따라 1시간 또는 1일 단위로 보존됩니다.
+집계 데이터(즉, 메트릭 탐색기에 표시되는 개수, 평균 및 기타 통계 데이터)는 30일 동안 1분 단위로 보존되고, 적어도 90일 동안 형식에 따라 1시간 또는 1일 단위로 보존됩니다.
 
 
 ## 데이터에 액세스할 수 있는 사용자는 누구인가요?
@@ -116,7 +118,7 @@ Microsoft는 서비스를 제공하기 위한 목적으로만 데이터를 사�
 
 #### 유럽 등의 다른 곳에 저장할 수 있나요? 
 
-* 아직 없습니다. 
+* 현재는 암호화되지 않습니다. 
 
 ## 내 데이터는 어느 정도 안전한가요?  
 
@@ -191,7 +193,7 @@ SDK는 플랫폼마다 다르며, 설치할 수 있는 여러 구성 요소가 �
 [.NET 웹 프로젝트에 Application Insights SDK 추가][greenbrown] | ServerContext<br/>유추<br/>성능 카운터<br/>요청<br/>**예외**<br/>세션<br/>사용자
 [IIS에 상태 모니터 설치][redfield]<br/>[Azure VM 또는 웹앱에 AI 확장 추가][azure]|종속성<br/>ServerContext<br/>유추<br/>성능 카운터
 [Java 웹앱에 Application Insights SDK 추가][java]|ServerContext<br/>유추<br/>요청<br/>세션<br/>사용자
-[웹 페이지에 JavaScript SDK 추가][client]|ClientContext<br/>유추<br/>페이지<br/>ClientPerf<br/>Ajax
+[웹 페이지에 JavaScript SDK 추가][client]|ClientContext <br/>유추<br/>페이지<br/>ClientPerf<br/>Ajax
 [Windows 스토어 앱에 SDK 추가][windows]|DeviceContext<br/>사용자<br/>충돌 데이터
 [기본 속성 정의][apiproperties]|모든 표준 및 사용자 지정 이벤트의 **속성**
 [호출 TrackMetric][api]|숫자 값<br/>**속성**
@@ -265,4 +267,4 @@ SDK 진단 | 추적 메시지 또는 예외
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

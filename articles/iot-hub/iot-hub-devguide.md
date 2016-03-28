@@ -68,7 +68,7 @@ IoT Hub를 인식하지 않는 SDK(또는 제품 통합)를 사용하는 경우 
 
     ![][img-eventhubcompatible]
 
-> [AZURE.NOTE] 경우에 따라 SDK는 **Hostname** 또는 **네임스페이스** 값을 필요로 합니다. 이 경우 **이벤트 허브 호환 끝점**에서 구성표를 제거합니다. 예를 들어 이벤트 허브와 호환 가능한 끝점이 **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**인 경우 **호스트 이름**은 **iothub-ns-myiothub-1234.servicebus.windows.net**이고 **네임스페이스**는 **iothub-ns-myiothub-1234**입니다.
+> [AZURE.NOTE] 경우에 따라 SDK는 **Hostname** 또는 **네임스페이스** 값을 필요로 합니다. 이 경우 **이벤트 허브 호환 끝점**에서 구성표를 제거합니다. 예를 들어 이벤트 허브와 호환 가능한 끝점이 ****sb://iothub-ns-myiothub-1234.servicebus.windows.net/**인 경우 **호스트 이름**은 **iothub-ns-myiothub-1234.servicebus.windows.net**이고 **네임스페이스**는 **iothub-ns-myiothub-1234**입니다.
 
 지정된 이벤트 허브에 연결할 수 있는 **ServiceConnect** 권한이 있는 공유 액세스 보안 정책을 사용할 수 있습니다.
 
@@ -288,29 +288,7 @@ Azure IoT Hub는 공유 액세스 정책 및 장치 ID 레지스트리 보안 �
 
 > [AZURE.NOTE] Azure IoT Hub 리소스 공급자는 [Azure 리소스 관리자][lnk-azure-resource-manager]의 모든 공급자처럼 Azure 구독을 통해 보호됩니다.
 
-#### 보안 토큰 형식 <a id="tokenformat"></a>
-
-보안 토큰의 형식은 다음과 같습니다.
-
-	SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}
-
-다음은 필요한 값입니다.
-
-| 값 | 설명 |
-| ----- | ----------- |
-| {signature} | 형식의 HMAC-SHA256 서명 문자열은 `{URL-encoded-resourceURI} + "\n" + expiry`입니다. **중요**: 키는 base64에서 디코딩되며 HMAC-SHA256 계산을 수행하는 데 키로 사용됩니다. |
-| {resourceURI} | 이 토큰으로 액세스할 수 있는 끝점의 URI 접두사(세그먼트 별)입니다. 위치(예:`/events` |
-| {expiry} | 1970년 1월 1일 epoch 0시 UTC 이후의 초 수에 대한 UTF8 문자열입니다. |
-| {URL-encoded-resourceURI} | 소문자 URL-소문자 리소스 URI의 인코딩 |
-| {policyName} | 이 토큰을 참조하는 공유 액세스 정책의 이름입니다. 장치 레지스트리 자격 증명을 참조하는 토큰의 경우가 없습니다. |
-
-**접두사에 대한 참고**: 문자가 아니라 세그먼트에 의해 계산된 URI 접두사입니다. 예를 들어 `/a/b`는 `/a/b/c`에 대한 접두사이지만 `/a/bc`에 대한 접두사는 아닙니다.
-
-IoT 장치와 서비스 SDK에서 서명 알고리즘의 구현을 찾을 수 있습니다.
-
-* [Java용 IoT 서비스 SDK](https://github.com/Azure/azure-iot-sdks/tree/master/java/service/iothub-service-sdk/src/main/java/com/microsoft/azure/iot/service/auth)
-* [Java용 IoT 장치 SDK](https://github.com/Azure/azure-iot-sdks/tree/master/java/device/iothub-java-client/src/main/java/com/microsoft/azure/iothub/auth)
-* [Node.js용 IoT 장치 및 서비스 SDK](https://github.com/Azure/azure-iot-sdks/blob/master/node/common/core/lib/shared_access_signature.js)
+보안 토큰을 생성 및 사용하는 방법에 대한 자세한 내용은 [IoT Hub 보안 토큰][lnk-sas-tokens] 문서를 참조하세요.
 
 #### 프로토콜 세부 사항
 
@@ -327,7 +305,7 @@ SASL PLAIN의 경우 **사용자 이름**은 다음이 될 수 있습니다.
 * `{policyName}@sas.root.{iothubName}` 허브 수준 토큰의 경우입니다.
 * `{deviceId}` 장치 범위 토큰의 경우입니다.
 
-두 가지 경우 모두 암호 필드는 [토큰 형식](#tokenformat) 섹션에서 설명된 토큰을 포함합니다.
+두 가지 경우 모두 암호 필드는 [IoT Hub 보안 토큰][lnk-sas-tokens] 문서에 설명된 토큰을 포함합니다.
 
 MQTT를 사용하는 경우 CONNECT 패킷에는 사용자 이름 필드의 ClientId, {iothubhostname}/{deviceId}에 deviceId, 암호 필드에 SAS 토큰이 있습니다. {iothubhostname}은 IoT Hub의 전체 CName이어야 합니다(예: contoso.azure devices.net).
 
@@ -348,7 +326,7 @@ SASL PLAIN을 사용할 때 IoT Hub에 연결한 클라이언트는 각 TCP 연�
 
 ### 허브 수준 자격 증명의 범위 지정
 
-제한된 리소스 URI로 토큰을 만들어 허브 수준 보안 정책의 범위를 지정할 수 있습니다. 예를 들어 장치에서 장치-클라우드 메시지를 보낼 끝점은 **/devices/{deviceId}/events**입니다. 또한 **DeviceConnect** 사용 권한으로 허브 수준 공유 액세스 정책을 사용하여 resourceURI가 **/devices/{deviceId}**인 토큰에 서명하며 이는 장치 **deviceId**를 대신하여 장치를 보내는 데 사용 가능한 토큰을 만듭니다.
+제한된 리소스 URI로 토큰을 만들어 허브 수준 보안 정책의 범위를 지정할 수 있습니다. 예를 들어 장치에서 장치-클라우드 메시지를 보낼 끝점은 **/devices/{deviceId}/messages/events**입니다. 또한 **DeviceConnect** 사용 권한으로 허브 수준 공유 액세스 정책을 사용하여 resourceURI가 **/devices/{deviceId}**인 토큰에 서명하며 이는 장치 **deviceId**를 대신하여 장치를 보내는 데 사용 가능한 토큰을 만듭니다.
 
 이 메커니즘은 [이벤트 허브 게시자 정책][lnk-event-hubs-publisher-policy]과 유사하며 [솔루션 설계][lnk-guidance-security]의 보안 섹션에서 설명한 것처럼 사용자 지정 인증 메서드를 구현하도록 합니다.
 
@@ -378,7 +356,8 @@ IoT Hub 메시지에서 시스템 속성의 집합입니다.
 | -------- | ----------- |
 | MessageId | 사용자가 설정할 수 있는 메시지에 대한 식별자는 요청-회신 패턴에 일반적으로 사용됩니다. 형식: ASCII 7 비트 영숫자 문자 + `{'-', ':',’.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`의 대/소문자 구분 문자열(최대 128자 길이)입니다. |
 | 시퀀스 번호 | 숫자(장치 큐 별로 고유함)는 IoT Hub에서 각 클라우드-장치 메시지에 할당됩니다. |
-| 받는 사람   | 대상을 지정하는 [클라우드-장치](#c2d) 메시지에 사용됩니다. |
+| 받는 사람  
+ | 대상을 지정하는 [클라우드-장치](#c2d) 메시지에 사용됩니다. |
 | ExpiryTimeUtc | 메시지 만료 날짜 및 시간입니다. |
 | EnqueuedTime | IoT Hub에서 메시지를 수신한 날짜 및 시간입니다. |
 | CorrelationId | 일반적으로 요청-응답 패턴으로 요청의 MessageId가 포함된 응답 메시지의 String 속성입니다. |
@@ -392,7 +371,7 @@ IoT Hub 메시지에서 시스템 속성의 집합입니다.
 
 IoT Hub는 장치 측 통신을 위해 [AMQP][lnk-amqp], WebSocket을 통한 AMQP, MQTT 및 HTTP/1 프로토콜을 지원합니다. 사용을 고려한 고려 사항 목록은 다음과 같습니다.
 
-* **클라우드-장치 패턴**. HTTP/1에는 서버 푸시를 구현하는 효율적인 방법이 없습니다. 이와 같이 HTTP/1을 사용하는 경우 장치는 클라우드-장치 메시지에 IoT Hub를 폴링합니다. 장치와 IoT Hub 모두에 매우 비효율적입니다. HTTP/1을 사용하는 경우 현재 지침은 25분 이상마다 각 장치가 폴링하도록 해야 합니다. 반면에 AMQP 및 MQTT는 클라우드-장치 메시지를 받을 때 서버 푸시를 지원하고 IoT Hub에서 장치에 메시지를 즉각적으로 푸쉬할 수 있도록 합니다. 전달 대기 시간이 중요한 경우 AMQP 또는 MQTT는 가장 사용하기 적합한 프로토콜입니다. 반면에 거의 연결되지 않은 장치의 경우 HTTP/1도 작동합니다.
+* **클라우드-장치 패턴**. HTTP/1에는 서버 푸시를 구현하는 효율적인 방법이 없습니다. 이와 같이 HTTP/1을 사용하는 경우 장치는 클라우드-장치 메시지에 IoT Hub를 폴링합니다. 장치와 IoT Hub 모두에 매우 비효율적입니다. HTTP/1을 사용하는 경우 현재 지침은 25분 이상마다 각 장치가 폴링하도록 해야 합니다. 반면에 AMQP 및 MQTT는 클라우드-장치 메시지를 받을 때 서버 푸시를 지원하고 IoT Hub에서 장치에 메시지를 즉각적으로 푸시할 수 있도록 합니다. 전달 대기 시간이 중요한 경우 AMQP 또는 MQTT는 가장 사용하기 적합한 프로토콜입니다. 반면에 거의 연결되지 않은 장치의 경우 HTTP/1도 작동합니다.
 * **현장 게이트웨이**. HTTP/1 및 MQTT를 사용하는 경우 동일한 TLS 연결을 사용하여 여러 장치(각각 장치별 자격 증명 보유)를 연결할 수 없습니다. 필드 게이트웨이에 연결된 각 장치에 대해 필드 게이트웨이와 IoT Hub 간에 하나의 TLS 연결이 필요하므로 [필드 게이트웨이 시나리오][lnk-azure-gateway-guidance]를 구현할 때 이러한 프로토콜을 따르는 것은 좋은 방법이 아닙니다.
 * **낮은 리소스 장치**. MQTT 및 HTTP/1 라이브러리는 AMQP 라이브러리보다 적은 공간을 차지합니다. 이와 같이 장치에 리소스가 적으면(예: 1Mb RAM 보다 작음) 이러한 프로토콜은 사용할 수 있는 유일한 프로토콜 구현일 수도 있습니다.
 * **네트워크 통과**. MQTT 표준은 포트 8883에서 수신 대기합니다. 비 HTTP 프로토콜에 접근할 수 있는 네트워크에서 문제를 일으킬 수 있습니다. HTTP와 AMQP(Websockets를 통해) 모두 이 시나리오에서 사용할 수 있습니다.
@@ -506,6 +485,8 @@ IoT Hub는 다음 속성을 노출하여 장치-클라우드 메시징을 제어
 #### TTL(Time to live) <a id="ttl"></a>
 
 모든 클라우드-장치 메시지에는 만료 시간이 있습니다. 서비스에서 명시적으로 설정할 수 있거나(**ExpiryTimeUtc** 속성에) 또는 IoT Hub 속성처럼 지정된 기본 *TTL(Time To Live)*을 사용하여 IoT Hub에서 설정됩니다. [클라우드-장치 구성 옵션](#c2dconfiguration)을 참조하세요.
+
+> [AZURE.NOTE] 메시지 만료를 활용하는 일반적인 방법은 연결되지 않은 장치에 메시지를 전송하지 않도록 값이 유효한 짧은 시간을 설정하는 것입니다. 이렇게 하면 훨씬 더 효율적으로 유지하면서 장치 연결 상태를 유지 관리하는 것과 동일한 결과를 얻을 수 있습니다. 또한 메시지 승인을 요청하여 장치가 메시지를 받을 수 있거나 온라인 상태가 아니거나 실패한 IoT Hub의 알림을 받는 것도 가능합니다.
 
 #### 메시지 피드백 <a id="feedback"></a>
 
@@ -621,6 +602,7 @@ IoT Hub 개발의 개요를 살펴보았습니다. 자세한 내용을 보려면
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
 [lnk-resource-provider-apis]: https://msdn.microsoft.com/library/mt548492.aspx
 
+[lnk-sas-tokens]: iot-hub-sas-tokens
 [lnk-azure-gateway-guidance]: iot-hub-guidance.md#field-gateways
 [lnk-guidance-provisioning]: iot-hub-guidance.md#provisioning
 [lnk-guidance-scale]: iot-hub-scaling.md
@@ -653,4 +635,4 @@ IoT Hub 개발의 개요를 살펴보았습니다. 자세한 내용을 보려면
 [lnk-eventhub-partitions]: ../event-hubs/event-hubs-overview.md#partitions
 [lnk-manage]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

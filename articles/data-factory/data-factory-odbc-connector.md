@@ -232,7 +232,7 @@
 | gatewayName | 데이터 팩터리 서비스가 ODBC 데이터 저장소에 연결하는 데 사용해야 하는 게이트웨이의 이름. | 예 |
 
 
-온-프레미스 ODBC 데이터 저장소의 자격 증명 설정에 대한 자세한 내용은 [자격 증명 및 보안 설정](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security)을 참조하세요.
+온-프레미스 ODBC 데이터 저장소의 자격 증명 설정에 대한 자세한 내용은 [자격 증명 및 보안 설정](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security)을 참조하세요.
 
 ### 기본 인증 사용
 
@@ -327,4 +327,4 @@ ODBC 데이터 저장소에서 데이터를 이동할 때 [ODBC 데이터 형식
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

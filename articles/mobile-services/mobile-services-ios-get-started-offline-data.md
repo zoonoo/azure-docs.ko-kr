@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/05/2016"
+	ms.date="03/09/2016"
 	ms.author="krisragh;donnam"/>
 
 # 모바일 서비스에서 오프라인 데이터 동기화 시작
 
 [AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
- 
+
 &nbsp;
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
@@ -275,4 +275,4 @@ Azure 모바일 서비스의 오프라인 동기화를 사용하면 최종 사�
 
 [모바일 서비스 퀵 스타트 자습서]: mobile-services-ios-get-started.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

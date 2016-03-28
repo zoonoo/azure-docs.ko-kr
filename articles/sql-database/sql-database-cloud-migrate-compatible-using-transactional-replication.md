@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="12/17/2015"
+   ms.date="03/14/2016"
    ms.author="carlrab"/>
 
 # 트랜잭션 복제를 사용하여 SQL Server 데이터베이스를 SQL 데이터베이스로 마이그레이션
@@ -29,8 +29,8 @@
  - SQL Server 2014 SP1 CU3 이상
  - SQL Server 2014 RTM CU10 이상
  - SQL Server 2012 SP2 CU8 이상
- - SQL Server 2012 SP3 
+ - SQL Server 2013 SP3(출시 예정)
 
 또한 트랜잭션 복제를 사용하여 온-프레미스 데이터베이스의 하위 집합을 마이그레이션할 수 있습니다. 사용자가 Azure SQL 데이터베이스로 복제하는 게시물을 복제되는 데이터베이스의 테이블 하위 집합으로 제한할 수 있습니다. 뿐만 아니라 복제되는 각 테이블에 대해 데이터를 행의 하위 집합 및/또는 열의 하위 집합으로 제한할 수 있습니다.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

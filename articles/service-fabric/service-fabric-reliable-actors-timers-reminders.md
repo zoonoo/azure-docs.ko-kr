@@ -3,7 +3,7 @@
    description="서비스 패브릭 Reliable Actors의 타이머 및 미리 알림에 대해 소개합니다."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="myamanbh"
    manager="timlt"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/20/2016"
+   ms.date="03/15/2016"
    ms.author="amanbha"/>
 
 
@@ -114,4 +114,4 @@ Task reminderUnregistration = UnregisterReminder(reminder);
 
 위에 나온 것처럼 `UnregisterReminder` 메서드는 `IActorReminder` 인터페이스를 허용합니다. 행위자 기본 클래스는 미리 알림 이름에 전달하여 `IActorReminder` 인터페이스를 검색하는 데 사용할 수 있는 `GetReminder` 메서드를 지원합니다. 이 방법은 행위자가 `RegisterReminder` 메서드에서 반환된 `IActorReminder` 인터페이스를 유지할 필요가 없기 때문에 편리합니다.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0316_2016-->

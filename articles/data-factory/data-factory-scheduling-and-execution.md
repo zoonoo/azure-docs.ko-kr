@@ -261,6 +261,27 @@ Azure SQL에서는 데이터가 다음과 같다고 가정합니다.
 
 ![동일한 파이프라인에서 활동 연결](./media/data-factory-scheduling-and-execution/chaining-one-pipeline.png)
 
+### 순서가 지정된 복사
+순차/순서가 지정된 방식으로 하나씩 여러 복사 작업을 실행하는 것이 가능합니다. 파이프라인에 두 번의 복사 작업, 즉 다음과 같은 입력 데이터 출력 데이터 집합으로 된 CopyActivity1과 CopyActivity가 있다고 가정합니다.
+
+CopyActivity1: 입력: Dataset1 출력: Dataset2
+
+CopyActivity2: 입력: Dataset2 출력: Dataset4
+
+CopyActivity2는 CopyActivity1을 성공적으로 실행하고 Dataset2를 사용할 수 있는 경우에만 실행됩니다.
+
+위의 예제에서 CopyActivity2에 다른 입력(예: Dataset3)을 지정할 수 있지만 CopyActivity2에 대한 입력으로 Dataset2를 지정해야 CopyActivity1을 완료할 때까지 작업이 실행되지 않습니다. 예:
+
+CopyActivity1: 입력: Dataset1 출력: Dataset2
+
+CopyActivity2: 입력: Dataset3, Dataset2 출력: Dataset4
+
+여러 입력을 지정하는 경우 첫 번째 입력 데이터 집합만 데이터를 복사하는 데 사용되고 다른 데이터 집합은 종속성으로 사용됩니다. CopyActivity2는 다음 조건을 충족할 때만 실행을 시작합니다.
+
+- CopyActivity2가 성공적으로 완료되고 Dataset2가 사용 가능합니다. 이 데이터 집합은 Dataset4에 데이터를 복사할 때 사용되지 않으며 CopyActivity2에 대한 일정 종속성으로만 작동합니다.   
+- Dataset3을 사용할 수 있습니다. 이 데이터 집합은 대상에 복사되는 데이터를 나타냅니다.  
+
+
 
 ## 다양한 빈도로 데이터 집합 모델링
 
@@ -632,4 +653,4 @@ Azure Data Factory에서 지원하는 함수 및 시스템 변수 목록은 [Dat
 
   
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -3,7 +3,7 @@
 	description="에너지 공익 사업체에서 수요를 예측할 수 있도록 하는 Microsoft Cortana 분석의 솔루션 템플릿입니다."
 	services="cortana-analytics"
 	documentationCenter=""
-	authors="yijichen"
+	authors="ireiter"
 	manager="ireiter"
 	editor="cgronlun"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/24/2016"
-	ms.author="yijichen;garye"/>
+	ms.author="ireiter;yijichen;garye"/>
 
 # 에너지 수요 예측을 위한 Cortana 분석 솔루션 템플릿 플레이 북  
 
@@ -384,4 +384,4 @@ Cortana 분석에 에너지 수요 예측 솔루션을 실제로 배포하려면
 
 각 구성 요소 및 전체 아키텍처에 대한 자세한 내용은 에너지 솔루션 템플릿을 참조하세요.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

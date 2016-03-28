@@ -3,8 +3,8 @@
   description="Azure 백업 서버를 사용하여 워크로드를 백업하도록 환경을 적절히 준비합니다."
   services="backup"
   documentationCenter=""
-  authors="Jim-Parker"
-  manager="jwhit"
+  authors="pvrk"
+  manager="shivamg"
   editor=""
   keywords="azure 백업 서버; 백업 자격 증명 모음"/>
 
@@ -15,7 +15,7 @@
   ms.devlang="na"
   ms.topic="article"
   ms.date="02/04/2016"
-  ms.author="jimpark; trinadhk;"/>
+  ms.author="jimpark;trinadhk;pullabhk"/>
 
 # Azure 백업 서버를 사용하여 워크로드 백업 준비
 
@@ -85,8 +85,7 @@ Azure에 백업 데이터를 전송하거나 로컬로 유지하거나 관계없
 
     ![다운로드 센터 1](./media/backup-azure-microsoft-azure-backup/downloadcenter1.png)
 
-3. 모든 파일을 선택하고 **다음**을 클릭합니다. Microsoft Azure 백업 다운로드 페이지에서 들어오는 모든 파일을 다운로드하고 모든 파일을 동일한 폴더에 배치합니다. 
-![다운로드 센터 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
+3. 모든 파일을 선택하고 **다음**을 클릭합니다. Microsoft Azure 백업 다운로드 페이지에서 들어오는 모든 파일을 다운로드하고 모든 파일을 동일한 폴더에 배치합니다. ![다운로드 센터 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
 
     모든 파일의 다운로드 크기가 >3G이기 때문에 10Mbps 다운로드 링크에서 다운로드를 완료하는 데 최대 60분이 걸릴 수 있습니다.
 
@@ -212,4 +211,4 @@ Microsoft Azure 백업 서버를 사용하여 워크로드 보호를 더 깊이 
 - [SharePoint 서버 백업](backup-azure-backup-sharepoint.md)
 - [대체 서버 백업](backup-azure-alternate-dpm-server.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

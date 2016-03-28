@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="03/04/2016"
+   ms.date="03/15/2016"
    ms.author="alkohli"/>
 
 # StorSimple 소프트웨어, 높은 가용성 및 네트워킹 요구 사항
@@ -73,6 +73,24 @@ StorSimple 장치는 잠긴 장치입니다. 하지만 iSCSI, 클라우드 또�
 
 > [AZURE.IMPORTANT] 방화벽이 StorSimple 장치 및 Azure 사이의 모든 SSL 트래픽을 수정하거나 암호를 해독하지 않도록 해야 합니다.
 
+### 방화벽 규칙에 대한 URL 패턴 
+
+네트워크 관리자는 URL 패턴을 기준으로 하는 고급 방화벽 규칙이 인바운드 및 아웃바운드 트래픽을 필터링하도록 구성할 수 있습니다. StorSimple 장치 및 StorSimple Manager 서비스는 Azure 서비스 버스, Azure Active Directory 액세스 제어, 저장소 계정 및 Microsoft 업데이트 서버 등의 다른 Microsoft 응용 프로그램에 의존합니다. 이러한 응용 프로그램과 연결된 URL 패턴을 사용하여 방화벽 규칙을 구성할 수 있습니다. 이러한 응용 프로그램과 연결된 URL 패턴은 달라질 수 있습니다. 따라서 네트워크 관리자는 StorSimple에 대한 방화벽 규칙을 모니터링하고 필요에 따라 업데이트해야 합니다.
+
+대부분의 경우에는 방화벽 규칙을 자유롭게 설정하는 것이 좋습니다. 그러나 보안 환경을 만드는 데 필요한 고급 방화벽 규칙을 설정하려면 아래 정보를 사용할 수 있습니다.
+
+> [AZURE.NOTE] 장치(원본) IP는 항상 사용하도록 설정된 네트워크 인터페이스로 설정되어야 합니다. 대상 IP는 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/ko-KR/download/confirmation.aspx?id=41653)로 설정해야 합니다.
+
+
+| URL 패턴 | 구성 요소/기능 | 장치 IP |
+|------------------------------------------------------------------|---------------------------------------------------------------|-----------------------------------------|
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` | StorSimple Manager 서비스<br>액세스 제어 서비스<br>Azure 서비스 버스| 클라우드 사용 네트워크 인터페이스 |
+|`http://crl.microsoft.com/pki/*` |인증서 해지 |클라우드 사용 네트워크 인터페이스 |
+| `https://*.core.windows.net/*` | Azure 저장소 계정 및 모니터링 | 클라우드 사용 네트워크 인터페이스 |
+| `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Microsoft 업데이트 서버<br> | 컨트롤러 고정 IP만 |
+| `http://*.deploy.akamaitechnologies.com` |Akamai CDN |컨트롤러 고정 IP만 |
+| `https://*.partners.extranet.microsoft.com/*` | 지원 패키지 | 클라우드 사용 네트워크 인터페이스 |
+
 ### 라우팅 메트릭
 
 라우팅 메트릭은 데이터를 특정 네트워크로 라우팅하는 게이트웨이 및 인터페이스와 연결됩니다. 라우팅 메트릭은 주어진 대상에 대해 다수의 경로가 존재한다는 것이 파악되면, 라우팅 프로토콜이 해당 대상에 대한 최상의 경로를 계산하는 데 사용됩니다. 라우팅 메트릭이 낮을수록 기본 설정이 높습니다.
@@ -103,17 +121,12 @@ StorSimple에 대해 다수의 네트워크 인터페이스와 게이트웨이�
 
 - 미리 결정된 값 집합이 네트워크 인터페이스에 할당되었습니다. 	
 		
-- 클라우드를 사용하거나 클라우드를 사용하지 않지만 게이트웨이가 구성되어 있는 다양한 네트워크 인터페이스에 대해 값이 할당된 아래의 예제 테이블을 고려해 보세요. 여기에 할당된 값은 단지 예시용입니다.
+- 클라우드를 사용하거나 클라우드를 사용하지 않지만 게이트웨이가 구성되어 있는 다양한 네트워크 인터페이스에 대해 값이 할당된 아래의 예제 테이블을 고려해 보세요. 여기에 할당된 값은 예제입니다.
 
 		
 	| 네트워크 인터페이스 | 클라우드 사용 | 클라우드 미사용(게이트웨이 구성됨) |
 	|-----|---------------|---------------------------|
-	| Data 0 | 1 | - | 
-	| Data 1 | 2 | 20 | 
-	| Data 2 | 3 | 30 |
-	| Data 3 | 4 | 40 |
-	| Data 4 | 5 | 50 |
-	| Data 5 | 6 | 60 |
+	| Data 0 | 1 | - | | Data 1 | 2 | 20 | | Data 2 | 3 | 30 | | Data 3 | 4 | 40 | | Data 4 | 5 | 50 | | Data 5 | 6 | 60 |
 
 
 - 네트워크 인터페이스를 통해 클라우드 트래픽이 라우팅되는 순서는 다음과 같습니다.
@@ -261,4 +274,4 @@ StorSimple 장치에 연결된 호스트의 고가용성을 위해 이러한 모
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

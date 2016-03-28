@@ -32,11 +32,11 @@ ASP.NET 5 프로젝트에서 Blob에 프로그래밍 방식으로 액세스하�
 
 1. 프로그래밍 방식으로 Azure 저장소에 액세스하려는 C# 파일의 맨 위에 다음과 같은 코드 네임스페이스 선언을 추가합니다.
 
-		using Microsoft.Framework.Configuration;
+		using Microsoft.Extensions.Configuration;
 		using Microsoft.WindowsAzure.Storage;
 		using Microsoft.WindowsAzure.Storage.Blob;
 		using System.Threading.Tasks;
-		using LogLevel = Microsoft.Framework.Logging.LogLevel;
+		using LogLevel = Microsoft.Extensions.Logging.LogLevel;
 
 2. 저장소 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 저장소 연결 문자열 및 저장소 계정 정보를 가져오려면 다음 코드를 사용합니다.
 
@@ -155,4 +155,4 @@ Blob을 삭제하려면 먼저 Blob에 대한 참조를 가져온 다음 **Delet
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

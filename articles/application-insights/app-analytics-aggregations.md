@@ -24,7 +24,7 @@
 
 
 
-## `summarize` 연산자
+## summarize 연산자
 
 입력된 테이블의 내용을 집계하는 테이블을 생성합니다.
 
@@ -42,9 +42,9 @@
 ### 구문
 
     T | summarize
-         [  [Column =] Aggregation [`,` ...]]
+         [  [ Column = ] Aggregation [ , ... ]]
          [ by
-            [Column =] GroupExpression [`,` ...]]
+            [ Column = ] GroupExpression [ , ... ]]
 
 **인수**
 
@@ -52,7 +52,7 @@
 * *Aggregation:* 열 이름을 인수로 하는 `count()` 또는 `avg()` 등과 같은 집계 함수에 대한 호출입니다. 아래 집계 함수의 목록을 참조하세요.
 * *GroupExpression:* 고유 값 집합을 제공하는 열에 대한 식입니다. 일반적으로 제한된 값 집합을 제공하는 열 이름, 또는 숫자 또는 시간 열을 인수로 하는 `bin()`입니다. 
 
-`bin()`을 사용하지 않고 숫자 또는 시간 식을 제공할 경우, AI 분석은 시간에 대해 `1h`의 간격 또는 숫자에 대해 `1.0`과 함께 자동으로 이를 적용합니다.
+`bin()`을 사용하지 않고 숫자 또는 시간 식을 제공할 경우 AI 분석은 시간에 대해 `1h`의 간격 또는 숫자에 대해 `1.0`과 함께 자동으로 이를 적용합니다.
 
 *GroupExpression*을 제공하지 않으면 전체 테이블이 단일 출력 행에 요약됩니다.
 
@@ -82,10 +82,11 @@
 
     requests
     | summarize count() 
-      by duration_range=bin(duration, 1)
+      by bin(duration, 1000)/1000
 
 ![result](./media/app-analytics-aggregations/04.png)
 
+(요청 기간 필드는 밀리초 단위의 숫자입니다.)
  
 ## 팁
 
@@ -171,7 +172,7 @@ requests
 | sort by max_pop_tod asc
 ```
 
-## 집계 함수
+## AGGREGATIONS
 
 ## 모든 
 
@@ -191,6 +192,7 @@ traces
 | top 10 by count_level desc 
 ```
 
+<a name="argmin"></a> <a name="argmax"></a>
 ## argmin, argmax
 
     argmin(ExprToMinimize, * | ExprToReturn  [ , ... ] )
@@ -234,7 +236,7 @@ traces
 
 *DynamicExpression*의 모든 값을 인정하는 최소한의 스키마를 반환합니다.
 
-파라미터 열 형식은 `dynamic` - 즉, 배열 또는 속성 모음이어야 합니다.
+매개 변수 열 형식은 `dynamic` - 즉, 배열 또는 속성 모음이어야 합니다.
 
 **예제**
 
@@ -331,11 +333,11 @@ traces
 
 그룹에 있는 *Expr*의 고유 값 수에 대한 추정치를 반환합니다. (고유 값을 나열하려면 [`makeset`](#makeset)를 사용합니다.)
 
-*정확도*, 지정한 경우 속도 정확도 간의 균형을 제어합니다.
+*정확도*(지정한 경우) 속도와 정확도 간의 균형을 제어합니다.
 
  * `0` = 정확성은 가장 떨어지지만 가장 빠른 계산입니다.
- * `1` 기본값이며, 정확도와 계산 시간의 균형을 맞춥니다. 오류 비율 약 0.8%.
- * `2` = 가장 정확하고 가장 느린 계산이며 오류 비율은 0.4%입니다.
+ * `1` 기본값이며, 정확도와 계산 시간의 균형을 맞춥니다. 오류 비율: 약 0.8%
+ * `2` = 가장 정확하지만 가장 느린 계산입니다. 오류 비율: 0.4%
 
 **예제**
 
@@ -357,7 +359,7 @@ traces
 
     makeset(Expression [ , MaxSetSize ] )
 
-*Expr*가 그룹에서 가지는 고유 값 집합의 `dynamic`(JSON) 배열을 반환합니다. (팁: 단지 고유 값을 세기만 하려면 [`dcount`](#dcount)을 사용합니다.)
+*Expr*이 그룹에서 가지는 고유 값 집합의 `dynamic`(JSON) 배열을 반환합니다. (팁: 고유 값을 세기만 하려면 [`dcount`](#dcount)을 사용합니다.)
   
 *  *MaxSetSize*는 반환되는 최대 요소 수에 대한 선택적 정수 한계(기본값 *128*)입니다.
 
@@ -382,8 +384,10 @@ traces
 
 *Expr*의 최소값을 계산합니다.
 
-**팁**: 이는 자체에 대한 in 또는 max - 예를 들어 가장 높거나 가장 낮은 가격을 제공합니다. 그러나 행의 다른 열 - 예를 들어 가장 낮은 가격을 가진 공급업체의 이름 -을 원하는 경우 - 을 원하는 경우 [argmin 또는 argmax](#argmin-argmax)를 사용합니다.
+**팁**: 가장 높거나 가장 낮은 가격을 제공하는 자체에 대한 min 또는 max입니다. 그러나 행의 다른 열(예: 가장 낮은 가격을 가진 공급업체의 이름)을 원하는 경우 [argmin 또는 argmax](#argmin-argmax)를 사용합니다.
 
+
+<a name="percentile"></a> <a name="percentiles"></a>
 ## percentile, percentiles
 
     percentile(Expression, Percentile)
@@ -459,4 +463,4 @@ traces
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

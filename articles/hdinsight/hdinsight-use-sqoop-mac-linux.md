@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="03/09/2016"
 	ms.author="larryfr"/>
 
 #HDInsight에서 Hadoop과 Sqoop 사용(SSH)
@@ -42,15 +42,9 @@ HDInsight 클러스터에서 지원되는 Sqoop 버전을 보려면 [HDInsight�
 
 - **Azure CLI**: 자세한 내용은 [Azure CLI 설치 및 구성](../xplat-cli-install.md)을 참조하십시오.
 
-- **Linux 기반 HDInsight 클러스터**: 클러스터 프로비전에 대한 자세한 내용은 [HDInsight 사용 시작](hdinsight-hadoop-linux-tutorial-get-started.md) 또는 [HDInsight 클러스터 프로비전][hdinsight-provision]을 참조하세요.
-
-- **Azure SQL 데이터베이스**: 이 문서는 예제 SQL 데이터베이스를 만드는 지침을 제공합니다. SQL 데이터베이스에 대한 자세한 내용은 [Azure SQL 데이터베이스를 사용하여 시작][sqldatabase-get-started]을 참조하십시오.
-
-* **SQL Server**: 이 문서의 단계도 SQL Server로 일부 수정하여 사용할 수 있습니다. 그러나 HDInsight 클러스터 및 SQL Server가 동일한 Azure 가상 네트워크에 있어야 합니다. 이 문서를 SQL Server와 함께 사용 시 고유한 요구 사항에 대한 자세한 내용은 [SQL Server 사용](#using-sql-server) 섹션을 참조하십시오.
-
 ##시나리오 이해
 
-HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. **wasb:///hive/warehouse/hivesampletable**에 위치한 데이터 파일을 참조하는 **hivesampletable**이라는 이름의 Hive 테이블을 사용합니다. 이 테이블에는 일부 모바일 장치 데이터가 포함되어 있습니다. 다음은 Hive 테이블 스키마입니다.
+HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. ****wasb:///hive/warehouse/hivesampletable**에 위치한 데이터 파일을 참조하는 **hivesampletable**이라는 이름의 Hive 테이블을 사용합니다. 이 테이블에는 일부 모바일 장치 데이터가 포함되어 있습니다. 다음은 Hive 테이블 스키마입니다.
 
 | 필드 | 데이터 형식 |
 | ----- | --------- |
@@ -66,94 +60,68 @@ HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. **w
 | sessionid | bigint |
 | sessionpagevieworder | bigint |
 
-먼저 **hivesampletable**을 Azure SQL 데이터베이스 또는 **mobiledata**라는 이름의 테이블에 있는 SQL Server로 내보낸 다음 테이블을 다시 **wasb:///tutorials/usesqoop/importeddata**에 있는 HDInsight로 가져옵니다.
+먼저 **hivesampletable**을 Azure SQL 데이터베이스 또는 **mobiledata**라는 이름의 테이블에 있는 SQL Server로 내보낸 다음 테이블을 다시 ****wasb:///tutorials/usesqoop/importeddata**에 있는 HDInsight로 가져옵니다.
 
-##데이터베이스 만들기
 
-1. 터미널 또는 명령 프롬프트를 열고 다음 명령을 사용하여 새로운 Azure SQL 데이터베이스 서버를 만듭니다.
+## 클러스터 및 SQL 데이터베이스 만들기
 
-        azure sql server create <adminLogin> <adminPassword> <region>
+1. Azure 포털에서 ARM 템플릿을 열려면 다음 이미지를 클릭합니다.         
 
-    예: `azure sql server create admin password "West US"`
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fusesqoop%2Fcreate-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/ko-KR/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    
+    ARM 템플릿은 공용 Blob 컨테이너에 있습니다. **https://hditutorialdata.blob.core.windows.net/usesqoop/create-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json*.
+    
+    ARM 템플릿은 SQL 데이터베이스에 테이블 스키마를 배포하는 bacpac 패키지를 호출합니다. bacpac 패키지는 공용 Blob 컨테이너에도 있습니다. https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac Bacpac 파일에 대한 개인 컨테이너를 사용하려는 경우 템플릿에 다음 값을 사용합니다.
+    
+        "storageKeyType": "Primary",
+        "storageKey": "<TheAzureStorageAccountKey>",
+    
+2. 매개 변수 블레이드에서 다음을 입력합니다.
 
-    명령이 완료되면 다음과 유사한 응답이 표시됩니다.
+    - **ClusterName**: 만들려는 Hadoop 클러스터의 이름을 입력합니다.
+    - **클러스터 로그인 이름 및 암호**: 기본 로그인 이름은 admin입니다.
+    - **SSH 사용자 이름 및 암호**입니다.
+    - **SQL 데이터베이스 서버 로그인 이름 및 암호**입니다.
 
-        info:    Executing command sql server create
-        + Creating SQL Server
-        data:    Server Name i1qwc540ts
-        info:    sql server create command OK
+    다음 값은 변수 섹션에서 하드 코드합니다.
+    
+    |기본 저장소 계정 이름|<CluterName>store|
+    |----------------------------|-----------------|
+    |Azure SQL 데이터베이스 서버 이름|<ClusterName>dbserver|
+    |Azure SQL 데이터베이스 이름|<ClusterName>db|
+    
+    이러한 값을 기록해 두십시오. 이 정보는 자습서의 뒷부분에서 필요합니다.
+    
+3\. **확인**을 클릭하여 매개 변수를 저장합니다.
 
-    > [AZURE.IMPORTANT] 이 명령에 의해 반환된 서버 이름에 유의합니다. 이것은 생성된 SQL 데이터베이스 서버의 짧은 이름입니다. 완전히 정규화된 도메인 이름(FQDN)은 **&lt;shortname&gt;.database.windows.net**입니다.
+4\. **사용자 지정 배포** 블레이드에서 **리소스 그룹** 드롭다운 상자를 클릭한 후 **새로 만들기**를 클릭하여 새 리소스 그룹을 만듭니다. 리소스 그룹은 클러스터, 종속 저장소 계정 및 기타 연결된 리소스를 그룹화하는 컨테이너입니다.
 
-2. 다음 명령을 사용하여 SQL 데이터베이스 서버에서 **sqooptest**라는 이름의 데이터베이스를 생성합니다.
+5\. **약관**을 클릭한 다음 **만들기**를 클릭합니다.
 
-        azure sql db create [options] <serverName> sqooptest <adminLogin> <adminPassword>
+6\.**만들기**를 클릭합니다. 템플릿 배포에 배포 제출 중이라는 제목의 새 타일이 표시됩니다. 클러스터 및 SQL 데이터베이스를 만들려면 20분 정도가 걸립니다.
 
-    완료되면 “OK” 메시지가 반환됩니다.
+기존 Azure SQL 데이터베이스 또는 Microsoft SQL Server를 사용하기로 선택하는 경우
 
-	> [AZURE.NOTE] 액세스가 없다는 오류가 나타나면 다음 명령을 사용하여 클라이언트 워크스테이션의 IP 주소를 SQL 데이터베이스에 추가해야 할 수도 있습니다.
-	>
-	> `azure sql firewallrule create [options] <serverName> <ruleName> <startIPAddress> <endIPAddress>`
+- **Azure SQL 데이터베이스**: 워크스테이션에서 액세스할 수 있도록 Azure SQL 데이터베이스 서버의 방화벽 규칙을 구성해야 합니다. Azure SQL 데이터베이스 만들기 및 방화벽 구성에 대한 자세한 내용은 [Azure SQL 데이터베이스 사용 시작][sqldatabase-get-started]을 참조하세요. 
 
-##테이블 만들기
+    > [AZURE.NOTE] 기본적으로 Azure SQL 데이터베이스는 Azure HDInsight 같은 Azure 서비스로부터의 연결을 허용합니다. 이 방화벽 설정을 사용하지 않도록 설정한 경우 Azure Preview 포털에서 사용하도록 설정해야 합니다. Azure SQL 데이터베이스 만들기 및 방화벽 규칙 구성에 대한 지침은 [SQL 데이터베이스 만들기 및 구성][sqldatabase-create-configue]을 참조하세요.
 
-> [AZURE.NOTE] 여러 가지 방법으로 SQL 데이터베이스에 연결하여 테이블을 생성할 수 있습니다. 다음 단계는 HDInsight 클러스터의 [FreeTDS](http://www.freetds.org/)를 사용합니다.
+- **SQL Server**: HDInsight 클러스터가 SQL Server와 같은 Azure의 가상 네트워크에 있으면 이 문서의 단계를 사용하여 SQL Server 데이터베이스에 대해 데이터 가져오기 및 내보내기를 수행할 수 있습니다.
 
-1. SSH를 사용하여 Linux 기반 HDInsight 클러스터에 연결합니다. 연결 시 사용할 주소는 `CLUSTERNAME-ssh.azurehdinsight.net`이며 포트는 `22`입니다.
+    > [AZURE.NOTE] HDInsight는 위치 기반 가상 네트워크만 지원하며 현재 선호도 그룹 기반 가상 네트워크와는 연동되지 않습니다.
 
-	SSH를 사용한 HDInsight 연결에 대한 자세한 내용은 다음 문서를 참조합니다.
+    * 가상 네트워크를 만들고 구성하려면 [가상 네트워크 구성 작업](../services/virtual-machines/)을 참조하세요.
 
-    * **Linux, Unix 또는 OS X 클라이언트**: [Linux, OS X 또는 Unix로부터 Linux 기반 HDInsight 클러스터에 연결](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster)을 참조합니다.
+        * 데이터 센터에서 SQL Server를 사용할 때는 가상 네트워크를 *사이트 간* 또는 *지점 및 사이트 간*으로 구성해야 합니다.
 
-    * **Windows 클라이언트**: [Windows로부터 Linux 기반 HDInsight 클러스터에 연결](hdinsight-hadoop-linux-use-ssh-windows.md#connect-to-a-linux-based-hdinsight-cluster)을 참조합니다.
+            > [AZURE.NOTE] **지점 및 사이트 간** 가상 네트워크의 경우 SQL Server가 VPN 클라이언트 구성 응용 프로그램을 실행해야 합니다. 이 응용 프로그램은 Azure 가상 네트워크 구성의 **대시보드**에서 사용 가능합니다.
 
-3. 다음 명령을 사용하여 FreeTDS:를 설치합니다.
+        * Azure 가상 컴퓨터에서 SQL Server를 사용할 때는 SQL Server를 호스트하는 가상 컴퓨터가 HDInsight와 같은 가상 네트워크의 멤버이면 모든 가상 네트워크 구성을 사용할 수 있습니다.
 
-        sudo apt-get --assume-yes install freetds-dev freetds-bin
+    * 가상 네트워크에 HDInsight 클러스터를 만들려면 [사용자 지정 옵션을 사용하여 HDInsight의 Hadoop 클러스터 만들기](hdinsight-provision-clusters.md)를 참조하세요.
 
-4. FreeTDS가 설치되면 다음 명령을 사용하여 이전에 생성한 SQL 데이터베이스 서버에 연결합니다.
-
-        TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D sqooptest
-
-    다음과 유사한 출력이 표시됩니다.
-
-        locale is "en_US.UTF-8"
-        locale charset is "UTF-8"
-        using default charset "UTF-8"
-        Default database being set to sqooptest
-        1>
-
-5. `1>` 프롬프트에 다음 행을 입력합니다.
-
-        CREATE TABLE [dbo].[mobiledata](
-        [clientid] [nvarchar](50),
-        [querytime] [nvarchar](50),
-        [market] [nvarchar](50),
-        [deviceplatform] [nvarchar](50),
-        [devicemake] [nvarchar](50),
-        [devicemodel] [nvarchar](50),
-        [state] [nvarchar](50),
-        [country] [nvarchar](50),
-        [querydwelltime] [float],
-        [sessionid] [bigint],
-        [sessionpagevieworder] [bigint])
-        GO
-        CREATE CLUSTERED INDEX mobiledata_clustered_index on mobiledata(clientid)
-        GO
-
-    `GO` 명령문을 입력하면 이전 명령문이 평가됩니다. 먼저 **mobiledata** 테이블이 생성된 다음 클러스터형 인덱스가 추가됩니다(SQL 데이터베이스에 필수).
-
-    다음을 사용하여 테이블이 생성되었는지 확인합니다.
-
-        SELECT * FROM information_schema.tables
-        GO
-
-    다음과 비슷한 결과가 나타나야 합니다.
-
-        TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
-        sqooptest       dbo     mobiledata      BASE TABLE
-
-8. `1>` 프롬프트에서 `exit`를 입력하여 tsql 유틸리티를 종료합니다.
+    > [AZURE.NOTE] SQL Server는 인증도 허용해야 합니다. 이 문서의 단계를 완료하려면 SQL 서버 로그인을 사용해야 합니다.
+	
 
 ##Sqoop 내보내기
 
@@ -171,7 +139,7 @@ HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. **w
 
         sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --export-dir 'wasb:///hive/warehouse/hivesampletable' --fields-terminated-by '\t' -m 1
 
-    이것은 Sqoop에게 SQL 데이터베이스, **sqooptest** 데이터베이스에 연결하고 **wasb:///hive/warehouse/hivesampletable** (*hivesampletable*에 대한 물리적 파일)에서 **mobiledata** 테이블로 데이터를 내보내도록 지시합니다.
+    이것은 Sqoop에게 SQL 데이터베이스, **sqooptest** 데이터베이스에 연결하고 ****wasb:///hive/warehouse/hivesampletable**(*hivesampletable*에 대한 물리적 파일)에서 **mobiledata** 테이블로 데이터를 내보내도록 지시합니다.
 
 5. 명령이 완료되면 다음을 통해 TSQL을 사용하여 데이터베이스에 연결합니다.
 
@@ -186,7 +154,7 @@ HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. **w
 
 ##Sqoop 가져오기
 
-1. 다음을 사용하여 SQL 데이터베이스에 있는 **mobiledata** 테이블로부터 데이터를 HDInsight 내 **wasb:///tutorials/usesqoop/importeddata** 디렉터리로 가져옵니다.
+1. 다음을 사용하여 SQL 데이터베이스에 있는 **mobiledata** 테이블로부터 데이터를 HDInsight 내 ****wasb:///tutorials/usesqoop/importeddata** 디렉터리로 가져옵니다.
 
         sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
 
@@ -240,9 +208,9 @@ HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. **w
 
 이제 Sqoop을 사용하는 방법에 대해 알아봤습니다. 자세한 내용은 다음을 참조하세요.
 
-- [HDInsight와 함께 Oozie 사용][hdinsight-use-oozie]: Oozie 워크플로에서 Sqoop 작업을 사용합니다.
-- [HDInsight를 사용하여 비행 지연 데이터 분석][hdinsight-analyze-flight-data]: Hive를 사용하여 비행 지연 데이터를 분석한 후 Sqoop을 사용하여 데이터를 Azure SQL 데이터베이스로 내보냅니다.
-- [HDInsight에 데이터 업로드][hdinsight-upload-data]: HDInsight/Azure Blob 저장소에 데이터를 업로드하는 다른 방법을 찾습니다.
+- [HDInsight와 함께 Oozie 사용][hdinsight-use-oozie]\: Oozie 워크플로에서 Sqoop 작업을 사용합니다.
+- [HDInsight를 사용하여 비행 지연 데이터 분석][hdinsight-analyze-flight-data]\: Hive를 사용하여 비행 지연 데이터를 분석한 후 Sqoop을 사용하여 데이터를 Azure SQL 데이터베이스로 내보냅니다.
+- [HDInsight에 데이터 업로드][hdinsight-upload-data]\: HDInsight/Azure Blob 저장소에 데이터를 업로드하는 다른 방법을 찾습니다.
 
 
 
@@ -264,4 +232,4 @@ HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. **w
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

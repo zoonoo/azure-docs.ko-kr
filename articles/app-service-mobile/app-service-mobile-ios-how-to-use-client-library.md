@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="03/09/2016"
 	ms.author="krisragh"/>
 
 # Azure 모바일 앱용 iOS 클라이언트 라이브러리를 사용하는 방법
@@ -640,4 +640,4 @@ Azure Active Directory를 사용하여 응용 프로그램에 사용자가 로�
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

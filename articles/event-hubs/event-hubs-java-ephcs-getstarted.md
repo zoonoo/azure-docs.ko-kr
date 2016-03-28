@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/05/2015"
+	ms.date="03/08/2016"
 	ms.author="sethm"/>
 
 # 이벤트 허브 시작
@@ -62,7 +62,7 @@
 
 7. 같은 페이지에서 **SendRule**에 대해 생성된 키를 기록해 둡니다.
 
-	![][6b]
+	![][7]
 
 8. 페이지 위쪽의 **대시보드** 탭을 클릭한 후 **연결 정보**를 클릭합니다. 두 연결 문자열을 기록해 둡니다.
 
@@ -104,7 +104,7 @@
 [4]: ./media/event-hubs-java-ephcs-getstarted/create-event-hub4.png
 [5]: ./media/event-hubs-java-ephcs-getstarted/create-event-hub5.png
 [6]: ./media/event-hubs-java-ephcs-getstarted/create-event-hub6.png
-[6b]: ./media/event-hubs-java-ephcs-getstarted/create-event-hub6b.png
+[7]: ./media/event-hubs-java-ephcs-getstarted/create-event-hub6b.png
 
 
 [21]: ./media/event-hubs-java-ephcs-getstarted/run-csharp-ephcs1.png
@@ -119,4 +119,4 @@
 [큐 메시징 솔루션]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0316_2016-->

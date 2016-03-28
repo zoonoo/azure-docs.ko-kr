@@ -5,7 +5,7 @@
 	services="app-service\mobile"
 	documentationCenter=""
 	authors="ggailey777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="03/06/2016"
 	ms.author="glenga"/>
 
 # Azure 모바일 앱용 .NET 백엔드 서버 SDK 사용
@@ -160,7 +160,7 @@ Azure 포털의 빠른 시작 서버에서 **UseDefaultConfiguration()**을 호�
 
 	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-success.png)
 
-## 방법: 테이블 컨트롤러 정의
+##<a name="define-table-controller"></a> 방법: 테이블 컨트롤러 정의
 
 테이블 컨트롤러는 SQL 데이터베이스 또는 Azure 테이블 저장소와 같은 테이블 기반 데이터 저장소에 엔터티 데이터에 대한 액세스를 제공합니다. 테이블 컨트롤러는 **TableController** 제네릭 클래스에서 상속하는데 여기서 제네릭 형식은 다음과 같이 테이블 스키마를 나타내는 모델의 엔터티입니다.
 
@@ -217,6 +217,7 @@ Entity Framework를 사용하여 Azure SQL 데이터베이스의 데이터를 �
 + [방법: 서버 프로젝트에 인증 추가](#add-auth)
 + [방법: 응용 프로그램에 사용자 지정 인증 사용](#custom-auth)
 + [방법: 인증된 사용자 정보 검색](#user-info)
++ [방법: 인증된 사용자에 대한 데이터 액세스 제한](#authorize)
 
 ### <a name="add-auth"></a>방법: 서버 프로젝트에 인증 추가
 
@@ -324,6 +325,9 @@ SID는 공급자 특정 사용자 ID에서 파생되고 지정된 사용자 및 
 
 **GetAppServiceIdentityAsync** 확장 메서드 작업을 만드는 `System.Security.Principal`에 문을 사용하여 추가해야 합니다.
 
+###<a name="authorize"></a>방법: 인증된 사용자에 대한 데이터 액세스 제한
+
+특정 인증된 사용자에게 반환되는 데이터를 제한하려는 경우가 종종 있습니다. 이러한 종류의 데이터 분할은 데이터 삽입 시 테이블의 userId 열을 포함하고 사용자의 SID를 저장함으로써 수행됩니다.
 
 ## 방법: 서버 프로젝트에 푸시 알림 추가
 
@@ -397,7 +401,7 @@ SID는 공급자 특정 사용자 ID에서 파생되고 지정된 사용자 및 
 
     // Send a template notification to the user ID.
     await hub.SendTemplateNotificationAsync(notification, userTag);
-    
+
 인증된 클라이언트의 푸시 알림을 등록할 때 등록을 시도하기 전에 인증이 완료되었는지 확인합니다. 자세한 내용은 .NET 백 엔드에 대한 앱 서비스 모바일 앱이 완료된 빠른 시작 샘플에서 [사용자에게 푸시 알림 보내기](https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#push-to-users)를 참조하세요.
 
 ## 방법: .NET 서버 SDK 디버그 및 문제 해결
@@ -457,4 +461,4 @@ Azure 앱 서비스는 ASP.NET 응용 프로그램에 대한 여러 디버깅 �
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

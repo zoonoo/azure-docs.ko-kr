@@ -3,8 +3,8 @@
 	description="C# 샘플에는 Azure SQL 데이터베이스를 조작하기 위한 안정적인 재시도 논리가 포함되어 있습니다."
 	services="sql-database"
 	documentationCenter=""
-	authors="MightyPen"
-	manager="jeffreyg"
+	authors="annemill"
+	manager="jhubbard"
 	editor=""/>
 
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/17/2015"
-	ms.author="genemi"/>
+	ms.date="03/15/2016"
+	ms.author="annemill"/>
 
 
 # 코드 샘플: SQL 데이터베이스에 연결에 대한 C#에서 논리 다시 시도
@@ -286,4 +286,4 @@ filetable_updates_2105058535    2105058535
 
 - [SQL 데이터베이스 시도: C#을 사용하여 .NET용 SQL 데이터베이스 라이브러리로 SQL 데이터베이스 만들기](sql-database-get-started-csharp.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0316_2016-->

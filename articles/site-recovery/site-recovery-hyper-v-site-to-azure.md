@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="02/16/2016"
+	ms.date="03/15/2016"
 	ms.author="raynew"/>
 
 
@@ -38,7 +38,7 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 ### Azure 필수 조건
 
 - [Microsoft Azure](https://azure.microsoft.com/) 계정이 있어야 합니다. [무료 평가판](pricing/free-trial/)으로 시작할 수 있습니다.
-- 복제된 데이터를 저장하려면 Azure 저장소 계정이 있어야 합니다. 계정의 지역에서 복제 기능을 사용하도록 설정해야 합니다. 계정은 Azure Site Recovery 자격 증명 모음과 동일한 지역에 있고 동일한 구독과 연결되어야 합니다. [Azure 저장소에 대해 자세히 알아보세요](../storage/storage-introduction.md).
+- 복제된 데이터를 저장하려면 Azure 저장소 계정이 있어야 합니다. 계정의 지역에서 복제 기능을 사용하도록 설정해야 합니다. 계정은 Azure Site Recovery 자격 증명 모음과 동일한 지역에 있고 동일한 구독과 연결되어야 합니다. 리소스 그룹 간에서 [새 Azure 포털](../storage/storage-create-storage-account.md)을 사용하여 만든 저장소 계정 이동을 지원하지 않습니다.[Azure 저장소에 대해 자세히 알아보기](../storage/storage-introduction.md).
 - 기본 사이트에서 장애 조치(failover) 시 Azure 가상 컴퓨터가 네트워크에 연결되도록 하기 위해서는 Azure 가상 네트워크가 필요합니다.
 
 ### Hyper-V 필수 조건
@@ -187,6 +187,9 @@ Hyper-V 클러스터를 설치하는 경우 장애 조치 클러스터의 각 �
 
 	![저장소 계정 만들기](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_CreateResources1.png)
 
+>[AZURE.NOTE] 리소스 그룹 간에서 [새 Azure 포털](../storage/storage-create-storage-account.md)을 사용하여 만든 저장소 계정 이동을 지원하지 않습니다.
+
+
 ## 5단계: 보호 그룹 만들기 및 구성
 
 보호 그룹은 동일한 보호 설정을 사용하여 보호하려는 가상 컴퓨터의 논리적 그룹화입니다. 보호 설정을 보호 그룹에 적용하면 이러한 설정은 그룹에 추가한 가상 컴퓨터 모두에 적용됩니다.
@@ -227,7 +230,7 @@ Hyper-V 클러스터를 설치하는 경우 장애 조치 클러스터의 각 �
 		- **크기**: 장애 조치된 가상 컴퓨터의 대상 크기입니다.
 
 		![가상 컴퓨터 속성 구성](./media/site-recovery-hyper-v-site-to-azure/VMProperties.png)
-	- 다음을 포함하여 **보호된 항목** > **보호 그룹** > *protectiongroup\_name* > **가상 컴퓨터** *virtual\_machine\_name* > **구성**에서 추가적인 가상 컴퓨터의 설정을 구성합니다.
+	- 다음을 포함하여 *보호된 항목** > **보호 그룹** > *protectiongroup\_name* > **가상 컴퓨터** *virtual\_machine\_name* > **구성**에서 추가적인 가상 컴퓨터의 설정을 구성합니다.
 
 		- **네트워크 어댑터**: 네트워크 어댑터 수가 대상 가상 컴퓨터에 대해 지정하는 크기에 따라 결정됩니다. [가상 컴퓨터 크기 사양](../virtual-machines/virtual-machines-size-specs.md#size-tables)에서 가상 컴퓨터 크기에 의해 지원되는 NIC의 수를 확인하세요.
 
@@ -263,7 +266,7 @@ Azure 네트워크를 지정하지 않고 테스트 장애 조치(Failover)를 �
 Azure 대상 네트워크를 사용하여 테스트 장애 조치(Failover)를 실행하려면 Azure 프로덕션 네트워크에서 격리된 새 Azure 네트워크를 만듭니다.(Azure에서 새 네트워크를 만들 때의 기본 동작) 자세한 내용은 [테스트 장애 조치(Failover) 실행](site-recovery-failover.md#run-a-test-failover)을 살펴보세요.
 
 
-복제 및 네트워크 배포를 완벽하게 테스트하려면 복제된 가상 컴퓨터가 예상대로 작동하도록 인프라를 설정해야 합니다. 이렇게 하는 한 가지 방법은 DNS를 사용하여 가상 컴퓨터를 도메인 컨트롤러로 설정하고 사이트 복구를 사용하여 이를 Azure에 복제하고 테스트 장애 조치(Failover)를 실행하여 테스트 네트워크에 만드는 것입니다. Active Directory에 대한 테스트 장애 조치 고려 사항에 [대해 자세히 알아보세요.](site-recovery-active-directory.md#considerations-for-test-failover)
+복제 및 네트워크 배포를 완벽하게 테스트하려면 복제된 가상 컴퓨터가 예상대로 작동하도록 인프라를 설정해야 합니다. 이렇게 하는 한 가지 방법은 DNS를 사용하여 가상 컴퓨터를 도메인 컨트롤러로 설정하고 사이트 복구를 사용하여 이를 Azure에 복제하고 테스트 장애 조치(Failover)를 실행하여 테스트 네트워크에 만드는 것입니다. Active Directory에 대한 테스트 장애 조치(failover) 고려 사항에 [대해 자세히 알아보세요.](site-recovery-active-directory.md#considerations-for-test-failover)
 
 다음과 같이 테스트 장애 조치(Failover)를 실행합니다.
 
@@ -295,4 +298,4 @@ Azure 대상 네트워크를 사용하여 테스트 장애 조치(Failover)를 �
 
 배포가 설정되고 실행된 후 장애 조치에 대해 [알아봅니다](site-recovery-failover.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

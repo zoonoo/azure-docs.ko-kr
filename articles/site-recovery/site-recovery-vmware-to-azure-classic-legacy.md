@@ -6,7 +6,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="03/15/2016"
 	ms.author="raynew"/>
 
 # Azure Site Recovery를 사용하여 Azure에 VMware 가상 컴퓨터 및 물리적 서버 복제(레거시)
@@ -197,7 +197,7 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 **구성 요소** | **요구 사항** | **세부 정보**
 --- | --- | --- 
 **Azure 계정** | [Microsoft Azure](https://azure.microsoft.com/) 계정이 있어야 합니다. [무료 평가판](pricing/free-trial/)으로 시작할 수 있습니다.
-**Azure 저장소** | <p>복제 데이터를 저장하려면 Azure 저장소 계정이 필요합니다.</p><p>계정은 [표준 지역 중복 저장소 계정](../storage/storage-redundancy.md#geo-redundant-storage) 또는 [프리미엄 저장소 계정](../storage/storage-premium-storage.md)이어야 합니다.</p><p>Azure Site Recovery 서비스와 동일한 하위 지역에 있어야 하며 동일한 구독에 연결되어야 합니다.</p><p>자세히 알아보려면 [Microsoft Azure 저장소 소개](../storage/storage-introduction.md)를 참조하세요.</p>
+**Azure 저장소** | <p>복제 데이터를 저장하려면 Azure 저장소 계정이 필요합니다.</p><p>계정은 [표준 지역 중복 저장소 계정](../storage/storage-redundancy.md#geo-redundant-storage) 또는 [프리미엄 저장소 계정](../storage/storage-premium-storage.md)이어야 합니다.</p><p>Azure Site Recovery 서비스와 동일한 하위 지역에 있어야 하며 동일한 구독에 연결되어야 합니다. 리소스 그룹 간에서 [새 Azure 포털](../storage/storage-create-storage-account.md)을 사용하여 만든 저장소 계정 이동을 지원하지 않습니다.</p><p>자세한 내용은 [Microsoft Azure 저장소 소개](../storage/storage-introduction.md)</p>를 참조하세요.
 **Azure 가상 네트워크** | 구성 서버와 마스터 대상 서버를 배포할 Azure 가상 네트워크가 필요합니다. 이 네트워크는 Azure Site Recovery 자격 증명 모음과 동일한 구독 및 지역에 있어야 합니다. Express 경로 또는 VPN 연결을 통해 데이터를 복제하려는 경우 Azure 가상 네트워크가 Express 경로 연결 또는 사이트 간 VPN을 통해 온-프레미스 네트워크에 연결되어야 합니다.
 **Azure 리소스** | 모든 구성 요소를 배포하기에 충분한 Azure 리소스가 있는지 확인합니다. [Azure 구독 제한](../azure-subscription-service-limits.md)을 참조하세요.
 **Azure 가상 컴퓨터** | <p>보호하려는 가상 컴퓨터가 [Azure 필수 구성 요소](site-recovery-best-practices.md)를 준수해야 합니다.</p><p>**디스크 수**—단일 보호 서버에서 최대 31개 디스크가 지원됩니다.</p><p>**디스크 크기**—개별 디스크 용량은 1023GB보다 클 수 없습니다.</p><p>**클러스터링**—클러스터링된 서버는 지원되지 않습니다.</p><p>**부팅**—UEFI(Unified Extensible Firmware Interface)/EFI(Extensible Firmware Interface) 부팅은 지원되지 않습니다.</p><p>**볼륨**—Bitlocker 암호화된 볼륨은 지원되지 않습니다.</p><p> **서버 이름**—이름은 1~63자(문자, 숫자, 하이픈)를 포함해야 합니다. 이름은 문자나 숫자로 시작하고 문자나 숫자로 끝나야 합니다. 컴퓨터가 보호된 후 Azure 이름을 수정할 수 있습니다.</p>
@@ -310,11 +310,11 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 	- 사용자 지정 프록시를 사용하거나 기본 프록시에 인증이 필요한 경우 주소, 포트, 자격 증명을 포함한 프록시 정보를 입력해야 합니다.
 	- 다음 URL은 프록시를 통해 액세스할 수 있습니다.
 		- **.hypervrecoverymanager.windowsazure.com
-		- **.accesscontrol.windows.net
-		- **.backup.windowsazure.com
-		- **.blob.core.windows.net
-		- **.store.core.windows.net
-	- IP 주소 기반 방화벽 규칙이 구성 서버에서 [Azure 데이터 센터 IP 주소](https://msdn.microsoft.com/library/azure/dn175718.aspx)에 설명된 IP 주소 및 HTTPS(443) 프로토콜로 연결하는 통신을 허용하는지 확인하세요. 사용하려는 Azure 지역 및 미국 서부의 IP 범위를 허용해야 합니다.
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
+- IP 주소 기반 방화벽 규칙이 구성 서버에서 [Azure 데이터 센터 IP 주소](https://msdn.microsoft.com/library/azure/dn175718.aspx)에 설명된 IP 주소 및 HTTPS(443) 프로토콜로 연결하는 통신을 허용하는지 확인하세요. 사용하려는 Azure 지역 및 미국 서부의 IP 범위를 허용해야 합니다.
 
 	![프록시 등록](./media/site-recovery-vmware-to-azure-classic-legacy/register-proxy.png)
 
@@ -417,9 +417,8 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 8. Linux를 실행하는 경우 다음을 수행합니다.
 	1. 마스터 대상 서버 소프트웨어를 설치하기 전에 최신 LIS(Linux Integration Services)를 설치했는지 확인하십시오. [여기](https://www.microsoft.com/download/details.aspx?id=46842)에서 설치 방법에 대한 지침과 함께 최신 버전의 LIS를 찾을 수 있습니다. LIS 설치 후 컴퓨터를 다시 시작합니다.
 	2. **대상(Azure) 리소스 준비**에서 **추가 소프트웨어 다운로드 및 설치(Linux 마스터 대상 서버 전용)**를 클릭하고 Linux 마스터 대상 서버 패키지를 다운로드합니다. 다운로드한 tar 파일을 sftp 클라이언트를 사용하여 가상 컴퓨터로 복사합니다. 또는 배포된 Linux 마스터 대상 서버에 로그인한 다음 *wget http://go.microsoft.com/fwlink/?LinkID=529757&clcid=0x409*을 사용하여 파일을 다운로드할 수 있습니다.
-	2. 보안 셸 클라이언트를 사용하여 서버에 로그온합니다. VPN을 통해 Azure 네트워크에 연결되어 있는 경우 내부 IP 주소를 사용합니다. 그렇지 않으면 외부 IP 주소와 SSH 공용 끝점을 사용합니다.
-	3. **tar –xvzf Microsoft-ASR\_UA\_8.4.0.0\_RHEL6-64***  
-	![Linux 마스터 대상 서버](./media/site-recovery-vmware-to-azure-classic-legacy/linux-tar.png)를 실행하여 GZip 압축된 설치 프로그램에서 파일을 추출합니다.
+2. 보안 셸 클라이언트를 사용하여 서버에 로그온합니다. VPN을 통해 Azure 네트워크에 연결되어 있는 경우 내부 IP 주소를 사용합니다. 그렇지 않으면 외부 IP 주소와 SSH 공용 끝점을 사용합니다.
+	3. **tar –xvzf Microsoft-ASR\_UA\_8.4.0.0\_RHEL6-64*** ![Linux 마스터 대상 서버](./media/site-recovery-vmware-to-azure-classic-legacy/linux-tar.png)를 실행하여 GZip 압축된 설치 프로그램에서 파일을 추출합니다.
 	4. 현재 위치가 tar 파일의 내용을 추출한 디렉터리인지 확인합니다.
 	5. **echo *`<passphrase>`* >passphrase.txt** 명령을 사용하여 구성 서버 암호를 로컬 파일로 복사합니다.
 	6. "**sudo ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i *`<Configuration server internal IP address>`* -p 443 -s y -c https -P passphrase.txt**" 명령을 실행합니다.
@@ -698,6 +697,8 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 	![V-Center Server 추가](./media/site-recovery-vmware-to-azure-classic-legacy/select-vms.png)	
 4. **대상 리소스 지정**에서 복제에 사용할 마스터 대상 서버 및 저장소를 선택하고 설정을 모든 워크로드에 사용해야 할지 여부를 선택합니다. IO를 많이 사용하는 작업을 호스트하기 위해 일관된 IO 고성능과 짧은 대기 시간이 요구되는 워크로드에 대한 보호를 구성하는 동안에는 [프리미엄 저장소 계정](../storage/storage-premium-storage.md)을 선택합니다. 워크로드 디스크에 프리미엄 저장소 계정을 사용하려는 경우 DS 시리즈의 마스터 대상을 사용해야 합니다. DS 시리즈가 아닌 마스터 대상의 경우 프리미엄 저장소 디스크를 사용할 수 없습니다.
 
+	>[AZURE.NOTE] 리소스 그룹 간에서 [새 Azure 포털](../storage/storage-create-storage-account.md)을 사용하여 만든 저장소 계정 이동을 지원하지 않습니다.
+
 	![vCenter Server](./media/site-recovery-vmware-to-azure-classic-legacy/machine-resources.png)
 
 5. **계정 지정**에서 보호된 컴퓨터에 모바일 서비스를 설치하는 데 사용할 계정을 선택합니다. 모바일 서비스의 자동 설치에 계정 자격 증명이 필요합니다. 계정을 선택할 수 없을 경우 2단계의 설명에 따라 설정합니다. 이 계정은 Azure로 액세스할 수 없습니다. Windows 서버의 경우 원본 서버에서 계정에 관리자 권한이 있어야 합니다. Linux의 경우 계정은 반드시 루트여야 합니다.
@@ -805,4 +806,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

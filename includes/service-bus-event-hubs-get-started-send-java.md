@@ -1,8 +1,8 @@
 ## 이벤트 허브에 메시지 보내기
 
-이 섹션에서는 이벤트 허브로 이벤트를 보내는 Java 콘솔 응용 프로그램을 작성합니다. 여기서는 [Apache Qpid 프로젝트](http://qpid.apache.org/)(영문)의 JMS AMQP 공급자를 사용합니다. 이는 [여기](../service-bus/service-bus-java-how-to-use-jms-api-amqp.md)에 나와 있는 AMQP와 함께 서비스 버스 큐와 토픽을 사용하는 방법과 유사합니다. 자세한 내용은 [Qpid JMS 설명서](http://qpid.apache.org/releases/qpid-0.30/programming/book/QpidJMS.html) 및 [Java Messaging Service](http://www.oracle.com/technetwork/java/jms/index.html)를 참조하세요.
+이 섹션에서는 이벤트 허브로 이벤트를 보내는 Java 콘솔 응용 프로그램을 작성합니다. 여기서는 [Apache Qpid 프로젝트](http://qpid.apache.org/)의 JMS AMQP 공급자를 사용합니다. 이는 [여기](../articles/service-bus/service-bus-java-how-to-use-jms-api-amqp.md)에 나와 있는 AMQP와 함께 서비스 버스 큐와 토픽을 사용하는 방법과 유사합니다. 자세한 내용은 [Qpid JMS 설명서](http://qpid.apache.org/releases/qpid-0.30/programming/book/QpidJMS.html) 및 [Java Messaging Service](http://www.oracle.com/technetwork/java/jms/index.html)를 참조하세요.
 
-1. Eclipse에서 [Azure Toolkit for Eclipse](https://msdn.microsoft.com/library/azure/hh690946.aspx)를 설치합니다. 여기에는 Qpid JMS AMQP 클라이언트 라이브러리가 포함되어 있습니다.
+1. Eclipse에서 [Azure Toolkit for Eclipse](../articles/azure-toolkit-for-eclipse.md)를 설치합니다. 여기에는 Qpid JMS AMQP 클라이언트 라이브러리가 포함되어 있습니다.
 
 2. Eclipse에서 **Sender**라는 Java 프로젝트를 새로 만듭니다.
 
@@ -92,4 +92,4 @@
 <!-- Images -->
 [8]: ./media/service-bus-event-hubs-getstarted/create-sender-java1.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0316_2016-->

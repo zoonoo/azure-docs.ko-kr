@@ -75,9 +75,7 @@
 
 **오류의 원인:** Runbook이 PowerShell 워크플로인 경우 워크플로가 일시 중단되더라도 Runbook 상태를 유지하기 위해 복합 개체를 역직렬화된 형식으로 저장합니다.
 
-**문제 해결 팁:**
-
-다음 세 가지 해결 방법 중 하나로 이 문제를 해결할 수 있습니다.
+**문제 해결 팁:** 다음 세 가지 해결 방법 중 하나로 이 문제를 해결할 수 있습니다.
 
 1. 한 cmdlet에서 다른 cmdlet으로 복합 개체를 파이핑하는 경우 이러한 cmdlet을 InlineScript에 래핑합니다.  
 2. 개체 전체를 전달하지 말고 복합 개체에서 필요한 이름 또는 값만 전달합니다.  
@@ -139,9 +137,7 @@
 
 - **New-AzureRmAutomationModule** cmdlet이 모듈 업로드에 사용되고 있으며, 사용자가 공개적으로 액세스 가능한 URL을 사용하여 저장소 전체 경로를 입력하거나 모듈을 로드하지 않았습니다.
 
-**문제 해결 팁:**
-
-다음 해결 방법 중 하나로 이 문제를 해결할 수 있습니다.
+**문제 해결 팁:** 다음 해결 방법 중 하나로 이 문제를 해결할 수 있습니다.
 
 - 모듈이 다음 형식을 따르는지 확인합니다. ModuleName.Zip **->** ModuleName 또는 버전 번호 **->** (ModuleName.psm1, ModuleName.psd1)
 
@@ -176,7 +172,7 @@
 **문제 해결 팁:** 다음 해결 방법 중 하나로 이 문제를 해결할 수 있습니다.
 
 - 구성 정의에서 **Node** 키워드 옆의 식이 $null로 계산되지 않는지 확인합니다.  
-- 구성을 컴파일할 때 ConfigurationData를 전달하는 경우 [configurationData](automation-dsc-compile.md#configurationdata)에서 필요한 값을 전달해야 합니다.
+- 구성을 컴파일할 때 ConfigurationData를 전달하는 경우 [ConfigurationData](automation-dsc-compile.md#configurationdata)에서 필요한 값을 전달해야 합니다.
 
 
 ### 시나리오: DSC 노드 보고서가 "진행 중" 상태로 중단됨
@@ -210,4 +206,4 @@
 
 - Azure 자동화에 대한 의견이나 기능 요청이 있으면 [사용자 음성](https://feedback.azure.com/forums/34192--general-feedback)에 게시하세요.
 
-<!-------HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

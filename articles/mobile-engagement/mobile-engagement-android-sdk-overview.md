@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="02/01/2016"
+	ms.date="03/10/2016"
 	ms.author="piyushjo" />
 
 
@@ -35,9 +35,10 @@ Android 앱에서 Azure Mobile Engagement를 통합하는 방법에 대한 모�
 
 ##릴리스 정보
 
-##4\.1.5(2016/02/01)
+##4\.2.0(2016/03/11)
 
-- 안정성 향상
+- SDK는 이제 MIT에 따라 사용이 허가됩니다.
+- SDK 초기화 시에 사용자 지정 장치 식별자를 지정할 수 있습니다.
 
 ##4\.1.0(08/25/2015)
 
@@ -46,10 +47,10 @@ Android 앱에서 Azure Mobile Engagement를 통합하는 방법에 대한 모�
 - 사용 권한 버그 수정: `ACCESS_FINE_LOCATION`을 사용하는 경우 `ACCESS_COARSE_LOCATION`이 더 이상 필요하지 않습니다.
 - 안정성 향상
 
-이전 버전에 대한 내용은 [전체 릴리스 정보](mobile-engagement-android-release-notes.md)를 참조하세요.
+모든 버전에 대한 내용은 [전체 릴리스 정보](mobile-engagement-android-release-notes.md)를 참조하세요.
 
 ##업그레이드 절차
 
 이전 버전의 SDK를 응용 프로그램에 이미 통합한 경우에는 [업그레이드 절차](mobile-engagement-android-upgrade-procedure.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

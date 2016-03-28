@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/06/2015" 
+	ms.date="03/12/2016" 
 	ms.author="awills"/>
 
 # ApplicationInsights.config 또는 .xml로 Application Insights SDK 구성
@@ -54,7 +54,7 @@ IIS 설치에서 CPU, 메모리 및 네트워크 부하와 같은 [시스템 성
 
 ### Application Insights 진단 원격 분석
 
-`DiagnosticsTelemetryModule`은 Application Insights instrumenation 코드 자체에 오류를 보고합니다. 예를 들어 코드가 성능 카운터에 액세스할 수 없는 경우 또는 `ITelemetryInitializer`를 throw하는 경우는 예외입니다. 원격 분석 추적은 [진단 검색][diagnostic] 안의 이 모듈의 출현의 의해 추적됩니다.
+`DiagnosticsTelemetryModule`은 Application Insights instrumenation 코드 자체에 오류를 보고합니다. 예를 들어 코드가 성능 카운터에 액세스할 수 없는 경우 또는 `ITelemetryInitializer`를 throw하는 경우는 예외입니다. 원격 분석 추적은 [진단 검색][diagnostic] 안의 이 모듈의 출현의 의해 추적됩니다. dc.services.vsallin.net에 진단 데이터를 보냅니다.
  
 * `Microsoft.ApplicationInsights.Extensibility.Implementation.Tracing.DiagnosticsTelemetryModule`
 * [Microsoft.ApplicationInsights](http://www.nuget.org/packages/Microsoft.ApplicationInsights) NuGet 패키지. 이 패키지를 설치하는 경우 ApplicationInsights.config 파일은 자동으로 만들어지지 않습니다. 
@@ -85,9 +85,9 @@ HTTP 요청의 [응답 시간 및 결과 코드](app-insights-asp-net.md)를 보
 * `Microsoft.ApplicationInsights.WindowsServer.UnhandledExceptionTelemetryModule` - 작업자 역할, Windows 서비스 및 콘솔 응용 프로그램에 대한 처리되지 않은 예외를 추적합니다.
 * [Application Insights Windows Server](http://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/) NuGet 패키지.
 
-### 코어 API
+### Microsoft.ApplicationInsights
 
-코어 패키지는 SDK의 [코어 API](https://msdn.microsoft.com/library/mt420197.aspx)를 제공합니다. 다른 원격 분석 모듈은 이를 사용하고 사용자 또한 [사용자 고유의 원격 분석을 정의하는 데 사용](app-insights-api-custom-events-metrics.md)할 수 있습니다.
+Microsoft.ApplicationInsights 패키지는 SDK의 [코어 API](https://msdn.microsoft.com/library/mt420197.aspx)를 제공합니다. 다른 원격 분석 모듈은 이를 사용하고 사용자 또한 [사용자 고유의 원격 분석을 정의하는 데 사용](app-insights-api-custom-events-metrics.md)할 수 있습니다.
 
 * ApplicationInsights.config에 항목이 없습니다.
 * [Microsoft.ApplicationInsights](http://www.nuget.org/packages/Microsoft.ApplicationInsights) NuGet 패키지. 이 NuGet을 설치하면 .config 파일이 생성되지 않습니다.
@@ -123,12 +123,14 @@ HTTP 요청의 [응답 시간 및 결과 코드](app-insights-asp-net.md)를 보
  - `Language`은 `CurrentCulture`의 이름으로 설정됩니다.
 * `DomainNameRoleInstanceTelemetryInitializer`은 웹 응용 프로그램이 실행되는 컴퓨터의 도메인 이름을 사용하여 모든 원격 분석 항목에 대해 `Device` 컨텍스트의 `RoleInstance` 속성을 업데이트합니다.
 * `OperationNameTelemetryInitializer`은 `RequestTelemetry`의 `Name` 속성과 HTTP 메서드를 기반으로 한 모든 원격 분석 아이템의 `Operation` 컨텍스트의 `Name` 속성을 업데이트뿐만 아니라 ASP.NET MVC 컨트롤러와 요청을 처리하는 데 작업을 불러옵니다.
-* `OperationNameTelemetryInitializer`은(는) 자동으로 생성된 `RequestTelemetry.Id`(으)로 요청을 처리하는 동안 추적되는 모든 원격 분석 항목의 `Operation.Id` 컨텍스트 속성을 업데이트합니다.
+* `OperationIdTelemetryInitializer` 또는 `OperationCorrelationTelemetryInitializer`는 자동으로 생성된 `RequestTelemetry.Id`를 사용하여 요청을 처리하는 동안 추적된 모든 원격 분석 항목의 `Operation.Id` 컨텍스트 속성을 업데이트합니다.
 * `SessionTelemetryInitializer`은 사용자의 브라우저에서 실행되는 Application Insights JavaScript 계측 코드에 의해 제공된 `ai_session` 쿠키의 추출된 값을 사용하여 모든 원격 분석 항목에 대한 `Session` 컨텍스트의 `Id` 속성을 업데이트합니다. 
-* `SyntheticTelemetryInitializer`은 `User`, `Session` 및 가용성 테스트 또는 검색 엔진 봇과 같은 가상 소스에서 요청을 처리하는 경우 모든 원격 분석 항목의 `Operation` 컨텍스트 속성을 업데이트합니다. 기본적으로 [메트릭 탐색기](app-insights-metrics-explorer.md)는 가상 원격 분석을 표시하지 않습니다.
+* `SyntheticTelemetryInitializer` 또는 `SyntheticUserAgentTelemetryInitializer`는 가용성 테스트 또는 검색 엔진 봇과 같은 가상 소스에서 요청을 처리하는 경우 모든 원격 분석 항목의 `User`, `Session` 및 `Operation` 컨텍스트 속성을 업데이트합니다. 기본적으로 [메트릭 탐색기](app-insights-metrics-explorer.md)는 가상 원격 분석을 표시하지 않습니다. 
+
+    `<Filters>`는 요청의 식별 속성을 설정합니다.
 * `UserAgentTelemetryInitializer`은 `User-Agent` HTTP 헤더 기반의 모든 원격 분석 항목의 `User` 컨텍스트의 `UserAgent` 속성을 업데이트합니다.
 * `UserTelemetryInitializer`은 사용자의 브라우저에서 실행되는 Application insights JavaScript 계측 코드에 의해 제공된 `ai_user` 쿠키의 추출된 값을 사용하여 모든 원격 분석 항목에 대한 `User` 컨텍스트의 `Id` 및 `AcquisitionDate`속성을 업데이트합니다.
-
+* `WebTestTelemetryInitializer`는 [가용성 테스트](app-insights-monitor-web-app-availability.md)의 HTTP 요청에 대한 사용자 ID, 세션 ID 및 가상 원본 속성을 설정합니다. `<Filters>`는 요청의 식별 속성을 설정합니다.
 
 ## 원격 분석 프로세서(ASP.NET)
 
@@ -285,4 +287,4 @@ SDK의 메모리 내 저장소에 저장할 수 있는 원격 분석 항목의 �
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

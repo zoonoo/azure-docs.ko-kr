@@ -3,8 +3,8 @@
    description="배포 중 다른 리소스에 종속된 것으로 리소스를 설정하는 방법에 대해 설명합니다."
    services="azure-resource-manager"
    documentationCenter="na"
-   authors="mmercuri"
-   manager="wpickett"
+   authors="tfitzmac"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="12/07/2015"
-   ms.author="mmercuri"/>
+   ms.author="tomfitz"/>
 
 # Azure 리소스 관리자 템플릿에서 종속성 정의
 
@@ -66,4 +66,4 @@ reference 함수를 사용하면 식을 다른 JSON 이름 및 값 쌍 또는 �
 - Azure 리소스 관리자 템플릿을 만드는 방법에 대한 자세한 내용은 [템플릿 작성](resource-group-authoring-templates.md)을 참조하세요. 
 - 템플릿에서 사용할 수 있는 함수 목록은 [템플릿 함수](resource-group-template-functions.md)를 참조하세요.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0316_2016-->

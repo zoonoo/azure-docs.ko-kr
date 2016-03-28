@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016" 
+	ms.date="03/11/2016" 
 	ms.author="jeannt"/>
 
 # Azure 기계 학습을 사용하여 고객 이탈 분석
@@ -174,9 +174,9 @@ Wikipedia의 다음 다이어그램에서는 효과적이고 이해하기 쉬운
 
 *표 1. 알고리즘의 일반 성능(정확도)*
 
-**LR**|	**BT**|	**AP**|	**SVM**|
---|--|--|--|
-평균 모델|	최적 모델|	성능 미만|	평균 모델
+| LR|BT|AP|SVM|
+|---|---|---|---|
+|평균 모델|최적 모델|성능 미만|평균 모델|
 
 기계 학습 스튜디오에서 호스트된 모델은 실행 속도 성능이 SAS보다 15~25% 높았지만 정확도는 대체로 같았습니다.
 
@@ -217,11 +217,11 @@ Azure 기계 학습에서 제공되는 또 다른 흥미로운 기능은 이미 
 
 [2] Wikipedia 문서: [Accuracy and precision](http://en.wikipedia.org/wiki/Accuracy_and_precision)
 
-\[3] [CRISP-DM 1.0: Step-by-Step Data Mining Guide](http://www.the-modeling-agency.com/crisp-dm.pdf)
+[3] [CRISP-DM 1.0: Step-by-Step Data Mining Guide](http://www.the-modeling-agency.com/crisp-dm.pdf)
 
-\[4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
+[4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-\[5] Cortana 분석 갤러리의 [Telco churn model template](http://gallery.cortanaanalytics.com/Experiment/Telco-Customer-Churn-5)
+[5] Cortana 분석 갤러리의 [Telco churn model template](http://gallery.cortanaanalytics.com/Experiment/Telco-Customer-Churn-5)
 ##부록
 
 ![][10]
@@ -240,4 +240,4 @@ Azure 기계 학습에서 제공되는 또 다른 흥미로운 기능은 이미 
 [9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
 
-<!-----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

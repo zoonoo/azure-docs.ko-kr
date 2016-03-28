@@ -208,19 +208,19 @@ AzureSearch\_SkipContent | "true" | Blob 인덱서에게 메타데이터만 인�
 <a name="IndexerParametersConfigurationControl"></a>
 ## 인덱서 매개 변수를 사용하여 문서 추출 제어
 
-각 Blob에 개별적으로 사용자 지정 메타데이터를 추가해야 하는 대신 인덱서 구성 개체를 사용하여 모든 Blob에 대한 콘텐츠 추출을 건너뛸 수 있습니다. 이렇게 하려면 `parameters` 개체의 `true`에 `SkipContent` 구성 속성을 설정합니다.
+각 Blob에 개별적으로 `AzureSearch_SkipContent` 메타데이터를 추가해야 하는 대신 인덱서 구성을 사용하여 모든 Blob에 대한 콘텐츠 추출을 건너뛸 수 있지만 메타데이터는 추출할 수 있습니다. 이렇게 하려면 `parameters` 개체의 `true`에 `skipContent` 구성 속성을 설정합니다.
 
- 	PUT https://[service name].search.windows.net/indexers/<your indexer name>?api-version=2015-02-28-Preview
+ 	PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
 	Content-Type: application/json
 	api-key: [admin key]
 
 	{
 	  ... other parts of indexer definition
-	  "parameters" : { "configuration" : { "SkipContent" : true } }
+	  "parameters" : { "configuration" : { "skipContent" : true } }
 	}
 
 ## Azure 검색 개선 지원
 
 기능 요청 또는 개선에 대한 아이디어가 있는 경우 [UserVoice 사이트](https://feedback.azure.com/forums/263029-azure-search/)를 통해 연락해 주세요.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

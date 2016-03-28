@@ -81,7 +81,9 @@ SQL Server 2016의 현재 미리 보기 릴리스에서 스트레치 사용 테�
 
 -   스트레치 사용 테이블에서 업데이트 또는 삭제 작업을 실행할 수 없습니다.
 
--   원격 Azure SQL 데이터베이스 테이블에 삽입할 수 없습니다.
+-   연결된 서버의 스트레치 사용 테이블에 원격으로 삽입할 수 없습니다.
+
+-   스트레치 사용 테이블로 복제를 사용할 수 없습니다.
 
 -   스트레치 사용 테이블을 포함하는 뷰의 인덱스를 만들 수 없습니다.
 
@@ -90,6 +92,11 @@ SQL Server 2016의 현재 미리 보기 릴리스에서 스트레치 사용 테�
 -   인덱스에 대한 필터는 원격 테이블에 전파되지 않습니다.
 
 ## 참고 항목
-[스트레치 데이터베이스 관리자를 실행하여 스트레치 데이터베이스에 대한 데이터베이스 및 테이블 식별](sql-server-stretch-database-identify-databases.md) [Enable Stretch Database for a database(데이터베이스에 스트레치 데이터베이스를 사용하도록 설정)](sql-server-stretch-database-enable-database.md) [Enable Stretch Database for a table(테이블에 스트레치 데이터베이스를 사용하도록 설정)](sql-server-stretch-database-enable-table.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+[스트레치 데이터베이스 관리자를 실행하여 스트레치 데이터베이스에 대한 데이터베이스 및 테이블 식별](sql-server-stretch-database-identify-databases.md)
+
+[데이터베이스에 대해 스트레치 데이터베이스를 사용하도록 설정](sql-server-stretch-database-enable-database.md)
+
+[테이블에 대해 스트레치 데이터베이스를 사용하도록 설정](sql-server-stretch-database-enable-table.md)
+
+<!---HONumber=AcomDC_0316_2016-->

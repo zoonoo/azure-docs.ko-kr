@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
-	ms.date="12/09/2015"
+	ms.date="03/16/2016"
 	ms.author="bsiva"/>
 
 # PowerShell 및 Azure 리소스 관리자를 사용하여 Azure Site Recovery.
@@ -262,4 +262,4 @@ ARM에 대한 Azure PowerShell과 함께 사용할 수 있는 Azure Site Recover
 
     	$TFjob = Resume-AzureRmSiteRecoveryJob -Job $TFjob
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

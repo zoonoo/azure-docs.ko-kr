@@ -1,18 +1,18 @@
-<properties 
- pageTitle="Azure 스케줄러를 사용하여 복잡한 일정 및 고급 되풀이를 만드는 방법" 
- description="" 
- services="scheduler" 
- documentationCenter=".NET" 
- authors="krisragh" 
- manager="dwrede" 
+<properties
+ pageTitle="Azure 스케줄러를 사용하여 복잡한 일정 및 고급 되풀이를 만드는 방법"
+ description=""
+ services="scheduler"
+ documentationCenter=".NET"
+ authors="krisragh"
+ manager="dwrede"
  editor=""/>
-<tags 
- ms.service="scheduler" 
- ms.workload="infrastructure-services" 
- ms.tgt_pltfrm="na" 
- ms.devlang="dotnet" 
- ms.topic="article" 
- ms.date="12/04/2015" 
+<tags
+ ms.service="scheduler"
+ ms.workload="infrastructure-services"
+ ms.tgt_pltfrm="na"
+ ms.devlang="dotnet"
+ ms.topic="article"
+ ms.date="03/09/2016"
  ms.author="krisragh"/>
 
 # Azure 스케줄러를 사용하여 복잡한 일정 및 고급 되풀이를 만드는 방법  
@@ -39,7 +39,7 @@ Azure 스케줄러의 이러한 유연성을 활용하여 다양한 비즈니스
 
 -	특정 날짜 및 시간에 한 번 실행
 -	실행하고 명시된 횟수만큼 되풀이
--	즉시 실행하고 되풀이 
+-	즉시 실행하고 되풀이
 -	실행하고 *n*분, 시간, 일, 주 또는 월마다 되풀이, 특정 시간에 시작
 -	실행하고 주 또는 월마다 되풀이하지만 특정 일, 요일 또는 날짜에만 실행
 -	실행하고 기간 내 여러 번 되풀이. 예를 들어 매월 마지막 금요일과 월요일, 매일 오전 5시 15분과 오후 5시 15분
@@ -71,7 +71,7 @@ Azure 스케줄러 작업의 날짜-시간 참조는 [ISO-8601 사양](http://en
 	    },
 	    …
 	}
-	
+
 ## 개요: 작업 스키마 기본 사항
 
 다음 표에는 작업의 일정 및 되풀이에 관련된 주요 요소에 대한 간략한 개요가 나열되어 있습니다.
@@ -177,10 +177,10 @@ _schedule_은 작업 실행의 횟수를 _제한_할 수 있는 방법이기도 
 |<code>{"minutes":[15,45],"hours":[5,17],"monthlyOccurrences":[{"day":"wednesday","occurrence":3}]}</code>|매월 세 번째 수요일 오전 5시 15분, 5시 45분, 오후 5시 15분, 5시 45분에 실행|
 
 ## 참고 항목
- 
+
 
  [스케줄러란?](scheduler-intro.md)
- 
+
  [Azure 스케줄러 개념, 용어 및 엔터티 계층 구조](scheduler-concepts-terms.md)
 
  [Azure 포털에서 스케줄러 사용 시작](scheduler-get-started-portal.md)
@@ -196,7 +196,5 @@ _schedule_은 작업 실행의 횟수를 _제한_할 수 있는 방법이기도 
  [Azure 스케줄러 제한, 기본값 및 오류 코드](scheduler-limits-defaults-errors.md)
 
  [Azure 스케줄러 아웃바운드 인증](scheduler-outbound-authentication.md)
- 
-  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

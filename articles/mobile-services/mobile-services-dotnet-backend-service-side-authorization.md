@@ -13,19 +13,18 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
 	ms.devlang="dotnet"
-	ms.date="02/07/2016"
+	ms.date="03/09/2016"
 	ms.author="krisragh"/>
 
 # 모바일 서비스에서 사용자의 서비스 쪽 권한 부여
-
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> [AZURE.SELECTOR]
+- [.NET 백 엔드](mobile-services-dotnet-backend-service-side-authorization.md)
+- [JavaScript 백 엔드](mobile-services-javascript-backend-service-side-authorization.md)
 
 &nbsp;
 
-
-> [AZURE.SELECTOR-LIST (Platform | Backend)]
-- [(Any | .NET)](mobile-services-dotnet-backend-service-side-authorization.md)
-- [(Any | Javascript)](mobile-services-javascript-backend-service-side-authorization.md)
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> 이 항목에 해당하는 모바일 앱 버전은 Azure 모바일 앱용 .NET 백 엔드 서버 SDK 사용 항목에서 [방법: 인증된 사용자에 대한 데이터 액세스 제한](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#authorize)을 참조하세요.
 
 이 항목에서는 사용자에게 권한을 부여하기 위해 서버 쪽 논리를 사용하는 방법을 보여줍니다. 이 자습서에서는 테이블 컨트롤러를 수정하고 사용자 ID를 기반으로 쿼리를 필터링하며 사용자에게 자신의 데이터에 대한 액세스만 제공합니다. 사용자 ID에 따라 사용자의 쿼리 결과를 필터링하는 방식이 가장 기본적인 형태의 권한 부여입니다. 특정 시나리오에 따라, 사용자 또는 역할 테이블을 만들어 지정된 사용자에게 액세스가 허용된 끝점과 같은 보다 자세한 사용자 권한 부여 정보를 추적할 수도 있습니다.
 
@@ -84,4 +83,4 @@
 <!-- URLs. -->
 [기존 모바일 서비스 앱에 인증 추가]: mobile-services-dotnet-backend-ios-get-started-users.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="01/27/2015"
+   ms.date="01/27/2016"
    ms.author="cawa" />
 
 # VSTS(Visual Studio Team Services)를 사용한 서비스 패브릭 응용 프로그램에 대한 지속적인 통합 설정
@@ -82,7 +82,7 @@ Team Services 프로젝트에 대한 자세한 내용은 [Visual Studio에 연�
 
 1.	[ServiceFabricContinuousIntegrationScripts.zip](https://gallery.technet.microsoft.com/Set-up-continuous-f8b251f6)을 이 컴퓨터의 폴더에 다운로드하고 압축을 풉니다.
 
-2.	관리자 PowerShell 명령 프롬프트에서 압축을 푼 아카이브 내의 `Powershell\Manual` 디렉터리로 변경합니다.
+2.	관리자 PowerShell 명령 프롬프트에서 압축을 푼 아카이브 내의 디렉터리 `Powershell\Manual`로 변경합니다.
 
 3.	다음 명령을 사용하여 서비스 주체에 대한 암호를 선택합니다. 이 암호는 빌드 변수로 사용되므로 기억해 두어야 합니다.
 
@@ -220,7 +220,7 @@ Azure PowerShell을 설치하려면 이전 섹션 **Azure PowerShell 설치 및 
 
     f. 빌드 컴퓨터에서 `C:\agent`(또는 짧은 경로의 위치)에 agent.zip의 압축을 풉니다.
 
-        >[AZURE.NOTE]ASP.NET 5 웹 서비스 구축을 계획 중이라면 배포 중 **PathTooLongExceptions** 오류가 발생하지 않게 이 폴더에 가능한 가장 짧은 이름을 선택하는 것이 좋습니다.
+        >[AZURE.NOTE] If you plan on building ASP.NET 5 Web Services, it's recommended that you  choose the shortest name possible for this folder to avoid running into **PathTooLongExceptions** errors during deployment.
 
 2.	관리자 명령 프롬프트에서 `C:\agent\ConfigureAgent.cmd`을 실행합니다. 스크립트가 다음 매개 변수를 입력하라는 메시지를 표시합니다.
 
@@ -411,4 +411,4 @@ Azure PowerShell을 설치하려면 이전 섹션 **Azure PowerShell 설치 및 
 - [빌드 에이전트 배포](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows)
 - [빌드 정의 만들기 및 구성](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -293,8 +293,8 @@ ACL은 각 정책에 ID가 연결된 액세스 정책 배열을 사용하여 구
 	queueSvc.getQueueAcl('myqueue', function(error, result, response) {
       if(!error){
 		//push the new policy into signedIdentifiers
-		result.signedIdentifiers.push(sharedAccessPolicy);
-		queueSvc.setQueueAcl('myqueue', result, function(error, result, response){
+		result.signedIdentifiers = result.signedIdentifiers.concat(sharedAccessPolicy);
+		queueSvc.setQueueAcl('myqueue', result.signedIdentifiers, function(error, result, response){
 	  	  if(!error){
 	    	// ACL set
 	  	  }
@@ -331,4 +331,4 @@ ACL이 설정되고 나면 정책의 ID를 기반으로 SAS를 만들 수 있습
   [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
   [Web Matrix를 사용하여 Azure에 Node.js 웹앱 빌드 및 배포]: ../app-service-web/web-sites-nodejs-use-webmatrix.md
 
-<!----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

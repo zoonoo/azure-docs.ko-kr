@@ -13,82 +13,144 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="03/14/2016"
 	ms.author="billmath"/>
 
-#복수 도메인 지원
+# Azure AD로 페더레이션에 대한 여러 도메인 지원
+다음 설명서에서는 Office 365 또는 Azure AD 도메인으로 페더레이션하는 경우 여러 최상위 도메인 및 하위 도메인을 사용하는 방법에 대한 지침을 제공합니다.
 
-많은 사용자가 페더레이션이 포함된 여러 최상위 Office 365 또는 Azure AD 도메인 및 하위 도메인을 구성할 수 있는 방법을 요청했습니다. 백그라운드에서 수행되는 작업들로 인해 대부분 매우 간단한 방법으로 작업이 수행되는 동안 다음과 같은 문제를 방지하기 위해 알아야 할 몇 가지 팁과 요령이 있습니다.
+## 여러 최상위 도메인 지원
+Azure AD로 여러 최상위 도메인을 페더레이션하려면 하나의 최상위 도메인으로 페더레이션하는 경우 필요하지 않은 몇 가지 추가 구성이 필요합니다.
 
-- 페더레이션에 대한 추가 도메인 구성을 시도하는 동안 나타나는 오류 메시지
-- 페더레이션을 위해 여러 최상위 도메인을 구성한 후 하위 도메인의 사용자가 로그인할 수 없는 경우
+도메인이 Azure AD로 페더레이션되는 경우 Azure의 도메인에서 여러 속성이 설정됩니다. 중요한 한가지 속성은 IssuerUri입니다. Azure AD에서 토큰이 연결된 도메인을 식별하는 데 사용되는 URI입니다. URI는 아무 것도 확인할 필요가 없지만 유효한 URI여야 합니다. 기본적으로 Azure AD는 이 값을 온-프레미스 AD FS 구성에서 페더레이션 서비스 식별자의 값으로 설정합니다.
 
-## 여러 최상위 도메인
-fabrikam.com이라는 추가 도메인을 필요로 하는 예제 조직 contoso.com의 설정을 안내합니다.
+>[AZURE.NOTE]페더레이션 서비스 식별자는 페더레이션 서비스를 고유하게 식별하는 URI입니다. 페더레이션 서비스는 보안 토큰 서비스로 작동하는 AD FS의 인스턴스입니다.
 
-내 온-프레미스 시스템에서 AD FS가 fs.contoso100.com이라는 페더레이션 서비스로 구성된 경우를 가정해 봅니다.
+PowerShell 명령 `Get-MsolDomainFederationSettings - DomainName <your domain>`을(를) 사용하여 IssuerUri를 볼 수 있습니다.
 
-처음으로 Office 365 또는 Azure AD에 등록하는 경우 내 첫 번째 로그온 도메인으로 contoso.com을 구성하도록 선택합니다. New-MsolFederatedDomain을 사용하여 Azure AD Connect 또는 Azure AD Powershell을 통해 이 작업을 수행할 수 있습니다.
+![Get-MsolDomainFederationSettings](./media/active-directory-multiple-domains/MsolDomainFederationSettings.png)
 
-이 작업이 완료되면 새 Azure AD 도메인의 새 구성 속성(Get-MsolDomainFederationSettings를 사용하여 쿼리될 수 있는)에 대한 두 개의 기본값을 살펴보겠습니다.
+두 개 이상의 최상위 도메인을 추가하려는 경우에 문제가 발생합니다. 예를 들어 Azure AD와 온-프레미스 환경 간 페더레이션을 설정했다고 가정합니다. 이 문서의 경우 bmcontoso.com을 사용합니다. 두 번째 최상위 도메인 bmfabrikam.com을 추가했습니다.
 
-| 속성 이름 | 값 | 설명|
-| ----- | ----- | -----|
-|IssuerURI | http://fs.contoso100.com/adfs/services/trust| URL과 같이 표시되는 동안 이 속성은 실제로 온-프레미스 인증 시스템의 이름이므로 이 경로는 확인할 필요가 없습니다. 기본적으로 Azure AD는 이 값을 내 온-프레미스 AD FS 구성에서 페더레이션 서비스 식별자의 값으로 설정합니다.
-|PassiveClientSignInUrl|https://fs.contoso100.com/adfs/ls/|This은 수동 로그인 요청이 보내지는 위치이며 내 실제 AD FS 시스템으로 확인됩니다. 실제로 여러 가지 “*Url” 속성이 있지만 여기서는 이 속성과 IssuerURI와 같은 URI의 차이점을 설명하는 하나의 예를 살펴보기만 하면 됩니다.
+![도메인](./media/active-directory-multiple-domains/domains.png)
 
-이제 내 두 번째 도메인 fabrikam.com을 추가한다고 가정해 봅니다. Azure AD Connect 마법사를 다시 실행하거나 PowerShell을 통해 이 작업을 다시 수행할 수 있습니다.
+bmfabrikam.com 도메인을 페더레이션되도록 변환할 때 오류가 발생합니다. Azure AD가 IssuerURI 속성에서 둘 이상의 도메인에 같은 값을 허용하지 않는 제약 조건을 갖는 것이 이에 대한 이유입니다.
+  
 
-Azure AD PowerShell을 사용하여 페더레이션으로 두 번째 도메인을 추가하려고 하는 경우 오류가 발생합니다.
+![페더레이션 오류](./media/active-directory-multiple-domains/error.png)
 
-이러한 이유로 Azure AD의 제약 조건은 IssuerURI에서 둘 이상의 도메인에 같은 값을 가질 수 없습니다. 이러한 제한 사항을 극복하기 위해 새 도메인에 대해 다른 IssuerURI를 사용해야 합니다. 이 작업은 SupportMultipleDomain 매개 변수가 수행하는 것이 효과적입니다. 페더레이션(New-, Convert- 및 Update-MsolFederatedDomain)을 구성하기 위해 cmdlet과 함께 사용하는 경우, 이 매개 변수는 Azure AD가 Azure AD의 테넌트에서 고유해야 하는 도메인 이름에 기반한 IssuerURI를 구성하게 할 수 있으므로 고유해야 합니다. 또한 클레임 규칙에 대한 변경 내용이 있지만 잠시 후 살펴보겠습니다.
+### SupportMultipleDomain 매개 변수
 
-따라서 Powershell에서 SupportMultipleDomain 매개 변수를 사용하여 fabrikam.com을 추가하는 경우 다음과 같습니다.
+이 문제를 해결하려면 `-SupportMultipleDomain` 매개 변수를 사용하여 수행할 수 있는 다른 IssuerUri를 추가해야 합니다. 이 매개 변수는 다음 cmdlet과 함께 사용됩니다.
+	
+- `New-MsolFederatedDomain`
+- `Convert-MsolDomaintoFederated`
+- `Update-MsolFederatedDomain`
 
-    PS C:\>New-MsolFederatedDomain -DomainName fabrikam.com –SupportMultipleDomain
+이 매개 변수를 사용하면 Azure AD가 도메인의 이름에 기반하도록 IssuerUri를 구성합니다. Azure AD의 디렉터리에서 고유합니다. 매개 변수를 사용하여 PowerShell 명령을 성공적으로 완료할 수 있습니다.
 
-Azure AD에서 다음 구성을 제공합니다.
+![페더레이션 오류](./media/active-directory-multiple-domains/convert.png)
 
-- DomainName: fabrikam.com
-- IssuerURI: http://fabrikam.com/adfs/services/trust
-- PassiveClientSignInUrl: https://fs.contoso100.com/adfs/ls/
+새 bmfabrikam.com 도메인의 설정을 보면 다음을 확인할 수 있습니다.
 
-IssuerURI가 내 도메인을 기반으로 한 값으로 설정되므로 고유한 끝점 url 값은 원래 contoso.com 도메인의 경우와 마찬가지로 fs.contoso100.com의 내 페더레이션 서비스를 가리키도록 여전히 구성됩니다. 따라서 모든 도메인은 여전히 같은 AD FS 시스템을 가리킵니다.
+![페더레이션 오류](./media/active-directory-multiple-domains/settings.png)
 
-SupportMultipleDomain이 하는 다른 일은 AD FS 시스템이 Azure AD에 대해 발급된 토큰에서 적절한 발급자 값을 포함하는지 확인하는 것입니다. 사용자 upn의 도메인 부분을 가져오거나 issuerURI 즉, https://{upn suffix}/adfs/services/trust의 도메인으로 이를 설정하여 이 작업을 수행합니다. 따라서 Azure AD 또는 Office 365에 인증하는 동안 사용자 토큰의 발급자 요소는 Azure AD에서 도메인을 찾는 데 사용됩니다. 일치하는 항목이 없는 경우 인증이 실패합니다.
+`-SupportMultipleDomain`은(는) 여전히 adfs.bmcontoso.com의 페더레이션 서비스를 가리키도록 구성된 다른 끝점을 변경하지 않습니다.
 
-예를 들어 사용자의 UPN이 johndoe@fabrikam.com인 경우 토큰 AD FS 이슈의 발급자 요소는 http://fabrikam.com/adfs/services/trust로 설정됩니다. 이는 Azure AD 구성에 일치하며 인증이 성공합니다.
+`-SupportMultipleDomain`이(가) 수행하는 다른 작업은 AD FS 시스템이 Azure AD에 대해 발급된 토큰에 적절한 발급자 값을 포함하도록 하는 것입니다. 사용자 UPN의 도메인 부분을 가져오거나 issuerURI 즉, https://{upn suffix}/adfs/services/trust의 도메인으로 이를 설정하여 이 작업을 수행합니다.
+
+따라서 Azure AD 또는 Office 365에 인증하는 동안 사용자 토큰의 IssuerUri 요소는 Azure AD에서 도메인을 찾는 데 사용됩니다. 일치하는 항목이 없는 경우 인증이 실패합니다.
+
+예를 들어 사용자의 UPN이 bsimon@bmcontoso.com인 경우 토큰 AD FS 이슈의 IssuerUri 요소는 http://bmcontoso.com/adfs/services/trust로 설정됩니다. 이는 Azure AD 구성에 일치하며 인증이 성공합니다.
 
 다음은 이 논리를 구현하는 사용자 지정된 클레임 규칙입니다.
 
     c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type =   "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)", "http://${domain}/adfs/services/trust/"));
 
-이제 내 설정에서 supportMultipleDomains 스위치 없이 기본 IssuerURI 값을 사용하여 처음으로 contoso.com에 등록합니다. fabrikam.com을 추가할 때 실제로 contoso.com이 또한 더 이상 기본 IssuerURI를 전송하지 않아 IssuerURI가 일치하지 않는 문제로 인증이 실패하는 클레임 규칙 업데이트로 SupportMultiple Domains 스위치를 사용하도록 구성되었는지 확인해야 합니다. 다른 도메인에 supportMultipleDomain 스위치를 사용하도록 허용하기 전에 이에 대한 경고 메시지가 나타나므로 걱정하지 마세요.
 
-이 문제를 해결하려면 도메인 contoso.com에 대한 구성도 업데이트해야 합니다. Azure AD Connect 마법사는 두 번째 도메인을 추가할 때 위의 작업을 수행해야 하는 시기와 올바른 작업을 수행하는 지에 대해 파악하는 훌륭한 기능을 가지고 있습니다. 첫 번째 패스에서 SupportMultipleDomain 구성에 이미 있는 경우 덮어쓰지 않습니다.
+>[AZURE.IMPORTANT]새 것을 추가하거나 이미 추가된 도메인을 변환하려고 하는 경우 SupportMultipleDomain 스위치를 사용하려면 원래 지원하도록 페더레이션된 트러스트를 설정해야 합니다.
 
-PowerShell에서 SupportMultipleDomain 스위치를 수동으로 제공해야 합니다.
 
-단일 도메인에서 복수 도메인으로 전환하는 모든 단계에 대한 자세한 내용은 다음을 참조하세요.
+## AD FS와 Azure AD 간의 트러스트를 업데이트하는 방법
+AD FS와 Azure AD의 인스턴스 간의 페더레이션된 트러스트를 설정하지 않았을 경우 이 트러스트를 다시 만들어야 할 수 있습니다. 이는 `-SupportMultipleDomain` 매개 변수 없이 원래 설치될 때 IssuerUri가 기본 값으로 설정되기 때문입니다. 아래 스크린샷에서 IssuerUri가 https://adfs.bmcontoso.com/adfs/services/trust(으)로 설정된 것을 볼 수 있습니다.
 
-이 작업을 수행하면 Azure AD에서 두 개의 도메인에 대한 구성을 갖게 됩니다.
+따라서 이제 Azure AD 포털에 새 도메인을 성공적으로 추가한 다음 `Convert-MsolDomaintoFederated -DomainName <your domain>`을(를) 사용하여 변환하려고 하는 경우 다음과 같은 오류가 발생합니다.
 
-- DomainName: contoso.com
-- IssuerURI: http://contoso.com/adfs/services/trust
-- PassiveClientSignInUrl: https://fs.contoso100.com/adfs/ls/
-- DomainName: fabrikam.com
-- IssuerURI: http://fabrikam.com/adfs/services/trust
-- PassiveClientSignInUrl: https://fs.contoso100.com/adfs/ls/
+![페더레이션 오류](./media/active-directory-multiple-domains/trust1.png)
 
-이제 contoso.com 및 fabrikam.com 도메인에서 사용자에 대한 페더레이션된 로그온이 작동됩니다. 남아 있는 단 하나의 문제는 하위 도메인의 사용자에 대한 로그온 문제입니다.
+`-SupportMultipleDomain` 스위치를 추가하려는 경우 다음 오류를 수신합니다.
 
-##하위 도메인
-내 하위 도메인 sub.contoso.com을 Azure AD에 추가하는 경우를 가정해 보겠습니다. Azure AD가 도메인을 관리하는 방식으로 인해 하위 도메인은 부모 도메인, 이 경우 contoso.com의 설정을 상속합니다. 즉, user@sub.contoso.com에 대한 IssuerURI는 http://contoso.com/adfs/services/trust이어야 합니다. 그러나 위에서 구현된 표준 규칙
+![페더레이션 오류](./media/active-directory-multiple-domains/trust2.png)
 
-Azure AD는 발급자를 도메인의 필수 값이 일치하지 않아 인증이 실패하는 http://sub.contoso.com/adfs/services/trust로 가진 토큰을 생성합니다. 다행히도 이 문제에 대한 해결 방법도 있지만 해당 도구에 대해 기본 제공되지는 않습니다. Microsoft Online용 AD FS 신뢰 당사자 트러스트를 수동으로 업데이트해야 합니다.
+원본 도메인에서 `Update-MsolFederatedDomain -DomainName <your domain> -SupportMultipleDomain`을(를) 실행하려고 하면 또한 오류가 발생합니다.
 
-사용자 지정 클레임 규칙이 사용자 지정 발급자 값을 생성할 때 사용자의 UPN 접미사에서 모든 하위 도메인을 제거하도록 구성해야 합니다. 아래 단계에서 이 작업을 수행하는 정확한 단계를 찾을 수 있습니다.
+![페더레이션 오류](./media/active-directory-multiple-domains/trust3.png)
 
-요약하면 같은 AD FS 서버에 연결된 모든 하위 도메인뿐만 아니라 서로 다른 이름을 가진 여러 도메인을 가질 수 있도록 발급자 값이 모든 사용자에 대해 올바르게 설정되어 있는지 확인하려면 몇 가지 추가 단계만 수행하면 됩니다.
+아래 단계를 사용하여 추가 최상위 도메인을 추가합니다. 이미 도메인을 추가하고 `-SupportMultipleDomain` 매개 변수를 사용하지 않은 경우 원본 도메인 제거 및 업데이트에 대한 단계를 시작합니다. 최상위 도메인을 아직 추가하지 않은 경우 Azure AD Connect의 PowerShell을 사용하여 도메인을 추가하기 위한 단계를 시작할 수 있습니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+다음 단계를 사용하여 Microsoft Online 트러스트를 제거하고 원본 도메인을 업데이트합니다.
+
+2.  AD FS 페더레이션 서버에서 **AD FS 관리**를 엽니다. 
+2.  왼쪽에서 **트러스트 관계** 및 **신뢰 당사자 트러스트**를 확장합니다.
+3.  오른쪽에서 **Microsoft Office 365 ID 플랫폼** 항목을 삭제합니다. ![Microsoft 온라인 제거](./media/active-directory-multiple-domains/trust4.png)
+1.  [Windows PowerShell용 Azure Active Directory 모듈](https://msdn.microsoft.com/library/azure/jj151815.aspx)이 설치된 컴퓨터에서 다음을 실행합니다. `$cred=Get-Credential`  
+2.  페더레이션하는 Azure AD 도메인에 대한 전역 관리자의 사용자 이름 및 암호를 입력합니다.
+2.  PowerShell에서 `Connect-MsolService -Credential $cred`을(를) 입력합니다.
+4.  PowerShell에서 `Update-MSOLFederatedDomain -DomainName <Federated Domain Name> -SupportMultipleDomain`을(를) 입력합니다. 원본 도메인에 대한 것입니다. 따라서 위의 도메인을 사용하는 것은 `Update-MsolFederatedDomain -DomainName bmcontoso.com -SupportMultipleDomain`입니다.
+
+
+PowerShell을 사용하여 새 최상위 도메인을 추가하려면 다음 단계를 사용합니다.
+
+1.  [Windows PowerShell용 Azure Active Directory 모듈](https://msdn.microsoft.com/library/azure/jj151815.aspx)이 설치된 컴퓨터에서 다음을 실행합니다. `$cred=Get-Credential`  
+2.  페더레이션하는 Azure AD 도메인에 대한 전역 관리자의 사용자 이름 및 암호를 입력합니다.
+2.  PowerShell에서 `Connect-MsolService -Credential $cred`을(를) 입력합니다.
+3.  PowerShell에서 `New-MsolFederatedDomain –SupportMultipleDomain –DomainName`을(를) 입력합니다.
+
+Azure AD Connect를 사용하여 새 최상위 도메인을 추가하려면 다음 단계를 사용합니다.
+
+1.	바탕 화면 또는 시작 메뉴에서 Azure AD Connect 시작
+2.	"추가 Azure AD 도메인 추가" 선택 ![추가 Azure AD 도메인 추가](./media/active-directory-multiple-domains/add1.png)
+3.	Azure AD 및 Active Directory 자격 증명 입력
+4.	페더레이션에 대해 구성하려는 두 번째 도메인 선택 ![추가 Azure AD 도메인 추가](./media/active-directory-multiple-domains/add2.png)
+5.	설치 클릭
+
+
+### 새 최상위 도메인 확인
+PowerShell 명령을 사용하여 `Get-MsolDomainFederationSettings - DomainName <your domain>`업데이트된 IssuerUri를 볼 수 있습니다. 아래 스크린샷은 페더레이션 설정이 원본 도메인에 업데이트된 것을 보여 줍니다. http://bmcontoso.com/adfs/services/trust
+
+![Get-MsolDomainFederationSettings](./media/active-directory-multiple-domains/MsolDomainFederationSettings.png)
+
+새 도메인의 IssuerUri는 https://bmfabrikam.com/adfs/services/trust(으)로 설정되었습니다.
+
+![Get-MsolDomainFederationSettings](./media/active-directory-multiple-domains/settings2.png)
+
+
+##하위 도메인에 대한 지원
+하위 도메인을 추가할 때 Azure AD가 도메인을 처리하는 방식으로 인해 부모의 설정을 상속합니다. 이는 IssuerUri가 부모와 일치해야 함을 의미합니다.
+
+따라서 예를 들어 bmcontoso.com이 있고 corp.bmcontoso.com을 추가한다고 가정합니다. 즉, corp.bmcontoso.com에서 사용자에 대한 IssuerUri는 ****http://bmcontoso.com/adfs/services/trust.**이어야 합니다. 하지만 Azure AD에 대해 위에서 구현된 표준 규칙은 도메인의 필요한 값과 일치하지 않는 ****http://corp.bmcontoso.com/adfs/services/trust.**(으)로 발급자를 사용하여 토큰을 생성하고 인증에 실패합니다.
+
+### 하위 도메인에 대한 지원을 활성화하는 방법
+이를 해결하기 위해 Microsoft 온라인에 대한 AD FS 신뢰 당사자 트러스트를 업데이트해야 합니다. 이를 위해 사용자 지정 클레임 규칙이 사용자 지정 발급자 값을 생성할 때 사용자의 UPN 접미사에서 모든 하위 도메인을 제거하도록 구성해야 합니다.
+
+다음 클레임이 작업을 수행합니다.
+
+    c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^((.*)([.|@]))?(?<domain>[^.]*[.].*)$", "http://${domain}/adfs/services/trust/"));
+
+하위 도메인을 지원하기 위해 사용자 지정 클레임을 추가하려면 다음 단계를 사용합니다.
+
+1.	AD FS 관리 열기
+2.	Microsoft 온라인 RP 트러스트를 마우스 오른쪽 단추로 클릭하고 편집 클레임 규칙 선택
+3.	세 번째 클레임 규칙을 선택하고 ![클레임 편집](./media/active-directory-multiple-domains/sub1.png) 대체
+4.	현재 클레임을 바꿉니다.
+    
+	    c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)","http://${domain}/adfs/services/trust/"));
+    	
+	다음으로 바꿀 수 있습니다.
+    
+	    `c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^((.*)([.|@]))?(?<domain>[^.]*[.].*)$", "http://${domain}/adfs/services/trust/"));`
+	
+![클레임 바꾸기](./media/active-directory-multiple-domains/sub2.png)
+5.	확인을 클릭합니다. 적용을 클릭합니다. 확인을 클릭합니다. AD FS 관리를 닫습니다.
+
+<!---HONumber=AcomDC_0316_2016-->

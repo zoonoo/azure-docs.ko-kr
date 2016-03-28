@@ -112,7 +112,7 @@ Azure 공동 관리자, 서비스 관리자, 계정 관리자 역할에 대한 �
 
 1. [Azure 관리 포털][lnk-classic-portal]에서 AAD 디렉터리를 새로 만듭니다.
 
-2. <https://github.com/Azure/azure-iot-remote-monitoring>로 이동합니다. 클라우드 배포에 대한 자세한 내용은 [클라우드 배포][lnk-wiki-clouddeployment]를 참조하세요.
+2. <https://github.com/Azure/azure-iot-remote-monitoring>로 이동합니다.
 
 3. `build.cmd cloud [debug | release] {name of previously deployed remote monitoring solution}`(예: `build.cmd cloud debug myRMSolution`)를 실행합니다.
 
@@ -140,10 +140,9 @@ Azure 구독이 있는 것이 확실하다면, 구독에 대한 테넌트 매핑
 [lnk-aad-admin]: https://azure.microsoft.com/documentation/articles/active-directory-assign-admin-roles/
 [lnk-classic-portal]: https://manage.windowsazure.com/
 [lnk-create-edit-users]: https://azure.microsoft.com/documentation/articles/active-directory-create-users/
-[lnk-assign-app-roles]: https://github.com/Azure/azure-iot-remote-monitoring/wiki/Manually-setting-up-roles-and-assigning-permissions-in-Azure-Active-Directory-(AAD)#assigning-users-to-the-roles
+[lnk-assign-app-roles]: https://azure.microsoft.com/documentation/articles/active-directory-application-manifest/
 [lnk-service-admins]: https://azure.microsoft.com/support/changing-service-admin-and-co-admin/
 [lnk-admin-roles]: https://azure.microsoft.com/documentation/articles/billing-add-change-azure-subscription-administrator/
 [lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs
-[lnk-wiki-clouddeployment]: https://github.com/Azure/azure-iot-remote-monitoring/wiki/Cloud-deployment
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

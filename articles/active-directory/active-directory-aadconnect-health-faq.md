@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/17/2016"
+	ms.date="03/08/2016"
 	ms.author="billmath;vakarand"/>
 
 
@@ -92,6 +92,11 @@ Azure AD Connect Health 경고는 성공 조건에서 해결됩니다. Azure AD 
 
 Azure AD Connect Health 에이전트가 Azure AD Health 서비스 끝점과 통신할 수 있도록 하려면 TCP/UDP 포트 80, 443 및 5671을 열어야 합니다.
 
+
+**Q: Azure AD Connect Health 포털에 같은 이름을 가진 두 대의 서버가 표시되는 이유는 무엇인가요?**
+
+서버에서 에이전트를 제거하는 경우 서버는 Azure AD Connect 포털에서 자동으로 제거되지 않습니다. 따라서 수동으로 서버에서 에이전트를 제거하거나 서버 자체를 제거한 경우 Azure AD Connect Health 포털에서 서버 항목을 수동으로 삭제해야 합니다. 자세한 내용은 [서버 또는 서비스 인스턴스 삭제](active-directory-aadconnect-health-operations.md#delete-a-server-or-service-instance)를 참조하세요. 또한 서버를 재이미징하거나 동일한 세부 정보(예: 컴퓨터 이름)로 새 서버를 만들었지만 Azure AD Connect Health 포털에서 서버를 제거하지 않고 새 서버에 에이전트를 설치한 경우 서버에 대해 두 개의 항목이 표시될 수 있습니다. 이 경우 이전 서버에 속한 항목을 수동으로 삭제해야 합니다. 이 항목이 있는 데이터는 일반적으로 만료됩니다.
+
 ## 관련 링크
 
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
@@ -101,4 +106,4 @@ Azure AD Connect Health 에이전트가 Azure AD Health 서비스 끝점과 통�
 * [동기화에 대한 Azure AD Connect Health 사용](active-directory-aadconnect-health-sync.md)
 * [Azure AD Connect Health 버전 내역](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

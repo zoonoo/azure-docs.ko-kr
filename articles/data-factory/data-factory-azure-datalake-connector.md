@@ -461,7 +461,7 @@ Azure 저장소 연결된 서비스를 사용하여 Azure 저장소 계정을 Az
 | folderPath | Azure 데이터 레이크 저장소의 컨테이너 및 폴더에 대한 경로입니다. | 예 |
 | fileName | Azure Data Lake 저장소에 있는 파일의 이름입니다. fileName은 선택 사항이며 대/소문자를 구분합니다. <br/><br/>filename을 지정하면 활동(복사 포함)이 특정 파일에서 작동합니다.<br/><br/> fileName이 지정되지 않으면 복사는 입력 데이터 집합에 대한 folderPath의 모든 파일을 포함합니다.<br/><br/>fileName이 출력 데이터 집합에 대해 지정되지 않으면 생성된 파일의 이름이 Data.<Guid>.txt(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) 형식으로 표시됩니다. | 아니요 |
 | partitionedBy | partitionedBy는 선택적 속성입니다. 동적 folderPath 및 시계열 데이터에 대한 filename을 지정하는 데 사용할 수 있습니다. 예를 들어 folderPath는 매시간 데이터에 대한 매개 변수화됩니다. 자세한 내용과 예제는 아래 partitionedBy 속성 활용 섹션을 참조하세요. | 아니요 |
-| format | **TextFormat**, **AvroFormat**과 같은 두 서식 유형이 지원됩니다. 값이 있으면 이 중 하나로 서식에서 형식 속성을 설정해야 합니다. 서식이 TextFormat인 경우 형식에 선택적 추가 속성을 지정할 수 있습니다. 자세한 내용은 아래 [TextFormat 지정](#specifying-textformat) 섹션을 참조하세요. | 아니요 |
+| format | **TextFormat**, **AvroFormat** 및 **JsonFormat**과 같은 세 가지 서식 유형이 지원됩니다. 값이 있으면 이 중 하나로 서식에서 형식 속성을 설정해야 합니다. 서식이 TextFormat인 경우 형식에 선택적 추가 속성을 지정할 수 있습니다. 자세한 내용은 아래 [TextFormat 지정](#specifying-textformat) 섹션을 참조하세요. JsonFormat을 사용하려면 [JsonFormat 지정](#specifying-jsonformat) 섹션을 참조하세요. | 아니요
 | 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate** 및 **BZip2**이고 지원되는 수준은 **최적** 및 **가장 빠름**입니다. 현재 **AvroFormat**의 데이터에 대한 압축 설정은 지원되지 않습니다. 자세한 내용은 [압축 지원](#compression-support) 섹션을 참조하세요. | 아니요 |
 
 ### partitionedBy 속성 활용
@@ -503,10 +503,10 @@ Azure 저장소 연결된 서비스를 사용하여 Azure 저장소 계정을 Az
 | rowDelimiter | 파일에서 문자는 원시 구분 기호로 사용됩니다. 이때 하나의 문자만 허용됩니다. 이 태그는 선택 사항입니다. 기본값은 다음 중 하나입니다. ["\\r\\n", "\\r", "\\n"] | 아니요 |
 | escapeChar | 열 구분 기호를 이스케이프 하는데 사용되는 특수 문자가 내용에 표시됩니다. 이 태그는 선택 사항입니다. 기본값은 없습니다. 이 속성에 한 개의 문자만을 지정해야 합니다.<br/><br/>예를 들어 열 구분 기호로 쉼표(,)가 있지만 텍스트에서 쉼표 문자를 쓰려는 경우(예: "Hello, world") '$'를 이스케이프 문자로 정의하고 원본에서 "Hello$, world" 문자열을 사용할 수 있습니다.<br/><br/>테이블에 escapeChar 및 quoteChar 모두를 지정할 수 없습니다. | 아니요 | 
 | quoteChar | 특수 문자는 문자열 값을 따옴표로 묶는 데 사용됩니다. 인용 문자 내의 열 및 행 구분 기호는 문자열 값의 일부로 간주됩니다. 이 태그는 선택 사항입니다. 기본값은 없습니다. 이 속성에 한 개의 문자만을 지정해야 합니다.<br/><br/>예를 들어 열 구분 기호로 쉼표(,)가 있지만 텍스트에서 쉼표 문자를 쓰려는 경우(예: <Hello  world>) ‘"’를 인용 문자로 정의하고 원본에서 <"Hello, world"> 문자열을 사용할 수 있습니다. 이 속성은 입력 및 출력 테이블 모두에 적용됩니다.<br/><br/>테이블에 escapeChar 및 quoteChar을 모두 지정할 수 없습니다. | 아니요 |
-| nullValue | Blob 파일 내용에서 null 값을 나타내는 데 사용되는 문자입니다. 이 태그는 선택 사항입니다. 기본값은 "\\N"입니다.<br/><br/>예를 들어 위의 예제에 따라 blob의 "NaN"이 예를 들어 SQL Server에 복사되는 동안 null 값으로 변환됩니다. | 아니요 |
+| nullValue | Blob 파일 내용에서 null 값을 나타내는 데 사용되는 문자입니다. 이 태그는 선택 사항입니다. 기본값은 "\\N"입니다.<br/><br/>예를 들어 위의 예제에 따라 Blob의 "NaN"이 SQL Server에 복사되는 동안 null 값으로 변환됩니다. | 아니요 |
 | encodingName | 인코딩 이름을 지정합니다. 올바른 인코딩 이름 목록은 [Encoding.EncodingName Property](https://msdn.microsoft.com/library/system.text.encoding.aspx) 속성을 참조하세요. 예: windows-1250 또는 shift\_jis 기본값은 UTF-8입니다. | 아니요 | 
 
-#### 샘플
+#### TextFormat 예제
 다음 예제는 TextFormat에 대한 서식 속성 중 일부를 보여줍니다.
 
 	"typeProperties":
@@ -537,6 +537,7 @@ quoteChar 대신 escapeChar를 사용하려면 quoteChar가 있는 해당 줄을
 
 Hive 테이블에서 Avro 형식을 사용하려는 경우 [Apache Hive의 자습서](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe)를 참조하세요.
 
+[AZURE.INCLUDE [data-factory-json-format](../../includes/data-factory-json-format.md)]
 
 ### 압축 지원  
 큰 데이터 집합을 처리하면 I/O 및 네트워크 병목 현상이 발생할 수 있습니다. 따라서 저장소의 압축된 데이터는 네트워크를 통해 데이터 전송의 속도를 높이고 디스크 공간을 절약할 수 없을 뿐만 아니라 빅 데이터 처리에서 상당한 성능 개선을 가져올 수 없습니다. 이 때 압축은 Azure Blob 또는 온-프레미스 파일 시스템과 같은 파일 기반 데이터 저장소에 대해 지원됩니다.
@@ -607,4 +608,4 @@ Hive 테이블에서 Avro 형식을 사용하려는 경우 [Apache Hive의 자�
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

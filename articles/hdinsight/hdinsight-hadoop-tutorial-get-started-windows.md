@@ -22,10 +22,12 @@
 # Hadoop 자습서: Windows의 HDInsight에서 Hadoop 사용 시작
 
 > [AZURE.SELECTOR]
-- [Windows](../hdinsight-hadoop-tutorial-get-started-windows.md)
-- [Linux](../hdinsight-hadoop-linux-tutorial-get-started.md)
+- [Windows 기반](../hdinsight-hadoop-tutorial-get-started-windows.md)
+- [Linux 기반](../hdinsight-hadoop-linux-tutorial-get-started.md)
 
 Windows의 Hadoop에 대해 알아보고 HDInsight를 사용하여 시작하는 데 도움이 되도록 이 자습서에서는 Hadoop 클러스터의 구조화되지 않은 데이터에서 Hive 쿼리를 실행하고 Microsoft Excel에서 결과를 분석하는 방법을 보여줍니다.
+
+>[AZURE.NOTE] 이 문서에 있는 정보는 Windows 기반 HDInsight 클러스터에 지정됩니다. Linux 기반 클러스터에 대한 자세한 내용은 [Hadoop 자습서: HDInsight에서 Linux 기반 Hadoop 사용 시작](hdinsight-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 
 구조화되지 않은 대량의 데이터 집합이 있고 Hive 쿼리를 실행하여 의미 있는 일부 정보를 추출하려고 한다면 이 자습서를 통해 적절한 도움을 얻을 수 있을 것입니다. 해당 방법은 다음과 같습니다.
 
@@ -255,4 +257,4 @@ HDInsight 클러스터에서는 포털에서 샘플을 직접 실행하기 위�
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="03/10/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory ID 보호 흐름
@@ -89,7 +89,7 @@ Azure Active Directory ID 보호를 사용하여 다음을 수행할 수 있습�
 
  
 ## 위험한 로그인 차단됨
-관리자는 로그인 위험 정책을 설정하도록 선택하여 위험 수준에 따라 로그인 시 사용자를 차단할 수 있습니다. 차단을 해제하려면 최종 사용자는 관리자나 기술 지원팀에 문의해야 하고 익숙한 위치 또는 장치에서 로그인을 시도할 수 있습니다. 이 경우에 다단계 인증을 해결하는 자체 복구는 불가능합니다. <br><br> ![재구성](./media/active-directory-identityprotection-flows/130.png "재구성") <br>
+관리자는 로그인 위험 정책을 설정하도록 선택하여 위험 수준에 따라 로그인 시 사용자를 차단할 수 있습니다. 차단을 해제하려면 최종 사용자는 관리자나 기술 지원팀에 문의해야 하고 익숙한 위치 또는 장치에서 로그인을 시도할 수 있습니다. 다단계 인증을 해결하는 자체 복구는 이 경우에 불가능합니다. <br><br> ![재구성](./media/active-directory-identityprotection-flows/200.png "재구성") <br>
 
 
 
@@ -158,4 +158,4 @@ Azure Active Directory ID 보호를 사용하여 다음을 수행할 수 있습�
 
 - [Azure Active Directory ID 보호](active-directory-identityprotection.md) 
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/06/2016" 
+	ms.date="03/10/2016" 
 	ms.author="awills"/>
  
 # Application Insights에서 원격 분석 내보내기
@@ -91,6 +91,17 @@ blob 저장소를 열면 blob 파일 집합이 포함된 컨테이너가 보입�
 ![적합한 도구를 사용하여 blob 저장소 검사](./media/app-insights-export-telemetry/04-data.png)
 
 날짜 및 시간은 UTC이며 생성된 시간이 아니라 원격 분석이 저장소에 보관된 시기입니다. 따라서 데이터를 다운로드할 코드를 작성하는 경우 데이터를 선형으로 이동할 수 있습니다.
+
+경로의 형식은 다음과 같습니다.
+
+
+    $"{applicationName}_{instrumentationKey}/{type}/{blobDeliveryTimeUtc:yyyy-MM-dd}/{ blobDeliveryTimeUtc:HH}/{blobId}_{blobCreationTimeUtc:yyyyMMdd_HHmmss}.blob"
+  
+Where
+
+-	`blobCreationTimeUtc`는 Blob이 내부 준비 저장소에 만들어진 시간입니다.
+-	`blobDeliveryTimeUtc`는 Blob이 내보내기 대상 저장소에 복사되는 시간입니다.
+
 
 
 ## <a name="format"></a> 데이터 형식
@@ -212,4 +223,4 @@ blob 저장소를 열면 blob 파일 집합이 포함된 컨테이너가 보입�
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

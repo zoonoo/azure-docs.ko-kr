@@ -13,14 +13,12 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="01/20/2016"
+ ms.date="03/14/2016"
  ms.author="elioda"/>
 
 # IoT Hub 크기 조정
 
-Azure IoT Hub는 IoT Hub S1 계층 단위 또는 S2 계층 단위 수를 2,000개까지 늘려 동시 연결 장치 수를 수백만 대까지 지원할 수 있습니다. 자세한 내용은 [IoT Hub 가격 책정][lnk-pricing]을 참조하세요.
-
-각 IoT Hub 단위는 레지스트리에 특정 개수의 장치를 허용하고 이러한 장치는 모두 동시에 연결할 수 있습니다. 또한 각 단위는 여러 개의 일일 메시지를 허용합니다.
+Azure IoT Hub는 동시에 최대 백만 개의 연결된 장치를 지원할 수 있습니다. 자세한 내용은 [IoT Hub 가격 책정][lnk-pricing]을 참조하세요. 각 IoT Hub 단위는 많은 일일 메시지를 허용합니다.
 
 솔루션의 규모를 적절히 조정하기 위해 IoT Hub의 특정 용도 고려해야 합니다. 특히 다음과 같은 범주의 작업에 필요한 최대 처리량을 고려해야 합니다.
 
@@ -66,4 +64,4 @@ Azure IoT Hub에 대한 자세한 내용을 보려면 다음 링크를 따라가
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [IoT Hub Azure란?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="03/11/2016"
 	ms.author="danlep"/>
 
 # Azure 배치 서비스에 대한 할당량 및 제한
@@ -35,7 +35,12 @@
 ## 기타 제한
 리소스|최대 제한
 ---|---
-컴퓨터 노드당 작업|4 x 노드 코어 수
+컴퓨터 노드당 작업 | 4 x 노드 코어 수
+배치 계정당 응용 프로그램 | 20
+응용 프로그램당 응용 프로그램 패키지 | 40
+각 응용 프로그램 패키지 크기 | 약 195GB<sup>1</sup>
+
+<sup>1</sup> 최대 블록 Blob 크기에 대한 Azure 저장소 용량 한도
 
 ## 배치 할당량 보기
 
@@ -93,4 +98,4 @@ Azure 지원에서 사용자에게 연락합니다. 요청을 완료하려면 �
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

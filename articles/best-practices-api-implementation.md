@@ -155,7 +155,7 @@ ASP.NET Web API를 사용하여 구현된 서비스에서 각 요청은 _control
 
 - **GET, PUT, DELETE, HEAD, 및 PATCH 작업은 멱등원이어야 합니다**.
 
-	이러한 요청을 구현하는 코드는 파생 효과를 부과하지 말아야 합니다. 동일한 리소스에 대해 동일한 요청이 반복되면 그 결과는 동일한 상태여야 합니다. 예를 들어, 동일한 URI에 DELETE 요청을 여러 개 보내면 응답 메시지의 HTTP 상태 코드는 다를 수 있지만(첫 번째 DELETE 요청은 상태 코드 204(내용 없음)를 반환하고 그 다음 DELETE 요청은 상태 코드 404(찾을 수 없음)를 반환합니다.) 효과는 동일해야 합니다.
+	이러한 요청을 구현하는 코드는 파생 효과를 부과하지 말아야 합니다. 동일한 리소스에 대해 동일한 요청이 반복되면 그 결과는 동일한 상태여야 합니다. 예를 들어 동일한 URI에 DELETE 요청을 여러 개 보내면 응답 메시지의 HTTP 상태 코드는 다를 수 있지만(첫 번째 DELETE 요청은 상태 코드 204(내용 없음)를 반환하고 그 다음 DELETE 요청은 상태 코드 404(찾을 수 없음)를 반환) 효과는 동일해야 합니다.
 
 > [AZURE.NOTE] Jonathan Oliver의 블로그에 있는 [Idempotency Patterns](http://blog.jonathanoliver.com/idempotency-patterns/)(멱등 패턴) 문서에는 멱등에 대한 개요 및 데이터 관리 옵션과의 관계가 제공되어 있습니다.
 
@@ -955,7 +955,7 @@ ASP.NET Web API를 사용하여 구현된 서비스에서 각 요청은 _control
 
 	6. 작업이 실행되는 동안 클라이언트는 자체적인 프로세스를 계속 수행할 수 있습니다. URI _/polling/{guid}_에 주기적으로 요청을 보낼 수 있으며, _{guid}_는 Web API에 의해 202 응답 메시지로 반환된 GUID입니다.
 
-	7. _/polling{guid}_ URI의 Web API는 테이블에 있는 해당 작업의 상태를 쿼리하고 이 상태(_Running_, _Complete_, 또는 _Failed_)를 포함하는 HTTP 상태 코드 200(OK)과 함께 응답 메시지를 반환합니다. 작업이 완료되거나 실패하면 응답 메시지에 처리 결과 또는 실패의 이유에 대한 정보를 포함시킬 수 있습니다.
+	7. _/polling{guid}_ URI의 Web API는 테이블에 있는 해당 작업의 상태를 쿼리하고 이 상태(_Running_, _Complete_, 또는 _Failed_)를 포함하는 HTTP 상태 코드 200(정상)과 함께 응답 메시지를 반환합니다. 작업이 완료되거나 실패하면 응답 메시지에 처리 결과 또는 실패의 이유에 대한 정보를 포함시킬 수 있습니다.
 
 	알림을 구현하려는 경우 가능한 옵션은 다음과 같습니다.
 
@@ -1152,4 +1152,4 @@ API 관리 서비스를 사용하여 Web API를 게시한 경우 Azure 관리 �
 - Microsoft 웹 사이트의 [단위 테스트를 사용하여 코드 확인](https://msdn.microsoft.com/library/dd264975.aspx) 페이지는 Visual Studio를 사용하여 단위 테스트를 생성하고 관리하는 자세한 정보를 제공합니다.
 - Microsoft 웹 사이트의 [앱에서 성능 테스트 실행](https://msdn.microsoft.com/library/dn250793.aspx) 페이지는 Visual Studio Ultimate을 사용하여 웹 성능 및 부하 테스트 프로젝트를 생성하는 방법을 설명합니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->
