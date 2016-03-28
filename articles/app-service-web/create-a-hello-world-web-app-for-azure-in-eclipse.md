@@ -37,12 +37,14 @@
 먼저 java 프로젝트를 만듭니다.
 
 1. Eclipse를 시작하고 메뉴에서 **File**, **New**, **Dynamic Web Project**를 차례로 클릭합니다. **File**, **New**를 차례로 클릭한 후 **Dynamic Web Project**가 사용 가능한 프로젝트로 표시되지 않는 경우 **File**, **New**, **Project...**를 차례로 클릭한 후 **Web**을 확장하고 **Dynamic Web Project**를 클릭한 후 **Next**를 클릭합니다.
-1. 이 자습서에서는 프로젝트의 이름을 **MyHelloWorld**로 지정합니다. 화면이 다음과 유사하게 나타납니다. ![][02]
+1. 이 자습서에서는 프로젝트의 이름을 **MyHelloWorld**로 지정합니다. 화면이 다음과 유사하게 나타납니다.
+   ![][02]
 1. **마침**을 클릭합니다.
 1. Eclipse의 Project Explorer 뷰 내에서 **MyHelloWorld**를 확장합니다. **WebContent**를 마우스 오른쪽 단추로 클릭하고 **New**를 클릭한 후 **JSP File**을 클릭합니다.
 1. **New JSP File** 대화 상자에서 파일 이름을 **index.jsp**로 지정합니다. 부모 폴더를 **MyHelloWorld/WebContent**로 유지합니다.
 1. **Select JSP Template** 대화 상자에서 이 자습서의 목적에 따라, **New JSP File (html)**을 선택한 후 **Finish**를 클릭합니다.
-1. Eclipse에서 index.jsp 파일이 열리면 기존 `<body>` 요소 내에 **Hello World!**를 동적으로 표시하도록 텍스트를 추가합니다. 업데이트된 `<body>` 콘텐츠는 다음 예제와 유사하게 표시됩니다. `<body><b><% out.println("Hello World!"); %></b></body>` 
+1. Eclipse에서 index.jsp 파일이 열리면 기존 `<body>` 요소 내에 **Hello World!**를 동적으로 표시하도록 텍스트를 추가합니다. 업데이트된 `<body>` 콘텐츠는 다음 예제와 유사하게 표시됩니다.
+   `<body><b><% out.println("Hello World!"); %></b></body>` 
 1. index.jsp를 저장합니다.
 
 ## Azure 웹앱 컨테이너에 응용 프로그램을 배포하려면
@@ -51,10 +53,15 @@
 
 1. Eclipse의 Project Explorer에서 **MyHelloWorld**를 마우스 오른쪽 단추로 클릭합니다.
 
-1. 상황에 맞는 메뉴에서 **Azure**를 선택하고 **Publish as Azure Web App...**을 클릭합니다. ![][03]
-1. Eclipse에서 Azure에 이미 로그인하지 않은 경우 Azure 계정에 로그인하라는 메시지가 표시됩니다. ![][04] 참고: 여러 Azure 계정이 있는 경우 로그인 프로세스 중에 동일하게 보이는 메시지를 포함하여 일부 메시지가 여러 번 표시될 수 있습니다. 이 경우 로그인 지침에 따라 계속 진행합니다.
-1. Azure 계정에 성공적으로 로그인하면 **Manage Subscriptions** 대화 상자에 자격 증명과 연결된 구독 목록이 표시됩니다. 여러 구독이 나열된 경우 특정 하위 집합만 사용하려면 선택적으로 사용할 구독을 선택 취소할 수 있습니다. 구독을 선택했으면 **Close**를 클릭합니다. ![][05]
-1. **Deploy to Azure Web App Container** 대화 상자가 나타나는 경우 이전에 만든 웹앱 컨테이너가 표시됩니다. 컨테이너를 만들지 않은 경우에는 목록이 비어 있습니다. ![][06]
+1. 상황에 맞는 메뉴에서 **Azure**를 선택하고 **Publish as Azure Web App...**을 클릭합니다.
+   ![][03]
+1. Eclipse에서 Azure에 이미 로그인하지 않은 경우 Azure 계정에 로그인하라는 메시지가 표시됩니다.
+   ![][04]
+   참고: 여러 Azure 계정이 있는 경우 로그인 프로세스 중에 동일하게 보이는 메시지를 포함하여 일부 메시지가 여러 번 표시될 수 있습니다. 이 경우 로그인 지침에 따라 계속 진행합니다.
+1. Azure 계정에 성공적으로 로그인하면 **Manage Subscriptions** 대화 상자에 자격 증명과 연결된 구독 목록이 표시됩니다. 여러 구독이 나열된 경우 특정 하위 집합만 사용하려면 선택적으로 사용할 구독을 선택 취소할 수 있습니다. 구독을 선택했으면 **Close**를 클릭합니다.
+   ![][05]
+1. **Deploy to Azure Web App Container** 대화 상자가 나타나는 경우 이전에 만든 웹앱 컨테이너가 표시됩니다. 컨테이너를 만들지 않은 경우에는 목록이 비어 있습니다.   
+   ![][06]
 1. 이전에 Azure 웹앱 컨테이너를 만들지 않은 경우 또는 응용 프로그램을 새 컨테이너에 게시하려는 경우 다음 단계를 사용합니다. 그렇지 않으면 기존 웹앱 컨테이너를 선택하고 아래의 7단계로 건너뜁니다.
 
   1. **New...**를 클릭합니다.
@@ -73,7 +80,7 @@
 
   1. **Resource Group** 드롭다운 메뉴에서 웹앱을 연결할 리소스 그룹을 선택합니다.
 
-        Note: Azure Resource Groups allow you to group related resources together so that, for example, they can be deleted together.
+        참고: Azure Resource Groups allow you to group related resources together so that, for example, they can be deleted together.
 
         You can select an existing Resource Group (if you have any) and skip to step g below, or use the following these steps to create a new Resource Group:
 
@@ -91,7 +98,7 @@
 
   1. **App Service Plan** 드롭다운 메뉴에 선택한 리소스 그룹과 연결된 앱 서비스 요금제가 나열됩니다.
 
-        Note: An App Service Plan specifies information such as the location of your Web App, the pricing tier and the compute instance size. A single App Service Plan can be used for multiple Web Apps, which is why it is maintained separately from a specific Web App deployment.
+        참고: An App Service Plan specifies information such as the location of your Web App, the pricing tier and the compute instance size. A single App Service Plan can be used for multiple Web Apps, which is why it is maintained separately from a specific Web App deployment.
 
         You can select an existing App Service Plan (if you have any) and skip to step h below, or use the following these steps to create a new App Service Plan:
 
@@ -159,7 +166,8 @@
 1. **Azure** 노드를 확장합니다.
 2. **Web Apps** 노드를 확장합니다. 
 3. 원하는 웹앱을 마우스 오른쪽 단추로 클릭합니다.
-5. 상황에 맞는 메뉴가 나타나면 **Stop**을 클릭합니다. ![][13]
+5. 상황에 맞는 메뉴가 나타나면 **Stop**을 클릭합니다.
+    ![][13]
 
 ## 다음 단계
 
@@ -195,3 +203,4 @@
 [13]: ./media/create-a-hello-world-web-app-for-azure-in-eclipse/13-Azure-Explorer-Web-App.png
 
 <!---HONumber=AcomDC_0309_2016-->
+
