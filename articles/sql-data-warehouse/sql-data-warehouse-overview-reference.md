@@ -20,13 +20,10 @@
 
 이러한 문서에는 SQL 데이터 웨어하우스에 대한 참조 정보가 포함되어 있습니다.
 
-[TRANSACT-SQL 언어 요소][]
-
-[TRANSACT-SQL 문][]
-
-[TRANSACT-SQL 시스템 뷰][]
-
-[PowerShell cmdlet][]
+- [TRANSACT-SQL 언어 요소][]
+- [TRANSACT-SQL 문][]
+- [TRANSACT-SQL 시스템 뷰][]
+- [PowerShell cmdlet][]
 
 
 
@@ -45,4 +42,4 @@
 
 <!--MSDN references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

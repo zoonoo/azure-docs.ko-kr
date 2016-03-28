@@ -36,13 +36,13 @@ API 앱은 다음과 같은 기능을 제공합니다.
 
 - **논리 앱과 통합** - 사용자가 만드는 API 앱은 [앱 서비스 논리 앱](../app-service-logic/app-service-logic-what-are-logic-apps.md)을 통해 사용할 수 있습니다. [논리 앱으로 앱 서비스에서 호스팅되는 사용자 지정 API 사용](../app-service-logic/app-service-logic-custom-hosted-api.md)에서 방법을 알아보세요. API 앱을 논리 앱과 통합하는 방법의 지속적인 변화에 대한 자세한 내용은 [앱 서비스 API 앱 - 변경된 내용](app-service-api-whats-changed.md)을 참조하세요.
 
-- **기존 API를 그대로 가져오기** - API 앱 기능을 활용하기 위해 기존 API의 코드를 변경할 필요가 없습니다. 사용자의 코드를 API 앱에 배포하세요. API는 ASP.NET 및 C#, Java, PHP, Node.js 및 Python을 포함하여 앱 서비스에서 지원하는 모든 언어 또는 프레임워크를 사용할 수 있습니다.
+- **기존 API를 그대로 가져오기** - API 앱 기능을 활용하기 위해 기존 API의 코드를 변경할 필요가 없습니다. 사용자의 코드를 API 앱에 배포하세요. API는 ASP.NET 및 C#, Java, PHP, Node.js, Python을 비롯하여 앱 서비스에서 지원하는 모든 언어 또는 프레임워크를 사용할 수 있습니다.
 
-또한 API 앱, 웹앱 및 모바일 앱에서 제공하는 기능은 서로 바꿔 사용할 수 있습니다. 즉, API 앱의 인스턴스는 웹앱 및 모바일 앱이 제공하는 웹 및 모바일 개발과 호스팅에 대한 기능을 활용할 수 있습니다. 반대로도 마찬가지입니다. 예를 들어 웹앱을 사용하여 API를 호스트할 수 있으며 도메인 간 브라우저 액세스를 위해 클라이언트 코드 생성 및 CORS의 경우에도 Swagger 메타데이터를 활용할 수 있습니다. 자세한 내용은 [웹앱 개요](../app-service-web/app-service-web-overview.md) 및 [모바일 앱 개요](../app-service-mobile/app-service-mobile-value-prop.md)를 참조하세요.
+또한 API 앱에서는 [웹앱](../app-service-web/app-service-web-overview.md) 및 [모바일 앱](../app-service-mobile/app-service-mobile-value-prop.md)에서 제공하는 기능을 활용할 수 있습니다. 반대의 경우도 마찬가지입니다. 웹앱 또는 모바일 앱을 사용하여 API를 호스트할 수 있는 경우 클라이언트 코드 생성을 위해 Swagger 메타데이터와 같은 API 앱 기능을, 도메인 간 브라우저 액세스를 위해 CORS를 활용할 수 있습니다. 세 가지 앱 유형(API, 웹, 모바일) 간의 유일한 차이는 해당 이름과 Azure 포털에서 사용되는 아이콘뿐입니다. 모두 동일한 기능을 제공하므로 원하는 기능을 얻기 위해 앱을 다른 유형으로 변경할 필요가 없습니다. 그러나 기존 앱의 유형을 변경하려는 경우에는 쉽게 변경할 수 있습니다. 자세한 내용은 [Azure 앱 서비스에서 API 앱 및 ASP.NET 시작](app-service-api-dotnet-get-started.md#optional-changing-an-app-type)의 **앱 유형 변경** 섹션을 참조하세요.
 
 ## Azure API 관리를 사용하여 API 앱을 보강하는 방법 
 
-API 앱 및 [Azure API 관리](../api-management/api-management-key-concepts.md)는 보완 서비스입니다.
+API 앱 및 [Azure API 관리](../api-management/api-management-key-concepts.md)는 다음과 같이 보완적인 서비스입니다.
 
 * API 관리는 API를 관리하는 것입니다. API에 API 관리 프런트 엔드를 배치하여 사용량을 모니터링 및 제한하고, 입력 및 출력을 조작하며, 몇 가지 API를 하나로 통합합니다. 관리되는 API는 어디서나 호스팅할 수 있습니다.
 * API 앱은 API를 호스팅하는 것입니다. 이 서비스에는 API 개발 및 사용 방법을 용이하게 하는 기능이 포함되어 있지만 API 관리가 수행하는 것을 모니터링, 제한, 조작하거나 통합하는 유형의 작업은 수행하지 않습니다. 
@@ -60,10 +60,8 @@ API 관리 및 API 앱의 일부 기능에는 유사한 함수가 있습니다. 
 
 ## 시작
 
-API 앱을 시작하려면 [API 앱 시작](app-service-api-dotnet-get-started.md) 자습서를 따르세요.
+API 앱을 시작하려면 [API 앱 시작](app-service-api-dotnet-get-started.md) 자습서 중 하나의 지침을 따르세요.
 
-API 앱의 알려진 문제 목록을 보려면 [API 앱의 알려진 문제 포럼 게시물](https://social.msdn.microsoft.com/Forums/ko-KR/7f8b42f2-ac0d-48b8-a35e-3b4934e1c25e/api-app-known-issues?forum=AzureAPIApps)을 참조하세요.
+API 앱에 대한 질문이 있으면 [API 앱 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=AzureAPIApps)에서 질문하세요.
 
-Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스](../app-service/app-service-value-prop-what-is.md)를 참조하세요.
-
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

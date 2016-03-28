@@ -377,6 +377,8 @@ OnDemandClusterDeleted | Succeeded
 	Parameters        :
 	Outputs           :
 
+> [AZURE.NOTE] [경고 규칙 만들기](https://msdn.microsoft.com/library/azure/dn510366.aspx) REST API를 사용하여 경고 규칙을 만들 수 있습니다. JSON 페이로드는 위에 지정된 JSON 예제와 비슷합니다.
+
 #### Azure 리소스 그룹 배포의 목록 검색
 배포된 Azure 리소스 그룹 배포의 목록을 검색하려면 다음 예제와 같이 **Get-AzureRmResourceGroupDeployment** cmdlet을 사용합니다.
 
@@ -544,7 +546,7 @@ OnDemandClusterDeleted | Succeeded
  
 위 샘플의 subscriptionId, resourceGroupName, dataFactoryName을 적절한 값으로 변경합니다.
 
-metricName은 현재 두 가지 값을 지원합니다.
+*metricName*은 현재 두 가지 값을 지원합니다.
 - FailedRuns
 - SuccessfulRuns
 
@@ -582,4 +584,4 @@ Data Factory의 홈 페이지에서 **이동** 명령 모음 단추를 사용하
 
 ![리소스 이동 대화 상자](./media/data-factory-monitor-manage-pipelines/MoveResources.png)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

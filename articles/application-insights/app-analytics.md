@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/07/2016" 
+	ms.date="03/11/2016" 
 	ms.author="awills"/>
 
 
@@ -47,7 +47,20 @@
 
 이 앱은 하이데라바드에서 점심 시간 및 취침 시간에 가장 인기 있는 것 같습니다. (또한 이러한 500개 코드를 조사해야 합니다.)
 
-언어에는 SQL과 같은 기능이 많이 있습니다. SQL과 마찬가지로 데이터를 필터링하고 레코드를 그룹화하며 테이블을 정렬 및 조인할 수 있습니다. 필드에서 계산을 수행할 수도 있습니다. SQL과 달리 이러한 함수는 다양한 작업으로 구분되며 중첩 쿼리 대신 다음 하나의 작업에서 매우 직관적인 방식으로 데이터를 파이프합니다. 이렇게 하면 상당히 복잡한 쿼리를 쉽게 작성할 수 있습니다.
+
+또한 강력한 통계 작업이 있습니다.
+
+![](./media/app-analytics/025.png)
+
+
+언어에 다음과 같은 많은 유용한 기능이 있습니다.
+
+* 사용자 지정 속성 및 메트릭을 포함하여 필드를 기준으로 원시 앱 원격 분석을 [필터링](app-analytics-queries.md)합니다.
+* 다중 테이블 [조인](app-analytics-queries.md#join-operator) - 요청을 페이지 뷰, 종속성 호출, 예외 및 로그 추적과 상호 연결합니다.
+* 강력한 통계 [집계](app-analytics-aggregations.md) 기능이 있습니다.
+* 복잡한 쿼리에 대해 SQL만큼 강력하지만 훨씬 쉽게 중첩문 대신 하나의 기본 연산에서 다음 연산으로 데이터를 파이프합니다.
+* 즉각적이고 강력하게 시각화합니다.
+
 
 
 >[AZURE.NOTE] [언어 둘러보기](app-analytics-tour.md)로 시작하는 것이 좋습니다.
@@ -66,4 +79,4 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

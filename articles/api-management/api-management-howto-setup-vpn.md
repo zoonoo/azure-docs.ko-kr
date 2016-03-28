@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="03/14/2016"
 	ms.author="antonba"/>
 
 # Azure API 관리에서 VPN 연결을 설정하는 방법
@@ -48,11 +48,25 @@ API 관리 서비스가 VPN에 연결되면 가상 네트워크 내에서 웹 �
 
 ![VPN에서 API 추가][api-management-setup-vpn-add-api]
 
+## API 관리 VPN 지원에 필요한 포트
+
+API 관리 서비스 인스턴스가 VNET에 호스트된 경우 다음 표의 포트가 사용됩니다. 이러한 포트가 차단되면 서비스가 제대로 작동하지 않을 수 있습니다. 이러한 포트가 하나 이상 차단되는 것은 VNET에서 API 관리를 사용하는 경우 가장 일반적인 잘못된 구성 문제입니다.
+
+| 포트 | 방향 | 전송 프로토콜 | 목적 | 원본 / 대상 |
+|------------------------------|------------------|--------------------|------------------------------------------------------------------|-----------------------------------|
+| 80, 443 | 인바운드 | TCP | API 관리에 대한 클라이언트 통신 | 인터넷 / VIRTUAL\_NETWORK |
+| 80,443 | 아웃바운드 | TCP | Azure 저장소 및 Azure 서비스 버스에 대한 API 관리 종속성 | VIRTUAL\_NETWORK / 인터넷 |
+| 1433 | 아웃바운드 | TCP | SQL에 대한 API 관리 종속성 | VIRTUAL\_NETWORK / 인터넷 |
+| 9350, 9351, 9352, 9353, 9354 | 아웃바운드 | TCP | 서비스 버스에 대한 API 관리 종속성 | VIRTUAL\_NETWORK / 인터넷 |
+| 5671 | 아웃바운드 | AMQP | 이벤트 허브 정책에 대한 로그의 API 관리 종속성 | VIRTUAL\_NETWORK / 인터넷 |
+| 6381, 6382, 6383 | 인바운드/아웃바운드 | UDP | Redis Cache에 대한 API 관리 종속성 | VIRTUAL\_NETWORK / VIRTUAL\_NETWORK |
+| 445 | 아웃바운드 | TCP | GIT의 Azure 파일 공유에 대한 API 관리 종속성 | VIRTUAL\_NETWORK / 인터넷 |
+
 
 ## <a name="related-content"> </a>관련 콘텐츠
 
 
-* [자습서: 사이트 간 연결용 프레미스 간 가상 네트워크 만들기][]
+* [Azure 클래식 포털을 사용하여 사이트 간 VPN 연결로 가상 네트워크 만들기][]
 * [API 검사기를 사용하여 Azure API 관리에서 호출을 추적하는 방법][]
 
 [api-management-setup-vpn-configure]: ./media/api-management-howto-setup-vpn/api-management-setup-vpn-configure.png
@@ -65,7 +79,7 @@ API 관리 서비스가 VPN에 연결되면 가상 네트워크 내에서 웹 �
 
 [Azure 클래식 포털]: https://manage.windowsazure.com/
 
-[자습서: 사이트 간 연결용 프레미스 간 가상 네트워크 만들기]: ../virtual-networks-create-site-to-site-cross-premises-connectivity
+[Azure 클래식 포털을 사용하여 사이트 간 VPN 연결로 가상 네트워크 만들기]: ../vpn-gateway/vpn-gateway-site-to-site-create.md
 [API 검사기를 사용하여 Azure API 관리에서 호출을 추적하는 방법]: api-management-howto-api-inspector.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

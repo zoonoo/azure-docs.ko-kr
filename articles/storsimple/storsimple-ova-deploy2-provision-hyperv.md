@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/07/2016"
+   ms.date="03/10/2016"
    ms.author="alkohli"/>
 
 # StorSimple 가상 배열 배포 - Hyper-V에서 가상 배열 프로비전
@@ -22,7 +22,7 @@
 
 ## 개요
 
-이 프로비전 자습서는 2016년 3월 GA(일반 공급) 버전을 실행하는 Microsoft Azure StorSimple 가상 배열(StorSimple 온-프레미스 가상 장치 또는 StorSimple 가상 장치라고도 함)에 적용됩니다. 이 자습서는 Hyper-V 2008 R2, Hyper-V 2012 또는 Hyper-V 2012 R2를 실행하는 호스트 시스템에 StorSimple 가상 배열을 프로비전하는 방법을 설명합니다.
+이 프로비전 자습서는 2016년 3월 GA(일반 공급) 버전을 실행하는 Microsoft Azure StorSimple 가상 배열(StorSimple 온-프레미스 가상 장치 또는 StorSimple 가상 장치라고도 함)에 적용됩니다. 이 자습서는 Hyper-V 2008 R2, Hyper-V 2012 또는 Hyper-V 2012 R2를 실행하는 호스트 시스템에 StorSimple 가상 배열을 프로비전하는 방법을 설명합니다. 이 문서는 Microsoft Azure Government 클라우드뿐만 아니라 Azure 클래식 포털에서 StorSimple 가상 배열의 배포에 적용됩니다.
 
 가상 장치를 프로비전하고 구성하려면 관리자 권한이 필요합니다. 프로비전 및 초기 설정을 완료하는 데 10분 정도가 소요됩니다.
 
@@ -251,9 +251,20 @@
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image31m.png)
 
-	장치가 최소 구성 요구 사항을 충족하지 못하면 배너 텍스트에 오류(아래 참고)가 표시됩니다. 최소 요구 사항을 충족하기에 충분한 리소스를 확보하도록 장치 구성을 수정해야 합니다. 그런 다음 다시 시작하고 장치에 연결합니다. [1단계: 호스트 시스템이 최소 가상 장치 요구 사항을 충족하도록 합니다.](#step-1-ensure-that-the-host-system-meets-minimum-virtual-device-requirements)에서 최소 구성 요구 사항을 참조하세요.
 
-	![](./media/storsimple-ova-deploy2-provision-hyperv/image32.png)
+
+1. (선택 사항) 이 단계는 정부 클라우드에서 장치를 배포하는 경우에만 수행합니다. 이제 장치에서 미국 FIPS(Federal Information Processing Standard) 모드를 사용할 수 있습니다. FIPS 140 표준은 중요한 데이터의 보호를 위해 미국 연방 정부 컴퓨터 시스템에서 사용할 수 있도록 승인된 암호화 알고리즘을 정의합니다.
+	1. FIPS 모드를 사용하도록 설정하려면 다음 cmdlet을 실행합니다.
+		
+		`Enter-HcsFIPSMode`
+
+	2. 암호화 유효성 검사에 적용되도록 FIPS 모드를 사용하도록 설정한 후 장치를 다시 부팅합니다.
+
+		> [AZURE.NOTE] 장치에서 FIPS 모드를 사용 또는 사용하지 않도록 설정할 수 있습니다. 장치에서 FIPS 모드와 비 FIPS 모드가 교대로 반복되는 기능은 지원되지 않습니다.
+
+장치가 최소 구성 요구 사항을 충족하지 못하면 배너 텍스트에 오류(아래 참고)가 표시됩니다. 최소 요구 사항을 충족하기에 충분한 리소스를 확보하도록 장치 구성을 수정해야 합니다. 그런 다음 다시 시작하고 장치에 연결합니다. [1단계: 호스트 시스템이 최소 가상 장치 요구 사항을 충족하도록 합니다.](#step-1-ensure-that-the-host-system-meets-minimum-virtual-device-requirements)에서 최소 구성 요구 사항을 참조하세요.
+
+![](./media/storsimple-ova-deploy2-provision-hyperv/image32.png)
 
 로컬 웹 UI를 사용하여 초기 구성을 하는 동안 다른 오류가 발생하면 [로컬 웹 UI를 사용하여 StorSimple 가상 배열 관리](storsimple-ova-web-ui-admin.md)에서 다음 워크플로를 참조하세요.
 
@@ -273,4 +284,4 @@ Hyper-V에서 StorSimple 가상 배열을 프로비전하는 방법을 보려면
 
 -   [StorSimple 가상 배열을 iSCSI 서버로 설정](storsimple-ova-deploy3-iscsi-setup.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

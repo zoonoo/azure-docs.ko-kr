@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="03/16/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@
 
 - SciQuest Spend Director에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다. 
 - 사용자가 해당 Azure AD 계정으로 SciQuest Spend Director에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
-- 단일 중앙 위치인 Azure Active Directory 포털에서 계정을 관리할 수 있습니다.
+- 단일 중앙 위치인 Azure 클래식 포털에서 계정을 관리할 수 있습니다.
 
 Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](active-directory-appssoaccess-whatis.md)을 참조하세요.
 
@@ -35,7 +35,7 @@ SciQuest Spend Director와의 Azure AD 통합을 구성하려면 다음 항목�
 - SciQuest Spend Director Single Sign-On이 설정된 구독
 
 
-> [AZURE.NOTE]이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
+> [AZURE.NOTE] 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
 
 
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
@@ -56,7 +56,7 @@ SciQuest Spend Director의 Azure AD 통합을 구성하려면 갤러리의 SciQu
 
 **갤러리에서 SciQuest Spend Director를 추가하려면 다음 단계를 수행합니다.**
 
-1. **Azure 관리 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. <br><br> ![Active Directory][1]
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. <br><br> ![Active Directory][1]
 
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 
@@ -82,11 +82,11 @@ SciQuest Spend Director에서 Azure AD Single Sign-on을 구성하고 테스트�
 
 ### Azure AD Single Sign-on 구성
 
-이 섹션은 Azure AD 포털에서 Azure AD Single Sign-On을 사용하도록 설정하고 SciQuest Spend Director에서 Single Sign-On을 구성하는 방법을 설명하기 위해 제공되었습니다.<br>
+이 섹션은 Azure 클래식 포털에서 Azure AD Single Sign-On을 사용하도록 설정하고 SciQuest Spend Director 응용 프로그램에서 Single Sign-On을 구성하는 방법을 설명하기 위해 제공되었습니다.<br>
 
 **SciQuest Spend Director에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure AD 포털의 **SciQuest Spend Director** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.<br><br>![Single Sign-On 구성][8]
+1. Azure 클래식 포털의 **SciQuest Spend Director** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.<br><br> ![Single Sign-On 구성][8]
 
 2. **SciQuest Spend Director에 대한 사용자 로그온 방법을 선택하십시오.** 페이지에서 **Azure AD Single Sign-On**을 선택하고**다음**을 클릭합니다.<br><br>![Azure AD Single Sign-On][9]
 
@@ -102,18 +102,18 @@ SciQuest Spend Director에서 Azure AD Single Sign-on을 구성하고 테스트�
 
 5. 위에서 다운로드한 메타데이터를 사용하여 이 인증 방법을 설정하도록 SciQuest 지원 팀에 요청합니다.
 
-6. Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다. <br><br>![Azure AD Connect의 정의][15]
+6. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다. <br><br>![Azure AD Connect의 정의][15]
 10. **Single Sign-On 확인** 페이지에서 **완료**를 클릭합니다.<br><br>![Azure AD Connect의 정의][16]
 
 
 
 
 ### Azure AD 테스트 사용자 만들기
-이 섹션의 목적은 Azure 포털에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
+이 섹션의 목적은 Azure 클래식 포털에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
 **Azure AD에서 테스트 사용자를 만들려면 다음 단계를 수행하세요.**
 
-1. **Azure 관리 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. <br><br>![Azure AD Connect의 정의][100] 
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. <br><br>![Azure AD Connect의 정의][100] 
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 3. 사용자 목록을 표시하려면 위쪽의 메뉴에서 **사용자**를 클릭합니다. <br><br>![Azure AD Connect의 정의][101] 
 4. **사용자 추가** 대화 상자를 열려면 아래쪽의 도구 모음에서 **사용자 추가**를 클릭합니다.<br><br>![Azure AD Connect의 정의][102] 
@@ -150,7 +150,7 @@ Just-in-Tme 프로비저닝을 사용하도록 설정하려면 SciQuest Spend Di
 
 **SciQuest Spend Director에 Britta Simon를 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure 포털에서 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.<br> <br><br>![Azure AD Connect의 정의][201]
+1. Azure 클래식 포털에서 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다. <br> <br><br>![Azure AD Connect의 정의][201]
 2. 응용 프로그램 목록에서 **SciQuest Spend Director**를 선택합니다. <br><br>![Azure AD Connect의 정의][202]
 1. 위쪽의 메뉴에서 **사용자**를 클릭합니다.<br> <br><br>![Azure AD Connect의 정의][203]
 1. 사용자 목록에서 **Britta Simon**을 선택합니다.<br><br>![Azure AD Connect의 정의][204]
@@ -195,4 +195,4 @@ Just-in-Tme 프로비저닝을 사용하도록 설정하려면 SciQuest Spend Di
 [204]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_19.png
 [205]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_20.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0316_2016-->

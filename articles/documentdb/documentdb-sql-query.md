@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/14/2015" 
+	ms.date="03/11/2016" 
 	ms.author="arramac"/>
 
 # DocumentDB의 SQL 쿼리 및 SQL 구문
@@ -281,7 +281,29 @@ WHERE 절(**`WHERE <filter_condition>`**)은 선택 사항입니다. 소스에�
 
 앞의 예제는 단순한 같음 쿼리를 보여 주었습니다. DocumentDB SQL은 다양한 스칼라 식도 지원합니다. 가장 일반적으로 사용되는 식은 이항 및 단항 식입니다. 소스 JSON 개체의 속성 참조도 유효한 식입니다.
 
-현재 지원되며 다음 예제와 같이 쿼리에 사용할 수 있는 이항 연산자는 다음과 같습니다. <table> <tr> <td>산술</td> <td>+,-,*,/,%</td> </tr> <tr> <td>비트</td> <td>|, &, ^, <<, >>, >>>(0-채우기 오른쪽 시프트) </td> </tr> <tr> <td>논리</td> <td>AND, OR, NOT</td> </tr> <tr> <td>비교</td> <td>=, !=, &lt;, &gt;, &lt;=, &gt;=, <></td> </tr> <tr> <td>문자열</td> <td>||(연결)</td> </tr> </table>
+현재 지원되며 다음 예제와 같이 쿼리에 사용할 수 있는 이항 연산자는 다음과 같습니다.
+<table>
+<tr>
+<td>산술</td>	
+<td>+,-,*,/,%</td>
+</tr>
+<tr>
+<td>비트</td>	
+<td>|, &amp;, ^, &lt;&lt;, >>, >>>(0 채우기 오른쪽 시프트) </td>
+</tr>
+<tr>
+<td>논리</td>
+<td>AND, OR, NOT</td>
+</tr>
+<tr>
+<td>비교</td>	
+<td>=, !=, &lt;, >, &lt;=, >=, &lt;></td>
+</tr>
+<tr>
+<td>문자열</td>	
+<td>||(연결)</td>
+</tr>
+</table>  
 
 이항 연산자를 사용한 몇 가지 쿼리를 살펴보겠습니다.
 
@@ -313,7 +335,219 @@ WHERE 절(**`WHERE <filter_condition>`**)은 선택 사항입니다. 소스에�
 이항 및 단항 연산자뿐 아니라 속성 참조도 허용됩니다. 예를 들어 `SELECT * FROM Families f WHERE f.isRegistered`는 `isRegistered` 속성을 포함하고 속성 값이 JSON `true` 값과 같은 JSON 문서를 반환합니다. 다른 값(false, null, Undefined, `<number>`, `<string>`, `<object>`, `<array>` 등)이면 소스 문서가 결과에서 제외됩니다.
 
 ### 같음 및 비교 연산자
-다음 표는 DocumentDB SQL에서 두 JSON 형식 간의 같음 비교 결과를 보여 줍니다. <table style = "width:300px"> <tbody> <tr> <td valign="top"> <strong>Op</strong> </td> <td valign="top"> <strong>정의되지 않음</strong> </td> <td valign="top"> <strong>Null</strong> </td> <td valign="top"> <strong>부울</strong> </td> <td valign="top"> <strong>숫자</strong> </td> <td valign="top"> <strong>문자열</strong> </td> <td valign="top"> <strong>개체</strong> </td> <td valign="top"> <strong>배열</strong> </td> </tr> <tr> <td valign="top"> <strong>정의되지 않음<strong> </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> </tr> <tr> <td valign="top"> <strong>Null<strong> </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> <strong>확인</strong> </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> </tr> <tr> <td valign="top"> <strong>부울<strong> </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> <strong>확인</strong> </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> </tr> <tr> <td valign="top"> <strong>숫자<strong> </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> <strong>확인</strong> </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> </tr> <tr> <td valign="top"> <strong>문자열<strong> </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> <strong>확인</strong> </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> </tr> <tr> <td valign="top"> <strong>개체<strong> </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> <strong>확인</strong> </td> <td valign="top"> 정의되지 않음 </td> </tr> <tr> <td valign="top"> <strong>배열<strong> </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> <strong>확인</strong> </td> </tr> </tbody> </table>
+다음 표는 DocumentDB SQL에서 두 JSON 형식 간의 같음 비교 결과를 보여 줍니다.
+<table style = "width:300px">
+   <tbody>
+      <tr>
+         <td valign="top">
+            <strong>Op</strong>
+         </td>
+         <td valign="top">
+            <strong>Undefined</strong>
+         </td>
+         <td valign="top">
+            <strong>Null</strong>
+         </td>
+         <td valign="top">
+            <strong>Boolean</strong>
+         </td>
+         <td valign="top">
+            <strong>Number</strong>
+         </td>
+         <td valign="top">
+            <strong>문자열</strong>
+         </td>
+         <td valign="top">
+            <strong>Object</strong>
+         </td>
+         <td valign="top">
+            <strong>Array</strong>
+         </td>
+      </tr>
+      <tr>
+         <td valign="top">
+            <strong>Undefined<strong>
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+      </tr>
+      <tr>
+         <td valign="top">
+            <strong>Null<strong>
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            <strong>OK</strong>
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+      </tr>
+      <tr>
+         <td valign="top">
+            <strong>Boolean<strong>
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            <strong>OK</strong>
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+      </tr>
+      <tr>
+         <td valign="top">
+            <strong>Number<strong>
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            <strong>OK</strong>
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+      </tr>
+      <tr>
+         <td valign="top">
+            <strong>String<strong>
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            <strong>OK</strong>
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+      </tr>
+      <tr>
+         <td valign="top">
+            <strong>Object<strong>
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            <strong>OK</strong>
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+      </tr>
+      <tr>
+         <td valign="top">
+            <strong>Array<strong>
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            <strong>OK</strong>
+         </td>
+      </tr>
+   </tbody>
+</table>
 
 다른 비교 연산자(예: >, >=, !=, < 및 <=)의 경우
 
@@ -1142,7 +1376,7 @@ DocumentDB는 일반적인 작업을 위해 많은 기본 제공 함수도 지�
 <td>공간 함수</td>	
 <td>ST_DISTANCE, ST_WITHIN, ST_ISVALID 및 ST_ISVALIDDETAILED</td>
 </tr>
-</table>
+</table>  
 
 현재 기본 제공 함수가 제공되는 UDF(사용자 정의 함수)를 사용 중인 경우 더 빨리 실행되고 더 효율적이므로 해당하는 기본 제공 함수를 사용해야 합니다.
 
@@ -1248,7 +1482,7 @@ DocumentDB는 일반적인 작업을 위해 많은 기본 제공 함수도 지�
 <td>지정된 식에서 입력 식의 탄젠트를 반환합니다.</td>
 </tr>
 
-</table>
+</table> 
 
 예를 들어 이제 다음과 같은 쿼리를 실행할 수 있습니다.
 
@@ -2144,4 +2378,4 @@ DocumentDB는 저장 프로시저 및 트리거를 사용하여 컬렉션에 대
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

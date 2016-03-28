@@ -28,10 +28,7 @@ Azure IoT Suite와 함께 제공되는 미리 구성된 솔루션은 제품 내�
 - 원격 모니터링: [https://www.github.com/Azure/azure-iot-remote-monitoring](https://github.com/Azure/azure-iot-remote-monitoring)
 - 예측 유지 관리: [https://github.com/Azure/azure-iot-predictive-maintenance](https://github.com/Azure/azure-iot-predictive-maintenance)
 
-미리 구성된 솔루션에 대한 소스 코드는 패턴과 Azure IoT Suite를 사용하여 IoT 솔루션의 종단 간 기능을 구현하는 데 사용하는 작업 방식과 패턴을 보여 주기 위해 제공됩니다. 명령줄에서 빌드 및 배포하는 지침은 미리 구성된 각 솔루션에 대한 GitHub wiki에 있습니다.
-
-- [원격 모니터링 Wiki](https://github.com/Azure/azure-iot-remote-monitoring/wiki)
-- [예측 유지 관리 Wiki](https://github.com/Azure/azure-iot-predictive-maintenance/wiki)
+미리 구성된 솔루션에 대한 소스 코드는 패턴과 Azure IoT Suite를 사용하여 IoT 솔루션의 종단 간 기능을 구현하는 데 사용하는 작업 방식과 패턴을 보여 주기 위해 제공됩니다. GitHub 리포지토리에서 솔루션을 빌드 및 배포하는 방법에 대한 자세한 내용을 확인할 수 있습니다.
 
 ## 미리 구성된 솔루션에서 사용 권한 관리
 미리 구성된 각 솔루션에 대한 솔루션 포털은 새 Azure Active Directory 응용 프로그램으로 생성됩니다. 솔루션 포털(AAD 응용 프로그램)에 대해 다음과 같은 사용 권한을 관리할 수 있습니다.
@@ -92,4 +89,4 @@ IoT 장치에 대한 자세한 내용은 [Azure IoT 개발자 사이트](https:/
 
 [IoT 장치 SDK]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -7,8 +7,8 @@
 추적 또는 로그 데이터 속도 | 200dp/s | 500dp/s
 예외 데이터 속도 | 50dp/s | 50dp/s
 기타 원격 분석 데이터 속도 | 200dp/s | 500dp/s
-원시 데이터 보존 |7 일| 30일
-집계된 데이터 보존 | 13개월 | 무제한
+원시 데이터 보존 | 7 일
+집계된 데이터 보존 | 90일
 앱에서 속성 이름 수 | 100 | 100
 속성 이름 길이 | 100 | 100
 속성 값 길이 | 1000 | 1000
@@ -22,4 +22,4 @@
  
 [Application Insights의 가격 책정 및 할당량 정보](../articles/application-insights/app-insights-pricing.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

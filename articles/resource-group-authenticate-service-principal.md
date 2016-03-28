@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="02/29/2016"
+   ms.date="03/10/2016"
    ms.author="tomfitz"/>
 
 # Azure 리소스 관리자를 사용하여 서비스 주체 인증
@@ -337,13 +337,13 @@
 
 서비스 주체로 수동으로 로그인하려는 경우 **azure login** 명령을 사용할 수 있습니다. 테넌트 ID, 응용 프로그램 ID 및 암호를 제공해야 합니다. 스크립트에 직접 암호를 포함하는 것은 암호가 파일에 저장되기 때문에 안전하지 않습니다. 자동화된 스크립트를 실행할 때 더 나은 옵션에 대해 다음 섹션을 참조하세요.
 
-1. 서비스 주체를 포함하는 구독에 대해 **TenantId**를 확인합니다. 매개 변수로 전달하기 전에 json 출력에서 반환되는 시작 및 끝 큰따옴표를 제거해야 합니다.
+1. 서비스 주체를 포함하는 구독에 대해 **TenantId**를 확인합니다. 현재 인증된 구독에 대한 테넌트 ID를 검색하는 경우 매개 변수로 구독 ID를 제공할 필요가 없습니다. **-r** 스위치는 따옴표 없이 값을 검색합니다.
 
-        tenantId=$(azure account show -s <subscriptionId> --json | jq '.[0].tenantId' | sed -e 's/^"//' -e 's/"$//')
+        tenantId=$(azure account show -s <subscriptionId> --json | jq -r '.[0].tenantId')
 
 2. 사용자 이름의 경우 서비스 주체를 만들 때 사용한 **AppId**를 사용합니다. 응용 프로그램 ID를 검색해야 할 경우 다음 명령을 사용합니다. **search** 매개 변수에 Active Directory 응용 프로그램의 이름을 제공합니다.
 
-        appId=$(azure ad app show --search exampleapp --json | jq '.[0].appId' | sed -e 's/^"//' -e 's/"$//')
+        appId=$(azure ad app show --search exampleapp --json | jq -r '.[0].appId')
 
 3. 서비스 주체로 로그인합니다.
 
@@ -363,19 +363,19 @@
 
 > [AZURE.NOTE] Azure CLI 스크립트에 암호를 포함하는 것은 암호가 텍스트로 노출되기 때문에 안전하지 않습니다. 대신 키 자격 증명 모음과 같은 서비스를 사용하여 암호를 저장하고 스크립트를 실행할 때 검색합니다.
 
-이러한 단계에서는 키 자격 증명 모음과 암호를 저장하는 암호를 설정했다고 가정합니다. 템플릿을 통해 키 자격 증명 모음 및 암호를 배포하려면 [키 자격 증명 모음 템플릿 형식]()을 참조하세요. 키 자격 증명 모음에 대해 알아보려면 [Azure 키 자격 증명 모음 시작](./key-vault/key-vault-get-started.md)을 참조하세요.
+이러한 단계에서는 키 자격 증명 모음과 암호를 저장하는 암호를 설정했다고 가정합니다. 템플릿을 통해 키 자격 증명 모음 및 암호를 배포하려면 [키 자격 증명 모음 템플릿 형식]()을 참조하세요. 주요 자격 증명 모음에 대해 알아보려면 [Azure 주요 자격 증명 모음 시작](./key-vault/key-vault-get-started.md)을 참조하세요.
 
-1. 키 자격 증명 모음에서 암호를 검색합니다(아래 예제에서는 **appPassword**라는 이름으로 암호로 저장). 암호 매개 변수로 전달하기 전에 json 출력에서 반환되는 시작 및 끝 큰따옴표를 제거해야 합니다.
+1. 키 자격 증명 모음에서 암호를 검색합니다(아래 예제에서는 **appPassword**라는 이름을 가진 암호로 저장). json 출력에서 반환되는 시작 및 끝 큰따옴표를 제거하는 **-r** 스위치를 포함합니다.
 
-        secret=$(azure keyvault secret show --vault-name examplevault --secret-name appPassword --json | jq '.value' | sed -e 's/^"//' -e 's/"$//')
+        secret=$(azure keyvault secret show --vault-name examplevault --secret-name appPassword --json | jq -r '.value')
     
-2. 서비스 주체를 포함하는 구독에 대해 **TenantId**를 확인합니다.
+2. 서비스 주체를 포함하는 구독에 대해 **TenantId**를 확인합니다. 현재 인증된 구독에 대한 테넌트 ID를 검색하는 경우 매개 변수로 구독 ID를 제공할 필요가 없습니다.
 
-        tenantId=$(azure account show -s <subscriptionId> --json | jq '.[0].tenantId' | sed -e 's/^"//' -e 's/"$//')
+        tenantId=$(azure account show -s <subscriptionId> --json | jq -r '.[0].tenantId')
 
 3. 사용자 이름의 경우 서비스 주체를 만들 때 사용한 **AppId**를 사용합니다. 응용 프로그램 ID를 검색해야 할 경우 다음 명령을 사용합니다. **search** 매개 변수에 Active Directory 응용 프로그램의 이름을 제공합니다.
 
-        appId=$(azure ad app show --search exampleapp --json | jq '.[0].appId' | sed -e 's/^"//' -e 's/"$//')
+        appId=$(azure ad app show --search exampleapp --json | jq -r '.[0].appId')
 
 4. 응용 프로그램 ID, 키 자격 증명 모음의 암호, 테넌트 ID를 제공하여 서비스 주체로 로그인합니다.
 
@@ -460,13 +460,13 @@
 
         30996D9CE48A0B6E0CD49DBB9A48059BF9355851
 
-2. 서비스 주체를 포함하는 구독에 대해 **TenantId**를 확인합니다.
+2. 서비스 주체를 포함하는 구독에 대해 **TenantId**를 확인합니다. 현재 인증된 구독에 대한 테넌트 ID를 검색하는 경우 매개 변수로 구독 ID를 제공할 필요가 없습니다. **-r** 스위치는 따옴표 없이 값을 검색합니다.
 
-        tenantId=$(azure account show -s <subscriptionId> --json | jq '.[0].tenantId' | sed -e 's/^"//' -e 's/"$//')
+        tenantId=$(azure account show -s <subscriptionId> --json | jq -r '.[0].tenantId')
 
 3. 사용자 이름의 경우 서비스 주체를 만들 때 사용한 **AppId**를 사용합니다. 응용 프로그램 ID를 검색해야 할 경우 다음 명령을 사용합니다. **search** 매개 변수에 Active Directory 응용 프로그램의 이름을 제공합니다.
 
-        appId=$(azure ad app show --search exampleapp --json | jq '.[0].appId' | sed -e 's/^"//' -e 's/"$//')
+        appId=$(azure ad app show --search exampleapp --json | jq -r '.[0].appId')
 
 4. Azure CLI를 인증하려면 인증서 지문, 인증서 파일, 응용 프로그램 ID 및 테넌트 ID를 제공합니다.
 
@@ -517,4 +517,4 @@
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

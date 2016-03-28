@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/14/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스에 솔루션 마이그레이션
@@ -45,11 +45,11 @@ SQL 데이터 웨어하우스는 Microsoft Azure를 기반으로 하는 플랫�
 
 [개발 개요]: sql-data-warehouse-overview-develop.md
 [로드 개요]: sql-data-warehouse-overview-load.md
-[Transact-SQL 참조]: sql-data-warehouse-overview-migrate.md
+[Transact-SQL 참조]: sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

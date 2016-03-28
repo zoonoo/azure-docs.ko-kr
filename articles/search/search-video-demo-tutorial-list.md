@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="03/08/2016"
+	ms.date="03/15/2016"
 	ms.author="heidist"/>
 
 #Azure 검색: 코드 샘플, 데모, 비디오 및 자습서
@@ -79,16 +79,14 @@
 연습|설명
 -----------|-----------
 [.NET에서 Azure 검색을 사용하는 방법](search-howto-dotnet-sdk.md)|Azure 검색과 통합되는 샘플 Visual Studio 웹 응용 프로그램을 구성하고 실행합니다.
-[Azure 검색을 사용하여 StackExchange 데이터를 검색하는 방법](search-howto-stackexchange-data.md)|Azure 검색과 통합된 응용 프로그램의 StackExchange 데이터에서 전체 텍스트를 검색합니다.
 [D3.js에서 Azure 검색을 사용하여 대화형 데이터 시각화를 구축하는 방법](https://azure.microsoft.com/blog/2015/07/14/how-to-use-azure-search-with-d3-js-to-build-interactive-data-visualizations/)|사용자 지정 앱에 비주얼 검색 기능을 추가하는 방법을 설명하는 블로그 게시물과 샘플 코드입니다.
 [NodeJS에서 Azure 검색 시작](search-get-started-nodejs.md)|NodeJS에서 Azure 검색을 사용하는 방법을 알아봅니다.
 [Java에서 Azure 검색 시작](search-get-started-java.md)|Eclipse 및 Apache Tomcat 서버를 사용하여 Azure 검색을 사용하는 샘플 응용 프로그램을 구축하고 실행할 Java 프로그래머를 위한 자습서입니다.
 [Azure 검색 시나리오 및 기능](https://azure.microsoft.com/blog/2014/08/28/azure-search-scenarios-and-capabilities/)|현재 기능으로 사용할 수 있는 기본 시나리오에 대해 설명하는 블로그 게시물입니다.
 [검색 응용 프로그램에 제안을 추가하는 방법](https://azure.microsoft.com/blog/2015/01/20/azure-search-how-to-add-suggestions-auto-complete-to-your-search-applications/)|일반적으로 자동 완성이라고 하는 제안 기능을 구현하는 방법을 알아봅니다. 이 데모에서는 Azure 검색 제안을 활용하는 MVC4 응용 프로그램 개발, JavaScript에서 Twitter typeahead.js 라이브러리를 사용한 효과적인 자동 제안 구성 요소 개발, 유사 일치 제안을 사용하여 사용자가 단어를 잘못 입력한 경우에도 제안을 표시하도록 하는 방법 등의 다양한 주제를 자세히 설명합니다.
 [TechNet 가상 실습: Microsoft Azure 검색 응용 프로그램 구축](http://go.microsoft.com/?linkid=9874663)|개발 환경, 도구, 설명서 및 데이터를 제공 하는 가상 실습입니다. 실습을 완료하려면 평가판 구독 또는 개인 Azure 구독이 있는 Azure 계정이 필요합니다.
-[Azure 검색을 사용한 지리 공간 검색 앱 개발](search-create-geospatial.md)|Bing 지도와 좌표를 사용하여 지리 공간 검색을 지원합니다.
 [SQL Server 데이터와 Azure 검색 동기화](https://azure.microsoft.com/blog/2014/11/10/how-to-sync-sql-server-data-with-azure-search/)|Azure 검색 인덱스에 SQL Server 관계형 데이터베이스의 데이터를 로드하는 방법을 설명하는 블로그 게시물입니다.
 [프로필 자습서 점수 매기기](search-get-started-scoring-profiles.md)|콘솔 앱을 사용하여 점수 매기기 프로필을 테스트합니다.
 [Azure 검색 관리 REST API 자습서](search-get-started-management-api.md)|관리 REST API를 사용하여 서비스를 프로비전하고 관리 또는 쿼리 api 키를 관리하는 방법입니다.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

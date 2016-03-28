@@ -128,8 +128,9 @@ GO
 -   [스트레치 지원 데이터베이스 백업 및 복원](sql-server-stretch-database-backup.md)
 
 ## 참고 항목
+
 [스트레치 데이터베이스에 대한 데이터베이스 및 테이블 식별](sql-server-stretch-database-identify-databases.md)
 
 [ALTER DATABASE SET 옵션(TRANSACT-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

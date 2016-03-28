@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/29/2016"
+   ms.date="03/15/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: 버전 릴리스 내역
@@ -28,13 +28,22 @@ Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect�
 - 업데이트를 적용하는 데 필요한 사용 권한은 [계정 및 사용 권한](active-directory-aadconnect-accounts-permissions.md#upgrade)을 참조하세요.
 - [Azure AD Connect 다운로드](http://go.microsoft.com/fwlink/?LinkId=615771)
 
+## 1\.1.119.0
+출시 날짜: 2016년 3월
+
+**수정된 문제:**
+
+- Windows Server 2008(R2 이전 버전)에는 암호 동기화가 지원되지 않기 때문에 이 운영 체제에서는 빠른 설치를 사용할 수 없습니다.
+- 사용자 지정 필터가 구성된 Dirsync에서 업그레이드가 예상대로 작동하지 않습니다.
+- 새 릴리스로 업그레이드하고 구성이 변경되지 않은 경우 전체 가져오기/동기화를 예약하지 않아야 합니다.
+
 ## 1\.1.110.0
 발표 날짜: 2016년 2월
 
 **수정된 문제:**
 
 - 설치 파일이 기본 **C:\\Program Files** 폴더에 없는 경우 이전 릴리스에서 업그레이드되지 않습니다.
-- 설치하고 설치 마법사의 마지막에 **동기화 프로세스..시작**을 선택 취소하는 경우 설치 마법사를 다시 실행하면 스케줄러를 사용할 수 없습니다.
+- 설치하고 설치 마법사의 마지막에 **동기화 프로세스 시작..**을 선택 취소하는 경우 설치 마법사를 다시 실행하면 스케줄러를 사용할 수 없습니다.
 - 스케줄러는 날짜/시간 형식이 US-en이 아닌 서버에서는 작동하지 않습니다. 또한 올바른 시간을 반환하는 `Get-ADSyncScheduler`도 차단합니다.
 - 로그인 옵션으로 ADFS를 사용하는 Azure AD Connect의 이전 릴리스를 설치했고 업그레이드하는 경우 설치 마법사를 다시 실행할 수 없습니다.
 
@@ -48,7 +57,7 @@ Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect�
     - MFA를 사용하는 경우 https://secure.aadcdn.microsoftonline-p.com에 트래픽을 허용하려면 프록시도 허용해야 합니다.
     - MFA가 올바르게 작동하려면 신뢰할 수 있는 사이트 목록에 https://secure.aadcdn.microsoftonline-p.com을 추가해야 합니다.
 - 초기 설치 후 사용자의 로그인 방법 변경 허용
-- 설치 마법사에서 [도메인 및 OU 필터링](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) 허용. 이는 일부 도메인을 사용할 수 없는 포리스트로의 연결도 허용합니다.
+- 설치 마법사에서 [도메인 및 OU 필터링](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) 허용 이는 일부 도메인을 사용할 수 없는 포리스트로의 연결도 허용합니다.
 - 동기화 엔진에 [스케줄러](active-directory-aadconnectsync-feature-scheduler.md) 기본 제공
 
 **미리 보기에서 GA로 승격되는 기능:**
@@ -58,7 +67,7 @@ Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect�
 
 **새로운 미리 보기 기능:**
 
-- 새 기본 동기화 주기 간격은 30분입니다. 이전 모든 릴리스에서는 3시간이었습니다. [스케줄러](active-directory-aadconnectsync-feature-scheduler.md) 동작 변경 지원이 추가되었습니다.
+- 새 기본 동기화 주기 간격은 30분입니다. 이전 모든 릴리스에서는 3시간이었습니다. [스케줄러](active-directory-aadconnectsync-feature-scheduler.md) 동작 변경 지원이 추가됩니다.
 
 **수정된 문제:**
 
@@ -248,4 +257,4 @@ AD로부터 암호 해시를 읽을 수 있으려면 AD 계정에 추가 권한�
 ## 다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

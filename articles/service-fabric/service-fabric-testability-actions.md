@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/04/2015"
+   ms.date="03/14/2016"
    ms.author="heeldin;motanv"/>
 
 # 테스트 용이성 작업
@@ -211,10 +211,11 @@ ReplicaSelector는 테스트 용이성에 노출되는 도우미이며 테스트
 
 이 도우미를 사용하려면 ReplicaSelector 개체를 만들고 복제본 및 파티션을 선택하는 방법을 설정합니다. 그런 다음 개체를 필요로 하는 API에 전달할 수 있습니다. 옵션을 선택하지 않으면 기본적으로 임의의 복제본 및 파티션이 사용됩니다.
 
-Guid partitionIdGuid = new Guid("8fb7ebcc-56ee-4862-9cc0-7c6421e68829"); PartitionSelector partitionSelector = PartitionSelector.PartitionIdOf(serviceName, partitionIdGuid); long replicaId = 130559876481875498;
-
-
 ```csharp
+Guid partitionIdGuid = new Guid("8fb7ebcc-56ee-4862-9cc0-7c6421e68829");
+PartitionSelector partitionSelector = PartitionSelector.PartitionIdOf(serviceName, partitionIdGuid);
+long replicaId = 130559876481875498;
+
 // Select a random replica
 ReplicaSelector randomReplicaSelector = ReplicaSelector.RandomOf(partitionSelector);
 
@@ -235,4 +236,4 @@ ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(par
    - [서비스 작업 중 오류 시뮬레이션](service-fabric-testability-workload-tests.md)
    - [서비스 대 서비스 통신 오류](service-fabric-testability-scenarios-service-communication.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

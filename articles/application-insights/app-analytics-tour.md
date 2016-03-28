@@ -33,7 +33,7 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 
 ![portal.azure.com을 열고 Application Insights 리소스를 열고 Analytics를 클릭합니다.](./media/app-analytics/001.png)
 
-## 행 수 계산
+## 행 수 [계산](app-analytics-aggregations.md#count)
 
 성능 카운터와 같은 메트릭은 메트릭이라는 테이블에 저장됩니다. 각 행은 앱의 Application Insights SDK에서 수신된 원격 분석 데이터 요소입니다. 테이블이 얼마 큰지 알아내기 위해 단지 행을 세기만 하는 연산자에 테이블의 내용을 파이핑합니다.
 
@@ -50,9 +50,9 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 ![](./media/app-analytics-tour/010.png)
 
 	
-`Count`은 데이터를 파이프에 배열하고 여러 단계에 걸쳐 필터링, 변형 및 조인할 수 있는 많은 [쿼리 연산자](app-analytics-queries.md) 중 하나입니다.
+[`Count`](app-analytics-aggregations.md#count)은 데이터를 파이프에 배열하고 여러 단계에 걸쳐 필터링, 변형 및 조인할 수 있는 많은 [쿼리 연산자](app-analytics-queries.md) 중 하나입니다.
 	
-## 가져올 내용: n 개의 행 표시
+## [가져올 내용](app-analytics-aggregations.md#take): n개의 행 표시
 
 
 몇몇 데이터를 확인해 보겠습니다. - 샘플 5 행에 무엇이 있습니까?
@@ -75,7 +75,7 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 ![테이블을 선택하고 열을 구성](./media/app-analytics-tour/040.png)
 
 
-## Top 및 sort
+## [Top](app-analytics-aggregations.md#top) 및 [sort](app-analytics-aggregations.md#sort)
 
 `take`은 빨리 확인할 결과 샘플을 가져오는 데 유용하지만 테이블의 행을 특정 순서 없이 표시합니다. 순서가 지정된 보기를 가져오려면 `top`(샘플의 경우) 또는 `sort`(전체 테이블에 대해)을 사용합니다.
 
@@ -91,7 +91,7 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 
 ![](./media/app-analytics-tour/260.png)
 
-`top...`은 `sort ... | take...`를 설명하는 더 효율적인 방법입니다. 다음과 같이 작성했을 수도 있음:
+`top...`은 `sort ... | take...`를 설명하는 데 더 효율적입니다. 다음과 같이 작성했을 수도 있음:
 
 ```AIQL
 
@@ -103,9 +103,9 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 테이블 보기의 열 머리글을 사용하여 화면에서 결과를 정렬할 수도 있습니다. 하지만 물론 `take` 또는 `top`를 사용하여 테이블의 일부만 검색했다면 검색한 레코드의 순서만 변경될 것입니다.
 
 
-## 프로젝트: 열을 선택하고, 이름을 바꾸고 계산
+## [프로젝트](app-analytics-aggregations.md#project): 열을 선택하고, 이름을 바꾸고 계산
 
-`project`을 사용하여 원하는 열만 선택:
+[`project`](app-analytics-aggregations.md#project)을 사용하여 원하는 열만 선택:
 
 ```AIQL
 
@@ -133,14 +133,14 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 다음 스칼라 식에서:
 
 * `%`은 일반적인 모듈로 연산자입니다. 
-* `1d`(자릿수 한 개이며 'd' 한 개)은 하루를 의미하는 시간 범위 리터럴입니다. 시간 범위 리터럴 몇 가지 더: `12h`, `30m`, `10s`, `0.01s`.
-* `floor`(별칭 `bin`)은 값을 사용자가 제공하는 기저 값의 가장 가까운 낮은 배수로 반올림합니다. 따라서 `floor(aTime, 1s)`은 시간을 가장 가까운 초로 반올림합니다.
+* `1d`(자릿수 한 개로, 'd' 한 개)은 하루를 의미하는 시간 범위 리터럴입니다. 추가 시간 범위 리터럴: `12h`, `30m`, `10s`, `0.01s`
+* `floor`(별칭 `bin`)은 값을 사용자가 제공하는 기준 값의 가장 가까운 낮은 배수로 반올림합니다. 따라서 `floor(aTime, 1s)`은 시간을 가장 가까운 초로 반올림합니다.
 
 [식](app-analytics-scalars.md)은 모든 일반적인 연산자(`+`, `-`, ...)를 포함할 수 있으며 유용한 함수의 범위가 있습니다.
 
-## 확장: 열 계산
+## [확장](app-analytics-aggregations.md#extend): 열 계산
 
-단지 기존 열에 열을 추가하려면 `extend`을 사용:
+기존 열에 열을 추가하기만 하려면 [`extend`](app-analytics-aggregations.md#extend)를 사용합니다.
 
 ```AIQL
 
@@ -149,11 +149,11 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
     | extend timeOfDay = floor(timestamp % 1d, 1s)
 ```
 
-`extend`을 사용하면 기존의 열을 모두 유지하려는 경우 `project`보다 덜 자세합니다.
+기존 열을 모두 유지하려는 경우 [`extend`](app-analytics-aggregations.md#extend)를 사용하면 [`project`](app-analytics-aggregations.md#project)보다 덜 자세하게 나타납니다.
 
-## 요약: 행의 그룹 집계
+## [요약](app-analytics-aggregations.md#summarize): 행 그룹 집계
 
-테이블의 샘플을 살펴보면 서로 다른 원격 분석 데이터가 보고되는 필드를 확인할 수 있습니다. 예를 `exception | take 20`은 `outerExceptionType`라는 필드에 예외 메시지가 보고되었음을 신속하게 보여줍니다.
+테이블의 샘플을 살펴보면 서로 다른 원격 분석 데이터가 보고되는 필드를 확인할 수 있습니다. 예를 들어 `exception | take 20`은 `outerExceptionType`라는 필드에 예외 메시지가 보고되었음을 신속하게 보여줍니다.
 
 하지만 개별 인스턴스를 이동하는 대신에 각 형식의 보고된 예외 수를 물어 보겠습니다.
 
@@ -165,10 +165,10 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 
 ![](./media/app-analytics-tour/210.png)
 
-`Summarize`은 `by` 절의 명명된 필드에 같은 값을 가진 행을 그룹화하여 각 그룹에 대해 단일 결과 행을 생성합니다. 따라서 이 경우 각 예외 유형에 대해 한 개의 행이 있습니다. 집계 함수 `count()`은 각 그룹의 행 수를 계산하여 결과에 열을 제공합니다.
+`Summarize`는 `by` 절의 명명된 필드에 같은 값을 가진 행을 그룹화하여 각 그룹에 대해 단일 결과 행을 생성합니다. 따라서 이 경우 각 예외 유형에 대해 한 개의 행이 있습니다. 집계 함수 `count()`는 각 그룹의 행 수를 계산하여 결과에 열을 제공합니다.
 
 
-다양한 [집계 함수](app-analytics-aggregations.md)가 있으며 이 중 여러 개를 하나의 summarize 연산자에 사용하여 여러 개의 계산된 열을 생성할 수 있습니다.
+다양한 [집계 함수](app-analytics-aggregations.md)가 있으며 이 중 여러 개를 하나의 summarize 연산자에 사용하여 계산된 여러 개의 열을 생성할 수 있습니다.
 
 예를 들어 이러한 예외가 발생하는 HTTP 요청을 나열해 보겠습니다. 예외 테이블의 샘플을 다시 검사해 보면 `operation_Name`이라는 열에 HTTP 요청 경로가 보고된 것을 알 수 있습니다.
 
@@ -186,9 +186,9 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 
 summarize의 결과에 포함된 내용:
 
-* `by`에 명명된 각 열;
+* `by`에 명명된 각 열,
 * 그리고 각 집계 식에 대한 열;
-* 각 `by` 값 조합에 대한 행.
+* 각 `by` 값 조합에 대한 행
 
 
 ## 스칼라 값에 의해 요약
@@ -205,7 +205,7 @@ summarize의 결과에 포함된 내용:
 
 ![](./media/app-analytics-tour/225.png)
 
-`bin`은 모든 타임스탬프를 1일 간격으로 줄입니다. 이는 `floor`의 별칭이며, 대부분의 언어에 있는 유사한 함수입니다. 이는 단지 `summarize`이 감지 가능한 크기의 그룹에 행을 할당할 수 있도록 모든 값을 지정하는 모듈로의 가장 가까운 배수로 줄일 뿐입니다. (이 함수가 없으면 초의 서로 다른 소수 부분에 대해 결과 행이 있어야 하므로 데이터가 전혀 요약되지 않을 것입니다.)
+`bin`은 모든 타임스탬프를 1일 간격으로 줄입니다. 이는 `floor`의 별칭이며, 대부분의 언어에 있는 유사한 함수입니다. 이는 단지 `summarize`가 감지 가능한 크기의 그룹에 행을 할당할 수 있도록 모든 값을 지정하는 모듈로의 가장 가까운 배수로 줄일 뿐입니다. (이 함수가 없으면 초의 서로 다른 소수 부분에 대해 결과 행이 있어야 하므로 데이터가 전혀 요약되지 않을 것입니다.)
 
 여기서 테이블 보기보다 더 잘 수행할 수 있습니다. 세로 막대 옵션을 사용하여 차트 보기에서 결과를 살펴보겠습니다.
 
@@ -214,7 +214,7 @@ summarize의 결과에 포함된 내용:
 참고로 결과를 시간에 의해 정렬하지 않았지만(테이블 표시에서 확인 가능) 차트 표시는 언제나 날짜 및 시간을 정확한 순서로 표시합니다.
 
 
-## 여기서: 조건에 대한 필터링
+## [Where](app-analytics-aggregations.md#where): 조건에 대한 필터링
 
 앱의 [클라이언트](app-insights-javascript.md) 쪽과 서버 쪽에 대해 모두 Application Insights 모니터링을 설정했다면 데이터베이스의 일부 원격 분석은 브라우저에서 나왔을 것입니다.
 
@@ -233,10 +233,10 @@ summarize의 결과에 포함된 내용:
 `where` 연산자는 부울 식을 가져옵니다. 여기서 이에 관한 몇 가지 중요한 사항이 있습니다.
 
  * `and`, `or`: 부울 연산자
- * `==`, `<>` : 같음 및 같지 않음
- * `=~`, `!=` : 대/소문자 구분 문자열 같음 및 같지 않음. 더 많은 문자열 비교 연산자가 있습니다.
+ * `==`, `<>`: 같음 및 같지 않음
+ * `=~`, `!=`: 대/소문자 구분 문자열 같음 및 같지 않음 더 많은 문자열 비교 연산자가 있습니다.
 
-모든 연산자에 대해서는 [스칼라 식](app-analytics-scalars.md)에서 확인하세요.
+[스칼라 식](app-analytics-scalars.md)에 대한 모든 내용을 읽어보세요.
 
 ### 이벤트 필터링
 
@@ -248,7 +248,7 @@ summarize의 결과에 포함된 내용:
     | where isnotempty(resultCode) and toint(resultCode) >= 400
 ```
 
-`responseCode`은 형식 문자열을 가지고 있으므로 숫자 비교를 위해서는 [이를 캐스트](app-analytics-scalars.md#casts)해야 합니다.
+`responseCode`는 형식 문자열을 가지고 있으므로 숫자 비교를 위해서는 [캐스트](app-analytics-scalars.md#casts)해야 합니다.
 
 서로 다른 응답 요약:
 
@@ -279,7 +279,7 @@ summarize의 결과에 포함된 내용:
 
 ## 여러 계열 
 
-`summarize by` 절에 여러 값을 사용하여 각 값 조합에 대해 별도의 행을 생성:
+`summarize by` 절에 여러 값을 사용하여 각 값 조합에 대해 별도의 행을 생성합니다.
 
 ```AIQL
 
@@ -290,7 +290,7 @@ summarize의 결과에 포함된 내용:
 
 ![](./media/app-analytics-tour/090.png)
 
-차트에 여러 줄을 표시하려면 **분할 기준**을 클릭하고 열을 선택 합니다.
+차트에 여러 줄을 표시하려면 **분할 기준**을 클릭하고 열을 선택합니다.
 
 ![](./media/app-analytics-tour/100.png)
 
@@ -357,7 +357,7 @@ summarize의 결과에 포함된 내용:
 
 
 
-## 백분위수
+## [백분위수](app-analytics-aggregations.md#percentiles)
 
 서로 다른 세션 백분위수를 다루는 기간 범위는 무엇입니까?
 
@@ -403,11 +403,11 @@ summarize의 결과에 포함된 내용:
 ![](./media/app-analytics-tour/190.png)
 
 
-## Join
+## [Join](app-analytics-aggregations.md#join)
 
-메트릭, 예외 및 이벤트의 테이블 세 개에 액세스해야 합니다. `event`은 요청 보고서, 페이지 보기, 사용자 지정 이벤트 등을 포함합니다.
+요청 및 예외를 비롯한 일부 테이블에 액세스할 수 있습니다.
 
-실패 응답을 반환하는 요청과 관련된 예외를 찾기 위해 `session_Id`에 대해 테이블을 조인할 수 있음:
+실패 응답을 반환하는 요청과 관련된 예외를 찾으려면 `session_Id`에 대해 테이블을 조인할 수 있습니다.
 
 ```AIQL
 
@@ -418,11 +418,11 @@ summarize의 결과에 포함된 내용:
 ```
 
 
-조인을 수행하기 전에 `project`을 사용하여 필요한 열만 선택하는 것이 좋은 방식입니다. 동일한 절에서 타임스탬프 열의 이름을 바꿉니다.
+조인을 수행하기 전에 `project`을 사용하여 필요한 열만 선택하는 것이 좋습니다. 동일한 절에서 타임스탬프 열의 이름을 바꿉니다.
 
 
 
-## Let: 변수에 결과 할당
+## [Let](app-analytics-aggregations.md#let): 변수에 결과 할당
 
 [let](./app-analytics-syntax.md#let-statements)을 사용하여 이전 식의 부분을 분리합니다. 결과는 변하지 않음:
 
@@ -441,4 +441,4 @@ summarize의 결과에 포함된 내용:
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

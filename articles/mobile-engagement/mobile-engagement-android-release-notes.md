@@ -13,11 +13,16 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="02/01/2016"
+	ms.date="03/10/2016"
 	ms.author="piyushjo" />
 
 
 #릴리스 정보
+
+##4\.2.0(2016/03/11)
+
+- SDK는 이제 MIT에 따라 사용이 허가됩니다.
+- SDK 초기화 시에 사용자 지정 장치 식별자를 지정할 수 있습니다.
 
 ##4\.1.5(2016/02/01)
 
@@ -65,4 +70,4 @@
 -   보안이 개선되었습니다.
 -   Google Play 및 SmartAd 추적을 제거했습니다.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

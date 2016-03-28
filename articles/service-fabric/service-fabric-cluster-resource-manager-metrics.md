@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure 서비스 패브릭 클러스터 리소스 관리자를 사용한 메트릭 관리"
+   pageTitle="Azure 서비스 패브릭 클러스터 리소스 관리자를 사용한 메트릭 관리 | Microsoft Azure"
    description="서비스 패브릭에서 메트릭을 구성하고 사용하는 방법에 대해 알아봅니다."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/03/2016"
+   ms.date="03/10/2016"
    ms.author="masnider"/>
 
-# 메트릭
+# 메트릭을 사용하여 서비스 패브릭에서 리소스 부하 및 소비 관리
 메트릭은 서비스가 고려하는 리소스에 대한 서비스 패브릭 내의 일반적인 용어입니다. 일반적으로 메트릭은 서비스의 성능을 다루기 위해 리소스의 면에서 관리하려는 모든 항목입니다.
 
 위의 모든 예제에서 메트릭을 암시적으로 참조했습니다. 메모리, 디스크, CPU 사용량은 모두 메트릭의 예입니다. 앞서 언급한 항목이 관리되어야 하는 노드에서 실제 리소스에 해당하는 실제 메트릭인 리소스입니다. 메트릭은 응용 프로그램이 정의하고 리소스 사용의 일정 수준에 해당하는 "MyWorkQueueDepth"와 같은 논리 메트릭일 수도 있습니다.(그럼에도 응용 프로그램이 실제로 알지 못하거나 측정 방법을 모를 수 있습니다.)
@@ -109,7 +109,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ## 부하
 부하는 지정된 메트릭이 지정된 노드에서 일부 서비스 인스턴스 또는 복제본에 의해 소비되는 양의 일반적인 개념입니다.
 
-### 기본 부하
+## 기본 부하
 기본 부하는 리소스 관리자가 각 서비스 인스턴스 또는 이 서비스의 복제본에서 실제 서비스 인스턴스 또는 복제본의 업데이트를 수신할 때까지 사용한다고 가정해야 하는 부하의 양입니다. 간단한 서비스의 경우 동적으로 업데이트되지 않고 따라서 서비스의 수명 동안 사용할 수 있는 정적 정의가 됩니다. 특정 워크로드에 특정 리소스를 지정하는 작업은 익숙하게 수행해왔기 때문에 간단한 용량 계획을 정확히 수행합니다. 이점은 적어도 이제 마이크로 서비스 사고 방식으로 작업하여 리소스가 특정 작업 부하에 실제로 정적으로 할당되지 않고 사람들이 의사 결정 루프에 머물지 않는다는 점입니다.
 
 상태 저장 서비스가 기본 복제본 및 보조 복제본에 기본 부하를 지정할 수 있습니다. 현실적으로 상당수의 서비스에서 이러한 숫자가 기본 복제본과 보조 복제본에 의해 수행되는 다른 워크로드로 인해 달라지고 기본 복제본이 일반적으로 읽기 및 쓰기를 모두 제공(뿐만 아니라 많은 컴퓨팅 부담도 있음)하므로 기본 복제본에 대한 기본 부하가 보조 복제본보다 높기 때문입니다
@@ -117,7 +117,6 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 하지만 서비스를 한동안 실행했고 서비스의 일부 인스턴스 또는 복제본이 다른 인스턴스 또는 복제본 보다 더 많은 리소스를 사용하거나 시간에 따라 소비량이 달라진다고 가정하겠습니다. 아마도 해당 항목이 특정 고객과 연결되어 있거나 메시징 트래픽 또는 주식 거래와 같이 하루에 따라 달라지는 워크로드에 해당할 수 있습니다. 어쨌든 상당한 양에도 꺼지지 않고 부하에 사용할 수 있는 "단일 숫자"는 없습니다. 또한 초기 예상 결과에서 "꺼짐"은 서비스에 초과 또는 미만으로 리소스를 할당하는 서비스 패브릭을 발생시키고 결과적으로 초과 또는 미달되게 활용된 노드가 있습니다. 그렇다면 어떻게 해야 할까요? 물론 서비스가 즉석에서 부하를 보고할 수 있습니다!
 
 ## 동적 부하
-
 동적 부하 보고서를 사용하면 복제본 또는 인스턴스가 수명에 걸쳐 클러스터에서 메트릭의 해당 할당/보고된 사용을 조정할 수 있습니다. 사용 중인 복제본 또는 인스턴스 보고서는 많은 리소스를 사용한다고 보고하는 반면 콜드 상태이고 작업을 수행하지 않는 서비스 복제본 또는 인스턴스는 일반적으로 낮은 양의 리소스를 사용 중이라고 보고합니다. 이 클러스터의 일반적인 변동 수준을 통해 서비스 및 인스턴스가 필요한 리소스를 가져오도록 하기 위해 클러스터에서 서비스 복제본 및 인스턴스를 즉시 다시 구성할 수 있습니다. 이 영향으로 사용 중인 서비스가 현재 콜드 또는 더 적은 작업을 수행하는 복제본 또는 인스턴스에서 리소스를 회수할 수 있게 됩니다. 즉석에서 부하를 보고하는 작업은 ReportLoad 메서드를 통해 ServicePartition에서 기본 StatefulService의 속성으로 사용할 수 있습니다. 서비스 내의 코드는 다음과 같습니다.
 
 코드:
@@ -128,6 +127,7 @@ this.ServicePartition.ReportLoad(new List<LoadMetric> { new LoadMetric("Memory",
 
 서비스 복제본 또는 인스턴스는 메트릭에 대해 부하가 사용되도록 구성되었다고 보고할 수 있습니다. 메트릭 목록은 각 서비스를 만들 때 설정됩니다. 서비스 복제본 또는 인스턴스가 메트릭에 대한 부하가 현재 사용되도록 구성되지 않았다고 보고하려는 경우 서비스 패브릭 보고서는 보고서를 기록하지만 무시하며 이는 클러스터의 상태에 대해 계산하거나 보고하는 경우 사용하지 않겠다는 의미입니다. 큰 실험에서 허용되기 때문에 깔끔합니다. 코드는 방법을 알고 있는 모든 것에 대해 측정하고 보고할 수 있습니다. 또한 연산자는 코드를 변경하지 않고 즉시 해당 서비스에 대한 규칙을 분산하는 리소스의 부하를 분산하고 조정하며 업데이트할 수 있습니다. 예를 들어, 버그가 있는 보고서로 메트릭을 비활성화하거나 동작을 기반으로 메트릭의 가중치를 다시 구성하거나 코드가 이미 배포되어 유효성을 검사한 후에 새 메트릭을 사용하는 작업을 포함할 수 있습니다.
 
+## 기본 부하 값 및 동적 부하 보고서 혼합
 부하를 동적으로 보고하려는 서비스에 지정된 기본 부하가 있는 것이 합리적인가요? 그렇습니다. 이 경우에 실제 보고서가 실제 서비스 복제본 또는 인스턴스에서 표시되기 시작할 때까지 기본 부하는 예상치로 사용됩니다. 생성 시 복제본 또는 인스턴스를 배치할 때 리소스 관리자가 다루어야 할 사항을 제공하기 때문에 유용합니다. 기본 부하를 초기 예측으로 사용하여 리소스 관리자가 인스턴스 또는 복제본을 처음부터 좋은 위치에 배치할 수 있습니다. 제공된 정보가 없는 경우 배치가 사실상 임의로 지정되고 실제 부하 보고서가 들어오기 시작하는 즉시 항목을 이동해야 합니다.
 
 이전 예제를 사용하여 일부 사용자 지정 부하를 추가한 다음 서비스를 만든 후에 업데이트를 동적으로 가져올 때 어떻게 되는지 확인합니다. 이 예제에서는 "메모리"를 예로 사용하고 다음 명령을 사용하여 상태 저장 서비스를 처음 만들었다고 가정하겠습니다.
@@ -145,6 +145,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ![기본 및 사용자 지정 메트릭으로 클러스터 부하 분산][Image2]
 
 주목할 만한 몇 가지가 있습니다.
+
 -	복제본 또는 인스턴스가 고유한 부하를 보고할 때까지 서비스의 기본 부하를 사용하기 때문에 상태 저장 서비스의 파티션 1 내부에 있는 복제본은 자체적으로 부하를 보고하지 않았습니다.
 -	파티션 내 보조 복제본은 고유한 부하를 가질 수 있습니다.
 -	전반적인 메트릭이 매우 훌륭합니다. 1.75(메모리에 대한 최대 노드를 가진 노드는 N3이며 최소는 N2, 또한 28/16 = 1.75임)의 요인인 노드(메모리의 경우 - 가장 고려한다고 언급한 사용자 지정 메트릭)의 최대 및 최소 부하 간의 차이도 균형잡혀 있습니다.
@@ -183,17 +184,16 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 
 메트릭 가중치를 고려해서 전역 부하 분산은 메트릭 가중치의 평균에 따라 계산됩니다. 고유하게 정의된 메트릭 가중치와 관련하여 서비스를 부하를 분산합니다.
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 다음 단계
-- [서비스 구성에 대해 알아보기](service-fabric-cluster-resource-manager-configure-services.md)
-- [조각 모음 매트릭에 대해 알아보기](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-- [클러스터에서 클러스터 리소스 관리자가 부하를 분산하는 방법 알아보기](service-fabric-cluster-resource-manager-balancing.md)
-- [서비스 패브릭 클러스터 리소스 관리자 소개](service-fabric-cluster-resource-manager-introduction.md)
-- [서비스 이동 비용에 대해 알아보기](service-fabric-cluster-resource-manager-movement-cost.md)
+- 서비스 구성에 사용할 수 있는 기타 옵션에 대한 자세한 내용은 [서비스 구성에 대해 알아보기](service-fabric-cluster-resource-manager-configure-services.md)에서 다른 클러스터 리소스 관리자 구성에 대한 항목을 확인하세요.
+- 조각 모음 메트릭 정의는 노드의 부하를 분배하는 대신 통합하는 한 가지 방법입니다. 조각 모음을 구성하는 방법에 대해 알아보려면 [이 문서](service-fabric-cluster-resource-manager-defragmentation-metrics.md)를 참조하세요.
+- 클러스터 리소스 관리자가 클러스터의 부하를 관리하고 분산하는 방법을 알아보려면 [부하 분산](service-fabric-cluster-resource-manager-balancing.md)에 대한 문서를 확인하세요.
+- 처음부터 시작 및 [서비스 패브릭 클러스터 리소스 관리자 소개](service-fabric-cluster-resource-manager-introduction.md)
+- 이동 비용은 특정 서비스가 다른 서비스에 비해 이동하는 데 비용이 더 많이 드는 것을 클러스터 리소스 관리자에게 알리는 한 가지 방법입니다. 이동 비용에 대한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-movement-cost.md)를 참조하세요.
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-cluster-layout-with-default-metrics.png
 [Image2]: ./media/service-fabric-cluster-resource-manager-metrics/Service-Fabric-Resource-Manager-Dynamic-Load-Reports.png
 [Image3]: ./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-metric-weights-impact.png
 [Image4]: ./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-global-vs-local-balancing.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -1,6 +1,6 @@
 <properties
    pageTitle="리소스 분산 장치 클러스터 설명 | Microsoft Azure"
-   description="리소스 분산 장치에 대해 장애 도메인, 업그레이드 도메인, 노드 속성, 노드 용량을 지정하여 서비스 패브릭 클러스터를 설명합니다."
+   description="클러스터 리소스 관리자에 대해 장애 도메인, 업그레이드 도메인, 노드 속성, 노드 용량을 지정하여 서비스 패브릭 클러스터를 설명합니다."
    services="service-fabric"
    documentationCenter=".net"
    authors="masnider"
@@ -13,22 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/03/2016"
+   ms.date="03/10/2016"
    ms.author="masnider"/>
 
 # 서비스 패브릭 클러스터 설명
-
 서비스 패브릭 클러스터 리소스 관리자는 클러스터를 설명하는 몇 가지 메커니즘을 제공합니다. 런타임 중에 리소스 관리자는 이 정보를 제공하여 클러스터에서 실행되는 서비스의 높은 가용성을 보장하고 동시에 클러스터의 리소스가 적절하게 사용되도록 합니다.
 
 ## 주요 개념
 클러스터를 설명하는 클러스터 리소스 관리자 기능은 다음과 같습니다.
+
 - 장애 도메인
 - 업그레이드 도메인
 - 노드 속성
 - 노드 용량
 
-### 장애 도메인
-
+## 장애 도메인
 장애 도메인은 통합된 오류는 영역입니다. 단일 컴퓨터는 장애 도메인입니다(전원 공급 장치 오류, 드라이브 오류, 잘못된 NIC 펌웨어 등 여러 이유로 멈출 수 있기 때문). 동일한 이더넷 스위치에 연결된 다수의 컴퓨터는 하나의 전원에 연결되어 있는 컴퓨터처럼 동일한 장애 도메인에 있는 것입니다.
 
 사용자 고유의 클러스터를 설정 된 경우 모든 실패 영역을 고려하여 장애 도메인이 올바르게 설정되었는지 확인하여 서비스 패브릭이 서비스를 안전하게 배치했던 위치를 알 수 있도록 합니다. "안전하게"는 실제로 스마트하게 라는 의미로, 장애 도메인이 손실되어 서비스가 정지하는 위치에 서비스를 배치하면 안 됩니다. Azure 환경에서, 사용자 대신 클러스터의 노드를 올바르게 구성하기 위해 Azure 패브릭 컨트롤러/리소스 관리자가 제공하는 장애 도메인 정보를 활용하겠습니다. 아래 그림(그림 7)에서는 간단한 예로서 장애 도메인을 발생시키는 모든 엔터티에 색을 넣고 발생한 여러 장애 도메인을 모두 나열합니다. 이 예제에는 데이터센터(DC), 랙(R) 및 블레이드(B)가 있습니다. 각 블레이드에 하나 이상의 가상 컴퓨터가 있는 경우 장애 도메인 계층 구조에 또 다른 계층이 있다고 볼 수 있습니다.
@@ -45,8 +44,7 @@
 
  ![두 개의 다른 클러스터 레이아웃][Image2]
 
-### 업그레이드 도메인
-
+## 업그레이드 도메인
 업그레이드 도메인은 서비스 패브릭 리소스 관리자가 실패에 대해 계획을 세울 수 있도록 클러스터의 레이아웃을 이해하는 데 도움을 주는 또 다른 기능입니다. 업그레이드 도메인은 업그레이드함과 동시에 작동이 멈추는 영역(실제 노드 설정)을 정의합니다.
 
 업그레이드 도메인은 장애 도메인과 많이 닮았지만 몇 가지 주요 차이점이 있습니다. 첫째, 업그레이드 도메인은 일반적으로 정책에 의해 정의되는 반면, 장애 도메인은 조정된 오류의 영역에서 엄격하게 정의됩니다(주로 환경의 하드웨어 레이아웃). 그러나 업그레이드 도메인의 경우 몇 개나 필요한지 결정하게 됩니다. 또 다른 차이점으로는 적어도 지금은 업그레이드 도메인은 계층 구조가 아닙니다. 계층 구조라기보다는 간단한 태그에 더 가깝습니다.
@@ -159,7 +157,7 @@ Update-ServiceFabricService -Stateful -ServiceName $serviceName -PlacementConstr
 
 배치 제약 조건(곧 설명할 여러 속성과 포함)은 모든 여러 가지 서비스 인스턴스에 대해 지정됩니다. 업데이트는 이전에 지정된 것에 대해 항상 수행(덮어쓰기)됩니다.
 
-### 용량
+## 용량
 모든 조정자의 가장 중요한 작업 중 하나는 클러스터에서 리소스 소비를 관리할 수 있도록 돕는 일입니다. 서비스를 효율적으로 실행하려는 경우 마지막으로 해야 할 일은 자주 사용되는 노드(리소스 경합 및 성능 저하로 이어짐)와 자주 사용되지 않는 노드(리소스 낭비)를 구분하는 것입니다. 하지만 분산(곧 다룰 예정)보다 좀더 기본적인 것을 생각해 보겠습니다. 먼저 노드가 리소스를 소모하지 않는 경우는 어떨까요?
 
 서비스 패브릭은 "메트릭"이라는 리소스를 나타냅니다. 메트릭은 서비스 패브릭에 대해 설명하려는 논리적 또는 물리적 리소스입니다. 메트릭의 예로는 "WorkQueueDepth" 또는 "MemoryInMb" 등이 있습니다. 메트릭은 해당 노드 속성의 제약 조건 및 노드 속성과 다르며 일반적으로 노드 자체의 정적인 설명자이고, 동시에 노드에서 실행되고 있을 때 서비스가 소비하는 물리적 리소스에 관한 것입니다. 속성은 HasSSD와 같은 것으로 True 또는 False로 지정할 수 있지만, 해당 SSD에 서 사용 가능한 공간(서비스에서 사용)의 크기는 "DriveSpaceInMb"와 같은 메트릭일 것입니다. 노드 용량은 "DriveSpaceInMb"를 드라이브의 예약되지 않은 공간의 총 크기로 설정하고 서비스는 런타임 시 메트릭의 사용량을 보고합니다.
@@ -204,8 +202,7 @@ ClusterManifest.xml
 
 또한 서비스의 부하를 동적으로 변경할 수도 있습니다. 이 경우 해당 노드의 모든 복제본 및 인스턴스의 총 사용량이 해당 노드의 용량을 초과하여 복제본 또는 인스턴스가 현재 배치된 위치를 사용할 수 없게 될 수 있습니다. 부하가 동적으로 변경되는 이 시나리오에 대한 나중에 자세히 설명할 것이지만, 용량에 관한 한 동일하게 처리됩니다. 즉, 서비스 패브릭 리소스 관리는 자동으로 시작되고 하나 이상의 복제본 또는 인스턴스를 해당 노드에서 다른 노드로 이동시켜 노드의 최대 용량 아래로 낮춥니다. 이 작업을 수행하는 경우 리소스 관리자는 모든 움직임에 따른 비용을 최소화하려 합니다(비용의 개념은 나중에 설명).
 
-###클러스터 용량
-
+##클러스터 용량
 그렇다면 전체 클러스터 용량이 꽉 차지 않도록 하려면 어떻게 해야 합니까? 동적 부하의 경우 실제로 할 수 있는 일이 별로 없지만(리소스 관리자에서 수행된 작업과 관계 없이 서비스는 부하가 최대로 증가할 수 있습니다. 즉, 오늘은 여유가 많은 클러스터가 내일은 수요가 많아져 전력이 부족해질 수 있기 때문), 기본적인 오류를 방지하기 위해 내장된 컨트롤이 몇 가지 있습니다. 가장 먼저 할 수 있는 작업은 클러스터가 꽉 차도록 만드는 워크로드가 생성되지 않도록 하는 것입니다.
 
 간단한 상태 비저장 서비스를 만들기로 이동하고 이와 관련된 일부 부하가 있다고 가정해 보겠습니다(기본 및 동적 부하 보고에 대해서는 나중에 자세히 설명). 이 서비스의 경우, 일부 리소스(DiskSpace라고 가정)를 관리하고 서비스의 모든 인스턴스에 대해 기본적으로 5단위의 DiskSpace를 소비한다고 가정해 보겠습니다. 3개의 서비스 인스턴스를 만들려고 합니다. 잘하셨습니다. 즉, 이들 서비스 인스턴스를 만들기 위해서는 클러스터에 15단위의 DiskSpace가 필요하다는 의미입니다. 서비스 패브릭은 각 메트릭의 전체 용량 및 소비량을 계속 계산하여 쉽게 결정할 수 있으며 공간이 부족한 경우 서비스 호출을 거부할 수 있습니다.
@@ -251,11 +248,11 @@ LoadMetricInformation     :
                             MaxNodeLoadNodeId     : 2cc648b6770be1bc9824fa995d5b68b1
 ```
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 다음 단계
-- [클러스터 리소스 관리자 아키텍처에 대해 알아보기](service-fabric-cluster-resource-manager-architecture.md)
-- [조각 모음 매트릭에 대해 알아보기](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-- [서비스 패브릭 클러스터 리소스 관리자 소개](service-fabric-cluster-resource-manager-introduction.md)
+- 클러스터 리소스 관리자 내의 아키텍처 및 정보 흐름에 대한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-architecture.md)를 확인하세요.
+- 조각 모음 메트릭 정의는 노드의 부하를 분배하는 대신 통합하는 한 가지 방법입니다. 조각 모음을 구성하는 방법에 대해 알아보려면 [이 문서](service-fabric-cluster-resource-manager-defragmentation-metrics.md)를 참조하세요.
+- 처음부터 시작 및 [서비스 패브릭 클러스터 리소스 관리자 소개](service-fabric-cluster-resource-manager-introduction.md)
+- 클러스터 리소스 관리자가 클러스터의 부하를 관리하고 분산하는 방법을 알아보려면 [부하 분산](service-fabric-cluster-resource-manager-balancing.md)에 대한 문서를 확인하세요.
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-fault-domains.png
 [Image2]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-uneven-fault-domain-layout.png
@@ -265,4 +262,4 @@ LoadMetricInformation     :
 [Image6]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-placement-constraints-node-properties.png
 [Image7]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-nodes-and-capacity.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

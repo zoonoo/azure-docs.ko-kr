@@ -22,9 +22,7 @@
 
 이 문서에서는 API 앱 트리거를 구현하고 논리 앱에서 이를 사용하는 방법을 설명합니다.
 
-[Azure 앱 서비스](../app-service/app-service-value-prop-what-is.md)에서 [API 앱](app-service-api-apps-why-best-platform.md)을 처음 사용하는 경우, [API 앱 만들기](app-service-dotnet-create-api-app.md)에서 여러 요소 시리즈를 읽는 것이 좋습니다.
-
-또한 이 항목의 모든 코드 조각은 [FileWatcher API 앱 코드 샘플](http://go.microsoft.com/fwlink/?LinkId=534802)에서 복사할 수 있습니다.
+이 항목의 모든 코드 조각은 [FileWatcher API 앱 코드 샘플](http://go.microsoft.com/fwlink/?LinkId=534802)에서 복사할 수 있습니다.
 
 이 문서의 코드를 빌드 및 실행하려면 nuget 패키지 [http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/)를 다운로드해야 합니다.
 
@@ -341,4 +339,4 @@ API 앱에 트리거를 추가한 후에는 몇 가지 작업을 통해 논리 �
     }
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0316_2016-->

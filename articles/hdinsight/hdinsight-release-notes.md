@@ -14,11 +14,30 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/27/2016"
+	ms.date="03/10/2016"
 	ms.author="nitinme"/>
 
 
 # Azure HDInsight에서 Hadoop 구성 요소에 대한 릴리스 정보
+
+## HDInsight의 2016/03/10 릴리스 정보
+
+이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
+
+* HDInsight(Windows) 2.1.10.859.2123216(HDP 1.3.12.0-01795 - 변경되지 않음)
+* HDInsight(Windows) 3.0.6.859.2123216(HDP 2.0.13.0-2117 - 변경되지 않음)
+* HDInsight(Windows) 3.1.4.859.2123216(HDP 2.1.15.0-2374 - 변경되지 않음)
+* HDInsight(Windows) 3.2.7.859.2123216(HDP 2.2.9.1-7)
+* HDInsight(Windows) 3.3.0.859.2123216(HDP 2.3.3.1-5 - 변경되지 않음)
+* HDInsight(Linux) 3.2.1000.7076817(HDP 2.2.9.1-8)
+* HDInsight(Linux) 3.3.1000.7076817(HDP 2.3.3.1-7)
+* SDK 1.5.8
+
+이 릴리스에는 다음 업데이트가 포함되어 있습니다.
+
+| 제목 | 설명 | 영향을 받는 영역(예: 서비스, 구성 요소 또는 SDK) | 클러스터 유형(예: Hadoop, HBase 또는 Storm) | JIRA(적용 가능한 경우) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| 모든 HDInsight 클러스터에 대해 HDInsight 버전 업데이트됨 | 이 릴리스에서는 모든 HDInsight 클러스터에 대해 HDInsight 버전을 업데이트함| 부여 | 모두| 해당 없음
 
 ## HDInsight의 2016/01/27 릴리스 정보
 
@@ -1184,7 +1203,19 @@ Apache Mahout는 Apache Hadoop 기계 학습 라이브러리입니다. Mahout에
 
 * HDInsight 클러스터의 기본 배포에 대해 새 메모리 설정이 제공됩니다. 이전의 기본 메모리 설정에서는 배포 중인 CPU 코어 수에 대한 지침을 적절하게 고려하지 않았습니다. 이러한 새 메모리 설정은 Hortonworks 권장 사항에 따라 향상된 기본값을 제공합니다. 이를 변경하려면 클러스터 구성 변경에 대한 SDK 참조 설명서를 참조하세요. 아래 표에는 기본 4개 CPU 코어(8개 컨테이너) HDInsight 클러스터에서 사용되는 새 메모리 설정이 개별 항목으로 나와 있습니다. 이 릴리스 이전에 사용되었던 값도 괄호 안에 나와 있습니다.
 
-<table border="1"> <tr><th>구성 요소</th><th>메모리 할당</th></tr> <tr><td> yarn.scheduler.minimum-allocation</td><td>768MB(이전에는 512MB)</td></tr> <tr><td> yarn.scheduler.maximum-allocation</td><td>6144MB(변경되지 않음)</td></tr> <tr><td>yarn.nodemanager.resource.memory</td><td>6144MB(변경되지 않음)</td></tr> <tr><td>mapreduce.map.memory</td><td>768MB(이전에는 512MB)</td></tr> <tr><td>mapreduce.map.java.opts</td><td>opts=-Xmx512m(이전에는 -Xmx410m)</td></tr> <tr><td>mapreduce.reduce.memory</td><td>1536MB(이전에는 1024MB)</td></tr> <tr><td>mapreduce.reduce.java.opts</td><td>opts=-Xmx1024m(이전에는 -Xmx819m)</td></tr> <tr><td>yarn.app.mapreduce.am.resource</td><td>768MB(이전에는 1024MB)</td></tr> <tr><td>yarn.app.mapreduce.am.command</td><td>opts=-Xmx512m(이전에는 -Xmx819m)</td></tr> <tr><td>mapreduce.task.io.sort</td><td>256MB(이전에는 200MB)</td></tr> <tr><td>tez.am.resource.memory</td><td>1536MB(변경되지 않음)</td></tr>
+<table border="1">
+<tr><th>구성 요소</th><th>메모리 할당</th></tr>
+<tr><td> yarn.scheduler.minimum-allocation</td><td>768MB(이전에는 512MB)</td></tr>
+<tr><td> yarn.scheduler.maximum-allocation</td><td>6144MB(변경되지 않음)</td></tr>
+<tr><td>yarn.nodemanager.resource.memory</td><td>6144MB(변경되지 않음)</td></tr>
+<tr><td>mapreduce.map.memory</td><td>768MB(이전에는 512MB)</td></tr>
+<tr><td>mapreduce.map.java.opts</td><td>opts=-Xmx512m(이전에는 -Xmx410m)</td></tr>
+<tr><td>mapreduce.reduce.memory</td><td>1536MB(이전에는 1024MB)</td></tr>
+<tr><td>mapreduce.reduce.java.opts</td><td>opts=-Xmx1024m(이전에는 -Xmx819m)</td></tr>
+<tr><td>yarn.app.mapreduce.am.resource</td><td>768MB(이전에는 1024MB)</td></tr>
+<tr><td>yarn.app.mapreduce.am.command</td><td>opts=-Xmx512m(이전에는 -Xmx819m)</td></tr>
+<tr><td>mapreduce.task.io.sort</td><td>256MB(이전에는 200MB)</td></tr>
+<tr><td>tez.am.resource.memory</td><td>1536MB(변경되지 않음)</td></tr>
 
 </table><br>
 
@@ -1238,7 +1269,11 @@ HDInsight SDK 및 Azure PowerShell의 최신 버전에서는 이러한 호환성
 * HDInsight 버전 1.6(HDP 1.1 및 Hadoop 1.0.3) 및 HDInsight 버전 2.1(HDP 1.3 및 Hadoop 1.2)이 Azure 포털에서 제거됩니다. Azure PowerShell cmdlet([New-AzureRmHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx)) 또는 [HDInsight SDK](http://msdn.microsoft.com/library/azure/dn469975.aspx)를 사용하여 계속 Hadoop 클러스터를 만들 수 있습니다. 자세한 내용은 [HDInsight 구성 요소 버전](../hdinsight-component-versioning/) 페이지를 참조하세요.
 * 이 릴리스의 HDP(Hortonworks Data Platform) 변경 내용:
 
-<table border="1"> <tr><th>HDP</th><th>Changes</th></tr> <tr><td>HDP 1.3 / HDI 2.1</td><td>변경 내용 없음</td></tr> <tr><td>HDP 2.0 / HDI 3.0</td><td>변경 내용 없음</td></tr> <tr><td>HDP 2.1 / HDI 3.1</td><td>zookeeper: ['3.4.5.2.1.3.0-1948'] -> ['3.4.5.2.1.3.2-0002']</td></tr>
+<table border="1">
+<tr><th>HDP</th><th>변경 내용</th></tr>
+<tr><td>HDP 1.3 / HDI 2.1</td><td>변경 내용 없음</td></tr>
+<tr><td>HDP 2.0 / HDI 3.0</td><td>변경 내용 없음</td></tr>
+<tr><td>HDP 2.1 / HDI 3.1</td><td>zookeeper: ['3.4.5.2.1.3.0-1948'] -> ['3.4.5.2.1.3.2-0002']</td></tr>
 
 
 </table><br>
@@ -1295,9 +1330,30 @@ Oozie Metastore는 특정 클러스터에 연결되며 클러스터 간에 공�
 
 **포트**: HDInsight 서비스에 사용되는 포트가 변경되었습니다. 기존에 사용하는 포트 번호는 Windows 운영 체제의 사용 후 삭제되는 포트 범위 내에 있었습니다. 포트는 수명이 짧은 인터넷 프로토콜 기반 통신용으로 미리 정의된 사용 후 삭제되는 범위에서 자동으로 할당됩니다. 허용되는 새로운 HDP(Hortonworks Data Platform) 서비스 포트 집합은 이 범위를 벗어나므로 헤드 노드에서 실행 중인 서비스에 사용되는 포트로 인해 발생할 수 있는 충돌을 방지합니다. 새로운 포트 번호로 인한 특별한 변경은 없습니다. 사용되는 번호는 다음과 같습니다.
 
- **HDInsight 1.6(HDP 1.1)** <table border="1"> <tr><th>이름</th><th>값</th></tr> <tr><td>dfs.http.address</td><td>namenodehost:30070</td></tr> <tr><td>dfs.datanode.address</td><td>0.0.0.0:30010</td></tr> <tr><td>dfs.datanode.http.address</td><td>0.0.0.0:30075</td></tr> <tr><td>dfs.datanode.ipc.address</td><td>0.0.0.0:30020</td></tr> <tr><td>dfs.secondary.http.address</td><td>0.0.0.0:30090</td></tr> <tr><td>mapred.job.tracker.http.address</td><td>jobtrackerhost:30030</td></tr> <tr><td>mapred.task.tracker.http.address</td><td>0.0.0.0:30060</td></tr> <tr><td>mapreduce.history.server.http.address</td><td>0.0.0.0:31111</td></tr> <tr><td>templeton.port</td><td>30111</td></tr> </table><br>
+ **HDInsight 1.6(HDP 1.1)** <table border="1">
+<tr><th>이름</th><th>값</th></tr>
+<tr><td>dfs.http.address</td><td>namenodehost:30070</td></tr>
+<tr><td>dfs.datanode.address</td><td>0.0.0.0:30010</td></tr>
+<tr><td>dfs.datanode.http.address</td><td>0.0.0.0:30075</td></tr>
+<tr><td>dfs.datanode.ipc.address</td><td>0.0.0.0:30020</td></tr>
+<tr><td>dfs.secondary.http.address</td><td>0.0.0.0:30090</td></tr>
+<tr><td>mapred.job.tracker.http.address</td><td>jobtrackerhost:30030</td></tr>
+<tr><td>mapred.task.tracker.http.address</td><td>0.0.0.0:30060</td></tr>
+<tr><td>mapreduce.history.server.http.address</td><td>0.0.0.0:31111</td></tr>
+<tr><td>templeton.port</td><td>30111</td></tr>
+</table><br>
 
- **HDInsight 3.1 및 3.0(HDP 2.1 및 2.0)** <table border="1"> <tr><th>이름</th><th>값</th></tr> <tr><td>dfs.namenode.http-address</td><td>namenodehost:30070</td></tr> <tr><td>dfs.namenode.https-address</td><td>headnodehost:30470</td></tr> <tr><td>dfs.datanode.address</td><td>0.0.0.0:30010</td></tr> <tr><td>dfs.datanode.http.address</td><td>0.0.0.0:30075</td></tr> <tr><td>dfs.datanode.ipc.address</td><td>0.0.0.0:30020</td></tr> <tr><td>dfs.namenode.secondary.http-address</td><td>0.0.0.0:30090</td></tr> <tr><td>yarn.nodemanager.webapp.address</td><td>0.0.0.0:30060</td></tr> <tr><td>templeton.port</td><td>30111</td></tr> </table><br>
+ **HDInsight 3.1 and 3.0(HDP 2.1 and 2.0)** <table border="1">
+<tr><th>이름</th><th>값</th></tr>
+<tr><td>dfs.namenode.http-address</td><td>namenodehost:30070</td></tr>
+<tr><td>dfs.namenode.https-address</td><td>headnodehost:30470</td></tr>
+<tr><td>dfs.datanode.address</td><td>0.0.0.0:30010</td></tr>
+<tr><td>dfs.datanode.http.address</td><td>0.0.0.0:30075</td></tr>
+<tr><td>dfs.datanode.ipc.address</td><td>0.0.0.0:30020</td></tr>
+<tr><td>dfs.namenode.secondary.http-address</td><td>0.0.0.0:30090</td></tr>
+<tr><td>yarn.nodemanager.webapp.address</td><td>0.0.0.0:30060</td></tr>
+<tr><td>templeton.port</td><td>30111</td></tr>
+</table><br>
 
 ###종속성
 
@@ -1399,7 +1455,7 @@ Oozie Metastore는 특정 클러스터에 연결되며 클러스터 간에 공�
 
 
 ### 드라이버
-SQL Server용 JDBC(Java Database Connnectivity) 드라이버는 HDInsight에서 내부적으로 사용되며 외부 작업에는 사용되지 않습니다. ODBC를 사용하여 HDInsight에 연결하려는 경우 Microsoft Hive ODBC(Open Database Connectivity) 드라이버를 사용하세요. 자세한 내용은 [HDInsight에 Microsoft Hive ODBC 드라이버로 Excel 연결](../hdinsight-connect-excel-hive-odbc-driver.md)을 참조하세요.
+SQL Server용 JDBC(Java Database Connnectivity) 드라이버는 HDInsight에서 내부적으로 사용되며 외부 작업에는 사용되지 않습니다. ODBC를 사용하여 HDInsight에 연결하려는 경우 Microsoft Hive ODBC(Open Database Connectivity) 드라이버를 사용하세요. 자세한 내용은 [HDInsight에 Microsoft Hive ODBC 드라이버로 Excel 연결](hdinsight-connect-excel-hive-odbc-driver.md)을 참조하세요.
 
 
 ### 버그 수정
@@ -1441,4 +1497,4 @@ HDInsight 버전 클러스터에 사용되는 HDP(Hortonworks Data Platform)에 
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

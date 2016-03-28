@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="03/14/2016"
 	ms.author="billmath"/>
 
 
@@ -55,7 +55,7 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
 여기서 `(your_FS_name) `은 fs.contoso.com과 같이 조직에서 사용하는 페더레이션 서비스 호스트 이름으로 대체됩니다. 두 설정을 모두 확인할 수 있는 경우 그 밖에 다른 작업을 수행할 필요는 없습니다.
 
-예제: https://fs.contospocom/federationmetadata/2007-06/federationmetadata.xml
+예제: https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
 
 ## 인증서를 수동으로 업데이트하려는 경우
 수동으로 AD FS 인증서를 업데이트할 때마다 PowerShell 명령 Update-MsolFederatedDomain을 사용하여 Office 365 도메인을 업데이트해야 합니다. 이 섹션의 Office 365 페더레이션 트러스트 속성을 수동으로 업데이트 아래 단계([여기](#if-your-metadata-is-not-publicly-accessible))를 참조하세요.
@@ -101,4 +101,4 @@ AutocertificateRollover 설정이 True이지만 페더레이션 메타 데이터
 
 >[AZURE.NOTE] contoso.com과 fabrikam.com 등의 여러 최상위 도메인을 지원해야 하는 경우에는 cmdlet과 함께 SupportMultipleDomain 스위치를 사용해야 합니다. 자세한 내용은 여러 최상위 도메인에 대한 지원을 참조하세요. 마지막으로, 모든 웹 응용 프로그램 프록시 서버가 [Windows Server May 2014](http://support.microsoft.com/kb/2955164) 롤업으로 업데이트되었는지 확인합니다. 그렇지 않으면 프록시가 새 인증서로 업데이트되지 못하여 중단될 수 있습니다.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

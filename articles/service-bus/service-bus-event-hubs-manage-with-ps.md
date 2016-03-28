@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/09/2015"
+   ms.date="03/09/2016"
    ms.author="sethm"/>
 
 # PowerShell을 사용한 서비스 버스 및 이벤트 허브 리소스 관리
@@ -24,7 +24,7 @@ Microsoft Azure PowerShell은 Azure 서비스의 배포와 관리를 제어하�
 
 이 작업을 수행하려면 다음이 필요합니다.
 
-- Azure 구독. Azure는 구독 기반 플랫폼입니다. 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션][], [구성원 제공 항목][] 또는 [무료 평가판][]을 참조하세요.
+- Azure 구독. Azure는 구독 기반 플랫폼입니다. 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션][], [구성원 제공 항목][] 또는 [무료 계정][]을 참조하세요.
 
 - Azure PowerShell이 설치된 컴퓨터 자세한 내용은 [Azure PowerShell 설치 및 구성][]을 참조하세요.
 
@@ -66,7 +66,7 @@ catch [System.Exception]
 
 ## 서비스 버스 네임스페이스 프로비전
 
-서비스 버스 네임스페이스를 사용할 때는 .NET SDK 대신 [Get-azuresbnamespace]와 [New-AzureSBNamespace]라는 두 cmdlet을 사용할 수 있습니다.
+서비스 버스 네임스페이스를 사용할 때는 .NET SDK 대신 [Get-azuresbnamespace][]와 [New-AzureSBNamespace][]라는 두 cmdlet을 사용할 수 있습니다.
 
 이 예제에서는 스크립트에 `$Namespace`과(와) `$Location`(이)라는 몇 가지 로컬 변수를 만듭니다.
 
@@ -104,7 +104,7 @@ catch [System.Exception]
 	    Write-Host "The [$Namespace] namespace in the [$Location] region has been successfully created."
 	}
 	```
-다른 서비스 버스 엔터티를 프로비전하려면 SDK에서 `NamespaceManager` 개체의 인스턴스를 만듭니다. [Get-AzureSBAuthorizationRule] cmdlet을 사용하면 연결 문자열을 제공하는 데 사용되는 권한 부여 규칙을 검색할 수 있습니다. 이 예제에서는 `NamespaceManager` 인스턴스에 대한 참조를 `$NamespaceManager` 변수에 저장합니다. `$NamespaceManager`은(는) 스크립트에서 나중에 다른 엔터티를 프로비전하는 데 사용합니다.
+다른 서비스 버스 엔터티를 프로비전하려면 SDK에서 `NamespaceManager` 개체의 인스턴스를 만듭니다. [Get-AzureSBAuthorizationRule][] cmdlet을 사용하면 연결 문자열을 제공하는 데 사용되는 권한 부여 규칙을 검색할 수 있습니다. 이 예제에서는 `NamespaceManager` 인스턴스에 대한 참조를 `$NamespaceManager` 변수에 저장합니다. `$NamespaceManager`은(는) 스크립트에서 나중에 다른 엔터티를 프로비전하는 데 사용합니다.
 
 	``` powershell
 	$sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace
@@ -116,7 +116,7 @@ catch [System.Exception]
 
 ## 다른 서비스 버스 엔터티 프로비전
 
-큐, 토픽, 이벤트 허브와 같은 다른 엔터티를 프로비전하려는 경우 [서비스 버스용 .NET API]를 사용할 수 있습니다. 다른 엔터티를 비롯한 더 자세한 예제도 이 문서 끝부분에 참조용으로 나와 있습니다.
+큐, 토픽, 이벤트 허브와 같은 다른 엔터티를 프로비전하려는 경우 [서비스 버스용 .NET API][]를 사용할 수 있습니다. 다른 엔터티를 비롯한 더 자세한 예제도 이 문서 끝부분에 참조용으로 나와 있습니다.
 
 ### 이벤트 허브 만들기
 
@@ -268,12 +268,12 @@ catch [System.Exception]
 
 [구매 옵션]: http://azure.microsoft.com/pricing/purchase-options/
 [구성원 제공 항목]: http://azure.microsoft.com/pricing/member-offers/
-[무료 평가판]: http://azure.microsoft.com/pricing/free-trial/
+[무료 계정]: http://azure.microsoft.com/pricing/free-trial/
 [서비스 버스 NuGet 패키지]: http://www.nuget.org/packages/WindowsAzure.ServiceBus/
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
 [서비스 버스용 .NET API]: https://msdn.microsoft.com/ko-KR/library/azure/mt419900.aspx
-[Azure PowerShell 설치 및 구성]: ../install-configure-powershell.md
+[Azure PowerShell 설치 및 구성]: ../powershell-install-configure.md
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0316_2016-->

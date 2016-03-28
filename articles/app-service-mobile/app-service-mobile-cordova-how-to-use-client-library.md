@@ -47,6 +47,39 @@ Apache Cordova 앱에 인증을 사용할 때는 다음 Cordova 플러그 인을
 
 [AZURE.INCLUDE [app-service-mobile-html-js-auth-library.md](../../includes/app-service-mobile-html-js-auth-library.md)]
 
+###<a name="configure-external-redirect-urls"></a>방법: 외부 리디렉션 URL에 대해 모바일 앱 서비스 구성
+
+여러 가지 유형의 Apache Cordova 응용 프로그램은 루프백 기능을 사용하여 OAuth UI 흐름을 처리합니다. 이 경우 기본적으로 인증 서비스만 사용자 서비스의 활용 방법을 알기 때문에 문제가 발생합니다. Ripple 에뮬레이터 사용, 로컬로 서비스 실행 또는 다른 Azure 앱 서비스에 있지만 인증 또는 Ionic을 사용한 라이브 다시 로드를 위해 해당 Azure 앱 서비스로 리디렉션하는 경우를 예로 들 수 있습니다. 구성에 로컬 설정을 추가하려면 다음 지침을 따릅니다.
+
+1. [Azure 포털]에 로그인합니다.
+2. **모든 리소스** 또는 **앱 서비스**를 선택한 후 모바일 앱의 이름을 클릭합니다.
+3. **도구**를 클릭합니다.
+4. 관찰 메뉴에서 **리소스 탐색기**를 클릭한 다음 **이동**을 클릭합니다. 새 창 또는 탭이 열립니다.
+5. 왼쪽 탐색 창에서 사이트에 대한 **config**, **authsettings** 노드를 확장합니다.
+6. **편집**을 클릭합니다.
+7. "allowedExternalRedirectUrls" 요소를 찾습니다. 이 요소는 null로 설정됩니다. 다음으로 변경합니다.
+
+         "allowedExternalRedirectUrls": [
+             "http://localhost:3000",
+             "https://localhost:3000"
+         ],
+
+    URL을 서비스의 URL로 바꿉니다. 예를 들면 "http://localhost:3000"(Node.js 샘플 서비스) 또는 "http://localhost:4400"(Ripple 서비스)이 있습니다. 그러나 이것은 예제에 불과합니다. 이 예제에 언급된 서비스의 경우를 비롯하여 사용자의 상황은 다를 수 있습니다.
+8. 화면 오른쪽 위에 있는 **읽기/쓰기** 단추를 클릭합니다.
+9. 녹색 **배치** 단추를 클릭합니다.
+
+이 시점에서 설정이 저장됩니다. 설정 저장이 완료될 때까지 브라우저 창을 닫지 않도록 합니다. 또한 CORS 설정에 이러한 루프백 URL을 추가해야 합니다.
+
+1. [Azure 포털]에 로그인합니다.
+2. **모든 리소스** 또는 **앱 서비스**를 선택한 후 모바일 앱의 이름을 클릭합니다.
+3. 설정 블레이드가 자동으로 열립니다. 자동으로 열리지 않으면 **모든 설정**을 클릭합니다.
+4. API 메뉴에서 **CORS**를 클릭합니다.
+5. 제공된 입력란에 추가할 URL을 입력하고 Enter 키를 누릅니다.
+6. 필요에 따라 추가 URL을 입력합니다.
+7. **저장**을 클릭하여 설정을 저장합니다.
+
+새 설정이 적용되는 데는 약 10~15초가 걸립니다.
+
 ##<a name="register-for-push"></a>방법: 푸시 알림 등록
 
 푸시 알림을 처리하기 위해 [phonegap-plugin-push]를 설치합니다. 명령줄에서 `cordova plugin add` 명령을 사용하거나 Visual Studio 내에서 Git 플러그 인 설치 관리자를 통해 쉽게 추가할 수 있습니다. Apache Cordova 앱에서 다음 코드는 푸시 알림을 위해 장치를 등록합니다.
@@ -91,6 +124,7 @@ pushHandler.on('error', function (error) {
 알림 허브 SDK를 사용하여 서버에서 푸시 알림을 보냅니다. 알림 허브 또는 PNS에 대해 서비스 거부 공격을 트리거하는 데 사용될 수 있으므로 클라이언트에서 직접 푸시 알림을 보내서는 안 됩니다.
 
 <!-- URLs. -->
+[Azure 포털]: https://portal.azure.com
 [Azure 모바일 앱 빠른 시작]: app-service-mobile-cordova-get-started.md
 [인증 시작]: app-service-mobile-cordova-get-started-users.md
 [앱에 인증 추가]: app-service-mobile-cordova-get-started-users.md
@@ -103,4 +137,4 @@ pushHandler.on('error', function (error) {
 [cordova-plugin-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
 [쿼리 개체 설명서]: https://msdn.microsoft.com/ko-KR/library/azure/jj613353.aspx
 
-<!----HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0316_2016-->

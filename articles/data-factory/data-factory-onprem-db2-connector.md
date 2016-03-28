@@ -229,7 +229,7 @@ DB2 데이터베이스에 연결할 데이터 관리 게이트웨이의 경우 �
 | password | 사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. | 아니요 |
 | gatewayName | 데이터 팩터리 서비스가 온-프레미스 DB2 데이터 베이스에 연결하는 데 사용해야 하는 게이트웨이의 이름 | 예 |
 
-온-프레미스 DB2 데이터 원본의 자격 증명 설정에 대한 자세한 내용은 [자격 증명 및 보안 설정](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security)을 참조하세요.
+온-프레미스 DB2 데이터 원본의 자격 증명 설정에 대한 자세한 내용은 [자격 증명 및 보안 설정](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security)을 참조하세요.
 
 
 ## DB2 데이터 집합 형식 속성
@@ -314,4 +314,4 @@ Char | String
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

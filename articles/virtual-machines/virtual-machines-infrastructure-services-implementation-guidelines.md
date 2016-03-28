@@ -27,7 +27,7 @@ Azure는 솔루션 구현에 대한 특정 접근 방법을 테스트하는 데 
 
 이 문서는 [Azure 구현 지침](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx) 블로그 게시물의 내용에서 가져왔습니다. 원본 자료를 제공한 Santiago Cánepa(Microsoft의 응용 프로그램 개발 관리자)와 Hugo Salcedo(Microsoft의 이전 응용 프로그램 개발 관리자)에게 감사를 전합니다.
 
-> [AZURE.NOTE]선호도 그룹은 지원이 중단되었습니다. 여기서는 그 용도를 설명하지 않습니다. 자세한 내용은 [지역 VNet 및 선호도 그룹 정보](../virtual-network/virtual-networks-migrate-to-regional-vnet.md)를 참조하세요.
+> [AZURE.NOTE] 선호도 그룹은 지원이 중단되었습니다. 여기서는 그 용도를 설명하지 않습니다. 자세한 내용은 [지역 VNet 및 선호도 그룹 정보](../virtual-network/virtual-networks-migrate-to-regional-vnet.md)를 참조하세요.
 
 ## 1\. 명명 규칙
 
@@ -212,7 +212,7 @@ Azure 데이터 디스크에 디스크 스트라이프를 사용하고 있는 �
 
 IaaS는 대부분의 경우에서 부하 분산 장치 기능이 인터넷을 통해 해당 클라우드 서비스 내의 여러 가상 컴퓨터에서 특정 TCP 또는 UDP 포트로 트래픽을 전달하는 데 사용되지만 클라우드 서비스가 유사한 기능을 제공합니다.
 
-> [AZURE.NOTE]클라우드 서비스는 Azure 리소스 관리자에 존재하지 않습니다. 리소스 관리자의 장점에 대한 소개 내용은 [Azure 리소스 관리자에 통합된 Azure 계산, 네트워크 및 저장소 제공자](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)를 참조하세요.
+> [AZURE.NOTE] 클라우드 서비스는 Azure 리소스 관리자에 존재하지 않습니다. 리소스 관리자의 장점에 대한 소개 내용은 [Azure 리소스 관리자에 통합된 Azure 계산, 네트워크 및 저장소 제공자](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)를 참조하세요.
 
 Azure가 디스크에 대한 기본 명명 규칙의 일환으로 사용하기 때문에 클라우드 서비스 이름은 IaaS에서 특히 중요합니다. 클라우드 서비스 이름은 문자, 숫자 및 하이픈만 포함할 수 있습니다. 필드의 첫 번째 및 마지막 문자는 문자 또는 숫자여야 합니다.
 
@@ -274,7 +274,7 @@ Azure 구독에서 최대 200개의 클라우드 서비스를 지원할 수 있�
 28–59 | 6 | /26
 60–123 | 7 | /25
 
-> [AZURE.NOTE]일반적인 온-프레미스 서브넷의 경우, n개의 호스트 비트를 포함하는 서브넷에 대한 호스트 주소의 최대 수는 2<sup>n</sup> – 2입니다. Azure 서브넷의 경우, n개의 호스트 비트를 포함하는 서브넷에 대한 호스트 주소의 최대 수는 2<sup>n</sup> – 5입니다(Azure가 각 서브넷에서 사용하는 주소에 대해 2+3).
+> [AZURE.NOTE] 일반적인 온-프레미스 서브넷의 경우, n개의 호스트 비트를 포함하는 서브넷에 대한 호스트 주소의 최대 수는 2<sup>n</sup> – 2입니다. Azure 서브넷의 경우, n개의 호스트 비트를 포함하는 서브넷에 대한 호스트 주소의 최대 수는 2<sup>n</sup> – 5입니다(Azure가 각 서브넷에서 사용하는 주소에 대해 2+3).
 
 서브넷 크기를 너무 작게 선택하면 해당 서브넷에서 가상 컴퓨터의 수를 다시 매겨서 다시 배포해야 합니다.
 
@@ -436,10 +436,8 @@ Contoso는 Azure 가상 컴퓨터에 대해 다음 이름으로 결정했습니�
 
 [Azure 저장소 확장성 및 성능 목표](../storage-scalability-targets.md)
 
-[클라우드 플랫폼 통합 프레임워크(Azure 아키텍처 패턴)](../azure-architectures-cpif-overview.md)
-
 [데이터 센터 확장 참조 아키텍처 다이어그램](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)
 
 [Azure 리소스 관리자에 통합된 Azure 계산, 네트워크 및 저장소 공급자](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0316_2016-->

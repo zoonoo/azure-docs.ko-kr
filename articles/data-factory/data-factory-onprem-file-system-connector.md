@@ -442,7 +442,7 @@ password | 사용자에 암호 지정(userid) | 아니요(encryptedcredential을
 encryptedCredential | New-AzureRmDataFactoryEncryptValue cmdlet을 실행하여 얻을 수 있는 암호화된 자격 증명을 지정합니다<br/><br/>**참고:** 버전 0.8.14 이상의 Azure PowerShell을 사용하여 OnPremisesFileSystemLinkedService로 설정된 형식 매개 변수로 New-AzureRmDataFactoryEncryptValue와 같은 cmdlet을 사용해야 합니다. | 아니요(일반 텍스트에 userid 및 암호를 지정하는 경우)
 gatewayName | 데이터 팩터리 서비스가 온-프레미스 파일 서버에 연결하는 데 사용해야 하는 게이트웨이의 이름 | 예
 
-온-프레미스 파일 시스템 데이터 원본의 자격 증명 설정에 대한 자세한 내용은 [자격 증명 및 보안 설정](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security)을 참조하세요.
+온-프레미스 파일 시스템 데이터 원본의 자격 증명 설정에 대한 자세한 내용은 [자격 증명 및 보안 설정](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security)을 참조하세요.
 
 **예제: 일반 텍스트에 사용자 이름 및 암호 사용**
 	
@@ -608,4 +608,4 @@ false | mergeFiles | 다음 구조를 가진 원본 폴더 Folder1의 경우:<br
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

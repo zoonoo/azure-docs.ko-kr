@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/23/2015"
+	ms.date="03/08/2015"
 	ms.author="genli"/>
 
 # Azure 구독이 비활성화될 경우 어떻게 해야 합니까?
@@ -28,10 +28,19 @@
 
 ### 송장 지불 기한을 초과했습니다
 
-이 문제를 해결하려면 문서 [Azure 구독에 미지불액이 있다는 알림을 받는지 궁금하십니까?](../billing-azure-subscription-past-due-balance.md)를 참조하세요.
+이 문제를 해결하려면 문서 [Azure 구독에 미지불액이 있다는 알림을 받는지 궁금하십니까?](billing-azure-subscription-past-due-balance.md)를 참조하세요.
 
 ### Azure 구독이 취소되었습니다
 
-구독을 다시 활성화하려면 지원 티켓을 만들어야 합니다. Azure 구독을 재활성화하는 지원 티켓을 만들려면 문서 [Azure 청구 및 구독 문제에 대한 지원 티켓을 만드는 방법](../billing-how-to-create-billing-support-ticket.md)을 참조하세요.
+구독을 다시 활성화하려면 지원 티켓을 만들어야 합니다. [Azure 포털](https://portal.azure.com/)에 로그인하여 **도움말 + 지원**>**새 지원 요청**을 선택합니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+![helpandsupportbutton](./media/billing-how-to-create-billing-support-ticket/helpandsupport.png)
+
+포털에 액세스할 수 없으면 Azure 지원 웹 사이트 또는 Azure 계정 센터에서 지원 요청을 제출합니다.
+
+ * [Azure 지원 웹 사이트](https://azure.microsoft.com/support/options/)에서 지원 티켓을 제출하려면 **지원 받기**를 클릭합니다.
+ * [Azure 계정 센터](https://account.windowsazure.com/Subscriptions)에서 지원 티켓을 제출하려면 구독을 선택하고 **Microsoft 지원에 문의**를 클릭합니다.
+
+자세한 내용은 [Azure 청구 및 구독 문제에 대한 지원 티켓을 만드는 방법](billing-how-to-create-billing-support-ticket.md)을 참조하세요.
+
+<!---HONumber=AcomDC_0316_2016-->

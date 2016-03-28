@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="03/09/2016"
 	ms.author="krisragh"/>
 
 # Azure 모바일 서비스에 iOS 클라이언트 라이브러리를 사용하는 방법
@@ -27,7 +27,7 @@
 
 이 가이드에서는 Azure 모바일 서비스 [iOS SDK]를 사용하여 일반적인 시나리오를 수행하는 방법을 알려줍니다. 모바일 서비스를 처음 접하는 경우, 먼저 [모바일 서비스 퀵 스타트]를 완료하여 계정을 구성하고, 테이블을 만들고, 모바일 서비스를 만듭니다.
 
-> [AZURE.NOTE]이 가이드에서는 최신 [iOS 모바일 서비스 SDK](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409)를 사용합니다. 프로젝트에서 이전 버전의 SDK를 사용하는 경우 먼저 Xcode에서 프레임워크를 업그레이드합니다.
+> [AZURE.NOTE] 이 가이드에서는 최신 [iOS 모바일 서비스 SDK](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409)를 사용합니다. 프로젝트에서 이전 버전의 SDK를 사용하는 경우 먼저 Xcode에서 프레임워크를 업그레이드합니다.
 
 [AZURE.INCLUDE [mobile-services-concepts](../../includes/mobile-services-concepts.md)]
 
@@ -97,7 +97,13 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
     MSQuery *query = [table queryWithPredicate: [NSPredicate predicateWithFormat:@"complete == NO"]];
 ```
 
-`MSQuery`을(를) 통해 다음을 포함한 여러 쿼리 동작을 제어할 수 있습니다. 다음 예시에서 볼 수 있는 대로 `readWithCompletion`을(를) 호출하여 `MSQuery` 쿼리를 실행합니다. * 결과 순서 지정 * 반환할 필드 제한 * 반호나할 레코드 수 제한 * 응답에서 총 수 지정 * 요청에서 사용자 지정 쿼리 문자열 매개 변수 지정 * 추가 함수 적용
+`MSQuery`을(를) 통해 다음을 포함한 여러 쿼리 동작을 제어할 수 있습니다. 다음 예제에 나와 있는 대로 `readWithCompletion`을 호출하여 `MSQuery` 쿼리를 수행합니다.
+* 결과의 순서 지정
+* 반환할 필드 제한
+* 반환할 레코드 수 제한
+* 응답의 총 수 지정
+* 요청에서 사용자 지정 쿼리 문자열 매개 변수 지정
+* 추가 함수 적용
 
 
 ## <a name="sorting"></a>방법: MSQuery를 사용하여 데이터 정렬
@@ -253,7 +259,7 @@ Azure 모바일 서비스는 두 가지 인증 워크플로를 지원합니다.
 
 - **서버 관리 로그인**: Azure 모바일 서비스가 앱을 대신하여 로그인 프로세스를 관리합니다. 공급자 특정 로그인 페이지를 표시하고 선택한 공급자를 인증합니다.
 
-- **클라이언트 관리 로그인**: 앱이 ID 공급자에게 토큰을 요청하고 이 토큰을 인증을 위해 Azure 모바일 서비스에 제시합니다.
+- **클라이언트 관리 로그인**: _앱_이 ID 공급자에게 토큰을 요청하고 이 토큰을 인증을 위해 Azure 모바일 서비스에 제시합니다.
 
 인증에 성공하면 사용자 ID 값 및 인증 토큰과 함께 사용자 개체를 다시 받습니다. 이 사용자 ID를 사용하여 사용자를 인증하려면 [서비스 쪽 권한 부여]를 참조하세요. 인증된 사용자로만 테이블 액세스를 제한하려면 [권한]을 참조하세요.
 
@@ -334,4 +340,4 @@ Single Sign-On을 사용하도록 설정하거나 앱이 ID 공급자에게 직�
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [충돌 처리기]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0316_2016-->

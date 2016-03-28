@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="12/04/2015"
+ ms.date="03/09/2016"
  ms.author="krisragh"/>
 
 # 스케줄러 제한, 기본값 및 오류 코드
@@ -55,7 +55,7 @@ API 작업 관리 서비스는 관리 서비스가 정의한 오류 정보를 �
 
 
  [스케줄러란?](scheduler-intro.md)
- 
+
  [Azure 스케줄러 개념, 용어 및 엔터티 계층 구조](scheduler-concepts-terms.md)
 
  [Azure 포털에서 스케줄러 사용 시작](scheduler-get-started-portal.md)
@@ -69,7 +69,5 @@ API 작업 관리 서비스는 관리 서비스가 정의한 오류 정보를 �
  [Azure 스케줄러 고가용성 및 안정성](scheduler-high-availability-reliability.md)
 
  [Azure 스케줄러 아웃바운드 인증](scheduler-outbound-authentication.md)
- 
-  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

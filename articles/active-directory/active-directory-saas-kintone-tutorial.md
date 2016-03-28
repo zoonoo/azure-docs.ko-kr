@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/05/2016" 
+    ms.date="03/16/2016" 
     ms.author="jeedes" />
 
 #자습서: Kintone와 Azure Active Directory 통합
@@ -37,7 +37,7 @@
 
 ###Kintone에 응용 프로그램 통합을 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-1.  Azure 관리 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+1.  Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
     ![Active Directory](./media/active-directory-saas-kintone-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@
 
 ###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
-1.  Azure AD 포털의 **Kintone** 응용 프로그램 통합 페이지에서 **Single Sign-on 구성**을 클릭하여 **Single Sign-on 구성** 대화 상자를 엽니다.
+1.  Azure 클래식 포털의 **Kintone** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-kintone-tutorial/IC785872.png "Single Sign-On 구성")
 
@@ -106,12 +106,12 @@
 
     ![SAML 인증](./media/active-directory-saas-kintone-tutorial/IC785883.png "SAML 인증")
 
-    1.  Azure 포털의 **Kintone에서 Single Sign-on 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **로그인 URL** 텍스트 상자에 붙여넣습니다.
-    2.  Azure 포털의 **Kintone에서 Single Sign-on 구성** 대화 상자 페이지에서 **원격 로그아웃 URL** 값을 복사한 다음 **로그아웃 URL** 텍스트 상자에 붙여넣습니다.
+    1.  Azure 클래식 포털의 **Kintone에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **로그인 URL** 텍스트 상자에 붙여넣습니다.
+    2.  Azure 클래식 포털의 **Kintone에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그아웃 URL** 값을 복사한 다음 **로그아웃 URL** 텍스트 상자에 붙여넣습니다.
     3.  다운로드한 인증서를 업로드하려면 **찾아보기**를 클릭합니다.
     4.  **저장**을 클릭합니다.
 
-11. Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
+11. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-kintone-tutorial/IC785884.png "Single Sign-On 구성")
 ##사용자 프로비전 구성
@@ -145,7 +145,7 @@ Azure AD 사용자가 Kintone에 로그인할 수 있도록 하려면 Kintone로
     1.  **표시 이름**, **로그인 이름**, **새 암호**, **암호 확인**, **전자 메일 주소** 및 관련 텍스트 상자에 프로비전할 유효한 AAD 계정의 세부 정보를 입력합니다.
     2.  **Save**를 클릭합니다.
 
->[AZURE.NOTE]다른 Kintone 사용자 계정 생성 도구 또는 Kintone가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+>[AZURE.NOTE] 다른 Kintone 사용자 계정 생성 도구 또는 Kintone가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
 
 ##사용자 할당
   
@@ -153,7 +153,7 @@ Azure AD 사용자가 Kintone에 로그인할 수 있도록 하려면 Kintone로
 
 ###Kintone에 사용자를 할당하려면 다음 단계를 수행합니다.
 
-1.  Azure AD 포털에서 테스트 계정을 만듭니다.
+1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
 
 2.  **Kintone ** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
 
@@ -165,4 +165,4 @@ Azure AD 사용자가 Kintone에 로그인할 수 있도록 하려면 Kintone로
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0316_2016-->

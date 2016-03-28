@@ -128,8 +128,6 @@ Engagement에서 사용자, 세션, 작업, 충돌 및 기술 통계를 계산�
 
 > [AZURE.IMPORTANT] `EngagementListActivity` 또는 `EngagementExpandableListActivity`을(를) 사용할 경우 `super.onCreate(...);`을(를) 호출하기 전에 `requestWindowFeature(...);`을(를) 호출해야 합니다. 그렇지 않으면 충돌이 발생합니다.
 
-`FragmentActivity` 및 `MapActivity`의 하위 클래스를 제공하지만, **ProGuard**를 사용하는 응용 프로그램에 문제가 발생하지 않도록 `engagement.jar`에 해당 클래스를 포함하지 않습니다.
-
 이러한 클래스는 `src` 폴더에서 찾을 수 있으며 프로젝트에 복사할 수 있습니다. 또한 클래스는 **JavaDoc**에도 있습니다.
 
 ### 대체 방법: `startActivity()` 및 `endActivity()` 수동 호출
@@ -382,4 +380,4 @@ Engagement는 이 설정을 관리하기 위한 기본 설정 파일 내에서 �
 <!-- URLs. -->
 [Device API]: http://go.microsoft.com/?linkid=9876094
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

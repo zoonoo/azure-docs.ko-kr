@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="01/05/2016"
+   ms.date="03/14/2016"
    ms.author="carlrab"/>
 
 # 클라우드에서 SQL 데이터베이스로 SQL Server 데이터베이스 마이그레이션
@@ -47,10 +47,10 @@
 호환되는 SQL Server 데이터베이스를 마이그레이션할 수 있도록 Microsoft에서는 다양한 시나리오에 대한 여러 마이그레이션 방법을 제공합니다. 허용되는 가동 중지 시간, SQL Server 데이터베이스의 크기 및 복잡성, Microsoft Azure 클라우드 연결 여부에 따라 선택하는 마이그레이션 방법이 달라집니다.
 
 > [AZURE.SELECTOR]
-- [SSMS Migration Wizard](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)
-- [Export to BACPAC File](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
-- [Import from BACPAC File](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
-- [Transactional Replication](sql-database-cloud-migrate-compatible-using-transactional-replication.md)
+- [SSMS 마이그레이션 마법사](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)
+- [BACPAC 파일로 내보내기](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
+- [BACPAC 파일에서 가져오기](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
+- [트랜잭션 복제자](sql-database-cloud-migrate-compatible-using-transactional-replication.md)
 
 마이그레이션 방법을 선택하기 위한 첫 번째 질문은 마이그레이션하는 동안 데이터베이스를 정지할 수 있는지 여부입니다. 활성 트랜잭션이 발생하는 동안 데이터베이스를 마이그레이션하면 데이터베이스가 불일치하고 데이터베이스가 손상될 수 있습니다. 클라이언트 연결을 비활성화하는 방법부터 [데이터베이스 스냅숏](https://msdn.microsoft.com/library/ms175876.aspx)을 만드는 방법까지 다양한 방법으로 데이터베이스를 정지할 수 있습니다.
 
@@ -65,4 +65,4 @@
 
 	 ![SQL Server 데이터베이스 마이그레이션 - 클라우드로 SQL 데이터베이스 마이그레이션.](./media/sql-database-cloud-migrate/01SSMSDiagram_new.png)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -21,7 +21,7 @@
 
 > [AZURE.IMPORTANT] 이 가이드를 수행하기 전에 Android 문서의 Engagement를 통합하는 방법에 설명된 통합 절차를 따라야 합니다.
 >
-> 이 문서는 상시 캠페인을 지원하기 위해 도달률 모듈을 통합하는 경우에만 유용합니다. 응용 프로그램에서 도달률 캠페인을 통합하려면 먼저 Android에서 Engagement 도달률을 통합하는 방법을 읽어보세요.
+> 이 문서는 도달률 모듈 및 Amazon 장치를 푸시하는 계획을 이미 통합한 경우에만 유용합니다. 응용 프로그램에서 도달률 캠페인을 통합하려면 먼저 Android에서 Engagement 도달률을 통합하는 방법을 읽어보세요.
 
 ##소개
 
@@ -102,14 +102,11 @@ Engagement 푸시 서비스에 장치의 등록 ID를 전달하고 해당 알림
 
 ##Engagement OAuth 자격 증명 부여
 
-$/#application/YOUR\_APPID/native-push에서 OAuth 자격 증명(클라이언트 ID 및 클라이언트 암호)을 제출합니다.
-
-이제 도달률 알림 및 설문 조사를 만들 때 "Any Time"을 선택할 수 있습니다.
-
+Engagement 포털에서 OAuth 자격 증명(클라이언트 ID 및 클라이언트 암호)을 제출합니다.
 
 [<https://developer.amazon.com/sdk/adm/credentials.html>]: https://developer.amazon.com/sdk/adm/credentials.html
 [ADM 클라이언트 라이브러리]: https://developer.amazon.com/sdk/adm/setup.html
 [ADM을 통합]: https://developer.amazon.com/sdk/adm/integrating-app.html
 [이 절차]: https://developer.amazon.com/sdk/adm/integrating-app.html#Asset
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

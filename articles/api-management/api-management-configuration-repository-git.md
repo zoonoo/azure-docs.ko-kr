@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/07/2016" 
+	ms.date="03/14/2016" 
 	ms.author="sdanie"/>
 
 
 # Git를 사용하여 API 관리 서비스 구성을 저장 및 구성하는 방법
+
+>[AZURE.IMPORTANT] API 관리에 대한 Git 구성은 현재 미리 보기로 제공됩니다. 기능적으로는 완전하지만 이 기능에 대한 의견을 적극적으로 기다리고 있으므로 미리 보기로 제공됩니다. 고객 피드백에 대한 응답으로 새로운 변경 사항을 만들었을 수 있으므로 프로덕션 환경에서 사용할 기능에 따르지 않는 것이 좋습니다. 의견이나 질문이 있으면 `apimgmt@microsoft.com`에서 알려 주시기 바랍니다.
 
 각 API 관리 서비스 인스턴스는 구성에 관한 정보 및 서비스 인스턴스에 대한 메타데이터를 포함하고 있는 구성 데이터베이스를 유지관리합니다. PowerShell cmdlet을 사용하거나 REST API를 호출하여 게시자 포털의 설정을 변경하면 서비스 인스턴스를 변경할 수 있습니다. 이러한 방법 이외에 다음과 같은 서비스 관리 시나리오를 통해 Git를 사용하여 서비스 인스턴스 구성을 관리할 수도 있습니다.
 
@@ -43,13 +45,17 @@
 
 ## Git 액세스를 사용하도록 설정하려면
 
-Git 액세스를 구성하려면 **보안** 메뉴를 클릭하고 **구성 리포지토리** 탭으로 이동합니다.
+게시자 포털의 오른쪽 위 모서리의 Git 아이콘을 확인하여 Git 구성의 상태를 신속하게 볼 수 있습니다. 이 예제에서 Git 액세스는 아직 활성화되지 않았습니다.
+
+![Git 상태][api-management-git-icon-enable]
+
+Git 구성 설정을 확인 및 구성하려면 Git 아이콘을 클릭하거나 **보안** 메뉴를 클릭하고 **구성 리포지토리** 탭으로 이동합니다.
 
 ![GIT 사용][api-management-enable-git]
 
 Git 액세스를 사용하도록 설정하려면 **Git 액세스 사용** 확인란을 선택합니다.
 
-잠시 후 변경 내용이 저장되고 확인 메시지가 표시됩니다.
+잠시 후 변경 내용이 저장되고 확인 메시지가 표시됩니다. Git 아이콘은 Git 액세스가 활성화되었음을 나타내도록 색으로 변경되었으며 이제 상태 메시지는 리포지토리에 저장되지 않은 변경 내용이 있음을 나타냅니다. 이는 API 관리 서비스 구성 데이터베이스가 리포지토리에 아직 저장되지 않았기 때문입니다.
 
 ![Git 활성화됨][api-management-git-enabled]
 
@@ -214,7 +220,7 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
 
 ![위임 설정][api-management-delegation-settings]
 
-마지막 설정은 `$ref-policy`은 서비스 인스턴스에 대한 전역 정책 설명 파일에 매핑됩니다.
+마지막 설정 `$ref-policy`은 서비스 인스턴스에 대한 전역 정책 설명 파일에 매핑됩니다.
 
 ### apis 폴더
 
@@ -222,7 +228,7 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
 
 -	`apis<api name>\configuration.json` - API에 대한 구성이며 백 엔드 서비스 URL 및 작업에 관한 정보를 포함하고 있습니다. 이는 `application/json` 형식의 `export=true`을 사용한 [특정 API 가져오기](https://msdn.microsoft.com/library/azure/dn781423.aspx#GetAPI)를 호출하려는 경우 반환되는 것과 같은 정보입니다.
 -	`apis<api name>\api.description.html` - API에 대한 설명이며 [API 엔터티](https://msdn.microsoft.com/library/azure/dn781423.aspx#EntityProperties)의 `description` 속성에 해당합니다.
--	`apis<api name>\operations` - 이 폴더는 작업을 API에 매핑하는 `<operation name>.description.html` 파일을 포함하고 있습니다. 각 파일은 REST API에서 [작업 엔터티](https://msdn.microsoft.com/library/azure/dn781423.aspx#OperationProperties)의 `description` 속성에 매피외는 API의 단일 작업에 대한 설명을 포함하고 있습니다.
+-	`apis<api name>\operations` - 이 폴더는 작업을 API에 매핑하는 `<operation name>.description.html` 파일을 포함하고 있습니다. 각 파일은 REST API에서 [작업 엔터티](https://msdn.microsoft.com/library/azure/dn781423.aspx#OperationProperties)의 `description` 속성에 매핑되는 API의 단일 작업에 대한 설명을 포함하고 있습니다.
 
 ### groups 폴더
 
@@ -286,5 +292,6 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
 [api-management-configuration-deploy]: ./media/api-management-configuration-repository-git/api-management-configuration-deploy.png
 [api-management-identity-settings]: ./media/api-management-configuration-repository-git/api-management-identity-settings.png
 [api-management-delegation-settings]: ./media/api-management-configuration-repository-git/api-management-delegation-settings.png
+[api-management-git-icon-enable]: ./media/api-management-configuration-repository-git/api-management-git-icon-enable.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

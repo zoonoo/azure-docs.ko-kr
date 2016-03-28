@@ -4,7 +4,7 @@
 	services="app-service\mobile"
 	documentationCenter=""
 	authors="adrianhall"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -425,9 +425,9 @@ Azure SQL 데이터베이스를 데이터 저장소로 사용하면 모든 Azure
 
 액세스 속성은 세 가지 값 중 하나를 사용할 수 있습니다
 
-  - *익명*은 클라이언트 응용 프로그램이 인증 없이 데이터를 읽을 수 있다는 것을 나타냅니다.
-  - *인증됨*은 클라이언트 응용 프로그램이 요청을 사용하여 유효한 인증 토큰을 송신해야 함을 나타냅니다.
-  - *사용 안 함*은 이 테이블이 현재 사용되지 않음을 나타냅니다.
+  - *익명* 은 클라이언트 응용 프로그램이 인증 없이 데이터를 읽을 수 있다는 것을 나타냅니다.
+  - *인증됨* 은 클라이언트 응용 프로그램이 요청을 사용하여 유효한 인증 토큰을 송신해야 함을 나타냅니다.
+  - *사용 안 함* 은 이 테이블이 현재 사용되지 않음을 나타냅니다.
 
 액세스 속성을 정의하지 않으면 인증되지 않은 액세스가 허용됩니다.
 
@@ -496,10 +496,10 @@ Azure SQL 데이터베이스를 데이터 저장소로 사용하면 모든 Azure
 
 테이블에 나타나는 것 외에도 액세스 속성은 개별 작업을 제어하는 데 사용될 수 있습니다. 네 가지 작업이 있습니다.
 
-  - 읽기는 테이블의 RESTful 가져오기 작업입니다.
-  - 삽입은 테이블의 RESTful POST 작업입니다.
-  - 업데이트는 테이블의 RESTful PATCH 작업입니다.
-  - 삭제는 테이블의 RESTful DELETE 작업입니다.
+  - *읽기*는 테이블의 RESTful 가져오기 작업입니다.
+  - *삽입*은 테이블의 RESTful POST 작업입니다.
+  - *업데이트*는 테이블의 RESTful PATCH 작업입니다.
+  - *삭제*는 테이블의 RESTful DELETE 작업입니다.
 
 예를 들어 읽기 전용 인증되지 않은 테이블을 제공하려 할 수도 있습니다. 다음 테이블 정의에서 제공될 수 있습니다.
 
@@ -642,23 +642,23 @@ Swagger 끝점은 http://_yoursite_.azurewebsites.net/swagger에 있습니다. `
 	    // Send a push notification using APNS.
         context.push.apns.send(null, payload, function (error) {
             if (error) {
-                // Do something or log the error. 
-	        }           
+                // Do something or log the error.
+	        }
         });
     }
 
 클라이언트에서 템플릿 푸시 등록을 만들면 지원되는 모든 플랫폼의 장치에 템플릿 푸시 메시지를 대신 보낼 수 있습니다. 다음 코드는 템플릿 알림을 보내는 방법을 보여 줍니다.
 
 	// Define the template payload.
-	var payload = '{"messageParam": "This is a template payload."}'; 
+	var payload = '{"messageParam": "This is a template payload."}';
 
     // Only do the push if configured
     if (context.push) {
 		// Send a template notification.
         context.push.send(null, payload, function (error) {
             if (error) {
-                // Do something or log the error.   
-            } 
+                // Do something or log the error.
+            }
         });
     }
 
@@ -671,8 +671,8 @@ Swagger 끝점은 http://_yoursite_.azurewebsites.net/swagger에 있습니다. `
 		// Send a notification to the current user.
         context.push.send(context.user.id, payload, function (error) {
             if (error) {
-                // Do something or log the error.   
-            } 
+                // Do something or log the error.
+            }
         });
     }
 
@@ -815,12 +815,10 @@ Azure 모바일 앱 SDK를 사용하면 정의된 데이터 공급자에 대해 
     api.get.access = 'authenticated';
     module.exports = api;
 
-
-
 ## <a name="Debugging"></a><a name="howto-diagnostic-logs"></a>방법: Azure 모바일 앱의 디버깅, 진단 및 문제 해결
 
+Azure 앱 서비스는 Node.js 응용 프로그램에 대한 여러 디버깅 및 문제 해결 기술을 제공합니다. Node.js 모바일 백 엔드 문제 해결에서 시작하는 다음 문서를 참조하세요.
 
-Azure 앱 서비스는 Node.js 응용 프로그램에 대한 여러 디버깅 및 문제 해결 기술을 제공합니다. 이러한 기술을 모두 사용할 수 있습니다.
 - [Azure 앱 서비스 모니터링]
 - [Azure 앱 서비스에 진단 로그 사용]
 - [Visual Studio에서 Azure 앱 서비스 문제 해결]
@@ -872,7 +870,7 @@ Azure 포털을 사용하면 로컬 컴퓨터에 프로젝트를 다운로드하
 [3]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/sqlexpress-config.png
 [4]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/sqlexpress-authconfig.png
 [5]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/sqlexpress-newuser-1.png
-[6]: ../../includes/media/app-service-mobile-dotnet-backend-create-new-service/dotnet-backend-create-db.png
+[6]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/dotnet-backend-create-db.png
 
 <!-- URLs -->
 [Android 클라이언트 빠른 시작]: app-service-mobile-android-get-started.md
@@ -914,4 +912,4 @@ Azure 포털을 사용하면 로컬 컴퓨터에 프로젝트를 다운로드하
 [ExpressJS 미들웨어]: http://expressjs.com/guide/using-middleware.html
 [윈스턴]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

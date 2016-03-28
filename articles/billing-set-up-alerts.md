@@ -46,4 +46,4 @@ Azure는 모든 메일 주소를 지원하지만 해당 메일 주소가 작동�
 [Image2]: ./media/azure-billing-set-up-alerts/billingalert2.png
 [Image3]: ./media/azure-billing-set-up-alerts/billingalerts3.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0316_2016-->

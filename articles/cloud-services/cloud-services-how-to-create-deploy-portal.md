@@ -1,6 +1,6 @@
 <properties
 	pageTitle="클라우드 서비스를 만들고 배포하는 방법 | Microsoft Azure"
-	description="Azure에서 빨리 만들기 방법을 사용하여 클라우드 서비스를 만들고 배포하는 방법에 대해 알아봅니다. 이 예제는 Azure 포털을 사용합니다."
+	description="Azure 포털을 사용하여 클라우드 서비스를 만들고 배포하는 방법을 알아봅니다."
 	services="cloud-services"
 	documentationCenter=""
 	authors="Thraka"
@@ -22,8 +22,8 @@
 # 클라우드 서비스를 만들고 배포하는 방법
 
 > [AZURE.SELECTOR]
-- [Azure portal](cloud-services-how-to-create-deploy-portal.md)
-- [Azure classic portal](cloud-services-how-to-create-deploy.md)
+- [Azure 포털](cloud-services-how-to-create-deploy-portal.md)
+- [Azure 클래식 포털](cloud-services-how-to-create-deploy.md)
 
 Azure 포털은 클라우드 서비스를 만들고 배포하는 두 가지 방법으로 *빨리 만들기* 및 *사용자 지정 만들기*를 제공합니다.
 
@@ -40,8 +40,8 @@ Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다
 - **서비스 구성**  
   클라우드 서비스 구성 파일(.cscfg)은 역할 인스턴스 수를 포함하여 클라우드 서비스 및 개별 역할에 대한 구성 설정을 제공합니다.
 
-- **서비스 패키지** 
-  서비스 패키지(.cspkg)는 응용 프로그램 코드와 구성 및 서비스 정의 파일을 포함합니다.
+- **서비스 패키지**  
+  서비스 패키지(.cspkg)에는 응용 프로그램 코드와 구성 및 서비스 정의 파일이 포함됩니다.
 
 이러한 구성 요소에 대한 자세한 내용과 패키지를 만드는 방법은 [여기](cloud-services-model-and-package.md)에서 볼 수 있습니다.
 
@@ -54,7 +54,7 @@ Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다
 
 - 역할 인스턴스에 대한 원격 데스크톱 연결을 구성하려면 원격 데스크톱에 대한 [역할을 구성](cloud-services-role-enable-remote-desktop.md)합니다. 이 클래식 포털에서 수행할 수 있습니다.
 
-- 클라우드 서비스에 대해 자세한 모니터링을 구성하려면 클라우드 서비스에 Azure 진단을 사용하도록 설정합니다. *최소 모니터링*(기본 모니터링 수준)에서는 역할 인스턴스(가상 컴퓨터)에 대해 호스트 운영 체제에서 수집된 성능 카운터를 사용합니다. *세부 정보 표시 모니터링*에서는 역할 인스턴스 내 성능 데이터를 기반으로 추가 메트릭을 수집하여 응용 프로그램 처리 중 발생하는 문제를 보다 자세히 분석할 수 있습니다. Azure 진단을 사용하도록 설정하는 방법에 대해 알아보려면 [Azure에서 진단 사용](cloud-services-dotnet-diagnostics.md)을 참조하세요.
+- 클라우드 서비스에 대해 자세한 모니터링을 구성하려면 클라우드 서비스에 Azure 진단을 사용하도록 설정합니다. *최소 모니터링* (기본 모니터링 수준)에서는 역할 인스턴스(가상 컴퓨터)에 대해 호스트 운영 체제에서 수집된 성능 카운터를 사용합니다. *세부 정보 표시 모니터링* 에서는 역할 인스턴스 내 성능 데이터를 기반으로 추가 메트릭을 수집하여 응용 프로그램 처리 중 발생하는 문제를 보다 자세히 분석할 수 있습니다. Azure 진단을 사용하도록 설정하는 방법에 대해 알아보려면 [Azure에서 진단 사용](cloud-services-dotnet-diagnostics.md)을 참조하세요.
 
 웹 역할 또는 작업자 역할 배포를 통해 클라우드 서비스를 만들려면 [서비스 패키지를 만들어야](cloud-services-model-and-package.md#servicepackagecspkg) 합니다.
 
@@ -67,9 +67,9 @@ Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다
 - 클라우드 서비스를 선호도 그룹에 배포하려면 선호도 그룹을 만듭니다. 선호도 그룹을 사용하면 클라우드 서비스 및 다른 Azure 서비스를 지역의 동일한 위치에 배포할 수 있습니다. 선호도 그룹은 Azure 클래식 포털의 **네트워크** 영역에 있는 **선호도 그룹** 페이지에서 만들 수 있습니다.
 
 
-## 3단계: 클라우드 서비스 만들기 및 배포 패키지 업로드
+## 만들기 및 배포
 
-1. [Azure 포털][] 로그인
+1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 2. **새로 만들기 > 계산**을 클릭한 다음 아래로 스크롤하여 **클라우드 서비스**를 클릭합니다.
 
     ![클라우드 서비스 게시](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
@@ -118,4 +118,4 @@ Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다
 * [클라우드 서비스를 관리합니다](cloud-services-how-to-manage-portal.md).
 * [SSL 인증서](cloud-services-configure-ssl-certificate-portal.md) 구성
 
-<!---HONumber=AcomDC_0128_2016-->
+<!----HONumber=AcomDC_0316_2016-->

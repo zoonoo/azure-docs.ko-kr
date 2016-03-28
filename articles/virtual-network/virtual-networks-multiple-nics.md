@@ -33,6 +33,7 @@ Azure에서 VM(가상 컴퓨터)을 만들고 각 VM에 여러 NIC(네트워크 
 - 단일 클라우드 서비스(클래식 배포) 또는 리소스 그룹(리소스 관리자 배포) 내에서는 다음 설정만 허용됩니다. 
 	- 해당 클라우드 서비스의 모든 VM에서 다중 NIC를 사용할 수 있어야 합니다. 또는 
 	- 해당 클라우드 모든 VM에는 각각 단일 NIC가 있어야 합니다. 
+	- 또한 보조 네트워크 인터페이스가 없는 가상 컴퓨터를 보조 네트워크 인터페이스가 있는 가상 컴퓨터로 업데이트할 수 없으며 반대의 경우도 마찬가지입니다.
 
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
  
@@ -265,4 +266,4 @@ Linux VM의 경우, 기본 동작에서 취약한 호스트 라우팅을 사용�
 - [리소스 관리자 배포를 통해 2계층 응용 프로그램 시나리오에서 MultiNIC VM](virtual-network-deploy-multinic-arm-template.md) 배포
 - [클래식 배포를 통해 2계층 응용 프로그램 시나리오에서 MultiNIC VM](virtual-network-deploy-multinic-classic-ps.md) 배포
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->
