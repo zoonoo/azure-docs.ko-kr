@@ -312,7 +312,7 @@ Azure에서 다계층 SQL Server 기반 응용 프로그램을 구현하려면 �
 
 다음 표에서는 Azure 가상 컴퓨터의 SQL Server와 관련하여 Azure 클라우드 서비스 및 Azure 웹앱을 기존 웹 개발과 비교합니다. Azure 웹앱은 공용 가상 IP 주소나 DNS 이름을 통해 Azure VM의 SQL Server를 Azure 웹앱용 데이터 소스로 사용할 수 있기 때문에 이 표에 포함되어 있습니다.
 
-|Azure 가상 컴퓨터의 기존 웹 개발|Azure의 클라우드 서비스|Azure 웹앱에서 웹 호스팅|
+||Azure 가상 컴퓨터의 기존 웹 개발|Azure의 클라우드 서비스|Azure 웹앱에서 웹 호스팅|
 |---|---|---|---|
 |**온-프레미스에서 응용 프로그램 마이그레이션**|기존 응용 프로그램 있는 그대로 사용합니다.|응용 프로그램에 웹 및 작업자 역할이 필요합니다.|기존 응용 프로그램 그대로이지만 빠른 확장성이 필요한 자체 포함된 웹 응용 프로그램 및 웹 서비스에 적합합니다.|
 |**개발 및 배포**|Visual Studio, WebMatrix, Visual Web Developer, WebDeploy, FTP, TFS, IIS Manager, PowerShell.|Visual Studio, Azure SDK, TFS, PowerShell. 각 클라우드 서비스에는 스테이징 및 프로덕션 등, 서비스 패키지와 구성을 배포할 수 있는 두 가지 환경이 있습니다. 먼저 클라우드 서비스를 스테이징 환경에 배포하여 테스트한 후 프로덕션으로 수준을 올릴 수 있습니다.|Visual Studio, WebMatrix, Visual Web Developer, FTP, GIT, BitBucket, CodePlex, DropBox, GitHub, Mercurial, TFS, Web Deploy, PowerShell.|
