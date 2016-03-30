@@ -73,13 +73,13 @@
 
 4. **Create a new app on the Dropbox platform**에서:
 
-	a) **Choose API**에서 **Dropbox API**를 선택합니다. b) **Choose the type of access you need**에서 **Full Dropbox...**를 선택합니다. c) 앱의 이름을 입력합니다.
-	2. **필요한 액세스 유형 선택**에서 **전체 Dropbox...**를 선택합니다.  
-	3. 앱의 이름을 입력합니다.  
+    1. **Choose API**에서 **Dropbox API**를 선택합니다.  
+    2. **Choose the type of access you need**에서 **Full Dropbox...**를 선택합니다.  
+    3. 앱의 이름을 입력합니다.  
 
 	![Dropbox 앱 만들기 페이지 1][10]
 
-5. 앱 설정 페이지에서:
+5. 앱 설정 페이지에서:  
 
 	1. **OAuth 2**에서 **리디렉션 URL**을 이 항목의 Azure 포털에서 새 Dropbox API를 추가했을 때 받은 리디렉션 URL로 설정합니다. **추가**를 선택합니다.  
 	2. **표시** 링크를 선택하여 **앱 암호**를 나타냅니다.  
@@ -115,4 +115,4 @@
 [12]: ./media/powerapps-create-api-dropbox/browseall.png
 [13]: ./media/powerapps-create-api-dropbox/allresources.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->
