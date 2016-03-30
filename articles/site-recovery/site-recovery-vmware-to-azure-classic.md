@@ -67,7 +67,8 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 - **온-프레미스 관리 서버**: 사이트 복구 구성 요소를 실행하는 관리 서버:
 	- **구성 서버**: 통신을 조정하고 데이터 복제 및 복구 프로세스를 관리합니다.
 	- **프로세스 서버**:복제 게이트웨이 역할을 합니다. 보호된 원본 컴퓨터에서 데이터를 수신하고 캐싱, 압축 및 암호화를 사용하여 최적화하며 복제 데이터를 Azure 저장소로 전송합니다. 또한 보호되는 컴퓨터에서 모바일 서비스의 푸시 설치를 처리하며 VMware VM의 자동 복구를 수행합니다.
-	- **마스터 대상 서버**: Azure에서 장애 복구(failback) 중에 복제 데이터를 처리합니다. 또한 배포를 확장하기 위해 프로세스 서버 역할만 하는 관리 서버를 배포할 수도 있습니다.
+	- **마스터 대상 서버**: Azure에서 장애 복구(failback) 중에 복제 데이터를 처리합니다.
+	또한 배포를 확장하기 위해 프로세스 서버 역할만 하는 관리 서버를 배포할 수도 있습니다.
 - **모바일 서비스**: 이 구성 요소는 Azure에 복제하고자 하는 각 컴퓨터(VMware VM 또는 물리적 서버)에 배포됩니다. 컴퓨터에 기록된 데이터를 캡처하고 프로세스 서버에 전달합니다.
 - **Azure**: 복제 및 장애 조치(Failover)를 처리하기 위해 어떤 Azure VM도 만들 필요가 없습니다. 사이트 복구 서비스가 데이터 관리를 처리하고 Azure 저장소로 데이터가 직접 복제됩니다. 복제된 Azure VM은 Azure로 장애 조치가 발생한 경우에만 자동으로 작동됩니다. 그러나 Azure에서 온-프레미스 사이트로 장애 복구(failback)하려는 경우 Azure VM이 프로세스 서버 역할을 하도록 설정해야 합니다.
 
@@ -81,7 +82,7 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 용량을 계획하는 경우 고려해야 할 항목은 다음과 같습니다.
 
 - **원본 환경** - 용량 계획 또는 VMware 인프라, 원본 컴퓨터 요구 사항.
-- ** 관리 서버** - 사이트 복구 구성 요소를 실행하는 온-프레미스 관리 서버 계획.
+- **관리 서버** - 사이트 복구 구성 요소를 실행하는 온-프레미스 관리 서버 계획.
 - **원본에서 대상까지 네트워크 대역폭**-원본과 Azure 간 복제에 필요한 네트워크 대역폭 계획
 
 ### 원본 환경 고려 사항
@@ -203,7 +204,8 @@ Azure Site Recovery에서 복제에 사용되는 대역폭을 늘리려면 레�
 3. **새로 만들기** > **빠른 생성**을 클릭합니다.
 4. **이름**에 자격 증명 모음을 식별하기 위한 이름을 입력합니다.
 5. **지역**에서 자격 증명 모음에 대한 지리적 지역을 선택합니다. 지원되는 지역을 확인하려면 [Azure 사이트 복구 가격 정보](https://azure.microsoft.com/pricing/details/site-recovery/)에서 지리적 가용성을 참조하십시오.
-6. **자격 증명 모음 만들기**를 클릭합니다. ![새 자격 증명 모음](./media/site-recovery-vmware-to-azure-classic/quick-start-create-vault.png)
+6. **자격 증명 모음 만들기**를 클릭합니다.
+	![새 자격 증명 모음](./media/site-recovery-vmware-to-azure-classic/quick-start-create-vault.png)
 
 상태 표시줄을 점검하여 자격 증명 모음이 성공적으로 만들어졌는지 확인합니다. 자격 증명 모음은 기본 **복구 서비스** 페이지에서 **활성**으로 나열됩니다.
 
@@ -301,7 +303,8 @@ VMware 가상 컴퓨터를 복제하려는 경우 관리 서버에 다음과 같
 13.  **요약**에서 정보를 검토합니다.
 
 	![요약](./media/site-recovery-vmware-to-azure-classic/combined-wiz10.png)
->[AZURE.WARNING] Microsoft Azure 복구 서비스 에이전트 프록시를 설치해야 합니다. 설치가 완료되면 Windows 시작 메뉴에서 "Microsoft Azure 복구 서비스 셸"이라는 응용 프로그램을 시작합니다. 열리는 명령 창에서 다음과 같은 명령 집합을 실행하여 프록시 서버 설정을 설정합니다.
+>[AZURE.WARNING] Microsoft Azure 복구 서비스 에이전트 프록시를 설치해야 합니다.
+>설치가 완료되면 Windows 시작 메뉴에서 "Microsoft Azure 복구 서비스 셸"이라는 응용 프로그램을 시작합니다. 열리는 명령 창에서 다음과 같은 명령 집합을 실행하여 프록시 서버 설정을 설정합니다.
 >
 	$pwd = ConvertTo-SecureString -String ProxyUserPassword
 	Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumb – ProxyUserName domain\\username -ProxyPassword $pwd 
@@ -461,7 +464,8 @@ VMware VM을 복제하는 경우 vCenter Server(또는 ESXi 호스트)를 추가
 원본 운영 체제 | 모바일 서비스 설치 파일
 --- | ---
 Windows Server(64비트만 해당) | Microsoft-ASR\_UA\_9.*.0.0\_Windows\_* release.exe
-CentOS 6.4, 6.5, 6.6(64비트만 해당) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz SUSE Linux Enterprise Server 11 SP3(64비트만 해당) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
+CentOS 6.4, 6.5, 6.6(64비트만 해당) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz
+SUSE Linux Enterprise Server 11 SP3(64비트만 해당) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
 Oracle Enterprise Linux 6.4, 6.5(64비트만 해당) | Microsoft-ASR\_UA\_9.*.0.0\_OL6-64\_*release.tar.gz
 
 
@@ -707,7 +711,7 @@ UnifiedAgent.exe [/Role <Agent/MasterTarget>] [/InstallLocation <Installation Di
 	![프로세스 서버 추가](./media/site-recovery-vmware-to-azure-classic/add-ps1.png)
 
 3. 첫 번째 관리 서버를 [설정](#step-5-install-the-management-server)했을 때 수행한 것과 같은 방식으로 마법사를 완료합니다.
-4. **구성 서버 세부 정보**에서 구성 서버를 설치했던 원래 관리 서버의 IP 주소와 암호를 지정합니다. 원래 관리 서버에서 **<SiteRecoveryInstallationFolder>\\home\\sysystems\\bin\\genpassphrase.exe –n**을 실행하여 암호를 얻을 수 있습니다.
+4. **구성 서버 세부 정보**에서 구성 서버를 설치했던 원래 관리 서버의 IP 주소와 암호를 지정합니다. 원래 관리 서버에서 **<SiteRecoveryInstallationFolder>\\home\\sysystems\\bin\\genpassphrase.exe –n** 을 실행하여 암호를 얻을 수 있습니다.
 
 	![프로세스 서버 추가](./media/site-recovery-vmware-to-azure-classic/add-ps2.png)
 
@@ -736,7 +740,7 @@ UnifiedAgent.exe [/Role <Agent/MasterTarget>] [/InstallLocation <Installation Di
 --- | --- | ---
 Azure\_Site\_Recovery 역할 | VMware VM 검색 |v-Center Server에 대해 이러한 권한 할당:<br/><br/>데이터 저장소->공간 할당, 데이터 저장소 찾아보기, 하위 수준 파일 작업., 파일 제거, 가상 컴퓨터 파일 업데이트<br/><br/>네트워크-> 네트워크 할당<br/><br/>리소스 -> 가상 컴퓨터를 리소스 풀에 할당, 전원이 꺼진 가상 컴퓨터 마이그레이션, 전원이 켜진 가상 컴퓨터 마이그레이션<br/><br/>작업 -> 만들기 작업, 업데이트 작업<br/><br/>가상 컴퓨터 -> 구성<br/><br/>가상 컴퓨터 -> 상호 작용 -> 질문 답변, 장치 연결., CD 미디어 구성, 플로피 미디어 구성, 전원 꺼짐, 전원 켜짐, VMware 도구 설치<br/><br/>가상 컴퓨터 -> 인벤토리 -> 만들기, 등록, 등록 취소<br/><br/>가상 컴퓨터 -> 프로비전 -> 가상 컴퓨터 다운로드 허용, 가상 컴퓨터 파일 업로드 허용<br/><br/>가상 컴퓨터 -> 스냅숏 -> 스냅숏 제거
 vCenter 사용자 역할 | VMware VM 검색/원본 VM을 종료하지 않고 장애 조치 | v-Center Server에 대해 이러한 권한 할당:<br/><br/>데이터 센터 개체 –> 자식 개체에 전파, 역할=읽기 전용 <br/><br/>사용자는 데이터 센터 수준에서 할당되므로 데이터 센터의 모든 개체에 대한 액세스 권한이 있습니다. 액세스를 제한하려는 경우 **자식 개체에 전파**를 사용하여 **액세스 권한 없음** 역할을 자식 개체(ESX 호스트, 데이터 저장소, VM 및 네트워크)에 할당합니다. 
-vCenter 사용자 역할 | 장애 조치 및 장애 복구 | v-Center Server에 대해 이러한 권한 할당:<br/><br/>데이터 센터 개체 – 자식 개체에 전파, 역할=Azure\_Site\_Recovery<br/><br/>사용자는 데이터 센터 수준에서 할당되므로 데이터 센터의 모든 개체에 대한 액세스 권한이 있습니다. 액세스를 제한하려는 경우 **자식 개체에 전파**를 사용하여 **액세스 권한 없음 **역할을 자식 개체(ESX 호스트, 데이터 저장소, VM 및 네트워크)에 할당합니다. 
+vCenter 사용자 역할 | 장애 조치 및 장애 복구 | v-Center Server에 대해 이러한 권한 할당:<br/><br/>데이터 센터 개체 – 자식 개체에 전파, 역할=Azure\_Site\_Recovery<br/><br/>사용자는 데이터 센터 수준에서 할당되므로 데이터 센터의 모든 개체에 대한 액세스 권한이 있습니다. 액세스를 제한하려는 경우 **자식 개체에 전파**를 사용하여 **액세스 권한 없음**역할을 자식 개체(ESX 호스트, 데이터 저장소, VM 및 네트워크)에 할당합니다. 
 
 
 
