@@ -53,7 +53,7 @@ Microsoft Azure에서 Windows 기반 가상 컴퓨터를 만들고 관리하는 
 
 
 ### 시작
-[Windows VM에 대한 학습 경로](https://azure.microsoft.com/ko-KR/documentation/learning-paths/virtual-machines/)
+[Windows VM에 대한 학습 경로](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
 
 [Azure 포털에서 Windows 가상 컴퓨터 만들기](virtual-machines-windows-classic-tutorial.md)
 
@@ -228,7 +228,7 @@ Microsoft Azure에서 Windows 기반 가상 컴퓨터를 만들고 관리하는 
 
 
 ### 시작
-[Windows VM에 대한 학습 경로](https://azure.microsoft.com/ko-KR/documentation/learning-paths/virtual-machines/)
+[Windows VM에 대한 학습 경로](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
 
 [Azure 클래식 포털에서 Windows 가상 컴퓨터 만들기](virtual-machines-windows-classic-tutorial.md)
 
@@ -375,4 +375,4 @@ Microsoft Azure에서 Windows 기반 가상 컴퓨터를 만들고 관리하는 
 
 [Azure에서 VM을 만들거나 재시작하거나 크기를 조정하는 경우 할당 오류 해결](virtual-machines-windows-allocation-failure.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0323_2016--->

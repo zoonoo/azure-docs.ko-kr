@@ -167,7 +167,8 @@ StorSimple 관리자 서비스의 새 인스턴스를 만들려면 다음 단계
 
 > [AZURE.IMPORTANT] 서비스와 함께 저장소 계정을 자동으로 만들도록 설정하지 않은 경우, 서비스를 성공적으로 만든 후 하나 이상의 저장소 계정을 만들어야 합니다. 이 저장소 계정은 볼륨 컨테이너를 만들 때 사용됩니다.
 >
-> 저장소 계정을 자동으로 만들지 않은 경우 자세한 지침은 [서비스에 대한 새 저장소 계정 구성](#configure-a-new-storage-account-for-the-service)을 참조하세요. 저장소 계정을 자동으로 생성하도록 설정한 경우, [2단계: 서비스 등록 키 받기](#step-2:-get-the-service-registration-key)로 이동합니다.
+> 저장소 계정을 자동으로 만들지 않은 경우 자세한 지침은 [서비스에 대한 새 저장소 계정 구성](#configure-a-new-storage-account-for-the-service)을 참조하세요.
+> 저장소 계정을 자동으로 생성하도록 설정한 경우, [2단계: 서비스 등록 키 받기](#step-2:-get-the-service-registration-key)로 이동합니다.
 
 ## 2단계: 서비스 등록 키 받기
 

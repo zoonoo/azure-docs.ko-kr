@@ -69,7 +69,8 @@ Azure 백업은 Microsoft 클라우드에서 데이터를 백업 및 복원하�
 | Microsoft SQL Server | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md)(+ Azure 백업 에이전트),</p> <p>[Azure 백업 서버](backup-azure-microsoft-azure-backup.md)(Azure 백업 에이전트 포함)</p> |
 | Microsoft SharePoint | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md)(+ Azure 백업 에이전트),</p> <p>[Azure 백업 서버](backup-azure-microsoft-azure-backup.md)(Azure 백업 에이전트 포함)</p> |
 | Microsoft Exchange | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md)(+ Azure 백업 에이전트),</p> <p>[Azure 백업 서버](backup-azure-microsoft-azure-backup.md)(Azure 백업 에이전트 포함)</p> |
-| Azure IaaS VM(Windows)| - | [Azure 백업(VM 확장)](backup-azure-vms-introduction.md) | | Azure IaaS VM(Linux) | - | [Azure 백업(VM 확장)](backup-azure-vms-introduction.md) |
+| Azure IaaS VM(Windows)| - | [Azure 백업(VM 확장)](backup-azure-vms-introduction.md) | 
+| Azure IaaS VM(Linux) | - | [Azure 백업(VM 확장)](backup-azure-vms-introduction.md) |
 
 ## ARM 및 Linux 지원
 
