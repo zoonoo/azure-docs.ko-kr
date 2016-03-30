@@ -53,13 +53,13 @@
 
 단계 | 설명
 -----| -----------
-[1단계: Azure 데이터 팩터리 만들기](#CreateDataFactory) | 이 단계에서는 **ADFTutorialDataFactoryPSH**라는 Azure 데이터 팩터리를 만듭니다. 
-[2단계: 연결된 서비스 만들기](#CreateLinkedServices) | 이 단계에서는 2개의 연결된 서비스 **StorageLinkedService** 및 **AzureSqlLinkedService**를 만듭니다. StorageLinkedService는 Azure 저장소를 연결하고, AzureSqlLinkedService는 Azure SQL 데이터베이스를 ADFTutorialDataFactoryPSH에 연결합니다.
-[3단계: 입력 및 출력 데이터 집합 만들기](#CreateInputAndOutputDataSets) | 이 단계에서는 다음 단계에서 만들 ADFTutorialPipeline의 **복사 작업**에 대한 입력 및 출력 테이블로 사용되는 2개의 데이터 집합(**EmpTableFromBlob** 및 **EmpSQLTable**)을 정의합니다.
-[4단계: 파이프라인 만들기 및 실행](#CreateAndRunAPipeline) | 이 단계에서는 데이터 팩터리 **ADFTutorialDataFactoryPSH**에 **ADFTutorialPipeline**이라는 파이프라인을 만듭니다. 이 파이프라인에는 Azure Blob에서 출력 Azure 데이터베이스 테이블로 데이터를 복사하는 **복사 작업**이 있습니다.
-[5단계: 데이터 집합 및 파이프라인 모니터링](#MonitorDataSetsAndPipeline) | 이 단계에서는 Azure PowerShell을 사용하여 데이터 집합 및 파이프라인을 모니터링합니다.
+[Azure 데이터 팩터리 만들기](#create-data-factory) | 이 단계에서는 **ADFTutorialDataFactoryPSH**라는 Azure 데이터 팩터리를 만듭니다. 
+[연결된 서비스 만들기](#create-linked-services) | 이 단계에서는 2개의 연결된 서비스 **StorageLinkedService** 및 **AzureSqlLinkedService**를 만듭니다. StorageLinkedService는 Azure 저장소를 연결하고, AzureSqlLinkedService는 Azure SQL 데이터베이스를 ADFTutorialDataFactoryPSH에 연결합니다.
+[입력 및 출력 데이터 집합을 만듭니다.](#create-datasets) | 이 단계에서는 다음 단계에서 만들 ADFTutorialPipeline의 **복사 작업**에 대한 입력 및 출력 테이블로 사용되는 2개의 데이터 집합(**EmpTableFromBlob** 및 **EmpSQLTable**)을 정의합니다.
+[파이프라인 만들기 및 실행](#create-pipeline) | 이 단계에서는 데이터 팩터리 **ADFTutorialDataFactoryPSH**에 **ADFTutorialPipeline**이라는 파이프라인을 만듭니다. 이 파이프라인에는 Azure Blob에서 출력 Azure 데이터베이스 테이블로 데이터를 복사하는 **복사 작업**이 있습니다.
+[데이터 집합 및 파이프라인 모니터링](#monitor-pipeline) | 이 단계에서는 Azure PowerShell을 사용하여 데이터 집합 및 파이프라인을 모니터링합니다.
 
-## <a name="CreateDataFactory"></a>1단계: Azure 데이터 팩터리 만들기
+## 데이터 팩터리 만들기
 이 단계에서는 명명 된는 Azure 데이터 팩터리를 만들려면 Azure PowerShell을 사용 **ADFTutorialDataFactoryPSH**.
 
 1. Azure PowerShell을 시작하고 다음 명령을 실행합니다. 이 자습서를 마칠 때까지 Azure PowerShell을 열어 두세요. 닫은 후 다시 여는 경우 이러한 명령을 다시 실행해야 합니다.
@@ -79,7 +79,7 @@
 
 	> [AZURE.NOTE] 데이터 팩터리의 이름은 나중에 DNS 이름으로 표시되므로 공개적으로 등록될 수도 있습니다.
 
-## <a name="CreateLinkedServices"></a>2단계: 연결된 서비스 만들기
+## 연결된 서비스 만들기
 연결된 서비스는 데이터 저장소 또는 계산 서비스를 Azure Data Factory에 연결합니다. 데이터 저장소는 데이터 팩터리 파이프라인에 대한 입력 데이터를 포함하거나 출력 데이터를 저장하는 Azure 저장소, Azure SQL 데이터베이스 또는 온-프레미스 SQL Server 데이터베이스일 수 있습니다. 계산 서비스는 입력 데이터를 처리하고 출력 데이터를 생성하는 서비스입니다.
 
 이 단계에서는 2개의 연결된 서비스 **StorageLinkedService** 및 **AzureSqlLinkedService**를 만듭니다. StorageLinkedService 연결된 서비스는 Azure 저장소 계정을 연결하고, AzureSqlLinkedService는 Azure SQL 데이터베이스를 데이터 팩터리 **ADFTutorialDataFactoryPSH**에 연결합니다. 이 자습서 뒷부분에서는 StorageLinkedService의 Blob 컨테이너에서 AzureSqlLinkedService의 SQL 테이블로 데이터를 복사하는 파이프라인을 만듭니다.
@@ -141,7 +141,7 @@
 	5. 왼쪽의 **활성** 허브를 클릭하여 이전에 있던 **데이터 팩터리** 블레이드로 전환합니다.
 	
 
-## <a name="CreateInputAndOutputDataSets"></a>3단계: 입력 및 출력 테이블 만들기
+## 데이터 집합 만들기
 
 이전 단계에서는 연결된 서비스 **StorageLinkedService** 및 **AzureSqlLinkedService**를 만들어 Azure 저장소 계정과 Azure SQL 데이터베이스를 데이터 팩터리 **ADFTutorialDataFactoryPSH**에 연결했습니다. 이 단계에서는 다음 단계에서 만들 파이프라인에 있는 복사 작업의 입력 및 출력 데이터를 나타내는 데이터 집합을 만듭니다.
 
@@ -182,7 +182,7 @@
 
 	Visual Studio 2013이 컴퓨터에 설치된 경우: Azure 포털([http://portal.azure.com](http://portal.sazure.com))에서 왼쪽의 **찾아보기** 허브를 클릭하고, **SQL Server**를 클릭한 다음 데이터베이스를 선택하고, 도구 모음의 **Visual Studio에서 열기** 단추를 클릭하여 Azure SQL Server에 연결한 다음 스크립트를 실행합니다. 클라이언트가 Azure SQL Server에 액세스할 수 없는 경우 컴퓨터(IP 주소)의 액세스를 허용하도록 Azure SQL Server의 방화벽을 구성해야 합니다. Azure SQL Server의 방화벽을 구성하는 단계는 위의 문서를 참조하세요.
 		
-### 입력 테이블 만들기 
+### 입력 데이터 집합 만들기 
 테이블은 사각형 데이터 집합이고 스키마가 있습니다. 이 단계에서는 **StorageLinkedService** 연결된 서비스가 나타내는 Azure 저장소의 Blob 컨테이너를 가리키는 **EmpBlobTable**이라는 테이블을 만듭니다. 이 Blob 컨테이너(**adftutorial**)는 **emp.txt** 파일에 입력 데이터를 포함합니다.
 
 1.	**C:\\ADFGetStartedPSH** 폴더에 다음과 같은 내용으로 **EmpBlobTable.json**이라는 JSON 파일을 만듭니다.
@@ -250,7 +250,7 @@
 
 		New-AzureRmDataFactoryDataset $df -File .\EmpBlobTable.json
 
-### 출력 테이블 만들기
+### 출력 데이터 집합 만들기
 이 단계에서는 **AzureSqlLinkedService** 연결된 서비스가 나타내는 Azure SQL 데이터베이스의 SQL 테이블(**emp**)을 가리키는 **EmpSQLTable**이라는 출력 테이블을 만듭니다. 파이프라인은 입력 Blob에서 **emp** 테이블로 데이터를 복사합니다.
 
 1.	**C:\\ADFGetStartedPSH** 폴더에 다음과 같은 내용으로 **EmpSQLTable.json**이라는 JSON 파일을 만듭니다.
@@ -293,7 +293,7 @@
 		New-AzureRmDataFactoryDataset $df -File .\EmpSQLTable.json
 
 
-## <a name="CreateAndRunAPipeline"></a>4단계: 파이프라인 만들기 및 실행
+## 파이프라인 만들기
 이 단계에서는 **EmpTableFromBlob**을 입력으로 사용하고 **EmpSQLTable**을 출력으로 사용하는 **복사 작업**을 포함하는 파이프라인을 만듭니다.
 
 1.	**C:\\ADFGetStartedPSH** 폴더에 다음과 같은 내용으로 **ADFTutorialPipeline.json**이라는 JSON 파일을 만듭니다. 
@@ -359,7 +359,7 @@
 
 **축하합니다.** Azure Data Factory, 연결된 서비스, 테이블 및 파이프라인을 성공적으로 만들고 파이프라인을 예약했습니다.
 
-## <a name="MonitorDataSetsAndPipeline"></a>5단계: 데이터 집합 및 파이프라인 모니터링
+## 파이프라인 모니터링
 이 단계에서는 Azure PowerShell을 사용하여 Azure Data Factory에서 어떤 일이 일어나는지 모니터링합니다.
 
 1.	**Get-AzureRmDataFactory**를 실행하고 출력을 $df 변수에 할당합니다.
@@ -447,4 +447,4 @@ Azure 데이터 팩터리의 **복사 작업**에 대한 자세한 내용은 [�
 [sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

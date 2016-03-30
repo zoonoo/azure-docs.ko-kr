@@ -46,9 +46,9 @@ curl localhost/marathon/v2/apps
 {"apps":[]}
 ```
 
-## Docker 컨테이너 배포
+## Docker로 포맷된 컨테이너 배포
 
-Docker 컨테이너는 원하는 배포를 설명하는 json 파일을 사용하여 Marathon을 통해 배포됩니다. 다음 샘플은 nginx 컨테이너를 배포하며 Mesos 에이전트의 포트 80을 컨테이너의 포트 80에 바인딩합니다.
+Docker로 포맷된 컨테이너는 원하는 배포를 설명하는 json 파일을 사용하여 Marathon을 통해 배포됩니다. 다음 샘플은 nginx 컨테이너를 배포하며 Mesos 에이전트의 포트 80을 컨테이너의 포트 80에 바인딩합니다.
 
 ```json
 {
@@ -69,7 +69,7 @@ Docker 컨테이너는 원하는 배포를 설명하는 json 파일을 사용하
 }
 ```
 
-Docker 컨테이너를 배포하려면 사용자 고유의 json 파일을 만들거나 여기 [Azure ACS 데모](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/marathon/marathon.json)에 제공된 샘플을 사용하고 액세스 가능한 위치에 저장합니다. 다음으로, 다음 명령을 실행하며 컨테이너를 배포할 json 파일의 이름을 지정합니다.
+Docker로 포맷된 컨테이너를 배포하려면 사용자 고유의 json 파일을 만들거나 여기 [Azure ACS 데모](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/marathon/marathon.json)에 제공된 샘플을 사용하고 액세스 가능한 위치에 저장합니다. 다음으로, 다음 명령을 실행하며 컨테이너를 배포할 json 파일의 이름을 지정합니다.
 
 ```
 curl -X POST http://localhost/marathon/v2/groups -d @marathon.json -H "Content-type: application/json"
@@ -87,7 +87,7 @@ curl -X POST http://localhost/marathon/v2/groups -d @marathon.json -H "Content-t
 curl localhost/marathon/v2/apps
 ```
 
-## Docker 컨테이너 확장
+## 컨테이너 확장
 
 응용 프로그램 배포를 외부 또는 내부로 확장하는 데 Marathon API를 사용할 수도 있습니다. 이전 예제에서는 응용 프로그램의 한 인스턴스를 배포했으며 이를 세 개의 인스턴스로 규모 확장해 보겠습니다. 이렇게 하려면 다음 json 텍스트로 json 파일을 만들고 액세스 가능한 위치에 저장합니다.
 
@@ -119,7 +119,7 @@ Windows 시스템에서 PowerShell을 사용하여 이와 동일한 작업을 �
 Invoke-WebRequest -Uri http://localhost/mesos/master/slaves
 ```
 
-Docker 컨테이너는 원하는 배포를 설명하는 json 파일을 사용하여 Marathon을 통해 배포됩니다. 다음 샘플은 nginx 컨테이너를 배포하며 Mesos 에이전트의 포트 80을 컨테이너의 포트 80에 바인딩합니다.
+Docker 형식 컨테이너는 원하는 배포를 설명하는 json 파일을 사용하여 Marathon을 통해 배포됩니다. 다음 샘플은 nginx 컨테이너를 배포하며 Mesos 에이전트의 포트 80을 컨테이너의 포트 80에 바인딩합니다.
 
 ```json
 {
@@ -160,4 +160,4 @@ Invoke-WebRequest -Method Post -Uri http://localhost/marathon/v2/apps -ContentTy
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'
 ```
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

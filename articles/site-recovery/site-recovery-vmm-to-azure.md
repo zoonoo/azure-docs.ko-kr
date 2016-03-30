@@ -13,10 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="03/15/2016"
+	ms.date="02/16/2016"
 	ms.author="raynew"/>
 
 #  Azure에 VMM 클라우드의 Hyper-V 가상 컴퓨터 복제
+
+> [AZURE.SELECTOR]
+- [Azure 클래식 포털](site-recovery-vmm-to-azure.md)
+- [PowerShell - 클래식](site-recovery-deploy-with-powershell.md)
+- [PowerShell - Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md) 
+
 
 Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제, 장애 조치(Failover) 및 복구를 오케스트레이션하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. 컴퓨터는 Azure 또는 보조 온-프레미스 데이터 센터로 복제할 수 있습니다. 빠른 개요를 알아보려면 [Azure Site Recovery란?](site-recovery-overview.md)을 확인하세요.
 
@@ -43,7 +49,7 @@ Azure에서 다음 항목이 필요합니다.
 **필수 요소** | **세부 정보**
 --- | ---
 **Azure 계정**| [Microsoft Azure](https://azure.microsoft.com/) 계정이 있어야 합니다. [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작할 수 있습니다. 사이트 복구 가격 책정에 대해 [자세히 알아보세요](https://azure.microsoft.com/pricing/details/site-recovery/). 
-**Azure 저장소** | 복제된 데이터를 저장하려면 Azure 저장소 계정이 있어야 합니다. 복제된 데이터는 Azure 저장소에 저장되고 장애 조치(Failover) 발생 시 Azure VM이 작동합니다. <br/><br/>[표준 지역 중복 저장소 계정](../storage/storage-redundancy.md#geo-redundant-storage)이 필요합니다. 계정은 사이트 복구 서비스와 같은 하위 지역에 있고 같은 구독과 연결되어야 합니다. 프리미엄 저장소 계정으로 복제는 현재 지원되지 않으며 사용할 수 없습니다. 여러 리소스 그룹에 [새 Azure 포털](../storage/storage-create-storage-account.md)을 사용하여 만든 저장소 계정의 이동을 지원하지 않습니다.<br/><br/>Azure 저장소 계정에 대해 [알아봅니다](../storage/storage-introduction.md).
+**Azure 저장소** | 복제된 데이터를 저장하려면 Azure 저장소 계정이 있어야 합니다. 복제된 데이터는 Azure 저장소에 저장되고 장애 조치(Failover) 발생 시 Azure VM이 작동합니다. <br/><br/>[표준 지역 중복 저장소 계정](../storage/storage-redundancy.md#geo-redundant-storage)이 필요합니다. 계정은 사이트 복구 서비스와 같은 하위 지역에 있고 같은 구독과 연결되어야 합니다. 프리미엄 저장소 계정으로 복제는 현재 지원되지 않으며 사용할 수 없습니다.<br/><br/>Azure 저장소에 대해 [자세히 알아보세요](../storage/storage-introduction.md).
 **Azure 네트워크** | 장애 조치(Failover) 발생 시 Azure VM에서 연결할 Azure 가상 네트워크가 필요합니다. Azure 가상 네트워크는 사이트 복구 자격 증명 모음과 동일한 지역에 있어야 합니다. 
 
 ## 온-프레미스 필수 조건
@@ -132,12 +138,12 @@ Azure 네트워크에서 가상 컴퓨터를 보호하는 경우 매핑은 원�
 	- 사용자 지정 프록시를 사용하려는 경우 공급자를 설치하기 전에 설정해야 합니다. 사용자 지정 프록시 설정을 구성하면 테스트가 실행되어 프록시 연결을 확인합니다.
 	- 사용자 지정 프록시를 사용하지 않거나 기본 프록시에 인증이 필요한 경우 프록시 주소와 포트를 비롯한 프록시 정보를 입력해야 합니다.
 	- 다음 URL은 VMM 서버 및 Hyper-V 호스트에서 액세스할 수 있어야 합니다.
-		- *.hypervrecoverymanager.windowsazure.com
-		- *.accesscontrol.windows.net
-		- *.backup.windowsazure.com
-		- *.blob.core.windows.net
-		- *.store.core.windows.net
-	- [Azure 데이터센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653) 및 HTTPS(443) 프로토콜에 설명된 IP 주소를 허용합니다. 사용하려는 Azure 지역 및 미국 서부의 IP 범위를 허용해야 합니다.
+		- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
+- [Azure 데이터센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653) 및 HTTPS(443) 프로토콜에 설명된 IP 주소를 허용합니다. 사용하려는 Azure 지역 및 미국 서부의 IP 범위를 허용해야 합니다.
 
 	- 사용자 지정 프록시를 사용하는 경우 지정된 프록시 자격 증명을 사용하여 VMM 실행 계정(DRAProxyAccount)이 자동으로 만들어집니다. 이 계정이 성공적으로 인증될 수 있도록 프록시 서버를 구성합니다. VMM 콘솔에서 VMM 실행 계정 설정을 수정할 수 있습니다. 이렇게 하려면 설정 작업 영역을 열고 보안을 확장한 다음 실행 계정을 클릭하고 DRAProxyAccount의 암호를 수정합니다. 이 설정이 적용되도록 VMM 서비스를 다시 시작해야 합니다.
 
@@ -182,7 +188,7 @@ Azure 네트워크에서 가상 컴퓨터를 보호하는 경우 매핑은 원�
 
  - **/Credentials** : 등록 키 파일이 있는 위치를 지정하는 필수 매개 변수입니다.  
  - **/FriendlyName** : Azure Site Recovery 포털에 나타나는 Hyper-V 호스트 서버의 이름에 대한 필수 매개 변수입니다.
- - **/EncryptionEnabled** : Azure(암호화 미사용)에서 가상 컴퓨터를 암호화하려는 경우 지정할 선택적 매개 변수입니다. 파일 이름은 **.pfx** 확장명이 있어야 합니다.
+ - **/EncryptionEnabled** : Azure(암호화 미사용)에서 가상 컴퓨터를 암호화하려는 경우 지정할 선택적 매개 변수입니다. 파일 이름에는 **.pfx** 확장명이 있어야 합니다.
  - **/proxyAddress** : 프록시 서버의 주소를 지정하는 선택적 매개 변수입니다.
  - **/proxyport** : 프록시 서버의 포트를 지정하는 선택적 매개 변수입니다.
  - **/proxyUsername** : 프록시 사용자 이름을 지정하는 선택적 매개 변수입니다.
@@ -195,8 +201,6 @@ Azure 네트워크에서 가상 컴퓨터를 보호하는 경우 매핑은 원�
 2. 지역에서 복제를 사용하는 계정을 만듭니다. 계정은 Azure Site Recovery 서비스와 같은 하위 지역에 있고 같은 구독과 연결되어야 합니다.
 
 	![저장소 계정](./media/site-recovery-vmm-to-azure/storage.png)
-
->[AZURE.NOTE] 여러 리소스 그룹에 [새 Azure 포털](../storage/storage-create-storage-account.md)을 사용하여 만든 저장소 계정의 이동을 지원하지 않습니다.
 
 ## 5단계: Azure 복구 서비스 에이전트 설치
 
@@ -231,10 +235,7 @@ VMM 서버가 등록되면 클라우드 보호 설정을 구성할 수 있습니
 1. 빠른 시작 페이지에서 **VMM 클라우드에 대해 보호 설정**을 클릭합니다.
 2. **보호된 항목** 탭에서 구성할 클라우드를 클릭하고 **구성** 탭으로 이동합니다.
 3. **대상**에서 **Azure**를 선택합니다.
-4. **저장소 계정**에서 복제를 위해 사용할 Azure 저장소 계정을 선택합니다. 
-
-	>[AZURE.NOTE] 여러 리소스 그룹에 [새 Azure 포털](../storage/storage-create-storage-account.md)을 사용하여 만든 저장소 계정의 이동을 지원하지 않습니다.
-
+4. **저장소 계정**에서 복제를 위해 사용할 Azure 저장소 계정을 선택합니다.
 5. **저장된 데이터 암호화**를 **끄기**로 설정합니다. 이 설정은 온-프레미스 사이트와 Azure 간에 복제된 데이터를 암호화하도록 지정합니다.
 6. **복사 빈도**에서 기본 설정을 그대로 둡니다. 이 값은 원본 위치와 대상 위치 사이에 데이터를 동기화해야 하는 빈도를 지정합니다.
 7. **복구 지점 유지**에서 기본 설정을 그대로 둡니다. 기본값인 0인 경우에는 주 가상 컴퓨터의 가장 최근 복구 지점만 복제본 호스트 서버에 저장됩니다.
@@ -289,11 +290,14 @@ VMM 서버가 등록되면 클라우드 보호 설정을 구성할 수 있습니
 
 	![가상 컴퓨터 확인](./media/site-recovery-vmm-to-azure/vm-properties.png)
 
+
 4. 가상 컴퓨터 속성의 **구성** 탭에서 다음 네트워크 속성을 수정할 수 있습니다.
 
 
 
-- **대상 가상 컴퓨터 네트워크 어댑터의 수** - 네트워크 어댑터의 수는 대상 가상 컴퓨터에 대해 지정하는 크기에 따라 결정됩니다. [가상 컴퓨터 크기 사양](../virtual-machines/virtual-machines-size-specs.md#size-tables)에서 가상 컴퓨터 크기에 의해 지원되는 어댑터의 수를 확인하세요. 가상 컴퓨터의 크기를 수정하고 설정을 저장하면 다음에 **구성** 페이지를 열 때 네트워크 어댑터의 수가 변경됩니다. 대상 가상 컴퓨터의 네트워크 어댑터 수는 원본 가상 컴퓨터의 최소 네트워크 어댑터 수이며 선택한 가상 컴퓨터 크기에서 지원하는 최대 네트워크 어댑터 수입니다. 다음과 같습니다.
+
+
+- **대상 가상 컴퓨터 네트워크 어댑터의 수** - 네트워크 어댑터의 수는 대상 가상 컴퓨터에 지정하는 크기에 따라 결정됩니다. [가상 컴퓨터 크기 사양](../virtual-machines/virtual-machines-linux-sizes.md#size-tables)에서 가상 컴퓨터 크기에 의해 지원되는 어댑터의 수를 확인합니다. 가상 컴퓨터의 크기를 수정하고 설정을 저장하면 다음에 **구성** 페이지를 열 때 네트워크 어댑터의 수가 변경됩니다. 대상 가상 컴퓨터의 네트워크 어댑터 수는 원본 가상 컴퓨터의 최소 네트워크 어댑터 수이며 선택한 가상 컴퓨터 크기에서 지원하는 최대 네트워크 어댑터 수입니다. 다음과 같습니다.
 
 	- 원본 컴퓨터의 네트워크 어댑터 수가 대상 컴퓨터 크기에 허용되는 어댑터 수보다 작거나 같은 경우, 대상의 어댑터 수는 소스와 동일해야 합니다.
 	- 원본 가상 컴퓨터의 어댑터의 수가 대상 크기에 허용된 수를 초과하면 대상 크기 최대치가 사용됩니다.
@@ -368,4 +372,4 @@ Azure 대상 네트워크를 지정하지 않고 Azure로 보호되도록 설정
 
 [복구 계획 설정](site-recovery-create-recovery-plans.md) 및 [장애 조치(failover)](site-recovery-failover.md)에 대해 알아봅니다.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

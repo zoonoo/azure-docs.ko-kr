@@ -18,9 +18,9 @@
 # 온-프레미스 StorSimple 장치 배포
 
 > [AZURE.SELECTOR]
-- [Update 2](../articles/storsimple/storsimple-deployment-walkthrough-u2.md)
-- [Update 1](../articles/storsimple/storsimple-deployment-walkthrough-u1.md)
-- [GA Release](../articles/storsimple/storsimple-deployment-walkthrough.md)
+- [업데이트 2](../articles/storsimple/storsimple-deployment-walkthrough-u2.md)
+- [업데이트 1](../articles/storsimple/storsimple-deployment-walkthrough-u1.md)
+- [GA 릴리스](../articles/storsimple/storsimple-deployment-walkthrough.md)
 
 ## 개요
 
@@ -34,7 +34,7 @@ Microsoft Azure StorSimple 장치 배포를 시작합니다. 이 배포 자습�
 
 설치 및 구성 프로세스를 완료하려면 관리자 권한이 필요합니다. 시작하기 전에 구성 검사 목록을 검토하는 것이 좋습니다. 배포 및 구성 프로세스는 완료하는 데 다소 시간이 걸릴 수 있습니다.
 
-> [AZURE.NOTE] Microsoft Azure 웹 사이트에 게시된 StorSimple 배포 정보는 StorSimple 8000 시리즈 장치에만 적용됩니다. 7000 시리즈 장치에 대한 자세한 내용은 [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com)으로 이동합니다. 7000 시리즈 배포 정보는 [StorSimple 시스템 퀵 스타트 가이드](http://onlinehelp.storsimple.com/111_Appliance/)를 참조하세요.
+> [AZURE.NOTE] Microsoft Azure 웹 사이트에 게시된 StorSimple 배포 정보는 StorSimple 8000 시리즈 장치에만 적용됩니다. 5000 및 7000 시리즈 장치에 대한 자세한 내용은 [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com)으로 이동합니다. 5000 및 7000 시리즈 배포 정보는 [StorSimple 시스템 빠른 시작 가이드](http://onlinehelp.storsimple.com/111_Appliance/)를 참조하세요.
 
 ## 배포 단계
 
@@ -146,7 +146,7 @@ StorSimple 장치를 구성하여 StorSimple 관리자 서비스에 연결하려
 | | | |
 | **NTP** | NTP 서버가 입력되는 즉시 시간 동기화를 트리거합니다. `time.windows.com` 또는 공용 시간 서버를 입력할 때 UDP 포트 123이 열려 있는지 확인합니다. | [이 스크립트를 다운로드하고 사용합니다](https://gallery.technet.microsoft.com/scriptcenter/Get-Network-NTP-Time-with-07b216ca). |
 | | | |
-| **프록시(선택 사항)** | 유효한 프록시 URI 및 포트입니까? </br> 인증 모드가 올바릅니까? | <code>wget http://bing.com &#124; % {$\_.StatusCode}</code></br>이 명령은 웹 프록시 구성 후 즉시 실행되어야 합니다. 상태 코드 200이 반환되는 경우 연결이 성공적임을 나타냅니다. |
+| **프록시(선택 사항)** | 유효한 프록시 URI 및 포트입니까? </br> 인증 모드가 올바릅니까? | <code>wget http://bing.com | % {$\_.StatusCode}</code></br>이 명령은 웹 프록시 구성 후 즉시 실행되어야 합니다. 상태 코드 200이 반환되는 경우 연결이 성공적임을 나타냅니다. |
 | | 트래픽이 프록시를 통해 라우팅할 수 있습니까? | 장치의 프록시 구성 후 DNS 유효성 검사, NTP 확인 또는 HTTP 검사를 실행합니다. 트래픽이 프록시 또는 다른 곳에서 차단된 경우 명확한 그림을 제공합니다. |
 | | | |
 | **등록** | 아웃바운드 TCP 포트 443, 80, 9354가 열려 있는지 확인합니다. | `Test-NetConnection -Port   443 -InformationLevel Detailed`</br>[Test-NetConnection cmdlet에 대한 자세한 내용](https://technet.microsoft.com/library/dn372891.aspx) |
@@ -167,8 +167,7 @@ StorSimple 관리자 서비스의 새 인스턴스를 만들려면 다음 단계
 
 > [AZURE.IMPORTANT] 서비스와 함께 저장소 계정을 자동으로 만들도록 설정하지 않은 경우, 서비스를 성공적으로 만든 후 하나 이상의 저장소 계정을 만들어야 합니다. 이 저장소 계정은 볼륨 컨테이너를 만들 때 사용됩니다.
 >
-> 저장소 계정을 자동으로 만들지 않은 경우 자세한 지침은 [서비스에 대한 새 저장소 계정 구성](#configure-a-new-storage-account-for-the-service)을 참조하세요.
-> 저장소 계정을 자동으로 생성하도록 설정한 경우, [2단계: 서비스 등록 키 받기](#step-2:-get-the-service-registration-key)로 이동합니다.
+> 저장소 계정을 자동으로 만들지 않은 경우 자세한 지침은 [서비스에 대한 새 저장소 계정 구성](#configure-a-new-storage-account-for-the-service)을 참조하세요. 저장소 계정을 자동으로 생성하도록 설정한 경우, [2단계: 서비스 등록 키 받기](#step-2:-get-the-service-registration-key)로 이동합니다.
 
 ## 2단계: 서비스 등록 키 받기
 
@@ -294,4 +293,4 @@ StorSimple 장치에서 단일 볼륨에 대한 주문형 수동 백업을 만�
 
 - [StorSimple 관리자 서비스](https://msdn.microsoft.com/library/azure/dn772396.aspx)를 사용하여 StorSimple 장치를 관리할 수 있습니다.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

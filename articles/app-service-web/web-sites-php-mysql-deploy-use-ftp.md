@@ -3,7 +3,7 @@
 	description="MySQL에 데이터를 저장하는 PHP 웹 앱을 만들고 FTP를 사용하여 Azure에 배포하는 방법을 보여 주는 자습서입니다." 
 	services="app-service\web" 
 	documentationCenter="php" 
-	authors="tfitzmac" 
+	authors="rmcmurray" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -14,14 +14,14 @@
 	ms.devlang="PHP" 
 	ms.topic="hero-article" 
 	ms.date="01/12/2016" 
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 
 #Azure 웹 앱 서비스에서 PHP-MySQL 웹 앱 만들기 및 FTP를 사용하여 배포
 
 > [AZURE.SELECTOR]
 - [.Net](web-sites-dotnet-get-started.md)
-- [Node.js](web-sites-nodejs-develop-deploy-mac.md)
+- [Node.JS](web-sites-nodejs-develop-deploy-mac.md)
 - [Java](web-sites-java-get-started.md)
 - [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
 - [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
@@ -50,7 +50,7 @@
 
 	![새 Azure 웹 사이트 만들기][new-website]
 
-3. 검색에 **웹앱 + MySQL**을 입력하고 **웹앱 + MySQL**을 클릭합니다.
+3. 검색에 **웹 앱 + MySQL**을 입력하고 **웹 앱 + MySQL**을 클릭합니다.
 
 	![새 웹 사이트 사용자 지정 만들기][custom-create]
 
@@ -228,7 +228,7 @@
 
 	![데이터베이스 선택][select-database]
 
-2. 데이터베이스 요약에서 **설정** >서 **속성**을 선택합니다.
+2. 데이터베이스 요약에서 **설정** > **속성**을 선택합니다.
 
     ![속성 선택][select-properties]
 	
@@ -303,4 +303,4 @@
 [download-publish-profile]: ./media/web-sites-php-mysql-deploy-use-ftp/download_publish_profile_3.png
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -98,9 +98,9 @@ Windows 기반 및 Linux 기반 클러스터용 클러스터링 및 작업 예�
 
 ### 계산 서비스
 
-Azure 계산 서비스는 빅 컴퓨팅 솔루션의 핵심이며 다른 계산 서비스는 다양한 시나리오에 대한 장점을 제공합니다. 기본적인 수준에서 이러한 서비스는 응용 프로그램이 Windows Server Hyper-v 기술을 사용하여 Azure에서 제공하는 가상 컴퓨터 기반 계산 인스턴스에서 실행되도록 서로 다른 모드를 제공합니다. 이러한 인스턴스는 다양한 표준과 사용자 지정 Linux 및 Windows 운영 체제 및 도구를 실행할 수 있습니다. Azure는 CPU 코어, 메모리, 디스크 용량 및 기타 특성의 서로 다른 구성을 가진 [인스턴트 크기](../virtual-machines/virtual-machines-size-specs.md)를 선택하도록 합니다. 필요에 따라 인스턴스를 수천 개의 코어로 확장하고 리소스가 더 적게 필요할 때는 축소할 수 있습니다.
+Azure 계산 서비스는 빅 컴퓨팅 솔루션의 핵심이며 다른 계산 서비스는 다양한 시나리오에 대한 장점을 제공합니다. 기본적인 수준에서 이러한 서비스는 응용 프로그램이 Windows Server Hyper-v 기술을 사용하여 Azure에서 제공하는 가상 컴퓨터 기반 계산 인스턴스에서 실행되도록 서로 다른 모드를 제공합니다. 이러한 인스턴스는 다양한 표준과 사용자 지정 Linux 및 Windows 운영 체제 및 도구를 실행할 수 있습니다. Azure는 CPU 코어, 메모리, 디스크 용량 및 기타 특성의 서로 다른 구성을 가진 [인스턴트 크기](../virtual-machines/virtual-machines-linux-sizes.md)를 선택하도록 합니다. 필요에 따라 인스턴스를 수천 개의 코어로 확장하고 리소스가 더 적게 필요할 때는 축소할 수 있습니다.
 
->[AZURE.NOTE] 대기 시간이 짧고 처리량이 높은 응용 프로그램 네트워크를 요구하는 병렬 MPI 응용 프로그램을 포함하여 일부 HPC 워크로드의 성능을 향상시키기 위해 A8-A11 인스턴스를 활용합니다. [A8, A9, A10 및 A11 계산 집약적인 인스턴스 정보](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md)를 참조하세요.
+>[AZURE.NOTE] 대기 시간이 짧고 처리량이 높은 응용 프로그램 네트워크를 요구하는 병렬 MPI 응용 프로그램을 포함하여 일부 HPC 워크로드의 성능을 향상시키기 위해 A8-A11 인스턴스를 활용합니다. [A8, A9, A10 및 A11 계산 집약적인 인스턴스 정보](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md)를 참조하세요.
 
 부여 | 설명
 ------------- | -----------
@@ -155,4 +155,4 @@ Azure 계산 서비스는 빅 컴퓨팅 솔루션의 핵심이며 다른 계산 
 [burst_cluster]: ./media/batch-hpc-solutions/burst_cluster.png
 [batch_proc]: ./media/batch-hpc-solutions/batch_proc.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

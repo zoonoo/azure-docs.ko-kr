@@ -111,11 +111,15 @@ SDK 2.8.1에 대한 자세한 내용은 알림 [블로그 게시물](https://azu
 3. 사용자 고유의 검색 API 앱을 빌드하고, 시작 시 다른 API 앱을 검색 앱에 등록합니다.
 4. 배포 시 다른 API 앱의 끝점과 함께 모든 API 앱(및 클라이언트)의 앱 설정을 채웁니다. API 앱이 url을 제어하므로 이는 템플릿 배포에 표시됩니다.
 
+## 논리 앱과 API 앱 사용
+
+새 API 앱 모델은 [논리 앱 스키마 버전 2015-08-01](../app-service-logic/app-service-logic-schema-2015-08-01.md)에서 제대로 작동합니다.
+
 ## 다음 단계
 
 자세한 내용은 [API 앱 설명서 섹션](https://azure.microsoft.com/documentation/services/app-service/api/)의 문서를 참조하세요. API 앱에 대한 새 모델을 반영하도록 업데이트되었습니다. 또한 포럼에서 마이그레이션에 대한 추가 지침 또는 세부 정보를 확인할 수 있습니다.
 
-- [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAPIApps)
+- [MSDN 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=AzureAPIApps)
 - [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-api-apps)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

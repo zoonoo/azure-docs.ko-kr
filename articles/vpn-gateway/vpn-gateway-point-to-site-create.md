@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [PowerShell - Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md)
-- [Portal - Classic](vpn-gateway-point-to-site-create.md)
+- [포털 - 클래식](vpn-gateway-point-to-site-create.md)
 
 지점 및 사이트 간 구성을 사용하면 개별적으로 클라이언트 컴퓨터에서 가상 네트워크에 안전한 연결을 만들 수 있습니다. 클라이언트 컴퓨터에서 연결을 시작하여 VPN 연결을 설정합니다. 집 또는 회의와 같은 원격 위치에서 VNet에 연결하려는 경우 또는 몇 명의 클라이언트만 가상 네트워크에 연결해야 하는 경우에 사용할 수 있는 뛰어난 솔루션입니다. 지점 및 사이트 간 연결은 작동하기 위해 VPN 장치 또는 공용 IP 주소가 필요하지 않습니다. 지점 및 사이트 간 연결에 대한 자세한 내용은 [VPN 게이트웨이 FAQ](vpn-gateway-vpn-faq.md#point-to-site-connections) 및 [프레미스 간 연결 정보](vpn-gateway-cross-premises-options.md)를 참조하세요.
 
@@ -95,10 +95,10 @@
 X.509 인증서를 만드는 한 가지 방법은 인증서 작성 도구(makecert.exe)를 사용하는 것입니다. makecert를 사용하려면 무료 제공되는 [Microsoft Visual Studio Express](https://www.visualstudio.com/products/visual-studio-express-vs.aspx)를 다운로드하고 설치합니다.
 
 2. Visual Studio Tools 폴더로 이동하여 관리자로 명령 프롬프트를 시작합니다.
-3. 다음 예제의 명령은 컴퓨터의 개인 인증서 저장소에 루트 인증서를 만들어 설치하고 나중에 Azure 클래식 포털에 업로드할 *.cer* 파일도 만듭니다.
+3. 다음 예제의 명령은 사용자의 컴퓨터에 있는 개인 인증서 저장소에 루트 인증서를 만들어 설치하고 나중에 Azure 클래식 포털에 업로드할 해당 *.cer* 파일도 만듭니다.
 4. .cer 파일을 보관할 디렉터리로 변경하고 다음 명령을 실행합니다. 여기서 *RootCertificateName*은 인증서에서 사용할 이름입니다. 다음 예제를 변경하지 않고 실행하면 결과는 루트 인증서 및 해당 파일 *RootCertificateName.cer*입니다.
 
->[AZURE.NOTE]클라이언트 인증서를 생성할 루트 인증서를 만들었기 때문에 이 인증서를 해당 개인 키와 함께 내보내고 복구 가능한 안전한 위치에 저장할 수 있습니다.
+>[AZURE.NOTE] 클라이언트 인증서를 생성할 루트 인증서를 만들었기 때문에 이 인증서를 해당 개인 키와 함께 내보내고 복구 가능한 안전한 위치에 저장할 수 있습니다.
 
     makecert -sky exchange -r -n "CN=RootCertificateName" -pe -a sha1 -len 2048 -ss My "RootCertificateName.cer"
 
@@ -144,7 +144,7 @@ VPN 클라이언트를 구성하려면 다음을 순서 대로 수행합니다.
 
 ### VPN 클라이언트 구성 패키지 만들기
 
-1. Azure 클래식 포털의 가상 네트워크에 대한 **대시보드** 페이지에서 오른쪽 모서리에 있는 한 눈에 보기 메뉴로 이동하고 가상 네트워크에 연결하려는 클라이언트와 관계련된 VPN 패키지를 클릭합니다.
+1. Azure 클래식 포털의 가상 네트워크에 대한 **대시보드** 페이지에서 오른쪽 모서리에 있는 간략 상태 메뉴로 이동하고 가상 네트워크에 연결하려는 클라이언트와 관련된 VPN 패키지를 클릭합니다.
 2. 
 다음 클라이언트 운영 체제가 지원됩니다.
  - Windows 7(32비트 및 64비트)
@@ -163,8 +163,7 @@ VPN 클라이언트를 구성하려면 다음을 순서 대로 수행합니다.
 
 ### 클라이언트에 VPN 구성 패키지를 설치하고 연결 시작
 
-1. 가상 네트워크에 연결할 컴퓨터에 구성 파일을 로컬로 복사하고 .exe 파일을 두 번 클릭합니다. 패키지가 설치되어 있다면 VPN 연결을 시작할 수 있습니다.
- 구성 패키지는 Microsoft에서 서명하지 않습니다. 조직의 서명 서비스를 사용하여 패키지에 서명하거나 [SignTool](http://go.microsoft.com/fwlink/p/?LinkId=699327)을 사용하여 직접 서명합니다. 서명 없이 패키지를 사용해도 괜찮습니다. 그러나 패키지가 서명되지 않은 경우, 패키지를 설치할 때 경고가 표시됩니다.
+1. 가상 네트워크에 연결할 컴퓨터에 구성 파일을 로컬로 복사하고 .exe 파일을 두 번 클릭합니다. 패키지가 설치되어 있다면 VPN 연결을 시작할 수 있습니다. 구성 패키지는 Microsoft에서 서명하지 않습니다. 조직의 서명 서비스를 사용하여 패키지에 서명하거나 [SignTool](http://go.microsoft.com/fwlink/p/?LinkId=699327)을 사용하여 직접 서명합니다. 서명 없이 패키지를 사용해도 괜찮습니다. 그러나 패키지가 서명되지 않은 경우, 패키지를 설치할 때 경고가 표시됩니다.
 2. 클라이언트 컴퓨터에서 VPN 연결로 이동 하고 방금 만든 VPN 연결을 찾습니다. 가상 네트워크와 같은 이름입니다. **Connect**를 클릭합니다.
 3. 게이트웨이 끝점에 대한 자체 서명된 인증서를 만드는 데 사용되는 팝업 메시지가 나타납니다. **계속**을 클릭하여 상승된 권한을 사용합니다.
 4. **연결** 상태 페이지에서 연결을 시작하도록 **연결**을 클릭합니다.
@@ -193,8 +192,8 @@ VPN 클라이언트를 구성하려면 다음을 순서 대로 수행합니다.
 
 ## 다음 단계
 
-가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. [사용자 지정 가상 컴퓨터를 만드는 방법](../virtual-machines/virtual-machines-create-custom.md)을 참조하세요.
+가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. [사용자 지정 가상 컴퓨터를 만드는 방법](../virtual-machines/virtual-machines-windows-classic-createportal.md)을 참조하세요.
 
 가상 네트워크에 대한 자세한 내용은 [가상 네트워크 설명서](https://azure.microsoft.com/documentation/services/virtual-network/) 페이지를 참조하세요.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0323_2016-->

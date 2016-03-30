@@ -63,4 +63,4 @@ SQL 데이터베이스에 대한 소개를 읽고 질문 "SQL 데이터베이스
 
 - [Azure SQL 데이터베이스 서비스에 대한 모든 항목](sql-database-index-all-articles.md)에 대한 제목 및 설명 인덱스를 참조하세요.
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

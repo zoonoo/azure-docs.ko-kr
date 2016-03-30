@@ -44,7 +44,7 @@ Azure CLI를 사용하여 Azure 데이터 레이크 분석 계정을 만들고, 
 - **인증**. 다음 명령을 사용합니다.
 
 		azure login
-	회사 또는 학교 계정을 사용하여 인증하는 방법에 대한 자세한 내용은 [Azure CLI에서 Azure 구독에 연결](xplat-cli-connect.md)을 참조하세요.
+	회사 또는 학교 계정을 사용하여 인증하는 방법에 대한 자세한 내용은 [Azure CLI에서 Azure 구독에 연결](../xplat-cli-connect.md)을 참조하세요.
 - **Azure 리소스 관리자 모드로 전환**. 다음 명령을 사용합니다.
 
 		azure config mode arm
@@ -169,4 +169,4 @@ CLI를 사용하여 파일을 업로드하려면 다음 명령을 사용합니�
 - 관리 작업을 보려면 [Azure 포털을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-manage-use-portal.md)를 참조하세요.
 - 데이터 레이크 분석에 대한 개요를 보려면 [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

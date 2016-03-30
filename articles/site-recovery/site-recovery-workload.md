@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="12/01/2015" 
+	ms.date="03/18/2016" 
 	ms.author="raynew"/>
 
 # Azure Site Recovery로 어떤 워크로드를 보호할 수 있습니까?
@@ -41,20 +41,20 @@ Azure Site Recovery를 사용하면 고객이 조직의 비즈니스 연속성 �
 
 **워크로드** | <p>**Hyper-V VM 복제**</p> <p>**(보조 사이트에)**</p> | <p>**Hyper-V VM 복제**</p> <p>**(Azure에)**</p> | <p>**VMware VM 복제**</p> <p>**(보조 사이트에)**</p> | <p>**VMware VM 복제**</p><p>**(Azure에)****</p>
 ---|---|---|---|---
-Active Directory, DNS | Y | Y | Y | Y
+Active Directory, DNS | Y | Y | Y | Y 
 웹앱(IIS, SQL) | Y | Y | Y | Y
 SCOM | Y | Y | Y | Y
 Sharepoint | Y | Y | Y | Y
-<p>SAP</p><p>비클러스터에 대해 Azure에 SAP 사이트 복제</p>| Y(Microsoft에서 테스트) | Y(Microsoft에서 테스트) | Y(Microsoft에서 테스트) | Y(Microsoft에서 테스트)
+<p>SAP</p><p>비 클러스터에 대헤 Azure에 SAP 사이트 복제</p> | 예(Microsoft에서 테스트) | 예(Microsoft에서 테스트) | 예(Microsoft에서 테스트) | 예(Microsoft에서 테스트)
 Exchange(비 DAG) | Y | 서비스 예정 | Y | Y
-원격 데스크톱/VDI | Y | Y | Y | 해당 없음
-<p>Linux</p> <p>(운영 체제 및 앱)</p>| Y(Microsoft에서 테스트) | Y(Microsoft에서 테스트) | Y(Microsoft에서 테스트) | Y(Microsoft에서 테스트)
+원격 데스크톱/VDI | Y | Y | Y | 해당 없음 
+<p>Linux</p> <p>(운영 체제 및 앱)</p> | 예(Microsoft에서 테스트) | 예(Microsoft에서 테스트) | 예(Microsoft에서 테스트) | 예(Microsoft에서 테스트) 
 Dynamics AX | Y | Y | Y | Y
 Dynamics CRM | Y | 서비스 예정 | Y | 서비스 예정
-Oracle| Y(Microsoft에서 테스트) | Y(Microsoft에서 테스트) | Y(Microsoft에서 테스트) | Y(Microsoft에서 테스트)
+Oracle | 예(Microsoft에서 테스트) | 예(Microsoft에서 테스트) | 예(Microsoft에서 테스트) | 예(Microsoft에서 테스트)
 Windows 파일 서버 | Y | Y | Y | Y
 
-##Active Directory 및 DNS 보호
+##Active Directory 및 DNS
 
 SharePoint, Dynamics AX 및 SAP와 같은 모든 엔터프라이즈 응용 프로그램은 Active Directory 및 DNS 인프라에 따라 달라집니다. BCDR 솔루션의 일부로 워크로드 및 앱을 복구하기 전에 이러한 인프라 구성 요소를 보호하고 복구해야 합니다.
 
@@ -62,7 +62,7 @@ SharePoint, Dynamics AX 및 SAP와 같은 모든 엔터프라이즈 응용 프�
 
 [자세한 정보](http://aka.ms/asr-ad)
 
-##SQL Server 보호
+##SQL Server
 
 SQL Server는 온-프레미스 데이터 센터에서 많은 비즈니스 응용 프로그램에 데이터 서비스에 대 한 기반을 제공합니다. 사이트 복구 및 SQL Server HA/DR 기술은 상호 보완적이며 다중 계층 엔터프라이즈 응용 프로그램에 대한 종단간 보호를 제공하는 데 함께 사용할 수 있습니다. 사이트 복구는 SQL Server 환경에 대한 다음 혜택을 제공합니다.
 
@@ -74,7 +74,7 @@ SQL Server는 온-프레미스 데이터 센터에서 많은 비즈니스 응용
 
 [자세히 알아보기](http://aka.ms/asr-sql)
 
-##SharePoint 보호
+##SharePoint
 
 Azure Site Recovery를 사용하면 SharePoint 배포를 보호할 수 있습니다. 사이트 복구를 통해 다음을 수행할 수 있습니다.
 
@@ -86,7 +86,7 @@ Azure Site Recovery를 사용하면 SharePoint 배포를 보호할 수 있습니
 [자세히 알아보기](http://aka.ms/asr-sharepoint)
 
 
-## Dynamics AX 보호
+##Dynamics AX
 
 Azure Site Recovery를 사용하면 Dynamics AX ERP 솔루션을 보호하도록 합니다.
 
@@ -96,13 +96,13 @@ Azure Site Recovery를 사용하면 Dynamics AX ERP 솔루션을 보호하도록
 
 [자세히 알아보기](http://aka.ms/asr-dynamics)
 
-## RDS 보호 
+##RDS 
 원격 데스크톱 서비스는 사용자가 원하는 위치에서 사용할 수 있도록 가상 데스크톱 인프라(VDI), 세션 기반의 데스크톱 및 응용 프로그램을 활성화합니다. 사이트 복구를 사용하여 보조 사이트에 대한 관리되거나 관리되지 않은 풀링된 가상 데스크톱 및 보조 사이트 또는 Azure에 대한 원격 응용 프로그램 및 세션의 보호를 설정할 수 있습니다.
 
 [자세히 알아보기](http://aka.ms/asr-rds)
 
 
-## Exchange 보호
+##Exchange
 
 Microsoft Exchange는 고가용성 및 재해 복구에 대한 기본 제공 지원을 포함합니다. Exchange DAG 및 Azure Site Recovery는 함께 작동될 수 있습니다.
 
@@ -111,7 +111,7 @@ Microsoft Exchange는 고가용성 및 재해 복구에 대한 기본 제공 지
 
 [수익 창출](http://aka.ms/asr-exchange)
 
-## SAP 보호
+##SAP
 
 사이트 복구를 사용하여 SAP 배포를 보호합니다.
 
@@ -121,4 +121,4 @@ Microsoft Exchange는 고가용성 및 재해 복구에 대한 기본 제공 지
 
 [자세히 알아보기](http://aka.ms/asr-sap)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0323_2016-->

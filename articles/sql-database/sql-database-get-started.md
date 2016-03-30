@@ -23,7 +23,7 @@
 **단일 데이터베이스**
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-get-started.md)
+- [Azure 포털](sql-database-get-started.md)
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
@@ -34,7 +34,7 @@
 
 시작하려면 Azure 계정 및 구독이 필요합니다. 없는 경우 지금 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록하세요.
 
-> [AZURE.NOTE] 이 SQL 데이터베이스 자습서에서는 클라우드, Azure SQL 데이터베이스에서 Microsoft의 관계형 데이터베이스 관리 시스템(RDBMS)을 사용하여 데이터베이스를 설정을 다룹니다. 다른 옵션은 Azure 가상 컴퓨터에서 SQL Server를 실행합니다. 빠른 비교를 위한 [Azure VM에서 Azure SQL 데이터베이스 및 SQL Server 이해](data-management-azure-sql-database-and-sql-server-iaas.md)를 참조하거나 [SQL Server 가상 컴퓨터 프로비전](virtual-machines-provision-sql-server.md)을 참조하여 가상 컴퓨터를 시작합니다.
+> [AZURE.NOTE] 이 SQL 데이터베이스 자습서에서는 클라우드, Azure SQL 데이터베이스에서 Microsoft의 관계형 데이터베이스 관리 시스템(RDBMS)을 사용하여 데이터베이스를 설정을 다룹니다. 다른 옵션은 Azure 가상 컴퓨터에서 SQL Server를 실행합니다. 빠른 비교를 위한 [Azure VM에서 Azure SQL 데이터베이스 및 SQL Server 이해](data-management-azure-sql-database-and-sql-server-iaas.md)를 참조하거나 [SQL Server 가상 컴퓨터 프로비전](../virtual-machines/virtual-machines-windows-classic-portal-sql.md)을 참조하여 가상 컴퓨터를 시작합니다.
 
 ## 1단계: 로그인 및 SQL 데이터베이스 설정 시작
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
@@ -117,4 +117,4 @@ Azure 시작 보드로 돌아갑니다. 여기에는 데이터베이스가 생�
 
 - 온-프레미스 SQL 서버 데이터베이스를 Azure로 이동하려면 [Azure SQL 데이터베이스로 데이터베이스 마이그레이션](sql-database-cloud-migrate.md)에서 자세히 알아보세요.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

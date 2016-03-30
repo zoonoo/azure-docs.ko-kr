@@ -25,7 +25,7 @@
 ## 스트레치 데이터베이스의 장점은 무엇입니까?
 스트레치 데이터베이스는 다음과 같은 이점을 제공합니다.
 
-**콜드 데이터에 비용 효율적인 가용성을 제공** SQL Server 스트레치 데이터베이스를 통해 콜드 및 웜 트랜잭션 데이터를 SQL Server에서 Microsoft Azure로 동적으로 확장합니다. 일반적인 콜드 데이터 저장소와 달리 데이터가 항상 온라인 상태이며 쿼리할 수 있습니다. 고객 주문 내역과 같은 큰 테이블에 대한 뱅크를 차단하지 않고 긴 데이터 보존 일정을 제공할 수 있습니다. 값비싼 온-프레미스 저장소를 확장하는 대신 저렴한 비용의 Azure의 이점을 활용합니다. 가격 책정 계층을 선택하고 Azure 포털에서 설정을 구성하여 가격 및 데이터 액세스 속도에 대한 제어를 관리합니다. 필요한 만큼 규모를 확장하거나 축합니다. 자세한 내용은 [SQL 데이터베이스 가격 책정](https://azure.microsoft.com/pricing/details/sql-database/) 페이지를 참조하세요.
+**콜드 데이터에 비용 효율적인 가용성을 제공** SQL Server 스트레치 데이터베이스를 통해 콜드 및 웜 트랜잭션 데이터를 SQL Server에서 Microsoft Azure로 동적으로 확장합니다. 일반적인 콜드 데이터 저장소와 달리 데이터가 항상 온라인 상태이며 쿼리할 수 있습니다. 고객 주문 내역과 같은 큰 테이블에 대한 뱅크를 차단하지 않고 긴 데이터 보존 일정을 제공할 수 있습니다. 값비싼 온-프레미스 저장소를 확장하는 대신 저렴한 비용의 Azure의 이점을 활용합니다. 가격 책정 계층을 선택하고 Azure 포털에서 설정을 구성하여 가격을 제어합니다. 필요한 만큼 규모를 확장하거나 축합니다. 자세한 내용은 [SQL Server 확장 데이터베이스 가격 책정](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/) 페이지를 방문합니다.
 
 **쿼리 또는 응용 프로그램 변경 불필요** 온-프레미스이든 클라우드로 확장이든 관계없이 원활하게 SQL Server 데이터에 액세스합니다. 데이터를 저장하고 SQL Server가 백그라운드에서 데이터 이동을 처리하는 위치를 결정하는 정책을 설정합니다. 전체 테이블은 항상 온라인 상태이며 쿼리할 수 있습니다. 그리고 스트레치 데이터베이스는 기존 쿼리 또는 응용 프로그램에 변경할 필요가 없습니다. 데이터의 위치는 응용 프로그램에 대해 완전히 투명합니다.
 
@@ -123,4 +123,4 @@ SQL Server 2016 업그레이드 관리자의 기능인 스트레치 데이터베
 [StretchOverviewImage2]: ./media/sql-server-stretch-database-overview/StretchDBOverview1.png
 [StretchOverviewImage3]: ./media/sql-server-stretch-database-overview/StretchDBOverview2.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

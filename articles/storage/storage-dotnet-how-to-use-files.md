@@ -210,8 +210,9 @@ SMB 3.0에 대한 지원을 통해 파일 저장소는 이제 SMB 3.0 클라이�
 
 Azure 파일 공유를 마운트하는 방법을 보여 주기 위해 Windows를 실행하는 Azure 가상 컴퓨터를 만든 후 원격으로 연결하여 공유를 마운트하겠습니다.
 
-1. 먼저 [Azure 포털에서 Windows 가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-tutorial.md)의 지침에 따라 새 Azure 가상 컴퓨터를 만듭니다.
-2. 다음으로 [Azure 포털을 사용하여 Windows 가상 컴퓨터에 로그온](../virtual-machines/virtual-machines-arm-log-on-windows-vm.md)의 지침에 따라 가상 컴퓨터에 원격으로 연결합니다.
+
+1. 먼저 [Azure 포털에서 Windows 가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md)의 지침에 따라 새 Azure 가상 컴퓨터를 만듭니다.
+2. 다음으로 [Azure 포털을 사용하여 Windows 가상 컴퓨터에 로그온](../virtual-machines/virtual-machines-windows-log-on.md)의 지침에 따라 가상 컴퓨터에 원격으로 연결합니다.
 3. 가상 컴퓨터에서 PowerShell 창을 엽니다.
 
 ### 가상 컴퓨터의 저장소 계정 자격 증명 유지
@@ -646,4 +647,4 @@ Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합�
 - [Microsoft Azure 파일 서비스 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Microsoft Azure 파일에 대한 연결 유지](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

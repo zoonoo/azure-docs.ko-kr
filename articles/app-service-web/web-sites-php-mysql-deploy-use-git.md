@@ -3,9 +3,9 @@
 	description="MySQL에 데이터를 저장하는 PHP 웹앱을 만들고 Git를 사용하여 Azure에 배포하는 방법을 보여 주는 자습서입니다."
 	services="app-service\web"
 	documentationCenter="php"
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
-	editor="mollybos"
+	editor=""
 	tags="mysql"/>
 
 <tags
@@ -15,7 +15,7 @@
 	ms.devlang="PHP"
 	ms.topic="hero-article"
 	ms.date="02/09/2016"
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 #Azure 웹 앱 서비스에서 PHP-MySQL 웹 앱 만들기 및 Git를 사용하여 배포
 
@@ -214,7 +214,7 @@
 
 		php -S localhost:8000
 
-이제 **http://localhost:8000/** 로 이동하여 응용 프로그램을 테스트할 수 있습니다.
+이제 ****http://localhost:8000/**로 이동하여 응용 프로그램을 테스트할 수 있습니다.
 
 
 ##응용 프로그램 게시
@@ -325,4 +325,4 @@
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->
