@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="03/15/2016"
+    ms.date="03/22/2016"
     ms.author="sstein"/>
 
 # 탄력적 데이터베이스 풀 만들기(C&#x23;)
@@ -26,9 +26,11 @@
 
 C&#x23;을 사용하여 [탄력적 데이터베이스 풀](sql-database-elastic-pool.md)을 만드는 방법
 
+일반적인 오류 코드는 [SQL 데이터베이스 클라이언트 응용 프로그램의 SQL 오류 코드: 데이터베이스 연결 오류 및 기타 문제](sql-database-develop-error-messages.md)를 참조하세요.
+
 > [AZURE.NOTE] 탄력적 데이터베이스 풀은 현재 미리 보기 상태이며, SQL 데이터베이스 V12 서버에서만 사용할 수 있습니다. SQL 데이터베이스 V11 서버가 있는 경우 한 단계에서 [PowerShell을 사용하여 V12로 업그레이드 및 풀 만들기](sql-database-upgrade-server-portal.md)를 할 수 있습니다.
 
-예제에서 [.NET용 SQL 데이터베이스 라이브러리](https://msdn.microsoft.com/library/azure/mt349017.aspx)를 사용하므로 라이브러리를 설치해야 합니다. Visual Studio에 있는 [패키지 관리자 콘솔](http://docs.nuget.org/Consume/Package-Manager-Console)에서 다음 명령을 사용하여 설치할 수 있습니다(**도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**).
+예제에서 [.NET용 SQL 데이터베이스 라이브러리](https://msdn.microsoft.com/library/azure/mt349017.aspx)를 사용하므로 라이브러리를 설치해야 합니다. Visual Studio의 [패키지 관리자 콘솔](http://docs.nuget.org/Consume/Package-Manager-Console)(**도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**)에서 다음 명령을 실행하여 설치할 수 있습니다.
 
     PM> Install-Package Microsoft.Azure.Management.Sql –Pre
 
@@ -45,7 +47,7 @@ C&#x23;을 사용하여 [탄력적 데이터베이스 풀](sql-database-elastic-
         Properties = new ElasticPoolCreateOrUpdateProperties()
         {
             Edition = "Standard",
-            Dtu = 400
+            Dtu = 400,
             DatabaseDtuMin = 0,
             DatabaseDtuMax = 100
          }
@@ -106,13 +108,13 @@ C&#x23;을 사용하여 [탄력적 데이터베이스 풀](sql-database-elastic-
 ## 탄력적 데이터베이스 풀 C&#x23; 만들기 예제
 
 
-다음 라이브러리는 이 예제를 실행해야 합니다. Visual Studio에 있는 [패키지 관리자 콘솔](http://docs.nuget.org/Consume/Package-Manager-Console)에서 다음 명령을 사용하여 설치할 수 있습니다(**도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**).
+다음 라이브러리는 이 예제를 실행해야 합니다. Visual Studio의 [패키지 관리자 콘솔](http://docs.nuget.org/Consume/Package-Manager-Console)(**도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**)에서 다음 명령을 실행하여 설치할 수 있습니다.
 
     PM> Install-Package Microsoft.Azure.Management.Sql –Pre
     PM> Install-Package Microsoft.Azure.Management.Resources –Pre
     PM> Install-Package Microsoft.Azure.Common.Authentication –Pre
 
-콘솔 앱을 만들고 Program.cs의 내용을 다음과 같이 바꿉니다. 필요한 클라이언트 ID 및 관련된 값을 가져오려면 [앱 등록 및 앱을 SQL 데이터베이스에 연결하는 데 필요한 클라이언트 값 가져오기](sql-database-client-id-keys.md)를 참조하세요.
+콘솔 앱을 만들고 Program.cs의 내용을 다음으로 바꿉니다. 필요한 클라이언트 ID 및 관련 값을 가져오려면 [앱 등록 및 SQL 데이터베이스에 앱을 연결하는 데 필요한 클라이언트 값 가져오기](sql-database-client-id-keys.md)를 참조하세요.
 
     using Microsoft.Azure;
     using Microsoft.Azure.Management.Resources;
@@ -278,4 +280,4 @@ C&#x23;을 사용하여 [탄력적 데이터베이스 풀](sql-database-elastic-
 - [Azure 리소스 관리 API](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 - [탄력적 데이터베이스 풀 참조](sql-database-elastic-pool-reference.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

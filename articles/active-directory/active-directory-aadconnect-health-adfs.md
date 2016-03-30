@@ -4,9 +4,9 @@
 	description="온-프레미스 AD FS 인프라를 모니터링하는 방법에 대한 Azure AD Connect Health 페이지입니다."
 	services="active-directory"
 	documentationCenter=""
-	authors="billmath"
+	authors="karavar"
 	manager="stevenpo"
-	editor="curtand"/>
+	editor="karavar"/>
 
 <tags
 	ms.service="active-directory"
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/17/2016"
-	ms.author="billmath"/>
+	ms.date="03/21/2016"
+	ms.author="vakarand"/>
 
 # AD FS와 함께 Azure AD Connect Health 사용
 다음 문서는 AZure AD Connect Health와 함께 AD FS 인프라 모니터링에 중점을 둡니다.
@@ -32,7 +32,7 @@ Azure AD Connect Health 경고 섹션은 활성 경고 목록을 제공합니다
 ## AD FS의 사용량 분석
 Azure AD Connect Health 사용 현황 분석에서는 페더레이션 서버의 인증 트래픽을 분석합니다. 사용 현황 분석 상자를 선택하면 메트릭 및 그룹화가 표시된 사용 현황 분석 블레이드가 열립니다.
 
->[AZURE.NOTE] AD FS가 포함된 사용 현황 분석을 사용하려면 AD FS 감사가 사용하도록 설정되어 있어야 합니다. 자세한 내용은 [AD FS 감사 사용](active-directory-aadconnect-health-operations.md#enable-auditing-for-ad-fs)을 참조하십시오.
+>[AZURE.NOTE] AD FS가 포함된 사용 현황 분석을 사용하려면 AD FS 감사가 사용하도록 설정되어 있어야 합니다. 자세한 내용은 [AD FS 감사 사용](active-directory-aadconnect-health-agent-install.md#enable-auditing-for-ad-fs)을 참조하십시오.
 
 ![Azure AD Connect Health 포털](./media/active-directory-aadconnect-health/report1.png)
 
@@ -79,13 +79,13 @@ Azure AD Connect Health for ADFS는 사용자 이름 또는 암호가 잘못되�
 이 보고서 내에서 다음 정보에 간편하게 액세스할 수 있습니다.
 
 - 지난 30일 동안 잘못된 사용자 이름/암호를 사용하여 실패한 요청 수
-- 잘못된 사용자 이름/암호로 로그인하여 실패한 일별 평균 사용자 수 
- 
+- 잘못된 사용자 이름/암호로 로그인하여 실패한 일별 평균 사용자 수
+
 이 파트를 클릭하면 추가 세부 정보를 제공하는 주 보고서 블레이드로 이동합니다. 여기에는 잘못된 사용자 이름 또는 암호를 사용한 요청의 기준을 설정할 수 있는 추세 정보와 실패한 요청 수가 포함된 상위 사용자 50명의 목록을 제공하는 그래프가 포함됩니다.
- 
+
 이 그래프는 다음 정보를 제공합니다.
 
-- 잘못된 사용자 이름/암호로 인해 실패한 일별 총 로그인 수 
+- 잘못된 사용자 이름/암호로 인해 실패한 일별 총 로그인 수
 - 로그인에 실패한 일별 총 고유 사용자 수
 
 ![Azure AD Connect Health 포털](./media/active-directory-aadconnect-health-adfs/report2a.png)
@@ -93,10 +93,10 @@ Azure AD Connect Health for ADFS는 사용자 이름 또는 암호가 잘못되�
 보고서는 다음 정보를 제공합니다.
 
 | 보고서 항목 | 설명
-| ------ | -------- | 
+| ------ | -------- |
 |사용자 ID| 사용된 사용자 ID를 표시합니다. 값은 사용자가 입력한 것이며 경우에 따라 잘못된 사용자 ID가 사용되는 것을 볼 수 있습니다.|
 |실패한 시도|특정 사용자 ID에 대한 총 실패 횟수를 보여 줍니다. 테이블은 가장 높은 실패 횟수부터 내림차순으로 정렬됩니다.|
-|마지막 실패|마지막 실패가 발생한 타임 스탬프를 보여 줍니다. 
+|마지막 실패|마지막 실패가 발생한 타임 스탬프를 보여 줍니다.
 
 
 
@@ -113,4 +113,4 @@ Azure AD Connect Health for ADFS는 사용자 이름 또는 암호가 잘못되�
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health 버전 내역](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

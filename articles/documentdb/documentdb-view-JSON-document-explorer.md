@@ -158,4 +158,4 @@ Azure 포털의 문서 탐색기는 DocumentDB의 문서 작업 방법 중 한 �
 
 [학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/)도 DocumentDB에 대해 자세히 알 수 있는 유용한 리소스입니다.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

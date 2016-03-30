@@ -308,7 +308,7 @@ Azure CLI 및 API 버전을 보려면 이전에 본 것처럼 동일한 **azure 
 ```
 
 ## 가상 컴퓨터
-[네트워크 인터페이스](#network-interface) 생성 시 수행한 것처럼 copyIndex() 함수를 사용하여 2개의 가상 컴퓨터를 만듭니다. VM 생성은 저장소 계정, 네트워크 인터페이스 및 가용성 집합에 따라 달라집니다. 이 VM은 `storageProfile` 속성에 정의된 대로 마켓플레이스 이미지에서 생성되며 `imageReferece`는 이미지 게시자, 제품, sku 및 버전을 정의하는 데 사용됩니다. 마지막으로, VM에 대해 진단을 사용하도록 진단 프로필이 구성됩니다.
+[네트워크 인터페이스](#network-interface) 생성 시 수행한 것처럼 copyIndex() 함수를 사용하여 2개의 가상 컴퓨터를 만듭니다. VM 생성은 저장소 계정, 네트워크 인터페이스 및 가용성 집합에 따라 달라집니다. 이 VM은 `storageProfile` 속성에 정의된 대로 마켓플레이스 이미지에서 생성되며 `imageReference`은 이미지 게시자, 제품, SKU 및 버전을 정의하는 데 사용됩니다. 마지막으로, VM에 대해 진단을 사용하도록 진단 프로필이 구성됩니다.
 
 마켓플레이스 이미지에 대한 관련 속성을 찾으려면 [VM 검색](./virtual-machines/resource-groups-vm-searching.md) 문서를 따르세요. 타사 공급업체에서 게시한 이미지의 경우 `plan`이라는 이름의 다른 속성을 지정해야 합니다. 예제는 빠른 시작 갤러리의 [이 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/checkpoint-single-nic)에서 확인할 수 있습니다.
 
@@ -503,4 +503,4 @@ Azure CLI 및 API 버전을 보려면 이전에 본 것처럼 동일한 **azure 
 - 템플릿 구조에 대해 자세히 알아보려면 [Azure Resource Manager 템플릿 작성하기](resource-group-authoring-templates.md)를 참조하세요.
 - 템플릿 배포에 대해 자세히 알아보려면 [Azure Resource Manager 템플릿을 사용하여 리소스 그룹 배포](resource-group-template-deploy.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

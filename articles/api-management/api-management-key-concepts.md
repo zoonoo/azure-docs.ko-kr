@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
-	ms.date="03/04/2016" 
+	ms.date="03/23/2016" 
 	ms.author="sdanie"/>
 
 #API 관리란?
 
 API 관리를 사용하여 조직은 외부, 파트너 및 내부의 개발자에게 API를 게시하여 데이터 및 서비스의 잠재성을 활용할 수 있습니다. 모든 곳의 비즈니스는 디지털 플랫폼으로 운영을 확장함으로써 새로운 채널을 생성하고, 새로운 고객을 찾고, 기존 고객과 더 깊은 관계를 구축하고자 합니다. API 관리는 개발자 참여, 비즈니스 통찰력, 분석, 보안과 보호 등을 통해 성공적인 API 프로그램을 보장하는 핵심적인 역량을 제공합니다.
 
-> [AZURE.VIDEO microsoft-ignite-2015-azure-api-management-and-the-api-economy]
+Azure API 관리 개요에 관한 다음 비디오를 시청하고 최소한의 작업으로 액세스 제어, 속도 제한, 모니터링, 이벤트 로깅, 응답 캐싱 등 다양한 기능을 API에 추가하기 위해 API 관리를 사용하는 방법을 알아봅니다.
+
+> [AZURE.VIDEO azure-api-management-overview]
 
 API 관리를 사용하려면 관리자가 API를 만듭니다. 각 API는 하나 이상의 작업으로 구성되며, 각 API는 하나 이상의 제품에 추가할 수 있습니다. API를 사용하려면 개발자는 해당 API가 포함된 제품을 구독합니다. 그런 다음 적용 중인 사용 정책에 따라 API의 작업을 호출할 수 있습니다.
 
@@ -92,6 +94,12 @@ API 관리 정책의 전체 목록을 보려면 [정책 참조][](영문)를 참
 
 사용자 지정 콘텐츠를 추가하고, 스타일을 사용자 지정하고, 브랜딩을 추가하여 개발자 포털의 모양을 사용자 지정할 수 있습니다.
 
+## API 관리 및 API 경제
+
+API 관리에 대해 자세히 알아보려면 Microsoft Ignite 2015 conference에서 다음 프레젠테이션을 시청하세요.
+
+> [AZURE.VIDEO microsoft-ignite-2015-azure-api-management-and-the-api-economy]
+
 [APIs and operations]: #apis
 [Products]: #products
 [Groups]: #groups
@@ -114,4 +122,4 @@ API 관리 정책의 전체 목록을 보려면 [정책 참조][](영문)를 참
 
  
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

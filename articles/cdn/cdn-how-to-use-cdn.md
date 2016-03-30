@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/25/2016"
+	ms.date="03/18/2016"
 	ms.author="casoper"/>
 
 
 # Azure에 CDN 사용
 
-Azure CDN(콘텐츠 배달 네트워크)은 Azure에서 HTTP 응용 프로그램의 크기를 조정하기 위한 기본 구성 요소입니다. CDN은 콘텐츠를 캐시하고 최종 사용자에게 가까운 곳으로 배달하여 Azure 고객에게 글로벌 솔루션을 제공합니다. 그 결과, 매번 원본을 적중하는 대신 사용자 요청이 지능적으로 성능이 가장 뛰어난 CDN 에지 POP로 라우팅됩니다. 이 경우 성능 및 사용자 환경이 훨씬 개선됩니다. CDN 노드 위치의 현재 목록은 [Azure CDN(콘텐츠 배달 네트워크) POP 위치](cdn-pop-locations.md)를 참조하세요.
+Azure CDN(콘텐츠 배달 네트워크)은 Azure에서 HTTP/HTTPS 응용 프로그램의 크기를 조정하기 위한 기본 구성 요소입니다. CDN은 콘텐츠를 캐시하고 최종 사용자에게 가까운 곳으로 배달하여 Azure 고객에게 글로벌 솔루션을 제공합니다. 결과적으로, 매번 원본을 누르는 대신 사용자 요청이 최상의 응답 시간을 제공하는 CDN 에지 노드(POP 또는 현재 상태 지점)에 지능적으로 라우팅됩니다. 이 경우 성능 및 사용자 환경이 훨씬 개선됩니다. CDN 노드 위치의 현재 목록은 [Azure CDN(콘텐츠 배달 네트워크) POP 위치](cdn-pop-locations.md)를 참조하세요.
 
 CDN을 사용하여 Azure 데이터를 캐시할 경우의 혜택은 다음과 같습니다.
 
@@ -149,4 +149,4 @@ Microsoft Azure CDN은 [CDN 리소스 공급자 REST API](https://msdn.microsoft
 - [Azure CDN 끝점 삭제](cdn-purge-endpoint.md)
 - [CDN 리소스 공급자 REST API](https://msdn.microsoft.com/library/mt634456.aspx)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

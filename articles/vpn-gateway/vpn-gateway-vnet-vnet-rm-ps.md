@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/04/2016"
+   ms.date="03/15/2016"
    ms.author="cherylmc"/>
 
 # Azure 리소스 관리자 및 PowerShell을 사용하여 VNet-VNet 연결 구성
@@ -23,13 +23,18 @@
 - [Azure 클래식 포털](virtual-networks-configure-vnet-to-vnet-connection.md)
 - [PowerShell - Azure 리소스 관리자](vpn-gateway-vnet-vnet-rm-ps.md)
 
-이 문서에서는 **리소스 관리자** 배포 모델 및 PowerShell을 사용하여 가상 네트워크 간에 연결을 만드는 단계를 안내합니다. 가상 네트워크는 같은 또는 다른 구독의 같은 지역에 있을 수도 있고 다른 지역에 있을 수도 있습니다.
+이 문서에서는 리소스 관리자 배포 모델 및 PowerShell을 사용하여 가상 네트워크 간에 연결을 만드는 단계를 안내합니다. 가상 네트워크는 같은 또는 다른 구독의 같은 지역에 있을 수도 있고 다른 지역에 있을 수도 있습니다.
 
-[AZURE.INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
 **Azure 배포 모델 정보**
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+
+**VNet 간 배포 모델 및 도구**
+
+두 배포 모델에서 여러 다양한 도구를 사용하여 VNet 간 연결을 구성할 수 있습니다. 자세한 내용은 아래 표를 참조하세요. 이 구성에 사용할 수 있게 된 새 문서, 새로운 배포 모델 및 추가 도구로 이 표를 업데이트합니다. 문서를 사용할 수 있는 경우 표에서 직접 링크를 제공합니다.
+
+[AZURE.INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
 
 ## VNet 간 연결 정보
@@ -519,10 +524,10 @@ cmdlet이 완료되면 스크롤하여 값을 확인합니다. 아래 PowerShell
 
 5. 연결 확인
 
-	이 단계를 완료한 후 [VNet 간 연결을 확인하는 방법](#Verify)을 사용하여 연결을 확인할 수 있습니다.
+	이 단계를 완료한 후 [VNet 간 연결을 확인하는 방법](#Verify)에서 메서드를 사용하여 연결을 확인할 수 있습니다.
 
 ## 다음 단계
 
-연결이 완료되면 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 단계는 [가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-tutorial.md)를 참조하세요.
+연결이 완료되면 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 단계는 [가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md)를 참조하세요.
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

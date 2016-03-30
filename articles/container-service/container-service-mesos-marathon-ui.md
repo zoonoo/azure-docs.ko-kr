@@ -37,7 +37,7 @@ Marathon UI를 보려면 http://localhost/Marathon으로 이동합니다. 이 �
 
 ![배포 만들기](media/ui2.png)
 
-## Docker 컨테이너 배포
+## Docker로 포맷된 컨테이너 배포
 
 Mesos 클러스터에서 새 컨테이너를 시작하는 데 Marathon을 사용하려면 `Create Application` 단추를 클릭합니다. 새 응용 프로그램 양식은 응용 프로그램 또는 컨테이너 매개 변수를 정의하는 데 사용됩니다. 이 예에서는 간단한 Nginx 컨테이너가 배포됩니다. 다음 정보를 입력합니다. 완료되면 '만들기'를 클릭합니다.
  
@@ -56,11 +56,11 @@ ID | nginx
 
 ![배포 만들기](media/ui4.png)
 
-Mesos 앱(http://localhost/Mesos)으로 다시 전환하면 태스크가 Mesos 클러스터에서 실행 중임이 표시됩니다(이 경우 Docker 컨테이너). 또한 태스크가 실행되는 클러스터 노드도 볼 수 있습니다.
+Mesos 앱(http://localhost/Mesos)으로 다시 전환하면 이 경우 Docker로 포맷된 컨테이너인 태스크가 Mesos 클러스터에서 실행 중임이 표시됩니다. 또한 태스크가 실행되는 클러스터 노드도 볼 수 있습니다.
 
 ![배포 만들기](media/ui5.png)
 
-## Docker 컨테이너 확장
+## 컨테이너 확장
 
 컨테이너의 인스턴스 수를 확장하는 데 Marathon 웹 UI도 사용할 수 있습니다. 이렇게 하려면 Marathon 페이지로 이동하고 확장할 컨테이너를 선택하고 `scale` 단추를 클릭합니다. 응용 프로그램 확장 창에서 원하는 컨테이너 인스턴스 수를 입력하고 `Scale Application`을 선택합니다.
 
@@ -70,4 +70,4 @@ Mesos 앱(http://localhost/Mesos)으로 다시 전환하면 태스크가 Mesos �
 
 ![배포 만들기](media/ui8.png)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

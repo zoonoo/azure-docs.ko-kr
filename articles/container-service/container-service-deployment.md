@@ -45,7 +45,7 @@ AGENTVMSIZE | 에이전트 가상 컴퓨터의 크기를 지정합니다. 가장
 ADMINUSERNAME | ACS 클러스터의 가상 컴퓨터 규모 집합 및 각 가상 컴퓨터의 계정에 사용할 사용자 이름입니다.
 ORCHESTRATORTYPE| ACS 클러스터에서 사용할 Orchestrator를 선택합니다.
 MASTERCOUNT | 클러스터에 대한 마스터로 구성할 가상 컴퓨터 수입니다. 1을 선택할 수 있지만 이 경우 클러스터에 어떠한 복원력도 제공하지 않으며 테스트 용도로만 권장됩니다. 프로덕션 클러스터에 권장되는 수는 3 또는 5입니다. 
-SSHRSAPUBLICKEY | 가상 컴퓨터에 대한 인증에 SSH를 사용할 때 필요합니다. 공개 키를 추가하는 위치입니다. 키 값을 이 상자에 붙여넣을 때는 매우 신중해야 합니다. 일부 편집기는 내용에 줄 바꿈을 삽입하여 키가 끊길 수 있습니다. 키에 줄 바꿈이 없고 'ssh-rsa' 접두사와 'username@domain' 접미사를 포함하는지 확인합니다. 'ssh-rsa AAAAB3Nz...SNIPPEDCONTENT...UcyupgH azureuser@linuxvm'와 같은 형태여야 합니다. SSH 키를 만들어야 하는 경우 Azure 설명서 사이트에서 [windows](../virtual-machines/virtual-machines-windows-use-ssh-key.md) 및 [Linux](../virtual-machines/virtual-machines-linux-use-ssh-key.md)에 대한 지침을 찾을 수 있습니다.
+SSHRSAPUBLICKEY | 가상 컴퓨터에 대한 인증에 SSH를 사용할 때 필요합니다. 공개 키를 추가하는 위치입니다. 키 값을 이 상자에 붙여넣을 때는 매우 신중해야 합니다. 일부 편집기는 내용에 줄 바꿈을 삽입하여 키가 끊길 수 있습니다. 키에 줄 바꿈이 없고 'ssh-rsa' 접두사와 'username@domain' 접미사를 포함하는지 확인합니다. 'ssh-rsa AAAAB3Nz...SNIPPEDCONTENT...UcyupgH azureuser@linuxvm'와 같은 형태여야 합니다. SSH 키를 만들어야 하는 경우 Azure 설명서 사이트에서 [windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md) 및 [Linux](../virtual-machines/virtual-machines-linux-ssh-from-linux.md)에 대한 지침을 찾을 수 있습니다.
   
 매개 변수로 적절한 값을 설정했으면 확인을 클릭합니다. 다음으로, 리소스 그룹 이름을 제공하고 하위 지역을 선택하며 약관을 검토 및 동의합니다.
 
@@ -156,12 +156,12 @@ New-AzureRmResourceGroupDeployment -Name DEPLOYMENT_NAME -ResourceGroupName RESO
  
 ### 템플릿 매개 변수 제공
  
-PowerShell에 익숙한 경우 빼기 기호(-)를 입력하고 TAB 키를 눌러 Cmdlet에 사용할 수 있는 매개 변수를 순환시켜 볼 수 있습니다. 이 기능은 템플릿에 정의하는 매개 변수에 대해서도 작동합니다. 템플릿 이름을 입력하면, cmdlet이 템플릿을 가져오고 매개 변수를 구문 분석하여 템플릿 매개 변수를 명령에 동적으로 추가합니다. 따라서 템플릿 매개 변수 값을 매우 쉽게 지정할 수 있습니다. 필수 매개 변수 값을 잊은 경우 PowerShell이 값을 묻는 메시지를 표시합니다.
+PowerShell에 익숙한 경우 빼기 기호(-)를 입력하고 TAB 키를 눌러 Cmdlet에 사용할 수 있는 매개 변수를 순환시켜 볼 수 있습니다. 이 기능은 템플릿에 정의하는 매개 변수에 대해서도 작동합니다. 템플릿 이름을 입력하자마자 cmdlet이 템플릿을 인출하고 매개 변수의 구문을 분석한 다음 템플릿 매개 변수를 명령에 동적으로 추가합니다. 따라서 템플릿 매개 변수 값을 매우 쉽게 지정할 수 있습니다. 필수 매개 변수 값을 잊은 경우 PowerShell이 값을 묻는 메시지를 표시합니다.
  
 다음은 매개 변수가 포함된 전체 명령입니다. 리소스의 이름에 대한 고유한 값을 제공할 수 있습니다.
 
 ```
-New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE\_GROUP\_NAME-TemplateURI TEMPLATE\_URI -adminuser value1 -adminpassword value2 ....
+New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-TemplateURI TEMPLATE_URI -adminuser value1 -adminpassword value2 ....
 ```
  
 ## 다음 단계
@@ -173,4 +173,4 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE\_GROUP\_NAME-Temp
 
  
 
-<!-----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

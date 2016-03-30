@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article"
-	ms.date="03/14/2016" 
+	ms.date="03/17/2016" 
 	ms.author="cephalin"
 />
 	
@@ -34,7 +34,7 @@
 
 - Git. [여기서](http://www.git-scm.com/downloads) 설치 이진 파일을 다운로드할 수 있습니다. 사용자는 선택하는 명령줄 터미널에서 `git --version`을 실행할 수 있어야 합니다. 
 - Git에 대한 기본 지식.
-- Azure CLI. 설치 지침은 [여기에](../xplat-cli-install.md) 있습니다.
+- Azure CLI. 설치 지침은 [여기에](../xplat-cli-install.md) 있습니다. 사용자는 선택하는 명령줄 터미널에서 `azure --version`을 실행할 수 있어야 합니다.
 - Microsoft Azure 계정. 계정이 없는 경우 [무료 평가판을 등록](/pricing/free-trial/?WT.mc_id=A261C142F)하거나 [Visual Studio 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있습니다.
 
 >[AZURE.NOTE] Azure 계정을 등록하기 전에 동작 중인 Azure 앱 서비스를 확인하려면 [앱 서비스 체험](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동하세요. 여기서 신용 카드와 약정 없이 앱 서비스에서 수명이 짧은 스타터 앱을 즉시 만들 수 있습니다.
@@ -49,15 +49,15 @@ Azure 앱 서비스에 웹 앱을 배포하겠습니다.
 
     *&lt;github\_sample\_url>*의 경우 원하는 프레임워크에 따라 다음 URL 중 하나를 사용합니다.
 
-    - ASP.NET: [https://github.com/azure-appservice-samples/aspnet-get-started.git](https://github.com/azure-appservice-samples/aspnet-get-started.git)
-    - PHP(CodeIgniter): [https://github.com/azure-appservice-samples/php-get-started.git](https://github.com/azure-appservice-samples/php-get-started.git)
-    - Node.js(Express): [https://github.com/azure-appservice-samples/nodejs-get-started.git](https://github.com/azure-appservice-samples/nodejs-get-started.git) 
-    - Python(Django): [https://github.com/azure-appservice-samples/python-get-started.git](https://github.com/azure-appservice-samples/python-get-started.git)
-    - Java: [https://github.com/azure-appservice-samples/java-get-started.git](https://github.com/azure-appservice-samples/java-get-started.git)
+    - ASP.NET: [https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git](https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git)
+    - PHP(CodeIgniter): [https://github.com/Azure-Samples/app-service-web-php-get-started.git](https://github.com/Azure-Samples/app-service-web-php-get-started.git)
+    - Node.js(Express): [https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git](https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git) 
+    - Java: [https://github.com/Azure-Samples/app-service-web-java-get-started.git](https://github.com/Azure-Samples/app-service-web-java-get-started.git)
+    - Python(Django): [https://github.com/Azure-Samples/app-service-web-python-get-started.git](https://github.com/Azure-Samples/app-service-web-python-get-started.git)
 
-2. 샘플 앱의 프로젝트 루트에 `CD`를 입력합니다. 예를 들면 다음과 같습니다.
+2. 샘플 앱의 루트 디렉터리로 `CD`합니다. 예를 들면 다음과 같습니다.
 
-        cd aspnet-get-started
+        cd app-service-web-dotnet-get-started
 
 3. 다음과 같이 Azure에 로그인합니다.
 
@@ -69,7 +69,7 @@ Azure 앱 서비스에 웹 앱을 배포하겠습니다.
 
         azure site create --git <app_name> 
       
-    >[AZURE.NOTE] Azure 구독에 대한 배포 자격 증명을 전혀 설정하지 않은 경우 배포 자격 증명을 만들라는 메시지가 나타납니다. 이러한 자격 증명은(Azure 계정 자격 증명 아님) 앱 서비스에서 Git 배포 및 FTP 로그인에만 사용합니다.
+    >[AZURE.NOTE] Azure 구독에 대한 배포 자격 증명을 전혀 설정하지 않은 경우 배포 자격 증명을 만들라는 메시지가 나타납니다. 이러한 자격 증명(Azure 계정 자격 증명 아님)은 앱 서비스에서 Git 배포 및 FTP 로그인에만 사용합니다.
     
     이제 Azure에 앱이 생성될 뿐 아니라 현재 디렉터리가 Git 초기화되어 새로운 앱 서비스 앱에 Git 원격으로 연결됩니다. 앱의 URL을 탐색하여 아름다운 기본 HTML 페이지를 볼 수 있지만, 지금은 거기에 사용자 고유의 코드를 배치해 보겠습니다.
 
@@ -93,15 +93,15 @@ Azure에서 실시간으로 실행 중인 앱을 확인하려면 다음 명령�
 
 ## 앱 업데이트
 
-처음으로 Azure에 앱을 배포한 방법과 마찬가지로, 이제 언제든지 Git를 사용하여 프로젝트(리포지토리) 루트에서 푸시하여 라이브 사이트를 업데이트할 수 있습니다. 예를 들어 로컬에서 테스트한 새로운 변경 내용을 푸시하고 싶을 때마다 프로젝트(리포지토리) 루트에서 다음 명령을 실행하기만 하면 됩니다.
+이제 언제든지 Git를 사용하여 프로젝트(리포지토리) 루트에서 푸시하여 라이브 사이트를 업데이트할 수 있습니다. 앱을 처음으로 Azure에 배포했을 때와 같은 방식으로 수행합니다. 예를 들어 로컬에서 테스트한 새로운 변경 내용을 푸시하고 싶을 때마다 프로젝트(리포지토리) 루트에서 다음 명령을 실행하기만 하면 됩니다.
     
     git add .
-    git commit -m "<you_message>"
+    git commit -m "<your_message>"
     git push azure master
 
 ## 또 다른 배포 방법
 
-웹 앱을 배포하는 다양한 방법이 있으며, 로컬 리포지토리에서 Git 배포는 수많은 배포 방법 중 하나일 뿐입니다. 웹 개발자에게 익숙한 FTP 방법을 포함하여 Visual Studio의 직관적인 마법사 배포, GitHub에서 직접 연속 배포, DropBox에서 콘텐츠 동기화 등 여러 가지 방법이 있습니다. 배포 옵션에 대한 자세한 내용은 [Azure 앱 서비스에 앱 배포](../app-service-web/web-sites-deploy.md)를 참조하세요.
+웹 앱을 배포하는 다양한 방법이 있으며, 로컬 리포지토리에서 Git 배포는 수많은 배포 방법 중 하나일 뿐입니다. Visual Studio에서 직접 배포할 수 있으며 GitHub에서 지속적으로 배포하거나 DropBox 또는 OneDrive에서 동기화하거나 FTP 등을 통해 파일을 업로드할 수 있습니다. 배포 옵션에 대한 자세한 내용은 [Azure 앱 서비스에 앱 배포](../app-service-web/web-sites-deploy.md)를 참조하세요.
 
 ## Azure 포털에서 앱 확인
 
@@ -115,7 +115,7 @@ Azure에서 실시간으로 실행 중인 앱을 확인하려면 다음 명령�
 
     ![Azure 앱 서비스에서 첫 번째 앱의 포털 보기](./media/app-service-web-get-started/portal-view.png)
 
-앱 서비스 앱의 블레이드는 앱을 구성, 모니터링 및 보호하고 문제를 해결할 수 있는 다양한 설정과 도구를 제공합니다. 이 인터페이스에 익숙해지도록 잠시 시간을 내어 몇 가지 간단한 작업을 수행해 보세요.
+앱 서비스 앱의 포털 블레이드는 앱을 구성, 모니터링 및 보호하고 문제를 해결할 수 있는 다양한 설정과 도구를 제공합니다. 이 인터페이스에 익숙해지도록 잠시 시간을 내어 몇 가지 간단한 작업을 수행해 보세요.
 
 - 앱 중지
 - 앱 다시 시작
@@ -127,7 +127,7 @@ Azure에서 실시간으로 실행 중인 앱을 확인하려면 다음 명령�
 
 배포한 앱을 다음 단계로 전환합니다. 인증을 사용하여 앱을 보호합니다. 요구에 따라 규모를 조정합니다. 몇 가지 성능 경고를 설정합니다. 이 모든 작업이 클릭 몇 번으로 가능합니다. [Azure 앱 서비스 시작 - 2부](app-service-web-get-started-2.md)를 참조하세요.
 
-또는 앱 서비스용 웹 앱을 만드는 방법을 처음부터 자세히 살펴보세요.
+또는 특정 언어 프레임워크로 앱 서비스용 웹 앱을 만드는 방법을 자세히 살펴보세요.
 
 - [Azure 앱 서비스에서 ASP.NET 웹 응용 프로그램 만들기](web-sites-dotnet-get-started.md)
 - [Azure 앱 서비스에서 PHP 웹 앱 만들기](web-sites-php-mysql-deploy-use-git.md)
@@ -135,10 +135,10 @@ Azure에서 실시간으로 실행 중인 앱을 확인하려면 다음 명령�
 - [Azure 앱 서비스에서 Java 웹앱 만들기](web-sites-java-get-started.md)
 - [Azure 앱 서비스에서 Python 웹 앱 만들기](web-sites-python-ptvs-django-mysql.md)
 
-또한 웹 앱, 모바일 앱 백 엔드, API 앱을 포함하여 Azure 앱 서비스에 빌드할 수 있는 앱 범위를 보여 주는 수많은 콘텐츠가 있습니다.
+또한 웹 앱, 모바일 앱 백 엔드, API 앱을 포함하여 Azure 앱 서비스에 빌드할 수 있는 앱 범위에 대한 수많은 콘텐츠를 확인합니다.
 
 - [웹 앱 만들기](/documentation/learning-paths/appservice-webapps/)
 - [모바일 앱 만들기](/documentation/learning-paths/appservice-mobileapps/)
 - [API 앱 만들기](../app-service-api/app-service-api-apps-why-best-platform.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->
