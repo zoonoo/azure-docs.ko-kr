@@ -24,7 +24,14 @@
 
 영역 |항목 | 우선 순위 | 상태 | 할당 대상 | 요청자 
 ------------- | ------------- | -------------- | -------------- | --------------- | --------------
-클러스터 만들기 | Azure Data Factory를 사용하여 HDInsight 클러스터 프로비전 | 2 | [완료됨](hdinsight-hadoop-create-linux-clusters-adf.md) | [@mumian](https://github.com/mumian) | - | 자동화 | ARM 템플릿을 사용하도록 [Spark 클러스터를 만드는 방법](hdinsight-apache-spark-jupyter-spark-sql.md)에 대한 문서 업데이트 | 1 | [완료됨](hdinsight-apache-spark-jupyter-spark-sql.md#create-spark-cluster) | [@mumian](https://github.com/mumian) | - 자동화 | ARM 템플릿을 사용하도록 [Storm 클러스터를 만들고 Storm Starter 샘플을 실행하는 방법](hdinsight-apache-storm-tutorial-get-started-linux.md)에 대한 문서 업데이트 | 1 | [완료됨](hdinsight-apache-storm-tutorial-get-started-linux.md#create-a-storm-cluster) | [@mumian](https://github.com/mumian) | - 자동화 | ARM 템플릿을 사용하도록 [SSH에서 HDInsight 클러스터와 Sqoop를 사용하는 방법](hdinsight-use-sqoop-mac-linux.md) 문서 업데이트 | 1 | [완료됨](hdinsight-use-sqoop.md#create-cluster-and-sql-database) | [@mumian](https://github.com/mumian) | - 자동화 | ARM 템플릿을 사용하도록 [Apache Storm 클러스터를 사용한 센서 데이터 분석](hdinsight-storm-sensor-data-analysis.md)에 대한 문서 업데이트 | 2 | 보류 중 | [@mumian](https://github.com/mumian) | - 저장소 | WASB 및 Data Lake 저장소 옵션을 설명하는 문서 | 2 | 보류 중 | [@mumian](https://github.com/mumian) | - 성능 | MapReduce 응용 프로그램에 대한 성능 튜닝 지침 | 1 | 보류 중 | [@blackmist](https://github.com/blackmist) | - 성능 | Spark 클러스터에 대한 성능 튜닝 지침 |1 | 보류 중 | [@nitinme](https://github.com/nitinme) | -
+클러스터 만들기 | Azure Data Factory를 사용하여 HDInsight 클러스터 프로비전 | 2 | [완료됨](hdinsight-hadoop-create-linux-clusters-adf.md) | [@mumian](https://github.com/mumian) | - | 
+자동화 | ARM 템플릿을 사용하도록 [Spark 클러스터를 만드는 방법](hdinsight-apache-spark-jupyter-spark-sql.md)에 대한 문서 업데이트 | 1 | [완료됨](hdinsight-apache-spark-jupyter-spark-sql.md#create-spark-cluster) | [@mumian](https://github.com/mumian) | - 
+자동화 | ARM 템플릿을 사용하도록 [Storm 클러스터를 만들고 Storm Starter 샘플을 실행하는 방법](hdinsight-apache-storm-tutorial-get-started-linux.md)에 대한 문서 업데이트 | 1 | [완료됨](hdinsight-apache-storm-tutorial-get-started-linux.md#create-a-storm-cluster) | [@mumian](https://github.com/mumian) | - 
+자동화 | ARM 템플릿을 사용하도록 [SSH에서 HDInsight 클러스터와 Sqoop를 사용하는 방법](hdinsight-use-sqoop-mac-linux.md) 문서 업데이트 | 1 | [완료됨](hdinsight-use-sqoop.md#create-cluster-and-sql-database) | [@mumian](https://github.com/mumian) | - 
+자동화 | ARM 템플릿을 사용하도록 [Apache Storm 클러스터를 사용한 센서 데이터 분석](hdinsight-storm-sensor-data-analysis.md)에 대한 문서 업데이트 | 2 | 보류 중 | [@mumian](https://github.com/mumian) | - 
+저장소 | WASB 및 Data Lake 저장소 옵션을 설명하는 문서 | 2 | 보류 중 | [@mumian](https://github.com/mumian) | - 
+성능 | MapReduce 응용 프로그램에 대한 성능 튜닝 지침 | 1 | 보류 중 | [@blackmist](https://github.com/blackmist) | - 
+성능 | Spark 클러스터에 대한 성능 튜닝 지침 |1 | 보류 중 | [@nitinme](https://github.com/nitinme) | -
 
 
 ## 백로그에서 피드백을 제공하는 방법
@@ -33,4 +40,4 @@
 * 아래에 의견 추가
 * [Azure 콘텐츠 리포지토리](https://github.com/Azure/azure-content/blob/master/articles/hdinsight/hdinsight-documentation-backlog.md)에서 이 문서에 대한 끌어오기 요청 제출
 
-<!---HONumber=AcomDC_0316_2016-->
+<!-----HONumber=AcomDC_0316_2016-->
