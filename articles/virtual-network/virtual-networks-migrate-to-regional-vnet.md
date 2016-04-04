@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # 선호도 그룹에서 지역 VNet(가상 네트워크)으로 마이그레이션하는 방법
@@ -27,27 +27,27 @@
 
 앞으로는 새 VNet을 만들 경우 *지역*을 사용합니다. 지역은 관리 포털에서 옵션으로 표시됩니다. 네트워크 구성 파일에서는 *위치*로 표시됩니다.
 
->[AZURE.IMPORTANT]선호도 그룹과 연결된 가상 네트워크를 만드는 것이 여전히 기술적으로 가능하지만 그렇게 할 만큼 설득력 있는 이유가 없습니다. 네트워크 보안 그룹과 같은 새로운 많은 기능이 지역 VNet을 사용하는 경우에만 사용할 수 있으며, 선호도 그룹과 연결된 가상 네트워크에서는 사용할 수 없습니다.
+>[AZURE.IMPORTANT] 선호도 그룹과 연결된 가상 네트워크를 만드는 것이 여전히 기술적으로 가능하지만 그렇게 할 만큼 설득력 있는 이유가 없습니다. 네트워크 보안 그룹과 같은 새로운 많은 기능이 지역 VNet을 사용하는 경우에만 사용할 수 있으며, 선호도 그룹과 연결된 가상 네트워크에서는 사용할 수 없습니다.
 
 ### 현재 선호도 그룹과 연결된 VNet에 대한 정보
 
 현재 선호도 그룹과 연결된 VNet은 지역 VNet으로 마이그레이션할 수 있도록 설정됩니다. 지역 VNet으로 마이그레이션하려면 다음 단계를 따르세요.
 
-1. 네트워크 구성 파일을 내보냅니다. PowerShell 또는 관리 포털을 사용할 수 있습니다. 관리 포털 사용에 대한 지침은 [네트워크 구성 파일을 사용하여 VNet 구성](../virtual-networks-using-network-configuration-file/)을 참조하세요.
+1. 네트워크 구성 파일을 내보냅니다. PowerShell 또는 관리 포털을 사용할 수 있습니다. 관리 포털 사용에 대한 지침은 [네트워크 구성 파일을 사용하여 VNet 구성](virtual-networks-using-network-configuration-file.md)을 참조하세요.
 
 1. 이전 값을 새 값으로 바꿔 네트워크 구성 파일을 편집합니다.
 
-	> [AZURE.NOTE]**위치**는 VNet과 연관된 선호도 그룹에 대해 지정한 영역입니다. 예를 들어 VNet이 미국 서부에 위치한 선호도 그룹과 연결된 경우 마이그레이션할 때 위치가 미국 서부를 가리켜야 합니다.
+	> [AZURE.NOTE] **위치**는 VNet과 연관된 선호도 그룹에 대해 지정한 영역입니다. 예를 들어 VNet이 미국 서부에 위치한 선호도 그룹과 연결된 경우 마이그레이션할 때 위치가 미국 서부를 가리켜야 합니다.
 	
 	네트워크 구성 파일에서 값을 고유한 값으로 바꿔 다음 줄을 편집합니다.
 
-	**이전 값:** \<VirtualNetworkSitename "VNetUSWest" AffinityGroup = "VNetDemoAG"\>
+	**이전 값:** <VirtualNetworkSitename "VNetUSWest" AffinityGroup = "VNetDemoAG">
 
-	**새 값:** \<VirtualNetworkSitename "VNetUSWest" 위치 = "미국 서부"\>
+	**새 값:** <VirtualNetworkSitename "VNetUSWest" 위치 = "미국 서부">
 
-1. 변경 내용을 저장하고 Azure에 네트워크 구성을 [가져옵니다](../virtual-networks-using-network-configuration-file/).
+1. 변경 내용을 저장하고 Azure에 네트워크 구성을 [가져옵니다](virtual-networks-using-network-configuration-file.md).
 
->[AZURE.INFO]이 마이그레이션에서는 서비스 가동 중지 시간이 발생하지 않습니다.
+>[AZURE.INFO] 이 마이그레이션에서는 서비스 가동 중지 시간이 발생하지 않습니다.
 
 ## 선호도 그룹 및 VM
 
@@ -66,4 +66,4 @@
 VM을 배포하면 단일 배율 단위에 배포됩니다. 선호도 그룹이 새 VM 배포에 대해 사용 가능한 VM 크기의 집합을 제한할 수 있지만 배포된 모든 기존 VM은 VM이 배포되는 배율 단위에서 사용 가능한 VM 크기의 집합으로 이미 제한되어 있습니다. 이 때문에 선호도 그룹에서 VM을 제거해도 아무런 효과가 없습니다.
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

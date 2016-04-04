@@ -51,7 +51,7 @@ Azure 구독이 아직 없는 경우 [Azure 평가판 사용](https://azure.micr
 
 ## 1단계: TestLab 가상 네트워크 구성
 
-[테스트 환경 기본 구성](../virtual-machines/virtual-machines-base-configuration-test-environment.md)에 설명된 지침을 사용하여 TestLab이라는 Azure 가상 네트워크에서 DC1, APP1 및 CLIENT1 컴퓨터를 구성합니다.
+[테스트 환경 기본 구성](../virtual-machines/virtual-machines-windows-classic-test-config-env.md)에 설명된 지침을 사용하여 TestLab이라는 Azure 가상 네트워크에서 DC1, APP1 및 CLIENT1 컴퓨터를 구성합니다.
 
 로컬 컴퓨터의 Azure 관리 포털에서 CORP\\User1 자격 증명을 사용하여 DC1에 연결합니다. 컴퓨터 및 사용자가 해당 로컬 도메인 컨트롤러를 사용하여 인증할 수 있도록 CORP 도메인을 구성하려면 관리자 수준 Windows PowerShell 명령 프롬프트에서 다음 명령을 실행합니다.
 
@@ -261,4 +261,4 @@ Azure VPN 게이트웨이는 지속적인 비용이 발생하는 두 개의 Azur
 
 그런 다음 Azure 관리 포털의 네트워크 페이지에서 **TestLab** 가상 네트워크를 클릭한 후 작업 표시줄에서 **연결**을 클릭합니다. TestLab 가상 네트워크가 TestVNET 로컬 네트워크에 연결된 상태로 표시될 때까지 기다립니다.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

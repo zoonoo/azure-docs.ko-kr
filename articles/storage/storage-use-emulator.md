@@ -47,7 +47,7 @@ SQL Server Management Studio Express를 설치하여 LocalDB 설치를 관리할
 
 Xamarin 라이브러리와 같은 일부 Azure 저장소 클라이언트 라이브러리는 공유 액세스 서명 (SAS) 토큰 인증만 지원합니다. 공유 키 인증을 지원하는 도구 또는 응용 프로그램을 사용 하여 이 SAS 토큰을 만들어야 합니다. SAS 토큰을 만드는 쉬운 방법은 Azure PowerShell을 통하는 것입니다.
 
-1. 아직 없는 경우 Azure PowerShell을 설치합니다. Azure PowerShell cmdlet의 최신 버전을 사용하는 것이 좋습니다. 설치 지침에 대해서는 [Azure PowerShell 설치 및 구성 방법](../articles/powershell-install-configure.md#Install)을 참조하세요.
+1. 아직 없는 경우 Azure PowerShell을 설치합니다. Azure PowerShell cmdlet의 최신 버전을 사용하는 것이 좋습니다. 설치 지침에 대해서는 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md#Install)을 참조하세요.
 
 2. Azure PowerShell을 열고 다음 명령을 실행합니다. 사용자 고유 자격 증명을 사용하여 *ACCOUNT\_NAME* 및 *ACCOUNT\_KEY = =*을 바꿔야 합니다. Replace *CONTAINER\_NAME* 을 선택한 이름으로 바꿉니다.
 
@@ -232,4 +232,4 @@ Azure 저장소 계정에 리소스 주소를 지정하는 경우 다음의 체�
 
 - 이제 Azure 저장소 서비스의 2013-08-15 버전이 완벽 하게 지원됩니다. (이전에 이 버전은 저장소 에뮬레이터 버전 2.2.1 미리 보기에서만 지원되었습니다.)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

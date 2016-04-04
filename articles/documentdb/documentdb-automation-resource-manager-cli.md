@@ -59,7 +59,7 @@ Azure 리소스 관리 템플릿을 사용하려면 회사 또는 학교 계정 
     Enter the code E1A2B3C4D to authenticate. If you're signing in as an Azure
     AD application, use the --username and --password parameters.
 
-> [AZURE.NOTE] Azure 계정이 없는 경우 다른 유형의 계정이 필요하다는 오류 메시지가 표시됩니다. 현재 Azure 계정에서 계정을 만들려면 [Azure Active Directory에서 회사 또는 학교 ID 만들기](../virtual-machines/resource-group-create-work-id-from-personal.md)를 참조하세요.
+> [AZURE.NOTE] Azure 계정이 없는 경우 다른 유형의 계정이 필요하다는 오류 메시지가 표시됩니다. 현재 Azure 계정에서 계정을 만들려면 [Azure Active Directory에서 회사 또는 학교 ID 만들기](../virtual-machines/virtual-machines-windows-create-aad-work-id.md)를 참조하세요.
 
 브라우저에서 [https://aka.ms/devicelogin](https://aka.ms/devicelogin)을 열고 명령 출력에 제공된 코드를 입력합니다.
 
@@ -345,7 +345,7 @@ DocumentDB 계정을 만들려면 먼저 리소스 그룹이 필요합니다. �
 
 데이터베이스를 만든 후에 데이터베이스에 [하나 이상의 컬렉션을 추가](documentdb-create-collection.md)한 다음, 이 컬렉션에 [문서를 추가](documentdb-view-json-document-explorer.md)해야 합니다.
 
-컬렉션에 문서를 추가한 후에 [DocumentDB SQL](documentdb-sql-query.md)에서 Preview 포털에 있는 [쿼리 탐색기](documentdb-query-collections-query-explorer.md), [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 또는 [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 중 하나를 사용하여 문서에 대해 [쿼리를 실행](documentdb-sql-query.md#executing-queries)할 수 있습니다.
+컬렉션에 문서를 추가한 후에 포털의 [쿼리 탐색기](documentdb-query-collections-query-explorer.md), [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 또는 [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 중 하나를 사용하여 문서에 [쿼리를 실행](documentdb-sql-query.md#executing-queries)하기 위해 [DocumentDB SQL](documentdb-sql-query.md)을 사용할 수 있습니다.
 
 DocumentDB에 대해 자세히 알아보려면 다음 리소스를 참조하세요.
 
@@ -354,4 +354,4 @@ DocumentDB에 대해 자세히 알아보려면 다음 리소스를 참조하세�
 
 사용할 수 있는 더 많은 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)을 참조하세요.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

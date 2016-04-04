@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Windows PowerShell을 사용하여 역할 기반 액세스 제어 관리"
+	pageTitle="PowerShell용 역할 기반 액세스 제어 가이드"
 	description="Windows PowerShell을 사용하여 역할 기반 액세스 제어 관리"
 	services="active-directory"
 	documentationCenter="na"
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="powershell"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="03/17/2016"
 	ms.author="kgremban"/>
 
-# Windows PowerShell을 사용하여 역할 기반 액세스 제어 관리
+# PowerShell용 역할 기반 액세스 제어 가이드
 
 > [AZURE.SELECTOR]
-- [Windows PowerShell](role-based-access-control-powershell.md)
+- [PowerShell](role-based-access-control-powershell.md)
 - [Azure CLI](role-based-access-control-xplat-cli.md)
 
 
@@ -61,8 +61,6 @@ RBAC는 Azure 리소스 관리자에서만 작동하므로 먼저 Azure 리소�
 
     PS C:\> Switch-AzureMode -Name AzureResourceManager
 
-자세한 내용은 [리소스 관리자에서 Windows PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하세요.
-
 Azure 구독에 연결하려면 다음을 입력합니다.
 
     PS C:\> Add-AzureAccount
@@ -75,8 +73,6 @@ Azure 구독에 연결하려면 다음을 입력합니다.
     PS C:\> Get-AzureSubscription
     # Use the subscription name to select the one you want to work on.
     PS C:\> Select-AzureSubscription -SubscriptionName <subscription name>
-
-자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
 
 ## 기존 역할 할당 확인
 
@@ -96,7 +92,7 @@ Azure 구독에 연결하려면 다음을 입력합니다.
 그러면 AD 테넌트에서 리소스 그룹 "group1"에 대해 "Owner" 역할이 할당된 특정 사용자에 대한 모든 역할 할당이 반환됩니다. 역할 할당은 다음의 두 위치에서 수행될 수 있습니다.
 
 1. 리소스 그룹의 사용자에 대한 "Owner" 역할 할당
-2. 리소스 그룹 부모 항목(여기서는 구독)의 사용자에 대한 "Owner" 역할 할당. 부모 수준에서 권한이 있으면 해당 수준의 모든 자식 항목에도 같은 권한이 있기 때문입니다.
+2. 리소스 그룹의 부모(여기서는 구독)에 대한 사용자에게 "Owner" 역할 할당. 부모 수준에 사용 권한을 할당하면 모든 자식은 동일한 사용 권한을 갖습니다.
 
 이 cmdlet의 모든 매개 변수는 선택 사항입니다. 매개 변수를 적절하게 조합하여 각기 다른 필터로 역할 할당을 확인할 수 있습니다.
 
@@ -104,34 +100,36 @@ Azure 구독에 연결하려면 다음을 입력합니다.
 
 역할 할당을 만들려면 다음 사항을 고려해야 합니다.
 
-역할을 할당할 사람: 다음 Azure Active Directory cmdlet을 사용하여 AD 테넌트에 포함된 사용자, 그룹 및 서비스 사용자를 확인할 수 있습니다.
+- 역할을 할당할 사람: 다음 Azure Active Directory cmdlet을 사용하여 AD 테넌트에 포함된 사용자, 그룹 및 서비스 사용자를 확인할 수 있습니다.  
 
+	```
     PS C:\> Get-AzureADUser
 	PS C:\> Get-AzureADGroup
 	PS C:\> Get-AzureADGroupMember
 	PS C:\> Get-AzureADServicePrincipal
+	```
 
-할당할 역할: 다음 cmdlet을 사용하여 지원되는 역할 정의를 확인할 수 있습니다.
+- 할당할 역할: 다음 cmdlet을 사용하여 지원되는 역할 정의를 확인할 수 있습니다.
 
-    PS C:\> Get-AzureRoleDefinition
+    `PS C:\> Get-AzureRoleDefinition`
 
-할당할 범위: 범위에는 세 가지 수준이 있습니다.
-  - 현재 구독
-  - 리소스 그룹. 리소스 그룹 목록을 가져오려면 `PS C:\> Get-AzureResourceGroup`를 입력합니다.
-  - 리소스. 리소스 목록을 가져오려면 `PS C:\> Get-AzureResource`를 입력합니다.
+- 할당할 범위: 범위에는 세 가지 수준이 있습니다.
+	- 현재 구독
+	- 리소스 그룹. 리소스 그룹 목록을 가져오려면 `PS C:\> Get-AzureResourceGroup`을(를) 입력합니다.
+	- 리소스. 리소스 목록을 가져오려면 `PS C:\> Get-AzureResource`을(를) 입력합니다.
 
 그런 다음 `New-AzureRoleAssignment`를 사용하여 역할 할당을 만듭니다. 예:
 
-	#This will create a role assignment at the current subscription level for a user as a reader.
+	#Create a role assignment at the current subscription level for a user as a reader.
 	PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Reader
 
-	#This will create a role assignment at a resource group level.
+	#Create a role assignment at a resource group level.
 	PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Contributor -ResourceGroupName group1
 
-	#This will create a role assignment for a group at a resource group level.
+	#Create a role assignment for a group at a resource group level.
 	PS C:\> New-AzureRoleAssignment -ObjectID <group object ID> -RoleDefinitionName Reader -ResourceGroupName group1
 
-	#This will create a role assignment at a resource level.
+	#Create a role assignment at a resource level.
 	PS C:\> $resources = Get-AzureResource
     PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Owner -Scope $resources[0].ResourceId
 
@@ -160,4 +158,4 @@ Windows PowerShell을 사용하여 역할 기반 액세스 제어를 관리하�
 - [Azure CLI를 사용하여 역할 기반 액세스 제어 구성](role-based-access-control-xplat-cli.md)
 - [역할 기반 액세스 제어 문제 해결](role-based-access-control-troubleshooting.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

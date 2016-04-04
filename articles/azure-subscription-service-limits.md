@@ -130,7 +130,7 @@ Azure 리소스 관리자 및 Azure 리소스 그룹을 사용하는 경우 다�
 
 [AZURE.INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
-자세한 내용은 [가상 컴퓨터 크기](../articles/virtual-machines/virtual-machines-size-specs.md)를 참조하세요.
+자세한 내용은 [가상 컴퓨터 크기](../articles/virtual-machines/virtual-machines-linux-sizes.md)를 참조하세요.
 
 **표준 저장소 계정**
 
@@ -280,8 +280,8 @@ SQL 데이터베이스 제한은 [SQL 데이터베이스 리소스 제한](sql-d
 
 [Azure 제한 및 증가 이해](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 
-[Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](virtual-machines/virtual-machines-size-specs.md)
+[Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](virtual-machines/virtual-machines-linux-sizes.md)
 
 [클라우드 서비스 크기](cloud-services/cloud-services-sizes-specs.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

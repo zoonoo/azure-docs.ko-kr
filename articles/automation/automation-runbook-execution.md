@@ -3,7 +3,7 @@
    description="Azure 자동화의 Runbook이 처리되는 방법에 대한 자세한 내용을 설명합니다."
    services="automation"
    documentationCenter=""
-   authors="bwren"
+   authors="mgoedtel"
    manager="stevenka"
    editor="tysonn" />
 <tags
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/09/2016"
+   ms.date="03/21/2016"
    ms.author="bwren" />
 
 # Azure 자동화에서 Runbook 실행
@@ -97,6 +97,8 @@ Runbook 대시보드는 단일 Runbook에 대한 요약을 보여줍니다. 요�
 
 Azure 자동화에서는 클라우드의 모든 Runbook 간에 리소스를 공유할 수 있도록 3시간 동안 작업을 실행한 후 일시적으로 언로드합니다. [그래픽](automation-runbook-types.md#graphical-runbooks) 및 [PowerShell 워크플로](automation-runbook-types.md#powershell-workflow-runbooks) Runbook은 마지막 [검사점](http://technet.microsoft.com/library/dn469257.aspx#bk_Checkpoints)에서 다시 시작됩니다. 이 시간 동안 작업은 실행 중, 리소스 대기 상태로 표시됩니다. Runbook에 검사점이 없거나 작업이 언로드되기 전에 첫 번째 검사점에 도달하지 않은 경우에는 처음부터 다시 시작됩니다. [PowerShell](automation-runbook-types.md#powershell-runbooks) Runbook은 검사점을 지원하지 않으므로 항상 처음부터 다시 시작됩니다.
 
+>[AZURE.NOTE] 공평 분배 제한은 Hybrid Runbook Workers에서 실행 중인 Runbook 작업에 적용될 수 없습니다.
+
 Runbook이 동일한 검사점 또는 Runbook의 처음부터 세 번 연속 다시 시작된 경우에는 실패함, 리소스 대기 상태로 종료됩니다. 이는 Runbook이 완료되지 않고 무기한적으로 실행되어 다시 언로드되지 않은 상태로 다음 검사점에 도달하지 못하도록 하기 위한 것입니다. 이 경우 오류와 함께 다음 예외가 발생합니다.
 
 *작업이 동일한 검사점에서 반복적으로 제거되었기 때문에 실행을 계속할 수 없습니다. Runbook이 해당 상태를 유지하지 않고 시간이 오래 걸리는 작업을 수행하지 않는지 확인하세요.*
@@ -105,8 +107,8 @@ Runbook을 만들 때 두 검사점 간의 모든 활동을 실행할 시간을 
 
 
 
-## 관련된 문서
+## 다음 단계
 
 - [Azure 자동화에서 Runbook 시작](automation-starting-a-runbook.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

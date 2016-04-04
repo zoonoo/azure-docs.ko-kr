@@ -153,11 +153,11 @@ Linux 또는 MacOS의 경우 지원되는 주요 Azure 시나리오는 다음과
 
 VM 시나리오의 경우, 원하는 Linux VM(Ubuntu, CentOS, SUSE)을 시작한 후 원하는 대로 실행하고 관리하면 됩니다. 예를 들어 Windows/Mac/Linux 컴퓨터에서 [IPython][] REPL/Notebook을 실행하고 Azure에서 IPython Engine을 실행하는 Linux 또는 Windows 다중 프로세싱 VM으로 브라우저를 가리키면 됩니다. 자세한 내용은 [Azure의 IPython Notebook][] 자습서를 참조하세요.
 
-Linux VM을 설정하는 방법에 대한 자세한 내용은 [Linux를 실행하는 가상 컴퓨터 만들기][]를 참조하세요.
+Linux VM을 설정하는 방법에 대한 자세한 내용은 [Linux를 실행하는 가상 컴퓨터 만들기][]를 참조하십시오.
 
 Git 배포를 사용하여 Python 웹 응용 프로그램을 개발하고 모든 운영 체제에서 Azure 웹 사이트에 게시할 수 있습니다. Azure에 리포지토리를 푸시할 때 가상 환경이 자동으로 만들어지고 PIP가 필요한 패키지를 설치합니다.
 
-Azure 웹 사이트 개발 및 게시에 대한 자세한 내용은 [Django를 사용하여 웹 사이트 만들기][], [Bottle을 사용하여 웹 사이트 만들기][] 및 [Flask를 사용하여 웹 사이트 만들기][]에 대한 자습서를 참조하세요. WSGI 규격 프레임워크 사용에 대한 일반적인 정보는 [Azure 웹 사이트를 사용하여 Python 구성][]을 참조하세요.
+Azure 웹 사이트 개발 및 게시에 대한 자세한 내용은 [Django를 사용하여 웹 사이트 만들기][], [Bottle을 사용하여 웹 사이트 만들기][] 및 [Flask를 사용하여 웹 사이트 만들기][]에 대한 자습서를 참조하십시오. WSGI 규격 프레임워크 사용에 대한 일반적인 정보는 [Azure 웹 사이트를 사용하여 Python 구성][]을 참조하세요.
 
 
 ## 추가 소프트웨어 및 리소스
@@ -185,7 +185,7 @@ Azure 웹 사이트 개발 및 게시에 대한 자세한 내용은 [Django를 �
 [Django 프로젝트 - 완성도 높은 웹 프레임워크/CMS]: http://www.djangoproject.com
 [IPython - Python용 고급 REPL/Notebook]: http://ipython.org
 [IPython]: http://ipython.org
-[Azure의 IPython Notebook]: virtual-machines-python-ipython-notebook.md
+[Azure의 IPython Notebook]: virtual-machines-linux-jupyter-notebook.md
 [클라우드 서비스]: cloud-services-python-ptvs.md
 [웹 사이트]: web-sites-python-ptvs-django-mysql.md
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
@@ -196,7 +196,7 @@ Azure 웹 사이트 개발 및 게시에 대한 자세한 내용은 [Django를 �
 [Python 3.4용 Microsoft Azure SDK]: http://go.microsoft.com/fwlink/?LinkID=516990
 [Setting up a Linux VM via the Azure portal]: create-and-configure-opensuse-vm-in-portal.md
 [How to use the Azure Command-Line Interface]: crossplat-cmd-tools.md
-[Linux를 실행하는 가상 컴퓨터 만들기]: virtual-machines-linux-tutorial.md
+[Linux를 실행하는 가상 컴퓨터 만들기]: virtual-machines-linux-cli-create.md
 [Django를 사용하여 웹 사이트 만들기]: web-sites-python-create-deploy-django-app.md
 [Bottle을 사용하여 웹 사이트 만들기]: web-sites-python-create-deploy-bottle-app.md
 [Flask를 사용하여 웹 사이트 만들기]: web-sites-python-create-deploy-flask-app.md
@@ -205,4 +205,4 @@ Azure 웹 사이트 개발 및 게시에 대한 자세한 내용은 [Django를 �
 [큐 저장소]: storage-python-how-to-use-queue-storage.md
 [Blob 저장소]: storage-python-how-to-use-blob-storage.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0323_2016-->

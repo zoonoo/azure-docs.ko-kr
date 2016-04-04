@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/08/2016"
+   ms.date="03/15/2016"
    ms.author="cherylmc"/>
 
 
@@ -24,13 +24,15 @@
 - [PowerShell - Azure 리소스 관리자](vpn-gateway-vnet-vnet-rm-ps.md)
 
 
-이 문서에서는 클래식 배포 모델(서비스 관리라고도 함)을 사용하여 가상 네트워크를 만들어 하나로 연결하는 과정을 안내합니다. 아래 단계에서는 Azure 클래식 포털과 PowerShell을 조합하여 사용합니다. 리소스 관리자 배포 모델을 사용하여 만든 가상 네트워크를 연결하려는 경우 [Azure Resource Manager 및 PowerShell을 사용하여 가상 네트워크의 VNet 간 연결 구성](vpn-gateway-vnet-vnet-rm-ps.md)을 참조하세요.
+이 문서에서는 클래식 배포 모델(서비스 관리라고도 함)을 사용하여 가상 네트워크를 만들어 하나로 연결하는 과정을 안내합니다. 아래 단계에서는 Azure 클래식 포털과 PowerShell을 조합하여 사용합니다.
 
 **Azure 배포 모델 정보**
 
-[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]클래식 배포 모델에서 만든 VNet을 리소스 관리자 모델을 사용하여 만든 VNet에 연결하려면 [새 VNet에 클래식 VNet 연결](../virtual-network/virtual-networks-arm-asm-s2s.md)을 참조하세요.
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 **VNet 간 배포 모델 및 도구**
+
+두 배포 모델에서 여러 다양한 도구를 사용하여 VNet 간 연결을 구성할 수 있습니다. 자세한 내용은 아래 표를 참조하세요. 이 구성에 사용할 수 있게 된 새 문서, 새로운 배포 모델 및 추가 도구로 이 표를 업데이트합니다. 문서를 사용할 수 있는 경우 표에서 직접 링크를 제공합니다.
 
 [AZURE.INCLUDE [vpn-gateway-table-vnet-to-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
@@ -223,8 +225,9 @@ VNet2의 경우
 연결이 완료되면 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 자세한 내용은 [가상 컴퓨터 설명서](https://azure.microsoft.com/documentation/services/virtual-machines/)를 참조하세요.
 
 
+
 [1]: ../hdinsight-hbase-geo-replication-configure-vnets.md
 [2]: http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Configure-the-VPN-connectivity-between-two-Azure-virtual-networks
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

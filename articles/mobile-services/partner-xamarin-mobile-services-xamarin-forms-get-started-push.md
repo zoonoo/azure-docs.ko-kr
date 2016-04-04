@@ -13,16 +13,17 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.workload="mobile"
-	ms.date="01/22/2016"
+	ms.date="03/18/2016"
 	ms.author="wesmc"/>
 
 # Xamarin.Forms 앱에 푸시 알림 추가
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> 이 항목에 해당하는 모바일 앱 버전은 [Xamarin.Forms 앱에 푸시 알림 추가](../app-service-mobile/app-service-mobile-xamarin-forms-get-started-push.md)를 참조하세요.
 
 ##개요
 
@@ -856,4 +857,4 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 [Xamarin.Forms Azure 푸시 알림 시작 샘플]: https://github.com/Azure/mobile-services-samples/tree/master/TodoListXamarinForms
 [전체 Xamarin.Forms Azure 푸시 알림 샘플]: https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPushXamarinForms
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

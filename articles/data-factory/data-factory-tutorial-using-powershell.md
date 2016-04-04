@@ -16,7 +16,7 @@
 	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
-# 자습서: 데이터 팩터리 [PowerShell]을 사용하여 로그 파일 이동 및 처리
+# 자습서: Data Factory를 사용하여 로그 파일 이동 및 처리(PowerShell)
 이 문서에서는 Azure Data Factory를 사용하여 로그 파일의 데이터를 유용한 정보로 변환하는 정식 로그 처리 시나리오로 구성된 완전한 연습을 제공합니다.
 
 ## 시나리오
@@ -24,7 +24,7 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
  
 이 연습에서는 샘플 로그를 수집하고, 참조 데이터를 사용하여 이 로그를 처리 및 보강하고, 데이터를 변환하여 Contoso가 최근 시작한 마케팅 캠페인의 효과를 평가합니다.
 
-## 자습서 수행을 위한 준비
+## 필수 조건
 1.	[Azure Data Factory 소개][adfintroduction]를 읽고 Azure Data Factory에 대한 개요를 확인하고 최상위 개념을 이해합니다.
 2.	이 자습서를 수행하려면 Azure 구독이 있어야 합니다. 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션][azure-purchase-options], [구성원 제공 항목][azure-member-offers] 또는 [무료 평가판][azure-free-trial]을 참조하세요.
 3.	컴퓨터에 [Azure PowerShell][download-azure-powershell]을 다운로드하고 설치해야 합니다.
@@ -69,17 +69,18 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 2. **EnrichGameLogsPipeline**은 분할된 게임 이벤트(PartitionedGameEvents 테이블, PartitionGameLogsPipeline의 출력)를 지역 코드(RefGetoCodeDictionaryTable)와 조인하고 IP 주소를 해당하는 지리적 위치(EnrichedGameEventsTable)에 매핑하여 데이터를 보강합니다.
 3. **AnalyzeMarketingCampaignPipeline** 파이프라인은 보강된 데이터(EnrichGameLogsPipeline에서 생성한 EnrichedGameEventTable)를 활용하고 이 데이터를 광고 데이터(RefMarketingCampaignnTable)와 함께 처리하여 마케팅 캠페인 효과에 대한 최종 출력을 만듭니다. 이 출력은 Azure SQL 데이터베이스(MarketingCampainEffectivensessSQLTable) 및 Azure Blob 저장소(MarketingCampaignEffectivenessBlobTable)로 복사되어 분석됩니다.
     
-## 연습: 워크플로 만들기, 배포 및 모니터링
-1. [1단계: 샘플 데이터 및 스크립트 업로드](#MainStep1) 이 단계에서는 모든 샘플 데이터(모든 로그 및 참조 데이터 포함)와 워크플로에서 실행할 Hive/Pig 스크립트를 업로드합니다. 실행하는 스크립트에서는 MarketingCampaigns라는 Azure SQL 데이터베이스, 테이블, 사용자 정의 형식 및 저장 프로시저도 만듭니다.
-2. [2단계: Azure 데이터 팩터리 만들기](#MainStep2) 이 단계에서는 LogProcessingFactory라는 Azure Data Factory를 만듭니다.
-3. [3단계: 연결된 서비스 만들기](#MainStep3) 이 단계에서는 연결된 서비스 
+이 자습서에서는 다음 단계를 수행합니다.
+
+1. [샘플 데이터 및 스크립트 업로드](#upload-sample-data-and-scripts) 이 단계에서는 모든 샘플 데이터(모든 로그 및 참조 데이터 포함)와 워크플로에서 실행할 Hive/Pig 스크립트를 업로드합니다. 실행하는 스크립트에서는 MarketingCampaigns라는 Azure SQL 데이터베이스, 테이블, 사용자 정의 형식 및 저장 프로시저도 만듭니다.
+2. [Azure Data Factory 만들기](#create-data-factory) 이 단계에서는 LogProcessingFactory라는 Azure Data Factory를 만듭니다.
+3. [연결된 서비스 만들기](#create-linked-services) 이 단계에서는 연결된 서비스 
 	
 	- 	**StorageLinkedService**. 원시 게임 이벤트, 분할된 게임 이벤트, 보강된 게임 이벤트, 마케팅 캠페인 효과 정보, 참조 지역 코드 데이터 및 참조 마케팅 캠페인 데이터를 포함하는 Azure 저장소 위치를 LogProcessingFactory에 연결합니다.   
 	- 	**AzureSqlLinkedService**. 마케팅 캠페인 효과 정보를 포함하는 Azure SQL 데이터베이스를 연결합니다. 
 	- 	**HDInsightStorageLinkedService**. HDInsightLinkedService가 참조하는 HDInsight 클러스터와 관련된 Azure Blob 스토리지를 연결합니다. 
 	- 	**HDInsightLinkedService**. Azure HDInsight 클러스터를 LogProcessingFactory에 연결합니다. 이 클러스터는 데이터에 대한 pig/hive 처리를 수행하는 데 사용됩니다. 
  		
-4. [4단계: 테이블 만들기](#MainStep4) 이 단계에서는 다음 테이블을 만듭니다.
+4. [데이터 집합 만들기](#create-datasets) 이 단계에서는 다음 테이블을 만듭니다.
 	
 	- **RawGameEventsTable**. 이 테이블은 StorageLinkedService에서 정의한 Azure Blob 저장소 내의 원시 게임 이벤트 데이터가 있는 위치를 지정합니다(adfwalkthrough/logs/rawgameevents/). 
 	- **PartitionedGameEventsTable**. 이 테이블은 StorageLinkedService에서 정의한 Azure Blob 저장소 내의 분할된 게임 이벤트 데이터가 있는 위치를 지정합니다(adfwalkthrough/logs/partitionedgameevents/). 
@@ -90,7 +91,7 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 	- **MarketingCampaignEffectivenessBlobTable**. 이 테이블은 StorageLinkedService에서 정의한 Azure Blob 저장소 내에서 마케팅 캠페인 효과 데이터가 있는 위치를 지정합니다(adfwalkthrough/marketingcampaigneffectiveness/). 
 
 	
-5. [5단계: 파이프라인 만들기 및 예약](#MainStep5) 이 단계에서는 다음 파이프라인을 만듭니다.
+5. [파이프라인 만들기 및 예약](#create-pipelines) 이 단계에서는 다음 파이프라인을 만듭니다.
 	- **PartitionGameLogsPipeline**. 이 파이프라인은 Blob 저장소에서 원시 게임 이벤트(RawGameEventsTable)를 읽고 연도, 월 및 일을 기준으로 파티션(PartitionedGameEventsTable)을 만듭니다. 
 
 
@@ -107,9 +108,9 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 		![MarketingCampaignPipeline][image-data-factory-tutorial-analyze-marketing-campaign-pipeline]
 
 
-6. [6단계: 파이프라인 및 데이터 조각 모니터링](#MainStep6) 이 단계에서는 Azure 클래식 포털을 사용하여 파이프라인, 테이블 및 데이터 조각을 모니터링합니다.
+6. [파이프라인 및 데이터 조각 모니터링](#monitor-pipelines) 이 단계에서는 Azure 클래식 포털을 사용하여 파이프라인, 테이블 및 데이터 조각을 모니터링합니다.
 
-## <a name="MainStep1"></a> 1단계: 샘플 데이터 및 스크립트 업로드
+## 샘플 데이터 및 스크립트 업로드
 이 단계에서는 모든 샘플 데이터(로그 및 참조 데이터 모두 포함)와 워크플로에서 호출되는 Hive/Pig 스크립트를 업로드합니다. 실행하는 스크립트에서는 **MarketingCampaigns**라는 Azure SQL 데이터베이스, 테이블, 사용자 정의 형식 및 저장 프로시저도 만듭니다.
 
 테이블, 사용자 정의 형식 및 저장 프로시저는 Azure Blob 저장소에서 Azure SQL 데이터베이스로 마케팅 캠페인 효과 결과를 이동할 때 사용됩니다.
@@ -163,7 +164,7 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 		6/6/2014 11:54:36 AM You are ready to deploy Linked Services, Tables and Pipelines. 
 
 
-## <a name="MainStep2"></a> 2단계: Azure 데이터 팩터리 만들기
+## 데이터 팩터리 만들기
 이 단계에서는 **LogProcessingFactory**라는 Azure 데이터 팩터리를 만듭니다.
 
 1. **Azure PowerShell**이 이미 열려있거나 시작되어 있는 경우 **Azure PowerShell**로 전환합니다. Azure PowerShell을 닫았다가 다시 연 경우 다음 명령을 실행해야 합니다. 
@@ -185,7 +186,7 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 	> 데이터 팩터리의 이름은 나중에 DNS 이름으로 표시되므로 공개적으로 등록될 수도 있습니다.
 
  
-## <a name="MainStep3"></a> 3단계: 연결된 서비스 만들기
+## 연결된 서비스 만들기
 
 > [AZURE.NOTE] 이 문서에서는 Azure PowerShell을 사용하여 연결된 서비스, 테이블 및 파이프라인을 만듭니다. Azure 포털, 특히 데이터 팩터리 편집기를 사용하여 이 자습서를 수행하려는 경우 [데이터 팩터리 편집기를 사용한 자습서][adftutorial-using-editor]를 참조하세요.
 
@@ -234,7 +235,7 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 
  
 
-## <a name="MainStep4"></a> 4단계: 테이블 만들기 
+## 데이터 집합 만들기
 이 단계에서는 다음 테이블을 만듭니다.
 
 - RawGameEventsTable
@@ -288,7 +289,7 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 	
 
 
-## <a name="MainStep5"></a> 5단계: 파이프라인 만들기 및 예약
+## 파이프라인 만들기
 이 단계에서는 PartitionGameLogsPipeline, EnrichGameLogsPipeline 및 AnalyzeMarketingCampaignPipeline 파이프라인을 만듭니다.
 
 1. **Windows 탐색기**에서 **C:\\ADFWalkthrough** 폴더(또는 샘플의 압축을 푼 위치)의 **Pipelines** 하위 폴더로 이동합니다.
@@ -358,7 +359,7 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 	**축하합니다.** Azure Data Factory, 연결된 서비스, 파이프라인, 테이블을 만들었고 워크플로를 시작했습니다.
 
 
-## <a name="MainStep6"></a> 6단계: 파이프라인 및 데이터 조각 모니터링 
+## 파이프라인 모니터링 
 
 1.	LogProcessingFactory에 대한 데이터 팩터리 블레이드가 열려 있지 않은 경우 다음 중 하나를 수행할 수 있습니다.
 	1.	**시작 보드**에서 **LogProcessingFactory**를 클릭합니다. 데이터 팩터리를 만들 때 **시작 보드에 추가** 옵션이 자동으로 선택되어 있었습니다.
@@ -503,4 +504,4 @@ Azure Blob에서 온-프레미스 SQL Server로 마케팅 캠페인 효과 데�
 
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-tutorial-using-powershell/NewDataFactoryMenu.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

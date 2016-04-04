@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/26/2016"
+   ms.date="03/23/2016"
    ms.author="oanapl"/>
 
 # 사용자 지정 서비스 패브릭 상태 보고서 추가
@@ -47,9 +47,9 @@ Azure 서비스 패브릭은 특정 엔터티의 비정상 클러스터 및 응�
 
 > [AZURE.NOTE] 기본적으로, 클러스터는 시스템 구성 요소에 의해 전송되는 상태 보고서로 채워집니다. 추가 정보는 [시스템 상태 보고서를 사용하여 문제 해결](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)을 참조하세요. 사용자 보고서는 시스템에 의해 이미 생성된 [상태 엔터티](service-fabric-health-introduction.md#health-entities-and-hierarchy)로 보내야 합니다.
 
-상태 보고 설계가 명확하면 상태 보고서를 간편하게 보낼 수 있습니다. 이 작업은 PowerShell 또는 REST를 통해 **FabricClient.HealthManager.ReportHealth**를 사용하여 API를 통해 수행할 수 있습니다. 내부적으로 모든 메서드는 패브릭 클라이언트에 포함된 상태 클라이언트를 사용합니다. 성능 향상을 위한 구성 노브 배치 보고서가 있습니다.
+상태 보고 설계가 명확하면 상태 보고서를 간편하게 보낼 수 있습니다. 클러스터가 [보안](service-fabric-cluster-security.md) 상태가 아니거나 패브릭 클라이언트에 관리자 권한이 있는 경우 `FabricClient`를 사용하여 상태를 보고할 수 있습니다. 이 작업은 PowerShell 또는 REST를 통해 [FabricClient.HealthManager.ReportHealth](https://msdn.microsoft.com/library/system.fabric.fabricclient.healthclient.reporthealth.aspx)를 사용하여 API를 통해 수행할 수 있습니다. 성능 향상을 위한 구성 노브 배치 보고서가 있습니다.
 
-> [AZURE.NOTE] 상태 보고서는 동기화되며 클라이언트 쪽의 유효성 검사 작업만 표시합니다. 상태 클라이언트에서 보고서를 수용한다고 해서 저장소에 적용된다는 의미는 아닙니다. 보고서는 비동기적으로 전송되며 다른 보고서와 함께 일괄 처리될 수도 있습니다. 시퀀스 번호가 오래되었거나 보고서가 적용되어야 하는 엔터티가 삭제되는 등의 이유로 서버 쪽에서의 처리가 실패할 수도 있습니다.
+> [AZURE.NOTE] 상태 보고서는 동기화되며 클라이언트 쪽의 유효성 검사 작업만 표시합니다. 상태 클라이언트나 `Partition` 또는 `CodePackageActivationContext` 개체에서 보고서를 수용한다고 해서 저장소에 적용된다는 의미는 아닙니다. 보고서는 비동기적으로 전송되며 다른 보고서와 함께 일괄 처리될 수도 있습니다. 시퀀스 번호가 오래되었거나 보고서가 적용되어야 하는 엔터티가 삭제되는 등의 이유로 서버 쪽에서의 처리가 실패할 수도 있습니다.
 
 ## 상태 클라이언트
 상태 보고서는 패브릭 클라이언트 내에 있는 상태 클라이언트를 통해 Health 스토어로 전송됩니다. 상태 클라이언트는 다음과 같이 구성될 수 있습니다.
@@ -62,7 +62,7 @@ Azure 서비스 패브릭은 특정 엔터티의 비정상 클러스터 및 응�
 
 > [AZURE.NOTE] 보고서가 일괄 처리되는 경우 보고서가 전송될 수 있도록 적어도 HealthReportSendInterval 동안 패브릭 클라이언트가 유지되어야 합니다. 일시적인 오류로 인하여 메시지가 손실되거나 Health 스토어가 메시지를 적용할 수 없는 경우 작업을 다시 시도할 수 있도록 패브릭 클라이언트가 더 오래 유지되어야 합니다.
 
-클라이언트에서의 버퍼링은 보고서의 고유성을 고려합니다. 예를 들어 어떤 악성 보고자가 동일한 엔터티의 동일한 속성에 대해 초당 100개의 보고서를 보내는 경우 해당 보고서는 최신 버전으로 교체됩니다. 이러한 보고서는 기껏해야 클라이언트 큐에 하나 존재합니다. 일괄 작업이 구성되면 Health 스토어에 전송되는 보고서의 개수는 전송 간격당 하나뿐이며, 이 보고서가 엔터티의 최신 상태를 반영하는 맨 마지막으로 추가된 보고서입니다. 상태 관련 항목에 원하는 값을 넣고 **FabricClientSettings**를 전달하여 **FabricClient**를 만들 때 모든 구성 매개 변수를 지정할 수 있습니다.
+클라이언트에서의 버퍼링은 보고서의 고유성을 고려합니다. 예를 들어 어떤 악성 보고자가 동일한 엔터티의 동일한 속성에 대해 초당 100개의 보고서를 보내는 경우 해당 보고서는 최신 버전으로 교체됩니다. 이러한 보고서는 기껏해야 클라이언트 큐에 하나 존재합니다. 일괄 작업이 구성되면 Health 스토어에 전송되는 보고서의 개수는 전송 간격당 하나뿐이며, 이 보고서가 엔터티의 최신 상태를 반영하는 맨 마지막으로 추가된 보고서입니다. 상태 관련 항목에 원하는 값을 넣고 [FabricClientSettings](https://msdn.microsoft.com/library/azure/system.fabric.fabricclientsettings.aspx)를 전달하여 `FabricClient`를 만들 때 모든 구성 매개 변수를 지정할 수 있습니다.
 
 다음 코드는 패브릭 클라이언트를 생성하고 보고서가 추가되자마자 전송되도록 지정합니다. 시간이 초과되거나 재시도 가능한 오류가 발생할 경우 40초마다 재시도가 이뤄집니다.
 
@@ -104,7 +104,24 @@ GatewayInformation   : {
                        }
 ```
 
-> [AZURE.NOTE] 권한이 없는 서비스가 클러스터 내의 엔터티에 대한 상태를 보고할 수 없도록 하려면 보안이 확인된 클라이언트에서 보내는 요청만을 받아들이도록 서버를 구성합니다. FabricClient를 통해 보고가 이뤄지기 때문에 Kerberos 또는 인증서 인증 같은 클러스터와 통신하려면 FabricClient에서 보안을 활성화해야 합니다.
+> [AZURE.NOTE] 권한이 없는 서비스가 클러스터 내의 엔터티에 대한 상태를 보고할 수 없도록 하려면 보안이 확인된 클라이언트에서 보내는 요청만을 받아들이도록 서버를 구성합니다. `FabricClient`를 통해 보고가 수행되기 때문에 Kerberos 또는 인증서 인증 같은 클러스터와 통신하려면 `FabricClient`에서 보안을 활성화해야 합니다. [클러스터 보안](service-fabric-cluster-security.md)에 대해 자세히 알아봅니다.
+
+## 권한이 낮은 서비스 내에서 보고
+클러스터에 대해 관리자 액세스 권한이 없는 서비스 패브릭 서비스 내에서 `Partition` 또는 `CodePackageActivationContext`를 통해 현재 컨텍스트에서 엔터티에 대한 상태를 보고할 수 있습니다.
+
+- 상태 비저장 서비스의 경우에는 [IStatelessServicePartition.ReportInstanceHealth](https://msdn.microsoft.com/library/system.fabric.istatelessservicepartition.reportinstancehealth.aspx)를 사용하여 현재 서비스 인스턴스에 대해 보고합니다.
+
+- 상태 저장 서비스의 경우에는 [IStatefulServicePartition.ReportReplicaHealth](https://msdn.microsoft.com/library/system.fabric.istatefulservicepartition.reportreplicahealth.aspx)를 사용하여 현재 복제본에 대해 보고합니다.
+
+- 현재 파티션 엔터티에 대해 보고하려면 [IServicePartition.ReportPartitionHealth](https://msdn.microsoft.com//library/system.fabric.iservicepartition.reportpartitionhealth.aspx)를 사용합니다.
+
+- 현재 응용 프로그램에 대해 보고하려면 [CodePackageActivationContext.ReportApplicationHealth](https://msdn.microsoft.com/library/system.fabric.codepackageactivationcontext.reportapplicationhealth.aspx)를 사용합니다.
+
+- 현재 노드에 배포된 현재 응용 프로그램에 보고하려면 [CodePackageActivationContext.ReportDeployedApplicationHealth](https://msdn.microsoft.com/library/system.fabric.codepackageactivationcontext.reportdeployedapplicationhealth.aspx)를 사용합니다.
+
+- 현재 노드에 배포된 현재 응용 프로그램의 서비스 패키지에 대해 보고하려면 [CodePackageActivationContext.ReportDeployedServicePackageHealth](https://msdn.microsoft.com/library/system.fabric.codepackageactivationcontext.reportdeployedservicepackagehealth.aspx)를 사용합니다.
+
+> [AZURE.NOTE] 내부적으로 `Partition` 및 `CodePackageActivationContext`는 기본 설정으로 구성된 상태 클라이언트를 포함합니다. [상태 클라이언트](service-fabric-report-health.md#health-client)에 대해 설명된 동일한 고려 사항이 적용됩니다. 즉, 보고서가 일괄 처리되고 타이머에 따라 전송되므로 보고서를 보내려면 개체가 활성 상태여야 합니다.
 
 ## 상태 보고 설계
 고품질 보고서를 생성하는 첫 단계는 서비스 상태에 영향을 미칠 수 있는 조건을 파악하는 것입니다. 문제가 시작될 때 또는 가장 이상적으로 문제가 발생하기 전에 서비스 또는 클러스터의 문제를 플래깅하는 데 도움이 되는 모든 조건을 파악하면 잠재적으로 수십억 달러를 절약할 수 있습니다. 그러면 중지 시간을 줄이고, 문제 조사와 복구에 소요되는 야간 시간을 절약하고, 고객 만족도를 높일 수 있습니다.
@@ -138,17 +155,19 @@ Watchdog 세부 정보가 마무리되면 Watchdog를 고유하게 식별하는 
 하지만 위에 설명된 상황에서 보고가 수행되며, 상태를 평가할 때 응용 프로그램 상태에서 보고서가 포착됩니다.
 
 ## 주기적 보고 대 전환기 보고
-상태 보고 모델을 사용하면 Watchdog에서 주기적으로 또는 전환기에 보고서를 보낼 수 있습니다. 코드가 훨씬 간단하고 오류 가능성이 적은 주기적 보고를 권장합니다. 잘못된 보고서를 트리거하는 버그를 방지할 수 있도록 Watchdog는 최대한 간단해야 합니다. 잘못된 *비정상* 보고서는 상태 평가에 영향을 미치고 업그레이드를 비롯한 상태 기반 시나리오에도 영향을 미칩니다. 잘못된 *정상* 보고서는 클러스터의 문제를 숨기는데, 이것은 바람직하지 않습니다.
+상태 보고 모델을 사용하면 Watchdog에서 주기적으로 또는 전환기에 보고서를 보낼 수 있습니다. 코드가 훨씬 간단하고 오류 가능성이 적으므로 Watchdog 보고에는 주기적 보고를 권장합니다. 잘못된 보고서를 트리거하는 버그를 방지할 수 있도록 Watchdog는 최대한 간단해야 합니다. 잘못된 *비정상* 보고서는 상태 평가에 영향을 미치고 업그레이드를 비롯한 상태 기반 시나리오에도 영향을 미칩니다. 잘못된 *정상* 보고서는 클러스터의 문제를 숨기는데, 이것은 바람직하지 않습니다.
 
 주기적인 보고를 위해 Watchdog를 타이머와 함께 구현할 수 있습니다. 타이머 콜백이 발생하면 Watchdog는 상태를 확인하고 현재 상태를 기반으로 보고서를 보냅니다. 이전에 어떤 보고서를 전송했는지 확인하거나 메시지 전송과 관련한 최적화를 수행할 필요가 없습니다. 상태 클라이언트에는 이것을 돕기 위한 일괄 처리 논리가 있습니다. 상태 클라이언트가 유지되는 한 Health 스토어에 의해 보고서가 인증될 때까지 또는 Watchdog가 동일한 엔터티, 속성 및 소스에 대한 새 보고서를 생성할 때가지 내부적으로 재시도합니다.
 
 전환기 보고는 꼼꼼한 상태 처리가 필요합니다. Watchdog는 조건을 모니터링하면서 조건이 변경된 경우에만 보고합니다. 이 방식은 필요한 보고서의 수가 적다는 장점이 있지만 Watchdog의 논리가 복잡하다는 단점이 있습니다. 또한 조건 또는 보고서를 검사하여 상태 변화를 판단할 수 있도록 조건 또는 보고서가 유지되어야 합니다. 장애 조치(Failover) 시 이전에 전송되지 않은(큐에 추가되었지만 아직 Health 스토어로 전송되지 않은) 보고서를 보낼 때 주의를 기울여서 합니다. 시퀀스 번호는 계속 증가해야 합니다. 그렇지 않으면 시퀀스 번호가 오래되어 보고서가 거부됩니다. 드물지만 데이터 손실이 발생하는 경우에는 보고자의 상태와 Health 스토어의 상태 사이에 동기화가 필요할 수 있습니다.
 
+전환에 대한 보고는 `Partition` 또는 `CodePackageActivationContext`를 통한 자체에 대한 서비스 보고에 적합합니다. 로컬 개체(복제본 또는 배포된 서비스 패키지/배포된 응용 프로그램)가 제거되면 해당 보고서도 모두 제거됩니다. 따라서 보고자와 Health 스토어 간을 동기화할 필요가 없습니다. 부모 파티션 또는 부모 응용 프로그램에 대한 보고에서는 Health 스토어에 사용되지 않는 보고서가 생성되지 않도록 주의해서 장애 조치(failover)가 진행되어야 합니다. 올바른 상태를 유지하고 더 이상 필요하지 않은 경우 스토어에서 보고서를 지우는 논리를 추가해야 합니다.
+
 ## 상태 보고 구현
 엔터티와 보고서 세부 사항이 명확해지면 API, PowerShell 또는 REST를 통해 상태 보고서를 보낼 수 있습니다.
 
 ### API
-API를 통해 보고하려면 사용자는 보고하려는 엔터티 유형에 맞는 상태 보고서를 만들어서 상태 클라이언트에 제공해야 합니다.
+API를 통해 보고하려면 사용자는 보고하려는 엔터티 유형에 맞는 상태 보고서를 만들어서 상태 클라이언트에 제공해야 합니다. 또는 상태 정보를 만들고 `Partition` 또는 `CodePackageActivationContext`에 대한 올바른 보고 메서드에 전달하여 현재 엔터티에 대해 보고해야 합니다.
 
 다음은 클러스터 내의 Watchdog에서 보내는 주기적 보고서의 예입니다. Watchdog는 노드 내에서 외부 리소스를 액세스할 수 있는지 여부를 확인합니다. 리소스는 응용 프로그램 내의 서비스 매니페스트에 필요합니다. 리소스를 사용할 수 없더라도 응용 프로그램 내의 다른 서비스는 여전히 정상적으로 작동할 수 있습니다. 따라서 배포된 서비스 패키지 엔터티에 대한 보고서가 주기적으로 30초마다 전송됩니다.
 
@@ -173,6 +192,9 @@ public static void SendReport(object obj)
         new HealthInformation("ExternalSourceWatcher", "Connectivity", healthState));
 
     // TODO: handle exception. Code omitted for snippet brevity.
+    // Possible exceptions: FabricException with error codes
+    // FabricHealthStaleReport (non-retryable, the report is already queued on the health client),
+    // FabricHealthMaxReportsReached (retryable; user should retry with exponential delay until the report is accepted).
     Client.HealthManager.ReportHealth(deployedServicePackageHealthReport);
 }
 ```
@@ -275,4 +297,4 @@ HealthEvents          :
 
 [서비스 패브릭 응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

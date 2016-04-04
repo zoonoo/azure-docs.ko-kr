@@ -23,7 +23,7 @@
 &nbsp;
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-> 이 항목에 해당하는 모바일 앱 버전은 [Azure 모바일 앱에서 iOS 앱 만들기](../app-service-mobile/app-service-mobile-android-get-started.md)를 참조하세요.
+> 이 항목에 해당하는 모바일 앱 버전은 [Azure 모바일 앱에서 iOS 앱 만들기](../app-service-mobile/app-service-mobile-ios-get-started.md)를 참조하세요.
 
 이 자습서는 Azure 모바일 서비스를 사용하여 iOS 앱에 클라우드 기반 백 엔드 서비스를 추가하는 방법을 보여 줍니다. 이 자습서에서는 새 모바일 서비스와 새 모바일 서비스에 앱 데이터를 저장하는 간단한 _할 일 모음_ 앱을 둘 다 만듭니다. 모바일 서비스는 서버 쪽 비즈니스 논리에 .NET 및 Visual Studio를 사용합니다. JavaScript에서 서버 쪽 비즈니스 논리로 모바일 서비스를 만들려면 이 항목의 [JavaScript 백 엔드 버전]을 참조하세요.
 
@@ -101,4 +101,4 @@ Azure에서 실행 중인 모바일 서비스에 대해 새 클라이언트 앱�
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [JavaScript 백 엔드 버전]: mobile-services-ios-get-started.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

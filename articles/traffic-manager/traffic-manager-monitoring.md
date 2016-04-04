@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # 트래픽 관리자 모니터링 정보
@@ -75,7 +75,7 @@ Azure 트래픽 관리자는 Azure 클래식 포털의 프로필과 서비스 �
 1. **GET** - 트래픽 관리자 모니터링 시스템이 모니터링 설정에서 지정된 파일과 경로에서 GET을 수행합니다.
 2. **200 OK** - 모니터링 시스템에서 10초 내에 HTTP 200 OK 메시지가 다시 표시됩니다. 이 메시지가 표시되면 클라우드 서비스를 사용할 수 있다고 가정합니다. 
 
->[AZURE.NOTE]트래픽 관리자는 반환된 메시지가 200 OK인 경우에만 끝점이 온라인이라고 간주합니다. 200 응답 이외의 응답이 수신되면 끝점을 사용할 수 없다고 가정하여 실패된 검사로 계산합니다. 실패한 검사의 문제 해결에 대한 자세한 내용은 [Azure 트래픽 관리자의 성능 저하 상태 문제해결](traffic-manager-troubleshooting-degraded.md)을 참조하세요.
+>[AZURE.NOTE] 트래픽 관리자는 반환된 메시지가 200 OK인 경우에만 끝점이 온라인이라고 간주합니다. 200 응답 이외의 응답이 수신되면 끝점을 사용할 수 없다고 가정하여 실패된 검사로 계산합니다. 실패한 검사의 문제 해결에 대한 자세한 내용은 [Azure 트래픽 관리자의 성능 저하 상태 문제해결](traffic-manager-troubleshooting-degraded.md)을 참조하세요.
 
 3. **확인 간격 30초** - 이 검사는 30초마다 수행됩니다.
 4. **클라우드 서비스를 사용할 수 없음** - 클라우드 서비스를 사용할 수 없게 됩니다. 트래픽 관리자는 다음 모니터링 검사까지 알 수 없습니다.
@@ -115,4 +115,4 @@ Azure 트래픽 관리자는 Azure 클래식 포털의 프로필과 서비스 �
 [Azure 트래픽 관리자의 성능 저하 상태 문제해결](traffic-manager-troubleshooting-degraded.md)
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0323_2016-->

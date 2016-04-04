@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/29/2016"
+   ms.date="03/22/2016"
    ms.author="devtiw"/>
 
 
@@ -145,21 +145,21 @@ Windows 및 Linux VM용 디스크 암호화를 사용하도록 설정하는 데 
 
 	- 유효한 암호 URL의 예:
 
-		*https://contosovault.vault.azure.net/secrets/BitLockerEncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		**https://contosovault.vault.azure.net/secrets/BitLockerEncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 	- 유효한 KRK KEK의 예:
 
-		*https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		**https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 - Azure 디스크 암호화는 주요 자격 증명 모음 암호 및 KEK URL의 일부로 지정되는 포트 번호를 지원하지 않습니다. 지원되는 주요 자격 증명 모음 URL은 아래 예제를 참조하세요.
 
  	- 허용되지 않은 주요 자격 증명 모음 URL
 
-		*https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		**https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 	- 허용되는 주요 자격 증명 모음 URL:
 
-		*https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		**https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 - Azure 디스크 암호화 기능을 사용하도록 설정하려면 IaaS VM이 다음 네트워크 끝점 구성 요구 사항을 충족해야 합니다.
 
@@ -196,7 +196,7 @@ Azure 디스크 암호화는 Azure 주요 자격 증명 모음에서 디스크 �
 새 주요 자격 증명 모음을 만들려면 아래에 나열된 두 옵션 중 하나를 사용합니다.
 
 - [여기](https://github.com/Azure/azure-quickstart-templates/blob/master/101-create-key-vault/azuredeploy.json)에 있는 "101-Create-KeyVault" ARM 템플릿 사용
-- [여기](key-vault-get-started.md)에 설명된 대로 Azure PowerShell 주요 자격 증명 모음 cmdlet 사용
+- Azure PowerShell 주요 자격 증명 모음 cmdlet 사용
 
 **참고:** 구독에 대한 주요 자격 증명 모음 설정이 이미 있는 경우 다음 섹션을 진행하세요.
 
@@ -527,7 +527,7 @@ Azure AD 클라이언트 ID를 사용하는 기존/실행 중인 VM 시나리오
 
 ### 암호화된 IaaS VM의 암호화 상태 가져오기
 
-Azure 관리 포털, [PowerShell cmdlet](https://msdn.microsoft.com/library/azure/mt622700.aspx) 또는 CLI 명령을 사용하여 암호화 상태를 가져올 수 있습니다. 아래 섹션에서는 Azure 관리(Preview) 포털 및 CLI 명령을 사용하여 암호화 상태를 가져오는 방법에 대해 설명합니다.
+Azure 관리 포털, [PowerShell cmdlet](https://msdn.microsoft.com/library/azure/mt622700.aspx) 또는 CLI 명령을 사용하여 암호화 상태를 가져올 수 있습니다. 아래 섹션에서는 Azure 포털 및 CLI 명령을 사용하여 암호화 상태를 가져오는 방법에 대해 설명합니다.
 
 #### Azure 관리 포털을 사용하여 암호화된 IaaS VM의 암호화 상태 가져오기
 
@@ -804,4 +804,4 @@ BitLocker 암호화 또는 DM-Crypt 암호화를 사용하도록 설정한 후�
 
 [Azure PowerShell를 사용하여 Azure 디스크 암호화 탐색 - 2부](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

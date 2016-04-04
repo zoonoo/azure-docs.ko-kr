@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="03/16/2016"
 	ms.author="donnam"/>
 
 # 모바일 서비스에서 오프라인 데이터 사용
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> 이 항목에 해당하는 모바일 앱 버전은 [Xamarin.Android 모바일 앱용 오프라인 동기화 사용](../app-service-mobile/app-service-mobile-xamarin-android-get-started-offline-data.md)을 참조하세요.
 
 이 항목은 할 일 목록 퀵 스타트 앱에서 Azure 모바일 서비스의 오프라인 동기화 기능을 안내합니다. 오프라인 동기화를 사용하면 최종 사용자에게 네트워크 액세스 권한이 없는 경우에도 사용할 수 있는 앱을 쉽게 만들 수 있습니다.
 
@@ -177,4 +177,4 @@ Azure 모바일 서비스의 오프라인 동기화를 사용하면 최종 사�
 [NuGet Addin for Xamarin]: https://github.com/mrward/monodevelop-nuget-addin
 [Azure 클래식 포털]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

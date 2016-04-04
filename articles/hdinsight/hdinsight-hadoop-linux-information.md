@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/12/2016"
+   ms.date="03/18/2016"
    ms.author="larryfr"/>
 
 # Linux에서 HDInsight 사용에 관한 정보
@@ -45,25 +45,25 @@ __PASSWORD__를 관리 계정의 암호로 바꾸고 __CLUSTERNAME__을 클러�
 
 	인증은 일반 텍스트입니다. 항상 HTTPS를 사용하여 연결의 보안을 유지합니다.
 
-	> [AZURE.IMPORTANT]인터넷을 통해 직접 액세스할 수 있는 클러스터의 Ambari의 경우, 일부 기능은 클러스터에서 사용하는 내부 도메인 이름으로 노드에 액세스해야 합니다. 공용이 아닌 내부 도메인 이름이어야 하므로 인터넷을 통해 일부 기능에 액세스하면 "서버를 찾을 수 없음" 오류가 발생합니다.
+	> [AZURE.IMPORTANT] 인터넷을 통해 직접 액세스할 수 있는 클러스터의 Ambari의 경우, 일부 기능은 클러스터에서 사용하는 내부 도메인 이름으로 노드에 액세스해야 합니다. 공용이 아닌 내부 도메인 이름이어야 하므로 인터넷을 통해 일부 기능에 액세스하면 "서버를 찾을 수 없음" 오류가 발생합니다.
 	>
 	> Ambari 웹 UI의 모든 기능을 사용하려면 프록시 웹 트래픽에 대한 SSH 터널을 클러스터 헤드 노드에 사용합니다. [SSH 터널링을 사용하여 Ambari 웹 UI, ResourceManager, JobHistory, NameNode, Oozie 및 기타 웹 UI에 액세스](hdinsight-linux-ambari-ssh-tunnel.md)를 참조하세요.
 
 * **Ambari(REST)** - https://&lt;clustername>.azurehdinsight.net/ambari
 
-	> [AZURE.NOTE]클러스터 관리자 계정 및 암호를 사용하여 인증합니다.
+	> [AZURE.NOTE] 클러스터 관리자 계정 및 암호를 사용하여 인증합니다.
 	>
 	> 인증은 일반 텍스트입니다. 항상 HTTPS를 사용하여 연결의 보안을 유지합니다.
 
 * **WebHCat(Templeton)** - https://&lt;clustername>.azurehdinsight.net/templeton
 
-	> [AZURE.NOTE]클러스터 관리자 계정 및 암호를 사용하여 인증합니다.
+	> [AZURE.NOTE] 클러스터 관리자 계정 및 암호를 사용하여 인증합니다.
 	>
 	> 인증은 일반 텍스트입니다. 항상 HTTPS를 사용하여 연결의 보안을 유지합니다.
 
 * **SSH** - &lt;clustername>-ssh.azurehdinsight.net(포트 22 또는 23) 포트 22는 headnode0에 연결하는 데 사용되고 포트 23은 headnode1에 연결하는 데 사용됩니다. 헤드 노드에 대한 자세한 내용은 [HDInsight에서 Hadoop 클러스터의 가용성 및 안정성](hdinsight-high-availability-linux.md)을 참조하세요.
 
-	> [AZURE.NOTE]클라이언트 컴퓨터에서 SSH를 통해 클러스터 헤드 노드에 액세스할 수 있습니다. 연결한 후 헤드 노드에서 SSH를 사용하여 작업자 노드를 액세스할 수 있습니다.
+	> [AZURE.NOTE] 클라이언트 컴퓨터에서 SSH를 통해 클러스터 헤드 노드에 액세스할 수 있습니다. 연결한 후 헤드 노드에서 SSH를 사용하여 작업자 노드를 액세스할 수 있습니다.
 
 ## 파일 위치
 
@@ -88,9 +88,9 @@ HDInsight에 대한 기본 저장소가 된 이후 일반적으로 사용하기 
 
 	hadoop fs -ls /example/data
 
-일부 명령은 Blob 저장소를 사용할지 지정해야 할 수 있습니다. 이러한 경우 **WASB://**를 명령 앞에 붙일 수 있습니다.
+일부 명령은 Blob 저장소를 사용할지 지정해야 할 수 있습니다. 이러한 경우 ****WASB://**를 명령 앞에 붙일 수 있습니다.
 
-HDInsight은 클러스터와 여러 개의 Blob 저장소 계정을 연결할 수도 있습니다. 기본이 아닌 Blob 저장소 계정 데이터에 액세스하려면 **WASB://&lt;컨테이너 이름>@&lt;계정 이름 >.blob.core.windows.net/** 형식을 사용할 수 있습니다. 예를 들어 다음은 지정된 컨테이너 및 Blob 저장소 계정에 대한 **/example/data** 디렉터리 콘텐츠를 나열합니다.
+HDInsight은 클러스터와 여러 개의 Blob 저장소 계정을 연결할 수도 있습니다. 기본이 아닌 Blob 저장소 계정 데이터에 액세스하려면 **WASB://&lt;container-name>@&lt;account-name>.blob.core.windows.net/** 형식을 사용할 수 있습니다. 예를 들어 다음은 지정된 컨테이너 및 Blob 저장소 계정에 대한 **/example/data** 디렉터리 콘텐츠를 나열합니다.
 
 	hadoop fs -ls wasb://mycontainer@mystorage.blob.core.windows.net/example/data
 
@@ -102,7 +102,7 @@ HDInsight은 클러스터와 여러 개의 Blob 저장소 계정을 연결할 �
 
         curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'
     
-    > [AZURE.NOTE]서버(`service_config_version=1`)에 적용된 첫 번째 구성을 반환하며 이 정보를 포함합니다. 클러스터를 만든 후 수정된 값을 검색하는 경우 구성 버전을 나열하고 최신 버전을 검색해야 할 수도 있습니다.
+    > [AZURE.NOTE] 서버(`service_config_version=1`)에 적용된 첫 번째 구성을 반환하며 이 정보를 포함합니다. 클러스터를 만든 후 수정된 값을 검색하는 경우 구성 버전을 나열하고 최신 버전을 검색해야 할 수도 있습니다.
 
     다음과 유사한 값을 반환하며 여기서 __CONTAINER__는 기본 컨테이너이고 __ACCOUNTNAME__은 Azure 저장소 계정 이름입니다.
 
@@ -114,7 +114,7 @@ HDInsight은 클러스터와 여러 개의 Blob 저장소 계정을 연결할 �
     
     계정에 대한 리소스 그룹 이름을 반환합니다.
     
-    > [AZURE.NOTE]이 명령에서 아무 것도 반환되지 않는 경우 Azure CLI를 Azure 리소스 관리자 모드로 변경하고 명령을 다시 실행해야 합니다. Azure 리소스 관리자 모드로 전환하려면 다음 명령을 사용합니다.
+    > [AZURE.NOTE] 이 명령에서 아무 것도 반환되지 않는 경우 Azure CLI를 Azure 리소스 관리자 모드로 변경하고 명령을 다시 실행해야 합니다. Azure 리소스 관리자 모드로 전환하려면 다음 명령을 사용합니다.
     >
     > `azure config mode arm`
     
@@ -196,7 +196,7 @@ HDInsight은 클러스터와 여러 개의 Blob 저장소 계정을 연결할 �
 
 	* __Storm UI__: Storm UI를 사용하여 토폴로지의 균형을 다시 조정하려면 다음 단계를 사용합니다.
 
-		1. 웹 브라우저에서 __https://CLUSTERNAME.azurehdinsight.net/stormui__을 엽니다. 여기서 CLUSTERNAME은 Storm 클러스터의 이름입니다. 메시지가 표시되면 클러스터를 만들 때 지정한 HDInsight 클러스터 관리자(관리자) 이름 및 암호를 입력합니다.
+		1. 웹 브라우저에서 \_\___https://CLUSTERNAME.azurehdinsight.net/stormui__을 엽니다. 여기서 CLUSTERNAME은 Storm 클러스터의 이름입니다. 메시지가 표시되면 클러스터를 만들 때 지정한 HDInsight 클러스터 관리자(관리자) 이름 및 암호를 입력합니다.
 
 		3. 균형을 다시 조정하려는 토폴로지를 선택한 다음 __균형 다시 맞추기__ 단추를 선택합니다. 균형 재조정 작업이 수행되기 전에 지연 시간을 입력합니다.
 
@@ -219,7 +219,6 @@ HDInsight는 관리되는 서비스로 문제가 발견되면 클러스터의 �
 * [Giraph](hdinsight-hadoop-giraph-install-linux.md)
 * [R](hdinsight-hadoop-r-scripts-linux.md)
 * [Solr](hdinsight-hadoop-solr-install-linux.md)
-* [Spark](hdinsight-hadoop-spark-install-linux.md)
 
 사용자 고유의 스크립트 작업 개발에 대한 정보는 [HDInsight를 사용하여 스크립트 작업 개발](hdinsight-hadoop-script-actions-linux.md)을 참조하세요.
 
@@ -229,7 +228,7 @@ HDInsight는 관리되는 서비스로 문제가 발견되면 클러스터의 �
 
 예를 들어 [DataFu](http://datafu.incubator.apache.org/)의 최신 버전을 사용하려는 경우 프로젝트가 포함된 jar을 다운로드하고 HDInsight 클러스터에 업로드할 수 있습니다. 그런 다음 Pig 또는 Hive를 사용하는 방법에 대한 DataFu 설명서를 수행합니다.
 
-> [AZURE.IMPORTANT]독립 실행형 jar 파일인 구성 요소 일부는 HDInsight와 함께 제공되지만 경로에 있지 않습니다. 특정 구성 요소를 찾으려면 다음을 사용하여 클러스터에서 검색할 수 있습니다.
+> [AZURE.IMPORTANT] 독립 실행형 jar 파일인 구성 요소 일부는 HDInsight와 함께 제공되지만 경로에 있지 않습니다. 특정 구성 요소를 찾으려면 다음을 사용하여 클러스터에서 검색할 수 있습니다.
 >
 > ```find / -name *componentname*.jar 2>/dev/null```
 >
@@ -237,7 +236,7 @@ HDInsight는 관리되는 서비스로 문제가 발견되면 클러스터의 �
 
 클러스터가 구성 요소의 버전을 독립 실행형 jar 파일로 제공하지만 다른 버전을 사용하려는 경우 클러스터에 새 버전의 구성 요소를 업로드하고 작업에 사용해 볼 수 있습니다.
 
-> [AZURE.WARNING]HDInsight 클러스터와 함께 제공된 구성 요소는 완전히 지원되며 Microsoft 지원에서 이러한 구성 요소와 관련된 문제를 해결하는 데 도움을 드릴 것입니다.
+> [AZURE.WARNING] HDInsight 클러스터와 함께 제공된 구성 요소는 완전히 지원되며 Microsoft 지원에서 이러한 구성 요소와 관련된 문제를 해결하는 데 도움을 드릴 것입니다.
 >
 > 사용자 지정 구성 요소는 문제 해결에 도움이 되는 합리적인 지원을 받습니다. 지원을 통해 문제를 해결하거나 해당 기술에 대한 전문 지식이 있는, 오픈 소스 기술에 대해 사용 가능한 채널에 참여하도록 요구할 수 있습니다. 예를 들어 [HDInsight에 대한 MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/ko-KR/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com)과 같은 여러 커뮤니티 사이트를 사용할 수 있습니다. Apache 프로젝트는 [http://apache.org](http://apache.org)에 프로젝트 사이트가 있습니다(예: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/)).
 
@@ -247,5 +246,4 @@ HDInsight는 관리되는 서비스로 문제가 발견되면 클러스터의 �
 * [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 * [HDInsight에서 MapReduce 작업 사용](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0114_2016-->
-
+<!---HONumber=AcomDC_0323_2016-->

@@ -61,7 +61,7 @@
 >[AZURE.NOTE] 클래식 VM을 만들 때 컨테이너 *클라우드 서비스*가 Azure에 의해 만들어지며 VIP(가상 IP 주소)를 포함합니다. 포털을 통해 작성을 완료하는 경우 기본 RDP 또는 SSH *끝점*이 포털에 의해 구성되어 클라우드 서비스 VIP를 통해 VM에 연결할 수 있습니다. 이 클라우드 서비스 VIP는 예약할 수 있으며 VM에 연결하는 데 예약된 IP 주소를 효과적으로 제공하도록 합니다. 더 많은 끝점을 구성하여 추가 포트를 열 수 있습니다.
 
 ### IaaS VM 및 PaaS 역할 인스턴스
-클라우드 서비스 내에 있는 IaaS [VM](../virtual-machines/virtual-machines-about.md) 또는 PaaS 역할 인스턴스에 공용 IP 주소를 직접 할당할 수 있습니다. 이를 인스턴스 수준 공용 IP 주소([ILPIP](virtual-networks-instance-level-public-ip.md))라고 합니다. 이 공용 IP 주소는 동적 방식만 가능합니다.
+클라우드 서비스 내에 있는 IaaS [VM](../virtual-machines/virtual-machines-linux-about.md) 또는 PaaS 역할 인스턴스에 공용 IP 주소를 직접 할당할 수 있습니다. 이를 인스턴스 수준 공용 IP 주소([ILPIP](virtual-networks-instance-level-public-ip.md))라고 합니다. 이 공용 IP 주소는 동적 방식만 가능합니다.
 
 >[AZURE.NOTE] 클라우드 서비스에는 여러 IaaS VM, PaaS 역할 인스턴스가 포함될 수 있으며 모두 동일한 클라우드 서비스 VIP를 통해 노출되기 때문에 IaaS VMs 또는 PaaS 역할 인스턴스에 대한 컨테이너인 클라우드 서비스의 VIP와는 다릅니다.
 
@@ -136,7 +136,7 @@ VM을 만들 때 개인 IP 주소에 대한 호스트 이름 매핑이 Azure 관
 
 아래 테이블은 구독 당 Azure에서 IP 주소에 적용된 제한을 보여줍니다. [지원에 문의](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 비즈니스에 따라 최대 한도까지 기본 제한을 증가시킬 수 있습니다
 
-|기본 제한|최대 제한|
+||기본 제한|최대 제한|
 |---|---|---|
 |공용 IP 주소(동적)|5|지원에 문의|
 |예약된 공용 IP 주소|20|지원에 문의|
@@ -157,7 +157,7 @@ Azure에서 [네트워킹에 대한 제한](azure-subscription-service-limits.md
 |**공용 IP 주소**|VM|ILPIP(동적 전용)로 참조|공용 IP(동적 또는 정적)로 참조|
 |||IaaS VM 또는 PaaS 역할 인스턴스에 할당|VM의 NIC에 연결|
 ||인터넷 연결 부하 분산 장치|VIP(동적) 또는 예약된 IP(정적)로 참조|공용 IP(동적 또는 정적)로 참조|
-||||클라우드 서비스에 할당|부하 분산 장치의 프런트 엔드 구성에 연결|
+|||클라우드 서비스에 할당|부하 분산 장치의 프런트 엔드 구성에 연결|
 ||||
 |**개인 IP 주소**|VM|DIP로 참조|개인 IP 주소로 참조|
 |||IaaS VM 또는 PaaS 역할 인스턴스에 할당|VM의 NIC에 할당|
@@ -166,4 +166,4 @@ Azure에서 [네트워킹에 대한 제한](azure-subscription-service-limits.md
 ## 다음 단계
 - 클래식 포털을 사용하여 [고정 개인 IP 주소를 사용하는 VM을 배포](virtual-networks-static-private-ip-classic-pportal.md)합니다.
 
-<!----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

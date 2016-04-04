@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="시뮬레이션된 하이브리드 클라우드 테스트 환경 | Microsoft Azure" 
 	description="Azure 가상 네트워크 두 개와 VNet 간 연결을 사용하여 IT 전문가 또는 개발 테스트용 시뮬레이션된 하이브리드 클라우드 환경을 만들어봅니다." 
-	services="virtual-network" 
+	services="virtual-machines-windows" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
@@ -9,7 +9,7 @@
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines" 
+	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
@@ -50,7 +50,7 @@ Azure 구독이 아직 없는 경우 [Azure 평가판 사용](https://azure.micr
 
 ## 1단계: TestLab 가상 네트워크 구성
 
-[테스트 환경 기본 구성](virtual-machines-base-configuration-test-environment-resource-manager.md)에 설명된 지침을 사용하여 TestLab이라는 Azure 가상 네트워크에서 DC1, APP1 및 CLIENT1 컴퓨터를 구성합니다.
+[테스트 환경 기본 구성](virtual-machines-windows-test-config-env.md)에 설명된 지침을 사용하여 TestLab이라는 Azure 가상 네트워크에서 DC1, APP1 및 CLIENT1 컴퓨터를 구성합니다.
 
 다음으로 Azure PowerShell 프롬프트를 시작합니다.
 
@@ -213,6 +213,6 @@ TestVNET 가상 네트워크에는 고유한 DNS 서버(DC2)가 있으므로 이
 
 ## 다음 단계
 
-- TestVNET 서브넷(예: Microsoft SQL Server를 실행하는)에 [새 가상 컴퓨터를 추가](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)합니다.
+- TestVNET 서브넷(예: Microsoft SQL Server를 실행하는)에 [새 가상 컴퓨터를 추가](virtual-machines-windows-create-powershell.md)합니다.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="02/16/2016"
+	ms.date="03/18/2016"
 	ms.author="jeffstok"/>
 
 # Azure 스트림 분석 작업 크기를 조정하여 스트림 데이터 처리량 증가
@@ -29,7 +29,7 @@
 ## 스트리밍 단위 구성
 SU(스트리밍 단위)는 Azure 스트림 분석 작업을 실행하는 리소스 및 능력을 나타냅니다. SU는 CPU, 메모리의 혼합된 측정치 및 읽기/쓰기 속도를 기반으로 상대적 이벤트 처리 용량을 설명하는 방법을 제공합니다. 각 스트리밍 단위는 대략 1MB/초의 처리량에 해당합니다.
 
-특정 작업에 필요한 SU 수 선택은 입력에 대한 파티션 구성 및 작업에 정의된 쿼리에 따라 달라집니다. Azure 포털을 사용하여 작업에 대한 스트림 단위에서 최대 할당량을 선택할 수 있습니다. 기본적으로 각 Azure 구독에는 특정 지역의 모든 분석 작업에 대해 최대 50개의 스트리밍 단위 할당량이 있습니다. 구독의 스트리밍 단위를 늘리려면 [Microsoft 지원](http://support.microsoft.com)에 문의하세요.
+특정 작업에 필요한 SU 수 선택은 입력에 대한 파티션 구성 및 작업에 정의된 쿼리에 따라 달라집니다. Azure 클래식 포털을 사용하여 작업에 대한 스트리밍 단위의 최대 할당량을 선택할 수 있습니다. 기본적으로 각 Azure 구독에는 특정 지역의 모든 분석 작업에 대해 최대 50개의 스트리밍 단위 할당량이 있습니다. 구독의 스트리밍 단위를 늘리려면 [Microsoft 지원](http://support.microsoft.com)에 문의하세요.
 
 작업이 활용할 수 있는 스트리밍 단위 수는 입력에 대한 파티션 구성과 작업에 대해 정의된 쿼리에 따라 다릅니다. 또한 스트림 단위에는 유효한 값이 사용되어야 합니다. 유효한 값은 아래와 같이 1, 3, 6 다음으로 6의 증분 이상에서 시작합니다.
 
@@ -241,9 +241,9 @@ PowerBI 출력은 현재 분할을 지원하지 않습니다.
 
 ![Azure 스트림 분석 스트림 단위 규모 지정][img.stream.analytics.streaming.units.scale]
 
-Azure Preview 포털의 설정에서 크기 조정 설정을 액세스할 수 있습니다.
+Azure 포털의 설정에서 크기 조정을 설정할 수 있습니다.
 
-![Azure Preview 포털 스트림 분석 구성][img.stream.analytics.preview.portal.settings.scale]
+![Azure 포털 스트림 분석 작업 구성][img.stream.analytics.preview.portal.settings.scale]
 
 ## 작업 성능 모니터링
 
@@ -351,4 +351,4 @@ Azure Preview 포털의 설정에서 크기 조정 설정을 액세스할 수 �
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

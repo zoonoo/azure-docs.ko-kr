@@ -21,7 +21,7 @@
 이 인덱스 페이지를 사용하여 [Azure 클래식 포털](https://manage.windowsazure.com/)에서 HDInsight에 대해 다루는 문서를 찾습니다. Azure HDInsight는 오픈 소스 Hadoop 및 Hortonworks Data Platform의 클라우드 배포입니다.
 
 
-> [AZURE.IMPORTANT]이 문서 인덱스 페이지는 현재 Azure 클래식 포털에 솔루션이 이미 배포된 고객을 위한 것입니다.
+> [AZURE.IMPORTANT]  이 문서 인덱스 페이지는 현재 Azure 클래식 포털에 솔루션이 이미 배포된 고객을 위한 것입니다.
 >
 > 새 HDInsight 클러스터에는 **Azure 포털**을 사용하는 것이 좋습니다.
 >
@@ -58,10 +58,9 @@ Linux 및 Linux 클러스터 사용에 대한 전체 문서 집합을 보려면 
 * [Microsoft Avro 라이브러리로 Hadoop의 데이터 직렬화](hdinsight-dotnet-avro-serialization.md)
 * [Hive를 사용한 JSON 문서 처리 및 분석](hdinsight-using-json-in-hive.md)
 * [Hive 및 Pig에서 Python 사용](hdinsight-python.md)
-* [Hadoop에 대한 Hive 쿼리 최적화](hdinsight-hadoop-optimize-hive-query–v1.md)
+* [Hadoop에 대한 Hive 쿼리 최적화](hdinsight-hadoop-optimize-hive-query.md)
 * [Hadoop용 .NET SDK를 사용하여 Pig 작업 실행하기](hdinsight-hadoop-use-pig-dotnet-sdk-v1.md)
 * [Hive 및 Pig 스트리밍과 함께 C# UDF(사용자 정의 함수) 사용](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
-* [C# Hadoop 스트리밍 프로그램 개발](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
 
 ## HBase: NoSQL 데이터베이스
 
@@ -71,7 +70,7 @@ Linux 및 Linux 클러스터 사용에 대한 전체 문서 집합을 보려면 
 
 ## Apache Storm: 스트림 쿼리
 
-* [Storm Starter 샘플 시작](hdinsight-apache-storm-tutorial-get-started-v1.md)
+* [Storm Starter 샘플 시작](hdinsight-apache-storm-tutorial-get-started.md)
 * [Apache Storm 토폴로지 배포 및 관리](hdinsight-storm-deploy-monitor-topology.md)
 * [Visual Studio용 Hadoop 도구를 사용하여 Apache Storm에 대한 C# 토폴로지 개발](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 * [Apache Storm 및 Maven으로 기본 단어 개수 응용 프로그램에 대한 Java 기반 토폴로지 개발](hdinsight-storm-develop-java-topology.md)
@@ -100,9 +99,8 @@ Azure 포털에서 네이티브 Apache Spark 사용에 대한 문서를 보려�
 ## HDInsight에서 기계 학습
 
 * [Hadoop과 함께 Apache Mahout을 사용하여 영화 추천 생성](hdinsight-mahout.md)
-* [학습 경로: 고급 분석 솔루션 구축](machine-learning-data-science-how-to-create-machine-learning-service.md)
-* [학습 경로: 고급 데이터 처리](machine-learning-data-science-advanced-data-processing.md)
-* [HDInsight 및 기계 학습으로 Taxi Trips 예측](machine-learning-data-science-process-hive-walkthrough.md)
+* [학습 경로: 고급 분석 솔루션 구축](../machine-learning/machine-learning-walkthrough-develop-predictive-solution.md)
+* [HDInsight 및 기계 학습으로 Taxi Trips 예측](../machine-learning/machine-learning-data-science-process-hive-walkthrough.md)
 
 ## 확장성
 
@@ -133,4 +131,4 @@ Azure 포털에서 네이티브 Apache Spark 사용에 대한 문서를 보려�
 * [오류 메시지 해석](hdinsight-debug-jobs.md)
 * [포럼에서 도움말 보기](https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0323_2016-->

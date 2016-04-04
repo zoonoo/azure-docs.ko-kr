@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Azure 자동화를 사용하여 Azure 클라우드 서비스를 관리합니다."
+	pageTitle="Azure 자동화를 사용하여 Azure 클라우드 서비스 관리 | Microsoft Azure"
 	description="Azure 자동화 서비스를 사용하여 대규모 Azure 클라우드 서비스를 관리하는 방법을 알아봅니다."
 	services="cloud-services, automation"
 	documentationCenter=""
 	authors="jodoglevy"
-	manager="eamono"
+	manager="timlt"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/19/2016"
+	ms.date="03/22/2016"
 	ms.author="jolevy"/>
 
 
@@ -35,6 +35,10 @@ Azure 자동화에 의해 자동으로 실행되도록 클라우드 관리 작�
 
 [Azure PowerShell 도구](https://msdn.microsoft.com/library/azure/jj156055.aspx)에서 사용할 수 있는 PowerShell cmdlet을 통해 Azure 자동화에서 Azure 클라우드 서비스를 관리할 수 있습니다. Azure 자동화에서는 이러한 클라우드 서비스 PowerShell cmdlet을 기본적으로 사용할 수 있으므로 서비스 내에서 클라우드 서비스 관리 작업을 모두 수행할 수 있습니다. Azure 자동화에서 이러한 cmdlet을 다른 Azure 서비스용 cmdlet과 연결하여 Azure 서비스와 타사 시스템 간의 복잡한 작업을 자동화할 수도 있습니다.
 
+Azure 클라우드 서비스를 관리하는 Azure 자동화를 사용하는 몇 가지 예제는 다음과 같습니다.
+
+- [Azure Blob 저장소에서 cscfg 또는 cspkg가 업데이트될 때마다 클라우드 서비스의 연속 배포](https://gallery.technet.microsoft.com/scriptcenter/Continuous-Deployment-of-A-eeebf3a6)
+- [클라우드 서비스 인스턴스를 병렬로 다시 부팅할 때 한 번에 하나의 도메인 업그레이드](https://gallery.technet.microsoft.com/scriptcenter/Reboot-Cloud-Service-PaaS-b337a06d)
 
 ## 다음 단계
 
@@ -45,4 +49,4 @@ Azure 자동화의 기본 사항과 Azure 자동화를 사용하여 클라우드
 - [Azure 자동화 학습 맵](https://azure.microsoft.com/documentation/learning-paths/automation/)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

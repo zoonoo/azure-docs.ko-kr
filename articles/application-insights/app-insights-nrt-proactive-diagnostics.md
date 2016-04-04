@@ -21,7 +21,7 @@
 
 이 기능은 자체 서버 또는 클라우드에서 호스팅되는 Java 및 ASP.NET 웹 앱에 대해 작동 합니다. 요청 원격 분석을 생성하는 모든 앱에 대해 작동합니다(예를 들어 [TrackRequest()](app-insights-api-custom-events-metrics.md#track-request)를 호출하는 작업자 역할이 있는 경우).
 
-[프로젝트에 대한 Application Insights](app-insights-get-started.md)를 설정한 후 제공된 앱은 최소 일정량의 원격 분석을 생성합니다. 사전 진단은 전환되고 경고를 보낼 수 있기 전에 앱의 일반적인 동작을 알아보는 데 24시간이 걸립니다.
+[프로젝트에 대한 Application Insights](app-insights-get-started.md)를 설정한 후 제공된 앱은 최소 일정량의 원격 분석을 생성합니다. NRT 사전 진단은 전환되고 경고를 보낼 수 있기 전에 앱의 일반적인 동작을 알아보는 데 24시간이 걸립니다.
 
 샘플 경고는 다음과 같습니다.
 
@@ -41,7 +41,7 @@
 
 거의 실시간인 사전 진단은 앱, 특히 실패한 요청 속도에서 받은 원격 분석을 모니터링합니다. 이 메트릭은 `Successful request` 속성이 false인 요청 수를 계산합니다. 기본적으로 `Successful request== (resultCode < 400)`입니다(사용자 지정 코드를 [필터](app-insights-api-filtering-sampling.md#filtering)에 작성하거나 사용자 고유 [TrackRequest](app-insights-api-custom-events-metrics.md#track-request) 호출을 생성하지 않는 한).
 
-앱의 성능에는 일반적인 동작의 패턴이 있습니다. 일부 요청은 다른 요청보다 오류 발생 가능성이 높으며 로드가 증가함에 따라 전체 실패율이 상승할 수 있습니다. 거의 실시간인 사전 진단은 이러한 이상을 발견하는 데 기계 학습을 사용합니다.
+앱의 성능에는 일반적인 동작의 패턴이 있습니다. 일부 요청은 다른 요청보다 오류 발생 가능성이 높으며 로드가 증가함에 따라 전체 실패율이 상승할 수 있습니다. NRT 사전 진단은 이러한 이상을 발견하는 데 기계 학습을 사용합니다.
 
 웹 앱에서 Application Insights로 원격 분석을 가져오면 NRT 사전 진단에서 현재 동작을 과거 며칠 동안 확인된 패턴과 비교합니다. 이전 성능과 비교하여 실패율에 비정상적인 증가가 관찰되면 분석이 트리거됩니다.
 
@@ -138,4 +138,4 @@ NRT 사전 진단은 Application Insights의 다른 유사하지만 고유한 �
 
 *이에 대한 여러분의 의견을 기다리고 있습니다. *[ainrtpd@microsoft.com](mailto:ainrtpd@microsoft.com)으로 의견을 보내 주세요.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

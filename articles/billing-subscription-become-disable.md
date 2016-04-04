@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/08/2015"
+	ms.date="03/08/2016"
 	ms.author="genli"/>
 
 # Azure 구독이 비활성화될 경우 어떻게 해야 합니까?
@@ -43,4 +43,4 @@
 
 자세한 내용은 [Azure 청구 및 구독 문제에 대한 지원 티켓을 만드는 방법](billing-how-to-create-billing-support-ticket.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

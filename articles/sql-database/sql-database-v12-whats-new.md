@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/08/2016" 
+	ms.date="03/21/2016" 
 	ms.author="genemi"/>
 
 
@@ -40,7 +40,7 @@ SQL 데이터베이스의 리소스 제한에 대한 최신 정보는 <br/>[Azur
 SQL 데이터베이스 V12에 대한 주요 목표는 Microsoft SQL Server 2014와 호환성을 개선하고 새 버전의 SQL Server가 출시되면서 호환성을 유지하는 것입니다. 다른 영역 중 V12는 프로그래밍의 중요한 영역에서 SQL server와의 패리티를 실현합니다. 예를 들어 다음과 같습니다.
 
 
-- [OVER](http://msdn.microsoft.com/library/ms189461.aspx)를 포함한 [Window 함수](http://msdn.microsoft.com/library/bb934097.aspx) 
+- [OVER](http://msdn.microsoft.com/library/ms189461.aspx)를 포함한 [Window 함수](http://msdn.microsoft.com/library/ms189798.aspx) 
 
 - [XML 인덱스](http://msdn.microsoft.com/library/bb934097.aspx) 및 [선택적 XML 인덱스](http://msdn.microsoft.com/library/jj670104.aspx)
 
@@ -166,4 +166,4 @@ V12 논리 서버에만 V12 데이터베이스를 호스팅할 수 있습니다.
 
 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

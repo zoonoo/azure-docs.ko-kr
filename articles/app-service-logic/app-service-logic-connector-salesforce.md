@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="sameerch"/>
 
 
 # Salesforce 커넥터 시작 및 논리 앱에 추가
->[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다. 2015-08-01-미리 보기 스키마 버전에 대한 내용을 보려면 [Salesforce API](../connectors/create-api-salesforce.md)를 클릭하세요.
+>[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다. 2015-08-01-preview 스키마 버전에 대한 내용을 보려면 [Salesforce API](../connectors/connectors-create-api-salesforce.md)를 클릭하세요.
 
 Salesforce에 연결하여 계정, 잠재 고객 등의 엔터티를 만들고 수정합니다. 다음은 Salesforce와 관련된 일반적인 통합 시나리오입니다.
 
@@ -108,4 +108,4 @@ Salesforce에서 계정을 만들고 동일한 계정의 청구 주소 정보를
 [14]: ./media/app-service-logic-connector-salesforce/14_Update_Account_Address.png
 [15]: ./media/app-service-logic-connector-salesforce/15_Create_new_salesforce_connector.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

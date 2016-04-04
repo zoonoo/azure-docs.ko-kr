@@ -1,20 +1,20 @@
 <properties
-   pageTitle="공유 액세스 서명 개요 | Microsoft Azure"
-   description="공유 액세스 서명의 정의, 그 작동 방법 및 노드, PHP, C#에서 공유 액세스 서명을 사용하는 방법에 대해 설명합니다."
-   services="service-bus,event-hubs"
-   documentationCenter="na"
-   authors="djrosanova"
-   manager="timlt"
-   editor=""/>
+    pageTitle="공유 액세스 서명 개요 | Microsoft Azure"
+    description="공유 액세스 서명의 정의, 그 작동 방법 및 노드, PHP, C#에서 공유 액세스 서명을 사용하는 방법에 대해 설명합니다."
+    services="service-bus,event-hubs"
+    documentationCenter="na"
+    authors="djrosanova"
+    manager="timlt"
+    editor=""/>
 
 <tags
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="12/09/2015"
-   ms.author="darosa"/>
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="03/16/2016"
+    ms.author="darosa;sethm"/>
 
 # 공유 액세스 서명
 
@@ -182,11 +182,11 @@ ContentType: application/atom+xml;type=entry;charset=utf-8
 
 ## 공유 액세스 서명 사용(AMQP 수준에서)
 
-이전 섹션에서는 HTTP POST 요청과 함께 SAS 토큰을 사용하여 데이터를 서비스 버스에 보내는 방법을 살펴봤습니다. 아시다시피, 서비스 버스는 많은 시나리오에서 성능상의 이유로 사용하는 기본 및 선호 프로토콜인 AMQP(고급 메시지 큐 프로토콜) 프로토콜을 사용하여 액세스할 수 있습니다. AMQP와 함께 SAS 토큰을 사용하는 방법은 2013년 이후 초안 상태이지만 현재 Azure에서 충분한 지원을 받고 있는 문서 [AMQP 클레임 기반 보안 버전 1.0](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc)에 설명되어 있습니다.
+이전 섹션에서는 HTTP POST 요청과 함께 SAS 토큰을 사용하여 데이터를 서비스 버스에 보내는 방법을 살펴봤습니다. 아시다시피, 서비스 버스는 많은 시나리오에서 성능상의 이유로 사용하는 기본 설정 프로토콜인 AMQP(고급 메시지 큐 프로토콜)를 사용하여 액세스할 수 있습니다. AMQP와 함께 SAS 토큰을 사용하는 방법은 2013년 이후 초안 상태이지만 현재 Azure에서 충분한 지원을 받고 있는 문서 [AMQP 클레임 기반 보안 버전 1.0](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc)에 설명되어 있습니다.
 
 서비스 버스에 데이터의 전송을 시작하기 전에 게시자는 AMQP 메시지 안에 있는 SAS 토큰을 **"$cbs"**(모든 SAS 토큰을 얻고 유효성을 검사하기 위해 서비스에서 사용하는 "특별" 큐)라는 이름의 정의된 AMQP 노드에 전송해야 합니다. 게시자는 AMQP 메시지 내부에 있는 **"ReplyTo"** 필드를 지정해야 합니다. 이는 서비스가 토큰 유효성 검사 결과와 함께 게시자에게 응답하는 노드입니다(게시자와 서비스 간의 간단한 요청/응답 패턴). 이 회신 노드는 "즉시" 생성되며 AMQP 1.0 사양에 설명된 것처럼 “원격 노드 동적 생성”에 대해 얘기합니다. SAS 토큰이 유효한지 확인한 후 게시자는 이제 데이터를 서비스에 보내기 시작할 수 있습니다.
 
-다음 단계는 C&#35;에서 개발 중인 공식 서비스 버스 SDK(예: WinRT, .Net Compact Framework, .Net Micro Framework 및 Mono에서)를 사용할 수 없는 경우에 유용한 [AMQP.Net Lite](http://amqpnetlite.codeplex.com) 라이브러리를 사용하여 AMQP 프로토콜과 함께 SAS 토큰을 보내는 방법을 알려줍니다. 물론 이 라이브러리는 클레임 기반 보안이 HTTP 수준에서 작동하는 방식을 볼 때처럼 AMQP 수준에서 작동하는 방식을 이해하는 데 유용합니다(“권한 부여" 헤더 내에서 전송되는 HTTP POST 요청 및 SAS 토큰과 함께). 그러나 염려하지 마세요. AMQP에 대한 깊은 지식이 없어도 모든 다른 플랫폼에 대해 [Azure SB Lite](http://azuresblite.codeplex.com) 라이브러리 또는 .Net Framework 응용 프로그램과 함께 공식 서비스 버스 SDK를 사용할 수 있습니다(위 참조).
+다음 단계에서는 [AMQP.Net Lite](https://github.com/Azure/amqpnetlite) 라이브러리를 사용하여 AMQP 프로토콜을 통해 SAS 토큰을 보내는 방법을 보여 줍니다. 이 방법은 C&#35로 개발하는 공식적인 서비스 버스 SDK를 사용할 수 없는 경우(예를 들어 WinRT, .Net Compact Framework, .Net Micro Framework 및 Mono)에 유용합니다. 물론 이 라이브러리는 클레임 기반 보안이 HTTP 수준에서 작동하는 방식을 볼 때처럼 AMQP 수준에서 작동하는 방식을 이해하는 데 유용합니다("권한 부여" 헤더 내에서 전송되는 HTTP POST 요청 및 SAS 토큰과 함께). AMQP에 대한 깊은 지식이 없어도 .Net Framework 응용 프로그램과 함께 공식 서비스 버스 SDK를 사용할 수 있습니다(위 참조).
 
 ### C&#35;
 
@@ -239,11 +239,13 @@ private bool PutCbsToken(Connection connection, string sasToken)
 }
 ```
 
-위의 *PutCbsToken()* 메서드는 서비스에 대한 TCP 연결 및 전송할 SAS 토큰인 *sasToken* 매개 변수를 나타내는 *연결*(AMQP.Net Lite 라이브러리에서 제공하는 대로 AMQP 연결 클래스 인스턴스)을 수신합니다. 참고: 연결이 **EXTERNAL로 설정된 SASL 인증 메커니즘**(SAS 토큰을 보낼 필요가 없을 때 사용하는 사용자 이름 및 암호를 가진 기본 PLAIN이 아님)으로 생성된다는 사실이 중요합니다.
+위의 `PutCbsToken()` 메서드는 서비스에 대한 TCP 연결 및 전송할 SAS 토큰인 *sasToken* 매개 변수를 나타내는 *연결*([AMQP .NET Lite 라이브러리](https://github.com/Azure/amqpnetlite)에서 제공하는 대로 AMQP 연결 클래스 인스턴스)을 수신합니다.
+
+> [AZURE.NOTE] 연결이 **EXTERNAL로 설정된 SASL 인증 메커니즘**(SAS 토큰을 보낼 필요가 없을 때 사용하는 사용자 이름 및 암호를 가진 기본 PLAIN이 아님)으로 생성된다는 사실이 중요합니다.
 
 그런 다음 게시자는 SAS 토큰을 보내고 서비스로부터 회신(토큰 유효성 검사 결과)을 받기 위한 2개의 AMQP 링크를 만듭니다.
 
-AMQP 메시지는 간단한 메시지보다 정보가 많고 속성이 많으므로 다소 복잡합니다. SAS 토큰은 메시지의 본문으로 배치됩니다(해당 생성자를 사용하여). **"ReplyTo"** 속성은 수신기 링크에 대한 유효성 검사 결과를 받기 위한 노드 이름으로 설정됩니다(원하는 대로 이름을 변경할 수 있으며 서비스에서 동적으로 생성합니다). 마지막 세 응용 프로그램/사용자 지정 속성은 서비스에서 실행하는 작업의 종류를 이해하는 데 사용합니다. CBS 초안 사양에서 설명한 것처럼 이들은 **토큰의 형식**("servicebus.windows.net:sastoken")인 **작업 이름**("put-token")이 되고 마지막으로는 토큰이 적용되는 **청중의 "이름"**이어야 합니다(전체 엔터티).
+AMQP 메시지는 간단한 메시지보다 정보가 많고 속성이 많습니다. SAS 토큰은 해당 생성자를 사용하여 메시지의 본문으로 배치됩니다. **"ReplyTo"** 속성은 수신기 링크에 대한 유효성 검사 결과를 받기 위한 노드 이름으로 설정됩니다(원하는 대로 이름을 변경할 수 있으며 서비스에서 동적으로 생성함). 마지막 세 응용 프로그램/사용자 지정 속성은 서비스에서 실행하는 작업의 종류를 나타내는 데 사용합니다. CBS 초안 사양에서 설명한 것처럼 이들은 **토큰의 형식**(이 경우 "servicebus.windows.net:sastoken")인 **작업 이름**("put-token")이 되고 토큰이 적용되는 **청중의 "이름"**이어야 합니다(전체 엔터티).
 
 보낸 사람 링크에서 SAS 토큰을 보낸 후 게시자는 수신자 링크에서 회신을 읽어야 합니다. 회신은 HTTP 상태 코드와 동일한 값을 포함할 수 있는 **"status-code"**라는 이름의 응용 프로그램 속성을 가진 간단한 AMQP 메시지입니다.
 
@@ -257,4 +259,4 @@ C# 및 Java Script에서 SAS의 자세한 예는 [이 블로그 게시물](http:
 
 [Azure 클래식 포털]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

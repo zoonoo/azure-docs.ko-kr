@@ -1,95 +1,60 @@
 ## 이벤트 허브에 메시지 보내기
 
-이 섹션에서는 이벤트 허브로 이벤트를 보내는 Java 콘솔 응용 프로그램을 작성합니다. 여기서는 [Apache Qpid 프로젝트](http://qpid.apache.org/)의 JMS AMQP 공급자를 사용합니다. 이는 [여기](../articles/service-bus/service-bus-java-how-to-use-jms-api-amqp.md)에 나와 있는 AMQP와 함께 서비스 버스 큐와 토픽을 사용하는 방법과 유사합니다. 자세한 내용은 [Qpid JMS 설명서](http://qpid.apache.org/releases/qpid-0.30/programming/book/QpidJMS.html) 및 [Java Messaging Service](http://www.oracle.com/technetwork/java/jms/index.html)를 참조하세요.
+이벤트 허브에 대한 Java 클라이언트 라이브러리는 [Maven 중앙 리포지토리](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22)의 Maven 프로젝트에 사용할 수 있으며 Maven 프로젝트 파일 내의 다음 종속성 선언을 사용하여 참조할 수 있습니다.
 
-1. Eclipse에서 [Azure Toolkit for Eclipse](../articles/azure-toolkit-for-eclipse.md)를 설치합니다. 여기에는 Qpid JMS AMQP 클라이언트 라이브러리가 포함되어 있습니다.
+``` XML
+<dependency> 
+    <groupId>com.microsoft.azure</groupId> 
+    <artifactId>azure-eventhubs-clients</artifactId> 
+    <version>0.6.0</version> 
+</dependency>   
+ ```
+ 
+다양한 유형의 빌드 환경을 위해, [Maven 중앙 리포지토리](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22) 또는 [GitHub의 릴리스 배포 지점](https://github.com/Azure/azure-event-hubs/releases)에서 최근에 릴리스된 JAR 파일을 명시적으로 가져올 수 있습니다.
 
-2. Eclipse에서 **Sender**라는 Java 프로젝트를 새로 만듭니다.
+단순 이벤트 게시자의 경우 이벤트 허브 클라이언트 클래스에 대한 *com.microsoft.azure.eventhubs* 패키지와 유틸리티 클래스(예: Azure 서비스 버스 메시징 클라이언트와 공유되는 일반적인 예외)에 대한 *com.microsoft.azure.servicebus* 패키지를 가져옵니다.
 
-3. Eclipse 패키지 탐색기에서 **Sender** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다. 대화 상자의 왼쪽 창에서 **Java 빌드 경로**를 클릭한 후, **라이브러리** 탭을 클릭하고 **라이브러리 추가** 단추를 클릭합니다. **Package for Apache Qpid Client Libraries for JMS(MS Open Tech 제공)**를 선택하고 **다음**, **마침**을 차례로 클릭합니다.
+다음 샘플에서는 먼저 즐겨 찾는 Java 개발 환경에서 콘솔/셸 응용 프로그램에 대한 새 Maven 프로젝트를 만듭니다. 이 클래스를 ```Send```라고 합니다.
 
-	![][8]
+``` Java
 
-4. **servicebus.properties**라는 파일을 **Sender** 프로젝트의 루트에 만들고, 다음 콘텐츠를 포함합니다. 다음 값을 대체해야 합니다.
-	- 이벤트 허브 이름
-	- 네임스페이스 이름(일반적으로 `{event hub name}-ns`)
-	- URL로 인코딩된 **SendRule** 키(이벤트 허브를 만들 때 이 키를 기록해 둠) [여기](http://www.w3schools.com/tags/ref_urlencode.asp)(영문)에서 URL로 인코드할 수 있습니다.
+import java.io.IOException;
+import java.nio.charset.*;
+import java.util.*;
+import java.util.concurrent.ExecutionException;
 
-			# servicebus.properties - sample JNDI configuration
+import com.microsoft.azure.eventhubs.*;
+import com.microsoft.azure.servicebus.*;
 
-			# Register a ConnectionFactory in JNDI using the form:
-			# connectionfactory.[jndi_name] = [ConnectionURL]
-			connectionfactory.SBCF = amqps://SendRule:{Send Rule key}@{namespace name}.servicebus.windows.net/?sync-publish=false
+public class Send
+{
+	public static void main(String[] args) 
+			throws ServiceBusException, ExecutionException, InterruptedException, IOException
+	{
+```
 
-			# Register some queues in JNDI using the form
-			# queue.[jndi_name] = [physical_name]
-			# topic.[jndi_name] = [physical_name]
-			queue.EventHub = {event hub name}
+네임스페이스 및 이벤트 허브 이름을 이벤트 허브를 만들 때 사용한 값으로 바꿉니다. `sasKeyName` 및 `sasKey`는 앞서 만든 Send 규칙의 이름 및 키에 해당합니다. 이 정보를 사용하여 연결 문자열을 만듭니다.
 
-5. **Sender**라는 클래스를 새로 만듭니다. 다음 `import` 문을 추가합니다.
+``` Java
+	final String namespaceName = "----ServiceBusNamespaceName-----";
+	final String eventHubName = "----EventHubName-----";
+	final String sasKeyName = "-----SharedAccessSignatureKeyName-----";
+	final String sasKey = "---SharedAccessSignatureKey----";
+	ConnectionStringBuilder connStr = new ConnectionStringBuilder(namespaceName, eventHubName, sasKeyName, sasKey);
+```
 
-		import java.io.BufferedReader;
-		import java.io.IOException;
-		import java.io.InputStreamReader;
-		import java.io.UnsupportedEncodingException;
-		import java.util.Hashtable;
+그런 후 문자열을 UTF-8 바이트 인코딩으로 전환하여 단일 이벤트를 만듭니다. 그런 다음 연결 문자열에서 새 이벤트 허브 클라이언트 인스턴스를 만들고 해당 메시지를 보냅니다.
 
-		import javax.jms.BytesMessage;
-		import javax.jms.Connection;
-		import javax.jms.ConnectionFactory;
-		import javax.jms.Destination;
-		import javax.jms.JMSException;
-		import javax.jms.MessageProducer;
-		import javax.jms.Session;
-		import javax.naming.Context;
-		import javax.naming.InitialContext;
-		import javax.naming.NamingException;
+``` Java 
+				
+	byte[] payloadBytes = "Test AMQP message from JMS".getBytes("UTF-8");
+	EventData sendEvent = new EventData(payloadBytes);
+	
+	EventHubClient ehClient = EventHubClient.createFromConnectionStringSync(connStr.toString());
+	ehClient.sendSync(sendEvent);
+	}
+}
 
-6. 그리고 다음 코드를 추가합니다.
+``` 
 
-		public static void main(String[] args) throws NamingException,
-				JMSException, IOException, InterruptedException {
-			// Configure JNDI environment
-			Hashtable<String, String> env = new Hashtable<String, String>();
-			env.put(Context.INITIAL_CONTEXT_FACTORY,
-					"org.apache.qpid.amqp_1_0.jms.jndi.PropertiesFileInitialContextFactory");
-			env.put(Context.PROVIDER_URL, "servicebus.properties");
-			Context context = new InitialContext(env);
-
-			ConnectionFactory cf = (ConnectionFactory) context.lookup("SBCF");
-
-			Destination queue = (Destination) context.lookup("EventHub");
-
-			// Create Connection
-			Connection connection = cf.createConnection();
-
-			// Create sender-side Session and MessageProducer
-			Session sendSession = connection.createSession(false,
-					Session.AUTO_ACKNOWLEDGE);
-			MessageProducer sender = sendSession.createProducer(queue);
-
-			System.out.println("Press Ctrl-C to stop the sender process");
-			System.out.println("Press Enter to start now");
-			BufferedReader commandLine = new java.io.BufferedReader(
-					new InputStreamReader(System.in));
-			commandLine.readLine();
-
-			while (true) {
-				sendBytesMessage(sendSession, sender);
-				Thread.sleep(200);
-			}
-		}
-
-		private static void sendBytesMessage(Session sendSession, MessageProducer sender) throws JMSException, UnsupportedEncodingException {
-	        BytesMessage message = sendSession.createBytesMessage();
-	        message.writeBytes("Test AMQP message from JMS".getBytes("UTF-8"));
-	        sender.send(message);
-	        System.out.println("Sent message");
-	    }
-
-
-
-<!-- Images -->
-[8]: ./media/service-bus-event-hubs-getstarted/create-sender-java1.png
-
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

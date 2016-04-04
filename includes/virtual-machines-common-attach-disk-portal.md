@@ -1,55 +1,53 @@
 
 
-This article shows you how to attach both new and existing disks to a virtual machine through the Azure portal. Before you do this, review these tips:
+이 문서에서는 Azure 포털을 통해 신규 및 기존 디스크를 가상 컴퓨터에 연결하는 방법을 보여줍니다. 이 작업을 수행 하기 전에 다음 팁을 검토하세요.
 
-- The size of the virtual machine controls how many data disks you can attach. For details, see [Sizes for virtual machines](virtual-machines-linux-sizes.md).
-- To use Premium storage, you'll need a DS-series or GS-series virtual machine. You can use disks from both Premium and Standard storage accounts with these virtual machines. Premium storage is available in certain regions. For details, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage-preview-portal.md).
-- Disks attached to virtual machines are actually .vhd files in an Azure storage account. For details, see [About disks and VHDs for virtual machines](virtual-machines-linux-about-disks-vhds.md).
-- For a new disk, you don't need to create it first because Azure creates it when you attach it.
-- For an existing disk, the .vhd file must be available in an Azure storage account. You can use a .vhd that's already there, if it's not attached to another virtual machine, or upload your own .vhd file to the storage account.
+- 가상 컴퓨터의 크기로 연결할 수 있는 디스크 개수가 제어됩니다. 자세한 내용은 [가상 컴퓨터의 크기](virtual-machines-linux-sizes.md)를 참조하세요.
+- 프리미엄 저장소를 사용하려면 DS 시리즈 또는 GS 시리즈 가상 컴퓨터가 필요합니다. 이 가상 컴퓨터를 사용하여 프리미엄 및 표준 저장소 계정에서 모두 디스크를 사용할 수 있습니다. 프리미엄 저장소는 특정 지역에서만 사용할 수 있습니다. 자세한 내용은 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../storage/storage-premium-storage-preview-portal.md)를 참조하세요.
+- 가상 컴퓨터에 연결된 디스크는 실제로 Azure 저장소 계정의 .vhd 파일입니다. 자세한 내용은 [가상 컴퓨터용 디스크 및 VHD 정보](virtual-machines-linux-about-disks-vhds.md)를 참조하세요.
+- 새 디스크의 경우 Azure가 디스크를 연결할 때 생성하므로 먼저 생성하지 않아도 됩니다.
+- 기존 디스크의 경우 Azure 저장소 계정에서 .vhd 파일을 사용할 수 있어야 합니다. 다른 가상 컴퓨터에 연결되지 않은 경우 이미 있는 .vhd 파일을 사용하거나 고유의 .vhd 파일을 저장소 계정에 업로드할 수 있습니다.
 
-## Find the virtual machine
+## 가상 컴퓨터 찾기
 
-1. Sign in to the Azure portal.
+1. Azure 포털에 로그인합니다.
 
-2. On the Hub menu, click **Virtual Machines**.
+2. 허브 메뉴에서 **가상 컴퓨터**를 클릭합니다.
 
-3.	Select the virtual machine from the list.
+3.	목록에서 가상 컴퓨터를 선택합니다.
 
-4. To the right, under **Essentials**, click **All settings**, and then click **Disks**.
+4. 오른쪽의 **Essentials** 아래에서 **모든 설정**을 클릭한 다음 **디스크**를 클릭합니다.
 
-	![Open disk settings](./media/virtual-machines-common-attach-disk-portal/find-disk-settings.png)
+	![디스크 설정 열기](./media/virtual-machines-common-attach-disk-portal/find-disk-settings.png)
 
-Continue by following instructions for attaching either a new disk or an existing disk.
+새 디스크 또는 기존 디스크를 연결하려면 다음 지침에 따라 계속합니다.
 
-## Option 1: Attach a new disk
+## 옵션 1: 새 디스크 연결
 
-1.	On the **Disks** blade, click **Attach new**.
+1.	**디스크** 블레이드에서 **새 연결**을 클릭합니다.
 
-2.	Review the default settings, update as necessary, and then click **OK**.
+2.	기본 설정을 검토하고 필요에 따라 업데이트한 다음 **확인**을 클릭합니다.
 
- 	![Review disk settings](./media/virtual-machines-common-attach-disk-portal/attach-new.png)
+ 	![디스크 설정 검토](./media/virtual-machines-common-attach-disk-portal/attach-new.png)
 
-3.	After Azure creates the disk and attaches it to the virtual machine, the new disk is listed in the virtual machine's disk settings under **Data Disks**.
+3.	Azure가 디스크를 만들고 가상 컴퓨터에 연결하면 가상 컴퓨터의 디스크 설정의 **데이터 디스크** 아래에 새 디스크가 나열됩니다.
 
-## Option 2: Attach an existing disk
+## 옵션 2: 기존 디스크 연결
 
-1.	On the **Disks** blade, click **Attach existing**.
+1.	**디스크** 블레이드에서 **기존 연결**을 클릭합니다.
 
-2.	Under **Attach existing disk**, click **VHD File**.
+2.	**기존 디스크 연결**에서 **VHD 파일**을 클릭합니다.
 
-	![Attach existing disk](./media/virtual-machines-common-attach-disk-portal/attach-existing.png)
+	![기존 디스크 연결](./media/virtual-machines-common-attach-disk-portal/attach-existing.png)
 
-3.	Under **Storage accounts**, select the account and container that holds the .vhd file.
+3.	**저장소 계정**에서 계정 및 .vhd 파일을 보관하는 컨테이너를 선택합니다.
 
-	![Find VHD location](./media/virtual-machines-common-attach-disk-portal/find-storage-container.png)
+	![VHD 위치 찾기](./media/virtual-machines-common-attach-disk-portal/find-storage-container.png)
 
-4.	Select the .vhd file.
+4.	.vhd 파일을 업로드합니다.
 
-5.	Under **Attach existing disk**, the file you just selected is listed under **VHD File**. Click **OK**.
+5.	**기존 디스크 연결**에서 방금 선택한 파일이 **VHD 파일** 아래에 나열됩니다. **확인**을 클릭합니다.
 
-6.	After Azure attaches the disk to the virtual machine, it's listed in the virtual machine's disk settings under **Data Disks**.
+6.	Azure가 디스크를 가상 컴퓨터에 연결한 후 가상 컴퓨터의 디스크 설정의 **데이터 디스크** 아래에 해당 디스크가 나열됩니다.
 
-
-
-
+<!---HONumber=AcomDC_0323_2016-->

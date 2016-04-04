@@ -103,7 +103,7 @@ StorSimple 가상 장치는 Microsoft Azure 가상 컴퓨터의 단일 노드에
 - 가상 장치의 경우, [Azure에서 가상 네트워크를 구성합니다](../virtual-network/virtual-networks-create-vnet-classic-portal.md). 프리미엄 저장소를 사용하는 경우 프리미엄 저장소를 지원하는 Azure 지역에 가상 네트워크를 만들어야 합니다. 자세한 내용은 [현재 8020에 대해 지원되는 하위 지역](#supported-regions-for-8020)을 참조하세요.
 - 사용자 고유의 DNS 서버 이름을 지정하는 대신 Azure에서 제공하는 기본 DNS 서버를 사용하는 것이 좋습니다. DNS 서버 이름이 유효하지 않거나 DNS 서버가 IP 주소를 제대로 확인할 수 없으면 가상 장치 만들기에 실패합니다.
 - 지점 대 사이트간 및 사이트 대 사이트는 선택적이지만 필수는 아닙니다. 원하는 경우, 고급 시나리오에 대해 이 옵션을 구성할 수 있습니다. 
-- 가상 장치에 표시된 볼륨을 사용할 수 있는 [Azure 가상 컴퓨터](../virtual-machines/virtual-machines-about.md)(호스트 서버)를 가상 네트워크에 만들 수 있습니다. 이 서버는 다음 요구 사항을 충족해야 합니다. 							
+- 가상 장치에 표시된 볼륨을 사용할 수 있는 [Azure 가상 컴퓨터](../virtual-machines/virtual-machines-linux-about.md)(호스트 서버)를 가상 네트워크에 만들 수 있습니다. 이 서버는 다음 요구 사항을 충족해야 합니다. 							
 	- iSCSI 초기자 소프트웨어가 설치된 Windows 또는 Linux VM입니다.
 	- 가상 장치와 동일한 가상 네트워크에서 실행 중입니다.
 	- 가상 장치의 내부 IP 주소를 통해 가상 장치의 iSCSI 대상에 연결할 수 없습니다.
@@ -146,8 +146,7 @@ StorSimple 가상 장치는 Microsoft Azure 가상 컴퓨터의 단일 노드에
 
 이 절차를 시작하기 전에 서비스 데이터 암호화 키의 복사본을 가지고 있는지 확인합니다. 첫번째 StorSimple 장치를 구성하고 안전한 위치에 저장하도록 명령한 경우, 서비스 데이터 암호화 키가 만들어집니다. 서비스 데이터 암호화 키의 복사본이 없는 경우 Microsoft 지원에 문의해야 합니다.
 
-다음 단계에 따라 StorSimple 가상 장치를 구성하고 등록합니다.
-[AZURE.INCLUDE [가상 장치 구성 및 등록](../../includes/storsimple-configure-register-virtual-device.md)]
+다음 단계에 따라 StorSimple 가상 장치를 구성하고 등록합니다.[AZURE.INCLUDE [가상 장치 구성 및 등록](../../includes/storsimple-configure-register-virtual-device.md)]
 
 ### 3단계: (선택 사항) 장치 구성 설정 수정
 
@@ -282,4 +281,4 @@ StorSimple 가상 장치를 이전에 구성하고 사용했지만 이제 용도
  
 - [백업 세트에서 StorSimple 볼륨을 복원](storsimple-restore-from-backup-set.md)하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

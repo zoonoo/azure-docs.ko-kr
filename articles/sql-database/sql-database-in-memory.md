@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="03/17/2016"
 	ms.author="jodebrui"/>
 
 
@@ -28,6 +28,8 @@
 - 코드를 읽어서 시나리오를 이해하고 메모리 내 개체를 만들어서 활용하는 방법을 알아봅니다.
 
 > [AZURE.VIDEO azure-sql-database-in-memory-technologies]
+
+- 시작하는 데 도움이 되는 또 하나의 문서로 [빠른 시작 1: 더 빠른 T-SQL 성능에 대한 메모리 내 OLTP 기술](http://msdn.microsoft.com/library/mt694156.aspx)을 참조하세요.
 
 #### 메모리 내 OLTP
 
@@ -231,7 +233,7 @@ end
 ```
 
 
-ostress.exe에 대한 이전 T-SQL의 \_ondisk 버전을 만들려면 *\_inmem* 문자열의 두 항목을 *\_ondisk* 로 간단히 대체합니다. 이러한 대체는 테이블의 이름 및 저장된 프로시저에 영향을 줍니다.
+ostress.exe에 대한 이전 T-SQL의 \_ondisk 버전을 만들려면 *\_inmem* 문자열의 두 항목을 *\_ondisk*로 간단히 대체합니다. 이러한 대체는 테이블의 이름 및 저장된 프로시저에 영향을 줍니다.
 
 
 ### RML 유틸리티 및 ostress 설치
@@ -531,4 +533,4 @@ SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 
 - 메모리 내 OLTP에 대한 [메모리 내 저장소 모니터링](sql-database-in-memory-oltp-monitoring.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

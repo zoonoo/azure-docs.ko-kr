@@ -1,16 +1,16 @@
 <!--author=jgerend last changed: 03/16/16-->
 
-## Preparing for updates
-You will need to perform the following steps before you scan and apply the update:
+## 업데이트 준비
+업데이트를 스캔하고 적용하기 전에 다음 단계를 수행해야 합니다.
 
 
-1. Take a cloud snapshot of the device data.
+1. 장치 데이터의 클라우드 스냅숏을 만듭니다.
 
-2. Ensure that your controller fixed IPs are routable and can connect to the Internet. These fixed IPs will be used to service updates to your device. You can test this by running the following cmdlet on each controller from the Windows PowerShell interface of the device:
+2. 컨트롤러 고정 IP가 라우팅할 수 있으며 인터넷에 연결할 수 있는지 확인합니다. 이러한 고정된 IP는 장치를 서비스 업데이트하는 데 사용됩니다. 장치의 Windows PowerShell 인터페이스에서 다음 cmdlet을 실행하여 이를 테스트할 수 있습니다.
 
  	`Test-Connection -Source <Fixed IP of your device controller> -Destination <Any IP or computer name outside of datacenter network> `
 
-	**Sample output for Test-Connection when fixed IPs can connect to the Internet**
+	**고정된 IP가 인터넷에 연결할 수 있는 경우 테스트 연결에 대한 샘플 출력**
 
 
 		Controller0>Test-Connection -Source 10.126.173.91 -Destination bing.com
@@ -31,4 +31,6 @@ You will need to perform the following steps before you scan and apply the updat
 	    HCSNODE0  204.79.197.200  204.79.197.200
 	    HCSNODE0  204.79.197.200  204.79.197.200
 
-After you have successfully completed these manual pre-checks, you can proceed to scan and install the updates.
+이러한 수동 사전 검사를 성공적으로 완료한 후에 업데이트 검색 및 설치를 진행할 수 있습니다.
+
+<!---HONumber=AcomDC_0323_2016-->

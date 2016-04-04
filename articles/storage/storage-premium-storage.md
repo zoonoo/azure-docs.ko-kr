@@ -49,13 +49,14 @@ Azure는 저장소 계정을 운영 체제(OS) 및 데이터 디스크의 컨테
 - 먼저, 새 프리미엄 저장소 계정을 만듭니다. 다음으로, 새 DS 또는 GS VM을 만들 때 저장소 구성 설정에서 프리미엄 저장소 계정을 선택합니다. 또는
 - 새 DS 또는 GS VM을 만들 때 저장소 구성 설정에서 새 프리미엄 저장소 계정을 만들거나 Azure 포털이 기본 프리미엄 저장소 계정을 만들게 합니다.
 
+
 단계별 지침은 이 문서의 뒷부분에 나오는 [빠른 시작](#quick-start)을 참조하세요.
 
 >[AZURE.NOTE] 프리미엄 저장소 계정은 사용자 지정 도메인 이름에 매핑할 수 없습니다.
 
 ## GS 및 DS 시리즈 VM
 
-프리미엄 저장소는 DS 시리즈 및 GS 시리즈 Azure VM(가상 컴퓨터)을 지원합니다. DS 시리즈 또는 GS 시리즈의 VM에는 표준 및 프리미엄 저장소 디스크를 모두 사용할 수 있습니다. 그러나 DS 시리즈 또는 GS 시리즈가 아닌 VM의 경우 프리미엄 저장소 디스크를 사용할 수 없습니다. 사용 가능한 Azure VM 유형 및 크기에 대한 자세한 내용은 [가상 컴퓨터의 크기](../virtual-machines/virtual-machines-size-specs.md)를 참조하세요. 다음은 DS 및 GS 시리즈 VM의 일부 기능입니다.
+프리미엄 저장소는 DS 시리즈 및 GS 시리즈 Azure VM(가상 컴퓨터)을 지원합니다. DS 시리즈 또는 GS 시리즈의 VM에는 표준 및 프리미엄 저장소 디스크를 모두 사용할 수 있습니다. 그러나 DS 시리즈 또는 GS 시리즈가 아닌 VM의 경우 프리미엄 저장소 디스크를 사용할 수 없습니다. 사용 가능한 Azure VM 유형 및 크기에 대한 자세한 내용은 [가상 컴퓨터의 크기](../virtual-machines/virtual-machines-linux-sizes.md)를 참조하세요. 다음은 DS 및 GS 시리즈 VM의 일부 기능입니다.
 
 **클라우드 서비스**: DS 시리즈 VM만 포함하는 클라우드 서비스에 DS 시리즈 VM을 추가할 수 있습니다. DS 시리즈가 아닌 VM을 포함하는 기존 클라우드 서비스에 DS 시리즈 VM을 추가하지 마세요. DS 시리즈 VM만 실행하는 새 클라우드 서비스에 기존 VHD를 마이그레이션할 수 있습니다. DS 시리즈 VM을 호스트하는 새 클라우드 서비스에 동일한 VIP(가상 IP 주소)를 유지하려는 경우, [예약된 IP 주소](../virtual-network/virtual-networks-instance-level-public-ip.md)를 사용합니다. GS 시리즈 VM은 G 시리즈 VM만을 실행 중인 기존 클라우드 서비스에 추가될 수 있습니다.
 
@@ -73,7 +74,7 @@ Azure는 저장소 계정을 운영 체제(OS) 및 데이터 디스크의 컨테
 
 현재, DS 계열에서 가장 큰 VM은 STANDARD\_DS14 이며 모든 디스크에서 초당 최대 512MB를 제공할 수 있습니다. GS 시리즈에서 가장 큰 VM은 STANDARD\_GS5 이며 모든 디스크에서 초당 최대 2000MB를 제공할 수 있습니다. 이러한 한도는 캐시 적중 수 및 네트워크 트래픽을 포함하지 않는 디스크 트래픽에만 단독으로 적용됩니다. VM 네트워크 트래픽에 사용할 수 있는 별도 대역폭이 있으며, 프리미엄 저장소 디스크 전용 대역폭과는 다릅니다.
 
-DS 시리즈 및 GS 시리즈 VM에 대한 최대 IOPS 및 처리량(대역폭)에 대한 최신 정보는 [가상 컴퓨터의 크기](../virtual-machines/virtual-machines-size-specs.md)를 참조하세요. 프리미엄 저장소 디스크와 해당 IOPS 및 처리량 한도에 대한 자세한 내용은 이 문서에서 [프리미엄 저장소 확장성 및 성능 목표](#premium-storage-scalability-and-performance-targets) 섹션의 테이블을 참조하세요.
+DS 시리즈 및 GS 시리즈 VM에 대한 최대 IOPS 및 처리량(대역폭)에 대한 최신 정보는 [가상 컴퓨터의 크기](../virtual-machines/virtual-machines-linux-sizes.md)를 참조하세요. 프리미엄 저장소 디스크와 해당 IOPS 및 처리량 한도에 대한 자세한 내용은 이 문서에서 [프리미엄 저장소 사용 시 확장성 및 성능 목표](#scalability-and-performance-targets-whko-KRing-premium-storage) 섹션의 테이블을 참조하세요.
 
 ## 프리미엄 저장소 확장성 및 성능 목표
 
@@ -145,7 +146,7 @@ DS 시리즈 및 GS 시리즈 VM에 대한 최대 IOPS 및 처리량(대역폭)�
 
 다음은 프리미엄 저장소 확장성 및 성능 목표에 대해 알고 계셔야 하는 중요한 사항입니다.
 
-- **프로비전된 용량 및 성능**: 프리미엄 저장소 디스크를 프로비전하면 표준 저장소와는 다르게, 해당 디스크의 용량, IOPS 및 처리량이 보장됩니다. 예를 들어 P30 디스크를 만들면 Azure가 해당 디스크에 저장소 용량 1024TB, IOPS 5000, 초당 처리량 200MB를 프로비전합니다. 응용 프로그램에서 용량 및 성능의 전체 또는 일부를 사용할 수 있습니다.
+- **프로비전된 용량 및 성능**: 프리미엄 저장소 디스크를 프로비전하면 표준 저장소와는 다르게, 해당 디스크의 용량, IOPS 및 처리량이 보장됩니다. 예를 들어 P30 디스크를 만들면 Azure가 해당 디스크에 저장소 용량 1024GB, IOPS 5000, 초당 처리량 200MB를 프로비전합니다. 응용 프로그램에서 용량 및 성능의 전체 또는 일부를 사용할 수 있습니다.
 
 - **디스크 크기**: Azure는 테이블에 지정된 대로 디스크 크기(반올림됨)를 가장 가까운 프리미엄 저장소 디스크 옵션에 매핑합니다. 예를 들어 크기가 100GiB인 디스크는 P10 옵션으로 분류되며 초당 최대 500개 IO 단위를 초당 최대 100MB 처리량으로 수행할 수 있습니다. 마찬가지로, 크기가 400GiB인 디스크는 P20 옵션으로 분류되며 초당 최대 2300개 IO 단위를 초당 최대 150MB 처리량으로 수행할 수 있습니다.
 
@@ -241,7 +242,7 @@ DS 시리즈 및 GS 시리즈 VM에 대한 최대 IOPS 및 처리량(대역폭)�
 	- **XFS**를 사용하는 경우 탑재 옵션 “nobarrier”를 사용하여 장벽을 사용하지 않도록 설정(장벽 사용의 경우 “barrier” 사용)
 
 - “ReadWrite”으로 캐시가 설정된 프리미엄 저장소 디스크의 경우 쓰기 내구성을 위해 장벽이 설정되어야 합니다.
-- 볼륨 레이블의 경우 VM을 다시 부팅한 후 유지하려면 디스크에 UUID 참조로 /etc/fstab을 업데이트해야 합니다. 또한 [Linux 가상 컴퓨터에 데이터 디스크를 연결하는 방법](../virtual-machines/virtual-machines-linux-how-to-attach-disk.md)을 참조하세요.
+- 볼륨 레이블의 경우 VM을 다시 부팅한 후 유지하려면 디스크에 UUID 참조로 /etc/fstab을 업데이트해야 합니다. 또한 [Linux 가상 컴퓨터에 데이터 디스크를 연결하는 방법](../virtual-machines/virtual-machines-linux-classic-attach-disk.md)을 참조하세요.
 
 다음은 프리미엄 저장소로 유효성을 검사한 Linux 배포판입니다. 프리미엄 저장소 사용 시 더 나은 성능 및 확장성을 위해 이러한 버전 이상으로 VM을 업그레이드하는 것이 좋습니다. 또한 버전 중 일부는 최신 LIS(Microsoft Azure 용 Linux Integration Services v4.0)가 필요합니다. 다운로드 및 설치를 위해 아래 제공된 링크를 따르십시오. 추가 유효성 검사가 완료되면 목록에 대한 자세한 이미지 추가가 계속됩니다. 유효성 검사는 이러한 이미지에 따라 다른 성능을 보여주었으며 해당 이미지의 워크로드 특성 및 설정에 따라서도 달라집니다. 다른 종류의 워크로드에 대해 서로 다른 이미지가 조정됩니다.
 <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
@@ -385,7 +386,7 @@ OpenLogic CentOS VM을 실행하는 고객은 다음 명령을 실행하여 최�
 
 	![프리미엄 디스크][Image2]
 
-자세한 단계는 [Azure 포털에서 데이터 디스크를 연결하는 방법](../virtual-machines/virtual-machines-attach-disk-preview/)을 참조하세요.
+자세한 단계는 [Azure 포털에서 데이터 디스크를 연결하는 방법](../virtual-machines/virtual-machines-windows-attach-disk-portal.md)을 참조하세요.
 
 #### IV. Azure 포털을 통해 디스크 캐싱 정책 변경
 
@@ -526,12 +527,14 @@ Azure 프리미엄 저장소에 대한 자세한 내용은 다음 문서를 참�
 
 - [Azure 프리미엄 저장소로 마이그레이션](storage-migration-to-premium-storage.md)
 
+
 ### 블로그 게시물
 
 - [일반적으로 제공되는 Azure 프리미엄 저장소](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)
 - [GS 시리즈 발표: 공용 클라우드의 최대 VM에 프리미엄 저장소 지원 추가](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)
 
+
 [Image1]: ./media/storage-premium-storage/Azure_pricing_tier.png
 [Image2]: ./media/storage-premium-storage/Azure_attach_premium_disk.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

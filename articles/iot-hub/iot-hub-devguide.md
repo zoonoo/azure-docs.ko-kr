@@ -68,7 +68,7 @@ IoT Hub를 인식하지 않는 SDK(또는 제품 통합)를 사용하는 경우 
 
     ![][img-eventhubcompatible]
 
-> [AZURE.NOTE] 경우에 따라 SDK는 **Hostname** 또는 **네임스페이스** 값을 필요로 합니다. 이 경우 **이벤트 허브 호환 끝점**에서 구성표를 제거합니다. 예를 들어 이벤트 허브와 호환 가능한 끝점이 **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**인 경우 **호스트 이름**은 **iothub-ns-myiothub-1234.servicebus.windows.net**이고 **네임스페이스**는 **iothub-ns-myiothub-1234**입니다.
+> [AZURE.NOTE] 경우에 따라 SDK는 **Hostname** 또는 **네임스페이스** 값을 필요로 합니다. 이 경우 **이벤트 허브 호환 끝점**에서 구성표를 제거합니다. 예를 들어 이벤트 허브와 호환 가능한 끝점이 ****sb://iothub-ns-myiothub-1234.servicebus.windows.net/**인 경우 **호스트 이름**은 **iothub-ns-myiothub-1234.servicebus.windows.net**이고 **네임스페이스**는 **iothub-ns-myiothub-1234**입니다.
 
 지정된 이벤트 허브에 연결할 수 있는 **ServiceConnect** 권한이 있는 공유 액세스 보안 정책을 사용할 수 있습니다.
 
@@ -356,7 +356,8 @@ IoT Hub 메시지에서 시스템 속성의 집합입니다.
 | -------- | ----------- |
 | MessageId | 사용자가 설정할 수 있는 메시지에 대한 식별자는 요청-회신 패턴에 일반적으로 사용됩니다. 형식: ASCII 7 비트 영숫자 문자 + `{'-', ':',’.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`의 대/소문자 구분 문자열(최대 128자 길이)입니다. |
 | 시퀀스 번호 | 숫자(장치 큐 별로 고유함)는 IoT Hub에서 각 클라우드-장치 메시지에 할당됩니다. |
-| 받는 사람   | 대상을 지정하는 [클라우드-장치](#c2d) 메시지에 사용됩니다. |
+| 받는 사람  
+ | 대상을 지정하는 [클라우드-장치](#c2d) 메시지에 사용됩니다. |
 | ExpiryTimeUtc | 메시지 만료 날짜 및 시간입니다. |
 | EnqueuedTime | IoT Hub에서 메시지를 수신한 날짜 및 시간입니다. |
 | CorrelationId | 일반적으로 요청-응답 패턴으로 요청의 MessageId가 포함된 응답 메시지의 String 속성입니다. |
@@ -601,7 +602,7 @@ IoT Hub 개발의 개요를 살펴보았습니다. 자세한 내용을 보려면
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
 [lnk-resource-provider-apis]: https://msdn.microsoft.com/library/mt548492.aspx
 
-[lnk-sas-tokens]: iot-hub-sas-tokens
+[lnk-sas-tokens]: iot-hub-sas-tokens.md
 [lnk-azure-gateway-guidance]: iot-hub-guidance.md#field-gateways
 [lnk-guidance-provisioning]: iot-hub-guidance.md#provisioning
 [lnk-guidance-scale]: iot-hub-scaling.md
@@ -634,4 +635,4 @@ IoT Hub 개발의 개요를 살펴보았습니다. 자세한 내용을 보려면
 [lnk-eventhub-partitions]: ../event-hubs/event-hubs-overview.md#partitions
 [lnk-manage]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/08/2016"
+   ms.date="03/18/2016"
    ms.author="larryfr"/>
 
 # HDInsight에서 Hadoop과 MapReduce 사용
@@ -53,8 +53,6 @@ Hadoop 스트리밍은 STDIN 및 STDOUT를 통해 매퍼 및 리듀서와 통신
 자세한 내용은 [Hadoop 스트리밍](http://hadoop.apache.org/docs/r1.2.1/streaming.html)을 참조하세요.
 
 HDInsight에서 Hadoop 스트리밍을 사용하는 예는 다음을 참조하세요:
-
-* [C# Hadoop 스트리밍 프로그램 개발](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
 
 * [Python MapReduce 작업 개발](hdinsight-hadoop-streaming-python.md)
 
@@ -169,8 +167,6 @@ MapReduce는 강력한 진단 기능을 제공하는 반면 익히기 어려울 
 
 * [HDInsight용 Python 스트리밍 MapReduce 프로그램 개발](hdinsight-hadoop-streaming-python.md)
 
-* [HDInsight용 C# Hadoop 스트리밍 MapReduce 프로그램 개발][hdinsight-develop-streaming]
-
 * [HDInsight에서 Apache Hadoop을 사용하여 Scalding MapReduce 작업 개발](hdinsight-hadoop-mapreduce-scalding.md)
 
 * [HDInsight에서 Hive 사용][hdinsight-use-hive]
@@ -193,4 +189,4 @@ MapReduce는 강력한 진단 기능을 제공하는 반면 익히기 어려울 
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

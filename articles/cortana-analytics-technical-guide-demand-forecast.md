@@ -4,7 +4,7 @@
 	services="cortana-analytics"
 	documentationCenter=""
 	authors="yijichen"
-	manager="ireiter"
+	manager="ilanr9"
 	editor="yijichen"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/24/2016"
-	ms.author="inqiu;yijichen"/>
+	ms.author="inqiu;yijichen;ilanr9"/>
 
 # 에너지 수요 예측을 위한 Cortana 분석 솔루션 템플릿 기술 가이드
 
@@ -288,4 +288,4 @@ Azure 스트림 분석 쿼리 생성에 대한 정보는 MSDN의 [스트림 분�
 
 -   [Microsoft Azure 비용 추정 도구(데스크톱)](http://www.microsoft.com/download/details.aspx?id=43376)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -26,6 +26,8 @@
 
 C&#x23;을 사용하여 [탄력적 데이터베이스 풀](sql-database-elastic-pool.md)을 관리하는 방법을 알아봅니다.
 
+일반적인 오류 코드는 [SQL 데이터베이스 클라이언트 응용 프로그램의 SQL 오류 코드: 데이터베이스 연결 오류 및 기타 문제](sql-database-develop-error-messages.md)를 참조하세요.
+
 > [AZURE.NOTE] 탄력적 데이터베이스 풀은 현재 미리 보기 상태이며, SQL 데이터베이스 V12 서버에서만 사용할 수 있습니다. SQL 데이터베이스 V11 서버가 있는 경우 한 단계에서 [PowerShell을 사용하여 V12로 업그레이드 및 풀 만들기](sql-database-upgrade-server-portal.md)를 할 수 있습니다.
 
 예제에서 [.NET용 SQL 데이터베이스 라이브러리](https://msdn.microsoft.com/library/azure/mt349017.aspx)를 사용하므로 라이브러리를 설치해야 합니다. Visual Studio의 [패키지 관리자 콘솔](http://docs.nuget.org/Consume/Package-Manager-Console)(**도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**)에서 다음 명령을 실행하여 설치할 수 있습니다.
@@ -455,4 +457,4 @@ C&#x23;을 사용하여 [탄력적 데이터베이스 풀](sql-database-elastic-
 - [Azure 리소스 관리 API](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 - [탄력적 데이터베이스 풀 참조](sql-database-elastic-pool-reference.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

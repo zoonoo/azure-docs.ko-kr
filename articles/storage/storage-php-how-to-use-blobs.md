@@ -3,9 +3,9 @@
 	description="Azure Blob 서비스를 사용하여 Blob을 업로드, 나열, 다운로드 및 삭제하는 방법을 알아봅니다. 코드 샘플은 PHP로 작성되었습니다."
 	documentationCenter="php"
 	services="storage"
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
-	editor="mollybos"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="PHP"
 	ms.topic="article"
 	ms.date="02/17/2016"
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 # PHP에서 Blob 저장소를 사용하는 방법
 
@@ -306,4 +306,4 @@ Blob을 삭제하려면 컨테이너 이름 및 Blob 이름을 **BlobRestProxy->
 [fopen]: http://www.php.net/fopen
 [stream-get-contents]: http://www.php.net/stream_get_contents
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

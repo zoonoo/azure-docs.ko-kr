@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="03/23/2016" 
 	ms.author="mimig"/>
 
 
@@ -43,7 +43,7 @@ DocumentDB는 JSON 형식으로 데이터를 저장하는 NoSQL 문서 지향 �
 DocumentDB는 스키마 제약이 없는 데이터에 대한 크기 조정, 성능 및 쿼리 기능이 중요한 새로운 웹 및 모바일 응용 프로그램에 적합한 옵션입니다. DocumentDB는 응용 프로그램 데이터 모델의 신속한 개발 및 연속적인 반복 지원에 적합합니다. 사용자 생성 콘텐츠 및 데이터를 관리하는 응용 프로그램은 [DocumentDB의 일반적인 사용 사례](documentdb-use-cases.md)입니다.
 
 ### DocumentDB HIPAA 규정을 준수합니까?
-DocumentDB는 현재 HIPAA 규정을 준수하지 않지만 HIPAA 규정 준수 Azure 서비스는 로드맵에 있습니다. Microsoft 및 HIPAA에 대한 자세한 내용은 [HIPAA 및 HITECH 활동](https://www.microsoft.com/ko-KR/TrustCenter/Compliance/HIPAA)을 참조하세요.
+예, DocumentDB는 HIPAA 규정을 준수합니다. HIPAA는 개별적으로 식별할 수 있는 상태 정보의 사용, 공개 및 보호에 대한 요구 사항을 설정합니다. 자세한 내용은 [Microsoft 보안 센터](https://www.microsoft.com/ko-KR/TrustCenter/Compliance/HIPAA)를 참조하세요.
 
 ### DocumentDB의 확장 제한 사항은 무엇입니까?
 컬렉션을 추가하여 저장소와 처리량을 기준으로 DocumentDB 계정을 확장할 수 있습니다. 컬렉션의 수에 대한 서비스 할당량은 [DocumentDB 제한](documentdb-limits.md)을 참조하세요. 추가 컬렉션이 필요한 경우 [지원 담당자에게 문의하여](documentdb-increase-limits.md) 계정 할당량을 늘리세요.
@@ -115,4 +115,4 @@ DocumentDB에 문서를 일괄 삽입하는 세 가지 방법이 있습니다.
 [query]: documentdb-sql-query.md
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # 새 VNet에 클래식 VNet 연결
@@ -23,7 +23,7 @@ Azure에는 현재 Azure 서비스 관리자(클래식이라고 함)와 Azure �
 
 ![](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure01.png)
 
->[AZURE.NOTE]이 문서에서는 테스트 목적으로 종단 간 솔루션을 안내합니다. VNet을 이미 설정하고 Azure의 사이트 간 연결 및 VPN 게이트웨이에 익숙한 경우 [ARM VNet과 클래식 VNet 간의 S2S VPN 구성](../virtual-networks-arm-asm-s2s-howto.md)을 참조하세요.
+>[AZURE.NOTE] 이 문서에서는 테스트 목적으로 종단 간 솔루션을 안내합니다. VNet을 이미 설정하고 Azure의 사이트 간 연결 및 VPN 게이트웨이에 익숙한 경우 [ARM VNet과 클래식 VNet 간의 S2S VPN 구성](virtual-networks-arm-asm-s2s-howto.md)을 참조하세요.
 
 이 시나리오를 테스트하려면 다음이 필요합니다.
 
@@ -33,7 +33,7 @@ Azure에는 현재 Azure 서비스 관리자(클래식이라고 함)와 Azure �
 
 먼저 클래식 포털, 네트워크 구성 파일, Azure 서비스 관리자 PowerShell cmdlet 등 클래식 Azure 관리 도구를 사용하여 위 단계를 실행한 후 새 Azure 포털, ARM 템플릿, ARM PowerShell cmdlet 등 새 관리 도구로 이동합니다.
 
->[AZURE.IMPORTANT]VNet을 서로 연결하려면 CIDR 블록이 충돌해서는 안 됩니다. 각 VNet에 고유한 CIDR 블록이 있는지 확인하세요.
+>[AZURE.IMPORTANT] VNet을 서로 연결하려면 CIDR 블록이 충돌해서는 안 됩니다. 각 VNet에 고유한 CIDR 블록이 있는지 확인하세요.
 
 ## 클래식 VNet 환경 만들기
 
@@ -43,15 +43,9 @@ Azure에는 현재 Azure 서비스 관리자(클래식이라고 함)와 Azure �
 
 위 그림 1에 매핑되는 새 VNet을 만들려면 아래 지침을 따르세요.
 
-1. PowerShell 콘솔에서 아래 명령을 실행하여 Azure 계정을 추가합니다.
+1. PowerShell 콘솔에서 아래 명령을 실행하여 Azure 계정을 로그인합니다.
 
-		Add-AzureAccount
-
-2. 로그인 대화 상자 지침에 따라 Azure 계정으로 로그온합니다.
-
-3. 아래 명령을 실행하여 Azure 서비스 관리 PowerShell cmdlet를 사용하고 있는지 확인합니다.
-
-		Switch-AzureMode AzureServiceManagement
+		Login-AzureRmAccount
 
 4. 아래 명령을 실행하여 Azure 네트워크 구성 파일을 다운로드합니다.
 
@@ -153,7 +147,7 @@ Azure 서비스 관리자 PowerShell cmdlet를 사용하여 클래식 VNet에 VM
 
 	![VNet 대시보드](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure04.png)
 
-	>[AZURE.NOTE]이 작업에는 몇 분 정도 걸릴 수 있습니다.
+	>[AZURE.NOTE] 이 작업에는 몇 분 정도 걸릴 수 있습니다.
 
 9. 생성되면 아래와 같이 게이트웨이의 공용 IP 주소를 적어 둡니다. 나중에 ARM VNet에 대한 로컬 네트워크를 만드는 데 이 주소가 필요합니다.
 
@@ -195,12 +189,13 @@ ARM 템플릿을 사용하여 클래식 VNet에 대한 로컬 네트워크 및 �
 
 5. ARM VNet 및 해당 관련 개체를 만들려면 **RG1**이라는 새 리소스 그룹에서 다음 PowerShell 명령을 실행합니다. 템플릿 파일 및 매개 변수 파일에 대한 경로를 변경해야 합니다.
 
-		Switch-AzureMode AzureResourceManager
-		New-AzureResourceGroup -Name RG1 -Location "Central US" `
+		New-AzureRmResourceGroup -Name RG1 -Location centralus
+
+		New-AzureRmResourceGroupDeployment -Name deployment01 `
 		    -TemplateFile C:\Azure\azuredeploy.json `
 		    -TemplateParameterFile C:\Azure\azuredeploy-parameters.json		
 
-	>[AZURE.NOTE]이 작업에는 몇 분 정도 걸릴 수 있습니다.
+	>[AZURE.NOTE] 이 작업에는 몇 분 정도 걸릴 수 있습니다.
 
 7. 필요한 경우 브라우저에서 https://portal.azure.com/으로 이동하여 자격 증명을 입력합니다.
 8. 다음과 같이 Azure 포털에서 **RG1** 리소스 그룹 타일을 클릭합니다.
@@ -232,7 +227,7 @@ Azure 포털에서 새 VNet에 VM을 만들려면 아래 지침을 따르세요.
 
 	![VNet 대시보드](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure10.png)
 
-	>[AZURE.NOTE]이 작업에는 몇 분 정도 걸릴 수 있습니다. 이 문서의 다음 부분으로 이동할 수 있습니다.
+	>[AZURE.NOTE] 이 작업에는 몇 분 정도 걸릴 수 있습니다. 이 문서의 다음 부분으로 이동할 수 있습니다.
 
 ## 두 VNet 연결
 
@@ -261,10 +256,6 @@ ARM VNet(vnet02)에 대해 만든 게이트웨이의 IP 주소를 사용하도�
 		                           etGatewayConfig"
 		                           }
 		DnsSettings              : null
-
-2. 아래 명령을 실행하여 PowerShell 명령에 Azure 서비스 관리 API를 사용합니다.
-
-		Switch-AzureMode AzureServiceManagement
 
 3. 아래 명령을 실행하여 Azure 네트워크 구성 파일을 다운로드합니다.
 
@@ -298,16 +289,12 @@ ARM VNet(vnet02)에 대해 만든 게이트웨이의 IP 주소를 사용하도�
 
 클래식 VNet 게이트웨이를 구성했으므로 이제 연결을 설정해야 합니다. 이렇게 하려면 아래의 지침을 따르세요.
 
-1. PowerShell 콘솔에서 아래 명령을 실행하여 ARM 모드로 전환합니다. 
-
-		Switch-AzureMode AzureResourceManager
-
 2. 다음 명령을 실행하여 게이트웨이 간의 연결을 만듭니다.
 
-		$vnet01gateway = Get-AzureLocalNetworkGateway -Name vnet01 -ResourceGroupName RG1
-		$vnet02gateway = Get-AzureVirtualNetworkGateway -Name ArmAsmGateway -ResourceGroupName RG1
+		$vnet01gateway = Get-AzureRmLocalNetworkGateway -Name vnet01 -ResourceGroupName RG1
+		$vnet02gateway = Get-AzureRmVirtualNetworkGateway -Name ArmAsmGateway -ResourceGroupName RG1
 		
-		New-AzureVirtualNetworkGatewayConnection -Name arm-asm-s2s-connection `
+		New-AzureRmVirtualNetworkGatewayConnection -Name arm-asm-s2s-connection `
 			-ResourceGroupName RG1 -Location "Central US" -VirtualNetworkGateway1 $vnet02gateway `
 			-LocalNetworkGateway2 $vnet01gateway -ConnectionType IPsec `
 			-RoutingWeight 10 -SharedKey 'abc123'
@@ -360,7 +347,7 @@ ARM VNet(vnet02)에 대해 만든 게이트웨이의 IP 주소를 사용하도�
 
 ## 다음 단계
 
-- [ARM에 대한 NRP(네트워크 리소스 공급자)](../resource-groups-networking.md)에 대해 자세히 알아봅니다.
-- [클래식 VNet과 ARM VNet 간의 S2S VPN 연결을 만드는](../virtual-networks-arm-asm-s2s-howto.md) 방법에 대한 일반적인 지침을 살펴봅니다.
+- [ARM에 대한 NRP(네트워크 리소스 공급자)](resource-groups-networking.md)에 대해 자세히 알아봅니다.
+- [클래식 VNet과 ARM VNet 간의 S2S VPN 연결을 만드는](virtual-networks-arm-asm-s2s-howto.md) 방법에 대한 일반적인 지침을 살펴봅니다.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

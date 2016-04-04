@@ -1,422 +1,423 @@
 
 
-Azure is an excellent platform to implement dev/test or proof-of-concept configurations, because it requires very little investment to test a particular approach to an implementation of your solutions. However, you must be able to distinguish the easy practices for a dev/test environment from the more difficult, detailed practices for a fully functional, production-ready implementation of an IT workload.
+Azure는 솔루션 구현에 대한 특정 접근 방법을 테스트하는 데 거의 투자할 필요가 없기 때문에 개발/테스트 또는 개념 증명 구성을 구현하기에 적합한 플랫폼입니다. 하지만 IT 작업의 기능이 완전하고 프로덕션이 준비된 구현을 위한 보다 어렵고 자세한 방법과 개발/테스트 환경을 위한 쉬운 방법을 구분할 수 있어야 합니다.
 
-This guidance identifies many areas for which planning is vital to the success of an IT workload in Azure. In addition, planning provides an order to the creation of the necessary resources. Although there is some flexibility, we recommend that you apply the order in this article to your planning and decision-making.
+이 지침에서는 Azure에서 IT 작업의 성공에 매우 중요한 계획의 다양한 영역을 살펴봅니다. 또한 계획은 필요한 리소스를 생성하는 과정의 순서도 제공합니다. 어느 정도 융통성을 발휘할 수는 있지만 계획 및 의사 결정에 이 순서를 적용하는 것이 좋습니다.
 
-This article was adapted from the content in the [Azure implementation guidelines](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx) blog post. Thanks to Santiago Cánepa (Application Development Manager for Microsoft) and Hugo Salcedo (Application Development Manager for Microsoft) for their original material.
+이 문서는 [Azure 구현 지침](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx) 블로그 게시물의 내용에서 가져왔습니다. 원본 자료를 제공한 Santiago Cánepa(Microsoft의 응용 프로그램 개발 관리자)와 Hugo Salcedo(Microsoft의 이전 응용 프로그램 개발 관리자)에게 감사를 전합니다.
 
-> [AZURE.NOTE] Affinity groups have been deprecated. Their use is not described here. For more information, see [About regional VNets and affinity groups](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
+> [AZURE.NOTE] 선호도 그룹은 지원이 중단되었습니다. 여기서는 그 용도를 설명하지 않습니다. 자세한 내용은 [지역 VNet 및 선호도 그룹 정보](../virtual-network/virtual-networks-migrate-to-regional-vnet.md)를 참조하세요.
 
-## 1. Naming conventions
+## 1\. 명명 규칙
 
-You should have a good naming convention in place before creating anything in Azure. A naming convention ensures that all the resources have a predictable name, which helps lower the administrative burden associated with managing those resources.
+Azure에서 항목을 만들기 전에 좋은 명명 규칙이 구현되어 있어야 합니다. 명명 규칙은 모든 리소스에 예측 가능한 이름이 있어야 하며, 이는 해당 리소스의 관리와 연관된 관리 부담을 줄이는 데 도움이 됩니다.
 
-You might choose to follow a specific set of naming conventions defined for your entire organization or for a specific Azure subscription or account. Although it is easy for individuals within organizations to establish implicit rules when working with Azure resources, when a team needs to work on a project on Azure, that model does not scale well.
+전체 조직 또는 특정 Azure 구독이나 계정에 정의된 명명 규칙의 특정 집합을 따르도록 선택할 수 있습니다. 이는 조직 내의 개인이 Azure 리소스로 작업할 때 암시적 규칙을 설정하기 쉽지만, 팀이 Azure에서 프로젝트를 작업할 때 해당 모델은 잘 확장되지 않습니다.
 
-You should agree on a set of naming conventions up front. There are some considerations regarding naming conventions that cut across the sets of rules that make up those conventions.
+앞서 명명 규칙 집합에 동의해야 합니다. 해당 규칙을 구성하는 규칙 집합에 영향을 미치는 명명 규칙과 관련한 고려 사항이 있습니다.
 
-### Affixes
+### 접사
 
-When creating certain resources, Azure uses some defaults to simplify management of the resources that are associated with these resources. For example, when creating the first virtual machine for a new cloud service, the Azure classic portal attempts to use the virtual machine’s name for the name of a new cloud service for the virtual machine.
+특정 리소스를 만들 때 Azure는 이러한 리소스에 연결된 리소스 관리를 간소화하기 위해 일부 기본값을 사용합니다. 예를 들어, 새 클라우드 서비스에 대한 첫번째 가상 컴퓨터를 만들 때, Azure 클래식 포털은 가상 컴퓨터의 이름(가상 컴퓨터에 대한 새 클라우드 서비스의 이름)을 사용하려 합니다.
 
-Therefore, it is beneficial to identify types of resources that need an affix to identify that type. In addition, clearly specify whether the affix will be at:
+따라서 이는 해당 유형을 식별하기 위해 접사가 필요한 리소스 유형을 식별하는 데 유익합니다. 또한 접사가 붙어야 하는지 명확하게 지정합니다.
 
-- The beginning of the name (prefix)
-- The end of the name (suffix)
+- 이름(접두사)의 시작 부분
+- 이름(접미사)의 끝 부분
 
-For instance, here are two possible names for a resource group that hosts a calculation engine:
+다음은 계산 엔진을 호스트하는 리소스 그룹에 대한 가능한 두 이름입니다.
 
-- Rg-CalculationEngine (prefix)
-- CalculationEngine-Rg (suffix)
+- Rg-CalculationEngine(접두사)
+- CalculationEngine-Svc(접미사)
 
-Affixes can refer to different aspects that describe the particular resources. The following table shows some examples typically used.
+접사는 특정 리소스를 설명하는 다양한 측면을 참조할 수 있습니다. 다음 표에서 일반적으로 사용하는 일부 예를 보여줍니다.
 
-Aspect | Examples | Notes
+측면 | 예 | 참고 사항
 --- | --- | ---
-Environment | dev, stg, prod | Depending on the purpose and name of each environment.
-Location | usw (West US), use (East US 2) | Depending on the region of the datacenter or the region of the organization.
-Azure component, service, or product | Rg for resource group, Svc for cloud service, VNet for virtual network | Depending on the product for which the resource provides support.
-Role | sql, ora, sp, iis | Depending on the role of the virtual machine.
-Instance | 01, 02, 03, etc. | For resources that have more than one instance. For example, load balanced web servers in a cloud service.
+Environment | dev, stg, prod | 각 환경의 목적 및 이름에 따라 다릅니다.
+위치 | usw(West US), use(East US 2) | 데이터 센터의 지역 또는 조직의 지역에 따라 다릅니다.
+Azure 구성 요소, 서비스 또는 제품 | 리소스 그룹은 RG, 클라우드 서비스는 Svc, 가상 네트워크는 VNet | 리소스가 지원을 제공하는 제품에 따라 다릅니다.
+역할 | sql, ora, sp, iis | 가상 컴퓨터의 역할에 따라 다릅니다.
+인스턴스 | 01, 02, 03 등 | 둘 이상의 인스턴스가 있는 리소스의 경우. 예를들어, 클라우드 서비스의 분산된 웹 서버를 로드합니다.
 
-When establishing your naming conventions, make sure that they clearly state which affixes to use for each type of resource, and in which position (prefix vs suffix).
+명명 규칙을 설정할 때 각 리소스 유형에 사용할 접사 및 어느 위치(접두사 및 접미사)에 사용할지 분명하게 언급해야 합니다.
 
-### Dates
+### 날짜
 
-It is often important to determine the date of creation from the name of a resource. We recommend the YYYYMMDD date format. This format ensures that not only the full date is recorded, but also that two resources whose names differ only on the date will be sorted alphabetically and chronologically at the same time.
+리소스 이름에서 만든 날짜를 확인하는 것이 중요한 경우가 많습니다. YYYYMMDD 날짜 형식을 사용하는 것이 좋습니다. 이 형식은 전체 날짜를 기록할 뿐 아니라 날짜에 대해서만 다른 이름이 있는 두 리소스를 알파벳순 및 시간순으로 동시에 정렬합니다.
 
-### Naming resources
+### 리소스 명명
 
-You should define each type of resource in the naming convention, which should have rules that define how to assign names to each resource that is created. These rules should apply to all types of resources, for example:
+만들어지는 각 리소스에 이름을 할당하는 방법을 정의하는 규칙이 있는 명명 규칙으로 각각의 리소스 유형을 정의해야 합니다. 이러한 규칙은 모든 유형의 리소스에 적용해야 합니다. 예를들어 다음과 같습니다.
 
-- Subscriptions
-- Accounts
-- Storage accounts
-- Virtual networks
-- Subnets
-- Availability sets
-- Resource groups
-- Cloud services
-- Virtual machines
-- Endpoints
-- Network security groups
-- Roles
+- 구독
+- 계정
+- 저장소 계정
+- 가상 네트워크
+- 서브넷
+- 가용성 집합
+- 리소스 그룹
+- 클라우드 서비스
+- 가상 컴퓨터
+- 끝점
+- 네트워크 보안 그룹
+- 역할
 
-To ensure that the name provides enough information to determine to which resource it refers, you should use descriptive names.
+이름이 참조하는 리소스를 확인하기에 충분한 정보를 제공할 수 있도록 설명이 포함된 이름을 사용해야 합니다.
 
-### Computer names
+### 컴퓨터 이름
 
-When administrators create a virtual machine, Microsoft Azure requires them to provide a virtual machine name of up to 15 characters. Azure uses the virtual machine name as the Azure virtual machine resource name. Azure uses the same name as the computer name for the operating system installed in the virtual machine. However, these names might not always be the same.
+관리자가 가상 컴퓨터를 만들 때 Microsoft Azure는 가상 컴퓨터 이름을 최대 15자로 제공하도록 요청합니다. Azure는 Azure 가상 컴퓨터 리소스 이름으로 가상 컴퓨터 이름을 사용합니다. Azure는 가상 컴퓨터에 설치된 운영 체제에 컴퓨터와 동일한 이름을 사용합니다. 하지만 이 이름이 항상 같지는 않을 수 있습니다.
 
-In case a virtual machine is created from a .vhd image file that already contains an operating system, the virtual machine name in Azure can differ from the virtual machine’s operating system computer name. This situation can add a degree of difficulty to virtual machine management, which we therefore do not recommend. Assign the Azure virtual machine resource the same name as the computer name that you assign to the operating system of that virtual machine.
+운영 체제를 이미 포함하는 .VHD 이미지 파일에서 가상 컴퓨터를 만드는 경우, Azure의 가상 컴퓨터 이름이 가상 컴퓨터의 운영 체제 컴퓨터 이름과 다를 수 있습니다. 이 경우 가상 컴퓨터 관리가 더욱 어려워질 수 있으므로 권장되지 않습니다. Azure 가상 컴퓨터 리소스 이름을 해당 가상 컴퓨터의 운영 체제에 할당하는 컴퓨터 이름과 동일한 이름으로 지정하세요.
 
-We recommend that the Azure virtual machine name be the same as the underlying operating system computer name. Because of this, follow the NetBIOS naming rules as described in [Microsoft NetBIOS computer naming conventions](https://support.microsoft.com/kb/188997/).
+Azure 가상 컴퓨터 이름을 기본 운영 체제 컴퓨터 이름과 동일하게 하는 것이 좋습니다. 이 때문에 [Microsoft NetBIOS 컴퓨터 명명 규칙](https://support.microsoft.com/kb/188997/)에 설명된 대로 NetBIOS 명명 규칙을 따르는 것이 좋습니다.
 
-### Storage account names
+### 저장소 계정 이름
 
-Storage accounts have special rules governing their names. You can only use lowercase letters and numbers. See [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) for more information. Additionally, the storage account name, in combination with core.windows.net, should be a globally valid, unique DNS name. For instance, if the storage account is called mystorageaccount, the following resulting DNS names should be unique:
+저장소 계정에는 해당 이름을 제어하는 특별한 규칙이 있습니다. 소문자와 숫자만 사용할 수 있습니다. 자세한 내용은 [저장소 계정 만들기](../storage/storage-create-storage-account.md#create-a-storage-account)를 참조하세요. 또한 core.windows.net과 결합된 저장소 계정 이름은 전역적으로 유효하고 고유한 DNS 이름이어야 합니다. 예를 들어 저장소 계정이 mystorageaccount인 경우 결과로 생성된 다음 DNS 이름이 고유해야 합니다.
 
 - mystorageaccount.blob.core.windows.net
 - mystorageaccount.table.core.windows.net
 - mystorageaccount.queue.core.windows.net
 
 
-### Azure building block names
+### Azure 구성 요소 이름
 
-Azure building blocks are application-level services that Azure offers, typically to those applications taking advantage of PaaS features, although IaaS resources might leverage some, like SQL Database, Traffic Manager, and others.
+Azure 구성 요소는 IaaS 리소스가 SQL 데이터베이스, 트래픽 관리자 등과 같은 혜택을 활용할 수 있지만 PaaS 기능의 혜택을 활용하는 응용 프로그램에 일반적으로 Azure에서 제공하는 응용 프로그램 수준 서비스입니다.
 
-These services rely on an array of artifacts that are created and registered in Azure. These also need to be considered in your naming conventions.
+이러한 서비스는 Azure에서 만들어지고 등록된 아티팩트의 배열을 사용합니다. 또한 사용자의 명명 규칙에 따라 고려되어야 합니다.
 
-### Implementation guidelines recap for naming conventions
+### 명명 규칙에 대한 구현 지침 정리
 
-Decision:
+의사 결정:
 
-- What are your naming conventions for Azure resources?
+- Azure 리소스에 대한 명명 규칙은 무엇인가?
 
-Task:
+작업:
 
-- Define the naming conventions in terms of affixes, hierarchy, string values, and other policies for Azure resources.
+- 접사, 계층, 문자열 값 및 Azure 리소스에 대한 기타 정책 면에서 명명 규칙을 정의합니다.
 
-## 2. Subscriptions and accounts
+## 2\. 구독 및 계정
 
-In order to work with Azure, you need one or more Azure subscriptions. Resources, like cloud services or virtual machines, exist in the context of those subscriptions.
+Azure를 사용하려면 하나 이상의 Azure 구독이 필요합니다. 클라우드 서비스 또는 가상 컴퓨터와 같은 리소스는 해당 구독의 컨텍스트에 존재합니다.
 
-- Enterprise customers typically have an Enterprise Enrollment, which is the top-most resource in the hierarchy, and is associated to one or more accounts.
-- For consumers and customers without an Enterprise Enrollment, the top-most resource is the account.
-- Subscriptions are associated to accounts, and there can be one or more subscriptions per account. Azure records billing information at the subscription level.
+- 기업 고객은 일반적으로 기업 등록 계약을 합니다. 이는 계층에서 가장 중요한 리소스이며 하나 이상의 계정과 관련됩니다.
+- 기업 등록 계약이 없는 소비자 및 고객의 경우, 가장 중요한 리소스는 계정입니다.
+- 구독은 계정과 관련되며 계정당 하나 이상의 구독이 될 수 있습니다. Azure는 구독 단계에서 청구 정보를 기록합니다.
 
-Due to the limit of two hierarchy levels on the Account/Subscription relationship, it is important to align the naming convention of accounts and subscriptions to the billing needs. For instance, if a global company uses Azure, they might choose to have one account per region, and have subscriptions managed at the region level.
+계정/구독 관계에 두 계층 단계의 제한이 있기 때문에 청구 요구에 계정 및 구독의 명명 규칙을 할당하는 것은 중요합니다. 예를 들어 글로벌 기업에서 Azure를 사용하는 경우 지역당 하나의 계정을 갖도록, 지역 수준에서 구독이 관리되도록 선택할 수 있습니다.
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/sub01.png)
 
-For instance, you might use this structure.
+예를들어, 이 구조를 사용할 수 있습니다.
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/sub02.png)
 
-Following the same example, if a region decides to have more than one subscription associated to a particular group, then the naming convention should incorporate a way to encode the extra on either the account or the subscription name. This organization allows massaging billing data to generate the new levels of hierarchy during billing reports.
+동일한 예를 따라 한 지역에 특정 그룹과 관련된 하나 이상의 구독을 갖도록 결정하는 경우 명명 규칙은 계정 또는 구독 이름에 추가 사항을 인코딩하기 위해 하나의 방법으로 통합해야 합니다. 이 조직에서는 청구 보고 중에 새 계층 단계를 생성하는 데 청구 데이터 조작을 허용합니다.
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/sub03.png)
 
-The organization could look like this.
+조직은 다음과 같습니다.
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/sub04.png)
 
-Microsoft provides detailed billing via a downloadable file for a single account or for all accounts in an enterprise agreement. You can process this file, for example, by using Microsoft Excel. This process would ingest the data, partition the resources that encode more than one level of the hierarchy into separate columns, and use a pivot table or PowerPivot to provide dynamic reporting capabilities.
+Microsoft는 기업 계약의 단일 계정 또는 모든 계정에 대해 다운로드한 파일을 통해 자세한 청구를 제공합니다. 예를들어, Microsoft Excel을 사용하여 이 파일을 처리할 수 있습니다. 이 프로세스는 데이터를 수집하고, 하나 이상의 계층을 별도의 열로 인코딩하는 리소스를 분할하고, 동적 보고 기능을 제공하기 위해 피벗 테이블 또는 PowerPivot을 사용합니다.
 
-### Implementation guidelines recap for subscriptions and accounts
+### 구독 및 계정에 대한 구현 지침 정리
 
-Decision:
+의사 결정:
 
-- What set of subscriptions and accounts do you need to host your IT workload or infrastructure?
+- IT 작업 또는 인프라를 호스트하는 데 필요한 구독 및 계정 집합은 무엇인가?
 
-Task:
+작업:
 
-- Create the set of subscriptions and accounts using your naming convention.
+- 명명 규칙을 사용하여 구독 및 계정 집합을 만듭니다.
 
-## 3. Storage
+## 3\. 저장소
 
-Azure Storage is an integral part of many Azure solutions. Azure Storage provides services for storing file data, unstructured data, and messages, and it is also part of the infrastructure supporting virtual machines.
+Azure 저장소는 많은 Azure 솔루션의 필수적인 부분입니다. Azure 저장소는 파일 데이터, 구조화되지 않은 데이터 및 메시지를 저장하기 위한 서비스를 제공하며, 가상 컴퓨터를 지원하는 인프라의 일부이기도 합니다.
 
-There are two types of storage accounts available from Azure. A standard storage account gives you access to blob storage (used for storing Azure virtual machine disks), table storage, queue storage, and file storage. Premium storage is designed for high-performance applications, such as SQL Servers in an AlwaysOn cluster, and currently supports Azure virtual machine disks only.
+Azure에서 사용할 수 있는 두 가지 저장소 계정 유형이 있습니다. 표준 저장소 계정은 Blob 저장소(Azure 가상 컴퓨터 디스크를 저장하는 데 사용), 테이블 저장소, 큐 저장소 및 파일 저장소에 대한 액세스 권한을 제공합니다. 프리미엄 저장소는 AlwaysOn 클러스터의 SQL Server와 같은 고성능 응용 프로그램용으로 고안되었으며 현재 Azure 가상 컴퓨터 디스크만 지원합니다.
 
-Storage accounts are bound to scalability targets. See [Microsoft Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md#storage-limits) to become familiar with current Azure storage limits. Also see [Azure storage scalability and performance targets](../storage-scalability-targets.md).
+저장소 계정은 확장성 목표로 바인딩됩니다. 현재 Azure 저장소 제한에 익숙해 지려면 [Microsoft Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md#storage-limits)을 참조하세요. [Azure 저장소 확장성 및 성능 목표](../storage-scalability-targets.md)도 참조하세요.
 
-Azure creates virtual machines with an operating system disk, a temporary disk, and zero or more optional data disks. The operating system disk and data disks are Azure page blobs, whereas the temporary disk is stored locally on the node where the machine lives. This makes the temporary disk unfit for data that must persist during a system recycle, because the machine might silently be migrated from one node to another, losing any data in that disk. Do not store anything on the temporary drive.
+Azure는 운영 체제 디스크, 임시 디스크를 및 0개 이상의 선택적 데이터 디스크로 가상 컴퓨터를 만듭니다. 운영 체제 디스크 및 데이터 디스크는 Azure 페이지 Blob이지만 임시 디스크는 컴퓨터가 있는 노드에 로컬로 저장됩니다. 이 경우 컴퓨터가 자동으로 한 노드에서 다른 노드로 마이그레이션되어 해당 디스크의 데이터가 손실될 수 있기 때문에 시스템 재순환 도중 유지해야 하는 데이터에는 임시 디스크가 적합하지 않습니다. 임시 드라이브에는 아무 것도 저장하지 마십시오.
 
-Operating system disks and data disks have a maximum size of 1023 gigabytes (GB) because the maximum size of a blob is 1024 GB and that must contain the metadata (footer) of the VHD file (a GB is 1024<sup>3</sup> bytes). You can implement disk striping in Windows to surpass this limit.
+Blob의 최대 크기가 1024GB이며 VHD 파일의 메타데이터(바닥글)를 포함해야 하기 때문에 운영 체제 디스크 및 데이터 디스크의 최대 크기는 1023GB입니다(1GB는 1024<sup>3</sup>바이트임). Windows에서 디스크 스트라이핑을 구현하여 이 제한을 초과할 수 있습니다.
 
-### Striped disks
-Besides providing the ability to create disks larger than 1023 GB, in many instances, using striping for data disks enhances performance by allowing multiple blobs to back the storage for a single volume. With striping, the I/O required to write and read data from a single logical disk proceeds in parallel.
+### 스트라이프 디스크
+데이터 디스크의 스트라이프는 대부분의 경우에 1023GB 보다 큰 디스크를 만드는 기능을 제공할 뿐 아니라 단일 볼륨에 대한 저장소를 지원하기 위해 여러 Blob을 허용하여 성능을 강화합니다. 스트라이프에서는 단일 논리적 디스크에서 데이터를 읽고 쓰는 데 필요한 I/O가 병렬로 진행됩니다.
 
-Azure imposes limits on the amount of data disks and bandwidth available, depending on the virtual machine size. For details, see [Sizes for virtual machines](virtual-machines-linux-sizes.md).
+Azure는 가상 컴퓨터 크기에 따라 사용 가능한 데이터 디스크 및 대역폭의 양에 제한을 둡니다. 자세한 내용은 [가상 컴퓨터의 크기](virtual-machines-linux-sizes.md)를 참조하세요.
 
-If you are using disk striping for Azure data disks, consider the following guidelines:
+Azure 데이터 디스크에 디스크 스트라이프를 사용하고 있는 경우 다음 지침을 고려합니다.
 
-- Data disks should always be the maximum size (1023 GB)
-- Attach the maximum data disks allowed for the virtual machine size
-- Use storage spaces configuration
-- Use storage striping configuration
-- Avoid using Azure data disk caching options (caching policy = None)
+- 데이터 디스크는 항상 최대 크기(1023GB)여야 함
+- 가상 컴퓨터 크기에 허용된 최대 데이터 디스크 연결
+- 저장소 공간 구성 사용
+- 저장소 스트라이프 구성 사용
+- Azure 데이터 디스크 캐싱 옵션 사용 안 함(캐싱 정책 = 없음)
 
-For more information, see [Storage spaces - designing for performance](http://social.technet.microsoft.com/wiki/contents/articles/15200.storage-spaces-designing-for-performance.aspx).
+자세한 내용은 [저장소 공간 - 성능을 높이기 위한 설계](http://social.technet.microsoft.com/wiki/contents/articles/15200.storage-spaces-designing-for-performance.aspx)를 참조하세요.
 
-### Multiple storage accounts
+### 여러 저장소 계정
 
-Using multiple storage accounts to back the disks associated with many virtual machines ensures that the aggregated I/O of those disks is well below the scalability targets for each one of those storage accounts.
+많은 가상 컴퓨터와 연결된 디스크를 지원하기 위해 여러 저장소 계정을 사용하면 해당 디스크의 집계 I/O이 해당 저장소 계정 중 하나에 해당하는 확장성 목표보다 훨씬 아래에 있어야 합니다.
 
-We recommend that you start with the deployment of one virtual machine per storage account.
+저장소 계정당 하나의 가상 컴퓨터를 배포하여 시작하는 것이 좋습니다.
 
-### Storage layout design
+### 저장소 레이아웃 디자인
 
-To implement these strategies to implement the disk subsystem of the virtual machines with good performance, an IT workload or infrastructure typically takes advantage of many storage accounts. These host many VHD blobs. In some instances, more than one blob is associated to one single volume in a virtual machine.
+뛰어난 성능으로 가상 컴퓨터의 디스크 하위 시스템 구현을 위해 이러한 전략을 구현하려면 일반적으로 IT 작업 또는 인프라는 많은 저장소 계정의 혜택을 활용합니다. 여기서는 여러 VHD Blob을 호스팅합니다. 일부 경우에 하나 이상의 Blob이 가상 컴퓨터에서 하나의 단일 볼륨에 연결됩니다.
 
-This situation can add complexity to the management tasks. Designing a sound strategy for storage, including appropriate naming for the underlying disks and associated VHD blobs is key.
+이 경우 관리 작업 복잡해질 수 있습니다. 기본 디스크에 적합한 명명을 비롯한 저장소에 대한 적적한 전략 설계 및 연결된 VHD Blob이 열쇠입니다.
 
-### Implementation guidelines recap for storage
+### 저장소에 대한 구현 지침 정리
 
-Decisions:
+의사 결정:
 
-- Do you need disk striping to create disks larger than 500 terabytes (TB)?
-- Do you need disk striping to achieve optimal performance for your workload?
-- What set of storage accounts do you need to host your IT workload or infrastructure?
+- 500TB보다 큰 디스크를 만들기 위해 디스크 스트라이프가 필요한가?
+- 작업에 대한 최적의 성능을 얻기 위해 디스크 스트라이프가 필요한가?
+- IT 작업 또는 인프라를 호스트하는 데 필요한 저장소 계정 집합은 무엇인가?
 
-Task:
+작업:
 
-- Create the set of storage accounts using your naming convention. You can use the Azure portal, the Azure classic portal, or the **New-AzureStorageAccount** PowerShell cmdlet.
+- 명명 규칙을 사용하여 저장소 계정 집합을 만듭니다. Azure 포털, Azure 클래식 포털 또는 **New-AzureStorageAccount** PowerShell cmdlet을 사용할 수 있습니다.
 
-## 4. Cloud services
+## 4\. 클라우드 서비스
 
-Cloud services are a fundamental building block in Azure service management, both for PaaS and IaaS services. For PaaS, cloud services represent an association of roles whose instances can communicate among each other. Cloud services are associated to a public virtual IP (VIP) address and a load balancer, which takes incoming traffic from the Internet and load balances it to the roles configured to receive that traffic.
+클라우드 서비스는 PaaS 및 IaaS 서비스용으로 모두 Azure 서비스 관관리의 기본적인 구성 요소입니다. PaaS는 클라우드 서비스는 서로 의사소통할 수 있는 인스턴스 역할의 연결을 나타냅니다. 클라우드 서비스는 VIP(공용 가상 IP) 주소 및 인터넷에서 들어오는 트래픽을 가져오는 부하 분산 장치에 연결되며 해당 트래픽을 수신하도록 구성된 역할에 부하를 분산합니다.
 
-In the case of IaaS, cloud services offer similar functionality, although in most cases, the load balancer functionality is used to forward traffic to specific TCP or UDP ports from the Internet to the many virtual machines within that cloud service.
+IaaS는 대부분의 경우에서 부하 분산 장치 기능이 인터넷을 통해 해당 클라우드 서비스 내의 여러 가상 컴퓨터에서 특정 TCP 또는 UDP 포트로 트래픽을 전달하는 데 사용되지만 클라우드 서비스가 유사한 기능을 제공합니다.
 
-> [AZURE.NOTE] Cloud services do not exist in Azure Resource Manager. For an introduction to the advantages of Resource Manager, see [Azure compute, network and storage providers under Azure Resource Manager](../articles/virtual-machines/virtual-machines-windows-compare-deployment-models.md).
+> [AZURE.NOTE] 클라우드 서비스는 Azure 리소스 관리자에 존재하지 않습니다. 리소스 관리자의 장점에 대한 소개 내용은 [Azure 리소스 관리자에 통합된 Azure 계산, 네트워크 및 저장소 제공자](../articles/virtual-machines/virtual-machines-windows-compare-deployment-models.md)를 참조하세요.
 
-Cloud service names are especially important in IaaS because Azure uses them as part of the default naming convention for disks. The cloud service name can contain only letters, numbers, and hyphens. The first and last character in the field must be a letter or number.
+Azure가 디스크에 대한 기본 명명 규칙의 일환으로 사용하기 때문에 클라우드 서비스 이름은 IaaS에서 특히 중요합니다. 클라우드 서비스 이름은 문자, 숫자 및 하이픈만 포함할 수 있습니다. 필드의 첫 번째 및 마지막 문자는 문자 또는 숫자여야 합니다.
 
-Azure exposes the cloud service names, because they are associated to the VIP, in the domain “cloudapp.net”. For a better user experience of the application, a vanity name should be configured as needed to replace the fully qualified cloud service name. This is typically done with a CNAME record in your public DNS that maps the public DNS name of your resource (for example, www.contoso.com) to the DNS name of the cloud service hosting the resource (for example, the cloud service hosting the web servers for www.contoso.com).
+클라우드 서비스 이름은 "cloudapp.net" 도메인의 VIP에 연결되어 있으므로 Azure에서 노출됩니다. 더 나은 응용 프로그램의 사용자 환경을 위해 베니티 이름은 정규화된 클라우드 서비스 이름을 바꿀 필요에 따라 구성되어야 합니다. 일반적으로 사용자 리소스의 공용 DNS 이름(예: www.contoso.com)을 리소스를 호스팅하는 클라우드 서비스의 DNS 이름(예: www.contoso.com에 대한 웹 서버를 호스팅하는 클라우드 서비스)으로 매핑하는 공용 DNS의 CNAME 기록으로 수행됩니다.
 
-In addition, the naming convention used for cloud services might need to tolerate exceptions because the cloud service names must be unique among all other Microsoft Azure cloud services, regardless of the Microsoft Azure tenant.
+또한 클라우드 서비스에 사용되는 명명 규칙은 클라우드 서비스 이름이 Microsoft Azure 테넌트와 상관없이 다른 모든 Microsoft Azure 클라우드 서비스 중에서 고유해야 하기 대문에 예외 사항을 용인해야 할 수 있습니다.
 
-One important limitation of cloud services to consider is that only one virtual machine management operation can be performed at a time for all the virtual machines in the cloud service. When you perform a virtual machine management operation on one virtual machine in the cloud service, you must wait until it is finished before you can perform a new management operation on another virtual machine. Therefore, you should keep the number of virtual machines in a cloud service low.
+고려해야 할 클라우드 서비스의 중요한 한 가지 제한 사항은 클라우드 서비스에 있는 모든 가상 컴퓨터에 대해 한번에 오직 한 개의 가상 컴퓨터 관리 작업을 수행할 수 있다는 것입니다. 클라우드 서비스 내의 하나의 가상 컴퓨터에서 가상 컴퓨터 관리 작업을 수행하면, 다른 가상 컴퓨터에서 새 관리 작업을 수행하기 전에 해당 작업이 완료될 때까지 기다려야 합니다. 따라서, 클라우드 서비스 내의 가상 컴퓨터의 수를 낮게 유지해야 합니다..
 
-Azure subscriptions can support a maximum of 200 cloud services.
+Azure 구독에서 최대 200개의 클라우드 서비스를 지원할 수 있습니다.
 
-### Implementation guidelines recap for cloud services
+### 클라우드 서비스에 대한 구현 지침 정리
 
-Decision:
+의사 결정:
 
-- What set of cloud services do you need to host your IT workload or infrastructure?
+- IT 작업 또는 인프라를 호스트하는 데 필요한 클라우드 서비스 집합은 무엇인가?
 
-Task:
+작업:
 
-- Create the set of cloud services using your naming convention. You can use the Azure classic portal or the **New-AzureService** PowerShell cmdlet.
+- 명명 규칙을 사용하여 클라우드 서비스 집합을 만듭니다. Azure 클래식 포털 또는 **New-AzureService** PowerShell cmdlet을 사용할 수 있습니다.
 
-## 5. Virtual networks
+## 5\. 가상 네트워크
 
-The next logical step is to create the virtual networks necessary to support the communications across the virtual machines in the solution. Although it is possible to host multiple virtual machines of an IT workload within just one cloud service, virtual networks are recommended.
+다음 논리적 단계는 솔루션에서 가상 컴퓨터 간의 통신을 지원하기 위해 필요한 가상 네트워크를 만드는 것입니다. 한 클라우스 서비스 내에서 IT 작업의 여러 가상 컴퓨터를 호스팅할 수 있지만 가상 네트워크를 사용하는 것이 좋습니다.
 
-Virtual networks are a container for virtual machines for which you can also specify subnets, custom addressing, and DNS configuration options. Virtual machines within the same virtual network can communicate directly with other computers within the same virtual network, regardless of which cloud service they are a member of. Within the virtual network, this communication remains private, without the need for the communication to go through the public endpoints. This communication can occur via IP address, or by name, using a DNS server installed in the virtual network, or on-premises, if the virtual machine is connected to the corporate network.
+가상 네트워크는 서브넷, 사용자 지정 주소 지정 및 DNS 구성 옵션도 지정할 수 있는 가상 컴퓨터의 컨테이너입니다. 동일한 가상 네트워크 내의 가상 컴퓨터는 속해 있는 클라우드 서비스에 상관없이 동일한 가상 네트워크 내에서 기타 컴퓨터와 직접 통신할 수 있습니다. 가상 네트워크 내에서 이 통신은 공용 끝점을 통해 통신할 필요 없이 개인으로 유지됩니다. 이 통신은 IP 주소를 통해 또는 가상 네트워크에 설치된 DNS 서버를 사용하여 이름으로 또는 가상 컴퓨터가 회사 네트워크에 연결된 경우 온-프레미스에서 발생할 수 있습니다.
 
-### Site connectivity
-If on-premises users and computers do not require ongoing connectivity to virtual machines in an Azure virtual network, create a cloud-only virtual network.
+### 사이트 연결
+온-프레미스 사용자 및 컴퓨터가 Azure 가상 네트워크에서 가상 컴퓨터에 지속적인 연결을 필요로 하지 않는 경우, 클라우드 전용 가상 네트워크를 만듭니다.
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/vnet01.png)
 
-This is typically for Internet-facing workloads, such as an Internet-based web server. You can manage these virtual machines using Remote Desktop connections, remote PowerShell sessions, Secure Shell (SSH) connections, and point-to-site VPN connections.
+이는 일반적으로 인터넷 기반 웹 서버와 같은 인터넷 연결 작업을 위한 것입니다. 원격 데스크톱 연결, 원격 PowerShell 세션, SSH(Secure Shell) 연결 및 지점 및 사이트 간 VPN 연결을 사용하여 이러한 가상 컴퓨터를 관리할 수 있습니다.
 
-Because they do not connect to your on-premises network, cloud-only virtual networks can use any portion of the private IP address space.
+온-프레미스 네트워크에 연결하지 않기 때문에 클라우드 전용 가상 네트워크는 개인 IP 주소 공간의 일부를 사용할 수 있습니다.
 
-If on-premises users and computers require ongoing connectivity to virtual machines in an Azure virtual network, create a cross-premises virtual network and connect it to your on-premises network with an ExpressRoute or site-to-site VPN connection.
+온-프레미스 사용자 및 컴퓨터가 Azure 가상 네트워크에서 가상 컴퓨터에 지속적인 연결을 필요로 하는 경우, 크로스-프레미스 가상 네트워크를 만들어 ExpressRoute 또는 사이트 간 VPN 연결을 사용하여 온-프레미스 네트워크에 연결합니다.
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/vnet02.png)
 
-In this configuration, the Azure virtual network is essentially a cloud-based extension of your on-premises network.
+이 구성에서 Azure 가상 네트워크는 기본적으로 온-프레미스 네트워크의 클라우드 기반 확장입니다.
 
-Because they connect to your on-premises network, cross-premises virtual networks must use a portion of the address space used by your organization that is unique, and the routing infrastructure must support routing traffic to that portion by forwarding it to your on-premises VPN device.
+온-프레미스 네트워크에 연결하기 때문에 크로스-프레미스 가상 네트워크는 고유한 조직이 사용하는 주소 공간 부분을 사용해야 하며 라우팅 인프라는 온-프레미스 VPN 장치에 이를 전달하여 해당 부분에 라우팅 트래픽을 지원해야 합니다.
 
-To allow packets to travel from your cross-premises virtual network to your on-premises network, you must configure the set of relevant on-premises address prefixes as part of the local network definition for the virtual network. Depending on the address space of the virtual network and the set of relevant on-premises locations, there can be many address prefixes in the local network.
+크로스-프레미스 가상 네트워크에서 온-프레미스 네트워크로 이동하는 패킷을 허용하려면 가상 네트워크에 대한 로컬 네트워크 정의의 일부로 관련 온-프레미스 주소 접두사의 집합을 구성해야 합니다. 가상 네트워크의 주소 공간 및 관련 온-프레미스 위치의 집합에 따라 로컬 네트워크의 많은 주소 접두사가 될 수 있습니다.
 
-You can convert a cloud-only virtual network to a cross-premises virtual network, but it will most likely require you to renumber your virtual network address space, your subnets, and the virtual machines that use static Azure-assigned IP addresses, known as Dynamic IPs (DIPs). Therefore, carefully consider the type of virtual networks you need (cloud-only versus cross-premises) before you create them.
+클라우드 전용 가상 네트워크를 크로스-프레미스 가상 네트워크로 변환할 수 있습니다. 하지만 동적 IP(DIP)라는 고정 Azure 할당 IP 주소를 사용하는 가상 컴퓨터, 가상 네트워크 주소 공간, 서브넷의 수를 다시 매겨야할 수 있습니다. 따라서 필요한 가상 네트워크의 유형(클라우드 전용 및 크로스-프레미스)을 만들기 전에 신중하게 고려해야 합니다.
 
-### Subnets
-Subnets allow you to organize resources that are related, either logically (for example, one subnet for virtual machines associated to the same application), or physically (for example, one subnet per cloud service), or to employ subnet isolation techniques for added security.
+### 서브넷
+서브넷을 사용하면 관련된 리소스를 로컬로(예: 동일한 응용 프로그램에 관련된 가상 컴퓨터에 대한 한 서브넷) 또는 물리적으로(예: 클라우드 서비스당 한 서브넷) 조직하거나 보안 강화를 위해 서브넷 격리 기술을 이용할 수 있습니다.
 
-For cross-premises virtual networks, you should design subnets with the same conventions that you use for on-premises resources, keeping in mind that **Azure always uses the first three IP addresses of the address space for each subnet**. To determine the number of addresses needed for the subnet, count the number of virtual machines that you need now, estimate for future growth, and then use the following table to determine the size of the subnet.
+크로스-프레미스 가상 네트워크의 경우, **Azure는 항상 각 서브넷에 해당 주소 공간의 처음 3개의 IP 주소를 사용**한다는 사실을 염두에 두고 온-프레미스 리소스에 사용하는 동일한 규칙으로 서브넷을 설계해야 합니다. 서브넷에 필요한 주소 수를 결정하려면 현재 필요한 가상 컴퓨터의 수를 세고, 향후 성장을 예상한 다음, 다음 테이블을 사용하여 서브넷의 크기를 결정합니다.
 
-Number of virtual machines needed | Number of host bits needed | Size of the subnet
+필요한 가상 컴퓨터 수 | 필요한 호스트 비트 수 | 서브넷 크기
 --- | --- | ---
 1–3 | 3 | /29
-4–11	 | 4 | /28
+4–11 | 4 | /28
 12–27 | 5 | /27
 28–59 | 6 | /26
 60–123 | 7 | /25
 
-> [AZURE.NOTE] For normal on-premises subnets, the maximum number of host addresses for a subnet with n host bits is 2<sup>n</sup> – 2. For an Azure subnet, the maximum number of host addresses for a subnet with n host bits is 2<sup>n</sup> – 5 (2 plus 3 for the addresses that Azure uses on each subnet).
+> [AZURE.NOTE] 일반적인 온-프레미스 서브넷의 경우, n개의 호스트 비트를 포함하는 서브넷에 대한 호스트 주소의 최대 수는 2<sup>n</sup> – 2입니다. Azure 서브넷의 경우, n개의 호스트 비트를 포함하는 서브넷에 대한 호스트 주소의 최대 수는 2<sup>n</sup> – 5입니다(Azure가 각 서브넷에서 사용하는 주소에 대해 2+3).
 
-If you choose a subnet size that is too small, you will have to renumber and redeploy the virtual machines in the subnet.
+서브넷 크기를 너무 작게 선택하면 해당 서브넷에서 가상 컴퓨터의 수를 다시 매겨서 다시 배포해야 합니다.
 
-### Implementation guidelines recap for virtual networks
+### 가상 네트워크에 대한 구현 지침 정리
 
-Decisions:
+의사 결정:
 
-- What type of virtual network do you need to host your IT workload or infrastructure (cloud-only or cross-premises)?
-- For cross-premises virtual networks, how much address space do you need to host the subnets and virtual machines now and for reasonable expansion in the future?
+- IT 작업 또는 인프라를 호스트하는 데 필요한 가상 네트워크는 어떤 유형인가(클라우드 전용 또는 크로스-프레미스)?
+- 크로스-프레미스 가상 네트워크의 경우, 현재 서브넷 및 가상 컴퓨터를 호스트하고 향후 타당한 확장에 주소 공간이 얼마나 필요한가?
 
-Tasks:
+작업:
 
-- Define the address space for the virtual network.
-- Define the set of subnets and the address space for each.
-- For cross-premises virtual networks, define the set of local network address spaces for the on-premises locations that the virtual machines in the virtual network need to reach.
-- Create the virtual network using your naming convention. You can use the Azure portal or the Azure classic portal.
+- 가상 네트워크에 대한 주소 공간을 정의합니다.
+- 각각에 대한 주소 공간 및 서브넷 집합을 정의합니다.
+- 크로스-프레미스 가상 네트워크의 경우, 가상 네트워크의 가상 시스템이 도달에 필요한 온-프레미스 위치의 로컬 네트워크 주소 공간 집합을 정의합니다.
+- 명명 규칙을 사용하여 가상 네트워크를 만듭니다. Azure 포털 또는 Auzre 클래식 포털을 사용할 수 있습니다.
 
-## 6. Availability sets
+## 6\. 가용성 집합
 
-In Azure PaaS, cloud services contain one or more roles that execute application code. Roles can have one or more virtual machine instances that the fabric automatically provisions. At any given time, Azure might update the instances in these roles, but because they are part of the same role, Azure knows not to update all at the same time to prevent a service outage for the role.
+Azure PaaS에서 클라우드 서비스는 응용 프로그램 코드를 실행하는 하나 이상의 역할을 포함합니다. 역할은 패브릭에서 자동으로 프로비전하는 하나 이상의 가상 컴퓨터 인스턴스를 가질 수 있습니다. 언제든지 Azure는 이러한 역할에서 인스턴스를 업데이트할 수 있지만 이들은 동일한 역할의 일부이기 때문에, Azure는 해당 역할에 대한 서비스 중단을 방지하기 위해 모두 동시에 업데이트하지 않는다는 것을 인식합니다.
 
-In Azure IaaS, the concept of role is not significant, because each IaaS virtual machine represents a role with a single instance. In order to hint to Azure not to bring down two or more associated machines at the same time (for example, for operating system updates of the node where they reside), the concept of availability sets was introduced. An availability set tells Azure not to bring down all the machines in the same availability set at the same time to prevent a service outage. The virtual machine members of an availability set have a 99.95% uptime service level agreement.
+Azure IaaS에서는 각각의 IaaS 가상 컴퓨터가 단일 인스턴스로 역할을 나타내기 때문에 역할의 개념이 중요하지 않습니다. 둘 이상의 연관된 컴퓨터를 동시에 종료하지 않음(예: 해당 컴퓨터가 있는 노드의 운영 체제 업데이트)을 Azure에 알려주기 위해 가용성 집합의 개념이 도입되었습니다. 가용성 집합은 서비스 중단을 방지하기 위해 동일한 가용성 집합의 모든 컴퓨터를 동시에 종료하지 않음을 Azure에 알려줍니다. 가용성 집합의 가상 컴퓨터 멤버의 99.95%에 가동 시간 서비스 수준 계약이 있습니다.
 
-Availability sets must be part of the high-availability planning of the solution. An availability set is defined as the set of virtual machines within a single cloud service that have the same availability set name. You can create availability sets after you create cloud services.
+가용성 집합은 솔루션에 대한 고가용성 계획의 일부여야 합니다. 가용성 집합은 동일한 가용성 집합 이름을 가진 단일 클라우드 서비스 내의 가상 컴퓨터 집합으로 정의됩니다. 클라우드 서비스를 만든 후 가용성 집합을 만들 수 있습니다.
 
-### Implementation guidelines recap for availability sets
+### 가용성 집합에 대한 구현 지침 정리
 
-Decision:
+의사 결정:
 
-- How many availability sets do you need for the various roles and tiers in your IT workload or infrastructure?
+- IT 작업 또는 인프라에서 다양한 역할 및 계층에 가용성 집합이 얼마나 필요한가?
 
-Task:
+작업:
 
-- Define the set of availability sets using your naming convention. You can associate a virtual machine to an availability set when you create the virtual machines, or you can associate a virtual machine to an availability set after the virtual machine has been created.
+- 명명 규칙을 사용하여 가용성 집합의 집합을 정의합니다. 가상 컴퓨터를 만들 때 가용성 집합과 가상 컴퓨터를 연결하거나 가상 컴퓨터가 만들어진 후 가용성 집합과 가상 컴퓨터를 연결할 수 있습니다.
 
-## 7. Virtual machines
+## 7\. 가상 컴퓨터
 
-In Azure PaaS, Azure manages virtual machines and their associated disks. You must create and name cloud services and roles, and then Azure creates instances associated to those roles. In the case of Azure IaaS, it is up to you to provide names for the cloud services, virtual machines, and associated disks.
+Azure PaaS에서 Azure는 가상 컴퓨터 및 관련된 디스크를 관리합니다. 클라우드 서비스 및 역할을 만들고 명명해야 합니다. 그러면 Azure가 해당 역할과 관련된 인스턴스를 만듭니다. Azure IaaS의 경우, 클라우드 서비스, 가상 컴퓨터 및 관련된 디스크에 대한 이름 지정은 사용자에게 달려 있습니다.
 
-To reduce administrative burden, the Azure classic portal uses the computer name as a suggestion for the default name for the associated cloud service (in the case the customer chooses to create a new cloud service as part of the virtual machine creation wizard).
+관리 부담을 줄이기 위해 Azure 클래식 포털은 컴퓨터 이름을 연결된 클라우드 서비스에 대한 기본 이름으로 사용하는 것을 제안합니다. (고객이 가상 컴퓨터 생성 마법사의 일부로 새 클라우드 서비스 만들기를 선택하는 경우)
 
-In addition, Azure names disks and their supporting VHD blobs using a combination of the cloud service name, the computer name, and the creation date.
+또한 Azure는 클라우드 서비스 이름, 컴퓨터 이름 및 만든 날짜의 조합을 사용하여 디스크 및 지원 VHD Blob의 이름을 지정합니다.
 
-In general, the number of disks is much greater than the number of virtual machines. You should be careful when manipulating virtual machines to prevent orphaning disks. Also, disks can be deleted without deleting the supporting blob. If this is the case, the blob remains in the storage account until manually deleted.
+일반적으로 디스크 수가 가상 컴퓨터의 수보다 훨씬 더 많습니다. 디스크 분리를 방지하기 위해 가상 컴퓨터를 조작할 때에는 주의해야 합니다. 지원 Blob을 삭제하지 않고 디스크를 삭제할 수도 있습니다. 이 경우 Blob은 수동으로 삭제할 때까지 저장소 계정에 유지됩니다.
 
-### Implementation guidelines recap for virtual machines
+### 가상 컴퓨터에 대한 구현 지침 정리
 
-Decision:
+의사 결정:
 
-- How many virtual machines do you need to provide for the IT workload or infrastructure?
+- IT 작업 또는 인프라 제공에 가상 컴퓨터가 얼마나 필요한가?
 
-Tasks:
+작업:
 
-- Define each virtual machine name using your naming convention.
-- Create your virtual machines with the Azure portal, the Azure classic portal, the **New-AzureVM** PowerShell cmdlet, the Azure CLI, or with Resource Manager templates.
+- 명명 규칙을 사용하여 각 가상 컴퓨터 이름을 정의합니다.
+- 가상 컴퓨터는 Azure 포털, Azure 클래식 포털, **New-AzureVM** PowerShell cmdlet, Azure CLI 또는 리소스 관리자 템플릿을 사용하여 만들 수 있습니다.
 
-## Example of an IT workload: The Contoso financial analysis engine
+## IT 작업의 예: Contoso 재무 분석 엔진
 
-The Contoso Corporation has developed a next-generation financial analysis engine with leading-edge proprietary algorithms to aid in futures market trading. They want to make this engine available to its customers as a set of servers in Azure, which consist of:
+Contoso Corporation은 향후 시장 거래를 지원하기 위해 첨단 소유 알고리즘을 사용하는 차세대 재무 분석 엔진을 개발했습니다. 다음으로 구성된 Azure의 서버 집합으로 고객이 이 엔진을 사용할 수 있도록 하고자 합니다.
 
-- Two (and eventually more) IIS-based web servers running custom web services in a web tier
-- Two (and eventually more) IIS-based application servers that perform the calculations in an application tier
-- A SQL Server 2014 cluster with AlwaysOn availability groups (two SQL Servers and a majority node witness) that stores historical and ongoing calculation data in a database tier
-- Two Active Directory domain controllers for a self-contained forest and domain in the authentication tier, which is required by SQL Server clustering
-- All of the servers are located on two subnets; a front end subnet for the web servers and a back end subnet for the application servers, a SQL Server 2014 cluster, and domain controllers
+- 웹 계층에서 사용자 지정 웹 서비스를 실행 하는 두(결국 더 많은) IIS 기반 웹 서버
+- 응용 프로그램 계층에서 계산을 수행하는 두(결국엔 더 많은) IIS 기반의 응용 프로그램 서버
+- 데이터베이스 계층에서 기록적이고 지속적인 계산 데이터를 저장하는 AlwaysOn 가용성 그룹과 SQL Server 2014 클러스터(두 SQL Server 및 과반수 노드 감시)
+- SQL Server 클러스터링이 필요로하는 인증 계층의 자체 포함 포리스트 및 도메인에 대한 두 Active Directory 도메인 컨트롤러
+- 두 서브넷에 있는 모든 서버, 웹 서버에 대한 프런트 엔드 서브넷 및 응용 프로그램 서버에 대한 백 엔드 서브넷, SQL Server 2014 클러스터 및 도메인 컨트롤러
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/example-tiers.png)
 
-Incoming secure web traffic from the Contoso clients on the Internet needs to be load-balanced among the web servers. Calculation request traffic in the form of HTTP requests from the web servers needs to be balanced among the application servers. Additionally, the engine must be designed for high availability.
+인터넷상에서 Contoso 클라이언트에서 들어오는 보안 웹 트래픽은 웹 서버 사이에서 부하를 분산해야 합니다. 웹 서버에서 HTTP 요청 양식의 계산 요청 트래픽은 응용 프로그램 서버 사이에서 부하를 분산해야 합니다. 또한 엔진은 고가용성을 위해 설계되어야 합니다.
 
-The resulting design must incorporate:
+결과로 나온 디자인 다음을 통합해야 합니다.
 
-- A Contoso Azure subscription and account
-- Storage accounts
-- A virtual network with two subnets
-- Availability sets for the sets of servers with a similar role
-- Virtual machines
-- A single resource group
+- Contoso Azure 구독 및 계정
+- 저장소 계정
+- 두 서브넷을 사용하는 가상 네트워크
+- 역할이 비슷한 서버 집합에 대한 가용성 집합
+- 가상 컴퓨터
+- 단일 리소스 그룹
 
-All of the above will follow these Contoso naming conventions:
+위의 모든 사항은 Contoso 명명 규칙을 따릅니다.
 
-- Contoso uses [IT workload]-[location]-[Azure resource] as a prefix. For this example, "azfae" (Azure Financial Analysis Engine) is the IT workload name and "use" (East US 2) is the location, because most of Contoso's initial customers are on the East Coast of the United States.
-- Storage accounts use contosoazfaeusesa[description] Note that contoso was added to the prefix to provide uniqueness, and storage account names do not support the use of hyphens.
-- Virtual networks use AZFAE-USE-VN[number].
-- Availability sets use azfae-use-as-[role].
-- Virtual machine names use azfae-use-vm-[vmname].
+- Contoso는 [IT 작업]-[위치]-[Azure 리소스]를 접두사로 사용합니다. 이 예에서, 대부분의 Contoso 초기 고객은 미국 동부에 있기 때문에 "azfae"(Azure 재무 분석 엔진)는 IT 작업 이름이며 "use"(East US 2)는 위치입니다.
+- 저장소 계정은 contosoazfaeusesa[설명]을 사용합니다. 고유성을 제공하기 위해 contoso가 접두사에 추가되었으며 저장소 계정 이름은 하이픈 사용을 지원하지 않습니다.
+- 가상 네트워크는 AZFAE-USE-VN[숫자]를 사용합니다.
+- 가용성 집합은 azfae-use-as-[역할]을 사용합니다.
+- 가상 컴퓨터 이름은 azfae-use-vm-[vm 이름]을 사용합니다.
 
-### Azure subscriptions and accounts
+### Azure 구독 및 계정
 
-Contoso is using their Enterprise subscription, named Contoso Enterprise Subscription, to provide billing for this IT workload.
+Contoso는 이 IT 작업에 대한 청구를 제공하기 위해 Contoso Enterprise Subscription이라는 엔터프라이즈 구독을 사용합니다.
 
-### Storage accounts
+### 저장소 계정
 
-Contoso determined that they needed two storage accounts:
+Contoso는 다음과 같은 두 개의 저장소 계정이 필요하다고 결정했습니다.
 
-- **contosoazfaeusesawebapp** for the standard storage of the web servers, application servers, and domain controlles and their extra data disks
-- **contosoazfaeusesasqlclust** for the premium storage of the SQL Server cluster servers and their extra data disks
+- 웹 서버, 응용 프로그램 서버 및 도메인 컨트롤러와 해당 추가 데이터 디스크의 표준 저장소에 **contosoazfaeusesawebapp**
+- SQL Server 클러스터 서버 및 해당 추가 데이터 디스크의 프리미엄 저장소에 **contosoazfaeusesasqlclust**
 
-### A virtual network with subnets
+### 서브넷을 사용하는 가상 네트워크
 
-Because the virtual network does not need ongoing connectivity to the Contoso on-premises network, Contoso decided on a cloud-only virtual network.
+가상 네트워크는 Contoso 온-프레미스 네트워크에 지속적인 연결이 필요하지 않기 때문에 Contoso는 클라우드 전용 가상 네트워크로 결정했습니다.
 
-They created a cloud-only virtual network with the following settings using the Azure portal:
+Azure 포털을 사용하여 다음 설정을 포함한 클라우드 전용 가상 네트워크를 만들 수 있습니다.
 
-- Name: AZFAE-USE-VN01
-- Location: East US 2
-- Virtual network address space: 10.0.0.0/8
-- First subnet:
-	- Name: FrontEnd
-	- Address space: 10.0.1.0/24
-- Second subnet:
-	- Name: BackEnd
-	- Address space: 10.0.2.0/24
+- 이름: AZFAE-USE-VN01
+- 위치: East US 2
+- 가상 네트워크 주소 공간: 10.0.0.0/8
+- 첫 번째 서브넷:
+	- 이름: FrontEnd
+	- 주소 공간: 10.0.1.0/24
+- 두 번째 서브넷:
+	- 이름: BackEnd
+	- 주소 공간: 10.0.2.0/24
 
-### Availability sets
+### 가용성 집합
 
-To maintain high availability of all four tiers of their financial analysis engine, Contoso decided on four availability sets:
+재무 분석 엔진의 모든 네 개 계층의 고가용성을 유지하기 위해 Contoso는 다음과 같은 네 개의 가용성 집합으로 결정했습니다.
 
-- **azfae-use-as-dc** for the domain controllers
-- **azfae-use-as-web** for the web servers
-- **azfae-use-as-app** for the application servers
-- **azfae-use-as-sql** for the servers in the SQL Server cluster
+- 도메인 컨트롤러에 **azfae-use-as-dc**
+- 웹 서버에 **azfae-use-as-web**
+- 응용 프로그램 서버에 **azfae-use-as-app**
+- SQL Server 클러스터상의 서버에 **azfae-use-as-sql**
 
-These availability sets will be created along with the virtual machines.
+이러한 가용성 집합은 가상 컴퓨터와 함께 만들어집니다.
 
-### Virtual machines
+### 가상 컴퓨터
 
-Contoso decided on the following names for their Azure virtual machines:
+Contoso는 Azure 가상 컴퓨터에 대해 다음 이름으로 결정했습니다.
 
-- **azfae-use-vm-dc01** for the first domain controller
-- **azfae-use-vm-dc02** for the second domain controller
-- **azfae-use-vm-web01** for the first web server
-- **azfae-use-vm-web02** for the second web server
-- **azfae-use-vm-app01** for the first application server
-- **azfae-use-vm-app02** for the second application server
-- **azfae-use-vm-sql01** for the first SQL Server in the SQL Server cluster
-- **azfae-use-vm-sql02** for the second SQL Server in the SQL Server cluster
-- **azfae-use-vm-sqlmn01** for the majority node witness in the SQL Server cluster
+- 첫 번째 도메인 컨트롤러에 **azfae-use-vm-dc01**
+- 두 번째 도메인 컨트롤러에 **azfae-use-vm-dc02**
+- 첫 번째 웹 서버에 **azfae-use-vm-web01**
+- 두 번째 웹 서버에 **azfae-use-vm-web02**
+- 첫 번째 응용 프로그램 서버에 **azfae-use-vm-app01**
+- 두 번째 응용 프로그램 서버에 **azfae-use-vm-app02**
+- SQL Server 클러스터상의 첫 번째 SQL Server에 **azfae-use-vm-sql01**
+- SQL Server 클러스터상의 두 번째 SQL Server에 **azfae-use-vm-sql02**
+- SQL Server 클러스터상의 과반수 노드 감시에 **azfae-use-vm-sqlmn01**
 
-Here is the resulting configuration.
+다음은 결과 구성입니다.
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/example-config.png)
 
-This configuration incorporates:
+이 구성은 다음을 통합합니다.
 
-- A cloud-only virtual network with two subnets (FrontEnd and BackEnd)
-- Two storage accounts
-- Four availability sets, one for each tier of the financial analysis engine
-- The virtual machines for the four tiers
-- An external load balanced set for HTTPS-based web traffic from the Internet to the web servers
-- An internal load balanced set for unencrypted web traffic from the web servers to the application servers
-- A single resource group
+- 두 서브넷을 사용하는 클라우드 전용 가상 네트워크(프런트 엔드 및 백 엔드)
+- 두 저장소 계정
+- 네 개의 가용성 집합, 재무 분석 엔진의 각 계층마다 한 개
+- 네 계층에 대한 가상 컴퓨터
+- 인터넷에서 웹 서버 간 HTTPS 기반 웹 트래픽에 대한 외부 부하 분산 집합
+- 웹 서버에서 응용 프로그램 서버 간 암호화되지 않은 웹 트래픽에 대한 내부 부하 분산 집합
+- 단일 리소스 그룹
 
-## Additional resources
+## 추가 리소스
 
-[Microsoft Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md#storage-limits)
+[Microsoft Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md#storage-limits)
 
-[Sizes for virtual machines](virtual-machines-linux-sizes.md)
+[가상 컴퓨터의 크기](virtual-machines-linux-sizes.md)
 
-[Azure storage scalability and performance targets](../storage-scalability-targets.md)
+[Azure 저장소 확장성 및 성능 목표](../storage-scalability-targets.md)
 
-[Datacenter extension reference architecture diagram](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)
+[데이터 센터 확장 참조 아키텍처 다이어그램](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)
 
 
-[Azure compute, network, and storage providers under Azure Resource Manager](../articles/virtual-machines/virtual-machines-windows-compare-deployment-models.md)
+[Azure 리소스 관리자에 통합된 Azure 계산, 네트워크 및 저장소 공급자](../articles/virtual-machines/virtual-machines-windows-compare-deployment-models.md)
 
+<!---HONumber=AcomDC_0323_2016-->

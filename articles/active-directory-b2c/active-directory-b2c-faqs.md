@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="03/21/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 미리 보기: FAQ
@@ -46,6 +46,7 @@ Azure AD B2C 테넌트에서 대부분의 앱은 사용자가 임의의 메일 �
 
 - Facebook: 전자 메일
 - Google+: 전자 메일
+- Microsoft 계정: openid 메일 프로필
 - Amazon: 프로필
 - LinkedIn: r\_emailaddress, r\_basicprofile
 
@@ -103,7 +104,7 @@ Azure AD Graph API를 사용하여 마이그레이션 도구를 작성할 수 �
 
 ### Azure AD B2C에서 발생한 문제를 보고하려면 어떻게 해야 합니까?
 
-[Azure Active Directory B2C에 대한 지원 요청](active-directory-b2c-support.md)을 참조하세요.
+[Azure Active Directory B2C에 대한 파일 지원 요청](active-directory-b2c-support.md)을 참조하세요.
 
 ### 언제 Azure AD B2C를 일반적으로 사용할 수 있나요?
 
@@ -113,4 +114,4 @@ Azure AD Graph API를 사용하여 마이그레이션 도구를 작성할 수 �
 
 또한 현재 [미리 보기 제한, 제한 사항 및 제약 조건](active-directory-b2c-limitations.md)을 검토하려 합니다.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

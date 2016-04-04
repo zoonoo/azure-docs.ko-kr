@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/11/2015"
+	ms.date="03/18/2016"
 	ms.author="yuridio"/>
 
 
@@ -112,7 +112,7 @@ Azure AD를 사용하여 사용자가 인증되면 사용자를 갖게 된 액�
  - 리소스에 대한 세부적인 액세스: 웹 사이트 또는 데이터베이스와 같은 특정 구독, 리소스 그룹 또는 개별 Azure 리소스에 대한 역할을 사용자 및 그룹에 할당할 수 있습니다. 이러한 방식으로 사용자는 필요한 모든 리소스에 대해 액세스하고 관리할 필요가 없는 리소스에 액세스하지 않을 수 있습니다.
 
  >[AZURE.NOTE]
-  이 기능에 대한 자세한 내용은 [Azure Preview 포털의 역할 기반 액세스 제어](https://azure.microsoft.com/updates/role-based-access-control-in-azure-preview-portal/)를 참조하세요. 또한 응용 프로그램을 빌드하고 이에 대한 액세스 제어를 사용자 지정하려는 개발자의 경우 권한 부여를 위해 Azure AD 응용 프로그램 역할을 사용할 수 있습니다. 이 기능을 사용하여 앱을 개발하는 방법에 대해 [WebApp-RoleClaims-DotNet 예제](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet)를 검토합니다.
+  이 기능에 대한 자세한 내용은 [Azure의 역할 기반 액세스 제어](https://azure.microsoft.com/updates/role-based-access-control-in-azure-preview-portal/)를 참조하세요. 또한 응용 프로그램을 빌드하고 이에 대한 액세스 제어를 사용자 지정하려는 개발자의 경우 권한 부여를 위해 Azure AD 응용 프로그램 역할을 사용할 수 있습니다. 이 기능을 사용하여 앱을 개발하는 방법에 대해 [WebApp-RoleClaims-DotNet 예제](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet)를 검토합니다.
 
 3. Microsoft Intune을 사용한 Office 365 응용 프로그램에 대한 조건부 액세스: IT 관리자는 조건부 액세스 장치 정책을 프로비전하여 규격 장치를 사용하는 정보 작업자가 서비스에 액세스할 수 있도록 하는 동시에 회사 리소스를 보호할 수 있습니다. 자세한 내용은 [Office 365 서비스에 대한 조건부 액세스 장치 정책](active-directory-conditional-access-device-policies.md)을 참조하세요.
 
@@ -121,7 +121,7 @@ Azure AD를 사용하여 사용자가 인증되면 사용자를 갖게 된 액�
 액세스 제어에 대한 옵션은 다중 계층 접근 방법을 사용하기 때문에 이러한 옵션 간의 비교는 이 작업에 적용될 수 없습니다. 리소스에 대한 액세스를 제어하기 위해 필요한 각 시나리오에 사용 가능한 모든 옵션을 활용하도록 합니다.
 
 ## 인시던트 대응 옵션 정의
-Azure AD는 사용자의 활동을 모니터링하여 환경에서 잠재적인 보안 위험을 식별하도록 IT를 지원합니다. IT는 Azure AD 액세스 및 사용 보고서 기능을 활용하여 조직 디렉터리의 무결성 및 보안에 가시성을 얻을 수 있습니다. 이 정보를 사용하면 IT 관리자는 가능한 보안 위험이 발생할 수 있는 위치를 보다 잘 결정하여 이러한 위험을 적절하게 완화할 수 있습니다. [Azure AD Premium 구독](articles/active-directory-get-started-premium.md)에는 IT가 이 정보를 가져올 수 있는 보안 보고서 집합이 있습니다. [Azure AD 보고서](active-directory-view-access-usage-reports.md)는 아래와 같이 분류됩니다.
+Azure AD는 사용자의 활동을 모니터링하여 환경에서 잠재적인 보안 위험을 식별하도록 IT를 지원합니다. IT는 Azure AD 액세스 및 사용 보고서 기능을 활용하여 조직 디렉터리의 무결성 및 보안에 가시성을 얻을 수 있습니다. 이 정보를 사용하면 IT 관리자는 가능한 보안 위험이 발생할 수 있는 위치를 보다 잘 결정하여 이러한 위험을 적절하게 완화할 수 있습니다. [Azure AD Premium 구독](active-directory-get-started-premium.md)에는 IT가 이 정보를 가져올 수 있는 보안 보고서 집합이 있습니다. [Azure AD 보고서](active-directory-view-access-usage-reports.md)는 아래와 같이 분류됩니다.
 
 - **비정상 보고서**: 비정상으로 확인된 로그인 이벤트가 포함됩니다. 이러한 활동을 인식하고 이벤트가 의심스러운지 확인할 수 있게 해 줍니다. 
 - **통합 응용 프로그램 보고서**: 클라우드 응용 프로그램이 조직에서 사용되는 방식을 파악할 수 있게 해줍니다. Azure Active Directory는 수천 개의 클라우드 응용 프로그램과 통합을 제공합니다. 
@@ -156,4 +156,4 @@ Azure AD는 사용자의 활동을 모니터링하여 환경에서 잠재적인 
 ## 참고 항목
 [디자인 고려 사항 개요](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

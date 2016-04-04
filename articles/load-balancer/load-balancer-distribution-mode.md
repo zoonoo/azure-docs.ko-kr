@@ -145,8 +145,8 @@ LoadBalancerDistribution의 값은 2개 튜플 선호도의 경우 sourceIP로, 
 
 [내부 부하 분산 장치 개요](load-balancer-internal-overview.md)
 
-[인터넷 연결 부하 분산 장치 구성 시작](load-balancer-internet-getstarted.md)
+[인터넷 연결 부하 분산 장치 구성 시작](load-balancer-get-started-internet-arm-ps.md)
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

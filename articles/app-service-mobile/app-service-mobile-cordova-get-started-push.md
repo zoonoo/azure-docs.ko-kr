@@ -88,9 +88,9 @@ Apache Cordova 응용 프로그램에서는 기본적으로 장치 또는 네트
 
 1.  솔루션 탐색기에서 `config.xml` 파일을 엽니다.
 2.  **플러그 인** > **사용자 지정**을 클릭하고 설치 원본으로 **Git**를 선택한 다음 원본으로 `https://github.com/phonegap/phonegap-plugin-push`를 입력합니다.
-	
+
 	![](./media/app-service-mobile-cordova-get-started-push/add-push-plugin.png)
-	
+
 4.  설치 원본 옆의 화살표를 클릭한 다음 **추가**를 클릭합니다.
 
 이제 푸시 플러그 인이 설치되었습니다.
@@ -115,23 +115,23 @@ PhoneGap 푸시 플러그 인은 푸시 알림용으로 Google Play Services를 
 
 1. 로그인 프로세스에 대한 콜백 중에 또는 **onDeviceReady** 메서드 맨 아래에 **registerForPushNotifications** 호출을 추가합니다.
 
- 
+
 		// Login to the service.
 		client.login('google')
 		    .then(function () {
 		        // Create a table reference
 		        todoItemTable = client.getTable('todoitem');
-		
+
 		        // Refresh the todoItems
 		        refreshDisplay();
-		
+
 		        // Wire up the UI Event Handler for the Add Item
 		        $('#add-item').submit(addItemHandler);
 		        $('#refresh').on('click', refreshDisplay);
-		
+
 				// Added to register for push notifications.
 		        registerForPushNotifications();
-		
+
 		    }, handleError);
 
 	이 예제에서는 인증에 성공한 후 앱에 푸시 알림 및 인증을 모두 사용하는 경우 권장되는 **registerForPushNotifications** 호출을 보여 줍니다.
@@ -152,18 +152,18 @@ PhoneGap 푸시 플러그 인은 푸시 알림용으로 Google Play Services를 
 	                sound: 'true'
 	            },
 	            wns: {
-	
+
 	            }
 	        });
-	
+
 	        pushRegistration.on('registration', function (data) {
 	            client.push.register('gcm', data.registrationId);
 	        });
-	
+
 	        pushRegistration.on('notification', function (data, d2) {
 	            alert('Push Received: ' + data.message);
 	        });
-	
+
 	        pushRegistration.on('error', handleError);
 	    }
 
@@ -182,6 +182,12 @@ Android 휴대폰을 USB 케이블로 직접 연결하여 앱을 테스트할 �
 * 푸시 알림에 대한 자세한 내용은 [알림 허브]를 참조하세요.
 * 아직 Apache Cordova 앱에 [인증을 추가]하지 않은 경우 추가하여 자습서를 계속합니다.
 
+SDK 사용 방법을 알아봅니다.
+
+* [Apache Cordova SDK]
+* [ASP.NET 서버 SDK]
+* [Node.js 서버 SDK]
+
 <!-- URLs -->
 [인증을 추가]: app-service-mobile-cordova-get-started-users.md
 [Apache Cordova 빠른 시작]: app-service-mobile-cordova-get-started.md
@@ -195,5 +201,8 @@ Android 휴대폰을 USB 케이블로 직접 연결하여 앱을 테스트할 �
 [Visual Studio Community 2015]: http://www.visualstudio.com/
 [Visual Studio Tools for Apache Cordova]: https://www.visualstudio.com/ko-KR/features/cordova-vs.aspx
 [알림 허브]: ../notification-hubs/notification-hubs-overview.md
+[Apache Cordova SDK]: app-service-mobile-codova-how-to-use-client-library.md
+[ASP.NET 서버 SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+[Node.js 서버 SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

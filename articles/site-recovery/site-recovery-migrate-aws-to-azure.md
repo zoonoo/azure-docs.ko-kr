@@ -13,25 +13,27 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
-	ms.date="02/22/2016"
+	ms.date="03/16/2016"
 	ms.author="raynew"/>
 
 #  Azure Site Recovery를 사용하여 AWS(Amazon Web Services)의 Windows 가상 컴퓨터를 Azure로 마이그레이션
 
-Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제, 장애 조치(Failover) 및 복구를 오케스트레이션하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. 컴퓨터는 Azure 또는 보조 온-프레미스 데이터 센터로 복제할 수 있습니다. 빠른 개요를 알아보려면 [Azure Site Recovery란?](site-recovery-overview.md)을 확인하세요.
-
-
 ## 개요
 
-이 문서는 사이트 복구를 사용하는 방법을 설명하여 AWS에서 Azure로 Windows 인스턴스를 마이그레이션하거나 장애 조치합니다. [VMware 가상 컴퓨터 또는 물리적 서버를 Azure에 복제](site-recovery-vmware-to-azure-classic.md)에서 전체적으로 설명된 단계를 요약합니다. 연결된 문서는 VMware VM 또는 Windows/Linux 물리 서버를 Azure에 복제하는 강화된 최신 시나리오 버전입니다. 배포의 각 단계에 대한 자세한 지침을 보려면 연결된 문서를 참조하세요.
+이 문서는 AWS에서 Azure로 Windows 인스턴스를 마이그레이션하는 데 Site Recovery를 사용하는 방법을 설명합니다. 시작하기 전에 다음 사항에 주의하세요.
 
->[AZURE.NOTE] AWS에서 Windows VM의 마이그레이션을 위해서는 [레거시 문서](site-recovery-vmware-to-azure-classic-legacy.md)에 있는 지침을 **더 이상 사용하지 마십시오**.
+- 이 경우에만 마이그레이션할 수 있습니다. 즉, AWS에서 Azure로 장애 조치(failover)할 수 있으나 장애 복구(failback)할 수 없습니다.
+- 이 문서에서는 복제를 설정하기 위한 최신 고급 지침을 제공하는 [VMware 가상 컴퓨터 또는 물리적 서버를 Azure에 복제](site-recovery-vmware-to-azure-classic.md)에서 자세히 설명한 많은 단계를 요약하고 사용합니다. 이 문서의 자세한 지침을 따라 마이그레이션하는 것이 좋습니다.
+- 이 [레거시 문서](site-recovery-vmware-to-azure-classic-legacy.md)의 지침을 **더 이상 사용하지 마세요**.
 
-## 시작
+이 문서의 하단 또는 [Azure 복구 서비스 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에서 의견이나 질문을 게시합니다.
+
+
+## 필수 조건
 
 시작하기 전에 필요한 사항:
 
-- **관리 서버**: 관리 서버 역할을 하는 Windows Server 2012 R2를 실행 중인 온-프레미스 VM. 이 서버에 사이트 복구 구성요소(구성 서버 및 프로세스 서버 포함)를 설치합니다. 자세한 내용은 [관리 서버 고려사항](site-recovery-vmware-to-azure-classic.md#management-server-considerations) 및 [온-프레미스 필수 구성 요소](site-recovery-vmware-to-azure-classic.md#on-premises-prerequisites)에서 참조하세요.
+- **관리 서버**: 관리 서버 역할을 하는 Windows Server 2012 R2를 실행 중인 온-프레미스 VM입니다. 이 서버에 사이트 복구 구성요소(구성 서버 및 프로세스 서버 포함)를 설치합니다. 자세한 내용은 [관리 서버 고려사항](site-recovery-vmware-to-azure-classic.md#management-server-considerations) 및 [온-프레미스 필수 구성 요소](site-recovery-vmware-to-azure-classic.md#on-premises-prerequisites)에서 참조하세요.
 - **EC2 VM 인스턴스**: 마이그레이션한 다음 보호하려는 인스턴스입니다.
 
 ## 배포 단계
@@ -58,6 +60,6 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 		
 ## 다음 단계
 
-의견이나 질문은 [사이트 복구 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에 게시
+[Azure Site Recovery란?](site-recovery-overview.md)의 다른 복제 시나리오에 대해 알아보기
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

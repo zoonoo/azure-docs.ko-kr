@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Application Insights Analytics의 쿼리 샘플" 
-	description="Application Insights의 강력한 검색 도구인 Application Insights Analytics의 쿼리 샘플" 
+	pageTitle="Application Insights 분석의 쿼리 샘플" 
+	description="Application Insights의 강력한 검색 도구인 Application Insights 분석의 쿼리 샘플" 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,13 +12,13 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
 
-# Application Insights Analytics 샘플
+# Application Insights의 분석 샘플
 
-[Application Insights Analytics](app-analytics.md)는 [Application Insights](app-insights-overview.md) 원격 분석을 위한 강력한 검색 엔진입니다. 이 페이지에서는 Application Insights Analytics 쿼리 언어인 AIQL에 대해 설명합니다. 또한 시작하기 위해 권장되는 [언어 둘러보기](app-analytics-tour.md)도 있습니다.
+[분석](app-analytics.md)은 [Application Insights](app-insights-overview.md) 원격 분석을 위한 강력한 검색 엔진입니다. 다음 페이지에서는 분석 쿼리 언어에 대해 설명합니다. 또한 시작하기 위해 권장되는 [언어 둘러보기](app-analytics-tour.md)도 있습니다.
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
@@ -29,7 +29,7 @@
 
 할 일:
 
--	먼저 시간 필터를 사용합니다. Application Insights Analytics는 시간 필터를 이용하도록 고도로 최적화되어 있습니다.
+-	먼저 시간 필터를 사용합니다. Application Insights - 분석은 시간 필터를 이용하도록 고도로 최적화되어 있습니다.
 -	대부분의 데이터를 제거할 것으로 예상하는 필터를 쿼리 시작 부분(시간 필터 바로 뒤)에 넣습니다.
 -	대부분의 필터가 쿼리 시작 부분(‘extend’를 사용하기 전)에 나오는지 확인하십시오. 
 -	전체 토큰을 찾을 때 키워드 ‘contains’보다 ‘has’를 사용하는 것이 좋습니다. ‘has’는 부분 문자열을 찾을 필요가 없기 때문에 성능이 향상됩니다.
@@ -104,7 +104,7 @@ Events
 
 조인은 모든 시작 시간을 같은 클라이언트 IP 주소의 모든 중지 시간과 일치시킵니다. 따라서 더 이전의 중지 시간과 일치하는 항목을 먼저 제거합니다.
 
-그런 다음 시작 시간 및 ip를 기준으로 그룹화하여 각 세션에 대한 그룹을 가져옵니다. StartTime 매개 변수에 대해 `bin` 함수를 제공해야 합니다. 그렇지 않으면 AI Analytics가 자동으로 1시간 bin을 사용하여 일부 시작 시간을 잘못된 중지 시간과 일치시킵니다.
+그런 다음 시작 시간 및 ip를 기준으로 그룹화하여 각 세션에 대한 그룹을 가져옵니다. StartTime 매개 변수에 대해 `bin` 함수를 제공해야 합니다. 그렇지 않으면 분석이 자동으로 1시간 bin을 사용하여 일부 시작 시간을 잘못된 중지 시간과 일치시킵니다.
 
 `argmin`은 각 그룹에서 최소 기간을 가진 행을 선택하며 `*` 매개 변수는 각 열 이름에 "min\_" 접두사를 추가하기는 하지만 다른 모든 열을 통과합니다.
 
@@ -264,7 +264,7 @@ X
 
 ## 조인의 다양한 특징
 
-join 연산자의 정확한 특징은 kind 키워드를 사용하여 지정됩니다. 현재 AI Analytics는 왼쪽 중복 제거를 포함한 내부 조인(기본값), 표준 내부 조인, 왼쪽 우선 외부, 오른쪽 우선 외부, 전체 외부 및 왼쪽 앤티 조인의 여섯 가지 조인 연산자 특징을 지원합니다.
+join 연산자의 정확한 특징은 kind 키워드를 사용하여 지정됩니다. 현재 분석은 왼쪽 중복 제거를 포함한 내부 조인(기본값), 표준 내부 조인, 왼쪽 우선 외부, 오른쪽 우선 외부, 전체 외부 및 왼쪽 앤티 조인의 여섯 가지 조인 연산자 특징을 지원합니다.
  
 기본 조인 특징(지정된 kind 없음) 조인의 작업을 설명하기 위해 샘플 테이블 두 개를 사용하겠습니다.
  
@@ -310,8 +310,7 @@ join 연산자의 정확한 특징은 kind 키워드를 사용하여 지정됩�
 
 (참고로 키 ‘a’와 ‘d’는 왼쪽과 오른쪽에 모두 일치하는 키가 없으므로 출력에 나타나지 않습니다.)
  
-(지금까지 이 기능은 AI Analytics의 초기 버전에서 지원한 조인의 첫 번째 구현이었으며, 같은 상관성 ID 아래의 두 이벤트(각각 몇몇 필터링 기준을 일치시킴)를 상호 관련시키고 기여하는 추적 레코드가 여러 개 나오더라도 무시하고 찾으려는 현상의 모든 모양을 다시 가져오는 대표적인 로그/추적 분석 시나리오에서 유용합니다.)  
-
+(지금까지 이 기능은 분석의 초기 버전에서 지원한 조인의 첫 번째 구현이었으며, 같은 상관 관계 ID 아래의 두 이벤트(각각 몇몇 필터링 기준을 일치시킴)를 상호 관련시키고 기여하는 추적 레코드가 여러 개 나오더라도 무시하고 찾으려는 현상의 모든 모양을 다시 가져오는 대표적인 로그/추적 분석 시나리오에서 유용합니다.)
  
 ### 내부 조인(kind=inner) 
 
@@ -438,4 +437,4 @@ JobHistory
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

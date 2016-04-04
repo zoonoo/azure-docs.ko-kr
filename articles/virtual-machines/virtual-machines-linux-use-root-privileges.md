@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Linux 가상 컴퓨터에서 루트 권한 사용 | Microsoft Azure" 
 	description="Azure의 Linux 가상 컴퓨터에서 루트 권한을 사용하는 방법에 대해 알아봅니다." 
-	services="virtual-machines" 
+	services="virtual-machines-linux" 
 	documentationCenter="" 
 	authors="szarkos" 
 	manager="timlt" 
@@ -9,7 +9,7 @@
 	tags="azure-service-management,azure-resource-manager" />
 
 <tags 
-	ms.service="virtual-machines" 
+	ms.service="virtual-machines-linux" 
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
@@ -55,4 +55,4 @@ SSH 키 인증을 사용하여 Linux 가상 컴퓨터에 로그인한 후 `sudo`
 
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0323_2016-->

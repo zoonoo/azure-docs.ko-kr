@@ -1,7 +1,7 @@
 <properties
    pageTitle="리소스 그룹 배포 문제 해결 | Microsoft Azure"
    description="리소스 관리자 배포 모델을 사용하여 만든 리소스를 배포하는 일반적인 문제를 설명하고 이러한 문제를 감지하고 해결하는 방법을 보여줍니다."
-   services="azure-resource-manager,virtual-machines"
+   services="azure-resource-manager,virtual-machines-linux"
    documentationCenter=""
    tags="top-support-issue"
    authors="tfitzmac"
@@ -295,9 +295,9 @@ REST API의 경우 [리소스 공급자에 대한 정보 가져오기](https://m
 
 > [AZURE.NOTE] 리소스 그룹에 대해서는 이것을 기억하세요. 할당량은 개별적인 지역을 위한 것이지, 전체 구독을 위한 것이 아닙니다. 사용자가 미국 서부에 30개의 코어를 배포해야 하면 미국 서부에 30개의 리소스 관리자 코어를 요청해야 합니다. 사용자가 액세스하는 임의적인 지역에 30개의 코어를 배포해야 하는 경우 모든 지역에 30개의 리소스 관리자 코어를 요청해야 합니다.
 <!-- -->
-예를 들어 특정한 코어를 만들려면 json 구문 분석을 위해 **jq**를 빼낸 아래의 명령을 이용하여 적정한 할당량을 요청해야 하는 지역을 확인할 수 있습니다.
+예를 들어 특정한 코어를 만들려면 json 구문 분석을 위해 **jq**를 빼낸 아래 명령을 사용하여 적정한 할당량을 요청해야 하는 지역을 확인할 수 있습니다.
 <!-- -->
-		azure provider show Microsoft.Compute --json | jq '.resourceTypes | select(.name == "virtualMachines") | { name,apiVersions, locations}'
+        azure provider show Microsoft.Compute --json | jq '.resourceTypes[] | select(.name == "virtualMachines") | { name,apiVersions, locations}'
         {
           "name": "virtualMachines",
           "apiVersions": [
@@ -312,6 +312,7 @@ REST API의 경우 [리소스 공급자에 대한 정보 가져오기](https://m
             "Southeast Asia"
           ]
         }
+
 
 ## 리소스 공급자 등록 확인
 
@@ -434,4 +435,4 @@ PowerShell에는 동일한 절차를 수행하는 몇 가지 기본 명령이 �
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
-<!----HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

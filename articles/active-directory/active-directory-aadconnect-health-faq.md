@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="billmath"
-	manager="samueld"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/08/2016"
-	ms.author="billmath;vakarand"/>
+	ms.date="03/21/2016"
+	ms.author="vakarand"/>
 
 
 # Azure AD Connect Health FAQ(질문과 대답)
@@ -28,7 +28,6 @@
 **Q: 여러 Azure AD 디렉터리를 관리합니다. Azure Active Directory Premium을 사용하는 테넌트로 전환하려면 어떻게 해야 하나요?**
 
 맨 위 오른쪽 모서리에 있는 현재 로그인한 사용자 이름을 선택하고 적절한 계정을 선택하면 서로 다른 Azure AD 디렉터리 간에 전환할 수 있습니다. 계정이 여기에 나열되어 있지 않으면 로그아웃을 선택한 다음 Azure Active Directory Premium이 사용하도록 설정된 디렉터리의 글로벌 관리자 자격 증명을 사용하여 로그인합니다.
-
 
 ## 설치 관련 질문
 
@@ -107,4 +106,4 @@ Azure AD Connect Health 에이전트가 Azure AD Health 서비스 끝점과 통�
 * [동기화에 대한 Azure AD Connect Health 사용](active-directory-aadconnect-health-sync.md)
 * [Azure AD Connect Health 버전 내역](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

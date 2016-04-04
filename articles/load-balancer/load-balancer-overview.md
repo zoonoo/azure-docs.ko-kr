@@ -4,7 +4,7 @@
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags
    ms.service="load-balancer"
@@ -12,11 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/09/2015"
+   ms.date="03/22/2016"
    ms.author="joaoma" />
 
 
-# Azure 부하 분산 장치란?
+# Azure 부하 분산 장치 개요
 
 Azure 부하 분산 장치는 응용 프로그램에 고가용성 및 네트워크 성능을 제공합니다. 부하 분산 장치 집합에 정의된 클라우드 서비스 또는 가상 컴퓨터의 정상 서비스 인스턴스 간에 들어오는 트래픽을 배포하는 계층 4(TCP, UDP) 부하 분산 장치입니다.
 
@@ -121,6 +121,7 @@ Azure 부하 분산 장치 구성은 UDP에 대해 완전한 원뿔형 NAT를 �
 
 Azure 리소스 관리자는 Azure 서비스에 대한 새로운 관리 프레임워크입니다. 이제 리소스 관리자 기반 API 및 도구를 통해 Azure 부하 분산 장치를 관리할 수 있습니다. 리소스 관리자에 대한 자세한 내용은 [Azure 리소스 관리자를 통해 IaaS가 더 쉬워짐](https://azure.microsoft.com/blog/2015/04/29/iaas-just-got-easier-again/)을 참조하세요.
 
+[AZURE.INCLUDE [load-balancer-compare-tm-ag-lb-include.md](../../includes/load-balancer-compare-tm-ag-lb-include.md)]
 
 ## 다음 단계
 
@@ -128,6 +129,6 @@ Azure 리소스 관리자는 Azure 서비스에 대한 새로운 관리 프레�
 
 [내부 부하 분산 장치 개요](load-balancer-internal-overview.md)
 
-[인터넷 연결 부하 분산 장치 만들기 시작](load-balancer-internet-getstarted.md)
+[인터넷 연결 부하 분산 장치 만들기 시작](load-balancer-get-started-internet-arm-ps.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

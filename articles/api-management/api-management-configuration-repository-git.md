@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/14/2016" 
+	ms.date="03/21/2016" 
 	ms.author="sdanie"/>
 
 
@@ -117,7 +117,7 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
 
 	git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
 
-리포지토리가 복제된 후 로컬 파일 시스템에서 이를 보고 작업할 수 있습니다. 자세한 내용은 [로컬 Git 리포지토리의 파일 및 폴더 구조 개요](#file-and-folder-structure-overview-of-local-git-repository)를 참조하세요.
+리포지토리가 복제된 후 로컬 파일 시스템에서 이를 보고 작업할 수 있습니다. 자세한 내용은 [로컬 Git 리포지토리의 파일 및 폴더 구조 참조](#file-and-folder-structure-reference-of-local-git-repository)를 참조하세요.
 
 ## 최근 서비스 인스턴스 구성으로 로컬 리포지토리를 업데이트하려면
 
@@ -279,6 +279,9 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
 -	REST API를 사용하여 서비스 인스턴스 관리
 	-	[API 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn776326.aspx)
 
+## 비디오 개요 보기
+
+> [AZURE.VIDEO configuration-over-git]
 
 [api-management-enable-git]: ./media/api-management-configuration-repository-git/api-management-enable-git.png
 [api-management-git-enabled]: ./media/api-management-configuration-repository-git/api-management-git-enabled.png
@@ -294,4 +297,4 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
 [api-management-delegation-settings]: ./media/api-management-configuration-repository-git/api-management-delegation-settings.png
 [api-management-git-icon-enable]: ./media/api-management-configuration-repository-git/api-management-git-icon-enable.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="rest-api" 
     ms.topic="article" 
-    ms.date="03/10/2016" 
+    ms.date="03/17/2016" 
     ms.author="b-hoedid"/>
 
 # 논리 앱을 사용하여 새롭거나 변경된 DocumentDB 리소스에 대한 알림
@@ -624,7 +624,7 @@ QueryDocuments 동작은 API 앱에 대해 HTTP POST 작업을 수행합니다.
 
 코드는 디자이너의 동작에서 생성됩니다. 코드를 수정할 필요가 없습니다.
 
-Azure Blob API 사용에 대해 잘 모르는 경우 [Azure Blob 저장소 API 시작](../connectors/create-api-azureblobstorage.md)을 참조하세요.
+Azure Blob API 사용에 대해 잘 모르는 경우 [Azure Blob 저장소 API 시작](../connectors/connectors-create-api-azureblobstorage.md)을 참조하세요.
 
 #### 작업
 
@@ -1125,7 +1125,8 @@ GetUtcDate\_HoursBack | 검색 시작 날짜에 대한 시간을 설정하는 �
 sendgridUsername | 검색 시작 날짜에 대한 시간을 설정하는 데 사용
 sendgridPassword | SendGrid 전자 메일에 대한 사용자 이름
 EmailTo | 전자 메일 알림을 받을 전자 메일 주소
-제목 | 전자 메일 제목
+제목  
+ | 전자 메일 제목
 
 ## Azure Blob 서비스에서 환자 데이터 보기
 
@@ -1156,4 +1157,4 @@ Azure 저장소 계정으로 이동한 후 다음 그림에 나와 있는 것처
 
 DocumentDB에 대해 자세히 알아보려면 [학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/)를 참조하세요.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

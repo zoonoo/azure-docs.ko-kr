@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="서비스 버스를 사용하여 성능을 향상하는 모범 사례 | Microsoft Azure"
-   description="broker 저장 메시지를 교환할 때 Azure 서비스 버스를 사용하여 성능을 최적화하는 방법에 대해 설명합니다."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" /> 
+    pageTitle="서비스 버스를 사용하여 성능을 향상하는 모범 사례 | Microsoft Azure"
+    description="broker 저장 메시지를 교환할 때 Azure 서비스 버스를 사용하여 성능을 최적화하는 방법에 대해 설명합니다."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" /> 
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="12/28/2015"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="03/16/2016"
+    ms.author="sethm" />
 
 # 서비스 버스 조정된 메시징을 사용한 성능 향상의 모범 사례
 
@@ -31,7 +31,7 @@
 
 ## 팩터리 및 클라이언트 다시 사용
 
-[QueueClient][] 또는 [MessageSender][]와 같은 서비스 버스 클라이언트 개체는 내부 연결 관리도 제공하는 [MessagingFactory][] 개체를 통해 만듭니다. 메시지를 보낸 다음 메시징 팩터리 또는 큐, 토픽, 구독 클라이언트를 닫은 후 다음 메시지를 보낼 때 이러한 메시징 팩터리 또는 큐, 토픽, 구독 클라이언트를 다시 만들지 않아야 합니다. 메시징 팩터리를 닫을 경우 서비스 버스 서비스에 대한 연결이 삭제되고 팩터리를 다시 만들면 새 연결이 구축됩니다. 여러 작업에 대해 동일한 팩터리와 클라이언트 개체를 다시 사용하면 많은 비용이 드는 연결 작업을 하지 않아도 됩니다.
+[QueueClient][] 또는 [MessageSender][]와 같은 서비스 버스 클라이언트 개체는 내부 연결 관리도 제공하는 [MessagingFactory][] 개체를 통해 만듭니다. 메시지를 보낸 다음 메시징 팩터리 또는 큐, 토픽, 구독 클라이언트를 닫은 후 다음 메시지를 보낼 때 이러한 메시징 팩터리 또는 큐, 토픽, 구독 클라이언트를 다시 만들지 않아야 합니다. 메시징 팩터리를 닫을 경우 서비스 버스 서비스에 대한 연결이 삭제되고 팩터리를 다시 만들면 새 연결이 구축됩니다. 여러 작업에 대해 동일한 팩터리와 클라이언트 개체를 다시 사용하면 많은 비용이 드는 연결 작업을 하지 않아도 됩니다. 동시 비동기 작업 및 다중 스레드에서 메시지를 보내기 위해 [QueueClient][] 개체를 안전하게 사용할 수 있습니다.
 
 ## 동시 작업
 
@@ -130,7 +130,7 @@ Queue q = namespaceManager.CreateQueue(qd);
 
 ## 명시적 큐 및 토픽
 
-명시적 엔터티에서는 처리량이 높고 대기 시간이 감소된 시나리오가 지원됩니다. 명시적 엔터티를 사용할 경우 메시지가 큐 또는 토픽으로 전송되면 메시지 저장소에 즉시 저장되지 않고 메모리에 캐시됩니다. 메시지가 큐에 몇 초 이상 남아 있을 경우 안정적 저장소에 자동으로 기록되므로 중단으로 인한 손실로부터 보호합니다. 메시지를 보낼 때에는 안정적 저장소에 액세스할 수 없기 때문에 메모리 캐시에 메시지를 쓰면 처리량이 증가하고 대기 시간이 감소합니다. 몇 초 이내에 사용된 메시지는 메시징 저장소에 기록되지 않습니다. 아래 예제에서는 명시적 토픽을 만듭니다.
+명시적 엔터티에서는 처리량이 높고 대기 시간이 감소된 시나리오가 지원됩니다. 명시적 엔터티를 사용할 경우 메시지가 큐 또는 토픽으로 전송되면 메시지 저장소에 즉시 저장되지 않고 대신 메모리에 캐시됩니다. 메시지가 큐에 몇 초 이상 남아 있을 경우 안정적 저장소에 자동으로 기록되므로 중단으로 인한 손실로부터 보호합니다. 메시지를 보낼 때에는 안정적 저장소에 액세스할 수 없기 때문에 메모리 캐시에 메시지를 쓰면 처리량이 증가하고 대기 시간이 감소합니다. 몇 초 이내에 사용된 메시지는 메시징 저장소에 기록되지 않습니다. 아래 예제에서는 명시적 토픽을 만듭니다.
 
 ```
 TopicDescription td = new TopicDescription(TopicName);
@@ -291,4 +291,4 @@ namespaceManager.CreateQueue(qd);
   [분할된 메시징 엔터티]: service-bus-partitioning.md
   
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0323_2016-->

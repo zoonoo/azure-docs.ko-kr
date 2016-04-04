@@ -32,7 +32,7 @@
 
 이 가이드에서는 위의 시나리오에 따라 인터넷 부하 분산 장치를 만드는 방법을 보여줍니다.
 
-1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](xplat-cli.md)을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
+1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](../../articles/xplat-cli-install.md)을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
 
 2. 아래와 같이 **azure config mode** 명령을 실행하여 클래식 모드로 전환합니다.
 
@@ -135,7 +135,7 @@
 
 ## 다음 단계
 
-[내부 부하 분산 장치 구성 시작](load-balancer-internal-getstarted.md)
+[내부 부하 분산 장치 구성 시작](load-balancer-get-started-ilb-arm-ps.md)
 
 [부하 분산 장치 배포 모드 구성](load-balancer-distribution-mode.md)
 
@@ -143,4 +143,4 @@
 
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

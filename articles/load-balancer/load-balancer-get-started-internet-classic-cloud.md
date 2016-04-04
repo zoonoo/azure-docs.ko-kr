@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/30/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # 클라우드 서비스를 위한 인터넷 연결 부하 분산 장치 만들기 시작
@@ -77,10 +77,10 @@ Azure SDK for .NET 2.5를 사용하여 클라우드 서비스를 업데이트할
 
 ## 다음 단계
 
-[내부 부하 분산 장치 구성 시작](load-balancer-internal-getstarted.md)
+[내부 부하 분산 장치 구성 시작](load-balancer-get-started-ilb-arm-ps.md)
 
 [부하 분산 장치 배포 모드 구성](load-balancer-distribution-mode.md)
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0323_2016-->

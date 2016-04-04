@@ -3,9 +3,9 @@
 	description="PHP의 테이블 서비스를 사용하여 테이블을 작성 및 삭제하고 테이블을 삽입하고 삭제하고 쿼리하는 방법에 대해 알아봅니다."
 	services="storage"
 	documentationCenter="php"
-	authors="tfitzmac"
-	manager="carmonm"
-	editor="tysonn"/>
+	authors="rmcmurray"
+	manager="wpickett"
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="PHP"
 	ms.topic="article"
 	ms.date="02/17/2016"
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 
 # PHP에서 테이블 저장소를 사용하는 방법
@@ -478,4 +478,4 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
 [filters]: http://msdn.microsoft.com/library/azure/dd894031.aspx
 [entity-group-transactions]: http://msdn.microsoft.com/library/azure/dd894038.aspx
 
-<!----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -32,10 +32,10 @@
 npm install azure-mobile-apps-client --save
 ```
 
-설치되면 라이브러리는 `node_modules/azure-mobile-apps-client/dist/MobileServices.Web.js`에 위치합니다. 웹 영역에 이 파일을 복사합니다.
+설치되면 라이브러리는 `node_modules/azure-mobile-apps-client/dist/MobileServices.Web.min.js`에 위치합니다. 웹 영역에 이 파일을 복사합니다.
 
 ```
-<script src="path/to/MobileServices.Web.js"></script>
+<script src="path/to/MobileServices.Web.min.js"></script>
 ```
 
 또한 라이브러리는 Browserify 및 Webpack과 같은 CommonJS 환경 내에서 ES2015 모듈로 사용할 수 있으며 AMD 라이브러리로 사용할 수도 있습니다. 예:
@@ -103,7 +103,7 @@ pushHandler.on('error', function (error) {
 <!-- URLs. -->
 [Azure 모바일 앱 빠른 시작]: app-service-mobile-cordova-get-started.md
 [인증 시작]: app-service-mobile-cordova-get-started-users.md
-[앱에 인증 추가]: app-service-mobile-cordova-get-started-users.md
+[Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
 [Apache Cordova Plugin for Azure Mobile Apps]: https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-apps
 [your first Apache Cordova app]: http://cordova.apache.org/#getstarted
@@ -111,6 +111,6 @@ pushHandler.on('error', function (error) {
 [phonegap-plugin-push]: https://www.npmjs.com/package/phonegap-plugin-push
 [cordova-plugin-device]: https://www.npmjs.com/package/cordova-plugin-device
 [cordova-plugin-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
-[쿼리 개체 설명서]: https://msdn.microsoft.com/ko-KR/library/azure/jj613353.aspx
+[Query object documentation]: https://msdn.microsoft.com/ko-KR/library/azure/jj613353.aspx
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

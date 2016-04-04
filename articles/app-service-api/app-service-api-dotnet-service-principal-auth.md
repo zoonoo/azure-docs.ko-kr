@@ -365,7 +365,7 @@ TodoListDataAPI 프로젝트를 다음과 같이 변경합니다.
 
 	c. TodoListAPI 응용 프로그램의 서비스 주체에 대한 objectid를 찾고 나중에 복사할 수 있는 위치에 저장합니다.
 
-7. Azure 포털에서 ToDoListAngular 프로젝트를 배포한 웹앱에 대한 웹앱 블레이드로 이동합니다.
+7. Azure 포털에서 ToDoList.API 프로젝트를 배포한 API 앱에 대한 API 앱 블레이드로 이동합니다.
 
 9. **설정 > 응용 프로그램 설정**을 클릭합니다.
 
@@ -417,4 +417,4 @@ Azure Active Directory에 대한 자세한 내용은 다음 리소스를 참조�
 
 Visual Studio를 사용하거나 [원본 제어 시스템](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control)에서 [배포를 자동화](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery)하여 API 앱에 Visual Studio를 배포하는 다른 방법에 대한 정보는 [Azure 앱 서비스 앱을 배포하는 방법](../app-service-web/web-sites-deploy.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

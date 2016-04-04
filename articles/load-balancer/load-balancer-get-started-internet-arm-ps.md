@@ -89,23 +89,23 @@ PowerShell에 대한 Azure 리소스 관리자(ARM) 모듈의 최신 프로덕�
 
 ### 2단계
 
-DNS 이름이 *loadbalancernrp.westus.cloudapp.azure.com* 인 프런트 엔드 IP 풀에서 사용할 *PublicIP* 라는 Azure PIP(공용 IP 주소) 리소스를 만듭니다. 아래 명령은 정적 할당 형식을 사용합니다.
+DNS 이름이 *loadbalancernrp.westus.cloudapp.azure.com*인 프런트 엔드 IP 풀에서 사용할 *PublicIP*라는 Azure PIP(공용 IP 주소) 리소스를 만듭니다. 아래 명령은 정적 할당 형식을 사용합니다.
 
 	$publicIP = New-AzureRmPublicIpAddress -Name PublicIp -ResourceGroupName NRP-RG -Location 'West US' –AllocationMethod Static -DomainNameLabel loadbalancernrp 
 
->[AZURE.IMPORTANT] 부하 분산 장치는 FQDN에 대한 접두사로 공용 IP의 도메인 레이블을 사용합니다. 이는 부하 분산 장치 FQDN으로 클라우드 서비스를 사용하는 클래식 배포 모델의 변경입니다. 이 예제에서는 FQDN이 *loadbalancernrp.westus.cloudapp.azure.com* 입니다.
+>[AZURE.IMPORTANT] 부하 분산 장치는 FQDN에 대한 접두사로 공용 IP의 도메인 레이블을 사용합니다. 이는 부하 분산 장치 FQDN으로 클라우드 서비스를 사용하는 클래식 배포 모델의 변경입니다. 이 예제에서는 FQDN이 *loadbalancernrp.westus.cloudapp.azure.com*입니다.
 
 ## 프런트 엔드 IP 풀 및 백 엔드 주소 풀 만들기
 
 ### 1단계 
 
-*PublicIp* PIP를 사용하는 *LB-Frontend* 라는 프런트 엔드 IP 풀을 만듭니다.
+*PublicIp* PIP를 사용하는 *LB-Frontend*라는 프런트 엔드 IP 풀을 만듭니다.
 
 	$frontendIP = New-AzureRmLoadBalancerFrontendIpConfig -Name LB-Frontend -PublicIpAddress $publicIP 
 
 ### 2단계 
 
-*LB-backend* 라는 백 엔드 주소 풀을 만듭니다.
+*LB-backend*라는 백 엔드 주소 풀을 만듭니다.
 
 	$beaddresspool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name LB-backend
 
@@ -166,13 +166,13 @@ NIC를 만들어야 하는 가상 네트워크 및 가상 네트워크 서브넷
 
 ### 2단계
 
-*lb-nic1-be* 라는 NIC를 만들고 첫 번째 NAT 규칙 및 첫 번째(유일한) 백 엔드 주소 풀과 연결합니다.
+*lb-nic1-be*라는 NIC를 만들고 첫 번째 NAT 규칙 및 첫 번째(유일한) 백 엔드 주소 풀과 연결합니다.
 	
 	$backendnic1= New-AzureRmNetworkInterface -ResourceGroupName NRP-RG -Name lb-nic1-be -Location 'West US' -PrivateIpAddress 10.0.2.6 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[0]
 
 ### 3단계
 
-*lb-nic2-be* 라는 NIC를 만들고 두 번째 NAT 규칙 및 첫 번째(유일한) 백 엔드 주소 풀과 연결합니다.
+*lb-nic2-be*라는 NIC를 만들고 두 번째 NAT 규칙 및 첫 번째(유일한) 백 엔드 주소 풀과 연결합니다.
 
 	$backendnic2= New-AzureRmNetworkInterface -ResourceGroupName NRP-RG -Name lb-nic2-be -Location 'West US' -PrivateIpAddress 10.0.2.7 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[1]
 
@@ -233,7 +233,7 @@ NIC를 확인합니다.
 
 `Add-AzureRmVMNetworkInterface` cmdlet을 사용하여 NIC를 다른 VM에 할당합니다.
 
-가상 컴퓨터를 만들고 NIC에 할당하는 방법에 대한 참고 자료는 [리소스 관리자 및 Azure PowerShell을 사용하여 Windows 가상 컴퓨터 만들기 및 미리 구성](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example)에서 5가지의 옵션을 사용한 예제를 참조하세요.
+가상 컴퓨터를 만들고 NIC에 할당하는 방법에 대한 참고 자료는 [리소스 관리자 및 Azure PowerShell을 사용하여 Windows 가상 컴퓨터 만들기 및 미리 구성](../virtual-machines/virtual-machines-windows-create-powershell.md#Example)에서 5가지의 옵션을 사용한 예제를 참조하세요.
 
 
 또는 이미 가상 컴퓨터를 만든 경우 다음 단계로 네트워크 인터페이스를 추가할 수 있습니다.
@@ -308,4 +308,4 @@ Set-AzureLoadBalancer를 사용하여 새 구성 저장
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

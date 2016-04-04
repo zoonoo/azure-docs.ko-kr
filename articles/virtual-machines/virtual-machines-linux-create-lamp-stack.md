@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Azure를 사용하여 LAMP 스택 만들기 | Microsoft Azure"
 	description="Linux를 실행하는 Azure VM(가상 컴퓨터)에서 Microsoft Azure를 사용하여 LAMP 스택을 만드는 방법에 대해 알아봅니다."
-	services="virtual-machines"
+	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="NingKuang"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-service-management,azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
@@ -456,4 +456,4 @@ LAMP 스택이 성공적으로 설정되면 Apache 웹 서버(가상 컴퓨터)�
 [17]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-17.png
 [18]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-18.jpg
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

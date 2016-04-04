@@ -2,4 +2,4 @@ NSG를 사용하여 가상 네트워크에 있는 하나 이상의 VM(가상 컴
 
 NSG에 대한 자세한 내용은 [NSG란?](../articles/virtual-network/virtual-networks-nsg.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

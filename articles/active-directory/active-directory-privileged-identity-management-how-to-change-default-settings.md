@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Privileged Identity Management: 역할에 대한 기본 설정을 변경하거나 보는 방법"
+   pageTitle="역할에 대한 기본 설정을 변경하거나 보는 방법 | Microsoft Azure"
    description="Azure Active Directory Privileged Identity Management 확장을 사용하여 권한 있는 ID에 대한 기본 설정을 변경하는 방법을 알아봅니다."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/10/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
 # Azure AD Privileged Identity Management: 역할에 대한 기본 활성화 설정을 변경하거나 보는 방법
@@ -52,4 +52,4 @@ PIM과 함께 MFA를 사용하는 방법에 대한 자세한 내용은 [MFA를 �
 ## 다음 단계
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

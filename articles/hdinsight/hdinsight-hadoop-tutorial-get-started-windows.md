@@ -91,7 +91,7 @@ Windows의 Hadoop에 대해 이 자습서를 시작하기 전에 다음이 있�
 
 
 ## 포털에서 Hive 쿼리 실행
-HDInsight 클러스터를 만들었으므로 다음 단계는 Hive 작업을 실행하여 샘플 Hive 테이블을 쿼리하는 것입니다. HDInsight 클러스터와 함께 제공되는 *hivesampletable* 을 사용합니다. 이 테이블에는 모바일 장치 제조업체, 플랫폼 및 모델에 대한 데이터가 들어 있습니다. 이 테이블의 Hive 쿼리는 특정 제조업체별로 모바일 장치의 데이터를 검색합니다.
+HDInsight 클러스터를 만들었으므로 다음 단계는 Hive 작업을 실행하여 샘플 Hive 테이블을 쿼리하는 것입니다. HDInsight 클러스터와 함께 제공되는 *hivesampletable*을 사용합니다. 이 테이블에는 모바일 장치 제조업체, 플랫폼 및 모델에 대한 데이터가 들어 있습니다. 이 테이블의 Hive 쿼리는 특정 제조업체별로 모바일 장치의 데이터를 검색합니다.
 
 > [AZURE.NOTE] Visual Studio용 HDInsight 도구는 Azure SDK for .NET 버전 2.5 이상과 함께 제공됩니다. Visual Studio에서 이 도구를 사용하여 HDInsight 클러스터에 연결하고, Hive 테이블을 만들고, Hive 쿼리를 실행할 수 있습니다. 자세한 내용은 [Visual Studio용 HDInsight Hadoop 도구 사용 시작][1]을 참조하세요.
 
@@ -107,7 +107,7 @@ HDInsight 클러스터를 만들었으므로 다음 단계는 Hive 작업을 실
 
 	페이지의 위쪽에 탭이 여러 개 있습니다. 기본 탭은 **Hive 편집기**이고 다른 탭은 **작업 기록** 및 **파일 브라우저**입니다. 대시보드를 사용하여 Hive 쿼리를 제출하고, Hadoop 작업 로그를 확인하며, 저장소에서 파일을 찾아볼 수 있습니다.
 
-	> [AZURE.NOTE] 웹 페이지의 URL은 *&lt;ClusterName&gt;.azurehdinsight.net* 입니다. 따라서 포털에서 대시보드를 여는 대신, URL을 사용하여 웹 브라우저에서 대시보드를 열 수도 있습니다.
+	> [AZURE.NOTE] 웹 페이지의 URL은 *&lt;ClusterName&gt;.azurehdinsight.net*입니다. 따라서 포털에서 대시보드를 여는 대신, URL을 사용하여 웹 브라우저에서 대시보드를 열 수도 있습니다.
 
 6. **Hive 편집기** 탭에서 **쿼리 이름**으로 **HTC20**을 입력합니다. 쿼리 이름은 작업 제목입니다. 쿼리 창에서 이미지에 표시된 대로 Hive 쿼리를 입력합니다.
 
@@ -197,7 +197,6 @@ HDInsight 클러스터에서는 포털에서 샘플을 직접 실행하기 위�
 - [HDInsight에서 Hive 사용][hdinsight-use-hive]
 - [HDInsight에서 Pig 사용][hdinsight-use-pig]
 - [HDInsight에서 Oozie 사용][hdinsight-use-oozie]
-- [HDInsight용 C# Hadoop 스트리밍 프로그램 개발][hdinsight-develop-streaming]
 - [HDInsight용 Java MapReduce 프로그램 개발][hdinsight-develop-mapreduce]
 
 
@@ -215,7 +214,6 @@ HDInsight 클러스터에서는 포털에서 샘플을 직접 실행하기 위�
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-emulator]: hdinsight-hadoop-emulator-get-started.md
-[hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 [hadoop-hdinsight-intro]: hdinsight-hadoop-introduction.md
 [hdinsight-weblogs-sample]: hdinsight-hive-analyze-website-log.md
@@ -257,4 +255,4 @@ HDInsight 클러스터에서는 포털에서 샘플을 직접 실행하기 위�
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -133,11 +133,13 @@ Visual Studio를 리소스 그룹과 함께 사용하는 방법에 대한 소개
 ##다음 단계
 이 문서에서는 HDInsight 클러스터를 만드는 여러 가지 방법에 대해 알아보았습니다. 자세한 내용은 다음 문서를 참조하세요.
 
-- .NET 클라이언트 라이브러리를 통한 리소스 배포의 예제를 보려면 [.NET 라이브러리 및 템플릿을 사용하여 리소스 배포](../virtual-machines/arm-template-deployment.md)를 참조하세요.
+
+- .NET 클라이언트 라이브러리를 통한 리소스 배포의 예제를 보려면 [.NET 라이브러리 및 템플릿을 사용하여 리소스 배포](../virtual-machines/virtual-machines-windows-csharp-template.md)를 참조하세요.
 - 응용 프로그램 배포에 대한 자세한 예제는 [Azure에서 마이크로 서비스를 예측 가능하게 프로비전 및 배포](../app-service-web/app-service-deploy-complex-application-predictably.md)를 참조하세요.
 - 다른 환경에 솔루션 배포에 관한 지침은 [Microsoft Azure의 개발 및 테스트 환경](../solution-dev-test-environments.md)을 참조하세요.
 - Azure Resource Manager 템플릿 섹션에 대한 자세한 내용은 [템플릿 작성](../resource-group-authoring-templates.md)을 참조하세요.
 - Azure Resource Manager 템플릿에서 사용할 수 있는 함수 목록은 [템플릿 함수](../resource-group-template-functions.md)를 참조하세요.
+
 
 
 ##부록 A: ARM 템플릿
@@ -290,4 +292,4 @@ Visual Studio를 리소스 그룹과 함께 사용하는 방법에 대한 소개
         }
     }
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

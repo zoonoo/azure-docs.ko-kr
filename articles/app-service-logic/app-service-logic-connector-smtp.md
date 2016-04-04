@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="rajram"/>
 
 
 # SMTP 커넥터 시작 및 논리 앱에 추가
->[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다. 2015-08-01-미리 보기 스키마 버전에 대한 내용을 보려면 [SMTP API](../connectors/create-api-smtp.md)를 클릭하세요.
+>[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다. 2015-08-01-preview 스키마 버전에 대한 내용을 보려면 [SMTP API](../connectors/connectors-create-api-smtp.md)를 클릭하세요.
 
 SMTP 서버에 연결하고 첨부 파일이 있는 메일을 비롯한 메일을 보냅니다. SMTP 커넥터 "메일 보내기" 동작을 사용하면 지정된 메일 주소로 메일을 보낼 수 있습니다.
 
@@ -56,37 +56,30 @@ SMTP 커넥터에서 사용할 수 있는 트리거와 동작은 다음과 같�
 
 6. **만들기**를 선택합니다.
 
-> [AZURE.IMPORTANT]일부 SMTP 서버에서는 이 커넥터의 작동 방식과 관련된 문제가 발생할 수도 있습니다(SendGrid 및 Gmail). SendGrid에서 메일을 보내려는 경우 [GitHub 리포지토리](https://github.com/logicappsio/SendGridAPI)에 SendGrid API와 직접 인터페이스되는 사용자 지정 API가 있습니다.
+> [AZURE.IMPORTANT] 일부 SMTP 서버에서는 이 커넥터의 작동 방식과 관련된 문제가 발생할 수도 있습니다(SendGrid 및 Gmail). SendGrid에서 메일을 보내려는 경우 [GitHub 리포지토리](https://github.com/logicappsio/SendGridAPI)에 SendGrid API와 직접 인터페이스되는 사용자 지정 API가 있습니다.
 
 ## 논리 앱에서 SMTP 커넥터 사용
 커넥터를 만들고 나면 이제 SMTP 커넥터를 논리 앱에 대한 동작으로 사용할 수 있습니다. 다음을 수행합니다.
 
-1.	새 논리 앱을 만듭니다.
-
-	![][2]
-2.	**트리거 및 작업**을 열어 논리 앱 디자이너를 열고 워크플로를 구성합니다.
-
-	![][3]
-3.	SMTP 커넥터가 오른쪽의 갤러리에 있는 “이 리소스 그룹의 API 앱” 섹션에 표시됩니다. 이 커넥터를 선택합니다.
-
-	![][4]
+1.	새 논리 앱을 만듭니다. ![][2]
+2.	**트리거 및 작업**을 열어 논리 앱 디자이너를 열고 워크플로를 구성합니다. ![][3]
+3.	SMTP 커넥터가 오른쪽의 갤러리에 있는 “이 리소스 그룹의 API 앱” 섹션에 표시됩니다. 이 커넥터를 선택합니다. ![][4]
 4.	워크플로 디자이너에 자동으로 추가할 SMTP 커넥터를 선택합니다.
 
 이제 워크플로에서 사용되도록 SMTP 커넥터를 구성할 수 있습니다. **메일 보내기** 작업을 선택하고 입력 속성을 구성합니다.
 
-	속성 | 설명
+	Property | Description
 	--- | ---
-	받는 사람 | 받는 사람의 메일 주소를 입력합니다. 여러 개의 메일 주소는 세미콜론(;)으로 구분하면 됩니다. 예를 들어, recipient1@domain.com;recipient2@domain.com과 같이 입력할 수 있습니다.
-	참조 | 참조에 포함할 사람의 메일 주소를 입력합니다. 여러 개의 메일 주소는 세미콜론(;)으로 구분하면 됩니다. 예를 들어, recipient1@domain.com;recipient2@domain.com과 같이 입력할 수 있습니다.
-	제목 | 메일의 제목을 입력합니다.
-	본문 | 메일의 본문을 입력합니다.
-	HTML | 이 속성을 true로 설정하면 본문의 내용이 HTML로 전송됩니다.
-	숨은 참조 | 숨은 참조에 포함할 사람의 메일 주소를 입력합니다. 여러 개의 메일 주소는 세미콜론(;)으로 구분하면 됩니다. 예를 들어, recipient1@domain.com;recipient2@domain.com과 같이 입력할 수 있습니다.
-	중요도 | 메일의 중요도를 입력합니다. 보통, 낮음, 높음 중에서 선택할 수 있습니다.
-	첨부 파일 | 첨부 파일이 메일과 함께 전송되며, 다음과 같은 필드가 포함되어 있습니다: <ul><li>콘텐츠(문자열)</li><li>콘텐츠 전송 인코딩(열거형) (“none”|”base64”)</li><li>콘텐츠 유형(문자열)</li><li>콘텐츠 ID(문자열)</li><li>파일 이름(문자열)</li></ul>
+	To | Enter the email address of recipient(s). Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
+	Cc | Enter the email address of the carbon copy recipient(s). Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
+	Subject | Enter the subject of the email.
+	Body | Enter body of the email.
+	Is HTML | When this property is set to true, the contents of the body are sent as HTML.
+	Bcc | Enter the email address of recipient(s) for blind carbon copy. Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
+	Importance | Enter the Importance of the email. The options are Normal, Low, and High.
+	Attachments | Attachments to be sent along with the email. It contains the following fields: <ul><li>Content (String)</li><li>Content transfer Encoding (Enum) (“none”|”base64”)</li><li>Content Type (String)</li><li>Content ID (String)</li><li>File Name (String)</li></ul>
 
-![][5]
-![][6]
+![][5] ![][6]
 
 ## 커넥터의 추가 기능
 이제 커넥터를 만들었으므로 논리 앱을 사용하여 비즈니스 워크플로에 추가할 수 있습니다. [논리 앱 정의](app-service-logic-what-are-logic-apps.md)를 참조하세요.
@@ -105,4 +98,4 @@ SMTP 커넥터에서 사용할 수 있는 트리거와 동작은 다음과 같�
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

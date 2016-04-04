@@ -1,210 +1,207 @@
-When you create a VM, restart stopped (deallocated) VMs, or resize a VM, Microsoft Azure allocates compute resources to your subscription. You may occasionally receive errors when performing these operations -- even before you reach the Azure subscription limits. This article explains the causes of some of the common allocation failures and suggests possible remediation. The information may also be useful when you plan the deployment of your services.
+VM을 만들거나 중지된(할당이 취소된) VM을 재시작하거나 VM의 크기를 조정하는 경우 Microsoft Azure에서 구독에 계산 리소스를 할당합니다. 이러한 작업을 수행하면서 오류를 수신하는 경우도 있습니다. Azure 구독 제한에 도달하기 전에도 그렇습니다. 이 문서는 일부 일반적인 할당 오류의 이유를 설명하고 가능한 수정을 제안합니다. 서비스 배포를 계획하는 사용자에게 이 정보가 유용할 수 있습니다.
 
-The "General troubleshooting steps" section lists steps to address common issues. The "Detailed troubleshooting steps" section provides resolution steps by specific error message. Before you get started, here is some background information to understand how allocation works and why allocation failure happens.
+"일반 문제 해결 단계" 섹션에는 일반적인 문제를 해결하는 단계가 나와 있습니다. "자세한 문제 해결 단계" 섹션은 특정 오류 메시지에 따른 해결 단계를 제공합니다. 시작하기 전에 할당이 어떻게 작동하며 할당 오류가 발생하는 이유에 대한 몇 가지 배경 정보를 설명합니다.
 
-If your Azure issue is not addressed in this article, visit the [Azure forums on MSDN and Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue on these forums or to @AzureSupport on Twitter. Also, you can file an Azure support request by selecting **Get support** on the [Azure support](https://azure.microsoft.com/support/options/) site.
-## Background information
-### How allocation works
-The servers in Azure datacenters are partitioned into clusters. Normally, an allocation request is attempted in multiple clusters, but it's possible that certain constraints from the allocation request force the Azure platform to attempt the request in only one cluster. In this article, we'll refer to this as "pinned to a cluster." Diagram 1 below illustrates the case of a normal allocation that is attempted in multiple clusters. Diagram 2 illustrates the case of an allocation that's pinned to Cluster 2 because that's where the existing Cloud Service CS_1 or availability set is hosted.
-![Allocation Diagram](./media/virtual-machines-common-allocation-failure/Allocation1.png)
+Azure 문제와 관련된 정보가 이 문서에 없을 경우 [MSDN 및 스택 오버플로에서 Azure 포럼](https://azure.microsoft.com/support/forums/)을 방문합니다. 이러한 포럼이나 Twitter의 @AzureSupport에 문제를 게시할 수 있습니다. 또한 [Azure 지원](https://azure.microsoft.com/support/options/) 사이트에서 **지원 받기**를 선택하여 Azure 지원 요청을 제출할 수 있습니다.
+## 배경 정보
+### 할당의 작동 원리
+Azure 데이터 센터의 서버는 클러스터로 분할되어 있습니다. 일반적으로 할당 요청은 여러 클러스터에서 시도되지만 할당 요청의 특정한 제약 조건으로 인해 Azure 플랫폼이 하나의 클러스터에만 요청을 시도하게 될 수 있습니다. 이 문서에서는 이를 “클러스터에 고정”이라고 합니다. 아래 다이어그램 1은 여러 클러스터에 시도되는 정상적인 할당의 사례를 보여 줍니다. 다이어그램 2는 기존 클라우드 서비스 CS\_1 또는 가용성 집합이 호스트되는 클러스터 2에 고정된 할당의 사례를 보여 줍니다.![할당 다이어그램](./media/virtual-machines-common-allocation-failure/Allocation1.png)
 
-### Why allocation failures happen
-When an allocation request is pinned to a cluster, there's a higher chance of failing to find free resources since the available resource pool is smaller. Furthermore, if your allocation request is pinned to a cluster but the type of resource you requested is not supported by that cluster, your request will fail even if the cluster has free resources. Diagram 3 below illustrates the case where a pinned allocation fails because the only candidate cluster does not have free resources. Diagram 4 illustrates the case where a pinned allocation fails because the only candidate cluster does not support the requested VM size, even though the cluster has free resources.
+### 할당 오류가 발생하는 이유
+할당 요청이 클러스터에 고정되면 사용 가능한 리소스 풀이 작아지기 때문에 유휴 리소스를 찾는데 실패할 가능성이 높습니다. 할당 요청이 클러스터에 고정되어 있지만 요청하는 리소스 유형이 이 클러스터에서 지원되지 않으면, 클러스터에 유휴 리소스가 있어도 사용자의 요청은 실패합니다. 아래 다이어그램 3은 유일한 후보 클러스터에 유휴 리소스가 없어서 고정된 할당이 실패하는 경우를 보여줍니다. 다이어그램 4는 클러스터에 유휴 리소스가 있지만 유일한 후보 클러스터가 요청한 VM 크기를 지원하지 않기 때문에 고정된 할당이 실패하는 경우를 보여 줍니다.
 
-![Pinned Allocation Failure](./media/virtual-machines-common-allocation-failure/Allocation2.png)
+![고정된 할당 오류](./media/virtual-machines-common-allocation-failure/Allocation2.png)
 
-## General troubleshooting steps
-### Troubleshoot common allocation failures in the classic deployment model
+## 일반적인 문제 해결 단계
+### 클래식 배포 모델의 일반적인 할당 오류 문제 해결
 
-These steps can help resolve many allocation failures in virtual machines:
+이 단계는 가상 컴퓨터의 다양한 할당 문제를 해결하는 데 도움이 됩니다.
 
-- Resize the VM to a different VM size.<br>
-	Click **Browse all** > **Virtual machines (classic)** > your virtual machine > **Settings** > **Size**. For detailed steps, see [Resize the virtual machine](https://msdn.microsoft.com/library/dn168976.aspx).
+- VM을 다른 VM 크기로 조정합니다.<br> **모두 찾아보기** > **가상 컴퓨터(클래식)** > 사용자의 가상 컴퓨터 > **설정** > **크기**를 클릭합니다. 자세한 단계는 [가상 컴퓨터 크기 조정](https://msdn.microsoft.com/library/dn168976.aspx)을 참조하세요.
 
-- Delete all VMs from the cloud service and re-create VMs.<br>
-	Click **Browse all** > **Virtual machines (classic)** > your virtual machine > **Delete**. Then, click **New** > **Compute** > [virtual machine image].
+- 클라우드 서비스의 VM을 모두 삭제하고 다시 만듭니다.<br> **모두 찾아보기** > **가상 컴퓨터(클래식)** > 사용자의 가상 컴퓨터 > **삭제**를 클릭합니다. 그런 다음 **새로 만들기** > **계산** > [가상 컴퓨터 이미지]를 클릭합니다.
 
-### Troubleshoot common allocation failures in the Azure Resource Manager deployment model
+### Azure 리소스 관리자 배포 모델의 일반적인 할당 실패 문제 해결
 
-These steps can help resolve many allocation failures in virtual machines:
+이 단계는 가상 컴퓨터의 다양한 할당 문제를 해결하는 데 도움이 됩니다.
 
-- Stop (deallocate) all VMs in the same availability set, then restart each one.<br>
-	To stop: Click **Resource groups** > your resource group > **Resources** > your availability set > **Virtual Machines** > your virtual machine > **Stop**.
+- 동일한 가용성 집합의 모든 VM을 중지(할당 취소)하고 각 VM을 재시작합니다.<br> 중지하려면: **리소스 그룹** > 사용자의 리소스 그룹 > **리소스** > 사용자의 가용성 집합 > **가상 컴퓨터** > 사용자의 가상 컴퓨터 > **중지**를 클릭합니다.
 
-	After all VMs stop, select the first VM and click **Start**.
+	모든 VM이 중지된 후에 첫 번째 VM을 선택하고 **시작**을 클릭합니다.
 
-## Detailed troubleshooting steps
-### Troubleshoot specific allocation failure scenarios in the classic deployment model
-Here are common allocation scenarios that cause an allocation request to be pinned. We'll dive into each scenario later in this article.
+## 자세한 문제 해결
+### 클래식 배포 모델의 특정 할당 오류 시나리오 문제 해결
+다음은 할당 요청이 고정되도록 하는 일반적인 할당 시나리오입니다. 이 문서의 뒷 부분에서 각 시나리오에 대해 자세히 알아봅니다.
 
-- Resize a VM or add VMs or role instances to an existing cloud service
-- Restart partially stopped (deallocated) VMs
-- Restart fully stopped (deallocated) VMs
-- Staging/production deployments (platform as a service only)
-- Affinity group (VM/service proximity)
-- Affinity-group-based virtual network
+- VM 크기 조정 또는 기존 클라우드 서비스에 VM 또는 역할 인스턴스 추가
+- 부분적으로 중지(할당 취소)된 VM 다시 시작
+- 완전히 중지(할당 취소)된 VM 다시 시작
+- 스테이징/프로덕션 배포(Platform as a Service 전용)
+- 선호도 그룹(VM/서비스 근접)
+- 선호도-그룹-기반 가상 네트워크
 
-When you receive an allocation error, see if any of the scenarios described apply to your error. Use the allocation error returned by the Azure platform to identify the corresponding scenario. If your request is pinned, remove some of the pinning constraints to open your request to more clusters, thereby increasing the chance of allocation success.
+할당 오류를 수신하면 여기에 설명해 놓은 시나리오가 오류에 적용되는지 알아봅니다. Azure 플랫폼에서 반환된 할당 오류를 사용하여 해당 시나리오를 식별합니다. 요청이 고정된 경우에는 고정시키는 일부 제약 조건을 제거하여 더 많은 클러스터에 요청을 열고 할당이 성공할 기회를 높입니다.
 
-In general, as long as the error does not indicate "the requested VM size is not supported," you can always retry at a later time, as enough resources may have been freed in the cluster to accommodate your request. If the problem is that the requested VM size is not supported, try a different VM size. Otherwise, the only option is to remove the pinning constraint.
+일반적으로 “요청된 VM 크기가 지원되지 않습니다”라고 오류에 나타나지 않는 한 사용자의 요청을 수용하기 충분한 리소스가 클러스터에 확보되어 있기 때문에 언제나 나중에 다시 시도할 수 있습니다. 요청한 VM 크기가 지원되지 않는 것이 문제라면 다른 VM 크기를 시도하세요. 그렇지 않은 경우 유일한 옵션은 고정 제약 조건을 제거하는 것입니다.
 
-Two common failure scenarios are related to affinity groups. In the past, an affinity group was used to provide close proximity to VMs/service instances, or it was used to enable the creation of a virtual network. With the introduction of regional virtual networks, affinity groups are no longer required to create a virtual network. With the reduction of network latency in Azure infrastructure, the recommendation to use affinity groups for VM/service proximity has changed.
+두 가지 일반적인 실패 시나리오는 선호도 그룹과 관련되어 있습니다. 과거에 선호도 그룹은 VM/서비스 인스턴스에 가까운 근접성을 제공하는 데 사용되거나 가상 네트워크를 생성할 수 있도록 하는 데 사용되었습니다. 지역 가상 네트워크가 도입되면서 선호도 그룹이 가상 네트워크 생성에 더 이상 필요하지 않게 되었습니다. Azure 인프라의 네트워크 대기 시간이 감소하면서 VM/서비스 근접성을 위해 선호도 그룹을 사용하는 권장 사항이 변경되었습니다.
 
-Diagram 5 below presents the taxonomy of the (pinned) allocation scenarios.
-![Pinned Allocation Taxonomy](./media/virtual-machines-common-allocation-failure/Allocation3.png)
+아래 다이어그램 5는 (고정된) 할당 시나리오의 분류법을 나타냅니다.![고정된 할당 분류법](./media/virtual-machines-common-allocation-failure/Allocation3.png)
 
-> [AZURE.NOTE] The error listed in each allocation scenario is a short form. Refer to the [Error string lookup](#Error string lookup) for detailed error strings.
+> [AZURE.NOTE] 각각의 할당 시나리오에 나열된 오류는 짧은 형식입니다. 자세한 오류 문자열은 [오류 문자열 조회](#오류 문자열 조회)를 참조하세요.
 
-#### Allocation scenario: Resize a VM or add VMs or role instances to an existing cloud service
-**Error**
+#### 할당 시나리오: VM 크기 조정 또는 기존 클라우드 서비스에 VM 또는 역할 인스턴스 추가
+**오류**
 
-Upgrade_VMSizeNotSupported or GeneralError
+Upgrade\_VMSizeNotSupported 또는 GeneralError
 
-**Cause of cluster pinning**
+**클러스터 고정의 원인**
 
-A request to resize a VM or add a VM or a role instance to an existing cloud service has to be attempted at the original cluster that hosts the existing cloud service. Creating a new cloud service allows the Azure platform to find another cluster that has free resources or supports the VM size that you requested.
+VM 크기를 조정하거나 기존 클라우드 서비스에 VM 또는 역할 인스턴스를 추가하는 요청은 기존 클라우드 서비스를 호스트하는 원래 클러스터에서 시도되어야 합니다. 클라우드 서비스를 새로 만들면 Azure 플랫폼에서 유휴 리소스가 있거나 사용자가 요청한 VM 크기를 지원하는 또 다른 클러스터를 찾을 수 있습니다.
 
-**Workaround**
+**해결 방법**
 
-If the error is Upgrade_VMSizeNotSupported*, try a different VM size. If using a different VM size is not an option, but if it's acceptable to use a different virtual IP address (VIP), create a new cloud service to host the new VM and add the new cloud service to the regional virtual network where the existing VMs are running. If your existing cloud service does not use a regional virtual network, you can still create a new virtual network for the new cloud service, and then connect your [existing virtual network to the new virtual network](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). See more about [regional virtual networks](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
+오류가 Upgrade\_VMSizeNotSupported*이면, 다른 VM 크기를 시도합니다. 다른 VM 크기를 사용할 수는 없지만 다른 VIP(가상 IP 주소)를 사용하는 것이 허용되면, 새로운 VM을 호스트할 새 클라우드 서비스를 만들고 새 클라우드 서비스를 기존 VM이 실행되는 지역 가상 네트워크에 추가합니다. 기존 클라우드 서비스가 지역 가상 네트워크를 사용하지 않더라도 새 클라우드 서비스에 새 가상 네트워크를 만든 후 [기존 가상 네트워크를 새 가상 네트워크](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/)에 연결할 수 있습니다. [지역 가상 네트워크](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/)에 대한 자세한 내용을 참조하세요.
 
-If the error is GeneralError*, it's likely that the type of resource (such as a particular VM size) is supported by the cluster, but the cluster does not have free resources at the moment. Similar to the above scenario, add the desired compute resource through creating a new cloud service (note that the new cloud service has to use a different VIP) and use a regional virtual network to connect your cloud services.
+오류가 GeneralError*이면 리소스 유형(예: 특정한 VM 크기)이 클러스터에서 지원되지만 해당 시점에 클러스터에 유휴 리소스가 없을 가능성이 있습니다. 위 시나리오와 유사하게 새 클라우드 서비스를 만들고(새 클라우드 서비스는 다른 VIP를 사용해야 함) 지역 가상 네트워크를 사용하여 클라우드 서비스로 연결하여 원하는 계산 리소스를 추가합니다.
 
-#### Allocation scenario: Restart partially stopped (deallocated) VMs
+#### 할당 시나리오: 부분적으로 중지(할당 취소)된 VM 다시 시작
 
-**Error**
+**오류**
 
 GeneralError*
 
-**Cause of cluster pinning**
+**클러스터 고정의 원인**
 
-Partial deallocation means that you stopped (deallocated) one or more, but not all, VMs in a cloud service. When you stop (deallocate) a VM, the associated resources are released. Restarting that stopped (deallocated) VM is therefore a new allocation request. Restarting VMs in a partially deallocated cloud service is equivalent to adding VMs to an existing cloud service. The allocation request has to be attempted at the original cluster that hosts the existing cloud service. Creating a different cloud service allows the Azure platform to find another cluster that has free resource or supports the VM size that you requested.
+일부 할당 취소란 클라우드 서비스에서 하나 이상을 중지(할당 취소)했지만 모든 VM을 중지한 것은 아니라는 의미입니다. VM을 중지(할당 취소)하면 연결된 리소스가 해제됩니다. 따라서 중지(할당 취소)한 VM을 재시작하는 것은 새로운 할당 요청입니다. 부분적으로 할당 취소된 클라우드 서비스에서 VM을 다시 시작하는 것은 기존 클라우드 서비스에 VM을 추가하는 것과 같습니다. 할당 요청은 기존 클라우드 서비스를 호스트하는 원래 클러스터에서 시도되어야 합니다. 다른 클라우드 서비스를 만들면 Azure 플랫폼에서 유휴 리소스가 있거나 사용자가 요청한 VM 크기를 지원하는 또 다른 클러스터를 찾을 수 있습니다.
 
-**Workaround**
+**해결 방법**
 
-If it's acceptable to use a different VIP, delete the stopped (deallocated) VMs (but keep the associated disks) and add the VMs back through a different cloud service. Use a regional virtual network to connect your cloud services:
-- If your existing cloud service uses a regional virtual network, simply add the new cloud service to the same virtual network.
-- If your existing cloud service does not use a regional virtual network, create a new virtual network for the new cloud service, and then [connect your existing virtual network to the new virtual network](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). See more about [regional virtual networks](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
+다른 VIP를 사용하는 것이 허용되면 중지된(할당 취소된) VM을 삭제하고(하지만 연결된 디스크는 유지한 채로) 다른 클라우드 서비스를 통해 VM을 다시 추가합니다. 지역 가상 네트워크를 사용하여 클라우드 서비스에 연결합니다.
+- 기존 클라우드 서비스가 지역 가상 네트워크를 사용하면 새 클라우드 서비스를 동일한 가상 네트워크에 간단히 추가합니다.
+- 기존 클라우드 서비스가 지역 가상 네트워크를 사용하지 않더라도 새 클라우드 서비스에 새 가상 네트워크를 만든 후 [기존 가상 네트워크를 새 가상 네트워크](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/)에 연결할 수 있습니다. [지역 가상 네트워크](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/)에 대한 자세한 내용을 참조하세요.
 
-#### Allocation scenario: Restart fully stopped (deallocated) VMs
-**Error**
-
-GeneralError*
-
-**Cause of cluster pinning**
-
-Full deallocation means that you stopped (deallocated) all VMs from a cloud service. The allocation requests to restart these VMs have to be attempted at the original cluster that hosts the cloud service. Creating a new cloud service allows the Azure platform to find another cluster that has free resources or supports the VM size that you requested.
-
-**Workaround**
-
-If it's acceptable to use a different VIP, delete the original stopped (deallocated) VMs (but keep the associated disks) and delete the corresponding cloud service (the associated compute resources were already released when you stopped (deallocated) the VMs). Create a new cloud service to add the VMs back.
-
-#### Allocation scenario: Staging/production deployments (platform as a service only)
-**Error**
-
-New_General* or New_VMSizeNotSupported*
-
-**Cause of cluster pinning**
-
-The staging deployment and the production deployment of a cloud service are hosted in the same cluster. When you add the second deployment, the corresponding allocation request will be attempted in the same cluster that hosts the first deployment.
-
-**Workaround**
-
-Delete the first deployment and the original cloud service and redeploy the cloud service. This action may land the first deployment in a cluster that has enough free resources to fit both deployments or in a cluster that supports the VM sizes that you requested.
-
-#### Allocation scenario: Affinity group (VM/service proximity)
-**Error**
-
-New_General* or New_VMSizeNotSupported*
-
-**Cause of cluster pinning**
-
-Any compute resource assigned to an affinity group is tied to one cluster. New compute resource requests in that affinity group are attempted in the same cluster where the existing resources are hosted. This is true whether the new resources are created through a new cloud service or through an existing cloud service.
-
-**Workaround**
-
-If an affinity group is not necessary, do not use an affinity group, or group your compute resources into multiple affinity groups.
-
-#### Allocation scenario: Affinity-group-based virtual network
-**Error**
-
-New_General* or New_VMSizeNotSupported*
-
-**Cause of cluster pinning**
-
-Before regional virtual networks were introduced, you were required to associate a virtual network with an affinity group. As a result, compute resources placed into an affinity group are bound by the same constraints as described in the "Allocation scenario: Affinity group (VM/service proximity)" section above. The compute resources are tied to one cluster.
-
-**Workaround**
-
-If you do not need an affinity group, create a new regional virtual network for the new resources you're adding, and then [connect your existing virtual network to the new virtual network](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). See more about [regional virtual networks](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
-
-Alternatively, you can [migrate your affinity-group-based virtual network to a regional virtual network](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/), and then add the desired resources again.
-
-### Troubleshoot specific allocation failure scenarios in the Azure Resource Manager deployment model
-Here are common allocation scenarios that cause an allocation request to be pinned. We'll dive into each scenario later in this article.
-
-- Resize a VM or add VMs or role instances to an existing cloud service
-- Restart partially stopped (deallocated) VMs
-- Restart fully stopped (deallocated) VMs
-
-When you receive an allocation error, see if any of the scenarios described apply to your error. Use the allocation error returned by the Azure platform to identify the corresponding scenario. If your request is pinned to an existing cluster, remove some of the pinning constraints to open your request to more clusters, thereby increasing the chance of allocation success.
-
-In general, as long as the error does not indicate "the requested VM size is not supported," you can always retry at a later time, as enough resources may have been freed in the cluster to accommodate your request. If the problem is that the requested VM size is not supported, see below for workarounds.
-
-#### Allocation scenario: Resize a VM or add VMs to an existing availability set
-**Error**
-
-Upgrade_VMSizeNotSupported* or GeneralError*
-
-**Cause of cluster pinning**
-
-A request to resize a VM or add a VM to an existing availability set has to be attempted at the original cluster that hosts the existing availability set. Creating a new availability set allows the Azure platform to find another cluster that has free resources or supports the VM size that you requested.
-
-**Workaround**
-
-If the error is Upgrade_VMSizeNotSupported*, try a different VM size. If using a different VM size is not an option, stop all VMs in the availability set. You can then change the size of the virtual machine that will allocate the VM to a cluster that supports the desired VM size.
-
-If the error is GeneralError*, it's likely that the type of resource (such as a particular VM size) is supported by the cluster, but the cluster does not have free resources at the moment. If the VM can be part of a different availability set, create a new VM in a different availability set (in the same region). This new VM can then be added to the same virtual network.  
-
-#### Allocation scenario: Restart partially stopped (deallocated) VMs
-**Error**
+#### 할당 시나리오: 완전히 중지(할당 취소)된 VM 다시 시작
+**오류**
 
 GeneralError*
 
-**Cause of cluster pinning**
+**클러스터 고정의 원인**
 
-Partial deallocation means that you stopped (deallocated) one or more, but not all, VMs in an availability set. When you stop (deallocate) a VM, the associated resources are released. Restarting that stopped (deallocated) VM is therefore a new allocation request. Restarting VMs in a partially deallocated availability set is equivalent to adding VMs to an existing availability set. The allocation request has to be attempted at the original cluster that hosts the existing availability set.
+전체 할당 취소란 클라우드 서비스의 모든 VM을 중지(할당 취소)했다는 의미입니다. VM 재시작을 위한 할당 요청은 클라우드 서비스를 호스트하는 원래 클러스터에서 시도되어야 합니다. 클라우드 서비스를 새로 만들면 Azure 플랫폼에서 유휴 리소스가 있거나 사용자가 요청한 VM 크기를 지원하는 또 다른 클러스터를 찾을 수 있습니다.
 
-**Workaround**
+**해결 방법**
 
-Stop all VMs in the availability set before restarting the first one. This will ensure that a new allocation attempt is run and that a new cluster can be selected that has available capacity.
+다른 VIP를 사용하는 것이 허용되면, 원래 중지(할당 취소)된 VM을 연결된 디스크를 유지한 채로 삭제하고 해당 클라우드 서비스를 삭제합니다. 연결된 계산 리소스는 VM을 중지(할당 취소)할 때 이미 해제되었습니다. 새 클라우드 서비스를 만들어서 VM에 다시 추가합니다.
 
-#### Allocation scenario: Restart fully stopped (deallocated)
-**Error**
+#### 할당 시나리오: 스테이징/프로덕션 배포(Platform as a Service 전용)
+**오류**
+
+New\_General* 또는 New\_VMSizeNotSupported*
+
+**클러스터 고정의 원인**
+
+클라우드 서비스의 스테이징 배포 및 프로덕션 배포는 동일한 클러스터에서 호스트됩니다. 두 번째 배포를 추가하는 경우 할당 요청은 첫 번째 배포를 호스팅하는 동일한 클러스터에서 시도됩니다.
+
+**해결 방법**
+
+첫 번째 배포와 원래 클라우드 서비스를 삭제하고 클라우드 서비스를 다시 배포합니다. 이렇게 하면 2개의 배포를 수용하기에 충분한 유휴 리소스가 있는 클러스터나 요청한 VM 크기를 지원하는 클러스터에 첫 번째 배포가 배치될 수 있습니다.
+
+#### 할당 시나리오: 선호도 그룹(VM/서비스 근접성)
+**오류**
+
+New\_General* 또는 New\_VMSizeNotSupported*
+
+**클러스터 고정의 원인**
+
+선호도 그룹에 할당된 모든 계산 리소스는 하나의 클러스터에 구속됩니다. 해당 선호도 그룹에 속하는 새로운 계산 리소스 요청은 기존 리소스를 호스트하는 동일한 클러스터에서 시도됩니다. 새로운 리소스가 새 클라우드 서비스에서 만들어지건 아니면 기존 클라우드 서비스를 통해 만들어지건 이 내용은 사실입니다.
+
+**해결 방법**
+
+선호도 그룹이 필요하지 않으면 선호도 그룹을 사용하지 않거나 여러 선호도 그룹의 계산 리소스를 그룹화합니다.
+
+#### 할당 시나리오: 선호도-그룹-기반 가상 네트워크
+**오류**
+
+New\_General* 또는 New\_VMSizeNotSupported*
+
+**클러스터 고정의 원인**
+
+지역 가상 네트워크가 도입되기 전에는 가상 네트워크를 선호도 그룹과 연결해야 했습니다. 그 결과 선호도 그룹에 배치된 계산 리소스가 위의 “할당 시나리오: 선호도 그룹(VM/서비스 근접성)” 섹션의 설명처럼 동일한 제약 조건에 바인딩되었습니다. 계산 리소스는 한 개의 클러스터에 연결됩니다.
+
+**해결 방법**
+
+선호도 그룹이 필요하지 않으면 추가하는 새 리소스에 대해 새로운 지역 가상 네트워크를 만들고 [기존 가상 네트워크를 새 가상 네트워크에 연결](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/)합니다. [지역 가상 네트워크](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/)에 대한 자세한 내용을 참조하세요.
+
+또는 [선호도 그룹 기반 가상 네트워크를 지역 가상 네트워크로 마이그레이션](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/)한 다음 원하는 리소스를 다시 추가할 수 있습니다.
+
+### Azure 리소스 관리자 배포 모델의 특정 할당 실패 시나리오 문제 해결
+다음은 할당 요청이 고정되도록 하는 일반적인 할당 시나리오입니다. 이 문서의 뒷 부분에서 각 시나리오에 대해 자세히 알아봅니다.
+
+- VM 크기 조정 또는 기존 클라우드 서비스에 VM 또는 역할 인스턴스 추가
+- 부분적으로 중지(할당 취소)된 VM 다시 시작
+- 완전히 중지(할당 취소)된 VM 다시 시작
+
+할당 오류를 수신하면 여기에 설명해 놓은 시나리오가 오류에 적용되는지 알아봅니다. Azure 플랫폼에서 반환된 할당 오류를 사용하여 해당 시나리오를 식별합니다. 요청이 기존 클러스터에 고정된 경우에는 고정시키는 일부 제약 조건을 제거하여 더 많은 클러스터에 요청을 열고 할당이 성공할 기회를 높입니다.
+
+일반적으로 “요청된 VM 크기가 지원되지 않습니다”라고 오류에 나타나지 않는 한 사용자의 요청을 수용하기 충분한 리소스가 클러스터에 확보되어 있기 때문에 언제나 나중에 다시 시도할 수 있습니다. 요청한 VM 크기가 지원되지 않는 것이 문제라면 아래에서 해결 방법을 참조하세요.
+
+#### 할당 시나리오: VM 크기 조정 또는 기존 가용성 집합에 VM 추가
+**오류**
+
+Upgrade\_VMSizeNotSupported* 또는 GeneralError*
+
+**클러스터 고정의 원인**
+
+VM 크기를 조정하거나 기존 가용성 집합에 VM을 추가하는 요청은 기존 가용성 집합을 호스트하는 원래 클러스터에서 시도되어야 합니다. 가용성 집합을 새로 만들면 Azure 플랫폼에서 유휴 리소스가 있거나 사용자가 요청한 VM 크기를 지원하는 또 다른 클러스터를 찾을 수 있습니다.
+
+**해결 방법**
+
+오류가 Upgrade\_VMSizeNotSupported*이면, 다른 VM 크기를 시도합니다. 다른 VM 크기를 사용할 수 없는 경우에는 가용성 집합의 모든 VM을 중지합니다. 그러면 원하는 VM 크기를 지원하는 클러스터에 VM을 할당하는 가상 컴퓨터의 크기를 변경할 수 있습니다.
+
+오류가 GeneralError*이면 리소스 유형(예: 특정한 VM 크기)이 클러스터에서 지원되지만 해당 시점에 클러스터에 유휴 리소스가 없을 가능성이 있습니다. VM이 다른 가용성 집합에 속할 수 있는 경우에는 동일한 지역의 다른 가용성 집합에 새 VM을 만듭니다. 그런 다음 새 VM을 동일한 가상 네트워크에 추가할 수 있습니다.
+
+#### 할당 시나리오: 부분적으로 중지(할당 취소)된 VM 다시 시작
+**오류**
 
 GeneralError*
 
-**Cause of cluster pinning**
+**클러스터 고정의 원인**
 
-Full deallocation means that you stopped (deallocated) all VMs in an availability set. The allocation request to restart these VMs will target all clusters that support the desired size.
+일부 할당 취소란 가용성 집합에서 하나 이상을 중지(할당 취소)했지만 모든 VM을 중지한 것은 아니라는 의미입니다. VM을 중지(할당 취소)하면 연결된 리소스가 해제됩니다. 따라서 중지(할당 취소)한 VM을 재시작하는 것은 새로운 할당 요청입니다. 부분적으로 할당 취소된 가용성 집합에서 VM을 다시 시작하는 것은 기존 가용성 집합에 VM을 추가하는 것과 같습니다. 할당 요청은 기존 가용성 집합을 호스트하는 원래 클러스터에서 시도되어야 합니다.
 
-**Workaround**
+**해결 방법**
 
-Select a new VM size to allocate. If this does not work, please try again later.
+첫 번째 VM을 재시작하기 전에 가용성 집합의 모든 VM을 중지합니다. 이렇게 하면 새로운 할당 시도가 실행되고 사용 가능한 용량이 있는 새 클러스터가 선택될 수 있습니다.
 
-## Error string lookup
-**New_VMSizeNotSupported***
+#### 할당 시나리오: 완전히 중지(할당 취소)된 VM 다시 시작
+**오류**
 
-"The VM size (or combination of VM sizes) required by this deployment cannot be provisioned due to deployment request constraints. If possible, try relaxing constraints such as virtual network bindings, deploying to a hosted service with no other deployment in it and to a different affinity group or with no affinity group, or try deploying to a different region."
+GeneralError*
 
-**New_General***
+**클러스터 고정의 원인**
 
-"Allocation failed; unable to satisfy constraints in request. The requested new service deployment is bound to an affinity group, or it targets a virtual network, or there is an existing deployment under this hosted service. Any of these conditions constrains the new deployment to specific Azure resources. Please retry later or try reducing the VM size or number of role instances. Alternatively, if possible, remove the aforementioned constraints or try deploying to a different region."
+전체 할당 취소란 가용성 집합의 모든 VM을 중지(할당 취소)했다는 의미입니다. VM 재시작을 위한 할당 요청은 원하는 크기를 지원하는 모든 클러스터를 대상으로 합니다.
 
-**Upgrade_VMSizeNotSupported***
+**해결 방법**
 
-"Unable to upgrade the deployment. The requested VM size XXX may not be available in the resources supporting the existing deployment. Please try again later, try with a different VM size or smaller number of role instances, or create a deployment under an empty hosted service with a new affinity group or no affinity group binding."
+할당할 새 VM 크기를 선택합니다. 작동하지 않는 경우 나중에 다시 시도하세요.
+
+## 오류 문자열 조회
+**New\_VMSizeNotSupported***
+
+“배포 요청 제약 조건으로 인해 배포에 요구되는 VM 크기(또는 VM 크기의 조합)를 프로비전할 수 없습니다. 가능한 경우, 가상 네트워크 바인딩 같은 제약 조건을 해제하고 다른 배포를 포함하지 않는 호스티드 서비스에 배포를 시도하거나 다른 선호도 그룹 또는 선호도 그룹 없이 배포를 시도하거나 다른 지역으로 배포를 시도합니다.”
+
+**New\_General***
+
+“할당하지 못했습니다. 요청에 포함된 제약 조건을 충족할 수 없습니다. 요청된 새로운 서비스 배포가 선호도 그룹에 바인딩되어 있거나 가상 네트워크를 대상으로 하거나 호스티드 서비스에 기존 배포가 있습니다. 이러한 조건이 특정 Azure 리소스에 대한 새로운 배포를 제한합니다. 나중에 다시 시도하거나, VM 크기를 줄이거나 역할 인스턴스의 수를 줄입니다. 가능하다면 앞서 말한 제약 조건을 제거하거나 다른 지역에 배포를 시도합니다.”
+
+**Upgrade\_VMSizeNotSupported***
+
+“배포를 업그레이드할 수 없습니다. 요청된 VM 크기 XXX는 기존 배포를 지원하는 리소스에서 사용할 수 없습니다. 나중에 다시 시도하거나, 다른 VM 크기 또는 적은 수의 역할 인스턴스로 시도하거나 새 선호도 그룹 또는 선호도 그룹 바인딩 없이 빈 호스티드 서비스에 배포를 만듭니다.”
 
 **GeneralError***
 
-"The server encountered an internal error. Please retry the request." Or "Failed to produce an allocation for the service."
+“서버에 내부 오류가 발생했습니다. 요청을 다시 시도하세요.” 그렇지 않으면 "서비스에 대한 할당 생성이 실패합니다."
+
+<!---HONumber=AcomDC_0323_2016-->

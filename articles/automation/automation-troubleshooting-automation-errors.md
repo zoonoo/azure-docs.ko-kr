@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/02/2016"
+   ms.date="03/21/2016"
    ms.author="sngun; v-reagie"/>
 
 # Azure 자동화의 일반 오류에 대한 문제 해결 팁
@@ -105,7 +105,7 @@
 
 **문제 해결 팁:** 다음 해결 방법 중 하나로 이 문제를 해결할 수 있습니다.
 
-- cmdlet 이름을 올바르게 입력했는지, cmdlet 경로가 정확한지 확인합니다.  
+- cmdlet 이름을 올바르게 입력했는지 확인합니다.  
 
 - 자동화 계정에 Cmdlet이 있고 충돌이 없는지 확인합니다. cmdlet이 있는지 확인하려면 Runbook을 편집 모드로 열고 라이브러리에서 원하는 cmdlet을 검색하거나 **Get-Command``<CommandName>``를 실행합니다**. cmdlet을 계정에 사용할 수 있고 다른 cmdlet 또는 Runbook과 이름이 충돌하지 않는 것으로 확인되면 캔버스에 cmdlet을 추가하고 Runbook에 유효한 매개 변수 집합을 사용하고 있는지 확인합니다.
 
@@ -206,4 +206,4 @@
 
 - Azure 자동화에 대한 의견이나 기능 요청이 있으면 [사용자 음성](https://feedback.azure.com/forums/34192--general-feedback)에 게시하세요.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

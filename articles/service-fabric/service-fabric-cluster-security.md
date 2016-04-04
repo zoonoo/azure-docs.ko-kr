@@ -81,7 +81,10 @@ Azure 계정에 로그인합니다. Powershell이 어떤 이유로 인해 실패
 Login-AzureRmAccount
 ```
 
-다음 스크립트는 새 리소스 그룹 및/또는 주요 자격 증명 모음이 아직 없는 경우 만듭니다.
+다음 스크립트는 새 리소스 그룹 및/또는 주요 자격 증명 모음이 아직 없는 경우 만듭니다. **참고: 기존 주요 자격 증명 모음을 사용하는 경우 이 스크립트를 사용하여 배포를 지원하도록 구성되어야 합니다.**
+```
+Set-AzureRmKeyVaultAccessPolicy -VaultName <Name of the Vault> -ResourceGroupName <string> -EnabledForTemplateDeployment -EnabledForDeployment
+```
 
 ```
 Invoke-AddCertToKeyVault -SubscriptionId <your subscription id> -ResourceGroupName <string> -Location <region> -VaultName <Name of the Vault> -CertificateName <Name of the Certificate> -Password <Certificate password> -UseExistingCertificate -ExistingPfxFilePath <Full path to the .pfx file>
@@ -222,7 +225,9 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My -FileP
 X.509 디지털 인증서는 클라이언트 및 서버를 인증하고 암호화하고 디지털로 메시지를 서명하는 데 일반적으로 사용됩니다. 이러한 인증서에 대한 자세한 내용은 MSDN 라이브러리의 [인증서 작업](http://msdn.microsoft.com/library/ms731899.aspx)으로 이동합니다.
 
 >[AZURE.NOTE]
-- 프로덕션 워크로드를 실행하는 클러스터에 사용되는 인증서는 올바르게 구성된 Windows Server 인증서 서비스를 사용하여 만들어지거나 승인된 [CA(인증 기관)](https://en.wikipedia.org/wiki/Certificate_authority)에서 획득해야 합니다. - MakeCert.exe와 같은 도구를 사용하여 만든 임시 또는 테스트 인증서를 사용하지 마세요. - 테스트 목적으로만 사용하는 클러스터의 경우 자체 서명된 인증서를 사용하도록 선택할 수 있습니다.
+- 프로덕션 워크로드를 실행하는 클러스터에 사용되는 인증서는 올바르게 구성된 Windows Server 인증서 서비스를 사용하여 만들어지거나 승인된 [CA(인증 기관)](https://en.wikipedia.org/wiki/Certificate_authority)에서 획득해야 합니다.
+- 프로덕션 환경에서 MakeCert.exe와 같은 도구를 사용하여 만든 임시 또는 테스트 인증서를 사용하지 마세요.
+- 테스트 목적으로만 사용하는 클러스터의 경우 자체 서명된 인증서를 사용하도록 선택할 수 있습니다.
 
 ### 서버 인증서 및 클라이언트 인증서
 
@@ -257,4 +262,4 @@ X.509 디지털 인증서는 클라이언트 및 서버를 인증하고 암호�
 [Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png
 [Client-to-Node]: ./media/service-fabric-cluster-security/client-to-node.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

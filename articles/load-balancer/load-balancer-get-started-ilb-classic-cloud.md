@@ -1,7 +1,7 @@
 <properties 
    pageTitle="클래식 배포 모델에서 클라우드 서비스를 위한 내부 부하 분산 장치 만들기 | Microsoft Azure"
    description="클래식 배포 모델에서 PowerShell을 사용하여 내부 부하 분산 장치를 만드는 방법에 대해 알아봅니다."
-   services="load-balancer-ilb"
+   services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
    manager="carolz"
@@ -91,4 +91,4 @@ Visual Studio에서 클라우드 배포용 서비스 구성 파일(.cscfg)을 �
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -20,11 +20,11 @@
 
 기록 데이터를 별도 테이블에 저장 하는 경우 전체 테이블을 마이그레이션할 스트레치 데이터베이스를 구성할 수 있습니다. 반면, 테이블이 기록 및 현재 데이터를 포함하는 경우 필터 조건자를 지정하여 마이그레이션할 행을 선택할 수 있습니다. 필터 조건자는 인라인 테이블 값 함수를 호출해야 합니다. 이 항목은 마이그레이션할 행을 선택하는 인라인 테이블 값 함수를 작성하는 방법을 설명합니다.
 
-CTP 3.1에서 RC0까지 조건자를 지정하는 옵션은 Stretch 마법사에 데이터베이스 사용에 사용할 수 없습니다. 이 옵션과 함께 ALTER TABLE 문을 사용하여 스트레치 데이터베이스를 구성해야 합니다. 자세한 내용은 [ALTER TABLE(Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)을 참조하세요.
+CTP 3.1에서 RC1까지 조건자를 지정하는 옵션은 Stretch 마법사에 데이터베이스 사용에 사용할 수 없습니다. 이 옵션과 함께 ALTER TABLE 문을 사용하여 스트레치 데이터베이스를 구성해야 합니다. 자세한 내용은 [ALTER TABLE(Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)을 참조하세요.
 
 필터 조건자를 지정하지 않으면 전체 테이블이 마이그레이션됩니다.
 
-> [! 중요] 제대로 수행되지 않는 필터 조건자를 제공하는 경우 데이터 마이그레이션도 제대로 수행되지 않습니다. 스트레치 데이터베이스는 CROSS APPLY 연산자를 사용하여 테이블에 필터 조건자를 적용합니다.
+    > If you provide a filter predicate that performs poorly, data migration also performs poorly. Stretch Database applies the filter predicate to the table by using the CROSS APPLY operator.
 
 ## 인라인 테이블 값 함수의 기본 요구 사항
 스트레치 데이터베이스 필터 함수에 필요한 인라인 테이블 값 함수는 다음 예제와 같습니다.
@@ -70,7 +70,7 @@ RETURN	SELECT 1 AS is_eligible
 
 -   함수 매개 변수와 상수 식을 비교합니다. 예: `@column1 < 1000`.
 
-    다음은 *date* 열의 값이 &lt; 1\\/1\\/2016인지 확인하는 예제입니다.
+    다음은 *date* 열의 값이 &lt; 1/1/2016인지 확인하는 예제입니다.
 
     ```tsql
     CREATE FUNCTION dbo.fn_stretchpredicate(@column1 datetime)
@@ -410,4 +410,4 @@ GO
 
 [ALTER TABLE(Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

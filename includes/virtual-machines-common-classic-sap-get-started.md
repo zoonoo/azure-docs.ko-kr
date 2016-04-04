@@ -1,64 +1,62 @@
-Cloud Computing is a widely used term which is gaining more and more importance within the IT industry, from small companies up to large and multinational corporations. Microsoft Azure is the Cloud Services Platform from Microsoft which offers a wide spectrum of new possibilities. Now customers are able to rapidly provision and de-provision applications as Cloud-Services, so they are not limited to technical or budgeting restrictions. Instead of investing time and budget into hardware infrastructure, companies can focus on the application, business processes and its benefits for customers and users.
+클라우드 컴퓨팅은 중소 기업에서 대기업 및 다국적 기업까지 IT 업계 내에서 점점 더 중요해지는 널리 사용되는 용어입니다. Microsoft Azure는 다양한 새로운 가능성을 제공하는 Microsoft의 클라우드 서비스 플랫폼입니다. 이제 고객은 클라우드 서비스로 응용 프로그램을 신속하게 프로비전 및 프로비전 해제할 수 있으므로 기술 또는 예산 제한에 제한되지 않습니다. 하드웨어 인프라에 시간과 예산을 투자하는 대신 기업은 고객 및 사용자를 위한 응용 프로그램, 비즈니스 프로세스 및 그 이점에 집중할 수 있습니다.
 
-With Microsoft Azure Virtual Machine Services, Microsoft offers a comprehensive Infrastructure as a Service (IaaS) platform. SAP NetWeaver based applications are supported on Azure Virtual Machines (IaaS). The whitepapers below  describe how to plan and implement SAP NetWeaver based applications within Microsoft Azure as the platform of choice.
+Microsoft Azure 가상 컴퓨터 서비스와 함께 Microsoft는 포괄적인 IaaS(Infrastructure as a Service) 플랫폼을 제공합니다. SAP NetWeaver 기반 응용 프로그램은 Azure 가상 컴퓨터(IaaS)에서 지원됩니다. 아래 백서는 선택한 플랫폼으로 Microsoft Azure 내에서 SAP NetWeaver 기반 응용 프로그램을 계획하고 구현하는 방법에 대해 설명합니다.
 
-## Planning and Implementation
+## 계획 및 구현
 
-Title: SAP NetWeaver on Azure Virtual Machines – Planning and Implementation Guide
+제목: Azure 가상 컴퓨터에서 SAP NetWeaver - 계획 및 구현 가이드
 
-Summary: This is the paper to start with if you are thinking about running SAP NetWeaver in Azure Virtual Machines. This planning and implementation guide will help you evaluate whether an existing or planned SAP NetWeaver-based system can be deployed to an Azure Virtual Machines environment. It covers multiple SAP NetWeaver deployment scenarios, and includes SAP configurations that are specific to Azure. The paper lists and describes all the necessary configuration information you’ll need on the SAP/Azure side to run a hybrid SAP landscape. Measures you can take to ensure high availability of SAP NetWeaver-based systems on IaaS are also covered.
+요약: Azure 가상 컴퓨터에서 SAP NetWeaver를 실행하는 것을 고려하는 경우 시작하기 위한 문서입니다. 이 계획 및 구현 가이드를 사용하면 기존 또는 계획된 SAP NetWeaver 기반 시스템을 Azure 가상 컴퓨터 환경에 배포할 수 있는지 여부를 평가할 수 있습니다. 여러 SAP NetWeaver 배포 시나리오를 다루며 Azure에 고유한 SAP 구성을 포함합니다. 문서는 SAP/Azure 측면에서 하이브리드 SAP 환경을 실행하는 데 필요한 모든 구성 정보를 나열하고 설명합니다. IaaS에서 SAP NetWeaver 기반 시스템의 고가용성을 보장하기 위해 수행할 수 있는 측정값에 대해서도 다룹니다.
 
-Updated: August 2015
+업데이트 날짜: 2015년 8월
 
-[Download this guide now](http://go.microsoft.com/fwlink/?LinkId=397963)
-## Deployment
-Title: SAP NetWeaver on Azure Virtual Machines – Deployment Guide
+[지금 이 가이드 다운로드](http://go.microsoft.com/fwlink/?LinkId=397963)
+## 배포
+제목: Azure 가상 컴퓨터에서 SAP NetWeaver - 배포 가이드
 
-Summary: This document provides procedural guidance for deploying SAP NetWeaver software to virtual machines in Azure. This paper focuses on three specific deployment scenarios, with an emphasis on enabling the Azure Monitoring Extensions for SAP, including troubleshooting recommendations for the Azure Monitoring Extensions for SAP. This paper assumes that you’ve read the planning and implementation guide.
+요약: 이 문서에서는 Azure의 가상 컴퓨터에 SAP NetWeaver 소프트웨어를 배포하기 위한 절차 지침을 제공합니다. 이 문서에서는 SAP용 Azure 모니터링 확장에 대한 권장 문제 해결 방법을 비롯한 SAP용 Azure 모니터링 확장 사용을 중점적으로 세 가지 특정 배포 시나리오에 중점을 둡니다. 이 문서에서는 계획 및 구현 가이드를 읽은 것을 가정합니다.
 
-Updated: September 2015
+업데이트 날짜: 2015년 9월
 
-[Download this guide now](http://go.microsoft.com/fwlink/?LinkId=397964)
+[지금 이 가이드 다운로드](http://go.microsoft.com/fwlink/?LinkId=397964)
 
-## SAP DBMS on Azure
-Title: SAP DBMS in Azure Deployment Guide
+## Azure에서 SAP DBMS
+제목: Azure 배포 가이드의 SAP DBMS
 
-Summary: This paper covers planning and implementation considerations for the DBMS systems that should run in conjunction with SAP. In the first part, general considerations are listed and presented. The following parts of the paper relate to deployments of different DBMS in Azure that are supported by SAP. Different DBMS presented are SQL Server, SAP ASE, Oracle, SAP MaxDB and IBM DB2 for Linux, Unix and Windows. In those specific parts considerations you have to account for when you are running SAP systems on Azure in conjunction with those DBMS are discussed. Subjects like backup and high availability methods that are supported by the different DBMS on Azure are presented for the usage with SAP applications.
+요약: 이 문서에서는 SAP와 함께 실행해야 하는 DBMS 시스템에 대한 계획 및 구현 고려 사항을 살펴봅니다. 첫 번째 부분에서는 일반적인 고려 사항이 나열되고 표시됩니다. 문서의 다음 부분은 SAP에서 지원되는 Azure의 여러 DBMS 배포와 관련되어 있습니다. 제공된 다른 DBMS는 Linux, Unix 및 Windows용 SQL Server, SAP ASE, Oracle, SAP MaxDB 및 IBM DB2입니다. 해당 특정 부분 고려 사항에서 설명된 DBMS와 함께 Azure에서 SAP를 실행 중인 경우에 대해 설명해야 합니다. Azure의 각 DMS에서 지원되는 백업 및 고가용성 방법과 같은 주제가 SAP 응용 프로그램과 함께 사용하기 위해 표시됩니다.
 
-Updated: December 2015
+업데이트한 날짜: 2015년 12월
 
-[Download this guide now](http://go.microsoft.com/fwlink/?LinkId=397965)
+[지금 이 가이드 다운로드](http://go.microsoft.com/fwlink/?LinkId=397965)
 
-## SAP NetWeaver on Azure
+## Azure에서 SAP NetWeaver
 
-Title: SAP NetWeaver - Building an Azure based Disaster Recovery Solution
+제목: SAP NetWeaver - Azure 기반 재해 복구 솔루션 빌드
 
-Summary:This document provides a step-by-step guidance for building an Azure based Disaster Recovery solution for SAP NetWeaver. The solution described assumes that the SAP landscape is running virtualized on-premise based on Hyper-V. In the first part of the document Azure Site Recovery (ASR) services are introduced in its components. The second part of the document describes specifics for SAP NetWeaver based landscapes. Possibilities of using ASR with SAP NetWeaver application instances and SAP Central Services are discussed and described. A focus of the second part is leveraging ASR for SAP Central Services which are protected with windows Server Failover Cluster configurations.
+요약: 이 문서는 SAP NetWeaver용 Azure 기반 재해 복구 솔루션 빌드에 대한 단계별 지침을 제공합니다. 설명된 솔루션은 SAP 환경이 Hyper-V에 따라 가상화된 온-프레미스를 실행하고 있는 것을 가정합니다. 문서의 첫 번째 부분에서 ASR(Azure Site Recovery) 서비스가 해당 구성 요소에서 도입됩니다. 문서의 두 번째 부분에서는 SAP NetWeaver 기반 환경에 대한 세부 사항을 설명합니다. SAP NetWeaver 응용 프로그램 인스턴스 및 SAP Central Services와 함께 ASR 사용에 대한 가능성을 소개하고 설명합니다. 두 번째 부분의 초점은 Windows Server 장애 조치 클러스터 구성을 통해 보호되는 SAP Central Services에 대한 ASR 활용입니다.
 
-Updated: September 2015
+업데이트 날짜: 2015년 9월
 
-[Download this guide now](http://go.microsoft.com/fwlink/?LinkID=521971)
+[지금 이 가이드 다운로드](http://go.microsoft.com/fwlink/?LinkID=521971)
 
-## SAP NetWeaver on Azure - HA
+## Azure에서 SAP NetWeaver - HA
 
-Title: SAP NetWeaver on Azure - Clustering SAP ASCS/SCS Instances using Windows Server Failover Cluster on Azure with SIOS DataKeeper
+제목: Azure에서 SAP NetWeaver - SIOS Datakeeper를 통해 Azure에서 Windows Server 장애 조치 클러스터를 사용하여 SAP ASCS/SCS 인스턴스 클러스터링
 
-Summary: 'This document describes how to use SIOS DataKeeper to set up a highly available SAP ASCS/SCS configuration on Azure. SAP protects their single point of failure components like SAP ASCS/SCS or Enqueue Replication Services with Windows Server Failover Cluster configurations that require shared disks. These SAP components are essential for the functionality of a SAP system. Therefore high-availability functionality needs to be put in place to make sure that those components can sustain a failure of a server or a VM as done with Windows Cluster configurations for bare-metal and Hyper-V environments. As of August 2015 Azure on itself cannot provide shared disks that would be required for the Windows based highly available configurations required for these critical SAP components. However with the help of the product DataKeeper by SIOS, Windows Server Failover Cluster configurations as needed for SAP ASCS/SCS can be built on the Azure IaaS platform. This paper describes in a step-to-step approach how to install a Windows Server Failover Cluster configuration with shared disk provided by SIOS Datakeeper in Azure. The paper will explain details in configurations on the Azure, Windows and SAP side which make the high availability configuration work in an optimal manner. The paper complements the SAP Installation Documentation and SAP Notes which represent the primary resources for installations and deployments of SAP software on given platforms.
+요약: '이 문서에서는 SIOS DataKeeper를 사용하여 Azure에서 고가용성 SAP ASCS/SCS 구성을 설정하는 방법을 설명합니다. SAP는 공유 디스크를 필요로 하는 Windows Server 장애 조치 클러스터 구성으로 SAP ASCS/SCS 또는 Enqueue Replication Services와 같은 오류 구성 요소의 단일 지점을 보호합니다. 이러한 SAP 구성 요소는 SAP 시스템의 기능에 필수적입니다. 따라서 고가용성 기능은 해당 구성 요소가 나금속 및 Hyper-V 환경에 대한 Windows 클러스터 구성으로 실행된 것처럼 서버 또는 VM의 오류를 유지할 수 있는지 확인하기 위해 작동되어야 합니다. 2015년 8월을 기준으로 Azure 자체는 중요한 SAP 구성 요소에 필요한 Windows 기반 고가용성 구성을 위해 필요한 공유 디스크를 제공할 수 없습니다. 그러나 SIOS로 DataKeeper 제품의 도움을 받아 SAP ASCS/SCS의 필요에 따라 Windows Server 장애 조치 클러스터 구성은 Azure IaaS 플랫폼에서 작성할 수 있습니다. 이 문서는 Azure에서 SIOS Datakeeper에서 제공하는 공유 디스크와 Windows Server 장애 조치 클러스터 구성을 설치하는 방법을 단계별 접근 방식으로 설명합니다. 이 문서에서는 고가용성 구성이 최적의 방식으로 작동하는 Azure, Windows와 SAP 측면에서 구성에 대한 세부 정보를 설명합니다. 이 문서는 지정된 플랫폼에서 SAP 소프트웨어 설치 및 배포에 대한 기본 리소스를 나타내는 SAP 설치 설명서 및 SAP 정보를 보완합니다.
 
-Updated: August 2015
+업데이트 날짜: 2015년 8월
 
-[Download this guide now](http://go.microsoft.com/fwlink/?LinkId=613056)
+[지금 이 가이드 다운로드](http://go.microsoft.com/fwlink/?LinkId=613056)
 
-## SAP NetWeaver on Azure SUSE Linux Virtual Machines
+## Azure SUSE Linux 가상 컴퓨터에서 SAP NetWeaver
 
-Title: Testing SAP NetWeaver on Microsoft Azure SUSE Linux VMs
+제목: Microsoft Azure SUSE Linux VM에서 SAP NetWeaver 테스트
 
-Summary: There is no official SAP support for running SAP NetWeaver on Azure Linux VMs at this point in time. Nevertheless customers
-might want to do some testing or might consider to run SAP demo or training systems on Azure Linux VMs as long as there is no need for contacting SAP support. 
-This article should help setting up Azure SUSE Linux VMs for running SAP and gives some basic hints in order to avoid common potential pitfalls.
+요약: 현 시점에는 Azure Linux VM에서의 SAP NetWeaver 실행에 대해 SAP에서 공식적으로 지원하지 않습니다. 그렇기는 하지만 고객이 SAP 지원에 문의할 필요가 없다면 Azure Linux VM에서 일부 테스트를 수행하거나 SAP 데모 또는 교육 시스템 실행을 고려할 수 있습니다. 이 문서는 SAP를 실행할 수 있도록 Azure SUSE Linux VM을 설정하는 데 도움을 주며 일반적으로 일어날 수 있는 위험을 방지하기 위한 몇 가지 기본적인 힌트를 제공합니다.
 
-Updated: December 2015
+업데이트한 날짜: 2015년 12월
 
-[This article can be found here](virtual-machines-linux-sap-on-suse-quickstart.md)
+[이 문서는 여기서 확인할 수 있습니다.](virtual-machines-linux-sap-on-suse-quickstart.md)
 
-
+<!---HONumber=AcomDC_0323_2016-->

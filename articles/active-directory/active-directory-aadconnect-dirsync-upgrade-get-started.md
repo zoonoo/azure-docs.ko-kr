@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="02/16/2016"
+   ms.date="03/16/2016"
    ms.author="shoatman;billmath"/>
 
 # Azure AD Connect: Microsoft Azure Active Directory 동기화(DirSync) 업그레이드
@@ -96,7 +96,7 @@
 5. Azure AD에 연결하는 데 현재 사용하는 계정의 암호를 제공합니다. DirSync에서 현재 사용한 계정이어야 합니다. ![Azure AD 자격 증명 입력](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ConnectToAzureAD.png) 오류가 발생하고 연결에 문제가 있는 경우 [연결 문제 해결](active-directory-aadconnect-troubleshoot-connectivity.md)을 참조하세요.
 6. Active Directory에 대한 엔터프라이즈 관리자 계정을 지정합니다. ![ADDS 자격 증명 입력](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ConnectToADDS.png)
 7. 이제 구성할 준비가 되었습니다. **업그레이드**를 클릭하면 DirSync가 제거되고 Azure AD Connect가 구성되어 동기화를 시작합니다. ![구성할 준비 완료](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ReadyToConfigure.png)
-
+8. 설치가 완료된 후 로그아웃하고 Synchronization Service Manager, 동기화 규칙 편집기 또는 다른 구성의 변경을 시도하기 전에 Windows에 다시 로그인합니다.
 
 ## 병렬 배포
 
@@ -145,6 +145,8 @@
 7. **다음**을 클릭합니다.
 8. **구성 준비 완료** 페이지에서 **구성이 완료되자마자 동기화 프로세스를 시작합니다.**를 선택한 상태로 둡니다. 서버가 [준비 모드](active-directory-aadconnectsync-operations.md#staging-mode)이므로 이번에는 변경 내용을 Azure AD로 내보내지 않습니다.
 9. **Install**을 클릭합니다.
+10. 설치가 완료된 후 로그아웃하고 Synchronization Service Manager, 동기화 규칙 편집기 또는 다른 구성의 변경을 시도하기 전에 Windows에 다시 로그인합니다.
+
 
 >[AZURE.NOTE] Windows Server Active Directory와 Azure Active Directory 간의 동기화가 시작되지만 Azure AD로 내보내는 변경 내용은 없습니다. 하나의 동기화 도구만이 변경 내용을 한 번에 내보낼 수 있습니다. 이를 [준비 모드](active-directory-aadconnectsync-operations.md#staging-mode)라고 합니다.
 
@@ -169,7 +171,7 @@ Azure AD로 내보낼 변경 내용을 확인하고 검사하려는 경우 [준�
 
 ### DirSync 제거(이전 서버)
 
-- **프로그램 및 기능**에서 **Microsoft Azure Active Directory 동기화 도구** 찾기
+- **프로그램 및 기능**에서 **Microsoft Azure Active Directory 동기화 도구**
 - **Microsoft Azure Active Directory 동기화 도구** 제거
 - 제거를 완료하는 데 최대 15분이 걸릴 수 있습니다.
 
@@ -197,4 +199,4 @@ Azure AD Connect를 설치했으므로 [설치를 확인하고 라이선스를 �
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

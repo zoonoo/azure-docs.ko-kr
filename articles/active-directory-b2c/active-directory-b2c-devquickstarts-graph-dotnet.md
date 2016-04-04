@@ -5,7 +5,7 @@
 	documentationCenter=".net"
 	authors="dstrockis"
 	manager="msmbaldwin"
-	editor=""/>
+	editor="bryanla"/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="03/22/2016"
 	ms.author="dastrock"/>
 
 # Azure AD B2C 미리 보기: Graph API 사용
@@ -171,7 +171,7 @@ ADAL `AuthenticationContext.AcquireToken(...)` 메서드를 호출하여 Graph A
 Graph API에서 사용자의 목록을 가져오거나 특정 사용자를 가져오려는 경우 `/users` 끝점에 HTTP `GET` 요청을 보낼 수 있습니다. 테넌트의 모든 사용자에 대한 요청은 다음과 같습니다.
 
 ```
-GET https://graph.windows.net/contosob2c.onmicrosoft.com/users?api-version=beta
+GET https://graph.windows.net/contosob2c.onmicrosoft.com/users?api-version=1.6
 Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0IyZGNWQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJod...
 ```
 
@@ -184,11 +184,7 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0
 유의해야 할 두 가지 중요한 사항은 다음과 같습니다.
 
 - ADAL을 통해 획득한 액세스 토큰은 `Bearer` 체계를 사용하여 `Authorization` 헤더에 추가됩니다.
-- B2C 테넌트의 경우 쿼리 매개 변수 `api-version=beta`를 사용해야 합니다.
-
-
-> [AZURE.NOTE]
-	Azure AD Graph API 베타 버전은 미리 보기 기능을 제공합니다. 베타 버전에 대한 자세한 내용은 [이 Graph API 팀 블로그 게시물](http://blogs.msdn.com/b/aadgraphteam/archive/2015/04/10/graph-api-versioning-and-the-new-beta-version.aspx)을 참조하세요.
+- B2C 테넌트의 경우 쿼리 매개 변수 `api-version=1.6`를 사용해야 합니다.
 
 이러한 세부 사항은 모두 `B2CGraphClient.SendGraphGetRequest(...)` 메서드에서 처리됩니다.
 
@@ -197,9 +193,9 @@ public async Task<string> SendGraphGetRequest(string api, string query)
 {
 	...
 
-	// For B2C user management, be sure to use the beta Graph API version.
+	// For B2C user management, be sure to use the 1.6 Graph API version.
 	HttpClient http = new HttpClient();
-	string url = "https://graph.windows.net/" + tenant + api + "?" + "api-version=beta";
+	string url = "https://graph.windows.net/" + tenant + api + "?" + "api-version=1.6";
 	if (!string.IsNullOrEmpty(query))
 	{
 		url += "&" + query;
@@ -218,7 +214,7 @@ public async Task<string> SendGraphGetRequest(string api, string query)
 B2C 테넌트에 사용자 계정을 만들 경우 `/users` 끝점에 HTTP `POST` 요청을 보낼 수 있습니다.
 
 ```
-POST https://graph.windows.net/contosob2c.onmicrosoft.com/users?api-version=beta
+POST https://graph.windows.net/contosob2c.onmicrosoft.com/users?api-version=1.6
 Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0IyZGNWQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJod...
 Content-Type: application/json
 Content-Length: 338
@@ -227,13 +223,13 @@ Content-Length: 338
 	// All of these properties are required to create consumer users.
 
 	"accountEnabled": true,
-	"alternativeSignInNamesInfo": [             // controls which identifier the user uses to sign in to the account
+	"signInNames": [                            // controls which identifier the user uses to sign in to the account
 		{
 			"type": "emailAddress",             // can be 'emailAddress' or 'userName'
 			"value": "joeconsumer@gmail.com"
 		}
 	],
-	"creationType": "NameCoexistence",          // always set to 'NameCoexistence'
+	"creationType": "LocalAccount",            // always set to 'LocalAccount'
 	"displayName": "Joe Consumer",				// a value that can be used for displaying to the end user
 	"mailNickname": "joec",						// an email alias for the user
 	"passwordProfile": {
@@ -244,7 +240,7 @@ Content-Length: 338
 }
 ```
 
-이 요청의 모든 속성은 소비자 사용자를 만드는 데 필요합니다. `//` 메모는 설명을 위해 포함되었습니다. 실제 요청에 포함되지 않습니다.
+이 요청의 이러한 대부분의 속성은 소비자 사용자를 만드는 데 필요합니다. 자세히 알아보려면 [여기](https://msdn.microsoft.com/library/azure/ad/graph/api/users-operations#CreateLocalAccountUser)를 클릭하세요. `//` 메모는 그림에 포함되었습니다. 실제 요청에 포함되지 않습니다.
 
 요청을 확인하려면 다음 명령 중 하나를 실행합니다.
 
@@ -253,20 +249,23 @@ Content-Length: 338
 > B2C Create-User ..\..\..\usertemplate-username.json
 ```
 
-`Create-User` 명령은 .json 파일을 입력 매개 변수로 사용합니다. 이는 사용자 개체의 JSON 표현을 포함합니다. 샘플 코드에는 두 개의 샘플 .json 파일인 `usertemplate-email.json`와 `usertemplate-username.json`이 있습니다. 필요에 따라 이러한 파일을 수정할 수 있습니다. 위의 필수 필드 외에도 사용할 수 있는 여러 가지 선택적 필드가 이러한 파일에 포함됩니다. 선택적 필드에 대한 세부 정보는 [Azure AD Graph API 엔터티 참조](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#UserEntity)에서 찾을 수 있습니다.
+`Create-User` 명령은 .json 파일을 입력 매개 변수로 사용합니다. 이는 사용자 개체의 JSON 표현을 포함합니다. 샘플 코드에는 두 개의 샘플 .json 파일인 `usertemplate-email.json`과 `usertemplate-username.json`이 있습니다. 필요에 따라 이러한 파일을 수정할 수 있습니다. 위의 필수 필드 외에도 사용할 수 있는 여러 가지 선택적 필드가 이러한 파일에 포함됩니다. 선택적 필드에 대한 세부 정보는 [Azure AD Graph API 엔터티 참조](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#UserEntity)에서 찾을 수 있습니다.
 
-이 게시 요청이 `B2CGraphClient.SendGraphPostRequest(...)`에서 생성되는 방법을 확인할 수 있습니다.
+이 POST 요청이 `B2CGraphClient.SendGraphPostRequest(...)`에서 생성되는 방법을 확인할 수 있습니다.
 
 - 액세스 토큰을 요청의 `Authorization` 헤더에 연결합니다.
-- `api-version=beta`을 설정합니다.
+- `api-version=1.6`을 설정합니다.
 - 요청 본문에 JSON 사용자 개체를 포함합니다.
+
+> [AZURE.NOTE]
+기존 사용자 저장소에서 마이그레이션하려는 계정에 [Azure AD B2C에 의해 적용되는 강력한 암호 강도](https://msdn.microsoft.com/library/azure/jj943764.aspx)보다 낮은 강도의 암호가 지정되어 있으면 `passwordPolicies` 속성의 `DisableStrongPassword` 값을 사용하여 강력한 암호 요구 사항을 사용하지 않도록 설정할 수 있습니다. 예를 들어 다음과 같이 위에 제공된 사용자 만들기 요청을 수정할 수 있습니다. `"passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"`.
 
 ### 소비자 사용자 계정 업데이트
 
 사용자 개체를 업데이트할 때 사용자 개체를 만드는 작업과 프로세스가 비슷합니다. 하지만 이 프로세스는 HTTP `PATCH` 메서드를 사용합니다.
 
 ```
-PATCH https://graph.windows.net/contosob2c.onmicrosoft.com/users/<user-object-id>?api-version=beta
+PATCH https://graph.windows.net/contosob2c.onmicrosoft.com/users/<user-object-id>?api-version=1.6
 Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0IyZGNWQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJod...
 Content-Type: application/json
 Content-Length: 37
@@ -276,7 +275,7 @@ Content-Length: 37
 }
 ```
 
-JSON 파일을 새 데이터로 업데이트하여 사용자를 업데이트하려고 합니다. `B2CGraphClient`을 사용하여 이러한 명령 중 하나를 실행할 수 있습니다.
+JSON 파일을 새 데이터로 업데이트하여 사용자를 업데이트하려고 합니다. `B2CGraphClient`를 사용하여 이러한 명령 중 하나를 실행할 수 있습니다.
 
 ```
 > B2C Update-User <user-object-id> ..\..\..\usertemplate-email.json
@@ -285,12 +284,30 @@ JSON 파일을 새 데이터로 업데이트하여 사용자를 업데이트하�
 
 이 요청을 보내는 방법에 대한 세부 정보는 `B2CGraphClient.SendGraphPatchRequest(...)` 메서드를 검사합니다.
 
+### 사용자 검색
+
+여러 가지 방법으로 B2C 테넌트에서 사용자를 검색할 수 있습니다. 하나는 사용자의 개체 ID를 사용하는 방법이고 다른 하나는 사용자의 로그인 식별자(예: `signInNames` 속성)를 사용하는 방법입니다.
+
+특정 사용자를 검색하려면 다음 명령 중 하나를 실행합니다.
+
+```
+> B2C Get-User <user-object-id>
+> B2C Get-User <filter-query-expression>
+```
+
+다음은 몇 가지 예입니다.
+
+```
+> B2C Get-User 2bcf1067-90b6-4253-9991-7f16449c2d91
+> B2C Get-User $filter=signInNames/any(x:x/value%20eq%20%27joeconsumer@gmail.com%27)
+```
+
 ### 사용자 삭제
 
 사용자를 삭제하는 과정은 간단합니다. HTTP `DELETE` 메서드를 사용하고 올바른 개체 ID로 URL을 생성합니다.
 
 ```
-DELETE https://graph.windows.net/contosob2c.onmicrosoft.com/users/<user-object-id>?api-version=beta
+DELETE https://graph.windows.net/contosob2c.onmicrosoft.com/users/<user-object-id>?api-version=1.6
 Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0IyZGNWQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJod...
 ```
 
@@ -310,7 +327,7 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0
 
 B2C 테넌트에서 사용자 지정 특성을 정의하려면 [B2C 미리 보기 사용자 지정 특성 참조](active-directory-b2c-reference-custom-attr.md)를 참조하세요.
 
-`B2CGraphClient`을 사용하여 B2C 테넌트에 정의된 사용자 지정 특성을 볼 수 있습니다.
+`B2CGraphClient`를 사용하여 B2C 테넌트에 정의된 사용자 지정 특성을 볼 수 있습니다.
 
 ```
 > B2C Get-B2C-Application
@@ -335,21 +352,19 @@ B2C 테넌트에서 사용자 지정 특성을 정의하려면 [B2C 미리 보�
 }
 ```
 
-`extension_55dc0861f9a44eb999e0a8a872204adb_Jersey_Number`과 같은 전체 이름을 사용자 개체의 속성으로 사용할 수 있습니다. .json 파일을 새 속성 및 속성에 대한 값으로 업데이트한 다음 실행합니다.
+`extension_55dc0861f9a44eb999e0a8a872204adb_Jersey_Number`와 같은 전체 이름을 사용자 개체의 속성으로 사용할 수 있습니다. .json 파일을 새 속성 및 속성에 대한 값으로 업데이트한 다음 실행합니다.
 
 ```
 > B2C Update-User <object-id-of-user> <path-to-json-file>
 ```
 
-`B2CGraphClient`을 사용하여 B2C 테넌트 사용자를 프로그래밍 방식으로 관리할 수 있는 서비스 응용 프로그램이 있습니다. `B2CGraphClient`는 고유한 응용 프로그램 ID를 사용하여 Azure AD Graph API에 대해 인증합니다. 또한 클라이언트 암호를 사용하여 토큰을 획득합니다. 응용 프로그램에 이 기능을 통합할 때 B2C 앱에 대한 몇 가지 주요 사항을 기억해야 합니다.
+`B2CGraphClient`를 사용하여 B2C 테넌트 사용자를 프로그래밍 방식으로 관리할 수 있는 서비스 응용 프로그램이 있습니다. `B2CGraphClient`는 고유한 응용 프로그램 ID를 사용하여 Azure AD Graph API에 인증합니다. 또한 클라이언트 암호를 사용하여 토큰을 획득합니다. 응용 프로그램에 이 기능을 통합할 때 B2C 앱에 대한 몇 가지 주요 사항을 기억해야 합니다.
 
 - 테넌트에서 응용 프로그램에 적절한 권한을 부여해야 합니다.
 - 이제 ADAL v2를 사용하여 액세스 토큰을 가져와야 합니다. (또한 라이브러리를 사용하지 않고 직접 프로토콜 메시지를 보낼 수 있습니다.)
-- Graph API를 호출할 때 [`api-version=beta`](http://blogs.msdn.com/b/aadgraphteam/archive/2015/04/10/graph-api-versioning-and-the-new-beta-version.aspx)를 사용합니다.
+- Graph API를 호출할 때 `api-version=1.6`을 사용합니다.
 - 소비자 사용자를 만들고 업데이트하는 경우 위에서 설명한 대로 필수적인 몇 가지 속성이 있습니다.
-
-> [AZURE.IMPORTANT] B2C 앱에서 Azure AD Graph API를 사용할 때 Azure AD B2C의 기반이 되는 디렉터리 서비스의 복제 특성을 설명해야 합니다. (자세한 내용은 [이 문서](http://blogs.technet.com/b/ad/archive/2014/09/02/azure-ad-under-the-hood-of-our-geo-redundant-highly-available-geo-distributed-cloud-directory.aspx)를 참조합니다.) 소비자가 **등록** 정책을 사용하여 B2C 앱에 등록한 후에 즉시 앱에서 Azure AD Graph API를 사용하여 사용자 개체를 읽으려고 하는 경우 해당 개체를 사용할 수 없습니다. 복제 프로세스가 완료될 때까지 몇 초 동안 기다려야 합니다. 일반 공급 시에 Azure AD Graph API 및 디렉터리 서비스에서 제공하는 "읽기-쓰기 정합성 보장"에 대한 보다 구체적인 지침을 게시할 예정입니다.
 
 B2C 테넌트의 Graph API를 사용하여 수행하려는 작업에 대한 질문이나 요청이 있는 경우 이 문서 또는 파일에 GitHub 코드 샘플 리포지토리의 문제에 대한 의견을 남겨주세요.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

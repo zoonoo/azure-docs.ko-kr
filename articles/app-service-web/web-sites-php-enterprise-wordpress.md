@@ -3,7 +3,7 @@
 	description="Azure 앱 서비스에서 엔터프라이즈급 WordPress 사이트를 호스트하는 방법에 대해 알아봅니다."
 	services="app-service\web"
 	documentationCenter=""
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="web"
 	ms.date="01/26/2016"
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 #Azure 앱 서비스의 엔터프라이즈급 WordPress
 
@@ -260,8 +260,8 @@ WordPress 사이트가 만들어지거나 마이그레이션되면 다음 정보
 [monitor]: web-sites-monitor.md
 [log]: web-sites-enable-diagnostic-log.md
 [httpscustomdomain]: web-sites-configure-ssl-certificate.md
-[mysqlwindows]: ../virtual-machines-mysql-windows-server-2008r2.md
-[mysqllinux]: ../virtual-machines-linux-mysql-use-opensuse.md
+[mysqlwindows]: ../virtual-machines-windows-classic-mysql-2008r2.md
+[mysqllinux]: ../virtual-machines-linux-classic-mysql-on-opensuse.md
 [cge]: http://www.mysql.com/products/cluster/
 [websitepricing]: /pricing/details/app-service/
 [export]: http://en.support.wordpress.com/export/
@@ -282,4 +282,4 @@ WordPress 사이트가 만들어지거나 마이그레이션되면 다음 정보
 [cdn]: ../cdn-how-to-use.md
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -49,7 +49,7 @@ Azure HDInsight에 응용 프로그램을 인증하려면 자체 서명된 인�
 
 각각의 Azure 구독은 구독 ID라는 GUID 값으로 식별됩니다. 이 값을 찾으려면 다음 단계를 이용합니다.
 
-1. [Azure 포털] [미리 보기 포털]을 방문 합니다.
+1. [Azure 포털][preview-portal]을 방문합니다.
 
 2. 포털 왼쪽의 명령 모음에서 __모두 찾아보기__를 선택한 다음 __찾아보기__ 블레이드에서 __구독__을 선택합니다.
 
@@ -64,23 +64,23 @@ Azure HDInsight에 응용 프로그램을 인증하려면 자체 서명된 인�
 3. 새 프로젝트에서 다음 값을 입력하거나 선택합니다.
 
 	<table>
-<tr>
-<th>속성</th>
-<th>값</th>
-</tr>
-<tr>
-<th>Category</th>
-<th>Templates/Visual C#/Windows</th>
-</tr>
-<tr>
-<th>Template</th>
-<th>Console Application</th>
-</tr>
-<tr>
-<th>이름</th>
-<th>SubmitPigJob</th>
-</tr>
-</table>
+	<tr>
+	<th>속성</th>
+	<th>값</th>
+	</tr>
+	<tr>
+	<th>Category</th>
+	<th>Templates/Visual C#/Windows</th>
+	</tr>
+	<tr>
+	<th>Template</th>
+	<th>Console Application</th>
+	</tr>
+	<tr>
+	<th>이름</th>
+	<th>SubmitPigJob</th>
+	</tr>
+	</table>
 4. **확인**을 클릭하여 프로젝트를 만듭니다.
 5. **도구** 메뉴에서 **라이브러리 패키지 관리자** 또는 **Nuget 패키지 관리자**를 선택한 다음 **패키지 관리자 콘솔**을 선택합니다.
 6. 콘솔에서 다음 명령을 실행하여 .NET SDK 패키지를 설치합니다.
@@ -122,7 +122,6 @@ Azure HDInsight에 응용 프로그램을 인증하려면 자체 서명된 인�
                     // Define the Pig job
                     var parameters = new PigJobSubmissionParameters()
                     {
-                        UserName = ExistingClusterUsername,
                         Query = queryString,
                     };
         
@@ -155,7 +154,7 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 내용입니�
 
 * [HDInsight에서 Hadoop과 Hive 사용](hdinsight-use-hive.md)
 
-* [HDInsight에서 Hadoop로 MapReduce 사용](hdinsight-use-mapreduce.md)
-[미리 보기 포털]: https://portal.azure.com/
+* [HDInsight에서 Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
+[preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

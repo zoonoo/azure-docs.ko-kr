@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="03/22/2016" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache 샘플 
@@ -41,9 +41,7 @@
 
 [Azure Redis Cache를 Python과 함께 사용하는 방법](cache-python-get-started.md)에서는 Python과 [redis-py](https://github.com/andymccurdy/redis-py) 클라이언트를 사용하여 Azure Redis Cache를 시작하는 방법을 보여 줍니다.
 
-[PHP 예](https://msdn.microsoft.com/library/azure/dn690470.aspx#PHPExample)에서는 Azure Redis Cache를 PHP 및 [predis](https://github.com/nrk/predis) 클라이언트와 함께 사용하는 방법을 보여 줍니다.
-
-[캐시에서 .NET 개체 사용](https://msdn.microsoft.com/library/azure/dn690521.aspx#Objects)에서는 Azure Redis Cache 인스턴스에서 읽고 쓸 수 있도록 .NET 개체를 직렬화하는 한 가지 방법을 보여 줍니다.
+[캐시에서 .NET 개체 사용](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache)에서는 Azure Redis Cache 인스턴스에서 읽고 쓸 수 있도록 .NET 개체를 직렬화하는 한 가지 방법을 보여 줍니다.
 
 ## Redis Cache를 ASP.NET SignalR에 대한 규모 확장 백플레인으로 사용
 
@@ -76,4 +74,4 @@
 
 [대역폭 모니터](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) 샘플을 사용하면 클라이언트에서 사용 되는 대역폭을 모니터링할 수 있습니다. 대역폭을 측정하려면 캐시 클라이언트 컴퓨터에서 샘플을 실행하고, 캐시를 호출하고, 대역폭 모니터 샘플에서 보고하는 대역폭을 관찰합니다.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

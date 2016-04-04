@@ -38,7 +38,7 @@ Azure 보안 센터는 Azure 리소스의 보안에 대한 향상된 가시성�
 - 데이터 수집 사용.
 - 보안 정책의 일부로 표시될 권장 사항 선택.
 
-현재 정책 권장 사항은 시스템 업데이트, 기준 규칙, 맬웨어 방지 프로그램, [끝점에 대한 ACL](../virtual-machines/virtual-machines-set-up-endpoints.md), 서브넷 및 네트워크 인터페이스의 [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md), SQL 데이터베이스 감사, SQL 데이터베이스 투명한 데이터 암호화 및 웹 응용 프로그램 방화벽에 중점을 두고 있습니다. [보안 정책 설정](security-center-policies.md)은 각 권장 사항 옵션에 대한 설명을 제공합니다.
+현재 정책 권장 사항은 시스템 업데이트, 기준 규칙, 맬웨어 방지 프로그램, [끝점에 대한 ACL](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md), 서브넷 및 네트워크 인터페이스의 [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md), SQL 데이터베이스 감사, SQL 데이터베이스 투명한 데이터 암호화 및 웹 응용 프로그램 방화벽에 중점을 두고 있습니다. [보안 정책 설정](security-center-policies.md)은 각 권장 사항 옵션에 대한 설명을 제공합니다.
 
 ### 권장 사항 모니터링
 보안 정책이 설정되면 보안 센터는 리소스의 보안 상태를 분석하여 잠재적인 취약성을 식별합니다. **보안 센터** 블레이드의 **권장 사항** 타일은 보안 센터에서 식별된 권장 사항의 총 수를 알려 줍니다.
@@ -122,4 +122,4 @@ Azure 보안 센터는 Azure 리소스의 보안에 대한 향상된 가시성�
 [5]: ./media/security-center-recommendations/select-enable-antimalware.png
 [6]: ./media/security-center-recommendations/install-antimalware.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

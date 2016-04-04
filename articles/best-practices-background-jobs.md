@@ -192,7 +192,7 @@ Azure 가상 컴퓨터에서 백그라운드 작업을 배포할지 여부를 �
 ### 자세한 정보
 
 - Azure에서 [가상 컴퓨터](https://azure.microsoft.com/services/virtual-machines/)
-- [Azure 가상 컴퓨터 FAQ](virtual-machines-questions.md)
+- [Azure 가상 컴퓨터 FAQ](virtual-machines/virtual-machines-linux-classic-faq.md)
 
 ## 디자인 고려 사항
 
@@ -317,4 +317,4 @@ Azure 가상 컴퓨터에서 백그라운드 작업을 배포할지 여부를 �
 - [Azure 큐 및 서비스 버스 큐 - 비교 및 대조](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - [클라우드 서비스에서 진단 기능을 사용하는 방법](cloud-services-dotnet-diagnostics.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

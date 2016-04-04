@@ -13,7 +13,7 @@ ms.devlang="java"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="01/08/2016"
+ms.date="03/18/2016"
 ms.author="larryfr"/>
 
 #HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 차량 센서 데이터를 처리하는 방법에 대해 알아봅니다.
@@ -48,14 +48,14 @@ Storm 토폴로지에서 사용되는 구성 요소는 다음과 같습니다.
 
 ![Storm 토폴로지](./media/hdinsight-storm-iot-eventhub-documentdb/iottopology.png)
 
-> [AZURE.NOTE]이는 간소화된 다이어그램이며, 솔루션의 각 구성 요소에 여러 인스턴스가 있을 수 있습니다. 예를 들어 토폴로지의 각 구성 요소에 대한 여러 인스턴스는 HDInsight 클러스터의 Storm 내 노드 간에 분산됩니다.
+> [AZURE.NOTE] 이는 간소화된 다이어그램이며, 솔루션의 각 구성 요소에 여러 인스턴스가 있을 수 있습니다. 예를 들어 토폴로지의 각 구성 요소에 대한 여러 인스턴스는 HDInsight 클러스터의 Storm 내 노드 간에 분산됩니다.
 
 ##구현
 
-이 시나리오에 대한 전체 자동화된 솔루션은 GitHub에서 <a href="https://github.com/hdinsight/hdinsight-storm-examples" target="_blank">HDInsight-Storm-Examples</a> 리포지토리의 일부로 제공됩니다. 이 예제를 사용하려면 [IoTExample README.MD](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md)의 단계를 따르세요.
+이 시나리오에 대한 전체 자동화된 솔루션은 GitHub에서 [HDInsight-Storm-Examples](https://github.com/hdinsight/hdinsight-storm-examples) 리포지토리의 일부로 제공됩니다. 이 예제를 사용하려면 [IoTExample README.MD](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md)의 단계를 따르세요.
 
 ## 다음 단계
 
 Storm 토폴로지에 대한 자세한 내용은 [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0323_2016-->
