@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Privileged Identity Management 관리 방법 목차"
+   pageTitle="Azure AD Privileged Identity Management 시작"
    description="Azure Active Directory Privileged Identity Management 확장을 사용하여 권한 있는 ID를 관리하는 방법을 알아봅니다."
    services="active-directory"
    documentationCenter=""
@@ -10,10 +10,10 @@
 <tags
    ms.service="active-directory"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/09/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
 # Azure AD Privileged Identity Management 시작
@@ -37,4 +37,4 @@
 ## 다음 단계
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

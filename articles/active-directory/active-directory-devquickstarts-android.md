@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="03/18/2016"
 	ms.author="brandwe"/>
 
 # Android 응용 프로그램에 Azure AD 통합
@@ -100,7 +100,7 @@ Maven으로 빌드하려면 최상위 수준에서 pom.xml을 사용할 수 있�
   * SDK 19를 사용하여 에뮬레이터를 설치합니다.
   * 리포지토리를 복제한 루트 폴더로 이동합니다.
   * mvn clean install 명령을 실행합니다.
-  * cd samples\hello를 실행하여 빠른 시작 샘플로 디렉터리를 변경합니다.
+  * cd samples\\hello를 실행하여 빠른 시작 샘플로 디렉터리를 변경합니다.
   * mvn android:deploy android:run 명령을 실행합니다.
   * 앱이 시작되는 것을 볼 수 있습니다.
   * 테스트 사용자 자격 증명을 입력하여 사용해 보세요.
@@ -136,7 +136,7 @@ repositories {
         dirs 'libs'
     }
     maven {
-        url "YourLocalMavenRepoPath\.m2\repository"
+        url "YourLocalMavenRepoPath\\.m2\\repository"
     }
 }
 dependencies {
@@ -303,7 +303,7 @@ maven에서 리포지토리로 jar 파일을 가져와 프로젝트의 *libs* �
 
 ### Broker
 
-Broker 구성 요소는 Microsoft Intune의 회사 포털 앱과 함께 전달됩니다. 계정은 계정 관리자에서 생성됩니다. 계정 형식은 "com.microsoft.workaccount"입니다. 단일 SSO 계정만 허용됩니다. 앱 중 하나에 대한 장치 인증을 완료한 후에 이 사용자에 대한 SSO 쿠키를 만듭니다.
+Broker 구성 요소는 Microsoft Intune의 회사 포털 앱과 함께 전달됩니다. 계정은 계정 관리자에서 생성됩니다. 계정 형식은 "com.microsoft.workaccount"입니다. 단일 SSO 계정만 허용됩니다. 앱 중 하나에 대한 장치 챌린지를 완료한 후에 이 사용자에 대한 SSO 쿠키를 만듭니다.
 
 ### 기관 Url 및 ADFS
 
@@ -313,11 +313,11 @@ ADFS는 프로덕션 STS로 인식되지 않으므로 인스턴스 검색을 해
 
 ### 캐시 항목 쿼리
 
-ADAL은 일부 간단한 캐시 쿼리 함수를 사용하여 SharedPrefrecens에서 기본 캐시를 제공합니다. 다음을 사용하여 AuthenticationContext에서 현재 캐시를 가져올 수 있습니다. 
+ADAL은 일부 간단한 캐시 쿼리 함수를 사용하여 SharedPrefrecens에서 기본 캐시를 제공합니다. 다음을 사용하여 AuthenticationContext에서 현재 캐시를 가져올 수 있습니다.
 ```Java
  ITokenCacheStore cache = mContext.getCache();
-``` 
-사용자 지정하려는 경우에도 캐시 구현을 제공할 수 있습니다. 
+```
+사용자 지정하려는 경우 캐시 구현을 제공할 수도 있습니다.
 ```Java
 mContext = new AuthenticationContext(MainActivity.this, authority, true, yourCache);
 ```
@@ -364,7 +364,7 @@ ADAL은 프롬프트 동작을 지정하기 위한 옵션을 제공합니다. �
       writeToLogFile(getApplicationContext(), tag +":" + message + "-" + additionalMessage);
      }
  }
- ``` 
+ ```
 아래와 같이 사용자 지정 로그 파일에 메시지를 쓸 수 있습니다. 그러나 장치에서 로그를 얻는 표준 방법은 없습니다. 이 작업에 도움이 되는 몇 가지 서비스가 있습니다. 또한 서버에 파일을 보내는 것과 같은 자체 방법을 개발할 수도 있습니다.
 
 ```Java
@@ -386,7 +386,7 @@ private syncronized void writeToLogFile(Context ctx, String msg) {
 + 정보(정보 제공용)
 + 자세한 정보 표시(추가 정보)
 
-다음과 같이 로그 수준을 설정할 수 있습니다. 
+다음과 같이 로그 수준을 설정할 수 있습니다.
 ```Java
 Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
  ```
@@ -395,8 +395,8 @@ Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
 
  ```
   adb logcat > "C:\logmsg\logfile.txt"
- ``` 
-adb cmds에 대한 추가 예제: https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
+ ```
+ adb cmds에 대한 추가 예제: https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
 
 #### 네트워크 추적
 
@@ -415,19 +415,19 @@ Fiddler는 가장 쉬운 HTTP 추적 도구입니다. 다음 링크에서 ADAL �
 
 ADAL은 기본적으로 토큰을 암호화한 후 SharedPreferences에 저장합니다. StorageHelper 클래스를 확인하여 세부 정보를 볼 수 있습니다. Android에서는 개인 키의 보안 저장소인 4.3(API18)용 AndroidKeyStore를 도입했습니다. ADAL은 API18 이상에 이 저장소를 사용합니다. 더 낮은 SDK 버전에 ADAL을 사용하려는 경우 AuthenticationSettings.INSTANCE.setSecretKey에서 비밀 키를 제공해야 합니다.
 
-### Oauth2 전달자 과제
+### Oauth2 전달자 챌린지
 
-AuthenticationParameters 클래스는 authorization_uri Oauth2 전달자 인증을 가져오기 위한 기능을 제공합니다.
+AuthenticationParameters 클래스는 authorization\_uri Oauth2 전달자 챌린지를 가져오기 위한 기능을 제공합니다.
 
 ### Webview의 세션 쿠키
 
-앱이 닫힌 후에 Android webview가 세션 쿠키를 지우지 않습니다. 아래 샘플 코드로 이 문제를 처리할 수 있습니다. 
+앱이 닫힌 후에 Android webview가 세션 쿠키를 지우지 않습니다. 아래 샘플 코드로 이 문제를 처리할 수 있습니다.
 ```java
 CookieSyncManager.createInstance(getApplicationContext());
 CookieManager cookieManager = CookieManager.getInstance();
 cookieManager.removeSessionCookie();
 CookieSyncManager.getInstance().sync();
-``` 
+```
 쿠키에 대한 추가 정보: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
 
 ### 리소스 재정의
@@ -449,8 +449,12 @@ ADAL 라이브러리에는 다음 두 ProgressDialog 메시지에 대한 영어 
 =======
 
 ### NTLM 대화 상자
-Adal 버전 1.1.0은 WebViewClient의 onReceivedHttpAuthRequest 이벤트를 통해 처리되는 NTLM 대화 상자를 지원합니다. 대화 상자 레이아웃 및 문자열은 사용자 지정할 수 있습니다. # # # 5단계: iOS 네이티브 클라이언트 샘플 코드 다운로드
+Adal 버전 1.1.0은 WebViewClient의 onReceivedHttpAuthRequest 이벤트를 통해 처리되는 NTLM 대화 상자를 지원합니다. 대화 상자 레이아웃 및 문자열은 사용자 지정할 수 있습니다.
+
+### 앱 간 SSO
+[ADAL을 사용하여 Android에서 앱 간 SSO를 사용하도록 설정하는 방법](active-directory-sso-android.md) 알아보기
+
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

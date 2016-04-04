@@ -1,4 +1,4 @@
-- [Azure 권위 있는 ID 관리 시작](../articles/active-directory/active-directory-privileged-identity-management-getting-started.md)
+- [Azure Privileged Identity Management 시작](../articles/active-directory/active-directory-privileged-identity-management-getting-started.md)
 - [Azure PIM의 역할](../articles/active-directory/active-directory-privileged-identity-management-roles.md)
 - [보안 마법사](../articles/active-directory/active-directory-privileged-identity-management-security-wizard.md)
 - [사용자 역할을 추가하거나 제거하는 방법](../articles/active-directory/active-directory-privileged-identity-management-how-to-add-role-to-user.md)
@@ -10,4 +10,4 @@
 - [MFA를 요구하는 방법](../articles/active-directory/active-directory-privileged-identity-management-how-to-require-mfa.md)
 - [감사 로그를 사용하는 방법](../articles/active-directory/active-directory-privileged-identity-management-how-to-use-audit-log.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

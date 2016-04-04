@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="rajram"/>
 
 
 # Azure 서비스 버스 커넥터 시작 및 논리 앱에 추가 
->[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다. 2015-08-01-미리 보기 스키마 버전에 대한 내용을 보려면 [서비스 버스 API](../connectors/create-api-servicebus.md)을 클릭하세요.
+>[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다. 2015-08-01-preview 스키마 버전에 대한 내용을 보려면 [서비스 버스 API](../connectors/connectors-create-api-servicebus.md)를 클릭하세요.
 
 Azure 서비스 버스에 연결하여 큐 및 토픽에 메시지를 보내고 큐 및 구독에서 메시지를 받습니다. 커넥터는 논리 앱에서 "워크플로"의 일부로 사용됩니다.
 
@@ -100,4 +100,4 @@ Azure 서비스 버스 "메시지 보내기" 동작을 사용할 수도 있습�
 [7]: ./media/app-service-logic-connector-azureservicebus/img7.PNG
 [8]: ./media/app-service-logic-connector-azureservicebus/img8.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

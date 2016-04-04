@@ -79,7 +79,7 @@ Azure RemoteApp 이미지 만들기에 대해 자세히 알아보려면 [Azure�
 
 VM의 실행이 중지될 때 현재 포털에서 찾아서 캡처합니다.
 
-이미지를 캡처하는 방법을 자세히 알아보려면 [클래식 배포 모델을 사용하여 만든 Azure Windows 가상 컴퓨터의 이미지 캡처](../virtual-machines-capture-image-windows-server.md)를 참조하세요.
+이미지를 캡처하는 방법을 자세히 알아보려면 [클래식 배포 모델을 사용하여 만든 Azure Windows 가상 컴퓨터의 이미지 캡처](../virtual-machines/virtual-machines-windows-classic-capture-image.md)를 참조하세요.
 
 
 ### 5\. Azure RemoteApp 템플릿 이미지에 추가
@@ -158,4 +158,4 @@ SQL 데이터베이스에 연결하는 방법에 대한 자세한 내용은 [SQL
 [5]: ./media/sql-database-ssms-remoteapp/publish.png
 [6]: ./media/sql-database-ssms-remoteapp/user.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

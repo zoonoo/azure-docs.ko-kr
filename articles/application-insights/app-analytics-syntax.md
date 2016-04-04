@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="응용 프로그램 분석의 문" 
-	description="Application Insights의 강력한 검색 도구인 응용 프로그램 분석의 쿼리, 식 및 let 문입니다." 
+	pageTitle="분석 Application Insights의 문" 
+	description="Application Insights의 강력한 검색 도구인 분석의 쿼리, 식 및 let 문입니다." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,21 +12,20 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
 
  
-# 응용 프로그램 분석의 문
+# Application Insights의 분석 문
 
-[응용 프로그램 분석](app-analytics.md)은 [Application Insights](app-insights-overview.md) 원격 분석을 위한 강력한 검색 엔진입니다. 이러한 페이지에서 응용 프로그램 분석 쿼리 언어인 CSL에 대해 설명합니다.
-
+[분석](app-analytics.md)은 [Application Insights](app-insights-overview.md)의 강력한 검색 기능입니다. 다음 페이지에서는 분석 쿼리 언어에 대해 설명합니다.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
 ## 데이터 모델
 
-CSL:
+AIQL에는 다음이 포함됩니다.
 
 * *데이터베이스*가 0개 이상의 명명된 *테이블*을 포함합니다.
 * *테이블*에는 다음이 포함됩니다.
@@ -67,7 +66,7 @@ CSL에는 네 종류의 문이 있습니다.
 
 ### 데이터 쿼리
   
-응용 프로그램 분석에 저장된 데이터에 대한 읽기 전용 요청입니다. 예:
+분석에 저장된 데이터에 대한 읽기 전용 요청입니다. 예:
 
 * `event` - "event"라는 테이블에서 모든 레코드를 반환합니다.
 * `event | count` - "event"에서 레코드 수를 반환합니다.
@@ -269,4 +268,4 @@ TopEvents(5, ago(7d))
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="03/16/2016"
+    ms.date="03/21/2016"
     ms.author="markvi"/>
 
 #Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록
@@ -23,6 +23,7 @@ Azure Active Directory와 모든 클라우드(SaaS) 응용 프로그램을 쉽�
 Azure AD에 사전 통합된 포괄적인 SaaS 앱 목록에 대해서는 [Active Directory 마켓플레이스](https://azure.microsoft.com/marketplace/active-directory/)를 참조하세요.
 
 ##자습서 목록
+
 
 | 로고| 앱 이름 |
 | --- | --- |
@@ -72,6 +73,7 @@ Azure AD에 사전 통합된 포괄적인 SaaS 앱 목록에 대해서는 [Activ
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_CornerstoneOnDemand.jpg)| [Cornerstone OnDemand](https://go.microsoft.com/fwLink/?LinkID=512745&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Coupa.jpg)| [Coupa](https://go.microsoft.com/fwLink/?LinkID=510267&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_CSStars.jpg)| [CS Stars](https://go.microsoft.com/fwLink/?LinkID=530245&clcid=0x409)|
+| ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Degreed.jpg)| [Degreed](https://go.microsoft.com/fwLink/?LinkID=733455&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Directions.jpg)| [Directions on Microsoft](https://go.microsoft.com/fwLink/?LinkID=522557&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_DocuSign.jpg)| [DocuSign](https://go.microsoft.com/fwLink/?LinkID=403254&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Domo.jpg)| [Domo](https://go.microsoft.com/fwLink/?LinkID=708692&clcid=0x409)|
@@ -216,4 +218,4 @@ Azure AD에 사전 통합된 포괄적인 SaaS 앱 목록에 대해서는 [Activ
 - [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 - [SaaS App을 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

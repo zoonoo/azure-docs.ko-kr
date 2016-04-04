@@ -168,7 +168,7 @@ Azure의 Ubuntu Linux 가상 컴퓨터(이후 Docker 호스트라고 함)에 ASP
 
 이제 Docker 호스트를 갖추고 있으므로 Docker 명령을 실행할 수 있습니다. Docker에 대한 자세한 내용은[Docker 설명서](https://docs.docker.com/) 및 [Docker 온라인 자습서](https://www.docker.com/tryit/)를 참조하세요.
 
-Azure에서 Linux에 대한 Docker 가상 컴퓨터 확장을 사용하는 방법에 대한 자세한 내용은 [Azure에서 Linux에 대한 Docker 가상 컴퓨터 확장](/virtual-machines/virtual-machines-docker-vm-extension.md)을 참조하세요.
+Azure에서 Linux에 대한 Docker 가상 컴퓨터 확장을 사용하는 방법에 대한 자세한 내용은 [Azure에서 Linux에 대한 Docker 가상 컴퓨터 확장](virtual-machines/virtual-machines-linux-dockerextension.md)을 참조하세요.
 
 Visual Studio의 Dcoker 사용에 관한 문제는 [Visual Studio를 사용하여 Windows의 Docker 클라이언트 오류 문제 해결](vs-azure-tools-docker-troubleshooting-docker-errors.md)을 참조하세요.
 
@@ -182,4 +182,4 @@ Visual Studio의 Dcoker 사용에 관한 문제는 [Visual Studio를 사용하�
 [7]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796685.png
 [8]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796686.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

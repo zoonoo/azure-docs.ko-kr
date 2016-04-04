@@ -1,104 +1,105 @@
 
 
 
-If you can't access an application running on an Azure virtual machine, this article describes a methodical approach for isolating the source of the problem and correcting it.
+Azure 가상 컴퓨터에서 실행중인 응용 프로그램에 액세스 할 수 없는 경우, 이 문서는 문제의 원인을 찾아내고 해당 문제를 수정하기 위한 체계적인 방법을 설명합니다.
 
-> [AZURE.NOTE]  For help in connecting to an Azure virtual machine, see [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](virtual-machines-windows-troubleshoot-rdp-connection.md) or [Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine](virtual-machines-linux-troubleshoot-ssh-connection.md).
+> [AZURE.NOTE]  Azure 가상 컴퓨터에 연결하는 방법에 대한 도움말은 [Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](virtual-machines-windows-troubleshoot-rdp-connection.md) 또는 [Linux 기반 Azure 가상 컴퓨터에 대한 SSH(보안 셸) 연결 문제 해결](virtual-machines-linux-troubleshoot-ssh-connection.md)을 참조하세요.
 
-If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and click on **Get Support**.
+이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 스택 오버플로 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수도 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 가서 **지원 받기**를 클릭합니다.
 
 
-There are four main areas to troubleshoot the access of an application that is running on an Azure virtual machine.
+Azure 가상 컴퓨터에서 실행되는 응용 프로그램의 액세스 문제 해결에 대한 4개의 주요 영역이 있습니다.
 
 ![](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access1.png)
 
-1.	The application running on the Azure virtual machine.
-2.	The Azure virtual machine.
-3.	Azure endpoints for the cloud service that contains the virtual machine (for virtual machines in classic deployment model), inbound NAT rules (for virtual machines in Resource Manager deployment model), and Network Security Groups.
-4.	Your Internet edge device.
+1.	Azure 가상 컴퓨터에서 실행되는 응용 프로그램
+2.	Azure 가상 컴퓨터.
+3.	가상 컴퓨터(클래식 배포 모델의 가상 컴퓨터), 인바운드 NAT 규칙(리소스 관리자 배포 모델의 가상 컴퓨터) 및 네트워크 보안 그룹을 포함하는 클라우드 서비스에 대한 Azure 끝점입니다.
+4.	인터넷 에지 장치
 
-For client computers that are accessing the application over a site-to-site VPN or ExpressRoute connection, the main areas that can cause problems are the application and the Azure virtual machine.
-To determine the source of the problem and its correction, follow these steps.
+사이트-사이트 VPN 또는 ExpressRoute 연결을 통해 응용 프로그램에 액세스하는 클라이언트 컴퓨터에 대해, 문제를 일으키는 주요 영역은 응용 프로그램 및 Azure 가상 컴퓨터입니다. 문제 및 해당 보정의 원인을 확인하려면 다음 단계를 수행합니다.
 
-## Step 1: Can you access the application from the target VM?
+## 1단계: 대상 VM에서 해당 응용 프로그램에 액세스할 수 있나요?
 
-Try to access the application with the appropriate client program from the VM on which it is running. Use the local host name, the local IP address, or the loopback address (127.0.0.1).
+응용 프로그램이 실행 중인 VM에서 해당 클라이언트 프로그램으로 응용 프로그램에 액세스합니다. 로컬 호스트 이름, 로컬 IP 주소 또는 루프백 주소(127.0.0.1)를 사용합니다.
 
 ![](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access2.png)
 
-For example, if the application is a web server, run a browser on the VM and try to access a web page hosted on the VM.
+예를 들어 응용 프로그램이 웹 서버인 경우, VM에서 브라우저를 실행하고 해당 VM에서 호스트되는 웹 페이지에 액세스를 시도합니다.
 
-If you can access the application, go to [Step 2](#step2).
+응용 프로그램에 액세스할 수 있는 경우 [2단계](#step2)로 이동합니다.
 
-If you cannot access the application, verify the following:
+응용 프로그램에 액세스할 수 없는 경우, 다음 사항을 확인합니다.
 
-- The application is running on the target virtual machine.
-- The application is listening on the expected TCP and UDP ports.
+- 응용 프로그램이 목표 가상 컴퓨터에서 실행 중입니다.
+- 응용 프로그램이 예상된 TCP 및 UDP 포트에서 수신 중입니다.
 
-On both Windows and Linux-based virtual machines, use the **netstat -a** command to show the active listening ports. Examine the output for the expected ports on which your application should be listening. Restart the application or configure it to use the expected ports as needed.
+Windows 및 Linux 기반 가상 컴퓨터 둘 다에서 **netstat -a** 명령을 사용하여 활성 수신 포트를 표시합니다. 응용 프로그램이 수신해야 할 예상되는 포트에 대한 출력을 검토하세요. 응용 프로그램을 다시 시작하거나 필요에 따라 예상되는 포트를 사용하도록 구성하세요.
 
-## <a id="step2"></a>Step 2: Can you access the application from another virtual machine in the same virtual network?
+## <a id="step2"></a>2단계: 동일한 가상 네트워크상의 다른 가상 컴퓨터에서 응용 프로그램에 액세스할 수 있습니까?
 
-Try to access the application from a different VM but in the same virtual network, using the VM's host name or its Azure-assigned public, private, or provider IP address. For virtual machines created using the classic deployment model, do not use the public IP address of the cloud service.
+VM의 호스트 이름 또는 Azure 할당 공용, 개인 또는 공급자 IP 주소를 사용하여 다른 VM이지만 동일한 가상 네트워크에서 응용 프로그램에 액세스합니다. 클래식 배포 모델을 사용하여 만든 가상 컴퓨터의 경우 클라우드 서비스의 공용 IP 주소를 사용하지 않습니다.
 
 ![](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access3.png)
 
-For example, if the application is a web server, try to access a web page from a browser on a different VM in the same virtual network.
+예를 들어 응용 프로그램이 웹 서버인 경우, 동일한 가상 네트워크에 있는 다른 VM의 브라우저에서 웹 페이지 액세스를 시도하세요.
 
-If you can access the application, go to [Step 3](#step3).
+응용 프로그램에 액세스할 수 있는 경우 [3단계](#step3)로 이동합니다.
 
-If you cannot access the application, verify the following:
+응용 프로그램에 액세스할 수 없는 경우, 다음 사항을 확인합니다.
 
-- The host firewall on the target VM is allowing the inbound request and outbound response traffic.
-- Intrusion detection or network monitoring software running on the target VM is allowing the traffic.
-- Network Security Groups are allowing the traffic.
-- A separate component running in your VM in the path between the test VM and your VM, such as a load balancer or firewall, is allowing the traffic.
+- 대상 VM의 호스트 방화벽이 인바운드 요청 및 아웃 바운드 응답 트래픽을 허용 중입니다.
+- 대상 VM에서 실행되는 침입 탐지 또는 네트워크 모니터링 소프트웨어가 트래픽을 허용 중입니다.
+- 네트워크 보안 그룹이 트래픽을 허용 중입니다.
+- 부하 분산 장치 또는 방화벽과 같은 테스트 VM 및 VM 간의 경로에서 사용자의 VM에서 실행 중인 개별 구성 요소가 트래픽을 허용 중입니다.
 
-On a Windows-based virtual machine, use Windows Firewall with Advanced Security to determine whether the firewall rules exclude your application's inbound and outbound traffic.
+Windows 기반 가상 컴퓨터에서, 방화벽 규칙이 사용자의 응용 프로그램의 인바운드 및 아웃 바운드 트래픽을 제외할지 여부를 확인하려면 고급 보안이 포함된 Windows 방화벽을 사용하세요.
 
-## <a id="step3"></a>Step 3: Can you access the application from a computer that is outside the virtual network, but not connected to the same network as your computer?
+## <a id="step3"></a>3단계: 가상 네트워크 외부에 있지만 사용자 컴퓨터와 동일한 네트워크에 연결되지 않은 컴퓨터에서 사용자가 응용 프로그램에 액세스할 수 있나요?
 
-Try to access the application from a computer outside the virtual network as the VM on which the application is running, but is not on the same network as your original client computer.
+VM에서 응용 프로그램이 실행되고 있지만, 사용자의 원래 클라이언트 컴퓨터와 동일한 네트워크 상에 있지 않은 경우, 가상 네트워크 외부의 컴퓨터에서 응용 프로그램에 대한 액세스를 시도하세요.
 
 ![](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access4.png)
 
-For example, if the application is a web server, try to access the web page from a browser running on a computer that is not in the virtual network.
+예를 들면, 응용 프로그램이 웹 서버인 경우, 가상 네트워크에 있지 않은 컴퓨터에서 실행 중인 브라우져에서 웹페이지 액세스를 시도합니다.
 
-If you cannot access the application, verify the following:
+응용 프로그램에 액세스할 수 없는 경우, 다음 사항을 확인합니다.
 
-- For VMs created using the classic deployment model, that the endpoint configuration for the VM is allowing the incoming traffic, especially the protocol (TCP or UDP) and the public and private port numbers. For more information, see [How to Set Up Endpoints to a Virtual Machine]( virtual-machines-windows-classic-setup-endpoints.md).
-- For VMs created using the classic deployment model, that access control lists (ACLs) on the endpoint are not preventing incoming traffic from the Internet. For more information, see [How to Set Up Endpoints to a Virtual Machine](virtual-machines-windows-classic-setup-endpoints.md).
-- For VMs created using the Resource Manager deployment model, that the inbound NAT rule configuration for the VM is allowing the incoming traffic, especially the protocol (TCP or UDP) and the public and private port numbers.
-- That Network Security Groups are allowing the inbound request and outbound response traffic. For more information, see [What is a Network Security Group (NSG)?](../virtual-network/virtual-networks-nsg.md).
+- VM에 대한 끝점 구성에서 클래식 배포 모델을 사용하여 만든 VM에 대한 수신 트래픽을 허용하는지, 특히 프로토콜(TCP 또는 UDP), 공용 및 개인 포트 번호가 허용되어 있는지 확인합니다. 자세한 내용은 [가상 컴퓨터로 끝점을 설정하는 방법](virtual-machines-windows-classic-setup-endpoints.md)을 참조하세요.
+- 클래식 배포 모델을 사용하여 만든 VM에 대해, 끝점의 ACL(액세스 제어 목록)이 인트라넷에서 들어오는 트래픽을 막지 않는지 확인합니다. 자세한 내용은 [가상 컴퓨터로 끝점을 설정하는 방법](virtual-machines-windows-classic-setup-endpoints.md)을 참조하세요.
+- VM에 대한 인바운드 NAT 규칙 구성에서 리소스 관리자 모델을 사용하여 만든 VM에 대한 수신 트래픽을 허용하는지, 특히 프로토콜(TCP 또는 UDP), 공용 및 개인 포트 번호가 허용되어 있는지 확인합니다.
+- 네트워크 보안 그룹이 인바운드 요청 및 아웃 바운드 요청 트래픽을 허용하는지 확인합니다. 자세한 내용은 [NSG(네트워크 보안 그룹)란?](../virtual-network/virtual-networks-nsg.md)을 참조하세요.
 
-If the virtual machine or endpoint is a member of a load-balanced set:
+가상 컴퓨터 또는 끝점이 부하 분산 집합의 구성원인 경우:
 
-- Verify that the probe protocol (TCP or UDP) and port number are correct.
-- If the probe protocol and port is different than the load-balanced set protocol and port:
-	- Verify that the application is listening on the probe protocol (TCP or UDP) and port number (use **netstat –a** on the target VM).
-	- The host firewall on the target VM is allowing the inbound probe request and outbound probe response traffic.
+- 프로브 프로토콜(TCP 또는 UDP) 및 포트 번호가 올바른지 확인합니다.
+- 프로브 프로토콜 및 포트가 부하 분산 집합 프로토콜 및 포트와 다른 경우:
+	- 응용 프로그램이 프로브 프로토콜(TCP 또는 UDP) 및 포트 번호에서 수신 대기 중인지 확인합니다(대상 VM에서 **netstat –a** 사용).
+	- 대상 VM의 호스트 방화벽이 인바운드 프로브 요청 및 아웃바운드 프로브 응답 트래픽을 허용하는지 확인합니다.
 
-If you can access the application, ensure that your Internet edge device is allowing:
+응용 프로그램에 액세스 할 수 있는 경우, 인터넷 에지 장치가 다음을 허용하는지 확인합니다.
 
-- The outbound application request traffic from your client computer to the Azure virtual machine.
-- The inbound application response traffic from the Azure virtual machine.
+- 아웃 바운드 응용 프로그램이 클라이언트 컴퓨터에서 부터 Azure 가상 컴퓨터에 도달하는 트래픽 요청
+- Azure 가상 컴퓨터에서 발생하는 인바운드 응용 프로그램 응답 트래픽
 
-## Troubleshooting Endpoint Connectivity problems
+## 끝점 연결 문제 해결
 
-If you have problems when connecting to an Endpoint such as Remote Desktop  Endpoint, you can try the following general troubleshooting steps:
+원격 데스크톱 끝점과 같은 끝점에 연결할 때 문제가 발생하면 다음과 같은 일반적인 문제 해결 단계를 시도합니다.
 
-- Restart virtual machine
-- Recreate Endpoint
-- Connect from different location
-- Resize virtual machine
-- Recreate virtual machine
+- 가상 컴퓨터 다시 시작
+- 끝점 다시 만들기
+- 다른 위치에서 연결
+- 가상 컴퓨터 크기 조정
+- 가상 컴퓨터 다시 만들기
 
-For more information, see [Troubleshooting Endpoint Connectivity (RDP/SSH/HTTP, etc. failures)](https://social.msdn.microsoft.com/Forums/azure/en-US/538a8f18-7c1f-4d6e-b81c-70c00e25c93d/troubleshooting-endpoint-connectivity-rdpsshhttp-etc-failures?forum=WAVirtualMachinesforWindows).
+자세한 내용은 [끝점 연결 문제 해결(RDP/SSH/HTTP 등의 오류)](https://social.msdn.microsoft.com/Forums/azure/ko-KR/538a8f18-7c1f-4d6e-b81c-70c00e25c93d/troubleshooting-endpoint-connectivity-rdpsshhttp-etc-failures?forum=WAVirtualMachinesforWindows)를 참조하세요.
 
 
 
-## Additional resources
+## 추가 리소스
 
-[Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](virtual-machines-windows-troubleshoot-rdp-connection.md)
+[Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](virtual-machines-windows-troubleshoot-rdp-connection.md)
 
-[Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine](virtual-machines-linux-troubleshoot-ssh-connection.md)
+[Linux 기반 Azure 가상 컴퓨터에 SSH(보안 셸) 연결 문제 해결](virtual-machines-linux-troubleshoot-ssh-connection.md)
+
+<!---HONumber=AcomDC_0323_2016-->

@@ -120,7 +120,7 @@
 
         PS C:\> $secret = Get-AzureKeyVaultSecret -VaultName examplevault -Name appPassword
         
-2. Active Directory 응용 프로그램을 가져옵니다. 로그인할 때 응용 프로그램 ID가 나타납니다.
+2. Active Directory 응용 프로그램을 가져옵니다. 로그인할 때 응용 프로그램 ID가 필요합니다.
 
         PS C:\> $azureAdApplication = Get-AzureRmADApplication -IdentifierUri "https://www.contoso.org/example"
 
@@ -231,7 +231,7 @@
 <a id="provide-certificate-through-automated-powershell-script" />
 ### 자동화된 PowerShell 스크립트를 통해 인증서 제공
 
-1. Active Directory 응용 프로그램을 가져옵니다. 로그인할 때 응용 프로그램 ID가 나타납니다.
+1. Active Directory 응용 프로그램을 가져옵니다. 로그인할 때 응용 프로그램 ID가 필요합니다.
 
         PS C:\> $azureAdApplication = Get-AzureRmADApplication -IdentifierUri "https://www.contoso.org/example"
         
@@ -517,4 +517,4 @@
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

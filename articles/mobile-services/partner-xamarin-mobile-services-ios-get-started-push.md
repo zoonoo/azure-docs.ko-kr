@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="03/18/2016"
 	ms.author="yuaxu"/>
 
 # 모바일 서비스 앱에 푸시 알림 추가
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> 이 항목에 해당하는 모바일 앱 버전은 [Xamarin.iOS 앱에 푸시 알림 추가](../app-service-mobile/app-service-mobile-xamarin-ios-get-started-push.md)를 참조하세요.
 
 ##개요
 
@@ -403,4 +403,4 @@ APNS에 앱을 등록하고 프로젝트를 구성했으면 APNS와 통합되도
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331303
 [Xamarin.iOS]: http://xamarin.com/download
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

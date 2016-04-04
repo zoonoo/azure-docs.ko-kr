@@ -1,72 +1,72 @@
 
 
-There are two levels of load balancing available for Azure infrastructure services:
+Azure 인프라 서비스에 사용할 수 있는 두 가지 수준의 부하 분산이 있습니다.
 
-- **DNS Level**:  Load balancing for traffic to different cloud services located in different data centers, to different Azure websites located in different data centers, or to external endpoints. This is done with Azure Traffic Manager and the Round Robin load balancing method.
-- **Network Level**:  Load balancing of incoming Internet traffic to different virtual machines of a cloud service, or load balancing of traffic between virtual machines in a cloud service or virtual network. This is done with the Azure load balancer.
+- **DNS 수준**: 서로 다른 데이터 센터에 위치한 서로 다른 클라우드 서비스, 서로 다른 데이터 센터에 위치한 서로 다른 Azure 웹 사이트 또는 외부 끝점으로의 트래픽 부하를 분산합니다. Azure 트래픽 관리자 및 라운드 로빈 부하 분산 방법으로 수행됩니다.
+- **네트워크 수준**: 클라우드 서비스의 서로 다른 컴퓨터에 수신되는 인터넷 트래픽 부하를 분산하거나 클라우드 서비스 또는 가상 네트워크에 있는 가상 컴퓨터 간의 트래픽 부하를 분산합니다. Azure 부하 분산 장치를 통해 수행됩니다.
 
-## Traffic Manager load balancing for cloud services and websites##
+## 클라우드 서비스 및 웹 사이트를 위한 트래픽 관리자 부하 분산##
 
-Traffic Manager allows you to control the distribution of user traffic to endpoints, which can include cloud services, websites, external sites, and other Traffic Manager profiles. Traffic Manager works by applying an intelligent policy engine to Domain Name System (DNS) queries for the domain names of your Internet resources. Your cloud services or websites can be running in different datacenters across the world.
+트래픽 관리자를 사용하여 끝점으로의 사용자 트래픽 분산을 제어할 수 있습니다. 여기에는 클라우드 서비스, 웹 사이트, 외부 사이트 및 기타 트래픽 관리자 프로필이 포함될 수 있습니다. 트래픽 관리자는 인터넷 리소스의 도메인 이름에 대한 DNS(Domain Name System) 쿼리에 지능형 정책 엔진을 적용하여 작동합니다. 클라우드 서비스 또는 웹 사이트는 전 세계의 여러 데이터 센터에서 실행될 수 있습니다.
 
-You must use either REST or Windows PowerShell to configure external endpoints or Traffic Manager profiles as endpoints.
+REST 또는 Windows PowerShell을 사용하여 외부 끝점 또는 트래픽 관리자 프로필을 끝점으로 구성할 수 있습니다.
 
-Traffic Manager uses three load-balancing methods to distribute traffic:
+트래픽 관리자는 세 가지 부하 분산 방법을 사용하여 트래픽을 분산합니다.
 
-- **Failover**:  Use this method when you want to use a primary endpoint for all traffic, but provide backups in case the primary becomes unavailable.
-- **Performance**:  Use this method when you have endpoints in different geographic locations and you want requesting clients to use the "closest" endpoint in terms of the lowest latency.
-- **Round Robin:**  Use this method when you want to distribute load across a set of cloud services in the same datacenter or across cloud services or websites in different datacenters.
+- **장애 조치(Failover)**: 모든 트래픽에 대해 기본 끝점을 사용하되 기본을 사용할 수 없는 경우에 대비하여 백업을 제공하려면 이 방법을 선택하세요.
+- **성능**: 끝점이 서로 다른 지역에 있고 요청하는 클라이언트가 "가장 가까운"(즉, 대기 시간이 가장 짧은) 끝점을 사용하도록 하려면 이 방법을 선택하세요.
+- **라운드 로빈:** 같은 데이터 센터에 있는 클라우드 서비스 집합 간에 또는 서로 다른 데이터 센터에 있는 클라우드 서비스나 웹 사이트 간에 부하를 분산하려면 이 방법을 선택하세요.
 
-For more information, see [About Traffic Manager Load Balancing Methods](../traffic-manager/traffic-manager-load-balancing-methods.md).
+자세한 내용은 [트래픽 관리자 부하 분산 방법](../traffic-manager/traffic-manager-load-balancing-methods.md)(영문)을 참조하세요.
 
-The following diagram shows an example of the Round Robin load balancing method for distributing traffic between different cloud services.
+다음 다이어그램은 서로 다른 클라우드 서비스 간에 트래픽을 분산하기 위한 라운드 로빈 부하 분산 방법의 예를 보여 줍니다.
 
 ![loadbalancing](./media/virtual-machines-common-load-balance/TMSummary.png)
 
-The basic process is the following:
+기본 프로세스는 다음과 같습니다.
 
-1.	An Internet client queries a domain name corresponding to a web service.
-2.	DNS forwards the name query request to Traffic Manager.
-3.	Traffic Manager chooses the next cloud service in the Round Robin list and sends back the DNS name. The Internet client's DNS server resolves the name to an IP address and sends it to the Internet client.
-4.	The Internet client connects with the cloud service chosen by Traffic Manager.
+1.	인터넷 클라이언트가 웹 서비스에 해당하는 도메인 이름을 쿼리합니다.
+2.	DNS가 이름 쿼리 요청을 트래픽 관리자에게 전달합니다.
+3.	트래픽 관리자가 라운드 로빈 목록에서 다음 클라우드 서비스를 선택하여 DNS 이름을 다시 보냅니다. 인터넷 클라이언트의 DNS 서버가 이름을 IP 주소로 풀어서 인터넷 클라이언트에 보냅니다.
+4.	인터넷 클라이언트가 트래픽 관리자에 의해 선택된 클라우드 서비스에 연결합니다.
 
-For more information, see [Traffic Manager](../traffic-manager/traffic-manager-overview.md).
+자세한 내용은 [트래픽 관리자](../traffic-manager/traffic-manager-overview.md)(영문)를 참조하십시오.
 
-## Azure load balancing for virtual machines ##
+## 가상 컴퓨터를 위한 Azure 부하 분산 ##
 
-Virtual machines in the same cloud service or virtual network can communicate with each other directly using their private IP addresses. Computers and services outside the cloud service or virtual network can only communicate with virtual machines in a cloud service or virtual network with a configured endpoint. An endpoint is a mapping of a public IP address and port to that private IP address and port of a virtual machine or web role within an Azure cloud service.
+같은 클라우드 서비스나 가상 네트워크에 있는 가상 컴퓨터는 전용 IP 주소를 사용하여 서로 간에 직접 통신할 수 있습니다. 클라우드 서비스 또는 가상 네트워크 외부에 있는 컴퓨터와 서비스는 구성된 끝점을 통해서만 클라우드 서비스 또는 가상 네트워크에 있는 가상 컴퓨터와 통신할 수 있습니다. 끝점은 공용 IP 주소 및 포트를 Azure 클라우드 서비스 내 가상 컴퓨터 또는 웹 역할의 전용 IP 주소 및 포트에 매핑하는 것입니다.
 
-The Azure Load Balancer randomly distributes a specific type of incoming traffic across multiple virtual machines or services in a configuration known as a load-balanced set. For example, you can spread the load of web request traffic across multiple web servers or web roles.
+Azure 부하 분산 장치는 부하 분산 집합이라고 하는 구성에서 특정 유형의 수신 트래픽을 여러 가상 컴퓨터나 서비스에 임의로 분산합니다. 예를 들어 웹 요청 트래픽의 부하를 여러 웹 서버 또는 웹 역할에 분배할 수 있습니다.
 
-The following diagram shows a load-balanced endpoint for standard (unencrypted) web traffic that is shared among three virtual machines for the public and private TCP port of 80. These three virtual machines are in a load-balanced set.
+다음 다이어그램은 공용 및 개인 TCP 포트 80에서 세 대의 가상 컴퓨터 사이에 공유되는 표준(암호화되지 않음) 웹 트래픽의 부하 분산 끝점을 보여 줍니다. 이 세 대의 가상 컴퓨터는 부하 분산 집합에 속합니다.
 
 ![loadbalancing](./media/virtual-machines-common-load-balance/LoadBalancing.png)
 
-For more information, see [Azure Load Balancer](../load-balancer/load-balancer-overview.md). For the steps to create a load-balanced set, see [Configure a load-balanced set](../load-balancer/load-balancer-internet-getstarted.md).
+자세한 내용은 [Azure 부하 분산 장치](../load-balancer/load-balancer-overview.md)(영문)를 참조하세요. 부하 분산 집합을 만드는 과정은 [부하 분산 집합 구성](../load-balancer/load-balancer-internet-getstarted.md)(영문)을 참조하세요.
 
-Azure can also load balance within a cloud service or virtual network. This is known as internal load balancing and can be used in the following ways:
+Azure는 클라우드 서비스 또는 가상 네트워크 내에서 부하를 분산할 수도 있습니다. 이것을 내부 부하 분산이라고 하며 다음과 같은 방법으로 사용될 수 있습니다.
 
-- To load balance between servers in different tiers of a multi-tier application (for example, between web and database tiers).
-- To load balance line-of-business (LOB) applications hosted in Azure without requiring additional load balancer hardware or software.
-- To include on-premises servers in the set of computers whose traffic is load balanced.
+- 다중 계층 응용 프로그램의 여러 계층에서 서버 간에 부하를 분산합니다(예: 웹 계층과 데이터베이스 계층 사이).
+- 추가적인 부하 분산 장치 하드웨어 또는 소프트웨어 없이도 Azure에서 호스트되는 LOB(기간 업무) 응용 프로그램의 부하를 분산합니다.
+- 트래픽 부하가 분산되는 컴퓨터 집합에 온-프레미스 서버를 포함합니다.
 
-Similar to Azure load balancing, internal load balancing is facilitated by configuring an internal load-balanced set.
+Azure 부하 분산과 마찬가지로 내부 부하 분산 집합을 구성함으로써 내부 부하 분산을 수월하게 만들 수 있습니다.
 
-The following diagram shows an example of an internal load-balanced endpoint for a line of business (LOB) application that is shared among three virtual machines in a cross-premises virtual network.
+다음 다이어그램은 교차 프레미스 가상 네트워크에서 세 개의 가상 컴퓨터 간에 공유되는 LOB(기간 업무) 응용 프로그램의 내부 부하 분산 끝점 예를 보여 줍니다.
 
 ![loadbalancing](./media/virtual-machines-common-load-balance/LOBServers.png)
 
-## Load balancer considerations
+## 부하 분산 장치 고려 사항
 
-A load balancer is configured by default to timeout an idle session in 4 minutes. If your application behind a load balancer leaves a connection idle for more than 4 minutes and it doesn't have a Keep-Alive configuration, the connection will be dropped. You can change the load balancer behavior to allow a [longer timeout setting for Azure load balancer](../load-balancer/load-balancer-tcp-idle-timeout.md).
+부하 분산 장치는 기본적으로 4분의 유휴 세션 시간 제한으로 구성됩니다. 부하 분산 장치 뒤에 있는 응용 프로그램이 4분 이상 연결 유휴 상태를 유지하고 활성 유지 구성이 없는 경우 연결이 끊깁니다. [Azure 부하 분산 장치에 대한 더 긴 시간 제한 설정](../load-balancer/load-balancer-tcp-idle-timeout.md)을 허용하도록 부하 분산 장치 동작을 변경할 수 있습니다.
 
-Other consideration is the type of distribution mode supported by Azure Load Balancer. You can configure source IP affinity (source IP, destination IP) or source IP protocol (source IP , destination IP and protocol). Check out [Azure Load Balancer distribution mode (source IP affinity)](../load-balancer/load-balancer-distribution-mode.md) for more information.
+다른 고려 사항에는 Azure 부하 분산 장치에서 지원하는 배포 모드의 유형입니다. 원본 IP 선호도(원본 IP, 대상 IP) 또는 원본 IP 프로토콜(원본 IP, 대상 IP 및 프로토콜)을 구성할 수 있습니다. 자세한 내용은 [Azure 부하 분산 장치 배포 모드(원본 IP 선호도)](../load-balancer/load-balancer-distribution-mode.md)를 확인하세요.
 
 
-## Next steps
+## 다음 단계
 
-For the steps to create a load-balanced set, see [Configure an internal load-balanced set](../load-balancer/load-balancer-internal-getstarted.md).
+부하 분산 집합을 만드는 과정은 [내부 부하 분산 집합 구성](../load-balancer/load-balancer-internal-getstarted.md)(영문)을 참조하십시오.
 
-For more information about load balancer, see [Internal load balancing](../load-balancer/load-balancer-internal-overview.md).
+자세한 내용은 [내부 부하 분산](../load-balancer/load-balancer-internal-overview.md)을 참조하세요.
 
-
+<!---HONumber=AcomDC_0323_2016-->

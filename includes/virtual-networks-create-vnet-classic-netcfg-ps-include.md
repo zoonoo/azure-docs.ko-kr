@@ -4,7 +4,7 @@ Azure에서는 xml 파일을 사용하여 구독에 사용할 수 있는 모든 
 
 PowerShell과 netcfg 파일을 사용하여 VNet을 만들려면 다음 단계를 수행합니다.
 
-1. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure.md)을 참조하고 지침을 끝까지 따르면서 Azure에 로그인하고 구독을 선택합니다.
+1. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 구성하는 방법](../articles/powershell-install-configure.md)을 참조하고 지침을 끝까지 따르면서 Azure에 로그인하고 구독을 선택합니다.
 2. Azure PowerShell 콘솔에서 **Get-AzureVnetConfig** cmdlet을 사용하고 명령을 실행하여 네트워크 구성 파일을 다운로드합니다. 
 
 		Get-AzureVNetConfig -ExportToFile c:\NetworkConfig.xml
@@ -65,4 +65,4 @@ PowerShell과 netcfg 파일을 사용하여 VNet을 만들려면 다음 단계�
 		OperationId          : 3f35d533-1f38-09c0-b286-3d07cd0904d8
 		OperationStatus      : Succeeded
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0323_2016-->

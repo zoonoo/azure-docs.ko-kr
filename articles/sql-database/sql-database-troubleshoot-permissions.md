@@ -37,4 +37,4 @@
 ## 가상 마스터 데이터베이스에서 권한이 높은 사용자에 대한 추가 로그인을 만들려면
 [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) 문을 사용하세요. 자세한 내용은 [Azure SQL 데이터베이스에서 데이터베이스 및 로그인 관리](sql-database-manage-logins.md)의 로그인 관리 섹션을 참조하세요.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0323_2016-->

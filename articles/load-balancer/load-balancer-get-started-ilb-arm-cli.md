@@ -43,7 +43,9 @@ Azure 리소스 관리자의 분산 장치 구성 요소에 대한 자세한 내
 
 ## 리소스 관리자를 사용하도록 CLI 설치
 
-1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](xplat-cli.md)을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
+
+1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치](../xplat-cli-install.md)를 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
+
 
 2. 아래와 같이 **azure config mode** 명령을 실행하여 리소스 관리자 모드로 전환합니다.
 
@@ -232,4 +234,4 @@ NIC를 만들고(또는 기존 NIC 수정) NAT 규칙, 부하 분산 장치 규�
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
 
-<!----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

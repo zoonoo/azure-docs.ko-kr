@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/10/2015"
+   ms.date="03/23/2016"
    ms.author="yuridio"/>
 
 #Microsoft Azure 보안 시작
@@ -33,7 +33,7 @@ Azure 보안에 있는 이 개요 문서에서 다음 사항을 살펴봅니다.
 
 IT 인프라, 데이터 및 응용 프로그램에 대한 액세스를 제어하는 것이 중요합니다. Microsoft Azure에서 이러한 기능은 다양한 표준 및 API에 대한 Azure Active Directory, Azure 저장소 및 지원과 같은 서비스에 의해 전달됩니다.
 
-[Azure Active Directory](active-directory-whatis.md)(Azure AD)는 조직의 사용자, 그룹 및 개체에 대한 인증, 권한 부여 및 액세스 제어를 제공하는 ID 리포지토리 및 엔진입니다. 또한 Azure AD는 응용 프로그램에서 ID 관리를 통합할 수 있는 효과적인 방법을 개발자에게 제공합니다. [SAML 2.0](https://en.wikipedia.org/wiki/SAML_2.0), [WS-Federation](https://msdn.microsoft.com/library/bb498017.aspx) 및 [OpenID 연결](http://openid.net/connect/)과 같은 산업 표준 프로토콜을 통해 .NET, Java, Node.js 및 PHP와 같은 다양한 플랫폼에서 로그인 기능을 설정할 수 있습니다.
+[Azure Active Directory](./active-directory/active-directory-whatis.md)(Azure AD)는 조직의 사용자, 그룹 및 개체에 대한 인증, 권한 부여 및 액세스 제어를 제공하는 ID 리포지토리 및 엔진입니다. 또한 Azure AD는 응용 프로그램에서 ID 관리를 통합할 수 있는 효과적인 방법을 개발자에게 제공합니다. [SAML 2.0](https://en.wikipedia.org/wiki/SAML_2.0), [WS-Federation](https://msdn.microsoft.com/library/bb498017.aspx) 및 [OpenID 연결](http://openid.net/connect/)과 같은 산업 표준 프로토콜을 통해 .NET, Java, Node.js 및 PHP와 같은 다양한 플랫폼에서 로그인 기능을 설정할 수 있습니다.
 
 REST 기반 Graph API를 통해 개발자가 어떠한 플랫폼에서든 디렉터리에 대한 읽기 및 쓰기를 수행할 수 있습니다. [OAuth 2.0](http://oauth.net/2/) 지원을 통해 개발자는 Microsoft 및 타사 웹 API와 통합되는 모바일 및 웹 응용 프로그램을 빌드하고 자신의 고유한 보안 웹 API를 빌드할 수 있습니다. 개발 중인 추가 라이브러리와 함께 개방형 원본 클라이언트 라이브러리를 .Net, Windows Store, iOS 및 Android에서 사용할 수 있습니다.
 
@@ -45,11 +45,11 @@ ID 및 액세스 관리에 대한 기타 기능은 다음과 같습니다.
 
 -   Azure AD는 호스팅되는 위치에 관계 없이 SaaS 응용 프로그램에 [SSO](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)를 사용합니다. 응용 프로그램 일부는 Azure AD를 사용하여 페더레이션되고 나머지는 암호 SSO를 사용합니다. 또한 페더레이션된 응용 프로그램은 사용자 프로비전 및 암호 보관을 지원할 수 있습니다.
 
--   [Azure 저장소](https://azure.microsoft.com/services/storage/)에서의 데이터 액세스는 인증을 통해 제어됩니다. 각 저장소 계정에는 기본 키([저장소 계정 키](https://msdn.microsoft.com/library/azure/ee460785.aspx), 또는 SAK) 및 보조 비밀키([공유 액세스 서명](storage-dotnet-shared-access-signature-part-1.md), 또는 SAS)이 있습니다.
+-   [Azure 저장소](https://azure.microsoft.com/services/storage/)에서의 데이터 액세스는 인증을 통해 제어됩니다. 각 저장소 계정에는 기본 키([저장소 계정 키](https://msdn.microsoft.com/library/azure/ee460785.aspx) 또는 SAK) 및 보조 비밀 키(공유 액세스 서명 또는 SAS)이 있습니다.
 
--   Azure AD는 페더레이션을 통해 IaaS를 제공합니다.([Active Directory Federation Services](fundamentals-identity.md), 동기화 및 온-프레미스 디렉터리를 사용한 복제를 사용함)
+-   Azure AD는 페더레이션을 통해 IaaS를 제공합니다.([Active Directory Federation Services](./active-directory/fundamentals-identity.md), 동기화 및 온-프레미스 디렉터리를 사용한 복제를 사용함)
 
--   [Azure Multi-Factor Authentication(MFA)](multi-factor-authentication.md)은 모바일 앱, 전화 통화 또는 문자 메시지를 사용하여 사용자에게도 로그인을 검증하도록 요구하는 다단계 인증 서비스입니다. Azure AD와 함께 사용할 수 있으며, 이를 통해 Azure MFA 서버에서나 SDK를 사용하는 사용자 지정 응용 프로그램 및 디렉터리에서 온-프레미스 리소스를 보호합니다.
+-   [Azure Multi-Factor Authentication(MFA)](./multi-factor-authentication/multi-factor-authentication.md)은 모바일 앱, 전화 통화 또는 문자 메시지를 사용하여 사용자에게도 로그인을 검증하도록 요구하는 다단계 인증 서비스입니다. Azure AD와 함께 사용할 수 있으며, 이를 통해 Azure MFA 서버에서나 SDK를 사용하는 사용자 지정 응용 프로그램 및 디렉터리에서 온-프레미스 리소스를 보호합니다.
 
 -   [Azure AD 도메인 서비스](https://azure.microsoft.com/services/active-directory-ds/)는 도메인 컨트롤러를 배포할 필요 없이 Azure 가상 컴퓨터를 도메인에 조인하도록 합니다. 사용자는 회사 Active Directory 자격 증명을 사용하여 해당 가상 컴퓨터에 로그인하고 Azure 가상 컴퓨터의 모든 보안 기준에 적용할 그룹 정책을 사용하여 도메인에 가입된 가상 컴퓨터를 관리할 수 있습니다.
 
@@ -65,7 +65,7 @@ Microsoft는 전체 Azure 운영에 의무 분리 원칙 및 [최소 권한](htt
 
 ### Azure 암호화 기술
 
-[Azure AD 보고](active-directory-reporting-audit-events.md)를 사용하여 구독 환경에 관리 액세스에 대한 세부 정보를 수집할 수 있습니다. Azure의 중요한 정보를 포함하는 VHD에서 [BitLocker 드라이브 암호화](https://technet.microsoft.com/library/cc732774.aspx)를 구성하는 옵션이 있습니다.
+[Azure AD 보고](./active-directory/active-directory-reporting-audit-events.md)를 사용하여 구독 환경에 관리 액세스에 대한 세부 정보를 수집할 수 있습니다. Azure의 중요한 정보를 포함하는 VHD에서 [BitLocker 드라이브 암호화](https://technet.microsoft.com/library/cc732774.aspx)를 구성하는 옵션이 있습니다.
 
 데이터 보안을 유지하는 데 도움이 되는 Azure의 기타 기능은 다음과 같습니다.
 
@@ -151,15 +151,15 @@ IP 필터는 게스트 VM에 다음과 같은 사항을 방지합니다.
 
 다음과 같은 Azure 가상 네트워크 기술을 사용하여 Azure 가상 네트워크에서 안전한 통신을 도울 수 있습니다.
 
--   [**네트워크 보안 그룹(NSG)**](virtual-networks-nsg.md). NSG를 사용하여 가상 네트워크에 있는 하나 이상의 VM(가상 컴퓨터) 인스턴스에 대한 트래픽을 제어할 수 있습니다. NSG에는 트래픽 방향, 프로토콜, 원본 주소 및 포트, 대상 주소 및 포트에 따라 트래픽을 허용하거나 거부하는 액세스 제어 규칙이 포함되어 있습니다.
+-   [**네트워크 보안 그룹(NSG)**](./virtual-network/virtual-networks-nsg.md). NSG를 사용하여 가상 네트워크에 있는 하나 이상의 VM(가상 컴퓨터) 인스턴스에 대한 트래픽을 제어할 수 있습니다. NSG에는 트래픽 방향, 프로토콜, 원본 주소 및 포트, 대상 주소 및 포트에 따라 트래픽을 허용하거나 거부하는 액세스 제어 규칙이 포함되어 있습니다.
 
--   [**사용자 정의 라우팅**](virtual-networks-udr-overview.md). 특정 서브넷으로 흐르는 패킷이 가상 네트워크 보안 어플라이언스로 가도록 홉을 지정하는 사용자 정의 경로를 생성하여 가상 어플라이언스를 통해 패킷의 라우팅을 제어할 수 있습니다.
+-   [**사용자 정의 라우팅**](./virtual-network/virtual-networks-udr-overview.md). 특정 서브넷으로 흐르는 패킷이 가상 네트워크 보안 어플라이언스로 가도록 홉을 지정하는 사용자 정의 경로를 생성하여 가상 어플라이언스를 통해 패킷의 라우팅을 제어할 수 있습니다.
 
--   [**IP 전달**](virtual-networks-udr-overview.md). 가상 네트워크 보안 어플라이언스는 주소가 자신으로 지정되지 않은 들어오는 트래픽을 받을 수 있어야 합니다. VM이 다른 대상으로 주소가 지정된 트래픽을 받을 수 있도록 하려면 해당 VM에서 IP 전달을 사용하도록 설정합니다.
+-   [**IP 전달**](./virtual-network/virtual-networks-udr-overview.md). 가상 네트워크 보안 어플라이언스는 주소가 자신으로 지정되지 않은 들어오는 트래픽을 받을 수 있어야 합니다. VM이 다른 대상으로 주소가 지정된 트래픽을 받을 수 있도록 하려면 해당 VM에서 IP 전달을 사용하도록 설정합니다.
 
--   [**강제 터널링**](vpn-gateway-about-forced-tunneling.md). 강제 터널링을 사용하면 검사 및 감사에 대한 사이트 간 VPN 터널을 통해 Azure 가상의 가상 컴퓨터에서 생성된 모든 인터넷 바인딩된 트래픽을 온-프레미스 위치에 다시 리디렉션하거나 "강제"할 수 있습니다.
+-   [**강제 터널링**](./vpn-gateway/vpn-gateway-about-forced-tunneling.md). 강제 터널링을 사용하면 검사 및 감사에 대한 사이트 간 VPN 터널을 통해 Azure 가상의 가상 컴퓨터에서 생성된 모든 인터넷 바인딩된 트래픽을 온-프레미스 위치에 다시 리디렉션하거나 "강제"할 수 있습니다.
 
--   [**끝점** ACL](virtual-machines-set-up-endpoints.md). 끝점 ACL을 정의하여 어떤 컴퓨터가 인터넷에서 Azure 가상 네트워크의 가상 컴퓨터에 인바운드 연결을 허용하는지 제어할 수 있습니다.
+-   [**끝점** ACL](./virtual-machines/virtual-machines-windows-classic-setup-endpoints.md). 끝점 ACL을 정의하여 어떤 컴퓨터가 인터넷에서 Azure 가상 네트워크의 가상 컴퓨터에 인바운드 연결을 허용하는지 제어할 수 있습니다.
 
 -   [**파트너 네트워크 보안 솔루션**](https://azure.microsoft.com/marketplace/). Azure 마켓플레이스에서 액세스할 수 있는 파트너 네트워크 보안 솔루션은 많습니다.
 
@@ -177,21 +177,21 @@ Azure가 정상적인 작업의 일부로 서 또는 재해 발생 중에 고객
 
 -   **저장소 방화벽(FW)**: 저장소 프런트 엔드에 방화벽은 트래픽을 필터링하여 포트 80/443 및 기타 필요한 유틸리티 포트에만 존재하도록 합니다. 저장소 백 엔드의 방화벽은 저장소 프런트 엔드 서버에서만 통신을 받도록 제한합니다.
 
--   **가상 네트워크 게이트웨이**: [Azure 가상 네트워크 게이트웨이](virtual-networks-configure-vnet-to-vnet-connection.md)는 Azure 가상 네트워크의 워크로드를 온-프레미스 사이트에 연결하는 크로스 프레미스 게이트웨이로 사용합니다. [IPsec 사이트 간 VPN 터널](vpn-gateway-create-site-to-site-rm-powershell.md) 또는 [Express 경로](expressroute-introduction.md) 회로를 통해 온-프레미스 사이트가 연결되어야 합니다. IPsec/IKE VPN 터널의 경우 게이트웨이는 IKE 핸드셰이크를 수행하고 가상 네트워크와 온-프레미스 사이트 간에 IPsec S2S VPN 터널을 설정합니다. 또한 가상 네트워크 게이트웨이는 [지점 및 사이트 간 VPN](vpn-gateway-point-to-site-create.md)을 종료합니다.
+-   **가상 네트워크 게이트웨이**: [Azure 가상 네트워크 게이트웨이](./vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)는 Azure 가상 네트워크의 워크로드를 온-프레미스 사이트에 연결하는 크로스 프레미스 게이트웨이로 사용합니다. [IPsec 사이트 간 VPN 터널](./vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md) 또는 [Express 경로](./expressroute/expressroute-introduction.md) 회로를 통해 온-프레미스 사이트가 연결되어야 합니다. IPsec/IKE VPN 터널의 경우 게이트웨이는 IKE 핸드셰이크를 수행하고 가상 네트워크와 온-프레미스 사이트 간에 IPsec S2S VPN 터널을 설정합니다. 또한 가상 네트워크 게이트웨이는 [지점 및 사이트 간 VPN](./vpn-gateway/vpn-gateway-point-to-site-create.md)을 종료합니다.
 
 ##안전한 원격 액세스
 
 클라우드에 저장된 데이터는 전송되는 동안 충분한 예방 조치를 통해 공격을 방지하고 기밀성과 무결성을 유지 관리하도록 해야 합니다. 여기에는 조직의 정책 기반, 감사 가능한 ID 및 액세스 관리 메커니즘을 사용하여 연결된 네트워크 제어가 포함됩니다.
 
-기본 제공 암호화 기술을 사용하면 배포 간, Azure 지역 간 및 Azure에서 온-프레미스 데이터 센터에 통신을 암호화할 수 있습니다. [원격 데스크톱 세션](virtual-machines-log-on-windows-server.md), [원격 Windows PowerShell](http://blogs.technet.com/b/heyscriptingguy/archive/2013/09/07/weekend-scripter-remoting-the-cloud-with-windows-azure-and-powershell.aspx) 및 [Azure 관리 포털](https://azure.microsoft.com/overview/preview-portal/)을 통한 가상 컴퓨터에 대한 관리자 액세스는 항상 암호화됩니다.
+기본 제공 암호화 기술을 사용하면 배포 간, Azure 지역 간 및 Azure에서 온-프레미스 데이터 센터에 통신을 암호화할 수 있습니다. [원격 데스크톱 세션](./virtual-machines/virtual-machines-windows-classic-connect-logon.md), [원격 Windows PowerShell](http://blogs.technet.com/b/heyscriptingguy/archive/2013/09/07/weekend-scripter-remoting-the-cloud-with-windows-azure-and-powershell.aspx) 및 Azure 관리 포털을 통한 가상 컴퓨터에 대한 관리자 액세스는 상시 암호화됩니다.
 
-온-프레미스 데이터 센터를 클라우드로 안전하게 확장하려면 Azure는 [사이트 간 VPN](vpn-gateway-create-site-to-site-rm-powershell.md) 및 [지점 및 사이트 간 VPN](vpn-gateway-point-to-site-create.md) 뿐만 아니라 [Express 경로](expressroute-introduction.md) 전용 링크를 모두 제공합니다.(VPN에 대한 Azure 가상 네트워크에 연결이 암호화됨)
+온-프레미스 데이터 센터를 클라우드로 안전하게 확장하려면 Azure는 [사이트 간 VPN](./vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md) 및 [지점 및 사이트 간 VPN](./vpn-gateway/vpn-gateway-point-to-site-create.md) 뿐만 아니라 [Express 경로](./expressroute/expressroute-introduction.md) 전용 링크를 모두 제공합니다.(VPN에 대한 Azure 가상 네트워크에 연결이 암호화됨)
 
 ### Azure가 안전한 원격 액세스를 구현하는 방법
 
 Azure 포털에 대한 연결은 항상 인증되어야 하며 SSL/TLS이 필요합니다. 관리 인증서를 구성하여 보안 관리를 사용할 수 있습니다. [SSTP](https://technet.microsoft.com/magazine/2007.06.cableguy.aspx) 및 [IPsec](https://en.wikipedia.org/wiki/IPsec)과 같은 보안 업계 표준 프로토콜은 완벽하게 지원됩니다.
 
-[Azure Express 경로](expressroute-introduction.md)를 사용하면 온-프레미스 또는 공동 배치 환경의 인프라와 Azure 데이터 센터 간에 개인 연결을 만들 수 있습니다. Express 경로 연결은 공용 인터넷을 통해 이동하지 않습니다. 일반적인 인터넷 기반 연결 보다 안정성, 빠른 속도, 짧은 대기 시간 및 높은 보안성을 제공합니다. 경우에 따라 온-프레미스와 Azure 간 데이터 전송에 Express 경로 연결을 사용하면 상당한 비용 혜택을 얻을 수 있습니다.
+[Azure Express 경로](./expressroute/expressroute-introduction.md)를 사용하면 온-프레미스 또는 공동 배치 환경의 인프라와 Azure 데이터 센터 간에 개인 연결을 만들 수 있습니다. Express 경로 연결은 공용 인터넷을 통해 이동하지 않습니다. 일반적인 인터넷 기반 연결 보다 안정성, 빠른 속도, 짧은 대기 시간 및 높은 보안성을 제공합니다. 경우에 따라 온-프레미스와 Azure 간 데이터 전송에 Express 경로 연결을 사용하면 상당한 비용 혜택을 얻을 수 있습니다.
 
 ##로깅 및 모니터링
 
@@ -241,4 +241,4 @@ Azure에는 위협 해결 방법을 구현하고 고객이 해당 환경에서 �
 
 [Active Directory 블로그](http://blogs.technet.com/b/ad/)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

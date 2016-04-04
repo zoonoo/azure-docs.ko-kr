@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/08/2016"
+   ms.date="03/21/2016"
    ms.author="jgao"/>
 
 # Azure 포털을 사용하여 HDInsight의 Windows 기반 Hadoop 클러스터 만들기
@@ -142,4 +142,4 @@ Azure 포털을 사용하여 HDInsight에서 Hadoop 클러스터를 만드는 �
 * [프로그래밍 방식으로 Hadoop 작업 제출](hdinsight-submit-hadoop-jobs-programmatically.md) - 프로그래밍 방식으로 작업을 HDInsight에 제출하는 방법을 알아봅니다.
 * [Azure 포털을 사용하여 HDInsight에서 Hadoop 클러스터 관리](hdinsight-administer-use-management-portal.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

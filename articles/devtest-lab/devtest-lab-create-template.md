@@ -1,6 +1,6 @@
-<properties
-	pageTitle="VHD 파일에서 DevTest Lab 사용자 지정 이미지 만들기 | Microsoft Azure"
-	description="VHD 파일에서 사용자 지정 이미지를 만든 후 DevTest Lab에서 VM을 만드는 데 사용하는 방법 알아보기"
+    <properties
+	pageTitle="Create a DevTest Lab custom image from a VHD file | Microsoft Azure"
+	description="Learn how to create a custom image from a VHD file, which can then be used to create VMs in a DevTest Lab"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -20,7 +20,7 @@
 
 ## 개요
 
-[DevTest Lab을 만든](devtest-lab-create-lab.md) 후에는 [랩에 VM(가상 컴퓨터)를 추가](devtest-lab-add-vm-with-artifacts.md)할 수 있습니다. VM을 만들 때는 *사용자 지정 이미지* 또는 *마켓플레이스 이미지* 중에서 *기준*을 지정합니다. 이 문서에는 VHD 파일에서 사용자 지정 이미지를 만드는 방법이 나와 있습니다. 이 문서의 모든 단계를 수행하려면 올바른 VHD 파일에 액세스할 수 있어야 합니다.
+[DevTest Lab을 만든](devtest-lab-create-lab.md) 후에는 [랩에 VM(가상 컴퓨터)을 추가](devtest-lab-add-vm-with-artifacts.md)할 수 있습니다. VM을 만들 때는 *사용자 지정 이미지* 또는 *마켓플레이스 이미지* 중에서 *기준*을 지정합니다. 이 문서에는 VHD 파일에서 사용자 지정 이미지를 만드는 방법이 나와 있습니다. 이 문서의 모든 단계를 수행하려면 올바른 VHD 파일에 액세스할 수 있어야 합니다.
 
 ## 사용자 지정 이미지 만들기
 
@@ -78,4 +78,4 @@
 
 VM을 만들 때 사용할 사용자 지정 이미지를 추가했으면 다음 단계는 [DevTest Lab에 VM을 추가](./devtest-lab-add-vm-with-artifacts.md)하는 것입니다.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

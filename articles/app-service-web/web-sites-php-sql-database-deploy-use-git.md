@@ -3,9 +3,9 @@
 	description="Azure SQL 데이터베이스에 데이터를 저장하는 PHP 웹 앱을 만들고 Git를 사용하여 Azure 앱 서비스에 배포하는 방법을 보여 주는 자습서입니다." 
 	services="app-service\web, sql-database" 
 	documentationCenter="php" 
-	authors="tfitzmac" 
+	authors="rmcmurray" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor=""/>
 
 <tags 
 	ms.service="app-service-web" 
@@ -14,7 +14,7 @@
 	ms.devlang="PHP" 
 	ms.topic="article" 
 	ms.date="02/09/2016" 
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 # PHP-SQL 웹 앱 만들기 및 Git를 사용하여 Azure 앱 서비스에 배포하기
 
@@ -298,4 +298,4 @@ Azure 웹 앱 및 SQL 데이터베이스를 만들려면 다음 단계를 따르
 [pdo-sqlsrv]: http://php.net/pdo_sqlsrv
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

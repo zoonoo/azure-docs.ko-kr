@@ -1,4 +1,5 @@
 
+
 <properties
 	pageTitle="Azure AD v2.0 OAuth 인증 코드 흐름 | Microsoft Azure"
 	description="OAuth 2.0 인증 프로토콜의 Azure AD의 구현을 사용하여 웹 응용 프로그램을 빌드합니다."
@@ -13,7 +14,7 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="02/20/2016"
 	ms.author="dastrock"/>
 
@@ -275,4 +276,4 @@ curl -X POST -H "Cache-Control: no-cache" -H "Content-Type: application/x-www-fo
 | trace\_id | 진단에 도움이 될 수 있는 요청에 대한 고유 식별자입니다. |
 | correlation\_id | 여러 구성 요소에서 진단에 도움이 될 수 있는 요청에 대한 고유 식별자입니다. |
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

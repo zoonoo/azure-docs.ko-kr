@@ -75,11 +75,11 @@
 
 
 	<table border="1">
-<tr><th>클러스터 속성</th><th>설명</th></tr>
-<tr><td>HBase 클러스터 이름</td><td>HDInsight HBase 클러스터 이름입니다. 예를 들면 https://myhbase.azurehdinsight.net/과 같습니다.</td></tr>
-<tr><td>클러스터 사용자 이름</td><td>Hadoop 사용자 계정 이름입니다. 기본 Hadoop 사용자 이름은 <strong>admin</strong>입니다.</td></tr>
-<tr><td>클러스터 사용자 암호</td><td>Hadoop 클러스터 사용자 암호입니다.</td></tr>
-</table>
+	<tr><th>클러스터 속성</th><th>설명</th></tr>
+	<tr><td>HBase 클러스터 이름</td><td>HDInsight HBase 클러스터 이름입니다. 예를 들면 https://myhbase.azurehdinsight.net/과 같습니다.</td></tr>
+	<tr><td>클러스터 사용자 이름</td><td>Hadoop 사용자 계정 이름입니다. 기본 Hadoop 사용자 이름은 <strong>admin</strong>입니다.</td></tr>
+	<tr><td>클러스터 사용자 암호</td><td>Hadoop 클러스터 사용자 암호입니다.</td></tr>
+	</table>
 
 - Visual Studio 2013이 설치된 **워크스테이션**. 관련 지침은 [Visual Studio 설치](http://msdn.microsoft.com/library/e2h7fzkw.aspx)를 참조하세요.
 
@@ -1233,7 +1233,6 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
 - [HDInsight에서 HBase 복제 구성](hdinsight-hbase-geo-replication.md) 
 - [HDInsight에서 Hadoop으로 Twitter 데이터 분석][hdinsight-analyze-twitter-data]
 - [HDInsight를 사용하여 비행 지연 데이터 분석][hdinsight-analyze-flight-delay-data]
-- [HDInsight용 C# Hadoop 스트리밍 프로그램 개발][hdinsight-develop-streaming]
 - [HDInsight용 Java MapReduce 프로그램 개발][hdinsight-develop-mapreduce]
 
 
@@ -1249,7 +1248,6 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
 
 
 
-[hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 [hdinsight-analyze-twitter-data]: hdinsight-analyze-twitter-data.md
 [hdinsight-hbase-get-started]: ../hdinsight-hbase-tutorial-get-started.md
@@ -1279,4 +1277,4 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

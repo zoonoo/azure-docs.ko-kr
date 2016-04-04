@@ -14,41 +14,44 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="03/09/2016"
+   	ms.date="03/21/2016"
    	ms.author="nitinme"/>
 
 
-#Azure Preview 포털을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기
+#Azure 포털을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기
 
 [AZURE.INCLUDE [선택기](../../includes/hdinsight-selector-create-clusters.md)]
 
-Azure Preview 포털은 Microsoft Azure 클라우드에 호스트된 서비스와 리소스에 대한 웹 기반 관리 도구입니다. 이 문서의 정보를 사용하여 Preview 포털과 웹 브라우저를 통해 새로운 Linux 기반 HDInsight 클러스터를 만들 수 있습니다.
+Azure 포털은 Microsoft Azure 클라우드에 호스트된 서비스와 리소스에 대한 웹 기반 관리 도구입니다. 이 문서에서는 포털을 사용하여 Linux 기반 HDInsight 클러스터를 만드는 방법에 대해 알아봅니다.
 
 ## 필수 조건
 
-- **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-- __최신 웹 브라우저__. Azure Preview 포털은 HTML5 및 Javascript를 사용하며 이전 웹 브라우저에서 제대로 작동하지 않을 수 있습니다.
+
+- **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+- __최신 웹 브라우저__. Azure 포털은 HTML5 및 Javascript를 사용하며 이전 웹 브라우저에서 제대로 작동하지 않을 수 있습니다.
 
 ##클러스터 만들기
 
-[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+Azure 포털은 대부분의 클러스터 속성을 노출합니다. Azure ARM 템플릿을 사용하여 이러한 많은 속성을 숨길 수 있습니다. 자세한 내용은 [ARM 템플릿을 사용하여 HDInsight의 Linux 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md)를 참조하세요.
 
-1. [Azure Preview 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
 2. **새로 만들기**, **데이터 분석** 및 **HDInsight**를 차례로 클릭합니다.
 
-    ![Azure Preview 포털에서 새 클러스터 만들기](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.1.png "Azure Preview 포털에서 새 클러스터 만들기")
+    ![Azure 포털에서 새 클러스터 만들기](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.1.png "Azure 포털에서 새 클러스터 만들기")
 
-3. **클러스터 이름**을 입력하고 **클러스터 형식**으로 **Hadoop**을 선택하고 **클러스터 운영 체제** 드롭다운에서 **Ubuntu**를 선택합니다. 클러스터 이름을 사용할 수 있는 경우 클러스터 이름 옆에 녹색 확인 표시가 나타납니다.
+3. 다음을 입력합니다.
 
-    > [AZURE.NOTE] HBase 또는 Storm 클러스터를 프로비전하려면 **클러스터 형식** 드롭다운 목록에서 적절한 값을 선택합니다.
+    - **클러스터 이름**: 이 이름은 전역적으로 고유해야 합니다.
+    - **클러스터 유형**: 어떤 유형을 선택할지 잘 모르는 경우 **Hadoop**을 선택합니다.
+    - **클러스터 운영 체제**: **Linux**를 선택합니다.
+    - **버전**: 어떤 버전을 선택할지 잘 모르는 경우 기본 버전을 사용합니다. 자세한 내용은 [HDInsight 클러스터 버전](hdinsight-component-versioning.md)을 참조하세요.
 
-    ![클러스터 이름 및 유형 입력](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.2.png "클러스터 이름 및 유형 입력")
+4. **구독**을 클릭하여 이 클러스터에 사용할 Azure 구독을 선택합니다.
 
-4. 둘 이상의 구독이 있는 경우 **구독** 항목을 클릭하여 클러스터에 사용할 Azure 구독을 선택합니다.
-
-5. **리소스 그룹**을 클릭하여 기존 리소스 그룹 목록을 표시한 다음 클러스터를 만들 리소스 그룹을 선택합니다. 또는 **새로 만들기**를 클릭한 다음 새 리소스 그룹의 이름을 입력할 수 있습니다. 새 그룹 이름을 사용할 수 있는지 여부를 나타내는 녹색 확인 표시가 나타납니다.
+5. **리소스 그룹**을 클릭하여 기존 리소스 그룹을 선택하거나 **새로 만들기**를 클릭하여 새 리소스 그룹을 만듭니다.
 
 	> [AZURE.NOTE] 사용할 수 있는 경우 이 항목은 기존 리소스 그룹 중 하나로 기본 설정됩니다.
 
@@ -77,6 +80,8 @@ Azure Preview 포털은 Microsoft Azure 클라우드에 호스트된 서비스�
 	- **위치**: 저장소 계정이 있거나 저장소 계정을 만들 지리적인 지역입니다.
 
 		> [AZURE.IMPORTANT] 기본 데이터 원본의 위치를 선택하면 HDInsight 클러스터의 위치도 설정됩니다. 클러스터와 기본 데이터 원본은 같은 지역에 있어야 합니다.
+        
+    - **클러스터 AAD ID**: 이를 구성하여 클러스터에 AAD 구성에 따라 Azure Data Lake 저장소에 액세스하도록 합니다.
 
 	**선택**을 클릭하여 데이터 원본 구성을 저장합니다.
 
@@ -92,9 +97,7 @@ Azure Preview 포털은 Microsoft Azure 클라우드에 호스트된 서비스�
 
 9. **옵션 구성**을 클릭하여 클러스터 버전을 선택하고 **가상 네트워크**에 가입, Hive 및 Oozie의 데이터를 유지하기 위한 **외부 Metastore** 설정 등 기타 선택적 설정을 구성하고 스크립트 동작을 사용하여 사용자 지정 구성 요소를 설치하기 위해 클러스터를 사용자 지정하거나 클러스터에 추가 저장소 계정을 사용합니다.
 
-	* **HDInsight 버전** 드롭다운을 클릭하고 클러스터에 사용할 버전을 선택합니다. 자세한 내용은 [HDInsight 클러스터 버전](hdinsight-component-versioning.md)을 참조하세요.
-
-	* **가상 네트워크**: 클러스터를 가상 네트워크에 배치하려는 경우 Azure 가상 네트워크 및 서브넷을 선택합니다.
+	* **가상 네트워크**: 클러스터를 가상 네트워크에 배치하려는 경우 Azure 가상 네트워크 및 서브넷을 선택합니다.  
 
 		![가상 네트워크 블레이드](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.6.png "가상 네트워크 세부 정보 지정")
 
@@ -114,11 +117,13 @@ Azure Preview 포털은 Microsoft Azure 클라우드에 호스트된 서비스�
 
 		![스크립트 동작 블레이드](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.8.png "스크립트 동작 지정")
 
-	* **Azure 저장소 키**를 클릭하여 클러스터와 연결할 추가 저장소 계정을 지정합니다. **Azure 저장소 키** 블레이드에서 **저장소 키 추가**를 클릭한 다음 기존 저장소 계정을 선택하거나 새 계정을 만듭니다.
+	* **연결된 저장소 계정**을 클릭하여 클러스터와 연결할 추가 저장소 계정을 지정합니다. **Azure 저장소 키** 블레이드에서 **저장소 키 추가**를 클릭한 다음 기존 저장소 계정을 선택하거나 새 계정을 만듭니다.
 
 		![추가 저장소 블레이드](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.9.png "추가 저장소 계정 지정")
 
 		**새 HDInsight 클러스터** 블레이드로 돌아갈 때까지 **선택**을 클릭합니다.
+        
+        Blob 저장소 계정 외에 Azure Data Lake 저장소를 연결할 수도 있습니다. 기본 저장소 계정 및 기본 컨테이너를 구성한 데이터 원본에서 AAD를 구성하여 이 구성을 완료할 수 있습니다.
 
 10. **새 HDInsight 클러스터** 블레이드에서 **시작 보드에 고정**이 선택되어 있는지 확인한 다음 **만들기**를 클릭합니다. 그러면 클러스터가 만들어지고 Azure 포털의 시작 보드에 클러스터 타일이 추가됩니다. 아이콘이 클러스터를 프로비전 중임을 나타내고 프로비전이 완료되면 변경되어 HDInsight 아이콘을 표시합니다.
 
@@ -146,7 +151,7 @@ Azure Preview 포털은 Microsoft Azure 클라우드에 호스트된 서비스�
 
 	* **사용자**(![사용자 아이콘](./media/hdinsight-hadoop-create-linux-cluster-portal/users.png)): Azure 구독의 다른 사용자에 대해 이 클러스터의 _포털 관리_ 권한을 설정할 수 있습니다.
 
-		> [AZURE.IMPORTANT] 이는 _오직_ Azure Preview 포털에서 이 클러스터에 대한 액세스 및 권한에만 영향을 미치며, HDInsight 클러스터에 연결하거나 작업을 제출할 수 있는 사용자에게는 영향을 미치지 않습니다.
+		> [AZURE.IMPORTANT] 이는 _오직_ Azure 포털에서 이 클러스터에 대한 액세스 및 권한에만 영향을 미치며, HDInsight 클러스터에 연결하거나 작업을 제출할 수 있는 사용자에게는 영향을 미치지 않습니다.
 
 	* **태그(![태그 아이콘](./media/hdinsight-hadoop-create-linux-cluster-portal/tags.png))**: 태그를 사용하면 클라우드 서비스의 사용자 지정 분류를 정의하기 위한 키/값 쌍을 설정할 수 있습니다. 예를 들어 __project__라는 키를 만든 다음 특정 프로젝트와 연결된 모든 서비스에 공통 값을 사용할 수 있습니다.
 
@@ -188,4 +193,4 @@ HDInsight 클러스터를 성공적으로 만들었으므로 다음을 사용하
 * [기계 학습과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Spark 스트리밍: HDInsight에서 Spark를 사용하여 실시간 스트리밍 응용 프로그램 빌드](hdinsight-apache-spark-eventhub-streaming.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

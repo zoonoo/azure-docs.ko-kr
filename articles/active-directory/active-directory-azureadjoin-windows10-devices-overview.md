@@ -9,7 +9,7 @@
 	editor=""
 	tags="azure-classic-portal"/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="02/26/2016"
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="03/18/2016"
 
 	ms.author="femila"/>
 
@@ -30,4 +30,4 @@ Windows 10은 Azure Active Directory를 활용할 수 있는 기능을 제공합
 | 배포 | [Azure AD 조인에 대한 사용 시나리오와 배포 고려 사항](active-directory-azureadjoin-deployment-aadjoindirect.md) <br><br> [Windows 10 환경을 위해 도메인 가입 장치를 Azure AD에 연결](active-directory-azureadjoin-devices-group-policy.md)<br><br>[조직에서 작업에 Microsoft Passport 사용](active-directory-azureadjoin-passport-deployment.md)<br><br> [Windows 10에 대해 엔터프라이즈 상태 로밍 활성화](active-directory-windows-enterprise-state-roaming-overview.md)<br><br> |
 | 사용자 작업 | [설치하는 동안 Azure AD로 새 Windows 10 장치 설정](active-directory-azureadjoin-user-frx.md) <br><br> [설정 메뉴에서 Azure AD로 Windows 10 장치 설정](active-directory-azureadjoin-user-upgrade.md) <br><br> [개인 Windows 10 장치를 조직에 조인](active-directory-azureadjoin-personal-device.md) |
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

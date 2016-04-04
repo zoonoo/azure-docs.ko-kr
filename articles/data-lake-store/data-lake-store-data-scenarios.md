@@ -50,7 +50,8 @@
 
 다음은 사용할 수 있는 도구입니다.
  
-* [Azure HDInsight Storm](../hdinsight/hdinsight-storm-write-data-lake-store.md). Storm 클러스터에서 Data Lake 저장소에 직접 데이터를 쓸 수 있습니다.
+* [Azure 스트림 분석](../stream-analytics-data-lake-output) - 이벤트 허브에 수집된 이벤트는 Azure Data Lake 저장소 출력을 사용하여 Azure Data Lake에 쓸 수 있습니다.
+* [Azure HDInsight Storm](../hdinsight/hdinsight-storm-write-data-lake-store.md) - Storm 클러스터에서 Data Lake 저장소에 직접 데이터를 쓸 수 있습니다.
 * [EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost) – 이벤트 허브에서 이벤트를 받은 다음 [Data Lake 저장소 .NET SDK](data-lake-store-get-started-net-sdk.md)를 사용하여 Data Lake 저장소에 데이터를 쓸 수 있습니다.
 
 ### 관계형 데이터
@@ -84,11 +85,11 @@
 
 용량이 수 테라바이트에 달하는 데이터 집합을 업로드하는 경우 위에서 설명한 방법을 사용하면 속도가 느리고 비용이 많이 들 수 있습니다. 이러한 경우 다음 옵션을 사용할 수 있습니다.
 
-* **데이터를 "오프라인"으로 업로드합니다**. [Azure 가져오기/내보내기 서비스](../storage/storage-import-export-service.md)를 사용하여 데이터가 들어 있는 하드 디스크를 Azure 데이터로 보내면 데이터가 Azure 저장소 Blob에 업로드됩니다. 그러면 [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md#sample-copy-data-from-azure-blob-to-azure-data-lake-store) 또는 [AdlCopy 도구](data-lake-store-copy-data-azure-storage-blob.md)를 사용하여 Azure 저장소 Blob에서 Data Lake 저장소로 데이터를 이동할 수 있습니다.
+* **데이터를 "오프라인"으로 업로드**. [Azure 가져오기/내보내기 서비스](../storage/storage-import-export-service.md)를 사용하여 데이터가 들어 있는 하드 디스크를 Azure 데이터 센터로 보내면 데이터가 Azure 저장소 Blob에 업로드됩니다. 그러면 [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md#sample-copy-data-from-azure-blob-to-azure-data-lake-store) 또는 [AdlCopy 도구](data-lake-store-copy-data-azure-storage-blob.md)를 사용하여 Azure 저장소 Blob에서 Data Lake 저장소로 데이터를 이동할 수 있습니다.
 
 	>[AZURE.NOTE] 가져오기/내보내기 서비스를 사용할 때 Azure 데이터 센터로 보내는 디스크의 파일 크기가 200GB를 초과하면 안 됩니다.
 
-* **Azure Express 경로**. Azure Express 경로를 사용하면 온-프레미스의 인프라와 Azure 데이터 센터 사이에 개인 연결을 만들 수 있습니다. 이렇게 하면 대용량 데이터를 안전하게 전송할 수 있습니다. 자세한 내용은 [Azure Express 경로 설명서](../expressroute/expressroute-introduction.md)를 참조하세요.
+* **Azure Express 경로 사용**. Azure Express 경로를 사용하면 온-프레미스의 인프라와 Azure 데이터 센터 사이에 개인 연결을 만들 수 있습니다. 이렇게 하면 대용량 데이터를 안전하게 전송할 수 있습니다. 자세한 내용은 [Azure Express 경로 설명서](../expressroute/expressroute-introduction.md)를 참조하세요.
 
 ## Data Lake 저장소에 저장된 데이터 처리
 
@@ -130,7 +131,7 @@ Data Lake 저장소의 데이터를 사용할 수 있게 되면 지원되는 빅
 
 ![Data Lake 저장소에서 데이터 시각화](./media/data-lake-store-data-scenarios/visualize-data.png "Data Lake 저장소에서 데이터 시각화")
 
-* 먼저 [Azure Data Factory를 사용하여 Data Lake 저장소에서 Azure SQL 데이터 웨어하우스로 데이터를 이동](../data-factory/data-factory-data-movement-activities.md#supported-data-stores)할 수 있습니다.
+* b먼저 [Azure Data Factory를 사용하여 Data Lake 저장소에서 Azure SQL 데이터 웨어하우스로 데이터를 이동](../data-factory/data-factory-data-movement-activities.md#supported-data-stores)할 수 있습니다.
 * 그 후에는 [Power BI를 Azure SQL 데이터 웨어하우스와 통합](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi)하여 데이터를 시각적으로 표현할 수 있습니다.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/29/2015"
+	ms.date="03/22/2016"
 	ms.author="jgao"/>
 
 
@@ -109,18 +109,12 @@ Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 및 자동�
 1. [Azure PowerShell 설치 및 구성](../powershell-install-configure.md)의 지침에 따라 Azure PowerShell 콘솔을 엽니다.
 2. 다음 스크립트에서 처음 5개의 변수 값을 설정합니다.
 
-		$subscriptionName = "<AzureSubscriptionName>"
 		$resourceGroupName = "<AzureResourceGroupName>"
 		$storageAccountName = "<StorageAccountName>"
 		$containerName = "<ContainerName>"
 
 		$fileName ="<LocalFileName>"
 		$blobName = "<BlobName>"
-
-		Switch-AzureMode -Name AzureResourceManager
-
-		Add-AzureAccount
-		Select-AzureSubscription $subscriptionName
 
 		# Get the storage account key
 		$storageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName | %{ $_.Key1 }
@@ -284,4 +278,4 @@ Azure SDK 설치에 대한 자세한 내용은 [Azure 다운로드](https://azur
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

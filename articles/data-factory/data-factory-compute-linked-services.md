@@ -142,7 +142,7 @@ dataNodeSize | 데이터 노드의 크기를 지정합니다. 기본값은 크�
 zookeeperNodeSize | Zookeeper 노드의 크기를 지정합니다. 기본값은 작게입니다. | 아니요
  
 #### 노드 크기 지정
-위의 속성에 대해 지정해야 하는 문자열 값은 [가상 컴퓨터의 크기](../virtual-machines/virtual-machines-size-specs.md#size-tables) 문서를 참조하세요. 값은 이 문서에서 참조된 **CMDLET 및 API**를 준수해야 합니다. 이 문서에서 볼 수 있는 것처럼 크게(기본값) 크기의 데이터 노드는 메모리가 7GB이므로 시나리오에 맞지 않을 수 있습니다.
+위의 속성에 대해 지정해야 하는 문자열 값은 [가상 컴퓨터의 크기](../virtual-machines/virtual-machines-linux-sizes.md#size-tables) 문서를 참조하세요. 값은 이 문서에서 참조된 **CMDLET 및 API**를 준수해야 합니다. 이 문서에서 볼 수 있는 것처럼 크게(기본값) 크기의 데이터 노드는 메모리가 7GB이므로 시나리오에 맞지 않을 수 있습니다.
 
 D4 크기의 헤드 노드 및 작업자 노드를 만들려는 경우 headNodeSize 및 dataNodeSize 속성에 대한 값으로 **Standard\_D4**를 지정해야 합니다.
 
@@ -177,7 +177,6 @@ Azure HDInsight 연결된 서비스를 만들어서 데이터 팩터리를 사�
 	      "clusterUri": " https://<hdinsightclustername>.azurehdinsight.net/",
 	      "userName": "admin",
 	      "password": "<password>",
-	      "location": "WestUS",
 	      "linkedServiceName": "MyHDInsightStoragelinkedService"
 	    }
 	  }
@@ -191,7 +190,6 @@ type | 형식 속성은 **HDInsight**로 설정해야 합니다. | 예
 clusterUri | HDInsight 클러스터의 URI입니다. | 예
 username | 기존 HDInsight 클러스터에 연결하는데 사용할 사용자의 이름을 지정합니다. | 예
 password | 사용자 계정으로 password를 지정합니다. | 예
-location | HDInsight 클러스터의 위치를 지정합니다.(예: WestUS). | 예
 linkedServiceName | 이 HDInsight 클러스터에서 사용하는 blob 저장소에 대한 연결된 서비스의 이름입니다. | 예
 
 ## Azure 일괄 처리 연결된 서비스
@@ -306,7 +304,7 @@ sessionId | OAuth 권한 부여 세션의 세션 ID입니다. 각 세션 ID는 �
 | Azure Active Directory에서 관리되지 않는 사용자 계정(@hotmail.com, @live.com 등) | 12시간 |
 | AAD(Azure Active Directory)에서 관리되는 사용자 계정 | 마지막 조각이 실행된 후 14일 <br/><br/>OAuth 기반 연결된 서비스를 기반으로 하는 조각이 14일마다 한 번 이상 실행된 경우 90일 |
  
-이 오류를 방지/해결하려면 **토큰이 만료**되면 **권한 부여** 단추를 사용하여 다시 인증하고 연결된 서비스를 다시 배포해야 합니다. 다음 섹션의 코드를 사용하여 프로그래밍 방식으로 sessionId 및 권한 부여 속성의 값을 생성할 수도 있습니다.
+이 오류를 방지/해결하려면 **토큰이 만료**될 때 **권한 부여** 단추를 사용하여 다시 인증하고 연결된 서비스를 다시 배포해야 합니다. 다음 섹션의 코드를 사용하여 프로그래밍 방식으로 sessionId 및 권한 부여 속성의 값을 생성할 수도 있습니다.
 
 ### 프로그래밍 방식으로 sessionId와 권한 부여 값을 생성하려면 
 다음 코드는 **sessionId**와 **authorization** 값을 생성합니다.
@@ -341,4 +339,4 @@ sessionId | OAuth 권한 부여 세션의 세션 ID입니다. 각 세션 ID는 �
 
 Azure SQL 연결된 서비스를 만들고 [저장 프로시저 활동](data-factory-stored-proc-activity.md)에서 사용하여 Data Factory 파이프라인에서 저장 프로시저를 호출합니다. 이 연결된 서비스에 대한 자세한 내용은 [Azure SQL 커넥터](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) 문서를 참조하세요.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

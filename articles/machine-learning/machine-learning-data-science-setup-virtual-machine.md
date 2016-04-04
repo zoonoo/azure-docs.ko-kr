@@ -66,7 +66,7 @@ Azure에서 가상 컴퓨터를 만드는 프로세스를 시작하기 전에 �
 
 ## <a name="run-commands"></a>3단계: IPython Notebook 및 기타 지원 도구 설치
 
-가상 컴퓨터를 만들 후 RDP(원격 데스크톱 프로토콜)를 사용하여 Windows 가상 컴퓨터에 로그온합니다. 지침은 [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법](../virtual-machines-log-on-windows-server.md)을 참조하세요. **관리자** 권한으로 **명령 프롬프트**(**Powershell 명령 창이 아님**)를 열고 다음 명령을 실행합니다.
+가상 컴퓨터를 만들 후 RDP(원격 데스크톱 프로토콜)를 사용하여 Windows 가상 컴퓨터에 로그온합니다. 지침은 [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법](../virtual-machines/virtual-machines-windows-classic-connect-logon.md)을 참조하세요. **관리자** 권한으로 **명령 프롬프트**(**Powershell 명령 창이 아님**)를 열고 다음 명령을 실행합니다.
 
     set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/MachineSetup/Azure_VM_Setup_Windows.ps1'
 
@@ -143,4 +143,4 @@ Azure 가상 컴퓨터는 **종량제**로 비용이 청구됩니다. 가상 컴
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

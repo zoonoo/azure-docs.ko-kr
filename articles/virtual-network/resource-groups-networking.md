@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # 네트워크 리소스 공급자
@@ -254,26 +254,14 @@ PowerShell, AzureCLI를 사용하거나 GitHub에서 배포를 클릭하여 템�
 ![샘플 템플릿 배포](./media/resource-groups-networking/Figure6.png)
 
 
-## 참고 항목
-
-[Azure 네트워킹 API 참조](https://msdn.microsoft.com/library/azure/dn948464.aspx)
-
-[네트워킹을 위한 Azure PowerShell 참조](https://msdn.microsoft.com/library/azure/mt163510.aspx)
+## 다음 단계
 
 [Azure 리소스 관리자 템플릿 언어](../resource-group-authoring-templates.md)
 
 [Azure 네트워킹- 일반적으로 사용되는 템플릿](https://github.com/Azure/azure-quickstart-templates)
 
-[계산 리소스 공급자](../virtual-machines-azurerm-versus-azuresm)
+[계산 리소스 공급자](../virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
 
-[Azure 리소스 관리자 개요](../resource-group-overview)
+[Azure 리소스 관리자 개요](../resource-group-overview.md)
 
-[Azure 리소스 관리자의 역할 기반 액세스 제어](https://msdn.microsoft.com/library/azure/dn906885.aspx)
-
-[Azure 리소스 관리자에서 태그 사용](https://msdn.microsoft.com/library/azure/dn848368.aspx)
-
-[템플릿 배포 ](https://msdn.microsoft.com/library/azure/dn790549.aspx)
-
-오늘날의
-
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

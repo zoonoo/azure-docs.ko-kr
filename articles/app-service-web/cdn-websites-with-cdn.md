@@ -179,7 +179,7 @@ Azure 웹앱을 Azure CDN과 통합하는 경우 Azure CDN을 통해 컨트롤�
 
 위의 단계에 따라 이 컨트롤러 작업을 설정하려면 다음을 수행합니다.
 
-1. *\Controllers* 폴더에서 *MemeGeneratorController.cs*라는 새로운 .cs 파일을 만들고 내용을 다음 코드로 바꿉니다. `~/Content/chuck.bmp`를 해당 파일 경로로 대체하고 `yourCDNName`을 CDN 이름으로 대체합니다.
+1. *\\Controllers* 폴더에서 *MemeGeneratorController.cs*라는 새로운 .cs 파일을 만들고 내용을 다음 코드로 바꿉니다. `~/Content/chuck.bmp`를 해당 파일 경로로 대체하고 `yourCDNName`을 CDN 이름으로 대체합니다.
 
 
         using System;
@@ -527,7 +527,7 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
                     len = document.styleSheets.length;
                 for (var i = 0; i < len; i++) {
                     var sheet = document.styleSheets[i];
-    		 if (sheet.href.indexOf('http://az673227.azureedge.net/Content/css?v=1.0.0.25474') !== -1) {
+                    if (sheet.href.indexOf('http://az673227.azureedge.net/Content/css?v=1.0.0.25474') !== -1) {
                         var meta = document.createElement('meta');
                         meta.className = 'sr-only';
                         document.head.appendChild(meta);
@@ -539,7 +539,7 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
                     }
                 }
                 return true;
-            }())||document.write('<script src="/Content/css"><\/script>');</script>
+            }())||document.write('<script src="/Content/css"><\\/script>');</script>
 
 	<script src="http://az673227.azureedge.net/bundles/modernizer?v=1.0.0.25474"></script>
  	<script>(window.Modernizr)||document.write('<script src="/bundles/modernizr"><\/script>');</script>
@@ -552,11 +552,11 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 	...
 	```
 
-	CSS 번들의 삽입 스크립트에서 여전히 다음과 같은 줄에 `CdnFallbackExpression` 속성의 잘못된 나머지 부분이 포함되어 있습니다.
+	Note that injected script for the CSS bundle still contains the errant remnant from the `CdnFallbackExpression` property in the line:
 
 		}())||document.write('<script src="/Content/css"><\/script>');</script>
 
-	그러나 || 식의 첫 부분이 항상 true를 반환하므로(바로 위의 줄에서) document.write() 함수가 실행되지 않습니다.
+	But since the first part of the || expression will always return true (in the line directly above that), the document.write() function will never run.
 
 6. 대체(fallback) 스크립트가 작동 중인지를 테스트하려면 CDN 끝점의 블레이드로 돌아간 후 **중지**를 클릭합니다.
 
@@ -573,7 +573,6 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
-* 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Privileged Identity Management: 사용자에 대한 역할 추가를 시작하는 방법"
+   pageTitle="사용자 역할을 추가하거나 제거하는 방법| Microsoft Azure"
    description="Azure Active Directory Privileged Identity Management 확장을 사용하여 권한 있는 ID에 역할을 추가하는 방법을 알아봅니다."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/08/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
 # Azure AD Privileged Identity Management: 사용자 역할을 추가 또는 제거하는 방법
@@ -49,4 +49,4 @@ PIM(Privileged Identity Management) 인터페이스의 **관리되는 사용자 
 ## 다음 단계
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

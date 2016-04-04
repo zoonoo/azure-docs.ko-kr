@@ -125,6 +125,6 @@ Visual Studio Online은 진단 확장으로 클라우드 서비스의 자동화�
 
 - 문제 해결을 위한 Azure 진단 및 기타 기법 사용에 대한 추가 지침은 [Azure 클라우드 서비스 및 가상 컴퓨터에서 진단 사용](cloud-services-dotnet-diagnostics.md)을 참조하세요.
 - [진단 구성 스키마](https://msdn.microsoft.com/library/azure/dn782207.aspx)는 진단 확장에 대한 다양한 XML 구성 옵션을 설명합니다.
-- 가상 컴퓨터에 대해 진단 확장을 사용하도록 설정하는 방법을 알아보려면 [Azure 리소스 관리자 템플릿을 사용한 모니터링 및 진단으로 Windows 가상 컴퓨터 만들기(영문)](virtual-machines-extensions-diagnostics-windows-template.md)를 참조하세요.  
+- 가상 컴퓨터에 대해 진단 확장을 사용하도록 설정하는 방법을 알아보려면 [Azure 리소스 관리자 템플릿을 사용한 모니터링 및 진단으로 Windows 가상 컴퓨터 만들기(영문)](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)를 참조하세요.  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -1,23 +1,25 @@
-### VPN type for the Resource Manager deployment model
+### 리소스 관리자 배포 모델을 위한 VPN 형식
 
-|      | **Route-based**    | **Policy-based** |
+| | **경로 기반** | **정책 기반** |
 |-----------------------------------|--------------------|------------------|
-| **Site-to-Site**                  | yes                | yes              |
-| **VNet-to-VNet**                  | yes                | no               |
-| **Multi-Site**                    | yes                | no               |
-| **S2S and ExpressRoute coexist**  | not yet available  | no               |
-| **Point-to-Site**                 | yes                | no               |
-| **Classic to Resource Manager**   | yes                | no               |
+| **사이트 간** | yes | yes |
+| **VNet-VNet** | yes | no |
+| **다중 사이트** | yes | no |
+| **S2S 및 Express 경로 공존** | 아직 사용할 수 없음 | no |
+| **지점 및 사이트 간** | yes | no |
+| **클래식 - 리소스 관리자** | yes | no |
 
 
-### VPN type for the classic deployment model
+### 클래식 배포 모델을 위한 VPN 형식
 
 
-|       | **Dynamic**        | **Static**   |
+| | **동적** | **정적** |
 |---------------------------------------------|--------------------|--------------|
-| **Site-to-Site**                            | yes                | yes          |
-| **VNet-to-VNet**                            | yes                | no           |
-| **Multi-Site**                              | yes                | no           |
-| **S2S and ExpressRoute coexist**            | yes                | no           |
-| **Point-to-Site**                           | yes                | no           |
-| **Classic to Resource Manager**             | yes                | no           |
+| **사이트 간** | yes | yes |
+| **VNet-VNet** | yes | no |
+| **다중 사이트** | yes | no |
+| **S2S 및 Express 경로 공존** | yes | no |
+| **지점 및 사이트 간** | yes | no |
+| **클래식 - 리소스 관리자** | yes | no |
+
+<!---HONumber=AcomDC_0323_2016-->

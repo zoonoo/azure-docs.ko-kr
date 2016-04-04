@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="03/18/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory ID 보호 
@@ -35,9 +35,9 @@ Azure Active Directory ID 보호 미리 보기에는 페더레이션된 도메�
 
 - 페더레이션된 도메인에 대해서는 보안 정책이 작동하지 않습니다.
 
-- 페더레이션된 도메인에 대해서는 위험 이벤트가 검색되지 않습니다.
+- 위험 이벤트는 Azure Active Directory와 페더레이션되는 앱에 대해서만 검색됩니다.
 
-##시작
+##시작하기
 
 대부분의 보안 침해는 공격자가 사용자의 ID를 도용하여 환경에 대한 액세스 권한을 얻을 때 발생합니다. 공격자는 점점 더 효과적으로 제3자 침해를 활용하고 정교한 피싱 공격을 사용하고 있습니다. 일단 공격자가 더 낮은 권한을 가진 사용자 계정에 대한 액세스 권한을 얻게 되면 측면 이동을 통해 비교적 간단하게 중요한 회사 리소스에 대한 액세스 권한을 얻게 됩니다. 따라서 모든 ID를 보호하고 ID가 손상된 경우 사전에 손상된 ID가 악용되지 않도록 방지하는 것이 필수적입니다.
 
@@ -410,4 +410,4 @@ Azure AD ID 보호를 사용하면 다음을 지원하는 정책을 구성하여
  - [Azure Active Directory ID 보호 플레이 북](active-directory-identityprotection-playbook.md)
  - [Azure Active Directory ID 보호 용어집](active-directory-identityprotection-glossary.md)
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

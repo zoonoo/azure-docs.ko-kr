@@ -28,8 +28,8 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 
 이 문서에서는 다음과 같이 방법을 설명합니다.
 
-- **Azure에 VMware 가상 컴퓨터 복제** - 온-프레미스 VMware 가상 컴퓨터에서 Azure 저장소로 복제, 장애 조치(Failover), 복구 조정을 위해 사이트 복구를 배포합니다.
-- **Azure에 물리적 서버 복제** - 온-프레미스 Windows 및 Linux 물리적 서버에서 Azure로 복제, 장애 조치(Failover), 복구 조정을 위해 Azure Site Recovery를 배포합니다.
+- **Azure에 VMware 가상 컴퓨터 복제**—온-프레미스 VMware 가상 컴퓨터에서 Azure 저장소로 복제, 장애 조치(Failover), 복구 조정을 위해 사이트 복구를 배포합니다.
+- **Azure에 물리적 서버 복제**—온-프레미스 Windows 및 Linux 물리적 서버에서 Azure로 복제, 장애 조치(Failover), 복구 조정을 위해 Azure Site Recovery를 배포합니다.
 
 >[AZURE.NOTE] 이 문서에서는 Azure에 복제하는 방법을 설명합니다. VMware VM 또는 Windows/Linux 물리적 서버를 보조 데이터 센터에 복제하려면 [이 문서](site-recovery-vmware-to-vmware.md)의 지침을 따릅니다.
 
@@ -81,14 +81,14 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 
 용량을 계획하는 경우 고려해야 할 항목은 다음과 같습니다.
 
-- **원본 환경** - 용량 계획 또는 VMware 인프라, 원본 컴퓨터 요구 사항.
-- **관리 서버** - 사이트 복구 구성 요소를 실행하는 온-프레미스 관리 서버 계획.
+- **원본 환경**—용량 계획 또는 VMware 인프라, 원본 컴퓨터 요구 사항.
+- ** 관리 서버**—사이트 복구 구성 요소를 실행하는 온-프레미스 관리 서버 계획.
 - **원본에서 대상까지 네트워크 대역폭**-원본과 Azure 간 복제에 필요한 네트워크 대역폭 계획
 
 ### 원본 환경 고려 사항
 
-- **일일 최대 변경률** - 보호된 컴퓨터는 하나의 프로세스 서버만 사용할 수 있으며 단일 프로세스 서버는 일별 최대 2TB의 데이터 변경을 처리할 수 있습니다. 따라서 2TB는 보호되는 컴퓨터에 대해 지원되는 최대 일일 데이터 변경률입니다.
-- **최대 처리량** - 복제된 컴퓨터는 Azure에서 하나의 저장소 계정에 속할 수 있습니다. 표준 저장소 계정은 초당 최대 20,000개의 요청을 처리할 수 있으며 원본 컴퓨터 간에 IOPS 수를 20,000으로 유지하는 것이 좋습니다 예를 들어 원본 컴퓨터의 디스크가 5개이고 각 디스크가 원본에서 120 IOPS(8K 크기)를 생성할 경우 Azure 내에서 디스크당 IOPS 한도인 500을 초과하지 않습니다. 필요한 저장소 계정 수 = 총 원본 IOPS/20000. 
+- **일일 최대 변경률**—보호된 컴퓨터는 하나의 프로세스 서버만 사용할 수 있으며 단일 프로세스 서버는 일별 최대 2TB의 데이터 변경을 처리할 수 있습니다. 따라서 2TB는 보호되는 컴퓨터에 대해 지원되는 최대 일일 데이터 변경률입니다.
+- **최대 처리량**—복제된 컴퓨터는 Azure에서 하나의 저장소 계정에 속할 수 있습니다. 표준 저장소 계정은 초당 최대 20,000개의 요청을 처리할 수 있으며 원본 컴퓨터 간에 IOPS 수를 20,000으로 유지하는 것이 좋습니다 예를 들어 원본 컴퓨터의 디스크가 5개이고 각 디스크가 원본에서 120 IOPS(8K 크기)를 생성할 경우 Azure 내에서 디스크당 IOPS 한도인 500을 초과하지 않습니다. 필요한 저장소 계정 수 = 총 원본 IOPS/20000. 
  
 
 ### 관리 서버 고려 사항
@@ -184,8 +184,8 @@ Azure Site Recovery에서 복제에 사용되는 대역폭을 늘리려면 레�
 **필수 요소** | **세부 정보**
 --- | ---
 **Azure 계정**| [Microsoft Azure](https://azure.microsoft.com/) 계정이 있어야 합니다. [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작할 수 있습니다. 사이트 복구 가격 책정에 대해 [자세히 알아보세요](https://azure.microsoft.com/pricing/details/site-recovery/). 
-**Azure 저장소** | 복제된 데이터를 저장하려면 Azure 저장소 계정이 있어야 합니다. 복제된 데이터는 Azure 저장소에 저장되고 장애 조치(Failover) 발생 시 Azure VM이 작동합니다. <br/><br/>[표준 지역 중복 저장소 계정](../storage/storage-redundancy.md#geo-redundant-storage)이 필요합니다. 계정은 사이트 복구 서비스와 같은 하위 지역에 있고 같은 구독과 연결되어야 합니다. 프리미엄 저장소 계정으로 복제는 현재 지원되지 않으며 사용할 수 없습니다.<br/><br/>여러 리소스 그룹에 [새 Azure 포털](../storage/storage-create-storage-account.md)을 사용하여 만든 저장소 계정의 이동을 지원하지 않습니다.Azure 저장소 계정에 대해 [알아봅니다](../storage/storage-introduction.md).<br/><br/> 
-**Azure 네트워크** | 장애 조치(Failover) 발생 시 Azure VM에서 연결할 Azure 가상 네트워크가 필요합니다. Azure 가상 네트워크는 사이트 복구 자격 증명 모음과 동일한 지역에 있어야 합니다.<br/><br/>Azure에 대한 장애 조치(Failover) 후 장애 복구를 수행하려면 Azure 네트워크에서 온-프레미스 사이트로 VPN 연결(또는 Azure Express 경로) 설정이 필요합니다. 
+**Azure 저장소** | 복제된 데이터를 저장하려면 Azure 저장소 계정이 있어야 합니다. 복제된 데이터는 Azure 저장소에 저장되고 장애 조치(Failover) 발생 시 Azure VM이 작동합니다. <br/><br/>[표준 지역 중복 저장소 계정](../storage/storage-redundancy.md#geo-redundant-storage)이 필요합니다. 계정은 사이트 복구 서비스와 같은 하위 지역에 있고 같은 구독과 연결되어야 합니다. 프리미엄 저장소 계정에 대한 복제는 현재 지원되지 않으며 사용하면 안 됩니다.<br/><br/> 리소스 그룹 간에 [새 Azure 포털](../storage/storage-create-storage-account.md)을 사용하여 만든 저장소 계정의 이동은 지원하지 않습니다. [Azure 저장소](../storage/storage-introduction.md)를 참조하세요.<br/><br/> 
+**Azure 네트워크** | 장애 조치(Failover) 발생 시 Azure VM에서 연결할 Azure 가상 네트워크가 필요합니다. Azure 가상 네트워크는 Site Recovery 자격 증명 모음과 같은 하위 지역에 있어야 합니다.<br/><br/>Azure로 장애 조치(failover) 후 장애 복구(failback)하려면 Azure 네트워크에서 온-프레미스 사이트로 VPN 연결(또는 Azure Express 경로) 설정이 필요합니다. 
 
 
 ### 온-프레미스 필수 조건
@@ -588,7 +588,9 @@ UnifiedAgent.exe [/Role <Agent/MasterTarget>] [/InstallLocation <Installation Di
 3. 다음 설정을 수정할 수 있습니다.
 
 	-  **Azure VM 이름**: 장애 조치(failover) 후에 Azure에서 컴퓨터에 지정될 이름입니다. 이름은 Azure 요구 사항을 준수해야 합니다.
-	-  **Azure VM 크기**: 네트워크 어댑터 수가 대상 가상 컴퓨터에 대해 지정하는 크기에 따라 결정됩니다. 크기 및 어댑터에 대해 [자세히 알아봅니다](../virtual-machines/virtual-machines-size-specs.md#size-tables). 다음 사항에 유의하세요.
+
+	-  **Azure VM 크기**: 네트워크 어댑터 수가 대상 가상 컴퓨터에 대해 지정하는 크기에 따라 결정됩니다. 크기 및 어댑터에 대해 [자세히 알아봅니다](../virtual-machines/virtual-machines-linux-sizes.md/#size-tables). 다음 사항에 유의하세요.
+
 		- 가상 컴퓨터의 크기를 수정하고 설정을 저장하면 다음에 **구성** 탭을 열 때 네트워크 어댑터의 수가 변경됩니다. 대상 가상 컴퓨터의 네트워크 어댑터 수는 원본 가상 컴퓨터의 네트워크 어댑터 수 이상이어야 하며 선택한 가상 머신 크기에서 지원하는 네트워크 어댑터 수 이하여야 합니다. 
 			- 원본 컴퓨터의 네트워크 어댑터 수가 대상 컴퓨터 크기에 허용되는 어댑터 수보다 작거나 같은 경우, 대상의 어댑터 수는 소스와 동일해야 합니다.
 			- 원본 가상 컴퓨터의 어댑터의 수가 대상 크기에 허용된 수를 초과하면 대상 크기 최대치가 사용됩니다.
@@ -760,4 +762,4 @@ The complete file may be found on the [Microsoft Download Center](http://go.micr
 
 Azure에서 실행 중인 장애 조치(failover)된 컴퓨터를 온-프레미스 환경으로 [장애 복구(failback)하는 방법에 대해 자세히 알아봅니다](site-recovery-failback-azure-to-vmware-classic.md).
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

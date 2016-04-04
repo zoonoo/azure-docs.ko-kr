@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure 권한 있는 ID 관리: 보안 검토를 시작하는 방법"
+   pageTitle="보안 검토를 시작하는 방법 | Microsoft Azure"
    description="Azure 권한 있는 ID 관리 확장을 사용하여 권한 있는 ID에 대해 보안 검토를 만드는 방법을 알아봅니다."
    services="active-directory"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
-# Azure Privileged Identity Management: 보안 검토를 시작하는 방법
+# Azure AD Privileged Identity Management: 보안 검토를 시작하는 방법
 
 ## 보안 검토 시작
 머지않아 Azure 포털의 다른 위치에서 보안 검토를 수행할 수 있게 됩니다. 이 문서는 **권위 있는 ID 관리(PIM)** 인터페이스 내에서 보안 검토를 시작하는 단계를 설명합니다.
@@ -62,4 +62,4 @@ Azure PIM 대시보드에서 다음 경로에 따라 검토를 시작할 수 있
 ## PIM 목차
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

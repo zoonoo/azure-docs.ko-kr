@@ -1,5 +1,5 @@
-       이제 DocumentDB 계정의 키 블레이드로 이동합니다. 다음으로 만들 웹 응용 프로그램에 해당 값을 사용합니다.
+       Now navigate to the Keys blade of your DocumentDB account as we will use these values in the web application we create next.
 
-       ![Screen shot of the Azure Preview portal, showing a DocumentDB account, with the Keys button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade](./media/documentdb-keys/keys.png)
+       ![Screen shot of the Azure portal, showing a DocumentDB account, with the Keys button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade](./media/documentdb-keys/keys.png)
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0323_2016-->

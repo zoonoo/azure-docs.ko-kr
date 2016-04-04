@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure 권한 있는 ID 관리: 감사 로그를 사용하는 방법"
+   pageTitle="감사 로그를 사용하는 방법 | Microsoft Azure"
    description="Azure 권한 있는 ID 관리 확장에서 감사 로그를 사용하는 방법을 알아봅니다."
    services="active-directory"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
-# Azure Privileged Identity Management: 감사 로그를 사용하는 방법
+# Azure AD Privileged Identity Management: 감사 로그를 사용하는 방법
 
 Azure Privileged Identity Management(PIM) 감사 로그를 사용하면 지정된 기간 내의 모든 사용자 할당 및 활성화를 볼 수 있습니다.
 
@@ -56,4 +56,4 @@ PIM 대시보드에서 **Audit history**(감사 기록)을 클릭하여 감사 �
 ## 다음 단계
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/08/2016"
+   ms.date="03/18/2016"
    ms.author="larryfr"/>
 
 #Ambari REST API를 사용하여 HDInsight 클러스터 관리
@@ -23,7 +23,7 @@
 
 Apache Ambari는 손쉬운 웹 UI 및 REST API 사용을 제공하여 Hadoop 클러스터의 관리 및 모니터링을 간소화합니다. Ambari는 Linux 기반 HDInsight 클러스터에 포함되어 있으며 클러스터를 모니터링하고 구성을 변경하는데 사용됩니다. 이 문서에서 클러스터 노드의 완전히 정규화된 도메인 이름 찾기 또는 클러스터에서 사용되는 기본 저장소 계정 찾기와 같은 일반적인 작업을 수행하여 Ambari REST API를 통한 작업의 기본 사항을 설명합니다.
 
-> [AZURE.NOTE]이 문서에 있는 정보는 Linux 기반 HDInsight 클러스터에만 적용됩니다. Windows 기반 HDInsight 클러스터의 경우 모니터링 기능의 하위 집합만 Ambari REST API를 통해 사용할 수 있습니다. [Ambari API를 사용하여 HDInsight에서 Windows 기반 Hadoop 모니터링](hdinsight-monitor-use-ambari-api.md)를 참조하세요.
+> [AZURE.NOTE] 이 문서에 있는 정보는 Linux 기반 HDInsight 클러스터에만 적용됩니다. Windows 기반 HDInsight 클러스터의 경우 모니터링 기능의 하위 집합만 Ambari REST API를 통해 사용할 수 있습니다. [Ambari API를 사용하여 HDInsight에서 Windows 기반 Hadoop 모니터링](hdinsight-monitor-use-ambari-api.md)를 참조하세요.
 
 ##필수 조건
 
@@ -32,7 +32,7 @@ Apache Ambari는 손쉬운 웹 UI 및 REST API 사용을 제공하여 Hadoop 클
 
 ##<a id="whatis"></a>Ambari 정의
 
-<a href="http://ambari.apache.org" target="_blank">Apache Ambari</a>에서는 Hadoop 클러스터 프로비전, 관리 및 모니터링에 사용할 수 있는 편리한 웹 UI를 제공하여 쉽게 Hadoop을 관리할 수 있습니다. 개발자는 <a href="https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md" target="_blank">Ambari REST API</a>를 사용하여 자신의 응용 프로그램에 이러한 기능을 통합할 수 있습니다.
+[Apache Ambari](http://ambari.apache.org)에서는 Hadoop 클러스터 프로비전, 관리 및 모니터링에 사용할 수 있는 편리한 웹 UI를 제공하여 쉽게 Hadoop을 관리할 수 있습니다. 개발자는 [Ambari REST API](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)를 사용하여 자신의 응용 프로그램에 이러한 기능을 통합할 수 있습니다.
 
 Ambari는 Linux 기반 HDInsight 클러스터를 기본으로 제공합니다.
 
@@ -40,7 +40,7 @@ Ambari는 Linux 기반 HDInsight 클러스터를 기본으로 제공합니다.
 
 HDInsight에서 Ambari REST API에 대한 기본 URI는 https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME이며 여기서 __CLUSTERNAME__은 클러스터의 이름입니다.
 
-> [AZURE.IMPORTANT]HDInsight에서 Ambari에 대한 연결에는 HTTPS가 필요합니다. 또한 관리자 계정 이름(기본값: __admin__)과, 클러스터를 만들 때 제공한 암호를 사용하여 Ambari에 인증해야 합니다.
+> [AZURE.IMPORTANT] HDInsight에서 Ambari에 대한 연결에는 HTTPS가 필요합니다. 또한 관리자 계정 이름(기본값: __admin__)과, 클러스터를 만들 때 제공한 암호를 사용하여 Ambari에 인증해야 합니다.
 
 다음은 cURL을 사용하여 REST API에 대한 GET 요청을 수행하는 예제입니다.
 
@@ -71,7 +71,7 @@ HDInsight에서 Ambari REST API에 대한 기본 URI는 https://CLUSTERNAME.azur
     
 이는 JSON 문서를 검색한 다음 jq에 출력을 파이프합니다. `'.Clusters.health_report."Host/host_status/ALERT"'`은(는) 검색하려는 JSON 문서 내에서 요소를 나타냅니다.
 
-> [AZURE.NOTE]__Host/host\_status/ALERT__ 요소는 '/'가 요소 이름의 일부임을 나타내는 따옴표로 묶여 있습니다. jq 사용에 대한 자세한 내용은 [jq 웹사이트](https://stedolan.github.io/jq/)를 참조하세요.
+> [AZURE.NOTE] __Host/host\_status/ALERT__ 요소는 '/'가 요소 이름의 일부임을 나타내는 따옴표로 묶여 있습니다. jq 사용에 대한 자세한 내용은 [jq 웹사이트](https://stedolan.github.io/jq/)를 참조하세요.
 
 ##예: 클러스터 노드의 FQDN 가져오기
 
@@ -97,7 +97,7 @@ HDInsight 클러스터를 만드는 경우 Azure 저장소 계정 및 Blob 컨�
 
     curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'
     
-> [AZURE.NOTE]서버(`service_config_version=1`)에 적용된 첫 번째 구성을 반환하며 이 정보를 포함합니다. 클러스터를 만든 후 수정된 값을 검색하는 경우 구성 버전을 나열하고 최신 버전을 검색해야 할 수도 있습니다.
+> [AZURE.NOTE] 서버(`service_config_version=1`)에 적용된 첫 번째 구성을 반환하며 이 정보를 포함합니다. 클러스터를 만든 후 수정된 값을 검색하는 경우 구성 버전을 나열하고 최신 버전을 검색해야 할 수도 있습니다.
 
 다음과 유사한 값을 반환하며 여기서 __CONTAINER__는 기본 컨테이너이고 __ACCOUNTNAME__은 Azure 저장소 계정 이름입니다.
 
@@ -111,7 +111,7 @@ HDInsight 클러스터를 만드는 경우 Azure 저장소 계정 및 Blob 컨�
     
     계정에 대한 리소스 그룹 이름을 반환합니다.
     
-    > [AZURE.NOTE]이 명령에서 아무 것도 반환되지 않는 경우 Azure CLI를 Azure 리소스 관리자 모드로 변경하고 명령을 다시 실행해야 합니다. Azure 리소스 관리자 모드로 전환하려면 다음 명령을 사용합니다.
+    > [AZURE.NOTE] 이 명령에서 아무 것도 반환되지 않는 경우 Azure CLI를 Azure 리소스 관리자 모드로 변경하고 명령을 다시 실행해야 합니다. Azure 리소스 관리자 모드로 전환하려면 다음 명령을 사용합니다.
     >
     > `azure config mode arm`
     
@@ -133,6 +133,6 @@ HDInsight 클러스터를 만드는 경우 Azure 저장소 계정 및 Blob 컨�
 
 REST API의 모든 참조 문서를 보려면 [Ambari API 참조 V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)을 참조하세요.
 
-> [AZURE.NOTE]HDInsight 클라우드 서비스에 의해 관리되는 일부 Ambari 기능(예: 클러스터에서 호스트 추가 또는 제거 또는 새 서비스 추가)은 사용할 수 없습니다.
+> [AZURE.NOTE] HDInsight 클라우드 서비스에 의해 관리되는 일부 Ambari 기능(예: 클러스터에서 호스트 추가 또는 제거 또는 새 서비스 추가)은 사용할 수 없습니다.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0323_2016-->

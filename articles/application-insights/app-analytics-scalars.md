@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Application Insights Analytics의 스칼라 식" 
-	description="Application Insights의 강력한 검색 도구인 Application Insights Analytics의 숫자, 문자열, 동적 식 및 형식" 
+	pageTitle="Application Insights 분석의 스칼라 식" 
+	description="Application Insights의 강력한 검색 도구인 분석의 숫자, 문자열, 동적 식 및 형식" 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,15 +12,15 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/05/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
 
  
-# Application Insights Analytics의 스칼라 식
+# 분석의 스칼라 식
 
 
-[Application Insights Analytics](app-analytics.md)는 [Application Insights](app-insights-overview.md) 원격 분석을 위한 강력한 검색 엔진입니다. 이 페이지에서는 Application Insights Analytics 쿼리 언어인 AIQL에 대해 설명합니다.
+[분석](app-analytics.md)은 [Application Insights](app-insights-overview.md)의 강력한 검색 기능입니다. 다음 페이지에서는 분석 쿼리 언어에 대해 설명합니다.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
@@ -35,7 +35,7 @@
 
 
 
-“스칼라"는 숫자 또는 문자열과 같이 AIQL 테이블에서 단일 셀을 차지할 수 있는 값을 의미합니다. 스칼라 식은 스칼라 함수 및 연산자에서 만들어집니다. `sqrt(score)/100 > target+2`는 스칼라 식입니다.
+"스칼라"는 숫자 또는 문자열과 같이 테이블에서 단일 셀을 차지할 수 있는 값을 의미합니다. 스칼라 식은 스칼라 함수 및 연산자에서 만들어집니다. `sqrt(score)/100 > target+2`는 스칼라 식입니다.
 
 "스칼라"는 역시 단일 데이터베이스 셀에 저장할 수 있는 배열 및 복합 개체도 포함합니다.
 
@@ -166,7 +166,6 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 <a name="isnull"/></a>
 <a name="isnotnull"/>
 </a> <a name="notnull"/></a>
-
 ### isnull, isnotnull, notnull
 
     isnull(parsejson("")) == true
@@ -557,7 +556,7 @@ T | where ... | extend Elapsed=now() - timestamp
 
 ### 난독 처리된 문자열 리터럴
 
-난독 처리된 문자열 리터럴은 문자열을 출력할 때(예를 들어 추적하는 경우) AI Analytics가 가리는 문자열입니다. 난독 처리 프로세스는 모든 난독 처리된 문자를 시작(`*`) 문자에 의해 바꿉니다.
+난독 처리된 문자열 리터럴은 문자열을 출력할 때(예: 추적하는 경우) 분석이 가리는 문자열입니다. 난독 처리 프로세스는 모든 난독 처리된 문자를 시작(`*`) 문자에 의해 바꿉니다.
 
 난독 처리된 문자열 리터럴을 형성하려면 앞에 `h` 또는 'H'를 추가합니다. 예:
 
@@ -860,7 +859,7 @@ substring("ABCD", 0, 2)       // AB
         line = details[0].parsedStack[0].line,
         stackdepth = arraylength(details[0].parsedStack)
 
-* 하지만 `arraylength` 및 다른 AIQL 함수를 사용합니다(".length" 아님!)
+* 하지만 `arraylength` 및 다른 분석 함수(".length" 아님!)를 사용합니다.
 
 **Casting** 경우에 따라 형식이 달라질 수 있기 때문에 개체에서 추출하는 요소를 캐스트해야 합니다. 예를 들어 `summarize...to`에 특정 형식이 필요함:
 
@@ -1080,7 +1079,7 @@ path 식을 사용하여 JSON 텍스트에서 지정된 요소를 가져옵니�
 {"duration":{"value":118.0,"count":5.0,"min":100.0,"max":150.0,"stdDev":0.0,"sampledValue":118.0,"sum":118.0}}
 ```
 
-그러면 다음 AIQL에서는 다음 조각은 개체에 있는 `duration` 슬롯의 값을 검색하며 거기서부터 `duration.value` 및 `duration.min`의 두 슬롯을 검색합니다(각각 `118.0` 및 `110.0`).
+그러면 다음 조각은 개체에 있는 `duration` 슬롯의 값을 검색하며 거기서부터 `duration.value` 및 `duration.min`의 두 슬롯을 검색합니다(각각 `118.0` 및 `110.0`).
 
 ```AIQL
 T
@@ -1151,4 +1150,4 @@ path 식의 배열입니다.
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

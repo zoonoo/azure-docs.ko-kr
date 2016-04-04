@@ -53,7 +53,7 @@ Application Insights를 아직 프로젝트에 추가하지 않은 경우(프로
 
 ![그래프를 클릭하여 메트릭 선택](./media/app-insights-web-monitor-performance/appinsights-61perfchoices.png)
 
-> [AZURE.NOTE]사용 가능한 전체 선택 항목을 확인하려면 **모든 메트릭의 선택을 취소합니다**. 메트릭은 그룹으로 구분되며 그룹 내의 모든 멤버를 선택하면 해당 그룹의 다른 멤버만 표시됩니다.
+> [AZURE.NOTE] 사용 가능한 전체 선택 항목을 확인하려면 **모든 메트릭의 선택을 취소합니다**. 메트릭은 그룹으로 구분되며 그룹 내의 모든 멤버를 선택하면 해당 그룹의 다른 멤버만 표시됩니다.
 
 
 ## <a name="metrics"></a>성능 메트릭의 의미 성능 타일 및 보고서
@@ -111,6 +111,8 @@ catch되지 않은 예외를 throw한 요청의 수입니다.
 ## 시스템 성능 카운터
 
 선택할 수 있는 메트릭 중 일부는 [성능 카운터](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters)입니다. Windows는 광범위하고 다양한 것들을 제공하며 사용자가 정의할 수 있습니다.
+
+(Azure에 호스트된 응용 프로그램의 경우 [Application Insights에 Azure 진단을 보내세요](app-insights-azure-diagnostics.md).)
 
 이 예제는 기본적으로 사용할 수 있는 성능 카운터를 보여줍니다. 각 카운터에 대한 [별도 차트를 추가](app-insights-metrics-explorer.md#editing-charts-and-grids)하고 차트를 [즐겨찾기로 저장](app-insights-metrics-explorer.md#editing-charts-and-grids)하여 명명했습니다.
 
@@ -199,4 +201,4 @@ catch되지 않은 예외를 throw한 요청의 수입니다.
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0323_2016-->

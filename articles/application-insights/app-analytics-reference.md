@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="응용 프로그램 분석에 대한 참조 자료" 
-	description="Application Insights의 강력한 검색 도구인 응용 프로그램 분석의 정규식" 
+	pageTitle="Application Insights의 분석에 대한 참조 자료" 
+	description="Application Insights의 강력한 검색 도구인 분석의 정규식" 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,13 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
-# 참조 자료
+# Application Insights: 분석 참고 자료
 
-[응용 프로그램 분석](app-analytics.md)은 [Application Insights](app-insights-overview.md) 원격 분석을 위한 강력한 검색 엔진입니다. 이러한 페이지에서 응용 프로그램 분석 쿼리 언어인 CSL에 대해 설명합니다.
-
+[분석](app-analytics.md)은 [Application Insights](app-insights-overview.md)의 강력한 검색 기능입니다. 다음 페이지에서는 분석 쿼리 언어에 대해 설명합니다.
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
@@ -415,4 +414,4 @@
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -41,7 +41,7 @@ Azure VM(가상 컴퓨터)을 백업하려면 세 가지 조건을 충족해야 
 - 지역 간 백업 및 복원은 지원되지 않습니다.
 - Azure 백업 서비스를 사용한 가상 컴퓨터 백업은 Azure의 모든 공용 지역에서 지원됩니다(지원되는 지역은 [검사 목록](https://azure.microsoft.com/regions/#services) 참조). 찾는 지역이 현재 지원되지 않는 경우, 자격 증명 모음을 만드는 동안 드롭다운 목록에 표시되지 않습니다.
 - Azure 백업 서비스를 사용하는 가상 컴퓨터 백업은 선택한 운영 체제 버전에 대해서만 지원됩니다.
-  - **Linux**: [Azure 인증 배포 목록](../virtual-machines/virtual-machines-linux-endorsed-distributions.md)을 참조하세요. 가상 컴퓨터에서 VM 에이전트를 사용할 수 있는 한 기타 Bring-Your-Own-Linux 배포도 작동합니다.
+  - **Linux**: [Azure 인증 배포 목록](../virtual-machines/virtual-machines-linux-endorsed-distros.md)을 참조하세요. 가상 컴퓨터에서 VM 에이전트를 사용할 수 있는 한 기타 Bring-Your-Own-Linux 배포도 작동합니다.
   - **Windows Server**: Windows Server 2008 R2 이전 버전은 지원되지 않습니다.
 	- 다중 DC 구성의 일부인 도메인 컨트롤러(DC) VM 복원은 PowerShell을 통해서만 지원됩니다. [다중 DC 도메인 컨트롤러 복원](backup-azure-restore-vms.md#restoring-domain-controller-vms)에 대해 자세히 알아보세요.
 	- 다음과 같은 특수 네트워크 구성을 포함하는 가상 컴퓨터 복원은 PowerShell 통해서만 지원됩니다. UI에서 복원 워크플로를 사용하여 만든 VM은 복원 작업이 완료된 후 이러한 네트워크 구성을 갖지 않습니다. 자세한 내용은 [특수 네트워크 구성을 가진 VM 복원](backup-azure-restore-vms.md#restoring-vms-with-special-netwrok-configurations)을 참조하세요.
@@ -208,4 +208,4 @@ VM을 백업하기 위한 환경을 준비했으므로 이제 백업을 만들�
 - [VM 백업 인프라 계획](backup-azure-vms-introduction.md)
 - [가상 컴퓨터 백업 관리](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

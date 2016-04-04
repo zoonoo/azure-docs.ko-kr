@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Application Insights Analytics의 연산자 및 쿼리" 
-	description="Application Insights의 강력한 검색 도구 Application Insights Analytics에서 쿼리를 만드는 데 사용되는 연산자에 대한 참조입니다." 
+	pageTitle="Application Insights의 분석 연산자 및 쿼리" 
+	description="Application Insights의 강력한 검색 도구인 분석에서 쿼리를 만드는 데 사용되는 연산자에 대한 참조입니다." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,15 +12,15 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/07/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
 
 
-# Application Insights Analytics의 쿼리 구문
+# 분석의 쿼리
 
 
-[Application Insights Analytics](app-analytics.md)는 [Application Insights](app-insights-overview.md) 원격 분석을 위한 강력한 검색 엔진입니다. 이 페이지에서는 Application Insights Analytics 쿼리 언어인 AIQL에 대해 설명합니다.
+[분석](app-analytics.md)은 [Application Insights](app-insights-overview.md)의 강력한 검색 기능입니다. 다음 페이지에서는 분석 쿼리 언어에 대해 설명합니다.
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
@@ -592,7 +592,7 @@ Traces
 
     T | summarize count() by price_range=bin(price, 10.0)
 
-[0,10.0], [10.0,20.0] 등의 각 간격에 가격을 가진 항목 수를 표시하는 테이블입니다. 이 예제는 개수에 대한 열 및 가격 범위에 대한 열을 가지고 있습니다. 모든 다른 입력된 열은 무시됩니다.
+[0,10.0] , [10.0,20.0] 등의 각 간격에 가격을 가진 항목 수를 표시하는 테이블입니다. 이 예제는 개수에 대한 열 및 가격 범위에 대한 열을 가지고 있습니다. 모든 다른 입력된 열은 무시됩니다.
 
 [추가 예제](app-analytics-aggregations.md)
 
@@ -608,10 +608,10 @@ Traces
 **인수**
 
 * *Column:* 결과 열에 대한 선택적 이름입니다. 기본적으로 식에서 파생된 이름입니다.
-* *Aggregation:* 열 이름을 인수로 하는 `count()` 또는 `avg()` 등과 같은 [집계 함수](app-analytics-aggregations.md)에 대한 호출입니다. [집계 함수의 목록](app-analytics-aggregations.md)을 참조하세요.
+* *Aggregation:* 열 이름을 인수로 하는 `count()` 또는 `avg()` 등과 같은 [집계 함수](app-analytics-aggregations.md) 에 대한 호출입니다. [집계 함수의 목록](app-analytics-aggregations.md)을 참조하세요.
 * *GroupExpression:* 고유 값 집합을 제공하는 열에 대한 식입니다. 일반적으로 제한된 값 집합을 제공하는 열 이름, 또는 숫자 또는 시간 열을 인수로 하는 `bin()`입니다. 
 
-`bin()`을 사용하지 않고 숫자 또는 시간 식을 제공할 경우 AI 분석은 시간에 대해 `1h`의 간격 또는 숫자에 대해 `1.0`과 함께 자동으로 이를 적용합니다.
+`bin()`을 사용하지 않고 숫자 또는 시간 식을 제공할 경우 분석은 시간에 대해 `1h`의 간격 또는 숫자에 대해 `1.0`과 함께 자동으로 이를 적용합니다.
 
 *GroupExpression*을 제공하지 않으면 전체 테이블이 단일 출력 행에 요약됩니다.
 
@@ -766,4 +766,4 @@ Traces
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

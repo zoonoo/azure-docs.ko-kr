@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="sameerch"/>
 
 # SharePoint 커넥터 시작 및 논리 앱에 추가
->[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다.
+>[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다. SharePoint Online API의 2015-08-01-preview 스키마 버전을 보려면 [SharePoint API](../connectors/connectors-create-api-sharepointonline.md)를 클릭합니다.
 
 SharePoint Server 또는 SharePoint Online에 연결하여 문서를 관리하고 목록을 나열합니다. 문서에 대해 만들기, 업데이트, 가져오기 및 삭제와 같은 다양한 작업을 수행하고 항목을 나열할 수 있습니다. 온-프레미스 SharePoint 서버를 사용할 경우 서비스 버스 연결 문자열을 커넥터 구성의 일부로 입력하고, 온-프레미스 수신기 에이전트를 설치하여 서버에 연결할 수 있습니다.
 
@@ -99,7 +99,7 @@ API 앱을 만들면 이제 SharePoint 커넥터를 논리 앱의 트리거 또�
 ##  트리거
 논리 앱을 시작하려는 경우 트리거를 사용합니다.
 
-> [AZURE.NOTE]트리거는 파일을 읽은 후 삭제합니다. 이러한 파일을 유지하려면 보관 위치에 대한 값을 입력하십시오.
+> [AZURE.NOTE] 트리거는 파일을 읽은 후 삭제합니다. 이러한 파일을 유지하려면 보관 위치에 대한 값을 입력하십시오.
 
 ### 1\. 공유 문서의 새 문서(JSON)
 이 트리거는 ‘공유 문서’에서 새 문서를 사용할 수 있는 경우 발생합니다.
@@ -457,7 +457,7 @@ ItemID | 예 | 목록 항목의 ItemId입니다.
 
 ## 하이브리드 구성(선택 사항)
 
-> [AZURE.NOTE]이 단계는 방화벽 뒤의 SharePoint 온-프레미스를 사용하는 경우에만 필요합니다.
+> [AZURE.NOTE] 이 단계는 방화벽 뒤의 SharePoint 온-프레미스를 사용하는 경우에만 필요합니다.
 
 앱 서비스는 하이브리드 구성 관리자를 사용하여 온-프레미스 시스템에 안전하게 연결합니다. 커넥터로 온-프레미스 SharePoint Server를 사용하는 경우 하이브리드 연결 관리자가 필요합니다.
 
@@ -482,4 +482,4 @@ ItemID | 예 | 목록 항목의 ItemId입니다.
 [6]: ./media/app-service-logic-connector-sharepoint/image_5.png
 [7]: ./media/app-service-logic-connector-sharepoint/image_6.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

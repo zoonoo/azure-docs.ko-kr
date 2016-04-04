@@ -1,6 +1,6 @@
 <properties
 	pageTitle="기계 학습 경쟁 FAQ | Microsoft Azure"
-	description="Microsoft Azure 기계 학습 경쟁 관련 질문과 대답입니다."
+	description="Microsoft Cortana 분석 제품군 경쟁 관련 질문과 대답입니다."
 	services="machine-learning"
 	documentationCenter=""
 	authors="hning86"
@@ -16,7 +16,7 @@
 	ms.date="03/11/2016"
 	ms.author="haining;chlovel;garye"/>
 
-# Microsoft Azure 기계 학습 경쟁 FAQ
+# Microsoft Cortana 분석 제품군 경쟁 관련 FAQ
 
 **데이터 과학에 대한 일반적인 질문을 어디서 할 수 있나요?**
 
@@ -70,4 +70,4 @@ Microsoft에서 개인 순위표의 결과를 확인한 다음 연락드립니�
 
 경쟁 우승자인 경우 자격 상태, 라이선스 및 릴리스의 선언에 서명해야 합니다. 이 양식에서는 경쟁 규칙을 반복합니다. 우승자는 미국 세금 양식 W-9를 작성하거나 미국 납세자가 아닌 경우 양식 W-8BEN을 작성해야 합니다.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

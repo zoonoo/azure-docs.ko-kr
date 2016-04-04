@@ -43,6 +43,8 @@ U-SQL | 범위 기반 JOIN을 수행 하기 위한 기술 설명 | 1 | Pending |
 U-SQL | ADLS 인증 옵션 | 1 | Pending | [@ArindamC](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
 U-SQL | 플랫폼 간 CLI 작업 제출 | 1 | Pending | [@edmacauley](https://github.com/edmacauley) |[@mwinkle](https://github.com/mwinkle) 
 U-SQL | 감소 및 결합에 대한 참조 문서 업데이트 | 1 | Pending | [@edmacauley](https://github.com/edmacauley) |[@mwinkle](https://github.com/mwinkle)
+도구 | Visual Studio용 U-SQL UDF Azure Data Lake 도구의 단위 테스트 | 1 | Pending | [@edmacauley](https://github.com/edmacauley) |[@xiaoyong](https://github.com/zxzxy1988)
+도구 | Visual Studio용 Azure Data Lake 도구의 작업 그래프 및 정점 실행 보기 | 1 | Pending | [@edmacauley](https://github.com/edmacauley) |[@xiaoyong](https://github.com/zxzxy1988)
 
 
 
@@ -59,4 +61,4 @@ U-SQL | 감소 및 결합에 대한 참조 문서 업데이트 | 1 | Pending | [
 * [Azure 콘텐츠 리포지토리](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)에서 이 문서에 대한 끌어오기 요청 제출
 * [microsoft.com의 adlafeedback](mailto:adlafeedback@microsoft.com?subject=DocBacklog)으로 메일 보내기
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

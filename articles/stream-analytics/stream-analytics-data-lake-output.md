@@ -15,7 +15,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="03/10/2016"
+	ms.date="03/18/2016"
 	ms.author="jeffstok"
 />
 
@@ -27,7 +27,7 @@
 
 ## Data Lake 저장소 계정 권한 부여
 
-1.  Data Lake 저장소를 Azure 관리 포털에서 출력으로 선택하는 경우 기존 Data Lake 저장소의 사용 권한을 부여하거나 Azure Preview 포털을 통해 Data Lake 저장소 미리 보기에 대한 액세스를 요청하는 메시지가 표시됩니다.
+1.  Data Lake 저장소를 Azure 관리 포털에서 출력으로 선택하는 경우 기존 Data Lake 저장소의 사용 권한을 부여하거나 Azure 클래식 포털을 통해 Data Lake 저장소 미리 보기에 대한 액세스를 요청하는 메시지가 표시됩니다.
 
     ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-authorization.jpg)
 
@@ -47,7 +47,7 @@ Data Lake 저장소 계정을 인증하면 사용자가 Data Lake 저장소 출�
 </tr>
 <tr>
 <td>출력 별칭</td>
-<td>쿼리 출력을 이 Data Lake 저장소로 직접 보내기 위해 쿼리에서 사용되는 친숙한 이름입니다.</td>
+<td>쿼리 출력을 이 Data Lake 저장소로 직접 보내기 위해 쿼리에서 사용되는 식별 이름입니다.</td>
 </tr>
 <tr>
 <td>Data Lake 저장소 계정</td>
@@ -92,4 +92,4 @@ Data Lake 저장소 계정을 인증하면 사용자가 Data Lake 저장소 출�
 
 ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-renew-authorization.jpg)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

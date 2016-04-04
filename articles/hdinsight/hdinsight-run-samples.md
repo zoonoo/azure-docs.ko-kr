@@ -33,7 +33,6 @@ Azure HDInsight를 사용하여 Hadoop 클러스터에서 MapReduce 작업을 �
 Hadoop 관련 기술(예: Java 기반 MapReduce 프로그래밍 및 스트리밍)에 대한 다양한 추가 설명서 및 Windows PowerShell 스크립팅에 사용되는 cmdlet에 대한 설명서를 웹에서 찾을 수 있습니다. 이러한 리소스에 대한 자세한 내용은 다음을 참조하세요.
 
 - [HDInsight의 Hadoop용 Java MapReduce 프로그램 개발](hdinsight-develop-deploy-java-mapreduce.md)
-- [HDInsight용 C# Hadoop 스트리밍 프로그램 개발](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
 - [HDInsight에서 Hadoop 작업 제출](hdinsight-submit-hadoop-jobs-programmatically.md)
 - [Azure HDInsight 소개][hdinsight-introduction]
 
@@ -998,4 +997,4 @@ mapper 및 reducer 함수가 포함된 Pi 추정 Java 코드를 아래 검사에
 [streamreader]: http://msdn.microsoft.com/library/system.io.streamreader.aspx
 [console-writeline]: http://msdn.microsoft.com/library/system.console.writeline
 
-<!-----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

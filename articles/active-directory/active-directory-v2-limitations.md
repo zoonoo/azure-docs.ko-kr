@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/20/2016"
+	ms.date="03/18/2016"
 	ms.author="dastrock"/>
 
-# v2.0 끝점을 사용해야 하나요? 
+# v2.0 끝점을 사용해야 하나요?
 
 Azure Active Directory와 통합되는 응용 프로그램을 빌드할 때 v2.0 끝점 및 인증 프로토콜이 사용자 요구를 충족할지 결정해야 합니다. 원래 Azure AD 앱 모델은 완벽하게 지원되며 v2.0보다 더 풍부한 기능을 갖추고 있습니다. 그러나 v2.0 끝점은 사용자가 새로운 프로그래밍 모델을 사용하도록 유도할 수 있는 개발자에게 [상당한 혜택을 소개](active-directory-v2-compare.md)합니다. 시간이 지남에 따라 v2.0은 v2.0 끝점을 사용하는 것만으로 충분하도록 Azure AD의 모든 기능을 포함하도록 확장됩니다.
 
@@ -74,13 +74,15 @@ v2.0 끝점은 [지원되는 인증 흐름](active-directory-v2-flows.md) 목록
 
 - 웹 응용 프로그램을 작성하는 경우 일반적으로 사용 가능한 서버 쪽 미들웨어를 안전하게 사용하여 로그인 및 토큰 유효성 검사를 수행할 수 있습니다. 여기에는 ASP.NET용 OWIN Open ID Connect 미들웨어 및 NodeJS Passport 플러그 인이 포함됩니다. 이러한 미들웨어를 사용하는 코드 샘플도 [시작](active-directory-appmodel-v2-overview.md#getting-started) 섹션에 제공됩니다.
 - 다른 플랫폼과 네이티브 및 모바일 응용 프로그램의 경우 응용 프로그램 코드에서 프로토콜 메시지를 직접 전송 및 수신하여 v2.0 끝점과 통합할 수도 있습니다. v2.0 OpenID Connect 및 OAuth 프로토콜은 [명시적으로 문서화](active-directory-v2-protocols.md)되어 있어 이러한 통합을 수행하는 데 도움이 됩니다.
-- 마지막으로, v2.0 끝점과 통합하는 데 오픈 소스 Open ID Connect 및 OAuth 라이브러리를 사용할 수 있습니다. v2.0 프로토콜은 크게 변경되지 않고 다양한 오픈 소스 프로토콜 라이브러리와 호환되어야 합니다. 이러한 라이브러리의 사용 가능 여부는 언어 및 플랫폼마다 다릅니다. [Open ID Connect](http://openid.net/connect/) 및 [OAuth 2.0](http://oauth.net/2/) 웹 사이트는 주요 구현 목록을 유지 관리합니다. 다음은 v2.0 끝점을 사용하여 시험한 오픈 소스 클라이언트 라이브러리 및 샘플입니다. 참고로 [OpenID Connect 동적 클라이언트 등록](https://openid.net/specs/openid-connect-registration-1_0.html) 및 토큰 유효성 검사 끝점 등과 같은 기능은 아직 지원되지 않으며 v2 끝점을 사용하여 작업하려면 라이브러리에서 이를 사용하지 않도록 설정해야 할 수 있습니다. 
+- 마지막으로, v2.0 끝점과 통합하는 데 오픈 소스 Open ID Connect 및 OAuth 라이브러리를 사용할 수 있습니다. v2.0 프로토콜은 크게 변경되지 않고 다양한 오픈 소스 프로토콜 라이브러리와 호환되어야 합니다. 이러한 라이브러리의 사용 가능 여부는 언어 및 플랫폼마다 다릅니다. [Open ID Connect](http://openid.net/connect/) 및 [OAuth 2.0](http://oauth.net/2/) 웹 사이트는 주요 구현 목록을 유지 관리합니다. 다음은 v2.0 끝점을 사용하여 시험한 오픈 소스 클라이언트 라이브러리 및 샘플입니다.
 
   - [Java WSO2 ID 서버](https://docs.wso2.com/display/IS500/Introducing+the+Identity+Server)
   - [Java Gluu 페더레이션](https://github.com/GluuFederation/oxAuth)
   - [Node.Js passport-openidconnect](https://www.npmjs.com/package/passport-openidconnect)
   - [PHP OpenID Connect 기본 클라이언트](https://github.com/jumbojett/OpenID-Connect-PHP)
-  - [Android OpenID Connect 샘플](https://github.com/learning-layers/android-openid-connect)
+  - [iOS OAuth2 클라이언트](https://github.com/nxtbgthng/OAuth2Client)
+  - [Android OAuth2 클라이언트](https://github.com/wuman/android-oauth-client)
+  - [Android OpenID Connect 클라이언트](https://github.com/kalemontes/OIDCAndroidLib)
 
 ## 프로토콜에 대한 제한 사항
 v2.0 끝점만 Open ID Connect 및 OAuth 2.0을 지원합니다. 그러나 각 프로토콜의 일부 특징과 기능은 v2.0 끝점에 통합되어 있지 않습니다. 일부 사례:
@@ -96,4 +98,4 @@ Azure Active Directory 서비스에서 사용할 수 있는 개발자 기능 집
 - Azure AD 사용자에 대한 그룹 클레임
 - 응용 프로그램 역할 및 역할 클레임
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

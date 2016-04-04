@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/21/2016" 
+	ms.date="03/17/2016" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache FAQ
@@ -220,10 +220,31 @@ Redis 도구 다운로드에 대한 지침은 [어떻게 Redis 명령을 실행�
 
 -	표준 또는 프리미엄 캐시를 사용하는 경우 [Redis 콘솔](cache-configure.md#redis-console)을 사용하여 Redis 명령을 실행할 수 있습니다. Azure 포털에서 Redis 명령을 안전하게 실행하는 방법을 제공합니다.
 -	Redis 명령줄 도구를 사용할 수도 있습니다. 이 도구를 사용하려면 다음 단계를 수행합니다.
-	-	[Redis 명령줄 도구](https://github.com/MSOpenTech/redis/releases/download/win-2.8.19.1/redis-2.8.19.zip)를 다운로드합니다.
+	-	[Redis 명령줄 도구](https://github.com/MSOpenTech/redis/releases/)를 다운로드합니다.
 	-	`redis-cli.exe`를 사용하여 캐시에 연결합니다. 다음 예제와 같이 -h 스위치를 사용하여 캐시 끝점을 전달하고 -a를 사용하여 키를 전달합니다.
 		-	`redis-cli -h <your cache name>.redis.cache.windows.net -a <key>`
 	-	Redis 명령줄 도구는 SSL 포트에서 작동하지 않지만, [Redis용 ASP.NET 세션 상태 공급자 미리 보기 릴리스 발표](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) 블로그 게시물의 지침에 따라 `stunnel`과 같은 유틸리티를 사용하여 도구를 SSL 포트에 안전하게 연결할 수 있습니다.
+
+<a name="cache-emulator"></a>
+## Azure Redis Cache에 대한 로컬 에뮬레이터가 있나요?
+
+Azure Redis Cache에 대한 로컬 에뮬레이터는 없지만 다음 예제와 같이 로컬 컴퓨터의 [Redis 명령줄 도구](https://github.com/MSOpenTech/redis/releases/)에서 redis-server.exe의 MSOpenTech 버전을 실행하여 연결하고 로컬 캐시 에뮬레이터와 유사한 환경을 얻을 수 있습니다.
+
+	private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+	{
+		// Connect to a locally running instance of Redis to simulate a local cache emulator experience.
+	    return ConnectionMultiplexer.Connect("127.0.0.1");
+	});
+	
+	public static ConnectionMultiplexer Connection
+	{
+	    get
+	    {
+	        return lazyConnection.Value;
+	    }
+	}
+
+원하는 경우 온라인 Azure Redis Cache의 [기본 캐시 설정](cache-configure.md#default-redis-server-configuration)과 보다 면밀히 일치하도록 [redis.conf](http://redis.io/topics/config) 파일을 선택적으로 구성할 수 있습니다.
 
 <a name="cache-common-patterns"></a>
 ## 몇 가지 일반적인 캐시 패턴 및 고려 사항은 무엇인가요?
@@ -282,4 +303,4 @@ In-Role Cache는 2016년 11월 30일에 사용 중지되도록 설정됩니다.
 
 ["minIoThreads" 구성 설정]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

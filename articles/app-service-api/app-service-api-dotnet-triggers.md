@@ -13,10 +13,13 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/04/2016" 
+	ms.date="03/16/2016" 
 	ms.author="guayan"/>
 
 # Azure 앱 서비스 API 앱 트리거
+
+>[AZURE.NOTE] 이 버전의 문서는 API 앱 2014-12-01-preview 스키마 버전에 적용됩니다.
+
 
 ## 개요
 
@@ -339,4 +342,4 @@ API 앱에 트리거를 추가한 후에는 몇 가지 작업을 통해 논리 �
     }
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

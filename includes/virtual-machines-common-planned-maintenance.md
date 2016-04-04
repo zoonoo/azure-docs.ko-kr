@@ -1,95 +1,95 @@
 
 
-## Why Azure performs planned maintenance
+## Azure에서 계획된 유지 관리를 수행하는 이유
 
-Microsoft Azure periodically performs updates across the globe to improve the reliability, performance, and security of the host infrastructure that underlies virtual machines. Many of these updates are performed without any impact to your virtual machines or Cloud Services, including memory-preserving updates.
+Microsoft Azure는 가상 컴퓨터의 기반이 되는 호스트 인프라의 안정성, 성능 및 보안을 향상시키기 위해 전 세계적으로 주기적인 업데이트를 수행합니다. 이러한 많은 업데이트는 메모리 유지 업데이트를 비롯하여 가상 컴퓨터 또는 클라우드 서비스에 영향을 주지 않고 수행됩니다.
 
-However, some updates do require a reboot to your virtual machines to apply the required updates to the infrastructure. The virtual machines are shut down while we patch the infrastructure, and then the virtual machines are restarted.
+그렇지만 일부 업데이트는 인프라에 필요한 업데이트를 적용하기 위해 가상 컴퓨터를 다시 부팅해야 합니다. 가상 컴퓨터는 인프라를 패치하는 동안 종료되었다가 다시 시작됩니다.
 
-Please note that there are two types of maintenance that can impact the availability of your virtual machines: planned and unplanned. This page describes how Microsoft Azure performs planned maintenance. For more information about unplanned maintenance, see [Understand planned versus unplanned maintenance](virtual-machines-windows-manage-availability.md).
+가상 컴퓨터의 가용성에 영향을 미칠 수 있는 유지 관리 유형에는 계획된 유지 관리와 계획되지 않은 유지 관리가 있습니다. 이 페이지에서는 Microsoft Azure에서 계획된 유지 관리를 수행하는 방법을 설명합니다. 계획되지 않은 유지 관리에 대한 자세한 내용은 [계획된 유지 관리 및 계획되지 않은 유지 관리 이해](virtual-machines-windows-manage-availability.md)를 참조하세요.
 
-## Memory-preserving updates
+## 메모리 유지 업데이트
 
-For a class of updates in Microsoft Azure, customers will not see any impact to their running virtual machines. Many of these updates are to components or services that can be updated without interfering with the running instance. Some of these updates are platform infrastructure updates on the host operating system that can be applied without requiring a full reboot of the virtual machines.
+Microsoft Azure의 업데이트 클래스는 고객이 실행 중인 가상 컴퓨터에는 어떠한 영향도 주지 않습니다. 이러한 많은 업데이트는 실행 중인 인스턴스를 방해하지 않고 업데이트할 수 있는 구성 요소 또는 서비스에 대한 업데이트입니다. 이러한 업데이트 중 일부는 가상 컴퓨터를 완전히 다시 부팅하지 않고 적용할 수 있는 호스트 운영 체제의 플랫폼 인프라 업데이트입니다.
 
-These updates are accomplished with technology that enables in-place live migration, also called a “memory-preserving” update. When updating, the virtual machine is placed into a “paused” state, preserving the memory in RAM, while the underlying host operating system receives the necessary updates and patches. The virtual machine is resumed within 30 seconds of being paused. After resuming, the clock of the virtual machine is automatically synchronized.
+이러한 업데이트는 원위치 실시간 마이그레이션을 가능하게 하는 기술(“메모리 유지” 업데이트)를 통해 완수됩니다. 업데이트 시 기본 호스트 운영 체제가 필요한 업데이트 및 패치를 받는 동안 가상 컴퓨터는 "일시 중지" 상태로 들어가 RAM의 메모리를 유지합니다. 가상 컴퓨터는 일시 중지 후 30초 내에 다시 시작됩니다. 다시 시작된 후 가상 컴퓨터의 시계가 자동으로 동기화됩니다.
 
-Not all updates can be deployed by using this mechanism, but given the short pause period, deploying updates in this way greatly reduces impact to virtual machines.
+이 메커니즘을 사용하여 모든 업데이트를 배포할 수 있는 것은 아니지만 짧은 일시 중지 시간을 지정한 경우 이 방식으로 업데이트를 배포하면 가상 컴퓨터에 미치는 영향을 크게 줄일 수 있습니다.
 
-Multi-instance updates (for virtual machines in an availability set) are applied one update domain at a time.  
+다중 인스턴스 업데이트(가용성 집합의 가상 컴퓨터에 대한)는 한 번에 하나의 업데이트 도메인에 적용됩니다.
 
-## Virtual machine configurations
+## 가상 컴퓨터 구성
 
-There are two kinds of virtual machine configurations: multi-instance and single-instance. In a multi-instance configuration, similar virtual machines are placed in an availability set.
+가상 컴퓨터 구성에는 다중 인스턴스 구성 및 단일 인스턴스 구성이 있습니다. 다중 인스턴스 구성에서 유사한 가상 컴퓨터는 한 개의 가용성 집합에 배치됩니다.
 
-The multi-instance configuration provides redundancy across physical machines, power, and network, and it is recommended to ensure the availability of your application. All virtual machines in the availability set should serve the same purpose to your application.
+다중 인스턴스 구성은 물리적 컴퓨터, 전원 및 네트워크에 대한 중복성을 제공하고 응용 프로그램의 가용성을 보장하기 위해 권장됩니다. 가용성 집합의 모든 가상 컴퓨터는 응용 프로그램에 동일한 목적을 충족시켜야 합니다.
 
-For more information about configuring your virtual machines for high availability, refer to [Manage the Availability of your Virtual Machines](virtual-machines-windows-manage-availability.md).
+고가용성을 위해 가상 컴퓨터를 구성하는 방법에 대한 자세한 내용은 [가상 컴퓨터의 가용성 관리](virtual-machines-windows-manage-availability.md)를 참조하세요.
 
-By contrast, a single-instance configuration is used for standalone virtual machines that are not placed in an availability set. These virtual machines do not qualify for the service level agreement (SLA), which requires that two or more virtual machines are deployed under the same availability set.
+이와 반대로 단일 인스턴스 구성은 가용성 집합에 배치되지 않은 독립 실행형 가상 컴퓨터에 사용됩니다. 이러한 가상 컴퓨터는 동일한 가용성 집합 하에서 배포된 둘 이상의 가상 컴퓨터를 요구하는 SLA(서비스 수준 계약)를 충족하지 못합니다.
 
-For more information about SLAs, refer to the "Cloud Services, Virtual Machines and Virtual Network" section of [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/).
+SLA에 대한 자세한 내용은 [서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/)의 "클라우드 서비스, 가상 컴퓨터 및 가상 네트워크" 섹션을 참조하세요.
 
 
-## Multi-instance configuration updates
+## 다중 인스턴스 구성 업데이트
 
-During planned maintenance, the Azure platform first updates the set of virtual machines that are hosted in a multi-instance configuration. This causes a reboot to these virtual machines with approximately 15 minutes of downtime.
+계획된 유지 관리를 수행하는 동안 Azure 플랫폼은 다중 인스턴스 구성 내에 호스팅되는 가상 컴퓨터 집합을 우선 업데이트합니다. 그러면 이러한 가상 컴퓨터가 다시 부팅되며 약 15분 동안 가동이 중지됩니다.
 
-In a multi-instance configuration update, virtual machines are updated in a way that preserves availability throughout the process, assuming that each virtual machine serves a similar function as the others in the set.
+다중 인스턴스 구성 업데이트에서 가상 컴퓨터는 프로세스 전체에서 가용성이 유지되는 방식으로 업데이트되며, 각각의 가상 컴퓨터는 집합 내의 다른 컴퓨터와 비슷한 기능을 제공하는 것으로 간주됩니다.
 
-Each virtual machine in your availability set is assigned an update domain and a fault domain by the underlying Azure platform. Each update domain is a group of virtual machines that will be rebooted in the same time window. Each fault domain is a group of virtual machines that share a common power source and network switch.
+기본 Azure 플랫폼에서는 가용성 집합에 포함된 각각의 가상 컴퓨터를 업데이트 도메인 및 장애 도메인에 할당합니다. 각각의 업데이트 도메인은 동일한 시간에 다시 부팅되는 가상 컴퓨터 그룹입니다. 각각의 장애 도메인은 공통된 전원 및 네트워크 스위치를 공유하는 가상 컴퓨터 그룹입니다.
 
-For more information about update domains and fault domains, see [Configure multiple virtual machines in an availability set for redundancy](virtual-machines-windows-manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
+업데이트 도메인 및 장애 도메인에 대한 자세한 내용은 [중복성을 위해 가용성 집합에 여러 가상 컴퓨터 구성](virtual-machines-windows-manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy)을 참조하세요.
 
-To prevent update domains from going offline at the same time, the maintenance is performed by shutting down each virtual machine in an update domain, applying the update to the host machines, restarting the virtual machines, and moving on to the next update domain. The planned maintenance event ends after all update domains have been updated.
+업데이트 도메인이 동시에 오프라인으로 전환되는 것을 방지하기 위하여, 유지 관리는 업데이트 도메인에 포함된 각각의 가상 컴퓨터를 종료하고 호스트 컴퓨터에 업데이트를 적용하고 가상 컴퓨터를 다시 시작하고 다음 업데이트 도메인으로 이동하는 방식으로 수행됩니다. 계획된 유지 관리 이벤트는 모든 업데이트 도메인이 업데이트된 후 종료됩니다.
 
-The order of the update domains that are being rebooted may not proceed sequentially during planned maintenance, but only one update domain is rebooted at a time. Today, Azure offers 1-week advanced notification for planned maintenance of virtual machines in the multi-instance configuration.
+다시 시작되는 업데이트 도메인의 순서는 계획된 유지 관리 중에 순차적으로 진행되지 않을 수 있지만 한 번에 하나의 업데이트 도메인만 다시 부팅됩니다. 현재 Azure는 다중 인스턴스 구성에서 가상 컴퓨터에 대해 계획된 유지 관리의 1주 사전 알림을 제공합니다.
 
-After a virtual machine is restored, here is an example of what your Windows Event Viewer might display:
+가상 컴퓨터가 복원된 후 Windows 이벤트 뷰어에 표시될만한 내용의 예는 다음과 같습니다.
 
 <!--Image reference-->
 ![][image2]
 
-Use the viewer to determine which virtual machines are configured in a multi-instance configuration using the Azure portal, Azure PowerShell, or Azure CLI. For example, to determine which virtual machines are in a multi-instance configuration, you can browse the list of virtual machines with the Availability Set column added to the virtual machines browse dialog. In the following example, the Example-VM1 and Example-VM2 virtual machines are in a muilti-instance configuration:
+뷰어를 사용하여 가상 컴퓨터가 Azure 포털, Azure PowerShell, 또는 Azure CLI를 사용하여 다중 인스턴스 구성에서 구성되었는지 확인합니다. 예를 들어, 가상 컴퓨터가 다중 인스턴스 구성에 해당하는 지 확인하려면 가상 컴퓨터 찾아보기 대화 상자에 추가된 가용성 집합 열을 사용하여 가상 컴퓨터 목록을 검색할 수 있습니다. 다음 예에서 Example-VM1 가상 컴퓨터와 Example-VM2 가상 컴퓨터는 다중 인스턴스 구성에 해당합니다.
 
 <!--Image reference-->
 ![][image4]
 
-## Single-instance configuration updates
+## 단일 인스턴스 구성 업데이트
 
-After the multi-instance configuration updates are complete, Azure will perform single-instance configuration updates. This update also causes a reboot to your virtual machines that are not running in availability sets.
+다중 인스턴스 구성 업데이트가 완료된 후 Azure는 단일 인스턴스 구성 업데이트를 수행합니다. 이 업데이트에서도 가용성 집합에서 실행되지 않는 가상 컴퓨터가 다시 부팅됩니다.
 
-Please note that even if you have only one instance running in an availability set, the Azure platform treats it as a multi-instance configuration update.
+가용성 집합에서 하나의 인스턴스만 실행하더라도 Azure 플랫폼은 이를 다중 인스턴스 구성 업데이트로 취급합니다.
 
-For virtual machines in a single-instance configuration, virtual machines are updated by shutting down the virtual machines, applying the update to the host machine, and restarting the virtual machines, approximately 15 minutes of downtime. These updates are run across all virtual machines in a region in a single maintenance window.
+단일 인스턴스 구성의 가상 컴퓨터는 가상 컴퓨터를 종료하고 호스트 컴퓨터에 업데이트를 적용한 후 가상 컴퓨터를 다시 시작하여 업데이트됩니다(약 15분의 가동 중시 시간). 이러한 업데이트는 단일 유지 관리 기간에 특정 지역의 모든 가상 컴퓨터에서 실행됩니다.
 
-This planned maintenance event will impact the availability of your application for this type of virtual machine configuration. Azure offers a 1-week advanced notification for planned maintenance of virtual machines in the single-instance configuration.
+이러한 계획된 유지 관리 이벤트는 이러한 유형의 가상 컴퓨터 구성에서 응용 프로그램의 가용성에 영향을 미칩니다. Azure는 단일 인스턴스 구성에서 가상 컴퓨터에 대해 계획된 유지 관리의 1주 사전 알림을 제공합니다.
 
-### Email notification
+### 메일 알림
 
-For single-instance and multi-instance virtual machine configurations only, Azure sends email communication in advance to alert you of the upcoming planned maintenance (1-week in advance). This email will be sent to the account administrator and co-administrator email accounts provided in the subscription. Here is an example of this type of email:
+단일 인스턴스 및 다중 인스턴스 가상 컴퓨터 구성인 경우에만 Azure가 향후 계획된 유지 관리에 대해 알려주기 위해 1주 전에 메일을 전송합니다. 이 메일은 구독에 제공된 계정 관리자 및 공동 관리자 메일 계정으로 전송됩니다. 이러한 유형의 메일의 예는 아래와 같습니다.
 
 <!--Image reference-->
 ![][image1]
 
-## Region pairs
+## 지역 쌍
 
-When executing maintenance, Azure will only update the Virtual Machine instances in a single region of its pair. For example, when updating the Virtual Machines in North Central US, Azure will not update any Virtual Machines in South Central US at the same time. This will be scheduled at a separate time, enabling failover or load balancing between regions. However, other regions such as North Europe can be under maintenance at the same time as East US.
+유지 관리를 실행할 때 Azure는 단일 지역의 해당 쌍이 되는 가상 컴퓨터 인스턴스만 업데이트합니다. 예를 들어 미국 중북부에 있는 가상 컴퓨터를 업데이트할 때 Azure는 미국 중남부의 가상 컴퓨터를 동시에 업데이트하지 않습니다. 이는 별도의 다른 시간에 예약하여 지역 간의 장애 조치(failover) 또는 부하 분산을 사용하도록 설정합니다. 그러나 북유럽 등의 다른 지역은 미국 동부와 동시에 유지 관리될 수 있습니다.
 
-Please refer to the following table for information regarding current region pairs:
+현재 지역 쌍에 대한 자세한 내용은 아래 테이블을 참조하세요.
 
-Region 1 | Region 2
+지역 1 | 지역 2
 :----- | ------:
-North Central US | South Central US
-East US | West US
-US East 2 | Central US
-North Europe | West Europe
-South East Asia | East Asia
-East China | North China
-Japan East | Japan West
-Brazil South | South Central US
-Australia Southeast | Australia East
-US Gov Iowa | US Gov Virginia
+미국 중북부 | 미국 중남부
+미국 동부 | 미국 서부
+미국 동부 2 | 미국 중부
+북유럽 | 서유럽
+동남아시아 | 동아시아
+중국 동부 | 중국 북부
+일본 동부 | 일본 서부
+브라질 남부 | 미국 중남부
+오스트레일리아 남동부 | 오스트레일리아 동부
+미국 정부 아이오와 | 미국 정부 버지니아
 
 <!--Anchors-->
 [image1]: ./media/virtual-machines-common-planned-maintenance/vmplanned1.png
@@ -103,3 +103,4 @@ US Gov Iowa | US Gov Virginia
 
 [Understand planned versus unplanned maintenance]: virtual-machines-windows-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
 
+<!---HONumber=AcomDC_0323_2016-->

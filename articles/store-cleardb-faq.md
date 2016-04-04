@@ -31,7 +31,7 @@
 
 * [Azure VM에서 실행되는 MySQL 클러스터](https://github.com/azure/azure-quickstart-templates/tree/master/mysql-replication)
 
-* [Azure VM에서 실행되는 MySQL의 단일 인스턴스](virtual-machines/virtual-machines-mysql-windows-server-2008r2.md)
+* [Azure VM에서 실행되는 MySQL의 단일 인스턴스](virtual-machines/virtual-machines-windows-classic-mysql-2008r2.md)
 
 ClearDB는 MySQL 호스팅 서비스이며 MySQL 인프라를 관리합니다. Azure 가상 컴퓨터에서 사용자 고유 MySQL 클러스터나 데이터베이스를 실행하는 경우 MySQL 서버를 설정하고 패치를 통해 지속적으로 업데이트해야 합니다.
 
@@ -55,7 +55,7 @@ ClearDB는 MySQL 호스팅 서비스이며 MySQL 인프라를 관리합니다. A
 
 ## Azure 가상 컴퓨터에서 MySQL을 실행하고 있습니다. Azure 웹앱을 내 데이터베이스에 연결할 수 있나요?
 
-예. Azure VM에서 웹앱으로 원격 액세스할 수 있으면 웹앱을 데이터베이스에 연결할 수 있습니다. 자세한 내용은 [가상 컴퓨터에 MySQL 설치](../virtual-machines/virtual-machines-mysql-windows-server-2008r2.md)를 참조하세요.
+예. Azure VM에서 웹앱으로 원격 액세스할 수 있으면 웹앱을 데이터베이스에 연결할 수 있습니다. 자세한 내용은 [가상 컴퓨터에 MySQL 설치](virtual-machines/virtual-machines-windows-classic-mysql-2008r2.md)를 참조하세요.
 
 ## ClearDB 프리미엄 MySQL 클러스터가 지원되는 국가는 어디인가요?
 
@@ -124,4 +124,4 @@ EA 등록에서 요금 청구와 관련된 사항은 [엔터프라이즈 고객 
 
 [Azure 마켓플레이스 FAQ](/marketplace/faq/)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

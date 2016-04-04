@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/10/2016"
+   ms.date="03/16/2016"
    ms.author="sameerch"/>
 
 
 # Office 365 커넥터 시작 및 논리 앱에 추가
->[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다.
+>[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다. 2015-08-01-preview 스키마 버전을 보려면 [Office 365 Outlook API](../connectors/connectors-create-api-office365-outlook.md) 또는 [Office 365 사용자 API](../connectors/connectors-create-api-office365-users.md)를 클릭합니다.
 
 Office 365 계정에 연결하여 메일을 보내거나 받고 일정 및 연락처를 관리합니다. 메일 보내기, 받기 및 가져오기, 일정에서 이벤트 만들기 및 삭제, 연락처 만들기, 업데이트, 가져오기 및 삭제 등 여러 가지 동작을 수행할 있습니다.
 
@@ -131,4 +131,4 @@ Office 365 계정에 연결하여 메일을 보내거나 받고 일정 및 연�
 [20]: ./media/app-service-logic-connector-office365/20_Office365_Send_Configured.png
 [21]: ./media/app-service-logic-connector-office365/21-create-new-o365-api-app.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

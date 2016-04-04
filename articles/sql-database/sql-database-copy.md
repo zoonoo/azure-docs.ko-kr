@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="01/20/2016"
+	ms.date="03/21/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -23,9 +23,9 @@
 **단일 데이터베이스**
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-database-copy.md)
+- [Azure 포털](sql-database-copy.md)
 - [PowerShell](sql-database-copy-powershell.md)
-- [SQL](sql-database-copy-transact-sql.md)
+- [T-SQL](sql-database-copy-transact-sql.md)
 
 다음 단계는 [Azure 포털](https://portal.azure.com)로 SQL 데이터베이스 사본을 만드는 방법을 보여 줍니다. 데이터베이스 복사 작업은 새 SQL 데이터베이스를 만듭니다. 사본은 동일한 서버 또는 다른 서버에서 만든 데이터베이스의 스냅샷 백업입니다.
 
@@ -102,4 +102,4 @@ SQL 데이터베이스를 복사하려면 다음이 필요합니다.
 [3]: ./media/sql-database-copy/copy-notification.png
 [4]: ./media/sql-database-copy/monitor-copy.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

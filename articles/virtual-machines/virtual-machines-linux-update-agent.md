@@ -1,7 +1,7 @@
 <properties
 	pageTitle="GitHub에서 Azure Linux 에이전트 업데이트 | Microsoft Azure"
 	description="Azure Linux VM의 Azure Linux 에이전트를 Github의 최신 버전으로 업데이트하는 방법을 알아봅니다."
-	services="virtual-machines"
+	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="SuperScottz"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
@@ -28,7 +28,7 @@ Azure Linux VM에서 [Azure Linux 에이전트](https://github.com/Azure/WALinux
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 
-> [AZURE.NOTE] Windows 컴퓨터에서 이 작업을 수행할 경우 Linux 컴퓨터에 PuTTY 및 SSH를 사용할 수 있습니다. 자세한 내용은 [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](virtual-machines-linux-how-to-log-on.md)을 참조하세요.
+> [AZURE.NOTE] Windows 컴퓨터에서 이 작업을 수행할 경우 Linux 컴퓨터에 PuTTY 및 SSH를 사용할 수 있습니다. 자세한 내용은 [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](virtual-machines-linux-classic-log-on.md)을 참조하세요.
 
 Azure 인증 Linux 배포판에서는 Azure Linux 에이전트 패키지를 해당 리포지토리에 저장하므로 가능하면 먼저 배포판 리포지토리에서 최신 버전을 확인하고 설치하세요.
 
@@ -45,6 +45,20 @@ Oracle Linux의 경우 `Addons` 리포지토리가 사용하도록 설정되었�
 그런 다음 최신 버전의 Azure Linux 에이전트를 설치하려면 다음을 입력합니다.
 
     #sudo yum install WALinuxAgent
+
+추가 기능 리포지토리를 찾을 수 없는 경우 Oracle Linux 릴리스에 따라 .repo 파일의 맨 뒤에 다음 줄을 추가하기만 하면 됩니다.
+
+Oracle Linux 6 가상 컴퓨터의 경우:
+
+  [ol6\_addons] name=Add-Ons for Oracle Linux $releasever ($basearch) baseurl=http://public-yum.oracle.com/repo/OracleLinux/OL6/addons/x86\_64 gpgkey=http://public-yum.oracle.com/RPM-GPG-KEY-oracle-ol6 gpgcheck=1 enabled=1
+
+Oracle Linux 7 가상 컴퓨터의 경우:
+
+  [ol7\_addons] name=Oracle Linux $releasever Add ons ($basearch) baseurl=http://public-yum.oracle.com/repo/OracleLinux/OL7/addons/$basearch/ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle gpgcheck=1 enabled=0
+
+그런 다음 입력합니다.
+
+    #sudo yum update WALinuxAgent
 
 일반적으로는 이렇게만 하면 되지만 어떤 이유로든 https://github.com에서 직접 설치해야 하는 경우 다음 단계를 사용하세요.
 
@@ -99,7 +113,7 @@ SSH를 사용하여 VM에 로그인합니다.
     #sudo cp waagent /usr/share/oem/bin/
 
   Azure Linux 에이전트를 새로 설치하는 경우 다음을 실행합니다.
-
+ 
     #sudo /usr/sbin/waagent -install -verbose
 
 ### 버전 2.1.x의 경우 다음을 사용합니다.
@@ -132,4 +146,4 @@ Azure Linux 에이전트 버전이 새 버전으로 업데이트된 것을 확�
 
 Azure Linux 에이전트에 대한 자세한 내용은 [Azure Linux 에이전트 추가 정보](https://github.com/Azure/WALinuxAgent)를 참조하세요.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

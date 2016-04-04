@@ -2,102 +2,83 @@
 
 
 
-Run the HPC Pack IaaS deployment PowerShell script on a client
-computer to deploy a complete HPC Pack cluster in Azure infrastructure
-services (IaaS). The script provides several deployment options, and can add cluster compute nodes running supported Linux
-distributions or Windows Server operating systems.
+클라이언트 컴퓨터에 HPC 팩 IaaS 배포 PowerShell 스크립트를 실행하여 Azure 인프라 서비스에 완전한 HPC 팩 클러스터를 배포합니다(IaaS). 이 스크립트는 여러 배포 옵션을 제공하며 지원되는 Linux 배포 또는 Windows Server 운영 체제를 실행하는 클러스터 계산 노드를 추가할 수 있습니다.
 
-Depending on your environment and choices, the script can create all the cluster infrastructure, including the Azure virtual network, storage accounts, cloud services, domain controller, remote or local SQL databases, head node, broker nodes, compute nodes, and Azure cloud service (“burst”, or PaaS) nodes. Alternatively, the script can use pre-existing Azure infrastructure and then create the HPC cluster head node, broker nodes, compute nodes, and Azure burst nodes.
+사용자의 환경과 선택 사항에 따라 스크립트를 사용하여 Azure 가상 네트워크, 저장소 계정, 클라우드 서비스, 도메인 컨트롤러, 원격 또는 로컬 SQL 데이터베이스, 헤드 노드, broker 노드, 계산 노드, Azure 클라우드 서비스("버스트" 또는 PaaS) 노드를 포함한 모든 클러스터 인프라를 만들 수 있습니다. 또는 스크립트에 기존 Azure 인프라를 사용한 다음 HPC 클러스터 헤드 노드, broker 노드, 계산 노드, Azure 버스트 노드를 만들 수 있습니다.
 
 
-For background information about planning an HPC Pack cluster, see the [Product Evaluation and Planning](https://technet.microsoft.com/library/jj899596.aspx) and [Getting Started](https://technet.microsoft.com/library/jj899590.aspx) content in the HPC Pack TechNet Library.
+HPC 팩 클러스터 계획에 대한 배경 정보는 HPC 팩 TechNet 라이브러리에서 [제품 평가 및 계획](https://technet.microsoft.com/library/jj899596.aspx)과 [시작하기](https://technet.microsoft.com/library/jj899590.aspx) 콘텐츠를 참조하세요.
 
->[AZURE.NOTE]You can also use an Azure Resource Manager template to deploy an HPC Pack cluster. For an example, see [Create an HPC cluster](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/), [Create an HPC cluster with a custom compute node image](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/), or [Create an HPC cluster with Linux compute nodes](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/).
+>[AZURE.NOTE]Azure 리소스 관리자 템플릿을 사용하여 HPC 팩 클러스터를 배포할 수도 있습니다. 예를 들어 [HPC 클러스터 만들기](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/), [사용자 지정 계산 노드 이미지로 HPC 클러스터 만들기](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/) 또는 [Linux 계산 노드로 HPC 클러스터 만들기](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/)를 참조하세요.
 
-## Prerequisites
+## 필수 조건
 
-* **Azure subscription** - You can use a subscription in either the Azure Global or Azure China service. Your subscription limits will affect the number and type of cluster nodes you can deploy. For information, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
-
-
-* **Windows client computer with Azure PowerShell 0.8.7 or later installed and configured** - See [Install and configure Azure PowerShell](../powershell-install-configure.md). The script runs in Azure Service Management.
+* **Azure 구독** - Azure Global 또는 Azure China 서비스의 구독을 사용할 수 있습니다. 구독 제한은 배포할 수 있는 클러스터 노드의 수와 유형에 영향을 줍니다. 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)을 참조하세요.
 
 
-* **HPC Pack IaaS deployment script** - Download and unpack the latest version of the script from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=44949). Check the version of the script by running `New-HPCIaaSCluster.ps1 –Version`. This article is based on version 4.4.0 of the script.
-
-* **Script configuration file** - You'll need to create an XML file that the script uses to configure the HPC cluster. For information and examples, see sections later in this article.
+* **Azure PowerShell 0.8.7 이상이 설치 및 구성된 Windows 클라이언트 컴퓨터** - [Azure PowerShell 설치 및 구성](../powershell-install-configure.md)을 참조하세요. 이 스크립트는 Azure 서비스 관리에서 실행됩니다.
 
 
-## Syntax
+* **HPC 팩 IaaS 배포 스크립트** - [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=44949)에서 최신 버전의 스크립트를 다운로드하고 압축을 풉니다. `New-HPCIaaSCluster.ps1 –Version`을 실행하여 스크립트 버전을 확인합니다. 이 문서는 버전 4.4.0의 스크립트를 기반으로 합니다.
+
+* **스크립트 구성 파일** - 스크립트가 HPC 클러스터를 구성하는 데 사용하는 XML 파일을 만들어야 합니다. 자세한 내용과 예제는 이 문서의 뒷부분에 나오는 섹션을 참조하세요.
+
+
+## 구문
 
 ```
 New-HPCIaaSCluster.ps1 [-ConfigFile] <String> [-AdminUserName]<String> [[-AdminPassword] <String>] [[-HPCImageName] <String>] [[-LogFile] <String>] [-Force] [-NoCleanOnFailure] [-PSSessionSkipCACheck] [<CommonParameters>]
 ```
->[AZURE.NOTE]You must run the script as an administrator.
+>[AZURE.NOTE]스크립트는 관리자 권한으로 실행해야 합니다.
 
-### Parameters
+### 매개 변수
 
-* **ConfigFile** - Specifies the file path of the configuration file to describe the HPC cluster. For more information, see [Configuration file](#Configuration-file) in this topic, or the file Manual.rtf, in the folder containing the script.
+* **ConfigFile** - HPC 클러스터를 설명하는 구성 파일의 파일 경로를 지정합니다. 자세한 내용은 이 항목의 [구성 파일](#Configuration-file) 또는 스크립트가 포함된 폴더의 Manual.rtf 파일을 참조하세요.
 
-* **AdminUserName** - Specifies the user name. If the domain forest is created by the script, this becomes the local administrator user name for all VMs as well as the domain administrator name. If the domain forest already exists, this specifies the domain user as the local administrator user name to install HPC Pack.
+* **AdminUserName** - 사용자 이름을 지정합니다. 스크립트로 도메인 포리스트를 만든 경우 모든 VM의 로컬 관리자 이름과 도메인 관리자 이름을 지정합니다. 도메인 포리스트가 이미 있는 경우에는 로컬 관리자 이름으로 도메인 사용자를 지정하여 HPC 팩을 설치합니다.
 
-* **AdminPassword** - Specifies the administrator’s password. If not specified in the command line, the script will prompt you to input the password.
+* **AdminPassword** - 관리자의 암호를 지정합니다. 명령줄에서 이 매개 변수를 지정하지 않은 경우 스크립트에서 암호를 입력하라는 메시지를 표시합니다.
 
-* **HPCImageName** (optional) - Specifies the HPC Pack VM image name used to deploy the HPC cluster. It must be a Microsoft-provided HPC Pack image from the Azure Marketplace. If not specified (recommended in most cases), the script chooses the latest published HPC Pack image.
+* **HPCImageName**(선택 사항) - HPC 클러스터를 배포하는 데 사용하는 HPC 팩 VM 이미지 이름을 지정합니다. Microsoft에서 제공한 Azure 마켓플레이스의 HPC 팩 이미지여야 합니다. 이 매개 변수를 지정하지 않을 경우(대부분의 경우 지정하는 것이 좋음) 스크립트에서 최근 게시된 HPC 팩 이미지를 선택합니다.
 
-    >[AZURE.NOTE] Deployment will fail if you don't specify a valid HPC Pack image.
+    >[AZURE.NOTE] 유효한 HPC 팩 이미지를 지정하지 않으면 배포가 실패합니다.
 
-* **LogFile** (optional) - Specifies the deployment log file path. If not specified, the script will create a log file in the temp directory of the computer running the script.
+* **LogFile**(선택 사항) - 배포 로그 파일 경로를 지정합니다. 이 매개 변수를 지정하지 않을 경우 스크립트를 실행하는 컴퓨터의 temp 디렉터리에 로그 파일이 만들어집니다.
 
-* **Force** (optional) - Suppresses all the confirmation prompts.
+* **Force**(선택 사항) - 모든 확인 메시지를 표시하지 않습니다.
 
-* **NoCleanOnFailure** (optional) - Specifies that the Azure VMs that are not successfully deployed will not be removed. You must remove these VMs manually before rerunning the script to continue the deployment, or the deployment may fail.
+* **NoCleanOnFailure**(선택 사항) - 성공적으로 배포되지 않은 Azure VM을 제거하지 않도록 지정합니다. 배포를 계속하려면 스크립트를 다시 실행하기 전에 이러한 VM을 수동으로 제거해야 하며, 그렇지 않을 경우 배포가 실패합니다.
 
-* **PSSessionSkipCACheck** (optional) - For every cloud service with VMs deployed by this script, a self-signed certificate is automatically generated by Azure, and all the VMs in the cloud service use this certificate as the default Windows Remote Management (WinRM) certificate. To deploy HPC features in these Azure VMs, the script by default temporarily installs these certificates in the Local Computer\\Trusted Root Certification Authorities store of the client computer to suppress the “not trusted CA” security error during script execution; the certificates are removed when the script finishes. If this parameter is specified, the certificates are not installed in the client computer, and the security warning is suppressed.
+* **PSSessionSkipCACheck**(선택 사항) - 이 스크립트에서 배포한 VM을 사용하는 모든 클라우드 서비스에서는 Azure가 자체 서명된 인증서를 자동으로 생성하며 클라우드 서비스의 모든 VM은 이 인증서를 기본 WinRM(Windows 원격 관리) 인증서로 사용합니다. 스크립트는 이러한 Azure VM에 HPC 기능을 배포하기 위해 기본적으로 이러한 인증서를 로컬 컴퓨터\\클라이언트 컴퓨터의 신뢰할 수 있는 루트 인증 기관 저장소에 일시적으로 설치하여 스크립트 실행 중 "신뢰할 수 없는 CA" 보안 오류를 표시하지 않습니다. 스크립트가 완료되면 인증서가 제거됩니다. 이 매개 변수를 지정할 경우 인증서가 클라이언트 컴퓨터에 설치되지 않고 보안 경고가 표시되지 않습니다.
 
-    >[AZURE.IMPORTANT] This parameter is not recommended for production deployments.
+    >[AZURE.IMPORTANT] 이 매개 변수는 프로덕션 배포에 권장되지 않습니다.
 
-### Example
+### 예
 
-The following example creates a new HPC Pack cluster using the
-configuration file *MyConfigFile.xml*, and specifies administrative
-credentials for installing the cluster.
+다음 예제는 *MyConfigFile.xml* 구성 파일을 사용하여 새 HPC 팩 클러스터를 만들며 클러스터 설치를 위한 관리자 자격 증명을 지정합니다.
 
 ```
 New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> –AdminPassword <password>
 ```
 
-### Additional considerations
+### 추가 고려 사항
 
-* The script uses the HPC Pack VM image in the Azure Marketplace to create the cluster head node. The latest image is based on Windows Server 2012 R2 Datacenter with HPC Pack 2012 R2 Update 3 installed.
+* 이 스크립트는 Azure 마켓플레이스의 HPC 팩 VM 이미지를 사용하여 클러스터 헤드 노드를 만듭니다. 최신 이미지는 HPC Pack 2012 R2 업데이트 3이 설치된 Windows Server 2012 R2 Datacenter를 기준으로 합니다.
 
-* The script can optionally enable job submission through the HPC Pack web portal or the HPC Pack REST API.
+* 이 스크립트는 HPC 팩 웹 포털 또는 HPC 팩 REST API를 통한 작업 제출을 선택적으로 활성화할 수 있습니다.
 
-* The script can optionally run custom pre- and post-configuration scripts on the head node if you want to install additional software or configure other settings.
+* 추가 소프트웨어를 설치하거나 다른 설정을 구성하려는 경우 이 스크립트로 헤드 노드에서 사용자 지정 사전/사후 구성 스크립트를 선택적으로 실행할 수 있습니다.
 
 
-## Configuration file
+## 구성 파일
 
-The configuration file for the deployment script is an XML
-file. The schema file HPCIaaSClusterConfig.xsd is in the HPC Pack IaaS
-deployment script folder. **IaaSClusterConfig** is the root element of
-the configuration file, which contains the child elements described in
-detail in the file Manual.rtf in the deployment script folder. For example files for different scenarios, see
-[Example configuration files](#Example-configuration-files) in this article.
+배포 스크립트의 구성 파일은 XML 파일입니다. 스키마 파일 HPCIaaSClusterConfig.xsd는 HPC 팩 IaaS 배포 스크립트 폴더에 있습니다. **IaaSClusterConfig**는 배포 스크립트 폴더의 Manual.rtf 파일에 자세히 설명된 하위 요소가 포함된 구성 파일의 루트 요소입니다. 예를 들어 다른 시나리오의 파일의 경우 이 문서의 [예제 구성 파일](#Example-configuration-files)을 참조하세요.
 
-## Example configuration files
+## 예제 구성 파일
 
-### Example 1
+### 예 1
 
-The following configuration file deploys an HPC Pack cluster in an existing domain forest. The cluster has 1 head node with local databases and 12 compute nodes with the BGInfo VM extension applied.
-Automatic installation of Windows updates is disabled for all the VMs in
-the domain forest. All the cloud services are created directly in the
-East Asia location. The compute nodes are created in 3 cloud services
-and 3 storage accounts (i.e., _MyHPCCN-0001_ to _MyHPCCN-0005_ in
-_MyHPCCNService01_ and _mycnstorage01_; _MyHPCCN-0006_ to _MyHPCCN0010_ in
-_MyHPCCNService02_ and _mycnstorage02_; and _MyHPCCN-0011_ to _MyHPCCN-0012_ in
-_MyHPCCNService03_ and _mycnstorage03_). The compute nodes are created from
-an existing private image captured from a compute node. The auto grow
-and shrink service is enabled with default grow and shrink intervals.
+다음 구성 파일은 기존 도메인 포리스트에 HPC 팩 클러스터를 배포합니다. 클러스터에는 로컬 데이터베이스가 포함된 1개 헤드와 BGInfo VM 확장이 적용된 12개 계산 노드가 있습니다. 도메인 포리스트의 모든 VM에 대해 Windows 업데이트 자동 설치를 사용하지 않습니다. 모든 클라우드 서비스는 동아시아 위치에서 직접 생성됩니다. 컴퓨터 노드는 3개 클라우드 서비스와 3개 저장소 계정에 생성됩니다(즉, _MyHPCCNService01_ 및 _mycnstorage01_에서 _MyHPCCN-0001_ - _MyHPCCN-0005_, _MyHPCCNService02_ 및 _mycnstorage02_에서 _MyHPCCN-0006_ - _MyHPCCN0010_, _MyHPCCNService03_ 및 _mycnstorage03_에서 _MyHPCCN-0011_ - _MyHPCCN-0012_). 계산 노드는 계산 노드에서 캡처된 기존 개인 이미지에서 만들어집니다. 자동 증가 및 축소 서비스를 사용하며 기본 증가 및 축소 간격이 적용됩니다.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -159,16 +140,9 @@ and shrink service is enabled with default grow and shrink intervals.
 
 ```
 
-### Example 2
+### 예 2
 
-The following configuration file deploys an HPC Pack cluster
-in an existing domain forest. The cluster contains 1 head node, 1
-database server with a 500GB data disk, 2 broker nodes running the Windows
-Server 2012 R2 operating system, and 5 compute nodes running the Windows
-Server 2012 R2 operating system. The cloud service MyHPCCNService is
-created in the affinity group *MyIBAffinityGroup*, and all the other cloud
-services are created in the affinity group *MyAffinityGroup*. The HPC Job
-Scheduler REST API and HPC web portal are enabled on the head node.
+다음 구성 파일은 기존 도메인 포리스트에 HPC 팩 클러스터를 배포합니다. 클러스터에는 1개 헤드 노드, 500GB 데이터 디스크가 포함된 1개 데이터베이스 서버, Windows Server 2012 R2 운영 체제를 실행하는 2개 broker 노드, Windows Server 2012 R2 운영 체제를 실행하는 5개 계산 노드가 포함되어 있습니다. 클라우드 서비스인 MyHPCCNService는 선호도 그룹 *MyIBAffinityGroup*에 만들어지며 기타 클라우드 서비스는 선호도 그룹 *MyAffinityGroup*에 만들어집니다. 헤드 노드에서 HPC 작업 스케줄러 REST API 및 HPC 웹 포털을 사용합니다.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -220,18 +194,9 @@ Scheduler REST API and HPC web portal are enabled on the head node.
 </IaaSClusterConfig>
 ```
 
-### Example 3
+### 예 3
 
-The following configuration file creates a new domain forest
-and Deployments an HPC Pack cluster which has 1 head node with local
-databases and 20 Linux compute nodes. All the cloud services are created
-directly in the East Asia location. The Linux compute nodes are created
-in 4 cloud services and 4 storage accounts (i.e. _MyLnxCN-0001_ to
-_MyLnxCN-0005_ in _MyLnxCNService01_ and _mylnxstorage01_, _MyLnxCN-0006_ to
-_MyLnxCN-0010_ in _MyLnxCNService02_ and _mylnxstorage02_, _MyLnxCN-0011_ to
-_MyLnxCN-0015_ in _MyLnxCNService03_ and _mylnxstorage03_, and _MyLnxCN-0016_ to
-_MyLnxCN-0020_ in _MyLnxCNService04_ and _mylnxstorage04_). The compute nodes
-are created from an OpenLogic CentOS version 7.0 Linux image.
+다음 구성 파일은 새 도메인 포리스트를 만들고 HPC 팩 클러스터(로컬 데이터베이스를 사용하는 1개 헤드 노드 및 20개 Linux 계산 노드)를 배포합니다. 모든 클라우드 서비스는 동아시아 위치에서 직접 생성됩니다. Linux 컴퓨터 노드는 4개 클라우드 서비스와 4개 저장소 계정에 만들어집니다(즉, _MyLnxCNService01_ 및 _mylnxstorage01_에서 _MyLnxCN-0001_ - _MyLnxCN-0005_, _MyLnxCNService02_ 및 _mylnxstorage02_에서 _MyLnxCN-0006_ - _MyLnxCN-0010_, _MyLnxCNService03_ 및 _mylnxstorage03_에서 _MyLnxCN-0011_ - _MyLnxCN-0015_, _MyLnxCNService04_ 및 _mylnxstorage04_에서 _MyLnxCN-0016_ - _MyLnxCN-0020_). 계산 노드는 OpenLogic CentOS 버전 7.0 Linux 이미지에서 만들어집니다.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -279,13 +244,9 @@ are created from an OpenLogic CentOS version 7.0 Linux image.
 ```
 
 
-### Example 4
+### 예제 4
 
-The following configuration file deploys an HPC Pack cluster
-which has a head node with local databases and 5 compute nodes running
-the Windows Server 2008 R2 operating system. All the cloud services are
-created directly in the East Asia location. The head node acts as domain
-controller of the domain forest.
+다음 구성 파일은 로컬 데이터베이스를 사용하는 1개 헤드 노드와 Windows Server 2008 R2 운영 체제를 실행하는 5개 계산 노드가 있는 HPC 팩 클러스터를 배포합니다. 모든 클라우드 서비스는 동아시아 위치에서 직접 생성됩니다. 헤드 노드는 도메인 포리스트의 도메인 컨트롤러의 역할을 합니다.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -321,13 +282,9 @@ controller of the domain forest.
 </IaaSClusterConfig>
 ```
 
-### Example 5
+### 예제 5
 
-The following configuration file deploys an HPC Pack cluster
-in an existing domain forest. The cluster has 1 head node with local
-databases, two Azure node templates are created, and 3 Medium size Azure
-nodes are created for Azure node template _AzureTemplate1_. A script file
-will run on the head node after the head node is configured.
+다음 구성 파일은 기존 도메인 포리스트에 HPC 팩 클러스터를 배포합니다. 클러스터에는 로컬 데이터베이스를 사용하는 1개 헤드 노드가 포함되어 있으며, 2개 Azure 노드 템플릿이 만들어지고, Azure 노드 템플릿 _AzureTemplate1_에 대해 3개 중간 크기 Azure 노드가 만들어집니다. 헤드 노드가 구성된 다음 헤드 노드에 스크립트 파일이 실행됩니다.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -392,36 +349,17 @@ will run on the head node after the head node is configured.
   </AzureBurst>
 </IaaSClusterConfig>
 ```
-## Known issues
+## 알려진 문제
 
 
-* **“VNet doesn’t exist” error** - If you run the HPC Pack IaaS deployment script to deploy multiple
-clusters in Azure concurrently under one subscription, one or more
-deployments may fail with the error “VNet *VNet\_Name* doesn't exist”.
-If this error occurs, re-run the script for the failed deployment.
+* **"VNet이 없음" 오류** - HPC 팩 IaaS 배포 스크립트를 실행하여 하나의 구독으로 Azure에 여러 클러스터를 배포할 경우 하나 이상의 배포가 실패하고 "VNet *VNet\_Name* 없음" 오류가 표시됩니다. 이 오류가 발생할 경우 실패한 배포에 대해 스크립트를 다시 실행합니다.
 
-* **Problem accessing the Internet from the Azure virtual network** - If you create an HPC Pack cluster with a new domain controller by using
-the deployment script, or you manually promote a VM to domain
-controller, you may experience problems connecting the VMs in the Azure
-virtual network to the Internet. This can occur if a forwarder DNS
-server is automatically configured on the domain controller, and this
-forwarder DNS server doesn’t resolve properly.
+* **Azure 가상 네트워크에서 인터넷에 액세스할 수 없는 문제** - 배포 스크립트를 사용하여 새 도메인 컨트롤러로 HPC 팩 클러스터를 만들거나 VM을 도메인 컨트롤러로 수동으로 승격할 경우 Azure 가상 네트워크의 VM에서 인터넷으로 연결할 때 문제가 발생할 수 있습니다. 이러한 문제는 전달자 DNS 서버가 도메인 컨트롤러에 자동으로 구성되어 있고 이 전달자 DNS 서버가 올바르게 확인되지 않을 경우 발생할 수 있습니다.
 
-    To work around this problem, log on to the domain controller and either
-    remove the forwarder configuration setting or configure a valid
-    forwarder DNS server. To do this, in Server Manager click **Tools** >
-    **DNS** to open DNS Manager, and then double-click **Forwarders**.
+    이 문제를 해결하려면 도메인 컨트롤러에 로그인하고 전달자 구성 설정을 제거하거나 유효한 전달자 DNS 서버를 구성합니다. 그러려면 서버 관리자에서 **도구** > **DNS**를 클릭하여 DNS 관리자를 연 다음 **전달자**를 두 번 클릭합니다.
 
-* **Problem accessing RDMA network from size A8 or A9 VMs** - If you add Windows Server compute node or broker node VMs of size A8 or
-A9 by using the deployment script, you may experience problems
-connecting those VMs to the RDMA application network. One reason this
-can occur is if the HpcVmDrivers extension is not properly installed
-when the size A8 or A9 VMs are added to the cluster. For example, the
-extension might be stuck in the installing state.
+* **크기가 A8 또는 A9인 VM에서 RDMA 네트워크에 액세스하지 못하는 문제** - 배포 스크립트를 사용하여 크기가 A8 또는 A9인 Windows Server 계산 노드 또는 broker 노드 VM를 추가할 경우 이러한 VM에서 RDMA 응용 프로그램 네트워크에 연결하지 못하는 문제가 발생할 수 있습니다. 이러한 문제가 발생하는 원인 중 하나는 클러스터에 크기가 A8 또는 A9인 VM을 추가할 때 HpcVmDrivers 확장이 올바르게 설치되지 않았기 때문일 수 있습니다. 예를 들어 확장이 설치 상태에서 정지할 수 있습니다.
 
-    To work around this problem, first check the state of the extension in
-    the VMs. If the extension is not properly installed, try removing the
-    nodes from the HPC cluster and then add the nodes again. For example,
-    you can add compute node VMs by running the Add-HpcIaaSNode.ps1 script on the head node.
+    이 문제를 해결하려면 가장 먼저 VM에서 확장 상태를 확인합니다. 확장이 올바르게 설치되지 않은 경우 HPC 클러스터에서 노드를 제거한 다음 노드를 다시 추가해 보십시오. 예를 들어 헤드 노드에서 Add-HpcIaaSNode.ps1 스크립트를 실행하여 계산 노드 VM을 추가할 수 있습니다.
 
-
+<!---HONumber=AcomDC_0323_2016-->

@@ -182,6 +182,6 @@ Ping 명령을 실행한 경우 IP 주소 10.0.0.1에서 성공적인 회신 4�
 
 ## 다음 단계
 
-- [프로덕션 환경](../virtual-machines/virtual-machines-workload-high-availability-LOB-application-overview.md)을 설정합니다.
+- [프로덕션 환경](../virtual-machines/virtual-machines-windows-lob-overview.md)을 설정합니다.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

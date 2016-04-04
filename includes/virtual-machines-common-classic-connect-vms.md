@@ -1,47 +1,49 @@
 
 
 
-Virtual machines created with the classic deployment model are always placed in a cloud service. The cloud service acts as a container and provides a unique public DNS name, a public IP address, and a set of endpoints to access the virtual machine over the Internet. The cloud service can be in a virtual network, but that's not a requirement.
+클래식 배포 모델을 사용하여 만든 가상 컴퓨터는 항상 클라우드 서비스에 배치됩니다. 클라우드 컴퓨터는 컨테이너 역할을 하며 인터넷을 통해 가상 컴퓨터에 액세스할 수 있도록 고유한 공용 DNS 이름, 공용 IP 주소 및 끝점 집합을 제공합니다. 클라우드 서비스는 가상 네트워크에 있을 수 있지만 요구 사항은 아닙니다.
 
-If a cloud service isn't in a virtual network, it's called a *standalone* cloud service. The virtual machines in a standalone cloud service can only communicate with other virtual machines by using the other virtual machines’ public DNS names, and the traffic travels over the Internet. If a cloud service is in a virtual network, the virtual machines in that cloud service can communicate with all other virtual machines in the virtual network without sending any traffic over the Internet.
+가상 네트워크에 없는 클라우드 서비스를 *독립 실행형* 클라우드 서비스라고 합니다. 독립 실행형 클라우드 서비스의 가상 컴퓨터는 다른 가상 컴퓨터의 공용 DNS 이름을 사용하여 다른 가상 컴퓨터와 통신만 할 수 있고 인터넷을 통해 트래픽을 이동시킵니다. 클라우드 서비스가 가상 네트워크에 있는 경우 해당 클라우드 서비스의 가상 컴퓨터는 인터넷을 통해 트래픽을 보내지 않고도 가상 네트워크에 있는 다른 모든 가상 컴퓨터와 통신할 수 있습니다.
 
-If you place your virtual machines in the same standalone cloud service, you can still use load balancing and availability sets. For details, see [Load balancing virtual machines](load-balance-virtual-machines.md) and [Manage the availability of virtual machines](virtual-machines-windows-manage-availability.md). However, you can't organize the virtual machines on subnets or connect a standalone cloud service to your on-premises network. Here's an example:
+같은 독립 실행형 클라우드 서비스에 가상 컴퓨터를 배치하는 경우에는 계속 부하 분산 및 가용성 집합을 사용할 수 있습니다. 자세한 내용은 [가상 컴퓨터 부하 분산](load-balance-virtual-machines.md) 및 [가상 컴퓨터의 가용성 관리](virtual-machines-windows-manage-availability.md)를 참조하세요. 그러나 서브넷에서 가상 컴퓨터를 구성하거나 독립 실행형 클라우드 서비스를 온-프레미스 네트워크에 연결할 수는 없습니다. 예를 들면 다음과 같습니다.
 
-![Virtual machines in a standalone cloud service](./media/virtual-machines-common-classic-connect-vms/CloudServiceExample.png)
+![독립 실행형 클라우드 서비스의 가상 컴퓨터](./media/virtual-machines-common-classic-connect-vms/CloudServiceExample.png)
 
-If you place your virtual machines in a virtual network, you can decide how many cloud services you want to use for load balancing and availability sets. Additionally, you can organize the virtual machines on subnets in the same way as your on-premises network and connect the virtual network to your on-premises network. Here's an example:
+가상 컴퓨터를 가상 네트워크에 둔 경우 부하 분산 및 가용성 집합에 사용할 클라우드 서비스 수를 결정할 수 있습니다. 또한 온-프레미스 네트워크와 동일한 방법으로 서브넷에서 가상 컴퓨터를 구성하고 가상 컴퓨터를 온-프레미스 네트워크에 연결할 수 있습니다. 예를 들면 다음과 같습니다.
 
-![Virtual machines in a virtual network](./media/virtual-machines-common-classic-connect-vms/VirtualNetworkExample.png)
+![가상 네트워크의 가상 컴퓨터](./media/virtual-machines-common-classic-connect-vms/VirtualNetworkExample.png)
 
-Virtual networks are the recommended way to connect virtual machines in Azure. The best practice is to configure each tier of your application in a separate cloud service. However, you may need to combine some virtual machines from different application tiers into the same cloud service to remain within the maximum of 200 cloud services per subscription. To review this and other limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](azure-subscription-service-limits.md).
+가상 네트워크는 Azure에서 가상 컴퓨터를 연결하는 데 권장되는 방법입니다. 응용 프로그램의 각 계층을 별도의 클라우드 서비스에 구성하는 것이 가장 좋습니다. 그러나 구독당 클라우드 서비스 수를 최대 200개의 범위 내에서 유지하기 위해 여러 응용 프로그램 계층의 일부 가상 컴퓨터를 동일한 클라우드 서비스에 통합해야 할 수도 있습니다. 이 제한 및 다른 제한을 검토하려면 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](azure-subscription-service-limits.md)을 참조하세요.
 
-## Connect VMs in a virtual network
+## 가상 네트워크에서 VM 연결
 
-To connect virtual machines in a virtual network:
+가상 네트워크에서 가상 컴퓨터를 연결하려면
 
-1.	Create the virtual network in the [Azure portal](virtual-networks-create-vnet-classic-pportal.md).
-2.	Create the set of cloud services for your deployment to reflect your design for availability sets and load balancing. In the Azure classic portal, click **New > Compute > Cloud Service > Custom Create** for each cloud service.
-3.	To create each new virtual machine, click **New > Compute > Virtual Machine > From Gallery**. Choose the correct cloud service and virtual network for the VM. If the cloud service is already joined to a virtual network, its name will already be selected for you.
+1.	[Azure 포털](virtual-networks-create-vnet-classic-pportal.md)에서 가상 네트워크를 만듭니다.
+2.	가용성 집합 및 부하 분산에 대한 디자인을 반영하기 위해 배포에 대한 클라우드 서비스의 집합을 만듭니다. Azure 클래식 포털에서 각 클라우드 서비스에 대해 **새로 만들기 > 계산 > 클라우드 서비스 > 사용자 지정 만들기**를 클릭합니다.
+3.	각각의 새 가상 컴퓨터를 만들려면 **새로 만들기 > 계산 > 가상 컴퓨터 > 갤러리에서**를 클릭합니다. VM에 대한 올바른 클라우드 서비스 및 가상 네트워크를 선택합니다. 클라우드 서비스가 가상 네트워크에 이미 연결된 경우 해당 이름이 이미 선택되어 있을 것입니다.
 
-![Selecting a cloud service for a virtual machine](./media/virtual-machines-common-classic-connect-vms/VMConfig1.png)
+![가상 컴퓨터에 대한 클라우드 서비스 선택](./media/virtual-machines-common-classic-connect-vms/VMConfig1.png)
 
-## Connect VMs in a standalone cloud service
+## 독립 실행형 클라우드 서비스에서 VM 연결
 
-To connect virtual machines in a standalone cloud service:
+독립 실행형 클라우드 서비스에서 가상 컴퓨터를 연결하려면
 
-1.	Create the cloud service in the [Azure classic portal](http://manage.windowsazure.com). Click **New > Compute > Cloud Service > Custom Create**. Or, you can create the cloud service for your deployment when you create your first virtual machine.
+1.	[Azure 클래식 포털](http://manage.windowsazure.com)에서 클라우드 서비스를 만듭니다. **새로 만들기 > 계산 > 클라우드 서비스 > 사용자 지정 만들기**를 클릭합니다. 또는 첫 번째 가상 컴퓨터를 만들 때 배포에 대한 클라우드 서비스를 만들 수 있습니다.
 
-2.	When you create the virtual machines, choose the name of cloud service created in the previous step.
+2.	가상 컴퓨터를 만들 때 이전 단계에서 만든 클라우드 서비스의 이름을 선택합니다.
 
-	![Add a virtual machine to an existing cloud service](./media/virtual-machines-common-classic-connect-vms/Connect-VM-to-CS.png)
+	![기존 클라우드 서비스에 가상 컴퓨터 추가](./media/virtual-machines-common-classic-connect-vms/Connect-VM-to-CS.png)
 
-##Resources
-[Load balancing virtual machines](load-balance-virtual-machines.md)
+##리소스
+[가상 컴퓨터 부하 분산](load-balance-virtual-machines.md)
 
-[Manage the availability of virtual machines](virtual-machines-windows-manage-availability.md)
+[가상 컴퓨터의 가용성 관리](virtual-machines-windows-manage-availability.md)
 
-After you create a virtual machine, it's a good idea to add a data disk so your services and workloads have a location to store data. See one of the following:
+가상 컴퓨터를 만들고 나서 서비스 및 워크로드에 데이터를 저장할 위치가 포함되도록 데이터 디스크를 추가하는 것이 좋습니다. 다음 중 하나를 참조하세요.
 
-[How to Attach a Data Disk to a Linux Virtual Machine](virtual-machines-linux-classic-attach-disk.md)
+[Linux 가상 컴퓨터에 데이터 디스크를 연결하는 방법](virtual-machines-linux-classic-attach-disk.md)
 
-[How to Attach a Data Disk to a Windows Virtual Machine](virtual-machines-windows-classic-attach-disk.md)
+[Windows 가상 컴퓨터에 데이터 디스크를 연결하는 방법](virtual-machines-windows-classic-attach-disk.md)
+
+<!---HONumber=AcomDC_0323_2016-->

@@ -31,7 +31,7 @@
 
 이 시나리오에서는 외부 사용자가 도메인에 가입된 서버에서 실행되는 응용 프로그램에 액세스해야 합니다. 응용 프로그램 서버 및 복제본 DC를 실행하는 VM은 Azure 가상 네트워크에 설치됩니다. 다음 다이어그램과 같이 [사이트 간 VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md) 연결을 통해 가상 네트워크를 온-프레미스 네트워크에 연결할 수 있으며, 더 빠른 연결을 위해 [Express 경로](../../services/expressroute/)를 사용할 수 있습니다.
 
-응용 프로그램 서버 및 DC는 계산 처리 분산을 위해 별개의 클라우드 서비스에 배포되고 내결함성 향상을 위해 [가용성 집합](../virtual-machines/virtual-machines-manage-availability.md) 내에 배포됩니다. DC는 Active Directory 복제를 사용하여 온-프레미스 DC 및 서로 간에 복제됩니다. 동기화 도구가 필요하지 않습니다.
+응용 프로그램 서버 및 DC는 계산 처리 분산을 위해 별개의 클라우드 서비스에 배포되고 내결함성 향상을 위해 [가용성 집합](../virtual-machines/virtual-machines-windows-manage-availability.md) 내에 배포됩니다. DC는 Active Directory 복제를 사용하여 온-프레미스 DC 및 서로 간에 복제됩니다. 동기화 도구가 필요하지 않습니다.
 
 ![][1]
 
@@ -61,7 +61,7 @@
 
 ## DC 역할에 대한 Azure VM 만들기
 
-필요에 따라 다음 단계를 반복하여 DC 역할을 호스트할 VM을 만듭니다. 내결함성과 중복성을 제공하려면 가상 DC를 두 개 이상 배포해야 합니다. Azure 가상 네트워크에 구성된 것과 유사한 DC가 둘 이상 있는 경우(즉, 둘 다 GC이고, DNS 서버를 실행하며, FSMO 역할을 수행하지 않는 등) 이러한 DC를 실행하는 VM을 가용성 집합에 배치하여 내결함성을 개선합니다. UI 대신 Windows PowerShell을 사용하여 VM을 만들려면 [Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성하기](../virtual-machines/virtual-machines-ps-create-preconfigure-windows-vms.md)를 참조하세요.
+필요에 따라 다음 단계를 반복하여 DC 역할을 호스트할 VM을 만듭니다. 내결함성과 중복성을 제공하려면 가상 DC를 두 개 이상 배포해야 합니다. Azure 가상 네트워크에 구성된 것과 유사한 DC가 둘 이상 있는 경우(즉, 둘 다 GC이고, DNS 서버를 실행하며, FSMO 역할을 수행하지 않는 등) 이러한 DC를 실행하는 VM을 가용성 집합에 배치하여 내결함성을 개선합니다. UI 대신 Windows PowerShell을 사용하여 VM을 만들려면 [Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성하기](../virtual-machines/virtual-machines-windows-classic-create-powershell.md)를 참조하세요.
 
 1. Azure 클래식 포털에서 **새로 만들기** > **계산** > **가상 컴퓨터** > **갤러리에서**를 클릭합니다. 다음 값을 사용하여 마법사를 완료합니다. 다른 값이 제안되거나 필요하지 않은 한 설정의 기본값을 적용합니다.
 
@@ -71,7 +71,7 @@
 	**가상 컴퓨터 구성** | <p>가상 컴퓨터 이름: 단일 레이블 이름을 입력합니다(예: AzureDC1).</p><p>새 사용자 이름: 사용자 이름을 입력합니다. 이 사용자는 VM에서 로컬 관리자 그룹의 구성원이 됩니다. VM에 처음 로그인하려면 이 이름이 필요합니다. Administrator라는 기본 제공 계정은 사용할 수 없습니다.</p><p>새 암호/확인: 암호를 입력합니다.</p>
 	**가상 컴퓨터 구성** | <p>클라우드 서비스: 첫 번째 VM에 대해 <b>새 클라우드 서비스 만들기</b>를 선택한 다음 DC 역할을 호스트할 추가 VM을 만들 때는 동일한 클라우드 서비스 이름을 선택합니다.</p><p>클라우드 서비스 DNS 이름: 전역적으로 고유한 이름을 지정합니다.</p><p>지역/선호도 그룹/가상 네트워크: 가상 네트워크 이름을 지정합니다(예: WestUSVNet).</p><p>저장소 계정: 첫 번째 VM에 대해 <b>자동으로 생성된 저장소 계정 사용</b>을 선택한 다음 DC 역할을 호스트할 추가 VM을 만들 때는 동일한 저장소 계정 이름을 선택합니다.</p><p>가용성 집합: <b>가용성 집합 만들기</b>를 선택합니다.</p><p>가용성 집합 이름: 첫 번째 VM을 만들 때 가용성 집합의 이름을 입력한 다음 추가 VM을 만들 때는 동일한 이름을 선택합니다.</p>
 	**가상 컴퓨터 구성** | <p><b>VM 에이전트 설치</b> 및 필요한 다른 확장을 선택합니다.</p>
-2. DC 서버 역할을 실행할 각 VM에 디스크를 연결합니다. AD 데이터베이스, 로그 및 SYSVOL을 저장하려면 추가 디스크가 필요합니다. 디스크 크기(예: 10GB)를 지정하고 **호스트 캐시 기본 설정**을 **없음**으로 설정된 채로 둡니다. 단계를 보려면 [Windows 가상 컴퓨터에 데이터 디스크를 연결하는 방법](../virtual-machines/storage-windows-attach-disk.md)을 참조하세요.
+2. DC 서버 역할을 실행할 각 VM에 디스크를 연결합니다. AD 데이터베이스, 로그 및 SYSVOL을 저장하려면 추가 디스크가 필요합니다. 디스크 크기(예: 10GB)를 지정하고 **호스트 캐시 기본 설정**을 **없음**으로 설정된 채로 둡니다. 단계를 보려면 [Windows 가상 컴퓨터에 데이터 디스크를 연결하는 방법](../virtual-machines/virtual-machines-windows-classic-attach-disk.md)을 참조하세요.
 3. VM에 처음 로그인한 후 **서버 관리자** > **파일 및 저장소 서비스**를 열어 NTFS를 사용하여 이 디스크에 볼륨을 만듭니다.
 4. DC 역할을 실행할 VM에 대해 고정 IP 주소를 예약합니다. 고정 IP 주소를 예약하려면 Microsoft 웹 플랫폼 설치 관리자를 다운로드하고 [Azure PowerShell을 설치](../powershell-install-configure.md)한 다음 Set-AzureStaticVNetIP cmdlet을 실행합니다. 예:
 
@@ -103,7 +103,7 @@ VM에 로그인한 다음 사이트 간 VPN 또는 Express 경로 연결을 통�
 
 2. 각 VM이 프로비전된 후 로그인하고 VM을 도메인에 가입합니다. **서버 관리자**에서 **로컬 서버** > **작업 그룹** > **변경…**을 클릭하고 **도메인**을 선택한 후 온-프레미스 도메인의 이름을 입력합니다. 도메인 사용자의 자격 증명을 제공한 다음 VM을 다시 시작하여 도메인 가입을 완료합니다.
 
-UI 대신 Windows PowerShell을 사용하여 VM을 만들려면 [Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성하기](../virtual-machines/virtual-machines-ps-create-preconfigure-windows-vms.md)를 참조하세요.
+UI 대신 Windows PowerShell을 사용하여 VM을 만들려면 [Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성하기](../virtual-machines/virtual-machines-windows-classic-create-powershell.md)를 참조하세요.
 
 Windows PowerShell 사용에 대한 자세한 내용은 [Azure Cmdlets 시작하기](https://msdn.microsoft.com/library/azure/jj554332.aspx) 및 [Azure Cmdlet 참조](https://msdn.microsoft.com/library/azure/jj554330.aspx)를 확인하세요.
 
@@ -121,4 +121,4 @@ Windows PowerShell 사용에 대한 자세한 내용은 [Azure Cmdlets 시작하
 <!--Image references-->
 [1]: ./media/virtual-networks-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/03/2016" 
+	ms.date="03/18/2016" 
 	ms.author="sdanie"/>
 
 
@@ -132,6 +132,9 @@ REST API를 사용하여 속성을 삭제하는 방법에 대한 자세한 내�
 	-	[정책 참조](https://msdn.microsoft.com/library/azure/dn894081.aspx)
 	-	[정책 식](https://msdn.microsoft.com/library/azure/dn910913.aspx)
 
+## 비디오 개요 보기
+
+> [AZURE.VIDEO use-properties-in-policies]
 
 [api-management-properties]: ./media/api-management-howto-properties/api-management-properties.png
 [api-management-properties-add-property]: ./media/api-management-howto-properties/api-management-properties-add-property.png
@@ -146,4 +149,4 @@ REST API를 사용하여 속성을 삭제하는 방법에 대한 자세한 내�
 [api-management-properties-filter]: ./media/api-management-howto-properties/api-management-properties-filter.png
 [api-management-api-inspector-trace]: ./media/api-management-howto-properties/api-management-api-inspector-trace.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

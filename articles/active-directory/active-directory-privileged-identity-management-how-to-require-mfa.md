@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Privileged Identity Management: Multi-Factor Authentication을 요구하는 방법"
+   pageTitle="다단계 인증을 요구하는 방법 | Microsoft Azure"
    description="Azure Active Directory Privileged Identity Management 확장을 사용하여 권한 있는 ID에 대해 MFA(Multi-Factor Authentication)를 요구하는 방법을 알아봅니다."
    services="active-directory"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/08/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
-# Azure Privileged Identity Management: MFA를 요구하는 방법
+# Azure AD Privileged Identity Management: MFA를 요구하는 방법
 
 모든 관리자에 대해 Multi-Factor Authentication을 요구하는 것이 좋습니다.
 
@@ -41,4 +41,4 @@ PIM 관리자로 로그인하는 경우 권한 있는 계정에 MFA(Multi-Factor
 ## 다음 단계
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

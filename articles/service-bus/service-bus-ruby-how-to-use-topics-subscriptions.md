@@ -63,7 +63,7 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 
 ## Ruby 응용 프로그램 만들기
 
-자세한 내용은 [Azure에서 Ruby 응용 프로그램 만들기](../virtual-machines/virtual-machines-ruby-rails-web-app-linux.md)를 참조하십시오.
+자세한 내용은 [Azure에서 Ruby 응용 프로그램 만들기](../virtual-machines/virtual-machines-linux-classic-ruby-rails-web-app.md)를 참조하십시오.
 
 ## 서비스 버스를 사용하도록 응용 프로그램 구성
 
@@ -237,4 +237,4 @@ azure_service_bus_service.delete_subscription("test-topic", "high-messages")
  
 [Azure 클래식 포털]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

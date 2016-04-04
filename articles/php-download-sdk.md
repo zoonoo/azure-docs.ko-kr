@@ -3,7 +3,7 @@
 	description="Azure SDK for PHP를 다운로드하여 설치하는 방법에 대해 알아봅니다."
 	documentationCenter="php"
 	services="app-service\web"
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="PHP"
 	ms.topic="article"
 	ms.date="12/16/2015"
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 #PHP용 Azure SDK 다운로드
 
@@ -31,7 +31,7 @@ PHP용 Azure SDK에는 Azure용 PHP 응용 프로그램을 개발, 배포 및 �
 
 이 항목의 지침은 [PHP][install-php]가 설치되어 있다고 가정합니다.
 
-> [AZURE.NOTE]Azure용 PHP 클라이언트 라이브러리를 사용하려면 PHP 5.3 이상이 있어야 합니다.
+> [AZURE.NOTE] Azure용 PHP 클라이언트 라이브러리를 사용하려면 PHP 5.3 이상이 있어야 합니다.
 
 ##Azure용 PHP 클라이언트 라이브러리
 
@@ -44,7 +44,7 @@ Azure용 PHP 클라이언트 라이브러리를 사용하는 방법에 대한 �
 1. [Git를 설치][install-git]합니다.
 
 
-	> [AZURE.NOTE]Windows에서는 PATH 환경 변수에도 Git 실행 파일을 추가해야 합니다.
+	> [AZURE.NOTE] Windows에서는 PATH 환경 변수에도 Git 실행 파일을 추가해야 합니다.
 
 2. 프로젝트 루트에 **composer.json**이라는 파일을 만들고 다음 코드를 추가합니다.
 
@@ -89,7 +89,7 @@ Azure용 PHP 클라이언트 라이브러리를 수동으로 다운로드하고 
 
 1. [GitHub][php-sdk-github]에서 라이브러리가 포함된 .zip 보관 파일을 다운로드합니다. 또는 리포지토리를 분기하여 로컬 컴퓨터에 복제합니다. 두 번째 옵션을 사용하려면 GitHub 계정이 필요하며 Git가 로컬에 설치되어 있어야 합니다.
 
-	> [AZURE.NOTE]Azure용 PHP 클라이언트 라이브러리는 [HTTP\_Request2](http://pear.php.net/package/HTTP_Request2), [Mail\_mime](http://pear.php.net/package/Mail_mime) 및 [Mail\_mimeDecode](http://pear.php.net/package/Mail_mimeDecode) PEAR 패키지에 종속됩니다. 이 종속성을 해결하는 권장 방법은 [PEAR 패키지 관리자](http://pear.php.net/manual/en/installation.php)(영문)를 사용하여 이러한 패키지를 설치하는 것입니다.
+	> [AZURE.NOTE] Azure용 PHP 클라이언트 라이브러리는 [HTTP\_Request2](http://pear.php.net/package/HTTP_Request2), [Mail\_mime](http://pear.php.net/package/Mail_mime) 및 [Mail\_mimeDecode](http://pear.php.net/package/Mail_mimeDecode) PEAR 패키지에 종속됩니다. 이 종속성을 해결하는 권장 방법은 [PEAR 패키지 관리자](http://pear.php.net/manual/en/installation.php)(영문)를 사용하여 이러한 패키지를 설치하는 것입니다.
 
 2. 다운로드한 보관 파일의 `WindowsAzure` 디렉터리를 응용 프로그램 디렉터리 구조에 복사하고 응용 프로그램에서 클래스를 참조합니다.
 
@@ -99,7 +99,7 @@ Azure PowerShell는 Azure 서비스(예: 클라우드 서비스 및 가상 컴�
 
 Azure PowerShell 및 Azure 에뮬레이터는 [Microsoft 웹 플랫폼 설치 관리자][download-wpi]를 사용하여 설치하는 것이 좋습니다. PHP, SQL Server, PHP용 Microsoft Drivers for SQL Server, WebMatrix와 같은 다른 개발 구성 요소를 설치하도록 선택할 수도 있습니다.
 
-Azure PowerShell 사용 방법에 대한 내용은 [Azure PowerShell 사용 방법][powershell-tools]을 참조하세요.
+Azure PowerShell 사용 방법에 대한 내용은 [Azure PowerShell 사용 방법][powershell-tools]을 참조하십시오.
 
 ##Azure CLI
 
@@ -130,4 +130,4 @@ Azure CLI는 Azure 웹 사이트 및 Azure 가상 컴퓨터와 같은 Azure 서�
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0323_2016-->

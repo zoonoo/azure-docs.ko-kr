@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="cache-redis"
     ms.workload="tbd"
-    ms.date="03/04/2016"
+    ms.date="03/17/2016"
     ms.author="sdanie" />
 
 # 관리된 캐시 서비스에서 Azure Redis Cache로 마이그레이션
@@ -49,6 +49,7 @@ Azure 관리된 캐시 서비스 및 Azure Redis Cache는 유사하지만 다른
 |만료 정책|기본 만료 정책은 절대이며 기본 만료 시간은 10분입니다. 또한 슬라이딩 및 없음 정책을 사용할 수 있습니다.|기본적으로 캐시의 항목이 만료되지 않지만 만료는 캐시 집합 오버로드를 사용하여 쓰기 단위로 구성할 수 있습니다. 자세한 내용은 [캐시에서 개체 추가 및 검색](cache-dotnet-how-to-use-azure-redis-cache.md#add-and-retrieve-objects-from-the-cache)을 참조하세요.|
 |지역 및 태깅|지역은 캐시된 항목에 대한 하위 그룹입니다. 또한 지역은 태그라는 추가 설명 문자열을 사용하여 캐시된 항목의 주석을 지원합니다. 지역은 해당 지역에서 태그가 지정된 항목에 검색 작업을 수행하는 기능을 지원합니다. 지역 내의 모든 항목은 캐시 클러스터의 단일 노드 내에 위치합니다.|Redis Cache는 단일 노드로 이루어지므로(Redis 클러스터를 사용하지 않는 한) 관리된 캐시 서비스 지역의 개념이 적용되지 않습니다. Redis는 키를 검색할 때 검색 및 와일드카드 작업을 지원하므로 설명 태그를 키 이름 내에 포함하고 나중에 항목을 검색하는 데 사용할 수 있습니다. Redis를 사용하는 태그 지정 솔루션을 구현하는 예는 [Redis로 태그를 지정하는 캐시 구현](http://stackify.com/implementing-cache-tagging-redis/)을 참조하세요.|
 |직렬화|관리된 캐시는 NetDataContractSerializer, BinaryFormatter 및 사용자 지정 직렬 변환기의 사용을 지원합니다. 기본값은 NetDataContractSerializer입니다.|직렬 변환기의 선택은 클라이언트 응용 프로그램 개발자에게 맡겨지며 캐시에 두기 전에 .NET 개체를 직렬화하는 것은 클라이언트 응용 프로그램의 책임입니다. 자세한 내용 및 샘플 코드는 [캐시의 .NET 개체 작업](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache)을 참조하세요.|
+| 캐시 에뮬레이터 | 관리되는 캐시는 로컬 캐시 에뮬레이터를 제공합니다. | Azure Redis Cache에는 에뮬레이터가 없지만 [redis-server.exe의 MSOpenTech 빌드를 로컬로 실행](cache-faq.md#cache-emulator)하여 에뮬레이터 환경을 제공할 수 있습니다. |
 
 ## 캐시 제품 선택
 
@@ -195,4 +196,4 @@ Azure Redis Cache에는 ASP.NET 세션 상태 및 페이지 출력 캐싱 모두
 
 자습서, 샘플, 비디오, 등은 [Azure Redis Cache 설명서](https://azure.microsoft.com/documentation/services/cache/)를 탐색합니다.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

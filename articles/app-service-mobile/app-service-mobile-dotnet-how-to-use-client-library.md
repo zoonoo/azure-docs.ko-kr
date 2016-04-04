@@ -19,6 +19,7 @@
 # Azure 모바일 앱에 관리되는 클라이언트를 사용하는 방법
 
 [AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
+&nbsp;
 
 ##개요
 
@@ -57,7 +58,8 @@ C#에서 해당하는 형식화된 클라이언트 쪽 형식은 다음과 같�
 
 다음 코드는 모바일 앱 백 엔드에 액세스하는 데 사용되는 [MobileServiceClient] 개체를 만듭니다.
 
-	MobileServiceClient client = new MobileServiceClient("MOBILE_APP_URL");
+	MobileServiceClient client = new MobileServiceClient(
+		"MOBILE_APP_URL");
 
 위의 코드에서 `MOBILE_APP_URL`을 모바일 앱 백 엔드의 URL로 대체하며 이는 [Azure 포털]의 모바일 앱 백 엔드에 대한 블레이드에서 찾을 수 있습니다. 일반적이며 클라이언트 인스턴스는 단일 항목이 좋습니다.
 
@@ -83,7 +85,8 @@ C#에서 해당하는 형식화된 클라이언트 쪽 형식은 다음과 같�
 
 백 엔드 테이블의 데이터에 액세스하거나 데이터를 수정하는 모든 코드는 `MobileServiceTable` 개체의 함수를 호출합니다. 다음과 같이 `MobileServiceClient`의 인스턴스에 [GetTable] 메서드를 호출하여 테이블에 대한 참조를 얻습니다.
 
-    IMobileServiceTable<TodoItem> todoTable = client.GetTable<TodoItem>();
+    IMobileServiceTable<TodoItem> todoTable =
+		client.GetTable<TodoItem>();
 
 형식화된 직렬화 모델입니다. 형식화되지 않은 직렬화 모델도 지원됩니다. 다음은 [형식화되지 않은 테이블에 참조를 만듭니다].
 
@@ -470,7 +473,7 @@ Facebook 이외의 ID 공급자를 사용하는 경우 위의 [MobileServiceAuth
 
 서버 흐름에서 Azure 앱 서비스는 선택한 공급자의 로그인 페이지를 표시하고 ID 공급자 로그인 후 앱 서비스 인증 토큰을 생성하여 OAuth 2.0 인증 흐름을 관리합니다. [LoginAsync 메서드]는 [MobileServiceUser]를 반환하며, 여기서 인증된 사용자의 [UserId] 및 [MobileServiceAuthenticationToken]이 JWT(JSON 웹 토큰)로 제공됩니다. 이 토큰은 캐시했다가 만료될 때까지 다시 사용할 수 있습니다. 자세한 내용은 [인증 토큰 캐시](#caching)를 참조하십시오.
 
-###클라이언트 흐름
+###<a name="client-flow"></a>클라이언트 흐름
 
 앱이 독립적으로 ID 공급자에 연결한 후 반환된 토큰을 인증을 위해 앱 서비스에 제공할 수도 있습니다. 이 클라이언트 흐름을 사용하면 단일 로그인 환경을 사용자에게 제공하거나 ID 공급자로부터 더 많은 사용자 데이터를 검색할 수 있습니다.
 
@@ -607,7 +610,7 @@ Azure Active Directory를 사용하여 응용 프로그램에 사용자가 로�
 
 * **INSERT-AUTHORITY-HERE**를 응용 프로그램이 프로비전된 테넌트의 이름으로 바꿉니다. https://login.windows.net/contoso.onmicrosoft.com 형식이어야 합니다. 이 값은 [Azure 클래식 포털]의 Azure Active Directory에 있는 도메인 탭에서 복사될 수 있습니다.
 
-* **INSERT-RESOURCE-ID-HERE**를 모바일 앱 백 엔드에 대한 클라이언트 ID로 바꿉니다. 포털의 **Azure Active Directory 설정**에 있는 **고급** 탭에서 이를 가져올 수 있습니다.
+* **INSERT-RESOURCE-ID-HERE**를 모바일 앱 백 엔드에 대한 클라이언트 ID로 바꿉니다. 포털의 **Azure Active Directory 설정**에 있는 **고급**에서 이를 가져올 수 있습니다.
 
 * **INSERT-CLIENT-ID-HERE**를 네이티브 클라이언트 응용 프로그램에서 복사한 클라이언트 ID로 바꿉니다.
 
@@ -786,7 +789,7 @@ Xamarin 앱에는 iOS 또는 Android 앱을 실행하는 앱을 각각 APNS(Appl
 
 ###<a name="errors"></a>방법: 오류 처리
 
-백 엔드에서 오류가 발생하는 경우 클라이언트 SDK는 `MobileServiceInvalidOperationException`을(를) 발생시킵니다. 다음 예제에서는 백 엔드에서 반환되는 예외를 처리하는 방법을 보여 줍니다.
+백 엔드에서 오류가 발생하는 경우 클라이언트 SDK가 `MobileServiceInvalidOperationException`을 발생시킵니다. 다음 예제에서는 백 엔드에서 반환되는 예외를 처리하는 방법을 보여 줍니다.
 
 	private async void InsertTodoItem(TodoItem todoItem)
 	{
@@ -910,4 +913,4 @@ Xamarin 앱에는 iOS 또는 Android 앱을 실행하는 앱을 각각 APNS(Appl
 [SymbolSource]: http://www.symbolsource.org/
 [SymbolSource 지침]: http://www.symbolsource.org/Public/Wiki/Using
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

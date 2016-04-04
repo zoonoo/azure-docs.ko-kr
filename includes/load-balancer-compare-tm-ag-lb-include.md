@@ -1,33 +1,33 @@
-## Load Balancer differences
+## 부하 분산 장치의 차이점
 
-There are different options to distribute network traffic using Microsoft Azure.  These options work differently from each other, having a different feature set and supports different scenarios.  They can each be used in isolation, or combining them.
+Microsoft Azure를 사용하여 네트워크 트래픽을 분산하는 다양한 옵션이 있습니다. 이러한 옵션은 서로 다르게 작동하며 다른 기능 모음을 포함하고 다양한 시나리오를 지원합니다. 각각을 따로 사용하거나 조합해서 사용할 수 있습니다.
 
-- Azure Load Balancer works at the network layer (level 4 in the OSI network reference stack).  It provides network-level distribution of traffic across instances of an application running in the same Azure data center.
+- Azure 부하 분산 장치는 네트워크 계층(OSI 네트워크 참조 스택의 수준 4)에서 작동합니다. 이 장치는 동일한 Azure 데이터 센터에서 실행되는 응용 프로그램 인스턴스 간에 네트워크 수준 트래픽 분산을 제공합니다.
 
-- Application Gateway works at the application layer (level 7 in the OSI network reference stack).  It acts as a reverse-proxy service, terminating the client connection and forwarding requests to back-end endpoints.
+- 응용 프로그램 게이트웨이는 응용 프로그램 계층(OSI 네트워크 참조 스택의 수준 7)에서 작동합니다. 이 게이트웨이는 역방향 프록시 서비스 역할을 하며 클라이언트 연결을 종료하고 백 엔드 끝점으로 요청을 전달합니다.
 
-- 	Traffic Manager works at the DNS level.  It uses DNS responses to direct end-user traffic to globally-distributed endpoints.  Clients then connect to those endpoints directly.
-The following table summarizes the features offered by each service:
+- 	트래픽 관리자는 DNS 수준에서 작동합니다. 이 관리자는 DNS 응답을 사용하여 전역으로 분산된 끝점으로 최종 사용자 트래픽을 보냅니다. 그러면 클라이언트는 해당 끝점에 직접 연결됩니다. 다음 표에서는 각 서비스에서 제공하는 기능을 요약해서 보여 줍니다.
 
-|Azure Load Balancer |	Application Gateway | Traffic Manager |
+|Azure 부하 분산 장치 |	응용 프로그램 게이트웨이 | 트래픽 관리자 |
 |---|---|---|
-|Technology| Network level (level 4) | Application level (level 7) |	DNS level |
-| Application protocols supported |	Any | HTTP and HTTPS | 	Any (An HTTP/S endpoint is required for endpoint monitoring) |
-| Endpoints | Azure VMs and Cloud Services role instances | Any Azure Internal IP address or public internet IP address | Azure VMs, Cloud Services, Azure Web Apps and external endpoints |
-| Vnet support | Can be used for both Internet facing and internal (Vnet) applications | Can be used for both Internet facing and internal (Vnet) applications |	Only supports Internet-facing applications |
-Endpoint Monitoring | supported via probes | supported via probes | supported via HTTP/HTTPS GET | 
-<BR>
-Azure Load Balancer and Application Gateway route network traffic to endpoints but they have different usage scenarios to which traffic to handle. The table below helps understanding the difference between the two load balancers:
+|기술| 네트워크 수준(수준 4) | 응용 프로그램 수준(수준 7) |	DNS 수준 |
+| 지원되는 응용 프로그램 프로토콜 |	모두 | HTTP 및 HTTPS | 	모두(HTTP/S 끝점은 끝점 모니터링에 필요함) |
+| 끝점 | Azure VM 및 클라우드 서비스 역할 인스턴스 | 모든 Azure 내부 IP 주소 또는 공용 인터넷 IP 주소 | Azure VM, 클라우드 서비스, Azure 웹앱 및 외부 끝점 |
+| Vnet 지원 | 인터넷 연결 및 내부(Vnet) 응용 프로그램 모두에 사용할 수 있습니다. | 인터넷 연결 및 내부(Vnet) 응용 프로그램 모두에 사용할 수 있습니다. |	인터넷 연결 응용 프로그램만 지원 |
+끝점 모니터링 | 프로브를 통해 지원됨 | 프로브를 통해 지원됨 | HTTP/HTTPS GET을 통해 지원됨 | 
+<BR> Azure 부하 분산 장치 및 응용 프로그램 게이트웨이는 네트워크 트래픽을 끝점으로 라우팅하지만 처리할 트래픽에 대한 사용 시나리오는 서로 다릅니다. 다음 표는 두 부하 분산 장치 간의 차이점을 이해하는 데 유용합니다.
 
 
-| Type | Azure Load Balancer | Application Gateway |
+| 형식 | Azure 부하 분산 장치 | 응용 프로그램 게이트웨이 |
 |---|---|---|
-| Protocols | UDP/TCP | HTTP/ HTTPS |
-| IP reservation | Supported | Not supported | 
-| Load balancing mode | 5 tuple(source IP, source port, destination IP,destination port, protocol type) | CookieBasedAffinity = false,rules = basic (Round-Robin) | 
-| Load balancing mode (source IP /sticky sessions) |  2 tuple (source IP and destination IP), 3 tuple (source IP, destination IP and port). Can scale up or down based on the number of virtual machines | CookieBasedAffinity = true,rules = basic (Roud-Robin) for new connections. |
-| health probes | Default: probe interval - 15 secs. Taken out of rotation: 2 Continuous failures. Supports user defined probes | Idle probe interval 30 secs. Taken out after 5 consecutive live traffic failures or a single probe failure in idle mode. Supports user defined probes | 
-| SSL offloading | not supported | supported | 
+| 프로토콜 | UDP/TCP | HTTP/HTTPS |
+| IP 예약 | 지원됨 | 지원되지 않음 | 
+| 부하 분산 모드 | 5 튜플(원본 IP, 원본 포트, 대상 IP, 대상 포트, 프로토콜 유형) | CookieBasedAffinity = false,rules = basic (Round-Robin) | 
+| 부하 분산 모드(원본 IP/고정 세션) | 2 튜플(원본 IP 및 대상 IP), 3 튜플(원본 IP, 대상 IP 및 포트) 가상 컴퓨터의 수에 따라 확장 또는 축소할 수 있습니다. | 새 연결의 경우 CookieBasedAffinity = true,rules = basic (Roud-Robin) |
+| 상태 프로브 | 기본값: 프로브 간격 15초 회전 중단: 2번의 연속 실패 사용자 정의 프로브 지원 | 유휴 프로브 간격 30초 5번의 연속 라이브 트래픽 실패 또는 유휴 모드의 단일 프로브 실패 후 중단됩니다. 사용자 정의 프로브 지원 | 
+| SSL 오프로딩 | 지원되지 않음 | 지원됨 | 
 
 
   
+
+<!---HONumber=AcomDC_0323_2016-->

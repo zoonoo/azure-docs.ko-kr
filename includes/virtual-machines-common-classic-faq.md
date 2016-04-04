@@ -1,139 +1,142 @@
 
 
 
-This article addresses some common questions users ask about Azure virtual machines created with the classic deployment model.
+이 문서에서는 클래식 배포 모델을 사용하여 만든 Azure 가상 컴퓨터에 대한 사용자의 일부 일반적인 질문을 해결합니다.
 
-## What can I run on an Azure VM?
+## Azure VM에서 무엇을 실행할 수 있습니까?
 
-All subscribers can run server software on an Azure virtual machine. You can run recent versions of Windows Server, as well as a variety of Linux distributions. For support details, see:
+모든 구독자는 Azure 가상 컴퓨터에서 서버 소프트웨어를 실행할 수 있습니다. 최신 버전의 Windows Server뿐만 아니라 다양한 Linux 배포를 실행할 수 있습니다. 지원 세부 사항은, 다음을 참조하세요:
 
-• For Windows VMs -- [Microsoft server software support for Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=393550)
+• Windows VM의 경우 -- [Azure 가상 컴퓨터에 대한 Microsoft 서버 소프트웨어 지원](http://go.microsoft.com/fwlink/p/?LinkId=393550)
 
-• For Linux VMs -- [Linux on Azure-Endorsed Distributions](http://go.microsoft.com/fwlink/p/?LinkId=393551)
+• Linux VM의 경우 -- [Azure 인증 배포의 Linux](http://go.microsoft.com/fwlink/p/?LinkId=393551)
 
-For Windows client images, certain versions of Windows 7 and Windows 8.1 are available to MSDN Azure benefit subscribers and MSDN Dev and Test Pay-As-You-Go subscribers, for development and test tasks. For details, including instructions and limitations, see [Windows Client images for MSDN subscribers](https://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/).
+Windows 클라이언트 이미지를 사용할 수 있는, Windows 7 및 Windows 8.1의 특정 버전은 MSDN Azure 혜택 구독자와 MSDN 개발 및 테스트 종량제 구독자가 개발 및 테스트 작업을 위해 사용할 수 있습니다. 지침과 제한 사항을 포함한 자세한 내용은 [MSDN 구독자를 위한 Windows 클라이언트 이미지](https://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/)를 참조하세요.
 
-## How much storage can I use with a virtual machine?
+## 가상 컴퓨터에 얼마나 많은 용량의 저장소를 사용할 수 있습니까?
 
-Each data disk can be up to 1 TB. The number of data disks you can use depends on the size of the virtual machine. For details, see [Sizes for Virtual Machines](virtual-machines-linux-sizes.md).
+각 데이터 디스크의 최대 용량은 1 TB 입니다. 사용할 수 있는 데이터 디스크의 수는 가상 컴퓨터의 크기에 따라 달라집니다. 자세한 내용은 [가상 컴퓨터의 크기](virtual-machines-linux-sizes.md)를 참조하세요.
 
-An Azure storage account provides storage for the operating system disk and any data disks. Each disk is a .vhd file stored as a page blob. For pricing details, see [Storage Pricing Details](http://go.microsoft.com/fwlink/p/?LinkId=396819).
+Azure 저장소 계정은 운영 체제 디스크 및 모든 데이터 디스크에 대한 저장소를 제공합니다. 각 디스크는 페이지 blob으로 저장된 .vhd 파일입니다. 가격 책정에 대한 자세한 내용은 [저장소 가격 세부 정보](http://go.microsoft.com/fwlink/p/?LinkId=396819)를 참조하세요.
 
-## Which virtual hard disk types can I use?
+## 어떤 가상 하드 디스크 유형을 사용할 수 있습니까?
 
-Azure only supports fixed, VHD-format virtual hard disks. If you have a VHDXyou want to use in Azure, you need to first convert it by using Hyper-V Manager or the [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656) cmdlet. After you do that, use [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet (in Service Management mode) to upload the VHD to a storage account in Azure so you can use it with virtual machines. 
+Azure는 고정된 VHD 형식 가상 하드 디스크를 지원합니다. VHDX가 있고 Azure에서 사용하려는 경우 먼저 Hyper-V 관리자 또는 [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656) cmdlet을 사용하여 변환해야 합니다. 이를 수행한 후, 가상 컴퓨터와 사용할 수 있도록 Azure의 저장소 계정에 VHD를 업로드하기 위해 [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet(서비스 관리 모드)를 사용합니다.
 
-- For Linux instructions, see [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](virtual-machines-linux-classic-create-upload-vhd.md).
+- Linux 지침에 대한 내용은 [Linux 운영 체제를 포함하는 가상 하드 디스크 만들기 및 업로드](virtual-machines-linux-classic-create-upload-vhd.md)를 참조하세요.
 
-- For Windows instructions, see [Create and upload a Windows Server VHD to Azure](virtual-machines-windows-classic-createupload-vhd.md).
+- Windows 지침에 대한 내용은 [Windows Server VHD를 만들어 Azure에 업로드](virtual-machines-windows-classic-createupload-vhd.md)를 참조하세요.
 
-## Are these virtual machines the same as Hyper-V virtual machines?
+## 이 가상 컴퓨터들은 HYPER-V 가상 컴퓨터들과 동일합니까?
 
-In many ways they’re similar to “Generation 1” Hyper-V VMs, but they’re not exactly the same. Both types provide virtualized hardware, and the VHD-format virtual hard disks are compatible. This means you can move them between Hyper-V and Azure. Three key differences that sometimes surprise Hyper-V users are:
+많은 측면에서, “1 세대” Hyper-V VM과 유사하지만, 정확히 동일하지는 않습니다. 두 형식 모두 가상화된 하드웨어를 제공하지만, VHD-형식 가상 하드 디스크는 호환이 가능합니다. 이 의미는 사용자가 Hyper-V 및 Azure 사이를 이동할 수 있다는 것입니다. Hyper-V 사용자에게 중요한 세 가지 차이점이 있습니다.
 
-- Azure doesn’t provide console access to a virtual machine. There is no way to access a VM until it is done booting.
-- Azure VMs in most [sizes](virtual-machines-linux-sizes.md) have only 1 virtual network adapter, which means that they also can have only 1 external IP address. (The A8 and A9 sizes use a second network adapter for application communication between instances in limited scenarios.)
-- Azure VMs don't support Generation 2 Hyper-V VM features. For details about these features, see [Virtual Machine Specifications for Hyper-V](http://technet.microsoft.com/library/dn592184.aspx) and [Generation 2 Virtual Machine Overview] (https://technet.microsoft.com/library/dn282285.aspx).
+- Azure에서는 가상 컴퓨터에 대한 콘솔 액세스를 제공하지 않습니다. 부팅이 완료될 때까지 VM에 액세스할 수 없습니다.
+- 대부분의 [크기](virtual-machines-linux-sizes.md)를 가진 Azure VM에는 가상 네트워크 어댑터가 하나만 있습니다. 따라서 외부 IP 주소가 하나만 지정될 수 있습니다. A8 및 A9 크기는 제한된 시나리오에서 인스턴스 간의 응용 프로그램 커뮤니케이션을 위해 두 번째 네트워크 어댑터를 사용합니다.
+- Azure VM은 2세대 Hyper-V VM 기능을 지원하지 않습니다. 이러한 기능에 대한 자세한 내용은 [Hyper-v에 대한 가상 컴퓨터 사양](http://technet.microsoft.com/library/dn592184.aspx) 및 [2세대 가상 컴퓨터 개요](https://technet.microsoft.com/library/dn282285.aspx)를 참조하세요.
 
-## Can these virtual machines use my existing, on-premises networking infrastructure?
+## 이러한 가상 컴퓨터는 현존하는 온-프레미스 네트워킹 인프라를 사용할 수 있습니까?
 
-For virtual machines created in the classic deployment model, you can use Azure Virtual Network to extend your existing infrastructure. The approach is like setting up a branch office. You can provision and manage virtual private networks (VPNs) in Azure as well as securely connect them to on-premises IT infrastructure. For details, see [Virtual Network Overview](../virtual-network/virtual-networks-overview.md).
+클래식 배포 모델에서 만든 가상 컴퓨터의 경우 Azure 가상 네트워크를 사용하여 기존 인프라를 확장할 수 있습니다. 접근법은 지점 사무실을 설치와 유사합니다. 사용자는 Azure에서 VPN(가상 사설망)을 프로비전하고 관리하며 온-프레미스 IT 인프라에 안전하게 연결할 수 있습니다. 자세한 내용은 [가상 네트워크 개요](../virtual-network/virtual-networks-overview.md)를 참조하세요.
 
-You’ll need to specify the network that you want the virtual machine to belong to when you create the virtual machine. You can’t join an existing virtual machine to a virtual network. However, you can work around this by detaching the virtual hard disk (VHD) from the existing virtual machine, and then use it to create a new virtual machine with the networking configuration you want.
+가상 컴퓨터를 만들 때, 사용자가 원하는 가상 컴퓨터가 소속될 네트워크를 지정해야 합니다. 가상 네트워크에 기존 가상 컴퓨터를 가입할 수 없습니다. 그러나 기본 가상 컴퓨터에서 가상 하드 디스크(VHD)를 분리한 후, 사용자가 원하는 네트워킹 구성으로 새로운 가상 컴퓨터를 만들어서 이 문제를 해결할 수 있습니다.
 
-## How can I access  my virtual machine?
+## 나의 가상 컴퓨터에 액세스 하려면 어떻게 해야 합니까?
 
-You need to establish a remote connection to log on to the virtual machine, using Remote Desktop Connection for a Windows VM or a Secure Shell (SSH) for a Linux VM. For instructions, see:
+Linux VM에 대한 SSH(보안셸) 또는 Windows VM에 대한 원격 데스크톱 연결을 사용하여 가상 컴퓨터에 로그온 하기 위해 원격 연결을 구축해야 합니다. 자세한 내용은 다음을 참조하세요.
 
-- [How to Log on to a Virtual Machine Running Windows Server](virtual-machines-windows-classic-connect-logon.md). A maximum of 2 concurrent connections are supported, unless the server is configured as a Remote Desktop Services session host.  
-- [How to Log on to a Virtual Machine Running Linux](virtual-machines-linux-classic-log-on.md). By default, SSH allows a maximum of 10 concurrent connections. You can increase this number by editing the configuration file.
+- [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법](virtual-machines-windows-classic-connect-logon.md) 서버가 원격 데스크톱 서비스 세션 호스트로 구성되지 않으면 최대 2개의 동시 연결이 지원됩니다.  
+- [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](virtual-machines-linux-classic-log-on.md) 기본적으로, SSH는 최대 10개의 동시 연결을 허용합니다. 구성 파일을 편집하여 이 수를 늘릴 수 있습니다.
 
 
-If you’re having problems with Remote Desktop or SSH, install and use the [VMAccess](virtual-machines-windows-extensions-features.md) extension to help fix the problem. 
+원격 데스크톱 또는 SSH에 문제가 있는 경우 문제를 해결하는 데 도움이 되는 [VMAccess](virtual-machines-windows-extensions-features.md) 확장을 설치 및 사용하세요.
 
-For Windows VMs, additional options include:
+Windows VM에 대한 추가 옵션은 다음과 같습니다.
 
-- In the Azure classic portal, find the VM, then click **Reset Remote Access** from the Command bar.
-- Review [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](virtual-machines-windows-troubleshoot-rdp-connection.md).
-- Use Windows PowerShell Remoting to connect to the VM, or create additional endpoints for other resources to connect to the VM. For details, see [How to Set Up Endpoints to a Virtual Machine](virtual-machines-windows-classic-setup-endpoints.md).
+- Azure 클래식 포털에서 VM을 찾은 다음 명령 모음에서 **원격 액세스 다시 설정**을 클릭합니다.
+- [Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](virtual-machines-windows-troubleshoot-rdp-connection.md)을 검토합니다.
+- Windows PowerShell 원격을 사용하여 VM에 연결하거나 VM에 연결할 다른 리소스에 대한 추가 끝점을 만듭니다. 자세한 내용은 [가상 컴퓨터에 끝점을 설정하는 방법](virtual-machines-windows-classic-setup-endpoints.md)을 참조하세요.
 
-If you’re familiar with Hyper-V, you might be looking for a tool similar to VMConnect. Azure doesn’t offer a similar tool because console access to a virtual machine isn’t supported.
+Hyper-V에 친숙한 경우 VMConnect와 유사한 도구를 찾을 수 있습니다. 가상 컴퓨터에 대한 콘솔 액세스가 지원되지 않으므로 Azure는 유사한 도구를 제공하지 않습니다.
 
-## Can I use the temporary disk (the D: drive for Windows or /dev/sdb1 for Linux) to store data?
+## 데이터를 저장하는 데 임시 디스크(Windows의 경우 D: 드라이브 또는 Linux의 경우 /dev/sdb1)를 사용할 수 있나요?
 
-You shouldn’t use the temporary disk (the D: drive by default for Windows or /dev/sdb1 for Linux) to store data. They are only temporary storage, so you would risk losing data that can’t be recovered. This can occur when the virtual machine moves to a different host. Resizing a virtual machine, updating the host, or a hardware failure on the host are some of the reasons a virtual machine might move.
+데이터를 저장하는 데 임시 디스크(기본적으로 Windows의 경우 D: 드라이브 또는 Linux의 경우 /dev/sdb1)를 사용할 수 없습니다. 해당 드라이브는 임시 저장소일 뿐이므로 복구할 수 없는 데이터가 손실될 위험이 있습니다. 이는 가상 컴퓨터를 다른 호스트로 이동할 때 발생할 수 있습니다. 가상 컴퓨터 크기를 조정하고, 호스트를 업데이트 하거나, 호스트의 하드웨어가 실패하는 경우가, 가상 컴퓨터가 이동할 수 있는 몇 가지 이유가 됩니다.  
 
-## How can I change the drive letter of the temporary disk?
 
-On a Windows virtual machine, you can change the drive letter by moving the page file and reassigning drive letters, but you’ll need to make sure you do the steps in a specific order. For instructions, see [Change the drive letter of the Windows temporary disk](virtual-machines-windows-classic-change-drive-letter.md).
+## 임시 디스크의 드라이브 문자 변경을 어떻게 합니까?
 
-## How can I upgrade the guest operating system?
+Windows 가상 컴퓨터에서, 페이지 파일을 이동하고 드라이브 문자를 다시 할당하여 드라이브 문자를 변경할 수 있지만, 특정 순서에 따라 단계를 수행하고 있는지 확인해야 합니다. 지침에 대한 자세한 내용은 [Windows 임시 디스크의 드라이브 문자 변경](virtual-machines-windows-classic-change-drive-letter.md)을 참조하세요.
 
-The term upgrade generally means moving to a more recent release of your operating system, while staying on the same hardware. For Azure VMs, the process for moving to a more recent release differs for Linux and Windows:
+## 게스트 운영 체제를 업그레이드 하려면 어떻게 해야합니까?
 
-- For Linux VMs, use the package management tools and procedures appropriate for the distribution.
-- For a Windows virtual machine, you need to migrate the server using something like the Windows Server Migration Tools. Don’t attempt to upgrade the guest OS while it resides on Azure. It isn’t supported because of the risk of losing access to the virtual machine. If problems occur during the upgrade, you could lose the ability to start a Remote Desktop session and wouldn’t be able to troubleshoot the problems. 
+용어 업그레이드가 일반적으로 의미하는 것은 동일한 하드웨어를 그대로 사용하면서 사용중인 운영 체제의 최신 릴리스로 이동하는 것을 의미합니다. Azure VM의 경우, 보다 최신 릴리스로의 이동은 Linux 및 Windows에 따라 달라집니다.
 
-For general details about the tools and processes for migrating a Windows Server, see [Migrate Roles and Features to Windows Server](http://go.microsoft.com/fwlink/p/?LinkId=396940). 
+- Linux에 대해 배포시 패키지 관리 도구 및 적절한 도구를 사용하세요.
+- Windows 가상 컴퓨터의 경우 Windows Server 마이그레이션 도구 등을 사용하여 서버를 마이그레이션해야 합니다. Azure에 상주하는 동안, 게스트 OS를 업그레이드 하려고 시도하지 마십시오. 가상 컴퓨터에 대한 액세스를 손실할 수 있는 위험 때문에 해당 업그레이드는 지원되지 않습니다. 업그레이드를 하는 동안 문제가 발생하는 경우, 원격 데스크톱 세션을 시작할 수 있는 기능이 손실되며, 문제를 해결할 수 없습니다. 
 
+Windows Server 마이그레이션을 위한 도구 및 프로세스에 대한 자세한 일반 정보는 [Windows Server에 역할 및 기능 마이그레이션](http://go.microsoft.com/fwlink/p/?LinkId=396940)을 참조하세요.
 
 
-## What's the default user name and password on the virtual machine?
 
-The images provided by Azure don’t have a pre-configured user name and password. When you create virtual machine using one of those images, you’ll need to provide a user name and password, which you’ll use to log on to the virtual machine.
+## 가상 컴퓨터에 대한 기본 사용자 이름 및 암호는 무엇입니까?
 
-If you’ve forgotten the user name or password and you’ve installed the VM Agent, you can install and use the [VMAccess](virtual-machines-windows-extensions-features.md) extension to fix the problem.
+Azure에 의해 제공되는 이미지는 미리 구성된 이름 및 암호가 필요없습니다. 이러한 이미지 중 하나를 사용하여 가상 컴퓨터를 만들 때, 가상 컴퓨터에 로그온 하는데 사용할 사용자 이름 및 암호를 제공해야 합니다.
 
-Additional details:
+사용자 이름 또는 암호를 잊어버리고 VM 에이전트를 설치한 경우 해당 문제를 수정하기 위해 [VMAccess](virtual-machines-windows-extensions-features.md) 확장을 설치하고 사용할 수 있습니다.
 
+추가 정보:
 
-- For the Linux images, if you use the Azure classic portal, ‘azureuser’ is given as a default user name, but you can change this by using ‘From Gallery’ instead of ‘Quick Create’ as the way to create the virtual machine. Using ‘From Gallery’ also lets you decide whether to use a password, an SSH key, or both to log you in. The user account is a non-privileged user that has ‘sudo’ access to run privileged commands. The ‘root’ account is disabled.
 
+- Linux 이미지에 대해 Azure 클래식 포털을 사용하는 경우 ‘azureuser’가 기본 사용자 이름으로 부여되며 가상 컴퓨터를 만들기 위한 방법으로 ‘빨리 만들기’ 대신 ‘갤러리에서’를 사용하여 이 이름을 변경할 수 있습니다. ‘갤러리에서'를 사용하면 로그인을 위해 암호, SSH 키를 사용할 것인지 둘 다 사용할 것인지를 결정할 수 있습니다. 사용자 계정은 권한이 있는 명령을 실행하기 위한 ‘sudo’ 액세스를 할 수 있는 권한이 없는 사용자입니다. ‘root’ 계정은 비활성화 됩니다.
 
-- For Windows images, you’ll need to provide a user name and password when you create the VM. The account is added to the Administrators group.
 
-## Can Azure run anti-virus on my virtual machines?
+- Windows 이미지에 대해, VM를 만들 때 사용자 이름 및 암호를 제공해야 합니다. 계정은 Administrators 그룹에 추가됩니다.
 
-Azure offers several options for anti-virus solutions, but it’s up to you to manage it. For example, you might need a separate subscription for antimalware software, and you’ll need to decide when to run scans and install updates. You can add anti-virus support with a VM extension for Microsoft Antimalware, Symantec Endpoint Protection, or TrendMicro Deep Security Agent when you create a Windows virtual machine, or at a later point. The Symantec and TrendMicro extensions let you use a free limited-time trial subscription or an existing enterprise subscription. Microsoft Antimalware is free of charge. For details, see:
+## Azure가 내 가상 컴퓨터에서 바이러스 백신을 실행할 수 있습니까?
 
-- [How to install and configure Symantec Endpoint Protection on an Azure VM](http://go.microsoft.com/fwlink/p/?LinkId=404207)
-- [How to install and configure Trend Micro Deep Security as a Service on an Azure VM](http://go.microsoft.com/fwlink/p/?LinkId=404206)
-- [Deploying Antimalware Solutions on Azure Virtual Machines](https://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/)
+Azure는 바이러스 백신 솔루션에 대한 몇 가지 옵션을 제공하지만 관리하는 업무는 사용자의 책임입니다. 예를 들면, 맬웨어 방지 소프트웨어에 대한 별도 구독이 필요할 수 있으며, 검사를 실행하고 업데이트를 설치 시기를 결정해야 합니다. Windows 가상 컴퓨터를 만들 때 또는 나중에 Microsoft 맬웨어 방지 프로그램, Symantec Endpoint Protection 또는 TrendMicro Deep Security Agent에 대한 VM 확장으로 백신 프로그램 지원을 추가할 수 있습니다. Symantec 및 TrendMicro 확장으로 무료 기간 한정 구독 또는 기존 엔터프라이즈 구독을 사용할 수 있습니다. Microsoft 맬웨어 방지 프로그램은 무료입니다. 자세한 내용은 다음을 참조하세요.
 
-## What are my options for backup and recovery?
+- [Azure VM에서 Symantec Endpoint Protection을 설치하고 구성하는 방법](http://go.microsoft.com/fwlink/p/?LinkId=404207)
+- [Azure VM에 Trend Micro Deep Security as a Service를 설치하고 구성하는 방법](http://go.microsoft.com/fwlink/p/?LinkId=404206)
+- [Azure 가상 컴퓨터에 맬웨어 방지 솔루션 배포](https://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/)
 
-Azure Backup is available as a preview in certain regions. For details, see [Back up Azure virtual machines](backup-azure-vms.md). Other solutions are available from certified partners. To find out what’s currently available, search the Azure Marketplace.
+## 백업 및 복구에 대한 나의 옵션은 무엇입니까?
 
-An additional option is to use the snapshot capabilities of blob storage. To do this, you’ll need to shut down the VM before any operation that relies on a blob snapshot. This saves pending data writes and puts the file system in a consistent state.
+Azure 백업은 특정 지역에서 미리 보기로 제공됩니다. 자세한 내용은 [Azure 가상 컴퓨터 백업](backup-azure-vms.md)을 참조하세요. 다른 솔루션은 인증된 파트너에서 사용할 수 있습니다. 무엇이 현재 사용 가능한지 알아보려면, Azure 마켓플레이스를 검색합니다.
 
-## How does Azure charge for my VM?
+추가 옵션은 blob 저장소의 스냅샷 기능을 사용하는 것입니다. 이렇게 하려면, blob 스넵샷에 의존하는 모든 작업을 하기전에 VM을 종료해야 합니다. 이는 보류중인 데이터 쓰기를 저장하고 파일 시스템을 일관된 상태에 넣습니다.
 
-Azure charges an hourly price based on the VM’s size and operating system. For partial hours, Azure charges only for the minutes of use. If you create the VM with a VM image containing certain pre-installed software, additional hourly software charges may apply. Azure charges separately for storage for the VM’s operating system and data disks. Temporary disk storage is free.
+## 내 VM에 대한 Azure 청구를 수행하는 방법
 
-You are charged when the VM status is Running or Stopped, but you are not charged when the VM status is Stopped (De-allocated). To put a VM in the Stopped (De-allocated) state, do one of the following:
+Azure는 VM의 크기와 운영 체제에 기반한 시간당 가격을 청구합니다. 부분 시간의 경우 Azure는 사용 시간(분)에 대해서만 청구합니다. 사전 설치된 특정 소프트웨어를 포함하는 VM 이미지로 VM을 만드는 경우, 추가 시간당 소프트웨어 요금이 적용될 수 있습니다. Azure는 VM의 운영 체제 및 데이터 디스크용 저장소에 대해 별도로 요금을 청구합니다. 임시 디스크 저장소는 무료입니다.
 
-- Shut down or delete the VM from the Azure classic portal.
-- Use the Stop-AzureVM cmdlet, available in the Azure PowerShell module.
-- Use the Shutdown Role operation in the Service Management REST API and specify StoppedDeallocated for the PostShutdownAction element.
+VM 상태가 실행 중이거나 정지되면 요금이 부과되지만, VM 상태가 정지됐을 때(할당이 취소됨)는 요금이 부과되지 않습니다. VM을 정지(할당이 취소됨) 상태로 등록하려면, 다음 중 하나를 수행합니다.
 
-For more details, see [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/).
+- Azure 클래식 포털에서 VM을 종료하거나 삭제합니다.
+- Azure Powershell 모듈에서 사용할 수 있는 Stop-Azure cmdlet을 사용합니다.
+- 서비스 관리 REST API에서 종료 역할 작업을 사용하고 PostShutDownAction 요소에 대한 StoppedDeallocated를 지정합니다.
 
-## Will Azure reboot my VM for maintenance?
+자세한 내용은 [가상 컴퓨터 가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/)을 참조하세요.
 
-Azure sometimes restarts your VM as part of regular, planned maintenance updates in the Azure datacenters. 
+## Azure는 유지관리를 위해 내 VM을 다시 부팅합니까?
 
-Unplanned maintenance events can occur when Azure detects a serious hardware problem that affects your VM. For unplanned events, Azure automatically migrates the VM to a healthy host and restarts the VM.
+Azure는 때때로 Azure 데이터 센터에서 일반, 계획된 유지 관리 업데이트의 일부로서 사용자의 VM을 다시 시작합니다.
 
-For any standalone VM (meaning the VM isn’t part of an availability set), Azure notifies the subscription’s Service Administrator by email at least one week before planned maintenance because the VMs could be restarted during the update. Applications running on the VMs could experience downtime.
+Azure가 사용자의 VM에 영향을 주는 심각한 하드웨어 문제를 감지할 때 계획되지 않은 유지 관리 이벤트가 발생할 수 있습니다. 계획되지 않은 이벤트에 대해, Azure는 VM을 정상 호스트에 마이그레이션 하고 해당 VM을 다시 시작합니다.
 
-You also can use the Azure classic portal or Azure PowerShell to view the reboot logs when the reboot occurred due to planned maintenance. For details, see [Viewing VM Reboot Logs](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
+모든 독립 실행형 VM(VM은 가용성 집합의 일부가 아니라는 의미)에 대해, 업데이트를 하는 동안 VM이 다시 시작될 수 있기 때문에, Azure는 계획된 유지 관리 시행 시기 기준 적어도 한 주 전에 구독의 서비스 관리자에게 e-mail로 알립니다. VM에서 실행 중인 응용 프로그램에서 가동 중지 시간이 발생할 수 있습니다.
 
-To provide redundancy, put two or more similarly configured VMs in the same availability set. This helps ensure at least one VM is available during planned or unplanned maintenance. Azure guarantees certain levels of VM availability for this configuration. For details, see [Manage the availability of virtual machines](virtual-machines-windows-manage-availability.md).
+또한 계획된 유지 관리로 인해 다시 부팅할 때 Azure 클래식 포털 또는 Azure PowerShell을 사용하여 다시 부팅 로그를 볼 수 있습니다. 자세한 내용은 [VM 다시 부팅 로그 보기](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/)를 참조하세요.
 
-## Additional resources
+중복성을 제공하려면 동일한 가용성 집합에 둘 이상의 비슷하게 구성된 VM을 넣습니다. 이렇게 하면 계획된 또는 계획되지 않은 유지 관리를 하는 동안 적어도 하나 이상의 VM을 사용할 수 있습니다. Azure는 이 구성에 대해 특정한 수준의 VM 가용성을 보장합니다. 자세한 내용은 [가상 컴퓨터의 가용성 관리](virtual-machines-windows-manage-availability.md)를 참조하세요.
 
-[About Azure Virtual Machines](virtual-machines-linux-about.md)
+## 추가 리소스
 
-[Different Ways to Create a Linux Virtual Machine](virtual-machines-linux-creation-choices.md)
+[Azure 가상 컴퓨터 정보](virtual-machines-linux-about.md)
 
-[Different Ways to Create a Windows Virtual Machine](virtual-machines-windows-creation-choices.md)
+[Linux 가상 컴퓨터를 만드는 다양한 방법](virtual-machines-linux-creation-choices.md)
+
+[Windows 가상 컴퓨터를 만드는 다양한 방법](virtual-machines-windows-creation-choices.md)
+
+<!---HONumber=AcomDC_0323_2016-->

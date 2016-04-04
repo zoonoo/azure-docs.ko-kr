@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # Azure CLI에서 NSG를 만드는 방법
@@ -32,7 +32,7 @@
 ## 프런트 엔드 서브넷에 대한 NSG를 만드는 방법
 위의 시나리오에 따라 *NSG-FrontEnd*라는 NSG를 만들려면 다음 단계를 따르세요.
 
-1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](xplat-cli-install.md)을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
+1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](../xplat-cli-install.md)을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
 
 2. 아래와 같이 **azure config mode** 명령을 실행하여 리소스 관리자 모드로 전환합니다.
 
@@ -69,9 +69,9 @@
 		info:    network nsg create command OK
 
 	매개 변수:
-	- **-g(또는 --resource-group)**. NSG가 만들어지는 리소스 그룹의 이름입니다. 이 시나리오에서는 *TestRG*.
-	- **-l(또는 --location)**입니다. 새 NSG를 만들 Azure 지역입니다. 이 시나리오에서는 *westus*.
-	- **-n(또는 --name)**입니다. 새 NSG의 이름입니다. 이 시나리오에서는 *NSG-FrontEnd*입니다.
+	- **-g(또는 --resource-group)**. NSG가 만들어지는 리소스 그룹의 이름입니다. 이 시나리오에서는 *TestRG*입니다.
+	- **-l(또는 --location)**. 새 NSG를 만들 Azure 지역입니다. 이 시나리오에서는 *westus*입니다.
+	- **-n(또는 --name)**. 새 NSG의 이름입니다. 이 시나리오에서는 *NSG-FrontEnd*입니다.
 
 4. **azure network nsg rule create** 명령을 실행하여 인터넷에서 포트 3389(RDP)에 대한 액세스를 허용하는 규칙을 만듭니다.
 
@@ -105,7 +105,7 @@
 	- **-n(또는 --name)**. 새 규칙의 이름입니다. 이 시나리오에서는 *rdp-rule*입니다.
 	- **-c(또는 --access)**. 규칙(허용 또는 거부)에 대한 액세스 수준입니다.
 	- **-p(또는 --protocol)**. 규칙에 대한 프로토콜(Tcp, Udp 또는 *)입니다.
-	- **-r(또는 --direction)**. 연결 방향(인바운드 또는 아웃바운드)입니다.
+- **-r(또는 --direction)**. 연결 방향(인바운드 또는 아웃바운드)입니다.
 	- **-y(또는 --priority)**. 규칙에 대한 우선순위입니다.
 	- **-f(또는 --source-address-prefix)**. CIDR 또는 기본 태그를 사용하는 원본 주소 접두사입니다.
 	- **-o(또는 --source-port-range)**. 원본 포트 또는 포트 범위입니다.
@@ -269,4 +269,4 @@
 		data:    
 		info:    network vnet subnet set command OK
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

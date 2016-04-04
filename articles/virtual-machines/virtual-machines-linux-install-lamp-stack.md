@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Linux 가상 컴퓨터에 LAMP 스택 설치 | Microsoft Azure"
 	description="Azure에서 Linux VM(가상 컴퓨터)에 LAMP 스택을 설치하는 방법에 대해 알아봅니다."
-	services="virtual-machines"
+	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="szarkos"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags=“azure-service-management,azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
@@ -105,7 +105,7 @@ LAMP 스택은 다음과 같은 여러 요소로 구성됩니다.
 
 		- CentOS 및 Oracle: `sudo service httpd restart`
 
-	- Apache는 기본적으로 포트 80에서 수신 대기합니다. Apache 서버에 원격으로 액세스하려면 끝점을 열어야 할 수도 있습니다. 자세한 지침은 [끝점 구성](virtual-machines-set-up-endpoints.md)을 참조하십시오.
+	- Apache는 기본적으로 포트 80에서 수신 대기합니다. Apache 서버에 원격으로 액세스하려면 끝점을 열어야 할 수도 있습니다. 자세한 지침은 [끝점 구성](virtual-machines-windows-classic-setup-endpoints.md)을 참조하십시오.
 
 	- 이제 Apache가 실행 중이며 콘텐츠를 제공하고 있는지 확인할 수 있습니다. 브라우저를 `http://[MYSERVICE].cloudapp.net`으로 전환합니다. 여기서 **[MYSERVICE]**는 가상 컴퓨터가 상주하는 클라우드 서비스의 이름입니다. 일부 배포의 경우 "It works!"라고만 표시된 기본 웹 페이지가 나타날 수도 있습니다. 다른 배포의 경우 Apache 서버의 구성을 위한 추가 설명서 및 콘텐츠 링크가 포함된 좀 더 완전한 웹 페이지가 나타날 수 있습니다.
 
@@ -122,11 +122,11 @@ LAMP 스택은 다음과 같은 여러 요소로 구성됩니다.
 
 ##추가 참고 자료
 
-원격 Linux 가상 컴퓨터에 응용 프로그램을 배포하도록 다음 이 단계를 자동화한다고 가정합니다. Linux CustomScript 확장을 사용하여 수행할 수 있습니다. [Linux용 Azure CustomScript 확장을 사용하여 LAMP 앱 배포](virtual-machines-linux-script-lamp.md)를 참조하세요.
+원격 Linux 가상 컴퓨터에 응용 프로그램을 배포하도록 다음 이 단계를 자동화한다고 가정합니다. Linux CustomScript 확장을 사용하여 수행할 수 있습니다. [Linux용 Azure CustomScript 확장을 사용하여 LAMP 앱 배포](virtual-machines-linux-classic-lamp-script.md)를 참조하세요.
 
 Ubuntu에 LAMP 스택을 설치하는 여러 다른 리소스가 있습니다.
 
 - [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0323_2016-->

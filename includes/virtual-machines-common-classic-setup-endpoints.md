@@ -1,74 +1,76 @@
 
 
 
-All virtual machines that you create in Azure using the classic deployment model can automatically communicate over a private network channel with other virtual machines in the same cloud service or virtual network. However, computers on the Internet or other virtual networks require endpoints to direct the inbound network traffic to a virtual machine.
+클래식 배포 모델을 사용하여 Azure에서 만든 모든 가상 컴퓨터는 개인 네트워크 채널을 통해 동일한 클라우드 서비스 또는 가상 네트워크에 있는 다른 가상 컴퓨터와 자동으로 통신할 수 있습니다. 그러나 인터넷이나 다른 가상 네트워크의 컴퓨터가 가상 컴퓨터로 인바운드 네트워크 트래픽을 전달하려면 끝점이 필요합니다.
 
-When you create a virtual machine in the Azure classic portal, common endpoints like those for Remote Desktop, Windows PowerShell Remoting, and Secure Shell (SSH) are typically created for you automatically, depending on the operating system you choose. You can configure additional endpoints while creating the virtual machine or afterwards as needed.
+Azure 클래식 포털에서 가상 컴퓨터를 만들 때 원격 데스크톱, Windows PowerShell 원격 및 SSH(보안 셸) 등에 대한 일반적인 끝점은 일반적으로 선택하는 운영 체제에 따라 자동으로 만들어집니다. 가상 컴퓨터를 만드는 동안 또는 가상 컴퓨터를 만든 후 필요에 따라 추가 끝점을 만들 수 있습니다.
 
-Each endpoint has a *public port* and a *private port*:
+각 끝점에는 *공용 포트*와 *개인 포트*가 있습니다.
 
-- The public port is used by the Azure load balancer to listen for incoming traffic to the virtual machine from the Internet.
-- The private port is used by the virtual machine to listen for incoming traffic, typically destined to an application or service running on the virtual machine.
+- 공용 포트는 Azure 부하 분산 장치가 인터넷에서 가상 컴퓨터로 들어오는 트래픽을 수신 대기하는 데 사용됩니다.
+- 개인 포트는 가상 컴퓨터가 일반적으로 해당 가상 컴퓨터에서 실행되는 응용 프로그램 또는 서비스를 대상으로 하는 들어오는 트래픽을 수신 대기하는 데 사용됩니다.
 
-Default values for the IP protocol and TCP or UDP ports for well-known network protocols are provided when you create endpoints with the Azure classic portal. For custom endpoints, you'll need to specify the correct IP protocol (TCP or UDP) and the public and private ports. To distribute incoming traffic randomly across multiple virtual machines, you'll need to create a load-balanced set consisting of multiple endpoints.
+Azure 클래식 포털을 사용하여 끝점을 만드는 경우 잘 알려진 네트워크 프로토콜의 TCP 또는 UDP 포트 및 IP 프로토콜 기본값이 제공됩니다. 사용자 지정 끝점의 경우 올바른 IP 프로토콜(TCP 또는 UDP)과 공용 및 개인 포트를 직접 지정해야 합니다. 들어오는 트래픽을 여러 가상 컴퓨터에 임의로 배포하려면 여러 끝점으로 구성된 부하 분산된 집합을 만들어야 합니다.
 
-After you create an endpoint, you can use an access control list (ACL) to define rules that permit or deny the incoming traffic to the public port of the endpoint based on its source IP address. However, if the virtual machine is in an Azure virtual network, you should use network security groups instead. For details, see [About network security groups](virtual-networks-nsg.md).
+끝점을 만든 후 ACL(액세스 제어 목록)을 사용하여 해당 원본 IP 주소에 따라 끝점의 공용 포트로 들어오는 트래픽을 허용하거나 거부하는 규칙을 정의할 수 있습니다. 그러나 가상 컴퓨터가 Azure 가상 네트워크에 있는 경우에는 대신 네트워크 보안 그룹을 사용해야 합니다. 자세한 내용은 [네트워크 보안 그룹 정보](virtual-networks-nsg.md)를 참조하세요.
 
-> [AZURE.NOTE]: Firewall configuration for Azure virtual machines is done automatically for ports associated with Remote Desktop and Secure Shell (SSH), and in most cases for Windows PowerShell Remoting. For ports specified for all other endpoints, no configuration is done automatically to the firewall of the virtual machine. When you create an endpoint for the virtual machine, you'll need to ensure that the firewall of the virtual machine also allows the traffic for the protocol and private port corresponding to the endpoint configuration.
+> [AZURE.NOTE]Azure 가상 컴퓨터에 대한 방화벽 구성은 원격 데스크톱 및 SSH(Secure Shell)와 연결된 포트 및 대부분의 경우 Windows PowerShell 원격에 대해 자동으로 수행됩니다. 다른 모든 끝점에 지정된 포트의 경우 가상 컴퓨터의 방화벽에 대한 구성이 자동으로 수행되지 않습니다. 가상 컴퓨터에 대한 끝점을 만들 때 가상 컴퓨터의 방화벽에서 끝점 구성에 해당하는 프로토콜 및 개인 포트에 대한 트래픽도 허용하도록 해야 합니다.
 
-## Create an endpoint
+## 끝점 만들기
 
-1.	If you haven't already done so, sign in to the Azure classic portal.
-2.	Click **Virtual Machines**, and then click the name of the virtual machine that you want to configure.
-3.	Click **Endpoints**. The **Endpoints** page lists all the current endpoints for the virtual machine.
+1.	아직 로그인하지 않은 경우 Azure 클래식 포털에 로그인합니다.
+2.	**가상 컴퓨터**를 클릭하고 구성하려는 가상 컴퓨터의 이름을 클릭합니다.
+3.	**Endpoints**를 클릭합니다. **끝점** 페이지에는 가상 컴퓨터에 대한 모든 현재 끝점이 나열됩니다.
 
-	![Endpoints](./media/virtual-machines-common-classic-setup-endpoints/endpointswindows.png)
+	![끝점](./media/virtual-machines-common-classic-setup-endpoints/endpointswindows.png)
 
-4.	In the taskbar, click **Add**.
-5.	On the **Add an endpoint to a virtual machine** page, choose the type of endpoint.
+4.	작업 표시줄에서 **추가**를 클릭합니다.
+5.	**가상 컴퓨터에 끝점 추가** 페이지에서 끝점 유형을 선택합니다.
 
-	- If you're creating a new endpoint that isn't part of a load-balanced set, or is the first endpoint in a new load-balanced set, choose **Add a stand-alone endpoint**, then click the left arrow.
-	- Otherwise, choose **Add an endpoint to an existing load-balanced set**, select the name of the load-balanced set, then click the left arrow. On the **Specify the details of the endpoint** page, type a name for the endpoint, then click the check mark to create the endpoint.
+	- 부하 분산 집합의 일부가 아니거나 새 부하 분산 집합의 첫 번째 끝점이 아닌 새 끝점을 만드는 경우 **독립 실행형 끝점 추가**를 선택한 다음 왼쪽 화살표를 클릭합니다.
+	- 그렇지 않으면 **기존 부하 분산된 집합에 끝점 추가**를 선택하고 부하 분산된 집합의 이름을 선택한 후 왼쪽 화살표를 클릭합니다. **끝점의 세부 정보를 지정하십시오.** 페이지에서 끝점의 이름을 입력하고 확인 표시를 클릭하여 끝점을 만듭니다.
 
-6.	On the **Specify the details of the endpoint** page, type a name for the endpoint in **Name**. You can also choose a network protocol name from the list, which will fill in initial values for the **Protocol**, **Public Port**, and **Private Port**.
-7.	For a customized endpoint, in **Protocol**, choose either **TCP** or **UDP**.
-8.	For customized ports, in **Public Port**, type the port number for the incoming traffic from the Internet. In **Private Port**, type the port number on which the virtual machine is listening. These port numbers can be different. Ensure that the firewall on the virtual machine has been configured to allow the traffic corresponding to the protocol (in step 7) and private port.
-9.	If this endpoint will be the first one in a load-balanced set, click **Create a load-balanced set**, and then click the right arrow. On the **Configure the load-balanced set** page, specify a load-balanced set name, a probe protocol and port, and the probe interval and number of probes sent. The Azure load balancer sends probes to the virtual machines in a load-balanced set to monitor their availability. The Azure load balancer does not forward traffic to virtual machines that do not respond to the probe. Click the right arrow.
-10.	Click the check mark to create the endpoint.
+6.	**끝점의 세부 정보를 지정하십시오.** 페이지에서 **이름**에 끝점의 이름을 입력합니다. **프로토콜**, **공용 포트** 및 **개인 포트**의 초기 값이 입력된 목록에서 네트워크 프로토콜 이름을 선택할 수도 있습니다.
+7.	사용자 지정 끝점의 경우 **프로토콜**에서 **TCP** 또는 **UDP**를 선택합니다.
+8.	사용자 지정 끝점의 경우 **공용 포트**에 인터넷에서 들어오는 트래픽에 대한 포트 번호를 입력합니다. **개인 포트**에 가상 컴퓨터에서 수신 대기할 포트 번호를 입력합니다. 이러한 포트 번호는 다를 수 있습니다. 가상 컴퓨터의 방화벽이 프로토콜(7단계) 및 개인 포트에 해당하는 트래픽을 허용하도록 구성되었는지 확인합니다.
+9.	이 끝점이 부하 분산된 집합의 첫 번째 끝점인 경우 **부하 분산된 집합 만들기**를 클릭한 후 오른쪽 화살표를 클릭합니다. **부하 분산된 집합 구성** 페이지에서 부하 분산된 집합 이름, 프로브 프로토콜 및 포트, 프로브 간격 및 전송되는 프로브 수를 지정합니다. Azure 부하 분산 장치는 부하 분산된 집합의 가상 컴퓨터로 프로브를 보내 해당 가용성을 모니터링합니다. 프로브에 응답하지 않는 가상 컴퓨터로는 트래픽을 전달하지 않습니다. 오른쪽 화살표를 클릭합니다.
+10.	확인 표시를 클릭하여 끝점을 만듭니다.
 
-The new endpoint will be listed on the **Endpoints** page.
+새 끝점은 **끝점** 페이지에 나열됩니다.
 
-![Endpoint creation successful](./media/virtual-machines-common-classic-setup-endpoints/endpointwindowsnew.png)
+![끝점 만들기 성공](./media/virtual-machines-common-classic-setup-endpoints/endpointwindowsnew.png)
 
-To use an Azure PowerShell cmdlet to set this up, see [Add-AzureEndpoint](https://msdn.microsoft.com/library/azure/dn495300.aspx). If you are using the Azure CLI in Service Management mode, use the **azure vm endpoint create** command.
+Azure PowerShell cmdlet을 사용하여 이 작업을 설정하려면 [Add-AzureEndpoint](https://msdn.microsoft.com/library/azure/dn495300.aspx)를 참조하세요. 서비스 관리 모드에서 Azure CLI를 사용하는 경우 **azure vm endpoint create** 명령을 사용합니다.
 
-## Manage the ACL on an endpoint
+## 끝점에 대한 ACL 관리
 
-To define the set of computers that can send traffic, the ACL on an endpoint can restrict traffic based upon source IP address. Follow these steps to add, modify, or remove an ACL on an endpoint.
+트래픽을 보낼 수 있는 컴퓨터 집합을 정의하기 위해 끝점의 ACL이 원본 IP 주소에 따라 트래픽을 제한할 수 있습니다. 끝점에 대한 ACL을 추가, 수정 또는 제거하려면 다음 단계를 따르십시오.
 
-> [AZURE.NOTE] If the endpoint is part of a load-balanced set, any changes you make to the ACL on an endpoint are applied to all endpoints in the set.
+> [AZURE.NOTE] 끝점이 부하 분산 집합의 일부인 경우 끝점에 대한 ACL의 변경 내용이 집합의 모든 끝점에 적용됩니다.
 
-If the virtual machine is in an Azure virtual network, we recommend network security groups instead of ACLs. For details, see [About network security groups](virtual-networks-nsg.md).
+가상 컴퓨터가 Azure 가상 네트워크에 있는 경우에는 ACL 대신 네트워크 보안 그룹을 사용하는 것이 좋습니다. 자세한 내용은 [네트워크 보안 그룹 정보](virtual-networks-nsg.md)를 참조하세요.
 
-1.	If you haven't already done so, sign in to the Azure classic portal.
-2.	Click **Virtual Machines**, and then click the name of the virtual machine that you want to configure.
-3.	Click **Endpoints**. From the list, select the appropriate endpoint.
+1.	아직 로그인하지 않은 경우 Azure 클래식 포털에 로그인합니다.
+2.	**가상 컴퓨터**를 클릭하고 구성하려는 가상 컴퓨터의 이름을 클릭합니다.
+3.	**Endpoints**를 클릭합니다. 목록에서 해당 끝점을 선택합니다.
 
-    ![ACL list](./media/virtual-machines-common-classic-setup-endpoints/EndpointsShowsDefaultEndpointsForVM.png)
+    ![ACL 목록](./media/virtual-machines-common-classic-setup-endpoints/EndpointsShowsDefaultEndpointsForVM.png)
 
-5.	In the taskbar, click **Manage ACL** to open the **Specify ACL details** dialog box.
+5.	작업 표시줄에서 **ACL 관리**를 클릭하여 **ACL 세부 정보 지정** 대화 상자를 엽니다.
 
-    ![Specify ACL details](./media/virtual-machines-common-classic-setup-endpoints/EndpointACLdetails.png)
+    ![ACL 세부 정보 지정](./media/virtual-machines-common-classic-setup-endpoints/EndpointACLdetails.png)
 
-6.	Use rows in the list to add, delete, or edit rules for an ACL and change their order. The **Remote Subnet** value is an IP address range for incoming traffic from the Internet that the Azure load balancer uses to permit or deny the traffic based on its source IP address. Be sure to specify the IP address range in CIDR format, also known as address prefix format. An example is 131.107.0.0/16.
+6.	목록의 행을 사용하여 ACL에 대한 규칙을 추가, 삭제 또는 편집하고 해당 순서를 변경합니다. **원격 서브넷** 값은 인터넷에서 들어오는 트래픽에 대한 IP 주소 범위로서, Azure 부하 분산 장치는 해당 원본 IP 주소에 따라 트래픽을 허용하거나 거부하도록 사용합니다. 주소 접두사 형식이라고도 하는 CIDR 형식으로 IP 주소 범위를 지정해야 합니다. 예를 들면 131.107.0.0/16과 같습니다.
 
-You can use rules to allow only traffic from specific computers corresponding to your computers on the Internet or to deny traffic from specific, known address ranges.
+규칙을 사용하여 인터넷의 컴퓨터에 해당하는 특정 컴퓨터에서 들어오는 트래픽만 허용하고 알려진 특정 주소 범위에서 들어오는 트래픽을 거부할 수 있습니다.
 
-The rules are evaluated in order starting with the first rule and ending with the last rule. This means that rules should be ordered from least restrictive to most restrictive. For examples and more information, see [What is a Network Access Control List?](../virtual-network/virtual-networks-acl/).
+규칙은 첫 번째 규칙에서 시작하여 마지막 규칙까지 순서대로 평가됩니다. 따라서 가장 제한적인 규칙까지 오름차순으로 규칙의 순서를 지정해야 합니다. 예제 및 자세한 내용은 [네트워크 액세스 제어 목록이란?](../virtual-network/virtual-networks-acl/)을 참조하세요.
 
-To use an Azure PowerShell cmdlet to set this up, see [Managing access control lists (ACLs) for endpoints by using PowerShell](../virtual-network/virtual-networks-acl-powershell.md).
+Azure PowerShell cmdlet을 사용하여 이 작업을 설정하려면 [PowerShell을 사용하여 끝점에 대한 ACL(액세스 제어 목록) 관리](../virtual-network/virtual-networks-acl-powershell.md)를 참조하세요.
 
 
-## Additional resources
+## 추가 리소스
 
-[Get started creating an Internet facing load balancer in Resource Manager using PowerShell](load-balancer-get-started-internet-arm-ps.md)
+[PowerShell을 사용하여 리소스 관리자에서 인터넷 연결 부하 분산 장치 만들기 시작](load-balancer-get-started-internet-arm-ps.md)
+
+<!---HONumber=AcomDC_0323_2016-->

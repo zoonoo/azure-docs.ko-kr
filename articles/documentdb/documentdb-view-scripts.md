@@ -117,4 +117,4 @@ DocumentDB 서버 쪽 프로그래밍에 대한 자세한 내용은 [Stored proc
 
 [학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/)도 DocumentDB에 대해 자세히 알아볼 수 있는 유용한 리소스입니다.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

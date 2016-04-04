@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="03/16/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -22,9 +22,13 @@
 이 항목에서는 Azure AD Connect 동기화에 의해 동기화되는 특성을 보여 줍니다. 특성은 관련된 Azure AD 앱으로 그룹화되었습니다.
 
 ## 동기화할 특성
-일반적으로 *동기화할 최소 특성 목록*에 대해 궁금해 합니다. 기본 및 권장되는 접근 방법은 클라우드에서 전체 GAL(전체 주소 목록)을 생성할 수 있도록 기본 특성을 유지하는 것입니다. 경우에 따라 조직에서 클라우드로 동기화하지 않으려는 일부 특성이 있습니다. 이 경우 아래 특성의 목록으로 시작하고 PII(개인 식별 정보)를 포함하고 동기화할 수 없는 특성을 식별합니다. 그런 다음 [Azure AD 앱 및 특성 필터링](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering)을 사용하여 설치 중에 이러한 특성을 선택 취소합니다.
+일반적으로 *동기화할 최소 특성 목록*에 대해 궁금해 합니다. 기본 및 권장되는 접근 방법은 클라우드에서 전체 GAL(전체 주소 목록)을 생성하고 Office 365 워크로드의 모든 기능을 사용할 수 있도록 기본 특성을 유지하는 것입니다. 일부 경우에 아래 예제와 같이 중요한 데이터 또는 PII(개인 식별 정보) 데이터를 포함하므로 조직에서 클라우드와 동기화하지 않으려는 일부 특성이 있습니다.
 
-특성을 선택 취소하는 경우 주의해야 하고 동기화가 불가능한 특성만 선택 취소해야 합니다.
+![잘못된 특성](./media/active-directory-aadconnectsync-attributes-synchronized/badextensionattribute.png)
+
+이 경우 아래 특성의 목록으로 시작하고 중요한 데이터 또는 PII 데이터를 포함하고 동기화할 수 없는 특성을 식별합니다. 그런 다음 [Azure AD 앱 및 특성 필터링](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering)을 사용하여 설치 중에 이러한 특성을 선택 취소합니다.
+
+>[AZURE.WARNING] 특성을 선택 취소하는 경우 주의해야 하고 동기화가 불가능한 특성만 선택 취소해야 합니다. 다른 특성을 선택 취소하면 기능에 부정적인 영향을 미칠 수도 있습니다.
 
 ## Office 365 ProPlus
 
@@ -374,6 +378,11 @@
 | userPrincipalName| X| | | UPN은 사용자의 로그인 ID입니다. 대부분 [mail] 값과 같습니다.|
 
 ## 타사 응용 프로그램
+일반 워크로드 또는 응용 프로그램에 필요한 최소한의 특성으로 사용되는 특성 모음입니다. 위에 나열되지 않은 워크로드 또는 타사 앱에 사용할 수 있습니다. 다음에 명시적으로 사용됩니다.
+
+- Yammer(User만 실제로 사용됨)
+- [SharePoint와 같은 리소스에서 제공하는 하이브리드 B2B 조직 간 공동 작업 시나리오](http://go.microsoft.com/fwlink/?LinkId=747036)
+
 이것은 Azure AD Directory가 Office 365, Dynamics, 또는 Intune을 지원하지 않을 때 사용되는 특성의 집합입니다. 코어 특성의 작은 집합이 있습니다.
 
 | 특성 이름| 사용자| 연락처| 그룹| 주석 |
@@ -451,13 +460,13 @@ Active Directory에 장치 개체를 만듭니다. 이러한 장치 개체는 Az
 | msDS-RegisteredOwner | X| |
 
 
-## 특성에 대한 참고사항
+## 참고
 - 대체 ID를 사용하면, 온-프레미스 특성 userPrincipalName은 Azure AD 특성 onPremisesUserPrinciparlName과 동기화됩니다. 대체 ID 특성(예: 메일)은 Azure AD 특성 userPrincipalName과 동기화됩니다.
-
+- 위의 목록에서 개체 형식 **User**는 개체 형식 **iNetOrgPerson**에도 적용됩니다.
 
 ## 다음 단계
 [Azure AD Connect 동기화](active-directory-aadconnectsync-whatis.md) 구성에 대해 자세히 알아봅니다.
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

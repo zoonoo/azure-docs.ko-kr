@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Application Insights Analytics 둘러보기" 
-	description="Application Insights의 강력한 검색 도구인 Application Insights Analytics의 모든 주된 쿼리의 짧은 샘플" 
+	pageTitle="Application Insights의 Analytics 둘러보기" 
+	description="Application Insights의 강력한 검색 도구인 Analytics의 모든 주요 쿼리에 대한 간단한 샘플" 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,15 +12,15 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/07/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
 
  
-# Application Insights Analytics 둘러보기
+# Application Insights의 Analytics 둘러보기
 
 
-Application Insights Analytics는 [Application Insights](app-insights-overview.md) 원격 분석을 위한 강력한 진단 검색 엔진입니다.
+[Analytics](app-analytics.md)는 [Application Insights](app-insights-overview.md)의 강력한 검색 기능입니다. 다음 페이지에서는 Analytics 쿼리 언어에 대해 설명합니다.
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
@@ -29,7 +29,7 @@ Application Insights Analytics는 [Application Insights](app-insights-overview.m
 
 ## Application Insights 데이터에 연결
 
-Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에서 분석을 엽니다.
+Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에서 Analytics를 엽니다.
 
 ![portal.azure.com을 열고 Application Insights 리소스를 열고 Analytics를 클릭합니다.](./media/app-analytics/001.png)
 
@@ -50,7 +50,7 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 ![](./media/app-analytics-tour/010.png)
 
 	
-[`Count`](app-analytics-aggregations.md#count)은 데이터를 파이프에 배열하고 여러 단계에 걸쳐 필터링, 변형 및 조인할 수 있는 많은 [쿼리 연산자](app-analytics-queries.md) 중 하나입니다.
+[`Count`](app-analytics-aggregations.md#count)는 데이터를 파이프에 배열하고 여러 단계에 걸쳐 필터링, 변형 및 조인할 수 있는 많은 [쿼리 연산자](app-analytics-queries.md) 중 하나입니다.
 	
 ## [가져올 내용](app-analytics-aggregations.md#take): n개의 행 표시
 
@@ -77,7 +77,7 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 
 ## [Top](app-analytics-aggregations.md#top) 및 [sort](app-analytics-aggregations.md#sort)
 
-`take`은 빨리 확인할 결과 샘플을 가져오는 데 유용하지만 테이블의 행을 특정 순서 없이 표시합니다. 순서가 지정된 보기를 가져오려면 `top`(샘플의 경우) 또는 `sort`(전체 테이블에 대해)을 사용합니다.
+`take`는 빨리 확인할 결과 샘플을 가져오는 데 유용하지만 테이블의 행을 특정 순서 없이 표시합니다. 순서가 지정된 보기를 가져오려면 `top`(샘플의 경우) 또는 `sort`(전체 테이블에 대해)을 사용합니다.
 
 특정 열을 기준으로 순서가 정해진 처음 n 행 표시:
 
@@ -98,14 +98,14 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 	requests | sort by timestamp desc | take 10
 ```
 
-결과는 같지만 조금 더 느리게 실행될 수 있습니다. (`sort`의 별칭인 `order`을 작성할 수도 있습니다.)
+결과는 같지만 조금 더 느리게 실행될 수 있습니다. (`sort`의 별칭인 `order`를 작성할 수도 있습니다.)
 
-테이블 보기의 열 머리글을 사용하여 화면에서 결과를 정렬할 수도 있습니다. 하지만 물론 `take` 또는 `top`를 사용하여 테이블의 일부만 검색했다면 검색한 레코드의 순서만 변경될 것입니다.
+테이블 보기의 열 머리글을 사용하여 화면에서 결과를 정렬할 수도 있습니다. 하지만 물론 `take` 또는 `top`을 사용하여 테이블의 일부만 검색했다면 검색한 레코드의 순서만 변경될 것입니다.
 
 
 ## [프로젝트](app-analytics-aggregations.md#project): 열을 선택하고, 이름을 바꾸고 계산
 
-[`project`](app-analytics-aggregations.md#project)을 사용하여 원하는 열만 선택:
+[`project`](app-analytics-aggregations.md#project)를 사용하여 원하는 열만 선택:
 
 ```AIQL
 
@@ -132,9 +132,9 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 
 다음 스칼라 식에서:
 
-* `%`은 일반적인 모듈로 연산자입니다. 
-* `1d`(자릿수 한 개로, 'd' 한 개)은 하루를 의미하는 시간 범위 리터럴입니다. 추가 시간 범위 리터럴: `12h`, `30m`, `10s`, `0.01s`
-* `floor`(별칭 `bin`)은 값을 사용자가 제공하는 기준 값의 가장 가까운 낮은 배수로 반올림합니다. 따라서 `floor(aTime, 1s)`은 시간을 가장 가까운 초로 반올림합니다.
+* `%`는 일반적인 모듈로 연산자입니다. 
+* `1d`(자릿수 한 개로, 'd' 한 개)는 하루를 의미하는 시간 범위 리터럴입니다. 추가 시간 범위 리터럴: `12h`, `30m`, `10s`, `0.01s`
+* `floor`(별칭 `bin`)는 값을 사용자가 제공하는 기준 값의 가장 가까운 낮은 배수로 반올림합니다. 따라서 `floor(aTime, 1s)`는 시간을 가장 가까운 초로 반올림합니다.
 
 [식](app-analytics-scalars.md)은 모든 일반적인 연산자(`+`, `-`, ...)를 포함할 수 있으며 유용한 함수의 범위가 있습니다.
 
@@ -153,7 +153,7 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 
 ## [요약](app-analytics-aggregations.md#summarize): 행 그룹 집계
 
-테이블의 샘플을 살펴보면 서로 다른 원격 분석 데이터가 보고되는 필드를 확인할 수 있습니다. 예를 들어 `exception | take 20`은 `outerExceptionType`라는 필드에 예외 메시지가 보고되었음을 신속하게 보여줍니다.
+테이블의 샘플을 살펴보면 서로 다른 원격 분석 데이터가 보고되는 필드를 확인할 수 있습니다. 예를 들어 `exception | take 20`은 `outerExceptionType`이라는 필드에 예외 메시지가 보고되었음을 신속하게 보여줍니다.
 
 하지만 개별 인스턴스를 이동하는 대신에 각 형식의 보고된 예외 수를 물어 보겠습니다.
 
@@ -234,7 +234,7 @@ summarize의 결과에 포함된 내용:
 
  * `and`, `or`: 부울 연산자
  * `==`, `<>`: 같음 및 같지 않음
- * `=~`, `!=`: 대/소문자 구분 문자열 같음 및 같지 않음 더 많은 문자열 비교 연산자가 있습니다.
+ * `=~`, `!=`: 대/소문자 구분 없는 문자열 같음 및 같지 않음 더 많은 문자열 비교 연산자가 있습니다.
 
 [스칼라 식](app-analytics-scalars.md)에 대한 모든 내용을 읽어보세요.
 
@@ -418,7 +418,7 @@ summarize의 결과에 포함된 내용:
 ```
 
 
-조인을 수행하기 전에 `project`을 사용하여 필요한 열만 선택하는 것이 좋습니다. 동일한 절에서 타임스탬프 열의 이름을 바꿉니다.
+조인을 수행하기 전에 `project`를 사용하여 필요한 열만 선택하는 것이 좋습니다. 동일한 절에서 타임스탬프 열의 이름을 바꿉니다.
 
 
 
@@ -436,9 +436,9 @@ summarize의 결과에 포함된 내용:
     | take 30
 ```
 
-> 팁: AI Analytics 클라이언트에서 이러한 부분 사이에 공백 줄을 넣지 마십시오. 이 부분을 모두 실행해야 합니다.
+> 팁: Analytics 클라이언트에서 이러한 부분 사이에 공백 줄을 넣지 마세요. 이 부분을 모두 실행해야 합니다.
 
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

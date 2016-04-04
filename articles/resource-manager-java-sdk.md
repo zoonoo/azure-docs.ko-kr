@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/10/2016"
+   ms.date="03/16/2016"
    ms.author="navale;tomfitz;"/>
    
 # Java용 Azure Resource Manager SDK
@@ -77,9 +77,12 @@ SDK는 주 패키지에 대한 도우미 클래스를 포함합니다. 도우미
 ARM에 대한 인증은 Azure AD(Active Directory)에 의해 처리됩니다. API에 연결하기 위해 먼저 모든 요청에 전달할 수 있는 인증 토큰을 수신하도록 Azure AD로 인증해야 합니다. 이 토큰을 가져오려면 먼저 로그인에 사용되는 Azure AD 응용 프로그램 및 서비스 주체를 만들어야 합니다. 단계별 지침은 [Azure AD 응용 프로그램 및 서비스 주체 만들기](./resource-group-create-service-principal-portal.md)를 따릅니다.
 
 서비스 주체를 만든 후에 다음을 수행해야 합니다.
+
 * 클라이언트 ID(GUID)
 * 클라이언트 암호(문자열)
-* 테넌트 ID(GUID) 또는 도메인 이름(문자열) 이 값이 있는 경우 한 시간 동안 유효한 Active Directory 액세스 토큰을 얻을 수 있습니다.
+* 테넌트 ID(GUID) 또는 도메인 이름(문자열)
+
+이 값이 있는 경우 한 시간 동안 유효한 Active Directory 액세스 토큰을 얻을 수 있습니다.
 
 클라이언트 ID, 암호 및 테넌트 ID로 제공되면 Java SDK에는 액세스 토큰을 만드는 도우미 클래스 AuthHelper가 포함됩니다. 다음 예제는 [ServicePrincipalExample](https://github.com/Azure/azure-sdk-for-java/blob/master/azure-mgmt-samples/src/main/java/com/microsoft/azure/samples/authentication/ServicePrincipalExample.java) 클래스에서 AuthHelper *getAccessTokenFromServicePrincipalCredentials* 메서드를 사용하여 액세스 토큰을 가져옵니다.
 
@@ -155,10 +158,51 @@ DeploymentExtended deployment = ResourceHelper.createTemplateDeploymentFromURI(
         "1.0.0.0",
         parameters);
 ```
+## 모든 가상 컴퓨터 나열
+더 쉽게 업무를 수행할 수 있는 경우에도 도우미 클래스를 사용할 필요가 없지만 대신 각 리소스 공급자에 대한 서비스 클래스를 직접 사용할 수 있습니다. 이 예제에서는 각 리소스 그룹에 대해 인증된 구독에 있는 일부 리소스를 나열하고 가상 컴퓨터를 찾은 다음 연결된 IP를 찾습니다.
+
+```java
+// authenticate and get access token
+Configuration config = createConfiguration();
+ResourceManagementClient resourceManagementClient = ResourceManagementService.create(config);
+ComputeManagementClient computeManagementClient = ComputeManagementService.create(config);
+NetworkResourceProviderClient networkResourceProviderClient = NetworkResourceProviderService.create(config);
+
+// list all resource groups     
+ArrayList<ResourceGroupExtended> resourceGroups = resourceManagementClient.getResourceGroupsOperations().list(null).getResourceGroups();
+for (ResourceGroupExtended resourcesGroup : resourceGroups) {
+   String rgName = resourcesGroup.getName();
+   System.out.println("Resource Group: " + rgName);
+   
+   // list all virtual machines
+   ArrayList<VirtualMachine> vms = computeManagementClient.getVirtualMachinesOperations().list(rgName).getVirtualMachines();
+   for (VirtualMachine vm : vms) {
+      System.out.println("    VM: " + vm.getName());
+      // list all nics
+      ArrayList<NetworkInterfaceReference> nics = vm.getNetworkProfile().getNetworkInterfaces();
+      for (NetworkInterfaceReference nicReference : nics) {
+         String[] nicURI = nicReference.getReferenceUri().split("/");
+         NetworkInterface nic = networkResourceProviderClient.getNetworkInterfacesOperations().get(rgName, nicURI[nicURI.length - 1]).getNetworkInterface();
+         System.out.println("        NIC: " + nic.getName());
+         System.out.println("        Is primary: " + nic.isPrimary());
+         ArrayList<NetworkInterfaceIpConfiguration> ips = nic.getIpConfigurations();
+
+         // find public ip address
+         for (NetworkInterfaceIpConfiguration ipConfiguration : ips) {
+               System.out.println("        Private IP address: " + ipConfiguration.getPrivateIpAddress());
+               String[] pipID = ipConfiguration.getPublicIpAddress().getId().split("/");
+               PublicIpAddress pip = networkResourceProviderClient.getPublicIpAddressesOperations().get(rgName, pipID[pipID.length - 1]).getPublicIpAddress();
+               System.out.println("        Public IP address: " + pip.getIpAddress());
+         }
+      }
+}  
+```
 
 [templatedeployments](https://github.com/Azure/azure-sdk-for-java/tree/master/azure-mgmt-samples/src/main/java/com/microsoft/azure/samples/templatedeployments)의 샘플 패키지에서 더 많은 샘플을 찾을 수 있습니다.
 
 ## 추가 자료 및 도움말
-Java용 Azure SDK 설명서: [Java 문서](http://azure.github.io/azure-sdk-for-java/) SDK를 사용할 때 버그가 발생하는 경우 [문제](https://github.com/Azure/azure-sdk-for-java/issues) 또는 체크 아웃 [Azure Java SDK용 StackOverflow](http://stackoverflow.com/questions/tagged/azure-java-sdk)를 통해 문제를 제출해주세요.
+Java용 Azure SDK 설명서: [Java 문서](http://azure.github.io/azure-sdk-for-java/)
 
-<!---HONumber=AcomDC_0316_2016-->
+SDK를 사용할 때 버그가 발생하는 경우 [문제](https://github.com/Azure/azure-sdk-for-java/issues) 또는 체크 아웃 [Azure Java SDK용 StackOverflow](http://stackoverflow.com/questions/tagged/azure-java-sdk)를 통해 문제를 제출해주세요.
+
+<!---HONumber=AcomDC_0323_2016-->

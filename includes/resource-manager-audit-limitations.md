@@ -1,7 +1,8 @@
-The audit log contains all actions performed on your resources. You can use the audit logs to find an error when troubleshooting or 
-to monitor how a user in your organization modified a resource.
+감사 로그는 리소스에서 수행된 모든 작업을 포함합니다. 감사 로그를 사용하여 문제를 해결할 때 오류를 찾거나 조직의 사용자가 리소스를 수정한 방법을 모니터링할 수 있습니다.
 
-There are two important limitations to keep in mind when working with audit logs:
+감사 로그를 작업할 때 염두에 두어야 할 두 가지 중요한 제한 사항이 있습니다.
 
-1. Audit logs are only retained for 90 days.
-2. You can only query for a range of 15 days or less.
+1. 감사 로그는 90일 동안만 유지됩니다.
+2. 15일 이하의 범위에 대한 쿼리만 수행할 수 있습니다.
+
+<!---HONumber=AcomDC_0323_2016-->

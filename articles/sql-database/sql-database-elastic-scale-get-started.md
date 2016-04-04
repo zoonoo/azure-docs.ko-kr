@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2016" 
+	ms.date="03/22/2016" 
 	ms.author="ddove;sidneyh"/>
 
 # 탄력적 데이터베이스 도구 시작하기
@@ -75,7 +75,7 @@
 ## 다음 단계
 탄력적 데이터베이스 도구에 대한 자세한 내용은 다음을 참조하세요.
 
-* [탄력적 데이터베이스 도구 설명서 맵](../learning-paths/sql-database-elastic-scale.md) 
+* [탄력적 데이터베이스 도구 설명서 맵](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/) 
 -    코드 샘플: 
     -    [Azure SQL과 탄력적 DB - 시작](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE)
     -    [Azure SQL과 탄력적 DB - Entity Framework와 통합](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
@@ -98,4 +98,4 @@
 [4]: ./media/sql-database-elastic-scale-get-started/output2.png
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

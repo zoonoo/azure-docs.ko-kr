@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Application Insights Analytics의 summarize 문 및 집계 함수" 
-	description="Application Insights의 강력한 검색 도구 Application Insights Analytics의 집계 함수 및 summarize 문에 대한 참조입니다." 
+	pageTitle="Application Insights 분석의 요약 및 집계" 
+	description="Application Insights의 강력한 검색 도구인 분석의 집계 함수 및 summarize 문에 대한 참조입니다." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,13 +12,13 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/06/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
 
-# Application Insights Analytics의 집계
+# 분석의 집계
 
-[Application Insights Analytics](app-analytics.md)는 [Application Insights](app-insights-overview.md) 원격 분석을 위한 강력한 검색 엔진입니다. 이 페이지에서는 Application Insights Analytics 쿼리 언어인 AIQL에 대해 설명합니다.
+[분석](app-analytics.md)은 [Application Insights](app-insights-overview.md)의 강력한 검색 기능입니다. 다음 페이지에서는 분석 쿼리 언어에 대해 설명합니다.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
@@ -52,7 +52,7 @@
 * *Aggregation:* 열 이름을 인수로 하는 `count()` 또는 `avg()` 등과 같은 집계 함수에 대한 호출입니다. 아래 집계 함수의 목록을 참조하세요.
 * *GroupExpression:* 고유 값 집합을 제공하는 열에 대한 식입니다. 일반적으로 제한된 값 집합을 제공하는 열 이름, 또는 숫자 또는 시간 열을 인수로 하는 `bin()`입니다. 
 
-`bin()`을 사용하지 않고 숫자 또는 시간 식을 제공할 경우 AI 분석은 시간에 대해 `1h`의 간격 또는 숫자에 대해 `1.0`과 함께 자동으로 이를 적용합니다.
+`bin()`을 사용하지 않고 숫자 또는 시간 식을 제공할 경우 분석은 시간에 대해 `1h`의 간격 또는 숫자에 대해 `1.0`과 함께 자동으로 이를 적용합니다.
 
 *GroupExpression*을 제공하지 않으면 전체 테이블이 단일 출력 행에 요약됩니다.
 
@@ -307,7 +307,7 @@ traces
     Union-type ::= '[' Type* ']';
     Primitive-type ::= "int" | "string" | ...;
 
-이는 AIQL 동적 값으로 인코딩된 TypeScript 형식 주석의 하위 집합과 동일합니다. Typescript에서 예제 스키마는 다음과 같습니다.
+이는 동적 값으로 인코드된 TypeScript 형식 주석의 하위 집합과 동일합니다. Typescript에서 예제 스키마는 다음과 같습니다.
 
     var someobject: 
     { 
@@ -463,4 +463,4 @@ traces
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

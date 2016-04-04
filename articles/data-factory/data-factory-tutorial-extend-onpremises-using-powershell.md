@@ -31,17 +31,17 @@
 
 이 연습에서는 다음 단계를 수행합니다.
 
-1. [1단계: 데이터 관리 게이트웨이를 만듭니다.](#OnPremStep1) 데이터 관리 게이트웨이는 클라우드에서 조직의 온-프레미스 데이터 원본에 액세스할 수 있게 해주는 클라이언트 에이전트입니다. 이 게이트웨이를 사용하여 온-프레미스 SQL Server와 Azure 데이터 저장소 간에 데이터를 전송할 수 있습니다.	
+1. [데이터 관리 게이트웨이 만들기](#create-data-management-gateway) 데이터 관리 게이트웨이는 클라우드에서 조직의 온-프레미스 데이터 원본에 액세스할 수 있게 해주는 클라이언트 에이전트입니다. 이 게이트웨이를 사용하여 온-프레미스 SQL Server와 Azure 데이터 저장소 간에 데이터를 전송할 수 있습니다.	
 
 	온-프레미스 SQL Server 데이터베이스를 Azure Data Factory에 연결된 서비스로 추가하기 전에 회사 환경에 게이트웨이를 2개 이상 설치하고 Azure Data Factory에 등록해야 합니다.
 
-2. [2단계: 온-프레미스 SQL Server에 대한 연결 서비스를 만듭니다.](#OnPremStep2) 이 단계에서는 먼저 온-프레미스 SQL Server 컴퓨터에서 데이터베이스와 테이블을 만든 다음 연결된서비스 **OnPremSqlLinkedService**를 만듭니다.
-3. [3단계: 테이블 및 파이프라인을 만듭니다.](#OnPremStep3) 이 단계에서는 **MarketingCampaignEffectivenessOnPremSQLTable** 테이블과 **EgressDataToOnPremPipeline** 파이프라인을 만듭니다. 
+2. [SQL Server 연결 서비스 만들기](#create-sql-server-linked-service) 이 단계에서는 먼저 온-프레미스 SQL Server 컴퓨터에서 데이터베이스와 테이블을 만든 다음 연결된서비스 **OnPremSqlLinkedService**를 만듭니다.
+3. [데이터 집합 및 파이프라인을 만듭니다](#create-dataset-and-pipeline). 이 단계에서는 **MarketingCampaignEffectivenessOnPremSQLTable** 테이블과 **EgressDataToOnPremPipeline** 파이프라인을 만듭니다. 
 
-4. [4단계: 파이프라인을 모니터링하고 결과를 봅니다.](#OnPremStep4) 이 단계에서는 Azure 클래식 포털을 사용하여 파이프라인, 테이블 및 데이터 조각을 모니터링합니다.
+4. [파이프라인 모니터링](#monitor-pipeline) 이 단계에서는 Azure 클래식 포털을 사용하여 파이프라인, 테이블 및 데이터 조각을 모니터링합니다.
 
 
-## <a name="OnPremStep1"></a> 1단계: 데이터 관리 게이트웨이를 만듭니다.
+## 데이터 관리 게이트웨이 만들기
 
 데이터 관리 게이트웨이는 클라우드에서 조직의 온-프레미스 데이터 원본에 액세스할 수 있게 해주는 클라이언트 에이전트입니다. 이 게이트웨이를 사용하여 온-프레미스 SQL Server와 Azure 데이터 저장소 간에 데이터를 전송할 수 있습니다.
   
@@ -62,7 +62,7 @@
 
 9. **확인**을 클릭하여 **구성** 블레이드를 닫고 **확인**을 클릭하여 블레이드 **만들기**를 닫습니다. **연결 서비스** 블레이드에서 **MyGateway**의 상태가 **GOOD**으로 변경될 때까지 기다립니다. **데이터 관리 게이트웨이 구성 관리자(미리 보기)** 도구를 시작하여 게이트웨이 이름이 포털의 이름과 일치하고 **상태**가 **Registered**인지 확인할 수도 있습니다. 연결된 서비스를 닫았다가 다시 열여야 최신 상태를 표시할 수 있습니다. 화면이 최신 상태로 새로 고쳐지려면 몇 분 정도 걸릴 수 있습니다.
 
-## <a name="OnPremStep2"></a> 2단계: 온-프레미스 SQL Server에 대한 연결 서비스를 만듭니다.
+## SQL Server 연결 서비스 만들기
 
 이 단계에서는 먼저 온-프레미스 SQL Server 컴퓨터에서 필요한 데이터베이스와 테이블을 만든 다음 연결된 서비스를 만듭니다.
 
@@ -109,7 +109,7 @@
 12.	**새 데이터 저장소** 블레이드에서 **확인**을 클릭합니다. 
 13.	**연결된 서비스** 블레이드에서 **OnPremSqlLinkedService**가 목록에 표시되고 연결된 서비스의 **상태**가 **Good**인지 확인합니다.
 
-## <a name="OnPremStep3"></a> 3단계: 테이블 및 파이프라인을 만듭니다.
+## 데이터 집합 및 파이프라인 만들기
 
 ### 온-프레미스 논리 테이블 만들기
 
@@ -133,9 +133,9 @@
 
 	**‘Y’**를 눌러 계속합니다.
 	
-## <a name="OnPremStep4"></a> 4단계: 파이프라인을 모니터링하고 결과를 봅니다.
+## 파이프라인 모니터링
 
-이제 [6단계: 테이블 및 파이프라인 모니터링](#MainStep6)에 소개된 것과 동일한 단계를 사용하여 새로운 온-프레미스 ADF 테이블에 대한 새 파이프라인과 데이터 조각을 모니터링할 수 있습니다.
+이제 [파이프라인 모니터링](data-factory-tutorial-using-powershell.md#monitor-pipelines)에 소개된 것과 동일한 단계를 사용하여 새로운 온-프레미스 ADF 테이블에 대한 새 파이프라인과 데이터 조각을 모니터링할 수 있습니다.
  
 **MarketingCampaignEffectivenessOnPremSQLTable** 테이블의 조각 상태가 Ready로 변경되면 파이프라인이 조각에 대한 실행을 완료했음을 의미합니다. 결과를 보려면 SQL Server의 **MarketingCampaigns** 데이터베이스에서 **MarketingCampaignEffectiveness** 테이블을 쿼리합니다.
  
@@ -170,4 +170,4 @@
 
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

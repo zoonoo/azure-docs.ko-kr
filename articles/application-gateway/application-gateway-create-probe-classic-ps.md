@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/17/2015"
+   ms.date="03/22/2016"
    ms.author="joaoma" />
 
 # PowerShell을 사용하여 Azure 응용 프로그램 게이트웨이(클래식)에 대한 사용자 지정 프로브 만들기
@@ -69,7 +69,7 @@
 	VirtualIPs    : {}
 	DnsName       :
 
->[AZURE.NOTE]*InstanceCount*의 기본값은 2이고, 최대값은 10입니다. *GatewaySize*의 기본값은 보통입니다. 작게, 보통 및 크게를 선택할 수 있습니다.
+>[AZURE.NOTE]  *InstanceCount*의 기본값은 2이고, 최대값은 10입니다. *GatewaySize*의 기본값은 보통입니다. 작게, 보통 및 크게를 선택할 수 있습니다.
 
 
  게이트웨이가 아직 시작되지 않았으므로 *VirtualIPs* 및 *DnsName*이 빈 값으로 표시됩니다. 이 값들은 게이트웨이가 실행 상태가 되면 생성됩니다.
@@ -153,7 +153,7 @@ XML 또는 구성 개체를 사용하여 응용 프로그램 게이트웨이를 
 
 다음 예제에서는 구성 파일을 사용하여 공용 포트 80에서 HTTP 트래픽의 부하를 분산하는 응용 프로그램 게이트웨이를 설정하고 사용자 지정 프로브를 사용하여 두 IP 주소 사이의 백 엔드 포트 80으로 네트워크 트래픽을 전송하는 방법을 보여 줍니다.
 
->[AZURE.IMPORTANT]Http 또는 Https 프로토콜 항목은 대 소문자를 구분합니다.
+>[AZURE.IMPORTANT] Http 또는 Https 프로토콜 항목은 대 소문자를 구분합니다.
 
 
 새 구성 항목 <Probe>을 추가하여 사용자 지정 프로브를 구성합니다.
@@ -222,4 +222,4 @@ SSL(Secure Sockets Layer) 오프로드를 구성하려는 경우 [SSL 오프로�
 
 내부 부하 분산 장치에서 사용되도록 응용 프로그램 게이트웨이를 구성하려면 [ILB(내부 부하 분산 장치)를 사용하여 응용 프로그램 게이트웨이 만들기](application-gateway-ilb.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0323_2016-->

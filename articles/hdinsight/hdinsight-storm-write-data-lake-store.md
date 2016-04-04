@@ -27,13 +27,15 @@ Azure 데이터 레이크 저장소는 데이터에 대한 높은 처리량, 가
 * [Java JDK 1.7](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) 이상
 * [Maven 3.x](https://maven.apache.org/download.cgi)
 * Azure 구독
-* HDInsight 클러스터의 Storm Azure 데이터 레이크 저장소를 사용할 수 있는 클러스터를 만드는 방법에 대한 정보는 이 문서에 포함됩니다.
+* HDInsight 클러스터의 Storm HDInsight 클러스터에서 새 Storm을 만들려면 [Azure를 사용하는 Data Lake 저장소로 HDInsight 사용](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md) 문서의 단계를 따릅니다. 이 문서의 단계는 새 HDInsight 클러스터 및 Azure 데이터 레이크 저장소를 만드는 과정을 안내합니다.  
+
+    > [AZURE.IMPORTANT] HDInsight 클러스터를 만들 때 __Storm__을 클러스터 유형으로 선택해야 합니다. OS는 Windows 또는 Linux일 수 있습니다.
 
 ###환경 변수 구성
 
 Java 및 JDK를 설치할 때 사용자의 개발 워크스테이션에 다음 환경 변수를 설정할 수 있습니다. 하지만 변수가 존재하며 시스템에 대한 올바른 값을 포함하는지 확인해야 합니다.
 
-* __JAVA\_HOME__ - JRE(Java runtime environment)가 설치된 디렉터리를 가리켜야 합니다. 예를 들어 Unix 또는 Linux 배포에서는 `/usr/lib/jvm/java-7-oracle`과 유사한 값이어야 합니다. Windows에서는 `c:\Program Files (x86)\Java\jre1.7`과(와) 유사한 값이어야 합니다.
+* __JAVA\_HOME__ - JRE(Java runtime environment)가 설치된 디렉터리를 가리켜야 합니다. 예를 들어 Unix 또는 Linux 배포에서는 `/usr/lib/jvm/java-7-oracle`과 유사한 값이어야 합니다. Windows에서는 `c:\Program Files (x86)\Java\jre1.7`과 유사한 값이어야 합니다.
 
 * __PATH__ - 다음 경로를 포함해야 합니다.
 
@@ -53,7 +55,7 @@ Java 및 JDK를 설치할 때 사용자의 개발 워크스테이션에 다음 �
 
 * __FinalCount__: PartialCount에서 개수 데이터를 집계합니다.
 
-* __ADLStoreBolt__: [HdfsBolt](http://storm.apache.org/javadoc/apidocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) 구성 요소를 사용하여 Azure 데이터 레이크 저장소에 데이터를 작성합니다.
+* __ADLStoreBolt__: [HdfsBolt](http://storm.apache.org/javadoc/apidocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) 구성 요소를 사용하여 Azure Data Lake 저장소에 데이터를 작성합니다.
 
 이 토폴로지를 포함하는 프로젝트는 [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store)에서 다운로드로 제공됩니다.
 
@@ -94,25 +96,18 @@ HdfsBolt 사용에 익숙한 경우 URL을 제외하고 모두 표준 구성임�
 
 데이터 레이크 저장소에 대한 작성 작업은 HdfsBolt를 사용하고 URL 변경이기 때문에 HdfsBolt를 사용하여 HDFS 또는 WASB를 작성하는 기존 토폴로지를 가져와서 Azure 데이터 레이크 저장소를 사용하도록 쉽게 변경할 수 있습니다.
 
-##HDInsight 클러스터 및 데이터 레이크 저장소 만들기
-
-[Azure를 사용하는 데이터 레이크 저장소로 HDInsight 사용](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md) 문서의 단계를 사용하여 HDInsight 클러스터에서 새 Storm을 만듭니다. 이 문서의 단계는 새 HDInsight 클러스터 및 Azure 데이터 레이크 저장소를 만드는 과정을 안내합니다.
-
-> [AZURE.IMPORTANT] HDInsight 클러스터를 만들 때 __Storm__을 클러스터 형식으로 선택해야 합니다. OS는 Windows 또는 Linux일 수 있습니다.
-
 ##토폴로지 빌드 및 패키지
 
-1. [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store
-](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store)에서 개발 환경에 예제 프로젝트를 다운로드합니다.
+1. [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store)에서 개발 환경에 예제 프로젝트를 다운로드합니다.
 
-2. 편집기에서 `StormToDataLake\src\main\java\com\microsoft\example\StormToDataLakeStore.java` 파일을 열고 `.withFsUrl("adl://MYDATALAKE.azuredatalakestore.net/")`을(를) 포함하는 줄을 찾습니다. __MYDATALAKE__를 HDInsight 서버를 만들 때 사용한 Azure 데이터 레이크 저장소의 이름으로 변경합니다.
+2. 편집기에서 `StormToDataLake\src\main\java\com\microsoft\example\StormToDataLakeStore.java` 파일을 열고 `.withFsUrl("adl://MYDATALAKE.azuredatalakestore.net/")`을 포함하는 줄을 찾습니다. __MYDATALAKE__를 HDInsight 서버를 만들 때 사용한 Azure Data Lake 저장소의 이름으로 변경합니다.
 
 3. 명령 프롬프트, 터미널 또는 셸 세션에서 다운로드한 프로젝트의 루트에 디렉터리를 변경하고 다음 명령을 실행하여 토폴로지를 빌드하고 패키지합니다.
 
         mvn compile
         mvn package
     
-    빌드 및 패키징이 완료되면 `target`이라는 새 디렉터리가 있고 이는 `StormToDataLakeStore-1.0-SNAPSHOT.jar`이라고 명명된 파일을 포함합니다. 컴파일된 토폴로지를 포함합니다.
+    빌드 및 패키징이 완료되면 `target`이라는 새 디렉터리가 있고 이는 `StormToDataLakeStore-1.0-SNAPSHOT.jar`라고 명명된 파일을 포함합니다. 컴파일된 토폴로지를 포함합니다.
 
 ##Linux 기반 HDInsight에 배포 및 실행
 
@@ -165,11 +160,11 @@ HDInsight 클러스터에서 Linux 기반 Storm을 만든 경우 다음 단계�
 
 > [AZURE.NOTE] 토폴로지가 출력 데이터를 검사하기 전에 몇 분 동안 실행할 수 있도록 해야 합니다. 그러면 데이터가 Azure 데이터 레이크 저장소의 여러 파일에 동기화됩니다.
 
-* __[Azure 포털](https://portal.azure.com)에서__: 포털에서 HDInsight와 함께 사용하는 Azure 데이터 레이크 저장소를 선택합니다.
+* __[Azure 포털](https://portal.azure.com)에서__: 포털에서 HDInsight와 함께 사용하는 Azure Data Lake 저장소를 선택합니다.
 
-    > [AZURE.NOTE] Azure 포털 대시보드에 데이터 레이크 저장소를 고정하지 않은 경우 왼쪽 목록 맨 아래에서 __찾아보기__를 선택한 다음 __데이터 레이크 저장소__ 마지막으로 저장소를 선택하여 찾을 수 있습니다.
+    > [AZURE.NOTE] Azure 포털 대시보드에 Data Lake 저장소를 고정하지 않은 경우 왼쪽 목록 맨 아래에서 __찾아보기__를 선택한 다음 __Azure Data Lake__ 마지막으로 저장소를 선택하여 찾을 수 있습니다.
     
-    데이터 레이크 저장소의 맨 위에 있는 아이콘에서 __데이터 탐색기__를 선택합니다.
+    Data Lake 저장소의 맨 위에 있는 아이콘에서 __데이터 탐색기__를 선택합니다.
     
     ![데이터 탐색 아이콘](./media/hdinsight-storm-write-data-lake-store/dataexplorer.png)
     
@@ -179,7 +174,7 @@ HDInsight 클러스터에서 Linux 기반 Storm을 만든 경우 다음 단계�
     
     파일의 내용 중 하나를 선택하여 내용을 봅니다.
 
-* __클러스터에서__: SSH(Linux 클러스터) 또는 원격 데스크톱 (Windows 클러스터)를 사용하여 HDInsight 클러스터에 연결한 경우 데이터를 보려면 다음을 사용할 수 있습니다. __DATALAKE__를 데이터 레이크 저장소의 이름으로 바꿉니다.
+* __클러스터에서__: SSH(Linux 클러스터) 또는 원격 데스크톱 (Windows 클러스터)를 사용하여 HDInsight 클러스터에 연결한 경우 데이터를 보려면 다음을 사용할 수 있습니다. __DATALAKE__를 Data Lake 저장소의 이름으로 바꿉니다.
 
         hdfs dfs -cat adl://DATALAKE.azuredatalakestore.net/stormdata/*.txt
 
@@ -208,7 +203,7 @@ SSH 세션에서 클러스터로 다음 명령을 사용합니다.
 
 __Windows 기반 HDInsight의 경우__:
 
-1. Storm 대시보드 (https://clustername.azurehdinsight.net) 에서 페이지의 위쪽에 있는 __Storm UI__를 선택합니다.
+1. Storm 대시보드(https://CLUSTERNAME.azurehdinsight.net,)에서 페이지의 위쪽에 있는 __Storm UI__를 선택합니다.
 
 2. Storm UI가 로드되면 __datalakewriter__ 링크를 선택합니다.
 
@@ -226,4 +221,4 @@ __Windows 기반 HDInsight의 경우__:
 
 이제 Storm을 사용하여 Azure Data Lake 저장소에 작성하는 방법을 알아보았으므로 다른 [HDInsight에 대한 Storm 예제](hdinsight-storm-example-topology.md)를 검색합니다.
 
-<!---HONumber=AcomDC_0309_2016---->
+<!---HONumber=AcomDC_0323_2016-->

@@ -1,28 +1,29 @@
 
-Diagnosing issues with an Microsoft Azure cloud service requires collecting the service’s log files on virtual machines as the issues occur. You can use the AzureLogCollector extension on-demand to perfom one-time collection of logs from one or more Cloud Service VMs (from both web roles and worker roles) and transfer the collected files to an Azure storage account – all without remotely logging on to any of the VMs.
-> [AZURE.NOTE]Descriptions for most of the logged information can be found at http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.asp.
+Microsoft Azure 클라우드 서비스로 문제 진단은 문제가 발생할 때 가상 컴퓨터에서 서비스의 로그 파일을 수집해야 합니다. 필요에 따라 AzureLogCollector 확장을 사용하여 VM에 원격으로 로그온하지 않고 웹 역할 및 작업자 역할 둘 다로 하나 이상의 클라우드 서비스 VM에서 일회성 로그 수집을 수행하고 수집한 파일을 Azure 저장소 계정으로 보낼 수 있습니다.
+> [AZURE.NOTE]대부분의 기록된 정보에 대한 설명은 http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.asp에서 찾을 수 있습니다.
 
-There are two modes of collection dependent on the types of files to be collected.
-- Azure Guest Agent Logs only (GA). This collection mode includes all the logs related to Azure guest agents and other Azure components.
-- All Logs (Full). This collection mode will collect all files in GA mode plus:
+수집할 파일의 유형에 따라 달라지는 두 가지 모드의 컬렉션이 있습니다.
+- Azure 게스트 에이전트만 로그(GA). 이 컬렉션 모드는 Azure 게스트 에이전트 및 기타 Azure 구성 요소와 관련된 모든 로그를 포함합니다.
+- 모든 로그(전체). 이 컬렉션 모드는 GA 모드에서 모든 파일을 수집합니다. 또한 다음을 수집합니다.
 
-  - system and application event logs
+  - 시스템 및 응용 프로그램 이벤트 로그
   
-  - HTTP error logs
+  - HTTP 오류 로그
   
-  - IIS Logs
+  - IIS 로그
   
-  - Setup logs
+  - 설정 로그
   
-  - other system logs
+  - 기타 시스템 로그
 
-In both collection modes, additional data collection folders can be specified by using a collection of the following structure:
+두 컬렉션 모드에서 다음 구조의 컬렉션을 사용하여 추가 데이터 수집 폴더를 지정할 수 있습니다.
 
-- **Name**: The name of the collection, which will be used as the name of subfolder inside the zip file to be collected.
+- **이름**: 수집할 zip 파일 내의 하위 폴더의 이름으로 사용될 컬렉션의 이름입니다.
 
-- **Location**: The path to the folder on the virtual machine where file will be collected.
+- **위치**: 파일을 할당할 가상 컴퓨터의 폴더에 대한 경로입니다.
 
-- **SearchPattern**: The pattern of the names of files to be collected. Default is “*”
+- **SearchPattern**: 수집할 파일의 이름 패턴입니다. 기본값은 “*”입니다.
 
-- **Recursive**: if the files will be collected recursively under the folder.
-
+- **재귀**: 파일을 폴더 아래에 재귀적으로 수집할지 여부입니다.
+
+<!---HONumber=AcomDC_0323_2016-->

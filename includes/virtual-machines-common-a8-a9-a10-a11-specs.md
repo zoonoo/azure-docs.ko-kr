@@ -1,64 +1,61 @@
 
 
-This article provides background information and considerations for using the Azure A8, A9, A10, and A11 instances, also known as *compute-intensive* instances. Key features of these instances include:
+이 문서는 *계산 집약적* 인스턴스로 알려진 Azure A8, A9, A10 및 A11 인스턴스에 대한 고려사항과 배경 정보를 제공합니다. 이러한 인스턴스의 주요 기능은 다음과 같습니다.
 
-* **High-performance hardware** – The Azure datacenter hardware that runs these instances is designed and optimized for compute-intensive and network-intensive applications, including high-performance computing (HPC) cluster applications, modeling, and simulations.
+* **고성능 하드웨어** – 이러한 인스턴스를 실행하는 Azure 데이터 센터 하드웨어는 고성능 컴퓨팅(HPC) 클러스터 응용 프로그램, 모델링 및 시뮬레이션을 포함하는 계산 집약적 및 네트워크 집약적 응용 프로그램을 위해 디자인되고 최적화되었습니다.
 
-* **RDMA network connection for MPI applications** – Set up the A8 and A9 instances to communicate with other A8 and A9 instances over a low-latency, high-throughput network in Azure that is based on remote direct memory access (RDMA) technology. This feature can boost the performance of certain Linux and Windows Message Passing Interface (MPI) applications .
+* **MPI 응용 프로그램에 대한 RDMA 네트워크 연결** - A8 및 A9 인스턴스를 설정하여 RDMA(원격 직접 메모리 액세스) 기술을 기반으로 하는 Azure에서 대기 시간이 짧고 처리량이 많은 네트워크를 통해 다른 A8 및 A9 인스턴스와 통신할 수 있습니다. 이 기능은 특정 Linux 및 Windows MPI(메시지 전달 인터페이스) 응용 프로그램의 성능을 높일 수 있습니다.
 
-* **Support for HPC clusters** – Deploy cluster management and job scheduling software on the A8, A9, A10, and A11 instances in Azure to create a stand-alone HPC cluster or to add capacity to an on-premises cluster.
+* **HPC 클러스터 지원** - Azure의 A8, A9, A10 및 A11 인스턴스에서 클러스터 관리 및 작업 예약 소프트웨어를 배포하여 독립 실행형 HPC 클러스터를 만들거나 온-프레미스 클러스터에 용량을 추가합니다.
 
->[AZURE.NOTE]A10 and A11 instances have the same performance optimizations and specifications as the A8 and A9 instances. However, they do not include access to the RDMA network in Azure. They are designed for HPC applications that do not require constant and low-latency communication between nodes, also known as parametric or embarrassingly parallel applications.
+>[AZURE.NOTE]A10 및 A11 인스턴스는 A8 및 A9 인스턴스와 성능 최적화 및 사양이 동일합니다. 하지만 Azure의 RDMA 네트워크에 대한 액세스는 포함하지 않습니다. 노드 간에 지속적이고 대기 시간이 짧은 통신을 필요로 하지 않는 HPC 응용 프로그램을 위해 설계되었으며, 매개 변수 또는 병렬 처리 응용 프로그램이라고도 합니다.
 
 
-## Specs
+## 사양
 
-### CPU and memory
+### CPU 및 메모리
 
-The Azure A8, A9, A10, and A11 compute-intensive instances feature high-speed, multicore CPUs and large amounts of memory, as shown in the following table.
+Azure A8, A9, A10 및 A11 계산 집약적 인스턴스는 다음 표와 같이 고속 멀티 코어 CPU 및 대량 메모리를 특징으로 합니다.
 
-Size | CPU | Memory
+크기 | CPU | 메모리
 ------------- | ----------- | ----------------
-A8 and A10 | Intel Xeon E5-2670<br/>8 cores @ 2.6 GHz | DDR3-1600 MHz<br/>56 GB
-A9 and A11 | Intel Xeon E5-2670<br/>16 cores @ 2.6 GHz | DDR3-1600 MHz<br/>112 GB
+A8 및 A10 | Intel Xeon E5-2670<br/>8 코어 @ 2.6 GHz | DDR3-1600MHz<br/>56GB
+A9 A11 | Intel Xeon E5-2670<br/>16 코어 @ 2.6 GHz | DDR3-1600MHz<br/>112GB
 
 
->[AZURE.NOTE]Additional processor details, including supported instruction set extensions, are at the Intel.com website. For VM storage capacities and disk details, see [Sizes for virtual machines](virtual-machines-linux-sizes.md).
+>[AZURE.NOTE]지원되는 명령어 집합 확장을 비롯한 추가 프로세서 세부 정보는 Intel.com 웹 사이트에 있습니다. VM 저장소 용량 및 디스크 세부 정보는 [가상 컴퓨터 크기](virtual-machines-linux-sizes.md)를 참조하세요.
 
-### Network adapters
+### 네트워크 어댑터
 
-A8 and A9 instances have two network adapters, which connect to the following two back-end Azure networks.
+A8 및 A9 인스턴스에는 다음 두 백엔드 AZure 네트워크에 연결하는 두 개의 네트워크 어댑터가 있습니다.
 
 
-Network | Description
+네트워크 | 설명
 -------- | -----------
-10-Gbps Ethernet | Connects to Azure services (such as Azure Storage and Azure Virtual Network) and to the Internet.
-32-Gbps back end, RDMA capable | Enables low-latency, high-throughput application communication between instances within a single cloud service or availability set. Reserved for MPI traffic only.
+10-Gbps 이더넷 | Azure 서비스(예: Azure 저장소, Azure 가상 네트워크) 및 인터넷에 연결합니다.
+32-Gbps 백엔드, RDMA 지원 | 단일 클라우드 서비스 또는 가용성 집합 내의 인스턴스 사이에서 대기 시간이 짧고 처리량이 많은 응용 프로그램 통신을 사용할 수 있습니다. MPI 트래픽 전용으로 예약됩니다.
 
 
->[AZURE.IMPORTANT]See [Access to the RDMA network](#access-the-rdma-network) in this article for additional requirements for MPI applications to access the RDMA netowrk.
+>[AZURE.IMPORTANT]MPI 응용 프로그램에서 RDMA 네트워크에 액세스하기 위한 추가 요구 사항은 이 문서의 [RDMA 네트워크에 대한 액세스](#access-the-rdma-network)를 참조하세요.
 
-A10 and A11 instances have a single, 10-Gbps Ethernet network adapter that connects to Azure services and the Internet.
+A10 및 A11 인스턴스에는 Azure 서비스 및 인터넷에 연결하는 한 개의 10-Gbps 이더넷 네트워크 어댑터가 있습니다.
 
-## Deployment considerations
+## 배포 고려 사항
 
-* **Azure account** – If you want to deploy more than a small number of compute-intensive instances, consider a pay-as-you-go subscription or other purchase options. You can also use your MSDN subscription. See [Azure benefit for MSDN subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). If you're using an [Azure free account](https://azure.microsoft.com/pricing/free-trial/), you can use only a limited number of Azure compute cores.
+* **Azure 계정** - 소량의 계산 집약적 인스턴스를 배포하려는 경우 종량제 구독 또는 기타 구매 옵션을 고려합니다. MSDN 구독을 이용할 수도 있습니다. [MSDN 구독자에 대한 Azure 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조하세. [Azure 무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 사용하는 경우, 제한된 수의 Azure 계산 코어만 사용할 수 있습니다.
 
-* **Cores quota** – You might need to increase the cores quota in your Azure subscription from the default of 20 cores per subscription (if you use the classic deployment model) or 20 cores per region (if you use the Azure Resource Manager deployment model). To request a quota increase, open a support ticket at no charge as shown in [Understanding Azure limits and increases](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/).
+* **코어 할당량** – Azure 구독의 코어 할당량의 기본값은 구독당 20개의 코어(클래식 배포 모델을 사용하는 경우) 또는 지역당 20개의 코어(Azure Resource Manager 배포 모델을 사용하는 경우)이며 이를 더 늘려야 할 수도 있습니다. 할당량 증가를 요청하려면 [Azure 제한 및 증가 이해](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)에 표시된 대로 무료 지원 티켓을 엽니다.
 
-    >[AZURE.NOTE]Azure quotas are credit limits, not capacity guarantees. You are charged only for cores that you use.
+    >[AZURE.NOTE]Azure 할당량은 신용 제한이며 용량 보증이 아닙니다. 사용하는 코어에 대해서만 요금이 청구됩니다.
 
-* **Virtual network** – An Azure [virtual network](https://azure.microsoft.com/documentation/services/virtual-network/) is not required to use the compute-intensive instances. However, you may need at least a cloud-based Azure virtual network for many IaaS scenarios, or a site-to-site connection if you need to access on-premises resources such as an application license server. You will need to create a new virtual network to deploy the instances. Adding an A8, A9, A10, or A11 VM to a virtual network in an affinity group is not supported.
+* **가상 네트워크** - Azure [가상 네트워크](https://azure.microsoft.com/documentation/services/virtual-network/)는 계산 집약적 인스턴스를 사용할 필요가 없습니다. 하지만 응용 프로그램 라이선스 서버와 같은 온-프레미스 리소스에 액세스해야 하는 경우 많은 IaaS 시나리오 또는 사이트 간 연결을 위해 클라우드 기반 Azure 가상 네트워크가 필요할 수 있습니다. 인스턴스를 배포하기 위해 새 가상 네트워크를 만들어야 합니다. 선호도 그룹에서 가상 네트워크에 A8, A9, A10 또는 A11 VM을 추가하는 것은 지원되지 않습니다.
 
-* **Cloud service or availability set** – To connect through the RDMA network, the A8 and A9 instances must be deployed in the same cloud service (if you use the classic deployment model) or the same availability set (if you use the Azure Resource Manager deployment model).
+* **클라우드 서비스 또는 가용성 집합** – RDMA 네트워크를 통해 연결하려면 A8 및 A9 인스턴스가 동일한 클라우드 서비스(클래식 배포 모델을 사용하는 경우) 또는 동일한 가용성 집합(Azure Resource Manager 배포 모델을 사용하는 경우)에서 배포되어야 합니다.
 
-* **Pricing** - The A8–A11 VM sizes are available only in the Standard pricing tier.
+* **가격 책정** - A8~A11 VM 크기는 표준 가격 책정 계층에서만 사용할 수 있습니다.
 
-* **Resizing** – You can't resize an instance of size other than A8–A11 to one of the compute-intensive instance sizes (A8-11), and you can’t resize a compute-intensive instance to a non-compute-intensive size. This is because of the specialized hardware and the performance optimizations that are specific to compute-intensive instances.
+* **크기 조정** – A8–A11이 아닌 크기의 인스턴스를 계산 집약적 인스턴스 크기(A8-11) 중 하나로 조정할 수 없으며 계산 집약적 인스턴스를 그렇지 않은 크기로 조정할 수 없습니다. 이것은 계산 집약적 인스턴스에 특정한 성능 최적화 및 특수 하드웨어 때문에 그렇습니다.
 
-* **RDMA network address space** - The RDMA network in Azure reserves the address space 172.16.0.0/12. If you plan to run MPI applications on A8 and A9 instances in an Azure virtual network, make sure that the virtual network address space does not overlap the RDMA network.
+* **RDMA 네트워크 주소 공간** - Azure의 RDMA 네트워크는 주소 공간 172.16.0.0/12를 예약합니다. Azure 가상 네트워크의 A8 및 A9 인스턴스에서 MPI 응용 프로그램을 실행하려면 가상 네트워크 주소 공간이 RDMA 네트워크와 겹치지 않도록 해야 합니다.
 
-
-
-
-
+<!---HONumber=AcomDC_0323_2016-->

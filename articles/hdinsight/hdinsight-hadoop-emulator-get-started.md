@@ -508,7 +508,6 @@ Emulator를 설치한 컴퓨터에서 제어판을 열고 **프로그램**에서
 
 - [Azure HDInsight 사용 시작](hdinsight-hadoop-linux-tutorial-get-started.md)
 - [HDInsight용 Java MapReduce 프로그램 개발](hdinsight-develop-deploy-java-mapreduce.md)
-- [HDInsight용 C# Hadoop 스트리밍 MapReduce 프로그램 개발](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
 - [HDInsight Emulator 릴리스 정보](hdinsight-emulator-release-notes.md)
 - [HDInsight 토론을 위한 MSDN 포럼](http://social.msdn.microsoft.com/Forums/hdinsight)
 
@@ -528,7 +527,6 @@ Emulator를 설치한 컴퓨터에서 제어판을 열고 **프로그램**에서
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
-[hdinsight-develop-deploy-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-versions]: hdinsight-component-versioning.md
 
 [Powershell-install-configure]: powershell-install-configure.md
@@ -538,4 +536,4 @@ Emulator를 설치한 컴퓨터에서 제어판을 열고 **프로그램**에서
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->
