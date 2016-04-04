@@ -297,7 +297,7 @@ REST API의 경우 [리소스 공급자에 대한 정보 가져오기](https://m
 <!-- -->
 예를 들어 특정한 코어를 만들려면 json 구문 분석을 위해 **jq**를 빼낸 아래 명령을 사용하여 적정한 할당량을 요청해야 하는 지역을 확인할 수 있습니다.
 <!-- -->
-        azure provider show Microsoft.Compute --json | jq '.resourceTypes[] | select(.name == "virtualMachines") | { name,apiVersions, locations}'
+       		azure provider show Microsoft.Compute --json | jq '.resourceTypes[] | select(.name == "virtualMachines") | { name,apiVersions, locations}'
         {
           "name": "virtualMachines",
           "apiVersions": [

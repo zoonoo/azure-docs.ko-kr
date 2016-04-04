@@ -40,7 +40,7 @@
 
 설치에 대한 두 가지 주요 옵션으로 [PowerShell 갤러리](https://www.powershellgallery.com/profiles/azure-sdk/)와 [WebPI](http://aka.ms/webpi-azps)가 있습니다. WebPI는 월별 업데이트를 받습니다. PowerShell 갤러리는 지속적으로 업데이트를 받습니다.
 
-자세한 내용은 [Azure PowerShell 1.0](https://azure.microsoft.com/ko-KR/blog/azps-1-0/)을 참조하세요.
+자세한 내용은 [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)을 참조하세요.
 
 ## 2단계: 구독 설정
 
@@ -393,4 +393,4 @@ VM에 데이터 디스크를 더 추가하려면 다음 줄을 명령 집합으�
 
 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0323_2016-->

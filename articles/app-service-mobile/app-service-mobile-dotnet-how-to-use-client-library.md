@@ -19,6 +19,7 @@
 # Azure 모바일 앱에 관리되는 클라이언트를 사용하는 방법
 
 [AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
+&nbsp;
 
 ##개요
 
@@ -57,7 +58,8 @@ C#에서 해당하는 형식화된 클라이언트 쪽 형식은 다음과 같�
 
 다음 코드는 모바일 앱 백 엔드에 액세스하는 데 사용되는 [MobileServiceClient] 개체를 만듭니다.
 
-	MobileServiceClient client = new MobileServiceClient("MOBILE_APP_URL");
+	MobileServiceClient client = new MobileServiceClient(
+		"MOBILE_APP_URL");
 
 위의 코드에서 `MOBILE_APP_URL`을 모바일 앱 백 엔드의 URL로 대체하며 이는 [Azure 포털]의 모바일 앱 백 엔드에 대한 블레이드에서 찾을 수 있습니다. 일반적이며 클라이언트 인스턴스는 단일 항목이 좋습니다.
 
@@ -83,7 +85,8 @@ C#에서 해당하는 형식화된 클라이언트 쪽 형식은 다음과 같�
 
 백 엔드 테이블의 데이터에 액세스하거나 데이터를 수정하는 모든 코드는 `MobileServiceTable` 개체의 함수를 호출합니다. 다음과 같이 `MobileServiceClient`의 인스턴스에 [GetTable] 메서드를 호출하여 테이블에 대한 참조를 얻습니다.
 
-    IMobileServiceTable<TodoItem> todoTable = client.GetTable<TodoItem>();
+    IMobileServiceTable<TodoItem> todoTable =
+		client.GetTable<TodoItem>();
 
 형식화된 직렬화 모델입니다. 형식화되지 않은 직렬화 모델도 지원됩니다. 다음은 [형식화되지 않은 테이블에 참조를 만듭니다].
 
