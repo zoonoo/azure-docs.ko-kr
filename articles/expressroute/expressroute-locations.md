@@ -64,8 +64,9 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 |**Cologix** | 지원됨 | 서비스 예정 | 몬트리올+, 토론토 |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | 지원됨 | 지원됨 | 암스테르담, 더블린, 런던 |
 | **Comcast** | 지원됨 | 지원되지 않음 | 실리콘밸리, 워싱턴 DC |
-| **CoreSite** | 지원됨 | 지원됨 | 로스앤젤레스 | 
+| **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** | 지원됨 | 지원됨 | 로스앤젤레스 | 
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | 지원됨 | 지원됨 | 암스테르담, 애틀랜타, 시카고, 댈러스, 홍콩, 런던, 로스앤젤레스, 멜버른, 뉴욕, 오사카, 상 파울로, 시애틀, 실리콘밸리, 싱가포르, 시드니, 도쿄, 토론토, 워싱턴 DC |
+| **euNetworks** | 지원됨 | 지원됨 | 암스테르담 |
 | **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** | 지원됨 | 지원됨 | 오사카, 도쿄 |
 | **[InterCloud](https://www.intercloud.com/)** | 지원됨 | 지원됨 | 암스테르담, 런던, 싱가포르, 워싱턴 DC |
 | **Internet Solutions - 클라우드 연결** | 지원됨 | 지원됨 | 암스테르담, 런던 |
@@ -134,6 +135,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 
 |**연결 공급자**|**Exchange**|**피어링 위치**|
 |---|---|---|
+|**Alaska Communications**|Equinix|시애틀|
 |**[XO 통신](http://www.xo.com/)**|Equinix|실리콘밸리|
 
 ## Express 경로 시스템 통합업체
@@ -152,4 +154,4 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 - Express 경로에 대한 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md)를 참조하세요.
 - 모든 필수 조건이 충족되었는지 확인합니다. [Express 경로 필수 조건](expressroute-prerequisites.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

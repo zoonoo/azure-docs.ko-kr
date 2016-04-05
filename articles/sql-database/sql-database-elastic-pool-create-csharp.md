@@ -1,6 +1,6 @@
 <properties
-    pageTitle="탄력적 데이터베이스 풀 만들기(C#) | Microsoft Azure"
-    description="C# 데이터베이스 개발 기술을 사용하여 Azure SQL 데이터베이스에 탄력적 데이터베이스 풀을 만들면 여러 데이터베이스에서 리소스를 공유할 수 있습니다."
+    pageTitle="C#으로 탄력적 데이터베이스 풀 만들기 | Microsoft Azure"
+    description="C# 데이터베이스 개발 기술을 사용하여 Azure SQL 데이터베이스에 확장성 있는 탄력적 데이터베이스 풀을 만들면 여러 데이터베이스에서 리소스를 공유할 수 있습니다."
     services="sql-database"
     documentationCenter=""
     authors="stevestein"
@@ -13,10 +13,10 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="03/22/2016"
+    ms.date="03/24/2016"
     ms.author="sstein"/>
 
-# 탄력적 데이터베이스 풀 만들기(C&#x23;)
+# C&#x23;을 사용한 탄력적 데이터베이스 풀 만들기
 
 > [AZURE.SELECTOR]
 - [Azure 포털](sql-database-elastic-pool-create-portal.md)
@@ -37,7 +37,7 @@ C&#x23;을 사용하여 [탄력적 데이터베이스 풀](sql-database-elastic-
 
 
 
-## 탄력적 데이터베이스 풀 생성
+## 풀 만들기
 
 
     // Create elastic pool: configure create or update parameters and properties explicitly
@@ -56,7 +56,7 @@ C&#x23;을 사용하여 [탄력적 데이터베이스 풀](sql-database-elastic-
     // Create the pool
     var newPoolResponse = sqlClient.ElasticPools.CreateOrUpdate("resourcegroup-name", "server-name", "ElasticPool1", newPoolParameters);
 
-## 기존 데이터베이스를 탄력적 데이터베이스 풀 내로 이동
+## 기존 데이터베이스를 풀로 이동
 
 
     // Retrieve current database properties
@@ -82,7 +82,7 @@ C&#x23;을 사용하여 [탄력적 데이터베이스 풀](sql-database-elastic-
 
 
 
-## 탄력적 데이터베이스 풀 내에 새 데이터베이스 생성
+## 풀에 새 데이터베이스 만들기
 
 
     // Create a database: configure create or update parameters and properties explicitly
@@ -105,10 +105,10 @@ C&#x23;을 사용하여 [탄력적 데이터베이스 풀](sql-database-elastic-
 
 
 
-## 탄력적 데이터베이스 풀 C&#x23; 만들기 예제
+## 풀 C&#x23; 예제 만들기
 
 
-다음 라이브러리는 이 예제를 실행해야 합니다. Visual Studio의 [패키지 관리자 콘솔](http://docs.nuget.org/Consume/Package-Manager-Console)(**도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**)에서 다음 명령을 실행하여 설치할 수 있습니다.
+이 예제를 실행하려면 다음 라이브러리가 필요합니다. Visual Studio의 [패키지 관리자 콘솔](http://docs.nuget.org/Consume/Package-Manager-Console)(**도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**)에서 다음 명령을 실행하여 설치할 수 있습니다.
 
     PM> Install-Package Microsoft.Azure.Management.Sql –Pre
     PM> Install-Package Microsoft.Azure.Management.Resources –Pre
@@ -145,7 +145,7 @@ C&#x23;을 사용하여 [탄력적 데이터베이스 풀](sql-database-elastic-
         static string adminPassword = "<server password (store it securely!)>";
         static string serverVersion = "12.0";
 
-        // elastic database pool variables
+        // pool variables
         static string elasticPoolName = "<pool name>";
         static string poolEdition = "Standard";
         static int poolDtus = 400;
@@ -168,7 +168,7 @@ C&#x23;을 사용하여 [탄력적 데이터베이스 풀](sql-database-elastic-
             ServerGetResponse srvr = CreateServer();
             Console.WriteLine("Creation of server " + srvr.Server.Name + ": " + srvr.StatusCode.ToString());
 
-            // Create an elastic database pool
+            // Create a pool
             Console.WriteLine("Creating elastic database pool... ");
             ElasticPoolCreateOrUpdateResponse epool = CreateElasticDatabasePool();
             Console.WriteLine("Creation of pool " + epool.ElasticPool.Name + ": " + epool.Status.ToString());
@@ -270,7 +270,7 @@ C&#x23;을 사용하여 [탄력적 데이터베이스 풀](sql-database-elastic-
 ## 다음 단계
 
 - [풀 관리](sql-database-elastic-pool-manage-csharp.md)
-- [탄력적 작업 만들기](sql-database-elastic-jobs-overview.md) 탄력적 작업은 풀의 데이터베이스 개수에 관계없이 T-SQL 스크립트를 실행할 수 있습니다.
+- [탄력적 작업 만들기](sql-database-elastic-jobs-overview.md) 탄력적 작업을 통해 풀의 데이터베이스 개수에 관계없이 T-SQL 스크립트를 실행할 수 있습니다.
 
 
 ## 추가 리소스
@@ -280,4 +280,4 @@ C&#x23;을 사용하여 [탄력적 데이터베이스 풀](sql-database-elastic-
 - [Azure 리소스 관리 API](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 - [탄력적 데이터베이스 풀 참조](sql-database-elastic-pool-reference.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

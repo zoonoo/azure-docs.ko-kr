@@ -162,7 +162,7 @@ PowerShell 예제를 사용할 때는 다음 사항에 유의하세요.
 
 ## 8\. VPN 연결 만들기
 
-가상 네트워크 게이트웨이와 VPN 장치 사이에 사이트 간 VPN 연결을 만들겠습니다. 사용자 고유의 값으로 대체해야 합니다. 공유 키는 VPN 장치 구성에 사용한 값과 일치해야 합니다.
+가상 네트워크 게이트웨이와 VPN 장치 사이에 사이트 간 VPN 연결을 만들겠습니다. 사용자 고유의 값으로 대체해야 합니다. 공유 키는 VPN 장치 구성에 사용한 값과 일치해야 합니다. 사이트 간 `-ConnectionType`은 **IPsec**입니다.
 
 	$gateway1 = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 	$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
@@ -188,4 +188,4 @@ VPN 연결을 확인하는 몇 가지 방법이 있습니다. 아래에서는 Az
 
 연결이 완료되면 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 단계는 [가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

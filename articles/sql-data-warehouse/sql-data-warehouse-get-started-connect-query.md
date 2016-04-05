@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Visual Studio를 사용하여 연결 및 쿼리
@@ -34,7 +34,7 @@
 
 ## 정규화된 SQL Azure 서버 이름 가져오기
 
-데이터베이스에 연결하려면 연결하려는 데이터베이스를 포함하는 서버의 전체 이름( ***servername**.database.windows.net* )이 필요합니다.
+데이터베이스에 연결하려면 연결하려는 데이터베이스를 포함하는 서버의 전체 이름(****servername**.database.windows.net*)이 필요합니다.
 
 1. [Azure 포털](https://portal.azure.com)로 이동합니다.
 2. 연결하려는 데이터베이스를 찾습니다.
@@ -69,13 +69,13 @@
 
 3. 쿼리 창에 다음 코드를 입력합니다.
 
-	```
-	SELECT COUNT(*) FROM dbo.FactInternetSales;
-	```
+    ```sql
+    SELECT COUNT(*) FROM dbo.FactInternetSales;
+    ```
 
 4. 쿼리를 실행합니다.
 
-	쿼리를 실행하려면 녹색 화살표를 클릭하거나 다음 바로 가기를 사용합니다. `CTRL`+`SHIFT`+`E`
+   쿼리를 실행하려면 녹색 화살표를 클릭하거나 다음 바로 가기를 사용합니다. `CTRL`+`SHIFT`+`E`
 
 ## 다음 단계
 
@@ -91,4 +91,4 @@
 [3]: ./media/sql-data-warehouse-get-started-connect-query/connection-dialog.png
 [4]: ./media/sql-data-warehouse-get-started-connect-query/new-query.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

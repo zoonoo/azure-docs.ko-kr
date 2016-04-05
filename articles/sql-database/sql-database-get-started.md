@@ -1,6 +1,6 @@
 <properties
 	pageTitle="SQL 데이터베이스 자습서: SQL 데이터베이스 만들기 | Microsoft Azure"
-	description="SQL 데이터베이스 자습서: 샘플 데이터를 사용하여 Azure 포털에서 빠르게 첫 번째 SQL 데이터베이스 만들기 호스팅 서버 및 방화벽 규칙을 설정하는 방법에 대해 알아봅니다."
+	description="SQL 데이터베이스 자습서: Azure 포털에서 빠르게 첫 번째 SQL 데이터베이스 만들기 호스팅 서버 및 방화벽 규칙을 설정하는 방법에 대해 알아봅니다."
 	keywords="sql 데이터베이스 자습서, sql 데이터베이스 만들기"
 	services="sql-database"
 	documentationCenter=""
@@ -15,10 +15,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="12/01/2015"
+	ms.date="03/27/2015"
 	ms.author="jeffreyg"/>
 
-# SQL 데이터베이스 자습서: 샘플 데이터 및 Azure 포털을 사용하여 빠르게 SQL 데이터베이스 만들기
+# SQL 데이터베이스 자습서: Azure 포털을 사용하여 빠르게 SQL 데이터베이스 만들기
 
 **단일 데이터베이스**
 
@@ -27,14 +27,16 @@
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
-이 SQL 데이터베이스 자습서에서는 Azure 포털에서 샘플 데이터로 몇 분 만에 첫 번째 SQL 데이터베이스를 만드는 방법을 보여 줍니다. 이 문서에서 배울 내용은 다음과 같습니다.
+이 SQL 데이터베이스 자습서에서는 Azure 포털에서 몇 분 만에 첫 번째 SQL 데이터베이스를 만드는 방법을 보여 줍니다. 빈 데이터베이스 또는 샘플 데이터가 있는 데이터베이스를 설정할 수 있습니다.
+
+이 문서에서 배울 내용은 다음과 같습니다.
 
 - 만든 데이터베이스를 호스팅할 서버를 만든 후 방화벽 규칙을 설정합니다.
-- 데이터를 재생할 수 있는 AdventureWorks 샘플의 SQL 데이터베이스를 만듭니다.
+- 빈 SQL 데이터베이스 또는 데이터를 재생할 수 있는 AdventureWorks 샘플의 데이터베이스를 만듭니다.
 
-시작하려면 Azure 계정 및 구독이 필요합니다. 없는 경우 지금 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록하세요.
+시작하려면 Azure 계정 및 구독이 필요합니다. 없는 경우 지금 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)에 등록하세요.
 
-> [AZURE.NOTE] 이 SQL 데이터베이스 자습서에서는 클라우드, Azure SQL 데이터베이스에서 Microsoft의 관계형 데이터베이스 관리 시스템(RDBMS)을 사용하여 데이터베이스를 설정을 다룹니다. 다른 옵션은 Azure 가상 컴퓨터에서 SQL Server를 실행합니다. 빠른 비교를 위한 [Azure VM에서 Azure SQL 데이터베이스 및 SQL Server 이해](data-management-azure-sql-database-and-sql-server-iaas.md)를 참조하거나 [SQL Server 가상 컴퓨터 프로비전](../virtual-machines/virtual-machines-windows-classic-portal-sql.md)을 참조하여 가상 컴퓨터를 시작합니다.
+> [AZURE.NOTE] 이 SQL 데이터베이스 자습서에서는 클라우드, Azure SQL 데이터베이스에서 Microsoft의 관계형 데이터베이스 관리 시스템(RDBMS)을 사용하여 데이터베이스를 설정을 다룹니다. 다른 옵션은 Azure 가상 컴퓨터에서 SQL Server를 실행합니다. 빠른 비교를 위한 [Azure VM에서 Azure SQL 데이터베이스 및 SQL Server 이해](data-management-azure-sql-database-and-sql-server-iaas.md)를 참조하거나 [SQL Server 가상 컴퓨터 프로비전](../virtual-machines/virtual-machines-windows-portal-sql-server-provision.md)을 참조하여 가상 컴퓨터를 시작합니다.
 
 ## 1단계: 로그인 및 SQL 데이터베이스 설정 시작
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
@@ -65,9 +67,15 @@ Azure에서 SQL 데이터베이스는 데이터베이스 서버에 있습니다.
 
 5. **확인**을 클릭하여 **SQL 데이터베이스** 블레이드로 돌아갑니다.
 
-데이터베이스와 서버가 아직 생성되지 않았습니다. 다음 단계에서 AdventureWorks 샘플에서 데이터베이스를 만들고 설정을 확인하도록 선택한 후에 생성됩니다.
+데이터베이스와 서버가 아직 생성되지 않았습니다. 다음 단계에서 데이터베이스를 만들고 설정을 확인하도록 선택한 후에 생성됩니다.
 
 ## 3단계: SQL 데이터베이스 설정 및 만들기
+
+**데이터 또는 테이블이 없는 새 데이터베이스를 설정하려면:**
+- **만들기** 단추를 클릭합니다.
+
+**샘플 데이터가 있는 새 데이터베이스를 설정하려면:**
+
 1. **SQL 데이터베이스** 블레이드에서 **소스 선택**을 클릭한 후 **샘플**을 클릭합니다.
 
 	![샘플에서 SQL 데이터베이스 만들기](./media/sql-database-get-started/new-sample-db.png)
@@ -86,21 +94,19 @@ Azure 시작 보드로 돌아갑니다. 여기에는 데이터베이스가 생�
 
 서버에서 클라이언트 컴퓨터의 IP 주소로부터 연결을 허용하는 방화벽 규칙을 설정해야 데이터베이스로 작업할 수 있습니다. 이를 통해 연결이 가능한지 확인할 수 있을 뿐만 아니라 Azure에서 SQL 서버에 대한 기타 세부 정보를 얻을 수 있는 영역을 볼 수 있는 좋은 방법입니다.
 
-1. **모두 찾아보기**를 클릭하고 아래로 스크롤하여 **SQL 서버**를 클릭한 후 **SQL 서버** 목록에서 이전에 만든 서버의 이름을 클릭합니다.
+1. **찾아보기**를 클릭하고 아래로 스크롤한 후 **SQL 서버**를 클릭합니다. 실수로 **SQL 데이터베이스**를 클릭하지 마세요. 흔히 하는 실수입니다.
 
 	![데이터베이스 서버 선택](./media/sql-database-get-started/browse_dbservers.png)
 
-
-3. 오른쪽에 표시되는 데이터베이스 속성 블레이드에서 **설정**을 클릭한 후 목록에서 **방화벽**을 클릭합니다.
+2. SQL Server 목록에서 2단계에서 선택한 **서버 이름**이 있는 항목을 클릭합니다. 그런 다음 오른쪽에 표시되는 데이터베이스 속성 블레이드에서 **설정**을 클릭한 후 목록에서 **방화벽**을 클릭합니다.
 
 	![방화벽 설정 열기](./media/sql-database-get-started/db_settings.png)
 
+  **방화벽 설정**에 현재 **클라이언트 IP 주소**가 표시됩니다.
 
-	**방화벽 설정**에 현재 **클라이언트 IP 주소**가 표시됩니다.
+	![Current IP address](./media/sql-database-get-started/firewall_config_client_ip.png)
 
-	![현재 IP 주소](./media/sql-database-get-started/firewall_config_client_ip.png)
-
-4. **클라이언트 IP 추가**를 클릭하여 Azure에서 해당 IP 주소에 대한 규칙을 생성하도록 한 후 **저장**을 클릭합니다.
+3. **클라이언트 IP 추가**를 클릭하여 Azure에서 해당 IP 주소에 대한 규칙을 생성하도록 한 후 **저장**을 클릭합니다.
 
 	![IP 주소 추가](./media/sql-database-get-started/firewall_config_new_rule.png)
 
@@ -117,4 +123,9 @@ Azure 시작 보드로 돌아갑니다. 여기에는 데이터베이스가 생�
 
 - 온-프레미스 SQL 서버 데이터베이스를 Azure로 이동하려면 [Azure SQL 데이터베이스로 데이터베이스 마이그레이션](sql-database-cloud-migrate.md)에서 자세히 알아보세요.
 
-<!---HONumber=AcomDC_0323_2016-->
+
+## 추가 리소스
+
+- [Azure SQL 데이터베이스 서비스, 인덱스에 대한 모든 토픽](sql-database-index-all-articles.md)
+
+<!---HONumber=AcomDC_0330_2016-->

@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/22/2016"
+   ms.date="03/25/2016"
    ms.author="larryfr"/>
 
 #Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH를 사용합니다.
@@ -121,7 +121,11 @@ Linux 기반 HDInsight 클러스터를 만들 때 이전에 생성한 공개 키
 
 	![putty 인터페이스, 개인 키 선택](./media/hdinsight-hadoop-linux-use-ssh-windows/puttykey.png)
 
-3. **Category**에서 **Session**을 선택합니다. **Basic options for your PuTTY session** 화면에서 **Host name (or IP address)** 필드에 HDInsight 서버의 SSH 주소를 입력합니다. SSH 주소는 **-ssh.azurehdinsight.net**이 뒤에 오는 클러스터 이름입니다. 예를 들면 **mycluster-ssh.azurehdinsight.net**과 같습니다.
+3. **Category**에서 **Session**을 선택합니다. **Basic options for your PuTTY session** 화면에서 **Host name (or IP address)** 필드에 HDInsight 서버의 SSH 주소를 입력합니다. 클러스터에 연결할 때 두 개의 SSH 주소를 사용할 수 있습니다.
+
+    * __헤드 노드 주소__: 클러스터의 헤드 노드를 연결하려면 클러스터 이름을 사용한 다음 **-ssh.azurehdinsight.net**을 사용합니다. 예를 들면 **mycluster-ssh.azurehdinsight.net**과 같습니다.
+    
+    * __에지 노드 주소__: HDInsight 클러스터에서 R 서버에 연결하는 경우 __RServer.CLUSTERNAME.ssh.azurehdinsight.net__ 주소를 사용하여 R 서버 에지 노드에 연결할 수 있습니다. 여기서 CLUSTERNAME은 클러스터의 이름입니다. 예를 들어 __RServer.mycluster.ssh.azurehdinsight.net__입니다.
 
 	![ssh 주소가 입력된 putty 인터페이스](./media/hdinsight-hadoop-linux-use-ssh-windows/puttyaddress.png)
 
@@ -229,4 +233,4 @@ SSH 터널의 생성 및 사용에 대한 자세한 내용은 [SSH 터널링을 
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

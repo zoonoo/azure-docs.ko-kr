@@ -42,7 +42,10 @@ VPN 게이트웨이를 구성하려면 먼저 VNet에 대한 게이트웨이 서
 
 ## <a name="gwtype"></a>게이트웨이 유형
 
-게이트웨이 유형은 게이트웨이 자체를 연결하는 방법을 지정하며 리소스 관리자 배포 모델에 대한 필수 구성 설정입니다. VPN에 대한 라우팅의 유형을 지정하는 VPN 유형과 게이트웨이 유형을 혼동하지 마세요. 사용 가능한 값인 GatewayType은 *Vpn* 및 *Express 경로*입니다.
+게이트웨이 유형은 게이트웨이 자체를 연결하는 방법을 지정하며 리소스 관리자 배포 모델에 대한 필수 구성 설정입니다. VPN에 대한 라우팅의 유형을 지정하는 VPN 유형과 게이트웨이 유형을 혼동하지 마세요. `-GatewayType`에 사용 가능한 값은 다음과 같습니다.
+
+- Vpn
+- Express 경로
 
 
 이 예제는 -GatewayType을 *Vpn*으로 지정하는 리소스 관리자 배포 모델에 대한 것입니다. 게이트웨이를 만들 때 게이트웨이 유형이 구성에 정확한지 확인해야 합니다.
@@ -57,7 +60,7 @@ VPN 게이트웨이 만들 때 사용하려는 게이트웨이 SKU를 지정해�
 - 표준
 - HighPerformance
 
-다음 예제에서는 GatewaySku를 *표준*으로 지정합니다.
+다음 예제에서는 `-GatewaySku`를 *표준*으로 지정합니다.
 
 	New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewaySku Standard -GatewayType Vpn -VpnType RouteBased
 
@@ -78,9 +81,22 @@ VPN 게이트웨이 만들 때 사용하려는 게이트웨이 SKU를 지정해�
 
 [AZURE.INCLUDE [vpn-gateway-vpntype](../../includes/vpn-gateway-vpntype-include.md)]
 
-이 예제는 -VpnType을 *RouteBased*로 지정하는 리소스 관리자 배포 모델에 대한 것입니다. 게이트웨이를 만들 때 -VpnType이 구성에 정확한지 확인해야 합니다.
+이 예제는 `-VpnType`을 *RouteBased*로 지정하는 리소스 관리자 배포 모델에 대한 것입니다. 게이트웨이를 만들 때 -VpnType이 구성에 정확한지 확인해야 합니다.
 
 	New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
+
+## <a name="connectiontype"></a>연결 형식
+
+각 구성이 작동하려면 특정 연결 형식이 필요합니다. `-ConnectionType`에 대해 사용 가능한 리소스 관리자 PowerShell 값은 다음과 같습니다.
+
+- IPsec
+- Vnet2Vnet
+- Express 경로
+- VPNClient
+
+아래 예제에서는 "IPsec" 연결 형식을 필요로 하는 사이트 간 연결을 만듭니다.
+
+	New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 
 
 ## <a name="lng"></a>로컬 네트워크 게이트웨이
@@ -122,4 +138,4 @@ VPN 장치를 사용하려면 사용자 구성에 필요한 VPN 유형을 지원
 
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

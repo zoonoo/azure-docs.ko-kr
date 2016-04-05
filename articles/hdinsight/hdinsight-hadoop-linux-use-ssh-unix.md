@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/28/2016"
+   ms.date="03/25/2016"
    ms.author="larryfr"/>
 
 #Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH를 사용합니다.
@@ -116,11 +116,15 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCelfkjrpYHYiks4TM+r1LVsTYQ4jAXXGeOAF9Vv/KG
 
 터미널 세션에서 SSH 명령을 통해 주소 및 사용자 이름을 제공하여 클러스터 헤드 노드에 연결합니다.
 
-* **SSH 주소** - **-ssh.azurehdinsight.net**이 뒤에 오는 클러스터 이름입니다. 예를 들면 **mycluster-ssh.azurehdinsight.net**과 같습니다.
+* **SSH 주소** - SSH를 사용하여 클러스터에 연결하는 데 사용할 수 있는 두 개의 주소가 있습니다.
+
+    * **헤드 노드에 연결**: **-ssh.azurehdinsight.net**이 뒤에 오는 클러스터 이름입니다. 예를 들면 **mycluster-ssh.azurehdinsight.net**과 같습니다.
+    
+    * **에지 노드에 연결**: 클러스터가 HDInsight에서 R 서버인 경우 클러스터도 **RServer.CLUSTERNAME.ssh.azurehdinsight.net**를 사용하여 액세스할 수 있는 에지 노드를 포함합니다. 여기서 __CLUSTERNAME__은 클러스터의 이름입니다.
 
 * **사용자 이름** - 클러스터를 만들 때 제공한 SSH 사용자 이름입니다.
 
-다음 예제에서는 **mycluster** 클러스터에 **me** 사용자로 연결합니다.
+다음 예제에서는 **mycluster**의 헤드 노드 0에 **me** 사용자로 연결합니다.
 
 	ssh me@mycluster-ssh.azurehdinsight.net
 
@@ -132,7 +136,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCelfkjrpYHYiks4TM+r1LVsTYQ4jAXXGeOAF9Vv/KG
 >
 > `ssh -i ~/.ssh/id_rsa me@mycluster-ssh.azurehdinsight.net`
 
-지정된 포트가 없는 경우, SSH가 기본적으로 HDInsight 클러스터의 헤드 노드 0에 연결되는 port22로 설정됩니다. 23 포트를 사용하는 경우, 헤드 노드 1에 연결 됩니다. 헤드 노드에 대한 자세한 내용은 [HDInsight에서 Hadoop 클러스터의 가용성 및 안정성](hdinsight-high-availability-linux.md)을 참조하세요.
+헤드 노드에 대한 주소를 사용하여 연결하고 지정된 포트가 없는 경우, SSH가 기본적으로 HDInsight 클러스터의 헤드 노드 0에 연결되는 22 포트로 설정됩니다. 23 포트를 사용하는 경우, 헤드 노드 1에 연결 됩니다. 헤드 노드에 대한 자세한 내용은 [HDInsight에서 Hadoop 클러스터의 가용성 및 안정성](hdinsight-high-availability-linux.md)을 참조하세요.
 
 ###작업자 노드에 연결
 
@@ -239,4 +243,4 @@ SSH 터널의 생성 및 사용에 대한 자세한 내용은 [SSH 터널링을 
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

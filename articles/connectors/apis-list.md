@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/17/2016"
+	ms.date="03/28/2016"
 	ms.author="deonhe"/>
 
 # 관리되는 API의 목록
@@ -52,7 +52,7 @@
 API는 앱 내에서 작업으로 사용될 수도 있습니다. 작업은 앱의 실행에 사용될 수 있는 데이터를 조회하는 데 유용합니다. 예를 들어 주문을 처리할 때 SQL 데이터베이스에서 고객 데이터를 조회해야 할 수 있습니다. 또는 대상 테이블에서 데이터를 작성, 업데이트 또는 삭제해야 할 수 있습니다. API가 제공하는 작업을 사용하여 이를 수행할 수 있습니다. 작업은 Swagger 메타데이터에 정의된 작업에 매핑됩니다.
 
 
-[새로운 기능](../app-service-logic/app-service-logic-schema-2015-08-01.md) [이제 논리 앱 빌드](../app-service-logic/app-service-logic-create-a-logic-app.md) [이제 PowerApps 시작](../power-apps/powerapps-get-started-azure-portal.md)
+[새로운 기능](../app-service-logic/app-service-logic-schema-2015-08-01.md) [이제 논리 앱 빌드](../app-service-logic/app-service-logic-create-a-logic-app.md) [이제 PowerApps 시작](../power-apps/powerapps-get-started-azure-portal.md) [최신 스키마 버전으로 기존 논리 앱 마이그레이션](connectors-schema-migration.md)
 
 <!--API Documentation-->
 [azureblobdoc]: ./connectors-create-api-azureblobstorage.md "Blob 컨테이너에서 파일을 관리하는 Azure Blob에 연결합니다."
@@ -105,4 +105,4 @@ API는 앱 내에서 작업으로 사용될 수도 있습니다. 작업은 앱�
 [twittericon]: ./media/apis-list/twittericon.png
 [yammericon]: ./media/apis-list/yammericon.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

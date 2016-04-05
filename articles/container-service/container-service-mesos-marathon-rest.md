@@ -32,10 +32,10 @@ ACS 클러스터에 연결되면 Mesos 및 관련된 REST API는 http://localhos
 
 ## Mesos 및 Marathon에서 정보 수집
 
-Mesos 클러스터에 컨테이너를 배포하기 전에 이름, Mesos 에이전트의 현재 상태와 같은 Mesos 클러스터에 대한 정보를 수집합니다. 이렇게 하려면 Mesos 마스터에서 `master/slaves` 끝점을 쿼리합니다. 모든 작업이 제대로 진행되었다면 Mesos 에이전트와 각각에 대한 여러 속성 목록이 표시됩니다.
+Mesos 클러스터에 컨테이너를 배포하기 전에 이름, Mesos 에이전트의 현재 상태와 같은 Mesos 클러스터에 대한 정보를 수집합니다. 이렇게 하려면 Mesos REST API에서 `master/slaves` 끝점을 쿼리합니다. 모든 작업이 제대로 진행되었다면 Mesos 에이전트와 각각에 대한 여러 속성 목록이 표시됩니다.
 
 ```bash
-curl http://localhost/master/slaves
+curl http://localhost/mesos/master/slaves
 ```
 
 이제는 Marathon `/apps` 끝점을 사용하여 Mesos 클러스터에 대한 현재 응용 프로그램 배포를 확인합니다. 새 클러스터인 경우에 앱에 대한 빈 배열이 표시됩니다.
@@ -160,4 +160,4 @@ Invoke-WebRequest -Method Post -Uri http://localhost/marathon/v2/apps -ContentTy
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'
 ```
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

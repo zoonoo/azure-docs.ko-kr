@@ -1,10 +1,10 @@
-<properties 
-    pageTitle="탄력적 데이터베이스 풀 만들기(PowerShell) | Microsoft Azure" 
-    description="PowerShell을 사용하여 여러 데이터베이스를 관리하도록 탄력적 데이터베이스 풀을 만들어 Azure SQL 데이터베이스 리소스를 확장하는 방법에 대해 알아봅니다." 
-	services="sql-database" 
-    documentationCenter="" 
-    authors="stevestein" 
-    manager="jhubbard" 
+<properties
+    pageTitle="탄력적 데이터베이스 풀 만들기(PowerShell) | Microsoft Azure"
+    description="PowerShell을 사용하여 여러 데이터베이스를 관리하도록 확장성 있는 탄력적 데이터베이스 풀을 만들어 Azure SQL 데이터베이스 리소스를 규모 확장하는 방법에 대해 알아봅니다."
+	services="sql-database"
+    documentationCenter=""
+    authors="stevestein"
+    manager="jhubbard"
     editor=""/>
 
 <tags
@@ -12,11 +12,11 @@
     ms.devlang="NA"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="powershell"
-    ms.workload="data-management" 
-    ms.date="03/15/2016"
+    ms.workload="data-management"
+    ms.date="03/27/2016"
     ms.author="sstein"/>
 
-# 탄력적 데이터베이스 풀 만들기(PowerShell) 
+# PowerShell을 사용한 탄력적 데이터베이스 풀 만들기
 
 > [AZURE.SELECTOR]
 - [Azure 포털](sql-database-elastic-pool-create-portal.md)
@@ -33,16 +33,14 @@ PowerShell cmdlet을 사용하여 [탄력적 데이터베이스 풀](sql-databas
 
 Azure PowerShell 1.0 이상을 실행해야 합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
 
+## 풀 만들기
 
-
-## 탄력적 데이터베이스 풀 생성
-
-[New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378.aspx) cmdlet을 사용하여 탄력적 데이터베이스 풀을 만듭니다.
+[New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378.aspx) cmdlet은 풀을 만듭니다.
 
 	New-AzureRmSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
 
 
-## 탄력적 데이터베이스 풀에 새 탄력적 데이터베이스 만들기
+## 풀에 새 탄력적 데이터베이스 만들기
 
 풀 내에서 직접 새 데이터베이스를 만들려면 [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx) cmdlet을 사용하고 **ElasticPoolName** 매개 변수를 설정합니다.
 
@@ -51,7 +49,7 @@ Azure PowerShell 1.0 이상을 실행해야 합니다. 자세한 내용은 [Azur
 
 
 
-## 독립 실행형 데이터베이스를 탄력적 데이터베이스 풀로 이동
+## 독립 실행형 데이터베이스를 풀로 이동
 
 기존 데이터베이스를 풀로 이동하려면 [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx) cmdlet을 사용하고 **ElasticPoolName** 매개 변수를 설정합니다.
 
@@ -59,7 +57,7 @@ Azure PowerShell 1.0 이상을 실행해야 합니다. 자세한 내용은 [Azur
 
 
 
-## 탄력적 데이터베이스 풀 PowerShell 예제 만들기
+## 풀 PowerShell 예제 만들기
 
 이 스크립트는 새 서버를 만들어서 사용자 이름 및 암호를 묻는 경우 새 서버에 (Azure 자격 증명이 아닌) 관리자 로그인 및 관리자 암호를 입력합니다.
 
@@ -72,7 +70,7 @@ Azure PowerShell 1.0 이상을 실행해야 합니다. 자세한 내용은 [Azur
 
     Login-AzureRmAccount
     Set-AzureRmContext -SubscriptionId $subscriptionId
-    
+
     New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
     New-AzureRmSqlServer -ResourceGroupName $resourceGroupName -ServerName $serverName -Location $location -ServerVersion "12.0"
     New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourceGroupName -ServerName $serverName -FirewallRuleName "rule1" -StartIpAddress "192.168.0.198" -EndIpAddress "192.168.0.199"
@@ -93,4 +91,4 @@ Azure PowerShell 1.0 이상을 실행해야 합니다. 자세한 내용은 [Azur
 
 탄력적 데이터베이스 및 탄력적 데이터베이스 풀에 대한 자세한 내용은 [탄력적 데이터베이스 참조](sql-database-elastic-pool-reference.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

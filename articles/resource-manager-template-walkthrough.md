@@ -13,12 +13,12 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/14/2016"
+   ms.date="03/29/2016"
    ms.author="navale;tomfitz"/>
    
 # 리소스 관리자 템플릿 연습
 
-이 토픽에서는 리소스 관리자 템플릿을 만드는 단계를 안내합니다. 여기서는 사용자가 배포할 Azure 서비스를 잘 알고 있지만 템플릿에서 해당 인프라를 나타내는 방법은 잘 모른다고 가정합니다. [빠른 시작 갤러리](https://github.com/Azure/azure-quickstart-templates)에서 [부하 분산 장치 및 부하 분산 장치 템플릿을 포함하는 2개의 VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-lbrules)을 기반으로 템플릿을 만들지만 이 기법은 만들어야 하는 모든 템플릿에 적용할 수 있습니다.
+이 토픽에서는 리소스 관리자 템플릿을 만드는 단계를 안내합니다. [빠른 시작 갤러리](https://github.com/Azure/azure-quickstart-templates)에서 [부하 분산 장치 및 부하 분산 장치 템플릿을 포함하는 2개의 VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-lbrules)을 기반으로 템플릿을 만듭니다. 학습한 기법은 만들어야 하는 모든 템플릿에 적용할 수 있습니다.
 
 일반적인 아키텍처를 살펴보겠습니다.
 
@@ -310,7 +310,7 @@ Azure CLI 및 API 버전을 보려면 이전에 본 것처럼 동일한 **azure 
 ## 가상 컴퓨터
 [네트워크 인터페이스](#network-interface) 생성 시 수행한 것처럼 copyIndex() 함수를 사용하여 2개의 가상 컴퓨터를 만듭니다. VM 생성은 저장소 계정, 네트워크 인터페이스 및 가용성 집합에 따라 달라집니다. 이 VM은 `storageProfile` 속성에 정의된 대로 마켓플레이스 이미지에서 생성되며 `imageReference`은 이미지 게시자, 제품, SKU 및 버전을 정의하는 데 사용됩니다. 마지막으로, VM에 대해 진단을 사용하도록 진단 프로필이 구성됩니다.
 
-마켓플레이스 이미지에 대한 관련 속성을 찾으려면 [VM 검색](./virtual-machines/resource-groups-vm-searching.md) 문서를 따르세요. 타사 공급업체에서 게시한 이미지의 경우 `plan`이라는 이름의 다른 속성을 지정해야 합니다. 예제는 빠른 시작 갤러리의 [이 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/checkpoint-single-nic)에서 확인할 수 있습니다.
+마켓플레이스 이미지에 대한 관련 속성을 찾으려면 [Linux 가상 컴퓨터 이미지 선택](./virtual-machines/virtual-machines-linux-cli-ps-findimage.md) 또는 [Windows 가상 컴퓨터 이미지 선택](./virtual-machines/virtual-machines-windows-cli-ps-findimage.md) 문서를 따릅니다. 타사 공급업체에서 게시한 이미지의 경우 `plan`이라는 이름의 다른 속성을 지정해야 합니다. 예제는 빠른 시작 갤러리의 [이 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/checkpoint-single-nic)에서 확인할 수 있습니다.
 
 
 ```json
@@ -503,4 +503,4 @@ Azure CLI 및 API 버전을 보려면 이전에 본 것처럼 동일한 **azure 
 - 템플릿 구조에 대해 자세히 알아보려면 [Azure Resource Manager 템플릿 작성하기](resource-group-authoring-templates.md)를 참조하세요.
 - 템플릿 배포에 대해 자세히 알아보려면 [Azure Resource Manager 템플릿을 사용하여 리소스 그룹 배포](resource-group-template-deploy.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

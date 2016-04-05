@@ -1,4 +1,7 @@
->[AZURE.NOTE]이 절차를 완료하려면 검증된 메일 주소가 포함된 Google 계정이 있어야 합니다. 새 Google 계정을 만들려면 <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>으로 이동하세요.
+
+###API 키를 가진 Google Cloud Messaging 프로젝트 만들기
+
+>[AZURE.NOTE] 이 절차를 완료하려면 검증된 메일 주소가 포함된 Google 계정이 있어야 합니다. 새 Google 계정을 만들려면 <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>으로 이동하세요.
 
 1. [Google 클라우드 콘솔](https://console.developers.google.com/project)로 이동하고 Google 계정 자격 증명을 사용하여 로그인한 후 **프로젝트 만들기**를 클릭합니다.
 
@@ -31,4 +34,4 @@
 
 7. **API key** 값을 기록해 둡니다. 이 API 키 값을 나중에 사용하여 "네이티브 푸시" 섹션에서 구성합니다.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0330_2016-->

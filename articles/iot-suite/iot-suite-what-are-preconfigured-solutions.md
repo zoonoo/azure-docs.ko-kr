@@ -34,8 +34,7 @@ Azure에서 솔루션을 배포 및 실행하는 것 외에도 완전한 소스 
 
 | 해결 방법 | 데이터 수집 | 장치 ID | 명령 및 제어 | 규칙 및 작업 | 예측 분석 |
 |------------------------|-----|-----|-----|-----|-----|
-| [원격 모니터링][lnk-remote-monitoring] | 예 | 예 | 예 | 예 | - | 
-| [예측 유지 관리][lnk-predictive-maintenance] | 예 | 예 | 예 | 예 | 예 |
+| [원격 모니터링][lnk-remote-monitoring] | 예 | 예 | 예 | 예 | - | | [예측 유지 관리][lnk-predictive-maintenance] | 예 | 예 | 예 | 예 | 예 |
 
 - *데이터 수집*: 클라우드에 대한 대규모 데이터의 수신입니다.
 - *장치 ID*: 연결된 모든 장치의 고유한 ID를 관리합니다.
@@ -115,6 +114,8 @@ IoT hub를 사용하면 서비스 쪽 원격 분석 읽기 끝점을 통해 수�
 
 ## 다음 단계
 
+IoT 솔루션 아키텍처에 대한 자세한 내용은 [Microsoft Azure IoT 서비스: 참조 아키텍처][lnk-refarch]를 참조하세요.
+
 이 리소스를 탐색하여 IoT 미리 구성된 솔루션에 대해 자세히 알아봅니다.
 
 - [미리 구성된 loT 솔루션 시작][lnk-preconf-get-started]
@@ -133,5 +134,6 @@ IoT hub를 사용하면 서비스 쪽 원격 분석 읽기 끝점을 통해 수�
 [lnk-preconf-get-started]: iot-suite-getstarted-preconfigured-solutions.md
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
+[lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->
