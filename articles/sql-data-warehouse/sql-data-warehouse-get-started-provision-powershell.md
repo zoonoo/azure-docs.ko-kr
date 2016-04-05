@@ -30,7 +30,7 @@
 PowerShell을 사용하여 설치하지 않은 경우 다운로드하고 구성해야 합니다.
 
 1. Azure PowerShell 모듈을 다운로드하려면 [Microsoft 웹 플랫폼 설치 관리자](http://aka.ms/webpi-azps)를 실행합니다. 이 설치 관리자에 대한 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법][]을 참조하세요.
-2. 모듈을 실행하려면 시작 창에서 **Windows PowerShell**을 입력합니다.
+2. 모듈을 실행하려면 시작 창에서 **Windows PowerShell** 을 입력합니다.
 3. 이 cmdlet을 실행하여 Azure 리소스 관리자에 로그인합니다.
 
 	```Powershell

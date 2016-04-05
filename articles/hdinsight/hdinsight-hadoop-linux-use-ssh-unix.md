@@ -118,13 +118,13 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCelfkjrpYHYiks4TM+r1LVsTYQ4jAXXGeOAF9Vv/KG
 
 * **SSH 주소** - SSH를 사용하여 클러스터에 연결하는 데 사용할 수 있는 두 개의 주소가 있습니다.
 
-    * **헤드 노드에 연결**: **-ssh.azurehdinsight.net**이 뒤에 오는 클러스터 이름입니다. 예를 들면 **mycluster-ssh.azurehdinsight.net**과 같습니다.
+    * **헤드 노드에 연결**: **-ssh.azurehdinsight.net** 이 뒤에 오는 클러스터 이름입니다. 예를 들면 **mycluster-ssh.azurehdinsight.net** 과 같습니다.
     
-    * **에지 노드에 연결**: 클러스터가 HDInsight에서 R 서버인 경우 클러스터도 **RServer.CLUSTERNAME.ssh.azurehdinsight.net**를 사용하여 액세스할 수 있는 에지 노드를 포함합니다. 여기서 __CLUSTERNAME__은 클러스터의 이름입니다.
+    * **에지 노드에 연결**: 클러스터가 HDInsight에서 R 서버인 경우 클러스터도 **RServer.CLUSTERNAME.ssh.azurehdinsight.net** 를 사용하여 액세스할 수 있는 에지 노드를 포함합니다. 여기서 __CLUSTERNAME__은 클러스터의 이름입니다.
 
 * **사용자 이름** - 클러스터를 만들 때 제공한 SSH 사용자 이름입니다.
 
-다음 예제에서는 **mycluster**의 헤드 노드 0에 **me** 사용자로 연결합니다.
+다음 예제에서는 **mycluster** 의 헤드 노드 0에 **me** 사용자로 연결합니다.
 
 	ssh me@mycluster-ssh.azurehdinsight.net
 
@@ -146,7 +146,7 @@ SSH 키를 사용하여 사용자 계정을 인증하는 경우 클라이언트�
 
 1. 텍스트 편집기를 사용하여 `~/.ssh/config`를 엽니다. 이 파일이 존재하지 않으면 터미널에 `touch ~/.ssh/config`를 입력하여 만들 수 있습니다.
 
-2. 파일에 다음을 추가합니다. *CLUSTERNAME*을 HDInsight 클러스터의 이름으로 바꿉니다.
+2. 파일에 다음을 추가합니다. *CLUSTERNAME* 을 HDInsight 클러스터의 이름으로 바꿉니다.
 
         Host CLUSTERNAME-ssh.azurehdinsight.net
           ForwardAgent yes
@@ -175,7 +175,7 @@ SSH 키를 사용하여 사용자 계정을 인증하는 경우 클라이언트�
 
 1. 앞에서 설명한 대로 SSH를 사용하여 HDInsight 클러스터에 연결합니다.
 
-2. 연결되면 다음을 사용하여 클러스터의 노드 목록을 검색합니다. *ADMINPASSWORD*를 클러스터 관리 계정의 암호로 바꿉니다. *CLUSTERNAME*을 클러스터의 이름으로 바꿉니다.
+2. 연결되면 다음을 사용하여 클러스터의 노드 목록을 검색합니다. *ADMINPASSWORD* 를 클러스터 관리 계정의 암호로 바꿉니다. *CLUSTERNAME* 을 클러스터의 이름으로 바꿉니다.
 
         curl --user admin:ADMINPASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/hosts
 
@@ -187,7 +187,7 @@ SSH 키를 사용하여 사용자 계정을 인증하는 경우 클라이언트�
 
         ssh USERNAME@FQDN
 
-    *USERNAME*을 SSH 사용자 이름으로, *FQDN*을 작업자 노드의 FQDN으로 바꿉니다. 예를 들면 `workernode0.workernode-0-e2f35e63355b4f15a31c460b6d4e1230.j1.internal.cloudapp.net`과 같습니다.
+    *USERNAME* 을 SSH 사용자 이름으로, *FQDN* 을 작업자 노드의 FQDN으로 바꿉니다. 예를 들면 `workernode0.workernode-0-e2f35e63355b4f15a31c460b6d4e1230.j1.internal.cloudapp.net`과 같습니다.
 
     > [AZURE.NOTE] 암호를 사용하여 SSH 세션을 인증하는 경우 암호를 입력하라는 메시지가 다시 표시됩니다. SSH 키를 사용하는 경우에는 아무 메시지 없이 연결이 완료됩니다.
 

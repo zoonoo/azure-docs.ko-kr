@@ -39,8 +39,8 @@ Azure 가상 컴퓨터는 가상 컴퓨터를 실행하는 실제 하드웨어�
 
 
 <!--links-->
-[App Service]: app-service-choose-me.md
-[Virtual Machines]: #tellmevm
-[Cloud Services]: cloud-services-choose-me.md
+[앱 서비스]: app-service-choose-me.md
+[클라우드 서비스]: cloud-services-choose-me.md
+[가상 컴퓨터]: #tellmevm
 
 <!---HONumber=AcomDC_0330_2016-->

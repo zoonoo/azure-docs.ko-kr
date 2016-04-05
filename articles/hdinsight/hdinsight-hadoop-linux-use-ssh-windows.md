@@ -121,7 +121,7 @@ Linux 기반 HDInsight 클러스터를 만들 때 이전에 생성한 공개 키
 
 	![putty 인터페이스, 개인 키 선택](./media/hdinsight-hadoop-linux-use-ssh-windows/puttykey.png)
 
-3. **Category**에서 **Session**을 선택합니다. **Basic options for your PuTTY session** 화면에서 **Host name (or IP address)** 필드에 HDInsight 서버의 SSH 주소를 입력합니다. 클러스터에 연결할 때 두 개의 SSH 주소를 사용할 수 있습니다.
+3. **Category**에서 **Session** 을 선택합니다. **Basic options for your PuTTY session** 화면에서 **Host name (or IP address)** 필드에 HDInsight 서버의 SSH 주소를 입력합니다. 클러스터에 연결할 때 두 개의 SSH 주소를 사용할 수 있습니다.
 
     * __헤드 노드 주소__: 클러스터의 헤드 노드를 연결하려면 클러스터 이름을 사용한 다음 **-ssh.azurehdinsight.net**을 사용합니다. 예를 들면 **mycluster-ssh.azurehdinsight.net**과 같습니다.
     
@@ -165,7 +165,7 @@ Linux 기반 HDInsight 클러스터를 만들 때 이전에 생성한 공개 키
 
 6. 앞에서 설명한 대로 클러스터에 연결합니다. 인증에 SSH 키를 사용하는 경우에는 키를 선택할 필요가 없습니다. Pageant에 추가된 SSH 키가 클러스터를 인증하는 데 사용됩니다.
 
-7. 연결이 설정되면 다음을 사용하여 클러스터의 노드 목록을 검색합니다. *ADMINPASSWORD*를 클러스터 관리 계정의 암호로 바꿉니다. *CLUSTERNAME*을 클러스터의 이름으로 바꿉니다.
+7. 연결이 설정되면 다음을 사용하여 클러스터의 노드 목록을 검색합니다. *ADMINPASSWORD* 를 클러스터 관리 계정의 암호로 바꿉니다. *CLUSTERNAME* 을 클러스터의 이름으로 바꿉니다.
 
         curl --user admin:ADMINPASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/hosts
 
@@ -177,7 +177,7 @@ Linux 기반 HDInsight 클러스터를 만들 때 이전에 생성한 공개 키
 
         ssh USERNAME@FQDN
 
-    *USERNAME*을 SSH 사용자 이름으로, *FQDN*을 작업자 노드의 FQDN으로 바꿉니다. 예를 들면 `workernode0.workernode-0-e2f35e63355b4f15a31c460b6d4e1230.j1.internal.cloudapp.net`과 같습니다.
+    *USERNAME* 을 SSH 사용자 이름으로, *FQDN* 을 작업자 노드의 FQDN으로 바꿉니다. 예를 들면 `workernode0.workernode-0-e2f35e63355b4f15a31c460b6d4e1230.j1.internal.cloudapp.net`과 같습니다.
 
     > [AZURE.NOTE] 암호를 사용하여 SSH 세션을 인증하는 경우 암호를 입력하라는 메시지가 다시 표시됩니다. SSH 키를 사용하는 경우에는 아무 메시지 없이 연결이 완료됩니다.
 
