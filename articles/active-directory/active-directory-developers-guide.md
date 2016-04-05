@@ -89,16 +89,13 @@ IDMaaS(Identity Management As A Service) 플랫폼인 Azure Active Directory는 
 
 - [Azure Active Directory 샘플](https://github.com/azure-samples?query=active-directory)(영문): 샘플 목록을 탐색하는 가장 쉬운 방법은 [코드 샘플 인덱스](active-directory-code-samples.md)를 사용하는 것입니다.
 
+- [.NET용 ADAL](https://msdn.microsoft.com/library/azure/mt417579.aspx): .NET 인증 라이브러리에 대한 설명서입니다.
 
 ### 그래프 API
 
 - [Graph API 참조](https://msdn.microsoft.com/library/azure/hh974476.aspx): Azure Active Directory Graph API에 대한 REST 참조입니다. [대화형 Graph API 참조 환경을 확인해보세요](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
 
-- [Graph API 사용 권한 범위](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes): 앱이 테넌트의 디렉터리 데이터에 대해 가져야 하는 액세스 권한을 제어하는 데 사용되는 OAuth 2.0 사용 권한 범위입니다.
-
-### 인증 라이브러리
-
-- [.NET](https://msdn.microsoft.com/library/azure/mt417579.aspx): .NET 인증 라이브러리에 대한 설명서입니다.
+- [Graph API 사용 권한 범위](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)(영문): 앱이 테넌트의 디렉터리 데이터에 대해 가져야 하는 액세스 권한을 제어하는 데 사용되는 OAuth 2.0 사용 권한 범위입니다.
 
 ### 인증 프로토콜
 
@@ -142,4 +139,4 @@ IDMaaS(Identity Management As A Service) 플랫폼인 Azure Active Directory는 
 
 - [Azure Active Directory Twitter](https://twitter.com/azuread): 140자 이하의 Azure Active Directory 알림입니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

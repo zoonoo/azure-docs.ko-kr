@@ -3,7 +3,7 @@
    description="SQL 데이터 웨어하우스에 연결 및 일부 쿼리 실행 시작"
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="twounder"
+   authors="sonyama"
    manager="barbkess"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/28/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # SQLCMD를 사용하여 연결 및 쿼리
@@ -45,17 +45,17 @@
 
 ## sqlcmd를 사용하여 SQL 데이터 웨어하우스에 연결
 
-sqlcmd를 사용하는 경우 SQL 데이터 웨어하우스의 특정 인스턴스에 연결하려면 명령 프롬프트를 열고 SQL 데이터 웨어하우스 데이터베이스에 대한 연결 문자열이 뒤에 나오는 **sqlcmd**를 입력합니다. 연결 문자열은 다음 매개 변수를 포함해야 합니다.
+sqlcmd를 사용하는 경우 SQL 데이터 웨어하우스의 특정 인스턴스에 연결하려면 명령 프롬프트를 열고 SQL 데이터 웨어하우스 데이터베이스에 대한 연결 문자열이 뒤에 나오는 **sqlcmd**를 입력합니다. 연결 문자열은 다음 필수 매개 변수를 포함해야 합니다.
 
-+ **사용자 (-U):** `<`사용자`>` 형태의 서버 사용자
-+ **암호(-P):** 사용자와 연결된 암호
 + **서버(-S):**`<`서버 이름`>`.database.windows.net 형식의 서버
 + **데이터베이스(-D):** 데이터베이스 이름
++ **사용자 (-U):** `<`사용자`>` 형태의 서버 사용자
++ **암호(-P):** 사용자와 연결된 암호
 + **따옴표 붙은 식별자 설정(-I):** SQL 데이터 웨어하우스 인스턴스에 연결하기 위해 따옴표 붙은 식별자를 사용할 수 있어야 합니다.
 
 따라서 SQL 데이터 웨어하우스 인스턴스에 연결하려면 다음을 입력합니다.
 
-```
+```sql
 C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Password> -I
 ```
 
@@ -63,9 +63,9 @@ C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Pas
 
 연결 후, 인스턴스에 대해 지원되는 모든 TRANSACT-SQL 문을 실행할 수 있습니다.
 
-```
+```sql
 C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Password> -I
-1> SELECT COUNT(*) FROM dbo.FactInternetSales;
+1> SELECT name FROM sys.tables;
 2> GO
 3> QUIT
 ```
@@ -83,4 +83,4 @@ Sqlcmd 대한 추가 정보는 [sqlcmd 설명서](https://msdn.microsoft.com/lib
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-get-started-connect/get-server-name.png
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

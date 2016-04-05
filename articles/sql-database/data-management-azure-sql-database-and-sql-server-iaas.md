@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/02/2016"
+	ms.date="03/25/2016"
 	ms.author="jeffreyg"/>
 
 # 클라우드 SQL Server 옵션 선택: Azure SQL(PaaS) 데이터베이스 또는 Azure VM의 SQL Server(IaaS)
@@ -82,7 +82,7 @@ Azure와 온-프레미스 SQL Server 데이터베이스를 비교 논의할 때 
       <li type=round>SQL Server 응용 프로그램이 Azure에서 보안 터널을 통해 Active Directory와 같은 온-프레미스 리소스에 액세스해야 하는 경우
       <li type=round>모든 관리 권한이 있는 사용자 지정된 IT 환경이 필요한 경우
       <li type=round>온-프레미스 개발 및 테스팅 SQL Server 하드웨어를 구입하지 않는 빠른 개발 및 테스트 시나리오
-      <li type=round>[Azure 저장소에 백업](http://msdn.microsoft.com/library/jj919148.aspx) 또는 [Azure VM을 사용하는 AlwaysOn 복제본](../virtual-machines/virtual-machines-windows-classic-sql-dr.md)을 사용하는 온-프레미스 SQL Server 응용 프로그램에 대한 재해 복구.
+      <li type=round>[Azure 저장소에 백업](http://msdn.microsoft.com/library/jj919148.aspx) 또는 Azure VM이 있는 AlwaysOn 복제본을 사용하는 온-프레미스 SQL Server 응용 프로그램에 대한 재해 복구
       <li type=round>크기가 1TB 이상인 대형 데이터베이스
       </ul></td>
 </tr>
@@ -105,7 +105,7 @@ Azure와 온-프레미스 SQL Server 데이터베이스를 비교 논의할 때 
 <tr>
    <td valign="middle"><p><b>비즈니스 연속성</b></p></td>
    <td valign="middle"><ul><li type=round>Azure SQL 데이터베이스는 내결함성 인프라 기능을 기본적으로 제공할 뿐 아니라 지정 시간 복원, 지역 복원 및 지역에서 복제 등의 다양한 기능을 제공하여 비즈니스 연속성을 향상합니다. 자세한 내용은 [SQL 데이터베이스 비즈니스 연속성 개요](sql-database-business-continuity.md)를 참조하세요.</ul></td>
-   <td valign="middle"><ul><li type=round>Azure VM의 SQL Server를 사용하면 데이터베이스의 특정 요구에 맞게 고가용성 및 재해 복구 솔루션을 설정할 수 있습니다. 따라서 시스템을 응용 프로그램에 최적화할 수 있습니다. 필요한 경우 장애 조치(Failover)를 직접 테스트하고 실행할 수 있습니다. 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server에 대한 고가용성 및 재해 복구]((../virtual-machines/virtual-machines-windows-classic-sql-dr.md)를 참조하세요.</ul></td>
+   <td valign="middle"><ul><li type=round>Azure VM의 SQL Server를 사용하면 데이터베이스의 특정 요구에 맞게 고가용성 및 재해 복구 솔루션을 설정할 수 있습니다. 따라서 시스템을 응용 프로그램에 최적화할 수 있습니다. 필요한 경우 장애 조치(Failover)를 직접 테스트하고 실행할 수 있습니다. 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server에 대한 고가용성 및 재해 복구](../virtual-machines/virtual-machines-windows-classic-sql-dr.md)를 참조하세요.</ul></td>
 
 </tr>
 <tr>
@@ -187,7 +187,7 @@ IT 부서의 경우 SLA(서비스 수준 계약)의 작동 시간 의무를 충�
 
 - 데이터베이스의 일반 관리 작업을 Microsoft로 하여금 수행하게 하고 데이터베이스에 대해 높은 가용성 SLA가 필요한 경우.
 
-시작하려면 [첫 Azure SQL 데이터베이스 만들기](sql-database-get-started.md)를 참조하세요.
+
 
 **Azure VM의 SQL Server**를 선택하는 경우:
 
@@ -195,8 +195,13 @@ IT 부서의 경우 SLA(서비스 수준 계약)의 작동 시간 의무를 충�
 
 - 기존 IT 리소스가 있고, SQL Server에 대한 모든 관리 권한이 필요하고, 온-프레미스 SQL Server와의 완벽한 호환성이 필요한 경우. 이 접근 방식을 사용하면 대부분의 응용 프로그램을 유연하게 실행할 수 있는 기능을 통해 기존 응용 프로그램의 개발 또는 수정 비용을 최소화할 수 있습니다. 또한 VM, 운영 체제 및 데이터베이스 구성을 완벽히 제어할 수 있습니다.
 
-실행하려면 [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-classic-portal-sql.md)을 참조하세요.
+
 
 > [AZURE.NOTE] SQL Server 2016 CTP2를 사용해보시겠습니까? Microsoft Azure에 등록한 다음 [여기](http://aka.ms/sql2016vm "여기")로 이동하여 SQL Server 2016 CTP2가 이미 설치된 가상 컴퓨터를 만듭니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+## 다음 단계
+- [SQL 데이터베이스 자습서: Azure 포털을 사용하여 빠르게 SQL 데이터베이스 만들기](sql-database-get-started.md)를 참조하여 SQL 데이터베이스를 시작합니다.
+- [SQL 데이터베이스 가격 책정](https://azure.microsoft.com/pricing/details/sql-database/) 참조
+- Azure VM에서 SQL Server를 시작하려면 [Azure에서 SQL Server 가상 컴퓨터 프로비전](../virtual-machines/virtual-machines-windows-portal-sql-server-provision.md)을 참조하세요.
+
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/26/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Visual Studio를 사용하여 SQL 데이터 웨어하우스에 연결
@@ -42,8 +42,9 @@
     ![전체 서버 이름][1]
 
 ## 2단계: SQL 데이터베이스 연결
+최상의 경험을 위해 [최신 SQL Server 데이터 도구(SSDT) 업데이트](https://msdn.microsoft.com/library/mt204009.aspx)와 함께 Visual Studio 2015를 사용합니다.
 
-1. Visual Studio를 엽니다.
+1. Visual Studio 2013 또는 2015 열기
 2. SQL Server 개체 탐색기를 엽니다. 그렇게 하려면 **보기** > **SQL Server 개체 탐색기**를 선택합니다.
 
     ![SQL Server 개체 탐색기][2]
@@ -58,7 +59,8 @@
 
     - **서버 이름**. 이전에 위치한 *서버 이름*을 입력합니다.
     - **인증**. SQL Server 인증을 선택합니다.
-    - **로그인** 및 **암호**. Azure SQL Server 로그인 및 암호를 입력합니다.
+    - **사용자 이름** 및 **암호**. Azure SQL Server에 대한 사용자 이름 및 암호를 입력합니다.
+    - **데이터베이스 이름**. SQL DW 데이터베이스에 대한 데이터베이스 이름을 입력합니다.
     - **Connect**를 클릭합니다.
 
 1. 탐색하려면 SQL Azure Server를 확장합니다. 서버와 연결된 데이터베이스를 볼 수 있습니다. AdventureWorksDW를 확장하여 샘플 데이터베이스의 테이블을 확인합니다.
@@ -78,9 +80,9 @@
 
 3. 이 TSQL 쿼리를 쿼리 창에 복사합니다.
 
-	```
-	SELECT COUNT(*) FROM dbo.FactInternetSales;
-	```
+    ```sql
+    SELECT COUNT(*) FROM dbo.FactInternetSales;
+    ```
 
 4. 쿼리를 실행합니다. 이렇게 하려면 녹색 화살표를 클릭하거나 다음 바로 가기를 사용합니다. `CTRL`+`SHIFT`+`E`
 
@@ -108,4 +110,4 @@
 [7]: ./media/sql-data-warehouse-get-started-connect/run-query.png
 [8]: ./media/sql-data-warehouse-get-started-connect/query-results.png
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

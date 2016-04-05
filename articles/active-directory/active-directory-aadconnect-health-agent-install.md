@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/21/2016"
+	ms.date="03/29/2016"
 	ms.author="vakarand"/>
 
 
@@ -31,7 +31,7 @@
 |Azure AD Connect Health Agent는 각 대상 서버에 설치됩니다.| Azure AD Connect Health는 포털에 표시되는 데이터를 제공하기 위해 대상 서버에 에이전트를 설치할 것을 요구합니다. </br></br>예를 들어, AD FS 온-프레미스 인프라에서 데이터를 얻기 위해 에이전트는 AD FS 서버, AD FS 프록시 서버 및 웹 응용 프로그램 프록시 서버에 설치되어야 합니다. </br></br>**중요:** 에이전트를 설치할 때 사용하는 계정은 필히 직장 또는 학교 계정이어야 하며 Microsoft 계정은 사용할 수 없습니다. 자세한 내용은 [조직으로 Azure 등록](sign-up-organization.md)을 참조하세요.|
 |Azure 서비스 끝점에 대한 아웃바운드 연결|에이전트는 설치 및 런타임 중에 아래 나열된 Azure AD Connect Health 서비스 끝점에 연결되어야 합니다. 아웃바운드 연결을 차단하는 경우 다음 항목이 허용 목록에 추가되어 있는지 확인합니다.</br></br><li>&#42;.blob.core.windows.net </li><li>&#42;.queue.core.windows.net</li><li>adhsprodwus.servicebus.windows.net - Port: 5671 </li><li>https://management.azure.com </li><li>https://s1.adhybridhealth.azure.com/</li><li>https://policykeyservice.dc.ad.msft.net/</li><li>https://login.windows.net</li><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li> |
 |에이전트를 실행하는 서버의 방화벽 포트| 에이전트가 Azure AD Health 서비스 끝점과 통신하기 위해 다음 방화벽 포트를 열어놓아야 합니다.</br></br><li>TCP/UDP port 443</li><li>TCP/UDP port 5671</li>
-|IE 보안 강화를 사용하는 경우 다음 웹 사이트 허용|에이전트가 설치될 서버에서 IE 보안 강화를 사용하도록 설정되어 있는 경우 다음 웹 사이트를 허용해야 합니다.</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>Azure Active Directory에 의해 신뢰할 수 있는 조직의 페더레이션 서버의 예:https://sts.contoso.com</li>
+|IE 보안 강화를 사용하는 경우 다음 웹 사이트 허용|에이전트가 설치될 서버에서 IE 보안 강화를 사용하도록 설정되어 있는 경우 다음 웹 사이트를 허용해야 합니다.</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>Azure Active Directory에 의해 신뢰할 수 있는 조직의 페더레이션 서버입니다. 예: https://sts.contoso.com</li>
 
 
 
@@ -134,7 +134,7 @@ Windows Server 2008 R2 서버에 대해 다음을 수행합니다.
 
 ![동기화에 대한 Azure AD Connect Health 확인](./media/active-directory-aadconnect-health-sync/services.png)
 
->[Azure.NOTE] Azure AD Connect Health를 사용하려면 Azure AD Premium이 필요합니다. Azure AD Premium이 없는 경우 Azure 포털에서 구성을 완료할 수 없습니다. 자세한 내용은 [여기](active-directory-aadconnect-health-agent-install.md#requirements)에서 요구 사항을 참조하세요.
+> [AZURE.NOTE] Azure AD Connect Health를 사용하려면 Azure AD Premium이 필요합니다. Azure AD Premium이 없는 경우 Azure 포털에서 구성을 완료할 수 없습니다. 자세한 내용은 [여기](active-directory-aadconnect-health-agent-install.md#requirements)에서 요구 사항을 참조하세요.
 
 
 ## 동기화에 대한 Azure AD Connect Health 수동 등록
@@ -233,4 +233,4 @@ Azure AD Connect Health 에이전트에서 Azure AD Connect Health 서비스와�
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health 버전 내역](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

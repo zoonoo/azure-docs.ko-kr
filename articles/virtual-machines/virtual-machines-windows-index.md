@@ -195,7 +195,7 @@ Microsoft Azure에서 Windows 기반 가상 컴퓨터를 만들고 관리하는 
 
 [Azure VM 확장 오류 문제 해결](virtual-machines-windows-extensions-troubleshoot.md)
 
-[리소스 그룹 배포 문제 해결](resource-group-deploy-debug.md)
+[리소스 그룹 배포 문제 해결](../resource-manager-troubleshoot-deployments-portal.md)
 
 [Azure 가상 컴퓨터에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결](virtual-machines-windows-troubleshoot-app-connection.md)
 
@@ -375,4 +375,4 @@ Microsoft Azure에서 Windows 기반 가상 컴퓨터를 만들고 관리하는 
 
 [Azure에서 VM을 만들거나 재시작하거나 크기를 조정하는 경우 할당 오류 해결](virtual-machines-windows-allocation-failure.md)
 
-<!----HONumber=AcomDC_0323_2016--->
+<!---HONumber=AcomDC_0330_2016-->

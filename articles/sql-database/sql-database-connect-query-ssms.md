@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/21/2016"
+	ms.date="03/25/2016"
 	ms.author="sstein" />
 
 # SQL Server Management Studio를 사용하여 SQL 데이터베이스에 연결하고 샘플 T-SQL 쿼리를 수행합니다.
@@ -42,9 +42,11 @@ SQL 데이터베이스를 사용하여 작업할 때 가장 최신 버전의 SSM
 
 	![SQL Server Management Studio: SQL 데이터베이스 서버에 연결](./media/sql-database-connect-query-ssms/1-connect.png)
 
+5. 아직 Azure에 대한 연결을 설정하지 않은 경우 SSMS에서 Azure 로그인 정보를 묻습니다.
+
 ### 연결에 실패하는 경우
 
-연결 실패에 대한 가장 일반적인 이유는 보안상의 이유로 연결을 허용하지 않도록 하는 서버와 서버 이름, 사용자 이름 또는 암호에 대한 실수입니다. *&lt;;servername>*은 데이터베이스가 아닌 논리적 서버의 이름임을 기억하세요. 최초로 연결하거나 변경된 IP 구성으로 인해 연결이 실패한 경우 [최신 SSMS 버전](https://msdn.microsoft.com/library/mt238290.aspx)에서 Azure 로그인을 요청하며 Azure에서 사용자에 대한 방화벽 규칙을 만듭니다. 이전 버전을 사용하는 경우 IP 주소는 오류 메시지에서 보고되고 Azure에서 서버 방화벽 규칙에 이 IP 주소를 추가해야 합니다. 서버의 방화벽 설정이 로컬 컴퓨터의 IP 주소 및 SSMS 클라이언트가 사용하는 IP 주소에서 연결을 허용 하고 있는지 확인합니다. 때때로 다른 경우도 있습니다. 자세한 내용은 [방법: 방화벽 설정 구성(Azure SQL 데이터베이스)](sql-database-configure-firewall-settings.md)을 참조하세요.
+연결 실패에 대한 가장 일반적인 이유는 보안상의 이유로 연결을 허용하지 않도록 하는 서버와 서버 이름, 사용자 이름 또는 암호에 대한 실수입니다. <*servername*>은 데이터베이스가 아닌 논리적 서버의 이름임을 기억하세요. 최초로 연결하거나 변경된 IP 구성으로 인해 연결이 실패한 경우 [최신 SSMS 버전](https://msdn.microsoft.com/library/mt238290.aspx)에서 Azure 로그인을 요청하며 Azure에서 사용자에 대한 방화벽 규칙을 만듭니다. 이전 버전을 사용하는 경우 IP 주소는 오류 메시지에서 보고되고 Azure에서 서버 방화벽 규칙에 이 IP 주소를 추가해야 합니다. 서버의 방화벽 설정이 로컬 컴퓨터의 IP 주소 및 SSMS 클라이언트가 사용하는 IP 주소에서 연결을 허용 하고 있는지 확인합니다. 때때로 다른 경우도 있습니다. 자세한 내용은 [방법: 방화벽 설정 구성(Azure SQL 데이터베이스)](sql-database-configure-firewall-settings.md)을 참조하세요.
 
 ## 예제 쿼리 실행
 
@@ -75,4 +77,4 @@ T-SQL 문을 사용하여 SQL Server를 통해 할 수 있는 것과 동일한 �
 
 T-SQL을 처음 접하는 경우 [자습서: Transact-SQL 문 쓰기](https://msdn.microsoft.com/library/ms365303.aspx) 및 [Transact-SQL 참조(데이터베이스 엔진)](https://msdn.microsoft.com/library/bb510741.aspx)를 참조하세요.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->
