@@ -552,11 +552,11 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 	...
 	```
 
-	Note that injected script for the CSS bundle still contains the errant remnant from the `CdnFallbackExpression` property in the line:
+	CSS 번들의 삽입 스크립트에서 여전히 다음과 같은 줄에 `CdnFallbackExpression` 속성의 잘못된 나머지 부분이 포함되어 있습니다.
 
 		}())||document.write('<script src="/Content/css"><\/script>');</script>
 
-	But since the first part of the || expression will always return true (in the line directly above that), the document.write() function will never run.
+	그러나 || 식의 첫 부분이 항상 true를 반환하므로(바로 위의 줄에서) document.write() 함수가 실행되지 않습니다.
 
 6. 대체(fallback) 스크립트가 작동 중인지를 테스트하려면 CDN 끝점의 블레이드로 돌아간 후 **중지**를 클릭합니다.
 
