@@ -128,7 +128,7 @@ NSG에는 인바운드 및 아웃바운드의 두 가지 규칙 집합이 포함
 |Azure 포털|![예][green]|[![예][green]]( https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-pportal)|
 |PowerShell|[![예][green]]( https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-ps)|[![예][green]]( https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-ps)|
 |Azure CLI|[![예][green]]( https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-cli)|[![예][green]]( https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-cli)|
-|ARM 템플릿|![아니요][red]|[![예][green]]( https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-template |
+|ARM 템플릿|![아니요][red]|[![예][green]](https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-template)|
 
 |**키**|![예][green] 지원됩니다. 문서를 클릭합니다.|![아니요][red] 지원되지 않습니다.|
 |---|---|---|
