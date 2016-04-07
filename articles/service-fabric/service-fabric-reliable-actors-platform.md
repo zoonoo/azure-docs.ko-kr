@@ -3,7 +3,7 @@
    description="신뢰할 수 있는 행위자가 행위자 개발자의 견지에서 서비스 패브릭 플랫폼의 기능을 어떻게 사용하는지 설명합니다."
    services="service-fabric"
    documentationCenter=".net"
-   authors="myamanbh"
+   authors="vturecek"
    manager="timlt"
    editor="vturecek"/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="03/15/2016"
-   ms.author="amanbha"/>
+   ms.author="vturecek"/>
 
 # 신뢰할 수 있는 행위자가 서비스 패브릭 플랫폼을 사용하는 방법
 
