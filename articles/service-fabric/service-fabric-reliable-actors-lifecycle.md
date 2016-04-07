@@ -3,7 +3,7 @@
    description="서비스 패브릭 신뢰할 수 있는 행위자에 대한 수명 주기 및 가비지 수집을 설명합니다."
    services="service-fabric"
    documentationCenter=".net"
-   authors="myamanbh"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="03/15/2016"
-   ms.author="amanbha"/>
+   ms.author="vturecek"/>
 
 
 # 행위자 수명 주기 및 가비지 수집
