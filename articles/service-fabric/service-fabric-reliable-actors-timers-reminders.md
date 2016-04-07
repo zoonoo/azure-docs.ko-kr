@@ -3,7 +3,7 @@
    description="서비스 패브릭 Reliable Actors의 타이머 및 미리 알림에 대해 소개합니다."
    services="service-fabric"
    documentationCenter=".net"
-   authors="myamanbh"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="03/15/2016"
-   ms.author="amanbha"/>
+   ms.author="vturecek"/>
 
 
 # 행위자 타이머
