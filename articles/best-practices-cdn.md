@@ -65,8 +65,8 @@ CDN를 사용하면 콘텐츠에 액세스하고 콘텐츠를 전달하는 데 �
 |서울, 한국| 190 | 190 | 0% |
 
 
-* 같은 도시에서는 Azure CDN 노드를 가집니다. 
-** 인접한 도시에서는 Azure CDN 노드를 가집니다.
+\* 같은 도시에서는 Azure CDN 노드를 가집니다. 
+\*\인접한 도시에서는 Azure CDN 노드를 가집니다.
 
 ## 과제  
 
@@ -284,4 +284,4 @@ URL 다시 쓰기를 사용하면 리소스 묶음에 대한 변경을 수행해
 + [Azure CDN과 클라우드 서비스 통합](./cdn/cdn-cloud-service-with-cdn.md/)
 + [Microsoft Azure 콘텐츠 배달 네트워크 모범 사례](https://azure.microsoft.com/blog/2011/03/18/best-practices-for-the-windows-azure-content-delivery-network/)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0323_2016-->
