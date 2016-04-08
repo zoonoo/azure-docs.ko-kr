@@ -117,4 +117,4 @@
 * [Azure Resource Manager 템플릿](https://azure.microsoft.com/documentation/templates/)을 사용하여 가상 컴퓨터 및 워크로드 배포와 관리를 자동화합니다.
 * 또한 Azure CLI를 사용하여 신속하게 [Linux 가상 컴퓨터를 만들](virtual-machines-linux-quick-create-cli.md) 수 있습니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0323_2016-->
