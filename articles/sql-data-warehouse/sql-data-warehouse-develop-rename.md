@@ -13,17 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="mausher;jrj;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스의 이름 바꾸기
-SQL Server는 저장된 프로시저 ```sp_renamedb```를 통한 데이터베이스 이름 변경을 지원하지만 SQL 데이터 웨어하우스는 해당 작업에 DDL 구문을 사용합니다. DDL 명령은 ```RENAME OBJECT```입니다.
+SQL Server는 저장된 프로시저 `sp_renamedb`를 통한 데이터베이스 이름 변경을 지원하지만 SQL 데이터 웨어하우스는 해당 작업에 DDL 구문을 사용합니다. DDL 명령은 `RENAME OBJECT`입니다.
 
 ## 테이블 이름 변경
 
 현재 테이블만 이름을 바꿀 수 있습니다. 테이블 이름을 바꾸기 위한 구문은 다음과 같습니다.
 
-```
+```sql
 RENAME OBJECT dbo.Customer TO NewCustomer;
 ```
 
@@ -36,13 +36,13 @@ RENAME OBJECT dbo.Customer TO NewCustomer;
 ## 테이블 스키마 변경
 개체가 속해 있는 스키마를 변경하는 것이 목적이라면 ALTER SCHEMA를 통해 이루어집니다.
 
-```
+```sql
 ALTER SCHEMA dbo TRANSFER OBJECT::product.item;
 ```
 
 ## 테이블 이름 변경에는 배타적 테이블 잠금이 필요합니다.
 
-테이블을 사용 중에는 테이블 이름을 변경할 수 없습니다. 테이블 이름 변경에는 테이블에 대한 배타적 잠금이 필요합니다. 테이블을 사용 중인 경우 테이블을 사용하는 세션을 종료해야 할 수 있습니다. 세션을 종료하려면 [KILL](https://msdn.microsoft.com/library/ms173730.aspx) 명령을 사용해야 합니다. 세션이 종료되고 커밋되지 않은 모든 작업이 롤백되면 ```KILL```을 사용할 때 주의합니다. SQL 데이터 웨어하우스의 세션에는 'SID'라는 접두어가 붙습니다. KILL 명령을 호출할 때 세션 번호와 이 부분을 포함해야 합니다. 예: ```KILL 'SID1234'```. [세션]에 대한 자세한 내용은 연결 문서를 참조하세요.
+테이블을 사용 중에는 테이블 이름을 변경할 수 없습니다. 테이블 이름 변경에는 테이블에 대한 배타적 잠금이 필요합니다. 테이블을 사용 중인 경우 테이블을 사용하는 세션을 종료해야 할 수 있습니다. 세션을 종료하려면 [KILL][] 명령을 사용해야 합니다. 세션이 종료되고 커밋되지 않은 모든 작업이 롤백되면 `KILL`을 사용할 때 주의합니다. SQL 데이터 웨어하우스의 세션에는 'SID'라는 접두어가 붙습니다. KILL 명령을 호출할 때 세션 번호와 이 부분을 포함해야 합니다. 예: `KILL 'SID1234'`. [세션]에 대한 자세한 내용은 연결 문서를 참조하세요.
 
 
 ## 다음 단계
@@ -54,4 +54,8 @@ ALTER SCHEMA dbo TRANSFER OBJECT::product.item;
 [개발 개요]: sql-data-warehouse-overview-develop.md
 [세션]: sql-data-warehouse-develop-connections.md
 
-<!---HONumber=AcomDC_0323_2016-->
+
+<!--MSDN references-->
+[KILL]: https://msdn.microsoft.com/library/ms173730.aspx
+
+<!---HONumber=AcomDC_0330_2016-->

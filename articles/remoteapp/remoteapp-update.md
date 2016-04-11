@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="compute"
-   ms.date="12/05/2015"
+   ms.date="03/28/2016"
    ms.author="elizapo"/>
 
 # Azure RemoteApp에서 컬렉션 업데이트
@@ -34,4 +34,4 @@
 
 1. 확인 표시를 클릭하여 업데이트를 시작합니다.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0330_2016-->

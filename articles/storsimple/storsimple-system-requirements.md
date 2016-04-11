@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="03/15/2016"
+   ms.date="03/23/2016"
    ms.author="alkohli"/>
 
 # StorSimple 소프트웨어, 높은 가용성 및 네트워킹 요구 사항
@@ -52,7 +52,7 @@ Microsoft Azure StorSimple 시작을 환영합니다. 이 문서에서는 중요
  
 ## StorSimple 장치에 대한 네트워킹 요구 사항
 
-StorSimple 장치는 잠긴 장치입니다. 하지만 iSCSI, 클라우드 또는 관리 트래픽에 허용하도록 포트가 방화벽에서 열려야 합니다. 다음 표에서 방화벽에서 열려야 하는 포트를 나열합니다. 이 테이블에서 *인* 또는 *인바운드*는 장치에 대한 들어오는 클라이언트 요청 액세스에서 방향을 참조합니다. *아웃* 또는 *아웃바운드*는 배포 후 데이터를 외부로 보내는 StorSimple 장치에서 방향을 참조합니다.
+StorSimple 장치는 잠긴 장치입니다. 하지만 iSCSI, 클라우드 및 관리 트래픽에 허용하도록 포트가 방화벽에서 열려야 합니다. 다음 표에서 방화벽에서 열려야 하는 포트를 나열합니다. 이 테이블에서 *인* 또는 *인바운드*는 장치에 대한 들어오는 클라이언트 요청 액세스에서 방향을 참조합니다. *아웃* 또는 *아웃바운드*는 배포 후 데이터를 외부로 보내는 StorSimple 장치에서 방향을 참조합니다.
 
 | 포트 번호 <sup>1, 2</sup> | 인 또는 아웃 | 포트 범위 | 필수 | 참고 |
 |------------------------|-----------|------------|----------|-------| 
@@ -77,7 +77,7 @@ StorSimple 장치는 잠긴 장치입니다. 하지만 iSCSI, 클라우드 또�
 
 네트워크 관리자는 URL 패턴을 기준으로 하는 고급 방화벽 규칙이 인바운드 및 아웃바운드 트래픽을 필터링하도록 구성할 수 있습니다. StorSimple 장치 및 StorSimple Manager 서비스는 Azure 서비스 버스, Azure Active Directory 액세스 제어, 저장소 계정 및 Microsoft 업데이트 서버 등의 다른 Microsoft 응용 프로그램에 의존합니다. 이러한 응용 프로그램과 연결된 URL 패턴을 사용하여 방화벽 규칙을 구성할 수 있습니다. 이러한 응용 프로그램과 연결된 URL 패턴은 달라질 수 있습니다. 따라서 네트워크 관리자는 StorSimple에 대한 방화벽 규칙을 모니터링하고 필요에 따라 업데이트해야 합니다.
 
-대부분의 경우에는 방화벽 규칙을 자유롭게 설정하는 것이 좋습니다. 그러나 보안 환경을 만드는 데 필요한 고급 방화벽 규칙을 설정하려면 아래 정보를 사용할 수 있습니다.
+StorSimple 고정 IP 주소에 따라 대부분의 경우에서 자유롭게 아웃바운드 트래픽에 대한 방화벽 규칙을 설정하는 것이 좋습니다. 그러나 보안 환경을 만드는 데 필요한 고급 방화벽 규칙을 설정하려면 아래 정보를 사용할 수 있습니다.
 
 > [AZURE.NOTE] 장치(원본) IP는 항상 사용하도록 설정된 네트워크 인터페이스로 설정되어야 합니다. 대상 IP는 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/ko-KR/download/confirmation.aspx?id=41653)로 설정해야 합니다.
 
@@ -85,6 +85,7 @@ StorSimple 장치는 잠긴 장치입니다. 하지만 iSCSI, 클라우드 또�
 | URL 패턴 | 구성 요소/기능 | 장치 IP |
 |------------------------------------------------------------------|---------------------------------------------------------------|-----------------------------------------|
 | `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` | StorSimple Manager 서비스<br>액세스 제어 서비스<br>Azure 서비스 버스| 클라우드 사용 네트워크 인터페이스 |
+|`http://*.backup.windowsazure.com`|장치 등록| 데이터 0만 해당|
 |`http://crl.microsoft.com/pki/*` |인증서 해지 |클라우드 사용 네트워크 인터페이스 |
 | `https://*.core.windows.net/*` | Azure 저장소 계정 및 모니터링 | 클라우드 사용 네트워크 인터페이스 |
 | `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Microsoft 업데이트 서버<br> | 컨트롤러 고정 IP만 |
@@ -127,7 +128,7 @@ StorSimple에 대해 다수의 네트워크 인터페이스와 게이트웨이�
 	| 네트워크 인터페이스 | 클라우드 사용 | 클라우드 미사용(게이트웨이 구성됨) |
 	|-----|---------------|---------------------------|
 	| Data 0 | 1 | - |
-	| Data 1 | 2 | 20 |
+	| Data 1 | 2 | 20 
 	| Data 2 | 3 | 30 |
 	| Data 3 | 4 | 40 |
 	| Data 4 | 5 | 50 |
@@ -167,7 +168,7 @@ StorSimple에 대해 다수의 네트워크 인터페이스와 게이트웨이�
 
 StorSimple 솔루션의 최적의 성능을 위해 위의 네트워킹 요구 사항 외에도 다음 모범 사례를 준수합니다.
 
-- StorSimple 장치에서 항상 전용 40Mbps 대역폭(이상)을 사용할 수 있어야 합니다. 이 대역폭은 다른 응용 프로그램과 공유하면 안됩니다.
+- StorSimple 장치에서 항상 전용 40Mbps 대역폭(이상)을 사용할 수 있어야 합니다. 이 대역폭을 다른 응용 프로그램과 공유되지 않아야 합니다(또는 QoS 정책을 사용하여 할당을 보장해야 함).
 
 - 항상 인터넷에 네트워크 연결이 되어야 합니다. 인터넷 연결이 전혀 안되는 것을 비롯하여 산발적이거나 안정적이지 않은 인터넷 연결은 지원되지 않은 구성을 야기합니다.
 
@@ -257,7 +258,7 @@ StorSimple 장치 모델 8600에는 기본 인클로저 외에도 확장 EBOD(Ex
 
 - EBOD 인클로저 컨트롤러 모듈에 오류가 있는 경우 오류가 있는 모듈을 교체하기 전에 다른 컨트롤러 모듈이 활성 상태인지 확인합니다. 컨트롤러가 활성인지 확인하려면 [장치의 활성 컨트롤러 식별](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device)로 이동하세요.
 
-- EBOD 컨트롤러 모듈을 교체하는 동안 **유지 관리** - **하드웨어** 상태에 액세스하여 StorSimple Manager 서비스의 구성 요소 상태를 지속적으로 모니터링합니다.
+- EBOD 컨트롤러 모듈을 교체하는 동안 **유지 관리** > **하드웨어** 상태에 액세스하여 StorSimple Manager 서비스의 구성 요소 상태를 지속적으로 모니터링합니다.
 
 - SAS 케이블에 오류가 있거나 교체가 필요한 경우(확인을 위해 Microsoft 지원이 포함되어야 함) 교체가 필요한 SAS 케이블만 제거해야 합니다.
 
@@ -279,4 +280,4 @@ StorSimple 장치에 연결된 호스트의 고가용성을 위해 이러한 모
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

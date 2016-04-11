@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/18/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # 인덱스 관리
@@ -29,13 +29,13 @@
 
 다음은 단일 파티션을 다시 작성하는 방법의 예입니다.
 
-```
+```sql
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5
 ```
 
 ALTER INDEX..REBUILD는 좀 더 작은 데이터 볼륨에 가장 적합하며 특히 columnstore 인덱스에 적합합니다. 열린 행 그룹, 닫힌 행 그룹 및 압축된 행 그룹이 다시 작성에 모두 포함됩니다. 그러나 파티션이 매우 큰 경우 `CTAS`가 좀 더 효율적인 작업이라는 것을 알 수 있습니다. 전체 인덱스 다시 작성의 예는 아래와 같습니다.
 
-```
+```sql
 ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD
 ```
 
@@ -45,7 +45,7 @@ ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD
 
 다음은 CTAS를 사용하여 파티션을 다시 작성하는 방법의 예입니다.
 
-```
+```sql
 -- Step 01. Select the partition of data and write it out to a new table using CTAS
 CREATE TABLE [dbo].[FactInternetSales_20000101_20010101]
     WITH    (   DISTRIBUTION = HASH([ProductKey])
@@ -82,7 +82,6 @@ ALTER TABLE [dbo].[FactInternetSales] SWITCH PARTITION 2 TO  [dbo].[FactInternet
 
 -- Step 04. Switch IN the rebuilt data
 ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales] PARTITION 2;
-
 ```
 
 ## 다음 단계
@@ -102,4 +101,4 @@ ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

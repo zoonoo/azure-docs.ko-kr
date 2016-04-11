@@ -27,7 +27,7 @@
 
 - [SQL 데이터베이스의 서비스 계층 및 성능 수준(가격 책정 계층) 변경](sql-database-scale-up.md)
 - [Azure SQL Server를 V12로 업그레이드](sql-database-upgrade-server-portal.md)
-- V12 서버로 찾아보기 - 데이터베이스가 [탄력적인 데이터베이스 풀에서 활용](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools)할 수 있는 경우 서버 블레이드는 권장된 풀을 나타내는 메시지를 표시합니다. 권장되는 풀을 만들려면 메시지를 클릭합니다.
+- V12 서버로 이동합니다. [SQL 데이터베이스 가격 책정 계층 권장 사항](sql-database-service-tier-advisor.md)을 참조하세요.
 - [탄력적 데이터베이스 풀 생성](sql-database-elastic-pool.md#elastic-database-pool-pricing-tier-recommendations)
 
 
@@ -96,4 +96,4 @@ SQL 데이터베이스 서비스는 SQL 데이터베이스의 과거 리소스 �
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

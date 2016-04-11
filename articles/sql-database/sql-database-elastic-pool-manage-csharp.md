@@ -16,7 +16,7 @@
     ms.date="03/15/2016"
     ms.author="sstein"/>
 
-# 탄력적 데이터베이스 풀 관리(C&#x23;)
+# C&#x23;로 탄력적 데이터베이스 풀 관리 및 크기 조정
 
 > [AZURE.SELECTOR]
 - [Azure 포털](sql-database-elastic-pool-manage-portal.md)
@@ -36,7 +36,7 @@ C&#x23;을 사용하여 [탄력적 데이터베이스 풀](sql-database-elastic-
 
 
 
-## 탄력적 데이터베이스 풀 업데이트
+## 풀 업데이트
 
 
     // Retrieve existing pool properties
@@ -60,7 +60,7 @@ C&#x23;을 사용하여 [탄력적 데이터베이스 풀](sql-database-elastic-
 
 
 
-## 기존 데이터베이스를 탄력적 데이터베이스 풀 내로 이동
+## 기존 데이터베이스를 풀로 이동
 
 
     // Update database service objective to add the database to a pool
@@ -88,7 +88,7 @@ C&#x23;을 사용하여 [탄력적 데이터베이스 풀](sql-database-elastic-
 
 
 
-## 탄력적 데이터베이스 풀 내에 새 데이터베이스 생성
+## 풀에 새 데이터베이스 만들기
 
 
     // Create a new database in the pool
@@ -111,7 +111,7 @@ C&#x23;을 사용하여 [탄력적 데이터베이스 풀](sql-database-elastic-
 
 
 
-## 탄력적 데이터베이스 풀 내에 있는 모든 데이터베이스 나열
+## 풀에 있는 모든 데이터베이스 나열
 
 다음 예제에서는 풀의 모든 데이터베이스를 나열합니다.
 
@@ -126,7 +126,7 @@ C&#x23;을 사용하여 [탄력적 데이터베이스 풀](sql-database-elastic-
 
 
 
-## 탄력적 데이터베이스 풀 관리 C&#x23; 예제
+## 풀 C&#x23; 예제 관리
 
 이 예제를 실행하려면 다음 라이브러리가 필요합니다. Visual Studio의 [패키지 관리자 콘솔](http://docs.nuget.org/Consume/Package-Manager-Console)(**도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**)에서 다음 명령을 실행하여 설치할 수 있습니다.
 
@@ -148,7 +148,7 @@ C&#x23;을 사용하여 [탄력적 데이터베이스 풀](sql-database-elastic-
     {
     class Program
     {
-        // elastic database pool variables
+        // pool variables
         static string poolName = "elasticPool1";
         static string poolEdition = "Standard";
         static int poolDtus = 400;
@@ -191,7 +191,7 @@ C&#x23;을 사용하여 [탄력적 데이터베이스 풀](sql-database-elastic-
             ServerGetResponse srvr = CreateServer();
             Console.WriteLine("Creation of server " + srvr.Server.Name + ": " + srvr.StatusCode.ToString());
 
-            // Create an elastic database pool
+            // Create a pool
             Console.WriteLine("Creating elastic database pool with 400 pool eDTUs... ");
             ElasticPoolCreateOrUpdateResponse epool = CreateElasticDatabasePool();
             Console.WriteLine("Creation of pool " + epool.ElasticPool.Name + ": " + epool.Status.ToString());
@@ -212,7 +212,7 @@ C&#x23;을 사용하여 [탄력적 데이터베이스 풀](sql-database-elastic-
             Console.WriteLine("Press Enter to update the pool to 1200 pool eDTUs.");
             Console.ReadLine();
 
-            // Update the elastic database pool
+            // Update the pool
             Console.WriteLine("Updating elastic database pool to 1200 pool eDTUs...");
             ElasticPoolCreateOrUpdateResponse epool2 = UpdateElasticDatabasePool();
             Console.WriteLine("Update of pool " + epool2.ElasticPool.Name + ": " + epool2.Status.ToString());
@@ -457,4 +457,4 @@ C&#x23;을 사용하여 [탄력적 데이터베이스 풀](sql-database-elastic-
 - [Azure 리소스 관리 API](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 - [탄력적 데이터베이스 풀 참조](sql-database-elastic-pool-reference.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

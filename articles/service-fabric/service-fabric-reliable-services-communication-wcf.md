@@ -22,25 +22,38 @@ Reliable Services 프레임워크를 사용하면 서비스 작성자가 서비�
 ## WCF 통신 수신기
 **ICommunicationListener**의 WCF 관련 구현은 **Microsoft.ServiceFabric.Services.Communication.Wcf.Runtime.WcfCommunicationListener** 클래스에서 제공됩니다.
 
+서비스 계약의 형식이 있다고 가정합니다 `ICalculator`
+
+```csharp
+[ServiceContract]
+public interface ICalculator
+{
+    [OperationContract]
+    Task<int> Add(int value1, int value2);
+}
+```
+
+다음과 같은 방식으로 서비스에서 WCF 통신 수신기를 만들 수 있습니다.
+
 ```csharp
 
 protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
 {
-    // TODO: If your service needs to handle user requests, return a list of ServiceReplicaListeners here.
-    return new[] { new ServiceReplicaListener(parameters =>
-        new WcfCommunicationListener(ServiceInitializationParameters,typeof(ICalculator), this)
-        {
+    return new[] { new ServiceReplicaListener((context) =>
+        new WcfCommunicationListener<ICalculator>(
+            wcfServiceObject:this,
+            serviceContext:context,
             //
             // The name of the endpoint configured in the ServiceManifest under the Endpoints section
             // that identifies the endpoint that the WCF ServiceHost should listen on.
             //
-            EndpointResourceName = "ServiceEndpoint",
+            endpointResourceName: "WcfServiceEndpoint",
 
             //
             // Populate the binding information that you want the service to use.
             //
-            Binding = this.CreateListenBinding()
-        }
+            listenerBinding: WcfUtility.CreateTcpListenerBinding()
+        )
     )};
 }
 
@@ -52,66 +65,61 @@ WCF를 사용하여 서비스와 통신하는 클라이언트를 작성하는 �
 ```csharp
 
 public WcfCommunicationClientFactory(
-    ServicePartitionResolver servicePartitionResolver = null,
-    Binding binding = null,
-    object callback = null,
-    IList<IExceptionHandler> exceptionHandlers = null,
-    IEnumerable<Type> doNotRetryExceptionTypes = null)
-
+    Binding clientBinding = null,
+    IEnumerable<IExceptionHandler> exceptionHandlers = null,
+    IServicePartitionResolver servicePartitionResolver = null,
+    string traceId = null,
+    object callback = null);
 ```
 
 WCF 통신 채널은 **WcfCommunicationClientFactory**에서 만든 **WcfCommunicationClient**에서 액세스될 수 있습니다.
 
 ```csharp
 
-public class WcfCommunicationClient<TChannel> : ICommunicationClient where TChannel : class
-{
-    public TChannel Channel { get; }
-    public ResolvedServicePartition ResolvedServicePartition { get; set; }
-}
+public class WcfCommunicationClient : ServicePartitionClient<WcfCommunicationClient<ICalculator>>
+   {
+       public WcfCommunicationClient(ICommunicationClientFactory<WcfCommunicationClient<ICalculator>> communicationClientFactory, Uri serviceUri, ServicePartitionKey partitionKey = null, TargetReplicaSelector targetReplicaSelector = TargetReplicaSelector.Default, string listenerName = null, OperationRetrySettings retrySettings = null)
+           : base(communicationClientFactory, serviceUri, partitionKey, targetReplicaSelector, listenerName, retrySettings)
+       {
+       }
+   }
 
 ```
 
-클라이언트 코드는 **ServicePartitionClient**와 함께 **WcfCommunicationClientFactory**을 사용하여 서비스 끝점을 결정하고 서비스와 통신할 수 있습니다.
+클라이언트 코드는 **ServicePartitionClient**를 구현하는 **WcfCommunicationClient**와 함께 **WcfCommunicationClientFactory**를 사용하여 서비스 끝점을 결정하고 서비스와 통신할 수 있습니다.
 
 ```csharp
+// Create binding
+Binding binding = WcfUtility.CreateTcpClientBinding();
+// Create a partition resolver
+IServicePartitionResolver partitionResolver = ServicePartitionResolver.GetDefault();
+// create a  WcfCommunicationClientFactory object.
+var wcfClientFactory = new WcfCommunicationClientFactory<ICalculator>
+    (clientBinding: binding, servicePartitionResolver: partitionResolver);
 
 //
-// Create a service resolver for resolving the endpoints of the calculator service.
-//
-ServicePartitionResolver serviceResolver = new ServicePartitionResolver(() => new FabricClient());
-
-//
-// Create the binding.
-//
-NetTcpBinding binding = CreateClientConnectionBinding();
-
-var clientFactory = new WcfCommunicationClientFactory<ICalculator>(
-    serviceResolver,// ServicePartitionResolver
-    binding,        // Client binding
-    null,           // Callback object
-    null);          // do not retry Exception types
-
-
-//
-// Create a client for communicating with the calc service that has been created with the
+// Create a client for communicating with the ICalculator service that has been created with the
 // Singleton partition scheme.
 //
-var calculatorServicePartitionClient = new ServicePartitionClient<WcfCommunicationClient<ICalculator>>(
-    clientFactory,
-    ServiceName);
+var calculatorServiceCommunicationClient =  new WcfCommunicationClient(
+                wcfClientFactory,
+                ServiceUri,
+                ServicePartitionKey.Singleton);
 
 //
 // Call the service to perform the operation.
 //
-var result = calculatorServicePartitionClient.InvokeWithRetryAsync(
-    client => client.Channel.AddAsync(2, 3)).Result;
+var result = calculatorServiceCommunicationClient.InvokeWithRetryAsync(
+                client => client.Channel.Add(2, 3)).Result;
 
 ```
+>[AZURE.NOTE] 기본 ServicePartitionResolver는 클라이언트가 서비스와 동일한 클러스터에서 실행되고 있다고 가정합니다. 그렇지 않은 경우 ServicePartitionResolver 개체를 만들고 클러스터 연결 끝점에 전달합니다.
 
 ## 다음 단계
 * [Reliable Services 원격을 사용하여 원격 프로시저 호출](service-fabric-reliable-services-communication-remoting.md)
 
 * [Reliable Services에서 OWIN을 사용하는 Web API](service-fabric-reliable-services-communication-webapi.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+* [Reliable Services에 대한 통신 보안 유지](service-fabric-reliable-services-secure-communication.md)
+
+<!---HONumber=AcomDC_0330_2016-->

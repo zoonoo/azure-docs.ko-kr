@@ -6,73 +6,33 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-service-management,hpc-pack"/>
+ tags="azure-service-management,azure-resource-manager,hpc-pack"/>
 <tags
  ms.service="virtual-machines-linux"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="big-compute"
- ms.date="12/02/2015"
+ ms.date="03/22/2016"
  ms.author="danlep"/>
 
 # Azure의 Linux 계산 노드에서 Microsoft HPC 팩을 사용하여 NAMD 실행
 
 이 문서에서는 여러 Linux 계산 노드를 사용하여 Azure에 Microsoft HPC 팩 클러스터를 배포하고 **charmrun**으로 [NAMD](http://www.ks.uiuc.edu/Research/namd/) 작업을 실행하여 규모가 큰 생체 분자 시스템의 구조를 계산 및 시각화하는 방법을 보여 줍니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
-
-
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)].
 
 NAMD(Nanoscale Molecular Dynamics 프로그램용)는 바이러스, 세포 구조, 거대한 단백질 등의 수백 만 원자를 포함하는 규모가 큰 생체 분자 시스템의 고성능 시뮬레이션을 위해 설계된 병렬 분자 동적 패키지입니다. NAMD는 일반적인 시뮬레이션의 경우 수백 개의 코어로 확장되며 가장 큰 규모의 시뮬레이션의 경우 500,000 코어 이상까지 확장됩니다.
 
-Microsoft HPC 팩에서는 MPI 응용 프로그램을 포함한 다양한 대규모 HPC 및 병렬 응용 프로그램을 Microsoft Azure 가상 컴퓨터의 클러스터에서 실행하는 기능을 제공합니다. Microsoft HPC 팩 2012 R2 업데이트 2부터는 HPC 팩에서 HPC 팩 클러스터에 배포된 Linux 계산 노드 VM에서 Linux HPC 응용 프로그램의 실행도 지원합니다. 소개는 [Azure에서 HPC Pack 클러스터의 Linux 계산 노드 시작](virtual-machines-linux-classic-hpcpack-cluster.md)을 참조하세요.
+Microsoft HPC 팩에서는 MPI 응용 프로그램을 포함한 다양한 대규모 HPC 및 병렬 응용 프로그램을 Microsoft Azure 가상 컴퓨터의 클러스터에서 실행하는 기능을 제공합니다. 원래 Windows HPC 워크로드용 솔루션으로 개발된 HPC 팩은 이제 HPC 팩 클러스터에 배포된 Linux 계산 노드 VM에서 Linux HPC 응용 프로그램의 실행도 지원합니다. 소개는 [Azure에서 HPC Pack 클러스터의 Linux 계산 노드 시작](virtual-machines-linux-classic-hpcpack-cluster.md)을 참조하세요.
 
 
 ## 필수 조건
 
-* **Linux 계산 노드가 포함된 HPC 팩 클러스터** - Azure 마켓플레이스에서 Azure PowerShell 스크립트 및 HPC 팩 이미지를 사용하여 Azure에서 Linux 계산 노드와 함께 HPC 팩 클러스터를 배포하는 필수 조건 및 단계는 [Azure에서 HPC 팩 클러스터의 Linux 계산 노드 시작](virtual-machines-linux-classic-hpcpack-cluster.md)을 참조하세요.
-
-    다음은 Windows Server 2012 R2 헤드 노드 및 Large(A3) 크기 CentOS 6.6 계산 노드 4개로 구성되는 Azure 기반 HPC 팩 클러스터를 배포하는 스크립트와 함께 사용할 수 있는 샘플 XML 구성 파일입니다. 구독 및 서비스 이름을 적절한 값으로 대체합니다.
-
-    ```
-    <?xml version="1.0" encoding="utf-8" ?>
-    <IaaSClusterConfig>
-      <Subscription>
-        <SubscriptionName>Subscription-1</SubscriptionName>
-        <StorageAccount>mystorageaccount</StorageAccount>
-      </Subscription>
-      <Location>West US</Location>  
-      <VNet>
-        <VNetName>MyVNet</VNetName>
-        <SubnetName>Subnet-1</SubnetName>
-      </VNet>
-      <Domain>
-        <DCOption>HeadNodeAsDC</DCOption>
-        <DomainFQDN>hpclab.local</DomainFQDN>
-      </Domain>
-      <Database>
-        <DBOption>LocalDB</DBOption>
-      </Database>
-      <HeadNode>
-        <VMName>CentOS66HN</VMName>
-        <ServiceName>MyHPCService</ServiceName>
-        <VMSize>Large</VMSize>
-        <EnableRESTAPI />
-        <EnableWebPortal />
-      </HeadNode>
-      <LinuxComputeNodes>
-        <VMNamePattern>CentOS66LN-%00%</VMNamePattern>
-        <ServiceName>MyLnxCNService</ServiceName>
-        <VMSize>Large</VMSize>
-        <NodeCount>4</NodeCount>
-        <ImageName>5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-66-20150325</ImageName>
-      </LinuxComputeNodes>
-    </IaaSClusterConfig>    
-```
+* **Linux 계산 노드가 포함된 HPC 팩 클러스터** - [Azure Resource Manager 템플릿](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) 또는 [Azure PowerShell 스크립트](virtual-machines-hpcpack-cluster-powershell-script)를 사용하여 Azure에서 Linux 계산 노드가 포함된 HPC 팩 클러스터를 배포합니다. 각 옵션 사용 시의 필수 구성 요소 및 단계는 [Azure에서 HPC 팩 클러스터의 Linux 계산 노드 시작](virtual-machines-linux-classic-hpcpack-cluster.md)을 참조하세요. PowerShell 스크립트 배포 옵션을 선택하는 경우 이 문서 끝부분의 샘플 파일 섹션에 나와 있는 샘플 구성 파일을 참조하여 Windows Server 2012 R2 헤드 노드와 대형(A3) CentOS 6.6 계산 노드 4개로 구성된 Azure 기반 HPC 팩 클러스터를 배포합니다. 환경에서 필요한 경우 이 파일을 조정합니다.
 
 
-* **NAMD 소프트웨어 및 자습서 파일** - [NAMD](http://www.ks.uiuc.edu/Research/namd/) 사이트에서 Linux용 NAMD 소프트웨어를 다운로드합니다. 이 문서는 NAMD 버전 2.10을 기반으로 하며 클러스터 네트워크의 여러 Linux 계산 노드에서 NAMD를 실행하는 데 사용할 [Linux-x86\_64(이더넷 포함 64비트 Intel/AMD)](http://www.ks.uiuc.edu/Development/Download/download.cgi?UserID=&AccessCode=&ArchiveID=1310) 보관 파일을 사용합니다. [NAMD 자습서 파일](http://www.ks.uiuc.edu/Training/Tutorials/#namd)도 다운로드합니다. 이 문서의 뒷부분에 있는 지침에 따라 클러스터 헤드 노드에 보관 파일 및 자습서 샘플을 추출합니다.
+* **NAMD 소프트웨어 및 자습서 파일** - [NAMD](http://www.ks.uiuc.edu/Research/namd/) 사이트(등록 필요)에서 Linux용 NAMD 소프트웨어를 다운로드합니다. 이 문서는 NAMD 버전 2.10을 기반으로 하며 클러스터 네트워크의 여러 Linux 계산 노드에서 NAMD를 실행하는 데 사용할 [Linux-x86\_64(이더넷 포함 64비트 Intel/AMD)](http://www.ks.uiuc.edu/Development/Download/download.cgi?UserID=&AccessCode=&ArchiveID=1310) 보관 파일을 사용합니다. [NAMD 자습서 파일](http://www.ks.uiuc.edu/Training/Tutorials/#namd)도 다운로드합니다. 다운로드는 .tar 파일이므로 클러스터 헤드 노드에 파일을 추출하기 위한 Windows 도구가 필요합니다. 이 도구를 사용하여 파일을 추출하려면 하려면 이 문서 뒷부분의 지침을 따릅니다.
 
 * **VMD**(선택 사항) - NAMD 작업 결과를 보려면 선택한 컴퓨터에 분자 시각화 프로그램인 [VMD](http://www.ks.uiuc.edu/Research/vmd/)를 다운로드하여 설치합니다. 현재 버전은 1.9.2입니다. 시작하려면 VMD 다운로드 사이트를 참조하세요.
 
@@ -104,6 +64,8 @@ Linux **ssh-keygen** 명령을 실행하여 공개 키 및 개인 키를 포함�
 
 2. 표준 Windows Server 절차를 사용하여 클러스터의 Active Directory 도메인에 도메인 사용자 계정을 만듭니다. 예를 들어 헤드 노드에서 Active Directory 사용자 및 컴퓨터 도구를 사용합니다. 이 문서의 예에서는 hpclab\\hpcuser라는 이름의 도메인 사용자를 만든다고 가정합니다.
 
+3. HPC 팩 클러스터에 도메인 사용자를 클러스터 사용자로 추가합니다. [클러스터 사용자 추가 또는 제거](https://technet.microsoft.com/library/ff919330.aspx)를 참조하세요.
+
 2.	C:\\cred.xml이라는 이름의 파일을 만들고 RSA 키 데이터를 여기에 복사합니다. 이 문서의 끝에 있는 샘플 파일에서 예제를 확인할 수 있습니다.
 
     ```
@@ -127,7 +89,7 @@ Linux **ssh-keygen** 명령을 실행하여 공개 키 및 개인 키를 포함�
 
 ## 사용자가 액세스할 파일 공유를 설정합니다.
 
-이제 헤드 노드에서 폴더에 대한 표준 SMB 공유를 설정하고 모든 Linux 노드에서 공유 폴더를 탑재하여 Linux 노드에서 일반 경로로 NAMD 파일에 액세스할 수 있도록 합니다. [Azure에서 HPC 팩 클러스터의 Linux 계산 노드 시작](virtual-machines-linux-classic-hpcpack-cluster.md)의 파일 공유 옵션 및 단계를 참조하세요. (CentOS 6.6 Linux 노드가 현재 유사한 기능을 제공하는 Azure 파일 서비스를 지원하지 않기 때문에 이 문서에서는 헤드 노드에 공유 폴더를 탑재할 것을 권장합니다. Azure 파일 공유 탑재에 대한 자세한 내용은 [Microsoft Azure 파일에 대한 연결 유지](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)(영문)를 참조하세요.)
+이제 SMB 파일 공유를 설정하고 모든 Linux 노드에서 공유 폴더를 탑재하여 Linux 노드에서 일반 경로로 NAMD 파일에 액세스할 수 있도록 합니다. [Azure에서 HPC 팩 클러스터의 Linux 계산 노드 시작](virtual-machines-linux-classic-hpcpack-cluster.md)의 파일 공유 옵션 및 단계를 참조하세요. 아래에는 헤드 노드에서 공유 폴더를 탑재하는 단계가 나와 있습니다. 현재 Azure 파일 서비스를 지원하지 않는 CentOS 6.6 등의 배포에서는 이 단계를 수행하는 것이 좋습니다. Linux 노드에서 Azure 파일 공유를 지원하는 경우 [Linux에서 Azure 파일 저장소 사용 방법](../storage/storage-how-to-use-files-linux.md)을 참조하세요.
 
 1.	헤드 노드에서 폴더를 만들고 읽기/쓰기 권한을 설정하여 모든 사용자에게 공유합니다. 이 예에서, \\\CentOS66HN\\Namd는 폴더의 이름이고 여기서 CentOS66HN은 헤드 노드의 호스트 이름입니다.
 
@@ -146,45 +108,15 @@ Linux **ssh-keygen** 명령을 실행하여 공개 키 및 개인 키를 포함�
 >[AZURE.NOTE]두 번째 명령의 "`" 기호는 PowerShell의 이스케이프 기호입니다. "`,"는 ","(쉼표)가 명령의 일부임을 의미합니다.
 
 
-## NAMD 작업 실행 준비
+## NAMD 작업을 실행하기 위한 Bash 스크립트 만들기
 
- NAMD 작업을 위해서는 **charmrun**에 대한 *nodelist* 파일에서 NAMD 프로세스를 시작할 때 사용할 노드 수를 알아야 합니다. nodelist 파일을 생성하고 이 nodelist 파일과 함께 **charmrun**을 실행하는 Bash 스크립트를 작성합니다. 그런 다음 이 스크립트를 호출하는 HPC 클러스터 관리자에서 NAMD 작업을 제출할 수 있습니다.
+NAMD 작업을 수행하려면 NAMD 프로세스를 시작할 때 사용할 노드 수를 확인하기 위한 **charmrun**용 *nodelist* 파일이 필요합니다. 이 섹션에서는 nodelist 파일을 생성하고 이 nodelist 파일과 함께 **charmrun**을 실행하는 Bash 스크립트를 사용합니다. 그런 다음 이 스크립트를 호출하는 HPC 클러스터 관리자에서 NAMD 작업을 제출할 수 있습니다.
 
-### 환경 변수 및 nodelist 파일
-노드 및 코어에 대한 정보는 작업이 활성화될 때 HPC 팩 헤드 노드에 의해 자동으로 설정되는 $CCP\_NODES\_CORES 환경 변수에 있습니다. $CCP\_NODES\_CORES 변수의 형식은 다음과 같습니다.
-
-```
-<Number of nodes> <Name of node1> <Cores of node1> <Name of node2> <Cores of node2>…
-```
-
-위 형식은 총 노드 수, 노드 이름 및 작업에 할당되는 각 노드의 코어 수를 나열합니다. 예를 들어 작업에 실행할 코어가 10개 필요한 경우 $CCP\_NODES\_CORES 값은 다음과 유사합니다.
-
-```
-3 CENTOS66LN-00 4 CENTOS66LN-01 4 CENTOS66LN-03 2
-```
-
-다음은 스크립트에서 생성하는 nodelist 파일의 정보입니다.
-
-```
-group main
-host <Name of node1> ++cpus <Cores of node1>
-host <Name of node2> ++cpus <Cores of node2>
-…
-```
-
-예:
-
-```
-group main
-host CENTOS66LN-00 ++cpus 4
-host CENTOS66LN-01 ++cpus 4
-host CENTOS66LN-03 ++cpus 2
-```
-### nodelist 파일을 생성하는 Bash 스크립트
-
-원하는 텍스트 편집기를 사용하여 NAMD 프로그램 파일을 포함하는 폴더에 다음 Bash 스크립트를 만들고 hpccharmrun.sh로 이름을 지정합니다. 전체 예제는 이 문서의 끝에 있는 샘플 파일에 있습니다. bash 스크립트는 다음을 수행합니다.
+원하는 텍스트 편집기를 사용하여 NAMD 프로그램 파일을 포함하는 폴더에 Bash 스크립트를 만들고 hpccharmrun.sh로 이름을 지정합니다. 이 문서 끝부분의 샘플 파일에서 제공하는 예제를 복사하면 됩니다.
 
 >[AZURE.TIP] 스크립트를 Linux 줄 끝(CR LF가 아닌 LF만)을 사용하여 텍스트 파일로 저장하십시오. 이렇게 해야 Linux 노드에서 제대로 실행됩니다.
+
+아래에서는 이 Bash 스크립트가 수행하는 작업에 대해 자세히 설명합니다. 개념 증명을 수행하는 경우 NAMD 작업만 실행하려면 파일 공유에 hpccharmrun.sh 스크립트를 저장한 다음 [NAMD 작업 제출](#submit-a-namd-job) 섹션으로 이동하세요.
 
 1.	일부 변수를 정의합니다.
 
@@ -202,14 +134,24 @@ host CENTOS66LN-03 ++cpus 2
     ```
 
 2.	환경 변수에서 노드 정보를 가져옵니다. $NODESCORES는 $CCP\_NODES\_CORES에서 분할 단어 목록을 저장하고 $COUNT는 $NODESCORES의 크기입니다.
-
     ```
     # Get node information from the environment variables
-    # CCP_NODES_CORES=3 CENTOS66LN-00 4 CENTOS66LN-01 4 CENTOS66LN-03 4
     NODESCORES=(${CCP_NODES_CORES})
     COUNT=${#NODESCORES[@]}
+    ```    
+    
+    $CCP\_NODES\_CORES 변수의 형식은 다음과 같습니다.
+
+    ```
+    <Number of nodes> <Name of node1> <Cores of node1> <Name of node2> <Cores of node2>…
     ```
 
+    위 형식은 총 노드 수, 노드 이름 및 작업에 할당되는 각 노드의 코어 수를 나열합니다. 예를 들어 작업에 실행할 코어가 10개 필요한 경우 $CCP\_NODES\_CORES 값은 다음과 유사합니다.
+
+    ```
+    3 CENTOS66LN-00 4 CENTOS66LN-01 4 CENTOS66LN-03 2
+    ```
+        
 3.	$CCP\_NODES\_CORES 변수가 설정되지 않은 경우 **charmrun**을 직접 시작해도 됩니다. (이러한 경우는 Linux 노드에서 이 스크립트를 직접 실행하는 경우에만 발생합니다.)
 
     ```
@@ -258,13 +200,33 @@ host CENTOS66LN-03 ++cpus 2
     exit ${RTNSTS}
     ```
 
+
+
+다음은 스크립트에서 생성하는 nodelist 파일의 정보입니다.
+
+```
+group main
+host <Name of node1> ++cpus <Cores of node1>
+host <Name of node2> ++cpus <Cores of node2>
+…
+```
+
+예:
+
+```
+group main
+host CENTOS66LN-00 ++cpus 4
+host CENTOS66LN-01 ++cpus 4
+host CENTOS66LN-03 ++cpus 2
+```
+
 ## NAMD 작업 제출
 
 이제 HPC 클러스터 관리자에서 NAMD 작업을 제출할 준비가 되었습니다.
 
 1.	클러스터 헤드 노드에 연결하고 HPC 클러스터 관리자를 시작합니다.
 
-2.  **노드 관리**에서 Linux 계산 노드가 **온라인** 상태인지 확인합니다. 온라인 상태가 아닌 경우 노드를 선택하고 **온라인 상태로 전환**을 클릭합니다.
+2.  **리소스 관리**에서 Linux 계산 노드가 **온라인** 상태인지 확인합니다. 온라인 상태가 아닌 경우 노드를 선택하고 **온라인 상태로 전환**을 클릭합니다.
 
 2.  **작업 관리**에서 **새 작업**을 클릭합니다.
 
@@ -276,9 +238,14 @@ host CENTOS66LN-03 ++cpus 2
 
     ![작업 리소스][job_resources]
 
-5.	**작업 세부 정보 및 I/O 리디렉션** 페이지에서 작업에 새 태스크를 추가하고 다음 값을 설정합니다.
+5. 왼쪽 탐색 영역에서 **작업 편집**을 클릭한 다음 **추가**를 클릭하여 작업(job)에 작업(task)을 추가합니다.
+
+
+6. **작업 세부 정보 및 I/O 리디렉션** 페이지에서 다음 값을 설정합니다.
 
     * **명령줄** - `/namd2/hpccharmrun.sh ++remote-shell ssh /namd2/namd2 /namd2/namdsample/1-2-sphere/ubq_ws_eq.conf > /namd2/namd2_hpccharmrun.log`
+
+    >[AZURE.TIP] 위의 명령줄은 줄 바꿈이 없는 하나의 명령이며 **명령줄**에서는 줄이 바뀌어 여러 줄에 표시됩니다.
 
     * **작업 디렉터리** - /namd2
 
@@ -309,6 +276,79 @@ host CENTOS66LN-03 ++cpus 2
     ![작업 결과][vmd_view]
 
 ## 샘플 파일
+
+### PowerShell 스크립트를 통한 클러스터 배포용 샘플 XML 구성 파일
+
+```
+<?xml version="1.0" encoding="utf-8" ?>
+<IaaSClusterConfig>
+  <Subscription>
+    <SubscriptionName>Subscription-1</SubscriptionName>
+    <StorageAccount>mystorageaccount</StorageAccount>
+  </Subscription>
+      <Location>West US</Location>  
+  <VNet>
+    <VNetName>MyVNet</VNetName>
+    <SubnetName>Subnet-1</SubnetName>
+  </VNet>
+  <Domain>
+    <DCOption>HeadNodeAsDC</DCOption>
+    <DomainFQDN>hpclab.local</DomainFQDN>
+  </Domain>
+  <Database>
+    <DBOption>LocalDB</DBOption>
+  </Database>
+  <HeadNode>
+    <VMName>CentOS66HN</VMName>
+    <ServiceName>MyHPCService</ServiceName>
+    <VMSize>Large</VMSize>
+    <EnableRESTAPI />
+    <EnableWebPortal />
+  </HeadNode>
+  <LinuxComputeNodes>
+    <VMNamePattern>CentOS66LN-%00%</VMNamePattern>
+    <ServiceName>MyLnxCNService</ServiceName>
+     <VMSize>Large</VMSize>
+     <NodeCount>4</NodeCount>
+    <ImageName>5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-66-20150325</ImageName>
+  </LinuxComputeNodes>
+</IaaSClusterConfig>    
+```
+
+### 샘플 cred.xml 파일
+
+```
+<ExtendedData>
+  <PrivateKey>-----BEGIN RSA PRIVATE KEY-----
+MIIEpQIBAAKCAQEAxJKBABhnOsE9eneGHvsjdoXKooHUxpTHI1JVunAJkVmFy8JC
+qFt1pV98QCtKEHTC6kQ7tj1UT2N6nx1EY9BBHpZacnXmknpKdX4Nu0cNlSphLpru
+lscKPR3XVzkTwEF00OMiNJVknq8qXJF1T3lYx3rW5EnItn6C3nQm3gQPXP0ckYCF
+Jdtu/6SSgzV9kaapctLGPNp1Vjf9KeDQMrJXsQNHxnQcfiICp21NiUCiXosDqJrR
+AfzePdl0XwsNngouy8t0fPlNSngZvsx+kPGh/AKakKIYS0cO9W3FmdYNW8Xehzkc
+VzrtJhU8x21hXGfSC7V0ZeD7dMeTL3tQCVxCmwIDAQABAoIBAQCve8Jh3Wc6koxZ
+qh43xicwhdwSGyliZisoozYZDC/ebDb/Ydq0BYIPMiDwADVMX5AqJuPPmwyLGtm6
+9hu5p46aycrQ5+QA299g6DlF+PZtNbowKuvX+rRvPxagrTmupkCswjglDUEYUHPW
+05wQaNoSqtzwS9Y85M/b24FfLeyxK0n8zjKFErJaHdhVxI6cxw7RdVlSmM9UHmah
+wTkW8HkblbOArilAHi6SlRTNZG4gTGeDzPb7fYZo3hzJyLbcaNfJscUuqnAJ+6pT
+iY6NNp1E8PQgjvHe21yv3DRoVRM4egqQvNZgUbYAMUgr30T1UoxnUXwk2vqJMfg2
+Nzw0ESGRAoGBAPkfXjjGfc4HryqPkdx0kjXs0bXC3js2g4IXItK9YUFeZzf+476y
+OTMQg/8DUbqd5rLv7PITIAqpGs39pkfnyohPjOe2zZzeoyaXurYIPV98hhH880uH
+ZUhOxJYnlqHGxGT7p2PmmnAlmY4TSJrp12VnuiQVVVsXWOGPqHx4S4f9AoGBAMn/
+vuea7hsCgwIE25MJJ55FYCJodLkioQy6aGP4NgB89Azzg527WsQ6H5xhgVMKHWyu
+Q1snp+q8LyzD0i1veEvWb8EYifsMyTIPXOUTwZgzaTTCeJNHdc4gw1U22vd7OBYy
+nZCU7Tn8Pe6eIMNztnVduiv+2QHuiNPgN7M73/x3AoGBAOL0IcmFgy0EsR8MBq0Z
+ge4gnniBXCYDptEINNBaeVStJUnNKzwab6PGwwm6w2VI3thbXbi3lbRAlMve7fKK
+B2ghWNPsJOtppKbPCek2Hnt0HUwb7qX7Zlj2cX/99uvRAjChVsDbYA0VJAxcIwQG
+TxXx5pFi4g0HexCa6LrkeKMdAoGAcvRIACX7OwPC6nM5QgQDt95jRzGKu5EpdcTf
+g4TNtplliblLPYhRrzokoyoaHteyxxak3ktDFCLj9eW6xoCZRQ9Tqd/9JhGwrfxw
+MS19DtCzHoNNewM/135tqyD8m7pTwM4tPQqDtmwGErWKj7BaNZARUlhFxwOoemsv
+R6DbZyECgYEAhjL2N3Pc+WW+8x2bbIBN3rJcMjBBIivB62AwgYZnA2D5wk5o0DKD
+eesGSKS5l22ZMXJNShgzPKmv3HpH22CSVpO0sNZ6R+iG8a3oq4QkU61MT1CfGoMI
+a8lxTKnZCsRXU1HexqZs+DSc+30tz50bNqLdido/l5B4EJnQP03ciO0=
+-----END RSA PRIVATE KEY-----</PrivateKey>
+  <PublicKey>ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDEkoEAGGc6wT16d4Ye+yN2hcqigdTGlMcjUlW6cAmRWYXLwkKoW3WlX3xAK0oQdMLqRDu2PVRPY3qfHURj0EEellpydeaSekp1fg27Rw2VKmEumu6Wxwo9HddXORPAQXTQ4yI0lWSerypckXVPeVjHetbkSci2foLedCbeBA9c/RyRgIUl227/pJKDNX2Rpqly0sY82nVWN/0p4NAyslexA0fGdBx+IgKnbU2JQKJeiwOomtEB/N492XRfCw2eCi7Ly3R8+U1KeBm+zH6Q8aH8ApqQohhLRw71bcWZ1g1bxd6HORxXOu0mFTzHbWFcZ9ILtXRl4Pt0x5Mve1AJXEKb username@servername;</PublicKey>
+</ExtendedData>
+```
 
 ### 샘플 hpccharmrun.sh 스크립트
 
@@ -361,40 +401,7 @@ exit ${RTNSTS}
 ```
 
  
-### 샘플 cred.xml 파일
 
-```
-<ExtendedData>
-  <PrivateKey>-----BEGIN RSA PRIVATE KEY-----
-MIIEpQIBAAKCAQEAxJKBABhnOsE9eneGHvsjdoXKooHUxpTHI1JVunAJkVmFy8JC
-qFt1pV98QCtKEHTC6kQ7tj1UT2N6nx1EY9BBHpZacnXmknpKdX4Nu0cNlSphLpru
-lscKPR3XVzkTwEF00OMiNJVknq8qXJF1T3lYx3rW5EnItn6C3nQm3gQPXP0ckYCF
-Jdtu/6SSgzV9kaapctLGPNp1Vjf9KeDQMrJXsQNHxnQcfiICp21NiUCiXosDqJrR
-AfzePdl0XwsNngouy8t0fPlNSngZvsx+kPGh/AKakKIYS0cO9W3FmdYNW8Xehzkc
-VzrtJhU8x21hXGfSC7V0ZeD7dMeTL3tQCVxCmwIDAQABAoIBAQCve8Jh3Wc6koxZ
-qh43xicwhdwSGyliZisoozYZDC/ebDb/Ydq0BYIPMiDwADVMX5AqJuPPmwyLGtm6
-9hu5p46aycrQ5+QA299g6DlF+PZtNbowKuvX+rRvPxagrTmupkCswjglDUEYUHPW
-05wQaNoSqtzwS9Y85M/b24FfLeyxK0n8zjKFErJaHdhVxI6cxw7RdVlSmM9UHmah
-wTkW8HkblbOArilAHi6SlRTNZG4gTGeDzPb7fYZo3hzJyLbcaNfJscUuqnAJ+6pT
-iY6NNp1E8PQgjvHe21yv3DRoVRM4egqQvNZgUbYAMUgr30T1UoxnUXwk2vqJMfg2
-Nzw0ESGRAoGBAPkfXjjGfc4HryqPkdx0kjXs0bXC3js2g4IXItK9YUFeZzf+476y
-OTMQg/8DUbqd5rLv7PITIAqpGs39pkfnyohPjOe2zZzeoyaXurYIPV98hhH880uH
-ZUhOxJYnlqHGxGT7p2PmmnAlmY4TSJrp12VnuiQVVVsXWOGPqHx4S4f9AoGBAMn/
-vuea7hsCgwIE25MJJ55FYCJodLkioQy6aGP4NgB89Azzg527WsQ6H5xhgVMKHWyu
-Q1snp+q8LyzD0i1veEvWb8EYifsMyTIPXOUTwZgzaTTCeJNHdc4gw1U22vd7OBYy
-nZCU7Tn8Pe6eIMNztnVduiv+2QHuiNPgN7M73/x3AoGBAOL0IcmFgy0EsR8MBq0Z
-ge4gnniBXCYDptEINNBaeVStJUnNKzwab6PGwwm6w2VI3thbXbi3lbRAlMve7fKK
-B2ghWNPsJOtppKbPCek2Hnt0HUwb7qX7Zlj2cX/99uvRAjChVsDbYA0VJAxcIwQG
-TxXx5pFi4g0HexCa6LrkeKMdAoGAcvRIACX7OwPC6nM5QgQDt95jRzGKu5EpdcTf
-g4TNtplliblLPYhRrzokoyoaHteyxxak3ktDFCLj9eW6xoCZRQ9Tqd/9JhGwrfxw
-MS19DtCzHoNNewM/135tqyD8m7pTwM4tPQqDtmwGErWKj7BaNZARUlhFxwOoemsv
-R6DbZyECgYEAhjL2N3Pc+WW+8x2bbIBN3rJcMjBBIivB62AwgYZnA2D5wk5o0DKD
-eesGSKS5l22ZMXJNShgzPKmv3HpH22CSVpO0sNZ6R+iG8a3oq4QkU61MT1CfGoMI
-a8lxTKnZCsRXU1HexqZs+DSc+30tz50bNqLdido/l5B4EJnQP03ciO0=
------END RSA PRIVATE KEY-----</PrivateKey>
-  <PublicKey>ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDEkoEAGGc6wT16d4Ye+yN2hcqigdTGlMcjUlW6cAmRWYXLwkKoW3WlX3xAK0oQdMLqRDu2PVRPY3qfHURj0EEellpydeaSekp1fg27Rw2VKmEumu6Wxwo9HddXORPAQXTQ4yI0lWSerypckXVPeVjHetbkSci2foLedCbeBA9c/RyRgIUl227/pJKDNX2Rpqly0sY82nVWN/0p4NAyslexA0fGdBx+IgKnbU2JQKJeiwOomtEB/N492XRfCw2eCi7Ly3R8+U1KeBm+zH6Q8aH8ApqQohhLRw71bcWZ1g1bxd6HORxXOu0mFTzHbWFcZ9ILtXRl4Pt0x5Mve1AJXEKb username@servername;</PublicKey>
-</ExtendedData>
-```
 
 
 
@@ -408,4 +415,4 @@ a8lxTKnZCsRXU1HexqZs+DSc+30tz50bNqLdido/l5B4EJnQP03ciO0=
 [task_details]: ./media/virtual-machines-linux-classic-hpcpack-cluster-namd/task_details.png
 [vmd_view]: ./media/virtual-machines-linux-classic-hpcpack-cluster-namd/vmd_view.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

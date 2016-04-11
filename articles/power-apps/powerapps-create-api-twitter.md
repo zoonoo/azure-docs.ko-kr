@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/03/2016"
+   ms.date="03/29/2016"
    ms.author="litran"/>
 
 # PowerApps 엔터프라이즈에 새 Twitter API 만들기
 
 > [AZURE.SELECTOR]
-- [논리 앱](../articles/connectors/create-api-twitter.md)
+- [논리 앱](../articles/connectors/connectors-create-api-twitter.md)
 - [PowerApps 엔터프라이즈](../articles/power-apps/powerapps-create-api-twitter.md)
 
 조직의(테넌트) 앱 서비스 환경에 Twitter API를 추가합니다.
@@ -76,7 +76,7 @@
 
 ## REST API 참조
 
-[Twitter REST API](../connectors/create-api-twitter.md) 참조
+[Twitter REST API](../connectors/connectors-create-api-twitter.md) 참조.
 
 
 ## 요약 및 다음 단계
@@ -96,4 +96,4 @@
 [14]: ./media/powerapps-create-api-sqlserver/browseall.png
 [15]: ./media/powerapps-create-api-sqlserver/allresources.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

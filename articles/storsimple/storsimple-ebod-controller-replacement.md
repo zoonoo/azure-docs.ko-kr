@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/02/2015"
+   ms.date="03/22/2016"
    ms.author="alkohli" />
 
 # StorSimple 장치의 EBOD 컨트롤러 교체
@@ -30,7 +30,7 @@
 
 - EBOD 컨트롤러는 핫 스왑이 가능하며 꺼내거나 교체할 수 있습니다. 교체가 있을 때까지 오류가 발생한 모듈을 꺼내지 마세요. 교체 프로세스를 시작하는 경우 10분 내에 완료해야 합니다.
 
->[AZURE.IMPORTANT]EBOD 컨트롤러를 꺼내고 교체하기 전에 [StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)에서 안전 정보를 검토하세요.
+>[AZURE.IMPORTANT] StorSimple 구성 요소를 꺼내거나 교체하기 전에 [안전성 아이콘 표시 규칙](storsimple-safety.md#safety-icon-conventions) 및 기타 [안전 주의 사항](storsimple-safety.md)을 검토해야 합니다.
 
 ## EBOD 컨트롤러 꺼내기
 
@@ -48,7 +48,7 @@ StorSimple 장치에서 오류가 발생한 EBOD 컨트롤러 모듈을 교체�
 
 5. 컨트롤러에 연결된 EBOD 컨트롤러 모듈의 SAS 포트를 정확하게 적어둡니다. EBOD 모듈을 교체한 후 시스템을 이 구성으로 복원해야 합니다.
 
-    >[AZURE.NOTE]일반적으로 포트 A이며, 다음 다이어그램에서는 **호스트 인**으로 레이블이 붙어 있습니다.
+    >[AZURE.NOTE] 일반적으로 포트 A이며, 다음 다이어그램에서는 **호스트 인**으로 레이블이 붙어 있습니다.
 
     ![EBOD 컨트롤러의 백플레인](./media/storsimple-ebod-controller-replacement/IC741049.png)
 
@@ -101,10 +101,10 @@ StorSimple 장치에서 오류가 발생한 EBOD 컨트롤러 모듈을 교체�
     |6|EBOD 컨트롤러 0|
     |7|EBOD 컨트롤러 1|
     |8|EBOD 인클로저|
-    |9|PDU|
+    |9|전력 분배 장치|
 
 ## 다음 단계
 
 [StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0330_2016-->

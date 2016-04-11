@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure 데이터 카탈로그 릴리스 정보"
-   description="Azure 데이터 카탈로그의 2015년 8월 28일 공개 미리 보기 릴리스 정보"
+   description="Azure Data Catalog에 대한 릴리스 정보입니다."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="02/08/2016"
+   ms.date="03/30/2016"
    ms.author="maroche"/>
 
 # Azure 데이터 카탈로그 릴리스 정보
@@ -50,7 +50,7 @@ Oracle 데이터베이스 데이터 원본에 연결 시 사용자는 사용할 
 
 ### SQL Server Reporting Services에 등록 및 연결
 
-Azure 데이터 카탈로그의 초기 미리 보기 릴리스에서 SSRS(SQL Server Reporting Services) 데이터 원본은 기본 모드 서버로만 제한됩니다. SharePoint 모드에서 SSRS 지원은 이후 릴리스에 추가됩니다.
+SSRS(SQL Server Reporting Services) 데이터 원본은 현재 기본 모드 서버로만 제한됩니다. SharePoint 모드에서 SSRS 지원은 이후 릴리스에 추가됩니다.
 
 ### Excel에서 데이터 자산 열기
 
@@ -88,4 +88,4 @@ Azure 데이터 카탈로그 포털에 로그온할 수 있는 상황이 발생�
 
 RegistrationTool.exe.config 파일을 찾으려면 등록 도구를 시작하여 Windows 작업 관리자 유틸리티를 엽니다. 작업 관리자의 세부 정보 탭에서 RegistrationTool.exe를 마우스 오른쪽 단추로 클릭하고 팝업 메뉴에서 파일 위치 열기를 선택합니다.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0330_2016-->

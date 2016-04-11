@@ -6,7 +6,7 @@ Azure는 솔루션 구현에 대한 특정 접근 방법을 테스트하는 데 
 
 이 문서는 [Azure 구현 지침](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx) 블로그 게시물의 내용에서 가져왔습니다. 원본 자료를 제공한 Santiago Cánepa(Microsoft의 응용 프로그램 개발 관리자)와 Hugo Salcedo(Microsoft의 이전 응용 프로그램 개발 관리자)에게 감사를 전합니다.
 
-> [AZURE.NOTE] 선호도 그룹은 지원이 중단되었습니다. 여기서는 그 용도를 설명하지 않습니다. 자세한 내용은 [지역 VNet 및 선호도 그룹 정보](../virtual-network/virtual-networks-migrate-to-regional-vnet.md)를 참조하세요.
+> [AZURE.NOTE] 선호도 그룹은 지원이 중단되었습니다. 여기서는 그 용도를 설명하지 않습니다. 자세한 내용은 [지역 VNet 및 선호도 그룹 정보](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md)를 참조하세요.
 
 ## 1\. 명명 규칙
 
@@ -140,7 +140,7 @@ Azure 저장소는 많은 Azure 솔루션의 필수적인 부분입니다. Azure
 
 Azure에서 사용할 수 있는 두 가지 저장소 계정 유형이 있습니다. 표준 저장소 계정은 Blob 저장소(Azure 가상 컴퓨터 디스크를 저장하는 데 사용), 테이블 저장소, 큐 저장소 및 파일 저장소에 대한 액세스 권한을 제공합니다. 프리미엄 저장소는 AlwaysOn 클러스터의 SQL Server와 같은 고성능 응용 프로그램용으로 고안되었으며 현재 Azure 가상 컴퓨터 디스크만 지원합니다.
 
-저장소 계정은 확장성 목표로 바인딩됩니다. 현재 Azure 저장소 제한에 익숙해 지려면 [Microsoft Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md#storage-limits)을 참조하세요. [Azure 저장소 확장성 및 성능 목표](../storage-scalability-targets.md)도 참조하세요.
+저장소 계정은 확장성 목표로 바인딩됩니다. 현재 Azure 저장소 제한에 익숙해 지려면 [Microsoft Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../articles/azure-subscription-service-limits.md#storage-limits)을 참조하세요. [Azure 저장소 확장성 및 성능 목표](../articles/storage/storage-scalability-targets.md)도 참조하세요.
 
 Azure는 운영 체제 디스크, 임시 디스크를 및 0개 이상의 선택적 데이터 디스크로 가상 컴퓨터를 만듭니다. 운영 체제 디스크 및 데이터 디스크는 Azure 페이지 Blob이지만 임시 디스크는 컴퓨터가 있는 노드에 로컬로 저장됩니다. 이 경우 컴퓨터가 자동으로 한 노드에서 다른 노드로 마이그레이션되어 해당 디스크의 데이터가 손실될 수 있기 때문에 시스템 재순환 도중 유지해야 하는 데이터에는 임시 디스크가 적합하지 않습니다. 임시 드라이브에는 아무 것도 저장하지 마십시오.
 
@@ -149,7 +149,7 @@ Blob의 최대 크기가 1024GB이며 VHD 파일의 메타데이터(바닥글)�
 ### 스트라이프 디스크
 데이터 디스크의 스트라이프는 대부분의 경우에 1023GB 보다 큰 디스크를 만드는 기능을 제공할 뿐 아니라 단일 볼륨에 대한 저장소를 지원하기 위해 여러 Blob을 허용하여 성능을 강화합니다. 스트라이프에서는 단일 논리적 디스크에서 데이터를 읽고 쓰는 데 필요한 I/O가 병렬로 진행됩니다.
 
-Azure는 가상 컴퓨터 크기에 따라 사용 가능한 데이터 디스크 및 대역폭의 양에 제한을 둡니다. 자세한 내용은 [가상 컴퓨터의 크기](virtual-machines-linux-sizes.md)를 참조하세요.
+Azure는 가상 컴퓨터 크기에 따라 사용 가능한 데이터 디스크 및 대역폭의 양에 제한을 둡니다. 자세한 내용은 [가상 컴퓨터의 크기](../articles/virtual-machines/virtual-machines-linux-sizes.md)를 참조하세요.
 
 Azure 데이터 디스크에 디스크 스트라이프를 사용하고 있는 경우 다음 지침을 고려합니다.
 
@@ -409,15 +409,15 @@ Contoso는 Azure 가상 컴퓨터에 대해 다음 이름으로 결정했습니�
 
 ## 추가 리소스
 
-[Microsoft Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md#storage-limits)
+[Microsoft Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../articles/azure-subscription-service-limits.md#storage-limits)
 
-[가상 컴퓨터의 크기](virtual-machines-linux-sizes.md)
+[가상 컴퓨터의 크기](../articles/virtual-machines/virtual-machines-linux-sizes.md)
 
-[Azure 저장소 확장성 및 성능 목표](../storage-scalability-targets.md)
+[Azure 저장소 확장성 및 성능 목표](../articles/storage/storage-scalability-targets.md)
 
 [데이터 센터 확장 참조 아키텍처 다이어그램](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)
 
 
 [Azure 리소스 관리자에 통합된 Azure 계산, 네트워크 및 저장소 공급자](../articles/virtual-machines/virtual-machines-windows-compare-deployment-models.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -38,7 +38,7 @@ Azure에서는 이미지를 **이미지** 아래에 저장합니다. 이 위치�
 
 2. SSH 창에서 다음 명령을 입력합니다. `waagent`의 출력은 이 유틸리티의 버전에 따라 약간씩 다를 수 있습니다.
 
-	`sudo waagent -deprovision`
+	`sudo waagent -deprovision+user`
 
 	이 명령은 시스템을 정리하여 다시 프로비전하기에 적합하도록 만듭니다. 이 작업은 다음 작업을 수행합니다.
 
@@ -87,7 +87,7 @@ Azure에서는 이미지를 **이미지** 아래에 저장합니다. 이 위치�
 
 
 ## 다음 단계
-이제 이미지를 사용하여 가상 컴퓨터를 만들 수 있습니다. Azure CLI 명령 `azure vm create`를 사용하고 방금 만든 이미지 이름을 제공할 수 있습니다. 명령에 대한 자세한 내용은 [Azure 서비스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](virtual-machines-command-line-tools.md)을 참조하세요. 또는 [Azure 클래식 포털][]에서 **갤러리에서** 방법을 사용하여 사용자 지정 가상 컴퓨터를 만들고 위에서 만든 이미지를 선택합니다. 자세한 내용은 [사용자 지정 가상 컴퓨터를 만드는 방법][]을 참조하세요.
+이제 이미지를 사용하여 가상 컴퓨터를 만들 수 있습니다. Azure CLI 명령 `azure vm create`를 사용하고 방금 만든 이미지 이름을 제공할 수 있습니다. 명령에 대한 자세한 내용은 [Azure 서비스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](../virtual-machines-command-line-tools.md)을 참조하세요. 또는 [Azure 클래식 포털][]에서 **갤러리에서** 방법을 사용하여 사용자 지정 가상 컴퓨터를 만들고 위에서 만든 이미지를 선택합니다. 자세한 내용은 [사용자 지정 가상 컴퓨터를 만드는 방법][]을 참조하세요.
 
 **참고 항목:** [Azure Linux 에이전트 사용자 가이드](virtual-machines-linux-agent-user-guide.md)
 
@@ -98,4 +98,4 @@ Azure에서는 이미지를 **이미지** 아래에 저장합니다. 이 위치�
 [How to Attach a Data Disk to a Virtual Machine]: virtual-machines-windows-classic-attach-disk.md
 [Linux 가상 컴퓨터를 만드는 방법]: virtual-machines-linux-classic-create-custom.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

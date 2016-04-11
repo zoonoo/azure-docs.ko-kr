@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스의 동적 SQL
@@ -21,7 +21,7 @@ SQL 데이터 웨어하우스용 응용 프로그램 코드를 개발할 때 유
 
 간단한 예는 다음과 같습니다.
 
-```
+```sql
 DECLARE @sql_fragment1 VARCHAR(8000)=' SELECT name '
 ,       @sql_fragment2 VARCHAR(8000)=' FROM sys.system_views '
 ,       @sql_fragment3 VARCHAR(8000)=' WHERE name like ''%table%''';
@@ -46,4 +46,4 @@ EXEC( @sql_fragment1 + @sql_fragment2 + @sql_fragment3);
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

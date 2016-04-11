@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="01/22/2016"
+	ms.date="03/24/2016"
 	ms.author="jroth" />
 
 # Azure 가상 컴퓨터의 SQL Server에 대한 고가용성 및 재해 복구
@@ -22,7 +22,7 @@
 
 Microsoft Azure 가상 컴퓨터(VM)에 SQL Server를 설치하여 사용하면 고가용성 및 재해 복구(HADR) 데이터베이스 솔루션의 비용을 절감하는 데 도움이 됩니다. 대부분의 SQL Server HADR 솔루션은 Azure 가상 컴퓨터에서 지원됩니다. Azure 전용으로도, 하이브리드 솔루션으로도 사용 가능합니다. Azure 전용 솔루션에서는 HADR 시스템 전체가 Azure에서 실행됩니다. 하이브리드 구성에서는 솔루션의 일부가 Azure에서 실행되고 나머지 부분은 조직의 온-프레미스에서 실행됩니다. Azure 환경은 유연하게 제공되므로 사용 중인 SQL Server 데이터베이스 시스템의 예산과 HADR 요구 사항에 맞게 Azure로 부분적으로만 이동하거나 완전히 이동할 수도 있습니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 
 ## HADR 솔루션의 필요성 이해
@@ -142,7 +142,7 @@ Azure 디스크의 지역 복제는 동일한 데이터베이스의 로그 파�
 
 ## 다음 단계
 
-SQL Server가 포함된 Azure 가상 컴퓨터를 만들어야 한다면 [Azure에 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-classic-portal-sql.md)을 참조하세요.
+SQL Server가 포함된 Azure 가상 컴퓨터를 만들어야 한다면 [Azure에 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-portal-sql-server-provision.md)을 참조하세요.
 
 Azure VM에서 실행되는 SQL Server에서 최상의 성능을 얻으려면 [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](virtual-machines-windows-classic-sql-perf.md)를 참조하세요.
 
@@ -153,4 +153,4 @@ Azure VM에서의 SQL Server 실행에 관한 다른 항목은 [Azure 가상 컴
 - [Azure에 새 Active Directory 포리스트 설치](../active-directory/active-directory-new-forest-virtual-machine.md)
 - [Azure VM에서 AlwaysOn 가용성 그룹을 위한 WSFC 클러스터 만들기](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

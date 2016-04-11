@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="03/08/2015"
+	ms.date="03/28/2016"
 	ms.author="wesmc"/>
 
 # Azure 알림 허브 및 Node.js를 사용하여 푸시 알림 보내기
@@ -230,4 +230,4 @@ Azure 알림 허브를 사용하려면 푸시 알림 REST 라이브러리와 통
   [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
   [Azure 포털]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

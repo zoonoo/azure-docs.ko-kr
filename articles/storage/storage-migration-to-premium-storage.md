@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="02/19/2016"
+    ms.date="03/28/2016"
     ms.author="prkhad"/>
 
 
@@ -45,7 +45,7 @@ Azure VM은 여러 프리미엄 저장소 디스크의 연결을 지원하므로
 ### 필수 조건
 - Azure 구독이 필요합니다. 구독할 수 없다면, 한 달의 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 구독하거나 [Azure 가격 책정](https://azure.microsoft.com/pricing/)을 방문하여 추가 옵션을 참고합니다.
 - PowerShell cmdlet을 실행하려면 Microsoft Azure PowerShell 모듈이 필요합니다. 모듈을 다운로드하려면 [Microsoft Azure 다운로드](https://azure.microsoft.com/downloads/)(영문)를 참조하세요.
-- 프리미엄 저장소에서 실행되는 Azure VM을 사용하려는 경우 DS 시리즈 또는 GS 시리즈 VM을 사용해야 합니다. DS 시리즈 VM에는 표준 및 프리미엄 저장소 디스크를 모두 사용할 수 있습니다. 프리미엄 저장소 디스크를 나중에 더 많은 VM 형식으로 사용할 수 있습니다. 사용 가능한 Azure VM 디스크 유형 및 크기에 대한 자세한 내용은 [가상 컴퓨터 크기](../virtual-machines/virtual-machines-windows-sizes.md) 및 [클라우드 서비스 크기](../cloud-services/cloud-services-sizes-specs.md)를 참조하세요.
+- 프리미엄 저장소에서 실행되는 Azure VM을 사용하려는 경우 DS 시리즈, DSv2 시리즈 또는 GS 시리즈 VM을 사용해야 합니다. DS 시리즈, DSv2 시리즈 및 GS 시리즈의 VM에는 표준 및 프리미엄 저장소 디스크를 모두 사용할 수 있습니다. 프리미엄 저장소 디스크를 나중에 더 많은 VM 형식으로 사용할 수 있습니다. 사용 가능한 Azure VM 디스크 유형 및 크기에 대한 자세한 내용은 [가상 컴퓨터 크기](../virtual-machines/virtual-machines-windows-sizes.md) 및 [클라우드 서비스 크기](../cloud-services/cloud-services-sizes-specs.md)를 참조하세요.
 
 ### 고려 사항
 
@@ -146,7 +146,7 @@ Ubuntu VM에 대해 동일한 작업을 수행할 virt sysprep를 사용할 수 
 VHD를 유지 관리하기 위한 저장소 계정을 만듭니다. VHD를 저장할 위치를 계획할 때 다음 사항을 고려합니다.
 
 - 응용 프로그램 요구 사항에 따라 대상 저장소 계정은 표준 또는 프리미엄 저장소가 될 수 있습니다.
-- 저장소 계정 위치는 최종 단계에서 만들 DS 시리즈 또는 GS 시리즈 Azure VM과 동일해야 합니다. 새 저장소 계정으로 복사하거나 필요에 따라 동일한 저장소 계정을 사용할 수 있습니다.
+- 저장소 계정 위치는 최종 단계에서 만들 DS 시리즈, DSv2 시리즈 또는 GS 시리즈 Azure VM과 동일해야 합니다. 새 저장소 계정으로 복사하거나 필요에 따라 동일한 저장소 계정을 사용할 수 있습니다.
 - 다음 단계는 대상 저장소 계정의 저장소 계정 키를 복사하고 저장합니다.
 - 데이터 디스크의 경우, 표준 저장소 계정(예: 냉각 저장소가 있는 디스크) 및 프리미엄 저장소 계정에 IOP가 높은 일부 저장소 계정으로 이동하고 데이터 디스크를 유지하도록 선택할 수 있습니다.
 
@@ -243,7 +243,7 @@ OS VHD에서 VM을 만들거나 새 VM에 데이터 디스크를 연결하려면
 
 #### Azure VM 인스턴스에 연결될 데이터 디스크 VHD
 
-데이터 디스크 VHD를 저장소 계정에 업로드한 후 Azure 데이터 디스크로 등록되면 새 DS 시리즈 또는 GS 시리즈 Azure VM 인스턴스에 연결할 수 있습니다.
+데이터 디스크 VHD를 저장소 계정에 업로드한 후 Azure 데이터 디스크로 등록되면 새 DS 시리즈, DSv2 시리즈 또는 GS 시리즈 Azure VM 인스턴스에 연결할 수 있습니다.
 
 이 PowerShell cmdlet을 사용하여 Azure 데이터 디스크로 VHD를 등록합니다. VHD가 복사된 완전한 컨테이너 URL을 제공합니다.
 
@@ -251,9 +251,9 @@ OS VHD에서 VM을 만들거나 새 VM에 데이터 디스크를 연결하려면
 
 새 Azure 데이터 디스크의 이름을 복사하고 저장합니다. 위의 예제에서는 *DataDisk*입니다.
 
-### Azure DS 시리즈 또는 GS 시리즈 VM을 만듭니다.
+### Azure DS 시리즈, DSv2 시리즈 또는 GS 시리즈 VM을 만듭니다.
 
-OS 이미지나 OS 디스크가 등록되면 새 DS 시리즈 또는 GS 시리즈 VM을 만듭니다. 등록된 운영 체제 이미지 또는 운영 체제 디스크 이름을 사용합니다. 프리미엄 저장소 계층에서 VM 종류를 선택합니다. 아래 예제에서는 *Standard\_DS2* VM 크기를 사용 중입니다.
+OS 이미지나 OS 디스크가 등록되면 새 DS 시리즈, DSv2 시리즈 또는 GS 시리즈 VM을 만듭니다. 등록된 운영 체제 이미지 또는 운영 체제 디스크 이름을 사용합니다. 프리미엄 저장소 계층에서 VM 종류를 선택합니다. 아래 예제에서는 *Standard\_DS2* VM 크기를 사용 중입니다.
 
 >[AZURE.NOTE] 디스크 크기를 업데이트하여 용량, 성능 요구 사항 및 사용 가능한 Azure 디스크 크기가 일치하는지 확인합니다.
 
@@ -299,7 +299,7 @@ OS 이미지나 OS 디스크가 등록되면 새 DS 시리즈 또는 GS 시리�
 
 ### 데이터 디스크 연결
 
-마지막으로, 등록된 데이터 디스크 VHD가 있는 경우 새 DS 시리즈 또는 GS 시리즈 Azure VM에 연결합니다.
+마지막으로, 등록된 데이터 디스크 VHD가 있는 경우 새 DS 시리즈, DSv2 시리즈 또는 GS 시리즈 Azure VM에 연결합니다.
 
 새 VM에 데이터 디스크를 연결하고 캐싱 정책을 지정하려면 다음 PowerShell cmdlet을 사용합니다. 아래 예제에서는 캐싱 정책이 *ReadOnly*로 설정됩니다.
 
@@ -315,7 +315,7 @@ OS 이미지나 OS 디스크가 등록되면 새 DS 시리즈 또는 GS 시리�
 
 현재 표준 저장소 디스크를 사용하는 Azure VM이 있는 경우 아래 프로세스에 따라 프리미엄 저장소로 마이그레이션합니다. 상위 수준에서 마이그레이션은 두 단계로 이루어집니다.
 -	표준 저장소 계정에서 프리미엄 저장소 계정으로 디스크 마이그레이션
--	VM 크기를 A/D/G에서 DS 또는 GS(프리미엄 저장소 디스크 사용에 필요)로 변환
+-	VM 크기를 A/D/G에서 DS, DSv2 또는 GS(프리미엄 저장소 디스크 사용에 필요)로 변환
 
 또한 프리미엄 저장소에 대해 수행할 수 있는 다양한 최적화 이해를 위한 고려 사항에서 이전 섹션을 참조하세요. 응용 프로그램에 적용할 수 있는 최적화에 따라 마이그레이션 프로세스는 아래 마이그레이션 시나리오 중 하나에 해당될 수 있습니다.
 
@@ -324,7 +324,7 @@ OS 이미지나 OS 디스크가 등록되면 새 DS 시리즈 또는 GS 시리�
 
 #### 준비
 1. 프리미엄 저장소를 마이그레이션하는 지역에서 사용할 수 있는지 확인합니다.
-2. 사용할 새 VM 시리즈를 결정합니다. 지역에서 사용 가능 여부와 사용자 요구에 따라 DS 시리즈 또는 GS 시리즈여야 합니다.
+2. 사용할 새 VM 시리즈를 결정합니다. 하위 지역에서 사용 가능 여부와 사용자 요구에 따라 DS 시리즈, DSv2 시리즈 또는 GS 시리즈여야 합니다.
 3. 사용할 정확한 VM 크기를 결정합니다. VM 크기는 현재 포함하고 있는 데이터 디스크 수를 지원할 만큼 충분히 커야 합니다. 예: 데이터 디스크가 4개 있는 경우 VM은 2개 이상의 코어를 포함해야 합니다. 또한 처리 능력, 메모리 및 네트워크 대역폭 요구 사항을 고려합니다.
 4. 대상 지역에 프리미엄 저장소 계정을 만듭니다. 새 VM에 사용할 계정입니다.
 5. 디스크 및 해당 VHD Blob의 목록을 포함하여 도움이 될 현재 VM 세부 정보를 포함합니다.
@@ -341,7 +341,7 @@ OS 이미지나 OS 디스크가 등록되면 새 DS 시리즈 또는 GS 시리�
 4.	프리미엄 저장소 계정에 복사한 OS 디스크 VHD Blob를 사용하여 새 OS 디스크를 만듭니다. "Add-AzureDisk" PowerShell cmdlet을 사용하여 수행할 수 있습니다.
 
     예제 스크립트: Add-AzureDisk -DiskName "NewOSDisk1" -MediaLocation "https://newpremiumstorageaccount.blob.core.windows.net/vhds/MyOSDisk.vhd" -OS "Windows"
-5. 다음으로 위의 OS 디스크 및 데이터 디스크를 사용하여 DS 시리즈 VM(또는 GS 시리즈)을 만듭니다.
+5. 다음으로 위의 OS 디스크 및 데이터 디스크를 사용하여 DS 시리즈 VM(또는 DSv2 시리즈 또는 GS 시리즈)을 만듭니다.
 
     해당 서비스 내에 새 클라우드 서비스 및 새 VM을 만드는 예제 스크립트: New-AzureService -ServiceName “NewServiceName” -Location “East US 2"
 
@@ -680,4 +680,4 @@ Azure 저장소 및 Azure 가상 컴퓨터에 대한 자세한 내용을 보려�
 [2]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

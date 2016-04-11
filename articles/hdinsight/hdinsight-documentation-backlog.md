@@ -32,6 +32,7 @@
 저장소 | WASB 및 Data Lake 저장소 옵션을 설명하는 문서 | 2 | 보류 중 | [@mumian](https://github.com/mumian) | - 
 성능 | MapReduce 응용 프로그램에 대한 성능 튜닝 지침 | 1 | 보류 중 | [@blackmist](https://github.com/blackmist) | - 
 성능 | Spark 클러스터에 대한 성능 튜닝 지침 |1 | 보류 중 | [@nitinme](https://github.com/nitinme) | -
+개발 | HDInsight .NET 응용 프로그램과 비대화형 인증 |2| 작성 중 | [@mumian](https://github.com/mumian) | [@matt1883](https://github.com/matt1883)
 
 
 ## 백로그에서 피드백을 제공하는 방법
@@ -40,4 +41,4 @@
 * 아래에 의견 추가
 * [Azure 콘텐츠 리포지토리](https://github.com/Azure/azure-content/blob/master/articles/hdinsight/hdinsight-documentation-backlog.md)에서 이 문서에 대한 끌어오기 요청 제출
 
-<!-----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

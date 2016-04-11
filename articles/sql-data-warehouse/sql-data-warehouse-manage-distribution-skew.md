@@ -1,6 +1,6 @@
 <properties
    pageTitle="테이블 분산 오차 관리 | Microsoft Azure"
-   description="분산 테이블의 분산 오차를 식별하는 데 도움이 되는 지침"
+   description="사용자가 분산 테이블의 분산 오차를 식별하는 데 도움이 되는 지침"
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="jrowlandjones"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/18/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # 테이블 분산 오차 관리
@@ -27,7 +27,7 @@
 
 아래 뷰와 같은 쿼리는 오차가 있는 테이블을 식별하는 데 유용할 수 있습니다.
 
-```
+```sql
 CREATE VIEW dbo.vDistributionSkew
 AS
 WITH base
@@ -113,7 +113,7 @@ FROM	size
 
 뷰가 만들어지면 아래와 같은 쿼리를 사용하여 테이블의 오차 부분이 유효한지 간단히 확인할 수 있습니다.
 
-```
+```sql
 SELECT	[two_part_name]
 ,		[distribution_id]
 ,		[row_count]
@@ -152,4 +152,4 @@ ORDER BY [row_count] DESC
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

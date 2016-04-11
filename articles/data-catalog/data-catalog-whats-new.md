@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure Data Catalog의 새로운 기능 | Microsoft Azure"
-   description="Azure 데이터 카탈로그 미리 보기에서 새로운 기능 개요를 제공합니다."
+   description="Azure Data Catalog에 추가된 새로운 기능의 개요입니다."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/14/2016"
+   ms.date="03/30/2016"
    ms.author="maroche"/>
 
 # Azure 데이터 카탈로그의 새로운 기능
@@ -216,4 +216,4 @@
 - Standard Edition에만 해당: 이제 데이터 자산에 소유자를 추가하는 경우 **Azure 데이터 카탈로그**에서 사용자 계정과 보안 그룹을 모두 소유자로 지원합니다. 선택한 데이터 자산에 대해 소유자로 보안 그룹을 추가하려면 있는 경우 그룹의 표시 이름 또는 그룹의 UPN 전자 메일 주소를 입력할 수 있습니다.
 - Azure Blob 저장소의 데이터 원본에 대한 지원입니다. 이제 사용자는 Azure 저장소 Blob 및 디렉터리를 등록하고 검색할 수 있습니다.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

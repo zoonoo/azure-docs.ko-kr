@@ -23,7 +23,7 @@ A8 및 A10 | Intel Xeon E5-2670<br/>8 코어 @ 2.6 GHz | DDR3-1600MHz<br/>56GB
 A9 A11 | Intel Xeon E5-2670<br/>16 코어 @ 2.6 GHz | DDR3-1600MHz<br/>112GB
 
 
->[AZURE.NOTE]지원되는 명령어 집합 확장을 비롯한 추가 프로세서 세부 정보는 Intel.com 웹 사이트에 있습니다. VM 저장소 용량 및 디스크 세부 정보는 [가상 컴퓨터 크기](virtual-machines-linux-sizes.md)를 참조하세요.
+>[AZURE.NOTE]지원되는 명령어 집합 확장을 비롯한 추가 프로세서 세부 정보는 Intel.com 웹 사이트에 있습니다. VM 저장소 용량 및 디스크 세부 정보는 [가상 컴퓨터 크기](../articles/virtual-machines/virtual-machines-linux-sizes.md)를 참조하세요.
 
 ### 네트워크 어댑터
 
@@ -58,4 +58,4 @@ A10 및 A11 인스턴스에는 Azure 서비스 및 인터넷에 연결하는 한
 
 * **RDMA 네트워크 주소 공간** - Azure의 RDMA 네트워크는 주소 공간 172.16.0.0/12를 예약합니다. Azure 가상 네트워크의 A8 및 A9 인스턴스에서 MPI 응용 프로그램을 실행하려면 가상 네트워크 주소 공간이 RDMA 네트워크와 겹치지 않도록 해야 합니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

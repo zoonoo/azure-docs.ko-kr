@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/14/2016"
+   ms.date="03/25/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스의 테이블 파티션
@@ -38,9 +38,9 @@ SQL DW를 사용하면 DBA는 테이블 형식에서 다음 옵션을 선택할 
 SQL DW에 클러스터된 열 저장소 인덱스를 만들 경우 DBA는 행의 수라는 추가 요소를 고려해야 합니다. CCI 테이블은 높은 수준의 압축 작업을 수행할 수 있고 SQL DW은 쿼리 성능을 가속화하는 데 도움이 됩니다. 압축이 SQL DW에서 내부적으로 작동하는 방법으로 인해 데이터가 압축되기 전에 CCI 테이블의 각 파티션에 상당히 많은 수의 행이 있어야 합니다. 또한 SQL DW은 많은 배포에 데이터를 분산하고 각 배포는 파티션에서 추가적으로 세분화됩니다. 최적의 압축 및 성능을 위해 배포 및 파티션 당 최소 100,000개의 행이 필요합니다. 위 예제에서 사용 판매 팩트 테이블이 36개의 월별 파티션을 포함하고 SQL DW에 60개의 배포판이 있다면 판매 팩트 테이블은 모든 달이 채워지는 경우 매월 6백만 개의 행 또는 216만 개의 행을 포함합니다. 테이블이 권장되는 최소값 보다 훨씬 적은 행을 포함하면 DBA는 배포 당 행 수를 크게 하기 위해 적은 수의 파티션으로 테이블을 만들 것을 고려해야 합니다.
 
 
-파티션 수준에서 현재 데이터베이스의 크기를 조정하려면 다음과 같은 쿼리를 사용합니다.
+파티션 수준에서 현재 SQL Server 데이터베이스의 크기를 조정하려면 다음과 같은 쿼리를 사용합니다.
 
-```
+```sql
 SELECT      s.[name]                        AS      [schema_name]
 ,           t.[name]                        AS      [table_name]
 ,           i.[name]                        AS      [index_name]
@@ -54,7 +54,7 @@ SELECT      s.[name]                        AS      [schema_name]
 FROM        sys.schemas s
 JOIN        sys.tables t                    ON      t.[schema_id]         = s.[schema_id]
 JOIN        sys.partitions p                ON      p.[object_id]         = t.[object_id]
-JOIN        sys.allocation_units a          ON      a.[container_id]        = p.[partition_id]
+JOIN        sys.allocation_units a          ON      a.[container_id]      = p.[partition_id]
 JOIN        sys.indexes i                   ON      i.[object_id]         = p.[object_id]
                                             AND     i.[index_id]          = p.[index_id]
 JOIN        sys.data_spaces ds              ON      ds.[data_space_id]    = i.[data_space_id]
@@ -83,7 +83,7 @@ MPP 파티션 크기 = SMP 파티션 크기 / 배포 수
 
 다음 쿼리를 사용하여 SQL 데이터 웨어하우스 데이터베이스의 배포 수를 알아낼 수 있습니다.
 
-```
+```sql
 SELECT  COUNT(*)
 FROM    sys.pdw_distributions
 ;
@@ -96,7 +96,7 @@ FROM    sys.pdw_distributions
 
 배포 당 메모리의 할당에 관한 정보는 리소스 관리자 동적 관리 뷰를 쿼리하여 사용 가능합니다. 실제로 아래 그림 보다 작은 프로그램 메모리가 부여됩니다. 그러나 데이터 관리 작업에 대한 파티션의 크기를 조정할 때 사용할 수 있는 지침의 수준을 제공합니다.
 
-```
+```sql
 SELECT  rp.[name]								AS [pool_name]
 ,       rp.[max_memory_kb]						AS [max_memory_kb]
 ,       rp.[max_memory_kb]/1024					AS [max_memory_mb]
@@ -122,7 +122,7 @@ AND     rp.[name]    = 'SloDWPool'
 
 다음은 각 파티션에 하나의 행을 포함하는 샘플 분할된 columnstore 테이블입니다.
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (
         [ProductKey]            int          NOT NULL
@@ -157,7 +157,7 @@ CREATE STATISTICS Stat_dbo_FactInternetSales_OrderDateKey ON dbo.FactInternetSal
 
 `sys.partitions` 카탈로그 뷰를 사용하여 행 개수에 대해 쿼리할 수 있습니다.
 
-```
+```sql
 SELECT  QUOTENAME(s.[name])+'.'+QUOTENAME(t.[name]) as Table_name
 ,       i.[name] as Index_name
 ,       p.partition_number as Partition_nmbr
@@ -174,7 +174,7 @@ WHERE t.[name] = 'FactInternetSales'
 
 이 테이블을 분할하는 경우 오류가 발생합니다.
 
-```
+```sql
 ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 ```
 
@@ -182,7 +182,7 @@ ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 
 그러나 `CTAS`를 사용하여 데이터를 저장할 새 테이블을 만듭니다.
 
-```
+```sql
 CREATE TABLE dbo.FactInternetSales_20000101
     WITH    (   DISTRIBUTION = HASH(ProductKey)
             ,   CLUSTERED COLUMNSTORE INDEX
@@ -200,7 +200,7 @@ WHERE   1=2
 
 파티션 경계가 정렬되므로 전환이 허용됩니다. 이후에 나눌 수 있는 빈 파티션이 있는 원본 테이블이 남습니다.
 
-```
+```sql
 ALTER TABLE FactInternetSales SWITCH PARTITION 2 TO  FactInternetSales_20000101 PARTITION 2;
 
 ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
@@ -208,7 +208,7 @@ ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 
 `CTAS`를 사용하여 새 파티션 경계에 데이터를 정렬하고 데이터를 다시 기본 테이블로 전환하는 것이 남았습니다.
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales_20000101_20010101]
     WITH    (   DISTRIBUTION = HASH([ProductKey])
             ,   CLUSTERED COLUMNSTORE INDEX
@@ -229,7 +229,7 @@ ALTER TABLE dbo.FactInternetSales_20000101_20010101 SWITCH PARTITION 2 TO dbo.Fa
 
 데이터의 이동을 완료한 후에 각 분할에 있는 데이터의 새 배포를 정확히 반영되도록 대상 테이블에서 통계를 새로 고치는 것이 좋습니다.
 
-```
+```sql
 UPDATE STATISTICS [dbo].[FactInternetSales];
 ```
 
@@ -238,7 +238,7 @@ UPDATE STATISTICS [dbo].[FactInternetSales];
 
 1. 파티션 값이 없는 분할된 테이블로 테이블을 만듭니다.
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (
     [ProductKey]            int          NOT NULL
@@ -262,7 +262,7 @@ WITH
 
 2. `SPLIT` 배포 프로세스의 일부로서의 테이블:
 
-```
+```sql
 -- Create a table containing the partition boundaries
 
 CREATE TABLE #partitions
@@ -336,4 +336,4 @@ SQL 데이터 웨어하우스로 데이터베이스 스키마를 성공적으로
 
 <!-- Other web references -->
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

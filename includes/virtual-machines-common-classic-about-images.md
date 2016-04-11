@@ -16,12 +16,12 @@ Azure의 가상 컴퓨터나 다른 곳에서 실행 중이지만 복사하여 �
 
 Azure 구독에 사용할 수 있는 이미지를 관리 하려면 Mac, Linux 및 Windows 또는 Azure PowerShell 모듈에 대한 Azure 명령줄 인터페이스(CLI)를 사용할 수 있습니다. 또한 일부 이미지 작업에 Azure 클래식 포털을 사용할 수 있지만 명령줄에는 추가 옵션이 있습니다.
 
-이러한 도구를 사용하여 리소스 관리자를 배포하는 방법에 대한 자세한 내용은 [PowerShell 및 Azure CLI를 사용하여 Azure 가상 컴퓨터 이미지 탐색 및 선택](virtual-machines-linux-cli-ps-findimage.md)을 참조하세요.
+이러한 도구를 사용하여 리소스 관리자를 배포하는 방법에 대한 자세한 내용은 [PowerShell 및 Azure CLI를 사용하여 Azure 가상 컴퓨터 이미지 탐색 및 선택](../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md)을 참조하세요.
 
 기존 배포에서의 도구 사용 예:
 
-- CLI는 [Azure 서비스 관리에 Mac, Linux 및 Windows의 Azure CLI 사용](virtual-machines-command-line-tools.md)의 "Azure 가상 컴퓨터 이미지를 관리하는 명령"을 참조하세요.
-- Azure PowerShell에 대한 내용은 다음 명령 목록을 참조하세요. VM을 만들 이미지를 찾는 경우의 예는 [Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성](virtual-machines-windows-classic-create-powershell.md)의 "3단계: ImageFamily결정"을 참조하세요.
+- CLI는 [Azure 서비스 관리에 Mac, Linux 및 Windows의 Azure CLI 사용](../articles/virtual-machines-command-line-tools.md)의 "Azure 가상 컴퓨터 이미지를 관리하는 명령"을 참조하세요.
+- Azure PowerShell에 대한 내용은 다음 명령 목록을 참조하세요. VM을 만들 이미지를 찾는 경우의 예는 [Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성](../articles/virtual-machines/virtual-machines-windows-classic-create-powershell.md)의 "3단계: ImageFamily결정"을 참조하세요.
 
 -	**모든 이미지 가져오기**:`Get-AzureVMImage`현재 구독에서 사용할 수 있는 모든 이미지의 목록을 반환 합니다. Azure 또는 파트너가 제공하는 이미지화 사용자 이미지를 가져옵니다. 이 작업을 수행하면 목록이 커질 수 있습니다. 다음 예에서는 짧은 목록을 가져오는 방법을 보여 줍니다.
 -	**이미지 제품군 가져오기**:`Get-AzureVMImage | select ImageFamily` **ImageFamily** 속성 문자열을 표시하여 이미지 제품군 목록을 가져옵니다.
@@ -35,8 +35,8 @@ Azure 구독에 사용할 수 있는 이미지를 관리 하려면 Mac, Linux �
 
 ## 추가 리소스
 
-[Linux 가상 컴퓨터를 만드는 다양한 방법](virtual-machines-linux-creation-choices.md)
+[Linux 가상 컴퓨터를 만드는 다양한 방법](../articles/virtual-machines/virtual-machines-linux-creation-choices.md)
 
-[Windows 가상 컴퓨터를 만드는 다양한 방법](virtual-machines-windows-creation-choices.md)
+[Windows 가상 컴퓨터를 만드는 다양한 방법](../articles/virtual-machines/virtual-machines-windows-creation-choices.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

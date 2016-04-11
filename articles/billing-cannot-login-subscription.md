@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/30/2015"
+	ms.date="03/30/2016"
 	ms.author="genli"/>
 
 # 내 Azure 구독 관리를 위해 로그인할 수 없음
@@ -24,13 +24,9 @@
 
 ## 액세스하려는 포털은 무엇인가요?
 
-계정 소유자는 [계정 센터](https://account.windowsazure.com/)에만 액세스할 수 있는 반면 SA(서비스 관리자) 및 CA(공동 관리자)는 [Azure 포털](https://manage.windowsazure.com/)에 대한 액세스 권한이 있습니다.
+계정 관리자는 [계정 센터](https://account.windowsazure.com/)에만 액세스할 수 있는 반면 SA(서비스 관리자) 및 CA(공동 관리자)는 [Azure 포털](https://portal.azure.com) 또는 [Azure 클래식 포털](https://manage.windowsazure.com/)에 대한 액세스 권한이 있습니다.
 
-관리자 역할 업데이트에 대한 지침은 아래 링크를 클릭합니다.
-
-- [계정에서 SA를 업데이트하려면](./billing-add-change-azure-subscription-administrator.md#change-service-administrator-for-a-subscription)
-
-- [관리 포털에서 새 CA를 추가하려면](./billing-add-change-azure-subscription-administrator.md#add-a-co-administrator-for-a-subscription)
+Azure 관리자 역할에 대한 자세한 내용은 [Azure 관리자 역할을 추가 또는 변경하는 방법](billing-add-change-azure-subscription-administrator.md)을 참조하세요.
 
 ## Microsoft 계정 또는 조직 계정에 연결된 구독인가요?
 
@@ -56,4 +52,4 @@ Microsoft 계정은 사용하는 메일 주소이며 암호와 함께 사용하�
 
 이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 스택 오버플로 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수도 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동한 다음 지원 받기를 클릭합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->

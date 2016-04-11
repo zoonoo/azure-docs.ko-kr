@@ -1,8 +1,5 @@
 
  
-
-첫 번째 또는 다음 개발/테스트 또는 Azure 인프라 서비스의 가상 컴퓨터에서 실행되는 프로덕션 Oracle 데이터베이스를 설정합니다. 새 용량을 포함하도록 Oracle 데이터베이스를 신속히 확장하는 쉬운 구성과 기능을 활용하세요.
-
 ## Oracle 가상 컴퓨터 이미지
 
 최신 Windows 기반 및 Linux 기반 가상 컴퓨터 이미지 집합을 보려면 [Oracle 가상 컴퓨터 이미지 목록](../articles/virtual-machines/virtual-machines-linux-classic-oracle-images.md)을 참조하세요.
@@ -35,4 +32,4 @@ Windows 서버 기반 Azure 가상 컴퓨터의 Oracle 소프트웨어에 대한
 
 [Azure용 Oracle GoldenGate 구성](../articles/virtual-machines/virtual-machines-windows-classic-configure-oracle-goldengate.md)은 데이터베이스 및 복제를 설정하는 과정을 단계별로 안내합니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

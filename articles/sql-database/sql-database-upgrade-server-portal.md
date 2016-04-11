@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Azure 포털을 사용하여 Azure SQL 데이터베이스 V12로 업그레이드 | Microsoft Azure" 
-	description="Web 및 Business 데이터베이스를 업그레이드하는 방법을 포함하여 Azure SQL 데이터베이스 V12로 업그레이드하는 방법을 설명하며 Azure 포털을 사용하여 V11 서버 업그레이드를 통해 데이터베이스를 탄력적 데이터베이스 풀로 직접 마이그레이션하는 방법을 설명합니다." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="stevestein" 
+<properties
+	pageTitle="Azure 포털을 사용하여 Azure SQL 데이터베이스 V12로 업그레이드 | Microsoft Azure"
+	description="Web 및 Business 데이터베이스를 업그레이드하는 방법을 포함하여 Azure SQL 데이터베이스 V12로 업그레이드하는 방법을 설명하며 Azure 포털을 사용하여 V11 서버 업그레이드를 통해 데이터베이스를 탄력적 데이터베이스 풀로 직접 마이그레이션하는 방법을 설명합니다."
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
 	manager="jeffreyg"
 	editor=""/>
 
-<tags 
-	ms.service="sql-database" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="data-management" 
-	ms.date="02/23/2016" 
+<tags
+	ms.service="sql-database"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="data-management"
+	ms.date="02/23/2016"
 	ms.author="sstein"/>
 
 
@@ -21,7 +21,7 @@
 
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-upgrade-server-portal.md)
+- [Azure 포털](sql-database-upgrade-server-portal.md)
 - [PowerShell](sql-database-upgrade-server-powershell.md)
 
 
@@ -41,12 +41,11 @@ V12로 업그레이드하는 과정에서 Web/Business 데이터베이스를 새
 
 SQL 데이터베이스 V12로 업그레이드하고 난 후에는 취소할 수 없습니다. 업그레이드 후에는 서버를 V11로 되돌릴 수 없습니다.
 
-V12로 업그레이드 한 직후에는 서비스가 새 서버의 워크로드를 평가할 때까지 일정 시간 동안 [서비스 계층 권장 사항](sql-database-service-tier-advisor.md) 및 [탄력적 풀 권장 사항](sql-database-elastic-pool-portal.md#step-2-choose-a-pricing-tier)을 사용할 수 없습니다. V11 서버 권장 사항 기록은 유지되지 않으므로 V12 서버에 적용되지 않습니다.
-
+V12로 업그레이드한 후에는 서비스가 새 서버의 워크로드를 평가할 때까지 일정 시간 동안 [서비스 계층 권장 사항](sql-database-service-tier-advisor.md) 및 [탄력적 풀 성능 권장 사항](sql-database-elastic-pool-guidance.md)을 사용할 수 없습니다. V11 서버 권장 사항 기록은 유지되지 않으므로 V12 서버에 적용되지 않습니다.
 
 ## 업그레이드 준비
 
-- **모든 Web 및 Business 데이터베이스 업그레이드**: 아래의 [모든 Web 및 Business 데이터베이스 업그레이드](sql-database-upgrade-server-portal.md#upgrade-all-web-and-business-databases) 섹션을 참조하거나 [PowerShell을 사용하여 데이터베이스 및 서버 업그레이드](sql-database-upgrade-server-powershell.md)를 수행하세요.
+- **모든 Web 및 Business 데이터베이스 업그레이드**: 아래의 [모든 Web 및 Business 데이터베이스 업그레이드](sql-database-upgrade-server-portal.md#upgrade-all-web-and-business-databases) 섹션을 참조하거나 [탄력적 데이터베이스 풀 모니터링 및 관리(PowerShell)](sql-database-elastic-pool-manage-powershell.md)를 수행하세요.
 - **지역에서 복제 검토 및 일시 중단**: Azure SQL 데이터베이스가 지역에서 복제가 가능하도록 구성된 경우 데이터베이스의 현재 구성을 문서에 기록해 놓고 [지역에서 복제를 중지](sql-database-geo-replication-portal.md#remove-secondary-database)해야 합니다. 업그레이드가 완료된 후 지역에서 복제 데이터베이스를 다시 구성하세요.
 - **Azure VM에 클라이언트가 있는 경우 열어야 하는 포트**: Azure VM(가상 컴퓨터)에서 클라이언트가 실행되면서 클라이언트 프로그램이 SQL 데이터베이스 V12에 연결하는 경우에는 VM에서 11000-11999 및 14000-14999 범위의 포트를 열어야 합니다. 자세한 내용은 [SQL 데이터베이스 V12용 포트](sql-database-develop-direct-route-ports-adonet-v12.md)를 참조하세요.
 
@@ -64,7 +63,7 @@ V12로 업그레이드 한 직후에는 서비스가 새 서버의 워크로드�
 서버에 We 또는 Business 데이터베이스가 있는 경우 데이터베이스를 업그레이드해야 합니다. SQL 데이터베이스 V12로 업그레이드하는 과정에서 모든 Web 및 Business 데이터베이스를 새 서비스 계층으로 업데이트하게 됩니다.
 
 업그레이드를 지원하기 위해 SQL 데이터베이스 서비스는 각 데이터베이스에 적절한 서비스 계층 및 성능 수준(가격 책정 계층)을 권장합니다. 서비스는 데이터베이스의 기존 사용량을 분석하여 기존 데이터베이스의 워크로드를 실행하는 데 가장 적합한 계층을 권장합니다.
-    
+
 3. **이 서버 업그레이드** 블레이드에서 검토할 각 데이터베이스를 선택하고 업그레이드할 권장 가격 책정 계층을 선택합니다. 언제든지 사용 가능한 가격 책정 계층을 찾아보고 환경에 가장 적합한 계층을 선택할 수 있습니다.
 
 
@@ -82,7 +81,7 @@ V12로 업그레이드 한 직후에는 서비스가 새 서버의 워크로드�
 
 ## 업그레이드 확인
 
-3. 서버에 있는 모든 데이터베이스의 업그레이드가 가능해지면 **서버 이름을 입력**하여 업그레이드를 수행할 것임을 확인한 후 **확인**을 클릭합니다. 
+3. 서버에 있는 모든 데이터베이스의 업그레이드가 가능해지면 **서버 이름을 입력**하여 업그레이드를 수행할 것임을 확인한 후 **확인**을 클릭합니다.
 
     ![업그레이드 확인][3]
 
@@ -103,19 +102,19 @@ V12로 업그레이드 한 직후에는 서비스가 새 서버의 워크로드�
 
 또는
 
-**여기를 클릭하여 이 서버에 권장되는 탄력적 데이터베이스 풀을 확인하세요.**라는 메시지가 나타나면 이 메시지를 클릭하여 서버의 데이터베이스에 최적화된 풀을 쉽게 만들 수 있습니다. 자세한 내용은 [권장되는 탄력적 데이터베이스 풀](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools)을 참조하세요.
+**여기를 클릭하여 이 서버에 권장되는 탄력적 데이터베이스 풀을 확인하세요.**라는 메시지가 나타나면 이 메시지를 클릭하여 서버의 데이터베이스에 최적화된 풀을 쉽게 만들 수 있습니다. 자세한 내용은 [탄력적 데이터베이스 풀의 가격 및 성능 고려 사항](sql-database-elastic-pool-guidance.md)을 참조하세요.
 
 ![서버에 풀 추가][7]
-   
+
 [탄력적 데이터베이스 풀 만들기](sql-database-elastic-pool.md) 문서의 지침을 따라 풀 만들기를 완료합니다.
 
 ## SQL 데이터베이스 V12로 업그레이드한 후 데이터베이스 모니터링
 
 >[AZURE.IMPORTANT] 새 v12 기능을 활용하려면 최신 버전의 SSMS(SQL Server Management Studio)로 업그레이드합니다. [SQL Server Management Studio를 다운로드합니다](https://msdn.microsoft.com/library/mt238290.aspx).
-	
-업그레이드한 후 데이터베이스를 적극적으로 모니터링하여 원하는 성능으로 응용 프로그램이 실행되고 있는지 확인하고 필요에 따라 사용을 최적화하는 것이 좋습니다.
 
-개별 데이터베이스를 모니터링하는 것 외에, [포털을 사용](sql-database-elastic-pool-portal.md#monitor-and-manage-an-elastic-database-pool)하거나 [PowerShell](sql-database-elastic-pool-powershell.md#monitoring-elastic-databases-and-elastic-database-pools)을 사용하여 탄력적 데이터베이스 풀을 모니터링할 수도 있습니다.
+업그레이드한 후 데이터베이스를 적극적으로 모니터링하여 원하는 성능으로 응용 프로그램이 실행되고 있는지 확인하고 필요에 따라 설정을 최적화합니다.
+
+개별 데이터베이스를 모니터링하는 것 외에, [Azure 포털을 사용하여 탄력적 데이터베이스 풀 모니터링, 관리 및 크기 조정](sql-database-elastic-pool-manage-portal.md)하거나 [PowerShell](sql-database-elastic-pool-powershell.md#monitoring-elastic-databases-and-elastic-database-pools)을 사용하여 탄력적 데이터베이스 풀을 모니터링할 수도 있습니다.
 
 
 **리소스 소비 데이터:** 기본, 표준 및 프리미엄 데이터베이스의 경우 사용자 데이터베이스에서 [sys.dm\_ db\_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) DMV를 통해 리소스 소비 데이터를 사용할 수 있습니다. 이 DMV는 지난 1시간 동안의 작업에 대해 15초 간격으로 거의 실시간 리소스 사용량 정보를 제공합니다. 특정 간격의 DTU 사용률은 CPU, IO 및 로그 차원의 최대 사용률로 계산됩니다. 다음은 지난 1시간 동안의 평균 DTU 사용률을 계산하는 쿼리입니다.
@@ -148,8 +147,7 @@ V12로 업그레이드 한 직후에는 서비스가 새 서버의 워크로드�
 
 ## 다음 단계
 
-- [탄력적 데이터베이스 풀 권장 사항 확인](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools)
-- [탄력적 데이터베이스 풀 만들기](sql-database-elastic-pool-portal.md) 및 풀에 일부 또는 모든 데이터베이스 추가
+- [풀 권장 사항을 확인하고 풀을 만듭니다](sql-database-elastic-pool-create-portal.md).
 - [데이터베이스의 서비스 계층 및 성능 수준 변경](sql-database-scale-up.md)
 
 
@@ -169,4 +167,4 @@ V12로 업그레이드 한 직후에는 서비스가 새 서버의 워크로드�
 [6]: ./media/sql-database-upgrade-server-portal/recommendations.png
 [7]: ./media/sql-database-upgrade-server-portal/new-elastic-pool.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

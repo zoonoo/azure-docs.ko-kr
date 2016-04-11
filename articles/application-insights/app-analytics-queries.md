@@ -15,12 +15,10 @@
 	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
-
-
 # 분석의 쿼리
 
 
-[분석](app-analytics.md)은 [Application Insights](app-insights-overview.md)의 강력한 검색 기능입니다. 다음 페이지에서는 분석 쿼리 언어에 대해 설명합니다.
+[분석](app-analytics.md)을 사용하면 [Application Insights](app-insights-overview.md)에서 수집된 앱의 원격 분석을 통해 유용한 쿼리를 실행할 수 있습니다. 다음 페이지에서는 해당 쿼리 언어를 설명합니다.
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
@@ -592,7 +590,7 @@ Traces
 
     T | summarize count() by price_range=bin(price, 10.0)
 
-[0,10.0] , [10.0,20.0] 등의 각 간격에 가격을 가진 항목 수를 표시하는 테이블입니다. 이 예제는 개수에 대한 열 및 가격 범위에 대한 열을 가지고 있습니다. 모든 다른 입력된 열은 무시됩니다.
+[0,10.0], [10.0,20.0] 등의 각 간격에 가격을 가진 항목 수를 표시하는 테이블입니다. 이 예제는 개수에 대한 열 및 가격 범위에 대한 열을 가지고 있습니다. 모든 다른 입력된 열은 무시됩니다.
 
 [추가 예제](app-analytics-aggregations.md)
 
@@ -608,7 +606,7 @@ Traces
 **인수**
 
 * *Column:* 결과 열에 대한 선택적 이름입니다. 기본적으로 식에서 파생된 이름입니다.
-* *Aggregation:* 열 이름을 인수로 하는 `count()` 또는 `avg()` 등과 같은 [집계 함수](app-analytics-aggregations.md) 에 대한 호출입니다. [집계 함수의 목록](app-analytics-aggregations.md)을 참조하세요.
+* *Aggregation:* 열 이름을 인수로 하는 `count()` 또는 `avg()` 등과 같은 [집계 함수](app-analytics-aggregations.md)에 대한 호출입니다. [집계 함수의 목록](app-analytics-aggregations.md)을 참조하세요.
 * *GroupExpression:* 고유 값 집합을 제공하는 열에 대한 식입니다. 일반적으로 제한된 값 집합을 제공하는 열 이름, 또는 숫자 또는 시간 열을 인수로 하는 `bin()`입니다. 
 
 `bin()`을 사용하지 않고 숫자 또는 시간 식을 제공할 경우 분석은 시간에 대해 `1h`의 간격 또는 숫자에 대해 `1.0`과 함께 자동으로 이를 적용합니다.
@@ -734,7 +732,7 @@ exceptions
 
 **반환**
 
-*Predicate*이 `true`인 *T*의 행입니다.
+*Predicate*이 `true`인 *T* 의 행입니다.
 
 **팁**
 
@@ -766,4 +764,4 @@ Traces
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

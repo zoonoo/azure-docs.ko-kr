@@ -1,6 +1,6 @@
 <properties 
    pageTitle="StorSimple 장치의 디스크 드라이브 교체 | Microsoft Azure"
-   description="StorSimple 기본 장치 또는 EBOD 엔클로저의 디스크 드라이브를 교체하는 방법을 설명합니다."
+   description="StorSimple 기본 인클로저 또는 EBOD 엔클로저의 디스크 드라이브를 교체하는 방법을 설명합니다."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/02/2015"
+   ms.date="03/28/2016"
    ms.author="alkohli" />
 
 # StorSimple 장치의 디스크 드라이브 교체
@@ -78,7 +78,7 @@ StorSimple 장치는 RAID 10과 유사한 저장소 공간 구성을 지원합�
 
 1. 오류가 발생한 디스크를 식별하려면 Azure 클래식 포털에서 **장치** > **유지 관리** > **하드웨어 상태**로 이동합니다. 기본 엔클로저 및/또는 EBOD 엔클로저에서 디스크 오류가 발생할 수 있으므로(8600 모델을 사용하는 경우) **공유 구성 요소** 및 **EBOD 엔클로저 공유 구성 요소** 아래에서 디스크 상태를 확인합니다. 엔클로저 중 하나에서 오류가 발생한 디스크는 빨간색 상태로 표시됩니다.
 
-2. 기본 엔클로저 또는 EBOD 엔클로저 앞에 있는 드라이브를 찾습니다. 오류가 발생한 디스크의 경우 주황색 LED가 켜집니다.
+2. 기본 엔클로저 또는 EBOD 엔클로저 앞에 있는 드라이브를 찾습니다.
 
 3. 디스크가 잠금 해제된 경우 다음 단계로 진행합니다. 디스크가 잠긴 경우 [조작 방지 잠금 해제](#disengage-the-antitamper-lock)의 절차에 따라 잠금 해제합니다.
 
@@ -96,7 +96,7 @@ StorSimple 장치는 RAID 10과 유사한 저장소 공간 구성을 지원합�
 
 ## 교체 디스크 드라이브 설치
 
-Microsoft Azure StorSimple 장치에서 드라이브 오류가 발생하고 드라이브를 꺼낸 후 새 드라이브로 교체하려면 이 절차를 따르세요.
+StorSimple 장치에서 드라이브 오류가 발생하고 드라이브를 꺼낸 후에 새 드라이브로 교체하려면 이 절차를 따르세요.
 
 #### 드라이브를 삽입하려면
 
@@ -124,4 +124,4 @@ Microsoft Azure StorSimple 장치에서 드라이브 오류가 발생하고 드�
 
 [StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

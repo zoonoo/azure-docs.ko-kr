@@ -3,6 +3,7 @@
 	description="조직에서 Microsoft Passport를 사용하도록 설정하는 배포 지침입니다."
 	services="active-directory"
 	documentationCenter=""
+	keywords="Microsoft Passport 구성, 배포 작업에 대한 Microsoft Passport"
 	authors="femila"
 	manager="stevenpo"
 	editor=""
@@ -14,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="03/23/2016"
 	ms.author="femila"/>
 
 
@@ -25,7 +26,7 @@ Windows 10 도메인에 가입된 장치와 Azure AD(Azure Active Directory)를 
 ## Technical Preview용 System Center Configuration Manager 버전 1509 배포
 Microsoft Passport 키 기반의 사용자 인증서를 배포하려면 다음이 필요합니다.
 
-- **Technical Preview용 System Center Configuration Manager 버전 1509**. 자세한 내용은 [Microsoft System Center Configuration Manager Technical Preview](https://technet.microsoft.com/library/dn965439.aspx#BKMK_TP3Update) 및 [System Center Configuration Manager 팀 블로그](http://blogs.technet.com/b/configmgrteam/archive/2015/09/23/now-available-update-for-system-center-config-manager-tp3.aspx)를 참조하세요.
+- **Technical Preview용 System Center Configuration Manager 버전 1509** 자세한 내용은 [Microsoft System Center Configuration Manager Technical Preview](https://technet.microsoft.com/library/dn965439.aspx#BKMK_TP3Update) 및 [System Center Configuration Manager 팀 블로그](http://blogs.technet.com/b/configmgrteam/archive/2015/09/23/now-available-update-for-system-center-config-manager-tp3.aspx)를 참조하세요.
 - **PKI(공개 키 인프라)**: 사용자 인증서를 사용하여 Microsoft Passport for Work를 사용하도록 설정하려면 PKI가 제 위치에 있어야 합니다. PKI가 아직 없거나 사용자 인증서에 사용하지 않으려면 다음을 수행할 수 있습니다.
  - **도메인 컨트롤러 배포**: Windows Server 2016 빌드 10551(또는 최신)이 설치되어 있는 새 도메인 컨트롤러를 배포하고 단계에 따라 [기존 도메인에 복제본 도메인 컨트롤러를 설치](https://technet.microsoft.com/library/jj574134.aspx)하거나 [새 환경을 만드는 경우 새 Active Directory 포리스트를 설치](https://technet.microsoft.com/library/jj574166)합니다. (ISO는 [Signiant Media Exchange](https://datatransfer.microsoft.com/signiant_media_exchange/spring/main?sdkAccessible=true)에서 다운로드할 수 있음)
 
@@ -118,4 +119,4 @@ Passport for Work 인증서 기반 로그온/Microsoft Hello를 사용하려면 
 * [Windows 10 환경용 Azure AD에 도메인 가입된 장치 연결](active-directory-azureadjoin-devices-group-policy.md)
 * [Azure AD 조인 설정](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

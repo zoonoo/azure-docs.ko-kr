@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/02/2016"
+   ms.date="03/29/2016"
    ms.author="sameerch"/>
 
 # PowerApps 엔터프라이즈에서 새 Dynamics CRM Online API 만들기
 
 > [AZURE.SELECTOR]
-- [논리 앱](../articles/connectors/create-api-crmonline.md)
+- [논리 앱](../articles/connectors/connectors-create-api-crmonline.md)
 - [PowerApps 엔터프라이즈](../articles/power-apps/powerapps-create-api-crmonline.md)
 
 조직의 (테넌트) 앱 서비스 환경에 Dynamics CRM Online API를 추가합니다.
@@ -75,23 +75,21 @@
 
 	1. 응용 프로그램의 **이름**을 입력합니다.  
 	2. 응용 프로그램 형식은 그대로 **웹**으로 유지합니다.  
-	3. **다음**을 선택합니다.
+	3. **다음**을 선택합니다.  
 
 	![AAD 응용 프로그램 추가 - 앱 정보][9]
 
 6. **앱 속성**에서:
 
-	1. 응용 프로그램의 **로그온 URL**을 입력합니다. PowerApps에 대해 AAD로 인증하기 때문에 로그온 URL을 _https://login.windows.net_으로 설정합니다.
+	1. 응용 프로그램의 **로그온 URL**을 입력합니다. PowerApps에 대해 AAD로 인증하기 때문에 로그온 URL을 \__https://login.windows.net_으로 설정합니다.
 	2. 앱에 대해 올바른 **앱 ID URI**를 입력합니다.  
 	3. **확인**을 선택합니다.  
 
 	![AAD 응용 프로그램 추가 - 앱 속성][10]
 
-7. 성공적으로 완료되면 새 AAD 앱으로 리디렉션됩니다. **구성**을 선택합니다.  
-![Contoso AAD 앱][11]
+7. 성공적으로 완료되면 새 AAD 앱으로 리디렉션됩니다. **구성**을 선택합니다. ![Contoso AAD 앱][11]
 
-8. _OAuth 2_ 섹션의 **회신 URL**을 이 항목의 Azure 포털에서 새 Dynamics CRM Online API를 추가했을 때 받은 리디렉션 URL로 설정합니다.  
-![Contoso AAD 앱 구성][12]
+8. _OAuth 2_ 섹션의 **회신 URL**을 이 항목의 Azure 포털에서 새 Dynamics CRM Online API를 추가했을 때 받은 리디렉션 URL로 설정합니다. ![Contoso AAD 앱 구성][12]
 
 9. **저장**을 선택합니다.
 
@@ -99,7 +97,7 @@
 
 ## REST API 참조
 
-[Dynamics CRM Online REST API](../connectors/create-api-crmonline.md)를 참조하세요.
+[Dynamics CRM Online REST API](../connectors/connectors-create-api-crmonline.md) 참조.
 
 
 ## 요약 및 다음 단계
@@ -122,4 +120,4 @@
 [11]: ./media/powerapps-create-api-crmonline/contoso-aad-app.PNG
 [12]: ./media/powerapps-create-api-crmonline/contoso-aad-app-configure.PNG
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -5,8 +5,8 @@ Azure는 뛰어난 클라우드 솔루션을 제공합니다. 이 솔루션은 �
 
 **이러한 알려진 기능 외에** Azure에서는 *새로운* 기능을 통해 더 큰 Docker의 혜택을 제공합니다.
 
-- [수많은](virtual-machines-linux-classic-cli-use-docker.md) [다양한](virtual-machines-linux-classic-portal-use-docker.md) [방법들](virtual-machines-linux-classic-docker-quickstart.md)로 컨테이너용 [Docker 호스트를 ](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) 상황에 맞게 생성
-- [Azure 리소스 관리자](resource-group-overview.md) 및 [리소스 그룹 템플릿](resource-group-authoring-templates.md)으로 복잡한 분산 응용 프로그램을 간단하게 배포하고 업데이트
+- [수많은](../articles/virtual-machines/virtual-machines-linux-classic-cli-use-docker.md) [다양한](virtual-machines-linux-classic-portal-use-docker.md) [방법들](virtual-machines-linux-classic-docker-quickstart.md)로 컨테이너용 [Docker 호스트를 ](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) 상황에 맞게 생성
+- [Azure 리소스 관리자](../articles/resource-group-overview.md) 및 [리소스 그룹 템플릿](../articles/resource-group-authoring-templates.md)으로 복잡한 분산 응용 프로그램을 간단하게 배포하고 업데이트
 - 여러 독점 및 공개 소스 구성 관리 도구와 통합
 
 Azure에서는 VM 및 Linux 컨테이너를 프로그래밍하여 생성할 수 있습니다. 즉, VM 및 컨테이너 *오케스트레이션* 도구를 사용하여 VM(가상 컴퓨터) 그룹을 생성하고 Linux 컨테이너 및 곧 출시될 [Windows 컨테이너](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview) 내에 응용 프로그램을 배포할 수 있습니다.
@@ -39,7 +39,7 @@ Windows 컨테이너는 Windows에서 실행되는 응용 프로그램에 Linux 
 
 ## 컨테이너의 이점
 
-컨테이너는 다양한 작업에서 유용하지만 [Azure 클라우드 서비스](https://azure.microsoft.com/services/cloud-services/)나 [Azure 서비스 패브릭](service-fabric-overview.md)과 마찬가지로 단일 서비스 및 [마이크로 서비스] 지향의 분산형 응용 프로그램을 개발할 때 좋습니다. 이러한 응용 프로그램은 크고 강력하게 연결된 구성 요소가 아닌 작고 구성 가능한 요소를 기반으로 설계되기 때문입니다.
+컨테이너는 다양한 작업에서 유용하지만 [Azure 클라우드 서비스](https://azure.microsoft.com/services/cloud-services/)나 [Azure 서비스 패브릭](../articles/service-fabric/service-fabric-overview.md)과 마찬가지로 단일 서비스 및 [마이크로 서비스] 지향의 분산형 응용 프로그램을 개발할 때 좋습니다. 이러한 응용 프로그램은 크고 강력하게 연결된 구성 요소가 아닌 작고 구성 가능한 요소를 기반으로 설계되기 때문입니다.
 
 특히 Azure와 같은 공용 클라우드 환경에서는 VM이 필요할 때 언제 어디서나 가져다 쓸 수 있기 때문에 더욱 그 진가를 발합니다. 격리, 신속한 배포, 오케스트레이션 도구를 쉽게 가져와 사용할 수 있을 뿐만 아니라 더욱 효율적으로 응용 프로그램 인프라를 결정할 수 있습니다.
 
@@ -56,7 +56,7 @@ Windows 컨테이너는 Windows에서 실행되는 응용 프로그램에 Linux 
 개발자가 Docker 컨테이너를 빠르게 받아들인 이유는 무엇보다도 Linux 컨테이너를 쉽게 사용할 수 있기 때문입니다.
 
 - 간단한 증분 명령을 사용하여 배포하기 쉬운 고정 이미지를 생성할 수 있고 이 이미지들을 Docker 파일을 이용해 자동으로 구축할 수 있습니다
-- 이 이미지들은 간단한 [Git](https://git-scm.com/) 스타일의 푸시 앤 풀 명령을 사용하여 [공개](https://registry.hub.docker.com/) 또는 [비공개 Docker 레지스트리](virtual-machines-linux-docker-registry-in-blob-storage.md)에 쉽게 공유할 수 있습니다. 
+- 이 이미지들은 간단한 [Git](https://git-scm.com/) 스타일의 푸시 앤 풀 명령을 사용하여 [공개](https://registry.hub.docker.com/) 또는 [비공개 Docker 레지스트리](../articles/virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md)에 쉽게 공유할 수 있습니다. 
 - 또한 컴퓨터가 아닌 격리된 응용 프로그램 구성 요소를 활용하고
 - Docker 컨테이너와 다양한 기본 이미지들을 잘 다룰 수 있는 수많은 도구를 사용할 수 있습니다
 
@@ -97,32 +97,32 @@ IT 및 운영 전문가 역시 컨테이너 및 가상 컴퓨터를 조합하여
 
 이 시점에서 설계자, 개발자, 또는 IT 운영 전문가라면 "이걸 다 자동화할 수 있다니 진정한 DCaaS(Data-Center-As-A-Service)야!"라고 할지도 모르겠습니다.
 
-맞습니다. 가능합니다. 수많은 시스템이 있고 그 중 상당수를 이미 사용하고 계실지도 모르며 [Windows용 CustomScriptingExtension](https://msdn.microsoft.com/library/azure/dn781373.aspx) 또는 [Linux용 CustomScriptingExtension](https://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)을 주로 사용해서 Azure VM의 그룹들을 관리하고 사용자 지정 코드를 스크립트로 주입할 수도 있습니다. 이미 사용하고 있겠지만 [이러한 방식으로](virtual-machines-windows-create-powershell.md) PowerShell 또는 Azure CLI 스크립트를 사용하여 Azure를 배포할 수 있습니다.
+맞습니다. 가능합니다. 수많은 시스템이 있고 그 중 상당수를 이미 사용하고 계실지도 모르며 [Windows용 CustomScriptingExtension](https://msdn.microsoft.com/library/azure/dn781373.aspx) 또는 [Linux용 CustomScriptingExtension](https://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)을 주로 사용해서 Azure VM의 그룹들을 관리하고 사용자 지정 코드를 스크립트로 주입할 수도 있습니다. 이미 사용하고 있겠지만 [이러한 방식으로](../articles/virtual-machines/virtual-machines-windows-create-powershell.md) PowerShell 또는 Azure CLI 스크립트를 사용하여 Azure를 배포할 수 있습니다.
 
 이런 기능들은 [Puppet](https://puppetlabs.com/) 및 [Chef](https://www.chef.io/) 같은 도구들로 마이그레이션하여 VM 생성 및 구성을 규모에 맞추어 자동화하는 데 사용되기도 합니다. ([Azure에서 이러한 도구를 사용하는 방법](#tools-for-working-with-containers)에 대한 몇 가지 링크는 여기에서 확인하실 수 있습니다.)
 
 ### Azure 리소스 그룹 템플릿
 
-최근 Azure는 [Azure 리소스 관리](virtual-machines-windows-compare-deployment-models.md) REST API와 업데이트된 PowerShell 및 Azure CLI 도구를 배포하여 사용이 더욱 간편해졌습니다. 다음을 사용하면 Azure 리소스 관리 API와 함께 [Azure 리소스 관리자 템플릿](../resource-group-authoring-templates.md)으로 전체 응용 프로그램 토폴로지를 배포, 수정 또는 재배포할 수 있습니다.
+최근 Azure는 [Azure 리소스 관리](../articles/virtual-machines/virtual-machines-windows-compare-deployment-models.md) REST API와 업데이트된 PowerShell 및 Azure CLI 도구를 배포하여 사용이 더욱 간편해졌습니다. 다음을 사용하면 Azure 리소스 관리 API와 함께 [Azure 리소스 관리자 템플릿](../articles/resource-group-authoring-templates.md)으로 전체 응용 프로그램 토폴로지를 배포, 수정 또는 재배포할 수 있습니다.
 
 - [Azure 포털의 템플릿](https://github.com/Azure/azure-quickstart-templates)(힌트: "DeployToAzure" 버튼을 사용하세요.)
-- [Azure CLI](virtual-machines-linux-cli-deploy-templates.md)
-- [Azure PowerShell 모듈](virtual-machines-linux-cli-deploy-templates.md)
+- [Azure CLI](../articles/virtual-machines/virtual-machines-linux-cli-deploy-templates.md)
+- [Azure PowerShell 모듈](../articles/virtual-machines/virtual-machines-linux-cli-deploy-templates.md)
 
 
 ### 전체 Azure VM 및 컨테이너 그룹의 배포 및 관리
 
 몇몇 인기 시스템에서는 전체 Azure VM 그룹을 배포하고 거기에 Docker 또는 기타 Linux 컨테이너 호스트 시스템을 자동화 가능한 그룹으로 설치할 수 있습니다. 바로 가기 링크는 아래의 [컨테이너 및 도구](#containers-and-vm-technologies) 섹션에서 확인하시기 바랍니다. 이러한 작업이 가능한 시스템은 성능 수준 면에서 다양하며 여기에 소개된 목록이 전부가 아닙니다. 또한 이 시스템들은 사용자의 기술과 시나리오에 따라 유용할 수도, 유용하지 않을 수도 있습니다.
 
-Docker는 그 자체에 VM 생성 도구([Docker 컴퓨터](virtual-machines-linux-classic-docker-machine.md))와 로드 밸런싱 Docker 컨테이너 클러스터 관리 도구([swarm](virtual-machines-linux-docker-swarm.md))가 있습니다. 또한 [Azure Docker VM Extension](https://github.com/Azure/azure-docker-extension/blob/master/README.md)이 [`docker-compose`](https://docs.docker.com/compose/)를 위한 기본 지원에 포함되기 때문에 구성된 응용 프로그램 컨테이너를 여러 컨테이너에 배포할 수 있습니다.
+Docker는 그 자체에 VM 생성 도구([Docker 컴퓨터](../articles/virtual-machines/virtual-machines-linux-classic-docker-machine.md))와 로드 밸런싱 Docker 컨테이너 클러스터 관리 도구([swarm](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md))가 있습니다. 또한 [Azure Docker VM Extension](https://github.com/Azure/azure-docker-extension/blob/master/README.md)이 [`docker-compose`](https://docs.docker.com/compose/)를 위한 기본 지원에 포함되기 때문에 구성된 응용 프로그램 컨테이너를 여러 컨테이너에 배포할 수 있습니다.
 
 [Mesosphere의 DCOS(데이터 센터 운영체제)](http://docs.mesosphere.com/install/azurecluster/)도 사용해 볼만 합니다. DCOS는 "분산형 시스템 커널"인 공개 소스 [Mesos](http://mesos.apache.org/)에 기반하여 데이터 센터를 주소 지정이 가능한 단일 서비스로 사용할 수 있습니다. DCOS에는 [Spark](http://spark.apache.org/), [Kafka](http://kafka.apache.org/) 등의 여러 중요한 시스템에 기본 제공되는 패키지뿐만 아니라 [Marathon](https://mesosphere.github.io/marathon/)(컨테이너 제어 시스템) 및 [Chronos](https://mesosphere.github.io/chronos/)(분산형 스케줄러) 같은 기본 제공 서비스가 있습니다. Mesos는 Twitter, AirBnb, 기타 큰 웹 비즈니스의 경험을 바탕으로 탄생했습니다.
 
 [kubernetes](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/) 역시 Google의 경험에 기반하여 탄생한 VM 및 컨테이너 그룹 관리용 공개 소스 시스템입니다. [kubernetes는 Weave와 함께 사용하여 네트워킹 지원](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave)에 사용할 수도 있습니다.
 
-[Deis](http://deis.io/overview/)는 공개 소스 "PaaS"(Platform-as-a-Service)로, 사용자 서버에서 응용 프로그램을 손쉽게 배포하고 관리하는 데 사용됩니다. Deis는 Docker 및 CoreOS에 구축되어 Heroku 스타일의 워크플로우와 함께 가벼운 PaaS를 제공합니다. [3개 노드의 Azure VM 그룹을 간단하게 만들어 Deis를](virtual-machines-linux-deis-cluster.md) Azure에 설치한 후 [Hello World Go 응용 프로그램을 설치](virtual-machines-linux-deis-cluster.md#deploy-and-scale-a-hello-world-application)할 수 있습니다.
+[Deis](http://deis.io/overview/)는 공개 소스 "PaaS"(Platform-as-a-Service)로, 사용자 서버에서 응용 프로그램을 손쉽게 배포하고 관리하는 데 사용됩니다. Deis는 Docker 및 CoreOS에 구축되어 Heroku 스타일의 워크플로우와 함께 가벼운 PaaS를 제공합니다. [3개 노드의 Azure VM 그룹을 간단하게 만들어 Deis를](../articles/virtual-machines/virtual-machines-linux-deis-cluster.md) Azure에 설치한 후 [Hello World Go 응용 프로그램을 설치](../articles/virtual-machines/virtual-machines-linux-deis-cluster.md#deploy-and-scale-a-hello-world-application)할 수 있습니다.
 
-Linux에서 배포한 [CoreOS](virtual-machines-linux-classic-coreos-howto.md)는 최적화된 공간을 차지하고 Docker를 지원하며 [rkt](https://github.com/coreos/rkt)라 불리는 자체 컨테이너 시스템을 가지고 있으며 [fleet](virtual-machines-linux-classic-coreos-fleet-get-started.md)라 불리는 컨테이너 그룹 관리 도구도 제공합니다.
+Linux에서 배포한 [CoreOS](./articles/virtual-machines/virtual-machines-linux-classic-coreos-howto.md)는 최적화된 공간을 차지하고 Docker를 지원하며 [rkt](https://github.com/coreos/rkt)라 불리는 자체 컨테이너 시스템을 가지고 있으며 [fleet](../articles/virtual-machines/virtual-machines-linux-classic-coreos-fleet-get-started.md)라 불리는 컨테이너 그룹 관리 도구도 제공합니다.
 
 또 다른 인기 Linux 제품인 Ubuntu는 Docker를 매우 적극적으로 지원하며 [Linux(LXC 스타일) 클러스터](https://help.ubuntu.com/lts/serverguide/lxc.html)도 지원합니다.
 
@@ -160,28 +160,28 @@ Docker 도구:
 
 Microsoft Azure의 Docker:
 
-- [Azure의 Linux용 Docker VM 확장](virtual-machines-linux-dockerextension.md)
+- [Azure의 Linux용 Docker VM 확장](../articles/virtual-machines/virtual-machines-linux-dockerextension.md)
 - [Azure Docker VM 확장 프로그램 사용자 가이드](https://github.com/Azure/azure-docker-extension/blob/master/README.md)
-- [Azure 명령줄 인터페이스(Azure CLI)에서 Docker VM 확장 사용](virtual-machines-linux-classic-cli-use-docker.md)
-- [Azure 포털에서 Docker VM 확장 사용](virtual-machines-linux-classic-portal-use-docker.md)
-- [Azure 마켓플레이스에서 신속하게 Docker 시작](virtual-machines-linux-classic-docker-quickstart.md)
-- [Azure에서 docker-machine을 사용하는 방법](virtual-machines-linux-classic-docker-machine.md)
-- [Azure에서 swarm과 함께 Docker를 사용하는 방법](virtual-machines-linux-docker-swarm.md)
-- [Azure 가상 컴퓨터에서 Docker 및 Compose 시작](virtual-machines-linux-docker-compose-quickstart.md)
+- [Azure 명령줄 인터페이스(Azure CLI)에서 Docker VM 확장 사용](../articles/virtual-machines/virtual-machines-linux-classic-cli-use-docker.md)
+- [Azure 포털에서 Docker VM 확장 사용](../articles/virtual-machines/virtual-machines-linux-classic-portal-use-docker.md)
+- [Azure 마켓플레이스에서 신속하게 Docker 시작](../articles/virtual-machines/virtual-machines-linux-classic-docker-quickstart.md)
+- [Azure에서 docker-machine을 사용하는 방법](../articles/virtual-machines/virtual-machines-linux-classic-docker-machine.md)
+- [Azure에서 swarm과 함께 Docker를 사용하는 방법](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md)
+- [Azure 가상 컴퓨터에서 Docker 및 Compose 시작](../articles/virtual-machines/virtual-machines-linux-docker-compose-quickstart.md)
 - [Azure 리소스 그룹 템플릿을 사용하여 Azure에서 신속하게 Docker 호스트 생성](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)
 - 컨테이너 내 응용 프로그램에 대해 [`compose`를 기본적으로 지원](https://github.com/Azure/azure-docker-extension#11-public-configuration-keys)
 - [Azure에서 Docker 개인 레지스트리 구현](virtual-machines-linux-docker-registry-in-blob-storage.md)
 
 Linux 배포 도구 및 Azure 예시:
 
-- [CoreOS](virtual-machines-linux-classic-coreos-howto.md)
+- [CoreOS](../articles/virtual-machines/virtual-machines-linux-classic-coreos-howto.md)
 
 구성, 클러스터 관리, 컨테이너 오케스트레이션:
 
-- [CoreOS의 Fleet](virtual-machines-linux-classic-coreos-fleet-get-started.md)
+- [CoreOS의 Fleet](../articles/virtual-machines/virtual-machines-linux-classic-coreos-fleet-get-started.md)
 
 -	Deis
-	- [3개 노드의 Azure VM 그룹 생성, Azure에 Deis 설치, Hello World Go 응용 프로그램 설치 시작](virtual-machines-linux-deis-cluster.md)
+	- [3개 노드의 Azure VM 그룹 생성, Azure에 Deis 설치, Hello World Go 응용 프로그램 설치 시작](../articles/virtual-machines/virtual-machines-linux-deis-cluster.md)
 	
 -	Kubernetes
 	- [CoreOS 및 Weave로 자동화된 Kubernetes 클러스터에 대한 완벽한 가이드](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave)
@@ -197,7 +197,7 @@ Linux 배포 도구 및 Azure 예시:
 	- [타사: Azure용 Hudson Storage 플러그인](https://github.com/hudson3-plugins/windows-azure-storage-plugin)
 	
 -	[Chef](https://docs.chef.io/index.html)
-	- [Chef 및 가상 컴퓨터](virtual-machines-windows-install-chef-client.md)
+	- [Chef 및 가상 컴퓨터](../articles/virtual-machines/virtual-machines-windows-install-chef-client.md)
 	- [비디오: Chef의 정의 및 작동 방식](https://msopentech.com/blog/2014/03/31/using-chef-to-manage-azure-resources/)
 
 -	[Azure Automation](https://azure.microsoft.com/services/automation/)
@@ -216,4 +216,4 @@ Linux 배포 도구 및 Azure 예시:
 [마이크로 서비스]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

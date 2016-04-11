@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="barbkess;jrj;sonyama"/>
 
 # SQL 데이터 웨어하우스 용량 제한
@@ -149,7 +149,7 @@ DMS 버퍼에서 고정된 폭 열은 SQL Server의 기본 크기를 사용합�
 
 nvarchar의 실제 정의된 크기가 26바이트를 사용하므로 행은 8060바이트보다 작고 SQL Server 페이지에 맞출 수 있습니다. 따라서 DMS가 DMS 버퍼에 이 행을 로드하려는 경우 실패하더라도 테이블 만들기 문은 성공합니다.
 
-````
+```sql
 CREATE TABLE T1
   (
     c0 int NOT NULL,
@@ -162,10 +162,10 @@ CREATE TABLE T1
   )
 WITH ( DISTRIBUTION = HASH (c0) )
 ;
-````
+```
 이 다음 단계에서는 테이블에 데이터를 삽입하는 데 삽입을 성공적으로 사용할 수 있다는 점을 보여줍니다. 이 문은 DMS를 사용하지 않고 SQL Server에 직접 데이터를 로드하므로 DMS 버퍼 오버플로 오류를 유발하지 않습니다. Integration Services는 또한 이 행을 성공적으로 로드합니다.</para>
 
-````
+```sql
 --The INSERT operation succeeds because the row is inserted directly into SQL Server without requiring DMS to buffer the row.
 INSERT INTO T1
 VALUES (
@@ -177,11 +177,11 @@ VALUES (
     N'Each row must fit into the DMS buffer size of 32,768 bytes.',
     N'Each row must fit into the DMS buffer size of 32,768 bytes.'
   )
-````
+```
 
 데이터 이동을 설명하도록 준비하려면 이 예에서는 배포 열에 CustomerKey로 두 번째 테이블을 만듭니다.
 
-````
+```sql
 --This second table is distributed on CustomerKey. 
 CREATE TABLE T2
   (
@@ -206,20 +206,20 @@ VALUES (
     N'Each row must fit into the DMS buffer size of 32,768 bytes.',
     N'Each row must fit into the DMS buffer size of 32,768 bytes.'
   )
-````
+```
 CustomerKey에서 두 테이블이 모두 배포되지 않으므로 CustomerKey에서 T1 및 T2 간에 조인은 호환되지 않는 배포입니다. DMS는 하나 이상의 행을 로드하고 다른 배포에 복사해야 합니다.
 
-````
+```
 SELECT * FROM T1 JOIN T2 ON T1.CustomerKey = T2.CustomerKey;
-````
+```
 
 예상 대로 모든 nvarchar 열이 채워질 때 열이 32,768바이트의 DMS 버퍼 크기보다 크기 때문에 DMS는 조인을 수행하는 데 실패합니다. 다음 오류 메시지가 발생합니다.
 
-````
+```sql
 Msg 110802, Level 16, State 1, Line 126
 
 An internal DMS error occurred that caused this operation to fail. Details: Exception: Microsoft.SqlServer.DataWarehouse.DataMovement.Workers.DmsSqlNativeException, Message: SqlNativeBufferReader.ReadBuffer, error in OdbcReadBuffer: SqlState: , NativeError: 0, 'COdbcReadConnection::ReadBuffer: not enough buffer space for one row | Error calling: pReadConn-&gt;ReadBuffer(pBuffer, bufferOffset, bufferLength, pBytesRead, pRowsRead) | state: FFFF, number: 81, active connections: 8', Connection String: Driver={SQL Server Native Client 11.0};APP=DmsNativeReader:P13521-CMP02\sqldwdms (4556) - ODBC;Trusted_Connection=yes;AutoTranslate=no;Server=P13521-SQLCMP02,1500
-````
+```
 
 
 ## 다음 단계
@@ -232,4 +232,4 @@ An internal DMS error occurred that caused this operation to fail. Details: Exce
 
 <!--MSDN references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

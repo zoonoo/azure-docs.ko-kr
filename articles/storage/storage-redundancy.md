@@ -91,7 +91,8 @@ GRS를 활성화 하는 저장소 계정의 경우, 먼저 업데이트가 기�
 | 오스트레일리아 남동부 | 오스트레일리아 동부 |
 | 인도 남부 | 인도 중부 |
 | 인도 중부 | 인도 남부 |
-
+| 미국 정부 아이오와 | 미국 정부 버지니아 |
+| 미국 정부 버지니아 | 미국 정부 아이오와 |
 
 ## 읽기 액세스 지역 중복 저장소
 
@@ -107,4 +108,4 @@ GRS를 활성화 하는 저장소 계정의 경우, 먼저 업데이트가 기�
 - [RA-GRS를 포함한 Microsoft Azure 저장소 에뮬레이터 3.1](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/08/microsoft-azure-storage-emulator-3-1-with-ra-grs.aspx)
 - [SOSP 문서 - Azure 저장소: 일관성과 가용성이 뛰어난 클라우드 저장소 서비스](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

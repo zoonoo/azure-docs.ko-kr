@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/10/2016" 
+	ms.date="03/21/2016" 
 	ms.author="riande"/>
 
 # 인증 및 SQL DB를 사용하여 ASP.NET MVC 앱을 만들고 Azure 앱 서비스에 배포
@@ -53,9 +53,7 @@
 
 	![파일 메뉴의 새 프로젝트](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/gs13newproj.png)
 
-1. **새 프로젝트** 대화 상자에서 **C#**을 확장하고 **설치된 템플릿** 아래의 **웹**을 선택한 다음 **ASP.NET 웹 응용 프로그램**을 선택합니다.
-
-1. 응용 프로그램 이름을 **ContactManager**로 지정한 다음 **확인**을 클릭합니다.
+1. **새 프로젝트** 대화 상자에서 **C#**을 확장하고 **설치된 템플릿** 아래의 **웹**을 선택한 다음 **ASP.NET 웹 응용 프로그램**을 선택합니다. 응용 프로그램 이름을 **ContactManager**로 지정한 다음 **확인**을 클릭합니다.
 
 	![새 프로젝트 대화 상자](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/GS13newprojdb.png)
  
@@ -67,29 +65,35 @@
 
 1. **확인**을 클릭합니다.
 
-3. **Microsoft Azure 웹앱 설정 구성** 대화 상자가 나타나면 Azure에 로그인했는지 확인합니다. 아직 로그인하지 않았다면 로그인하거나 로그인이 만료된 경우 자격 증명을 다시 입력합니다.
+1. **Microsoft Azure 웹 앱 설정 구성** 대화 상자가 나타납니다. 아직 로그인되지 않았다면 로그인하고 로그인이 만료된 경우에는 자격 증명을 다시 입력해야 합니다.
 
-	![자격 증명 다시 입력](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/reentercredentials.png)
-
-2. 웹앱에 대한 이름을 지정하려는 경우 **웹앱 이름** 상자의 값을 변경합니다.
+1. 선택 사항 - **웹 앱 이름** 상자에서 값을 변경합니다(아래 이미지 참조).
 
 	웹앱의 URL이 {name}.azurewebsites.net이 되기 때문에 이름은 azurewebsites.net 도메인에서 고유해야 합니다. 구성 마법사에서 프로젝트 이름 "ContactManager"에 숫자를 추가하여 고유 이름을 제안하고 이 자습서에 적합합니다.
 
-5. **앱 서비스 계획** 드롭다운에서 **새 앱 서비스 계획 만들기**를 선택하고 그림에 표시된 것처럼 "StandardWeb"과 같은 이름을 입력합니다.
-
-	원하는 경우 이미 가지고 있는 앱 서비스 계획을 선택할 수 있습니다. 앱 서비스 계획에 대한 자세한 내용은 [Azure 앱 서비스 계획의 포괄 개요](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)를 참조하세요.
-
-5. **리소스 그룹** 드롭다운에서 **새 리소스 그룹 만들기**를 선택하고 그림에 표시된 것처럼 "ExampleMVC"와 같은 이름을 입력합니다.
+5. **리소스 그룹** 드롭다운에서 기존 그룹을 선택하거나 **새 리소스 그룹을 만듭니다**(아래 이미지 참조).
 
 	원하는 경우 이미 가지고 있는 리소스 그룹을 선택할 수 있습니다. 하지만 새 리소스 그룹을 만들고 이 자습서에만 사용하는 경우 사용하고 난 후 자습서에 대해 만든 모든 Azure 리소스를 삭제하는 것이 쉽습니다. 리소스 그룹에 대한 자세한 내용은 [Azure 리소스 관리자 개요](../resource-group-overview.md)를 참조하세요.
 
-7. 근처에 있는 지역을 선택합니다.
+5. **앱 서비스 계획** 드롭다운에서 기존 계획을 선택하거나 **새 앱 서비스 계획을 만듭니다**(아래 이미지 참조).
 
-	아직 **확인**을 클릭하지 마세요. 다음 단계에서는 데이터베이스 리소스를 구성합니다. 대화 상자는 이제 다음 그림과 같이 나타납니다.
+	원하는 경우 이미 가지고 있는 앱 서비스 계획을 선택할 수 있습니다. 앱 서비스 계획에 대한 자세한 내용은 [Azure 앱 서비스 계획의 포괄 개요](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)를 참조하세요.
 
-	![새 계획 및 리소스 그룹](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/newplanandgroup.png)
- 
-2. **새 서버 만들기**를 선택하고 서버 이름, 사용자 이름 및 암호를 입력합니다.
+1. **추가 Azure 서비스 탐색**을 탭하여 SQL 데이터베이스를 추가합니다.
+
+	![새 서비스 추가](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/n2.png)
+
+1. **+** 아이콘을 탭하여 SQL 데이터베이스를 추가합니다.
+
+	![새 SQL DB](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/nsql.png)
+
+1. **SQL 데이터베이스 구성** 대화 상자에서 **새로 만들기**를 탭합니다.
+
+	![SQL 관리자 이름 및 암호](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/nc.png)
+
+1. 관리자와 강력한 암호에 대한 이름을 입력합니다.
+
+	![새 SQL DB](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/np.png)
 
 	서버 이름은 고유해야 합니다. 소문자, 숫자 및 하이픈을 포함할 수 있습니다. 후행 하이픈을 포함할 수 없습니다. 사용자 이름 및 암호는 새 서버에 대해 만드는 새 자격 증명입니다.
 
@@ -99,7 +103,7 @@
 
 	![새 데이터베이스 사용](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/newdb.png)
 
-4. **확인**을 클릭합니다.
+4. **만들기**를 탭합니다.
 
 	Visual Studio는 ContactManager 웹 프로젝트를 만들고 지정한 리소스 그룹 및 앱 서비스 계획을 만들고 지정한 이름을 가진 Azure 앱 서비스에서 웹앱을 만듭니다.
 
@@ -109,54 +113,13 @@
 
 	![솔루션 탐색기의 \_Layout.cshtml][newapp004]
 
-1. *Layout.cshtml* 파일 내용을 다음 코드로 바꿉니다.
+1. *Layout.cshtml* 파일의 ActionLink를 다음 코드로 바꿉니다.
 
-		<!DOCTYPE html>
-		<html>
-		<head>
-		    <meta charset="utf-8" />
-		    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-		    <title>@ViewBag.Title - Contact Manager</title>
-		    @Styles.Render("~/Content/css")
-		    @Scripts.Render("~/bundles/modernizr")
-		
-		</head>
-		<body>
-		    <div class="navbar navbar-inverse navbar-fixed-top">
-		        <div class="container">
-		            <div class="navbar-header">
-		                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-		                    <span class="icon-bar"></span>
-		                    <span class="icon-bar"></span>
-		                    <span class="icon-bar"></span>
-		                </button>
-		                @Html.ActionLink("CM Demo", "Index", "Cm", new { area = "" }, new { @class = "navbar-brand" })
-		            </div>
-		            <div class="navbar-collapse collapse">
-		                <ul class="nav navbar-nav">
-		                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-		                    <li>@Html.ActionLink("About", "About", "Home")</li>
-		                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-		                </ul>
-		                @Html.Partial("_LoginPartial")
-		            </div>
-		        </div>
-		    </div>
-		    <div class="container body-content">
-		        @RenderBody()
-		        <hr />
-		        <footer>
-		            <p>&copy; @DateTime.Now.Year - Contact Manager</p>
-		        </footer>
-		    </div>
-		
-		    @Scripts.Render("~/bundles/jquery")
-		    @Scripts.Render("~/bundles/bootstrap")
-		    @RenderSection("scripts", required: false)
-		</body>
-		</html>
 
-	이 코드는 "My ASP.NET Application" 및 "Application name"에서 "Contact Manager" 및 "CM Demo"로 머리글 및 바닥글의 응용 프로그램 이름을 변경합니다.
+	@Html.ActionLink("CM Demo", "Index", "Contacts", new { area = "" }, new { @class = "navbar-brand" })
+		           
+
+	세 번째 매개 변수를 "Home"에서 "Contacts"로 변경해야 합니다. 위의 태그는 각 페이지에 Contacts 컨트롤러의 Index 메소드에 대한 "Contacts" 링크를 만듭니다. "My ASP.NET Application" 및 "Application name"에서 "Contact Manager" 및 "CM Demo"로 머리글 및 바닥글의 응용 프로그램 이름을 변경합니다.
  
 ### 로컬에서 응용 프로그램 실행
 
@@ -282,7 +245,6 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 1. **데이터 컨텍스트 클래스**에서 **ApplicationDbContext(ContactManager.Models)**를 선택합니다. **ApplicationDbContext**는 멤버 자격 DB 및 연락처 데이터 둘 다에 사용됩니다.
 
-1. **컨트롤러 이름** 입력란에 컨트롤러 이름으로 "CmController"를 입력합니다.
 
 	![새 데이터 CTX 대화 상자](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss5.PNG)
 
@@ -372,7 +334,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
                 );
         }
 
-	이 코드는 연락처 정보를 사용하여 데이터베이스를 초기화(시드)합니다. 데이터베이스 시드에 대한 자세한 내용은 [EF(Entity Framework) DB 시드 및 디버그](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx)(영문)를 참조하십시오.
+	이 코드는 연락처 정보를 사용하여 데이터베이스를 초기화(시드)합니다. 데이터베이스 시드에 대한 자세한 내용은 [EF(Entity Framework) DB 시드 및 디버그](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx)(영문)를 참조하십시오. 프로젝트를 빌드하고 컴파일 오류가 없는지 확인합니다.
 
 6. **패키지 관리자 콘솔**에서 다음 명령을 입력합니다.
 
@@ -445,7 +407,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 	![코드 이미지](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss24.PNG)
 
-	이 코드는 *canEdit*라는 새 역할을 만들고, 새 로컬 사용자 **user1@contoso.com*을 만든 다음 *canEdit* 역할에 **user1@contoso.com*을 추가합니다. 자세한 내용은 ASP.NET 사이트의 [ASP.NET ID 자습서](http://www.asp.net/identity/overview/features-api)를 참조하세요.
+	이 코드는 *canEdit*라는 새 역할을 만들고, 새 로컬 사용자 *user1@contoso.com*을 만든 다음 *canEdit* 역할에 *user1@contoso.com*을 추가합니다. 자세한 내용은 ASP.NET 사이트의 [ASP.NET ID 자습서](http://www.asp.net/identity/overview/features-api)를 참조하세요.
 
 ## 임시 코드를 사용하여 canEdit 역할에 새 소셜 로그인 사용자 추가  ##
 
@@ -501,7 +463,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 		Update-Database
 
-**데이터베이스 업데이트** 명령은 **시드** 메서드를 실행하고 이전에 추가한 **AddUserAndRole** 메서드를 실행합니다. **AddUserAndRole** 메서드는 사용자 **user1@contoso.com*을 만들고 *canEdit* 역할에 추가합니다.
+**데이터베이스 업데이트** 명령은 **시드** 메서드를 실행하고 이전에 추가한 **AddUserAndRole** 메서드를 실행합니다. **AddUserAndRole** 메서드는 사용자 *user1@contoso.com*을 만들고 *canEdit* 역할에 추가합니다.
 
 ## SSL 및 Authorize 특성을 사용하여 응용 프로그램 보호 ##
 
@@ -580,7 +542,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 1. **정보** 또는 **연락처** 링크를 클릭합니다. 익명 사용자는 해당 페이지를 볼 수 없으므로 로그인 페이지로 리디렉션됩니다.
 
-1. **새 사용자로 등록** 링크를 클릭하고 메일 **joe@contoso.com*을 사용하여 로컬 사용자를 추가합니다. *Joe*가 홈, 정보 및 연락처 페이지를 볼 수 있는지 확인합니다.
+1. **새 사용자로 등록** 링크를 클릭하고 메일 *joe@contoso.com*을 사용하여 로컬 사용자를 추가합니다. *Joe*가 홈, 정보 및 연락처 페이지를 볼 수 있는지 확인합니다.
 
 	![로그인](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss14.PNG)
 
@@ -588,7 +550,8 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 1. 페이지의 편집 링크를 클릭하면 새 로컬 사용자가 *canEdit* 역할에 추가되지 않았으므로 로그인 페이지로 리디렉션됩니다.
 
-1. 암호가 "P\_assw0rd1"("word"에서 "0"은 숫자 0임)인 **user1@contoso.com*으로 로그인합니다. 이전에 선택한 편집 페이지로 리디렉션됩니다.
+1. 암호가 "P\_assw0rd1"("word"에서 "0"은 숫자 0임)인 *user1@contoso.com*으로 로그인합니다. 이전에 선택한 편집 페이지로 리디렉션됩니다.
+2. 
 
 	해당 계정과 암호를 사용하여 로그인할 수 없는 경우 소스 코드에서 암호를 복사하여 붙여 넣습니다. 그래도 로그인할 수 없으면 **AspNetUsers** 테이블의 **UserName** 열을 검사하여 **user1@contoso.com*이 추가되었는지 확인합니다.
 
@@ -604,17 +567,16 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 1. **웹 게시** 대화 상자 왼쪽에 있는 **설정** 탭을 클릭합니다.
 
-2. **v** 아이콘을 클릭하여 **ApplicationDbContext**에 대한 **원격 연결 문자열**을 선택하고 프로젝트를 만들 때 만든 데이터베이스를 선택합니다.
+2. **ApplicationDbContext** 아래에서 프로젝트를 만들 때 생성된 데이터베이스를 선택합니다.
    
-	![설정](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrc2.png)
 
 1. **ContactManagerContext**에서 **Code First 마이그레이션 실행**을 선택합니다.
 
-	![설정](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrc3.png)
+	![설정](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrc2.png)
 
 1. **게시**를 클릭합니다.
 
-1. **user1@contoso.com*으로 로그인하고(암호 "P\_assw0rd1") 데이터를 편집할 수 있는지 확인합니다.
+1. *user1@contoso.com*으로 로그인하고(암호 "P\_assw0rd1") 데이터를 편집할 수 있는지 확인합니다.
 
 1. 로그아웃합니다.
 
@@ -698,7 +660,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 	![CM 페이지](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrr8.png)
  
-1. 등록 시 사용한 Google 계정의 ID가 **canEdit** 역할에 있고 **user1@contoso.com*의 ID입니다. **canEdit** 역할에 포함된 유일한 사용자여야 합니다. 다음 단계에서 확인하겠습니다.
+1. 등록 시 사용한 Google 계정의 ID가 **canEdit** 역할에 있고 *user1@contoso.com* 의 ID입니다. **canEdit** 역할에 포함된 유일한 사용자여야 합니다. 다음 단계에서 확인하겠습니다.
 
 	![CM 페이지](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/s2.png)
  
@@ -706,7 +668,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 	![CM 페이지](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rs1.png)
  
-3. **UserId**가 **user1@contoso.com*에 속하고 등록한 Google 계정인지 확인합니다.
+3. **UserId**가 *user1@contoso.com*에 속하고 등록한 Google 계정인지 확인합니다.
 
 ## 문제 해결
 
@@ -797,4 +759,4 @@ Entity Framework를 사용하는 방법에 대한 고급 자습서는 [EF 및 MV
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

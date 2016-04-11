@@ -6,79 +6,41 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-service-management,hpc-pack"/>
+ tags="azure-service-management,azure-resource-manager,hpc-pack"/>
 <tags
  ms.service="virtual-machines-linux"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="big-compute"
- ms.date="11/25/2015"
+ ms.date="03/24/2016"
  ms.author="danlep"/>
 
 # Azure의 Linux RDMA 클러스터에서 Microsoft HPC 팩을 사용하여 OpenFoam 실행
 
-이 문서에서는 Azure에 Microsoft HPC 팩 클러스터를 배포하고 Azure RDMA(원격 직접 메모리 액세스) 네트워크 간을 연결하는 여러 Linux 계산 노드에서 Intel MPI를 사용하여 [OpenFoam](http://openfoam.com/) 작업을 실행하는 방법을 보여 줍니다.
+이 문서에서는 Azure에서 OpenFoam을 실행하는 한 가지 방법을 설명합니다. 여기서는 Azure에 Microsoft HPC 팩 클러스터를 배포하고 Azure RDMA(원격 직접 메모리 액세스) 네트워크를 통해 연결하는 여러 Linux 계산 노드에서 Intel MPI를 사용하여 [OpenFoam](http://openfoam.com/) 작업을 실행합니다. Azure에서 OpenFoam을 실행하는 다른 옵션으로는 마켓플레이스에서 제공되는 완전히 구성된 상용 이미지 등이 있습니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 OpenFOAM(오픈 필드 작업 및 조작에 대한)은 상업용 및 연구용 조직의 공학 및 과학에서 널리 사용되는 무료로 사용할 수 있는 오픈 소스 컴퓨팅 유체 역학(CFD) 소프트웨어 패키지입니다. Meshing, 특히 snappyHexMesh, 복잡한 CAD 기하학 및 전처리 및 후처리에 대한 병렬화된 메셔에 대한 도구를 포함합니다. 거의 모든 프로세스는 마음껏 컴퓨터 하드웨어를 모두 활용하도록 병렬로 실행합니다.
 
-Microsoft HPC 팩에서는 MPI 응용 프로그램을 포함한 다양한 대규모 HPC 및 병렬 응용 프로그램을 Microsoft Azure 가상 컴퓨터의 클러스터에서 실행하는 기능을 제공합니다. Microsoft HPC 팩 2012 R2 업데이트 2부터는 HPC 팩에서 HPC 팩 클러스터에 배포된 Linux 계산 노드 VM에서 Linux HPC 응용 프로그램의 실행도 지원합니다. HPC 팩으로 Linux 계산 노드 사용에 대한 소개는 [Azure에서 HPC 팩 클러스터의 Linux 계산 노드 시작](virtual-machines-linux-classic-hpcpack-cluster.md)을 참조하세요.
+Microsoft HPC 팩에서는 MPI 응용 프로그램을 포함한 다양한 대규모 HPC 및 병렬 응용 프로그램을 Microsoft Azure 가상 컴퓨터의 클러스터에서 실행하는 기능을 제공합니다. HPC 팩은 HPC 팩 클러스터에 배포된 Linux 계산 노드 VM에서 Linux HPC 응용 프로그램의 실행도 지원합니다. HPC 팩으로 Linux 계산 노드 사용에 대한 소개는 [Azure에서 HPC 팩 클러스터의 Linux 계산 노드 시작](virtual-machines-linux-classic-hpcpack-cluster.md)을 참조하세요.
 
 >[AZURE.NOTE] 이 문서는 Linux 시스템 관리 및 Linux HPC 클러스터에서 실행 중인 MPI 작업에 대해 잘 알고 있다고 가정합니다.
 
 ## 필수 조건
 
-*   **Linux 계산 노드가 포함된 HPC 팩 클러스터** - Azure 마켓플레이스에서 Azure PowerShell 스크립트 및 HPC 팩 이미지를 사용하여 Azure에서 Linux 계산 노드와 함께 HPC 팩 클러스터를 배포하는 필수 조건 및 단계는 [Azure에서 HPC 팩 클러스터의 Linux 계산 노드 시작](virtual-machines-linux-classic-hpcpack-cluster.md)을 참조하세요. A8 계산 집약적 인스턴스를 사용하여 Azure RDMA 네트워크에 액세스하기 위한 추가 고려 사항에 대해 [A8, A9, A10 및 A11 계산 집약적 인스턴스 정보](virtual-machines-windows-a8-a9-a10-a11-specs.md)를 참조하세요.
-
-    다음은 A8 크기 Windows Server 2012 R2 헤드 노드 1개 및 A8 크기 SUSE Linux Enterprise Server 12 계산 노드 2개로 구성되는 Azure 기반 HPC 팩 클러스터를 배포하는 스크립트와 함께 사용하는 샘플 XML 구성 파일입니다. 구독 및 서비스 이름을 적절한 값으로 대체합니다.
-
-    >[AZURE.NOTE]현재 Azure의 Linux RDMA 네트워킹은 Azure 마켓플레이스의 RDMA를 사용하는 SUSE Linux Enterprise Server 12 이미지에서 만든 VM에 대해서만 지원됩니다(b4590d9e3ed742e4a1d46e5424aa335e\_\_suse-sles-12-hpc-v20150708).
-
-    ```
-    <?xml version="1.0" encoding="utf-8" ?>
-    <IaaSClusterConfig>
-      <Subscription>
-        <SubscriptionName>Subscription-1</SubscriptionName>
-        <StorageAccount>allvhdsje</StorageAccount>
-      </Subscription>
-      <Location>Japan East</Location>  
-      <VNet>
-        <VNetName>suse12rdmavnet</VNetName>
-        <SubnetName>SUSE12RDMACluster</SubnetName>
-      </VNet>
-      <Domain>
-        <DCOption>HeadNodeAsDC</DCOption>
-        <DomainFQDN>hpclab.local</DomainFQDN>
-      </Domain>
-      <Database>
-        <DBOption>LocalDB</DBOption>
-      </Database>
-      <HeadNode>
-        <VMName>SUSE12RDMA-HN</VMName>
-        <ServiceName>suse12rdma-je</ServiceName>
-        <VMSize>A8</VMSize>
-        <EnableRESTAPI />
-        <EnableWebPortal />
-      </HeadNode>
-      <LinuxComputeNodes>
-        <VMNamePattern>SUSE12RDMA-LN%1%</VMNamePattern>
-        <ServiceName>suse12rdma-je</ServiceName>
-        <VMSize>A8</VMSize>
-        <NodeCount>2</NodeCount>
-        <ImageName>b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708</ImageName>
-      </LinuxComputeNodes>
-    </IaaSClusterConfig>
-```
+*   **A8 또는 A9 크기의 Linux 계산 노드가 포함된 HPC 팩 클러스터** - [Azure Resource Manager 템플릿](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) 또는 [Azure PowerShell 스크립트](virtual-machines-hpcpack-cluster-powershell-script)를 사용하여 Azure에서 A8 또는 A9 크기의 Linux 계산 노드가 포함된 HPC 팩 클러스터를 배포합니다. 각 옵션 사용 시의 필수 구성 요소 및 단계는 [Azure에서 HPC 팩 클러스터의 Linux 계산 노드 시작](virtual-machines-linux-classic-hpcpack-cluster.md)을 참조하세요. PowerShell 스크립트 배포 옵션을 선택하는 경우 이 문서 끝부분의 샘플 파일 섹션에 나와 있는 샘플 구성 파일을 참조하여 A8 크기 Windows Server 2012 R2 헤드 노드와 A8 크기 SUSE Linux Enterprise Server 12 계산 노드 2개로 구성된 Azure 기반 HPC 팩 클러스터를 배포합니다. 구독 및 서비스 이름을 적절한 값으로 대체합니다. 
 
     **알아야 할 추가 사항**
 
-    *   노드 간에 RDMA 네트워크 연결을 사용하도록 한 클라우드 서비스 내에서 모든 Linux 계산 노드를 배포합니다.
+    *   현재 Azure의 Linux RDMA 네트워킹은 Azure 마켓플레이스에서 제공되는 SUSE Linux Enterprise Server 12 – 고성능 계산용으로 최적화된 이미지에서 만든 A8 또는 A9 크기 VM에서만 지원됩니다. 추가 고려 사항은 [A8, A9, A10 및 A11 계산 집약적인 인스턴스 정보](virtual-machines-windows-a8-a9-a10-a11-specs.md)를 참조하세요.
+
+    *   PowerShell 스크립트 배포 옵션을 사용하는 경우에는 단일 클라우드 서비스 내의 모든 Linux 계산 노드가 RDMA 네트워크 연결을 사용하도록 배포합니다.
 
     *   Linux 노드를 배포한 후 추가 관리 작업을 수행하도록 SSH로 연결해야 하는 경우 Azure 포털에서 각 Linux VM에 대한 SSH 연결 상세 정보를 찾습니다.
         
-*   **Intel MPI** - Azure의 Linux 계산 노드에서 OpenFOAM를 실행하려면 [Intel.com 사이트](https://software.intel.com/ko-KR/intel-mpi-library/)에서 Intel MPI Library 5 런타임이 필요합니다. 이후 단계에서 Linux 계산 노트에 Intel MPI를 설치합니다. 이를 준비하려면 Intel에 등록한 후 확인 전자 메일의 링크를 따라 관련 웹 페이지로 이동하여 적절한 Intel MPI 버전의 .tgz 파일에 대한 다운로드 링크를 복사합니다. 이 문서는 Intel MPI 5.0.3.048 버전을 기반으로 합니다.
+*   **Intel MPI** - Azure의 Linux 계산 노드에서 OpenFOAM를 실행하려면 [Intel.com 사이트](https://software.intel.com/ko-KR/intel-mpi-library/)(등록 필요)에서 제공되는 Intel MPI Library 5 런타임이 필요합니다. 이후 단계에서 Linux 계산 노트에 Intel MPI를 설치합니다. 이를 준비하려면 Intel에 등록한 후 확인 전자 메일의 링크를 따라 관련 웹 페이지로 이동하여 적절한 Intel MPI 버전의 .tgz 파일에 대한 다운로드 링크를 복사합니다. 이 문서는 Intel MPI 5.0.3.048 버전을 기반으로 합니다.
 
 *   **OpenFOAM 소스 팩** - [OpenFOAM Foundation 사이트](http://www.openfoam.org/download/source.php)에서 Linux용 OpenFOAM 소스 팩 소프트웨어를 다운로드합니다. 이 문서는 OpenFOAM-2.3.1.tgz로 다운로드할 수 있는 소스 팩 버전 2.3.1을 기반으로 합니다. Linux 계산 노드에서 OpenFOAM의 압축을 풀고 컴파일하려면 이 문서의 뒷부분에 나오는 지침을 따릅니다.
 
@@ -159,7 +121,7 @@ RDMA 네트워크에 MPI 작업으로 OpenFOAM을 실행하려면 Intel MPI 라�
 
 먼저 여러 **clusrun** 명령을 실행하여 모든 Linux 노드에 Intel MPI 라이브러리 및 OpenFOAM을 설치합니다. 이전에 구성된 헤드 노드 공유를 사용하여 Linux 노드 간에 설치 파일을 공유합니다.
 
->[AZURE.IMPORTANT]이러한 설치 및 컴파일 단계는 예제이며 Linux 시스템 관리 특히 종속 컴파일러 및 라이브러리가 올바르게 설치되었는지 확인하도록 일부 지식이 필요합니다. 특정 환경 변수 또는 Intel MPI 및 OpenFOAM 버전에 필요한 기타 설정을 수정해야 합니다. 자세한 내용은 [Linux 설치 가이드용 Intel MPI Library](http://scc.ustc.edu.cn/zlsc/tc4600/intel/impi/INSTALL.html) 및 [OpenFOAM 소스 팩 설치](http://www.openfoam.org/download/source.php)를 참조하세요.
+>[AZURE.IMPORTANT]이러한 설치 및 컴파일 단계는 예제로 제공되며, 이 단계를 수행하려면 종속 컴파일러 및 라이브러리를 올바르게 설치할 수 있도록 Linux 시스템 관리에 대해 어느 정도 알고 있어야 합니다. 사용 중인 Intel MPI 및 OpenFOAM에 맞게 특정 환경 변수 또는 기타 설정을 수정해야 할 수 있습니다. 자세한 내용은 [Linux 설치 가이드용 Intel MPI Library](http://scc.ustc.edu.cn/zlsc/tc4600/intel/impi/INSTALL.html) 및 [OpenFOAM 소스 팩 설치](http://www.openfoam.org/download/source.php)를 참조하세요.
 
 
 ### Intel MPI 설치
@@ -274,7 +236,7 @@ clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
 
     ![단계 변수 수정][step_variables]
 
-5.  시스템/decomposeParDict 파일에서 변수에 대해 원하는 값을 지정합니다. 이 예제에서는 8개의 코어로 각각 2개의 Linux 노드를 사용하므로 numberOfSubdomains를 16으로 hierarchicalCoeffs의 n을 (1 1 16)으로 설정합니다. 이는 16개의 프로세스와 함께 병렬로 OpenFOAM을 실행하는 것을 의미합니다. OpenFOAM을 병렬로 실행하는 방법에 대한 자세한 내용은 [OpenFOAM 사용자 가이드: 3.4 병렬로 응용 프로그램 실행](http://cfd.direct/openfoam/user-guide/running-applications-parallel/#x12-820003.4)을 참조하세요.
+5.  시스템/decomposeParDict 파일에서 변수에 대해 원하는 값을 지정합니다. 이 예제에서는 8개의 코어로 각각 2개의 Linux 노드를 사용하므로 numberOfSubdomains를 16으로 hierarchicalCoeffs의 n을 (1 1 16)으로 설정합니다. 이는 16개의 프로세스와 함께 병렬로 OpenFOAM을 실행하는 것을 의미합니다. 자세한 내용은 [OpenFOAM 사용자 가이드: 3.4 병렬로 응용 프로그램 실행](http://cfd.direct/openfoam/user-guide/running-applications-parallel/#x12-820003.4)을 참고하세요.
 
     ![프로세스 분해][decompose]
 
@@ -368,7 +330,7 @@ clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
 
     ![작업 리소스][job_resources]
 
-6.	작업에 대해 다음 명령줄 및 설정을 사용하여 작업에 4개의 작업을 추가합니다.
+6. 왼쪽 탐색 영역에서 **작업 편집**을 클릭한 다음 **추가**를 클릭하여 작업(job)에 작업(task)을 추가합니다. 다음 명령줄과 설정을 사용하여 작업(job)에 4개 작업(task)을 추가하세요.
 
     >[AZURE.NOTE]`source /openfoam/settings.sh` 실행으로 OpenFOAM 및 MPI 런타임 환경을 설정하면 다음 각 작업은 OpenFOAM 명령 전에 호출합니다.
 
@@ -424,7 +386,7 @@ clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
     hpccred delcreds
     ```
 
-8.	샘플에 대해 설정한 매개 변수에 따라 수십 분에서 몇 시간까지 소요됩니다. 열 지도에 2개의 Linux 노드에서 실행 중인 작업이 표시됩니다.
+8.	샘플에 대해 설정한 매개 변수에 따라 수십 분에서 몇 시간까지 소요됩니다. 열 지도에 Linux 노드에서 실행 중인 작업이 표시됩니다.
 
     ![열 지도][heat_map]
 
@@ -469,6 +431,43 @@ clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
 
 ## 샘플 파일
 
+### PowerShell 스크립트를 통한 클러스터 배포용 샘플 XML 구성 파일
+
+ ```
+<?xml version="1.0" encoding="utf-8" ?>
+<IaaSClusterConfig>
+  <Subscription>
+    <SubscriptionName>Subscription-1</SubscriptionName>
+    <StorageAccount>allvhdsje</StorageAccount>
+  </Subscription>
+  <Location>Japan East</Location>  
+  <VNet>
+    <VNetName>suse12rdmavnet</VNetName>
+    <SubnetName>SUSE12RDMACluster</SubnetName>
+  </VNet>
+  <Domain>
+    <DCOption>HeadNodeAsDC</DCOption>
+    <DomainFQDN>hpclab.local</DomainFQDN>
+  </Domain>
+  <Database>
+    <DBOption>LocalDB</DBOption>
+  </Database>
+  <HeadNode>
+    <VMName>SUSE12RDMA-HN</VMName>
+    <ServiceName>suse12rdma-je</ServiceName>
+    <VMSize>A8</VMSize>
+    <EnableRESTAPI />
+    <EnableWebPortal />
+  </HeadNode>
+  <LinuxComputeNodes>
+    <VMNamePattern>SUSE12RDMA-LN%1%</VMNamePattern>
+    <ServiceName>suse12rdma-je</ServiceName>
+    <VMSize>A8</VMSize>
+    <NodeCount>2</NodeCount>
+      <ImageName>b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708</ImageName>
+  </LinuxComputeNodes>
+</IaaSClusterConfig>
+```
 
 ### 샘플 cred.xml 파일
 
@@ -504,7 +503,7 @@ a8lxTKnZCsRXU1HexqZs+DSc+30tz50bNqLdido/l5B4EJnQP03ciO0=
   <PublicKey>ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDEkoEAGGc6wT16d4Ye+yN2hcqigdTGlMcjUlW6cAmRWYXLwkKoW3WlX3xAK0oQdMLqRDu2PVRPY3qfHURj0EEellpydeaSekp1fg27Rw2VKmEumu6Wxwo9HddXORPAQXTQ4yI0lWSerypckXVPeVjHetbkSci2foLedCbeBA9c/RyRgIUl227/pJKDNX2Rpqly0sY82nVWN/0p4NAyslexA0fGdBx+IgKnbU2JQKJeiwOomtEB/N492XRfCw2eCi7Ly3R8+U1KeBm+zH6Q8aH8ApqQohhLRw71bcWZ1g1bxd6HORxXOu0mFTzHbWFcZ9ILtXRl4Pt0x5Mve1AJXEKb username@servername;</PublicKey>
 </ExtendedData>
 ```
-### 샘플 silent.cfg 파일
+### MPI를 설치하는 샘플 silent.cfg 파일
 
 ```
 # Patterns used to check silent configuration file
@@ -655,4 +654,4 @@ exit ${RTNSTS}
 [isosurface_color]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/isosurface_color.png
 [linux_processes]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/linux_processes.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

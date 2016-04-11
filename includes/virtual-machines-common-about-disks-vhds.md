@@ -10,7 +10,7 @@
 
 임시 디스크는 자동으로 만들어집니다. 이 디스크는 Windows 가상 컴퓨터에서 D: 드라이브로 레이블이 지정되며 pagefile.sys를 저장하는데 사용됩니다. Linux 가상 컴퓨터에서 디스크는 일반적으로 /dev/sdb 이며, Azure Linux 에이전트에 의해 /mnt/resource로 포맷되고 마운트됩니다.
 
->[AZURE.WARNING] 데이터를 임시 디스크에 저장하지 마세요. 이는 응용 프로그램 및 프로세스에 대한 임시 디스크를 제공하며 페이지 또는 스왑 파일과 같은 데이터 저장에 사용됩니다. Windows 가상 컴퓨터에 대해 이 디스크를 다시 매핑하려면 [Windows 임시 디스크의 드라이브 문자 변경](virtual-machines-windows-classic-change-drive-letter.md)을 참조하세요.
+>[AZURE.WARNING] 데이터를 임시 디스크에 저장하지 마세요. 이는 응용 프로그램 및 프로세스에 대한 임시 디스크를 제공하며 페이지 또는 스왑 파일과 같은 데이터 저장에 사용됩니다. Windows 가상 컴퓨터에 대해 이 디스크를 다시 매핑하려면 [Windows 임시 디스크의 드라이브 문자 변경](../articles/virtual-machines/virtual-machines-windows-classic-change-drive-letter.md)을 참조하세요.
 
 Azure에서 임시 디스크를 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 가상 컴퓨터에서의 임시 드라이브 이해](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)를 참조하세요.
 
@@ -18,7 +18,7 @@ Azure에서 임시 디스크를 사용하는 방법에 대한 자세한 내용�
 
 데이터 디스크는 응용 프로그램 데이터 또는 사용자가 보존해야 하는 기타 데이터를 저장하기 위해 가상 컴퓨터에 연결된 VHD입니다. 데이터 디스크는 SCSI 드라이브로 등록되며 사용자가 선택한 문자로 레이블이 지정됩니다. 각 데이터 디스크의 최대 용량은 1023GB입니다. 가상 컴퓨터의 크기에 따라 사용자가 해당 가상 컴퓨터에 연결할 수 있는 데이터의 디스크의 용량과 디스크를 호스트하기 위해 사용할 수 있는 저장소 유형이 결정됩니다.
 
->[AZURE.NOTE] 가상 컴퓨터 용량에 대한 자세한 내용은 [가상 컴퓨터에 대한 크기](virtual-machines-linux-sizes.md)를 참조하세요.
+>[AZURE.NOTE] 가상 컴퓨터 용량에 대한 자세한 내용은 [가상 컴퓨터에 대한 크기](../articles/virtual-machines/virtual-machines-linux-sizes.md)를 참조하세요.
 
 Azure는 사용자가 이미지에서 가상 컴퓨터를 만들 때 운영 체제 디스크를 만듭니다. 사용자가 데이터 디스크를 포함하는 이미지를 사용하는 경우, Azure는 가상 컴퓨터를 만들 때, 데이터 디스크도 함께 만듭니다. (사용자는 Azure 또는 파트너 또는 본인이 제공하는 이미지를 사용할 수 있습니다.) 그렇지 않은 경우, 가상 컴퓨터를 만든 후에 데이터 디스크를 추가하십시오.
 
@@ -26,7 +26,7 @@ Azure는 사용자가 이미지에서 가상 컴퓨터를 만들 때 운영 체�
 
 ## VHD에 대하여
 
-Azure에서 사용되는 VHD는 Azure의 표준 또는 프리미엄 저장소 계정에서 페이지 blob으로 저장되는 .vhd 파일입니다. (프리미엄 저장소는 특정 지역에서만 사용할 수 있습니다.) 페이지 Blob에 대한 자세한 내용은 [블록 Blob 및 페이지 Blob 이해하기](https://msdn.microsoft.com/library/ee691964.aspx)를 참조하세요. 프리미엄 저장소에 대한 자세한 내용은 [프리미엄 저장소: Azure 가상 컴퓨터에 대한 고성능 저장소](../storage/storage-premium-storage.md)를 참조하세요.
+Azure에서 사용되는 VHD는 Azure의 표준 또는 프리미엄 저장소 계정에서 페이지 blob으로 저장되는 .vhd 파일입니다. (프리미엄 저장소는 특정 지역에서만 사용할 수 있습니다.) 페이지 Blob에 대한 자세한 내용은 [블록 Blob 및 페이지 Blob 이해하기](https://msdn.microsoft.com/library/ee691964.aspx)를 참조하세요. 프리미엄 저장소에 대한 자세한 내용은 [프리미엄 저장소: Azure 가상 컴퓨터에 대한 고성능 저장소](../articles/storage/storage-premium-storage.md)를 참조하세요.
 
 Azure는 VHD 형식의 고정 디스크를 지원합니다. 고정 형식은 디스크 오프셋 X가 blob 오프셋 X에 저장되도록 파일 내에 선형적으로 논리적 디스크를 배치합니다. blob 끝의 작은 바닥글에서는 VHD의 속성을 설명합니다. 고정 형식은 대부분의 디스크에서 사용되지 않는 공간 범위가 크기 때문에 공간이 낭비되는 경우가 많습니다. 하지만 Azure에서는 .vhd 파일을 스파스 형식으로 저장하기 때문에 고정 및 동적 디스크의 장점을 동시에 얻을 수 있습니다. 자세한 내용은 [가상 하드 디스크 시작](https://technet.microsoft.com/library/dd979539.aspx)을 참조하세요.
 
@@ -38,4 +38,4 @@ Azure는 VHD 형식의 고정 디스크를 지원합니다. 고정 형식은 디
 
 >[AZURE.WARNING] 저장소에서 원본 .vhd 파일을 삭제하거나, 사용자의 저장소 계정을 삭제한 경우, Microsoft는 해당 데이터를 복구할 수 없습니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

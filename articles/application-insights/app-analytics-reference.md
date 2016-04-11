@@ -17,7 +17,7 @@
 
 # Application Insights: 분석 참고 자료
 
-[분석](app-analytics.md)은 [Application Insights](app-insights-overview.md)의 강력한 검색 기능입니다. 다음 페이지에서는 분석 쿼리 언어에 대해 설명합니다.
+[분석](app-analytics.md)을 사용하면 [Application Insights](app-insights-overview.md)에서 수집된 앱의 원격 분석을 통해 유용한 쿼리를 실행할 수 있습니다. 다음 페이지에서는 해당 쿼리 언어를 설명합니다.
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
@@ -25,12 +25,11 @@
 ## 정규식
 
 
-
 [> 정규식에 대한 일반적인 설명](https://github.com/google/re2/wiki/Syntax).
 
 이 페이지는 RE2에서 허용하는 정규식 구문을 나열합니다. 또한 PCRE, PERL 및 VIM에서 허용하는 구문을 나열합니다.
 
-||
+|
 |---|---
 |단일 문자: | 
 |. |모든 문자, 줄 바꿈 문자를 포함할 수 있음(s=true) 
@@ -46,7 +45,7 @@
 |\\P{Greek} |부정 유니코드 문자 클래스 
 |합성: | 
 |xy |x, y 순서로 구성 
-|x&#124;y|x 또는 y(x 선호) 
+|x|y |x 또는 y(x 선호) 
 |
 |반복: |
 | |0개 이상의 x, 많을수록 더 좋음 
@@ -414,4 +413,4 @@
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

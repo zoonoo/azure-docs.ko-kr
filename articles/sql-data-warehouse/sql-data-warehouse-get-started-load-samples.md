@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스로 샘플 데이터를 로드
@@ -51,26 +51,32 @@ SQL 데이터 웨어하우스 인스턴스를 만드는 동안 일부 샘플 데
 
 직원의 모든 정보를 가져오는 간단한 select 문을 실행할 수 있습니다.
 
-	SELECT * FROM DimEmployee;
+```sql
+SELECT * FROM DimEmployee;
+```
 
 각 날짜의 모든 판매 금액을 살펴보기 위해 GROUP BY 같은 구문을 사용하여 더 복잡한 쿼리를 실행할 수도 있습니다.
 
-	SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
-	FROM FactInternetSales
-	GROUP BY OrderDateKey
-	ORDER BY OrderDateKey;
+```sql
+SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
+FROM FactInternetSales
+GROUP BY OrderDateKey
+ORDER BY OrderDateKey
+;
+```
 
 특정 날짜 이전의 주문을 필터링 할 WHERE 구문을 사용할 수도 있습니다.
 
-	SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
-	FROM FactInternetSales
-	WHERE OrderDateKey > '20020801'
-	GROUP BY OrderDateKey
-	ORDER BY OrderDateKey;
+```sql
+SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
+FROM FactInternetSales
+WHERE OrderDateKey > '20020801'
+GROUP BY OrderDateKey
+ORDER BY OrderDateKey
+;
+```
 
 사실, SQL 데이터 웨어하우스는 SQL Server에서 사용되는 대부분의 T-SQL 구문을 지원하며, [마이그레이션 코드][] 설명서에 일부 차이점을 찾을 수 있습니다.
-
-
 
 ## 다음 단계
 이제 샘플 데이터로 [개발][],[로드][] 또는 [마이그레이션][]할 준비 시간을 드리겠습니다.
@@ -94,4 +100,4 @@ SQL 데이터 웨어하우스 인스턴스를 만드는 동안 일부 샘플 데
 <!--Other Web references-->
 [Sample Data Scripts]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

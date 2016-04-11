@@ -1,6 +1,6 @@
 
 
-[Docker](https://www.docker.com/)는 공유 리소스의 응용 프로그램 데이터와 계산을 격리시키는 한 가지 방법으로 가상 컴퓨터 대신 [Linux 컨테이너](http://en.wikipedia.org/wiki/LXC)를 사용하는 가장 많이 사용되는 가상화 방법 중 하나입니다. [Azure Linux 에이전트](virtual-machines-linux-agent-user-guide.md)에 대한 [Azure Docker VM 확장](https://github.com/Azure/azure-docker-extension/blob/master/README.md)을 사용하여 Azure에 응용 프로그램의 컨테이너를 개수에 제한 없이 호스트하는 Docker VM을 만들 수 있습니다.
+[Docker](https://www.docker.com/)는 공유 리소스의 응용 프로그램 데이터와 계산을 격리시키는 한 가지 방법으로 가상 컴퓨터 대신 [Linux 컨테이너](http://en.wikipedia.org/wiki/LXC)를 사용하는 가장 많이 사용되는 가상화 방법 중 하나입니다. [Azure Linux 에이전트](../articles/virtual-machines/virtual-machines-linux-agent-user-guide.md)에 대한 [Azure Docker VM 확장](https://github.com/Azure/azure-docker-extension/blob/master/README.md)을 사용하여 Azure에 응용 프로그램의 컨테이너를 개수에 제한 없이 호스트하는 Docker VM을 만들 수 있습니다.
 
 이 항목에서는 다음에 대해 설명합니다.
 
@@ -64,4 +64,4 @@ Docker 사용 가능 VM을 즉시 만들려면 다음 항목을 참조하세요.
 [Azure와 함께 Docker VM 확장을 사용하는 방법]: #How-to-use-the-Docker-VM-Extension-with-Azure
 [Linux 및 Windows용 가상 컴퓨터 확장]: #Virtual-Machine-Extensions-For-Linux-and-Windows
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -31,16 +31,16 @@
 
 ## NSG-FrontEnd NSG 만들기
 
-위의 시나리오와 같이 **NSG-FrontEnd** NSG를 만들려면 아래 단계를 따르세요.
+위의 시나리오에 나온 것처럼 **NSG-FrontEnd** NSG를 만들려면 다음 단계를 따르세요.
 
 1. 브라우저에서 http://portal.azure.com으로 이동하고 필요한 경우 Azure 계정으로 로그인합니다.
 2. **찾아보기 >** > **네트워크 보안 그룹**을 클릭합니다.
 
-	![Azure 포털 - NSG](./media/virtual-networks-create-nsg-arm-pportal/figure11.png)
+    ![Azure 포털 - NSG](./media/virtual-networks-create-nsg-arm-pportal/figure11.png)
 
 3. **네트워크 보안 그룹** 블레이드에서 **추가**를 클릭합니다.
-
-	![Azure 포털 - NSG](./media/virtual-networks-create-nsg-arm-pportal/figure12.png)
+  
+    ![Azure 포털 - NSG](./media/virtual-networks-create-nsg-arm-pportal/figure12.png)
 
 4. **네트워크 보안 그룹 만들기** 블레이드에서 *RG-NSG* 리소스 그룹 안에 *NSG-FrontEnd* 라는 이름의 NSG를 만든 다음 **만들기**를 클릭합니다.
 
@@ -48,7 +48,7 @@
 
 ## 기존 NSG에서 규칙 만들기
 
-Azure 포털의 기존 NSG에 규칙을 만들려면 다음 단계를 수행합니다.
+Azure 포털의 기존 NSG에 규칙을 만들려면 다음 단계를 따릅니다.
 
 2. **찾아보기 >** > **네트워크 보안 그룹**을 클릭합니다.
 
@@ -87,9 +87,9 @@ Azure 포털의 기존 NSG에 규칙을 만들려면 다음 단계를 수행합�
 
 ## NSG-BackEnd NSG 만들기
 
-**NSG-BackEnd** NSG를 만들고 **BackEnd** 서브넷에 연결하려면 아래 단계를 따르세요.
+**NSG-BackEnd** NSG를 만든 후 **BackEnd** 서브넷에 연결하려면 다음 단계를 따릅니다.
 
-1. *NSG-BackEnd*라는 NSG를 만들려면 [NSG-FrontEnd NSG 만들기](#Create-the-NSG-FrontEnd-NSG)의 단계를 반복합니다.
+1. [NSG-FrontEnd NSG 만들기](#Create-the-NSG-FrontEnd-NSG)의 단계를 반복하여 *NSG-BackEnd*라는 NSG를 만듭니다.
 2. 아래 표에 있는 **인바운드** 규칙을 만들려면 [기존 NSG에서 규칙 만들기](#Create-rules-in-an-existing-NSG)의 단계를 반복합니다.
 
 	|인바운드 규칙|아웃바운드 규칙|
@@ -103,4 +103,4 @@ Azure 포털의 기존 NSG에 규칙을 만들려면 다음 단계를 수행합�
 - [기존 NSG 관리](virtual-network-manage-nsg-arm-portal.md) 방법을 알아봅니다.
 - NSG에 대한 [로깅을 사용합니다](virtual-network-nsg-manage-log.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

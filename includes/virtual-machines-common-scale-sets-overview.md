@@ -10,7 +10,7 @@ VM 규모 집합에 대한 자세한 정보는 이러한 비디오를 살펴보�
 
 ## VM 규모 집합 만들기 및 관리
 
-VM 규모 집합은 개별적인 Azure 리소스 관리자 VM과 마찬가지로 JSON 템플릿 및 [REST API](https://msdn.microsoft.com/library/mt589023.aspx)를 사용하여 정의하고 배포할 수 있습니다. 따라서 모든 표준 Azure 리소스 관리자 배포 방법을 사용할 수 있습니다. 템플릿에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](../resource-group-authoring-templates.md)을 참조하세요.
+VM 규모 집합은 개별적인 Azure 리소스 관리자 VM과 마찬가지로 JSON 템플릿 및 [REST API](https://msdn.microsoft.com/library/mt589023.aspx)를 사용하여 정의하고 배포할 수 있습니다. 따라서 모든 표준 Azure 리소스 관리자 배포 방법을 사용할 수 있습니다. 템플릿에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](../articles/resource-group-authoring-templates.md)을 참조하세요.
 
 VM 규모 집합에 대한 예제 템플릿의 집합은 Azure 빠른 시작 템플릿 GitHub 리포지토리에서 찾을 수 있습니다.
 
@@ -26,7 +26,7 @@ VM 규모 집합에서 가상 컴퓨터의 수를 늘리거나 줄이려면, _�
 
 용량을 변경하기 위해서 템플릿을 다시 배포하는 경우 SKU와 업데이트된 용량만 포함하는 훨씬 더 작은 템플릿을 정의할 수 있습니다. 이와 관련된 예제를 [https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-scale-in-or-out/azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-linux-nat/azuredeploy.json)에서 볼 수 있습니다.
 
-자동으로 크기가 조정되는 규모 집합을 만드는 단계를 살펴보려면 [가상 컴퓨터 규모 집합에서 자동으로 컴퓨터 규모 조정](virtual-machines-windows-ps-vmss-create.md)을 참조하세요.
+자동으로 크기가 조정되는 규모 집합을 만드는 단계를 살펴보려면 [가상 컴퓨터 규모 집합에서 자동으로 컴퓨터 규모 조정](../articles/virtual-machines/virtual-machines-windows-ps-vmss-create.md)을 참조하세요.
 
 ## VM 규모 집합 모니터링
 
@@ -79,7 +79,7 @@ VM 규모 집합에서 가상 컴퓨터의 수를 늘리거나 줄이려면, _�
 
 **Q.** VM 규모 집합에 존재하는 다른 리소스 제한 사항은 무엇입니까?
 
-**A.** 미리 보기 기간 동안 지역 당 다수의 규모 집합에 VM을 500개 이하로 생성하도록 제한됩니다. 기존 [Azure 구독 서비스 제한/](../azure-subscription-service-limits.md)을 적용합니다.
+**A.** 미리 보기 기간 동안 지역 당 다수의 규모 집합에 VM을 500개 이하로 생성하도록 제한됩니다. 기존 [Azure 구독 서비스 제한/](../articles/azure-subscription-service-limits.md)을 적용합니다.
 
 **Q.** VM 규모 집합 내에서 데이터 디스크가 지원됩니까?
 
@@ -130,4 +130,4 @@ VM 규모 집합에서 가상 컴퓨터의 수를 늘리거나 줄이려면, _�
 
 **A.** 예. VM 규모 집합은 FD 3개와 UD 5개를 포함하는 암시적인 가용성 집합입니다. virtualMachineProfile에 대해 아무것도 구성할 필요가 없습니다. 앞으로 출시되는 릴리스에서 VM 규모 집합이 여러 테넌트로 확장될 가능성이 있지만 현재 규모 집합은 단일 가용성 집합입니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

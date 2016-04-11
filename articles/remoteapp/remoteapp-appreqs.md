@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="12/05/2015"
+    ms.date="03/28/2016"
     ms.author="elizapo" />
 
 
@@ -55,4 +55,4 @@ RemoteApp용 응용 프로그램을 개발하기 위해 다음 지침을 사용�
 - 다중 사용자, 다중 프로세서 환경을 위해 응용 프로그램 [스레드 사용량](https://msdn.microsoft.com/library/aa383520.aspx)을 조정하여 균형을 맞추어야 합니다.
 - 성능을 최적화하려면 응용 프로그램이 클라이언트 세션에서 실행 중인지 [감지](https://msdn.microsoft.com/library/aa380798.aspx)하도록 하는 것이 좋습니다.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0330_2016-->

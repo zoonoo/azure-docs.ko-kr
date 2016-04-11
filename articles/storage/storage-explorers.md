@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="03/30/2016"
 	ms.author="micurd"/>
 
 # Azure 저장소 탐색기
@@ -52,7 +52,7 @@ Azure 저장소의 사용자는 저장소 계정의 데이터를 표시할 수 �
     <td>X</td>
     <td>X</td>
     <td>X</td>
-    <td>평가판</td>
+    <td>Y</td>
     <td>X</td>
     <td></td>
     <td></td>
@@ -63,8 +63,8 @@ Azure 저장소의 사용자는 저장소 계정의 데이터를 표시할 수 �
     <td>X</td>
     <td>X</td>
     <td>X</td>
-    <td></td>
-    <td></td>
+    <td>X</td>
+    <td>X</td>
     <td></td>
     <td>Y</td>
     <td></td>
@@ -252,4 +252,4 @@ Azure 저장소의 사용자는 저장소 계정의 데이터를 표시할 수 �
   </tr>
 </table>
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

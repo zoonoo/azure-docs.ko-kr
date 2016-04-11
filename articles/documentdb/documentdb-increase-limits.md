@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="03/30/2016"
 	ms.author="anhoh"/>
 
 # DocumentDB 계정 제한 증가 요청
@@ -29,20 +29,8 @@
 
 다음 표에서는 Azure 지원에 문의하여 조정할 수 있는 DocumentDB 할당량에 대해 설명합니다.
 
-|엔터티 |할당량(표준 제공)|
-|-------|--------|
-|데이터베이스 계정 |5
-|컬렉션당 저장 프로시저, 트리거 및 UDF 수 |각 25개
-|데이터베이스 계정당 최대 컬렉션 |100
-|데이터베이스(100개 컬렉션)당 최대 문서 저장소 |1TB
-|쿼리당 최대 UDF 수 |2
-|쿼리당 최대 JOIN 수 |5
-|쿼리당 최대 AND 절 수 |20
-|쿼리당 최대 OR 절 수 |20
-|IN 식당 최대 값 수 |200
-|ST\_WITHIN 쿼리의 다각형 인수에 있는 점의 최대 수 |16
-|분당 최대 컬렉션 생성 수 |5
-|분당 최대 크기 조정 작업 수 |5
+[AZURE.INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
+
 
 ##<a id="RequestQuotaIncrease"></a> 할당량 조정 요청
 다음 단계에서는 할당량 조정을 요청하는 방법을 보여 줍니다.
@@ -75,4 +63,4 @@
 ##<a name="NextSteps"></a> 다음 단계
 - DocumentDB에 대해 자세히 알아보려면 [여기](http://azure.com/docdb)를 클릭하세요.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->

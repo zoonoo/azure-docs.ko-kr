@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="nicw;jrj;mausher;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스를 통한 탄력적인 성능과 확장
@@ -40,7 +40,7 @@ Microsoft는 내부적으로 수 많은 성능 벤치마크 테스트를 실행�
 
 [Azure 클래식 포털][]에서 '저장'을 클릭하기 전에 SQL 데이터 웨어하우스 페이지의 맨 위에 있는 '크기 조정' 아이콘을 클릭한 다음 슬라이더를 사용하여 데이터 웨어하우스에 적용되는 DWU 양을 늘리거나 줄일 수 있습니다. 규모를 프로그래밍 방식으로 변경하려면 다음 T-SQL 코드가 SQL 데이터 웨어하우스에 대한 DWU의 할당을 조정하는 방법을 보여줍니다.
 
-```
+```sql
 ALTER DATABASE MySQLDW
 MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 ;
@@ -49,7 +49,7 @@ T-SQL는 SQL 데이터 웨어하우스 인스턴스 자체가 아닌 논리 서�
 
 아래 코드를 사용하여 Powershell을 통해 동일한 결과를 얻을 수도 있습니다.
 
-```
+```Powershell
 Set-AzureSQLDatabase -DatabaseName "MySQLDW" -ServerName "MyServer.database.windows.net" -ServiceObjective "DW1000"
 ```
 
@@ -64,20 +64,18 @@ SQL 데이터 웨어하우스의 고유한 특징은 요청 시 계산을 일시
 
 아래 코드는 PowerShell을 사용하여 일시 중지를 수행하는 방법을 보여줍니다.
 
-```
+```Powershell
 Suspend-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName
 "Server01" –DatabaseName "Database02"
 ```
 
 PowerShell을 사용하면 서비스를 다시 시작하는 것이 매우 간단합니다.
 
-```
+```Powershell
 Resume-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
 ```
 
 PowerShell을 사용하는 방법에 대한 자세한 내용은 [SQL 데이터 웨어하우스에서 PowerShell cmdlet 및 REST API 사용][]을 참조하세요.
-
-
 
 ## 다음 단계
 성능 개요는 [성능 개요][]를 참조하세요.
@@ -95,4 +93,4 @@ PowerShell을 사용하는 방법에 대한 자세한 내용은 [SQL 데이터 �
 
 [Azure 클래식 포털]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

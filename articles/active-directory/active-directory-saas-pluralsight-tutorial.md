@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/21/2016"
+	ms.date="03/23/2016"
 	ms.author="jeedes"/>
 
 
@@ -65,7 +65,7 @@ Pluralsight의 Azure AD 통합을 구성하려면 갤러리의 Pluralsight를 �
 4. 페이지 맨 아래에 있는 **추가**를 클릭합니다.<br><br> ![응용 프로그램][3]<br>
 5. **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.<br><br> ![응용 프로그램][4]<br>
 6. 검색 상자에 **Pluralsight**를 입력합니다.<br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_01.png)<br>
-7. 결과 창에서 **Pluralsight**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다. <br><br>
+7. 결과 창에서 **Pluralsight**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_06.png)<br>
 
 ##  Azure AD Single Sign-on 구성 및 테스트
 이 섹션은 "Britta Simon"이라는 테스트 사용자를 기반으로 Pluralsight에서 Azure AD Single Sign-On을 구성하고 테스트하는 방법을 보여 주기 위해 작성되었습니다.
@@ -77,14 +77,14 @@ Pluralsight에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 1. **[Azure AD Single Sign-on 구성](#configuring-azure-ad-single-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
 2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
 4. **[Pluralsight 테스트 사용자 만들기](#creating-a-pluralsight-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Pluralsight에 만듭니다.
-5. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+5. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
 5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
 ### Azure AD Single Sign-On 구성
 
 이 섹션은 Azure 클래식 포털에서 Azure AD Single Sign-On을 사용하도록 설정하고 Pluralsight 응용 프로그램에서 Single Sign-On을 구성하는 방법을 설명하기 위한 것입니다.
 
-Pluralsight 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하며, SAML 토큰 특성 구성에 사용자 할당 특성 매핑을 추가해야 합니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다. givenname, surname 및 emailaddress의 기본 클레임을 제거하십시오. 그런 다음 다음 클레임을 추가하고 표시된 것처럼 드롭다운에서 값을 선택합니다. <br><br> ![Single Sign-On 구성](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_02.png) <br>
+Pluralsight 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하며, SAML 토큰 특성 구성에 사용자 할당 특성 매핑을 추가해야 합니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다. givenname, surname 및 emailaddress의 기본 클레임을 제거하십시오. 그리고 나서 다음 클레임을 추가하고 표시된 것처럼 드롭다운에서 값을 선택합니다. <br><br> ![Single Sign-On 구성](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_02.png) <br>
 
 조직에 맞는 EmployeeID 등과 같은 적절한 값으로 **"고유 ID"** 특성을 추가할 수도 있습니다. 또한 이는 필수 특성이 아니지만 고유한 사용자를 식별하기 위해 추가할 수 있습니다.
 
@@ -216,4 +216,4 @@ Pluralsight 응용 프로그램은 특정 서식에서 SAML 어설션을 예상�
 [204]: ./media/active-directory-saas-pluralsight-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-pluralsight-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

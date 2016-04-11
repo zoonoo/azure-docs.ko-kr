@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="02/03/2016"
+	ms.date="03/24/2016"
 	ms.author="jroth"/>
 
 # Azure 가상 컴퓨터의 SQL Server 개요
@@ -25,6 +25,8 @@ AlwaysOn 가용성 그룹 및 Azure 가상 네트워크를 사용하여 단일 �
 >[AZURE.NOTE] Azure VM에서 SQL Server를 실행하는 것은 관계형 데이터를 Azure에 저장하기 위한 한 가지 옵션입니다. Azure SQL 데이터베이스 서비스를 사용할 수도 있습니다. 자세한 내용은 [Azure SQL 데이터베이스 및 Azure VM의 SQL Server 이해](../sql-database/data-management-azure-sql-database-and-sql-server-iaas.md)를 참조하세요.
 
 Azure에서 SQL Server 가상 컴퓨터를 만들려면 먼저 Azure 플랫폼 구독을 얻어야 합니다. [구입 옵션](https://azure.microsoft.com/pricing/purchase-options/)에서 Azure 구독을 구입할 수 있습니다. 무료로 사용해 보려면 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 방문하세요.
+
+유용한 개요는 [Azure VM은 SQL Server 2016를 위한 최상의 플랫폼입니다](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016) 비디오를 봅니다.
 
 ### 단일 VM에 SQL Server 인스턴스 배포
 
@@ -147,4 +149,4 @@ SQL Server 가상 컴퓨터를 준비하고 실행한 후 기존 데이터베이
 - [Azure 가상 컴퓨터의 SQL Server에 대한 응용 프로그램 패턴 및 개발 전략](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
 - [Azure 가상 컴퓨터](virtual-machines-linux-about.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

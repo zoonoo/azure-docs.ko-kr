@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스의 저장된 프로시저
@@ -38,11 +38,11 @@ SQL 데이터 웨어하우스는 최대 8개의 중첩 수준을 지원합니다
 
 상위 수준 저장된 프로시저 호출은 중첩 수준 1과 같습니다.
 
-```
+```sql
 EXEC prc_nesting
 ```
 저장된 프로시저는 또한 다른 EXEC 호출을 만든 다음 중첩 수준을 2로 증가시킵니다.
-```
+```sql
 CREATE PROCEDURE prc_nesting
 AS
 EXEC prc_nesting_2  -- This call is nest level 2
@@ -50,7 +50,7 @@ GO
 EXEC prc_nesting
 ```
 그 다음 두 번째 프로시저가 일부 동적 SQL을 실행하면 다음 중첩 수준이 3으로 증가합니다.
-```
+```sql
 CREATE PROCEDURE prc_nesting_2
 AS
 EXEC sp_executesql 'SELECT 'another nest level'  -- This call is nest level 2
@@ -97,4 +97,4 @@ SQL 데이터 웨어하우스에서 구현되지 않은 TRANSACT-SQL 저장된 �
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 
@@ -28,7 +28,7 @@
 
 다음 예제에서는 새 날짜 레코드를 날짜 차원에 추가합니다. 먼저 새 개체 DimDate\_New를 만든 다음 이름을 바꾸어 원래 버전의 개체를 바꾸는 방법을 확인합니다.
 
-```
+```sql
 CREATE TABLE dbo.DimDate_New
 WITH (DISTRIBUTION = ROUND_ROBIN
 , CLUSTERED INDEX (DateKey ASC)
@@ -74,4 +74,4 @@ SQL 데이터 웨어하우스의 뷰는 메타데이터 전용입니다.
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

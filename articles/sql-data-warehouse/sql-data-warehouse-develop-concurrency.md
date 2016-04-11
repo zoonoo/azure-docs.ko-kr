@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/04/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스의 동시성 및 워크로드 관리
@@ -218,7 +218,8 @@ SQL 데이터 웨어하우스 내부의 작업 관리는 약간 더 복잡합니
 
 따라서 예를 들어, DW500이 SQL 데이터 웨어하우스에 대한 현재 DWU 설정인 경우 활성 워크로드 그룹이 다음과 같이 리소스 클래스에 매핑됩니다.
 
-| 리소스 클래스 | 워크로드 그룹 | 사용된 동시성 슬롯 수 | 중요도 |
+| 리소스 클래스 | 워크로드 그룹 | 사용된 동시성 슬롯 수 | 중요도  
+ |
 | :------------- | :------------- | :---------------------   | :--------- |
 | smallrc | SloDWGroupC00 | 1 | 중간 |
 | mediumrc | SloDWGroupC02 | 4 | 중간 |
@@ -227,7 +228,7 @@ SQL 데이터 웨어하우스 내부의 작업 관리는 약간 더 복잡합니
 
 리소스 관리자의 관점에서 메모리 리소스 할당의 차이점을 자세히 살펴보려면 다음 쿼리를 사용합니다.
 
-```
+```sql
 WITH rg
 AS
 (   SELECT  pn.name									AS node_name
@@ -282,7 +283,7 @@ ORDER BY
 
 SQL 데이터 웨어하우스의 마스터 데이터베이스에 대한 연결을 열고 다음 명령을 실행합니다.
 
-```
+```sql
 CREATE LOGIN newperson WITH PASSWORD = 'mypassword'
 
 CREATE USER newperson for LOGIN newperson
@@ -294,19 +295,19 @@ CREATE USER newperson for LOGIN newperson
 
 SQL 데이터 웨어하우스 데이터베이스에 대한 연결을 열고 다음 명령을 실행합니다.
 
-```
+```sql
 CREATE USER newperson FOR LOGIN newperson
 ```
 
 사용자에게 전체 권한을 부여해야 합니다. 아래 예제에서는 SQL 데이터 웨어하우스 데이터베이스에 대한 `CONTROL` 권한을 부여합니다. 데이터베이스 수준의 `CONTROL` 권한은 SQL Server의 db\_owner에 해당합니다.
 
-```
+```sql
 GRANT CONTROL ON DATABASE::MySQLDW to newperson
 ```
 
 워크로드 관리 역할을 보려면 다음 쿼리를 사용합니다.
 
-```
+```sql
 SELECT  ro.[name]           AS [db_role_name]
 FROM    sys.database_principals ro
 WHERE   ro.[type_desc]      = 'DATABASE_ROLE'
@@ -316,13 +317,13 @@ AND     ro.[is_fixed_role]  = 0
 
 증가하는 워크로드 관리 역할에 사용자를 추가하려면 다음 쿼리를 사용합니다.
 
-```
+```sql
 EXEC sp_addrolemember 'largerc', 'newperson'
 ```
 
 워크로드 관리 역할에서 사용자를 제거하려면 다음 쿼리를 사용합니다.
 
-```
+```sql
 EXEC sp_droprolemember 'largerc', 'newperson'
 ```
 
@@ -330,7 +331,7 @@ EXEC sp_droprolemember 'largerc', 'newperson'
 
 어떤 사용자가 지정된 역할의 멤버인지 보려면 다음 쿼리를 사용합니다.
 
-```
+```sql
 SELECT	r.name AS role_principal_name
 ,		m.name AS member_principal_name
 FROM	sys.database_role_members rm
@@ -343,7 +344,7 @@ WHERE	r.name IN ('mediumrc','largerc', 'xlargerc')
 ### 큐에 저장된 쿼리 검색
 동시성 큐에 저장된 쿼리를 식별하려면 언제나 `sys.dm_pdw_exec_requests` DMV를 참조할 수 있습니다.
 
-```
+```sql
 SELECT 	 r.[request_id]									AS Request_ID
 		,r.[status]										AS Request_Status
 		,r.[submit_time]								AS Request_SubmitTime
@@ -374,7 +375,7 @@ DmsConcurrencyResourceType은 데이터 이동 작업으로 초래된 대기를 
 
 현재 큐에 저장된 쿼리를 분석하여 요청 대기 중인 리소스를 알아내려면 `sys.dm_pdw_waits` DMV를 참조하세요.
 
-```
+```sql
 SELECT  w.[wait_id]
 ,       w.[session_id]
 ,       w.[type]											AS Wait_type
@@ -411,7 +412,7 @@ WHERE	w.[session_id] <> SESSION_ID()
 
 지정된 쿼리가 사용하는 리소스 대기만 보려면 `sys.dm_pdw_resource_waits` DMV를 참조하세요. 리소스 대기 시간은 기본 SQL Server가 CPU에 대해 쿼리를 예약하는 데 소요되는 대기 시간을 나타내는 것과 달리 리소스가 제공될 때까지 대기하는 시간만 측정합니다.
 
-```
+```sql
 SELECT  [session_id]
 ,       [type]
 ,       [object_type]
@@ -430,7 +431,7 @@ WHERE	[session_id] <> SESSION_ID()
 
 마지막으로 대기에 대한 기록 추세 분석을 위해 SQL 데이터 웨어하우스는 `sys.dm_pdw_wait_stats` DMV를 제공합니다.
 
-```
+```sql
 SELECT	w.[pdw_node_id]
 ,		w.[wait_name]
 ,		w.[max_wait_time]
@@ -455,4 +456,4 @@ FROM	sys.dm_pdw_wait_stats w
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

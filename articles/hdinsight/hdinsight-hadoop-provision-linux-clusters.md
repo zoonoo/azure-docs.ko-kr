@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="03/21/2016"
+   	ms.date="03/25/2016"
    	ms.author="jgao"/>
 
 
@@ -26,7 +26,7 @@ Hadoop 클러스터는 클러스터에 있는 작업의 분산 처리에 사용�
 
 ##클러스터 유형
 
-현재 HDInsight는 각각이 특정 기능을 제공하는 구성 요소 모음을 포함하는 4가지 유형의 클러스터를 제공합니다.
+현재 HDInsight는 각각이 특정 기능을 제공하는 구성 요소 모음을 포함하는 5가지 유형의 클러스터를 제공합니다.
 
 | 클러스터 유형 | 필요한 경우 다음 사용... |
 | ------------ | ----------------------------- |
@@ -34,6 +34,7 @@ Hadoop 클러스터는 클러스터에 있는 작업의 분산 처리에 사용�
 | HBase | NoSQL 데이터 저장소 |
 | Storm | 실시간 이벤트 처리 |
 | Spark(미리 보기) | 메모리 내 처리, 대화형 쿼리, 마이크로 배치 스트림 처리 |
+| Spark에서 R 서버 | R에서는 다양한 빅 데이터 통계, 예측 모델링 및 기계 학습 기능을 지원합니다. |
 
 각 클러스터 유형에는 클러스터 내에 있는 노드에 대한 고유한 용어, 노드 수 및 각 노드 유형에 대한 기본 VM 크기가 포함됩니다.
 
@@ -44,11 +45,30 @@ Hadoop 클러스터는 클러스터에 있는 작업의 분산 처리에 사용�
 |Storm|Nimbus 노드(2), 감독자 서버(1+), Zookeeper 노드(3)|![HDInsight Storm 클러스터 노드](./media/hdinsight-provision-clusters/HDInsight.Storm.roles.png)|
 |Spark|헤드 노드(2), 작업자 노드(1+), Zookeeper 노드(3)(A1 Zookeeper VM 크기의 경우 무료)|![HDInsight Spark 클러스터 노드](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png)|
 
-* 각 노드 유형에 대한 노드 수는 괄호로 묶여서 표시됩니다.
+* 각 노드 유형에 대한 노드 수는 괄호로 묶어서 표시됩니다.
 
 > [AZURE.IMPORTANT] 클러스터 만들기에서 또는 클러스터를 만든 후 확장하여 32개 이상의 작업자 노드를 계획하는 경우 최소한 코어 8개와 14GB RAM을 가진 헤드 노드 크기를 선택해야 합니다.
 
 [스크립트 동작](#customize-clusters-using-script-action)을 사용하여 이러한 기본 유형에 Hue 또는 R과 같은 다른 구성 요소를 추가할 수 있습니다.
+
+## 클러스터 계층
+
+Azure HDInsight는 빅 데이터 클라우드 제품을 표준 및 [프리미엄](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium)이라는 두 범주로 제공합니다. HDInsight 프리미엄은 R 및 기타 추가 구성 요소를 포함합니다. HDInsight 프리미엄은 HDInsight 버전 3.4에서만 지원됩니다.
+
+다음 표에는 HDInsight 클러스터 유형 및 HDInsight Premium 지원 행렬이 나와 있습니다.
+
+| 클러스터 유형 | Standard | Premium |
+|--------------|---------------|--------------|
+| Hadoop은 | 예 | 예 |
+| Spark | 예 | 예 |
+| HBase | 예 | 아니요 |
+| Storm | 예 | 아니요 |
+| Spark에서 R 서버 | 아니요 | 예 |
+
+이 표는 HDInsight 프리미엄에 추가 클러스터 유형이 포함되면 업데이트될 예정입니다. 다음 스크린 샷에서 클러스터 유형을 선택하기 위한 Azure 포털 정보를 보여줍니다.
+
+![HDInsight 프리미엄 구성](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-type-configuration.png)
+
 
 ## 기본 구성 옵션
 
@@ -63,7 +83,7 @@ Hadoop 클러스터는 클러스터에 있는 작업의 분산 처리에 사용�
 
 - **클러스터 유형**
 
-    [클러스터 유형](#cluster-types)을 참조하세요.
+    [클러스터 유형](#cluster-types) 및 [클러스터 계층](#cluster-tiers)을 참조하세요.
 
 - **운영 체제**
 
@@ -88,7 +108,7 @@ Hadoop 클러스터는 클러스터에 있는 작업의 분산 처리에 사용�
 	HDInsight 클러스터를 사용하면 클러스터 생성 중에 두 개의 사용자 계정을 구성할 수 있습니다.
 
 	- HTTP 사용자. 기본 사용자 이름은 Azure 포털에서 기본 구성을 사용하는 admin입니다. 경우에 따라 "클러스터 사용자"라고도 합니다.
-	- SSH 사용자(Linux 클러스터): SSH를 사용하여 클러스터에 연결하는 데 사용됩니다. [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)의 단계에 따라 클러스터를 만든 후 추가 SSH 사용자 계정을 만들 수 있습니다.
+	- SSH 사용자(Linux 클러스터): SSH를 사용하여 클러스터에 연결하는 데 사용됩니다. [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md) 또는 [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)의 단계에 따라 클러스터를 만든 후 추가 SSH 사용자 계정을 만들 수 있습니다.
 
     >[AZURE.NOTE] Windows 기반 클러스터의 경우 RDP를 사용하여 클러스터에 연결하는 데 사용되는 RDP 사용자를 만들 수 있습니다.
 
@@ -134,7 +154,7 @@ Hadoop 클러스터는 클러스터에 있는 작업의 분산 처리에 사용�
 
 	![HDInsight VM 노드 크기](./media/hdinsight-provision-clusters/hdinsight.node.sizes.png)
 
-    다음 표에는 HDInsight에서 지원하는 크기와 제공하는 용량이 나와 있습니다.
+    다음 표에는 HDInsight 클러스터에서 지원하는 크기와 제공하는 용량이 나와 있습니다.
 
     - 표준 계층: A 시리즈
 
@@ -173,7 +193,7 @@ Hadoop 클러스터는 클러스터에 있는 작업의 분산 처리에 사용�
         |Standard\_D13\_v2 |8|56GB|8|임시(SSD) = 400GB |16|16x500|
         |Standard\_D14\_v2 |16|112GB|8|임시(SSD) = 800GB |32|32x500|    
  
-    이러한 리소스의 사용 계획을 세울 때 알아야 할 배포 고려 사항에 대해서는 [가상 컴퓨터 크기](../virtual-machines/virtual-machines-size-specs.md)를 참조하세요. 다양한 크기의 가격 책정에 대한 자세한 내용은 [HDInsight 가격 책정](https://azure.microsoft.com/pricing/details/hdinsight)을 참조하세요.
+    이러한 리소스의 사용 계획을 세울 때 알아야 할 배포 고려 사항은 [가상 컴퓨터 크기](../virtual-machines/virtual-machines-size-specs.md)를 참조하세요. 다양한 크기의 가격 책정에 대한 자세한 내용은 [HDInsight 가격 책정](https://azure.microsoft.com/pricing/details/hdinsight)을 참조하세요.
     
 	> [AZURE.IMPORTANT] 클러스터 만들기에서 또는 클러스터를 만든 후 확장하여 32개 이상의 작업자 노드를 계획하는 경우 최소한 코어 8개와 14GB RAM을 가진 헤드 노드 크기를 선택해야 합니다. 클러스터가 만들어지면 청구가 시작되고 클러스터가 삭제되면 청구가 중지됩니다. 가격 책정에 대한 자세한 내용은 [HDInsight 가격 정보](https://azure.microsoft.com/pricing/details/hdinsight/)를 참조하세요.
 
@@ -187,9 +207,9 @@ Hadoop 클러스터는 클러스터에 있는 작업의 분산 처리에 사용�
 
 ## Hive/Oozie Metastore 사용
 
-나중에 다른 HDInsight 클러스터에 해당 메타 저장소를 연결하기 위해 HDInsight 클러스터를 삭제한 후 하이브 테이블을 유지하려는 경우 사용자 지정 메타 저장소를 반드시 사용하도록 합니다.
+나중에 다른 HDInsight 클러스터에 해당 메타 저장소를 연결하기 위해 HDInsight 클러스터를 삭제한 후 하이브 테이블을 유지하려는 경우 사용자 지정 메타 저장소를 사용하는 것이 좋습니다.
 
-Metastore는 Hive 테이블, 파티션, 스키마, 열 등 Hive 및 Oozie 메타데이터에 대한 정보를 포함합니다. Metastore를 사용하면 Hive 및 Oozie 메타데이터를 보존할 수 있으므로 새 클러스터를 만들 때 Hive 테이블 또는 Oozie 작업을 다시 만들 필요가 없습니다. 기본적으로 Hive는 포함된 Azure SQL 데이터베이스를 사용하여 이 정보를 저장합니다. 포함된 데이터베이스에서는 클러스터가 삭제된 경우 메타데이터를 유지할 수 없습니다. 예를 들어, Hive Metastore로 만든 클러스터가 있습니다. 몇 개의 Hive 테이블을 만들었습니다. 클러스터를 삭제하고 동일한 Hive Metastore를 사용하여 클러스터를 다시 만든 후, 원래 클러스터에서 만든 Hive 테이블을 볼 수 있습니다.
+Metastore는 Hive 테이블, 파티션, 스키마, 열 등 Hive 및 Oozie 메타데이터에 대한 정보를 포함합니다. Metastore를 사용하면 Hive 및 Oozie 메타데이터를 보존할 수 있으므로 새 클러스터를 만들 때 Hive 테이블 또는 Oozie 작업을 다시 만들 필요가 없습니다. 기본적으로 Hive는 포함된 Azure SQL 데이터베이스를 사용하여 이 정보를 저장합니다. 포함된 데이터베이스에서는 클러스터가 삭제된 경우 메타데이터를 유지할 수 없습니다. 예를 들어, Hive Metastore로 만든 클러스터가 있습니다. 몇 개의 Hive 테이블을 만들었습니다. 클러스터를 삭제하고 동일한 하이브 Metastore를 사용하여 클러스터를 다시 만든 후, 원래 클러스터에서 만든 하이브 테이블을 볼 수 있습니다.
 
 > [AZURE.NOTE] HBase 클러스터 유형에는 Metastore 구성을 사용할 수 없습니다.
 
@@ -207,7 +227,7 @@ Metastore는 Hive 테이블, 파티션, 스키마, 열 등 Hive 및 Oozie 메타
     | -------------------------- | --------------------------- |
     | 사이트 간 구성에서는 하드웨어 VPN 또는 라우팅 및 원격 액세스 서비스를 사용하여 데이터 센터의 여러 리소스를 Azure 가상 네트워크에 연결할 수 있습니다.<br />![사이트 간 구성 다이어그램](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-site-to-site.png) | 지점 및 사이트 간 구성에서는 소프트웨어 VPN을 사용하여 Azure 가상 네트워크에 특정 리소스를 연결할 수 있습니다.<br />![지점 및 사이트 간 구성 다이어그램](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-point-to-site.png) |
 
-가상 네트워크에 대한 특정 구성 요구 사항을 포함하여 가상 네트워크로 HDInsight를 사용하는 방법에 대한 자세한 내용은 [Azure 가상 네트워크를 사용하여 HDInsight 기능 확장](hdinsight-extend-hadoop-virtual-network.md)을 참조하세요.
+가상 네트워크에 대한 특정 구성 요구 사항을 비롯한 가상 네트워크로 HDInsight를 사용하는 방법에 대한 자세한 내용은 [Azure 가상 네트워크를 사용하여 HDInsight 기능 확장](hdinsight-extend-hadoop-virtual-network.md)을 참조하세요.
 
 ## HDInsight 클러스터 사용자 지정을 사용하여 클러스터 사용자 지정(bootstrap)
 
@@ -226,7 +246,7 @@ Metastore는 Hive 테이블, 파티션, 스키마, 열 등 Hive 및 Oozie 메타
 
 ## 스크립트 작업을 사용하여 클러스터 사용자 지정
 
-만드는 동안 스크립트를 사용하여 추가 구성 요소를 설치하거나 클러스터 구성을 사용자 지정할 수 있습니다. 해당 스크립트는 **스크립트 동작**을 통해 호출됩니다. 스크립트 동작은 포털, HDInsight Windows PowerShell cmdlet 또는 HDInsight .NET SDK에서 사용할 수 있는 구성 옵션입니다. 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster.md)을 참조하세요.
+만드는 동안 스크립트를 사용하여 추가 구성 요소를 설치하거나 클러스터 구성을 사용자 지정할 수 있습니다. 해당 스크립트는 **스크립트 동작**을 통해 호출됩니다. 스크립트 동작은 포털, HDInsight Windows PowerShell cmdlet 또는 HDInsight .NET SDK에서 사용할 수 있는 구성 옵션입니다. 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
 
 
 
@@ -234,7 +254,7 @@ Metastore는 Hive 테이블, 파티션, 스키마, 열 등 Hive 및 Oozie 메타
 
 이 문서에서는 Linux 기반 HDInsight 클러스터 만들기에 대한 기본 정보에 대해 알아봤습니다. 아래 표를 사용하여 사용자 요구에 적합한 방법으로 클러스터를 만드는 방법에 대한 구체적인 정보를 확인합니다.
 
-| 클러스터를 만드는 데 사용할 방법... | 웹 브라우저 사용... | 명령줄 사용 | REST API 사용 | SDK 사용 | Linux, Mac OS X 또는 Unix에서 | Windows에서 |
+| 이 방법을 사용하여 클러스터 생성... | 웹 브라우저 사용... | 명령줄 사용 | REST API 사용 | SDK 사용 | Linux, Mac OS X 또는 Unix에서 | Windows에서 |
 | ------------------------------- |:----------------------:|:--------------------:|:------------------:|:------------:|:-----------------------------:|:------------:|
 | [Azure 포털](hdinsight-hadoop-create-linux-clusters-portal.md) | ✔ | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ |
 | [Azure 데이터 팩터리](hdinsight-hadoop-create-linux-clusters-adf.md) | ✔ | ✔ | ✔ |✔ | ✔ | ✔ |
@@ -244,4 +264,4 @@ Metastore는 Hive 테이블, 파티션, 스키마, 열 등 Hive 및 Oozie 메타
 | [.NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
 | [ARM 템플릿](hdinsight-hadoop-create-linux-clusters-arm-templates.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

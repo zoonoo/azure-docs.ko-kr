@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/21/2016"
+	ms.date="03/23/2016"
 	ms.author="jeedes"/>
 
 
@@ -65,7 +65,7 @@ ADP GlobalView의 Azure AD 통합을 구성하려면 갤러리의 ADP GlobalView
 4. 페이지 맨 아래에 있는 **추가**를 클릭합니다.<br><br> ![응용 프로그램][3]<br>
 5. **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.<br><br> ![응용 프로그램][4]<br>
 6. 검색 상자에 **ADP GlobalView**를 입력합니다.<br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_01.png)<br>
-7. 결과 창에서 **ADP GlobalView**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다. <br><br>
+7. 결과 창에서 **ADP GlobalView**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_06.png)<br>
 
 ##  Azure AD Single Sign-on 구성 및 테스트
 이 섹션은 "Britta Simon"이라는 테스트 사용자를 기반으로 ADP GlobalView에서 Azure AD Single Sign-On을 구성하고 테스트하는 방법을 보여 주기 위해 작성되었습니다.
@@ -77,7 +77,7 @@ ADP GlobalView에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 1. **[Azure AD Single Sign-on 구성](#configuring-azure-ad-single-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
 2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
 4. **[ADP GlobalView 테스트 사용자 만들기](#creating-a-adp-globalview-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 ADP GlobalView에 만듭니다.
-5. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+5. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
 5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
 ### Azure AD Single Sign-On 구성
@@ -100,10 +100,10 @@ SAML 어설션을 구성하기 전에 ADP GlobalView 지원 팀에 문의하고 
 3. **앱 설정 구성** 대화 상자 페이지에서 다음 단계를 수행합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_04.png) <br>
 
 
-    a. **식별자** 텍스트 상자에 다음 패턴 중 하나를 사용하여 ADP GlobalView 응용 프로그램을 식별하는 데 사용한 URL을 입력합니다. **“https://<server name>.globalview.adp.com/federate2”**, **“https://<server name>.globalview.adp.com/federate”**
+    a. **식별자** 텍스트 상자에 다음 패턴 중 하나를 사용하여 ADP GlobalView 응용 프로그램을 식별하는 데 사용한 URL을 입력합니다. **"https://<server name>.globalview.adp.com/federate2"**, **"https://<server name>.globalview.adp.com/federate"**
 
 
-    b. **회신 URL** 텍스트 상자에 다음 패턴 중 하나를 사용하여 ADP GlobalView 응용 프로그램에 대한 응답을 게시하기 위해 Azure AD에서 사용한 URL을 입력합니다. **“https://<server name>.globalview.adp.com/federate2/sp/ACS.saml2”**, **“https://<server name>.globalview.adp.com/federate/sp/ACS.saml2”**
+    b. **회신 URL** 텍스트 상자에 다음 패턴 중 하나를 사용하여 ADP GlobalView 응용 프로그램에 대한 응답을 게시하기 위해 Azure AD에서 사용한 URL을 입력합니다. **"https://<server name>.globalview.adp.com/federate2/sp/ACS.saml2"**, **"https://<server name>.globalview.adp.com/federate/sp/ACS.saml2"**
 
     c. **다음**을 클릭합니다.
 
@@ -229,4 +229,4 @@ SAML 어설션을 구성하기 전에 ADP GlobalView 지원 팀에 문의하고 
 [204]: ./media/active-directory-saas-adpglobalview-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-adpglobalview-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

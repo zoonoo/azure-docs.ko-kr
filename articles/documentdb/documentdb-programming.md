@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="03/30/2016" 
 	ms.author="andrl"/>
 
 # DocumentDB 서버 쪽 프로그래밍: 저장 프로시저, 데이터베이스 트리거 및 UDF
@@ -74,7 +74,7 @@ DocumentDB의 JavaScript 언어 통합 트랜잭션 실행을 사용해서 개�
 
 	// register the stored procedure
 	var createdStoredProcedure;
-	client.createStoredProcedureAsync(collection._self, helloWorldStoredProc)
+	client.createStoredProcedureAsync('dbs/testdb/colls/testColl', helloWorldStoredProc)
 		.then(function (response) {
 		    createdStoredProcedure = response.resource;
 		    console.log("Successfully created stored procedure");
@@ -86,7 +86,7 @@ DocumentDB의 JavaScript 언어 통합 트랜잭션 실행을 사용해서 개�
 저장 프로시저가 등록되면 컬렉션에 대해 실행하고 클라이언트에서 결과를 읽을 수 있습니다.
 
 	// execute the stored procedure
-	client.executeStoredProcedureAsync(createdStoredProcedure._self)
+	client.executeStoredProcedureAsync('dbs/testdb/colls/testColl/sprocs/helloWorld')
 		.then(function (response) {
 		    console.log(response.result); // "Hello, World"
 		}, function (err) {
@@ -101,21 +101,21 @@ DocumentDB의 JavaScript 언어 통합 트랜잭션 실행을 사용해서 개�
 ### 예: 문서 작성을 위한 저장 프로시저 작성 
 다음 코드 조각에서는 DocumentDB 리소스와 상호 작용하기 위한 컨텍스트 개체를 사용하는 방법을 보여 줍니다.
 
-	var createDocumentStoredProc = {
-	    id: "createMyDocument",
-	    body: function createMyDocument(documentToCreate) {
-	        var context = getContext();
-	        var collection = context.getCollection();
-	
-	        var accepted = collection.createDocument(collection.getSelfLink(),
-	              documentToCreate,
-				function (err, documentCreated) {
-				    if (err) throw new Error('Error' + err.message);
-				    context.getResponse().setBody(documentCreated.id)
-				});
-	        if (!accepted) return;
-	    }
-	}
+    var createDocumentStoredProc = {
+        id: "createMyDocument",
+        body: function createMyDocument(documentToCreate) {
+            var context = getContext();
+            var collection = context.getCollection();
+
+            var accepted = collection.createDocument(collection.getSelfLink(),
+                  documentToCreate,
+                  function (err, documentCreated) {
+                      if (err) throw new Error('Error' + err.message);
+                      context.getResponse().setBody(documentCreated.id)
+                  });
+            if (!accepted) return;
+        }
+    }
 
 
 이 저장 프로시저는 현재 컬렉션에 만들 문서의 본문을 입력 documentToCreate로 사용합니다. 이러한 모든 작업은 비동기이며 JavaScript 함수 콜백에 따라 달라집니다. 콜백 함수에는 작업이 실패할 경우의 오류 개체 및 만들어진 개체에 각각 사용되는 두 개의 매개 변수가 있습니다. 콜백 내에서 사용자는 예외를 처리하거나 오류를 throw할 수 있습니다. 콜백이 제공되지 않았고 오류가 있는 경우, DocumentDB 런타임이 오류를 throw합니다.
@@ -123,7 +123,7 @@ DocumentDB의 JavaScript 언어 통합 트랜잭션 실행을 사용해서 개�
 위 예제에서 콜백은 작업이 실패한 경우에 오류를 throw합니다. 그렇지 않으면 만들어진 문서의 ID를 클라이언트에 반환되는 응답의 본문으로 설정합니다. 다음은 이 저장 프로시저가 입력 매개 변수를 사용하여 실행되는 방법을 보여 줍니다.
 
 	// register the stored procedure
-	client.createStoredProcedureAsync(collection._self, createDocumentStoredProc)
+	client.createStoredProcedureAsync('dbs/testdb/colls/testColl', createDocumentStoredProc)
 		.then(function (response) {
 		    var createdStoredProcedure = response.resource;
 	
@@ -134,7 +134,7 @@ DocumentDB의 JavaScript 언어 통합 트랜잭션 실행을 사용해서 개�
 		        author: "Douglas Adams"
 		    };
 	
-		    return client.executeStoredProcedureAsync(createdStoredProcedure._self,
+		    return client.executeStoredProcedureAsync('dbs/testdb/colls/testColl/sprocs/createMyDocument',
 	              docToCreate);
 		}, function (error) {
 		    console.log("Error", error);
@@ -221,6 +221,8 @@ DocumentDB에서 JavaScript는 데이터베이스와 동일한 메모리 공간�
 	);
 
 이 저장 프로시저는 게임 앱 내의 트랜잭션을 사용하여 단일 작업으로 두 플레이어 간에 항목을 교환합니다. 저장 프로시저는 각각 인수로 전달된 플레이어 ID에 해당하는 두 개의 문서를 읽으려고 합니다. 두 플레이어 문서가 모두 있으면 저장 프로시저가 항목을 교환하여 문서를 업데이트합니다. 이 과정에서 오류가 발생할 경우 JavaScript 예외가 발생하여 암시적으로 트랜잭션이 중단됩니다.
+
+저장 프로시저가 등록된 컬렉션이 단일 파티션 컬렉션인 경우 트랜잭션은 해당 컬렉션 내의 모든 문서로 범위가 지정됩니다. 컬렉션이 분할된 경우 저장 프로시저는 단일 파티션 키의 트랜잭션 범위에서 실행됩니다. 이 경우 각 저장 프로시저 실행에는 트랜잭션이 실행되는 범위에 해당하는 파티션 키 값이 포함되어야 합니다. 자세한 내용은 [DocumentDB 분할](documentdb-partition-data.md)을 참조하세요.
 
 ### 커밋 및 롤백
 트랜잭션은 기본적으로 DocumentDB의 JavaScript 프로그래밍 모델에 전체 통합됩니다. JavaScript 함수 내부에서 모든 작업은 자동으로 단일 트랜잭션 아래에 래핑됩니다. JavaScript가 예외 없이 완료되면 데이터베이스에 대한 작업이 커밋됩니다. 실제로 관계형 데이터베이스의 "BEGIN TRANSACTION" 및 "COMMIT TRANSACTION" 문은 DocumentDB에서 암시적입니다.
@@ -405,7 +407,7 @@ DocumentDB는 문서 작업에 의해 실행되거나 트리거되는 트리거�
 다음 샘플에 표시된 대로 트리거를 등록할 수 있습니다.
 
 	// register post-trigger
-	client.createTriggerAsync(collection.self, updateMetadataTrigger)
+	client.createTriggerAsync('dbs/testdb/colls/testColl', updateMetadataTrigger)
 		.then(function(createdTrigger) { 
 		    var docToCreate = { 
 		        name: "artist_profile_1023",
@@ -457,12 +459,12 @@ UDF(사용자 정의 함수)는 DocumentDB SQL 쿼리 언어 문법을 확장하
 이후에 다음 샘플과 같이 쿼리에 UDF를 사용할 수 있습니다.
 
 	// register UDF
-	client.createUserDefinedFunctionAsync(collection.self, taxUdf)
+	client.createUserDefinedFunctionAsync('dbs/testdb/colls/testColl', taxUdf)
 		.then(function(response) { 
 		    console.log("Created", response.resource);
 	
 		    var query = 'SELECT * FROM TaxPayers t WHERE udf.tax(t.income) > 20000'; 
-		    return client.queryDocuments(collection.self,
+		    return client.queryDocuments('dbs/testdb/colls/testColl',
 	               query).toArrayAsync();
 		}, function(error) {
 		    console.log("Error" , error);
@@ -477,65 +479,63 @@ UDF(사용자 정의 함수)는 DocumentDB SQL 쿼리 언어 문법을 확장하
 ## JavaScript 언어 통합 쿼리 API
 DocumentDB의 SQL 문법을 사용하여 쿼리를 발급하는 것 외에도 서버 쪽 SDK를 사용하면 SQL의 지식 없이도 흐름 JavaScript 인터페이스를 사용하여 최적화된 쿼리를 수행할 수 있습니다. JavaScript 쿼리 API를 사용하면 조건자 함수를 ECMAScript5의 배열 기본 제공 항목과 익숙한 구문 및 lodash와 같은 인기 있는 JavaScript 라이브러리가 포함된 연결 가능한 함수 호출에 전달하여 쿼리를 프로그래밍 방식으로 작성할 수 있습니다. 쿼리는 DocumentDB의 인덱스를 사용하여 효율적으로 실행되도록 JavaScript 런타임으로 구문 분석됩니다.
 
-> [AZURE.NOTE] `__`(이중 밑줄)은 `getContext().getCollection()`에 대한 별칭입니다.
-> <br/><
-> 즉 `__` 또는 `getContext().getCollection()`을 사용하여 JavaScript 쿼리 API에 액세스할 수 있습니다.
+> [AZURE.NOTE] `__`(이중 밑줄)은 `getContext().getCollection()`에 대한 별칭입니다. <br/> 즉 `__` 또는 `getContext().getCollection()`을 사용하여 JavaScript 쿼리 API에 액세스할 수 있습니다.
 
-지원되는 함수는 다음을 포함합니다:
+지원되는 함수는 다음과 같습니다.
 <ul>
 <li>
-<b>chain().... 값([콜백] [, 옵션])</b>
+<b>chain() ... .value([callback] [, options])</b>
 <ul>
 <li>
-값()으로 끝나야 하는 연결된 호출을 시작합니다.
+value()로 종료되어야 하는 연결된 호출을 시작합니다.
 </li>
 </ul>
 </li>
 <li>
-<b>필터(predicateFunction [, 옵션] [, 콜백])</b>
+<b>filter(predicateFunction [, options] [, callback])</b>
 <ul>
 <li>
-결과 집합으로 in/out 입력된 문서를 필터링하기 위해 true/false를 반환하는 조건자 함수를 사용하여 입력을 필터링합니다. SQL의 WHERE 절과 비슷하게 동작합니다.
+출력 문서를 결과 집합으로 필터링하기 위해 true/false를 반환하는 조건자 함수를 사용하여 입력을 필터링합니다. 이 동작은 SQL의 WHERE 절과 유사합니다.
 </li>
 </ul>
 </li>
 <li>
-<b>맵(transformationFunction [, 옵션] [, 콜백])</b>
+<b>map(transformationFunction [, options] [, callback])</b>
 <ul>
 <li>
-입력된 각 항목을 매핑하는 변환 함수가 지정된 프로젝션을JavaScript 개체 또는 값에 적용합니다. SQL의 SELECT 절과 비슷하게 동작 합니다.
+각 입력 항목을 JavaScript 개체 또는 값에 매핑하는 변환 함수에 대해 프로젝션을 적용합니다. 이 동작은 SQL의 SELECT 절과 유사합니다.
 </li>
 </ul>
 </li>
 <li>
-<b>pluck([propertyName] [, 옵션] [, 콜백])</b>
+<b>pluck([propertyName] [, options] [, callback])</b>
 <ul>
 <li>
-입력된 각 항목에서 단일 속성의 값을 추출하는 맵에 대 한 바로 가기입니다.
+이 각 입력 항목에서 단일 속성의 값을 추출하는 맵에 대한 바로 가기입니다.
 </li>
 </ul>
 </li>
 <li>
-<b>평면화([isShallow] [, 옵션] [, 콜백])</b>
+<b>flatten([isShallow] [, options] [, callback])</b>
 <ul>
 <li>
-배열을 입력된 각 항목에서 단일 배열로 결합하고 평면화합니다. LINQ의 SelectMany와 비슷하게 동작합니다.
+각 입력 항목의 배열을 단일 배열로 결합하고 평면화합니다. 이 동작은 LINQ의 SelectMany와 유사합니다.
 </li>
 </ul>
 </li>
 <li>
-<b>sortBy([조건부] [, 옵션] [, 콜백])</b>
+<b>sortBy([predicate] [, options] [, callback])</b>
 <ul>
 <li>
-입력된 문서 스트림에서 문서를 지정된 조건자를 사용하여 오름차순으로 정렬하여 새 문서 집합을 생성합니다. SQL의 ORDER BY 절과 비슷하게 동작합니다.
+주어진 조건자를 사용하여 입력 문서 스트림의 문서를 오름차순으로 정렬하여 새 문서 집합을 생성합니다. 이 동작은 SQL의 ORDER BY 절과 유사합니다.
 </li>
 </ul>
 </li>
 <li>
-<b>sortByDescending([조건부] [, 옵션] [, 콜백])</b>
+<b>sortByDescending([predicate] [, options] [, callback])</b>
 <ul>
 <li>
-입력된 문서 스트림에서 문서를 지정된 조건자를 사용하여 내림차순으로 정렬하여 새 문서 집합을 생성합니다. SQL의 ORDER BY x DESC 절과 비슷하게 동작합니다.
+주어진 조건자를 사용하여 입력 문서 스트림의 문서를 내림차순으로 정렬하여 새 문서 집합을 생성합니다. 이 동작은 SQL의 ORDER BY x DESC 절과 유사합니다.
 </li>
 </ul>
 </li>
@@ -626,7 +626,8 @@ SQL 쿼리를 사용하는 것과 같이 문서 속성 키(예: `doc.id`)는 소
 <tbody>
 <tr>
 <th>SQL</th>
-<th>JavaScript 쿼리 API</th> <th>세부 정보</th>
+<th>JavaScript Query API</th>
+<th>세부 정보</th>
 </tr>
 <tr>
 <td>
@@ -662,7 +663,7 @@ __.map(function(doc) {
 });
 </pre>
 </td>
-<td>모든 문서에서 id, message(msg로 지정됨) 및 action을 프로젝션합니다.</td>
+<td>모든 문서에서 id, message(msg로 별칭이 지정됨) 및 action을 프로젝션합니다.</td>
 </tr>
 <tr>
 <td>
@@ -679,7 +680,7 @@ __.filter(function(doc) {
 });
 </pre>
 </td>
-<td>조건자: id = "X998\_Y998"을 사용한 문서에 대해 쿼리합니다.</td>
+<td>조건자: id = "X998\_Y998"을 사용하여 문서를 쿼리합니다.</td>
 </tr>
 <tr>
 <td>
@@ -692,11 +693,11 @@ WHERE ARRAY_CONTAINS(docs.Tags, 123)
 <td>
 <pre>
 __.filter(function(x) {
-    return x.Tags && x.Tags.indexOf(123) > -1;
+    return x.Tags &amp;&amp; x.Tags.indexOf(123) > -1;
 });
 </pre>
 </td>
-<td>Tags 속성이 있는 문서에 대해 쿼리하고 Tags는 123 값을 포함하는 배열입니다.</td>
+<td>Tags 속성이 있는 문서를 쿼리합니다. Tags는 123 값을 포함하는 배열입니다.</td>
 </tr>
 <tr>
 <td>
@@ -721,7 +722,7 @@ __.chain()
     .value();
 </pre>
 </td>
-<td>조건자 id = "X998_Y998"을 사용한 문서에 대해 쿼리한 다음 id, message(msg로 지정됨)를 프로젝션합니다.</td>
+<td>조건자 id = "X998_Y998"을 사용하여 문서를 쿼리한 다음 id와 message(msg로 별칭이 지정됨)를 프로젝션합니다.</td>
 </tr>
 <tr>
 <td>
@@ -736,7 +737,7 @@ ORDER BY docs._ts
 <pre>
 __.chain()
     .filter(function(doc) {
-        return doc.Tags && Array.isArray(doc.Tags);
+        return doc.Tags &amp;&amp; Array.isArray(doc.Tags);
     })
     .sortBy(function(doc) {
     	return doc._ts;
@@ -746,7 +747,7 @@ __.chain()
     .value()
 </pre>
 </td>
-<td>array 속성, Tags가 있는 문서에 대해 필터링하고 \_ts timestamp system 속성으로 결과 문서를 정렬한 다음 Tags 배열을 프로젝션 + 평면화합니다.</td> 
+<td>array 속성 Tags가 있는 문서를 필터링하고 _ts timestamp system 속성으로 결과 문서를 정렬한 다음 Tags 배열을 프로젝션 및 평면화합니다.</td>
 </tr>
 </tbody>
 </table>
@@ -785,13 +786,13 @@ JavaScript 저장 프로시저와 트리거는 한 스크립트의 결과가 데
 	};
 	
 	// register stored procedure
-	StoredProcedure createdStoredProcedure = await client.CreateStoredProcedureAsync(collection.SelfLink, markAntiquesSproc);
+	StoredProcedure createdStoredProcedure = await client.CreateStoredProcedureAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"), markAntiquesSproc);
 	dynamic document = new Document() { Id = "Borges_112" };
 	document.Title = "Aleph";
 	document.Year = 1949;
 	
 	// execute stored procedure
-	Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(createdStoredProcedure.SelfLink, document, 1920);
+	Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(UriFactory.CreateStoredProcedureUri("db", "coll", "sproc"), document, 1920);
 
 
 이 샘플에서는 [.NET SDK](https://msdn.microsoft.com/library/azure/dn948556.aspx)를 사용하여 사전 트리거를 만들고 트리거를 사용하도록 설정하여 문서를 만드는 방법을 보여 줍니다.
@@ -808,7 +809,7 @@ JavaScript 저장 프로시저와 트리거는 한 스크립트의 결과가 데
 	    TriggerType = TriggerType.Pre
 	};
 	
-	Document createdItem = await client.CreateDocumentAsync(collection.SelfLink, new Document { Id = "documentdb" },
+	Document createdItem = await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"), new Document { Id = "documentdb" },
 	    new RequestOptions
 	    {
 	        PreTriggerInclude = new List<string> { "CapitalizeName" },
@@ -826,7 +827,7 @@ JavaScript 저장 프로시저와 트리거는 한 스크립트의 결과가 데
 	    }"
 	};
 	
-	foreach (Book book in client.CreateDocumentQuery(collection.SelfLink,
+	foreach (Book book in client.CreateDocumentQuery(UriFactory.CreateDocumentCollectionUri("db", "coll"),
 	    "SELECT * FROM Books b WHERE udf.LOWER(b.Title) = 'war and peace'"))
 	{
 	    Console.WriteLine("Read {0} from query", book);
@@ -856,8 +857,7 @@ JavaScript 저장 프로시저와 트리거는 한 스크립트의 결과가 데
 	}
 
 
-만들려는 저장 프로시저를 본문에 포함하여 URI dbs/sehcAA==/colls/sehcAIE2Qy4=/sprocs에 대해 POST 요청을 실행하면 저장 프로시저가 등록됩니다. 트리거 및 UDF는 각각 /triggers 및 /udfs에 대해 POST를 실행해서 비슷하게 등록할 수 있습니다.
-그런 다음 해당 리소스 링크에 대해 POST 요청을 실행해서 이 저장 프로시저를 실행할 수 있습니다.
+만들려는 저장 프로시저를 본문에 포함하여 URI dbs/testdb/colls/testColl/sprocs에 대해 POST 요청을 실행하면 저장 프로시저가 등록됩니다. 트리거 및 UDF는 각각 /triggers 및 /udfs에 대해 POST를 실행해서 비슷하게 등록할 수 있습니다. 그런 다음 해당 리소스 링크에 대해 POST 요청을 실행해서 이 저장 프로시저를 실행할 수 있습니다.
 
 	POST https://<url>/sprocs/<sproc> HTTP/1.1
 	authorization: <<auth>>
@@ -923,4 +923,4 @@ JavaScript 저장 프로시저와 트리거는 한 스크립트의 결과가 데
 - [서비스 지향 데이터베이스 아키텍처](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 - [Microsoft SQL server에서 .NET 런타임 호스팅](http://dl.acm.org/citation.cfm?id=1007669)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -1,7 +1,5 @@
 
 
-워크로드를 수행하려면 일반적으로 여러 리소스가 설계에 따라 작동해야 합니다. Azure 리소스 관리자 템플릿을 통해 응용 프로그램이 구성되는 방식뿐만 아니라 구성된 응용 프로그램을 지원하기 위해 리소스를 배포하는 방식을 정의할 수 있습니다. 이 문서는 갤러리에서 가장 널리 사용되는 템플릿을 소개하고 Azure 포털, Azure PowerShell 또는 Azure CLI를 사용하여 배포하는 것에 대한 정보를 제공합니다.
-
 ## 응용 프로그램
 
 다음 표를 통해 템플릿에서 사용되는 매개 변수에 대한 자세한 내용을 확인할 수 있으며 템플릿을 배포하기 전에 검사하거나 Azure 포털에서 직접 템플릿을 배포할 수 있습니다.
@@ -59,7 +57,7 @@ URL을 Azure 포털에 전송하면 Azure 포털을 사용하여 템플릿을 �
 
 ## Azure CLI
 
-[Azure CLI를 설치](../xplat-cli-install.md)하고 로그인한 다음 리소스 관리자 명령을 사용하도록 설정해야 합니다. 이를 수행하는 방법에 대한 자세한 내용은 [Azure Resource Manager에서 Mac, Linux 및 Windows용 Azure CLI 사용](../xplat-cli-azure-resource-manager.md)을 참조하세요.
+[Azure CLI를 설치](../articles/xplat-cli-install.md)하고 로그인한 다음 리소스 관리자 명령을 사용하도록 설정해야 합니다. 이를 수행하는 방법에 대한 자세한 내용은 [Azure Resource Manager에서 Mac, Linux 및 Windows용 Azure CLI 사용](../articles/xplat-cli-azure-resource-manager.md)을 참조하세요.
 
 대괄호 안의 텍스트를 리소스 그룹 이름, 위치, 배포 이름 및 템플릿 이름으로 바꾼 후 다음 명령을 실행하여 리소스 그룹 및 배포를 만듭니다.
 
@@ -72,6 +70,6 @@ URL을 Azure 포털에 전송하면 Azure 포털을 사용하여 템플릿을 �
 
 [GitHub](https://github.com/Azure/azure-quickstart-templates)에서 모든 템플릿을 검색할 수 있습니다.
 
-[Azure 리소스 관리자](../resource-group-template-deploy.md)에 대해 자세히 알아봅니다.
+[Azure 리소스 관리자](../articles/resource-group-template-deploy.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -14,7 +14,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="02/03/2016" 
+    ms.date="03/30/2016" 
     ms.author="arramac"/>
 
 
@@ -42,20 +42,12 @@
 
 다음 .NET 코드 조각에서는 컬렉션을 만드는 동안 사용자 지정 인덱싱 정책을 설정하는 방법을 보여 줍니다. 여기에서 최대 전체 자릿수의 문자열 및 숫자에 대한 범위 인덱스를 사용하여 정책을 설정합니다. 이 정책을 통해 문자열에 대한 Order By 쿼리를 실행할 수 있습니다.
 
-    var collection = new DocumentCollection { Id = "myCollection" };
+    DocumentCollection collection = new DocumentCollection { Id = "myCollection" };
     
     collection.IndexingPolicy.IndexingMode = IndexingMode.Consistent;
-    
-    collection.IndexingPolicy.IncludedPaths.Add(
-        new IncludedPath { 
-            Path = "/*", 
-            Indexes = new Collection<Index> { 
-                new RangeIndex(DataType.String) { Precision = -1 }, 
-                new RangeIndex(DataType.Number) { Precision = -1 }
-            }
-        });
+    collection.IndexingPolicy = new IndexingPolicy(new RangeIndex(DataType.String) { Precision = -1 });
 
-    await client.CreateDocumentCollectionAsync(database.SelfLink, collection);   
+    await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), collection);   
 
 
 >[AZURE.NOTE] 인덱싱 정책에 대한 JSON 스키마는 REST API 버전 2015-06-03의 릴리스로 변경되어 문자열에 대한 범위 인덱스를 지원합니다. .NET SDK 1.2.0과 Java, Python, 및 Node.js SDK 1.1.0은 새 정책 스키마를 지원합니다. 이전 SDK는 REST API 버전 2015-04-08을 사용하고 인덱싱 정책의 이전 스키마를 지원합니다.
@@ -462,7 +454,8 @@ DocumentDB는 JSON 문서 및 인덱스를 트리로 모델링하고 트리 내 
             }
         });
         
-    collection = await client.CreateDocumentCollectionAsync(database.SelfLink, pathRange);
+    collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), pathRange);
+
 
 ### 인덱스 데이터 형식, 종류 및 전체 자릿수
 
@@ -565,7 +558,7 @@ DocumentDB는 점 데이터 형식에 지정할 수 있는 공간 인덱스 종�
             }
         });
 
-    await client.CreateDocumentCollectionAsync(database.SelfLink, rangeDefault);   
+    await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), rangeDefault);   
 
 
 > [AZURE.NOTE] DocumentDB는 쿼리가 Order By를 사용하지만 최대 전체 자릿수로 쿼리된 경로에 대한 범위 인덱스가 없는 경우 오류를 반환합니다.
@@ -576,7 +569,8 @@ DocumentDB는 점 데이터 형식에 지정할 수 있는 공간 인덱스 종�
     collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/" });
     collection.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*");
     
-    collection = await client.CreateDocumentCollectionAsync(database.SelfLink, excluded);
+    collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
+
 
 
 ## 인덱싱 옵트인 및 옵트아웃
@@ -590,7 +584,7 @@ DocumentDB는 점 데이터 형식에 지정할 수 있는 공간 인덱스 종�
     // If you want to override the default collection behavior to either
     // exclude (or include) a Document from indexing,
     // use the RequestOptions.IndexingDirective property.
-    client.CreateDocumentAsync(defaultCollection.SelfLink,
+    client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"),
         new { id = "AndersenFamily", isRegistered = true },
         new RequestOptions { IndexingDirective = IndexingDirective.Include });
 
@@ -638,7 +632,9 @@ DocumentDB를 사용하면 즉석에서 컬렉션의 인덱싱 정책을 변경�
 
     while (progress < 100)
     {
-        ResourceResponse<DocumentCollection> collectionReadResponse = await     client.ReadDocumentCollectionAsync(collection.SelfLink);
+        ResourceResponse<DocumentCollection> collectionReadResponse = await client.ReadDocumentCollectionAsync(
+            UriFactory.CreateDocumentCollectionUri("db", "coll"));
+
         progress = collectionReadResponse.IndexTransformationProgress;
 
         await Task.Delay(TimeSpan.FromMilliseconds(smallWaitTimeMilliseconds));
@@ -673,19 +669,20 @@ DocumentDB API는 사용된 인덱스 저장소와 같은 성능 메트릭에 �
 컬렉션의 저장소 할당량 및 사용량을 확인하려면 컬렉션 리소스에 대해 HEAD 또는 GET 요청을 실행하고 x-ms-request-quota 및 x-ms-request-usage 헤더를 검사합니다. .NET SDK에서는 [ResourceResponse<T>](http://msdn.microsoft.com/library/dn799209.aspx)의 [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) 및 [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) 속성은 이에 해당하는 값을 포함합니다.
 
      // Measure the document size usage (which includes the index size) against   
-     // different policies.        
-     ResourceResponse<DocumentCollection> collectionInfo = await client.ReadDocumentCollectionAsync(collectionSelfLink);  
+     // different policies.
+     ResourceResponse<DocumentCollection> collectionInfo = await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"));  
      Console.WriteLine("Document size quota: {0}, usage: {1}", collectionInfo.DocumentQuota, collectionInfo.DocumentUsage);
 
 
 각 쓰기 작업(만들기, 업데이트 또는 삭제)에 대한 인덱싱 오버헤드를 측정하려면 x-ms-request-charge 헤더(또는 .NET SDK의 [ResourceResponse<T>](http://msdn.microsoft.com/library/dn799209.aspx)에 있는 동등한 [RequestCharge](http://msdn.microsoft.com/library/dn799099.aspx) 속성)를 검사하여 이 작업에 사용된 요청 단위 수를 측정합니다.
 
      // Measure the performance (request units) of writes.     
-     ResourceResponse<Document> response = await client.CreateDocumentAsync(collectionSelfLink, myDocument);              
+     ResourceResponse<Document> response = await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"), myDocument);              
      Console.WriteLine("Insert of document consumed {0} request units", response.RequestCharge);
      
      // Measure the performance (request units) of queries.    
-     IDocumentQuery<dynamic> queryable =  client.CreateDocumentQuery(collectionSelfLink, queryString).AsDocumentQuery();                                  
+     IDocumentQuery<dynamic> queryable =  client.CreateDocumentQuery(UriFactory.CreateDocumentCollectionUri("db", "coll"), queryString).AsDocumentQuery();
+
      double totalRequestCharge = 0;
      while (queryable.HasMoreResults)
      {
@@ -768,4 +765,4 @@ DocumentDB API는 사용된 인덱스 저장소와 같은 성능 메트릭에 �
 
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0330_2016-->
