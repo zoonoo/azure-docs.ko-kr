@@ -732,7 +732,7 @@ exceptions
 
 **반환**
 
-*Predicate*이 `true`인 *T*의 행입니다.
+*Predicate*이 `true`인 *T* 의 행입니다.
 
 **팁**
 

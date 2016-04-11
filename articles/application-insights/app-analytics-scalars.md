@@ -39,7 +39,9 @@
 
 ## 스칼라
 
-[casts](#casts) | [comparisons](#scalar-comparisons) <br/> [gettype](#gettype) | [hash](#hash) | [iff](#iff)| [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull)
+[casts](#casts) | [comparisons](#scalar-comparisons)
+<br/>
+[gettype](#gettype) | [hash](#hash) | [iff](#iff)| [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull)
 
 지원 되는 형식은 다음과 같습니다.
 
@@ -157,7 +159,10 @@ hash(datetime("2015-01-01"))    // 1380966698541616202
 iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 ```
 
-<a name="isnull"/></a> <a name="isnotnull"/></a> <a name="notnull"/></a>
+<a name="isnull"/></a>
+<a name="isnotnull"/>
+</a> <a name="notnull"/></a>
+
 ### isnull, isnotnull, notnull
 
     isnull(parsejson("")) == true
@@ -185,7 +190,7 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 | "" | false
 |"x" | false
 |parsejson("")|true
-|parsejson("")|false
+|parsejson("[]")|false
 |parsejson("{}")|false
 
 **예제**
@@ -217,7 +222,8 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 
 ## 숫자
 
-[bin](#bin) | [floor](#floor) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
+[bin](#bin) | [floor](#floor) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) 
+| [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
 
 ### 숫자 리터럴
 
@@ -231,7 +237,16 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 || |
 |---|-------------|
 | + | 추가 |
-| - | 빼기 | | * | 곱하기 | | / | 나누기 | | % | 모듈로 | || |`<` |보다 작음 |`<=`|작거나 같음 |`>` |보다 큼 |`>=`|크거나 같음 |`<>`|같지 않음 |`!=`|같지 않음
+| - | 빼기 |
+| * | 곱하기 |
+| / | 나누기 |
+| % | 모듈로 | 
+|| 
+|`<` |보다 작음 
+|`<=`|작거나 같음 
+|`>` |보다 큼 
+|`>=`|크거나 같음 |`<>`|같지 않음 
+|`!=`|같지 않음
 
 
 
@@ -530,7 +545,7 @@ T | where ... | extend Elapsed=now() - timestamp
 
 문자열을 작은따옴표 또는 큰따옴표 문자로 묶을 수 있습니다.
 
-백슬래시(``)는 `\t`(탭), `\n`(줄 바꿈)과 같은 문자 및 묶는 따옴표 문자의 인스턴스를 이스케이프하는 데 사용됩니다.
+백슬래시(`\`)는 `\t`(탭), `\n`(줄 바꿈)과 같은 문자 및 묶는 따옴표 문자의 인스턴스를 이스케이프하는 데 사용됩니다.
 
 * `'this is a "string" literal in single \' quotes'`
 * `"this is a 'string' literal in double " quotes"`
@@ -649,7 +664,9 @@ h"hello"
 extract("^.{2,2}(.{4,4})", 1, Text)
 ```
 
-<a name="notempty"></a> <a name="isnotempty"></a> <a name="isempty"></a>
+<a name="notempty"></a>
+<a name="isnotempty"></a>
+ <a name="isempty"></a>
 ### isempty, isnotempty, notempty
 
     isempty("") == true
@@ -823,7 +840,9 @@ substring("ABCD", 0, 2)       // AB
 
 ## 배열 및 개체 - 동적 형식
 
-[literals](#dynamic-literals) | [casting](#casting-dynamic-objects) | [operators](#operators) | [let clauses](#dynamic-objects-in-let-clauses) <br/> [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
+[literals](#dynamic-literals) | [casting](#casting-dynamic-objects) | [operators](#operators) | [let clauses](#dynamic-objects-in-let-clauses)
+<br/>
+[arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
 
 
 다음은 Application Insights 예외에 대한 쿼리의 결과입니다. `details`의 값은 배열입니다.

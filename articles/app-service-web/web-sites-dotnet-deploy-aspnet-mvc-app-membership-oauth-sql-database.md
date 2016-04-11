@@ -407,7 +407,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 	![코드 이미지](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss24.PNG)
 
-	이 코드는 *canEdit*라는 새 역할을 만들고, 새 로컬 사용자 **user1@contoso.com*을 만든 다음 *canEdit* 역할에 **user1@contoso.com*을 추가합니다. 자세한 내용은 ASP.NET 사이트의 [ASP.NET ID 자습서](http://www.asp.net/identity/overview/features-api)를 참조하세요.
+	이 코드는 *canEdit*라는 새 역할을 만들고, 새 로컬 사용자 *user1@contoso.com*을 만든 다음 *canEdit* 역할에 *user1@contoso.com*을 추가합니다. 자세한 내용은 ASP.NET 사이트의 [ASP.NET ID 자습서](http://www.asp.net/identity/overview/features-api)를 참조하세요.
 
 ## 임시 코드를 사용하여 canEdit 역할에 새 소셜 로그인 사용자 추가  ##
 
@@ -463,7 +463,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 		Update-Database
 
-**데이터베이스 업데이트** 명령은 **시드** 메서드를 실행하고 이전에 추가한 **AddUserAndRole** 메서드를 실행합니다. **AddUserAndRole** 메서드는 사용자 **user1@contoso.com*을 만들고 *canEdit* 역할에 추가합니다.
+**데이터베이스 업데이트** 명령은 **시드** 메서드를 실행하고 이전에 추가한 **AddUserAndRole** 메서드를 실행합니다. **AddUserAndRole** 메서드는 사용자 *user1@contoso.com*을 만들고 *canEdit* 역할에 추가합니다.
 
 ## SSL 및 Authorize 특성을 사용하여 응용 프로그램 보호 ##
 
@@ -542,7 +542,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 1. **정보** 또는 **연락처** 링크를 클릭합니다. 익명 사용자는 해당 페이지를 볼 수 없으므로 로그인 페이지로 리디렉션됩니다.
 
-1. **새 사용자로 등록** 링크를 클릭하고 메일 **joe@contoso.com*을 사용하여 로컬 사용자를 추가합니다. *Joe*가 홈, 정보 및 연락처 페이지를 볼 수 있는지 확인합니다.
+1. **새 사용자로 등록** 링크를 클릭하고 메일 *joe@contoso.com*을 사용하여 로컬 사용자를 추가합니다. *Joe*가 홈, 정보 및 연락처 페이지를 볼 수 있는지 확인합니다.
 
 	![로그인](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss14.PNG)
 
@@ -550,7 +550,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 1. 페이지의 편집 링크를 클릭하면 새 로컬 사용자가 *canEdit* 역할에 추가되지 않았으므로 로그인 페이지로 리디렉션됩니다.
 
-1. 암호가 "P\_assw0rd1"("word"에서 "0"은 숫자 0임)인 **user1@contoso.com*으로 로그인합니다. 이전에 선택한 편집 페이지로 리디렉션됩니다.
+1. 암호가 "P\_assw0rd1"("word"에서 "0"은 숫자 0임)인 *user1@contoso.com*으로 로그인합니다. 이전에 선택한 편집 페이지로 리디렉션됩니다.
 2. 
 
 	해당 계정과 암호를 사용하여 로그인할 수 없는 경우 소스 코드에서 암호를 복사하여 붙여 넣습니다. 그래도 로그인할 수 없으면 **AspNetUsers** 테이블의 **UserName** 열을 검사하여 **user1@contoso.com*이 추가되었는지 확인합니다.
@@ -576,7 +576,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 1. **게시**를 클릭합니다.
 
-1. **user1@contoso.com*으로 로그인하고(암호 "P\_assw0rd1") 데이터를 편집할 수 있는지 확인합니다.
+1. *user1@contoso.com*으로 로그인하고(암호 "P\_assw0rd1") 데이터를 편집할 수 있는지 확인합니다.
 
 1. 로그아웃합니다.
 
@@ -660,7 +660,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 	![CM 페이지](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrr8.png)
  
-1. 등록 시 사용한 Google 계정의 ID가 **canEdit** 역할에 있고 **user1@contoso.com*의 ID입니다. **canEdit** 역할에 포함된 유일한 사용자여야 합니다. 다음 단계에서 확인하겠습니다.
+1. 등록 시 사용한 Google 계정의 ID가 **canEdit** 역할에 있고 *user1@contoso.com* 의 ID입니다. **canEdit** 역할에 포함된 유일한 사용자여야 합니다. 다음 단계에서 확인하겠습니다.
 
 	![CM 페이지](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/s2.png)
  
@@ -668,7 +668,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 	![CM 페이지](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rs1.png)
  
-3. **UserId**가 **user1@contoso.com*에 속하고 등록한 Google 계정인지 확인합니다.
+3. **UserId**가 *user1@contoso.com*에 속하고 등록한 Google 계정인지 확인합니다.
 
 ## 문제 해결
 

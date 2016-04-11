@@ -29,19 +29,25 @@
 
 1. [Azure 포털](https://portal.azure.com/)에서 회사 계정으로 로그인합니다. 예를 들어 *yourUserName*@*YourCompany*.com으로 로그인합니다. 그러면 회사 구독에 자동으로 로그인됩니다.
  
-2. 작업 표시줄에서 **찾아보기**를 선택합니다. ![][7]
+2. 작업 표시줄에서 **찾아보기**를 선택합니다.  
+![][7]
 
-3. 목록을 스크롤하여 PowerApps를 찾거나 *powerapps*를 입력합니다. ![][8]
+3. 목록을 스크롤하여 PowerApps를 찾거나 *powerapps*를 입력합니다.  
+![][8]  
 
-4. **PowerApps**에서 **API 관리**를 선택합니다. ![등록된 API 찾아보기][1]
+4. **PowerApps**에서 **API 관리**를 선택합니다.  
+![등록된 API 찾아보기][1]
 
-5. **API 관리**에서 **추가**를 선택하여 새 API를 추가합니다. ![API 추가][2]
+5. **API 관리**에서 **추가**를 선택하여 새 API를 추가합니다.  
+![API 추가][2]
 
 6. API에 대한 설명이 포함된 **이름**을 입력합니다.
 	
-7. **원본**에서 **사용 가능한 API**를 선택하여 이미 만들어진 API를 선택한 다음 **Microsoft Translatorr**를 선택합니다. ![Microsoft Translator API 선택][3]
+7. **원본**에서 **사용 가능한 API**를 선택하여 이미 만들어진 API를 선택한 다음 **Microsoft Translatorr**를 선택합니다.  
+![Microsoft Translator API 선택][3]
 
-8. **설정 - 필수 설정 구성**을 선택합니다. ![Microsoft Translator API 설정 구성][4]
+8. **설정 - 필수 설정 구성**을 선택합니다.  
+![Microsoft Translator API 설정 구성][4]
 
 9. Microsoft Translator 응용 프로그램의 *클라이언트 ID* 및 *클라이언트 암호*를 입력합니다. 없는 경우 이 항목의 "PowerApps에서 사용할 Microsoft Translator 앱 등록" 섹션을 참조하여 필요한 ID와 암호 값을 만듭니다.
 
@@ -63,8 +69,8 @@ ID와 암호 값을 가진 기존 Microsoft Translator 앱이 없는 경우 다�
 
 	1. **클라이언트 ID** 값을 입력합니다.  
 	2. 응용 프로그램의 **이름**을 입력합니다.  
-	3. **리디렉션 URL**의 더미 값을 입력합니다. 예를 들어 **https://contosoredirecturl*를 입력합니다.
-4. **설명**을 입력합니다.  
+	3. **리디렉션 URL**의 더미 값을 입력합니다. 예를 들어 *https://contosoredirecturl* 를 입력합니다.  
+	4. **설명**을 입력합니다.  
 	5. **만들기**를 선택합니다.  
 
 	![응용 프로그램 등록][6]

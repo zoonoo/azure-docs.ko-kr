@@ -185,7 +185,7 @@
 
     f. **ServiceNow 홈페이지** 텍스트 상자에 ServiceNow 인스턴스 홈페이지의 URL을 입력합니다.
 
-    > [AZURE.NOTE] ServiceNow 인스턴스 홈페이지의 URL은 **ServieNow 테넌트 URL** 및 **/navpage.do**의 연결입니다.(e.g.: **https://fabrikam.service-now.com/navpage.do*).
+    > [AZURE.NOTE] ServiceNow 인스턴스 홈페이지의 URL은 **ServieNow 테넌트 URL** 및 **/navpage.do**의 연결입니다.(e.g.: *https://fabrikam.service-now.com/navpage.do*).
  
 
     g. **엔터티 ID/발급자** 텍스트 상자에 ServiceNow 테넌트의 URL을 입력합니다.
@@ -198,7 +198,7 @@
 
     k. **AuthnContextClass 만들기**의 선택을 취소합니다.
 
-    l. **AuthnContextClassRef 메서드**에 ****http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password**를 입력합니다.
+    l. **AuthnContextClassRef 메서드**에 **http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password**를 입력합니다.
 
     m. **시계 기울이기** 텍스트 상자에 **60**을 입력합니다.
 
