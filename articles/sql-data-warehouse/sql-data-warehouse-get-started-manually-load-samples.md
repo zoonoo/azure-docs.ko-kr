@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 #SQL 데이터 웨어하우스로 샘플 데이터를 로드
@@ -28,10 +28,12 @@
 
 3. 압축을 푼 aw\_create.bat 파일을 편집하고 파일 위쪽에서 다음 변수를 설정합니다. "="와 매개 변수 사이에 공백이 없도록 해야 합니다. 다음은 사용자가 편집한 예입니다.
 
-    	server=mylogicalserver.database.windows.net
-    	user=mydwuser
-    	password=Mydwpassw0rd
-    	database=mydwdatabase
+    ```
+    server=mylogicalserver.database.windows.net
+    user=mydwuser
+    password=Mydwpassw0rd
+    database=mydwdatabase
+    ```
 
 4. 편집한 aw\_create.bat 파일을 Windows cmd 프롬프트에서 실행합니다. aw\_create.bat 파일의 편집 버전을 저장한 디렉터리에 있어야 합니다. 이 스크립트는 다음과 같은 기능을 수행합니다.
 	* 데이터베이스에 존재하는 Adventure Works 테이블 또는 뷰를 제거합니다.
@@ -47,22 +49,28 @@ SQL 데이터 웨어하우스로 샘플 데이터를 로드하고 나면, 몇 �
 
 직원의 모든 정보를 가져오는 간단한 select 문의 예입니다.
 
-	SELECT * FROM DimEmployee;
+```sql
+SELECT * FROM DimEmployee;
+```
 
 각 날짜의 모든 판매에 대한 총 금액을 살펴보기 위해 GROUP BY 같은 구문을 사용하는 더 복잡한 쿼리의 예입니다.
 
-	SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
-	FROM FactInternetSales
-	GROUP BY OrderDateKey
-	ORDER BY OrderDateKey;
+```sql
+SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
+FROM FactInternetSales
+GROUP BY OrderDateKey
+ORDER BY OrderDateKey;
+```
 
 특정 날짜 이전의 주문을 필터링하기 위한 SELECT와 WHERE 절의 예입니다.
 
-	SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
-	FROM FactInternetSales
-	WHERE OrderDateKey > '20020801'
-	GROUP BY OrderDateKey
-	ORDER BY OrderDateKey;
+```
+SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
+FROM FactInternetSales
+WHERE OrderDateKey > '20020801'
+GROUP BY OrderDateKey
+ORDER BY OrderDateKey;
+```
 
 SQL 데이터 웨어하우스는 SQL Server가 지원하는 거의 모든 T-SQL 구문을 지원합니다. 차이점은 [코드 마이그레이션][] 문서에 설명되어 있습니다.
 
@@ -84,4 +92,4 @@ SQL 데이터 웨어하우스는 SQL Server가 지원하는 거의 모든 T-SQL 
 <!--Other Web references-->
 [SQL 데이터 웨어하우스용 Adventure Works 샘플 스크립트]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksSQLDW2012.zip
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

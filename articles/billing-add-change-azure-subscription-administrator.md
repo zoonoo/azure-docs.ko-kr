@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="03/22/2016"
 	ms.author="genli"/>
 
 # Azure 관리자 역할을 추가 또는 변경하는 방법
@@ -24,16 +24,41 @@ Microsoft Azure에는 세 종류의 관리자 역할이 있습니다.
 | 관리 역할 | 제한 | 설명
 | ------------- | ------------- |---------------|
 |계정 관리자(AA) | Azure 계정당 1개 |Azure 구독을 등록했거나 구입했고, [계정 센터](https://account.windowsazure.com/Home/Index)에 액세스하여 다양한 관리 작업을 수행할 권한이 부여된 사용자입니다. 이러한 관리 작업에는 구독 만들기, 구독 취소, 구독에 대한 대금 청구 변경 및 서비스 관리자 변경이 포함됩니다.
-| 서비스 관리자(SA) | Azure 구독당 1개 |이 사용자는 [Azure 포털](https://manage.windowsazure.com/)에서 서비스를 관리할 권한이 있습니다. 기본적으로 새 구독의 경우 계정 관리자가 서비스 관리자이기도 합니다.|
-|공동 관리자(CA)|구독당 200|서비스 관리자와 동일한 액세스 권한이 있지만 Azure 디렉터리에 대한 구독의 연결을 변경할 수는 없는 사용자입니다.|
+| 서비스 관리자(SA) | Azure 구독당 1개 |이 역할은 [Azure 포털](https://portal.azure.com)에서 서비스를 관리할 권한이 있습니다. 기본적으로 새 구독의 경우 계정 관리자가 서비스 관리자이기도 합니다.|
+|[Azure 클래식 포털](https://manage.windowsazure.com)에서 공동 관리자(CA)|구독당 200| 서비스 관리자와 동일한 액세스 권한이 있지만 Azure 디렉터리에 대한 구독의 연결을 변경할 수는 없는 역할입니다. |
 
 > [AZURE.NOTE] Azure Active Directory RBAC(역할 기반 액세스 제어)를 사용하면 사용자를 여러 역할에 추가할 수 있습니다. 자세한 내용은 [Azure Active Directory 역할 기반 액세스 제어](./active-directory/role-based-access-control-configure.md)를 참조하세요.
 
 ## 구독에 대한 관리자를 추가하는 방법
 
+**Azure 포털**
+
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+
+2. 허브 메뉴에서 선택 **구독** > *관리자가 액세스할 구독*을 선택합니다.
+
+	![newselectsub](./media/billing-add-change-azure-subscription-administrator/newselectsub.png)
+
+3. 구독 블레이드에서 **설정**> **사용자**를 선택합니다.
+
+	![newsettings](./media/billing-add-change-azure-subscription-administrator/newsettings.png)
+4. 사용자 블레이드에서 **추가**>**역할 선택** > **소유자**를 선택합니다.
+
+	![newselectrole](./media/billing-add-change-azure-subscription-administrator/newselectrole.png)
+
+	**참고**
+	- 소유자 역할에는 공동 관리자로 동일한 액세스 권한이 있습니다. 이 역할은 [Azure 계정 센터](https://account.windowsazure.com/subscriptions)에 대해 액세스 권한을 보유하지 않습니다.
+	- [Azure 포털](https://portal.azure.com)을 통해 추가한 소유자는 [Azure 클래식 포털](https://manage.windowsazure.com)에서 서비스를 관리할 수 없습니다.  
+
+5. 소유자로 추가하려는 사용자의 메일 주소를 입력하고 사용자를 클릭한 후 **선택**을 클릭합니다.
+
+	![newadduser](./media/billing-add-change-azure-subscription-administrator/newadduser.png)
+
+**Azure 클래식 포털**
+
 1. [Azure 클래식 포털](https://manage.windowsazure.com/)에 로그인합니다.
 
-2. 탐색 창에서 **설정**> **관리자**> **추가**를 선택합니다.</br>
+2. 탐색 창에서 **설정**> **관리자**> **추가**를 선택합니다. </br>
 
 	![addcodmin](./media/billing-add-change-azure-subscription-administrator/addcoadmin.png)
 
@@ -63,13 +88,13 @@ Microsoft Azure에는 세 종류의 관리자 역할이 있습니다.
 
 ## 구독에 대한 서비스 관리자를 변경하는 방법
 
-Azure 클래식 포털: 계정 관리자만 구독에 대한 서비스 관리자를 변경할 수 있습니다.
+계정 관리자만 구독에 대한 서비스 관리자를 변경할 수 있습니다.
 
-1. 계정 관리자를 사용하여.[계정 관리 포털](https://account.windowsazure.com/subscriptions)에 로그온합니다.
+1. [Azure 계정 센터](https://account.windowsazure.com/subscriptions)에 계정 관리자를 사용하여 로그온합니다.
 
 2. 변경하려는 구독을 선택합니다.
 
-3. 오른쪽에서 **구독 세부 정보 편집**을 클릭합니다. </br>
+3. 오른쪽에서 **구독 정보 편집**을 클릭합니다. </br>
 
 	![editsub](./media/billing-add-change-azure-subscription-administrator/editsub.png)
 
@@ -89,4 +114,4 @@ Azure 계정의 소유권을 다른 계정에 양도하려면 [Azure 구독 양�
 
 * Azure 구독에 Azure Active Directory가 연결되는 방법에 대한 자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](./active-directory/active-directory-assign-admin-roles.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

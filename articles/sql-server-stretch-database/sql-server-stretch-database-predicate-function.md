@@ -24,7 +24,7 @@ CTP 3.1에서 RC1까지 조건자를 지정하는 옵션은 Stretch 마법사에
 
 필터 조건자를 지정하지 않으면 전체 테이블이 마이그레이션됩니다.
 
-    > If you provide a filter predicate that performs poorly, data migration also performs poorly. Stretch Database applies the filter predicate to the table by using the CROSS APPLY operator.
+>   [AZURE.NOTE] 제대로 수행되지 않는 필터 조건자를 제공하는 경우 데이터 마이그레이션도 제대로 수행되지 않습니다. 스트레치 데이터베이스는 CROSS APPLY 연산자를 사용하여 테이블에 필터 조건자를 적용합니다.
 
 ## 인라인 테이블 값 함수의 기본 요구 사항
 스트레치 데이터베이스 필터 함수에 필요한 인라인 테이블 값 함수는 다음 예제와 같습니다.
@@ -70,7 +70,7 @@ RETURN	SELECT 1 AS is_eligible
 
 -   함수 매개 변수와 상수 식을 비교합니다. 예: `@column1 < 1000`.
 
-    다음은 *date* 열의 값이 &lt; 1/1/2016인지 확인하는 예제입니다.
+    다음은 *날짜* 열의 값이 &lt; 1/1/2016인지 확인하는 예제입니다.
 
     ```tsql
     CREATE FUNCTION dbo.fn_stretchpredicate(@column1 datetime)
@@ -333,7 +333,7 @@ ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
 
 -   연산자 인수의 순서를 변경할 수 없습니다.
 
--   `<, <=, >, >=` 비교의 일부인 상수 값만 조건자를 덜 제한적으로 만드는 방식으로 변경할 수 있습니다.
+-   `<, <=, >, >=` 비교의 일부인 상수 값만이 조건자를 덜 제한적으로 만드는 방식으로 변경될 수 있습니다.
 
 ### 올바른 대체의 예제
 다음 함수가 현재 필터 조건자임을 가정합니다.
@@ -410,4 +410,4 @@ GO
 
 [ALTER TABLE(Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

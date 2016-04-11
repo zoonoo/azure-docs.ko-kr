@@ -122,7 +122,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 코드:
 
 ```csharp
-this.ServicePartition.ReportLoad(new List<LoadMetric> { new LoadMetric("Memory", 1234), new LoadMetric("Foo", 42) });
+this.ServicePartition.ReportLoad(new List<LoadMetric> { new LoadMetric("Memory", 1234), new LoadMetric("metric1", 42) });
 ```
 
 서비스 복제본 또는 인스턴스는 메트릭에 대해 부하가 사용되도록 구성되었다고 보고할 수 있습니다. 메트릭 목록은 각 서비스를 만들 때 설정됩니다. 서비스 복제본 또는 인스턴스가 메트릭에 대한 부하가 현재 사용되도록 구성되지 않았다고 보고하려는 경우 서비스 패브릭 보고서는 보고서를 기록하지만 무시하며 이는 클러스터의 상태에 대해 계산하거나 보고하는 경우 사용하지 않겠다는 의미입니다. 큰 실험에서 허용되기 때문에 깔끔합니다. 코드는 방법을 알고 있는 모든 것에 대해 측정하고 보고할 수 있습니다. 또한 연산자는 코드를 변경하지 않고 즉시 해당 서비스에 대한 규칙을 분산하는 리소스의 부하를 분산하고 조정하며 업데이트할 수 있습니다. 예를 들어, 버그가 있는 보고서로 메트릭을 비활성화하거나 동작을 기반으로 메트릭의 가중치를 다시 구성하거나 코드가 이미 배포되어 유효성을 검사한 후에 새 메트릭을 사용하는 작업을 포함할 수 있습니다.
@@ -196,4 +196,4 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 [Image3]: ./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-metric-weights-impact.png
 [Image4]: ./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-global-vs-local-balancing.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

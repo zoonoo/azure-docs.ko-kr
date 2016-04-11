@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/03/2016"
+   ms.date="03/29/2016"
    ms.author="litran"/>
 
 # PowerApps 엔터프라이즈에 새 Bing 검색 만들기
 
 > [AZURE.SELECTOR]
-- [논리 앱](../articles/connectors/create-api-bingsearch.md)
+- [논리 앱](../articles/connectors/connectors-create-api-bingsearch.md)
 - [PowerApps 엔터프라이즈](../articles/power-apps/powerapps-create-api-bingsearch.md)
 
 조직의 (테넌트) 앱 서비스 환경에 Bing 검색 API를 추가합니다.
@@ -51,7 +51,7 @@
 
 ## REST API 참조
 
-[Bing 검색 REST API](../connectors/create-api-bingsearch.md) 참조.
+[Bing 검색 REST API](../connectors/connectors-create-api-bingsearch.md) 참조.
 
 
 ## 요약 및 다음 단계
@@ -66,4 +66,4 @@
 [4]: ./media/powerapps-create-api-dropbox/browseall.png
 [5]: ./media/powerapps-create-api-dropbox/allresources.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

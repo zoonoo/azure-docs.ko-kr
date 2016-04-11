@@ -13,15 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="02/01/2016"
+    ms.date="03/24/2016"
     ms.author="ddove;sidneyh"/>
 
 # 탄력적 데이터베이스 기능 개요
 
 **탄력적 데이터베이스** 기능을 사용하면 **Azure SQL 데이터베이스**의 거의 무제한 데이터베이스 리소스를 사용하여 SaaS(Software as a Service) 응용 프로그램으로 트랜잭션 작업과 특히 소프트웨어에 대한 솔루션을 만들 수 있습니다. 탄력적 데이터베이스 기능은 다음으로 구성됩니다.
 
-* 탄력적 데이터베이스 도구: 이러한 두 도구는 분할된 데이터베이스 솔루션의 개발 및 관리를 간소화합니다. 도구는 [탄력적 데이터베이스 클라이언트 라이브러리](sql-database-elastic-database-client-library.md) 및 [탄력적 데이터베이스 분할/병합 도구](sql-database-elastic-scale-overview-split-and-merge.md)입니다. 
-* [탄력적 데이터베이스 풀](sql-database-elastic-pool-guidance.md)(미리 보기): 풀은 언제든지 데이터베이스를 추가하거나 제거할 수 있는 데이터베이스의 컬렉션입니다. 풀에서 데이터베이스는 고정된 양의 리소스(데이터베이스 트랜잭션 단위 또는 DTU)를 공유합니다. 성능을 관리하는 동안 비용을 쉽게 계산할 수 있도록 하는 리소스에 대한 고정된 가격을 지불합니다. 
+* 탄력적 데이터베이스 도구: 이러한 두 도구는 분할된 데이터베이스 솔루션의 개발 및 관리를 간소화합니다. 도구는 [탄력적 데이터베이스 클라이언트 라이브러리](sql-database-elastic-database-client-library.md) 및 [탄력적 데이터베이스 분할/병합 도구](sql-database-elastic-scale-overview-split-and-merge.md)입니다.
+* [탄력적 데이터베이스 풀](sql-database-elastic-pool-guidance.md)(미리 보기): 풀은 언제든지 데이터베이스를 추가하거나 제거할 수 있는 데이터베이스의 컬렉션입니다. 풀에서 데이터베이스는 고정된 양의 리소스(데이터베이스 트랜잭션 단위 또는 DTU)를 공유합니다. 성능을 관리하는 동안 비용을 쉽게 계산할 수 있도록 하는 리소스에 대한 고정된 가격을 지불합니다.
 * [탄력적 데이터베이스 작업](sql-database-elastic-jobs-overview.md)(미리 보기): 작업을 사용하여 많은 수의 Azure SQL 데이터베이스를 관리합니다. 작업을 사용하여 스키마 변경, 자격 증명 관리, 참조 데이터 업데이트, 성능 데이터 수집 또는 테넌트(고객) 원격 분석 수집 등의 관리 작업을 쉽게 수행합니다.
 * [탄력적 데이터베이스 쿼리](sql-database-elastic-query-overview.md)(미리 보기): 여러 데이터베이스에 걸쳐 있는 Transact-SQL 쿼리를 실행할 수 있습니다. 이를 통해 Excel, PowerBI, Tableau 등과 같은 보고 도구에 연결할 수 있습니다.
 
@@ -33,13 +33,13 @@
 
 이 그래픽에서 데이터베이스의 색은 스키마를 나타냅니다. 동일한 색의 데이터베이스는 동일한 스키마를 공유합니다.
 
-1. **Azure SQL 데이터베이스** 집합은 분할 아키텍처를 사용하여 Azure에서 호스트됩니다. 
+1. **Azure SQL 데이터베이스** 집합은 분할 아키텍처를 사용하여 Azure에서 호스트됩니다.
 2. **탄력적 데이터베이스 클라이언트 라이브러리**는 분할된 데이터베이스 집합을 관리하는 데 사용됩니다.
-3. 데이터베이스 하위 집합은 **탄력적 데이터베이스 풀**에 배치됩니다. [탄력적 데이터베이스로 폭발적인 증가](sql-database-elastic-pool.md)를 참조하세요. 
+3. 데이터베이스 하위 집합은 **탄력적 데이터베이스 풀**에 배치됩니다. [탄력적 데이터베이스로 폭발적인 증가](sql-database-elastic-pool.md)를 참조하세요.
 4. **탄력적 데이터베이스 작업**은 모든 데이터베이스에 대해 T-SQL 스크립트를 실행합니다.
 5. **분할-병합 도구**는 데이터를 하나의 분할된 데이터베이스에서 다른 분할된 데이터베이스로 이동하는 데 사용됩니다.
 6. **탄력적 데이터베이스 쿼리**를 통해 분할된 데이터베이스 집합의 모든 데이터베이스에 걸쳐 있는 쿼리를 작성할 수 있습니다.
-  
+
 ## 약속 및 도전 과제
 
 클라우드 응용 프로그램에 대한 탄력성 및 규모 달성은 계산 및 Blob 저장소에 대해 복잡하지 않습니다. 단순히 단위를 더하거나 뺍니다. 하지만 관계형 데이터베이스의 상태 저장 데이터 처리는 과제로 남아 있습니다. 이러한 과제는 다음 두 시나리오에서 가장 눈에 띄게 등장합니다.
@@ -93,7 +93,7 @@ SaaS 응용 프로그램을 만들 때 잠재 고객에게 평가판 소프트�
 
 분할-병합 도구를 사용하려면 [보안을 구성](sql-database-elastic-scale-split-merge-security-configuration.md)해야 합니다.
 
-탄력적 데이터베이스 풀의 세부 사항을 보려면 [탄력적 데이터베이스 풀의 가격 및 성능 고려 사항](sql-database-elastic-pool-guidance.md)을 참조하거나 [자습서](sql-database-elastic-pool-portal.md)를 사용하여 새로운 풀을 만드세요.
+탄력적 데이터베이스 풀의 세부 사항을 보려면 [탄력적 데이터베이스 풀의 가격 및 성능 고려 사항](sql-database-elastic-pool-guidance.md)을 참조하거나 [자습서](sql-database-elastic-pool-create-portal.md)를 사용하여 새로운 풀을 만드세요.
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -108,4 +108,4 @@ SaaS 응용 프로그램을 만들 때 잠재 고객에게 평가판 소프트�
 [3]: ./media/sql-database-elastic-scale-introduction/overview.png
 [4]: ./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

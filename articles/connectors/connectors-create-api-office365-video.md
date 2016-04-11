@@ -14,7 +14,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/25/2016"
+ms.date="03/23/2016"
 ms.author="deonhe"/>
 
 # Office 365 비디오 API 시작
@@ -33,7 +33,7 @@ Office 365 비디오로 다음을 수행할 수 있습니다.
 
 ## 트리거 및 작업
 
-Office 365 사용자 API에서는 다음과 같은 작업을 사용할 수 있습니다. 트리거는 없습니다.
+Office 365 비디오 API에서는 다음과 같은 작업을 사용할 수 있습니다. 트리거는 없습니다.
 
 | 트리거 | actions|
 | --- | --- |
@@ -221,4 +221,4 @@ Office 365 사용자 API에서는 다음과 같은 작업을 사용할 수 있�
 ## 다음 단계
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

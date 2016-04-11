@@ -1,14 +1,11 @@
 
-## 필수 조건
-
-
 이 항목에 있는 PHP 코드 샘플을 실행하려면 클라이언트 컴퓨터에 다음과 같은 소프트웨어가 설치되어 있어야 합니다.
 
 
 - [Microsoft Drivers for PHP for Microsoft SQL Server](http://www.microsoft.com/download/details.aspx?id=20098)
  - `SQLSRV32.EXE`에는 최신 비트가 들어 있습니다.
 - [Microsoft SQL Server Native Client 11.0](http://www.microsoft.com/download/details.aspx?id=36434)
-- [Microsoft ODBC Driver](https://www.microsoft.com/en-us/download/details.aspx?id=36434)
+- [Microsoft ODBC Driver](https://www.microsoft.com/ko-KR/download/details.aspx?id=36434)
 - IIS Express
 - [IIS Express용 PHP 5.6](http://www.microsoft.com/web/downloads/platform.aspx)
  - 플랫폼 설치 관리자를 사용하여 다운로드합니다.
@@ -29,4 +26,4 @@ DateOfLatestFreshnessVerification = 2015-07-10
 DateOfLatestContentUpdate = 2015-07-10
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0330_2016-->

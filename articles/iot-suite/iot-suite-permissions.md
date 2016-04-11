@@ -66,7 +66,9 @@ Azure 공동 관리자, 서비스 관리자, 계정 관리자 역할에 대한 �
 
 -   **IMPLICIT READ ONLY(암시적 읽기 전용):** 읽기 전용과 같지만 AAD 테넌트의 모든 사용자에게 부여됩니다. 이 작업은 편의를 위해 배포 중에 수행됩니다. 이 역할은 [RolePermissions.cs][lnk-resource-cs] 원본 파일을 수정하여 제거할 수 있습니다.
 
-### 응용 프로그램 역할 변경
+### 사용자에 대한 응용 프로그램 역할 변경
+
+다음 절차를 사용하여 Active Directory의 사용자를 미리 구성된 솔루션의 관리자로 만들 수 있습니다.
 
 사용자에 대한 역할을 변경하려면 AAD 전역 관리자여야 합니다.
 
@@ -74,19 +76,17 @@ Azure 공동 관리자, 서비스 관리자, 계정 관리자 역할에 대한 �
 
 2. **Active Directory**를 선택합니다.
 
-3. AAD 테넌트의 이름을 클릭합니다.
+3. AAD 테넌트의 이름을 클릭합니다(이 솔루션을 프로비전할 때 azureiotsuite.com에서 선택한 디렉터리임).
 
 4. **응용 프로그램**을 클릭합니다.
 
-5. 목록에 응용 프로그램이 표시되지 않으면 **표시** 드롭다운을 **회사가 보유한 응용 프로그램**으로 전환하고 확인 표시를 클릭합니다.
-
-6. 미리 구성된 솔루션 이름과 일치하는 응용 프로그램의 이름을 클릭합니다.
+5. 미리 구성된 솔루션 이름과 일치하는 응용 프로그램의 이름을 클릭합니다. 목록에 응용 프로그램이 표시되지 않으면 **표시** 드롭다운을 **회사가 보유한 응용 프로그램**으로 전환하고 확인 표시를 클릭합니다.
 
 7. **사용자**를 클릭합니다.
 
 8. 역할을 변경할 사용자를 선택합니다.
 
-9. 할당 단추와 할당할 역할을 클릭하고 확인 표시를 클릭합니다.
+9. **할당**을 클릭하고 사용자에게 할당하려는 역할(예: **Admin**)을 선택한 다음 확인 표시를 클릭합니다.
 
 ## FAQ
 
@@ -145,4 +145,4 @@ Azure 구독이 있는 것이 확실하다면, 구독에 대한 테넌트 매핑
 [lnk-admin-roles]: https://azure.microsoft.com/documentation/articles/billing-add-change-azure-subscription-administrator/
 [lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

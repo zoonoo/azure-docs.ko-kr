@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스의 테이블 디자인 #
@@ -59,7 +59,7 @@ SQL 데이터 웨어하우스는 일반적인 비즈니스 데이터 형식을 �
 
 다음 쿼리를 사용하여 호환되지 않는 형식을 포함하는 데이터 웨어하우스에 대한 열을 식별할 수 있습니다.
 
-```
+```sql
 SELECT  t.[name]
 ,       c.[name]
 ,       c.[system_type_id]
@@ -138,7 +138,7 @@ SQL 데이터 웨어하우스에 데이터를 배포하는 두 가지 선택 방
 
 다음은 라운드 로빈 분산된 테이블의 예입니다.
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (   [ProductKey]            int          NOT NULL
 ,   [OrderDateKey]          int          NOT NULL
@@ -158,7 +158,7 @@ WITH
 
 다음은 또한 라운드 로빈 분산된 테이블의 예입니다.
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (   [ProductKey]            int          NOT NULL
 ,   [OrderDateKey]          int          NOT NULL
@@ -205,7 +205,7 @@ WITH
 
 다음은 해시 ProductKey로 해시 배포된 테이블입니다.
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (   [ProductKey]            int          NOT NULL
 ,   [OrderDateKey]          int          NOT NULL
@@ -230,7 +230,7 @@ WITH
 
 예제 SQL 데이터 웨어하우스 분할된 `CREATE TABLE` 명령:
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (
     [ProductKey]            int          NOT NULL
@@ -306,4 +306,4 @@ SQL 데이터 웨어하우스는 이 기능을 사용하지 않거나 지원하�
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

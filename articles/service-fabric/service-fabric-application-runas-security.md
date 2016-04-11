@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/12/2016"
-   ms.author="mfussell"/>
+   ms.date="03/24/2016"
+   ms.author="msfussell"/>
 
 # RunAs: 다른 보안 권한으로 서비스 패브릭 응용 프로그램 실행
 Azure 서비스 패브릭은 **RunAs**라고 하는 다른 사용자 계정을 통해 클러스터에서 실행 중인 응용 프로그램을 보호하는 기능을 제공합니다. 또한 서비스 패브릭은 파일, 디렉터리, 인증서 등과 같은 사용자 계정을 통해 응용 프로그램에서 사용하는 리소스도 보호합니다.
@@ -110,7 +110,7 @@ PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine")
 MyValue
 ~~~
 
-그런 다음 서비스가 배포되고 서비스 패브릭 탐색기에서 시작된 노드의 이름(예: 노드1)을 적어둡니다. 다음으로 응용 프로그램 인스턴스 작업 폴더로 이동하여 **TestVariable** 값을 보여주는 out.txt 파일을 찾습니다. 예를 들어 서비스가 노드 2에 배포된 경우 **MyApplicationType**에 대한 이 경로로 이동할 수 있습니다.
+그런 다음 서비스가 배포되고 서비스 패브릭 탐색기에서 시작된 노드의 이름(예: 노드2)을 적어둡니다. 다음으로 응용 프로그램 인스턴스 작업 폴더로 이동하여 **TestVariable** 값을 보여주는 out.txt 파일을 찾습니다. 예를 들어 서비스가 노드 2에 배포된 경우 **MyApplicationType**에 대한 이 경로로 이동할 수 있습니다.
 
 ~~~
 C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
@@ -351,4 +351,4 @@ Echo "Test console redirection which writes to the application log folder on the
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

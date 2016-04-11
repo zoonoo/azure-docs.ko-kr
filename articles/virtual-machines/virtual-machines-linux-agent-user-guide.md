@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/14/2015" 
-	ms.author="mingzhan"/>
+	ms.date="03/14/2016" 
+	ms.author="szark"/>
 
 
 
@@ -26,6 +26,8 @@
 ##소개
 
 Azure Linux 에이전트(/usr/sbin/waagent)는 가상 컴퓨터와 Azure 패브릭 컨트롤러 간 상호 작용을 관리합니다. 이 에이전트는 다음을 수행합니다.
+
+> [AZURE.NOTE] 이 가이드의 최신 버전은 Azure Linux 에이전트 [추가 정보](https://github.com/Azure/WALinuxAgent/blob/2.0/README)를 참조하세요.
 
 * **이미지 프로비전**
   - 사용자 계정 만들기
@@ -201,13 +203,13 @@ Linux 에이전트는 다음과 같은 일부 시스템 패키지가 있어야 �
 
 형식: 문자열 기본값: 없음
 
-실행 프로그램에 대한 경로가 지정된 경우 패브릭에서 구성 파일을 가상 컴퓨터에 사용할 수 있음을 나타낼 때 프로그램이 호출됩니다. XML 구성 파일에 대한 경로는 실행 파일에 대한 인수로 제공됩니다. 이 경로는 구성 파일이 변경될 때마다 여러 번 호출될 수 있습니다. 샘플 파일은 부록에 나와 있습니다. 이 파일의 현재 경로는 /var/lib/waagent/HostingEnvironmentConfig.xml입니다.
+실행 프로그램에 대한 경로가 지정된 경우 패브릭에서 구성 파일을 가상 컴퓨터에 사용할 수 있음을 나타낼 때 프로그램이 호출됩니다. XML 구성 파일에 대한 경로는 실행 파일에 대한 인수로 제공됩니다. 이 경로는 구성 파일이 변경될 때마다 여러 번 호출될 수 있습니다. 이 파일의 현재 경로는 /var/lib/waagent/HostingEnvironmentConfig.xml입니다.
 
 **Role.TopologyConsumer:**
 
 형식: 문자열 기본값: 없음
 
-실행 프로그램에 대한 경로가 지정된 경우 패브릭에서 새 네트워크 토폴로지 레이아웃을 가상 컴퓨터에서 사용할 수 있음을 나타낼 때 프로그램이 호출됩니다. XML 구성 파일에 대한 경로는 실행 파일에 대한 인수로 제공됩니다. 이 경로는 네트워크 토폴로지가 변경(예: 서비스 복구로 인해 변경)될 때마다 여러 번 호출될 수 있습니다. 샘플 파일은 부록에 나와 있습니다. 이 파일의 현재 위치는 /var/lib/waagent/SharedConfig.xml입니다.
+실행 프로그램에 대한 경로가 지정된 경우 패브릭에서 새 네트워크 토폴로지 레이아웃을 가상 컴퓨터에서 사용할 수 있음을 나타낼 때 프로그램이 호출됩니다. XML 구성 파일에 대한 경로는 실행 파일에 대한 인수로 제공됩니다. 이 경로는 네트워크 토폴로지가 변경(예: 서비스 복구로 인해 변경)될 때마다 여러 번 호출될 수 있습니다. 이 파일의 현재 위치는 /var/lib/waagent/SharedConfig.xml입니다.
 
 **Provisioning.Enabled:**
 
@@ -321,4 +323,4 @@ Ubuntu 클라우드 이미지는 [cloud-init](https://launchpad.net/ubuntu/+sour
 
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

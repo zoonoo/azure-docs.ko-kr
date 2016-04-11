@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/23/2016"
+	ms.date="03/30/2016"
 	ms.author="anhoh"/>
 
 # 저장 프로시저, 트리거 및 DocumentDB 스크립트 탐색기를 사용하는 사용자 정의 함수 만들기 및 실행
@@ -89,6 +89,8 @@
 
 ## 저장 프로시저 실행
 
+> [AZURE.WARNING] 스크립트 탐색기에서 저장 프로시저의 실행은 서버 쪽 분할된 컬렉션에 대해 아직 지원되지 않습니다. 자세한 내용은 [DocumentDB에서 분할 및 크기 조정](documentdb-partition-data.md)을 참조하세요.
+
 스크립트 탐색기를 사용하면 Azure 포털에서 서버 쪽 저장 프로시저를 실행할 수 있습니다.
 
 - 새로 만든 저장 프로시저 블레이드를 열면 기본 스크립트(*prefix*)가 이미 제공되어 있습니다. *prefix* 스크립트 또는 자체 스크립트를 실행하려면 *id* 및 *inputs*를 추가합니다. 여러 매개 변수를 허용하는 저장 프로시저의 경우 모든 입력이 배열(예: *["foo", "bar"]*) 내에 있어야 합니다.
@@ -113,8 +115,8 @@ Azure 포털의 스크립트 탐색기는 저장 프로시저, 트리거 및 Doc
 
 ## 다음 단계
 
-DocumentDB 서버 쪽 프로그래밍에 대한 자세한 내용은 [Stored procedures, database triggers, and UDFs](documentdb-programming.md)(저장 프로시저, 데이터베이스 트리거 및 UDF) 문서를 참조하세요.
+DocumentDB 서버 쪽 프로그래밍에 대한 자세한 내용은 [저장 프로시저, 데이터베이스 트리거 및 UDF](documentdb-programming.md) 문서를 참조하세요.
 
-[학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/)도 DocumentDB에 대해 자세히 알아볼 수 있는 유용한 리소스입니다.
+[학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/)도 DocumentDB에 대해 자세히 알 수 있는 유용한 리소스입니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

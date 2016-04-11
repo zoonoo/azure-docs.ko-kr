@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="API 앱 개요" 
+	pageTitle="API 앱 소개 | Microsoft Azure" 
 	description="Azure 앱 서비스가 RESTful API를 개발, 게시 및 호스트하는 최상의 플랫폼인 이유를 알아봅니다." 
 	services="app-service\api" 
 	documentationCenter=".net" 
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/08/2016" 
+	ms.date="03/23/2016" 
 	ms.author="tdykstra"/>
 
 # API 앱 개요
 
 API 앱은 [Azure 앱 서비스](../app-service/app-service-value-prop-what-is.md)에서 제공하는 4개의 앱 형식 중 하나입니다.
 
-![](./media/app-service-api-apps-why-best-platform/appservicesuite.png)
+![Azure 앱 서비스의 앱 유형](./media/app-service-api-apps-why-best-platform/appservicesuite.png)
 
-[앱 서비스](../app-service/app-service-value-prop-what-is.md)는 웹, 모바일 및 통합 시나리오에 풍부한 기능 집합을 제공하는 완벽하게 관리되는 플랫폼입니다. 앱 서비스의 API 앱은 클라우드 및 온-프레미스에서 API를 더욱 쉽게 빌드, 호스트 및 사용하는 기능을 제공합니다. 앱 서비스에서 사용자의 API를 API 앱으로 배포하고 엔터프라이즈급 보안, 단순 액세스 제어, 하이브리드 연결, 자동 SDK 생성, 그리고 [논리 앱](../app-service-logic/app-service-logic-what-are-logic-apps.md)과의 원활한 통합에서 이점을 얻을 수 있습니다.
+[앱 서비스](../app-service/app-service-value-prop-what-is.md)는 웹, 모바일 및 통합 시나리오에 대해 완벽하게 관리되는 플랫폼입니다. 앱 서비스의 API 앱은 클라우드 및 온-프레미스에서 API를 더욱 쉽게 빌드, 호스트 및 사용하는 기능을 제공합니다. 앱 서비스에서 사용자의 API를 API 앱으로 배포하고 엔터프라이즈급 보안, 단순 액세스 제어, 하이브리드 연결, 자동 SDK 생성, 그리고 [논리 앱](../app-service-logic/app-service-logic-what-are-logic-apps.md)과의 원활한 통합에서 이점을 얻을 수 있습니다.
 
 ## API 앱을 사용하는 이유
 
@@ -64,4 +64,4 @@ API 앱을 시작하려면 [API 앱 시작](app-service-api-dotnet-get-started.m
 
 API 앱에 대한 질문이 있으면 [API 앱 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=AzureAPIApps)에서 질문하세요.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

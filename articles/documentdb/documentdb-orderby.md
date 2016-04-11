@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2016" 
+	ms.date="03/30/2016" 
 	ms.author="arramac"/>
 
 # Order By를 사용하여 DocumentDB 데이터 정렬
@@ -33,9 +33,9 @@ SQL 쿼리에 대한 전체 참조는 [DocumentDB 쿼리 자습서](documentdb-s
 ANSI-SQL에서와 마찬가지로, 이제 DocumentDB를 쿼리할 때 SQL문에 선택적 Order By절을 포함할 수 있습니다. 절은 선택적 ASC/DESC 인수를 포함하여 결과를 검색해야 하는 순서를 지정할 수 있습니다.
 
 ### SQL을 사용하여 순서 지정
-예를 들어 다음은 해당 제목의 내림차순으로 설명서를 검색하는 쿼리입니다.
+예를 들어 다음은 해당 제목의 내림차순으로 상위 10개 설명서를 검색하는 쿼리입니다.
 
-    SELECT * 
+    SELECT TOP 10 * 
     FROM Books 
     ORDER BY Books.Title DESC
 
@@ -44,33 +44,17 @@ Books.ShippingDetails.Weight와 같은 문서 내에서 중첩된 모든 속성�
 
     SELECT * 
     FROM Books 
-	WHERE Books.SalePrice > 4000
+    WHERE Books.SalePrice > 4000
     ORDER BY Books.ShippingDetails.Weight
 
 ### .NET용 LINQ 공급자를 사용하여 순서 지정
 .NET SDK 버전 1.2.0 이상을 사용하여 이예제에서와 같이 LINQ 쿼리 내에서 OrderBy() 또는 OrderByDescending() 절을 사용할 수도 있습니다.
 
-    foreach (Book book in client.CreateDocumentQuery<Book>(booksCollection.SelfLink)
-        .OrderBy(b => b.PublishTimestamp)) 
+    foreach (Book book in client.CreateDocumentQuery<Book>(UriFactory.CreateDocumentCollectionUri("db", "books"))
+        .OrderBy(b => b.PublishTimestamp)
+        .Take(100))
     {
         // Iterate through books
-    }
-
-### .NET SDK에서 페이징을 사용하여 순서 지정
-DocumentDB SDK 내에서 네이티브 페이징 지원을 사용하여, 다음.NET 코드 조각에서와 같이 한 번에 한 페이지에서 결과를 검색할 수 있습니다. 여기에서 FeedOptions.MaxItemCount 및 IDocumentQuery 인터페이스를 사용하여 한 번에 최대 10개까지 결과를 가져옵니다.
-
-    var booksQuery = client.CreateDocumentQuery<Book>(
-        booksCollection.SelfLink,
-        "SELECT * FROM Books ORDER BY Books.PublishTimestamp DESC"
-        new FeedOptions { MaxItemCount = 10 })
-      .AsDocumentQuery();
-            
-    while (booksQuery.HasMoreResults) 
-    {
-        foreach(Book book in await booksQuery.ExecuteNextAsync<Book>())
-        {
-            // Iterate through books
-        }
     }
 
 DocumentDB는 곧 추가 쿼리 형식을 가진 단일 숫자, 문자열 또는 쿼리 당 부울 속성으로 순서를 지정하도록 지원합니다. 자세한 내용은 [다음 단계](#Whats_coming_next)를 참조하세요.
@@ -86,21 +70,17 @@ DocumentDB는 두 종류의 인덱스(해시 및 범위)를 지원하며 이는 
 자세한 내용은 [DocumentDB 색인 정책](documentdb-indexing-policies.md)을 참조하세요.
 
 ### 모든 속성에 대한 Order By의 인덱싱
-다음은 JSON 문서 내에서 표시되는 임의/모든 숫자 또는 문자열 속성에 대해 Order By로 인덱싱된 "모든 범위"를 가지고 컬렉션을 만들 수 있는 방법입니다. 여기에서 "/*"는 컬렉션 내의 모든 JSON 속성/경로를 나타내고 -1은 최대 전체 자릿수를 나타냅니다.
+다음은 JSON 문서 내에서 표시되는 임의/모든 숫자 또는 문자열 속성에 대해 Order By로 인덱싱된 "모든 범위"를 가지고 컬렉션을 만들 수 있는 방법입니다. 다음은 최대 전체 자릿수(-1)에서 범위에 대한 문자열 값의 기본 인덱스 유형을 무시합니다.
                    
-    booksCollection.IndexingPolicy.IncludedPaths.Add(
-        new IncludedPath { 
-            Path = "/*", 
-            Indexes = new Collection<Index> { 
-                new RangeIndex(DataType.String) { Precision = -1 }, 
-                new RangeIndex(DataType.Number) { Precision = -1 }
-            }
-        });
-
-    await client.CreateDocumentCollectionAsync(databaseLink, 
-        booksCollection);  
+    DocumentCollection books = new DocumentCollection();
+    books.Id = "books";
+    books.IndexingPolicy = new IndexingPolicy(new RangeIndex(DataType.String) { Precision = -1 });
+    
+    await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), books);  
 
 >[AZURE.NOTE] 오직 Order By이 RangeIndex로 인덱싱되는 데이터 형식(문자열 및 숫자)의 결과를 반환합니다. 예를 들어 숫자에 RangeIndex가 있는 기본 인덱싱 정책이 있다면 문자열 값을 가진 경로에 대한 Order By는 어떤 문서도 반환하지 않습니다.
+>
+> 컬렉션에 대한 파티션 키를 정의하는 경우 Order By는 단일 분할 키에 대해 필터링되는 쿼리 내에서만 지원됩니다.
 
 ### 단일 속성에 대한 Order By의 인덱싱
 다음은 문자열인 제목 속성에 대해 인덱스가 Order By인 컬렉션을 만들 수 있는 방법입니다. 범위 인덱싱을 가진 제목 속성("/Title/?")에 대한 경로와 기본 인덱싱 체계를 가진 다른 모든 속성에 대해 문자열에 대한 해시 및 숫자에 대한 범위인 경로 등 두 개의 경로가 있습니다.
@@ -112,27 +92,13 @@ DocumentDB는 두 종류의 인덱스(해시 및 범위)를 지원하며 이는 
                 new RangeIndex(DataType.String) { Precision = -1 } } 
             });
     
-    // Use defaults which are:
-    // (a) for strings, use Hash with precision 3 (just equality queries)
-    // (b) for numbers, use Range with max precision (for equality, range and order by queries)
-    booksCollection.IndexingPolicy.IncludedPaths.Add(
-        new IncludedPath { 
-            Path = "/*",
-            Indexes = new Collection<Index> { 
-                new HashIndex(DataType.String) { Precision = 3 }, 
-                new RangeIndex(DataType.Number) { Precision = -1 }
-            }            
-        });
+    await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), booksCollection);  
+
 
 ## 샘플
 정책 인덱싱 정책 만들기 및 Order By를 사용한 페이징을 포함하여 Order By를 사용하는 방법을 나타내는 이 [Github 샘플 프로젝트](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries)을 살펴 보세요. 샘플은 오픈 소스이며, 다른 DocumentDB 개발자에게 도움이 되는 정보와 함께 끌어오기 요청을 제출하는 것이 좋습니다. 참여하는 방법에 대한 지침은 [참여 지침](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md)을 참조하세요.
 
 ## FAQ
-
-**SDK가 순서 지정을 지원하는 플랫폼/버전**
-
-Order By에 필요한 인덱싱 정책을 사용하여 컬렉션을 만들려면 SDK의 최신 드롭을 다운로드해야 합니다.(.NET의 경우 1.2.0 및 Node.js, JavaScript, Python 및 Java의 경우 1.1.0) 또한 .NET SDK 1.2.0은 LINQ 식 내에서 OrderBy() 및 OrderByDescending()를 사용할 필요가 있습니다.
-
 
 **Order By 쿼리의 예상된 요청 단위(RU) 소비**
 
@@ -170,4 +136,4 @@ Order By는 속성, 숫자 또는 문자열에 대해 최대 자릿수(-1)로 �
 * [DocumentDB Order By 샘플](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries)
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0330_2016-->

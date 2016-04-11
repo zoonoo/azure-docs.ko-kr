@@ -1,6 +1,6 @@
 이 문서에서는 Azure 서비스 관리 및 Azure 리소스 관리자에서 Azure VM을 만들고 관리하는 해당 Microsoft Azure CLI(명령줄 인터페이스) 명령을 보여 줍니다. 이를 사용하여 명령 모드 간에 스크립트를 쉽게 마이그레이션할 수 있습니다.
 
-* 아직 Azure CLI를 설치하고 구독에 연결하지 않은 경우 [Azure CLI 설치](../xplat-cli-install.md) 및 [Azure CLI에서 Azure 구독에 연결](../xplat-cli-connect.md)을 참조하세요. 리소스 관리자 모드 명령을 사용하려는 경우 로그인 메서드를 사용하여 연결해야 합니다.
+* 아직 Azure CLI를 설치하고 구독에 연결하지 않은 경우 [Azure CLI 설치](../articles/xplat-cli-install.md) 및 [Azure CLI에서 Azure 구독에 연결](../articles/xplat-cli-connect.md)을 참조하세요. 리소스 관리자 모드 명령을 사용하려는 경우 로그인 메서드를 사용하여 연결해야 합니다.
 
 * Azure CLI에서 리소스 관리자 모드로 시작하려면 명령 모드를 전환해야 할 수 있습니다. 기본적으로 CLI는 서비스 관리 모드로 시작됩니다. 리소스 관리자 모드를 변경하려면 `azure config mode arm`을 실행합니다. 서비스 관리 모드로 돌아가려면 `azure config mode asm`을 실행합니다.
 
@@ -9,11 +9,11 @@
 ## VM 작업
 다음 표에서 서비스 관리 및 리소스 관리자에서 Azure CLI 명령으로 수행할 수 있는 일반적인 VM 작업을 비교합니다. 리소스 관리자 명령을 사용할 때는 대부분 기존 리소스 그룹의 이름을 전달해야 합니다.
 
-> [AZURE.NOTE] 이러한 예제에는 템플릿 기반 작업이 포함되지 않으며 이 작업은 일반적으로 리소스 관리자의 VM 배포에 사용하는 것이 좋습니다. 자세한 내용은 [Azure 리소스 관리자에서 Azure CLI 사용](../xplat-cli-azure-resource-manager.md) 및 [Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 가상 컴퓨터 배포 및 관리](virtual-machines-linux-cli-deploy-templates.md)를 참조하세요.
+> [AZURE.NOTE] 이러한 예제에는 템플릿 기반 작업이 포함되지 않으며 이 작업은 일반적으로 리소스 관리자의 VM 배포에 사용하는 것이 좋습니다. 자세한 내용은 [Azure 리소스 관리자에서 Azure CLI 사용](../articles/xplat-cli-azure-resource-manager.md) 및 [Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 가상 컴퓨터 배포 및 관리](../articles/virtual-machines/virtual-machines-linux-cli-deploy-templates.md)를 참조하세요.
 
 작업 | 서비스 관리 | 리소스 관리자
 -------------- | ----------- | -------------------------
-가장 기본적인 VM 만들기 | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(`azure vm image list` 명령에서 `image-urn`을 가져옵니다. 예제는 [이 문서](virtual-machines-linux-cli-ps-findimage.md)를 참조하세요.)
+가장 기본적인 VM 만들기 | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(`azure vm image list` 명령에서 `image-urn`을 가져옵니다. 예제는 [이 문서](../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md)를 참조하세요.)
 Linux VM 만들기 | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure  vm create [options] <resource-group> <name> <location> -y "Linux"`
 Windows VM 만들기 | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure  vm create [options] <resource-group> <name> <location> -y "Windows"`
 VM 나열 | `azure  vm list [options]` | `azure  vm list [options]`
@@ -42,6 +42,6 @@ VM 리소스 사용 | 사용할 수 없음 | `azure vm list-usage [options] <loc
 
 ## 다음 단계
 
-* CLI 명령에 대한 다른 예제는 [Azure 서비스 관리에서 Azure 명령줄 인터페이스 사용](virtual-machines-command-line-tools.md) 및 [Azure 리소스 관리자에서 Azure CLI 사용](azure-cli-arm-commands.md)을 참조하세요.
+* CLI 명령에 대한 다른 예제는 [Azure 서비스 관리에서 Azure 명령줄 인터페이스 사용](../articles/virtual-machines-command-line-tools.md) 및 [Azure 리소스 관리자에서 Azure CLI 사용](../articles/azure-cli-arm-commands.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

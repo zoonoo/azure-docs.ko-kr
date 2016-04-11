@@ -18,12 +18,6 @@
 
 # Azure에서 SQL Server 가상 컴퓨터 만들기(PowerShell)
 
-> [AZURE.SELECTOR]
-- [클래식 포털](virtual-machines-windows-classic-portal-sql.md)
-- [PowerShell](virtual-machines-windows-classic-ps-sql-create.md)
-- [Azure Resource Manager 포털](virtual-machines-windows-portal-sql-server-provision.md)
-
-
 ## 개요
 
 이 문서에서는 PowerShell cmdlet을 사용하여 Azure에서 SQL Server 가상 컴퓨터를 만드는 방법에 대한 단계를 제공합니다.
@@ -171,8 +165,8 @@ SQL Server 가상 컴퓨터를 특정 Azure 지역에 있는 클라우드 서비
 
 대부분의 경우 다음 단계는 이 새로운 SQL Server VM에 데이터베이스를 마이그레이션하는 것입니다. 데이터베이스 마이그레이션 지침은 [Azure VM에서 SQL Server로 데이터베이스 마이그레이션](virtual-machines-windows-classic-migrate-sql.md)을 참조하세요.
 
-또한 Azure 클래식 포털에서 이러한 단계를 수행하는 방법을 알아보려면 [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-classic-portal-sql.md)을 참조하세요.
+또한 Azure 포털을 사용하여 SQL 가상 컴퓨터를 만드는 방법을 알아보려면 [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-portal-sql-server-provision.md)을 참조하세요. 자습서는 포털을 통해 이 PowerShell 항목에서 사용되는 클래식 모델이 아닌 권장되는 리소스 관리자 모델을 사용하여 VM을 만드는 과정을 안내합니다.
 
 이러한 리소스 외에도 [Azure 가상 컴퓨터에서 SQL Server 실행과 관련된 기타 항목](virtual-machines-windows-classic-sql-overview.md)을 확인하는 것이 좋습니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

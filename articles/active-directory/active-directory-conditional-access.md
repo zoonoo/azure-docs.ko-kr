@@ -2,7 +2,7 @@
 	pageTitle="Azure Active Directory에 연결된 Office 365 및 기타 앱에 대한 액세스 보호 | Microsoft Azure"  
     description="조건부 액세스 제어를 통해 Azure Active Directory는 사용자를 인증할 때 및 응용 프로그램에 대한 액세스를 허용하기 전에 선택한 특정 조건을 확인합니다. 이러한 조건이 충족되면 사용자가 인증되고 응용 프로그램에 대한 액세스가 허용됩니다."  
     services="active-directory" 
-	keywords="앱에 액세스, 회사 리소스에 대한 액세스 보호, 조건부 액세스 정책" 
+	keywords="앱에 조건부 액세스, Azure AD로 조건부 액세스, 회사 리소스에 대한 액세스 보호, 조건부 액세스 정책" 
 	documentationCenter=""
 	authors="femila"
 	manager="stevenpo"
@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="02/10/2016"
+	ms.date="03/23/2016"
 	ms.author="femila"/>
 
 
@@ -53,4 +53,4 @@
 | 분실 또는 도난당한 장치의 회사 데이터 보호 |[장치 등록 서비스](active-directory-conditional-access-device-registration-overview.md)<br><br> [도메인 가입 장치 등록](active-directory-azureadjoin-setup.md)<br><br> [온-프레미스 조건부 액세스를 위해 Azure AD에 등록된 장치 사용](active-directory-conditional-access-on-premises-setup.md) <br><br>[Windows 7 도메인 가입 장치에 대한 자동 장치 등록 구성](active-directory-conditional-access-automatic-device-registration-windows7.md) <br><br>[Windows 8.1 도메인 가입 장치에 대한 자동 장치 등록 구성](active-directory-conditional-access-automatic-device-registration-windows8_1.md) <br><br>[Office 365 서비스에 대한 조건부 액세스 장치 정책](active-directory-conditional-access-device-policies.md)|
 | 추가 정보 |[조건부 액세스 FAQ](active-directory-conditional-faqs.md)|
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

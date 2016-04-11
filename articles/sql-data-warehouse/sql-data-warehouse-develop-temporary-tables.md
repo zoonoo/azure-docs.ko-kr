@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="mausher;jrj;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스의 임시 테이블
@@ -24,7 +24,7 @@
 ## 임시 테이블 만들기
 임시 테이블 만들기는 매우 간단합니다. 아래 예제와 같이 테이블 이름 앞에 #만 붙이면 됩니다.
 
-```
+```sql
 CREATE TABLE #stats_ddl
 (
 	[schema_name]			NVARCHAR(128) NOT NULL
@@ -44,7 +44,7 @@ WITH
 
 정확히 동일한 접근 방식을 사용하여 `CTAS`를 통해 임시 테이블을 만들 수도 있습니다.
 
-```
+```sql
 CREATE TABLE #stats_ddl
 WITH
 (
@@ -102,7 +102,7 @@ FROM    t1
 
 `CREATE TABLE` 문이 정상적으로 수행되려면 세션에 테이블이 존재하지 않는지 확인해야 합니다. 아래 패턴을 사용하여 간단한 사전 존재 여부 확인을 수행할 수 있습니다.
 
-```
+```sql
 IF OBJECT_ID('tempdb..#stats_ddl') IS NOT NULL
 BEGIN
 	DROP TABLE #stats_ddl
@@ -113,7 +113,7 @@ END
 
 또한 코드에서 사용을 완료한 경우 `DROP TABLE`을 사용하여 임시 테이블을 제거하는 것이 좋습니다.
 
-```
+```sql
 DROP TABLE #stats_ddl
 ```
 
@@ -127,7 +127,7 @@ DROP TABLE #stats_ddl
 
 아래 저장 프로시저는 위에서 언급한 예제도 포함합니다. 이 코드를 사용하여 데이터베이스의 모든 열에 대한 통계를 업데이트하는 데 필요한 DDL을 생성할 수 있습니다.
 
-```
+```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_update_stats]
 (   @update_type    tinyint -- 1 default 2 fullscan 3 sample 4 resample
 	,@sample_pct     tinyint
@@ -209,7 +209,7 @@ SQL 데이터 웨어하우스에서 임시 테이블을 만든 프로시저의 �
 
 모듈식 및 관리 가능 코드가 더 많아질 수 있습니다. 아래 예제를 확인하세요.
 
-```
+```sql
 EXEC [dbo].[prc_sqldw_update_stats] @update_type = 1, @sample_pct = NULL;
 
 DECLARE @i INT              = 1
@@ -254,4 +254,4 @@ DROP TABLE #stats_ddl;
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

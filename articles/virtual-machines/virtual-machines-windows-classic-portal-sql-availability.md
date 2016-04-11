@@ -54,7 +54,7 @@
 
 - Azure 계정이 있습니다.
 
-- GUI를 사용하여 가상 컴퓨터 갤러리에서 SQL Server VM을 프로비전하는 방법을 이미 알고 있습니다. 자세한 내용은 [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-classic-portal-sql.md)을 참조하세요.
+- GUI를 사용하여 가상 컴퓨터 갤러리에서 클래식 SQL Server VM을 프로비전하는 방법을 이미 알고 있습니다.
 
 - AlwaysOn 가용성 그룹을 확실하게 이해하고 있습니다. 자세한 내용은 [AlwaysOn 가용성 그룹(SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx)을 참조하세요.
 
@@ -547,6 +547,6 @@ SQL Server VM이 프로비전되어 실행 중이지만 기본 옵션으로 SQL 
 ## 다음 단계
 이제 Azure에서 가용성 그룹을 만들어 SQL Server AlwaysOn을 성공적으로 구현했습니다. 이 가용성 그룹에 대한 수신기를 구성하려면 [Azure에서 AlwaysOn 가용성 그룹에 대한 ILB 수신기 구성](virtual-machines-windows-classic-ps-sql-int-listener.md)을 참조하세요.
 
-Azure에서 SQL Server를 사용하는 방법에 대한 기타 정보는 [Azure 가상 컴퓨터의 SQL Server](../articles/virtual-machines/virtual-machines-windows-classic-sql-overview.md)를 참조하세요.
+Azure에서 SQL Server를 사용하는 방법에 대한 기타 정보는 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-windows-classic-sql-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

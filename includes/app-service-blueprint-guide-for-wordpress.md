@@ -9,7 +9,7 @@
 * [마스터-슬레이브 구성을 사용하여 MySQL 복제 클러스터로 지원되는 WordPress 배포](/documentation/templates/mysql-replication/)
 * [ProjectNami에서 관리하는 SQL Azure DB로 지원되는 WordPress 앱 배포](/marketplace/partners/projectnami/projectnami/)
   
-## 2장: WordPress 응용 프로그램 문제 해결
+## WordPress 응용 프로그램 문제 해결
 
 * [WordPress 앱의 문제를 해결하는 방법](https://sunithamk.wordpress.com/2014/09/04/wordpress-troubleshooting-techniques-on-azure-websites/)
 * [Azure Application Insights 서비스를 사용하여 사용 원격 분석 수집](https://azure.microsoft.com/blog/usage-analytics-for-wordpress-with-azure-app-insights/)
@@ -18,7 +18,7 @@
 * [다양한 자동 복구 규칙을 사용하여 실시간 문제 해결 자동화](http://microsoftazurewebsitescheatsheet.info/#auto-heal)
 * [웹앱 백업 방법](../articles/app-service-web/web-sites-backup.md) 및 [웹앱 복원 방법](../articles/app-service-web/web-sites-restore.md)
 
-## 3장: 성능
+## 성능
 
 * [WordPress 웹앱을 가속화하는 방법](https://sunithamk.wordpress.com/2014/08/01/10-ways-to-speed-up-your-wordpress-site-on-azure-websites/)
 * [Redis 캐시 플러그 인](https://wordpress.org/plugins/wp-redis/)을 사용하여 [Redis 캐시를 사용하도록 설정하는 방법](../articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md)
@@ -28,4 +28,4 @@
 * [IIS 출력 캐싱을 사용하여 캐싱을 제공하는 방법](http://blogs.msdn.com/b/brian_swan/archive/2011/06/08/performance-tuning-php-apps-on-windows-iis-with-output-caching.aspx)
 * [정적 콘텐츠에 대한 브라우저 캐싱을 사용하도록 설정하는 방법](http://www.iis.net/configreference/system.webserver/staticcontent)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

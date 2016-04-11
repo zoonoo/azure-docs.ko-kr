@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스의 통계 관리
@@ -90,13 +90,13 @@ SQL 데이터 웨어하우스 개발을 시작할 때는 다음 패턴을 구현
 
 이 구문은 모든 기본 옵션을 사용합니다. 기본적으로 SQL 데이터 웨어하우스가 통계를 만들 때 테이블의 20%를 샘플링합니다.
 
-```
+```sql
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
 ```
 
 예:
 
-```
+```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1);
 ```
 
@@ -106,13 +106,13 @@ CREATE STATISTICS col1_stats ON dbo.table1 (col1);
 
 전체 테이블을 샘플링하려면 이 구문을 사용합니다.
 
-```
+```sql
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]) WITH FULLSCAN;
 ```
 
 예:
 
-```
+```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
 ```
 
@@ -120,7 +120,7 @@ CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
 
 또는 백분율로 샘플 크기를 지정할 수 있습니다.
 
-```
+```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH SAMPLE = 50 PERCENT;
 ```
 
@@ -132,7 +132,7 @@ CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH SAMPLE = 50 PERCENT;
 
 이 예에서는 값의 범위에서 통계를 만듭니다. 파티션의 값의 범위와 일치하도록 쉽게 값을 정의할 수 있습니다.
 
-```
+```sql
 CREATE STATISTICS stats_col1 ON table1(col1) WHERE col1 > '2000101' AND col1 < '20001231';
 ```
 
@@ -142,7 +142,7 @@ CREATE STATISTICS stats_col1 ON table1(col1) WHERE col1 > '2000101' AND col1 < '
 
 물론, 옵션과 함께 결합할 수 있습니다. 다음 예제에서는 사용자 지정 샘플 크기로 필터링된 통계 개체를 만듭니다.
 
-```
+```sql
 CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
@@ -156,7 +156,7 @@ CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < 
 
 이 예에서 히스토그램은 *product\_category*에 있습니다. 열 간 통계는 *product\_category* 및 *product\_sub\_c\\ategory*에서 계산됩니다.
 
-```
+```sql
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
@@ -166,7 +166,7 @@ CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category)
 
 통계를 만드는 한 가지 방법은 테이블을 만든 후 CREATE STATISTICS 명령을 실행하는 것입니다.
 
-```
+```sql
 CREATE TABLE dbo.table1
 (
    col1 int
@@ -190,7 +190,7 @@ SQL 데이터 웨어하우스는 SQL Server에서 [sp\_create\_stats][]에 해�
 
 데이터베이스 디자인으로 시작하는 데 도움이 됩니다. 사용자의 요구에 맞게 자유롭게 적용합니다.
 
-```
+```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_create_stats]
 (   @create_type    tinyint -- 1 default 2 Fullscan 3 Sample
 ,   @sample_pct     tinyint
@@ -273,7 +273,7 @@ DROP TABLE #stats_ddl;
 
 이 절차로 테이블의 모든 열에서 통계를 만들려면 프로시저를 호출하기만 하면 됩니다.
 
-```
+```sql
 prc_sqldw_create_stats;
 ```
 
@@ -288,13 +288,13 @@ prc_sqldw_create_stats;
 ### A. 하나의 통계 개체 업데이트 ###
 특정 통계 개체를 업데이트하려면 다음 구문을 사용합니다.
 
-```
+```sql
 UPDATE STATISTICS [schema_name].[table_name]([stat_name]);
 ```
 
 예:
 
-```
+```sql
 UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
 ```
 
@@ -304,13 +304,13 @@ UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
 ### B. 테이블에 있는 모든 통계 업데이트 ###
 테이블에 있는 모든 통계 개체를 업데이트하기 위한 간단한 방법을 보여줍니다.
 
-```
+```sql
 UPDATE STATISTICS [schema_name].[table_name];
 ```
 
 예:
 
-```
+```sql
 UPDATE STATISTICS dbo.table1;
 ```
 
@@ -351,7 +351,7 @@ UPDATE STATISTICS dbo.table1;
 
 이 뷰는 통계와 관련된 열을 가져오며 [STATS\_DATE()][] 함수의 결과입니다.
 
-```
+```sql
 CREATE VIEW dbo.vstats_columns
 AS
 SELECT
@@ -401,13 +401,13 @@ DBCC SHOW\_STATISTICS()는 통계 개체 내에 있는 데이터를 보여줍니
 
 이 간단한 예제에서는 통계 개체의 모든 세 부분을 보여줍니다.
 
-```
+```sql
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
 ```
 
 예:
 
-```
+```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
 ```
 
@@ -415,13 +415,13 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
 
 특정 부분 보기에만 관심이 있는 경우, `WITH` 절을 사용하고 보려는 부분을 지정합니다.
 
-```
+```sql
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>) WITH stat_header, histogram, density_vector
 ```
 
 예:
 
-```
+```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 ```
 
@@ -461,4 +461,4 @@ DBCC SHOW\_STATISTICS()는 SQL Server와 비교하여 SQL 데이터 웨어하우
 [sys.table\_types]: https://msdn.microsoft.com/library/bb510623.aspx
 [통계 업데이트]: https://msdn.microsoft.com/library/ms187348.aspx
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

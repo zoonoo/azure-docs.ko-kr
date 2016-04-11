@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="03/08/2016"
+   ms.date="03/22/2016"
    ms.author="rickbyh"/>
 
 # SQL 데이터베이스 보안: 데이터베이스 액세스 및 로그인 보안 관리  
@@ -28,7 +28,7 @@ Microsoft Azure SQL 데이터베이스에서 서비스에 등록하면 프로비
 
 Azure SQL 데이터베이스 서버 수준 보안 주체 계정은 항상 모든 서버 수준 및 데이터베이스 수준 보안을 관리할 권한이 있습니다. 이 항목에서는 서버 수준 보안 주체 및 기타 계정을 사용하여 SQL 데이터베이스에서 로그인 및 데이터베이스를 관리하는 방법을 설명합니다.
 
-Azure 역할 기반 액세스 제어 및 Azure 리소스 관리자 REST API를 통해 SQL 데이터베이스에 액세스하는 Azure 사용자는 해당 Azure 역할에서 권한을 받습니다. Azure 역할 멤버 작업은 데이터베이스 엔진에서 실행됩니다. 데이터베이스 엔진 권한 모델의 영향을 받지 않으므로 이 항목에서는 다루지 않습니다. 자세한 내용은 [RBAC: 기본 제공 역할](../active-directory/role-based-access-built-in-roles/#sql-db-contributor)을 참조하세요.
+Azure 역할 기반 액세스 제어(RBAC) 및 Azure Resource Manager REST API를 통해 SQL 데이터베이스에 액세스하는 Azure 사용자는 해당 Azure 역할에서 권한을 받습니다. 이러한 역할은 데이터 평면 작업이 아닌, 관리 평면 작업에 대한 액세스를 제공합니다. 이러한 관리 평면 작업에는 SQL 데이터베이스에서 다양한 속성 및 스키마 요소를 읽는 기능이 포함됩니다. 그리고 SQL 데이터베이스와 관련된 일부 서버 수준 기능의 만들기, 삭제 및 구성을 허용합니다. 이러한 수많은 관리 평면 작업은 Azure 포털을 사용할 때 보고 구성할 수 있는 항목입니다. RBAC 역할을 사용하는 경우 데이터베이스 엔진에 의해 데이터베이스 내부 Azure 역할 멤버의 작업(예: 테이블 나열)이 역할에 대해 실행되므로 GRANT/REVOKE/DENY 문의 표준 SQL Server 권한 시스템에 의해 영향을 받지 않습니다. RBAC 역할은 데이터 평면 작업이므로 데이터를 읽거나 변경하는 기능을 포함하지 않습니다. 자세한 내용은 [RBAC: 기본 제공 역할](../active-directory/role-based-access-built-in-roles.md)을 참조하세요.
 
 > [AZURE.IMPORTANT] SQL 데이터베이스 V12 사용자를 사용하면 포함된 데이터베이스 사용자를 사용하여 데이터베이스에서 인증할 수 있습니다. 포함된 데이터베이스 사용자는 로그인하지 않아도 됩니다. 데이터베이스를 이식 가능하지만 데이터베이스에 액세스를 제어하는 서버 수준 보안 주체의 성능이 감소합니다. 포함된 데이터베이스 사용자를 사용하면 보안에 중요한 영향이 발생합니다. 자세한 내용은 [포함된 데이터베이스 사용자 - 데이터베이스를 이식 가능하게 만들기](https://msdn.microsoft.com/library/ff929188.aspx), [포함된 데이터베이스](https://technet.microsoft.com/library/ff929071.aspx), [CREATE USER(Transact-SQL)](https://technet.microsoft.com/library/ms173463.aspx), [Azure Active Directory 인증을 사용하여 SQL 데이터베이스에 연결](sql-database-aad-authentication.md)을 참조하십시오.
 
@@ -176,4 +176,4 @@ SELECT * FROM sys.databases;
 
 [Azure SQL 데이터베이스 보안 지침 및 제한 사항](sql-database-security-guidelines.md) [Azure Active Directory 인증을 사용하여 SQL 데이터베이스에 연결](sql-database-aad-authentication.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

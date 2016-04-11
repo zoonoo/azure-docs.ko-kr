@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스로 스키마 마이그레이션#
@@ -65,7 +65,7 @@ SQL 데이터 웨어하우스는 일반적인 비즈니스 데이터 형식을 �
 
 이 쿼리를 사용하여 호환되지 않는 형식을 포함하는 데이터 웨어하우스에서 열을 식별할 수 있습니다.
 
-```
+```sql
 SELECT  t.[name]
 ,       c.[name]
 ,       c.[system_type_id]
@@ -145,4 +145,4 @@ SQLDW로 데이터베이스 스키마를 성공적으로 마이그레이션한 �
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

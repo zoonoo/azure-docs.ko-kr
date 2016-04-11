@@ -133,7 +133,7 @@ Azure 리소스 관리자 템플릿은 사용자의 응용 프로그램이 이�
 | **requestedServiceObjectiveName** | S0 | S1 |
 
 ## 환경 만들기
-모든 Azure 리소스는 [Azure 리소스 그룹](azure-portal/resource-group-portal#create-resource-group-and-resources.md) 내에 만들어야 합니다. 리소스 그룹을 사용하여 Azure 리소스를 모아서 관리할 수 있도록 그룹화 할 수 있습니다. 조직의 특정인이 리소스 그룹 및 해당 그룹 내의 리소스를 만들거나, 수정하거나, 삭제하거나, 볼 수 있도록 해당 그룹에 [권한](./active-directory/role-based-access-built-in-roles.md)을 할당할 수 있습니다. 리소스 그룹의 리소스에 대한 경고 및 청구 정보는 [Azure 포털](https://portal.azure.com)에서 볼 수 있습니다. 리소스 그룹은 Azure [지역](https://azure.microsoft.com/regions/)에 만들어집니다. 이 문서에서 모든 리소스는 미국 중부 지역에 만들어집니다. 실제 환경을 만들기 시작할 때 사용자의 요구 사항에 가장 알맞은 지역을 선택합니다.
+모든 Azure 리소스는 [Azure 리소스 그룹](./azure-portal/resource-group-portal.md) 내에 만들어야 합니다. 리소스 그룹을 사용하여 Azure 리소스를 모아서 관리할 수 있도록 그룹화 할 수 있습니다. 조직의 특정인이 리소스 그룹 및 해당 그룹 내의 리소스를 만들거나, 수정하거나, 삭제하거나, 볼 수 있도록 해당 그룹에 [권한](./active-directory/role-based-access-built-in-roles.md)을 할당할 수 있습니다. 리소스 그룹의 리소스에 대한 경고 및 청구 정보는 [Azure 포털](https://portal.azure.com)에서 볼 수 있습니다. 리소스 그룹은 Azure [지역](https://azure.microsoft.com/regions/)에 만들어집니다. 이 문서에서 모든 리소스는 미국 중부 지역에 만들어집니다. 실제 환경을 만들기 시작할 때 사용자의 요구 사항에 가장 알맞은 지역을 선택합니다.
 
 다음 방법 중 하나를 사용하여 각 환경에 대한 리소스 그룹을 만듭니다. 모든 방법이 정확히 같은 결과를 달성합니다.
 
@@ -236,7 +236,7 @@ CLI 명령줄에서 [path]를 이전 단계에서 저장한 파일에 대한 경
 	data:    requestedServiceObjectiveName  String        S0
 	info:    group deployment create command OKx
 
-명령이 성공하지 못하면, 모든 오류 메시지를 해결하고 다시 시도하십시오. 일반적인 문제는 Azure 리소스 명명 제약 조건을 준수하지 않는 매개 변수 값을 사용하는 것입니다. 다른 문제 해결 팁은 [Azure에서 리소스 그룹 배포 문제 해결](virtual-machines/resource-group-deploy-debug.md) 문서에서 찾을 수 있습니다.
+명령이 성공하지 못하면, 모든 오류 메시지를 해결하고 다시 시도하십시오. 일반적인 문제는 Azure 리소스 명명 제약 조건을 준수하지 않는 매개 변수 값을 사용하는 것입니다. 다른 문제 해결 팁은 [Azure에서 리소스 그룹 배포 문제 해결](./resource-manager-troubleshoot-deployments-cli.md) 문서에서 찾을 수 있습니다.
 
 CLI 명령줄에서 [path]를 이전 단계에서 저장한 파일에 대한 경로로 바꾸고 아래 명령을 입력하여 리소스를 테스트 환경에 대해 만든 리소스 그룹에 배포합니다.
 
@@ -280,7 +280,7 @@ Azure PowerShell(버전 1.01 이상) 명령 프롬프트에서 [path]를 이전 
 	                    
 	Outputs           :
 
-  명령이 성공하지 못하면, 모든 오류 메시지를 해결하고 다시 시도하십시오. 일반적인 문제는 Azure 리소스 명명 제약 조건을 준수하지 않는 매개 변수 값을 사용하는 것입니다. 다른 문제 해결 팁은 [Azure에서 리소스 그룹 배포 문제 해결](virtual-machines/resource-group-deploy-debug.md) 문서에서 찾을 수 있습니다.
+  명령이 성공하지 못하면, 모든 오류 메시지를 해결하고 다시 시도하십시오. 일반적인 문제는 Azure 리소스 명명 제약 조건을 준수하지 않는 매개 변수 값을 사용하는 것입니다. 다른 문제 해결 팁은 [Azure에서 리소스 그룹 배포 문제 해결](./resource-manager-troubleshoot-deployments-powershell.md) 문서에서 찾을 수 있습니다.
 
   PowerShell 명령프롬프트에서 [path]를 이전 단계에서 저장한 파일에 대한 경로로 바꾸고 아래 명령을 입력하여 리소스를 테스트 환경에 대해 만든 리소스 그룹에 배포합니다.
 
@@ -358,8 +358,8 @@ Azure PowerShell(버전 1.01 이상) 명령 프롬프트에서 아래 명령을 
 
 ## 다음 단계
 
-- Microsoft Azure AD 그룹 또는 사용자를 Azure 리소스에 대한 작업의 하위 집합을 수행하는 기능을 가진 특정 역할에 할당하여 각 환경의 서로 다른 리소스에 [관리 제어를 위임](role-based-access-control-configure.md)합니다.
+- Microsoft Azure AD 그룹 또는 사용자를 Azure 리소스에 대한 작업의 하위 집합을 수행하는 기능을 가진 특정 역할에 할당하여 각 환경의 서로 다른 리소스에 [관리 제어를 위임](./active-directory/role-based-access-control-configure.md)합니다.
 - 각 환경에 대한 리소스 그룹 및/또는 개별 리소스에 [태그를 할당](resource-group-using-tags.md)합니다. 리소스 그룹에 "환경" 태그를 추가하고 해당 태그의 값을 사용자의 환경 이름과 일치하도록 설정합니다. 태그는 청구 또는 관리에 대한 리소스를 구성해야 하는 경우 특히 유용할 수 있습니다.
 - [Azure 포털](https://portal.azure.com)의 리소스 그룹 리소스에 대한 경고 및 청구를 모니터링합니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->

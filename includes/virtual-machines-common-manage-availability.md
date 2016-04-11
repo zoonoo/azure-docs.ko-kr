@@ -35,7 +35,7 @@ FD는 공통 전원과 네트워크 스위치를 공유하는 가상 컴퓨터 �
 
 
 ### 부하 분산 장치를 가용성 집합과 결합
-Azure 부하 분산 장치를 가용성 집합과 결합하여 응용 프로그램 복원력을 극대화하십시오. Azure 부하 분산 장치는 트래픽을 여러 가상 컴퓨터에 분산시킵니다. 표준 계층 가상 컴퓨터의 경우 Azure 부하 분산 장치가 포함되어 있습니다. 모든 가상 컴퓨터 계층에 Azure 부하 분산 장치가 포함되어 있는 것은 아닙니다. 가상 컴퓨터 부하 분산에 대한 자세한 내용은 [가상 컴퓨터 부하 분산](virtual-machines-linux-load-balance.md)을 참조하세요.
+Azure 부하 분산 장치를 가용성 집합과 결합하여 응용 프로그램 복원력을 극대화하십시오. Azure 부하 분산 장치는 트래픽을 여러 가상 컴퓨터에 분산시킵니다. 표준 계층 가상 컴퓨터의 경우 Azure 부하 분산 장치가 포함되어 있습니다. 모든 가상 컴퓨터 계층에 Azure 부하 분산 장치가 포함되어 있는 것은 아닙니다. 가상 컴퓨터 부하 분산에 대한 자세한 내용은 [가상 컴퓨터 부하 분산](../articles/virtual-machines/virtual-machines-linux-load-balance.md)을 참조하세요.
 
 부하 분산 장치가 트래픽을 여러 가상 컴퓨터에 분산시키도록 구성되지 않은 경우에는 계획된 유지 관리 이벤트가 트래픽 처리 가상 컴퓨터에만 영향을 줌으로써 응용 프로그램 계층에 중단을 일으킬 수 있습니다. 같은 계층의 여러 가상 컴퓨터를 같은 부하 분산 장치와 가용성 집합 아래에 배치하면 언제든지 적어도 하나의 인스턴스에서는 트래픽을 계속 처리할 수 있습니다.
 
@@ -47,6 +47,6 @@ Azure 부하 분산 장치를 가용성 집합과 결합하여 응용 프로그�
 [각 응용 프로그램 계층을 별도의 가용성 집합으로 구성]: #configure-each-application-tier-into-separate-availability-sets
 [부하 분산 장치를 가용성 집합과 결합]: #combine-the-load-balancer-with-availability-sets
 [가용성 집합에서 단일 인스턴스 가상 컴퓨터 방지]: #avoid-single-instance-virtual-machines-in-availability-sets
-[가상 컴퓨터의 가용성 집합을 구성하는 방법]: virtual-machines-windows-classic-configure-availability.md
+[가상 컴퓨터의 가용성 집합을 구성하는 방법]: ../articles/virtual-machines/virtual-machines-windows-classic-configure-availability.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스의 트랜잭션
@@ -57,7 +57,7 @@ SQL 데이터 웨어하우스는 XACT\_STATE() 함수를 사용하여 값 -2를 
 
 SQL Server에서 다음과 같은 코드 조각이 나타날 수 있습니다.
 
-```
+```sql
 BEGIN TRAN
     BEGIN TRY
         DECLARE @i INT;
@@ -83,7 +83,7 @@ BEGIN TRAN
 
 SQL 데이터 웨어하우스에서 코드는 다음과 같아야 합니다.
 
-```
+```sql
 BEGIN TRAN
     BEGIN TRY
         DECLARE @i INT;
@@ -140,4 +140,4 @@ SQL 데이터 웨어하우스에는 트랜잭션과 관련된 몇 가지 기타 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

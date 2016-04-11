@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2016" 
+	ms.date="03/30/2016" 
 	ms.author="arramac"/>
 
 # .NET SDK를 사용하여 DocumentDB의 데이터를 분할하는 방법
 
-Azure DocumentDB는 [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 및 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx)를 사용한 컬렉션 프로비저닝(**분할**이라고도 함)을 통해 계정 크기를 매끄럽게 조정할 수 있게 해주는 문서 데이터베이스 서비스입니다. 분할된 응용 프로그램을 쉽게 개발할 수 있게 하고 분할 작업에 필요한 상용구 코드 양을 줄이기 위해 여러 파티션에 걸쳐 규모가 확장되는 응용 프로그램을 쉽게 빌드할 수 있게 해주는 기능이 .NET, Node.js 및 Java SDK에 추가되었습니다.
+Azure DocumentDB는 [대용량 저장소 및 처리량](documentdb-partition-data.md)까지 강화할 수 있는 컬렉션을 지원합니다. 그러나 분할 동작을 세밀하게 제어하는 데 도움이 되는 사용 사례가 있습니다. 분할 작업에 필요한 상용구 코드 양을 줄이기 위해 여러 컬렉션에 걸쳐 규모가 확장되는 응용 프로그램을 쉽게 빌드할 수 있게 해주는 기능이 .NET, Node.js 및 Java SDK에 추가되었습니다.
 
 이 문서에서는 .NET SDK의 클래스 및 인터페이스와 분할된 응용 프로그램을 개발하는 데 사용하는 방법을 살펴보겠습니다.
 
@@ -26,8 +26,8 @@ Azure DocumentDB는 [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx
 
 분할을 자세히 살펴보기 전에 분할과 관련된 몇 가지 기본적인 DocumentDB 개념을 정리해 보겠습니다. 모든 Azure DocumentDB 데이터베이스 계정은 각각 여러 컬렉션을 포함하는 데이터베이스 집합으로 구성되고, 각 컬렉션에는 저장 프로시저, 트리거, UDF, 문서 및 관련 첨부 파일이 포함될 수 있습니다. 컬렉션은 DocumentDB에서 파티션으로 처리될 수 있으며 다음과 같은 속성이 있습니다.
 
-- 컬렉션은 논리 컨테이너가 아니라 실제 파티션입니다. 따라서 동일한 컬렉션 내에 있는 문서 쿼리 또는 처리 시 성능상의 이점이 있습니다.
-- 컬렉션은 ACID 트랜잭션, 즉 저장 프로시저 및 트리거에 대한 경계입니다.
+- 컬렉션은 성능 격리를 제공합니다. 따라서 동일한 컬렉션 내에서 유사한 문서를 정렬하는 성능상 이점이 있습니다. 예를 들어 시계열 데이터의 경우 자주 쿼리되는 지난 달에 대한 데이터를 프로비전된 처리량이 높은 컬렉션 내에서 배치하는 반면 이전 데이터는 프로비전된 처리량이 낮은 컬렉션 내에 배치하고자 할 수 있습니다.
+- ACID 트랜잭션, 즉 저장 프로시저 및 트리거는 컬렉션에 걸쳐 있지 않습니다. 트랜잭션 범위는 컬렉션 내 단일 파티션 키 값 안으로 범위가 지정됩니다.
 - 컬렉션은 스키마를 적용하지 않으므로 동일한 형식이나 다른 형식의 JSON 문서에 사용할 수 있습니다.
 
 [Azure DocumentDB .NET SDK 1.1.0](http://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) 버전부터 데이터베이스에 대해 직접 문서 작업을 수행할 수 있습니다. 내부적으로 [DocumentClient](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx)는 데이터베이스에 대해 지정된 PartitionResolver를 사용하여 요청을 해당 컬렉션으로 라우팅합니다.
@@ -134,12 +134,11 @@ foreach (UserProfile activeUser in query)
 >[AZURE.NOTE] 컬렉션 만들기는 DocumentDB에 의해 속도가 제한되므로 여기에 표시된 일부 샘플 메서드는 완료하는 데 몇 분 정도 걸릴 수 있습니다.
 
 ##FAQ
-**DocumentDB는 왜 클라이언트 쪽 분할 및 서버 쪽 분할을 지원하나요?**
+** DocumentDB에서 서버 쪽 분할을 지원하나요?**
 
-DocumentDB는 다음 몇 가지 이유로 클라이언트 쪽 분할을 지원합니다.
+예, DocumentDB에서 [서버 쪽 분할](documentdb-partition-data.md)을 지원합니다. DocumentDB는 또한 보다 고급 사용 사례로 클라이언트 쪽 분할 해결 프로그램을 통해 클라이언트 쪽 분할을 지원합니다.
 
-- 세 가지, 즉 일관된 인덱싱/쿼리, 고가용성 및 ACID 트랜잭션 보증 중 하나의 손상 없이 개발자의 컬렉션 개념을 추상화하는 것은 매우 어렵습니다. 
-- 문서 데이터베이스는 서버 쪽 방법으로 수용할 수 없는 분할 전략의 정의 측면에서 유연성을 요구하는 경우가 많습니다. 
+** 서버 쪽 및 클라이언트 쪽 분할을 언제 사용해야 하나요?** 대부분의 사용 사례에서는 분할 데이터 및 라우팅 요청의 관리 작업을 처리하므로 서버 쪽 분할을 사용하는 것이 좋습니다. 그러나 범위 분할이 필요하거나 파티션 키의 서로 다른 값 간에 성능 격리를 위해 특수화된 사용 사례가 있는 경우 클라이언트 쪽 분할이 최선의 방법일 수 있습니다.
 
 **내 파티션 구성표에 컬렉션을 추가하거나 제거하려면 어떻게 해야 하나요?**
 
@@ -154,13 +153,13 @@ DocumentDB는 다음 몇 가지 이유로 클라이언트 쪽 분할을 지원�
 내부적으로 하나 이상의 기존 확인자를 사용하는 고유한 IPartitionResolver를 구현하여 PartitionResolver를 연결할 수 있습니다. 예제는 샘플 프로젝트의 TransitionHashPartitionResolver를 참조하세요.
 
 ##참조
-* [Github의 분할 코드 샘플](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Partitioning)
-* [DocumentDB 개념을 사용하여 데이터 분할](documentdb-partition-data.md)
+* [DocumentDB를 사용하여 데이터 분할](documentdb-partition-data.md)
 * [DocumentDB 컬렉션 및 성능 수준](documentdb-performance-levels.md)
+* [Github의 분할 코드 샘플](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Partitioning)
 * [MSDN의 DocumentDB .NET SDK 설명서](https://msdn.microsoft.com/library/azure/dn948556.aspx)
 * [DocumentDB .NET 샘플(영문)](https://github.com/Azure/azure-documentdb-net)
 * [DocumentDB 제한](documentdb-limits.md)
 * [성능 팁에 대한 DocumentDB 블로그](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0330_2016-->

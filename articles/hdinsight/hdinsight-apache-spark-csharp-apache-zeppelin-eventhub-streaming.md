@@ -26,7 +26,7 @@ Spark 스트리밍는 핵심 Spark API를 확장하여 뛰어난 확장성, 높�
 
 이 자습서에서는 Azure 이벤트 허브를 만드는 방법, C#의 콘솔 응용 프로그램을 사용하여 이벤트 허브로 메시지를 수집하고 HDInsight에서 Apache Spark를 구성하는 Zeppelin Notebook을 사용하여 메시지를 병렬로 검색하는 방법을 알아봅니다.
 
-> [AZURE.NOTE] 이 문서의 지침을 따르려면 Azure 포털의 두 가지 버전을 모두 사용해야 합니다. 이벤트 허브를 만드는 데는 [Azure 포털](https://manage.windowsazure.com)을 사용합니다. HDInsight Spark 클러스터 작업을 하는 데는 [Azure Preview 포털](https://ms.portal.azure.com/)을 사용합니다.
+> [AZURE.NOTE] 이 문서의 지침을 따르려면 Azure 포털의 두 가지 버전을 모두 사용해야 합니다. 이벤트 허브를 만드는 데는 [Azure 클래식 포털](https://manage.windowsazure.com)을 사용합니다. HDInsight Spark 클러스터 작업을 하는 데는 [Azure 포털](https://ms.portal.azure.com/)을 사용합니다.
 
 **필수 조건:**
 
@@ -54,10 +54,12 @@ Spark 스트리밍는 핵심 Spark API를 확장하여 뛰어난 확장성, 높�
 4. 사용자가 만든 이벤트 허브를 클릭하고 **구성**을 클릭한 다음 이벤트 허브에 대한 두 가지 액세스 정책을 만듭니다.
 
 	<table>
-<tr><th>이름</th><th>권한</th></tr>
-<tr><td>mysendpolicy</td><td>보내기</td></tr>
-<tr><td>myreceivepolicy</td><td>수신 대기</td></tr>
-</table>권한을 만든 후 페이지 아래쪽의 **저장** 아이콘을 선택합니다. 그러면 이 이벤트 허브로 보내고(**mysendpolicy**) 수신하는(**myreceivepolicy**) 데 사용되는 공유 액세스 정책이 만들어집니다.
+	<tr><th>이름</th><th>권한</th></tr>
+	<tr><td>mysendpolicy</td><td>보내기</td></tr>
+	<tr><td>myreceivepolicy</td><td>수신 대기</td></tr>
+	</table>
+
+	권한을 만든 후 페이지 아래쪽의 **저장** 아이콘을 선택합니다. 그러면 이 이벤트 허브로 보내고(**mysendpolicy**) 수신하는(**myreceivepolicy**) 데 사용되는 공유 액세스 정책이 만들어집니다.
 
 	![정책](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.streaming.event.hub.policies.png "이벤트 허브 정책 만들기")
 
@@ -92,7 +94,7 @@ Spark 클러스터의 리소스를 할당하는 방법에 대한 지침은 [HDIn
 
 ### Zeppelin을 사용하여 스트리밍 응용 프로그램 만들기
 
-1. [Azure Preview 포털](https://portal.azure.com/)의 시작 보드에서 Spark 클러스터 타일을 클릭합니다(Spark 클러스터를 시작 보드에 고정한 경우). **모두 찾아보기** > **HDInsight 클러스터**에서 클러스터로 이동할 수도 있습니다.   
+1. [Azure 포털](https://portal.azure.com/)의 시작 보드에서 Spark 클러스터에 대한 타일을 클릭합니다(시작 보드에 고정한 경우). **모두 찾아보기** > **HDInsight 클러스터**에서 클러스터로 이동할 수도 있습니다.   
 
 2. Spark 클러스터 블레이드에서 **빠른 연결**을 클릭한 다음 **클러스터 대시보드** 블레이드에서 **Zeppelin Notebook**을 클릭합니다. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다.
 
@@ -194,4 +196,4 @@ HDInsight에서 Spark 클러스터로 스트리밍 데이터를 받으려면 Zep
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

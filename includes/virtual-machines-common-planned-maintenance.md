@@ -1,13 +1,5 @@
 
 
-## Azure에서 계획된 유지 관리를 수행하는 이유
-
-Microsoft Azure는 가상 컴퓨터의 기반이 되는 호스트 인프라의 안정성, 성능 및 보안을 향상시키기 위해 전 세계적으로 주기적인 업데이트를 수행합니다. 이러한 많은 업데이트는 메모리 유지 업데이트를 비롯하여 가상 컴퓨터 또는 클라우드 서비스에 영향을 주지 않고 수행됩니다.
-
-그렇지만 일부 업데이트는 인프라에 필요한 업데이트를 적용하기 위해 가상 컴퓨터를 다시 부팅해야 합니다. 가상 컴퓨터는 인프라를 패치하는 동안 종료되었다가 다시 시작됩니다.
-
-가상 컴퓨터의 가용성에 영향을 미칠 수 있는 유지 관리 유형에는 계획된 유지 관리와 계획되지 않은 유지 관리가 있습니다. 이 페이지에서는 Microsoft Azure에서 계획된 유지 관리를 수행하는 방법을 설명합니다. 계획되지 않은 유지 관리에 대한 자세한 내용은 [계획된 유지 관리 및 계획되지 않은 유지 관리 이해](virtual-machines-windows-manage-availability.md)를 참조하세요.
-
 ## 메모리 유지 업데이트
 
 Microsoft Azure의 업데이트 클래스는 고객이 실행 중인 가상 컴퓨터에는 어떠한 영향도 주지 않습니다. 이러한 많은 업데이트는 실행 중인 인스턴스를 방해하지 않고 업데이트할 수 있는 구성 요소 또는 서비스에 대한 업데이트입니다. 이러한 업데이트 중 일부는 가상 컴퓨터를 완전히 다시 부팅하지 않고 적용할 수 있는 호스트 운영 체제의 플랫폼 인프라 업데이트입니다.
@@ -24,7 +16,7 @@ Microsoft Azure의 업데이트 클래스는 고객이 실행 중인 가상 컴�
 
 다중 인스턴스 구성은 물리적 컴퓨터, 전원 및 네트워크에 대한 중복성을 제공하고 응용 프로그램의 가용성을 보장하기 위해 권장됩니다. 가용성 집합의 모든 가상 컴퓨터는 응용 프로그램에 동일한 목적을 충족시켜야 합니다.
 
-고가용성을 위해 가상 컴퓨터를 구성하는 방법에 대한 자세한 내용은 [가상 컴퓨터의 가용성 관리](virtual-machines-windows-manage-availability.md)를 참조하세요.
+고가용성을 위해 가상 컴퓨터를 구성하는 방법에 대한 자세한 내용은 [Windows 가상 컴퓨터의 가용성 관리](../articles/virtual-machines/virtual-machines-windows-manage-availability.md) 또는 [Linux 가상 컴퓨터의 가용성 관리](../articles/virtual-machines/virtual-machines-linux-manage-availability.md)를 참조하세요.
 
 이와 반대로 단일 인스턴스 구성은 가용성 집합에 배치되지 않은 독립 실행형 가상 컴퓨터에 사용됩니다. 이러한 가상 컴퓨터는 동일한 가용성 집합 하에서 배포된 둘 이상의 가상 컴퓨터를 요구하는 SLA(서비스 수준 계약)를 충족하지 못합니다.
 
@@ -39,7 +31,7 @@ SLA에 대한 자세한 내용은 [서비스 수준 계약](https://azure.micros
 
 기본 Azure 플랫폼에서는 가용성 집합에 포함된 각각의 가상 컴퓨터를 업데이트 도메인 및 장애 도메인에 할당합니다. 각각의 업데이트 도메인은 동일한 시간에 다시 부팅되는 가상 컴퓨터 그룹입니다. 각각의 장애 도메인은 공통된 전원 및 네트워크 스위치를 공유하는 가상 컴퓨터 그룹입니다.
 
-업데이트 도메인 및 장애 도메인에 대한 자세한 내용은 [중복성을 위해 가용성 집합에 여러 가상 컴퓨터 구성](virtual-machines-windows-manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy)을 참조하세요.
+업데이트 도메인 및 장애 도메인에 대한 자세한 내용은 [중복성을 위해 가용성 집합에 여러 가상 컴퓨터 구성](../articles/virtual-machines/virtual-machines-windows-manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy)을 참조하세요.
 
 업데이트 도메인이 동시에 오프라인으로 전환되는 것을 방지하기 위하여, 유지 관리는 업데이트 도메인에 포함된 각각의 가상 컴퓨터를 종료하고 호스트 컴퓨터에 업데이트를 적용하고 가상 컴퓨터를 다시 시작하고 다음 업데이트 도메인으로 이동하는 방식으로 수행됩니다. 계획된 유지 관리 이벤트는 모든 업데이트 도메인이 업데이트된 후 종료됩니다.
 
@@ -99,8 +91,8 @@ SLA에 대한 자세한 내용은 [서비스 수준 계약](https://azure.micros
 
 
 <!--Link references-->
-[Virtual Machines Manage Availability]: virtual-machines-windows-hero-tutorial.md
+[Virtual Machines Manage Availability]: ../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md
 
-[Understand planned versus unplanned maintenance]: virtual-machines-windows-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
+[Understand planned versus unplanned maintenance]: ../articles/virtual-machines/virtual-machines-windows-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -42,7 +42,7 @@
 
 이 문서에서는 VNetwork 서브넷 내부에 Linux VM이 한 대 있는 클라우드 서비스 배포와 비슷한 배포를 빌드할 것입니다. 인터넷 어디서나 연결할 수 있는 정상적으로 작동하는 안전한 Linux VM이 생길 때까지 전체 기본 배포를 명령별로 철저하게 살펴보겠습니다.
 
-그 과정에서 리소스 관리자 배포 모델이 제공하는 종속성 계층 구조와 강력한 기능을 이해할 수 있을 것입니다. 시스템이 빌드되는 방식을 살펴본 후에는 더 많은 Azure CLI 명령을 직접 사용하여 훨씬 신속하게 시스템을 다시 빌드하거나(`azure vm quick-create` 명령을 사용하는 거의 동일한 배포는 [여기](insertlinktonewdoc) 참조) [Azure Resource Manager 템플릿](../resource-group-authoring-templates.md)을 사용하여 전체 네트워크 및 응용 프로그램 배포를 설계 및 자동화하고 업데이트하는 방법을 익힐 수 있습니다. 배포의 여러 파트가 서로 어떻게 연결되는지 살펴보면 파트를 자동화하는 템플릿을 좀 더 쉽게 만들 수 있습니다.
+그 과정에서 리소스 관리자 배포 모델이 제공하는 종속성 계층 구조와 강력한 기능을 이해할 수 있을 것입니다. 시스템이 빌드되는 방식을 살펴본 후에는 더 많은 Azure CLI 명령을 직접 사용하여 훨씬 신속하게 시스템을 다시 빌드하거나(`azure vm quick-create` 명령을 사용하는 거의 동일한 배포는 [여기](virtual-machines-linux-quick-create-cli.md) 참조) [Azure Resource Manager 템플릿](../resource-group-authoring-templates.md)을 사용하여 전체 네트워크 및 응용 프로그램 배포를 설계 및 자동화하고 업데이트하는 방법을 익힐 수 있습니다. 배포의 여러 파트가 서로 어떻게 연결되는지 살펴보면 파트를 자동화하는 템플릿을 좀 더 쉽게 만들 수 있습니다.
 
 개발 및 간단한 계산에 유용한 VM을 사용하여 간단한 네트워크를 빌드하고, 차례대로 설명하겠습니다. 그 후에는 좀 더 복잡한 네트워크 및 배포로 넘어갈 수 있을 것입니다.
 
@@ -95,7 +95,7 @@ azure network public-ip create -d testsubdomain testrg testpip westeurope
 azure network public-ip show testrg testpip --json | jq '.'
 
 # Associate the Public IP to the NIC
-azure network nic set --public-ip-name test pip
+azure network nic set --public-ip-name testpip testrg testnic
 
 # Bind the NSG to the NIC
 azure network nic set --network-security-group-name testnsg testrg testnic
@@ -528,7 +528,7 @@ NIC 리소스는 VM 및 네트워크 보안 그룹에 모두 연결되기 때문
 
 ### 공용 IP 및 네트워크 보안 그룹을 NIC에 연결
 
-        azure network nic set --public-ip-name test pip
+        azure network nic set --public-ip-name testpip testrg testnic
 
 NSG를 NIC에 바인딩:
 
@@ -667,4 +667,4 @@ NSG를 NIC에 바인딩:
 
 이제 여러 네트워킹 구성 요소 및 VM을 시작할 준비가 되셨습니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

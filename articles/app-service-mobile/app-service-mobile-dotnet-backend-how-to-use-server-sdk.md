@@ -283,7 +283,7 @@ Entity Framework를 사용하여 Azure SQL 데이터베이스의 데이터를 �
 
 		config.Routes.MapHttpRoute("CustomAuth", ".auth/login/CustomAuth", new { controller = "CustomAuth" });
 
-위의 "CustomAuth" 문자열을 로그인 작업을 호스트하는 컨트롤러 이름으로 바꿉니다.
+위의 "CustomAuth" 문자열을 로그인 작업을 호스팅하는 컨트롤러 이름으로 바꿉니다.
 
 >[AZURE.TIP] loginAsync() 방식을 사용하여 인증 토큰이 서비스에 대한 모든 후속 호출에 연결되어 있는지 확인합니다.
 
@@ -461,4 +461,4 @@ Azure 앱 서비스는 ASP.NET 응용 프로그램에 대한 여러 디버깅 �
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

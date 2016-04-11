@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/18/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Columnstore 인덱스 관리
@@ -24,7 +24,7 @@ Columnstore 인덱스는 Azure SQL 데이터 웨어하우스의 핵심입니다.
 ## Columnstore 메타데이터 쿼리
 columnstore 인덱스의 밀도를 파악하려면 시스템 메타데이터에 대한 쿼리가 필요합니다. 다음은 확인할 수 있는 정보의 종류입니다.
 
-```
+```sql
 CREATE VIEW dbo.vColumnstoreDensity
 AS
 WITH CSI
@@ -73,7 +73,7 @@ FROM    CSI
 
 뷰가 만들어지면 columnstore 메타데이터를 쉽게 분석할 수 있습니다. 아래는 예제 쿼리입니다.
 
-```
+```sql
 SELECT	[table_name]
 ,		[table_partition_count]
 ,		[row_count_total]
@@ -149,4 +149,4 @@ WHERE	[table_name] = 'FactInternetSales'
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

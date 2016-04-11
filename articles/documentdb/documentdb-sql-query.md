@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/11/2016" 
+	ms.date="03/30/2016" 
 	ms.author="arramac"/>
 
 # DocumentDB의 SQL 쿼리 및 SQL 구문
@@ -1223,7 +1223,7 @@ DocumentDB는 저장 프로시저 및 트리거 측면에서 컬렉션에 대해
 	   };
 	   
 	   UserDefinedFunction createdUdf = client.CreateUserDefinedFunctionAsync(
-	       collectionSelfLink/* link of the parent collection*/, 
+	       UriFactory.CreateDocumentCollectionUri("testdb", "families"), 
 	       regexMatchUdf).Result;  
                                                                              
 위 예제에서는 이름이 `REGEX_MATCH`인 UDF를 만듭니다. 두 JSON 문자열 값 `input` 및 `pattern`을 받아들이고 JavaScript의 string.match() 함수를 사용하여 첫 번째 값이 두 번째 값에 지정된 패턴과 일치하는지를 확인합니다.
@@ -1285,7 +1285,9 @@ UDF 기능을 확장하기 위해 조건부 논리가 포함된 다른 예제를
 	                }"
             };
 
-            UserDefinedFunction createdUdf = await client.CreateUserDefinedFunctionAsync(collection.SelfLink, seaLevelUdf);
+            UserDefinedFunction createdUdf = await client.CreateUserDefinedFunctionAsync(
+                UriFactory.CreateDocumentCollectionUri("testdb", "families"), 
+                seaLevelUdf);
 	
 	
 다음은 UDF를 실행하는 예제입니다.
@@ -2316,7 +2318,7 @@ DocumentDB는 HTTP를 통해 개방형 RESTful 프로그래밍 모델을 제공�
 
 .NET 클라이언트는 위에 표시된 대로 foreach 블록에서 쿼리 결과의 모든 페이지를 자동으로 반복합니다. REST API 섹션에서 소개한 쿼리 옵션은 CreateDocumentQuery 메서드의 `FeedOptions` 및 `FeedResponse` 클래스를 통해 .NET SDK에서도 사용할 수 있습니다. 페이지 수는 `MaxItemCount` 설정을 사용하여 제어할 수 있습니다.
 
-개발자는 `IQueryable` 개체를 사용하여 `IDocumentQueryable`을 만든 다음 ` ResponseContinuationToken` 값을 읽고 `FeedOptions`의 `RequestContinuationToken`에 전달하여 페이징을 명시적으로 제어할 수도 있습니다. `EnableScanInQuery`를 설정하여 구성된 인덱싱 정책이 쿼리를 지원할 수 없는 경우 스캔을 사용하도록 할 수 있습니다.
+`IQueryable` 개체를 사용하여 `IDocumentQueryable`을 만든 다음 ` ResponseContinuationToken` 값을 읽고 `FeedOptions`의 `RequestContinuationToken`에 전달하여 페이징을 명시적으로 제어할 수도 있습니다. `EnableScanInQuery`를 설정하여 구성된 인덱싱 정책이 쿼리를 지원할 수 없는 경우 스캔을 사용하도록 할 수 있습니다. 분할된 컬렉션의 경우 `PartitionKey`을 사용하여 단일파티션에 대해 쿼리를 실행할 수 있고(DocumentDB가 쿼리 텍스트에서 이를 자동으로 추출할 수 있지만) `EnableCrossPartitionQuery`을 사용하여 여러 파티션에 대해 실행되어야 하는 쿼리를 실행할 수 있습니다.
 
 쿼리가 포함된 추가 샘플은 [DocumentDB .NET 샘플](https://github.com/Azure/azure-documentdb-net)을 참조하세요.
 
@@ -2367,8 +2369,8 @@ DocumentDB는 저장 프로시저 및 트리거를 사용하여 컬렉션에 대
 7.	Javascript 사양 [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
 8.	LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
 9.	대형 데이터베이스에 대한 쿼리 평가 기술 [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
-10.	병렬 관계 데이터베이스 시스템의 쿼리 처리, IEEE Computer Society Press, 1994
-11.	Lu, Ooi, Tan, 병렬 관계 데이터베이스 시스템의 쿼리 처리, IEEE Computer Society Press, 1994.
+10.	Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994
+11.	Lu, Ooi, Tan, Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994.
 12.	Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins: Pig Latin: A Not-So-Foreign Language for Data Processing, SIGMOD 2008.
 13.     G. Graefe. The Cascades framework for query optimization. IEEE 데이터 Eng. Bull., 18(3): 1995.
 
@@ -2378,4 +2380,4 @@ DocumentDB는 저장 프로시저 및 트리거를 사용하여 컬렉션에 대
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

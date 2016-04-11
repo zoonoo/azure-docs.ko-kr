@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스에서 데이터베이스 보호
@@ -37,7 +37,7 @@
 
 먼저 서버 관리자 로그인을 사용하여 서버의 master 데이터베이스에 연결하고 새 서버 로그인을 만듭니다.
 
-```
+```sql
 -- Connect to master database and create a login
 CREATE LOGIN ApplicationLogin WITH PASSWORD = 'strong_password';
 
@@ -45,8 +45,7 @@ CREATE LOGIN ApplicationLogin WITH PASSWORD = 'strong_password';
 
 그런 다음, 서버 관리자 로그인을 사용하여 SQL 데이터 웨어하우스 데이터베이스에 연결하고 방금 만든 서버 로그인에 따라 데이터베이스 사용자를 만듭니다.
 
-```
-
+```sql
 -- Connect to SQL DW database and create a database user
 CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 
@@ -59,7 +58,7 @@ SQL 데이터베이스 인증에 대한 자세한 내용은 [Azure SQL 데이터
 
 권한 부여는 Azure SQL 데이터 웨어하우스 데이터베이스 내에서 수행할 수 있는 작업을 가리키며 사용자 계정의 역할 멤버 자격과 사용 권한에 의해 제어됩니다. 사용자에게 필요한 최소한의 권한을 부여하는 것이 가장 좋습니다. Azure SQL 데이터 웨어하우스를 사용하면 T-SQL에서 역할을 통해 쉽게 관리할 수 있습니다.
 
-```
+```sql
 EXEC sp_addrolemember 'db_datareader', 'ApplicationUser'; -- allows ApplicationUser to read data
 EXEC sp_addrolemember 'db_datawriter', 'ApplicationUser'; -- allows ApplicationUser to write data
 ```
@@ -74,14 +73,12 @@ EXEC sp_addrolemember 'db_datawriter', 'ApplicationUser'; -- allows ApplicationU
 
 Azure 클래식 포털에서 또는 Azure 리소스 관리자 API를 사용하여 데이터베이스 및 논리 서버를 관리하는 것은 포털 사용자 계정의 역할 할당에 의해 제어됩니다. 이 항목에 대한 자세한 내용은 [Azure 포털의 역할 기반 액세스 제어][]를 참조하세요.
 
-
-
 ## 암호화
 
 Azure SQL 데이터 웨어하우스는 데이터가 "휴지 상태"일 때 또는 데이터베이스 파일 및 백업에 저장된 경우 [투명한 데이터 암호화][]를 통해 데이터를 암호화하여 데이터를 보호할 수 있도록 도와줍니다. 데이터베이스를 암호화하려면 서버에서 master 데이터베이스에 연결하고 다음을 실행합니다.
 
 
-```
+```sql
 
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 
@@ -89,13 +86,9 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 
 [Azure 클래식 포털][]의 데이터베이스 설정에서 투명한 데이터 암호화를 사용하도록 설정할 수도 있습니다.
 
-
-
 ## 감사
 
 데이터베이스 이벤트의 감사 및 추적은 규정을 준수하고 의심스러운 활동을 식별할 수 있도록 도와줍니다. SQL 데이터 웨어하우스 감사를 사용하면 Azure 저장소 계정의 감사 로그에 데이터베이스의 이벤트를 기록할 수 있습니다. 또한 드릴다운 보고서 및 분석을 용이하게 하려면 SQL 데이터 웨어하우스 감사 기능을 Microsoft Power BI와 통합합니다. 자세한 내용은 [SQL 데이터베이스 감사 시작][]을 참조하세요.
-
-
 
 ## 다음 단계
 더 많은 개발 팁은 [개발 개요][]를 참조하세요.
@@ -119,4 +112,4 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 <!--Other Web references-->
 [Azure 포털의 역할 기반 액세스 제어]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

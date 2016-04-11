@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/11/2016"
+	ms.date="03/28/2016"
 	ms.author="stepsic"/>
 	
 # 논리 앱 기능 사용
@@ -61,6 +61,11 @@
 
 7.  마지막으로 전자 메일 상자를 **If Yes** 상자로 끌어 놓습니다. 그러면 팔로워 수가 충족되는 경우에만 전자 메일이 제공됩니다.
 
+## forEach를 포함한 목록 반복
+
+forEach 루프는 작업을 반복하는 배열을 지정합니다. 배열이 아닌 경우 흐름이 실패합니다. 예를 들어 메시지의 배열을 출력하는 동작1이 있고 각 메시지를 전송하려는 경우 이 forEach 문을 작업의 속성에서 포함할 수 있습니다: forEach : "@action('action1').outputs.messages"
+ 
+
 ## 코드 보기를 사용하여 논리 앱 편집
 
 디자이너 외에도 논리 앱을 정의하는 코드를 다음과 같이 직접 편집할 수 있습니다.
@@ -107,4 +112,4 @@
 <!-- Shared links -->
 [Azure 포털]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

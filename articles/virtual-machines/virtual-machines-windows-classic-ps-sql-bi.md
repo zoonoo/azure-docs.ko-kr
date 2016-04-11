@@ -1,13 +1,13 @@
-<properties 
+<properties
 	pageTitle="SQL Server 비즈니스 인텔리전스 | Microsoft Azure"
 	description="이 항목에서는 클래식 배포 모델로 만든 리소스를 사용하고 Azure VM(가상 컴퓨터)에서 실행 중인 SQL Server에 사용할 수 있는 BI(비즈니스 인텔리전스) 기능에 대해 설명합니다."
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" 
+	editor="monicar"
 	tags="azure-service-management"/>
-<tags 
+<tags
 	ms.service="virtual-machines-windows"
 	ms.devlang="na"
 	ms.topic="article"
@@ -19,8 +19,8 @@
 # Azure 가상 컴퓨터의 SQL Server Business Intelligence
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
- 
- 
+
+
 Microsoft Azure 가상 컴퓨터 갤러리에는 SQL Server 설치가 포함된 이미지가 들어 있습니다. 갤러리 이미지에서 지원되는 SQL Server 버전은 온-프레미스 컴퓨터와 가상 컴퓨터에 설치할 수 있는 동일한 설치 파일입니다. 이 항목은 가상 컴퓨터가 프로비전된 후 필요한 구성 단계 및 이미지에 설치된 SQL Server BI(비즈니스 인텔리전스) 기능을 요약합니다. 이 항목은 BI 기능에 대해 지원되는 배포 토폴로지 및 모범 사례도 설명합니다.
 
 ## 라이선스 고려 사항
@@ -42,18 +42,18 @@ Microsoft Azure 가상 컴퓨터 갤러리에는 Microsoft SQL Server가 포함�
 ![PowerShell](./media/virtual-machines-windows-classic-ps-sql-bi/IC660119.gif) 다음 PowerShell 스크립트는 ImageName에 "SQL-Server"가 포함된 Azure 이미지 목록을 반환합니다.
 
 	# assumes you have already uploaded a management certificate to your Microsoft Azure Subscription. View the thumbprint value from the "settings" menu in Azure classic portal.
-	
+
 	$subscriptionID = ""    # REQUIRED: Provide your subscription ID.
 	$subscriptionName = "" # REQUIRED: Provide your subscription name.
 	$thumbPrint = "" # REQUIRED: Provide your certificate thumbprint.
 	$certificate = Get-Item cert:\currentuser\my\$thumbPrint # REQUIRED: If your certificate is in a different store, provide it here.-Ser  store is the one specified with the -ss parameter on MakeCert
-	
+
 	Set-AzureSubscription -SubscriptionName $subscriptionName -Certificate $certificate -SubscriptionID $subscriptionID
-	
+
 	Write-Host -foregroundcolor green "List of available gallery images where imagename contains 2014"
 	Write-Host -foregroundcolor green ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 	get-azurevmimage | where {$_.ImageName -Like "*SQL-Server-2014*"} | select imagename,category, location, label, description
-	
+
 	Write-Host -foregroundcolor green "List of available gallery images where imagename contains 2012"
 	Write-Host -foregroundcolor green ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 	get-azurevmimage | where {$_.ImageName -Like "*SQL-Server-2012*"} | select imagename,category, location, label, description
@@ -99,7 +99,7 @@ SQL Server에서 지원되는 버전 및 기능에 대한 자세한 내용은 �
 - 디스크 관리에 대한 모범 사례는 **C**: 및 **D**: 이외의 드라이브에서 데이터를 저장하고 파일을 기록 및 백업하는 것입니다. 예를 들어 데이터 디스크 **E**: 및 **F**:를 만듭니다.
 
 	- 기본 드라이브 **C**:에 대한 드라이브 캐싱 정책은 데이터 작업에 적합하지 않습니다.
-	
+
 	- **D**: 드라이브는 페이지 파일에 주로 사용되는 임시 드라이브입니다. **D**: 드라이브는 지속되지 않고 Blob 저장소에 저장되지 않습니다. 관리 작업(예: 가상 컴퓨터 크기 변경)은 **D**: 드라이브를 재설정합니다. tempdb를 비롯한 데이터베이스 파일의 경우 **D**: 드라이브를 사용하지 **않는** 것이 좋습니다.
 
 	디스크 만들기 및 연결에 대한 자세한 내용은 [가상 컴퓨터에 데이터 디스크를 연결하는 방법](virtual-machines-windows-classic-attach-disk.md)을 참조하세요.
@@ -165,11 +165,11 @@ Azure 가상 컴퓨터에 연결하는 데 다음과 같은 두 가지 일반적
 - Windows 원격 데스크톱 연결을 통해 가상 컴퓨터에 연결합니다. 원격 데스크톱의 사용자 인터페이스에서:
 
 	1. 컴퓨터 이름으로 **클라우드 서비스 이름**을 입력합니다.
-	
+
 	1. 콜론(:)과 TCP 원격 데스크톱 끝점에 대해 구성된 공용 포트 번호를 입력합니다.
-		
+
 		Myservice.cloudapp.net:63133
-		
+
 		자세한 내용은 [클라우드 서비스란?](https://azure.microsoft.com/manage/services/cloud-services/what-is-a-cloud-service/)을 참조하세요.
 
 **Reporting Services 구성 관리자를 시작합니다.**
@@ -279,11 +279,11 @@ Azure 가상 컴퓨터에 연결하는 데 다음과 같은 두 가지 일반적
 다음 표에는 온-프레미스 컴퓨터의 기존 보고서를 Microsoft Azure 가상 컴퓨터에 호스트된 보고서 서버에 게시하는 데 사용 가능한 일부 옵션이 요약되어 있습니다.
 
 - **보고서 작성기**: 가상 컴퓨터는 Microsoft SQL Server 보고서 작성기의 ClickOnce 버전을 포함합니다. 가상 컴퓨터에서 처음으로 보고서 작성기를 시작하려면:
-											
+
 	1. 관리자 권한으로 브라우저를 시작합니다.
-	
+
 	1. 가상 컴퓨터에서 보고서 관리자로 이동하고 리본에서 **보고서 작성기**를 클릭합니다.
-	
+
 	자세한 내용은 [보고서 작성기 설치, 제거 및 지원](https://technet.microsoft.com/library/dd207038.aspx)을 참조하세요.
 
 - **SQL Server Data Tools**: VM: SQL Server Data Tools가 가상 컴퓨터에 설치되어 있으므로 가상 컴퓨터에서 **보고서 서버 프로젝트** 및 보고서를 만드는 데 사용할 수 있습니다. SQL Server Data Tools는 보고서를 가상 컴퓨터의 보고서 서버에 게시할 수 있습니다.
@@ -295,11 +295,11 @@ Azure 가상 컴퓨터에 연결하는 데 다음과 같은 두 가지 일반적
 - 보고서가 포함되는 .VHD 하드 드라이브를 만든 다음 드라이브를 업로드하고 연결합니다.
 
 	1. 로컬 컴퓨터에서 보고서가 포함되는 .VHD 하드 드라이브를 만듭니다.
-	
+
 	1. 관리 인증서를 만들고 설치합니다.
-	
+
 	1. Add-AzureVHD cmdlet [Windows Server VHD 만들기 및 Azure에 업로드](virtual-machines-windows-classic-createupload-vhd.md)를 사용하여 VHD 파일을 Azure에 업로드합니다.
-	
+
 	1. 가상 컴퓨터에 디스크를 연결합니다.
 
 ## 다른 SQL Server 서비스 및 기능 설치
@@ -375,13 +375,13 @@ Analysis Services의 **명명된 인스턴스**의 경우 포트 액세스를 �
 - 단일 VM을 사용하고 다음 두 항목에 해당하는 경우에는 VM의 방화벽에서 VM 끝점을 만들 필요가 없으며 포트를 열 필요가 없습니다.
 
 	- VM의 SQL Server 기능에 원격으로 연결하지 않습니다. VM에 원격 데스크톱 연결을 설정하고 VM에서 로컬로 SQL Server 기능에 액세스하는 것은 SQL Server 기능에 대한 원격 연결로 간주되지 않습니다.
-	
+
 	- Azure 가상 네트워킹이나 다른 VPN 터널링 솔루션을 통해 온-프레미스 도메인에 VM을 가입하지 않습니다.
 
 - 가상 컴퓨터가 도메인에 가입되지 않았지만 VM의 SQL Server 기능에 원격으로 연결하려는 경우:
 
 	- VM의 방화벽에서 포트를 엽니다.
-	
+
 	- 표시된 포트(*)에 가상 컴퓨터 끝점을 만듭니다.
 
 - Azure 가상 네트워킹 같은 VPN 터널을 사용하여 가상 컴퓨터가 도메인에 가입되어 있는 경우 끝점이 필요하지 않습니다. 그러나 VM의 방화벽에서 포트를 엽니다.
@@ -397,7 +397,7 @@ Analysis Services의 **명명된 인스턴스**의 경우 포트 액세스를 �
 
 - 끝점 만들기: [가상 컴퓨터에 끝점을 설정하는 방법](virtual-machines-windows-classic-setup-endpoints.md)
 
-- SQL Server: [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-classic-portal-sql.md)의 "SQL Server Management Studio를 사용하여 가상 컴퓨터에 연결하는 구성 단계 완료"를 참조하세요.
+- SQL Server: [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-portal-sql-server-provision.md)의 "SQL Server Management Studio를 사용하여 가상 컴퓨터에 연결하는 구성 단계 완료"를 참조하세요.
 
 다음 다이어그램에서는 VM의 기능 및 구성 요소에 대한 원격 액세스를 허용하기 위해 VM 방화벽에서 열 포트를 보여 줍니다.
 
@@ -411,7 +411,7 @@ Analysis Services의 **명명된 인스턴스**의 경우 포트 액세스를 �
 
 - [가상 컴퓨터](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
-- [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-classic-portal-sql.md)
+- [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-portal-sql-server-provision.md)
 
 - [가상 컴퓨터에 데이터 디스크를 연결하는 방법](virtual-machines-windows-classic-attach-disk.md)
 
@@ -431,4 +431,4 @@ Analysis Services의 **명명된 인스턴스**의 경우 포트 액세스를 �
 
 - [PowerShell을 사용한 Azure SQL 데이터베이스 관리](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

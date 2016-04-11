@@ -13,7 +13,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="02/03/2016" 
+    ms.date="03/30/2016" 
     ms.author="arramac"/>
     
 # Azure DocumentDB에서 지리 공간 데이터 작업
@@ -102,7 +102,7 @@ GeoJSON 값을 포함하는 문서를 만드는 경우 컬렉션의 인덱싱 �
        }
     };
 
-    client.createDocument(collectionLink, userProfileDocument, function (err, created) {
+    client.createDocument(`dbs/${databaseName}/colls/${collectionName}`, userProfileDocument, (err, created) => {
         // additional code within the callback
     });
 
@@ -124,7 +124,7 @@ GeoJSON 값을 포함하는 문서를 만드는 경우 컬렉션의 인덱싱 �
     }
     
     await client.CreateDocumentAsync(
-        collection.SelfLink, 
+        UriFactory.CreateDocumentCollectionUri("db", "profiles"), 
         new UserProfile 
         { 
             Name = "documentdb", 
@@ -237,7 +237,7 @@ LINQ를 사용하여 DocumentDB 컬렉션에서 "위치" 값이 지정된 점에
 
 **거리에 대한 LINQ 쿼리**
 
-    foreach (UserProfile user in client.CreateDocumentQuery<UserProfile>(collection.SelfLink)
+    foreach (UserProfile user in client.CreateDocumentQuery<UserProfile>(UriFactory.CreateDocumentCollectionUri("db", "profiles"))
         .Where(u => u.ProfileType == "Public" && a.Location.Distance(new Point(32.33, -4.66)) < 30000))
     {
         Console.WriteLine("\t" + user);
@@ -259,7 +259,7 @@ LINQ를 사용하여 DocumentDB 컬렉션에서 "위치" 값이 지정된 점에
             })
         });
 
-    foreach (UserProfile user in client.CreateDocumentQuery<UserProfile>(collection.SelfLink)
+    foreach (UserProfile user in client.CreateDocumentQuery<UserProfile>(UriFactory.CreateDocumentCollectionUri("db", "profiles"))
         .Where(a => a.Location.Within(rectangularArea)))
     {
         Console.WriteLine("\t" + user);
@@ -288,9 +288,9 @@ LINQ 및 SQL을 사용하여 문서를 쿼리하는 방법을 살펴보았으며
              "path":"/*",
              "indexes":[
                 {
-                   "kind":"Hash",
+                   "kind":"Range",
                    "dataType":"String",
-                   "precision":3
+                   "precision":-1
                 },
                 {
                    "kind":"Range",
@@ -312,40 +312,31 @@ LINQ 및 SQL을 사용하여 문서를 쿼리하는 방법을 살펴보았으며
 
 **공간 인덱싱을 사용하여 컬렉션 만들기**
 
-    IndexingPolicy spatialIndexingPolicy = new IndexingPolicy();
-    spatialIndexingPolicy.IncludedPaths.Add(new IncludedPath
-    {
-        Path = "/*",
-        Indexes = new System.Collections.ObjectModel.Collection<Index>()
-            {
-                new RangeIndex(DataType.Number) { Precision = -1 },
-                new RangeIndex(DataType.String) { Precision = -1 },
-                new SpatialIndex(DataType.Point)
-            }
-    });
-
-    Console.WriteLine("Creating new collection...");
-    collection = await client.CreateDocumentCollectionAsync(dbLink, collectionDefinition);
+    DocumentCollection spatialData = new DocumentCollection()
+    spatialData.IndexingPolicy = new IndexingPolicy(new SpatialIndex(DataType.Point)); //override to turn spatial on by default
+    collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), spatialData);
 
 문서 내에 저장된 모든 점에 대해 공간 인덱싱을 활용하도록 기존 컬렉션을 수정하는 방법은 다음과 같습니다.
 
 **공간 인덱싱을 사용하여 기존 컬렉션 수정**
 
     Console.WriteLine("Updating collection with spatial indexing enabled in indexing policy...");
-    collection.IndexingPolicy = spatialIndexingPolicy; 
+    collection.IndexingPolicy = new IndexingPolicy(new SpatialIndex(DataType.Point));
     await client.ReplaceDocumentCollectionAsync(collection);
 
     Console.WriteLine("Waiting for indexing to complete...");
     long indexTransformationProgress = 0;
     while (indexTransformationProgress < 100)
     {
-        ResourceResponse<DocumentCollection> response = await client.ReadDocumentCollectionAsync(collection.SelfLink);
+        ResourceResponse<DocumentCollection> response = await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"));
         indexTransformationProgress = response.IndexTransformationProgress;
 
         await Task.Delay(TimeSpan.FromSeconds(1));
     }
 
 > [AZURE.NOTE] 문서 내의 위치 GeoJSON 값이 잘못되었거나 형식이 잘못된 경우 공간 쿼리를 위해 인덱싱되지 않습니다. ST\_ISVALID 및 ST\_ISVALIDDETAILED를 사용하여 위치 값의 유효성을 검사할 수 있습니다.
+>
+> 컬렉션 정의가 파티션 키를 포함하는 경우 인덱싱 변환 진행률은 보고되지 않습니다.
 
 ## 다음 단계
 DocumentDB에서 지리 공간 지원을 시작하는 방법을 배웠으므로 이제 다음 작업을 수행할 수 있습니다.
@@ -355,4 +346,4 @@ DocumentDB에서 지리 공간 지원을 시작하는 방법을 배웠으므로 
 - [DocumentDB 쿼리](documentdb-sql-query.md)에 대해 자세히 알아보기
 - [DocumentDB 인덱싱 정책](documentdb-indexing-policies.md)에 대해 자세히 알아보기
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0330_2016-->

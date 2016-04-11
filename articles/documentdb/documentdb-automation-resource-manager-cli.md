@@ -329,7 +329,7 @@ DocumentDB 계정을 만들려면 먼저 리소스 그룹이 필요합니다. �
 
     	azure group log show new_res_group --last-deployment
 
-    그런 다음 [Azure에서 리소스 그룹 배포 문제 해결](../virtual-machines/resource-group-deploy-debug.md)을 참조하세요.
+    그런 다음 [Azure에서 리소스 그룹 배포 문제 해결](../resource-manager-troubleshoot-deployments-cli.md)을 참조하세요.
 
 - 오류 정보는 다음 스크린샷에 표시된 대로 Azure 포털에서도 사용할 수 있습니다. 오류 정보를 탐색하려면: Jumpbar에서 리소스 그룹을 클릭하고 오류가 있는 리소스 그룹을 선택한 다음 리소스 그룹 블레이드의 필수 항목 영역에서 마지막 배포 날짜를 클릭한 후 배포 기록 블레이드에서 실패한 배포를 선택한 다음 배포 블레이드에서 빨간색 느낌표가 있는 작업 세부 정보를 클릭합니다. 작업 세부 정보 블레이드에서 실패한 배포에 대한 상태 메시지가 표시됩니다.
 
@@ -354,4 +354,4 @@ DocumentDB에 대해 자세히 알아보려면 다음 리소스를 참조하세�
 
 사용할 수 있는 더 많은 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)을 참조하세요.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

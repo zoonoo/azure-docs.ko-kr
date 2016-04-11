@@ -10,5 +10,7 @@
  - 레코드 그룹을 통해 통계를 계산하는 데 사용됩니다.
 - [스칼라](../articles/application-insights/app-analytics-scalars.md)
  - 쿼리 매개 변수를 구성하는 데 숫자, 문자열 및 기타 식을 사용합니다.
+- [큐에 메시지가 없을 때](../articles/application-insights/app-analytics-using.md)
+ - 분석을 사용합니다.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

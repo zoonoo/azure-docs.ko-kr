@@ -1,5 +1,5 @@
 
-이 문서에서는 Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 Azure 가상 컴퓨터를 배포하고 관리하는 다음 일반 작업을 수행하는 방법을 보여 줍니다. 사용할 수 있는 더 많은 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/) 및 [템플릿을 사용하는 응용 프로그램 프레임워크](virtual-machines-linux-app-frameworks.md)를 참조하세요.
+이 문서에서는 Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 Azure 가상 컴퓨터를 배포하고 관리하는 다음 일반 작업을 수행하는 방법을 보여 줍니다. 사용할 수 있는 더 많은 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/) 및 [템플릿을 사용하는 응용 프로그램 프레임워크](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md)를 참조하세요.
 
 
 - [Azure에서 가상 컴퓨터 빨리 만들기](#quick-create-a-vm-in-azure)
@@ -35,9 +35,9 @@ Azure 리소스 그룹에서 Azure CLI를 사용하려면 올바른 Azure CLI �
 
 Azure 구독은 아직 없지만 MSDN 구독은 있는 경우 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화할 수 있습니다. 또는 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 
-이제 `azure login`를 입력하여 [Azure 계정에 대화식으로 로그인](../xplat-cli-connect.md#use-the-log-in-method)하고 Azure 계정의 대화식 로그인 환경에 대한 메시지를 따릅니다.
+이제 `azure login`를 입력하여 [Azure 계정에 대화식으로 로그인](../articles/xplat-cli-connect.md#use-the-log-in-method)하고 Azure 계정의 대화식 로그인 환경에 대한 메시지를 따릅니다.
 
-> [AZURE.NOTE] 회사 또는 학교 ID가 있고 2단계 인증이 활성화되지 않은 경우에는 대화형 세션 *없이* 로그인하도록 회사 또는 학교 ID와 함께 `azure login -u`를 사용할 **수도** 있습니다. 회사 또는 학교 ID가 없는 경우, 같은 방식으로 로그인하려면 [개인 Microsoft 계정에서 회사 또는 학교 ID를 만들 수](virtual-machines-windows-create-aad-work-id.md) 있습니다.
+> [AZURE.NOTE] 회사 또는 학교 ID가 있고 2단계 인증이 활성화되지 않은 경우에는 대화형 세션 *없이* 로그인하도록 회사 또는 학교 ID와 함께 `azure login -u`를 사용할 **수도** 있습니다. 회사 또는 학교 ID가 없는 경우, 같은 방식으로 로그인하려면 [개인 Microsoft 계정에서 회사 또는 학교 ID를 만들 수](../articles/virtual-machines/virtual-machines-windows-create-aad-work-id.md) 있습니다.
 
 계정에는 둘 이상의 구독이 있을 수 있습니다. `azure account list`를 입력하여 구독을 나열할 수 있으며, 다음과 같이 표시될 수 있습니다.
 
@@ -75,7 +75,7 @@ Azure 구독은 아직 없지만 MSDN 구독은 있는 경우 [MSDN 구독자 �
 - 작업을 감사합니다.
 - 추가 메타데이터로 리소스에 태그를 지정하여 추적을 개선합니다.
 
-Azure 리소스 그룹 및 기능에 대한 자세한 내용은 [Azure 리소스 관리자 개요](../resource-group-overview.md)에서 확인할 수 있습니다. 템플릿 작성에 관심이 있다면 [Azure 리소스 관리자 템플릿 작성](../resource-group-authoring-templates.md)을 참조하세요.
+Azure 리소스 그룹 및 기능에 대한 자세한 내용은 [Azure 리소스 관리자 개요](../articles/resource-group-overview.md)에서 확인할 수 있습니다. 템플릿 작성에 관심이 있다면 [Azure 리소스 관리자 템플릿 작성](../articles/resource-group-authoring-templates.md)을 참조하세요.
 
 ## <a id="quick-create-a-vm-in-azure"></a>작업: Azure에서 VM 빠르게 만들기
 
@@ -97,7 +97,7 @@ Azure 리소스 그룹 및 기능에 대한 자세한 내용은 [Azure 리소스
     info:    group create command OK
 
 
-두 번째로 이미지가 필요합니다. Azure CLI를 사용하여 이미지를 찾으려면 [PowerShell 및 Azure CLI를 사용하여 Azure 가상 컴퓨터 이미지 탐색 및 선택](virtual-machines-linux-cli-ps-findimage.md)을 참조하세요. 그러나 이 문서에서는 다음과 같이 많이 사용되는 간단한 이미지 목록을 제공합니다. 이 quick-create에서는 CoreOS의 Stable 이미지를 사용합니다.
+두 번째로 이미지가 필요합니다. Azure CLI를 사용하여 이미지를 찾으려면 [PowerShell 및 Azure CLI를 사용하여 Azure 가상 컴퓨터 이미지 탐색 및 선택](../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md)을 참조하세요. 그러나 이 문서에서는 다음과 같이 많이 사용되는 간단한 이미지 목록을 제공합니다. 이 quick-create에서는 CoreOS의 Stable 이미지를 사용합니다.
 
 > [AZURE.NOTE] ComputeImageVersion의 경우, 템플릿 언어 및 Azure CLI 모두에서 매개 변수로 단순히 '최신'을 제공할 수도 있습니다. 이렇게 하면 사용자 스크립트 또는 템플릿을 수정하지 않고도 최신 및 패치가 적용된 버전의 이미지를 항상 사용할 수 있습니다. 다음과 같습니다.
 
@@ -666,9 +666,9 @@ JSON 파일의 "parameters" 섹션에 매개 변수 값을 제공하라는 메�
 
 이 경우 .vhd가 반드시 필요합니다. 이미 Azure에 있는 VHD를 사용하거나 업로드할 수 있습니다.
 
-Windows 기반 가상 컴퓨터의 경우 [Windows Server VHD를 만들어서 Azure에 업로드](virtual-machines-windows-classic-createupload-vhd.md)를 참조하세요.
+Windows 기반 가상 컴퓨터의 경우 [Windows Server VHD를 만들어서 Azure에 업로드](../articles/virtual-machines/virtual-machines-windows-classic-createupload-vhd.md)를 참조하세요.
 
-Linux 기반 가상 컴퓨터의 경우 [Linux 운영 체제를 포함하는 가상 하드 디스크 만들기 및 업로드](virtual-machines-linux-classic-create-upload-vhd.md)를 참조하세요.
+Linux 기반 가상 컴퓨터의 경우 [Linux 운영 체제를 포함하는 가상 하드 디스크 만들기 및 업로드](../articles/virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md)를 참조하세요.
 
 ### 3단계: 템플릿을 사용하여 가상 컴퓨터 만들기
 
@@ -1160,7 +1160,7 @@ Azure PowerShell 명령을 통해 Github 템플릿 리포지토리의 리소스 
 
 ## <a id="show-the-log-for-a-resource-group-deployment"></a>작업: 리소스 그룹 배포에 대한 로그 표시
 
-템플릿을 만들거나 사용할 때 일반적인 작업입니다. 그룹에 대한 배포 로그를 표시하려면 `azure group log show <groupname>`을 호출합니다. 그러면 특정 작업이 수행되거나 수행되지 않은 이유를 이해하는 데 유용한 많은 정보가 표시됩니다. 배포 문제 해결에 대한 자세한 내용 및 문제에 대한 기타 정보는 [Azure에서 리소스 그룹 배포 문제 해결](resource-group-deploy-debug.md)을 참조하세요.
+템플릿을 만들거나 사용할 때 일반적인 작업입니다. 그룹에 대한 배포 로그를 표시하려면 `azure group log show <groupname>`을 호출합니다. 그러면 특정 작업이 수행되거나 수행되지 않은 이유를 이해하는 데 유용한 많은 정보가 표시됩니다. 배포 문제 해결에 대한 자세한 내용 및 문제에 대한 기타 정보는 [Azure에서 리소스 그룹 배포 문제 해결](../articles/resource-manager-troubleshoot-deployments-cli.md)을 참조하세요.
 
 예를 들어 특정 오류를 대상으로 지정하려면 **jq**와 같은 도구를 사용하여 해결해야 하는 개별 오류와 같은 항목을 좀더 정확하게 쿼리할 수 있습니다. 다음 예제에서는 **jq**를 사용하여 **lbgroup**에 대한 배포 로그를 구문 분석하고 오류를 찾습니다.
 
@@ -1243,7 +1243,7 @@ Azure PowerShell 명령을 통해 Github 템플릿 리포지토리의 리소스 
 
 ## <a id="log-on-to-a-linux-based-virtual-machine"></a>작업: Linux 기반 가상 컴퓨터에 로그온
 
-일반적으로 Linux 컴퓨터는 SSH를 통해 연결됩니다. 자세한 내용은 [Azure에서 Linux와 함께 SSH를 사용하는 방법](virtual-machines-linux-ssh-from-linux.md)을 참조하세요.
+일반적으로 Linux 컴퓨터는 SSH를 통해 연결됩니다. 자세한 내용은 [Azure에서 Linux와 함께 SSH를 사용하는 방법](../articles/virtual-machines/virtual-machines-linux-ssh-from-linux.md)을 참조하세요.
 
 ## <a id="stop-a-virtual-machine"></a>작업: VM 중지
 
@@ -1276,9 +1276,9 @@ Azure PowerShell 명령을 통해 Github 템플릿 리포지토리의 리소스 
 
 ## 다음 단계
 
-**arm** 모드의 Azure CLI 사용에 대한 더 많은 예제는 [Azure 리소스 관리자에 Mac, Linux 및 Windows용 Azure CLI 사용](xplat-cli-azure-resource-manager.md)을 참조하세요. Azure 리소스 및 해당 개념에 대한 자세한 내용은 [Azure 리소스 관리자 개요](../resource-group-overview.md)를 참조하세요.
+**arm** 모드의 Azure CLI 사용에 대한 더 많은 예제는 [Azure 리소스 관리자에 Mac, Linux 및 Windows용 Azure CLI 사용](../articles/xplat-cli-azure-resource-manager.md)을 참조하세요. Azure 리소스 및 해당 개념에 대한 자세한 내용은 [Azure 리소스 관리자 개요](../articles/resource-group-overview.md)를 참조하세요.
 
 
-사용할 수 있는 더 많은 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/) 및 [템플릿을 사용하는 응용 프로그램 프레임워크](virtual-machines-linux-app-frameworks.md)를 참조하세요.
+사용할 수 있는 더 많은 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/) 및 [템플릿을 사용하는 응용 프로그램 프레임워크](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

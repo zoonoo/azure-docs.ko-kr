@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스와 함께 Azure 기계 학습 사용
@@ -54,7 +54,7 @@ AdventureWorksDW 데이터베이스의 Product 테이블에서 데이터를 읽�
 7. 데이터베이스 쿼리: 읽을 데이터를 설명하는 SQL 문을 입력합니다. 이 경우 다음 쿼리를 사용하여 Product 테이블에서 데이터를 읽습니다.
 
 
-```
+```SQL
 SELECT ProductKey, EnglishProductName, StandardCost,
         ListPrice, Size, Weight, DaysToManufacture,
         Class, Style, Color
@@ -149,4 +149,4 @@ FROM dbo.DimProduct;
 
 [Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

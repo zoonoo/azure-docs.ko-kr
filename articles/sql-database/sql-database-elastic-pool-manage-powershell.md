@@ -16,7 +16,7 @@
     ms.date="03/15/2016"
     ms.author="sstein"/>
 
-# 탄력적 데이터베이스 풀 모니터링 및 관리(PowerShell) 
+# PowerShell을 사용하여 탄력적 데이터베이스 풀 모니터링, 관리 및 크기 조정 
 
 > [AZURE.SELECTOR]
 - [Azure 포털](sql-database-elastic-pool-manage-portal.md)
@@ -35,7 +35,7 @@ Azure PowerShell 1.0 이상을 실행해야 합니다. 자세한 내용은 [Azur
 
 
 
-## 탄력적 데이터베이스 풀에 새 탄력적 데이터베이스 만들기
+## 풀에 새 탄력적 데이터베이스 만들기
 
 풀 내에서 직접 새 데이터베이스를 만들려면 [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx) cmdlet을 사용하고 **ElasticPoolName** 매개 변수를 설정합니다.
 
@@ -43,34 +43,34 @@ Azure PowerShell 1.0 이상을 실행해야 합니다. 자세한 내용은 [Azur
 	New-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
 
-## 독립 실행형 데이터베이스를 탄력적 데이터베이스 풀로 이동
+## 독립 실행형 데이터베이스를 풀로 이동
 
 기존 데이터베이스를 풀로 이동하려면 [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx) cmdlet을 사용하고 **ElasticPoolName** 매개 변수를 설정합니다.
 
 	Set-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
 
-## 탄력적 데이터베이스 풀의 성능 설정 변경
+## 풀의 성능 설정 변경
 
-탄력적 데이터베이스 풀의 성능 설정을 변경하려면 [Set-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603511.aspx) cmdlet을 사용합니다.
+풀의 성능 설정을 변경하려면 [Set-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603511.aspx) cmdlet을 사용합니다.
 
     Set-AzureRmSqlElasticPool –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” –Dtu 1200 –DatabaseDtuMax 100 –DatabaseDtuMin 50 
 
 
-## 탄력적 데이터베이스 풀 관련 작업 상태 확인
+## 풀 관련 작업 상태 확인
 
-[Get-AzureRmSqlElasticPoolActivity](https://msdn.microsoft.com/library/azure/mt603812.aspx) cmdlet을 사용하여 생성 및 업데이트를 포함한 탄력적 데이터베이스 풀 작업의 상태를 추적할 수 있습니다.
+[Get-AzureRmSqlElasticPoolActivity](https://msdn.microsoft.com/library/azure/mt603812.aspx) cmdlet을 사용하여 생성 및 업데이트를 포함한 풀 작업의 상태를 추적할 수 있습니다.
 
 	Get-AzureRmSqlElasticPoolActivity –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” 
 
 
-## 탄력적 데이터베이스를 탄력적 데이터베이스 풀 내외부로 이동하는 작업의 상태 확인
+## 탄력적 데이터베이스를 풀 내외부로 이동하는 작업의 상태 확인
 
 [Get-AzureRmSqlDatabaseActivity](https://msdn.microsoft.com/library/azure/mt603687.aspx) cmdlet을 사용하여 생성 및 업데이트를 포함한 탄력적 데이터베이스 작업의 상태를 추적할 수 있습니다.
 
 	Get-AzureRmSqlDatabaseActivity -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
-## 탄력적 데이터베이스 풀에 대한 사용 현황 데이터 가져오기
+## 풀에 대한 사용 데이터 가져오기
 
 원본 풀 한도의 백분율로 검색할 수 있는 메트릭:
 
@@ -113,7 +113,7 @@ CSV 파일로 내보내기:
 
 이 API는 다음과 같은 의미 체계 차이를 제외하고 독립 실행형 데이터베이스의 리소스 사용률을 모니터링하는 데 사용되는 현재(V12) API와 동일합니다.
 
-* 이 API의 경우 메트릭이 해당 탄력적 데이터베이스 풀에 대한 databaseDtuMax(또는 CPU, IO 등 기반 메트릭에 대해 동등한 최대값) 집합당 백분율로 표현됩니다. 예를 들어 이 메트릭에서 50% 사용률은 특정 리소스 사용률이 부모 탄력적 데이터베이스 풀의 리소스에 대한 데이터베이스당 최대값 한도의 50%임을 나타냅니다. 
+* 이 API의 경우 메트릭이 해당 풀에 대한 databaseDtuMax(또는 CPU, IO 등 기반 메트릭에 대해 동등한 최대값) 집합당 백분율로 표현됩니다. 예를 들어, 이 메트릭에서 50% 사용률은 특정 리소스 사용률이 상위 풀의 리소스에 대한 데이터베이스당 최대값 한도의 50%임을 나타냅니다. 
 
 메트릭 가져오기:
 
@@ -132,7 +132,7 @@ CSV 파일로 내보내기:
     foreach($e in $table) { Export-csv -Path c:\temp\metrics.csv -input $e -Append -NoTypeInformation}
 
 
-## 탄력적 데이터베이스 풀 모니터링 및 관리(PowerShell 예제)
+## 풀 PowerShell 예제 모니터링 및 관리
 
 
     $subscriptionId = '<Azure subscription id>'
@@ -178,4 +178,4 @@ CSV 파일로 내보내기:
 
 API 및 오류 세부 정보를 포함하여 탄력적 데이터베이스 및 탄력적 데이터베이스 풀에 대한 자세한 내용은 [탄력적 데이터베이스 참조](sql-database-elastic-pool-reference.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

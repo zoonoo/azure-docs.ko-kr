@@ -13,10 +13,10 @@ HPC 팩 클러스터 계획에 대한 배경 정보는 HPC 팩 TechNet 라이브
 
 ## 필수 조건
 
-* **Azure 구독** - Azure Global 또는 Azure China 서비스의 구독을 사용할 수 있습니다. 구독 제한은 배포할 수 있는 클러스터 노드의 수와 유형에 영향을 줍니다. 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)을 참조하세요.
+* **Azure 구독** - Azure Global 또는 Azure China 서비스의 구독을 사용할 수 있습니다. 구독 제한은 배포할 수 있는 클러스터 노드의 수와 유형에 영향을 줍니다. 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../articles/azure-subscription-service-limits.md)을 참조하세요.
 
 
-* **Azure PowerShell 0.8.7 이상이 설치 및 구성된 Windows 클라이언트 컴퓨터** - [Azure PowerShell 설치 및 구성](../powershell-install-configure.md)을 참조하세요. 이 스크립트는 Azure 서비스 관리에서 실행됩니다.
+* **Azure PowerShell 0.8.7 이상이 설치 및 구성된 Windows 클라이언트 컴퓨터** - [Azure PowerShell 설치 및 구성](../articles/powershell-install-configure.md)을 참조하세요. 이 스크립트는 Azure 서비스 관리에서 실행됩니다.
 
 
 * **HPC 팩 IaaS 배포 스크립트** - [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=44949)에서 최신 버전의 스크립트를 다운로드하고 압축을 풉니다. `New-HPCIaaSCluster.ps1 –Version`을 실행하여 스크립트 버전을 확인합니다. 이 문서는 버전 4.4.0의 스크립트를 기반으로 합니다.
@@ -362,4 +362,4 @@ New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> 
 
     이 문제를 해결하려면 가장 먼저 VM에서 확장 상태를 확인합니다. 확장이 올바르게 설치되지 않은 경우 HPC 클러스터에서 노드를 제거한 다음 노드를 다시 추가해 보십시오. 예를 들어 헤드 노드에서 Add-HpcIaaSNode.ps1 스크립트를 실행하여 계산 노드 VM을 추가할 수 있습니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

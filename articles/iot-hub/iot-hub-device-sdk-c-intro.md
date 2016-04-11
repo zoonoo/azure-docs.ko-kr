@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="02/23/2016"
+     ms.date="03/29/2016"
      ms.author="obloch"/>
 
 # C용 Azure IoT 장치 SDK 소개
@@ -155,6 +155,8 @@ SDK를 사용하여 작업하는 경우 항상 **Microsoft.Azure.C.SharedUtility
 이 샘플 응용 프로그램을 사용하여 **IoTHubClient** 라이브러리를 사용하는 데 필요한 내용을 안내합니다.
 
 ### 라이브러리 초기화
+
+> [AZURE.NOTE] 라이브러리 작업을 시작하기 전에 일부 플랫폼별 초기화를 수행해야 할 수 있습니다. 예를 들어 Linux에서 AMQPS를 사용할 계획인 경우 OpenSSL 라이브러리를 초기화해야 합니다. [GitHub 리포지토리](https://github.com/Azure/azure-iot-sdks)에 있는 샘플은 클라이언트가 시작될 때 유틸리티 함수 **platform\_init**를 호출하고 종료하기 전에 **platform\_deinit** 함수를 호출합니다. 이러한 함수는 "platform.h" 헤더 파일에 선언됩니다. [리포지토리](https://github.com/Azure/azure-iot-sdks)에서 대상 플랫폼에 대해 이러한 함수의 정의를 확인하여 클라이언트에 플랫폼 초기화 코드를 포함해야 하는지 여부를 결정합니다.
 
 라이브러리로 작업을 시작하려면 먼저 IoT Hub 클라이언트 핸들을 할당해야 합니다.
 
@@ -458,4 +460,4 @@ serializer_deinit();
 
 이 문서에서는 **C용 Azure IoT 장치 SDK**에서 라이브러리 사용에 대한 기본 사항을 다룹니다. SDK에 포함된 사항, 아키텍처 및 Windows 샘플 작업을 시작하는 방법을 이해하기에 충분한 정보를 제공합니다. 다음 문서에서는 [IoTHubClient 라이브러리에 대한 자세한 정보](iot-hub-device-sdk-c-iothubclient.md)를 설명하여 SDK를 계속 설명합니다.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/27/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess"/>
 
 # SQL 데이터 웨어하우스에 대해 트랜잭션 최적화
@@ -89,7 +89,7 @@ Azure SQL 데이터 웨어하우스는 트랜잭션 로그를 사용하여 데�
 ### CTAS를 사용하여 대규모 삭제 작업 최적화
 테이블 또는 파티션에서 데이터를 대량으로 삭제해야 하는 경우 보관하려는 데이터를 `SELECT`하는 것보다 [CTAS][]를 사용하여 새 테이블을 만드는 것이 보다 효율적일 때가 종종 있습니다. 테이블을 만들었으면 [RENAME OBJECT][] 명령 쌍을 사용하여 테이블의 이름을 전환합니다.
 
-```
+```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.
 
 --Step 01. Create a new table select only the records we want to kep (PromotionKey 2)
@@ -124,7 +124,7 @@ RENAME OBJECT [dbo].[FactInternetSales_d] TO [FactInternetSales];
 
 이 예에서는 테이블의 판매 금액에 할인 금액을 소급하여 추가하고 있습니다.
 
-```
+```sql
 --Step 01. Create a new table containing the "Update". 
 CREATE TABLE [dbo].[FactInternetSales_u]
 WITH
@@ -192,7 +192,7 @@ DROP TABLE [dbo].[FactInternetSales_old]
 
 그러나 전환할 파티션을 식별하려면 먼저 아래와 같은 도우미 프로시저를 빌드해야 합니다.
 
-```
+```sql
 CREATE PROCEDURE dbo.partition_data_get
 	@schema_name		   NVARCHAR(128)
 ,	@table_name			   NVARCHAR(128)
@@ -240,7 +240,7 @@ GO
 
 아래 코드는 위에서 언급한 전체 파티션 전환 루틴을 달성하는 다섯 단계를 보여 줍니다.
 
-```
+```sql
 --Create a partitioned aligned empty table to switch out the data 
 IF OBJECT_ID('[dbo].[FactInternetSales_out]') IS NOT NULL
 BEGIN
@@ -346,7 +346,7 @@ DROP TABLE #ptn_data
 
 아래는 작업 예제입니다. 방법을 강조하기 위해 배치 크기가 간단한 숫자로 설정되었습니다. 현실에서는 배치 크기가 엄청나게 거대합니다.
 
-```
+```sql
 SET NO_COUNT ON;
 IF OBJECT_ID('tempdb..#t') IS NOT NULL
 BEGIN
@@ -436,4 +436,4 @@ Azure SQL 데이터 웨어하우스를 사용하여 필요에 따라 데이터 �
 <!--MSDN references-->
 [alter index]: https://msdn.microsoft.com/ko-KR/library/ms188388.aspx
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

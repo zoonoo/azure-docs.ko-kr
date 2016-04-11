@@ -937,7 +937,7 @@ ASP.NET Web API를 사용하여 구현된 서비스에서 각 요청은 _control
 
 	처리에 긴 시간에 소요되는 요청은 요청을 제출한 클라이언트를 차단하지 말고 수행되어야 합니다. Web API는 요청의 유효성을 검사하기 위한 초기 확인을 수행하고 업무를 수행할 개별 작업을 시작하고, HTTP 코드 202(수락됨)와 함께 응답 메시지를 반환할 수 있습니다. 작업은 Web API 프로세스의 일부로 비동기 실행되거나 Azure WebJob(Web API가 Azure 웹 사이트에 의해 호스팅되는 경우) 또는 작업자 역할(Web API가 Azure 클라우드 서비스로 구현되는 경우)로 오프로드될 수 있습니다.
 
-	> [AZURE.NOTE] Azure 웹 사이트와 WebJobs사용에 대한 자세한 내용은 Microsoft 웹 사이트의 [Microsoft Azure 웹 사이트에서 WebJobs를 사용하여 백그라운드 작업 실행](web-sites-create-web-jobs.md) 페이지를 참조하세요.
+	> [AZURE.NOTE] Azure 웹 사이트와 WebJobs사용에 대한 자세한 내용은 Microsoft 웹 사이트의 [Microsoft Azure 웹 사이트에서 WebJobs를 사용하여 백그라운드 작업 실행](../articles/app-service-web/web-sites-create-web-jobs.md) 페이지를 참조하세요.
 
 	Web API는 처리 결과를 클라이언트 응용 프로그램에 반환하기 위한 메커니즘을 제공해야 합니다. 처리가 완료되었는지를 주기적으로 쿼리하고 결과를 입수하기 위하여 클라이언트 응용 프로그램에 대한 폴링 메커니즘을 제공하거나 작업이 완료되면 Web API가 알림을 보낼 수 있도록 하는 방법으로 구현할 수 있습니다.
 
@@ -1061,7 +1061,7 @@ Azure에는 Web API를 게시 및 관리하는데 사용할 수 있는 [API 관�
 
 이러한 작업을 수행하는 방법에 대한 자세한 내용은 Microsoft 웹 사이트의 [API 관리](https://azure.microsoft.com/services/api-management/) 페이지를 참조하세요. Azure API 관리 서비스에는 Web API 구성 과정을 간소화하기 위한 사용자 지정 인터페이스를 빌드할 수 있도록 자체적인 REST 인터페이스가 제공됩니다. 자세한 내용을 보려면 Microsoft 웹 사이트의 [Azure API 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn776326.aspx) 페이지를 방문하세요.
 
-> [AZURE.TIP] Azure에는 장애 조치(failover) 및 부하 분산을 구현하고, 지리적으로 다른 위치에서 호스팅되는 웹 사이트의 복수 인스턴스에 대해 대기 시간을 줄일 수 있도록 하는 Azure 트래픽 관리자가 제공됩니다. Azure 트래픽 관리자를 API 관리 서비스와 결합하여 사용할 수 있습니다. API 관리 서비스는 Azure 트래픽 관리자를 통해 웹 사이트의 인스턴스로 요청을 라우팅할 수 있습니다. 자세한 내용을 보려면 Microsoft 웹 사이트의 [트래픽 관리자 부하 분산 방법 정보](../traffic-manager/traffic-manager-load-balancing-methods.md) 페이지를 방문하세요.
+> [AZURE.TIP] Azure에는 장애 조치(failover) 및 부하 분산을 구현하고, 지리적으로 다른 위치에서 호스팅되는 웹 사이트의 복수 인스턴스에 대해 대기 시간을 줄일 수 있도록 하는 Azure 트래픽 관리자가 제공됩니다. Azure 트래픽 관리자를 API 관리 서비스와 결합하여 사용할 수 있습니다. API 관리 서비스는 Azure 트래픽 관리자를 통해 웹 사이트의 인스턴스로 요청을 라우팅할 수 있습니다. 자세한 내용은 Microsoft 웹 사이트의 [트래픽 관리자 라우팅 메서드](../articles/traffic-manager/traffic-manager-routing-methods.md) 페이지를 방문하세요.
 
 > 이런 구조에서 웹 사이트에 사용자 지정 DNS 이름을 사용하면 Azure 트래픽 관리자 웹 사이트의 DNS 이름을 포인트하도록 각 웹 사이트에 대해 적절한 CNAME 레코드를 구성해야 합니다.
 
@@ -1111,7 +1111,7 @@ ASP.NET Web API 템플릿(Azure 클라우드 서비스의 Web API 프로젝트 �
 
 이런 데이터를 Azure 관리 포털에서 실시간으로 볼 수 있습니다. Web API 상태를 모니터링하는 웹 테스트를 생성할 수도 있습니다. 웹 테스트는 Web API의 URI에 주기적으로 요청을 보내고 응답을 캡처합니다. 성공적인 응답의 정의(예: HTTP 상태 코드 200)를 명시할 수 있고, 요청이 이런 응답을 반환하지 않으면 관리자에게 경고를 보내도록 준비할 수 있습니다. 필요한 경우 관리자는 Web API에 오류가 발생하면 Web API를 호스팅하는 서버를 재시작할 수 있습니다.
 
-Microsoft 웹 사이트의 [Application Insights - 앱의 상태 및 사용 현황 모니터링 시작](app-insights-start-monitoring-app-health-usage/) 페이지에 자세한 정보가 제공되어 있습니다.
+Microsoft 웹 사이트의 [Application Insights - 앱의 상태 및 사용 현황 모니터링 시작](../articles/application-insights/app-insights-start-monitoring-app-health-usage.md) 페이지에 자세한 정보가 제공되어 있습니다.
 
 ### API 관리 서비스를 통한 Web API 모니터링
 
@@ -1143,13 +1143,13 @@ API 관리 서비스를 사용하여 Web API를 게시한 경우 Azure 관리 �
 - W3C 웹 사이트의 [Status Code Definitions](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)(상태 코드 정의) 페이지는 HTTP 상태 코드의 전체 목록과 그에 대한 설명을 포함합니다.
 - ASP.NET Web API를 통한 HTTP 예외 처리에 대한 자세한 정보를 보려면 Microsoft 웹 사이트의 [Exception Handling in ASP.NET Web API](http://www.asp.net/web-api/overview/error-handling/exception-handling)(ASP.NET Web API에서 예외 처리) 페이지를 방문하세요.
 - Microsoft 웹 사이트의 [Web API Global Error Handling](http://www.asp.net/web-api/overview/error-handling/web-api-global-error-handling)(Web API 전역 오류 처리) 문서는 Web API에 대한 전역 오류 처리 및 로깅 전략을 구현하는 방법을 설명합니다.
-- Microsoft 웹 사이트의 [Use WebJobs to run background tasks in Microsoft Azure Websites](web-sites-create-web-jobs.md)(Microsoft Azure 웹 사이트에서 WebJobs를 사용하여 백그라운드 작업 실행) 페이지는 Azure 웹 사이트에서 백그라운드 작업을 수행하기 위해 WebJobs를 사용하는 것에 대한 정보와 예제를 제공합니다.
+- Microsoft 웹 사이트의 [WebJob을 사용하여 백그라운드 작업 실행](../articles/app-service-web/web-sites-create-web-jobs.md) 페이지는 Azure 웹 사이트에서 백그라운드 작업을 수행하기 위해 WebJob을 사용하는 것에 대한 정보와 예제를 제공합니다.
 - Microsoft 웹 사이트의 [Azure Notification Hubs Notify Users](notification-hubs-aspnet-backend-windows-dotnet-notify-users/)(Azure 알림 허브 사용자 알림) 페이지는 Azure 알림 허브를 사용하여 클라이언트 응용 프로그램에 비동기 응답을 푸시하는 방법을 보여줍니다.
 - Microsoft 웹 사이트의 [API 관리](https://azure.microsoft.com/services/api-management/) 페이지는 Web API에 제어 및 보안 액세스를 제공하는 제품을 게시하는 방법을 설명합니다.
 - Microsoft 웹 사이트의 [Azure API Management REST API Reference](https://msdn.microsoft.com/library/azure/dn776326.aspx)(Azure API 관리 REST API 참조) 페이지는 API 관리 REST API를 사용하여 사용자 지정 관리 응용 프로그램을 빌드하는 방법을 설명합니다.
-- Microsoft 웹 사이트의 [트래픽 관리자 부하 분산 방법 정보](../traffic-manager/traffic-manager-load-balancing-methods.md) 페이지는 Web API를 호스팅하는 웹 사이트의 복수 인스턴스에 대한 부하 분산 요청에 Azure 트래픽 관리자를 사용하는 방법을 간추려 설명합니다.
-- Microsoft 웹 사이트의 [Application Insights - 앱의 상태 및 사용 현황 모니터링 시작](app-insights-start-monitoring-app-health-usage.md) 페이지는 ASP.NET Web API 프로젝트에서 Application Insights를 설치하고 구성하는 자세한 정보를 제공합니다.
+- Microsoft 웹 사이트의 [트래픽 관리자 라우팅 메서드](../articles/traffic-manager/traffic-manager-routing-methods.md) 페이지는 Web API를 호스팅하는 웹 사이트의 복수 인스턴스에 대한 부하 분산 요청에 Azure 트래픽 관리자를 사용하는 방법을 간추려 설명합니다.
+- Microsoft 웹 사이트의 [Application Insights - 앱의 상태 및 사용 현황 모니터링 시작](../articles/application-insights/app-insights-start-monitoring-app-health-usage.md) 페이지는 ASP.NET Web API 프로젝트에서 Application Insights를 설치하고 구성하는 자세한 정보를 제공합니다.
 - Microsoft 웹 사이트의 [단위 테스트를 사용하여 코드 확인](https://msdn.microsoft.com/library/dd264975.aspx) 페이지는 Visual Studio를 사용하여 단위 테스트를 생성하고 관리하는 자세한 정보를 제공합니다.
 - Microsoft 웹 사이트의 [앱에서 성능 테스트 실행](https://msdn.microsoft.com/library/dn250793.aspx) 페이지는 Visual Studio Ultimate을 사용하여 웹 성능 및 부하 테스트 프로젝트를 생성하는 방법을 설명합니다.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

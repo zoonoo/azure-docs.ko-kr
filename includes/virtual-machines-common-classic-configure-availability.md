@@ -38,7 +38,7 @@ Azure 클래식 포털을 사용하기
 
 	![새 가상 컴퓨터에 대한 가용성 집합 만들기](./media/virtual-machines-common-classic-configure-availability/VMavailabilityset.png)
 
-6. 네 번째 화면에서 설치할 확장을 클릭합니다. 확장은 맬웨어 방지 프로그램 실행, 암호 다시 설정 등 가상 컴퓨터를 보다 쉽게 관리할 수 있는 기능을 제공합니다. 자세한 내용은 [Azure VM 에이전트 및 VM 확장](virtual-machines-windows-classic-agents-and-extensions.md)을 참조하세요.
+6. 네 번째 화면에서 설치할 확장을 클릭합니다. 확장은 맬웨어 방지 프로그램 실행, 암호 다시 설정 등 가상 컴퓨터를 보다 쉽게 관리할 수 있는 기능을 제공합니다. 자세한 내용은 [Azure VM 에이전트 및 VM 확장](../articles/virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md)을 참조하세요.
 
 7.	화살표를 클릭하여 가상 컴퓨터와 가용성 집합을 만듭니다.
 
@@ -47,8 +47,8 @@ Azure 클래식 포털을 사용하기
 Azure PowerShell 명령을 사용하여 Azure 가상 컴퓨터를 만들고 새 또는 기존 가용성 집합에 추가하려면 다음을 참조하세요.
 
 
-- [Azure PowerShell을 사용하여 Linux 기반 가상 컴퓨터 만들기 및 미리 구성](virtual-machines-linux-classic-createpowershell.md)
-- [Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성](virtual-machines-windows-classic-create-powershell.md)
+- [Azure PowerShell을 사용하여 Linux 기반 가상 컴퓨터 만들기 및 미리 구성](../articles/virtual-machines/virtual-machines-linux-classic-createpowershell.md)
+- [Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성](../articles/virtual-machines/virtual-machines-windows-classic-create-powershell.md)
 
 ## <a id="addmachine"> </a>옵션 2: 기존 가상 컴퓨터를 가용성 집합에 추가##
 
@@ -86,11 +86,11 @@ Azure PowerShell 명령을 사용하려면 관리자 수준의 Azure PowerShell 
 [옵션 1: 가상 컴퓨터와 가용성 집합을 동시에 만듭니다.]: #createset
 [옵션 2: 기존 가상 컴퓨터를 가용성 집합에 추가합니다.]: #addmachine
 
-[Azure 인프라 서비스를 위한 부하 분산]: virtual-machines-linux-load-balance.md
-[가상 컴퓨터의 가용성 관리]: virtual-machines-linux-manage-availability.md
+[Azure 인프라 서비스를 위한 부하 분산]: ../articles/virtual-machines/virtual-machines-linux-load-balance.md
+[가상 컴퓨터의 가용성 관리]: ../articles/virtual-machines/virtual-machines-linux-manage-availability.md
 
-[Windows를 실행하는 가상 컴퓨터 만들기]: virtual-machines-windows-hero-tutorial.md
-[가상 네트워크 개요(영문)]: virtual-networks-overview.md
+[Windows를 실행하는 가상 컴퓨터 만들기]: ../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md
+[가상 네트워크 개요(영문)]: ../articles/virtual-network/virtual-networks-overview.md
 [서비스 관리의 가상 컴퓨터 관련 문서]: https://azure.microsoft.com/documentation/articles/?tag=azure-service-management&service=virtual-machines
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

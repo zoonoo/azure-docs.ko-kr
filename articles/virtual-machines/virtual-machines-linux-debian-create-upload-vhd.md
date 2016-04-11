@@ -3,7 +3,7 @@
 	description="Azure에서 배포할 Debian 7 및 8 VHD 파일을 만드는 방법에 대해 알아봅니다."
 	services="virtual-machines-linux"
 	documentationCenter=""
-	authors="SuperScottz"
+	authors="szarkos"
 	manager="timlt"
 	editor=""
     tags="azure-resource-manager,azure-service-management"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
-	ms.author="mingzhan"/>
+	ms.date="03/25/2016"
+	ms.author="szark"/>
 
 
 
@@ -34,7 +34,23 @@
 - 모든 VHD 크기는 1MB의 배수여야 합니다.
 
 
-## Debian 7.x 및 8.x
+## Azure-Manage를 사용하여 Debian VHD를 만듭니다.
+
+[credativ](http://www.credativ.com/)의 [azure-manage](https://gitlab.credativ.com/de/azure-manage) 스크립트처럼 Azure에 대해 Debian VHD를 생성하는 데 사용할 수 있는 도구가 있습니다. 권장되는 방법과 이미지를 처음부터 새로 만드는 방법을 비교한 것입니다. 예를 들어 Debian 8 VHD를 만들기 위해 다음 명령을 실행하여 azure-manage(및 종속성)를 다운로드하고 azure\_build\_image 스크립트를 실행합니다.
+
+	# sudo apt-get update
+	# sudo apt-get install git qemu-utils mbr kpartx debootstrap
+
+	# sudo apt-get install python3-pip
+	# sudo pip3 install azure-storage azure-servicemanagement-legacy pytest pyyaml
+	# git clone https://gitlab.credativ.com/de/azure-manage.git
+	# cd azure-manage
+	# sudo pip3 install .
+
+	# sudo azure_build_image --option release=jessie --option image_size_gb=30 --option image_prefix=debian-jessie-azure section
+
+
+## Debian VHD 수동 준비
 
 1. Hyper-V 관리자에서 가상 컴퓨터를 선택합니다.
 
@@ -44,22 +60,42 @@
 
 4. 다음과 같이 `/etc/default/grub` 파일을 편집하고 **GRUB\_CMDLINE\_LINUX** 매개 변수를 수정하여 Azure에 대한 추가 커널 매개 변수를 포함시킵니다.
 
-        GRUB_CMDLINE_LINUX="console=ttyS0 earlyprintk=ttyS0 rootdelay=300"
+        GRUB_CMDLINE_LINUX="console=tty0 console=ttyS0,115200 earlyprintk=ttyS0,115200 rootdelay=30"
 
 5. grub을 다시 빌드하고 다음을 실행합니다.
 
         # sudo update-grub
 
-6. Azure Linux 에이전트에 대한 종속성 패키지를 설치합니다.
+6. Debian의 Azure 리포지토리를 Debian 6 또는 7에 대한 /etc/apt/sources.list에 추가합니다.
 
-        # apt-get install -y git parted
+	**Debian 6.x "Wheezy"**
 
-7.	[참고 자료](virtual-machines-linux-update-agent.md)를 사용하여 GitHub에서 Azure Linux 에이전트를 설치하고 2.0.14 버전을 선택합니다.
+		deb http://debian-archive.trafficmanager.net/debian wheezy-backports main
+		deb-src http://debian-archive.trafficmanager.net/debian wheezy-backports main
+		deb http://debian-archive.trafficmanager.net/debian-azure wheezy main
+		deb-src http://debian-archive.trafficmanager.net/debian-azure wheezy main
 
-			# wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-2.0.14/waagent
-			# chmod +x waagent
-			# cp waagent /usr/sbin
-			# /usr/sbin/waagent -install -verbose
+
+	**Debian 7.x "Jessie"**
+
+		deb http://debian-archive.trafficmanager.net/debian jessie-backports main
+		deb-src http://debian-archive.trafficmanager.net/debian jessie-backports main
+		deb http://debian-archive.trafficmanager.net/debian-azure jessie main
+		deb-src http://debian-archive.trafficmanager.net/debian-azure jessie main
+
+
+7. Azure Linux 에이전트를 설치합니다.
+
+		# sudo apt-get update
+		# sudo apt-get install waagent
+
+8. Debian 7은 wheezy-backports 리포지토리에서 3.16 기반 커널을 실행하는 데 필요합니다. 먼저 다음과 같은 내용으로 /etc/apt/preferences.d/linux.pref라는 파일을 만듭니다.
+
+		Package: linux-image-amd64 initramfs-tools
+		Pin: release n=wheezy-backports
+		Pin-Priority: 500
+
+	그런 다음 "sudo apt-get install linux-image-amd64"를 실행하여 새 커널을 만듭니다.
 
 8. 가상 컴퓨터의 프로비전을 해제하고 Azure에서 프로비전할 가상 컴퓨터를 준비하고 다음 명령을 실행합니다.
 
@@ -69,16 +105,9 @@
 
 9. Hyper-V 관리자에서 **작업** -> 종료를 클릭합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
 
-## Credativ 스크립트를 사용하여 Debian VHD 만들기
-
-Debian VHD를 자동으로 빌드하는 데 도움이 되는 스크립트가 Credativ 웹 사이트에서 제공됩니다. [여기](https://gitlab.credativ.com/de/azure-manage)에서 다운로드하여 Linux VM에 설치하면 됩니다. Debian VHD(예: Debian 7)를 만들려면 다음을 실행합니다.
-
-        # azure_build_image --option release=wheezy --option image_prefix=lilidebian7 --option image_size_gb=30 SECTION
-
-이 스크립트를 사용할 때 문제가 있는 경우 문제를 Credativ([여기](https://gitlab.credativ.com/groups/de/issues))에 제출합니다.
 
 ## 다음 단계
 
 이제 Debian 가상 하드 디스크를 사용하여 Azure에서 새 가상 컴퓨터를 만들 준비가 되었습니다. .vhd 파일을 Azure에 처음으로 업로드하는 경우 [Linux 운영 체제를 포함하는 가상 하드 디스크 만들기 및 업로드](virtual-machines-linux-classic-create-upload-vhd.md)에서 2단계 및 3단계를 참조하세요.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

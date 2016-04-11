@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="03/07/2016" 
+    ms.date="03/28/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694271.aspx -->
@@ -22,7 +22,7 @@
 
 Eclipse용 Azure 도구 키트는 Eclipse 개발 환경에서 Azure 응용 프로그램을 쉽게 작성, 개발, 테스트 및 배포할 수 있는 템플릿과 기능을 제공합니다. 다음 프로젝트 사이트를 통해 Apache 라이선스 2.0에 따라 소스 코드 사용이 허가된 오픈 소스 프로젝트입니다.
 
-* <https://github.com/MSOpenTech/WindowsAzureToolkitForEclipseWithJava>
+* <https://github.com/microsoft/azure-tools-for-java.>
 
 ## Eclipse용 Azure 도구 키트 시작 ##
 
@@ -30,7 +30,7 @@ Eclipse용 Azure 도구 키트는 Eclipse 개발 환경에서 Azure 응용 프�
 
 * [Eclipse용 Azure 도구 키트의 새로운 기능]
 * [Eclipse용 Azure 도구 키트 설치]
-* [Eclipse에서 Azure용 Hello World 응용 프로그램 만들기]
+* [Eclipse에서 Azure용 Hello World 클라우드 서비스 만들기]
 * [Eclipse에서 Azure용 Hello World 웹앱 만들기]
 * [Eclipse에서 Java용 Azure 라이브러리 패키지의 Javadoc 콘텐츠 표시]
 
@@ -77,7 +77,7 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 [Azure 역할 속성]: http://go.microsoft.com/fwlink/?LinkID=699525
 [Azure 서비스 끝점]: http://go.microsoft.com/fwlink/?LinkID=699526
 [Azure 저장소 계정 목록]: http://go.microsoft.com/fwlink/?LinkID=699528
-[Eclipse에서 Azure용 Hello World 응용 프로그램 만들기]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Eclipse에서 Azure용 Hello World 클라우드 서비스 만들기]: http://go.microsoft.com/fwlink/?LinkID=699533
 [Eclipse에서 Azure용 Hello World 웹앱 만들기]: ./app-service-web/create-a-hello-world-web-app-for-azure-in-eclipse.md
 [Eclipse에서 Azure 응용 프로그램 디버그]: http://go.microsoft.com/fwlink/?LinkID=699535
 [대규모 배포]: http://go.microsoft.com/fwlink/?LinkID=699536
@@ -95,4 +95,4 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 [JSP에서 Azure 서비스 런타임 라이브러리 사용]: http://go.microsoft.com/fwlink/?LinkID=699551
 [Eclipse용 Azure 도구 키트의 새로운 기능]: http://go.microsoft.com/fwlink/?LinkID=699552
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

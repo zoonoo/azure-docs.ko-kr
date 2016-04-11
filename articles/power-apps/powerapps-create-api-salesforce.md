@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/03/2016"
+   ms.date="03/29/2016"
    ms.author="litran"/>
 
 # PowerApps 엔터프라이즈에 새 Salesforce API 만들기
 
 > [AZURE.SELECTOR]
-- [논리 앱](../articles/connectors/create-api-salesforce.md)
+- [논리 앱](../articles/connectors/connectors-create-api-salesforce.md)
 - [PowerApps 엔터프라이즈](../articles/power-apps/powerapps-create-api-salesforce.md)
 
 조직의(테넌트) 앱 서비스 환경에 Salesforce API를 추가합니다.
@@ -82,7 +82,7 @@
 
 ## REST API 참조
 
-[Salesforce REST API](../connectors/create-api-salesforce.md) 참조입니다.
+[Salesforce REST API](../connectors/connectors-create-api-salesforce.md) 참조.
 
 ## 요약 및 다음 단계
 이 항목에서는 PowersApps 엔터프라이즈에 Salesforce API를 추가했습니다. 그 다음에는 이 API를 사용자의 앱에 추가할 수 있도록 사용자에게 이 API에 대한 액세스 권한을 부여합니다.
@@ -101,4 +101,4 @@
 [14]: ./media/powerapps-create-api-salesforce/browseall.png
 [15]: ./media/powerapps-create-api-salesforce/allresources.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

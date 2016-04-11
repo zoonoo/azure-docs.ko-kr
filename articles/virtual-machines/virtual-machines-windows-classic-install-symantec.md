@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/14/2015"
-	ms.author="dkshir"/>
+	ms.date="03/28/2016"
+	ms.author="iainfou"/>
 
 # Windows VM에서 Symantec Endpoint Protection을 설치하고 구성하는 방법
 
@@ -84,7 +84,7 @@ Symantec 보안 확장이 설치되고 최신 상태인지 확인하려면 다�
 
 
 <!--Link references-->
-[Symantec]: http://go.microsoft.com/fwlink/p/?LinkId=403942
+[Symantec]: http://www.symantec.com/connect/blogs/symantec-endpoint-protection-now-microsoft-azure
 
 [Portal]: http://manage.windowsazure.com
 
@@ -98,4 +98,4 @@ Symantec 보안 확장이 설치되고 최신 상태인지 확인하려면 다�
 
 [Ext]: http://go.microsoft.com/fwlink/p/?linkid=390493
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

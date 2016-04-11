@@ -41,13 +41,15 @@ Azure 포털은 대부분의 클러스터 속성을 노출합니다. Azure ARM �
 2. **새로 만들기**, **데이터 분석** 및 **HDInsight**를 차례로 클릭합니다.
 
     ![Azure 포털에서 새 클러스터 만들기](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.1.png "Azure 포털에서 새 클러스터 만들기")
+3. **클러스터 이름** 입력: 이 이름은 전역적으로 고유해야 합니다.
+4. **클러스터 유형 선택**을 클릭한 후 다음을 선택합니다.
 
-3. 다음을 입력합니다.
-
-    - **클러스터 이름**: 이 이름은 전역적으로 고유해야 합니다.
-    - **클러스터 유형**: 어떤 유형을 선택할지 잘 모르는 경우 **Hadoop**을 선택합니다.
-    - **클러스터 운영 체제**: **Linux**를 선택합니다.
+    - **클러스터 유형**: 어떤 유형을 선택할지 잘 모르는 경우 **Hadoop**을 선택합니다. 가장 인기 있는 클러스터 유형입니다.
+    - **운영 체제**: **Linux**를 선택합니다.
     - **버전**: 어떤 버전을 선택할지 잘 모르는 경우 기본 버전을 사용합니다. 자세한 내용은 [HDInsight 클러스터 버전](hdinsight-component-versioning.md)을 참조하세요.
+    - **클러스터 계층**: Azure HDInsight는 빅 데이터 클라우드 제품을 표준 계층 및 프리미엄 계층의 두 범주로 제공합니다. 자세한 내용은 [클러스터 계층](hdinsight-hadoop-provision-linux-clusters.md#cluster-tiers)을 참조하세요.
+    
+    ![HDInsight 프리미엄 계층 구성](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-type-configuration.png)
 
 4. **구독**을 클릭하여 이 클러스터에 사용할 Azure 구독을 선택합니다.
 
@@ -158,7 +160,7 @@ Azure 포털은 대부분의 클러스터 속성을 노출합니다. Azure ARM �
 ##클러스터 사용자 지정
 
 - [부트스트랩을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-bootstrap.md)을 참조하세요.
-- [스크립트 작업을 사용하여 Windows 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster.md)을 참조하세요.
+- [스크립트 작업을 사용하여 Windows 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
 
 ##클러스터 삭제
 
@@ -193,4 +195,4 @@ HDInsight 클러스터를 성공적으로 만들었으므로 다음을 사용하
 * [기계 학습과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Spark 스트리밍: HDInsight에서 Spark를 사용하여 실시간 스트리밍 응용 프로그램 빌드](hdinsight-apache-spark-eventhub-streaming.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/28/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스에 데이터 로드
@@ -43,7 +43,7 @@ SQL 데이터 웨어하우스는 다음을 포함한 데이터 로드의 다양�
 
 Azure로 파일 이동을 준비하기 위해, 플랫 파일로 내보내야 합니다. BCP 명령줄 유틸리티를 사용하는 것이 가장 좋은 방법입니다. 아직 유틸리티가 없다면 [SQL Server용 Microsoft 명령줄 유틸리티][]를 사용하여 다운로드할 수 있습니다. 샘플 BCP 명령은 다음과 같을 수 있습니다.
 
-```
+```sql
 bcp "select top 10 * from <table>" queryout "<Directory><File>" -c -T -S <Server Name> -d <Database Name> -- Export Query
 or
 bcp <table> out "<Directory><File>" -c -T -S <Server Name> -d <Database Name> -- Export Table
@@ -53,7 +53,7 @@ bcp <table> out "<Directory><File>" -c -T -S <Server Name> -d <Database Name> --
 
 PolyBase는 아직 UTF-16을 지원하지 않고, PolyBase를 사용하여 로드하기 때문에, 모든 파일은 UTF-8에 있어야 합니다. BCP 명령에 있는 ‘-c’ 플래그를 포함한 다음 코드를 사용하여 간단하게 수행하거나, 다음 코드를 사용하여 플랫 파일을 UTF-16에서 UTF-8로 변환시킬 수 있습니다.
 
-```
+```PowerShell
 Get-Content <input_file_name> -Encoding Unicode | Set-Content <output_file_name> -Encoding utf8
 ```
 
@@ -92,9 +92,9 @@ AZCopy /Source:<File Location> /Dest:<Storage Container Location> /destkey:<Stor
 
 3. **외부 파일 형식 생성** 외부 파일 형식은 재사용이 가능하지만, 새로운 유형의 파일을 업로드 하는 경우에는 꼭 새로 만들어야 합니다.
 
-4. **외부 데이터 원본 생성** 저장소 계정을 가리킬 때, 외부 데이터 원본은 동일 컨테이너에서 로드할 때 사용됩니다. ‘LOCATION’ 매개 변수에 대하여, 서식의 위치를 사용합니다: 'wasbs://mycontainer@ test.blob.core.windows.net/path’.
+4. **외부 데이터 원본 생성** 저장소 계정을 가리킬 때, 외부 데이터 원본은 동일 컨테이너에서 로드할 때 사용됩니다. ‘LOCATION’ 매개 변수의 경우 다음과 같은 서식의 위치를 사용합니다. 'wasbs://mycontainer@ test.blob.core.windows.net'.
 
-```
+```sql
 -- Creating master key
 CREATE MASTER KEY;
 
@@ -133,7 +133,7 @@ PolyBase 구성 후, 저장소에 있는 데이터를 가리키는 외부 테이
 
 1. ‘CREATE EXTERNAL TABLE’ 명령을 사용하여 데이터의 구조를 정의합니다. 데이터의 상태를 빠르고 효율적으로 캡쳐할 수 있는지 확인하기 위해, SSMS에서 SQL Server 테이블을 스크립팅하고, 그 후에 외부 테이블의 차이점의 원인을 직접 조정하는 것을 권장합니다. Azure에서 외부 테이블을 생성하면, 데이터를 업데이트하거나 추가 데이터를 추가할 경우에도 계속 같은 위치를 가리킵니다.  
 
-```
+```sql
 -- Creating external table pointing to file stored in Azure Storage
 CREATE EXTERNAL TABLE <External Table Name>
 (
@@ -148,7 +148,7 @@ WITH
 
 2. ‘CREATE TABE...AS SELECT’ 문을 사용하여 데이터를 로드합니다.
 
-```
+```sql
 CREATE TABLE <Table Name>
 WITH
 (
@@ -170,7 +170,7 @@ FROM    <External Table Name>
 Azure SQL 데이터 웨어하우스는 자동 만들기 또는 통계 자동 업데이트를 아직 지원하지 않습니다. 쿼리에서 최상의 성능을 얻으려면, 데이터를 처음 로드하거나 데이터에 상당한 변화가 발생한 후에 모든 테이블의 모든 열에서 통계가 만들어지는 것이 중요합니다. 통계에 대한 자세한 설명은 개발 항목 그룹의 [통계][] 항목을 참조하세요. 다음은 이 예제에 로드한 테이블에 대한 통계를 만드는 방법을 간략히 보여주는 예입니다.
 
 
-```
+```sql
 create statistics [<name>] on [<Table Name>] ([<Column Name>]);
 create statistics [<another name>] on [<Table Name>] ([<Another Column Name>]);
 ```
@@ -202,4 +202,4 @@ create statistics [<another name>] on [<Table Name>] ([<Another Column Name>]);
 [Azure 저장소 설명서]: https://azure.microsoft.com/ko-KR/documentation/articles/storage-create-storage-account/
 [Express 경로 설명서]: http://azure.microsoft.com/documentation/services/expressroute/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

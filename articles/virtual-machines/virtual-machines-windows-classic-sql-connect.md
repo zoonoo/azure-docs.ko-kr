@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="SQL Server 가상 컴퓨터에 연결(클래식) | Microsoft Azure"
 	description="이 항목에서는 클래식 배포 모델을 사용하여 만든 리소스를 사용하며, Azure 가상 컴퓨터에서 실행 중인 SQL Server에 연결하는 방법을 설명합니다. 시나리오는 네트워킹 구성 및 클라이언트의 위치에 따라 다릅니다."
 	services="virtual-machines-windows"
@@ -7,13 +7,13 @@
 	manager="jeffreyg"
 	editor="monicar"    
 	tags="azure-service-management"/>
-<tags 
+<tags
 	ms.service="virtual-machines-windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="12/18/2015"
+	ms.date="03/24/2016"
 	ms.author="jroth" />
 
 # Azure에서 SQL Server 가상 컴퓨터 연결(클래식 배포)
@@ -28,9 +28,9 @@ Azure 가상 컴퓨터에서 실행되는 SQL Server에 대한 연결 구성은 
 
 하지만 Azure VM에 특정한 SQL Server 연결 요소가 몇 가지 존재합니다. 이 문서에서는 몇 가지 [일반 연결 시나리오](#connection-scenarios)를 다룬 다음 [Azure VM에서 SQL Server 연결을 구성하기 위한 상세 단계](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm)를 제공합니다.
 
-이 문서에서는 연결에 초점을 맞춥니다. 프로비저닝 및 연결의 전체 연습은 [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-classic-portal-sql.md)을 참조하세요.
+이 문서는 클래식 모델을 사용하는 기존 SQL Server 가상 컴퓨터에 연결하는 방법에 중점을 둡니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델. 리소스 관리자 VM을 사용하는 경우 [Azure에서 리소스 관리자를 사용하여 SQL Server 가상 컴퓨터에 연결](virtual-machines-windows-sql-connect.md)을 참조하세요.
 
 ## 연결 시나리오
 
@@ -72,7 +72,7 @@ Azure 가상 컴퓨터에서 실행되는 SQL Server에 대한 연결 구성은 
 
 DNS를 구성했다고 가정하면 연결 문자열에 SQL Server VM 호스트 이름을 지정하여 SQL Server에 연결할 수 있습니다. 다음 예에서는 Windows 인증도 구성되었고 사용자에게 SQL Server 인스턴스에 대한 액세스 권한이 있다고 가정합니다.
 
-	"Server=mysqlvm;Integrated Security=true" 
+	"Server=mysqlvm;Integrated Security=true"
 
 이 시나리오에서는 VM의 IP 주소도 지정할 수 있습니다.
 
@@ -102,12 +102,10 @@ DNS를 구성했다고 가정하면 연결 문자열에 SQL Server VM 호스트 
 
 ## 다음 단계
 
-이러한 연결 단계와 함께 프로비저닝 지침을 확인하려면 [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-classic-portal-sql.md)을 참조하세요.
-
 고가용성 및 재해 복구를 위해 AlwaysOn 가용성 그룹도 사용하려는 경우 수신기의 구현을 고려해야 합니다. 데이터베이스 클라이언트는 SQL Server 인스턴스 중 하나에 직접 연결하기 보다는 수신기에 연결합니다. 수신기는 가용성 그룹의 주 복제본에 클라이언트를 라우팅합니다. 자세한 내용은 [Azure에서 AlwaysOn 가용성 그룹에 대한 ILB 수신기 구성](virtual-machines-windows-classic-ps-sql-int-listener.md)을 참조하세요.
 
 Azure 가상 컴퓨터에서 실행되는 SQL Server에 대한 모든 보안 모범 사례를 반드시 검토해야 합니다. 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server에 대한 보안 고려 사항](virtual-machines-windows-classic-sql-security.md)을 참조하세요.
 
 Azure VM에서의 SQL Server 실행에 관한 다른 항목은 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-windows-classic-sql-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

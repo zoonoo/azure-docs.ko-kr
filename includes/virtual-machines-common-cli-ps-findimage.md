@@ -1,33 +1,5 @@
 
 
-
-
-
-## 일반적으로 사용하는 이미지 테이블
-
-
-| PublisherName | 제안 | SKU |
-|:---------------------------------|:-------------------------------------------|:---------------------------------|:--------------------|
-| OpenLogic | CentOS | 7 |
-| OpenLogic | CentOS | 7\.1 |
-| CoreOS | CoreOS | 베타 |
-| CoreOS | CoreOS | Stable |
-| MicrosoftDynamicsNAV | DynamicsNAV | 2015 |
-| MicrosoftSharePoint | MicrosoftSharePointServer | 2013 |
-| Microsoft | Oracle-Database-12c-Weblogic-Server-12c | Standard |
-| Microsoft | Oracle-Database-12c-Weblogic-Server-12c | Enterprise |
-| MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized-for-DW |
-| MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized-for-OLTP |
-| Canonical | UbuntuServer | 12\.04.5-LTS |
-| Canonical | UbuntuServer | 14\.04.2-LTS |
-| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter |
-| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter |
-| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 |
-| MicrosoftWindowsServer | WindowsServer | Windows-Server-Technical-Preview |
-| MicrosoftWindowsServerEssentials | WindowsServerEssentials | WindowsServerEssentials |
-| MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | 2012R2 |
-
-
 ## Azure CLI
 
 > [AZURE.NOTE] 이 문서에서는 최근 설치된 Azure CLI 또는 Azure PowerShell을 사용하여 가상 컴퓨터 이미지를 탐색 및 선택하는 방법을 설명합니다. 전제 조건으로 리소스 관리자 모드를 변경해야 할 수 있습니다. Azure CLI로 `azure config mode arm`을(를) 입력하여 해당 모드를 입력합니다.
@@ -118,18 +90,11 @@
     data:    canonical  ubuntuserver  14.04.2-LTS  14.04.201504270  westus    canonical:ubuntuserver:14.04.2-LTS:14.04.201504270
     info:    vm image list command OK
 
-이제 사용할 이미지를 정밀하게 선택할 수 있습니다. 방금 찾은 URN 정보를 사용하여 가상 컴퓨터를 빠르게 만들거나 해당 URN 정보로 템플릿을 사용하려면 [Azure 리소스 관리자에서 Mac, Linux 및 Windows용 Azure CLI 사용](xplat-cli-azure-resource-manager.md)을 참조하세요.
-
-### 연습 동영상
-
-이 비디오는 CLI를 사용하는 위의 단계를 보여줍니다.
-
-[AZURE.VIDEO virtual-machines-linux-cli-ps-findimage-cli]
-
+이제 사용할 이미지를 정밀하게 선택할 수 있습니다. 방금 찾은 URN 정보를 사용하여 가상 컴퓨터를 빠르게 만들거나 해당 URN 정보로 템플릿을 사용하려면 [Azure 리소스 관리자에서 Mac, Linux 및 Windows용 Azure CLI 사용](../articles/xplat-cli-azure-resource-manager.md)을 참조하세요.
 
 ## PowerShell
 
-PowerShell을 사용하여 `Switch-AzureMode AzureResourceManager`을(를) 입력합니다. 자세한 업데이트 및 구성 정보를 보려면 [리소스 관리를 이용한 Azure CLI 사용](xplat-cli-azure-resource-manager.md) 및 [Azure 리소스 관리자를 이용한 Azure PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하세요.
+PowerShell을 사용하여 `Switch-AzureMode AzureResourceManager`을(를) 입력합니다. 자세한 업데이트 및 구성 정보를 보려면 [리소스 관리를 이용한 Azure CLI 사용](../articles/xplat-cli-azure-resource-manager.md) 및 [Azure 리소스 관리자를 이용한 Azure PowerShell 사용](../articles/powershell-azure-resource-manager.md)을 참조하세요.
 
 > [AZURE.NOTE] Azure PowerShell 모듈 1.0 이상에서 `Switch-AzureMode` cmdlet이 제거되었습니다. 해당 버전 이상에서 `Azure` 부분이 있는 아래 명령을 `AzureRm`으로 바꾸세요. Azure PowerShell 모듈 1.0 이전을 사용 중인 경우 아래 명령을 사용하지만 먼저 `Switch-AzureMode AzureResourceManager`해야 합니다.
 
@@ -229,4 +194,4 @@ PowerShell에서 이 작업을 수행하려면 먼저 Azure PowerShell의 리소
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

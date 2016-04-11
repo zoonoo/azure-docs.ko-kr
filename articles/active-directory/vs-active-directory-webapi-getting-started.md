@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/18/2015" 
+	ms.date="03/28/2016"
 	ms.author="tarcher"/>
 
 # Azure Active Directory 및 Visual Studio 연결 서비스 시작(WebApi 프로젝트)
 
 > [AZURE.SELECTOR]
-> - [Getting Started](vs-active-directory-webapi-getting-started.md)
-> - [What Happened](vs-active-directory-webapi-what-happened.md)
+> - [시작](vs-active-directory-webapi-getting-started.md)
+> - [변경된 내용](vs-active-directory-webapi-what-happened.md)
 
 ##컨트롤러에 액세스하려면 인증 필요
  
@@ -29,4 +29,4 @@
 [Azure Active Directory에 대한 자세한 정보](https://azure.microsoft.com/services/active-directory/)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->

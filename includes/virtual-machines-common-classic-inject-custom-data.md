@@ -43,7 +43,7 @@ Azure 가상 컴퓨터를 CoreOS 또는 Ubuntu 이미지에서 온 경우, Custo
 
 ### Ubuntu 클라우드 이미지
 
-대부분의 Azure Linux 이미지에서 임시 리소스 디스크와 swap 파일을 구성하도록 "/etc/waagent.conf"를 편집합니다. 자세한 내용은 [Azure Linux 에이전트 사용자 가이드](virtual-machines-linux-agent-user-guide.md)를 참조하세요.
+대부분의 Azure Linux 이미지에서 임시 리소스 디스크와 swap 파일을 구성하도록 "/etc/waagent.conf"를 편집합니다. 자세한 내용은 [Azure Linux 에이전트 사용자 가이드](../articles/virtual-machines/virtual-machines-linux-agent-user-guide.md)를 참조하세요.
 
 그러나 Ubuntu 클라우드 이미지에서 cloud-init을 사용하여 리소스 디스크(즉, "ephemeral" 디스크) 및 swap 파티션을 구성해야 합니다. 자세한 내용은 Ubuntu wiki에서 [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions) 페이지를 참조하세요.
 
@@ -59,4 +59,4 @@ Azure 가상 컴퓨터를 CoreOS 또는 Ubuntu 이미지에서 온 경우, Custo
 
 [Azure 명령줄 인터페이스](https://github.com/Azure/azure-xplat-cli)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -23,13 +23,13 @@
 
 메시징 API는 다음 범주에 해당하는 예외와, 해당 예외의 해결을 위해 수행할 수 있는 관련 조치를 함께 생성합니다.
 
-1.  사용자 코드 오류([System.ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx), [System.InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx), [System.OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx), [System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx)). 일반 조치: 코드를 수정한 후 계속합니다.
+1.  사용자 코딩 오류([System.ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx), [System.InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx), [System.OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx), [System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx)). 일반 조치: 코드를 수정한 후 계속합니다.
 
 2.  설치/구성 오류 ([Microsoft.ServiceBus.Messaging.MessagingEntityNotFoundException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingentitynotfoundexception.aspx), [System.UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx). 일반 조치: 구성을 검토하고 필요한 경우 변경합니다.
 
 3.  일시적 예외 ([Microsoft.ServiceBus.Messaging.MessagingException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingexception.aspx), [Microsoft.ServiceBus.Messaging.ServerBusyException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.serverbusyexception.aspx), [Microsoft.ServiceBus.Messaging.MessagingCommunicationException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingcommunicationexception.aspx)). 일반 조치: 작업을 다시 시도하거나 사용자에게 알립니다.
 
-4.  기타 예외 ([System.Transactions.TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx), [System.TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx), [Microsoft.ServiceBus.Messaging.MessageLockLostException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagelocklostexception.aspx), [Microsoft.ServiceBus.Messaging.SessionLockLostException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sessionlocklostexception.aspx)). 일반 조치: 보통은 정리 또는 중단을 수행하기 위해 이러한 예외를 처리하지 않습니다. 이러한 예외는 추적용으로 사용될 수 있습니다.
+4.  기타 예외 ([System.Transactions.TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx), [System.TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx), [Microsoft.ServiceBus.Messaging.MessageLockLostException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagelocklostexception.aspx), [Microsoft.ServiceBus.Messaging.SessionLockLostException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sessionlocklostexception.aspx)). 일반 작업: 예외 형식에 특정됩니다. 다음 섹션의 테이블을 참조하세요.
 
 ## 예외 유형
 
@@ -58,8 +58,7 @@
 | [MessagingEntityDisabledException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingentitydisabledexception.aspx) | 비활성화된 엔터티의 런타임 작업에 대한 요청입니다. | 엔터티를 활성화합니다. | 그 사이에 엔터티가 활성화된 경우 다시 시도하면 문제가 해결될 수 있습니다. |
 | [NoMatchingSubscriptionException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.nomatchingsubscriptionexception.aspx) | 사전 필터링이 활성화되었으며 일치하는 필터가 없는 항목에 메시지를 보내는 경우 서비스 버스가 이 예외를 반환합니다. | 하나 이상의 필터가 일치하는지 확인합니다. | 재시도로 해결되지 않습니다. |
 | [MessageSizeExceededException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesizeexceededexception.aspx) | 메시지 페이로드가 256K 제한을 초과합니다. 256K 제한은 총 메시지 크기입니다. 여기에는 시스템 속성과 모든 .NET 오버헤드가 포함됩니다. | 메시지 페이로드의 크기를 줄인 다음 작업을 다시 시도합니다. | 재시도로 해결되지 않습니다. |
-| [TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx) | 앰비언트 트랜잭션(*Transaction.Current*)이 올바르지 않습니다. 완료되었거나 중단되었을 수 있습니다. 내부 예외가 추가 정보를 제공할 수 있습니다. | | 재시도는 도움이 되지 않습니다. | -
-| [TransactionInDoubtException](https://msdn.microsoft.com/library/system.transactions.transactionindoubtexception.aspx) | 의심스러운 트랜잭션에 대해 작업을 시도하거나, 트랜잭션을 커밋하려고 시도하고 트랜잭션이 의심스러운 상태가 됩니다. | 트랜잭션이 이미 커밋되었을 때 응용 프로그램은 이 예외(특별한 경우)를 처리해야 합니다. | - |
+| [TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx) | 앰비언트 트랜잭션(*Transaction.Current*)이 올바르지 않습니다. 완료되었거나 중단되었을 수 있습니다. 내부 예외가 추가 정보를 제공할 수 있습니다. | | 재시도는 도움이 되지 않습니다. | - | [TransactionInDoubtException](https://msdn.microsoft.com/library/system.transactions.transactionindoubtexception.aspx) | 의심스러운 트랜잭션에 대해 작업을 시도하거나, 트랜잭션을 커밋하려고 시도하고 트랜잭션이 의심스러운 상태가 됩니다. | 트랜잭션이 이미 커밋되었을 때 응용 프로그램은 이 예외(특별한 경우)를 처리해야 합니다. | - |
 
 ## 다음 단계
 
@@ -71,4 +70,4 @@
 - [서비스 버스 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
 - [서비스 버스 아키텍처](service-bus-architecture.md)
 
-<!----HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0330_2016-->

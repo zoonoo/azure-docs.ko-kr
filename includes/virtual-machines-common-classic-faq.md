@@ -15,7 +15,7 @@ Windows 클라이언트 이미지를 사용할 수 있는, Windows 7 및 Windows
 
 ## 가상 컴퓨터에 얼마나 많은 용량의 저장소를 사용할 수 있습니까?
 
-각 데이터 디스크의 최대 용량은 1 TB 입니다. 사용할 수 있는 데이터 디스크의 수는 가상 컴퓨터의 크기에 따라 달라집니다. 자세한 내용은 [가상 컴퓨터의 크기](virtual-machines-linux-sizes.md)를 참조하세요.
+각 데이터 디스크의 최대 용량은 1 TB 입니다. 사용할 수 있는 데이터 디스크의 수는 가상 컴퓨터의 크기에 따라 달라집니다. 자세한 내용은 [가상 컴퓨터의 크기](../articles/virtual-machines/virtual-machines-linux-sizes.md)를 참조하세요.
 
 Azure 저장소 계정은 운영 체제 디스크 및 모든 데이터 디스크에 대한 저장소를 제공합니다. 각 디스크는 페이지 blob으로 저장된 .vhd 파일입니다. 가격 책정에 대한 자세한 내용은 [저장소 가격 세부 정보](http://go.microsoft.com/fwlink/p/?LinkId=396819)를 참조하세요.
 
@@ -23,9 +23,9 @@ Azure 저장소 계정은 운영 체제 디스크 및 모든 데이터 디스크
 
 Azure는 고정된 VHD 형식 가상 하드 디스크를 지원합니다. VHDX가 있고 Azure에서 사용하려는 경우 먼저 Hyper-V 관리자 또는 [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656) cmdlet을 사용하여 변환해야 합니다. 이를 수행한 후, 가상 컴퓨터와 사용할 수 있도록 Azure의 저장소 계정에 VHD를 업로드하기 위해 [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet(서비스 관리 모드)를 사용합니다.
 
-- Linux 지침에 대한 내용은 [Linux 운영 체제를 포함하는 가상 하드 디스크 만들기 및 업로드](virtual-machines-linux-classic-create-upload-vhd.md)를 참조하세요.
+- Linux 지침에 대한 내용은 [Linux 운영 체제를 포함하는 가상 하드 디스크 만들기 및 업로드](../articles/virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md)를 참조하세요.
 
-- Windows 지침에 대한 내용은 [Windows Server VHD를 만들어 Azure에 업로드](virtual-machines-windows-classic-createupload-vhd.md)를 참조하세요.
+- Windows 지침에 대한 내용은 [Windows Server VHD를 만들어 Azure에 업로드](../articles/virtual-machines/virtual-machines-windows-classic-createupload-vhd.md)를 참조하세요.
 
 ## 이 가상 컴퓨터들은 HYPER-V 가상 컴퓨터들과 동일합니까?
 
@@ -45,17 +45,17 @@ Azure는 고정된 VHD 형식 가상 하드 디스크를 지원합니다. VHDX�
 
 Linux VM에 대한 SSH(보안셸) 또는 Windows VM에 대한 원격 데스크톱 연결을 사용하여 가상 컴퓨터에 로그온 하기 위해 원격 연결을 구축해야 합니다. 자세한 내용은 다음을 참조하세요.
 
-- [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법](virtual-machines-windows-classic-connect-logon.md) 서버가 원격 데스크톱 서비스 세션 호스트로 구성되지 않으면 최대 2개의 동시 연결이 지원됩니다.  
-- [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](virtual-machines-linux-classic-log-on.md) 기본적으로, SSH는 최대 10개의 동시 연결을 허용합니다. 구성 파일을 편집하여 이 수를 늘릴 수 있습니다.
+- [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법](../articles/virtual-machines/virtual-machines-windows-classic-connect-logon.md) 서버가 원격 데스크톱 서비스 세션 호스트로 구성되지 않으면 최대 2개의 동시 연결이 지원됩니다.  
+- [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](../articles/virtual-machines/virtual-machines-linux-classic-log-on.md) 기본적으로, SSH는 최대 10개의 동시 연결을 허용합니다. 구성 파일을 편집하여 이 수를 늘릴 수 있습니다.
 
 
-원격 데스크톱 또는 SSH에 문제가 있는 경우 문제를 해결하는 데 도움이 되는 [VMAccess](virtual-machines-windows-extensions-features.md) 확장을 설치 및 사용하세요.
+원격 데스크톱 또는 SSH에 문제가 있는 경우 문제를 해결하는 데 도움이 되는 [VMAccess](../articles/virtual-machines/virtual-machines-windows-extensions-features.md) 확장을 설치 및 사용하세요.
 
 Windows VM에 대한 추가 옵션은 다음과 같습니다.
 
 - Azure 클래식 포털에서 VM을 찾은 다음 명령 모음에서 **원격 액세스 다시 설정**을 클릭합니다.
-- [Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](virtual-machines-windows-troubleshoot-rdp-connection.md)을 검토합니다.
-- Windows PowerShell 원격을 사용하여 VM에 연결하거나 VM에 연결할 다른 리소스에 대한 추가 끝점을 만듭니다. 자세한 내용은 [가상 컴퓨터에 끝점을 설정하는 방법](virtual-machines-windows-classic-setup-endpoints.md)을 참조하세요.
+- [Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](../articles/virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md)을 검토합니다.
+- Windows PowerShell 원격을 사용하여 VM에 연결하거나 VM에 연결할 다른 리소스에 대한 추가 끝점을 만듭니다. 자세한 내용은 [가상 컴퓨터에 끝점을 설정하는 방법](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md)을 참조하세요.
 
 Hyper-V에 친숙한 경우 VMConnect와 유사한 도구를 찾을 수 있습니다. 가상 컴퓨터에 대한 콘솔 액세스가 지원되지 않으므로 Azure는 유사한 도구를 제공하지 않습니다.
 
@@ -66,7 +66,7 @@ Hyper-V에 친숙한 경우 VMConnect와 유사한 도구를 찾을 수 있습�
 
 ## 임시 디스크의 드라이브 문자 변경을 어떻게 합니까?
 
-Windows 가상 컴퓨터에서, 페이지 파일을 이동하고 드라이브 문자를 다시 할당하여 드라이브 문자를 변경할 수 있지만, 특정 순서에 따라 단계를 수행하고 있는지 확인해야 합니다. 지침에 대한 자세한 내용은 [Windows 임시 디스크의 드라이브 문자 변경](virtual-machines-windows-classic-change-drive-letter.md)을 참조하세요.
+Windows 가상 컴퓨터에서, 페이지 파일을 이동하고 드라이브 문자를 다시 할당하여 드라이브 문자를 변경할 수 있지만, 특정 순서에 따라 단계를 수행하고 있는지 확인해야 합니다. 지침에 대한 자세한 내용은 [Windows 임시 디스크의 드라이브 문자 변경](../articles/virtual-machines/virtual-machines-windows-classic-change-drive-letter.md)을 참조하세요.
 
 ## 게스트 운영 체제를 업그레이드 하려면 어떻게 해야합니까?
 
@@ -83,7 +83,7 @@ Windows Server 마이그레이션을 위한 도구 및 프로세스에 대한 �
 
 Azure에 의해 제공되는 이미지는 미리 구성된 이름 및 암호가 필요없습니다. 이러한 이미지 중 하나를 사용하여 가상 컴퓨터를 만들 때, 가상 컴퓨터에 로그온 하는데 사용할 사용자 이름 및 암호를 제공해야 합니다.
 
-사용자 이름 또는 암호를 잊어버리고 VM 에이전트를 설치한 경우 해당 문제를 수정하기 위해 [VMAccess](virtual-machines-windows-extensions-features.md) 확장을 설치하고 사용할 수 있습니다.
+사용자 이름 또는 암호를 잊어버리고 VM 에이전트를 설치한 경우 해당 문제를 수정하기 위해 [VMAccess](../articles/virtual-machines/virtual-machines-windows-extensions-features.md) 확장을 설치하고 사용할 수 있습니다.
 
 추가 정보:
 
@@ -103,7 +103,7 @@ Azure는 바이러스 백신 솔루션에 대한 몇 가지 옵션을 제공하�
 
 ## 백업 및 복구에 대한 나의 옵션은 무엇입니까?
 
-Azure 백업은 특정 지역에서 미리 보기로 제공됩니다. 자세한 내용은 [Azure 가상 컴퓨터 백업](backup-azure-vms.md)을 참조하세요. 다른 솔루션은 인증된 파트너에서 사용할 수 있습니다. 무엇이 현재 사용 가능한지 알아보려면, Azure 마켓플레이스를 검색합니다.
+Azure 백업은 특정 지역에서 미리 보기로 제공됩니다. 자세한 내용은 [Azure 가상 컴퓨터 백업](../articles/backup/backup-azure-vms.md)을 참조하세요. 다른 솔루션은 인증된 파트너에서 사용할 수 있습니다. 무엇이 현재 사용 가능한지 알아보려면, Azure 마켓플레이스를 검색합니다.
 
 추가 옵션은 blob 저장소의 스냅샷 기능을 사용하는 것입니다. 이렇게 하려면, blob 스넵샷에 의존하는 모든 작업을 하기전에 VM을 종료해야 합니다. 이는 보류중인 데이터 쓰기를 저장하고 파일 시스템을 일관된 상태에 넣습니다.
 
@@ -139,4 +139,4 @@ Azure가 사용자의 VM에 영향을 주는 심각한 하드웨어 문제를 �
 
 [Windows 가상 컴퓨터를 만드는 다양한 방법](virtual-machines-windows-creation-choices.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

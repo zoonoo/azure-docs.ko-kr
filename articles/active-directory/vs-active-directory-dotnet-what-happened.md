@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/18/2015"
+	ms.date="03/28/2016"
 	ms.author="tarcher"/>
 
 # 내 MVC 프로젝트(Visual Studio Azure Active Directory 연결된 서비스)의 변경 내용
 
 > [AZURE.SELECTOR]
-> - [Getting Started](vs-active-directory-dotnet-getting-started.md)
-> - [What Happened](vs-active-directory-dotnet-what-happened.md)
+> - [시작](vs-active-directory-dotnet-getting-started.md)
+> - [변경된 내용](vs-active-directory-dotnet-what-happened.md)
 
 
 
@@ -171,4 +171,4 @@ Azure Active Directory 앱이 *디렉터리 데이터 읽기* 권한을 포함�
 
 [Azure Active Directory에 대한 자세한 정보](https://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->

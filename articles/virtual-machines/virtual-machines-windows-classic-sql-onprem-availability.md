@@ -99,8 +99,8 @@ SQL Server에 하나 이상의 Azure VM을 프로비전한 다음 온-프레미�
 
 ## 다음 단계
 
-**Azure 복제본 추가 마법사**를 사용하여 AlwaysOn 가용성 그룹을 Azure로 확장하는 것 외에도 일부 SQL Server 워크로드를 완전히 Azure로 이동할 수 있습니다. 시작하려면 [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-classic-portal-sql.md)을 참조하세요.
+**Azure 복제본 추가 마법사**를 사용하여 AlwaysOn 가용성 그룹을 Azure로 확장하는 것 외에도 일부 SQL Server 워크로드를 완전히 Azure로 이동할 수 있습니다. 시작하려면 [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-portal-sql-server-provision.md)을 참조하세요.
 
 Azure VM에서의 SQL Server 실행에 관한 다른 항목은 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-windows-classic-sql-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->
