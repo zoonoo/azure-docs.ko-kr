@@ -77,7 +77,7 @@ GitHub에서 가상 네트워크 및 두 개의 서브넷을 만들기 위한 �
 
 6. **resources** 아래의 내용을 확인하고 다음을 검토합니다.
 
-	- **type**. 템플릿에 의해 생성되는 리소스의 유형입니다. 이 경우, 형식은 응용 프로그램 게이트웨이를 나타내는 **Microsoft.Network/applicationGateways**입니다.
+	- **type**. 템플릿에 의해 생성되는 리소스의 유형입니다. 이 경우, 형식은 응용 프로그램 게이트웨이를 나타내는 **Microsoft.Network/applicationGateways** 입니다.
 	- **name**. 리소스의 이름입니다. **[parameters('applicationGatewayName')]**이 사용됩니다. 이것은 해당 이름이 배포 중에 사용자 또는 매개 변수 파일에 의한 입력으로 제공됨을 의미합니다.
 	- **properties**. 리소스의 속성 목록입니다. 이 템플릿은 응용 프로그램 게이트웨이를 만드는 동안 가상 네트워크 및 공용 IP 주소를 사용합니다.
 
@@ -204,9 +204,9 @@ Azure CLI를 사용하여 다운로드한 Azure 리소스 관리자 템플릿을
 
 		azure group create -n appgatewayRG -l eastus
 
-**-n(또는 --name)**. 새 리소스 그룹의 이름입니다. 이 시나리오에서는 *appgatewayRG*입니다.
+**-n(또는 --name)**. 새 리소스 그룹의 이름입니다. 이 시나리오에서는 *appgatewayRG* 입니다.
 
-**-l(또는 --location)**. 새 리소스 그룹이 생성되는 Azure 지역입니다. 이 시나리오에서는 *eastus*입니다.
+**-l(또는 --location)**. 새 리소스 그룹이 생성되는 Azure 지역입니다. 이 시나리오에서는 *eastus* 입니다.
 
 4. **azure group deployment create** cmdlet을 실행하고 위에서 다운로드한 후 수정한 템플릿 및 매개 변수를 사용하여 새 가상 네트워크를 배포합니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다.
 
@@ -253,23 +253,23 @@ Azure CLI를 사용하여 다운로드한 Azure 리소스 관리자 템플릿을
 
 ### 2단계
 
-**Deploy to Azure**를 클릭합니다.
+**Azure에 배포** 를 클릭합니다.
 
 ![Azure에 배포](./media/application-gateway-create-gateway-arm-template/deploytoazure.png)
 
 ### 3단계
 
-포털에서 배포 템플릿에 대한 매개 변수를 채우고 **확인**을 클릭합니다.
+포털에서 배포 템플릿에 대한 매개 변수를 채우고 **확인** 을 클릭합니다.
 
 ![매개 변수](./media/application-gateway-create-gateway-arm-template/ibiza1.png)
 
 ### 4단계
 
-**약관**을 선택하고 **구입**을 클릭합니다.
+**약관** 을 선택하고 **구입** 을 클릭합니다.
 
 ### 5단계
 
-사용자 지정 배포 블레이드에서 **만들기**를 클릭합니다.
+사용자 지정 배포 블레이드에서 **만들기** 를 클릭합니다.
 
 
 

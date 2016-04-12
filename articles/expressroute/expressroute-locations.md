@@ -60,9 +60,9 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | **[Aryaka Networks](http://www.aryaka.com/)** | 지원됨 | 지원됨 | 암스테르담, 실리콘밸리, 싱가포르, 도쿄, 워싱턴 DC |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | 지원됨 | 지원됨 | 암스테르담, 시카고, 댈러스, 런던, 실리콘밸리, 싱가포르, 시드니, 워싱턴 DC |
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | 지원됨 | 지원됨 | 암스테르담, 홍콩, 런던, 실리콘밸리, 싱가포르, 도쿄, 워싱턴 DC |
-|**CenturyLink** | 서비스 예정 | 서비스 예정| 실리콘밸리 |
-|**China Telecom Global** | 지원됨 | 지원되지 않음 | 홍콩 |
-|**Cologix** | 지원됨 | 서비스 예정 | 몬트리올+, 토론토 |
+| **CenturyLink** | 서비스 예정 | 서비스 예정| 실리콘밸리 |
+| **China Telecom Global** | 지원됨 | 지원되지 않음 | 홍콩 |
+| **Cologix** | 지원됨 | 서비스 예정 | 몬트리올+, 토론토 |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | 지원됨 | 지원됨 | 암스테르담, 더블린, 런던 |
 | **Comcast** | 지원됨 | 지원되지 않음 | 실리콘밸리, 워싱턴 DC |
 | **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** | 지원됨 | 지원됨 | 로스앤젤레스 | 

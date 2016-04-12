@@ -108,11 +108,11 @@ API 앱에 Node.js 또는 Java 시작 시리즈를 수행 중인 경우 다음 �
 
 1. **솔루션 탐색기**에서 ToDoListAngular 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 클릭합니다.
 
-3.  **웹 게시** 마법사의 **프로필** 탭에서 **Microsoft Azure 앱 서비스**를 클릭합니다.
+3.  **웹 게시** 마법사의 **프로필** 탭에서 **Microsoft Azure 앱 서비스** 를 클릭합니다.
 
-5. **앱 서비스** 대화 상자에서 **새로 만들기**를 클릭합니다.
+5. **앱 서비스** 대화 상자에서 **새로 만들기** 를 클릭합니다.
 
-3. **앱 서비스 만들기** 대화 상자의 **호스팅** 탭에 *azurewebsites.net* 도메인에서 고유한 **웹앱 이름**을 입력합니다.
+3. **앱 서비스 만들기** 대화 상자의 **호스팅** 탭에 *azurewebsites.net* 도메인에서 고유한 **웹앱 이름** 을 입력합니다.
 
 5. 사용할 Azure **구독**을 선택합니다.
 
@@ -130,7 +130,7 @@ API 앱에 Node.js 또는 Java 시작 시리즈를 수행 중인 경우 다음 �
 
 1. [Azure 포털](https://portal.azure.com/)로 이동한 다음 TodoListAngular(프런트 엔드) 프로젝트를 호스트하기 위해 만든 웹앱에 대한 **웹앱** 블레이드로 이동합니다.
 
-2. **설정 > 응용 프로그램 설정**을 클릭합니다.
+2. **설정 > 응용 프로그램 설정** 을 클릭합니다.
 
 3. **앱 설정** 섹션에서 다음 키와 값을 추가합니다.
 
@@ -138,18 +138,18 @@ API 앱에 Node.js 또는 Java 시작 시리즈를 수행 중인 경우 다음 �
 	|---|---|---|
 	|toDoListAPIURL|https://{your 중간 계층 API 앱 이름}.azurewebsites.net|https://todolistapi0121.azurewebsites.net|
 
-4. **Save**를 클릭합니다.
+4. **Save** 를 클릭합니다.
 
 	코드가 Azure에서 실행되면 이 값은 *Web.config* 파일에 있는 localhost URL을 재정의합니다.
 
-	설정값을 가져오는 코드는 *index.cshtml*에 있습니다.
+	설정값을 가져오는 코드는 *index.cshtml* 에 있습니다.
 
 		<script type="text/javascript">
 		    var apiEndpoint = "@System.Configuration.ConfigurationManager.AppSettings["toDoListAPIURL"]";
 		</script>
 		<script src="app/scripts/todoListSvc.js"></script>
 
-	*todoListSvc.js*의 코드는 다음 설정을 사용합니다.
+	*todoListSvc.js* 의 코드는 다음 설정을 사용합니다.
 
 		return {
 		    getItems : function(){
@@ -174,7 +174,7 @@ API 앱에 Node.js 또는 Java 시작 시리즈를 수행 중인 경우 다음 �
 
 ### 새 웹앱에 ToDoListAngular 웹 프로젝트 배포
 
-*  Visual Studio에서 **웹 게시** 마법사의 **연결** 단계에서 **게시**를 클릭합니다.
+*  Visual Studio에서 **웹 게시** 마법사의 **연결** 단계에서 **게시** 를 클릭합니다.
 
 	Visual Studio에서 ToDoListAngular 프로젝트를 새로운 웹앱에 배포하고 해당 웹앱의 URL로 브라우저를 엽니다.
 
@@ -194,7 +194,7 @@ API 앱에 Node.js 또는 Java 시작 시리즈를 수행 중인 경우 다음 �
  
 8. 브라우저에서 [Azure 포털](https://portal.azure.com/)로 이동합니다.
 
-2. **앱 서비스**를 클릭한 다음 ToDoListAPI(중간 계층) API 앱을 클릭합니다.
+2. **앱 서비스** 를 클릭한 다음 ToDoListAPI(중간 계층) API 앱을 클릭합니다.
 
 	![포털에서 API 앱 선택](./media/app-service-api-cors-consume-javascript/browseapiapps.png)
 
