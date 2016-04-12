@@ -13,7 +13,7 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.date="02/03/2016"
 	ms.author="josephd"/>
 
@@ -63,4 +63,4 @@ Microsoft Azure 포털 마켓플레이스를 사용하면 미리 구성된 Share
 
 - Azure 인프라 서비스에서 추가 [SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) 구성을 검색합니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -12,7 +12,7 @@
 <tags
 	ms.service="virtual-machines-windows"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="03/24/2016"
@@ -168,10 +168,10 @@ Azure에서 암호화를 위한 보안 암호를 저장하려면 **Azure 주요 
 
 |매개 변수|설명|예제|
 |----------|----------|-------|
-|**주요 자격 증명 모음 URL** | 주요 자격 증명 모음의 위치입니다.|https://contosokeyvault.vault.azure.net/ |
-|**AKV 주체 이름** |Azure Active Directory 서비스 주체 이름. 이를 클라이언트 ID라고도 합니다. |fde2b411-33d5-4e11-af04eb07b669ccf2|
-| **AKV 주체 암호**|AKV 통합은 VM이 주요 자격 증명 모음에 액세스할 수 있도록 SQL Server 내에 자격 증명을 만듭니다. 이 자격 증명의 이름을 선택하세요. | 9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=|
-|**자격 증명 이름**|이 자격 증명을 식별할 이름을 선택합니다.| mycred1|
+|**주요 자격 증명 모음 URL** |주요 자격 증명 모음의 위치입니다.|https://contosokeyvault.vault.azure.net/ |
+|**주체 이름** |Azure Active Directory 서비스 주체 이름. 이를 클라이언트 ID라고도 합니다. |fde2b411-33d5-4e11-af04eb07b669ccf2|
+| **주체 암호**|Azure Active Directory 서비스 주체 암호입니다. 이를 클라이언트 암호라고도 합니다. | 9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=|
+|**자격 증명 이름**|**자격 증명 이름**: AKV 통합은 VM이 주요 자격 증명 모음에 액세스할 수 있도록 SQL Server 내에 자격 증명을 만듭니다. 이 자격 증명의 이름을 선택하세요.| mycred1|
 
 자세한 내용은 [Azure VM에서 SQL Server에 대한 Azure 주요 자격 증명 모음 통합 구성](virtual-machines-windows-classic-ps-sql-keyvault.md)을 참조하세요.
 
@@ -192,9 +192,9 @@ SQL Server 가상 컴퓨터에 연결되었으면 SQL Server Management Studio�
 
 인터넷에서 SQL Server 데이터베이스 엔진에 연결하려는 경우 방화벽 구성, SQL Server 인증 사용, 네트워크 보안 그룹 구성 등의 여러 단계가 있습니다. 포트 1433에 TCP 트래픽을 허용하도록 네트워크 보안 그룹 규칙이 있어야 합니다.
 
-포털을 사용하여 Resource Manager를 통해 SQL Server 가상 컴퓨터 이미지를 프로비전하는 경우 SQL 연결 옵션 및 사용하도록 설정된 SQL Server 인증에 대해 **공용**을 선택하면 이러한 단계가 자동으로 완료됩니다. 그러나 인터넷을 통한 SQL Server 인스턴스 액세스를 완료하는 데 몇 가지 남은 단계가 있습니다.
+포털을 사용하여 리소스 관리자로 SQL Server 가상 컴퓨터 이미지를 프로비전하는 경우 SQL 연결 옵션에 대해 **공용**을 선택하면 이러한 단계가 자동으로 완료되고 SQL Server 인증을 사용하도록 합니다. 그러나 인터넷을 통한 SQL Server 인스턴스 액세스를 완료하는 데 몇 가지 남은 단계가 있습니다.
 
->[AZURE.NOTE] 프로비전 중에 공용을 선택하지 않은 경우 인터넷을 통한 SQL Server 인스턴스 액세스에 추가 단계가 필요합니다. 자세한 내용은 [SQL Server 가상 컴퓨터에 연결(Resource Manager) | Microsoft Azure](virtual-machines-windows-sql-connect.md)를 참조하세요.
+>[AZURE.NOTE] 프로비전 중에 공용을 선택하지 않은 경우 인터넷을 통한 SQL Server 인스턴스 액세스에 추가 단계가 필요합니다. 자세한 내용은 [SQL Server 가상 컴퓨터에 연결(리소스 관리자) | Microsoft Azure](virtual-machines-windows-sql-connect.md)를 참조하세요.
 
 가상 컴퓨터에 로컬로 액세스하거나 동일한 가상 네트워크 내에서 액세스해야 하는 경우 다음 단계가 필요하지 않습니다.
 
@@ -203,4 +203,4 @@ SQL Server 가상 컴퓨터에 연결되었으면 SQL Server Management Studio�
 ##<a id="Next">다음 단계
 Azure에서 SQL Server를 사용하는 방법에 대한 기타 정보는 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-windows-classic-sql-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

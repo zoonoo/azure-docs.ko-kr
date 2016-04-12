@@ -165,7 +165,7 @@ Azure 리소스 관리자 모드는 기본적으로 사용되지 않으므로 �
 
 또한 컴퓨터에 템플릿을 다운로드하는 대신 [GitHub](https://github.com/Azure/azure-quickstart-templates)에서 바로 템플릿을 사용할 수도 있습니다. 이렇게 하려면 **--template-url** 옵션을 사용하여 명령에서 템플릿의 azuredeploy.json 파일에 URL을 전달하세요. URL을 가져오려면 GitHub에서 azuredeploy.json을 _원시_ 모드로 열고 브라우저의 주소 표시줄에 표시되는 URL을 복사합니다. 그런 후 다음과 비슷한 명령으로 이 URL을 직접 사용하여 배포를 만들 수 있습니다.
 
-	azure group deployment create "testDeploy" testResourceGroup --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json
+	azure group deployment create "testRG" testDeploy --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json
 필요한 템플릿 매개 변수를 입력하라는 메시지가 표시 됩니다.
 
 > [AZURE.NOTE] JSON 템플릿을 _원시_ 모드로 여는 것이 중요합니다. 브라우저의 주소 표시줄에 표시되는 URL이 일반 모드에서 표시되는 URL과 다릅니다. GitHub에서 파일을 볼 때 파일을 _원시_ 모드로 열려면 오른쪽 위 모서리에 있는 **원시**를 클릭합니다.
@@ -215,4 +215,4 @@ Azure 리소스 관리자 모드는 기본적으로 사용되지 않으므로 �
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

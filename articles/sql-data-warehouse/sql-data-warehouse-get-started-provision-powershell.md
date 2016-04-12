@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/26/2016"
+   ms.date="03/30/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Powershell을 사용하여 SQL 데이터 웨어하우스 만들기
@@ -30,7 +30,7 @@
 PowerShell을 사용하여 설치하지 않은 경우 다운로드하고 구성해야 합니다.
 
 1. Azure PowerShell 모듈을 다운로드하려면 [Microsoft 웹 플랫폼 설치 관리자](http://aka.ms/webpi-azps)를 실행합니다. 이 설치 관리자에 대한 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법][]을 참조하세요.
-2. 모듈을 실행하려면 시작 창에서 **Windows PowerShell** 을 입력합니다.
+2. 모듈을 실행하려면 시작 창에서 **Windows PowerShell**을 입력합니다.
 3. 이 cmdlet을 실행하여 Azure 리소스 관리자에 로그인합니다.
 
 	```Powershell
@@ -78,7 +78,7 @@ New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "myn
 매개 변수 옵션은 [데이터베이스 만들기(Azure SQL 데이터 웨어하우스)](https://msdn.microsoft.com/library/mt204021.aspx)를 참조하세요.
 
 ## 다음 단계
-SQL 데이터 웨어하우스에서 프로비전을 완료한 후에 [샘플 데이터를 로드][]하거나 [개발][], [로드][] 또는 [마이그레이션][]하는 방법을 확인할 수 있습니다.
+SQL 데이터 웨어하우스에서 프로비전을 완료한 후 [샘플 데이터를 로드][]하거나 [개발][], [로드][] 또는 [마이그레이션][] 방법을 확인할 수 있습니다.
 
 SQL 데이터 웨어하우스를 프로그래밍 방식으로 관리하는 방법에 대한 자세한 내용은 [Powershell][] 또는 [REST API][] 설명서를 확인하세요.
 
@@ -88,7 +88,8 @@ SQL 데이터 웨어하우스를 프로그래밍 방식으로 관리하는 방�
 
 <!--Article references-->
 [마이그레이션]: ./sql-data-warehouse-overview-migrate.md
-[개발]: ./sql-data-warehouse-overview-develop/.md
+[개발]: ./sql-data-warehouse-overview-develop.md
+[로드]: ./sql-data-warehouse-load-with-bcp.md
 [샘플 데이터를 로드]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [Powershell]: ./sql-data-warehouse-reference-powershell-cmdlets.md
 [REST API]: https://msdn.microsoft.com/library/azure/dn505719.aspx
@@ -96,4 +97,4 @@ SQL 데이터 웨어하우스를 프로그래밍 방식으로 관리하는 방�
 [firewall rules]: ../sql-database/sql-database-configure-firewall-settings.md
 [Azure PowerShell을 설치 및 구성하는 방법]: ./powershell-install-configure.md
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

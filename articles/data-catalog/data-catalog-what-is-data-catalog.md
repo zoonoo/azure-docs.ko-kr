@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure 데이터 카탈로그 - 데이터 카탈로그란"
-   description="해당 기능 및 주소로 설계를 포함하여 Microsoft Azure 데이터 카탈로그를 간략하게 설명합니다. Azure 데이터 카탈로그는 분석가에서부터 데이터 과학자 및 개발자에 이르는 모든 사용자가 데이터 입력을 등록, 검색, 이해 및 소비할 수 있도록 지원하는 성능을 제공합니다."
+   pageTitle="Azure Data Catalog란? | Microsoft Azure"
+   description="이 문서는 해당 기능 및 다룰 문제를 포함하여 Microsoft Azure Data Catalog의 개요를 제공합니다. Azure 데이터 카탈로그는 분석가에서부터 데이터 과학자 및 개발자에 이르는 모든 사용자가 데이터 입력을 등록, 검색, 이해 및 소비할 수 있도록 지원하는 성능을 제공합니다."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/30/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
 
 # Azure 데이터 카탈로그란?
@@ -109,4 +109,4 @@ Microsoft**Azure 데이터 카탈로그**는 등록 시스템과 엔터프라이
 1.	**Azure 데이터 카탈로그**에서 직접 지원하는 클라이언트 응용 프로그램의 경우, 사용자들은 포털에서 찾을 수 있는 데이터 원본 타일 내의 **Open In(열기)** 메뉴를 클릭할 수 있습니다. 그러면 클라이언트 응용 프로그램이 선택한 데이터 원본에 대한 연결과 함께 시작됩니다.
 2.	모든 클라이언트 응용 프로그램의 경우 사용자는 선택한 데이터 원본에 대해 속성 창에 표시되는 연결 정보를 사용할 수 있습니다. 이 정보에는 데이터 연결에 필요한 모든 세부 정보(서버 이름, 데이터베이스 이름 및 개체 이름)가 포함되며, 클라이언트 도구의 연결 환경에 복사할 수 있습니다. 데이터 원본에 대해 요청 액세스 세부 정보를 제공한 경우, 이 정보는 연결 세부 정보 옆에 표시됩니다.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

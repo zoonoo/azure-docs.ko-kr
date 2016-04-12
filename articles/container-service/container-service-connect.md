@@ -104,10 +104,39 @@ Mesos에 터널을 구성한 경우 다음에서 관련된 끝점에 액세스�
 
 Docker Swarm에 터널을 구성한 경우 Docker CLI를 통해 Swarm 클러스터에 액세스할 수 있습니다. 먼저 ` :2375` 값과 함께 `DOCKER_HOST`로 명명된 Windows 환경 변수를 구성해야 합니다.
 
+## 문제 해결
+
+### 터널을 만들고 Mesos 또는 Marathon URL을 탐색한 후에 502 잘못된 게이트웨이를 가져옵니다...
+문제를 해결하는 가장 쉬운 방법은 단순히 클러스터를 삭제하고 다시 배포하는 것입니다. 또는 다음을 수행하여 자체적으로 복구하도록 Zookeeper를 적용할 수 있습니다.
+
+각 마스터에 로그인하여 다음을 수행합니다.
+
+```
+sudo service nginx stop
+sudo service marathon stop
+sudo service chronos stop
+sudo service mesos-dns stop
+sudo service mesos-master stop 
+sudo service zookeeper stop
+```
+
+그런 다음 모든 마스터에서 모든 서비스가 중지됩니다.
+```
+sudo mkdir /var/lib/zookeeperbackup
+sudo mv /var/lib/zookeeper/* /var/lib/zookeeperbackup
+sudo service zookeeper start
+sudo service mesos-master start
+sudo service mesos-dns start
+sudo service chronos start
+sudo service marathon start
+sudo service nginx start
+```
+모든 서비스가 다시 시작된 직후에 설명서에 설명된 대로 클러스터로 작업할 수 있어야 합니다.
+
 ## 다음 단계
 
 Mesos 또는 Swarm으로 컨테이너를 배포 및 관리합니다.
 
 - [Azure 컨테이너 서비스 및 Mesos로 작업](./container-service-mesos-marathon-rest.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

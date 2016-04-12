@@ -76,8 +76,7 @@ SPA 프런트 엔드의 스크린샷은 다음과 같습니다.
 
 	* **ToDoListAPI** - 중간 계층: 할 일 항목에서 CRUD 작업을 수행하는 데이터 계층을 호출하는 ASP.NET Web API 프로젝트입니다.
 
-	* **ToDoListDataAPI** - 데이터 계층: 할 일 항목에서 CRUD 작업을 수행하는 ASP.NET Web API 프로젝트입니다. 할 일 항목은 메모리에 저장되며 응용 프로그램이 다시 시작할 때마다 모든 변경 내용은
-	* . 
+	* **ToDoListDataAPI** - 데이터 계층: 할 일 항목에서 CRUD 작업을 수행하는 ASP.NET Web API 프로젝트입니다. 할 일 항목은 메모리에 저장되며 응용 프로그램이 다시 시작할 때마다 모든 변경 내용이 손실됩니다.
 
 	중간 계층은 데이터 계층을 호출하는 경우 `Owner` 필드의 사용자 ID를 제공합니다. 다운로드한 코드에서 사용자 ID는 항상 "*"입니다. 이후의 자습서에서 인증을 추가하면 중간 계층은 데이터 계층에 실제 사용자 ID를 제공합니다.
 
@@ -87,7 +86,7 @@ SPA 프런트 엔드의 스크린샷은 다음과 같습니다.
 
 이 섹션에서는 API가 로컬로 실행되는 동안 클라이언트를 로컬로 실행하고 해당 API를 호출할 수 있는지 확인합니다.
 
-**참고:** 이러한 지침은 해당 브라우저에서 `http://localhost` URL 간에 교차 원본 JavaScript 호출을 허용하므로 Internet Explorer 및 Edge 브라우저에서 작동합니다. Chrome을 사용하는 경우 `--disable-web-security` 스위치로 브라우저를 시작합니다. Firefox를 사용하는 경우 이 섹션을 건너뛰십시오.
+**참고:** 이러한 지침은 해당 브라우저에서 `http://localhost` URL에서/로 교차 원본 JavaScript 호출을 허용하므로 Internet Explorer 및 Edge 브라우저에서 작동합니다. Chrome을 사용하는 경우 `--disable-web-security` 스위치로 브라우저를 시작합니다. Firefox를 사용하는 경우 이 섹션을 건너뛰십시오.
 
 1. 먼저 ToDoListDataAPI로 시작한 다음 ToDoListAPI 및 ToDoListAngular를 사용하여 세 개의 프로젝트 모두를 시작 프로젝트로 설정합니다. (**솔루션 탐색기**에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭하며 **여러 개의 시작 프로젝트**를 선택하고 프로젝트를 올바른 순서로 배치한 다음 각각에 대해 **작업**을 **시작**으로 설정합니다.)  
 
@@ -256,7 +255,7 @@ Swashbuckle은 모든 ASP.NET Web API 프로젝트에서 작동합니다. Swagge
 
 	![앱 서비스 대화 상자에서 앱 형식](./media/app-service-api-dotnet-get-started/apptype.png)
 
-	<a id="apptype"></a> 앱 형식은 새 API 앱, 웹 앱 또는 모바일 앱에 대해 사용할 수 있는 기능을 결정하지 않습니다. 이 자습서에 표시된 API 앱의 모든 기능을 모두 세 가지 형식에 대해 사용 수 있습니다. 유일한 차이점은 앱 형식을 식별하기 위해 Azure 포털이 표시하는 아이콘 및 텍스트와 포털의 일부 페이지에 나열되는 기능의 순서입니다. 자습서의 후반부에서 Azure 포털을 확인할 수 있습니다. 이는 Azure 리소스를 관리하기 위한 웹 인터페이스입니다.
+	<a id="apptype"></a> 앱 형식은 새 API 앱, 웹앱 또는 모바일 앱에 사용할 수 있는 기능을 결정하지 않습니다. 이 자습서에 표시된 API 앱의 모든 기능을 모두 세 가지 형식에 대해 사용 수 있습니다. 유일한 차이점은 앱 형식을 식별하기 위해 Azure 포털이 표시하는 아이콘 및 텍스트와 포털의 일부 페이지에 나열되는 기능의 순서입니다. 자습서의 후반부에서 Azure 포털을 확인할 수 있습니다. 이는 Azure 리소스를 관리하기 위한 웹 인터페이스입니다.
 
 	이 자습서의 경우 SPA 프런트 엔드가 웹 앱에서 실행되고 각 웹 API 백 엔드가 API 앱에서 실행되지만, 세 개 모두 웹 앱이거나 세 개 모두 API 앱인 경우에는 모두 똑같은 방식으로 작동합니다. 또한 단일 API 앱 또는 웹 앱이 SPA 프런트 엔드와 중간 계층 백 엔드를 모두 호스트할 수 있습니다.
 
@@ -266,7 +265,7 @@ Swashbuckle은 모든 ASP.NET Web API 프로젝트에서 작동합니다. Swagge
 
 	다른 사용자가 이미 사용한 이름을 입력한 경우 녹색 확인 표시 대신 오른쪽에 빨간색 느낌표가 표시되며, 다른 이름을 입력해야 합니다.
 
-	Azure에서는 응용 프로그램의 URL에 대한 접두사로 이 이름을 사용합니다. 전체 URL은 이 이름과 *.azurewebsites.net* 으로 구성됩니다. 예를 들어 이름이 `ToDoListDataAPI`면 URL은 `todolistdataapi.azurewebsites.net`이 됩니다.
+	Azure에서는 응용 프로그램의 URL에 대한 접두사로 이 이름을 사용합니다. 전체 URL은 이 이름과 *.azurewebsites.net*으로 구성됩니다. 예를 들어 이름이 `ToDoListDataAPI`이면 URL은 `todolistdataapi.azurewebsites.net`이 됩니다.
 
 6. **리소스 그룹** 드롭다운에서 **새로 만들기**를 클릭한 다음, "ToDoListGroup" 또는 원하는 이름을 입력합니다.
 
@@ -358,7 +357,7 @@ Swashbuckle은 모든 ASP.NET Web API 프로젝트에서 작동합니다. Swagge
 
 	![설정 블레이드에서 API 정의](./media/app-service-api-dotnet-get-started/apidefinsettings.png)
 
-	**API 정의** 블레이드에서 JSON 형식으로 Swagger 2.0 메타데이터를 반환하는 URL을 지정할 수 있습니다. Visual Studio에서 API 앱을 만든 경우, API 정의 URL을 이전에 본 Swashbuckle 생성 메타데이터의 기본값으로 설정됩니다. 즉, API 앱의 기준 URL에 `/swagger/docs/v1`가 추가됩니다.
+	**API 정의** 블레이드에서 JSON 형식으로 Swagger 2.0 메타데이터를 반환하는 URL을 지정할 수 있습니다. Visual Studio에서 API 앱을 만든 경우, API 정의 URL을 이전에 본 Swashbuckle 생성 메타데이터의 기본값으로 설정됩니다. 즉, API 앱의 기준 URL에 `/swagger/docs/v1`이(가) 추가됩니다.
 
 	![API 정의 URL](./media/app-service-api-dotnet-get-started/apidefurl.png)
 
@@ -503,7 +502,7 @@ ToDoListAPI 프로젝트에는 생성된 클라이언트 코드가 이미 있지
 
 그러나 포털 표시를 변경하려는 경우 쉽게 변경할 수는 있습니다. 예를 들어, 다음 단계를 수행하여 방금 만든 API 앱 중 하나를 웹앱으로 변경할 수 있습니다.
 
-1. 리소스 탐색기를 엽니다.
+1. [리소스 탐색기](https://resources.azure.com/)를 엽니다.
 
 2. 왼쪽 탐색 창에서 **구독**을 확장한 다음, 작업하고 있던 구독을 확장합니다.
 
@@ -543,4 +542,4 @@ Azure 앱 서비스에서 ASP.NET API 앱이 실행 중인 경우 문제 해결�
 
 이 자습서에서는 API 앱을 만들고, 이 앱에 코드를 배포하고, 클라이언트 코드를 생성하고, .NET 클라이언트에서 이를 사용하는 방법을 살펴보았습니다. API 앱 시작 시리즈의 다음 자습서에서는 [CORS를 사용하여 JavaScript 클라이언트에서 API 앱을 사용](app-service-api-cors-consume-javascript.md)하는 방법을 보여 줍니다. 시리즈의 후반부 자습서에서는 인증 및 권한 부여를 구현하는 방법을 보여 줍니다.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

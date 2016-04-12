@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-phonegap"
 	ms.devlang="js"
 	ms.topic="hero-article" 
-	ms.date="03/25/2016"
+	ms.date="04/04/2016"
 	ms.author="piyushjo" />
 
 # Cordova/Phonegap용 Azure Mobile Engagement 시작
@@ -24,7 +24,7 @@
 
 이 자습서에서는 Mac을 사용하여 빈 Cordova 앱을 만들고 Mobile Engagement SDK를 통합합니다. 기본 분석 데이터를 수집하고 iOS용 APNS(Apple 푸시 알림 시스템) 및 Android용 GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받습니다. 테스트를 위해 iOS 또는 Android 장치에 이 앱을 배포합니다.
 
-> [AZURE.NOTE] 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdocumentation%2Farticles%2Fmobile-engagement-cordova-get-started)을 참조하세요.
+> [AZURE.NOTE] 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-cordova-get-started)을 참조하세요.
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
@@ -72,13 +72,14 @@
 1. 변수 값을 제공하여 플러그 인을 구성하는 동안 Azure Mobile Engagement Cordova 플러그 인을 설치합니다.
 
 		cordova plugin add cordova-plugin-ms-azure-mobile-engagement    
-			 --variable AZME_IOS_CONNECTION_STRING=<iOS Connection String> 
+     		--variable AZME_IOS_CONNECTION_STRING=<iOS Connection String> 
 	        --variable AZME_IOS_REACH_ICON=... (icon name WITH extension) 
 	        --variable AZME_ANDROID_CONNECTION_STRING=<Android Connection String> 
 			--variable AZME_ANDROID_REACH_ICON=... (icon name WITHOUT extension)       
 	        --variable AZME_ANDROID_GOOGLE_PROJECT_NUMBER=... (From your Google Cloud console for sending push notifications) 
-	        --variable AZME_REDIRECT_URL=... (URL scheme which triggers the app for deep linking)
-	        --variable AZME_ENABLE_LOG=true|false
+	        --variable AZME_ACTION_URL =... (URL scheme which triggers the app for deep linking)
+	        --variable AZME_ENABLE_NATIVE_LOG=true|false
+			--variable AZME_ENABLE_PLUGIN_LOG=true|false
 
 *Android 도달률 아이콘*: 확장자 없고 그릴 수 있는 접두사도 없는 리소스 이름(예: mynotificationicon)이어야 하며 아이콘 파일을 사용자의 Android 프로젝트(platforms/android/res/drawable)에 복사해야 합니다.
 
@@ -89,8 +90,7 @@
 1. Cordova 프로젝트에서 **www/js/index.js**를 편집하여 Mobile Engagement에 대한 호출을 추가하고 *deviceReady* 이벤트가 수신된 후 새 활동을 선언합니다.
 
 		 onDeviceReady: function() {
-		        app.receivedEvent('deviceready');
-		        AzureEngagement.startActivity("myPage",{});
+		        Engagement.startActivity("myPage",{});
 		    }
 
 2. 응용 프로그램을 실행합니다.
@@ -155,10 +155,12 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 **www/js/index.js**를 편집하여 푸시 알림을 요청하고 처리기를 선언하기 위한 Mobile Engagement에 대한 호출을 추가합니다.
 
 	 onDeviceReady: function() {
-	        app.receivedEvent('deviceready');
-	        AzureEngagement.registerForPushNotification();
-	        AzureEngagement.onOpenURL(function(_url) { alert(_url); });
-	        AzureEngagement.startActivity("myPage",{});
+           Engagement.initializeReach(  
+	 			// on OpenUrl  
+	 			function(_url) {   
+	 			alert(_url);   
+	 			});  
+			Engagement.startActivity("myPage",{});  
 	    }
 
 ###앱 실행
@@ -191,7 +193,7 @@ GCM 알림은 Android 에뮬레이터에서 지원되므로 에뮬레이터를 �
 	
 	- 캠페인에 **이름**을 제공합니다. 
 	- **전달 형식**을 *시스템 알림* *단순*으로 선택합니다.
-	- 전달 시간을 *"언제든지"*로 선택합니다.
+	- **전달 시간**을 *"언제든지"*로 선택합니다.
 	- 푸시에서 첫째 줄에 있는 알림에 **제목**을 제공합니다.
 	- 메시지 본문으로 사용하는 알림에 **메시지**를 제공합니다. 
 
@@ -200,7 +202,7 @@ GCM 알림은 Android 에뮬레이터에서 지원되므로 에뮬레이터를 �
 4. 입력을 제공하여 캠페인을 만듭니다.**[iOS]**
 
 	- 캠페인에 **이름**을 제공합니다. 
-	- 배달 시간을 *"Out of app only(앱 외부에서만)"*으로 선택합니다.
+	- **배달 시간**을 *"앱 외부에서만"*으로 선택합니다.
 	- 푸시에서 첫째 줄에 있는 알림에 **제목**을 제공합니다.
 	- 메시지 본문으로 사용하는 알림에 **메시지**를 제공합니다. 
  
@@ -210,7 +212,7 @@ GCM 알림은 Android 에뮬레이터에서 지원되므로 에뮬레이터를 �
 
 	![][8]
 
-6. [선택 사항] 작업 URL을 제공할 수도 있습니다. 플러그 인의 **AZME REDIRECT URL** 변수를 구성하는 동안 제공된 URL 체계가 사용되는지 확인합니다(예: **myapp://test*).
+6. [선택 사항] 작업 URL을 제공할 수도 있습니다. 플러그 인의 **AZME\_REDIRECT\_URL** 변수를 구성하는 동안 제공된 URL 체계가 사용되는지 확인합니다(예: **myapp://test*).
 
 7. 가능한 가장 기본적인 캠페인 설정을 완료했습니다. 이제 다시 아래로 스크롤하고 **만들기** 단추를 클릭하여 캠페인을 저장합니다.
 
@@ -223,9 +225,6 @@ GCM 알림은 Android 에뮬레이터에서 지원되므로 에뮬레이터를 �
 ##<a id="next-steps"></a>다음 단계
 [Cordova Mobile Engagement SDK에서 사용 가능한 모든 방법의 개요](https://github.com/Azure/azure-mobile-engagement-cordova)
 
-<!-- URLs. -->
-[Mobile Engagement iOS SDK]: http://aka.ms/qk2rnj
-
 <!-- Images. -->
 
 [1]: ./media/mobile-engagement-cordova-get-started/engage-button.png
@@ -235,8 +234,7 @@ GCM 알림은 Android 에뮬레이터에서 지원되므로 에뮬레이터를 �
 [6]: ./media/mobile-engagement-cordova-get-started/new-announcement.png
 [8]: ./media/mobile-engagement-cordova-get-started/campaign-content.png
 [10]: ./media/mobile-engagement-cordova-get-started/campaign-activate.png
-
 [11]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-android.png
 [12]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-ios.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -127,7 +127,11 @@
 
 ## 다음 단계
 
-- [웹 서비스 프런트 엔드를 사용하여 인터넷에 서비스를 노출할 수 있는 방법을 참조하기](service-fabric-add-a-web-frontend.md)
+<!--
+Temporarily removing this link because we have removed the ASP.NET template.
+
+ - [See how you can expose your services to the Internet with a web service front end](service-fabric-add-a-web-frontend.md)
+-->
 - [Azure에서 클러스터를 만드는 방법 알아보기](service-fabric-cluster-creation-via-portal.md)
 - [Reliable Services에 대해 자세히 알아보기](service-fabric-reliable-services-quick-start.md)
 - [Reliable Actors 프로그래밍 모델을 사용하여 서비스 만들어 보기](service-fabric-reliable-actors-get-started.md)
@@ -146,4 +150,4 @@
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

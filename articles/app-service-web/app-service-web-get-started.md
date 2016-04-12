@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article"
-	ms.date="03/17/2016" 
+	ms.date="04/04/2016" 
 	ms.author="cephalin"
 />
 	
@@ -67,7 +67,7 @@ Azure 앱 서비스에 웹 앱을 배포하겠습니다.
 
 4. 다음 명령을 사용하여 Azure에 고유한 앱 이름을 가진 앱 서비스 앱 리소스를 만듭니다. 웹 앱의 URL은 http://&lt;app_name>.azurewebsites.net이 됩니다.
 
-        azure site create --git <app_name> 
+        azure site create --git <app_name>
       
     >[AZURE.NOTE] Azure 구독에 대한 배포 자격 증명을 전혀 설정하지 않은 경우 배포 자격 증명을 만들라는 메시지가 나타납니다. 이러한 자격 증명(Azure 계정 자격 증명 아님)은 앱 서비스에서 Git 배포 및 FTP 로그인에만 사용합니다.
     
@@ -85,11 +85,9 @@ Azure 앱 서비스에 웹 앱을 배포하겠습니다.
 
 ## 실시간으로 실행 중인 앱 확인
 
-Azure에서 실시간으로 실행 중인 앱을 확인하려면 다음 명령을 실행합니다.
+Azure에서 라이브로 실행 중인 앱을 보려면 리포지토리의 디렉터리에서 이 명령을 실행합니다.
 
-    azure site browse <app_name>
-
-`Site <app_name> does not exist or has no hostnames` 오류 메시지가 나타나면 몇 초 후에 명령을 다시 실행합니다. Java 앱 같은 일부 앱은 배포를 마무리하는 데 시간이 약간 더 걸립니다.
+    azure site browse
 
 ## 앱 업데이트
 
@@ -111,7 +109,7 @@ Azure에서 실시간으로 실행 중인 앱을 확인하려면 다음 명령�
 
 2. 왼쪽 표시줄에서 **앱 서비스**를 클릭합니다.
 
-3. 방금 만든 앱 서비스 앱을 클릭하여 포털에서 해당 블레이드를 엽니다. 사용자 편의를 위해 기본적으로 **설정** 블레이드가 함께 열립니다.
+3. 방금 만든 앱 서비스 앱을 클릭하여 포털에서 해당 블레이드를 엽니다. 사용자 편의를 위해 기본적으로 **설정** 블레이드도 열립니다.
 
     ![Azure 앱 서비스에서 첫 번째 앱의 포털 보기](./media/app-service-web-get-started/portal-view.png)
 
@@ -141,4 +139,4 @@ Azure에서 실시간으로 실행 중인 앱을 확인하려면 다음 명령�
 - [모바일 앱 만들기](/documentation/learning-paths/appservice-mobileapps/)
 - [API 앱 만들기](../app-service-api/app-service-api-apps-why-best-platform.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

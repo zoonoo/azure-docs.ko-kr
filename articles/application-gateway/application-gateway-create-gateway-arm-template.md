@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/02/2016"
+   ms.date="04/05/2016"
    ms.author="joaoma"/>
 
 
@@ -204,9 +204,9 @@ Azure CLI를 사용하여 다운로드한 Azure 리소스 관리자 템플릿을
 
 		azure group create -n appgatewayRG -l eastus
 
-**-n(또는 --name)**. 새 리소스 그룹의 이름입니다. 이 시나리오에서는 *appgatewayRG* 입니다.
+**-n(또는 --name)**. 새 리소스 그룹의 이름입니다. 이 시나리오에서는 *appgatewayRG*입니다.
 
-**-l(또는 --location)**. 새 리소스 그룹이 생성되는 Azure 지역입니다. 이 시나리오에서는 *eastus* 입니다.
+**-l(또는 --location)**. 새 리소스 그룹이 생성되는 Azure 지역입니다. 이 시나리오에서는 *eastus*입니다.
 
 4. **azure group deployment create** cmdlet을 실행하고 위에서 다운로드한 후 수정한 템플릿 및 매개 변수를 사용하여 새 가상 네트워크를 배포합니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다.
 
@@ -284,4 +284,4 @@ SSL 오프로드를 구성하려는 경우 [SSL 오프로드에 대해 응용 �
 - [Azure 부하 분산 장치](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure 트래픽 관리자](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

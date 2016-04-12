@@ -13,7 +13,7 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
-	ms.topic="hero-article"
+	ms.topic="get-started-article"
 	ms.date="02/09/2016"
 	ms.author="robmcm"/>
 
@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [.Net](web-sites-dotnet-get-started.md)
-- [Node.JS](web-sites-nodejs-develop-deploy-mac.md)
+- [Node.JS](app-service-web-nodejs-get-started.md)
 - [Java](web-sites-java-get-started.md)
 - [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
 - [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
@@ -214,7 +214,7 @@
 
 		php -S localhost:8000
 
-이제 **http://localhost:8000/** 로 이동하여 응용 프로그램을 테스트할 수 있습니다.
+이제 ****http://localhost:8000/**로 이동하여 응용 프로그램을 테스트할 수 있습니다.
 
 
 ##응용 프로그램 게시
@@ -325,4 +325,4 @@
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -28,19 +28,13 @@
 - Windows Server 2012 R2
 - Windows 10
 
-### Visual Studio 2015
-
-서비스 패브릭용 도구에는 [Visual Studio 웹 사이트][2]에서 찾을 수 있는 Visual Studio 2015 이상이 필요합니다.
-
-> [AZURE.NOTE] 지원되는 OS 버전 중 하나가 실행되고 있지 않거나 컴퓨터에 Visual Studio를 설치하지 않으려는 경우는 Windows Server 2012 R2 및 Visual Studio가 미리 설치된 Azure 가상 컴퓨터를 설정할 수 있습니다. Azure 가상 컴퓨터 갤러리에서 이미지를 사용하여 이를 수행할 수 있습니다.
-
 ## 런타임, SDK 및 도구 설치
 
-웹 플랫폼 설치 관리자는 서비스 패브릭 구성 요소를 설치합니다. 세 가지 설치 옵션이 있습니다.
+웹 플랫폼 설치 관리자는 서비스 패브릭 개발에 대한 세 가지 구성을 제공합니다.
 
-- [서비스 패브릭 런타임, SDK 및 Visual Studio 2015용 도구 설치](full-bundle-vs2015)
-- [서비스 패브릭 런타임, SDK 및 Visual Studio "15" Preview용 도구 설치](full-bundle-dev15)
-- [서비스 패브릭 런타임 및 SDK만 설치(Visual Studio 도구 없음)](core-sdk)
+- [서비스 패브릭 런타임, SDK 및 Visual Studio 2015용 도구 설치][full-bundle-vs2015]
+- [서비스 패브릭 런타임, SDK 및 Visual Studio "15" Preview용 도구 설치][full-bundle-dev15]
+- [서비스 패브릭 런타임 및 SDK만 설치(Visual Studio 도구 없음)][core-sdk]
 
 
 ## PowerShell 스크립트 실행 활성화
@@ -67,4 +61,4 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 [full-bundle-dev15]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Dev15 WebPI 링크"
 [core-sdk]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=ServiceFabricSDK "핵심 SDK WebPI 링크"
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="CLI를 사용하여 Azure에서 Linux VM 빠르게 만들기 | Microsoft Azure"
-   description="CLI를 사용하여 Azure에서 Linux VM 빠르게 만듭니다."
+   pageTitle="CLI를 사용하여 Azure에서 Linux VM 만들기 | Microsoft Azure"
+   description="CLI를 사용하여 Azure에서 Linux VM을 만듭니다."
    services="virtual-machines-linux"
    documentationCenter=""
    authors="vlivech"
@@ -10,26 +10,23 @@
 <tags
    ms.service="virtual-machines-linux"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="03/28/2016"
+   ms.date="04/04/2016"
    ms.author="v-livech"/>
 
 
-# CLI를 사용하여 Azure에서 Linux VM 신속하게 만들기
+# CLI를 사용하여 Azure에서 Linux VM 만들기
 
-이 문서에서는 [Azure CLI](../xplat-cli-install.md)에서 `azure vm quick-create` 명령을 사용하여 새 Linux VM을 빠르게 만드는 방법을 보여줍니다.
-
-[AZURE.NOTE] 이 토픽은 평가판, 테스트 및 기타 단기 시나리오에 대한 기본 Azure 환경에 Linux VM을 신속하게 만드는 방법을 보여줍니다. 프로덕션 또는 다른 장기 시나리오의 경우 사용할 Linux VM에 대해 보다 안전한 Azure 환경을 만들어야 합니다.
-
-필수 구성 요소는 다음과 같습니다. [Azure 계정](https://azure.microsoft.com/pricing/free-trial/), [SSH 공용 및 개인 키](virtual-machines-linux-mac-create-ssh-keys.md), Azure 리소스 그룹(아래 RG를 만듭니다), Azure CLI가 설치되어 `azure config mode arm`을 사용하여 ARM 모드로 전환되어야 함.
+이 문서에서는 Azure에서 Azure CLI의 `azure vm quick-create` 명령을 사용하여 신속하게 Linux VM을 만드는 방법을 보여주며 이는 프로토타입을 사용하거나 개념을 신속하게 테스트할 수 있는 기본 인프라로 VM을 만듭니다. 이 문서에는 리소스 관리자 모드(`azure config mode arm`)인 Azure 계정([무료 평가판 가져오기](https://azure.microsoft.com/pricing/free-trial/)] 및 [Azure CLI](../xplat-cli-install.md)가 있어야 합니다.
 
 ## 빠른 명령 요약
 
-실행할 하나의 명령이 있습니다.
-
-1. `azure vm quick-create`
+```
+# One command to quickly the VM that prompts for arguments
+chrisL@fedora$ azure vm quick-create
+```
 
 ## 자세한 연습
 
@@ -47,7 +44,7 @@ Resource group name: exampleResourceGroup
 Virtual machine name: exampleVMname
 Location name: westus
 Operating system Type [Windows, Linux]: linux
-ImageURN (in the format of "publisherName:offer:skus:version") or a VHD link to the user image: canonical:ubuntuserver:14.04.2-LTS:latest
+ImageURN (in the format of "publisherName:offer:skus:version") or a VHD link to the user image: Canonical:UbuntuServer:14.04.4-LTS:latest
 User name: ops
 Password: *********
 Confirm password: *********
@@ -149,4 +146,4 @@ info:    vm quick-create command OK
 
 독점 및 오픈 소스 인프라 배포, 구성 및 오케스트레이션 도구도 있습니다.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="데이터 원본을 검색하는 방법"
+   pageTitle="데이터 원본을 검색하는 방법 | Microsoft Azure"
    description="검색 및 필터링을 포함하는 Azure 데이터 카탈로그 및 Azure 데이터 카탈로그 포털의 적중 항목 강조 표시 기능을 사용하여 등록된 데이터 자산을 검색하는 방법을 강조 표시한 방법 문서"
    services="data-catalog"
    documentationCenter=""
@@ -13,9 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/30/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
-
 
 # 데이터 원본을 검색하는 방법
 
@@ -63,4 +62,4 @@
 ## 참고 항목
 - 데이터 원본을 검색하는 방법에 대한 단계별 세부 정보에 대한 [Azure 데이터 카탈로그 시작](data-catalog-get-started.md) 자습서.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

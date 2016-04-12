@@ -1,5 +1,5 @@
 <properties
-   pageTitle="데이터 원본을 문서화하는 방법"
+   pageTitle="데이터 원본을 문서화하는 방법 | Microsoft Azure"
    description="Azure Data Catalog에서 데이터 자산을 문서화하는 방법을 강조 표시한 방법 문서입니다."
    services="data-catalog"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/30/2016"
+   ms.date="03/31/2016"
    ms.author="derrickv"/>
 
 # 데이터 원본 문서화
@@ -48,4 +48,4 @@
 
 **Azure Data Catalog**로 데이터 원본을 문서화하는 작업은 필요한 만큼의 세부 정보로 데이터 자산에 대한 설명을 만들 수 있습니다. 링크를 사용하여 기존 문서 및 데이터 자산을 함께 제공하는 기존 콘텐츠 리포지토리에 저장된 콘텐츠에 연결할 수 있습니다. 사용자가 적절한 데이터 자산을 검색하면 일련의 전체 설명서를 가져올 수 있습니다.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->
