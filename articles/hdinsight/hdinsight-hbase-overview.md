@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/14/2016"
+	ms.date="04/05/2016"
 	ms.author="jgao"/>
 
 
@@ -94,4 +94,4 @@ BigTable 및 확장에 의해 HBase를 만드는 정식 사용 사례는 웹 검
 
 [apache-hadoop]: http://hadoop.apache.org/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0406_2016-->

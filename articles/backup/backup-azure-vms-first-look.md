@@ -13,11 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="03/14/2016"
+	ms.date="03/30/2016"
 	ms.author="markgal; jimpark"/>
 
 
 # 소개: Azure 가상 컴퓨터 백업
+
+> [AZURE.SELECTOR]
+- [ARM VM 백업](backup-azure-vms-first-look-arm.md)
+- [클래식 모드 VM 백업](backup-azure-vms-first-look.md)
 
 이 문서는 Azure VM(가상 컴퓨터)을 백업하도록 Azure 환경을 준비하기 위한 일련의 단계를 안내하는 자습서입니다. 이 자습서에서는 Azure 구독에 이미 VM이 있으며 VM에 액세스하는 백업 서비스를 허용하도록 조치를 취했다고 가정합니다. 높은 수준에서 볼 때 다음 단계를 완료해야 합니다.
 
@@ -230,4 +234,4 @@ Azure VM 에이전트는 작업할 백업 확장을 위한 Azure 가상 컴퓨�
 ## 질문이 있으십니까?
 질문이 있거나 포함되었으면 하는 기능이 있는 경우 [의견을 보내 주세요](http://aka.ms/azurebackup_feedback).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

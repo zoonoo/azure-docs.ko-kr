@@ -11,7 +11,7 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
-	ms.topic="hero-article"
+	ms.topic="get-started-article"
 	ms.date="03/04/2016"
 	ms.author="robmcm"/>
 
@@ -19,7 +19,7 @@
 
 > [AZURE.SELECTOR]
 - [.Net](web-sites-dotnet-get-started.md)
-- [Node.JS](web-sites-nodejs-develop-deploy-mac.md)
+- [Node.JS](app-service-web-nodejs-get-started.md)
 - [Java](web-sites-java-get-started.md)
 - [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
 - [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
@@ -178,4 +178,4 @@ Azure에서 Java 응용 프로그램을 개발하는 방법에 대한 자세한 
 [무료 평가판을 등록]: http://go.microsoft.com/fwlink/?LinkId=623901
 [앱 서비스 평가]: http://go.microsoft.com/fwlink/?LinkId=523751
 
-<!-----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

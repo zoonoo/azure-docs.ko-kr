@@ -1,6 +1,6 @@
 <properties
  pageTitle="Azure IoT Hub 개요 | Microsoft Azure"
- description="장치 연결, 통신 패턴 및 서비스 보조 통신 패턴을 포함한 Azure IoT Hub 서비스에 대한 개요"
+ description="사물 인터넷 아키텍처, 장치 연결, 통신 패턴 및 서비스 보조 통신 패턴을 포함한 Azure IoT Hub 서비스의 개요입니다."
  services="iot-hub"
  documentationCenter=""
  authors="dominicbetts"
@@ -27,7 +27,7 @@ Azure IoT Hub는 수백만의 IoT 장치와 솔루션 백 엔드 간에서 안�
 - 장치 연결 및 장치 ID 관리 이벤트에 대한 포괄적인 모니터링을 제공합니다.
 - 가장 인기 있는 언어 및 플랫폼에 대한 장치 라이브러리를 포함합니다.
 
-![클라우드 게이트웨이로 IoT Hub][img-architecture]
+![사물 인터넷 솔루션에서 클라우드 게이트웨이인 Azure IoT Hub][img-architecture]
 
 ## IoT 장치 연결 과제
 
@@ -112,4 +112,4 @@ Azure IoT Hub에 대해 더 알아보려면 다음 링크를 참조하세요.
 [lnk-google-messaging]: https://developers.google.com/cloud-messaging/
 [lnk-apple-push]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0406_2016-->

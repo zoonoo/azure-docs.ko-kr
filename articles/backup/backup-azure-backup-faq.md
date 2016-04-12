@@ -1,12 +1,12 @@
 <properties
    pageTitle="Azure 백업 FAQ | Microsoft Azure"
-   description="백업 에이전트, 백업 및 보존, 복구, 보안 및 Azure 백업 솔루션과 관련하여 자주 묻는 질문에 대한 대답입니다."
+   description="백업 서비스, 백업 에이전트, 백업 및 보존, 복구, 보안 및 백업과 재해 복구와 관련된 자주 묻는 질문에 대한 대답입니다."
    services="backup"
    documentationCenter=""
    authors="markgalioto"
    manager="jwhit"
    editor=""
-   keywords="백업 솔루션; 백업 서비스"/>
+   keywords="백업 및 재해 복구; 백업 서비스"/>
 
 <tags
    ms.service="backup"
@@ -14,10 +14,15 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="get-started-article"
-	 ms.date="03/24/2016"
+	 ms.date="03/30/2016"
 	 ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
 # Azure 백업 서비스 - FAQ
+
+> [AZURE.SELECTOR]
+- [클래식 모드에 대한 백업 FAQ](backup-azure-backup-faq.md)
+- [ARM 모드에 대한 백업 FAQ](backup-azure-backup-ibiza-faq.md)
+
 이 문서는 Azure 백업 서비스에 대해 자주 묻는 질문(및 해당 답변) 목록입니다. 커뮤니티에서 신속하게 응답하고 자주 묻는 질문인 경우 이 문서에 추가합니다. 질문에 대한 대답은 일반적으로 참조 또는 지원 정보를 제공합니다. 이 문서 또는 관련 문서의 Disqus 섹션에서 Azure 백업에 대한 질문을 할 수 있습니다. 또한 [토론 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)에 Azure 백업 서비스에 대한 질문도 게시할 수 있습니다.
 
 ## 설치 및 구성
@@ -54,7 +59,7 @@
 
 **Q9. 다른 데이터 센터에 내 서버를 등록하려면 어떻게 해야 하나요?**<br/> A9. 백업 데이터는 등록된 백업 서비스의 데이터 센터로 전송됩니다. 데이터 센터를 변경하는 가장 쉬운 방법은 에이전트를 제거하고 다시 설치한 후 새 데이터 센터에 등록하는 것입니다.
 
-**Q10. Azure에 데이터를 백업하는 Windows 서버 이름을 바꾸면 어떻게 되나요?** A10. 서버 이름을 바꾸면 현재 구성된 모든 백업이 중지됩니다. 백업 자격 증명 모음과 함께 서버의 새 이름을 등록해야 합니다. 새 등록을 생성하면 첫 번째 백업 작업은 증분 백업이 아닌 전체 백업입니다. 이전 서버 이름과 함께 이전에 자격 증명 모음으로 백업한 데이터를 복구해야 하는 경우 **데이터 복구** 마법사에 있는 [**다른 서버**](backup-azure-restore-windows-server.md#recover-to-an-alternate-machine) 옵션을 사용하여 데이터를 복구할 수 있습니다.
+**Q10. Azure에 데이터를 백업하는 Windows 서버 이름을 바꾸면 어떻게 되나요?**<br/> A10. 서버 이름을 바꾸면 현재 구성된 모든 백업이 중지됩니다. 백업 자격 증명 모음과 함께 서버의 새 이름을 등록해야 합니다. 새 등록을 생성하면 첫 번째 백업 작업은 증분 백업이 아닌 전체 백업입니다. 이전 서버 이름과 함께 이전에 자격 증명 모음으로 백업한 데이터를 복구해야 하는 경우 **데이터 복구** 마법사에 있는 [**다른 서버**](backup-azure-restore-windows-server.md#recover-to-an-alternate-machine) 옵션을 사용하여 데이터를 복구할 수 있습니다.
 
 
 **Q11. 어떤 종류의 드라이브에서 파일 및 폴더를 백업할 수 있나요?** <br/> A11. 다음과 같은 드라이브/볼륨을 백업할 수 있습니다.
@@ -192,4 +197,4 @@
 
   새 캐시 위치로 성공적으로 백업 작성이 완료되면 원래 캐시 폴더를 제거할 수 있습니다.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

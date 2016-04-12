@@ -13,7 +13,7 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="03/30/2016" 
 	ms.author="mimig"/>
 
@@ -48,7 +48,7 @@ DocumentDB의 처리량 측정값은 RU(요청 단위)입니다. 1RU는 1KB 문�
 초당 요청 단위 처리량 면에서 프로비전된 처리량으로 각 DocumentDB 컬렉션을 예약할 수 있습니다. 모든 규모의 응용 프로그램에 대해 개별 요청을 벤치마킹하여 해당 요청 단위 값을 측정하고 모든 요청에서 총 요청 단위 합계를 처리하도록 컬렉션을 프로비전할 수 있습니다. 또한 응용 프로그램 요구 사항이 진화함에 따라 컬렉션의 처리량을 확장하거나 축소할 수 있습니다. 요청 단위에 대한 자세한 내용 및 컬렉션 요구 사항 확인에 대한 도움말은 [성능 및 용량 관리](documentdb-manage.md)를 참조하세요.
 
 ### DocumentDB HIPAA 규정을 준수합니까?
-예, DocumentDB는 HIPAA 규정을 준수합니다. HIPAA는 개별적으로 식별할 수 있는 상태 정보의 사용, 공개 및 보호에 대한 요구 사항을 설정합니다. 자세한 내용은 [Microsoft 보안 센터](https://www.microsoft.com/ko-KR/TrustCenter/Compliance/HIPAA)를 참조하세요.
+예, DocumentDB는 HIPAA 규정을 준수합니다. HIPAA는 개별적으로 식별할 수 있는 상태 정보의 사용, 공개 및 보호에 대한 요구 사항을 설정합니다. 자세한 내용은 [Microsoft 보안 센터](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA)를 참조하세요.
 
 ### DocumentDB의 저장소 한도는 어느 정도인가요? 
 하나의 컬렉션이 DocumentDB에 저장할 수 있는 총 데이터 양에 대한 이론적 한도는 없습니다. 250GB가 넘는 데이터를 단일 컬렉션 내에 저장하려면 [지원에 문의](documentdb-increase-limits.md)하여 계정 할당량을 늘려 달라고 요청하세요.
@@ -120,4 +120,4 @@ DocumentDB에 문서를 일괄 삽입하는 세 가지 방법이 있습니다.
 [query]: documentdb-sql-query.md
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

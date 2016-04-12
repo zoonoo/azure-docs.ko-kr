@@ -46,7 +46,7 @@
 |**확대**|테이블이 이미 사용하도록 설정되었는지 여부를 나타냅니다.|
 |**행**|테이블의 행 수를 지정합니다.|
 |**크기(KB)**|테이블의 크기를 KB로 지정합니다.|
-|**마이그레이션**|CTP 3.1-RC1의 경우 마법사를 사용하여 전체 테이블을 마이그레이션할 수만 있습니다. 기록 데이터와 현재 데이터를 모두 포함하는 테이블에서 마이그레이션할 행을 선택하는 조건자를 지정하려면 ALTER TABLE 문을 실행하여 마법사를 종료한 후 조건자를 지정합니다. 자세한 내용은 [테이블에 대해 스트레치 데이터베이스 사용](sql-server-stretch-database-enable-table.md) 또는 [ALTER TABLE(Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)을 참조하세요.|
+|**마이그레이션**|CTP 3.1-RC2의 경우 마법사를 사용하여 전체 테이블을 마이그레이션할 수 있습니다. 기록 데이터와 현재 데이터를 모두 포함하는 테이블에서 마이그레이션할 행을 선택하는 조건자를 지정하려면 ALTER TABLE 문을 실행하여 마법사를 종료한 후 조건자를 지정합니다. 자세한 내용은 [테이블에 대해 스트레치 데이터베이스 사용](sql-server-stretch-database-enable-table.md) 또는 [ALTER TABLE(Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)을 참조하세요.|
 
 ## <a name="Configure"></a>Azure 배포 구성
 
@@ -141,4 +141,4 @@ SQL Server의 공용 IP 주소를 사용하거나 IP 주소 범위를 입력하�
 [StretchWizardImage7]: ./media/sql-server-stretch-database-wizard/stretchwiz7.png
 [StretchWizardImage8]: ./media/sql-server-stretch-database-wizard/stretchwiz8.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

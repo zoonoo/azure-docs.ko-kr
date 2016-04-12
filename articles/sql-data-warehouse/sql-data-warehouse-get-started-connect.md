@@ -3,7 +3,7 @@
    description="SQL 데이터 웨어하우스에 연결 및 일부 쿼리 실행 시작"
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="twounder"
+   authors="sonyama"
    manager="barbkess"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/26/2016"
+   ms.date="03/30/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Visual Studio를 사용하여 SQL 데이터 웨어하우스에 연결
@@ -22,7 +22,7 @@
 - [Visual Studio](sql-data-warehouse-get-started-connect.md)
 - [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md)
 
-이 연습에서는 Visual Studio의 SQL Server 데이터 도구를 사용하여 Azure SQL 데이터 웨어하우스 데이터베이스를 몇 분 이내에 연결하는 방법을 보여줍니다. 연결되면 간단한 쿼리를 실행합니다.
+이 연습에서는 Visual Studio의 SSDT(SQL Server 데이터 도구)를 사용하여 몇 분 이내에 Azure SQL 데이터 웨어하우스 데이터베이스에 연결하는 방법을 보여줍니다. 연결되면 간단한 쿼리를 실행합니다.
 
 ## 필수 조건
 
@@ -57,7 +57,7 @@
 
     ![서버에 연결][4]
 
-    - **서버 이름**. 이전에 위치한 *서버 이름*을 입력합니다.
+    - **서버 이름**. 이전에 식별한 *서버 이름*을 입력합니다.
     - **인증**. SQL Server 인증을 선택합니다.
     - **사용자 이름** 및 **암호**. Azure SQL Server에 대한 사용자 이름 및 암호를 입력합니다.
     - **데이터베이스 이름**. SQL DW 데이터베이스에 대한 데이터베이스 이름을 입력합니다.
@@ -70,7 +70,7 @@
 
 ## 3단계: 샘플 쿼리 실행
 
-이제 서버에 연결했으므로 계속해서 쿼리를 작성합니다.
+데이터베이스에 대한 연결을 설정했으므로 계속 진행하여 쿼리를 작성합니다.
 
 1. SQL Server 개체 탐색기에서 데이터베이스를 마우스 오른쪽 단추로 클릭합니다.
 
@@ -110,4 +110,4 @@
 [7]: ./media/sql-data-warehouse-get-started-connect/run-query.png
 [8]: ./media/sql-data-warehouse-get-started-connect/query-results.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

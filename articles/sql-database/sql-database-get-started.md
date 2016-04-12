@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="03/27/2015"
+	ms.date="03/27/2016"
 	ms.author="jeffreyg"/>
 
 # SQL 데이터베이스 자습서: Azure 포털을 사용하여 빠르게 SQL 데이터베이스 만들기
@@ -128,4 +128,4 @@ Azure 시작 보드로 돌아갑니다. 여기에는 데이터베이스가 생�
 
 - [Azure SQL 데이터베이스 서비스, 인덱스에 대한 모든 토픽](sql-database-index-all-articles.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

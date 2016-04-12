@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Linux VM에 디스크 추가 | Microsoft Azure"
 	description="Linux VM에 영구 디스크를 추가하는 방법 알아보기"
-	keywords="Linux 가상 컴퓨터, 리소스 디스크 추가" 
+	keywords="Linux 가상 컴퓨터, 리소스 디스크 추가"
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="rickstercdn"
@@ -20,17 +20,17 @@
 
 # Linux VM에 디스크 추가
 
-이 항목에서는 Mac 및 Linux용 Azure 명령줄 인터페이스를 사용하여 Linux 기반 Azure 가상 컴퓨터에 영구 디스크를 추가합니다. 가상 컴퓨터에 영구 디스크를 연결하여 데이터를 보존할 수 있습니다. VM은 유지 관리 또는 크기 조정으로 인해 다시 프로비전됩니다.
+이 문서에는 VM이 유지 관리 또는 크기 조정으로 인해 다시 프로비전되더라도 데이터를 유지할 수 있도록 VM에 영구 디스크를 연결하는 방법을 보여줍니다. 디스크를 추가하려면 리소스 관리자 모드에서 [Azure CLI](../xplat-cli-install.md)가 필요합니다(`azure config mode arm`).
 
-## 필수 조건
+## 빠른 명령
 
-이 항목에서는 작동하는 Azure 구독([무료 평가판 등록](https://azure.microsoft.com/pricing/free-trial/))이 이미 있으며 [Azure CLI가 설치되어](../xplat-cli-install.md) 있고 이미 [VM을 만들었다](virtual-machines-linux-quick-create-cli.md)고 가정합니다. 진행하기 위해 리소스 그룹 이름, 해당 VM 이름 및 위치한 지역을 파악해야 합니다.
+```
+# In the following command examples, replace the values between &lt; and &gt; with the values from your own environment.
 
-## Azure 구독에 Azure CLI 터미널 연결
+rick@ubuntu$ azure vm disk attach-new <myuniquegroupname> <myuniquevmname> <size-in-GB>
+```
 
-Azure로 작업하기 전에 [Azure CLI로 Azure에 로그온](../xplat-cli-connect.md)하고 `azure config mode arm`를 입력하여 리소스 그룹 모드에 CLI를 배치해야 합니다.
-
-## 디스크 연결 및 탑재
+## 디스크 연결
 
 새 디스크 연결이 빠릅니다. `azure vm disk attach-new <myuniquegroupname> <myuniquevmname> <size-in-GB>`를 입력하여 VM에 대한 새 GB 디스크를 만들어 연결합니다. 다음과 같이 표시됩니다.
 
@@ -42,12 +42,11 @@ Azure로 작업하기 전에 [Azure CLI로 Azure에 로그온](../xplat-cli-conn
 	info:    vm disk attach-new command OK
 
 
-## 새 디스크를 탑재한 Linux 가상 컴퓨터에 연결
+## Linux VM에 연결하여 새 디스크 탑재
 
+> [AZURE.NOTE] 이 항목에서는 사용자 이름 및 암호를 사용하여 VM에 연결합니다. 공용 및 개인 키 쌍을 사용하여 VM과 통신하려면 [Azure에서 Linux와 함께 SSH를 사용하는 방법](virtual-machines-linux-ssh-from-linux.md)을 참조하세요. `azure vm reset-access` 명령을 사용하여 `azure vm quick-create` 명령으로 만든 VM의 **SSH** 연결 기능을 수정하여 **SSH** 액세스를 완전히 초기화하거나 사용자를 추가/제거하고 공용 키 파일을 추가하여 액세스를 보호할 수 있습니다.
 
-> [AZURE.NOTE] 이 항목에서는 사용자 이름 및 암호를 사용하여 VM에 연결합니다. 공용 및 개인 키 쌍을 사용하여 VM과 통신하려면 [Azure에서 Linux와 함께 SSH를 사용하는 방법](virtual-machines-linux-ssh-from-linux.md)을 참조하세요. `azure vm reset-access` 명령을 사용하여 `azure vm quick-create` 명령으로 만든 VM의 **SSH** 연결 기능을 수정하여 **SSH** 액세스를 완전히 초기화하거나 사용자를 추가/제거하고 공용 키 파일을 추가하여 액세스를 보호할 수 있습니다. 이 문서는 간단하게 **SSH**와 함께 사용자 이름과 암호를 사용합니다.
-
-Linux VM에서 사용할 수 있도록 새 디스크를 파티션, 포맷 및 탑재하기 위해 Azure VM에 SSH를 해야 합니다. **ssh**를 사용한 연결에 익숙하지 않은 경우 , 명령 `ssh <username>@<FQDNofAzureVM> -p <the ssh port>` 형식을 취합니다.
+Linux VM에서 사용할 수 있도록 새 디스크를 파티션, 포맷 및 탑재하기 위해 Azure VM에 SSH해야 합니다. **ssh**를 사용한 연결에 익숙하지 않은 경우 , 명령이 `ssh <username>@<FQDNofAzureVM> -p <the ssh port>` 형식으로 만들어져서 다음과 같습니다.
 
 	ssh ops@myuni-westu-1432328437727-pip.westus.cloudapp.azure.com -p 22
 	The authenticity of host 'myuni-westu-1432328437727-pip.westus.cloudapp.azure.com (191.239.51.1)' can't be established.
@@ -72,8 +71,6 @@ Linux VM에서 사용할 수 있도록 새 디스크를 파티션, 포맷 및 �
 
 	0 packages can be updated.
 	0 updates are security updates.
-
-
 
 	The programs included with the Ubuntu system are free software;
 	the exact distribution terms for each program are described in the
@@ -153,7 +150,6 @@ VM에 연결했으므로 디스크를 연결할 준비가 되었습니다. 먼�
 	8192 inodes per group
 	Superblock backups stored on blocks:
 		32768, 98304, 163840, 229376, 294912, 819200, 884736
-
 	Allocating group tables: done
 	Writing inode tables: done
 	Creating journal (32768 blocks): done
@@ -177,8 +173,8 @@ VM에 연결했으므로 디스크를 연결할 준비가 되었습니다. 먼�
 
 ## 다음 단계
 
-- 해당 정보를 [fstab](http://en.wikipedia.org/wiki/Fstab) 파일에 쓰지 않았는데 다시 부팅하면 일반적으로 새 디스크는 VM에서 사용할 수 없게 됩니다. 
+- 해당 정보를 [fstab](http://en.wikipedia.org/wiki/Fstab) 파일에 쓰지 않았는데 다시 부팅하면 일반적으로 새 디스크는 VM에서 사용할 수 없게 됩니다.
 - [Linux 컴퓨터 성능 최적화](virtual-machines-linux-optimization.md) 권장 사항을 검토하여 Linux VM를 올바르게 구성하였는지 확인합니다.
-- 추가 디스크를 추가하여 저장소 용량을 확장하고 추가 성능에 대한 [RAID를 구성](virtual-machines-linux-configure-raid.md)합니다. 
+- 추가 디스크를 추가하여 저장소 용량을 확장하고 추가 성능을 위해 [RAID를 구성](virtual-machines-linux-configure-raid.md)합니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

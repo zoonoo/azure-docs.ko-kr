@@ -23,7 +23,7 @@
 - [Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 - [Linux, Unix, OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-[SSH(보안 셸)](https://en.wikipedia.org/wiki/Secure_Shell)를 통해 명령줄 인터페이스를 사용하여 Liux 기반 HDInsight 클러스터에 대한 작업을 원격으로 수행할 수 있습니다. 이 문서에서는 Linux, Unix 또는 OS X 클라이언트에서 HDInsight와 함께 SSH를 사용하는 방법을 설명합니다.
+[SSH(보안 셸)](https://en.wikipedia.org/wiki/Secure_Shell)를 통해 명령줄 인터페이스를 사용하여 Linux 기반 HDInsight 클러스터에 대한 작업을 원격으로 수행할 수 있습니다. 이 문서에서는 Linux, Unix 또는 OS X 클라이언트에서 HDInsight와 함께 SSH를 사용하는 방법을 설명합니다.
 
 > [AZURE.NOTE] 이 문서의 단계에서는 Linux, Unix 또는 OS X 클라이언트를 사용한다고 가정합니다. `ssh` 및 `ssh-keygen`(Windows용 Git와 같은)을 제공하는 패키지가 설치되어 있는 경우 Windows 기반 클라이언트에서 다음 단계를 수행할 수 있지만 Windows 기반 클라이언트가 [Windows에서 Linux 기반 HDInsight(Hadoop)과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md) 단계를 따르는 것이 좋습니다.
 
@@ -118,9 +118,9 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCelfkjrpYHYiks4TM+r1LVsTYQ4jAXXGeOAF9Vv/KG
 
 * **SSH 주소** - SSH를 사용하여 클러스터에 연결하는 데 사용할 수 있는 두 개의 주소가 있습니다.
 
-    * **헤드 노드에 연결**: **-ssh.azurehdinsight.net** 이 뒤에 오는 클러스터 이름입니다. 예를 들면 **mycluster-ssh.azurehdinsight.net** 과 같습니다.
+    * **헤드 노드에 연결**: **-ssh.azurehdinsight.net**이 뒤에 오는 클러스터 이름입니다. 예를 들면 **mycluster-ssh.azurehdinsight.net**과 같습니다.
     
-    * **에지 노드에 연결**: 클러스터가 HDInsight에서 R 서버인 경우 클러스터도 **RServer.CLUSTERNAME.ssh.azurehdinsight.net** 를 사용하여 액세스할 수 있는 에지 노드를 포함합니다. 여기서 __CLUSTERNAME__은 클러스터의 이름입니다.
+    * **에지 노드에 연결**: 클러스터가 HDInsight에서 R 서버인 경우 클러스터도 **RServer.CLUSTERNAME.ssh.azurehdinsight.net**를 사용하여 액세스할 수 있는 에지 노드를 포함합니다. 여기서 __CLUSTERNAME__은 클러스터의 이름입니다.
 
 * **사용자 이름** - 클러스터를 만들 때 제공한 SSH 사용자 이름입니다.
 
@@ -243,4 +243,4 @@ SSH 터널의 생성 및 사용에 대한 자세한 내용은 [SSH 터널링을 
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

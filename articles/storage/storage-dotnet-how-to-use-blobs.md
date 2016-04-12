@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="02/25/2016"
+	ms.date="04/01/2016"
 	ms.author="tamram"/>
 
 
@@ -33,7 +33,7 @@ Azure Blob 저장소는 클라우드에 파일 데이터를 저장하는 서비�
 
 **필수 구성 요소**
 
-- [Microsoft Visual Studio](https://www.visualstudio.com/ko-KR/visual-studio-homepage-vs.aspx)
+- [Microsoft Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)
 - [.NET용 Azure 저장소 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage/)
 - [.NET용 Azure 구성 관리자](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 - [Azure 저장소 계정](storage-create-storage-account.md#create-a-storage-account).
@@ -45,28 +45,26 @@ Azure Blob 저장소는 클라우드에 파일 데이터를 저장하는 서비�
 
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
-[AZURE.INCLUDE [storage-configure-connection-string-include](../../includes/storage-configure-connection-string-include.md)]
+[AZURE.INCLUDE [storage-development-environment-include](../../includes/storage-development-environment-include.md)]
 
-## 프로그래밍 방식으로 Blob 저장소 액세스
+### 네임스페이스 선언 추가
 
-[AZURE.INCLUDE [storage-dotnet-obtain-assembly](../../includes/storage-dotnet-obtain-assembly.md)]
+`program.cs` 파일 맨 위에 다음 `using` 문을 추가합니다.
 
-### 네임스페이스 선언
+	using Microsoft.Azure; // Namespace for CloudConfigurationManager 
+	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
+    using Microsoft.WindowsAzure.Storage.Auth; // Namespace for authentication types
+    using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage types
 
-프로그래밍 방식으로 Azure 저장소에 액세스하려는 C# 파일의 맨 위에 다음과 같은 네임스페이스 선언을 추가합니다.
+[AZURE.INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
-    using Microsoft.WindowsAzure;
-    using Microsoft.WindowsAzure.Storage;
-    using Microsoft.WindowsAzure.Storage.Auth;
-    using Microsoft.WindowsAzure.Storage.Blob;
+### Blob 서비스 클라이언트 만들기
 
-`Microsoft.WindowsAzure.Storage.dll`어셈블리를 참조해야 합니다.
-
-[AZURE.INCLUDE [storage-dotnet-retrieve-conn-string](../../includes/storage-dotnet-retrieve-conn-string.md)]
-
-**CloudBlobClient** 유형을 사용하면 Blob 저장소 서비스에 저장된 Blob과 컨테이너를 나타내는 개체를 검색할 수 있습니다. 다음 코드는 위에서 검색한 저장소 계정 개체를 사용하여 **CloudBlobClient** 개체를 만듭니다.
+**CloudBlobClient** 클래스를 통해 Blob 저장소에 저장된 컨테이너 및 Blob를 나타내는 개체를 검색할 수 있습니다. Main() 메서드에 다음 코드를 추가합니다.
 
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+
+이제 데이터를 읽어 오고 Blob 저장소에 데이터를 기록하는 코드를 작성할 준비가 되었습니다.
 
 ## 컨테이너 만들기
 
@@ -90,8 +88,7 @@ Azure Blob 저장소는 클라우드에 파일 데이터를 저장하는 서비�
 기본적으로 새 컨테이너는 전용이며, 이 컨테이너에서 Blob을 다운로드하려면 저장소 액세스 키를 지정해야 합니다. 컨테이너 내의 파일을 모든 사용자가 사용할 수 있게 하려는 경우 다음 코드를 사용하여 컨테이너를 공용으로 설정할 수 있습니다.
 
     container.SetPermissions(
-        new BlobContainerPermissions { PublicAccess =
- 	    BlobContainerPublicAccessType.Blob });
+        new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
 
 인터넷상의 누구든지 공용 컨테이너의 Blob을 볼 수 있지만 해당 액세스 키가 있는 경우에만 수정하거나 삭제할 수 있습니다.
 
@@ -380,4 +377,4 @@ Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 **Delete** 메서
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

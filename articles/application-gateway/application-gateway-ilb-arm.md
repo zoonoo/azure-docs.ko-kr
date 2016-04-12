@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/21/2016"
+   ms.date="04/05/2016"
    ms.author="joaoma"/>
 
 
@@ -45,7 +45,7 @@ Azure 응용 프로그램 게이트웨이는 인터넷 연결 VIP 또는 ILB(내
 
 ## 새 응용 프로그램 게이트웨이 만들기
 
-Azure Classic 및 Azure 리소스 관리자 간의 차이점은 응용 프로그램 게이트웨이를 만드는 순서와 구성할 항목입니다. 
+Azure Classic 및 Azure 리소스 관리자 간의 차이점은 응용 프로그램 게이트웨이를 만드는 순서와 구성할 항목입니다.
 리소스 관리자를 사용하면 응용 프로그램 게이트웨이를 만드는 모든 항목이 개별적으로 구성된 후 응용 프로그램 게이트웨이 리소스를 만드는 데 사용됩니다.
 
 
@@ -238,4 +238,4 @@ ILB에서 사용되도록 응용 프로그램 게이트웨이를 구성하려면
 - [Azure 부하 분산 장치](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure 트래픽 관리자](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

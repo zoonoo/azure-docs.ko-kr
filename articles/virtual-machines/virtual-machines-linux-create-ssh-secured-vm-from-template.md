@@ -13,7 +13,7 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="hero-article"
 	ms.date="03/08/2016"
 	ms.author="vlivech"/>
 
@@ -72,4 +72,4 @@ info:    group create command OK
 
 템플릿을 사용하여 Linux VM을 만들면 템플릿과 함께 사용할 수 있는 다른 앱 프레임워크를 확인하려고 합니다. [템플릿 갤러리](https://azure.microsoft.com/documentation/templates/)를 검색하여 다음에 배포하는 앱 프레임워크를 검색합니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

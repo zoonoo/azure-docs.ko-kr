@@ -1,5 +1,5 @@
 <properties
-   pageTitle="'빅 데이터' 데이터 소스로 작업하는 방법"
+   pageTitle="'빅 데이터' 데이터 원본으로 작업하는 방법 | Microsoft Azure"
    description="방법 문서는 Azure Blob 저장소, Azure 데이터 레이크 및 Hadoop HDFS 등 '빅 데이터' 데이터 원본과 함께 Azure 데이터 카탈로그를 사용하기 위한 패턴을 강조 표시합니다."
    services="data-catalog"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/30/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
 
 
@@ -68,4 +68,4 @@
 ## 요약
 데이터 소스를 **Azure 데이터 카탈로그**에 등록하면 보다 쉽게 검색하고 이해할 수 있습니다. 논리 데이터 집합을 나타내는 빅 데이터 파일 및 디렉터리를 등록하고 주석을 추가하면, 사용자는 필요한 빅 데이터 소스를 찾아 사용할 수 있습니다.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

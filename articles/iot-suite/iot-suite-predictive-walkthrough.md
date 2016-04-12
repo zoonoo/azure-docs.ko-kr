@@ -43,7 +43,7 @@
 
 *계수 주기*. 주기는 원격 분석 데이터가 비행 기간 동안 30분 마다 캡처된 2-10시간 사이의 가변 길이가 완료된 항공편을 나타냅니다.
 
-*원격 분석*. 엔진 특성을 나타내는 4가지 센서가 있습니다. 센서9, 센서11, 센서14 및 센서15는 일반적으로 레이블이 지정됩니다. 이러한 4가지 센서는 RUL에 대한 기계 학습 모델에서 유용한 결과 얻기에 충분한 원격 분석을 나타냅니다. 이 모델은 실제 엔진 센서 데이터를 포함하는 공용 데이터 집합에서 만들어집니다. 원래 데이터 집합에서 모델을 만든 방법에 대한 자세한 내용은 [Cortana Analytics 갤러리 예측 유지 관리 템플릿][lnk-cortana-analytics]을 참조하세요.
+*원격 분석*. 엔진 특성을 나타내는 4가지 센서가 있습니다. 센서9, 센서11, 센서14 및 센서15는 일반적으로 레이블이 지정됩니다. 이러한 4가지 센서는 RUL에 대한 기계 학습 모델에서 유용한 결과 얻기에 충분한 원격 분석을 나타냅니다. 이 모델은 실제 엔진 센서 데이터를 포함하는 공용 데이터 집합에서 만들어집니다. 원래 데이터 집합에서 모델을 만드는 방법에 대한 자세한 내용은 [Cortana Intelligence 갤러리 예측 유지 관리 템플릿][lnk-cortana-analytics]을 참조하세요.
 
 시뮬레이션된 장치는 IoT Hub에서 보낸 다음과 같은 명령을 처리할 수 있습니다.
 
@@ -64,7 +64,7 @@ IoT Hub는 장치 명령 승인을 제공합니다.
 
 ## Azure 기계 학습
 
-원래 데이터 집합에서 모델을 만든 방법에 대한 자세한 내용은 [Cortana Analytics 갤러리 예측 유지 관리 템플릿][lnk-cortana-analytics]을 참조하세요.
+원래 데이터 집합에서 모델을 만드는 방법에 대한 자세한 내용은 [Cortana Intelligence 갤러리 예측 유지 관리 템플릿][lnk-cortana-analytics]을 참조하세요.
 
 ## 탐색을 시작하겠습니다.
 
@@ -120,8 +120,8 @@ RUL가 160(데모를 위해 선택한 대 한 임의의 임계값) 보다 작은
 [lnk-powerbi]: https://www.github.com/Microsoft/PowerBI-visuals
 [lnk_machine_learning]: https://azure.microsoft.com/services/machine-learning/
 [lnk-remote-monitoring]: iot-suite-remote-monitoring-sample-walkthrough.md
-[lnk-cortana-analytics]: http://gallery.cortanaanalytics.com/Collection/Predictive-Maintenance-Template-3
+[lnk-cortana-analytics]: http://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

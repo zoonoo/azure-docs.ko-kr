@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="01/07/2016"
+    ms.date="04/05/2016"
     ms.author="elizapo" />
 
 # Azure RemoteApp 템플릿 이미지에 있는 항목
@@ -104,4 +104,4 @@ Office 365 ProPlus, Visio Pro 및 Project Pro 라이선스를 별도로 구입�
 
 > [AZURE.IMPORTANT]**법적 정보:** 이 이미지에는 Microsoft Office 라이선스를 포함하지 않으며 *프로덕션에 사용할 수 없습니다*. Office 2013 Professional Plus 이미지는 평가 용도로만 사용됩니다. 프로덕션에 대해 Azure RemoteApp에서 Office 앱을 사용하려는 경우 Office 365 ProPlus 이미지를 사용해야 합니다. 라이선스 Office에 대한 자세한 내용은 [Azure RemoteApp과 함께 Office 365 사용](remoteapp-o365.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0406_2016-->
