@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/08/2016"
+   ms.date="03/18/2016"
    ms.author="cherylmc"/>
 
 # Express 경로 및 사이트 간 공존 연결 구성
@@ -34,8 +34,9 @@ Express 경로 회로는 아래 지침을 수행하기 전에 미리 구성되�
 - **지점 및 사이트 간은 지원되지 않습니다:** 지점 및 사이트 간 VPN을 Express 경로에 연결된 동일한 VNet에 연결할 수 없습니다. 동일한 VNet에 대해 지점 및 사이트 간 VPN과 Express 경로를 함께 사용할 수 없습니다.
 - **강제 터널링은 사이트 간 VPN 게이트웨이에서 사용할 수 없음:** Express 경로를 통해 온-프레미스 네트워크에 인터넷 바인딩된 트래픽을 모두 다시 "강제"할 수 있습니다. 
 - **표준 또는 높은 성능 게이트웨이만:** Express 경로 게이트웨이 및 사이트 간 VPN 게이트웨이 모두에 표준 또는 높은 성능 게이트웨이를 사용해야 합니다. 게이트웨이 SKU에 대한 내용은 [게이트웨이 SKU](../vpn-gateway/vpn-gateway-about-vpngateways.md)를 참조하세요.
-- **정적 경로 요구 사항:** 로컬 네트워크가 Express 경로 및 사이트 간 VPN 둘 다에 연결된 경우 로컬 네트워크에서 사이트 간 VPN 연결을 공용 인터넷으로 라우트하는 정적 경로를 구성해야 합니다.
-- **Express 경로 게이트웨이가 먼저 구성되어야 함:** 사이트 간 VPN 게이트웨이를 추가하기 전에 Express 경로 게이트웨이를 먼저 만들어야 합니다.
+- **경로 기반 VPN 게이트웨이 전용:** 경로 기반 VPN 게이트웨이를 사용해야 합니다. 경로 기반 VPN 게이트웨이에 대한 정보는 [VPN 게이트웨이](../vpn-gateway/vpn-gateway-about-vpngateways.md)를 참조하세요.
+- **정적 경로 요구 사항:** 로컬 네트워크가 Express 경로 및 사이트 간 VPN 모두에 연결된 경우 로컬 네트워크에서 정적 경로를 구성하여 사이트 간 VPN 연결을 공용 인터넷에 라우팅해야 합니다.
+- **Express 경로 게이트웨이를 먼저 구성해야 함:** 사이트 간 VPN 게이트웨이를 추가하기 전에 Express 경로 게이트웨이를 먼저 만들어야 합니다.
 
 
 ## 구성 디자인
@@ -188,7 +189,7 @@ Express 경로 또는 사이트 간 VPN 연결을 통해 연결된 기존 가상
 
 1. 최신 버전의 Azure 리소스 관리자 PowerShell cmdlet을 설치해야 합니다. PowerShell cmdlet 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요. 이 구성에 사용할 cmdlet은 지금까지 익숙하던 cmdlet과는 약간 다를 수 있습니다. 다음 지침에 지정된 cmdlet을 사용해야 합니다. 
 
-2. 기존 사이트 간 VPN 게이트웨이를 삭제합니다. 다음 cmdlet(사용자 고유의 값으로 대체)을 사용합니다.
+2. 기존 Express 경로 또는 사이트 간 VPN 게이트웨이를 삭제합니다. 다음 cmdlet(사용자 고유의 값으로 대체)을 사용합니다.
 
 	`Remove-AzureVNetGateway –VnetName MyAzureVNET`
 
@@ -212,10 +213,10 @@ Express 경로 또는 사이트 간 VPN 연결을 통해 연결된 기존 가상
 		          </ConnectionsToLocalNetwork>
 		        </Gateway>
 
-6. 이제 게이트웨이가 없는 VNet이 설정됩니다. 이전 단계인 [4단계 - Express 경로 게이트웨이 만들기](#gw)를 진행하여 새 게이트웨이를 만들고 연결을 완료할 수 있습니다.
+6. 이제 게이트웨이가 없는 VNet이 설정됩니다. 새 게이트웨이를 만들고 연결을 완료하기 위해 이전 단계에 위치한 [4단계 - Express 경로 게이트웨이 만들기](#gw)를 진행할 수 있습니다.
 
 ## 다음 단계
 
 Express 경로에 대한 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md)를 참조하세요.
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

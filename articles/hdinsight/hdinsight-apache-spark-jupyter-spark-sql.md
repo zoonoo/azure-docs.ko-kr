@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/07/2016"
+	ms.date="03/21/2016"
 	ms.author="nitinme"/>
 
 
@@ -39,82 +39,47 @@ HDInsight에서 Apache Spark 클러스터를 만든 다음 [Jupyter](https://jup
 	-  Windows 컴퓨터 - [Windows에서 Linux 기반 HDInsight(Hadoop)와 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 
-## HDInsight Linux에서 Spark 클러스터 만들기
+## Spark 클러스터 만들기
 
-이 섹션에서는 Spark 버전 1.5.1을 기반으로 하는 HDInsight 버전 3.3 클러스터를 만듭니다. HDInsight 버전 및 해당 SLA에 대한 내용은 [HDInsight 구성 요소 버전 관리](hdinsight-component-versioning.md)를 참조하세요.
+이 섹션에서는 Azure ARM 템플릿을 사용하여 HDInsight 버전 3.3 클러스터(Spark 버전 1.5.1)를 만듭니다. HDInsight 버전 및 해당 SLA에 대한 내용은 [HDInsight 구성 요소 버전 관리](hdinsight-component-versioning.md)를 참조하세요. 클러스터를 만드는 다른 방법은 [HDInsight 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
 
->[AZURE.NOTE] 이 문서의 단계에서는 기본 구성 설정을 사용하여 HDInsight에서 Apache Spark 클러스터를 만듭니다. 추가 저장소, Azure 가상 네트워크 또는 Hive용 Metastore를 사용하는 등의 기타 클러스터 구성 설정에 대한 자세한 내용은 [사용자 지정 옵션을 사용하여 HDInsight Spark 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
+1. Azure 포털에서 ARM 템플릿을 열려면 다음 이미지를 클릭합니다.         
 
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fusesqoop%2Fcreate-linux-based-spark-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/ko-KR/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    
+    ARM 템플릿은 공용 BLOB 컨테이너에 있습니다. **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-spark-cluster-in-hdinsight.json*.
+   
+2. 매개 변수 블레이드에서 다음을 입력합니다.
 
-**Spark 클러스터를 만들려면**
-
-1. [Azure Preview 포털](https://ms.portal.azure.com/)에 로그인합니다.
-
-2. **새로 만들기**, **데이터 + 분석** 및 **HDInsight**를 차례로 클릭합니다.
-
-    ![Azure Preview 포털에서 새 클러스터 만들기](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.createcluster.1.png "Azure Preview 포털에서 새 클러스터 만들기")
-
-3. **클러스터 이름**을 입력하고 **클러스터 형식**에 **Spark**를 선택하고 **클러스터 운영 체제** 드롭다운 메뉴에서 **Linux**를 선택한 다음 Spark의 버전을 선택합니다. 클러스터 이름을 사용할 수 있는 경우 클러스터 이름 옆에 녹색 확인 표시가 나타납니다.
-
-	![클러스터 이름 및 유형 입력](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.createcluster.2.png "클러스터 이름 및 유형 입력")
-
-4. 둘 이상의 구독이 있는 경우 **구독** 항목을 클릭하여 클러스터에 사용할 Azure 구독을 선택합니다.
-
-5. **리소스 그룹**을 클릭하여 기존 리소스 그룹 목록을 확인하고 클러스터를 만들 리소스 그룹을 선택합니다. 또는 **새로 만들기**를 클릭한 다음 새 리소스 그룹의 이름을 입력할 수 있습니다. 새 그룹 이름을 사용할 수 있는지 여부를 나타내는 녹색 확인 표시가 나타납니다.
-
-	> [AZURE.NOTE] 사용할 수 있는 경우 이 항목은 기존 리소스 그룹 중 하나로 기본 설정됩니다.
-
-6. **자격 증명**을 클릭한 다음 관리자의 암호를 입력합니다. 또한 **SSH 사용자 이름**을 사용해야 합니다. **SSH 인증 형식**의 경우 **암호**를 클릭하고 SSH 사용자에 대한 암호를 지정합니다. 아래쪽의 **선택**을 클릭하여 자격 증명 구성을 저장합니다.
-
-	![클러스터 자격 증명 제공](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.createcluster.3.png "클러스터 자격 증명 제공")
+    - **ClusterName**: 만들려는 Hadoop 클러스터의 이름을 입력합니다.
+    - **클러스터 로그인 이름 및 암호**: 기본 로그인 이름은 admin입니다.
+    - **SSH 사용자 이름 및 암호**.
+    
+    이러한 값을 기록해 두십시오. 이 정보는 자습서의 뒷부분에서 필요합니다.
 
     > [AZURE.NOTE] SSH는 명령줄을 사용하여 HDInsight 클러스터에 원격으로 액세스하는 데 사용됩니다. 여기에 사용되는 사용자 이름 및 암호는 SSH 통해 클러스터에 연결할 때 사용됩니다. 또한 모든 HDInsight 클러스터 노드에 대해 사용자 계정을 생성하므로 SSH 사용자 이름은 고유해야 합니다. 다음은 클러스터에서 서비스에 의해 사용하도록 예약된 계정 이름 중 일부이며 SSH 사용자 이름으로 사용할 수 없습니다.
     >
     > root, hdiuser, storm, hbase, ubuntu, zookeeper, hdfs, yarn, mapred, hbase, hive, oozie, falcon, sqoop, admin, tez, hcat, hdinsight-zookeeper.
 
-	HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
+	> HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-	* [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
-	* [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
+	> * [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
+	> * [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
+
+    
+3\.**확인**을 클릭하여 매개 변수를 저장합니다.
+
+4\.**사용자 지정 배포** 블레이드에서 **리소스 그룹** 드롭다운 상자를 클릭한 후 **새로 만들기**를 클릭하여 새 리소스 그룹을 만듭니다. 리소스 그룹은 클러스터, 종속 저장소 계정 및 기타 연결된 리소스를 그룹화하는 컨테이너입니다.
+
+5\.**약관**을 클릭한 다음 **만들기**를 클릭합니다.
+
+6\.**만들기**를 클릭합니다. 템플릿 배포에 배포 제출 중이라는 제목의 새 타일이 표시됩니다. 클러스터 및 SQL 데이터베이스를 만들려면 20분 정도가 걸립니다.
 
 
-7. **데이터 원본**을 클릭하여 클러스터의 기존 데이터 원본을 선택하거나 새로 만듭니다. HDInsight의 Hadoop 클러스터를 만들 때 Azure 저장소 계정을 지정합니다. Hadoop 분산 파일 시스템(HDFS)의 경우처럼 해당 계정의 특정 Blob 저장소 컨테이너는 기본 파일 시스템으로 지정됩니다. HDInsight 클러스터는 기본적으로 사용자가 지정한 저장소 계정과 동일한 데이터 센터에 생성됩니다. 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용][hdinsight-storage]을 참조하세요.
 
-	![데이터 원본 블레이드](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.createcluster.4.png "데이터 원본 구성 제공")
+## Jupyter Notebook을 사용하여 Spark SQL 쿼리 실행
 
-	현재 HDInsight 클러스터의 데이터 원본으로 Azure 저장소 계정을 선택할 수 있습니다. 다음을 사용하여 **데이터 원본** 블레이드의 항목을 이해합니다.
-
-	- **선택 방법**: 모든 구독에서 저장소 계정을 찾을 수 있도록 하려면 이 항목을 **From all subscriptions(모든 구독에서)**로 설정합니다. 기존 저장소 계정의 **저장소 이름** 및 **액세스 키**를 입력하려면 이 항목을 **액세스 키**로 설정합니다.
-
-	- **저장소 계정 선택/새로 만들기**: 클러스터와 연결할 기존 저장소 계정을 찾아 선택하려면 **저장소 계정 선택**을 클릭합니다. 또는 새 저장소 계정을 만들려면 **새로 만들기**를 클릭합니다. 저장소 계정의 이름을 입력할 때 나타나는 필드를 사용합니다. 이름을 사용할 수 있는 경우 녹색 확인 표시가 나타납니다.
-
-	- **기본 컨테이너 선택**: 클러스터에 사용할 기본 컨테이너의 이름을 입력하려면 이 항목을 사용합니다. 여기에 아무 이름이나 입력할 수 있지만, 컨테이너가 이 특정 클러스터에 사용됨을 쉽게 인식할 수 있도록 클러스터와 같은 이름을 사용하는 것이 좋습니다.
-
-	- **위치**: 저장소 계정이 있거나 저장소 계정을 만들 지리적인 지역입니다.
-
-		> [AZURE.IMPORTANT] 기본 데이터 원본의 위치를 선택하면 HDInsight 클러스터의 위치도 설정됩니다. 클러스터와 기본 데이터 원본은 같은 지역에 있어야 합니다.
-
-	**선택**을 클릭하여 데이터 원본 구성을 저장합니다.
-
-8. **노드 가격 책정 계층**을 클릭하여 이 클러스터에 대해 만들어질 노드에 대한 정보를 표시합니다. 클러스터에 필요한 작업자 노드 수를 설정합니다. 클러스터의 예상 비용이 블레이드 내에 표시됩니다.
-
-	![노드 가격 책정 계층 블레이드](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.createcluster.5.png "클러스터 노드 수 지정")
-
-	**선택**을 클릭하여 노드 가격 책정 구성을 저장합니다.
-
-9. **새 HDInsight 클러스터** 블레이드에서 **시작 보드에 고정**이 선택되어 있는지 확인한 다음 **만들기**를 클릭합니다. 그러면 클러스터가 만들어지고 Azure 포털의 시작 보드에 클러스터 타일이 추가됩니다. 아이콘이 클러스터를 만드는 중임을 나타내고 생성이 완료되면 변경되어 HDInsight 아이콘을 표시합니다.
-
-	| 만드는 동안 | 만들기 완료 |
-	| ------------------ | --------------------- |
-	| ![시작 보드에 표시기 만들기](./media/hdinsight-apache-spark-jupyter-spark-sql/provisioning.png) | ![프로비전된 클러스터 타일](./media/hdinsight-apache-spark-jupyter-spark-sql/provisioned.png) |
-
-	> [AZURE.NOTE] 클러스터를 만드는데 약간의 시간이 걸리며, 일반적으로 약 15분이 소요됩니다. 시작 보드에 있는 타일 또는 페이지 왼쪽에 있는 **알림** 항목을 사용하여 생성 프로세스를 확인합니다.
-
-10. 만들기가 완료되면 시작 보드에서 Spark 클러스터 타일을 클릭하여 클러스터 블레이드를 시작합니다.
-
-## <a name="jupyter"></a>Jupyter 노트북을 사용하여 Spark SQL 쿼리 실행
-
-이 섹션에서는 Jupyter 노트북을 사용하여 Spark 클러스터에 대해 Spark SQL 쿼리를 실행합니다. 기본적으로 Jupyter 노트북은 **Python2** 커널과 함께 제공됩니다. HDInsight Spark 클러스터는 Jupyter 노트북에 사용할 수 있는 두 개의 추가 커널을 제공합니다. 다음과 같습니다.
+이 섹션에서는 Jupyter Notebook을 사용하여 Spark 클러스터에 대해 Spark SQL 쿼리를 실행합니다. 기본적으로 Jupyter 노트북은 **Python2** 커널과 함께 제공됩니다. HDInsight Spark 클러스터는 Jupyter 노트북에 사용할 수 있는 두 개의 추가 커널을 제공합니다. 다음과 같습니다.
 
 * **PySpark**(Python에서 작성한 응용 프로그램용)
 * **Spark**(Scala에서 작성한 응용 프로그램용)
@@ -125,9 +90,9 @@ HDInsight에서 Apache Spark 클러스터를 만든 다음 [Jupyter](https://jup
 * 여러 셀 magic(예: %%sql 또는 %%hive)을 사용하여 이전 코드 조각 없이 직접 SQL 또는 Hive 쿼리를 실행할 수 있습니다.
 * SQL 또는 Hive 쿼리의 출력은 자동으로 시각화됩니다.
 
-### PySpark 커널을 사용하여 Jupyter 노트북 만들기 
+### PySpark 커널을 사용하여 Jupyter Notebook 만들기 
 
-1. [Azure Preview 포털](https://portal.azure.com/)의 시작 보드에서 Spark 클러스터 타일을 클릭합니다.(Spark 클러스터를 시작 보드에 고정한 경우) **모두 찾아보기** > **HDInsight 클러스터**에서 클러스터로 이동할 수도 있습니다.   
+1. [Azure 포털](https://portal.azure.com/)의 시작 보드에서 Spark 클러스터에 대한 타일을 클릭합니다(시작 보드에 고정한 경우). **모두 찾아보기** > **HDInsight 클러스터**에서 클러스터로 이동할 수도 있습니다.   
 
 2. Spark 클러스터 블레이드에서 **빠른 연결**을 클릭한 다음 **클러스터 대시보드** 블레이드에서 **Jupyter Notebook**을 클릭합니다. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다.
 
@@ -173,7 +138,7 @@ HDInsight에서 Apache Spark 클러스터를 만든 다음 [Jupyter](https://jup
 5. PySpark 커널을 사용하기 때문에 이제 `%%sql` 매직을 사용하여 방금 만든 임시 테이블 **hvac**에서 SQL 쿼리를 직접 실행할 수 있습니다. `%%sql` 매직 및 기타 PySpark 커널에서 사용 가능한 매직에 대한 자세한 내용은 [Spark HDInsight 클러스터와 함께 Jupyter Notebook에서 사용 가능한 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels)을 참조하세요.
 		
 		%%sql
-		SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = "6/1/13"")
+		SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = "6/1/13"
 
 5. 작업이 성공적으로 완료되면 기본적으로 다음 테이블 형식의 출력이 표시됩니다.
 
@@ -191,7 +156,7 @@ HDInsight에서 Apache Spark 클러스터를 만든 다음 [Jupyter](https://jup
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 
-## <a name="seealso"></a>참고 항목
+## 참고 항목
 
 
 * [개요: Azure HDInsight에서 Apache Spark](hdinsight-apache-spark-overview.md)
@@ -241,4 +206,4 @@ HDInsight에서 Apache Spark 클러스터를 만든 다음 [Jupyter](https://jup
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

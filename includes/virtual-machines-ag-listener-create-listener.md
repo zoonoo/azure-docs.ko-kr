@@ -22,5 +22,4 @@
 	>[AZURE.NOTE] 나중에 수신기가 DHCP에서 선택한 IP 주소가 충돌하여 온라인 상태로 전환되지 못하면 이 속성 창에서 유효한 고정 IP 주소를 구성할 수 있습니다.
 
 1. 동일한 **IP 주소** 속성 창에서 **IP 주소 이름**을 변경합니다. 이 IP 주소 이름은 PowerShell 스크립트의 **$IPResourceName** 변수에 사용됩니다. 솔루션이 여러 Azure Vnet에 걸쳐 있는 경우 각 IP 리소스에 대해 이 단계를 반복합니다.
-
-<!-----HONumber=Oct15_HO3-->
+<!------HONumber=Oct15_HO3-->

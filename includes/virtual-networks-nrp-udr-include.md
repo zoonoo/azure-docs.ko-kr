@@ -54,8 +54,8 @@ JSON 형식의 샘플 경로 테이블:
 
 ### 추가 리소스
 
-- [UDR](virtual-networks-udr-overview.md)에 대해 자세히 알아보세요.
+- [UDR](../articles/virtual-network/virtual-networks-udr-overview.md)에 대해 자세히 알아보세요.
 - 경로 테이블에 대한 [REST API 참조 설명서](https://msdn.microsoft.com/library/azure/mt502549.aspx)를 읽어보세요.
 - UDR(사용자 정의 경로)에 대한 [REST API 참조 설명서](https://msdn.microsoft.com/library/azure/mt502539.aspx)를 읽어보세요.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0323_2016-->

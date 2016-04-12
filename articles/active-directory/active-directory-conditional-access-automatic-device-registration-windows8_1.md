@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.date="03/07/2016"
 	ms.author="femila"/>
 
 # Windows 8.1 도메인 가입 장치에 대한 자동 장치 등록 구성
@@ -54,7 +54,7 @@ Windows 8.1 컴퓨터의 Windows 이벤트 로그에는 장치 등록과 관련�
 
 ## 추가 항목
 - [Azure Active Directory Device Registration 개요](active-directory-conditional-access-device-registration-overview.md)
-- [도메인 가입 Windows 장치의 Azure Active Directory 자동 장치 등록](active-directory-conditional-access-automatic-device-registration.md)
+- [Windows 10 도메인에 가입된 장치의 Azure Active Directory 자동 장치 등록](active-directory-conditional-access-automatic-device-registration.md)
 - [Windows 7 도메인 가입 장치에 대한 자동 장치 등록 구성](active-directory-conditional-access-automatic-device-registration-windows7.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="03/16/2016"
 	ms.author="sameerch"/>
 
 # SFTP 커넥터 시작 및 논리 앱에 추가
->[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다. 2015-08-01-미리 보기 스키마 버전에 대한 내용을 보려면 [SFTP API](../connectors/create-api-sftp.md)를 클릭하세요.
+>[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다. 2015-08-01-preview 스키마 버전에 대한 내용을 보려면 [SFTP API](../connectors/connectors-create-api-sftp.md)를 클릭하세요.
 
 SFTP 커넥터를 사용하여 SFTP 서버에서 또는 서버로 데이터를 이동할 수 있습니다. SFTP 서버에서 또는 서버로 파일을 다운로드 또는 업로드하거나 파일을 나열할 수 있습니다.
 
@@ -58,7 +58,7 @@ API 앱을 만들고 나면 이제 SFTP 커넥터를 논리 앱에 대한 트리
 
 5.	이제 흐름에서 SFTP 커넥터를 사용할 수 있습니다. 흐름의 다른 작업에서 SFTP 트리거("TriggerOnFileAvailable")로부터 검색된 파일을 사용할 수 있습니다.
 
-	> [AZURE.IMPORTANT]SFTP 트리거 "TriggerOnFileAvailable"은 파일을 처리한 후 검색된 파일을 삭제합니다.
+	> [AZURE.IMPORTANT] SFTP 트리거 "TriggerOnFileAvailable"은 파일을 처리한 후 검색된 파일을 삭제합니다.
 
 6.	다음과 같이 SFTP 트리거에 대한 입력 속성을 구성합니다.
 
@@ -86,7 +86,7 @@ API 앱을 만들고 나면 이제 SFTP 커넥터를 논리 앱에 대한 트리
 ## 커넥터의 추가 기능
 이제 커넥터를 만들었으므로 논리 앱을 사용하여 비즈니스 워크플로에 추가할 수 있습니다. [논리 앱 정의](app-service-logic-what-are-logic-apps.md)를 참조하세요.
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동합니다. 앱 서비스에서 즉시 단기 스타터 논리 앱을 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동합니다. 앱 서비스에서 즉시 단기 스타터 논리 앱을 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 [커넥터 및 API 앱 참조](http://go.microsoft.com/fwlink/p/?LinkId=529766)의 Swagger REST API 참조를 봅니다.
 
@@ -107,4 +107,4 @@ API 앱을 만들고 나면 이제 SFTP 커넥터를 논리 앱에 대한 트리
 [11]: ./media/app-service-logic-connector-sftp/img11.PNG
 [12]: ./media/app-service-logic-connector-sftp/img12.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

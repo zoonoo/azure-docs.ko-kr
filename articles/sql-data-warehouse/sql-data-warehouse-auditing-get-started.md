@@ -1,29 +1,29 @@
-<properties 
-   pageTitle="SQL 데이터 웨어하우스 데이터베이스 감사 시작 | Microsoft Azure" 
-   description="SQL 데이터 웨어하우스 데이터베이스 감사 시작" 
-   services="sql-data-warehouse" 
-   documentationCenter="" 
-   authors="twounder" 
-   manager="barbkess" 
+<properties
+   pageTitle="SQL 데이터 웨어하우스 데이터베이스 감사 시작 | Microsoft Azure"
+   description="SQL 데이터 웨어하우스 데이터베이스 감사 시작"
+   services="sql-data-warehouse"
+   documentationCenter=""
+   authors="twounder"
+   manager="barbkess"
    editor=""/>
 
-<tags 
-   ms.service="sql-data-warehouse" 
-   ms.workload="data-management" 
-   ms.tgt_pltfrm="na" 
-   ms.devlang="na" 
-   ms.topic="article" 
-   ms.date="01/07/2016" 
+<tags
+   ms.service="sql-data-warehouse"
+   ms.workload="data-management"
+   ms.tgt_pltfrm="na"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.date="03/03/2016" 
    ms.author="mausher;barbkess;sonyama"/>
- 
-# SQL 데이터 웨어하우스 데이터베이스 감사 시작 
+
+# SQL 데이터 웨어하우스 데이터베이스 감사 시작
 Azure SQL 데이터 웨어하우스 감사는 데이터베이스 이벤트를 추적하고 Azure 저장소 계정의 감사 로그에 감사된 이벤트를 작성합니다.
 
 감사는 규정 준수를 유지 관리하고, 데이터베이스 작업을 이해하고, 비즈니스 문제나 의심스러운 보안 위반을 나타낼 수 있는 불일치 및 이상 활동을 파악하는 데 도움이 될 수 있습니다.
 
 감사 도구를 사용하면 규정 준수 표준을 보다 쉽게 준수할 수 있지만 규정을 완전히 준수한다고 보장할 수는 없습니다. 표준 규정 준수를 지원하는 Azure 프로그램에 대한 자세한 내용은 <a href="http://azure.microsoft.com/support/trust-center/compliance/" target="_blank">Azure 보안 센터</a>를 참조하세요.
 
-+ [데이터베이스 감사 기본 사항] 
++ [데이터베이스 감사 기본 사항]
 + [데이터베이스에 대한 감사 설정]
 + [감사 로그 및 보고서 분석]
 
@@ -66,7 +66,7 @@ SQL 데이터 웨어하우스 데이터베이스 감사를 사용하여 다음�
 	![][1]
 
 3. 감사 구성 블레이드에서 먼저, **서버의 감사 설정 상속** 확인란을 선택 취소합니다. 이렇게 하면 특정 데이터베이스에 대한 설정을 지정할 수 있습니다.
-	
+
 	![][2]
 
 4. 다음으로 **켜기** 단추를 클릭하여 감사를 사용합니다.
@@ -103,7 +103,7 @@ SQL 데이터 웨어하우스 데이터베이스 감사를 사용하여 다음�
 
 ##<a id="subheading-4">프로덕션에서 사용하기 위한 연습</a>
 이 섹션의 설명에서는 위의 화면 캡처를 참조합니다. <a href="https://portal.azure.com" target="_blank">Azure 포털</a> 또는 <a href= "https://manage.windowsazure.com/" target="_bank">기존 Azure 클래식 포털</a>을 사용할 수 있습니다.
- 
+
 
 ##<a id="subheading-5"></a>저장소 키 다시 생성
 
@@ -116,7 +116,7 @@ SQL 데이터 웨어하우스 데이터베이스 감사를 사용하여 다음�
 3. 감사 구성 블레이드로 돌아가서 **저장소 액세스 키**를 *보조*에서 *기본*으로 전환하고 **저장**을 누릅니다.
 
 4. 저장소 UI로 돌아와서 *보조 선택키*를 **다시 생성**합니다(다음 키 새로 고침 주기를 위한 준비).
-  
+
 ##<a id="subheading-6"></a>자동화
 Azure SQL 데이터베이스에서 감사를 구성하는 데 사용할 수 있는 여러 가지 PowerShell cmdlet이 있습니다. 감사 cmdlet에 액세스하려면 Azure 리소스 관리자 모드에서 PowerShell을 실행해야 합니다.
 
@@ -141,4 +141,4 @@ Azure 리소스 관리자 모드에서 `Get-Command *AzureSql*`을 실행하여 
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0114_2016--->
+<!---HONumber=AcomDC_0309_2016-->

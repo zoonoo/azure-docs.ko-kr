@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="02/21/2016"
+   ms.date="03/07/2016"
    ms.author="robinsh" />
 
 # Azure 저장소 확장성 및 성능 목표
@@ -40,7 +40,8 @@
 
 [AZURE.INCLUDE [azure-storage-limits-vm-disks](../../includes/azure-storage-limits-vm-disks.md)]
 
-자세한 내용은 [가상 컴퓨터 크기](../virtual-machines/virtual-machines-size-specs.md)를 참조하세요.
+
+자세한 내용은 [가상 컴퓨터 크기](../virtual-machines/virtual-machines-linux-sizes.md)를 참조하세요.
 
 ### 표준 저장소 계정
 
@@ -85,4 +86,4 @@ Azure 저장소(blob, 메시지, 엔터티 및 파일)에 저장 된 데이터�
 - [Microsoft Azure 저장소 성능 및 확장성 검사 목록](storage-performance-checklist.md)
 - [Microsoft Azure 저장소: 일관성과 가용성이 뛰어난 클라우드 저장소 서비스](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

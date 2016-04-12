@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
- 
+
 # SQL 데이터 웨어하우스의 뷰
 
 뷰는 SQL 데이터 웨어하우스에서 특히 유용합니다. 여러가지 다양한 방법을 사용하여 솔루션의 품질을 개선할 수 있습니다.
@@ -28,12 +28,12 @@
 
 다음 예제에서는 새 날짜 레코드를 날짜 차원에 추가합니다. 먼저 새 개체 DimDate\_New를 만든 다음 이름을 바꾸어 원래 버전의 개체를 바꾸는 방법을 확인합니다.
 
-```
+```sql
 CREATE TABLE dbo.DimDate_New
 WITH (DISTRIBUTION = ROUND_ROBIN
 , CLUSTERED INDEX (DateKey ASC)
 )
-AS 
+AS
 SELECT *
 FROM   dbo.DimDate  AS prod
 UNION ALL
@@ -54,7 +54,12 @@ RENAME OBJECT DimDate_New TO DimDate;
 ## 제한 사항
 SQL 데이터 웨어하우스의 뷰는 메타데이터 전용입니다.
 
-따라서 다음 옵션을 사용할 수 없습니다. 스키마 바인딩 옵션이 없습니다. 뷰를 통해 기본 테이블을 업데이트할 수 없습니다. 임시 테이블에 대해 뷰를 만들 수 없습니다. EXPAND / NOEXPAND 힌트에 대한 지원은 없습니다. SQL 데이터 웨어하우스의 인덱싱된 뷰가 없습니다.
+따라서 다음 옵션을 사용할 수 없습니다.
+- 	스키마 바인딩 옵션이 없습니다.
+- 	뷰를 통해 기본 테이블을 업데이트할 수 없습니다.
+- 	임시 테이블에 대해 뷰를 만들 수 없습니다.
+- 	EXPAND / NOEXPAND 힌트에 대한 지원이 없습니다.
+- 	SQL 데이터 웨어하우스에 인덱싱된 뷰가 없습니다.
 
 
 ## 다음 단계
@@ -69,4 +74,4 @@ SQL 데이터 웨어하우스의 뷰는 메타데이터 전용입니다.
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -15,11 +15,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="03/03/2016"
    ms.author="litran"/>
 
 
-# 조직의 앱 서비스 환경에서 새 SQL Server API 만들기
+# PowerApps 엔터프라이즈에 새 SQL Server API 만들기
+
+조직의 (테넌트) 앱 서비스 환경에 SQL Server API를 추가합니다.
 
 ## Azure 포털에서 API 만들기
 
@@ -38,14 +40,14 @@
 
 SQL Server 온-프레미스에 연결할 수 있습니다. 이 하이브리드 연결을 설정하려면 Azure에서 다음을 포함한 기존 하이브리드 네트워킹 솔루션을 활용할 수 있습니다.
 
-- [Express 경로](../expressroute-introduction.md)
-- [사이트 간 VPN](../vpn-gateway-create-site-to-site-rm-powershell.md)
-- [지점 및 사이트 간 연결](../vpn-gateway-point-to-site-create.md)  
+- [Express 경로](../expressroute/expressroute-introduction.md)
+- [사이트 간 VPN](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
+- [지점 및 사이트 간 연결](../vpn-gateway/vpn-gateway-point-to-site-create.md)  
 
-	> [AZURE.NOTE]모든 앱 서비스 환경에는 가상 네트워크가 연결되어 있습니다. 이 가상 네트워크에 이 네트워크 연결을 설정할 수 있습니다.  
-- [하이브리드 연결](../web-sites-hybrid-connection-get-started.md)  
+	> [AZURE.NOTE]  모든 앱 서비스 환경에는 가상 네트워크가 연결되어 있습니다. 이 가상 네트워크에 이 네트워크 연결을 설정할 수 있습니다.  
+- [하이브리드 연결](../app-service-web/web-sites-hybrid-connection-get-started.md)  
 
-	> [AZURE.NOTE]앱 서비스 환경에 등록된 모든 API에는 해당 웹앱이 있습니다. 다른 웹앱에서와 마찬가지로 이 웹앱에서 하이브리드 연결을 설정할 수 있습니다.
+	> [AZURE.NOTE]  앱 서비스 환경에 등록된 모든 API에는 해당 웹앱이 있습니다. 다른 웹앱에서와 마찬가지로 이 웹앱에서 하이브리드 연결을 설정할 수 있습니다.
 	
 다음 예제에서는 하이브리드 연결을 만드는 방법을 보여 줍니다.
 
@@ -53,7 +55,7 @@ SQL Server 온-프레미스에 연결할 수 있습니다. 이 하이브리드 �
 
 2.  **리소스** 타일을 선택한 다음 SQL Server API와 이름이 같은 웹앱을 선택합니다. 이 예제에서는 *sqlconnectordemo*를 선택합니다. ![Sql 웹앱](./media/powerapps-create-api-sqlserver/sqlwebapp.png)
 
-3.  **설정**에서 **네트워킹**을 선택합니다. **하이브리드 연결 끝점 구성**을 선택하고 [다음 지침](../web-sites-hybrid-connection-get-started.md)을 따라 하이브리드 연결을 만듭니다. ![네트워킹](./media/powerapps-create-api-sqlserver/network.png)
+3.  **설정**에서 **네트워킹**을 선택합니다. **하이브리드 연결 끝점 구성**을 선택하고 [다음 지침](../app-service-web/web-sites-hybrid-connection-get-started.md)을 따라 하이브리드 연결을 만듭니다. ![네트워킹](./media/powerapps-create-api-sqlserver/network.png)
 
 하이브리드 연결을 만들고 연결되면 온-프레미스 서버에 대한 연결을 사용하도록 설정한 것입니다. 그런 다음 데이터에 대한 연결을 만들고 사용자에게 액세스 권한을 제공합니다. ![하이브리드 연결](./media/powerapps-create-api-sqlserver/hybridconn.png)
 
@@ -78,4 +80,4 @@ SQL Server 온-프레미스에 연결할 수 있습니다. 이 하이브리드 �
 [14]: ./media/powerapps-create-api-sqlserver/browseall.png
 [15]: ./media/powerapps-create-api-sqlserver/allresources.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

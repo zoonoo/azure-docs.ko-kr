@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="TBD" 
-   ms.date="01/22/2016"
+   ms.date="03/02/2016"
    ms.author="coreyp"/>
 
 # Azure 자동화 DSC 개요 #
@@ -116,6 +116,9 @@ Azure 자동화 DSC의 컴파일 작업은 하나 이상의 노드 구성을 만
 
 - WMF 5 RTM로 업그레이드할 때 컴퓨터가 Azure 자동화 DSC의 노드로 이미 등록되어 있으면 Azure 자동화 DSC에서 등록을 취소하고 WMF 5 RTM 업그레이드 후에 다시 등록합니다. 다시 등록하기 전에 $env:windir\\system32\\configuration\\DSCEngineCache.mof 파일을 삭제합니다.
 
+- PowerShell DSC cmdlet은 WMF 5 프로덕션 미리 보기 위에 WMF 5 RTM가 설치된 경우 작동하지 않을 수 있습니다. 이 문제를 해결하려면 관리자 권한 PowerShell 세션(관리자 권한으로 실행)에서 다음 명령을 실행합니다. `mofcomp $env:windir\system32\wbem\DscCoreConfProv.mof`
+ 
+
 ##관련 문서##
 
 - [Azure 자동화 DSC를 통한 관리를 위한 컴퓨터 온보드](../automation/automation-dsc-onboarding.md)
@@ -124,4 +127,4 @@ Azure 자동화 DSC의 컴파일 작업은 하나 이상의 노드 구성을 만
 - [Azure 자동화 DSC 가격 책정](https://azure.microsoft.com/pricing/details/automation/)
 - [Azure 자동화 DSC 및 Chocolatey를 사용하여 IaaS VM에 연속 배포](automation-dsc-cd-chocolatey.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

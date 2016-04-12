@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Microsoft Azure IoT Suite 개요 | Microsoft Azure"
-	description="패키징 및 미리 구성된 솔루션을 포함한 Azure IoT Suite에 대한 개요를 제공합니다."
+	description="Azure IoT Suite에서 미리 구성된 사물 인터넷 솔루션을 제공하여 데이터를 수집, 분석 및 저장하고 시각화를 제공하며 다른 시스템과 통합하는 방법의 개요입니다."
 	services=""
     suite="iot-suite"
 	documentationCenter=""
@@ -19,7 +19,7 @@
 
 # Azure IoT Suite의 개요
 
-Azure IoT 서비스는 광범위한 기능을 제공합니다. 이러한 엔터프라이즈급 서비스를 사용하면 다음과 같은 작업을 할 수 있습니다.
+Azure IoT(사물 인터넷) 서비스는 광범위한 기능을 제공합니다. 이러한 엔터프라이즈급 서비스를 사용하면 다음과 같은 작업을 할 수 있습니다.
 
 - 장치에서 데이터 수집
 - 동작 내 데이터 스트림 분석
@@ -74,4 +74,4 @@ IoT 제품군은에 Azure IoT Suite가 가능하게 하는 일반적인 IoT 시�
 [lnk-preconfig-start]: iot-suite-getstarted-preconfigured-solutions.md
 [lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

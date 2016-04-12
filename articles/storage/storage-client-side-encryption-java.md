@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/24/2016"
+	ms.date="02/24/2016"
 	ms.author="dineshm"/>
 
 
@@ -22,7 +22,8 @@
 [AZURE.INCLUDE [storage-selector-client-side-encryption-include](../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## 개요  
-[Java용 Azure 저장소 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage)는 Azure 저장소에 업로드하기 전에 클라이언트 응용 프로그램 내부에서 데이터를 암호화하고 클라이언트로 다운로드하는 동안 데이터 암호를 해독하는 기능을 지원합니다. 라이브러리 또한 저장소 계정 키 관리를 위해 Azure [키 자격 증명 모음](https://azure.microsoft.com/services/key-vault/)과의 통합을 지원합니다.
+
+[Java용 Azure 저장소 클라이언트 라이브러리](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)는 Azure 저장소에 업로드하기 전에 클라이언트 응용 프로그램 내부에서 데이터를 암호화하고 클라이언트로 다운로드하는 동안 데이터 암호를 해독하는 기능을 지원합니다. 라이브러리 또한 저장소 계정 키 관리를 위해 Azure [키 자격 증명 모음](https://azure.microsoft.com/services/key-vault/)과의 통합을 지원합니다.
 
 ## 봉투(Envelope) 기술을 통해 암호화 및 암호 해독    
 암호화 및 암호 해독 프로세스는봉투(Envelope) 기법을 따릅니다.
@@ -239,9 +240,11 @@ EncryptionPolicy 개체를 만드는 동안 사용자만 키를 공급 (IKey 구
 
 ## 다음 단계  
 
-- [Java Maven용 Azure 저장소 클라이언트 라이브러리 패키지](https://github.com/Azure/azure-storage-java) 다운로드  
+- [Java Maven 패키지에 대한 Azure 저장소 클라이언트 라이브러리](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) 다운로드  
 - [GitHub에서 Java 소스 코드용 Azure 저장소 클라이언트 라이브러리](https://github.com/Azure/azure-storage-java) 다운로드   
-- Azure 주요 자격 증명 모음 Maven [코어](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [클라이언트](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/), [확장](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) 패키지 다운로드
-- [Azure 주요 자격 증명 모음 설명서](../key-vault/key-vault-whatis.md) 방문  
+- Java Maven 패키지에 대한 Azure 주요 자격 증명 Maven 라이브러리 다운로드
+	- [코어](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core) 패키지
+	- [클라이언트](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault) 패키지
+- [Azure 주요 자격 증명 설명서](../key-vault/key-vault-whatis.md) 참조  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

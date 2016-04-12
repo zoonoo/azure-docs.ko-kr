@@ -401,9 +401,9 @@ VM 이미지를 캡처하기 위해 먼저 **capture\_vm\_image** 메서드를 �
 		role_size='Small',
 		vm_image_name = image_name)
 
-Linux 가상 컴퓨터를 캡처하는 방법에 대한 자세한 내용은 [Linux 가상 컴퓨터를 캡처하는 방법](../virtual-machines/virtual-machines-linux-capture-image.md)을 참조하세요.
+Linux 가상 컴퓨터를 캡처하는 방법에 대한 자세한 내용은 [Linux 가상 컴퓨터를 캡처하는 방법](../virtual-machines/virtual-machines-linux-classic-capture-image.md)을 참조하세요.
 
-Windows 가상 컴퓨터를 캡처하는 방법에 대한 자세한 내용은 [Windows 가상 컴퓨터를 캡처하는 방법](../virtual-machines/virtual-machines-capture-image-windows-server.md)을 참조하세요.
+Windows 가상 컴퓨터를 캡처하는 방법에 대한 자세한 내용은 [Windows 가상 컴퓨터를 캡처하는 방법](../virtual-machines/virtual-machines-windows-classic-capture-image.md)을 참조하세요.
 
 ## <a name="What's Next"> </a>다음 단계
 
@@ -435,4 +435,4 @@ Windows 가상 컴퓨터를 캡처하는 방법에 대한 자세한 내용은 [W
 
 [클라우드 서비스]: https://azure.microsoft.com/ko-KR/documentation/services/cloud-services/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

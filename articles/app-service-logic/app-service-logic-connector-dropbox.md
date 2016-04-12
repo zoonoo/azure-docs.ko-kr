@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="03/16/2016"
 	ms.author="sameerch"/>
 
 # Dropbox 커넥터 시작 및 논리 앱에 추가
->[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다. 2015-08-01-미리 보기 스키마 버전에 대한 내용을 보려면 [Dropbox API](../connectors/create-api-dropbox.md)를 클릭하세요.
+>[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다. 2015-08-01-preview 스키마 버전에 대한 내용을 보려면 [Dropbox API](../connectors/connectors-create-api-dropbox.md)를 클릭하세요.
 
 Dropbox 계정에 연결하여 파일을 업로드하거나 다운로드합니다. 논리 앱은 다양한 데이터 원본을 기반으로 트리거되고 데이터를 가져오고 처리하기 위한 커넥터를 제공할 수 있습니다. Dropbox 커넥터를 비즈니스 워크플로에 추가하고 논리 앱 내에서 이 워크플로의 일부로 데이터를 처리할 수 있습니다.
 
@@ -91,4 +91,4 @@ API 앱을 만들고 나면 이제 Dropbox 커넥터를 논리 앱에 대한 동
 [8]: ./media/app-service-logic-connector-dropbox/img8.PNG
 [9]: ./media/app-service-logic-connector-dropbox/img9.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

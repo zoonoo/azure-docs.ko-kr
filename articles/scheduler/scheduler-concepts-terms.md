@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="get-started-article"
- ms.date="12/04/2015"
+ ms.date="03/09/2016"
  ms.author="krisragh"/>
 
 # 스케줄러 개념, 용어 + 엔터티 계층 구조
@@ -23,9 +23,8 @@
 
 |리소스 | 설명 |
 |---|---|
-|**클라우드 서비스**|개념적으로 클라우드 서비스 응용 프로그램을 나타냅니다. 구독에 여러 클라우드 서비스가 있을 수 있습니다.|
 |**작업 컬렉션**|작업 컬렉션은 작업 그룹을 포함하며 컬렉션 내에서 작업이 공유하는 설정, 할당량 및 제한을 유지합니다. 작업 컬렉션은 구독 소유자가 만들며, 사용 또는 응용 프로그램 경계를 기준으로 작업을 함께 그룹화합니다. 한 지역으로 제한됩니다. 또한 해당 컬렉션에 있는 모든 작업의 사용량을 제한하는 할당량을 적용할 수 있습니다. 할당량은 MaxJobs 및 MaxRecurrence을 포함합니다.|
-|**작업**|작업은 간단하거나 복잡한 실행 전략을 통해 단일 반복 작업을 정의합니다. 작업에는 HTTP 요청 또는 저장소 큐 요청이 포함될 수 있습니다.|
+|**작업**|작업은 간단하거나 복잡한 실행 전략을 통해 단일 반복 작업을 정의합니다. 작업은 HTTP, 저장소 큐, 서비스 버스 큐 또는 서비스 버스 항목 요청을 포함할 수 있습니다.|
 |**작업 기록**|작업 기록의 경우 작업 실행에 대한 세부 정보를 나타냅니다. 응답 세부 정보와 함께 성공 또는 실패를 포함합니다.|
 
 ## 스케줄러 엔터티 관리
@@ -34,14 +33,13 @@
 
 |기능|설명 및 URI 주소|
 |---|---|
-|**클라우드 서비스 관리**|클라우드 서비스의 생성 및 수정을 위한 GET, PUT 및 DELETE 지원 <p>`https://management.core.windows.net/{subscriptionId}/cloudservices/{cloudServiceName}`</p>|
-|**작업 컬렉션 관리**|작업 컬렉션과 그 안에 포함된 작업의 생성 및 수정을 위한 GET, PUT 및 DELETE 지원. 작업 컬렉션을 작업에 대한 컨테이너이며 할당량 및 공유 설정에 매핑됩니다. 나중에 설명하는 할당량은 최대 작업 수와 최소 반복 간격을 예로 듭니다. <p>PUT 및 DELETE: `https://management.core.windows.net/{subscriptionId}/cloudservices/{cloudServiceName}/resources/scheduler/jobcollections/{jobCollectionName}`</p><p>GET: `https://management.core.windows.net/{subscriptionId}/cloudservices/{cloudServiceName}/resources/scheduler/~/jobcollections/{jobCollectionName}`</p>
-|**작업 관리**|작업의 생성 및 수정 지원을 위한 GET, PUT, POST, PATCH 및 DELETE 지원 모든 작업은 기존 작업 컬렉션에 속해야 하며 암시적으로 만들어지지 않습니다.<p>`https://management.core.windows.net/{subscriptionId}/cloudservices/{cloudServiceName}/resources/scheduler/~/jobcollections/{jobCollectionName}/jobs/{jobId}`</p>|
-|**작업 기록 관리**|GET은 작업 경과 시간, 작업 실행 결과 등, 60일 간의 작업 실행 기록을 가져옵니다. 상태를 기초로 한 필터링을 위해 쿼리 문자열 매개 변수 지원을 추가합니다. <P>`https://management.core.windows.net/{subscriptionId}/cloudservices/{cloudServiceName}/resources/scheduler/~/jobcollections/{jobCollectionName}/jobs/{jobId}/history`</p>|
+|**작업 컬렉션 관리**|작업 컬렉션과 그 안에 포함된 작업의 생성 및 수정을 위한 GET, PUT 및 DELETE 지원. 작업 컬렉션을 작업에 대한 컨테이너이며 할당량 및 공유 설정에 매핑됩니다. 나중에 설명하는 할당량은 최대 작업 수와 최소 반복 간격을 예로 듭니다. <p>PUT 및 DELETE: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`</p><p>GET: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`</p>
+|**작업 관리**|작업의 생성 및 수정 지원을 위한 GET, PUT, POST, PATCH 및 DELETE 지원 모든 작업은 기존 작업 컬렉션에 속해야 하며 암시적으로 만들어지지 않습니다.<p>`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}`</p>|
+|**작업 기록 관리**|GET은 작업 경과 시간, 작업 실행 결과 등, 60일 간의 작업 실행 기록을 가져옵니다. 상태를 기초로 한 필터링을 위해 쿼리 문자열 매개 변수 지원을 추가합니다. <P>`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history`</p>|
 
 ## 작업 유형
 
-작업에는 HTTP 작업(SSL 지원 HTTPS 작업)과 저장소 큐 작업 등, 두 가지 유형이 있습니다. HTTP 작업은 기존 작업 부하 또는 서비스의 끝점을 사용하는 경우에 이상적입니다. 저장소 큐 작업을 사용하여 저장소 큐에 메시지를 게시할 수 있으므로 저장소 큐를 사용하는 워크로드에 이상적입니다.
+HTTP 작업(SSL을 지원하는 HTTPS 작업 포함), 저장소 큐 작업, 서비스 버스 큐 작업 및 서비스 버스 항목 작업 등 여러 가지 유형의 작업이 있습니다. HTTP 작업은 기존 작업 부하 또는 서비스의 끝점을 사용하는 경우에 이상적입니다. 저장소 큐 작업을 사용하여 저장소 큐에 메시지를 게시할 수 있으므로 저장소 큐를 사용하는 워크로드에 이상적입니다. 마찬가지로, 서비스 버스 작업은 서비스 버스 큐와 토픽을 사용하는 작업에 적합합니다.
 
 ## "Job" 엔터티 세부 정보
 
@@ -131,7 +129,7 @@
 
 ## action 및 errorAction
 
-"action"은 각각의 발생 시 호출되는 동작이며 서비스 호출 유형을 설명합니다. 동작은 제공된 일정에 따라 실행되는 것입니다. 스케줄러는 HTTP 및 저장소 큐 동작을 지원합니다.
+"action"은 각각의 발생 시 호출되는 동작이며 서비스 호출 유형을 설명합니다. 동작은 제공된 일정에 따라 실행되는 것입니다. 스케줄러는 HTTP, 저장소 큐, 서비스 버스 항목 또는 서비스 버스 큐 동작을 지원합니다.
 
 위 예의 동작은 HTTP 동작입니다. 다음은 저장소 큐 동작의 예입니다.
 
@@ -146,6 +144,15 @@
 					"My message body",
 			},
 	}
+
+다음은 서비스 버스 항목 동작의 예입니다.
+
+  "action": { "type": "serviceBusTopic", "serviceBusTopicMessage": { "topicPath": "t1", "namespace": "mySBNamespace", "transportType": "netMessaging", // netMessaging 또는 AMQP "인증"일 수 있습니다: { "sasKeyName": "QPolicy", "type": "sharedAccessKey" }, "message": "Some message", "brokeredMessageProperties": {}, "customMessageProperties": { "appname": "FromScheduler" } }, }
+
+다음은 서비스 버스 큐 동작의 예입니다.
+
+
+  "action": { "serviceBusQueueMessage": { "queueName": "q1", "namespace": "mySBNamespace", "transportType": "netMessaging", // netMessaging 또는 AMQP "인증"일 수 있습니다: { "sasKeyName": "QPolicy", "type": "sharedAccessKey" }, "message": "Some message", "brokeredMessageProperties": {}, "customMessageProperties": { "appname": "FromScheduler" } }, "type": "serviceBusQueue" }
 
 “errorAction”은 오류 처리기로, 주 동작 실패 시 호출되는 동작입니다. 이 변수를 사용하여 오류 처리 끝점을 호출하거나 사용자 알림을 보낼 수 있습니다. 주 끝점을 사용할 수 없을 때(예: 끝점 사이트의 장애) 보조 끝점에 연결하거나, 오류 처리 끝점을 알리는 데 사용할 수 있습니다. 기본 동작과 마찬가지로 오류 동작은 다른 동작에 따라 단순 또는 복합 로직이 될 수 있습니다. SAS 토큰을 만드는 방법을 알아보려면 [공유 액세스 서명 만들기 및 사용](https://msdn.microsoft.com/library/azure/jj721951.aspx)을 참조하세요.
 
@@ -190,7 +197,7 @@ JSON 정의에 지정된 되풀이 개체가 있으면 작업이 반복됩니다
 ## 참고 항목
 
  [스케줄러란?](scheduler-intro.md)
- 
+
  [Azure 포털에서 스케줄러 사용 시작](scheduler-get-started-portal.md)
 
  [Azure 스케줄러의 버전 및 요금 청구](scheduler-plans-billing.md)
@@ -207,4 +214,4 @@ JSON 정의에 지정된 되풀이 개체가 있으면 작업이 반복됩니다
 
  [Azure 스케줄러 아웃바운드 인증](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

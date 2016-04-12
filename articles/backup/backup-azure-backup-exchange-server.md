@@ -3,8 +3,8 @@
 	description="System Center 2012 R2 DPM을 사용하여 Azure 백업에 Exchange 서버를 백업하는 방법을 알아봅니다."
 	services="backup"
 	documentationCenter=""
-	authors="Jim-Parker"
-	manager="jwhit"
+	authors="AnuragMehrotra"
+	manager="shivamg"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="12/08/2015"
-	ms.author="jimpark;delhan"/>
+	ms.author="anuragm;jimpark;delhan"/>
 
 
 # System Center 2012 R2 DPM을 사용하여 Azure 백업에 Exchange 서버 백업
@@ -23,7 +23,7 @@
 ## 업데이트
 Azure 백업을 사용하여 DPM 서버를 성공적으로 등록하려면 System Center 2012 R2 DPM 및 Azure 백업 에이전트의 최신 버전에 대한 최신 업데이트 롤업을 설치해야 합니다. [Microsoft 카탈로그](http://catalog.update.microsoft.com/v7/site/Search.aspx?q=System%20Center%202012%20R2%20Data%20protection%20manager)에서 최신 업데이트 롤업을 가져옵니다.
 
->[AZURE.NOTE]이 문서의 예의 경우 Azure 백업 에이전트의 2.0.8719.0 버전을 설치하고 업데이트 롤업 6을 System Center 2012 R2 DPM에 설치합니다.
+>[AZURE.NOTE] 이 문서의 예의 경우 Azure 백업 에이전트의 2.0.8719.0 버전을 설치하고 업데이트 롤업 6을 System Center 2012 R2 DPM에 설치합니다.
 
 ## 필수 조건
 계속하기 전에 워크로드를 보호하기 위하여 Microsoft Azure 백업 사용을 위한 [필수 구성 요소](backup-azure-dpm-introduction.md#prerequisites)를 모두 충족하는지 확인합니다. 이러한 필수 구성 요소는 다음과 같습니다.
@@ -50,7 +50,7 @@ Exchange 서버에서 DPM 보호 에이전트를 설치하려면 다음 이 단�
 
 4. 보호하려는 Exchange 서버 데이터베이스를 선택하고 **다음**을 클릭합니다.
 
-    >[AZURE.NOTE]Exchange 2013을 보호하는 경우 [Exchange 2013 필수 구성 요소](https://technet.microsoft.com/library/dn751029.aspx)를 확인합니다.
+    >[AZURE.NOTE] Exchange 2013을 보호하는 경우 [Exchange 2013 필수 구성 요소](https://technet.microsoft.com/library/dn751029.aspx)를 확인합니다.
 
     다음 예제에서는 Exchange 2010 데이터베이스를 선택합니다.
 
@@ -69,13 +69,13 @@ Exchange 서버에서 DPM 보호 에이전트를 설치하려면 다음 이 단�
 
     이 옵션을 선택한 후에 Exchange 서버에서 **eseutil** 명령을 실행하여 생성되는 I/O 트래픽을 방지하기 위해 백업 일관성 확인 작업이 DPM 서버에서 실행됩니다.
 
-    >[AZURE.NOTE]이 옵션을 사용하려면 DPM 서버에서 C:\\Program Files\\Microsoft System Center 2012 R2\\DPM\\DPM\\bin 디렉터리로 Ese.dll 및 Eseutil.exe 파일을 복사해야 합니다. 그렇지 않으면 다음 오류가 트리거됩니다. ![eseutil 오류](./media/backup-azure-backup-exchange-server/eseutil-error.png)
+    >[AZURE.NOTE] 이 옵션을 사용하려면 DPM 서버에서 C:\\Program Files\\Microsoft System Center 2012 R2\\DPM\\DPM\\bin 디렉터리로 Ese.dll 및 Eseutil.exe 파일을 복사해야 합니다. 그렇지 않으면 다음 오류가 트리거됩니다. ![eseutil 오류](./media/backup-azure-backup-exchange-server/eseutil-error.png)
 
 8. **다음**을 클릭합니다.
 
 9. **복사 백업**에 대한 데이터베이스를 선택하고 **다음**을 클릭합니다.
 
-    >[AZURE.NOTE]데이터베이스의 DAG 복사본 하나 이상에 대한 "전체 백업"을 선택하지 않으면 로그는 잘리지 않습니다.
+    >[AZURE.NOTE] 데이터베이스의 DAG 복사본 하나 이상에 대한 "전체 백업"을 선택하지 않으면 로그는 잘리지 않습니다.
 
 10. **단기 백업**에 대한 목표를 구성하고 **다음**을 클릭합니다.
 
@@ -93,7 +93,7 @@ Exchange 서버에서 DPM 보호 에이전트를 설치하려면 다음 이 단�
 
     ![온라인 백업 일정 지정](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
 
-    >[AZURE.NOTE]온라인 복구 지점은 Express 전체 복구 지점을 기반으로 합니다. 따라서 Express 전체 복구 지점에 지정된 시간 후에 온라인 복구 지점을 예약해야 합니다.
+    >[AZURE.NOTE] 온라인 복구 지점은 Express 전체 복구 지점을 기반으로 합니다. 따라서 Express 전체 복구 지점에 지정된 시간 후에 온라인 복구 지점을 예약해야 합니다.
 
 16. **Azure 백업**에 대한 보존 정책을 구성하고 **다음**을 클릭합니다.
 
@@ -131,4 +131,4 @@ Exchange 서버에서 DPM 보호 에이전트를 설치하려면 다음 이 단�
 
 - [Azure 백업 - FAQ](backup-azure-backup-faq.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0316_2016-->

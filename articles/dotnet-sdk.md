@@ -63,7 +63,7 @@ Azure SDK for .NET은 다음 제품을 설치합니다.
 
 * [클라우드 서비스 프로젝트 만들기, 열기 및 게시](cloud-services/cloud-services-dotnet-get-started.md)
 * [클라우드 서비스 프로젝트에 대한 배포 패키지 만들기](http://msdn.microsoft.com/library/ff683672.aspx)
-* [새 웹 프로젝트를 만드는 동안 Azure 가상 컴퓨터 만들기](virtual-machines/virtual-machines-dotnet-create-visual-studio-powershell.md)
+* [새 웹 프로젝트를 만드는 동안 Azure 가상 컴퓨터 만들기](virtual-machines/virtual-machines-windows-classic-web-app-visual-studio.md)
 * [새 가상 컴퓨터를 만드는 동안 PowerShell 스크립트 만들기](http://msdn.microsoft.com/library/dn642480.aspx)
 * [Visual Studio 프로젝트 속성 창에서 클라우드 서비스 프로젝트 설정 보기 및 관리](http://msdn.microsoft.com/library/ee405486.aspx)
 * 서버 탐색기에서 [클라우드 서비스](http://msdn.microsoft.com/library/ff683675.aspx), [가상 컴퓨터](http://msdn.microsoft.com/library/jj131259.aspx) 및 [서비스 버스](http://msdn.microsoft.com/library/jj149828.aspx) 보기 및 관리 
@@ -186,4 +186,4 @@ Azure SDK for .NET 또는 클라이언트 라이브러리를 다운로드하려�
 
 Azure 클라이언트 라이브러리 참조 설명서는 [Azure .NET 참조](/documentation/api/)를 참조하세요.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

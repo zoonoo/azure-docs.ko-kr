@@ -78,7 +78,7 @@ Azure 모바일 앱 오프라인 기능을 사용하면 오프라인 시나리�
 
 7. MainPage.cs의 `Offline sync` 표시된 영역에서 `InitLocalStoreAsync` 및 `SyncAsync` 메서드의 주석 처리를 제거합니다. `InitLocalStoreAsync` 메서드는 SQLite 스토어에서 클라이언트 동기화 컨텍스트를 초기화합니다. Visual Studio에서 주석으로 처리된 모든 줄을 선택하고 **Ctrl**+**K**+**U** 바로 가기 키를 사용하여 주석 처리를 제거합니다.
 
-	`SyncAsync`에서 푸시 작업이 `IMobileServicesSyncTable` 대신 `MobileServiceClient.SyncContext`에서 실행됩니다. 모든 테이블에 대한 클라이언트에서 수행한 변경 내용을 컨텍스트가 추적하기 때문입니다. 그러면 테이블 간에 관계가 존재하는 시나리오가 포함됩니다. 이 동작에 대한 자세한 내용은 [Azure 모바일 앱에서 오프라인 데이터 동기화]를 참조하세요.
+	`SyncAsync`에서 푸시 작업이 `IMobileServicesSyncTable` 대신 `MobileServiceClient.SyncContext`에서 실행됩니다. 모든 테이블에 대한 클라이언트에서 수행한 변경 내용을 컨텍스트가 추적하기 때문입니다. 이 동작에 대한 자세한 내용은 [Azure 모바일 앱에서 오프라인 데이터 동기화]를 참조하세요.
 
         private async Task InitLocalStoreAsync()
         {
@@ -271,4 +271,4 @@ Azure 모바일 앱 백 엔드에 연결을 끊어서 오프라인 시나리오�
 [Cloud Cover: Azure 모바일 서비스에서 오프라인 동기화]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Azure 모바일 서비스의 오프라인 지원 앱]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

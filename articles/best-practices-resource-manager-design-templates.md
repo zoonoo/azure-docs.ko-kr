@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Azure 리소스 관리자 템플릿 설계의 모범 사례"
+	pageTitle="Azure Resource Manager 템플릿 모범 사례 | Microsoft Azure"
 	description="Azure 리소스 관리자 템플릿에 대한 설계 패턴 표시"
 	services="azure-resource-manager"
 	documentationCenter=""
-	authors="mmercuri"
-	manager="georgem"
+	authors="tfitzmac"
+	manager="timlt"
 	editor="tysonn"/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/17/2015"
-	ms.author="mmercuri"/>
+	ms.date="03/23/2016"
+	ms.author="tomfitz"/>
 
 # Azure 리소스 관리자 템플릿 설계의 모범 사례
 
@@ -145,7 +145,7 @@ Azure 마켓플레이스 같은 마켓플레이스를 통해 제품을 광고하
 
 표면적으로는 자유 형식 구성이 이상적으로 보입니다. VM 유형을 선택할 수 있고 임의의 수의 노드 및 그 노드와 연결된 디스크를 제공하고 매개 변수가 템플릿에 제공하듯이 편리한 기능을 제공합니다. 하지만 자세히 살펴보면서 크기가 다양한 여러 대의 가상 컴퓨터를 배포하게 될 템플릿을 고려하면 다수의 시나리오에 대해 타당성을 저하시키는 추가적인 고려 사항이 드러납니다.
 
-Azure 웹 사이트의 [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](http://msdn.microsoft.com/library/azure/dn641267.aspx) 문서에는 다양한 VM 유형과 사용 가능한 크기 및 각각 연결할 수 있는 지속형 디스크의 수(2, 4, 8, 16, 또는 32)가 확인되어 있습니다. 각각의 연결된 디스크는 500 IOPS를 제공하며 이 디스크의 배수는 해당 IOPS의 승수로 풀링될 수 있습니다. 예를 들어 디스크 16개는 8,000 IOPS를 제공하도록 풀링될 수 있습니다. 풀링은 Microsoft Windows 저장소 공간 또는 Linux의 RAID(Redundant Array of Inexpensive Disks)를 사용하여 운영 체제에서 구성을 사용하여 수행됩니다.
+[가상 컴퓨터의 크기](./virtual-machines/virtual-machines-windows-sizes.md)에서 다양한 VM 유형과 사용 가능한 크기 및 각각 연결할 수 있는 지속형 디스크의 수(2, 4, 8, 16, 또는 32)를 식별합니다. 각각의 연결된 디스크는 500 IOPS를 제공하며 이 디스크의 배수는 해당 IOPS의 승수로 풀링될 수 있습니다. 예를 들어 디스크 16개는 8,000 IOPS를 제공하도록 풀링될 수 있습니다. 풀링은 Microsoft Windows 저장소 공간 또는 Linux의 RAID(Redundant Array of Inexpensive Disks)를 사용하여 운영 체제에서 구성을 사용하여 수행됩니다.
 
 자유 형식 구성에서는 다수의 VM 인스턴스를 선택할 수 있고, 인스턴스에 대해 다수의 다양한 VM 유형 및 크기를 선택할 수 있고, VM 유형을 기반으로 달라질 수 있는 디스크의 수와 VM 콘텐츠 구성을 위한 하나 이상의 스크립트를 선택할 수 있습니다.
 
@@ -321,7 +321,7 @@ Redis를 사용하여 각각의 개별 노드를 설치한 후 모든 노드가 
 
 기본 템플릿은 템플릿 연결을 사용하여 공유 리소스 템플릿으로 연결하고 이를 통해 가상 네트워크가 수립됩니다.
 
-jumpbox 배포 여부를 템플릿 소비자가 지정할 수 있도록 기본 템플릿 내에 논리가 추가됩니다. *EnableJumpbox* 매개 변수에 대한 *enabled* 값은 고객이 jumpbox 배포를 원한다는 것을 나타냅니다. 이 값이 제공되면 템플릿은 jumpbox 기능에 대한 기본 템플릿 이름에 *\_enabled*를 접미사를 연결합니다.
+jumpbox 배포 여부를 템플릿 소비자가 지정할 수 있도록 기본 템플릿 내에 논리가 추가됩니다. *EnableJumpbox* 매개 변수에 *enabled* 값을 설정하면 고객이 jumpbox 배포를 원한다는 것을 나타냅니다. 이 값이 제공되면 템플릿은 jumpbox 기능에 대한 기본 템플릿 이름에 *\_enabled*를 접미사를 연결합니다.
 
 기본 템플릿은 티셔츠 크기에 대한 기본 템플릿 이름에 대한 접미사로 *large* 매개 변수 값을 적용한 후 *technology\_on\_os\_large.json*에 대한 템플릿 링크에 해당 값을 사용합니다.
 
@@ -379,8 +379,7 @@ jumpbox 배포 여부를 템플릿 소비자가 지정할 수 있도록 기본 �
 
 ## 다음 단계
 
-- 이 항목에 제시된 설계 원칙을 구현하는 방법에 대한 상황별 예제를 보려면 [템플릿 구현 모범 사례의 상황별 예제](best-practices-resource-manager-examples.md)를 참조하세요.
 - Azure 리소스 관리자에서 보안을 처리하는 방법에 대한 권장 사항을 보려면 [Azure 리소스 관리자에 대한 보안 고려 사항](best-practices-resource-manager-security.md)을 참조하세요.
 - 템플릿 내부 및 외부로 상태를 공유하는 방법을 알아보려면 [Azure 리소스 관리자 템플릿에서 상태 공유](best-practices-resource-manager-state.md)를 참조하세요.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0330_2016-->

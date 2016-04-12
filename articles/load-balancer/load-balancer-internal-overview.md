@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/09/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 
@@ -82,9 +82,9 @@ LOB에 대한 다른 시나리오는 ILB 끝점이 구성된 가상 네트워크
 
 ## 다음 단계
 
-[인터넷 연결 부하 분산 장치 구성 시작](load-balancer-internet-getstarted.md)
+[인터넷 연결 부하 분산 장치 구성 시작](load-balancer-get-started-internet-arm-ps.md)
 
-[내부 부하 분산 장치 구성 시작](load-balancer-internal-getstarted.md)
+[내부 부하 분산 장치 구성 시작](load-balancer-get-started-ilb-arm-ps.md)
 
 [부하 분산 장치 배포 모드 구성](load-balancer-distribution-mode.md)
 
@@ -92,4 +92,4 @@ LOB에 대한 다른 시나리오는 ILB 끝점이 구성된 가상 네트워크
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -4,7 +4,7 @@
 	services="api-management"
 	documentationCenter=""
 	authors="steved0x"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="03/04/2016"
 	ms.author="sdanie"/>
 
 # 여러 Azure 지역에 Azure API 관리 서비스 인스턴스를 배포하는 방법
@@ -22,7 +22,7 @@ API 관리는 원하는 Azure 지역의 수에 상관 없이 단일 API 관리 �
 
 API 관리 서비스가 처음 만들어질 때 한 [단위][]만 포함하며 단일 Azure 지역에 있어 기본 지역으로 지정됩니다. Azure 클래식 포털을 통해 추가 지역을 쉽게 추가할 수 있습니다. API 관리 게이트웨이 서버는 각 지역에 배포되고 호출 트래픽이 가장 가까운 게이트웨이에 라우팅됩니다. 지역이 오프라인 상태가 되면 다음으로 가장 가까운 게이트웨이에 트래픽이 자동으로 리디렉션됩니다.
 
-> [AZURE.IMPORTANT]다중 지역 배포는 **[프리미엄][]** 계층에서만 사용할 수 있습니다.
+> [AZURE.IMPORTANT] 다중 지역 배포는 **[프리미엄][]** 계층에서만 사용할 수 있습니다.
 
 ## <a name="add-region"> </a>새 지역에 API 관리 서비스 인스턴스 배포
 
@@ -75,4 +75,4 @@ API 관리 서비스에 인스턴스에 대해 Azure 클래식 포털의 **크�
 [단위]: http://azure.microsoft.com/pricing/details/api-management/
 [프리미엄]: http://azure.microsoft.com/pricing/details/api-management/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/18/2015"
+	ms.date="03/08/2016"
 	ms.author="jeedes"/>
 
 
@@ -35,7 +35,7 @@ Capriza와의 Azure AD 통합을 구성하려면 다음 항목이 필요합니�
 - Capriza Single Sign-On이 설정된 구독
 
 
-> [AZURE.NOTE]이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
+> [AZURE.NOTE] 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
 
 
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
@@ -77,7 +77,7 @@ Capriza에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-on 테스트하는 데 사용합니다.
 4. **[Capriza 테스트 사용자 만들기](#creating-a-capriza-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Capriza에 만듭니다.
 5. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[Single Sign-on 테스트](#testing-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
+5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
 ### Azure AD Single Sign-On 구성
 
@@ -165,12 +165,12 @@ Capriza에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
 이 섹션에 작업 항목이 없습니다. 새 사용자가 아직 존재하지 않는 경우 Capriza에 액세스하는 동안 만들어질 수 있습니다. [Azure AD Single Sign-On 구성](#configuring-azure-ad-single-single-sign-on)
 
-> [AZURE.NOTE]사용자를 수동으로 만들어야 하는 경우 Capriza 지원 팀에 문의해야 합니다.
+> [AZURE.NOTE] 사용자를 수동으로 만들어야 하는 경우 Capriza 지원 팀에 문의해야 합니다.
 
 
 ### Azure AD 테스트 사용자 할당
 
-이 섹션의 목적은 Britta Simon에게 Capriza에 대한 액세스 권한을 부여하여 Azure Single Sign-On을 사용할 수 있도록 하는 것입니다. <br><br>![사용자 할당][200] <br>
+이 섹션의 목적은 Britta Simon에게 Capriza에 대한 액세스 권한을 부여하여 Single Sign-On을 사용할 수 있도록 하는 것입니다. <br><br>![사용자 할당][200] <br>
 
 **Britta Simon을 Capriza에 할당하려면 다음 단계를 수행합니다.**
 
@@ -215,4 +215,4 @@ Capriza에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 [204]: ./media/active-directory-saas-capriza-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-capriza-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -33,7 +33,7 @@ Azure는 응용 프로그램을 실행하기 위한 여러 호스팅 모델을 �
 [.NET에서 클라우드 서비스 앱 만들기](cloud-services-dotnet-get-started.md)<br/> [ Node.js에서 클라우드 서비스 앱 만들기](cloud-services-nodejs-develop-deploy-app.md)<br/> [PHP에서 클라우드 서비스 앱 만들기](../cloud-services-php-create-web-role.md)<br/> [Python에서 클라우드 서비스 앱 만들기](../cloud-services-python-ptvs.md)<br/>
 
 [앱 서비스]: ../app-service-web/app-service-web-overview.md
-[가상 컴퓨터]: ../virtual-machines/virtual-machines-about.md
+[가상 컴퓨터]: ../virtual-machines/virtual-machines-linux-about.md
 [클라우드 서비스]: #tellmecs
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

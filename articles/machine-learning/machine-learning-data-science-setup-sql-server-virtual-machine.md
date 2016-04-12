@@ -121,7 +121,7 @@ VM 이미지에 데이터 디스크, 즉 C 드라이브(OS 디스크) 및 D 드�
 
  > [AZURE.NOTE] D 드라이브는 데이터 저장에 사용하지 마세요. 이름이 의미하는 것과 같이 D 드라이브는 임시 저장소만 제공합니다. Azure 저장소에 상주하지 않으므로 중복성이나 백업을 제공하지 않습니다.
 
-추가 데이터 디스크를 연결하려면 다음 과정을 안내하는 [Windows 가상 컴퓨터에 데이터 디스크를 연결하는 방법](storage-windows-attach-disk.md)에 설명된 단계를 따릅니다.
+추가 데이터 디스크를 연결하려면 다음 과정을 안내하는 [Windows 가상 컴퓨터에 데이터 디스크를 연결하는 방법](virtual-machines-windows-classic-attach-disk.md)에 설명된 단계를 따릅니다.
 
 1. 이전 단계에서 프로비전한 가상 컴퓨터에 빈 디스크 연결
 2. 가상 컴퓨터에서 새 디스크 초기화
@@ -298,4 +298,4 @@ Azure 가상 컴퓨터는 **종량제**로 비용이 청구됩니다. 가상 컴
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="02/15/2016"
+	ms.date="03/08/2016"
 	ms.author="raynew"/>
 
 # Azure Site Recovery 배포 준비
@@ -48,7 +48,6 @@ Azure Site Recovery는 VMware 및 Hyper-V VM과 물리적 서버를 Azure 또는
 
 
 
-
 ## Azure 가상 컴퓨터 요구 사항
 
 Azure에서 지원하는 운영 체제를 실행하는 가상 컴퓨터와 물리적 서버를 복제하기 위해 사이트 복구를 배포할 수 있습니다. 여기에는 대부분 버전의 Windows 및 Linux가 포함됩니다. 보호할 온-프레미스 가상 컴퓨터가 Azure 요구 사항을 준수하는지 확인해야 합니다.
@@ -57,15 +56,15 @@ Azure에서 지원하는 운영 체제를 실행하는 가상 컴퓨터와 물�
 **기능** | **지원** | **세부 정보**
 ---|---|---
 Hyper-V 호스트 운영 체제 | Windows Server 2012 R2 | 지원되지 않는 경우 필수 구성 요소 확인이 실패합니다.
-VMware 하이퍼바이저 운영 체제 | 지원되는 운영 체제 실행 | [세부 정보](site-recovery-vmware-to-azure.md#before-you-start)
-게스트 운영 체제 | Hyper-V와 Azure 간 복제의 경우 사이트 복구에서는 [Azure에서 지원하는](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx) 모든 운영 체제를 지원합니다. <br/><br/> VMware와 물리적 서버 간 복제의 경우 Windows 및 Linux [필수 구성 요소](site-recovery-vmware-to-azure.md#before-you-start)를 확인하세요. | 지원되지 않는 경우 필수 구성 요소 확인이 실패합니다.
+VMware 하이퍼바이저 운영 체제 | 지원되는 운영 체제 실행 | [세부 정보](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment)
+게스트 운영 체제 | Hyper-V와 Azure 간 복제의 경우 사이트 복구에서는 [Azure에서 지원하는](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx) 모든 운영 체제를 지원합니다. <br/><br/> VMware와 물리적 서버 간 복제의 경우 Windows 및 Linux [필수 구성 요소](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment)를 확인하세요. | 지원되지 않는 경우 필수 구성 요소 확인이 실패합니다.
 게스트 운영 체제 아키텍처 | 64비트 | 지원되지 않는 경우 필수 구성 요소 확인이 실패합니다.
 운영 체제 디스크 크기 | 최대 1023GB | 지원되지 않는 경우 필수 구성 요소 확인이 실패합니다.
 운영 체제 디스크 수 | 1 | 지원되지 않는 경우 필수 구성 요소 확인이 실패합니다.
 데이터 디스크 수 | 16 개 이하(최대 값은 만들고자 하는 가상 컴퓨터 크기의 함수) 16 = XL) | 지원되지 않는 경우 필수 구성 요소 확인이 실패합니다.
 데이터 디스크 VHD 크기 | 최대 1023GB | 지원되지 않는 경우 필수 구성 요소 확인이 실패합니다.
 네트워크 어댑터 | 여러 어댑터가 지원됩니다. |
-고정 IP 주소 | 지원됨 | 주 가상 컴퓨터가 고정 IP 주소를 사용하는 경우 Azure에서 생성되는 가상 컴퓨터에 대해 고정 IP 주소를 지정할 수 있습니다.
+고정 IP 주소 | 지원됨 | 주 가상 컴퓨터가 고정 IP 주소를 사용하는 경우 Azure에서 생성되는 가상 컴퓨터에 대해 고정 IP 주소를 지정할 수 있습니다. Hyper-v에서 실행되는 Linux 가상 컴퓨터에 대한 고정 IP 주소는 지원되지 않습니다. 
 iSCSI 디스크 | 지원되지 않음 | 지원되지 않는 경우 필수 구성 요소 확인이 실패합니다.
 공유 VHD | 지원되지 않음 | 지원되지 않는 경우 필수 구성 요소 확인이 실패합니다.
 FC 디스크 | 지원되지 않음 | 지원되지 않는 경우 필수 구성 요소 확인이 실패합니다.
@@ -107,4 +106,4 @@ FC 디스크 | 지원되지 않음 | 지원되지 않는 경우 필수 구성 �
 - [SAN을 사용하여 Hyper-V VM을 보조 사이트로 복제](site-recovery-vmm-san.md)
 - [단일 VMM 서버를 사용하여 Hyper-V VM 복제](site-recovery-single-vmm.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!----HONumber=AcomDC_0309_2016-->

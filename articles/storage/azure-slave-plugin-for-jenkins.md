@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="01/09/2016"
+	ms.date="02/22/2016"
     ms.author="robmcm"/>
 
 # Jenkins Continuous Integration과 함께 Azure 슬레이브 플러그인을 사용하는 방법
@@ -41,7 +41,7 @@ Jenkins용 Azure 종속 플러그인을 사용하면 분산된 빌드를 실행�
 * 구독 ID
 * 구독에 대한 관리 인증서
 
-이는 구독 프로필에서 찾을 수 있습니다. 구독 프로필의 사본이 없다면 [구독 사이트](https://manage.windowsazure.com/publishsettings/Index?SchemaVersion=2.0)에서 다운로드할 수 있습니다. 다음은 구독 프로필의 예입니다.
+이는 [구독 프로필](https://manage.windowsazure.com/publishsettings/Index?SchemaVersion=2.0)에서 찾을 수 있습니다. 다음은 구독 프로필의 예입니다.
 
 	<?xml version="1.0" encoding="utf-8"?>
 
@@ -204,4 +204,4 @@ Jenkins용 Azure 종속 플러그인을 사용하면 분산된 빌드를 실행�
 
 그러면 Jenkins는 이전 섹션에서 만든 템플릿을 사용하여 슬레이브 노드를 만들고 이 작업에 대한 빌드 단계에서 지정한 스크립트를 실행합니다.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

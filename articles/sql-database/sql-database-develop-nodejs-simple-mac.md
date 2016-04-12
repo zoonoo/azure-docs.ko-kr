@@ -26,36 +26,19 @@
 
 이 항목에서는 Mac OS X에서 실행 되는 Node.js 코드 샘플을 제공 합니다. 이 샘플은 Tedious 드라이버를 사용 하여 Azure SQL 데이터베이스에 연결합니다.
 
+## 1단계: 개발 환경 구성
 
-## 필수 조건
+[SQL Server용 Tedious Node.js 드라이버를 사용하기 위한 필수 구성 요소](https://msdn.microsoft.com/library/mt652094.aspx#Mac)
 
-
-**노드**가 이미 컴퓨터에 설치되지 않았다면 노드를 설치합니다.
-
-
-OSX 10.10 Yosemite에 node.js를 설치 하려면 깔끔하고 간단하게 설치 하는 미리 컴파일된 이전 패키지를 다운로드할 수 있습니다. [nodejs.org로 이동](http://nodejs.org/)하고 설치 단추를 클릭하여 최신 패키지를 다운로드합니다.
-
-.dmg에서 받은 패키지를 설치 마법사를 따라 설치하여 **노드** 및 **npm**을 설치합니다. npm은 노드 패키지 관리자로, node.js에 대한 추가 패키지의 설치를 용이하게 합니다.
-
-
-컴퓨터에 **노드** 및 **npm**이 구성된 후, Node.js 프로젝트를 만들려는 디렉터리로 이동하고 다음 명령을 입력합니다.
-
-
-	npm init
-	npm install tedious
-
-
-**npm init** 명령으로 노드 프로젝트를 만듭니다. 프로젝트를 만들 때 기본값을 유지하려면 프로젝트 생성이 완료될 때까지 Enter 키를 누릅니다. 이제 프로젝트 디렉터리에서 **package.json** 파일을 볼 수 있습니다.
-
-### SQL 데이터베이스
+## 2단계: SQL 데이터베이스 만들기
 
 샘플 데이터베이스를 만드는 방법을 알아보려면 [시작 페이지](sql-database-get-started.md)를 참조하세요. 안내에 따라 **AdventureWorks 데이터베이스 템플릿**을 만드는 것이 중요합니다. 아래 표시된 샘플은 **AdventureWorks 스키마**에서만 작동합니다.
 
-## 1단계: 연결 정보 가져오기
+## 3단계: 연결 정보 가져오기
 
 [AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
-## 2단계: 연결
+## 4단계: 연결
 
 [새 연결](http://pekim.github.io/tedious/api-connection.html) 기능을 사용하여 SQL 데이터베이스에 연결할 수 있습니다.
 
@@ -74,7 +57,7 @@ OSX 10.10 Yosemite에 node.js를 설치 하려면 깔끔하고 간단하게 설�
 	});
 
 
-## 3단계: 쿼리 실행
+## 5단계: 쿼리 실행
 
 
 모든 SQL 문은 [new Request()](http://pekim.github.io/tedious/api-request.html) 함수를 사용하여 실행됩니다. Select 문과 같이 행을 반환하는 문의 경우, [request.on()](http://pekim.github.io/tedious/api-request.html) 함수를 사용하여 행을 가져올 수 있습니다. 행이 없다면 [request.on()](http://pekim.github.io/tedious/api-request.html) 함수가 빈 목록을 반환합니다.
@@ -123,7 +106,7 @@ OSX 10.10 Yosemite에 node.js를 설치 하려면 깔끔하고 간단하게 설�
 	}
 
 
-## 4단계: 행 삽입
+## 6단계: 행 삽입
 
 이 예제에서는 [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) 문을 안전하게 실행하고, [SQL 삽입](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) 취약성으로부터 응용 프로그램을 보호하는 매개 변수를 전달하며, 자동으로 생성된 [기본 키](https://msdn.microsoft.com/library/ms179610.aspx) 값을 검색하는 방법을 보여 줍니다.
 
@@ -172,4 +155,4 @@ OSX 10.10 Yosemite에 node.js를 설치 하려면 깔끔하고 간단하게 설�
 
 자세한 내용은 [Node.js 개발자 센터](/develop/nodejs/)를 참조하세요.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0330_2016-->

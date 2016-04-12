@@ -22,4 +22,4 @@ Azure 앱 서비스는 고객에게 안전한 플랫폼을 제공하기 위해 �
 
 [AZURE.INCLUDE [app-service-blueprint-security](../../includes/app-service-blueprint-security.md)]
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0316_2016-->

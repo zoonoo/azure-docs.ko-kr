@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="02/16/2016"
+   ms.date="03/04/2016"
    ms.author="andkjell;billmath"/>
 
 # Azure AD Connect에 대한 필수 조건
@@ -66,7 +66,7 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
     </system.net>
 ```
 
-프록시 서버에 인증이 필요한 경우 이 섹션은 대신 다음과 같아야 합니다.
+- 프록시 서버에 인증이 필요한 경우 [서비스 계정](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts)이 도메인에 있어야 하고 사용자 지정 설정 설치 경로를 사용하여 [사용자 지정 서비스 계정](active-directory-aadconnect-get-started-custom.md#install-required-components)을 지정해야 합니다. 또한 다른 machine.config가 필요합니다. machine.config에서 이 변경 내용을 적용하면 설치 마법사와 동기화 엔진이 프록시 서버의 인증 요청에 응답합니다. **구성** 페이지를 제외하고 모든 설치 마법사 페이지에서 로그인한 사용자의 자격 증명이 사용됩니다. 설치 마법사의 끝에 나오는 **구성** 페이지에서 컨텍스트가 이전에 만든 [서비스 계정](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts)으로 전환됩니다. machine.config 섹션은 다음과 같이 표시됩니다.
 
 ```
     <system.net>
@@ -80,7 +80,7 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
     </system.net>
 ```
 
-machine.config에서 이 변경 내용을 적용하면 설치 마법사와 동기화 엔진이 프록시 서버의 인증 요청에 응답합니다. **구성** 페이지를 제외하고 모든 설치 마법사 페이지에서 로그인한 사용자의 자격 증명이 사용됩니다. 설치 마법사의 끝에 나오는 **구성** 페이지에서 컨텍스트가 이전에 만든 [서비스 계정](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts)으로 전환됩니다. [기본 프록시 요소](https://msdn.microsoft.com/library/kd3cf2ex.aspx)에 대한 자세한 내용은 MSDN을 참조하세요.
+[기본 프록시 요소](https://msdn.microsoft.com/library/kd3cf2ex.aspx)에 대한 자세한 내용은 MSDN을 참조하세요.
 
 연결에 문제가 있는 경우 [연결 문제 해결](active-directory-aadconnect-troubleshoot-connectivity.md)을 참조하세요.
 
@@ -168,4 +168,4 @@ AD FS 또는 웹 응용 프로그램 서버를 실행하는 컴퓨터에 대한 
 ## 다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

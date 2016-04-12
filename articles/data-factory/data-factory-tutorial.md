@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure Data Factory를 사용하여 로그 파일 이동 및 처리(Azure 클래식 포털)" 
-	description="이 고급 자습서에서는 거의 실제 시나리오를 설명하고 Azure 클래식 포털의 Azure Data Factory 서비스 및 데이터 팩터리 편집기를 사용하여 시나리오를 구현합니다." 
+	pageTitle="Azure Data Factory를 사용하여 로그 파일 이동 및 처리(Azure 포털)" 
+	description="이 고급 자습서에서는 거의 실제 시나리오를 설명하고 Azure 포털의 Azure Data Factory 서비스 및 데이터 팩터리 편집기를 사용하여 시나리오를 구현합니다." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/31/2016" 
+	ms.date="03/17/2016" 
 	ms.author="spelluru"/>
 
-# 자습서: 마케팅 캠페인의 효과 측정  
+# 자습서: Azure Data Factory를 사용하여 로그 파일 이동 및 처리(Azure 포털)  
 Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다양한 플랫폼용 게임을 만드는 게임 회사입니다. 이러한 게임은 많은 로그를 생성하며, Contoso의 목표는 이러한 로그를 수집 및 분석하여 고객 선호도, 인구 통계, 사용 동작 등에 대한 정보를 얻고, 업셀 및 교차 판매 기회를 포착하고, 탁월한 새 기능을 개발하여 비즈니스 성장을 견인하고, 고객에게 더 나은 환경을 제공하는 것입니다.
 
 이 자습서에서는 샘플 로그를 수집하고, 참조 데이터를 사용하여 이 로그를 처리 및 보강하고, 데이터를 변환하여 Contoso가 최근 시작한 마케팅 캠페인의 효과를 평가하는 데이터 팩터리 파이프라인을 만듭니다. 다음 3개의 파이프라인이 있습니다.
@@ -60,18 +60,19 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 1. **PartitionGameLogsPipeline**은 Blob 저장소에서 원시 게임 이벤트(RawGameEventsTable)를 읽고 연도, 월 및 일을 기준으로 파티션(PartitionedGameEventsTable)을 만듭니다.
 2. **EnrichGameLogsPipeline**은 분할된 게임 이벤트(PartitionedGameEvents 테이블, PartitionGameLogsPipeline의 출력)를 지역 코드(RefGetoCodeDictionaryTable)와 조인하고 IP 주소를 해당하는 지리적 위치(EnrichedGameEventsTable)에 매핑하여 데이터를 보강합니다.
 3. **AnalyzeMarketingCampaignPipeline** 파이프라인은 보강된 데이터(EnrichGameLogsPipeline에서 생성한 EnrichedGameEventTable)를 활용하고 이 데이터를 광고 데이터(RefMarketingCampaignnTable)와 함께 처리하여 마케팅 캠페인 효과에 대한 최종 출력을 만듭니다. 이 출력은 Azure SQL 데이터베이스(MarketingCampainEffectivensessSQLTable) 및 Azure Blob 저장소(MarketingCampaignEffectivenessBlobTable)로 복사되어 분석됩니다.
+
+이 자습서에서는 다음 단계를 수행합니다.
     
-## 연습: 워크플로 만들기, 배포 및 모니터링
-1. [1단계: 샘플 데이터 및 스크립트 업로드](#MainStep1) 이 단계에서는 모든 샘플 데이터(모든 로그 및 참조 데이터 포함)와 워크플로에서 실행할 Hive/Pig 스크립트를 업로드합니다. 실행하는 스크립트에서는 MarketingCampaigns라는 Azure SQL 데이터베이스, 테이블, 사용자 정의 형식 및 저장 프로시저도 만듭니다.
-2. [2단계: Azure 데이터 팩터리 만들기](#MainStep2) 이 단계에서는 LogProcessingFactory라는 Azure Data Factory를 만듭니다.
-3. [3단계: 연결된 서비스 만들기](#MainStep3) 이 단계에서는 연결된 서비스 
+1. [샘플 데이터 및 스크립트 업로드](#upload-sample-data-and-scripts) 이 단계에서는 모든 샘플 데이터(모든 로그 및 참조 데이터 포함)와 워크플로에서 실행할 Hive/Pig 스크립트를 업로드합니다. 실행하는 스크립트에서는 MarketingCampaigns라는 Azure SQL 데이터베이스, 테이블, 사용자 정의 형식 및 저장 프로시저도 만듭니다.
+2. [Azure Data Factory 만들기](#create-data-factory) 이 단계에서는 LogProcessingFactory라는 Azure Data Factory를 만듭니다.
+3. [연결된 서비스 만들기](#create-linked-services) 이 단계에서는 연결된 서비스 
 	
 	- 	**StorageLinkedService**. 원시 게임 이벤트, 분할된 게임 이벤트, 보강된 게임 이벤트, 마케팅 캠페인 효과 정보, 참조 지역 코드 데이터 및 참조 마케팅 캠페인 데이터를 포함하는 Azure 저장소 위치를 LogProcessingFactory에 연결합니다.   
 	- 	**AzureSqlLinkedService**. 마케팅 캠페인 효과 정보를 포함하는 Azure SQL 데이터베이스를 연결합니다. 
 	- 	**HDInsightStorageLinkedService**. HDInsightLinkedService가 참조하는 HDInsight 클러스터와 관련된 Azure Blob 스토리지를 연결합니다. 
 	- 	**HDInsightLinkedService**. Azure HDInsight 클러스터를 LogProcessingFactory에 연결합니다. 이 클러스터는 데이터에 대한 pig/hive 처리를 수행하는 데 사용됩니다. 
  		
-4. [4단계: 테이블 만들기](#MainStep4) 이 단계에서는 다음 테이블을 만듭니다.
+4. [데이터 집합 만들기](#create-datasets) 이 단계에서는 다음 테이블을 만듭니다.
 	
 	- **RawGameEventsTable**. 이 테이블은 StorageLinkedService에서 정의한 Azure Blob 저장소 내의 원시 게임 이벤트 데이터가 있는 위치를 지정합니다(adfwalkthrough/logs/rawgameevents/). 
 	- **PartitionedGameEventsTable**. 이 테이블은 StorageLinkedService에서 정의한 Azure Blob 저장소 내의 분할된 게임 이벤트 데이터가 있는 위치를 지정합니다(adfwalkthrough/logs/partitionedgameevents/). 
@@ -82,7 +83,7 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 	- **MarketingCampaignEffectivenessBlobTable**. 이 테이블은 StorageLinkedService에서 정의한 Azure Blob 저장소 내에서 마케팅 캠페인 효과 데이터가 있는 위치를 지정합니다(adfwalkthrough/marketingcampaigneffectiveness/). 
 
 	
-5. [5단계: 파이프라인 만들기 및 예약](#MainStep5) 이 단계에서는 다음 파이프라인을 만듭니다.
+5. [파이프라인 만들기 및 예약](#create-pipelines) 이 단계에서는 다음 파이프라인을 만듭니다.
 	- **PartitionGameLogsPipeline**. 이 파이프라인은 Blob 저장소에서 원시 게임 이벤트(RawGameEventsTable)를 읽고 연도, 월 및 일을 기준으로 파티션(PartitionedGameEventsTable)을 만듭니다. 
 
 
@@ -99,9 +100,9 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 		![MarketingCampaignPipeline][image-data-factory-tutorial-analyze-marketing-campaign-pipeline]
 
 
-6. [6단계: 파이프라인 및 데이터 조각 모니터링](#MainStep6) 이 단계에서는 Azure 클래식 포털을 사용하여 파이프라인, 테이블 및 데이터 조각을 모니터링합니다.
+6. [파이프라인을 모니터링합니다](#monitor-pipelines). 이 단계에서는 Azure 클래식 포털을 사용하여 파이프라인, 테이블 및 데이터 조각을 모니터링합니다.
 
-## <a name="MainStep1"></a> 1단계: 샘플 데이터 및 스크립트 업로드
+## 샘플 데이터 및 스크립트 업로드
 이 단계에서는 모든 샘플 데이터(로그 및 참조 데이터 모두 포함)와 워크플로에서 호출되는 Hive/Pig 스크립트를 업로드합니다. 실행하는 스크립트에서는 **MarketingCampaigns**라는 Azure SQL 데이터베이스, 테이블, 사용자 정의 형식 및 저장 프로시저도 만듭니다.
 
 테이블, 사용자 정의 형식 및 저장 프로시저는 Azure Blob 저장소에서 Azure SQL 데이터베이스로 마케팅 캠페인 효과 결과를 이동할 때 사용됩니다.
@@ -154,7 +155,7 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 		6/6/2014 11:54:36 AM 3. Created ‘MarketingCampaigns’ Azure SQL database and tables.
 		6/6/2014 11:54:36 AM You are ready to deploy Linked Services, Tables and Pipelines. 
 
-## <a name="MainStep2"></a> 2단계: Azure 데이터 팩터리 만들기
+## 데이터 팩터리 만들기
 이 단계에서는 **LogProcessingFactory**라는 Azure 데이터 팩터리를 만듭니다.
 
 1.	[Azure 포털][azure-portal]에 로그인한 후 왼쪽 아래에서 **새로 만들기**를 클릭하고 **만들기** 블레이드에서 **데이터 분석**을 클릭한 다음 **데이터 분석** 블레이드에서 **데이터 팩터리**를 클릭합니다. 
@@ -190,7 +191,7 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
  
 	Azure Data Factory 이름은 전역적으로 고유해야 합니다. **데이터 팩터리 이름 “LogProcessingFactory”를 사용할 수 없습니다.** 오류가 표시되는 경우 이름을 변경합니다(예: yournameLogProcessingFactory). 이 자습서의 단계를 수행하는 동안 LogProcessingFactory 대신 이 이름을 사용합니다.
  
-## <a name="MainStep3"></a> 3단계: 연결된 서비스 만들기
+## 연결된 서비스 만들기
 
 > [AZURE.NOTE] 이 문서에서는 Azure 클래식 포털, 특히 데이터 팩터리 편집기를 사용하여 연결된 서비스, 테이블 및 파이프라인을 만듭니다. Azure PowerShell을 사용하여 이 자습서를 수행하려면 [Azure PowerShell 사용 자습서][adftutorial-using-powershell]를 참조하세요.
 
@@ -273,7 +274,7 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 2. 명령 모음에서 **배포**를 클릭하여 연결된 서비스를 배포합니다.
 
 
-## <a name="MainStep4"></a> 4단계: 테이블 만들기
+## 데이터 집합 만들기
  
 이 단계에서는 다음 데이터 팩터리 테이블을 만듭니다.
 
@@ -304,7 +305,7 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 	1. MarketingCampaignEffectivenessSQLTable.json
 	
 
-## <a name="MainStep5"></a> 5단계: 파이프라인 만들기 및 예약
+## 파이프라인 만들기
 이 단계에서는 다음 파이프라인을 만듭니다.
 
 - PartitionGameLogsPipeline
@@ -350,7 +351,7 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 **축하합니다.** Azure Data Factory, 연결된 서비스, 파이프라인, 테이블을 만들었고 워크플로를 시작했습니다.
 
 
-## <a name="MainStep6"></a> 6단계: 파이프라인 및 데이터 조각 모니터링 
+## 파이프라인 모니터링 
 
 1.	**LogProcessingFactory**에 대한 **데이터 팩터리** 블레이드가 없는 경우, 다음 중 하나를 수행할 수 있습니다.
 	1.	**시작 보드**에서 **LogProcessingFactory**를 클릭합니다. 데이터 팩터리를 만들 때 **시작 보드에 추가** 옵션이 자동으로 선택되어 있었습니다.
@@ -483,4 +484,4 @@ Azure Blob에서 온-프레미스 SQL Server로 마케팅 캠페인 효과 데�
 
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-tutorial/NewDataFactoryMenu.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

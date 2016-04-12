@@ -12,14 +12,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/01/2015"
+   ms.date="03/08/2016"
    ms.author="cherylmc" />
 
 # 가상 네트워크에 대한 보안 프레미스 간 연결 정보
 
-온-프레미스 사이트를 가상 네트워크에 안전하게 연결하려는 경우 사이트 간, 지점 및 사이트 간, Express 경로의 세 가지 옵션이 있습니다.
+이 문서에서는 온-프레미스 사이트를 Azure 가상 네트워크에 연결할 수 있는 여러 가지 방법을 설명합니다. 이 문서는 리소스 관리자 및 클래식 배포 모델 모두에 적용됩니다.
 
-선택하는 옵션은 다음과 같은 다양한 고려 사항에 따라 달라질 수 있습니다.
+사이트 간, 지점 및 사이트 간 및 Express 경로 등 세 개의 연결 옵션을 사용할 수 있습니다. 선택하는 옵션은 다음과 같은 다양한 고려 사항에 따라 달라질 수 있습니다.
 
 
 - 솔루션에 어떤 종류의 처리량이 필요한가요?
@@ -43,7 +43,7 @@
 | **SLA** | [SLA](https://azure.microsoft.com/support/legal/sla/) | [SLA](https://azure.microsoft.com/support/legal/sla/) | [SLA](https://azure.microsoft.com/support/legal/sla/) |
 | **가격** | [가격](https://azure.microsoft.com/pricing/details/vpn-gateway/) | [가격](https://azure.microsoft.com/pricing/details/vpn-gateway/) | [가격](https://azure.microsoft.com/pricing/details/expressroute/) |
 | **기술 문서** | [VPN 게이트웨이 설명서](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [VPN 게이트웨이 설명서](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [Express 경로 설명서](https://azure.microsoft.com/documentation/services/expressroute/) |
-| **FAQ ** | [VPN 게이트웨이 FAQ](vpn-gateway-vpn-faq.md) | [VPN 게이트웨이 FAQ](vpn-gateway-vpn-faq.md) | [Express 경로 FAQ](../expressroute/expressroute-faqs.md) |
+| **FAQ** | [VPN 게이트웨이 FAQ](vpn-gateway-vpn-faq.md) | [VPN 게이트웨이 FAQ](vpn-gateway-vpn-faq.md) | [Express 경로 FAQ](../expressroute/expressroute-faqs.md) |
 
 
 ## 사이트 간 연결
@@ -59,11 +59,11 @@
 **요구 사항**
 
 - 온-프레미스 VPN 장치에 인터넷 연결 IPv4 IP 주소가 있어야 합니다. 이 장치는 NAT 뒤에 있을 수 없습니다.
-- 호환되는 VPN 장치가 있어야 합니다. [VPN 장치 정보](http://go.microsoft.com/fwlink/p/?LinkID=615099)를 참조하세요. 
+- 호환되는 VPN 장치가 있어야 합니다. [VPN 장치 정보](vpn-gateway-about-vpn-devices.md)를 참조하세요. 
 - 사용하는 VPN 장치는 솔루션에 필요한 게이트웨이 형식과 호환되어야 합니다. [VPN 게이트웨이 정보](vpn-gateway-about-vpngateways.md)를 참조하세요.
 - 게이트웨이 SKU는 집계 처리량에도 영향을 줍니다. 자세한 내용은 [게이트웨이 SKU](vpn-gateway-about-vpngateways.md#gateway-skus)를 참조하세요. 
 
-Azure 클래식 포털 및 클래식 배포 모델을 사용하여 사이트 간 VPN 게이트웨이 연결을 구성하는 방법에 대한 자세한 내용은 [사이트 간 VPN 연결을 사용하여 가상 네트워크 구성](vpn-gateway-site-to-site-create.md)을 참조하세요. 리소스 관리자 배포 모델을 사용하여 사이트 간 VPN을 구성하는 방법에 대한 자세한 내용은 [사이트 간 VPN 연결을 사용하여 가상 네트워크 만들기](vpn-gateway-create-site-to-site-rm-powershell.md)를 참조하세요.
+Azure 클래식 포털 및 클래식 배포 모델을 사용하여 사이트 간 VPN 게이트웨이 연결을 구성하는 방법에 대한 자세한 내용은 [클래식 배포 모델에 사이트 간 VPN 연결을 사용하여 가상 네트워크 구성](vpn-gateway-site-to-site-create.md)을 참조하세요. 리소스 관리자 배포 모델을 사용하여 사이트 간 VPN을 구성하는 방법에 대한 자세한 내용은 [리소스 관리자 배포 모델에 사이트 간 VPN 연결을 사용하여 가상 네트워크 만들기](vpn-gateway-create-site-to-site-rm-powershell.md)를 참조하세요.
 
 
 ## 지점 및 사이트 간 연결
@@ -84,7 +84,7 @@ Azure 클래식 포털 및 클래식 배포 모델을 사용하여 사이트 간
 
 - VPN 장치에 대한 인터넷 연결 IPv4 IP 주소가 없는 경우
 
-지점 및 사이트 간 연결을 구성하는 방법에 대한 자세한 내용은 [가상 네트워크에 지점 및 사이트 간 VPN 연결 구성](vpn-gateway-point-to-site-create.md)을 참조하세요.
+클래식 배포 모델에 지점 및 사이트 간 연결을 구성하는 방법에 대한 자세한 내용은 [클래식 배포 모델에 가상 네트워크에 지점 및 사이트 간 VPN 연결 구성](vpn-gateway-point-to-site-create.md)을 참조하세요. 리소스 관리자 배포 모델에 지점 및 사이트 간 연결을 구성하는 방법에 대한 자세한 내용은 [리소스 관리자 배포 모델에 가상 네트워크에 지점 및 사이트 간 VPN 연결 구성](vpn-gateway-howto-point-to-site-rm-ps.md)을 참조하세요.
 
 ## Express 경로 연결
 
@@ -97,6 +97,6 @@ Express 경로에 대한 자세한 내용은 [Express 경로 기술 개요](../e
 
 ## 다음 단계
 
-자세한 내용은 [Express 경로 FAQ](../expressroute/expressroute-faqs.md) 및 [VPN 게이트웨이 FAQ](vpn-gateway-vpn-faq.md)를 참조하세요.
+자세한 내용은 [VPN 게이트웨이 FAQ](vpn-gateway-vpn-faq.md) 및 [Express 경로 FAQ](../expressroute/expressroute-faqs.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

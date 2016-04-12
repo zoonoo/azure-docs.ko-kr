@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="02/01/2016"
+	ms.date="03/07/2016"
 	ms.author="spelluru"/>
 
 # 자습서: Azure Blob 저장소에서 Azure SQL 데이터베이스로 데이터 복사
@@ -22,6 +22,7 @@
 - [Data Factory 편집기 사용](data-factory-get-started-using-editor.md)
 - [PowerShell 사용](data-factory-monitor-manage-using-powershell.md)
 - [Visual Studio 사용](data-factory-get-started-using-vs.md)
+- [복사 마법사 사용](data-factory-copy-data-wizard-tutorial.md)
 
 이 자습서에서는 Azure Data Factory를 만들고 Azure Blob 저장소에서 Azure SQL 데이터베이스로 데이터를 복사하는 복사 작업을 사용하여 파이프라인을 만듭니다.
 
@@ -115,4 +116,4 @@ Azure Data Factory의 복사 작업에 대한 자세한 내용은 [데이터 이
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database/sql-database-get-started.md
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

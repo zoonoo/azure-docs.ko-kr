@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/10/2016"
+   ms.date="03/10/2016"
    ms.author="mwinkle"/>
 
 # Azure 데이터 레이크 분석 설명서 백로그
@@ -24,14 +24,16 @@ Azure 데이터 레이크 분석을 서비스 개발로 지원하고 일반 사�
 
 영역 |항목 | 우선 순위 | 상태 | 할당 대상 | 요청자 
 ------------- | ------------- | -------------- | -------------- | --------------- | --------------
+부여 | 콘텐츠 재설계 | 1 | 진행 중 | [@edmacauley](https://github.com/edmacauley) |
 U-SQL | 분산 쿼리 | 1 | 보류 | [@edmacauley](https://github.com/edmacauley) |
 U-SQL | WASB와 ADLS 간의 데이터 이동 | 1 | Pending | tbd | Ye Xing(ml)
 U-SQL | UDO 모델에 대한 단위 테스트 지침 | 1 | Pending | tbd | [@ddobric](https://github.com/ddobric) 
 U-SQL | JSON 처리 | 2 | Pending | [@mumian](https://github.com/mumian) | [@mwinkle](https://github.com/mwinkle)
 부여 | Curl 조작 | 3 |Pending |[@mumian](https://github.com/mumian)
-U-SQL | 분할된 테이블 |1 | 진행 중 | [@edmacauley](https://github.com/edmacauley) | 
+U-SQL | 분할된 테이블 |1 | Pending | [@edmacauley](https://github.com/edmacauley) | 
 U-SQL | 성능 튜닝 | 2 | Pending | [@MikeRys](https://github.com/mikerys) | 
-U-SQL | 프로그래머 가이드 | 2 | Pending | [@edmacauley](https://github.com/edmacauley) | 
+U-SQL | U-SQL UDO 프로그래머 가이드 | 1 | Pending | [@edmacauley](https://github.com/edmacauley) | 
+U-SQL | U-SQL 프로그래머 가이드 | 2 | Pending | [@edmacauley](https://github.com/edmacauley) | 
 U-SQL | T-SQL 백그라운드에서 U-SQL 시작 | 1 | Pending | [@edmacauley](https://github.com/edmacauley) | [@MikeRys](https://github.com/mikerys)
 U-SQL | Hive 백그라운드에서 U-SQL 시작 | 1 | Pending | [@mumian](https://github.com/mumian)| [@MikeRys](https://github.com/mikerys)
 U-SQL | 문법 레일로드 다이어그램 | 1 | 진행 중, [이 웹 사이트](http://bottlecaps.de/rr/ui) 사용 | [@mwinkle](https://github.com/mwinkle) | [@mwinkle](https://github.com/mwinkle)
@@ -40,7 +42,10 @@ U-SQL | 문법 레일로드 다이어그램 | 1 | 진행 중, [이 웹 사이트
 도구 | 진단 도구 사용 | 1 | Pending | [@mumian](https://github.com/mumian) | 
 U-SQL | 범위 기반 JOIN을 수행 하기 위한 기술 설명 | 1 | Pending | [@MikeRys](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
 U-SQL | ADLS 인증 옵션 | 1 | Pending | [@ArindamC](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
-
+U-SQL | 플랫폼 간 CLI 작업 제출 | 1 | Pending | [@edmacauley](https://github.com/edmacauley) |[@mwinkle](https://github.com/mwinkle) 
+U-SQL | 감소 및 결합에 대한 참조 문서 업데이트 | 1 | Pending | [@edmacauley](https://github.com/edmacauley) |[@MikeRys](https://github.com/mikerys)
+도구 | Visual Studio용 U-SQL UDF Azure Data Lake 도구의 단위 테스트 | 1 | Pending | [@edmacauley](https://github.com/edmacauley) |[@xiaoyong](https://github.com/zxzxy1988)
+도구 | Visual Studio용 Azure Data Lake 도구의 작업 그래프 및 정점 실행 보기 | 1 | Pending | [@edmacauley](https://github.com/edmacauley) |[@xiaoyong](https://github.com/zxzxy1988)
 
 
 
@@ -57,4 +62,4 @@ U-SQL | ADLS 인증 옵션 | 1 | Pending | [@ArindamC](https://github.com/mikery
 * [Azure 콘텐츠 리포지토리](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)에서 이 문서에 대한 끌어오기 요청 제출
 * [microsoft.com의 adlafeedback](mailto:adlafeedback@microsoft.com?subject=DocBacklog)으로 메일 보내기
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

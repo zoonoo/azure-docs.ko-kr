@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스와 함께 Azure 데이터 팩터리 사용
 
 Azure 데이터 팩터리는 데이터를 전송 및 SQL 데이터 웨어하우스에 대한 저장 프로시저의 실행 조율을 위한 완전한 관리 메서드를 제공합니다. 이렇게 하면 복잡한 ETL(Extract Transform and Load) 프로시저를 SQL 데이터 웨어하우스와 함께 보다 쉽게 설정하고 예약할 수 있습니다. Azure 데이터 팩터리의 전체 개요는 [Azure 데이터 팩터리 설명서][]를 참조하세요.
 
-## 데이터 이동 
+## 데이터 이동
 
 Azure 데이터 팩터리는 온-프레미스 원본 및 다른 Azure 서비스 간의 데이터 이동을 설정할 수 있습니다. Azure 데이터 팩터리와의 전반적인 현재 통합은 다음 위치에서의/으로의 데이터 이동을 지원합니다.
 
@@ -51,4 +51,4 @@ Azure 데이터 팩터리는 온-프레미스 원본 및 다른 Azure 서비스 
 [Azure 데이터 팩터리 설명서]: https://azure.microsoft.com/documentation/services/data-factory/
 [Copy data with Azure Data Factory]: https://azure.microsoft.com/ko-KR/documentation/articles/data-factory-data-movement-activities/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

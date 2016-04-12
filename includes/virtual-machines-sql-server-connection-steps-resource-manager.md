@@ -30,4 +30,4 @@ DNS 레이블을 만들려면 먼저 포털에서 **가상 컴퓨터**를 선택
 
 	![ssms 연결](./media/virtual-machines-sql-server-connection-steps/rm-ssms-connect.png)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0309_2016-->

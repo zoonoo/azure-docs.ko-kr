@@ -36,7 +36,7 @@
 
 ![리소스 상태](./media/security-center-monitoring/security-center-monitoring-fig1-new.png)
 
-보안 센터가 보안 업데이트가 누락된 VM 또는 [네트워크 보안 그룹](virtual-networks-nsg.md)이 없는 서브넷 등과 같이 조치가 필요한 취약점을 식별하면 여기에 나열됩니다.
+보안 센터가 보안 업데이트가 누락된 VM 또는 [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md)이 없는 서브넷 등과 같이 조치가 필요한 취약점을 식별하면 여기에 나열됩니다.
 
 ###가상 컴퓨터 모니터링
 **리소스 보안 상태** 타일에서 **가상 컴퓨터**를 클릭하면 아래와 같이 보안 센터에서 모니터링된 전체 VM 목록 뿐만 아니라 등록 및 방지 단계에 대한 자세한 내용이 포함된 **가상 컴퓨터** 블레이드가 열립니다.
@@ -102,7 +102,9 @@
 
 ![네트워킹](./media/security-center-monitoring/security-center-monitoring-fig9-new.png)
 
-이 블레이드를 열면 두 가지 섹션 즉, 네트워크 권장 사항 및 네트워킹이 표시됩니다.
+이 블레이드를 열면 두 개 섹션이 표시됩니다.
+- 네트워킹 권장 사항
+- 네트워킹
  
 각 섹션에서 권장 사항에 대한 자세한 내용의 개별 옵션을 선택할 수 있습니다. 아래 섹션에서는 이 부분에 대해 더 자세히 설명합니다.
 
@@ -114,8 +116,8 @@
 
 네트워킹 상태 분석 섹션은 잠재적인 보안 문제를 나열하고 권장 사항을 제공합니다. 가능한 문제는 다음을 포함할 수 있습니다.
 
-- [끝점에서 ACL](virtual-machines-set-up-endpoints.md)을 사용할 수 없음
-- [네트워크 보안 그룹](virtual-networks-nsg.md)을 사용할 수 없음
+- [끝점에서 ACL](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md)을 사용할 수 없음
+- [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md)을 사용할 수 없음
 - 정상 서브넷 및 제한되지 않은 NSG의 액세스가 나열됩니다. 
  
 이들 권장 사항 중 하나를 클릭하면 새 블레이드가 열리고 아래 예에 표시된 것과 같이 권장 사항에 대한 자세한 내용이 표시됩니다.
@@ -132,7 +134,7 @@
 
 ![네트워크 트리](./media/security-center-monitoring/security-center-monitoring-fig121-new.png)
 
-이 섹션은 [클래식 VM에서 리소스 관리자 기반 VM](resource-manager-deployment-model.md)을 나눕니다. 그러면 Azure 서비스 관리 또는 Azure 리소스 관리 네트워킹 기능을 가상 컴퓨터에 사용할 수 있는지 여부를 빠르게 확인할 수 있습니다. 이 위치에서 네트워크 인터페이스 카드의 속성에 액세스하려면 서브넷을 확장하고 VM 이름을 클릭해야 합니다. 리소스 관리자 기반 VM에 이 작업을 수행하면 아래와 유사한 새 블레이드가 표시됩니다.
+이 섹션은 [클래식 VM에서 리소스 관리자 기반 VM](../resource-manager-deployment-model.md)을 나눕니다. 그러면 Azure 서비스 관리 또는 Azure 리소스 관리 네트워킹 기능을 가상 컴퓨터에 사용할 수 있는지 여부를 빠르게 확인할 수 있습니다. 이 위치에서 네트워크 인터페이스 카드의 속성에 액세스하려면 서브넷을 확장하고 VM 이름을 클릭해야 합니다. 리소스 관리자 기반 VM에 이 작업을 수행하면 아래와 유사한 새 블레이드가 표시됩니다.
 
 ![네트워크 트리](./media/security-center-monitoring/security-center-monitoring-fig13-new.png)
 
@@ -166,7 +168,7 @@
 감사를 활성화하려면 **감사** 옵션에서 **켜기**를 선택하고 **저장**을 클릭합니다.
 
 ###응용 프로그램 모니터링
-Azure 워크로드에 노출된 웹 포트(TCP 포트 80 및 443)를 통해 [리소스 관리자 VM](resource-manager-deployment-model.md)에 위치한 응용 프로그램이 있는 경우 보안 센터에서 해당 응용 프로그램을 모니터링하여 잠재적 보안 문제를 파악하고 해결 단계를 수정할 수 있습니다. **응용 프로그램** 타일을 클릭하면 아래와 같이 **응용 프로그램** 블레이드가 열리고 방지 단계 섹션에 일련의 권장 사항이 표시됩니다. 또한 호스트/가상 IP 당 응용 프로그램 분석 결과가 표시됩니다.
+Azure 워크로드에 노출된 웹 포트(TCP 포트 80 및 443)를 통해 [리소스 관리자 VM](../resource-manager-deployment-model.md)에 위치한 응용 프로그램이 있는 경우 보안 센터에서 해당 응용 프로그램을 모니터링하여 잠재적 보안 문제를 파악하고 해결 단계를 수정할 수 있습니다. **응용 프로그램** 타일을 클릭하면 아래와 같이 **응용 프로그램** 블레이드가 열리고 방지 단계 섹션에 일련의 권장 사항이 표시됩니다. 또한 호스트/가상 IP 당 응용 프로그램 분석 결과가 표시됩니다.
 
 ![응용프로그램 보안 상태](./media/security-center-monitoring/security-center-monitoring-fig18-new.png)
 
@@ -174,7 +176,7 @@ Azure 워크로드에 노출된 웹 포트(TCP 포트 80 및 443)를 통해 [리
 
 ![앱](./media/security-center-monitoring/security-center-monitoring-fig19-new.png)
 
-**안전하지 않은 웹 응용 프로그램** 블레이드에는 안전하지 않다고 간주되는 응용 프로그램을 포함하는 모든 VM의 목록이 있습니다. 목록은 VM 이름, 문제의 현재 상태 및 심각도를 표시합니다. 이 웹 응용 프로그램을 클릭하면 타사 WAF(웹 응용 프로그램 방화벽)를 설치할 수 있는 옵션을 사용하여 **웹 응용 프로그램 방화벽 추가** 블레이드가 아래와 같이 열립니다.
+**안전하지 않은 웹 응용 프로그램** 블레이드에는 안전하지 않다고 간주되는 응용 프로그램을 포함하는 모든 VM의 목록이 있습니다. 목록은 VM 이름, 문제의 현재 상태 및 심각도를 표시합니다. 이 웹 응용 프로그램을 클릭하면 아래와 같이 타사 WAF(웹 응용 프로그램 방화벽)를 설치할 수 있는 옵션이 있는 **웹 응용 프로그램 방화벽 추가** 블레이드가 열립니다.
 
 ![WAF 추가](./media/security-center-monitoring/security-center-monitoring-fig20-new.png)
 
@@ -186,4 +188,4 @@ Azure 워크로드에 노출된 웹 포트(TCP 포트 80 및 443)를 통해 [리
 - [Azure 보안 센터 FAQ](security-center-faq.md) – 서비스 사용에 관한 질문과 대답 찾기
 - [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) – Azure 보안 및 규정 준수에 관한 블로그 게시물 찾기
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

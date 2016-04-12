@@ -18,9 +18,9 @@
 # Azure에서 StorSimple 가상 장치 배포 및 관리
 
 > [AZURE.SELECTOR]
-- [Update 2](../articles/storsimple/storsimple-virtual-device-u2.md)
-- [Update 1](../articles/storsimple/storsimple-virtual-device-u1.md)
-- [GA Release](../articles/storsimple/storsimple-virtual-device.md)
+- [업데이트 2](../articles/storsimple/storsimple-virtual-device-u2.md)
+- [업데이트 1](../articles/storsimple/storsimple-virtual-device-u1.md)
+- [GA 릴리스](../articles/storsimple/storsimple-virtual-device.md)
 
 ## 개요
 
@@ -77,7 +77,7 @@ StorSimple 가상 장치를 사용하는 경우 다음 보안 고려 사항을 �
 
 >[AZURE.IMPORTANT] **가상 네트워크가 가상 장치와 사용 하려는 클라우드 저장소 계정과 동일한 지역에 있는지 확인합니다.**
 
-- 가상 장치에 표시된 볼륨을 사용할 수 있는 [Azure 가상 컴퓨터](../virtual-machines/virtual-machines-about.md)(호스트 서버)를 가상 네트워크에 만들 수 있습니다. 이 서버는 다음 요구 사항을 충족해야 합니다.
+- 가상 장치에 표시된 볼륨을 사용할 수 있는 [Azure 가상 컴퓨터](../virtual-machines/virtual-machines-linux-about.md)(호스트 서버)를 가상 네트워크에 만들 수 있습니다. 이 서버는 다음 요구 사항을 충족해야 합니다.
 	- iSCSI 초기자 소프트웨어가 설치된 Windows 또는 Linux VM입니다.
 	- 가상 장치와 동일한 가상 네트워크에서 실행 중입니다.
 	- 가상 장치의 내부 IP 주소를 통해 가상 장치의 iSCSI 대상에 연결할 수 없습니다.
@@ -391,4 +391,4 @@ StorSimple 가상 장치를 이전에 구성하고 사용했지만 이제 용도
 
 가상 장치를 관리하려면 [StorSimple Manager 서비스를 사용하여 StorSimple 장치 관리](storsimple-manager-service-administration.md#administer-storsimple-device-using-storsimple-manager-service)에서 자세한 워크플로 목록을 참조하세요.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

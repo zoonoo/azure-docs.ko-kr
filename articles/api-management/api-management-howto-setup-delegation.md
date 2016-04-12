@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="antonba" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="03/04/2016" 
 	ms.author="antonba"/>
 
 # 사용자 등록 및 제품 구독을 위임하는 방법
@@ -46,7 +46,11 @@
 
 	> *원본 페이지의 http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL}&salt={문자열}&sig={문자열}*
 
-	로그인/등록 사례에 대한 쿼리 매개 변수: - **operation**: 위임 요청 유형 식별 - 이 경우에는 **SignIn**만 가능 - **returnUrl**: 사용자가 로그인 또는 등록 링크를 클릭한 페이지의 URL - **salt**: 보안 해시 계산에 사용되는 특수 salt 문자열 - **sig**: 자신의 계산된 해시와 비교하는 데 사용되는 계산된 보안 해시
+	로그인/등록 케이스의 쿼리 매개 변수:
+	- **operation**: 위임 요청의 유형을 식별합니다. 이 경우 **SignIn**만 가능합니다.
+	- **returnUrl**: 사용자가 로그인 또는 등록 링크를 클릭하는 페이지의 URL입니다.
+	- **salt**: 보안 해시를 계산하는 데 사용되는 특수 salt 문자열입니다.
+	- **sig**: 자신의 계산된 해시와 비교하는 데 사용되는 계산된 보안 해시입니다.
 
 2. 요청이 Azure API 관리에서 들어오는지 확인합니다(선택 사항이지만 보안을 위해 상당히 권장됨).
 
@@ -101,7 +105,15 @@
 
 	> *구독하려는 http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product}&userId={요청하는 사용자}&salt={문자열}&sig={문자열}*
 
-	제품 구독 사례에 대한 쿼리 매개 변수: - **operation**: 위임 요청 유형 식별합니다. 제품 구독 요청의 경우 유효한 옵션: - "구독": 제공된 ID로 지정된 제품에 사용자를 구독하기 위한 요청(아래 참조) - "구독 취소": 사용자의 제품 구독을 취소하기 위한 요청 - "갱신": 구독을 갱신하기 위한 요청(예: 만료 직전의 제품) - **productId**: 사용자가 구독하려고 요청한 제품 ID - **userId**: 요청한 사용자 ID - **salt**: 보안 해시 계산에 사용되는 특수 salt 문자열 - **sig**: 자신의 계산된 해시와 비교하는 데 사용되는 계산된 보안 해시
+	제품 구독 케이스에 대한 쿼리 매개 변수:
+	- **operation**: 위임 요청 유형을 식별합니다. 제품 구독 요청의 경우 유효한 옵션은 다음과 같습니다.
+		- "Subscribe": 사용자가 제공된 ID를 사용하여 지정된 제품을 구독하도록 하는 요청입니다(아래 참조).
+		- "Unsubscribe": 제품에 대한 사용자 구독을 취소하는 요청입니다.
+		- "Renew": 구독을 갱신하는 요청입니다(예: 만료일이 다가오는 경우).
+	- **productId**: 사용자가 구독을 요청한 제품의 ID입니다.
+	- **userId**: 요청을 생성한 사용자의 ID입니다.
+	- **salt**: 보안 해시를 계산하는 데 사용되는 특수 salt 문자열입니다.
+	- **sig**: 자신의 계산된 해시와 비교하는 데 사용되는 계산된 보안 해시입니다.
 
 
 2. 요청이 Azure API 관리에서 들어오는지 확인합니다(선택 사항이지만 보안을 위해 상당히 권장됨).
@@ -166,4 +178,4 @@
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

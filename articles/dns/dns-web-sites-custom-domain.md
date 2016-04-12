@@ -4,7 +4,7 @@
    services="dns" 
    documentationCenter="na" 
    authors="joaoma" 
-   manager="carolz" 
+   manager="carmonm" 
    editor=""/>
 
 <tags
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="11/24/2015"
+   ms.date="03/03/2016"
    ms.author="joaoma"/>
 
 # 사용자 지정 도메인에서 웹앱에 대한 DNS 레코드 만들기
 
 Azure DNS를 사용하여 웹앱에 대한 사용자 지정 도메인을 호스트할 수 있습니다. 예를 들어 Azure 웹앱을 만드는 중이며 사용자가 contoso.com 또는 www.contoso.com을 FQDN으로 사용하여 액세스하도록 설정한다고 가정합니다. 이 시나리오에서는 2개의 레코드, 즉 contoso.com을 가리키는 루트 A 레코드와 A 레코드를 가리키는 www 이름에 대한 CNAME 레코드를 만들어야 합니다.
 
-> [AZURE.NOTE]Azure에서 웹앱에 대한 A 레코드를 만드는 경우 웹앱의 기본 IP 주소가 변경되면 A 레코드를 수동으로 업데이트해야 합니다.
+> [AZURE.NOTE] Azure에서 웹앱에 대한 A 레코드를 만드는 경우 웹앱의 기본 IP 주소가 변경되면 A 레코드를 수동으로 업데이트해야 합니다.
 
 사용자 지정 도메인에 대한 레코드를 만들려면 먼저 Azure DNS에서 DNS 영역을 만들고 등록 기관의 영역을 Azure DNS로 위임해야 합니다. DNS 영역을 만들려면 [Azure DNS 시작](../dns-getstarted-create-dnszone/#Create-a-DNS-zone)의 단계를 따르세요. DNS를 Azure DNS로 위임하려면 [Azure DNS로 도메인 위임](../dns-domain-delegation)의 단계를 따르세요.
  
@@ -38,7 +38,7 @@ A 레코드를 만들고 $rs 변수에 할당합니다.
 
 할당된 $rs 변수를 사용하여 이전에 만든 레코드 집합 "@"에 IPv4 값을 추가합니다. 할당된 IPv4 값은 웹앱의 IP 주소가 됩니다.
 
-> [AZURE.NOTE]웹앱의 IP 주소를 찾으려면 [Azure 앱 서비스에서 사용자 지정 도메인 이름 구성](../web-sites-custom-domain-name/#Find-the-virtual-IP-address)의 단계를 따르세요.
+> [AZURE.NOTE] 웹앱의 IP 주소를 찾으려면 [Azure 앱 서비스에서 사용자 지정 도메인 이름 구성](../web-sites-custom-domain-name/#Find-the-virtual-IP-address)의 단계를 따르세요.
 
 	PS C:\> Add-AzureRMDnsRecordConfig -RecordSet $rs -Ipv4Address <your web app IP address>
 
@@ -165,4 +165,4 @@ Set-AzureRMDnsRecordSet cmdlet을 사용하여 변경 내용을 커밋합니다.
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

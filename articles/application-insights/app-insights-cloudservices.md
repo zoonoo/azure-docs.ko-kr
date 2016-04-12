@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="ibiza"
    ms.topic="article"
    ms.workload="tbd"
-   ms.date="11/15/2015"
+   ms.date="03/02/2016"
    ms.author="sdash"/>
 
 # Azure 클라우드 서비스용 Application Insights
@@ -171,13 +171,17 @@ Azure 진단에는 앱이 System.Diagnostics.Trace를 사용하여 생성하는 
 
 Application Insights SDK는 REST API 및 SQL 서버와 같은 외부 종속성에 대해 앱이 작성하는 호출을 보고할 수 있습니다. 이렇게 하면 특정 종속성으로 응답이 느린지 또는 오류를 일으키는지 여부를 확인할 수 있습니다.
 
-종속성을 추적하려면, "상태 모니터" 라고도 하는 [Application Insights 에이전트](app-insights-monitor-performance-live-website-now.md)로 웹/작업자 역할을 설정해야 합니다.
+응용 프로그램에 .NET Framework 4.6 이상을 사용하면 어떤 작업도 수행할 필요가 없습니다.
+
+그렇지 않은 경우 "상태 모니터"라고도 하는 [Application Insights 에이전트](app-insights-monitor-performance-live-website-now.md)로 웹/작업자 역할을 설정해야 합니다.
 
 웹/작업자 역할로 Application Insights Agent를 사용하려면
 
 * [AppInsightsAgent](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent) 폴더 및 폴더 내의 두 파일을 웹/작업자 역할 프로젝트에 추가합니다. 출력 디렉토리에 항상 복사되도록 해당 빌드 속성을 설정해야 합니다. 이 파일은 에이전트를 설치합니다.
 * [여기](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/AzureEmailService/ServiceDefinition.csdef#L18)에 표시된 것처럼 시작 작업을 CSDEF 파일에 추가합니다.
 * 참고: *작업자 역할*은 [여기](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/AzureEmailService/ServiceDefinition.csdef#L44)에서 표시된 것처럼 세 환경 변수가 필요합니다. 웹 역할에는 필요하지 않습니다.
+
+### 종속성 보고서
 
 Application Insights 포털에서 표시된 예는 다음과 같습니다.
 
@@ -277,10 +281,9 @@ Application Insights 포털에서 표시된 예는 다음과 같습니다.
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
 [netlogs]: app-insights-asp-net-trace-logs.md
-[perf]: app-insights-web-monitor-performance.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -23,6 +23,11 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
+&nbsp;
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> 이 항목에 해당하는 모바일 앱 버전은 [Android 앱에 푸시 알림 추가](../app-service-mobile/app-service-mobile-android-get-started-push.md)를 참조하세요.
+
 ## 요약
 
 이 항목에서는 GCM(Google Cloud Messaging)을 사용하는 Android 앱에 Azure 모바일 서비스를 사용하여 푸시 알림을 보내는 방법을 보여 줍니다. 이 자습서의 필수 구성 요소인 빠른 시작 프로젝트에 푸시 알림을 추가합니다. 모바일 서비스에 포함된 Azure 알림 허브를 사용하여 푸시 알림을 활성화합니다. 이 작업을 완료하면 레코드가 삽입될 때마다 모바일 서비스에서 푸시 알림을 전송합니다.
@@ -86,7 +91,7 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 
 1. **Run** 메뉴 항목에서 **Run app**을 클릭하여 앱을 시작합니다.
 
-2. 앱에서 A new Mobile Services task 등의 의미 있는 텍스트를 입력하고 **Add** 단추를 클릭합니다.
+2. 앱에서 _A new Mobile Services task_ 등의 의미 있는 텍스트를 입력하고 **Add** 단추를 클릭합니다.
 
   	![](./media/mobile-services-javascript-backend-android-get-started-push/mobile-quickstart-push1-android.png)
 
@@ -156,4 +161,4 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 [Send broadcast notifications to subscribers]: ../notification-hubs-android-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0309_2016-->

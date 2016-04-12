@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="nitinme"/>
 
 # Azure 데이터 레이크 저장소에 저장된 데이터 보호
 
 Azure 데이터 레이크 저장소의 데이터를 보호하는 것은 3단계로 이루어진 방법입니다.
 
-1. Azure Active Directory(AAD)에 보안 그룹을 만들어 시작합니다. 이러한 보안 그룹은 Azure 포털에서 역할 기반 액세스 제어(RBAC)를 구현하는데 사용됩니다. 자세한 내용은 [Microsoft Azure의 역할 기반 액세스 제어](role-based-access-control-configure.md)를 참조하세요.
+1. Azure Active Directory(AAD)에 보안 그룹을 만들어 시작합니다. 이러한 보안 그룹은 Azure 포털에서 역할 기반 액세스 제어(RBAC)를 구현하는데 사용됩니다. 자세한 내용은 [Microsoft Azure의 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)를 참조하세요.
 
 2. AAD 보안 그룹을 Azure 데이터 레이크 저장소 계정에 할당합니다. 이는 포털에서 데이터 레이크 저장소 계정에 대한 액세스 및 포털 또는 API에서 포털 및 관리 작업을 제어합니다.
 
@@ -37,7 +37,7 @@ Azure 데이터 레이크 저장소의 데이터를 보호하는 것은 3단계�
 
 ## Azure Active Directory의 보안 그룹 만들기
 
-AAD 보안 그룹을 만드는 방법 및 사용자를 그룹에 추가하는 방법에 대한 지침은 [Azure Active Directory의 보안 그룹 관리](active-directory-accessmanagement-manage-groups.md)를 참조하세요.
+AAD 보안 그룹을 만드는 방법 및 사용자를 그룹에 추가하는 방법에 대한 지침은 [Azure Active Directory의 보안 그룹 관리](../active-directory/active-directory-accessmanagement-manage-groups.md)를 참조하세요.
 
 ## 사용자 또는 보안 그룹을 Azure 데이터 레이크 저장소 계정에 할당
 
@@ -160,9 +160,9 @@ Azure 데이터 레이크 저장소 파일 시스템에서 보안 그룹 ACL을 
 
 - [Azure 데이터 레이크 저장소 개요](data-lake-store-overview.md)
 - [Azure 저장소 Blob에서 데이터 레이크 저장소로 데이터 복사](data-lake-store-copy-data-azure-storage-blob.md)
-- [Azure 데이터 레이크 분석에 데이터 레이크 저장소 사용](data-lake-analytics-get-started-portal.md)
+- [Azure 데이터 레이크 분석에 데이터 레이크 저장소 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [데이터 레이크 저장소와 함께 Azure HDInsight 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [PowerShell을 사용하여 데이터 레이크 저장소 시작](data-lake-store-get-started-powershell.md)
 - [.NET SDK를 사용하여 데이터 레이크 저장소 시작](data-lake-store-get-started-net-sdk.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

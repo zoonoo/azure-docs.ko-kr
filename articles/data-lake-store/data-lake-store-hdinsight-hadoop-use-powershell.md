@@ -1,26 +1,26 @@
-<properties 
-   pageTitle="PowerShell을 사용하여 Azure 데이터 레이크 저장소로 HDInsight 클러스터 만들기 | Azure" 
-   description="Azure PowerShell을 사용하여 Azure 데이터 레이크로 HDInsight Hadoop 클러스터 만들기 및 사용" 
-   services="data-lake-store" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="paulettm" 
+<properties
+   pageTitle="PowerShell을 사용하여 Azure 데이터 레이크 저장소로 HDInsight 클러스터 만들기 | Azure"
+   description="Azure PowerShell을 사용하여 Azure 데이터 레이크로 HDInsight Hadoop 클러스터 만들기 및 사용"
+   services="data-lake-store,hdinsight" 
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
    editor="cgronlun"/>
- 
+
 <tags
    ms.service="data-lake-store"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
+   ms.workload="big-data"
    ms.date="01/21/2016"
    ms.author="nitinme"/>
 
 # Azure PowerShell을 사용하여 데이터 레이크 저장소로 HDInsight 클러스터 만들기
 
 > [AZURE.SELECTOR]
-- [Using Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
-- [Using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
+- [포털 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
+- [PowerShell 사용](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 
 Azure PowerShell을 사용하여 Azure 데이터 레이크 저장소에 대한 액세스 권한을 가진 HDInsight 클러스터(Hadoop, HBase 또는 Storm)를 구성하는 방법에 대해 알아봅니다. 이 릴리스에 대한 일부 중요한 고려 사항:
@@ -53,7 +53,7 @@ PowerShell을 사용하여 데이터 레이크 저장소와 함께 작동하도�
 시작하려면 0.9x 버전의 Azure PowerShell을 제거해야 합니다. 설치된 PowerShell의 버전을 확인하려면 PowerShell 창에서 다음 명령을 실행합니다.
 
 	Get-Module *azure*
-	
+
 이전 버전을 제거하려면 제어판에서 **프로그램 및 기능**을 실행하고 PowerShell 1.0보다 이전 버전인 경우 설치된 버전을 제거합니다.
 
 Azure PowerShell을 설치하기 위한 두 가지 주요 옵션이 있습니다.
@@ -63,13 +63,13 @@ Azure PowerShell을 설치하기 위한 두 가지 주요 옵션이 있습니다
 		# Install the Azure Resource Manager modules from PowerShell Gallery
 		Install-Module AzureRM
 		Install-AzureRM
-		
+
 		# Install the Azure Service Management module from PowerShell Gallery
 		Install-Module Azure
-		
+
 		# Import AzureRM modules for the given version manifest in the AzureRM module
 		Import-AzureRM
-		
+
 		# Import Azure Service Management module
 		Import-Module Azure
 
@@ -78,7 +78,7 @@ Azure PowerShell을 설치하기 위한 두 가지 주요 옵션이 있습니다
 - [Microsoft WebPI(웹 플랫폼 설치 관리자)](http://aka.ms/webpi-azps). Azure PowerShell 0.9.x가 설치되어 있는 경우 0.9.x를 제거하라는 메시지가 표시됩니다. PowerShell 갤러리에서 Azure PowerShell 모듈을 설치한 경우 일관성 있는 Azure PowerShell 환경이 보장되도록 설치하기 전에 설치 관리자에서 모듈을 제거해야 합니다. 자세한 내용은 [WebPI를 통해 Azure PowerShell 1.0 설치](https://azure.microsoft.com/blog/azps-1-0/)를 참조하세요.
 
 WebPI는 월별 업데이트를 받습니다. PowerShell 갤러리는 지속적으로 업데이트를 받습니다. PowerShell 갤러리에서 설치가 익숙하다면 이는 Azure PowerShell에서 가장 유용한 최신의 첫 번째 채널이 될 것입니다.
- 
+
 
 ## Azure 데이터 레이크 저장소 만들기
 
@@ -88,17 +88,17 @@ WebPI는 월별 업데이트를 받습니다. PowerShell 갤러리는 지속적�
 
         # Log in to your Azure account
 		Login-AzureRmAccount
-        
+
 		# List all the subscriptions associated to your account
 		Get-AzureRmSubscription
-		
-		# Select a subscription 
+
+		# Select a subscription
 		Set-AzureRmContext -SubscriptionId <subscription ID>
 
 		# Register for Data Lake Store
 		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 
-	>[AZURE.NOTE] 데이터 레이크 저장소 리소스 공급자를 등록할 때 `Register-AzureRmResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid`와(과) 유사한 오류가 나타나는 경우 구독이 Azure 데이터 레이크 저장소에 대한 허용 목록에 추가되지 않았을 수 있습니다. 이 [지침](data-lake-store-get-started-portal.md#signup)에 따라 데이터 레이크 저장소 공개 미리 보기에 대한 Azure 구독을 활성화해야 합니다.
+	>[AZURE.NOTE] Data Lake 저장소 리소스 공급자를 등록할 때 `Register-AzureRmResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid`와 유사한 오류가 나타나는 경우 구독이 Azure Data Lake 저장소에 대한 허용 목록에 추가되지 않았을 수 있습니다. 이 [지침](data-lake-store-get-started-portal.md#signup)에 따라 Data Lake 저장소 공개 미리 보기에 대한 Azure 구독을 활성화해야 합니다.
 
 3. Azure 데이터 레이크 저장소 계정은 Azure 리소스 그룹과 연결됩니다. Azure 리소스 그룹을 만드는 작업부터 시작합니다.
 
@@ -122,7 +122,7 @@ WebPI는 월별 업데이트를 받습니다. PowerShell 갤러리는 지속적�
 
 4. 일부 샘플 데이터를 Azure 데이터 레이크에 업로드합니다. 나중에 이 문서에서 사용하여 HDInsight 클러스터에서 데이터에 액세스할 수 있는지 확인합니다. 업로드할 일부 샘플 데이터를 찾는 경우 [Azure 데이터 레이크 Git 리포지토리](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData)의 **Ambulance Data** 폴더에 있을 수 있습니다.
 
-		
+
 		$myrootdir = "/"
 		Import-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path "C:<path to data>\vehicle1_09142014.csv" -Destination $myrootdir\vehicle1_09142014.csv
 
@@ -161,20 +161,20 @@ Azure 데이터 레이크에 대한 Active Directory 인증을 설정하려면 �
 
 이 섹션에서는 Azure Active Directory 응용 프로그램용 서비스 주체를 만들고, 서비스 주체에 역할을 할당하고, 인증서를 제공하여 서비스 주체로 인증하는 단계를 수행합니다. 다음 명령을 실행하여 Azure Active Directory에서 응용 프로그램을 만듭니다.
 
-1. PowerShell 콘솔 창에 다음 cmdlet을 붙여 넣습니다. **-DisplayName** 속성에 대해 지정한 값이 고유한지 확인합니다. 또한 **-HomePage** 및 **-IdentiferUris**에 대한 값은 자리 표시자이며 확인되지 않습니다. 
+1. PowerShell 콘솔 창에 다음 cmdlet을 붙여 넣습니다. **-DisplayName** 속성에 대해 지정한 값이 고유한지 확인합니다. 또한 **-HomePage** 및 **-IdentiferUris**에 대한 값은 자리 표시자이며 확인되지 않습니다.
 
 		$certificateFilePath = "$certificateFileDir\CertFile.pfx"
-		
+
 		$password = Read-Host –Prompt "Enter the password" # This is the password you specified for the .pfx file
-		
+
 		$certificatePFX = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($certificateFilePath, $password)
-		
+
 		$rawCertificateData = $certificatePFX.GetRawCertData()
-		
+
 		$credential = [System.Convert]::ToBase64String($rawCertificateData)
 
 		$application = New-AzureRmADApplication `
-					-DisplayName "HDIADL" ` 
+					-DisplayName "HDIADL" `
 					-HomePage "https://contoso.com" `
 					-IdentifierUris "https://mycontoso.com" `
 					-KeyValue $credential  `
@@ -188,11 +188,11 @@ Azure 데이터 레이크에 대한 Active Directory 인증을 설정하려면 �
 2. 응용 프로그램 ID를 사용하여 서비스 주체를 만듭니다.
 
 		$servicePrincipal = New-AzureRmADServicePrincipal -ApplicationId $applicationId
-		
+
 		$objectId = $servicePrincipal.Id
 
 3. 앞에서 만든 데이터 레이크 저장소에 서비스 주체 액세스를 부여합니다.
-		
+
 		Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStoreName -Path / -AceType User -Id $objectId -Permissions All
 
 	프롬프트에 **Y**를 입력하여 확인합니다.
@@ -210,9 +210,9 @@ Azure 데이터 레이크에 대한 Active Directory 인증을 설정하려면 �
 		# Create an Azure storage account
 		$location = "East US 2"
 		$storageAccountName = "<StorageAcccountName>"   # Provide a Storage account name
-		
+
 		New-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName -Location $location -Type Standard_GRS
- 
+
 		# Create an Azure Blob Storage container
 		$containerName = "<ContainerName>"              # Provide a container name
 		$storageAccountKey = Get-AzureRmStorageAccountKey -Name $storageAccountName -ResourceGroupName $resourceGroupName | %{ $_.Key1 }
@@ -226,7 +226,7 @@ Azure 데이터 레이크에 대한 Active Directory 인증을 설정하려면 �
 		$clusterNodes = <ClusterSizeInNodes>            # The number of nodes in the HDInsight cluster
 		$httpCredentials = Get-Credential
 		$rdpCredentials = Get-Credential
-		
+
 		New-AzureRmHDInsightCluster -ClusterName $clusterName -ResourceGroupName $resourceGroupName -HttpCredential $httpCredentials -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainer $containerName  -ClusterSizeInNodes $clusterNodes -ClusterType Hadoop -Version "3.2" -RdpCredential $rdpCredentials -RdpAccessExpiry (Get-Date).AddDays(14) -ObjectID $objectId -AadTenantId $tenantID -CertificateFilePath $certificateFilePath -CertificatePassword $password
 
 	cmdlet이 성공적으로 완료된 후 다음과 같은 출력을 확인해야 합니다.
@@ -245,7 +245,7 @@ Azure 데이터 레이크에 대한 Active Directory 인증을 설정하려면 �
 		DefaultStorageAccount     :
 		DefaultStorageContainer   :
 		ResourceGroup             : hdiadlgroup
-		AdditionalStorageAccounts : 
+		AdditionalStorageAccounts :
 
 ## HDInsight 클러스터에서 테스트 작업을 실행하여 데이터 레이크 저장소 사용
 
@@ -261,7 +261,7 @@ PuTTY 사용에 대한 자세한 내용은 [Windows에서 HDInsight의 Linux 기
 
     	hive
 
-2. CLI를 사용하여 다음 문을 입력하여 데이터 레이크 저장소에서 샘플 데이터를 사용한 **vehicles**라는 새 테이블을 만듭니다.
+2. CLI를 사용하여 다음 문을 입력하여 Data Lake 저장소에서 샘플 데이터를 사용한 **vehicles**라는 새 테이블을 만듭니다.
 
 		DROP TABLE vehicles;
 		CREATE EXTERNAL TABLE vehicles (str string) LOCATION 'adl://<mydatalakestore>.azuredatalakestore.net:443/';
@@ -286,7 +286,7 @@ PuTTY 사용에 대한 자세한 내용은 [Windows에서 HDInsight의 Linux 기
 다음 cmdlet을 사용하여 Hive 쿼리를 실행합니다. 이 쿼리에서 데이터 레이크 저장소의 데이터에서 테이블을 만든 다음 만든 테이블에서 select 쿼리를 실행합니다.
 
 	$queryString = "DROP TABLE vehicles;" + "CREATE EXTERNAL TABLE vehicles (str string) LOCATION 'adl://$dataLakeStoreName.azuredatalakestore.net:443/';" + "SELECT * FROM vehicles LIMIT 10;"
-	
+
 	$hiveJobDefinition = New-AzureRmHDInsightHiveJobDefinition -Query $queryString
 
 	$hiveJob = Start-AzureRmHDInsightJob -ResourceGroupName $resourceGroupName -ClusterName $clusterName -JobDefinition $hiveJobDefinition -ClusterCredential $httpCredentials
@@ -378,4 +378,4 @@ PuTTY 사용에 대한 자세한 내용은 [Windows에서 HDInsight의 Linux 기
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0128_2016-->
+<!----HONumber=AcomDC_0316_2016-->

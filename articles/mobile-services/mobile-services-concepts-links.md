@@ -20,8 +20,6 @@
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
 
-&nbsp;
-
 아래에 링크 항목은 Microsoft Azure 모바일 서비스의 특정 동작에 관한 정보를 제공합니다. 이러한 동일한 항목은 Azure 클래식 포털의 도움말로 사용할 수 있습니다.
 
 [AZURE.INCLUDE [mobile-services-concepts](../../includes/mobile-services-concepts.md)]
@@ -86,4 +84,4 @@
 - [오류 처리](https://msdn.microsoft.com/library/azure/jj631632.aspx)
 - [바로 가기 키](https://msdn.microsoft.com/library/azure/jj552469.aspx)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

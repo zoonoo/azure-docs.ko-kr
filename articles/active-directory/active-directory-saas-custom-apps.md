@@ -21,7 +21,7 @@ Azure Active Directory 응용 프로그램 갤러리는 [이 문서](active-dire
 
 또한 [Azure Active Directory Premium](active-directory-editions.md) 라이선스가 있는 고객에게는 다음과 같은 기능이 제공됩니다
 
-* SAML 2.0 ID 공급자를 지원하는 응용 프로그램의 셀프 서비스 통합
+* SAML 2.0 ID 공급자를 지원하는 응용 프로그램의 셀프 서비스 통합(SP에서 시작 또는 IdP에서 시작)
 * [암호 기반 SSO](active-directory-appssoaccess-whatis.md/#password-based-single-sign-on)를 사용하여 HTML 기반 로그인 페이지가 있는 웹 응용 프로그램의 셀프 서비스 통합
 * 사용자 프로비전에 SCIM 프로토콜을 사용하는 응용 프로그램의 셀프 서비스 연결([여기에 설명됨](active-directory-scim-provisioning))
 * [Office 365 앱 시작 관리자](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) 또는 [Azure AD 액세스 패널](active-directory-appssoaccess-whatis.md/#deploying-azure-ad-integrated-applications-to-users)에서 응용 프로그램에 대한 링크를 추가하는 기능
@@ -52,8 +52,26 @@ Azure Active Directory 응용 프로그램 갤러리는 [이 문서](active-dire
 이 옵션을 선택하여 응용 프로그램에 대한 SAML 기반 인증을 구성합니다. 응용 프로그램이 SAML 2.0를 지원해야 하고 계속하기 전에 응용 프로그램의 SAML 기능을 사용하는 방법에 대한 정보를 수집해야 합니다. **다음**을 선택한 후에 응용 프로그램에 대한 SAML 끝점에 해당하는 세 개의 URL을 입력하라는 메시지가 표시됩니다.
 
 ![][4]
+ 
+다음과 같습니다.
 
-대화 상자에서 도구 설명 아이콘은 각 URL의 정의 및 사용하는 방법에 대한 세부 정보를 제공합니다. 이러한 내용을 입력한 후에 **다음**을 클릭하여 다음 화면으로 진행합니다. 이 화면은 응용 프로그램쪽에서 구성되어야 하는 사항에 대한 정보를 제공하여 Azure AD에서 SAML 토큰을 수락하도록 설정합니다.
+* **로그온 URL(SP에서 시작된 경우에만 해당)** – 사용자가 이 응용 프로그램에 로그인하는 위치입니다. 응용 프로그램이 서비스 공급자에서 시작된 단일 로그인을 수행하도록 구성되면 사용자가 이 URL에 이동할 경우 서비스 공급자는 Azure AD를 인증하고 사용자에게 로그온하는 데 필요한 리디렉션을 수행합니다. 이 필드가 채워지면 Azure AD는 이 URL을 사용하여 Office 365 및 Azure AD 액세스 패널에서 응용 프로그램을 시작합니다. 이 필드가 생략되면 해당 앱이 Office 365, Azure AD 액세스 패널 또는 Azure AD Single Sign-On URL(대시보드 탭에서 복사 가능)에서 시작할 경우 Azure AD는 ID 공급자에서 시작된 로그인을 대신 수행합니다.
+
+* **발급자 URL** - 발급자 URL은 구성될 단일 로그온에 대한 응용 프로그램을 고유하게 식별해야 합니다. 이는 Azure AD가 SAML 토큰의 **대상** 매개 변수로서 응용 프로그램에 다시 전송하는 값이며, 응용 프로그램의 유효성을 검사하게 됩니다. 또한 이 값은 응용 프로그램에서 제공하는 모든 SAML 메타데이터 내에서 **엔터티 ID**로 표시됩니다. 엔터티 ID 또는 대상 값에 대한 자세한 내용은 응용 프로그램의 SAML 설명서를 확인합니다. 다음은 응용 프로그램에 반환되는 SAML 토큰에서 대상 URL이 표시되는 방법의 예입니다.
+
+```
+    <Subject>
+    <NameID Format="urn:oasis:names:tc:SAML:2.0:nameid-format:unspecificed">chad.smith@example.com</NameID>
+        <SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />
+      </Subject>
+      <Conditions NotBefore="2014-12-19T01:03:14.278Z" NotOnOrAfter="2014-12-19T02:03:14.278Z">
+        <AudienceRestriction>
+          <Audience>https://tenant.example.com</Audience>
+        </AudienceRestriction>
+      </Conditions>
+```
+
+* **회신 URL** - 회신 URL은 응용 프로그램이 SAML 토큰을 받을 것으로 예상하는 위치입니다. 이 URL은 **어설션 소비자 서비스(ACS) URL**이라고도 합니다. SAML 토큰 회신 URL 또는 ACS URL에 대한 자세한 내용은 응용 프로그램의 SAML 설명서를 확인합니다. 이러한 내용을 입력한 후에 **다음**을 클릭하여 다음 화면으로 진행합니다. 이 화면은 응용 프로그램쪽에서 구성되어야 하는 사항에 대한 정보를 제공하여 Azure AD에서 SAML 토큰을 수락하도록 설정합니다. 
 
 ![][5]
 
@@ -126,4 +144,4 @@ SAML URL 및 인증서가 Azure AD 및 응용 프로그램에서 구성되면 �
 [6]: ./media/active-directory-saas-custom-apps/customapp6.png
 [7]: ./media/active-directory-saas-custom-apps/customapp7.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

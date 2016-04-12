@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="sameerch"/>
 
 
 # 논리 앱에서 Yammer 커넥터 사용 #
->[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다. 2015-08-01-preview 스키마 버전에 대한 내용을 보려면 [Yammer API](../connectors/create-api-yammer.md)를 클릭하세요.
+>[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다. 2015-08-01-preview 스키마 버전에 대한 내용을 보려면 [Yammer API](../connectors/connectors-create-api-yammer.md)를 클릭하세요.
 
 Yammer에 연결하고 메시지 게시 동작 및 트리거를 사용하여 새 메시지를 검색합니다.
 
@@ -94,4 +94,4 @@ API 앱을 만들고 나면 이제 Yammer 커넥터를 논리 앱에 대한 트�
 [10]: ./media/app-service-logic-connector-yammer/img10.PNG
 [11]: ./media/app-service-logic-connector-yammer/img11.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

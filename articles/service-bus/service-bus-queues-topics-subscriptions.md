@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/09/2015"
+   ms.date="03/09/2016"
    ms.author="sethm" />
 
 # 서비스 버스 큐, 토픽 및 구독
@@ -169,7 +169,8 @@ namespaceManager.CreateSubscription("IssueTrackingTopic", "Dashboard", new SqlFi
 - [서비스 버스 메시징 개요](service-bus-messaging-overview.md)
 - [서비스 버스 조정된 메시징 .NET 자습서](service-bus-brokered-tutorial-dotnet.md)
 - [서비스 버스 조정된 메시징 REST 자습서](service-bus-brokered-tutorial-rest.md)
+- [이벤트 허브 설명서](https://azure.microsoft.com/documentation/services/event-hubs/)
 - [이벤트 허브 개발자 가이드](../event-hubs/event-hubs-programming-guide.md)
 - [조정된 메시징: 고급 필터](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

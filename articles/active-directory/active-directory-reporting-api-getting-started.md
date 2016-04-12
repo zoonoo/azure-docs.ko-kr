@@ -3,8 +3,8 @@
    description="Azure Active Directory Reporting API를 시작하는 방법"
    services="active-directory"
    documentationCenter=""
-   authors="kenhoff"
-   manager="mbaldwin"
+   authors="dhanyahk"
+   manager="stevenpo"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/07/2015"
-   ms.author="kenhoff"/>
+   ms.date="03/07/2016"
+   ms.author="dhanyahk"/>
 
 
 # Azure AD Reporting API 시작하기
@@ -35,7 +35,7 @@ Reporting API는 [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx)
 
 
 ### 응용 프로그램 만들기
-- [Azure 관리 포털](https://manage.windowsazure.com/)로 이동합니다.
+- [Azure 클래식 포털](https://manage.windowsazure.com/)로 이동합니다.
 - 해당 디렉터리로 이동합니다.
 - 응용 프로그램으로 이동합니다.
 - 아래 표시줄에서 "추가"를 클릭합니다.
@@ -52,7 +52,7 @@ Reporting API는 [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx)
 - 새로 만든 응용 프로그램으로 이동합니다.
 - **구성** 탭을 클릭합니다.
 - "다른 응용 프로그램에 대한 권한" 섹션의
-	- Microsoft Azure Active Directory > 응용 프로그램 사용 권한에서 **디렉터리 데이터 읽기**를 선택합니다.
+	- Azure Active Directory > 응용 프로그램 권한에서 **디렉터리 데이터 읽기**를 선택합니다.
 - 아래 표시줄에서 **저장**을 클릭합니다.
 
 
@@ -67,9 +67,9 @@ Reporting API는 [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx)
 - **클라이언트 ID** 필드에 응용 프로그램의 클라이언트 ID가 나열됩니다.
 
 #### 응용 프로그램 클라이언트 암호
-- 응용 프로그램 탭으로 이동합니다.
+- **응용 프로그램** 탭으로 이동합니다.
 - 새로 만든 응용 프로그램으로 이동합니다.
-- 구성 탭으로 이동합니다.
+- **구성** 탭으로 이동합니다.
 - "키" 섹션에서 기간을 선택하여 응용 프로그램의 새 비밀 키를 생성합니다.
 - 키가 저장 중이라고 표시됩니다. 이 키는 나중에 검색할 수 없으므로 복사하여 안전한 위치에 붙여넣으세요.
 
@@ -141,38 +141,38 @@ $ClientID, $ClientSecret, $tenantdomain을 "Azure AD에서 액세스 위임"의 
 	# Author: Michael McLaughlin (michmcla@microsoft.com)
 	# Date: January 20, 2016
 	# This requires the Python Requests module: http://docs.python-requests.org
-	
+
 	import requests
 	import datetime
 	import sys
-	
+
 	client_id = 'your-application-client-id-here'
 	client_secret = 'your-application-client-secret-here'
 	login_url = 'https://login.windows.net/'
-	tenant_domain = 'your-directory-name-here.onmicrosoft.com' 
-	
+	tenant_domain = 'your-directory-name-here.onmicrosoft.com'
+
 	# Get an OAuth access token
 	bodyvals = {'client_id': client_id,
 	            'client_secret': client_secret,
 	            'grant_type': 'client_credentials'}
-	
+
 	request_url = login_url + tenant_domain + '/oauth2/token?api-version=1.0'
 	token_response = requests.post(request_url, data=bodyvals)
-	
+
 	access_token = token_response.json().get('access_token')
 	token_type = token_response.json().get('token_type')
-	
+
 	if access_token is None or token_type is None:
 	    print "ERROR: Couldn't get access token"
 	    sys.exit(1)
-	
+
 	# Use the access token to make the API request
 	yesterday = datetime.date.strftime(datetime.date.today() - datetime.timedelta(days=1), '%Y-%m-%d')
-	
+
 	header_params = {'Authorization': token_type + ' ' + access_token}
 	request_string = 'https://graph.windows.net/' + tenant_domain + '/reports/auditEvents?api-version=beta&filter=eventTime%20gt%20' + yesterday   
 	response = requests.get(request_string, headers = header_params)
-	
+
 	if response.status_code is 200:
 	    print response.content
 	else:
@@ -195,4 +195,4 @@ $ClientID, $ClientSecret, $tenantdomain을 "Azure AD에서 액세스 위임"의 
 - 감사 보고서에 대한 자세한 내용은 [Azure AD 감사 보고서 이벤트](active-directory-reporting-audit-events.md) 참조
 - Graph API REST 서비스에 대한 자세한 내용은 [Azure AD 보고서 및 이벤트(미리 보기)](https://msdn.microsoft.com/library/azure/mt126081.aspx) 참조
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

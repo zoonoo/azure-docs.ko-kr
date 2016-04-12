@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/25/2015" 
+	ms.date="03/18/2016" 
 	ms.author="donnam"/>
 
 # 모바일 서비스 앱에 인증 추가
@@ -22,7 +22,8 @@
 
 &nbsp;
 
->[AZURE.NOTE]Azure 모바일 서비스항목입니다. Microsoft Azure는 모든 새 모바일 백 엔드 배포에 대한 Azure 앱 서비스 모바일 앱을 권장합니다. 자세한 내용은 [모바일 앱 설명서의 해당 자습서](../app-service-mobile/app-service-mobile-xamarin-ios-get-started-users.md)를 참조하세요.
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> 이 항목에 해당하는 모바일 앱 버전은 [Xamarin.iOS 앱에 인증 추가](../app-service-mobile/app-service-mobile-xamarin-ios-get-started-users.md)를 참조하세요.
 
 이 항목은 앱에서 모바일 서비스의 사용자를 인증하는 방법을 보여 줍니다. 이 자습서에서는 모바일 서비스가 지원하는 ID 공급자를 사용하여 퀵 스타트 프로젝트에 인증을 추가합니다. 모바일 서비스에서 인증되고 권한이 부여된 후 사용자 ID 값이 표시됩니다.
 
@@ -46,7 +47,7 @@
 
 &nbsp;&nbsp;&nbsp;6. Visual Studio 또는 Xamarin Studio에서 클라이언트 프로젝트를 장치 또는 시뮬레이터에서 실행합니다. 앱 시작 후 상태 코드가 401(권한이 부여되지 않음)인 처리되지 않은 예외가 발생했는지 확인합니다.
 
-이는 앱이 인증되지 않은 사용자로 모바일 서비스에 액세스하려고 시도하지만 *TodoItem* 테이블에서 이제 인증을 요구하기 때문에 발생합니다.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;이는 앱이 인증되지 않은 사용자로 모바일 서비스에 액세스하려고 시도하지만 *TodoItem* 테이블에서 이제 인증을 요구하기 때문에 발생합니다.
 
 다음에는 모바일 서비스의 리소스를 요청하기 전에 사용자를 인증하도록 앱을 업데이트합니다.
 
@@ -117,4 +118,4 @@
 [Authorize users with scripts]: ../mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts.md
 [JavaScript and HTML]: ../mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

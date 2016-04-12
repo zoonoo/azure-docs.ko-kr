@@ -16,7 +16,8 @@
 
 	- **위치**를 사용하여 DocumentDB 계정을 호스트하는 지리적 위치를 지정합니다.
 
-4.	새 DocumentDB 계정 옵션을 구성했으면 **만들기**를 클릭합니다. DocumentDB 계정을 만드는 데 몇 분 정도 걸릴 수 있습니다. 상태를 확인하려면 시작 보드에서 진행률을 모니터링하면 됩니다. ![시작 보드 만들기 타일 - 온라인 데이터베이스 작성자의 스크린샷](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-3.png)
+4.	새 DocumentDB 계정 옵션을 구성했으면 **만들기**를 클릭합니다. DocumentDB 계정을 만드는 데 몇 분 정도 걸릴 수 있습니다. 상태를 확인하려면 시작 보드에서 진행률을 모니터링하면 됩니다.  
+	![시작 보드 만들기 타일 - 온라인 데이터베이스 작성자의 스크린샷](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-3.png)
 
 	그렇지 않은 경우 알림 허브에서 진행률을 모니터링할 수 있습니다.
 

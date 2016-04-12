@@ -1,23 +1,23 @@
-<properties 
-	pageTitle="SQL 데이터베이스 시도: C#을 사용하여 SQL 데이터베이스 만들기 | Microsoft Azure" 
-	description="SQL 및 C# 앱 개발을 위해 SQL 데이터베이스를 시도하고 .NET용 SQL 데이터베이스 라이브러리를 사용하여 C#으로 Azure SQL 데이터베이스를 만듭니다." 
+<properties
+	pageTitle="SQL 데이터베이스 시도: C#을 사용하여 SQL 데이터베이스 만들기 | Microsoft Azure"
+	description="SQL 및 C# 앱 개발을 위해 SQL 데이터베이스를 시도하고 .NET용 SQL 데이터베이스 라이브러리를 사용하여 C#으로 Azure SQL 데이터베이스를 만듭니다."
 	keywords="sql 시도, sql c#"   
-	services="sql-database" 
-	documentationCenter="" 
-	authors="stevestein" 
-	manager="jeffreyg" 
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jeffreyg"
 	editor="cgronlun"/>
 
 <tags
    ms.service="sql-database"
    ms.devlang="NA"
    ms.topic="hero-article"
-   ms.tgt_pltfrm="powershell"
-   ms.workload="data-management" 
-   ms.date="01/22/2016"
+   ms.tgt_pltfrm="csharp"
+   ms.workload="data-management"
+   ms.date="03/24/2016"
    ms.author="sstein"/>
 
-# SQL 데이터베이스 시도: C&#x23;을 사용하여 .NET용 SQL 데이터베이스 라이브러리로 SQL 데이터베이스 만들기 
+# SQL 데이터베이스 시도: C&#x23;을 사용하여 .NET용 SQL 데이터베이스 라이브러리로 SQL 데이터베이스 만들기
 
 **단일 데이터베이스**
 
@@ -26,13 +26,7 @@
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
-
-
-C# 명령을 사용하여 [.NET용 Azure SQL 데이터베이스 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)로 Azure SQL 데이터베이스를 만드는 방법에 대해 알아봅니다.
-
-SQL 및 C#으로 단일 데이터베이스를 만들어 SQL 데이터베이스를 시도합니다. 탄력적 데이터베이스를 만들려면 [탄력적 데이터베이스 풀 만들기](sql-database-elastic-pool-portal.md)를 참조하세요.
-
-개별 코드 조각은 명확성을 위해 세분화되었으며 샘플 콘솔 응용 프로그램은 이 문서의 하단에 있는 섹션에서 모든 명령을 합칩니다.
+C# 명령을 사용하여 [.NET용 Azure SQL 데이터베이스 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)로 Azure SQL 데이터베이스를 만드는 방법에 대해 알아봅니다. SQL 및 C#으로 단일 데이터베이스를 만들어 SQL 데이터베이스를 시도합니다. 탄력적 데이터베이스 풀을 만들려면 [탄력적 데이터베이스 풀 만들기](sql-database-elastic-pool-create-portal.md)를 참조하세요. 개별 코드 조각은 명확성을 위해 세분화되었으며 샘플 콘솔 응용 프로그램은 이 문서의 하단에 있는 섹션에서 모든 명령을 합칩니다.
 
 .NET용 Azure SQL 데이터베이스 라이브러리는 [리소스 관리자 기반 SQL 데이터베이스 REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx)를 래핑하는 [Azure 리소스 관리자](../resource-group-overview.md) 기반 API를 제공합니다. 이 클라이언트 라이브러리는 리소스 관리자 기반 클라이언트 라이브러리의 일반적인 패턴을 따릅니다. 리소스 관리자는 리소스 그룹을 필요로 하며 AAD([Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx))로 인증합니다.
 
@@ -120,7 +114,7 @@ C#으로 SQL 데이터베이스를 설정하려면 Visual Studio(**도구** > **
 인증을 위한 Azure Active Directory 사용에 대한 추가 정보는 [이 유용한 블로그 게시물](http://www.cloudidentity.com/blog/2013/09/12/active-directory-authentication-library-adal-v1-for-net-general-availability/)에서 찾을 수 있습니다.
 
 
-### 현재 사용자에 대한 액세스 토큰 검색 
+### 현재 사용자에 대한 액세스 토큰 검색
 
 클라이언트 응용 프로그램은 현재 사용자에 대한 응용 프로그램 액세스 토큰을 검색해야 합니다. 코드가 사용자에 의해 처음으로 실행될 때 사용자 자격 증명을 입력하라는 메시지가 표시되며 결과적으로 토큰이 로컬에서 캐시됩니다. 후속 실행 때에는 캐시에서 토큰을 검색하며 토큰이 만료되었을 때 사용자에게 로그인하라는 메시지만 표시합니다.
 
@@ -154,7 +148,7 @@ C#으로 SQL 데이터베이스를 설정하려면 Visual Studio(**도구** > **
         {
             creds = new Microsoft.Rest.TokenCredentials(token.AccessToken);
 
-            // Create a resource management client 
+            // Create a resource management client
             ResourceManagementClient resourceClient = new ResourceManagementClient(creds);
 
             // Resource group parameters
@@ -169,7 +163,7 @@ C#으로 SQL 데이터베이스를 설정하려면 Visual Studio(**도구** > **
         }
 
 
-## 서버 만들기 
+## 서버 만들기
 
 SQL 데이터베이스는 서버에 포함되어 있습니다. 서버 이름은 모든 Azure SQL 서버에서 전역적으로 고유해야 하며 서버 이름이 이미 사용 중인 경우 오류가 발생합니다. 또한 이 명령을 완료하는 데 몇 분 정도 걸릴 수 있다는 점도 유의해야 합니다.
 
@@ -223,7 +217,7 @@ SQL 데이터베이스는 서버에 포함되어 있습니다. 서버 이름은 
 
         static void CreateFirewallRule()
         {
-            // Create a firewall rule on the server 
+            // Create a firewall rule on the server
             FirewallRuleCreateOrUpdateParameters firewallParameters = new FirewallRuleCreateOrUpdateParameters()
             {
                 Properties = new FirewallRuleCreateOrUpdateProperties()
@@ -284,7 +278,7 @@ SQL 데이터베이스는 서버에 포함되어 있습니다. 서버 이름은 
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
-    
+
     namespace SqlDbConsoleApp
     {
     class Program
@@ -295,13 +289,13 @@ SQL 데이터베이스는 서버에 포함되어 있습니다. 서버 이름은 
         static string redirectUri = "<Azure App redirectURI>";
         static string domainName = "<domain>";
 
-        // You create these values 
+        // You create these values
         static string resourceGroupName = "<your resource group name>";
         static string location = "<Azure data center location>";
 
         static string serverName = "<your server name>";
         static string administratorLogin = "<your server admin>";
-        
+
         // store your password securely!
         static string administratorPassword = "<your server admin password>";
         static string serverVersion = "12.0";
@@ -340,7 +334,7 @@ SQL 데이터베이스는 서버에 포함되어 있습니다. 서버 이름은 
             Console.WriteLine("Creating database...");
 
             DatabaseCreateOrUpdateResponse dbResponse = CreateDatabase();
-            Console.WriteLine("Status: " + dbResponse.Status.ToString() 
+            Console.WriteLine("Status: " + dbResponse.Status.ToString()
                 + " Code: " + dbResponse.StatusCode.ToString());
 
             Console.WriteLine("Press enter to exit...");
@@ -351,7 +345,7 @@ SQL 데이터베이스는 서버에 포함되어 있습니다. 서버 이름은 
         {
             creds = new Microsoft.Rest.TokenCredentials(token.AccessToken);
 
-            // Create a resource management client 
+            // Create a resource management client
             ResourceManagementClient resourceClient = new ResourceManagementClient(creds);
 
             // Resource group parameters
@@ -386,7 +380,7 @@ SQL 데이터베이스는 서버에 포함되어 있습니다. 서버 이름은 
 
         static void CreateFirewallRule()
         {
-            // Create a firewall rule on the server 
+            // Create a firewall rule on the server
             FirewallRuleCreateOrUpdateParameters firewallParameters = new FirewallRuleCreateOrUpdateParameters()
             {
                 Properties = new FirewallRuleCreateOrUpdateProperties()
@@ -463,4 +457,4 @@ SQL 데이터베이스는 서버에 포함되어 있습니다. 서버 이름은 
 [8]: ./media/sql-database-get-started-csharp/add-application2.png
 [9]: ./media/sql-database-get-started-csharp/clientid.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

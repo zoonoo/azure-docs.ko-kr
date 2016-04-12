@@ -1,6 +1,6 @@
 새 할 일 항목이 삽입되면 SAS를 생성하는 새 삽입 스크립트가 등록됩니다.
 
-0. 저장소 계정을 만들지 않았다면 [저장소 계정을 만드는 방법](../storage/storage-create-storage-account.md)을 참조하세요.
+0. 저장소 계정을 만들지 않았다면 [저장소 계정을 만드는 방법](../articles/storage/storage-create-storage-account.md)을 참조하세요.
 
 1. [Azure 클래식 포털](https://manage.windowsazure.com/)에서 **저장소**를 클릭하고 저장소 계정을 클릭한 후 **키 관리**를 클릭합니다.
 
@@ -78,7 +78,7 @@
 
    	이 작업을 수행하면 TodoItem 테이블에서 삽입할 때 호출되는 함수가 새 스크립트로 대체됩니다. 새 스크립트는 삽입을 위해 5분 동안 유효한 새 SAS를 생성하고, 생성된 SAS 값을 반환된 값의 `sasQueryString` 속성에 할당합니다. `imageUri` 속성은 클라이언트 UI에서 바인딩할 때 이미지를 표시하도록 새 Blob의 리소스 경로로도 설정됩니다.
 
-	>[AZURE.NOTE]이 코드는 각 BLOB의 SAS를 생성합니다. 동일한 SAS를 사용하여 컨테이너에 여러 Blob을 업로드해야 하는 경우 다음과 유사하게 빈 Blob 리소스 이름을 사용하여 [generateSharedAccessSignature 메서드](http://go.microsoft.com/fwlink/?LinkId=390455)</a>를 호출할 수 있습니다.
+	>[AZURE.NOTE] 이 코드는 각 BLOB의 SAS를 생성합니다. 동일한 SAS를 사용하여 컨테이너에 여러 Blob을 업로드해야 하는 경우 다음과 유사하게 빈 Blob 리소스 이름을 사용하여 [generateSharedAccessSignature 메서드](http://go.microsoft.com/fwlink/?LinkId=390455)</a>를 호출할 수 있습니다.
 	>                 
 	>     blobService.generateSharedAccessSignature(containerName, '', sharedAccessPolicy);
 
@@ -91,4 +91,4 @@
 <!-- URLs. -->
 [앱 설정]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

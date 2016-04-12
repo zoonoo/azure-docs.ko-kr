@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/29/2016"
+   ms.date="03/22/2016"
    ms.author="larryfr"/>
 
 
@@ -80,29 +80,92 @@ Windows 기반 클러스터에는 v1(클래식) 가상 네트워크가 필요하
 
 ###보안 가상 네트워크
 
-HDInsight는 인터넷으로/인터넷에서 액세스를 명시적으로 제한하는 Azure 가상 네트워크에서 지원되지 않습니다. 예를 들어 네트워크 보안 그룹 또는 Express 경로를 사용하여 가상 네트워크의 리소스에 대한 인터넷 트래픽을 차단합니다. HDInsight 서비스는 관리 서비스로, 실행하는 동안 Azure에서 클러스터의 상태를 모니터링하고 클러스터 리소스의 장애 조치(failover) 및 다른 자동화된 관리 작업을 시작할 수 있도록 프로비전 중에 인터넷에 액세스할 수 있어야 합니다.
+HDInsight는 인터넷으로/인터넷에서 액세스를 명시적으로 제한하는 Azure 가상 네트워크에서 지원되지 않습니다. 예를 들어 네트워크 보안 그룹 또는 Express 경로를 사용하여 가상 네트워크의 리소스에 대한 인터넷 트래픽을 차단합니다.
 
-인터넷 트래픽을 차단하는 가상 네트워크에서 HDInsight를 사용하려는 경우 다음 단계를 사용합니다.
+HDInsight 서비스는 관리 서비스로, 실행하는 동안 Azure에서 클러스터의 상태를 모니터링하고 클러스터 리소스의 장애 조치(failover) 및 다른 자동화된 관리 작업을 시작할 수 있도록 프로비전 중에 인터넷에 액세스할 수 있어야 합니다. HDInsight를 설치하려는 서브넷에 대해 다음 IP 주소를 사용한 인바운드 액세스를 허용해야 합니다.
 
-1. 가상 네트워크 내에서 새 서브넷을 만듭니다. 기본적으로 새 서브넷은 인터넷과 통신할 수 있게 됩니다. 따라서 HDInsight를 이 서브넷에 설치할 수 있습니다. 새 서브넷은 보안된 서브넷과 동일한 가상 네트워크에 존재하므로 여기에 설치된 리소스와도 통신할 수 있습니다.
+* 168\.61.49.99
+* 23\.99.5.239
+* 168\.61.48.131
+* 138\.91.141.162
 
-2. HDInsight 클러스터를 만듭니다. 클러스터에 대한 가상 네트워크 설정을 구성하는 경우 1단계에서 만든 서브넷을 선택합니다.
+이 주소에서의 인바운드 액세스를 허용하면 보안된 가상 네트워크에 HDInsight를 정상적으로 설치할 수 있습니다.
 
-> [AZURE.NOTE] 위의 단계에서는 _가상 네트워크 IP 주소 범위 내에 있는_ IP 주소로 통신이 제한되지 않았다고 가정합니다. 제한된 경우 새 서브넷과 통신을 허용하도록 이러한 제한을 수정해야 할 수 있습니다.
+다음은 필요한 주소를 허용하고 가상 네트워크 내의 서브넷에 보안 그룹을 적용하는 새 네트워크 보안 그룹을 만드는 예제 스크립트입니다. 이러한 단계에서는 HDInsight에 설치하려는 가상 네트워크 및 서브넷을 이미 만들었다고 가정합니다.
 
-HDInsight를 설치할 서브넷에 제한을 적용했는지 또는 서브넷에서 제한을 제거할지 확실하지 않은 경우 다음 단계를 사용합니다.
+> [AZURE.NOTE] 이 스크립트를 실행하기 전에 Azure PowerShell가 설치및 구성되어 있어야 합니다. 자세한 내용은 [Azure PowerShell 설치 및 구성](../powershell-install-configure.md)을 참조하세요.
 
-1. [Azure 포털](https://portal.azure.com)을 엽니다.
+    $vnetName = "Replace with your virtual network name"
+    $resourceGroupName = "Replace with the resource group the virtual network is in"
+    $subnetName = "Replace with the name of the subnet that HDInsight will be installed into"
+    # Get the Virtual Network object
+    $vnet = Get-AzureRmVirtualNetwork `
+        -Name $vnetName `
+        -ResourceGroupName $resourceGroupName
+    # Get the region the Virtual network is in.
+    $location = $vnet.Location
+    # Get the subnet object
+    $subnet = $vnet.Subnets | Where-Object Name -eq $subnetName
+    # Create a new Network Security Group.
+    # And add exemptions for the HDInsight health and management services.
+    $nsg = New-AzureRmNetworkSecurityGroup `
+        -Name "hdisecure" `
+        -ResourceGroupName $resourceGroupName `
+        -Location $location `
+        | Add-AzureRmNetworkSecurityRuleConfig `
+            -name "hdirule1" `
+            -Description "HDI health and management address 16.61.49.99" `
+            -Protocol "*" `
+            -SourcePortRange "*" `
+            -DestinationPortRange "*" `
+            -SourceAddressPrefix "168.61.49.99" `
+            -DestinationAddressPrefix "VirtualNetwork" `
+            -Access Allow `
+            -Priority 300 `
+            -Direction Inbound `
+        | Add-AzureRmNetworkSecurityRuleConfig `
+            -Name "hdirule2" `
+            -Description "HDI health and management 23.99.5.239" `
+            -Protocol "*" `
+            -SourcePortRange "*" `
+            -DestinationPortRange "*" `
+            -SourceAddressPrefix "23.99.5.239" `
+            -DestinationAddressPrefix "VirtualNetwork" `
+            -Access Allow `
+            -Priority 301 `
+            -Direction Inbound `
+        | Add-AzureRmNetworkSecurityRuleConfig `
+            -Name "hdirule3" `
+            -Description "HDI health and management 168.61.48.131" `
+            -Protocol "*" `
+            -SourcePortRange "*" `
+            -DestinationPortRange "*" `
+            -SourceAddressPrefix "168.61.48.131" `
+            -DestinationAddressPrefix "VirtualNetwork" `
+            -Access Allow `
+            -Priority 302 `
+            -Direction Inbound `
+        | Add-AzureRmNetworkSecurityRuleConfig `
+            -Name "hdirule4" `
+            -Description "HDI health and management 138.91.141.162" `
+            -Protocol "*" `
+            -SourcePortRange "*" `
+            -DestinationPortRange "*" `
+            -SourceAddressPrefix "138.91.141.162" `
+            -DestinationAddressPrefix "VirtualNetwork" `
+            -Access Allow `
+            -Priority 303 `
+            -Direction Inbound
+    # Set the changes to the security group
+    Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
+    # Apply the NSG to the subnet
+    Set-AzureRmVirtualNetworkSubnetConfig `
+        -VirtualNetwork $vnet `
+        -Name $subnetName `
+        -AddressPrefix $subnet.AddressPrefix `
+        -NetworkSecurityGroupId $nsg
 
-2. 가상 네트워크 선택
-
-3. __속성__을 선택합니다.
-
-4. __서브넷__을 선택한 다음 특정 서브넷을 선택합니다. 이 서브넷용 블레이드에서 제한이 적용되지 않은 경우 __네트워크 보안 그룹__ 및 __경로 테이블__ 항목이 값 __없음__으로 설정됩니다.
-
-    제한이 적용된 경우 __네트워크 보안 그룹__ 또는 __경로 테이블__ 항목을 선택한 다음 __없음__을 선택하여 제한을 제거할 수 있습니다. 끝으로 서브넷 블레이드에서 __저장__을 선택하여 변경 내용을 저장합니다.
-    
-    ![서브넷 블레이드 및 네트워크 보안 그룹 선택의 이미지](./media/hdinsight-extend-hadoop-virtual-network/subnetnsg.png)
+> [AZURE.IMPORTANT] 위 스크립트를 사용하면 Azure 클라우드의 HDInsight 상태 및 관리 서비스에 대한 액세스만 열립니다. 이를 통해 서브넷에 HDInsight 클러스터를 설치할 수 있지만 가상 네트워크 외부에서의 HDInsight 클러스터 액세스는 기본적으로 차단됩니다. 가상 네트워크 외부에서 액세스할 수 있도록 하려는 경우 네트워크 보안 그룹 규칙을 더 추가해야 합니다.
 
 네트워크 보안 그룹에 대한 자세한 내용은 [네트워크 보안 그룹 개요](../virtual-network/virtual-networks-nsg.md)를 참조하세요. Azure 가상 네트워크에서 라우팅 제어에 대한 자세한 내용은 [사용자 정의 경로 및 IP 전달](../virtual-network/virtual-networks-udr-overview.md)을 참조하세요.
 
@@ -212,4 +275,4 @@ HDInsight에서 서비스에 액세스하는 문제가 발생하는 경우 네�
 
 Azure 가상 네트워크에 대한 자세한 내용은 [Azure 가상 네트워크 개요](../virtual-network/virtual-networks-overview.md)(영문)를 참조하세요.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

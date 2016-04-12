@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="03/04/2016"
 	ms.author="jgao"/>
 
 #HDInsight의 Hive를 사용하여 비행 지연 데이터 분석
@@ -247,11 +247,11 @@ Hadoop MapReduce에서는 작업을 일괄 처리 방식으로 실행합니다. 
 2. 페이지에서 다음 값을 선택합니다.
 
 	<table border="1">
-<tr><th>이름</th><th>값</th></tr>
-<tr><td>Filter Year</td><td>2013 </td></tr>
-<tr><td>Filter Period</td><td>January</td></tr>
-<tr><td>필드</td><td>*Year*, *FlightDate*, *UniqueCarrier*, *Carrier*, *FlightNum*, *OriginAirportID*, *Origin*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*, *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*, *LateAircraftDelay*(다른 모든 필드는 선택하지 않음)</td></tr>
-</table>
+	<tr><th>이름</th><th>값</th></tr>
+	<tr><td>Filter Year</td><td>2013 </td></tr>
+	<tr><td>Filter Period</td><td>January</td></tr>
+	<tr><td>필드</td><td>*Year*, *FlightDate*, *UniqueCarrier*, *Carrier*, *FlightNum*, *OriginAirportID*, *Origin*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*, *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*, *LateAircraftDelay*(다른 모든 필드는 선택하지 않음)</td></tr>
+	</table>
 
 3. **다운로드**를 클릭합니다.
 4. 압축 파일을 **C:\\Tutorials\\FlightDelays\\2013Data** 폴더에 풉니다. 각 파일은 CSV 파일이며 크기가 60GB 정도입니다.
@@ -263,10 +263,10 @@ Hadoop MapReduce에서는 작업을 일괄 처리 방식으로 실행합니다. 
 1. 매개 변수를 준비합니다.
 
 	<table border="1">
-<tr><th>변수 이름</th><th>참고 사항</th></tr>
-<tr><td>$storageAccountName</td><td>데이터를 업로드할 Azure 저장소 계정입니다.</td></tr>
-<tr><td>$blobContainerName</td><td>데이터를 업로드할 Blob 컨테이너입니다.</td></tr>
-</table>
+	<tr><th>변수 이름</th><th>참고 사항</th></tr>
+	<tr><td>$storageAccountName</td><td>데이터를 업로드할 Azure 저장소 계정입니다.</td></tr>
+	<tr><td>$blobContainerName</td><td>데이터를 업로드할 Blob 컨테이너입니다.</td></tr>
+	</table>
 2. Azure PowerShell ISE를 엽니다.
 3. 다음 스크립트를 스크립트 창에 붙여 넣습니다.
 
@@ -372,10 +372,10 @@ HiveQL 명령의 전체 목록을 보려면 [Hive 데이터 정의 언어][hadoo
 1. 매개 변수를 준비합니다.
 
 	<table border="1">
-<tr><th>변수 이름</th><th>참고 사항</th></tr>
-<tr><td>$storageAccountName</td><td>HiveQL 스크립트를 업로드할 Azure 저장소 계정입니다.</td></tr>
-<tr><td>$blobContainerName</td><td>HiveQL 스크립트를 업로드할 Blob 컨테이너입니다.</td></tr>
-</table>
+	<tr><th>변수 이름</th><th>참고 사항</th></tr>
+	<tr><td>$storageAccountName</td><td>HiveQL 스크립트를 업로드할 Azure 저장소 계정입니다.</td></tr>
+	<tr><td>$blobContainerName</td><td>HiveQL 스크립트를 업로드할 Blob 컨테이너입니다.</td></tr>
+	</table>
 2. Azure PowerShell ISE를 엽니다.
 
 3. 다음 스크립트를 복사하여 스크립트 창에 붙여 넣습니다.
@@ -559,13 +559,13 @@ HiveQL 명령의 전체 목록을 보려면 [Hive 데이터 정의 언어][hadoo
 1. 매개 변수를 준비합니다.
 
 	<table border="1">
-<tr><th>변수 이름</th><th>참고 사항</th></tr>
-<tr><td>$sqlDatabaseServerName</td><td>Azure SQL 데이터베이스 서버의 이름입니다. 새 서버를 만들려면 아무 내용도 입력하지 않습니다.</td></tr>
-<tr><td>$sqlDatabaseUsername</td><td>Azure SQL 데이터베이스 서버의 로그인 이름입니다. $sqlDatabaseServerName이 기본 서버이면 로그인 및 로그인 암호가 서버에서 인증하는 데 사용됩니다. 새 서버를 만드는 데도 사용됩니다.</td></tr>
-<tr><td>$sqlDatabasePassword</td><td>Azure SQL 데이터베이스 서버의 로그인 암호입니다.</td></tr>
-<tr><td>$sqlDatabaseLocation</td><td>이 값은 새 Azure 데이터베이스 서버를 만드는 경우에만 사용됩니다.</td></tr>
-<tr><td>$sqlDatabaseName</td><td>Sqoop 작업의 AvgDelays 테이블을 만드는 데 사용되는 SQL 데이터베이스입니다. 이 매개 변수를 비워 두면 HDISqoop라는 데이터베이스가 만들어집니다. Sqoop 작업 출력의 테이블 이름은 AvgDelays입니다. </td></tr>
-</table>
+	<tr><th>변수 이름</th><th>참고 사항</th></tr>
+	<tr><td>$sqlDatabaseServerName</td><td>Azure SQL 데이터베이스 서버의 이름입니다. 새 서버를 만들려면 아무 내용도 입력하지 않습니다.</td></tr>
+	<tr><td>$sqlDatabaseUsername</td><td>Azure SQL 데이터베이스 서버의 로그인 이름입니다. $sqlDatabaseServerName이 기본 서버이면 로그인 및 로그인 암호가 서버에서 인증하는 데 사용됩니다. 새 서버를 만드는 데도 사용됩니다.</td></tr>
+	<tr><td>$sqlDatabasePassword</td><td>Azure SQL 데이터베이스 서버의 로그인 암호입니다.</td></tr>
+	<tr><td>$sqlDatabaseLocation</td><td>이 값은 새 Azure 데이터베이스 서버를 만드는 경우에만 사용됩니다.</td></tr>
+	<tr><td>$sqlDatabaseName</td><td>Sqoop 작업의 AvgDelays 테이블을 만드는 데 사용되는 SQL 데이터베이스입니다. 이 매개 변수를 비워 두면 HDISqoop라는 데이터베이스가 만들어집니다. Sqoop 작업 출력의 테이블 이름은 AvgDelays입니다. </td></tr>
+	</table>
 2. Azure PowerShell ISE를 엽니다.
 3. 다음 스크립트를 복사하여 스크립트 창에 붙여 넣습니다.
 
@@ -710,7 +710,6 @@ HiveQL 명령의 전체 목록을 보려면 [Hive 데이터 정의 언어][hadoo
 * [HDInsight에서 Sqoop 사용][hdinsight-use-sqoop]
 * [HDInsight에서 Pig 사용][hdinsight-use-pig]
 * [HDInsight용 Java MapReduce 프로그램 개발][hdinsight-develop-mapreduce]
-* [HDInsight용 C# Hadoop 스트리밍 프로그램 개발][hdinsight-develop-streaming]
 
 
 
@@ -730,7 +729,6 @@ HiveQL 명령의 전체 목록을 보려면 [Hive 데이터 정의 언어][hadoo
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
-[hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 
 [hadoop-hiveql]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL
@@ -742,4 +740,4 @@ HiveQL 명령의 전체 목록을 보려면 [Hive 데이터 정의 언어][hadoo
 [img-hdi-flightdelays-run-hive-job-output]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.RunHiveJob.Output.png
 [img-hdi-flightdelays-flow]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.Flow.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -4,7 +4,7 @@
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/10/2015" 
+	ms.date="03/05/2016" 
 	ms.author="glenga"/>
 
 
@@ -21,6 +21,11 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
+&nbsp;
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> 이 항목에 해당하는 모바일 앱 버전은 [Windows 앱에 푸시 알림 추가](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md)를 참조하세요.
+ 
 이 항목에서는 JavaScript 백 엔드와 함께 Azure 모바일 서비스를 사용하여 범용 Windows 앱에 푸시 알림을 보내는 방법을 보여 줍니다. 이 자습서에서는 범용 Windows 앱 프로젝트에서 Azure 알림 허브를 사용하여 푸시 알림을 사용하도록 설정합니다. 이 작업을 완료하면 TodoList 테이블에 레코드를 삽입할 때마다 모바일 서비스가 JavaScript 백 엔드에서 등록된 모든 Windows 스토어 및 Windows Phone 스토어 앱으로 푸시 알림을 보냅니다. 모바일 서비스를 통해 무료로 만드는 알림 허브는 모바일 서비스와 별도로 관리할 수 있으며, 다른 응용 프로그램과 서비스에서도 사용 가능합니다.
 
 >[AZURE.NOTE]이 항목에서는 Visual Studio 2013 업데이트 3의 도구를 사용하여 모바일 서비스에서 범용 Windows 앱으로의 푸시 알림에 대한 지원을 추가하는 방법을 보여 줍니다. 같은 단계를 사용하여 모바일 서비스에서 Windows 스토어 또는 Windows Phone 스토어 8.1 앱으로의 푸시 알림을 추가할 수 있습니다. Windows Phone 8 또는 Windows Phone Silverlight 8.1 앱으로의 푸시 알림을 추가하려면 [모바일 서비스에서 푸시 알림 시작](mobile-services-javascript-backend-windows-phone-get-started-push.md) 버전을 참조하세요.
@@ -67,13 +72,13 @@
 
 + [인증된 사용자에게 푸시 알림 보내기](mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users.md) <br/>태그를 사용하여 모바일 서비스에서 인증된 사용자에게만 푸시 알림을 보내는 방법에 대해 알아봅니다.
 
-+ [구독자에게 브로드캐스트 알림 보내기](../notification-hubs-windows-store-dotnet-send-breaking-news.md) <br/>관심이 있는 범주에 대해 푸시 알림을 등록하고 받아보는 방법에 대해 알아봅니다.
++ [구독자에게 브로드캐스트 알림 보내기](../notification-hubs/notification-hubs-windows-store-dotnet-send-breaking-news.md) <br/>관심이 있는 범주에 대해 푸시 알림을 등록하고 받아보는 방법에 대해 알아봅니다.
 
-+ [구독자에게 플랫폼을 알 수 없는 알림 보내기](../notification-hubs-aspnet-cross-platform-notify-users.md) <br/>백 엔드에 플랫폼 전용 페이로드를 마련할 필요 없이 템플릿을 사용하여 모바일 서비스에서 푸시 알림을 보내는 방법에 대해 알아봅니다.
++ [구독자에게 플랫폼을 알 수 없는 알림 보내기](../notification-hubs/notification-hubs-aspnet-cross-platform-notify-users.md) <br/>백 엔드에 플랫폼 전용 페이로드를 마련할 필요 없이 템플릿을 사용하여 모바일 서비스에서 푸시 알림을 보내는 방법에 대해 알아봅니다.
 
 다음 항목에서 모바일 서비스 및 알림 허브에 대해 알아보세요.
 
-* [Azure 알림 허브-진단 지침](../notification-hubs-diagnosing.md) <br/>프로그램 푸시 알림 문제를 해결하는 방법에 대해 알아봅니다.
+* [Azure 알림 허브-진단 지침](../notification-hubs/notification-hubs-diagnosing.md) <br/>프로그램 푸시 알림 문제를 해결하는 방법에 대해 알아봅니다.
 
 * [인증 시작] <br/>모바일 서비스를 사용하여 서로 다른 계정 유형의 앱 사용자를 인증하는 방법에 대해 알아봅니다.
 
@@ -100,4 +105,4 @@
 [MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0309_2016-->

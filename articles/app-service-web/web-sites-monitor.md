@@ -201,7 +201,7 @@ Azure PowerShell에서 **Set-AzureWebsite** cmdlet을 사용해서도 진단을 
 
 명령이 실행된 명령 프롬프트, PowerShell, bash 또는 터미널 세션에 로그 정보가 표시됩니다.
 
-> [AZURE.NOTE] **azure** 명령이 설치되지 않은 경우 설치 및 구성 정보에 대해서는 [Azure CLI를 사용하는 방법](../virtual-machines-command-line-tools.md)을 참조하세요.
+> [AZURE.NOTE] **azure** 명령이 설치되지 않은 경우 설치 및 구성 정보에 대해서는 [Azure CLI를 사용하는 방법](../virtual-machines/virtual-machines-command-line-tools.md)을 참조하세요.
 
 ### 로그 파일 읽기 ###
 
@@ -283,10 +283,9 @@ Azure PowerShell에서 **Set-AzureWebsite** cmdlet을 사용해서도 진단을 
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
-* Azure 미리 보기 포털에서 Azure 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
 
 [fzilla]: http://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

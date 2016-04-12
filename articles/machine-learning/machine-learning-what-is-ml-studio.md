@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/03/2016"
+	ms.date="03/09/2016"
 	ms.author="garye"/>
 
 # Azure 기계 학습 스튜디오란?
@@ -56,9 +56,9 @@ Microsoft Azure 기계 학습 스튜디오는 데이터에 대한 예측 분석 
 
 ### 갤러리
 
-**갤러리** 탭을 클릭하면 Cortana Analytics 갤러리로 이동하게 됩니다. 갤러리는 데이터 과학자 및 개발자 커뮤니티가 Cortana Analytics Suite의 구성 요소를 사용하여 만든 솔루션을 공유할 수 있는 곳입니다.
+**갤러리** 탭을 클릭하면 Cortana Intelligence 갤러리로 이동하게 됩니다. 갤러리는 데이터 과학자 및 개발자 커뮤니티가 Cortana Intelligence Suite의 구성 요소를 사용하여 만든 솔루션을 공유할 수 있는 곳입니다.
 
-갤러리에 대한 자세한 내용은 [Cortana Analytics 갤러리의 솔루션 공유 및 검색](machine-learning-gallery-how-to-use-contribute-publish.md)을 참조하세요.
+갤러리에 대한 자세한 내용은 [Cortana Intelligence 갤러리의 솔루션 공유 및 검색](machine-learning-gallery-how-to-use-contribute-publish.md)을 참조하세요.
 
 ## 실험 구성 요소
 
@@ -115,4 +115,4 @@ Microsoft Azure 기계 학습 스튜디오는 데이터에 대한 예측 분석 
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0406_2016-->

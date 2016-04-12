@@ -8,10 +8,13 @@
 	editor=""
 	tags="azure-classic-portal"/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article"
-
-	ms.date="02/26/2016"
-
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/07/2016"
 	ms.author="femila"/>
 
 # Windows 10 환경용 Azure AD에 도메인 가입된 장치 연결
@@ -72,7 +75,7 @@ Azure AD Connect 서버에서 다음 PowerShell 명령을 실행합니다.
     Initialize-ADSyncDomainJoinedComputerSync –AdConnectorAccount [connector account name] -AzureADCredentials $aadAdminCred;
 
 
-cmdlet $aadAdminCred = Get-Credential을 실행하는 경우 Get-Credential 팝업이 표시될 때 입력되는 자격 증명의 사용자 이름에 대한 형식 **user@example.com*을 사용합니다.
+cmdlet $aadAdminCred = Get-Credential을 실행하는 경우 Get-Credential 팝업이 표시될 때 입력되는 자격 증명의 사용자 이름에 대한 형식 *user@example.com* 을 사용합니다.
 
 cmdlet Initialize-ADSyncDomainJoinedComputerSync...를 실행하는 경우 [*커넥터 계정 이름*]을 Active Directory Connector 계정으로 사용하는 도메인 계정으로 바꿉니다.
 
@@ -144,4 +147,4 @@ Active Directory의 그룹 정책을 사용하여 Windows 10 도메인 가입 �
 * [Windows 10 환경용 Azure AD에 도메인 가입된 장치 연결](active-directory-azureadjoin-devices-group-policy.md)
 * [Azure AD 조인 설정](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

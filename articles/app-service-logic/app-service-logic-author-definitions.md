@@ -2,7 +2,7 @@
 	pageTitle="작성자 논리 앱 정의 | Microsoft Azure" 
 	description="논리 앱에 대한 JSON 정의 작성 방법을 알아봅니다." 
 	authors="stepsic-microsoft-com" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="app-service\logic" 
 	documentationCenter=""/>
@@ -13,21 +13,28 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/17/2016"
+	ms.date="03/16/2016"
 	ms.author="stepsic"/>
 	
 # 작성자 논리 앱 정의
-이 항목에서는 간단하고 선언적인 JSON 언어인 [앱 서비스 논리 앱](app-service-logic-what-are-logic-apps.md) 정의를 사용하는 방법을 설명합니다. 아직 [새 논리 앱 만드는 방법](app-service-logic-create-a-logic-app.md)을 확인하지 않았다면 먼저 확인하십시오. [MSDN 정의 언어의 전체 참조 자료](https://msdn.microsoft.com/library/azure/dn948512.aspx)를 읽을 수도 있습니다.
+이 항목에서는 간단하고 선언적인 JSON 언어인 [앱 서비스 논리 앱](app-service-logic-what-are-logic-apps.md) 정의를 사용하는 방법을 설명합니다. 아직 [새 논리 앱 만드는 방법](app-service-logic-create-a-logic-app.md)을 확인하지 않았다면 먼저 확인하십시오. [MSDN 정의 언어의 전체 참조 자료](https://msdn.microsoft.com/library/azure/mt643789.aspx)를 읽을 수도 있습니다.
 
 ## 목록에서 반복되는 여러 단계
 
 일반적인 패턴은 항목 목록을 가져오는 하나의 단계 이후에, 목록에서 각 항목에 대해 하고자 하는 둘 이상의 일련의 작업이 옵니다.
 
-![목록 반복](./media/app-service-logic-author-definitions/repeatoverlists.png)
+![목록 반복](./media/app-service-logic-author-definitions/newrepeatoverlists.png)
 
+![목록 반복](./media/app-service-logic-author-definitions/newrepeatoverlists2.png)
+
+![목록 반복](./media/app-service-logic-author-definitions/newrepeatoverlists3.png)
+
+![목록 반복](./media/app-service-logic-author-definitions/newrepeatoverlists4.png)
+
+ 
 이 예제에는 3개의 작업이 있습니다.
 
-1. 문서 목록을 가져옵니다. 이는 배열을 포함하는 개체를 다시 반환합니다.
+1. 문서 목록을 가져옵니다. 이는 배열을 포함하는 개체를 반환합니다.
 
 2. 각 문서에서 링크 속성으로 이동하여 문서의 실제 위치를 반환하는 작업입니다.
 
@@ -77,7 +84,7 @@
 
 [논리 앱 기능 사용](app-service-logic-use-logic-app-features.md)에서 살펴본 바와 같이, 두 번째 작업의 `forEach:` 속성을 사용하여 첫 번째 목록을 반복합니다. 그러나 세 번째 작업의 경우에는 각 문서에 대해 두 번째 작업이 실행되므로 `@actions('readLinks').outputs` 속성을 선택해야 합니다.
 
-작업 내부에서 [`item()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#item) 함수를 사용할 수 있습니다. 이 예제에서는 `location` 헤더를 가져오고자 하므로 `@item().outputs.headers`를 계속 사용하여 현재 반복 중인 두 번째 작업의 작업 실행 출력을 가져왔습니다.
+작업 내부에서 [`item()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#item) 함수를 사용할 수 있습니다. 이 예제에서는 `location` 헤더를 가져오고자 하므로 `@item().outputs.headers`를 계속 사용하여 현재 반복 중인 두 번째 작업의 작업 실행 출력을 가져왔습니다.
 
 ## 일부 다른 구성에는 목록에서 항목 매핑
 
@@ -134,7 +141,7 @@
 
 이 경우, 먼저 문서 목록을 가져온 후 매개 변수로 정의된 카테고리에 기반하여 두 번째 단계가 맵에서 콘텐츠를 가져 올 URL을 조회합니다.
 
-여기서는 다음 두 항목에 주의해야 합니다. [`intersection()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#intersection) 함수는 카테고리가 정의된 알려진 카테고리 중 하나에 일치하는지 확인하는 데 사용됩니다. 둘째로 일단 카테고리를 가져오면 대괄호를 사용하여 맵의 항목을 끌어올 수 있습니다: `parameters[...]`
+여기서는 다음 두 항목에 주의해야 합니다. [`intersection()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) 함수는 카테고리가 정의된 알려진 카테고리 중 하나에 일치하는지 확인하는 데 사용됩니다. 둘째로 일단 카테고리를 가져오면 대괄호를 사용하여 맵의 항목을 끌어올 수 있습니다: `parameters[...]`
 
 ## 리스트 반복 중의 체인/중첩 논리 앱
 
@@ -199,7 +206,7 @@
 }
 ```
 
-그 후 자식 논리 앱에서 [`triggerBody()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#triggerBody) 함수를 사용하여 자식 워크플로로 전달된 값을 가져오게 됩니다. 그러면 부모 흐름에 반환하고자 하는 데이터로 출력을 채우게 됩니다.
+그 후 자식 논리 앱에서 [`triggerBody()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#triggerBody) 함수를 사용하여 자식 워크플로로 전달된 값을 가져오게 됩니다. 그러면 부모 흐름에 반환하고자 하는 데이터로 출력을 채우게 됩니다.
 
 ```
 {
@@ -236,7 +243,7 @@
 }
 ```
 
-[MSDN의 논리 앱 유형 작업](https://msdn.microsoft.com/library/azure/dn948511.aspx)에 대해 읽을 수 있습니다.
+[MSDN의 논리 앱 유형 작업](https://msdn.microsoft.com/library/azure/mt643939.aspx)에 대해 읽을 수 있습니다.
 
 >[AZURE.NOTE]논리 앱 디자이너는 논리 앱 유형 작업을 지원하지 않으므로 정의를 수동으로 편집해야 합니다.
 
@@ -354,7 +361,7 @@
 
 두 분기에서 데이터를 받는 단일 작업을 사용하여 (실행되었을 수도 있고 실행되지 않았을 수도 있는) 논리의 두 개의 조건부 흐름을 결합할 수 있습니다.
 
-이에 대한 전략은 하나의 항목을 처리하는지 항목의 컬렉션을 처리하는지에 따라 달라집니다. 단일 항목의 이 경우에는 [`coalesce()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#coalesce) 함수를 사용하고자 합니다.
+이에 대한 전략은 하나의 항목을 처리하는지 항목의 컬렉션을 처리하는지에 따라 달라집니다. 단일 항목의 이 경우에는 [`coalesce()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#coalesce) 함수를 사용하고자 합니다.
 
 ```
 {
@@ -410,7 +417,7 @@
 }
 ```
  
-또는 첫 두 분기가 모두 명력 목록에서 작동하는 경우, 예를 들면 [`union()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#union) 함수를 사용하여 두 분기의 데이터를 결합하고자 합니다.
+또는 첫 두 분기가 모두 명력 목록에서 작동하는 경우, 예를 들면 [`union()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#union) 함수를 사용하여 두 분기의 데이터를 결합하고자 합니다.
 
 ```
 {
@@ -514,17 +521,17 @@
 
 안팎을 뒤집어 작업하기:
 
-1. 명령자 이름의 [`length()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#length)을(를) 가져오면 전체 문자 수를 다시 반환합니다.
+1. 명령자 이름의 [`length()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#length)을(를) 가져오면 전체 문자 수를 다시 반환합니다.
 
 2. (더 짧은 문자열을 원하므로) 5 빼기
 
-3. 실제로 [`substring()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#substring)을(를) 가져옵니다. 인덱스 `5`에서 시작하여 문자열의 나머지로 이동합니다.
+3. 실제로 [`substring()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#substring)을(를) 가져옵니다. 인덱스 `5`에서 시작하여 문자열의 나머지로 이동합니다.
 
-4. 이 하위 문자열을 [`base64()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#base64) 문자열로 변환
+4. 이 하위 문자열을 [`base64()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#base64) 문자열로 변환
 
-5. [`replace()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#replace) 모든 `+` 문자를 `-`(으)로
+5. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace) 모든 `+` 문자를 `-`(으)로
 
-6. [`replace()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#replace) 모든 `/` 문자를 `_`(으)로
+6. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace) 모든 `/` 문자를 `_`(으)로
 
 ## 날짜 시간을 사용한 작업
 
@@ -571,13 +578,13 @@
 }
 ```
 
-이 예제에서는 이전 단계의 `startTime`을(를) 추출합니다. 그 후에 현재 시간 및 1초를 뺀 시간을 가져옵니다: [`addseconds(..., -1)`](https://msdn.microsoft.com/library/azure/dn948512.aspx#addseconds)(`minutes` 또는 `hours`와 같은 다른 시간 단위를 사용할 수 있음) 마지막으로 이 두 값을 비교할 수 있습니다. 첫 번째 값이 두 번째보다 작은 경우에는 명령이 첫 번째 위치으면 1초 이상의 시간이 경과되었음을 의미합니다.
+이 예제에서는 이전 단계의 `startTime`을(를) 추출합니다. 그 후에 현재 시간 및 1초를 뺀 시간을 가져옵니다: [`addseconds(..., -1)`](https://msdn.microsoft.com/library/azure/mt643789.aspx#addseconds)(`minutes` 또는 `hours`와 같은 다른 시간 단위를 사용할 수 있음) 마지막으로 이 두 값을 비교할 수 있습니다. 첫 번째 값이 두 번째보다 작은 경우에는 명령이 첫 번째 위치으면 1초 이상의 시간이 경과되었음을 의미합니다.
 
-문자열 포맷터를 사용하여 날짜를 포맷할 수 있음도 기억하십시오. 쿼리 스트링에서는 [`utcnow('r')`](https://msdn.microsoft.com/library/azure/dn948512.aspx#utcnow)을(를) 사용하여 RFC1123을 가져왔습니다. 전체 데이터 포맷은 [MSDN에 설명되어 있습니다](https://msdn.microsoft.com/library/azure/dn948512.aspx#utcnow).
+문자열 포맷터를 사용하여 날짜를 포맷할 수 있음도 기억하십시오. 쿼리 스트링에서는 [`utcnow('r')`](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow)을(를) 사용하여 RFC1123을 가져왔습니다. 전체 데이터 포맷은 [MSDN에 설명되어 있습니다](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow).
 
 ## 런타임에 값을 전달하여 동작을 다양화
 
-논리 앱을 시작하는 데 사용하는 일부 값에 기반하여 실행하고자 하는 다른 동작이 있는 경우를 예로 들어 봅니다. [`triggerOutputs()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#triggerOutputs) 함수를 사용하여 전달받은 중에서 이 값을 얻을 수 있습니다.
+논리 앱을 시작하는 데 사용하는 일부 값에 기반하여 실행하고자 하는 다른 동작이 있는 경우를 예로 들어 봅니다. [`triggerOutputs()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#triggerOutputs) 함수를 사용하여 전달받은 중에서 이 값을 얻을 수 있습니다.
 
 ```
 {
@@ -611,13 +618,7 @@
 }
 ```
 
-실제로 이 작업을 하기 위해서는 실행을 시작했을 때 원하는 속성을 전달해야 합니다(위의 예제 `uriToGet` 및 `doMoreLogic`에서). [기본 인증을 사용](https://msdn.microsoft.com/library/azure/dn948513.aspx#basicAuth)할 수 있는 호출은 다음과 같습니다.
-
-```
-POST https://<<Logic app endpoint from the Essentials>>/run?api-version=2015-02-01-preview
-Authorization: Basic <<Based 64 encoded username (default) : password (from the Settings blade)>>
-Content-type: application/json
-```
+실제로 이 작업을 하기 위해서는 실행을 시작했을 때 원하는 속성을 전달해야 합니다(위의 예제 `uriToGet` 및 `doMoreLogic`에서).
 
 다음 페이로드를 사용합니다. 이제 사용할 값의 논리 앱이 제공되었음을 기억하십시오.
 
@@ -728,6 +729,6 @@ Content-type: application/json
 }
 ```
 
-논리 앱 만들기 및 관리에 대한 가능한 모든 옵션은 [REST API 설명서](https://msdn.microsoft.com/library/azure/dn948513.aspx)를 참조하십시오.
+논리 앱 만들기 및 관리에 대한 가능한 모든 옵션은 [REST API 설명서](https://msdn.microsoft.com/library/azure/mt643787.aspx)를 참조하십시오.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

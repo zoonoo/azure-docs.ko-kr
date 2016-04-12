@@ -103,6 +103,8 @@ IoT Hub에 사용자 지정 ID 레지스트리/인증 구성표를 구현하는 
 
 좀 더 복잡한 구현에는 연결 또는 통신을 시도했지만 실패한 장치를 식별하기 위해 [작업 모니터링][lnk-devguide-opmon] 정보를 포함할 수 있습니다. 하트비트 패턴을 구현하는 경우 [IoT Hub 할당량 및 제한][]을 확인해야 합니다.
 
+> [AZURE.NOTE] IoT 솔루션이 장치 연결 상태만으로 클라우드-장치 메시지를 보낼지 여부를 결정해야 하고 메시지는 큰 장치 집합에 브로드캐스트하지 않으면 짧은 만료 시간을 사용하는 것이 훨씬 간단한 패턴입니다. 이렇게 하면 훨씬 더 효율적으로 유지하면서 하트비트 패턴을 사용하여 장치 연결 상태 레지스트리를 유지 관리하는 것과 동일한 결과를 얻을 수 있습니다. 또한 메시지 승인을 요청하여 장치가 메시지를 받을 수 있거나 온라인 상태가 아니거나 실패한 IoT Hub의 알림을 받는 것도 가능합니다. C2D 메시지에 대한 자세한 내용은 [IoT Hub 개발자 가이드][lnk-devguide-messaging]를 참조하세요.
+
 ## 다음 단계
 
 Azure IoT Hub에 대한 자세한 내용을 보려면 다음 링크를 따라가세요.
@@ -127,8 +129,9 @@ Azure IoT Hub에 대한 자세한 내용을 보려면 다음 링크를 따라가
 [lnk-throttles-quotas]: ../azure-subscription-service-limits.md/#iot-hub-limits
 [lnk-devguide-antispoofing]: iot-hub-devguide.md#antispoofing
 [lnk-devguide-protocol]: iot-hub-devguide.md#amqpvshttp
+[lnk-devguide-messaging]: iot-hub-devguide.md#messaging
 [lnk-dotnet-sas]: https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx
 [lnk-java-sas]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/com/microsoft/azure/iot/service/auth/IotHubServiceSasToken.html
 [IoT Hub 할당량 및 제한]: iot-hub-devguide.md#throttling
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

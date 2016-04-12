@@ -14,7 +14,7 @@
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="11/29/2015"
 	ms.author="nitinme"/>
 
@@ -81,8 +81,6 @@ Microsoft HDInsight Emulator는 Microsoft 웹 플랫폼 설치 관리자를 통�
 ![Hadoop 에코 시스템 서비스는 에뮬레이터 창에 나열됩니다.][image-hdi-emulator-services]
 
 HDInsight Emulator와 관련된 서비스는 기본적으로 시작되지 않습니다. 서비스를 시작하려면 Hadoop 명령줄을 사용하여 **start\_local\_hdp\_services.cmd** under C:\\hdp(기본 위치)를 실행합니다. 컴퓨터를 다시 시작한 후 서비스를 자동으로 시작하려면**set-onebox-autostart.cmd**를 실행합니다.
-
-HDInsight Emulator 설치 및 실행에 대해 알려진 문제는 [HDInsight Emulator 릴리스 정보](hdinsight-emulator-release-notes.md)를 참조하세요. 설치 로그는 **C:\\HadoopFeaturePackSetup\\HadoopFeaturePackSetupTools\\gettingStarted.winpkg.install.log**에 있습니다.
 
 ##<a name="vstools"></a>에뮬레이터를 사용하여 Visual Studio용 HDInsight 도구 시작
 
@@ -509,7 +507,6 @@ Emulator를 설치한 컴퓨터에서 제어판을 열고 **프로그램**에서
 - [Azure HDInsight 사용 시작](hdinsight-hadoop-linux-tutorial-get-started.md)
 - [HDInsight용 Java MapReduce 프로그램 개발](hdinsight-develop-deploy-java-mapreduce.md)
 - [HDInsight용 C# Hadoop 스트리밍 MapReduce 프로그램 개발](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
-- [HDInsight Emulator 릴리스 정보](hdinsight-emulator-release-notes.md)
 - [HDInsight 토론을 위한 MSDN 포럼](http://social.msdn.microsoft.com/Forums/hdinsight)
 
 
@@ -522,7 +519,6 @@ Emulator를 설치한 컴퓨터에서 제어판을 열고 **프로그램**에서
 [hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 
 [hdinsight-emulator-install]: http://www.microsoft.com/web/gallery/install.aspx?appid=HDINSIGHT
-[hdinsight-emulator-release-notes]: hdinsight-emulator-release-notes.md
 
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
@@ -538,4 +534,4 @@ Emulator를 설치한 컴퓨터에서 제어판을 열고 **프로그램**에서
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

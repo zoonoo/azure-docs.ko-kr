@@ -4,7 +4,7 @@
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache 크기를 조정하는 방법
 
->[AZURE.NOTE]Azure Redis Cache 크기 조정 기능은 현재 미리 보기 상태입니다. 미리 보기 기간 동안에는 프리미엄 계층 캐시에서 크기를 조정할 수 없지만 프리미엄 캐시 내에서 가격 책정 계층을 변경하고 클러스터링이 가능한 프리미엄 캐시에서 [클러스터 크기를 변경](cache-how-to-premium-clustering.md#cluster-size)할 수 있습니다.
+>[AZURE.NOTE] Azure Redis Cache 크기 조정 기능은 현재 미리 보기 상태입니다. 미리 보기 기간 동안에는 프리미엄 계층 캐시에서 크기를 조정할 수 없지만 프리미엄 캐시 내에서 가격 책정 계층을 변경하고 클러스터링이 가능한 프리미엄 캐시에서 [클러스터 크기를 변경](cache-how-to-premium-clustering.md#cluster-size)할 수 있습니다.
 
 Azure Redis Cache에는 캐시 크기 및 기능을 유연하게 선택할 수 있는 다양한 캐시 제품이 있습니다. 캐시를 만든 후 응용 프로그램 요구 사항이 변경되면 [Azure 포털](https://portal.azure.com)의 **가격 책정 계층 변경** 블레이드를 사용하여 캐시 크기를 조정할 수 있습니다.
 
@@ -46,7 +46,7 @@ Azure Redis Cache의 [모니터링](cache-how-to-monitor.md) 기능을 사용하
 
 ![가격 책정 계층][redis-cache-pricing-tier-blade]
 
->[AZURE.NOTE]다른 가격 책정 계층으로 크기를 조정할 수 있지만 다음과 같은 제한 사항이 있습니다.
+>[AZURE.NOTE] 다른 가격 책정 계층으로 크기를 조정할 수 있지만 다음과 같은 제한 사항이 있습니다.
 >
 >-	**프리미엄** 캐시로 또는 캐시로부터 크기를 조정할 수 없습니다.
 >-	**표준** 캐시에서 **기본** 캐시로 크기를 조정할 수 없습니다.
@@ -178,4 +178,4 @@ Azure 포털에서 진행 중인 크기 조정 작업을 볼 수 있습니다. �
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0309_2016-->

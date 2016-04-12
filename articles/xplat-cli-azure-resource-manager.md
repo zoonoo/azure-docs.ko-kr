@@ -11,7 +11,7 @@
 <tags
 	ms.service="azure-resource-manager"
 	ms.workload="multiple"
-	ms.tgt_pltfrm="command-line-interface"
+	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="01/19/2016"
@@ -33,11 +33,11 @@
 
 Azure 리소스 관리자를 통해 _리소스_(가상 컴퓨터, 데이터베이스 서버, 데이터베이스 또는 웹 사이트와 같은 사용자 관리 엔터티) 그룹을 만들어서 단일 논리 단위 또는 _리소스 그룹_으로 관리할 수 있습니다.
 
-Azure 리소스 관리자의 장점 중 하나로 JSON *템플릿*에서 배포 가능한 리소스 그룹의 구조와 관계를 설명하여 _선언적_ 방식으로 Azure 리소스를 만들 수 있습니다. 템플릿에서는 명령을 실행할 때 인라인으로 채워지거나 별도의 JSON azuredeploy-parameters.json 파일에 저장될 수 있는 매개 변수를 식별합니다. 이를 통해 간단히 다른 매개 변수를 지정하여 동일한 템플릿을 사용하는 새 리소스를 쉽게 만들 수 있습니다. 예를 들어 웹 사이트를 만드는 템플릿에는 사이트 이름 및 웹 사이트가 위치할 지역에 대한 매개 변수와 기타 일반 설정이 있습니다.
+Azure 리소스 관리자의 장점 중 하나는 JSON *템플릿*에서 배포 가능한 리소스 그룹의 구조와 관계를 설명하여 _선언적_ 방식으로 Azure 리소스를 만들 수 있다는 것입니다. 템플릿에서는 명령을 실행할 때 인라인으로 채워지거나 별도의 JSON azuredeploy-parameters.json 파일에 저장될 수 있는 매개 변수를 식별합니다. 이를 통해 간단히 다른 매개 변수를 지정하여 동일한 템플릿을 사용하는 새 리소스를 쉽게 만들 수 있습니다. 예를 들어 웹 사이트를 만드는 템플릿에는 사이트 이름 및 웹 사이트가 위치할 지역에 대한 매개 변수와 기타 일반 설정이 있습니다.
 
 그룹을 수정 또는 생성하는 데 템플릿을 사용한 경우 _배포_가 만들어져서 그룹에 적용됩니다. Azure 리소스 관리자에 대한 자세한 내용은 [Azure 리소스 관리자 개요](resource-group-overview.md)를 참조하세요.
 
-배포를 만든 후에는 클래식(서비스 관리) 배포 모델과 마찬가지로 명령줄에서 명령을 통해 개별 리소스를 관리할 수 있습니다. 예를 들어 Azure 리소스 관리자 CLI 명령을 사용하여 [Azure 리소스 관리자 가상 컴퓨터](virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md) 같은 리소스를 시작, 중지 또는 삭제할 수 있습니다.
+배포를 만든 후에는 클래식(서비스 관리) 배포 모델과 마찬가지로 명령줄에서 명령을 통해 개별 리소스를 관리할 수 있습니다. 예를 들어 Azure 리소스 관리자 CLI 명령을 사용하여 [Azure 리소스 관리자 가상 컴퓨터](virtual-machines/virtual-machines-linux-cli-deploy-templates.md) 같은 리소스를 시작, 중지 또는 삭제할 수 있습니다.
 
 ## 인증
 
@@ -84,7 +84,7 @@ Azure 리소스 관리자 모드는 기본적으로 사용되지 않으므로 �
 * 암호 = `adminPassword`
 * VM의 도메인 이름 = `dnsLabelPrefix`
 
->[AZURE.TIP] 다음 단계는 Azure CLI를 통해 VM 템플릿을 사용하는 여러 방법 중 하나입니다. 다른 예는 [Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 가상 컴퓨터 배포 및 관리](virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md)를 참조하세요.
+>[AZURE.TIP] 다음 단계는 Azure CLI를 통해 VM 템플릿을 사용하는 여러 방법 중 하나입니다. 다른 예는 [Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 가상 컴퓨터 배포 및 관리](virtual-machines/virtual-machines-linux-cli-deploy-templates.md)를 참조하세요.
 
 1. GitHub에서 로컬 컴퓨터의 작업 폴더로 azuredeploy.json 및 azuredeploy.parameters.json 파일을 다운로드하려면 "Learn more with GitHub" 링크를 따릅니다. (GitHub에서 각 파일의 _원시_ 형식을 선택해야 합니다.)
 
@@ -165,7 +165,7 @@ Azure 리소스 관리자 모드는 기본적으로 사용되지 않으므로 �
 
 또한 컴퓨터에 템플릿을 다운로드하는 대신 [GitHub](https://github.com/Azure/azure-quickstart-templates)에서 바로 템플릿을 사용할 수도 있습니다. 이렇게 하려면 **--template-url** 옵션을 사용하여 명령에서 템플릿의 azuredeploy.json 파일에 URL을 전달하세요. URL을 가져오려면 GitHub에서 azuredeploy.json을 _원시_ 모드로 열고 브라우저의 주소 표시줄에 표시되는 URL을 복사합니다. 그런 후 다음과 비슷한 명령으로 이 URL을 직접 사용하여 배포를 만들 수 있습니다.
 
-	azure group deployment create "testDeploy" testResourceGroup --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json
+	azure group deployment create "testRG" testDeploy --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json
 필요한 템플릿 매개 변수를 입력하라는 메시지가 표시 됩니다.
 
 > [AZURE.NOTE] JSON 템플릿을 _원시_ 모드로 여는 것이 중요합니다. 브라우저의 주소 표시줄에 표시되는 URL이 일반 모드에서 표시되는 URL과 다릅니다. GitHub에서 파일을 볼 때 파일을 _원시_ 모드로 열려면 오른쪽 위 모서리에 있는 **원시**를 클릭합니다.
@@ -215,4 +215,4 @@ Azure 리소스 관리자 모드는 기본적으로 사용되지 않으므로 �
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

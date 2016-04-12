@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/04/2016" 
+	ms.date="03/18/2016" 
 	ms.author="jeffstok"/>
 
 # 스트림 분석에서 쿼리를 작성하는 방법
@@ -27,13 +27,13 @@ Azure 스트림 분석의 스트림 처리 논리에 대한 쿼리 작성은 작
 
     ![쿼리 선택](./media/stream-analytics-write-queries/1-stream-analytics-write-queries.png)
 
-    Azure Preview 포털에서 **쿼리**를 클릭합니다.
+    Azure 포털에서 **쿼리**를 클릭합니다.
 
     ![쿼리 선택 미리 보기](./media/stream-analytics-write-queries/query-preview-portal.png)
 
 2.	새 작업에는 시작하는 데 도움이 되는 쿼리 템플릿이 있습니다. 쿼리 템플릿은 입력 이벤트의 모든 필드를 출력에 프로젝션하는 "통과" 쿼리를 수행합니다.
 
-    - 작업에 대해 입력 및 출력을 하나 이상 정의한 경우 자리 표시자 "[YourOutputAlias]" 및 "[YourInputAlias]" 필드를 먼저 사용하려는 입력 및 출력의 별칭으로 바꿀 수 있습니다. 또한 작업에 입력 및 출력을 정의하지 않고 Azure 포털에서 쿼리를 작성 및 테스트할 수도 있습니다.
+    - 작업에 대해 입력 및 출력을 하나 이상 정의한 경우 자리 표시자 "[YourOutputAlias]" 및 "[YourInputAlias]" 필드를 먼저 사용하려는 입력 및 출력의 별칭으로 바꿀 수 있습니다. 또한 작업에 입력 및 출력을 정의하지 않고 Azure 클래식 포털에서 쿼리를 작성 및 테스트할 수도 있습니다.
     - 단순한 통과보다 더 많은 처리를 수행하려는 경우 쿼리 정의를 편집할 수 있습니다. 쿼리 작성을 시작하려면 [여기](stream-analytics-stream-analytics-query-patterns.md)에 캡처된 몇 가지 일반적인 쿼리 패턴을 살펴보세요.  
   
     ![쿼리 데이터 창](./media/stream-analytics-write-queries/2-stream-analytics-write-queries.png)
@@ -42,7 +42,7 @@ Azure 스트림 분석의 스트림 처리 논리에 대한 쿼리 작성은 작
 
 브라우저에서 테스트 데이터가 포함된 하나 이상의 로컬 JSON 파일에 대해 쿼리를 실행하여 쿼리가 예상대로 동작하는지 테스트할 수 있습니다. 이 경우 작업이 시작되거나 요금이 청구되지 않습니다.
 
-> [AZURE.NOTE] 현재 Azure Preview 포털에서 브라우저 내 쿼리 테스트는 지원되지 않습니다.
+> [AZURE.NOTE] 현재 Azure 포털에서 브라우저 내 쿼리 테스트는 지원되지 않습니다.
 
 1.	쿼리에 오류가 없는지 확인하고(오류가 있으면 테스트 단추를 사용할 수 없음) 테스트 단추를 클릭합니다.  
 
@@ -71,4 +71,4 @@ Azure 스트림 분석의 스트림 처리 논리에 대한 쿼리 작성은 작
 - [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

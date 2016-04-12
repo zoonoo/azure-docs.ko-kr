@@ -4,15 +4,16 @@
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
-   editor="" />
+   manager="carmonm"
+   editor=""
+  tags="azure-resource-manager, azure-service-management"/>
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/02/2016"
+   ms.date="03/15/2016"
    ms.author="cherylmc" />
 
 # 사이트 간 VPN 게이트웨이 연결에 대한 VPN 장치 정보
@@ -40,8 +41,8 @@ VPN 장치를 구성하려면 적절한 장치 패밀리에 해당하는 링크�
 | **공급업체** | **장치 패밀리** | **최소 OS 버전** | **정책 기반** | **경로 기반** |
 |---------------------------------|----------------------------------------------------------|----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Allied Telesis | AR 시리즈 VPN 라우터 | 2\.9.2 | 서비스 예정 | 호환되지 않음 |
-| Barracuda Networks, Inc. | Barracuda NG Firewall | Barracuda NG Firewall 5.4.3 | [Barracuda NG Firewall](https://techlib.barracuda.com/display/BNGV54/How%20to%20Configure%20an%20IPsec%20Site-to-Site%20VPN%20to%20a%20Windows%20Azure%20VPN%20Gateway)| 호환되지 않음 |
-| Barracuda Networks, Inc. | Barracuda Firewall | Barracuda Firewall 6.5 | [Barracuda Firewall](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) | 호환되지 않음 |
+| Barracuda Networks, Inc. | Barracuda NextGen 방화벽 F 시리즈 | 정책 기반: 5.4.3, 경로 기반: 6.2.0 | [구성 지침](https://techlib.barracuda.com/NGF/AzurePolicyBasedVPNGW) | [구성 지침](https://techlib.barracuda.com/NGF/AzureRouteBasedVPNGW) |
+| Barracuda Networks, Inc. | Barracuda NextGen 방화벽 X 시리즈 | Barracuda Firewall 6.5 | [Barracuda Firewall](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) | 호환되지 않음 |
 | Brocade | Vyatta 5400 vRouter | Virtual Router 6.6R3 GA | [구성 지침](http://www1.brocade.com/downloads/documents/html_product_manuals/vyatta/vyatta_5400_manual/wwhelp/wwhimpl/js/html/wwhelp.htm#href=VPN_Site-to-Site%20IPsec%20VPN/Preface.1.1.html) | 호환되지 않음 |
 | Check Point | Security Gateway | R75.40, R75.40VS | [구성 지침](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) | [구성 지침](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
 | Cisco | ASA | 8\.3 | [Cisco 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) | 호환되지 않음 |
@@ -94,6 +95,8 @@ VPN 장치를 구성하려면 적절한 장치 패밀리에 해당하는 링크�
 
 ## IPsec 매개 변수
 
+>[AZURE.NOTE] 아래 나열된 값이 Azure VPN 게이트웨이에서 지원되더라도 현재 Azure VPN 게이트웨이에서 특정 조합을 지정하거나 선택할 방법이 없습니다. 온-프레미스 VPN 장치에서 제약 조건을 지정해야 합니다.
+
 ### IKE 1단계 설정
 
 | **속성** | **정책 기반** | **경로 기반 및 표준 또는 고성능 VPN 게이트웨이** |
@@ -102,8 +105,8 @@ VPN 장치를 구성하려면 적절한 장치 패밀리에 해당하는 링크�
 | Diffie-Hellman 그룹 | 그룹 2(1024비트) | 그룹 2(1024비트) |
 | 인증 방법 | 미리 공유한 키 | 미리 공유한 키 |
 | 암호화 알고리즘 | AES256 AES128 3DES | AES256 3DES |
-| 해시 알고리즘 | SHA1(SHA128) | SHA1(SHA128) |
-| 1단계 SA(보안 연결) 수명(시간) | 28,800초 | 28,800초 |
+| 해시 알고리즘 | SHA1(SHA128) | SHA1(SHA128), SHA2(SHA256) |
+| 1단계 SA(보안 연결) 수명(시간) | 28,800초 | 10,800초 |
 
 
 ### IKE 2단계 설치
@@ -112,11 +115,11 @@ VPN 장치를 구성하려면 적절한 장치 패밀리에 해당하는 링크�
 |--------------------------------------------------------------------------|------------------------------------------------|--------------------------------------------------------------------|
 | IKE 버전 | IKEv1 | IKEv2 |
 | 해시 알고리즘 | SHA1(SHA128) | SHA1(SHA128) |
-| 2단계 SA(보안 연결) 수명(시간) | 3,600초 | - | 
+| 2단계 SA(보안 연결) 수명(시간) | 3,600초 | 3,600초 |
 | 2단계 SA(보안 연결) 수명(처리량) | 102,400,000KB | - | 
-| IPsec SA 암호화 및 인증 제안(우선 순위 순서로) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. 해당 없음 | *경로 기반 게이트웨이 IPsec SA(보안 연결) 제안 참조*(아래) |
-| PFS(Perfect Forward Secrecy) | 아니요 | 예(DH Group1) |
-| DPD(Dead Peer Detection) | 지원되지 않음 | 지원됨 |
+| IPsec SA 암호화 및 인증 제품(우선 순위 순서로) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. 해당 없음 | *경로 기반 게이트웨이 IPsec SA(보안 연결) 제품*(아래) 참조 | 
+| PFS(Perfect Forward Secrecy) | 아니요 | 예(DH Group1, 2, 5, 14, 24) | 
+| Dead Peer Detection | 지원되지 않음 | 지원됨 |
 
 ### 경로 기반 게이트웨이 IPsec SA(보안 연결) 제안
 
@@ -140,7 +143,7 @@ VPN 장치를 구성하려면 적절한 장치 패밀리에 해당하는 링크�
 | 14 | AH MD5(ESP DES null HMAC 사용), 제안된 수명 없음 | AH MD5(ESP DES MD5 사용), 수명 없음 |
 | 15 | AH SHA1(ESP DES SHA1 사용), 수명 없음 | ESP SHA, 수명 없음 |
 | 16 | AH MD5(ESP DES MD5 사용), 수명 없음 | ESP MD5, 수명 없음 |
-| 17 | - | AH SHA, 수명 없음 |
+| 17 | - | AH SHA, 수명 없음 | 
 | 18 | - | AH MD5, 수명 없음 |
 
 
@@ -148,4 +151,4 @@ VPN 장치를 구성하려면 적절한 장치 패밀리에 해당하는 링크�
 
 - 인터넷을 통한 프레미스 간 연결의 경우 중요한 통신의 보안을 보장하려면 위의 표에 나열된 암호화 및 해시 알고리즘을 사용하는 기본 Azure VPN 게이트웨이 설정을 사용하세요.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

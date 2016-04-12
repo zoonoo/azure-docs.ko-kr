@@ -1,25 +1,25 @@
 <properties 
-   pageTitle="서비스 버스 가격 책정 FAQ | Microsoft Azure"
-   description="서비스 버스 가격 책정 구조에 대한 일부 자주 묻는 질문을 답변합니다."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="서비스 버스 가격 책정 FAQ | Microsoft Azure"
+    description="서비스 버스 가격 책정 구조에 대한 일부 자주 묻는 질문을 답변합니다."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="12/28/2015"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="03/16/2016"
+    ms.author="sethm" />
 
 # 서비스 버스 가격 책정 FAQ
 
-이 섹션은 서비스 버스 가격 책정 구조에 대한 일부 자주 묻는 질문을 답변합니다. 또한 일반적인 Microsoft Azure 가격 책정 정보는 [Azure 지원 FAQ](http://go.microsoft.com/fwlink/?LinkID=185083)를 방문할 수 있습니다. 서비스 버스 가격 책정에 대한 전체 내용은 [서비스 버스 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/service-bus/)를 참조하세요.
+이 문서는 서비스 버스 가격 책정 구조에 대한 일부 자주 묻는 질문을 답변합니다. 또한 일반적인 Microsoft Azure 가격 책정 정보는 [Azure 지원 FAQ](http://go.microsoft.com/fwlink/?LinkID=185083)를 방문할 수 있습니다. 서비스 버스 가격 책정에 대한 전체 내용은 [서비스 버스 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/service-bus/)를 참조하세요.
 
->[AZURE.NOTE] [이벤트 허브 공급 및 지원 FAQ](../event-hubs/event-hubs-availability-and-support-faq.md) 항목과 [이벤트 허브 가격 책정](https://azure.microsoft.com/pricing/details/event-hubs/) 항목에서 자세한 정보와 함께 이벤트 허브에 대한 가격 책정 구조를 설명합니다.
+>[AZURE.NOTE] [이벤트 허브 공급 및 지원 FAQ](../event-hubs/event-hubs-availability-and-support-faq.md) 문서와 [이벤트 허브 가격 책정](https://azure.microsoft.com/pricing/details/event-hubs/) 문서에서 자세한 정보와 함께 이벤트 허브에 대한 가격 책정 구조를 설명합니다.
 
 - [서비스 버스 요금을 어떻게 청구하나요?](#how-do-you-charge-for-service-bus)
 - [서비스 버스를 어떻게 사용하면 데이터 전송이 적용되나요? 어떤 경우에 대상이 아닌가요?](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not)
@@ -32,7 +32,7 @@
 
 ## 서비스 버스 요금을 어떻게 청구하나요?
 
-서비스 버스 가격에 대한 전체 내용은 [서비스 버스 가격 책정 및 청구](https://msdn.microsoft.com/library/dn831889.aspx) 및 [서비스 버스 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/service-bus/)를 참조하세요. 언급된 가격 외에도 응용 프로그램이 프로비전되는 데이터 센터의 외부에서 송신을 위해 연결된 데이터 전송에 요금이 부과됩니다. 자세한 내용은 아래의 다음 섹션을 참조하세요. [서비스 버스를 어떻게 사용하면 데이터 전송이 적용되나요? 어떤 경우에 대상이 아닌가요?아래의 ](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not) 섹션입니다.
+서비스 버스 가격에 대한 전체 내용은 [서비스 버스 가격 책정 및 청구](service-bus-pricing-billing.md) 및 [서비스 버스 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/service-bus/)를 참조하세요. 언급된 가격 외에도 응용 프로그램이 프로비전되는 데이터 센터의 외부에서 송신을 위해 연결된 데이터 전송에 요금이 부과됩니다. 자세한 내용은 아래의 다음 섹션을 참조하세요. [서비스 버스를 어떻게 사용하면 데이터 전송이 적용되나요? 어떤 경우에 대상이 아닌가요?아래의 ](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not) 섹션입니다.
 
 ## 서비스 버스를 어떻게 사용하면 데이터가 전송의 대상이 되나요? 어떤 경우에 대상이 아닌가요?
 
@@ -40,11 +40,11 @@
 
 ## 정확하게 서비스 버스 "릴레이"란?
 
-릴레이는 클라이언트와 웹 서비스 간에 메시지를 릴레이하는 서비스 버스 엔터티입니다. 릴레이는 영구적이고 검색 가능한 서비스 버스 주소, 방화벽/NAT 통과 기능이 있는 안정적인 연결 및 자동 부하 분산 등의 추가 기능이 있는 서비스를 제공합니다. 릴레이는 릴레이를 사용 가능한 WCF 서비스 또는 "릴레이 수신"가 먼저 해당 주소에 연결될 때마다 암시적으로 인스턴스화되고 지정된 서비스 버스 주소(네임스페이스 URL)에서 열립니다. 응용 프로그램이 API를 관리하는 서비스 버스 .NET를 사용하여 릴레이 수신기를 만들며 이는 표준 WCF 바인딩의 특수한 릴레이 사용 버전을 제공합니다.
+릴레이는 클라이언트와 웹 서비스 간에 메시지를 릴레이하는 서비스 버스 엔터티입니다. 릴레이는 영구적이고 검색 가능한 서비스 버스 주소, 방화벽/NAT 통과 기능이 있는 안정적인 연결 및 자동 부하 분산 등의 추가 기능이 있는 서비스를 제공합니다. 릴레이는 릴레이를 사용 가능한 WCF 서비스 또는 "릴레이 수신"이 먼저 해당 주소에 연결될 때마다 암시적으로 인스턴스화되고 지정된 서비스 버스 주소(네임스페이스 URL)에서 열립니다. 응용 프로그램이 서비스 버스 .NET API를 사용하여 릴레이 수신기를 만들며 이는 표준 WCF 바인딩의 특수한 릴레이 사용 버전을 제공합니다.
 
 ## 릴레이 시간 측정기는 어떻게 계산되나요?
 
-릴레이 시간은 특정된 청구 기간 동안 각 서비스 버스 릴레이가 "열린" 누적 기간에 대해 요금이 청구됩니다. 릴레이는 릴레이를 사용 가능한 WCF 서비스 또는 "릴레이 수신"가 먼저 해당 주소에 연결될 때 암시적으로 인스턴스화되고 지정된 서비스 버스 주소(서비스 네임스페이스 URL)에서 열립니다. 릴레이는 마지막 수신기가 해당 주소에서 연결을 해제하는 경우 닫힙니다. 따라서 요금 청구의 경우 릴레이는 첫번째 릴레이 수신기가 연결한 시간에서 해당 릴레이의 서비스 버스 주소에서 마지막 릴레이 수신기의 연결이 끊어진 시간까지 "열린" 것으로 간주됩니다. 즉, 릴레이는 하나 이상의 릴레이 리스너가 해당 서비스 버스 주소에 연결될 때마다 "열린" 것으로 간주됩니다.
+릴레이 시간은 특정된 청구 기간 동안 각 서비스 버스 릴레이가 "열린" 누적 기간에 대해 요금이 청구됩니다. 릴레이는 릴레이를 사용 가능한 WCF 서비스 또는 "릴레이 수신"이 먼저 해당 주소에 연결될 때 암시적으로 인스턴스화되고 지정된 서비스 버스 주소(서비스 네임스페이스 URL)에서 열립니다. 릴레이는 마지막 수신기가 해당 주소에서 연결을 해제하는 경우 닫힙니다. 따라서 요금 청구의 경우 릴레이는 첫 번째 릴레이 수신기가 연결한 시간에서 해당 릴레이의 서비스 버스 주소에서 마지막 릴레이 수신기의 연결이 끊어진 시간까지 "열린" 것으로 간주됩니다. 즉, 릴레이는 하나 이상의 릴레이 리스너가 해당 서비스 버스 주소에 연결될 때마다 "열린" 것으로 간주됩니다.
 
 ## 지정된 릴레이에 둘 이상의 수신기가 연결된 경우 어떻게 하나요?
 
@@ -72,7 +72,7 @@
 
 지정된 달에 사용 할당량을 초과하는 고객의 계정을 사용하지 않도록 설정하는 권한을 보유하지만 메일 알림을 제공하며 조치를 취하기 전에 고객에게 연락을 여러 번 시도합니다. 이러한 할당량을 초과하는 고객은 할당량을 초과하는 요금을 지불해야 합니다.
 
-Azure에서 다른 서비스와 마찬가지로 서비스 버스는 리소스의 공정한 사용을 보장하기 위해 특정한 할당량 집합을 적용합니다. 다음은 서비스에서 적용하는 사용 할당량입니다.
+Azure에서 다른 서비스와 마찬가지로 서비스 버스는 리소스의 공정한 사용을 보장하기 위해 특정한 [할당량](service-bus-quotas.md) 집합을 적용합니다. 다음은 서비스에서 적용하는 사용 할당량입니다.
 
 - **큐/항목 크기** – 큐 또는 항목이 생성될 때 최대 큐 또는 항목의 크기를 지정합니다. 이 할당량 값은 1, 2, 3, 4 또는 5GB일 수 있습니다. 최대 크기에 도달하면, 추가로 수신되는 메시지가 거부되며 호출 코드에서 예외를 수신합니다.
 
@@ -116,4 +116,4 @@ Azure에서 다른 서비스와 마찬가지로 서비스 버스는 리소스의
 
 [Azure 클래식 포털]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

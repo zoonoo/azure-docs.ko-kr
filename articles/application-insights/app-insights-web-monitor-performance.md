@@ -53,7 +53,7 @@ Application Insights를 아직 프로젝트에 추가하지 않은 경우(프로
 
 ![그래프를 클릭하여 메트릭 선택](./media/app-insights-web-monitor-performance/appinsights-61perfchoices.png)
 
-> [AZURE.NOTE]사용 가능한 전체 선택 항목을 확인하려면 **모든 메트릭의 선택을 취소합니다**. 메트릭은 그룹으로 구분되며 그룹 내의 모든 멤버를 선택하면 해당 그룹의 다른 멤버만 표시됩니다.
+> [AZURE.NOTE] 사용 가능한 전체 선택 항목을 확인하려면 **모든 메트릭의 선택을 취소합니다**. 메트릭은 그룹으로 구분되며 그룹 내의 모든 멤버를 선택하면 해당 그룹의 다른 멤버만 표시됩니다.
 
 
 ## <a name="metrics"></a>성능 메트릭의 의미 성능 타일 및 보고서
@@ -110,41 +110,52 @@ catch되지 않은 예외를 throw한 요청의 수입니다.
 
 ## 시스템 성능 카운터
 
-선택할 수 있는 메트릭 중 일부는 [성능 카운터](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters)입니다. Windows는 광범위하고 다양한 것들을 제공하며 사용자가 정의할 수 있습니다.
 
-이 예제는 기본적으로 사용할 수 있는 성능 카운터를 보여줍니다. 각 카운터에 대한 [별도 차트를 추가](app-insights-metrics-explorer.md#editing-charts-and-grids)하고 차트를 [즐겨찾기로 저장](app-insights-metrics-explorer.md#editing-charts-and-grids)하여 명명했습니다.
+Windows는 광범위하고 다양한 성능 카운터를 제공하며 사용자가 정의할 수도 있습니다.
+
+(Azure에 호스트된 응용 프로그램의 경우 [Application Insights에 Azure 진단을 보내세요](app-insights-azure-diagnostics.md).)
+
+공통 [성능 카운터](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters) 집합을 보려면 **서버** 블레이드를 엽니다. 또한 성능 카운터 섹션에서 차트를 편집하고 메트릭을 선택하여 카운터를 선택할 수도 있습니다.
 
 ![](./media/app-insights-web-monitor-performance/sys-perf.png)
 
+PowerShell 명령 [`Get-Counter -ListSet *`](https://technet.microsoft.com/library/hh849685.aspx)을 사용하여 Windows 시스템에서 시스템에 제공되는 전체 메트릭 집합을 확인할 수 있습니다.
 
-원하는 카운터가 속성 목록에 없으면 SDK가 수집하는 집합에 추가할 수 있습니다. ApplicationInsights.config를 열고 성능 수집기 지시문을 편집합니다:
+원하는 카운터가 메트릭 목록에 없으면 SDK가 수집하는 집합에 추가할 수 있습니다. ApplicationInsights.config를 열고 성능 수집기 지시문을 편집합니다:
 
-    <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCollector.PerformanceCollectorModule, Microsoft.ApplicationInsights.Extensibility.PerfCollector">
+    <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector">
       <Counters>
         <Add PerformanceCounter="\Objects\Processes"/>
         <Add PerformanceCounter="\Sales(electronics)# Items Sold" ReportAs="Item sales"/>
       </Counters>
     </Add>
 
-형식은 `\Category(instance)\Counter"` 또는 인스턴스가 없는 범주에는 `\Category\Counter`입니다. 시스템에서 어떤 카운터를 사용할 수 있는지 검색하려면 [이 소개](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters)를 읽습니다.
+표준 카운터 및 사용자가 직접 구현한 것을 캡처할 수 있습니다. `\Objects\Processes`는 모든 Windows 시스템에서 사용할 수 있으며 `\Sales...`는 웹 서버에서 구현될 수 있는 사용자 지정 카운터의 예입니다.
+
+형식은 `\Category(instance)\Counter"` 또는 인스턴스가 없는 범주에는 `\Category\Counter`입니다.
+
 
 `ReportAs`은 다음 이외의 문자를 포함하는 카운터 이름에 필요합니다: 둥근 괄호, 정방향 슬래쉬, 하이픈, 밑줄 문자, 공백 및 점선입니다.
 
-인스턴스를 지정하면 보고된 메트릭의 "CounterInstanceName" 속성으로 수집 됩니다.
+인스턴스를 지정하면 보고된 메트릭의 "CounterInstanceName" 차원으로 수집됩니다.
 
-원하는 경우 같은 효과를 가진 코드를 작성할 수 있습니다.
+### 코드에서 성능 카운터 수집
+
+시스템 성능 카운터를 수집하고 Application Insights에 푸시하려면 아래 조각을 사용할 수 있습니다.
+
+    var perfCollectorModule = new PerformanceCollectorModule();
+    perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
+      @"\.NET CLR Memory([replace-with-application-process-name])# GC Handles", "GC Handles")));
+    perfCollectorModule.Initialize(TelemetryConfiguration.Active);
+
+또는 만든 사용자 지정 메트릭과 동일한 작업을 수행할 수 있습니다.
 
     var perfCollectorModule = new PerformanceCollectorModule();
     perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
       @"\Sales(electronics)# Items Sold", "Items sold"));
     perfCollectorModule.Initialize(TelemetryConfiguration.Active);
 
-또한 시스템 성능 카운터를 수집하고 Application Insights에 푸시하려면 아래 조각을 사용할 수 있습니다.
-
-    var perfCollectorModule = new PerformanceCollectorModule();
-    perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
-      @"\.NET CLR Memory([replace-with-application-process-name])# GC Handles", "GC Handles")));
-    perfCollectorModule.Initialize(TelemetryConfiguration.Active);
+또한 원하는 경우
 
 ### 예외 개수
 
@@ -199,4 +210,4 @@ catch되지 않은 예외를 throw한 요청의 수입니다.
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,7 +13,7 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/11/2016"
+   ms.date="03/22/2016"
    ms.author="yurid"/>
  
 # Azure 보안 센터에서 보안 경고 관리 및 대응
@@ -73,9 +73,11 @@ Microsoft 보안 연구원은 소비자 및 엔터프라이즈 제품 및 온라
 
 ![Azure 보안 센터에서 보안 경고에 대한 대응](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig7.png)
 
-이 경우 트리거된 경고는 의심스러운 RDP(원격 데스크톱 프로토콜) 활동을 참조합니다. 첫 번째 열에는 공격 받은 리소스, 두 번째는 공격을 검색한 시간, 세 번째는 경고 상태, 네 번째는 공격의 심각도를 표시합니다. 이 정보를 검토한 후 공격을 받은 리소스를 클릭합니다. 새 블레이드가 열리고 아래 예제와 같이 다음 작업에 대한 추가 제안이 표시됩니다.
+이 경우 트리거된 경고는 의심스러운 RDP(원격 데스크톱 프로토콜) 활동을 참조합니다. 첫 번째 열은 공격 받은 리소스, 두 번째 열은 공격을 검색한 시간, 세 번째 열은 경고 상태, 네 번째 열은 공격의 심각도를 표시합니다. 이 정보를 검토한 후 공격을 받은 리소스를 클릭합니다. 새 블레이드가 열리고 아래 예제와 같이 다음 작업에 대한 추가 제안이 표시됩니다.
 
-![Azure 보안 센터에서 보안 경고에 대해 수행할 작업 제안](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig8.png)
+![Azure 보안 센터에서 보안 경고에 대해 수행할 작업 제안](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig8-1.png)
+
+이 블레이드의 **경고** 필드에 이 이벤트에 대한 자세한 내용이 있습니다. 이러한 추가 세부 사항은 수정 방법에 대한 원본 IP 주소 및 권장사항을 적용할 수 있는 경우 보안 경고인 대상 리소스를 트리거한 항목에 대한 정보를 제공합니다. 일부 경우에 일부 Windows 보안 이벤트 로그가 IP 주소를 포함하지 않기 때문에 원본 IP 주소가 비어 있습니다(사용할 수 없음).
 
 > [AZURE.NOTE] 보안 센터에서 제안하는 수정은 보안 경고에 따라 다릅니다. 경우에 따라 권장된 수정을 구현하기 위해 기타 Azure 기능을 사용해야 할 수 있습니다. 예를 들어 이 공격에 대한 수정은 [네트워크 ACL](../virtual-network/virtual-networks-acl.md) 또는 [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md) 규칙을 사용하여 이 공격을 발생시키고 있는 IP 주소를 블랙리스트에 추가하는 것입니다.
 
@@ -83,8 +85,8 @@ Microsoft 보안 연구원은 소비자 및 엔터프라이즈 제품 및 온라
 ## 다음 단계
 이 문서에서는 보안 센터에서 보안 정책을 구성하는 방법을 배웠습니다. 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
-- [Azure 보안 센터에서 보안 상태 모니터링](security-center-monitoring.md)-–Azure 리소스의 상태를 모니터링하는 방법 알아보기
-- [Azure 보안 센터 FAQ](security-center-faq.md)-–서비스 사용에 관한 질문과 대답 찾기
-- [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/)-–Azure 보안 및 규정 준수에 관한 블로그 게시물 찾기
+- [Azure 보안 센터에서 보안 상태 모니터링](security-center-monitoring.md)––Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
+- [Azure 보안 센터 FAQ](security-center-faq.md)––서비스 사용에 관한 질문과 대답을 찾습니다.
+- [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/)––Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

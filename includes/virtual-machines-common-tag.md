@@ -1,0 +1,67 @@
+
+
+
+## 템플릿을 통해 가상 컴퓨터에 태그 지정
+
+먼저 템플릿을 통한 태그 지정을 살펴보겠습니다. [이 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm)은 계산(가상 컴퓨터), 저장소(저장소 계정) 및 네트워크(공용 IP 주소, 가상 네트워크 및 네트워크 인터페이스) 리소스에 태그를 배치합니다. (이 템플릿 예제는 Windows VM에 대한 것이지만 Linux VM에도 적용할 수 있습니다.)
+
+[템플릿 링크](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm)에서 **Azure에 배포** 단추를 클릭합니다. 이렇게 하면 이 템플릿을 배포할 수 있는 [Azure 포털](https://portal.azure.com/)로 이동합니다.
+
+![태그가 포함된 간단한 배포](./media/virtual-machines-common-tag/deploy-to-azure-tags.png)
+
+이 템플릿에는 *부서*, *응용 프로그램* 및 *만든 사람* 태그가 포함되어 있습니다. 다른 태그 이름을 사용하려는 경우 템플릿에서 직접 이러한 태그를 추가/편집할 수 있습니다.
+
+![템플릿의 Azure 태그](./media/virtual-machines-common-tag/azure-tags-in-a-template.png)
+
+여기서 볼 수 있듯이 태그는 콜론(:)으로 구분된 키/값 쌍으로 정의됩니다. 다음 형식으로 태그를 정의해야 합니다.
+
+        “tags”: {
+            “Key1” : ”Value1”,
+            “Key2” : “Value2”
+        }
+
+편집을 마친 후 선택한 태그와 함께 템플릿 파일을 저장합니다.
+
+이어서 **매개 변수 편집** 섹션에서 태그의 값을 입력할 수 있습니다.
+
+![Azure 포털에서 태그 편집](./media/virtual-machines-common-tag/edit-tags-in-azure-portal.png)
+
+**만들기**를 클릭하여 태그 값과 함께 이 템플릿을 배포합니다.
+
+
+## 포털을 통해 태그 지정
+
+태그와 함께 리소스를 만든 후 포털에서 태그를 표시, 추가 및 삭제할 수 있습니다.
+
+태그 아이콘을 선택하여 태그를 표시합니다.
+
+![Azure 포털의 태그 아이콘](./media/virtual-machines-common-tag/azure-portal-tags-icon.png)
+
+사용자 고유의 키/값 쌍을 정의하여 포털을 통해 새 태그를 추가하고 저장합니다.
+
+![Azure 포털에서 새 태그 추가](./media/virtual-machines-common-tag/azure-portal-add-new-tag.png)
+
+이제 리소스에 대한 태그 목록에 새 태그가 나타납니다.
+
+![Azure 포털에서 저장된 새 태그](./media/virtual-machines-common-tag/azure-portal-saved-new-tag.png)
+
+
+## 사용량 세부 정보에서 태그 보기
+
+Azure 리소스 관리자를 통해 계산, 네트워크 및 저장소 리소스에 배치된 태그는 [청구 포털](https://account.windowsazure.com/)의 사용량 세부 정보에 채워집니다.
+
+**사용량 세부 정보 다운로드**를 클릭하여 구독의 사용량 세부 정보를 표시합니다.
+
+![Azure 포털의 사용량 세부 정보](./media/virtual-machines-common-tag/azure-portal-tags-usage-details.png)
+
+청구서 및 **버전 2** 사용량 세부 정보를 선택합니다.
+
+![Azure 포털의 버전 2 미리 보기 사용량 세부 정보](./media/virtual-machines-common-tag/azure-portal-version2-usage-details.png)
+
+사용량 세부 정보의 **태그** 열에서 모든 태그를 확인할 수 있습니다.
+
+![Azure 포털의 태그 열](./media/virtual-machines-common-tag/azure-portal-tags-column.png)
+
+조직에서는 사용량과 함께 이러한 태그를 분석하여 소비 데이터에 대한 새로운 통찰력을 얻을 수 있습니다.
+
+<!---HONumber=AcomDC_0330_2016-->

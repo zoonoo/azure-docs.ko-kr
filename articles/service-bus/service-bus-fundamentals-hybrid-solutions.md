@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="11/06/2015" 
+	ms.date="03/09/2016" 
 	ms.author="sethm"/>
 
 # Azure 서비스 버스
 
-응용 프로그램이나 서비스가 클라우드에서 실행되든 아니면 온-프레미스에서 실행되든 관계없이 다른 응용 프로그램 또는 서비스와 상호 작용해야 하는 경우가 많습니다. 유용한 상호 작용 방법을 제공하기 위해 Azure는 서비스 버스를 제공합니다. 이 문서에서는 이 기술을 살펴보고 기술의 정의와 사용해야 하는 이유를 설명합니다.
+응용 프로그램이나 서비스가 클라우드에서 실행되든 아니면 온-프레미스에서 실행되든 관계없이 다른 응용 프로그램 또는 서비스와 상호 작용해야 하는 경우가 많습니다. 광범위하게 사용할 수 있도록 Microsoft Azure에서는 서비스 버스를 제공합니다. 이 문서에서는 이 기술을 살펴보고 기술의 정의와 사용해야 하는 이유를 설명합니다.
 
 ## 서비스 버스 기본 사항
 
@@ -125,4 +125,4 @@
 [3]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
 [4]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_04_relay.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

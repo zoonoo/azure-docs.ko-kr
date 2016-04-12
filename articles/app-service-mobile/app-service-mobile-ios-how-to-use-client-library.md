@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="03/09/2016"
 	ms.author="krisragh"/>
 
 # Azure 모바일 앱용 iOS 클라이언트 라이브러리를 사용하는 방법
@@ -154,7 +154,13 @@ let query = table.query()
 let query = table.queryWithPredicate(NSPredicate(format: "complete == NO"))
 ```
 
-`MSQuery`을(를) 통해 다음을 포함한 여러 쿼리 동작을 제어할 수 있습니다. 다음 예시에서 볼 수 있는 대로 `readWithCompletion`을(를) 호출하여 `MSQuery` 쿼리를 실행합니다. * 결과 순서 지정 * 반환할 필드 제한 * 반호나할 레코드 수 제한 * 응답에서 총 수 지정 * 요청에서 사용자 지정 쿼리 문자열 매개 변수 지정 * 추가 함수 적용
+`MSQuery`을(를) 통해 다음을 포함한 여러 쿼리 동작을 제어할 수 있습니다. 다음 예제에 나와 있는 대로 `readWithCompletion`을(를) 호출하여 `MSQuery` 쿼리를 수행합니다.
+* 결과의 순서 지정
+* 반환할 필드 제한
+* 반환할 레코드 수 제한
+* 응답의 총 수 지정
+* 요청에서 사용자 지정 쿼리 문자열 매개 변수 지정
+* 추가 함수 적용
 
 
 ## <a name="sorting"></a>방법: MSQuery를 사용하여 데이터 정렬
@@ -233,7 +239,7 @@ query.parameters = ["myKey1": "value1", "myKey2": "value2"]
 
 `id`이(가) 제공되지 않는 경우 백 엔드는 고유한 새 ID를 자동으로 생성합니다. 고유한 `id`을(를) 제공하여 이메일 주소, 사용자 이름을 사용하거나 고유한 사용자 지정 값을 ID로 사용합니다. 고유한 ID를 제공하면 조인 및 비즈니스 지향적인 데이터베이스 논리가 쉬을 수 있습니다.
 
-`result`는 삽입된 새 항목을 포함합니다. 서버에 전달된 데이터에 비해 서버 논리에 따라 추가 또는 수정된 데이터가 있을 수 있습니다.
+`result`은(는) 삽입된 새 항목을 포함합니다. 서버에 전달된 데이터에 비해 서버 논리에 따라 추가 또는 수정된 데이터가 있을 수 있습니다.
 
 **Objective-C**:
 
@@ -378,6 +384,48 @@ table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) in
 
 최소한 삭제할 때에는 `id` 특성이 설정되어야 합니다.
 
+##<a name="customapi"></a>방법: 사용자 지정 API 호출
+
+사용자 지정 API를 사용하여 백 엔드 기능을 노출할 수 있습니다. 테이블 작업에 매핑할 필요는 없습니다. 더 효율적으로 메시징을 제어할 수 있으며 헤더의 읽기/설정 및 응답의 본문 형식을 변경할 수도 있습니다. 백 엔드에서 사용자 지정 API를 만드는 방법에 대한 자세한 내용은 [사용자 지정 API](app-service-mobile-node-backend-how-to-use-server-sdk.md#work-easy-apis)를 참조하세요.
+
+사용자 지정 API를 호출하려면 다음과 같이 `MSClient.invokeAPI`를 호출합니다. 요청 및 응답 콘텐츠는 JSON으로 간주됩니다. 다른 미디어 유형을 사용하려면 [`invokeAPI`의 다른 오버로드를 사용](http://azure.github.io/azure-mobile-services/iOS/v3/Classes/MSClient.html#//api/name/invokeAPI:data:HTTPMethod:parameters:headers:completion:)합니다.
+
+`POST` 요청 대신 `GET` 요청을 하려면 GET 요청에는 메시지의 본문이 없기 때문에 매개 변수를 `HTTPMethod`에서 `"GET"` 및 `body`에서 `nil`으로 설정합니다. 사용자 지정 API가 다른 HTTP 동사를 지원하는 경우 `HTTPMethod`을(를) 적절하게 변경합니다.
+
+**Objective-C**:
+```
+    [self.client invokeAPI:@"sendEmail"
+                      body:@{ @"contents": @"Hello world!" }
+                HTTPMethod:@"POST"
+                parameters:@{ @"to": @"bill@contoso.com", @"subject" : @"Hi!" }
+                   headers:nil
+                completion: ^(NSData *result, NSHTTPURLResponse *response, NSError *error) {
+                    if(error) {
+                        NSLog(@"ERROR %@", error);
+                    } else {
+                        // Do something with result
+                    }
+                }];
+```
+
+**Swift**:
+
+```
+client.invokeAPI("sendEmail",
+            body: [ "contents": "Hello World" ],
+            HTTPMethod: "POST",
+            parameters: [ "to": "bill@contoso.com", "subject" : "Hi!" ],
+            headers: nil)
+            {
+                (result, response, error) -> Void in
+                if let err = error {
+                    print("ERROR ", err)
+                } else if let res = result {
+                          // Do something with result
+                }
+        }
+```
+
 ##<a name="templates"></a>방법: 플랫폼 간 알림을 보내기 위해 푸시 템플릿 등록
 
 템플릿을 등록하려면 클라이언트 앱에서 **client.push registerDeviceToken** 메서드를 사용하여 템플릿을 전달하기만 하면 됩니다.
@@ -456,7 +504,7 @@ if (error.code == MSErrorPreconditionFailed) {
 
 Azure Active Directory를 사용하여 응용 프로그램에 사용자가 로그인하려면 Active Directory 인증 라이브러리(ADAL)를 사용할 수 있습니다. `loginAsync()` 메서드는 UX 느낌을 그대로 제공하고 추가 사용자 지정을 허용하기에 해당 메서드 사용을 선호할 수 있습니다.
 
-1. 다음으로 [Active Directory 로그인에 앱 서비스를 구성하는 방법](app-service-mobile-how-to-configure-active-directory-authentication.md) 자습서를 수행하여 AAD 로그인에 모바일 앱 백 엔드를 구성합니다. 네이티브 클라이언트 응용 프로그램을 등록하는 선택적 단계를 완료해야 합니다. iOS의 경우 리디렉션 URI는 `<app-scheme>://<bundle-id>` 형식인 것이 좋습니다(필수 아님). 자세한 내용은 [ADAL iOS 퀵 스타트](active-directory-devquickstarts-ios.md#em1-determine-what-your-redirect-uri-will-be-for-iosem)를 참조하세요.
+1. 다음으로 [Active Directory 로그인에 앱 서비스를 구성하는 방법](app-service-mobile-how-to-configure-active-directory-authentication.md) 자습서를 수행하여 AAD 로그인에 모바일 앱 백 엔드를 구성합니다. 네이티브 클라이언트 응용 프로그램을 등록하는 선택적 단계를 완료해야 합니다. iOS의 경우 리디렉션 URI는 `<app-scheme>://<bundle-id>` 형식인 것이 좋습니다(필수 아님). 자세한 내용은 [ADAL iOS 빠른 시작](active-directory-devquickstarts-ios.md#em1-determine-what-your-redirect-uri-will-be-for-iosem)을 참조하세요.
 
 2. Cocoapods를 사용하여 ADAL을 설치합니다. 다음을 포함하도록 Podfile을 편집합니다. 이때 **YOUR-PROJECT**를 Xcode 프로젝트의 이름으로 바꿉니다.
 
@@ -473,7 +521,7 @@ Azure Active Directory를 사용하여 응용 프로그램에 사용자가 로�
 
 * **INSERT-AUTHORITY-HERE**를 응용 프로그램이 프로비전된 테넌트의 이름으로 바꿉니다. https://login.windows.net/contoso.onmicrosoft.com 형식이어야 합니다. 이 값은 [Azure 클래식 포털]의 Azure Active Directory에 있는 도메인 탭에서 복사될 수 있습니다.
 
-* **INSERT-RESOURCE-ID-HERE**를 모바일 앱 백 엔드에 대한 클라이언트 ID로 바꿉니다. 포털의 **Azure Active Directory 설정**에 있는 **고급**에서 이를 가져올 수 있습니다.
+* **INSERT-RESOURCE-ID-HERE**를 모바일 앱 백 엔드에 대한 클라이언트 ID로 바꿉니다. 포털의 **Azure Active Directory 설정**에 있는 **고급** 탭에서 이를 가져올 수 있습니다.
 
 * **INSERT-CLIENT-ID-HERE**를 네이티브 클라이언트 응용 프로그램에서 복사한 클라이언트 ID로 바꿉니다.
 
@@ -592,4 +640,4 @@ Azure Active Directory를 사용하여 응용 프로그램에 사용자가 로�
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -3,7 +3,7 @@
 	description="이 문서는 Azure AD Connect Health가 배포되면 수행할 수 있는 추가 작업에 대해 설명합니다."
 	services="active-directory"
 	documentationCenter=""
-	authors="billmath"
+	authors="karavar"
 	manager="stevenpo"
 	editor="curtand"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/17/2016"
-	ms.author="billmath"/>
+	ms.date="02/21/2016"
+	ms.author="vakarand"/>
 
 # Azure AD Connect Health 작업
 
@@ -22,6 +22,9 @@
 
 ## 전자 메일 알림 사용
 ID 인프라가 정상이 아님을 나타내는 경고가 생성되면 전자 메일 알림을 보내도록 Azure AD Connect Health Service를 구성할 수 있습니다. 알림은 경고가 생성되는 경우 및 해결된 것으로 표시되는 경우에 발생합니다. 전자 메일 알림을 구성하려면 아래 지침을 따르세요.
+
+![Azure AD Connect Health 메일 알림 검색](./media/active-directory-aadconnect-health/email_noti_discover.png)
+
 >[AZURE.NOTE] 전자 메일 알림은 기본적으로 사용하지 않도록 설정되어 있습니다.
 
 
@@ -114,9 +117,10 @@ Azure AD Connect Health내에서 *모든 서비스 인스턴스* 수준으로 �
 
 6. 역할 할당이 완료되면 목록에서 사용자 및/또는 그룹이 표시됩니다.<br> ![Azure AD Connect Health RBAC 사용자 목록](./media/active-directory-aadconnect-health/RBAC_user_list.png)
 
-이러한 단계는 할당된 역할에 맞춰 나열된 사용자 및 그룹 액세스에 따라 허용합니다.
+이러한 단계는 할당된 역할에 맞춰 나열된 사용자 및 그룹 액세스에 따라 허용합니다.  
+
 >[AZURE.NOTE]
-- 전역 관리자는 항상 모든 작업에 모든 권한을 갖지만 전역 관리자 계정은 위의 목록에 표시되지 않습니다. 
+- 전역 관리자는 항상 모든 작업에 모든 권한을 갖지만 전역 권리자 계정은 위의 목록에 표시되지 않습니다.
 - "사용자 초대" 기능은 Azure AD Connect Health 내에서 지원되지 않습니다.
 
 #### 3단계: 사용자 또는 그룹을 사용하여 블레이드 위치 공유
@@ -140,4 +144,4 @@ Azure AD Connect Health내에서 *모든 서비스 인스턴스* 수준으로 �
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health 버전 내역](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

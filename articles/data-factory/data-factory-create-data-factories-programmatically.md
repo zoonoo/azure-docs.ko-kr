@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="데이터 팩터리 SDK를 사용하여 Azure Data Factory 만들기, 모니터링 및 관리" 
+	pageTitle="데이터 팩터리 SDK를 사용하여 Azure Data Factory 만들기, 모니터링 및 관리 | Microsoft Azure" 
 	description="데이터 팩터리 SDK를 사용하여 프로그래밍 방식으로 Azure Data Factory를 만들고, 모니터링하고, 관리하는 방법을 알아봅니다." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -394,4 +394,4 @@
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

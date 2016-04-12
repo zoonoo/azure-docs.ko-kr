@@ -5,14 +5,14 @@
    documentationCenter="na"
    authors="sethmanheim"
    manager="timlt"
-   editor="tysonn" /> 
+   editor="" /> 
 <tags 
    ms.service="service-bus"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/28/2015"
+   ms.date="03/16/2016"
    ms.author="sethm" />
 
 # 비동기 메시징 패턴 및 고가용성
@@ -45,7 +45,7 @@
 
 -   Azure 데이터 센터 내에서 서비스 버스의 오류입니다. 몇 분 또는 몇 시간 동안 시스템에 연결할 수 없는 기본적인 "치명적 오류"입니다.
 
-> [AZURE.NOTE]용어 **저장소**는 Azure 저장소 및 SQL Azure를 의미할 수 있습니다.
+> [AZURE.NOTE] 용어 **저장소**는 Azure 저장소 및 SQL Azure를 의미할 수 있습니다.
 
 서비스 버스는 이런 문제에 대한 다양한 완화 방법을 포함합니다. 다음 섹션에서는 각 문제 및 해당 완화 방법을 설명합니다.
 
@@ -63,7 +63,7 @@ Azure 내의 다른 구성 요소에는 서비스 문제가 있는 경우도 있
 
 응용 프로그램의 경우 서비스 버스의 내부 구성 요소가 일치하지 않는 상황이 발생할 수 있습니다. 서비스 버스가 이를 감지하는 경우 응용 프로그램에서 데이터를 수집하여 상황을 진단하기 위해 지원합니다. 데이터가 수집되면 응용 프로그램은 일관 된 상태로 반환하기 위해 다시 시작됩니다. 이 프로세스는 매우 신속하게 발생하고 엔터티가 최대 몇 분 동안 사용 불가 상태로 나타날 수 있지만 일반적인 가동 중지 시간은 훨씬 짧습니다.
 
-이러한 경우 클라이언트 응용 프로그램은 [System.TimeoutException][] 또는 [MessagingException][] 예외를 생성합니다. 서비스 버스 .NET SDK는 자동화된 클라이언트 다시 시도 논리의 형태로 이 문제에 대한 완화 방법을 포함합니다. 다시 시도 기간이 끝나고 메시지가 전달되지 않으면 [쌍을 이루는 네임스페이스][]와 같은 다른 기능을 사용하여 탐색할 수 있습니다. 쌍을 이루는 네임 스페이스에는 이 문서의 뒷부분에서 설명하는 다른 주의 사항이 있습니다.
+이러한 경우 클라이언트 응용 프로그램은 [System.TimeoutException][] 또는 [MessagingException][] 예외를 생성합니다. 서비스 버스 .NET SDK는 자동화된 클라이언트 다시 시도 논리의 형태로 이 문제에 대한 완화 방법을 포함합니다. 다시 시도 기간이 끝나고 메시지가 전달되지 않으면 [쌍을 이루는 네임스페이스][]와 같은 다른 기능을 사용하여 탐색할 수 있습니다. 쌍을 이루는 네임스페이스에는 [쌍을 이루는 네임스페이스 구현의 세부 사항 및 비용의 영향](service-bus-paired-namespaces.md) 문서에서 설명한 다른 주의 사항이 있습니다.
 
 ### Azure 데이터 센터 내에서 서비스 버스의 오류
 
@@ -72,7 +72,7 @@ Azure 데이터 센터에 장애에 대한 가장 가능성이 높은 원인은 
 -   전기 중단(전력 공급 및 전력 생산 불가).
 -   연결.(클라이언트와 Azure 간에 인터넷 끊김)
 
-두 경우 모두 자연 재해 또는 인재가 문제를 발생시킵니다. 이 문제를 해결하고 메시지를 보낼 수 있는지 확인하려면 [쌍을 이루는 네임스페이스][]를 사용하여 기본 위치가 다시 정상인 동안 메시지를 보조 위치로 보내도록 할 수 있습니다. 자세한 정보는 [서비스 버스 중단 및 재해로부터 응용 프로그램을 보호하는 모범 사례][]를 참조하세요.
+두 경우 모두 자연 재해 또는 인재가 문제를 발생시킵니다. 이 문제를 해결하고 메시지를 보낼 수 있는지 확인하려면 [쌍을 이루는 네임스페이스][]를 사용하여 기본 위치가 다시 정상인 동안 메시지를 보조 위치로 보내도록 할 수 있습니다. 자세한 내용은 [서비스 버스 중단 및 재해로부터 응용 프로그램을 보호하는 모범 사례][]를 참조하세요.
 
 ## 쌍을 이루는 네임스페이스
 
@@ -108,7 +108,7 @@ Azure 데이터 센터에 장애에 대한 가장 가능성이 높은 원인은 
 public Task PairNamespaceAsync(PairedNamespaceOptions options);
 ```
 
-작업이 완료되면 네임스페이스 쌍이 완료되고 [MessagingFactory][] 인스턴스로 만든 [MessageReceiver][], [QueueClient][], 또는 [TopicClient][]에 대해 작업할 준비가 됩니다. [Microsoft.ServiceBus.Messaging.PairedNamespaceOptions][]는 [MessagingFactory][] 개체와 사용할 수 있는 다양한 유형의 쌍에 대한 기본 클래스입니다. 현재 유일하게 파생된 클래스는 [SendAvailabilityPairedNamespaceOptions][]이며 이는 보내기 가용성 요구 사항을 구현합니다. [SendAvailabilityPairedNamespaceOptions][]는 서로 간에 빌드한 생성자의 집합이 있습니다. 대부분의 매개 변수가 있는 생성자를 살펴보면 다른 생성자의 동작을 이해할 수 있습니다.
+작업이 완료되면 네임스페이스 쌍이 완료되고 [MessagingFactory][] 인스턴스로 만든 [MessageReceiver][], [QueueClient][] 또는 [TopicClient][]에 대해 작업할 준비가 됩니다. [Microsoft.ServiceBus.Messaging.PairedNamespaceOptions][]는 [MessagingFactory][] 개체와 사용할 수 있는 다양한 유형의 쌍에 대한 기본 클래스입니다. 현재 유일하게 파생된 클래스는 [SendAvailabilityPairedNamespaceOptions][]이며 이는 보내기 가용성 요구 사항을 구현합니다. [SendAvailabilityPairedNamespaceOptions][]는 서로 간에 빌드한 생성자의 집합이 있습니다. 대부분의 매개 변수가 있는 생성자를 살펴보면 다른 생성자의 동작을 이해할 수 있습니다.
 
 ```
 public SendAvailabilityPairedNamespaceOptions(
@@ -123,7 +123,7 @@ public SendAvailabilityPairedNamespaceOptions(
 
 -   *secondaryNamespaceManager*: [PairNamespaceAsync][] 메서드가 보조 네임스페이스를 설정하는 데 사용할 수 있는 보조 네임 스페이스에 대해 초기화된 [NamespaceManager][] 인스턴스입니다. 네임스페이스 관리자는 네임스페이스에서 큐 목록을 가져오고 필요한 백로그 큐가 존재하는지 확인하는 데 사용됩니다. 이러한 큐가 존재하지 않는 경우 만들어집니다. [NamespaceManager][]는 **관리** 클레임으로 토큰을 만드는 기능을 필요로 합니다.
 
--   *messagingFactory*: 보조 네임스페이스에 대한 [MessagingFactory][] 인스턴스입니다. [EnableSyphon][] 속성이 **true**로 설정 된 경우 [MessagingFactory][] 개체는 백로그 큐에서 메시지를 보내고 받는 데 사용됩니다.
+-   *messagingFactory*: 보조 네임스페이스에 대한 [MessagingFactory][] 인스턴스입니다. [EnableSyphon][] 속성이 **true**로 설정된 경우 [MessagingFactory][] 개체는 백로그 큐에서 메시지를 보내고 받는 데 사용됩니다.
 
 -   *backlogQueueCount*: 만들려는 백로그 큐의 수입니다. 이 값은 적어도 1이어야 합니다. 백로그에 메시지를 보낼 때 이러한 큐 중 하나가 무작위로 선택됩니다. 값을 1로 설정한 경우 하나의 큐만 사용될 수 있습니다. 이 문제가 발생하고 백로그 큐 하나에서 오류를 생성되면 클라이언트는 다른 백로그 큐를 시도할 수 없고 메시지를 전송하는 데 실패할 수도 있습니다. 이 값을 큰 값으로, 기본값을 10으로 설정하는 것이 좋습니다. 이 응용 프로그램에서 하루에 보내는 데이터의 크기에 따라 더 높거나 낮은 값으로 변경할 수 있습니다. 각 백로그 큐는 최대 5GB의 메시지를 보관할 수 있습니다.
 
@@ -149,7 +149,7 @@ if (sendAvailabilityOptions.BacklogQueueCount < 1)
 
 ## 다음 단계
 
-이제 서비스 버스에서 비동기 메시징의 기본 사항을 알아보았으므로 [쌍을 이루는 네임 스페이스 및 비용 영향][]에 대한 자세한 내용을 읽습니다.
+이제 서비스 버스에서 비동기 메시징의 기본 사항을 알아보았으므로 [쌍을 이루는 네임스페이스][]에 대한 자세한 내용을 읽습니다.
 
   [ServerBusyException]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.serverbusyexception.aspx
   [System.TimeoutException]: https://msdn.microsoft.com/library/system.timeoutexception.aspx
@@ -169,7 +169,6 @@ if (sendAvailabilityOptions.BacklogQueueCount < 1)
   [IsTransient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingexception.istransient.aspx
   [UnauthorizedAccessException]: https://msdn.microsoft.com/library/azure/system.unauthorizedaccessexception.aspx
   [BacklogQueueCount]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions.backlogqueuecount.aspx
-  [쌍을 이루는 네임 스페이스 및 비용 영향]: service-bus-paired-namespaces.md
   [쌍을 이루는 네임스페이스]: service-bus-paired-namespaces.md
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0323_2016-->

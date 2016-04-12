@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="01/21/2016"
+   ms.date="03/16/2016"
    ms.author="andkjell"/>
 
 # 일반 SQL 커넥터 기술 참조
@@ -22,9 +22,11 @@
 
 - Microsoft Identity Manager 2016 (MIM2016)
 - Forefront Identity Manager 2010 R2 (FIM2010R2)
-    -   핫픽스 4.1.3461.0 이상 [KB2870703](https://support.microsoft.com/kb/2870703)을 사용해야 합니다.
+    -   핫픽스 4.1.3671.0 이상 [KB3092178](https://support.microsoft.com/kb/3092178)을 사용해야 합니다.
 
 MIM2016와 FIM2010R2의 경우 커넥터는 [Microsoft 다운로드 센터](http://go.microsoft.com/fwlink/?LinkId=717495)에서 다운로드로 사용할 수 있습니다.
+
+작업에서 이 커넥터를 보려면 [Generic SQL Connector step-by-step(일반 SQL 커넥터 단계별)](active-directory-aadconnectsync-connector-genericsql-step-by-step.md) 문서를 참조하세요.
 
 ## 일반 SQL 커넥터의 개요
 
@@ -78,9 +80,9 @@ ODBC 드라이버가 작동하는 데 필요한 포트는 데이터베이스 공
 
 데이터베이스는 아래에 설명된 인증 방법 중 하나를 지원해야 합니다.
 
-- **Windows 인증**: 인증하는 데이터베이스는 Windows 자격 증명을 사용하여 사용자를 확인합니다. 이 경우에 동기화 서비스에서 사용하는 서비스 계정이 사용됩니다. 이 계정에는 데이터베이스에 대한 권한이 필요합니다.
+- **Windows 인증**: 인증하는 데이터베이스는 Windows 자격 증명을 사용하여 사용자를 확인합니다. 지정된 사용자 이름/암호가 데이터베이스 인증에 사용됩니다. 이 계정에는 데이터베이스에 대한 권한이 필요합니다.
 - **SQL 인증**: 인증하는 데이터베이스는 사용자 이름/암호가 정의된 연결 화면을 사용하여 데이터베이스에 연결합니다. DSN 파일에서 사용자 이름/암호를 저장하는 경우 연결 화면에 제공된 자격 증명은 우선 순위를 가집니다.
-- **Azure SQL 데이터베이스 인증**: 자세한 내용은 [Azure Active Directory 인증을 사용하여 SQL 데이터베이스에 연결](sql-database-aad-authentication.md)을 참조하세요.
+- **Azure SQL 데이터베이스 인증**: 자세한 내용은 [Azure Active Directory 인증을 사용하여 SQL 데이터베이스에 연결](..\sql-database\sql-database-aad-authentication.md)을 참조하세요.
 
 **DN이 앵커**: 이 옵션을 선택하면 DN이 앵커 특성으로 사용됩니다. 간단한 구현을 위해 사용할 수 있지만 다음과 같은 제한이 있습니다.
 
@@ -295,4 +297,4 @@ ODBC 드라이버가 작동하는 데 필요한 포트는 데이터베이스 공
 
 -	커넥터의 문제를 해결하기 위해 로깅을 사용하는 방법에 대한 자세한 내용은 [커넥터에 ETW 추적을 사용하는 방법](http://go.microsoft.com/fwlink/?LinkId=335731) 참조하세요.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

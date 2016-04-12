@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/17/2016"
+   ms.date="03/23/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스의 사용자 오류에서 데이터베이스 복구
@@ -44,7 +44,7 @@ SQL 데이터 웨어하우스 데이터베이스 복원: Azure PowerShell 및 RE
 6. 데이터베이스를 원하는 복원 지점으로 복원합니다.
 7. 복원의 진행률을 모니터링합니다.
 
-```
+```Powershell
 
 Login-AzureRmAccount
 Get-AzureRmSubscription
@@ -95,13 +95,13 @@ Get-AzureSqlDatabaseOperation -ServerName "<YourServerName>" –OperationGuid $R
 3. 복원할 삭제된 데이터베이스가 포함된 구독을 선택합니다.
 4. 삭제된 데이터베이스 목록에서 데이터베이스와 삭제 날짜를 찾습니다.
 
-```
+```Powershell
 Get-AzureSqlDatabase -RestorableDropped -ServerName "<YourServerName>"
 ```
 
 5. 특정 삭제된 데이터베이스를 가져와서 복원을 시작합니다.
 
-```
+```Powershell
 $Database = Get-AzureSqlDatabase -RestorableDropped -ServerName "<YourServerName>" –DatabaseName "<YourDatabaseName>" -DeletionDate "1/01/2015 12:00:00 AM"
 
 $RestoreRequest = Start-AzureSqlDatabaseRestore -SourceRestorableDroppedDatabase $Database –TargetDatabaseName "<NewDatabaseName>"
@@ -141,4 +141,4 @@ Get-AzureSqlDatabaseOperation –ServerName "<YourServerName>" –OperationGuid 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

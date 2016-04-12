@@ -19,8 +19,8 @@
 
 
 > [AZURE.SELECTOR]
-- [Azure Classic steps](load-balancer-internet-getstarted.md)
-- [Resource Manager Powershell steps](load-balancer-arm-powershell.md)
+- [Azure 클래식 단계](load-balancer-internet-getstarted.md)
+- [리소스 관리자 Powershell 단계](load-balancer-arm-powershell.md)
 
 
 아래 단계에서는 PowerShell과 함께 Azure 리소스 관리자를 사용하여 인터넷 연결 부하 분산 장치를 만드는 방법을 보여 줍니다. Azure 리소스 관리자를 사용하면 인터넷 연결 부하 분산 장치를 만드는 항목이 개별적으로 구성된 다음 함께 사용되어 리소스를 만듭니다.
@@ -242,7 +242,7 @@ PS C:\> $backendnic1
 
 Add-AzureVMNetworkInterface 명령을 사용하여 가상 컴퓨터에 NIC를 할당합니다.
 
-가상 컴퓨터를 만들고 NIC에 할당하는 단계별 지침은 [리소스 관리자 및 Azure PowerShell을 사용하여 Windows 가상 컴퓨터 만들기 및 미리 구성](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example) 옵션 4 또는 5를 참조하세요.
+가상 컴퓨터를 만들고 NIC에 할당하는 단계별 지침은 [리소스 관리자 및 Azure PowerShell을 사용하여 Windows 가상 컴퓨터 만들기 및 미리 구성](../virtual-machines/virtual-machines-windows-create-powershell.md#Example) 옵션 4 또는 5를 참조하세요.
 
 ## 기존 부하 분산 장치 업데이트
 
@@ -282,4 +282,4 @@ Remove-AzureLoadBalancer 명령을 사용하여 “NRP-RG”라는 리소스 그
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

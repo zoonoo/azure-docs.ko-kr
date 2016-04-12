@@ -25,7 +25,7 @@ Azure CLI는 Azure 플랫폼 작업을 위한 플랫폼 간 오픈 소스 명령
 
 이 가이드에서는 Azure 저장소의 기본 개념을 이해하고 있다고 가정합니다. 이 가이드는 Azure 저장소에서 Azure CLI를 사용하는 방법을 보여주는 몇 가지 스크립트를 제공합니다. 각 스크립트를 실행하기 전에 구성에 따라 스크립트 변수를 업데이트 해야 합니다.
 
-> [AZURE.NOTE] 이 가이드는 Azure 서비스 관리 모드 (ASM)에서 실행 중인 Azure CLI 명령 및 스크립트 예제를 제공합니다. ARM(Azure Resource Management) 모드에서의 Azure CLI 명령은 [Azure 리소스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](../azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects)을 참조하세요.
+> [AZURE.NOTE] 이 가이드는 Azure 서비스 관리 모드 (ASM)에서 실행 중인 Azure CLI 명령 및 스크립트 예제를 제공합니다. ARM(Azure Resource Management) 모드에서의 Azure CLI 명령은 [Azure 리소스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects)을 참조하세요.
 
 ## 5분 안에 Azure 저장소 및 Azure CLI 시작하기
 
@@ -221,4 +221,4 @@ Azure CLI 버전 0.9.8부터 파일을 다른 파일로, 파일을 Blob으로 �
 
 [Image1]: ./media/storage-azure-cli/azure_command.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

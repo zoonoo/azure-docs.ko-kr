@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2016" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
 
 
@@ -46,6 +46,10 @@
 [Microsoft Azure](http://azure.com) 구독이 필요합니다.
 
 ### 앱이 IIS 서버에서 실행되는 경우
+
+웹앱을 .NET 4.6 이상에서 실행하는 경우 앱에 [Application Insights SDK를 설치](app-insights-asp-net.md)하면 자동으로 종속성을 추적합니다. 다른 작업은 필요하지 않습니다.
+
+그렇지 않으면 서버에 Application Insights 상태 모니터를 설치합니다.
 
 1. IIS 웹 서버에서 관리자 자격 증명으로 로그인합니다.
 2. [상태 모니터 설치 관리자](http://go.microsoft.com/fwlink/?LinkId=506648)를 다운로드하고 실행합니다.
@@ -91,7 +95,7 @@ Azure 웹앱의 제어판에서 Application Insights 확장을 추가합니다.
 
 ### Azure 클라우드 서비스 프로젝트 만들기인 경우
 
-[웹 및 작업자 역할에 스크립트 추가](app-insights-cloudservices.md)
+[웹 및 작업자 역할에 스크립트 추가](app-insights-cloudservices.md#dependencies) 또는 [.NET Framework 4.6 이상을 설치](../cloud-services/cloud-services-dotnet-install-dotnet.md)합니다.
 
 ## <a name="diagnosis"></a> 종속성 성능 문제 진단
 
@@ -185,7 +189,6 @@ Azure 웹앱의 제어판에서 Application Insights 확장을 추가합니다.
 [diagnostic]: app-insights-diagnostic-search.md
 [metrics]: app-insights-metrics-explorer.md
 [netlogs]: app-insights-asp-net-trace-logs.md
-[perf]: app-insights-web-monitor-performance.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-asp-net-dependencies.md
@@ -193,4 +196,4 @@ Azure 웹앱의 제어판에서 Application Insights 확장을 추가합니다.
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

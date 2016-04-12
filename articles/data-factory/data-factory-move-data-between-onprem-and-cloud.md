@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/21/2016" 
+	ms.date="03/09/2016" 
 	ms.author="spelluru"/>
 
 # 온-프레미스 원본과 클라우드 간에 데이터 관리 게이트웨이로 데이터 이동
@@ -42,7 +42,7 @@
 ## 데이터 관리 게이트웨이 설치
 
 ### 게이트웨이 설치 - 필수 조건
-1.	지원되는 **운영 체제** 버전은 Windows 7, Windows 8/8.1, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2입니다.
+1.	지원되는 **운영 체제** 버전은 Windows 7, Windows 8/8.1, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2입니다. 도메인 컨트롤러의 데이터 관리 게이트웨이 설치는 현재 지원되지 않습니다.
 2.	게이트웨이 컴퓨터에 대한 권장 **구성**은 최소한 2GHz, 4개 코어, 8GB RAM 및 80GB 디스크입니다.
 3.	호스트 컴퓨터가 최대 절전 모드인 경우 게이트웨이가 데이터 요청에 응답할 수 없습니다. 따라서 게이트웨이를 설치하기 전에 컴퓨터에서 **전원 계획**을 적절하게 구성하세요. 컴퓨터가 최대 절전 모드로 구성된 경우 게이트웨이 설치에서 메시지가 표시됩니다.
 
@@ -120,7 +120,7 @@ Windows 방화벽 수준에서 이러한 아웃바운드 포트는 일반적으�
 
 	msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 
-게이트웨이 컴퓨터에서 포트 8050이 열도록 선택하지 않은 경우 온-프레미스 연결된 서비스를 설정하려면 데이터 저장소 자격 증명을 구성하는 데 **자격 증명 설정** 응용 프로그램을 사용하는 것 이외의 메커니즘을 사용해야 합니다. 예를 들어 [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) PowerShell cmdlet을 사용할 수 있습니다. 데이터 저장소 자격 증명을 설정할 수 있는 방법은 [자격 증명 및 보안 설정](#setting-credentials-and-security) 섹션을 참조하세요.
+게이트웨이 컴퓨터에서 포트 8050이 열도록 선택하지 않은 경우 온-프레미스 연결된 서비스를 설정하려면 데이터 저장소 자격 증명을 구성하는 데 **자격 증명 설정** 응용 프로그램을 사용하는 것 이외의 메커니즘을 사용해야 합니다. 예를 들어 [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) PowerShell cmdlet을 사용할 수 있습니다. 데이터 저장소 자격 증명을 설정할 수 있는 방법은 [자격 증명 및 보안 설정](#set-credentials-and-securityy) 섹션을 참조하세요.
 
 **원본 데이터 저장소의 데이터를 싱크 데이터 저장소로 복사하려면**
 
@@ -255,7 +255,7 @@ Windows 방화벽 수준에서 이러한 아웃바운드 포트는 일반적으�
 	
 
 ### 3단계: 연결된 서비스 만들기 
-이 단계에서는 2개의 연결된 서비스 **StorageLinkedService** 및 **SqlServerLinkedService**를 만듭니다. **SqlServerLinkedService**는 온-프레미스 SQL Server 데이터베이스를 연결하며 **StorageLinkedService** 연결 서비스는 Azure Blob 저장소를 데이터 팩터리에 연결합니다. 이 연습의 뒷부분에서는 온-프레미스 SQL Server 데이터베이스에서 Azure Blob 저장소로 데이터를 복사하는 파이프라인을 만듭니다.
+이 단계에서는 2개의 연결된 서비스 **AzureStorageLinkedService** 및 **SqlServerLinkedService**를 만듭니다. **SqlServerLinkedService**는 온-프레미스 SQL Server 데이터베이스를 연결하며 **AzureStorageLinkedService** 연결 서비스는 Azure Blob 저장소를 데이터 팩터리에 연결합니다. 이 연습의 뒷부분에서는 온-프레미스 SQL Server 데이터베이스에서 Azure Blob 저장소로 데이터를 복사하는 파이프라인을 만듭니다.
 
 #### 온-프레미스 SQL Server 데이터베이스에 연결된 서비스 추가
 1.	**데이터 팩터리 편집기**의 도구 모음에서 **새 데이터 저장소**를 클릭하고 **SQL Server**를 선택합니다. 
@@ -286,7 +286,9 @@ Windows 방화벽 수준에서 이러한 아웃바운드 포트는 일반적으�
             		"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;",
 	           		"gatewayName": "<Name of the gateway that the Data Factory service should use to connect to the on-premises SQL Server database>"
     		    }
-	   
+	
+		자격 증명은 Data Factory 서비스가 소유하는 인증서를 사용하여 **암호화**됩니다. 대신 데이터 관리 게이트웨이와 연결된 인증서를 사용하려는 경우 [안전하게 자격 증명 설정](#set-credentials-and-security)을 참조하세요.
+    
 2.	명령 모음에서 **배포**를 클릭하여 SQL Server 연결 서비스를 배포합니다.
 
 #### Azure 저장소 계정에 대한 연결된 서비스 추가
@@ -294,7 +296,7 @@ Windows 방화벽 수준에서 이러한 아웃바운드 포트는 일반적으�
 1. **데이터 팩터리 편집기**의 명령 모음에서 **새 데이터 집합**을 클릭하고 **Azure 저장소**를 클릭합니다.
 2. **계정 이름**에 Azure 저장소 계정의 이름을 입력합니다.
 3. **계정 키**에 Azure 저장소 계정의 키를 입력합니다.
-4. **배포**를 클릭하여 **StorageLinkedService**를 배포합니다.
+4. **배포**를 클릭하여 **AzureStorageLinkedService**를 배포합니다.
    
  
 ### 4단계: 입력 및 출력 데이터 집합 만들기
@@ -375,7 +377,7 @@ Windows 방화벽 수준에서 이러한 아웃바운드 포트는 일반적으�
 		  "name": "OutputBlobTable",
 		  "properties": {
 		    "type": "AzureBlob",
-		    "linkedServiceName": "StorageLinkedService",
+		    "linkedServiceName": "AzureStorageLinkedService",
 		    "typeProperties": {
 		      "folderPath": "adftutorial/outfromonpremdf",
 		      "format": {
@@ -392,8 +394,8 @@ Windows 방화벽 수준에서 이러한 아웃바운드 포트는 일반적으�
   
 	다음 사항에 유의하세요.
 	
-	- **형식**을 **AzureBlob**으로 설정합니다.
-	- **linkedServiceName**을 **StorageLinkedService**(2단계에서 만든 연결된 서비스)로 설정합니다.
+	- **type**을 **AzureBlob**으로 설정합니다.
+	- **linkedServiceName**을 **AzureStorageLinkedService**(2단계에서 만든 연결된 서비스)로 설정합니다.
 	- **folderPath**를 **adftutorial/outfromonpremdf**로 설정합니다. 여기서 outfromonpremdf는 adftutorial 컨테이너의 폴더입니다. **adftutorial** 컨테이너만 만들면 됩니다.
 	- **availability**는 **hourly**(**frequency**는 **hour**로, **interval**은 **1**로 설정)로 설정됩니다. 데이터 팩터리 서비스는 Azure SQL 데이터베이스의 **emp** 테이블에 출력 데이터 조각을 1시간마다 생성합니다. 
 
@@ -478,7 +480,7 @@ Windows 방화벽 수준에서 이러한 아웃바운드 포트는 일반적으�
 	- activities 섹션에는 **type**이 **Copy**로 설정된 작업 하나밖에 없습니다.
 	- 작업에 대한 **입력**을 **EmpOnPremSQLTable**로 설정하고 작업에 대한 **출력**을 **OutputBlobTable**로 설정합니다.
 	- **transformation** 섹션에서 **SqlSource**를 **source type**으로 지정하고 **BlobSink**를 **sink type**으로 지정합니다.
-- **SqlSource**의 **sqlReaderQuery** 속성에 대해 SQL 쿼리 **select * from emp**를 지정합니다.
+	- **SqlSource**의 **sqlReaderQuery** 속성에 대해 SQL 쿼리 **select * from emp**를 지정합니다.
 
 	**start** 속성 값을 현재 날짜로 바꾸고 **end** 값을 다음 날짜로 바꿉니다. start 및 end 날짜/시간은 둘 다 [ISO 형식](http://en.wikipedia.org/wiki/ISO_8601)(영문)이어야 합니다. 예: 2014-10-14T16:32:41Z. **end** 시간은 선택 사항이지만 이 자습서에서는 사용합니다.
 	
@@ -586,46 +588,39 @@ Windows 방화벽 수준에서 이러한 아웃바운드 포트는 일반적으�
 10. 게이트웨이 등록에 성공하면 게이트웨이 구성 관리자의 홈 페이지에 **등록**이 **등록됨**으로 설정되고 **상태**가 **시작됨**으로 설정됩니다. 
 
 ## 자격 증명 및 보안 설정
+Data Factory 편집기에서 자격 증명을 암호화하려면 다음을 수행합니다.
 
-데이터 팩터리 편집기를 사용하는 대신 연결된 서비스 블레이드를 사용하여 SQL Server 연결 서비스를 만들 수도 있습니다.
- 
-3.	데이터 팩터리 홈 페이지에서 **연결된 서비스** 타일을 클릭합니다. 
-4.	**연결된 서비스** 블레이드의 명령 모음에서 **새 데이터 저장소**를 클릭합니다. 
-4.	**이름**에 **SqlServerLinkedService**를 입력합니다. 
-2.	**형식** 옆의 화살표를 클릭하고 **SQL Server**를 선택합니다.
-
-	![새 데이터 저장소 만들기](./media/data-factory-move-data-between-onprem-and-cloud/new-data-store.png)
-3.	**형식** 설정에서 자세한 설정을 수행해야 합니다.
-4.	**데이터 게이트웨이** 설정의 경우 방금 만든 게이트웨이를 선택합니다. 
-
-	![SQL 서버 설정](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-settings.png)
-4.	**서버** 설정에 데이터베이스 서버의 이름을 입력합니다.
-5.	**데이터베이스** 설정에 데이터베이스의 이름을 입력합니다.
-6.	**자격 증명** 옆의 화살표를 클릭합니다.
-
-	![자격 증명 블레이드](./media/data-factory-move-data-between-onprem-and-cloud/credentials-dialog.png)
-7.	**자격 증명** 블레이드에서 **자격 증명을 안전하게 설정하려면 여기를 클릭하세요**를 클릭합니다.
-8.	**자격 증명 설정** 대화 상자에서 다음을 수행합니다.
-
-	![자격 증명 대화 상자 설정](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png) 
-	1. 데이터 팩터리 서비스가 사용하려는 **인증**을 선택하여 데이터베이스에 연결합니다. 
-	2. **USERNAME** 설정에 대해 데이터베이스에 액세스할 수 있는 사용자의 이름을 입력합니다. 
-	3. **PASSWORD** 설정에 대해 사용자 암호를 입력합니다. 
-	4. **확인**을 클릭하여 대화 상자를 닫습니다. 
-4. **확인**을 클릭하여 **자격 증명** 블레이드를 닫습니다. 
-5. **새 데이터 저장소** 블레이드에서 **확인**을 클릭합니다. 	
-6. **SqlServerLinkedService**의 상태가 연결된 서비스 블레이드에서 온라인으로 설정되었는지 확인합니다.
-	![SQL Server 연결된 서비스 상태](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
+1. 트리 보기에서 기존 **연결된 서비스**를 클릭하여 해당 JSON 정의를 보거나 데이터 관리 게이트웨이(예: SQL Server 또는 Oracle)를 필요로 하는 새로운 연결된 서비스를 만듭니다. 
+2. JSON 편집기에서 **gatewayName** 속성으로 게이트웨이의 이름을 입력합니다. 
+3. **connectionString**에 **데이터 원본** 속성의 서버 이름을 입력합니다.
+4. **connectionString**에 **초기 카탈로그** 속성의 데이터베이스 이름을 입력합니다.    
+5. 명령 모음에서 **암호화** 단추를 클릭합니다. **자격 증명 설정** 대화 상자에 다음이 표시됩니다. ![자격 증명 대화 상자 설정](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png)
+6. **자격 증명 설정** 대화 상자에서 다음을 수행합니다.  
+	1.	데이터 팩터리 서비스가 사용하려는 **인증**을 선택하여 데이터베이스에 연결합니다. 
+	2.	**USERNAME** 설정에 대해 데이터베이스에 액세스할 수 있는 사용자의 이름을 입력합니다. 
+	3.	**PASSWORD** 설정에 대해 사용자 암호를 입력합니다.  
+	4.	**확인**을 클릭하여 자격 증명을 암호화하고 대화 상자를 닫습니다. 
+5.	이제 **connectionString**에 **encryptedCredential** 속성이 표시됩니다.		
+		
+			{
+	    		"name": "SqlServerLinkedService",
+		    	"properties": {
+		        	"type": "OnPremisesSqlServer",
+			        "description": "",
+		    	    "typeProperties": {
+		    	        "connectionString": "data source=myserver;initial catalog=mydatabase;Integrated Security=False;EncryptedCredential=eyJDb25uZWN0aW9uU3R",
+		            	"gatewayName": "adftutorialgateway"
+		        	}
+		    	}
+			}
 
 게이트웨이 컴퓨터와 다른 컴퓨터에서 포털에 액세스하는 경우 자격 증명 관리자 응용프로그램이 게이트웨이 컴퓨터에 연결할 수 있는지 확인해야 합니다. 응용프로그램이 게이트웨이 컴퓨터에 연결할 수 없는 경우, 데이터 원본에 대한 자격 증명을 설정하고 데이터 원본에 대한 연결을 테스트할 수 없습니다.
 
-Azure 포털에서 시작된 "자격 증명 설정" 응용 프로그램을 사용하여 온-프레미스 데이터 원본에 대한 자격 증명을 설정하는 경우 포털은 게이트웨이 컴퓨터에서 데이터 관리 게이트웨이 구성 관리자의 인증서 탭에 지정한 인증서를 사용하여 자격 증명을 암호화합니다.
+Azure 포털에서 시작된 **자격 증명 설정** 응용 프로그램을 사용하여 온-프레미스 데이터 원본에 대한 자격 증명을 설정하는 경우 포털은 게이트웨이 컴퓨터에서 **데이터 관리 게이트웨이 구성 관리자**의 **인증서** 탭에 지정한 인증서를 사용하여 자격 증명을 암호화합니다.
 
-자격 증명을 암호화하기 위한 API 기반 접근 방식을 하는 경우 [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) PowerShell cmdlet를 사용하여 자격 증명을 암호화합니다. Cmdlet은 해당 게이트웨이 구성하는 인증서를 사용하여 자격 증명을 암호화를 사용합니다. 이 cmdlet에서 반환되는 암호화된 자격을 증명하고 [New-AzureRmDataFactoryLinkedService](https://msdn.microsoft.com/library/mt603647.aspx) cmdlet 또는 포털의 데이터 팩터리 편집기에서 JSON 조각을 사용하는 JSON 파일에서 connectionString의 EncryptedCredential 요소에 추가할 수 있습니다.
+자격 증명을 암호화하기 위한 API 기반 접근 방식을 하는 경우 [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) PowerShell cmdlet를 사용하여 자격 증명을 암호화합니다. Cmdlet은 해당 게이트웨이 구성하는 인증서를 사용하여 자격 증명을 암호화를 사용합니다. 이 cmdlet에서 반환되는 암호화된 자격을 증명하고 [New-AzureRmDataFactoryLinkedService](https://msdn.microsoft.com/library/mt603647.aspx) cmdlet 또는 포털의 데이터 팩터리 편집기에서 JSON 코드 조각을 사용하는 JSON 파일에서 **connectionString**의 **EncryptedCredential** 요소에 추가할 수 있습니다.
 
 	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
-
-**참고:** "자격 증명 설정" 응용 프로그램을 사용하는 경우 위와 같이 연결된 서비스에서 자동으로 암호화된 자격 증명을 설정합니다.
 
 데이터 팩터리 편집기를 사용하여 자격 증명을 설정할 수 있는 방법이 한 가지 더 있습니다. 편집기를 사용하여 SQL 서버 연결된 서비스를 만들고 일반 텍스트에서 자격 증명을 입력하면 게이트웨이가 사용하도록 구성한 인증서가 아니라 데이터 팩터리 서비스를 소유하는 인증서를 사용하는 자격 증명이 암호화됩니다. 경우에 따라 이 방법은 약간 빠를 수 있는 반면에 안전성이 떨어집니다. 따라서 개발/테스트 목적에 대해서만이 방법을 수행하는 것이 좋습니다.
 
@@ -634,19 +629,17 @@ Azure 포털에서 시작된 "자격 증명 설정" 응용 프로그램을 사�
 이 섹션에서는 Azure PowerShell cmdlet을 사용하여 게이트웨이를 만들고 등록하는 방법에 대해 설명합니다.
 
 1. **Azure PowerShell**을 관리자 모드로 시작합니다. 
-2. Azure 데이터 팩터리 cmdlet은 **AzureResourceManager** 모드에서 사용할 수 있습니다. 다음 명령을 실행하여 **AzureResourceManager** 모드로 전환합니다.     
+2. 다음 명령을 실행하고 Azure 자격 증명을 입력하여 Azure 계정에 로그인합니다. 
 
-        switch-azuremode AzureResourceManager
-
-
+	Login-AzureRmAccount
 2. 다음과 같이 **New-AzureRmDataFactoryGateway** cmdlet를 사용하여 논리 게이트웨이를 만듭니다.
 
-		New-AzureRmDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
+		$MyDMG = New-AzureRmDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
 
 	**예제 명령 및 출력**:
 
 
-		PS C:\> New-AzureRmDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
+		PS C:\> $MyDMG = New-AzureRmDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
 
 		Name              : MyGateway
 		Description       : gateway for walkthrough
@@ -658,30 +651,32 @@ Azure 포털에서 시작된 "자격 증명 설정" 응용 프로그램을 사�
 		LastConnectTime   :
 		ExpiryTime        :
 		ProvisioningState : Succeeded
-
-
-3. **New-AzureRmDataFactoryGatewayKey** cmdlet를 사용하여 새로 만든 게이트웨이의 등록 키를 생성하고 이 키를 지역 변수 **$Key**에 저장합니다.
-
-		New-AzureRmDataFactoryGatewayKey -GatewayName <gatewayname> -ResourceGroupName ADF -DataFactoryName <dataFactoryName>
-
-	
-	**예제 명령 출력:**
-
-
-		PS C:\> $Key = New-AzureRmDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
+		Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
 
 	
 4. Azure PowerShell에서 **C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\PowerShellScript** 폴더로 전환하고 다음 명령에 표시된 대로 지역 변수 **$Key**와 연결된 **RegisterGateway.ps1** 스크립트를 실행하여 컴퓨터에 설치된 클라이언트 에이전트를 앞에서 만든 논리 게이트웨이에 등록합니다.
 
-		PS C:\> .\RegisterGateway.ps1 $Key.GatewayKey
+		PS C:\> .\RegisterGateway.ps1 $MyDMG.Key
 		
 		Agent registration is successful!
+
+	IsRegisterOnRemoteMachine 매개 변수를 사용하여 원격 컴퓨터에서 게이트웨이를 등록할 수 있습니다. 예제:
+		
+		.\RegisterGateway.ps1 $MyDMG.Key -IsRegisterOnRemoteMachine true
 
 5. **Get-AzureRmDataFactoryGateway** cmdlet를 사용하여 데이터 팩터리의 게이트웨이 목록을 가져올 수 있습니다. **상태**에 **online**이 표시되어 있으면 게이트웨이를 사용할 준비가 되었음을 나타냅니다.
 
 		Get-AzureRmDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
 
 게이트웨이를 제거하려면 **Remove-AzureRmDataFactoryGateway** cmdlet를 사용하고 게이트웨이 설명을 업데이트하려면 **Set-AzureRmDataFactoryGateway** cmdlet를 사용합니다. 이러한 cmdlet에 대한 구문 및 기타 세부 정보는 데이터 팩터리 Cmdlet 참조를 참조하세요.
+
+## PowerShell을 사용하여 게이트웨이 나열
+
+	Get-AzureRmDataFactoryGateway -DataFactoryName jasoncopyusingstoredprocedure -ResourceGroupName ADF_ResourceGroup
+
+## PowerShell을 사용하여 게이트웨이 제거
+	
+	Remove-AzureRmDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName ADF_ResourceGroup -DataFactoryName jasoncopyusingstoredprocedure -Force 
 
 
 ## 데이터 관리 게이트웨이를 사용하는 복사에 대한 데이터 흐름
@@ -697,4 +692,4 @@ Azure 포털에서 시작된 "자격 증명 설정" 응용 프로그램을 사�
 5.	게이트웨이는 동일한 인증서로 자격 증명의 암호를 해독하고 적절한 인증 형식으로 온-프레미스 데이터 저장소에 연결합니다.
 6.	게이트웨이는 데이터 파이프라인에서 복사 활동을 구성하는 방법에 따라 온-프레미스 저장소에서 클라우드 저장소에 또는 클라우드 저장소에서 온-프레미스 데이터 저장소에 데이터를 복사합니다. 참고: 이 단계의 경우 게이트웨이는 보안(HTTPS) 채널을 통해 클라우드 기반 저장소 서비스(예: Azure Blob, Azure SQL 등)와 직접 통신합니다.
 
-<!----HONumber=AcomDC_0204_2016-->
+<!----HONumber=AcomDC_0316_2016-->

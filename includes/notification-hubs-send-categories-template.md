@@ -1,7 +1,7 @@
 
 이 섹션에서는 .NET 콘솔 앱에서 태그가 지정된 템플릿 알림으로 속보를 보내는 방법을 보여 줍니다.
 
-모바일 서비스를 사용하는 경우, [푸시 시작](mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md) 자습서를 참조하세요.
+모바일 앱을 사용하는 경우 [모바일 앱에 대한 푸시 알림 추가](../articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md) 자습서를 참조하고 맨 위에 있는 플랫폼을 선택합니다.
 
 Java 또는 PHP를 사용하려는 경우 [Java/PHP에서 알림 허브를 사용하는 방법](../articles/notification-hubs/notification-hubs-java-backend-how-to.md)을 참조하세요. [알림 허브 REST 인터페이스](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx)를 사용하여 모든 백엔드에서 알림을 보낼 수 있습니다.
 
@@ -78,4 +78,4 @@ Java 또는 PHP를 사용하려는 경우 [Java/PHP에서 알림 허브를 사�
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 [Notification Hubs REST interface]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0330_2016-->

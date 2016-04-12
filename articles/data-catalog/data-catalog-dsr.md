@@ -3,8 +3,8 @@
    description="현재 지원되는 데이터 원본의 사양."
    services="data-catalog"
    documentationCenter=""
-   authors="trhabe"
-   manager="jstrauss"
+   authors="steelanddata"
+   manager=""
    editor=""
    tags=""/>
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="01/15/2016"
-   ms.author="trhabe"/>
+   ms.date="03/30/2016"
+   ms.author="maroche"/>
 
 # Azure 데이터 카탈로그 지원되는 데이터 원본
 
@@ -436,18 +436,7 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
       </td>
     </tr>
 
-    <tr>
-      <td>Cosmos</td>
-      <td>컨테이너</td>
-      <td>가상 클러스터</td>
-      <td>해당 없음</td>
-      <td>
-        <font size=2> 프로토콜: cosmos
-            <br>인증: {기본, windows}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
-      </td>
-    </tr>
+
 
     <tr>
       <td>SQL Server Reporting Services</td>
@@ -523,46 +512,7 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
             <br>&#160;&#160;&#160;&#160;&#160; database
             <br>&#160;&#160;&#160;&#160;&#160; 모델
             <br>
-            <br>* https </font>을(를) 통해서만 사용할 수 있는 기본/익명
-      </td>
-    </tr>
-
-    <tr>
-      <td>Cosmos</td>
-      <td>테이블</td>
-      <td>Stream</td>
-      <td>가상 클러스터</td>
-      <td>
-        <font size=2> 프로토콜: cosmos
-            <br>인증: {기본, windows}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Cosmos</td>
-      <td>테이블</td>
-      <td>스트림 집합</td>
-      <td>가상 클러스터</td>
-      <td>
-        <font size=2> 프로토콜: cosmos
-            <br>인증: {기본, windows}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Cosmos</td>
-      <td>테이블</td>
-      <td>보기</td>
-      <td>가상 클러스터</td>
-      <td>
-        <font size=2> 프로토콜: cosmos
-            <br>인증: {기본, windows}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
+            <br>*https을 통해서만 사용할 수 있는 기본/익명* </font>
       </td>
     </tr>
 
@@ -664,7 +614,7 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
             <br>&#160;&#160;&#160;&#160;&#160; database
             <br>&#160;&#160;&#160;&#160;&#160; 모델
             <br>
-            <br>* https </font>을(를) 통해서만 사용할 수 있는 기본/익명
+            <br>*https을 통해서만 사용할 수 있는 기본/익명* </font>
       </td>
     </tr>
 
@@ -1173,7 +1123,7 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
             <br>&#160;&#160;&#160;&#160;&#160; object
             <br>&#160;&#160;&#160;&#160;&#160; objectType: {Kpi}
             <br>
-            <br>* https </font>을(를) 통해서만 사용할 수 있는 기본/익명
+            <br>*https을 통해서만 사용할 수 있는 기본/익명* </font>
       </td>
     </tr>
 
@@ -1239,7 +1189,7 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
             <br>&#160;&#160;&#160;&#160;&#160; object
             <br>&#160;&#160;&#160;&#160;&#160; objectType: {테이블}
             <br>
-            <br>* https </font>을(를) 통해서만 사용할 수 있는 기본/익명
+            <br>*https을 통해서만 사용할 수 있는 기본/익명* </font>
       </td>
     </tr>
 
@@ -1334,4 +1284,4 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 
 </table>
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0330_2016-->

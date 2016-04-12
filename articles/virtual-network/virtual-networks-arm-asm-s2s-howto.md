@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/22/2016"
    ms.author="telmos" />
 
 # 새 VNet에 클래식 VNet 연결
@@ -23,7 +23,7 @@ Azure에는 현재 Azure 서비스 관리자(클래식이라고 함)와 Azure �
 
 이 문서에는 클래식 VNet과 ARM VNet 간의 사이트 간(S2S) VPN 연결을 만드는 방법에 대해 알아봅니다.
 
->[AZURE.NOTE]이 문서에서는 클래식 VNet과 ARM VNet이 이미 있으며, 클래식 VNet에 대한 S2S VPN 연결 구성에 익숙한 것으로 가정합니다. 클래식 VNet과 ARM VNet 간의 S2S VPN 연결에 대한 자세한 종단 간 솔루션은 [솔루션 가이드 - S2S VPN을 사용하여 클래식 VNet과 ARM VNet 연결](../virtual-networks-arm-asm-s2s.md)을 참조하세요.
+>[AZURE.NOTE] 이 문서에서는 클래식 VNet과 ARM VNet이 이미 있으며, 클래식 VNet에 대한 S2S VPN 연결 구성에 익숙한 것으로 가정합니다. 클래식 VNet과 ARM VNet 간의 S2S VPN 연결에 대한 자세한 종단 간 솔루션은 [솔루션 가이드 - S2S VPN을 사용하여 클래식 VNet과 ARM VNet 연결](virtual-networks-arm-asm-s2s.md)을 참조하세요.
 
 아래 Azure 게이트웨이를 사용하여 클래식 VNet과 ARM VNet 간의 S2S VPN 연결을 만들기 위해 수행해야 하는 작업에 대한 개요를 볼 수 있습니다.
 
@@ -56,78 +56,66 @@ Azure에는 현재 Azure 서비스 관리자(클래식이라고 함)와 Azure �
 
 ARM VNet에 대한 VPN 게이트웨이를 만들려면 아래 지침을 따르세요.
 
-1. PowerShell 콘솔에서 아래 명령을 실행하여 ARM 모드로 전환합니다.
+1. PowerShell 콘솔에서 아래 명령을 실행하여 로컬 네트워크를 만듭니다. 로컬 네트워크에서는 연결할 클래식 VNet의 CIDR 블록과 위의 1단계에서 만든 게이트웨이의 공용 IP 주소를 사용해야 합니다.
 
-		Switch-AzureMode AzureResourceManager
-
-2. 아래 명령을 실행하여 로컬 네트워크를 만듭니다. 로컬 네트워크에서는 연결할 클래식 VNet의 CIDR 블록과 위의 1단계에서 만든 게이트웨이의 공용 IP 주소를 사용해야 합니다.
-
-		New-AzureLocalNetworkGateway -Name VNetClassicNetwork `
+		New-AzureRmLocalNetworkGateway -Name VNetClassicNetwork `
 			-Location "East US" -AddressPrefix "10.0.0.0/20" `
 			-GatewayIpAddress "168.62.190.190" -ResourceGroupName RG1
 
 3. 아래 명령을 실행하여 게이트웨이의 공용 IP 주소를 만듭니다.
 
-		$ipaddress = New-AzurePublicIpAddress -Name gatewaypubIP`
+		$ipaddress = New-AzureRmPublicIpAddress -Name gatewaypubIP`
 			-ResourceGroupName RG1 -Location "East US" `
 			-AllocationMethod Dynamic
 
 4. 아래 명령을 실행하여 게이트웨이에 사용되는 서브넷을 검색합니다.
 
-		$subnet = Get-AzureVirtualNetworkSubnetConfig -Name GatewaySubnet `
+		$subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name GatewaySubnet `
 			-VirtualNetwork (Get-AzureVirtualNetwork -Name VNetARM -ResourceGroupName RG1) 
 
-	>[AZURE.IMPORTANT]게이트웨이 서브넷은 이미 존재해야 하며 이름이 GatewaySubnet이어야 합니다.
+	>[AZURE.IMPORTANT] 게이트웨이 서브넷은 이미 존재해야 하며 이름이 GatewaySubnet이어야 합니다.
 
 5. 아래 명령을 실행하여 게이트웨이에 대한 IP 구성 개체를 만듭니다. 게이트웨이 서브넷의 ID를 확인합니다. 이 서브넷이 VNet에 있어야 합니다.
 
-		$ipconfig = New-AzureVirtualNetworkGatewayIpConfig `
+		$ipconfig = New-AzureRmVirtualNetworkGatewayIpConfig `
 			-Name ipconfig -PrivateIpAddress 10.1.2.4 `
 			-SubnetId $subnet.id -PublicIpAddressId $ipaddress.id
 
-	>[AZURE.IMPORTANT]*SubnetId* 및 *PublicIpAddressId* 매개 변수는 각각 서브넷 및 IP 주소 개체에서 id 속성이 전달되어야 합니다. 간단한 문자열을 사용할 수 없습니다.
+	>[AZURE.IMPORTANT] *SubnetId* 및 *PublicIpAddressId* 매개 변수는 각각 서브넷 및 IP 주소 개체에서 id 속성이 전달되어야 합니다. 간단한 문자열을 사용할 수 없습니다.
 	
 5. 아래 명령을 실행하여 ARM VNet 게이트웨이를 만듭니다.
 
-		New-AzureVirtualNetworkGateway -Name v1v2Gateway -ResourceGroupName RG1 `
+		New-AzureRmVirtualNetworkGateway -Name v1v2Gateway -ResourceGroupName RG1 `
 			-Location "East US" -GatewayType Vpn -IpConfigurations $ipconfig `
 			-EnableBgp $false -VpnType RouteBased
 
 6. VPN 게이트웨이를 만든 후 아래 명령을 실행하여 해당 공용 IP 주소를 검색합니다. IP 주소를 복사합니다. 클래식 VNet에 대한 로컬 네트워크를 구성하는 데 필요합니다.
 
-		Get-AzurePublicIpAddress -Name gatewaypubIP -ResourceGroupName RG1
+		Get-AzureRmPublicIpAddress -Name gatewaypubIP -ResourceGroupName RG1
 
 ## 3단계: 게이트웨이 간의 연결 만들기
 
 1. https://manage.windowsazure.com에서 클래식 포털을 열고 필요한 경우 자격 증명을 입력합니다.
 2. 클래식 포털에서 아래로 스크롤하여 **네트워크**를 클릭하고 **로컬 네트워크**를 클릭한 다음 연결할 ARM VNet을 클릭하고 **편집** 단추를 클릭합니다.
 3. **VPN 장치 IP 주소(선택 사항)**에 위 2단계에서 검색한 ARM VNet 게이트웨이의 IP 주소를 입력하고 오른쪽 아래에 있는 오른쪽 화살표를 클릭한 다음 확인 표시 단추를 클릭합니다.
-4. PowerShell 콘솔에서 아래 명령을 실행하여 Azure 서비스 관리자 모드로 전환합니다.
-
-		Switch-AzureMode AzureServiceManager
-
-5. 아래 명령을 실행하여 공유 키를 설정합니다. VNet의 이름을 사용자 고유의 VNet 이름으로 변경해야 합니다.
+4. PowerShell 콘솔에서 아래 명령을 실행하여 공유 키를 설정합니다. VNet의 이름을 사용자 고유의 VNet 이름으로 변경해야 합니다.
 
 		Set-AzureVNetGatewayKey -VNetName VNetClassic `
 			-LocalNetworkSiteName VNetARM -SharedKey abc123
 
-6. PowerShell 콘솔에서 아래 명령을 실행하여 Azure 리소스 관리자 모드로 전환합니다.
-
-		Switch-AzureMode AzureResourceManager
-
 7. 아래 명령을 실행하여 VPN 연결을 만듭니다.
 
-		$vnet01gateway = Get-AzureLocalNetworkGateway -Name VNetClassic -ResourceGroupName RG1
-		$vnet02gateway = Get-AzureVirtualNetworkGateway -Name v1v2Gateway -ResourceGroupName RG1
+		$vnet01gateway = Get-AzureRmLocalNetworkGateway -Name VNetClassic -ResourceGroupName RG1
+		$vnet02gateway = Get-AzureRmVirtualNetworkGateway -Name v1v2Gateway -ResourceGroupName RG1
 		
-		New-AzureVirtualNetworkGatewayConnection -Name arm-asm-s2s-connection `
+		New-AzureRmVirtualNetworkGatewayConnection -Name arm-asm-s2s-connection `
 			-ResourceGroupName RG1 -Location "East US" -VirtualNetworkGateway1 $vnet02gateway `
 			-LocalNetworkGateway2 $vnet01gateway -ConnectionType IPsec `
 			-RoutingWeight 10 -SharedKey 'abc123'
 
 ## 다음 단계
 
-- [ARM에 대한 NRP(네트워크 리소스 공급자)](../resource-groups-networking.md)에 대해 자세히 알아봅니다.
-- [S2S VPN을 사용하여 클래식 VNet을 ARM VNet에 연결하는 종단 간 솔루션](../virtual-networks-arm-asm-s2s.md)을 만듭니다.
+- [ARM에 대한 NRP(네트워크 리소스 공급자)](resource-groups-networking.md)에 대해 자세히 알아봅니다.
+- [S2S VPN을 사용하여 클래식 VNet을 ARM VNet에 연결하는 종단 간 솔루션](virtual-networks-arm-asm-s2s.md)을 만듭니다.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/01/2016"
+   ms.date="03/08/2016"
    ms.author="barbkess;sonyama"/>
 
 #Transact-SQL 항목
@@ -115,16 +115,16 @@
 
 
 ## 다음 단계
-더 많은 TSQL 예제는 [SQL 데이터 웨어하우스 개발 개요][]를 참조하세요.
+더 많은 TSQL 예제는 [SQL 데이터 웨어하우스 참조 개요][]를 참조하세요.
 
 <!--Image references-->
 
 <!--Article references-->
-[SQL 데이터 웨어하우스 개발 개요]: sql-data-warehouse-overview-reference.md
+[SQL 데이터 웨어하우스 참조 개요]: sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -1,20 +1,20 @@
-<properties 
- pageTitle="스케줄러 아웃바운드 인증" 
- description="" 
- services="scheduler" 
- documentationCenter=".NET" 
- authors="krisragh" 
- manager="dwrede" 
+<properties
+ pageTitle="스케줄러 아웃바운드 인증"
+ description=""
+ services="scheduler"
+ documentationCenter=".NET"
+ authors="krisragh"
+ manager="dwrede"
  editor=""/>
-<tags 
- ms.service="scheduler" 
- ms.workload="infrastructure-services" 
- ms.tgt_pltfrm="na" 
- ms.devlang="dotnet" 
- ms.topic="article" 
- ms.date="12/04/2015" 
+<tags
+ ms.service="scheduler"
+ ms.workload="infrastructure-services"
+ ms.tgt_pltfrm="na"
+ ms.devlang="dotnet"
+ ms.topic="article"
+ ms.date="03/09/2016"
  ms.author="krisragh"/>
- 
+
 # 스케줄러 아웃바운드 인증
 
 인증을 요구하는 서비스를 호출하기 위해 스케줄러 작업이 필요할 수 있습니다. 이를 통해, 호출된 서비스가 스케줄러 작업이 리소스에 액세스 가능한지 여부를 결정할 수 있습니다. 이러한 서비스 중 일부에는 다른 Azure 서비스, Salesforce.com, Facebook 및 보안 사용자 지정 웹사이트가 포함됩니다.
@@ -51,85 +51,6 @@
 |_certificateSubjectName_ |인증서의 주체 고유 이름입니다.|
 |_certificateExpiration_ |인증서의 만료일입니다.|
 
-## ClientCertificate 인증의 예제 요청 및 응답
-
-다음 예제에서는 `ClientCertificate` 인증을 통합하는 PUT 요청을 수행합니다. 요청은 다음과 같습니다.
-
-
-	PUT https://management.core.windows.net/7e2dffb5-45b5-475a-91be-d3d9973c82d5/cloudservices/cs-brazilsouth-scheduler/resources/scheduler/~/JobCollections/testScheduler/jobs/testScheduler 
-	x-ms-version: 2013-03-01
-	User-Agent: Microsoft.WindowsAzure.Scheduler.SchedulerClient/3.0.0.0 AzurePowershell/v0.8.10
-	Content-Type: application/json; charset=utf-8
-	Host: management.core.windows.net
-	Content-Length: 4013
-	Expect: 100-continue
-
-	{
-	  "action": {
-		"type": "http",
-		"request": {
-		  "uri": "https://management.core.windows.net/7e2dffb5-45b5-475a-91be-d3d9973c82d5/cloudservices/CS-NorthCentralUS-scheduler/resources/scheduler/~/JobCollections/testScheduler/jobs/test",
-		  "method": "GET",
-		  "headers": {
-			"x-ms-version": "2013-03-01"
-		  },
-		  "authentication": {
-			"type": "clientcertificate",
-			"password": "test",
-			"pfx": "long-pfx-key”
-		  }
-		}
-	  },
-	  "recurrence": {
-		"frequency": "minute",
-		"interval": 1
-	  }
-	}
-
-이 요청이 전송되면 응답은 다음과 같습니다.
-
-	HTTP/1.1 201 Created
-	Cache-Control: no-cache
-	Pragma: no-cache
-	Content-Length: 721
-	Content-Type: application/json; charset=utf-8
-	Expires: -1
-	Server: 1.0.6198.153 (rd_rdfe_stable.141027-2149) Microsoft-HTTPAPI/2.0
-	x-ms-servedbyregion: ussouth2
-	X-AspNet-Version: 4.0.30319
-	X-Powered-By: ASP.NET
-	 
-
-	{
-	  "id": "testScheduler",
-	  "action": {
-		"request": {
-		  "uri": "https:\/\/management.core.windows.net\/7e2dffb5-45b5-475a-91be-d3d9973c82d5\/cloudservices\/CS-NorthCentralUS-scheduler\/resources\/scheduler\/~\/JobCollections\/testScheduler\/jobs\/test",
-		  "method": "GET",
-		  "headers": {
-			"x-ms-version": "2013-03-01"
-		  },
-		  "authentication": {
-			"type": "ClientCertificate",
-			"certificateThumbprint": "C1645E2AF6317D9FCF9C78FE23F9DE0DAFAD2AB5",
-			"certificateExpiration": "2021-01-01T08:00:00Z",
-			"certificateSubjectName": "CN=Scheduler Management"
-		  }
-		},
-		"type": "http"
-	  },
-	  "recurrence": {
-		"frequency": "minute",
-		"interval": 1
-	  },
-	  "state": "enabled",
-	  "status": {
-		"nextExecutionTime": "2014-10-29T21:52:35.2108904Z",
-		"executionCount": 0,
-		"failureCount": 0,
-		"faultedCount": 0
-	  }
-	}
 ## 기본 인증의 요청 본문
 
 `Basic` 모델을 사용하여 인증을 추가할 때는 다음 추가 요소를 요청 본문에 추가합니다.
@@ -150,81 +71,6 @@
 |_인증(부모 요소)_ |기본 인증을 사용 하기 위한 인증 개체입니다.|
 |_type_ |인증 유형입니다. 기본 인증의 경우 이 값은 `Basic`입니다.|
 |_username_ |인증된 사용자 이름입니다.|
-
-## 기본 인증의 예제 요청 및 응답
-
-다음 예제에서는 `Basic` 인증을 통합하는 PUT 요청을 수행합니다. 요청은 다음과 같습니다.
-
-	PUT https://management.core.windows.net/7e2dffb5-45b5-475a-91be-d3d9973c82d5/cloudservices/cs-brazilsouth-scheduler/resources/scheduler/~/JobCollections/testScheduler/jobs/testScheduler 
-	x-ms-version: 2013-03-01
-	User-Agent: Microsoft.WindowsAzure.Scheduler.SchedulerClient/3.0.0.0 AzurePowershell/v0.8.10
-	Content-Type: application/json; charset=utf-8
-	Host: management.core.windows.net
-	Expect: 100-continue
-
-	{
-	  "action": {
-		"type": "http",
-		"request": {
-		  "uri": "https://management.core.windows.net/7e2dffb5-45b5-475a-91be-d3d9973c82d5/cloudservices/CS-NorthCentralUS-scheduler/resources/scheduler/~/JobCollections/testScheduler/jobs/test",
-		  "method": "GET",
-		  "headers": {
-			"x-ms-version": "2013-03-01"
-		  },
-		"authentication":{  
-		  "username":"user1",
-		  "password":"password",
-		  "type":"basic"
-		  }           
-		}
-	  },
-	  "recurrence": {
-		"frequency": "minute",
-		"interval": 1
-	  }
-	}
-
-이 요청이 전송되면 응답은 다음과 같습니다.
-
-	HTTP/1.1 201 Created
-	Cache-Control: no-cache
-	Pragma: no-cache
-	Content-Length: 721
-	Content-Type: application/json; charset=utf-8
-	Expires: -1
-	Server: 1.0.6198.153 (rd_rdfe_stable.141027-2149) Microsoft-HTTPAPI/2.0
-	x-ms-servedbyregion: ussouth2
-	X-AspNet-Version: 4.0.30319
-	X-Powered-By: ASP.NET
-
-	{
-	  "id": "testScheduler",
-	  "action": {
-		"request": {
-		  "uri": "https:\/\/management.core.windows.net\/7e2dffb5-45b5-475a-91be-d3d9973c82d5\/cloudservices\/CS-NorthCentralUS-scheduler\/resources\/scheduler\/~\/JobCollections\/testScheduler\/jobs\/test",
-		  "method": "GET",
-		  "headers": {
-			"x-ms-version": "2013-03-01"
-		  },
-		  "authentication":{  
-			"username":"user1",
-			"type":"Basic"
-		  }
-		},
-		"type": "http"
-	  },
-	  "recurrence": {
-		"frequency": "minute",
-		"interval": 1
-	  },
-	  "state": "enabled",
-	  "status": {
-		"nextExecutionTime": "2014-10-29T21:52:35.2108904Z",
-		"executionCount": 0,
-		"failureCount": 0,
-		"faultedCount": 0
-	  }
-	}
 
 ## ActiveDirectoryOAuth 인증의 요청 본문
 
@@ -255,91 +101,11 @@ Azure PowerShell에서 `Get-AzureAccount`를 실행하여 Azure AD 테넌트의 
 |_audience_ |이 값은 https://management.core.windows.net/.|로 설정됩니다.
 |_clientId_ |Azure AD 응용 프로그램의 클라이언트 ID입니다.|
 
-## ActiveDirectoryOAuth 인증의 예제 요청 및 응답
-
-다음 예제에서는 `ActiveDirectoryOAuth` 인증을 통합하는 PUT 요청을 수행합니다. 요청은 다음과 같습니다.
-
-	PUT https://management.core.windows.net/7e2dffb5-45b5-475a-91be-d3d9973c82d5/cloudservices/cs-brazilsouth-scheduler/resources/scheduler/~/JobCollections/testScheduler/jobs/testScheduler 
-	x-ms-version: 2013-03-01
-	User-Agent: Microsoft.WindowsAzure.Scheduler.SchedulerClient/3.0.0.0 AzurePowershell/v0.8.10
-	Content-Type: application/json; charset=utf-8
-	Host: management.core.windows.net
-	Expect: 100-continue
-
-	{
-	  "action": {
-		"type": "http",
-		"request": {
-		  "uri": "https://management.core.windows.net/7e2dffb5-45b5-475a-91be-d3d9973c82d5/cloudservices/CS-NorthCentralUS-scheduler/resources/scheduler/~/JobCollections/testScheduler/jobs/test",
-		  "method": "GET",
-		  "headers": {
-			"x-ms-version": "2013-03-01"
-		  },
-		  "authentication":{  
-			"tenant":"01234567-89ab-cdef-0123-456789abcdef",
-			"audience":"https://management.core.windows.net/",
-			"clientId":"8a14db88-4d1a-46c7-8429-20323727dfab",
-			"secret": "&lt;secret-key&gt;",
-			"type":"ActiveDirectoryOAuth"
-		  }                      
-		}
-	  },
-	  "recurrence": {
-		"frequency": "minute",
-		"interval": 1
-	  }
-	}
-
-이 요청이 전송되면 응답은 다음과 같습니다.
-
-	HTTP/1.1 201 Created
-	Cache-Control: no-cache
-	Pragma: no-cache
-	Content-Length: 721
-	Content-Type: application/json; charset=utf-8
-	Expires: -1
-	Server: 1.0.6198.153 (rd_rdfe_stable.141027-2149) Microsoft-HTTPAPI/2.0
-	x-ms-servedbyregion: ussouth2
-	X-AspNet-Version: 4.0.30319
-	X-Powered-By: ASP.NET
-
-
-	{
-	  "id": "testScheduler",
-	  "action": {
-		"request": {
-		  "uri": "https:\/\/management.core.windows.net\/7e2dffb5-45b5-475a-91be-d3d9973c82d5\/cloudservices\/CS-NorthCentralUS-scheduler\/resources\/scheduler\/~\/JobCollections\/testScheduler\/jobs\/test",
-		  "method": "GET",
-		  "headers": {
-			"x-ms-version": "2013-03-01"
-		  },
-		  "authentication":{  
-			"tenant":"01234567-89ab-cdef-0123-456789abcdef",
-			"audience":"https://management.core.windows.net/",
-			"clientId":"8a14db88-4d1a-46c7-8429-20323727dfab",
-			"type":"ActiveDirectoryOAuth"
-		  }
-		},
-		"type": "http"
-	  },
-	  "recurrence": {
-		"frequency": "minute",
-		"interval": 1
-	  },
-	  "state": "enabled",
-	  "status": {
-		"nextExecutionTime": "2014-10-29T21:52:35.2108904Z",
-		"executionCount": 0,
-		"failureCount": 0,
-		"faultedCount": 0
-	  }
-	}
-
 ## 참고 항목
- 
+
 
  [스케줄러란?](scheduler-intro.md)
- 
+
  [Azure 스케줄러 개념, 용어 및 엔터티 계층 구조](scheduler-concepts-terms.md)
 
  [Azure 포털에서 스케줄러 사용 시작](scheduler-get-started-portal.md)
@@ -354,10 +120,4 @@ Azure PowerShell에서 `Get-AzureAccount`를 실행하여 Azure AD 테넌트의 
 
  [Azure 스케줄러 제한, 기본값 및 오류 코드](scheduler-limits-defaults-errors.md)
 
-
-  
-
- 
-  
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

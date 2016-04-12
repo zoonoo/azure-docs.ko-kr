@@ -3,9 +3,9 @@
 	description="스트레치 데이터베이스를 관리하고 문제를 해결하는 방법을 알아봅니다."
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -51,6 +51,9 @@
 -   네트워크 상태가 저하될 수 있습니다. 최근에 발생한 문제 또는 중단에 대한 정보는 네트워크 관리자에게 문의하세요.
 
 ## 참고 항목
-[스트레치 데이터베이스 모니터링](sql-server-stretch-database-monitor.md) [스트레치 지원 데이터베이스 백업 및 복원](sql-server-stretch-database-backup.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+[스트레치 데이터베이스 모니터링](sql-server-stretch-database-monitor.md)
+
+[스트레치 지원 데이터베이스 백업 및 복원](sql-server-stretch-database-backup.md)
+
+<!---HONumber=AcomDC_0316_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/17/2015"
+   ms.date="03/15/2016"
    ms.author="bscholl"/>
 
 # 서비스 패브릭 Reliable Services 분할
@@ -65,7 +65,7 @@
 이를 방지하기 위해 분할 관점에서 두 가지를 수행해야 합니다.
 
 - 상태를 분할하도록 시도하여 모든 파티션에 균등하게 분산되도록 합니다.
-- [서비스에 대한 각 복제본에서 메트릭을 보고합니다](service-fabric-resource-balancer-dynamic-load-reporting.md). 서비스 패브릭은 서비스에서 메모리의 양 또는 레코드 수와 같은 메트릭을 보고하는 기능을 제공합니다. 보고된 메트릭에 따라 서비스 패브릭은 일부 파티션이 다른 파티션보다 더 높은 부하를 처리하는 것을 감지하고 복제본을 더 적합한 노드로 이동하여 클러스터를 다시 분산합니다.
+- 서비스에 대한 각 복제본에서 부하를 보고합니다. (방법에 대한 자세한 정보는 이 문서의 [메트릭 및 부하](service-fabric-cluster-resource-manager-metrics.md)를 확인하세요). 서비스 패브릭은 메모리의 양 또는 레코드 수와 같은 서비스에서 사용한 부하를 보고하는 기능을 제공합니다. 보고된 메트릭에 따라 서비스 패브릭은 일부 파티션이 다른 파티션보다 더 높은 부하를 처리하는 것을 감지하고 복제본을 더 적합한 노드로 이동하여 클러스터를 다시 분산하므로 전체적으로 어떤 노드도 오버로드되지 않습니다.
 
 때때로 지정된 파티션에 얼마나 많은 데이터가 있는지 알 수 없는 경우가 있으므로 첫째로 파티션에 균등하게 데이터를 분산하는 분할 전략을 도입하고 둘째로 부하를 보고하여 모두를 실행하는 것이 좋습니다. 첫 번째 방법은 투표 예제에 설명된 상황을 예방하고 두 번째 방법은 시간이 지남에 따라 액세스 또는 부하의 임시적인 차이를 해결하도록 합니다.
 
@@ -131,9 +131,9 @@
     ```xml
     <Parameter Name="Processing_PartitionCount" DefaultValue="26" />
     ```
-    
+
     또한 아래와 같이 StatefulService 요소의 LowKey 및 HighKey 속성을 업데이트해야 합니다.
-    
+
     ```xml
     <Service Name="Processing">
       <StatefulService ServiceTypeName="ProcessingType" TargetReplicaSetSize="[Processing_TargetReplicaSetSize]" MinReplicaSetSize="[Processing_MinReplicaSetSize]">
@@ -184,7 +184,7 @@
     ```
 
     게시된 URL은 수신 대기 URL 접두사와 약간 다릅니다. 수신 대기 URL이 HttpListener에 제공됩니다. 게시된 URL은 서비스 검색에 사용되는 서비스 패브릭 이름 명명 서비스에 게시된 URL입니다. 클라이언트는 해당 검색 서비스를 통해 이 주소에 대해 요청합니다. 클라이언트가 가져오는 주소에 연결하려면 노드의 실제 IP 또는 FQDN이 필요합니다. 따라서 아래와 같이 '+'를 노드의 IP 또는 FQDN으로 바꿔야 합니다.
-    
+
 9. 마지막 단계는 아래와 같이 서비스에 처리 논리를 추가하는 것입니다.
 
     ```CSharp
@@ -228,17 +228,17 @@
         }
     }
     ```
-        
+
     `ProcessInternalRequest`는 파티션을 호출하는 데 사용되는 쿼리 문자열 매개 변수의 값을 읽고 신뢰할 수 있는 사전 `dictionary`에 성을 추가하도록 `AddUserAsync`를 호출합니다.
-    
+
 10. 특정 파티션을 호출할 수 있는 방법을 보도록 프로젝트에 상태 비저장 서비스를 추가하겠습니다.
 
     이 서비스는 쿼리 문자열 매개 변수로 성을 수락하고 파티션 키를 결정하고 처리를 위해 Alphabet.Processing에 이를 보내는 간단한 웹 인터페이스로 제공됩니다.
-    
+
 11. **서비스 만들기** 대화 상자에서 **상태 비저장** 서비스를 선택하고 아래와 같이 Alphabet.WebApi로 지정합니다.
-    
+
     ![상태 비저장 서비스 스크린 샷](./media/service-fabric-concepts-partitioning/alphabetstatelessnew.png).
-    
+
 12. Alphabet.WebApi 서비스의 ServiceManifest.xml에서 끝점 정보를 업데이트하여 아래와 같이 포트를 엽니다.
 
     ```xml
@@ -261,7 +261,7 @@
         return new HttpCommunicationListener(uriPrefix, uriPublished, ProcessInputRequest);
     }
     ```
-     
+
 14. 이제 처리 논리를 구현해야 합니다. HttpCommunicationListener는 요청이 들어올 때 `ProcessInputRequest`를 호출합니다. 따라서 계속해서 아래 코드를 추가합니다.
 
     ```CSharp
@@ -294,7 +294,7 @@
                     primaryReplicaAddress);
         }
         catch (Exception ex) { output = ex.Message; }
-        
+
         using (var response = context.Response)
         {
             if (output != null)
@@ -351,11 +351,11 @@
     ```
 
 16. 배포가 완료되면 서비스 패브릭 탐색기에서 서비스 및 모든 해당 파티션을 확인할 수 있습니다.
-    
+
     ![서비스 패브릭 탐색기 스크린 샷](./media/service-fabric-concepts-partitioning/alphabetservicerunning.png)
-    
+
 17. 브라우저에서 `http://localhost:8090/?lastname=somename`을 입력하여 분할 논리를 테스트할 수 있습니다. 동일한 문자로 시작하는 각 성이 동일한 파티션에 저장되는 것을 확인할 수 있습니다.
-    
+
     ![브라우저 스크린 샷](./media/service-fabric-concepts-partitioning/alphabetinbrowser.png)
 
 샘플의 전체 소스 코드는 [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/AlphabetPartitions)에서 확인할 수 있습니다.
@@ -372,4 +372,4 @@
 
 [wikipartition]: https://en.wikipedia.org/wiki/Partition_(database)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

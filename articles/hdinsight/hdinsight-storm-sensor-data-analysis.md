@@ -104,10 +104,12 @@ HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 센서 �
 4. **구성**을 선택하고 다음 정보를 사용하여 새 액세스 정책 두 개를 만듭니다.
 
 	<table>
-<tr><th>이름</th><th>권한</th></tr>
-<tr><td>장치</td><td>보내기</td></tr>
-<tr><td>Storm</td><td>수신 대기</td></tr>
-</table>권한을 만든 후 페이지 아래쪽의 **저장** 아이콘을 선택합니다. 그러면 이 허브로 메시지를 보내고 이 허브에서 메시지를 읽는 데 사용할 공유 액세스 정책이 만들어집니다.
+	<tr><th>이름</th><th>권한</th></tr>
+	<tr><td>장치</td><td>보내기</td></tr>
+	<tr><td>Storm</td><td>수신 대기</td></tr>
+	</table>
+
+	권한을 만든 후 페이지 아래쪽의 **저장** 아이콘을 선택합니다. 그러면 이 허브로 메시지를 보내고 이 허브에서 메시지를 읽는 데 사용할 공유 액세스 정책이 만들어집니다.
 
 5. 정책을 저장한 후 페이지 아래쪽의 **공유 액세스 키 생성기**를 사용하여 **장치** 및 **Storm** 정책의 키를 검색합니다. 이러한 키는 나중에 사용되므로 저장합니다.
 
@@ -399,6 +401,9 @@ Storm 클러스터에서 HBase에 쓰려면 HBase 클러스터의 FQDN(정규화
 
 Storm 클러스터에서 토폴로지를 시작하고 데이터를 처리한 경우 다시 `scan 'SensorData'` 명령을 사용하여 데이터가 HBase에 삽입되었는지 확인할 수 있습니다.
 
+## 클러스터 삭제
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## 다음 단계
 
@@ -422,4 +427,4 @@ Storm 클러스터에서 토폴로지를 시작하고 데이터를 처리한 경
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

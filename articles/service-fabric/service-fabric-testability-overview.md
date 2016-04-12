@@ -97,11 +97,11 @@
 
 ### C에서 테스트 용이성 사용#
 
-System.Fabric.Testability.dll에 테스트 용이성 기능이 있습니다. 이 dll은 Microsoft.ServiceFabric.Testability.nupack NuGet 패키지에 있습니다. 테스트 용이성 기능을 사용하려면 NuGet 패키지를 프로젝트에 참조로 포함하세요.
+System.Fabric.dll에 테스트 용이성 기능이 있습니다. 이 dll은 Microsoft.ServiceFabric.nupack NuGet 패키지에 있습니다. 테스트 용이성 기능을 사용하려면 NuGet 패키지를 프로젝트에 참조로 포함하세요.
 
 ### PowerShell에서 테스트 용이성 사용
 
-테스트 용이성 PowerShell을 사용하려면 런타임 MSI를 설치해야 합니다. MSI가 설치되면 개발자가 사용할 수 있도록 ServiceFabricTestability PowerShell 모듈이 자동으로 로드됩니다.
+테스트 용이성 PowerShell을 사용하려면 런타임 MSI를 설치해야 합니다. MSI가 설치되면 개발자가 사용할 수 있도록 ServiceFabric PowerShell 모듈이 자동으로 로드됩니다.
 
 ## 결론
 
@@ -115,4 +115,4 @@ System.Fabric.Testability.dll에 테스트 용이성 기능이 있습니다. 이
   - [서비스 작업 중 오류 시뮬레이션](service-fabric-testability-workload-tests.md)
   - [서비스 대 서비스 통신 오류](service-fabric-testability-scenarios-service-communication.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

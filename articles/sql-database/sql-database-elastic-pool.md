@@ -1,7 +1,7 @@
 <properties
 	pageTitle="SQL 데이터베이스에 대한 탄력적 데이터베이스 풀 | Microsoft Azure"
 	description="사용 가능한 데이터베이스를 여러 데이터베이스에서 공유하는 방법인, 탄력적 데이터베이스 풀을 사용하여 SQL 데이터베이스의 폭발적인 증가에 대처하는 방법을 알아봅니다."
-	keywords="탄력적 데이터베이스,SQL 데이터베이스"	
+	keywords="탄력적 데이터베이스,SQL 데이터베이스"
 	services="sql-database"
 	documentationCenter=""
 	authors="sidneyh"
@@ -11,7 +11,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="02/11/2016"
+	ms.date="03/24/2016"
 	ms.author="sidneyh"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -20,7 +20,7 @@
 
 # 탄력적 데이터베이스 풀을 사용하여 리소스를 공유하여 SQL 데이터베이스의 폭발적인 증가에 대처하기
 
-SaaS 개발자는 수십, 수백 또는 수천 개의 SQL 데이터베이스를 만들고 관리해야 합니다. 탄력적 풀은 사용자가 제어하는 예산 내에서 이러한 데이터베이스 전반의 생성, 유지 관리 및 성능 관리를 간소화합니다. 풀에서 데이터베이스를 추가하거나 뺍니다. Microsoft Azure 포털, [PowerShell](sql-database-elastic-pool-powershell.md), [C#](sql-database-elastic-pool-csharp.md)을 사용하여 몇 분 안에 SQL 데이터베이스에 대한 [탄력적 데이터베이스 풀을 만듭니다](sql-database-elastic-pool-portal.md).
+SaaS 개발자는 수십, 수백 또는 수천 개의 SQL 데이터베이스를 만들고 관리해야 합니다. 탄력적 풀은 사용자가 제어하는 예산 내에서 이러한 데이터베이스 전반의 생성, 유지 관리 및 성능 관리를 간소화합니다. 풀에서 데이터베이스를 추가하거나 뺍니다. [Azure 포털에서 SQL 데이터베이스에 확장성 있는 탄력적 데이터베이스 풀 만들기](sql-database-elastic-pool-create-portal.md), [PowerShell 사용](sql-database-elastic-pool-powershell.md) 또는 [C#](sql-database-elastic-pool-csharp.md)을 참조하세요.
 
 API 및 오류 세부 정보는 [탄력적 데이터베이스 풀 참조](sql-database-elastic-pool-reference.md)를 참조하세요.
 
@@ -63,9 +63,9 @@ SQL 데이터베이스에서 리소스 수요를 처리하는 데이터베이스
 
 탄력적 데이터베이스 풀의 데이터베이스는 시스템에서 자동으로 백업되며 백업 보존 정책은 단일 데이터베이스의 해당 서비스 계층과 같습니다. 요약하자면, 각 계층의 데이터베이스에는 다른 복원 범위가 있습니다.
 
-* **기본 풀**: 지난 7일 내의 모든 지점으로 복원 가능합니다. 
+* **기본 풀**: 지난 7일 내의 모든 지점으로 복원 가능합니다.
 * **표준 풀**: 지난 14일 내의 모든 지점으로 복원 가능합니다.
-* **프리미엄 풀**: 지난 35일 내의 모든 지점으로 복원 가능합니다. 
+* **프리미엄 풀**: 지난 35일 내의 모든 지점으로 복원 가능합니다.
 
 미리 보기 동안 풀에 있는 데이터베이스는 동일한 풀의 새 데이터베이스에 복원됩니다. 끌어 놓은 데이터베이스는 항상 풀 외부에서 해상 서비스 계층에서 가장 낮은 성능 수준의 독립 실행형 데이터베이스로 복원됩니다. 예를 들어, 끌어 놓은 표준 풀의 탄력적 데이터베이스는 S0 데이터베이스로 복원됩니다. 데이터베이스 복원 작업은 Azure 포털을 통해 또는 REST API를 사용한 프로그래밍 방식으로 수행할 수 있습니다. PowerShell cmdlet 지원도 곧 제공됩니다.
 
@@ -86,4 +86,4 @@ SQL 데이터베이스에서 리소스 수요를 처리하는 데이터베이스
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

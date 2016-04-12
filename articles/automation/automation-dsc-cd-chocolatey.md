@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="02/04/2016"
+   ms.date="03/04/2016"
    ms.author="golive"/>
 
 # 사용 예: 자동화 DSC 및 Chocolatey를 사용하여 가상 컴퓨터에 연속 배포
@@ -41,7 +41,7 @@ Azure 자동화는 사용자가 일정 및 전역 변수와 같은 Runbook, 노�
 
 DSC 리소스는 네트워크 관리, Active Directory 또는 SQL Server 등과 같은 특정 기능을 갖는 코드 모듈입니다. Chocolatey DSC 리소스는 NuGet 서버 액세스(서로 간), 패키지 다운로드, 패키지 설치 방법 등을 이해하고 있습니다. 여러 다른 DSC 리소스는 [PowerShell 갤러리](http://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title)에 있습니다. 이러한 모듈은 사용자가 구성에서 사용할 수 있게 Azure 자동화 DSC 풀 서버에 설치됩니다.
 
-ARM 템플릿은 네트워크, 서브넷, 네트워크 보안, 라우팅, 부하 분산 장치, NIC, VM 등의 인프라를 생성하는 선언적인 방법을 제공합니다. 다음은 ARM 배포 모델(선언적)과 Azure 서비스 관리(ASM 또는 기본) 배포 모델(명령적) 비교하는 [문서](../resource-manager-deployment-model.md)입니다. 핵심 리소스 공급자, 계산, 저장소, 네트워크 등에 대한 다른 [문서](../virtual-machines\virtual-machines-azurerm-versus-azuresm.md)도 있습니다.
+ARM 템플릿은 네트워크, 서브넷, 네트워크 보안, 라우팅, 부하 분산 장치, NIC, VM 등의 인프라를 생성하는 선언적인 방법을 제공합니다. 다음은 ARM 배포 모델(선언적)과 Azure 서비스 관리(ASM 또는 기본) 배포 모델(명령적) 비교하는 [문서](../resource-manager-deployment-model.md)입니다. 핵심 리소스 공급자, 계산, 저장소, 네트워크 등에 대한 다른 [문서](../virtual-machines/virtual-machines-windows-compare-deployment-models.md)도 있습니다.
 
 ARM 템플릿의 핵심 기능은 프로비전되었을 때 VM에 VM 확장을 설치하는 것입니다. VM 확장에는 사용자 지정 스크립트 실행, 바이러스 백신 소프트웨어 설치, DSC 구성 스크립트 실행 등과 같은 특정 기능이 있습니다. VM 확장에는 여러 다른 형식이 있습니다.
 
@@ -78,7 +78,7 @@ Azure 자동화 계정에 DSC 리소스를 설치하기 위해 PowerShell 갤러
 또는 수동 방법이 있습니다. Windows 컴퓨터용 PowerShell 통합 모듈의 폴더 구조는 Azure 자동화에서의 예상 폴더 구조와 다소 차이가 있습니다. 여기에는 약간의 사용자 조정 작업이 필요합니다. 어려운 작업도 아니고 리소스당 한 번만 수행합니다(향후 업그레이드하지 않으려는 경우). PowerShell 통합 모듈 제작에 대한 자세한 내용은 다음 문서를 참조하세요. [Azure 자동화에 대한 통합 모듈 제작](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
 
 -   다음과 같이 사용자 워크스테이션에 필요한 모듈을 설치합니다.
-    -   [Windows Management Framework, v5](http://www.microsoft.com/download/details.aspx?id=48729) 설치(Win10에는 필요 없음)
+    -   [Windows Management Framework, v5](http://aka.ms/wmf5latest) 설치(Win10에는 필요 없음)
     -   `Install-Module  –ModuleName MODULENAME` <- PowerShell 갤러리에서 모듈 가져오기 
 -   `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME`의 모듈 폴더를 임시 폴더에 복사 
 -   주 폴더에서 샘플 및 설명서 삭제 
@@ -185,4 +185,4 @@ New-ConfigurationScript.ps1:
 - [Azure 자동화 DSC cmdlets](https://msdn.microsoft.com/library/mt244122.aspx)
 - [Azure 자동화 DSC를 통한 관리를 위한 컴퓨터 온보드](automation-dsc-onboarding.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

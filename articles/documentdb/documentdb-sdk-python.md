@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="01/19/2016" 
+	ms.date="03/30/2016" 
 	ms.author="ryancraw"/>
 
 # DocumentDB SDK
@@ -28,13 +28,16 @@
 
 <table>
 <tr><td>**다운로드**</td><td>[PyPI](https://pypi.python.org/pypi/pydocumentdb)</td></tr>
-<tr><td>**참가**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-python)</td></tr>
+<tr><td>**기고**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-python)</td></tr>
 <tr><td>**설명서**</td><td>[Python SDK 참조 설명서](http://azure.github.io/azure-documentdb-python/)</td></tr>
 <tr><td>**시작**</td><td>[Python SDK 시작](documentdb-python-application.md)</td></tr>
 <tr><td>**현재 지원되는 플랫폼**</td><td>[Python 2.7](https://www.python.org/download/releases/2.7/)</td></tr>
 </table></br>
 
 ## 릴리스 정보
+
+### <a name="1.6.0"/>[1\.6.0](https://pypi.python.org/pypi/pydocumentdb/1.6.0)
+- 구현된 [분할된 컬렉션](documentdb-partition-data.md) 및 [사용자 정의된 성능 수준](documentdb-performance-levels.md)입니다. 
 
 ### <a name="1.5.0"/>[1\.5.0](https://pypi.python.org/pypi/pydocumentdb/1.5.0)
 - 여러 파티션 간의 응용 프로그램 분할을 지원하기 위해 해시 및 범위 파티션 해결 프로그램을 추가합니다.
@@ -64,23 +67,25 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 사용 중지된 SDK를 사용한 DocumentDB에 대한 요청은 서비스로부터 거부됩니다.
 
-> [AZURE.WARNING]**1.0.0** 이전 버전의 Python에 대한 모든 버전의 Azure DocumentDB SDK는 **2016년 2월 29일**에 사용 중지됩니다.
+> [AZURE.WARNING]
+**1.0.0** 이전 버전의 Python에 대한 모든 버전의 Azure DocumentDB SDK는 **2016년 2월 29일**에 사용 중지됩니다.
 
 <br/>
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 
 | ---	  | ---	         | ---
-| [1\.5.0](#1.5.0) | 2016년 1월 3일 |--
-| [1\.4.2](#1.4.2) | 2015년 10월 6일 |--
-| [1\.4.1](#1.4.1) | 2015년 10월 6일 |--
-| [1\.2.0](#1.2.0) | 2015년 8월 6일 |--
-| [1\.1.0](#1.1.0) | 2015년 7월 9일 |--
-| [1\.0.1](#1.0.1) | 2015년 5월 25일 |--
-| [1\.0.0](#1.0.0) | 2015년 4월 7일 |--
-| 0.9.4-prelease | 2015년 1월 14일 | 2016년 2월 29일 
-| 0.9.3-prelease | 2014년 12월 9일 | 2016년 2월 29일 
-| 0.9.2-prelease | 2014년 11월 25일 | 2016년 2월 29일 
-| 0.9.1-prelease | 2014년 9월 23일 | 2016년 2월 29일 
+| [1\.6.0](#1.6.0) | March 29, 2016 |---
+| [1\.5.0](#1.5.0) | 2016년 1월 3일 |---
+| [1\.4.2](#1.4.2) | 2015년 10월 6일 |---
+| [1\.4.1](#1.4.1) | 2015년 10월 6일 |---
+| [1\.2.0](#1.2.0) | 2015년 8월 6일 |---
+| [1\.1.0](#1.1.0) | 2015년 7월 9일 |---
+| [1\.0.1](#1.0.1) | 2015년 5월 25일 |---
+| [1\.0.0](#1.0.0) | 2015년 4월 7일 |---
+| 0.9.4-prelease | 2015년 1월 14일 | 2016년 2월 29일
+| 0.9.3-prelease | 2014년 12월 9일 | 2016년 2월 29일
+| 0.9.2-prelease | 2014년 11월 25일 | 2016년 2월 29일
+| 0.9.1-prelease | 2014년 9월 23일 | 2016년 2월 29일
 | 0.9.0-prelease | 2014년 8월 21일 | 2016년 2월 29일
 
 ## FAQ
@@ -90,4 +95,4 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 DocumentDB에 대해 자세히 알아보려면 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 서비스 페이지를 참조하세요.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0330_2016-->

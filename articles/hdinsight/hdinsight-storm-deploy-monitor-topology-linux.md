@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/28/2016"
+   ms.date="02/29/2016"
    ms.author="larryfr"/>
 
 # Linux 기반 HDInsight에서 Apache Storm 토폴로지 배포 및 관리
@@ -101,13 +101,22 @@ Storm UI는 토폴로지를 실행하여 함께 작업하기 위한 웹 인터�
 
 ### 기본 페이지
 
-Storm UI의 기본 페이지는 다음 정보를 제공합니다.- **클러스터 요약**: Storm 클러스터에 대한 기본 정보입니다. - **토폴로지 요약**: 실행 중인 토폴로지의 목록입니다. 이 섹션의 링크를 사용하여 특정 토폴로지에 대한 자세한 내용을 봅니다. - **감독자 요약**: Storm 감독자에 대한 정보입니다. - **Nimbus 구성**: 클러스터에 대한 Nimbus 구성입니다.
+Storm UI의 기본 페이지에서는 다음 정보를 제공합니다.
+- **클러스터 요약**: Storm 클러스터에 대한 기본 정보입니다.
+- **토폴로지 요약**: 실행 중인 토폴로지 목록입니다. 특정 토폴로지에 대한 자세한 정보를 보려면 이 섹션의 링크를 사용하세요.
+- **감독자 요약**: Storm 감독자에 대한 정보입니다.
+- **Nimbus 구성**: 클러스터에 대한 Nimbus 구성입니다.
 
 ### 토폴로지 요약
 
-**토폴로지 요약** 섹션에서 링크를 선택하면 토폴로지에 대한 다음 정보를 표시합니다. - **토폴로지 요약**: 토폴로지에 대한 기본 정보입니다. **토폴로지 작업**: 토폴로지에 수행할 수 있는 관리 작업입니다. **활성화**: 비활성화된 토폴로지의 처리를 다시 시작합니다. - **비활성화**: 실행 중인 토폴로지를 일시 중지합니다. - **균형 재조정**: 토폴로지의 병렬 처리를 조정합니다. 클러스터에서 노드 수를 변경한 후 실행 중인 토폴로지의 균형을 다시 맞추어야 합니다. 이렇게 하면 토폴로지가 병렬 처리를 조정하여 클러스터에서 증가하거나 감소한 노드 수를 보충할 수 있습니다.
+**토폴로지 요약** 섹션의 링크를 선택하면 토폴로지에 대한 다음 정보가 표시됩니다.
+- **토폴로지 요약**: 토폴로지에 대한 기본 정보입니다.
+- **토폴로지 동작**: 토폴로지에 대해 수행할 수 있는 관리 작업입니다.
+  - **활성화** - 비활성화된 토폴로지 처리를 다시 시작합니다.
+  - **비활성화** - 실행 중인 토폴로지를 일시 중지합니다.
+  - **균형 다시 맞추기** - 토폴로지의 병렬 처리를 조정합니다. 클러스터에서 노드 수를 변경한 후 실행 중인 토폴로지의 균형을 다시 맞추어야 합니다. 이렇게 하면 토폴로지가 병렬 처리를 조정하여 클러스터에서 증가하거나 감소한 노드 수를 보충할 수 있습니다.
 
-      For more information, see <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Understanding the parallelism of a Storm topology</a>.
+      자세한 내용은 <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Storm 토폴로지의 병렬 처리 이해</a>를 참조하세요.
 
   - **중단** - 지정된 시간 제한 후 Storm 토폴로지를 종료합니다.
 
@@ -118,13 +127,19 @@ Storm UI의 기본 페이지는 다음 정보를 제공합니다.- **클러스�
 
 ### Spout 및 Bolt 요약
 
-**Spout** 또는 **Bolt** 섹션에서 Spout를 선택하면 선택한 항목에 다음 정보가 표시됩니다. - **구성 요소 요약**: Spout 또는 Bolt에 대한 기본 정보입니다. **Spout/Bolt 통계**: Spout 또는 Bolt에 대한 통계입니다. **Window** 열에서 링크를 사용하여 페이지의 나머지 항목에 기간을 설정합니다. - **입력 통계**(Bolt): 볼트: Bolt에서 소비된 입력 스트림에 대한 정보입니다. **출력 통계**: Spout 또는 Bolt에서 내보낸 스트림에 대한 정보입니다. **실행자**: Spout 또는 Bolt의 인스턴스에 대한 정보입니다. 특정 실행자에 대한 **포트** 항목을 선택하면 이 인스턴스에 대해 처리된 진단 정보의 로그를 볼 수 있습니다. - **오류**: 이 Spout 또는 Bolt에 대한 오류 정보입니다.
+**Spout** 또는 **Bolt** 섹션에서 Spout를 선택하면 선택한 항목에 대해 다음 정보가 표시됩니다.
+- **구성 요소 요약**: Spout 또는 Bolt에 대한 기본 정보입니다.
+- **Spout/Bolt 통계**: Spout 또는 Bolt에 대한 통계입니다. **창** 열에 있는 링크를 사용하여 페이지에서 나머지 항목에 대한 시간 프레임을 설정할 수 있습니다.
+- **입력 통계**(Bolt에만 해당): Bolt에서 사용하는 입력 스트림에 대한 정보입니다.
+- **출력 통계**: 이 Spout 또는 Bolt가 내보낸 스트림에 대한 정보입니다.
+- **실행자**: Spout 또는 Bolt의 인스턴스에 대한 정보입니다. 특정 실행자에 대한 **Port** 항목을 선택하면 이 인스턴스에 대해 처리된 진단 정보의 로그를 볼 수 있습니다.
+- **오류**: 이 Spout 또는 Bolt에 대한 오류 정보입니다.
 
 ## REST API
 
 Storm UI는 REST API의 맨 위에 기본 제공되므로 REST API를 사용하여 유사한 관리 및 모니터링 기능을 수행할 수 있습니다. REST API를 사용하여 Storm 토폴로지를 관리 및 모니터링하는 사용자 지정 도구를 만들 수 있습니다.
 
-자세한 내용은 [Storm UI REST API](https://github.com/apache/storm/blob/master/docs/documentation/ui-rest-api.md)를 참조하세요. 다음 정보는 HDInsight에서 Apache Storm과 REST API 사용하기에 관한 것입니다.
+자세한 내용은 [Storm UI REST API](http://storm.apache.org/releases/0.9.6/STORM-UI-REST-API.html)를 참조하세요. 다음 정보는 HDInsight에서 Apache Storm과 REST API 사용하기에 관한 것입니다.
 
 > [AZURE.IMPORTANT] Storm REST API는 인터넷을 통해 공개적으로 사용할 수 없고 HDInsight 클러스터 헤드 노드에 SSH 터널을 사용하여 액세스되어야 합니다. SSH 터널의 생성 및 사용에 대한 정보는 [SSH 터널링을 사용하여 Ambari 웹 UI, ResourceManager, JobHistory, NameNode, Oozie, 및 기타 웹 UI에 액세스](hdinsight-linux-ambari-ssh-tunnel.md)를 참조하세요.
 
@@ -155,4 +170,4 @@ Storm 대시보드를 사용하여 토폴로지를 배포 및 모니터링하는
 
 추가 예제 토폴로지 목록은 [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0330_2016-->

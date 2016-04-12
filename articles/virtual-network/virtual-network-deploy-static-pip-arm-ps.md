@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/15/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # PowerShell을 사용하여 고정 공용 IP를 사용하는 VM 배포
@@ -216,4 +216,4 @@ VM을 만들기 전에 VM에서 사용할 리소스 그룹, VNet, 공용 IP 및 
 
    
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0323_2016-->

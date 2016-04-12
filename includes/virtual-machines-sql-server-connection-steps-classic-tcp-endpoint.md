@@ -2,7 +2,7 @@
 
 인터넷에서 SQL 서버에 연결하려면, 가상 컴퓨터에 들어오는 TCP 통신을 수신하는 끝점이 있어야 합니다. 이 Azure 구성 단계에서는 들어오는 TCP 포트 트래픽을 가상 컴퓨터에 액세스 가능한 TCP 포트로 보냅니다.
 
->[AZURE.NOTE]동일한 클라우드 서버 또는 가상 네트워크 내에서 연결하는 경우, 공개적으로 엑세스 할 수 있는 끝점을 만들 필요가 없습니다. 이 경우, 다음 단계를 계속 할 수 있습니다. 자세한 내용은 [연결 시나리오](../articles/virtual-machines/virtual-machines-sql-server-connectivity.md#connection-scenarios)를 참조하세요.
+>[AZURE.NOTE] 동일한 클라우드 서버 또는 가상 네트워크 내에서 연결하는 경우, 공개적으로 엑세스 할 수 있는 끝점을 만들 필요가 없습니다. 이 경우, 다음 단계를 계속 할 수 있습니다. 자세한 내용은 [연결 시나리오](../articles/virtual-machines/virtual-machines-windows-classic-sql-connect.md#connection-scenarios)를 참조하세요.
 
 1. Azure 관리 포털에서 **가상 컴퓨터**를 클릭합니다.
 	
@@ -19,4 +19,4 @@
 
 6. 확인 표시를 클릭하여 계속합니다. 끝점이 만들어집니다.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0323_2016-->

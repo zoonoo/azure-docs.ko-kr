@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/05/2015"
+	ms.date="03/08/2016"
 	ms.author="sethm"/>
 
 # 이벤트 허브 시작
@@ -79,7 +79,7 @@
 
    	![][22]
 
-> [AZURE.NOTE]이 자습서에 한해 Storm을 로컬 모드에서 개발용으로 사용합니다. Storm 배포 및 패턴에 대한 자세한 내용은 [HDInsight Storm 개요][] 및 공식 [Apache Storm][] 설명서를 참조하세요.
+> [AZURE.NOTE] 이 자습서에 한해 Storm을 로컬 모드에서 개발용으로 사용합니다. Storm 배포 및 패턴에 대한 자세한 내용은 [HDInsight Storm 개요][] 및 공식 [Apache Storm][] 설명서를 참조하세요.
 
 ## 다음 단계
 
@@ -110,4 +110,4 @@
 [Storm 및 HDInsight에서 SCP.NET 및 C#을 사용하여 스트리밍 데이터 처리 응용 프로그램 개발]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0316_2016-->

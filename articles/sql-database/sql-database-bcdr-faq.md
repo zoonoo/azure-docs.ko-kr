@@ -58,6 +58,6 @@
 
 ## 9\. 표준 지역에서 복제 또는 활성 지역 복제를 사용하는 경우 복제 지연이란 무엇입니까?
 
-[sys.dm\_geo\_replication\_link\_status](https://msdnstage.redmond.corp.microsoft.com/library/mt575504.aspx) 동적 관리 뷰(DMVs)를 사용하여 마지막 복제 시간, 마지막 복제 간격 및 복제 링크에 대한 기타 정보를 얻을 수 있습니다.
+[sys.dm\_geo\_replication\_link\_status](https://msdn.microsoft.com/library/mt575504.aspx) 동적 관리 뷰(DMVs)를 사용하여 마지막 복제 시간, 마지막 복제 간격 및 복제 링크에 대한 기타 정보를 얻을 수 있습니다.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

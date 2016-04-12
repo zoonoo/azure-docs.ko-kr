@@ -125,7 +125,11 @@ VM에 설치된 Visual Studio Community edition 평가 목적이나 매우 작�
 SQL Server의 제한된 버전에는 Visual Studio Community edition도 포함되어 있습니다. **SQL Server Management Studio**를 시작하여 SQL Server에 액세스할 수 있습니다. 사용 중인 VM 이름이 서버 이름으로 사용됩니다. Windows의 관리자 권한으로 로그인할 때 Windows 인증을 사용합니다. SQL Server Management Studio에서 다른 사용자를 만들고, 데이터베이스를 만들며, 데이터를 가져오고, SQL 쿼리를 실행할 수 있습니다.
 
 ### Azure 
-몇 개의 Azure 도구가 VM에 설치됩니다. - Azure SDK 설명서에 액세스하는 바탕 화면 바로 가기가 있습니다. - Microsoft Azure 저장소 계정 내부/외부로 데이터를 이동시키는 데 사용되는 **AzCopy**.- Azure 저장소 계정 내에 저장된 개체를 통해 검색하는 데 사용되는 **Azure 저장소 탐색기**. - **Microsoft Azure Powershell** - VM에도 설치된 Powershell 스크립트 언어로 된 Azure 리소스를 관리하는 데 사용되는 도구
+몇 개의 Azure 도구가 VM에 설치됩니다.
+- 바탕 화면에 Azure SDK 설명서에 액세스하는 바로 가기가 있습니다. 
+- **AzCopy** - Microsoft Azure 저장소 계정 내부/외부로 데이터를 이동시키는 데 사용합니다. 
+- **Azure 저장소 탐색기** - Azure 저장소 계정 내에 저장한 개체를 검색하는 데 사용합니다. 
+- **Microsoft Azure Powershell** - VM에도 설치된 Powershell 스크립트 언어의 Azure 리소스를 관리하는 데 사용되는 도구입니다. 
 
 ###Power BI
 
@@ -141,7 +145,8 @@ SQL Server의 제한된 버전에는 Visual Studio Community edition도 포함�
 
 * 시작 메뉴를 클릭하여 메뉴에 나열된 도구를 확인하여 데이터 과학 VM에 다양한 데이터 과학 도구를 탐색합니다.
 * 엔터프라이즈 규모에서 데이터 분석을 지원하는 R의 RevoScaleR 라이브러리를 사용하는 샘플은 **C:\\Program Files\\Microsoft\\MRO-for-RRE\\8.0\\R-3.2.2\\library\\RevoScaleR\\demoScripts**로 이동합니다.  
+* 문서 참조: [데이터 과학 가상 컴퓨터로 할 수 있는 10가지 일](http://aka.ms/dsvmtenthings)
 * 체계적으로 [데이터 과학 프로세스](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)를 사용하여 종단 간 분석 솔루션을 구축하는 방법을 알아봅니다.
 * Cortana 분석 모음을 사용하는 기계 학습 및 데이터 분석 샘플은 [Cortana 분석 갤러리](http://gallery.cortanaanalytics.com)를 방문하세요. 또한 손쉽게 액세스할 수 있도록 가상 컴퓨터의 시작 메뉴 및 데스크톱에 아이콘을 제공합니다. 
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

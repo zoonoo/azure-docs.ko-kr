@@ -108,7 +108,7 @@ Azure 진단을 사용하면 Azure에서 실행 중인 가상 컴퓨터, 클라�
 
 ![][1]
 
-Azure 진단은 고객 클라우드 서비스 응용 프로그램 및 [Azure 가상 컴퓨터](virtual-machines-about.md)에서 Azure 저장소로 로그를 이동합니다. 로그 형식에 따르면 일부 데이터는 Azure 테이블 및 blob의 일부에 저장됩니다. [Azure 저장소](storage-introduction.md)에서 수집된 데이터는 모니터링 및 분석을 위해 Azure 저장소 클라이언트 라이브러리를 사용하여 온-프레미스 SIEM 시스템으로 다운로드할 수 있습니다.
+Azure 진단은 고객 클라우드 서비스 응용 프로그램 및 [Azure 가상 컴퓨터](virtual-machines/virtual-machines-linux-about.md)에서 Azure 저장소로 로그를 이동합니다. 로그 형식에 따르면 일부 데이터는 Azure 테이블 및 blob의 일부에 저장됩니다. [Azure 저장소](storage-introduction.md)에서 수집된 데이터는 모니터링 및 분석을 위해 Azure 저장소 클라이언트 라이브러리를 사용하여 온-프레미스 SIEM 시스템으로 다운로드할 수 있습니다.
 
 또한 HDInsight는 클라우드에서 데이터의 추가 분석을 위해 사용할 수 있습니다. 다음은 Azure 진단을 사용하는 보안 데이터 컬렉션의 일부 예입니다.
 
@@ -614,4 +614,4 @@ Azure 구독 리소스와 관련된 작업 로그는 관리 포털의 **작업 �
 [19]: ./media/azure-security-audit-log-management/sec-view-blob-container.png
 [20]: ./media/azure-security-audit-log-management/sec-hdinsight-analysis.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

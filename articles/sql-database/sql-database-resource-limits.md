@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="02/17/2016"
+	ms.date="03/02/2016"
 	ms.author="jroth" />
 
 
@@ -55,12 +55,6 @@ CPU, 메모리, 로그 I/O 및 데이터 I/O 이외의 리소스는 제한에 �
 
 이전 표에 나열된 각 리소스의 확장된 정의는 [서비스 계층 기능 및 제한](sql-database-performance-guidance.md#service-tier-capabilities-and-limits)의 설명을 참조하세요. 서비스 계층에 대한 개요는 [Azure SQL 데이터베이스 서비스 계층 및 성능 수준](sql-database-service-tiers.md)을 참조하세요.
 
-## 서버당 DTU 할당량
-
-Azure SQL 데이터베이스에는 현재 15000 DTU의 논리 서버당 DTU 할당량을 포함합니다. 이 할당량은 각 데이터베이스의 성능이 서버에 의존하는 경우 DTU의 합계를 기반으로 논리 서버가 호스팅할 수 있는 DTU를 나타냅니다. 예를 들어, 5개의 Basic 데이터베이스(5 X 5 DTU 최대), 2개의 Standard S1 데이터베이스(2 X 20 DTU 최대), 3개의 Premium P1 데이터베이스(3 X 100 DTU 최대)를 포함하는 서버는 15000 DTU의 할당량 중 365 DTU를 사용했습니다.
-
->[AZURE.NOTE] [지원 센터에 연락](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)하여 이 할당량을 늘리도록 요청할 수 있습니다.
-
 ## 기타 SQL 데이터베이스 제한
 
 | 영역 | 제한 | 설명 |
@@ -75,4 +69,4 @@ Azure SQL 데이터베이스에는 현재 15000 DTU의 논리 서버당 DTU 할�
 
 [SQL 데이터베이스 클라이언트 프로그램에 대한 오류 메시지](sql-database-develop-error-messages.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -17,9 +17,9 @@
 
 # NAT 설정 및 관리를 위한 라우터 구성 샘플
 
-이 페이지는 Cisco ASA 및 Juniper MX 시리즈 라우터에 NAT 구성 샘플을 제공합니다. 이러한 샘플은 단지 지침용이므로 그대로 사용해서는 안 됩니다. 사용 중인 네트워크에 적절하게 구성하려면 공급업체와 작업하면 됩니다.
+이 페이지는 Cisco ASA 및 Juniper SRX 시리즈 라우터에 NAT 구성 샘플을 제공합니다. 이러한 샘플은 참조용이므로 그대로 사용해서는 안 됩니다. 사용 중인 네트워크에 적절하게 구성하려면 공급업체와 작업하면 됩니다.
 
->[AZURE.IMPORTANT]이 페이지에 있는 샘플은 참조용입니다. 공급업체의 영업/기술 팀 및 네트워킹 팀과 함께 작업하면서 필요에 맞게 적절히 구성해야 합니다. Microsoft는 이 페이지에 나열된 구성과 관련된 문제를 지원하지 않습니다. 지원 문제는 장치 공급업체에 문의해야 합니다.
+>[AZURE.IMPORTANT] 이 페이지에 있는 샘플은 참조용입니다. 공급업체의 영업/기술 팀 및 네트워킹 팀과 함께 작업하면서 필요에 맞게 적절히 구성해야 합니다. Microsoft는 이 페이지에 나열된 구성과 관련된 문제를 지원하지 않습니다. 지원 문제는 장치 공급업체에 문의해야 합니다.
 
 아래의 라우터 구성 샘플은 Azure 공용 및 Microsoft 피어링에 적용됩니다. Azure 개인 피어링의 경우 NAT를 구성하면 안 됩니다. 자세한 내용은 [Express 경로 피어링](expressroute-circuit-peerings.md) 및 [Express 경로 NAT 요구 사항](expressroute-nat.md)을 검토하세요.
 
@@ -78,7 +78,7 @@ NAT 명령:
 	nat (inside,outside) source dynamic MSFT-PAT-Networks pat-pool outbound-PAT destination static Customer-Network Customer-Network
 
 
-## Juniper MX 시리즈 라우터 
+## Juniper SRX 시리즈 라우터 
 
 ### 1\. 클러스터에 대한 중복 이더넷 인터페이스 만들기
 
@@ -319,4 +319,4 @@ NAT 명령:
 
 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0323_2016-->

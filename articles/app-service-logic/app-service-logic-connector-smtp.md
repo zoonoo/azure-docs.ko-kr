@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="rajram"/>
 
 
 # SMTP 커넥터 시작 및 논리 앱에 추가
->[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다. 2015-08-01-미리 보기 스키마 버전에 대한 내용을 보려면 [SMTP API](../connectors/create-api-smtp.md)를 클릭하세요.
+>[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다. 2015-08-01-preview 스키마 버전에 대한 내용을 보려면 [SMTP API](../connectors/connectors-create-api-smtp.md)를 클릭하세요.
 
 SMTP 서버에 연결하고 첨부 파일이 있는 메일을 비롯한 메일을 보냅니다. SMTP 커넥터 "메일 보내기" 동작을 사용하면 지정된 메일 주소로 메일을 보낼 수 있습니다.
 
@@ -56,7 +56,7 @@ SMTP 커넥터에서 사용할 수 있는 트리거와 동작은 다음과 같�
 
 6. **만들기**를 선택합니다.
 
-> [AZURE.IMPORTANT]일부 SMTP 서버에서는 이 커넥터의 작동 방식과 관련된 문제가 발생할 수도 있습니다(SendGrid 및 Gmail). SendGrid에서 메일을 보내려는 경우 [GitHub 리포지토리](https://github.com/logicappsio/SendGridAPI)에 SendGrid API와 직접 인터페이스되는 사용자 지정 API가 있습니다.
+> [AZURE.IMPORTANT] 일부 SMTP 서버에서는 이 커넥터의 작동 방식과 관련된 문제가 발생할 수도 있습니다(SendGrid 및 Gmail). SendGrid에서 메일을 보내려는 경우 [GitHub 리포지토리](https://github.com/logicappsio/SendGridAPI)에 SendGrid API와 직접 인터페이스되는 사용자 지정 API가 있습니다.
 
 ## 논리 앱에서 SMTP 커넥터 사용
 커넥터를 만들고 나면 이제 SMTP 커넥터를 논리 앱에 대한 동작으로 사용할 수 있습니다. 다음을 수행합니다.
@@ -105,4 +105,4 @@ SMTP 커넥터에서 사용할 수 있는 트리거와 동작은 다음과 같�
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

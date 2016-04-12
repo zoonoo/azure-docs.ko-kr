@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스의 통계 관리
@@ -36,7 +36,7 @@ SQL 데이터 웨어하우스가 개선시켜야 하는 쿼리 성능을 달성�
 ## 통계가 필요한 이유는 무엇입니까?
 적절한 통계 없이, SQL 데이터 웨어하우스가 제공하도록 설계된 성능을 얻을 수 없습니다. 테이블 및 열에는 SQL 데이터 웨어하우스에서 자동으로 생성된 통계가 없으므로 사용자가 직접 만들어야 합니다. 이러한 정보가 입력되면 테이블을 만든 다음 업데이트할 때 만드는 것이 좋습니다.
 
-> [AZURE.NOTE]SQL Server를 사용하는 경우, 필요한 경우 SQL Server에 따라 단일 열 통계를 만들고 업데이트할 수 있습니다. SQL 데이터 웨어하우스는 이러한 측면에서 다릅니다. 데이터가 분산되어 있으므로 SQL 데이터 웨어하우스는 분산된 모든 데이터에서 통계를 자동으로 집계하지 않습니다. 통계를 작성하고 업데이트하는 경우 집계 된 통계만을 생성합니다.
+> [AZURE.NOTE] SQL Server를 사용하는 경우, 필요한 경우 SQL Server에 따라 단일 열 통계를 만들고 업데이트할 수 있습니다. SQL 데이터 웨어하우스는 이러한 측면에서 다릅니다. 데이터가 분산되어 있으므로 SQL 데이터 웨어하우스는 분산된 모든 데이터에서 통계를 자동으로 집계하지 않습니다. 통계를 작성하고 업데이트하는 경우 집계 된 통계만을 생성합니다.
 
 ## 통계 작성 시기
 일관된 최신 통계 집합은 SQL 데이터 웨어하우스의 중요한 부분입니다. 따라서 테이블 디자인 일부로 통계를 만드는 것이 중요합니다.
@@ -45,7 +45,9 @@ SQL 데이터 웨어하우스가 개선시켜야 하는 쿼리 성능을 달성�
 
 열이 복합 조인 또는 GROUP BY 절에 있는 경우 여러 열 통계만이 쿼리 최적화 프로그램에서 사용됩니다. 현재 여러 열 통계에서 복합 필터는 유용하지 않습니다.
 
-SQL 데이터 웨어하우스 개발을 시작하는 경우 다음 패턴을 구현하는 것이 좋습니다. 모든 테이블의 모든 열에 단일 열 통계를 만들고 조인 및 GROUP BY 절의 쿼리에서 사용된 열에 여러 열 통계를 만듭니다.
+SQL 데이터 웨어하우스 개발을 시작할 때는 다음 패턴을 구현하는 것이 좋습니다.
+- 모든 테이블에서 모든 열에 단일 열 통계 만들기
+- 조인 및 GROUP BY 절에 있는 쿼리에서 사용하는 열에 여러 열 통계를 생성합니다.
 
 데이터를 쿼리하려는 방법을 이해하면 특히 테이블이 광범위한 경우 이 모델을 구체화하는 것이 좋습니다. 더 많은 고급 메서드 접근 방식에 대한 섹션은 [통계 관리 구현](## 통계 관리 구현)을 참조하세요.
 
@@ -88,13 +90,13 @@ SQL 데이터 웨어하우스 개발을 시작하는 경우 다음 패턴을 구
 
 이 구문은 모든 기본 옵션을 사용합니다. 기본적으로 SQL 데이터 웨어하우스가 통계를 만들 때 테이블의 20%를 샘플링합니다.
 
-```
+```sql
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
 ```
 
 예:
 
-```
+```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1);
 ```
 
@@ -104,13 +106,13 @@ CREATE STATISTICS col1_stats ON dbo.table1 (col1);
 
 전체 테이블을 샘플링하려면 이 구문을 사용합니다.
 
-```
+```sql
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]) WITH FULLSCAN;
 ```
 
 예:
 
-```
+```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
 ```
 
@@ -118,7 +120,7 @@ CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
 
 또는 백분율로 샘플 크기를 지정할 수 있습니다.
 
-```
+```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH SAMPLE = 50 PERCENT;
 ```
 
@@ -130,17 +132,17 @@ CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH SAMPLE = 50 PERCENT;
 
 이 예에서는 값의 범위에서 통계를 만듭니다. 파티션의 값의 범위와 일치하도록 쉽게 값을 정의할 수 있습니다.
 
-```
+```sql
 CREATE STATISTICS stats_col1 ON table1(col1) WHERE col1 > '2000101' AND col1 < '20001231';
 ```
 
-> [AZURE.NOTE]분산된 쿼리 계획을 선택하는 경우 필터링된 통계 사용을 고려하는 쿼리 최적화 프로그램의 경우, 쿼리는 통계 개체의 정의 내에서 적합해야 합니다. 이전 예제를 사용하면 쿼리의 where 절은 2000101과 20001231 사이에 col1 값을 지정해야 합니다.
+> [AZURE.NOTE] 분산된 쿼리 계획을 선택하는 경우 필터링된 통계 사용을 고려하는 쿼리 최적화 프로그램의 경우, 쿼리는 통계 개체의 정의 내에서 적합해야 합니다. 이전 예제를 사용하면 쿼리의 where 절은 2000101과 20001231 사이에 col1 값을 지정해야 합니다.
 
 ### E. 모든 옵션으로 단일 열 통계 만들기
 
 물론, 옵션과 함께 결합할 수 있습니다. 다음 예제에서는 사용자 지정 샘플 크기로 필터링된 통계 개체를 만듭니다.
 
-```
+```sql
 CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
@@ -150,11 +152,11 @@ CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < 
 
 여러 열 통계를 만들려면, 이전 예제를 사용하지만 더 많은 열을 지정합니다.
 
-> [AZURE.NOTE]쿼리 결과에서 행의 수를 예상하는 데 사용되는 히스토그램은 통계 개체 정의에 나열된 첫 번째 열에 사용할 수만 있습니다.
+> [AZURE.NOTE] 쿼리 결과에서 행의 수를 예상하는 데 사용되는 히스토그램은 통계 개체 정의에 나열된 첫 번째 열에 사용할 수만 있습니다.
 
 이 예에서 히스토그램은 *product\_category*에 있습니다. 열 간 통계는 *product\_category* 및 *product\_sub\_c\\ategory*에서 계산됩니다.
 
-```
+```sql
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
@@ -164,8 +166,8 @@ CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category)
 
 통계를 만드는 한 가지 방법은 테이블을 만든 후 CREATE STATISTICS 명령을 실행하는 것입니다.
 
-```
-CREATE TABLE dbo.table1 
+```sql
+CREATE TABLE dbo.table1
 (
    col1 int
 ,  col2 int
@@ -188,7 +190,7 @@ SQL 데이터 웨어하우스는 SQL Server에서 [sp\_create\_stats][]에 해�
 
 데이터베이스 디자인으로 시작하는 데 도움이 됩니다. 사용자의 요구에 맞게 자유롭게 적용합니다.
 
-```
+```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_create_stats]
 (   @create_type    tinyint -- 1 default 2 Fullscan 3 Sample
 ,   @sample_pct     tinyint
@@ -271,7 +273,7 @@ DROP TABLE #stats_ddl;
 
 이 절차로 테이블의 모든 열에서 통계를 만들려면 프로시저를 호출하기만 하면 됩니다.
 
-```
+```sql
 prc_sqldw_create_stats;
 ```
 
@@ -286,13 +288,13 @@ prc_sqldw_create_stats;
 ### A. 하나의 통계 개체 업데이트 ###
 특정 통계 개체를 업데이트하려면 다음 구문을 사용합니다.
 
-```
+```sql
 UPDATE STATISTICS [schema_name].[table_name]([stat_name]);
 ```
 
 예:
 
-```
+```sql
 UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
 ```
 
@@ -302,19 +304,19 @@ UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
 ### B. 테이블에 있는 모든 통계 업데이트 ###
 테이블에 있는 모든 통계 개체를 업데이트하기 위한 간단한 방법을 보여줍니다.
 
-```
+```sql
 UPDATE STATISTICS [schema_name].[table_name];
 ```
 
 예:
 
-```
+```sql
 UPDATE STATISTICS dbo.table1;
 ```
 
 이 명령문은 사용하기 쉽습니다. 테이블에 대한 모든 통계를 업데이트하므로 필요한 것보다 더 많은 작업을 수행할 수 있습니다 성능이 중요하지 않은 경우, 통계가 최신임을 보증하는 가장 완전하고 쉬운 방법입니다.
 
-> [AZURE.NOTE]테이블의 모든 통계를 업데이트하면 SQL 데이터 웨어하우스는 각 통계에 대한 테이블을 스캔하여 샘플링합니다. 테이블이 크고 열이 많고 통계가 많은 경우, 필요에 따라 개별 통계를 업데이트하는 것이 보다 효율적일 수 있습니다.
+> [AZURE.NOTE] 테이블의 모든 통계를 업데이트하면 SQL 데이터 웨어하우스는 각 통계에 대한 테이블을 스캔하여 샘플링합니다. 테이블이 크고 열이 많고 통계가 많은 경우, 필요에 따라 개별 통계를 업데이트하는 것이 보다 효율적일 수 있습니다.
 
 `UPDATE STATISTICS` 절차 구현의 경우, [임시 테이블] 문서를 참조하세요. 구현 방법은 위의 `CREATE STATISTICS` 절차와 약간 다르지만 최종 결과는 동일합니다.
 
@@ -349,7 +351,7 @@ UPDATE STATISTICS dbo.table1;
 
 이 뷰는 통계와 관련된 열을 가져오며 [STATS\_DATE()][] 함수의 결과입니다.
 
-```
+```sql
 CREATE VIEW dbo.vstats_columns
 AS
 SELECT
@@ -380,7 +382,7 @@ JOIN    sys.columns         AS co ON    sc.[column_id]      = co.[column_id]
 JOIN    sys.types           AS ty ON    co.[user_type_id]   = ty.[user_type_id]
 JOIN    sys.tables          AS tb ON  co.[object_id]        = tb.[object_id]
 JOIN    sys.schemas         AS sm ON  tb.[schema_id]        = sm.[schema_id]
-WHERE   1=1 
+WHERE   1=1
 AND     st.[user_created] = 1
 ;
 ```
@@ -399,13 +401,13 @@ DBCC SHOW\_STATISTICS()는 통계 개체 내에 있는 데이터를 보여줍니
 
 이 간단한 예제에서는 통계 개체의 모든 세 부분을 보여줍니다.
 
-```
+```sql
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
 ```
 
 예:
 
-```
+```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
 ```
 
@@ -413,13 +415,13 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
 
 특정 부분 보기에만 관심이 있는 경우, `WITH` 절을 사용하고 보려는 부분을 지정합니다.
 
-```
+```sql
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>) WITH stat_header, histogram, density_vector
 ```
 
 예:
 
-```
+```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 ```
 
@@ -459,4 +461,4 @@ DBCC SHOW\_STATISTICS()는 SQL Server와 비교하여 SQL 데이터 웨어하우
 [sys.table\_types]: https://msdn.microsoft.com/library/bb510623.aspx
 [통계 업데이트]: https://msdn.microsoft.com/library/ms187348.aspx
 
-<!---HONumber=AcomDC_0114_2016--->
+<!---HONumber=AcomDC_0330_2016-->

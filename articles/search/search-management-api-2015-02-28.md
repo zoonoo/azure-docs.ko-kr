@@ -481,6 +481,8 @@ HTTP 200의 경우, 응답 본문은 비게 됩니다. 리소스가 존재하지
 
     PUT https://management.azure.com/subscriptions/[subscriptionId]/resourcegroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]?api-version=2015-02-28
 
+> [AZURE.NOTE] PUT을 사용하여 서비스 업데이트를 하는 경우 [서비스 만들기](#CreateService) 요청에 사용된 동일한 본문을 사용해야 합니다.
+
 ###URI 매개 변수 요청###
 
 `subscriptionId`: 필수 Azure 사용자용 `subscriptionID`입니다. Azure 리소스 관리자 API 또는 포털에서 이 값을 얻을 수 있습니다.
@@ -826,4 +828,4 @@ api 키, 특히 관리 키는 중요한 데이터로서 처리해야 합니다. 
 
 없음
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

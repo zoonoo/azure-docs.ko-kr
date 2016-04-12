@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="03/14/2016"
 	ms.author="wesmc"/>
 
 # Azure 모바일 앱에서 오프라인 데이터 동기화
@@ -58,26 +58,7 @@ Windows Phone 또는 Windows 스토어 8.1에서 SQLite 기반 구현을 사용�
 
 *동기화 컨텍스트*는 모바일 클라이언트 개체와 연결되고(예: `IMobileServiceClient` 또는 `MSClient`) 동기화 테이블에 적용된 변경 내용을 추적합니다. 동기화 컨텍스트는 나중에 서버로 보내지는 정렬된 CUD(만들기, 업데이트, 삭제) 작업 목록을 관리하는 *작업 큐*를 포함합니다.
 
-로컬 저장는 `IMobileServicesSyncContext.InitializeAsync(localstore)` .NET 클라이언트 SDK와 같은 초기화 메서드를 사용하여 동기화 컨텍스트와 관련됩니다.
-
-<!-- TODO: link to client references -->
-
-
-<!--
-Client code will interact with the table using the `IMobileServiceSyncTable` interface to support offline buffering. This interface supports all the methods of `IMobileServiceTable` along with additional support for pulling data from a Mobile App backend table and merging it into a local store table. How the local table is synchronized with the backend database is mainly controlled by your logic in the client app.
-
-The sync table uses the [System Properties](https://msdn.microsoft.com/library/azure/dn518225.aspx) on the table to implement change tracking for offline synchronization.
-
-
-
-* The data objects on the client should have some system properties, most are not required.
-	* Managed
-		* Write out the attributes
-	* iOS
-		*table for the entity
-* Note: because the iOS local store is based on Core Data, the developer must define the following tables:
-	* System tables  -->
-
+로컬 저장은 [.NET 클라이언트 SDK]의 `IMobileServicesSyncContext.InitializeAsync(localstore)`와 같은 초기화 메서드를 사용하여 동기화 컨텍스트와 관련됩니다.
 
 ## 오프라인 암호 동기화 작동 방법
 
@@ -89,9 +70,9 @@ The sync table uses the [System Properties](https://msdn.microsoft.com/library/a
 
 * **암시적 푸시**: 끌어오기가 로컬 업데이트를 보류 중인 테이블에 대해 실행되는 경우 동기화 컨텍스트에서 푸시를 먼저 실행합니다. 이미 큐에 대기 중인 변경 내용과 서버의 새 데이터 간에 충돌을 최소화하는 데 도움이 됩니다.
 
-* **증분 동기화**: 가져오기 작업의 첫번째 매개 변수는 클라이언트에만 사용되는 *쿼리 이름*입니다. Null이 아닌 쿼리 이름을 사용할 경우 Azure 모바일 SDK는 *증분 동기화*를 수행합니다. 가져오기 작업이 결과 집합을 반환할 때마다 해당 결과 집합에서 최신 `__updatedAt` timestamp는 SDK 로컬 시스템 테이블에 저장됩니다. 후속 끌어오기 작업은 해당 timestamp 이후의 레코드를 검색합니다.
+* **증분 동기화**: 가져오기 작업의 첫번째 매개 변수는 클라이언트에만 사용되는 *쿼리 이름*입니다. Null이 아닌 쿼리 이름을 사용할 경우 Azure 모바일 SDK는 *증분 동기화*를 수행합니다. 가져오기 작업이 결과 집합을 반환할 때마다 해당 결과 집합에서 최신 `updatedAt` timestamp는 SDK 로컬 시스템 테이블에 저장됩니다. 후속 끌어오기 작업은 해당 timestamp 이후의 레코드를 검색합니다.
 
-  증분 동기화를 사용하려면 서버가 의미있는 `__updatedAt` 값을 반환하고 이 필드의 정렬을 지원해야 합니다. 그러나 SDK가 updatedAt 필드에서 자체 정렬를 추가하므로 고유의 `$orderBy$`절을 가진 끌어오기 쿼리를 사용할 수 없습니다.
+  증분 동기화를 사용하려면 서버가 의미있는 `updatedAt` 값을 반환하고 이 필드의 정렬을 지원해야 합니다. 그러나 SDK가 updatedAt 필드에서 자체 정렬를 추가하므로 고유의 `$orderBy$`절을 가진 끌어오기 쿼리를 사용할 수 없습니다.
 
   쿼리 이름에 모든 문자열을 선택할 수 있지만 앱에서 각 논리 쿼리에 대해 고유해야 합니다. 그렇지 않은 경우 다른 끌어오기 작업이 동일한 증분 동기화 timestamp를 덮어쓰고 쿼리는 잘못된 결과를 반환할 수 있습니다.
 
@@ -100,11 +81,6 @@ The sync table uses the [System Properties](https://msdn.microsoft.com/library/a
 		await todoTable.PullAsync("todoItems" + userid, syncTable.Where(u => u.UserId = userid));
 
   증분 동기화를 옵트아웃하려면 `null`을(를) 쿼리 ID로 전달합니다. 이 경우 `PullAsync`에 대한 모든 호출에서 모든 레코드가 검색되므로 이는 잠재적으로 비효율적입니다.
-
-
-
-<!--   mymobileservice-code.azurewebsites.net/tables/TodoItem?$filter=(__updatedAt ge datetimeoffset'1970-01-01T00:00:00.0000000%2B00:00')&$orderby=__updatedAt&$skip=0&$top=50&__includeDeleted=true&__systemproperties=__updatedAt%2C__deleted
- -->
 
 * **제거**: `IMobileServiceSyncTable.PurgeAsync`를 사용하여 로컬 저장소의 내용을 지울 수 있습니다. 이 기능은 클라이언트 데이터베이스에서 오래된 데이터가 있는 경우 또는 모든 보류 중인 변경 내용을 취소하려는 경우에 필요할 수 있습니다.
 
@@ -120,11 +96,11 @@ The sync table uses the [System Properties](https://msdn.microsoft.com/library/a
 * [Windows 8.1: 오프라인 동기화 사용]
 
 <!-- Links -->
+[.NET 클라이언트 SDK]: app-service-mobile-dotnet-how-to-use-client-library.md
+[Android: 오프라인 동기화 사용]: app-service-mobile-android-get-started-offline-data.md
+[iOS: 오프라인 동기화 사용]: app-service-mobile-ios-get-started-offline-data.md
+[Xamarin iOS: 오프라인 동기화 사용]: app-service-mobile-xamarin-ios-get-started-offline-data.md
+[Xamarin Android: 오프라인 동기화 사용]: app-service-mobile-xamarin-ios-get-started-offline-data.md
+[Windows 8.1: 오프라인 동기화 사용]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md
 
-[Android: 오프라인 동기화 사용]: ../app-service-mobile-android-get-started-offline-data.md
-[iOS: 오프라인 동기화 사용]: ../app-service-mobile-ios-get-started-offline-data.md
-[Xamarin iOS: 오프라인 동기화 사용]: ../app-service-mobile-xamarin-ios-get-started-offline-data.md
-[Xamarin Android: 오프라인 동기화 사용]: ../app-service-mobile-xamarin-ios-get-started-offline-data.md
-[Windows 8.1: 오프라인 동기화 사용]: ../app-service-mobile-windows-store-dotnet-get-started-offline-data.md
-
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

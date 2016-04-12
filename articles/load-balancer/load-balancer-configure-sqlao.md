@@ -4,7 +4,7 @@
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="load-balancer"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/21/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # SQL Always On에 대해 부하 분산 장치 구성
@@ -36,15 +36,15 @@ SQL Server AlwaysOn(수신기) 끝점에 대해 ILB 지원을 사용할 수 있�
 
 ## 서비스에 내부 부하 분산 장치 추가 
 
-### 1단계.
+### 1단계
 
 다음 예제에서는 'Subnet-1'이라는 서브넷을 포함하는 가상 네트워크를 구성합니다.
 
 	Add-AzureInternalLoadBalancer -InternalLoadBalancerName ILB_SQL_AO -SubnetName Subnet-1 -ServiceName SqlSvc
 
-2단계.
+### 2단계
 
-## 각 VM에서 ILB에 대한 부하 분산 끝점 추가
+각 VM에서 ILB에 대한 부하 분산 끝점 추가
 
 	Get-AzureVM -ServiceName SqlSvc -Name sqlsvc1 | Add-AzureEndpoint -Name "LisEUep" -LBSetName "ILBSet1" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 –
 	DirectServerReturn $true -InternalLoadBalancerName ILB_SQL_AO | Update-AzureVM
@@ -53,18 +53,19 @@ SQL Server AlwaysOn(수신기) 끝점에 대해 ILB 지원을 사용할 수 있�
 
 위의 예에서는 "sqlsvc1" 및 "sqlsvc2"라는 2개의 VM이 클라우드 서비스 "Sqlsvc"에서 실행 중입니다. "DirectServerReturn" 스위치를 사용하여 ILB를 만든 후 ILB에 부하 분산 끝점을 추가하여 SQL에서 가용성 그룹에 대한 수신기를 구성할 수 있게 합니다.
 
-SQL AlwaysOn을 만드는 자세한 내용은 [Azure 리소스 관리자 템플릿을 사용하여 SQL AlwaysOn 배포](virtual-machines-workload-template-sql-alwayson.md) 또는 [포털 갤러리 사용](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx)에서 확인할 수 있습니다.
+SQL AlwaysOn을 만드는 방법에 대한 자세한 내용은 [포털 갤러리 사용](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx)을 참조하세요.
+
 
 
 ## 참고 항목
 
-[인터넷 연결 부하 분산 장치 구성 시작](load-balancer-internet-getstarted.md)
+[인터넷 연결 부하 분산 장치 구성 시작](load-balancer-get-started-internet-arm-ps.md)
 
-[내부 부하 분산 장치 구성 시작](load-balancer-internal-getstarted.md)
+[내부 부하 분산 장치 구성 시작](load-balancer-get-started-ilb-arm-ps.md)
 
 [부하 분산 장치 배포 모드 구성](load-balancer-distribution-mode.md)
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0323_2016-->

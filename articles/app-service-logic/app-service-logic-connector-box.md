@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="rajram"/>
 
 # Box 커넥터 시작 및 논리 앱에 추가 
->[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다. 2015-08-01-미리 보기 스키마 버전에 대한 내용을 보려면 [Box API](../connectors/create-api-box.md)를 클릭하세요.
+>[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다. 2015-08-01-preview 스키마 버전에 대한 내용을 보려면 [Box API](../connectors/connectors-create-api-box.md)를 클릭하세요.
 
 Box에 연결하여 파일을 가져오고, 업로드, 삭제 등을 수행합니다. 커넥터는 논리 앱에서 "워크플로"의 일부로 사용됩니다.
 
@@ -79,7 +79,7 @@ API 앱을 만들고 나면 이제 Box 커넥터를 논리 앱의 동작으로 �
 
 1. 논리 앱에서 **트리거 및 동작**을 열어 논리 앱 디자이너를 열고 흐름을 구성합니다. 갤러리에 Box 커넥터가 나열됩니다. 커넥터를 선택하면 논리 앱 디자이너에 자동으로 추가됩니다.
 
-	> [AZURE.NOTE]논리 앱의 시작 부분에 Box 커넥터를 선택하면 트리거처럼 작동합니다. 그렇지 않은 경우 커넥터를 사용하는 Box 계정에서 작업을 수행할 수 있습니다. 이 문서의 작성 시점에 Box 커넥터에는 트리거가 없습니다.
+	> [AZURE.NOTE] 논리 앱의 시작 부분에 Box 커넥터를 선택하면 트리거처럼 작동합니다. 그렇지 않은 경우 커넥터를 사용하는 Box 계정에서 작업을 수행할 수 있습니다. 이 문서의 작성 시점에 Box 커넥터에는 트리거가 없습니다.
 
 2. 사용자를 대신하여 작업을 수행하도록 논리 앱을 인증하고 논리 앱에 권한을 부여하세요. Box 커넥터에서 **권한 부여**를 선택합니다. 
 	![][2]
@@ -109,4 +109,4 @@ API 앱을 만들고 나면 이제 Box 커넥터를 논리 앱의 동작으로 �
 [4]: ./media/app-service-logic-connector-box/image_3.jpg
 [5]: ./media/app-service-logic-connector-box/image_4.jpg
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

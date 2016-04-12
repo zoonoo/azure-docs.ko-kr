@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="02/09/2016"
+   ms.date="03/08/2016"
    ms.author="brjohnst"/>
 
 # .NET 응용 프로그램에서 Azure 검색을 사용하는 방법
@@ -643,6 +643,4 @@ Hotel.cs:
         }
     }
 
-[GitHub에서](http://aka.ms/search-dotnet-howto) 전체 샘플 소스 코드를 찾을 수 있습니다.
-
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

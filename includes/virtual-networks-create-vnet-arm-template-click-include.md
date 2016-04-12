@@ -12,7 +12,7 @@ Microsoft에서 유지 관리하는 github 리포지토리에 대한 미리 정�
 
 	![ARM 템플릿 매개 변수](./media/virtual-networks-create-vnet-arm-template-click-include/figure2.png)
 
-4. **리소스 그룹**을 클릭하고 VNet을 추가할 리소스 그룹을 클릭하거나 **새로 만들기**를 클릭하여 새 리소스 그룹에 VNet을 추가합니다. 리소스 그룹에 대해 자세히 알아보려면 []() 항목을 참조하세요. 아래 그림은 **TestRG**라는 새 리소스 그룹에 대한 리소스 그룹 설정을 보여 줍니다.
+4. **리소스 그룹**을 클릭하고 VNet을 추가할 리소스 그룹을 클릭하거나 **새로 만들기**를 클릭하여 새 리소스 그룹에 VNet을 추가합니다. 아래 그림은 **TestRG**라는 새 리소스 그룹에 대한 리소스 그룹 설정을 보여 줍니다.
 
 	![리소스 그룹](./media/virtual-networks-create-vnet-arm-template-click-include/figure3.png)
 
@@ -27,4 +27,4 @@ Microsoft에서 유지 관리하는 github 리포지토리에 대한 미리 정�
 
 	![Preview 포털에서 VNet 만들기](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.gif)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

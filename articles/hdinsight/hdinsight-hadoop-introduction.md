@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/27/2016"
+   ms.date="03/29/2016"
    ms.author="cgronlun"/>
 
 
@@ -80,6 +80,10 @@ HDInsight는 Apache Hadoop, Spark, HBase 또는 Storm에 대한 클러스터 구
 * [Solr](hdinsight-hadoop-solr-install-linux.md): 데이터에 대해 전체 텍스트 검색을 허용하는 엔터프라이즈급 검색 플랫폼입니다.
 
 사용자 고유의 스크립트 동작 개발에 대한 정보는 [HDInsight를 사용하여 스크립트 동작 개발](hdinsight-hadoop-script-actions-linux.md)을 참조하세요.
+
+## HDInsight 표준 및 HDInsight 프리미엄
+
+HDInsight는 빅 데이터 클라우드 제품을 표준 및 프리미엄이라는 두 범주로 제공합니다. HDInsight 표준은 조직에서 해당 빅 데이터 워크로드를 실행하는 데 사용할 수 있는 엔터프라이즈 규모 클러스터를 제공합니다. HDInsight 프리미엄은 여기에 기반하여 HDInsight 클러스터에 대한 고급 분석 및 보안 기능을 제공합니다. 자세한 내용은 [Azure HDInsight 프리미엄](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium)을 참조하세요.
 
 ## Hadoop 구성 요소와 유틸리티란?
 
@@ -157,7 +161,7 @@ MapReduce에 대한 자세한 내용은 Hadoop Wiki에서 <a target="_blank" hre
 <a  target="_blank" href="http://sqoop.apache.org/">Apache Sqoop</a>은 Hadoop과 관계형 데이터베이스(예: SQL) 또는 기타 구조적 데이터 저장소 간에 대량 데이터를 최대한 효율적으로 전송하는 도구입니다. [Hadoop과 함께 Sqoop 사용](hdinsight-use-sqoop.md)을 참조하세요.
 
 ### <a name="tez"></a>Tez
-<a  target="_blank" href="http://tez.apache.org/">Apache Tez</a>는 복잡하고 방향이 있는 일반 데이터 처리 그래프를 실행하는 Hadoop YARN에서 빌드된 응용 프로그램 프레임워크입니다. 대규모로 보다 효율적으로 실행되도록 Hive와 같은 데이터를 많이 사용하는 프로세스를 허용하는 MapReduce 프레임 워크에 대한 더 유연하고 강력한 후속 작업입니다. [Hive와 HiveQL에서 "향상된 성능을 위해 Apache Tez 사용"](hdinsight-use-hive.md#usetez)을 참조하세요.
+<a  target="_blank" href="http://tez.apache.org/">Apache Tez</a>는 복잡하고 방향이 있는 일반 데이터 처리 그래프를 실행하는 Hadoop YARN에서 빌드된 응용 프로그램 프레임워크입니다. 대규모로 보다 효율적으로 실행되도록 Hive와 같은 데이터를 많이 사용하는 프로세스를 허용하는 MapReduce 프레임 워크에 대한 더 유연하고 강력한 후속 작업입니다. [Hive와 HiveQL에서"향상된 성능을 위해 Apache Tez 사용"](hdinsight-use-hive.md#usetez)을 참조하세요.
 
 ### <a name="yarn"></a>YARN
 Apache YARN은 차세대 MapReduce(MapReduce 2.0 또는 MRv2)이며 더 큰 확장성 및 실시간 처리로 MapReduce 일괄 처리를 초과하는 데이터 처리 시나리오를 지원합니다. YARN은 리소스 관리 및 분산된 응용 프로그램 프레임워크를 제공합니다. MapReduce 작업은 YARN에서 실행됩니다.
@@ -211,11 +215,19 @@ HDInsight의 Hadoop은 Azure 클라우드 에코시스템의 일부분으로 다
 
 * 최신 Hadoop 구성 요소. 자세한 내용은 [HDInsight에서 제공하는 Hadoop 클러스터 버전의 새로운 기능][component-versioning]을 참조하세요.
 
-* 클러스터의 고가용성 및 안정성. 자세한 내용은 [HDInsight에서 Hadoop 클러스터의 가용성 및 안정성](hdinsight-high-availability-linux.md)을 참조하세요.
+* 클러스터의 고가용성 및 안정성. HDInsight에서 배포한 Hadoop 클러스터에는 서비스 가용성을 높이기 위해 두 번째 헤드 노드가 추가되었습니다. 일반적으로 표준 방식으로 구현된 Hadoop 클러스터에는 헤드 노드가 1개뿐입니다. HDInsight는 보조 헤드 노드를 추가하여 이러한 단일 오류 지점을 없앱니다. 새로운 HA 클러스터 구성으로 전환해도 고객이 기본 크기의 큰 노드 대신 훨씬 더 큰 헤드 노드로 클러스터를 만들지 않는다면 클러스터 가격은 달라지지 않습니다.
+
+	자세한 내용은 [HDInsight에서 Hadoop 클러스터의 가용성 및 안정성](hdinsight-high-availability-linux.md)을 참조하세요.
 
 * Hadoop 호환 옵션인 Azure Blob 저장소를 통한 효율적이고 경제적인 데이터 저장. 자세한 내용은 [HDInsight에서 Hadoop과 Azure Blob 저장소 사용](hdinsight-hadoop-use-blob-storage.md)을 참조하세요.
 
 * [웹앱](../documentation/services/app-service/web/) 및 [SQL 데이터베이스](../documentation/services/sql-database/)를 포함한 다른 Azure 서비스와의 통합.
+
+* 추가 VM 크기. HDInsight 클러스터는 여러 가지 VM 유형과 크기로 사용할 수 있습니다. 이제 HDInsight 클러스터는 일반적인 용도로 빌드된 A2 ~ A7 크기(반도체 드라이브(SSD) 기능을 제공하는 D-Series 노드와 60% 더 빠른 프로세서) 및 빠른 네트워킹을 위해 InfiniBand를 지원하는 A8 및 A9 크기를 활용할 수 있습니다. Azure HDInsight용 Apache HBase 고객은 D-Series의 더 큰 메모리 구성을 이용하여 성능을 향상시킬 수 있습니다. Azure HDInsight용 Apache Storm 고객은 더 큰 참조 데이터 세트를 로드하기 위한 추가 메모리와 처리량 향상을 위한 더 빠른 CPU도 이용할 수 있습니다.
+
+* 클러스터 크기 조정. 클러스터 크기 조정을 사용하면 HDInsight 클러스터를 삭제하거나 다시 작성하지 않고 실행 중인 HDInsight 클러스터의 노드 수를 변경할 수 있습니다.
+
+* 가상 네트워크 지원. HDInsight를 Azure 가상 네트워크와 함께 사용하여 데이터 센터의 리소스와 클라우드 리소스를 연결하는 하이브리드 시나리오 또는 클라우드 리소스 격리를 지원할 수 있습니다.
 
 * 저렴한 초기 비용. [무료 평가판](/pricing/free-trial/)으로 시작하거나 [HDInsight 가격 정보](/pricing/details/hdinsight/)를 확인해 보세요.
 
@@ -256,7 +268,7 @@ HDInsight의 Hadoop이 제공하는 이점에 대한 자세한 내용은 [HDInsi
 
 * [Azure SQL 데이터베이스](/documentation/services/sql-database/): SQL 데이터베이스용 설명서, 자습서 및 비디오입니다.
 
-* [Azure 포털의 SQL 데이터베이스](sql-database-manage-portal.md): 클라우드에서 SQL 데이터베이스를 관리하기 위한 간단하고 사용하기 쉬운 데이터베이스 관리 도구입니다.
+* [Azure 포털의 SQL 데이터베이스](../sql-database/sql-database-manage-portal.md): 클라우드에서 SQL 데이터베이스를 관리하기 위한 간단하고 사용하기 쉬운 데이터베이스 관리 도구입니다.
 
 * [SQL 데이터베이스용 Adventure Works](http://msftdbprodsamples.codeplex.com/releases/view/37304): SQL 데이터베이스 샘플 데이터베이스를 다운로드하는 페이지입니다.
 
@@ -292,4 +304,4 @@ HDInsight의 Hadoop이 제공하는 이점에 대한 자세한 내용은 [HDInsi
 [component-versioning]: hdinsight-component-versioning.md
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

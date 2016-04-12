@@ -1,6 +1,6 @@
 <properties
-   pageTitle="데이터 원본을 등록하는 방법"
-   description="추출된 메타데이터 필드와 미리 보기 중에 지원되는 데이터 원본을 포함하여 Azure 데이터 카탈로그에 데이터 원본을 등록하는 방법을 강조하는 방법 문서."
+   pageTitle="데이터 원본을 등록하는 방법 | Microsoft Azure"
+   description="등록 중에 추출된 메타데이터 필드를 포함하여 Azure Data Catalog에 데이터 원본을 등록하는 방법을 강조하는 방법 문서입니다."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/03/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
 
 
@@ -79,4 +79,4 @@
 ## 참고 항목
 - 데이터 원본을 등록하는 방법에 대한 단계별 세부 정보에 대한 [Azure 데이터 카탈로그 시작](data-catalog-get-started.md) 자습서.
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

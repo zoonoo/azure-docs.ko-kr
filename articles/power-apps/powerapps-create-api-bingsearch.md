@@ -5,7 +5,7 @@
     suite="powerapps"
 	documentationCenter="" 
 	authors="LinhTran"
-	manager="gautamt"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -14,10 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="03/29/2016"
    ms.author="litran"/>
 
-# 조직의 앱 서비스 환경에서 새 Bing 검색 API 만들기
+# PowerApps 엔터프라이즈에 새 Bing 검색 만들기
+
+> [AZURE.SELECTOR]
+- [논리 앱](../articles/connectors/connectors-create-api-bingsearch.md)
+- [PowerApps 엔터프라이즈](../articles/power-apps/powerapps-create-api-bingsearch.md)
+
+조직의 (테넌트) 앱 서비스 환경에 Bing 검색 API를 추가합니다.
 
 ## Azure 포털에서 API 만들기
 
@@ -35,15 +41,17 @@
 
 4. **원본**에서 **사용 가능한 API**를 선택하여 이미 만들어진 API를 선택한 다음 **Bing 검색**을 선택합니다.
 
-	a) **설정 - 필수 설정 구성**을 선택합니다.
-	
-	b) *계정 키*를 입력합니다. Bing 검색 키가 없는 경우 무료 [Bing 검색 제안][1]을 만들어 키를 가져옵니다.
+	1. **설정 - 필수 설정 구성**을 선택합니다.
+	2. *계정 키*를 입력합니다. Bing 검색 키가 없는 경우 무료 [Bing 검색 제안][1]을 만들어 키를 가져옵니다.
+	3. **확인**을 선택합니다. 
 
-	c) **확인**을 선택합니다.
-
-5. **확인**을 선택하여 단계를 완료합니다.
+5. **확인**을 선택하여 이 단계를 완료합니다.
 
 완료하면 새 Bing 검색 API가 앱 서비스 환경에 추가됩니다.
+
+## REST API 참조
+
+[Bing 검색 REST API](../connectors/connectors-create-api-bingsearch.md) 참조.
 
 
 ## 요약 및 다음 단계
@@ -58,4 +66,4 @@
 [4]: ./media/powerapps-create-api-dropbox/browseall.png
 [5]: ./media/powerapps-create-api-dropbox/allresources.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0330_2016-->

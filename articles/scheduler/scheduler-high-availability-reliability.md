@@ -1,21 +1,21 @@
-<properties 
- pageTitle="스케줄러 고가용성 및 안정성" 
- description="" 
- services="scheduler" 
- documentationCenter=".NET" 
- authors="krisragh" 
- manager="dwrede" 
+<properties
+ pageTitle="스케줄러 고가용성 및 안정성"
+ description=""
+ services="scheduler"
+ documentationCenter=".NET"
+ authors="krisragh"
+ manager="dwrede"
  editor=""/>
-<tags 
- ms.service="scheduler" 
- ms.workload="infrastructure-services" 
- ms.tgt_pltfrm="na" 
- ms.devlang="dotnet" 
- ms.topic="article" 
- ms.date="12/04/2015" 
+<tags
+ ms.service="scheduler"
+ ms.workload="infrastructure-services"
+ ms.tgt_pltfrm="na"
+ ms.devlang="dotnet"
+ ms.topic="article"
+ ms.date="03/09/2016"
  ms.author="krisragh"/>
- 
- 
+
+
 # 스케줄러 고가용성 및 안정성
 
 ## Azure 스케줄러 고가용성
@@ -30,7 +30,7 @@ Azure 스케줄러는 현재 Azure에 있는 거의 모든 지리적 지역에�
 
 관리 요청에 대해 Azure 스케줄러 프론트엔드 외에 자체 작업도 지리적으로 복제됩니다. 한 지역에서 정전이 발생할 경우 Azure 스케줄러가 장애 조치를 통해 해당 작업이 쌍을 이루는 지리적 지역에 있는 다른 데이터 센터에서 실행될 수 있게 합니다.
 
-예: 미국 중남부에서 만든 작업을 Azure 스케줄러가 미국 중북부에서 자동으로 복제합니다. 미국 중남부에 장애가 발생하면 Azure 스케줄러가 이 작업을 미국 중북부에서 실행되게 합니다. [쌍을 이루는 Azure 지역 목록은 여기에서 제공합니다](https://msdn.microsoft.com/library/azure/dn758204.aspx).
+예: 미국 중남부에서 만든 작업을 Azure 스케줄러가 미국 중북부에서 자동으로 복제합니다. 미국 중남부에 장애가 발생하면 Azure 스케줄러가 이 작업을 미국 중북부에서 실행되게 합니다. [Azure의 지역에서 복제 기능에 대한 자세한 설명은 이 항목을 참조하세요.](../sql-database/sql-database-business-continuity-design.md)
 
 ![][1]
 
@@ -56,14 +56,14 @@ Azure 스케줄러 작업에 대한 대상 끝점이 연결 불가 상태로 있
 
 ![][2]
 
-원래 동작과 대체 오류 동작 모두에 동일한 재시도 정책이 적용됩니다. 또한 대체 오류 동작의 동작 유형이 주 동작의 동작 유형과 다를 수도 있습니다. 예를 들어, 주 동작은 HTTP 끝점을 호출하는 것이면서 오류 동작은 오류 로깅을 수행하는 저장소 큐 동작이 될 수 있습니다.
+원래 동작과 대체 오류 동작 모두에 동일한 재시도 정책이 적용됩니다. 또한 대체 오류 동작의 동작 유형이 주 동작의 동작 유형과 다를 수도 있습니다. 예를 들어 주 동작은 HTTP 끝점을 호출하는 것이면서 오류 동작은 오류 로깅을 수행하는 저장소 큐, 서비스 버스 큐 또는 서비스 버스 토픽 동작이 될 수 있습니다.
 
 대체 끝점을 구성하는 방법은 [errorAction](scheduler-concepts-terms.md#action-and-erroraction)을 참조하세요.
 
 ## 참고 항목
 
  [스케줄러란?](scheduler-intro.md)
- 
+
  [Azure 스케줄러 개념, 용어 및 엔터티 계층 구조](scheduler-concepts-terms.md)
 
  [Azure 포털에서 스케줄러 사용 시작](scheduler-get-started-portal.md)
@@ -79,12 +79,10 @@ Azure 스케줄러 작업에 대한 대상 끝점이 연결 불가 상태로 있
  [Azure 스케줄러 제한, 기본값 및 오류 코드](scheduler-limits-defaults-errors.md)
 
  [Azure 스케줄러 아웃바운드 인증](scheduler-outbound-authentication.md)
- 
- 
+
+
 [1]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image1.png
 
 [2]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image2.png
 
- 
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

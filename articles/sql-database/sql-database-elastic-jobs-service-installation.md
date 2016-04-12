@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2016" 
+	ms.date="03/24/2016" 
 	ms.author="ddove;sidneyh"/>
 
 # 탄력적 데이터베이스 작업 설치 개요
@@ -24,7 +24,7 @@
 
 ## 필수 조건
 * Azure 구독. 무료 평가판에 대해서는 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* Azure PowerShell 버전 0.8.16 이상. [웹 플랫폼 설치 관리자](http://go.microsoft.com/fwlink/p/?linkid=320376)를 통해 최신 버전(0.9.5)을 설치합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
+* Azure PowerShell. [웹 플랫폼 설치 관리자](http://go.microsoft.com/fwlink/p/?linkid=320376)를 사용하여 최신 버전을 설치합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
 * [NuGet 명령줄 유틸리티](https://nuget.org/nuget.exe)는 탄력적 데이터베이스 작업 패키지를 설치하는 데 사용됩니다. 자세한 내용은 http://docs.nuget.org/docs/start-here/installing-nuget을 참조하세요.
 
 ## 탄력적 데이터베이스 작업 PowerShell 패키지 다운로드 및 가져오기
@@ -42,7 +42,7 @@
 
 4.	.\\InstallElasticDatabaseJobsCmdlets.ps1 스크립트를 실행하여 ElasticDatabaseJobs 디렉터리를 $Home\\Documents\\WindowsPowerShell\\Modules에 복사합니다. 그러면 사용할 모듈도 자동으로 가져옵니다. 예를 들면 다음과 같습니다.
 
-		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\InstallElasticDatabaseJobsCmdlets.ps1 
+		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\InstallElasticDatabaseJobsCmdlets.ps1
 		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\InstallElasticDatabaseJobsCmdlets.ps1
 
 ## PowerShell을 사용하여 탄력적 데이터베이스 작업 구성 요소 설치
@@ -52,7 +52,7 @@
 
 2.	.\\InstallElasticDatabaseJobs.ps1 PowerShell 스크립트를 실행하고 요청된 변수에 대한 값을 제공합니다. 이 스크립트는 [탄력적 데이터베이스 작업 구성 요소 및 가격 책정](sql-database-elastic-jobs-overview/#components-and-pricing)에 설명된 구성 요소를 만들고 종속 구성 요소를 적절하게 사용하도록 Azure 클라우드 서비스를 구성합니다.
 
-		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\InstallElasticDatabaseJobs.ps1 
+		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\InstallElasticDatabaseJobs.ps1
 		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\InstallElasticDatabaseJobs.ps1
 
 이 명령을 실행하면 **사용자 이름**과 **암호**를 묻는 창이 열립니다. 이는 Azure 자격 증명이 아니며, 새 서버에 만들려는 관리자 자격 증명이 될 사용자 이름과 암호를 입력해야 합니다.
@@ -151,13 +151,13 @@
 
 ## 포털을 사용하여 탄력적 데이터베이스 작업 구성 요소 설치
 
-[탄력적 데이터베이스 풀을 만든](sql-database-elastic-pool-portal.md) 후에 **탄력적 데이터베이스 작업** 구성 요소를 설치하여 탄력적 데이터베이스 풀에 있는 각 데이터베이스에 대한 관리 작업을 실행할 수 있습니다. **탄력적 데이터베이스 작업** PowerShell API를 사용하는 경우와 달리 포털 인터페이스는 현재 기존 풀에 대한 실행만으로 제한됩니다.
+[탄력적 데이터베이스 풀을 만든](sql-database-elastic-pool-create-portal.md) 후에 **탄력적 데이터베이스 작업** 구성 요소를 설치하여 탄력적 데이터베이스 풀에 있는 각 데이터베이스에 대한 관리 작업을 실행할 수 있습니다. **탄력적 데이터베이스 작업** PowerShell API를 사용하는 경우와 달리 포털 인터페이스는 현재 기존 풀에 대한 실행만으로 제한됩니다.
 
 
 **예상 완료 시간:** 10분
 
 1. [Azure 포털](https://ms.portal.azure.com/#)을 통해 탄력적 데이터베이스 풀의 대시보드 뷰에서 **작업 만들기**를 클릭합니다.
-2. 처음으로 작업을 만드는 경우 **PREVIEW 약관**을 클릭하여 **탄력적 데이터베이스 작업**을 설치해야 합니다. 
+2. 처음으로 작업을 만드는 경우 **PREVIEW 약관**을 클릭하여 **탄력적 데이터베이스 작업**을 설치해야 합니다.
 3. 확인란을 클릭하여 약관에 동의합니다.
 4. "서비스 설치" 화면에서 **작업 자격 증명**을 클릭합니다.
 
@@ -186,6 +186,5 @@
 [2]: ./media/sql-database-elastic-jobs-service-installation/credentials.png
 [3]: ./media/sql-database-elastic-jobs-service-installation/start-board.png
 [4]: ./media/sql-database-elastic-jobs-service-installation/not-done.png
- 
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0330_2016-->

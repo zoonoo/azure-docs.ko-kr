@@ -10,10 +10,10 @@
 <tags
    ms.service="security-center"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/23/2016"
+   ms.date="03/02/2016"
    ms.author="terrylan"/>
 
 # Azure 보안 센터에서 보안 권장 사항 관리
@@ -38,7 +38,7 @@ Azure 보안 센터는 Azure 리소스의 보안에 대한 향상된 가시성�
 - 데이터 수집 사용.
 - 보안 정책의 일부로 표시될 권장 사항 선택.
 
-현재 정책 권장 사항은 시스템 업데이트, 기준 규칙, 맬웨어 방지 프로그램, [끝점에 대한 ACL](../virtual-machines/virtual-machines-set-up-endpoints.md), 서브넷 및 네트워크 인터페이스의 [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md), SQL 데이터베이스 감사, SQL 데이터베이스 투명한 데이터 암호화 및 웹 응용 프로그램 방화벽에 중점을 두고 있습니다. [보안 정책 설정](security-center-policies.md)은 각 권장 사항 옵션에 대한 설명을 제공합니다.
+현재 정책 권장 사항은 시스템 업데이트, 기준 규칙, 맬웨어 방지 프로그램, [끝점에 대한 ACL](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md), 서브넷 및 네트워크 인터페이스의 [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md), SQL 데이터베이스 감사, SQL 데이터베이스 투명한 데이터 암호화 및 웹 응용 프로그램 방화벽에 중점을 두고 있습니다. [보안 정책 설정](security-center-policies.md)은 각 권장 사항 옵션에 대한 설명을 제공합니다.
 
 ### 권장 사항 모니터링
 보안 정책이 설정되면 보안 센터는 리소스의 보안 상태를 분석하여 잠재적인 취약성을 식별합니다. **보안 센터** 블레이드의 **권장 사항** 타일은 보안 센터에서 식별된 권장 사항의 총 수를 알려 줍니다.
@@ -72,7 +72,7 @@ Azure 보안 센터는 Azure 리소스의 보안에 대한 향상된 가시성�
 |일치하지 않는 기준 규칙 해결|OS 구성을 권장 기준과 정렬하라는 권장 사항입니다. 예를 들어 암호 저장을 허용하지 않습니다.|
 |시스템 업데이트 적용|누락된 시스템 보안 및 중요 업데이트를 VM(Windows VM만 해당)에 배포하는 것이 좋습니다.|
 |끝점에 대한 ACL 구성|액세스 제어 목록을 구성하여 VM(클래식에만 해당)에 대한 인바운드 액세스를 제한하는 것이 좋습니다.|
-|[웹 응용 프로그램 방화벽 추가](security-center-add-web-application-firewall.md)|웹 끝점에 WAF(웹 응용 프로그램 방화벽)를 배포하는 것이 좋습니다. 자동 프로비전 프로세스는 별도 VNet에 배포되는 WAF 패키지(리소스 관리자 배포 모델을 사용하여 만듦)을 기반으로 합니다. VM(클래식)에서 보호된 웹 응용 프로그램에 대한 액세스는 NSG를 사용하는 WAF 어플라이언스에만 제한됩니다. 이러한 지원은 나중에 WAF 패키지(클래식)의 완전 사용자 지정 배포로 확장됩니다.|
+|[웹 응용 프로그램 방화벽 추가](security-center-add-web-application-firewall.md)|웹 끝점에 WAF(웹 응용 프로그램 방화벽)를 배포하는 것이 좋습니다. 기존 WAF 배포에 이러한 응용 프로그램을 추가하여 보안 센터에서 여러 웹 응용 프로그램을 보호할 수 있습니다. WAF 어플라이언스(리소스 관리자 배포 모델을 사용하여 만듦)는 별도의 가상 네트워크에 배포해야 합니다. WAF 어플라이언스(클래식 배포 모델을 사용하여 만듦)는 네트워크 보안 그룹 사용으로 제한됩니다. 이러한 지원은 나중에 WAF 어플라이언스(클래식)의 완전 사용자 지정 배포로 확장됩니다.|
 |웹 응용 프로그램 방화벽 설정 완료|WAF 구성을 완료하려면 트래픽 경로가 WAF 어플라이언스로 전환되어야 합니다. 이 권장 사항을 따르면 필요한 설정 변경이 완료됩니다.|
 |[맬웨어 방지 프로그램 활성화](security-center-enable-antimalware.md)|VM(Windows VM만 해당)에 맬웨어 방지 프로그램을 프로비전하는 것이 좋습니다.|
 |서브넷/네트워크 인터페이스에서 네트워크 보안 그룹 활성화|서브넷 및 네트워크 인터페이스(리소스 관리자 VM만 해당)에서 NSG(네트워크 보안 그룹)를 활성화하는 것이 좋습니다.|
@@ -109,7 +109,7 @@ Azure 보안 센터는 Azure 리소스의 보안에 대한 향상된 가시성�
 ## 다음 단계
 이 문서에서는 보안 센터의 보안 권장 사항을 소개했습니다. 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
-- [Azure 보안 센터에서 보안 정책 설정](security-center-policies.md) -- 보안 정책을 구성하는 방법 알아보기.
+- [Azure 보안 센터에서 보안 정책 설정](security-center-policies.md) -- Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법 알아보기
 - [Azure 보안 센터에서 보안 상태 모니터링](security-center-monitoring.md)-–Azure 리소스의 상태를 모니터링하는 방법 알아보기
 - [Azure 보안 센터에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법 알아보기
 - [Azure 보안 센터 FAQ](security-center-faq.md)-–서비스 사용에 관한 질문과 대답 찾기
@@ -122,4 +122,4 @@ Azure 보안 센터는 Azure 리소스의 보안에 대한 향상된 가시성�
 [5]: ./media/security-center-recommendations/select-enable-antimalware.png
 [6]: ./media/security-center-recommendations/install-antimalware.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/01/2016"
+   ms.date="03/03/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 #SQL 데이터 웨어하우스와 함께 기타 서비스 활용
@@ -30,7 +30,7 @@ Azure 에코시스템에서 더 많은 서비스가 연결되도록 노력하고
 Power BI 통합을 통해 Power BI의 동적 보고 및 시각화와 더불어 SQL 데이터 웨어하우스의 계산 능력의 활용도를 높일 수 있습니다. Power BI 통합에는 현재 다음이 포함됩니다.
 
 + **직접 연결**: SQL 데이터 웨어하우스에 대해 논리적 푸시다운을 통한 보다 고급 연결. 더 큰 규모를 더욱 빠르게 분석합니다.
-+ **Power BI에서 열기**: 'Power BI에서 열기' 단추를 통해 인스턴스 정보를 Power BI에 전달하여 보다 원활한 연결이 가능합니다. 
++ **Power BI에서 열기**: 'Power BI에서 열기' 단추를 통해 인스턴스 정보를 Power BI에 전달하여 보다 원활한 연결이 가능합니다.
 
 자세한 내용은 [Power BI와 통합](./sql-data-warehouse-integrate-power-bi.md) 또는 [Power BI 설명서](http://blogs.msdn.com/b/powerbi/archive/2015/06/24/exploring-azure-sql-data-warehouse-with-power-bi.aspx)를 참조하세요.
 
@@ -44,7 +44,7 @@ Azure 데이터 팩터리는 복잡한 추출-로드 파이프라인을 만들 �
 ##Azure 기계 학습
 Azure 기계 학습은 사용자가 다양한 예측 도구를 활용하여 복잡한 모델을 만들 수 있는 완전히 관리되는 분석 서비스입니다. SQL 데이터 웨어하우스는 다음 기능을 포함하는 이러한 모델에 대한 소스 및 대상으로 지원됩니다.
 
-+ **데이터 읽기:** SQL 데이터 웨어하우스에 대해 T-SQL을 사용하는 규모에 따른 드라이브 모델입니다. 
++ **데이터 읽기:** SQL 데이터 웨어하우스에 대해 T-SQL을 사용하는 규모에 따른 드라이브 모델입니다.
 + **데이터 쓰기:** 모델에서 SQL 데이터 웨어하우스로 변경 사항을 뒤로 커밋합니다.
 
 자세한 내용은 [Azure 기계 학습과 통합](./sql-data-warehouse-integrate-azure-machine-learning.md) 또는 [Azure 기계 학습 설명서](https://azure.microsoft.com/services/machine-learning/)를 참조하세요.
@@ -71,4 +71,4 @@ Azure 스트림 분석은 Azure 이벤트 허브에서 생성된 이벤트 데�
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

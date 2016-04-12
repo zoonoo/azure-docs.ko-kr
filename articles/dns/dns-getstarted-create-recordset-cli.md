@@ -20,10 +20,9 @@
 # CLI를 사용하여 DNS 레코드 만들기
 
 > [AZURE.SELECTOR]
-- [Azure CLI](dns-getstarted-create-recordset-cli.md)
+- [Azure 포털](dns-getstarted-create-recordset-portal.md)
 - [PowerShell](dns-getstarted-create-recordset.md)
-
-
+- [Azure CLI](dns-getstarted-create-recordset-cli.md)
 
 DNS 영역을 만든 후 도메인에 대한 DNS 레코드를 추가해야 합니다. 이 작업을 수행하려면 먼저 DNS 레코드 및 레코드 집합을 이해해야 합니다.
 
@@ -33,7 +32,7 @@ DNS 영역을 만든 후 도메인에 대한 DNS 레코드를 추가해야 합�
 
 _정규화된_ 이름은 영역 이름을 포함하는 반면 _상대_ 이름은 영역 이름을 포함하지 않습니다. 예를 들어 'contoso.com' 영역의 상대 레코드 이름 'www'는 정규화된 레코드 이름 'www.contoso.com'을 제공합니다.
 
->[AZURE.NOTE]Azure DNS에서는 상대 이름을 사용하여 레코드를 지정합니다.
+>[AZURE.NOTE] Azure DNS에서는 상대 이름을 사용하여 레코드를 지정합니다.
 
 레코드는 포함된 데이터에 따라 다양한 형식으로 제공됩니다. 가장 일반적인 형식은 'A' 레코드로, 이름을 IPv4 주소에 매핑합니다. 또 다른 형식은 'MX' 레코드로, 이름을 메일 서버에 매핑합니다.
 
@@ -48,7 +47,7 @@ Azure DNS는 A, AAAA, CNAME, MX, NS, SOA, SRV, TXT 등 모든 일반적인 DNS �
 
 Time-to-Live, 즉 TTL은 각 레코드가 다시 쿼리되기 전에 클라이언트에 캐시되는 기간을 지정합니다. 위 예제에서 TTL은 3600초, 즉 1시간입니다. TTL은 각 레코드가 아니라 레코드 집합에 대해 지정되므로 해당 레코드 집합 내의 모든 레코드에 동일한 값이 사용됩니다.
 
->[AZURE.NOTE]Azure DNS는 레코드 집합을 사용하여 DNS 레코드를 관리합니다.
+>[AZURE.NOTE] Azure DNS는 레코드 집합을 사용하여 DNS 레코드를 관리합니다.
 
 
 
@@ -67,7 +66,7 @@ Time-to-Live, 즉 TTL은 각 레코드가 다시 쿼리되기 전에 클라이�
 
 레코드 집합은 DNS 영역 'contoso.com'에서 상대 이름 'www'를 가지므로 레코드의 정규화된 이름은 'www.contoso.com'입니다. 레코드 형식은 'A'이고 TTL은 60초입니다.
 
->[AZURE.NOTE]영역의 구로에서 레코드 집합을 만들려면(이 경우 'contoso.com'), 따옴표를 포함한 레코드 이름 "@"를 사용합니다. 이것이 일반적인 DNS 규칙입니다.
+>[AZURE.NOTE] 영역의 구로에서 레코드 집합을 만들려면(이 경우 'contoso.com'), 따옴표를 포함한 레코드 이름 "@"를 사용합니다. 이것이 일반적인 DNS 규칙입니다.
 
 레코드 집합은 비어 있으며, 새로 만든 "www" 레코드 집합을 사용하려면 레코드를 추가해야 합니다.<BR>
 
@@ -100,7 +99,7 @@ Time-to-Live, 즉 TTL은 각 레코드가 다시 쿼리되기 전에 클라이�
 
 nslookup 또는 다른 DNS 도구를 사용하여 새 레코드 집합을 쿼리할 수도 있습니다.
 
->[AZURE.NOTE]영역을 만드는 경우와 마찬가지로, Azure DNS 이름 서버에 도메인을 아직 위임하지 않은 경우 영역에 대한 이름 서버 주소를 명시적으로 지정해야 합니다.
+>[AZURE.NOTE] 영역을 만드는 경우와 마찬가지로, Azure DNS 이름 서버에 도메인을 아직 위임하지 않은 경우 영역에 대한 이름 서버 주소를 명시적으로 지정해야 합니다.
 
 
 	C:\> nslookup www.contoso.com ns1-01.azure-dns.com
@@ -122,4 +121,4 @@ nslookup 또는 다른 DNS 도구를 사용하여 새 레코드 집합을 쿼리
 [.NET SDK로 Azure 작업 자동화](dns-sdk.md)
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -3,7 +3,7 @@
    description="로컬 개발 컴퓨터에서 Microsoft Azure 서비스 패브릭을 사용하여 작성된 서비스를 모니터링하고 진단하는 방법에 대해 알아보세요."
    services="service-fabric"
    documentationCenter=".net"
-   authors="kunaldsingh"
+   authors="toddabel"
    manager="timlt"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/12/2016"
+   ms.date="03/04/2016"
    ms.author="toddabel"/>
 
 
@@ -58,6 +58,8 @@
 서비스 코드에 사용자 지정 ETW 추적을 추가한 다음에는 응용 프로그램을 다시 빌드, 배포, 실행하여 진단 이벤트 뷰어에서 이벤트를 볼 수 있습니다. **F5** 키를 눌러서 응용 프로그램을 디버깅하면 진단 이벤트 뷰어가 자동으로 열립니다.
 
 ## 다음 단계
-위에서 로컬 진단을 위해 응용 프로그램에 추가한 것과 동일한 추적 코드는 Azure 클러스터에서 응용 프로그램을 실행할 때 이 이벤트를 보는 데 이용할 수 있는 도구와 함께 작동합니다. 도구의 다양한 옵션과 옵션 설정 방법에 대해 설명하는 다음 문서를 살펴보세요. * [Azure 진단 및 Operational Insights의 서비스 패브릭 클러스터에서 로그 수집](service-fabric-diagnostics-how-to-setup-wad-operational-insights.md) * [서비스 패브릭 응용 프로그램 추적 저장소와 같은 ElasticSearch 사용](service-fabric-diagnostic-how-to-use-elasticsearch.md)
+위에서 로컬 진단을 위해 응용 프로그램에 추가한 것과 동일한 추적 코드는 Azure 클러스터에서 응용 프로그램을 실행할 때 이 이벤트를 보는 데 이용할 수 있는 도구와 함께 작동합니다. 도구에 대한 다양한 옵션과 도구를 설정하는 방법에 대해 설명하는 이러한 문서를 확인합니다.
+* [Azure 진단 및 Operational Insights의 서비스 패브릭 클러스터에서 로그 수집](service-fabric-diagnostics-how-to-setup-wad-operational-insights.md)
+* [서비스 패브릭 응용 프로그램 추적 저장소와 같은 ElasticSearch 사용](service-fabric-diagnostic-how-to-use-elasticsearch.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure 권한 있는 ID 관리 보안 마법사"
-   description="Azure Privileged Identity Management 확장을 처음 실행하면 보안 마법사가 표시됩니다. 이 문서는 마법사를 사용하는 단계를 설명합니다."
+   pageTitle="Azure AD Privileged Identity Management 보안 마법사"
+   description="Azure Active Directory Privileged Identity Management 확장을 처음 실행하면 보안 마법사가 표시됩니다. 이 문서는 마법사를 사용하는 단계를 설명합니다."
    services="active-directory"
    documentationCenter=""
    authors="kgremban"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
-# Azure Privileged Identity Management 보안 마법사
+# Azure AD Privileged Identity Management 보안 마법사
 
 Azure Privileged Identity Management(PIM)를 처음 실행하면 마법사가 표시됩니다. 마법사는 권한 있는 ID에 대한 보안 위험을 이해하고 위험을 줄이도록 권한 있는 ID 관리를 사용하는 방법을 이해하도록 도와줍니다.
 
@@ -32,7 +32,7 @@ Azure Privileged Identity Management(PIM)를 처음 실행하면 마법사가 �
 
 전역 관리자의 시간 창을 변경하는 옵션이 세 가지 있습니다.
 
-1.  모든 전역 관리자를 임시로 만들려면 **Make all temporary**(모두 임시로 설정) 단추를 클릭합니다.
+1.  모든 전역 관리자를 임시로 만들려면 **Make all temporary**(모두 임시로 설정) 단추를 클릭합니다. 모든 관리자가 조직 계정이 있고 Azure MFA에 대해 등록된 경우에만 이 옵션을 선택합니다.
 
 2.  모든 전역 관리자를 영구적으로 만들려면 **Make all permanent**(모두 영구적으로 설정) 단추를 클릭합니다.
 
@@ -52,13 +52,13 @@ Azure Privileged Identity Management(PIM)를 처음 실행하면 마법사가 �
 
 ## Multi-Factor Authentication 요구
 
-관리자가 자신의 계정에 로그인하고 역할에 대한 확장을 요청하기 위해 MFA를 사용하도록 요구하려면 **사용** 단추를 클릭하여 MFA를 사용합니다. 나중에 이 기능을 해제할 수도 있습니다.
+관리자가 자신의 계정에 로그인하고 역할에 대한 확장을 요청하기 위해 MFA를 사용하도록 요구하려면 **사용** 단추를 클릭하여 MFA를 사용합니다.
 
 <!--For more information about MFA and PIM, click here. PLACEHOLDER: NEED LINK TO MFA DOC.-->
 
 이러한 설정이 적용될 역할을 선택합니다. **확인**을 클릭합니다.
 
-> [AZURE.WARNING] 현재는 두 개 이상의 보안 관리자가 있어야 합니다. 영구적으로 설정되지 않은 보안 관리자가 하나만 있고 MFA를 설정하지 않은 경우 사용자는 역할 할당이 만료된 후 PIM을 전혀 관리할 수 없게 됩니다.
+> [AZURE.WARNING] 이때 Microsoft 계정이 아니라 조직 계정을 사용하는 둘 이상의 보안 관리자가 있는 것이 중요합니다. 영구적으로 설정되지 않은 보안 관리자가 하나만 있고 MFA를 설정하지 않은 경우 사용자는 계정이 삭제되면 PIM을 전혀 관리할 수 없게 됩니다.
 
 작업이 완료되었으면 **확인** 단추를 클릭합니다.
 
@@ -67,4 +67,4 @@ Azure Privileged Identity Management(PIM)를 처음 실행하면 마법사가 �
 ## 다음 단계
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

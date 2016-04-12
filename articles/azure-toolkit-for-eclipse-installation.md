@@ -13,22 +13,22 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="01/09/2016" 
+    ms.date="03/28/2016" 
 	ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690946.aspx -->
 
-# Eclipse용 Azure 도구 키트 설치 #
+# Eclipse용 Azure 도구 키트 설치
 
 Eclipse용 Azure 도구 키트는 Eclipse 개발 환경에서 Azure 응용 프로그램을 손쉽게 작성, 개발, 테스트 및 배포할 수 있는 템플릿과 기능을 제공합니다. 다음 URL에 있는 GitHub의 프로젝트 사이트를 통해 Apache 라이선스 2.0에 따라 소스 코드 사용이 허가된 오픈 소스 프로젝트입니다.
 
-<https://github.com/MSOpenTech/WindowsAzureToolkitForEclipseWithJava>.
+<https://github.com/microsoft/azure-tools-for-java>
 
 다음 단계는 Eclipse용 Azure 도구 키트를 설치하는 방법을 보여줍니다.
 
 [AZURE.INCLUDE [azure-toolkit-for-eclipse-prerequisites](../includes/azure-toolkit-for-eclipse-prerequisites.md)]
 
-## Eclipse용 Azure 도구 키트 설치 ##
+## Eclipse용 Azure 도구 키트 설치
 
 1. Eclipse를 시작합니다.
 2. Eclipse의 메뉴에서 아래 다이어그램과 같이 <strong>Help</strong>를 클릭한 후 <strong>Install New Software</strong>를 클릭합니다.
@@ -49,15 +49,15 @@ Eclipse용 Azure 도구 키트는 Eclipse 개발 환경에서 Azure 응용 프�
 8. **Review Licenses** 대화 상자에서 사용권 계약 조건을 검토합니다. 사용권 계약 조건에 동의하면 **I accept the terms of the license agreements**를 클릭한 후 **Finish**를 클릭합니다. (나머지 단계에서는 사용권 계약 조건에 동의한다고 가정합니다. 사용권 계약 조건에 동의하지 않으면 설치 프로세스를 종료합니다.)
 9. 설치를 완료하기 위해 Eclipse를 다시 시작한다는 메시지가 표시되면 **Restart Now**를 클릭합니다.
 
-## 참고 항목 ##
+## 참고 항목
 
-[Eclipse용 Azure 도구 키트][]
+[Eclipse용 Azure 도구 키트]
 
-[Eclipse에서 Azure용 Hello World 응용 프로그램 만들기][]
+[Eclipse에서 Azure용 Hello World 응용 프로그램 만들기]
 
-[Eclipse용 Azure 도구 키트의 새로운 기능][]
+[Eclipse용 Azure 도구 키트의 새로운 기능]
 
-Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터][]를 참조하세요.
+Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터]를 참조하세요.
 
 <!-- URL List -->
 
@@ -74,4 +74,4 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 [ic590123]: ./media/azure-toolkit-for-eclipse-installation/ic590123.png
 [ic719482]: ./media/azure-toolkit-for-eclipse-installation/ic719482.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0330_2016-->

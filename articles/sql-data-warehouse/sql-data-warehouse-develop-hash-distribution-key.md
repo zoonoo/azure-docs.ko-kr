@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/09/2016"
+   ms.date="03/03/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # 해시 배포 및 SQL 데이터 웨어하우스의 쿼리 성능에 미치는 영향
@@ -70,7 +70,7 @@
 
 해시 배포 키:
 
-1. 해시 열을 업데이트할 수 없으므로 정적 값입니다. 
+1. 해시 열을 업데이트할 수 없으므로 정적 값입니다.
 2. 쿼리의 `JOIN`, `GROUP BY`, `DISTINCT` 또는 `HAVING` 절에 사용합니다.
 2. `WHERE` 절에 사용하지 않습니다.
 3. 서로 다른 값을 많이, 적어도 1000개 포함합니다.
@@ -103,4 +103,4 @@
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

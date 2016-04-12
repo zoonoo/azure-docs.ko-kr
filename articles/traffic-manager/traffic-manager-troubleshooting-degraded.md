@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/02/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # Azure 트래픽 관리자의 성능 저하 상태 문제 해결
@@ -67,9 +67,9 @@ wget은 http://watestsdp2008r2.cloudapp.net/Default.aspx(으)로 리디렉션되
 ## 다음 단계
 
 
-[트래픽 관리자 트래픽 라우팅 방법 정보](traffic-manager-load-balancing-methods.md)
+[트래픽 관리자 트래픽 라우팅 방법 정보](traffic-manager-routing-methods.md)
 
-[트래픽 관리자란?](../traffic-manmager-overview.md)
+[트래픽 관리자란?](traffic-manager-overview.md)
 
 [클라우드 서비스](http://go.microsoft.com/fwlink/?LinkId=314074)
 
@@ -80,4 +80,4 @@ wget은 http://watestsdp2008r2.cloudapp.net/Default.aspx(으)로 리디렉션되
 [Azure 트래픽 관리자 cmdlet](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0323_2016-->

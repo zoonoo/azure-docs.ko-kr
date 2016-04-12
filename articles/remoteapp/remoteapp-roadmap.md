@@ -12,14 +12,14 @@
     ms.tgt_pltfrm="NA"
     ms.devlang="NA"
     ms.topic="article"
-    ms.date="02/16/2016"
+    ms.date="03/23/2016"
     ms.author="elizapo" />
 
 # Azure RemoteApp의 예정된 기능
 
 Microsoft는 고객의 의견에 따라 Azure RemoteApp을 개선하기 위해 항상 노력하고 있습니다. 기능이 제공될 대략적인 일정은 다음과 같습니다.
 
-|기능|2016년 1-3월|2016년 4-6월|
+|기능|2016년 4-6월|2016년 7월-9월|
 |-----------|-------|-------|
 |[Azure 클래식 포털](http://manage.windowsazure.com)과 [Azure 포털](https://portal.azure.com) 둘 다에서 Azure RemoteApp 사용 가능 |X | |
 |Azure RemoteApp용 Continuum과 Windows 10 범용 응용 프로그램 – 미리 보기|X| |
@@ -29,7 +29,7 @@ Microsoft는 고객의 의견에 따라 Azure RemoteApp을 개선하기 위해 �
 |ARM(Azure 리소스 관리자) 지원||X|
 |Azure v2 리소스 지원| |X|
 |CSP(클라우드 솔루션 공급자)||X|
-|인도 지역의 서비스 제공|X||
+|인도 지역의 서비스 제공||X|
 |영국 지역의 서비스 제공||X|
 
 
@@ -47,4 +47,4 @@ Microsoft는 고객의 의견에 따라 Azure RemoteApp을 개선하기 위해 �
 - 오스트레일리아 데이터 센터의 가용성
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

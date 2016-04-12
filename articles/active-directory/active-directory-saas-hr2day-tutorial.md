@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/15/2016"
+	ms.date="03/10/2016"
 	ms.author="jeedes"/>
 
 
@@ -126,6 +126,7 @@ SAML 어설션을 구성하기 전에 [servicedesk@merces.nl](mailto:servicedesk
 
     a. 로그인 URL 텍스트 상자에서 **“https://<테넌트 이름>.force.com/<인스턴스 이름>”** 패턴을 사용하여 사용자가 HR2day by Merces 응용 프로그램에 로그온하는 데 사용할 URL을 입력합니다.
 
+    b. **다음**을 클릭합니다.
 
 4. **HR2day by Merces에서 Single Sign-On 구성** 페이지에서 다음 단계를 수행합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2day_05.png) <br>
 
@@ -245,4 +246,4 @@ SAML 어설션을 구성하기 전에 [servicedesk@merces.nl](mailto:servicedesk
 [204]: ./media/active-directory-saas-hr2day-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-hr2day-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -21,7 +21,7 @@
 
 IIS(인터넷 정보 서비스) 6 이상을 실행하는 기존 웹 사이트를 [앱 서비스 웹 앱](http://go.microsoft.com/fwlink/?LinkId=529714)으로 쉽게 마이그레이션할 수 있습니다.
 
->[AZURE.IMPORTANT] Windows Server 2003은 2015년 7월 14일에 지원이 종료됩니다. 현재 웹 사이트가 Windows Server 2003을 사용하는 IIS 서버에 있는 경우 웹 앱이 위험, 비용 및 충돌을 줄이면서 웹 사이트를 온라인으로 유지할 수 있는 방법이며, Web App Migration Assistant를 사용하면 마이그레이션 프로세스를 자동화할 수 있습니다.
+>[AZURE.IMPORTANT] Windows Server 2003은 2015년 7월 14일에 지원이 종료되었습니다. 현재 웹 사이트가 Windows Server 2003을 사용하는 IIS 서버에 있는 경우 웹 앱이 위험, 비용 및 충돌을 줄이면서 웹 사이트를 온라인으로 유지할 수 있는 방법이며, Web App Migration Assistant를 사용하면 마이그레이션 프로세스를 자동화할 수 있습니다.
 
 [Web App Migration Assistant](https://www.movemetothecloud.net/)는 IIS 서버 설치를 분석하고, 앱 서비스로 마이그레이션할 수 있는 사이트를 식별하고, 마이그레이션할 수 없거나 플랫폼에서 지원되지 않는 요소를 강조 표시한 후, 웹 사이트 및 관련 데이터베이스를 Azure로 마이그레이션합니다.
 
@@ -74,7 +74,7 @@ Migration Assistant에서는 온-프레미스 IIS에서 Azure 앱 서비스 웹 
 
 	설치가 끝나면 Web App Migration Assistant가 자동으로 시작합니다.
   
-6.	**원격 서버에서 Azure로 사이트 및 데이터베이스 마이그레이션**를 선택합니다. 원격 서버의 관리자 자격 증명을 입력하고 **Continue**를 클릭합니다.
+6.	**Migrate sites and databases from a remote server to Azure**를 선택합니다. 원격 서버의 관리자 자격 증명을 입력하고 **Continue**를 클릭합니다.
 
 	![](./media/web-sites-migration-from-iis-server/migrate-from-remote.png)
 
@@ -135,4 +135,4 @@ Migration Assistant에서는 온-프레미스 IIS에서 Azure 앱 서비스 웹 
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

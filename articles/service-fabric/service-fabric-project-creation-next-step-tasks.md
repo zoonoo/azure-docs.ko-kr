@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/06/2015"
+   ms.date="03/08/2016"
    ms.author="seanmck"/>
 
 # 서비스 패브릭 응용 프로그램 및 다음 단계
@@ -31,9 +31,9 @@ Azure 서비스 패브릭 응용 프로그램이 만들어졌습니다. 이 문�
 
 - 서비스에 대해 만들려는 파티션 수와 같은 환경 관련 응용 프로그램 구성을 유지하는 데 사용할 수 있는 두 응용 프로그램 매개 변수 파일(로컬 및 클라우드)입니다.
 
-- 응용 프로그램을 명령줄에서 배포하거나 자동화된 연속 통합 파이프라인의 일부로 배포하는 경우에 사용할 수 있는 배포 스크립트입니다.
+- 응용 프로그램을 명령줄에서 배포하거나 자동화된 연속 통합 및 배포 파이프라인의 일부로 배포하는 경우에 사용할 수 있는 배포 스크립트입니다.
 
-- 응용 프로그램을 설명하는 응용 프로그램 매니페스트입니다.
+- 응용 프로그램을 설명하는 응용 프로그램 매니페스트입니다. ApplicationPackageRoot 폴더에서 매니페스트를 찾을 수 있습니다.
 
 ### Reliable Services
 새 Reliable Service를 추가하면 Visual Studio가 서비스 프로젝트를 솔루션에 추가합니다. 선택한 형식에 따라 서비스 프로젝트는 `StatelessService` 또는 `StatefulService`에서 확장된 클래스를 포함합니다.
@@ -86,4 +86,4 @@ Visual Studio에서 Azure 클러스터로 직접 응용 프로그램을 게시�
 [reliable-services-webapi]: service-fabric-reliable-services-communication-webapi.md
 [app-upgrade-tutorial]: service-fabric-application-upgrade-tutorial.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

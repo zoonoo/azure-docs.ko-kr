@@ -1,23 +1,23 @@
-<properties 
+<properties
    pageTitle="Azure 자동화의 일정 | Microsoft Azure"
    description="자동화 일정은 Azure 자동화에서 Runbook이 자동으로 시작되도록 예약하는 데 사용됩니다. 이 문서에서는 일정을 만드는 방법을 설명합니다."
    services="automation"
    documentationCenter=""
-   authors="bwren"
+   authors="mgoedtel"
    manager="stevenka"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="automation"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/27/2016"
+   ms.date="03/18/2016"
    ms.author="bwren" />
 
 # Azure 자동화의 일정
 
-자동화 일정은 Runbook이 자동으로 실행되도록 예약하는 데 사용됩니다. 이는 Runbook을 한 번 실행할 단일 날짜 및 시간이거나, Runbook을 여러 번 시작할 되풀이 일정일 수 있습니다. 일반적으로 Runbook에서는 일정에 액세스할 수 없습니다.
+자동화 일정은 Runbook이 자동으로 실행되도록 예약하는 데 사용됩니다. 이는 Runbook을 한 번 실행할 단일 날짜 및 시간이거나, Runbook을 여러 번 매일 또는 매시간 시작할 되풀이 일정일 수 있습니다. 일반적으로 Runbook에서는 일정에 액세스할 수 없습니다.
 
 >[AZURE.NOTE]  일정은 현재 Azure 자동화 DSC 구성을 지원하지 않습니다.
 
@@ -60,12 +60,11 @@
 	$scheduleName = "My Daily Schedule"
 	$startTime = (Get-Date).Date.AddDays(1).AddHours(12)
 	$expiryTime = $startTime.AddYears(1)
-	
+
 	New-AzureAutomationSchedule –AutomationAccountName $automationAccountName –Name $scheduleName –StartTime $startTime –ExpiryTime $expiryTime –DayInterval 1
 
 
 ## 참고 항목
 - [Azure 자동화에서 Runbook 예약](automation-scheduling-a-runbook.md)
- 
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

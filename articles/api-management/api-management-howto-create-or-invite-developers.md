@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # Azure API 관리에서 사용자 계정을 관리하는 방법
@@ -91,4 +91,4 @@ API 관리에서 개발자는 API 관리 사용을 공개하는 API의 사용자
 [Azure API 관리 시작]: api-management-get-started.md#create-service-instance
 [메일 템플릿 구성]: api-management-howto-configure-notifications.md#email-templates
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -3,9 +3,9 @@
 	description="스트레치 지원 데이터베이스를 백업 및 복원하는 방법을 알아봅니다."
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -17,7 +17,7 @@
 	ms.author="douglasl"/>
 
 
-# 스트레치 지원 데이터베이스 백업 및 복원 
+# 스트레치 지원 데이터베이스 백업 및 복원
 
 현재 사용 중인 방법을 계속 사용하여 스트레치 지원 데이터베이스를 백업 및 복원할 수 있습니다. SQL Server 백업 및 복원에 대한 자세한 내용은 [SQL Server 데이터베이스 백업 및 복원](https://msdn.microsoft.com/library/ms187048.aspx)을 참조하세요.
 
@@ -59,7 +59,12 @@
 ![백업 후 스트레치 데이터베이스][StretchBackupImage4]
 
 ## 참고 항목
-[스트레치 데이터베이스 관리 및 문제 해결](sql-server-stretch-database-manage.md) [sys.sp\_rda\_reauthorize\_db(Transact-SQL)](https://msdn.microsoft.com/library/mt131016.aspx) [SQL Server 데이터베이스 백업 및 복원](https://msdn.microsoft.com/library/ms187048.aspx)
+
+[스트레치 데이터베이스 관리 및 문제 해결](sql-server-stretch-database-manage.md)
+
+[sys.sp\_rda\_reauthorize\_db(Transact-SQL)](https://msdn.microsoft.com/library/mt131016.aspx)
+
+[SQL Server 데이터베이스 백업 및 복원](https://msdn.microsoft.com/library/ms187048.aspx)
 
 <!--Image references-->
 [StretchBackupImage1]: ./media/sql-server-stretch-database-backup/StretchDBBackup1.png
@@ -67,4 +72,4 @@
 [StretchBackupImage3]: ./media/sql-server-stretch-database-backup/StretchDBBackup3.png
 [StretchBackupImage4]: ./media/sql-server-stretch-database-backup/StretchDBBackup4.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

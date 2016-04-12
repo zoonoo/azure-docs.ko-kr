@@ -95,7 +95,7 @@
     var Promise = require('bluebird');
     ```
 
-5. 자리 표시자를 앞서 기록해 둔 갚으로 대체하여 다음 변수 선언을 추가합니다. **{your event hub-compatible namespace}** 자리 표시자 값은 **이벤트 허브 호환 끝점**에서 나오며 **xxxxnamespace.servicebus.windows.net** 형태입니다.
+5. 자리 표시자를 앞서 기록해 둔 갚으로 대체하여 다음 변수 선언을 추가합니다. **{이벤트 허브 호환 네임스페이스}** 자리 표시자 값은 포털의 **이벤트 허브 호환 끝점** 필드에서 나오며 **namespace.servicebus.windows.net**(**sb://* 접두사가 없음) 형태입니다.
 
     ```
     var protocol = 'amqps';
@@ -173,13 +173,13 @@
     });
     ```
 
-11. **ReadDeviceToCloudMessages.js** 파일을 저장 후 닫습니다.
+11. **ReadDeviceToCloudMessages.js** 파일을 저장하고 닫습니다.
 
 <!-- Links -->
 
-[lnk-eventhubs-tutorial]: event-hubs-csharp-ephcs-getstarted.md
+[lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
 [lnk-devguide-identity]: iot-hub-devguide.md#identityregistry
-[lnk-event-hubs-overview]: event-hubs-overview.md
+[lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 [lnk-processd2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

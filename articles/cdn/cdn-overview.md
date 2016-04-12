@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.date="02/25/2016" 
 	ms.author="casoper"/>
 
@@ -61,4 +61,4 @@ CDN에 개체 요청을 처음 수행하는 경우 개체의 소스 원본 위�
 - [고급 HTTP 보고서](cdn-advanced-http-reports.md)
 - [실시간 통계](cdn-real-time-stats.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

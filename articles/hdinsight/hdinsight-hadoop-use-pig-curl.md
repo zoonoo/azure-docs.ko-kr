@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/08/2016"
+   ms.date="03/18/2016"
    ms.author="larryfr"/>
 
 #Curl을 사용하여 HDInsight에서 Hadoop과 Pig 작업 실행
@@ -25,7 +25,7 @@
 
 Curl은 Pig 작업을 실행하고 모니터링하며 결과를 검색하기 위해 원시 HTTP 요청을 사용하여 HDInsight와 상호 작용하는 방법을 설명하는 데 사용됩니다. 이 Curl은 HDInsight 클러스터에서 제공하는 WebHCat REST API(이전의 Templeton)를 사용하여 작동합니다.
 
-> [AZURE.NOTE]이미 익숙한 Linux 기반 Hadoop 서버를 사용하지만 HDInsight는 처음인 경우 [Linux 기반 HDInsight 팁](hdinsight-hadoop-linux-information.md)을 참조하세요.
+> [AZURE.NOTE] 이미 익숙한 Linux 기반 Hadoop 서버를 사용하지만 HDInsight는 처음인 경우 [Linux 기반 HDInsight 팁](hdinsight-hadoop-linux-information.md)을 참조하세요.
 
 ##<a id="prereq"></a>필수 조건
 
@@ -39,7 +39,7 @@ Curl은 Pig 작업을 실행하고 모니터링하며 결과를 검색하기 위
 
 ##<a id="curl"></a>Curl을 사용하여 Pig 작업 실행
 
-> [AZURE.NOTE]WebHCat에서 Curl 또는 다른 모든 REST 통신을 사용하는 경우 HDInsight 클러스터에 관리자의 사용자 이름 및 암호를 제공하여 요청을 인증해야 합니다. 또한 클러스터 이름을 서버로 요청을 보내는 데 사용되는 URI(Uniform Resource Identifier)의 일부로 사용해야 합니다.
+> [AZURE.NOTE] WebHCat에서 Curl 또는 다른 모든 REST 통신을 사용하는 경우 HDInsight 클러스터에 관리자의 사용자 이름 및 암호를 제공하여 요청을 인증해야 합니다. 또한 클러스터 이름을 서버로 요청을 보내는 데 사용되는 URI(Uniform Resource Identifier)의 일부로 사용해야 합니다.
 >
 > 이 섹션의 명령에서 **USERNAME**은 클러스터에 대해 인증할 사용자로 바꾸고 **PASSWORD**는 사용자 계정의 암호로 바꿉니다. **CLUSTERNAME**을 클러스터의 이름으로 바꿉니다.
 >
@@ -72,7 +72,7 @@ Curl은 Pig 작업을 실행하고 모니터링하며 결과를 검색하기 위
         * **execute**: 실행할 Pig Latin 문입니다.
         * **statusdir** - 이 작업의 상태를 기록할 디렉터리입니다.
 
-    > [AZURE.NOTE]Curl과 함께 사용할 경우 Pig Latin 문의 공백이 `+` 문자로 바뀝니다.
+    > [AZURE.NOTE] Curl과 함께 사용할 경우 Pig Latin 문의 공백이 `+` 문자로 바뀝니다.
 
     이 명령은 작업 상태를 확인하는데 사용할 수 있는 작업 ID를 반환해야 합니다. 예를 들면 다음과 같습니다.
 
@@ -84,7 +84,7 @@ Curl은 Pig 작업을 실행하고 모니터링하며 결과를 검색하기 위
 
 	작업이 완료되면 상태는 **SUCCEEDED**가 됩니다.
 
-    > [AZURE.NOTE]이 Curl 요청은 작업에 관한 정보가 있는 JSON(JavaScript Object Notation) 문서를 반환합니다. jq는 상태 값을 검색하는 데만 사용됩니다.
+    > [AZURE.NOTE] 이 Curl 요청은 작업에 관한 정보가 있는 JSON(JavaScript Object Notation) 문서를 반환합니다. jq는 상태 값을 검색하는 데만 사용됩니다.
 
 ##<a id="results"></a>결과 보기
 
@@ -98,7 +98,7 @@ Curl은 Pig 작업을 실행하고 모니터링하며 결과를 검색하기 위
 
 	azure storage blob download <container-name> <blob-name> <destination-file>
 
-> [AZURE.NOTE]`-a` 및 `-k` 매개 변수를 사용하여 Blob을 포함하는 저장소 계정 이름을 지정하거나 **AZURE\_STORAGE\_ACCOUNT** 및 **AZURE\_STORAGE\_ACCESS\_KEY** 환경 변수를 설정해야 합니다.
+> [AZURE.NOTE] `-a` 및 `-k` 매개 변수를 사용하여 Blob을 포함하는 저장소 계정 이름을 지정하거나 **AZURE\_STORAGE\_ACCOUNT** 및 **AZURE\_STORAGE\_ACCESS\_KEY** 환경 변수를 설정해야 합니다.
 
 ##<a id="summary"></a>요약
 
@@ -118,4 +118,4 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 
 * [HDInsight에서 Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0323_2016-->

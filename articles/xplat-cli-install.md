@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="03/09/2016"
 	ms.author="danlep"/>
 
 # Azure CLI 설치
 
-신속하게 Azure CLI(Azure 명령줄 인터페이스)를 설치하여 Microsoft Azure에서 리소스를 만들고 관리하기 위한 오픈 소스 셸 기반 명령 집합을 사용합니다. 제공된 설치 관리자 패키지 중 하나를 사용하여 운영 체제에 Azure CLI를 설치, Node.js 및 **npm**을 사용하여 CLI를 설치 또는 Docker 호스트에서 컨테이너로 Azure CLI를 설치합니다. 더 많은 옵션과 배경은 [GitHub](https://github.com/azure/azure-xplat-cli)의 프로젝트 리포지토리를 참조하세요.
+신속하게 Azure CLI(Azure 명령줄 인터페이스)를 설치하여 Microsoft Azure에서 리소스를 만들고 관리하기 위한 오픈 소스 셸 기반 명령 집합을 사용합니다. 몇 가지 옵션이 있습니다. 제공된 설치 관리자 패키지 중 하나를 사용하여 운영 체제에 Azure CLI를 설치, Node.js 및 **npm**을 사용하여 CLI를 설치 또는 Docker 호스트에서 컨테이너로 Azure CLI를 설치합니다. 더 많은 옵션과 배경은 [GitHub](https://github.com/azure/azure-xplat-cli)의 프로젝트 리포지토리를 참조하세요.
 
 
 Azure CLI가 설치되었으면 [Azure 구독을 사용하여 연결](xplat-cli-connect.md)하고 명령줄 인터페이스(Bash, 터미널, 명령 프롬프트 등)에서 **azure** 명령을 실행하여 Azure 리소스 작업을 수행할 수 있습니다.
@@ -142,9 +142,9 @@ npm update -g azure-cli
 
 ## 추가 리소스
 
-* [Azure 리소스 관리자에서 Azure CLI 사용][cliarm]
+* [ARM(Azure Resource Manager) 모드에서 Azure CLI 명령][cliarm]
 
-* [Azure 서비스 관리에서 Azure CLI 사용][cliasm]
+* [ASM(Azure 서비스 관리) 모드에서 Azure CLI 명령][cliasm]
 
 * Azure CLI에 대한 자세한 내용을 보거나, 소스 코드를 다운로드하거나, 문제를 보고하거나, 프로젝트에 기여하려면 [Azure CLI에 대한 GitHub 리포지토리](https://github.com/azure/azure-xplat-cli)를 방문하세요.
 
@@ -155,7 +155,7 @@ npm update -g azure-cli
 [mac-installer]: http://go.microsoft.com/fwlink/?LinkId=252249
 [windows-installer]: http://go.microsoft.com/?linkid=9828653&clcid=0x409
 [linux-installer]: http://go.microsoft.com/fwlink/?linkid=253472
-[cliasm]: virtual-machines/virtual-machines-command-line-tools.md
-[cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
+[cliasm]: virtual-machines-command-line-tools.md
+[cliarm]: virtual-machines/azure-cli-arm-commands.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -25,14 +25,15 @@
 
 이 가이드는 클라이언트 쪽 Android SDK에 중점을 둡니다. 모바일 앱용 서버 쪽 SDK에 대해 자세히 알아보려면 [.NET 백 엔드 SDK로 작업](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) 또는 [Node.js 백 엔드 SDK를 사용하는 방법](app-service-mobile-node-backend-how-to-use-server-sdk.md)을 참조하세요.
 
+## 참조 설명서
 
-<!---You can find the Javadocs API reference for the Android client library [here](http://go.microsoft.com/fwlink/p/?LinkId=298735).-->
+Android 클라이언트 라이브러리용 Javadocs API 참조는 [GitHub](http://azure.github.io/azure-mobile-apps-android-client/)에서 확인할 수 있습니다.
 
 ## 설정 및 필수 조건
 
 Android용 모바일 서비스 SDK는 Android 버전 2.2 이상을 지원하지만 버전 4.2 이상에 대해 빌드하는 것이 좋습니다.
 
-[모바일 앱 퀵 스타트](app-service-mobile-android-get-started.md) 자습서를 완료합니다. 자습서를 완료하려면 Android Studio를 반드시 설치해야 하며, 이는 계정을 구성하고 첫 번째 모바일 앱 백엔드를 만드는 데 도움이 됩니다. 이 작업을 수행하는 경우 이 섹션의 나머지 부분을 건너뛸 수 있습니다.
+[모바일 앱 퀵 스타트](app-service-mobile-android-get-started.md) 자습서를 완료합니다. 자습서를 완료하려면 Android Studio를 반드시 설치해야 하며, 이는 계정을 구성하고 첫 번째 모바일 앱 백 엔드를 만드는 데 도움이 됩니다. 이 작업을 수행하는 경우 이 섹션의 나머지 부분을 건너뛸 수 있습니다.
 
 퀵 스타트 자습서를 완료하지 않고 Android 앱을 모바일 앱 백엔드에 연결하려는 경우 다음을 수행해야 합니다.
 
@@ -56,9 +57,9 @@ Android용 모바일 서비스 SDK는 Android 버전 2.2 이상을 지원하지�
 
 2. *dependencies* 태그 내의 *모듈 앱* 수준 **build.gradle** 파일에 이 코드를 추가합니다.
 
-		compile 'com.microsoft.azure:azure-mobile-android:3.0'
+		compile 'com.microsoft.azure:azure-mobile-android:3.1'
 
-	현재 최신 버전은 3.0입니다. 지원되는 버전은 [여기](http://go.microsoft.com/fwlink/p/?LinkID=717034)에 나열됩니다.
+	현재 최신 버전은 3.1입니다. 지원되는 버전은 [여기](http://go.microsoft.com/fwlink/p/?LinkID=717034)에 나열됩니다.
 
 ###<a name="enable-internet"></a>인터넷 권한 사용
 Azure에 액세스하려면 앱은 인터넷 사용 권한을 사용하도록 설정해야 합니다. 아직 사용하지 않는 경우 코드의 다음 줄을 **AndroidManifest.xml** 파일에 추가합니다.
@@ -379,7 +380,7 @@ ToDoItemAdapter 생성자의 두 번째 매개 변수는 레이아웃에 대한 
 
 여기서 select 함수의 매개 변수는 반환하려는 테이블 열의 문자열 이름입니다.
 
-**선택** 메서드는 **where** 및 **orderBy** 등의 메서드가 있는 경우 그 뒤에 나와야 합니다. 그 뒤에 **top** 등의 메서드를 페이징하여 나올 수 있습니다.
+**select** 메서드는 **where** 및 **orderBy** 등의 메서드가 있는 경우 그 뒤에 나와야 합니다. 그 뒤에 **top** 등의 메서드를 페이징하여 나올 수 있습니다.
 
 ### <a name="chaining"></a>방법: 쿼리 메서드 연결
 
@@ -567,7 +568,7 @@ Android 클라이언트에서 **invokeApi** 메서드를 호출하여 사용자 
 
 ##<a name="authentication"></a>방법: 앱에 인증 추가
 
-자습서는 이러한 기능을 추가하는 방법을이미 자세히 설명합니다.
+자습서는 이러한 기능을 추가하는 방법을 이미 자세히 설명합니다.
 
 앱 서비스는 Facebook, Google, Microsoft 계정, Twitter 및 Azure Active Directory와 같이 다양한 외부 ID 공급자를 사용하여 [앱 사용자의 인증](app-service-mobile-android-get-started-users.md)을 지원합니다. 테이블에 대해 사용 권한을 설정하여 특정 작업을 위한 액세스를 인증된 사용자로만 제한할 수 있습니다. 인증된 사용자의 ID를 사용하여 서버 스크립트에 인증 규칙을 구현할 수도 있습니다.
 
@@ -589,7 +590,7 @@ Android 클라이언트에서 **invokeApi** 메서드를 호출하여 사용자 
 
 	MobileServiceUser user = mClient.login(MobileServiceAuthenticationProvider.Google);
 
-**getUserId** 메서드를 사용하여 **MobileServiceUser**에서 로그인한 사용자의 ID를 가져올 수 있습니다. 미래를 사용하여 비동기 로그인 API를 호출하는 방법의 예제는 [인증 시작]을 참조하세요.
+**getUserId** 메서드를 사용하여 **MobileServiceUser**에서 로그인한 사용자의 ID를 가져올 수 있습니다. Futures를 사용하여 비동기 로그인 API를 호출하는 방법의 예제는 [인증 시작]을 참조하세요.
 
 
 ### <a name="caching"></a>방법: 인증 토큰 캐시
@@ -681,7 +682,7 @@ Azure Active Directory를 사용하여 응용 프로그램에 사용자가 로�
 
 ## 방법: 앱에 푸시 알림 추가
 
-Microsoft Azure 알림 허브가 다양한 푸시 알림을 지원하는 방법을 설명하는 [개요를 읽](notification-hubs-overview.md/#integration-with-app-service-mobile-apps)을 수 있습니다.
+Microsoft Azure 알림 허브가 다양한 푸시 알림을 지원하는 방법을 설명하는 [개요를 읽을](notification-hubs-overview.md/#integration-with-app-service-mobile-apps) 수 있습니다.
 
 [이 자습서](app-service-mobile-android-get-started-push.md)에서 레코드가 삽입될 때 마다 푸시 알림이 전송됩니다.
 
@@ -725,7 +726,7 @@ Microsoft Azure 알림 허브가 다양한 푸시 알림을 지원하는 방법�
 
 ### <a name="serialization"></a>방법: serialization 사용자 지정
 
-클라이언트는 백 엔드의 테이블 이름, 열 이름 및 데이터 형식이 모두 클라이언트에 정의된 데이터 개체와일치한다고 가정합니다. 하지만 서버와 클라이언트의 이름이 일치하지 않는 이유가 있을 수 있습니다. 시나리오에서 다음과 같은 종류의 사용자 지정을 수행할 수 있습니다.
+클라이언트는 백 엔드의 테이블 이름, 열 이름 및 데이터 형식이 모두 클라이언트에 정의된 데이터 개체와 일치한다고 가정합니다. 하지만 서버와 클라이언트의 이름이 일치하지 않는 이유가 있을 수 있습니다. 시나리오에서 다음과 같은 종류의 사용자 지정을 수행할 수 있습니다.
 
 - 모바일 서비스 테이블에서 사용되는 열 이름이 클라이언트에서 사용 중인 이름과 일치하지 않습니다.
 - 클라이언트에서 매핑되는 클래스와 다른 이름을 가진 모바일 서비스 테이블을 사용합니다.
@@ -839,4 +840,4 @@ Java 클라이언트 코드에서 *ToDoItem* 개체 속성에 다음과 같이 �
 [Azure 포털]: https://portal.azure.com
 [인증 시작]: app-service-mobile-android-get-started-users.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

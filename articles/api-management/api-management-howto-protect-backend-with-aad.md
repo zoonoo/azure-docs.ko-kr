@@ -4,7 +4,7 @@
 	services="api-management"
 	documentationCenter=""
 	authors="steved0x"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="03/04/2016"
 	ms.author="sdanie"/>
 
 # Azure Active Directory 및 API 관리로 Web API 백 엔드를 보호하는 방법
@@ -166,7 +166,7 @@ HttpResponseMessage response = Request.CreateResponse(); response.Content = new 
 
 ![권한 추가][api-management-aad-add-permissions]
 
->[AZURE.NOTE]**Windows** **Azure Active Directory**가 다른 응용 프로그램에 대한 사용 권한에 나열되지 않으면 **응용 프로그램 추가**를 클릭하고 목록에서 추가합니다.
+>[AZURE.NOTE] **Windows** **Azure Active Directory**가 다른 응용 프로그램에 대한 사용 권한에 나열되지 않으면 **응용 프로그램 추가**를 클릭하고 목록에서 추가합니다.
 
 Azure AD 응용 프로그램이 API 관리 개발자 포털에 대해 구성된 경우, 다음 단계에서 사용하도록 **앱 ID URI**를 기록합니다.
 
@@ -291,7 +291,7 @@ API를 가져오면 API에 대한 요약 페이지가 게시자 포털에 표시
 
 **저장**을 클릭하여 구성을 저장하고 키를 표시합니다.
 
->[AZURE.IMPORTANT]이 키를 기록해 둡니다. Azure Active Directory 구성 창을 닫으면 키를 다시 표시할 수 없습니다.
+>[AZURE.IMPORTANT] 이 키를 기록해 둡니다. Azure Active Directory 구성 창을 닫으면 키를 다시 표시할 수 없습니다.
 
 키를 클립보드에 복사하고, 게시자 포털로 다시 전환하고 키를 **클라이언트 암호** 텍스트 상자에 붙여넣은 후 **저장**을 클릭합니다.
 
@@ -413,4 +413,4 @@ API를 가져오면 API에 대한 요약 페이지가 게시자 포털에 표시
 [API 관리 서비스 인스턴스 만들기]: api-management-get-started.md#create-service-instance
 [첫 번째 API 관리]: api-management-get-started.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

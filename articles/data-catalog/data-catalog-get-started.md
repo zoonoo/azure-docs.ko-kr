@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure 데이터 카탈로그 데이터 카탈로그 시작"
-   description="시나리오의 종단간 자습서 및 Azure 데이터 카탈로그의 기능."
+   pageTitle="Azure Data Catalog에서 데이터 카탈로그 시작 | Microsoft Azure"
+   description="Azure Data Catalog의 시나리오 및 기능을 제공하는 종단간 자습서입니다."
    documentationCenter=""
    services="data-catalog"
    authors="dvana"
@@ -18,7 +18,7 @@
 
 # Azure 데이터 카탈로그 시작
 
-이 문서는 **Azure Data Catalog** 공용 미리 보기의 시나리오 및 기능에 대한 종단 간 자습서입니다. 미리 보기에 등록하면 이러한 단계를 수행하여 데이터 카탈로그를 만들고 데이터 원본을 등록, 주석 추가 및 검색합니다.
+이 문서는 **Azure Data Catalog**의 시나리오 및 기능에 대한 종단 간 개요입니다. 서비스에 등록하면 이러한 단계를 수행하여 데이터 카탈로그를 만들고 데이터 원본을 등록, 주석 추가 및 검색합니다.
 
 ## 자습서 필수 구성 요소
 
@@ -256,6 +256,6 @@ T-SQL 스크립트를 실행하는 대신 SQL Server Management Studio를 사용
 
 ## 요약
 
-이 자습서에서는 엔터프라이즈 데이터 원본 등록, 주석 추가, 검색 및 관리를 비롯하여 **Azure Data Catalog** 미리 보기의 필수 기능을 살펴보았습니다. 이제 자습서를 완료했습니다. 시작할 시간입니다. 사용자 및 팀이 필요로 하는 데이터 원본을 등록하고, 카탈로그를 사용하도록 동료를 초대하여 시작할 수 있습니다.
+이 자습서에서는 엔터프라이즈 데이터 원본 등록, 주석 추가, 검색 및 관리를 비롯하여 **Azure Data Catalog**의 필수 기능을 살펴보았습니다. 이제 자습서를 완료했습니다. 시작할 시간입니다. 사용자 및 팀이 필요로 하는 데이터 원본을 등록하고, 카탈로그를 사용하도록 동료를 초대하여 시작할 수 있습니다.
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

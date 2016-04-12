@@ -1,10 +1,11 @@
-두 배포 모델에서 여러 다양한 도구를 사용하여 사이트 간 연결을 구성할 수 있습니다. 자세한 내용은 아래 표를 참조하세요. 이 구성에 사용할 수 있게 된 새 문서, 새로운 배포 모델 및 추가 도구로 이 표를 업데이트합니다. 문서를 사용할 수 있는 경우 표에서 직접 링크를 제공합니다.
-
-
 | | **클래식 배포** | **리소스 관리자 배포** |
 |----------------------------------------|--------------|----------------------|
-| **클래식 포털** |[문서](../articles/vpn-gateway/vpn-gateway-site-to-site-create.md) | 지원되지 않음 |
-| **Azure 포털** | 예 | 예 |
-| **PowerShell** | 예 | [문서](../articles/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)|
+| **클래식 포털** |[문서*](../articles/vpn-gateway/vpn-gateway-site-to-site-create.md) | 지원되지 않음 |
+| **Azure 포털** | 지원됨 | [문서](vpn-gateway-howto-site-to-site-resource-manager-portal.md)|
+| **PowerShell** |[문서+](..articles/vpn-gateway/vpn-gateway-multi-site.md) | [문서](..articles/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)| 
 
-<!---HONumber=AcomDC_0224_2016-->
+(*)는 클래식 포털이 하나의 S2S VPN 연결을 만들도록 지원할 수 있음을 나타냅니다.
+
+(+)는 이 문서가 다중 사이트 연결을 위해 작성되었음을 나타냅니다.
+
+<!---HONumber=AcomDC_0406_2016-->

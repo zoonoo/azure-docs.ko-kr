@@ -1,18 +1,18 @@
-<properties 
- pageTitle="Azure 스케줄러를 사용하여 복잡한 일정 및 고급 되풀이를 만드는 방법" 
- description="" 
- services="scheduler" 
- documentationCenter=".NET" 
- authors="krisragh" 
- manager="dwrede" 
+<properties
+ pageTitle="Azure 스케줄러를 사용하여 복잡한 일정 및 고급 되풀이를 만드는 방법"
+ description=""
+ services="scheduler"
+ documentationCenter=".NET"
+ authors="krisragh"
+ manager="dwrede"
  editor=""/>
-<tags 
- ms.service="scheduler" 
- ms.workload="infrastructure-services" 
- ms.tgt_pltfrm="na" 
- ms.devlang="dotnet" 
- ms.topic="article" 
- ms.date="12/04/2015" 
+<tags
+ ms.service="scheduler"
+ ms.workload="infrastructure-services"
+ ms.tgt_pltfrm="na"
+ ms.devlang="dotnet"
+ ms.topic="article"
+ ms.date="03/09/2016"
  ms.author="krisragh"/>
 
 # Azure 스케줄러를 사용하여 복잡한 일정 및 고급 되풀이를 만드는 방법  
@@ -31,7 +31,7 @@ Azure 스케줄러의 이러한 유연성을 활용하여 다양한 비즈니스
 -	이미지 처리 - 예를 들어 주중 매일, 사용량이 적은 시간에 그날 업로드된 이미지를 클라우드 컴퓨팅을 사용하여 압축
 
 
-이 문서에서는 Azure 스케줄러로 만들 수 있는 작업의 예를 살펴보겠습니다. 각 일정을 설명하는 JSON 데이터를 제공합니다. [스케줄러 REST API](https://msdn.microsoft.com/library/azure/dn528946.aspx)를 사용하는 경우 동일한 이 JSON을 [Azure 스케줄러 작업 만들기](https://msdn.microsoft.com/library/azure/dn528937.aspx)에도 사용할 수 있습니다.
+이 문서에서는 Azure 스케줄러로 만들 수 있는 작업의 예를 살펴보겠습니다. 각 일정을 설명하는 JSON 데이터를 제공합니다. [스케줄러 REST API](https://msdn.microsoft.com/library/mt629143.aspx)를 사용하는 경우 동일한 이 JSON을 [Azure 스케줄러 작업 만들기](https://msdn.microsoft.com/library/mt629145.aspx)에도 사용할 수 있습니다.
 
 ## 지원되는 시나리오
 
@@ -39,7 +39,7 @@ Azure 스케줄러의 이러한 유연성을 활용하여 다양한 비즈니스
 
 -	특정 날짜 및 시간에 한 번 실행
 -	실행하고 명시된 횟수만큼 되풀이
--	즉시 실행하고 되풀이 
+-	즉시 실행하고 되풀이
 -	실행하고 *n*분, 시간, 일, 주 또는 월마다 되풀이, 특정 시간에 시작
 -	실행하고 주 또는 월마다 되풀이하지만 특정 일, 요일 또는 날짜에만 실행
 -	실행하고 기간 내 여러 번 되풀이. 예를 들어 매월 마지막 금요일과 월요일, 매일 오전 5시 15분과 오후 5시 15분
@@ -52,7 +52,7 @@ Azure 스케줄러 작업의 날짜-시간 참조는 [ISO-8601 사양](http://en
 
 ## 방법: JSON 및 REST API를 사용하여 일정 만들기
 
-이 문서의 JSON 예와 Azure 스케줄러 REST API를 사용하여 간단한 일정을 만들려면 [먼저 클라우드 서비스를 만들고](https://msdn.microsoft.com/library/azure/dn528943.aspx), [작업 컬렉션을 만든 다음](https://msdn.microsoft.com/library/azure/dn528940.aspx), [마지막으로 작업을 만듭니다](https://msdn.microsoft.com/library/azure/dn528937.aspx). 작업을 만들 때는 아래 나열된 것과 같은 JSON을 사용하여 일정과 되풀이를 지정할 수 있습니다.
+[Azure Scheduler REST API](https://msdn.microsoft.com/library/mt629143)를 사용하여 간단한 일정을 만들려면 먼저 [리소스 공급자로 구독을 등록](https://msdn.microsoft.com/library/azure/dn790548.aspx)(스케줄러의 공급자 이름은 _Microsoft.Scheduler_임)한 다음 [작업 컬렉션을 만들고](https://msdn.microsoft.com/library/mt629159.aspx) 마지막으로 [작업을 만듭니다](https://msdn.microsoft.com/library/mt629145.aspx). 작업을 만들 때는 아래 나열된 것과 같은 JSON을 사용하여 일정과 되풀이를 지정할 수 있습니다.
 
 	{
 	    "startTime": "2012-08-04T00:00Z", // optional
@@ -71,7 +71,7 @@ Azure 스케줄러 작업의 날짜-시간 참조는 [ISO-8601 사양](http://en
 	    },
 	    …
 	}
-	
+
 ## 개요: 작업 스키마 기본 사항
 
 다음 표에는 작업의 일정 및 되풀이에 관련된 주요 요소에 대한 간략한 개요가 나열되어 있습니다.
@@ -177,10 +177,10 @@ _schedule_은 작업 실행의 횟수를 _제한_할 수 있는 방법이기도 
 |<code>{"minutes":[15,45],"hours":[5,17],"monthlyOccurrences":[{"day":"wednesday","occurrence":3}]}</code>|매월 세 번째 수요일 오전 5시 15분, 5시 45분, 오후 5시 15분, 5시 45분에 실행|
 
 ## 참고 항목
- 
+
 
  [스케줄러란?](scheduler-intro.md)
- 
+
  [Azure 스케줄러 개념, 용어 및 엔터티 계층 구조](scheduler-concepts-terms.md)
 
  [Azure 포털에서 스케줄러 사용 시작](scheduler-get-started-portal.md)
@@ -196,7 +196,5 @@ _schedule_은 작업 실행의 횟수를 _제한_할 수 있는 방법이기도 
  [Azure 스케줄러 제한, 기본값 및 오류 코드](scheduler-limits-defaults-errors.md)
 
  [Azure 스케줄러 아웃바운드 인증](scheduler-outbound-authentication.md)
- 
-  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

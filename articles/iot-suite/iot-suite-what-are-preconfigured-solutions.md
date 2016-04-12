@@ -83,7 +83,7 @@ IoT hub를 사용하면 서비스 쪽 원격 분석 읽기 끝점을 통해 수�
 - *원격 분석 작업* - 콜드 저장소용 Azure Blob 저장소에 모든 원시 원격 분석을 보내고 솔루션 대시보드에 표시하는 원격 분석 집계를 계산합니다.
 - *규칙 작업* - 규칙 임계값을 초과하는 값에 대해 원격 분석 스트림을 필터링하고 이벤트 허브에 대한 데이터를 출력합니다. 규칙이 실행되면 솔루션 포털 대시보드 보기는 이 이벤트를 경보 기록 테이블에 새 행으로 표시하고 솔루션 포털의 규칙 및 작업 보기에 정의된 설정에 따라 작업을 트리거합니다.
 
-미리 구성된 솔루션에서 ASA 작업은 일반적인 [IoT 솔루션 아키텍처][lnk-what-is-azure-iot]의 **IoT 솔루션 백 엔드**의 일부를 형성합니다.
+미리 구성된 솔루션에서 ASA 작업은 일반적인 [IoT 솔루션 아키텍처][lnk-what-is-azure-iot]의 **IoT 솔루션 백 엔드** 의 일부를 형성합니다.
 
 ## 이벤트 프로세서
 
@@ -115,6 +115,8 @@ IoT hub를 사용하면 서비스 쪽 원격 분석 읽기 끝점을 통해 수�
 
 ## 다음 단계
 
+IoT 솔루션 아키텍처에 대한 자세한 내용은 [Microsoft Azure IoT 서비스: 참조 아키텍처][lnk-refarch]를 참조하세요.
+
 이 리소스를 탐색하여 IoT 미리 구성된 솔루션에 대해 자세히 알아봅니다.
 
 - [미리 구성된 loT 솔루션 시작][lnk-preconf-get-started]
@@ -133,5 +135,6 @@ IoT hub를 사용하면 서비스 쪽 원격 분석 읽기 끝점을 통해 수�
 [lnk-preconf-get-started]: iot-suite-getstarted-preconfigured-solutions.md
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
+[lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->
