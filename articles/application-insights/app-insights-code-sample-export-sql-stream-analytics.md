@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015" 
+	ms.date="03/06/2015" 
 	ms.author="awills"/>
  
 # 연습: 스트림 분석을 사용하여 Application Insights에서 SQL로 내보내기
@@ -29,28 +29,15 @@
 이 예제에서는 페이지 보기 데이터를 사용하지만, 동일한 패턴을 사용자 지정 이벤트 및 예외와 같은 다른 데이터 형식으로 쉽게 확장할 수 있습니다.
 
 
-## Application Insights SDK 추가
+## 응용 프로그램에 Application Insights 추가
 
-응용 프로그램을 모니터링하려면 응용 프로그램에 [Application Insights SDK를 추가][start]합니다. 다양한 플랫폼, IDE, 언어를 위한 다양한 SDK와 도우미 도구가 있습니다. 웹 페이지, Java 또는 ASP.NET 웹 서버 및 여러 종류의 모바일 장치를 모니터링할 수 있습니다. 모든 SDK는 [Application Insights 포털][portal]로 원격 분석을 보내며 여기서 강력한 분석 및 진단 도구를 사용하고 저장소로 데이터를 내보낼 수 있습니다.
 
 시작하기:
 
-1. [Microsoft Azure에서 계정](https://azure.microsoft.com/pricing/)을 만듭니다.
-2. [Azure 포털][portal]에서 앱에 대한 새 Application Insights 리소스를 추가합니다.
+1. [웹 페이지용 Application Insights를 설치합니다](app-insights-javascript.md). 
 
-    ![새로 만들기, 개발자 서비스, Application Insights 선택 후 응용 프로그램의 유형 선택](./media/app-insights-code-sample-export-sql-stream-analytics/010-new-asp.png)
+    (이 예제에서는 클라이언트 브라우저에서 페이지 보기 데이터를 처리하는 데 초점을 두었지만 [Java](app-insights-java-get-started.md) 또는 [ASP.NET](app-insights-asp-net.md) 앱의 서버 쪽에 대한 Application Insights, 프로세스 요청, 종속성 및 기타 서버 원격 분석도 설정할 수 있습니다.)
 
-
-    (사용자의 앱 유형 및 구독이 다를 수 있습니다.)
-3. 해당 앱 유형의 SDK를 설정하는 방법을 찾으려면 빠른 시작을 엽니다.
-
-    ![빠른 시작을 선택하고 지침 따르기](./media/app-insights-code-sample-export-sql-stream-analytics/020-quick.png)
-
-    앱 유형이 나열되어 있지 않으면 [시작][start] 페이지를 살펴봅니다.
-
-4. 이 예제에서는 웹앱을 모니터링하므로 Visual Studio에서 Azure 도구를 사용하여 SDK를 설치할 수 있습니다. 여기에 Application Insights 리소스의 이름을 알려줍니다.
-
-    ![Visual Studio 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 Application Insights 추가를 선택합니다. 송신 원격 분석에서 새 리소스를 만들거나 기존 리소스를 사용합니다.](./media/app-insights-code-sample-export-sql-stream-analytics/appinsights-d012-addbrown.png)
 
 5. 앱을 게시하고 Application Insights 리소스에 표시되는 원격 분석 데이터를 확인합니다.
 
@@ -59,7 +46,7 @@
 
 연속 내보내기는 항상 Azure 저장소 계정에 데이터를 출력하므로 저장소를 먼저 만들어야 합니다.
 
-1. [Azure 포털][portal]에서 구독에 "클래식" 저장소 계정을 만듭니다.
+1. [Azure 포털][portal]에서 구독에 저장소 계정을 만듭니다.
 
     ![Azure 포털에서 새로 만들기, 데이터, 저장소를 선택합니다. 클래식을 선택하고 만들기를 선택합니다. 저장소 이름을 제공합니다.](./media/app-insights-code-sample-export-sql-stream-analytics/040-store.png)
 
@@ -315,4 +302,4 @@ SQL 데이터베이스를 지정합니다.
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

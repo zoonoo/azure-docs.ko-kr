@@ -253,7 +253,7 @@ Azure Active Directory는 구독에 대해 리소스 관리자로 작동하므�
 
     azure location list
 
-또한 **jq**와 같은 도구를 사용하여 위치 결과를 필터링할 수도 있습니다. jq와 같은 도구에 대해 자세히 알아보려면 [Azure와 상호작용하는 유용한 도구](/virtual-machines/resource-group-deploy-debug/#useful-tools-to-interact-with-azure)를 참조하세요.
+또한 [jq](https://stedolan.github.io/jq/)와 같은 JSON 유틸리티를 사용하여 위치 결과를 필터링할 수도 있습니다.
 
     azure location list --json | jq '.[] | select(.name == "Microsoft.Web/sites")'
 
@@ -305,4 +305,4 @@ Azure Active Directory는 구독에 대해 리소스 관리자로 작동하므�
 - 리소스 관리자 템플릿을 만드는 방법에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 - 리소스 배포에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
 
-<!------HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/26/2016"
+   ms.date="03/23/2016"
    ms.author="oanapl"/>
 
 # 서비스 패브릭 상태 보고서 보기
@@ -32,10 +32,10 @@ Azure 서비스 패브릭은 시스템 구성 요소와 watchdogs가 모니터�
 이러한 옵션을 설명하기 위해 5개의 노드가 있는 로컬 클러스터를 사용하겠습니다. **패브릭:/시스템** 응용 프로그램(기본적으로 존재) 옆에는 다른 응용 프로그램이 배포되어 있습니다. 그 중 하나는 **패브릭:/WordCount**입니다. 이 응용 프로그램에는 7개의 복제본으로 구성된 상태 저장 서비스가 포함되어 있습니다. 5개의 노드만 있으므로 시스템 구성 요소는 파티션이 대상 개수 이하라는 경고를 보여 줍니다.
 
 ```xml
-<Service Name="WordCount.Service">
-  <StatefulService ServiceTypeName="WordCount.Service" MinReplicaSetSize="2" TargetReplicaSetSize="7">
-    <UniformInt64Partition PartitionCount="1" LowKey="1" HighKey="26" />
-  </StatefulService>
+<Service Name="WordCountService">
+    <StatefulService ServiceTypeName="WordCountServiceType" TargetReplicaSetSize="7" MinReplicaSetSize="2">
+      <UniformInt64Partition PartitionCount="1" LowKey="1" HighKey="26" />
+    </StatefulService>
 </Service>
 ```
 
@@ -44,7 +44,7 @@ Azure 서비스 패브릭은 시스템 구성 요소와 watchdogs가 모니터�
 
 - 속성 **가용성**에 대해 **MyWatchdog**에서 보고한 오류 이벤트가 있으므로 응용 프로그램 **패브릭:/WordCount**가 빨간색(오류 시)입니다.
 
-- 해당 서비스 중 하나인 **패브릭:/WordCount/WordCount.Service**가 노란색입니다(경고 시). 위에서 설명한 대로, 이 서비스는 7개의 복제본으로 구성되며 모두 배치할 수 없습니다(5개의 노드만 있으므로). 여기에 표시되지 않았지만 서비스 파티션은 시스템 보고서 때문에 노란색입니다. 노란색 파티션은 노란색 서비스를 트리거합니다.
+- 해당 서비스 중 하나인 **패브릭:/WordCount/WordCountService**가 노란색입니다(경고 시). 위에서 설명한 대로, 이 서비스는 7개의 복제본으로 구성되며 모두 배치할 수 없습니다(5개의 노드만 있으므로). 여기에 표시되지 않았지만 서비스 파티션은 시스템 보고서 때문에 노란색입니다. 노란색 파티션은 노란색 서비스를 트리거합니다.
 
 - 클러스터는 빨간색 응용 프로그램으로 인해 빨간색입니다.
 
@@ -81,20 +81,22 @@ Azure 서비스 패브릭은 시스템 구성 요소와 watchdogs가 모니터�
 ## 클러스터 상태 가져오기
 이는 클러스터 엔터티의 상태를 반환하고 응용 프로그램 및 노드의 성능 상태를 포함합니다(클러스터의 자녀). 입력:
 
+- [옵션] 노드 및 클러스터 이벤트를 평가하는 데 사용되는 클러스터 상태 정책.
+
 - [옵션] 응용 프로그램 매니페스트 정책을 재정의하는 데 사용되는 상태 정책이 있는 응용 프로그램 상태 정책 맵.
 
 - [옵션] 관심 있는 엔터티를 지정하고 결과에 반환되어야 하는 이벤트, 노드 및 응용 프로그램에 대한 필터(예: 오류만 또는 경고 및 오류). 모든 이벤트, 노드 및 응용 프로그램은 필터에 관계 없이 엔터티 집계된 성능 평가에 사용됩니다.
 
 ### API
-클러스터 상태를 얻으려면 **HealthManager**에서 **FabricClient**를 만들고 [**GetClusterHealthAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient.getclusterhealthasync.aspx) 메서드를 호출합니다.
+클러스터 상태를 얻으려면 **HealthManager**에서 `FabricClient`를 만들고 [GetClusterHealthAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient.getclusterhealthasync.aspx) 메서드를 호출합니다.
 
 다음은 클러스터 상태를 가져옵니다.
 
 ```csharp
-ClusterHealth clusterHealth = fabricClient.HealthManager.GetClusterHealthAsync().Result;
+ClusterHealth clusterHealth = await fabricClient.HealthManager.GetClusterHealthAsync();
 ```
 
-다음은 노드 및 응용 프로그램에 대해 사용자 지정 클러스터 상태 정책 및 필터를 사용하여 클러스터 상태를 가져옵니다. 모든 입력 데이터가 포함된 **System.Fabric.Description.[ClusterHealthQueryDescription](https://msdn.microsoft.com/library/azure/system.fabric.description.clusterhealthquerydescription.aspx)**을 생성합니다.
+다음은 노드 및 응용 프로그램에 대해 사용자 지정 클러스터 상태 정책 및 필터를 사용하여 클러스터 상태를 가져옵니다. 모든 입력 데이터가 포함된 [ClusterHealthQueryDescription](https://msdn.microsoft.com/library/azure/system.fabric.description.clusterhealthquerydescription.aspx)을 생성합니다.
 
 ```csharp
 var policy = new ClusterHealthPolicy()
@@ -103,11 +105,11 @@ var policy = new ClusterHealthPolicy()
 };
 var nodesFilter = new NodeHealthStatesFilter()
 {
-    HealthStateFilter = (long)(HealthStateFilter.Error | HealthStateFilter.Warning)
+    HealthStateFilterValue = HealthStateFilter.Error | HealthStateFilter.Warning
 };
 var applicationsFilter = new ApplicationHealthStatesFilter()
 {
-    HealthStateFilter = (long)HealthStateFilter.Error
+    HealthStateFilterValue = HealthStateFilter.Error
 };
 var queryDescription = new ClusterHealthQueryDescription()
 {
@@ -115,11 +117,12 @@ var queryDescription = new ClusterHealthQueryDescription()
     ApplicationsFilter = applicationsFilter,
     NodesFilter = nodesFilter,
 };
-ClusterHealth clusterHealth = fabricClient.HealthManager.GetClusterHealthAsync(queryDescription).Result;
+
+ClusterHealth clusterHealth = await fabricClient.HealthManager.GetClusterHealthAsync(queryDescription);
 ```
 
 ### PowerShell
-클러스터 상태를 가져오려는 cmdlet은 **[Get-ServiceFabricClusterHealth](https://msdn.microsoft.com/library/mt125850.aspx)**입니다. 먼저 **Connect-ServiceFabricCluster** cmdlet을 사용하여 클러스터에 연결합니다.
+클러스터 상태를 가져오려는 cmdlet은 [Get-ServiceFabricClusterHealth](https://msdn.microsoft.com/library/mt125850.aspx)입니다. 먼저 [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx) cmdlet을 사용하여 클러스터에 연결합니다.
 
 클러스터의 상태는 상기한 것처럼 구성된 5개의 노드 및 시스템 응용 프로그램 및 패브릭:/WordCount입니다.
 
@@ -130,40 +133,36 @@ PS C:\> Get-ServiceFabricClusterHealth
 
 AggregatedHealthState   : Warning
 UnhealthyEvaluations    :
-                          Unhealthy applications: 50% (1/2), MaxPercentUnhealthyApplications=0%.
+                          Unhealthy applications: 100% (1/1), MaxPercentUnhealthyApplications=0%.
 
                           Unhealthy application: ApplicationName='fabric:/WordCount', AggregatedHealthState='Warning'.
 
-                          Unhealthy services: 100% (1/1), ServiceType='WordCount.Service', MaxPercentUnhealthyServices=0%.
+                              Unhealthy services: 100% (1/1), ServiceType='WordCountServiceType', MaxPercentUnhealthyServices=0%.
 
-                          Unhealthy service: ServiceName='fabric:/WordCount/WordCount.Service', AggregatedHealthState='Warning'.
+                              Unhealthy service: ServiceName='fabric:/WordCount/WordCountService', AggregatedHealthState='Warning'.
 
-                          Unhealthy partitions: 100% (1/1), MaxPercentUnhealthyPartitionsPerService=0%.
+                                  Unhealthy event: SourceId='System.PLB',
+                          Property='ServiceReplicaUnplacedHealth_Secondary_a1f83a35-d6bf-4d39-b90d-28d15f39599b', HealthState='Warning',
+                          ConsiderWarningAsError=false.
 
-                          Unhealthy partition: PartitionId='889909a3-04d6-4a01-97c1-3e9851d77d6c', AggregatedHealthState='Warning'.
-
-                          Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', ConsiderWarningAsError=false.
 
 NodeHealthStates        :
-                          NodeName              : Node.4
+                          NodeName              : _Node_2
                           AggregatedHealthState : Ok
 
-                          NodeName              : Node.2
+                          NodeName              : _Node_0
                           AggregatedHealthState : Ok
 
-                          NodeName              : Node.1
+                          NodeName              : _Node_1
                           AggregatedHealthState : Ok
 
-                          NodeName              : Node.5
+                          NodeName              : _Node_3
                           AggregatedHealthState : Ok
 
-                          NodeName              : Node.3
+                          NodeName              : _Node_4
                           AggregatedHealthState : Ok
 
 ApplicationHealthStates :
-                          ApplicationName       : fabric:/CalculatorActor
-                          AggregatedHealthState : Ok
-
                           ApplicationName       : fabric:/System
                           AggregatedHealthState : Ok
 
@@ -181,24 +180,22 @@ $appHealthPolicy.ConsiderWarningAsError = $true
 $appHealthPolicyMap = New-Object -TypeName System.Fabric.Health.ApplicationHealthPolicyMap
 $appUri1 = New-Object -TypeName System.Uri -ArgumentList "fabric:/WordCount"
 $appHealthPolicyMap.Add($appUri1, $appHealthPolicy)
-$warningAndErrorFilter = [System.Fabric.Health.HealthStateFilter]::Warning.value__  + [System.Fabric.Health.HealthStateFilter]::Error.value__
-Get-ServiceFabricClusterHealth -ApplicationHealthPolicyMap $appHealthPolicyMap -ApplicationsHealthStateFilter $warningAndErrorFilter -NodesHealthStateFilter $warningAndErrorFilter
+Get-ServiceFabricClusterHealth -ApplicationHealthPolicyMap $appHealthPolicyMap -ApplicationsFilter "Warning,Error" -NodesFilter "Warning,Error"
+
 
 AggregatedHealthState   : Error
 UnhealthyEvaluations    :
-                          Unhealthy applications: 50% (1/2), MaxPercentUnhealthyApplications=0%.
+                          Unhealthy applications: 100% (1/1), MaxPercentUnhealthyApplications=0%.
 
                           Unhealthy application: ApplicationName='fabric:/WordCount', AggregatedHealthState='Error'.
 
-                          Unhealthy services: 100% (1/1), ServiceType='WordCount.Service', MaxPercentUnhealthyServices=0%.
+                              Unhealthy services: 100% (1/1), ServiceType='WordCountServiceType', MaxPercentUnhealthyServices=0%.
 
-                          Unhealthy service: ServiceName='fabric:/WordCount/WordCount.Service', AggregatedHealthState='Error'.
+                              Unhealthy service: ServiceName='fabric:/WordCount/WordCountService', AggregatedHealthState='Error'.
 
-                          Unhealthy partitions: 100% (1/1), MaxPercentUnhealthyPartitionsPerService=0%.
-
-                          Unhealthy partition: PartitionId='889909a3-04d6-4a01-97c1-3e9851d77d6c', AggregatedHealthState='Error'.
-
-                          Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', ConsiderWarningAsError=true.
+                                  Unhealthy event: SourceId='System.PLB',
+                          Property='ServiceReplicaUnplacedHealth_Secondary_a1f83a35-d6bf-4d39-b90d-28d15f39599b', HealthState='Warning',
+                          ConsiderWarningAsError=true.
 
 
 NodeHealthStates        : None
@@ -220,46 +217,47 @@ HealthEvents            : None
 - [옵션] 관심 있는 엔터티를 지정하고 결과에 반환되어야 하는 이벤트에 대한 필터(예: 오류만 또는 경고 및 오류). 모든 이벤트는 필터에 관계 없이 엔터티 집계된 성능 평가에 사용됩니다.
 
 ### API
-API를 통해 노드 상태를 가져오려면 HealthManager에서 FabricClient를 만들고 **GetNodeHealthAsync** 메서드를 호출합니다.
+API를 통해 노드 상태를 가져오려면 HealthManager에서 `FabricClient`를 만들고 [GetNodeHealthAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient.getnodehealthasync.aspx) 메서드를 호출합니다.
 
 다음은 지정된 노드 이름에 대한 노드 상태를 가져옵니다.
 
 ```csharp
-NodeHealth nodeHealth = fabricClient.HealthManager.GetNodeHealthAsync(nodeName).Result;
+NodeHealth nodeHealth = await fabricClient.HealthManager.GetNodeHealthAsync(nodeName);
 ```
 
-다음은 지정된 노드 이름에 대한 노드 상태를 가져오고 **System.Fabric.Description.[NodeHealthQueryDescription](https://msdn.microsoft.com/library/azure/system.fabric.description.nodehealthquerydescription.aspx)**을 통해 이벤트 필터와 사용자 지정 정책을 전달합니다.
+다음은 지정된 노드 이름에 대한 노드 상태를 가져오고 [NodeHealthQueryDescription](https://msdn.microsoft.com/library/azure/system.fabric.description.nodehealthquerydescription.aspx)을 통해 이벤트 필터와 사용자 지정 정책을 전달합니다.
 
 ```csharp
 var queryDescription = new NodeHealthQueryDescription(nodeName)
 {
     HealthPolicy = new ClusterHealthPolicy() {  ConsiderWarningAsError = true },
-    EventsFilter = new HealthEventsFilter() { HealthStateFilter = (long)HealthStateFilter.Warning },
+    EventsFilter = new HealthEventsFilter() { HealthStateFilterValue = HealthStateFilter.Warning },
 };
 
-NodeHealth nodeHealth = fabricClient.HealthManager.GetNodeHealthAsync(queryDescription).Result;
+NodeHealth nodeHealth = await fabricClient.HealthManager.GetNodeHealthAsync(queryDescription);
 ```
 
 ### PowerShell
-노드 상태를 가져오려는 cmdlet은 **Get-ServiceFabricNodeHealth**입니다. 먼저 **Connect-ServiceFabricCluster** cmdlet을 사용하여 클러스터에 연결합니다. 다음 cmdlet은 기본 상태 정책을 사용하여 노드 상태를 가져옵니다.
+노드 상태를 가져오려는 cmdlet은 [Get-ServiceFabricNodeHealth](https://msdn.microsoft.com/library/mt125937.aspx)입니다. 먼저 [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx) cmdlet을 사용하여 클러스터에 연결합니다. 다음 cmdlet은 기본 상태 정책을 사용하여 노드 상태를 가져옵니다.
 
 ```powershell
-PS C:\> Get-ServiceFabricNodeHealth -NodeName Node.1
+PS C:\> Get-ServiceFabricNodeHealth _Node_1
 
-NodeName              : Node.1
+
+NodeName              : _Node_1
 AggregatedHealthState : Ok
 HealthEvents          :
                         SourceId              : System.FM
                         Property              : State
                         HealthState           : Ok
-                        SequenceNumber        : 5
-                        SentAt                : 4/21/2015 8:01:17 AM
-                        ReceivedAt            : 4/21/2015 8:02:12 AM
+                        SequenceNumber        : 6
+                        SentAt                : 3/22/2016 7:47:56 PM
+                        ReceivedAt            : 3/22/2016 7:48:19 PM
                         TTL                   : Infinite
                         Description           : Fabric node is up.
                         RemoveWhenExpired     : False
                         IsExpired             : False
-                        Transitions           : ->Ok = 4/21/2015 8:02:12 AM
+                        Transitions           : Error->Ok = 3/22/2016 7:48:19 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
 다음 cmdlet은 클러스터 내에서 모든 노드의 상태를 가져옵니다.
@@ -269,11 +267,11 @@ PS C:\> Get-ServiceFabricNode | Get-ServiceFabricNodeHealth | select NodeName, A
 
 NodeName AggregatedHealthState
 -------- ---------------------
-Node.4                      Ok
-Node.2                      Ok
-Node.1                      Ok
-Node.5                      Ok
-Node.3                      Ok
+_Node_2                     Ok
+_Node_0                     Ok
+_Node_1                     Ok
+_Node_3                     Ok
+_Node_4                     Ok
 ```
 
 ## 응용 프로그램 상태 가져오기
@@ -286,15 +284,15 @@ Node.3                      Ok
 - [옵션] 관심 있는 엔터티를 지정하고 결과에 반환되어야 하는 이벤트, 서비스 및 배포된 응용 프로그램에 대한 필터(예: 오류만 또는 경고 및 오류). 모든 이벤트, 서비스 및 배포된 응용 프로그램은 필터에 관계 없이 엔터티 집계된 성능 평가에 사용됩니다.
 
 ### API
-응용 프로그램 상태를 가져오려면 HealthManager에서 FabricClient를 만들고 **GetApplicationHealthAsync** 메서드를 호출합니다.
+응용 프로그램 상태를 가져오려면 HealthManager에서 `FabricClient`를 만들고 [GetApplicationHealthAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient.getapplicationhealthasync.aspx) 메서드를 호출합니다.
 
 다음은 지정된 응용 프로그램 이름(URI)에 대한 응용 프로그램 상태를 가져옵니다.
 
 ```csharp
-ApplicationHealth applicationHealth = fabricClient.HealthManager.GetApplicationHealthAsync(applicationName).Result;
+ApplicationHealth applicationHealth = await fabricClient.HealthManager.GetApplicationHealthAsync(applicationName);
 ```
 
-다음은 **System.Fabric.Description.ApplicationHealthQueryDescription**을 통해 지정된 필터와 사용자 지정 정책으로 지정된 응용 프로그램 이름(URI)에 대한 응용 프로그램 상태를 가져옵니다.
+다음은 [ApplicationHealthQueryDescription](https://msdn.microsoft.com/library/azure/system.fabric.description.applicationhealthquerydescription.aspx)을 통해 지정된 필터와 사용자 지정 정책으로 지정된 응용 프로그램 이름(URI)에 대한 응용 프로그램 상태를 가져옵니다.
 
 ```csharp
 HealthStateFilter warningAndErrors = HealthStateFilter.Error | HealthStateFilter.Warning;
@@ -314,102 +312,107 @@ var policy = new ApplicationHealthPolicy()
 var queryDescription = new ApplicationHealthQueryDescription(applicationName)
 {
     HealthPolicy = policy,
-    EventsFilter = new HealthEventsFilter() { HealthStateFilter = (long)warningAndErrors },
-    ServicesFilter = new ServiceHealthStatesFilter() { HealthStateFilter = (long)warningAndErrors },
-    DeployedApplicationsFilter = new DeployedApplicationHealthStatesFilter() { HealthStateFilter = (long)warningAndErrors },
+    EventsFilter = new HealthEventsFilter() { HealthStateFilterValue = warningAndErrors },
+    ServicesFilter = new ServiceHealthStatesFilter() { HealthStateFilterValue = warningAndErrors },
+    DeployedApplicationsFilter = new DeployedApplicationHealthStatesFilter() { HealthStateFilterValue = warningAndErrors },
 };
 
-ApplicationHealth applicationHealth = fabricClient.HealthManager.GetApplicationHealthAsync(queryDescription).Result;
+ApplicationHealth applicationHealth = await fabricClient.HealthManager.GetApplicationHealthAsync(queryDescription);
 ```
 
 ### PowerShell
-응용 프로그램 상태를 가져오기 위한 cmdlet은 **Get-ServiceFabricApplicationHealth**입니다. 먼저 **Connect-ServiceFabricCluster** cmdlet을 사용하여 클러스터에 연결합니다.
+응용 프로그램 상태를 가져오기 위한 cmdlet은 [Get-ServiceFabricApplicationHealth](https://msdn.microsoft.com/library/mt125976.aspx)입니다. 먼저 [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx) cmdlet을 사용하여 클러스터에 연결합니다.
 
-다음 cmdlet은 패브릭:/WordCount 응용 프로그램의 상태를 반환합니다.
+다음 cmdlet은 **패브릭:/WordCount** 응용 프로그램의 상태를 반환합니다.
 
 ```powershell
-PS c:> Get-ServiceFabricApplicationHealth fabric:/WordCount
+PS c:>
+PS C:\WINDOWS\system32>  Get-ServiceFabricApplicationHealth fabric:/WordCount
+
 
 ApplicationName                 : fabric:/WordCount
 AggregatedHealthState           : Warning
 UnhealthyEvaluations            :
-                                  Unhealthy services: 100% (1/1), ServiceType='WordCount.Service',
-                                  MaxPercentUnhealthyServices=0%.
+                                  Unhealthy services: 100% (1/1), ServiceType='WordCountServiceType', MaxPercentUnhealthyServices=0%.
 
-                                  Unhealthy service: ServiceName='fabric:/WordCount/WordCount.Service',
-                                  AggregatedHealthState='Warning'.
+                                  Unhealthy service: ServiceName='fabric:/WordCount/WordCountService', AggregatedHealthState='Warning'.
 
-                                  Unhealthy partitions: 100% (1/1), MaxPercentUnhealthyPartitionsPerService=0%.
-
-                                  Unhealthy partition: PartitionId='325da69f-16d4-4418-9c30-1feaa40a072c',
-                                  AggregatedHealthState='Warning'.
-
-                                  Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning',
+                                      Unhealthy event: SourceId='System.PLB',
+                                  Property='ServiceReplicaUnplacedHealth_Secondary_a1f83a35-d6bf-4d39-b90d-28d15f39599b', HealthState='Warning',
                                   ConsiderWarningAsError=false.
 
 ServiceHealthStates             :
-                                  ServiceName           : fabric:/WordCount/WordCount.WebService
-                                  AggregatedHealthState : Ok
-
-                                  ServiceName           : fabric:/WordCount/WordCount.Service
+                                  ServiceName           : fabric:/WordCount/WordCountService
                                   AggregatedHealthState : Warning
+
+                                  ServiceName           : fabric:/WordCount/WordCountWebService
+                                  AggregatedHealthState : Ok
 
 DeployedApplicationHealthStates :
                                   ApplicationName       : fabric:/WordCount
-                                  NodeName              : Node.2
+                                  NodeName              : _Node_0
                                   AggregatedHealthState : Ok
 
                                   ApplicationName       : fabric:/WordCount
-                                  NodeName              : Node.5
+                                  NodeName              : _Node_2
                                   AggregatedHealthState : Ok
 
                                   ApplicationName       : fabric:/WordCount
-                                  NodeName              : Node.4
+                                  NodeName              : _Node_3
                                   AggregatedHealthState : Ok
 
                                   ApplicationName       : fabric:/WordCount
-                                  NodeName              : Node.1
+                                  NodeName              : _Node_4
                                   AggregatedHealthState : Ok
 
                                   ApplicationName       : fabric:/WordCount
-                                  NodeName              : Node.3
+                                  NodeName              : _Node_1
                                   AggregatedHealthState : Ok
 
 HealthEvents                    :
                                   SourceId              : System.CM
                                   Property              : State
                                   HealthState           : Ok
-                                  SequenceNumber        : 2456
-                                  SentAt                : 4/20/2015 9:57:06 PM
-                                  ReceivedAt            : 4/20/2015 9:57:06 PM
+                                  SequenceNumber        : 360
+                                  SentAt                : 3/22/2016 7:56:53 PM
+                                  ReceivedAt            : 3/22/2016 7:56:53 PM
                                   TTL                   : Infinite
                                   Description           : Application has been created.
                                   RemoveWhenExpired     : False
                                   IsExpired             : False
-                                  Transitions           : ->Ok = 4/20/2015 9:57:06 PM
+                                  Transitions           : Error->Ok = 3/22/2016 7:56:53 PM, LastWarning = 1/1/0001 12:00:00 AM
+
+                                  SourceId              : MyWatchdog
+                                  Property              : Availability
+                                  HealthState           : Ok
+                                  SequenceNumber        : 131031545225930951
+                                  SentAt                : 3/22/2016 9:08:42 PM
+                                  ReceivedAt            : 3/22/2016 9:08:42 PM
+                                  TTL                   : Infinite
+                                  Description           : Availability checked successfully, latency ok
+                                  RemoveWhenExpired     : False
+                                  IsExpired             : False
+                                  Transitions           : Error->Ok = 3/22/2016 8:55:39 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
 다음 PowerShell cmdlet은 사용자 지정 정책을 전달합니다. 또한 자녀와 이벤트를 필터링합니다.
 
 ```powershell
-PS C:\> $errorFilter = [System.Fabric.Health.HealthStateFilter]::Error.value__
-Get-ServiceFabricApplicationHealth -ApplicationName fabric:/WordCount -ConsiderWarningAsError $true -ServicesHealthStateFilter $errorFilter -EventsHealthStateFilter $errorFilter -DeployedApplicationsHealthStateFilter $errorFilter
+PS C:\> Get-ServiceFabricApplicationHealth -ApplicationName fabric:/WordCount -ConsiderWarningAsError $true -ServicesFilter Error -EventsFilter Error -DeployedApplicationsFilter Error
 
 ApplicationName                 : fabric:/WordCount
 AggregatedHealthState           : Error
 UnhealthyEvaluations            :
-                                  Unhealthy services: 100% (1/1), ServiceType='WordCount.Service', MaxPercentUnhealthyServices=0%.
+                                  Unhealthy services: 100% (1/1), ServiceType='WordCountServiceType', MaxPercentUnhealthyServices=0%.
 
-                                  Unhealthy service: ServiceName='fabric:/WordCount/WordCount.Service', AggregatedHealthState='Error'.
+                                  Unhealthy service: ServiceName='fabric:/WordCount/WordCountService', AggregatedHealthState='Error'.
 
-                                  Unhealthy partitions: 100% (1/1), MaxPercentUnhealthyPartitionsPerService=0%.
-
-                                  Unhealthy partition: PartitionId='8f82daff-eb68-4fd9-b631-7a37629e08c0', AggregatedHealthState='Error'.
-
-                                  Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', ConsiderWarningAsError=true.
+                                      Unhealthy event: SourceId='System.PLB',
+                                  Property='ServiceReplicaUnplacedHealth_Secondary_a1f83a35-d6bf-4d39-b90d-28d15f39599b', HealthState='Warning',
+                                  ConsiderWarningAsError=true.
 
 ServiceHealthStates             :
-                                  ServiceName           : fabric:/WordCount/WordCount.Service
+                                  ServiceName           : fabric:/WordCount/WordCountService
                                   AggregatedHealthState : Error
 
 DeployedApplicationHealthStates : None
@@ -420,64 +423,101 @@ HealthEvents                    : None
 서비스 엔터티의 상태를 반환합니다. 파티션 성능 상태를 포함합니다. 입력:
 
 - [필수] 서비스를 식별하는 서비스 이름(URI)
+
 - [옵션] 응용 프로그램 매니페스트 정책을 재정의하는 데 사용되는 응용 프로그램 상태 정책.
+
 - [옵션] 관심 있는 엔터티를 지정하고 결과에 반환되어야 하는 이벤트 및 파티션에 대한 필터(예: 오류만 또는 경고 및 오류). 모든 이벤트 및 파티션은 필터에 관계 없이 엔터티 집계된 성능 평가에 사용됩니다.
 
 ### API
-API를 통해 서비스 상태를 가져오려면 HealthManager에서 FabricClient를 만들고 **GetServiceHealthAsync** 메서드를 호출합니다.
+API를 통해 서비스 상태를 가져오려면 HealthManager에서 `FabricClient`를 만들고 [GetServiceHealthAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient.getservicehealthasync.aspx) 메서드를 호출합니다.
 
 다음 예제는 지정된 서비스 이름(URI)을 가진 서비스 상태를 가져옵니다.
 
 ```charp
-ServiceHealth serviceHealth = fabricClient.HealthManager.GetServiceHealthAsync(serviceName).Result;
+ServiceHealth serviceHealth = await fabricClient.HealthManager.GetServiceHealthAsync(serviceName);
 ```
 
-다음은 System.Fabric.Description.ServiceHealthQueryDescription을 통해 필터와 사용자 지정 정책을 지정하면서 지정된 서비스 이름(URI)에 대한 서비스 상태를 가져옵니다.
+다음은 [ServiceHealthQueryDescription](https://msdn.microsoft.com/library/azure/system.fabric.description.servicehealthquerydescription.aspx)을 통해 필터와 사용자 지정 정책을 지정하면서 지정된 서비스 이름(URI)에 대한 서비스 상태를 가져옵니다.
 
 ```csharp
 var queryDescription = new ServiceHealthQueryDescription(serviceName)
 {
-    EventsFilter = new HealthEventsFilter() { HealthStateFilter = (long)HealthStateFilter.All },
-    PartitionsFilter = new PartitionHealthStatesFilter() { HealthStateFilter = (long)HealthStateFilter.Error },
+    EventsFilter = new HealthEventsFilter() { HealthStateFilterValue = HealthStateFilter.All },
+    PartitionsFilter = new PartitionHealthStatesFilter() { HealthStateFilterValue = HealthStateFilter.Error },
 };
 
-ServiceHealth serviceHealth = fabricClient.HealthManager.GetServiceHealthAsync(queryDescription).Result;
+ServiceHealth serviceHealth = await fabricClient.HealthManager.GetServiceHealthAsync(queryDescription);
 ```
 
 ### PowerShell
-서비스 상태를 가져오는 cmdlet은 **Get-ServiceFabricServiceHealth**입니다. 먼저 **Connect-ServiceFabricCluster** cmdlet을 사용하여 클러스터에 연결합니다.
+서비스 상태를 가져오는 cmdlet은 [Get-ServiceFabricServiceHealth](https://msdn.microsoft.com/library/mt125984.aspx)입니다. 먼저 [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx) cmdlet을 사용하여 클러스터에 연결합니다.
 
 다음 cmdlet은 기본 상태 정책을 사용하여 서비스 상태를 가져옵니다.
 
 ```powershell
-PS C:\> Get-ServiceFabricServiceHealth -ServiceName fabric:/WordCount/WordCount.Service
+PS C:\> Get-ServiceFabricServiceHealth -ServiceName fabric:/WordCount/WordCountService
 
 
-ServiceName           : fabric:/WordCount/WordCount.Service
+ServiceName           : fabric:/WordCount/WordCountService
 AggregatedHealthState : Warning
 UnhealthyEvaluations  :
-                        Unhealthy partitions: 100% (1/1), MaxPercentUnhealthyPartitionsPerService=0%.
-
-                        Unhealthy partition: PartitionId='8f82daff-eb68-4fd9-b631-7a37629e08c0', AggregatedHealthState='Warning'.
-
-                        Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', ConsiderWarningAsError=false.
+                        Unhealthy event: SourceId='System.PLB',
+                        Property='ServiceReplicaUnplacedHealth_Secondary_a1f83a35-d6bf-4d39-b90d-28d15f39599b', HealthState='Warning',
+                        ConsiderWarningAsError=false.
 
 PartitionHealthStates :
-                        PartitionId           : 8f82daff-eb68-4fd9-b631-7a37629e08c0
+                        PartitionId           : a1f83a35-d6bf-4d39-b90d-28d15f39599b
                         AggregatedHealthState : Warning
 
 HealthEvents          :
                         SourceId              : System.FM
                         Property              : State
                         HealthState           : Ok
-                        SequenceNumber        : 3
-                        SentAt                : 4/20/2015 10:12:29 PM
-                        ReceivedAt            : 4/20/2015 10:12:33 PM
+                        SequenceNumber        : 10
+                        SentAt                : 3/22/2016 7:56:53 PM
+                        ReceivedAt            : 3/22/2016 7:57:18 PM
                         TTL                   : Infinite
                         Description           : Service has been created.
                         RemoveWhenExpired     : False
                         IsExpired             : False
-                        Transitions           : ->Ok = 4/20/2015 10:12:33 PM
+                        Transitions           : Error->Ok = 3/22/2016 7:57:18 PM, LastWarning = 1/1/0001 12:00:00 AM
+
+                        SourceId              : System.PLB
+                        Property              : ServiceReplicaUnplacedHealth_Secondary_a1f83a35-d6bf-4d39-b90d-28d15f39599b
+                        HealthState           : Warning
+                        SequenceNumber        : 131031547693687021
+                        SentAt                : 3/22/2016 9:12:49 PM
+                        ReceivedAt            : 3/22/2016 9:12:49 PM
+                        TTL                   : 00:01:05
+                        Description           : The Load Balancer was unable to find a placement for one or more of the Service's Replicas:
+                        fabric:/WordCount/WordCountService Secondary Partition a1f83a35-d6bf-4d39-b90d-28d15f39599b could not be placed, possibly,
+                        due to the following constraints and properties:  
+                        Placement Constraint: N/A
+                        Depended Service: N/A
+
+                        Constraint Elimination Sequence:
+                        ReplicaExclusionStatic eliminated 4 possible node(s) for placement -- 1/5 node(s) remain.
+                        ReplicaExclusionDynamic eliminated 1 possible node(s) for placement -- 0/5 node(s) remain.
+
+                        Nodes Eliminated By Constraints:
+
+                        ReplicaExclusionStatic:
+                        FaultDomain:fd:/0 NodeName:_Node_0 NodeType:NodeType0 UpgradeDomain:0 UpgradeDomain: ud:/0 Deactivation Intent/Status:
+                        None/None
+                        FaultDomain:fd:/1 NodeName:_Node_1 NodeType:NodeType1 UpgradeDomain:1 UpgradeDomain: ud:/1 Deactivation Intent/Status:
+                        None/None
+                        FaultDomain:fd:/3 NodeName:_Node_3 NodeType:NodeType3 UpgradeDomain:3 UpgradeDomain: ud:/3 Deactivation Intent/Status:
+                        None/None
+                        FaultDomain:fd:/4 NodeName:_Node_4 NodeType:NodeType4 UpgradeDomain:4 UpgradeDomain: ud:/4 Deactivation Intent/Status:
+                        None/None
+
+                        ReplicaExclusionDynamic:
+                        FaultDomain:fd:/2 NodeName:_Node_2 NodeType:NodeType2 UpgradeDomain:2 UpgradeDomain: ud:/2 Deactivation Intent/Status:
+                        None/None
+
+
+                        RemoveWhenExpired     : True
+                        IsExpired             : False
 ```
 
 ## 파티션 상태 가져오기
@@ -490,57 +530,58 @@ HealthEvents          :
 - [옵션] 관심 있는 엔터티를 지정하고 결과에 반환되어야 하는 이벤트 및 복제본에 대한 필터(예: 오류만 또는 경고 및 오류). 모든 이벤트 및 복제본은 필터에 관계 없이 엔터티 집계된 성능 평가에 사용됩니다.
 
 ### API
-API를 통해 파티션 상태를 가져오려면 HealthManager에서 FabricClient를 만들고 **GetServiceHealthAsync **메서드를 호출합니다. 옵션인 매개 변수를 지정하려면 **System.Fabric.Description.PartitionHealthQueryDescription**을 만듭니다.
+API를 통해 파티션 상태를 가져오려면 HealthManager에서 `FabricClient`를 만들고 [GetPartitionHealthAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient.getpartitionhealthasync.aspx) 메서드를 호출합니다. 옵션인 매개 변수를 지정하려면 [PartitionHealthQueryDescription](https://msdn.microsoft.com/library/azure/system.fabric.description.partitionhealthquerydescription.aspx)을 만듭니다.
 
 ```csharp
-PartitionHealth partitionHealth = fabricClient.HealthManager.GetPartitionHealthAsync(partitionId).Result;
+PartitionHealth partitionHealth = await fabricClient.HealthManager.GetPartitionHealthAsync(partitionId);
 ```
 
 ### PowerShell
-파티션 상태를 가져오기 위한 cmdlet은 **Get-ServiceFabricPartitionHealth**입니다. 먼저 **Connect-ServiceFabricCluster** cmdlet을 사용하여 클러스터에 연결합니다.
+파티션 상태를 가져오기 위한 cmdlet은 [Get-ServiceFabricPartitionHealth](https://msdn.microsoft.com/library/mt125869.aspx)입니다. 먼저 [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx) cmdlet을 사용하여 클러스터에 연결합니다.
 
-다음 cmdlet은 단어 개수 서비스의 모든 파티션에 대한 상태를 가져옵니다.
+다음 cmdlet은 **패브릭:/WordCount/WordCountService** 서비스의 모든 파티션에 대한 상태를 가져옵니다.
 
 ```powershell
-PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCount.Service | Get-ServiceFabricPartitionHealth
+PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricPartitionHealth
 
-PartitionId           : 8f82daff-eb68-4fd9-b631-7a37629e08c0
+
+PartitionId           : a1f83a35-d6bf-4d39-b90d-28d15f39599b
 AggregatedHealthState : Warning
 UnhealthyEvaluations  :
                         Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', ConsiderWarningAsError=false.
 
 ReplicaHealthStates   :
-                        ReplicaId             : 130740415594605870
+                        ReplicaId             : 131031502143040223
                         AggregatedHealthState : Ok
 
-                        ReplicaId             : 130740415502123433
+                        ReplicaId             : 131031502346844060
                         AggregatedHealthState : Ok
 
-                        ReplicaId             : 130740415594605867
+                        ReplicaId             : 131031502346844059
                         AggregatedHealthState : Ok
 
-                        ReplicaId             : 130740415594605869
+                        ReplicaId             : 131031502346844061
                         AggregatedHealthState : Ok
 
-                        ReplicaId             : 130740415594605868
+                        ReplicaId             : 131031502346844058
                         AggregatedHealthState : Ok
 
 HealthEvents          :
                         SourceId              : System.FM
                         Property              : State
                         HealthState           : Warning
-                        SequenceNumber        : 39
-                        SentAt                : 4/20/2015 10:12:59 PM
-                        ReceivedAt            : 4/20/2015 10:13:03 PM
+                        SequenceNumber        : 76
+                        SentAt                : 3/22/2016 7:57:26 PM
+                        ReceivedAt            : 3/22/2016 7:57:48 PM
                         TTL                   : Infinite
                         Description           : Partition is below target replica or instance count.
                         RemoveWhenExpired     : False
                         IsExpired             : False
-                        Transitions           : Ok->Warning = 4/20/2015 10:13:03 PM
+                        Transitions           : Error->Warning = 3/22/2016 7:57:48 PM, LastOk = 1/1/0001 12:00:00 AM
 ```
 
 ## 복제본 상태 가져오기
-복제본의 상태를 반환합니다. 입력:
+이것은 상태 저장 서비스 복제본 또는 상태 비저장 서비스 인스턴스의 상태를 반환합니다. 입력:
 
 - [필수] 복제본을 식별하는 파티션 ID(GUID) 및 복제본 ID.
 
@@ -549,35 +590,36 @@ HealthEvents          :
 - [옵션] 관심 있는 엔터티를 지정하고 결과에 반환되어야 하는 이벤트에 대한 필터(예: 오류만 또는 경고 및 오류). 모든 이벤트는 필터에 관계 없이 엔터티 집계된 성능 평가에 사용됩니다.
 
 ### API
-API를 통해 복제본 상태를 가져오려면 HealthManager에서 FabricClient를 만들고 **GetReplicaHealthAsync** 메서드를 호출합니다. 고급 매개 변수를 지정하려면 **System.Fabric.Description.ReplicaHealthQueryDescription**을 사용합니다.
+API를 통해 복제본 상태를 가져오려면 HealthManager에서 `FabricClient`를 만들고 [GetReplicaHealthAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient.getreplicahealthasync.aspx) 메서드를 호출합니다. 고급 매개 변수를 지정하려면 [ReplicaHealthQueryDescription](https://msdn.microsoft.com/library/azure/system.fabric.description.replicahealthquerydescription.aspx)을 사용합니다.
 
 ```csharp
-ReplicaHealth replicaHealth = fabricClient.HealthManager.GetReplicaHealthAsync(partitionId, replicaId).Result;
+ReplicaHealth replicaHealth = await fabricClient.HealthManager.GetReplicaHealthAsync(partitionId, replicaId);
 ```
 
 ### PowerShell
-복제본 상태를 가져오는 cmdlet은 **Get-ServiceFabricReplicaHealth**입니다. 먼저 **Connect-ServiceFabricCluster** cmdlet을 사용하여 클러스터에 연결합니다.
+복제본 상태를 가져오는 cmdlet은 [Get-ServiceFabricReplicaHealth](https://msdn.microsoft.com/library/mt125808.aspx)입니다. 먼저 [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx) cmdlet을 사용하여 클러스터에 연결합니다.
 
 다음 cmdlet은 서비스의 모든 파티션에 대한 주 복제본의 상태를 가져옵니다.
 
 ```powershell
-PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCount.Service | Get-ServiceFabricReplica | where {$_.ReplicaRole -eq "Primary"} | Get-ServiceFabricReplicaHealth
+PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricReplica | where {$_.ReplicaRole -eq "Primary"} | Get-ServiceFabricReplicaHealth
 
-PartitionId           : 8f82daff-eb68-4fd9-b631-7a37629e08c0
-ReplicaId             : 130740415502123433
+
+PartitionId           : a1f83a35-d6bf-4d39-b90d-28d15f39599b
+ReplicaId             : 131031502143040223
 AggregatedHealthState : Ok
 HealthEvents          :
                         SourceId              : System.RA
                         Property              : State
                         HealthState           : Ok
-                        SequenceNumber        : 130740415502802942
-                        SentAt                : 4/20/2015 10:12:30 PM
-                        ReceivedAt            : 4/20/2015 10:12:34 PM
+                        SequenceNumber        : 131031502145556748
+                        SentAt                : 3/22/2016 7:56:54 PM
+                        ReceivedAt            : 3/22/2016 7:57:12 PM
                         TTL                   : Infinite
                         Description           : Replica has been created.
                         RemoveWhenExpired     : False
                         IsExpired             : False
-                        Transitions           : ->Ok = 4/20/2015 10:12:34 PM
+                        Transitions           : Error->Ok = 3/22/2016 7:57:12 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
 ## 배포된 응용 프로그램 상태 가져오기
@@ -590,44 +632,46 @@ HealthEvents          :
 - [옵션] 관심 있는 엔터티를 지정하고 결과에 반환되어야 하는 이벤트 및 배포된 서비스 패키지에 대한 필터(예: 오류만 또는 경고 및 오류). 모든 이벤트 및 배포된 서비스 패키지는 필터에 관계 없이 엔터티 집계된 성능 평가에 사용됩니다.
 
 ### API
-API 통해 노드에 배포된 응용 프로그램의 상태를 가져오려면 FabricClient를 만들고 해당 HealthManager에서 **GetDeployedApplicationHealthAsync** 메서드를 호출합니다. 옵션인 매개 변수를 지정하려면 **System.Fabric.Description.DeployedApplicationHealthQueryDescription**을 사용합니다.
+API 통해 노드에 배포된 응용 프로그램의 상태를 가져오려면 `FabricClient`를 만들고 해당 HealthManager에서 [GetDeployedApplicationHealthAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient.getdeployedapplicationhealthasync.aspx) 메서드를 호출합니다. 옵션인 매개 변수를 지정하려면 [DeployedApplicationHealthQueryDescription](https://msdn.microsoft.com/library/azure/system.fabric.description.deployedapplicationhealthquerydescription.aspx)을 사용합니다.
 
 ```csharp
-DeployedApplicationHealth health = fabricClient.HealthManager.GetDeployedApplicationHealthAsync(
-    new DeployedApplicationHealthQueryDescription(applicationName, nodeName)).Result;
+DeployedApplicationHealth health = await fabricClient.HealthManager.GetDeployedApplicationHealthAsync(
+    new DeployedApplicationHealthQueryDescription(applicationName, nodeName));
 ```
 
 ### PowerShell
-배포된 응용 프로그램 상태를 가져오기 위한 cmdlet은 **Get-ServiceFabricApplicationHealth**입니다. 먼저 **Connect-ServiceFabricCluster** cmdlet을 사용하여 클러스터에 연결합니다. 응용 프로그램이 배포되는 위치를 확인하려면 **Get ServiceFabricApplicationHealth**를 실행하고 배포된 응용 프로그램 자녀를 살펴봅니다.
+배포된 응용 프로그램 상태를 가져오기 위한 cmdlet은 [Get-ServiceFabricDeployedApplicationHealth](https://msdn.microsoft.com/library/mt163523.aspx)입니다. 먼저 [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx) cmdlet을 사용하여 클러스터에 연결합니다. 응용 프로그램이 배포되는 위치를 확인하려면 [Get ServiceFabricApplicationHealth](https://msdn.microsoft.com/library/mt125976.aspx)를 실행하고 배포된 응용 프로그램 자녀를 살펴봅니다.
 
-다음 cmdlet은 Node.1에 배포된 패브릭:/WordCount 응용 프로그램의 상태를 가져옵니다.
+다음 cmdlet은 **\_Node\_2**에 배포된 **패브릭:/WordCount** 응용 프로그램의 상태를 가져옵니다.
 
 ```powershell
-PS C:\> Get-ServiceFabricDeployedApplicationHealth -ApplicationName fabric:/WordCount -NodeName Node.1
+PS C:\> Get-ServiceFabricDeployedApplicationHealth -ApplicationName fabric:/WordCount -NodeName _Node_2
+
+
 ApplicationName                    : fabric:/WordCount
-NodeName                           : Node.1
+NodeName                           : _Node_2
 AggregatedHealthState              : Ok
 DeployedServicePackageHealthStates :
-                                     ServiceManifestName   : WordCount.WebService
-                                     NodeName              : Node.1
+                                     ServiceManifestName   : WordCountServicePkg
+                                     NodeName              : _Node_2
                                      AggregatedHealthState : Ok
 
-                                     ServiceManifestName   : WordCount.Service
-                                     NodeName              : Node.1
+                                     ServiceManifestName   : WordCountWebServicePkg
+                                     NodeName              : _Node_2
                                      AggregatedHealthState : Ok
 
 HealthEvents                       :
                                      SourceId              : System.Hosting
                                      Property              : Activation
                                      HealthState           : Ok
-                                     SequenceNumber        : 130740415502842941
-                                     SentAt                : 4/20/2015 10:12:30 PM
-                                     ReceivedAt            : 4/20/2015 10:12:34 PM
+                                     SequenceNumber        : 131031502143710698
+                                     SentAt                : 3/22/2016 7:56:54 PM
+                                     ReceivedAt            : 3/22/2016 7:57:12 PM
                                      TTL                   : Infinite
                                      Description           : The application was activated successfully.
                                      RemoveWhenExpired     : False
                                      IsExpired             : False
-                                     Transitions           : ->Ok = 4/20/2015 10:12:34 PM
+                                     Transitions           : Error->Ok = 3/22/2016 7:57:12 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
 ## 배포된 서비스 패키지 상태 가져오기
@@ -640,65 +684,301 @@ HealthEvents                       :
 - [옵션] 관심 있는 엔터티를 지정하고 결과에 반환되어야 하는 이벤트에 대한 필터(예: 오류만 또는 경고 및 오류). 모든 이벤트는 필터에 관계 없이 엔터티 집계된 성능 평가에 사용됩니다.
 
 ### API
-API 통해 배포된 서비스 패키지 상태를 가져오려면 FabricClient를 만들고 해당 HealthManager에서 **GetDeployedServicePackageHealthAsync** 메서드를 호출합니다.
+API 통해 배포된 서비스 패키지 상태를 가져오려면 `FabricClient`를 만들고 해당 HealthManager에서 [GetDeployedServicePackageHealthAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient.getdeployedservicepackagehealthasync.aspx) 메서드를 호출합니다. 옵션인 매개 변수를 지정하려면 [DeployedServicePackageHealthQueryDescription](https://msdn.microsoft.com/library/azure/system.fabric.description.deployedservicepackagehealthquerydescription.aspx)을 사용합니다.
 
 ```csharp
-DeployedServicePackageHealth health = fabricClient.HealthManager.GetDeployedServicePackageHealthAsync(
-    new DeployedServicePackageHealthQueryDescription(applicationName, nodeName, serviceManifestName)).Result;
+DeployedServicePackageHealth health = await fabricClient.HealthManager.GetDeployedServicePackageHealthAsync(
+    new DeployedServicePackageHealthQueryDescription(applicationName, nodeName, serviceManifestName));
 ```
 
 ### PowerShell
-배포된 서비스 패키지 상태를 가져오는 cmdlet은 **Get-ServiceFabricDeployedServicePackageHealth**입니다. 먼저 **Connect-ServiceFabricCluster** cmdlet을 사용하여 클러스터에 연결합니다. 응용 프로그램이 배포되는 위치를 확인하려면 **Get ServiceFabricApplicationHealth**를 실행하고 배포된 응용 프로그램을 살펴봅니다. 응용 프로그램에 어떤 서비스 패키지가 있는지 보려면 **Get-ServiceFabricDeployedApplicationHealth** 출력에 배포된 서비스 패키지 자녀를 살펴봅니다.
+배포된 서비스 패키지 상태를 가져오는 cmdlet은 [Get-ServiceFabricDeployedServicePackageHealth](https://msdn.microsoft.com/library/mt163525.aspx)입니다. 먼저 [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx) cmdlet을 사용하여 클러스터에 연결합니다. 응용 프로그램이 배포되는 위치를 확인하려면 [Get ServiceFabricApplicationHealth](https://msdn.microsoft.com/library/mt125976.aspx)를 실행하고 배포된 응용 프로그램을 살펴봅니다. 응용 프로그램에 어떤 서비스 패키지가 있는지 보려면 [Get-ServiceFabricDeployedApplicationHealth](https://msdn.microsoft.com/library/mt163523.aspx) 출력에 배포된 서비스 패키지 자녀를 살펴봅니다.
 
-다음 cmdlet은 Node.1에 배포된 패브릭:/WordCount 응용 프로그램의 **WordCount.Service** 서비스 패키지 상태를 가져옵니다. 엔터티에 성공적인 서비스 패키지 및 진입점 활성화와 성공적인 서비스 유형 등록을 위한 **System.Hosting** 보고서가 있습니다.
+다음 cmdlet은 **\_Node\_2**에 배포된 **패브릭:/WordCount** 응용 프로그램의 **WordCountServicePkg** 서비스 패키지 상태를 가져옵니다. 엔터티에 성공적인 서비스 패키지 및 진입점 활성화와 성공적인 서비스 유형 등록을 위한 **System.Hosting** 보고서가 있습니다.
 
 ```powershell
-PS C:\> Get-ServiceFabricDeployedApplication -ApplicationName fabric:/WordCount -NodeName Node.1 | Get-ServiceFabricDeployedServicePackageHealth -ServiceManifestName WordCount.Service
+PS C:\> Get-ServiceFabricDeployedApplication -ApplicationName fabric:/WordCount -NodeName _Node_2 | Get-ServiceFabricDeployedServicePackageHealth -ServiceManifestName WordCountServicePkg
+
 
 ApplicationName       : fabric:/WordCount
-ServiceManifestName   : WordCount.Service
-NodeName              : Node.1
+ServiceManifestName   : WordCountServicePkg
+NodeName              : _Node_2
 AggregatedHealthState : Ok
 HealthEvents          :
                         SourceId              : System.Hosting
                         Property              : Activation
                         HealthState           : Ok
-                        SequenceNumber        : 130740415506383060
-                        SentAt                : 4/20/2015 10:12:30 PM
-                        ReceivedAt            : 4/20/2015 10:12:34 PM
+                        SequenceNumber        : 131031502301306211
+                        SentAt                : 3/22/2016 7:57:10 PM
+                        ReceivedAt            : 3/22/2016 7:57:12 PM
                         TTL                   : Infinite
                         Description           : The ServicePackage was activated successfully.
                         RemoveWhenExpired     : False
                         IsExpired             : False
-                        Transitions           : ->Ok = 4/20/2015 10:12:34 PM
+                        Transitions           : Error->Ok = 3/22/2016 7:57:12 PM, LastWarning = 1/1/0001 12:00:00 AM
 
                         SourceId              : System.Hosting
                         Property              : CodePackageActivation:Code:EntryPoint
                         HealthState           : Ok
-                        SequenceNumber        : 130740415506543054
-                        SentAt                : 4/20/2015 10:12:30 PM
-                        ReceivedAt            : 4/20/2015 10:12:34 PM
+                        SequenceNumber        : 131031502301568982
+                        SentAt                : 3/22/2016 7:57:10 PM
+                        ReceivedAt            : 3/22/2016 7:57:12 PM
                         TTL                   : Infinite
                         Description           : The CodePackage was activated successfully.
                         RemoveWhenExpired     : False
                         IsExpired             : False
-                        Transitions           : ->Ok = 4/20/2015 10:12:34 PM
+                        Transitions           : Error->Ok = 3/22/2016 7:57:12 PM, LastWarning = 1/1/0001 12:00:00 AM
 
                         SourceId              : System.Hosting
-                        Property              : ServiceTypeRegistration:WordCount.Service
+                        Property              : ServiceTypeRegistration:WordCountServiceType
                         HealthState           : Ok
-                        SequenceNumber        : 130740415520193499
-                        SentAt                : 4/20/2015 10:12:32 PM
-                        ReceivedAt            : 4/20/2015 10:12:34 PM
+                        SequenceNumber        : 131031502314788519
+                        SentAt                : 3/22/2016 7:57:11 PM
+                        ReceivedAt            : 3/22/2016 7:57:12 PM
                         TTL                   : Infinite
                         Description           : The ServiceType was registered successfully.
                         RemoveWhenExpired     : False
                         IsExpired             : False
-                        Transitions           : ->Ok = 4/20/2015 10:12:34 PM
+                        Transitions           : Error->Ok = 3/22/2016 7:57:12 PM, LastWarning = 1/1/0001 12:00:00 AM
+```
+
+## 상태 청크 쿼리
+상태 청크 쿼리는 입력 필터당 여러 수준의 클러스터 자식(재귀적)을 반환할 수 있습니다. 어떤 특정 자식을 반환하고, 고유 식별자나 기타 그룹 식별자 및/또는 상태를 통해 식별할 것인지 유연하게 표현할 수 있는 고급 필터를 지원 합니다. 항상 첫 번째 수준 자식이 포함되는 상태 명령과는 다르게, 기본적으로 자식이 포함되지 않습니다.
+
+[상태 쿼리](service-fabric-view-entities-aggregated-health.md#health-queries)는 필요한 필터마다 지정된 엔터티의 첫 번째 수준 자식만 반환합니다. 자식의 자식을 가져오려면 사용자가 관심이 있는 각 엔터티에 대해 추가 상태 API를 호출해야 합니다. 마찬가지로, 특정 엔터티의 상태를 가져오려면 사용자가 원하는 각 엔터티에 대해 하나의 상태 API를 호출해야 합니다. 청크 쿼리 고급 필터링을 사용하면 사용자가 쿼리 하나로 원하는 여러 항목을 요청할 수 있으므로 메시지 크기와 메시지의 수를 최소화할 수 있습니다.
+
+청크 쿼리의 값은 사용자가 한 번의 호출로 더 많은 클러스터 엔터티(필요한 루트에서 시작하여 잠재적으로 모든 클러스터 엔터티)의 상태 정보를 얻을 수 있습니다. 복잡한 상태 쿼리를 다음과 같이 표현할 수 있습니다.
+
+- 오류 시 응용 프로그램만 반환하고, 이러한 응용 프로그램의 경우 경고|오류 시 모든 서비스 포함합니다. 반환된 서비스의 경우 모든 파티션을 포함합니다.
+
+- 이름으로 지정된 4개 응용 프로그램의 상태만 반환합니다.
+
+- 원하는 유형의 응용 프로그램 상태만 반환합니다.
+
+- 노드에 배포된 모든 엔터티를 반환합니다. 이렇게 하면 모든 응용 프로그램, 지정된 노드에 배포된 모든 응용 프로그램, 해당 노드에 배포된 모든 서비스 패키지가 반환됩니다.
+
+- 오류 시 모든 복제본을 반환합니다. 오류 시 모든 응용 프로그램, 서비스, 파티션 및 복제본만 반환합니다.
+
+- 모든 응용 프로그램을 반환합니다. 지정된 서비스의 경우 모든 파티션을 포함합니다.
+
+현재, 상태 청크 쿼리는 클러스터 엔터티에 대해서만 노출됩니다. 상태 청크 쿼리는 클러스터 상태 청크를 반환하며, 다음을 포함합니다.
+
+- 클러스터 집계 상태.
+
+- 입력 필터를 준수하는 노드의 상태 청크 목록.
+
+- 입력 필터를 준수하는 응용 프로그램의 상태 청크 목록. 각 응용 프로그램 상태 청크는 입력 필터를 준수하는 모든 서비스가 포함된 청크 목록과 필터를 준수하는 모든 배포된 응용 프로그램이 포함된 청크 목록을 포함하고 있습니다. 서비스 자식 및 배포된 응용 프로그램에도 동일한 내용이 적용됩니다. 이러한 방식으로, 요청이 있을 경우 클러스터의 모든 엔터티를 계층적 방식으로 반환할 수 있습니다.
+
+### 클러스터 상태 청크 쿼리
+클러스터 엔터티의 상태를 반환하며 필수 자식의 계층적 상태 청크를 포함합니다. 입력:
+
+- [옵션] 노드 및 클러스터 이벤트를 평가하는 데 사용되는 클러스터 상태 정책.
+
+- [옵션] 응용 프로그램 매니페스트 정책을 재정의하는 데 사용되는 상태 정책이 있는 응용 프로그램 상태 정책 맵.
+
+- [옵션] 관심 있는 엔터티를 지정하고 결과에 반환되어야 하는 노드 및 응용 프로그램에 대한 필터. 필터는 엔터티/엔터티 그룹에 한정적으로 적용하거나 해당 수준의 모든 엔터티에 적용할 수 있습니다. 쿼리에서 반환하는 엔터티를 세분화할 수 있도록 필터 목록에 일반 필터 하나 그리고/또는 특정 식별자에 대한 필터 하나가 포함될 수 있습니다. 필터 목록이 비어 있으면 기본적으로 자식이 반환되지 않습니다. 필터에 대한 자세한 내용은 [NodeHealthStateFilter](https://msdn.microsoft.com/library/azure/system.fabric.health.nodehealthstatefilter.aspx) 및 [ApplicationHealthStateFilter](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthstatefilter.aspx)를 참조하세요. 응용 프로그램 필터는 자식에 대한 고급 필터를 재귀적으로 지정할 수 있습니다.
+
+청크 결과에는 필터를 준수하는 하위 항목이 포함됩니다.
+
+현재, 청크 쿼리 비정상 평가 또는 엔터티 이벤트를 반환하지 않습니다. 이러한 상태는 기존 클러스터 상태 쿼리를 사용하여 얻을 수 있습니다.
+
+### API
+클러스터 상태 청크를 얻으려면 **HealthManager**에서 `FabricClient`를 만들고 [GetClusterHealthChunkAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient.getclusterhealthchunkasync.aspx) 메서드를 호출합니다. 상태 정책 및 고급 필터를 설명하는 [ClusterHealthQueryDescription](https://msdn.microsoft.com/library/azure/system.fabric.description.clusterhealthchunkquerydescription.aspx)을 전달할 수 있습니다.
+
+다음은 고급 필터가 포함된 클러스터 상태 청크를 가져옵니다.
+
+```csharp
+var queryDescription = new ClusterHealthChunkQueryDescription();
+queryDescription.ApplicationFilters.Add(new ApplicationHealthStateFilter()
+    {
+        // Return applications only if they are in error
+        HealthStateFilter = HealthStateFilter.Error
+    });
+
+// Return all replicas
+var wordCountServiceReplicaFilter = new ReplicaHealthStateFilter()
+    {
+        HealthStateFilter = HealthStateFilter.All
+    };
+
+// Return all replicas and all partitions
+var wordCountServicePartitionFilter = new PartitionHealthStateFilter()
+    {
+        HealthStateFilter = HealthStateFilter.All
+    };
+wordCountServicePartitionFilter.ReplicaFilters.Add(wordCountServiceReplicaFilter);
+
+// For specific service, return all partitions and all replicas
+var wordCountServiceFilter = new ServiceHealthStateFilter()
+{
+    ServiceNameFilter = new Uri("fabric:/WordCount/WordCountService"),
+};
+wordCountServiceFilter.PartitionFilters.Add(wordCountServicePartitionFilter);
+
+// Application filter: for specific application, return no services except the ones of interest
+var wordCountApplicationFilter = new ApplicationHealthStateFilter()
+    {
+        // Always return fabric:/WordCount application
+        ApplicationNameFilter = new Uri("fabric:/WordCount"),
+    };
+wordCountApplicationFilter.ServiceFilters.Add(wordCountServiceFilter);
+
+queryDescription.ApplicationFilters.Add(wordCountApplicationFilter);
+
+var result = await fabricClient.HealthManager.GetClusterHealthChunkAsync(queryDescription);
+```
+
+### PowerShell
+클러스터 상태를 가져오려는 cmdlet은 [Get-ServiceFabricClusterChunkHealth](https://msdn.microsoft.com/library/mt644772.aspx)입니다. 먼저 [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx) cmdlet을 사용하여 클러스터에 연결합니다.
+
+다음은 항상 반환되어야 하는 특정 노드를 제외하고 노드에 오류가 있을 때에만 해당 노드를 가져옵니다.
+
+```xml
+PS C:\> $errorFilter = [System.Fabric.Health.HealthStateFilter]::Error;
+$allFilter = [System.Fabric.Health.HealthStateFilter]::All;
+
+$nodeFilter1 = New-Object System.Fabric.Health.NodeHealthStateFilter -Property @{HealthStateFilter=$errorFilter}
+$nodeFilter2 = New-Object System.Fabric.Health.NodeHealthStateFilter -Property @{NodeNameFilter="_Node_1";HealthStateFilter=$allFilter}
+# Create node filter list that will be passed in the cmdlet
+$nodeFilters = New-Object System.Collections.Generic.List[System.Fabric.Health.NodeHealthStateFilter]
+$nodeFilters.Add($nodeFilter1)
+$nodeFilters.Add($nodeFilter2)
+
+Get-ServiceFabricClusterHealthChunk -NodeFilters $nodeFilters
+
+HealthState                  : Error
+NodeHealthStateChunks        :
+                               TotalCount            : 1
+
+                               NodeName              : _Node_1
+                               HealthState           : Ok
+
+ApplicationHealthStateChunks : None
+```
+
+다음 cmdlet은 응용 프로그램 필터가 포함된 클러스터 청크를 가져옵니다.
+
+```xml
+$errorFilter = [System.Fabric.Health.HealthStateFilter]::Error;
+$allFilter = [System.Fabric.Health.HealthStateFilter]::All;
+
+# All replicas
+$replicaFilter = New-Object System.Fabric.Health.ReplicaHealthStateFilter -Property @{HealthStateFilter=$allFilter}
+
+# All partitions
+$partitionFilter = New-Object System.Fabric.Health.PartitionHealthStateFilter -Property @{HealthStateFilter=$allFilter}
+$partitionFilter.ReplicaFilters.Add($replicaFilter)
+
+# For WordCountService, return all partitions and all replicas
+$svcFilter1 = New-Object System.Fabric.Health.ServiceHealthStateFilter -Property @{ServiceNameFilter="fabric:/WordCount/WordCountService"}
+$svcFilter1.PartitionFilters.Add($partitionFilter)
+
+$svcFilter2 = New-Object System.Fabric.Health.ServiceHealthStateFilter -Property @{HealthStateFilter=$errorFilter}
+
+$appFilter = New-Object System.Fabric.Health.ApplicationHealthStateFilter -Property @{ApplicationNameFilter="fabric:/WordCount"}
+$appFilter.ServiceFilters.Add($svcFilter1)
+$appFilter.ServiceFilters.Add($svcFilter2)
+
+$appFilters = New-Object System.Collections.Generic.List[System.Fabric.Health.ApplicationHealthStateFilter]
+$appFilters.Add($appFilter)
+
+Get-ServiceFabricClusterHealthChunk -ApplicationFilters $appFilters
+
+HealthState                  : Error
+NodeHealthStateChunks        : None
+ApplicationHealthStateChunks :
+                               TotalCount            : 1
+
+                               ApplicationName       : fabric:/WordCount
+                               ApplicationTypeName   : WordCount
+                               HealthState           : Error
+                               ServiceHealthStateChunks :
+                                   TotalCount            : 1
+
+                                   ServiceName           : fabric:/WordCount/WordCountService
+                                   HealthState           : Error
+                                   PartitionHealthStateChunks :
+                                       TotalCount            : 1
+
+                                       PartitionId           : a1f83a35-d6bf-4d39-b90d-28d15f39599b
+                                       HealthState           : Error
+                                       ReplicaHealthStateChunks :
+                                           TotalCount            : 5
+
+                                           ReplicaOrInstanceId   : 131031502143040223
+                                           HealthState           : Ok
+
+                                           ReplicaOrInstanceId   : 131031502346844060
+                                           HealthState           : Ok
+
+                                           ReplicaOrInstanceId   : 131031502346844059
+                                           HealthState           : Ok
+
+                                           ReplicaOrInstanceId   : 131031502346844061
+                                           HealthState           : Ok
+
+                                           ReplicaOrInstanceId   : 131031502346844058
+                                           HealthState           : Error
+```
+
+다음 cmdlet은 노드에 배포된 모든 엔터티를 반환합니다.
+
+```xml
+$errorFilter = [System.Fabric.Health.HealthStateFilter]::Error;
+$allFilter = [System.Fabric.Health.HealthStateFilter]::All;
+
+$dspFilter = New-Object System.Fabric.Health.DeployedServicePackageHealthStateFilter -Property @{HealthStateFilter=$allFilter}
+$daFilter =  New-Object System.Fabric.Health.DeployedApplicationHealthStateFilter -Property @{HealthStateFilter=$allFilter;NodeNameFilter="_Node_2"}
+$daFilter.DeployedServicePackageFilters.Add($dspFilter)
+
+$appFilter = New-Object System.Fabric.Health.ApplicationHealthStateFilter -Property @{HealthStateFilter=$allFilter}
+$appFilter.DeployedApplicationFilters.Add($daFilter)
+
+$appFilters = New-Object System.Collections.Generic.List[System.Fabric.Health.ApplicationHealthStateFilter]
+$appFilters.Add($appFilter)
+Get-ServiceFabricClusterHealthChunk -ApplicationFilters $appFilters
+
+
+HealthState                  : Error
+NodeHealthStateChunks        : None
+ApplicationHealthStateChunks :
+                               TotalCount            : 2
+
+                               ApplicationName       : fabric:/System
+                               HealthState           : Ok
+                               DeployedApplicationHealthStateChunks :
+                                   TotalCount            : 1
+
+                                   NodeName              : _Node_2
+                                   HealthState           : Ok
+                                   DeployedServicePackageHealthStateChunks :
+                                       TotalCount            : 1
+
+                                       ServiceManifestName   : FAS
+                                       HealthState           : Ok
+
+
+
+                               ApplicationName       : fabric:/WordCount
+                               ApplicationTypeName   : WordCount
+                               HealthState           : Error
+                               DeployedApplicationHealthStateChunks :
+                                   TotalCount            : 1
+
+                                   NodeName              : _Node_2
+                                   HealthState           : Ok
+                                   DeployedServicePackageHealthStateChunks :
+                                       TotalCount            : 2
+
+                                       ServiceManifestName   : WordCountServicePkg
+                                       HealthState           : Ok
+
+                                       ServiceManifestName   : WordCountWebServicePkg
+                                       HealthState           : Ok
 ```
 
 ## 일반 쿼리
-일반 쿼리는 지정된 형식의 서비스 패브릭 엔터티 목록을 반환합니다. 이러한 쿼리는 API(**FabricClient.QueryManager** 상의 메서드를 통해), PowerShell cmdlet 및 REST를 통해 노출됩니다. 이러한 쿼리는 여러 구성 요소에서 하위 쿼리를 집계합니다. 둘 중 하나는 [상태 저장소](service-fabric-health-introduction.md#health-store)로 각 쿼리 결과에 대해 집계된 성능 상태를 채웁니다.
+일반 쿼리는 지정된 형식의 서비스 패브릭 엔터티 목록을 반환합니다. 이러한 쿼리는 API(**FabricClient.QueryManager** 상의 메서드를 통해), PowerShell cmdlet 및 REST를 통해 노출됩니다. 이러한 쿼리는 여러 구성 요소에서 하위 쿼리를 집계합니다. 둘 중 하나는 [Health 스토어](service-fabric-health-introduction.md#health-store)로 각 쿼리 결과에 대해 집계된 성능 상태를 채웁니다.
 
 > [AZURE.NOTE] 일반 쿼리는 엔터티의 집계된 성능 상태를 반환 하고 풍부한 상태 데이터를 포함하지 않습니다. 엔터티가 비정상이면 상태 쿼리를 따라서 이벤트, 자녀 성능 상태 및 비정상 평가를 포함하는 모든 상태 정보를 가져올 수 있습니다.
 
@@ -706,27 +986,29 @@ HealthEvents          :
 
 엔터티에 대한 **HealthState**가 포함된 쿼리는 다음과 같습니다.
 
-- 노드 목록: 클러스터에 목록 노드를 반환합니다.
-  - API: FabricClient.QueryManager.GetNodeListAsync
+- 노드 목록: 클러스터의 노드 목록(페이징)을 반환합니다.
+  - API: [FabricClient.QueryClient.GetNodeListAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.queryclient.getnodelistasync.aspx)
   - PowerShell: Get-ServiceFabricNode
-- 응용 프로그램 목록: 클러스터에 응용 프로그램 목록을 반환합니다.
-  - API: FabricClient.QueryManager.GetApplicationListAsync
+- 응용 프로그램 목록: 클러스터의 응용 프로그램 목록(페이징)을 반환합니다.
+  - API: [FabricClient.QueryClient.GetApplicationListAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.queryclient.getapplicationlistasync.aspx)
   - PowerShell: Get-ServiceFabricApplication
-- 서비스 목록: 응용 프로그램에서 서비스의 목록을 반환합니다.
-  - API: FabricClient.QueryManager.GetServiceListAsync
+- 서비스 목록: 응용 프로그램의 서비스 목록(페이징)을 반환합니다.
+  - API: [FabricClient.QueryClient.GetServiceListAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.queryclient.getservicelistasync.aspx)
   - PowerShell: Get-ServiceFabricService
-- 파티션 목록: 서비스에서 파티션의 목록을 반환합니다.
-  - API: FabricClient.QueryManager.GetPartitionListAsync
+- 파티션 목록: 서비스의 파티션 목록(페이징)을 반환합니다.
+  - API: [FabricClient.QueryClient.GetPartitionListAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.queryclient.getpartitionlistasync.aspx)
   - PowerShell: Get-ServiceFabricPartition
-- 복제본 목록: 파티션에 복제본의 목록을 반환합니다.
-  - API: FabricClient.QueryManager.GetReplicaListAsync
+- 복제본 목록: 파티션의 복제본 목록(페이징)을 반환합니다.
+  - API: [FabricClient.QueryClient.GetReplicaListAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.queryclient.getreplicalistasync.aspx)
   - PowerShell: Get-ServiceFabricReplica
 - 배포된 응용 프로그램 목록: 노드에 배포된 응용 프로그램의 목록을 반환합니다.
-  - API: FabricClient.QueryManager.GetDeployedApplicationListAsync
+  - API: [FabricClient.QueryClient.GetDeployedApplicationListAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.queryclient.getdeployedapplicationlistasync.aspx)
   - PowerShell: Get-ServiceFabricDeployedApplication
 - 배포된 서비스 패키지 목록: 배포된 응용 프로그램에서 서비스 패키지 목록을 반환합니다.
-  - API: FabricClient.QueryManager.GetDeployedServicePackageListAsync
+  - API: [FabricClient.QueryClient.GetDeployedServicePackageListAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.queryclient.getdeployedservicepackagelistasync.aspx)
   - PowerShell: Get-ServiceFabricDeployedApplication
+
+> [AZURE.NOTE] 일부 쿼리는 페이징된 결과를 반환합니다. 반환되는 이러한 쿼리는 [PagedList<T>](https://msdn.microsoft.com/library/azure/mt280056.aspx)에서 파생된 목록입니다. 결과가 메시지와 맞지 않으면 한 페이지만 반환되고 열거형이 중지된 위치를 추적하도록 ContinuationToken이 설정됩니다. 사용자는 다음 결과를 얻으려면 계속해서 동일한 쿼리를 호출하고 이전 쿼리의 연속 토큰을 전달해야 합니다.
 
 ### 예
 
@@ -744,10 +1026,17 @@ PS C:\> Get-ServiceFabricApplication -ApplicationName fabric:/WordCount
 
 ApplicationName        : fabric:/WordCount
 ApplicationTypeName    : WordCount
-ApplicationTypeVersion : 1.0.0.0
+ApplicationTypeVersion : 1.0.0
 ApplicationStatus      : Ready
 HealthState            : Warning
-ApplicationParameters  : { "_WFDebugParams_" = "[{"ServiceManifestName":"WordCount.WebService","CodePackageName":"Code","EntryPointType":"Main"}]" }
+ApplicationParameters  : { "WordCountWebService_InstanceCount" = "1";
+                         "_WFDebugParams_" = "[{"ServiceManifestName":"WordCountWebServicePkg","CodePackageName":"Code","EntryPointType":"Main","Debug
+                         ExePath":"C:\\Program Files (x86)\\Microsoft Visual Studio
+                         14.0\\Common7\\Packages\\Debugger\\VsDebugLaunchNotify.exe","DebugArguments":" {74f7e5d5-71a9-47e2-a8cd-1878ec4734f1} -p
+                         [ProcessId] -tid [ThreadId]","EnvironmentBlock":"_NO_DEBUG_HEAP=1\u0000"},{"ServiceManifestName":"WordCountServicePkg","CodeP
+                         ackageName":"Code","EntryPointType":"Main","DebugExePath":"C:\\Program Files (x86)\\Microsoft Visual Studio
+                         14.0\\Common7\\Packages\\Debugger\\VsDebugLaunchNotify.exe","DebugArguments":" {2ab462e6-e0d1-4fda-a844-972f561fe751} -p
+                         [ProcessId] -tid [ThreadId]","EnvironmentBlock":"_NO_DEBUG_HEAP=1\u0000"}]" }
 ```
 
 다음 cmdlet은 성능 상태 경고로 서비스를 가져옵니다.
@@ -755,11 +1044,12 @@ ApplicationParameters  : { "_WFDebugParams_" = "[{"ServiceManifestName":"WordCou
 ```powershell
 PS C:\> Get-ServiceFabricApplication | Get-ServiceFabricService | where {$_.HealthState -eq "Warning"}
 
-ServiceName            : fabric:/WordCount/WordCount.Service
+
+ServiceName            : fabric:/WordCount/WordCountService
 ServiceKind            : Stateful
-ServiceTypeName        : WordCount.Service
+ServiceTypeName        : WordCountServiceType
 IsServiceGroup         : False
-ServiceManifestVersion : 1.0
+ServiceManifestVersion : 1.0.0
 HasPersistedState      : True
 ServiceStatus          : Active
 HealthState            : Warning
@@ -789,13 +1079,13 @@ UpgradeDuration               : 00:00:23
 CurrentUpgradeDomainDuration  : 00:00:00
 CurrentUpgradeDomainProgress  : UD1
 
-                                NodeName            : Node1
+                                NodeName            : _Node_1
                                 UpgradePhase        : Upgrading
 
-                                NodeName            : Node2
+                                NodeName            : _Node_2
                                 UpgradePhase        : Upgrading
 
-                                NodeName            : Node3
+                                NodeName            : _Node_3
                                 UpgradePhase        : PreUpgradeSafetyCheck
                                 PendingSafetyChecks :
                                 EnsurePartitionQuorum - PartitionId: 30db5be6-4e20-4698-8185-4bd7ca744020
@@ -805,19 +1095,20 @@ UpgradeDomainsStatus          : { "UD1" = "Completed";
                                 "UD3" = "Pending";
                                 "UD4" = "Pending" }
 UnhealthyEvaluations          :
-                                Unhealthy services: 100% (1/1), ServiceType='WordCount.Service', MaxPercentUnhealthyServices=0%.
+                                Unhealthy services: 100% (1/1), ServiceType='WordCountServiceType', MaxPercentUnhealthyServices=0%.
 
-                                Unhealthy service: ServiceName='fabric:/WordCount/WordCount.Service', AggregatedHealthState='Error'.
+                                  Unhealthy service: ServiceName='fabric:/WordCount/WordCountService', AggregatedHealthState='Error'.
 
-                                Unhealthy partitions: 100% (1/1), MaxPercentUnhealthyPartitionsPerService=0%.
+                                      Unhealthy partitions: 100% (1/1), MaxPercentUnhealthyPartitionsPerService=0%.
 
-                                Unhealthy partition: PartitionId='30db5be6-4e20-4698-8185-4bd7ca744020', AggregatedHealthState='Error'.
+                                      Unhealthy partition: PartitionId='a1f83a35-d6bf-4d39-b90d-28d15f39599b', AggregatedHealthState='Error'.
 
-                                Unhealthy replicas: 16% (1/6), MaxPercentUnhealthyReplicasPerPartition=0%.
+                                          Unhealthy replicas: 20% (1/5), MaxPercentUnhealthyReplicasPerPartition=0%.
 
-                                Unhealthy replica: PartitionId='30db5be6-4e20-4698-8185-4bd7ca744020', ReplicaOrInstanceId='130741105362491906', AggregatedHealthState='Error'.
+                                          Unhealthy replica: PartitionId='a1f83a35-d6bf-4d39-b90d-28d15f39599b',
+                                  ReplicaOrInstanceId='131031502346844058', AggregatedHealthState='Error'.
 
-                                Error event: SourceId='DiskWatcher', Property='Disk'.
+                                              Error event: SourceId='DiskWatcher', Property='Disk'.
 
 UpgradeKind                   : Rolling
 RollingUpgradeMode            : UnmonitoredAuto
@@ -830,6 +1121,8 @@ UpgradeReplicaSetCheckTimeout : 00:15:00
 ## 상태 평가를 사용하여 문제 해결
 클러스터 또는 응용 프로그램에 문제가 있을 때마다 클러스터나 응용 프로그램 상태를 확인하여 무엇이 잘못인지 식별합니다. 비정상 평가가 현재 비정상 상태를 무엇이 트리거했는지에 대한 세부 정보를 제공합니다. 필요한 경우 비정상 자녀 엔터티로 드릴다운하여 근본 원인을 식별할 수 있습니다.
 
+> [AZURE.NOTE] 비정상 평가는 엔터티가 현재 상태로 평가된 첫 번째 이유를 보여 줍니다. 이 상태를 트리거하는 다른 여러 이벤트가 있을 수 있지만 평가에 반영되지 않습니다. 클러스터의 모든 비정상 상태 보고서를 이해하려면 상태 엔터티로 드릴다운해야 합니다.
+
 ## 다음 단계
 [시스템 상태 보고서를 사용하여 문제 해결](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 
@@ -839,4 +1132,4 @@ UpgradeReplicaSetCheckTimeout : 00:15:00
 
 [서비스 패브릭 응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

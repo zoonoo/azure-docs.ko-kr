@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure SQL 데이터 웨어하우스 간 데이터 이동 | Azure 데이터 팩터리" 
+	pageTitle="Azure SQL 데이터 웨어하우스 간 데이터 이동 | Microsoft Azure" 
 	description="Azure 데이터 팩터리를 사용하여 Azure SQL 데이터 웨어하우스 간 데이터를 이동하는 방법에 대해 알아봅니다." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -531,4 +531,4 @@ SQL Azure, SQL server, Sybase에서 데이터를 이동하는 경우 SQL 형식�
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

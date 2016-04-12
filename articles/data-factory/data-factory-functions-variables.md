@@ -55,21 +55,21 @@ SliceEnd | 생성되는 현재 데이터 조각에 대한 시간 간격 끝 | �
 
 Category | 함수 | 매개 변수 | 설명
 -------- | -------- | ---------- | ----------- 
-Time | AddHours(X,Y) | X: DateTime <p>Y: int</p> | 지정된 시간 X에 Y시간을 추가합니다. <p>예: 9/5/2013 12:00:00 PM + 2시간 = 9/5/2013 2:00:00 PM</p>
-Time | AddMinutes(X,Y) | X: DateTime <p>Y: int</p> | X에 Y분을 추가합니다. <p>예: 9/15/2013 12: 00:00 PM + 15분 = 9/15/2013 12: 15:00 PM</p>
-Time | StartOfHour(X) | X: Datetime | X의 시간 구성 요소로 표현되는 시간에 대한 시작 시간을 가져옵니다. <p>예: 9/15/2013 05: 10:23 PM의 StartOfHour는 9/15/2013 05: 00:00 PM</p>
-Date | AddDays(X,Y) | X: DateTime<p>Y: int</p> | X에 Y일을 추가합니다.<p>예: 9/15/2013 12:00:00 PM + 2일 = 9/17/2013 12:00:00 PM</p>
-Date | AddMonths(X,Y) | X: DateTime<p>Y: int</p> | X에 Y개월을 추가합니다.<p>예: 9/15/2013 12:00:00 PM + 1개월 = 10/15/2013 12:00:00 PM</p> 
-Date | AddQuarters(X,Y) | X: DateTime <p>Y: int</p> | X에 Y * 3개월을 추가합니다.<p>예:9/15/2013 12:00:00 PM + 1분기 = 12/15/2013 12:00:00 PM</p>
-Date | AddWeeks(X,Y) | X: DateTime<p>Y: int</p> | X에 Y * 7일을 추가합니다.<p>예: 9/15/2013 12:00:00 PM + 1주 = 9/22/2013 12:00:00 PM</p>
-Date | AddYears(X,Y) | X: DateTime<p>Y: int</p> | X에 Y년을 추가합니다.<p>예: 9/15/2013 12:00:00 PM + 1년 = 9/15/2014 12:00:00 PM</p>
-Date | Day(X) | X: DateTime | X의 일 구성 요소를 가져옵니다.<p>예: 9/15/2013 12:00:00 PM의 Day는 9</p>
-Date | DayOfWeek(X) | X: DateTime | X의 요일 구성 요소를 가져옵니다.<p>예: 9/15/2013 12:00:00 PM의 DayOfWeek는 Sunday</p>
-Date | DayOfYear(X) | X: DateTime | X의 연도 구성 요소로 표현되는 연도의 일을 가져옵니다.<p>예:<br/>12/1/2015: 2015년의 335일<br/>12/31/2015: 2015년의 365일<br/>12/31/2016: 2016년의 366일(윤년)</p>
-Date | DaysInMonth(X) | X: DateTime | 매개 변수 X의 월 구성 요소로 표현되는 월의 일을 가져옵니다.<p>예: 9/15/2013의 DaysInMonth는 9월은 30일이므로 30</p>
-Date | EndOfDay(X) | X: DateTime | X의 끝나는 날(일 구성 요소)을 나타내는 날짜-시간을 가져옵니다.<p>예: 9/15/2013 05:10:23 PM의 EndOfDay는 9/15/2013 11:59:59 PM</p>
-Date | EndOfMonth(X) | X: DateTime | 매개 변수 X의 월 구성 요소로 표현되는 월의 끝을 가져옵니다. <p>예: 9/15/2013 05:10:23 PM의 EndOfMonth는 9/30/2013 11:59:59 PM(9월의 끝을 나타내는 날짜 시간)</p>
-Date | StartOfDay(X) | X: DateTime | 매개 변수 X의 일 구성 요소로 표현되는 일의 시작을 가져옵니다.<p>예: 9/15/2013 05:10:23 PM의 StartOfDay는 9/15/2013 12:00:00 AM</p>
+Time | AddHours(X,Y) | X: DateTime <br/><br/>Y: int | 지정된 시간 X에 Y시간을 추가합니다. <br/><br/>예: 9/5/2013 12:00:00 PM + 2시간 = 9/5/2013 2:00:00 PM
+Time | AddMinutes(X,Y) | X: DateTime <br/><br/>Y: int | X에 Y분을 추가합니다.<br/><br/>예: 9/15/2013 12: 00:00 PM + 15분 = 9/15/2013 12: 15:00 PM
+Time | StartOfHour(X) | X: Datetime | X의 시간 구성 요소로 표현되는 시간에 대한 시작 시간을 가져옵니다.<br/><br/>예: 9/15/2013 05: 10:23 PM의 StartOfHour는 9/15/2013 05: 00:00 PM
+Date | AddDays(X,Y) | X: DateTime<br/><br/>Y: int | X에 Y일을 추가합니다.<br/><br/>예: 9/15/2013 12:00:00 PM + 2일 = 9/17/2013 12:00:00 PM
+Date | AddMonths(X,Y) | X: DateTime<br/><br/>Y: int | X에 Y개월을 추가합니다.<br/><br/>예: 9/15/2013 12:00:00 PM + 1개월 = 10/15/2013 12:00:00 PM 
+Date | AddQuarters(X,Y) | X: DateTime <br/><br/>Y: int | X에 Y * 3개월을 추가합니다.<br/><br/>예:9/15/2013 12:00:00 PM + 1분기 = 12/15/2013 12:00:00 PM
+Date | AddWeeks(X,Y) | X: DateTime<br/><br/>Y: int | X에 Y * 7일을 추가합니다.<br/><br/>예: 9/15/2013 12:00:00 PM + 1주 = 9/22/2013 12:00:00 PM
+Date | AddYears(X,Y) | X: DateTime<br/><br/>Y: int | X에 Y년을 추가합니다.<br/><br/>예: 9/15/2013 12:00:00 PM + 1년 = 9/15/2014 12:00:00 PM
+Date | Day(X) | X: DateTime | X의 일 구성 요소를 가져옵니다.<br/><br/>예: 9/15/2013 12:00:00 PM의 Day는 9 
+Date | DayOfWeek(X) | X: DateTime | X의 요일 구성 요소를 가져옵니다.<br/><br/>예: 9/15/2013 12:00:00 PM의 DayOfWeek는 Sunday
+Date | DayOfYear(X) | X: DateTime | X의 연도 구성 요소로 표현되는 연도의 일을 가져옵니다.<br/><br/>예:<br/>12/1/2015: 2015년의 335일<br/>12/31/2015: 2015년의 365일<br/>12/31/2016: 2016년의 366일(윤년)
+Date | DaysInMonth(X) | X: DateTime | 매개 변수 X의 월 구성 요소로 표현되는 월의 일을 가져옵니다.<br/><br/>예: 9/15/2013의 DaysInMonth는 9월은 30일이므로 30
+Date | EndOfDay(X) | X: DateTime | X의 끝나는 날(일 구성 요소)을 나타내는 날짜-시간을 가져옵니다.<br/><br/>예: 9/15/2013 05:10:23 PM의 EndOfDay는 9/15/2013 11:59:59 PM
+Date | EndOfMonth(X) | X: DateTime | 매개 변수 X의 월 구성 요소로 표현되는 월의 끝을 가져옵니다.<br/><br/>예: 9/15/2013 05:10:23 PM의 EndOfMonth는 9/30/2013 11:59:59 PM(9월의 끝을 나타내는 날짜 시간)
+Date | StartOfDay(X) | X: DateTime | 매개 변수 X의 일 구성 요소로 표현되는 일의 시작을 가져옵니다.<br/><br/>예: 9/15/2013 05:10:23 PM의 StartOfDay는 9/15/2013 12:00:00 AM
 DateTime | From(X) | X: String | 문자열 X를 날짜 시간으로 구문 분석합니다.
 DateTime | Ticks(X) | X: DateTime | 매개 변수 X의 틱 속성을 가져옵니다. 1틱은 100나노초에 해당합니다. 이 속성 값은 0001년 1월 1일 자정 12:00:00 이후 경과된 틱 수를 나타냅니다. 
 텍스트 | Format(X) | X: String 변수 | 텍스트의 형식을 지정합니다.
@@ -88,4 +88,4 @@ DateTime | Ticks(X) | X: DateTime | 매개 변수 X의 틱 속성을 가져옵�
 > [AZURE.NOTE] 다른 함수 내에서 함수를 사용할 경우 내부 함수에 대한 접두사로 **$$**를 사용해야 합니다. 예: $$Text.Format('PartitionKey eq \\'my\_pkey\_filter\_value\\' and RowKey ge \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). 이 예에서는 **Time.AddHours** 함수에 대해 **$$** 접두사가 사용되지 않았습니다.
   
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

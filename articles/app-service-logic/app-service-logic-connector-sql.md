@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="sameerch"/>
 
 
 # Microsoft SQL 커넥터 시작 및 논리 앱에 추가
->[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다. Azure SQL 2015-08-01-미리 보기 스키마 버전에 대해 알아보려면 [SQL Azure API](../connectors/create-api-sqlazure.md)를 클릭하세요.
+>[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다. Azure SQL 2015-08-01-preview 스키마 버전에 대해 알아보려면 [SQL Azure API](../connectors/connectors-create-api-sqlazure.md)를 클릭하세요.
 
 온-프레미스 SQL Server 또는 Azure SQL 데이터베이스에 연결하여 정보나 데이터를 만들고 변경할 수 있습니다. 커넥터는 논리 앱에 사용하여 "워크플로"의 일부로 데이터 검색하기, 처리 또는 푸시를 수행할 수 있습니다. 워크플로에서 SQL 커넥터를 활용하면 다양한 시나리오를 수행할 수 있습니다. 예를 들어 다음을 수행할 수 있습니다.
 
@@ -75,7 +75,7 @@ SQL 커넥터를 트리거로 사용하려면 **데이터 사용 가능한 쿼�
 
 **데이터 폴링 쿼리**는 데이터 사용 가능 쿼리가 데이터를 사용 가능한 것으로 나타내는 경우에 실행됩니다. 이 문은 트랜잭션 내에서 실행되고 추출한 데이터가 워크플로에 영구적으로 저장될 때만 제출됩니다. 동일한 데이터를 무한으로 다시 추출하는 것을 방지하는 것이 중요합니다. 다음에 데이터를 쿼리할 때 수집하지 않도록 하기 위해 데이터를 삭제하거나 업데이트하려면 실행의 트랜잭션 특성을 사용할 수 있습니다.
 
-> [AZURE.NOTE]이 문에 의해 반환되는 스키마는 커넥터에 사용 가능한 속성을 식별합니다. 모든 열은 이름을 지정해야 합니다.
+> [AZURE.NOTE] 이 문에 의해 반환되는 스키마는 커넥터에 사용 가능한 속성을 식별합니다. 모든 열은 이름을 지정해야 합니다.
 
 #### 데이터 사용 가능한 쿼리 예
 
@@ -155,4 +155,4 @@ Where 절 | <ul><li>연산자: AND, OR, =, <>, <, <=, >, >= 및 LIKE</li><li>여
 [11]: ./media/app-service-logic-connector-sql/LogicApp7.png
 [12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

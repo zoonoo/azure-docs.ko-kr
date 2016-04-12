@@ -1,11 +1,11 @@
 
-디스크에 대한 자세한 내용은 [가상 컴퓨터용 디스크 및 VHD 정보](virtual-machines-disks-vhds.md)를 참조하세요.
+디스크에 대한 자세한 내용은 [가상 컴퓨터용 디스크 및 VHD 정보](virtual-machines-linux-about-disks-vhds.md)를 참조하세요.
 
 <a id="attachempty"></a>
 ## 방법: 빈 디스크 연결
 Azure가 .vhd 파일을 자동으로 만들어 저장소 계정에 저장하므로, 빈 디스크를 연결하는 것이 데이터 디스크를 추가하는 더욱 간단한 방법입니다.
 
-1.  Mac, Linux 및 Windows용 Azure CLI를 열고 Azure 구독에 연결합니다. 자세한 내용은 [Azure CLI에서 Azure에 연결](../articles/xplat-cli-connect.md)을 참조하세요.
+1.  Mac, Linux 및 Windows용 Azure CLI를 열고 Azure 구독에 연결합니다. 자세한 내용은 [Azure CLI에서 Azure에 연결](../xplat-cli-connect.md)을 참조하세요.
 
 2.  `azure config
  	mode asm`을 입력하여 기본값인 Azure 서비스 관리 모드인지 확인합니다.
@@ -33,7 +33,7 @@ Azure가 .vhd 파일을 자동으로 만들어 저장소 계정에 저장하므�
 
 기존 디스크를 연결하려면 저장소 계정에 사용 가능한 .vhd가 있어야 합니다.
 
-1. 	Mac, Linux 및 Windows용 Azure CLI를 열고 Azure 구독에 연결합니다. 자세한 내용은 [Azure CLI에서 Azure에 연결](../articles/xplat-cli-connect.md)을 참조하세요.
+1. 	Mac, Linux 및 Windows용 Azure CLI를 열고 Azure 구독에 연결합니다. 자세한 내용은 [Azure CLI에서 Azure에 연결](../xplat-cli-connect.md)을 참조하세요.
 
 2.  기본값인 Azure 서비스 관리 모드에 있는지 확인합니다. 리소스 관리로 모드를 변경한 경우 `azure config mode asm`을 입력하여 간단하게 되돌릴 수 있습니다.
 
@@ -93,4 +93,4 @@ Azure가 .vhd 파일을 자동으로 만들어 저장소 계정에 저장하므�
 > [AZURE.NOTE]
 데이터 디스크를 추가한 후 가상 컴퓨터가 디스크를 저장소에 사용할 수 있도록 가상 컴퓨터에 로그온한 다음 디스크를 초기화해야 합니다.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

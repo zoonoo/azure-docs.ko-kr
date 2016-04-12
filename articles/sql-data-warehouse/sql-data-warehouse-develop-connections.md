@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
-# SQL 데이터 웨어하우스에 연결 
+# SQL 데이터 웨어하우스에 연결
 SQL 데이터 웨어하우스에 연결하려면 인증 목적으로 보안 자격 증명을 전달해야 합니다. 연결을 설정할 때 특정 연결 설정이 쿼리 세션을 설정하는 일부로 구성된다는 사실도 확인하게 될 것입니다.
 
 이 문서에서는 SQL 데이터 웨어하우스에 연결하는 다음과 같은 측면에 대해 자세히 설명합니다.
@@ -29,9 +29,9 @@ SQL 데이터 웨어하우스에 연결하려면 인증 목적으로 보안 자�
 ## 인증
 SQL 데이터 웨어하우스에 연결하려면 다음 정보를 제공해야 합니다.
 
-- 정규화된 서버 이름 
+- 정규화된 서버 이름
 - SQL 인증 지정
-- 사용자 이름 
+- 사용자 이름
 - 암호
 - 기본 데이터베이스(옵션)
 
@@ -42,7 +42,7 @@ SQL 데이터 웨어하우스에 연결하려면 다음 정보를 제공해야 �
 1. SSDT의 SQL Server 개체 탐색기에서 서버를 등록할 때 또는 응용 프로그램 연결 문자열에 기본 데이터베이스를 지정합니다. 예를 들어 ODBC 연결에 대해 InitialCatalog 매개 변수를 포함합니다.
 2. SSDT에서 세션을 만들기 전에 먼저 사용자 데이터베이스를 강조 표시합니다.
 
-> [AZURE.NOTE]SSDT를 사용하여 SQL 데이터 웨어하우스에 연결하는 지침은 [연결 및 쿼리][] 시작 문서를 다시 참조하세요.
+> [AZURE.NOTE] SSDT를 사용하여 SQL 데이터 웨어하우스에 연결하는 지침은 [연결 및 쿼리][] 시작 문서를 다시 참조하세요.
 
 연결을 위한 데이터베이스 변경의 경우 Transact-SQL 문 **USE<your DB>**이 지원되지 않는다는 데 유의해야 합니다.
 
@@ -56,25 +56,25 @@ SQL 데이터 웨어하우스에 연결하려면 다음 정보를 제공해야 �
 
 ### 샘플 ADO.NET 연결 문자열
 
-```
+```C#
 Server=tcp:{your_server}.database.windows.net,1433;Database={your_database};User ID={your_user_name};Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 ```
 
 ### 샘플 ODBC 연결 문자열
 
-```
+```C#
 Driver={SQL Server Native Client 11.0};Server=tcp:{your_server}.database.windows.net,1433;Database={your_database};Uid={your_user_name};Pwd={your_password_here};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;
 ```
 
 ### 샘플 PHP 연결 문자열
 
-```
+```PHP
 Server: {your_server}.database.windows.net,1433 \r\nSQL Database: {your_database}\r\nUser Name: {your_user_name}\r\n\r\nPHP Data Objects(PDO) Sample Code:\r\n\r\ntry {\r\n   $conn = new PDO ( "sqlsrv:server = tcp:{your_server}.database.windows.net,1433; Database = {your_database}", "{your_user_name}", "{your_password_here}");\r\n    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );\r\n}\r\ncatch ( PDOException $e ) {\r\n   print( "Error connecting to SQL Server." );\r\n   die(print_r($e));\r\n}\r\n\rSQL Server Extension Sample Code:\r\n\r\n$connectionInfo = array("UID" => "{your_user_name}", "pwd" => "{your_password_here}", "Database" => "{your_database}", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);\r\n$serverName = "tcp:{your_server}.database.windows.net,1433";\r\n$conn = sqlsrv_connect($serverName, $connectionInfo);
 ```
 
 ### 샘플 JDBC 연결 문자열
 
-```
+```Java
 jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user={your_user_name};password={your_password_here};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
 ```
 
@@ -98,7 +98,7 @@ SQL 데이터 웨어하우스는 연결 및 개체 생성 중에 몇 가지 설�
 그러나 SQL 데이터 웨어하우스는 분산된 MPP 시스템이므로 세션과 요청 식별자 모두 SQL Server와 조금 다르게 표시됩니다.
 
 세션과 요청은 해당 식별자에 의해 논리적으로 표시됩니다.
-	
+
 | 식별자 | 예제 값 |
 | :--------- | :------------ |
 | 세션 ID | SID123456 |
@@ -110,14 +110,14 @@ SQL 데이터 웨어하우스는 연결 및 개체 생성 중에 몇 가지 설�
 
 다음 함수를 사용하여 현재 사용 중인 세션을 식별하려면:
 
-```
+```sql
 SELECT SESSION_ID()
 ;
 ```
 
 실행 중이거나 데이터 웨어하우스에 대해 최근 실행한 모든 쿼리를 보려면 아래와 같은 쿼리를 사용할 수 있습니다.
 
-```
+```sql
 CREATE VIEW dbo.vSessionRequests
 AS
 SELECT 	 s.[session_id]									AS Session_ID
@@ -158,4 +158,4 @@ WHERE   s.[session_id] <> SESSION_ID()
 
 <!--Other references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0330_2016-->

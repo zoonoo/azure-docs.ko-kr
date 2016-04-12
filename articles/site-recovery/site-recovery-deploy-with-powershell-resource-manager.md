@@ -13,10 +13,15 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
-	ms.date="12/09/2015"
+	ms.date="03/16/2016"
 	ms.author="bsiva"/>
 
-# PowerShell 및 Azure 리소스 관리자를 사용하여 Azure Site Recovery.
+# PowerShell 및 Azure Resource Manager를 사용하여 온-프레미스 Hyper-V 가상 컴퓨터와 Azure 간에 복제합니다.
+
+> [AZURE.SELECTOR]
+- [Azure 클래식 포털](site-recovery-hyper-v-site-to-azure.md)
+- [PowerShell - Resource Manager](site-recovery-deploy-with-powershell-resource-manager.md)
+
 
 
 ## 개요
@@ -262,4 +267,4 @@ ARM에 대한 Azure PowerShell과 함께 사용할 수 있는 Azure Site Recover
 
     	$TFjob = Resume-AzureRmSiteRecoveryJob -Job $TFjob
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -12,8 +12,8 @@
    ms.workload="big-data"
    ms.tgt_pltfrm="na"
    ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.date="12/02/2015"
+   ms.topic="article"
+   ms.date="03/04/2016"
    ms.author="jgao"/>
 
 # HDInsight 시작 갤러리를 사용하여 Hadoop에 대해 알아보기
@@ -68,4 +68,4 @@ HDInsight에 대해 알아볼 수 있는 다른 방법은 다음과 같습니다
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
 [azure.portal]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

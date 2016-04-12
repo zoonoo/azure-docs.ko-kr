@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/09/2015"
+   ms.date="03/09/2016"
    ms.author="sethm" />
 
 # 서비스 버스를 사용한 공유 액세스 서명 인증
@@ -94,7 +94,7 @@ SAS 토큰의 [KeyName](https://msdn.microsoft.com/library/azure/microsoft.servi
 
 ## 네임스페이스에 대한 공유 액세스 권한 부여 규칙 액세스
 
-서비스 버스 네임스페이스 루트에 대한 작업은 인증서 인증이 필요합니다. Azure 구독에 대한 관리 인증서를 업로드해야 합니다. 관리 인증서를 업로드하려면 [Azure 클래식 포털][]의 왼쪽 창에서 **설정**을 클릭합니다. Azure 관리 인증서에 대한 자세한 내용은 [Azure용 관리 인증서 만들기](https://msdn.microsoft.com/library/azure/gg551722.aspx)를 참조하십시오.
+서비스 버스 네임스페이스 루트에 대한 작업은 인증서 인증이 필요합니다. Azure 구독에 대한 관리 인증서를 업로드해야 합니다. 관리 인증서를 업로드하려면 [Azure 클래식 포털][]의 왼쪽 창에서 **설정**을 클릭합니다. Azure 관리 인증서에 대한 자세한 내용은 [Azure 인증서 개요](../cloud-services/cloud-services-certs-create.md#what-are-management-certificates)를 참조하세요.
 
 서비스 버스 네임스페이스에 대한 공유 액세스 권한 부여 규칙에 액세스하기 위한 끝점은 다음과 같습니다.
 
@@ -258,4 +258,4 @@ sendClient.Send(helloMessage);
 
 [Azure 클래식 포털]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0316_2016-->

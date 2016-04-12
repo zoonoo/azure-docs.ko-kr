@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/27/2016"
+   ms.date="03/10/2016"
    ms.author="tomfitz"/>
 
 # 포털을 사용하여 Active Directory 응용 프로그램 및 서비스 주체 만들기
@@ -77,9 +77,17 @@
   
    ![클라이언트 ID][5]
 
-경우에 따라 인증 요청과 함께 테넌트 ID를 전달해야 합니다. 아래와 같이 화면 아래쪽에서 **끝점 보기**를 선택하고 ID를 검색하여 테넌트 ID를 검색할 수 있습니다.
+경우에 따라 인증 요청과 함께 테넌트 ID를 전달해야 합니다. 웹앱 및 Web API 앱의 경우 아래와 같이 화면 아래쪽에서 **끝점 보기**를 선택하고 ID를 검색하여 테넌트 ID를 검색할 수 있습니다.
 
    ![테넌트 ID](./media/resource-group-create-service-principal-portal/save-tenant.png)
+
+끝점은 네이티브 클라이언트 응용 프로그램에 사용할 수 없습니다. 대신 PowerShell을 통해 테넌트 ID를 검색할 수 있습니다.
+
+    PS C:\> Get-AzureRmSubscription
+
+또는 Azure CLI:
+
+    azure account show --json
 
 ## 인증 키 만들기
 
@@ -112,11 +120,11 @@
 
 1. **응용 프로그램 추가**를 선택합니다.
 
-2. 목록에서 **Azure 서비스 관리 API**를 선택합니다.
+2. 목록에서 **Azure Service Management API**를 선택합니다.
 
       ![앱 선택](./media/resource-group-create-service-principal-portal/select-app.png)
 
-3. **Azure 서비스 관리(미리 보기) 액세스** 위임된 권한을 서비스 관리 API에 추가합니다.
+3. **Azure Service Management 액세스(미리 보기)** 위임된 권한을 Service Management API에 추가합니다.
 
        ![사용 권한 선택](./media/resource-group-create-service-principal-portal/select-permissions.png)
 
@@ -229,4 +237,4 @@
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

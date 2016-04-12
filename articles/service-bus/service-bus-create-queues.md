@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="서비스 버스 큐를 사용하는 응용 프로그램 작성 | Microsoft Azure"
-   description="서비스 버스를 사용하는 간단한 큐 기반 응용 프로그램을 작성하는 방법"
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="서비스 버스 큐를 사용하는 응용 프로그램 작성 | Microsoft Azure"
+    description="서비스 버스를 사용하는 간단한 큐 기반 응용 프로그램을 작성하는 방법"
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="tysonn" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="12/28/2015"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="03/16/2016"
+    ms.author="sethm" />
 
 # 서비스 버스 큐를 사용하는 응용 프로그램 만들기
 
@@ -55,15 +55,15 @@
 
 ### 서비스 버스 계정 및 구독에 등록
 
-서비스 버스 작업을 시작하려면 Azure 계정이 필요합니다. 아직 등록하지 않은 경우 [여기서](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF) 무료 평가판에 가입할 수 있습니다.
+서비스 버스 작업을 시작하려면 Azure 계정이 필요합니다. 아직 등록하지 않은 경우 [여기](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF)에서 무료 계정을 등록할 수 있습니다.
 
 ### 서비스 네임스페이스 만들기
 
-구독이 있으면 새 네임스페이스를 만들 수 있습니다. 모든 서비스 버스 계정에서 새 네임 스페이스에 고유한 이름을 지정해야 합니다. 각각의 네임스페이스는 서비스 버스 엔터티 집합에 대한 컨테이너입니다. 자세한 내용은 [방법: 서비스 버스 네임스페이스 만들기 또는 수정](https://msdn.microsoft.com/library/azure/hh690931.aspx)을 참조하세요.
+구독이 있으면 새 네임스페이스를 만들 수 있습니다. 모든 서비스 버스 계정에서 새 네임스페이스에 고유한 이름을 지정합니다. 각각의 네임스페이스는 서비스 버스 엔터티 집합에 대한 범위 컨테이너입니다.
 
 ### NuGet 패키지 설치
 
-서비스 버스 서비스 네임스페이스를 사용하려면 특히 Microsoft.ServiceBus.dll 등, 응용 프로그램이 서비스 버스 어셈블리를 참조해야 합니다. Microsoft Azure SDK의 일부로 이 어셈블리를 찾을 수 있으며 [Azure SDK 다운로드 페이지](https://azure.microsoft.com/downloads/)에서 다운로드가 제공됩니다. 그러나 서비스 버스 NuGet 패키지는 서비스 버스 API를 가져오고 모든 서비스 버스 종속성으로 응용 프로그램을 구성하는 가장 쉬운 방법입니다. NuGet 및 서비스 버스 패키지 사용에 대한 자세한 내용은 [NuGet 서비스 버스 패키지 사용](https://msdn.microsoft.com/library/dn741354.aspx)을 참조하십시오.
+서비스 버스 네임스페이스를 사용하려면 특히 Microsoft.ServiceBus.dll 등, 응용 프로그램이 서비스 버스 어셈블리를 참조해야 합니다. Microsoft Azure SDK의 일부로 이 어셈블리를 찾을 수 있으며 [Azure SDK 다운로드 페이지](https://azure.microsoft.com/downloads/)에서 다운로드가 제공됩니다. 그러나 [서비스 버스 NuGet 패키지](https://www.nuget.org/packages/WindowsAzure.ServiceBus)는 서비스 버스 API를 가져오고 모든 서비스 버스 종속성으로 응용 프로그램을 구성하는 가장 쉬운 방법입니다.
 
 ### 큐 만들기
 
@@ -158,6 +158,6 @@ catch (Exception e)
 
 ## 다음 단계
 
-이제 큐의 기본 사항을 학습했으므로 서비스 버스 조정된 메시징의 게시/구독 기능을 사용하여 이 논의를 계속하려면 [서비스 버스 토픽 및 구독을 사용하는 응용 프로그램 만들기](service-bus-create-topics-subscriptions.md)를 참조하세요.
+이제 큐의 기본 사항을 학습했으므로 서비스 버스 토픽 및 구독의 게시/구독 기능을 사용하여 이 논의를 계속하려면 [서비스 버스 토픽 및 구독을 사용하는 응용 프로그램 만들기](service-bus-create-topics-subscriptions.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

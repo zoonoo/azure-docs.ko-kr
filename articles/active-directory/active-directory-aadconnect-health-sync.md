@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/17/2016"
+	ms.date="03/08/2016"
 	ms.author="billmath"/>
 
 # 동기화에 대한 Azure AD Connect Health 사용
@@ -28,6 +28,17 @@
 경고를 선택하면 추가 정보는 물론 경고를 해결하기 위해 수행할 수 있는 단계와 추가 설명서 링크가 제공됩니다.
 
 ![Azure AD Connect 동기화 오류](./media/active-directory-aadconnect-health-sync/alert.png)
+
+### 제한된 경고 평가
+Azure AD Connect가 기본 구성을 사용하지 않으면(예: 특성 필터링이 기본 구성에서 사용자 지정 구성으로 변경된 경우) Azure AD Connect Health 에이전트가 Azure AD Connect와 관련된 오류 이벤트를 업로드하지 않습니다.
+
+이로 인해 서비스의 경고 평가가 제한됩니다. Azure 포털에서 해당 서비스 아래에 이 조건을 나타내는 배너가 표시될 것입니다.
+
+![동기화에 대한 Azure AD Connect Health](./media/active-directory-aadconnect-health-sync/banner.png)
+
+"설정"을 클릭하고 Azure AD Connect Health 에이전트가 모든 오류 로그를 업로드할 수 있도록 허용하여 구성을 변경할 수 있습니다.
+
+![동기화에 대한 Azure AD Connect Health](./media/active-directory-aadconnect-health-sync/banner2.png)
 
 ## 동기화 정보
 동기화에 대한 Azure AD Connect Health의 최신 릴리스에는 다음과 같은 새로운 기능이 추가되었습니다.
@@ -56,4 +67,4 @@
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health 버전 내역](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

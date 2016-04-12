@@ -19,34 +19,11 @@
 #Microsoft Azure의 응용 프로그램 아키텍처
 Microsoft Azure를 사용하는 응용 프로그램을 빌드하기 위한 리소스입니다. 여기에는 시각적으로 소프트웨어 시스템을 설명하는 다이어그램을 그릴 수 있는 도구가 포함됩니다.
 
-
-
-##Azure 아키텍처 디자인 패턴
-Microsoft는 일련의 사용자가 고유의 사용자 지정 디자인을 작성할 수 있도록 지원하기 위해 아키텍처 디자인 패턴 모음을 게시합니다. 패턴은 Microsoft Azure Platform을 가장 효과적으로 활용하여 조직의 비즈니스 요구를 해결하기 위해 함께 구성할 수 있는 간결한 아키텍처 가이드로 구현되었습니다.
-
-
-[개요](../azure-architectures-cpif-overview/) - [하이브리드 네트워킹](../azure-architectures-cpif-infrastructure-hybrid-networking/) - [오프사이트 일괄 처리](../azure-architectures-cpif-foundation-offsite-batch-processing-tier/) - [다중 사이트 데이터 계층](../azure-architectures-cpif-foundation-multi-site-data-tier/) - [전역 부하 분산된 웹 계층](../azure-architectures-cpif-foundation-global-load-balanced-web-tier/) - [Azure 검색 계층](../azure-architectures-cpif-foundation-azure-search-tier/)
- 
-각 패턴에 포함된 내용
- 
-- 서비스 설명
-- 패턴을 활용하는 데 필요한 Azure 서비스 목록
-- 아키텍처 다이어그램
-- 아키텍처 종속성
-- 패턴에 영향을 줄 수 있는 디자인 제한 사항 또는 고려 사항
-- 인터페이스 및 끝점
-- 안티패턴
-- 가용성 및 복원력, 사용되는 서비스에 대한 복합 SLA, 규모 및 성능, 비용 및 운영 고려 사항을 포함하는 핵심적인 상위 수준 아키텍처 고려 사항
-
-![Azure 아키텍처 디자인 패턴](./media/architecture-overview/AzureArchPatterns.jpg)
-
-
 ##디자인 패턴 포스터
-Microsoft Patterns and Practices에서 [클라우드 디자인 패턴](http://msdn.microsoft.com/library/dn568099.aspx)이라는 책을 출간했습니다. 이 책은 MSDN에서 제공되며 PDF로 다운로드할 수도 있습니다. 모든 패턴이 나열된 큰 판형의 포스터도 제공됩니다.
 
-![Patterns and Practices 클라우드 패턴 포스터](./media/architecture-overview/PnPPatternPosterThumb.jpg)
+Microsoft Patterns & Practices에서 [클라우드 디자인 패턴](http://msdn.microsoft.com/library/dn568099.aspx)이라는 책을 출간했습니다. 이 책은 MSDN에서 제공되며 PDF로 다운로드할 수도 있습니다. 모든 패턴이 나열된 큰 판형의 포스터도 제공됩니다.
 
-
+![Patterns & Practices 클라우드 패턴 포스터](./media/architecture-overview/PnPPatternPosterThumb.jpg)
 
 ##Microsoft 아키텍처 인증 과정
 
@@ -108,4 +85,4 @@ Microsoft에서는 포스터/Infographics 관련 아키텍처를 여러 개 게�
 
 ![Azure 아키텍처 인포그래픽](./media/architecture-overview/AzureArchInfographicThumb.jpg)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

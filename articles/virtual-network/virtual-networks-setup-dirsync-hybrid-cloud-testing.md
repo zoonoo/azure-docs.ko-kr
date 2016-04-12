@@ -181,8 +181,8 @@ CLIENT1의 **Active Directory 동기화 설정 및 관리 페이지**에서 이 
 
 [테스트를 위한 시뮬레이션된 하이브리드 클라우드 환경 설정](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
 
-[Azure 하이브리드 클라우드 테스트 환경](../virtual-machines/virtual-machines-hybrid-cloud-test-environments.md)
+[Azure 하이브리드 클라우드 테스트 환경](../virtual-machines/virtual-machines-windows-classic-hybrid-test-env.md)
 
-[Azure 인프라 서비스 구현 지침](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
+[Azure 인프라 서비스 구현 지침](../virtual-machines/virtual-machines-linux-infrastructure-service-guidelines.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

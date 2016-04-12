@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="03/15/2016"
    ms.author="telmos"/>
 
 # Azure 포털을 사용하여 가상 네트워크(클래식) 만들기
@@ -33,4 +33,4 @@ UI를 사용하고 netcfg 파일을 배포하여 Azure 포털에서 VNet을 만�
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-classic-netcfg-portal-include](../../includes/virtual-networks-create-vnet-classic-netcfg-portal-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0323_2016-->

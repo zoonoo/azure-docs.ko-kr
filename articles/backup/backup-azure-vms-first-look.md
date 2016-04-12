@@ -13,19 +13,27 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="03/07/2016"
+	ms.date="03/30/2016"
 	ms.author="markgal; jimpark"/>
 
 
 # 소개: Azure 가상 컴퓨터 백업
 
+> [AZURE.SELECTOR]
+- [ARM VM 백업](backup-azure-vms-first-look-arm.md)
+- [클래식 모드 VM 백업](backup-azure-vms-first-look.md)
+
 이 문서는 Azure VM(가상 컴퓨터)을 백업하도록 Azure 환경을 준비하기 위한 일련의 단계를 안내하는 자습서입니다. 이 자습서에서는 Azure 구독에 이미 VM이 있으며 VM에 액세스하는 백업 서비스를 허용하도록 조치를 취했다고 가정합니다. 높은 수준에서 볼 때 다음 단계를 완료해야 합니다.
 
-1. *VM과 동일한 지역*에서 백업 자격 증명 모음을 만들거나 기존의 백업 자격 증명 모음을 식별합니다.
-2. Azure 포털을 사용하여 구독에서 가상 컴퓨터를 검색하고 등록합니다.
-3. 가상 컴퓨터에 VM 에이전트를 설치합니다.
-4. 가상 컴퓨터 보호 - VM 백업에 대한 정책을 만듭니다.
-5. 백업을 실행합니다.
+![VM 백업 프로세스의 상위 수준 보기](./media/backup-azure-vms-first-look/BackupAzureVM.png)
+
+
+1. Azure 구독을 만들거나 로그인합니다.
+2. *VM과 동일한 지역*에서 백업 자격 증명 모음을 만들거나 기존의 백업 자격 증명 모음을 식별합니다.
+3. Azure 포털을 사용하여 구독에서 가상 컴퓨터를 검색하고 등록합니다.
+4. 가상 컴퓨터에 VM 에이전트를 설치합니다(Azure 갤러리에서 VM을 사용하는 경우 VM 에이전트가 이미 있음).
+5. 가상 컴퓨터를 보호하는 정책을 만듭니다.
+6. 백업을 실행합니다.
 
 >[AZURE.NOTE] Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델인 [리소스 관리자와 클래식](../resource-manager-deployment-model.md) 모델이 있습니다. 현재, Azure 백업 서비스는 IaaS V2 가상 컴퓨터라고 하는 ARM(Azure Resource Manager)를 지원하지 않습니다. IaaS V2 VM은 새 Azure 포털이 릴리스될 때 함께 제공되기 때문에 이 자습서는 Azure 클래식 포털에서 만들어질 수 있는 형식의 VM으로 사용하도록 디자인됩니다.
 
@@ -123,9 +131,9 @@
 
 ## 3단계 - 가상 컴퓨터에 VM 에이전트 설치
 
-Azure VM 에이전트는 작업할 백업 확장을 위한 Azure 가상 컴퓨터에 설치되어야 합니다. Azure 갤러리에서 VM을 만든 경우 VM 에이전트는 이미 가상 컴퓨터에 있습니다. 그러나 온-프레미스 데이터 센터에서 마이그레이션한 VM에는 VM 에이전트가 설치되어 있지 않습니다. 이러한 경우에 VM 에이전트를 명시적으로 설치해야 합니다. Azure VM을 백업하려고 시도하기 전에 Azure VM 에이전트가 가상 컴퓨터에 올바르게 설치되었는지 확인합니다(아래 테이블 참조). 사용자 지정 VM을 만드는 경우 가상 컴퓨터를 프로비전하기 전에 [**VM 에이전트 설치** 확인란을 선택해야 합니다](../virtual-machines/virtual-machines-extensions-agent-about.md).
+Azure VM 에이전트는 작업할 백업 확장을 위한 Azure 가상 컴퓨터에 설치되어야 합니다. Azure 갤러리에서 VM을 만든 경우 VM 에이전트는 이미 가상 컴퓨터에 있습니다. 그러나 온-프레미스 데이터 센터에서 마이그레이션한 VM에는 VM 에이전트가 설치되어 있지 않습니다. 이러한 경우에 VM 에이전트를 명시적으로 설치해야 합니다. Azure VM을 백업하려고 시도하기 전에 Azure VM 에이전트가 가상 컴퓨터에 올바르게 설치되었는지 확인합니다(아래 테이블 참조). 사용자 지정 VM을 만드는 경우 가상 컴퓨터를 프로비전하기 전에 [**VM 에이전트 설치** 확인란을 선택해야 합니다](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md).
 
-[VM 에이전트](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) 및 [설치 방법](../virtual-machines/virtual-machines-extensions-install.md)에 대해 알아보세요.
+[VM 에이전트](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) 및 [설치 방법](../virtual-machines/virtual-machines-windows-classic-manage-extensions.md)에 대해 알아보세요.
 
 다음 테이블에서는 Windows 및 Linux VM용 VM 에이전트에 대한 추가 정보를 제공합니다.
 
@@ -153,7 +161,7 @@ Azure VM 에이전트는 작업할 백업 확장을 위한 Azure 가상 컴퓨�
 
 3. 페이지 맨 아래에 있는 **보호**를 클릭합니다. ![보호 클릭](./media/backup-azure-vms-first-look/protect-icon.png)
 
-    **항목 마법사 보호**가 나타나고 등록되었지만 보호되지 않은 가상 컴퓨터*만*을 나열습니다.
+    **항목 마법사 보호**가 나타나고 등록되었지만 보호되지 않은 가상 컴퓨터*만* 나열됩니다.
 
     ![규모로 보호 구성](./media/backup-azure-vms/protect-at-scale.png)
 
@@ -226,4 +234,4 @@ Azure VM 에이전트는 작업할 백업 확장을 위한 Azure 가상 컴퓨�
 ## 질문이 있으십니까?
 질문이 있거나 포함되었으면 하는 기능이 있는 경우 [의견을 보내 주세요](http://aka.ms/azurebackup_feedback).
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

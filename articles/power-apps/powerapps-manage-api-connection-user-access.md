@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="03/02/2016"
    ms.author="litran"/>
 
 
@@ -22,7 +22,7 @@
 
 API는 [앱 서비스 환경](powerapps-get-started-azure-portal.md) 내에 존재합니다. API는 PowerApps용으로 제공되는 API나 앱 서비스 환경에 호스트되는 API 앱 또는 Swagger 2.0을 사용하여 만들 수 있습니다. PowerApps에 손쉽게 추가할 수 있는 미리 만들어진 API도 많이 있습니다. JSON 형식으로 된 자신의 API 또는 Swagger 2.0을 업로드할 수도 있습니다.
 
-이 문서는:
+이 토픽은:
 
 - PowerApps에 API를 추가하고 회사 내 사용자에게 API 사용 권한(API 속성 변경 포함)을 부여하는 단계를 나열합니다.
 - API에 연결을 추가하고 회사 내 사용자에게 연결 사용 권한을 부여하는 단계를 나열합니다.
@@ -72,7 +72,7 @@ API를 만들고 앱 서비스 환경에 추가했으니, 이제 회사 내 사�
 
 
 ## 요약 및 다음 단계
-이 문서에서:
+이 토픽에서:
 
 - API를 추가하고 회사 내 사용자에게 API 사용 권한을 부여했습니다. 이 단계를 사용하여 런타임 액세스를 언제든 관리할 수도 있습니다. 예를 들어, userA가 회사를 떠나면 Azure 포털을 사용하여 이 사용자의 권한을 손쉽게 제거할 수 있습니다. UserB가 회사에 입사해도 시나리오는 같습니다.
 - 연결을 추가했습니다. (연결 문자열과 유사합니다.) 이 단계를 통해 Azure에 호스트되는 API를 시스템(예: 온-프레미스 SQL Server)에 연결할 수 있습니다. 회사 내 사용자에게 연결을 사용할 수 있는 권한도 부여했습니다. 
@@ -86,4 +86,4 @@ API를 만들고 앱 서비스 환경에 추가했으니, 이제 회사 내 사�
 [3]: ./media/powerapps-manage-api-connection-user-access/selectpermission.png
 [4]: ./media/powerapps-manage-api-connection-user-access/deleteapi.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -3,9 +3,9 @@
 	description="Blob 저장소를 사용하여 Blob 콘텐츠를 업로드, 다운로드, 나열 및 삭제하는 방법을 알아봅니다. 샘플은 Ruby로 작성되었습니다."
 	services="storage"
 	documentationCenter="ruby"
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
-	editor="tysonn"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="ruby"
 	ms.topic="article"
 	ms.date="02/17/2016"
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 
 # Ruby에서 Blob 저장소를 사용하는 방법
@@ -31,7 +31,7 @@
 
 ## Ruby 응용 프로그램 만들기
 
-Ruby 응용 프로그램을 만듭니다. 지침은 [Azure VM의 Ruby on Rails 웹 응용 프로그램](../virtual-machines/virtual-machines-ruby-rails-web-app-linux.md)을 참조하세요.
+Ruby 응용 프로그램을 만듭니다. 지침은 [Azure VM의 Ruby on Rails 웹 응용 프로그램](../virtual-machines/virtual-machines-linux-classic-ruby-rails-web-app.md)을 참조하세요.
 
 ## 저장소에 액세스하도록 응용 프로그램 구성
 
@@ -156,4 +156,4 @@ Blob을 다운로드하려면 **get\_blob()** 메서드를 사용하여 콘텐�
 - GitHub의 [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby)(영문) 리포지토리
 - [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -3,7 +3,7 @@
    description="신뢰할 수 있는 행위자가 행위자 개발자의 견지에서 서비스 패브릭 플랫폼의 기능을 어떻게 사용하는지 설명합니다."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor="vturecek"/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/13/2015"
-   ms.author="abhisram"/>
+   ms.date="03/15/2016"
+   ms.author="vturecek"/>
 
 # 신뢰할 수 있는 행위자가 서비스 패브릭 플랫폼을 사용하는 방법
 
@@ -102,7 +102,7 @@ Visual Studio를 통해 응용 프로그램 패키지를 만들면 빌드 출력
 ## 행위자 서비스에 대한 확장성
 클러스터 관리자는 클러스터의 각 서비스 유형에 대해 하나 이상의 행위자 서비스를 만들 수 있습니다. 각 행위자 서비스는 하나 이상의 파티션(다른 서비스 패브릭 서비스와 비슷)을 가질 수 있습니다. 한 서비스 유형(행위자 형식에 매핑)의 서비스를 여러 개 만드는 기능과 한 서비스에 대해 여러 파티션을 만들 수 있는 기능을 사용하면 행위자 응용 프로그램을 확장할 수 있습니다. 자세한 내용은 [확장성](service-fabric-concepts-scalability.md)에 대한 문서를 참조하세요.
 
-> [AZURE.NOTE]상태 비저장 행위자 서비스는 [인스턴스](service-fabric-availability-services.md#availability-of-service-fabric-stateless-services) 수로 1이 필요합니다. 파티션 내에서 상태 비저장 행위자 서비스에 대해 1을 초과하는 인스턴스는 지원되지 않습니다. 따라서, 상태 비저장 행위자 서비스는 확장성을 달성하기 위해 인스턴스 수를 증가하는 옵션을 두지 않습니다. [확장성 문서](service-fabric-concepts-scalability.md)에 설명되어 있는 확장성 옵션을 반드시 사용해야 합니다.
+> [AZURE.NOTE] 상태 비저장 행위자 서비스는 [인스턴스](service-fabric-availability-services.md#availability-of-service-fabric-stateless-services) 수로 1이 필요합니다. 파티션 내에서 상태 비저장 행위자 서비스에 대해 1을 초과하는 인스턴스는 지원되지 않습니다. 따라서, 상태 비저장 행위자 서비스는 확장성을 달성하기 위해 인스턴스 수를 증가하는 옵션을 두지 않습니다. [확장성 문서](service-fabric-concepts-scalability.md)에 설명되어 있는 확장성 옵션을 반드시 사용해야 합니다.
 
 ## 행위자에 대한 서비스 패브릭 파티션 개념
 행위자의 ID는 행위자 서비스의 파티션에 매핑됩니다. 행위자는 해당 행위자 ID가 매핑되는 파티션 내에 생성됩니다. 행위자를 만들 때 행위자 런타임은 행위자를 만든 파티션을 나타내는 [EventSource 이벤트](service-fabric-reliable-actors-diagnostics.md#eventsource-events)를 기록합니다. 아래에는 ID `-5349766044453424161`인 행위자가 서비스 `fabric:/VoicemailBoxAdvancedApplication/VoicemailBoxActorService`, 응용 프로그램 `fabric:/VoicemailBoxAdvancedApplication`의 파티션 `b6afef61-be9a-4492-8358-8f473e5d2487` 내에 만들어졌음을 나타내는 이벤트의 예가 나와 있습니다.
@@ -143,7 +143,7 @@ Visual Studio를 통해 응용 프로그램 패키지를 만들면 빌드 출력
       }
     }
 
-> [AZURE.NOTE]위 이벤트의 일부 필드는 간단한 설명을 위해 생략되었습니다.
+> [AZURE.NOTE] 위 이벤트의 일부 필드는 간단한 설명을 위해 생략되었습니다.
 
 파티션 ID는 해당 파티션에 대한 다른 정보를 얻는 데 사용할 수 있습니다. 예를 들어, [서비스 패브릭 탐색기](service-fabric-visualizing-your-cluster.md) 도구는 파티션 및 해당 파티션에 속한 서비스와 응용 프로그램에 대한 정보를 보는 데 사용할 수 있습니다. 아래 스크린샷에서는 위의 예제에서 ID가 `-4952641569324299627`인 행위자가 포함된 파티션 `5405d449-2da6-4d9a-ad75-0ec7d65d1a2a`에 대한 정보를 보여줍니다.
 
@@ -175,7 +175,7 @@ public void ActorMessage(StatefulActorBase actor, string message, params object[
 ### 상태 비저장 행위자에 대한 서비스 패브릭 파티션 개념
 상태 비저장 행위자는 서비스 패브릭 상태 비저장 서비스의 파티션 내에 생성됩니다. 행위자 ID는 행위자가 생성되는 파티션을 결정합니다. 상태 비저장 행위자 서비스에 대한 [인스턴스](service-fabric-availability-services.md#availability-of-service-fabric-stateless-services) 수는 반드시 1이어야 합니다. 인스턴스 수를 그 밖의 다른 값으로 변경하는 것은 지원되지 않습니다. 따라서 행위자는 파티션에 포함된 단일 서비스 인스턴스 내에 만들어집니다.
 
-> [AZURE.TIP]패브릭 행위자 런타임에서는 일부 [상태 비저장 행위자 인스턴스 관련 이벤트](service-fabric-reliable-actors-diagnostics.md#events-related-to-stateless-actor-instances)를 내보냅니다. 진단 및 성능 모니터링에 유용합니다.
+> [AZURE.TIP] 패브릭 행위자 런타임에서는 일부 [상태 비저장 행위자 인스턴스 관련 이벤트](service-fabric-reliable-actors-diagnostics.md#events-related-to-stateless-actor-instances)를 내보냅니다. 진단 및 성능 모니터링에 유용합니다.
 
 상태 비저장 행위자를 만들 때 행위자 런타임은 행위자를 만든 파티션 및 인스턴스를 나타내는 [EventSource 이벤트](service-fabric-reliable-actors-diagnostics.md#eventsource-events)를 작성합니다. 이 이벤트의 예제는 아래와 같습니다. 이 예제는 ID가 `abc`인 행위자가 파티션 `8c828833-ccf1-4e21-b99d-03b14d4face3`, 서비스 `fabric:/HelloWorldApplication/HelloWorldActorService`, 응용 프로그램 `fabric:/HelloWorldApplication`의 인스턴스 `130745709600495974` 내에 만들어졌음을 나타냅니다.
 
@@ -196,12 +196,12 @@ public void ActorMessage(StatefulActorBase actor, string message, params object[
       }
     }
 
-> [AZURE.NOTE]위 이벤트의 일부 필드는 간단한 설명을 위해 생략되었습니다.
+> [AZURE.NOTE] 위 이벤트의 일부 필드는 간단한 설명을 위해 생략되었습니다.
 
 ### 상태 저장 행위자에 대한 서비스 패브릭 파티션 개념
 상태 저장 행위자는 서비스 패브릭 상태 저장 서비스의 파티션 내에 생성됩니다. 행위자 ID는 행위자가 생성되는 파티션을 결정합니다. 서비스의 각 파티션은 클러스터의 여러 노드에 배치된 하나 이상의 [복제본](service-fabric-availability-services.md#availability-of-service-fabric-stateful-services)을 가질 수 있습니다. 복제본이 여러 개 있으면 행위자 상태에 대한 안정성이 제공됩니다. Azure 리소스 관리자는 클러스터에서 사용 가능한 오류 및 업그레이드 도메인을 기준으로 배치를 최적화합니다. 동일한 파티션의 두 복제본은 동일한 노드에 배치할 수 없습니다. 행위자는 항상 해당 행위자 ID가 매핑되는 파티션의 주 복제본에 생성됩니다.
 
-> [AZURE.TIP]패브릭 행위자 런타임에서는 일부 [상태 저장 행위자 복제본 관련 이벤트](service-fabric-reliable-actors-diagnostics.md#events-related-to-stateful-actor-replicas)를 내보냅니다. 진단 및 성능 모니터링에 유용합니다.
+> [AZURE.TIP] 패브릭 행위자 런타임에서는 일부 [상태 저장 행위자 복제본 관련 이벤트](service-fabric-reliable-actors-diagnostics.md#events-related-to-stateful-actor-replicas)를 내보냅니다. 진단 및 성능 모니터링에 유용합니다.
 
 [이전에 나온 VoiceMailBoxActor 예](#service-fabric-partition-concepts-for-actors)에서 ID가 `-4952641569324299627`인 행위자를 파티션 `5405d449-2da6-4d9a-ad75-0ec7d65d1a2a` 내에서 만들었습니다. 해당 예제에서 EventSource 이벤트는 행위자가 해당 파티션의 복제본 `130745418574851853`에 만들어졌음을 나타냅니다. 이 복제본은 행위자를 만들었을 당시 해당 파티션의 주 복제본이었습니다. 아래의 서비스 패브릭 탐색기 스크린샷에서 이를 확인할 수 있습니다.
 
@@ -242,4 +242,4 @@ public class VoicemailBoxActor : StatefulActor<VoicemailBox>, IVoicemailBoxActor
 [3]: ./media/service-fabric-reliable-actors-platform/actor-partition-info.png
 [4]: ./media/service-fabric-reliable-actors-platform/actor-replica-role.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0316_2016-->

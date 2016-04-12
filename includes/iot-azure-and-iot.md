@@ -10,6 +10,8 @@ Azure IoT Hub는 Azure 서비스를 사용하여 이 IoT 솔루션 아키텍처�
 
 ![IoT 솔루션 아키텍처][img-solution-architecture]
 
+> [AZURE.NOTE] IoT 아키텍처에 대한 자세한 설명은 [Microsoft Azure IoT 서비스: 참조 아키텍처][lnk-refarch]를 참조하세요.
+
 ### 장치 연결
 
 이 IoT 솔루션 아키텍처에서 장치는 저장소 및 처리를 위한 클라우드 끝점에 온도 판독값과 같은 원격 분석을 보냅니다. 또한 장치는 클라우드 끝점에서 메시지를 읽어 수신하고 클라우드-장치 명령에 응답할 수 있습니다. 예를 들어 장치는 데이터를 샘플링하는 빈도를 변경하도록 지시하는 명령을 검색할 수도 있습니다.
@@ -48,5 +50,6 @@ IoT 솔루션은 자동 피드백 루프를 포함할 수 있습니다. 예를 �
 [lnk-machinelearning]: http://azure.microsoft.com/services/machine-learning/
 [Azure IoT Suite]: http://azure.microsoft.com/solutions/iot
 [lnk-protocol-gateway]: iot-hub-protocol-gateway.md
+[lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

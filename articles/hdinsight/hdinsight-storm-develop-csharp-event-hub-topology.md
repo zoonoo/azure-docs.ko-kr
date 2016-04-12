@@ -87,10 +87,12 @@ Spout 및 Bolt는 **eventhubs-storm-spout-0.9-jar-with-dependencies.jar**이라�
 4. **구성**을 선택하고 다음 정보를 사용하여 새 액세스 정책 두 개를 만듭니다.
 
 	<table>
-<tr><th>이름</th><th>권한</th></tr>
-<tr><td>기록기</td><td>보내기</td></tr>
-<tr><td>읽기 권한자</td><td>수신 대기</td></tr>
-</table>권한을 만든 후 페이지 아래쪽의 **저장** 아이콘을 선택합니다. 그러면 이 이벤트 허브로 보내고(기록기) 수신하는(판독기) 데 사용되는 공유 액세스 정책이 만들어집니다.
+	<tr><th>이름</th><th>권한</th></tr>
+	<tr><td>기록기</td><td>보내기</td></tr>
+	<tr><td>읽기 권한자</td><td>수신 대기</td></tr>
+	</table>
+
+	권한을 만든 후 페이지 아래쪽의 **저장** 아이콘을 선택합니다. 그러면 이 이벤트 허브로 보내고(기록기) 수신하는(판독기) 데 사용되는 공유 액세스 정책이 만들어집니다.
 
 	![정책](./media/hdinsight-storm-develop-csharp-event-hub-topology/policy.png)
 
@@ -141,13 +143,13 @@ Spout 및 Bolt는 **eventhubs-storm-spout-0.9-jar-with-dependencies.jar**이라�
 3. 다음 설정을 입력합니다. 앞에서 만든 이벤트 허브에 대한 정보를 **값** 열에 사용합니다.
 
 	<table>
-<tr><th style="text-align:left">이름</th><th style="text-align:left">형식</th><th style="text-align:left">범위</th></tr>
-<tr><td style="text-align:left">EventHubPolicyName</td><td style="text-align:left">string</td><td style="text-align:left">응용 프로그램</td></tr>
-<tr><td style="text-align:left">EventHubPolicyKey</td><td style="text-align:left">string</td><td style="text-align:left">응용 프로그램</td></tr>
-<tr><td style="text-align:left">EventHubNamespace</td><td style="text-align:left">string</td><td style="text-align:left">응용 프로그램</td></tr>
-<tr><td style="text-align:left">EventHubName</td><td style="text-align:left">string</td><td style="text-align:left">응용 프로그램</td></tr>
-<tr><td style="text-align:left">EventHubPartitionCount</td><td style="text-align:left">int</td><td style="text-align:left">응용 프로그램</td></tr>
-</table>
+	<tr><th style="text-align:left">이름</th><th style="text-align:left">형식</th><th style="text-align:left">범위</th></tr>
+	<tr><td style="text-align:left">EventHubPolicyName</td><td style="text-align:left">string</td><td style="text-align:left">응용 프로그램</td></tr>
+	<tr><td style="text-align:left">EventHubPolicyKey</td><td style="text-align:left">string</td><td style="text-align:left">응용 프로그램</td></tr>
+	<tr><td style="text-align:left">EventHubNamespace</td><td style="text-align:left">string</td><td style="text-align:left">응용 프로그램</td></tr>
+	<tr><td style="text-align:left">EventHubName</td><td style="text-align:left">string</td><td style="text-align:left">응용 프로그램</td></tr>
+	<tr><td style="text-align:left">EventHubPartitionCount</td><td style="text-align:left">int</td><td style="text-align:left">응용 프로그램</td></tr>
+	</table>
 
 4. **속성** 페이지를 저장하고 닫습니다.
 
@@ -296,15 +298,17 @@ Spout 및 Bolt는 **eventhubs-storm-spout-0.9-jar-with-dependencies.jar**이라�
 3. 다음 설정을 입력합니다. 앞에서 만든 이벤트 허브 및 저장소 계정에 대한 정보를 **값** 열에 사용합니다.
 
 	<table>
-<tr><th style="text-align:left">이름</th><th style="text-align:left">형식</th><th style="text-align:left">범위</th></tr>
-<tr><th style="text-align:left">EventHubPolicyName</th><th style="text-align:left">string</th><th style="text-align:left">응용 프로그램</th></tr>
-<tr><th style="text-align:left">EventHubPolicyKey</th><th style="text-align:left">string</th><th style="text-align:left">응용 프로그램</th></tr>
-<tr><th style="text-align:left">EventHubNamespace</th><th style="text-align:left">string</th><th style="text-align:left">응용 프로그램</th></tr>
-<tr><th style="text-align:left">EventHubName</th><th style="text-align:left">string</th><th style="text-align:left">응용 프로그램</th></tr>
-<tr><th style="text-align:left">EventHubPartitionCount</th><th style="text-align:left">int</th><th style="text-align:left">응용 프로그램</th></tr>
-<tr><th style="text-align:left">StorageConnection</th><th style="text-align:left">(연결 문자열)</th><th style="text-align:left">응용 프로그램</th></tr>
-<tr><th style="text-align:left">TableName</th><th style="text-align:left">string</th><th style="text-align:left">응용 프로그램</th></tr>
-</table>**TableName**에 대해 이벤트를 저장하려는 테이블의 이름을 입력합니다.
+	<tr><th style="text-align:left">이름</th><th style="text-align:left">형식</th><th style="text-align:left">범위</th></tr>
+	<tr><th style="text-align:left">EventHubPolicyName</th><th style="text-align:left">string</th><th style="text-align:left">응용 프로그램</th></tr>
+	<tr><th style="text-align:left">EventHubPolicyKey</th><th style="text-align:left">string</th><th style="text-align:left">응용 프로그램</th></tr>
+	<tr><th style="text-align:left">EventHubNamespace</th><th style="text-align:left">string</th><th style="text-align:left">응용 프로그램</th></tr>
+	<tr><th style="text-align:left">EventHubName</th><th style="text-align:left">string</th><th style="text-align:left">응용 프로그램</th></tr>
+	<tr><th style="text-align:left">EventHubPartitionCount</th><th style="text-align:left">int</th><th style="text-align:left">응용 프로그램</th></tr>
+	<tr><th style="text-align:left">StorageConnection</th><th style="text-align:left">(연결 문자열)</th><th style="text-align:left">응용 프로그램</th></tr>
+	<tr><th style="text-align:left">TableName</th><th style="text-align:left">string</th><th style="text-align:left">응용 프로그램</th></tr>
+	</table>
+
+	**TableName**에 대해 이벤트를 저장하려는 테이블의 이름을 입력합니다.
 
     **StorageConnection**에 대해 `DefaultEndpointsProtocol=https;AccountName=myAccount;AccountKey=myKey;` 값을 입력합니다. **myAccount** 및 **myKey**를 저장소 계정 이름 및 앞에서 가져온 키로 바꿉니다.
 
@@ -520,7 +524,11 @@ Spout 및 Bolt는 **eventhubs-storm-spout-0.9-jar-with-dependencies.jar**이라�
 
 ![토폴로지를 중단하는 이미지](./media/hdinsight-storm-develop-csharp-event-hub-topology/killtopology.png)
 
-## 참고
+##클러스터 삭제
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
+## 참고 사항
 
 ### 검사점 설정
 
@@ -548,7 +556,7 @@ EventHubSpout는 해당 상태의 검사점을 큐에서 읽은 메시지의 현
 
 > [AZURE.NOTE] 데이터가 기본 저장소 컨테이너에 유지되므로 새 클러스터는 **반드시** 이전 클러스터와 동일한 저장소 계정 및 컨테이너를 사용해야 합니다.
 
-## 요약
+## 다음 단계
 
 이 문서에서는 C# 토폴로지에서 Java 이벤트 허브 Spout 및 Bolt를 사용하여 Azure 이벤트 허브의 데이터로 작업하는 방법을 배웠습니다. C# 토폴로지 만들기에 대해 자세히 알아보려면 다음을 참조하세요.
 
@@ -557,4 +565,4 @@ EventHubSpout는 해당 상태의 검사점을 큐에서 읽은 메시지의 현
 * [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

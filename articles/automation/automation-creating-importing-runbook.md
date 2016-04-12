@@ -72,7 +72,7 @@ Azure 자동화에 스크립트 파일을 가져오려면 다음 절차를 사�
 
 
 ### Azure 포털을 사용하여 파일에서 Runbook을 가져오려면
-Azure 자동화에 스크립트 파일을 가져오려면 다음 절차를 사용할 수 있습니다. 이 포털을 사용하는 PowerShell 워크플로 Runbook에만 .ps1 파일을 가져올 수 있습니다.
+Azure 자동화에 스크립트 파일을 가져오려면 다음 절차를 사용할 수 있습니다. 이 포털을 사용하는 PowerShell Runbook 또는 PowerShell 워크플로에 .ps1 파일을 가져올 수 있습니다.
 
 1. Azure 포털에서 자동화 계정을 엽니다.
 2. **Runbook** 타일을 클릭하여 Runbook 목록을 엽니다.
@@ -131,4 +131,4 @@ Azure 자동화에 스크립트 파일을 가져오려면 다음 절차를 사�
 - [Azure 자동화에서 텍스트 Runbook 편집](automation-edit-textual-runbook.md)
 - [Azure 자동화에서 그래픽 작성](automation-graphical-authoring-intro.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

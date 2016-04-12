@@ -5,7 +5,7 @@
     suite="powerapps"
 	documentationCenter="" 
 	authors="rajram"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="03/02/2016"
    ms.author="rajram"/>
 
 # PowerApps용 API 개발
@@ -32,16 +32,16 @@ PowerApps에 대한 API를 빌드하고 배포하는 것은 여느 API를 만드
 
 다음 문서는 앱 서비스 환경에서 .Net, Java 또는 Node.js API를 빌드하고 배포하는 방법을 보여줍니다.
 
-- [Azure 앱 서비스에서 .NET 빌드 및 배포](../app-service-api-dotnet-get-started.md)
-- [Azure 앱 서비스에서 Java API 앱 빌드 및 배포](../app-service-api-java-api-app.md)
-- [Azure 앱 서비스에서 Node.js API 앱 빌드 및 배포](../app-service-api-nodejs-api-app.md)
+- [Azure 앱 서비스에서 .NET 빌드 및 배포](../app-service-api/app-service-api-dotnet-get-started.md)
+- [Azure 앱 서비스에서 Java API 앱 빌드 및 배포](../app-service-api/app-service-api-java-api-app.md)
+- [Azure 앱 서비스에서 Node.js API 앱 빌드 및 배포](../app-service-api/app-service-api-nodejs-api-app.md)
 
 
 ## 2단계: API에 대한 Swagger 2.0 API 정의 작성
 
 *1단계*에 언급된 문서 중 하나를 따라서 적용하면, API에 대한 표준 Swagger 2.0 API 정의가 자동으로 생성됩니다. 이것을 PowerApps에 맞게 최적화하려면, 생성된 Swagger 2.0 API 정의를 다음 스키마 확장을 사용하여 선택적으로 사용자 지정할 수 있습니다.
 
-Swagger 2.0 API 정의를 사용자 지정하는 일반적인 방법을 알아보려면 [Swashbuckle 생성 API 정의 사용자 지정](../app-service-api-dotnet-swashbuckle-customize.md)을 참조하세요.
+Swagger 2.0 API 정의를 사용자 지정하는 일반적인 방법을 알아보려면 [Swashbuckle 생성 API 정의 사용자 지정](../app-service-api/app-service-api-dotnet-swashbuckle-customize.md)을 참조하세요.
 
 ### 스키마 확장
 Swashbuckle에 의해 자동으로 생성되는 Swagger 외에, PowerApps용 API를 만들 때 사용할 수 있는 Swagger 확장이 더 있습니다. 이 섹션은 이러한 확장을 나열하고 설명합니다.
@@ -130,4 +130,4 @@ Salesforce에는 기본 제공되는 개체가 많이 있습니다. _x-ms-dynami
 
 이것은 연산에 대한 입력이 동적인 시나리오에 유용합니다. 예를 들어 SQL의 경우를 생각해 보겠습니다. 각 테이블의 스키마가 다릅니다. 따라서 사용자가 특정 테이블을 선택하면 논리 흐름 디자이너는 열 이름을 표시할 수 있도록 테이블 구조를 이해해야 합니다. 이런 경우, Swagger 정의에 _x-ms-dynamic-schema_가 있으면 스키마를 가져오도록 해당 연산을 호출합니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

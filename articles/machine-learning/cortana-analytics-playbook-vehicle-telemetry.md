@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="03/04/2016" 
 	ms.author="bradsev" />
 
 
@@ -49,4 +49,4 @@ Microsoft의 Cortana Analytics는 데이터를 지능형 작업으로 변환시�
 - **시뮬레이트된 차량 신호 및 진단**: 차량 텔레매틱스 시뮬레이터는 지정된 시간에 차량의 상태 및 주행 패턴에 해당하는 진단 정보 및 신호를 내보냅니다. 
 - **차량 카탈로그**: 모델 매핑에 대한 VIN이 포함된 참조 데이터 집합입니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

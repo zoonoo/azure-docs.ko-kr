@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="02/18/2016" 
+	ms.date="03/15/2016" 
 	ms.author="heidist"/>
 
 #Azure 검색에서 패싯 탐색을 구현하는 방법
@@ -291,7 +291,7 @@ Azure 검색에는 **geo.distance**와 **geo.intersects**라는 두 개의 지�
 
 - **geo.intersects** 함수는 지정된 지점이 지정된 다각형 내에 있는 경우 true를 반환합니다. 여기서 지점은 필드이고 다각형은 필터의 일부로 전달되는 좌표의 상수 목록으로 지정됩니다.
 
-필터 예제는 [OData 식 구문(Azure 검색)](http://msdn.microsoft.com/library/azure/dn798921.aspx)에서 확인할 수 있습니다. 지리 공간 검색에 대한 자세한 내용은 [Azure 검색에서 지리 공간 검색 응용 프로그램 만들기](search-create-geospatial.md)를 참조하세요.
+필터 예제는 [OData 식 구문(Azure 검색)](http://msdn.microsoft.com/library/azure/dn798921.aspx)에서 확인할 수 있습니다.
 
 <a name="tryitout"></a>
 ##체험
@@ -362,7 +362,6 @@ Codeplex의 Azure 검색 Adventure Works 데모에는 이 문서에 나와 있�
 [Design Patterns: Faceted Navigation]: http://alistapart.com/article/design-patterns-faceted-navigation
 [Create your first application]: search-create-first-solution.md
 [OData expression syntax (Azure Search)]: http://msdn.microsoft.com/library/azure/dn798921.aspx
-[Create a geospatial search application in Azure Search]: search-create-geospatial.md
 [Azure Search Adventure Works Demo]: https://azuresearchadventureworksdemo.codeplex.com/
 [http://www.odata.org/documentation/odata-version-2-0/overview/]: http://www.odata.org/documentation/odata-version-2-0/overview/
 [Faceting on Azure Search forum post]: ../faceting-on-azure-search.md?forum=azuresearch
@@ -370,4 +369,4 @@ Codeplex의 Azure 검색 Adventure Works 데모에는 이 문서에 나와 있�
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

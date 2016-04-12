@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure 권한 있는 ID 관리: 보안 경고를 구성하는 방법"
+   pageTitle="보안 경고를 구성하는 방법 | Microsoft Azure"
    description="Azure Privileged Identity Management 확장에 대한 보안 경고를 구성하는 방법 배우기"
    services="active-directory"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
-# Azure Privileged Identity Management: 보안 경고를 구성하는 방법
+# Azure AD Privileged Identity Management: 보안 경고를 구성하는 방법
 
 ## 보안 경고 개요
 Azure Privileged Identity Management(PIM)는 다음과 같은 경고를 제공하며 구성이 가능합니다. 보안 경고는 PIM 대시보드의 경고 섹션에서 볼 수 있습니다.
@@ -59,4 +59,4 @@ Azure Privileged Identity Management(PIM)는 다음과 같은 경고를 제공�
 ## 다음 단계
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

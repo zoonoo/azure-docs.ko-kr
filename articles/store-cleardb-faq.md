@@ -31,7 +31,7 @@
 
 * [Azure VM에서 실행되는 MySQL 클러스터](https://github.com/azure/azure-quickstart-templates/tree/master/mysql-replication)
 
-* [Azure VM에서 실행되는 MySQL의 단일 인스턴스](virtual-machines/virtual-machines-mysql-windows-server-2008r2.md)
+* [Azure VM에서 실행되는 MySQL의 단일 인스턴스](virtual-machines/virtual-machines-windows-classic-mysql-2008r2.md)
 
 ClearDB는 MySQL 호스팅 서비스이며 MySQL 인프라를 관리합니다. Azure 가상 컴퓨터에서 사용자 고유 MySQL 클러스터나 데이터베이스를 실행하는 경우 MySQL 서버를 설정하고 패치를 통해 지속적으로 업데이트해야 합니다.
 
@@ -55,7 +55,7 @@ ClearDB는 MySQL 호스팅 서비스이며 MySQL 인프라를 관리합니다. A
 
 ## Azure 가상 컴퓨터에서 MySQL을 실행하고 있습니다. Azure 웹앱을 내 데이터베이스에 연결할 수 있나요?
 
-예. Azure VM에서 웹앱으로 원격 액세스할 수 있으면 웹앱을 데이터베이스에 연결할 수 있습니다. 자세한 내용은 [가상 컴퓨터에 MySQL 설치](../virtual-machines/virtual-machines-mysql-windows-server-2008r2.md)를 참조하세요.
+예. Azure VM에서 웹앱으로 원격 액세스할 수 있으면 웹앱을 데이터베이스에 연결할 수 있습니다. 자세한 내용은 [가상 컴퓨터에 MySQL 설치](virtual-machines/virtual-machines-windows-classic-mysql-2008r2.md)를 참조하세요.
 
 ## ClearDB 프리미엄 MySQL 클러스터가 지원되는 국가는 어디인가요?
 
@@ -81,6 +81,10 @@ ClearDB는 MySQL 호스팅 서비스이며 MySQL 인프라를 관리합니다. A
 
 [ClearDB 업그레이드 마법사](https://www.cleardb.com/store/azure/upgrade)를 사용할 수 있습니다. 현재 Azure 포털에는 업그레이드 경로가 없습니다.
 
+## Azure 포털에서 내 ClearDB 데이터베이스를 볼 수 없나요?
+
+Azure Resource Manager를 사용하여 ClearDB 데이터베이스 또는 [새 azure 포털](https://portal.azure.com)을 만드는 경우 [이전 azure 포털](https://manage.windowsazure.com)에는 표시되지 않습니다. 이 문제를 해결하려면 데이터베이스를 웹 앱에 수동으로 연결합니다. 마찬가지로 [이전 포털](https://manage.windowsazure.com)에서 ClearDB 데이터베이스를 만드는 경우 [새 azure 포털](https://portal.azure.com)에서 데이터베이스를 볼 수 없습니다. 후자의 시나리오의 경우 해결 방법은 없습니다.
+
 ## 데이터베이스가 다운되었을 때 지원을 받으려면 누구에게 문의해야 하나요?
 
 데이터베이스 관련 문제에 대해서는 [ClearDB 지원](https://www.cleardb.com/developers/help/support)에 문의하세요. Azure 구독 정보를 제공해야 하므로 준비합니다.
@@ -89,13 +93,17 @@ ClearDB는 MySQL 호스팅 서비스이며 MySQL 인프라를 관리합니다. A
 
 아니요. 추가 사용자를 만들 수는 없지만 ClearDB 데이터베이스 클러스터에서 추가 데이터베이스를 만들 수 있습니다.
 
+## Basic/Pro 시리즈 데이터베이스를 오늘날 Planetary 계획처럼 ClearDB 포털에서 전체 업그레이드할 수 있나요?
+
+예, Basic 시리즈 데이터베이스는 전체 업그레이드(Basic 60 ~ Basic 500)할 수 있습니다. Pro 시리즈는 Pro 60을 제외하고 전체 업그레이드(Pro 125 ~ Pro 1000)할 수 있습니다. 현재 Pro 60 데이터베이스 업그레이드는 지원되지 않습니다.
+
 ## 리소스를 하나의 구독에서 다른 구독으로 마이그레이션할 때 ClearDB MySQL 데이터베이스도 마이그레이션되나요?  
 
-구독 간에 리소스 마이그레이션을 수행할 때 일부 [제한 사항](app-service-move-resources.md)이 적용됩니다. ClearDB MySQL 데이터베이스는 타사 서비스이므로 Azure 구독 마이그레이션 중에 마이그레이션되지 않습니다. Azure 리소스를 마이그레이션하기 전에 MySQL 데이터베이스의 마이그레이션을 관리하지 않으면 ClearDB MySQL 데이터베이스가 사용할 수 없도록 설정될 수 있습니다. 먼저 수동으로 데이터베이스를 마이그레이션한 다음 웹앱에 대한 Azure 구독 마이그레이션을 수행합니다.
+구독 간에 리소스 마이그레이션을 수행할 때 일부 [제한 사항](./app-service-web/app-service-move-resources.md)이 적용됩니다. ClearDB MySQL 데이터베이스는 타사 서비스이므로 Azure 구독 마이그레이션 중에 마이그레이션되지 않습니다. Azure 리소스를 마이그레이션하기 전에 MySQL 데이터베이스의 마이그레이션을 관리하지 않으면 ClearDB MySQL 데이터베이스가 사용할 수 없도록 설정될 수 있습니다. 먼저 수동으로 데이터베이스를 마이그레이션한 다음 웹앱에 대한 Azure 구독 마이그레이션을 수행합니다.
 
 ## EA(기업계약) 구독으로 확장성 있는 WordPress를 구매할 수 있나요?
 
-프로세스는 모든 구독에서 동일합니다. [Azure 포털](https://portal.azure.com/)에서 Azure 마켓플레이스로 이동하고 [확장성 있는 WordPress](https://portal.azure.com/?feature.customportal=false#create/WordPress.ScalableWordPress)를 선택하여 앱을 만들기 시작합니다. 확장성 있는 WordPress는 ClearDB Saturn 및 Jupiter 가격 책정 계층만 지원하며 EA 크레딧은 표준 웹앱 가격 책정 계층에서 실행 중인 웹 응용 프로그램 및 유료 ClearDB(공유) MySQL 데이터베이스로 이동합니다.[/marketplace/faq/](/marketplace/faq/) 스토어에서 구매한 모든 제품에 대해 EA 분기별로 별도의 통합 청구서로 청구됩니다.
+프로세스는 모든 구독에서 동일합니다. [Azure 포털](https://portal.azure.com/)에서 Azure 마켓플레이스로 이동하고 [확장성 있는 WordPress](https://portal.azure.com/?feature.customportal=false#create/WordPress.ScalableWordPress)를 선택하여 앱을 만들기 시작합니다. 확장성 있는 WordPress는 ClearDB Saturn 및 Jupiter 가격 책정 계층만 지원하며 EA 크레딧은 표준 웹 앱 가격 책정 계층에서 실행 중인 웹 응용 프로그램 및 유료 ClearDB(공유) MySQL 데이터베이스로 이동합니다.[/marketplace/faq/](/marketplace/faq/) 스토어에서 구매한 모든 제품에 대해 EA 분기별로 별도의 통합 청구서로 청구됩니다.
 
 ## 신용 카드 구독에서 EA 구독으로 ClearDB 데이터베이스를 전송할 수 있나요?
 
@@ -120,8 +128,12 @@ EA Azure 등록 관리자가 관리할 수 있는 타사 서비스용 Azure 마�
 
 EA 등록에서 요금 청구와 관련된 사항은 [엔터프라이즈 고객 지원](http://aka.ms/AzureEntSupport)에 문의하세요. EA 포털 지원 팀이 질문에 대답하거나 문제를 해결하는데 도움을 줄 것입니다.
 
+ 
+
+
+
 ## 자세한 정보
 
 [Azure 마켓플레이스 FAQ](/marketplace/faq/)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

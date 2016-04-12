@@ -64,6 +64,7 @@ Azure 앱 서비스의 주요 개념에 대해 자세히 알아봅니다.
 
 SDK 사용 방법을 알아봅니다.
 
+* [Apache Cordova SDK]
 * [ASP.NET 서버 SDK]
 * [Node.js 서버 SDK]
 
@@ -77,7 +78,8 @@ SDK 사용 방법을 알아봅니다.
 [푸시 알림을 추가]: app-service-mobile-cordova-get-started-push.md
 [인증]: app-service-mobile-auth.md
 [푸시 알림]: ../notification-hubs/notification-hubs-overview.md
+[Apache Cordova SDK]: app-service-mobile-codova-how-to-use-client-library.md
 [ASP.NET 서버 SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Node.js 서버 SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

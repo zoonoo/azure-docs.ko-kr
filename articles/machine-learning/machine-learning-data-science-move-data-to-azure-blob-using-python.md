@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="03/04/2016" 
 	ms.author="bradsev" />
 
 # Python을 사용하여 Azure Blob 저장소의 데이터 이동
@@ -51,7 +51,7 @@ Azure Blob 저장소로 및/또는 저장소에서 데이터를 이동하는 데
 
 프로그래밍 방식으로 Azure 저장소에 액세스하려는 Python 코드의 맨 위쪽에 다음 코드 조각을 추가합니다.
 
-	from azure.storage import BlobService
+	from azure.storage.blob import BlobService
 
 **BlobService** 개체를 통해 컨테이너 및 Blob에 대한 작업을 할 수 있습니다. 다음 코드에서는 저장소 계정 이름 및 계정 키를 사용하는 BlobService 개체를 만듭니다. 계정 이름 및 계정 키를 실제 계정 및 키로 바꾸세요.
 	
@@ -70,7 +70,7 @@ Azure Blob 저장소로 및/또는 저장소에서 데이터를 이동하는 데
 
 다음은 로컬 디렉터리의 모든 파일(디렉터리 제외)을 blob 저장소에 업로드하는 샘플 코드입니다.
 
-	from azure.storage import BlobService
+	from azure.storage.blob import BlobService
 	from os import listdir
 	from os.path import isfile, join
 	
@@ -95,7 +95,11 @@ Azure Blob 저장소로 및/또는 저장소에서 데이터를 이동하는 데
 
 ## Blob에서 데이터 다운로드
 
-다음 메서드를 사용하여 blob에서 데이터를 다운로드합니다. 1. get\_blob\_to\_path 2. get\_blob\_to\_file 3. get\_blob\_to\_bytes 4. get\_blob\_to\_text
+다음 메서드를 사용하여 blob에서 데이터를 다운로드합니다.
+1. get\_blob\_to\_path
+2. get\_blob\_to\_file
+3. get\_blob\_to\_bytes
+4. get\_blob\_to\_text 
 
 데이터의 크기가 64MB를 초과할 경우 필요한 청크를 수행하는 메서드입니다.
 
@@ -105,7 +109,7 @@ Azure Blob 저장소로 및/또는 저장소에서 데이터를 이동하는 데
 
 다음은 컨테이너의 모든 blob를 다운로드하는 샘플 코드입니다. 이 샘플 코드는 list\_blobs를 사용하여 컨테이너의 사용 가능한 blob 목록을 가져오고 로컬 디렉터리에 다운로드합니다.
 
-	from azure.storage import BlobService
+	from azure.storage.blob import BlobService
 	from os.path import join
 	
 	# Set parameters here
@@ -125,4 +129,4 @@ Azure Blob 저장소로 및/또는 저장소에서 데이터를 이동하는 데
 	    except:
 	        print "something wrong happened when downloading the data %s"%blob.name
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

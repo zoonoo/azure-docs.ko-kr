@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="02/25/2016"
+	ms.date="03/11/2016"
 	ms.author="yidingz;marsma"/>
 
 # Azure 배치 기능 개요
@@ -44,7 +44,7 @@
 
 ## <a name="resource"></a>배치 서비스의 리소스
 
-Azure 배치 서비스를 사용하는 경우 다음 리소스를 사용할 수 있습니다.
+배치를 사용하는 경우 다음과 같은 리소스를 사용하게 됩니다. 이러한 리소스 중 계정, 계산 노드, 풀, 작업(job), 작업(task) 등의 일부 리소스는 모든 배치 솔루션에서 사용됩니다. 작업 일정, 응용 프로그램 패키지 등의 기타 리소스는 유용하기는 하지만 선택적 기능입니다.
 
 - [계정](#account)
 - [계산 노드](#computenode)
@@ -55,7 +55,9 @@ Azure 배치 서비스를 사용하는 경우 다음 리소스를 사용할 수 
 	- [작업 관리자 태스크](#jobmanagertask)
 	- [작업 준비 및 해제 태스크](#jobpreprelease)
 	- [다중 인스턴스 작업](#multiinstance)
-- [JobSchedule](#jobschedule)
+    - [작업 종속성](#taskdep)
+- [작업 일정](#jobschedule)
+- [응용 프로그램 패키지](#appkg)
 
 ### <a name="account"></a>계정
 
@@ -122,7 +124,6 @@ Azure 배치 풀은 코어 Azure 계산 플랫폼을 기반으로 합니다. 배
 	- Azure 배치는 실패한 태스크를 검색하고 태스크를 다시 시도할 수 있습니다. 태스크가 항상 다시 시도되거나 다시 시도되지 않도록 지정하는 것을 포함하여 **태스크 다시 시도 최대 횟수**를 제약 조건으로 지정할 수 있습니다. 태스크 다시 시도는 태스크가 다시 실행되기 위해 다시 큐에 대기되는 것을 의미합니다.
 - 클라이언트 응용 프로그램에서 작업에 태스크를 추가하거나, [작업 관리자 태스크](#jobmanagertask)를 지정할 수 있습니다. 작업 관리자 태스크는 배치 API를 사용하며, 풀 내의 계산 노드 중 하나에서 태스크를 실행하여 작업에 필요한 태스크를 만드는 데 필요한 정보를 포함합니다. 작업 관리자 태스크는 배치에서 특별히 처리되며, 작업이 생성되는 즉시 큐에 대기되고 실패할 경우 다시 시작됩니다. 작업 관리자 태스크는 작업이 인스턴스화되기 전에 태스크를 정의할 수 있는 유일한 방법이므로 작업 스케줄에서 만든 작업에 대해 필요합니다. 작업 관리자 작업에 대한 자세한 내용은 아래에 나와 있습니다.
 
-
 ### <a name="task"></a>태스크
 
 태스크는 작업과 연결되고 노드에서 실행되는 계산의 단위입니다. 태스크는 실행을 위해 노드에 할당되거나, 노드를 사용할 수 있을 때까지 큐에 대기됩니다. 태스크는 다음 리소스를 사용합니다.
@@ -141,6 +142,7 @@ Azure 배치 풀은 코어 Azure 계산 플랫폼을 기반으로 합니다. 배
 - [작업 관리자 태스크](#jobmanagertask)
 - [작업 준비 및 해제 태스크](#jobmanagertask)
 - [다중 인스턴스 작업](#multiinstance)
+- [작업 종속성](#taskdep)
 
 #### <a name="starttask"></a>시작 태스크
 
@@ -187,9 +189,29 @@ Azure 배치 풀은 코어 Azure 계산 플랫폼을 기반으로 합니다. 배
 
 Batch .NET 라이브러리를 사용하여 일괄 처리에서 MPI 작업 실행에 대한 자세한 내용은 [다중 인스턴스 작업을 사용하여 Azure 배치에서 MPI(Message Passing Interface) 응용 프로그램 실행](batch-mpi.md)을 확인합니다.
 
+#### <a name="taskdep"></a>작업 종속성
+
+작업 종속성은 그 이름에서 알 수 있듯이, 한 작업이 실행되기 전까지 다른 작업에 종속되도록 지정할 수 있습니다. 이 기능은 "다운스트림" 태스크가 "업스트림" 태스크의 출력을 사용하거나 업스트림 태스크가 다운스트림 태스크에 필요한 몇 가지 초기화를 수행하는 상황에 대한 지원을 제공합니다. 이 기능을 사용하려면 먼저 배치 작업에서 태스크 종속성을 사용하도록 설정해야 합니다. 그런 다음 다른(또는 여러 다른) 태스크에 종속된 각 태스크에 대해 해당 태스크가 종속된 태스크를 지정합니다.
+
+태스크 종속성을 통해 다음과 같은 시나리오를 구성할 수 있습니다.
+
+* *taskB*가 *taskA*에 종속됨(*taskB*는 *taskA*가 완료될 때까지 실행을 시작하지 않음)
+* *taskC*는 *taskA* 및 *taskB*에 종속됨
+* *taskD*는 실행하기 전에 태스크 범위(예: 태스크 *1* ~ *10*)에 종속됨
+
+[azure-batch-samples][github_samples] GitHub 리포지토리에서 [TaskDependencies][github_sample_taskdeps] 코드 샘플을 확인하세요. 여기에는 [배치 .NET][batch_net_api] 라이브러리를 사용하여 다른 태스크에 종속되는 태스크를 구성하는 방법이 나와 있습니다.
+
 ### <a name="jobschedule"></a>예약된 작업
 
 작업 일정을 사용하여 배치 서비스 내에서 되풀이되는 작업을 만들 수 있습니다. 작업 일정은 작업을 실행할 시간을 지정하며, 실행할 작업에 대한 사양을 포함합니다. 작업 일정에서는 일정의 기간(일정이 적용되는 시점 및 기간) 및 해당 기간 동안 작업을 만들어야 하는 빈도에 대한 사양을 지정할 수 있습니다.
+
+### <a name="appkg"></a>응용 프로그램 패키지
+
+[응용 프로그램 패키지](batch-application-packages.md) 기능은 풀의 계산 노드에 응용 프로그램을 간편하게 관리 및 배포할 수 있는 방법을 제공합니다. 응용 프로그램 패키지를 사용하면 이진 및 지원 파일을 포함하여 작업에서 실행하는 여러 응용 프로그램 버전을 간편하게 업로드 및 관리할 수 있으며, 풀의 계산 노드에 하나 이상의 이러한 응용 프로그램을 자동으로 배포할 수 있습니다.
+
+배치는 백그라운드의 세부적인 Azure 저장소 작업을 처리하여 응용 프로그램 패키지를 안전하게 저장하고 계산 노드에 배포합니다. 따라서 코드와 관리 오버헤드가 간소화됩니다.
+
+응용 프로그램 패키지 기능에 대한 자세한 내용은 [Azure 배치 응용 프로그램 패키지를 사용하여 응용 프로그램 배포](batch-application-packages.md)를 참조하세요.
 
 ## <a name="files"></a>파일 및 디렉터리
 
@@ -318,19 +340,19 @@ Azure 배치 솔루션을 디자인할 때 디자인 결정은 풀을 만드는 
 
 태스크가 실패한 경우 배치 클라이언트 응용 프로그램 또는 서비스는 실패한 작업의 메타데이터를 검사하여 오동작 노드를 식별할 수 있습니다. 풀의 각 노드에는 고유 ID가 지정되며, 태스크가 실행되는 노드는 태스크 메타데이터에 포함됩니다. 식별하게 되면 여러 가지 작업을 수행할 수 있습니다.
 
-- **노드 다시 시작** ([REST][rest_reboot] | [.NET][net_reboot])
+- **노드 다시 시작**([REST][rest_reboot] | [.NET][net_reboot])
 
 	노드를 다시 시작하면 경우에 따라 충돌 또는 중단 프로세스와 같은 잠재적인 문제를 해소할 수 있습니다. 풀에서 시작 태스크를 사용하거나 작업에서 준비 태스크를 사용하는 경우 노드가 다시 시작될 때 실행됩니다.
 
-- **노드 이미지로 다시 설치** ([REST][rest_reimage] | [.NET][net_reimage])
+- **노드 이미지로 다시 설치**([REST][rest_reimage] | [.NET][net_reimage])
 
 	노드에서 운영 체제를 다시 설치합니다. 노드를 다시 시작할 때와 마찬가지로 태스크를 시작하고 노드가 이미지로 다시 설치된 후에 작업 준비 태스크를 다시 실행합니다.
 
-- **풀에서 노드 제거** ([REST][rest_remove] | [.NET][net_remove])
+- **풀에서 노드 제거**([REST][rest_remove] | [.NET][net_remove])
 
 	경우에 따라 풀에서 노드를 완전히 제거해야 합니다.
 
-- **노드에서 작업 일정 사용 안 함** ([REST][rest_offline] | [.NET][net_offline])
+- **노드에서 작업 일정 사용 안 함**([REST][rest_offline] | [.NET][net_offline])
 
 	효과적으로 노드 "오프라인"을 사용하므로 해당 노드에 더 이상 작업이 할당되지 않지만 노드가 풀에서 실행되도록 유지할 수 있습니다. 그러면 실패한 태스크에 데이터 손실이나 노드에 추가 작업 오류를 발생시키지 않고 실패의 원인을 조사할 수 있습니다. 예를 들어 노드에서 태스크 일정을 사용하지 않은 다음 원격으로 로그인하여 노드의 이벤트 로그를 검사하거나 다른 문제를 해결할 수 있습니다. 조사를 완료하면 태스크 일정([REST][rest_online], [.NET][net_online])을 사용하여 노드를 다시 온라인 상태로 되돌리거나 위에서 설명한 다른 작업 중 하나를 수행할 수 있습니다.
 
@@ -351,6 +373,8 @@ Azure 배치 솔루션을 디자인할 때 디자인 결정은 풀을 만드는 
 [batch_explorer_project]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [cloud_service_sizes]: https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
+[github_samples]: https://github.com/Azure/azure-batch-samples
+[github_sample_taskdeps]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
 
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx
@@ -377,7 +401,7 @@ Azure 배치 솔루션을 디자인할 때 디자인 결정은 풀을 만드는 
 [rest_add_task]: https://msdn.microsoft.com/library/azure/dn820105.aspx
 [rest_create_user]: https://msdn.microsoft.com/library/azure/dn820137.aspx
 [rest_get_task_info]: https://msdn.microsoft.com/library/azure/dn820133.aspx
-[rest_multiinstance]: https://msdn.microsoft.com/ko-KR/library/azure/mt637905.aspx
+[rest_multiinstance]: https://msdn.microsoft.com/library/azure/mt637905.aspx
 [rest_multiinstancesettings]: https://msdn.microsoft.com/library/azure/dn820105.aspx#multiInstanceSettings
 [rest_update_job]: https://msdn.microsoft.com/library/azure/dn820162.aspx
 [rest_rdp]: https://msdn.microsoft.com/library/azure/dn820120.aspx
@@ -387,4 +411,4 @@ Azure 배치 솔루션을 디자인할 때 디자인 결정은 풀을 만드는 
 [rest_offline]: https://msdn.microsoft.com/library/azure/mt637904.aspx
 [rest_online]: https://msdn.microsoft.com/library/azure/mt637907.aspx
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

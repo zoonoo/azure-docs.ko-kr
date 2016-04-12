@@ -3,7 +3,7 @@
 	description="Azure ML 권장 사항 샘플 응용 프로그램" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="luisca" 
+	authors="LuisCabrer" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="03/02/2016" 
 	ms.author="luisca"/>
 
 
-# 기계 학습 권장 사항 API의 공통 작업
+# 권장 사항 API 응용 프로그램 예제 연습
 
 ##목적
 
-이 문서에서는 [샘플 응용 프로그램](http://1drv.ms/1xeO2F3)을 통해 Azure 기계 학습 권장 사항 API의 사용법을 보여 줍니다.
+이 문서에서는 [샘플 응용 프로그램](https://code.msdn.microsoft.com/Recommendations-144df403)을 통해 Azure 기계 학습 권장 사항 API의 사용법을 보여 줍니다.
 
 이 응용 프로그램은 일부 기능만 포함하고 있으며 일부 API만 사용합니다. 기계 학습 권장 서비스를 처음 시작할 때 수행할 일반적인 작업 일부를 보여 줍니다.
 
@@ -90,4 +90,4 @@ API에 대한 자세한 내용은 Microsoft Azure 마켓플레이스 설명서�
 샘플 앱은 프로덕션 환경에서 실행할 수 없습니다. 카탈로그에 제공되는 데이터가 매우 작기 때문에 의미 있는 권장 사항 모델을 제공하지 않습니다. 제공되는 데이터는 시연용입니다.
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

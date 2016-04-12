@@ -20,7 +20,7 @@
 # C&#x23; 데이터베이스 개발: SQL 데이터베이스에 대한 탄력적 데이터베이스 풀 만들기 및 구성
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-elastic-pool-portal.md)
+- [Azure 포털](sql-database-elastic-pool-create-portal.md)
 - [C#](sql-database-elastic-pool-csharp.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
@@ -576,4 +576,4 @@ C#에서 SQL 개발을 시작하기 전에 Azure 포털에서 일부 작업을 �
 [8]: ./media/sql-database-elastic-pool-csharp/add-application2.png
 [9]: ./media/sql-database-elastic-pool-csharp/clientid.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

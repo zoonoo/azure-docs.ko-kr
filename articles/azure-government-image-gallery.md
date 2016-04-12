@@ -93,15 +93,15 @@ SUSE|SUSE Linux Enterprise Server 12|Microsoft Azure의 SUSE Linux Enterprise Se
 
 ###기타 리소스: 
 
-- [Windows 가상 컴퓨터 배포](../virtual-machines/virtual-machines-windows-tutorial.md)
+- [Windows 가상 컴퓨터 배포](virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
-- [Linux 가상 컴퓨터 배포](../virtual-machines/virtual-machines-linux-tutorial.md)
+- [Linux 가상 컴퓨터 배포](virtual-machines/virtual-machines-linux-cli-create.md)
 
 - [가상 컴퓨터 FAQ](http://msdn.microsoft.com/library/azure/dn683781.aspx)
 
-- [사용자 고유의 VHD 만들기 및 업로드](../virtual-machines-create-upload-vhd-windows-server/)
+- [사용자 고유의 VHD 만들기 및 업로드](virtual-machines-create-upload-vhd-windows-server/)
 
-- [Linux VM 이미지 캡처](../virtual-machines/virtual-machines-linux-capture-image.md)
+- [Linux VM 이미지 캡처](virtual-machines/virtual-machines-linux-classic-capture-image.md)
 
 <!--- **<A href="/azure-government-service-description">Azure Government Service Descriptions</a>**-->
 
@@ -114,8 +114,8 @@ SUSE|SUSE Linux Enterprise Server 12|Microsoft Azure의 SUSE Linux Enterprise Se
 [2]: ./media/azure-government-overview/azure-gov-overview.jpg
 
 <!--Link references-->
-[Link 1 to another azure.microsoft.com documentation topic]: virtual-machines/virtual-machines-windows-tutorial.md
+[Link 1 to another azure.microsoft.com documentation topic]: virtual-machines/virtual-machines-windows-hero-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

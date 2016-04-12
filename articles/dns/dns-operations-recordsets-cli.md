@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="CLI를 사용하여 Azure DNS의 DNS 레코드 집합 및 레코드 관리 | Microsoft Azure" 
+   pageTitle="Azure CLI를 사용하여 Azure DNS의 DNS 레코드 집합 및 레코드 관리 | Microsoft Azure" 
    description="Azure DNS에서 도메인을 호스트하는 경우 Azure DNS에서 DNS 레코드 집합 및 레코드를 관리합니다. 레코드 집합 및 레코드 작업에 대한 모든 CLI 명령입니다." 
    services="dns" 
    documentationCenter="na" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="01/21/2016"
+   ms.date="03/04/2016"
    ms.author="joaoma"/>
 
 # CLI를 사용하여 DNS 레코드를 관리하는 방법
@@ -22,7 +22,7 @@
 - [Azure CLI](dns-operations-recordsets-cli.md)
 - [PowerShell](dns-operations-recordsets.md)
 
-이 가이드에서는 DNS 영역에 대한 레코드 집합 및 레코드를 관리하는 방법을 보여 줍니다.
+이 가이드에서는 플랫폼 간 Azure CLI를 사용하여 DNS 영역에 대한 레코드 집합 및 레코드를 관리하는 방법을 보여 줍니다.
 
 >[AZURE.NOTE] Azure DNS는 Azure 리소스 관리자 전용 서비스입니다. 여기에는 ASM API가 없습니다. 따라서 'azure config mode arm' 명령을 사용하여 Azure CLI가 리소스 관리자 모드를 사용하도록 구성되었는지 확인해야 합니다.
 
@@ -242,4 +242,4 @@ DNS 영역 및 레코드를 만든 후 [Azure DNS에 도메인을 위임](dns-do
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

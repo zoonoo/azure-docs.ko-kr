@@ -2,7 +2,7 @@
 	pageTitle="논리 앱 기능 사용 | Microsoft Azure" 
 	description="논리 앱의 고급 기능을 사용하는 방법을 알아봅니다." 
 	authors="stepsic-microsoft-com" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="app-service\logic" 
 	documentationCenter=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/23/2016"
+	ms.date="03/28/2016"
 	ms.author="stepsic"/>
 	
 # 논리 앱 기능 사용
@@ -30,9 +30,9 @@
 
 유용한 다음 문서를 볼 수 있습니다.
 
-- [관리와 런타임 REST API](https://msdn.microsoft.com/library/azure/dn948513.aspx) - 논리 앱을 직접 호출 하는 방법 포함
-- [언어 참조](https://msdn.microsoft.com/library/azure/dn948512.aspx) - 모든 지원 되는 함수/식의 포괄적인 목록
-- [트리거 및 작업 형식](https://msdn.microsoft.com/library/azure/dn948511.aspx) - 다양한 유형의 동작 및 동작에 필요한 입력
+- [관리와 런타임 REST API](https://msdn.microsoft.com/library/azure/mt643787.aspx) - 논리 앱을 직접 호출 하는 방법 포함
+- [언어 참조](https://msdn.microsoft.com/library/azure/mt643789.aspx) - 모든 지원 되는 함수/식의 포괄적인 목록
+- [트리거 및 작업 형식](https://msdn.microsoft.com/library/azure/mt643939.aspx) - 다양한 유형의 동작 및 동작에 필요한 입력
 - [앱 서비스의 개요](../app-service/app-service-value-prop-what-is.md) - 솔루션을 구축하는 시점을 선택하는 구성 요소의 설명
 
 ## 조건부 논리 추가
@@ -41,7 +41,7 @@
 
 
 ### 조건부
-이 논리 앱에서는 많은 전자 메일을 받을 수 있습니다. 다음 단계에서는 특정 수의 팔로워를 보유한 사람으로부터 트윗이 제공된 경우에만 전자 메일을 받도록 하는 논리를 추가합니다.
+이 논리 앱에서는 많은 전자 메일을 받을 수 있습니다. 다음 단계에서는 특정 수의 팔로워를 보유한 사람으로부터 트윗이 제공된 경우에만 메일을 받도록 하는 논리를 추가합니다.
 
 1. 더하기를 클릭하고 Twitter에 대한 *Get User* 작업을 찾습니다.
 
@@ -60,6 +60,11 @@
 	![조건부](./media/app-service-logic-use-logic-app-features/conditional.png)
 
 7.  마지막으로 전자 메일 상자를 **If Yes** 상자로 끌어 놓습니다. 그러면 팔로워 수가 충족되는 경우에만 전자 메일이 제공됩니다.
+
+## forEach를 포함한 목록 반복
+
+forEach 루프는 작업을 반복하는 배열을 지정합니다. 배열이 아닌 경우 흐름이 실패합니다. 예를 들어 메시지의 배열을 출력하는 동작1이 있고 각 메시지를 전송하려는 경우 이 forEach 문을 작업의 속성에서 포함할 수 있습니다: forEach : "@action('action1').outputs.messages"
+ 
 
 ## 코드 보기를 사용하여 논리 앱 편집
 
@@ -89,7 +94,7 @@
     
 2. `twitterconnector` 동작으로 스크롤하고 쿼리 값을 찾은 다음 `#@{parameters('topic')}`으로 바꿉니다. **concat** 함수를 사용하여 둘 이상의 문자열을 함께 조인할 수 있습니다. 예를 들어 `@concat('#',parameters('topic'))`는 위의 동일합니다
  
-매개 변수는 자주 변경하는 값을 끌어오는 좋은 방법입니다. 다양한 환경에서 매개 변수를 재정의해야 하는 경우에 특히 유용합니다. 환경에 따라 매개 변수를 재정의하는 방법에 대한 자세한 내용은 [REST API 설명서](http://msdn.microsoft.com/library/mt643788(Azure.100).aspx)를 참조하세요.
+매개 변수는 자주 변경하는 값을 끌어오는 좋은 방법입니다. 다양한 환경에서 매개 변수를 재정의해야 하는 경우에 특히 유용합니다. 환경에 따라 매개 변수를 재정의하는 방법에 대한 자세한 내용은 [REST API 설명서](https://msdn.microsoft.com/library/mt643787.aspx)를 참조하세요.
 
 이제 **저장**을 클릭하면 리트윗이 5개를 초과한 새 트윗은 매시간마다 Dropbox의 **tweets** 폴더로 배달됩니다.
 
@@ -107,4 +112,4 @@
 <!-- Shared links -->
 [Azure 포털]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

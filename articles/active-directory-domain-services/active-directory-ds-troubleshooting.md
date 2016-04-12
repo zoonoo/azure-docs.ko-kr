@@ -49,6 +49,9 @@ Azure AD 테넌트에서 하나 이상의 사용자가 새로 만든 관리된 �
     - [Azure AD Connect의 최신 권장 사항](active-directory-ds-getting-started-password-sync.md#install-or-update-azure-ad-connect)으로 배포하거나 업데이트했습니다.
     - [전체 동기화를 수행](active-directory-ds-getting-started-password-sync.md)하도록 Azure AD Connect를 구성했습니다.
     - 디렉터리의 크기에 따라 사용자 계정 및 해시 자격 증명이 Azure AD 도메인 서비스에서 사용할 수 있도록 하는 데 시간이 걸릴 수 있습니다. 인증을 다시 시도하기 전에 충분한 시간 동안 대기합니다(디렉터리 크기에 따라 몇 시간에서 큰 디렉터리는 하루나 이틀까지).
+    - 위의 단계를 확인한 후 문제가 지속되면 Microsoft Azure AD Sync 서비스를 다시 시작해 봅니다. 동기화 컴퓨터에서 명령 프롬프트를 시작하고 다음 명령을 실행합니다.
+      1. net stop 'Microsoft Azure AD Sync'
+      2. net start 'Microsoft Azure AD Sync'
 
 - **클라우드 전용 계정**: 영향을 받는 사용자 계정이 클라우드 전용 사용자 계정인 경우 사용자는 Azure AD 도메인 서비스를 사용하도록 설정한 후에 자신의 암호를 변경하도록 합니다. 이 단계를 수행하면 Azure AD 도메인 서비스가 생성되는 데 필요한 자격 증명 해시가 발생합니다.
 
@@ -56,7 +59,7 @@ Azure AD 테넌트에서 하나 이상의 사용자가 새로 만든 관리된 �
 ### 문의처
 관리된 도메인과 관련된 문제가 발생하는 경우 이 문제 해결 가이드에 설명된 단계가 문제를 해결하는지 확인해 주세요. 여전히 문제가 발생하는 경우 다음으로 마음껏 문의해 주세요.
 
-- **전자 메일:** [Azure AD 도메인 서비스 피드백](mailto:aaddsfb@microsoft.com)에 메일을 보내실 수 있습니다. 문제를 조사할 수 있도록 Azure AD 디렉터리에 대한 테넌트 ID와 AAD 도메인 서비스에 대해 구성한 도메인 이름을 포함해야 합니다.
-- **[Azure Active Directory 사용자 의견 채널](https://feedback.azure.com/forums/169401-azure-active-directory/):** 문의하시려면 **'AADDS'**라는 단어로 질문을 시작해 주세요.
+- **메일:** [Azure AD 도메인 서비스 피드백](mailto:aaddsfb@microsoft.com)에 메일을 보낼 수 있습니다. 문제를 조사할 수 있도록 Azure AD 디렉터리에 대한 테넌트 ID와 AAD 도메인 서비스에 대해 구성한 도메인 이름을 포함해야 합니다.
+- **[Azure Active Directory 사용자 의견 채널](https://feedback.azure.com/forums/169401-azure-active-directory/):** 문의하시려면 **'AADDS'**라는 단어로 질문을 시작해야 합니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

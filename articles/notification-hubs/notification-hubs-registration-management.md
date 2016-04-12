@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/25/2015"
+	ms.date="03/28/2016"
 	ms.author="wesmc"/>
 
 # 등록 관리
@@ -28,10 +28,10 @@
 알림 허브에 장치 등록은 **등록** 또는 **설치**를 사용하여 수행됩니다.
 
 #### 등록
-등록은 알림 허브의 하위 엔터티이며 태그 및 아마도 템플릿을 가진 장치에 대해 플랫폼 알림 서비스(PNS) 핸들을 연결합니다. PNS 핸들은 ChannelURI, 장치 토큰 또는 GCM 등록 ID일 수 있습니다. 태그는 장치 핸들의 정확한 집합에 알림을 올바른 장치 핸들 집합에 라우팅하기 위해 사용됩니다. 자세한 내용은 [라우팅 및 태그 식](notification-hubs-routing-tag-expressions.md)을 참조하세요. 템플릿은 등록당 변환을 구현하는 데 사용됩니다. 자세한 내용은 [템플릿](notification-hubs-templates.md)을 사용하세요.
+등록은 태그 및 아마도 템플릿을 가진 장치에 대해 플랫폼 알림 서비스(PNS) 핸들을 연결합니다. PNS 핸들은 ChannelURI, 장치 토큰 또는 GCM 등록 ID일 수 있습니다. 태그는 장치 핸들의 정확한 집합에 알림을 올바른 장치 핸들 집합에 라우팅하기 위해 사용됩니다. 자세한 내용은 [라우팅 및 태그 식](notification-hubs-routing-tag-expressions.md)을 참조하세요. 템플릿은 등록당 변환을 구현하는 데 사용됩니다. 자세한 내용은 [템플릿](notification-hubs-templates.md)을 사용하세요.
 
 #### 설치
-설치는 푸시 모음 관련 속성을 포함하고 있는 향상된 등록입니다. 그러나 이는 장치 등록에 대한 최근의 가장 우수한 방식입니다.
+설치는 푸시 모음 관련 속성을 포함하고 있는 향상된 등록입니다. 이는 장치 등록에 대한 최근의 가장 우수한 방식입니다. 그러나 아직 클라이언트 쪽 .NET SDK([백 엔드 작업을 위한 알림 허브 SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/))에서는 지원되지 않습니다. 즉, 클라이언트 장치 자체에서 등록하는 경우 설치를 지원하기 위해 [알림 허브 REST API](https://msdn.microsoft.com/library/mt621153.aspx) 접근 방식을 사용해야 합니다. 백 엔드 서비스를 사용하는 경우 [백 엔드 작업을 위한 알림 허브 SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)를 사용할 수 있습니다.
 
 설치 사용의 몇 가지 주요 장점은 다음과 같습니다.
 
@@ -39,9 +39,7 @@
 * 설치 모델은 개별 푸시 - 특정 장치 대상 지정이 쉽게 해줍니다. 시스템 태그 **"$InstallationId:[installationId]"**는 각 설치 기반 등록에 자동으로 추가됩니다. 따라서 추가 코딩을 수행할 필요 없이 이 태그 보내기를 호출하여 특정 장치를 대상 지정할 수 있습니다.
 * 또한 설치를 사용하여 부분적인 등록 업데이트를 수행할 수도 있습니다. 설치의 부분 업데이트는 [JSON 패치 표준](https://tools.ietf.org/html/rfc6902)을 사용하여 PATCH 메서드에서 요청됩니다. 이는 등록 시 태그를 업데이트하려고 할 때 특히 유용합니다. 전체 등록을 풀다운한 다음 모든 이전 태그를 다시 보낼 필요가 없습니다.
 
-설치는 현재 [백 엔드 작업용 알림 허브 SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)에 의해서만 지원됩니다. 자세한 내용은 [설치 클래스](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation.aspx)를 참조하세요. 클라이언트 장치에서 백 엔드 없이 설치 ID를 사용하여 등록하려면 이때 [알림 허브 REST API](https://msdn.microsoft.com/library/mt621153.aspx)를 사용해야 합니다.
-
-설치는 다음과 같은 속성을 포함할 수 있습니다. 설치 속성의 전체 목록은 [REST를 사용하여 설치 만들기 또는 덮어쓰기](https://msdn.microsoft.com/library/azure/mt621153.aspx) 또는 [설치 속성](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx)을 참조하세요.
+설치는 다음과 같은 속성을 포함할 수 있습니다. 설치 속성의 전체 목록은 [REST API를 사용하여 설치 만들기 또는 덮어쓰기](https://msdn.microsoft.com/library/azure/mt621153.aspx) 또는 [설치 속성](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx)을 참조하세요.
 
 	// Example installation format to show some supported properties
 	{
@@ -332,4 +330,4 @@ SecondaryTiles 사전은 Windows 스토어 앱에서 SecondaryTiles 개체를 �
 
 백 엔드에서 등록 업데이트 간의 동시성을 처리해야 합니다. 서비스 버스는 등록 관리를 위해 낙관적 동시성 제어를 제공합니다. HTTP 수준에서 이 기능은 등록 관리 작업에 ETag를 사용하여 구현 됩니다. 이 기능은 동시성 문제로 인해 업데이트가 거부될 경우 예외를 throw하는 Microsoft SDK에 의해 투명하게 사용됩니다. 앱 백 엔드는 이러한 예외를 처리하고 필요한 경우 업데이트를 다시 시도하는 일을 담당합니다.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0330_2016-->

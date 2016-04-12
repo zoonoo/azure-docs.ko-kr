@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="01/09/2016" 
+	ms.date="03/04/2016" 
 	ms.author="robmcm"/>
 
 # Azure에 사용자 지정 Java 웹 앱 업로드
@@ -72,7 +72,7 @@
                                     
 **stdoutLogFile**(기본값 = "d:\\home\\LogFiles\\httpPlatformStdout.log"). **processPath**에 지정된 프로세스의 **stdout** 및 **stderr**가 로깅될 절대 파일 경로입니다.
                                     
-> [AZURE.NOTE]`%HTTP_PLATFORM_PORT%`는 **arguments**의 일부 또는 **httpPlatform** **environmentVariables** 목록의 일부로 지정해야 하는 특수 자리 표시자입니다. 이 자리 표시자는 **HttpPlatformHandler**에서 내부적으로 생성한 포트로 대체되므로 **processPath**에서 지정한 프로세스가 이 포트에서 수신 대기할 수 있습니다.
+> [AZURE.NOTE] `%HTTP_PLATFORM_PORT%`는 **arguments**의 일부 또는 **httpPlatform** **environmentVariables** 목록의 일부로 지정해야 하는 특수 자리 표시자입니다. 이 자리 표시자는 **HttpPlatformHandler**에서 내부적으로 생성한 포트로 대체되므로 **processPath**에서 지정한 프로세스가 이 포트에서 수신 대기할 수 있습니다.
 
 ## 배포
 
@@ -257,4 +257,4 @@ Java에 대한 자세한 내용은 [Java개발자 센터](/develop/java/)를 참
 <!-- External Links -->
 [Azure 앱 서비스]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

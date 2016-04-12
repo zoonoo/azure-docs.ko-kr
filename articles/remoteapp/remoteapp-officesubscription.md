@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="12/14/2015" 
+    ms.date="03/28/2016" 
     ms.author="elizapo" />
 
 
@@ -115,7 +115,7 @@ Office 365 ProPlus를 포함하는 컬렉션에 사용자 지정 이미지를 �
 
 이 옵션을 사용하여 표준 Windows 도구를 사용하여 이미지에 업데이트를 적용합니다. Office 365 ProPlus의 경우 Office 배포 도구를 사용하여 최신 업데이트 또는 Office 365 ProPlus의 버전을 다운로드하고 설치합니다.
 
-> [AZURE.IMPORTANT]Office 365 ProPlus 자동 업데이트를 사용하지 않도록 설정합니다.
+> [AZURE.IMPORTANT] Office 365 ProPlus 자동 업데이트를 사용하지 않도록 설정합니다.
 
 업데이트에 Office 배포 도구를 사용하는 데 대한 자세한 정보가 필요하나요?
 
@@ -123,4 +123,4 @@ Office 365 ProPlus를 포함하는 컬렉션에 사용자 지정 이미지를 �
 - [Office 배포 도구를 사용하여 Office 365 ProPlus 배포 및 업데이트](https://channel9.msdn.com/Events/Ignite/2015/BRK3168)(동영상)
 - [Office 365 ProPlus에 대한 업데이트 설정 구성](https://technet.microsoft.com/library/dn761708.aspx)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0330_2016-->

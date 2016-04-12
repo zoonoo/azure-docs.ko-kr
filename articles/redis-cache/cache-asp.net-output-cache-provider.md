@@ -4,7 +4,7 @@
    services="redis-cache"
    documentationCenter="na"
    authors="steved0x"
-   manager="dwrede"
+   manager="erikre"
    editor="tysonn" />
 <tags 
    ms.service="cache"
@@ -81,4 +81,4 @@ Microsoft Azure 포털의 캐시 블레이드에서 값으로 특성을 구성�
 
 [Azure Redis Cache에 대한 ASP.NET 세션 상태 제공자](cache-asp.net-session-state-provider.md)를 확인하세요.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

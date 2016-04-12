@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/21/2016"
+    ms.date="03/11/2016"
     ms.author="adegeo"/>
 
 # 클라우드 서비스 모델 정의 및 패키지 방법
@@ -86,21 +86,21 @@ Azure에서 클라우드 서비스가 실행 중이면 **ServiceConfig.cscfg** �
 
 여기에 사용되는 XML 스키마를 더 잘 이해하려면 [서비스 정의 스키마][]를 참조하면 됩니다. 그러나 여기서 간략하게 몇 가지 요소를 설명합니다.
 
->**Sites** IIS7에서 호스트되는 웹 사이트 또는 웹 응용 프로그램에 대한 정의를 포함합니다.
->
->**InputEndpoints** 클라우드 서비스에 연결하는 데 사용되는 끝점에 대한 정의를 포함합니다.
->
->**InternalEndpoints** 서로 통신하기 위해 역할 인스턴스에서 사용되는 끝점에 대한 정의를 포함합니다.
->
->**ConfigurationSettings** 특정 역할의 기능에 대한 설정 정의를 포함합니다.
->
->**Certificates** 역할에 필요한 인증서에 대한 정의를 포함합니다. 앞의 코드 예제에서는 Azure Connect 구성에 사용되는 인증서를 보여 줍니다.
->
->**LocalResources** 로컬 저장소 리소스에 대한 정의를 포함합니다. 로컬 저장소 리소스는 역할의 인스턴스가 실행 중인 가상 컴퓨터의 파일 시스템에서 예약된 디렉터리입니다.
->
->**Imports** 가져온 모듈에 대한 정의를 포함합니다. 앞의 코드 예제에서는 원격 데스크톱 연결 및 Azure Connect에 대한 모듈을 보여 줍니다.
->
->**Startup** 역할이 시작될 때 실행되는 작업을 포함합니다. 작업은 .cmd 또는 실행 파일에 정의됩니다.
+**Sites** IIS7에서 호스트되는 웹 사이트 또는 웹 응용 프로그램에 대한 정의를 포함합니다.
+
+**InputEndpoints** 클라우드 서비스에 연결하는 데 사용되는 끝점에 대한 정의를 포함합니다.
+
+**InternalEndpoints** 서로 통신하기 위해 역할 인스턴스에서 사용되는 끝점에 대한 정의를 포함합니다.
+
+**ConfigurationSettings** 특정 역할의 기능에 대한 설정 정의를 포함합니다.
+
+**Certificates** 역할에 필요한 인증서에 대한 정의를 포함합니다. 앞의 코드 예제에서는 Azure Connect 구성에 사용되는 인증서를 보여 줍니다.
+
+**LocalResources** 로컬 저장소 리소스에 대한 정의를 포함합니다. 로컬 저장소 리소스는 역할의 인스턴스가 실행 중인 가상 컴퓨터의 파일 시스템에 예약된 디렉터리입니다.
+
+**Imports** 가져온 모듈에 대한 정의를 포함합니다. 앞의 코드 예제에서는 원격 데스크톱 연결 및 Azure Connect에 대한 모듈을 보여 줍니다.
+
+**Startup** 역할이 시작될 때 실행되는 작업을 포함합니다. 작업은 .cmd 또는 실행 파일에 정의됩니다.
 
 
 
@@ -130,11 +130,11 @@ Azure에서 클라우드 서비스가 실행 중이면 **ServiceConfig.cscfg** �
 
 여기에 사용되는 XML 스키마를 더 잘 이해하려면 [서비스 구성 스키마](https://msdn.microsoft.com/library/azure/ee758710.aspx)를 참조하면 됩니다. 그러나 여기서 간략하게 요소를 설명합니다.
 
->**Instances** 역할에 대해 실행 중인 인스턴스 수를 구성합니다. 업그레이드하는 동안 잠재적으로 클라우드 서비스를 사용할 수 없게 되는 것을 방지하려면 웹과 관련된 역할의 인스턴스를 두 개 이상 배포하는 것이 좋습니다. 그렇게 하면 [Azure 계산 SLA(서비스 수준 계약)](http://azure.microsoft.com/support/legal/sla/)의 지침을 준수하게 되므로 서비스를 위해 둘 이상의 역할 인스턴스가 배포될 때 인터넷 연결 역할에 대한 99.95%의 외부 연결을 보증합니다.
+**Instances** 역할에 대해 실행 중인 인스턴스 수를 구성합니다. 업그레이드하는 동안 잠재적으로 클라우드 서비스를 사용할 수 없게 되는 것을 방지하려면 웹과 관련된 역할의 인스턴스를 두 개 이상 배포하는 것이 좋습니다. 그렇게 하면 [Azure 계산 SLA(서비스 수준 계약)](http://azure.microsoft.com/support/legal/sla/)의 지침을 준수하게 되므로 서비스를 위해 둘 이상의 역할 인스턴스가 배포될 때 인터넷 연결 역할에 대한 99.95%의 외부 연결을 보증합니다.
 
->**ConfigurationSettings** 역할에 대해 실행 중인 인스턴스의 설정을 구성합니다. `<Setting>` 요소의 이름은 서비스 정의 파일에 있는 설정 정의와 일치해야 합니다.
+**ConfigurationSettings** 역할에 대해 실행 중인 인스턴스의 설정을 구성합니다. `<Setting>` 요소의 이름은 서비스 정의 파일에 있는 설정 정의와 일치해야 합니다.
 
->**Certificates** 서비스에서 사용되는 인증서를 구성합니다. 앞의 코드 예제에서는 RemoteAccess 모듈의 인증서를 정의하는 방법을 보여 줍니다. *thumbprint* 특성 값은 사용할 인증서의 지문으로 설정되어야 합니다.
+**Certificates** 서비스에서 사용되는 인증서를 구성합니다. 앞의 코드 예제에서는 RemoteAccess 모듈의 인증서를 정의하는 방법을 보여 줍니다. *thumbprint* 특성 값은 사용할 인증서의 지문으로 설정되어야 합니다.
 
 <p/>
 
@@ -153,7 +153,7 @@ Azure는 웹 역할에 하나의 진입점만 허용합니다. 즉, 하나의 IP
     <Setting name="DiagnosticsConnectionString" />
   </ConfigurationSettings>
   <Endpoints>
-    <InputEndpoint name="HttpIn" protocol="http" port="80" />
+    <InputEndpoint name="HttpIn" protocol="http" <mark>port="80"</mark> />
     <InputEndpoint name="Https" protocol="https" port="443" certificate="SSL"/>
     <InputEndpoint name="NetTcp" protocol="tcp" port="808" certificate="SSL"/>
   </Endpoints>
@@ -169,7 +169,7 @@ Azure는 웹 역할에 하나의 진입점만 허용합니다. 즉, 하나의 IP
   </Site>
   <Site name="MailSite" packageDir="MailSite">
     <Bindings>
-      <Binding name="mail" endpointName="HttpIn" hostheader="mail.mysite.cloudapp.net" />
+      <Binding name="mail" endpointName="HttpIn" <mark>hostheader="mail.mysite.cloudapp.net"</mark> />
     </Bindings>
     <VirtualDirectory name="artifacts" />
     <VirtualApplication name="storageproxy">
@@ -201,13 +201,9 @@ Azure는 웹 역할에 하나의 진입점만 허용합니다. 즉, 하나의 IP
 ## ServicePackage.cspkg
 응용 프로그램을 Azure에서 클라우드 서비스로 배포하려면 먼저 적절한 형식으로 응용 프로그램을 패키지해야 합니다. **CSPack** 명령줄 도구([Azure SDK](https://azure.microsoft.com/downloads/)와 함께 설치됨)를 사용하여 Visual Studio 대신 패키지 파일을 만들 수 있습니다.
 
-**CSPack**은 서비스 정의 파일 및 서비스 구성 파일의 콘텐츠를 사용하여 패키지의 콘텐츠를 정의합니다. **CSPack**은 [Azure 클래식 포털](cloud-services-how-to-create-deploy/#how-to-deploy-a-cloud-service)을 사용하여 Azure에 업로드할 수 있는 응용 프로그램 패키지 파일(.cspkg)을 생성합니다. 기본적으로 패키지의 이름은 `[ServiceDefinitionFileName].cspkg`이지만 **CSPack**의 `/out` 옵션을 사용하여 다른 이름을 지정할 수 있습니다.
+**CSPack**은 서비스 정의 파일 및 서비스 구성 파일의 콘텐츠를 사용하여 패키지의 콘텐츠를 정의합니다. **CSPack**은 [Azure 포털](cloud-services-how-to-create-deploy-portal.md/#create-and-deploy)을 사용하여 Azure에 업로드할 수 있는 응용 프로그램 패키지 파일(.cspkg)을 생성합니다. 기본적으로 패키지의 이름은 `[ServiceDefinitionFileName].cspkg`이지만 **CSPack**의 `/out` 옵션을 사용하여 다른 이름을 지정할 수 있습니다.
 
-###### CSPack 도구 위치(Windows)
-| SDK 버전 | Path |
-| ----------- | ---- |
-| 1\.7+ | C:\\Program Files\\Microsoft SDKs\\Azure\\.NET SDK\\[sdk-version]\\bin\\ |
-| &lt;1.6 | C:\\Program Files\\Azure SDK\\[sdk-version]\\bin\\ |
+**CSPack**은 일반적으로 `C:\Program Files\Microsoft SDKs\Azure\.NET SDK[sdk-version]\bin`에 있습니다.
 
 >[AZURE.NOTE]
 CSPack.exe(Windows)는 SDK로 설치되는 **Microsoft Azure 명령 프롬프트** 바로 가기를 실행하여 사용할 수 있습니다.
@@ -271,4 +267,4 @@ Visual Studio를 사용하여 다음 작업을 수행하려고 합니다.
 [vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md
 [vs_create]: ../vs-azure-tools-azure-project-create.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

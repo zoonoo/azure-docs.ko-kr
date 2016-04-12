@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/23/2016"
    ms.author="mausher;sonyama;barbkess"/>
 
 # 문제 해결
@@ -38,7 +38,7 @@ SQL 데이터 웨어하우스는 [Visual Studio 2013/2015](sql-data-warehouse-ge
 ## 쿼리 성능
 SQL 데이터 웨어하우스는 통계를 포함하여 쿼리를 실행하기 위한 일반적인 SQL Server 구문을 사용합니다. [통계](sql-data-warehouse-develop-statistics.md)는 데이터베이스 열에 있는 값의 범위 및 빈도에 대한 정보를 포함하는 개체입니다. 쿼리 엔진은 이러한 통계를 사용하여 쿼리 실행을 최적화하고 쿼리 성능을 개선합니다. 다음 쿼리를 사용하여 마지막으로 통계가 업데이트된 위치를 확인할 수 있습니다.
 
-```
+```sql
 SELECT
 	sm.[name]								    AS [schema_name],
 	tb.[name]								    AS [table_name],
@@ -56,7 +56,7 @@ FROM
 	JOIN sys.tables          AS tb	ON	co.[object_id]		= tb.[object_id]
 	JOIN sys.schemas         AS sm	ON	tb.[schema_id]		= sm.[schema_id]
 WHERE
-	1=1 
+	1=1
 	AND st.[user_created] = 1;
 ```
 
@@ -90,4 +90,4 @@ WHERE
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0330_2016-->

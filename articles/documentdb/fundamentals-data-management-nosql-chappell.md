@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
+	ms.date="03/14/2016" 
 	ms.author="mimig"/>
 
 # Microsoft Azure의 NoSQL 이해
@@ -26,10 +26,10 @@ Azure에서는 다양한 NoSQL 기술을 제공하지만 기술 간의 차이점
  - 관계형 기술에 대한 간략한 검토
  - 각 Azure NoSQL 기술(DocumentDB, 테이블 저장소, HBase 및 HDInsight) 소개
  - NoSQL 기술과 Azure SQL 데이터베이스 비교 
- - DocumentDB를 사용 하는 경우 테이블 저장소를 사용 하는 경우 HBase를 사용 하는 경우 HDInsight를 사용 하는 경우 SQL 데이터베이스를 사용하는 경우
+ - DocumentDB를 사용 하는 경우 테이블 저장소를 사용 하는 경우 HBase와 HDInsight를 사용 하는 경우 SQL 데이터베이스를 사용하는 경우
 
 **PDF 다운로드:** [Microsoft Azure의 NoSQL 이해](http://go.microsoft.com/fwlink/p/?LinkId=330292)
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0316_2016-->

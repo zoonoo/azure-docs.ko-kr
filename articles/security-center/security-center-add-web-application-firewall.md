@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/23/2016"
+   ms.date="03/02/2016"
    ms.author="terrylan"/>
 
 # Azure 보안 센터에서 웹 응용 프로그램 방화벽 추가
@@ -42,7 +42,7 @@ Azure 보안 센터에서는 웹 응용 프로그램을 보호하기 위해 Micr
 10. **웹 응용 프로그램 방화벽 설정 완료**를 선택합니다. 새 블레이드가 열립니다. 해당 트래픽 경로를 전환해야 하는 웹 응용 프로그램을 확인할 수 있습니다.
 11. 웹 응용 프로그램을 선택합니다. 웹 응용 프로그램 방화벽 설정을 완료하는 단계를 알려주는 블레이드가 열립니다. 단계를 완료한 다음 **트래픽 제한**을 선택합니다. 그려면 보안 센터가 연결을 수행합니다. ![][6]
 
-> [AZURE.NOTE] 자동 프로비전 프로세스는 별도 VNet에 배포되는 WAF 패키지(리소스 관리자 배포 모델을 사용하여 만듦)을 기반으로 합니다. VM(클래식)에서 보호된 웹 응용 프로그램에 대한 액세스는 NSG를 사용하는 WAF 어플라이언스에만 제한됩니다. 이러한 지원은 나중에 WAF 패키지(클래식)의 완전 사용자 지정 배포로 확장됩니다. Azure 리소스의 [클래식 및 리소스 관리자 배포 모델](../azure-classic-rm.md)에 대해 자세히 알아봅니다.
+> [AZURE.NOTE] 기존 WAF 배포에 이러한 응용 프로그램을 추가하여 보안 센터에서 여러 웹 응용 프로그램을 보호할 수 있습니다. WAF 어플라이언스(리소스 관리자 배포 모델을 사용하여 만듦)는 별도의 가상 네트워크에 배포해야 합니다. WAF 어플라이언스(클래식 배포 모델을 사용하여 만듦)는 네트워크 보안 그룹 사용으로 제한됩니다. 이러한 지원은 나중에 WAF 어플라인스(클래식)의 완전 사용자 지정 배포로 확장됩니다. Azure 리소스의 [클래식 및 리소스 관리자 배포 모델](../azure-classic-rm.md)에 대해 자세히 알아봅니다.
 
 이제 해당 WAF의 로그가 완전히 통합되었습니다. 보안 센터에서 자동으로 로그를 수집 및 분석하기 시작하여 중요한 보안 경고를 사용자에게 드러낼 수 있습니다.
 
@@ -54,7 +54,7 @@ Azure 보안 센터에서는 웹 응용 프로그램을 보호하기 위해 Micr
 
 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
-- [Azure 보안 센터에서 보안 정책 설정](security-center-policies.md) - 보안 정책을 구성하는 방법 알아보기.
+- [Azure 보안 센터에서 보안 정책 설정](security-center-policies.md)--Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법 알아보기
 - [Azure 보안 센터에서 보안 상태 모니터링](security-center-monitoring.md) – Azure 리소스의 상태를 모니터링하는 방법 알아보기
 - [Azure 보안 센터에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법 알아보기
 - [Azure 보안 센터에서 보안 권장 사항 관리](security-center-recommendations.md) –- 권장 사항이 Azure 리소스 보호에 어떤 도움이 되는지 알아보기.
@@ -69,4 +69,4 @@ Azure 보안 센터에서는 웹 응용 프로그램을 보호하기 위해 Micr
 [5]: ./media/security-center-add-web-application-firewall/finalize-waf.png
 [6]: ./media/security-center-add-web-application-firewall/restrict-traffic.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

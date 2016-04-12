@@ -1,26 +1,26 @@
-<properties 
-	pageTitle="PowerShell을 사용하여 Azure SQL 데이터베이스 V12로 업그레이드 | Microsoft Azure" 
-	description="Web 및 Business 데이터베이스를 업그레이드하는 방법을 포함하여 Azure SQL 데이터베이스 V12로 업그레이드하는 방법을 설명하며 PowerShell을 사용하여 V11 서버 업그레이드를 통해 데이터베이스를 탄력적 데이터베이스 풀로 직접 마이그레이션하는 방법을 설명합니다." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="stevestein" 
-	manager="jeffreyg" 
+<properties
+	pageTitle="PowerShell을 사용하여 Azure SQL 데이터베이스 V12로 업그레이드 | Microsoft Azure"
+	description="Web 및 Business 데이터베이스를 업그레이드하는 방법을 포함하여 Azure SQL 데이터베이스 V12로 업그레이드하는 방법을 설명하며 PowerShell을 사용하여 V11 서버 업그레이드를 통해 데이터베이스를 탄력적 데이터베이스 풀로 직접 마이그레이션하는 방법을 설명합니다."
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jeffreyg"
 	editor=""/>
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/23/2016" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/18/2016"
 	ms.author="sstein"/>
 
 # PowerShell을 사용하여 Azure SQL 데이터베이스 V12로 업그레이드
 
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-upgrade-server-portal.md)
+- [Azure 포털](sql-database-upgrade-server-portal.md)
 - [PowerShell](sql-database-upgrade-server-powershell.md)
 
 
@@ -42,7 +42,7 @@ V12로 업그레이드하는 과정에서 Web/Business 데이터베이스를 새
 
 SQL 데이터베이스 V12로 업그레이드하고 난 후에는 취소할 수 없습니다. 업그레이드 후에는 서버를 V11로 되돌릴 수 없습니다.
 
-V12로 업그레이드 한 직후에는 서비스가 새 서버의 워크로드를 평가할 때까지 일정 시간 동안 [서비스 계층 권장 사항](sql-database-service-tier-advisor.md) 및 [탄력적 풀 권장 사항](sql-database-elastic-pool-portal.md#step-2-choose-a-pricing-tier)을 사용할 수 없습니다. V11 서버 권장 사항 기록은 유지되지 않으므로 V12 서버에 적용되지 않습니다.
+V12로 업그레이드 한 직후에는 서비스가 새 서버의 워크로드를 평가할 때까지 일정 시간 동안 [서비스 계층 권장 사항](sql-database-service-tier-advisor.md) 및 [탄력적 풀 권장 사항](sql-database-elastic-pool-create-portal.md)을 사용할 수 없습니다. V11 서버 권장 사항 기록은 유지되지 않으므로 V12 서버에 적용되지 않습니다.
 
 ## 업그레이드 준비
 
@@ -51,7 +51,7 @@ V12로 업그레이드 한 직후에는 서비스가 새 서버의 워크로드�
 - **Azure VM에 클라이언트가 있는 경우 열어야 하는 포트**: Azure VM(가상 컴퓨터)에서 클라이언트가 실행되면서 클라이언트 프로그램이 SQL 데이터베이스 V12에 연결하는 경우에는 VM에서 11000-11999 및 14000-14999 범위의 포트를 열어야 합니다. 자세한 내용은 [SQL 데이터베이스 V12용 포트](sql-database-develop-direct-route-ports-adonet-v12.md)를 참조하세요.
 
 
-## 필수 조건 
+## 필수 조건
 
 PowerShell을 사용하여 서버를 V12로 업그레이드하려면 Azure PowerShell이 설치 및 실행되고 있어야 하며, 버전에 따라 Azure 리소스 관리자 PowerShell Cmdlet에 액세스하기 위해 리소스 관리자 모드로 전환해야 할 수도 있습니다.
 
@@ -78,9 +78,9 @@ Azure 구독에 대한 PowerShell cmdlet을 실행 하려면 먼저 Azure 계정
 
 서버 업그레이드에 대한 권장 사항을 가져오려면 다음 cmdlet을 실행합니다.
 
-    $hint = Get-AzureRmSqlServerUpgradeHint -ResourceGroupName “resourcegroup1” -ServerName “server1” 
+    $hint = Get-AzureRmSqlServerUpgradeHint -ResourceGroupName “resourcegroup1” -ServerName “server1”
 
-자세한 내용은 [Azure SQL 데이터베이스 탄력적 데이터베이스 풀 권장 사항](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations) 및 [Azure SQL 데이터베이스 가격 책정 계층 권장 사항](sql-database-service-tier-advisor.md)을 참조하세요.
+자세한 내용은 [탄력적 데이터베이스 풀 만들기](sql-database-elastic-pool-create-portal.md) 및 [Azure SQL 데이터베이스 가격 책정 계층 권장 사항](sql-database-service-tier-advisor.md)을 참조하세요.
 
 
 
@@ -100,22 +100,22 @@ Azure 구독에 대한 PowerShell cmdlet을 실행 하려면 먼저 Azure 계정
     # Adding the account
     #
     Add-AzureRmAccount
-    
+
     # Setting the variables
     #
-    $SubscriptionName = 'YOUR_SUBSCRIPTION' 
-    $ResourceGroupName = 'YOUR_RESOURCE_GROUP' 
-    $ServerName = 'YOUR_SERVER' 
-    
-    # Selecting the right subscription 
-    # 
-    Select-AzureRmSubscription -SubscriptionName $SubscriptionName 
-    
-    # Getting the upgrade recommendations 
+    $SubscriptionName = 'YOUR_SUBSCRIPTION'
+    $ResourceGroupName = 'YOUR_RESOURCE_GROUP'
+    $ServerName = 'YOUR_SERVER'
+
+    # Selecting the right subscription
     #
-    $hint = Get-AzureRmSqlServerUpgradeHint -ResourceGroupName $ResourceGroupName -ServerName $ServerName 
-    
-    # Starting the upgrade process 
+    Select-AzureRmSubscription -SubscriptionName $SubscriptionName
+
+    # Getting the upgrade recommendations
+    #
+    $hint = Get-AzureRmSqlServerUpgradeHint -ResourceGroupName $ResourceGroupName -ServerName $ServerName
+
+    # Starting the upgrade process
     #
     Start-AzureRmSqlServerUpgrade -ResourceGroupName $ResourceGroupName -ServerName $ServerName -ServerVersion 12.0 -DatabaseCollection $hint.Databases -ElasticPoolCollection $hint.ElasticPools  
 
@@ -125,42 +125,42 @@ Azure 구독에 대한 PowerShell cmdlet을 실행 하려면 먼저 Azure 계정
 권장 사항이 해당 서버 및 비즈니스 사례에 적합하지 않은 경우 데이터베이스 업그레이드 방법을 선택하고 단일 또는 탄력적 데이터베이스에 매핑할 수 있습니다.
 
 ElasticPoolCollection 및 DatabaseCollection 매개 변수는 선택적임:
-    
+
     # Creating elastic pool mapping
     #
-    $elasticPool = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeRecommendedElasticPoolProperties 
-    $elasticPool.DatabaseDtuMax = 100 
-    $elasticPool.DatabaseDtuMin = 0 
-    $elasticPool.Dtu = 800 
-    $elasticPool.Edition = "Standard" 
-    $elasticPool.DatabaseCollection = ("DB1", “DB2”, “DB3”, “DB4”) 
-    $elasticPool.Name = "elasticpool_1" 
-    $elasticPool.StorageMb = 800 
-     
+    $elasticPool = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeRecommendedElasticPoolProperties
+    $elasticPool.DatabaseDtuMax = 100
+    $elasticPool.DatabaseDtuMin = 0
+    $elasticPool.Dtu = 800
+    $elasticPool.Edition = "Standard"
+    $elasticPool.DatabaseCollection = ("DB1", “DB2”, “DB3”, “DB4”)
+    $elasticPool.Name = "elasticpool_1"
+    $elasticPool.StorageMb = 800
+
     # Creating single database mapping for 2 databases. DBMain1 mapped to S0 and DBMain2 mapped to S2
     #
-    $databaseMap1 = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeDatabaseProperties 
-    $databaseMap1.Name = "DBMain1" 
-    $databaseMap1.TargetEdition = "Standard" 
+    $databaseMap1 = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeDatabaseProperties
+    $databaseMap1.Name = "DBMain1"
+    $databaseMap1.TargetEdition = "Standard"
     $databaseMap1.TargetServiceLevelObjective = "S0"
-    
-    $databaseMap2 = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeDatabaseProperties 
-    $databaseMap2.Name = "DBMain2" 
-    $databaseMap2.TargetEdition = "Standard" 
+
+    $databaseMap2 = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeDatabaseProperties
+    $databaseMap2.Name = "DBMain2"
+    $databaseMap2.TargetEdition = "Standard"
     $databaseMap2.TargetServiceLevelObjective = "S2"
-     
+
     # Starting the upgrade
     #
-    Start-AzureRmSqlServerUpgrade –ResourceGroupName resourcegroup1 –ServerName server1 -Version 12.0 -DatabaseCollection @($databaseMap1, $databaseMap2) -ElasticPoolCollection @($elasticPool) 
+    Start-AzureRmSqlServerUpgrade –ResourceGroupName resourcegroup1 –ServerName server1 -Version 12.0 -DatabaseCollection @($databaseMap1, $databaseMap2) -ElasticPoolCollection @($elasticPool)
 
-    
+
 
 ## SQL 데이터베이스 V12로 업그레이드한 후 데이터베이스 모니터링
 
 
 업그레이드한 후 데이터베이스를 적극적으로 모니터링하여 원하는 성능으로 응용 프로그램이 실행되고 있는지 확인하고 필요에 따라 사용을 최적화하는 것이 좋습니다.
 
-개별 데이터베이스를 모니터링하는 것 외에, [포털을 사용](sql-database-elastic-pool-portal.md#monitor-and-manage-an-elastic-database-pool)하거나 [PowerShell](sql-database-elastic-pool-powershell.md#monitoring-elastic-databases-and-elastic-database-pools)을 사용하여 탄력적 데이터베이스 풀을 모니터링할 수도 있습니다.
+개별 데이터베이스를 모니터링하는 것 외에, [포털을 사용](sql-database-elastic-pool-manage-portal.md)하거나 [PowerShell](sql-database-elastic-pool-manage-powershell.md)을 사용하여 탄력적 데이터베이스 풀을 모니터링할 수도 있습니다.
 
 
 **리소스 소비 데이터:** 기본, 표준 및 프리미엄 데이터베이스의 경우 사용자 데이터베이스에서 [sys.dm\_ db\_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) DMV를 통해 리소스 소비 데이터를 사용할 수 있습니다. 이 DMV는 지난 1시간 동안의 작업에 대해 15초 간격으로 거의 실시간 리소스 사용량 정보를 제공합니다. 특정 간격의 DTU 사용률은 CPU, IO 및 로그 차원의 최대 사용률로 계산됩니다. 다음은 지난 1시간 동안의 평균 DTU 사용률을 계산하는 쿼리입니다.
@@ -190,7 +190,7 @@ ElasticPoolCollection 및 DatabaseCollection 매개 변수는 선택적임:
 
 ## 다음 단계
 
-- [탄력적 데이터베이스 풀 만들기](sql-database-elastic-pool-portal.md) 및 이 풀에 일부 또는 모든 데이터베이스 추가
+- [탄력적 데이터베이스 풀 만들기](sql-database-elastic-pool-create-portal.md) 및 이 풀에 일부 또는 모든 데이터베이스 추가
 - [데이터베이스의 서비스 계층 및 성능 수준 변경](sql-database-scale-up.md)
 
 
@@ -201,4 +201,4 @@ ElasticPoolCollection 및 DatabaseCollection 매개 변수는 선택적임:
 - [Start-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt619403.aspx)
 - [Stop-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603589.aspx)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

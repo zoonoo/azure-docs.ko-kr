@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/15/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma"/>
 
 
@@ -28,7 +28,7 @@ Azure DNS는 DNS 도메인에 대한 호스팅 서비스입니다. 도메인에 
 
 도메인은 Domain Name System의 고유 이름입니다(예: 'contoso.com'). 도메인 등록 기관은 인터넷 도메인 이름을 제공할 수 있는 회사입니다. 사용하려는 인터넷 도메인이 사용 가능한지 확인하고 구입할 수 있게 해줍니다. 도메인 이름이 등록되면 도메인 이름에 대한 법적 소유자가 됩니다. 인터넷 도메인이 이미 있는 경우 현재 도메인 등록 기관을 사용하여 Azure DNS에 위임합니다.
 
->[AZURE.NOTE]지정된 도메인 이름의 소유자에 대한 자세한 정보나 도메인 구입 방법에 대한 정보를 알아보려면 [Azure AD에서 인터넷 도메인 관리](https://msdn.microsoft.com/library/azure/hh969248.aspx)를 참조하세요.
+>[AZURE.NOTE] 지정된 도메인 이름의 소유자에 대한 자세한 정보나 도메인 구입 방법에 대한 정보를 알아보려면 [Azure AD에서 인터넷 도메인 관리](https://msdn.microsoft.com/library/azure/hh969248.aspx)를 참조하세요.
 
 DNS 영역은 특정 도메인에 대한 DNS 레코드를 호스트하는 데 사용됩니다. 예를 들어 'contoso.com' 도메인은 'mail.contoso.com'(메일 서버) 및 'www.contoso.com'(웹 사이트)과 같은 많은 DNS 레코드를 포함할 수 있습니다.
 
@@ -63,7 +63,7 @@ PC 또는 모바일 장치의 DNS 클라이언트는 일반적으로 재귀적 D
 
 Azure DNS에서 DNS 영역을 만든 후 부모 영역에서 NS 레코드를 설정하여 Azure DNS를 영역에 대한 권한이 있는 이름 확인 소스로 만들어야 합니다. 등록 기관에서 구입한 도메인의 경우 등록 기관에서 이러한 NS 레코드를 설정하는 옵션을 제공합니다.
 
->[AZURE.NOTE]Azure DNS에서 해당 도메인 이름으로 DNS 영역을 만들기 위해 도메인을 소유할 필요는 없습니다. 그러나 등록 기관에서 Azure DNS로 위임을 설정하려면 도메인을 소유해야 합니다.
+>[AZURE.NOTE] Azure DNS에서 해당 도메인 이름으로 DNS 영역을 만들기 위해 도메인을 소유할 필요는 없습니다. 그러나 등록 기관에서 Azure DNS로 위임을 설정하려면 도메인을 소유해야 합니다.
 
 예를 들어 'contoso.com' 도메인을 구입하고 Azure DNS에서 이름이 'contoso.com'인 영역을 만든다고 가정합니다. 도메인 소유자로, 등록 기관에서 도메인에 대한 이름 서버 주소(즉, NS 레코드)를 구성하는 옵션을 제공합니다. 등록 기관은 이러한 NS 레코드를 부모 도메인, 이 경우 'com'에 저장합니다. 그러면 전 세계 클라이언트가 'contoso.com'의 DNS 레코드를 확인하려고 할 때 Azure DNS 영역의 도메인으로 보내집니다.
 
@@ -88,7 +88,7 @@ Azure PowerShell을 사용하면 권한이 있는 NS 레코드를 다음과 같�
 
 각 등록 기관에는 도메인에 대한 이름 서버 레코드를 변경하는 자체 DNS 관리 도구가 있습니다. 등록 기관의 DNS 관리 페이지에서 NS 레코드를 편집하고 NS 레코드를 Azure DNS에서 만든 레코드로 바꿉니다.
 
->[AZURE.NOTE]Azure DNS에 도메인을 위임하는 경우 Azure DNS에서 제공하는 이름 서버 이름을 사용해야 합니다. 이러한 IP 주소는 나중에 변경될 수 있으므로 Azure DNS 이름 서버 IP 주소를 가리키는 데 '연결 레코드'를 사용하지 않아야 합니다. 고유한 영역에서 이름 서버 이름을 사용하는 위임('베니티 이름 서버'라고도 함)은 현재 Azure DNS에서 지원되지 않습니다.
+>[AZURE.NOTE] Azure DNS에 도메인을 위임하는 경우 Azure DNS에서 제공하는 이름 서버 이름을 사용해야 합니다. 이러한 IP 주소는 나중에 변경될 수 있으므로 Azure DNS 이름 서버 IP 주소를 가리키는 데 '연결 레코드'를 사용하지 않아야 합니다. 고유한 영역에서 이름 서버 이름을 사용하는 위임('베니티 이름 서버'라고도 함)은 현재 Azure DNS에서 지원되지 않습니다.
 
 위임을 완료한 후 'nslookup'과 같은 도구로 영역에 대한 SOA 레코드(영역을 만들 때 자동으로 생성됨)를 쿼리하여 이름 확인이 작동하는지 확인할 수 있습니다.
 
@@ -159,4 +159,4 @@ Azure dns에서 'contoso.com'을 설정하고 위임하면 별도의 자식 영�
 
 [Azure DNS REST API 참조](https://msdn.microsoft.com/library/azure/mt163862.aspx)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0323_2016-->

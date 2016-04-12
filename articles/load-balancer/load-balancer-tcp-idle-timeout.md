@@ -4,7 +4,7 @@
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="load-balancer"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/19/2015"
+   ms.date="03/03/2016"
    ms.author="joaoma" />
 
 # 부하 분산 장치에 대한 TCP 유휴 시간 제한 설정을 변경하는 방법
@@ -44,7 +44,7 @@ TCP 연결 유지는 배터리가 제약 조건이 아닌 시나리오에서는 
 - 서비스 모델을 통해 웹/작업자 역할에 대해 TCP 시간 제한 구성
  
 
->[AZURE.NOTE]일부 명령은 최신 Azure PowerShell 패키지에만 있습니다. PowerShell 명령이 없는 경우 최신 PowerShell 패키지를 다운로드합니다.
+>[AZURE.NOTE] 일부 명령은 최신 Azure PowerShell 패키지에만 있습니다. PowerShell 명령이 없는 경우 최신 PowerShell 패키지를 다운로드합니다.
 
  
 ### 인스턴스 수준 공용 IP의 TCP 유휴 시간 제한을 15분으로 구성
@@ -53,7 +53,7 @@ TCP 연결 유지는 배터리가 제약 조건이 아닌 시나리오에서는 
 
 IdleTimeoutInMinutes는 선택 사항이며 설정하지 않으면 기본 시간 제한은 4분으로 설정됩니다.
 
->[AZURE.NOTE]허용되는 시간 제한 범위는 4분에서 30분 사이입니다.
+>[AZURE.NOTE] 허용되는 시간 제한 범위는 4분에서 30분 사이입니다.
  
 ### 가상 컴퓨터에서 Azure 끝점을 만들 때 유휴 시간 제한 설정
 
@@ -160,10 +160,10 @@ Azure SDK for .NET 2.4를 사용하여 클라우드 서비스를 업데이트할
 
 [내부 부하 분산 장치 개요](load-balancer-internal-overview.md)
 
-[인터넷 연결 부하 분산 장치 구성 시작](load-balancer-internet-getstarted.md)
+[인터넷 연결 부하 분산 장치 구성 시작](load-balancer-get-started-internet-arm-ps.md)
 
 [부하 분산 장치 배포 모드 구성](load-balancer-distribution-mode.md)
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -11,7 +11,7 @@
 <tags
 	ms.service="multiple"
 	ms.workload="multiple"
-	ms.tgt_pltfrm="command-line-interface"
+	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="12/29/2015"
@@ -65,7 +65,7 @@ CLI 0.9.9 이상 버전은 다단계 인증을 지원합니다.
 ## 회사 또는 학교 계정으로 비대화형 로그인 사용
 
 
-이 비대화형 로그인 방법에서는 회사 또는 학교 계정(*조직 계정*이라고도 함)만 사용할 수 있습니다. 이 계정은 조직에서 관리되고 조직의 Azure Active Directory에서 정의합니다. 조직 계정이 없는 경우 [조직 계정을 생성](#create-an-organizational-account)하거나 [Microsoft 계정 ID로부터 회사 또는 학교 ID를 생성](./virtual-machines/resource-group-create-work-id-from-personal.md)할 수 있습니다. 사용자 이름 또는 사용자 이름 및 암호를 `azure login` 명령에 다음과 같이 지정해야 합니다.
+이 비대화형 로그인 방법에서는 회사 또는 학교 계정(*조직 계정*이라고도 함)만 사용할 수 있습니다. 이 계정은 조직에서 관리되고 조직의 Azure Active Directory에서 정의합니다. 조직 계정이 없는 경우 [조직 계정을 생성](#create-an-organizational-account)하거나 [Microsoft 계정 ID로부터 회사 또는 학교 ID를 생성](./virtual-machines/virtual-machines-windows-create-aad-work-id.md)할 수 있습니다. 사용자 이름 또는 사용자 이름 및 암호를 `azure login` 명령에 다음과 같이 지정해야 합니다.
 
 	azure login -u ahmet@contoso.onmicrosoft.com
 	info:    Executing command login
@@ -156,4 +156,4 @@ Azure 구독에 연결하게 되면 Azure CLI 명령을 사용하여 시작할 �
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: xplat-cli-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

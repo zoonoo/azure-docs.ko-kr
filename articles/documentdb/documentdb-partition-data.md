@@ -1,115 +1,254 @@
-<properties      
-    pageTitle="분할을 사용한 DocumentDB의 분할 및 데이터 조정 | Microsoft Azure"      
-    description="분할이라는 기술을 사용하여 데이터의 크기를 조정하는 방법을 검토합니다. 분할, DocumentDB에서 데이터를 분할하는 방법 및 해시 및 범위 분할을 사용해야 하는 경우에 대해 알아봅니다."         
-    keywords="데이터, 분할, 분할, Documentdb, Azure, Microsoft Azure의 크기 조정"
-	services="documentdb"      
-    authors="arramac"      
-    manager="jhubbard"      
-    editor="monicar"      
-    documentationCenter=""/>
-<tags       
-    ms.service="documentdb"      
-    ms.workload="data-services"      
-    ms.tgt_pltfrm="na"      
-    ms.devlang="na"      
-    ms.topic="article"      
-    ms.date="02/09/2016"      
-    ms.author="arramac"/>
+<properties 
+	pageTitle="분할을 사용한 DocumentDB의 분할 및 데이터 조정 | Microsoft Azure"      
+	description="분할이라는 기술을 사용하여 데이터의 크기를 조정하는 방법을 검토합니다. 분할, DocumentDB에서 데이터를 분할하는 방법 및 해시 및 범위 분할을 사용해야 하는 경우에 대해 알아봅니다."         
+	keywords="데이터, 분할, 분할, Documentdb, Azure, Microsoft Azure의 크기 조정"
+	services="documentdb" 
+	authors="arramac" 
+	manager="jhubbard" 
+	editor="monicar" 
+	documentationCenter=""/>
 
-# DocumentDB의 분할 및 데이터 조정
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="03/30/2016" 
+	ms.author="arramac"/>
 
-[Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/)는 신속하고 예측 가능한 성능을 얻을 수 있고, 응용 프로그램 증가에 따라 효율적인 *확장*이 가능하도록 설계되었습니다. DocumentDB는 웹 및 모바일 앱의 MSN 제품군을 지원하는 사용자 데이터 저장소와 같이 Microsoft에서 대규모 프로덕션 서비스를 지원하기 위해 사용됩니다.
+# Azure DocumentDB의 분할 및 크기 조정
+[Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/)는 신속하고 예측 가능한 성능을 얻을 수 있고, 응용 프로그램 증가에 따라 효율적인 확장이 가능하도록 설계되었습니다. 이 문서에서는 DocumentDB에서 분할이 작동하는 방식을 개괄적으로 살펴보고, 응용 프로그램을 효과적으로 확장하도록 DocumentDB 컬렉션을 구성하는 방법을 설명합니다.
 
-일반적으로 **분할(sharding)**이라고 부르는 개념인 데이터 수평 분할을 통해 DocumentDB 응용 프로그램에 대한 저장소 및 처리량 측면에서 거의 무제한적인 확장성을 얻을 수 있습니다. DocumentDB 계정은 **컬렉션**이라고 부르는 스택 가능한 단위를 통해 비용과 비례적으로 확장될 수 있습니다. 컬렉션 간 데이터 분할 효과는 데이터 형식 및 액세스 패턴에 따라 달라집니다.
+이 문서를 읽은 다음에는 다음과 같은 질문에 답할 수 있습니다.
 
-데이터 조정에 대한 이 문서를 읽은 다음에는 다음과 같은 질문에 답할 수 있습니다.
+- Azure DocumentDB에서 분할이 작동하는 방식
+- DocumentDB에서 분할을 구성하는 방법
+- 파티션 키의 정의 및 응용 프로그램에 올바른 파티션 키를 선택하는 방법
 
- - 해시 및 범위 분할 정의
- - 각 분할 기법을 사용해야 하는 경우와 그 이유는 무엇인가요?
- - Azure DocumentDB에서 분할된 응용 프로그램을 작성할 때는 어떻게 하나요?
+## DocumentDB의 분할
 
-이 문서에서는 분할에 대한 몇 가지 개념을 제공합니다. DocumentDB SDK를 사용하여 데이터를 분할하는 코드를 작성할 준비가 된 경우 [DocumentDB SDK를 사용하여 데이터 분할](documentdb-sharding.md)을 참조하세요.
+DocumentDB에서는 규모에 상관없이 밀리초 단위의 응답 시간 순으로 스키마 없는 JSON 문서를 저장하고 쿼리할 수 있습니다. DocumentDB는 **컬렉션**이라는 데이터 저장용 컨테이너를 제공합니다. 컬렉션은 하나 이상의 물리적 파티션 또는 서버에 걸쳐 있을 수 있는 논리적 리소스입니다. 파티션 수는 컬렉션의 프로비전된 처리량 및 저장소 크기에 따라 DocumentDB에 의해 결정됩니다. DocumentDB의 모든 파티션은 고정된 양의 SSD 지원 저장소에 연결되며, 고가용성을 위해 복제됩니다. 파티션 관리는 Azure DocumentDB에 의해 완전히 관리되므로 복잡한 코드를 작성하거나 파티션을 관리할 필요가 없습니다. DocumentDB 컬렉션은 저장소 및 처리량이 **거의 무제한**입니다.
 
-## 컬렉션 = 분할
+분할은 응용 프로그램에 완전히 투명합니다. DocumentDB는 빠른 읽기 및 쓰기, SQL 및 LINQ 쿼리, JavaScript 기반 트랜잭션 논리, 일관성 수준 및 단일 컬렉션 리소스에 대한 REST API 호출을 통한 세분화된 액세스 제어를 지원합니다. 이 서비스는 파티션 간의 데이터 분산 및 올바른 파티션에 대한 쿼리 요청을 처리합니다.
 
-데이터 조정 및 분할 기법에 대해 자세히 알아보려면 먼저 컬렉션이 무엇인지에 대해 이해하는 것이 중요합니다. 이미 알고 있듯이, 컬렉션은 JSON 문서의 컨테이너입니다. DocumentDB에서 컬렉션은 *논리적* 컨테이너일 뿐만 아니라 *물리적* 컨테이너이기도 합니다. 이러한 컬렉션은 저장 프로시저 및 트리거에 대한 트랜잭션 경계이며, 쿼리 및 CRUD 작업에 대한 진입점입니다. 각 컬렉션에는 동일 계정에서 다른 컬렉션과 공유되지 않는 예약된 처리량이 지정됩니다. 따라서 컬렉션을 추가하고 이들 간에 문서를 배포함으로써 저장소 및 처리량 측면에서 응용 프로그램을 확장할 수 있습니다.
+작동 방식 DocumentDB에 컬렉션을 만드는 경우 **파티션 키 속성** 구성을 지정할 수 있습니다. 이는 DocumentDB에서 여러 서버 또는 파티션 간에 데이터를 분산시키는 데 사용할 수 있는 문서 내 JSON 속성(또는 경로)입니다. DocumentDB는 파티션 키 값을 해시하고 해시된 결과를 사용하여 JSON 문서를 저장할 파티션을 결정합니다. 파티션 키가 동일한 모든 문서가 동일한 파티션에 저장됩니다.
 
-컬렉션은 관계형 데이터베이스의 테이블과 동일하지 않습니다. 컬렉션은 스키마를 강제 적용하지 않습니다. 따라서 동일한 컬렉션에서도 다양한 스키마를 사용해서 여러 유형의 문서를 저장할 수 있습니다. 하지만 테이블에서와 같은 방식으로 컬렉션을 사용해서 단일 유형의 개체를 저장할 수도 있습니다. 모델 효율성은 쿼리 및 트랜잭션에 데이터가 표시되는 방법에 따라서만 결정됩니다.
+직원 및 부서에 대한 데이터를 DocumentDB에 저장하는 응용 프로그램을 예로 들어 보겠습니다. 데이터를 부서별로 확장하기 위해 `"department"`를 파티션 키 속성으로 선택합니다. DocumentDB의 모든 문서는 필수 `"id"` 속성을 포함해야 합니다. 이 속성은 동일한 파티션 키 값을 가진 모든 문서에 대해 고유해야 합니다(예: `"Marketing`"). 컬렉션에 저장된 모든 문서에는 파티션 키와 id의 고유한 조합이 있어야 합니다(예: `{ "Department": "Marketing", "id": "0001" }`, `{ "Department": "Marketing", "id": "0002" }` 및 `{ "Department": "Sales", "id": "0001" }`). 즉, (파티션 키, id)의 복합 속성이 컬렉션의 기본 키입니다.
 
-## DocumentDB에서 분할
+### 파티션 키
+파티션 키의 선택은 디자인 타임에서 결정해야 하는 중요한 사항입니다. 광범위한 값을 가지고 균등하게 분산된 액세스 패턴이 있을 가능성이 높은 JSON 속성 이름을 선택해야 합니다. 파티션 키의 선택이 응용 프로그램의 성능에 미치는 영향을 살펴보겠습니다.
 
-Azure DocumentDB(또는 중요한 문제에 대한 모든 분산된 시스템)를 사용한 데이터를 분할에 사용할 수 있는 두 가지 방법은 *범위 분할* 및 *해시 분할*입니다. 여기에는 일반적으로 자연 ID 속성(예: 사용자 저장소에 대한 "userID" 또는 IoT 시나리오에 대한 "deviceId")인 *파티션 키*로 문서 내에서 단일 JSON 속성 이름을 선택하는 것이 포함됩니다. 시계열 데이터의 경우 데이터가 시간 범위로 삽입되고 검색되므로 "타임 스탬프"가 파티션 키로 사용됩니다. 단일 속성을 사용하는 것이 일반적이지만 다른 종류의 문서에 대한 다른 속성일 수도 있습니다.(예: 사용자 문서에 대해 "id", 주석에 대해 "ownerUserId" 사용) 다음 단계는 요청에 포함된 파티션 키를 사용하여 올바른 컬렉션에 대한 생성 및 쿼리와 같은 모든 작업을 라우팅하는 것입니다.
+### 분할 및 프로비전된 처리량
+DocumentDB는 예측 가능한 성능을 위해 설계되었습니다. 컬렉션을 만들 때 **초당 RU(요청 단위)** 면에서 처리량을 예약합니다. 각 요청에는 작업에 소비된 CPU 및 IO 같은 시스템 리소스의 양에 비례하는 요청 단위 요금이 할당됩니다. 세션 일관성에 따라 1kB 문서를 읽을 경우 1RU(요청 단위)가 소비됩니다. 저장된 항목 수 또는 동시에 실행되는 요청 수에 상관없이 읽기당 1RU입니다. 문서의 크기가 클수록 크기에 따라 더 높은 요청 단위가 필요합니다. 응용 프로그램에 지원해야 하는 엔터티 크기 및 읽기 수를 알고 있는 경우 응용 프로그램의 읽기 요구 사항에 필요한 정확한 양의 처리량을 프로비전할 수 있습니다.
 
-이러한 기법들에 대해 조금 더 자세히 살펴보겠습니다.
+DocumentDB는 문서를 저장할 때 파티션 키 값에 따라 파티션 간에 문서를 균등하게 분산시킵니다. 처리량도 사용 가능한 파티션 간에 균등하게 분산됩니다(즉, 파티션당 처리량 = (컬렉션당 총 처리량)/(파티션 수)).
 
-## 범위 분할
+> [AZURE.NOTE] 컬렉션의 전체 처리량을 실현하려면 다양한 파티션 키 값 간에 요청을 균등하게 분산시킬 수 있는 파티션 키를 선택해야 합니다.
 
-범위 분할에서는 분할 키가 특정 범위 내에 있는지 여부에 따라 분할이 지정됩니다. 이 분할은 일반적으로 *time stamp* 속성(예: 2015년 2월 1일부터 2015년 2월 2일 사이의 eventTime)을 사용한 분할에 사용됩니다.
+## 단일 파티션 및 분할된 컬렉션
+DocumentDB에서는 단일 파티션과 분할된 컬렉션을 모두 만들 수 있습니다.
 
-> [AZURE.TIP] 쿼리가 분할 키에 대한 특정 범위 값으로 제한된 경우에는 범위 분할을 사용해야 합니다.
+- **분할된 컬렉션**은 여러 파티션에 걸쳐 있고 매우 많은 양의 저장소와 처리량을 지원할 수 있습니다. 컬렉션에 대한 파티션 키를 지정해야 합니다.
+- **단일 파티션 컬렉션**은 보다 저렴한 가격 옵션을 제공하고, 모든 컬렉션 데이터에서 쿼리 및 트랜잭션을 수행할 수 있습니다. 단일 파티션의 확장성 및 저장소 제한이 있습니다. 이러한 컬렉션에 대해서는 파티션 키를 지정할 필요가 없습니다. 
 
-범위 분할의 특수한 사례는 범위가 단일 값일 경우입니다. 이 분할은 일반적으로 지역(예: 노르웨이, 덴마크 및 스웨덴이 포함된 스칸디나비아 분할)과 같은 불연속 값에 의한 분할에 사용됩니다.
+![DocumentDB의 분할된 컬렉션][2]
 
-> [AZURE.TIP] 범위 분할은 다중 테넌트 응용 프로그램을 관리할 때 가장 높은 관리 수준을 제공합니다. 다중 테넌트를 단일 컬렉션에 지정하거나, 단일 테넌트를 단일 컬렉션에 지정하거나, 여러 컬렉션 간에 단일 테넌트를 지정할 수도 있습니다.
+많은 양의 저장소 또는 처리량이 필요하지 않은 시나리오에는 단일 파티션 컬렉션이 적합합니다. 단일 파티션 컬렉션에는 단일 파티션의 확장성 및 저장소 제한이 있습니다. 즉, 최대 10GB의 저장소 및 초당 최대 10,000개의 요청 단위가 지원됩니다.
 
-## 해시 분할
+분할된 컬렉션은 매우 많은 양의 저장소와 처리량을 지원할 수 있습니다. 그러나 기본적으로 최대 250GB를 저장하고 초당 최대 250,000개의 요청 단위로 확장할 수 있습니다. 컬렉션당 더 높은 저장소 또는 처리량이 필요한 경우 [Azure 지원](documentdb-increase-limits)에 사용자 계정에 대한 용량 증가를 요청해야 합니다.
 
-해시 분할에서는 분할이 해시 함수 값을 기준으로 지정되기 때문에 여러 분할 간에 요청 및 데이터를 고르게 배포할 수 있습니다. 이 분할은 일반적으로 많은 수의 고유 클라이언트에서 생성 또는 소비되는 데이터를 분할하는 데 사용되며, 사용자 프로필, 카탈로그 항목 및 IoT("사물 인터넷") 장치 원격 분석 데이터를 저장하는 데 유용합니다.
+다음 표에서 단일 파티션 작업과 분할된 컬렉션 작업의 차이점을 보여 줍니다.
 
-> [AZURE.TIP] 열거하기에 엔터티 수가 너무 많은 경우(예: 사용자 또는 장치) 그리고 요청 속도가 엔터티 간에 상당히 균일한 경우에는 항상 해시 분할을 사용해야 합니다.
+<table border="0" cellspacing="0" cellpadding="0">
+    <tbody>
+        <tr>
+            <td valign="top"><p></p></td>
+            <td valign="top"><p><strong>단일 파티션 컬렉션</strong></p></td>
+            <td valign="top"><p><strong>분할된 컬렉션</strong></p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>Partition Key</p></td>
+            <td valign="top"><p>없음</p></td>
+            <td valign="top"><p>필수</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>문서의 기본 키</p></td>
+            <td valign="top"><p>"id"</p></td>
+            <td valign="top"><p>&lt;파티션 키>와 "id"의 복합 키</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>최소 저장소</p></td>
+            <td valign="top"><p>0GB</p></td>
+            <td valign="top"><p>0GB</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>최대 저장소</p></td>
+            <td valign="top"><p>10 GB</p></td>
+            <td valign="top"><p>무제한(기본적으로 250GB)</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>최소 처리량</p></td>
+            <td valign="top"><p>초당 요청 단위 400개</p></td>
+            <td valign="top"><p>초당 요청 단위 10,000개</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>최대 처리량</p></td>
+            <td valign="top"><p>초당 요청 단위 10,000개</p></td>
+            <td valign="top"><p>무제한(기본적으로 초당 요청 단위 250,000개)</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>API 버전</p></td>
+            <td valign="top"><p>모두</p></td>
+            <td valign="top"><p>API 2015-12-16 이상</p></td>
+        </tr>
+    </tbody>
+</table>
 
-## 올바른 분할 기법 선택
+## SDK 사용
 
-그렇다면 어떤 분할 기법이 적합할까요? 적합한 분할 기법은 일반적인 액세스 패턴과 데이터 유형에 따라 달라집니다. 디자인 타임에 올바른 분할 기법을 선택하면 기술적 문제를 방지하고 데이터 크기 및 요청 볼륨의 증가를 처리할 수 있습니다.
+Azure DocumentDB에는 [REST API 버전 2015-12-16](https://msdn.microsoft.com/library/azure/dn781481.aspx)을 사용한 자동 분할에 대한 지원이 추가되었습니다. 분할된 컬렉션을 만들려면 지원되는 SDK 플랫폼(.NET, Node.js, Java, Python) 중 하나에서 SDK 버전 1.6.0 이상을 다운로드해야 합니다.
 
-- **범위 분할**은 일반적으로 날짜 컨텍스트에서 사용되며, 타임스탬프별로 분할을 에이징하는 쉽고 자연스러운 메커니즘을 제공합니다. 또한 분할 경계에 맞게 조정되므로 쿼리가 일반적으로 시간 범위로 제한되는 경우에도 유용합니다. 또한 정렬되지 않고 관련되지 않은 데이터 집합을 자연스러운 방식으로 그룹화하고 구성할 수 있습니다. 예를 들어 조직별로 테넌트를 그룹화하고 지리적 위치별로 주를 그룹화할 수 있습니다. 또한 범위는 컬렉션 간 데이터 마이그레이션을 위한 미세 조정 기능을 제공합니다. 
-- **해시 분할**은 프로비전된 저장소 및 처리량을 효율적으로 사용할 수 있도록 요청을 균일하게 부하 분산하는 데 유용합니다. *일관적인 해싱* 알고리즘을 사용하면 분할을 추가 또는 제거할 때 이동해야 하는 데이터의 양을 최소화할 수 있습니다.
+다음 샘플에서는 처리량이 초당 20,000개의 요청 단위인 장치 원격 분석 데이터를 저장하는 컬렉션을 만드는 .NET 코드 조각을 보여 줍니다. SDK는 OfferThroughput 값을 설정합니다.(이 값은 REST API에서 `x-ms-offer-throughput` 요청 헤더를 설정함). 여기에서는 `/deviceId`를 파티션 키로 설정합니다. 선택한 파티션 키는 이름 및 인덱싱 정책과 같은 나머지 컬렉션 메타데이터와 함께 저장됩니다.
 
-분할 기법은 하나만 선택할 필요가 없습니다. 시나리오에 따라 이러한 기법을 *조합*해서 사용하는 것도 유용할 수 있습니다. 예를 들어 차량 원격 분석 데이터를 저장하는 경우에는 분할을 쉽게 관리할 수 있도록 타임스탬프에 따른 범위로 장치 원격 분석 데이터를 분할하고 처리량 확장을 위해(범위-해시 조합 분할) VIN(차량 식별 번호)에 따라 다시 하위 분할을 수행할 수 있습니다.
+이 샘플에서는 (a) 장치 수가 많고, 쓰기가 파티션 간에 균등하게 분산될 수 있으며, 대용량 데이터를 수집하도록 데이터베이스를 확장할 수 있으며, (b) 장치에 대한 최신 읽기 가져오기와 같은 요청이 대부분 단일 deviceId로 범위가 지정되고 단일 파티션에서 검색될 수 있음을 알고 있기 때문에 `deviceId`를 선택했습니다.
 
-## 분할된 응용 프로그램 개발
-DocumentDB에서 분할된 응용 프로그램을 개발할 때는 세 가지 주요 디자인 영역에 주의해야 합니다.
+    DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
+    await client.CreateDatabaseAsync(new Database { Id = "db" });
 
-- 생성 및 읽기(쿼리 포함)를 올바른 컬렉션으로 라우팅하는 방법.
-- 분할 맵이라고 부르는 분할 해결 구성을 영구 저장하고 검색하는 방법.
-- 데이터 및 요청 볼륨 증가에 따라 분할을 추가/제거하는 방법.
+    // Collection for device telemetry. Here the JSON property deviceId will be used as the partition key to 
+    // spread across partitions. Configured for 10K RU/s throughput and an indexing policy that supports 
+    // sorting against any number or string property.
+    DocumentCollection myCollection = new DocumentCollection();
+    myCollection.Id = "coll";
+    myCollection.PartitionKey.Paths.Add("/deviceId");
 
-이러한 각 영역에 대해 조금 더 자세히 살펴보겠습니다.
+    await client.CreateDocumentCollectionAsync(
+        UriFactory.CreateDatabaseUri("db"),
+        myCollection,
+        new RequestOptions { OfferThroughput = 20000 });
+        
+이 메서드에서 DocumentDB에 대한 REST API 호출을 실행하면 이 서비스가 요청된 처리량에 따라 파티션 수를 프로비전합니다. 이제 DocumentDB에 데이터를 삽입해 보겠습니다. 다음은 장치 읽기 및 새 장치 읽기를 컬렉션에 삽입하는 CreateDocumentAsync 호출이 포함된 샘플 클래스입니다.
 
-## 생성 및 쿼리 라우팅
+    public class DeviceReading
+    {
+        [JsonProperty("id")]
+        public string Id;
 
-라우팅 문서 만들기 요청은 해시 및 범위 분할에 모두 직관적인 방법입니다. 문서는 분할 키에 따라 해시 또는 범위 값으로부터 분할에 생성됩니다.
+        [JsonProperty("deviceId")]
+        public string DeviceId;
 
-쿼리 및 읽기는 일반적으로 단일 분할 키로 범위가 지정되므로 쿼리를 일치하는 분할로만 분산할 수 있습니다. 하지만 모든 데이터 간의 쿼리를 위해서는 요청을 여러 분할로 *분산*하고 결과를 병합해야 합니다. 최상위 N개 결과를 인출할 때와 같이 결과를 병합하기 위해서는 일부 쿼리에서 사용자 지정 논리를 수행해야 합니다.
+        [JsonConverter(typeof(IsoDateTimeConverter))]
+        [JsonProperty("readingTime")]
+        public DateTime ReadingTime;
 
-## 분할 맵 관리
+        [JsonProperty("metricType")]
+        public string MetricType;
 
-또한 분할 맵을 저장하는 방법, 클라이언트에서 이를 로드하고 변경 시 업데이트를 수신하는 방법 및 여러 클라이언트 간에 공유되는 방법을 결정해야 합니다. 분할 맵이 자주 변경되지 않을 경우에는 이를 단순히 응용 프로그램 구성 파일에 저장할 수 있습니다.
+        [JsonProperty("unit")]
+        public string Unit;
 
-그렇지 않으면, 이를 영구 저장소에 저장할 수 있습니다. 프로덕션 환경에서 자주 볼 수 있었던 일반적인 디자인 패턴은 분할 맵을 JSON으로 직렬화하고 DocumentDB 컬렉션 내에도 저장하는 방법입니다. 그런 다음에는 클라이언트가 추가적인 라운드 트립을 방지하기 위해 맵을 캐시하고 변경 사항을 주기적으로 폴링할 수 있습니다. 클라이언트가 분할 맵을 수정할 수 있는 경우, 일관적인 이름 지정 스키마를 사용하고 분할 맵에 대한 일관적인 업데이트를 허용할 수 있도록 낙관적 동시성(eTags)을 사용하는지 확인해야 합니다.
+        [JsonProperty("metricValue")]
+        public double MetricValue;
+      }
 
-## 데이터 조정에 대한 분할 추가 및 제거
+    // Create a document. Here the partition key is extracted as "XMS-0001" based on the collection definition
+    await client.CreateDocumentAsync(
+        UriFactory.CreateDocumentCollectionUri("db", "coll"),
+        new DeviceReading
+        {
+            Id = "XMS-001-FE24C",
+            DeviceId = "XMS-0001",
+            MetricType = "Temperature",
+            MetricValue = 105.00,
+            Unit = "Fahrenheit",
+            ReadingTime = DateTime.UtcNow
+        });
 
-DocumentDB에서는 언제라도 컬렉션을 추가 및 제거하고, 이를 사용해서 새로 수신되는 데이터를 저장하거나 기존 컬렉션에서 사용할 수 있는 데이터의 균형을 재조정할 수 있습니다. 컬렉션 수에 대해서는 [제한](documentdb-limits.md) 페이지를 검토하세요. 언제라도 Microsoft에 문의해서 이러한 제한을 늘릴 수 있습니다.
 
-범위 분할을 사용한 새로운 분할 추가 및 제거는 직관적입니다. 예를 들어 새 지리적 위치 또는 최근 데이터에 대한 새 시간 범위를 추가할 때는 분할 맵에 새 분할을 첨부하기만 하면 됩니다. 기존 분할을 여러 분할로 분할하거나 두 분할을 병합하기 위해서는 약간의 추가 노력이 필요합니다. 다음과 같은 두 가지 경우가 필요할 수 있습니다.
+파티션 키와 id로 문서를 읽고, 업데이트한 다음, 마지막 단계로 파티션 키와 id로 해당 문서를 삭제해 보겠습니다. 읽기에 PartitionKey 값(REST API의 `x-ms-documentdb-partitionkey` 요청 헤더에 해당)이 포함됩니다.
 
-- 분할을 읽기 위해 오프라인으로 전환합니다.
-- 경로는 마이그레이션 중 이전의 분할 구성뿐만 아니라 새로운 분할 구성을 사용해서 두 분할을 모두 읽습니다. 트랜잭션 및 일관성 수준 보증은 마이그레이션이 완료될 때까지 제공되지 않습니다.
+    // Read document. Needs the partition key and the ID to be specified
+    Document result = await client.ReadDocumentAsync(
+      UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"), 
+      new RequestOptions { PartitionKey = new object[] { "XMS-0001" }});
 
-해싱은 분할 추가 및 제거 시에 비교적 더 복잡합니다. 단순 해싱 기법은 셔플링을 일으킬 수 있으며 대부분의 데이터를 이동해야 합니다. **일관적인 해싱**을 사용하면 데이터의 일부만 이동되도록 보장할 수 있습니다.
+    DeviceReading reading = (DeviceReading)(dynamic)result;
 
-데이터 이동을 요구하지 않고 새 분할을 추가할 수 있는 비교적 쉬운 방법은 데이터를 새로운 컬렉션에 넣어 놓고 이전 및 신규 컬렉션 간에 요청을 분산하는 방법입니다. 하지만 이러한 방법은 드문 경우(예: 최대 사용 시간 워크로드 분산 및 데이터 이동 가능 시까지 일시적으로 데이터를 저장하기 위한 목적)에만 사용해야 합니다.
+    // Update the document. Partition key is not required, again extracted from the document
+    reading.MetricValue = 104;
+    reading.ReadingTime = DateTime.UtcNow;
+
+    await client.ReplaceDocumentAsync(
+      UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"), 
+      reading);
+
+    // Delete document. Needs partition key
+    await client.DeleteDocumentAsync(
+      UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"), 
+      new RequestOptions { PartitionKey = new object[] { "XMS-0001" } });
+
+분할된 컬렉션에서 데이터를 쿼리하면 DocumentDB에서 필터에 지정된 파티션 키 값(있는 경우)에 해당하는 파티션으로 쿼리를 자동으로 라우팅합니다. 예를 들어 이 쿼리는 파티션 키 "XMS-0001"이 포함된 파티션으로만 라우팅됩니다.
+
+    // Query using partition key
+    IQueryable<DeviceReading> query = client.CreateDocumentQuery<DeviceReading>(
+    	UriFactory.CreateDocumentCollectionUri("db", "coll"))
+        .Where(m => m.MetricType == "Temperature" && m.DeviceId == "XMS-0001");
+
+다음 쿼리는 파티션 키(DeviceId)에 대한 필터가 없으므로 파티션의 인덱스에 대해 실행되는 모든 파티션으로 팬아웃됩니다. SDK가 파티션에 걸쳐 쿼리를 실행하도록 EnableCrossPartitionQuery(REST API의 `x-ms-documentdb-query-enablecrosspartition`)를 지정해야 합니다.
+
+    // Query across partition keys
+    IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<DeviceReading>(
+        UriFactory.CreateDocumentCollectionUri("db", "coll"), 
+        new FeedOptions { EnableCrossPartitionQuery = true })
+        .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100);
+
+장치 ID가 동일한 문서에 대해 원자성 트랜잭션을 실행할 수도 있습니다(예: 장치의 최신 상태 또는 집계를 단일 문서에서 유지 관리하는 경우).
+
+    await client.ExecuteStoredProcedureAsync<DeviceReading>(
+        UriFactory.CreateStoredProcedureUri("db", "coll", "SetLatestStateAcrossReadings"),
+        "XMS-001-FE24C",
+        new RequestOptions { PartitionKey = new PartitionKey("XMS-001") });
+
+이제 기본 사항을 완료했으므로 DocumentDB에서 파티션 키로 작업할 때 고려해야 하는 몇 가지 중요한 디자인 사항을 살펴보겠습니다.
+
+## 분할 디자인
+파티션 키의 선택은 디자인 타임에서 결정해야 하는 중요한 사항입니다. 이 섹션에서는 컬렉션에 대한 파티션 키를 선택할 때의 일부 장단점을 설명합니다.
+
+### 파티션 키를 트랜잭션 경계로 사용
+파티션 키를 선택할 때는 트랜잭션 사용에 대한 요구 사항과 여러 파티션에 엔터티를 분산하는 데 대한 요구 사항(솔루션의 확장성 향상) 간에 균형을 유지해야 합니다. 한 쪽으로 치우치면 모든 엔터티를 단일 파티션에 저장할 수 있지만 솔루션의 확장성이 제한될 수 있습니다. 다른 쪽으로 치우치면 파티션 키당 하나의 문서를 저장할 수 있으므로 확장성이 매우 높지만 저장 프로시저 및 트리거를 통해 문서 트랜잭션 간에 사용할 수 없습니다. 이상적인 파티션 키는 효율적인 쿼리를 사용할 수 있도록 하고 솔루션을 확장할 수 있는 충분한 파티션이 있는 키입니다.
+
+### 저장소 및 성능 병목 현상 방지 
+다양한 값 간에 쓰기를 분산시킬 수 있는 속성을 선택해야 합니다. 동일한 파티션 키에 대한 요청은 단일 파티션의 처리량을 초과할 수 없으며 제한됩니다. 따라서 응용 프로그램 내에서 **"핫 스폿"**을 초래하지 않는 파티션 키를 선택해야 합니다. 또한 파티션 키가 동일한 문서에 대한 총 저장소 크기는 저장소에서 10GB를 초과할 수 없습니다.
+
+### 적절한 파티션 키의 예
+응용 프로그램의 파티션 키를 선택하는 방법에 대한 몇 가지 예는 다음과 같습니다.
+
+* 사용자 프로필 백 엔드를 구현하는 경우 사용자 ID를 파티션 키로 선택하는 것이 좋습니다.
+* IoT 데이터(예: 장치 상태)를 저장하는 경우 장치 ID를 파티션 키로 선택하는 것이 좋습니다.
+* 시계열 데이터를 기록하는 데 DocumentDB를 사용하는 경우 타임스탬프의 날짜 부분을 파티션 키로 선택하는 것이 좋습니다.
+* 다중 테넌트 아키텍처가 있는 경우 테넌트 ID를 파티션 키로 선택하는 것이 좋습니다.
+
+일부 사례(예: 위에 설명된 IoT 및 사용자 프로필)에서는 파티션 키가 사용자의 id(문서 키)와 동일할 수 있습니다. 시계열 데이터와 같은 다른 사례에서는 id와 다른 파티션 키를 선택할 수 있습니다.
+
+### 분할 및 다중 테넌트
+DocumentDB를 사용하여 다중 테넌트 응용 프로그램을 구현하는 경우 DocumentDB로 테넌시를 구현하는 두 가지 주요 패턴이 있습니다. 즉, 테넌트당 하나의 파티션 키와 테넌트당 하나의 컬렉션입니다. 각각의 장단점은 다음과 같습니다.
+
+* 테넌트당 하나의 파티션 키: 이 모델에서는 테넌트가 단일 컬렉션 내에 함께 배치됩니다. 그러나 단일 파티션 내의 문서에 대한 쿼리 및 삽입을 단일 파티션에 대해 수행할 수 있습니다. 또한 테넌트 내의 모든 문서에서 트랜잭션 논리를 구현할 수 있습니다. 다중 테넌트는 컬렉션을 공유하기 때문에 각 테넌트에 대한 추가 헤드룸을 프로비전하는 대신 테넌트에 대한 리소스를 풀링하여 저장소 및 처리량을 단일 컬렉션 내에 저장할 수 있습니다. 단점은 테넌트당 성능 격리가 없다는 점입니다. 성능/처리량 증가가 대상 테넌트에 대한 증가가 아니라 전체 컬렉션에 적용됩니다.
+* 테넌트당 하나의 컬렉션: 각 테넌트에 고유한 컬렉션이 있습니다. 이 모델에서는 테넌트당 성능을 예약할 수 있습니다. DocumentDB의 새로운 사용량 기반 가격 책정 모델을 사용하는 이 모델은 테넌트 수가 적은 다중 테넌트 응용 프로그램에 보다 비용 효율적입니다.
+
+소수의 테넌트를 함께 배치하고 더 큰 테넌트를 고유한 컬렉션으로 마이그레이션하는 조합/계층형 접근 방식을 사용할 수도 있습니다.
 
 ## 다음 단계
-이 문서에서는 DocumentDB에서 데이터를 분할하는 방법에 대한 몇 가지 일반적인 기법들을 소개하고 언제 어떤 기법을 사용하거나 어떤 기법을 조합해야 하는지에 대해 살펴봤습니다.
+이 문서에서는 Azure DocumentDB에서 분할이 작동하는 방식, 분할된 컬렉션을 만드는 방법 및 응용 프로그램에 적합한 파티션 키를 선택하는 방법을 설명했습니다.
 
--   이제 이 [문서](documentdb-sharding.md)에서 DocumentDB SDK와 함께 파티션 해결 프로그램을 사용하여 데이터를 분할하는 방법을 살펴보겠습니다. 
--   [지원되는 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 중 하나 다운로드
--   궁금한 사항이 있는 경우 [MSDN 지원 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB)을 통해 문의하세요.
-   
+-   [SDK](documentdb-sdk-dotnet.md) 또는 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx)를 사용하여 코딩 시작
+-   [DocumentDB의 프로비전된 처리량](documentdb-performance-levels.md)에 대한 자세한 정보
+-   응용 프로그램에서 분할을 수행하는 방법을 사용자 지정하려는 경우 고유한 클라이언트 쪽 분할 구현에 연결할 수 있습니다. [클라이언트 쪽 분할 지원](documentdb-sharding.md)을 참조하세요.
 
+[1]: ./media/documentdb-partition-data/partitioning.png
+[2]: ./media/documentdb-partition-data/single-and-partitioned.png
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0330_2016-->

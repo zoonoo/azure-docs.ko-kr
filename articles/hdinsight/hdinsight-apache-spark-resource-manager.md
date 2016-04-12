@@ -31,7 +31,7 @@ Azure HDInsight(Linux)의 Spark는 클러스터 리소스를 관리하고 클러
 
 ## Ambari 웹 UI를 시작하는 방법
 
-1. [Azure Preview 포털](https://ms.portal.azure.com/)의 시작 보드에서 Spark 클러스터 타일을 클릭합니다(Spark 클러스터를 시작 보드에 고정한 경우). **모두 찾아보기** > **HDInsight 클러스터**에서 클러스터로 이동할 수도 있습니다. 
+1. [Azure 포털](https://ms.portal.azure.com/)의 시작 보드에서 Spark 클러스터에 대한 타일을 클릭합니다(시작 보드에 고정한 경우). **모두 찾아보기** > **HDInsight 클러스터**에서 클러스터로 이동할 수도 있습니다. 
  
 2. Spark 클러스터 블레이드에서 **대시보드**를 클릭합니다. 메시지가 표시되면 Spark 클러스터에 대한 관리자 자격 증명을 입력합니다.
 
@@ -43,7 +43,7 @@ Azure HDInsight(Linux)의 Spark는 클러스터 리소스를 관리하고 클러
 
 ## Spark 기록 서버를 시작하는 방법
 
-1. [Azure Preview 포털](https://ms.portal.azure.com/)의 시작 보드에서 Spark 클러스터 타일을 클릭합니다(Spark 클러스터를 시작 보드에 고정한 경우).
+1. [Azure 포털](https://ms.portal.azure.com/)의 시작 보드에서 Spark 클러스터에 대한 타일을 클릭합니다(시작 보드에 고정한 경우).
 
 2. 클러스터 블레이드의 **빠른 링크**에서 **클러스터 대시보드**를 클릭합니다. **클러스터 대시보드** 블레이드에서 **Spark 기록 서버**를 클릭합니다.
 
@@ -138,4 +138,4 @@ Spark 클러스터를 사용하여 발생할 수 있는 일반적인 시나리�
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

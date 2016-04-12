@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/04/2016"
+	ms.date="03/22/2016"
 	ms.author="billmath;andkjell"/>
 
 # Azure AD Connect의 사용자 지정 설치
@@ -68,7 +68,7 @@ Azure AD에 연결 화면에서, 전역 관리자 계정 및 암호를 입력합
 ## 섹션 동기화의 페이지
 
 ### 디렉터리에 연결
-Active Directory 도메인 서비스에 연결하려면, Azure AD Connect는 충분한 권한이 있는 계정의 자격 증명이 필요합니다. 기본 읽기 권한만 필요하기 때문에 이 계정은 일반 사용자 계정일 수 있습니다. 그러나 시나리오에 따라 추가 권한이 필요할 수 있습니다. 자세한 내용은 [Azure AD Connect 계정 및 사용 권한](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account)을 참조하세요.
+Active Directory 도메인 서비스에 연결하려면, Azure AD Connect는 충분한 권한이 있는 계정의 자격 증명이 필요합니다. NetBios 또는 FQDN 형식으로 도메인 부분을 입력할 수 있습니다(예: FABRIKAM\\syncuser 또는 fabrikam.com\\syncuser). 기본 읽기 권한만 필요하기 때문에 이 계정은 일반 사용자 계정일 수 있습니다. 그러나 시나리오에 따라 추가 권한이 필요할 수 있습니다. 자세한 내용은 [Azure AD Connect 계정 및 사용 권한](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account)을 참조하세요.
 
 ![연결 디렉터리](./media/active-directory-aadconnect-get-started-custom/connectdir.png)
 
@@ -130,6 +130,8 @@ Azure AD로 동기화를 시작할 특성을 제한하려면 사용 중인 서�
 이전 단계에서 선택한 서비스에 따르면 이 페이지는 동기화되는 모든 특성을 보여줍니다. 이 목록은 동기화된 모든 개체 형식의 조합입니다. 동기화하지 않아도 되는 특정한 일부 특성이 있다면 이러한 선택을 취소할 수 있습니다.
 
 ![선택적 기능](./media/active-directory-aadconnect-get-started-custom/azureadattributes2.png)
+
+>[AZURE.WARNING] 특성을 제거하면 기능에 영향을 줄 수 있습니다. 모범 사례 및 권장 사항은 [동기화된 특성](active-directory-aadconnectsync-attributes-synchronized.md#attributes-to-synchronize)을 참조하세요.
 
 ### 디렉터리 확장 특성 동기화
 디렉터리 확장을 사용하여, Active Directory의 다른 특성 또는 조직에서 추가하는 사용자 지정 특성으로 Azure AD에서 스키마를 확장할 수 있습니다. 이 기능을 사용하려면, **선택적 기능** 페이지에서 **디렉터리 확장 특성 동기화**를 선택합니다. 이렇게 하면 이 페이지에서 추가 특성을 선택할 수 있습니다.
@@ -238,4 +240,4 @@ Azure AD Connect를 설치했으므로 [설치를 확인하고 라이선스를 �
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

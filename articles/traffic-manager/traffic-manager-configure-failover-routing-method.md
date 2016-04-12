@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # 장애 조치(Failover) 라우팅 방법 구성
@@ -38,7 +38,7 @@ Azure 웹 사이트는 웹 사이트 모드에 관계없이 데이터 센터(지
 
 [회사 인터넷 도메인이 트래픽 관리자 도메인을 가리키도록 설정](traffic-manager-point-internet-domain.md)
 
-[트래픽 관리자 라우팅 방법](traffic-manager-load-balancing-methods.md)
+[트래픽 관리자 라우팅 방법](traffic-manager-routing-methods.md)
 
 [라운드 로빈 라우팅 방법 구성](traffic-manager-configure-round-robin-routing-method.md)
 
@@ -52,4 +52,4 @@ Azure 웹 사이트는 웹 사이트 모드에 관계없이 데이터 센터(지
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0323_2016-->

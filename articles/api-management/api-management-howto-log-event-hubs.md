@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # Azure API 관리에서 Azure 이벤트 허브에 이벤트를 기록하는 방법
@@ -80,7 +80,7 @@ API 관리 로거는 [API 관리 REST API](http://aka.ms/smapi)를 사용하여 
 
 요청을 만들 때 로거가 생성되면 `201 Created`의 상태 코드가 반환됩니다.
 
->[AZURE.NOTE]다른 가능한 반환 코드 및 해당 이유의 경우 [로거 만들기](https://msdn.microsoft.com/library/azure/mt592020.aspx#PUT)를 참조하세요. 목록, 업데이트, 삭제 등의 다른 작업을 수행하는 방법을 보려면 [로거](https://msdn.microsoft.com/library/azure/mt592020.aspx) 엔터티 설명서를 참조하세요.
+>[AZURE.NOTE] 다른 가능한 반환 코드 및 해당 이유의 경우 [로거 만들기](https://msdn.microsoft.com/library/azure/mt592020.aspx#PUT)를 참조하세요. 목록, 업데이트, 삭제 등의 다른 작업을 수행하는 방법을 보려면 [로거](https://msdn.microsoft.com/library/azure/mt592020.aspx) 엔터티 설명서를 참조하세요.
 
 ## log-to-eventhubs 정책 구성
 
@@ -133,4 +133,4 @@ API 관리에 로거가 구성되면 원하는 이벤트를 기록하는 log-to-
 [event-hub-policy]: ./media/api-management-howto-log-event-hubs/event-hub-policy.png
 [add-policy]: ./media/api-management-howto-log-event-hubs/add-policy.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="SAN을 사용하여 Azure Site Recovery로 보조 사이트에 VMM 클라우드의 Hyper-V VM 복제 | Microsoft Azure"
-	description="이 문서에서는 SAN 복제를 사용하여 Azure Site Recovery로 두 사이트 간에 Hyper-V 가상 컴퓨터를 복제하는 방법을 설명합니다."
+	description="이 문서에서는 Azure Site Recovery에서 SAN 복제를 사용하여 두 사이트 간에 Hyper-V 가상 컴퓨터를 복제하는 방법을 설명합니다."
 	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
@@ -13,20 +13,24 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="03/30/2016"
 	ms.author="raynew"/>
 
 # SAN을 사용하여 Azure Site Recovery로 보조 사이트에 VMM 클라우드의 Hyper-V VM 복제
 
-Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제, 장애 조치(Failover) 및 복구를 오케스트레이션하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. 컴퓨터는 Azure 또는 보조 온-프레미스 데이터 센터로 복제할 수 있습니다. 빠른 개요를 알아보려면 [Azure Site Recovery란?](site-recovery-overview.md)을 확인하세요.
+이 문서에서는 Site Recovery를 배포하여 System Center VMM 클라우드에 있는 Hyper-V 가상 컴퓨터에 대해 보조 VMM 사이트로의 SAN 복제 및 장애 조치(failover)를 오케스트레이션하고 자동화하는 방법에 대해 설명합니다.
+
+이 문서의 내용을 확인한 후 문서 아래쪽의 의견 입력란이나 [Azure 복구 서비스 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에 의견이나 질문을 게시해 주시기 바랍니다.
+
 
 ## 개요
 
-이 문서에서는 사이트 복구를 배포하여 System Center VMM(Virtual Machine Manager) 사설 클라우드에 있는 Hyper-V 가상 컴퓨터에 대한 보호를 오케이스트레이션 및 자동화하는 방법을 설명합니다. 이 시나리오에서 가상 컴퓨터는 사이트 복구 및 SAN 복제를 사용하여 기본 VMM 사이트에서 보조 VMM 사이트로 복제됩니다.
+조직에서는 계획된 중단 또는 불의의 중지 시간에 앱, 워크로드 및 데이터를 실행 중이고 가용 상태로 유지하고 가능한 신속히 정상적인 작업 상태로 복귀하기 위한 비즈니스 연속성 및 재해 복구(BCDR) 전략이 필요합니다. BCDR 전략은 재해가 발생했을 때 비즈니스 데이터를 안전하고 복구 가능하게 하고 워크로드를 지속적으로 가용 상태로 유지하는 솔루션에 초점을 맞추고 있습니다.
 
-이 문서에는 개요 및 배포 필수 조건이 포함되어 있습니다. VMM 및 사이트 복구 자격 증명 모음에서 복제를 구성하고 사용하는 방법을 안내합니다. VMM에서 SAN 저장소를 검색 및 분류하고 LUN을 프로비전하고 Hyper-V 클러스터에 저장소를 할당합니다. 끝으로, 장애 조치(Failover)를 테스트하여 모두 예상대로 작동하는지 확인합니다.
+사이트 복구는 온-프레미스 물리적 서버와 가상 컴퓨터를 클라우드(Azure) 또는 보조 데이터센터에 복제하는 것을 오케스트레이션하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여하는 Azure 서비스입니다. 기본 위치에서 중단이 발생하면 보조 사이트로 장애 조치하여 앱과 워크로드를 가용 상태로 유지합니다. 기본 위치가 정상 작업 상태로 돌아오면 다시 기본 위치로 돌아갑니다. 사이트 복구는 다양한 시나리오에서 사용할 수 있으며 많은 워크로드를 보호할 수 있습니다. [Azure Site Recovery란?](site-recovery-overview.md)에서 자세한 내용을 확인해 보세요.
 
-이 문서의 하단 또는 [Azure 복구 서비스 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에서 의견이나 질문을 게시합니다.
+이 문서에는 SAN 복제를 사용한 VMM 사이트 간의 Hyper-V VM 복제를 설정하는 지침이 포함되어 있습니다. 또한 아키텍처 개요, 배포 필수 구성 요소 및 지침도 제공됩니다. VMM에서 SAN 저장소를 검색 및 분류하고 LUN을 프로비전하고 Hyper-V 클러스터에 저장소를 할당합니다. 끝으로, 장애 조치(Failover)를 테스트하여 모두 예상대로 작동하는지 확인합니다.
+
 
 ## SAN을 사용하여 복제하는 이유는 무엇입니까?
 
@@ -59,11 +63,11 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 
 **필수 구성 요소** | **세부 정보** 
 --- | ---
-**Azure**| [Microsoft Azure](https://azure.microsoft.com/) 계정이 있어야 합니다. [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작할 수 있습니다. 사이트 복구 가격 책정에 대해 [자세히 알아보세요](https://azure.microsoft.com/pricing/details/site-recovery/). 
-**VMM** | 물리적 또는 가상 독립 실행형 서버나 가상 클러스터로 배포된 VMM 서버가 하나 이상 필요합니다. <br/><br/>VMM 서버에서는 최신 누적 업데이트를 사용하여 System Center 2012 R2를 실행해야 합니다.<br/><br/>보호하려는 기본 VMM 서버에 하나 이상의 클라우드를 구성해야 하고 보호 및 복구에 사용하려는 보조 VMM 서버에 하나의 클라우드를 구성해야 합니다.<br/><br/>보호할 원본 클라우드에는 하나 이상의 VMM 호스트 그룹이 포함되어야 합니다.<br/><br/>모든 VMM 클라우드에 Hyper-V 용량 프로필이 설정되어 있어야 합니다.<br/><br/>[VMM 클라우드 패브릭 구성](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric) 및 [연습: System Center 2012 SP1 VMM에서 사설 클라우드 만들기](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx)에서 VMM 클라우드 설정에 대해 자세히 알아봅니다.
-**Hyper-V** | 기본 및 보조 사이트에 하나 이상의 Hyper-V 클러스터가 필요하고 원본 Hyper-V 클러스터에 하나 이상의 VM이 필요합니다. 기본 및 보조 위치에 있는 VMM 호스트 그룹은 각 그룹에 Hyper-V 클러스터가 하나 이상 있어야 합니다.<br/><br/>호스트 및 대상 Hyper-V 서버는 Hyper-V 역할을 하는 Windows Server 2012 이상을 실행해야 하고 최신 업데이트가 설치되어 있어야 합니다.<br/><br/>VM이 포함된 보호하려는 모든 Hyper-V 서버는 VMM 클라우드에 있어야 합니다.<br/><br/>클러스터에서 Hyper-V를 실행하고 있다면 고정 IP 주소 기반 클러스터가 있는 경우 클러스터 브로커가 자동으로 만들어지지 않습니다. 클러스터 브로커를 수동으로 구성해야 합니다. Aidan Finn의 블로그 항목에서 [자세히 알아봅니다](https://www.petri.com/use-hyper-v-replica-broker-prepare-host-clusters).
-**SAN 저장소** | SAN 복제를 사용하면 게스트 클러스터형 가상 컴퓨터를 iSCSI 또는 파이버 채널 저장소나 공유 vhdx(가상 하드 디스크)를 사용하여 복제할 수 있습니다. <br/><br/>SAN 배열을 기본 사이트와 보조 사이트에 하나씩 두 개 설정해야 합니다.<br/><br/>배열 간에 네트워크 인프라를 설정해야 합니다. 피어링 및 복제를 구성해야 합니다. 저장소 배열 요구 사항에 따라 복제 라이선스를 설정해야 합니다.<br/><br/>호스트가 ISCSI 또는 파이버 채널을 사용하여 저장소 LUN과 통신할 수 있도록 Hyper-V 호스트 서버와 저장소 배열 간에 네트워킹을 설정해야 합니다.<br/><br/> [지원되는 저장소 배열](http://social.technet.microsoft.com/wiki/contents/articles/28317.deploying-azure-site-recovery-with-vmm-and-san-supported-storage-arrays.aspx) 목록을 확인합니다.<br/><br/>저장소 배열 제조업체를 통해 제공되는 SMI-S 공급자를 설치해야 하며 SAN 배열을 공급자를 통해 관리해야 합니다. 해당 설명서에 따라 공급자를 설정합니다.<br/><br/>VMM 서버가 IP 주소 또는 FQDN을 사용하여 네트워크를 통해 액세스할 수 있는 서버에 배열용 SMI-S 공급자가 있는지 확인합니다.<br/><br/>각 SAN 배열에 이 배포에서 사용할 수 있는 하나 이상의 저장소 풀이 있어야 합니다. 기본 사이트에서 VMM 서버에 기본 배열을 관리해야 하며 보조 VMM 서버가 보조 배열을 관리합니다.<br/><br/>기본 사이트의 VMM 서버가 기본 배열을 관리하고 보조 VMM 서버가 보조 배열을 관리합니다.
-**네트워크 매핑** | 장애 조치(Failover) 후에 복제된 가상 컴퓨터가 보조 Hyper-V 호스트 서버에 최적으로 배치되고 적절한 VM 네트워크에 연결할 수 있도록 네트워크 매핑을 구성할 수 있습니다. 네트워크 매핑을 구성하지 않으면 장애 조치(failover) 후 복제본 VM이 네트워크에 연결되지 않습니다.<br/><br/>배포 중에 네트워크 매핑을 설정하려면 원본 Hyper-V 호스트 서버의 가상 컴퓨터가 VMM VM 네트워크에 연결되어 있는지 확인합니다. 해당 네트워크가 클라우드와 연결된 논리 네트워크에 연결되어야 합니다.<br/<br/>복구에 사용하는 보조 VMM 서버의 대상 클라우드에 해당 VM 네트워크가 구성되어 있어야 하며, 이 네트워크는 다시 대상 클라우드와 연결된 해당 논리 네트워크에 연결되어야 합니다.<br/><br/>네트워크 매핑에 대해 [자세히 알아봅니다](site-recovery-network-mapping.md).
+**Azure**| [Microsoft Azure](https://azure.microsoft.com/) 계정이 있어야 합니다. [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작할 수 있습니다. Site Recovery 가격과 관련된 [자세한 정보](https://azure.microsoft.com/pricing/details/site-recovery/)를 확인해 보세요. 
+**VMM** | 물리적 또는 가상 독립 실행형 서버나 가상 클러스터로 배포된 VMM 서버가 하나 이상 필요합니다. <br/><br/>VMM 서버에서는 최신 누적 업데이트가 포함된 System Center 2012 R2를 실행해야 합니다.<br/><br/>보호하려는 기본 VMM 서버에 하나 이상의 클라우드를 구성해야 하고 보호 및 복구에 사용하려는 보조 VMM 서버에 하나의 클라우드를 구성해야 합니다.<br/><br/>보호할 원본 클라우드에는 하나 이상의 VMM 호스트 그룹이 포함되어야 합니다.<br/><br/>모든 VMM 클라우드에 Hyper-V 용량 프로필이 설정되어 있어야 합니다.<br/><br/>[VMM 클라우드 패브릭 구성](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric) 및 [연습: System Center 2012 SP1 VMM에서 사설 클라우드 만들기](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx)에서 VMM 클라우드를 설정하는 방법에 대해 자세히 알아보세요.
+**Hyper-V** | 기본 및 보조 사이트에 하나 이상의 Hyper-V 클러스터가 필요하고 원본 Hyper-V 클러스터에 하나 이상의 VM이 필요합니다. 기본 및 보조 위치에 있는 각 VMM 호스트 그룹에 Hyper-V 클러스터가 하나 이상 있어야 합니다.<br/><br/>호스트 및 대상 Hyper-V 서버는 Hyper-V 역할을 포함하며 최신 업데이트가 설치된 Windows Server 2012 이상을 실행해야 합니다.<br/><br/>VM이 포함된 보호하려는 모든 Hyper-V 서버는 VMM 클라우드에 있어야 합니다.<br/><br/>클러스터에서 Hyper-V를 실행 중인 경우 고정 IP 주소 기반 클러스터가 있으면 클러스터 브로커가 자동으로 만들어지지 않으므로 클러스터 브로커를 수동으로 구성해야 합니다. Aidan Finn의 블로그 항목에서 [자세한 정보](https://www.petri.com/use-hyper-v-replica-broker-prepare-host-clusters)를 확인해 보세요.
+**SAN 저장소** | SAN 복제를 사용하면 게스트 클러스터형 가상 컴퓨터를 iSCSI 또는 파이버 채널 저장소나 공유 vhdx(가상 하드 디스크)를 사용하여 복제할 수 있습니다. <br/><br/>SAN 배열을 기본 사이트와 보조 사이트에 하나씩 두 개 설정해야 합니다.<br/><br/>배열 간에 네트워크 인프라를 설정해야 합니다. 피어링 및 복제를 구성해야 합니다. 저장소 배열 요구 사항에 따라 복제 라이선스를 설정해야 합니다.<br/><br/>호스트가 ISCSI 또는 파이버 채널을 사용하여 저장소 LUN과 통신할 수 있도록 Hyper-V 호스트 서버와 저장소 배열 간에 네트워킹을 설정해야 합니다.<br/><br/> [지원되는 저장소 배열](http://social.technet.microsoft.com/wiki/contents/articles/28317.deploying-azure-site-recovery-with-vmm-and-san-supported-storage-arrays.aspx) 목록을 확인하세요.<br/><br/>저장소 배열 제조업체를 통해 제공되는 SMI-S 공급자를 설치해야 하며 해당 공급자로 SAN 배열을 관리해야 합니다. 해당 설명서에 따라 공급자를 설정합니다.<br/><br/>VMM 서버가 IP 주소 또는 FQDN을 사용하여 네트워크를 통해 액세스할 수 있는 서버에 배열용 SMI-S 공급자가 있는지 확인합니다.<br/><br/>각 SAN 배열에 이 배포에서 사용할 수 있는 하나 이상의 저장소 풀이 있어야 합니다. 기본 사이트의 VMM 서버가 기본 배열을 관리해야 하며 보조 VMM 서버는 보조 배열을 관리합니다.<br/><br/>기본 사이트의 VMM 서버가 기본 배열을 관리해야 하며 보조 VMM 서버는 보조 배열을 관리합니다.
+**네트워크 매핑** | 장애 조치(Failover) 후에 복제된 가상 컴퓨터가 보조 Hyper-V 호스트 서버에 최적으로 배치되고 적절한 VM 네트워크에 연결할 수 있도록 네트워크 매핑을 구성할 수 있습니다. 네트워크 매핑을 구성하지 않으면 장애 조치(failover) 후 복제본 VM이 네트워크에 연결되지 않습니다.<br/><br/>배포 중에 네트워크 매핑을 설정하려면 원본 Hyper-V 호스트 서버의 가상 컴퓨터가 VMM VM 네트워크에 연결되어 있는지 확인합니다. 해당 네트워크가 클라우드와 연결된 논리 네트워크에 연결되어야 합니다.<br/<br/>복구에 사용하는 보조 VMM 서버의 대상 클라우드에 해당 VM 네트워크가 구성되어 있어야 하며, 이 네트워크는 다시 대상 클라우드와 연결된 해당 논리 네트워크에 연결되어야 합니다.<br/><br/>네트워크 매핑과 관련된 [자세한 정보](site-recovery-network-mapping.md)를 확인해 보세요.
 
 
 ## 1단계: VMM 인프라 준비
@@ -78,7 +82,7 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 
 ### VMM 클라우드 설정 확인
 
-사이트 복구는 VMM 클라우드의 Hyper-V 호스트 서버에 있는 가상 컴퓨터의 보호를 오케스트레이션합니다. 사이트 복구 배포를 시작하기 전에 해당 클라우드가 올바르게 설정되었는지 확인해야 합니다. Keith Mayer 블로그의 [사설 클라우드 만들기](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx)에서 자세히 알아보세요.
+사이트 복구는 VMM 클라우드의 Hyper-V 호스트 서버에 있는 가상 컴퓨터의 보호를 오케스트레이션합니다. 사이트 복구 배포를 시작하기 전에 해당 클라우드가 올바르게 설정되었는지 확인해야 합니다. Keith Mayer 블로그의 [사설 클라우드 만들기](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx)에서 자세한 내용을 알아보세요.
 
 ### VMM에서 SAN 저장소 통합 및 분류
 
@@ -109,6 +113,8 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 
 	- [VMM에서 논리 단위를 만드는 방법을 선택하는 방법](https://technet.microsoft.com/library/gg610624.aspx)
 	- [VMM에서 저장소 논리 단위를 프로비전하는 방법](https://technet.microsoft.com/library/gg696973.aspx)
+
+	>[AZURE.NOTE] 컴퓨터에 대해 복제를 사용하도록 설정한 후에는 해당 컴퓨터에 대한 VHD를 Site Recovery 복제 그룹에 있지 않은 LUN에 추가하면 안 됩니다. 이러한 LUN에 추가하는 VHD는 Site Recovery에서 검색할 수 없습니다.
 
 2. 그런 다음 VMM이 프로비전된 저장소에 가상 컴퓨터 데이터를 배포할 수 있도록 Hyper-V 호스트에 저장소 용량을 할당합니다.
 
@@ -205,7 +211,7 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 	![서버 등록](./media/site-recovery-vmm-san/encrypt.png)
 
 13. 자격 증명 모음에서 VMM 서버를 식별하기 위한 이름을 **서버 이름**에서 지정합니다. 클러스터 구성에서 VMM 클러스터 역할 이름을 지정합니다.
-14. **초기 클라우드 메타데이터 동기화**에서 자격 증명 모음에 표시되는 서버에 대한 친숙한 이름을 지정하고 VMM 서버의 모든 클라우드의 메타데이터를 자격 증명 모음과 동기화할 것인지 여부를 선택합니다. 이 작업은 각 서버에서 한 번만 수행해야 합니다. 모든 클라우드를 동기화하지 않는 경우 이 설정을 선택 취소된 상태로 두고 VMM 콘솔의 클라우드 속성에서 각 클라우드를 개별적으로 동기화할 수 있습니다.
+14. **초기 클라우드 메타데이터 동기화**에서 자격 증명 모음에 표시되는 서버의 식별 이름을 지정하고 VMM 서버의 모든 클라우드에 대한 메타데이터를 자격 증명 모음과 동기화할 것인지 여부를 선택합니다. 이 작업은 각 서버에서 한 번만 수행해야 합니다. 모든 클라우드를 동기화하지 않는 경우 이 설정을 선택 취소된 상태로 두고 VMM 콘솔의 클라우드 속성에서 각 클라우드를 개별적으로 동기화할 수 있습니다.
 
 	![서버 등록](./media/site-recovery-vmm-san/friendly-name.png)
 
@@ -261,16 +267,16 @@ VMM 서버가 등록되면 클라우드 보호 설정을 구성할 수 있습니
 ![게시된 클라우드](./media/site-recovery-vmm-san/clouds-list.png)
 
 1. 빠른 시작 페이지에서 **VMM 클라우드에 대해 보호 설정**을 클릭합니다.
-2. **보호되는 항목** 탭에서 구성할 클라우드를 선택하고 **구성** 탭으로 이동합니다. 다음 사항에 유의하세요.
-3. <b>대상</b>에서 <b>VMM</b>을 선택합니다.
-4. <b>대상 위치</b>에서 복구에 사용할 클라우드를 관리하는 온사이트 VMM 서버를 선택합니다.
-5. <b>대상 클라우드</b>에서 원본 클라우드의 가상 컴퓨터 장애 조치(Failover)에 사용할 대상 클라우드를 선택합니다. 다음 사항에 유의하세요.
+2. **보호되는 항목** 탭에서 구성할 클라우드를 선택하고 **구성** 탭으로 이동합니다. 다음 사항에 유의하십시오.
+3. **대상**에서 **VMM**을 선택합니다.
+4. **대상 위치**에서 복구에 사용할 클라우드를 관리하는 온-사이트 VMM 서버를 선택합니다.
+5. **대상 클라우드**에서 원본 클라우드의 가상 컴퓨터 장애 조치(Failover)에 사용할 대상 클라우드를 선택합니다. 다음 사항에 유의하세요.
 	- 보호할 가상 컴퓨터의 복구 요구 사항을 충족하는 대상 클라우드를 선택하는 것이 좋습니다.
 	- 클라우드는 단일 클라우드 쌍에 기본 클라우드 또는 대상 클라우드로만 속할 수 있습니다.
 6. Azure Site Recovery는 클라우드가 SAN 복제 지원 저장소에 액세스할 수 있는지, 스토리지 배열이 피어 관계가 있는지 확인합니다. 참여하는 배열 피어가 표시됩니다.
 7. 확인에 성공하면 **복제 유형**에서 **SAN**을 선택합니다.
 
-<p>설정을 저장하고 나면 작업이 생성되고 <b>작업</b> 탭에서 모니터링할 수 있습니다. 클라우드 설정은 <b>구성</b> 탭에서 수정할 수 있습니다. 대상 위치 또는 대상 클라우드를 수정하려면 클라우드 구성을 제거한 후 클라우드를 다시 구성해야 합니다.</p>
+설정을 저장하고 나면 작업이 생성되고 **작업** 탭에서 모니터링할 수 있습니다. 클라우드 설정은 **구성** 탭에서 수정할 수 있습니다. 대상 위치 또는 대상 클라우드를 수정하려면 클라우드 구성을 제거한 후 클라우드를 다시 구성해야 합니다.
 
 ## 5단계: 네트워크 매핑 사용
 
@@ -288,7 +294,7 @@ VMM 서버가 등록되면 클라우드 보호 설정을 구성할 수 있습니
 6.  확인 표시를 클릭하여 매핑 프로세스를 완료합니다. 매핑 프로세스를 추적하는 작업이 시작됩니다. **작업** 탭에서 작업을 확인할 수 있습니다.
 
 
-## 6단계: 복제 그룹에 대해 복제 사용</h3>
+## 6단계: 복제 그룹에 대해 복제 사용
 
 가상 컴퓨터에 대해 보호를 사용하도록 설정하려면 먼저 저장소 복제 그룹에 대해 복제를 사용하도록 설정해야 합니다.
 
@@ -307,6 +313,8 @@ VMM 서버가 등록되면 클라우드 보호 설정을 구성할 수 있습니
 	![보호 사용](./media/site-recovery-vmm-san/enable-protect.png)
 
 보호를 사용하도록 설정한 가상 컴퓨터는 Azure Site Recovery 콘솔에 표시됩니다. 가상 컴퓨터 속성을 보고, 상태를 추적하고, 여러 가상 컴퓨터를 포함하는 복제 그룹을 장애 조치(Failover)할 수 있습니다. SAN 복제에서 복제 그룹과 연결된 모든 가상 컴퓨터는 함께 장애 조치(Failover)해야 합니다. 이는 장애 조치(Failover)가 먼저 저장소 계층에서 수행되기 때문입니다. 복제 그룹을 제대로 그룹화하고 연결된 가상 컴퓨터만 함께 배치하는 것이 중요합니다.
+
+>[AZURE.NOTE] 컴퓨터에 대해 복제를 사용하도록 설정한 후에는 해당 컴퓨터에 대한 VHD를 Site Recovery 복제 그룹에 있지 않은 LUN에 추가하면 안 됩니다. 이러한 LUN에 추가하는 VHD는 Site Recovery에서 검색할 수 없습니다.
 
 **작업** 탭에서 초기 복제를 비롯하여 보호 사용 작업의 진행 상태를 추적할 수 있습니다. 보호 완료 작업이 실행된 후에는 가상 컴퓨터가 장애 조치(Failover)를 수행할 준비가 되어 있습니다.
 
@@ -331,7 +339,6 @@ VMM 서버가 등록되면 클라우드 보호 설정을 구성할 수 있습니
 
 	![테스트 네트워크 선택](./media/site-recovery-vmm-san/test-fail1.png)
 
-
 8. 테스트 가상 컴퓨터는 복제본 가상 컴퓨터가 있는 호스트와 동일한 호스트에 생성됩니다. 복제본 가상 컴퓨터가 있는 클라우드에는 추가되지 않습니다.
 9. 복제 후 복제본 가상 컴퓨터의 IP 주소는 주 가상 컴퓨터의 IP 주소와 같지 않게 됩니다. DHCP에서 주소를 발급하는 경우 주소가 자동으로 업데이트됩니다. DHCP를 실행하고 있지 않은 경우 주소가 동일한지 확인하려면 몇 가지 스크립트를 실행해야 합니다.
 10. 다음 샘플 스크립트를 실행하여 IP 주소를 검색합니다.
@@ -354,6 +361,6 @@ VMM 서버가 등록되면 클라우드 보호 설정을 구성할 수 있습니
 
 ## 다음 단계
 
-환경이 예상 대로 작동 중인지 확인하기 위해 테스트 장애 조치를 실행한 후에 여러 유형의 장애 조치에 대해 [알아봅니다](site-recovery-failover.md).
+환경이 예상대로 작동 중인지 확인하기 위해 테스트 장애 조치(failover)를 실행한 후에 여러 유형의 [장애 조치(failover)에 대해 알아봅니다](site-recovery-failover.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

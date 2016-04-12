@@ -241,7 +241,7 @@ LB-Nic2-BE라는 두 번째 네트워크 인터페이스 만들기:
 
 Add-AzureRmVMNetworkInterface 명령을 사용하여 가상 컴퓨터에 NIC를 할당합니다.
 
-가상 컴퓨터를 만들고 NIC에 할당하는 단계별 지침은 [리소스 관리자 및 Azure PowerShell을 사용하여 Windows 가상 컴퓨터 만들기 및 미리 구성](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example) 옵션 4 또는 5를 참조하세요.
+가상 컴퓨터를 만들고 NIC에 할당하는 단계별 지침은 [리소스 관리자 및 Azure PowerShell을 사용하여 Windows 가상 컴퓨터 만들기 및 미리 구성](../virtual-machines/virtual-machines-windows-create-powershell.md#Example) 옵션 4 또는 5를 참조하세요.
 
 또는 이미 가상 컴퓨터를 만든 경우 다음 단계로 네트워크 인터페이스를 추가할 수 있습니다.
 
@@ -316,4 +316,4 @@ Remove-AzureRmLoadBalancer 명령을 사용하여 “NRP-RG”라는 리소스 �
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

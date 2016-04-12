@@ -13,22 +13,29 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="02/05/2016"
+    ms.date="03/14/2016"
     ms.author="larryfr"/>
 
 # HDInsight를 사용하여 스크립트 작업 개발
 
-스크립트 작업은 설치하는 동안 클러스터 구성 설정을 지정하거나 클러스터에서 추가 서비스, 도구 또는 기타 소프트웨어를 설치하여 Azure HDInsight 클러스터를 사용자 지정하는 방법입니다.
+스크립트 작업은 클러스터 구성 설정을 지정하거나 클러스터에서 추가 서비스, 도구 또는 기타 소프트웨어를 설치하여 Azure HDInsight 클러스터를 사용자 지정하는 방법입니다. 클러스터 생성하는 동안 또는 실행 중인 클러스터에 대해 스크립트 작업을 사용할 수 있습니다.
 
 > [AZURE.NOTE] 이 문서에 있는 정보는 Linux 기반 HDInsight 클러스터에 지정됩니다. Windows 기반 클러스터로 스크립트 동작 사용에 대한 정보는 [HDInsight를 사용하여 스크립트 작업 개발(Windows)](hdinsight-hadoop-script-actions.md)을 참조하세요.
 
 ## 스크립트 작업 정의
 
-스크립트 작업은 프로비전하는 동안 클러스터 노드에서 실행되는 Bash 스크립트입니다. 스크립트 작업은 루트로 실행되며 클러스터 노드에 대한 모든 액세스 권한을 제공합니다.
+스크립트 작업은 Azure가 구성을 변경하거나 소프트웨어를 설치하기 위해 클러스터 노드에서 실행하는 Bash 스크립트입니다. 스크립트 작업은 루트로 실행되며 클러스터 노드에 대한 모든 액세스 권한을 제공합니다.
 
-__Azure 포털__, __Azure PowerShell__ 또는 __HDInsight .NET SDK__를 사용하여 클러스터를 프로비전할 경우 스크립트 작업을 사용할 수 있습니다.
+스크립트 작업은 다음 방법을 통해 적용될 수 있습니다.
 
-스크립트 동작을 사용하여 클러스터를 사용자 지정하는 연습은 [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
+| 이 방법을 사용하여 스크립트를 적용... | 클러스터를 생성하는 동안... | 실행 중인 클러스터에서... |
+| ----- |:-----:|:-----:|
+| Azure 포털 | ✓ | ✓ |
+| Azure PowerShell | ✓ | ✓ |
+| HDInsight .NET SDK | ✓ | ✓ |
+| Azure Resource Manager 템플릿 | ✓ | &nbsp; |
+
+이러한 방법을 사용하여 스크립트 작업을 적용하는 데 대한 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
 
 ## <a name="bestPracticeScripting"></a>스크립트 개발을 위한 모범 사례
 
@@ -51,7 +58,7 @@ HDInsight의 서로 다른 버전에는 설치된 Hadoop 서비스 및 구성 �
 
 ### <a name="bPS2"></a>스크립트 리소스에 대한 안정적인 링크 제공
 
-사용자는 스크립트에서 사용되는 모든 스크립트와 리소스가 클러스터의 전체 수명 동안 사용 가능한 상태로 유지되고 이러한 파일의 버전이 이 기간 동안 변경되지 않는지 확인해야 합니다. 클러스터에서 노드가 다시 이미징되는 경우 이러한 리소스가 필요합니다.
+사용자는 스크립트에서 사용되는 모든 스크립트와 리소스가 클러스터의 전체 수명 동안 사용 가능한 상태로 유지되고 이러한 파일의 버전이 이 기간 동안 변경되지 않는지 확인해야 합니다. 이러한 리소스는 크기 조정 작업 중 새 노드가 클러스터에 추가되는 경우에 필요합니다.
 
 구독의 Azure 저장소 계정에 모든 것을 다운로드하고 보관하는 것이 좋습니다.
 
@@ -65,7 +72,7 @@ HDInsight의 서로 다른 버전에는 설치된 Hadoop 서비스 및 구성 �
 
 ### <a name="bPS3"></a>클러스터 사용자 지정 스크립트가 멱등원인지 확인
 
-이 경우 클러스터 수명 동안 HDInsight 클러스터의 노드를 재이미징하고 클러스터 사용자 지정 스크립트를 사용하도록 해야 합니다. 이 스크립트는 멱등 상태가 되도록 설계해야 합니다. 즉, 재이미징될 때 스크립트는 클러스터가 매번 실행될 때와 동일한 상태로 돌아가는지 확인해야 합니다.
+스크립트는 idempotent 상태가 되도록 설계해야 합니다. 즉, 스크립트가 여러 번 실행될 경우 클러스터가 매번 실행될 때와 동일한 상태로 돌아가는지 확인해야 합니다.
 
 예를 들어 사용자 지정 스크립트가 처음 실행될 때와 이후 실행될 때마다 응용 프로그램을 /usr/local/bin에 설치 설치한 경우 스크립트에서는 응용 프로그램이 이미 /usr/local/bin 위치에 있는지 확인한 이후에 스크립트의 다른 단계를 진행해야 합니다.
 
@@ -77,7 +84,7 @@ Linux 기반 HDInsight 클러스터는 클러스터 내에서 활성화 되는 �
 
 ### <a name="bPS6"></a>Azure Blob 저장소를 사용하도록 사용자 지정 구성 요소 구성
 
-클러스터에 설치하는 구성 요소에는 HDFS(Hadoop 분산 파일 시스템) 저장소를 사용하기 위한 기본 구성이 있을 수 있습니다. 클러스터 재이미지 시 HDFS 파일 시스템은 포맷되고 거기에 저장된 데이터를 잃게 됩니다. 이는 클러스터에 대한 기본 저장소이며 클러스터가 삭제되는 경우에도 유지되기 때문에 대신 구성을 변경하여 WASB(Azure Blob 저장소)를 사용해야 합니다.
+클러스터에 설치하는 구성 요소에는 HDFS(Hadoop 분산 파일 시스템) 저장소를 사용하기 위한 기본 구성이 있을 수 있습니다. HDInsight는 Azure Blob 저장소(WASB)를 기본 저장소로 사용합니다. 이를 통해 클러스터가 삭제되는 경우에도 데이터가 지속되는 HDFS 호환 가능 파일 시스템을 제공합니다. 설치하는 구성 요소가 HDFS 대신 WASB를 사용하도록 구성해야 합니다.
 
 예를 들어 다음은 giraph examples.jar 파일을 로컬 파일 시스템에서 WASB로 복사합니다.
 
@@ -85,7 +92,9 @@ Linux 기반 HDInsight 클러스터는 클러스터 내에서 활성화 되는 �
 
 ### <a name="bPS7"></a>STDOUT 및 STDERR에 정보 쓰기
 
-STDOUT 및 STDERR에 기록된 정보는 기록되고 클러스터가 Ambari 웹 UI를 사용하여 프로비전된 후에 볼 수 있습니다.
+스크립트 실행 동안 STDOUT 및 STDERR에 기록된 정보는 로깅되고 Ambari 웹 UI를 사용하여 볼 수 있습니다.
+
+> [AZURE.NOTE] Ambari는 클러스터를 정상적으로 만든 경우에만 사용할 수 있습니다. 클러스터를 만드는 동안 스크립트 작업을 사용하며 만들기에 실패하는 경우 문제 해결 섹션 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)에서 로깅된 정보에 액세스하는 다른 방법을 확인해보세요.
 
 대부분의 유틸리티 및 설치 패키지는 STDOUT 및 STDERR에 정보를 쓸 수 있지만 추가 로깅을 추가하려 할 수도 있습니다. 사용할 텍스트를 STDOUT에 보내려면 `echo`를 사용합니다. 예:
 
@@ -93,7 +102,7 @@ STDOUT 및 STDERR에 기록된 정보는 기록되고 클러스터가 Ambari 웹
 
 기본적으로 `echo`은 STDOUT에 문자열을 보냅니다. STDERR에 전달하려면 `echo` 앞에 `>&2`를 추가합니다. 예:
 
-        >&2 echo "An error occured installing Foo"
+        >&2 echo "An error occurred installing Foo"
 
 STDERR(2), STDOUT(1, 여기에 나와있지 않은 기본 형식임)로 전송된 정보를 리디렉션합니다. IO 리디렉션에 대한 자세한 내용은 [http://www.tldp.org/LDP/abs/html/io-redirection.html](http://www.tldp.org/LDP/abs/html/io-redirection.html)를 참조하세요.
 
@@ -171,14 +180,13 @@ Bash 스크립트는 LF에서 종료한 줄을 사용하여 ASCII 형식으로 �
 
 ## <a name="runScriptAction"></a>스크립트 작업을 실행하는 방법
 
-스크립트 작업을 사용하여 Azure 포털, PowerShell 또는 HDInsight .NET SDK로 HDInsight 클러스터를 사용자 지정할 수 있습니다. 자세한 내용은 [스크립트 작업을 사용하는 방법](hdinsight-hadoop-customize-cluster-linux.md#howto)을 참조하세요.
+스크립트 작업을 사용하여 Azure 포털, Azure PowerShell, ARM(Azure Resource Manager) 템플릿 또는 HDInsight .NET SDK로 HDInsight 클러스터를 사용자 지정할 수 있습니다. 자세한 내용은 [스크립트 작업을 사용하는 방법](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
 
 ## <a name="sampleScripts"></a>사용자 지정 스크립트 샘플
 
 Microsoft에서는 HDInsight 클러스터에 구성 요소를 설치하는 샘플 스크립트를 제공합니다. 예제 스크립트 및 사용하는 방법에 대한 지침은 다음 링크에서 찾을 수 있습니다.
 
 - [HDInsight에서 Hue 설치 및 사용](hdinsight-hadoop-hue-linux.md)
-- [HDInsight 클러스터에서 Spark 설치 및 사용](hdinsight-hadoop-spark-install-linux.md)
 - [HDInsight Hadoop 클러스터에 R 설치 및 사용](hdinsight-hadoop-r-scripts-linux.md)
 - [HDInsight 클러스터에 Solr 설치 및 사용](hdinsight-hadoop-solr-install-linux.md)
 - [HDInsight 클러스터에 Giraph 설치 및 사용](hdinsight-hadoop-giraph-install-linux.md)  
@@ -216,8 +224,12 @@ _해상도_: ASCII로 또는 BOM을 사용하지 않고 UTF-8로 파일을 저�
 
 위의 명령의 경우 BOM을 포함하는 파일로 __INFILE__을 대체합니다. __OUTFILE__은 BOM을 사용하지 않고 스크립트를 포함하는 새 파일 이름이어야 합니다.
 
-## <a name="seeAlso"></a>참고 항목
+## <a name="seeAlso"></a>다음 단계
 
-[스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)
+* [스크립트 작업을 사용하여 HDInsight 클러스터를 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0211_2016-->
+* [HDInsight.NET SDK 참조](https://msdn.microsoft.com/library/mt271028.aspx)를 사용하여 HDInsight를 관리하는 .NET 응용 프로그램을 만드는 방법을 알아봅니다.
+
+* [HDInsight REST API](https://msdn.microsoft.com/library/azure/mt622197.aspx)를 사용하여 REST를 통해 HDInsight 클러스터에서 관리 작업을 수행하는 방법을 알아봅니다.
+
+<!---HONumber=AcomDC_0323_2016-->

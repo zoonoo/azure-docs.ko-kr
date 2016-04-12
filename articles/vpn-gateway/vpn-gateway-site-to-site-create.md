@@ -14,35 +14,46 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/04/2016"
+   ms.date="03/16/2016"
    ms.author="cherylmc"/>
 
 # Azure 클래식 포털을 사용하여 사이트 간 VPN 연결로 가상 네트워크 만들기
 
 > [AZURE.SELECTOR]
-- [Azure Classic Portal](vpn-gateway-site-to-site-create.md)
+- [Azure 포털](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Azure 포털 - 클래식](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
-이 문서에서는 가상 네트워크와 온-프레미스 네트워크에 대한 사이트 간 VPN 연결을 만드는 과정을 안내합니다. 사이트간 연결은 프레미스 간 및 하이브리드 구성에 사용될 수 있습니다. 이 문서는 **클래식** 배포 모델에 적용됩니다. **리소스 관리자** 배포 모델에 사이트 간 연결을 만들려는 경우 [Azure 리소스 관리자 및 PowerShell을 사용하여 사이트 간 연결 구성](vpn-gateway-create-site-to-site-rm-powershell.md)을 참조하세요. VNet을 서로 연결하면서도 온-프레미스 위치에 대한 연결을 만들지 않으려는 경우 [클래식 배포 모델에 VNet 간 연결 구성](virtual-networks-configure-vnet-to-vnet-connection.md) 또는 [리소스 관리자 배포 모델에 VNet 간 연결 구성](vpn-gateway-vnet-vnet-rm-ps.md)을 참조하세요.
+
+이 문서에서는 가상 네트워크와 온-프레미스 네트워크에 대한 사이트 간 VPN 연결을 만드는 과정을 안내합니다. 사이트간 연결은 프레미스 간 및 하이브리드 구성에 사용될 수 있습니다. 이 문서는 클래식 배포 모델에 적용되고 Azure 클래식 포털을 사용합니다.
 
 **Azure 배포 모델 정보**
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
  
+![사이트 간 다이어그램](./media/vpn-gateway-site-to-site-create/site2site.png "사이트 간")
+
+**사이트 간 연결에 대한 배포 모델 및 도구**
+
+[AZURE.INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)]
+ 
+VNet을 서로 연결하면서도 온-프레미스 위치에 대한 연결을 만들지 않으려는 경우 [클래식 배포 모델에 VNet 간 연결 구성](virtual-networks-configure-vnet-to-vnet-connection.md) 또는 [리소스 관리자 배포 모델에 VNet 간 연결 구성](vpn-gateway-vnet-vnet-rm-ps.md)을 참조하세요.
+
+ 
 ## 시작하기 전에
 
 구성을 시작하기 전에 다음 항목이 있는지 확인합니다.
 
-- 호환되는 VPN 장치(및 구성할 수 있는 사람). [VPN 장치 정보](vpn-gateway-about-vpn-devices.md)를 참조하세요. VPN 장치를 구성하는 방법과 온-프레미스 네트워크 구성에 있는 IP 주소 범위에 익숙하지 않은 경우 세부 정보를 제공할 수 있는 다른 사람의 도움을 받아야 합니다.
+- 호환되는 VPN 장치 및 구성할 수 있는 사람. [VPN 장치 정보](vpn-gateway-about-vpn-devices.md)를 참조하세요. VPN 장치를 구성하는 방법과 온-프레미스 네트워크 구성에 있는 IP 주소 범위에 익숙하지 않은 경우 세부 정보를 제공할 수 있는 다른 사람의 도움을 받아야 합니다.
 
 -  VPN 장치에 대한 외부 연결 공용 IP 주소. 이 IP 주소는 NAT 뒤에 배치할 수 없습니다.
 
-- Azure 구독. Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하거나 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
+- Azure 구독. Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하거나 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 
 
 ## 가상 네트워크 만들기
 
-1. **Azure 클래식 포털**에 로그인합니다.
+1. [Azure 클래식 포털](https://manage.windowsazure.com/)에 로그인합니다.
 
 2. 화면의 왼쪽 아래에서 **새로 만들기**를 클릭합니다. 탐색 창에서 **네트워크 서비스**를 클릭한 다음 **가상 네트워크**를 클릭합니다. **사용자 지정 만들기**를 클릭하여 구성 마법사를 시작합니다.
 
@@ -96,8 +107,6 @@
 
 ## 다음 단계
 
-가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. [사용자 지정 가상 컴퓨터를 만드는 방법](../virtual-machines/virtual-machines-create-custom.md)을 참조하세요.
+연결이 완료되면 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 자세한 내용은 [가상 컴퓨터](https://azure.microsoft.com/documentation/services/virtual-machines/) 설명서를 참조하세요.
 
-클래식 가상 네트워크와 Azure 리소스 관리자 모드를 사용하여 만든 가상 네트워크 간의 연결을 구성하려는 경우 [Azure 리소스 관리자 VNet에 클래식 VNet 연결](../virtual-network/virtual-networks-arm-asm-s2s-howto.md)을 참조하세요.
-
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

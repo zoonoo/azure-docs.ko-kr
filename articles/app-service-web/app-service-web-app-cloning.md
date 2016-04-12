@@ -1,6 +1,6 @@
 <properties
-	pageTitle="웹앱 복제"
-	description="웹앱을 새 웹앱에 복제하는 방법에 대해 알아봅니다."
+	pageTitle="PowerShell을 사용하여 웹앱 복제"
+	description="PowerShell을 사용하여 웹앱을 새 웹앱에 복제하는 방법에 대해 알아봅니다."
 	services="app-service\web"
 	documentationCenter=""
 	authors="ahmedelnably"
@@ -16,9 +16,9 @@
 	ms.date="01/13/2016"
 	ms.author="ahmedelnably"/>
 
-# Azure 앱 서비스 앱 복제 #
+# PowerShell을 사용하여 Azure 앱 서비스 앱 복제#
 
-새 옵션이 New-AzureRMWebApp에 추가된 Microsoft Azure PowerShell 버전 1.1.0이 출시되어 사용자는 기존 웹앱을 다른 지역이나 동일한 지역에서 새로 만든 앱에 복제할 수 있습니다. 이를 통해 고객은 쉽고 빠르게 수많은 앱을 다른 지역에 배포할 수 있습니다.
+새 옵션이 New-AzureRMWebApp에 추가된 Microsoft Azure PowerShell 버전 1.1.0이 출시되어 사용자는 기존 웹앱을 다른 지역이나 동일한 지역에서 새로 만든 앱에 복제할 수 있습니다. 이를 통해 고객은 수많은 앱을 다른 지역에 배포할 수 있습니다.
 
 앱 복제는 현재 프리미엄 계층의 앱 서비스 계획에만 지원됩니다. 새로운 기능은 웹앱 백업 기능과 동일한 제한 사항을 사용합니다. [Azure 앱 서비스에서 웹앱 백업](web-sites-backup.md)을 참조하세요.
 
@@ -109,9 +109,10 @@ ASE의 이름 및 ASE가 속한 리소스 그룹 이름을 알고 있으면 사�
 
 
 ### 참조 ###
+- [Azure 포털을 사용하여 웹앱 복제](app-service-web-app-cloning-portal.md)
 - [Azure 앱 서비스에서 웹앱 백업](web-sites-backup.md)
 - [Azure 트래픽 관리자에 대한 Azure 리소스 관리자 지원 미리 보기](../../articles/traffic-manager/traffic-manager-powershell-arm.md)
 - [앱 서비스 환경 소개](app-service-app-service-environment-intro.md)
 - [Azure 리소스 관리자로 Azure PowerShell 사용](../powershell-azure-resource-manager.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

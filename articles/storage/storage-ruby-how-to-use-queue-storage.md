@@ -3,9 +3,9 @@
 	description="Azure 큐 서비스를 사용하여 큐를 작성 및 삭제하고 메시지를 삽입하고 가져오고 삭제하는 방법을 알아봅니다. 샘플은 Ruby로 작성되었습니다." 
 	services="storage" 
 	documentationCenter="ruby" 
-	authors="tfitzmac" 
+	authors="rmcmurray" 
 	manager="wpickett" 
-	editor="tysonn"/>
+	editor=""/>
 
 <tags 
 	ms.service="storage" 
@@ -14,7 +14,7 @@
 	ms.devlang="ruby" 
 	ms.topic="article" 
 	ms.date="02/23/2016" 
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 
 # Ruby에서 큐 저장소를 사용하는 방법
@@ -31,7 +31,7 @@
 
 ## Ruby 응용 프로그램 만들기
 
-Ruby 응용 프로그램을 만듭니다. 지침은 [Azure VM의 Ruby on Rails 웹 응용 프로그램](../virtual-machines/virtual-machines-ruby-rails-web-app-linux.md)을 참조하세요.
+Ruby 응용 프로그램을 만듭니다. 지침은 [Azure VM의 Ruby on Rails 웹 응용 프로그램](../virtual-machines/virtual-machines-linux-classic-ruby-rails-web-app.md)을 참조하세요.
 
 ## 저장소에 액세스하도록 응용 프로그램 구성
 
@@ -162,4 +162,4 @@ Azure 포털의 클래식 또는 ARM 저장소 계정에서 이러한 값을 가
 이 항목에서 다룬 Azure 큐 서비스와 [서비스 버스 큐를 사용하는 방법](/develop/ruby/how-to-guides/service-bus-queues/) 항목에서 다루는 Azure 서비스 버스 큐를 비교하려면 [Azure 큐 및 서비스 버스 큐 - 비교 및 대조](../service-bus/service-bus-azure-and-service-bus-queues-compared-contrasted.md)를 참조하십시오.
  
 
-<!----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/26/2016"
+   ms.date="03/30/2016"
    ms.author="sumukhs"/>
 
 # Reliable Actors 구성--ReliableDictionaryActorStateProvider
@@ -22,6 +22,42 @@ ReliableDictionaryActorStateProvider의 기본 구성은 지정된 행위자에 
 Azure 서비스 패브릭 런타임은 settings.xml 파일에서 미리 정의된 섹션 이름을 찾아서 기본 런타임 구성 요소를 만드는 동안 해당 구성 값을 사용합니다.
 
 >[AZURE.NOTE] Visual Studio 솔루션에서 생성된 settings.xml 파일에서 다음 구성의 섹션 이름을 삭제 또는 수정하지 **않도록** 합니다.
+
+ReliableDictionaryActorStateProvider의 구성에 영향을 주는 전역 설정도 있습니다.
+
+## 전역 구성
+
+전역 구성은 KtlLogger 섹션 아래의 클러스터에 대한 클러스터 매니페스트에 지정됩니다. 이를 통해 공유 로그 위치 및 크기와 로거에 사용되는 전역 메모리 제한을 구성할 수 있습니다. 클러스터 매니페스트에 대한 변경 내용은 ReliableDictionaryActorStateProvider를 사용하는 모든 서비스 및 안정적인 상태 저장 서비스에 영향을 줍니다.
+
+클러스터 매니페스트는 클러스터의 모든 노드 및 서비스에 적용되는 설정 및 구성을 유지하는 단일 XML 파일입니다. 이 파일을 일반적으로 ClusterManifest.xml이라고 합니다. Get-ServiceFabricClusterManifest powershell 명령을 사용하여 클러스터에 대한 클러스터 매니페스트를 확인할 수 있습니다.
+
+### 구성 이름
+
+|이름|단위|기본값|설명|
+|----|----|-------------|-------|
+|WriteBufferMemoryPoolMinimumInKB|킬로바이트|8388608|로거 쓰기 버퍼 메모리 풀에 대해 커널 모드에서 할당되는 최소 KB 수입니다. 이 메모리 풀은 디스크에 쓰기 전에 상태 정보를 캐시하는 데 사용됩니다.|
+|WriteBufferMemoryPoolMaximumInKB|킬로바이트|제한 없음|로거 쓰기 버퍼 메모리 풀이 증가할 수 있는 최대 크기입니다.|
+|SharedLogId|GUID|""|서비스별 구성에서 SharedLogId를 지정하지 않은 클러스터에 있는 모든 노드에서 모든 Reliable Services에 사용된 기본 공유 로그 파일을 식별하는 데 사용할 고유 GUID를 지정합니다. SharedLogId가 지정된 경우 SharedLogPath도 지정해야 합니다.|
+|SharedLogPath|정규화된 경로 이름|""|서비스별 구성에서 SharedLogId를 지정하지 않은 클러스터에 있는 모든 노드에서 모든 Reliable Services가 공유 로그 파일을 사용하는 정규화된 경로 이름을 지정합니다. 그러나 SharedLogPath가 지정된 경우 SharedLogId도 지정해야 합니다.|
+|SharedLogSizeInMB|메가바이트|8192|공유 로그에 대해 정적으로 할당할 디스크 공간(MB) 수를 지정합니다. 값은 2048 이상이어야 합니다.|
+
+### 샘플 클러스터 매니페스트 섹션
+```xml
+   <Section Name="KtlLogger">
+     <Parameter Name="WriteBufferMemoryPoolMinimumInKB" Value="8192" />
+     <Parameter Name="WriteBufferMemoryPoolMaximumInKB" Value="8192" />
+     <Parameter Name="SharedLogId" Value="{7668BB54-FE9C-48ed-81AC-FF89E60ED2EF}"/>
+     <Parameter Name="SharedLogPath" Value="f:\SharedLog.Log"/>
+     <Parameter Name="SharedLogSizeInMB" Value="16383"/>
+   </Section>
+```
+
+### 설명
+로거에는 Reliable Services 복제본에 관한 전용 로그에 기록되기 전에 캐싱 상태 데이터에 대해 노드의 모든 Reliable Services에 사용 가능한 페이징되지 않은 커널 메모리로부터 할당된 전역 메모리 풀이 있습니다. 이 풀 크기는 WriteBufferMemoryPoolMinimumInKB 및 WriteBufferMemoryPoolMaximumInKB 설정으로 제어합니다. WriteBufferMemoryPoolMinimumInKB는 이 메모리 풀의 초기 크기와 메모리 풀을 축소할 수 있는 가장 작은 크기를 지정합니다. WriteBufferMemoryPoolMaximumInKB는 메모리 풀을 확장할 수 있는 가장 큰 크기입니다. 열린 각 Reliable Service 복제본은 시스템에서 결정된 WriteBufferMemoryPoolMaximumInKB까지 메모리 풀 크기를 늘릴 수 있습니다. 메모리 풀에서 사용 가능한 것보다 메모리 요구량이 많은 경우 메모리가 사용 가능해질 때까지 메모리에 대한 요청이 지연됩니다. 따라서 특정 구성에 대한 쓰기 버퍼 메모리 풀이 너무 작으면 성능이 저하될 수 있습니다.
+
+SharedLogId 및 SharedLogPath 설정은 항상 함께 사용되며 클러스터의 모든 노드에 대한 기본 공유 로그에 대한 GUID 및 위치를 정의합니다. 기본 공유 로그는 서비스별 settings.xml에 설정을 지정하지 않은 모든 Reliable Services에 사용됩니다. 최상의 성능을 위해 공유 로그 파일에만 사용되는 디스크에 공유 로그 파일을 배치해야 경합이 감소합니다.
+
+SharedLogSizeInMB는 모든 노드에서 기본 공유 로그를 위해 미리 할당할 디스크 공간의 양을 지정합니다. SharedLogSizeInMB를 지정하기 위해 SharedLogId 및 SharedLogPath를 지정하지 않아도 됩니다.
 
 ## 복제자 보안 구성
 복제자 보안 구성은 복제하는 동안 사용되는 통신 채널을 보호하는 데 사용됩니다. 따라서 서비스는 서로의 복제 트래픽을 볼 수 없으므로 항상 사용 가능하게 설정한 데이터를 안전하게 보호할 수 있습니다. 기본적으로 빈 보안 구성 섹션에서는 복제 보안이 되지 않습니다.
@@ -84,4 +120,4 @@ MaxRecordSizeInKB 설정은 복제자가 로그 파일에 쓸 수 있는 레코�
 
 SharedLogId 및 SharedLogPath 설정은 항상 함께 사용되며 서비스가 노드에 대한 기본 공유 로그에서 별도의 공유 로그를 사용하도록 합니다. 최상의 효율성을 위해 최대한 많은 서비스가 동일한 공유 로그를 지정해야 합니다. 공유 로그 파일에만 사용되는 디스크에 공유 로그 파일을 배치해야 헤드 이동 경합이 감소합니다. 이 값은 드문 경우에만 변경되어야 합니다.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/02/2015"
+   ms.date="03/04/2016"
    ms.author="jgao"/>
 
 # 두 Azure 가상 네트워크 간의 VPN 연결 구성  
 
 > [AZURE.SELECTOR]
-- [Configure VPN connectivity](../hdinsight-hbase-geo-replication-configure-VNETs.md)
-- [Configure DNS](hdinsight-hbase-geo-replication-configure-DNS.md)
-- [Configure HBase replication](hdinsight-hbase-geo-replication.md) 
+- [VPN 연결 구성](../hdinsight-hbase-geo-replication-configure-VNETs.md)
+- [DNS 구성](hdinsight-hbase-geo-replication-configure-DNS.md)
+- [HBase 복제 구성](hdinsight-hbase-geo-replication.md) 
 
 Azure 가상 네트워크 사이트 간 연결에서는 VPN 게이트웨이를 사용하여 Ipsec/IKE를 통한 보안 터널을 제공합니다. VNet은 서로 다른 구독 및 지역에 있을 수 있습니다. VNet 간 통신을 다중 사이트 구성과 통합할 수도 있습니다. Vnet 간 연결을 사용하는 이유는 다음과 같습니다.
 
@@ -29,7 +29,7 @@ Azure 가상 네트워크 사이트 간 연결에서는 VPN 게이트웨이를 �
 - 분리 경계가 뚜렷한 지역별 다중 계층 응용 프로그램 
 - Azure의 구독 간/조직 간 통신
 
-자세한 내용은 [VNet 간 연결 구성](../virtual-network/virtual-networks-configure-vnet-to-vnet-connection.md)을 참조하세요.
+자세한 내용은 [VNet 간 연결 구성](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)을 참조하세요.
 
 비디오를 보려면
 
@@ -270,4 +270,4 @@ VNet에 VM을 배포하지 않은 경우 가상 네트워크의 시각적 다이
 [img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png
 [img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

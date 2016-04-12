@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="02/02/2016"
+   ms.date="03/07/2016"
    ms.author="hascipio; v-divte"/>
 
 # Azure 마켓플레이스에 대한 가상 컴퓨터 이미지 만들기 가이드
@@ -76,7 +76,7 @@ SKU는 VM 이미지에 대한 상업용 이름입니다. VM 이미지에는 운�
 ### 2\.3 필요한 라이브러리가 포함되어 있는지 확인
 Azure Linux 에이전트 이외에 다음 라이브러리도 포함해야 합니다.
 
-1. [Linux Integration Services][link-intsvc] 3.0 이상을 커널에 사용하도록 설정해야 합니다. [Linux 커널 요구 사항](../virtual-machines/virtual-machines-linux-create-upload-vhd-generic/#linux-kernel-requirements)을 참조하세요.
+1. [Linux Integration Services][link-intsvc] 3.0 이상을 커널에 사용하도록 설정해야 합니다. [Linux 커널 요구 사항](./virtual-machines-linux-create-upload-vhd-generic/#linux-kernel-requirements)을 참조하세요.
 2. Azure I/O 안정성을 위한 [커널 패치](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c)(최신 커널에 대해 필요하지 않은 경우도 있지만 확인해야 함)
 3. [Python][link-python] 2.6 이상
 4. Python pyasn1 패키지(아직 설치되지 않은 경우)
@@ -100,7 +100,7 @@ Azure 호환 Linux VM 이미지에 대한 네트워킹 요구 사항은 다음�
 
 - 대부분의 경우 NetworkManager를 사용하지 않도록 설정하는 것이 가장 좋습니다. 단, CentOS 7.x 기반 시스템(및 파생 버전)에서는 NetworkManager를 사용하도록 설정해야 합니다.
 - 네트워킹 구성은 **ifup** 및 **ifdown** 스크립트를 통해 제어할 수 있어야 합니다. Linux 에이전트는 이러한 명령을 사용하여 프로비전 중에 네트워킹을 다시 시작할 수 있습니다.
-- 사용자 지정 네트워크 구성이 없어야 합니다. 마지막 단계로 Resolv.conf 파일을 삭제해야 합니다. 일반적으로 프로비전 해제의 일부로 수행됩니다([Azure Linux 에이전트 사용자 가이드](../virtual-machines/virtual-machines-linux-agent-user-guide/) 참조). 다음 명령을 사용하여 이 단계를 수동으로 수행할 수도 있습니다.
+- 사용자 지정 네트워크 구성이 없어야 합니다. 마지막 단계로 Resolv.conf 파일을 삭제해야 합니다. 일반적으로 프로비전 해제의 일부로 수행됩니다([Azure Linux 에이전트 사용자 가이드](./virtual-machines-linux-agent-user-guide/) 참조). 다음 명령을 사용하여 이 단계를 수동으로 수행할 수도 있습니다.
 
         rm /etc/resolv.conf
 
@@ -250,9 +250,9 @@ Azure 마켓플레이스의 모든 이미지는 일반적으로 다시 사용할
 - Windows의 경우 이미지에 "sysprep"을 실행해야 하므로 **sysprep** 명령을 지원하지 않도록 구성해서는 안 됩니다.
 - %windir%\\System32\\Sysprep 디렉터리에서 다음 명령을 실행할 수 있습니다.
 
-        sysprep.exe /generalize /oobe /sshutdown
+        sysprep.exe /generalize /oobe /shutdown
 
-  운영 체제에 sysprep를 실행하는 방법은 MSDN 문서, [Windows Server VHD를 만들어서 Azure에 업로드](../virtual-machines/virtual-machines-create-upload-vhd-windows-server/)의 단계를 참조하세요.
+  운영 체제에 sysprep를 실행하는 방법은 MSDN 문서, [Windows Server VHD를 만들어서 Azure에 업로드](./virtual-machines-create-upload-vhd-windows-server/)의 단계를 참조하세요.
 
 ## 4\. VHD에서 VM 배포
 VHD(일반화된 운영 체제 VHD 및 0개 이상의 데이터 디스크 VHD)가 Azure 저장소 계정에 업로드된 후에는 사용자 VM 이미지로 등록할 수 있습니다. 그런 다음 해당 이미지를 테스트할 수 있습니다. 운영 체제 VHD는 일반화되므로 VHD URL을 제공하여 VM을 직접 배포할 수 없습니다.
@@ -582,10 +582,7 @@ Linux 또는 Windows 기반 VM 이미지에 대해 올바른 옵션을 선택한
 4. **SKU** 섹션에 속성을 입력합니다.
 5. **운영 체제 제품군**에서 운영 체제 VHD에 연결된 운영 체제 유형을 클릭합니다.
 6. **운영 체제** 상자에서 운영 체제에 대해 설명합니다. 운영 체제 제품군, 유형, 버전, 업데이트 등과 같은 형식을 고려하세요. 예를 들어 "Windows Server Datacenter 2014 R2"를 고려합니다.
-7. 권장된 가상 컴퓨터 크기를 최대 6개까지 선택합니다. 이는 이미지를 구입하여 배포하려는 경우에 Azure 포털에서 고객의 가격 책정 계층 블레이드에 표시되는 권장 사항입니다.
-
-  > [AZURE.NOTE] 이는 유일한 권장 사항입니다. 고객은 이미지에 지정된 디스크에 적용되는 VM 크기를 선택할 수 있습니다.
-
+7. 권장된 가상 컴퓨터 크기를 최대 6개까지 선택합니다. 이는 이미지를 구입하여 배포하려는 경우에 Azure 포털에서 고객의 가격 책정 계층 블레이드에 표시되는 권장 사항입니다. **이는 유일한 권장 사항입니다. 고객은 이미지에 지정된 디스크에 적용되는 VM 크기를 선택할 수 있습니다.**
 8. 버전을 입력합니다. 버전 필드는 제품 및 해당 업데이트를 식별하는 의미 체계 버전을 캡슐화합니다.
   -	버전은 X.Y.Z 형식이며, X, Y 및 Z는 정수여야 합니다.
   -	다른 SKU에서 이미지는 다른 주 버전과 부 버전을 가질 수 있습니다.
@@ -594,7 +591,7 @@ Linux 또는 Windows 기반 VM 이미지에 대해 올바른 옵션을 선택한
 10. 이 SKU에 데이터 디스크가 연결되어 있는 경우 배포 시 이 데이터 디스크를 탑재할 LUN(논리 단위 번호)을 선택합니다.
 11. **LUN X VHD URL** 상자에 첫 번째 데이터 VHD에 대해 만들어진 공유 액세스 서명 URI를 입력합니다.
 
-    ![그리기][img-pubportal-vm-skus-2]
+    ![그리기](media/marketplace-publishing-vm-image-creation/vm-image-pubportal-skus-3.png)
 
 ## 다음 단계
 SKU 세부 정보를 완료하면 [Azure 마켓플레이스 마케팅 콘텐츠 가이드][link-pushstaging]를 진행할 수 있습니다. 게시 프로세스의 해당 단계에서는 **3단계: 스테이징에서 VM 제품 테스트** 이전에 필요한 마케팅 콘텐츠, 가격 책정 및 기타 정보를 제공합니다. 여기에서 제품을 Azure 마켓플레이스에 배포하여 일반에게 공개하고 판매하기 전에 다양한 사용 사례 시나리오를 테스트합니다.
@@ -629,9 +626,9 @@ SKU 세부 정보를 완료하면 [Azure 마켓플레이스 마케팅 콘텐츠 
 
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 [link-github-waagent]: https://github.com/Azure/WALinuxAgent
-[link-azure-codeplex]: http://storageexplorer.com/
-[link-azure-2]: ../storage/storage-dotnet-shared-access-signature-part-2/
-[link-azure-1]: ../storage/storage-dotnet-shared-access-signature-part-1/
+[link-azure-codeplex]: https://azurestorageexplorer.codeplex.com/
+[link-azure-2]: ../storage/storage-dotnet-shared-access-signature-part-2.md
+[link-azure-1]: ../storage/storage-dotnet-shared-access-signature-part-1.md
 [link-msft-download]: http://www.microsoft.com/download/details.aspx?id=44299
 [link-technet-3]: https://technet.microsoft.com/library/hh846766.aspx
 [link-technet-2]: https://msdn.microsoft.com/library/dn495261.aspx
@@ -647,11 +644,11 @@ SKU 세부 정보를 완료하면 [Azure 마켓플레이스 마케팅 콘텐츠 
 [link-datactr-2012]: http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2012datacenter/
 [link-datactr-2008-r2]: http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2008r2sp1/
 [link-acct-creation]: marketplace-publishing-accounts-creation-registration.md
-[link-azure-vm-1]: ../virtual-machines/virtual-machines-linux-create-upload-vhd/
+[link-azure-vm-1]: ./virtual-machines-linux-create-upload-vhd/
 [link-technet-1]: https://technet.microsoft.com/library/hh848454.aspx
-[link-azure-vm-2]: ../virtual-machines/virtual-machines-linux-agent-user-guide/
+[link-azure-vm-2]: ./virtual-machines-linux-agent-user-guide/
 [link-openssl]: https://www.openssl.org/
 [link-intsvc]: http://www.microsoft.com/download/details.aspx?id=41554
 [link-python]: https://www.python.org/
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -37,7 +37,7 @@ Azure 개발 시 Visual Studio에서 PowerShell을 사용하기 위한 추가 �
 
 ## 게시 스크립트 생성
 
-새 프로젝트를 만들 때 [이 지침](/virtual-machines/virtual-machines-dotnet-create-visual-studio-powershell.md)을 따라 웹 사이트를 호스팅하는 가상 컴퓨터의 게시 스크립트를 생성할 수 있습니다. 또한 [Azure 앱 서비스에서 웹 앱용 게시 스크립트를 생성](/app-service-web/web-sites-dotnet-get-started.md)할 수도 있습니다.
+새 프로젝트를 만들 때 [이 지침](virtual-machines/virtual-machines-windows-classic-web-app-visual-studio.md)을 따라 웹 사이트를 호스팅하는 가상 컴퓨터의 게시 스크립트를 생성할 수 있습니다. 또한 [Azure 앱 서비스에서 웹 앱용 게시 스크립트를 생성](/app-service-web/web-sites-dotnet-get-started.md)할 수도 있습니다.
 
 ## Visual Studio에서 생성하는 스크립트
 
@@ -351,4 +351,4 @@ Windows PowerShell 명령 프롬프트에서 사용할 수 있는 함수에 대�
 
 [Windows PowerShell를 사용하여 스크립팅](https://technet.microsoft.com/library/bb978526.aspx)을 읽어 PowerShell 스크립팅에 대해 자세히 알아보고 [스크립트 센터](https://azure.microsoft.com/documentation/scripts/)에서 기타 Azure PowerShell 스크립트에 대해 알아보세요.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

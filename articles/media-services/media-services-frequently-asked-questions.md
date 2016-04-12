@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="03/01/2016"  
+ 	ms.date="03/02/2016"  
 	ms.author="juliako"/>
 
 
 #질문과 대답  
 
-##개요
+##일반 AMS FAQ 
 
 Q: 인덱싱을 확장하려면 어떻게 하나요?
 
@@ -39,11 +39,21 @@ A: 미디어 서비스는 Azure CDN와의 통합을 지원합니다(자세한 �
 
 Q: Azure 미디어 서비스는 저장된 이미지를 지원하나요?
 
-A: JPEG 또는 PNG 이미지를 저장하기 위해 찾으려는 경우 Azure Blob 저장소에 유지해야 합니다. 비디오 또는 오디오 자산와 연결된 상태를 유지하려는 경우가 아니면 미디어 서비스 계정에 넣어도 이점은 없습니다. 또는 비디오 인코더에서 오버레이로 이미지를 사용해야 할 수 있습니다. 미디어 서비스 인코더는 비디오 위에서 겹치기 이미지를 지원하며 JPEG 및 PNG를 지원 입력 형식으로 나열합니다. 자세한 내용은 [오버레이 만들기](https://msdn.microsoft.com/library/azure/dn640496.aspx)를 참조하세요.
+A: JPEG 또는 PNG 이미지를 저장하기 위해 찾으려는 경우 Azure Blob 저장소에 유지해야 합니다. 비디오 또는 오디오 자산와 연결된 상태를 유지하려는 경우가 아니면 미디어 서비스 계정에 넣어도 이점은 없습니다. 또는 비디오 인코더에서 오버레이로 이미지를 사용해야 하는 경우입니다. 미디어 인코더 표준은 비디오 위에 이미지 겹치기를 지원하며 지원되는 입력 형식으로 JPEG 및 PNG를 나열합니다. 자세한 내용은 [오버레이 만들기](media-services-custom-mes-presets-with-dotnet.md#overlay)를 참조하세요.
 
 Q: 미디어 서비스 계정 간에 자산을 복사하려면 어떻게 해야 하나요?
 
-A: 미디어 서비스 계정 간에 자산을 복사하려면 [Azure 미디어 서비스 .NET SDK 확장](https://github.com/Azure/azure-sdk-for-media-services-extensions/) 리포지토리에서 제공되는 [IAsset.Copy](https://github.com/Azure/azure-sdk-for-media-services-extensions/blob/dev/MediaServices.Client.Extensions/IAssetExtensions.cs#L354) 확장 메서드를 사용합니다. 자세한 내용은 [이](https://social.msdn.microsoft.com/Forums/azure/28912d5d-6733-41c1-b27d-5d5dff2695ca/migrate-media-services-across-subscription?forum=MediaServices) 포럼 스레드를 참조하세요.
+A: .NET을 사용하여 미디어 서비스 계정 간에 자산을 복사하려면 [Azure 미디어 서비스 .NET SDK 확장](https://github.com/Azure/azure-sdk-for-media-services-extensions/) 리포지토리에서 제공되는 [IAsset.Copy](https://github.com/Azure/azure-sdk-for-media-services-extensions/blob/dev/MediaServices.Client.Extensions/IAssetExtensions.cs#L354) 확장 메서드를 사용합니다. 자세한 내용은 [이](https://social.msdn.microsoft.com/Forums/azure/28912d5d-6733-41c1-b27d-5d5dff2695ca/migrate-media-services-across-subscription?forum=MediaServices) 포럼 스레드를 참조하세요.
+
+Q: AMS에서 작업할 때 파일 이름 지정에 지원되는 문자는 무엇인가요?
+
+A: 미디어 서비스는 스트리밍 콘텐츠에 대해 URL을 작성할 때 IAssetFile.Name 속성의 값을 사용합니다(예: http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.). 이러한 이유로 퍼센트 인코딩은 허용되지 않습니다. **Name** 속성 값에는 !*'();:@&=+$,/?%#"과 같은 [퍼센트 인코딩 예약 문자](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)를 사용할 수 없습니다. 또한 파일 이름 확장명에는 ‘.’ 하나만 사용할 수 있습니다.
+
+
+Q: REST를 사용하여 연결하려면 어떻게 해야 하나요?
+
+A: https://media.windows.net에 연결하면 다른 미디어 서비스 URI를 지정하는 301 리디렉션을 받게 됩니다. [REST API를 사용하여 미디어 서비스에 연결](media-services-rest-connect_programmatically.md)에서 설명한 대로 새 URI에 대한 후속 호출을 만들어야 합니다.
+
 
 Q: 인코딩 프로세스 중에 비디오를 회전하려면 어떻게 해야 하나요?
 
@@ -62,6 +72,9 @@ A: [미디어 인코더 표준](media-services-dotnet-encode-with-media-encoder-
 	
 	...
 
+
+
+
 ##미디어 서비스 학습 경로
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -70,4 +83,4 @@ A: [미디어 인코더 표준](media-services-dotnet-encode-with-media-encoder-
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

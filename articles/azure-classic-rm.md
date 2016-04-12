@@ -60,11 +60,11 @@ Azure에는 다음 두 포털이 있습니다.
 - **Azure 리소스 관리자 템플릿을 사용한 PowerShell cmdlet:** PowerShell에서 Azure 리소스 관리자 템플릿을 사용하여 Azure 리소스를 생성할 수 있습니다. 템플릿을 저장하고 버전을 지정할 수 있습니다. [Azure 리소스 관리자 템플릿으로 응용 프로그램 배포](resource-group-template-deploy.md) 문서를 참조하여 더 알아볼 수 있습니다. 다운로드하고 수정할 수 있는 일반 솔루션에 대해 몇 가지 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)도 지원됩니다.
 
 ## CLI
-CLI를 사용하여 Windows, OS X 또는 Linux 컴퓨터에서 Azure 리소스를 생성 및 구성할 수 있습니다. [Azure CLI 설치](xplat-cli-install.md) 문서를 참조하여 선택한 운영 체제에서 CLI를 설치합니다. PowerShell처럼 [리소스 관리자](xplat-cli-azure-resource-manager.md) 또는 [클래식(서비스 관리)](virtual-machines/virtual-machines-command-line-tools.md) 배포 모델을 사용하여 리소스를 생성하는지 여부에 따라 사용해야 하는 명령이 서로 다릅니다.
+CLI를 사용하여 Windows, OS X 또는 Linux 컴퓨터에서 Azure 리소스를 생성 및 구성할 수 있습니다. [Azure CLI 설치](xplat-cli-install.md) 문서를 참조하여 선택한 운영 체제에서 CLI를 설치합니다. PowerShell처럼 [리소스 관리자](xplat-cli-azure-resource-manager.md) 또는 [클래식(서비스 관리)](./virtual-machines/virtual-machines-linux-classic-manage-visual-studio.md) 배포 모델을 사용하여 리소스를 생성하는지 여부에 따라 사용해야 하는 명령이 서로 다릅니다.
 
 ## 다음 단계
 
 - [리소스 관리자](resource-group-overview.md)에 대해 알아봅니다.
 - [템플릿 설계](best-practices-resource-manager-design-templates.md) 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

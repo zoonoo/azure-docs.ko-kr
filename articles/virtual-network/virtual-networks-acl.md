@@ -12,16 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # 끝점 ACL(액세스 제어 목록)이란?
 
 끝점 ACL(액세스 제어 목록)은 Azure 배포에 사용할 수 있는 보안 향상 기능입니다. ACL은 가상 컴퓨터 끝점의 트래픽을 선택적으로 허용하거나 거부하는 기능을 제공합니다. 이 패킷 필터링 기능을 통해 보안을 강화할 수 있습니다. 끝점에 대해서만 네트워크 ACL을 지정할 수 있습니다. 가상 네트워크 또는 가상 네트워크에 포함된 특정 서브넷에 대해서는 ACL을 지정할 수 없습니다.
 
-> [AZURE.IMPORTANT]가능하면 ACL 대신 NSG(네트워크 보안 그룹)를 사용하는 것이 좋습니다. NSG에 대해 자세히 알아보려면 [네트워크 보안 그룹이란?](../virtual-networks-nsg)을 참조하세요.
+> [AZURE.IMPORTANT] 가능하면 ACL 대신 NSG(네트워크 보안 그룹)를 사용하는 것이 좋습니다. NSG에 대해 자세히 알아보려면 [네트워크 보안 그룹이란?](virtual-networks-nsg.md)을 참조하세요.
 
-ACL은 PowerShell 또는 관리 포털을 사용하여 구성할 수 있습니다. PowerShell을 사용하여 네트워크 ACL을 구성하려면 [PowerShell을 사용하여 끝점에 대한 ACL(액세스 제어 목록) 관리](virtual-networks-acl-powershell.md)를 참조하세요. 관리 포털을 사용하여 네트워크 ACL을 구성하려면 [가상 컴퓨터에 끝점을 설정하는 방법](../virtual-machines-set-up-endpoints/)을 참조하세요.
+ACL은 PowerShell 또는 관리 포털을 사용하여 구성할 수 있습니다. PowerShell을 사용하여 네트워크 ACL을 구성하려면 [PowerShell을 사용하여 끝점에 대한 ACL(액세스 제어 목록) 관리](virtual-networks-acl-powershell.md)를 참조하세요. 관리 포털을 사용하여 네트워크 ACL을 구성하려면 [가상 컴퓨터에 끝점을 설정하는 방법](../virtual-machines/virtual-machines-set-up-endpoints.md)을 참조하세요.
 
 네트워크 ACL을 사용하여 다음을 수행할 수 있습니다.
 
@@ -51,7 +51,7 @@ ACL은 규칙 목록이 포함된 개체입니다. ACL을 만들어 가상 컴�
 
 ## 허용 및 거부
 
-"허용" 또는 "거부"를 지정하는 규칙을 만들어 가상 컴퓨터 입력 끝점에 대한 네트워크 트래픽을 선택적으로 허용하거나 거부할 수 있습니다. 기본적으로 끝점을 만들 때 끝점에 대한 모든 트래픽이 거부됩니다. 이러한 이유로 가상 컴퓨터 끝점에 연결할 수 있도록 선택하는 네트워크 트래픽을 세부적으로 제어하려는 경우 허용/거부 규칙을 만들어 적절한 우선 순위로 사용하는 방법을 이해하는 것이 중요합니다.
+"허용" 또는 "거부"를 지정하는 규칙을 만들어 가상 컴퓨터 입력 끝점에 대한 네트워크 트래픽을 선택적으로 허용하거나 거부할 수 있습니다. 기본적으로 끝점을 만들 때 끝점에 대한 모든 트래픽이 허용된다는 것이 중요합니다. 이러한 이유로 가상 컴퓨터 끝점에 연결할 수 있도록 선택하는 네트워크 트래픽을 세부적으로 제어하려는 경우 허용/거부 규칙을 만들어 적절한 우선 순위로 사용하는 방법을 이해하는 것이 중요합니다.
 
 고려할 항목:
 
@@ -97,6 +97,6 @@ LB 집합(부하 분산된 집합) 끝점에서 네트워크 ACL을 지정할 �
 
 ## 다음 단계
 
-[PowerShell을 사용하여 끝점에 대한 ACL(액세스 제어 목록)을 관리하는 방법](../virtual-networks-acl-powershell)
+[PowerShell을 사용하여 끝점에 대한 ACL(액세스 제어 목록)을 관리하는 방법](virtual-networks-acl-powershell.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

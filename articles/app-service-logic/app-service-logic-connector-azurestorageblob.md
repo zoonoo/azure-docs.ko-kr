@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="rajram"/>
    
 # Azure 저장소 Blob 커넥터 시작 및 논리 앱에 추가 
 
->[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다. 2015-08-01-미리 보기 스키마 버전에 대한 내용을 보려면 [Azure 저장소 Blob API](../connectors/create-api-azureblobstorage.md)를 클릭하세요.
+>[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다. 2015-08-01-preview 스키마 버전에 대한 내용을 보려면 [Azure 저장소 Blob API](../connectors/connectors-create-api-azureblobstorage.md)를 클릭하세요.
 
 Azure Storage Blob에 연결하여 Blob 컨테이너의 Blob을 업로드, 다운로드 및 삭제할 수 있습니다. 커넥터는 논리 앱에서 "워크플로"의 일부로 사용됩니다.
 
@@ -107,4 +107,4 @@ Content를 원하는 값으로 설정할 수 있습니다. 식은 논리 앱 트
 [11]: ./media/app-service-logic-connector-azurestorageblob/BasicInputsUploadBlob.PNG
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

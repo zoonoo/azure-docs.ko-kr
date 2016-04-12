@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="02/04/2016"
+   ms.date="03/23/2016"
    ms.author="alkohli"/>
 
 # StorSimple 소프트웨어, 높은 가용성 및 네트워킹 요구 사항
@@ -36,7 +36,7 @@ Microsoft Azure StorSimple 시작을 환영합니다. 이 문서에서는 중요
 | 지원되는 운영 체제 | 필요한 버전 | 추가 요구 사항/메모 |
 | --------------------------- | ---------------- | ------------- |
 | Windows Server | 2008R2 SP1, 2012, 2012R2 |StorSimple iSCSI 볼륨은 다음과 같은 Windows 디스크 유형에 사용하는 경우에만 지원됩니다.<ul><li>기본 디스크의 단순 볼륨</li><li>동적 디스크의 단순 및 미러 볼륨</li></ul>Windows Server 2012 씬 프로비저닝 및 ODX 기능은 StorSimple iSCSI 볼륨을 사용하는 경우에만 지원됩니다.<br><br>StorSimple은 씬 프로비전된 볼륨 및 완전히 프로비전된 볼륨을 만들 수 있습니다. 부분적으로 프로비전된 볼륨은 만들 수 없습니다.<br><br>씬 프로비전된 볼륨을 다시 포맷하는 데에는 시간이 오래 걸릴 수 있습니다. 다시 포맷하는 대신 볼륨을 삭제했다가 새 볼륨을 만드는 것이 좋습니다. 그래도 볼륨을 다시 포맷하려면,<ul><li>공간 재사용에 따른 지연을 방지하려면 다시 포맷하기 전에 다음 명령을 실행합니다.<br>`fsutil behavior set disabledeletenotify 1`</br></li><li>포맷이 완료되면 다음 명령을 사용하여 공간 재사용을 다시 활성화합니다.<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>[KB 2878635](https://support.microsoft.com/kb/2870270)에 설명된 대로 Windows Server 2012 핫픽스를 Windows Server 컴퓨터에 적용합니다.</li></ul></li></ul></ul> StorSimple 스냅숏 관리자 또는 SharePoint용 StorSimple 어댑터를 구성하려면 [선택적 구성 요소에 대한 소프트웨어 요구 사항](#software-requirements-for-optional-components)으로 이동하세요.|
-| VMWare ESX | 5\.1 및 5.5 | iSCSI 클라이언트로 VMWare vSphere와 함께 지원됩니다. VAAI 블록 기능은 StorSimple 장치에서 VMware vSphere와 함께 지원됩니다. 
+| VMWare ESX | 5\.1, 5.5 및 6.0 | iSCSI 클라이언트로 VMWare vSphere와 함께 지원됩니다. VAAI 블록 기능은 StorSimple 장치에서 VMware vSphere와 함께 지원됩니다. 
 | Linux RHEL/CentOS | 5 및 6 | Open iSCSI 초기자 버전 5 및 6과 함께 Linux iSCSI 클라이언트를 지원합니다. |
 | Linux | SUSE Linux 11 | |
  > [AZURE.NOTE] IBM AIX는 현재 StorSimple에 지원되지 않습니다.
@@ -52,7 +52,7 @@ Microsoft Azure StorSimple 시작을 환영합니다. 이 문서에서는 중요
  
 ## StorSimple 장치에 대한 네트워킹 요구 사항
 
-StorSimple 장치는 잠긴 장치입니다. 하지만 iSCSI, 클라우드 또는 관리 트래픽에 허용하도록 포트가 방화벽에서 열려야 합니다. 다음 표에서 방화벽에서 열려야 하는 포트를 나열합니다. 이 테이블에서 *인* 또는 *인바운드*는 장치에 대한 들어오는 클라이언트 요청 액세스에서 방향을 참조합니다. *아웃* 또는 *아웃바운드*는 배포 후 데이터를 외부로 보내는 StorSimple 장치에서 방향을 참조합니다.
+StorSimple 장치는 잠긴 장치입니다. 하지만 iSCSI, 클라우드 및 관리 트래픽에 허용하도록 포트가 방화벽에서 열려야 합니다. 다음 표에서 방화벽에서 열려야 하는 포트를 나열합니다. 이 테이블에서 *인* 또는 *인바운드*는 장치에 대한 들어오는 클라이언트 요청 액세스에서 방향을 참조합니다. *아웃* 또는 *아웃바운드*는 배포 후 데이터를 외부로 보내는 StorSimple 장치에서 방향을 참조합니다.
 
 | 포트 번호 <sup>1, 2</sup> | 인 또는 아웃 | 포트 범위 | 필수 | 참고 |
 |------------------------|-----------|------------|----------|-------| 
@@ -72,6 +72,25 @@ StorSimple 장치는 잠긴 장치입니다. 하지만 iSCSI, 클라우드 또�
 <sup>3</sup> StorSimple 장치에서 IP가 고정된 컨트롤러는 라우팅할 수 있어야 하며 인터넷에 연결할 수 있어야 합니다. 고정 IP 주소는 장치에 대한 업데이트를 제공하는 데 사용됩니다. 장치 컨트롤러가 고정 IP를 통해 인터넷에 연결되는 경우 StorSimple 장치를 업데이트할 수 없습니다.
 
 > [AZURE.IMPORTANT] 방화벽이 StorSimple 장치 및 Azure 사이의 모든 SSL 트래픽을 수정하거나 암호를 해독하지 않도록 해야 합니다.
+
+### 방화벽 규칙에 대한 URL 패턴 
+
+네트워크 관리자는 URL 패턴을 기준으로 하는 고급 방화벽 규칙이 인바운드 및 아웃바운드 트래픽을 필터링하도록 구성할 수 있습니다. StorSimple 장치 및 StorSimple Manager 서비스는 Azure 서비스 버스, Azure Active Directory 액세스 제어, 저장소 계정 및 Microsoft 업데이트 서버 등의 다른 Microsoft 응용 프로그램에 의존합니다. 이러한 응용 프로그램과 연결된 URL 패턴을 사용하여 방화벽 규칙을 구성할 수 있습니다. 이러한 응용 프로그램과 연결된 URL 패턴은 달라질 수 있습니다. 따라서 네트워크 관리자는 StorSimple에 대한 방화벽 규칙을 모니터링하고 필요에 따라 업데이트해야 합니다.
+
+StorSimple 고정 IP 주소에 따라 대부분의 경우에서 자유롭게 아웃바운드 트래픽에 대한 방화벽 규칙을 설정하는 것이 좋습니다. 그러나 보안 환경을 만드는 데 필요한 고급 방화벽 규칙을 설정하려면 아래 정보를 사용할 수 있습니다.
+
+> [AZURE.NOTE] 장치(원본) IP는 항상 사용하도록 설정된 네트워크 인터페이스로 설정되어야 합니다. 대상 IP는 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/ko-KR/download/confirmation.aspx?id=41653)로 설정해야 합니다.
+
+
+| URL 패턴 | 구성 요소/기능 | 장치 IP |
+|------------------------------------------------------------------|---------------------------------------------------------------|-----------------------------------------|
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` | StorSimple Manager 서비스<br>액세스 제어 서비스<br>Azure 서비스 버스| 클라우드 사용 네트워크 인터페이스 |
+|`http://*.backup.windowsazure.com`|장치 등록| 데이터 0만 해당|
+|`http://crl.microsoft.com/pki/*` |인증서 해지 |클라우드 사용 네트워크 인터페이스 |
+| `https://*.core.windows.net/*` | Azure 저장소 계정 및 모니터링 | 클라우드 사용 네트워크 인터페이스 |
+| `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Microsoft 업데이트 서버<br> | 컨트롤러 고정 IP만 |
+| `http://*.deploy.akamaitechnologies.com` |Akamai CDN |컨트롤러 고정 IP만 |
+| `https://*.partners.extranet.microsoft.com/*` | 지원 패키지 | 클라우드 사용 네트워크 인터페이스 |
 
 ### 라우팅 메트릭
 
@@ -103,13 +122,13 @@ StorSimple에 대해 다수의 네트워크 인터페이스와 게이트웨이�
 
 - 미리 결정된 값 집합이 네트워크 인터페이스에 할당되었습니다. 	
 		
-- 클라우드를 사용하거나 클라우드를 사용하지 않지만 게이트웨이가 구성되어 있는 다양한 네트워크 인터페이스에 대해 값이 할당된 아래의 예제 테이블을 고려해 보세요. 여기에 할당된 값은 단지 예시용입니다.
+- 클라우드를 사용하거나 클라우드를 사용하지 않지만 게이트웨이가 구성되어 있는 다양한 네트워크 인터페이스에 대해 값이 할당된 아래의 예제 테이블을 고려해 보세요. 여기에 할당된 값은 예제입니다.
 
 		
 	| 네트워크 인터페이스 | 클라우드 사용 | 클라우드 미사용(게이트웨이 구성됨) |
 	|-----|---------------|---------------------------|
 	| Data 0 | 1 | - |
-	| Data 1 | 2 | 20 |
+	| Data 1 | 2 | 20 
 	| Data 2 | 3 | 30 |
 	| Data 3 | 4 | 40 |
 	| Data 4 | 5 | 50 |
@@ -149,13 +168,13 @@ StorSimple에 대해 다수의 네트워크 인터페이스와 게이트웨이�
 
 StorSimple 솔루션의 최적의 성능을 위해 위의 네트워킹 요구 사항 외에도 다음 모범 사례를 준수합니다.
 
-- StorSimple 장치에서 항상 전용 40Mbps 대역폭(이상)을 사용할 수 있어야 합니다. 이 대역폭은 다른 응용 프로그램과 공유하면 안됩니다.
+- StorSimple 장치에서 항상 전용 40Mbps 대역폭(이상)을 사용할 수 있어야 합니다. 이 대역폭을 다른 응용 프로그램과 공유되지 않아야 합니다(또는 QoS 정책을 사용하여 할당을 보장해야 함).
 
 - 항상 인터넷에 네트워크 연결이 되어야 합니다. 인터넷 연결이 전혀 안되는 것을 비롯하여 산발적이거나 안정적이지 않은 인터넷 연결은 지원되지 않은 구성을 야기합니다.
 
 - iSCSI 및 클라우드 액세스를 위해 장치에서 전용 네트워크 인터페이스를 갖추어 iSCSI 및 클라우드 트래픽을 분리합니다. 자세한 내용은 StorSimple 장치에서 [네트워크 인터페이스를 수정](storsimple-modify-device-config.md#modify-network-interfaces)하는 방법을 참조하세요.
 
-- 네트워크 인터페이스에 LACP(Link Aggregation Protocol) 구성을 사용하지 마십시오. 지원되지 않는 구성입니다.
+- 네트워크 인터페이스에 대한 링크 집합 제어 프로토콜(LACP) 구성을 사용하지 마십시오. 지원되지 않는 구성입니다.
 
 
 ## StorSimple에 대한 고가용성 요구 사항
@@ -239,7 +258,7 @@ StorSimple 장치 모델 8600에는 기본 인클로저 외에도 확장 EBOD(Ex
 
 - EBOD 인클로저 컨트롤러 모듈에 오류가 있는 경우 오류가 있는 모듈을 교체하기 전에 다른 컨트롤러 모듈이 활성 상태인지 확인합니다. 컨트롤러가 활성인지 확인하려면 [장치의 활성 컨트롤러 식별](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device)로 이동하세요.
 
-- EBOD 컨트롤러 모듈을 교체하는 동안 **유지 관리** - **하드웨어** 상태에 액세스하여 StorSimple Manager 서비스의 구성 요소 상태를 지속적으로 모니터링합니다.
+- EBOD 컨트롤러 모듈을 교체하는 동안 **유지 관리** > **하드웨어** 상태에 액세스하여 StorSimple Manager 서비스의 구성 요소 상태를 지속적으로 모니터링합니다.
 
 - SAS 케이블에 오류가 있거나 교체가 필요한 경우(확인을 위해 Microsoft 지원이 포함되어야 함) 교체가 필요한 SAS 케이블만 제거해야 합니다.
 
@@ -261,4 +280,4 @@ StorSimple 장치에 연결된 호스트의 고가용성을 위해 이러한 모
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0330_2016-->

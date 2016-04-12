@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/21/2015"
+	ms.date="03/08/2016"
 	ms.author="jeedes"/>
 
 
@@ -36,7 +36,7 @@ SD Elements와의 Azure AD 통합을 구성하려면 다음 항목이 필요합�
 - SD Elements Single Sign-On이 설정된 구독
 
 
-> [AZURE.NOTE]이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
+> [AZURE.NOTE] 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
 
 
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
@@ -104,7 +104,7 @@ SD Elements 응용 프로그램은 특정 서식에서 SAML 어설션을 예상�
    
     b. **회신 URL** 텍스트 상자에서 다음과 같은 패턴을 사용하여 테넌트의 회신 URL을 입력합니다. *https://\<your tenant name>.sdelements.com/sso/saml2/acs/*
 
-    > [AZURE.NOTE]테넌트에 대한 실제 발급자 URL 및 회신 URL이 필요한 경우 [SD Elements 지원팀](mailto:support@sdelements.com)에 문의합니다.
+    > [AZURE.NOTE] 테넌트에 대한 실제 발급자 URL 및 회신 URL이 필요한 경우 [SD Elements 지원팀](mailto:support@sdelements.com)에 문의합니다.
       
     c. **다음**을 클릭합니다.
 
@@ -169,7 +169,7 @@ SD Elements 응용 프로그램은 특정 서식에서 SAML 어설션을 예상�
 
 3. 사용자 목록을 표시하려면 위쪽 메뉴에서 **사용자**를 클릭합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_03.png) <br>
 
-4. **사용자 추가** 대화 상자를 열려면 아래쪽의 도구 모음에서 **사용자 추가**를 클릭합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_04.png) <br>
+4. **사용자 추가** 대화 상자를 열려면 아래쪽 도구 모음에서 **사용자 추가**를 클릭합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_04.png) <br>
 
 5. **이 사용자에 대한 정보 입력** 대화 상자 페이지에서 다음 단계를 수행합니다. <br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_05.png) <br>
 
@@ -287,4 +287,4 @@ SD Elements 응용 프로그램은 특정 서식에서 SAML 어설션을 예상�
 [204]: ./media/active-directory-saas-sd-elements-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-sd-elements-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0309_2016-->

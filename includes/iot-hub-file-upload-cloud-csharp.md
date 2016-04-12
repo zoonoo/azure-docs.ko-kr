@@ -43,7 +43,7 @@
             return blob.Uri + sasBlobToken;
         }
 
-    이 메서드는 [Blob 저장소를 통해 SAS 만들기 및 사용](https://azure.microsoft.com/ko-KR/documentation/articles/storage-dotnet-shared-access-signature-part-2/)에 설명되어 있는 대로 새 Blob 참조를 만들고 공유 액세스 서명 URI를 생성합니다. 위의 메서드는 24시간 동안 유효한 서명 URI를 생성합니다. 대상 장치가 파일을 업로드하는 데 시간이 더 필요할 경우(예를 들어 자주 연결하지 않거나 큰 파일을 업로드하기에 연결이 안정적이지 않은 경우) 해당 서명에 더 기간이 긴 만료 시간을 고려할 수 있습니다.
+    이 메서드는 [Blob 저장소를 통해 SAS 만들기 및 사용](../storage/storage-dotnet-shared-access-signature-part-2.md)에 설명되어 있는 대로 새 Blob 참조를 만들고 공유 액세스 서명 URI를 생성합니다. 위의 메서드는 24시간 동안 유효한 서명 URI를 생성합니다. 대상 장치가 파일을 업로드하는 데 시간이 더 필요할 경우(예를 들어 자주 연결하지 않거나 큰 파일을 업로드하기에 연결이 안정적이지 않은 경우) 해당 서명에 더 기간이 긴 만료 시간을 고려할 수 있습니다.
 
 5. 다음과 같은 방식으로 **SendCloudToDeviceMessageAsync**를 수정합니다.
 
@@ -61,13 +61,13 @@
 
 <!-- Links -->
 
-[Azure 저장소 정보]: https://azure.microsoft.com/ko-KR/documentation/articles/storage-create-storage-account/#create-a-storage-account
+[Azure 저장소 정보]: ../storage/storage-create-storage-account.md#create-a-storage-account
 
 [IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
 [Azure IoT - Service SDK NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
-[Transient Fault Handling]: https://msdn.microsoft.com/ko-KR/library/hh680901(v=pandp.50).aspx
+[Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 
 <!-- Images -->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

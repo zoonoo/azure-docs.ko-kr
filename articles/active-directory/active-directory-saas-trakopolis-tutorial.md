@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/02/2016"
+	ms.date="03/08/2016"
 	ms.author="jeedes"/>
 
 
@@ -63,8 +63,8 @@ Trakopolis의 Azure AD 통합을 구성하려면 갤러리의 Trakopolis를 관�
 3. 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.<br><br> ![응용 프로그램][2]<br>
 4. 페이지 맨 아래에 있는 **추가**를 클릭합니다.<br><br> ![응용 프로그램][3]<br>
 5. **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.<br><br> ![응용 프로그램][4]<br>
-6. 검색 상자에 **Trakopolis**를 입력합니다.<br><br> ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-trakopolis-tutorial/tutorial_trakopolis_01.png)<br>
-7. 결과 창에서 **Trakopolis**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다. <br><br>
+6. 검색 상자에 **Trakopolis**를 입력합니다.<br><br> ![응용 프로그램](./media/active-directory-saas-trakopolis-tutorial/tutorial_trakopolis_01.png)<br>
+7. 결과 창에서 **Trakopolis**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다. <br><br>![응용 프로그램](./media/active-directory-saas-trakopolis-tutorial/tutorial_trakopolis_02.png)<br>
 
 ##  Azure AD Single Sign-on 구성 및 테스트
 이 섹션은 "Britta Simon"이라는 테스트 사용자를 기반으로 Trakopolis에서 Azure AD Single Sign-On을 구성하고 테스트하는 방법을 보여 주기 위해 작성되었습니다.
@@ -94,7 +94,7 @@ Trakopolis에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 3. **앱 설정 구성** 대화 상자 페이지에서 다음 단계를 수행합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-trakopolis-tutorial/tutorial_trakopolis_04.png) <br>
 
 
-    a. 로그온 URL 텍스트 상자에 **“https://<company name>.trakopolis.com”** 패턴을 사용하여 사용자가 Trakopolis 응용 프로그램에 로그온하는 데 사용할 URL을 입력합니다.
+    a. 로그온 URL 텍스트 상자에 **“https://<회사 이름>.trakopolis.com”** 패턴을 사용하여 사용자가 Trakopolis 응용 프로그램에 로그온하는 데 사용할 URL을 입력합니다.
 
      b. **다음**을 클릭합니다.
 
@@ -212,4 +212,4 @@ Trakopolis에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 [204]: ./media/active-directory-saas-trakopolis-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-trakopolis-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

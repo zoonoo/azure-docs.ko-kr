@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure 권한 있는 ID 관리: 보안 검토를 수행하는 방법"
+   pageTitle="보안 검토를 수행하는 방법 | Microsoft Azure"
    description="Azure 권한 있는 ID 관리 확장을 사용하여 권한 있는 ID에 역할을 추가하는 방법을 알아봅니다."
    services="active-directory"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
-# Azure Privileged Identity Management: 보안 검토를 수행하는 방법
+# Azure AD Privileged Identity Management: 보안 검토를 수행하는 방법
 
 
 [보안 검토가 시작](active-directory-privileged-identity-management-how-to-start-security-review.md)된 후에는 권한 있는 액세스를 검토하기가 매우 쉽습니다.
@@ -60,4 +60,4 @@ Excel 또는 CSV 파일을 사용할 수 있는 다른 프로그램에서 사용
 ## 다음 단계
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

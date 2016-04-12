@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # 트래픽 관리자란?
@@ -56,10 +56,10 @@ Microsoft Azure 트래픽 관리자를 사용하면 Azure 클라우드 서비스
 1. **Azure 클라우드 서비스, Azure 웹 사이트 또는 기타 끝점을 프로덕션 환경에 배포합니다**. 트래픽 관리자 프로필을 만들 때 구독과 연결되어야 합니다. 그런 다음 동일한 구독의 일부인 프로덕션에서 클라우드 서비스 및 표준 계층 웹 사이트에 대한 끝점을 추가합니다. 끝점이 스테이징에 있고 Azure 프로덕션 환경에 없거나 동일한 구독에 포함되지 않은 경우, 외부 끝점으로 추가할 수 있습니다. 클라우드 서비스에 대한 자세한 내용은 [클라우드 서비스](http://go.microsoft.com/fwlink/p/?LinkId=314074)를 참조하세요. 웹 사이트에 대한 자세한 내용은 [웹 사이트](http://go.microsoft.com/fwlink/p/?LinkId=393327)를 참조하세요.
 2. **트래픽 관리자 도메인의 이름을 결정합니다**. 고유한 접두사로 도메인의 이름을 지정하는 것이 좋습니다. 도메인의 나중 부분, trafficmanager.net이 고정됩니다. 자세한 내용은 [모범 사례](#best-practices)를 참조하세요.
 3. **사용할 모니터링 구성을 결정합니다**. 트래픽 관리자는 끝점을 모니터링하여 트래픽 라우팅 방법에 관계없이 온라인인지 확인합니다. 모니터링 설정을 구성한 후 트래픽 관리자는 모든 끝점이 오프라인 상태이거나 프로필에 포함된 끝점의 상태를 확인할 수 없는 경우가 아니면 모니터링 시스템에 따라 오프라인 상태인 끝점에 트래픽을 보내지 않습니다. 모니터링에 대한 자세한 내용은 [트래픽 관리자 모니터링](traffic-manager-monitoring.md)을 참조하세요.
-4. **사용하려는 트래픽 라우팅 방법을 결정 방법을 결정**합니다. 서로 다른 3개의 트래픽 라우팅 방법을 사용할 수 있습니다. 요구 사항에 맞는 최선의 방법을 이해하는 데 시간이 걸립니다. 나중에 방법을 변경해야 하는 경우 언제든지 변경할 수 있습니다. 또한 방법마다 약간 다른 구성 단계가 필요합니다. 트래픽 라우팅 방법에 대한 자세한 내용은 [트래픽 관리자 트래픽 라우팅 방법 정보](traffic-manager-load-balancing-methods.md)를 참조하세요.
+4. **사용하려는 트래픽 라우팅 방법을 결정 방법을 결정**합니다. 서로 다른 3개의 트래픽 라우팅 방법을 사용할 수 있습니다. 요구 사항에 맞는 최선의 방법을 이해하는 데 시간이 걸립니다. 나중에 방법을 변경해야 하는 경우 언제든지 변경할 수 있습니다. 또한 방법마다 약간 다른 구성 단계가 필요합니다. 트래픽 라우팅 방법에 대한 자세한 내용은 [트래픽 관리자 트래픽 라우팅 방법 정보](traffic-manager-routing-methods.md)를 참조하세요.
 5. **프로필을 만들고 설정을 구성합니다**. REST API, Windows PowerShell 또는 Azure 클래식 포털을 사용하여 트래픽 관리자 프로필을 만들고 설정을 구성할 수 있습니다. 자세한 내용은 [트래픽 관리자 설정을 구성하는 방법](#how-to-configure-traffic-manager-settings)을 참조하세요. 다음 단계에서는 Azure 클래식 포털에서 **빨리 만들기**를 사용한다고 가정합니다. 
    - **트래픽 관리자 프로필 만들기** - Azure 클래식 포털에서 빨리 만들기를 사용하여 프로필을 만들려면 [트래픽 관리자 프로필 관리](traffic-manager-manage-profiles.md)를 참조하세요.
-   - **트래픽 라우팅 방법 설정 구성** – 빠른 생성에서 사용자 프로필에 대한 트래픽 라우팅 방법을 선택해야 합니다. 이 설정은 빠른 생성 단계를 완료한 후 언제든지 변경할 수 있습니다. 구성 단계는 트래픽 라우팅 방법에 해당되는 항목을 참조하세요. [성능 구성 트래픽 라우팅 방법](traffic-manager-configure-performance-load-balancing.md), [장애 조치 구성 트래픽 라우팅 방법](traffic-manager-configure-failover-load-balancing.md), [라운드 로빈 구성 트래픽 라우팅 방법](traffic-manager-configure-round-robin-load-balancing.md).
+   - **트래픽 라우팅 방법 설정 구성** – 빠른 생성에서 사용자 프로필에 대한 트래픽 라우팅 방법을 선택해야 합니다. 이 설정은 빠른 생성 단계를 완료한 후 언제든지 변경할 수 있습니다. 구성 단계는 트래픽 라우팅 방법에 해당되는 항목을 참조하세요. [성능 구성 트래픽 라우팅 방법](traffic-manager-configure-performance-routing-method.md), [장애 조치 구성 트래픽 라우팅 방법](traffic-manager-configure-failover-routing-method.md), [라운드 로빈 구성 트래픽 라우팅 방법](traffic-manager-configure-round-robin-routing-method.md).
    
    >[AZURE.NOTE] 이제 라운드 로빈 트래픽 라우팅 방법에서 가중치가 적용된 네트워크 트래픽 분산을 지원합니다. 그러나 이번에는 REST API 또는 Windows PowerShell을 사용하여 가중치를 구성해야 합니다. 자세한 내용과 예제 구성은 Azure 블로그에서 [Azure 트래픽 관리자 외부 끝점 및 PowerShell을 통한 가중치가 부여된 라운드 로빈](https://azure.microsoft.com/blog/2014/06/26/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/)을 참조하세요.
 
@@ -102,7 +102,7 @@ REST API를 사용하여 트래픽 관리자 프로필을 만들고 구성할 �
 - **정의** – 정의에는 정책 설정과 모니터 설정이 있습니다. 정의는 프로필에 해당합니다. 프로필당 정의 하나만 있을 수 있습니다. 정의 내에 포함된 여러 설정을 볼 수 있으며 Azure 클래식 포털에서 구성할 수 있더라도 정의 자체는 Azure 클래식 포털에 표시되지 않습니다.
 - **DNS 옵션** – 각 정의 내 DNS 옵션이 있습니다. DNS TTL이 구성되는 위치입니다.
 - **모니터** – 각 정의 내 모니터 설정이 있습니다. 프로토콜, 포트 및 상대 경로와 파일 이름이 구성되는 위치입니다. 모니터 설정이 표시되며 Azure 클래식 포털에서 구성할 수 있습니다. 자세한 내용은 [트래픽 관리자 모니터링](traffic-manager-monitoring.md)을 참조하세요.
-- **정책** – 각 정의 내 정책 설정이 있습니다. 정책은 트래픽 라우팅 방법과 끝점이 지정되는 위치입니다. 정책의 일부 설정이 표시되고 Azure 클래식 포털에서 구성할 수 있더라도 정책 자체는 Azure 클래식 포털에 표시되지 않습니다. 자세한 내용은 [트래픽 관리자 트래픽 라우팅 방법](traffic-manager-load-balancing-methods.md)을 참조하세요.
+- **정책** – 각 정의 내 정책 설정이 있습니다. 정책은 트래픽 라우팅 방법과 끝점이 지정되는 위치입니다. 정책의 일부 설정이 표시되고 Azure 클래식 포털에서 구성할 수 있더라도 정책 자체는 Azure 클래식 포털에 표시되지 않습니다. 자세한 내용은 [트래픽 관리자 트래픽 라우팅 방법](traffic-manager-routing-methods.md)을 참조하세요.
 
 ## Windows PowerShell을 사용하여 설정 구성
 
@@ -172,4 +172,4 @@ Windows PowerShell을 사용하여 트래픽 관리자 프로필을 만들고 �
 
 [Azure 트래픽 관리자 cmdlet](http://go.microsoft.com/fwlink/p/?LinkId=400769)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

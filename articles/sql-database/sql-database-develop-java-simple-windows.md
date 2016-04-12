@@ -26,19 +26,18 @@
 
 이 항목에서는 Azure SQL 데이터베이스에 연결하는 데 사용할 수 있는 Java 코드 샘플을 제시합니다. Java 샘플을 실행하려면 Java 개발 키트(JDK) 버전 1.8이 필요합니다. 이 샘플에서는 JDBC 드라이버를 사용하여 Azure SQL 데이터베이스에 연결합니다.
 
+## 1단계: 개발 환경 구성
 
-## 필수 조건
-
-### 드라이버와 라이브러리
+드라이버 및 라이브러리 설치
 
 - [Microsoft SQL Server용 JDBC 드라이버 - SQL JDBC 4](http://www.microsoft.com/download/details.aspx?displaylang=en&id=11774).
 - [Java 개발 키트 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)이 실행되는 운영 체제 플랫폼.
 
-### SQL 데이터베이스
+## 2단계: SQL 데이터베이스 만들기
 
 데이터베이스를 만드는 방법을 알아보려면 [시작 페이지](sql-database-get-started.md)를 참조하세요.
 
-### SQL 테이블
+## 3단계: SQL 테이블 만들기
 
 이 항목에 있는 Java 코드 예제에서는 Azure SQL 데이터베이스 데이터베이스에 다음 테스트 테이블이 이미 있는 것으로 가정합니다.
 
@@ -56,14 +55,14 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 	);
 
 
-## 1단계: 연결 문자열 가져오기
+## 4단계: 연결 문자열 가져오기
 
 [AZURE.INCLUDE [sql-database-include-connection-string-jdbc-20-portalshots](../../includes/sql-database-include-connection-string-jdbc-20-portalshots.md)]
 
-> [AZURE.NOTE]JTDS JDBC 드라이버를 사용하는 경우 연결 문자열의 URL에 "ssl=require"를 추가해야 하며, JVM "-Djsse.enableCBCProtection=false"에 대해 다음 옵션을 설정해야 합니다. 이 JVM 옵션은 보안 취약성에 대한 픽스를 사용하지 않도록 설정하므로 이 옵션을 설정하기 전에 관련된 위험을 이해해야 합니다.
+> [AZURE.NOTE] JTDS JDBC 드라이버를 사용하는 경우 연결 문자열의 URL에 "ssl=require"를 추가해야 하며, JVM "-Djsse.enableCBCProtection=false"에 대해 다음 옵션을 설정해야 합니다. 이 JVM 옵션은 보안 취약성에 대한 픽스를 사용하지 않도록 설정하므로 이 옵션을 설정하기 전에 관련된 위험을 이해해야 합니다.
 
 
-## 2단계: Java 코드 샘플 컴파일
+## 5단계: Java 코드 샘플 컴파일
 
 
 이 섹션에는 Java 코드 샘플의 대부분이 있습니다. 여기에는 후속 섹션에 나오는 더 작은 Java 세그먼트를 어디에 복사하여 붙여넣어야 하는지 표시하는 주석이 있습니다. 이 섹션의 샘플은 주석 근처에서 복사하여 붙여넣지 않아도 컴파일하고 실행할 수 있지만, 그러면 연결한 뒤 바로 종료됩니다. 다음과 같은 주석을 찾아볼 수 있습니다.
@@ -136,7 +135,7 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 - your\_password
 
 
-## 3단계: 행 삽입
+## 6단계: 행 삽입
 
 
 이 Java 세그먼트는 Person 테이블에 두 행을 삽입하는 Transact-SQL INSERT 문을 발행합니다. 일반적인 순서는 다음과 같습니다.
@@ -169,7 +168,7 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 	}
 
 
-## 4단계: 트랜잭션 커밋
+## 7단계: 트랜잭션 커밋
 
 다음 Java 코드 세그먼트는 Person 테이블의 모든 행에서 `age` 값을 증가시키는 Transact-SQL UPDATE 문을 발행합니다. 일반적인 순서는 다음과 같습니다.
 
@@ -199,7 +198,7 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 	connection.setAutoCommit(true);
 
 
-## 4단계: 쿼리 실행
+## 8단계: 쿼리 실행
 
 
 이 Java 세그먼트는 Person 테이블에서 업데이트된 모든 행이 표시되도록 Transact-SQL SELECT 문을 실행합니다. 일반적인 순서는 다음과 같습니다.
@@ -228,4 +227,4 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 
 자세한 내용은 [Java개발자 센터](/develop/java/)를 참조하세요.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0330_2016-->

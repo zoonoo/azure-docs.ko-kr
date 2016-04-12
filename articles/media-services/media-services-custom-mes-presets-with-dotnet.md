@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="미디어 인코더 표준 사전 설정을 사용자 지정하여 고급 인코딩 작업 수행" 
+	pageTitle="미디어 인코더 표준을 사용한 고급 인코딩" 
 	description="이 항목에서는 미디어 인코더 표준 작업 사전 설정을 사용자 지정하여 고급 인코딩을 수행하는 방법을 보여줍니다. 이 항목에서는 미디어 서비스 .NET SDK를 사용하여 인코딩 작업을 만드는 방법을 보여줍니다. 또한 인코딩 작업에 사용자 지정 사전 설정을 제공하는 방법을 보여줍니다." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2016"    
+	ms.date="03/27/2016"    
 	ms.author="juliako"/>
 
 
-#미디어 인코더 표준 사전 설정을 사용자 지정하여 고급 인코딩 작업 수행
+#미디어 인코더 표준을 사용한 고급 인코딩
 
 ##개요
 
-이 항목에서는 미디어 인코더 표준 작업 사전 설정을 사용자 지정하여 고급 인코딩을 수행하는 방법을 보여줍니다. 항목은 [.NET을 사용하여 인코딩 작업 및 이 작업을 실행하는 작업을 만드는 방법](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet)을 보여줍니다. 또한 인코딩 작업에 사용자 지정 사전 설정을 제공하는 방법을 보여줍니다. 사전 설정에서 사용되는 요소에 대한 설명은 [이 문서](https://msdn.microsoft.com/library/mt269962.aspx)를 참조하세요.
+이 토픽에서는 미디어 인코더 표준을 사용하여 고급 인코딩 작업을 수행하는 방법을 보여줍니다. 항목은 [.NET을 사용하여 인코딩 작업 및 이 작업을 실행하는 작업을 만드는 방법](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet)을 보여줍니다. 또한 인코딩 작업에 사용자 지정 사전 설정을 제공하는 방법을 보여줍니다. 사전 설정에서 사용되는 요소에 대한 설명은 [이 문서](https://msdn.microsoft.com/library/mt269962.aspx)를 참조하세요.
 
 다음 인코딩 작업을 수행하는 사용자 지정 사전 설정을 보여줍니다.
 
@@ -30,6 +30,7 @@
 - [오버레이 만들기](media-services-custom-mes-presets-with-dotnet.md#overlay)
 - [입력에 오디오가 없을 때 조용한 오디오 트랙 삽입](media-services-custom-mes-presets-with-dotnet.md#silent_audio)
 - [자동 디인터레이스 사용 안 함](media-services-custom-mes-presets-with-dotnet.md#deinterlacing)
+- [오디오 전용 사전 설정](media-services-custom-mes-presets-with-dotnet.md#audio_only)
 
 ##<a id="encoding_with_dotnet"></a>미디어 서비스 .NET SDK를 사용하여 인코딩
 
@@ -37,7 +38,7 @@
 
 - 인코딩 작업을 만듭니다.
 - 미디어 인코더 표준 인코더에 대한 참조를 가져옵니다.
-- 사용자 지정 XML 또는 JSON 사전 설정 로드 XML 또는 JSON (예: [XML](media-services-custom-mes-presets-with-dotnet.md#xml) 또는 [JSON](media-services-custom-mes-presets-with-dotnet.md#json)을 파일에 저장하고 다음 코드를 사용하여 파일을 로드할 수 있습니다.
+- 사용자 지정 XML 또는 JSON 사전 설정 로드 XML 또는 JSON(예: [XML](media-services-custom-mes-presets-with-dotnet.md#xml) 또는 [JSON](media-services-custom-mes-presets-with-dotnet.md#json)을 파일에 저장하고 다음 코드를 사용하여 파일을 로드할 수 있습니다.
 
 			// Load the XML (or JSON) from the local file.
 		    string configuration = File.ReadAllText(fileName);  
@@ -896,7 +897,55 @@
 	</Sources>
 
 
+##<a id="audio_only"></a>오디오 전용 사전 설정
 
+이 섹션에서는 AAC 오디오 및 AAC 고급 품질 오디오라는 두 개의 오디오 전용 MES 사전 설정을 설명합니다.
+
+###AAC 오디오 
+
+	{
+	  "Version": 1.0,
+	  "Codecs": [
+	    {
+	      "Profile": "AACLC",
+	      "Channels": 2,
+	      "SamplingRate": 48000,
+	      "Bitrate": 128,
+	      "Type": "AACAudio"
+	    }
+	  ],
+	  "Outputs": [
+	    {
+	      "FileName": "{Basename}_AAC_{AudioBitrate}.mp4",
+	      "Format": {
+	        "Type": "MP4Format"
+	      }
+	    }
+	  ]
+	}
+
+###AAC 고급 음질 오디오
+
+	{
+	  "Version": 1.0,
+	  "Codecs": [
+	    {
+	      "Profile": "AACLC",
+	      "Channels": 2,
+	      "SamplingRate": 48000,
+	      "Bitrate": 192,
+	      "Type": "AACAudio"
+	    }
+	  ],
+	  "Outputs": [
+	    {
+	      "FileName": "{Basename}_AAC_{AudioBitrate}.mp4",
+	      "Format": {
+	        "Type": "MP4Format"
+	      }
+	    }
+	  ]
+	}
 
 ##미디어 서비스 학습 경로
 
@@ -910,4 +959,4 @@
 
 [미디어 서비스 인코딩 개요](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -24,19 +24,19 @@ Azure 컨테이너 서비스(ACS: Azure Container Service)는 컨테이너화된
 
 <br /> ![ACS는 Azure의 여러 호스트에서 컨테이너화된 응용 프로그램을 관리하는 방법을 제공합니다.](./media/acs-intro/acs-cluster.png) <br /><br />
 
-ACS는 Docker를 활용하여 응용 프로그램 컨테이너가 완전히 이식 가능한지 확인합니다. 또한 선택한 Marathon, Chronos 및 Apache Mesos 또는 Docker Swarm을 지원하여 이러한 응용 프로그램이 수천, 심지어 수만 개의 컨테이너까지 규모를 확장할 수 있는지 확인합니다.
+ACS는 Docker 컨테이너 형식을 활용하여 응용 프로그램 컨테이너가 완전히 이식 가능한지 확인합니다. 또한 선택한 Marathon 및 Apache Mesos 또는 Docker Swarm을 지원하여 이러한 응용 프로그램이 수천, 심지어 수만 개의 컨테이너까지 규모를 확장할 수 있는지 확인합니다.
 
 Azure 컨테이너 서비스를 사용하면 오케스트레이션 계층에 포함되는 응용 프로그램 이식성을 유지하면서 Azure의 엔터프라이즈급 기능을 활용할 수 있습니다.
 
 Azure 컨테이너 서비스 사용
 -----------------------------
 
-Azure 컨테이너 서비스를 사용하는 우리의 목표는 현재 우리 고객들 사이에서 인기 있는 오픈 소스 도구 및 기술을 사용하여 컨테이너 호스팅 환경을 제공하는 것입니다. 이를 위해 Docker 및 사용자가 선택한 Orchestrator에 대한 표준 API 끝점을 노출합니다. 이러한 끝점을 사용하여 해당 끝점과 통신할 수 있는 모든 소프트웨어를 활용할 수 있습니다. 예를 들어, Docker Swarm 끝점의 경우 Docker Compose를 사용하도록 선택할 수 있고 Apache Mesos의 경우 DCOS CLI를 사용하도록 선택할 수 있습니다.
+Azure 컨테이너 서비스를 사용하는 우리의 목표는 현재 우리 고객들 사이에서 인기 있는 오픈 소스 도구 및 기술을 사용하여 컨테이너 호스팅 환경을 제공하는 것입니다. 이를 위해 사용자가 선택한 Orchestrator에 대한 표준 API 끝점을 노출합니다. 이러한 끝점을 사용하여 해당 끝점과 통신할 수 있는 모든 소프트웨어를 활용할 수 있습니다. 예를 들어 Docker Swarm 끝점의 경우 Docker CLI를 사용하도록 선택할 수 있고 Apache Mesos의 경우 DCOS CLI를 사용하도록 선택할 수 있습니다.
 
 Azure 컨테이너 서비스를 사용하여 Docker 클러스터 만들기
 -------------------------------------------------------
 
-Azure 컨테이너 서비스를 사용하기 시작하려면 Azure 리소스 관리자 템플릿을 사용하여 ACS 클러스터를 배포합니다. 이 배포는 서로 다른 크기 및 가용성 옵션으로 구성될 수 있으며 Apache Mesos 또는 Docker Swarm으로 구성됩니다. Azure 리소스 관리자 템플릿은 Azure CLI 또는 PowerShell을 사용하여 Azure 포트를 통해 배포될 수 있습니다. 또한 추가 또는 고급 Azure 구성을 포함하도록 템플릿을 수정할 수 있습니다. 배포 및 ACS 클러스터에 대한 자세한 내용은 [Azure 컨테이너 서비스 클러스터 배포](./container-service-deployment.md)를 참조하세요.
+Azure 컨테이너 서비스를 사용하기 시작하려면 Azure 리소스 관리자 템플릿을 사용하여 ACS 클러스터를 배포합니다. 이 배포는 서로 다른 크기 및 가용성 옵션으로 구성될 수 있으며 Apache Mesos 또는 Docker Swarm으로 구성됩니다. Azure Resource Manager 템플릿은 Azure CLI 또는 PowerShell을 사용하여 Azure 포털을 통해 배포될 수 있습니다. 또한 추가 또는 고급 Azure 구성을 포함하도록 템플릿을 수정할 수 있습니다. 배포 및 ACS 클러스터에 대한 자세한 내용은 [Azure 컨테이너 서비스 클러스터 배포](./container-service-deployment.md)를 참조하세요.
 
 응용 프로그램 배포
 ------------------------
@@ -55,7 +55,7 @@ Mesos는 수준 높은 기능 집합을 관리합니다.
 
 -   ZooKeeper를 사용하는 내결함성 있는 복제된 마스터 및 슬레이브
 
--   Docker 컨테이너에 대한 지원
+-   Docker 형식의 컨테이너에 대한 지원
 
 -   Linux 컨테이너를 사용하여 작업 간에 네이티브 격리
 
@@ -69,7 +69,7 @@ Mesos는 Azure 컨테이너 서비스에서 워크로드를 예약하는 데 사
 
 #### Marathon 및 Chronos 사용
 
-Marathon은 cgroups의 서비스에 대한, 또는 ACS의 경우, Docker 컨테이너에 대한 클러스터 전체 초기화 및 제어 시스템입니다. 이는 종속성 및 시간 기반 일정을 처리하는 Mesos에 대한 내결함성 있는 작업 스케줄러인 Chronos와 이상적인 파트너입니다.
+Marathon은 cgroups의 서비스에 대한, 또는 ACS의 경우, Docker 형식 컨테이너에 대한 클러스터 전체 초기화 및 제어 시스템입니다. 이는 종속성 및 시간 기반 일정을 처리하는 Mesos에 대한 내결함성 있는 작업 스케줄러인 Chronos와 이상적인 파트너입니다.
 
 Marathon 및 Chronos는 응용 프로그램을 배포할 수 있는 웹 UI를 제공합니다. 사용자는 배포 시 DNS\_PREFIX 및 REGION이 모두 정의되는 `http://DNS\_PREFIX.REGION.cloudapp.azure.com`과 유사한 URL에서 이를 액세스합니다. 물론, 사용자는 자체 DNS 이름을 제공할 수도 있습니다. 마라톤 웹 UI를 사용하여 컨테이너를 실행하는 방법에 대한 자세한 내용은 [웹 UI를 통한 컨테이너 관리](./container-service-mesos-marathon-ui.md)를 참조하세요.
 
@@ -101,4 +101,4 @@ ACS 시작하기:
 
 > [AZURE.VIDEO connect-2015-getting-started-developing-with-docker-and-azure-container-service]
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

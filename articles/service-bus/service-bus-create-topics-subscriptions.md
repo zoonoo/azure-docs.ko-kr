@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="서비스 버스 토픽 및 구독을 사용하는 응용 프로그램 만들기 | Microsoft Azure"
-   description="서비스 버스 토픽 및 구독에서 제공하는 게시-구독 기능 소개"
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="서비스 버스 토픽 및 구독을 사용하는 응용 프로그램 만들기 | Microsoft Azure"
+    description="서비스 버스 토픽 및 구독에서 제공하는 게시-구독 기능 소개"
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="tysonn" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="12/28/2015"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="03/16/2016"
+    ms.author="sethm" />
 
 # 서비스 버스 토픽 및 구독을 사용하는 응용 프로그램 만들기
 
@@ -33,7 +33,7 @@ Azure 서비스 버스는 신뢰할 수 있는 메시지 큐 및 지속형 게�
 
 메시지는 큐로 보내질 때와 같은 방식으로 토픽에 전달됩니다. 그러나 메시지가 토픽으로부터 직접 수신되는 것이 아니라 구독으로부터 수신됩니다. 토픽 구독은 토픽에 전송된 메시지의 사본을 받는 가상 큐로 간주할 수 있습니다. 메시지는 큐에서 수신하는 방식과 동일하게 구독에서 수신됩니다.
 
-유통업 시나리오를 다시 생각해보면 큐를 토픽이 대체하며, 재고 관리 시스템 구성 요소에서 사용하도록 구독을 추가합니다. 이제 시스템은 다음과 같이 나타납니다.
+유통업 시나리오를 다시 생각해보면 큐를 토픽이 대체하며, 재고 관리 시스템 구성 요소에서 사용할 수 있는 구독을 추가할 수 있습니다. 이제 시스템은 다음과 같이 나타납니다.
 
 ![Service-Bus2](./media/service-bus-create-topics-subscriptions/IC657165.gif)
 
@@ -119,7 +119,7 @@ catch (Exception e)
 
 ## 구독 필터
 
-지금까지 이 문서에서는 토픽에 보낸 모든 메시지를 모든 등록된 구독에서 사용할 수 있었습니다. 여기서 핵심은 "사용할 수 있다"는 것입니다. 서비스 버스 구독이 토픽으로 전송된 모든 메시지를 확인하는 동안 가상 구독 큐로 이러한 메시지의 하위 집합을 복사할 수 있습니다. 이 작업은 구독 *필터*를 사용하여 수행합니다. 구독을 만들 때 메시지 속성(예: [레이블](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx))과 응용 프로그램 속성(예: 위 예제에서의 **StoreName**)에 모두 적용되는 SQL92 스타일 조건자 형태로 필터 식을 제공할 수 있습니다.
+지금까지 이 시나리오에서는 토픽에 보낸 모든 메시지를 모든 등록된 구독에서 사용할 수 있었습니다. 여기서 핵심은 "사용할 수 있다"는 것입니다. 서비스 버스 구독이 토픽으로 전송된 모든 메시지를 확인하는 동안 가상 구독 큐로 이러한 메시지의 하위 집합을 복사할 수 있습니다. 이 작업은 구독 *필터*를 사용하여 수행합니다. 구독을 만들 때 메시지 속성(예: [레이블](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx))과 응용 프로그램 속성(예: 위 예제에서의 **StoreName**)에 모두 적용되는 SQL92 스타일 조건자 형태로 필터 식을 제공할 수 있습니다.
 
 이를 설명하기 위해 시나리오를 확장해 보겠습니다. 즉 두 번째 매장을 유통업 시나리오에 추가합니다. 여전히 두 매장의 모든 POS 터미널에서 판매 데이터를 중앙 집중식 재고 관리 시스템에 전달해야 하지만 대시보드 도구를 사용하는 매장 관리자는 해당 매장의 성과에만 관심이 있습니다. 이를 위해 구독 필터링을 사용할 수 있습니다. POS 터미널이 메시지를 게시할 때는 메시지에 대해 **StoreName** 응용 프로그램 속성을 설정합니다. 두 매장이 **레드몬드**와 **시애틀**이라고 하면 레드몬드 매장의 POS 터미널은 판매 데이터 메시지에 **StoreName**을 **Redmond**라고 표시하며 시애틀 매장의 POS 터미널은 **StoreName**을 **Seattle**이라고 표시합니다. Redmond 매장의 매장 관리자는 자신의 POS 터미널의 데이터만 보고자 합니다. 시스템은 다음과 같이 나타납니다.
 
@@ -150,4 +150,4 @@ namespaceManager.CreateSubscription("DataCollectionTopic", "Dashboard", dashboar
 
 POS 유통업 시나리오에서 큐를 사용하는 방법에 대한 정보는 [서비스 버스 큐를 사용하는 응용 프로그램 만들기](service-bus-create-queues.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

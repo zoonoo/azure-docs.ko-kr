@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/02/2016"
+   ms.date="04/05/2016"
    ms.author="joaoma"/>
 
 # 응용 프로그램 게이트웨이 생성, 시작, 또는 삭제
@@ -20,9 +20,9 @@
 Azure 응용 프로그램 게이트웨이는 계층 7 부하 분산 장치입니다. 클라우드 또는 온-프레미스이든 상관없이 서로 다른 서버 간에 장애 조치(Failover), 성능 라우팅 HTTP 요청을 제공합니다. 응용 프로그램 게이트웨이의 응용 프로그램 전달 기능에는 HTTP 부하 분산, 쿠키 기반 세션 선호도, SSL(Secure Sockets Layer) 오프로드 등이 있습니다.
 
 > [AZURE.SELECTOR]
-- [Azure Classic PowerShell](application-gateway-create-gateway.md)
+- [Azure 클래식 PowerShell](application-gateway-create-gateway.md)
 - [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
-- [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
+- [Azure Resource Manager 템플릿](application-gateway-create-gateway-arm-template.md)
 
 
 <BR>
@@ -78,10 +78,10 @@ Azure 응용 프로그램 게이트웨이는 계층 7 부하 분산 장치입니
 	Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
 
 
- *Description*, *InstanceCount* 및 *GatewaySize* 는 선택적 매개 변수입니다.
+ *Description*, *InstanceCount* 및 *GatewaySize*는 선택적 매개 변수입니다.
 
 
-생성된 게이트웨이의 유효성을 검사하려면 **Get-AzureApplicationGateway** cmdlet을 사용합니다.
+생성된 게이트웨이의 유효성을 검사하려면 **Get-AzureApplicationGateway** cmdlet을 사용할 수 있습니다.
 
 
 
@@ -97,7 +97,7 @@ Azure 응용 프로그램 게이트웨이는 계층 7 부하 분산 장치입니
 	VirtualIPs    : {}
 	DnsName       :
 
->[AZURE.NOTE]  *InstanceCount* 의 기본값은 2이고, 최대값은 10입니다. *GatewaySize* 의 기본값은 보통입니다. 작게, 보통 및 크게를 선택할 수 있습니다.
+>[AZURE.NOTE]  *InstanceCount*의 기본값은 2이고, 최대값은 10입니다. *GatewaySize*의 기본값은 보통입니다. 작게, 보통 및 크게를 선택할 수 있습니다.
 
 
  게이트웨이가 아직 시작되지 않았으므로 *VirtualIPs* 및 *DnsName*이 빈 값으로 표시됩니다. 이 값들은 게이트웨이가 실행 상태가 되면 생성됩니다.
@@ -222,7 +222,7 @@ XML 또는 구성 개체를 사용하여 응용 프로그램 게이트웨이를 
 
 ## 구성 개체를 사용하여 응용 프로그램 게이트웨이 구성
 
-다음 예제에서는 구성 개체를 사용하여 응용 프로그램 게이트웨이를 구성하는 방법을 보여 줍니다. 모든 구성 항목은 개별적으로 구성된 다음 응용 프로그램 게이트웨이 구성 개체에 추가해야 합니다. 구성 개체를 만든 후 **Set-AzureApplicationGateway** 명령을 사용하여 이전에 만든 응용 프로그램 게이트웨이 리소스에 대한 구성을 커밋합니다.
+다음 예제에서는 구성 개체를 사용하여 응용 프로그램 게이트웨이를 구성하는 방법을 보여 줍니다. 모든 구성 항목은 개별적으로 구성된 다음 응용 프로그램 게이트웨이 구성 개체에 추가해야 합니다. 구성 개체를 만든 후에 **Set-AzureApplicationGateway** 명령을 사용하여 이전에 만든 응용 프로그램 게이트웨이 리소스에 대한 구성을 커밋합니다.
 
 >[AZURE.NOTE] 각 구성 개체에 값을 할당하기 전에 PowerShell에서 저장소에 사용할 개체 종류를 선언해야 합니다. 개별 항목을 만드는 첫 번째 줄은 Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(개체 이름)의 사용 내용을 정의합니다.
 
@@ -344,7 +344,7 @@ XML 또는 구성 개체를 사용하여 응용 프로그램 게이트웨이를 
 
 ## 게이트웨이 상태를 확인합니다.
 
-**Get-AzureApplicationGateway** cmdlet을 사용하여 게이트웨이의 상태를 확인합니다. **Start-AzureApplicationGateway**가 이전 단계에서 성공한 경우 *상태* 가 실행 중이어야 하고, *Vip* 와 *DnsName* 에 유효한 항목이 있어야 합니다.
+**Get-AzureApplicationGateway** cmdlet을 사용하여 게이트웨이의 상태를 확인합니다. **Start-AzureApplicationGateway**가 이전 단계에서 성공한 경우 *상태*가 실행 중이어야 하고, *Vip*와 *DnsName*에 유효한 항목이 있어야 합니다.
 
 다음 샘플은 응용 프로그램 게이트웨이가 시작되고 실행 중이며 `http://<generated-dns-name>.cloudapp.net`으로 보낸 트래픽을 사용할 준비가 되었음을 보여 줍니다.
 
@@ -406,11 +406,11 @@ XML 또는 구성 개체를 사용하여 응용 프로그램 게이트웨이를 
 
 SSL 오프로드를 구성하려는 경우 [SSL 오프로드에 대해 응용 프로그램 게이트웨이 구성](application-gateway-ssl.md)을 참조하세요.
 
-내부 부하 분산 장치에서 사용되도록 응용 프로그램 게이트웨이를 구성하려면 [ILB(내부 부하 분산 장치)를 사용하여 응용 프로그램 게이트웨이 만들기](application-gateway-ilb.md)를 참조하세요.
+내부 부하 분산 장치로 사용하도록 응용 프로그램 게이트웨이를 구성하려면 [ILB(내부 부하 분산 장치)를 사용하여 응용 프로그램 게이트웨이 만들기](application-gateway-ilb.md)를 참조하세요.
 
 보다 자세한 내용을 원한다면 일반적 부하 분산 옵션을 참조:
 
 - [Azure 부하 분산 장치](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure 트래픽 관리자](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0406_2016-->

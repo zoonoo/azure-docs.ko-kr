@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/08/2016"
+   ms.date="03/18/2016"
    ms.author="larryfr"/>
 
 #HDInsight의 Apache Storm 소개: Hadoop에 대한 실시간 분석
@@ -81,7 +81,7 @@ Visual Studio용 HDInsight 도구에 대한 자세한 내용은 [Visual Studio�
 
 Storm 대시보드 사용에 대한 자세한 내용은 [HDInsight에서 Apache Storm 토폴로지 배포 및 관리](hdinsight-storm-deploy-monitor-topology.md)를 참조하세요.
 
-**이벤트 허브 Spout**를 통해 HDInsight의 Storm을 Azure 이벤트 허브와 쉽게 통합할 수도 있습니다. 각 Storm 클러스터(**%STORM\_HOME%\\examples\\eventhubspout\\eventhubs-storm-spout-0.9-jar-with-dependencies.jar**)에서 이 Spout를 사용할 수 있습니다. Storm 토폴로지에서의 spout 사용 예제는 다음 문서를 참조하세요.
+**이벤트 허브 Spout**를 통해 HDInsight의 Storm을 Azure 이벤트 허브와 쉽게 통합할 수도 있습니다. 이 구성 요소의 최신 버전은 [https://github.com/hdinsight/hdinsight-storm-examples/tree/master/lib/eventhubs](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/lib/eventhubs)에서 사용 가능합니다. 이 구성 요소의 사용에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [Azure 이벤트 허브를 사용하는 C# 토폴로지 개발](hdinsight-storm-develop-csharp-event-hub-topology.md)
 
@@ -219,4 +219,4 @@ HDInsight의 Apache Storm을 사용한 실시간 분석 솔루션에 대해 자�
 [apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
 [gettingstarted]: hdinsight-apache-storm-tutorial-get-started-linux.md
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

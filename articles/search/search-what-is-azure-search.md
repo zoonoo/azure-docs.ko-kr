@@ -30,7 +30,7 @@ Azure 검색은 서버 및 인프라 관리를 Microsoft에 위한 클라우드 
 
 **패싯 탐색**은 Azure 검색을 사용하는 검색 결과 페이지에 간단하게 추가됩니다. [쿼리 매개 변수 하나만 사용하면](https://msdn.microsoft.com/library/azure/dn798927.aspx) Azure 검색이 앱 UI에 패싯 검색 환경을 구축하는 데 필요한 모든 정보를 반환하므로 사용자가 검색 결과를 드릴다운 및 필터링할 수 있습니다(예: 가격 범위 또는 브랜드로 카탈로그 항목 필터링).
 
-**지리 공간** [지원](search-create-geospatial.md)을 사용하여 지리적 위치를 지능적으로 처리, 필터링 및 표시할 수 있습니다. Azure 검색을 통해 사용자는 지정된 위치와 검색 결과의 근접도에 따라 또는 특정 지리적 영역에 따라 데이터를 검색할 수 있습니다.
+**지리 공간** 지원을 사용하여 지리적 위치를 지능적으로 처리, 필터링 및 표시할 수 있습니다. Azure 검색을 통해 사용자는 지정된 위치와 검색 결과의 근접도에 따라 또는 특정 지리적 영역에 따라 데이터를 검색할 수 있습니다. [채널 9: Azure 검색 및 지리 공간적 데이터](https://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data) 동영상에서 작동 방법을 설명합니다.
 
 **필터**를 사용하여 간단하게 패싯 탐색을 응용 프로그램 UI에 통합하고, 쿼리 작성 능력을 향상하고, 사용자 또는 개발자가 지정한 기준에 따라 필터링할 수 있습니다. [OData 구문](https://msdn.microsoft.com/library/azure/dn798921.aspx)을 사용하여 강력한 필터를 만듭니다.
 
@@ -83,4 +83,4 @@ Azure 검색 인덱스를 채웠으면 REST API 또는 .NET SDK와 함께 간단
 
 Azure 계정이 없는 분은 등록 없이 무료 60분 세션을 사용할 수 있습니다. [Azure 앱 서비스 시도](http://go.microsoft.com/fwlink/p/?LinkId=618214)로 이동하여 "웹앱"을 선택하세요. 그런 다음 "ASP.NET + Azure 검색" 템플릿을 선택하여 시작하세요.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

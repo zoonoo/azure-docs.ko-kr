@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="03/04/2016" 
 	ms.author="bradsev" />
 
 
@@ -250,7 +250,7 @@ PowerBI에는 솔루션의 일부로 실시간 대시보드를 생성하는 응�
 
 **형식**을 클릭하고 **데이터 색**을 선택하고 **MaintenanceProbability** 색을 값 **“F2C80F”**로 변경합니다.
 
-차트의 **제목**을 **“시/군/구별 차량 유지보수 및 리콜 확률”**로 변경합니다.
+차트의 **제목**을 **“시/군/구별 차량 유지보수 및 리콜 확률”**로 변경
 
 ![연결된 자동차 - 새 시각화 추가](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4ee.png)
 
@@ -364,11 +364,14 @@ PowerBI에는 솔루션의 일부로 실시간 대시보드를 생성하는 응�
 ![연결된 자동차 PowerBI.com](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard2.png)
  
 
-**3페이지에서**, 다음을 고정 1. VIN 개수 ![연결된 자동차 PowerBI.com](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard3.png)
+**3페이지에서**, 다음을 고정
+1.	VIN 개수 ![연결된 자동차 PowerBI.com](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard3.png) 
 
 2.	모델별 적극적으로 운전한 차량 - 폭포 차트 ![차량 원격 분석 - 차트 4 고정](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard4.png)
 
-**5페이지에서**, 다음을 고정 1. vin 개수 ![차량 원격 분석 - 차트 5 고정](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard5.png) 2. 모델별 연료 효율이 좋은 차량: 묶은 세로 막대형 차트 ![차량 원격 분석 - 차트 6 고정](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard6.png)
+**5페이지에서**, 다음을 고정
+1.	vin 개수 ![차량 원격 분석 - 차트 5 고정](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard5.png)  
+2.	모델별 연료 효율이 좋은 차량: 묶은 세로 막대형 차트 ![차량 원격 분석 - 차트 6 고정](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard6.png)
 
 **4페이지에서**, 다음을 고정
 
@@ -390,4 +393,4 @@ PowerBI에는 솔루션의 일부로 실시간 대시보드를 생성하는 응�
 
 축하합니다. 차량 상태 및 운전 습관을 실시간으로 예측 가능하며 배치 통찰력을 얻을 수 있는 보고서 및 대시보드를 성공적으로 만들었습니다.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0309_2016-->

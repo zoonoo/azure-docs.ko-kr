@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/05/2016" 
+    ms.date="03/16/2016" 
     ms.author="jeedes" />
 
 #자습서: Cherwell와 Azure Active Directory 통합
@@ -37,7 +37,7 @@
 
 ###Cherwell에 응용 프로그램 통합을 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-1.  Azure 관리 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+1.  Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
     ![Active Directory](./media/active-directory-saas-cherwell-tutorial/IC700993.png "Active Directory")
 
@@ -66,7 +66,7 @@
 
 ###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
-1.  Azure AD 포털의 **Cherwell** 응용 프로그램 통합 페이지에서 **Single Sign-on 구성**을 클릭하여 **Single Sign-on 구성** 대화 상자를 엽니다.
+1.  Azure 클래식 포털의 **Cherwell** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-cherwell-tutorial/IC798990.png "Single Sign-On 구성")
 
@@ -79,7 +79,7 @@
     ![앱 URL 구성](./media/active-directory-saas-cherwell-tutorial/IC798992.png "앱 URL 구성")
 
     1.  **로그온 URL** 텍스트 상자에 사용자가 **Cherwell**에 로그인하는 데 사용하는 URL을 입력합니다.(예: *https://pictdev.cherwellondemand.com/cherwellclient* )
-    2.  **다음**를 클릭합니다.
+    2.  **다음** 를 클릭합니다.
 
 4.  **Cherwell의 Single Sign-On을 구성** 페이지에서 다음 단계를 수행합니다.
 
@@ -92,10 +92,9 @@
 
 5.  다운로드한 인증서, **ID 공급자 URL** 및 **Single Sign-On 서비스 URL**을 Cherwell 지원팀에 제출합니다.
 
-    >[AZURE.NOTE] Cherwell 지원팀은 실제 SSO 구성을 수행해야 합니다.
-    구독에 SSO를 사용하도록 설정하면 알림을 받을 수 있습니다.
+    >[AZURE.NOTE] Cherwell 지원팀은 실제 SSO 구성을 수행해야 합니다. 구독에 SSO를 사용하도록 설정하면 알림을 받을 수 있습니다.
 
-6.  Azure AD 포털에서 Single Sign-on 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-on 구성** 대화 상자를 닫습니다.
+6.  Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-cherwell-tutorial/IC798994.png "Single Sign-On 구성")
 ##사용자 프로비전 구성
@@ -111,9 +110,9 @@ Cherwell의 경우 사용자 계정을 Cherwell 지원 팀에서 작성해야 �
 
 ###Cherwell에 사용자를 할당하려면 다음 단계를 수행합니다.
 
-1.  Azure AD 포털에서 테스트 계정을 만듭니다.
+1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
 
-2.  **Cherwell** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+2.  **Cherwell ** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
 
     ![사용자 할당](./media/active-directory-saas-cherwell-tutorial/IC798995.png "사용자 할당")
 
@@ -123,6 +122,4 @@ Cherwell의 경우 사용자 계정을 Cherwell 지원 팀에서 작성해야 �
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0107_2016-->
-
-
+<!----HONumber=AcomDC_0316_2016-->

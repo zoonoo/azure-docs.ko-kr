@@ -4,7 +4,7 @@
 	services="mobile-services"
 	documentationCenter=""
 	authors="ggailey777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,15 +13,20 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="03/06/2016"
 	ms.author="glenga"/>
 
 
 # 방법: JavaScript 백 엔드 모바일 서비스에서 사용자 지정 API 끝점 정의
 
 > [AZURE.SELECTOR]
-- [JavaScript backend](./mobile-services-javascript-backend-define-custom-api.md)
-- [.NET backend](./mobile-services-dotnet-backend-define-custom-api.md)
+- [JavaScript 백 엔드](./mobile-services-javascript-backend-define-custom-api.md)
+- [.NET 백 엔드](./mobile-services-dotnet-backend-define-custom-api.md)
+
+&nbsp;
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> 이 항목에 해당하는 모바일 앱 버전은 [방법: 사용자 지정 API 컨트롤러 정의](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#CustomAPI)를 참조하세요.
 
 이 항목에서는 JavaScript 백 엔드 모바일 서비스에서 사용자 지정 API 끝점을 정의하는 방법을 보여 줍니다. 사용자 지정 API를 사용하면 삽입, 업데이트, 삭제 또는 읽기 작업에 매핑되지 않는 서버 기능이 있는 사용자 지정 끝점을 정의할 수 있습니다. 사용자 지정 API를 사용하여 HTTP 헤더 및 본문 형식을 비롯한 메시지를 보다 효과적으로 제어할 수 있습니다.
 
@@ -36,4 +41,4 @@
 
 <!-- URLs. -->
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

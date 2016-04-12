@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="12/01/2015"
+   ms.date="03/23/2016"
    ms.author="sstein"/>
 
 # C&#x23;을 사용하여 SQL 데이터베이스 만들기 및 관리
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-database-elastic-pool-portal.md)
+- [Azure 포털](sql-database-elastic-pool-create-portal.md)
 - [C#](sql-database-client-library.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
@@ -30,11 +30,11 @@
 
 개별 코드 조각은 명확성을 위해 세분화되었으며 샘플 콘솔 응용 프로그램은 이 문서의 하단에 있는 섹션에서 모든 명령을 합칩니다.
 
-.NET용 Azure SQL 데이터베이스 라이브러리는 [리소스 관리자 기반 SQL 데이터베이스 REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx)를 래핑하는 [Azure 리소스 관리자](resource-group-overview.md) 기반 API를 제공합니다. 이 클라이언트 라이브러리는 리소스 관리자 기반 클라이언트 라이브러리의 일반적인 패턴을 따릅니다. 리소스 관리자는 리소스 그룹을 필요로 하며 AAD([Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx))로 인증합니다.
+.NET용 Azure SQL 데이터베이스 라이브러리는 [리소스 관리자 기반 SQL 데이터베이스 REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx)를 래핑하는 [Azure 리소스 관리자](../resource-group-overview.md) 기반 API를 제공합니다. 이 클라이언트 라이브러리는 리소스 관리자 기반 클라이언트 라이브러리의 일반적인 패턴을 따릅니다. 리소스 관리자는 리소스 그룹을 필요로 하며 AAD([Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx))로 인증합니다.
 
 <br>
 
-> [AZURE.NOTE].NET용 Azure SQL 데이터베이스 라이브러리는 현재 미리 보기 상태입니다.
+> [AZURE.NOTE] .NET용 Azure SQL 데이터베이스 라이브러리는 현재 미리 보기 상태입니다.
 
 <br>
 
@@ -148,7 +148,7 @@ Azure 구독이 없는 경우 이 페이지의 맨 위에서 **무료 평가판*
 
 
 
-> [AZURE.NOTE]이 문서의 예제는 각 API요청의 동기 양식을 사용하며 REST가 완료되어 기본 서비스를 호출할 때까지 차단합니다. 비동기 메서드를 사용할 수 있습니다.
+> [AZURE.NOTE] 이 문서의 예제는 각 API요청의 동기 양식을 사용하며 REST가 완료되어 기본 서비스를 호출할 때까지 차단합니다. 비동기 메서드를 사용할 수 있습니다.
 
 
 
@@ -198,7 +198,7 @@ SQL 데이터베이스는 서버에 포함되어 있습니다. 서버 이름은 
 
 ## 서버에 대한 액세스를 허용할 수 있도록 서버 방화벽 규칙 생성
 
-기본적으로 모든 위치에서 서버로 연결할 수는 없습니다. TDS를 사용해 서버에 연결하고 T-SQL을 서버 또는 서버의 데이터베이스에 제출하려면 클라이언트 IP 주소에서 액세스를 허용하는 [방화벽 규칙](https://msdn.microsoft.com/library/azure/ee621782.aspx)을 정의해야 합니다.
+기본적으로 모든 위치에서 서버로 연결할 수는 없습니다. TDS를 사용해 서버에 연결하고 T-SQL을 서버 또는 서버의 데이터베이스에 제출하려면 클라이언트 IP 주소에서 액세스를 허용하는 [방화벽 규칙](https://msdn.microsoft.com/library/azure/ee621782.aspx)이 정의되어야 합니다.
 
 다음의 예제는 모든 IP 주소에서 서버에 대한 액세스를 여는 규칙을 만듭니다. 데이터베이스의 보안을 위해 적절한 SQL 로그인 및 암호를 만들고 지침에 대한 기본 보호로서 방화벽 규칙을 사용하지 않을 것을 권장합니다.
 
@@ -784,7 +784,7 @@ SQL 데이터베이스는 서버에 포함되어 있습니다. 서버 이름은 
 
 [Azure 리소스 관리 API](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
-[탄력적 데이터베이스 풀 참조](sql-database-elastic-pool-reference.md)입니다.
+[탄력적 데이터베이스 풀 참조](sql-database-elastic-pool-reference.md)
 
 
 <!--Image references-->
@@ -798,4 +798,4 @@ SQL 데이터베이스는 서버에 포함되어 있습니다. 서버 이름은 
 [8]: ./media/sql-database-client-library/add-application2.png
 [9]: ./media/sql-database-client-library/clientid.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0330_2016-->

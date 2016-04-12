@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="01/09/2016" 
+	ms.date="03/04/2016" 
 	ms.author="robmcm"/>
 
 
@@ -22,7 +22,7 @@
 
 패키지 응용 프로그램을 먼저 Azure의 스테이징 환경에 배포하여 테스트한 후 해당 응용 프로그램을 인터넷에서 액세스할 수 있는 프로덕션 환경으로 이동할 수 있습니다. 스테이징 환경은 Azure에서 생성하는 숨겨진 URL로 미리 구성된 응용 프로그램에만 액세스할 수 있다는 점을 제외하면 프로덕션 환경과 똑같습니다. 응용 프로그램이 올바르게 작동되는지 확인한 후 VIP(가상 IP) 교환을 수행하여 해당 응용 프로그램을 프로덕션 환경으로 배포할 수 있습니다.
 
-> [AZURE.NOTE]이 문서의 단계는 Azure 클라우드 서비스로 호스트되는 노드 응용 프로그램에만 적용됩니다.
+> [AZURE.NOTE] 이 문서의 단계는 Azure 클라우드 서비스로 호스트되는 노드 응용 프로그램에만 적용됩니다.
 
 ## 1단계: 응용 프로그램 스테이징
 
@@ -52,7 +52,7 @@
 
 스테이징 환경에서 업그레이드된 버전의 응용 프로그램을 확인한 후 스테이징 환경과 프로덕션 환경의 VIP(가상 IP)를 교환하여 프로덕션에서 해당 응용 프로그램을 빠르게 사용하도록 설정할 수 있습니다.
 
-> [AZURE.NOTE]이 단계에서는 프로덕션에 응용 프로그램을 이미 배포했으며 업그레이드된 버전의 응용 프로그램을 미리 구성했다고 가정합니다.
+> [AZURE.NOTE] 이 단계에서는 프로덕션에 응용 프로그램을 이미 배포했으며 업그레이드된 버전의 응용 프로그램을 미리 구성했다고 가정합니다.
 
 1.  [Azure 클래식 포털]에 로그인하고 **클라우드 서비스**를 클릭한 후 서비스 이름을 선택합니다.
 
@@ -75,4 +75,4 @@
 [vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
 [Azure에서 VIP를 교환하여 프로덕션에 서비스 업그레이드를 배포하는 방법]: cloud-services-how-to-manage.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

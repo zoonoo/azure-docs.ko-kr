@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="12/07/2015" 
+ms.date="03/25/2016" 
 ms.author="adegeo"/>
 
 # 일반적인 클라우드 서비스 시작 작업
@@ -23,7 +23,7 @@ ms.author="adegeo"/>
 
 여기에서 다양한 작업은 다음을 사용합니다.
 
->[AZURE.NOTE]시작 작업은 가상 컴퓨터에 적용되지 않으며 클라우드 서비스 웹 및 작업자 역할에만 적용됩니다.
+>[AZURE.NOTE] 시작 작업은 가상 컴퓨터에 적용되지 않으며 클라우드 서비스 웹 및 작업자 역할에만 적용됩니다.
 
 
 ## 역할이 시작되기 전에 환경 변수를 정의합니다.
@@ -60,7 +60,7 @@ ms.author="adegeo"/>
 </ServiceDefinition>
 ```
 
-변수는 [유효한 Azure XPath 값](https://msdn.microsoft.com/library/azure/hh404006.aspx)을 사용하여 배포에 대한 정보를 참조할 수도 있습니다. `value` 특성을 사용하는 대신 [RoleInstanceValue] 자식 요소를 정의합니다.
+변수는 [유효한 Azure XPath 값](cloud-services-role-config-xpath.md)을 사용하여 배포에 대한 정보를 참조할 수도 있습니다. `value` 특성을 사용하는 대신 [RoleInstanceValue] 자식 요소를 정의합니다.
 
 ```xml
 <Variable name="PathToStartupStorage">
@@ -504,4 +504,4 @@ Startup2.cmd:
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0330_2016-->

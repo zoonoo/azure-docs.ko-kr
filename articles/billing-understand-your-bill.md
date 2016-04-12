@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/04/2016"
+   ms.date="03/22/2016"
    ms.author="erihur"/>
 
 
@@ -251,6 +251,8 @@ SKU | SKU | 각 Azure 리소스에 대한 고유한 시스템 식별자를 식�
 ## 추가 리소스
 일부 매우 유용한 링크를 보려면 [서비스를 관리](https://msdn.microsoft.com/library/azure/dn578292.aspx) 아래에서 **계정 관리, 구독 및 관리 역할** 섹션으로 이동합니다.
 
+- [Azure 청구 및 구독 FAQ](billing-subscription-faq.md)
+
 - [지불 방법 관리](https://msdn.microsoft.com/library/azure/dn736054.aspx)
 
 - [기존 신용 카드에 대한 결제 정보 편집](https://msdn.microsoft.com/library/azure/dn736053.aspx)
@@ -265,4 +267,4 @@ SKU | SKU | 각 Azure 리소스에 대한 고유한 시스템 식별자를 식�
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

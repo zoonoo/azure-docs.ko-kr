@@ -8,7 +8,7 @@
 
 2. 솔루션 탐색기에서 **SimulatedDevice** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리**를 클릭합니다.
 
-3. **NuGet 패키지 관리자** 창에서 **Microsoft Azure 장치 클라이언트**를 검색한 후, **설치**를 클릭하고 사용 약관에 동의합니다.
+3. **NuGet 패키지 관리자** 창에서 **찾아보기**를 선택하고 **Microsoft.Azure.Devices.Client**를 검색하고 **설치**를 클릭하여 **Microsoft.Azure.Devices.Client** 패키지를 설치하고 사용 약관에 동의합니다.
 
 	그러면 [Azure IoT - 장치 SDK NuGet 패키지][lnk-device-nuget]가 다운로드 및 설치되고 해당 참조가 추가됩니다.
 
@@ -73,4 +73,4 @@
 <!-- Images -->
 [30]: ./media/iot-hub-getstarted-device-csharp/create-identity-csharp1.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure 기계 학습 배치 실행 작업을 사용하여 예측 파이프라인 만들기 | Microsoft Azure" 
+	pageTitle="기계 학습 작업 사용 | Microsoft Azure" 
 	description="Azure Data Factory 및 Azure 기계 학습을 사용하여 예측 파이프라인을 만드는 방법을 설명합니다." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -772,4 +772,4 @@ AzureMLBatchScoring 작업을 사용하여 계속하려면 이 섹션을 계속 
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

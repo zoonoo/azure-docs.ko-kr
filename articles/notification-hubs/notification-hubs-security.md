@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="11/25/2015"
+	ms.date="03/28/2016"
 	ms.author="wesmc"/>
 
 #보안
@@ -47,4 +47,4 @@ Windows 스토어 클라이언트 앱에 키 값을 포함하지 않는 것이 �
 
 알림 허브는 Microsoft Azure 액세스 제어 토큰 및 알림 허브에서 직접 구성하는 공유 키로 생성된 서명 토큰에서 부여한 클레임을 허용합니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0330_2016-->

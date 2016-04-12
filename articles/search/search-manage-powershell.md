@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Powershell 스크립트를 사용하여 Azure 검색 관리 | Microsoft Azure | 호스트된 클라우드 검색 서비스" 
-	description="PowerShell 스크립트를 통해 Microsoft Azure에서 Azure 검색 서비스를 관리합니다. Azure 검색 서비스 만들기 또는 업데이트 및 Azure 검색 관리자 키 관리"  
+	description="PowerShell 스크립트를 사용하여 Azure 검색 서비스를 관리합니다. Azure 검색 서비스 만들기 또는 업데이트 및 Azure 검색 관리자 키 관리" 
 	services="search" 
 	documentationCenter="" 
 	authors="seansaleh" 
@@ -14,10 +14,10 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="powershell" 
-	ms.date="02/25/2016" 
+	ms.date="03/08/2016" 
 	ms.author="seasa"/>
 
-# PowerShell을 사용하여 Microsoft Azure에서 검색 서비스 관리
+# PowerShell을 사용한 Azure 검색 서비스 관리
 > [AZURE.SELECTOR]
 - [포털](search-manage.md)
 - [PowerShell](search-manage-powershell.md)
@@ -49,15 +49,15 @@ Microsoft Azure 로그인 대화 상자에서 Azure 계정의 메일 주소 및 
 ## 시작하는 데 도움이 되는 명령
 
 	$serviceName = "your-service-name-lowercase-with-dashes"
-	$sku = "free" # or "standard" for a paid service
+	$sku = "free" # or "basic" or "standard" for paid services
 	$location = "West US"
 	# You can get a list of potential locations with
 	# (Get-AzureRmResourceProvider -ListAvailable | Where-Object {$_.ProviderNamespace -eq 'Microsoft.Search'}).Locations
 	$resourceGroupName = "YourResourceGroup" 
-	# If you don't already have this resource group, you can create it with with 
+	# If you don't already have this resource group, you can create it with 
 	# New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
 
-	# Register the arm provider idempotently. This must be done once per subscription
+	# Register the ARM provider idempotently. This must be done once per subscription
 	Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Search" -Force
 
 	# Create a new search service
@@ -81,13 +81,13 @@ Microsoft Azure 로그인 대화 상자에서 Azure 계정의 메일 주소 및 
 	# View your resource
 	$resource
 	
-	# Get the primary admin api key
+	# Get the primary admin API key
 	$primaryKey = (Invoke-AzureRmResourceAction `
 		-Action listAdminKeys `
-		-ResourceId ($resource.ResourceId) `
+		-ResourceId $resource.ResourceId `
 		-ApiVersion 2015-08-19).PrimaryKey
 
-	# Regenerate the secondary admin api Key
+	# Regenerate the secondary admin API Key
 	$secondaryKey = (Invoke-AzureRmResourceAction `
 		-ResourceType "Microsoft.Search/searchServices/regenerateAdminKey" `
 		-ResourceGroupName $resourceGroupName `
@@ -136,4 +136,4 @@ Microsoft Azure 로그인 대화 상자에서 Azure 계정의 메일 주소 및 
 
 - [Azure 검색 트래픽 분석](search-traffic-analytics.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

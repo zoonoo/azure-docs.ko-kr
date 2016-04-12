@@ -62,7 +62,12 @@ RBAC는 **사용자**가 서로 다른 범위에서 수행할 수 있는 작업�
         "effect" : "deny | audit"
       }
     }
+    
+## 정책 평가
 
+HTTP PUT을 사용하여 리소스 생성 또는 템플릿 배포가 발생하는 경우 정책이 평가됩니다. 템플릿 배포의 경우 템플릿에서 각 리소스 생성 중에 정책이 평가됩니다.
+
+참고: 태그, 종류, 위치를 지원하지 않는 리소스 유형은 Microsoft.Resources/deployments와 같은 정책에 의해 평가되지 않습니다. 지원은 나중에 추가됩니다. 이전 버전과 호환성 문제를 방지하기 위해 정책을 작성할 때 유형을 명시적으로 지정하는 것이 가장 좋습니다. 예를 들어 유형을 지정하지 않는 태그 정책은 모든 유형에 대해 적용되므로 나중에 리소스 유형을 평가에 추가할 때 태그를 지원하지 않는 중첩된 리소스가 있는 경우 템플릿 배포가 실패할 수 있습니다.
 
 ## 논리 연산자
 
@@ -94,7 +99,7 @@ RBAC는 **사용자**가 서로 다른 범위에서 수행할 수 있는 작업�
 
 다음과 같은 필드와 소스가 지원됩니다.
 
-필드: **name**, **kind**, **type**, **location**, **tags**, **tags.***, **property alias**.
+필드: **name**, **kind**, **type**, **location**, **tags**, **tags.*** 및 **property alias**.
 
 원본: **action**.
 
@@ -120,7 +125,7 @@ RBAC는 **사용자**가 서로 다른 범위에서 수행할 수 있는 작업�
 
 | 별칭 이름 | 설명 |
 | ---------- | ----------- |
-| {resourceType}/sku.name | 지원되는 리소스 종류: Microsoft.Storage/storageAccounts,<br />Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft... CDN/profiles |
+| {resourceType}/sku.name | 지원되는 리소스 유형: Microsoft.Storage/storageAccounts,<br />Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles |
 | {resourceType}/sku.family | 지원되는 리소스 종류: Microsoft.Cache/Redis |
 | {resourceType}/sku.capacity | 지원되는 리소스 종류: Microsoft.Cache/Redis |
 | Microsoft.Cache/Redis/enableNonSslPort | |
@@ -176,19 +181,19 @@ RBAC는 **사용자**가 서로 다른 범위에서 수행할 수 있는 작업�
         "not" : {
           "anyOf" : [
             {
-              "source" : "action",
+              "field" : "type",
               "like" : "Microsoft.Resources/*"
             },
             {
-              "source" : "action",
+              "field" : "type",
               "like" : "Microsoft.Compute/*"
             },
             {
-              "source" : "action",
+              "field" : "type",
               "like" : "Microsoft.Storage/*"
             },
             {
-              "source" : "action",
+              "field" : "type",
               "like" : "Microsoft.Network/*"
             }
           ]
@@ -207,14 +212,14 @@ RBAC는 **사용자**가 서로 다른 범위에서 수행할 수 있는 작업�
       "if": {
         "allOf": [
           {
-            "source": "action",
-            "like": "Microsoft.Storage/storageAccounts/*"
+            "field": "type",
+            "equals": "Microsoft.Storage/storageAccounts"
           },
           {
             "not": {
               "allof": [
                 {
-                  "field": "Microsoft.Storage/storageAccounts/accountType",
+                  "field": "Microsoft.Storage/storageAccounts/sku.name",
                   "in": ["Standard_LRS", "Standard_GRS"]
                 }
               ]
@@ -302,8 +307,6 @@ RBAC는 **사용자**가 서로 다른 범위에서 수행할 수 있는 작업�
           }
         }
       },
-      "id":"/subscriptions/########-####-####-####-############/providers/Microsoft.Authorization/policyDefinitions/testdefinition",
-      "type":"Microsoft.Authorization/policyDefinitions",
       "name":"testdefinition"
     }
 
@@ -350,8 +353,6 @@ RBAC는 **사용자**가 서로 다른 범위에서 수행할 수 있는 작업�
         "policyDefinitionId":"/subscriptions/########/providers/Microsoft.Authorization/policyDefinitions/testdefinition",
         "scope":"/subscriptions/########-####-####-####-############"
       },
-      "id":"/subscriptions/########-####-####-####-############/providers/Microsoft.Authorization/policyAssignments/VMPolicyAssignment",
-      "type":"Microsoft.Authorization/policyAssignments",
       "name":"VMPolicyAssignment"
     }
 
@@ -386,4 +387,4 @@ Get-AzureRmPolicyDefinition, Set-AzureRmPolicyDefinition 및 Remove-AzureRmPolic
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
     
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

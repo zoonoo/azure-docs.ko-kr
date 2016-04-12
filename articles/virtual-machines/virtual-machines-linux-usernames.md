@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Linux용 사용자 이름 선택 | Microsoft Azure" 
 	description="Azure에서 Linux 가상 컴퓨터의 사용자 이름을 선택하는 방법에 대해 알아봅니다." 
-	services="virtual-machines" 
+	services="virtual-machines-linux" 
 	documentationCenter="" 
 	authors="szarkos" 
 	manager="timlt" 
@@ -9,12 +9,12 @@
 	tags="azure-service-management,azure-resource-manager" />
 
 <tags 
-	ms.service="virtual-machines" 
+	ms.service="virtual-machines-linux" 
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="03/25/2016" 
 	ms.author="szark"/>
 
 
@@ -25,7 +25,7 @@
 
 Azure에서 Linux 가상 컴퓨터를 프로비전할 때는 나중에 VM 로그인에 사용할 수 있는 루트가 아닌 사용자의 이름을 지정해야 합니다. 새 사용자의 이름을 선택할 수 있습니다. 또는 Azure 클래식 포털을 통해 프로비전하는 경우 기본 이름인 "azureuser"를 사용할 수 있습니다.
 
-대부분의 경우 이러한 사용자는 기본 이미지에 존재하지 않으며 프로비전 프로세스 중에 생성됩니다. 사용자가 이미 기본 VM 이미지에 존재하는 경우 Azure Linux 에이전트가 VM을 만들 때 사용자가 지정한 정보를 토대로 해당 사용자에 대한 암호(및/또는 SSH 키)를 구성합니다.
+대부분의 경우 이러한 사용자는 기본 이미지에 존재하지 않으며 프로비전 프로세스 중에 생성됩니다. 사용자가 이미 기본 VM 이미지에 존재하는 경우 Azure Linux 에이전트가 VM을 만들 때 사용자가 지정한 정보를 토대로 해당 사용자에 대한 암호 및/또는 SSH 키를 구성합니다.
 
 **그러나** Linux에서는 사용해서는 안 되는 일련의 사용자 이름을 정의합니다. UID가 0-99인 사용자로 정의된 기존 시스템 사용자를 사용하여 Linux VM을 프로비전하려고 하면 프로비전 프로세스가 **실패**합니다. 전형적인 예로는 UID가 0인 `root` 사용자가 있습니다.
 
@@ -251,4 +251,4 @@ Azure에서 Linux 가상 컴퓨터를 프로비전할 때는 나중에 VM 로그
 
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0330_2016-->

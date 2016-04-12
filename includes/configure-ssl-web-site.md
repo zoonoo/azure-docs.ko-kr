@@ -46,6 +46,10 @@ Azure 웹 사이트에서 사용할 SSL 인증서를 받으려면 인증 기관�
 
 CA에서 사용되는 경우 **[중간 인증서](http://en.wikipedia.org/wiki/Intermediate_certificate_authorities)**(체인 인증서라고도 함)를 가져와야 할 수도 있습니다. 중간 인증서 사용은 '체인화되지 않은 인증서'보다 더 안전한 것으로 간주되므로 CA에서 중간 인증서를 사용하는 것이 일반적입니다. 중간 인증서는 CA 웹 사이트에서 개별 다운로드로 제공되는 경우가 많습니다. 이 문서에서는 중간 인증서가 앱에 업로드된 인증서와 병합되도록 하는 단계를 제공합니다.
 
+> [AZURE.NOTE]
+>
+> CA가 사용하는 각 중간 인증서는 도메인에 대해 발급된 인증서와 함께 설치되어야 합니다. 중간 인증서 중 하나라도 설치하지 못하면 일부 클라이언트에 대해 상호 운용성을 재현하기 어려운 문제를 발생시킬 수 있습니다.
+
 <a name="bkmk_certreq"></a>
 ### Certreq.exe를 사용하여 인증서 받기(Windows에만 해당)
 
@@ -535,7 +539,6 @@ IIS URL 다시 쓰기 모듈에 대한 자세한 내용은 [URL 다시 쓰기](h
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
-* 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
 
 [customdomain]: ../articles/app-service-web/web-sites-custom-domain-name.md
 [iiscsr]: http://technet.microsoft.com/library/cc732906(WS.10).aspx
@@ -561,4 +564,4 @@ IIS URL 다시 쓰기 모듈에 대한 자세한 내용은 [URL 다시 쓰기](h
 [certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
 [certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

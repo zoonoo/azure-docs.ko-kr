@@ -13,17 +13,16 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="03/09/2016"
 	ms.author="krisragh"/>
 
 # 인증된 사용자에게 푸시 알림 보내기
-
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-push-users](../../includes/mobile-services-selector-push-users.md)]
 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-push-users](../../includes/mobile-services-selector-push-users.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> 이 항목에 해당하는 모바일 앱 버전은 [방법: 인증된 사용자에게 푸시 알림 보내기](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#push-user)를 참조하세요.
 
 이 항목에서는 iOS에서 인증된 사용자에게 푸시 알림을 보내는 방법에 대해 배웁니다. 이 자습서를 시작하기 전에 [인증 시작] 및 [푸시 알림 시작]을 먼저 완료합니다.
 
@@ -53,4 +52,4 @@
 [푸시 알림 시작]: mobile-services-dotnet-backend-ios-get-started-push.md
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0316_2016-->

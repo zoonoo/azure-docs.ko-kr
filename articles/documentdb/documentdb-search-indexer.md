@@ -1,26 +1,26 @@
-<properties 
-    pageTitle="인덱서를 사용해서 DocumentDB를 Azure 검색에 연결 | Microsoft Azure" 
+<properties
+    pageTitle="인덱서를 사용해서 DocumentDB를 Azure 검색에 연결 | Microsoft Azure"
     description="이 문서에서는 DocumentDB에서 Azure 검색 인덱서를 데이터 소스로 사용하는 방법을 보여 줍니다."
-    services="documentdb" 
-    documentationCenter="" 
-    authors="AndrewHoh" 
-    manager="jhubbard" 
+    services="documentdb"
+    documentationCenter=""
+    authors="AndrewHoh"
+    manager="jhubbard"
     editor="mimig"/>
 
-<tags 
-    ms.service="documentdb" 
-    ms.devlang="rest-api" 
-    ms.topic="article" 
-    ms.tgt_pltfrm="NA" 
-    ms.workload="data-services" 
-    ms.date="02/01/2016" 
+<tags
+    ms.service="documentdb"
+    ms.devlang="rest-api"
+    ms.topic="article"
+    ms.tgt_pltfrm="NA"
+    ms.workload="data-services"
+    ms.date="03/09/2016"
     ms.author="anhoh"/>
 
 #인덱서를 사용해서 DocumentDB를 Azure 검색에 연결
 
 DocumentDB 데이터에 대해 뛰어난 검색 환경을 구현하기 위해서는 DocumentDB에 대한 Azure 검색 인덱서를 사용할 수 있습니다. 이 문서에서는 인덱싱 인프라를 유지 관리하기 위해 어떠한 코드도 작성할 필요 없이 Azure DocumentDB를 Azure 검색과 통합하는 방법을 보여 줍니다.
 
-이를 설정하기 위해서는 [Azure 검색 계정을 설정](../search/search-get-started.md#start-with-the-free-service)하고(표준 검색으로 업그레이드할 필요 없음), [Azure 검색 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx)를 호출해서 DocumentDB **데이터 소스** 및 이 데이터 소스에 대한 **인덱서**를 만들어야 합니다.
+이를 설정하기 위해서는 [Azure 검색 계정을 설정](../search/search-create-service-portal.md)하고(표준 검색으로 업그레이드할 필요 없음), [Azure 검색 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx)를 호출해서 DocumentDB **데이터 소스** 및 이 데이터 소스에 대한 **인덱서**를 만들어야 합니다.
 
 ##<a id="Concepts"></a>Azure 검색 인덱서 개념
 
@@ -32,12 +32,12 @@ Azure 검색에서는 데이터 소스(DocumentDB 포함) 및 데이터 소스�
 
 - 인덱스를 채우기 위해 데이터에 대한 일회성 복사를 수행합니다.
 - 예약에 따라 인덱스를 데이터 소스의 변경 사항과 동기화합니다. 일정은 인덱서 정의의 일부입니다.
-- 필요에 따라 인덱스에 대해 요청 시 업데이트를 호출합니다. 
+- 필요에 따라 인덱스에 대해 요청 시 업데이트를 호출합니다.
 
 ##<a id="CreateDataSource"></a>1단계: 데이터 소스 만들기
 
 HTTP POST 요청을 실행해서 Azure 검색 서비스에서 다음 요청 헤더를 포함하는 새로운 데이터 소스를 만듭니다.
-    
+
     POST https://[Search service name].search.windows.net/datasources?api-version=[api-version]
     Content-Type: application/json
     api-key: [Search service admin key]
@@ -56,7 +56,7 @@ HTTP POST 요청을 실행해서 Azure 검색 서비스에서 다음 요청 헤�
 
 - **컨테이너**:
 
-    - **이름**: 필수입니다. 인덱싱할 DocumentDB 컬렉션을 지정합니다. 
+    - **이름**: 필수입니다. 인덱싱할 DocumentDB 컬렉션을 지정합니다.
 
     - **쿼리**: 선택 사항입니다. 추상 JSON 문서를 Azure 검색이 인덱싱할 수 있는 평면 스키마로 평면화하는 쿼리를 지정할 수 있습니다.
 
@@ -68,10 +68,10 @@ HTTP POST 요청을 실행해서 Azure 검색 서비스에서 다음 요청 헤�
 
 데이터 변경 감지 정책의 목적은 변경된 데이터 항목을 효율적으로 식별하는 것입니다. 현재까지 지원되는 유일한 정책은 DocumentDB에서 제공된 마지막으로 수정된 타임스탬프 속성인 `_ts`를 사용하는 `High Water Mark` 정책입니다. 이는 다음과 같이 지정됩니다.
 
-    { 
+    {
         "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
-        "highWaterMarkColumnName" : "_ts" 
-    } 
+        "highWaterMarkColumnName" : "_ts"
+    }
 
 또한 프로젝션에 `_ts`를 추가하고 쿼리에 대한 `WHERE` 절을 추가해야 합니다. 예:
 
@@ -82,10 +82,10 @@ HTTP POST 요청을 실행해서 Azure 검색 서비스에서 다음 요청 헤�
 
 소스 테이블에서 행을 삭제할 때는 검색 인덱스에서도 해당 행을 삭제해야 합니다. 데이터 삭제 감지 정책의 목적은 변경된 데이터 항목을 효율적으로 식별하는 것입니다. 현재까지 지원되는 유일한 정책은 다음과 같이 지정되는 `Soft Delete` 정책입니다(삭제 시 일부 유형의 플래그로 표시됨).
 
-    { 
+    {
         "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",
-        "softDeleteColumnName" : "the property that specifies whether a document was deleted", 
-        "softDeleteMarkerValue" : "the value that identifies a document as deleted" 
+        "softDeleteColumnName" : "the property that specifies whether a document was deleted",
+        "softDeleteMarkerValue" : "the value that identifies a document as deleted"
     }
 
 > [AZURE.NOTE] 사용자 지정 프로젝션을 사용할 경우에는 SELECT 절에 속성을 포함해야 합니다.
@@ -102,7 +102,7 @@ HTTP POST 요청을 실행해서 Azure 검색 서비스에서 다음 요청 헤�
         },
         "container": {
             "name": "myDocDbCollectionId",
-            "query": "SELECT s.id, s.Title, s.Abstract, s._ts FROM Sessions s WHERE s._ts > @HighWaterMark" 
+            "query": "SELECT s.id, s.Title, s.Abstract, s._ts FROM Sessions s WHERE s._ts > @HighWaterMark"
         },
         "dataChangeDetectionPolicy": {
             "@odata.type": "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
@@ -171,7 +171,7 @@ HTTP POST 요청을 실행해서 Azure 검색 서비스에서 다음 요청 헤�
 ##<a id="CreateIndexer"></a>3단계: 인덱서 만들기
 
 다음 헤더와 함께 HTTP, POST 요청을 사용해서 Azure 검색 서비스 내에서 새 인덱서를 만듭니다.
-    
+
     POST https://[Search service name].search.windows.net/indexers?api-version=[api-version]
     Content-Type: application/json
     api-key: [Search service admin key]
@@ -190,7 +190,7 @@ HTTP POST 요청을 실행해서 Azure 검색 서비스에서 다음 요청 헤�
 
 인덱서는 선택적으로 일정을 지정할 수 있습니다. 일정이 제공된 경우, 인덱서가 일정에 따라 주기적으로 실행됩니다. 일정은 다음과 같은 특성을 갖습니다.
 
-- **간격**: 필수입니다. 인덱서 실행 간격 또는 기간을 지정하는 기간 값입니다. 허용되는 가장 작은 간격은 5분이고 가장 긴 간격은 1일입니다. 형식은 XSD "dayTimeDuration" 값([ISO 8601 기간](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) 값의 제한된 하위 집합)이어야 합니다. 해당 패턴은 `P(nD)(T(nH)(nM))`입니다. 예를 들어 15분 간격이면 `PT15M`, 2시간 간격이면 `PT2H`입니다. 
+- **간격**: 필수입니다. 인덱서 실행 간격 또는 기간을 지정하는 기간 값입니다. 허용되는 가장 작은 간격은 5분이고 가장 긴 간격은 1일입니다. 형식은 XSD "dayTimeDuration" 값([ISO 8601 기간](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) 값의 제한된 하위 집합)이어야 합니다. 해당 패턴은 `P(nD)(T(nH)(nM))`입니다. 예를 들어 15분 간격이면 `PT15M`, 2시간 간격이면 `PT2H`입니다.
 
 - **startTime**: 필수입니다. 인덱서 실행을 시작해야 할 경우를 지정하는 UTC 날짜/시간입니다.
 
@@ -268,6 +268,5 @@ HTTP GET 요청을 실행해서 인덱서의 현재 상태 및 실행 기록을 
  - Azure DocumentDB에 대해 알아보려면 [DocumentDB 서비스 페이지](https://azure.microsoft.com/services/documentdb/)를 참조하세요.
 
  - Azure 검색에 대해 알아보려면 [검색 서비스 페이지](https://azure.microsoft.com/services/search/)를 참조하세요.
- 
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

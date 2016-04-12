@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/14/2015" 
-	ms.author="mimig"/>
+	ms.date="03/30/2016" 
+	ms.author="arramac"/>
 
 
 # DocumentDB 한도 및 할당량
@@ -24,4 +24,6 @@
 
 [AZURE.INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
 
-<!---HONumber=AcomDC_1217_2015-->
+별표(*)가 표시된 할당량은 [Azure 지원부에 문의하여 조정할 수 있습니다](documentdb-increase-limits.md).
+
+<!---HONumber=AcomDC_0330_2016-->

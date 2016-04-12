@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/18/2015"
+	ms.date="03/28/2016"
 	ms.author="tarcher"/>
 
 # 내 WebApi 프로젝트(Visual Studio Azure Active Directory 연결 서비스)의 변경 내용
 
 > [AZURE.SELECTOR]
-> - [Getting Started](vs-active-directory-webapi-getting-started.md)
-> - [What Happened](vs-active-directory-webapi-what-happened.md)
+> - [시작](vs-active-directory-webapi-getting-started.md)
+> - [변경된 내용](vs-active-directory-webapi-what-happened.md)
 
 ##참조가 추가됨
 
@@ -59,7 +59,8 @@ Azure AD 인증에 대한 시작 논리가 포함된 인증 시작 클래스 **A
 
 ###app.config 또는 web.config 파일에 새 구성 값이 추가됨
 
-다음 구성 항목이 추가되었습니다. ```
+다음 구성 항목이 추가되었습니다.
+```
 	`<appSettings>
     		<add key="ida:ClientId" value="ClientId from the new Azure AD App" />
     		<add key="ida:Tenant" value="Your selected Azure AD Tenant" />
@@ -116,4 +117,4 @@ Azure Active Directory 앱이 *디렉터리 데이터 읽기* 권한을 포함�
 
 [Azure Active Directory에 대한 자세한 정보](https://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->

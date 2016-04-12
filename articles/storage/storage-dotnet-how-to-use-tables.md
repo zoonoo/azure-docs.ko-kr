@@ -1,6 +1,6 @@
 <properties
 	pageTitle=".NET을 사용하여 Azure 테이블 저장소 시작 | Microsoft Azure"
-	description="Azure 테이블 저장소, Microsoft의 NoSQL 데이터 저장소를 사용하여 클라우드에 구조화되지 않은 데이터를 저장합니다. 테이블 만들기 및 삭제, 데이터 삽입, 업데이트, 삭제 및 쿼리를 포함하여 간단한 테이블 저장소 작업을 시작합니다."
+	description="Azure 테이블 저장소, Microsoft의 NoSQL 데이터 저장소를 사용하여 클라우드에 구조화된 데이터를 저장합니다. 테이블 만들기 및 삭제, 데이터 삽입, 업데이트, 삭제 및 쿼리를 포함하여 간단한 테이블 저장소 작업을 시작합니다."
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="02/14/2016"
+	ms.date="03/27/2016"
 	ms.author="tamram"/>
 
 
@@ -23,7 +23,7 @@
 
 ## 개요
 
-Azure 테이블 저장소는 클라우드에 구조화되지 않은 NoSQL 데이터를 저장하는 서비스입니다. 테이블 저장소는 스키마 없이 디자인된 키/특성 저장소입니다. 테이블 저장소는 스키마가 없기 때문에 응용 프로그램의 요구 사항이 변화함에 따라 데이터를 쉽게 적응시킬 수 있습니다. 모든 종류의 응용 프로그램에서 빠르고 비용 효율적으로 데이터에 액세스할 수 있습니다. 비슷한 양의 데이터일 때 테이블 저장소는 일반적으로 전통적인 SQL에 비해 비용이 매우 낮습니다.
+Azure 테이블 저장소는 클라우드에 구조화된 NoSQL 데이터를 저장하는 서비스입니다. 테이블 저장소는 스키마 없이 디자인된 키/특성 저장소입니다. 테이블 저장소는 스키마가 없기 때문에 응용 프로그램의 요구 사항이 변화함에 따라 데이터를 쉽게 적응시킬 수 있습니다. 모든 종류의 응용 프로그램에서 빠르고 비용 효율적으로 데이터에 액세스할 수 있습니다. 비슷한 양의 데이터일 때 테이블 저장소는 일반적으로 전통적인 SQL에 비해 비용이 매우 낮습니다.
 
 테이블 저장소를 사용하여 웹 응용 프로그램의 사용자 데이터, 주소록, 장치 정보 및 서비스에 필요한 다른 유형의 메타데이터와 같은 유연한 데이터 집합을 저장할 수 있습니다. 테이블에 저장할 수 있는 엔터티 수에는 제한이 없으며, 저장소 계정에 포함할 수 있는 테이블의 수에는 저장소 계정의 최대 용량 한도까지 제한이 없습니다.
 
@@ -257,7 +257,7 @@ Azure 테이블 저장소는 클라우드에 구조화되지 않은 NoSQL 데이
 	   // Change the phone number.
 	   updateEntity.PhoneNumber = "425-555-0105";
 
-	   // Create the InsertOrReplace TableOperation.
+	   // Create the Replace TableOperation.
 	   TableOperation updateOperation = TableOperation.Replace(updateEntity);
 
 	   // Execute the operation.
@@ -444,4 +444,4 @@ Azure 테이블 저장소는 클라우드에 구조화되지 않은 NoSQL 데이
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
 
-<!----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

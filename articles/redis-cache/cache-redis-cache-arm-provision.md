@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="03/04/2016" 
 	ms.author="tomfitz"/>
 
 # 템플릿을 사용하여 Redis Cache 만들기
@@ -26,7 +26,7 @@
 
 전체 템플릿은 [Redis Cache 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/101-redis-cache/azuredeploy.json)을 참조하세요.
 
->[AZURE.NOTE]새 [프리미엄 계층](cache-premium-tier-intro.md)에 대한 ARM 템플릿을 사용할 수 있습니다.
+>[AZURE.NOTE] 새 [프리미엄 계층](cache-premium-tier-intro.md)에 대한 ARM 템플릿을 사용할 수 있습니다.
 >
 >-    [클러스터링을 사용하여 프리미엄 Redis 캐시 만들기](https://azure.microsoft.com/documentation/templates/201-redis-premium-cluster-diagnostics/)
 >-    [지속성 데이터를 사용하여 프리미엄 Redis 캐시 만들기](https://azure.microsoft.com/documentation/templates/201-redis-premium-persistence/)
@@ -137,4 +137,4 @@ Azure Redis Cache를 만듭니다.
 
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -g ExampleDeployGroup
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0309_2016-->

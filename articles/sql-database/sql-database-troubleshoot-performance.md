@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="03/28/2016"
 	ms.author="v-shysun"/>
 
 # Azure SQL 데이터베이스를 사용하여 데이터베이스 성능 문제 해결
@@ -30,4 +30,4 @@
 
 성능 문제가 지속되면 지원에 문의하여 지원 사례를 확인하세요.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0330_2016-->

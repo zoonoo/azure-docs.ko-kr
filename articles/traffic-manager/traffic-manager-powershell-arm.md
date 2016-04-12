@@ -12,11 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/02/2016"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # Azure 트래픽 관리자에 대한 Azure 리소스 관리자 지원 미리 보기
-ARM(Azure 리소스 관리자)은 Azure 서비스에 대한 새로운 관리 프레임워크입니다. 이제 Azure 리소스 관리자 기반 API 및 도구를 사용하여 Azure 트래픽 관리자 프로파일을 관리할 수 있습니다. Azure 리소스 관리자에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-preview-portal-using-resource-groups.md)를 참조하세요.
+ARM(Azure 리소스 관리자)은 Azure 서비스에 대한 새로운 관리 프레임워크입니다. 이제 Azure 리소스 관리자 기반 API 및 도구를 사용하여 Azure 트래픽 관리자 프로파일을 관리할 수 있습니다.
 
 ## 리소스 모델
 
@@ -142,7 +142,7 @@ cmdlet는 트래픽 관리자 프로필 Azure 트래픽 관리자에서 만들�
 2. 외부 끝점: Azure 외부에서 호스팅되는 서비스를 나타냅니다.<BR>
 3. 중첩된 끝점: 좀 더 복잡한 응용 프로그램에 대한 고급 트래픽 라우팅 구성을 사용하도록 트래픽 관리자 프로필의 중첩된 계층 구조를 생성하는 데 사용됩니다. 아직 ARM API를 통해 지원되지 않습니다.<BR>
 
-세 가지 경우 모두 끝점은 두 가지 방법으로 추가될 수 있습니다.<BR>
+세 가지 경우 모두, 끝점은 두 가지 방법으로 추가될 수 있습니다.<BR>
 
 1. 3단계 프로세스 사용은 [트래픽 관리자 프로필 업데이트](#update-traffic-manager-profile)에서 설명된 것과 유사합니다: Get-AzureRmTrafficManagerProfile을 사용하여 프로필 개체 가져오기; 끝점을 추가하도록 오프라인으로 업데이트, Add-AzureRmTrafficManagerEndpointConfig 사용; Set-AzureRmTrafficManagerProfile를 사용하여 Azure 트래픽 관리자에 변경 내용 업로드. 이 방법의 장점은 끝점 변경 내용의 횟수를 단일 업데이트에서 지정할 수 있다는 점입니다.<BR>
 
@@ -150,9 +150,16 @@ cmdlet는 트래픽 관리자 프로필 Azure 트래픽 관리자에서 만들�
 
 ### Azure 끝점 추가
 
-Azure 끝점은 Azure에서 호스팅되는 다른 서비스를 나타냅니다. 현재 다음 3가지 유형의 Azure 끝점이 지원됩니다.<BR> 1. Azure 웹앱 <BR> 2. '클래식' 클라우드 서비스(PaaS 서비스 또는 IaaS 가상 컴퓨터를 포함할 수 있음)<BR> 3. ARM Microsoft.Network/publicIpAddress 리소스(부하 분산 장치 또는 가상 컴퓨터 NIC에 연결할 수 있음). publicIpAddress에는 트래픽 관리자에서 사용되도록 지정된 DNS 이름이 있어야 합니다.
+Azure 끝점은 Azure에서 호스팅되는 다른 서비스를 나타냅니다. 현재 다음 3가지 유형의 Azure 끝점이 지원됩니다.<BR>
+1. Azure 웹앱 <BR>
+2. '클래식' 클라우드 서비스(PaaS 서비스 또는 IaaS 가상 컴퓨터를 포함할 수 있음)<BR>
+3. ARM Microsoft.Network/publicIpAddress 리소스(부하 분산 장치 또는 가상 컴퓨터 NIC에 연결할 수 있음). publicIpAddress에는 트래픽 관리자에서 사용되도록 지정된 DNS 이름이 있어야 합니다.
 
-각각의 경우에서: - 서비스는 Add-AzureRmTrafficManagerEndpointConfig 또는 New-AzureRmTrafficManagerEndpoint의 'targetResourceId' 매개 변수를 사용하여 지정됩니다.<BR> - 'Target' 및 'EndpointLocation'은 지정하지 않아야 하며 위에 지정된 TargetResourceId에서 암시된 것입니다.<BR> - '가중치' 지정은 선택 사항입니다. 가중치는 '가중' 트래픽 라우팅 메서드를 사용하도록 프로필을 구성한 경우에만 사용됩니다. 그렇지 않으면 무시됩니다. 지정한 경우 1...1000의 범위에 있어야 합니다. 기본값은 '1'입니다.<BR> - '우선 순위' 지정은 선택 사항입니다. 우선 순위는 '우선 순위' 트래픽 라우팅 메서드를 사용하도록 프로필을 구성한 경우에만 사용됩니다. 그렇지 않으면 무시됩니다. 유효한 값은 1~1000입니다(낮은 값은 더 높은 우선 순위임). 한 끝점에 대해 지정한 경우 모든 끝점에 대해 지정되어야 합니다. 생략한 경우 1, 2, 3 등으로 시작하는 기본값이 끝점이 제공된 순서대로 적용됩니다.
+각 경우에 다음이 해당됩니다.
+ - 서비스는 Add-AzureRmTrafficManagerEndpointConfig 또는 New-AzureRmTrafficManagerEndpoint의 'targetResourceId' 매개 변수를 사용하여 지정됩니다.<BR>
+ - 'Target' 및 'EndpointLocation'은 지정하지 않아야 하며 위에 지정된 TargetResourceId에서 암시된 것입니다.<BR>
+ - '가중치' 지정은 선택 사항입니다. 가중치는 '가중' 트래픽 라우팅 메서드를 사용하도록 프로필을 구성한 경우에만 사용됩니다. 그렇지 않으면 무시됩니다. 지정한 경우 1...1000의 범위에 있어야 합니다. 기본값은 '1'입니다.<BR>
+ - '우선 순위' 지정은 선택 사항입니다. 우선 순위는 '우선 순위' 트래픽 라우팅 메서드를 사용하도록 프로필을 구성한 경우에만 사용됩니다. 그렇지 않으면 무시됩니다. 유효한 값은 1~1000입니다(낮은 값은 더 높은 우선 순위임). 한 끝점에 대해 지정한 경우 모든 끝점에 대해 지정되어야 합니다. 생략한 경우 1, 2, 3 등으로 시작하는 기본값이 끝점이 제공된 순서대로 적용됩니다.
 
 #### 예제 1: AzureRmTrafficManagerEndpointConfig를 사용하여 웹앱 끝점 추가
 이 예제에서는 새 트래픽 관리자 프로필을 만들고 Add-AzureRmTrafficManagerEndpointConfig cmdlet을 사용하여 두 개의 웹앱 끝점을 추가한 다음 Set-AzureRmTrafficManagerProfile을 사용하여 업데이트된 프로필을 Azure 트래픽 관리자에 커밋합니다.
@@ -179,7 +186,10 @@ Azure 끝점은 Azure에서 호스팅되는 다른 서비스를 나타냅니다.
 ### 외부 끝점 추가
 트래픽 관리자는 외부 끝점을 사용하여 Azure 외부에서 호스팅되는 서비스에 트래픽을 보냅니다. Azure 끝점과 마찬가지로 외부 끝점은 Set-AzureRmTrafficManagerProfile이 뒤에 오는 Add-AzureRmTrafficManagerEndpointConfig 또는 New-AzureRMTrafficManagerEndpoint를 사용하여 추가할 수 있습니다.
 
-외부 끝점을 지정하는 경우: - 끝점 도메인 이름은 '대상' 매개 변수를 사용하여 지정되어야 합니다.<BR> - '성능' 트래픽 라우팅 메서드를 사용하는 경우 'EndpointLocation'이 필수이고 그렇지 않으면 선택 사항입니다. 값은 [유효한 Azure 지역 이름](https://azure.microsoft.com/regions/)이어야 합니다.<BR> - '가중치' 및 '우선 순위'는 Azure 끝점의 경우와 마찬가지로 선택 사항입니다.<BR>
+외부 끝점을 지정하는 경우:
+ - 'Target' 매개 변수를 사용하여 끝점 도메인 이름을 지정해야 합니다.<BR>
+ - 'Performance' 트래픽 라우팅 메서드를 사용하는 경우 'EndpointLocation'이 필수이고, 그렇지 않은 경우 선택적입니다. 값은 [올바른 Azure 지역 이름](https://azure.microsoft.com/regions/)이어야 합니다.<BR>
+ - Azure 끝점에 대해 ‘가중치' 및 ‘우선 순위’는 선택 사항입니다.<BR>
  
 
 #### 예제 1: Add-AzureRmTrafficManagerEndpointConfig 및 Set-AzureRmTrafficManagerProfile을 사용하여 외부 끝점 추가
@@ -201,12 +211,16 @@ Azure 끝점은 Azure에서 호스팅되는 다른 서비스를 나타냅니다.
 
 중첩 트래픽 관리자를 사용하면 더 유연하고 강력한 트래픽 라우팅 및 장애 조치(failover) 체계를 만들어 더 크고 복잡한 배포에 대한 요구 사항을 지원할 수 있습니다. [이 블로그 게시물](https://azure.microsoft.com/blog/new-azure-traffic-manager-nested-profiles/)에서 몇 가지 예제를 제공합니다.
 
-중첩 끝점은 특정 끝점 유형인 'NestedEndpoints'를 사용하여 부모 프로필에서 구성됩니다. 중첩된 끝점을 지정하는 경우: - 끝점(자식 프로필)은 'targetResourceId' 매개 변수를 사용하여 지정되어야 합니다.<BR> - 'Performance' 트래픽 라우팅 메서드를 사용하는 경우 'EndpointLocation'이 필수이고, 사용하지 않으면 선택 사항입니다. 값은 [유효한 Azure 지역 이름](http://azure.microsoft.com/regions/)이어야 합니다.<BR> - '가중치' 및 '우선 순위'는 Azure 끝점에서처럼 선택 사항입니다.<BR> - 'MinChildEndpoints' 매개 변수는 선택 사항이며 기본값은 '1'입니다. 자식 프로필에서 사용할 수 있는 끝점 수가 이 임계값 아래로 떨어지는 경우 부모 프로필은 자식 프로필의 '성능이 저하되었다'고 간주하고 트래픽을 다른 부모 프로필 끝점으로 전환합니다.<BR>
+중첩 끝점은 특정 끝점 유형인 'NestedEndpoints'를 사용하여 부모 프로필에서 구성됩니다. 중첩된 끝점을 지정하는 경우:
+ - 'TargetResourceId' 매개 변수를 사용하여 끝점(즉, 자식 프로필)을 지정해야 합니다.<BR>
+ - 'Performance' 트래픽 라우팅 메서드를 사용하는 경우 'EndpointLocation'이 필수이고, 그렇지 않은 경우 선택적입니다. 값은 [올바른 Azure 지역 이름](http://azure.microsoft.com/regions/)이어야 합니다.<BR>
+ - Azure 끝점에 대해 ‘가중치' 및 ‘우선 순위’는 선택 사항입니다.<BR>
+ - 'MinChildEndpoints' 매개 변수는 선택적이고, 기본값은 '1'입니다. 자식 프로필에서 사용할 수 있는 끝점 수가 이 임계값 아래로 떨어지는 경우 부모 프로필은 자식 프로필의 '성능이 저하되었다'고 간주하고 트래픽을 다른 부모 프로필 끝점으로 전환합니다.<BR>
 
 
 #### 예제 1: Add-AzureRmTrafficManagerEndpointConfig 및 Set-AzureRmTrafficManagerProfile을 사용하여 중첩된 끝점 추가
 
-이 예제에서는 새 트래픽 관리자 자식 및 부모 프로필을 만들고 자식을 부모의 중첩 끝점으로 추가하고 변경 내용을 커밋합니다. (간단하게 하기 위해 일반적으로 필요하기는 하지만 여기서는 다른 끝점을 자식 프로필 또는 부모 프로필에 추가하지 않습니다.)<BR>
+이 예제에서는 새 트래픽 관리자 자식 및 부모 프로필을 만들고 자식을 부모의 중첩 끝점으로 추가하고 변경 내용을 커밋합니다. (일반적으로 필요하기는 하지만 여기서는 간단하게 하기 위해 다른 끝점을 자식 프로필 또는 부모 프로필에 추가하지 않습니다.)<BR>
 
 	PS C:\> $child = New-AzureRmTrafficManagerProfile –Name child -ResourceGroupName MyRG -TrafficRoutingMethod Priority -RelativeDnsName child -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
 	PS C:\> $parent = New-AzureRmTrafficManagerProfile –Name parent -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName parent -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
@@ -224,7 +238,7 @@ Azure 끝점은 Azure에서 호스팅되는 다른 서비스를 나타냅니다.
 ## 트래픽 관리자 끝점 업데이트
 기존 트래픽 관리자 끝점을 업데이트하는 방법은 두 가지입니다.<BR>
 
-1. Get-AzureRmTrafficManagerProfile을 사용하여 트래픽 관리자 프로필을 가져오고 프로필 내의 끝점 속성을 업데이트하고 Set-AzureRmTrafficManagerProfile을 사용하여 변경 내용을 커밋합니다. 이 메서드는 한 번에 둘 이상의 끝점을 업데이트할 수 있다는 장점이 있습니다.<BR>
+1. Get-AzureRmTrafficManagerProfile을 사용하여 트래픽 관리자 프로필을 가져오고 프로필 내의 끝점 속성을 업데이트하고 Set-AzureRmTrafficManagerProfile을 사용하여 변경 내용을 커밋합니다. 이 메서드는 한 번에 끝점을 둘 이상 업데이트할 수 있다는 장점이 있습니다.<BR>
 2. Get-AzureRmTrafficManagerEndpoint를 사용하여 트래픽 관리자 끝점을 가져오고 끝점 속성을 업데이트하고 Set-AzureRmTrafficManagerEndpoint를 사용하여 변경 내용을 커밋합니다. 이 메서드는 프로필에서 끝점 배열로 인덱싱하지 않아도 되므로 훨씬 간단합니다.<BR>
 
 #### 예제 1: Get-AzureRmTrafficManagerProfile 및 Set-AzureRmTrafficManagerProfile을 사용하여 끝점 업데이트
@@ -297,4 +311,4 @@ Disable-AzureRmTrafficManagerProfile과 마찬가지로 Disable-AzureRmTrafficMa
 [트래픽 관리자 성능 고려 사항](traffic-manager-performance-considerations.md)
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

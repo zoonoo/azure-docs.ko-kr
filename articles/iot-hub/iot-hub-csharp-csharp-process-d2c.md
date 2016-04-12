@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="01/05/2016"
+     ms.date="02/03/2016"
      ms.author="dobett"/>
 
 # 자습서: IoT Hub 장치-클라우드 메시지를 처리하는 방법
@@ -24,7 +24,7 @@ Azure IoT Hub는 수백만의 IoT 장치와 응용 프로그램 백 엔드 간�
 
 이 자습서는 [IoT Hub 시작] 자습서에 나와있는 코드에 기반하고 장치-클라우드 메시지를 처리하는 데 사용할 수 있는 두 개의 확장 가능한 패턴을 보여줍니다.
 
-- [Azure Blob 저장소]에서 장치-클라우드 메시지의 신뢰할 수 있는 저장소입니다. *콜드 경로* 분석을 구현할 때 매우 일반적인 시나리오이며 Blob에 데이터를 저장하여 [Azure 데이터 팩터리] 또는 [HDInsight(Hadoop)] 스택과 같은 도구로 제어되는 분석 프로세스에 대한 입력으로 사용합니다.
+- [Azure Blob 저장소]에서 장치-클라우드 메시지의 신뢰할 수 있는 저장소입니다. 콜드 경로 분석을 구현할 때 매우 일반적인 시나리오이며 Blob에 데이터를 저장하여 [Azure Data Factory] 또는 [HDInsight(Hadoop)] 스택과 같은 도구로 제어되는 분석 프로세스에 대한 입력으로 사용합니다.
 
 - *대화형* 장치-클라우드 메시지의 신뢰할 수 있는 처리입니다. 장치-클라우드 메시지는 분석 엔진에 공급되는 *데이터 요소* 메시지에 비해 응용 프로그램 백 엔드에서 일련의 작업에 대해 즉각적인 트리거인 경우 대화형입니다. 예를 들어 CRM 시스템에서 티켓의 삽입을 트리거해야 하는 장치에서 보내는 경보는 데이터 요소 장치-클라우드 메시지인 온도 샘플과 같은 원격 분석에 비해 대화형 장치-클라우드 메시지입니다.
 
@@ -49,7 +49,7 @@ IoT Hub가 이벤트 허브 호환 끝점을 노출하여 장치-클라우드 �
 
 + Microsoft Visual Studio 2015.
 
-+ 활성 Azure 계정. <br/>계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdevelop%2Fiot%2Ftutorials%2Fprocess-d2c%2F target="\_blank")을 참조하세요.
++ 활성 Azure 계정. <br/>계정이 없는 경우 몇 분 만에 무료 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdevelop%2Fiot%2Ftutorials%2Fprocess-d2c%2F target="\_blank")을 참조하세요.
 
 [Azure 저장소] 및 [Azure 서비스 버스]의 기본 지식이 있어야 합니다.
 
@@ -69,7 +69,7 @@ IoT Hub가 이벤트 허브 호환 끝점을 노출하여 장치-클라우드 �
 
   ![][50]
 
-> [AZURE.NOTE] Blob 파일의 업데이트를 보려면 **StoreEventProcessor** 클래스의 **MAX\_BLOCK\_SIZE** 상수를 **1024**과 같은 더 작은 값으로 줄여야 합니다. 즉, 시뮬레이션된 장치에서 보낸 데이터로 블록 크기 제한에 도달하는데 시간이 걸리기 때문입니다. 블록 크기가 작을수록 Blob가 만들어지고 업데이트되는 과정을 오래 기다리지 않습니다. 그러나 더 큰 블록 크기를 사용하면 응용 프로그램을 더 확장할 수 있습니다.
+> [AZURE.NOTE] Blob 파일의 업데이트를 보려면 **StoreEventProcessor** 클래스의 **MAX_BLOCK_SIZE** 상수를 **1024**과 같은 더 작은 값으로 줄여야 합니다. 즉, 시뮬레이션된 장치에서 보낸 데이터로 블록 크기 제한에 도달하는데 시간이 걸리기 때문입니다. 블록 크기가 작을수록 Blob가 만들어지고 업데이트되는 과정을 오래 기다리지 않습니다. 그러나 더 큰 블록 크기를 사용하면 응용 프로그램을 더 확장할 수 있습니다.
 
 ## 다음 단계
 
@@ -91,18 +91,18 @@ IoT Hub에 대한 추가 정보:
 
 <!-- Links -->
 
-[Azure Blob 저장소]: https://azure.microsoft.com/ko-KR/documentation/articles/storage-dotnet-how-to-use-blobs/
-[Azure 데이터 팩터리]: https://azure.microsoft.com/ko-KR/documentation/services/data-factory/
-[HDInsight(Hadoop)]: https://azure.microsoft.com/ko-KR/documentation/services/hdinsight/
-[서비스 버스 큐]: https://azure.microsoft.com/ko-KR/documentation/articles/service-bus-dotnet-how-to-use-queues/
+[Azure Blob 저장소]: ../storage/storage-dotnet-how-to-use-blobs.md
+[Azure Data Factory]: https://azure.microsoft.com/documentation/services/data-factory/
+[HDInsight(Hadoop)]: https://azure.microsoft.com/documentation/services/hdinsight/
+[서비스 버스 큐]: ../service-bus/service-bus-dotnet-how-to-use-queues/
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 
 
 
-[Azure IoT Hub 개발자 가이드 - 장치-클라우드]: https://azure.microsoft.com/ko-KR/documentation/articles/iot-hub-devguide/#d2c
+[Azure IoT Hub 개발자 가이드 - 장치-클라우드]: iot-hub-devguide.md#d2c
 
-[Azure 저장소]: https://azure.microsoft.com/ko-KR/documentation/services/storage/
-[Azure 서비스 버스]: https://azure.microsoft.com/ko-KR/documentation/services/service-bus/
+[Azure 저장소]: https://azure.microsoft.com/documentation/services/storage/
+[Azure 서비스 버스]: https://azure.microsoft.com/documentation/services/service-bus/
 
 
 
@@ -117,4 +117,4 @@ IoT Hub에 대한 추가 정보:
 [Supported devices]: iot-hub-tested-configurations.md
 [Azure IoT 개발자 센터]: https://azure.microsoft.com/develop/iot
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

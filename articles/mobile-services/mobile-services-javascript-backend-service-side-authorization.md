@@ -13,14 +13,18 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
 	ms.devlang="javascript"
-	ms.date="11/30/2015"
+	ms.date="03/09/2016"
 	ms.author="krisragh"/>
 
 # 모바일 서비스에서 사용자의 서비스 쪽 권한 부여
+> [AZURE.SELECTOR]
+- [.NET 백 엔드](mobile-services-dotnet-backend-service-side-authorization.md)
+- [JavaScript 백 엔드](mobile-services-javascript-backend-service-side-authorization.md)
 
-> [AZURE.SELECTOR-LIST (Platform | Backend)]
-- [(Any | .NET)](mobile-services-dotnet-backend-service-side-authorization.md)
-- [(Any | Javascript)](mobile-services-javascript-backend-service-side-authorization.md)
+&nbsp;
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> 이 항목에 해당하는 모바일 앱 버전은 [이 샘플 코드](https://github.com/Azure/azure-mobile-apps-node/blob/master/samples/personal-table/tables/TodoItem.js#L38)를 참조하세요.
 
 이 항목에서는 사용자에게 권한을 부여하기 위해 서버 쪽 스크립트를 사용하는 방법을 보여줍니다. 이 자습서에서는 Azure 모바일 서비스로 스크립트를 등록하고 필터 쿼리 사용자 ID를 기반으로 쿼리를 필터링하며 사용자에게 자신의 데이터에 대한 액세스만 제공합니다. 사용자 ID에 따라 사용자의 쿼리 결과를 필터링하는 방식이 가장 기본적인 형태의 권한 부여입니다. 특정 시나리오에 따라, 사용자 또는 역할 테이블을 만들어 지정된 사용자에게 액세스가 허용된 끝점과 같은 보다 자세한 사용자 권한 부여 정보를 추적할 수도 있습니다.
 
@@ -39,7 +43,7 @@
 
 	이 스크립트는 삽입하기 전에 인증된 사용자의 사용자 ID를 항목에 추가합니다.
 
-    >[AZURE.NOTE] [동적 스키마](https://msdn.microsoft.com/library/azure/jj193175.aspx)를 사용하도록 설정했는지 확인합니다. 그렇지 않은 경우 *userId* 열이 자동으로 추가되지 않습니다. 이 설정은 새 모바일 서비스에 대해 기본적으로 설정됩니다.
+    >[AZURE.NOTE] [동적 스키마](https://msdn.microsoft.com/library/azure/jj193175.aspx)를 사용하도록 설정했는지 확인합니다. 그렇지 않은 경우 *userId* 열이 자동으로 추가되지 않습니다. 이 설정은 새 모바일 서비스에 대해 기본적으로 설정됩니다.
 
 3. 마찬가지로, 기존 **읽기** 작업을 다음 함수로 바꿉니다. 이 스크립트는 사용자가 자신이 직접 삽입한 항목만 받을 수 있도록 반환된 TodoItem 개체를 필터링합니다.
 
@@ -68,6 +72,5 @@
 [기존 모바일 서비스 앱에 인증 추가]: /develop/mobile/tutorials/get-started-with-users-ios
 
 [Azure 클래식 포털]: https://manage.windowsazure.com/
- 
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0323_2016-->

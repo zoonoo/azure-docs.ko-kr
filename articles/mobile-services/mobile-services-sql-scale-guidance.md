@@ -213,7 +213,9 @@ Entity Framework에서 인덱스를 정의하려면 인덱싱하려는 필드에
 ### 필수 조건
 이 섹션의 일부 진단 작업을 수행하기 위해서는 **SQL Server Management Studio**와 같은 SQL 데이터베이스를 위한 관리 도구 또는 **Azure 클래식 포털**에서 기본 제공되는 관리 기능에 액세스할 수 있어야 합니다.
 
-SQL Server Management Studio는 고급 기능을 제공하는 무료 Windows 응용 프로그램입니다. Windows 컴퓨터에 액세스할 수 없는 경우(예: Mac을 사용하는 경우), [Windows Server를 실행하는 가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-tutorial.md)에 설명된 것처럼 Azure에서 가상 컴퓨터를 프로비전하고 원격으로 연결할 수 있습니다. SQL Server Management Studio 실행을 위해 주로 VM을 사용하려는 경우 **Basic A0**(이전의 "Extra Small") 인스턴스만으로도 충분합니다.
+
+SQL Server Management Studio는 고급 기능을 제공하는 무료 Windows 응용 프로그램입니다. Windows 컴퓨터에 액세스할 수 없는 경우(예: Mac을 사용하는 경우), [Windows Server를 실행하는 가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md)에 설명된 것처럼 Azure에서 가상 컴퓨터를 프로비전하고 원격으로 연결할 수 있습니다. SQL Server Management Studio 실행을 위해 주로 VM을 사용하려는 경우 **Basic A0**(이전의 "Extra Small") 인스턴스만으로도 충분합니다.
+
 
 Azure 클래식 포털은 보다 제한적이지만 로컬 설치 없이 사용 가능한 기본 제공되는 관리 환경을 제공합니다.
 
@@ -491,4 +493,4 @@ JavaScript 백 엔드의 경우, SQL Server Management Studio 또는 Azure SQL �
 <!-- BLOG LINKS -->
 [키 비용 확인]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

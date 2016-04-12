@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 명령줄 인터페이스를 사용하여 역할 기반 액세스 제어 관리"
+	pageTitle="Azure 명령줄 인터페이스에 대한 역할 기반 액세스 제어 가이드"
 	description="Azure 명령줄 인터페이스를 사용하여 역할 기반 액세스 제어 관리"
 	services="active-directory"
 	documentationCenter="na"
@@ -13,43 +13,33 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/25/2016"
+	ms.date="03/17/2016"
 	ms.author="kgremban"/>
 
-# Azure CLI(명령줄 인터페이스)를 사용하여 역할 기반 액세스 제어 관리 #
+# Azure 명령줄 인터페이스에 대한 역할 기반 액세스 제어 가이드
 
 > [AZURE.SELECTOR]
-- [Windows PowerShell](role-based-access-control-powershell.md)
+- [PowerShell](role-based-access-control-powershell.md)
 - [Azure CLI](role-based-access-control-xplat-cli.md)
 
 Azure 포털 및 Azure 리소스 관리자 API의 RBAC(역할 기반 액세스 제어)를 사용하면 세밀한 수준에서 구독과 리소스에 대한 액세스를 관리할 수 있습니다. 이 기능을 통해 특정 범위에서 Active Directory 사용자, 그룹 또는 서비스 사용자에게 일부 역할을 할당하여 액세스 권한을 부여할 수 있습니다.
 
-이 자습서에서는 Azure CLI를 사용하여 RBAC를 관리하는 방법에 대해 알아보고 역할 할당을 만들고 확인하는 프로세스를 단계별로 살펴봅니다.
+이 자습서에서는 Azure CLI(명령줄 인터페이스)를 사용하여 RBAC를 관리하는 방법에 대해 알아봅니다. 역할 할당을 만들고 확인하는 프로세스를 단계별로 살펴봅니다.
 
 **예상 완료 시간:** 15분
 
-## 필수 조건 ##
+## 필수 조건
 
 Azure CLI를 사용하여 RBAC를 관리하려면 다음 항목이 필요합니다.
 
 - Azure CLI 버전 0.8.8 이상을 사용하세요. 최신 버전을 설치하고 Azure 구독에 연결하려면 [Azure CLI 설치 및 구성 방법](../xplat-cli-install.md)을 참조하세요.
 - Azure CLI에서 Azure Resource Manager를 설치하고 사용하는 방법을 익히려면 [Resource Manager에서 Azure CLI 사용](../xplat-cli-azure-resource-manager.md) 자습서도 확인하세요.
 
-## 자습서 내용 ##
+## <a id="connect"></a>구독에 연결
 
-* [구독에 연결](#connect)
-* [기존 역할 할당 확인](#check)
-* [역할 할당 만들기](#create)
-* [권한 확인](#verify)
-* [다음 단계](#next)
-
-## <a id="connect"></a>구독에 연결 ##
-
-RBAC는 Azure 리소스 관리자에서만 작동하므로 먼저 Azure 리소스 관리자 모드로 전환해야 합니다. 다음을 입력합니다.
+RBAC는 Azure 리소스 관리자에서만 작동하므로 먼저 Azure 리소스 관리자 모드로 전환해야 합니다. 형식:
 
     azure config mode arm
-
-자세한 내용은 [리소스 관리자에서 Azure CLI 사용](../xplat-cli-azure-resource-manager.md)을 참조하세요.
 
 Azure 구독에 연결하려면 다음을 입력합니다.
 
@@ -64,9 +54,7 @@ Azure 구독에 연결하려면 다음을 입력합니다.
     # Use the subscription name to select the one you want to work on.
     azure account set <subscription name>
 
-자세한 내용은 [Azure CLI 설치 및 구성](../xplat-cli-install.md)을 참조하세요.
-
-## <a id="check"></a>기존 역할 할당 확인 ##
+## <a id="check"></a>기존 역할 할당 확인
 
 구독에 이미 포함되어 있는 역할 할당을 확인해 보겠습니다. 형식:
 
@@ -84,11 +72,11 @@ Azure 구독에 연결하려면 다음을 입력합니다.
 그러면 Azure AD 디렉터리에서 리소스 그룹 "group1"에 대해 "Owner" 역할이 할당된 특정 사용자에 대한 모든 역할 할당이 반환됩니다. 역할 할당은 다음의 두 위치에서 수행될 수 있습니다.
 
 1. 리소스 그룹의 사용자에 대한 "Owner" 역할 할당
-2. 리소스 그룹 부모 항목(여기서는 구독)의 사용자에 대한 "Owner" 역할 할당. 특정 부모 리소스에 대한 권한이 있으면 해당 리소스의 모든 자식 리소스에 대해서도 같은 권한이 있기 때문입니다.
+2. 리소스 그룹의 부모(여기서는 구독)에 대한 사용자에게 "Owner" 역할 할당. 부모 수준에 사용 권한을 할당하면 모든 자식은 동일한 사용 권한을 갖습니다.
 
 이 cmdlet의 모든 매개 변수는 선택 사항입니다. 매개 변수를 적절하게 조합하여 각기 다른 필터로 역할 할당을 확인할 수 있습니다.
 
-## <a id="create"></a>역할 할당 만들기 ##
+## <a id="create"></a>역할 할당 만들기
 
 역할 할당을 만들려면 다음 사항을 고려해야 합니다.
 
@@ -116,16 +104,16 @@ Azure 구독에 연결하려면 다음을 입력합니다.
 
 그런 다음 `azure role assignment create`를 사용하여 역할 할당을 만듭니다. 예:
 
- 	#This will create a role assignment at the current subscription level for a user as a reader:
-    `azure role assignment create --upn <user's email> -o Reader`
+ 	#Create a role assignment at the current subscription level for a user as a reader:
+    azure role assignment create --upn <user email> -o Reader
 
-	#This will create a role assignment at a resource group level:
-    `PS C:\> azure role assignment create --upn <user's email> -o Contributor -g group1`
+	#Create a role assignment at a resource group level:
+    PS C:\> azure role assignment create --upn <user email> -o Contributor -g group1
 
-	#This will create a role assignment at a resource level:
-    `azure role assignment create --upn <user's email> -o Owner -g group1 -r Microsoft.Web/sites -u site1`
+	#Create a role assignment at a resource level:
+    azure role assignment create --upn <user email> -o Owner -g group1 -r Microsoft.Web/sites -u site1
 
-## <a id="verify"></a>권한 확인 ##
+## <a id="verify"></a>권한 확인
 
 계정에 역할이 할당되었음을 확인한 후에는 다음 명령을 실행하여 이러한 역할 할당을 통해 부여되는 권한을 실제로 확인할 수 있습니다.
 
@@ -136,7 +124,7 @@ Azure 구독에 연결하려면 다음을 입력합니다.
 
 `azure group create` 등의 다른 cmdlet을 실행할 때 권한이 없으면 액세스 거부 오류가 발생합니다.
 
-## <a id="next"></a>다음 단계 ##
+## <a id="next"></a>다음 단계
 
 Azure CLI를 사용하여 역할 기반 액세스 제어를 관리하는 방법과 관련 항목에 대해 자세히 알아보려면 다음 항목을 참조하세요.
 
@@ -148,4 +136,4 @@ Azure CLI를 사용하여 역할 기반 액세스 제어를 관리하는 방법�
 - [Windows PowerShell을 사용하여 역할 기반 액세스 제어 구성](role-based-access-control-powershell.md)
 - [역할 기반 액세스 제어 문제 해결](role-based-access-control-troubleshooting.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

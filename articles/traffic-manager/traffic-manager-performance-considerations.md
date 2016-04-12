@@ -75,7 +75,7 @@ http://www.digwebinterface.com – Watchmouse 사이트와 유사하지만, CNAM
 ## 다음 단계
 
 
-[트래픽 관리자 트래픽 라우팅 방법 정보](traffic-manager-load-balancing-methods.md)
+[트래픽 관리자 트래픽 라우팅 방법 정보](traffic-manager-routing-methods.md)
 
 [트래픽 관리자 설정 테스트](traffic-manager-testing-settings.md)
 
@@ -84,4 +84,4 @@ http://www.digwebinterface.com – Watchmouse 사이트와 유사하지만, CNAM
 [Azure 트래픽 관리자 cmdlet](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

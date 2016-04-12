@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/09/2016"
+    ms.date="03/10/2016"
     ms.author="ashmaka"/>
 
 # REST API를 사용하여 Azure 검색 인덱스 만들기
@@ -25,9 +25,12 @@
 - [REST (영문)](search-create-index-rest-api.md)
 
 
-이 문서는 [Azure 검색 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx)를 사용하여 Azure 검색 [인덱스](https://msdn.microsoft.com/library/azure/dn798941.aspx)를 만드는 프로세스를 안내합니다. REST API를 사용하여 Azure 검색 인덱스를 만들려면 Azure 검색 서비스의 URL 끝점에 단일 HTTP 게시 요청을 발행합니다. 인덱스 정의는 올바른 형식의 JSON 콘텐츠로 요청 본문에 포함됩니다.
+이 문서는 Azure 검색 REST API를 사용하여 Azure 검색 [인덱스](https://msdn.microsoft.com/library/azure/dn798941.aspx)를 만드는 프로세스를 안내합니다.
 
 이 가이드를 수행하고 인덱스를 만들기 전에 이미 [Azure 검색 서비스를 만들어야](search-create-service-portal.md) 합니다.
+
+REST API를 사용하여 Azure 검색 인덱스를 만들려면 Azure 검색 서비스의 URL 끝점에 단일 HTTP 게시 요청을 발행합니다. 인덱스 정의는 올바른 형식의 JSON 콘텐츠로 요청 본문에 포함됩니다.
+
 
 ## I. Azure 검색 서비스의 관리 API 키 식별
 Azure 검색 서비스를 프로비전했다면 REST API를 사용하여 서비스의 URL 끝점에 대한 HTTP 요청을 실행할 수 있습니다. 그러나 *모든* API 요청은 프로비전된 검색 서비스에 대해 생성된 API 키를 포함해야 합니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 응용 프로그램과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
@@ -73,18 +76,24 @@ Azure 검색 서비스를 프로비전했다면 REST API를 사용하여 서비�
 }
 ```
 
-응용 프로그램에서 사용되는 방법에 따라 각 필드에 대한 인덱스 특성을 신중하게 선택했습니다. 예를 들어 `hotelId`은 호텔을 검색하는 사람들이 알 수 없는 고유한 키이므로 `searchable`를 `false`으로 설정하여 해당 필드에 대한 전체 텍스트 검색 비활성화하여 인덱스의 공간을 절약합니다.
+응용 프로그램에서 사용되는 방법에 따라 각 필드에 대한 인덱스 특성을 신중하게 선택했습니다. 예를 들어 `hotelId`는 호텔을 검색하는 사람들이 알 수 없는 고유한 키이므로 `searchable`을 `false`로 설정하여 해당 필드에 대한 전체 텍스트 검색 비활성화하여 인덱스의 공간을 절약합니다.
 
 형식 `Edm.String`의 인덱스에 정확히 하나의 필드가 '키' 필드로 지정되어야 합니다.
 
-위의 인덱스 정의는 프랑스어 텍스트를 저장하기 위해서 `description_fr` 필드에 사용자 지정 언어 분석기를 사용합니다. 언어 분석기에 대한 자세한 내용은 [MSDN의 언어 지원 항목](https://msdn.microsoft.com/library/azure/dn879793.aspx) 뿐만 아니라 해당하는 [블로그 게시물](https://azure.microsoft.com/blog/language-support-in-azure-search/)을 참조하세요.
+위의 인덱스 정의는 프랑스어 텍스트를 저장하기 위해서 `description_fr` 필드에 사용자 지정 언어 분석기를 사용합니다. 언어 분석기에 대한 자세한 내용은 [MSDN의 언어 지원 토픽](https://msdn.microsoft.com/library/azure/dn879793.aspx)뿐만 아니라 해당하는 [블로그 게시물](https://azure.microsoft.com/blog/language-support-in-azure-search/)을 참조하세요.
 
 ## III. HTTP 요청 발급
 1. 인덱스 정의를 요청 본문으로 사용하여 Azure 검색 서비스 끝점 URL에 HTTP 게시 요청을 발급합니다. URL에 서비스 이름을 호스트 이름으로 사용하고 적절한 `api-version`을 쿼리 문자열 매개 변수로 배치합니다(현재 API 버전은 이 문서를 게시할 때 `2015-02-28`임).
-2. 요청 헤더에서 `Content-Type`을 `application/json`로 지정합니다. `api-key` 헤더의 I단계에서 식별하는 서비스의 관리 키를 제공해야 합니다.
+2. 요청 헤더에서 `Content-Type`을 `application/json`으로 지정합니다. `api-key` 헤더의 I 단계에서 식별하는 서비스의 관리 키를 제공해야 합니다.
 
 
-    게시 https://[service name].search.windows.net/indexes?api-version=2015-02-28 Content-Type: application/json api-key: [api-key]
+아래와 같이 요청을 실행할 고유한 서비스 이름 및 api 키를 제공해야 합니다.
+
+
+    POST https://[service name].search.windows.net/indexes?api-version=2015-02-28
+    Content-Type: application/json
+    api-key: [api-key]
+
 
 성공적인 요청의 경우 상태 코드 201(생성됨)이 표시되어야 합니다. REST API를 통해 인덱스를 만드는 방법에 대한 자세한 내용은 [MSDN](https://msdn.microsoft.com/library/azure/dn798941.aspx)의 API 참조를 방문합니다. 오류가 발생한 경우 반환될 수 있는 기타 HTTP 상태 코드에 대한 자세한 내용은 [HTTP 상태 코드(Azure 검색)](https://msdn.microsoft.com/library/azure/dn798925.aspx)를 참조하세요.
 
@@ -93,7 +102,8 @@ Azure 검색 서비스를 프로비전했다면 REST API를 사용하여 서비�
     DELETE https://[service name].search.windows.net/indexes/hotels?api-version=2015-02-28
     api-key: [api-key]
 
-## 다음
-Azure 검색 인덱스를 만든 후에 데이터를 검색하기 시작할 수 있도록 콘텐츠를 인덱스에 업로드할 준비가 되었습니다. 자세한 내용은 [REST API를 사용하여 Azure 검색으로 데이터 가져오기](search-import-data-rest-api.md)를 참조하세요.
 
-<!----HONumber=AcomDC_0309_2016-->
+## 다음
+Azure 검색 인덱스를 만든 후에 데이터를 검색하기 시작할 수 있도록 [콘텐츠를 인덱스에 업로드](search-what-is-data-import.md)할 준비가 되었습니다.
+
+<!---HONumber=AcomDC_0316_2016-->

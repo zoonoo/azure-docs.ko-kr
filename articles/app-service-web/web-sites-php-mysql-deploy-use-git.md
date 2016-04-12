@@ -3,9 +3,9 @@
 	description="MySQL에 데이터를 저장하는 PHP 웹앱을 만들고 Git를 사용하여 Azure에 배포하는 방법을 보여 주는 자습서입니다."
 	services="app-service\web"
 	documentationCenter="php"
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
-	editor="mollybos"
+	editor=""
 	tags="mysql"/>
 
 <tags
@@ -13,15 +13,15 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
-	ms.topic="hero-article"
+	ms.topic="get-started-article"
 	ms.date="02/09/2016"
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 #Azure 웹 앱 서비스에서 PHP-MySQL 웹 앱 만들기 및 Git를 사용하여 배포
 
 > [AZURE.SELECTOR]
 - [.Net](web-sites-dotnet-get-started.md)
-- [Node.js](web-sites-nodejs-develop-deploy-mac.md)
+- [Node.JS](app-service-web-nodejs-get-started.md)
 - [Java](web-sites-java-get-started.md)
 - [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
 - [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
@@ -33,6 +33,7 @@
 
 * [Azure 포털](https://portal.azure.com)을 사용하여 웹앱 및 MySQL 데이터베이스를 만드는 방법. PHP는 [앱 서비스 웹앱](http://go.microsoft.com/fwlink/?LinkId=529714)에서 기본적으로 사용하도록 설정되므로 PHP 코드를 실행하기 위해 특별한 조치를 취할 필요가 없습니다.
 * Git를 사용하여 응용 프로그램을 Azure에 게시 및 다시 게시하는 방법
+* 작성기 확장을 사용하여 `git push`마다 작성기 태스크를 자동화하는 방법입니다.
 
 이 자습서의 지침에 따라 PHP에서 간단한 등록 웹 앱을 빌드할 수 있습니다. 응용 프로그램은 Azure 웹 앱에 호스트됩니다. 아래에는 완성된 응용 프로그램의 스크린샷이 표시되어 있습니다.
 
@@ -264,6 +265,27 @@
 
 >[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
+<a name="composer">
+## 작성기 확장으로 작성기 자동화 사용
+
+앱 서비스의 git 배포 프로세스가 PHP 프로젝트에 있는 경우 기본적으로 composer.json로 작업하지 않습니다. 작성기 확장을 사용하여 `git push` 중에 composer.json 처리를 사용할 수 있습니다.
+
+1. [Azure 포털](https://portal.azure.com)의 PHP 웹 앱의 블레이드에서 **도구** > **확장**을 클릭합니다.
+
+    ![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-settings.png)
+
+2. **추가**를 클릭한 다음 **작성기**를 클릭합니다.
+
+    ![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-add.png)
+    
+3. **확인**을 클릭하여 약관을 수락합니다. **확인**을 다시 클릭하여 확장을 추가합니다.
+
+    **설치된 확장** 블레이드가 이제 작성기 확장을 표시합니다. ![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-view.png)
+    
+4. 이제 `git add`, `git commit`, 및 `git push`을 이전 섹션처럼 수행합니다. 이제 작성기가 composer.json에 정의된 종속성을 설치하고 있다고 표시됩니다.
+
+    ![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-success.png)
+
 ## 다음 단계
 
 자세한 내용은 [PHP 개발자 센터](/develop/php/)를 참조하세요.
@@ -303,4 +325,4 @@
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0406_2016-->

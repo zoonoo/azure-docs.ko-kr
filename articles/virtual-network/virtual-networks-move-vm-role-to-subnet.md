@@ -12,12 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/22/2016"
    ms.author="telmos" />
 
 # 다른 서브넷으로 VM 또는 역할 인스턴스를 이동하는 방법
 
 PowerShell을 사용하여 동일한 가상 네트워크(VNet)에서 서브넷 간에 VM을 이동할 수 있습니다. PowerShell을 사용하지 않고 CSCFG를 편집하여 역할 인스턴스를 이동할 수 있습니다.
+
+>[AZURE.NOTE] 이 문서에는 Azure 클래식 배포에만 상대적인 정보가 포함됩니다.
 
 다른 서브넷으로 VM을 이동하는 이유 서브넷 마이그레이션은 기존 서브넷이 너무 작고 해당 서브넷에서 실행 중인 기존 VM으로 인해 확장할 수 없는 경우에 유용합니다. 이 경우 새로운, 더 큰 서브넷을 만들고 새 서브넷으로 VM을 마이그레이션한 다음 마이그레이션이 완료된 후 이전의 빈 서브넷을 삭제할 수 있습니다.
 
@@ -51,4 +53,4 @@ VM에 대한 고정 DIP를 지정한 경우 먼저 해당 설정을 제거해야
 	    </AddressAssignments>
 	</NetworkConfiguration> 
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0330_2016-->

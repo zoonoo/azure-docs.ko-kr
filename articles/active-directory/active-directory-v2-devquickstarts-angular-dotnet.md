@@ -51,7 +51,8 @@ git clone https://github.com/AzureADSamples/SinglePageApp-AngularJS-DotNet.git
 앱에 할당된 **응용 프로그램 ID**를 적어둡니다. 곧 이 정보가 필요합니다.
 
 ## adal.js 설치
-시작하려면 다운로드한 프로젝트로 이동하여 adal.js를 설치합니다. [bower](http://bower.io/)가 설치되어 있는 경우 이 명령을 실행하기만 하면 됩니다. 종속성 버전 불일치가 있는 경우 높은 버전을 선택합니다. ```
+시작하려면 다운로드한 프로젝트로 이동하여 adal.js를 설치합니다. [bower](http://bower.io/)가 설치되어 있는 경우 이 명령을 실행하기만 하면 됩니다. 종속성 버전 불일치가 있는 경우 높은 버전을 선택합니다.
+```
 bower install adal-angular#experimental
 ```
 
@@ -228,4 +229,4 @@ v2.0 끝점에 대해 계속 알아보려면, [v2.0 개발자 가이드](active-
 - [스택 오버플로의 Azure AD(영문) >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 - [Azure.com >>](https://azure.microsoft.com/documentation/services/active-directory/)의 Azure AD 설명서
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

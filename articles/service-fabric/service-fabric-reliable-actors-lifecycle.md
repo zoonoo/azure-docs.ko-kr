@@ -3,7 +3,7 @@
    description="서비스 패브릭 신뢰할 수 있는 행위자에 대한 수명 주기 및 가비지 수집을 설명합니다."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/20/2016"
-   ms.author="amanbha"/>
+   ms.date="03/15/2016"
+   ms.author="vturecek"/>
 
 
 # 행위자 수명 주기 및 가비지 수집
@@ -32,7 +32,7 @@
 - 행위자를 일정 기간 동안 사용하지 않으면 활성 행위자 테이블에서 제거됩니다.
 - `OnDeactivateAsync` 메서드(행위자 구현 시 재정의될 수 있음)를 호출합니다. 그러면 행위자에 대한 모든 타이머가 지워집니다.
 
-> [AZURE.TIP]패브릭 행위자 런타임에서는 일부 [행위자 활성화 및 비활성화 관련 이벤트](service-fabric-reliable-actors-diagnostics.md#actor-activation-and-deactivation-events)를 내보냅니다. 진단 및 성능 모니터링에 유용합니다.
+> [AZURE.TIP] 패브릭 행위자 런타임에서는 일부 [행위자 활성화 및 비활성화 관련 이벤트](service-fabric-reliable-actors-diagnostics.md#actor-activation-and-deactivation-events)를 내보냅니다. 진단 및 성능 모니터링에 유용합니다.
 
 ## 행위자 가비지 수집
 행위자 런타임은 일정 기간 동안 사용되지 않은 행위자를 주기적으로 스캔하여 비활성화합니다. 비활성화되고 나면 행위자는 CLR(공용 언어 런타임)에서 수집된 가비지일 수 있습니다.
@@ -46,8 +46,8 @@
 
 가비지 수집에 대한 세부 정보를 살펴보기 전에 다음과 같은 용어를 정의하는 것이 중요합니다.
 
-- 스캔 간격. 행위자 런타임이 가비지 수집될 수 있는 행위자에 대해 해당 활성 행위자 테이블을 스캔하는 간격입니다. 기본값은 1분입니다.
-- 유휴 시간 제한. 행위자가 가비지 수집되기 전에 미사용(유휴) 상태를 유지해야 하는 시간. 기본값은 60분입니다.
+- *스캔 간격*. 행위자 런타임이 가비지 수집될 수 있는 행위자에 대해 해당 활성 행위자 테이블을 스캔하는 간격입니다. 기본값은 1분입니다.
+- *유휴 시간 제한*. 행위자가 가비지 수집되기 전에 미사용(유휴) 상태를 유지해야 하는 시간. 기본값은 60분입니다.
 
 일반적으로 이 기본값은 변경할 필요가 없습니다. 하지만 필요한 경우 이러한 간격은 어셈블리의 모든 행위자 형식에 대해 해당 어셈블리 수준에서 또는 `ActorGarbageCollection` 특성을 사용하여 행위자 형식 수준에서 변경할 수 있습니다. 다음 예제에서는 HelloActor에 대한 가비지 수집 간격 변경 방법을 보여줍니다.
 
@@ -90,4 +90,4 @@ class HelloActor : Actor, IHello
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0316_2016-->

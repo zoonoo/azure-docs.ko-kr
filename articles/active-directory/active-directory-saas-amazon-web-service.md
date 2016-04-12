@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/18/2015"
+	ms.date="03/08/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@
 
 - AWS(Amazon Web Service)에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다. 
 - 사용자가 해당 Azure AD 계정으로 AWS(Amazon Web Service)에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
-- 단일 중앙 위치인 Azure Active Directory 포털에서 계정을 관리할 수 있습니다.
+- 단일 중앙 위치인 Azure 클래식 포털에서 계정을 관리할 수 있습니다.
 
 Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](active-directory-appssoaccess-whatis.md)을 참조하세요.
 
@@ -35,7 +35,7 @@ AWS(Amazon Web Service)와의 Azure AD 통합을 구성하려면 다음 항목�
 - AWS(Amazon Web Service) Single Sign-On이 설정된 구독
 
 
-> [AZURE.NOTE]이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
+> [AZURE.NOTE] 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
 
 
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
@@ -56,13 +56,13 @@ AWS(Amazon Web Service)의 Azure AD 통합을 구성하려면 갤러리의 AWS(A
 
 ### 갤러리에서 AWS(Amazon Web Service)를 추가하려면 다음 단계를 수행합니다.
 
-1. **Azure 관리 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. <br><br>![Active Directory][1]<br> 
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. <br><br>![Active Directory][1] <br> 
 
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 
-3. 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다. <br><br>![응용 프로그램][2]<br>
+3. 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.<br><br>![응용 프로그램][2]<br>
 
-4. 페이지 맨 아래에 있는 **추가**를 클릭합니다. <br><br>![응용 프로그램][3]<br>
+4. 페이지 맨 아래에 있는 **추가**를 클릭합니다.<br><br>![응용 프로그램][3]<br>
 
 5. **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다. <br><br>![응용 프로그램][4]<br>
 
@@ -87,14 +87,14 @@ AWS(Amazon Web Service)에서 Azure AD Single Sign-On을 구성하고 테스트�
 
 ### Azure AD Single Sign-on 구성
 
-이 섹션은 Azure AD 포털에서 Azure AD Single Sign-on을 사용하도록 설정하고 AWS(Amazon Web Service) 응용 프로그램에서 Single Sign-On을 구성하는 방법을 설명하기 위한 것입니다.<br> AWS(Amazon Web Service) 응용 프로그램에서는 특정 서식의 SAML 어설션이 필요합니다. 이에 따라 **SAML 토큰 특성** 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
+이 섹션은 Azure 클래식 포털에서 Azure AD Single Sign-On을 사용하도록 설정하고 AWS(Amazon Web Service) 응용 프로그램에서 Single Sign-On을 구성하는 방법을 설명하기 위한 것입니다.<br> AWS(Amazon Web Service) 응용 프로그램에서는 특정 서식의 SAML 어설션이 필요합니다. 이에 따라 **SAML 토큰 특성** 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
 
 
 <br><br>![Single Sign-On 구성][27]<br>
 
 **AWS(Amazon Web Service)에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure AD 포털의 **AWS(Amazon Web Service)** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다. <br><br>![Single Sign-On 구성][7]<br>
+1. Azure 클래식 포털의 **AWS(Amazon Web Service)** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다. <br><br>![Single Sign-On 구성][7]<br>
 
 2. **AWS(Amazon Web Service)에 대한 사용자 로그온 방법 선택** 페이지에서 **Azure AD Single Sign-on**을 선택하고 **다음**을 클릭합니다.<br><br>![Single Sign-On 구성][8]<br>
 
@@ -159,7 +159,7 @@ AWS(Amazon Web Service)에서 Azure AD Single Sign-On을 구성하고 테스트�
 
      c. **역할 만들기**를 클릭합니다.
 
-18. Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.<br><br>![Azure AD Connect의 정의][20]<br>
+18. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다. <br><br>![Azure AD Connect의 정의][20]<br>
 
 19. **Single Sign-On 확인** 페이지에서 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다. <br><br>![Azure AD Connect의 정의][22]<br>
 
@@ -174,7 +174,7 @@ AWS(Amazon Web Service)에서 Azure AD Single Sign-On을 구성하고 테스트�
 
      b. **특성 값** 텍스트 상자에 **[역할 ARN 값],[신뢰할 수 있는 엔터티 ARN 값]**을 입력합니다.
 
-     >[AZURE.TIP]이들은 역할을 만들었을 때 검토 대화 상자에서 복사한 값입니다.
+     >[AZURE.TIP] 이들은 역할을 만들었을 때 검토 대화 상자에서 복사한 값입니다.
 
      c. **완료**를 클릭하여 **사용자 특성 추가** 대화 상자를 닫습니다.
 
@@ -199,11 +199,11 @@ AWS(Amazon Web Service)에서 Azure AD Single Sign-On을 구성하고 테스트�
 
 ### Azure AD 테스트 사용자 만들기
 
-이 섹션의 목적은 Azure 포털에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.<br> 사용자 목록에서 **Britta Simon**을 선택합니다.<br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-amazon-web-service/create_aaduser_01.png)<br>
+이 섹션의 목적은 Azure 클래식 포털에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.<br> 사용자 목록에서 **Britta Simon**을 선택합니다.<br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-amazon-web-service/create_aaduser_01.png)<br>
 
 **Azure AD에서 테스트 사용자를 만들려면 다음 단계를 수행하세요.**
 
-1. **Azure 관리 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. <br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-amazon-web-service/create_aaduser_02.png)<br> 
+1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. <br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-amazon-web-service/create_aaduser_02.png) <br> 
 
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 
@@ -211,7 +211,7 @@ AWS(Amazon Web Service)에서 Azure AD Single Sign-On을 구성하고 테스트�
  
 4. **사용자 추가** 대화 상자를 열려면 아래쪽의 도구 모음에서 **사용자 추가**를 클릭합니다.<br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-amazon-web-service/create_aaduser_04.png)<br>
 
-5. **이 사용자에 대한 정보 입력** 대화 상자 페이지에서 다음 단계를 수행합니다. <br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-amazon-web-service/create_aaduser_05.png)<br>
+5. **이 사용자에 대한 정보 입력** 대화 상자 페이지에서 다음 단계를 수행합니다.<br><br>![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-amazon-web-service/create_aaduser_05.png)<br>
 
   1. 사용자 유형에서 조직의 새 사용자를 선택합니다.
   2. 사용자 이름 **텍스트 상자**에 **BrittaSimon**을 입력합니다.
@@ -264,7 +264,7 @@ AWS(Amazon Web Service)에서 Azure AD Single Sign-On을 구성하고 테스트�
 
 **Britta Simon을 CloudPassage에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure 포털에서 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다. <br><br>![사용자 할당][26]<br>
+1. Azure 클래식 포털에서 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다. <br><br>![사용자 할당][26] <br>
 
 2. 응용 프로그램 목록에서 **AWS(Amazon Web Service)**를 선택합니다. <br><br>![사용자 할당][27]<br>
 
@@ -272,7 +272,7 @@ AWS(Amazon Web Service)에서 Azure AD Single Sign-On을 구성하고 테스트�
 
 1. 사용자 목록에서 **Britta Simon**을 선택합니다.
 
-2. 아래쪽 도구 모음에서 **할당**을 클릭합니다. <br><br>![사용자 할당][29]<br>
+2. 아래쪽 도구 모음에서 **할당**을 클릭합니다.<br><br>![사용자 할당][29]<br>
 
 ### Single Sign-On 테스트
 
@@ -320,4 +320,4 @@ AWS(Amazon Web Service)에서 Azure AD Single Sign-On을 구성하고 테스트�
 [33]: ./media/active-directory-saas-amazon-web-service/ic7950252.png
 [34]: ./media/active-directory-saas-amazon-web-service/ic7950253.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0309_2016-->

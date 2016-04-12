@@ -10,15 +10,15 @@ Eclipse용 Azure 도구 키트에는 다음 소프트웨어 구성 요소가 필
     * [Mac OS X](http://www.apple.com/osx) 버전 "Yosemite" 및 "El Captain"
     * [Ubuntu Linux](http://www.ubuntu.com) 버전 12, 14 및 15
 
->[AZURE.NOTE]자세한 내용은 Eclipse 마켓플레이스의 [Eclipse용 Azure 도구 키트](http://marketplace.eclipse.org/content/azure-toolkit-eclipse) 페이지에서 찾을 수 있습니다.
+자세한 내용은 Eclipse 마켓플레이스의 [Eclipse용 Azure 도구 키트](http://marketplace.eclipse.org/content/azure-toolkit-eclipse) 페이지에서 찾을 수 있습니다.
 
 <br>
 
 > [AZURE.IMPORTANT]Eclipse용 Azure 도구 키트를 Windows에서 사용하는 경우 도구 키트를 위해 Azure SDK 2.7 이상을 설치해야 합니다. Azure SDK 설치하는 옵션은 두 가지입니다.
 > 
-> * [WebPI(웹 플랫폼 설치 관리자)][]를 사용하여 Azure SDK를 다운로드하고 설치할 수 있습니다.
+> * [웹 플랫폼 설치 관리자(WebPI)](http://go.microsoft.com/fwlink/?LinkID=252838)를 사용하여 Azure SDK를 다운로드하고 설치할 수 있습니다.
 > * 첫 번째 Azure 배포 프로젝트를 만들 때 Azure SDK가 설치되어 있지 않으면 Azure SDK 필수 버전을 자동으로 다운로드하고 설치한다는 메시지가 표시됩니다.
 > 
 > Azure SDK는 Windows에서만 필요합니다.
 
-<!----HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

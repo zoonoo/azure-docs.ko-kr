@@ -55,7 +55,7 @@ HPC Pack은 Microsoft Azure 및 Windows Server 기술로 구축된 무료 HPC �
 * [설명서](https://technet.microsoft.com/library/jj899572.aspx)
 
 
-* [Azure에서 Microsoft HPC 팩을 사용하는 HPC 클러스터 옵션](../virtual-machines/virtual-machines-hpcpack-cluster-options.md)
+* [Azure에서 Microsoft HPC 팩을 사용하는 HPC 클러스터 옵션](../virtual-machines/virtual-machines-linux-hpcpack-cluster-options.md)
 
 * [HPC 팩을 사용한 Azure 작업자 인스턴스에 버스트](https://technet.microsoft.com/library/gg481749.aspx)
 
@@ -83,15 +83,16 @@ Linux HPC 클러스터를 배포하려면 이러한 Azure 템플릿을 사용합
 
 * [MS-MPI 참조(영문)](https://msdn.microsoft.com/library/dn473458.aspx)
 
-* [MPI 포럼](https://social.microsoft.com/Forums/home?forum=windowshpcmpi)
+* [MPI 포럼](https://social.microsoft.com/Forums/ko-KR/home?forum=windowshpcmpi)
 
 ## 계산 집약적 인스턴스
 
-Azure는 Linux 및 Windows HPC 워크로드를 실행하도록 백 엔드 RDMA 네트워크에 연결할 수 있는 계산 집약적 [A8 및 A9](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md) 인스턴스를 비롯하여 [다양한 크기](../virtual-machines/virtual-machines-size-specs.md)를 제공합니다.
+Azure는 Linux 및 Windows HPC 워크로드를 실행하도록 백 엔드 RDMA 네트워크에 연결할 수 있는 계산 집약적 [A8 및 A9](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) 인스턴스를 비롯하여 [다양한 크기](../virtual-machines/virtual-machines-windows-sizes.md)를 제공합니다.
 
-* [MPI 응용 프로그램을 실행하도록 Linux RDMA 클러스터 설정](../virtual-machines/virtual-machines-linux-cluster-rdma.md)
 
-* [MPI 응용 프로그램을 실행하기 위해 Microsoft HPC Pack을 사용하여 Windows RDMA 클러스터 설정](../virtual-machines/virtual-machines-windows-hpcpack-cluster-rdma.md)
+* [MPI 응용 프로그램을 실행하도록 Linux RDMA 클러스터 설정](../virtual-machines/virtual-machines-linux-classic-rdma-cluster.md)
+
+* [MPI 응용 프로그램을 실행하기 위해 Microsoft HPC Pack을 사용하여 Windows RDMA 클러스터 설정](../virtual-machines/virtual-machines-windows-classic-hpcpack-rdma-cluster.md)
 
 ## 아키텍처 청사진
 
@@ -145,4 +146,4 @@ Azure는 Linux 및 Windows HPC 워크로드를 실행하도록 백 엔드 RDMA �
 * 최신 공지 사항은 [Microsoft HPC 및 배치 팀 블로그](http://blogs.technet.com/b/windowshpc/) 및 [Azure 블로그](https://azure.microsoft.com/blog/tag/hpc/)를 참조하세요.
 * 또한 [배치의 새로운 기능](https://azure.microsoft.com/updates/?service=batch)을 참조하거나 [RSS 피드](https://azure.microsoft.com/updates/feed/?service=batch)를 구독하세요.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

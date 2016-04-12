@@ -3,9 +3,9 @@
 	description="스트레치 데이터베이스의 후보인 데이터베이스 및 테이블을 식별하는 방법에 대해 알아봅니다."
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -61,6 +61,11 @@
 -   스트레치가 데이터베이스에 이미 설정된 경우 다른 **테이블**에 스트레치 데이터베이스를 사용하도록 설정하려면 [Enable Stretch Database for a table(테이블에 스트레치 데이터베이스를 사용하도록 설정)](sql-server-stretch-database-enable-table.md)을 참조하세요.
 
 ## 참고 항목
-[스트레치 데이터베이스에 대한 노출 영역 제한 사항 및 차단 문제](sql-server-stretch-database-limitations.md) [Enable Stretch Database for a database(데이터베이스에 스트레치 데이터베이스를 사용하도록 설정)](sql-server-stretch-database-enable-database.md) [Enable Stretch Database for a table(테이블에 스트레치 데이터베이스를 사용하도록 설정)](sql-server-stretch-database-enable-table.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+[스트레치 데이터베이스에 대한 노출 영역 제한 사항 및 차단 문제](sql-server-stretch-database-limitations.md)
+
+[데이터베이스에 대해 스트레치 데이터베이스를 사용하도록 설정](sql-server-stretch-database-enable-database.md)
+
+[테이블에 대해 스트레치 데이터베이스를 사용하도록 설정](sql-server-stretch-database-enable-table.md)
+
+<!---HONumber=AcomDC_0316_2016-->

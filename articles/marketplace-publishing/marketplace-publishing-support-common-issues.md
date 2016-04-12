@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="12/06/2015"
+      ms.date="03/21/2015"
       ms.author="v-jeana; hascipio; v-dabosl"/>
 
 # 일반적인 Azure 마켓플레이스 게시자 문제를 해결하는 방법
@@ -25,7 +25,7 @@
 
 다음은 고객을 대신하여 크레딧 또는 환불을 요청하는 방법을 보여 줍니다.
 
-> [AZURE.NOTE]고객 또는 Azure 재판매인이 환불 또는 크레딧을 요청하기 위해 Microsoft에 연락하는 경우 Microsoft는 Azure 서비스 조항에 사용하는 정책을 적용합니다. Microsoft 정책에 환불 또는 크레딧을 지급해야 한다고 표시되어 있으면 Microsoft는 고객 또는 Azure 재판매인(해당하는 경우)에게 환불 또는 크레딧을 사전에 지급하고 귀하는 Microsoft에 귀하를 대신하여 지급할 권한을 부여합니다. Microsoft 정책에 환불 또는 크레딧을 지급해야 한다고 표시되어 있지 않으면 Microsoft는 고객 또는 Azure 재판매인에게 귀하에게 직접 연락하도록 요청할 수 있습니다.
+> [AZURE.NOTE] 고객 또는 Azure 재판매인이 환불 또는 크레딧을 요청하기 위해 Microsoft에 연락하는 경우 Microsoft는 Azure 서비스 조항에 사용하는 정책을 적용합니다. Microsoft 정책에 환불 또는 크레딧을 지급해야 한다고 표시되어 있으면 Microsoft는 고객 또는 Azure 재판매인(해당하는 경우)에게 환불 또는 크레딧을 사전에 지급하고 귀하는 Microsoft에 귀하를 대신하여 지급할 권한을 부여합니다. Microsoft 정책에 환불 또는 크레딧을 지급해야 한다고 표시되어 있지 않으면 Microsoft는 고객 또는 Azure 재판매인에게 귀하에게 직접 연락하도록 요청할 수 있습니다.
 
   ![1\_RequestRefund][1]
 
@@ -78,7 +78,7 @@
 
 **3. "계정 보호 지원" 확인을 완료합니다**.
 
-> [AZURE.NOTE]전화번호나 메일 주소를 사용하여 확인할 수 있습니다.
+> [AZURE.NOTE] 전화번호나 메일 주소를 사용하여 확인할 수 있습니다.
 
 ![protectacct][6]
 
@@ -120,4 +120,4 @@
 [7]: ./media/marketplace-publishing-support-common-issues/acctdetails.png
 [8]: ./media/marketplace-publishing-support-common-issues/manageadmins.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0323_2016-->

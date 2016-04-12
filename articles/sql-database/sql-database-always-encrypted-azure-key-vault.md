@@ -1,7 +1,7 @@
 <properties
-	pageTitle="데이터베이스 암호화를 사용하여 SQL 데이터베이스의 중요한 데이터 보호 | Microsoft Azure"
+	pageTitle="상시 암호화 - 데이터베이스 암호화를 사용하여 Azure SQL 데이터베이스의 중요한 데이터 보호"
 	description="몇 분 만에 SQL 데이터베이스의 중요한 데이터를 보호합니다."
-	keywords="SQL 데이터베이스, SQL 암호화, 데이터베이스 암호화, 암호화 키, 중요한 데이터, 상시 암호화"	
+	keywords="데이터 암호화, 암호화 키, 클라우드 암호화"	
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
@@ -15,19 +15,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="03/02/2016"
 	ms.author="sstein"/>
 
-# 데이터베이스 암호화를 사용하여 SQL 데이터베이스의 중요한 데이터 보호 및 Azure 키 자격 증명 모음에 암호화 키 저장
+# 상시 암호화 - 데이터 암호화를 사용하여 SQL 데이터베이스의 중요한 데이터 보호 및 Azure 주요 자격 증명 모음에 암호화 키 저장
 
 > [AZURE.SELECTOR]
 - [Azure 키 자격 증명 모음](sql-database-always-encrypted-azure-key-vault.md)
 - [Windows 인증서 저장소](sql-database-always-encrypted.md)
 
 
-이 문서에서는 [SSMS(SQL Server Management Studio)](https://msdn.microsoft.com/library/hh213248.aspx)의 [상시 암호화 마법사](https://msdn.microsoft.com/library/mt459280.aspx)를 사용하여 데이터베이스 암호화로 SQL 데이터베이스의 중요한 데이터를 보호하고 Azure 키 자격 증명 모음에 암호화 키를 저장하는 방법을 보여 줍니다.
+이 문서에서는 [SSMS(SQL Server Management Studio)](https://msdn.microsoft.com/library/hh213248.aspx)의 [상시 암호화 마법사](https://msdn.microsoft.com/library/mt459280.aspx)를 사용하여 데이터 암호화로 SQL 데이터베이스의 중요한 데이터를 보호하고 Azure 주요 자격 증명 모음에 각 암호화 키를 저장하는 방법을 보여 줍니다.
 
-상시 암호화는 서버에서 중요한 미사용 데이터를 보호하는 Azure SQL 데이터베이스 및 SQL Server의 새 암호화 기술입니다. 데이터를 사용 중인 기간 뿐만 아니라 클라이언트와 서버 간에 이동하는 동안에도 중요한 데이터가 데이터베이스 시스템 내부에 일반 텍스트 형식으로 표시되지 않도록 합니다. 키에 액세스할 수 있는 클라이언트 응용 프로그램 또는 앱 서버는 일반 텍스트 데이터에 액세스할 수 있습니다. 자세한 내용은 [상시 암호화(데이터베이스 엔진)](https://msdn.microsoft.com/library/mt163865.aspx)를 참조하세요.
+상시 암호화는 서버에서 중요한 미사용 데이터를 보호하는 Azure SQL 데이터베이스 및 SQL Server의 새 데이터 암호화 기술입니다. 데이터를 사용 중인 기간뿐만 아니라 클라이언트와 서버 간에 이동하는 동안에도 중요한 데이터가 데이터베이스 시스템 내부에 일반 텍스트 형식으로 표시되지 않도록 합니다. 데이터 암호화를 구성한 후 키에 액세스할 수 있는 클라이언트 응용 프로그램 또는 앱 서버만 일반 텍스트 데이터에 액세스할 수 있습니다. 자세한 내용은 [상시 암호화(데이터베이스 엔진)](https://msdn.microsoft.com/library/mt163865.aspx)를 참조하세요.
 
 
 상시 암호화를 사용하는 데이터베이스를 구성한 후에 Visual Studio로 C#에서 클라이언트 응용 프로그램을 만들어 암호화된 데이터로 작업합니다.
@@ -264,6 +264,26 @@ SSMS는 쉽게 열 마스터 키(CMK), 열 암호화 키(CEK) 및 암호화된 �
     // Enable Always Encrypted.
     connStringBuilder.ColumnEncryptionSetting = 
        SqlConnectionColumnEncryptionSetting.Enabled;
+
+## Azure 주요 자격 증명 모음 공급자 등록
+
+다음 코드는 ADO.NET 드라이버로 Azure 주요 자격 증명 모음 공급자를 등록하는 방법을 보여 줍니다.
+
+    private static ClientCredential _clientCredential;
+
+    static void InitializeAzureKeyVaultProvider()
+    {
+       _clientCredential = new ClientCredential(clientId, clientSecret);
+
+       SqlColumnEncryptionAzureKeyVaultProvider azureKeyVaultProvider =
+          new SqlColumnEncryptionAzureKeyVaultProvider(GetToken);
+
+       Dictionary<string, SqlColumnEncryptionKeyStoreProvider> providers =
+          new Dictionary<string, SqlColumnEncryptionKeyStoreProvider>();
+
+       providers.Add(SqlColumnEncryptionAzureKeyVaultProvider.ProviderName, azureKeyVaultProvider);
+       SqlConnection.RegisterColumnEncryptionKeyStoreProviders(providers);
+    }
 
 
 
@@ -637,7 +657,7 @@ SSMS는 쉽게 열 마스터 키(CMK), 열 암호화 키(CEK) 및 암호화된 �
 
 SSMS를 사용하여 일반 텍스트 데이터에 액세스하려면 **열 암호화 설정=활성화** 매개 변수를 연결에 추가할 수 있습니다.
 
-1. SSMS에서 **개체 탐색기** 및 **연결 끊기**의 서버를 마우스 오른쪽 단추로 클릭합니다.
+1. SSMS에서 **개체 탐색기**에 있는 서버를 마우스 오른쪽 단추로 클릭하고 **연결 끊기**를 클릭합니다.
 2. **연결** > **데이터베이스 엔진**을 클릭하여 **서버에 연결** 창을 열고 **옵션**을 클릭합니다.
 3. **추가 연결 매개 변수**를 클릭하고 **열 암호화 설정=활성화**를 입력합니다.
 
@@ -656,7 +676,7 @@ SSMS를 사용하여 일반 텍스트 데이터에 액세스하려면 **열 암�
 ## 다음 단계
 상시 암호화를 사용하는 데이터베이스를 만든 후에 다음을 수행할 수 있습니다.
 
-- [키 회전 및 정리](https://msdn.microsoft.com/library/mt607048.aspx).
+- [키 회전 및 정리](https://msdn.microsoft.com/library/mt607048.aspx)
 - [상시 암호화로 이미 암호화된 데이터 마이그레이션](https://msdn.microsoft.com/library/mt621539.aspx)
 
 
@@ -669,4 +689,4 @@ SSMS를 사용하여 일반 텍스트 데이터에 액세스하려면 **열 암�
 - [상시 암호화 마법사](https://msdn.microsoft.com/library/mt459280.aspx)
 - [상시 암호화 블로그](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

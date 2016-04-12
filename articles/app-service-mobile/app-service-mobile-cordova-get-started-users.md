@@ -54,7 +54,7 @@
 
     다음은 Content-Security-Policy(Azure Active Directory용으로 구현됨) 예제입니다.
 
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' 
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'
 			data: gap: https://login.windows.net https://yourapp.azurewebsites.net; style-src 'self'">
 
     `https://login.windows.net`을 위 표의 OAuth 호스트로 바꿔야 합니다. 이 Meta 태그에 대한 자세한 내용은 [Content-Security-Policy 설명서]를 참조하세요.
@@ -96,10 +96,19 @@
 * Azure 앱 서비스의 [인증 정보]에 대해 자세히 알아봅니다.
 * [푸시 알림]을 Apache Cordova 앱에 추가하여 자습서를 계속합니다.
 
+SDK 사용 방법을 알아봅니다.
+
+* [Apache Cordova SDK]
+* [ASP.NET 서버 SDK]
+* [Node.js 서버 SDK]
+
 <!-- URLs. -->
 [모바일 앱 시작]: app-service-mobile-cordova-get-started.md
 [Content-Security-Policy 설명서]: https://cordova.apache.org/docs/en/latest/guide/appdev/whitelist/index.html
 [푸시 알림]: app-service-mobile-cordova-get-started-push.md
 [인증 정보]: app-service-mobile-auth.md
+[Apache Cordova SDK]: app-service-mobile-codova-how-to-use-client-library.md
+[ASP.NET 서버 SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+[Node.js 서버 SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

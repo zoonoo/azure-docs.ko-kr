@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/01/2016"
+	ms.date="03/09/2016"
 	ms.author="awills"/>
 
 
@@ -154,7 +154,7 @@ Azure 웹앱의 제어판에서 Application Insights 확장을 추가합니다.
  -	`management.azure.com:443`
  -	`login.windows.net:443`
  -	`login.microsoftonline.com:443`
- -	`secure.addcdn.microsoftonline-p.com:443`
+ -	`secure.aadcdn.microsoftonline-p.com:443`
  -	`auth.gfx.ms:443`
  -	`login.live.com:443`
 + 설치:
@@ -194,6 +194,89 @@ Server에서 Application Insights 상태 모니터에 대한 OS 지원:
 
 IIS 지원: IIS 7, 7.5, 8, 8.5(IIS 필요)
 
+## PowerShell을 사용한 자동화
+
+PowerShell을 사용하여 모니터링을 시작하고 중지할 수 있습니다.
+
+`Get-ApplicationInsightsMonitoringStatus [-Name appName]`
+
+* `-Name` (선택 사항)웹앱의 이름입니다.
+* 이 IIS 서버에서 각 웹앱(또는 명명된 앱)에 대한 상태를 모니터링하여 Application Insights를 표시합니다.
+
+* 각 앱에 대해 `ApplicationInsightsApplication`을 반환합니다.
+ * `SdkState==EnabledAfterDeployment`: 상태 모니터 도구 또는 `Start-ApplicationInsightsMonitoring`에서 앱을 모니터링하고 런타임 시 계측했습니다.
+ * `SdkState==Disabled`: 앱이 Application insights에 대해 계측되지 않습니다. 앱을 계측하지 않았거나 상태 모니터 도구 또는 `Stop-ApplicationInsightsMonitoring`를 사용하여 런타임 모니터링을 비활성화되었습니다.
+ * `SdkState==EnabledByCodeInstrumentation`: 소스 코드에 SDK를 추가하여 앱을 계측했습니다. 해당 SDK은 업데이트되거나 중지될 수 없습니다.
+ * `SdkVersion`은 이 앱을 모니터링하는 데 사용하는 버전을 나타냅니다.
+ * `LatestAvailableSdkVersion`은 NuGet 갤러리에서 현재 사용할 수 있는 버전을 나타냅니다. 앱을 이 버전으로 업그레이드하려면 `Update-ApplicationInsightsMonitoring`를 사용합니다.
+
+`Start-ApplicationInsightsMonitoring -Name appName -InstrumentationKey 00000000-000-000-000-0000000`
+
+* `-Name` IIS에서 앱의 이름
+* `-InstrumentationKey` 결과를 표시하려는 Application Insights 리소스의 ikey입니다.
+
+* 이 cmdlet은 아직 계측되지 않은 앱에만 영향을 줍니다. 즉, SdkState==NotInstrumented입니다.
+
+    cmdlet은 빌드 시 코드에 SDK를 추가하거나 런타임 시 사전에 이 cmdlet을 사용하여 이미 계측된 앱에 영향을 주지 않습니다.
+
+    앱을 계측하는 데 사용한 SDK 버전은 가장 최근에 이 서버에 다운로드된 버전입니다.
+
+    최신 버전을 다운로드하려면 Update-ApplicationInsightsVersion을 사용합니다.
+
+* 성공 시 `ApplicationInsightsApplication`을 반환합니다. 실패한 경우 stderr에 대한 추적을 기록합니다.
+
+    
+          Name                      : Default Web Site/WebApp1
+          InstrumentationKey        : 00000000-0000-0000-0000-000000000000
+          ProfilerState             : ApplicationInsights
+          SdkState                  : EnabledAfterDeployment
+          SdkVersion                : 1.2.1
+          LatestAvailableSdkVersion : 1.2.3
+
+`Stop-ApplicationInsightsMonitoring [-Name appName | -All]`
+
+* `-Name` IIS에서 앱의 이름
+* `-All` 이 IIS 서버에서 모든 앱에 대한 모니터링을 중지합니다 `SdkState==EnabledAfterDeployment`
+
+* 지정된 앱의 모니터링을 중지하고 계측을 제거합니다. 실행 시 상태 모니터링 도구 또는 Start-ApplicationInsightsApplication을 사용하여 계측된 앱에서 작동합니다. (`SdkState==EnabledAfterDeployment`)
+
+* ApplicationInsightsApplication을 반환합니다.
+
+`Update-ApplicationInsightsMonitoring -Name appName [-InstrumentationKey "0000000-0000-000-000-0000"`]
+
+* `-Name`: IIS에서 웹앱의 이름입니다.
+* `-InstrumentationKey` (선택 사항.) 이를 사용하여 앱의 원격 분석이 전송되는 리소스를 변경합니다.
+* 이 cmdlet은:
+ * 최근에 이 컴퓨터에 다운로드된 SDK 버전으로 명명된 앱을 업그레이드합니다. (`SdkState==EnabledAfterDeployment`인 경우에만 작동)
+ * 계측 키를 제공하는 경우 명명된 앱은 해당 키가 있는 리소스에 원격 분석을 전송하도록 다시 구성됩니다. (`SdkState != Disabled`인 경우 작동)
+
+`Update-ApplicationInsightsVersion`
+
+* 서버에 최신 Application Insights SDK를 다운로드합니다.
+
+## Azure 템플릿
+
+웹앱이 Azure에 있고 Azure Resource Manager 템플릿을 사용하여 리소스를 만드는 경우 리소스 노드에 이를 추가하여 Application Insights를 구성할 수 있습니다.
+
+    {
+      resources: [
+        /* Create Application Insights resource */
+        {
+          "apiVersion": "2015-05-01",
+          "type": "microsoft.insights/components",
+          "name": "nameOfAIAppResource",
+          "location": "centralus",
+          "kind": "web",
+          "properties": { "ApplicationId": "nameOfAIAppResource" },
+          "dependsOn": [
+            "[concat('Microsoft.Web/sites/', myWebAppName)]"
+          ]
+        }
+       ]
+     } 
+
+* `nameOfAIAppResource` - Application Insights 리소스의 이름
+* `myWebAppName` - 웹앱의 ID
 
 ## <a name="next"></a>다음 단계
 
@@ -219,4 +302,4 @@ IIS 지원: IIS 7, 7.5, 8, 8.5(IIS 필요)
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!----HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -3,7 +3,7 @@
    description="Azure Active Directory 보고서의 '알 수 없는 작업자' 이벤트에 대한 설명"
    services="active-directory"
    documentationCenter=""
-   authors="kenhoff"
+   authors="SSalahAhmed"
    manager="mbaldwin"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/07/2015"
-   ms.author="kenhoff"/>
+   ms.date="03/04/2016"
+   ms.author="saah"/>
 
 # Azure Active Directory Reporting '알 수 없는 작업자' 이벤트
 
@@ -28,7 +28,7 @@
 
 ![](./media/active-directory-reporting-unknown-actor/spd-actor.png)
 
-이 문제는 알려진 버그이며 이 문제를 해결하기 위해 열심히 노력 중입니다.
+이 문제는 알려진 버그이며 이 문제를 해결하기 위해 노력 중입니다.
 
 ## 이벤트가 처리되기 전에 사용자가 디렉터리에서 삭제됨
 
@@ -36,8 +36,8 @@
 
 ![](./media/active-directory-reporting-unknown-actor/unknown-actor.png)
 
-이 문제는 알려진 버그이며 이 문제를 해결하기 위해 열심히 노력 중입니다.
+이 문제는 알려진 버그이며 이 문제를 해결하기 위해 노력 중입니다.
 
 <!-- ![](./media/active-directory-reporting-unknown-actor/uid-actor.png) -->
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

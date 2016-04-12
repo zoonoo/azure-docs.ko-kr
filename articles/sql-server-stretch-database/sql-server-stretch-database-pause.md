@@ -3,9 +3,9 @@
 	description="Azure에 대한 데이터 마이그레이션을 일시 중지하거나 다시 시작하는 방법에 대해 알아봅니다."
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -56,6 +56,7 @@ ALTER TABLE <table name>
 ```
 
 ## 참고 항목
+
 [ALTER TABLE(Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

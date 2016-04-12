@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="dhanyahk"
-   manager="mbaldwin"
+   manager="stevenpo"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/17/2016"
+   ms.date="03/07/2016"
    ms.author="dhanyahk"/>
 
 # Azure Active Directory 모든 사용자 로그인 활동 보고서
@@ -32,4 +32,4 @@
  >
  - 모든 사용자 로그인 활동 보고서는 현재 보고 API를 통해서만 사용할 수 있습니다. 자세히 알아보려면 [Reporting API 시작](active-directory-reporting-api-getting-started.md)을 방문합니다.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="02/24/2016"
+  ms.date="03/18/2016"
   ms.author="andrl"/>
 
 # 커뮤니티 포털
@@ -89,6 +89,12 @@ fluent-plugin-documentdb는 Azure Document DB로 출력하기 위한 Fluentd 플
 
 **커뮤니티 게시물:**
 
+* [**Going Social with DocumentDB(DocumentDB로 소셜 이동)**](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/03/15/going-social-with-documentdb/) - *Matias Quarantaas 작성*
+
+* [**UWP, Azure App Services, and DocumentDB Soup: A photo-sharing app(UWP, Azure 앱 서비스 및 DocumentDB Soup: 사진 공유 앱)**](https://blogs.windows.com/buildingapps/2016/03/17/uwp-azure-app-services-and-documentdb-soup-a-photo-sharing-app/) - *Eric Langland 작성*
+
+* [**Notifications for new or changed DocumentDB resources using Logic Apps(논리 앱을 사용하여 새롭거나 변경된 DocumentDB 리소스에 대한 알림)**](documentdb-change-notification.md) - *Howard Edidin 작성*
+
 * [**Collecting logs into Azure DocumentDB using fluent-plugin-documentdb(fluent-plugin-documentdb를 사용하여 Azure DocumentDB에 로그 수집)**](http://unofficialism.info/posts/collecting-logs-into-azure-documentdb-using-fluent-plugin-documentdb/) - *Yoichi Kawasaki 작성*
 
 * [**DocumentDB revisited Part 1/2 – The theory(DocumentDB 재고 파트 1/2 - 이론)**](https://peterintheazuresky.wordpress.com/2016/02/19/documentdb-revisited-part-12-the-theory/) - *Peter Mannerhult 작성*
@@ -140,9 +146,10 @@ fluent-plugin-documentdb는 Azure Document DB로 출력하기 위한 Fluentd 플
 ### 최근 및 예정된 이벤트
 
 | 이벤트 이름 | 발표자 | 위치 | Date | 해시 태그 |
-| -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ---------------------- | ------- |
-| [Meetup: CloudTalk](http://www.meetup.com/CloudTalk/events/227963695/) | Andrew Liu | Bellevue, WA | 2016년 3월 | 해당 없음
-| SQLBits XV | tbd | 리버풀, UK | 2016년 5월 4-7일 | [#SQLBits](https://twitter.com/hashtag/SQLBits)
+| -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ------------------------ | ------- |
+| [빌드 2016](https://build.microsoft.com/) | John Macintyre, Dharma Shukla | 샌프란시스코, CA | 2016년 3월 30일 - 4월 1일 | [#MicrosoftBuild](https://twitter.com/hashtag/MicrosoftBuild)
+| [SQLBits XV](https://sqlbits.com/) | Andrew Liu, Aravind Ramachandran | 리버풀, UK | 2016년 5월 4-7일 | [#SQLBits](https://twitter.com/hashtag/SQLBits)
+| [모임: 영국 Azure 사용자 그룹](http://www.meetup.com/UKAzureUserGroup/events/229673468/) | Andrew Liu | 런던, 영국 | 2016년 5월 12일 | 해당 없음 |
 
 *연설하거나 이벤트를 호스팅했습니까? 도울 방법을 [알려주세요](mailto:askdocdb@microsoft.com)!*
 
@@ -150,6 +157,7 @@ fluent-plugin-documentdb는 Azure Document DB로 출력하기 위한 Fluentd 플
 
 | 이벤트 이름 | 발표자 | 위치 | Date | 기록 |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ---------------------- | --------- |
+| [Meetup: CloudTalk](http://www.meetup.com/CloudTalk/events/227963695/) | Kirat Pandya | Bellevue, WA | 2016년 3월 | 해당 없음 |
 | [Meetup: Azure Austin](http://www.meetup.com/azureaustin/events/228209275/) | Merwan Chinta | Austin, TX | 2016년 1월 28일 | 해당 없음 |
 | [모임: msdevmtl](http://www.meetup.com/msdevmtl/events/223839818/) | Vincent-Philippe Lauzon | 몬트리올, QC, 캐나다 | 2015년 12월 1일 | 해당 없음 |
 | [Meetup: SeattleJS](http://www.meetup.com/seattlejs/events/220102664/) | David Makogon | 시애틀, WA | 2015년 11월 12일 | 해당 없음 |
@@ -181,8 +189,10 @@ fluent-plugin-documentdb는 Azure Document DB로 출력하기 위한 Fluentd 플
 ### 비디오 및 팟캐스트
 
 | 표시 | 발표자 | Date | 에피소드 |
-| ------------------------------------------- | ----------------------- | ------------------ | ------- |
+| ------------------------------------------- | --------------------------- | ------------------ | ------- |
+| Wired2WinWebinar | Sai Sankar Kunnathukuzhiyil | 2016년 3월 9일 | [Azure DocumentDB를 사용하여 솔루션 개발](https://www.youtube.com/watch?v=xKttEwXv_bs)
 | 통합 사용자 그룹 | Han Wong | 2016년 2월 17일 | [Analyze and visualize non-relational data with DocumentDB + Power BI(DocumentDB + Power BI로 비관계형 데이터 분석 및 시각화)](http://www.integrationusergroup.com/analyze-visualize-non-relational-data-documentdb-power-bi/) |
+| Azure 팟캐스트 | Cale Teeter | 2016년 1월 14일 | [에피소드 110: DocumentDB 및 검색 사용](http://azpodcast.azurewebsites.net/post/Episode-110-Using-DocumentDB-Search) |
 | 채널 9: 최신 응용 프로그램 | Tara Shankar Jana | 2016년 12월 13일 | [Take a modern approach to data in your apps(앱에서 데이터에 대해 최신 접근 방식 사용)](https://channel9.msdn.com/Series/Modern-Applications/Take-a-modern-approach-to-data-in-your-apps) |
 | NinjaTips | Miguel Quintero | 2015년 12월 10일 | [DocumentDB - Un vistazo 일반](https://channel9.msdn.com/Series/Ninja-Tips/31-NinjaTips-Desarrollo-DocumentDB-1-Vistazo-general) |
 | 통합 사용자 그룹 | Howard Edidin | 2015년 11월 9일 | [의료 서비스 통합을 위한 Azure DocumentDB - 2부](http://www.integrationusergroup.com/azure-documentdb-for-healthcare-integration-part-2/) |
@@ -284,4 +294,4 @@ DocumentDB 마법사는 다른 사용자가 Azure DocumentDB에서 경험을 최
 
 DocumentDB 마법사가 되고 싶으세요? DocumentDB 마법사가 되기 위한 벤치마크는 없지만 몇 가지 평가 기준에는 StackOverflow 및 MSDN과 같은 온라인 포럼, wiki 및 온라인 콘텐츠, 회의 및 사용자 그룹, 팟캐스트, 웹 사이트, 블로그 및 소셜 미디어, 기사 및 저서와 관련된 후보자의 영향력이 포함됩니다. [메일을 보내](mailto:askdocdb@microsoft.com) 자신이나 다른 사용자를 후보로 지명할 수 있습니다.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

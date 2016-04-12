@@ -13,13 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/25/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스의 동시성 및 워크로드 관리
 대규모로 예측 가능한 성능을 제공하기 위해 SQL 데이터 웨어하우스는 계산 리소스 워크로드 동시성과 계산 리소스 할당을 모두 관리할 수 있는 메커니즘을 구현합니다.
 
 이 문서에서는 동시성 및 워크로드 관리 개념을 소개하며, 두 기능 모두 구현된 방법 및 데이터 웨어하우스에서 이들을 제어할 수 있는 방법을 설명합니다.
+
+>[AZURE.NOTE] SQL 데이터 웨어하우스는 다중 테넌트가 아닌 다중 사용자를 지원합니다.
 
 ## 동시성
 SQL 데이터 웨어하우스의 동시성은 **동시 쿼리** 및 **동시성 슬롯** 두 개념에 의해 관리된다는 것을 이해해야 합니다.
@@ -32,7 +34,7 @@ SQL 데이터 웨어하우스의 동시성은 **동시 쿼리** 및 **동시성 
 
 1. SQL 데이터 웨어하우스에 대한 DWU 설정
 2. 사용자가 속한 **리소스 클래스**
-3. 쿼리 또는 작업이 동시성 슬롯 모델에 의해 제어되는지 여부 
+3. 쿼리 또는 작업이 동시성 슬롯 모델에 의해 제어되는지 여부
 
 > [AZURE.NOTE] 모든 쿼리에 동시성 슬롯 쿼리 규칙이 적용되지는 않는다는 점에 주의하세요. 그러나 대부분의 사용자 쿼리에는 적용됩니다. 일부 쿼리 및 작업은 동시성 슬롯을 전혀 사용하지 않습니다. 이러한 쿼리 및 작업은 여전히 동시성 쿼리 제한에 따라 제한되므로 두 규칙을 모두 설명할 필요가 있습니다. 자세한 내용은 아래의 [리소스 클래스 예외](#exceptions) 섹션을 참조하세요.
 
@@ -46,8 +48,8 @@ SQL 데이터 웨어하우스의 동시성은 **동시 쿼리** 및 **동시성 
 -->
 
 | 동시성 슬롯 사용량 | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 |
-| :--------------------------- | :---- | :---- | :---- | :---- | :---- | :---- | :----- | :----- | :----- | :----- | 
-| 최대 동시 쿼리 수 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 
+| :--------------------------- | :---- | :---- | :---- | :---- | :---- | :---- | :----- | :----- | :----- | :----- |
+| 최대 동시 쿼리 수 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 |
 | 최대 동시성 슬롯 수 | 4 | 8 | 12 | 16 | 20 | 24 | 40 | 48 | 60 | 80 |
 
 SQL 데이터 웨어하우스 쿼리 작업은 이러한 임계값 내에 있어야 합니다. 동시 쿼리가 32개보다 많거나 동시성 슬롯 수를 초과하면 두 임계값을 모두 만족할 수 있게 될 때까지 쿼리가 큐에 저장됩니다.
@@ -145,16 +147,16 @@ SQL 데이터 웨어하우스에서는 데이터베이스 역할을 사용하여
 - ALTER TABLE REBUILD
 - CREATE INDEX
 - CREATE CLUSTERED COLUMNSTORE INDEX
-- CREATE TABLE AS SELECT 
-- 데이터 로드 
+- CREATE TABLE AS SELECT
+- 데이터 로드
 - DMS(데이터 이동 서비스)에서 수행하는 데이터 이동 작업
 
 다음 문은 리소스 클래스를 인식하지 **않습니다**.
 
 - CREATE TABLE
-- ALTER TABLE ... SWITCH PARTITION 
-- ALTER TABLE ... SPLIT PARTITION 
-- ALTER TABLE ... MERGE PARTITION 
+- ALTER TABLE ... SWITCH PARTITION
+- ALTER TABLE ... SPLIT PARTITION
+- ALTER TABLE ... MERGE PARTITION
 - DROP TABLE
 - ALTER INDEX DISABLE
 - DROP INDEX
@@ -181,13 +183,14 @@ SQL 데이터 웨어하우스에서는 데이터베이스 역할을 사용하여
 Removed as these two are not confirmed / supported under SQLDW
 - CREATE REMOTE TABLE AS SELECT
 - CREATE EXTERNAL TABLE AS SELECT
-- REDISTRIBUTE 
+- REDISTRIBUTE
 -->
+
 > [AZURE.NOTE] 동적 관리 뷰 및 카탈로그 뷰에 대해 단독으로 실행되는 `SELECT` 쿼리가 리소스 클래스에서 제어되지 **않는다는** 점에 대해 자세히 알아보는 것도 중요합니다.
 
 대부분의 최종 사용자 쿼리가 리소스 클래스에 의해 제어될 가능성이 크다는 점에 주의해야 합니다. 플랫폼에서 별도로 제외되지 않은 한, 일반적인 규칙은 활성 쿼리 작업이 동시 쿼리 및 동시성 슬롯 임계값 모두에 맞아야 한다는 것입니다. 최종 사용자는 동시성 슬롯 모델에서 쿼리를 제외하도록 선택할 수 없습니다. 하나 이상의 임계값을 초과하면 쿼리가 큐에 저장되기 시작합니다. 큐에 저장된 쿼리는 제출 시간이 지난 후 우선 순위에 따라 해결됩니다.
 
-### 내부 구조 
+### 내부 구조
 
 SQL 데이터 웨어하우스 내부의 작업 관리는 약간 더 복잡합니다. 리소스 클래스는 리소스 관리자 내에서 워크로드 관리 그룹의 일반 집합에 동적으로 매핑됩니다. 사용되는 그룹은 웨어하우스에 대한 DWU 값에 따라 달라집니다. 하지만 SQL 데이터 웨어하우스에 사용되는 총 8개의 워크로드 그룹이 있습니다. 아래에 이 계정과 키의 예제가 나와 있습니다.
 
@@ -215,7 +218,8 @@ SQL 데이터 웨어하우스 내부의 작업 관리는 약간 더 복잡합니
 
 따라서 예를 들어, DW500이 SQL 데이터 웨어하우스에 대한 현재 DWU 설정인 경우 활성 워크로드 그룹이 다음과 같이 리소스 클래스에 매핑됩니다.
 
-| 리소스 클래스 | 워크로드 그룹 | 사용된 동시성 슬롯 수 | 중요도 |
+| 리소스 클래스 | 워크로드 그룹 | 사용된 동시성 슬롯 수 | 중요도  
+ |
 | :------------- | :------------- | :---------------------   | :--------- |
 | smallrc | SloDWGroupC00 | 1 | 중간 |
 | mediumrc | SloDWGroupC02 | 4 | 중간 |
@@ -224,7 +228,7 @@ SQL 데이터 웨어하우스 내부의 작업 관리는 약간 더 복잡합니
 
 리소스 관리자의 관점에서 메모리 리소스 할당의 차이점을 자세히 살펴보려면 다음 쿼리를 사용합니다.
 
-```
+```sql
 WITH rg
 AS
 (   SELECT  pn.name									AS node_name
@@ -247,7 +251,7 @@ AS
 	JOIN	sys.dm_pdw_nodes pn										ON	wg.pdw_node_id	= pn.pdw_node_id
 	WHERE   wg.name like 'SloDWGroup%'
 	AND     rp.name = 'SloDWPool'
-) 
+)
 SELECT	pool_name
 ,		pool_max_mem_MB
 ,		group_name
@@ -260,7 +264,7 @@ SELECT	pool_name
 ,       group_active_request_count
 ,       group_queued_request_count
 FROM	rg
-ORDER BY 
+ORDER BY
 	node_name
 ,	group_request_max_memory_grant_pcnt
 ,	group_importance
@@ -279,7 +283,7 @@ ORDER BY
 
 SQL 데이터 웨어하우스의 마스터 데이터베이스에 대한 연결을 열고 다음 명령을 실행합니다.
 
-```
+```sql
 CREATE LOGIN newperson WITH PASSWORD = 'mypassword'
 
 CREATE USER newperson for LOGIN newperson
@@ -291,19 +295,19 @@ CREATE USER newperson for LOGIN newperson
 
 SQL 데이터 웨어하우스 데이터베이스에 대한 연결을 열고 다음 명령을 실행합니다.
 
-```
+```sql
 CREATE USER newperson FOR LOGIN newperson
 ```
 
 사용자에게 전체 권한을 부여해야 합니다. 아래 예제에서는 SQL 데이터 웨어하우스 데이터베이스에 대한 `CONTROL` 권한을 부여합니다. 데이터베이스 수준의 `CONTROL` 권한은 SQL Server의 db\_owner에 해당합니다.
 
-```
+```sql
 GRANT CONTROL ON DATABASE::MySQLDW to newperson
 ```
 
 워크로드 관리 역할을 보려면 다음 쿼리를 사용합니다.
 
-```
+```sql
 SELECT  ro.[name]           AS [db_role_name]
 FROM    sys.database_principals ro
 WHERE   ro.[type_desc]      = 'DATABASE_ROLE'
@@ -313,21 +317,21 @@ AND     ro.[is_fixed_role]  = 0
 
 증가하는 워크로드 관리 역할에 사용자를 추가하려면 다음 쿼리를 사용합니다.
 
-``` 
-EXEC sp_addrolemember 'largerc', 'newperson' 
+```sql
+EXEC sp_addrolemember 'largerc', 'newperson'
 ```
 
 워크로드 관리 역할에서 사용자를 제거하려면 다음 쿼리를 사용합니다.
 
-``` 
-EXEC sp_droprolemember 'largerc', 'newperson' 
+```sql
+EXEC sp_droprolemember 'largerc', 'newperson'
 ```
 
 > [AZURE.NOTE] smallrc에서 사용자를 제거하는 것은 불가능합니다.
 
 어떤 사용자가 지정된 역할의 멤버인지 보려면 다음 쿼리를 사용합니다.
 
-```
+```sql
 SELECT	r.name AS role_principal_name
 ,		m.name AS member_principal_name
 FROM	sys.database_role_members rm
@@ -340,7 +344,7 @@ WHERE	r.name IN ('mediumrc','largerc', 'xlargerc')
 ### 큐에 저장된 쿼리 검색
 동시성 큐에 저장된 쿼리를 식별하려면 언제나 `sys.dm_pdw_exec_requests` DMV를 참조할 수 있습니다.
 
-```
+```sql
 SELECT 	 r.[request_id]									AS Request_ID
 		,r.[status]										AS Request_Status
 		,r.[submit_time]								AS Request_SubmitTime
@@ -354,7 +358,7 @@ FROM    sys.dm_pdw_exec_requests r
 SQL 데이터 웨어하우스에는 동시성을 측정하기 위한 특정 대기 유형이 있습니다.
 
 아래에 이 계정과 키의 예제가 나와 있습니다.
- 
+
 - LocalQueriesConcurrencyResourceType
 - UserConcurrencyResourceType
 - DmsConcurrencyResourceType
@@ -371,7 +375,7 @@ DmsConcurrencyResourceType은 데이터 이동 작업으로 초래된 대기를 
 
 현재 큐에 저장된 쿼리를 분석하여 요청 대기 중인 리소스를 알아내려면 `sys.dm_pdw_waits` DMV를 참조하세요.
 
-```
+```sql
 SELECT  w.[wait_id]
 ,       w.[session_id]
 ,       w.[type]											AS Wait_type
@@ -408,7 +412,7 @@ WHERE	w.[session_id] <> SESSION_ID()
 
 지정된 쿼리가 사용하는 리소스 대기만 보려면 `sys.dm_pdw_resource_waits` DMV를 참조하세요. 리소스 대기 시간은 기본 SQL Server가 CPU에 대해 쿼리를 예약하는 데 소요되는 대기 시간을 나타내는 것과 달리 리소스가 제공될 때까지 대기하는 시간만 측정합니다.
 
-```
+```sql
 SELECT  [session_id]
 ,       [type]
 ,       [object_type]
@@ -427,7 +431,7 @@ WHERE	[session_id] <> SESSION_ID()
 
 마지막으로 대기에 대한 기록 추세 분석을 위해 SQL 데이터 웨어하우스는 `sys.dm_pdw_wait_stats` DMV를 제공합니다.
 
-```
+```sql
 SELECT	w.[pdw_node_id]
 ,		w.[wait_name]
 ,		w.[max_wait_time]
@@ -452,4 +456,4 @@ FROM	sys.dm_pdw_wait_stats w
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->

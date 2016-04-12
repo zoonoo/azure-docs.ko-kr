@@ -141,7 +141,7 @@ C# 샘플이 .NET Framework 어셈블리 **System.Configuration.dll**를 사용�
 1. Visual Studio의 솔루션 탐색기 창에서 App.config 파일을 엽니다.
 
 2. 다음 예제 App.config 코드 샘플과 같이 **&#x3c;configuration&#x3e; &#x3c;/configuration&#x3e;** 요소를 추가합니다.
- - *{your\_placeholders}*는 실제 값으로 바꿉니다.
+ - *{your\_placeholders}* 는 실제 값으로 바꿉니다.
 
 ```
 	<?xml version="1.0" encoding="utf-8" ?>
@@ -359,4 +359,4 @@ C# 샘플을 간단하게 하려고 합니다. 코드를 추가하여 사용자�
 
 [50-VSCopyToOutputDirectoryProperty]: ./media/sql-database-connect-query/connqry-vs-appconfig-copytoputputdir-h.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0211_2016-->

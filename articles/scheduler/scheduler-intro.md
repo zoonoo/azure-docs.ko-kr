@@ -11,17 +11,17 @@
  ms.workload="infrastructure-services"
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
- ms.topic="get-started-article"
- ms.date="12/04/2015"
+ ms.topic="hero-article"
+ ms.date="03/09/2016"
  ms.author="krisragh"/>
 
 # Azure 스케줄러 정의
 
-Azure 스케줄러를 사용하면 클라우드에서 실행할 작업을 선언적으로 설명할 수 있습니다. 그런 다음 해당 작업을 예약하고 자동으로 실행합니다. 스케줄러에서는 [Azure 포털](scheduler-get-started-portal.md), 코드, [REST API](https://msdn.microsoft.com/library/dn528946) 또는 Azure PowerShell을 사용하여 이를 수행합니다.
+Azure 스케줄러를 사용하면 클라우드에서 실행할 작업을 선언적으로 설명할 수 있습니다. 그런 다음 해당 작업을 예약하고 자동으로 실행합니다. 스케줄러에서는 [Azure 포털](scheduler-get-started-portal.md), 코드, [REST API](https://msdn.microsoft.com/library/mt629143.aspx) 또는 Azure PowerShell을 사용하여 이를 수행합니다.
 
-스케줄러는 예약된 작업을 만들고 유지 관리하며 호출합니다. 스케줄러는 작업을 호스트하거나 코드를 실행하지 않습니다. Azure, 온-프레미스 또는 다른 공급자를 통해 다른 곳에서 호스트되는 코드를 _호출_하기만 합니다. Azure 스케줄러는 HTTP, HTTPS 또는 저장소 큐를 통해 호출합니다.
+스케줄러는 예약된 작업을 만들고 유지 관리하며 호출합니다. 스케줄러는 작업을 호스트하거나 코드를 실행하지 않습니다. Azure, 온-프레미스 또는 다른 공급자를 통해 다른 곳에서 호스트되는 코드를 _호출_하기만 합니다. HTTP, HTTPS, 저장소 큐, 서비스 버스 큐 또는 서비스 버스 항목을 통해 호출합니다.
 
-스케줄러는 [작업](scheduler-concepts-terms.md)을 예약하고, 사용자가 검토할 수 있는 작업 실행 결과의 기록을 유지하고, 실행할 작업을 명확하고 안정적으로 예약합니다. Azure WebJobs(Azure 앱 서비스에서 웹앱 기능의 일부) 및 다른 Azure 일정 기능은 백그라운드에서 스케줄러를 사용합니다. [스케줄러 REST API](https://msdn.microsoft.com/library/dn528946)는 이러한 작업에 대한 통신을 관리하도록 도와줍니다. 이와 같이 스케줄러는 [복잡한 일정 및 고급 되풀이](scheduler-advanced-complexity.md)를 간편하게 지원합니다.
+스케줄러는 [작업](scheduler-concepts-terms.md)을 예약하고, 사용자가 검토할 수 있는 작업 실행 결과의 기록을 유지하고, 실행할 작업을 명확하고 안정적으로 예약합니다. Azure WebJobs(Azure 앱 서비스에서 웹앱 기능의 일부) 및 다른 Azure 일정 기능은 백그라운드에서 스케줄러를 사용합니다. [스케줄러 REST API](https://msdn.microsoft.com/library/mt629143.aspx)는 이러한 작업에 대한 통신을 관리하도록 도와줍니다. 이와 같이 스케줄러는 [복잡한 일정 및 고급 되풀이](scheduler-advanced-complexity.md)를 간편하게 지원합니다.
 
 스케줄러를 사용하는 여러 가지 시나리오가 있습니다. 예:
 
@@ -50,4 +50,4 @@ Azure 스케줄러를 사용하면 클라우드에서 실행할 작업을 선언
 
  [Azure 스케줄러 아웃바운드 인증](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

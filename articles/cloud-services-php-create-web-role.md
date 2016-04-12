@@ -3,9 +3,9 @@
 	description="Azure 클라우드 서비스에서 PHP 웹 및 작업자 역할을 만들고 PHP 런타임을 구성하는 방법을 설명하는 가이드입니다."
 	services=""
 	documentationCenter="php"
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
-	editor="mollybos"/>
+	editor=""/>
 
 <tags
 	ms.service="cloud-services"
@@ -14,7 +14,7 @@
 	ms.devlang="PHP"
 	ms.topic="article"
 	ms.date="01/08/2016"
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 #PHP 웹 및 작업자 역할을 만드는 방법
 
@@ -52,7 +52,7 @@ PHP 웹 역할을 프로젝트에 추가하려면 프로젝트의 루트 디렉�
 
 	PS C:\myProject> Add-AzurePHPWorkerRole roleName
 
-> [AZURE.NOTE]`roleName` 매개 변수는 선택 사항입니다. 생략되면 역할 이름이 자동으로 생성됩니다. 첫 번째로 만들어진 웹 역할은 `WebRole1`, 두 번째는 `WebRole2`이 되는 식입니다. 첫 번째로 만들어진 작업자 역할은 `WorkerRole1`, 두 번째는 `WorkerRole2`이 되는 식입니다.
+> [AZURE.NOTE] `roleName` 매개 변수는 선택 사항입니다. 생략되면 역할 이름이 자동으로 생성됩니다. 첫 번째로 만들어진 웹 역할은 `WebRole1`, 두 번째는 `WebRole2`이 되는 식입니다. 첫 번째로 만들어진 작업자 역할은 `WorkerRole1`, 두 번째는 `WorkerRole2`이 되는 식입니다.
 
 ## 기본 제공 PHP 버전 지정
 
@@ -76,7 +76,7 @@ PHP 웹 또는 작업자 역할을 프로젝트에 추가하면 응용 프로그
 
 	PS C:\myProject> Set-AzureServiceProjectRole roleName php 5.4.0
 
-> [AZURE.NOTE]사용 가능한 PHP 버전은 나중에 변경될 수 있습니다.
+> [AZURE.NOTE] 사용 가능한 PHP 버전은 나중에 변경될 수 있습니다.
 
 ## 기본 제공 PHP 런타임 사용자 지정
 
@@ -91,7 +91,7 @@ PHP 웹 또는 작업자 역할을 프로젝트에 추가하면 응용 프로그
 		display_errors=On
 		extension=php_mongo.dll
 
-> [AZURE.NOTE]제공하는 `php.ini` 파일에서 명시적으로 설정하지 않은 설정은 자동으로 기본값으로 설정됩니다. 하지만 완전한 `php.ini` 파일을 추가할 수 있습니다.
+> [AZURE.NOTE] 제공하는 `php.ini` 파일에서 명시적으로 설정하지 않은 설정은 자동으로 기본값으로 설정됩니다. 하지만 완전한 `php.ini` 파일을 추가할 수 있습니다.
 
 ## 고유 PHP 런타임 사용
 기본 제공 PHP 런타임을 선택하여 위 설명대로 구성하는 대신 고유 PHP 런타임을 제공할 경우도 있습니다. 예를 들어, 개발 환경에서 사용하는 웹 또는 작업자 역할에서 동일한 PHP 런타임을 사용할 수 있습니다. 이렇게 하면 더 쉽게 응용 프로그램이 프로덕션 환경에서 동작을 변경하지 않게 할 수 있습니다.
@@ -128,7 +128,7 @@ PHP 웹 또는 작업자 역할을 프로젝트에 추가하면 응용 프로그
 
 6. 아래 [응용 프로그램 게시](#how-to-publish-your-application) 섹션에 설명된 대로 응용 프로그램을 게시합니다.
 
-> [AZURE.NOTE]`download.ps1` 스크립트(웹 역할 루트 디렉터리의 `bin` 폴더에 있음)는 고유 PHP 런타임을 사용하기 위해 위에 설명된 단계를 따른 후에 삭제할 수 있습니다.
+> [AZURE.NOTE] `download.ps1` 스크립트(웹 역할 루트 디렉터리의 `bin` 폴더에 있음)는 고유 PHP 런타임을 사용하기 위해 위에 설명된 단계를 따른 후에 삭제할 수 있습니다.
 
 ### 고유 PHP 런타임을 사용하도록 작업자 역할 구성
 
@@ -211,4 +211,4 @@ Azure 에뮬레이터는 클라우드에 배포하기 전에 Azure 응용 프로
 [sqlsrv drivers]: http://php.net/sqlsrv
 [sqlncli.msi x64 설치 관리자]: http://go.microsoft.com/fwlink/?LinkID=239648
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0323_2016-->

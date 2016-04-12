@@ -2,7 +2,7 @@
 <!--
 includes/sql-database-include-ip-address-22-v12portal.md
 
-Latest Freshness check:  2015-09-04 , GeneMi.
+Latest Freshness check:  2016-03-21 , daleche.
 
 As of circa 2015-09-04, the following topics might include this include:
 articles/sql-database/sql-database-configure-firewall-settings.md
@@ -11,7 +11,7 @@ articles/sql-database/sql-database-connect-query.md
 
 ## Server-level firewall rules
 
-### Manage server-level firewall rules through the new Azure portal
+### Add a server-level firewall rule through the new Azure portal
 -->
 
 
@@ -38,7 +38,7 @@ articles/sql-database/sql-database-connect-query.md
 9. **클라이언트 IP 추가**를 클릭합니다. 첫 번째 텍스트 상자에 새 규칙의 이름을 입력합니다.
 
 10. 사용하도록 설정하려는 범위의 하한 및 상한 IP 주소 값을 입력합니다.
- - 하한 값은 **.0**으로 끝나고 상한 값은 **.255**로 끝나도록 하면 유용할 수 있습니다. 
+	- 하한 값은 **.0**으로 끝나고 상한 값은 **.255**로 끝나도록 하면 유용할 수 있습니다.
 
 	![허용할 IP 주소 범위를 추가합니다.][b41-AddRange]
 
@@ -63,4 +63,4 @@ includes/sql-database-include-ip-address-22-v12portal.md
 ? includes/sql-database-include-ip-address-*.md
 -->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->

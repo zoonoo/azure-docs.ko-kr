@@ -1,14 +1,14 @@
 <properties
 	pageTitle="AlwaysOn 가용성 그룹 Azure 리소스 관리자 구성 | Microsoft Azure"
 	description="Azure 리소스 관리자 모드에서 Azure 가상 컴퓨터로 AlwaysOn 가용성 그룹을 구성합니다. 이 자습서는 주로 사용자 인터페이스를 사용하여 자동으로 전체 솔루션을 만듭니다."
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="MikeRayMSFT"
 	manager="jeffreyg"
 	editor="monicar"
 	tags="azure-resource-manager" />
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
@@ -19,9 +19,9 @@
 # Azure 리소스 관리자 가상 컴퓨터(GUI)에서 AlwaysOn 가용성 그룹 구성
 
 > [AZURE.SELECTOR]
-- [Portal - Resource Manager](virtual-machines-sql-server-alwayson-availability-groups-gui-arm.md)
-- [Portal - Classic](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
-- [PowerShell - Classic](virtual-machines-sql-server-alwayson-availability-groups-powershell.md)
+- [포털 - 리소스 관리자](virtual-machines-sql-server-alwayson-availability-groups-gui-arm.md)
+- [포털 - 클래식](virtual-machines-windows-classic-portal-sql-availability.md)
+- [PowerShell - 클래식](virtual-machines-windows-classic-ps-sql-availability.md)
 
 <br/>
 
@@ -54,7 +54,7 @@
 
 - Azure 계정이 있습니다. 계정이 없는 경우 [평가판 계정에 등록](http://azure.microsoft.com/pricing/free-trial/)합니다.
 
-- GUI를 사용하여 가상 컴퓨터 갤러리에서 SQL Server VM을 프로비전하는 방법을 이미 알고 있습니다. 자세한 내용은 [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-provision-sql-server.md)을 참조하세요.
+- GUI를 사용하여 가상 컴퓨터 갤러리에서 SQL Server VM을 프로비전하는 방법을 이미 알고 있습니다. 자세한 내용은 [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-portal-sql-server-provision.md)을 참조하세요.
 
 - AlwaysOn 가용성 그룹을 확실하게 이해하고 있습니다. 자세한 내용은 [AlwaysOn 가용성 그룹(SQL Server)](http://msdn.microsoft.com/library/hh510230.aspx)을 참조하세요.
 
@@ -84,7 +84,7 @@ Azure는 전체 솔루션에 대한 갤러리 이미지를 제공합니다. 템�
 
 **기본 사항**을 클릭하고 다음을 구성합니다.
 
-- **관리자 사용자 이름**은 도메인 관리자 권한을 가진 사용자 계정이며 SQL Server의 두 인스턴스 모두에 있는 SQL Server sysadmin 고정된 서버 역할의 멤버입니다. 이 자습서에서는 **DomainAdmin**을 사용합니다. 
+- **관리자 사용자 이름**은 도메인 관리자 권한을 가진 사용자 계정이며 SQL Server의 두 인스턴스 모두에 있는 SQL Server sysadmin 고정 서버 역할의 멤버입니다. 이 자습서에서는 **DomainAdmin**을 사용합니다. 
 
 - **암호**는 도메인 관리자 계정의 암호입니다. 복잡한 암호를 사용합니다. 암호를 확인합니다.
 
@@ -110,11 +110,11 @@ Azure는 전체 솔루션에 대한 갤러리 이미지를 제공합니다. 템�
 
 - **가상 네트워크 이름**은 Azure 가상 네트워크에 대한 네트워크 이름입니다. 이 자습서에서는 **autohaVNET**을 사용합니다.
 
-- **도메인 컨트롤러 서브넷 이름**은 도메인 컨트롤러를 호스팅하는 일부 가상 네트워크의 이름입니다. 이 자습서에서는 **subnet-1**을 사용합니다. 이 서브넷은 주소 접두사 **10.0.0.0/24**를 사용합니다.
+- **도메인 컨트롤러 서브넷 이름**은 도메인 컨트롤러를 호스팅하는 일부 가상 네트워크의 이름입니다. 이 자습서에서는 **subnet-1**를 사용합니다. 이 서브넷은 주소 접두사 **10.0.0.0/24**을 사용합니다.
 
 - **SQL Server 서브넷 이름**은 SQL Server 및 파일 공유 감시를 호스팅하는 일부 가상 네트워크의 이름입니다. 이 자습서에서는 **subnet-2**를 사용합니다. 이 서브넷은 주소 접두사 **10.0.1.0/26**을 사용합니다.
 
-Azure의 가상 네트워크에 대해 자세히 알아보려면 [가상 네트워크 개요를 참조하세요](virtual-networks-overview.md).
+Azure의 가상 네트워크에 대한 자세한 내용은 [가상 네트워크 개요를 참조하세요](../virtual-network/virtual-networks-overview.md).
 
 **도메인 및 네트워크 설정**은 다음과 같이 표시됩니다.
 
@@ -144,13 +144,13 @@ Azure의 가상 네트워크에 대해 자세히 알아보려면 [가상 네트�
 
 **VM 크기, 저장소 설정**에서 SQL Server 가상 컴퓨터 크기를 선택하고 다른 설정을 검토합니다.
 
-- **SQL Server 가상 컴퓨터 크기**는 두 SQL Server에 대한 Azure 가상 컴퓨터 크기입니다. 워크로드에 적합한 가상 컴퓨터 크기를 선택합니다. 자습서에서 이 환경을 빌드하는 경우 **DS2**를 사용합니다. 프로덕션 워크로드에서 워크로드를 지원할 수 있는 가상 컴퓨터 크기를 선택합니다. 다양한 프로덕션 워크로드는 **DS4** 이상이 필요합니다. 템플릿은 이 크기의 두 가상 컴퓨터를 빌드하고 각 컴퓨터에 SQL Server를 설치합니다. 자세한 내용은 [가상 컴퓨터의 크기](virtual-machines-size-specs.md)를 참조하세요.
+- **SQL Server 가상 컴퓨터 크기**는 두 SQL Server에 대한 Azure 가상 컴퓨터 크기입니다. 워크로드에 적합한 가상 컴퓨터 크기를 선택합니다. 자습서에서 이 환경을 빌드하는 경우 **DS2**를 사용합니다. 프로덕션 워크로드에서 워크로드를 지원할 수 있는 가상 컴퓨터 크기를 선택합니다. 많은 프로덕션 워크로드에 **DS4** 이상이 필요합니다. 템플릿은 이 크기의 두 가상 컴퓨터를 빌드하고 각 컴퓨터에 SQL Server를 설치합니다. 자세한 내용은 [가상 컴퓨터의 크기](virtual-machines-linux-sizes.md)를 참조하세요.
 
 >[AZURE.NOTE]Azure는 SQL Server의 Enterprise Edition을 설치합니다. 비용은 버전 및 가상 컴퓨터 크기에 따라 다릅니다. 현재 비용에 대한 자세한 내용은 [가상 컴퓨터 가격 책정](http://azure.microsoft.com/pricing/details/virtual-machines/#Sql)을 참조하세요.
 
 - **도메인 컨트롤러 가상 컴퓨터 크기**는 도메인 컨트롤러에 대한 가상 컴퓨터 크기입니다. 이 자습서에서는 **D2**를 사용합니다.
 
-- **파일 공유 감시 가상 컴퓨터 크기**는 파일 공유 감시에 대한 가상 컴퓨터 크기입니다. 이 자습서에서는 **A1**를 사용합니다.
+- **파일 공유 감시 가상 컴퓨터 크기**는 파일 공유 감시에 대한 가상 컴퓨터 크기입니다. 이 자습서에서는 **A1**을 사용합니다.
 
 - **SQL 저장소 계정**은 SQL Server 데이터 및 운영 체제 디스크를 확보하는 저장소 계정의 이름입니다. 이 자습서에서는 **alwaysonsql01**을 사용합니다.
 
@@ -162,7 +162,7 @@ Azure의 가상 네트워크에 대해 자세히 알아보려면 [가상 네트�
 
     - **일반 워크로드**는 특정 구성 설정을 설정하지 않음 
 
-    - **트랜잭션 처리**는 추적 플래그 1117 및 1118를 설정함
+    - **트랜잭션 처리**는 추적 플래그 1117 및 1118을 설정함
 
     - **데이터 웨어하우징**은 추적 플래그 1117 및 610을 설정함
 
@@ -186,18 +186,18 @@ Azure의 가상 네트워크에 대해 자세히 알아보려면 [가상 네트�
 
 저장소 공간 및 저장소 풀에 대한 자세한 내용은 다음을 참조하세요.
 
-- [저장소 공간 개요](http://technet.microsoft.com/library/hh831739.aspx). 
+- [저장소 공간 개요](http://technet.microsoft.com/library/hh831739.aspx) 
 
 - [Windows Server 백업 및 저장소 풀](http://technet.microsoft.com/library/dn390929.aspx)
 
-SQL Server 구성 모범 사례에 대한 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](virtual-machines-sql-server-performance-best-practices.md)를 참조하세요.
+SQL Server 구성 모범 사례에 대한 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](virtual-machines-windows-classic-sql-perf.md)를 참조하세요.
 
 
 ###SQL 서버 설정
 
 **SQL Server 설정**에서 SQL Server VM 이름 접두사, SQL Server 버전, SQL Server 서비스 계정과 암호 및 SQL 자동 패치 유지 관리 일정을 검토하고 수정합니다.
 
-- **SQL Server 이름 접두사**는 각 SQL Server에 이름을 만드는 데 사용됩니다. 이 자습서에서는 **Contoso-ag**를 사용합니다. SQL Server 이름은 *Contoso-ag-0* 및 *Contoso-ag-1*입니다. 
+- **SQL Server 이름 접두사**는 각 SQL Server에 대한 이름을 만드는 데 사용됩니다. 이 자습서에서는 **Contoso-ag**를 사용합니다. SQL Server 이름은 *Contoso-ag-0* 및 *Contoso-ag-1*입니다. 
 
 - **SQL Server 버전**은 SQL Server의 버전입니다. 이 자습서에서는 **SQL Server 2014**를 사용합니다. 또한 **SQL Server 2012** 또는 **SQL Server 2016**을 선택할 수 있습니다.
 
@@ -221,7 +221,7 @@ SQL Server 구성 모범 사례에 대한 자세한 내용은 [Azure 가상 컴�
 
 ###구입
 
-이 마지막 블레이드는 **사용 약관** 및 **개인 정보 보호 정책**을 포함합니다. 이 정보를 검토합니다. Azure에서 가상 컴퓨터 및 AlwaysOn 가용성 그룹에 필요한 다른 모든 리소스 만들기를 시작하도록 준비된 경우 **만들기**를 클릭합니다.
+이 마지막 블레이드는 **사용 약관** 및 **개인 정보 취급 방침**을 포함합니다. 이 정보를 검토합니다. Azure에서 가상 컴퓨터 및 AlwaysOn 가용성 그룹에 필요한 기타 모든 리소스 만들기를 시작하도록 준비된 경우 **만들기**를 클릭합니다.
  
 Azure 포털에서 리소스 그룹 및 모든 리소스를 만듭니다.
 
@@ -244,11 +244,11 @@ SQL Server의 새 인스턴스는 인터넷에 연결되지 않은 가상 컴퓨
 1.	**리소스** 블레이드에서 기본 도메인 컨트롤러에 대한 가상 컴퓨터의 컴퓨터 이름인 **ad-primary-dc**를 클릭합니다.
 
 1.	**ad-primary-dc**에 대한 블레이드에서 **연결**을 클릭합니다. 브라우저에서 원격 연결 개체를 열거나 저장할지 여부를 묻습니다. **열기**를 클릭합니다. ![DC에 연결](./media/virtual-machines-sql-server-alwayson-availability-groups-gui-arm/13-ad-primary-dc-connect.png)
-1.	**원격 데스크톱 연결**은 이 원격 연결의 게시자를 식별할 수 없다는 사실을 경고할 수 있습니다. **연결**을 클릭합니다.
+1.	**원격 데스크톱 연결**은 이 원격 연결의 게시자를 식별할 수 없음을 경고할 수 있습니다. **연결**을 클릭합니다.
 
 1.	Windows 보안은 기본 도메인 컨트롤러의 IP 주소에 연결할 자격 증명을 입력하라는 메시지를 표시합니다. **다른 계정 사용**을 클릭합니다. **사용자 이름**에 **contoso\\DomainAdmin**을 입력합니다. 관리자 사용자 이름으로 선택한 계정입니다. 템플릿을 구성할 때 선택한 복잡한 암호를 사용합니다.
 
-1.	**원격 데스크톱**은 보안 인증서의 문제로 인해 원격 컴퓨터를 인증할 수 없다는 사실을 경고할 수 있습니다. 보안 인증서 이름이 표시됩니다. 이 자습서를 따른 경우 이름은 **ad-primary-dc.contoso.com**일 것입니다. **예**를 클릭합니다.
+1.	**원격 데스크톱**은 보안 인증서의 문제로 인해 원격 컴퓨터를 인증할 수 없음을 경고할 수 있습니다. 보안 인증서 이름이 표시됩니다. 이 자습서를 따른 경우 이름은 **ad-primary-dc.contoso.com**이 됩니다. **예**를 클릭합니다.
 
 이제 기본 도메인 컨트롤러에 연결됩니다. SQL Server에 RDP하려면 다음 단계를 수행합니다.
 
@@ -260,4 +260,4 @@ SQL Server의 새 인스턴스는 인터넷에 연결되지 않은 가상 컴퓨
 
 이제 SQL Server에 대한 RDP와 연결됩니다. SQL Server management studio를 열고 SQL Server의 기본 인스턴스에 연결하며 AlwaysOn 가용성 그룹이 구성되는지 확인합니다.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0330_2016-->

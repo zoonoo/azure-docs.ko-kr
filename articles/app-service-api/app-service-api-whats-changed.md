@@ -20,17 +20,12 @@
 
 2015년 11월 Connect() 행사에서 Azure 앱 서비스에 대한 다양한 향상된 기능이 [발표](https://azure.microsoft.com/blog/azure-app-service-updates-november-2015/)되었습니다. 이러한 향상된 기능에는 모바일 및 웹앱에 보다 적합하게 조정하고, 개념 수를 줄이고, 배포 및 런타임 성능을 개선하기 위한 API 앱의 기본 변경 내용이 포함됩니다. 2015년 11월 30일부터 Azure 관리 포털 또는 최신 도구를 사용하여 만드는 새 API 앱에는 이러한 변경 내용이 반영됩니다. 이 문서에서는 이러한 변경 내용과 기존 앱을 다시 배포하여 기능을 활용하는 방법을 설명합니다.
 
-
-> [AZURE.NOTE] API 앱의 초기 미리 보기에서는 1) 논리 앱 또는 사용자 고유 클라이언트용 사용자 지정 API 및 2) 논리 앱용 Marketplace API(종종 SaaS 커넥터)라는 두 가지 기본 시나리오를 지원했습니다. 이 문서에서는 첫 번째 시나리오인 사용자 지정 API를 다룹니다. Marketplace API의 경우 향상된 논리 앱 디자이너 환경 및 기본 연결 기초는 2016년 초에 도입됩니다. 기존 Marketplace API는 논리 앱 디자이너에서 계속 사용할 수 있습니다.
-
 ## 기능 변경
 API 앱의 주요 기능(인증, CORS 및 API 메타데이터)이 앱 서비스로 바로 이동되었습니다. 이 변경 내용에 따라 웹, 모바일 및 API 앱에서 기능을 사용할 수 있습니다. 실제로 세 기능 모두 리소스 관리자에서 동일한 **microsoft.web/sites** 리소스 종류를 공유합니다. API 앱 게이트웨이는 더 이상 필요 없거나 API 앱과 함께 제공되지 않습니다. 따라서 단일 API 관리 게이트웨이만 있으므로 Azure API 관리를 보다 쉽게 사용할 수 있습니다.
 
 ![API 앱 개요](./media/app-service-api-whats-changed/api-apps-overview.png)
 
-API 앱 업데이트의 핵심 디자인 원칙은 선택한 언어의 API를 있는 그대로 가져올 수 있도록 하는 것입니다. API가 웹앱 또는 모바일 앱으로 이미 배포된 경우* 앱을 다시 배포하지 않아도 새 기능을 활용할 수 있습니다.
-
-> [AZURE.NOTE] *현재 API 앱 미리 보기를 사용하는 경우 자세한 내용은 아래의 마이그레이션 지침을 참조하세요.
+API 앱 업데이트의 핵심 디자인 원칙은 선택한 언어의 API를 있는 그대로 가져올 수 있도록 하는 것입니다. API가 웹 앱 또는 모바일 앱으로 이미 배포된 경우* 앱을 다시 배포하지 않아도 새 기능을 활용할 수 있습니다. 현재 API 앱 미리 보기를 사용하는 경우 자세한 내용은 아래의 마이그레이션 지침을 참조하세요.
 
 ### 인증
 기존 턴키 API 앱, 모바일 서비스/앱 및 웹앱 인증 기능이 통합되었으며 관리 포털의 단일 Azure 앱 서비스 인증 블레이드에서 사용할 수 있습니다. 앱 서비스의 인증 서비스에 대한 소개는 [앱 서비스 인증/권한 부여 확장](https://azure.microsoft.com/blog/announcing-app-service-authentication-authorization/)을 참조하세요.
@@ -69,7 +64,7 @@ API 시나리오의 경우 관련된 여러 가지 새로운 기능이 있습니
 ## 관리 포털
 포털에서 **새로 만들기 > 웹 + 모바일 > API 앱**을 선택하면 이 문서에 설명된 새 기능을 반영하는 API 앱이 만들어집니다. **찾아보기 > API 앱**은 이러한 새 API 앱만 표시합니다. API 앱으로 이동하면 블레이드에서 웹 및 모바일 앱과 동일한 레이아웃 및 기능을 공유합니다. 빠른 시작 콘텐츠와 설정 순서만 다릅니다.
 
-이전 미리 보기 기능이 있는 기존 API 앱(또는 논리 앱에서 만든 Marketplace API 앱)은 논리 앱 디자이너에 계속 표시되며, 리소스 그룹의 모든 리소스를 검색할 때도 표시됩니다. 미리 보기 기능이 있는 API 앱을 만들어야 하는 경우 패키지를 사용할 수 있으며 Azure 마켓플레이스에서 **웹 + 모바일 > API 앱(미리 보기)**으로 검색할 수 있습니다.
+이전 미리 보기 기능이 있는 기존 API 앱(또는 논리 앱에서 만든 Marketplace API 앱)은 논리 앱 디자이너에 계속 표시되며, 리소스 그룹의 모든 리소스를 검색할 때도 표시됩니다.
 
 ## Visual Studio
 
@@ -82,8 +77,6 @@ API 시나리오의 경우 관련된 여러 가지 새로운 기능이 있습니
 SDK 2.8.1에 대한 자세한 내용은 알림 [블로그 게시물](https://azure.microsoft.com/blog/announcing-azure-sdk-2-8-1-for-net/)을 참조하세요.
 
 또는 관리 포털에서 게시 프로필을 수동으로 가져와 게시를 설정할 수 있습니다. 그러나 클라우드 탐색기, 코드 생성 및 API 앱 선택/만들기에는 SDK 2.8.1 이상이 필요합니다.
-
-이전 미리 보기 기능을 사용하여 기존 API 앱에 게시하는 기능은 SDK 2.8.1에서 계속 제공됩니다. 프로젝트를 이미 게시한 경우에는 추가 작업이 필요 없습니다. 게시를 설정하려면 게시 대화 상자의 **기타 옵션** 드롭다운에서 **API 앱(클래식)**을 선택합니다.
 
 ## 기존 API 앱 마이그레이션
 사용자 지정 API를 이전 미리 보기 버전의 API 앱에 배포한 경우 2015년 12월 31일까지 API 앱의 새 모델로 마이그레이션하는 것이 좋습니다. 이전 모델과 새 모델 모두 앱 서비스에서 호스트되는 Web API를 기반으로 하기 때문에 기존 코드를 대부분 다시 사용할 수 있습니다.
@@ -118,27 +111,15 @@ SDK 2.8.1에 대한 자세한 내용은 알림 [블로그 게시물](https://azu
 3. 사용자 고유의 검색 API 앱을 빌드하고, 시작 시 다른 API 앱을 검색 앱에 등록합니다.
 4. 배포 시 다른 API 앱의 끝점과 함께 모든 API 앱(및 클라이언트)의 앱 설정을 채웁니다. API 앱이 url을 제어하므로 이는 템플릿 배포에 표시됩니다.
 
-### 논리 앱
-2016년 초에 특히 새 API 앱 모델과의 원활한 통합 기능이 논리 앱 디자이너에 추가될 예정입니다. 즉, 논리 앱에 기본 제공되는 HTTP 커넥터는 모든 HTTP 끝점을 호출할 수 있으며, 기본적으로 앱 서비스 인증 서비스에서도 지원되는 서비스 주체 인증을 지원합니다. 논리 앱에서 앱 서비스 호스트되는 API를 사용하는 방법에 대한 자세한 내용은 [논리 앱으로 앱 서비스에서 호스팅되는 사용자 지정 API 사용](../app-service-logic/app-service-logic-custom-hosted-api.md)을 참조하세요.
+## 논리 앱과 API 앱 사용
 
-### <a id="documentation"></a> 이전 API 앱 모델에 대한 설명서
-이전 API 앱 모델에 대해 작성된 일부 [azure.microsoft.com](https://azure.microsoft.com/) 문서는 더 이상 새 모델에 적용되지 않으며 사이트에서 제거됩니다. 이들 URL은 새 모델의 가장 유사한 문서로 리디렉션되지만, [azure.microsoft.com용 GitHub 설명서 리포지토리](https://github.com/Azure/azure-content)의 이전 문서를 참조할 수 있습니다. 가장 자주 찾아보는 문서는 [articles/app-service-api](https://github.com/Azure/azure-content/tree/master/articles/app-service-api) 폴더에서 찾을 수 있습니다. 여기에 나와 있는 문서는 이전 API 앱을 지원하거나 마켓플레이스로부터 새로운 커넥터 API 앱을 만들 경우 여전히 사용 가능성이 높은 일부 항목으로 직접 연결됩니다.
-
-* [인증 개요](https://github.com/Azure/azure-content/tree/master/articles/app-service/app-service-authentication-overview.md)
-* [API 앱 보호](https://github.com/Azure/azure-content/tree/master/articles/app-service-api/app-service-api-dotnet-add-authentication.md)
-* [내부 API 앱에서 사용](https://github.com/Azure/azure-content/tree/master/articles/app-service-api/app-service-api-dotnet-consume-internal.md)
-* [클라이언트 흐름 인증을 통해 사용](https://github.com/Azure/azure-content/tree/master/articles/app-service-api/app-service-api-authentication-client-flow.md)
-* [SaaS 커넥터 API 앱 배포 및 구성](https://github.com/Azure/azure-content/tree/master/articles/app-service-api/app-service-api-connnect-your-app-to-saas-connector.md)
-* [새 게이트웨이로 API 앱을 프로비전](https://github.com/Azure/azure-content/tree/master/articles/app-service-api/app-service-api-arm-new-gateway-provision.md)
-* [API 앱 디버그](https://github.com/Azure/azure-content/tree/master/articles/app-service-api/app-service-api-dotnet-debug.md)
-* [SaaS 플랫폼에 연결](https://github.com/Azure/azure-content/tree/master/articles/app-service-api/app-service-api-dotnet-connect-to-saas.md)
-* [논리 앱용 API 앱 향상](https://github.com/Azure/azure-content/tree/master/articles/app-service-api/app-service-api-optimize-for-logic-apps.md)
-* [API 앱 트리거](https://github.com/Azure/azure-content/tree/master/articles/app-service-api/app-service-api-dotnet-triggers.md)
+새 API 앱 모델은 [논리 앱 스키마 버전 2015-08-01](../app-service-logic/app-service-logic-schema-2015-08-01.md)에서 제대로 작동합니다.
 
 ## 다음 단계
+
 자세한 내용은 [API 앱 설명서 섹션](https://azure.microsoft.com/documentation/services/app-service/api/)의 문서를 참조하세요. API 앱에 대한 새 모델을 반영하도록 업데이트되었습니다. 또한 포럼에서 마이그레이션에 대한 추가 지침 또는 세부 정보를 확인할 수 있습니다.
 
 - [MSDN 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=AzureAPIApps)
 - [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-api-apps)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2016" 
+	ms.date="03/09/2016" 
 	ms.author="garye;bradsev"/>
 
 
@@ -66,5 +66,6 @@ Azure 기계 학습 스튜디오를 사용하려면 기계 학습 작업 영역�
 
 
 <!--Link references-->
+ 
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

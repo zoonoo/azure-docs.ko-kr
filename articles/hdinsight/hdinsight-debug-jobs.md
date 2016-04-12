@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="03/15/2016"
 	ms.author="jgao"/>
 
 # HDInsight 로그 분석
@@ -99,14 +99,14 @@ Windows 기반 클러스터에 3개의 테이블을 만듭니다.
 2. **보기** 메뉴에서 **클라우드 탐색기**를 클릭합니다. 또는 **CTRL+\\, CTRL+X**를 클릭하기만 하면 됩니다.
 3. **클라우드 탐색기**에서 **리소스 유형**을 선택합니다. 사용 가능한 다른 옵션은 **리소스 그룹**입니다.
 4. **저장소 계정**, 클러스터에 대한 기본 저장소 계정, **테이블**을 차례로 확장합니다.
-5. Hadoopservicelog를 두 번 클릭합니다.
+5. **hadoopservicelog**를 두 번 클릭합니다.
 6. 필터를 추가합니다. 예:
 	
 		TraceLevel eq 'ERROR'
 
 	![HDInsight Hadoop 로그는 열을 선택합니다](./media/hdinsight-debug-jobs/hdinsight-hadoop-analyze-logs-visual-studio-filter.png)
 
-	필터를 생성하는 방법에 대한 자세한 내용은 [테이블 디자이너에 필터 문자열 생성](https://msdn.microsoft.com/library/azure/ff683669.aspx)을 참조하세요.
+	필터를 생성하는 방법에 대한 자세한 내용은 [테이블 디자이너에 필터 문자열 생성](../vs-azure-tools-table-designer-construct-filter-strings.md)을 참조하세요.
  
 ##Azure Blob 저장소에 기록된 로그
 
@@ -337,6 +337,8 @@ Azure 포털에서 HDInsight HBase 클러스터 이름을 클릭하여 클러스
 
 ## 다음 단계
 
-[Ambari 보기를 사용하여 HDInsight에서 Tez 작업 디버깅](hdinsight-debug-ambari-tez-view.md) [Linux 기반 HDInsight에서 Hadoop 서비스에 대한 힙 덤프 사용](hdinsight-hadoop-collect-debug-heap-dump-linux.md) [Ambari 웹 UI를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md)
+- [HDInsight에서 Ambari 뷰를 사용하여 Tez 작업 디버깅](hdinsight-debug-ambari-tez-view.md)
+- [Linux 기반 HDInsight에서 Hadoop 서비스에 힙 덤프 사용](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+- [Ambari 웹 UI를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

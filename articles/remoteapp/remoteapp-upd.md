@@ -1,7 +1,7 @@
 
 <properties 
-    pageTitle="Office 365 사용자 계정으로 Azure RemoteApp을 사용하는 방법 | Microsoft Azure"
-	description="내 Office 365 사용자 계정으로 Azure RemoteApp을 사용하는 방법을 알아봅니다."
+    pageTitle="Azure RemoteApp이 사용자 데이터와 설정을 저장하는 방법 | Microsoft Azure"
+	description="Azure RemoteApp에서 사용자 프로필 디스크를 사용하여 사용자 데이터를 저장하는 방법을 알아봅니다."
 	services="remoteapp"
 	documentationCenter="" 
 	authors="lizap" 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="12/04/2015" 
+    ms.date="03/28/2016" 
     ms.author="elizapo" />
 
 # Azure RemoteApp이 사용자 데이터와 설정을 저장하는 방법
@@ -26,7 +26,7 @@ Azure RemoteApp은 장치와 세션에서 사용자 ID 및 사용자 지정을 �
 
 사용자 프로필 데이터에 대한 구체적인 내용을 읽습니다.
 
->[AZURE.NOTE]UPD를 비활성화해야 하나요? 바로 가능합니다. 자세한 내용은 Pavithra의 블로그 게시물 [Azure RemoteApp에서 UPD(사용자 프로필 디스크) 비활성화](http://blogs.msdn.com/b/rds/archive/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp.aspx)를 참조하세요.
+>[AZURE.NOTE] UPD를 비활성화해야 하나요? 바로 가능합니다. 자세한 내용은 Pavithra의 블로그 게시물 [Azure RemoteApp에서 UPD(사용자 프로필 디스크) 비활성화](http://blogs.msdn.com/b/rds/archive/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp.aspx)를 참조하세요.
 
 
 ## 관리자는 데이터를 어떻게 얻을 수 있습니까?
@@ -121,6 +121,10 @@ Outlook 및 Azure RemoteApp 사용에 대한 자세한 내용은 [이 문서](re
 
 ![사용자가 로그온할 때 실행되는 시스템 작업 만들기](./media/remoteapp-upd/upd2.png)
 
+**일반** 탭에서 보안 아래 **사용자 계정**을 "BUILTIN\\Users"로 변경해야 합니다.
+
+![사용자 계정을 그룹으로 변경](./media/remoteapp-upd/upd4.png)
+
 예약된 작업은 사용자의 자격 증명을 사용하여 시작 스크립트를 시작합니다. 사용자가 로그온할 때마다 작업을 실행하도록 예약합니다.
 
 !["로그온 시" 작업에 대한 트리거 설정](./media/remoteapp-upd/upd3.png)
@@ -137,4 +141,22 @@ Outlook 및 Azure RemoteApp 사용에 대한 자세한 내용은 [이 문서](re
 
 아니요, Azure RemoteApp에서 지원되지 않습니다.
 
-<!---HONumber=AcomDC_1217_2015-->
+## VM에 데이터를 로컬로 저장할 수 있나요?
+
+아니요, UPD 이외의 VM에서 임의 위치에 저장된 데이터가 손실됩니다. 사용자가 다음에 Azure RemoteApp에 로그인할 때 동일한 VM을 얻지 못할 가능성이 높습니다. 사용자-VM의 지속성을 유지하지 않으므로 사용자가 동일한 VM에 로그인하지 않고 데이터가 손실됩니다. 또한 컬렉션을 업데이트할 때 기존 VM이 새 VM 집합으로 바뀝니다. 따라서 VM 자체에 저장된 데이터가 손실됩니다. 권장되는 방법은 UPD, Azure Files과 같은 공유 저장소, VNET 내부의 파일 서버, OneDrive for Business를 사용하는 클라우드 또는 DropBox처럼 다른 지원되는 클라우드 저장소 시스템에 데이터를 저장하는 것입니다.
+
+## PowerShell을 사용하여 VM에 Azure File 공유를 탑재하려면 어떻게 하나요?
+
+Net-PSDrive cmdlet을 사용하여 다음과 같이 드라이브를 탑재할 수 있습니다.
+
+    New-PSDrive -Name <drive-name> -PSProvider FileSystem -Root \<storage-account-name>.file.core.windows.net<share-name> -Credential :<storage-account-name>
+
+
+또한 다음을 실행하여 자격 증명을 저장할 수도 있습니다.
+
+    cmdkey /add:<storage-account-name>.file.core.windows.net /user:<storage-account-name> /pass:<storage-account-key>
+
+
+이렇게 하면 New-PSDrive cmdlet에서 -Credential 매개 변수를 건너뛸 수 있습니다.
+
+<!---HONumber=AcomDC_0330_2016-->

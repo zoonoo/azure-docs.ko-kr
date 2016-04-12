@@ -4,7 +4,7 @@
 	services="mobile-engagement"
 	documentationCenter="mobile"
 	authors="piyushjo"
-	manager="dwrede"
+	manager="erikre"
 	editor="" />
 
 <tags
@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="hero-article" 
 	ms.date="01/04/2016"
 	ms.author="piyushjo;matt-gibbs" />
 
@@ -45,7 +45,7 @@ Microsoft는 오랫동안 개인 정보 보호를 위해 노력해 왔으며 개
 
 ###다음 단계:
 
-[Azure Mobile Engagement 응용 프로그램 만들기](mobile-engagement-create-account.md)
+[Azure Mobile Engagement 응용 프로그램 만들기](mobile-engagement-create.md)
 
 [모범 사례 및 사용자의 Mobile Engagement를 만드는 프로세스](mobile-engagement-getting-started-best-practices.md)
 
@@ -53,4 +53,4 @@ Microsoft는 오랫동안 개인 정보 보호를 위해 노력해 왔으며 개
 
 [시작(개발자)](/documentation/services/mobile-engagement/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->

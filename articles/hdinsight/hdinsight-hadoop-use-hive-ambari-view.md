@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/04/2016"
+   ms.date="03/04/2016"
    ms.author="larryfr"/>
 
 #HDInsight에서 Hadoop과 Hive 사용
@@ -23,7 +23,7 @@
 
 Ambari는 Linux 기반 HDInsight 클러스터와 함께 제공되는 관리 및 모니터링 유틸리티입니다. Ambari를 통해 제공되는 기능 중 하나는 Hive 쿼리를 실행하는 데 사용할 수 있는 웹 UI입니다. 이는 __Hive 뷰__이며 HDInsight 클러스터와 함께 제공되는 Ambari 뷰의 일부입니다.
 
-> [AZURE.NOTE]Ambari는 이 문서에 설명되지 않은 여러 기능을 갖고 있습니다. 자세한 내용은 [Ambari 웹 UI를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md)를 참조하세요.
+> [AZURE.NOTE] Ambari는 이 문서에 설명되지 않은 여러 기능을 갖고 있습니다. 자세한 내용은 [Ambari 웹 UI를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md)를 참조하세요.
 
 ##필수 조건
 
@@ -39,7 +39,7 @@ Azure 포털에서 HDInsight 클러스터를 선택한 다음 __빠른 링크__ 
 
 ![Ambari 뷰 선택](./media/hdinsight-hadoop-use-hive-ambari-view/selecthiveview.png).
 
-> [AZURE.NOTE]Ambari에 액세스할 때 사이트에 인증하라는 메시지가 표시됩니다. 클러스터를 만들 때 사용한 관리자(기본값 `admin`), 계정 이름 및 암호를 입력합니다.
+> [AZURE.NOTE] Ambari에 액세스할 때 사이트에 인증하라는 메시지가 표시됩니다. 클러스터를 만들 때 사용한 관리자(기본값 `admin`), 계정 이름 및 암호를 입력합니다.
 
 다음과 유사한 결과가 표시됩니다.
 
@@ -73,21 +73,21 @@ Hive 뷰에서 다음 단계에 따라 클러스터에 포함된 데이터에 �
 	- **STORED AS TEXTFILE LOCATION** - 데이터가 저장된 위치(example/data 디렉터리) 및 텍스트로 저장되었음을 Hive에 알립니다.
 	- **SELECT** - t4 열에 ERROR 값이 포함된 모든 행의 수를 선택합니다.
 
-	>[AZURE.NOTE]자동화된 데이터 업로드 프로세스와 같은 외부 원본이나 또 다른 MapReduce 작업을 통해 기본 데이터를 업데이트해야 하지만 Hive 쿼리에서 항상 최신 데이터를 사용하려고 할 경우 외부 테이블을 사용해야 합니다. 외부 테이블을 삭제하면 데이터는 삭제되지 *않고* 테이블 정의만 삭제됩니다.
+	>[AZURE.NOTE] 자동화된 데이터 업로드 프로세스와 같은 외부 원본이나 또 다른 MapReduce 작업을 통해 기본 데이터를 업데이트해야 하지만 Hive 쿼리에서 항상 최신 데이터를 사용하려고 할 경우 외부 테이블을 사용해야 합니다. 외부 테이블을 삭제하면 데이터는 삭제되지 *않고* 테이블 정의만 삭제됩니다.
 
 2. 쿼리 편집기 하단의 __실행__ 단추를 사용하여 쿼리를 시작합니다. 버튼이 주황색으로 변하고 텍스트가 __실행 중지__로 바뀔 것입니다. 쿼리 편집기 아래에 __쿼리 프로세스 결과__ 섹션이 나타나고 작업에 대한 정보가 표시될 것입니다.
 
-    > [AZURE.IMPORTANT]일부 브라우저에서는 로그 또는 결과 정보가 올바르게 새로 고침되지 않을 수 있습니다. 작업을 실행했는데 로그가 업데이트되거나 결과가 반환되지 않고 작업이 계속 실행되는 것 같으면 Mozilla FireFox 또는 Google Chrome를 사용해 보세요.
-    
+    > [AZURE.IMPORTANT] 일부 브라우저에서는 로그 또는 결과 정보가 올바르게 새로 고침되지 않을 수 있습니다. 작업을 실행했는데 로그가 업데이트되거나 결과가 반환되지 않고 작업이 계속 실행되는 것 같으면 Mozilla FireFox 또는 Google Chrome를 사용해 보세요.
+
 3. 쿼리가 완료되면 __쿼리 프로세스 결과__ 섹션에 작업 결과가 표시됩니다. __실행 중지__ 단추는 다시 녹색 __실행__ 단추로 되돌아갑니다. __결과__ 탭에는 다음 정보가 표시됩니다.
 
         sev       cnt
         [ERROR]   3
 
     __로그__ 탭을 사용하여 작업에서 생성된 로깅 정보를 볼 수 있습니다. 쿼리에 문제가 있는 경우 이 정보를 사용하여 문제를 해결할 수 있습니다.
-    
-    > [AZURE.TIP]__쿼리 프로세스 결과__ 섹션의 왼쪽 상단에 __결과 저장__ 드롭다운 대화 상가가 있습니다. 이를 사용하여 결과를 다운로드하거나 HDInsight 저장소에 CSV 파일로 저장할 수 있습니다.
-    
+
+    > [AZURE.TIP] __쿼리 프로세스 결과__ 섹션의 왼쪽 상단에 __결과 저장__ 드롭다운 대화 상가가 있습니다. 이를 사용하여 결과를 다운로드하거나 HDInsight 저장소에 CSV 파일로 저장할 수 있습니다.
+
 3. 이 쿼리의 처음 네 줄을 선택한 다음 __실행__을 선택합니다. 작업이 완료되어도 결과가 없습니다. 쿼리의 일부를 선택한 상태에서 __실행__ 단추를 사용하면 선택한 문만 실행되기 때문입니다. 이 예에서는 테이블에서 행을 검색하는 최종 문이 선택한 네 줄에 포함되지 않았습니다. 해당 줄만 선택하고 __실행__ 단추를 사용하면 예상된 결과가 표시될 것입니다.
 
 3. __쿼리 편집기__ 하단의 __새 워크시트__ 단추를 사용하여 새 워크시트를 만듭니다. 새 워크시트에 다음 HiveQL 문을 입력합니다.
@@ -100,7 +100,7 @@ Hive 뷰에서 다음 단계에 따라 클러스터에 포함된 데이터에 �
 	- **CREATE TABLE IF NOT EXISTS** - 테이블이 아직 없는 경우 테이블을 만듭니다. **EXTERNAL** 키워드가 사용되지 않으면 Hive 데이터 웨어하우스에 저장되고 Hive에서 완전히 관리되는 내부 테이블입니다. 외부 테이블과 달리 내부 테이블을 삭제하면 기본 데이터도 삭제됩니다.
 	- **STORED AS ORC** - 데이터를 ORC(Optimized Row Columnar) 형식으로 저장합니다. Hive 데이터를 저장하기 위한 고도로 최적화되고 효율적인 형식입니다.
 	- **덮어쓰기 삽입... SELECT** - [ERROR]가 포함된 **log4jLogs** 테이블에서 행을 선택하고 데이터를 **errorLogs** 테이블에 삽입합니다.
-    
+
     __실행__ 단추를 사용하여 이 쿼리를 실행합니다. 이 쿼리가 아무런 행도 반환하지 않기 때문에 __결과__ 탭에 정보가 없을 것입니다. 하지만 상태는 __SUCCEEDED__로 표시될 것입니다.
 
 ###Hive 설정
@@ -116,7 +116,7 @@ Hive 뷰에서 다음 단계에 따라 클러스터에 포함된 데이터에 �
 편집기의 오른쪽에 __시각적 개체 설명__ 아이콘을 선택합니다.
 
 ![아이콘](./media/hdinsight-hadoop-use-hive-ambari-view/visualexplainicon.png)
-    
+
 이 아이콘은 쿼리의 __시각적 설명__ 뷰로, 복잡한 쿼리 흐름을 이해하는 데 도움이 될 것입니다. 쿼리 편집기의 __설명__ 단추를 사용하여 이 아이콘과 동일한 텍스트 명령을 볼 수 있습니다.
 
 ![시각적 설명 이미지](./media/hdinsight-hadoop-use-hive-ambari-view/visualexplain.png)
@@ -127,7 +127,7 @@ Hive 뷰에서 다음 단계에 따라 클러스터에 포함된 데이터에 �
 
 ![아이콘](./media/hdinsight-hadoop-use-hive-ambari-view/tez.png)
 
-사용 가능한 경우 이 쿼리에 대해 Tez에서 사용된 Directed Acyclic Graph(DAG)가 표시됩니다. 이전에 실행한 쿼리에 대한 DAG를 보려는 경우 __Tez 뷰__를 대신 사용합니다.
+사용 가능한 경우 이 쿼리에 대해 Tez에서 사용된 Directed Acyclic Graph(DAG)가 표시됩니다. 이전에 실행한 쿼리에 대한 DAG를 보거나 Tez 프로세스를 디버그하려면 [Tez 뷰](hdinsight-debug-ambari-tez-view.md)를 대신 사용합니다.
 
 ###알림
 
@@ -142,7 +142,7 @@ Hive 뷰에서 다음 단계에 따라 클러스터에 포함된 데이터에 �
 1. 쿼리 편집기에서 새 워크시트를 만들고 다음 쿼리를 입력합니다.
 
         SELECT * from errorLogs;
-    
+
     작동하는지 확인하려면 쿼리를 실행합니다. 다음과 같은 결과가 표시될 것입니다.
 
         errorlogs.t1 	errorlogs.t2 	errorlogs.t3 	errorlogs.t4 	errorlogs.t5 	errorlogs.t6 	errorlogs.t7
@@ -151,7 +151,7 @@ Hive 뷰에서 다음 단계에 따라 클러스터에 포함된 데이터에 �
         2012-02-03 	19:25:27 	SampleClass4 	[ERROR] 	incorrect 	id
 
 2. 편집기 하단의 __다른 이름으로 저장__ 단추를 사용합니다. 이 쿼리의 이름을 __Errorlogs__라고 입력하고 __확인__을 선택합니다. 워크시트의 이름이 __Errorlogs__로 변경됩니다.
-    
+
 3. Hive 뷰 페이지 맨 위에 있는 __저장된 쿼리__ 탭을 선택합니다. __Errorlogs__는 저장된 쿼리로 나열됩니다. 이 목록에서 제거될 때까지 유지됩니다. 이름을 선택하면 쿼리 편집기에서 해당 쿼리가 열립니다.
 
 ##쿼리 기록
@@ -172,7 +172,7 @@ UDF를 Hive 뷰에 추가하면 __쿼리 편집기__의 맨 아래에 __udf 삽�
 * 리소스 경로: wasb:///myudfs.jar
 * UDF 이름: myawesomeudf
 * UDF 클래스 이름: com.myudfs.Awesome
-    
+
 __udf 삽입__ 단추를 사용하면 해당 리소스에 대해 정의된 각 UDF에 대한 또 다른 드롭다운 목록과 함께 __myudfs__라는 항목이 표시됩니다. 이 경우에 __myawesomeudf__입니다. 이 항목을 선택하면 쿼리의 시작 부분에 다음을 추가합니다.
 
     add jar wasb:///myudfs.jar;
@@ -199,4 +199,4 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 
 * [HDInsight에서 Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->
