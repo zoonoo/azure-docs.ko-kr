@@ -101,4 +101,4 @@ SQL 데이터베이스에 연결하는 데 [pymssql.connect](http://pymssql.org/
 
 자세한 내용은 [Python 개발자 센터](/develop/python/)를 참조하세요.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!----HONumber=AcomDC_0330_2016-->

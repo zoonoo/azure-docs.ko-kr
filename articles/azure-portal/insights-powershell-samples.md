@@ -148,7 +148,13 @@ Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/
 |이 경고 규칙의 위치|	미국 동부|
 |ResourceGroup|	montest|
 |TargetResourceId|	/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig|
-|생성된 경고의 MetricName|	\\PhysicalDisk(\_Total)\\Disk Writes/sec. 정확한 메트릭 이름을 검색하는 방법은 아래의 `Get-MetricDefinitions` cmdlet 참조| |연산자| GreaterThan| |임계값(이 메트릭의 수/초)| 1| |WindowSize(hh:mm:ss 형식)| 00:05:00| |집계(메트릭의 통계, 이 예에서는 Average 수를 사용)| Average| |사용자 지정 전자 메일(문자열 배열)|'foo@example.com','bar@example.com'| |소유자, 참가자 및 독자에게 전자 메일 전송| -SendToServiceOwners|
+|생성된 경고의 MetricName|	\\PhysicalDisk(\_Total)\\Disk Writes/sec. 정확한 메트릭 이름을 검색하는 방법은 아래의 `Get-MetricDefinitions` cmdlet 참조|
+|연산자| GreaterThan|
+|임계값(이 메트릭의 수/초)| 1|
+|WindowSize(hh:mm:ss 형식)| 00:05:00|
+|집계(메트릭의 통계, 이 예에서는 Average 수를 사용)| Average|
+|사용자 지정 전자 메일(문자열 배열)|'foo@example.com','bar@example.com'|
+|소유자, 참가자 및 독자에게 전자 메일 전송| -SendToServiceOwners|
 
 전자 메일 동작 만들기
 
