@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="mcoskun"
    manager="timlt"
-   editor="masnider,jessebenson"/>
+   editor="masnider,vturecek"/>
 
 <tags
    ms.service="service-fabric"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="11/11/2015"
+   ms.date="03/25/2016"
    ms.author="mcoskun"/>
 
 # Azure 서비스 패브릭 상태 저장 서비스의 신뢰할 수 있는 컬렉션 소개
@@ -39,10 +39,10 @@
 신뢰할 수 있는 컬렉션 API는 동시 컬렉션 API(**System.Collections.Concurrent** 네임스페이스에 있음)의 진화입니다.
 
 - 비동기: 동시 컬렉션과 달리 작업이 복제 및 유지되므로 작업을 반환합니다.
-- out 매개 변수 없음: **ConditionalResult<T>**를 사용하여 out 매개 변수 대신 부울 및 값을 반환합니다. **ConditionalResult<T>**는 **Nullable<T>**과 비슷하지만 T가 구조체일 필요는 없습니다.
+- 출력 매개 변수 없음: `ConditionalValue<T>`를 사용하여 출력 매개 변수 대신 부울 및 값을 반환합니다. `ConditionalValue<T>`는 `Nullable<T>`과 비슷하지만 T가 구조체일 필요는 없습니다.
 - 트랜잭션: 트랜잭션 개체를 사용하여 사용자가 트랜잭션의 여러 신뢰할 수 있는 컬렉션에 대한 작업을 그룹화하도록 지원합니다.
 
-오늘날 **Microsoft.ServiceFabric.Data.Collections**은 두 컬렉션을 포함합니다.
+오늘날 **Microsoft.ServiceFabric.Data.Collections**은 다음과 같은 두 컬렉션을 포함합니다.
 
 - [신뢰할 수 있는 사전](https://msdn.microsoft.com/library/azure/dn971511.aspx): 키/값 쌍의 복제, 트랜잭션 및 비동기 컬렉션을 나타냅니다. **ConcurrentDictionary**와 유사하게 키와 값은 모든 형식일 수 있습니다.
 - [신뢰할 수 있는 큐](https://msdn.microsoft.com/library/azure/dn971527.aspx): 복제, 트랜잭션 및 비동기의 엄격한 FIFO(선입 선출) 큐를 나타냅니다. **ConcurrentQueue**와 유사하게 값은 어떤 형식일 수 있습니다.
@@ -99,16 +99,16 @@
 
 ## 추천
 
-- 읽기 작업(예: **TryPeekAsync** or **TryGetAsync**)에 의해 반환되는 사용자 지정 형식의 개체는 수정하지 마세요. 신뢰할 수 있는 컬렉션은 동시 컬렉션처럼 개체에 대한 복사본이 아닌 참조를 반환합니다.
+- 읽기 작업(예: `TryPeekAsync` 또는 `TryGetAsync`)에 의해 반환되는 사용자 지정 형식의 개체는 수정하지 마세요. 신뢰할 수 있는 컬렉션은 동시 컬렉션처럼 개체에 대한 복사본이 아닌 참조를 반환합니다.
 - 수정하기 전에 사용자 지정 형식의 반환된 개체에 대한 전체 복사를 수행합니다. 구조체 및 기본 제공 형식은 pass-by-value이므로 전체 복사를 수행할 필요가 없습니다.
-- 시간 제한에 **TimeSpan.MaxValue**를 사용하지 마세요. 시간 제한은 교착 상태를 감지하는 데 사용되어야 합니다.
+- 시간 제한에 `TimeSpan.MaxValue`를 사용하지 마세요. 시간 제한은 교착 상태를 감지하는 데 사용되어야 합니다.
 - 다른 트랜잭션의 `using` 문 내에 트랜잭션을 만들지 마세요. 교착 상태가 발생할 수 있습니다.
 
 이때
 
 - 모든 신뢰할 수 있는 컬렉션 API의 기본 제한 시간은 4초입니다. 대부분의 사용자는 이를 무시해서는 안됩니다.
-- 기본 취소 토큰은 신뢰할 수 있는 모든 컬렉션 API의 **CancellationToken.None**입니다.
-- 신뢰할 수 있는 사전의 키 형식 매개 변수(*TKey*)는 **GetHashCode()** 및 **Equals()**를 정확히 구현해야 합니다. 키는 변경하지 않아야 합니다.
+- 기본 취소 토큰은 신뢰할 수 있는 모든 컬렉션 API의 `CancellationToken.None`입니다.
+- 신뢰할 수 있는 사전의 키 형식 매개 변수(*TKey*)는 `GetHashCode()` 및 `Equals()`을 정확히 구현해야 합니다. 키는 변경하지 않아야 합니다.
 - 열거형은 컬렉션 내에서 일관된 스냅숏입니다. 그러나 여러 컬렉션의 열거는 컬렉션에서 일관되지 않습니다.
 - 신뢰할 수 있는 컬렉션의 높은 가용성을 달성하려면 각 서비스에 하나 이상의 대상 및 최소 복제본 세트 크기 3이 있어야 합니다.
 
@@ -119,4 +119,4 @@
 - [Reliable Services 프로그래밍 모델 고급 사용법](service-fabric-reliable-services-advanced-usage.md)
 - [신뢰할 수 있는 컬렉션에 대한 개발자 참조](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0406_2016-->

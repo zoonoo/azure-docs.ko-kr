@@ -98,9 +98,9 @@
 
 
 *그림 7: 데이터 원본에서 추출된 기능*
-> 이 데이터는 비공개 데이터이므로 모델 및 데이터를 공유할 수 없습니다. 그러나 공개적으로 사용할 수 있는 데이터를 사용하는 유사한 모델의 경우 [Cortana Analytics 갤러리](http://gallery.azureml.net/): [Telco 고객 이탈](http://gallery.azureml.net/Experiment/31c19425ee874f628c847f7e2d93e383)에서 이 샘플 실험을 참조하세요.
+> 이 데이터는 비공개 데이터이므로 모델 및 데이터를 공유할 수 없습니다. 그러나 공개적으로 사용할 수 있는 데이터를 사용하는 유사한 모델의 경우 [Cortana Intelligence 갤러리](http://gallery.cortanaintelligence.com/): [Telco 고객 이탈](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383)에서 이 샘플 실험을 참조하세요.
 > 
-> Cortana 분석 제품군을 사용하여 변동 분석을 구현하는 방법에 대한 자세한 내용을 알아보려면 선임 프로그램 관리자인 Wee Hyong Tok의 [이 비디오](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html)를 시청하는 것이 좋습니다.
+> Cortana Intelligence 제품군을 사용하여 변동 분석을 구현하는 방법에 대한 자세한 내용을 알아보려면 선임 프로그램 관리자인 Wee Hyong Tok의 [이 비디오](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html)를 시청하는 것이 좋습니다.
 > 
 
 ###프로토타입에 사용된 알고리즘
@@ -221,7 +221,7 @@ Azure 기계 학습에서 제공되는 또 다른 흥미로운 기능은 이미 
 
 [4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-\[5] Cortana 분석 갤러리의 [Telco churn model template](http://gallery.cortanaanalytics.com/Experiment/Telco-Customer-Churn-5)
+\[5] [Cortana Intelligence 갤러리](http://gallery.cortanaintelligence.com/)의 [Telco churn model template](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5)
 ##부록
 
 ![][10]
@@ -240,4 +240,4 @@ Azure 기계 학습에서 제공되는 또 다른 흥미로운 기능은 이미 
 [9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

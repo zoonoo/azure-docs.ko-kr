@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="01/12/2016" 
+    ms.date="04/05/2016" 
     ms.author="elizapo" />
 
 # Azure RemoteApp 등에 대한 액세스 보호
@@ -44,7 +44,7 @@ Azure RemoteApp 관리자는 Azure AD Premium을 통해 사용할 수 있는 기
 ### Azure RemoteApp에 대한 조건부 액세스를 설정하는 방법
 예제 시나리오를 안내합니다. Azure RemoteApp 관리자는 사용자가 회사 네트워크 외부에 있을 경우 환경에 대한 액세스를 차단하려 합니다.
 
->[AZURE.NOTE]Azure AD를 Premium 계층으로 업그레이드했고 하나 이상의 Azure RemoteApp 컬렉션을 만들었다고 가정합니다.
+>[AZURE.NOTE] Azure AD를 Premium 계층으로 업그레이드했고 하나 이상의 Azure RemoteApp 컬렉션을 만들었다고 가정합니다.
 
 1.	Azure 포털에서 **Active Directory** 탭을 클릭합니다. 구성하려는 디렉터리를 클릭합니다.
 
@@ -110,4 +110,4 @@ Azure RemoteApp으로 VNet을 구성해야 하고 컬렉션의 만들기 과정�
 ## 전체 솔루션
 아래 다이어그램에서는 최종 사용자로부터 Azure RemoteApp(ARA)을 통해 백 엔드 리소스에 보안 액세스 채널을 작성한 완전한 솔루션을 보여줍니다. ![Azure RemoteApp 보호](./media/remoteapp-secureaccess/ra-secureoverview.png) 1단계에서 사용자를 선택했고 ARA에 액세스할 수 있는 방법을 제어하는 액세스 규칙을 생성합니다. 아래 예제에서는 회사 네트워크에서 작업하는 사용자에 대해 액세스할 수 있습니다. 비규격 사용자는 ARA 환경에 전혀 액세스할 수 없습니다. "2단계"에서 제어하는 VNet/VPN 구성을 통해서만 백 엔드 리소스를 노출했습니다. Azure RemoteApp은 동일한 VNet에 있습니다. 최종 결과는 ARA 환경을 통해 액세스할 수 있는 리소스입니다.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0406_2016-->

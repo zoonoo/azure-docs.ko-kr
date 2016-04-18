@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/29/2016"
+	ms.date="04/05/2016"
 	ms.author="anhoh"/>
 
 # 데이터베이스 마이그레이션 도구로 DocumentDB에 데이터 가져오기
@@ -32,13 +32,13 @@
 -	HBase의 데이터를 DocumentDB로 가져오는 방법
 -	어떻게 DocumentDB 컬렉션 간에 데이터를 마이그레이션할 수 있나요?
 
-##<a id="Prerequisites"></a>필수 조건 ##
+##<a id="Prerequisites"></a>필수 조건
 
 이 문서의 지침을 따르기 전에 다음이 설치되어 있는지 확인합니다.
 
 - [Microsoft .NET Framework 4.51](https://www.microsoft.com/download/developer-tools.aspx) 이상
 
-##<a id="Overviewl"></a>DocumentDB 데이터 마이그레이션 도구 개요 ##
+##<a id="Overviewl"></a>DocumentDB 데이터 마이그레이션 도구 개요
 
 DocumentDB 데이터 마이그레이션 도구는 다음을 비롯한 다양한 원본에서 DocumentDB로 데이터를 가져오는 오픈 소스 솔루션입니다.
 
@@ -61,7 +61,7 @@ DocumentDB 데이터 마이그레이션 도구는 다음을 비롯한 다양한 
 - **Dtui.exe**: 도구의 그래픽 인터페이스 버전
 - **Dt.exe**: 도구의 명령줄 버전
 
-##<a id="JSON"></a>JSON 파일 가져오기 ##
+##<a id="JSON"></a>JSON 파일 가져오기
 
 JSON 파일 원본 가져오기 옵션을 사용하면 단일 문서 JSON 파일이나 각각 JSON 문서 배열을 포함하는 JSON 파일을 하나 이상 가져올 수 있습니다. 가져올 JSON 파일을 포함하는 폴더를 추가하면, 하위 폴더에서 재귀적으로 파일을 검색하는 옵션도 있습니다.
 
@@ -84,7 +84,7 @@ JSON 파일을 가져오는 몇 가지 명령줄 샘플은 다음과 같습니�
 	#Import a single JSON file and partition the data across 4 collections
 	dt.exe /s:JsonFile /s.Files:D:\\CompanyData\\Companies.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:comp[1-4] /t.PartitionKey:name /t.CollectionTier:S3
 
-##<a id="MongoDB"></a>MongoDB에서 가져오기 ##
+##<a id="MongoDB"></a>MongoDB에서 가져오기
 
 MongoDB 원본 가져오기 옵션을 사용하면 개별 MongoDB 컬렉션에서 가져오고 필요에 따라 쿼리를 사용하여 문서를 필터링하거나 프로젝션을 사용하여 문서 구조를 수정할 수 있습니다.
 
@@ -106,7 +106,7 @@ MongoDB에서 가져오는 몇 가지 명령줄 샘플은 다음과 같습니다
 	#Import documents from a MongoDB collection which match the query and exclude the loc field
 	dt.exe /s:MongoDB /s.ConnectionString:mongodb://<dbuser>:<dbpassword>@<host>:<port>/<database> /s.Collection:zips /s.Query:{pop:{$gt:50000}} /s.Projection:{loc:0} /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:BulkZipsTransform /t.IdField:_id/t.CollectionTier:S3
 
-##<a id="MongoDBExport"></a>MongoDB 내보내기 파일 가져오기 ##
+##<a id="MongoDBExport"></a>MongoDB 내보내기 파일 가져오기
 
 MongoDB 내보내기 JSON 파일 원본 가져오기 옵션을 사용하면 mongoexport 유틸리티에서 생성된 JSON 파일을 하나 이상 가져올 수 있습니다.
 
@@ -118,7 +118,7 @@ MongoDB 내보내기 JSON 파일에서 가져오는 명령줄 샘플은 다음�
 
 	dt.exe /s:MongoDBExport /s.Files:D:\mongoemployees.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:employees /t.IdField:_id /t.Dates:Epoch /t.CollectionTier:S3
 
-##<a id="SQL"></a>SQL Server에서 가져오기 ##
+##<a id="SQL"></a>SQL Server에서 가져오기
 
 SQL 원본 가져오기 옵션을 사용하면 개별 SQL Server 데이터베이스에서 가져오고 필요에 따라 쿼리를 사용하여 가져올 레코드를 필터링할 수 있습니다. 또한 중첩 구분 기호를 지정하여 문서 구조를 수정할 수 있습니다(추가 정보 제공 예정).
 
@@ -148,7 +148,7 @@ SQL Server에서 가져오는 몇 가지 명령줄 샘플은 다음과 같습니
 	#Import records from sql which match a query and create hierarchical relationships
 	dt.exe /s:SQL /s.ConnectionString:"Data Source=<server>;Initial Catalog=AdventureWorks;User Id=advworks;Password=<password>;" /s.Query:"select CAST(BusinessEntityID AS varchar) as Id, Name, AddressType as [Address.AddressType], AddressLine1 as [Address.AddressLine1], City as [Address.Location.City], StateProvinceName as [Address.Location.StateProvinceName], PostalCode as [Address.PostalCode], CountryRegionName as [Address.CountryRegionName] from Sales.vStoreWithAddresses WHERE AddressType='Main Office'" /s.NestingSeparator:. /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:StoresSub /t.IdField:Id /t.CollectionTier:S3
 
-##<a id="CSV"></a>CSV 파일 가져오기 - CSV에서 JSON으로 변환 ##
+##<a id="CSV"></a>CSV 파일 가져오기 - CSV에서 JSON으로 변환
 
 CSV 파일 원본 가져오기 옵션을 사용하면 하나 이상의 CSV 파일을 가져올 수 있습니다. 가져올 CSV 파일이 포함된 폴더를 추가하면, 하위 폴더에서 재귀적으로 파일을 검색하는 옵션도 있습니다.
 
@@ -166,7 +166,7 @@ DomainInfo.Domain\_Name 및 RedirectInfo.Redirecting과 같은 별칭을 확인�
 
 CSV 가져오기에 대해 다른 두 가지 사항을 기억해야 합니다.
 
-1.	기본적으로 따옴표가 없는 값이 항상 잘리지만, 따옴표로 묶인 값은 그대로 유지됩니다. Trim 따옴표로 묶인된 값 확인란을 선택 또는 /s.TrimQuoted 명령줄 옵션으로 이 동작을 재정의할 수 있습니다.
+1.	기본적으로 따옴표가 없는 값이 항상 잘리지만, 따옴표로 묶인 값은 그대로 유지됩니다. Trim 따옴표로 묶인 값 확인란을 선택 또는 /s.TrimQuoted 명령줄 옵션으로 이 동작을 재정의할 수 있습니다.
 
 2.	기본적으로는 따옴표가 없는 null은 null 값으로 처리됩니다. 따옴표가 없는 NULL을 문자열 확인란이나 /s.NoUnquotedNulls 명령줄 옵션으로 이 동작을 재정의할 수 있습니다(예: "null" 문자열로 따옴표가 없는 null 처리).
 
@@ -175,7 +175,7 @@ CSV 가져오기에 대한 명령줄 샘플은 다음과 같습니다.
 
 	dt.exe /s:CsvFile /s.Files:.\Employees.csv /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:Employees /t.IdField:EntityID /t.CollectionTier:S3
 
-##<a id="AzureTableSource"></a>Azure 테이블 저장소에서 가져오기 ##
+##<a id="AzureTableSource"></a>Azure 테이블 저장소에서 가져오기
 
 Azure 테이블 저장소 원본 가져오기 옵션을 사용하면 개별 Azure 테이블 저장소 테이블에서 가져오고 필요에 따라 가져올 테이블 엔터티를 필터링할 수 있습니다.
 
@@ -230,7 +230,7 @@ Azure Blob 저장소에서 JSON 파일을 가져오려면 명령줄 예제는 �
 
 	dt.exe /s:JsonFile /s.Files:"blobs://<account key>@account.blob.core.windows.net:443/importcontainer/.*" /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:doctest
 
-##<a id="DocumentDBSource"></a>DocumentDB에서 가져오기 ##
+##<a id="DocumentDBSource"></a>DocumentDB에서 가져오기
 
 DocumentDB 소스 가져오기 옵션을 사용하면 필요에 따라 쿼리를 사용하 여 문서를 필터링하고 하나 이상의 DocumentDB 컬렉션에서 데이터를 가져올 수 있습니다.
 
@@ -239,6 +239,10 @@ DocumentDB 소스 가져오기 옵션을 사용하면 필요에 따라 쿼리를
 DocumentDB 연결 문자열의 형식은 다음과 같습니다.
 
 	AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;
+
+[DocumentDB 계정을 관리하는 방법](documentdb-manage-account.md)에 설명된 대로 DocumentDB 계정 연결 문자열은 Azure 포털의 키 블레이드에서 검색할 수 있지만 데이터베이스의 이름은 다음 형식으로 연결 문자열에 추가되어야 합니다.
+
+    Database=<DocumentDB Database>;
 
 > [AZURE.NOTE] Verify 명령을 사용하여 연결 문자열 필드에 지정된 DocumentDB 인스턴스를 액세스할 수 있는지 확인합니다.
 
@@ -289,13 +293,17 @@ HBase에서 가져오는 명령줄 샘플은 다음과 같습니다.
 
 ##<a id="DocumentDBBulkTarget"></a>DocumentDB로 가져오기(대량 가져오기)
 
-DocumentDB 대량 가져오기를 사용하면 효율성을 위해 DocumentDB 저장 프로시저를 통해 사용 가능한 모든 원본 옵션에서 가져올 수 있습니다. 이 도구는 단일 DocumentDB 컬렉션 및 여러 DocumentDB 컬렉션 간에 데이터를 분할하는 분할된 데이터베이스 가져오기도 지원합니다. [여기](documentdb-partition-data.md)에서 DocumentDB에서 데이터 분할에 대해 자세히 알아봅니다. 이 도구는 대상 컬렉션에서 저장 프로시저를 만들고 실행한 다음 삭제합니다.
+DocumentDB 대량 가져오기를 사용하면 효율성을 위해 DocumentDB 저장 프로시저를 통해 사용 가능한 모든 원본 옵션에서 가져올 수 있습니다. 이 도구는 단일 DocumentDB 컬렉션 및 여러 DocumentDB 컬렉션 간에 데이터를 분할하는 분할된 데이터베이스 가져오기도 지원합니다. 데이터를 분할하는 방법에 대한 자세한 내용은 [Azure DocumentDB에서 분할 및 크기 조정](documentdb-partition-data.md)을 참조하세요. 이 도구는 대상 컬렉션에서 저장 프로시저를 만들고 실행한 다음 삭제합니다.
 
 ![DocumentDB 대량 옵션의 스크린샷](./media/documentdb-import-data/documentdbbulk.png)
 
 DocumentDB 연결 문자열의 형식은 다음과 같습니다.
 
 	AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;
+
+[DocumentDB 계정을 관리하는 방법](documentdb-manage-account.md)에 설명된 대로 DocumentDB 계정 연결 문자열은 Azure 포털의 키 블레이드에서 검색할 수 있지만 데이터베이스의 이름은 다음 형식으로 연결 문자열에 추가되어야 합니다.
+
+    Database=<DocumentDB Database>;
 
 > [AZURE.NOTE] Verify 명령을 사용하여 연결 문자열 필드에 지정된 DocumentDB 인스턴스를 액세스할 수 있는지 확인합니다.
 
@@ -305,7 +313,7 @@ DocumentDB 연결 문자열의 형식은 다음과 같습니다.
 2. 축약된 구문을 사용할 수 있습니다. [3] 컬렉션은 1단계에서 설명한 동일한 집합을 내보냅니다.
 3. 둘 이상의 대체를 제공할 수 있습니다. 예를 들어, 컬렉션 [0-1] [0-9]는 0이 이름 앞에 오는 20개의 컬렉션을 생성합니다(collection01,... 02... 03).
 
-컬렉션 이름이 지정되면 원하는 컬렉션 가격 책정 계층을 선택합니다(S1, S2 또는 S3). 가져오기 성능을 최적화하려면 S3을 선택합니다. [여기](documentdb-performance-levels.md)에서 DocumentDB 성능 수준에 대해 자세히 알아봅니다.
+컬렉션 이름이 지정되면 원하는 컬렉션 가격 책정 계층을 선택합니다(S1, S2 또는 S3). 가져오기 성능을 최적화하려면 S3을 선택합니다. 성능 수준에 대한 자세한 내용은 [DocumentDB의 성능 수준](documentdb-performance-levels.md)을 참조하세요.
 
 > [AZURE.NOTE] 성능 계층 설정은 컬렉션 생성에만 적용됩니다. 지정된 컬렉션이 이미 있는 경우 해당 가격 책정 계층은 수정되지 않습니다.
 
@@ -342,13 +350,17 @@ DocumentDB 대량 가져오기에는 다음과 같은 추가 고급 옵션이 �
 
 ##<a id="DocumentDBSeqTarget"></a>DocumentDB로 가져오기(순차 레코드 가져오기)
 
-DocumentDB 순차 레코드 가져오기를 사용하면 레코드 단위로 사용 가능한 모든 원본 옵션에서 가져올 수 있습니다. 저장 프로시저의 할당량에 도달한 기존 컬렉션으로 가져오는 경우 이 옵션을 선택할 수 있습니다. 이 도구는 단일 DocumentDB 컬렉션 및 여러 DocumentDB 컬렉션 간에 데이터를 분할하는 분할된 데이터베이스 가져오기도 지원합니다. [여기](documentdb-partition-data.md)에서 DocumentDB에서 데이터 분할에 대해 자세히 알아봅니다.
+DocumentDB 순차 레코드 가져오기를 사용하면 레코드 단위로 사용 가능한 모든 원본 옵션에서 가져올 수 있습니다. 저장 프로시저의 할당량에 도달한 기존 컬렉션으로 가져오는 경우 이 옵션을 선택할 수 있습니다. 이 도구는 단일 DocumentDB 컬렉션 및 여러 DocumentDB 컬렉션 간에 데이터를 분할하는 분할된 데이터베이스 가져오기도 지원합니다. 데이터를 분할하는 방법에 대한 자세한 내용은 [Azure DocumentDB에서 분할 및 크기 조정](documentdb-partition-data.md)을 참조하세요.
 
 ![DocumentDB 순차 레코드 가져오기 옵션의 스크린샷](./media/documentdb-import-data/documentdbsequential.png)
 
 DocumentDB 연결 문자열의 형식은 다음과 같습니다.
 
 	AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;
+
+[DocumentDB 계정을 관리하는 방법](documentdb-manage-account.md)에 설명된 대로 DocumentDB 계정 연결 문자열은 Azure 포털의 키 블레이드에서 검색할 수 있지만 데이터베이스의 이름은 다음 형식으로 연결 문자열에 추가되어야 합니다.
+
+    Database=<DocumentDB Database>;
 
 > [AZURE.NOTE] Verify 명령을 사용하여 연결 문자열 필드에 지정된 DocumentDB 인스턴스를 액세스할 수 있는지 확인합니다.
 
@@ -358,7 +370,7 @@ DocumentDB 연결 문자열의 형식은 다음과 같습니다.
 2. 축약된 구문을 사용할 수 있습니다. [3] 컬렉션은 1단계에서 설명한 동일한 집합을 내보냅니다.
 3. 둘 이상의 대체를 제공할 수 있습니다. 예를 들어, 컬렉션 [0-1] [0-9]는 0이 이름 앞에 오는 20개의 컬렉션을 생성합니다(collection01,... 02... 03).
 
-컬렉션 이름이 지정되면 원하는 컬렉션 가격 책정 계층을 선택합니다(S1, S2 또는 S3). 가져오기 성능을 최적화하려면 S3을 선택합니다. [여기](documentdb-performance-levels.md)에서 DocumentDB 성능 수준에 대해 자세히 알아봅니다.
+컬렉션 이름이 지정되면 원하는 컬렉션 가격 책정 계층을 선택합니다(S1, S2 또는 S3). 가져오기 성능을 최적화하려면 S3을 선택합니다. 성능 수준에 대한 자세한 내용은 [DocumentDB의 성능 수준](documentdb-performance-levels.md)을 참조하세요.
 
 > [AZURE.NOTE] 성능 계층 설정은 컬렉션 생성에만 적용됩니다. 지정된 컬렉션이 이미 있는 경우 해당 가격 책정 계층은 수정되지 않습니다.
 
@@ -387,7 +399,7 @@ DocumentDB - 순차 레코드 가져오기에는 다음과 같은 추가 고급 
 
 > [AZURE.TIP] 가져오기 도구는 기본적으로 DirectTcp 연결 모드로 설정되어 있습니다. 방화벽 문제가 발생하는 경우 포트 443만 요구하는 게이트웨이 연결 모드로 전환합니다.
 
-##<a id="IndexingPolicy"></a>DocumentDB 컬렉션을 만들 때 인덱싱 정책 지정 ##
+##<a id="IndexingPolicy"></a>DocumentDB 컬렉션을 만들 때 인덱싱 정책 지정
 
 가져오는 동안 컬렉션을 만들 수 있도록 마이그레이션 도구를 허용하는 경우 컬렉션의 인덱싱 정책을 지정할 수 있습니다. DocumentDB 대량 가져오기의 고급 옵션 섹션 및 DocumentDB 순차 레코드 옵션에서 인덱싱 정책 섹션으로 이동합니다.
 
@@ -403,7 +415,7 @@ DocumentDB - 순차 레코드 가져오기에는 다음과 같은 추가 고급 
 
 ![DocumentDB 인덱싱 정책 고급 옵션의 스크린샷](./media/documentdb-import-data/indexingpolicy2.png)
 
-> [AZURE.NOTE] 인덱싱 정책을 지정하지 않으면 기본 정책이 적용됩니다. DocumentDB 인덱싱 정책에 대한 자세한 정보는 [여기서](documentdb-indexing-policies.md) 읽을 수 있습니다.
+> [AZURE.NOTE] 인덱싱 정책을 지정하지 않으면 기본 정책이 적용됩니다. 인덱싱 정책에 대한 자세한 내용은 [DocumentDB 인덱싱 정책](documentdb-indexing-policies.md)을 참조하세요.
 
 
 ## JSON 파일로 내보내기
@@ -476,6 +488,6 @@ DocumentDB JSON 내보내기를 사용하면 사용 가능한 모든 원본 옵�
 
 ## 다음 단계
 
-- DocumentDB에 대해 자세히 알아보려면 [여기](http://azure.com/docdb)를 클릭하세요.
+- DocumentDB에 대해 자세히 알아보려면 [학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/)를 참조하세요.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0406_2016-->

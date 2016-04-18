@@ -44,7 +44,7 @@
 
         PS C:\> Login-AzureRmAccount
 
-        Evironment : AzureCloud
+        Environment : AzureCloud
         Account    : someone@example.com
         ...
 
@@ -292,4 +292,4 @@ Visual Studio를 리소스 그룹과 함께 사용하는 방법에 대한 소개
 
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

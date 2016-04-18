@@ -21,7 +21,7 @@
 
 ## 중요: 이 서비스는 중단되었습니다.
 
-**이 서비스에서 제공하는 자주 함께 구매됨 기능은 보다 광범위한 [추천 API](http://gallery.azureml.net/MachineLearningAPI/3574432384684cac9cc766e57729ea4c)에 통합되었습니다. 이 서비스 대신 추천을 사용하는 것이 좋습니다.**
+**이 서비스에서 제공하는 자주 함께 구매됨 기능은 보다 광범위한 [추천 API](http://gallery.cortanaintelligence.com/MachineLearningAPI/3574432384684cac9cc766e57729ea4c)에 통합되었습니다. 이 서비스 대신 추천을 사용하는 것이 좋습니다.**
 
 ##개요
 
@@ -39,4 +39,4 @@
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

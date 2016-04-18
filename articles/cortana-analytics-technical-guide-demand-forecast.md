@@ -1,6 +1,6 @@
 <properties
 	pageTitle="에너지 수요 예측 기술 가이드 | Microsoft Azure"
-	description="에너지 수요 예측을 위한 Microsoft Cortana 분석 솔루션 템플릿 기술 가이드입니다."
+	description="에너지 수요 예측을 위한 Microsoft Cortana Intelligence 솔루션 템플릿 기술 가이드입니다."
 	services="cortana-analytics"
 	documentationCenter=""
 	authors="yijichen"
@@ -16,11 +16,11 @@
 	ms.date="01/24/2016"
 	ms.author="inqiu;yijichen;ilanr9"/>
 
-# 에너지 수요 예측을 위한 Cortana 분석 솔루션 템플릿 기술 가이드
+# 에너지 수요 예측을 위한 Cortana Intelligence 솔루션 템플릿 기술 가이드
 
 ## **개요**
 
-솔루션 템플릿은 Cortana Analytics Suite를 기반으로 E2E 데모 빌드 프로세스를 가속화하도록 디자인되었습니다. 배포된 템플릿은 필요한 Cortana 분석 구성 요소로 구독을 프로비전하고 이들 간의 관계를 빌드합니다. 또한 데이터 시뮬레이션 응용 프로그램에서 생성된 샘플 데이터로 데이터 파이프라인을 시드합니다. 제공된 링크에서 데이터 시뮬레이터를 다운로드하고 로컬 컴퓨터에 설치합니다. 시뮬레이터 사용에 대한 지침은 readme.txt 파일을 참조하세요. 시뮬레이터에서 생성된 데이터는 데이터 파이프라인을 하이드레이션하며 나중에 Power BI 대시보드에서 시각화할 수 있는 기계 학습 예측을 생성하기 시작합니다.
+솔루션 템플릿은 Cortana Intelligence Suite를 기반으로 E2E 데모 빌드 프로세스를 가속화하도록 디자인되었습니다. 배포된 템플릿은 필요한 Cortana Intelligence 구성 요소로 구독을 프로비전하고 이들 간의 관계를 빌드합니다. 또한 데이터 시뮬레이션 응용 프로그램에서 생성된 샘플 데이터로 데이터 파이프라인을 시드합니다. 제공된 링크에서 데이터 시뮬레이터를 다운로드하고 로컬 컴퓨터에 설치합니다. 시뮬레이터 사용에 대한 지침은 readme.txt 파일을 참조하세요. 시뮬레이터에서 생성된 데이터는 데이터 파이프라인을 하이드레이션하며 나중에 Power BI 대시보드에서 시각화할 수 있는 기계 학습 예측을 생성하기 시작합니다.
 
 배포 프로세스는 솔루션 자격 증명을 설정하는 몇 가지 단계를 안내합니다. 솔루션 이름, 사용자 이름 및 배포하는 동안 제공하는 암호와 같은 이러한 자격 증명을 기록합니다.
 
@@ -225,7 +225,8 @@ Azure 스트림 분석 쿼리 생성에 대한 정보는 MSDN의 [스트림 분�
 
 	-	대시보드의 이 타일 위로 마우스를 이동하고 오른쪽 위 모서리에서 "편집" 아이콘을 클릭하여 제목을 "타임스탬프별 수요"로 변경할 수 있습니다.
 
-4.	적절한 데이터 집합에 따라 다른 대시보드 타일을 만듭니다. 최종 대시보드 보기는 다음과 같습니다. ![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic5.png)
+4.	적절한 데이터 집합에 따라 다른 대시보드 타일을 만듭니다. 최종 대시보드 보기는 다음과 같습니다.
+![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic5.png)
 
 
 ### 콜드 경로 대시보드 설정
@@ -252,7 +253,8 @@ Azure 스트림 분석 쿼리 생성에 대한 정보는 MSDN의 [스트림 분�
 
 	-	다운로드한 **"DemandForecastingDataGeneratorv1.0"** 폴더에서 **'Power BI Template\\DemandForecastPowerBI.pbix'** 파일을 두 번 클릭합니다. 초기 시각화는 더미 데이터를 기반으로 합니다. **참고:** 오류 메시지가 표시되면 최신 버전의 Power BI 데스크톱을 설치했는지 확인합니다.
 
-		열리면 파일의 맨 위에서 **'쿼리 편집'**을 클릭합니다. 표시되는 창에서 오른쪽 패널에 있는 **'원본'**을 두 번 클릭합니다. ![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic1.png)
+		열리면 파일의 맨 위에서 **'쿼리 편집'**을 클릭합니다. 표시되는 창에서 오른쪽 패널에 있는 **'원본'**을 두 번 클릭합니다.
+![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic1.png)
 
 	-   표시되는 창에서 **"서버"** 및 **"데이터베이스"**를 사용자 고유 서버 및 데이터베이스 이름으로 바꾼 다음 **"확인"**을 클릭합니다. 서버 이름의 경우 포트 1433을 지정했는지 확인합니다(**YourSoutionName.database.windows.net, 1433**). 화면에 나타나는 경고 메시지를 무시합니다.
 
@@ -288,4 +290,4 @@ Azure 스트림 분석 쿼리 생성에 대한 정보는 MSDN의 [스트림 분�
 
 -   [Microsoft Azure 비용 추정 도구(데스크톱)](http://www.microsoft.com/download/details.aspx?id=43376)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0406_2016-->

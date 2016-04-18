@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="heeldin"
    manager="timlt"
-   editor=""/>
+   editor="vturecek"/>
 
 <tags
    ms.service="service-fabric"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/14/2016"
+   ms.date="03/25/2016"
    ms.author="heeldin;motanv"/>
 
 # 테스트 용이성 작업
@@ -95,7 +95,7 @@ Restart-ServiceFabricNode -NodeName $nodeName -CompletionMode DoNotVerify
 
 PowerShell을 사용하여 Azure 클러스터에 대해 테스트 용이성 작업을 실행하는 방법은 로컬 클러스터에 대해 작업을 실행하는 방법과 비슷합니다. 작업을 실행하려면 로컬 클러스터 대신 Azure 클러스터에 먼저 연결해야 한다는 점만 다릅니다.
 
-## C를 사용하여 테스트 용이성 작업 실행#
+## 테스트 용이성 작업 실행
 
 C#을 사용하여 테스트 용이성 작업을 실행하려면 먼저 FabricClient를 사용하여 클러스터에 연결해야 합니다. 그런 다음 작업 실행에 필요한 매개 변수를 가져옵니다. 다른 매개 변수를 사용하여 같은 작업을 실행할 수 있습니다. RestartServiceFabricNode 작업을 살펴보면 노드 정보(노드 이름 및 노드 인스턴스 ID)를 사용하여 노드를 실행할 수 있습니다.
 
@@ -236,4 +236,4 @@ ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(par
    - [서비스 작업 중 오류 시뮬레이션](service-fabric-testability-workload-tests.md)
    - [서비스 대 서비스 통신 오류](service-fabric-testability-scenarios-service-communication.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

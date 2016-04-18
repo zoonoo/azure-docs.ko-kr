@@ -89,7 +89,8 @@ Internet Explorer: ![작업 영역 만들기][20]
 
 Chrome: ![작업 영역 만들기][21]
 
-IPython Notebook에 로그온하면 *DataScienceSamples* 디렉터리가 브라우저에 표시됩니다. 이 디렉터리에는 사용자가 데이터 과학 작업을 수행하도록 도와주기 위해 Microsoft에서 공유하는 샘플 IPython Notebook이 포함되어 있습니다. 이러한 샘플 IPython Notebook은 IPython Notebook 서버 설정 프로세스 중에 [**Github 리포지토리**](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks)에서 가상 컴퓨터로 체크 아웃됩니다. Microsoft는 이 리포지토리를 유지 관리하고 자주 업데이트합니다. 사용자는 Github 리포지토리를 방문하여 최근에 업데이트된 샘플 IPython Notebook을 얻을 수 있습니다. ![작업 영역 만들기][18]
+IPython Notebook에 로그온하면 *DataScienceSamples* 디렉터리가 브라우저에 표시됩니다. 이 디렉터리에는 사용자가 데이터 과학 작업을 수행하도록 도와주기 위해 Microsoft에서 공유하는 샘플 IPython Notebook이 포함되어 있습니다. 이러한 샘플 IPython Notebook은 IPython Notebook 서버 설정 프로세스 중에 [**Github 리포지토리**](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks)에서 가상 컴퓨터로 체크 아웃됩니다. Microsoft는 이 리포지토리를 유지 관리하고 자주 업데이트합니다. 사용자는 Github 리포지토리를 방문하여 최근에 업데이트된 샘플 IPython Notebook을 얻을 수 있습니다.
+![작업 영역 만들기][18]
 
 ## <a name="upload"></a>5단계: 로컬 컴퓨터에서 IPython Notebook 서버로 기존 IPython Notebook 업로드
 
@@ -122,9 +123,9 @@ Azure 가상 컴퓨터는 **종량제**로 비용이 청구됩니다. 가상 컴
 
 ## Azure VM을 사용할 준비가 되었습니다. 다음 단계는 무엇입니까?
 
-이제 데이터 과학 연습에서 가상 컴퓨터를 사용할 준비가 완료되었습니다. 또한 데이터 탐색 및 처리, Azure 기계 학습 및 CAP(Cortana 분석 프로세스)와 함께 수행할 다른 작업 등에 가상 컴퓨터를 IPython Notebook 서버로 사용할 준비가 완료되었습니다.
+이제 데이터 과학 연습에서 가상 컴퓨터를 사용할 준비가 완료되었습니다. 또한 데이터 탐색 및 처리, Azure 기계 학습 및 Cortana 분석 프로세스와 함께 수행할 다른 작업 등에 가상 컴퓨터를 IPython Notebook 서버로 사용할 준비가 완료되었습니다.
 
-고급 분석 프로세스 및 기술의 다음 단계는 [학습 가이드: Azure에서 고급 데이터 처리](machine-learning-data-science-advanced-data-processing.md)에서 확인할 수 있으며, 데이터를 HDInsight로 이동한 후 Azure 기계 학습에서 데이터를 통해 학습할 준비를 수행하면서 데이터를 처리 및 샘플링하는 단계도 여기에 포함할 수 있습니다.
+Cortana 분석 프로세스의 다음 단계는 [학습 경로](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)에서 매핑되며, 데이터를 HDInsight로 이동한 후 Azure 기계 학습에서 데이터를 통해 학습할 준비를 수행하면서 데이터를 처리 및 샘플링하는 단계를 포함할 수 있습니다.
 
 
 [15]: ./media/machine-learning-data-science-setup-virtual-machine/vmshutdown.png
@@ -141,6 +142,5 @@ Azure 가상 컴퓨터는 **종량제**로 비용이 청구됩니다. 가상 컴
 [27]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-4.png
 [28]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-5.png
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
- 
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0406_2016-->

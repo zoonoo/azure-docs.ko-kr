@@ -38,7 +38,7 @@ IoT 솔루션은 다음과 같은 개별 장치에 대한 데이터를 저장합
 
 *장치 프로비전*은 솔루션 저장소에 초기 장치 데이터를 추가하는 프로세스입니다. 장치를 허브에 새로 연결하도록 하려면 새 장치 ID 및 키를 [IoT Hub ID 레지스트리][lnk-devguide-identityregistry]에 추가해야 합니다. 프로비전 프로세스의 일부로, 다른 솔루션 저장소에서 장치 특정 데이터를 초기화해야 할 수 있습니다.
 
-[IoT Hub 장치 관리 지침][lnk-device-management] 문서에서는 장치 프로비전을 위한 일반적인 전략에 대해 설명합니다. [IoT Hub ID 레지스트리 API][lnk-devguide-identityregistry]를 통해 IoT Hub를 프로비전 프로세스에 통합할 수 있습니다.
+[IoT Hub ID 레지스트리 API][lnk-devguide-identityregistry]를 통해 IoT Hub를 프로비전 프로세스에 통합할 수 있습니다.
 
 ## 현장 게이트웨이
 
@@ -115,7 +115,6 @@ Azure IoT Hub에 대한 자세한 내용을 보려면 다음 링크를 따라가
 [img-tokenservice]: ./media/iot-hub-guidance/tokenservice.png
 
 [lnk-devguide-identityregistry]: iot-hub-devguide.md#identityregistry
-[lnk-device-management]: iot-hub-device-management.md
 [lnk-devguide-opmon]: iot-hub-operations-monitoring.md
 
 [lnk-device-sdks]: iot-hub-sdks-summary.md
@@ -134,4 +133,4 @@ Azure IoT Hub에 대한 자세한 내용을 보려면 다음 링크를 따라가
 [lnk-java-sas]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/com/microsoft/azure/iot/service/auth/IotHubServiceSasToken.html
 [IoT Hub 할당량 및 제한]: iot-hub-devguide.md#throttling
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

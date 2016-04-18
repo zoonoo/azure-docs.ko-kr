@@ -1,7 +1,4 @@
 
-이 문서에서는 Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 Azure 가상 컴퓨터를 배포하고 관리하는 다음 일반 작업을 수행하는 방법을 보여 줍니다. 사용할 수 있는 더 많은 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/) 및 [템플릿을 사용하는 응용 프로그램 프레임워크](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md)를 참조하세요.
-
-
 - [Azure에서 가상 컴퓨터 빨리 만들기](#quick-create-a-vm-in-azure)
 - [템플릿에서 Azure의 가상 컴퓨터 배포](#deploy-a-vm-in-azure-from-a-template)
 - [사용자 지정 이미지에서 가상 컴퓨터 만들기](#create-a-custom-vm-image)
@@ -16,7 +13,7 @@
 
 ## 준비
 
-Azure 리소스 그룹에서 Azure CLI를 사용하려면 올바른 Azure CLI 버전 및 Azure 계정이 있어야 합니다. Azure CLI가 없으면 [설치](xplat-cli-install.md)하세요.
+Azure 리소스 그룹에서 Azure CLI를 사용하려면 올바른 Azure CLI 버전 및 Azure 계정이 있어야 합니다. Azure CLI가 없으면 [설치](../articles/xplat-cli-install.md)하세요.
 
 ### 0\.9.0 이상으로 Azure CLI 버전 업데이트
 
@@ -214,7 +211,7 @@ Azure CLI 및 템플릿을 사용하여 새 Azure VM을 배포하려면 이러�
 
 ### 1단계: JSON 파일에서 템플릿 매개 변수 검사
 
-다음은 템플릿에 대한 JSON 파일의 내용입니다. (템플릿은 [GitHub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-linux-vm/azuredeploy.json)에도 있습니다.)
+다음은 템플릿에 대한 JSON 파일의 내용입니다. (템플릿은 [GitHub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json)에도 있습니다.)
 
 템플릿은 유연하므로 디자이너는 많은 매개 변수를 제공하도록 선택하거나 좀더 수정된 템플릿을 만들어 몇 개의 매개 변수만 제공하도록 선택할 수 있습니다. 템플릿을 매개 변수로 전달하는 데 필요한 정보를 수집하려면 템플릿 파일(이 항목에는 아래의 인라인에 템플릿이 있음)을 열고 **매개 변수** 값을 검사합니다.
 
@@ -435,7 +432,7 @@ JSON 파일의 "parameters" 섹션에 매개 변수 값을 제공하라는 메�
 
 다음은 예제입니다.
 
-    azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-linux-vm/azuredeploy.json myResourceGroup firstDeployment
+    azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json myResourceGroup firstDeployment
     info:    Executing command group deployment create
     info:    Supply values for the following parameters
     newStorageAccountName: storageaccount
@@ -477,7 +474,7 @@ JSON 파일의 "parameters" 섹션에 매개 변수 값을 제공하라는 메�
 
 ### 1단계: JSON 파일에서 템플릿 검사
 
-다음은 이 섹션에서 예로 사용하는 템플릿에 대한 JSON 파일의 내용입니다.
+다음은 이 섹션에서 예로 사용하는 템플릿에 대한 JSON 파일의 내용입니다. (템플릿은 [GitHub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-from-user-image/azuredeploy.json)에도 있습니다.)
 
 또한 기본값이 없는 매개 변수에 대해 입력할 값을 찾아야 합니다. `azure group deployment create` 명령을 실행하면 해당 값을 입력하라는 메시지가 Azure CLI에 표시됩니다.
 
@@ -1176,7 +1173,7 @@ Azure PowerShell 명령을 통해 Github 템플릿 리포지토리의 리소스 
 
 ## <a id="display-information-about-a-virtual-machine"></a>작업: 가상 컴퓨터에 대한 정보 표시
 
-`azure vm show <groupname> <vmname> command`를 사용하여 리소스 그룹의 특정 VM에 대한 정보를 확인할 수 있습니다. 그룹에 VM이 둘 이상 있는 경우 `azure vm list <groupname>`을 사용하여 한 그룹의 VM을 먼저 나열해야 할 수 있습니다.
+`azure vm show <groupname> <vmname>` 명령을 사용하여 리소스 그룹의 특정 VM에 대한 정보를 확인할 수 있습니다. 그룹에 VM이 둘 이상 있는 경우 `azure vm list <groupname>`을 사용하여 한 그룹의 VM을 먼저 나열해야 할 수 있습니다.
 
     azure vm list zoo
     info:    Executing command vm list
@@ -1271,7 +1268,7 @@ Azure PowerShell 명령을 통해 Github 템플릿 리포지토리의 리소스 
 
     azure vm disk attach <resource-group> <vm-name> [vhd-url]
 
-그런 다음 일반적으로 Linux 또는 Windows에서처럼 디스크를 탑재해야 합니다.
+그런 다음 일반적으로 Linux에서처럼 디스크를 탑재해야 합니다.
 
 
 ## 다음 단계
@@ -1281,4 +1278,4 @@ Azure PowerShell 명령을 통해 Github 템플릿 리포지토리의 리소스 
 
 사용할 수 있는 더 많은 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/) 및 [템플릿을 사용하는 응용 프로그램 프레임워크](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

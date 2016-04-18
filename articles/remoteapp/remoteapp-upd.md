@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="03/28/2016" 
+    ms.date="03/30/2016" 
     ms.author="elizapo" />
 
 # Azure RemoteApp이 사용자 데이터와 설정을 저장하는 방법
@@ -159,4 +159,4 @@ Net-PSDrive cmdlet을 사용하여 다음과 같이 드라이브를 탑재할 �
 
 이렇게 하면 New-PSDrive cmdlet에서 -Credential 매개 변수를 건너뛸 수 있습니다.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

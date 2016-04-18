@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Azure 저장소 | Microsoft Azure에 대한 구성 문자열 구성"
-	description="Azure 저장소 계정에 연결 문자열을 구성하는 방법에 대해 알아봅니다. 연결 문자열에는 저장소 계정의 리소스에 대한 프로그래밍 방식 액세스를 인증 하는 데 필요한 정보가 포함되어 있습니다. 연결 문자열은 자신이 소유한 계정에 대한 계정 액세스 키를 캡슐화하거나 액세스 키 없이 계정의 리소스에 액세스하기 위한 공유 액세스 서명을 포함할 수 있습니다."
+	description="Azure 저장소 계정에 연결 문자열 구성 연결 문자열에는 응용 프로그램에서 저장소 계정의 리소스에 액세스하는 것을 인증하는 데 필요한 정보가 포함되어 있습니다."
 	services="storage"
 	documentationCenter=""
 	authors="tamram"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/17/2016"
+	ms.date="04/01/2016"
 	ms.author="tamram"/>
 
 # Azure 저장소 연결 문자열 구성
@@ -96,13 +96,13 @@ Blob 서비스에 사용할 사용자 지정 도메인 이름을 등록한 경�
 
 ### 공유 액세스 서명을 사용하여 Blob 끝점 지정
 
-공유 액세스 서명을 통해 저장소 리소스에 액세스하기 위해 명시적 끝점을 사용하는 연결 문자열을 만들 수 있습니다. 이 경우 계정 이름 및 키 자격 증명 대신 연결 문자열의 일부로 공유 액세스 서명을 지정할 수 있습니다. 공유 액세스 서명 토큰은 액세스할 리소스, 해당 리소스를 사용할 수 있는 기간 및 부여되는 권한에 대한 정보를 캡슐화합니다. 공유 액세스 서명에 대한 자세한 내용은 [공유 액세스 서명을 사용하여 액세스 위임](https://msdn.microsoft.com/library/ee395415.aspx)을 참조하세요.
+공유 액세스 서명을 통해 저장소 리소스에 액세스하기 위해 명시적 끝점을 사용하는 연결 문자열을 만들 수 있습니다. 이 경우 계정 이름 및 키 자격 증명 대신 연결 문자열의 일부로 공유 액세스 서명을 지정할 수 있습니다. 공유 액세스 서명 토큰은 액세스할 리소스, 해당 리소스를 사용할 수 있는 기간 및 부여되는 권한에 대한 정보를 캡슐화합니다. 공유 액세스 서명에 대한 자세한 내용은 [공유 액세스 서명: SAS 모델이해](storage-dotnet-shared-access-signature-part-1.md)를 참조하세요.
 
 공유 액세스 서명을 포함하는 연결 문자열을 만들려면 다음과 같은 형식의 문자열을 지정합니다.
 
-    BlobEndpoint=myBlobEndpoint; QueueEndpoint=myQueueEndpoint;TableEndpoint=myTableEndpoint;SharedAccessSignature=base64Signature
+    BlobEndpoint=myBlobEndpoint; QueueEndpoint=myQueueEndpoint;TableEndpoint=myTableEndpoint;SharedAccessSignature=sasToken
 
-끝점은 기본 서비스 끝점 또는 사용자 지정 끝점일 수 있습니다. 여기서 `base64Signature`은 공유 액세스 서명의 서명 부분에 해당합니다. 이 서명은 SHA256 알고리즘을 사용하여 서명할 유효한 문자열과 키를 통해 계산되고 Base64로 인코딩되는 HMAC입니다.
+끝점은 기본 서비스 끝점 또는 사용자 지정 끝점일 수 있습니다. `sasToken`은 SAS URL의 물음표(?) 뒤에 오는 쿼리 문자열입니다.
 
 ### 끝점 접미사를 사용하여 연결 문자열 만들기
 
@@ -119,4 +119,9 @@ Blob 서비스에 사용할 사용자 지정 도메인 이름을 등록한 경�
 	AccountKey=<account-key>;
 	EndpointSuffix=core.chinacloudapi.cn;
 
-<!---HONumber=AcomDC_0218_2016-->
+## 다음 단계
+
+- [개발 및 테스트에 Azure 저장소 에뮬레이터 사용](storage-use-emulator.md)
+- [Azure 저장소 탐색기](storage-explorers.md)
+
+<!---HONumber=AcomDC_0406_2016-->

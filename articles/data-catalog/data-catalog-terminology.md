@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure 데이터 카탈로그 용어"
-   description="Azure 데이터 카탈로그 설명서에 사용된 용어 및 개념을 소개합니다."
+   pageTitle="Azure 데이터 카탈로그 용어 | Microsoft Azure"
+   description="이 문서는 Azure 데이터 카탈로그 설명서에 사용된 용어 및 개념에 대한 소개를 제공합니다."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/30/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
 
 # Azure 데이터 카탈로그 용어
@@ -86,4 +86,4 @@ Azure 데이터 카탈로그에서 모든 사용자가 등록된 데이터 자�
 
 - [Azure 데이터 카탈로그 시작](data-catalog-get-started.md) - 이 문서에서는 데이터 원본 검색을 위해 Azure 데이터 카탈로그를 사용하는 방법을 보여주는 포괄적인 자습서를 제공합니다.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

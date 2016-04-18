@@ -88,7 +88,7 @@ RDP를 통해 Hadoop 클러스터의 헤드 노드에 액세스하려면 먼저 
 
 	 ![작업 영역 만들기][9]
 
-고급 분석 프로세스의 다음 단계는 [학습 가이드: Azure에서 고급 데이터 처리](machine-learning-data-science-advanced-data-processing.md)에서 매핑되며, 데이터를 HDInsight로 이동한 후 Azure 기계 학습에서 데이터를 통해 학습할 준비를 수행하면서 데이터를 처리 및 샘플링하는 단계를 포함할 수 있습니다.
+고급 분석 프로세스의 다음 단계는 [CAP(Cortana 분석 프로세스)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)에서 매핑되며, 데이터를 HDInsight로 이동한 후 Azure 기계 학습에서 데이터를 통해 학습할 준비를 수행하면서 데이터를 처리 및 샘플링하는 단계를 포함할 수 있습니다.
 
 클러스터에 저장된 Hive 레코드를 처리하도록 설계된 UDF(사용자 정의 함수)의 클러스터 헤드 노드에서 Anaconda에 포함된 Python 모듈에 액세스하는 방법에 대한 지침은 [고급 분석 프로세스에서 HDInsight Hadoop 클러스터로 Hive 쿼리 제출](machine-learning-data-science-process-hive-tables.md)을 참조하세요.
 
@@ -104,4 +104,4 @@ RDP를 통해 Hadoop 클러스터의 헤드 노드에 액세스하려면 먼저 
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

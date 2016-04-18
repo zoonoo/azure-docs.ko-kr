@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure의 셀프 서비스 등록이란? | Microsoft Azure"
-	description="Azure의 셀프 서비스 등록, 등록 프로세스 관리 방법 및 등록 방법에 대한 개요입니다."
+	description="Azure의 셀프 서비스 등록, 등록 프로세스 관리 방법 및 DNS 도메인 이름 인수 방법에 대한 개요입니다."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="01/05/2016"
-	ms.author="stevenpo"/>
+	ms.date="04/04/2016"
+	ms.author="curtand"/>
 
 
 # Azure의 셀프 서비스 등록이란?
@@ -232,4 +232,4 @@ Bellows College의 IT 관리자가 셀프 서비스 제공 사항에 등록한 �
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0406_2016-->

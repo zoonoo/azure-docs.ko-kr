@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Azure SQL 데이터베이스 일반 제한 사항 및 지침"
    description="이 페이지는 Azure SQL 데이터베이스의 일반 제한 사항 일부와 상호 운용성 및 지원 영역을 설명합니다."
    services="sql-database"
@@ -6,7 +6,7 @@
    authors="rothja"
    manager="jeffreyg"
    editor="monicar" />
-<tags 
+<tags
    ms.service="sql-database"
    ms.devlang="na"
    ms.topic="article"
@@ -19,15 +19,15 @@
 
 이 항목에서는 Azure SQL 데이터베이스에 대한 일반적인 제한 사항 및 지침을 제공합니다. 할당량, 리소스 관리 및 지원을 완전히 이해하려면 이 항목의 끝에 있는 [추가 리소스](#additional-guidelines)를 참조하세요.
 
-## 연결
+## 연결 및 인증
 
- - Windows 인증은 지원되지 않습니다. [Azure SQL 데이터베이스에서 데이터베이스 및 로그인 관리](sql-database-manage-logins.md)를 참조하세요. 
+  - Windows 인증은 지원되지 않습니다. [Azure SQL 데이터베이스에서 데이터베이스 및 로그인 관리](sql-database-manage-logins.md)를 참조하세요. 그러나 Azure Active Directory 인증은 특정 제한 사항과 함께 지원됩니다. [Azure Active Directory 인증을 사용하여 SQL 데이터베이스에 연결](sql-database-aad-authentication.md)을 참조하세요.
 
- - Microsoft Azure SQL 데이터베이스는 TDS(Tabular Data Stream) 프로토콜 클라이언트 버전 7.3 이상을 지원합니다.
+  - Microsoft Azure SQL 데이터베이스는 TDS(Tabular Data Stream) 프로토콜 클라이언트 버전 7.3 이상을 지원합니다.
 
- - TCP/IP 연결만 허용됩니다.
+  - TCP/IP 연결만 허용됩니다.
 
- - Microsoft Azure SQL 데이터베이스에 동적 포트가 없고 포트 1433만 있기 때문에 SQL Server 2008 SQL Server 브라우저는 지원되지 않습니다.
+  - Microsoft Azure SQL 데이터베이스에 동적 포트가 없고 포트 1433만 있기 때문에 SQL Server 2008 SQL Server 브라우저는 지원되지 않습니다.
 
 ## SQL Server 에이전트/작업
 
@@ -41,11 +41,11 @@ Microsoft Azure SQL 데이터베이스에서 사용하는 기본 데이터베이
 
 보안상의 이유로 특정 사용자 이름은 허용되지 않습니다. 다음 이름은 사용할 수 없습니다.
 
- - **admin** 
- - **administrator** 
- - **guest** 
- - **root** 
- - **sa** 
+ - **admin**
+ - **administrator**
+ - **guest**
+ - **root**
+ - **sa**
 
 모든 새 개체에 대한 이름은 식별자에 대한 SQL Server 규칙을 준수해야 합니다. 자세한 내용은 [Identifiers](https://msdn.microsoft.com/library/ms175874.aspx)를 참조하세요.
 
@@ -63,4 +63,4 @@ Microsoft Azure SQL 데이터베이스에서 사용하는 기본 데이터베이
 
 - 드라이버 가용성 및 SQL 데이터베이스 지원에 대한 내용은 [SQL 데이터베이스 및 SQL Server의 연결 라이브러리](sql-database-libraries.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0406_2016-->

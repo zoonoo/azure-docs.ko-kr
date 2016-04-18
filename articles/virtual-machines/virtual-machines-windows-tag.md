@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="11/10/2015"
-   ms.author="dkshir;memccror"/>
+   ms.date="04/04/2016"
+   ms.author="iainfou;memccror"/>
 
 # Azure에서 Windows 가상 컴퓨터에 태그를 지정하는 방법
 
@@ -101,4 +101,4 @@ PowerShell을 통해 태그를 지정하는 방법에 대한 자세한 내용은
 [Azure 청구서 이해]: ../billing-understand-your-bill.md
 [Microsoft Azure 리소스 소비에 대한 정보 얻기]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

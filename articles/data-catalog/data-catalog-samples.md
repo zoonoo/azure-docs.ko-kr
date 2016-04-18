@@ -1,6 +1,6 @@
 <properties
    pageTitle="데이터 카탈로그 개발자 샘플 | Microsoft Azure"
-   description="데이터 카탈로그 REST API를 사용하여 카탈로그 앱 개발을 시작합니다."
+   description="이 문서에서는 데이터 카탈로그 REST API에 대해 사용 가능한 개발자 샘플의 개요를 제공합니다."
    services="data-catalog"
    documentationCenter=""
    authors="dvana"
@@ -32,6 +32,6 @@
 
 - [가져오기/내보내기 도구](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-import-export/)
 
-  Azure 데이터 카탈로그에서 자산을 가져오고 파일로 직렬화하는 데이터 카탈로그 REST API를 사용하는 방법을 보여 주는 샘플입니다. 또한 json으로 직렬화된 자산 집합을 가져오고 카탈로그에 게시하는 방법을 보여 줍니다. 검색 쿼리를 사용하여 카탈로그의 하위 집합 내보내기를 지원합니다.
+  Azure 데이터 카탈로그에서 자산을 가져오고 파일로 직렬화하는 데이터 카탈로그 REST API를 사용하는 방법을 보여 주는 샘플입니다. 또한 JSON으로 직렬화된 자산 집합을 가져오고 카탈로그에 게시하는 방법을 보여 줍니다. 검색 쿼리를 사용하여 카탈로그의 하위 집합 내보내기를 지원합니다.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

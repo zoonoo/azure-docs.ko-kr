@@ -30,8 +30,8 @@
 
 >[AZURE.NOTE] **이 모든 시나리오에서 다음을 수행해야 합니다.**
 
-*   [저장소 계정 만들기](storage-whatis-account.md)
-*   [Azure ML 작업 영역 만들기](machine-learning/machine-learning-create-workspace.md)
+*   [저장소 계정 만들기](../storage/storage-create-storage-account.md)
+*   [Azure ML 작업 영역 만들기](machine-learning-create-workspace.md)
 
 
 ## <a name="smalllocal"></a>시나리오 #1: 로컬 파일에서 중간 테이블 형식 데이터 집합보다 작음
@@ -168,7 +168,7 @@
 
     f. 테이블 조인이 필요한 경우, 인덱스를 만들어 조인을 신속하게 처리합니다.
 
- > [AZURE.NOTE] 큰 데이터를 좀 더 빨리 로드하기 위해, 분할된 테이블을 만들고 병렬로 대량 데이터를 가져오는 것이 좋습니다. 자세한 내용은 [SQL 분할된 테이블로 병렬로 데이터 가져오기](machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md)를 참조하세요.
+ > [AZURE.NOTE] 큰 데이터를 좀 더 빨리 로드하기 위해, 분할된 테이블을 만들고 병렬로 대량 데이터를 가져오는 것이 좋습니다. 자세한 내용은 [SQL 분할된 테이블로 병렬로 데이터 가져오기](machine-learning-data-science-parallel-load-sql-partitioned-tables.md)를 참조하세요.
 
 5.  데이터를 탐색하고 필요에 따라 기능을 만듭니다. 기능을 데이터베이스 테이블에 구체화하지 않아도 됩니다. 필요한 쿼리를 기록하여 만들기만 합니다.
 
@@ -208,7 +208,7 @@
 
 	f. 테이블 조인이 필요한 경우, 인덱스를 만들어 조인을 신속하게 처리합니다.
 
-> [AZURE.NOTE] 큰 데이터를 좀 더 빨리 로드하기 위해, 분할된 테이블을 만들고 병렬로 대량 데이터를 가져옵니다. 자세한 내용은 [SQL 분할된 테이블로 병렬로 데이터 가져오기](machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md)를 참조하세요.
+> [AZURE.NOTE] 큰 데이터를 좀 더 빨리 로드하기 위해, 분할된 테이블을 만들고 병렬로 대량 데이터를 가져옵니다. 자세한 내용은 [SQL 분할된 테이블로 병렬로 데이터 가져오기](machine-learning-data-science-parallel-load-sql-partitioned-tables.md)를 참조하세요.
 
 5.  데이터를 탐색하고 필요에 따라 기능을 만듭니다. 기능을 데이터베이스 테이블에 구체화하지 않아도 됩니다. 필요한 쿼리를 기록하여 만들기만 합니다.
 
@@ -296,8 +296,8 @@ SQL Server VM에서 전체 SQL Server 데이터베이스를 복제하려면, 한
 공용 데이터 집합에서 고급 분석 프로세스 및 기술을 사용하는 종단 간 Azure 기계 학습 연습에 대한 자세한 내용은 다음을 참조하세요.
 
 
-* [실행 중인 Cortana 분석 프로세스: SQL Server 사용](machine-learning/machine-learning-data-science-process-sql-walkthrough.md)
-* [실행 중인 Cortana 분석 프로세스: HDInsight Hadoop 클러스터 사용](machine-learning/machine-learning-data-science-process-hive-walkthrough.md)
+* [실행 중인 Cortana 분석 프로세스: SQL Server 사용](machine-learning-data-science-process-sql-walkthrough.md)
+* [실행 중인 Cortana 분석 프로세스: HDInsight Hadoop 클러스터 사용](machine-learning-data-science-process-hive-walkthrough.md)
 
 
 [1]: ./media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-small-in-aml.png
@@ -314,4 +314,4 @@ SQL Server VM에서 전체 SQL Server 데이터베이스를 복제하려면, 한
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

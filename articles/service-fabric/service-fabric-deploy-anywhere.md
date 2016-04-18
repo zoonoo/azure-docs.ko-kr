@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/27/2016"
+   ms.date="04/05/2016"
    ms.author="chackdan"/>
 
 # Windows Server 또는 Linux에서 독립 실행형 서비스 패브릭 클러스터 만들기
@@ -25,11 +25,12 @@ Azure 서비스 패브릭을 사용하면 Windows Server 또는 Linux를 실행 
 
 ## 지원되는 운영 체제
 다음 운영 체제를 실행하는 컴퓨터 또는 VM에서 클러스터를 만들 수 있습니다.
+
 * Windows Server 2012 R2
 * Windows Server 2016
 * Linux
 
-Windows Server에 대한 자세한 내용은 [Windows Server용 서비스 패브릭 클러스터 만들기](service-fabric-creation-for-windows-server)를 참조하세요.
+Windows Server에 대한 자세한 내용은 [Windows Server용 서비스 패브릭 클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md)를 참조하세요.
 
 ## 클러스터 만들기 및 구성
 서비스 패브릭은 다운로드할 수 있는 설치 패키지를 제공합니다. 이 패키지를 다운로드한 후에는 JSON 구성 파일을 변경하여 클러스터에 대한 설정을 지정해야 합니다. 클러스터 설정을 편집한 다음 설치 스크립트를 실행하여 클러스터 설정에서 지정한 컴퓨터에 클러스터 스패닝을 만듭니다. 스크립트를 실행하여 컴퓨터 집합에서 클러스터를 제거할 수도 있습니다.
@@ -56,4 +57,9 @@ Azure에서 서비스 패브릭 클러스터를 실행하면 온-프레미스 �
 * **진단:** Azure에서는 Azure 진단과 Operational Insights가 통합됩니다.
 * **자동 크기 조정:** Azure의 클러스터는 가상 컴퓨터 크기 조정 집합으로 인해 자동 크기 조정 기능이 기본적으로 제공됩니다. 온-프레미스 및 다른 클라우드 환경에서는 사용자 고유 자동 크기 조정 기능을 빌드하거나 서비스 패브릭에서 클러스터 크기 조정을 위해 제공하는 API를 사용하여 수동으로 조정해야 합니다.
 
-<!---HONumber=AcomDC_0330_2016-->
+## 다음 단계
+Windows Server를 실행하는 VM 또는 컴퓨터에서 클러스터 만들기: [Windows Server용 서비스 패브릭 클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md)
+
+Linux를 실행하는 VM 또는 컴퓨터에서 클러스터 만들기: [Linux의 서비스 패브릭](service-fabric-linux-overview.md)
+
+<!---HONumber=AcomDC_0406_2016-->

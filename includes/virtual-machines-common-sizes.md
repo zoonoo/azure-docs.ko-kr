@@ -42,16 +42,16 @@ Azure 계산 단위(ACU)의 개념을 만들어 Azure SKU를 통한 계산(CPU) 
 
 |SKU 제품군 |ACU/코어 |
 |---|---|
-|[Standard\_A0](#standard-tier-a-series)	|50 |
-|[Standard\_A1-4](#standard-tier-a-series)	|100 |
-|[Standard\_A5-7](#standard-tier-a-series)	|100 |
-|[A8-A11](#standard-tier-a-series)	|225 *|
-|[D1-14](#standard-tier-d-series)	|160 |
-|[D1-15v2](#standard-tier-dv2-series)	|210 - 250 *|
-|[DS1-14](#standard-tier-ds-series)	|160 |
-|[DS1-14v2](#standard-tier-dsv2-series)	|210-250* |
-|[G1-5](#standard-tier-g-series)	|180 - 240 *|
-|[GS1-5](#standard-tier-gs-series)	|180 - 240 *|
+|[Standard\_A0](#standard-tier-a-series) |50 |
+|[Standard\_A1-4](#standard-tier-a-series) |100 |
+|[Standard\_A5-7](#standard-tier-a-series) |100 |
+|[A8-A11](#standard-tier-a-series) |225 *|
+|[D1-14](#standard-tier-d-series) |160 |
+|[D1-15v2](#standard-tier-dv2-series) |210 - 250 *|
+|[DS1-14](#standard-tier-ds-series) |160 |
+|[DS1-14v2](#standard-tier-dsv2-series) |210-250* |
+|[G1-5](#standard-tier-g-series) |180 - 240 *|
+|[GS1-5](#standard-tier-gs-series) |180 - 240 *|
 
 
 *로 표시된 ACU는 Intel® 터보 기술을 사용하여 CPU 주파수를 증가시키고 성능 향상을 제공합니다. 상승량은 VM 크기, 워크로드 및 동일한 호스트에서 실행 중인 다른 작업에 따라 달라질 수 있습니다.
@@ -145,7 +145,7 @@ Azure 계산 단위(ACU)의 개념을 만들어 Azure SKU를 통한 계산(CPU) 
 |Standard\_DS2\_v2 |2|7|2|로컬 SSD 디스크 = 14GB |4|86| 6,400 초당 96MB | 높음 |
 |Standard\_DS3\_v2 |4|14|4|로컬 SSD 디스크 = 28GB |8|172| 12,800 초당 192MB | 높음 |
 |Standard\_DS4\_v2 |8|28|8|로컬 SSD 디스크 = 56GB |16|344| 25,600 초당 384MB | 높음 |
-|Standard\_DS5\_v2 |16|56|8|로컬 SSD 디스크 = 112GB |16|688| 50,000 초당 768MB | 높음 |
+|Standard\_DS5\_v2 |16|56|8|로컬 SSD 디스크 = 112GB |32|688| 50,000 초당 768MB | 높음 |
 |Standard\_DS11\_v2 |2|14|2|로컬 SSD 디스크 = 28GB |4|72| 6,400 초당 96MB | 높음 |
 |Standard\_DS12\_v2 |4|28|4|로컬 SSD 디스크 = 56GB |8|144| 12,800 초당 192MB | 높음 |
 |Standard\_DS13\_v2 |8|56|8|로컬 SSD 디스크 = 112GB |16|288| 25,600 초당 384MB | 높음 |
@@ -192,4 +192,4 @@ Azure 계산 단위(ACU)의 개념을 만들어 Azure SKU를 통한 계산(CPU) 
 - [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../articles/azure-subscription-service-limits.md)에 대해 자세히 알아보세요.
 - HPC(고성능 컴퓨팅)과 같은 워크로드에 대해서는 [A8, A9, A10 및 A11 계산 집약적인 인스턴스 정보](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md)에 대해 자세히 알아보세요.
 
-<!-----HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="03/29/2016"
    ms.author="nicw;jrj;mausher;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스를 통한 탄력적인 성능과 확장
@@ -36,7 +36,7 @@ Microsoft는 내부적으로 수 많은 성능 벤치마크 테스트를 실행�
 ## 계산 리소스 위/아래로 조정
 클라우드 저장소와는 독립적으로 SQL 데이터 웨어하우스의 탄력성 덕분에 데이터 웨어하우스 단위(DWU)의 슬라이딩 규모를 사용함으로써 계산 능력을 확장, 축소 또는 일시 중지할 수 있습니다. 따라서 계산 능력을 자사에 맞게 최적으로 조정할 수 있는 유연성이 확보됩니다.
 
-계산 능력을 향상시키려면 Azure 클래식 포털에서 눈금 슬라이더를 사용하여 서비스에 DWU를 추가할 수 있습니다. 또한 T-SQL, REST API 또는 Powershell cmdlet을 통해 DWU를 추가할 수 있습니다. 위/아래로 조정하면 실행 중인 모든 큐 대기 활동이 취소되지만 몇 초 안에 완료되므로 더 많은 또는 더 적은 계산 능력으로 다시 시작할 수 있습니다.
+계산 능력을 향상시키려면 Azure 클래식 포털에서 눈금 슬라이더를 사용하여 서비스에 DWU를 추가할 수 있습니다. 또한 T-SQL, REST API 또는 Azure Powershell cmdlet을 통해 DWU를 추가할 수 있습니다. 위/아래로 조정하면 실행 중인 모든 큐 대기 활동이 취소되지만 몇 초 안에 완료되므로 더 많은 또는 더 적은 계산 능력으로 다시 시작할 수 있습니다.
 
 [Azure 클래식 포털][]에서 '저장'을 클릭하기 전에 SQL 데이터 웨어하우스 페이지의 맨 위에 있는 '크기 조정' 아이콘을 클릭한 다음 슬라이더를 사용하여 데이터 웨어하우스에 적용되는 DWU 양을 늘리거나 줄일 수 있습니다. 규모를 프로그래밍 방식으로 변경하려면 다음 T-SQL 코드가 SQL 데이터 웨어하우스에 대한 DWU의 할당을 조정하는 방법을 보여줍니다.
 
@@ -47,10 +47,10 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 ```
 T-SQL는 SQL 데이터 웨어하우스 인스턴스 자체가 아닌 논리 서버에 대해 실행되어야 합니다.
 
-아래 코드를 사용하여 Powershell을 통해 동일한 결과를 얻을 수도 있습니다.
+Azure Powershell을 사용하면 AzureRM.Sql 모듈을 가져온 다음 아래 코드를 사용하여 동일한 결과를 얻을 수도 있습니다.
 
 ```Powershell
-Set-AzureSQLDatabase -DatabaseName "MySQLDW" -ServerName "MyServer.database.windows.net" -ServiceObjective "DW1000"
+Set-AzureRmSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer.database.windows.net" -RequestedServiceObjectiveName "DW1000"
 ```
 
 ## 계산 리소스 일시 중지
@@ -60,22 +60,27 @@ SQL 데이터 웨어하우스의 고유한 특징은 요청 시 계산을 일시
 
 > [AZURE.NOTE] 저장소는 계산과는 별도이기 때문에 저장소는 일시 중지에 영향을 받지 않습니다.
 
-계산 능력의 일시 중지 및 다시 시작은 [Azure 클래식 포털][]을 통해 REST API 또는 Powershell을 사용하여 가능합니다. 일시 중지는 실행 중이거나 대기 중인 모든 활동을 취소하며 돌아왔을 때는 몇 초 만에 계산 리소스를 다시 시작할 수 있습니다.
+계산 능력의 일시 중지 및 다시 시작은 [Azure 클래식 포털][]을 통해 REST API 또는 Azure Powershell을 사용하여 가능합니다. 일시 중지는 실행 중이거나 대기 중인 모든 활동을 취소하며 돌아왔을 때는 몇 초 만에 계산 리소스를 다시 시작할 수 있습니다.
 
-아래 코드는 PowerShell을 사용하여 일시 중지를 수행하는 방법을 보여줍니다.
-
-```Powershell
-Suspend-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName
-"Server01" –DatabaseName "Database02"
-```
-
-PowerShell을 사용하면 서비스를 다시 시작하는 것이 매우 간단합니다.
+Azure Powershell을 사용하여 서비스를 일시 중지하고 다시 시작하려면 먼저 다음과 같이 AzureRM.Sql 모듈을 가져와야 합니다.
 
 ```Powershell
-Resume-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
+Import-Module AzureRM.Sql
 ```
 
-PowerShell을 사용하는 방법에 대한 자세한 내용은 [SQL 데이터 웨어하우스에서 PowerShell cmdlet 및 REST API 사용][]을 참조하세요.
+아래 코드는 Azure PowerShell을 사용하여 일시 중지를 수행하는 방법을 보여줍니다.
+
+```Powershell
+Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
+```
+
+Azure PowerShell을 사용하면 서비스를 다시 시작하는 것이 매우 간단합니다.
+
+```Powershell
+Resume-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
+```
+
+Azure PowerShell을 사용하는 방법에 대한 자세한 내용은 [SQL 데이터 웨어하우스에서 PowerShell cmdlet 및 REST API 사용][]을 참조하세요.
 
 ## 다음 단계
 성능 개요는 [성능 개요][]를 참조하세요.
@@ -93,4 +98,4 @@ PowerShell을 사용하는 방법에 대한 자세한 내용은 [SQL 데이터 �
 
 [Azure 클래식 포털]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->
