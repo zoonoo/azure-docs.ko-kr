@@ -1,6 +1,6 @@
 <properties
    pageTitle="일반적인 Microsoft Power BI Embedded 시나리오"
-   description=""
+   description="일반적인 Microsoft Power BI Embedded 시나리오"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"

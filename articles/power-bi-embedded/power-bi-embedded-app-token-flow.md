@@ -1,6 +1,6 @@
 <properties
    pageTitle="Power BI Embedded의 앱 토큰 흐름 정보"
-   description=""
+   description="Power BI Embedded의 앱 토큰 흐름 정보"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"

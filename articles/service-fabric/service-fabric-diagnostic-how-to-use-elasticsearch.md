@@ -22,11 +22,13 @@
 
 ETW는 서비스 패브릭 런타임에서 진단 정보(추적)를 얻는 데 사용됩니다. 이는 서비스 패브릭 응용 프로그램에서 응용 프로그램의 진단 정보를 얻는 데에도 권장되는 방법입니다. 이렇게 하면 런타임 제공 및 응용 프로그램 제공 추적 사이의 상관 관계를 허용하고 문제를 보다 쉽게 해결할 수 있습니다. Visual Studio의 서비스 패브릭 프로젝트 템플릿에는 기본적으로 ETW 추적을 내보내는 로깅 API(.NET **EventSource** 클래스 기반)가 포함됩니다. ETW를 사용한 서비스 패브릭 응용 프로그램 추적에 대한 일반적인 개요는 [로컬 컴퓨터 개발 설정에서의 모니터링 및 진단 서비스](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)를 참조하세요.
 
-Elasticsearch에 추적을 표시하려면 실시간으로 서비스 패브릭 클러스터 노드에서 캡처하고(응용 프로그램 실행 중) Elasticsearch 끝점에 전송해야 합니다. 추적 캡처에 대한 두 가지 주요 옵션이 있습니다.
+ElasticSearch에 추적을 표시하려면 실시간으로 서비스 패브릭 클러스터 노드에서 캡처하고(응용 프로그램 실행 중) ElasticSearch 끝점에 전송해야 합니다. 추적 캡처에 대한 두 가지 주요 옵션이 있습니다.
 
-+ **In Process 추적 캡처** 응용 프로그램 또는 보다 정확하게 서비스 프로세스는 추적 저장소에 진단 데이터를 전송하는 것을 담당합니다(Elasticsearch).
++ **In-process 추적 캡처**  
+응용 프로그램 또는 보다 정확하게 서비스 프로세스는 추적 저장소에 진단 데이터를 전송하는 것을 담당합니다(ElasticSearch).
 
-+ **Out of Process 추적 캡처** 별도 에이전트를 서비스 프로세스에서 추적 캡처하고 추적 저장소에 보냅니다.
++ **Out-of-process 추적 캡처**  
+별도 에이전트를 서비스 프로세스에서 추적 캡처하고 추적 저장소에 보냅니다.
 
 아래에서 Azure에 Elasticsearch를 설정하는 방법을 설명하고 캡처 옵션의 장단점에 대해 알아보고 Elasticsearch에 데이터를 전송하도록 서비스 패브릭 서비스를 구성하는 방법을 설명합니다.
 
@@ -52,7 +54,7 @@ ES MultiNode 템플릿을 사용하는 가장 쉬운 방법은 `CreateElasticSea
     $ENV:OPENSSL_CONF = "<Git installation folder>\usr\ssl\openssl.cnf"
     ```
 
-    `<Git installation folder>`을(를) 컴퓨터의 Git 위치로 대체합니다. 기본값은 **"C:\\Program Files\\Git"**입니다. 첫 번째 경로의 시작 부분에는 세미콜론 문자가 있습니다.
+    `<Git installation folder>`을(를) 컴퓨터의 Git 위치로 대체합니다. 기본값은 *"C:\\Program Files\\Git"* 입니다. 첫 번째 경로의 시작 부분에는 세미콜론 문자가 있습니다.
 
 4. Azure에 로그온하고([`Add-AzureRmAccount`](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet을 통해) ElasticSearch 클러스터를 만드는 데 사용되어야 하는 구독을 선택했는지 확인합니다. `Get-AzureRmContext` 및 `Get-AzureRmSubscription` cmdlet을 사용하여 올바른 구독을 선택했는지 확인할 수 있습니다.
 

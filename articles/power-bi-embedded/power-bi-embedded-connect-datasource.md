@@ -1,6 +1,6 @@
 <properties
    pageTitle="Microsoft Power BI Embedded - 데이터 원본에 연결"
-   description=""
+   description="Microsoft Power BI Embedded - 데이터 원본에 연결"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"

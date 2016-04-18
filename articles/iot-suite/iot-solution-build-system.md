@@ -222,7 +222,8 @@ HockeyApp은 Android, iOS 또는 Windows 앱의 배포를 관리하여 사용자
 - 대시보드에서 [앱 ID](http://support.hockeyapp.net/kb/app-management-2/how-to-find-the-app-id)를 사용하여 앱에서 충돌 데이터 및 피드백을 보냅니다. MyDriving에서 src/MobileApps/MyDriving/MyDriving.Utils/Logger.cs에 있는 ID를 업데이트합니다. 
 -   [**테스트 사용자를 초대**](http://support.hockeyapp.net/kb/app-management-2/how-to-invite-beta-testers)합니다. 테스터 사용자를 모집하는 URL을 받습니다. 팀에 등록하여 앱을 다운로드하고 피드백을 보낼 수 있습니다.
 
--   또는 보다 개방된 베타 릴리스를 선호하는 경우 배포를 공용으로 설정합니다. **Manage App, Distribution, Download = Public**을 클릭합니다. 이제 모든 사용자가 앱을 다운로드하고 피드백을 보낼 수 있으며 새 버전이 게시되면 알림을 보게 됩니다. 또한 충돌 보고서도 받을 수 있습니다. ![](./media/iot-solution-build-system/image3.png)
+-   또는 보다 개방된 베타 릴리스를 선호하는 경우 배포를 공용으로 설정합니다. **Manage App, Distribution, Download = Public**을 클릭합니다. 이제 모든 사용자가 앱을 다운로드하고 피드백을 보낼 수 있으며 새 버전이 게시되면 알림을 보게 됩니다. 또한 충돌 보고서도 받을 수 있습니다.
+![](./media/iot-solution-build-system/image3.png)
 
 -   [**Visual Studio Team Services에 충돌 보고서 연결**](http://support.hockeyapp.net/kb/third-party-bug-trackers-services-and-webhooks/how-to-use-hockeyapp-with-visual-studio-team-services-vsts-or-team-foundation-server-tfs): **Manage App, Visual Studio Team Services**를 클릭합니다. HockeyApp은 충돌 보고서가 있거나 피드백을 받으면 Team Services에 작업 항목을 자동으로 만들 수 있습니다.
 
@@ -389,7 +390,8 @@ scenario\_complete.json에서
 
 ![](./media/iot-solution-build-system/image8.png)
 
-모바일 앱의 경우 HockeyApp에 배포합니다. ![](./media/iot-solution-build-system/image9.png)
+모바일 앱의 경우 HockeyApp에 배포합니다.
+![](./media/iot-solution-build-system/image9.png)
 
 ## Application Insights
 
@@ -475,4 +477,4 @@ Application Insights는 오류 응답 수가 비정상적인 것으로 나타나
 
 여러분의 소중한 의견을 기다리고 있습니다.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!----HONumber=AcomDC_0406_2016-->

@@ -167,7 +167,8 @@ Azure에서 Cortana Intelligence Suite는 클라우드에 상주하는 통합된
 
 반면에 에너지 수요 예측 운영(단기 또는 장기)의 비즈니스 가치에 대해 잘 이해해야 합니다. 실제로 각 예측 작업에서 비즈니스 가치를 실현하는 것이 중요합니다. 예를 들어, 다음 24시간 동안의 전원 부하를 정확하게 예측하면 과잉 생산을 방지할 수 있으며 그리드에 오버로드를 방지하는 데 도움이 되며 재정 절감 관점에서 일 단위로 정량화할 수 있습니다.
 
-수요 예측 솔루션의 재정적 이익을 계산하는 기본 수식은 다음과 같습니다. ![수요 예측 솔루션의 재정적 이익을 계산하는 기본 수식](media/cortana-analytics-playbook-demand-forecasting-energy/financial-benefit-formula.png)
+수요 예측 솔루션의 재정적 이익을 계산하는 기본 수식은 다음과 같습니다.
+![수요 예측 솔루션의 재정적 이익을 계산하는 기본 수식](media/cortana-analytics-playbook-demand-forecasting-energy/financial-benefit-formula.png)
 
 Cortana Intelligence Suite는 종량제 가격 책정 모델을 제공하므로 이 수식에 고정 비용 요소가 발생할 필요가 없습니다. 이 수식은 매일, 매월 또는 매년 단위로 계산할 수 있습니다.
 
@@ -384,4 +385,4 @@ Cortana Intelligence에 에너지 수요 예측 솔루션을 실제로 배포하
 
 각 구성 요소 및 전체 아키텍처에 대한 자세한 내용은 에너지 솔루션 템플릿을 참조하세요.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!----HONumber=AcomDC_0406_2016-->

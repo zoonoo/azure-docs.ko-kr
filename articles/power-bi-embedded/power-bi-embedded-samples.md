@@ -1,6 +1,6 @@
 <properties
    pageTitle="샘플 시작"
-   description=""
+   description="샘플 시작"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"
