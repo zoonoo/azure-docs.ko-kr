@@ -36,7 +36,7 @@
  
 * Azure 저장소 계정을 만들었습니다. 이 작업에 대한 지침이 필요한 경우 [Azure 저장소 계정 만들기](../hdinsight-get-started.md#storage)를 참조하세요. 
 * Hadoop 클러스터에 HDInsight 서비스를 프로비전했습니다. 지침이 필요한 경우 [HDInsight 클러스터 프로비전](../hdinsight-get-started.md#provision)을 참조하세요.
-* Azure HDInsight Hadoop 클러스터의 Hive 테이블에 데이터가 업로드되었습니다. 업로드되지 않은 경우 [데이터를 만들어서 Hive 테이블에 로드](machine-learning-data-science-hive-tables.md)에서 제공되는 지침에 따라 먼저 Hive 테이블에 데이터를 업로드하세요.
+* Azure HDInsight Hadoop 클러스터의 Hive 테이블에 데이터가 업로드되었습니다. 업로드되지 않은 경우 [데이터를 만들어서 Hive 테이블에 로드](machine-learning-data-science-move-hive-tables.md)에서 제공되는 지침에 따라 먼저 Hive 테이블에 데이터를 업로드하세요.
 * 클러스터에 대한 원격 액세스가 설정되었습니다. 지침이 필요한 경우 [Hadoop 클러스터의 헤드 노드에 액세스](machine-learning-data-science-customize-hadoop-cluster.md#remoteaccess)를 참조하세요. 
 
 
@@ -127,7 +127,7 @@ Azure 저장소 탐색기 같은 도구를 사용하여 Hadoop 클러스터의 �
 1. [데이터 탐색](#hive-dataexploration)
 2. [기능 생성](#hive-featureengineering)
 
-> [AZURE.NOTE] 샘플 Hive 쿼리에서는 Azure HDInsight Hadoop 클러스터의 Hive 테이블에 데이터가 업로드된 것으로 가정합니다. 업로드되지 않은 경우 [데이터를 만들어서 Hive 테이블에 로드](machine-learning-data-science-hive-tables.md)의 지침에 따라 먼저 Hive 테이블에 데이터를 업로드하세요.
+> [AZURE.NOTE] 샘플 Hive 쿼리에서는 Azure HDInsight Hadoop 클러스터의 Hive 테이블에 데이터가 업로드된 것으로 가정합니다. 업로드되지 않은 경우 [데이터를 만들어서 Hive 테이블에 로드](machine-learning-data-science-move-hive-tables.md)의 지침에 따라 먼저 Hive 테이블에 데이터를 업로드하세요.
 
 ###<a name="hive-dataexploration"></a>데이터 탐색
 다음은 Hive 테이블에서 데이터를 탐색할 때 사용할 수 있는 몇 가지 샘플 Hive 스크립트입니다.
@@ -325,4 +325,4 @@ Hive 클러스터의 기본 매개 변수 설정이 Hive 쿼리 및 쿼리에서
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

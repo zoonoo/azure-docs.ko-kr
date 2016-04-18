@@ -17,11 +17,15 @@
 	ms.date="02/03/2016"
 	ms.author="cephalin"/>
 
-
 #Azure 앱 서비스에서 앱에 대한 HTTPS를 사용하도록 설정
 
-[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+
+> [AZURE.SELECTOR]
+- [사용자 지정 도메인에 대한 SSL을 사용하도록 설정](web-sites-configure-ssl-certificate.md)
+- [웹앱용 SSL 인증서 구입](web-sites-purchase-ssl-web-site.md)
+
+
 
 [AZURE.INCLUDE [configure-ssl-web-site](../../includes/configure-ssl-web-site.md)]
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

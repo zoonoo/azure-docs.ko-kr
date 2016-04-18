@@ -4,7 +4,7 @@
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/04/2016"
+   ms.date="04/05/2016"
    ms.author="tomfitz"/>
 
 # 리소스 링크 템플릿 스키마
@@ -42,20 +42,18 @@
 
 다음 표에서는 스키마에 설정해야 하는 값에 대해 설명합니다.
 
-| 이름 | 형식 | 필수 | 허용된 값 | 설명 |
-| ---- | ---- | -------- | ---------------- | ----------- |
-| type | enum | 예 | **{namespace}/{type}/providers/links** | 만들려는 리소스 형식입니다. {namespace} 및 {type} 값은 원본 리소스의 공급자 네임스페이스 및 리소스 종류를 나타냅니다. |
-| apiVersion | enum | 예 | **2015-01-01** | 리소스를 만들 때 사용하는 API 버전입니다. |  
-| name | string | 예 | **{resouce}/Microsoft.Resources/{linkname}**<br /><br />최대 64자<br /><, > %, &, ? 또는 제어 문자는 포함할 수 없습니다. | 원본 리소스의 이름과 링크에 대한 이름을 둘 다 지정하는 값입니다. |
-| dependsOn | array | 아니요 | 리소스 이름 또는 리소스 고유 식별자의 쉼표로 구분된 목록입니다. | 이 링크가 종속된 리소스의 컬렉션입니다. 연결하는 리소스가 동일한 템플릿에서 배포되는 경우 이 요소의 해당 리소스 이름을 포함하여 먼저 배포되도록 합니다. | 
-| properties | object | 예 | (아래 참조) | 연결할 리소스를 식별하는 개체 및 링크에 대한 메모입니다. |  
+| 이름 | 값 |
+| ---- | ---- |
+| type | 열거형<br />필수<br />**{namespace}/{type}/providers/links**<br /><br />만들려는 리소스 종류입니다. {namespace} 및 {type} 값은 원본 리소스의 공급자 네임스페이스 및 리소스 종류를 나타냅니다. |
+| apiVersion | 열거형<br />필수<br />**2015-01-01**<br /><br />리소스를 만들 때 사용하는 API 버전입니다. |  
+| name | 문자열<br />필수<br />**{resouce}/Microsoft.Resources/{linkname}****<br /> 최대 64자이며, <, > %, &, ? 또는 제어 문자를 포함할 수 없습니다.<br /><br />원본 리소스 이름과 링크 이름을 둘 다 지정하는 값입니다. | | dependsOn | Array<br />선택<br />쉼표로 구분된 리소스 이름 및 리소스 고유 식별자 목록입니다.<br /><br />이 링크에 따라 달라지는 리소스 컬렉션입니다. 연결하려는 리소스가 동일한 템플릿으로 배포되는 경우 해당 리소스 이름을 이 요소에 포함하여 먼저 배포되도록 해야 합니다. | | properties | 개체<br />필수<br />[properties 개체](#properties)<br /><br />연결할 리소스를 식별하고 링크에 대해 설명하는 개체입니다. | 
 
+<a id="properties" />
 ### properties 개체
 
-| 이름 | 형식 | 필수 | 허용된 값 | 설명 |
-| ------- | ---- | ---------------- | -------- | ----------- |
-| 대상 ID | string | 예 | | 연결할 대상 리소스의 식별자입니다. |
-| 정보 | string | 아니요 | 512자 | 잠금에 대한 설명입니다. |
+| 이름 | 값 |
+| ------- | ---- |
+| 대상 ID | 문자열<br />필수<br />**{resource id}****<br />연결할 대상 리소스의 식별자입니다.<br />. | | notes | 문자열<br />선택<br />최대 512자<br /><br />잠금에 대한 설명입니다. |
 
 
 ## 링크 리소스를 사용하는 방법
@@ -68,7 +66,7 @@ REST를 통해 링크 작업을 하려면 [연결된 리소스](https://msdn.mic
 
 다음 Azure PowerShell 명령을 사용하면 구독의 모든 링크를 확인할 수 있습니다. 결과를 제한하려면 다른 매개 변수를 지정할 수 있습니다.
 
-    Get-AzureRmResource -ResourceType Microsoft.Resources/links -isCollection -OutputObjectFormat New
+    Get-AzureRmResource -ResourceType Microsoft.Resources/links -isCollection -ResourceGroupName <YourResourceGroupName>
 
 ## 예
 
@@ -128,16 +126,16 @@ REST를 통해 링크 작업을 하려면 [연결된 리소스](https://msdn.mic
 
 다음 빠른 시작 템플릿은 링크를 사용하여 리소스를 배포합니다.
 
-- [논리 앱으로 큐에 경고](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
-- [논리 앱으로 Slack에 경고](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
-- [기존 게이트웨이로 API 앱을 프로비전](https://github.com/Azure/azure-quickstart-templates/tree/master/201-api-app-gateway-existing)
-- [새 게이트웨이로 API 앱을 프로비전](https://github.com/Azure/azure-quickstart-templates/tree/master/201-api-app-gateway-new)
-- [템플릿을 사용하여 논리 앱과 API 앱 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-api-app-create)
-- [경고가 발생할 때 문자 메시지를 전송하는 논리 앱](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
+- [논리 앱으로 큐에 경고](https://azure.microsoft.com/documentation/templates/201-alert-to-queue-with-logic-app)
+- [논리 앱으로 Slack에 경고](https://azure.microsoft.com/documentation/templates/201-alert-to-slack-with-logic-app)
+- [기존 게이트웨이로 API 앱을 프로비전](https://azure.microsoft.com/documentation/templates/201-api-app-gateway-existing)
+- [새 게이트웨이로 API 앱을 프로비전](https://azure.microsoft.com/documentation/templates/201-api-app-gateway-new)
+- [템플릿을 사용하여 논리 앱과 API 앱 만들기](https://azure.microsoft.com/documentation/templates/201-logic-app-api-app-create)
+- [경고가 발생할 때 문자 메시지를 전송하는 논리 앱](https://azure.microsoft.com/documentation/templates/201-alert-to-text-message-with-logic-app)
 
 
 ## 다음 단계
 
 - 템플릿 구조에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0406_2016-->

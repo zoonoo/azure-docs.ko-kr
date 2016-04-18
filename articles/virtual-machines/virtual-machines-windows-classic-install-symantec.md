@@ -3,7 +3,7 @@
 	description="기존 배포 모델을 사용하여 새로운 또는 기존 Azure VM에 Symantec Endpoint Protection 보안 확장을 설치하고 구성하는 방법에 알아봅니다."
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="iainfoulds"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -98,4 +98,4 @@ Symantec 보안 확장이 설치되고 최신 상태인지 확인하려면 다�
 
 [Ext]: http://go.microsoft.com/fwlink/p/?linkid=390493
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

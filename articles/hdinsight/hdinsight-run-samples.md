@@ -119,7 +119,7 @@ Hadoop은 맵을 작성하고 Java가 아닌 다른 언어의 함수를 줄일 �
 
 > [AZURE.NOTE] 이 자습서의 단계는 Windows 기반 HDInsight 클러스터에만 적용됩니다. Linux 기반 HDInsight 클러스터를 스트리밍하는 예제는 [HDInsight용 Python 스트리밍 프로그램 개발](hdinsight-hadoop-streaming-python.md)을 참조하세요.
 
-예제에서 mapper 및 reducer는 모두 [stdin][stdin-stdout-stderr](에서 입력을 줄) 단위로 읽고 출력을 [stdout][stdin-stdout-stderr]로 내보내는 실행 파일입니다. 프로그램은 텍스트의 모든 단어 수를 계산합니다.
+예제에서 mapper 및 reducer는 모두 [stdin][stdin-stdout-stderr]에서 입력을 줄 단위로 읽고 출력을 [stdout][stdin-stdout-stderr]로 내보내는 실행 파일입니다. 프로그램은 텍스트의 모든 단어 수를 계산합니다.
 
 **매퍼**에 대해 실행 파일이 지정된 경우 각 매퍼 작업은 매퍼가 초기화될 때 개별 프로세스로 실행 파일을 시작합니다. 실행 시 mapper 태스크는 입력을 줄로 변환하고 프로세스의 [stdin][stdin-stdout-stderr]에 줄을 공급합니다.
 
@@ -136,11 +136,11 @@ Hadoop 스트리밍 인터페이스에 대한 자세한 내용은 [Hadoop 스트
 - [단어 개수 - Java](#word-count-java)의 절차에 따라 작업 정의를 다음으로 바꿉니다.
 
 		$mrJobDefinition = New-AzureRmHDInsightStreamingMapReduceJobDefinition `
-									-File "/example/apps/" `
-									-Mapper "cat.exe" `
-									-Reducer "wc.exe" `
-									-InputPath "/example/data/gutenberg/davinci.txt" `
-									-OutputPath "/example/data/StreamingOutput/wc.txt"
+    							-Files "/example/apps/cat.exe","/example/apps/wc.exe" `
+    							-Mapper "cat.exe" `
+    							-Reducer "wc.exe" `
+    							-InputPath "/example/data/gutenberg/davinci.txt" `
+    							-OutputPath "/example/data/StreamingOutput/wc.txt"  
 
 
 	출력 파일은 다음과 같습니다.
@@ -997,4 +997,4 @@ mapper 및 reducer 함수가 포함된 Pi 추정 Java 코드를 아래 검사에
 [streamreader]: http://msdn.microsoft.com/library/system.io.streamreader.aspx
 [console-writeline]: http://msdn.microsoft.com/library/system.console.writeline
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

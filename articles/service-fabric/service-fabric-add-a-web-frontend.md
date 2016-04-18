@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/19/2016"
+   ms.date="04/05/2016"
    ms.author="seanmck"/>
 
 
 # 응용 프로그램에 대한 웹 서비스 프런트 엔드 구축
+
+>[AZURE.WARNING] ASP.NET Core RC2의 변경 내용으로 인해 참조된 프로젝트 템플릿이 SDK에서 제거되었으므로 이 문서는 일시적으로 잘못되었습니다. 이 문서는 ASP.NET Core RC2가 릴리스되면 업데이트될 예정입니다. 그 동안 [시작: OWIN 자체 호스팅을 사용하는 서비스 패브릭 Web API 서비스](service-fabric-reliable-services-communication-webapi.md)에 설명된 상태 비저장 Web API 템플릿을 사용할 수 있습니다.
 
 기본적으로 Azure 서비스 패브릭 서비스는 웹에 공용 인터페이스를 제공하지 않습니다. HTTP 클라이언트에 응용 프로그램의 기능을 표시하려면 진입점 역할을 할 웹 프로젝트를 만든 후 그 곳에서 개별 서비스와 통신해야 합니다.
 
@@ -237,4 +239,4 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 [vs-services-nuget-package]: ./media/service-fabric-add-a-web-frontend/vs-services-nuget-package.png
 [browser-aspnet-counter-value]: ./media/service-fabric-add-a-web-frontend/browser-aspnet-counter-value.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0406_2016-->

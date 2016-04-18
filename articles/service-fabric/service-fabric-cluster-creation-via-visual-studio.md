@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/11/2016"
+   ms.date="04/04/2016"
    ms.author="karolz@microsoft.com"/>
 
 # Visual Studio를 사용하여 서비스 패브릭 클러스터 설정
@@ -39,7 +39,6 @@
 
 |매개 변수 이름 |설명|
 |-----------------------  |--------------------------|
-|clusterLocation |서비스 패브릭 클러스터를 배치할 **Azure 지역**의 이름입니다. 예를 들어 "미국 동부"입니다.|
 |certificateThumbprint |클러스터를 보호하는 인증서의 지문입니다.|
 |sourceVaultResourceId |저장된 클러스터를 보호하는 인증서가 있는 키 자격 증명 모음의 *리소스 ID*입니다.|
 |certificateUrlValue |클러스터 보안 인증서의 URL입니다.|
@@ -127,4 +126,4 @@ Visual Studio 출력 창에서 배포 프로세스의 진행률을 모니터링�
 [2]: ./media/service-fabric-cluster-creation-via-visual-studio/selecting-azure-template.png
 [3]: ./media/service-fabric-cluster-creation-via-visual-studio/deploy-to-azure.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

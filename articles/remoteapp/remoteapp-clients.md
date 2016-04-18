@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/07/2016"
+    ms.date="04/05/2016"
     ms.author="elizapo" />
 
 
@@ -207,4 +207,4 @@ Windows Phone 8.1 스토어에서 Microsoft 원격 데스크톱 앱을 설치하
 	![Azure RemoteApp에 대한 데모 피드](./media/remoteapp-clients/WinPhone8.png)
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -9,7 +9,7 @@
 	    "repositories": [
 	        {
 	            "type": "pear",
-	            "url": "http://pear.php.net"
+	            "url": "https://pear.php.net"
 	        }
 	    ],
 	    "require": {
@@ -33,7 +33,7 @@
 
 Azure용 PHP 클라이언트 라이브러리를 수동으로 다운로드하고 설치하려면 다음 단계를 따르세요.
 
-> [AZURE.NOTE]Azure용 PHP 클라이언트 라이브러리는 [HTTP\_Request2](http://pear.php.net/package/HTTP_Request2), [Mail\_mime](http://pear.php.net/package/Mail_mime) 및 [Mail\_mimeDecode](http://pear.php.net/package/Mail_mimeDecode) PEAR 패키지에 종속됩니다. 이 종속성을 해결하는 권장 방법은 [PEAR 패키지 관리자](http://pear.php.net/manual/en/installation.php)(영문)를 사용하여 이러한 패키지를 설치하는 것입니다.
+> [AZURE.NOTE] Azure용 PHP 클라이언트 라이브러리는 [HTTP\_Request2](http://pear.php.net/package/HTTP_Request2), [Mail\_mime](http://pear.php.net/package/Mail_mime) 및 [Mail\_mimeDecode](http://pear.php.net/package/Mail_mimeDecode) PEAR 패키지에 종속됩니다. 이 종속성을 해결하는 권장 방법은 [PEAR 패키지 관리자](http://pear.php.net/manual/en/installation.php)(영문)를 사용하여 이러한 패키지를 설치하는 것입니다.
  
 1. [GitHub][php-sdk-github]에서 라이브러리가 포함된 .zip 보관 파일을 다운로드합니다. 또는 리포지토리를 분기하여 로컬 컴퓨터에 복제합니다. 두 번째 옵션을 사용하려면 GitHub 계정이 필요하며 Git가 로컬에 설치되어 있어야 합니다.
 	
@@ -46,4 +46,4 @@ Azure용 PHP 클라이언트 라이브러리 설치에 대한 자세한 내용(P
 [download-SDK-PHP]: ../articles/php-download-sdk.md
 [composer-phar]: http://getcomposer.org/composer.phar
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/09/2016" 
+	ms.date="04/04/2016" 
 	ms.author="stefsch"/>
 
 # 앱 서비스 환경으로 지역 분산된 규모
@@ -125,4 +125,4 @@ Azure 앱 서비스 앱으로 사용자 지정 도메인을 등록하는 요점�
 [DNSLookup]: ./media/app-service-app-service-environment-geo-distributed-scale/DNSLookup-1.png
 [CustomDomain]: ./media/app-service-app-service-environment-geo-distributed-scale/CustomDomain-1.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -60,7 +60,7 @@ Azure 저장소를 사용하려면 저장소 REST 서비스와 통신하는 편�
 
 메모장 또는 다른 텍스트 편집기를 사용하여 저장소를 사용할 응용 프로그램의 **server.js** 파일 맨 위에 다음을 추가합니다.
 
-    var azure = require('azure-storage');
+	var azure = require('azure-storage');
 
 ## Azure 저장소 연결 설정
 
@@ -72,27 +72,27 @@ Azure 웹 사이트의 [Azure 포털](https://portal.azure.com)에서 환경 변
 
 다음 코드는 **QueueService** 개체를 만들어 큐 작업을 수행할 수 있게 해 줍니다.
 
-    var queueSvc = azure.createQueueService();
+	var queueSvc = azure.createQueueService();
 
 **createQueueIfNotExists** 메서드를 사용합니다. 이 메서드는 지정된 큐가 이미 있으면 해당 큐를 반환하고 지정된 큐가 아직 없으면 지정한 이름으로 새 큐를 만듭니다.
 
 	queueSvc.createQueueIfNotExists('myqueue', function(error, result, response){
-      if(!error){
-        // Queue created or exists
+	  if(!error){
+	    // Queue created or exists
 	  }
 	});
 
-큐가 만들어지면 `result`는 true가 됩니다. 큐가 있을 경우 `result`는 false가 됩니다.
+큐가 만들어지면 `result.created`는 true가 됩니다. 큐가 있을 경우 `result.created`는 false가 됩니다.
 
 ### 필터
 
 **QueueService**를 사용하여 수행되는 작업에 선택적 필터링 작업을 적용할 수 있습니다. 필터링 작업은 로깅, 자동 재시도 등을 포함할 수 있습니다. 필터는 시그니쳐가 있는 메서드를 구현하는 개체입니다.
 
-		function handle (requestOptions, next)
+	function handle (requestOptions, next)
 
 요청 옵션에 대한 전처리를 수행한 후 메서드는 다음 서명을 사용하여 콜백을 전달하는 "next"를 호출해야 합니다.
 
-		function (returnObject, finalCallback, next)
+	function (returnObject, finalCallback, next)
 
 이 콜백에서 returnObject(서버에 요청 응답 반환)를 처리한 후 콜백은 next(있는 경우)를 호출하여 다른 필터를 계속 처리하거나 finalCallback을 호출하여 서비스 호출을 종료해야 합니다.
 
@@ -117,7 +117,7 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 
 	queueSvc.peekMessages('myqueue', function(error, result, response){
 	  if(!error){
-		// Message text is in messages[0].messagetext
+	    // Message text is in messages[0].messageText
 	  }
 	});
 
@@ -136,14 +136,14 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 메시지를 큐에서 제거하려면 **getMessage**를 사용합니다. 그러면 큐에서 메시지가 보이지 않으므로 다른 클라이언트에서 처리할 수 없습니다. 응용 프로그램에서 메시지를 처리하고 나면 **deleteMessage**를 호출하여 큐에서 삭제합니다. 다음 예제에서는 메시지를 가져온 후 삭제합니다.
 
 	queueSvc.getMessages('myqueue', function(error, result, response){
-      if(!error){
-	    // Message text is in messages[0].messagetext
-        var message = result[0];
-        queueSvc.deleteMessage('myqueue', message.messageid, message.popreceipt, function(error, response){
+	  if(!error){
+	    // Message text is in messages[0].messageText
+	    var message = result[0];
+	    queueSvc.deleteMessage('myqueue', message.messageId, message.popReceipt, function(error, response){
 	      if(!error){
-		    //message deleted
-		  }
-		});
+	        //message deleted
+	      }
+	    });
 	  }
 	});
 
@@ -156,15 +156,15 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 
 **updateMessage**를 사용하면 큐에 있는 메시지의 콘텐츠를 변경할 수 있습니다. 다음 예제에서는 메시지의 텍스트를 업데이트합니다.
 
-    queueSvc.getMessages('myqueue', function(error, result, response){
+	queueSvc.getMessages('myqueue', function(error, result, response){
 	  if(!error){
-		// Got the message
-		var message = result[0];
-		queueSvc.updateMessage('myqueue', message.messageid, message.popreceipt, 10, {messageText: 'new text'}, function(error, result, response){
-		  if(!error){
-			// Message updated successfully
-		  }
-		});
+	    // Got the message
+	    var message = result[0];
+	    queueSvc.updateMessage('myqueue', message.messageId, message.popReceipt, 10, {messageText: 'new text'}, function(error, result, response){
+	      if(!error){
+	        // Message updated successfully
+	      }
+	    });
 	  }
 	});
 
@@ -177,18 +177,18 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 
 다음 예에서는 **getMessages** 메서드를 사용하여 한 번 호출에 15개의 메시지를 가져옵니다. 그런 다음 for 루프를 사용하여 각 메시지를 처리합니다. 또한 이 메서드에서 반환되는 모든 메시지의 표시하지 않는 시간 제한을 5분으로 설정합니다.
 
-    queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, function(error, result, response){
+	queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, function(error, result, response){
 	  if(!error){
-		// Messages retreived
-		for(var index in result){
-		  // text is available in result[index].messageText
-		  var message = result[index];
-		  queueSvc.deleteMessage(queueName, message.messageid, message.popreceipt, function(error, response){
-			if(!error){
-			  // Message deleted
-			}
-		  });
-		}
+	    // Messages retreived
+	    for(var index in result){
+	      // text is available in result[index].messageText
+	      var message = result[index];
+	      queueSvc.deleteMessage(queueName, message.messageId, message.popReceipt, function(error, response){
+	        if(!error){
+	          // Message deleted
+	        }
+	      });
+	    }
 	  }
 	});
 
@@ -196,9 +196,9 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 
 **getQueueMetadata**에서는 큐에서 대기 중인 메시지의 대략적인 수와 같이 큐에 관련된 메타데이터를 반환합니다.
 
-    queueSvc.getQueueMetadata('myqueue', function(error, result, response){
+	queueSvc.getQueueMetadata('myqueue', function(error, result, response){
 	  if(!error){
-		// Queue length is available in result.approximatemessagecount
+	    // Queue length is available in result.approximateMessageCount
 	  }
 	});
 
@@ -218,10 +218,10 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 
 큐 및 해당 큐의 모든 메시지를 삭제하려면 큐 개체의 **deleteQueue** 메서드를 호출합니다.
 
-    queueSvc.deleteQueue(queueName, function(error, response){
-		if(!error){
-			// Queue has been deleted
-		}
+	queueSvc.deleteQueue(queueName, function(error, response){
+	  if(!error){
+	    // Queue has been deleted
+	  }
 	});
 
 큐를 삭제하지 않고 모든 메시지를 지우려면 **clearMessages**를 사용합니다.
@@ -269,36 +269,30 @@ ACL(액세스 제어 목록)을 사용하여 SAS에 액세스 정책을 설정�
 
 ACL은 각 정책에 ID가 연결된 액세스 정책 배열을 사용하여 구현됩니다. 다음 예에서는 'user1'와 'user2'에 대해 하나씩, 두 개의 정책을 정의합니다.
 
-	var sharedAccessPolicy = [
-	  {
-	    AccessPolicy: {
-	      Permissions: azure.QueueUtilities.SharedAccessPermissions.PROCESS,
-	      Start: startDate,
-	      Expiry: expiryDate
-	    },
-	    Id: 'user1'
+	var sharedAccessPolicy = {
+	  user1: {
+	    Permissions: azure.QueueUtilities.SharedAccessPermissions.PROCESS,
+	    Start: startDate,
+	    Expiry: expiryDate
 	  },
-	  {
-	    AccessPolicy: {
-	      Permissions: azure.QueueUtilities.SharedAccessPermissions.ADD,
-	      Start: startDate,
-	      Expiry: expiryDate
-	    },
-	    Id: 'user2'
+	  user2: {
+	    Permissions: azure.QueueUtilities.SharedAccessPermissions.ADD,
+	    Start: startDate,
+	    Expiry: expiryDate
 	  }
-	];
+	};
 
 다음 예에서는 **myqueue**에 대한 현재 ACL을 가져온 다음 **setQueueAcl**을 사용하여 새 정책을 추가합니다. 이 접근 방식을 통해 다음을 수행할 수 있습니다.
 
+	var extend = require('extend');
 	queueSvc.getQueueAcl('myqueue', function(error, result, response) {
-      if(!error){
-		//push the new policy into signedIdentifiers
-		result.signedIdentifiers = result.signedIdentifiers.concat(sharedAccessPolicy);
-		queueSvc.setQueueAcl('myqueue', result.signedIdentifiers, function(error, result, response){
-	  	  if(!error){
-	    	// ACL set
-	  	  }
-		});
+	  if(!error){
+	    var newSignedIdentifiers = extend(true, result.signedIdentifiers, sharedAccessPolicy);
+	    queueSvc.setQueueAcl('myqueue', newSignedIdentifiers, function(error, result, response){
+	      if(!error){
+	        // ACL set
+	      }
+	    });
 	  }
 	});
 
@@ -331,4 +325,4 @@ ACL이 설정되고 나면 정책의 ID를 기반으로 SAS를 만들 수 있습
   [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
   [Web Matrix를 사용하여 Azure에 Node.js 웹앱 빌드 및 배포]: ../app-service-web/web-sites-nodejs-use-webmatrix.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

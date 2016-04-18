@@ -4,7 +4,7 @@
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/04/2016"
+   ms.date="04/05/2016"
    ms.author="tomfitz"/>
 
 # 역할 할당 템플릿 스키마
@@ -26,7 +26,7 @@
     
     {
         "type": "Microsoft.Authorization/roleAssignments",
-        "apiVersion": "2015-07-01",
+        "apiVersion": "2014-10-01-preview",
         "name": string,
         "dependsOn": [ array values ],
         "properties":
@@ -41,21 +41,22 @@
 
 다음 표에서는 스키마에 설정해야 하는 값에 대해 설명합니다.
 
-| 이름 | 형식 | 필수 | 허용된 값 | 설명 |
-| ---- | ---- | -------- | ---------------- | ----------- |
-| type | enum | 예 | **Microsoft.Authorization/roleAssignments** | 만들려는 리소스 종류입니다. |
-| apiVersion | enum | 예 | **2015-07-01** | 리소스를 만들 때 사용하는 API 버전입니다. |  
-| name | string | 예 | GUID | 새 역할 할당에 대한 식별자입니다. |
-| dependsOn | array | 아니요 | 리소스 이름 또는 리소스 고유 식별자의 쉼표로 구분된 목록입니다. | 이 역할 할당이 종속된 리소스의 컬렉션입니다. 리소스 범위의 역할을 할당하는 경우 해당 리소스가 동일한 템플릿에서 배포되면 해당 리소스 이름을 이 요소에 포함하여 리소스가 먼저 배포되도록 합니다. | 
-| properties | object | 예 | (아래 참조) | 역할 정의, 서비스 주체 및 범위를 식별하는 개체입니다. |  
+| 이름 | 값 |
+| ---- | ---- |
+| type | 열거형<br />필수<br />**Microsoft.Authorization/roleAssignments**<br /><br />만들려는 리소스 종류입니다. |
+| apiVersion | 열거형<br />필수<br />**2014-10-01-preview**<br /><br />리소스를 만들 때 사용하는 API 버전입니다. |  
+| name | 문자열<br />필수<br />**Globally-unique identifier**<br /><br />새 역할 할당에 대한 식별자입니다. |
+| dependsOn | 배열<br />선택<br />쉼표로 구분된 리소스 이름 또는 리소스 고유 식별자 목록입니다.<br /><br />이 역할 할당에 따라 달라지는 리소스 컬렉션입니다. 리소스 범위의 역할을 할당하는 경우 해당 리소스가 동일한 템플릿에서 배포되면 해당 리소스 이름을 이 요소에 포함하여 리소스가 먼저 배포되도록 합니다. | 
+| properties | 개체<br />필수<br />[properties 개체](#properties)<br /><br />역할 정의, 서비스 주체 및 범위를 식별하는 개체입니다. |  
 
+<a id="properties" />
 ### properties 개체
 
-| 이름 | 형식 | 필수 | 허용된 값 | 설명 |
-| ------- | ---- | ---------------- | -------- | ----------- |
-| roleDefinitionId | string | 예 | **/subscriptions/{subscription-id}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}** | 역할 할당에서 사용할 기존 역할 정의의 식별자입니다. |
-| principalId | string | 예 | GUID | 기존 서비스 주체의 식별자입니다. 이 식별자는 디렉터리 내의 ID에 매핑되며 사용자, 서비스 주체 또는 보안 그룹을 가리킬 수 있습니다. |
-| scope | string | 예 | 리소스 그룹의 경우:<br />**/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}**<br /><br />리소스의 경우:<br />**/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{provider-namespace}/{resource-type}/{resource-name}** | 이 역할 할당이 적용되는 범위입니다. |
+| 이름 | 값 |
+| ------- | ---- |
+| roleDefinitionId | 문자열<br />필수<br /> **/subscriptions/{subscription-id}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}**<br /><br />역할 할당에서 사용할 기존 역할 정의의 식별자입니다. |
+| principalId | 문자열<br />필수<br />**Globally-unique identifier**<br /><br />기존 서비스 주체의 식별자입니다. 이 식별자는 디렉터리 내의 ID에 매핑되며 사용자, 서비스 주체 또는 보안 그룹을 가리킬 수 있습니다. |
+| scope | 문자열<br />필수<br />**/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}** (리소스 그룹의 경우) or<br />**/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{provider-namespace}/{resource-type}/{resource-name}** (리소스의 경우)<br /><br />이 역할 할당이 적용되는 범위입니다. |
 
 
 ## 역할 할당 리소스를 사용하는 방법
@@ -123,13 +124,13 @@
 
 다음 템플릿은 역할 할당 리소스를 사용하는 방법을 보여 줍니다.
 
-- [리소스 그룹에 기본 제공 역할 할당](https://github.com/Azure/azure-quickstart-templates/tree/master/101-rbac-builtinrole-resourcegroup)
-- [기존 VM에 기본 제공 역할 할당](https://github.com/Azure/azure-quickstart-templates/tree/master/101-rbac-builtinrole-virtualmachine)
-- [여러 기존 VM에 기본 제공 역할 할당](https://github.com/Azure/azure-quickstart-templates/tree/master/201-rbac-builtinrole-multipleVMs)
+- [리소스 그룹에 기본 제공 역할 할당](https://azure.microsoft.com/documentation/templates/101-rbac-builtinrole-resourcegroup)
+- [기존 VM에 기본 제공 역할 할당](https://azure.microsoft.com/documentation/templates/101-rbac-builtinrole-virtualmachine)
+- [여러 기존 VM에 기본 제공 역할 할당](https://azure.microsoft.com/documentation/templates/201-rbac-builtinrole-multipleVMs)
 
 ## 다음 단계
 
 - 템플릿 구조에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 - 역할 기반 액세스 제어에 대한 자세한 내용은 [Azure Active Directory 역할 기반 액세스 제어](active-directory/role-based-access-control-configure.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0406_2016-->

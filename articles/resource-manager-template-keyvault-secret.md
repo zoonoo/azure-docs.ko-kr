@@ -4,7 +4,7 @@
    services="azure-resource-manager,key-vault"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/04/2016"
+   ms.date="04/05/2016"
    ms.author="tomfitz"/>
 
 # 키 자격 증명 모음 암호 템플릿 스키마
@@ -38,19 +38,20 @@
 
 다음 표에서는 스키마에 설정해야 하는 값에 대해 설명합니다.
 
-| 이름 | 형식 | 필수 | 허용된 값 | 설명 |
-| ---- | ---- | -------- | ---------------- | ----------- |
-| type | enum | 예 | 키 자격 증명 모음의 자식 리소스로 정의:<br />**secrets**<br /><br />As top-level resource:<br />**Microsoft.KeyVault/vaults/secrets** | 만들려는 리소스 형식입니다. |
-| apiVersion | enum | 예 | **2015-06-01** <br /> **2014-12-19-preview** | 리소스를 만들 때 사용하는 API 버전입니다. | 
-| name | string | 예 | | 만들려는 암호의 이름입니다. 암호를 키 자격 증명 모음의 자식 리소스로 배포하는 경우에는 암호의 이름만 제공하면 됩니다. 암호를 최상위 리소스로 배포하는 경우에는 이름이 **{key-vault-name}/{secret-name}** 형식이어야 합니다. |
-| properties | object | 예 | (아래 참조) | 만들려는 암호의 값을 지정하는 개체입니다. |
-| dependsOn | array | 아니요 | 리소스 이름 또는 리소스 고유 식별자의 쉼표로 구분된 목록입니다. | 이 링크가 종속된 리소스의 컬렉션입니다. 암호의 키 자격 증명 모음을 동일한 템플릿에 배포하는 경우 이 요소에 키 자격 증명 모음의 이름을 포함하여 먼저 배포되도록 합니다. |
+| 이름 | 값 |
+| ---- | ---- | 
+| type | 열거형<br />필수<br />**secrets** (키 자격 증명 모음의 자식 리소스로 배포된 경우) 또는<br /> **Microsoft.KeyVault/vaults/secrets** (최상위 리소스로 배포된 경우)<br /><br />만들려는 리소스 종류입니다. |
+| apiVersion | 열거형<br />필수<br />**2015-06-01** 또는 **2014-12-19-preview**<br /><br />리소스를 만들 때 사용하는 API 버전입니다. | 
+| name | 문자열<br />필수<br />키 자격 증명 모음의 자식 리소스로 배포되는 경우 단일 단어 또는 기존 키 자격 증명 모음에 추가할 최상위 리소스로 배포되는 경우 **{key-vault-name}/{secret-name}**<br /><br />만들려는 암호의 이름입니다. |
+| properties | 개체<br />필수<br />[속성 개체](#properties)<br /><br />만들려는 암호 값을 지정하는 개체입니다. |
+| dependsOn | 배열<br />선택<br />쉼표로 구분된 리소스 이름 또는 리소스 고유 식별자 목록입니다.<br /><br />이 링크에 따라 달라지는 리소스 컬렉션입니다. 암호의 키 자격 증명 모음을 동일한 템플릿에 배포하는 경우 이 요소에 키 자격 증명 모음의 이름을 포함하여 먼저 배포되도록 합니다. |
 
+<a id="properties" />
 ### properties 개체
 
-| 이름 | 형식 | 필수 | 허용된 값 | 설명 |
-| ---- | ---- | -------- | ---------------- | ----------- |
-| value | string | 예 | | 키 자격 증명 모음에 저장할 암호 값입니다. 이 속성의 값을 전달할 때는 **securestring** 형식의 매개 변수를 사용합니다. |
+| 이름 | 값 |
+| ---- | ---- | 
+| value | 문자열<br />필수<br /><br />키 자격 증명 모음에 저장할 암호 값입니다. 이 속성의 값을 전달할 때는 **securestring** 형식의 매개 변수를 사용합니다. |
 
 	
 ## 예
@@ -226,4 +227,4 @@
 - 키 자격 증명 모음에 대한 일반 정보는 [Azure 키 자격 증명 모음 시작](./key-vault/key-vault-get-started.md)을 참조하세요.
 - 템플릿을 배포할 때 키 자격 증명 모음 암호를 참조하는 예제는 [배포 중 보안 값 전달](resource-manager-keyvault-parameter.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0406_2016-->

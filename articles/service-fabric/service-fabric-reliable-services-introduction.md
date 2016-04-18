@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="masnider"
    manager="timlt"
-   editor="jessebenson; mani-ramaswamy"/>
+   editor="vturecek; mani-ramaswamy"/>
 
 <tags
    ms.service="Service-Fabric"
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/13/2016"
-   ms.author="masnider;jesseb"/>
+   ms.date="03/25/2016"
+   ms.author="masnider;vturecek"/>
 
 # 신뢰할 수 있는 서비스 개요
 Azure 서비스 패브릭은 상태 비저장 및 상태 저장 신뢰할 수 있는 서비스의 작성과 관리를 단순화합니다. 이 문서에 대해 이야기합니다.
@@ -131,7 +131,7 @@ Reliable Services는 단순하고 강력한 최고 수준의 프로그래밍 모
 
 - 사용자 지정 상태 제공자를 직접 개발하거나 타사를 통해 개발하고자 합니다.*
 
-> [AZURE.NOTE]*SDK 일반 가용성에서 사용 가능한 기능.
+> [AZURE.NOTE] *SDK 일반 가용성에서 사용 가능한 기능.
 
 
 ## 다음 단계
@@ -139,4 +139,4 @@ Reliable Services는 단순하고 강력한 최고 수준의 프로그래밍 모
 + [신뢰할 수 있는 서비스 고급 사용법](service-fabric-reliable-services-advanced-usage.md)
 + [신뢰할 수 있는 행위자 프로그래밍 모델](service-fabric-reliable-actors-introduction.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0406_2016-->

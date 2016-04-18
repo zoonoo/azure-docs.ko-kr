@@ -1,6 +1,6 @@
-[Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)는 BitBucket, CodePlex, Dropbox, Git, GitHub, Mercurial, TFS와 같은 소스 코드 제어 및 리포지토리 도구에서 웹 앱에 대한 지속적인 배포를 지원합니다. 이러한 도구를 사용하여 응용 프로그램의 콘텐츠 및 코드를 관리한 후 원할 때 쉽고 빠르게 Azure 웹 앱에 변경 내용을 적용할 수 있습니다.
+[Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)는 GitHub, BitBucket 및 Visual Studio Team Services와 같은 소스 코드 제어 및 리포지토리 도구에서 지속적인 배포를 지원합니다. 이러한 도구를 사용하여 앱의 콘텐츠 및 코드를 관리한 후 쉽고 빠르게 앱 서비스 앱에 변경 내용을 적용할 수 있습니다.
 
-이 문서에서는 Git를 사용하여 로컬 컴퓨터에서 웹 앱으로 바로 게시하는 방법(Azure에서는 이 게시 방법을 **로컬 Git**라고도 함)에 대해 배우게 됩니다. 또한 BitBucket, CodePlex, Dropbox, GitHub 또는 Mercurial과 같은 리포지토리 사이트에서 지속적으로 배포할 수 있도록 하는 방법에 대해서도 배우게 됩니다. TFS를 사용하여 지속적으로 배포하는 방법에 대한 내용은 [Visual Studio Team Services를 사용한 지속적인 업데이트]를 참조하세요.
+이 문서에서는 Git를 사용하여 로컬 컴퓨터에서 웹 앱으로 바로 게시하는 방법(Azure에서는 이 게시 방법을 **로컬 Git**라고도 함)에 대해 배우게 됩니다. 또한 BitBucket 및 GitHub와 같은 리포지토리 사이트에서 지속적으로 배포할 수 있도록 하는 방법에 대해서도 배우게 됩니다. VSTS를 사용하여 지속적으로 배포하는 방법에 대한 내용은 [Visual Studio Team Services를 사용한 지속적인 업데이트]를 참조하세요.
 
 > [AZURE.NOTE] 이 문서에 설명되어 있는 대부분의 Git 명령은 [Mac 및 Linux용 Azure 명령줄 도구](/develop/nodejs/how-to-guides/command-line-tools/)를 사용하여 웹 앱을 만드는 경우 자동으로 수행됩니다.
 
@@ -295,4 +295,4 @@ Azure 앱 서비스에서 웹 앱에 Visual Studio 솔루션을 푸시하는 것
 [Using Dropbox to Share Git Repositories]: https://gist.github.com/trey/2722927
 [Visual Studio Team Services를 사용한 지속적인 업데이트]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

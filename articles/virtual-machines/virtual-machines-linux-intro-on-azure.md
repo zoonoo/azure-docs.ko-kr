@@ -27,7 +27,7 @@
 Azure 클래식 포털을 사용하여 Linux 가상 컴퓨터를 만들 때, 사용자 이름, 암호 또는 SSH 공개 키가 요구됩니다. Azure에 Linux 가상 컴퓨터를 배포할 때 선택하는 사용자 이름에는 다음과 같은 제약이 있습니다. 가상 컴퓨터에 이미 존재하던 시스템 계정의 이름(UID <100)(예: 'root')은 허용되지 않습니다.
 
 
- - [Linux를 실행하는 가상 컴퓨터 만들기](virtual-machines-linux-cli-create.md) 참조
+ - [Linux를 실행하는 가상 컴퓨터 만들기](virtual-machines-linux-quick-create-cli.md) 참조
  - [Azure에서 Linux와 함께 SSH를 사용하는 방법](virtual-machines-linux-ssh-from-linux.md) 참조
 
 
@@ -98,4 +98,4 @@ Linux에서 데이터 디스크 이름은 커널에서 `/dev/sdc`로 지정될 �
 
  - **참고 항목**: [Linux에서 소프트웨어 RAID 구성](virtual-machines-linux-configure-raid.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

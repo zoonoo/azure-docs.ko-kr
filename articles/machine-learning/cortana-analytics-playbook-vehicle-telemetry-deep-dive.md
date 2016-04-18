@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="차량 원격 분석 솔루션 플레이 북: 솔루션에 대한 심층 분석 | Microsoft Azure" 
-	description="Cortana Analytics의 기능을 사용하여 차량 상태 및 주행 습관에 대한 예측 가능한 통찰력 및 실시간 정보를 얻습니다." 
+	description="Cortana Intelligence의 기능을 사용하여 차량 상태 및 주행 습관에 대한 예측 가능한 통찰력 및 실시간 정보를 얻습니다." 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev" 
@@ -155,9 +155,9 @@ Azure 이벤트 허브, 스트림 분석 및 데이터 팩터리의 조합을 �
 
 ### 참조
 
-[스트림 수집을 위한 Azure 이벤트 허브 SDK](event-hubs-csharp-ephcs-getstarted.md)
+[스트림 수집을 위한 Azure 이벤트 허브 SDK](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
-[Azure 데이터 팩터리 데이터 이동 기능](data-factory-data-movement-activities.md) [Azure 데이터 팩터리 DotNet 작업](data-factory-use-custom-activities.md)
+[Azure 데이터 팩터리 데이터 이동 기능](../data-factory/data-factory-data-movement-activities.md) [Azure 데이터 팩터리 DotNet 작업](../data-factory/data-factory-use-custom-activities.md)
 
 [샘플 데이터 준비를 위한 Azure 데이터 팩터리 DotNet 작업 Visual Studio 솔루션](http://go.microsoft.com/fwlink/?LinkId=717077)
 
@@ -706,4 +706,4 @@ PowerBI 보고서 및 대시보드 설정에 관한 자세한 지침을 보려�
 
 이 문서는 차량 원격 분석 솔루션에 대한 자세한 드릴다운을 포함됩니다. 예측 및 동작과 함께 실시간 및 일괄 분석을 위한 람다 아키텍처 패턴을 설명합니다. 이 패턴은 실행 부하 과다 경로(실시간) 및 콜드 경로(일괄 처리) 분석이 필요한 다양한 사용 사례에 적용됩니다.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

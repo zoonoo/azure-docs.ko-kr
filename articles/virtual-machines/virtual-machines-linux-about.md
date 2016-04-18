@@ -32,14 +32,14 @@ Azure 가상 컴퓨터는 가상 컴퓨터를 실행하는 실제 하드웨어�
 
 ## 다음 단계
 
-간단한 가상 컴퓨터를 신속하게 만들어 가상 컴퓨터를 사용해봅니다. 지침은 [Linux를 실행하는 가상 컴퓨터 만들기](virtual-machines-linux-cli-create.md)를 참조하세요.
+간단한 가상 컴퓨터를 신속하게 만들어 가상 컴퓨터를 사용해봅니다. 지침은 [Linux를 실행하는 가상 컴퓨터 만들기](virtual-machines-linux-quick-create-cli.md)를 참조하세요.
 
 이 자습서는 가상 컴퓨터를 신속하게 만들 수 있도록 안내하기 위해 가상 컴퓨터를 만들 때 사용할 수 있는 다양한 도구들을 설명하는 대신 한 가지 방법만 제공합니다. 이러한 도구 및 지침에 대한 링크 요약은 [Linux 가상 컴퓨터를 만드는 다양한 방법](virtual-machines-linux-creation-choices.md)을 참조하세요.
 
 
 <!--links-->
-[앱 서비스]: app-service-choose-me.md
-[가상 컴퓨터]: #tellmevm
-[클라우드 서비스]: cloud-services-choose-me.md
+[App Service]: app-service-choose-me.md
+[Virtual Machines]: #tellmevm
+[Cloud Services]: cloud-services-choose-me.md
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

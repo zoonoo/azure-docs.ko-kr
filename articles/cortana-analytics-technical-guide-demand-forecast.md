@@ -1,6 +1,6 @@
 <properties
 	pageTitle="에너지 수요 예측 기술 가이드 | Microsoft Azure"
-	description="에너지 수요 예측을 위한 Microsoft Cortana 분석 솔루션 템플릿 기술 가이드입니다."
+	description="에너지 수요 예측을 위한 Microsoft Cortana Intelligence 솔루션 템플릿 기술 가이드입니다."
 	services="cortana-analytics"
 	documentationCenter=""
 	authors="yijichen"
@@ -16,11 +16,11 @@
 	ms.date="01/24/2016"
 	ms.author="inqiu;yijichen;ilanr9"/>
 
-# 에너지 수요 예측을 위한 Cortana 분석 솔루션 템플릿 기술 가이드
+# 에너지 수요 예측을 위한 Cortana Intelligence 솔루션 템플릿 기술 가이드
 
 ## **개요**
 
-솔루션 템플릿은 Cortana Analytics Suite를 기반으로 E2E 데모 빌드 프로세스를 가속화하도록 디자인되었습니다. 배포된 템플릿은 필요한 Cortana 분석 구성 요소로 구독을 프로비전하고 이들 간의 관계를 빌드합니다. 또한 데이터 시뮬레이션 응용 프로그램에서 생성된 샘플 데이터로 데이터 파이프라인을 시드합니다. 제공된 링크에서 데이터 시뮬레이터를 다운로드하고 로컬 컴퓨터에 설치합니다. 시뮬레이터 사용에 대한 지침은 readme.txt 파일을 참조하세요. 시뮬레이터에서 생성된 데이터는 데이터 파이프라인을 하이드레이션하며 나중에 Power BI 대시보드에서 시각화할 수 있는 기계 학습 예측을 생성하기 시작합니다.
+솔루션 템플릿은 Cortana Intelligence Suite를 기반으로 E2E 데모 빌드 프로세스를 가속화하도록 디자인되었습니다. 배포된 템플릿은 필요한 Cortana Intelligence 구성 요소로 구독을 프로비전하고 이들 간의 관계를 빌드합니다. 또한 데이터 시뮬레이션 응용 프로그램에서 생성된 샘플 데이터로 데이터 파이프라인을 시드합니다. 제공된 링크에서 데이터 시뮬레이터를 다운로드하고 로컬 컴퓨터에 설치합니다. 시뮬레이터 사용에 대한 지침은 readme.txt 파일을 참조하세요. 시뮬레이터에서 생성된 데이터는 데이터 파이프라인을 하이드레이션하며 나중에 Power BI 대시보드에서 시각화할 수 있는 기계 학습 예측을 생성하기 시작합니다.
 
 배포 프로세스는 솔루션 자격 증명을 설정하는 몇 가지 단계를 안내합니다. 솔루션 이름, 사용자 이름 및 배포하는 동안 제공하는 암호와 같은 이러한 자격 증명을 기록합니다.
 
@@ -288,4 +288,4 @@ Azure 스트림 분석 쿼리 생성에 대한 정보는 MSDN의 [스트림 분�
 
 -   [Microsoft Azure 비용 추정 도구(데스크톱)](http://www.microsoft.com/download/details.aspx?id=43376)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="03/30/2016"
 	ms.author="larryfr"/>
 
 #HDInsight의 Linux 기반 Hadoop와 함께 Apache Mahout를 사용하여 영화 추천 생성
@@ -51,48 +51,26 @@ Mahout에서 제공하는 기능 중 하나가 추천 엔진입니다. 이 엔�
 
 * __유사성 추천__: Joe가 첫 3개 영화를 좋아하므로, Mahout은 유사한 선호도를 가진 다른 사람이 좋아하지만 Joe는 본(좋아하거나 평가한) 적이 없는 영화를 검색합니다. 이 경우 Mahout은 _보이지 않는 위협_, _클론의 습격_ 및 _시스의 복수_를 추천합니다.
 
-##데이터 로드
+###데이터 이해
 
-편의를 위해 [GroupLens Research][movielens]에서 Mahout과 호환되는 형식으로 영화에 대한 평가 데이터를 제공합니다. 다음 단계를 사용하여 데이터를 다운로드하려면 다음 클러스터에 대한 기본 저장소에 로드합니다.
+편의를 위해 [GroupLens Research][movielens]에서 Mahout과 호환되는 형식으로 영화에 대한 평가 데이터를 제공합니다. 이 데이터는 클러스터의 기본 저장소(`/HdiSamples/HdiSamples/MahoutMovieData`)에서 사용할 수 있습니다.
 
-1. SSH를 사용하여 Linux 기반 HDInsight 클러스터에 연결합니다. 연결 시 사용할 주소는 `CLUSTERNAME-ssh.azurehdinsight.net`이며 포트는 `22`입니다.
+`moviedb.txt`(영화에 대한 정보) 및 `user-ratings.txt`의 두 가지 파일이 있습니다. user-ratings.txt 파일은 분석 중에 사용되고, moviedb.txt는 분석 결과를 표시할 때 사용자에게 친숙한 텍스트 정보를 제공하는 데 사용됩니다.
 
-	SSH를 사용한 HDInsight 연결에 대한 자세한 내용은 다음 문서를 참조합니다.
-
-    * **Linux, Unix 또는 OS X 클라이언트**: [Linux, OS X 또는 Unix로부터 Linux 기반 HDInsight 클러스터에 연결](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster)을 참조합니다.
-
-    * **Windows 클라이언트**: [Windows로부터 Linux 기반 HDInsight 클러스터에 연결](hdinsight-hadoop-linux-use-ssh-windows.md#connect-to-a-linux-based-hdinsight-cluster)을 참조합니다.
-
-2. 1700개 영화에 대한 1,000명 사용자의 100,000개 평가를 포함하는 MovieLens 100k 압축 파일을 다운로드합니다.
-
-        curl -O http://files.grouplens.org/datasets/movielens/ml-100k.zip
-
-3. 다음 명령을 사용하여 압축 파일을 풉니다.
-
-        unzip ml-100k.zip
-
-    **ml-100 k**라는 새 폴더로 내용이 추출됩니다 .
-
-4. HDInsight 저장소로 데이터를 복사하려면 다음 명령을 사용합니다.
-
-        cd ml-100k
-        hdfs dfs -put u.data /example/data
+user-ratings.txt에 포함된 데이터의 구조는 `userID`, `movieID`, `userRating` 및 `timestamp`이며, 각 사용자의 영화 등급 평가를 보여 줍니다. 다음은 데이터의 예제입니다.
 
 
-    이 파일에 포함된 데이터의 구조는 `userID`, `movieID`, `userRating` 및 `timestamp`이며, 각 사용자의 영화 등급 평가를 보여줍니다. 다음은 데이터의 예제입니다.
+    196	242	3	881250949
+    186	302	3	891717742
+    22	377	1	878887116
+    244	51	2	880606923
+    166	346	1	886397596
 
-
-		196	242	3	881250949
-		186	302	3	891717742
-		22	377	1	878887116
-		244	51	2	880606923
-		166	346	1	886397596
-
-##작업 실행
+##분석 실행
 
 다음 명령을 실행하여 추천 작업을 실행합니다.
 
-	mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /example/data/u.data -o /example/data/mahoutout --tempDir /temp/mahouttemp
+    mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/MahoutMovieData/user-ratings.txt -o /example/data/mahoutout --tempDir /temp/mahouttemp
 
 > [AZURE.NOTE] 작업을 완료하려면 몇 분정도 걸릴 수 있으며 여러 MapReduce 작업을 실행할 수 있습니다.
 
@@ -111,11 +89,12 @@ Mahout에서 제공하는 기능 중 하나가 추천 엔진입니다. 이 엔�
 
 	첫 번째 열은 `userID`입니다. '[' 및 ']'에 포함된 값은 `movieId`:`recommendationScore`입니다.
 
-2. **ml-100 k** 디렉터리에 포함된 데이터 중 일부는 더 많은 사용자가 데이터에 친숙할 수 있도록 사용할 수 있습니다. 먼저, 다음 명령을 사용하여 데이터를 다운로드합니다.
+2. moviedb.txt와 함께 출력을 사용하여 사용자에게 보다 친숙한 정보를 표시할 수 있습니다. 먼저, 다음 명령을 사용하여 파일을 로컬로 복사해야 합니다.
 
 		hdfs dfs -get /example/data/mahoutout/part-r-00000 recommendations.txt
+        hdfs dfs -get /HdiSamples/HdiSamples/MahoutMovieData/* .
 
-	현재 디렉터리에 **recommendations.txt**라는 파일에 출력 데이터를 복사합니다.
+	그러면 영화 데이터 파일과 함께 현재 디렉터리에 있는 **recommendations.txt**라는 파일에 출력 데이터가 복사됩니다.
 
 3. 권장 사항 출력의 데이터에 대한 영화 이름을 조회하는 새 Python 스크립트를 만들려면 다음 명령을 사용합니다.
 
@@ -124,15 +103,15 @@ Mahout에서 제공하는 기능 중 하나가 추천 엔진입니다. 이 엔�
 	편집기가 열리면 파일의 내용으로 다음을 사용합니다.
 
         #!/usr/bin/env python
-        
+
         import sys
-        
+
         if len(sys.argv) != 5:
                 print "Arguments: userId userDataFilename movieFilename recommendationFilename"
                 sys.exit(1)
-        
+
         userId, userDataFilename, movieFilename, recommendationFilename = sys.argv[1:]
-        
+
         print "Reading Movies Descriptions"
         movieFile = open(movieFilename)
         movieById = {}
@@ -140,7 +119,7 @@ Mahout에서 제공하는 기능 중 하나가 추천 엔진입니다. 이 엔�
                 tokens = line.split("|")
                 movieById[tokens[0]] = tokens[1:]
         movieFile.close()
-        
+
         print "Reading Rated Movies"
         userDataFile = open(userDataFilename)
         ratedMovieIds = []
@@ -149,7 +128,7 @@ Mahout에서 제공하는 기능 중 하나가 추천 엔진입니다. 이 엔�
                 if tokens[0] == userId:
                         ratedMovieIds.append((tokens[1],tokens[2]))
         userDataFile.close()
-        
+
         print "Reading Recommendations"
         recommendationFile = open(recommendationFilename)
         recommendations = []
@@ -160,13 +139,13 @@ Mahout에서 제공하는 기능 중 하나가 추천 엔진입니다. 이 엔�
                         recommendations = [ movieIdAndScore.split(":") for movieIdAndScore in movieIdAndScores ]
                         break
         recommendationFile.close()
-        
+
         print "Rated Movies"
         print "------------------------"
         for movieId, rating in ratedMovieIds:
                 print "%s, rating=%s" % (movieById[movieId][0], rating)
         print "------------------------"
-        
+
         print "Recommended Movies"
         print "------------------------"
         for movieId, score in recommendations:
@@ -179,14 +158,14 @@ Mahout에서 제공하는 기능 중 하나가 추천 엔진입니다. 이 엔�
 
 		chmod +x show_recommendations.py
 
-4. Python 스크립트를 실행합니다. 다음은 `u.data` 및 `u.item` 파일이 있는 ml-100k 디렉터리에 있다고 가정합니다.
+4. Python 스크립트를 실행합니다. 다음에서는 모든 파일이 다운로드된 디렉터리에 있다고 가정합니다.
 
-		./show_recommendations.py 4 u.data u.item recommendations.txt
+		./show_recommendations.py 4 user-ratings.txt moviedb.txt recommendations.txt
 
 	이 사용자 ID 4에 대해 생성된 권장 사항을 살펴봅니다.
 
-	* **u.data** 파일은 사용자가 등급을 평가하는 영화를 검색하는데 사용됩니다.
-	* **u.item** 파일은 동영상의 이름을 검색하기 위해 사용됩니다.
+	* **user-ratings.txt** 파일은 사용자가 등급을 평가하는 영화를 검색하는 데 사용됩니다.
+	* **moviedb.txt** 파일은 동영상의 이름을 검색하는 데 사용됩니다.
 	* **recommendations.txt**는 이 사용자에 대한 영화 추천을 검색하는데 사용됩니다
 
 	이 명령의 출력은 다음과 유사합니다.
@@ -245,7 +224,7 @@ Mahout 작업은 작업을 처리하는 동안 생성된 임시 데이터를 제
 >
 > ```hdfs dfs -rm -f -r /example/data/mahoutout```
 
-##다음 단계
+## 다음 단계
 
 이제 Mahout을 사용하는 방법을 배웠으므로 HDInsight에서 데이터로 작업하는 다른 방법을 검색합니다.
 
@@ -267,4 +246,4 @@ Mahout 작업은 작업을 처리하는 동안 생성된 임시 데이터를 제
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0406_2016-->

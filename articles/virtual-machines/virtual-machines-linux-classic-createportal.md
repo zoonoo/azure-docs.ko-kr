@@ -1,6 +1,6 @@
 <properties
-	pageTitle="사용자 지정 Windows 가상 컴퓨터 만들기 | Microsoft Azure"
-	description="클래식 배포 모델을 사용하여 Azure 클래식 포털에서 사용자 지정 Windows 가상 컴퓨터를 만드는 방법을 알아봅니다."
+	pageTitle="사용자 지정 Linux 가상 컴퓨터 만들기 | Microsoft Azure"
+	description="클래식 배포 모델을 사용하여 Azure 클래식 포털에서 사용자 지정 Linux 가상 컴퓨터를 만드는 방법을 알아봅니다."
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/15/2016"
+	ms.date="03/15/2016"
 	ms.author="cynthn"/>
 
-# Windows를 실행하는 사용자 지정 가상 컴퓨터 만들기
+# Linux를 실행하는 사용자 지정 가상 컴퓨터 만들기
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
 
@@ -26,4 +26,4 @@
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

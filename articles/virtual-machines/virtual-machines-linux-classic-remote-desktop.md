@@ -32,7 +32,7 @@ RDP(원격 데스크톱 프로토콜)는 Windows에 사용되는 독점 프로�
 xrdp는 Windows 컴퓨터에서 원격 데스크톱으로 Linux 서버에 연결할 수 있도록 해주는 공개 소스 RDP 서버입니다. VNC(Virtual Network Computing)보다 더 강력한 성능을 구현합니다. VNC는 "JPEG" 품질이며 느린 동작인 반면 RDP는 신속하고 맑습니다.
 
 
-> [AZURE.NOTE] Linux를 실행하는 Microsoft Azure VM이 있어야 합니다. Linux VM을 만들고 설정하려면 [Azure Linux VM 자습서](virtual-machines-linux-cli-create.md)를 참조하세요.
+> [AZURE.NOTE] Linux를 실행하는 Microsoft Azure VM이 있어야 합니다. Linux VM을 만들고 설정하려면 [Azure Linux VM 자습서](virtual-machines-linux-classic-createportal.md)를 참조하세요.
 
 
 ##원격 데스크톱에 대한 끝점 만들기
@@ -116,4 +116,4 @@ Linux VM의 `user` 및 `password`를 사용하여 로그인한 다음 Microsoft 
 ##다음
 xrdp를 사용하는 방법에 대한 자세한 내용은 [여기](http://www.xrdp.org/)를 참조할 수 있습니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

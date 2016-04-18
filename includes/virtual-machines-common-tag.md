@@ -3,9 +3,9 @@
 
 ## 템플릿을 통해 가상 컴퓨터에 태그 지정
 
-먼저 템플릿을 통한 태그 지정을 살펴보겠습니다. [이 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm)은 계산(가상 컴퓨터), 저장소(저장소 계정) 및 네트워크(공용 IP 주소, 가상 네트워크 및 네트워크 인터페이스) 리소스에 태그를 배치합니다. (이 템플릿 예제는 Windows VM에 대한 것이지만 Linux VM에도 적용할 수 있습니다.)
+먼저 템플릿을 통한 태그 지정을 살펴보겠습니다. [이 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags)은 계산(가상 컴퓨터), 저장소(저장소 계정) 및 네트워크(공용 IP 주소, 가상 네트워크 및 네트워크 인터페이스) 리소스에 태그를 배치합니다. (이 템플릿 예제는 Windows VM에 대한 것이지만 Linux VM에도 적용할 수 있습니다.)
 
-[템플릿 링크](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm)에서 **Azure에 배포** 단추를 클릭합니다. 이렇게 하면 이 템플릿을 배포할 수 있는 [Azure 포털](https://portal.azure.com/)로 이동합니다.
+[템플릿 링크](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags)에서 **Azure에 배포** 단추를 클릭합니다. 이렇게 하면 이 템플릿을 배포할 수 있는 [Azure 포털](https://portal.azure.com/)로 이동합니다.
 
 ![태그가 포함된 간단한 배포](./media/virtual-machines-common-tag/deploy-to-azure-tags.png)
 
@@ -64,4 +64,4 @@ Azure 리소스 관리자를 통해 계산, 네트워크 및 저장소 리소스
 
 조직에서는 사용량과 함께 이러한 태그를 분석하여 소비 데이터에 대한 새로운 통찰력을 얻을 수 있습니다.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

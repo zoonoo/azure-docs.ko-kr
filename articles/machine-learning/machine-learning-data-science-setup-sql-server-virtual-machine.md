@@ -279,7 +279,7 @@ Azure 가상 컴퓨터는 **종량제**로 비용이 청구됩니다. 가상 컴
 
 이제 데이터 과학 연습에서 가상 컴퓨터를 사용할 준비가 완료되었습니다. 또한 데이터 탐색 및 처리, Azure 기계 학습 및 CAP(Cortana 분석 프로세스)와 함께 수행할 다른 작업 등에 가상 컴퓨터를 IPython Notebook 서버로 사용할 준비가 완료되었습니다.
 
-데이터 과학 프로세스의 다음 단계는 [학습 가이드: Azure에서 고급 데이터 처리](machine-learning-data-science-advanced-data-processing.md)에서 매핑되며, 데이터를 HDInsight로 이동한 후 Azure 기계 학습에서 데이터를 통해 학습할 준비를 수행하면서 데이터를 처리 및 샘플링하는 단계를 포함할 수 있습니다.
+데이터 과학 프로세스의 다음 단계는 [학습 가이드: Azure에서 고급 데이터 처리](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)에서 매핑되며, 데이터를 HDInsight로 이동한 후 Azure 기계 학습에서 데이터를 통해 학습할 준비를 수행하면서 데이터를 처리 및 샘플링하는 단계를 포함할 수 있습니다.
 
 
 [1]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/selectsqlvmimg.png
@@ -298,4 +298,4 @@ Azure 가상 컴퓨터는 **종량제**로 비용이 청구됩니다. 가상 컴
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

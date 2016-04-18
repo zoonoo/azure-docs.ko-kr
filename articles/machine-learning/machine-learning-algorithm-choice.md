@@ -35,7 +35,7 @@
 
 차트에서 "For *&lt;path label&gt;* use *&lt;algorithm&gt;*."로 표시된 경로와 알고리즘 레이블을 확인합니다. 예를 들어, "For *speed* use *two class logistic regression*."과 같습니다. 경우에 따라 두 개 이상의 분기가 적용됩니다. 완벽하게 맞는 것이 없는 경우도 있습니다. 경험에 기반한 권장 방법으로 제공되는 것이므로 정확하지 않은 것에 대해 걱정하지 않아도 됩니다. 수많은 데이터 과학자가 최적의 알고리즘을 찾는 가장 확실한 방법은 모든 알고리즘을 시도해보는 것이라고 말합니다.
 
-다음은 동일한 데이터에 대해 여러 알고리즘을 시도하고 그 결과를 비교하는 실험에 대한 [Cortana Analytics 갤러리](http://gallery.azureml.net/)의 예제입니다. [다중 클래스 분류자 비교: 문자 인식](http://gallery.azureml.net/Details/a635502fc98b402a890efe21cec65b92).
+다음은 동일한 데이터에 대해 여러 알고리즘을 시도하고 그 결과를 비교하는 실험에 대한 [Cortana Intelligence 갤러리](http://gallery.cortanaintelligence.com/)의 예제입니다. [다중 클래스 분류자 비교: 문자 인식](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
 
 >[AZURE.TIP] 기계 학습 스튜디오의 기능을 개략적으로 제공하는 다이어그램을 다운로드하고 인쇄하려면 [Azure 기계 학습 스튜디오 기능 개요](machine-learning-studio-overview-diagram.md)를 참조하세요.
 
@@ -118,20 +118,7 @@
 |[의사 결정 포리스트](https://msdn.microsoft.com/library/azure/dn906015.aspx)|●|○| |6| |
 |[의사 결정 정글](https://msdn.microsoft.com/library/azure/dn905963.aspx)|●|○| |6|적은 메모리 공간|
 |[신경망](https://msdn.microsoft.com/library/azure/dn906030.aspx)|●| | |9|[추가 사용자 지정 가능](http://go.microsoft.com/fwlink/?LinkId=402867)|
-|[one-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx)|-|-|-|-|선택한 2클래스 메서드의 속성 참조|
-|**회귀**| | | | | |
-|[선형](https://msdn.microsoft.com/library/azure/dn905978.aspx)| |●|●|4| |
-|[Bayesian 선형](https://msdn.microsoft.com/library/azure/dn906022.aspx)| |○|●|2| |
-|[의사 결정 포리스트](https://msdn.microsoft.com/library/azure/dn905862.aspx)|●|○| |6| |
-|[향상된 의사 결정 트리](https://msdn.microsoft.com/library/azure/dn905801.aspx)|●|○| |5|큰 메모리 공간|
-|[빠른 포리스트 분위수](https://msdn.microsoft.com/library/azure/dn913093.aspx)|●|○| |9|포인트 예측 대신 분포|
-|[신경망](https://msdn.microsoft.com/library/azure/dn905924.aspx)|●| | |9|[추가 사용자 지정 가능](http://go.microsoft.com/fwlink/?LinkId=402867)|
-|[포아송](https://msdn.microsoft.com/library/azure/dn905988.aspx)| | |●|5|기술적으로 로그-선형. 개수 예측용|
-|[서수](https://msdn.microsoft.com/library/azure/dn906029.aspx)| | | |0|순위 예측용|
-|**이상 감지**| | | | | |
-|[지원 벡터 컴퓨터](https://msdn.microsoft.com/library/azure/dn913103.aspx)|○|○| |2|특히 큰 기능 집합에 적합|
-|[PCA 기반 이상 감지](https://msdn.microsoft.com/library/azure/dn913102.aspx)| |○|●|3| |
-|[K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/)| |○|●|4|클러스터링 알고리즘|
+|[one-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx)|-|-|-|-|선택한 2클래스 메서드의 속성 참조| |**회귀**| | | | | | |[선형](https://msdn.microsoft.com/library/azure/dn905978.aspx)| |●|●|4| | |[Bayesian 선형](https://msdn.microsoft.com/library/azure/dn906022.aspx)| |○|●|2| | |[의사 결정 포리스트](https://msdn.microsoft.com/library/azure/dn905862.aspx)|●|○| |6| | |[향상된 의사 결정 트리](https://msdn.microsoft.com/library/azure/dn905801.aspx)|●|○| |5|큰 메모리 공간| |[빠른 포리스트 분위수](https://msdn.microsoft.com/library/azure/dn913093.aspx)|●|○| |9|포인트 예측 대신 분포| |[신경망](https://msdn.microsoft.com/library/azure/dn905924.aspx)|●| | |9|[추가 사용자 지정 가능](http://go.microsoft.com/fwlink/?LinkId=402867)| |[포아송](https://msdn.microsoft.com/library/azure/dn905988.aspx)| | |●|5|기술적으로 로그-선형. 개수 예측용| |[서수](https://msdn.microsoft.com/library/azure/dn906029.aspx)| | | |0|순위 예측용| |**이상 감지**| | | | | | |[지원 벡터 컴퓨터](https://msdn.microsoft.com/library/azure/dn913103.aspx)|○|○| |2|특히 큰 기능 집합에 적합| |[PCA 기반 이상 감지](https://msdn.microsoft.com/library/azure/dn913102.aspx)| |○|●|3| | |[K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/)| |○|●|4|클러스터링 알고리즘|
 
 
 **알고리즘 속성:**
@@ -237,4 +224,4 @@ Azure 기계 학습에는 [Vowpal Wabbit](https://msdn.microsoft.com/library/azu
 [9]: ./media/machine-learning-algorithm-choice/image9.png
 [10]: ./media/machine-learning-algorithm-choice/image10.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

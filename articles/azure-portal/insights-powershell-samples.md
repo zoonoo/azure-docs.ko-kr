@@ -148,13 +148,7 @@ Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/
 |이 경고 규칙의 위치|	미국 동부|
 |ResourceGroup|	montest|
 |TargetResourceId|	/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig|
-|생성된 경고의 MetricName|	\\PhysicalDisk(\_Total)\\Disk Writes/sec. 정확한 메트릭 이름을 검색하는 방법은 아래의 `Get-MetricDefinitions` cmdlet 참조|
-|연산자| GreaterThan|
-|임계값(이 메트릭의 수/초)| 1|
-|WindowSize(hh:mm:ss 형식)| 00:05:00|
-|집계(메트릭의 통계, 이 예에서는 Average 수를 사용)| Average|
-|사용자 지정 전자 메일(문자열 배열)|'foo@example.com','bar@example.com'|
-|소유자, 참가자 및 독자에게 전자 메일 전송| -SendToServiceOwners|
+|생성된 경고의 MetricName|	\\PhysicalDisk(\_Total)\\Disk Writes/sec. 정확한 메트릭 이름을 검색하는 방법은 아래의 `Get-MetricDefinitions` cmdlet 참조| |연산자| GreaterThan| |임계값(이 메트릭의 수/초)| 1| |WindowSize(hh:mm:ss 형식)| 00:05:00| |집계(메트릭의 통계, 이 예에서는 Average 수를 사용)| Average| |사용자 지정 전자 메일(문자열 배열)|'foo@example.com','bar@example.com'| |소유자, 참가자 및 독자에게 전자 메일 전송| -SendToServiceOwners|
 
 전자 메일 동작 만들기
 
@@ -229,7 +223,6 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 
 `Get-AzureRmMetricDefinition`에 사용 가능한 옵션 전체 목록은 [Get-MetricDefinitions](https://msdn.microsoft.com/library/mt282458.aspx)에 있습니다.
 
-여러 Azure 서비스에 사용 가능한 메트릭 및 단위 목록을 보려면 [여기서 웹 페이지 제목](http://link)을 참조하세요.
 
 ## 자동 크기 조정 설정 및 관리
 웹 앱, VM, 클라우드 서비스 또는 VM 규모 집합 같은 리소스는 자동 크기 조정 설정을 하나만 구성할 수 있습니다. 그러나 각 자동 크기 조정 설정이 여러 개의 프로필을 가질 수 있습니다. 예를 들어 하나는 성능 기반 규모 프로필이고, 다른 하나는 일정 기반 프로필일 수 있습니다. 각 프로필에 여러 규칙을 구성할 수 있습니다. 자동 크기 조정에 대한 자세한 내용은 [응용 프로그램의 크기 자동 조정 방법](../cloud-services/cloud-services-how-to-scale.md)을 참조하세요.
@@ -385,4 +378,4 @@ Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/myrg1/
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/sakteststorage -Categories NetworkSecurityGroupEvent -Enable $true -RetentionEnabled $true -RetentionInDays 90
 ```
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

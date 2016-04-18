@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="03/09/2015"
+	ms.date="03/09/2016"
 	ms.author="danlep"/>
 
 # Azure의 CoreOS VM 클러스터에서 fleet 시작
@@ -192,4 +192,4 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload nginx@{1,2,3}.service
 [nginx Docker Hub 이미지]: https://hub.docker.com/_/nginx/
 [Azure에서 Linux 및 공개 소스 컴퓨팅]: virtual-machines-linux-opensource-links.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

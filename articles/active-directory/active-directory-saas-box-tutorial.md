@@ -32,7 +32,7 @@
 
 1.  Box에 응용 프로그램 통합 사용
 2.  Single Sign-On 구성
-3.  사용자 프로비전 구성
+3.  사용자 및 그룹 프로비전 구성
 4.  사용자 할당
 
 ![시나리오](./media/active-directory-saas-box-tutorial/IC769537.png "시나리오")
@@ -115,11 +115,15 @@
 
 4. **Box에 액세스 허용**을 클릭하여 이 작업에 권한을 부여하고 Azure 관리 포털로 돌아옵니다. <br><br> ![자동 사용자 프로비전 사용](./media/active-directory-saas-box-tutorial/IC769549.png "자동 사용자 프로비전 사용")
 
-5. 구성을 마치려면 완료 단추를 클릭합니다. <br><br> ![자동 사용자 프로비전 사용](./media/active-directory-saas-box-tutorial/IC769551.png "자동 사용자 프로비전 사용")
+
+5. **프로비전 옵션** 페이지에서 **프로비전할 개체 유형** 확인란을 사용하여 사용자 개체 외에 그룹 개체를 Box에 프로비전할지 여부를 선택할 수 있습니다. 자세한 내용은 아래의 "사용자 및 그룹 할당 섹션"을 참조하세요.
+
+
+6. 구성을 마치려면 완료 단추를 클릭합니다. <br><br> ![자동 사용자 프로비전 사용](./media/active-directory-saas-box-tutorial/IC769551.png "자동 사용자 프로비전 사용")
 
 
 
-##사용자 할당
+##테스트 사용자 할당
   
 구성을 테스트하려면 응용 프로그램 사용을 허용하려는 Azure AD 사용자를 할당하여 액세스 권한을 부여해야 합니다.
 
@@ -131,7 +135,6 @@
 
 3.  테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 사용자의 할당을 확인합니다. <br><br> ![예](./media/active-directory-saas-box-tutorial/IC767830.png "예")
   
-
 이제 10분 동안 기다린 후 계정이 Box에 동기화되었는지 확인해야 합니다.
 
 첫 번째 확인 단계로 Azure 관리 포털의 Box 응용 프로그램 통합 페이지에서 D의 대시보드를 클릭하여 프로비전 상태를 확인할 수 있습니다.
@@ -148,9 +151,28 @@ Box 테넌트에서 동기화된 사용자가 **관리 콘솔**의 **관리된 �
 <br><br> ![통합 상태](./media/active-directory-saas-box-tutorial/IC769556.png "통합 상태")
 
 
+##사용자 및 그룹 할당
+
+Azure 클래식 포털의 **Box > 사용자 및 그룹** 탭에서 Box에 대한 액세스 권한을 부여해야 하는 사용자 및 그룹을 지정할 수 있습니다. 사용자 또는 그룹을 할당하면 다음과 같은 상황이 발생합니다.
+
+* Azure AD에서 할당된 사용자에게 Box에 인증하도록 허용합니다(직접 할당 또는 그룹 멤버 자격을 통해). 사용자가 할당되지 않은 경우에는 Azure AD에서 Box에 로그인하도록 허용하지 않으며 Azure AD 로그인 페이지에서 오류를 반환합니다.
+
+* Box의 앱 타일이 사용자의 [응용 프로그램 시작 관리자](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)에 추가됩니다.
+
+* 자동 프로비전이 설정된 경우 할당된 사용자 및/또는 그룹이 자동으로 프로비전되도록 프로비전 큐에 추가됩니다.
+
+    * 사용자 개체만 프로비전되도록 구성된 경우 직접 할당된 모든 사용자가 프로비전 큐에 배치되며, 할당된 그룹의 멤버인 모든 사용자가 프로비전 큐에 배치됩니다. 
+    
+    * 그룹 개체가 프로비전되도록 구성된 경우 할당된 모든 그룹 개체뿐만 아니라 해당 그룹의 멤버인 모든 사용자가 Box에 프로비전됩니다. 그룹 및 사용자 멤버 자격은 Box에 기록될 때 유지됩니다.
+    
+**특성 > Single Sign-On** 탭을 사용하여 SAML 기반 인증 중에 Box에 표시되는 사용자 특성(또는 클레임)을 구성하고, **특성 > 프로비전** 탭을 사용하여 프로비전 작업 중에 사용자 및 그룹 특성이 Azure AD에서 Box로 이동하는 방식을 구성할 수 있습니다. 자세한 내용은 아래 참고 자료를 참조하세요.
+
+
 ## 추가 리소스
 
+* [SAML 토큰에 발급된 클레임 사용자 지정](active-directory-saml-claims-customization.md)
+* [프로비전: 특성 매핑 사용자 지정](active-directory-saas-customizing-attribute-mappings.md)
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0406_2016-->

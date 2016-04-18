@@ -34,7 +34,7 @@ Azure 클래식 포털, Windows PowerShell 또는 Azure 명령줄 인터페이�
 
 또한 Azure 저장소 계정과 해당 계정에 액세스하는 데 사용할 키도 필요합니다. 계정 및 키는 Azure 클래식 포털에서 가져올 수 있습니다.
 
-Azure에서 Linux VM을 만들 때 도움이 필요하면 [Linux를 실행하는 가상 컴퓨터 만들기](virtual-machines-linux-cli-create.md)를 참조하세요
+Azure에서 Linux VM을 만들 때 도움이 필요하면 [Linux를 실행하는 가상 컴퓨터 만들기](virtual-machines-linux-classic-createportal.md)를 참조하세요
 
 설치 명령은 Ubuntu를 가정하지만 지원되는 Linux 배포한에 대한 설치를 조정할 수 있습니다.
 
@@ -110,4 +110,4 @@ Azure CLI, Linux 및 CustomScript 확장을 위한 일부 추가 리소스는 �
 
 [Azure에서 Linux 및 오픈 소스 컴퓨팅](virtual-machines-linux-opensource-links.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

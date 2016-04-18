@@ -32,6 +32,7 @@
 | ----- |:-----:|:-----:|
 | Azure 포털 | ✓ | ✓ |
 | Azure PowerShell | ✓ | ✓ |
+| Azure CLI | &nbsp; | ✓ |
 | HDInsight .NET SDK | ✓ | ✓ |
 | Azure Resource Manager 템플릿 | ✓ | &nbsp; |
 
@@ -232,4 +233,4 @@ _해상도_: ASCII로 또는 BOM을 사용하지 않고 UTF-8로 파일을 저�
 
 * [HDInsight REST API](https://msdn.microsoft.com/library/azure/mt622197.aspx)를 사용하여 REST를 통해 HDInsight 클러스터에서 관리 작업을 수행하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

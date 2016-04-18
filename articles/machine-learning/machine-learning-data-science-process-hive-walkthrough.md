@@ -79,7 +79,7 @@ trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_licence 및
 
 다음 세 단계를 통해 HDInsight 클러스터를 사용하는 고급 분석용 Azure 환경을 설정할 수 있습니다.
 
-1. [저장소 계정 만들기](../storage-whatis-account.md):이 저장소 계정은 Azure Blob 저장소에 데이터를 저장하는 데 사용됩니다. HDInsight 클러스터에 사용되는 데이터도 여기에 상주합니다.
+1. [저장소 계정 만들기](../storage/storage-create-storage-account.md):이 저장소 계정은 Azure Blob 저장소에 데이터를 저장하는 데 사용됩니다. HDInsight 클러스터에 사용되는 데이터도 여기에 상주합니다.
 
 2. [고급 분석 프로세스 및 기술을 위한 Azure HDInsight Hadoop 클러스터 사용자 지정](machine-learning-data-science-customize-hadoop-cluster.md). 이 단계에서는 모든 노드에 64비트 Anaconda Python 2.7이 설치된 Azure HDInsight Hadoop 클러스터를 만듭니다. HDInsight 클러스터 사용자 지정하는 동안 기억해야 할 중요한 두 단계가 있습니다.
 
@@ -95,7 +95,7 @@ trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_licence 및
 
 해당 공용 위치에서 [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) 데이터 집합을 가져오려면 [Azure Blob 저장소에서 데이터 이동](machine-learning-data-science-move-azure-blob.md)에 설명된 방법 중 하나를 사용하여 데이터를 컴퓨터에 복사하면 됩니다.
 
-여기에서는 AzCopy를 사용하여 데이터가 포함된 파일을 전송하는 방법을 설명합니다. AzCopy를 다운로드하여 설치하려면 [AzCopy 명령줄 유틸리티 시작](../storage-use-azcopy.md) 지침을 따릅니다.
+여기에서는 AzCopy를 사용하여 데이터가 포함된 파일을 전송하는 방법을 설명합니다. AzCopy를 다운로드하여 설치하려면 [AzCopy 명령줄 유틸리티 시작](../storage/storage-use-azcopy.md) 지침을 따릅니다.
 
 1. 명령 프롬프트 창에서 *<path_to_data_folder>*를 원하는 대상으로 바꿔 다음 AzCopy 명령을 실행합니다.
 
@@ -142,7 +142,7 @@ trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_licence 및
 
 	@powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
 
-이 두 명령은 이 연습에 필요한 모든 .hql 파일을 헤드 노드의 로컬 디렉터리 ***C:\temp&#92;***에 다운로드합니다.
+이 두 명령은 이 연습에 필요한 모든 .hql 파일을 헤드 노드의 로컬 디렉터리 ***C:\\temp & #92;***에 다운로드합니다.
 
 ## <a name="#hive-db-tables"></a>월별로 분할된 Hive 데이터베이스 및 테이블 만들기
 
@@ -786,7 +786,7 @@ b. 회귀 문제의 경우 예측의 제곱된 오류, 결정 계수 등을 확�
 
 결정 계수가 0.709인데, 이는 분산의 약 71%가 모델 계수로 설명됨을 의미합니다.
 
-**중요:** Azure 기계 학습 및 이를 사용하고 액세스하는 방법에 대한 자세한 내용은 [기계 학습이란?](machine-learning-what-is-machine-learning.md)을 참조하세요. Azure 기계 학습의 다양한 기계 학습 실험을 활용하는 데 매우 유용한 리소스는 [Cortana Analytics 갤러리](https://gallery.azureml.net/)입니다. 갤러리에는 다양한 실험이 있으며, Azure 기계 학습의 광범위한 기능을 소개합니다.
+**중요:** Azure 기계 학습 및 이를 사용하고 액세스하는 방법에 대한 자세한 내용은 [기계 학습이란?](machine-learning-what-is-machine-learning.md)을 참조하세요. Azure 기계 학습의 다양한 기계 학습 실험을 활용하는 데 매우 유용한 리소스는 [Cortana Intelligence 갤러리](https://gallery.cortanaintelligence.com/)입니다. 갤러리에는 다양한 실험이 있으며, Azure 기계 학습의 광범위한 기능을 소개합니다.
 
 ## 라이선스 정보
 
@@ -794,9 +794,7 @@ b. 회귀 문제의 경우 예측의 제곱된 오류, 결정 계수 등을 확�
 
 ## 참조
 
-•	[Andrés Monroy NYC 택시 왕복 다운로드 페이지](http://www.andresmh.com/nyctaxitrips/)  
-•	[Chris Whong FOILing NYC 택시 여정 데이터](http://chriswhong.com/open-data/foil_nyc_taxi/)   
-•	[NYC 택시 및 리무진 수수료 연구 및 통계](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+• [Andrés Monroy NYC 택시 왕복 다운로드 페이지](http://www.andresmh.com/nyctaxitrips/) • [Chris Whong FOILing NYC 택시 여정 데이터](http://chriswhong.com/open-data/foil_nyc_taxi/) • [NYC 택시 및 리무진 수수료 연구 및 통계](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
 
 [2]: ./media/machine-learning-data-science-process-hive-walkthrough/output-hive-results-3.png
@@ -810,4 +808,4 @@ b. 회귀 문제의 경우 예측의 제곱된 오류, 결정 계수 등을 확�
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

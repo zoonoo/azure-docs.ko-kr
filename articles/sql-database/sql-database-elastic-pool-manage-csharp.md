@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="03/15/2016"
+    ms.date="04/01/2016"
     ms.author="sstein"/>
 
 # C&#x23;로 탄력적 데이터베이스 풀 관리 및 크기 조정
@@ -22,6 +22,7 @@
 - [Azure 포털](sql-database-elastic-pool-manage-portal.md)
 - [PowerShell](sql-database-elastic-pool-manage-powershell.md)
 - [C#](sql-database-elastic-pool-manage-csharp.md)
+- [T-SQL](sql-database-elastic-pool-manage-tsql.md)
 
 
 C&#x23;을 사용하여 [탄력적 데이터베이스 풀](sql-database-elastic-pool.md)을 관리하는 방법을 알아봅니다.
@@ -457,4 +458,4 @@ C&#x23;을 사용하여 [탄력적 데이터베이스 풀](sql-database-elastic-
 - [Azure 리소스 관리 API](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 - [탄력적 데이터베이스 풀 참조](sql-database-elastic-pool-reference.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

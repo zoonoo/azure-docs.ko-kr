@@ -138,7 +138,7 @@ namespace Stateless1
  - **Config:** 서비스에 대한 모든 구성 파일 및 설정.
  - **데이터:** 서비스와 관련된 정적 데이터 파일.
 
-이러한 각 패키지는 서비스를 독립적으로 버전 지정 및 업그레이드할 수 있습니다. 클라우드 서비스와 마찬가지로 config 패키지는 API를 통해 프로그래밍 방식으로 액세스할 수 있으며 이벤트는 config 패키지 변경의 서비스를 알리기 위해 사용할 수 있습니다. 키-값 구성 및 프로그래밍 방식 액세스에 Settings.xml 파일을 사용할 수 있습니다. 그러나 클라우드 서비스와는 달리 서비스 패브릭 config 패키지는 XML, JSON, YAML 또는 사용자 지정 이진 형식이든 모든 형식의 구성 파일을 포함할 수 있습니다.
+이러한 각 패키지는 서비스를 독립적으로 버전 지정 및 업그레이드할 수 있습니다. 클라우드 서비스와 마찬가지로 config 패키지는 API를 통해 프로그래밍 방식으로 액세스할 수 있으며 이벤트는 config 패키지 변경의 서비스를 알리기 위해 사용할 수 있습니다. App.config 파일의 앱 설정 섹션과 유사한 키-값 구성 및 프로그래밍 방식 액세스에 Settings.xml 파일을 사용할 수 있습니다. 그러나 클라우드 서비스와는 달리 서비스 패브릭 config 패키지는 XML, JSON, YAML 또는 사용자 지정 이진 형식이든 모든 형식의 구성 파일을 포함할 수 있습니다.
 
 
 ### 구성 액세스
@@ -277,4 +277,4 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
 [3]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/service-fabric-cloud-service-projects.png
 [4]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/worker-role-to-stateless-service.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0406_2016-->

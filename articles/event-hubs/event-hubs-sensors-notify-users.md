@@ -25,7 +25,7 @@
 
 ![][2]
 
-문제는 정적 보고서 확인을 해결할 때가 아니라 특정 조건이 충족되었을 때 중요한 정보를 가져오는 방법입니다. [Dynamics AX][]와 같은 장치 또는 엔터프라이즈 응용 프로그램에서 데이터를 수신하도록 [Azure 이벤트 허브][] 또는 [Azure IoT Hub][]를 사용하는 경우 처리하는 방법에 대한 몇 가지 옵션이 있습니다. 웹 사이트에서 보고 분석하고 저장하고 이를 사용하여 다른 작업을 하도록 명령을 트리거할 수 있습니다. 이를 위해 [Azure 웹 사이트][], [SQL Azure][], [HDInsight][], [Cortana Analytics Suite][], [IoT Suite][], [논리 앱][] 또는 [Azure 알림 허브][]와 같은 강력한 도구를 사용할 수 있습니다. 그러나 경우에 따라 최소 오버헤드로 누군가에게 해당 데이터를 보내고자 합니다. 약간의 코드로 작업을 수행하는 방법을 보여 주기 위해 새로운 샘플, [AppToNotifyUsers][]를 제공합니다. 포함된 옵션은 전자 메일(SMTP), SMS 및 전화입니다.
+문제는 정적 보고서 확인을 해결할 때가 아니라 특정 조건이 충족되었을 때 중요한 정보를 가져오는 방법입니다. [Dynamics AX][]와 같은 장치 또는 엔터프라이즈 응용 프로그램에서 데이터를 수신하도록 [Azure 이벤트 허브][] 또는 [Azure IoT Hub][]를 사용하는 경우 처리하는 방법에 대한 몇 가지 옵션이 있습니다. 웹 사이트에서 보고 분석하고 저장하고 이를 사용하여 다른 작업을 하도록 명령을 트리거할 수 있습니다. 이를 위해 [Azure 웹 사이트][], [SQL Azure][], [HDInsight][], [Cortana Intelligence Suite][], [IoT Suite][], [논리 앱][] 또는 [Azure 알림 허브][]와 같은 강력한 도구를 사용할 수 있습니다. 그러나 경우에 따라 최소 오버헤드로 누군가에게 해당 데이터를 보내고자 합니다. 약간의 코드로 작업을 수행하는 방법을 보여 주기 위해 새로운 샘플, [AppToNotifyUsers][]를 제공합니다. 포함된 옵션은 전자 메일(SMTP), SMS 및 전화입니다.
 
 ## 응용 프로그램 구조
 
@@ -74,7 +74,7 @@ Azure 이벤트 허브 또는 IoT Hub로 푸시되는 중요한 이벤트가 있
 [Azure 웹 사이트]: https://azure.microsoft.com/services/app-service/web/
 [SQL Azure]: https://azure.microsoft.com/services/sql-database/
 [HDInsight]: https://azure.microsoft.com/services/hdinsight/
-[Cortana Analytics Suite]: http://www.microsoft.com/server-cloud/cortana-analytics-suite/Overview.aspx?WT.srch=1&WT.mc_ID=SEM_lLFwOJm3&bknode=BlueKai
+[Cortana Intelligence Suite]: http://www.microsoft.com/server-cloud/cortana-analytics-suite/Overview.aspx?WT.srch=1&WT.mc_ID=SEM_lLFwOJm3&bknode=BlueKai
 [IoT Suite]: https://azure.microsoft.com/solutions/iot-suite/
 [논리 앱]: https://azure.microsoft.com/services/app-service/logic/
 [Azure 알림 허브]: https://azure.microsoft.com/services/notification-hubs/
@@ -83,4 +83,4 @@ Azure 이벤트 허브 또는 IoT Hub로 푸시되는 중요한 이벤트가 있
 [1]: ./media/event-hubs-sensors-notify-users/event-hubs-sensor-alert.png
 [2]: ./media/event-hubs-sensors-notify-users/event-hubs-erp-alert.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

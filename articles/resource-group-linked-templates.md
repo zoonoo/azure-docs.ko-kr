@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure 리소스 관리자에서 연결된 템플릿 사용"
+   pageTitle="Azure Resource Manager와 연결된 템플릿 | Microsoft Azure"
    description="Azure 리소스 관리자 템플릿에서 연결된 템플릿을 사용하여 모듈식 템플릿 솔루션을 만드는 방법을 설명합니다. 매개 변수 값을 전달하고 매개 변수 파일 및 동적으로 생성된 URL을 지정하는 방법을 보여 줍니다."
    services="azure-resource-manager"
    documentationCenter="na"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/07/2015"
+   ms.date="04/04/2016"
    ms.author="tomfitz"/>
 
 # Azure 리소스 관리자에서 연결된 템플릿 사용
@@ -113,7 +113,7 @@
 연결된 템플릿에서 주 템플릿으로 값을 전달해야 하는 경우 연결된 템플릿의 **출력** 섹션에서 값을 만들 수 있습니다. 예제를 보려면 [Azure 리소스 관리자 템플릿에서 상태 공유](best-practices-resource-manager-state.md)를 참조하세요.
 
 ## 다음 단계
-- [템플릿 작성](./resource-group-authoring-templates.md)
-- [템플릿 배포](resource-group-template-deploy.md)
+- 리소스 배포 순서를 정의하는 방법을 알아보려면 [Azure Resource Manager 템플릿에서 종속성 정의](resource-group-define-dependencies.md)를 참조하세요.
+- 하나의 리소스를 정의하되 해당 리소스의 여러 인스턴스를 만드는 방법을 알아보려면 [Azure Resource Manager에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0406_2016-->

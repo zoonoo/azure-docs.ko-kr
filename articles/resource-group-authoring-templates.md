@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure 리소스 관리자 템플릿 작성"
+   pageTitle="Azure Resource Manager 템플릿 작성 | Microsoft Azure"
    description="응용 프로그램을 Azure에 배포하는 선언적 JSON 구문을 사용하여 Azure 리소스 관리자 템플릿을 만듭니다."
    services="azure-resource-manager"
    documentationCenter="na"
@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/17/2016"
+   ms.date="04/04/2016"
    ms.author="tomfitz"/>
 
 # Azure 리소스 관리자 템플릿 작성
 
-Azure 응용 프로그램은 일반적으로 원하는 목표를 충족시키기 위해 리소스(예: 데이터베이스 서버, 데이터베이스 또는 웹 사이트)의 조합이 필요합니다. 각 리소스를 개별적으로 배포하고 관리하는 대신, 응용 프로그램의 모든 리소스를 하나의 조정된 작업으로 배포하고 프로비전하는 Azure 리소스 관리자 템플릿을 만들 수 있습니다. 템플릿에서 응용 프로그램에 필요한 리소스를 정의하고 다양한 환경에 따라 값을 입력하는 배포 매개 변수를 지정합니다. 템플릿은 배포에 대한 값을 생성하는 데 사용할 수 있는 식과 JSON으로 구성됩니다. 이 항목에서는 템플릿의 섹션에 대해 설명합니다.
+Azure Resource Manager 템플릿에서는 솔루션에 사용할 리소스를 정의하고, 여러 환경의 값을 입력하는 데 사용할 수 있는 변수 및 매개 변수를 지정합니다. 템플릿은 배포에 대한 값을 생성하는 데 사용할 수 있는 식과 JSON으로 구성됩니다. 이 항목에서는 템플릿의 섹션에 대해 설명합니다.
 
 Visual Studio는 템플릿 생성 작업을 도와주는 도구를 제공합니다. 템플릿으로 Visual Studio를 사용하는 방법에 대한 자세한 내용은 [Visual Studio를 통해 Azure 리소스 그룹 생성 및 배포](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)를 참조하세요.
 
-템플릿의 크기는 1MB로, 각 매개 변수 파일의 크기는 64KG로 제한해야 합니다. 1MB의 제한은 반복적인 리소스 정의로 확장된 후 템플릿의 마지막 상태와 변수 및 매개변수 값에 적용됩니다.
+템플릿 작성에 대한 지침은 [Resource Manager 템플릿 연습](resource-manager-template-walkthrough.md)을 참조하세요.
 
 ## 템플릿 계획
 
@@ -35,13 +35,9 @@ Visual Studio는 템플릿 생성 작업을 도와주는 도구를 제공합니�
 5. 배포하는 동안 전달하려는 값 및 템플릿에서 직접 정의하려는 값
 6. 배포로부터 값을 반환해야 하는지 여부
 
-배포에 사용할 수 있는 리소스 형식, 해당 형식에 지원되는 지역, 각 형식에 대해 사용 가능한 API 버전을 알아보려면 [리소스 관리자 공급자, 지역, API 버전 및 스키마](resource-manager-supported-services.md)를 참조하세요. 이 항목에서는 템플릿 내에서 제공해야 하는 값을 결정하는 데 도움이 되는 예제 및 링크를 제공합니다.
+배포에 사용할 수 있는 리소스 형식, 해당 형식에 지원되는 지역, 각 형식에 대해 사용 가능한 API 버전을 알아보려면 [리소스 관리자 공급자, 지역, API 버전 및 스키마](resource-manager-supported-services.md)를 참조하세요.
 
-다른 리소스를 배포한 이후에 배포해야 하는 리소스는 다른 리소스에 종속된 것으로 표시할 수 있습니다. 이 작업을 수행하는 방법은 아래 [리소스](#resources) 섹션에 나와 있습니다.
-
-실행 중에 매개 변수 값을 제공하면 템플릿 배포의 결과를 변경할 수 있습니다. 이 작업을 수행하는 방법은 아래 [매개 변수](#parameters) 섹션에 나와 있습니다.
-
-[출력](#outputs) 섹션에서 배포 값을 반환할 수 있습니다.
+템플릿의 크기는 1MB로, 각 매개 변수 파일의 크기는 64KG로 제한해야 합니다. 1MB의 제한은 반복적인 리소스 정의로 확장된 후 템플릿의 마지막 상태와 변수 및 매개변수 값에 적용됩니다.
 
 ## 템플릿 형식
 
@@ -188,14 +184,6 @@ parameters 섹션 내에서는 다른 매개 변수 값을 생성하는 매개 �
 
 다음 예제에서는 두 매개 변수 값에서 생성된 변수를 정의하는 방법을 보여줍니다.
 
-    "parameters": {
-       "username": {
-         "type": "string"
-       },
-       "password": {
-         "type": "secureString"
-       }
-     },
      "variables": {
        "connectionString": "[concat('Name=', parameters('username'), ';Password=', parameters('password'))]"
     }
@@ -256,7 +244,7 @@ resources 섹션에서 배포 또는 업데이트되는 리소스를 정의합�
 | apiVersion | 예 | 리소스를 만들 때 사용하는 REST API의 버전입니다. 특정 리소스 형식에 사용 가능한 버전 번호를 결정하려면 [지원되는 API 버전](../resource-manager-supported-services/#supported-api-versions)을 참조하세요.
 | type | 예 | 리소스 유형입니다. 이 값은 리소스 공급자의 네임스페이스와 리소스 공급자가 지원하는 리소스 유형을 조합한 값입니다.
 | name | 예 | 리소스의 이름입니다. 이 이름은 RFC3986에 정의된 URI 구성 요소 제한을 따라야 합니다.
-| location | 아니요 | 제공된 리소스의 지역적 위치를 지원합니다. 사용 가능한 위치를 확인하려면 [지원되는 지역](../resource-manager-supported-services/#supported-regions)을 참조하세요.
+| 위치 | 다름 | 제공된 리소스의 지역적 위치를 지원합니다. 사용 가능한 위치를 확인하려면 [지원되는 지역](../resource-manager-supported-services/#supported-regions)을 참조하세요. 대부분의 리소스 종류에는 위치가 필요하지만 일부 종류(예: 역할 할당)에는 위치가 필요하지 않습니다.
 | tags | 아니요 | 리소스와 연결된 태그입니다.
 | 설명 | 아니요 | 템플릿에서 리소스를 문서화하는 내용에 대한 참고
 | dependsOn | 아니요 | 정의 중인 리소스가 종속되는 리소스입니다. 종속된 순서에 따라 리소스 간의 종속성이 평가되고 리소스가 배포됩니다. 리소스가 서로 종속되어 있지 않으면 병렬로 배포됩니다. 이 값은 리소스 이름 또는 리소스 고유 식별자의 쉼표로 구분된 목록일 수 있습니다.
@@ -298,53 +286,58 @@ resources 섹션에서 배포 또는 업데이트되는 리소스를 정의합�
 다음 예제는 하위 **확장** 리소스가 있는 **Microsoft.Web/serverfarms** 리소스 및 **Microsoft.Web/sites** 리소스를 보여줍니다. 서버 팜이 존재해야 사이트를 배포할 수 있기 때부터 해당 사이트는 서버 팜에 대한 종속으로 표시됩니다. **확장** 리소스는 사이트의 하위 항목입니다.
 
     "resources": [
-        {
-          "apiVersion": "2014-06-01",
-          "type": "Microsoft.Web/serverfarms",
-          "name": "[parameters('hostingPlanName')]",
-          "location": "[resourceGroup().location]",
-          "properties": {
-              "name": "[parameters('hostingPlanName')]",
-              "sku": "[parameters('hostingPlanSku')]",
-              "workerSize": "0",
-              "numberOfWorkers": 1
-          }
+      {
+        "apiVersion": "2015-08-01",
+        "name": "[parameters('hostingPlanName')]",
+        "type": "Microsoft.Web/serverfarms",
+        "location": "[resourceGroup().location]",
+        "tags": {
+          "displayName": "HostingPlan"
         },
-        {
-          "apiVersion": "2014-06-01",
-          "type": "Microsoft.Web/sites",
-          "name": "[parameters('siteName')]",
-          "location": "[resourceGroup().location]",
-          "tags": {
-              "environment": "test",
-              "team": "ARM"
-          },
-          "dependsOn": [
-              "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
-          ],
-          "properties": {
-              "name": "[parameters('siteName')]",
-              "serverFarm": "[parameters('hostingPlanName')]"
-          },
-          "resources": [
-              {
-                  "apiVersion": "2014-06-01",
-                  "type": "Extensions",
-                  "name": "MSDeploy",
-                  "dependsOn": [
-                      "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"
-                  ],
-                  "properties": {
-                    "packageUri": "https://auxmktplceprod.blob.core.windows.net/packages/StarterSite-modified.zip",
-                    "dbType": "None",
-                    "connectionString": "",
-                    "setParameters": {
-                      "Application Path": "[parameters('siteName')]"
-                    }
-                  }
-              }
-          ]
+        "sku": {
+          "name": "[parameters('skuName')]",
+          "capacity": "[parameters('skuCapacity')]"
+        },
+        "properties": {
+          "name": "[parameters('hostingPlanName')]",
+          "numberOfWorkers": 1
         }
+      },
+      {
+        "apiVersion": "2015-08-01",
+        "type": "Microsoft.Web/sites",
+        "name": "[parameters('siteName')]",
+        "location": "[resourceGroup().location]",
+        "tags": {
+          "environment": "test",
+          "team": "ARM"
+        },
+        "dependsOn": [
+          "[concat('Microsoft.Web/serverFarms/', parameters('hostingPlanName'))]"
+        ],
+        "properties": {
+          "name": "[parameters('siteName')]",
+          "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
+        },
+        "resources": [
+          {
+            "apiVersion": "2015-08-01",
+            "type": "extensions",
+            "name": "MSDeploy",
+            "dependsOn": [
+              "[concat('Microsoft.Web/sites/', parameters('siteName'))]"
+            ],
+            "properties": {
+              "packageUri": "https://auxmktplceprod.blob.core.windows.net/packages/StarterSite-modified.zip",
+              "dbType": "None",
+              "connectionString": "",
+              "setParameters": {
+                "Application Path": "[parameters('siteName')]"
+              }
+            }
+          }
+        ]
+      }
     ]
 
 
@@ -386,92 +379,11 @@ Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 예를 �
 
 다른 리소스 그룹 내에 있는 리소스를 사용해야 할 수도 있습니다. 여러 리소스 그룹에서 공유하는 저장소 계정 또는 가상 네트워크에서 작업하는 경우 흔한 일입니다. 자세한 내용은 참조는 [resourceId 함수](../resource-group-template-functions#resourceid)를 참조하세요.
 
-## 템플릿 완료
-다음 템플릿은 웹 앱을 배포하고 .zip 파일에서 코드를 사용하여 프로비전합니다.
-
-    {
-       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-       "contentVersion": "1.0.0.0",
-       "parameters": {
-         "siteName": {
-           "type": "string"
-         },
-         "hostingPlanName": {
-           "type": "string"
-         },
-         "hostingPlanSku": {
-           "type": "string",
-           "allowedValues": [
-             "Free",
-             "Shared",
-             "Basic",
-             "Standard",
-             "Premium"
-           ],
-           "defaultValue": "Free"
-         }
-       },
-       "resources": [
-         {
-           "apiVersion": "2014-06-01",
-           "type": "Microsoft.Web/serverfarms",
-           "name": "[parameters('hostingPlanName')]",
-           "location": "[resourceGroup().location]",
-           "properties": {
-             "name": "[parameters('hostingPlanName')]",
-             "sku": "[parameters('hostingPlanSku')]",
-             "workerSize": "0",
-             "numberOfWorkers": 1
-           }
-         },
-         {
-           "apiVersion": "2014-06-01",
-           "type": "Microsoft.Web/sites",
-           "name": "[parameters('siteName')]",
-           "location": "[resourceGroup().location]",
-           "tags": {
-             "environment": "test",
-             "team": "ARM"
-           },
-           "dependsOn": [
-             "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
-           ],
-           "properties": {
-             "name": "[parameters('siteName')]",
-             "serverFarm": "[parameters('hostingPlanName')]"
-           },
-           "resources": [
-             {
-               "apiVersion": "2014-06-01",
-               "type": "Extensions",
-               "name": "MSDeploy",
-               "dependsOn": [
-                 "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"
-               ],
-               "properties": {
-                 "packageUri": "https://auxmktplceprod.blob.core.windows.net/packages/StarterSite-modified.zip",
-                 "dbType": "None",
-                 "connectionString": "",
-                 "setParameters": {
-                   "Application Path": "[parameters('siteName')]"
-                 }
-               }
-             }
-           ]
-         }
-       ],
-       "outputs": {
-         "siteUri": {
-           "type": "string",
-           "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
-         }
-       }
-    }
-
 ## 다음 단계
+- 다양한 유형의 솔루션에 대한 전체 템플릿을 보려면 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)을 참조하세요.
 - 템플릿 내에서 사용할 수 있는 함수에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 함수](resource-group-template-functions.md)를 참조하세요.
 - 만든 템플릿을 배포하는 방법을 보려면 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
 - 응용 프로그램 배포에 대한 자세한 예는 [Azure에서 마이크로 서비스를 예측 가능하게 프로비전 및 배포](app-service-web/app-service-deploy-complex-application-predictably.md)를 참조하세요.
 - 사용할 수 있는 스키마는 [Azure 리소스 관리자 스키마](https://github.com/Azure/azure-resource-manager-schemas)를 참조하세요.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

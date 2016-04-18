@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="03/09/2016"
+   	ms.date="04/05/2016"
    	ms.author="nitinme"/>
 
 #Azure PowerShell을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기
@@ -57,7 +57,7 @@ Linux 클러스터를 프로비전하기 위해 설정해야 하는 두 가지 �
     ###########################################
 
     # Sign in
-    Add-AzureRmAccount
+    Login-AzureRmAccount
 
     # Select the subscription to use
     $subscriptionID = "<SubscriptionName>"        # Provide your Subscription Name
@@ -75,8 +75,8 @@ Linux 클러스터를 프로비전하기 위해 설정해야 하는 두 가지 �
     # Create an Azure Blob Storage container
     $containerName = "<ContainerName>"              # Provide a container name
     $storageAccountKey = Get-AzureRmStorageAccountKey -Name $storageAccountName -ResourceGroupName $resourceGroupName | %{ $_.Key1 }
-    $destContext = New-AzureRmStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
-    New-AzureRmStorageContainer -Name $containerName -Context $destContext
+    $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
+    New-AzureStorageContainer -Name $containerName -Context $destContext
 
     ###########################################
     # Create an HDInsight Cluster
@@ -91,8 +91,8 @@ Linux 클러스터를 프로비전하기 위해 설정해야 하는 두 가지 �
     # Set these variables
     $clusterName = $containerName           		# As a best practice, have the same name for the cluster and container
     $clusterNodes = <ClusterSizeInNodes>    		# The number of nodes in the HDInsight cluster
-    $credentials = Get-Credential
-    $sshCredentials = Get-Credential
+    $credentials = Get-Credential -Message "Enter Cluster user credentials" -UserName "admin"
+    $sshCredentials = Get-Credential -Message "Enter SSH user credentials"
 
     # The location of the HDInsight cluster. It must be in the same data center as the Storage account.
     $location = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName | %{$_.Location}
@@ -146,4 +146,4 @@ HDInsight 클러스터를 성공적으로 만들었으므로 다음을 사용하
 * [기계 학습과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Spark 스트리밍: HDInsight에서 Spark를 사용하여 실시간 스트리밍 응용 프로그램 빌드](hdinsight-apache-spark-eventhub-streaming.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

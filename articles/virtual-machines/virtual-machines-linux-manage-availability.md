@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/23/2015"
-	ms.author="kenazk"/>
+	ms.date="04/01/2016"
+	ms.author="iainfou"/>
 
 # Linux 가상 컴퓨터의 가용성 관리
 
@@ -25,4 +25,4 @@ Azure에서 여러 가상 컴퓨터를 설정하고 관리하여 Linux 응용 �
 
 [AZURE.INCLUDE [virtual-machines-common-manage-availability](../../includes/virtual-machines-common-manage-availability.md)]
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

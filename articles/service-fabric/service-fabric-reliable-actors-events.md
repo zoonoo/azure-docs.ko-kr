@@ -3,9 +3,9 @@
    description="서비스 패브릭 Reliable Actors의 이벤트에 대해 소개합니다."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
-   editor="vturecek"/>
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/19/2016"
+   ms.date="03/25/2016"
    ms.author="amanbha"/>
 
 
@@ -38,7 +38,6 @@ public interface IGameActor : IActor, IActorEventPublisher<IGameEvents>
 {
     Task UpdateGameStatus(GameStatus status);
 
-    [Readonly]
     Task<string> GetGameScore();
 }
 ```
@@ -60,7 +59,8 @@ class GameEventsHandler : IGameEvents
 ```csharp
 var proxy = ActorProxy.Create<IGameActor>(
                     new ActorId(Guid.Parse(arg)), ApplicationName);
-proxy.SubscribeAsync<IGameEvents>(new GameEventsHandler()).Wait();
+                    
+await proxy.SubscribeAsync<IGameEvents>(new GameEventsHandler());
 ```
 
 장애 조치 발생 시 행위자는 서로 다른 프로세스 또는 노드로 장애 조치(failover)가 될 수 있습니다. 행위자 프록시는 활성 구독을 관리하고 자동으로 재구독합니다. `ActorProxyEventExtensions.SubscribeAsync<TEvent>` API를 통해 재구독 간격을 제어할 수 있습니다. 구독을 취소하려면 `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>` API를 사용합니다.
@@ -69,7 +69,13 @@ proxy.SubscribeAsync<IGameEvents>(new GameEventsHandler()).Wait();
 
 ```csharp
 var ev = GetEvent<IGameEvents>();
-ev.GameScoreUpdated(Id.GetGuidId(), State.Status.Score);
+ev.GameScoreUpdated(Id.GetGuidId(), score);
 ```
 
-<!---HONumber=AcomDC_0323_2016-->
+## 다음 단계
+ - [행위자 다시 표시](service-fabric-reliable-actors-reentrancy.md)
+ - [행위자 진단 및 성능 모니터링](service-fabric-reliable-actors-diagnostics.md)
+ - [행위자 API 참조 설명서](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+ - [샘플 코드](https://github.com/Azure/servicefabric-samples)
+
+<!---HONumber=AcomDC_0406_2016-->
