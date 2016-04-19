@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="01/07/2016" 
+    ms.date="04/05/2016" 
     ms.author="elizapo" />
 
 
@@ -24,7 +24,7 @@
 
 하이브리드 또는 클라우드 컬렉션에 QuickBooks 2015 Enterprise를 Azure remoteapp과 공유할 수 있습니다. 회사 파일은 Azure RemoteApp 서버와 별개의 QuickBooks 데이터베이스 서버를 실행 중인 VM에 있어야 합니다. Azure RemoteApp 이미지에 회사 파일을 저장하지 마십시오. - 이렇게 하면 데이터 손실이 예상됩니다. QuickBooks Enterprise만 표준 Windows 네트워킹을 통해 액세스할 수 있는 QuickBooks 데이터베이스 서버와 외부 공유에 대한 QuickBooks 파일 호스팅을 지원합니다.
 
-> [AZURE.IMPORTANT]회사 파일을 호스팅하는 QuickBooks 데이터베이스 서버는 Azure RemoteApp 컬렉션과 동일한 VNET 내의 별도 VM에 있어야 합니다.
+> [AZURE.IMPORTANT] 회사 파일을 호스팅하는 QuickBooks 데이터베이스 서버는 Azure RemoteApp 컬렉션과 동일한 VNET 내의 별도 VM에 있어야 합니다.
 
 ## QuickBooks를 배포하는 단계
 
@@ -44,4 +44,4 @@
 
 ![QuickBooks + Azure RemoteApp 배포](./media/remoteapp-quickbooks/ra-quickbooks.png)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0406_2016-->

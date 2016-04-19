@@ -42,7 +42,7 @@
 
 	![PuTTY 열기](./media/virtual-machines-linux-classic-log-on/putty.png)
 
-4. 컴퓨터를 만들 때 지정한 계정을 사용하여 가상 컴퓨터에 로그온합니다. 사용자 이름 및 암호를 사용하여 가상 컴퓨터를 만드는 방법에 대한 자세한 내용은 [Linux를 실행하는 가상 컴퓨터 만들기](virtual-machines-linux-cli-create.md)를 참조하세요.
+4. 컴퓨터를 만들 때 지정한 계정을 사용하여 가상 컴퓨터에 로그온합니다. 사용자 이름 및 암호를 사용하여 가상 컴퓨터를 만드는 방법에 대한 자세한 내용은 [Linux를 실행하는 가상 컴퓨터 만들기](virtual-machines-linux-classic-createportal.md)를 참조하세요.
 
 	![가상 컴퓨터에 로그온](./media/virtual-machines-linux-classic-log-on/sshlogin.png)
 
@@ -53,4 +53,4 @@
 <!-- LINKS -->
 [Linux 가상 컴퓨터에 대한 암호 또는 SSH를 재설정하는 방법]: http://go.microsoft.com/fwlink/p/?LinkId=512138
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

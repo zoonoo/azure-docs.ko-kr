@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/18/2016"
+   ms.date="04/02/2016"
    ms.author="mbaldwin"/>
 
 
@@ -114,10 +114,11 @@ IDMaaS(Identity Management As A Service) 플랫폼인 Azure Active Directory는 
 
 ## 비디오
 
-### 빌드 2015
+### 빌드
 
 엔지니어링 팀에서 직접 작업하는 Azure Active Directory 기능 스피커를 사용하여 앱을 개발하는 것을 보여주는 개요 프레젠테이션입니다. 프레젠테이션은 IDMaaS, 인증, ID 페더레이션 및 단일 로그인을 비롯한 기본 항목을 다룹니다.
 
+- [Microsoft ID: Union의 상태 및 향후 방향](https://azure.microsoft.com/documentation/videos/build-2016-microsoft-identity-state-of-the-union-and-future-direction/)
 - [Azure Active Directory: 최신 응용 프로그램에 대한 ID 관리 서비스(영문)](https://azure.microsoft.com/documentation/videos/build-2015-azure-active-directory-identity-management-as-a-service-for-modern-applications/)
 - [Azure Active Directory를 사용하여 최신 웹 응용 프로그램 개발(영문)](https://azure.microsoft.com/documentation/videos/build-2015-develop-modern-web-applications-with-azure-active-directory/)
 - [Azure Active Directory를 사용하여 최신 네이티브 응용 프로그램 개발(영문)](https://azure.microsoft.com/documentation/videos/build-2015-develop-modern-native-applications-with-azure-active-directory/)
@@ -139,4 +140,4 @@ IDMaaS(Identity Management As A Service) 플랫폼인 Azure Active Directory는 
 
 - [Azure Active Directory Twitter](https://twitter.com/azuread): 140자 이하의 Azure Active Directory 알림입니다.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

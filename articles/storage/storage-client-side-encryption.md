@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/24/2016"
+	ms.date="03/31/2016"
 	ms.author="lakasa"/>
 
 
@@ -24,6 +24,8 @@
 ## 개요
 
 [.NET용 Azure 저장소 클라이언트 라이브러리 Nuget 패키지](https://www.nuget.org/packages/WindowsAzure.Storage)는 Azure 저장소에 업로드하기 전에 클라이언트 응용 프로그램 내부에서 데이터를 암호화하고 클라이언트로 다운로드하는 동안 데이터 암호를 해독하는 기능을 지원합니다. 라이브러리 또한 저장소 계정 키 관리를 위해 Azure [키 자격 증명 모음](https://azure.microsoft.com/services/key-vault/)과의 통합을 지원합니다.
+
+클라이언트 쪽 암호화와 Azure 키 자격 증명을 사용하여 Blob을 암호화하는 프로세스를 안내하는 단계별 자습서는 [Azure 키 자격 증명 모음을 사용하여 Microsoft Azure 저장소에서 Blob 암호화 및 해독](storage-encrypt-decrypt-blobs-key-vault.md)을 참조하세요.
 
 Java를 사용하는 클라이언트 쪽 암호화는 [Microsoft Azure 저장소용 Java를 사용하는 클라이언트 쪽 암호화](storage-client-side-encryption-java.md)를 참조하세요.
 
@@ -244,9 +246,9 @@ EncryptionPolicy 개체를 만드는 동안 사용자만 키를 공급 (IKey 구
 
 ## 다음 단계
 
+- [자습서: Microsoft Azure 저장소에서 Azure 키 자격 증명 모음을 사용하여 Blob 암호화 및 해독](storage-encrypt-decrypt-blobs-key-vault.md)
 - [.NET용 Azure 저장소 클라이언트 라이브러리 NuGet 패키지](https://www.nuget.org/packages/WindowsAzure.Storage) 다운로드
-- GitHub에서 [.NET 소스 코드용 Azure 저장소 클라이언트 라이브러리](https://github.com/Azure/azure-storage-net) 다운로드
 - Azure 주요 자격 증명 모음 NuGet [코어](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [클라이언트](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/), [확장](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) 패키지 다운로드  
 - [Azure 주요 자격 증명 모음 설명서](../key-vault/key-vault-whatis.md) 방문
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

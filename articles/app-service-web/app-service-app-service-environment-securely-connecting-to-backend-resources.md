@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2016" 
+	ms.date="04/06/2016" 
 	ms.author="stefsch"/>
 
 # 앱 서비스 환경에서 백 엔드 리소스에 안전하게 연결 #
 
 ## 개요 ##
-앱 서비스 환경은 항상 지역 클래식 "v1" [가상 네트워크][virtualnetwork]의 서브넷에 만들어지므로 앱 서비스 환경에서 다른 백 엔드 리소스로의 아웃바운드 연결은 가상 네트워크를 통해서만 이동할 수 있습니다.
+앱 서비스 환경은 항상 지역 클래식 "v1" [가상 네트워크][virtualnetwork]의 서브넷에 만들어지므로 앱 서비스 환경에서 다른 백 엔드 리소스로의 아웃바운드 연결은 가상 네트워크를 통해서만 이동할 수 있습니다. RFC1918 주소 공간(즉, 개인 주소)을 사용하는 가상 네트워크만 지원됩니다.
 
 **참고:** "v2" ARM 관리 가상 네트워크에는 앱 서비스 환경을 만들 수 없습니다.
 
@@ -116,4 +116,4 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 [NetworkAccessControlListExample]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/NetworkAcl01.png
 [DefaultNetworkSecurityRules]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/DefaultNetworkSecurityRules01.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

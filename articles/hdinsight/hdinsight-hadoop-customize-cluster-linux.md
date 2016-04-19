@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/17/2016"
+	ms.date="04/04/2016"
 	ms.author="larryfr"/>
 
 # 스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정
@@ -47,7 +47,7 @@ HDInsight는 클러스터를 사용자 지정하는 사용자 지정 스크립�
 
 * 클러스터 노드에서 __루트 수준 권한__으로 실행됩니다.
 
-* __Azure 포털__, __Azure PowerShell__ 또는 __HDInsight.NET SDK__를 통해 사용할 수 있습니다.
+* __Azure 포털__, __Azure PowerShell__, __Azure CLI__ 또는 __HDInsight .NET SDK__를 통해 사용할 수 있습니다.
 
 > [AZURE.IMPORTANT] 스크립트 작업을 통해 변경된 내용을 자동으로 취소하는 방법은 없습니다. 스크립트 효과를 되돌리려면 변경된 내용을 이해하고 수동으로 되돌려야(또는 변경 내용을 되돌리는 스크립트 작업을 제공) 합니다
 
@@ -92,7 +92,7 @@ HDInsight를 구성하는 동안 스크립트를 실행합니다. 이 단계에�
 
 ## 예제 스크립트 작업 스크립트
 
-스크립트 작업 스크립트는 Azure 포털, Azure PowerShell 또는 HDInsight.NET SDK에서 사용할 수 있습니다. HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 스크립트를 제공합니다.
+스크립트 작업 스크립트는 Azure 포털, Azure PowerShell, Azure CLI 또는 HDInsight.NET SDK에서 사용할 수 있습니다. HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 스크립트를 제공합니다.
 
 이름 | 스크립트
 ----- | -----
@@ -100,7 +100,7 @@ HDInsight를 구성하는 동안 스크립트를 실행합니다. 이 단계에�
 **R 설치** | https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh. [HDInsight 클러스터에서 R 설치 및 사용](hdinsight-hadoop-r-scripts-linux.md)을 참조하세요.
 **Solr 설치** | https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh. [HDInsight 클러스터에서 Solr 설치 및 사용](hdinsight-hadoop-solr-install-linux.md)을 참조하세요.
 **Giraph 설치** | https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh. [HDInsight 클러스터에서 Giraph 설치 및 사용](hdinsight-hadoop-giraph-install-linux.md)을 참조하세요.
-| **Hive 라이브러리 사전 로드** | https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh. [HDInsight 클러스터에서 Hive 라이브러리 추가](hdinsight-hadoop-add-hive-libraries.md) 참조 |
+| **Hive 라이브러리 사전 로드** | https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh. [HDInsight 클러스터에서 Hive 라이브러리 추가](hdinsight-hadoop-add-hive-libraries.md)를 참조하세요. |
 
 ## 클러스터를 만드는 동안 스크립트 작업 사용
 
@@ -416,7 +416,7 @@ HDInsight .NET SDK는 .NET 응용 프로그램에서 HDInsight로 더 쉽게 작
 
 ## 실행 중인 클러스터에 스크립트 작업 적용
 
-이 섹션에서는 실행 중인 HDInsight 클러스터에 스크립트 작업을 적용하는 다양한 방법, 다시 말해서 Azure 포털, PowerShell CMDlet 및 .NET SDK를 사용하는 방법에 대해 설명합니다.
+이 섹션에서는 실행 중인 HDInsight 클러스터에 스크립트 작업을 적용하는 다양한 방법, 다시 말해서 Azure 포털, PowerShell CMDlet, 크로스 플랫폼 Azure CLI 및 .NET SDK를 사용하는 방법에 대해 설명합니다.
 
 ### Azure 포털에서 실행 중인 클러스터에 스크립트 작업 적용
 
@@ -473,6 +473,38 @@ HDInsight .NET SDK는 .NET 응용 프로그램에서 HDInsight로 더 쉽게 작
         Parameters      :
         NodeTypes       : {HeadNode, WorkerNode}
 
+### Azure CLI에서 실행 중인 클러스터에 스크립트 작업 적용
+
+계속하기 전에 Azure CLI를 설치 및 구성했는지 확인하세요. 자세한 내용은 [Azure CLI 설치](../xplat-cli-install.md)를 참조하세요.
+
+1. 셸 세션, 터미널, 명령 프롬프트 또는 시스템의 다른 명령줄을 열고 다음 명령을 사용하여 Azure Resource Manager 모드로 전환합니다.
+
+        azure config mode arm
+
+2. 다음을 사용하여 Azure 구독에 인증합니다.
+
+        azure login
+
+3. 다음 명령을 사용하여 실행 중인 클러스터에 스크립트 작업을 적용합니다.
+
+        azure hdinsight script-action create <clustername> -g <resourcegroupname> -n <scriptname> -u <scriptURI> -t <nodetypes>
+
+    이 명령에 대한 매개 변수를 생략한 경우 해당 매개 변수를 묻는 메시지가 나타납니다. `-u`와 함께 지정한 스크립트에서 매개 변수를 허용하는 경우 `-p` 매개 변수를 지정할 수 있습니다.
+
+    유효한 __nodetype__은 __headnode__, __workernode__ 및 __zookeeper__입니다. 스크립트를 여러 노드 형식에 적용해야 하는 경우 세미콜론(';')으로 구분하여 형식을 지정합니다. 예: `-n headnode;workernode`
+
+    스크립트를 보존하려면 `--persistOnSuccess`를 추가합니다. 나중에 `azure hdinsight script-action persisted set`를 사용하여 스크립트를 유지할 수도 있습니다.
+    
+    작업이 완료되면 다음과 유사한 출력이 나타납니다.
+    
+        info:    Executing command hdinsight script-action create
+        + Executing Script Action on HDInsight cluster
+        data:    Operation Info
+        data:    ---------------
+        data:    Operation status:
+        data:    Operation ID:  b707b10e-e633-45c0-baa9-8aed3d348c13
+        info:    hdinsight script-action create command OK
+
 ### HDInsight .NET SDK에서 실행 중인 클러스터에 스크립트 작업 적용
 
 .NET SDK를 사용하여 클러스터에 스크립트를 적용하는 예제는 [https://github.com/Azure-Samples/hdinsight-dotnet-script-action](https://github.com/Azure-Samples/hdinsight-dotnet-script-action)에서 확인할 수 있습니다.
@@ -512,7 +544,7 @@ HDInsight .NET SDK는 .NET 응용 프로그램에서 HDInsight로 더 쉽게 작
 | Set-AzureRmHDInsightPersistedScriptAction | 임시 스크립트 작업을 지속형 스크립트 작업으로 승격 |
 | Remove-AzureRmHDInsightPersistedScriptAction | 지속형 스크립트 작업을 임시 작업으로 강등 |
 
-> [AZURE.IMPORTANT] `Remove-AzureRmHDInsightPersistedScriptAction` 명령을 사용해도 스크립트가 수행한 작업이 취소되지 않습니다. 이 명령은 클러스터에 추가된 새 작업자 노드에 대해 스크립트가 실행되지 않도록 지속형 플래그만 제거합니다.
+> [AZURE.IMPORTANT] `Remove-AzureRmHDInsightPersistedScriptAction` 명령을 사용해도 스크립트가 수행한 작업이 취소되지 않습니다. 이 명령은 클러스터에 추가된 새 작업자 노드에서 스크립트가 실행되지 않도록 지속형 플래그만 제거합니다.
 
 다음 예제 스크립트는 cmdlet을 사용하여 스크립트를 승격한 후 다시 강등하는 방법을 보여줍니다.
 
@@ -532,9 +564,22 @@ HDInsight .NET SDK는 .NET 응용 프로그램에서 HDInsight로 더 쉽게 작
     # execution ID.
     Remove-AzureRmHDInsightPersistedScriptAction -ClusterName mycluster -Name "Install Giraph"
 
+### Azure CLI 사용
+
+| 사용하는 명령 | 수행하는 동작 |
+| ----- | ----- |
+| `azure hdinsight script-action persisted list <clustername>` | 지속형 스크립트 동작의 목록을 검색합니다. |
+| `azure hdinsight script-action persisted show <clustername> <scriptname>` | 특정 지속형 스크립트 동작에 대한 정보를 검색합니다. |
+| `azure hdinsight script-action history list <clustername>` | 클러스터에 적용된 스크립트 동작의 기록을 검색합니다. |
+| `azure hdinsight script-action history show <clustername> <scriptname>` | 특정 스크립트 동작에 대한 정보를 검색합니다. |
+| `azure hdinsight script action persisted set <clustername> <scriptexecutionid>` | 임시 스크립트 작업을 지속형 스크립트 작업으로 승격 |
+| `azure hdinsight script-action persisted delete <clustername> <scriptname>` | 지속형 스크립트 작업을 임시 작업으로 강등 |
+
+> [AZURE.IMPORTANT] `azure hdinsight script-action persisted delete` 명령을 사용해도 스크립트가 수행한 작업이 취소되지 않습니다. 이 명령은 클러스터에 추가된 새 작업자 노드에서 스크립트가 실행되지 않도록 지속형 플래그만 제거합니다.
+
 ### HDInsight .NET SDK 사용
 
-.NET SDK를 사용하여 클러스터에서 스크립트 기록을 검색하고, 스크립트를 승격 또는 강등하는 예제는 [TBD]()를 참조하세요.
+.NET SDK를 사용하여 클러스터에서 스크립트 기록을 검색하거나 스크립트를 승격 또는 강등하는 예제는 [https://github.com/Azure-Samples/hdinsight-dotnet-script-action](https://github.com/Azure-Samples/hdinsight-dotnet-script-action)에서 확인할 수 있습니다.
 
 ## 문제 해결
 
@@ -569,7 +614,7 @@ Ambari 웹 UI를 사용하여 스크립트 작업에서 기록한 정보를 볼 
 	* **작업자 노드** - `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net`
 	* **Zookeeper 노드** - `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
 
-* 해당 호스트의 모든 stdout 및 stderr은 저장소 계정에 업로드됩니다. 각 스크립트 작업마다 하나의 **output-*.txt** 및 **errors-*.txt**가 있습니다. output-*.txt 파일은 호스트에서 실행되는 스크립트의 URI 정보를 포함합니다. 예를 들면 다음과 같습니다.
+* 해당 호스트의 모든 stdout 및 stderr은 저장소 계정에 업로드됩니다. 각 스크립트 작업마다 하나의 **output-*.txt** 및  **errors-\*.txt** 가 있습니다. output-*.txt 파일은 호스트에서 실행되는 스크립트의 URI 정보를 포함합니다. 예를 들면 다음과 같습니다.
 
 		'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
 
@@ -633,4 +678,4 @@ HDInsight 서비스는 사용자 지정 구성 요소를 사용하는 여러 방
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "클러스터를 만드는 동안의 단계"
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

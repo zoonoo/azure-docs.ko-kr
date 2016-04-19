@@ -1,7 +1,7 @@
 
 
 
-**리소스 관리자** 배포 모델을 사용하여 [Azure 포털](https://portal.azure.com)에서 가상 컴퓨터를 만들 때, 포털은 가상 컴퓨터에 대해 공용 IP 리소스를 만듭니다. 이 IP 주소를 사용하여 가상 컴퓨터에 원격으로 액세스할 수 있습니다. 기본적으로 포털에서 [정규화된 도메인 이름](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) 또는 FQDN을 만들지는 않지만 가상 컴퓨터를 만들면 이름을 만드는 작업은 매우 쉽습니다. 이 문서에서는 DNS 이름 또는 FQDN을 만드는 단계를 보여 줍니다.
+**Resource Manager** 배포 모델을 사용하여 [Azure 포털](https://portal.azure.com)에서 가상 컴퓨터를 만들 때, 가상 컴퓨터의 공용 IP 리소스가 자동으로 만들어집니다. 이 IP 주소를 사용하여 가상 컴퓨터에 원격으로 액세스할 수 있습니다. 기본적으로 포털에서 [정규화된 도메인 이름](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) 또는 FQDN을 만들지는 않지만 가상 컴퓨터를 만들면 이름을 만드는 작업은 매우 쉽습니다. 이 문서에서는 DNS 이름 또는 FQDN을 만드는 단계를 보여 줍니다.
 
 문서에서는 **리소스 관리자**를 사용하여 포털에서 구독에 로그인하고 사용 가능한 이미지로 가상 컴퓨터를 만들었다고 가정합니다. 가상 컴퓨터가 실행되기 시작되면 다음 단계를 수행합니다.
 
@@ -24,6 +24,6 @@
     ![FQDN is created](./media/virtual-machines-common-portal-create-fqdn/fqdnCreated.PNG)
 
 
-    이제 이 DNS 이름을 사용하여 원격으로 가상 컴퓨터에 연결할 수 있습니다. 예를 들어 정규화된 도메인 이름이 `testdnslabel.centralus.cloudapp.azure.com`이고 사용자 이름이 `adminuser`인 Linux 가상 컴퓨터에 연결하는 경우 `SSH adminuser@testdnslabel.centralus.cloudapp.azure.com`을 사용합니다.
+    이제 이 DNS 이름을 사용하여 원격으로 가상 컴퓨터에 연결할 수 있습니다. 예를 들어 정규화된 도메인 이름이 `testdnslabel.centralus.cloudapp.azure.com`이고 사용자 이름이 `adminuser`인 Linux 가상 컴퓨터에 연결하는 경우 `ssh adminuser@testdnslabel.centralus.cloudapp.azure.com`을 사용합니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

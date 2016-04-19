@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Cortana 분석 대회 관련 FAQ | Microsoft Azure"
-	description="Microsoft Cortana 분석 대회와 관련하여 자주 묻는 질문입니다."
+	pageTitle="Cortana Intelligence 대회 관련 FAQ | Microsoft Azure"
+	description="Microsoft Cortana Intelligence 대회와 관련하여 자주 묻는 질문입니다."
 	services="machine-learning"
 	documentationCenter=""
 	authors="hning86"
@@ -16,11 +16,11 @@
 	ms.date="03/11/2016"
 	ms.author="haining;chlovel;garye"/>
 
-# Microsoft Cortana 분석 대회 관련 FAQ
+# Microsoft Cortana Intelligence 대회 관련 FAQ
 
-**Cortana 분석 대회란 무엇입니까?**
+**Cortana Intelligence 대회는 무엇입니까?**
 
-Microsoft에서는 Cortana 분석 대회를 발표하고 있습니다. Cortana 분석 대회는 전 세계의 데이터 전문가 커뮤니티가 한 자리에 모여서 가장 복잡한 데이터 과학 문제를 집단적으로 해결하는 대회입니다. 전 세계의 데이터 전문가들이 Cortana 분석 대회를 통해 서로 실력을 겨루고, 매우 정확하고 지능적인 데이터 과학 모델을 만들 수 있습니다. Microsoft가 주최하는 대회는 대중에게 최초로 공개된 고유한 데이터 집합을 기반으로 합니다. 상위 10위에 이름을 올린 참가자는 보상을 받거나 이름을 널리 알릴 수 있습니다. 대회 홈 페이지에 액세스하려면 [여기](http://aka.ms/CIComp)로 이동하세요.
+Microsoft에서는 Cortana Intelligence 대회를 발표하고 있습니다. Cortana Intelligence 대회는 전 세계의 데이터 전문가 커뮤니티가 한 자리에 모여서 가장 복잡한 데이터 과학 문제를 집단적으로 해결하는 대회입니다. 전 세계의 데이터 전문가들이 Cortana Intelligence 대회를 통해 서로 실력을 겨루고, 매우 정확하고 지능적인 데이터 과학 모델을 만들 수 있습니다. Microsoft가 주최하는 대회는 대중에게 최초로 공개된 고유한 데이터 집합을 기반으로 합니다. 상위 10위에 이름을 올린 참가자는 보상을 받거나 이름을 널리 알릴 수 있습니다. 대회 홈 페이지에 액세스하려면 [여기](http://aka.ms/CIComp)로 이동하세요.
 
 **Microsoft는 새 대회를 얼마나 자주 여나요?**
 
@@ -32,9 +32,9 @@ Microsoft에서는 Cortana 분석 대회를 발표하고 있습니다. Cortana �
 
 **경쟁에 참가하려면 어떻게 해야 하나요?**
 
-Cortana 분석 갤러리를 통해 대회 홈 페이지에 액세스합니다. 운영 중인 모든 대회가 이 페이지에 포함되어 있습니다. 각 대회의 로그인 페이지에 구체적인 지침과 참가 규칙, 상품 및 대회 기간이 나와 있을 것입니다. 대회 홈 페이지에 액세스하려면 [여기](http://aka.ms/CIComp)로 이동하세요.
+Cortana Intelligence 갤러리를 통해 대회 홈 페이지에 액세스합니다. 운영 중인 모든 대회가 이 페이지에 포함되어 있습니다. 각 대회의 로그인 페이지에 구체적인 지침과 참가 규칙, 상품 및 대회 기간이 나와 있을 것입니다. 대회 홈 페이지에 액세스하려면 [여기](http://aka.ms/CIComp)로 이동하세요.
 
-1. Cortana 분석 갤러리에서 참가하고 싶은 대회를 찾아서 모든 지침을 읽고 자습서 비디오를 시청한 다음, “대회 참가” 단추를 클릭하여 기존 Azure 기계 학습 작업 영역에 시작 실험을 복사합니다. 아직 작업 영역에 액세스할 수 없는 경우 작업 영역부터 만들어야 합니다. 시작 실험을 실행하고, 성능 메트릭을 관찰한 다음, 창의력을 발휘하여 모델의 성능을 개선합니다. 아마도 대부분의 시간을 이 단계에서 보내게 될 것입니다.   
+1. Cortana Intelligence 갤러리에서 참가하고 싶은 대회를 찾아서 모든 지침을 읽고 자습서 비디오를 시청한 다음, “대회 참가” 단추를 클릭하여 기존 Azure 기계 학습 작업 영역에 시작 실험을 복사합니다. 아직 작업 영역에 액세스할 수 없는 경우 작업 영역부터 만들어야 합니다. 시작 실험을 실행하고, 성능 메트릭을 관찰한 다음, 창의력을 발휘하여 모델의 성능을 개선합니다. 아마도 대부분의 시간을 이 단계에서 보내게 될 것입니다.   
 
 2. 시작 실험의 학습된 모델을 사용하여 서술적 실험을 만듭니다. 그런 다음 웹 서비스의 입력 및 출력 스키마가 대회 설명서에 지정된 요구 사항을 준수하도록 신중하게 조정합니다. 이에 대한 지침은 일반적으로 자습서 문서에 자세히 설명되어 있습니다. 자습서 비디오가 제공되는 경우 비디오를 시청하셔도 됩니다.
 
@@ -49,8 +49,11 @@ Cortana 분석 갤러리를 통해 대회 홈 페이지에 액세스합니다. �
 **참가하려면 데이터 과학자여야 하나요?**
 
 아니요. 데이터 과학에 관심이 있는 데이터 고급 사용자와 데이터 과학자를 꿈꾸는 분이라면 누구나 참가할 수 있습니다. 지원 문서는 모든 사용자가 경쟁할 수 있도록 디자인되었습니다. 참가 대상은 다음과 같습니다.
+
 * 데이터 개발자, 데이터 과학자, BI 및 분석 전문가: 서비스를 이용할 다른 사람을 위해 데이터 및 분석 콘텐츠를 만드는 사람.
+
 * 데이터 관리자: 해당 데이터, 데이터의 의미와 사용 의도 및 목적에 대한 지식이 있는 사람.
+
 * 학생 및 연구원: 대학에서 교육 프로그램을 통해 데이터 관련 기술을 배우고 익히는 사람 또는 MOOC(Massively Open Online Courses) 참가자
 
 
@@ -60,7 +63,7 @@ Cortana 분석 갤러리를 통해 대회 홈 페이지에 액세스합니다. �
 
 **대회 참가비가 있나요?**
 
-대회 참가는 무료입니다. 그러나 대회에 참가하려면 Azure 기계 학습 작업 영역에 액세스할 수 있어야 합니다. 유효한 Microsoft 계정 또는 Office 365 계정으로 로그인하여 신용 카드 없이 무료 작업 영역을 만들 수 있습니다. 이미 Azure 또는 Cortana 분석 제품군 고객인 경우에는 동일한 Azure 구독에서 표준 작업 영역을 만들어서 사용할 수 있습니다. Azure 구독을 구입하려는 분은 [여기](https://azure.microsoft.com/pricing)로 이동하시면 됩니다. 표준 작업 영역을 사용하여 실험을 만들 때 표준 요금이 적용됩니다. [여기](https://azure.microsoft.com/pricing/details/machine-learning/)서 Azure 기계 학습 가격 책정 정보를 참조하세요.
+대회 참가는 무료입니다. 그러나 대회에 참가하려면 Azure 기계 학습 작업 영역에 액세스할 수 있어야 합니다. 유효한 Microsoft 계정 또는 Office 365 계정으로 로그인하여 신용 카드 없이 무료 작업 영역을 만들 수 있습니다. 이미 Azure 또는 Cortana Intelligence 제품군 고객인 경우에는 동일한 Azure 구독에서 표준 작업 영역을 만들어서 사용할 수 있습니다. Azure 구독을 구입하려는 분은 [여기](https://azure.microsoft.com/pricing)로 이동하시면 됩니다. 표준 작업 영역을 사용하여 실험을 만들 때 표준 요금이 적용됩니다. [여기](https://azure.microsoft.com/pricing/details/machine-learning/)서 Azure 기계 학습 가격 책정 정보를 참조하세요.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -112,4 +115,4 @@ Microsoft에서 개인 순위표의 결과를 확인한 다음 연락드립니�
 
 사용자의 응모작은 우승 솔루션을 선발하기 위한 평가 용도로만 보관됩니다. 자세한 내용은 [약관](http://aka.ms/comptermsandconditions)을 참조하세요.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

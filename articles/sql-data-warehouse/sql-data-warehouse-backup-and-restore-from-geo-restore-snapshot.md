@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="03/28/2016"
    ms.author="sahajs;barbkess"/>
 
 # SQL 데이터 웨어하우스의 가동 중단에서 데이터베이스 복구
 
-지역 복원을 통해 지역 중복 백업에서 데이터베이스를 복원하여 새 데이터베이스를 만들 수 있습니다. Azure 지역의 모든 서버에서 데이터베이스를 만들 수 있습니다. 지역 중복 백업을 해당 원본으로 사용하므로 가동 중단으로 인해 데이터베이스에 액세스할 수 없는 경우에도 데이터베이스를 복구하는 데 사용할 수 있습니다. 가동 중단에서 복구하는 것 외에도 다른 서버나 지역에 데이터베이스 복사 또는 마이그레이션과 같은 다른 시나리오에 대해서도 지역 복원을 사용할 수 있습니다.
+지역 복원을 통해 지역 중복 백업에서 데이터베이스를 복원하여 새 데이터베이스를 만들 수 있습니다. Azure 지역의 모든 서버에서 데이터베이스를 만들 수 있습니다. 지역에서 복원에서는 지역 중복 백업을 해당 원본으로 사용하므로 가동 중단으로 인해 데이터베이스에 액세스할 수 없는 경우에도 데이터베이스를 복구하는 데 사용할 수 있습니다. 가동 중단에서 복구하는 것 외에도 다른 서버나 지역에 데이터베이스 복사 또는 마이그레이션과 같은 다른 시나리오에 대해서도 지역 복원을 사용할 수 있습니다.
 
 
 ## 복구를 시작해야 하는 시기
@@ -43,14 +43,14 @@
 ### PowerShell
 프로그래밍 방식으로 데이터베이스 복구를 수행하려면 Azure PowerShell을 사용합니다. Azure PowerShell 모듈을 다운로드하려면 [Microsoft 웹 플랫폼 설치 관리자](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)를 실행합니다. Get-Module -ListAvailable -Name Azure를 실행하여 버전을 확인할 수 있습니다. 이 문서는 Microsoft Azure PowerShell 버전 1.0.4를 기반으로 합니다.
 
-데이터베이스를 복구하려면 [Start-AzureSqlDatabaseRecovery][] cmdlet을 사용합니다.
+데이터베이스를 복구하려면 [Restore-AzureRmSqlDatabase][] cmdlet을 사용합니다.
 
 1. Windows PowerShell을 엽니다.
 2. Azure 계정에 연결하고 사용자 계정과 연결된 모든 구독을 나열합니다.
 3. 복원할 데이터베이스가 포함된 구독을 선택합니다.
 4. 복구하려는 데이터베이스를 가져옵니다.
 5. 데이터베이스 복구 요청을 만듭니다.
-6. 복구 진행률을 모니터링합니다.
+6. 지역에서 복원된 데이터베이스의 상태를 확인합니다.
 
 ```Powershell
 
@@ -59,17 +59,17 @@ Get-AzureRmSubscription
 Select-AzureRmSubscription -SubscriptionName "<Subscription_name>"
 
 # Get the database you want to recover
-$Database = Get-AzureRmSqlRecoverableDatabase -ServerName "<YourServerName>" –DatabaseName "<YourDatabaseName>"
+$GeoBackup = Get-AzureRmSqlDatabaseGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourServerName>" -DatabaseName "<YourDatabaseName>"
 
 # Recover database
-$RecoveryRequest = Start-AzureSqlDatabaseRestore -SourceServerName "<YourSourceServerName>" -SourceDatabase $Database -TargetDatabaseName "<NewDatabaseName>" -TargetServerName "<YourTargetServerName>"
+$GeoRestoredDatabase = Restore-AzureRmSqlDatabase –FromGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourTargetServer>" -TargetDatabaseName "<NewDatabaseName>" –ResourceId $GeoBackup.ResourceID
 
-# Monitor progress of recovery operation
-Get-AzureSqlDatabaseOperation -ServerName "<YourTargetServerName>" –OperationGuid $RecoveryRequest.RequestID
+# Verify that the geo-restored database is online
+$GeoRestoredDatabase.status
 
 ```
 
-서버가 foo.database.windows.net인 경우 위의 PowerShell cmdlet에서 -ServerName으로 "foo"를 사용합니다.
+>[AZURE.NOTE] foo.database.windows.net 서버의 경우 위의 PowerShell cmdlet에서 -ServerName으로 "foo"를 사용합니다.
 
 ### REST API
 프로그래밍 방식으로 데이터베이스 복구를 수행하려면 REST를 사용합니다.
@@ -93,7 +93,7 @@ Get-AzureSqlDatabaseOperation -ServerName "<YourTargetServerName>" –OperationG
 
 
 ## 다음 단계
-다른 Azure SQL 데이터베이스 버전의 비즈니스 연속성 기능에 대해 알아보려면 [Azure SQL 데이터베이스 비즈니스 연속성 개요][]를 읽으세요.
+Azure SQL 데이터베이스 버전의 비즈니스 연속성 기능에 대해 알아보려면 [Azure SQL 데이터베이스 비즈니스 연속성 개요][]를 읽으세요.
 
 
 <!--Image references-->
@@ -103,7 +103,7 @@ Get-AzureSqlDatabaseOperation -ServerName "<YourTargetServerName>" –OperationG
 [Finalize a recovered database]: sql-database/sql-database-recovered-finalize.md
 
 <!--MSDN references-->
-[Start-AzureSqlDatabaseRecovery]: https://msdn.microsoft.com/library/azure/dn720224.aspx
+[Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
 [복구 가능한 데이터베이스 나열]: http://msdn.microsoft.com/library/azure/dn800984.aspx
 [복구 가능한 데이터베이스 가져오기]: http://msdn.microsoft.com/library/azure/dn800985.aspx
 [데이터베이스 복구 요청 만들기]: http://msdn.microsoft.com/library/azure/dn800986.aspx
@@ -113,4 +113,4 @@ Get-AzureSqlDatabaseOperation -ServerName "<YourTargetServerName>" –OperationG
 [Azure 포털]: https://portal.azure.com/
 [지원 센터에 연락]: https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

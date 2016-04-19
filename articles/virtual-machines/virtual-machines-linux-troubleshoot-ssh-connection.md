@@ -225,7 +225,7 @@ b. 아래 예처럼 `VMAccessForLinux` 확장을 실행하여 SSH 연결을 다�
 
 ![조직 에지 장치를 강조하는 다이어그램](./media/virtual-machines-linux-troubleshoot-ssh-connection/ssh-tshoot3.png)
 
-인터넷에 직접 연결된 컴퓨터가 없는 경우 자체 리소스 그룹 또는 클라우드 서비스에서 새 Azure 가상 컴퓨터를 손쉽게 만들고 사용할 수 있습니다. 자세한 내용은 [Azure에서 Linux를 실행하는 가상 컴퓨터 만들기](virtual-machines-linux-cli-create.md)를 참조하세요. 테스트가 완료되면 리소스 그룹 또는 가상 컴퓨터 및 클라우드 서비스를 삭제합니다.
+인터넷에 직접 연결된 컴퓨터가 없는 경우 자체 리소스 그룹 또는 클라우드 서비스에서 새 Azure 가상 컴퓨터를 손쉽게 만들고 사용할 수 있습니다. 자세한 내용은 [Azure에서 Linux를 실행하는 가상 컴퓨터 만들기](virtual-machines-linux-quick-create-cli.md)를 참조하세요. 테스트가 완료되면 리소스 그룹 또는 가상 컴퓨터 및 클라우드 서비스를 삭제합니다.
 
 인터넷에 직접 연결된 컴퓨터에 대한 SSH 연결을 설정할 수 있는 경우 조직 에지 장치에서 다음을 확인합니다.
 
@@ -243,7 +243,7 @@ b. 아래 예처럼 `VMAccessForLinux` 확장을 실행하여 SSH 연결을 다�
 
 ![클라우드 서비스 끝점 및 ACL을 강조하는 다이어그램](./media/virtual-machines-linux-troubleshoot-ssh-connection/ssh-tshoot4.png)
 
-동일한 가상 네트워크에 다른 VM이 없는 경우 새 가상 컴퓨터를 손쉽게 만들 수 있습니다. 자세한 내용은 [Azure에서 Linux를 실행하는 가상 컴퓨터 만들기](virtual-machines-linux-cli-create.md)를 참조하세요. 테스트를 마치면 추가한 VM을 삭제합니다.
+동일한 가상 네트워크에 다른 VM이 없는 경우 새 가상 컴퓨터를 손쉽게 만들 수 있습니다. 자세한 내용은 [Azure에서 Linux를 실행하는 가상 컴퓨터 만들기](virtual-machines-linux-quick-create-cli.md)를 참조하세요. 테스트를 마치면 추가한 VM을 삭제합니다.
 
 동일한 가상 네트워크의 VM에 SSH 연결을 만들 수 있는 경우 다음을 확인합니다.
 
@@ -281,4 +281,4 @@ b. 아래 예처럼 `VMAccessForLinux` 확장을 실행하여 SSH 연결을 다�
 
 [Azure 가상 컴퓨터에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결](virtual-machines-linux-troubleshoot-app-connection.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

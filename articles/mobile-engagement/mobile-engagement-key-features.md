@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/08/2016"
+	ms.date="04/01/2016"
 	ms.author="piyushjo" />
 
 # Azure Mobile Engagement - 주요 기능
@@ -26,9 +26,9 @@
 
 - **별도의 SaaS 포털** Azure 관리 포털을 통하지 않고 마케팅 팀에 쉽게 액세스할 수 있습니다.
 
-- **오픈 REST API의 가용성** 오픈 플랫폼 API를 사용하여 CRM/CMS/IT 시스템으로 통합 및 자동화하기 위해 Mobile Engagement와 쉽게 통합 및 자동화할 수 있도록 해주는 API를 사용하는 .NET SDK와 오픈 REST API를 제공합니다. 자세한 내용은 [여기](mobile-engagement-api-authentication.md)를 참조하세요.
+- **오픈 REST API의 가용성** 오픈 플랫폼 API를 사용하여 CRM/CMS/IT 시스템으로 통합 및 자동화하기 위해 Mobile Engagement와 쉽게 통합 및 자동화할 수 있도록 해주는 API를 사용하는 .NET SDK와 오픈 REST API를 제공합니다. 자세한 내용은 [여기]\(mobile-engagement-api-authentication.md)를 참조하세요.
 
-- **Power BI 커넥터 사용 가능** 또한 키 분석 차트를 Power BI 대시보드로 끌어올 수 있습니다. 이 [가이드](https://powerbi.microsoft.com/ko-KR/documentation/powerbi-content-pack-azure-mobile/)를 참조하세요.
+- **Power BI 커넥터 사용 가능** 또한 키 분석 차트를 Power BI 대시보드로 끌어올 수 있습니다. 이 [가이드](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-mobile/)를 참조하세요.
 
 - **보안 및 개인 정보 보증** Azure 제품군의 일부인 Azure Mobile Engagement는 클라우드 서비스에 대해 예상되는 보안 및 개인 정보에 관한 모든 표준 모범 사례를 따릅니다.
 
@@ -164,4 +164,4 @@
 [27]: ./media/mobile-engagement-key-features/push_emoji.png
 [28]: ./media/mobile-engagement-key-features/push_limits.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

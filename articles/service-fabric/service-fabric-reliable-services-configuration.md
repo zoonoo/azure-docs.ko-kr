@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="sumukhs"
    manager="timlt"
-   editor=""/>
+   editor="vturecek"/>
 
 <tags
    ms.service="Service-Fabric"
@@ -22,14 +22,14 @@ Reliable Services에는 두 가지 구성 설정 집합이 있습니다. 한 집
 
 ## 전역 구성
 
-전역 Reliable Service 구성은 KtlLogger 섹션 아래 클러스터에 대한 클러스터 매니페스트에 지정됩니다. 공유 로그 위치 및 크기와 로거에 사용되는 전역 메모리 한도를 구성할 수 있습니다. 클러스터 매니페스트는 클러스터의 모든 노드 및 서비스에 적용할 설정 및 구성을 포함하는 단일 XML 파일입니다. 파일은 일반적으로 ClusterManifest.xml입니다. Get-ServiceFabricClusterManifest powershell 명령을 사용하여 클러스터에 대한 클러스터 매니페스트를 볼 수 있습니다.
+전역 Reliable Service 구성은 KtlLogger 섹션 아래 클러스터에 대한 클러스터 매니페스트에 지정됩니다. 공유 로그 위치 및 크기와 로거에 사용되는 전역 메모리 한도를 구성할 수 있습니다. 클러스터 매니페스트는 클러스터의 모든 노드 및 서비스에 적용할 설정 및 구성을 포함하는 단일 XML 파일입니다. 이 파일을 일반적으로 ClusterManifest.xml이라고 합니다. Get-ServiceFabricClusterManifest powershell 명령을 사용하여 클러스터에 대한 클러스터 매니페스트를 확인할 수 있습니다.
 
 ### 구성 이름
 
 |이름|단위|기본값|설명|
 |----|----|-------------|-------|
-|WriteBufferMemoryPoolMinimumInKB|킬로바이트|8388608|커널 모드에서 로거 쓰기 버퍼 메모리 풀에 대해 할당할 최소 KB입니다. 이 메모리 풀은 디스크에 쓰기 전에 상태 정보를 캐싱하는 데 사용됩니다.|
-|WriteBufferMemoryPoolMaximumInKB|킬로바이트|제한 없음|로거 쓰기 버퍼 메모리 풀을 확장할 수 있는 최대 크기입니다.|
+|WriteBufferMemoryPoolMinimumInKB|킬로바이트|8388608|로거 쓰기 버퍼 메모리 풀에 대해 커널 모드에서 할당되는 최소 KB 수입니다. 이 메모리 풀은 디스크에 쓰기 전에 상태 정보를 캐시하는 데 사용됩니다.|
+|WriteBufferMemoryPoolMaximumInKB|킬로바이트|제한 없음|로거 쓰기 버퍼 메모리 풀이 증가할 수 있는 최대 크기입니다.|
 |SharedLogId|GUID|""|서비스별 구성에서 SharedLogId를 지정하지 않은 클러스터에 있는 모든 노드에서 모든 Reliable Services에 사용된 기본 공유 로그 파일을 식별하는 데 사용할 고유 GUID를 지정합니다. SharedLogId가 지정된 경우 SharedLogPath도 지정해야 합니다.|
 |SharedLogPath|정규화된 경로 이름|""|서비스별 구성에서 SharedLogPath를 지정하지 않은 클러스터에 있는 모든 노드에서 모든 Reliable Services가 공유 로그 파일을 사용하는 정규화된 경로 이름을 지정합니다. 그러나 SharedLogPath가 지정된 경우 SharedLogId도 지정해야 합니다.|
 |SharedLogSizeInMB|메가바이트|8192|공유 로그에 대해 정적으로 할당할 디스크 공간(MB) 수를 지정합니다. 값은 2048 이상이어야 합니다.|
@@ -57,7 +57,7 @@ SharedLogSizeInMB는 모든 노드에서 기본 공유 로그를 위해 미리 �
 구성 패키지(구성) 또는 서비스 구현(코드)을 사용하여 상태 저장 신뢰할 수 있는 서비스의 기본 구성을 수정할 수 있습니다.
 
 + **구성** - 구성 패키지를 통한 구성은 응용 프로그램의 각 서비스에 대한 Microsoft Visual Studio 패키지 루트의 Config 폴더에 생성된 Settings.xml 파일을 변경하여 수행됩니다.
-+ **코드** - 코드를 통한 구성은 StatefulService.CreateReliableStateManager를 재정의하고 적절한 옵션 집합을 가진 ReliableStateManagerConfiguration 개체를 사용하여 ReliableStateManager를 만들어 수행됩니다.
++ **코드** - 코드를 통한 구성은 적절한 옵션 집합을 가진 ReliableStateManagerConfiguration 개체를 사용하는 ReliableStateManager를 만들어 수행됩니다.
 
 기본적으로 Azure 서비스 패브릭 런타임은 settings.xml 파일에서 미리 정의된 섹션 이름을 찾아서 기본 런타임 구성 요소를 만드는 동안 해당 구성 값을 사용합니다.
 
@@ -97,14 +97,32 @@ ReplicatorConfig
 
 ### 코드를 통한 샘플 구성
 ```csharp
-protected override IReliableStateManager CreateReliableStateManager()
+class Program
 {
-    return new ReliableStateManager(
+    /// <summary>
+    /// This is the entry point of the service host process.
+    /// </summary>
+    static void Main()
+    {
+        ServiceRuntime.RegisterServiceAsync("HelloWorldStatefulType",
+            context => new HelloWorldStateful(context, 
+                new ReliableStateManager(context, 
         new ReliableStateManagerConfiguration(
-            new ReliableStateManagerReplicatorSettings
+                        new ReliableStateManagerReplicatorSettings()
             {
                 RetryInterval = TimeSpan.FromSeconds(3)
-            }));
+                        }
+            )))).GetAwaiter().GetResult();
+    }
+}    
+```
+```csharp
+class MyStatefulService : StatefulService
+{
+    public MyStatefulService(StatefulServiceContext context, IReliableStateManagerReplica stateManager)
+        : base(context, stateManager)
+    { }
+    ...
 }
 ```
 
@@ -140,4 +158,8 @@ MaxRecordSizeInKB 설정은 복제자가 로그 파일에 쓸 수 있는 레코�
 
 SharedLogId 및 SharedLogPath 설정은 항상 함께 사용되며 서비스가 노드에 대한 기본 공유 로그에서 별도의 공유 로그를 사용하도록 합니다. 최상의 효율성을 위해 최대한 많은 서비스가 동일한 공유 로그를 지정해야 합니다. 공유 로그 파일에만 사용되는 디스크에 공유 로그 파일을 배치해야 헤드 이동 경합이 감소합니다. 이 값은 드문 경우에만 변경되어야 합니다.
 
-<!---HONumber=AcomDC_0330_2016-->
+## 다음 단계
+ - [Visual Studio에서 서비스 패브릭 응용 프로그램 디버깅](service-fabric-debugging-your-application.md)
+ - [신뢰할 수 있는 서비스에 대한 개발자 참조](https://msdn.microsoft.com/library/azure/dn706529.aspx)
+
+<!---HONumber=AcomDC_0406_2016-->

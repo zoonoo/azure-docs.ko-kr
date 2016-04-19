@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/11/2016"
+	ms.date="04/11/2016"
 	ms.author="mandia"/>
 
 
 # 논리 앱에서 사용할 커넥터 및 API 앱 목록
->[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다. 2015-08-01-미리 보기 스키마 버전에 대한 내용을 보려면 [API 목록](../connectors/apis-list.md)을 클릭하세요.
+>[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다. 2015-08-01-preview 스키마 버전은 [새 커넥터 목록](../connectors/apis-list.md)을 클릭합니다.
 
 논리 앱으로 사용하려는 Microsoft에서 만든 사용 가능한 모든 커넥터 및 API 앱에 대해 알아봅니다.
 
@@ -33,23 +33,13 @@
 --- | ---
 [Azure HDInsight](app-service-logic-connector-hdinsight.md) | 이 커넥터를 사용하여 Azure에서 Hadoop 클러스터를 만들고, 다른 Hadoop 작업 등을 제출합니다.
 [Azure 서비스 버스](app-service-logic-connector-azureservicebus.md) | 서비스 버스 큐 및 항목에서 메시지를 보내고 서비스 버스 엔큐 및 구독에서 메시지를 받을 수 있습니다.
-[Azure 저장소 Blob](app-service-logic-connector-azurestorageblob.md) | Blob 저장소에 연결하고 가져오기, 삭제, 나열 등을 할 수 있습니다. 
 [Bing 번역기](https://azure.microsoft.com/marketplace/partners/microsoft_com/bingtranslator) | Bing을 사용하여 텍스트를 다른 언어로 번역합니다.
-[Box](app-service-logic-connector-box.md) | 상자에 연결하고 업로드, 가져오기, 삭제, 나열 및 추가 파일 작업을 수행할 수 있습니다.
 [Chatter](app-service-logic-connector-chatter.md) | Chatter에 연결하고 메시지를 게시 및 검색하며 새 메시지를 검색할 수 있습니다.
-[Dropbox](app-service-logic-connector-dropbox.md) | Dropbox에 연결하고 가져오기, 삭제, 나열 및 추가 파일 작업을 수행할 수 있습니다.
-[Facebook](app-service-logic-connector-facebook.md) | Facebook에 연결하고 메시지, 그림 등을 게시할 수 있습니다. 메시지와 주석을 가져오고, 책 및 동영상을 포함한 다른 항목에 대한 사용자 정보를 가져올 수도 있습니다.
 [HTTP](app-service-logic-connector-http.md) | HTTP 수신기는 HTTP 서버로서 작업하는 끝점을 열고, 들어오는 HTTP 또는 HTTPS 요청을 수신합니다. HTTP 작업은 API 앱이 필요하지 않고 논리 앱 내에서 고유하게 지원됩니다.
 [Microsoft Office 365](app-service-logic-connector-office365.md) | Office 365 커넥터는 메일을 보내고 받고, 일정을 관리하고, Office 365 계정을 사용하여 연락처를 관리할 수 있습니다.
-[Microsoft OneDrive](app-service-logic-connector-onedrive.md) | 사용자 개인 Microsoft OneDrive에 연결하여 파일 등을 업로드, 삭제, 나열합니다.
-[Microsoft SharePoint](app-service-logic-connector-sharepoint.md) | 온-프레미스 Microsoft SharePoint Server 또는 SharePoint Online에 연결하여 문서를 관리하고 목록을 나열합니다. 기본 자격 증명, OAuth 2.0, Windows 인증 및 양식 기반 인증과 같은 다양한 인증 방법이 지원됩니다.
-[Microsoft Yammer](app-service-logic-connector-yammer.md) | Yammer에 연결하여 메시지를 게시하고 새 메시지를 받습니다.
 [QuickBooks](app-service-logic-connector-quickbooks.md) | 고객, 항목, 송장 등과 같은 Intuit QuickBooks에서 다른 엔터티를 만들기, 업데이트 및 쿼리를 포함한 다른 작업을 완료할 수 있습니다.
 [Slack](app-service-logic-connector-slack.md) | Slack에 연결하고 Slack 채널에 메시지를 게시합니다.
-[Salesforce](app-service-logic-connector-salesforce.md) | Salesforce 계정에 연결하고 계정, 잠재 고객, 영업 기회 등을 관리합니다.
 [SugarCRM](app-service-logic-connector-sugarcrm.md) | SugarCRM 온라인에 연결하여 계정, 연락처 등을 포함한 여러 다른 유형의 모듈로 만들고, 업데이트하고 읽을 수 있습니다.
-[Twilio](app-service-logic-connector-twilio.md) | Twilio에 연결하여 메시지를 보내고 가져오고, 사용 가능한 번호를 가져와 수신 전화 번호 등을 관리합니다.
-[Twitter](app-service-logic-connector-twitter.md) | Twitter에 연결하여 타임 라인을 가져오고 트윗에 게시합니다.
 [Wait](app-service-logic-connector-wait.md) | 이 커넥터를 사용하여 앱의 실행을 지연할 수 있습니다. 앱을 특정 기간 동안 또는 특정 시간에 발생 될 때까지 연기할 수 있습니다.
 
 
@@ -77,8 +67,6 @@ MQ | Windows 운영 체제를 실행하는 IBM WebSphere MQ Server 버전 8, 온
 [Oracle 데이터베이스](app-service-logic-connector-oracle.md) | 온-프레미스 Oracle 데이터베이스에 연결하고 데이터베이스 테이블의 항목 생성, 업데이트, 가져오기 및 삭제 작업을 수행할 수 있습니다.
 [POP3](app-service-logic-connector-pop3.md)(Post Office Protocol)| POP3 서버에 연결하여 첨부 파일이 있는 이메일을 검색합니다.
 [SAP](app-service-logic-connector-sap.md) | 온-프레미스 SAP 서버에 연결하고 RFC, BAPI 및 tRFC를 호출하며 IDOC를 보냅니다.
-[SFTP](app-service-logic-connector-sftp.md)(SSH 파일 전송 프로토콜)| SFTP에 연결하고 파일 등을 업로드하고, 가져오고 삭제할 수 있습니다.
-[SMTP](app-service-logic-connector-smtp.md)(단순 메일 전송 프로토콜) | SMTP 서버에 연결하여 첨부 파일과 함께 전자 메일을 보냅니다.
 
 ## 트리거로 사용되는 커넥터
 일부 커넥터는 논리 앱에 대한 트리거를 제공합니다. 다음 두 가지 유형의 트리거가 있습니다.
@@ -95,4 +83,4 @@ MQ | Windows 운영 체제를 실행하는 IBM WebSphere MQ Server 버전 8, 온
 ## 커넥터 및 API 앱에 대한 자세한 내용
 [커넥터 및 BizTalk API 앱 정의](app-service-logic-what-are-biztalk-api-apps.md) [Azure 앱 서비스에서 하이브리드 연결 관리자 사용](app-service-logic-hybrid-connection-manager.md) [기본 제공 API 앱 및 커넥터 관리 및 모니터링](app-service-logic-monitor-your-connectors.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

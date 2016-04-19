@@ -28,7 +28,7 @@
 
 ##가상 컴퓨터에 MySQL 설치
 
-> [AZURE.NOTE] 이 자습서를 완료하려면 Linux를 실행하는 Microsoft Azure 가상 컴퓨터가 이미 있어야 합니다. 계속하기 전에 VM 이름으로 `mysqlnode`를 사용하고 사용자로 `azureuser`를 사용하여 Linux VM을 만들고 설정하려면 [Azure Linux VM 자습서](virtual-machines-linux-cli-create.md)를 참조하세요.
+> [AZURE.NOTE] 이 자습서를 완료하려면 Linux를 실행하는 Microsoft Azure 가상 컴퓨터가 이미 있어야 합니다. 계속하기 전에 VM 이름으로 `mysqlnode`를 사용하고 사용자로 `azureuser`를 사용하여 Linux VM을 만들고 설정하려면 [Azure Linux VM 자습서](virtual-machines-linux-quick-create-cli.md)를 참조하세요.
 
 이 경우 3306 포트를 MySQL 포트로 사용합니다.
 
@@ -185,4 +185,4 @@ putty를 통해 생성한 Linux VM에 연결합니다. 처음으로 Azure Linux 
 ###다음 단계
 [여기](https://www.mysql.com/)에서 MySQL에 대한 사용법 및 정보를 확인합니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

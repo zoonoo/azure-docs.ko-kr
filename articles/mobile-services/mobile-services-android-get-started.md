@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="03/05/2016"
+	ms.date="04/08/2016"
 	ms.author="ricksal"/>
 
 # Android에 대해 모바일 서비스 시작(JavaScript 백 엔드)
@@ -94,4 +94,4 @@
 [푸시 알림 시작]: mobile-services-javascript-backend-android-get-started-push.md
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
-<!----HONumber=AcomDC_0309_2016---->
+<!---HONumber=AcomDC_0413_2016-->

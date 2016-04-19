@@ -76,7 +76,7 @@ Azure 기계 학습 스튜디오 환경을 예로 들어 보겠습니다.
 - Azure 기계 학습 스튜디오에서 지원되는 데이터 형식 및 유형의 목록은 [지원되는 데이터 형식 및 데이터 유형](machine-learning-data-science-import-data.md#data-formats-and-data-types-supported) 섹션을 참조하세요.
 - Azure 기계 학습 스튜디오의 데이터 제한에 대한 정보는 [기계 학습 데이터 가져오기 및 내보내기](machine-learning-faq.md#machine-learning-studio-questions)의 **모듈에 대해 설정할 수 있는 데이터 집합의 크기는 어느 정도인가요?**를 참조하세요.
 
-분석 과정에 사용되는 다른 Azure 서비스의 제한 사항에 대한 정보는 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](azure-subscription-service-limits.md)을 참조하세요.
+분석 과정에 사용되는 다른 Azure 서비스의 제한 사항에 대한 정보는 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)을 참조하세요.
 
 ## 데이터 품질 질문: 탐색 및 전처리
 
@@ -104,7 +104,7 @@ Azure 기계 학습 스튜디오 환경을 예로 들어 보겠습니다.
 
 
 ## 고급 분석 시나리오 파악
-이전 섹션의 질문에 대답하고 나면 어떤 시나리오가 가장 적합한지 결정할 수 있습니다. 샘플 시나리오는 [Azure 기계 학습의 고급 분석 시나리오](../machine-learning-data-science-plan-sample-scenarios.md)에 약술되어 있습니다.
+이전 섹션의 질문에 대답하고 나면 어떤 시나리오가 가장 적합한지 결정할 수 있습니다. 샘플 시나리오는 [Azure 기계 학습의 고급 분석 시나리오](machine-learning-data-science-plan-sample-scenarios.md)에 약술되어 있습니다.
 
 
 
@@ -114,4 +114,4 @@ Azure 기계 학습 스튜디오 환경을 예로 들어 보겠습니다.
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

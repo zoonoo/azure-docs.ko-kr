@@ -19,9 +19,12 @@
 # PowerShell을 사용하여 DNS 레코드를 관리하는 방법
 
 
+
 > [AZURE.SELECTOR]
+- [Azure 포털](dns-operations-recordsets-portal.md)
 - [Azure CLI](dns-operations-recordsets-cli.md)
 - [PowerShell](dns-operations-recordsets.md)
+
 
 
 이 가이드에서는 Azure PowerShell을 사용하여 DNS 영역에 대한 레코드 집합 및 레코드를 관리하는 방법을 보여 줍니다.
@@ -294,4 +297,4 @@ Remove-AzureRmDnsRecordSet cmdlet을 사용하여 레코드 집합을 삭제할 
 [레코드 집합 및 레코드 만들기 시작](dns-getstarted-create-recordset.md)<BR> [DNS 영역 관리](dns-operations-dnszones.md)<BR> [.NET SDK로 작업 자동화](dns-sdk.md)
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

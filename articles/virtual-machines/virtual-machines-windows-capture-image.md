@@ -25,6 +25,7 @@
 이 문서에서는 Azure PowerShell을 사용하여 Windows가 실행되는 Azure VM(가상 컴퓨터)을 캡처하여 다른 가상 컴퓨터를 만들 때 사용하는 방법을 보여 줍니다. 이 이미지에는 OS 디스크를 비롯해 가상 컴퓨터에 연결된 데이터 디스크가 포함됩니다. Windows VM을 만드는 데 필요한 가상 네트워크 리소스가 포함되지 않으므로 이미지를 사용하는 다른 가상 컴퓨터를 만들기 전에 설정해야 합니다. 이 이미지도 [일반화된 Windows 이미지](https://technet.microsoft.com/library/hh824938.aspx)가 되도록 준비됩니다.
 
 
+
 ## 필수 조건
 
 이 단계는 리소스 관리자 배포 모델에서 Azure 가상 컴퓨터를 이미 만들었고 응용 프로그램 설치와 같은 사용자 지정 및 데이터 디스크 연결을 비롯한 운영 체제 구성을 완료했다고 가정합니다. 아직 수행하지 않은 경우 [리소스 관리자 및 PowerShell을 사용하여 Windows VM을 만드는 방법](virtual-machines-windows-ps-create.md)을 참조하세요. [Azure 포털](https://portal.azure.com)을 사용하면 쉽게 Windows 가상 컴퓨터를 만들 수 있습니다. [Azure 포털에서 Windows 가상 컴퓨터를 만드는 방법](virtual-machines-windows-hero-tutorial.md)을 참조하세요.
@@ -34,7 +35,9 @@
 
 이 섹션에서는 Windows 가상 컴퓨터를 일반화하는 방법을 보여 줍니다. 다른 정보 사이에 있는 모든 개인 계정 정보를 제거합니다. 이 VM 이미지를 사용하여 빠르게 유사한 가상 컴퓨터를 배포하려고 할 때 일반적으로 이 작업을 수행합니다.
 
-1. Windows 가상 컴퓨터에 로그인합니다. [Azure 포털](https://portal.azure.com)에서 **찾아보기** > **가상 컴퓨터** > *Windows 가상 컴퓨터* > **연결**을 통해 이동합니다.
+> [AZURE.WARNING] 가상 컴퓨터가 일반화된 후에는 모든 사용자 계정이 제거되므로 RDP를 통해 기록할 수 없습니다. 이는 취소할 수 없는 변경입니다.
+
+1. Windows 가상 컴퓨터에 로그인합니다. [Azure 포털](https://portal.azure.com)에서 **찾아보기** > **가상 컴퓨터** > Windows 가상 컴퓨터 > **연결**을 통해 이동합니다.
 
 2. 관리자로 명령 프롬프트 창을 엽니다.
 
@@ -209,4 +212,4 @@ PowerShell 메서드의 대안으로 리소스 탐색기를 사용하여 가상 
 
 Azure PowerShell을 사용하여 새 가상 컴퓨터를 관리하려면 [Azure Resource Manager 및 PowerShell을 사용하여 가상 컴퓨터 관리](virtual-machines-windows-ps-manage.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

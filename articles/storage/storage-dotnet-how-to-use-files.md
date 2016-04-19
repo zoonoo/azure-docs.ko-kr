@@ -12,7 +12,7 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="03/03/2016"
+	  ms.date="04/07/2016"
       ms.author="minet" />
 
 # Windows에서 Azure 파일 저장소 시작
@@ -172,10 +172,12 @@ PowerShell 사용을 준비하려면 Azure PowerShell cmdlet을 다운로드하�
 
 ### 디렉터리의 파일 나열
 
-디렉터리의 파일을 보려면 디렉터리의 파일을 나열할 수 있습니다. 이 명령은 하위 디렉터리도 나열하지만 이 예에는 하위 디렉터리가 없으므로 파일만 나열됩니다.
+디렉터리의 파일을 보려면 디렉터리의 파일을 모두 나열할 수 있습니다. 이 명령은 CustomLogs 디렉터리에서 파일 및 하위 디렉터리(있는 경우)를 반환합니다.
 
 	# list files in the new directory
-	Get-AzureStorageFile -Share $s -Path CustomLogs
+	Get-AzureStorageFile -Share $s -Path CustomLogs | Get-AzureStorageFile
+
+Get-AzureStorageFile은 디렉터리 개체가 전달되는 파일 및 디렉터리의 목록을 반환합니다. "Get-AzureStorageFile -Share $s"는 루트 디렉터리에 파일 및 디렉터리의 목록을 반환합니다. 하위 디렉터리에 있는 파일의 목록을 가져오려면 Get-AzureStorageFile에 하위 디렉터리를 전달해야 합니다. 즉, 파이프에 대한 명령의 첫 번째 부분은 CustomLogs 하위 디렉터리의 디렉터리 인스턴스를 반환하는 기능을 갖습니다. 그런 다음 Get-AzureStorageFile에 전달되고 이는 CustomLogs에 파일 및 디렉터리를 반환합니다.
 
 ### 파일 복사
 
@@ -195,7 +197,7 @@ SMB 3.0에 대한 지원을 통해 파일 저장소는 이제 SMB 3.0 클라이�
 - 다른 지역의 Azure 가상 컴퓨터(SMB 3.0에만 해당)
 - 온-프레미스 클라이언트 응용 프로그램(SMB 3.0에만 해당) 
 
-클라이언트가 파일 저장소에 액세스하면 사용되는 SMB 버전은 운영 체제에서 지원하는 SMB 버전에 따라 달라집니다. 아래 표에 Windows 클라이언트에 대한 지원에 대한 요약을 제공합니다. [SMB 버전](http://blogs.technet.com/b/josebda/archive/2013/10/02/windows-server-2012-r2-which-version-of-the-smb-protocol-smb-1-0-smb-2-0-smb-2-1-smb-3-0-or-smb-3-02-you-are-using.aspx)에 대한 자세한 내용은 이 블로그를 참조하세요.
+클라이언트가 파일 저장소에 액세스하면 사용되는 SMB 버전은 운영 체제에서 지원하는 SMB 버전에 따라 달라집니다. 아래 표에 Windows 클라이언트에 대한 지원에 대한 요약을 제공합니다. [SMB 버전](http://blogs.technet.com/b/josebda/archive/2013/10/02/windows-server-2012-r2-which-version-of-the-smb-protocol-smb-1-0-smb-2-0-smb-2-1-smb-3-0-or-smb-3-02-you-are-using.aspx)에 대한 자세한 내용은 이 블로그를 참조합니다.
 
 | Windows 클라이언트 | SMB 버전 지원 |
 |------------------------|----------------------|
@@ -266,21 +268,14 @@ Azure 파일 공유를 마운트하는 방법을 보여 주기 위해 Windows를
 
 ### 네임스페이스 선언 추가
 
-솔루션 탐색기에서 program.cs 파일을 열고 파일 맨 위에 다음 네임스페이스 선언을 추가합니다.
+솔루션 탐색기에서 `program.cs` 파일을 열고 파일 맨 위에 다음 네임스페이스 선언을 추가합니다.
 
 	using Microsoft.Azure; // Namespace for Azure Configuration Manager
-	using Microsoft.WindowsAzure.Storage; // Namespaces for Storage Client Library
-	using Microsoft.WindowsAzure.Storage.Blob;
-	using Microsoft.WindowsAzure.Storage.File;
+	using Microsoft.WindowsAzure.Storage; // Namespace for Storage Client Library
+	using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage
+	using Microsoft.WindowsAzure.Storage.File; // Namespace for File storage
 
-### 프로그래밍 방식으로 연결 문자열 검색
-
-`Microsoft.WindowsAzure.CloudConfigurationManager` 클래스 또는 `System.Configuration.ConfigurationManager ` 클래스를 사용하여 app.config 파일에서 저장된 자격 증명을 검색할 수 있습니다. `Microsoft.WindowsAzure.CloudConfigurationManager` 클래스를 포함하는 Microsoft Azure 구성 관리자 패키지는 [Nuget](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager)에서 사용할 수 있습니다.
-
-이 예제에서는 `CloudConfigurationManager` 클래스를 사용하여 자격 증명을 검색한 다음 `CloudStorageAccount` 클래스를 사용하여 캡슐화하는 방법을 보여 줍니다. program.cs의 `Main()` 메서드에 다음 코드를 추가합니다.
-
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-    	CloudConfigurationManager.GetSetting("StorageConnectionString")); 
+[AZURE.INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
 ### 프로그래밍 방식으로 파일 공유 액세스
 
@@ -647,4 +642,4 @@ Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합�
 - [Microsoft Azure 파일 서비스 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Microsoft Azure 파일에 대한 연결 유지](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

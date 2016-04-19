@@ -21,7 +21,7 @@
 
 # 자습서: 스트림 분석 및 기계 학습을 사용하여 정서 분석 수행 #
 
-이 자습서는 간단한 스트림 분석 작업을 기계 학습과 신속하게 통합하는 방법을 알려주기 위해 설계되었습니다. Cortana Analytics 갤러리의 정서 분석 기계 학습 모델을 활용하여 스트리밍 텍스트 데이터를 분석하고 정서 점수를 실시간으로 확인하겠습니다. 스트리밍 Twitter 데이터의 실시간 정서 분석, 고객 지원 담당자와 고객 대화 기록 분석, 포럼/블로그/비디오에 대한 코멘트, 기타 여러 실시간 예측 점수 매기기 등의 시나리오를 이해하는 데 많은 도움이 되는 자습서입니다.
+이 자습서는 간단한 스트림 분석 작업을 기계 학습과 신속하게 통합하는 방법을 알려주기 위해 설계되었습니다. Cortana Intelligence 갤러리의 정서 분석 기계 학습 모델을 활용하여 스트리밍 텍스트 데이터를 분석하고 정서 점수를 실시간으로 확인하겠습니다. 스트리밍 Twitter 데이터의 실시간 정서 분석, 고객 지원 담당자와 고객 대화 기록 분석, 포럼/블로그/비디오에 대한 코멘트, 기타 여러 실시간 예측 점수 매기기 등의 시나리오를 이해하는 데 많은 도움이 되는 자습서입니다.
   
 이 자습서에서는 아래의 그림 1과 같이 텍스트가 포함된 샘플 CSV 파일이 Azure Blob 저장소의 입력으로 제공됩니다. 이 작업에서 정서 분석 모델을 Blob 저장소의 샘플 텍스트에 UDF(사용자 정의 함수)으로 적용할 것입니다. 최종 결과는 같은 Azure Blob 저장소에 또 다른 CSV 파일로 배치됩니다. 아래의 그림 2는 이 구성의 다이어그램을 나타낸 것입니다. 이 Blob 저장소 입력을 Azure 이벤트 허브 입력의 스트리밍 Twitter 데이터로 바꾸면 시나리오의 현실성을 더욱 높일 수 있습니다. 또한 종합 정서의 [Power BI](https://powerbi.microsoft.com/) 실시간 시각화를 구축할 수도 있습니다. 이 문서의 이후 버전에는 이러한 확장 기능이 포함될 것입니다.
 
@@ -43,7 +43,7 @@
 상위 수준에서 다음 단계를 수행할 것입니다.
 
 1.	Blob 저장소에 CSV 입력 파일 업로드
-2.	Cortana Analytics 갤러리의 정서 분석 모델을 기계 학습 작업 영역에 추가
+2.	Cortana Intelligence 갤러리의 정서 분석 모델을 기계 학습 작업 영역에 추가
 3.	이 모델을 Azure 기계 학습 작업 영역 내부의 웹 서비스로 배포
 4.	텍스트 입력의 정서를 결정하는 함수로 이 웹 서비스를 호출하는 스트림 분석 작업 만들기
 5.	스트림 분석 작업을 시작하고 출력 관찰 
@@ -63,9 +63,9 @@
 
 3.	**Blob 업로드** 아이콘을 클릭하고 **로컬 디스크의 파일**을 선택하여 CSV 파일을 업로드합니다.
 
-## Cortana Analytics 갤러리의 정서 분석 모델 추가
+## Cortana Intelligence 갤러리의 정서 분석 모델 추가
 
-1.	Cortana Analytics 갤러리에서 [예측 정서 분석 모델](https://gallery.cortanaanalytics.com/Experiment/Predictive-Mini-Twitter-sentiment-analysis-Experiment-1)을 다운로드합니다.  
+1.	Cortana Intelligence 갤러리에서 [예측 정서 분석 모델](https://gallery.cortanaintelligence.com/Experiment/Predictive-Mini-Twitter-sentiment-analysis-Experiment-1)을 다운로드합니다.  
 2.	Studio에서 **열기**를 클릭합니다.  
 
     ![스트림 분석 기계 학습 자습서 기계 학습 스튜디오 열기](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-open-ml-studio.png)
@@ -140,7 +140,7 @@
 
 ## 결론
 
-이 자습서에서는 스트리밍 텍스트 데이터를 읽어서 실시간 정서 분석을 적용하는 스트림 분석 작업을 만들었습니다. 여러분은 복잡한 정서 분석 모델 구축에 대한 걱정 없이 이 모든 작업을 수행할 수 있었습니다. 이것이 바로 Cortana Analytics Suite의 장점 중 하나입니다.
+이 자습서에서는 스트리밍 텍스트 데이터를 읽어서 실시간 정서 분석을 적용하는 스트림 분석 작업을 만들었습니다. 여러분은 복잡한 정서 분석 모델 구축에 대한 걱정 없이 이 모든 작업을 수행할 수 있었습니다. 이것이 바로 Cortana Intelligence Suite의 장점 중 하나입니다.
 
 또한 Azure 기계 학습 함수 관련 메트릭을 관찰할 수 있습니다. **모니터** 탭을 클릭하세요. 세 가지 함수 관련 메트릭이 있습니다.
   
@@ -150,4 +150,4 @@
 
     ![스트림 분석 기계 학습 자습서 ml 모니터링 뷰](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-monitor-view.png)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0406_2016-->

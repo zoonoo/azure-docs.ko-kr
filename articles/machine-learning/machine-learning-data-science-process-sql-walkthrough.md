@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016" 
+	ms.date="02/08/2016"
 	ms.author="mohabib;fashah;bradsev"/>
 
 
@@ -74,13 +74,15 @@ trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_licence 및
 
 Azure 데이터 과학 환경을 설정하려면
 
-1. [저장소 계정 만들기](../storage-create-storage-account.md)
+1. [저장소 계정 만들기](../storage/storage-create-storage-account.md)
 
 2. [Azure ML 작업 영역 만들기](machine-learning-create-workspace.md)
 
 3. [SQL Server 및 IPython Notebook 서버 역할을 할 데이터 과학 가상 컴퓨터 프로비전](machine-learning-data-science-setup-sql-server-virtual-machine.md)
 
-	> [AZURE.NOTE] 샘플 스크립트와 IPython Notebook은 설정 프로세스 중에 데이터 과학 가상 컴퓨터로 다운로드됩니다. VM 사후 설치 스크립트가 완료되면 샘플이 VM의 문서 라이브러리에 배치됩니다. - 샘플 스크립트:`C:\Users<user_name>\Documents\Data Science Scripts` -샘플 IPython 노트북: `C:\Users<user_name>\Documents\IPython Notebooks\DataScienceSamples` 여기서 `<user_name>`은(는) VM의 Windows 로그인 이름입니다. 샘플 폴더는 **Sample Scripts** 및 **Sample IPython Notebooks**라고 합니다.
+	> [AZURE.NOTE] 샘플 스크립트와 IPython Notebook은 설정 프로세스 중에 데이터 과학 가상 컴퓨터로 다운로드됩니다. VM 사후 설치 스크립트가 완료되면 샘플이 VM의 문서 라이브러리에 배치됩니다.
+	> - 샘플 스크립트: `C:\Users<user_name>\Documents\Data Science Scripts`  
+	> - 샘플 IPython Notebook: `C:\Users<user_name>\Documents\IPython Notebooks\DataScienceSamples` 여기서 `<user_name>`은(는) VM의 Windows 로그인 이름입니다. 샘플 폴더는 **Sample Scripts** 및 **Sample IPython Notebooks**라고 합니다.
 
 
 데이터 집합 크기, 데이터 원본 위치 및 선택한 Azure 대상 환경에 따라 이 시나리오는 [시나리오 5: 로컬 파일에서 큰 데이터집합, Azure VM에서 대상 SQL Server](../machine-learning-data-science-plan-sample-scenarios.md#largelocaltodb)
@@ -714,4 +716,4 @@ Azure 기계 학습에서는 학습 실험의 구성 요소를 기반으로 점�
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

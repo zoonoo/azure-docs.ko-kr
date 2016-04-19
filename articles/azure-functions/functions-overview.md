@@ -68,4 +68,8 @@ Azure 함수를 실행하는 방법은 동적 앱 서비스 계획을 사용하�
 
 **클래식 앱 서비스 계획**을 사용하면 웹, 모바일 및 API 앱과 같은 함수를 실행할 수 있습니다. 다른 응용 프로그램에 앱 서비스를 이미 사용중인 경우 적합한 솔루션입니다. 함수는 추가 비용 없이 동일한 계획에서 실행할 수 있습니다 전체 세부 정보는 [앱 서비스 가격 책정 페이지](/pricing/details/app-service/)에서 찾을 수 있습니다.
 
-<!---HONumber=AcomDC_0406_2016-->
+## 문제 보고
+
+[AZURE.INCLUDE [문제 보고](../../includes/functions-reporting-issues.md)]
+
+<!---HONumber=AcomDC_0413_2016-->

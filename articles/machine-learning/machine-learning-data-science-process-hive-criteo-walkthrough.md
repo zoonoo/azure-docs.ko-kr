@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="실행 중인 Cortana 분석 프로세스: 1TB Criteo 데이터 집합에서 HDInsight Hadoop 클러스터 사용 | Microsoft Azure" 
-	description="HDInsight Hadoop 클러스터를 사용하는 종단 간 시나리오에 ADAPT(고급 분석 처리 및 기술)를 사용하여 공개적으로 사용 가능한 1TB 데이터 집합으로 모델을 빌드 및 배포합니다." 
-	services="machine-learning,hdinsight" 
-	documentationCenter="" 
-	authors="bradsev" 
-	manager="paulettm" 
+<properties
+	pageTitle="실행 중인 Cortana 분석 프로세스: 1TB Criteo 데이터 집합에서 HDInsight Hadoop 클러스터 사용 | Microsoft Azure"
+	description="HDInsight Hadoop 클러스터를 사용하는 종단 간 시나리오에 ADAPT(고급 분석 처리 및 기술)를 사용하여 공개적으로 사용 가능한 1TB 데이터 집합으로 모델을 빌드 및 배포합니다."
+	services="machine-learning,hdinsight"
+	documentationCenter=""
+	authors="bradsev"
+	manager="paulettm"
 	editor="cgronlun" />
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/08/2016" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/08/2016"
 	ms.author="ginathan;bradsev" />
 
 # 실행 중인 Cortana 분석 프로세스 - 1TB 데이터 집합에서 Azure HDInsight Hadoop 클러스터 사용
@@ -29,15 +29,15 @@ Criteo 데이터는 클릭 예측 데이터 집합으로, 43억 개가 넘는 �
 
 이 데이터 집합의 각 레코드에는 40개의 열이 있습니다.
 
-- 첫 번째 열은 사용자가 광고를 클릭했는지(값 1) 또는 클릭하지 않았는지(값 0)를 나타내는 레이블 열입니다. 
-- 다음 13개의 열은 숫자입니다. 
-- 마지막 26개는 범주 열입니다. 
+- 첫 번째 열은 사용자가 광고를 클릭했는지(값 1) 또는 클릭하지 않았는지(값 0)를 나타내는 레이블 열입니다.
+- 다음 13개의 열은 숫자입니다.
+- 마지막 26개는 범주 열입니다.
 
 열은 익명으로 처리되고 일련의 열거된 이름, 즉 "Col1"(레이블 열)부터 'Col40"(마지막 범주 열)까지를 사용합니다.
 
 다음은 이 데이터 집합에서 발췌한 두 관찰(행)의 처음 20개 열입니다.
 
-	Col1	Col2	Col3	Col4	Col5	Col6	Col7	Col8	Col9	Col10	Col11	Col12	Col13	Col14	Col15			Col16			Col17			Col18			Col19		Col20	
+	Col1	Col2	Col3	Col4	Col5	Col6	Col7	Col8	Col9	Col10	Col11	Col12	Col13	Col14	Col15			Col16			Col17			Col18			Col19		Col20
 
 	0       40      42      2       54      3       0       0       2       16      0       1       4448    4       1acfe1ee        1b2ff61f        2e8b2631        6faef306        c6fc10d3    6fcd6dcb           
 	0               24              27      5               0       2       1               3       10064           9a8cb066        7a06385f        417e6103        2170fc56        acf676aa    6fcd6dcb                      
@@ -62,7 +62,7 @@ Criteo 데이터는 클릭 예측 데이터 집합으로, 43억 개가 넘는 �
 
 다음 3단계에 따라 HDInsight 클러스터를 사용하여 예측 분석 솔루션을 빌드하기 위한 Azure 데이터 과학 환경을 설정합니다.
 
-1. [저장소 계정 만들기](storage-whatis-account.md):이 저장소 계정은 Azure Blob 저장소에 데이터를 저장하는 데 사용됩니다. HDInsight 클러스터에 사용되는 데이터는 여기에 저장됩니다.
+1. [저장소 계정 만들기](../storage/storage-create-storage-account.md):이 저장소 계정은 Azure Blob 저장소에 데이터를 저장하는 데 사용됩니다. HDInsight 클러스터에 사용되는 데이터는 여기에 저장됩니다.
 
 2. [데이터 과학용 Azure HDInsight Hadoop 클러스터 사용자 지정](machine-learning-data-science-customize-hadoop-cluster.md):이 단계에서는 모든 노드에 설치된 64비트 Anaconda Python 2.7을 사용하여 Azure HDInsight Hadoop 클러스터를 만듭니다. HDInsight 클러스터를 사용자 지정할 때 두 가지 중요한 단계(이 항목에 설명)를 완료해야 합니다.
 
@@ -80,10 +80,10 @@ Criteo 데이터는 클릭 예측 데이터 집합으로, 43억 개가 넘는 �
 
 **Continue to Download**를 클릭하여 데이터 집합 및 사용성을 읽어봅니다.
 
-데이터는 공용 [Azure Blob 저장소](storage-dotnet-how-to-use-blobs.md) 위치인 wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/에 있습니다. "wasb"는 Azure Blob 저장소 위치를 나타냅니다.
+데이터는 공용 [Azure Blob 저장소](../storage/storage-dotnet-how-to-use-blobs.md) 위치인 wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/에 있습니다. "wasb"는 Azure Blob 저장소 위치를 나타냅니다.
 
 1. 이 공용 Blob 저장소의 데이터는 압축 해제된 데이터의 하위 폴더 3개로 구성됩니다.
-		
+
 	1. 하위 폴더 *raw/count/*는 처음 21일간의 데이터(day\_00~day\_20)를 포함합니다.
 	2. 하위 폴더 *raw/train/*은 단일 날짜의 데이터(day\_21)를 포함합니다.
 	3. 하위 폴더 *raw/test/*는 2일간의 데이터(day\_22 및 day\_23)를 포함합니다.
@@ -120,9 +120,9 @@ Criteo 데이터 집합에 대한 Hive 테이블을 만들려면 헤드 노드�
 아래 코드는 "criteo" 데이터베이스를 만들고 4개의 테이블을 생성합니다.
 
 
-* *개수 생성을 위한 테이블* 한 개(day\_00 - day\_20의 날짜를 기반으로 작성) 
-* *학습 데이터 집합으로 사용하기 위한 테이블* 한 개(day\_21의 날짜를 기반으로 작성) 
-* *테스트 데이터 집합으로 사용하기 위한 테이블* 두 개(각각 day\_22와 day\_23의 날짜를 기반으로 작성) 
+* *개수 생성을 위한 테이블* 한 개(day\_00 - day\_20의 날짜를 기반으로 작성)
+* *학습 데이터 집합으로 사용하기 위한 테이블* 한 개(day\_21의 날짜를 기반으로 작성)
+* *테스트 데이터 집합으로 사용하기 위한 테이블* 두 개(각각 day\_22와 day\_23의 날짜를 기반으로 작성)
 
 날짜 중 하루는 휴일이며 모델에서 휴일과 평일 간의 클릭률 차이를 감지할 수 있는지 확인할 것이기 때문에 테스트 데이터 집합을 두 개의 테이블로 분할합니다.
 
@@ -225,7 +225,7 @@ Criteo 데이터 집합에 대한 Hive 테이블을 만들려면 헤드 노드�
 		SELECT COUNT(*) FROM criteo.criteo_test_day_22;
 
 다음과 같은 결과가 산출됩니다.
-	
+
 		189747893
 		Time taken: 267.968 seconds, Fetched: 1 row(s)
 
@@ -240,7 +240,7 @@ Criteo 데이터 집합에 대한 Hive 테이블을 만들려면 헤드 노드�
 		SELECT COUNT(*) FROM criteo.criteo_test_day_23;
 
 다음 출력이 표시됩니다.
-	
+
 		178274637
 		Time taken: 253.089 seconds, Fetched: 1 row(s)
 
@@ -257,12 +257,12 @@ Criteo 데이터 집합에 대한 Hive 테이블을 만들려면 헤드 노드�
 		Time taken: 459.435 seconds, Fetched: 2 row(s)
 
 긍정 레이블의 백분율은 약 3.3%(원래 데이터 집합과 일치)입니다.
-		
+
 ### 학습 데이터 집합의 일부 숫자 변수에 대한 히스토그램 분포
 
 Hive의 기본 "histogram\_numeric" 함수를 사용하여 숫자 변수의 변수를 확인할 수 있습니다. [sample&#95;hive&#95;criteo&#95;histogram&#95;numeric.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_histogram_numeric.hql)의 내용은 다음과 같습니다.
 
-		SELECT CAST(hist.x as int) as bin_center, CAST(hist.y as bigint) as bin_height FROM 
+		SELECT CAST(hist.x as int) as bin_center, CAST(hist.y as bigint) as bin_height FROM
 			(SELECT
             histogram_numeric(col2, 20) as col2_hist
             FROM
@@ -324,7 +324,7 @@ Col15에 1,900만 개의 고유 값이 있습니다. "one-hot encoding"과 같�
 
 이 하위 섹션의 마지막에 일부 다른 범주 열에 대해서도 고유 값 수를 알아봅니다. [sample&#95;hive&#95;criteo&#95;unique&#95;values&#95;multiple&#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_multiple_categoricals.hql)의 내용은 다음과 같습니다.
 
-		SELECT COUNT(DISTINCT(Col16)), COUNT(DISTINCT(Col17)), 
+		SELECT COUNT(DISTINCT(Col16)), COUNT(DISTINCT(Col17)),
 		COUNT(DISTINCT(Col18), COUNT(DISTINCT(Col19), COUNT(DISTINCT(Col20))
 		FROM criteo.criteo_train;
 
@@ -458,7 +458,7 @@ Hive 테이블에서 데이터를 가져오는 동안의 **Reader** 모양은 �
 6. **Location of output data**(출력 데이터 위치): "Azure"를 선택합니다.
 7. **Azure storage account name**(Azure 저장소 계정 이름): 클러스터와 연결된 저장소 계정입니다.
 8. **Azure storage account key**(Azure 저장소 계정 키): 클러스터와 연결된 저장소 계정의 키입니다.
-9. **Azure container name**(Azure 컨테이너 이름): 클러스터 이름 "abc"의 경우 일반적으로 단순히 "abc"입니다. 
+9. **Azure container name**(Azure 컨테이너 이름): 클러스터 이름 "abc"의 경우 일반적으로 단순히 "abc"입니다.
 
 
 **Reader**에서 데이터 가져오기를 완료하면(모듈에 녹색 틱이 표시됨) 이 데이터를 데이터 집합(선택한 이름 사용)으로 저장합니다. 다음과 같이 표시됩니다.
@@ -472,7 +472,7 @@ Hive 테이블에서 데이터를 가져오는 동안의 **Reader** 모양은 �
 ![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/cl5tpGw.png)
 
 ***중요:*** **학습 및 테스트 데이터 집합 모두에 대해 이를 수행합니다. 또한 데이터베이스 이름 및 이 목적으로 지정한 테이블 이름을 사용해야 합니다. 그림에서 사용한 값은 오직 예제용입니다.**
- 
+
 ### <a name="step2"></a> 2단계: Azure 기계 학습에서 클릭/클릭 안 함을 예측하기 위한 간단한 실험 만들기
 
 Azure 기계 학습 실험은 아래와 같이 표시됩니다.
@@ -600,7 +600,7 @@ MapReduce 모드에서 모듈을 사용하려면(큰 데이터 집합에 적합)
 
 다음으로 웹 서비스에 대한 입력 및 출력 포트를 만들어야 합니다.
 
-* 입력 포트는 예측이 필요한 데이터와 동일한 형식의 데이터를 사용합니다. 
+* 입력 포트는 예측이 필요한 데이터와 동일한 형식의 데이터를 사용합니다.
 * 출력 포트는 점수가 매겨진 레이블 및 관련 확률을 반환합니다.
 
 #### 입력 포트에 대한 몇 가지 데이터 행 선택
@@ -643,7 +643,7 @@ count 테이블이 크기 때문에 먼저 테스트 데이터의 몇 줄을 가
 
 왼쪽에 웹 서비스에 대한 두 개의 링크가 있습니다.
 
-* **REQUEST/RESPONSE** 서비스(또는 RRS)는 단일 예측에 사용되며 이 워크숍에서는 이를 활용합니다. 
+* **REQUEST/RESPONSE** 서비스(또는 RRS)는 단일 예측에 사용되며 이 워크숍에서는 이를 활용합니다.
 * **BATCH EXECUTION** 서비스(또는 BES)는 배치 예측에 사용되며 이 서비스를 사용하려면 예측에 사용되는 입력 데이터가 Azure Blob 저장소에 있어야 합니다.
 
 **REQUEST/RESPONSE** 링크를 클릭하면 C#, python 및 R로 미리 만든 코드를 제공하는 페이지가 나타납니다. 이 코드를 사용하여 웹 서비스를 간편하게 호출할 수 있습니다. 이 페이지의 API 키를 인증에 사용해야 합니다.
@@ -663,4 +663,4 @@ count 테이블이 크기 때문에 먼저 테스트 데이터의 몇 줄을 가
 
 Azure 기계 학습을 사용하여 대규모 데이터 집합을 처리하는 방법을 보여 주는 전체 연습이 끝났습니다. 테라바이트의 데이터로 시작해서 예측 모델을 구성하고 클라우드의 웹 서비스로 배포했습니다.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

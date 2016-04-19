@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="차량 원격 분석 솔루션 플레이 북: 솔루션에 대한 심층 분석 | Microsoft Azure" 
-	description="Cortana Analytics의 기능을 사용하여 차량 상태 및 주행 습관에 대한 예측 가능한 통찰력 및 실시간 정보를 얻습니다." 
+	description="Cortana Intelligence의 기능을 사용하여 차량 상태 및 주행 습관에 대한 예측 가능한 통찰력 및 실시간 정보를 얻습니다." 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev" 
@@ -99,9 +99,11 @@ XUF99EW9OIQOMV7Q7 | 가족용 승용차
 
 
 ### 시뮬레이션된 데이터 생성
-1.	차량 텔레매틱스 노드 안의 오른쪽 위에 있는 화살표를 클릭하여 데이터 시뮬레이터 패키지를 다운로드합니다. 파일을 컴퓨터에 로컬로 저장하고 추출합니다. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig3-vehicle-telemetry-blueprint.png) *그림 3 - 차량 원격 분석 솔루션 청사진*
+1.	차량 텔레매틱스 노드 안의 오른쪽 위에 있는 화살표를 클릭하여 데이터 시뮬레이터 패키지를 다운로드합니다. 파일을 컴퓨터에 로컬로 저장하고 추출합니다.
+![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig3-vehicle-telemetry-blueprint.png) *그림 3 - 차량 원격 분석 솔루션 청사진*
 
-2.	로컬 컴퓨터에서 차량 텔레매틱스 시뮬레이터 패키지를 추출한 폴더로 이동합니다. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig4-vehicle-telematics-simulator-folder.png) *그림 4 – 차량 텔레매틱스 시뮬레이터 폴더*
+2.	로컬 컴퓨터에서 차량 텔레매틱스 시뮬레이터 패키지를 추출한 폴더로 이동합니다.
+![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig4-vehicle-telematics-simulator-folder.png) *그림 4 – 차량 텔레매틱스 시뮬레이터 폴더*
 
 3.	응용 프로그램 **CarEventGenerator.exe**를 실행합니다.
 
@@ -155,9 +157,9 @@ Azure 이벤트 허브, 스트림 분석 및 데이터 팩터리의 조합을 �
 
 ### 참조
 
-[스트림 수집을 위한 Azure 이벤트 허브 SDK](event-hubs-csharp-ephcs-getstarted.md)
+[스트림 수집을 위한 Azure 이벤트 허브 SDK](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
-[Azure 데이터 팩터리 데이터 이동 기능](data-factory-data-movement-activities.md) [Azure 데이터 팩터리 DotNet 작업](data-factory-use-custom-activities.md)
+[Azure 데이터 팩터리 데이터 이동 기능](../data-factory/data-factory-data-movement-activities.md) [Azure 데이터 팩터리 DotNet 작업](../data-factory/data-factory-use-custom-activities.md)
 
 [샘플 데이터 준비를 위한 Azure 데이터 팩터리 DotNet 작업 Visual Studio 솔루션](http://go.microsoft.com/fwlink/?LinkId=717077)
 
@@ -376,7 +378,8 @@ Azure 스트림 분석에서 모든 '창 작업' 기능에 대한 자세한 내�
 
 응용 프로그램은 실시간으로 기계 학습 모델을 운영할 솔루션의 일부로 포함됩니다. "RealTimeDashboardApp"이라는 응용 프로그램이 솔루션 배포의 일부로 만들어지고 구성됩니다. 이 응용 프로그램은 다음을 수행합니다.
 
-1.	스트림 분석이 이벤트를 연속적인 패턴으로 게시하는 이벤트 허브 인스턴스를 수신 대기합니다. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig16-vehicle-telematics-stream-analytics-query-for-publishing.png)* 그림 16 - 데이터를 출력 이벤트 허브 인스턴스에 게시하기 위한 스트림 분석 쿼리* 
+1.	스트림 분석이 이벤트를 연속적인 패턴으로 게시하는 이벤트 허브 인스턴스를 수신 대기합니다.
+![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig16-vehicle-telematics-stream-analytics-query-for-publishing.png)* 그림 16 - 데이터를 출력 이벤트 허브 인스턴스에 게시하기 위한 스트림 분석 쿼리* 
 
 2.	이 응용 프로그램이 수신하는 모든 이벤트에 대해 다음을 수행합니다.
 
@@ -389,10 +392,13 @@ Azure 스트림 분석에서 모든 '창 작업' 기능에 대한 자세한 내�
 
 ****실시간 대시보드 응용 프로그램을 실행하려면**
 
-1.	다이어그램 보기에서 PowerBI 노드를 클릭하고 속성 창에서 '실시간 대시보드 응용 프로그램 다운로드' 링크를 클릭합니다. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17-vehicle-telematics-powerbi-dashboard-setup.png) *그림 17 - PowerBI 대시보드 설정 지침*
-2.	로컬에 압축을 풀고 저장합니다. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig18-vehicle-telematics-realtimedashboardapp-folder.png) *그림 18 - RealtimeDashboardApp 폴더*
+1.	다이어그램 보기에서 PowerBI 노드를 클릭하고 속성 창에서 '실시간 대시보드 응용 프로그램 다운로드' 링크를 클릭합니다.
+![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17-vehicle-telematics-powerbi-dashboard-setup.png) *그림 17 - PowerBI 대시보드 설정 지침*
+2.	로컬에 압축을 풀고 저장합니다.
+![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig18-vehicle-telematics-realtimedashboardapp-folder.png) *그림 18 - RealtimeDashboardApp 폴더*
 3.	'RealtimeDashboardApp.exe' 응용 프로그램을 실행합니다.
-4.	유효한 Power BI 자격 증명을 제공하고 로그인한 후 동의를 클릭합니다. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19a-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19b-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) 
+4.	유효한 Power BI 자격 증명을 제공하고 로그인한 후 동의를 클릭합니다.
+![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19a-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19b-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) 
 
 *그림 19 - RealtimeDashboardApp: PowerBI에 로그인*
 
@@ -706,4 +712,4 @@ PowerBI 보고서 및 대시보드 설정에 관한 자세한 지침을 보려�
 
 이 문서는 차량 원격 분석 솔루션에 대한 자세한 드릴다운을 포함됩니다. 예측 및 동작과 함께 실시간 및 일괄 분석을 위한 람다 아키텍처 패턴을 설명합니다. 이 패턴은 실행 부하 과다 경로(실시간) 및 콜드 경로(일괄 처리) 분석이 필요한 다양한 사용 사례에 적용됩니다.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0406_2016-->

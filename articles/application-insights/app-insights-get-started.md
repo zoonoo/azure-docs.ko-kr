@@ -25,6 +25,8 @@
 
 현재는 iOS, Android, Windows 앱과 J2EE 및 ASP.NET 웹 응용 프로그램, WCF 서비스를 지원합니다. 웹앱은 Azure 또는 고유한 온-프레미스 서버에서 실행될 수 있습니다. JavaScript SDK는 모든 웹 페이지에서 실행됩니다.
 
+[소개 애니메이션을 살펴보겠습니다](https://www.youtube.com/watch?v=fX2NtGrh-Y0).
+
 ## 시작
 
 다음 다이어그램에 표시되는 진입점에서 순서에 상관없이 어떤 조합으로도 시작할 수 있습니다. 사용자에게 적합한 경로를 따릅니다.
@@ -48,7 +50,7 @@ Application Insights는 앱에 SDK를 추가하여 작동하며, [Azure 포털](
 
 * 질문 및 문제:
  * [문제 해결][qna]
- * [MSDN 포럼](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
+ * [MSDN 포럼](https://social.msdn.microsoft.com/Forums/vstudio/ko-KR/home?forum=ApplicationInsights)
  * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
 * 버그:
  * [연결](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
@@ -74,4 +76,4 @@ Application Insights는 앱에 SDK를 추가하여 작동하며, [Azure 포털](
 
 [qna]: app-insights-troubleshoot-faq.md
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

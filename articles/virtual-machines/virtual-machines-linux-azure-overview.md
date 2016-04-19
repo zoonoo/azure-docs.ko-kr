@@ -52,7 +52,7 @@ Azure에서 VM을 배포할 경우 워크로드에 적합한 크기의 시리즈
 * D 시리즈의 최신 버전인 Dv2 시리즈는 더 강력한 CPU 기능을 제공합니다. Dv2 시리즈 CPU는 D 시리즈 CPU보다 약 35% 빠릅니다. 최근 출시된 2.4GHz Intel Xeon® E5-2673 v3(Haswell) 프로세서에 기반하고 Intel Turbo Boost Technology 2.0을 사용하여 최대 3.2GHz까지 올라갈 수 있습니다. Dv2 시리즈는 D 시리즈와 메모리 및 디스크 구성이 같습니다.
 * G 시리즈 VM은 많은 메모리를 제공하고 Intel Xeon E5 V3 제품군 프로세서가 설치된 호스트에서 실행합니다.
 
-참고: DS 시리즈 및 GS 시리즈 VM은 I/O가 많은 워크로드에 SSD가 지원하는 높은 성능과 짧은 대기 시간을 갖는 저장소인 프리미엄 저장소에 대한 권한을 갖습니다. 프리미엄 저장소는 특정 지역에서만 사용할 수 있습니다. 자세한 내용은 **[프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../storage/storage-premium-storage-preview-portal.md)**를 참조하세요.
+참고: DS 시리즈 및 GS 시리즈 VM은 I/O가 많은 워크로드에 SSD가 지원하는 높은 성능과 짧은 대기 시간을 갖는 저장소인 프리미엄 저장소에 대한 권한을 갖습니다. 프리미엄 저장소는 특정 지역에서만 사용할 수 있습니다. 자세한 내용은 **[프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../storage/storage-premium-storage.md)**를 참조하세요.
 
 각 Azure 구독에는 프로젝트에 대해 많은 수의 VM을 배포하는 데 영향을 줄 수 있는 기본 할당량 한도가 있습니다. 구독별 기준으로 현재 제한은 지역당 20대의 VM입니다. 이 할당량은 제한 증가를 요청하는 지원 티켓을 제출하여 증가될 수 있습니다. 할당량 제한에 대한 자세한 내용은 **[Azure 구독 서비스 제한](../azure-subscription-service-limits.md)**을 참조하세요.
 
@@ -60,4 +60,4 @@ Azure에서 VM을 배포할 경우 워크로드에 적합한 크기의 시리즈
 
 무료 평가판 계정. **[하나 가져옵니다](https://azure.microsoft.com/pricing/free-trial/)**. 이미 있는 경우 체험하려면 **[Azure CLI 설치](../xplat-cli-install.md)**합니다. 설치했다면 [이제 Linux VM 만들기로 이동](virtual-machines-linux-quick-create-cli.md)합니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

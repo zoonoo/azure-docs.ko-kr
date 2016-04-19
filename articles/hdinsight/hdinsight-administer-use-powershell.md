@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
+	ms.date="04/05/2016"
 	ms.author="jgao"/>
 
 # Azure PowerShell을 사용하여 HDInsight의 Hadoop 클러스터 관리
@@ -66,84 +66,7 @@ WebPI는 월별 업데이트를 받습니다. PowerShell 갤러리는 지속적�
 
 ##클러스터 만들기
 
-HDInsight 클러스터는 Azure 리소스 그룹 및 Azure 저장소 계정의 Blob 컨테이너에 필요합니다.
-
-- Azure 리소스 그룹은 Azure 리소스에 대한 논리적 컨테이너입니다. Azure 리소스 그룹 및 HDInsight 클러스터는 동일한 위치에 있을 필요가 없습니다. 자세한 내용은 [Azure 리소스 관리자에서 Azure PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하세요.
-- HDInsight는 기본 파일 시스템으로 Azure 저장소 계정의 Blob 컨테이너를 사용합니다. HDInsight 클러스터를 만들려면 먼저 Azure 저장소 계정 및 저장소 컨테이너가 필요합니다. 기본 저장소 계정 및 HDInsight 클러스터는 동일한 위치에 있어야 합니다.
-
-[AZURE.INCLUDE [provisioningnote](../../includes/hdinsight-provisioning.md)]
-
-**Azure에 연결하려면**
-
-	Login-AzureRmAccount
-	Get-AzureRmSubscription  # list your subscriptions and get your subscription ID
-	Select-AzureRmSubscription -SubscriptionId "<Your Azure Subscription ID>"
-
-**Select-AzureRMSubscription**은 여러 Azure 구독이 있는 경우 호출됩니다.
-	
-**새 리소스 그룹을 만들려면**
-
-	New-AzureRmResourceGroup -name <New Azure Resource Group Name> -Location "<Azure Location>"  # For example, "EAST US 2"
-
-**Azure 저장소 계정을 만들려면**
-
-	New-AzureRmStorageAccount -ResourceGroupName <Azure Resource Group Name> -Name <Azure Storage Account Name> -Location "<Azure Location>" -Type <AccountType> # account type example: Standard_LRS for zero redundancy storage
-	
-**Standard\_ZRS**는 Azure 테이블을 지원하지 않으므로 사용하지 않습니다. HDInsight는 Azure 테이블을 사용하여 로깅합니다. 저장소 계정 유형의 전체 목록은[https://msdn.microsoft.com/library/azure/hh264518.aspx](https://msdn.microsoft.com/library/azure/hh264518.aspx)을 참조하세요.
-
-[AZURE.INCLUDE [데이터 센터 목록](../../includes/hdinsight-pricing-data-centers-clusters.md)]
-
-
-Azure 포털을 사용하여 Azure 저장소 계정을 만드는 방법에 대한 자세한 내용은 [Azure 저장소 계정 정보](../storage/storage-create-storage-account.md)를 참조하세요.
-
-저장소 계정이 이미 있지만 계정 이름과 계정 키를 모르는 경우 다음 명령을 사용하여 정보를 검색할 수 있습니다.
-
-	# List Storage accounts for the current subscription
-	Get-AzureRmStorageAccount
-	# List the keys for a Storage account
-	Get-AzureRmStorageAccountKey -ResourceGroupName <Azure Resource Group Name> -name $storageAccountName <Azure Storage Account Name>
-
-포털을 사용하여 정보를 얻는 방법에 대한 자세한 내용은 [Azure 저장소 계정 정보](../storage/storage-create-storage-account.md)의 "저장소 액세스 키 보기, 복사 및 다시 생성" 섹션을 참조하세요.
-
-**Azure 저장소 컨테이너를 만들려면**
-
-Azure PowerShell은 HDInsight 만들기 프로세스 중 Blob 컨테이너를 만들 수 없습니다. 다음 스크립트를 사용하여 컨테이너를 만들 수 있습니다.
-
-	$resourceGroupName = "<AzureResoureGroupName>"
-	$storageAccountName = "<Azure Storage Account Name>"
-	$storageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccount |  %{ $_.Key1 }
-	$containerName="<AzureBlobContainerName>"
-
-	# Create a storage context object
-	$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
-
-	# Create a Blob storage container
-	New-AzureStorageContainer -Name $containerName -Context $destContext
-
-**클러스터 만들려면**
-
-저장소 계정 및 Blob 컨테이너가 준비되면 클러스터를 만들 준비가 되었습니다.
-
-	$resourceGroupName = "<AzureResoureGroupName>"
-
-	$storageAccountName = "<Azure Storage Account Name>"
-	$containerName = "<AzureBlobContainerName>"
-
-	$clusterName = "<HDInsightClusterName>"
-	$location = "<AzureDataCenter>"
-	$clusterNodes = <ClusterSizeInNodes>
-
-	# Get the Storage account key
-	$storageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName | %{ $_.Key1 }
-
-	# Create a new HDInsight cluster
-	New-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName `
-		-ClusterName $clusterName `
-		-Location $location `
-		-DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" `
-		-DefaultStorageAccountKey $storageAccountKey `
-		-DefaultStorageContainer $containerName  `
-		-ClusterSizeInNodes $clusterNodes
+[Azure PowerShell을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)를 참조하세요.
 
 ##클러스터 나열
 현재 구독의 클러스터를 모두 나열하려면 다음 명령을 사용합니다.
@@ -332,4 +255,4 @@ ARM 모드에서 각 HDInsight 클러스터는 Azure 리소스 그룹에 속합�
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -4,7 +4,7 @@
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/21/2016"
+   ms.date="04/05/2016"
    ms.author="tomfitz"/>
 
 # 리소스 잠금 템플릿 스키마
@@ -42,20 +42,21 @@
 
 다음 표에서는 스키마에 설정해야 하는 값에 대해 설명합니다.
 
-| 이름 | 형식 | 필수 | 허용된 값 | 설명 |
-| ---- | ---- | -------- | ---------------- | ----------- |
-| type | enum | 예 | 리소스의 경우: <br />**{namespace}/{type}/providers/locks**<br /><br />리소스 그룹의 경우:<br />**Microsoft.Authorization/locks** | 만들려는 리소스 종류입니다. |
-| apiVersion | enum | 예 | **2015-01-01** | 리소스를 만들 때 사용하는 API 버전입니다. |  
-| name | string | 예 | 리소스의 경우:<br />**{resouce}/Microsoft.Authorization/{lockname}**<br /><br />리소스 그룹의 경우:<br />**{lockname}****<br /><br />최대 64자<br /><, > %, &, ? 또는 제어 문자를 포함할 수 없습니다. | 잠글 리소스 및 잠금 이름을 지정하는 값입니다. | 
-| dependsOn | array| 아니요 | 쉼표로 구분된 리소스 이름 및 리소스 고유 식별자 목록입니다. | 이 잠금에 따라 달라지는 리소스 컬렉션입니다. 잠근 리소스가 동일한 템플릿으로 배포되는 경우 해당 리소스 이름을 이 요소에 포함하여 먼저 배포되도록 해야 합니다.|
-| properties | object | 예 | (아래 참조) | 잠금 유형을 식별하고 잠금에 대해 설명하는 개체입니다. | 
+| 이름 | 값 |
+| ---- | ---- | 
+| type | 열거형<br />필수<br />**{namespace}/{type}/providers/locks** - 리소스의 경우 또는<br />**Microsoft.Authorization/locks** - 리소스 그룹의 경우<br /><br />만들려는 리소스 종류입니다. |
+| apiVersion | 열거형<br />필수<br />**2015-01-01**<br /><br />리소스를 만들 때 사용하는 API 버전입니다. |  
+| name | 문자열<br />필수<br />**{resource}/Microsoft.Authorization/{lockname}** - 리소스의 경우 또는<br />**{lockname}** - 리소스 그룹의 경우<br />최대 64자이며, <, > %, &, ? 또는 제어 문자를 포함할 수 없습니다.<br /><br />잠그려는 리소스와 잠금 이름을 둘 다 지정하는 값입니다. |
+| dependsOn | 배열<br />선택<br />쉼표로 구분된 리소스 이름 또는 리소스 고유 식별자 목록입니다.<br /><br />이 잠금에 따라 달라지는 리소스 컬렉션입니다. 잠그려는 리소스가 동일한 템플릿에서 배포되면 해당 리소스 이름을 이 요소에 포함하여 리소스가 먼저 배포되도록 합니다. | 
+| properties | 개체<br />필요<br />[properties 개체](#properties)<br /><br />잠금 유형을 식별하고 잠금에 대해 설명하는 개체입니다. |  
 
+<a id="properties" />
 ### properties 개체
 
-| 이름 | 형식 | 필수 | 허용된 값 | 설명 |
-| ------- | ---- | ---------------- | -------- | ----------- |
-| level | enum | 예 | **CannotDelete** | 범위에 적용되는 잠금 유형입니다. CanNotDelete을 사용하면 수정할 수 있지만 삭제는 할 수 없습니다. |
-| 정보 | string | 아니요 | 512자 | 잠금에 대한 설명입니다. |
+| 이름 | 값 |
+| ------- | ---- |
+| level | 열거형<br />필수<br />**CannotDelete**<br /><br />범위에 적용되는 잠금 유형입니다. CanNotDelete을 사용하면 수정할 수 있지만 삭제는 할 수 없습니다. |
+| 정보 | 문자열<br />선택<br />최대 512자<br /><br />잠금에 대한 설명입니다. |
 
 
 ## 잠금 리소스를 사용하는 방법
@@ -135,4 +136,4 @@ PowerShell 명령 **Remove-AzureRmResourceLock** 또는 REST API의 [삭제 작�
 - 템플릿 구조에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 - 잠금에 대한 자세한 내용은 [Azure 리소스 관리자를 사용하여 리소스 잠그기](resource-group-lock-resources.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0406_2016-->

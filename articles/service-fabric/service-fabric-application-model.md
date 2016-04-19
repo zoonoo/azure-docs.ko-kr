@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/30/2015"   
+   ms.date="04/05/2016"   
    ms.author="seanmck"/>
 
 # 서비스 패브릭에서 응용 프로그램 모델링
@@ -44,7 +44,7 @@
 ![서비스 내의 파티션 및 복제본][cluster-application-instances]
 
 
->[AZURE.TIP]http://&lt;yourclusteraddress&gt;:19080/Explorer에서 제공되는 서비스 패브릭 탐색기 도구를 사용하여 클러스터에서 응용 프로그램의 레이아웃을 볼 수 있습니다. 자세한 내용은 [서비스 패브릭 탐색기로 클러스터 시각화하기](service-fabric-visualizing-your-cluster.md)를 참조하세요.
+>[AZURE.TIP] http://&lt;yourclusteraddress&gt;:19080/Explorer에서 제공되는 서비스 패브릭 탐색기 도구를 사용하여 클러스터에서 응용 프로그램의 레이아웃을 볼 수 있습니다. 자세한 내용은 [서비스 패브릭 탐색기로 클러스터 시각화하기](service-fabric-visualizing-your-cluster.md)를 참조하세요.
 
 ## 서비스 설명
 
@@ -93,7 +93,7 @@
 </Settings>
 ~~~
 
-> [AZURE.NOTE]서비스 매니페스트는 여러 코드, 구성 및 데이터 패키지를 포함할 수 있습니다. 이들 항목에 대해 각각 독립적으로 버전을 지정할 수 있습니다.
+> [AZURE.NOTE] 서비스 매니페스트는 여러 코드, 구성 및 데이터 패키지를 포함할 수 있습니다. 이들 항목에 대해 각각 독립적으로 버전을 지정할 수 있습니다.
 
 <!--
 For more information about other features supported by service manifests, refer to the following articles:
@@ -139,7 +139,7 @@ For more information about other features supported by service manifests, refer 
 
 **DefaultServices**는 이 응용 프로그램 유형에 대해 응용 프로그램이 인스턴스화할 때마다 자동으로 생성되는 서비스 인스턴스를 선언합니다. 기본 서비스는 편리하기는 하지만 생성된 후 모든 면에서 일반 서비스처럼 동작합니다. 응용 프로그램 인스턴스의 다른 서비스와 함께 업그레이드되며 제거할 수도 있습니다.
 
-> [AZURE.NOTE]응용 프로그램 매니페스트는 여러 서비스 매니페스트 가져오기 및 기본 서비스를 포함할 수 있습니다. 각 서비스 매니페스트 가져오기를 독립적으로 버전 지정할 수 있습니다.
+> [AZURE.NOTE] 응용 프로그램 매니페스트는 여러 서비스 매니페스트 가져오기 및 기본 서비스를 포함할 수 있습니다. 각 서비스 매니페스트 가져오기를 독립적으로 버전 지정할 수 있습니다.
 
 개별 환경에 대해 서로 다른 응용 프로그램 및 서비스 매개 변수를 유지 관리하는 방법을 알아보려면 [여러 환경에 대한 응용 프로그램 매개 변수 관리](service-fabric-manage-multiple-environment-app-configuration.md)를 참조하세요.
 
@@ -254,4 +254,4 @@ PS D:\temp>
 [11]: service-fabric-manage-multiple-environment-app-configuration.md
 [12]: service-fabric-application-runas-security.md
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0406_2016-->

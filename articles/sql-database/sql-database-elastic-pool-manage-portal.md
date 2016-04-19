@@ -11,7 +11,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="03/18/2016"
+	ms.date="04/01/2016"
 	ms.author="jeffreyg"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -24,6 +24,7 @@
 - [Azure 포털](sql-database-elastic-pool-manage-portal.md)
 - [C#](sql-database-elastic-pool-manage-csharp.md)
 - [PowerShell](sql-database-elastic-pool-manage-powershell.md)
+- [T-SQL](sql-database-elastic-pool-manage-tsql.md)
 
 
 이 문서는 Azure 포털을 사용하여 풀에서 탄력적 데이터베이스 풀 및 데이터베이스를 모니터링, 관리 및 크기 조정하는 방법을 설명합니다. SQL 데이터베이스에는 기록 사용량 원격 분석을 분석하고 가장 비용 효과적인 경우 데이터베이스에 대한 풀을 권장하는 기본 제공 인텔리전스 기능이 있습니다. 또한 변경 내용에 커밋하고 풀 성능 및 저장소에 영향을 주기 전에 데이터베이스를 추가하고 제거할 수 있습니다.
@@ -94,7 +95,7 @@
 
 2. **탄력적 데이터베이스** 블레이드에서 **데이터베이스 추가**, 추가하려는 데이터베이스, **선택** 단추를 차례로 클릭합니다.
 
-    **탄력적 데이터베이스** 블레이드에서는 **보류 중** 상태와 함께 **평균 DTU** 및 저장소 사용을 **크기(GB)**로 사용하여 방금 추가한 데이터베이스를 나열합니다. 변경 내용을 저장하는 경우 풀 사용률 값은 **새로 만들기** 값을 표시합니다.
+    **탄력적 데이터베이스** 블레이드에서는 **보류 중** 상태와 함께 **평균 DTU** 및 저장소 사용을 **크기(GB)**로 사용하여 방금 추가한 데이터베이스를 나열합니다. 변경 내용을 저장하는 경우 풀 사용률 값은 **새** 값을 표시합니다.
 
     ![권장되는 풀](./media/sql-database-elastic-pool-manage-portal/add-remove-databases.png)
 
@@ -131,4 +132,4 @@
 - [C#을 사용한 탄력적 데이터베이스 풀 만들기](sql-database-elastic-pool-create-csharp.md)
 - [탄력적 데이터베이스 풀에 대한 가격 및 성능 고려 사항](sql-database-elastic-pool-guidance.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

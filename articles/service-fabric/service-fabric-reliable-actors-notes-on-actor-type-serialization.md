@@ -13,27 +13,46 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/13/2015"
+   ms.date="03/25/2015"
    ms.author="vturecek"/>
 
 # 서비스 패브릭 신뢰할 수 있는 행위자 형식 직렬화에 대한 참고 사항
 
-행위자의 인터페이스 및 상태를 정의하는 경우 몇 가지 중요한 측면을 기억해야 합니다. 형식은 데이터 계약 직렬화가 가능해야 합니다. 데이터 계약에 대한 자세한 내용은 [MSDN에서 찾을 수](https://msdn.microsoft.com/library/ms731923.aspx) 있습니다.
 
-## 행위자 인터페이스 형식
+모든 메서드의 인수인 행위자 인터페이스의 각 메서드에 의해 반환되는 태스크의 결과 형식 및 행위자의 상태 관리자에 저장된 개체는 [데이터 계약 직렬화가 가능](https://msdn.microsoft.com/library/ms731923.aspx)해야 합니다... 또한 [행위자 이벤트 인터페이스](service-fabric-reliable-actors-events.md#actor-events)에 정의된 메서드의 인수에도 적용됩니다. (행위자 이벤트 인터페이스 메서드는 항상 void를 반환합니다.)
 
-[행위자 인터페이스](service-fabric-reliable-actors-introduction.md#actors)에 정의된 각 메서드에서 작업의 결과 형식 뿐만 아니라 모든 메서드의 인수는 데이터 계약 직렬화가 가능해야 합니다. 또한 [행위자 이벤트 인터페이스](service-fabric-reliable-actors-events.md#actor-events)에 정의된 메서드의 인수에도 적용됩니다. (행위자 이벤트 인터페이스 메서드는 항상 void를 반환합니다.) 예를 들어, `IVoiceMail` 인터페이스가 다음과 같이 메서드를 정의하는 경우
+## 사용자 지정 데이터 형식
+
+이 예제에서 다음과 같은 행위자 인터페이스는 `VoicemailBox`이라는 사용자 지정 데이터 형식을 반환하는 메서드를 정의합니다.
 
 ```csharp
+public interface IVoiceMailBoxActor : IActor
+{
+    Task<VoicemailBox> GetMailBoxAsync();
+}
+```
 
-Task<List<Voicemail>> GetMessagesAsync();
+이 인터페이스는 행위자에서 구현되며 이는 상태 관리자를 사용하여 `VoicemailBox` 개체를 저장합니다.
+
+```csharp
+[StatePersistence(StatePersistence.Persisted)]
+public class VoiceMailBoxActor : Actor, IVoicemailBoxActor
+{
+    public Task<VoicemailBox> GetMailboxAsync()
+    {
+        return this.StateManager.GetStateAsync<VoicemailBox>("Mailbox");
+    }
+}
 
 ```
 
-`List<T>`는 이미 데이터 계약 직렬화가 가능한 표준 .NET 형식입니다. 또한 `Voicemail` 형식은 데이터 계약 직렬화가 가능해야 합니다.
+이 예제에서는 다음의 경우 `VoicemailBox` 개체를 직렬화합니다.
+ - 개체는 행위자 인스턴스와 호출자 간에 전송됩니다.
+ - 개체는 디스크에 유지되고 다른 노드에 복제되는 상태 관리자에 저장됩니다.
+ 
+Reliable Actor 프레임워크는 DataContract 직렬화를 사용합니다. 따라서 사용자 지정 데이터 개체와 해당 멤버는 각각 **DataContract** 및 **DataMember** 특성을 사용하여 주석으로 첨부되어야 합니다.
 
 ```csharp
-
 [DataContract]
 public class Voicemail
 {
@@ -46,25 +65,9 @@ public class Voicemail
     [DataMember]
     public DateTime ReceivedAt { get; set; }
 }
-
 ```
 
-## 행위자 상태 클래스
-
-행위자의 상태는 데이터 계약 직렬화가 가능해야 합니다. 예를 들어 행위자 클래스 정의는 다음과 같을 수 있습니다.
-
 ```csharp
-
-public class VoiceMailActor : StatefulActor<VoicemailBox>, IVoiceMail
-{
-...
-
-```
-
-상태 클래스는 각각 **DataContract** 및 **DataMember** 특성이 주석으로 첨부된 클래스 및 해당 멤버를 사용하여 정의됩니다.
-
-```csharp
-
 [DataContract]
 public class VoicemailBox
 {
@@ -79,7 +82,14 @@ public class VoicemailBox
     [DataMember]
     public string Greeting { get; set; }
 }
-
 ```
 
-<!---HONumber=AcomDC_0121_2016-->
+## 다음 단계
+ - [행위자 수명 주기 및 가비지 수집](service-fabric-reliable-actors-lifecycle.md)
+ - [행위자 타이머 및 미리 알림](service-fabric-reliable-actors-timers-reminders.md)
+ - [행위자 이벤트](service-fabric-reliable-actors-events.md)
+ - [행위자 다시 표시](service-fabric-reliable-actors-reentrancy.md)
+ - [행위자 다형성 및 개체 지향 디자인 패턴](service-fabric-reliable-actors-polymorphism.md)
+ - [행위자 진단 및 성능 모니터링](service-fabric-reliable-actors-diagnostics.md)
+
+<!---HONumber=AcomDC_0406_2016-->

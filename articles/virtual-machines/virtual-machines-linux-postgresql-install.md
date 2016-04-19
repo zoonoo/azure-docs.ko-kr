@@ -30,7 +30,7 @@ PostgreSQL은 Oracle 및 DB2와 유사한 고급 오픈 소스 데이터베이�
 
 ## PostgreSQL 설치
 
-> [AZURE.NOTE] 이 자습서를 완료하려면 Linux를 실행하는 Azure 가상 컴퓨터가 이미 있어야 합니다. 계속하기 전에 Linux VM을 생성하고 설정하려면 [Azure Linux VM 자습서](virtual-machines-linux-cli-create.md)를 참조하세요.
+> [AZURE.NOTE] 이 자습서를 완료하려면 Linux를 실행하는 Azure 가상 컴퓨터가 이미 있어야 합니다. 계속하기 전에 Linux VM을 생성하고 설정하려면 [Azure Linux VM 자습서](virtual-machines-linux-quick-create-cli.md)를 참조하세요.
 
 이 경우 PostgreSQL 포트로 포트 1999를 사용하세요.
 
@@ -255,4 +255,4 @@ Postgres 데이터베이스를 만듭니다.
 ##PostgreSQL에 대한 자세한 정보 얻기
 Azure Linux VM에서 PostgreSQL의 설치를 완료하면 Azure에서 사용하여 즐길 수 있습니다. PostgreSQL에 대해 자세히 알아보려면 [PostgreSQL 웹 사이트](http://www.postgresql.org/)를 방문하세요.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

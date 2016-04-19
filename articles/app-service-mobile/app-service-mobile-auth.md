@@ -91,8 +91,6 @@ ID 공급자 중 하나를 사용하여 인증하려면 먼저 ID 공급자를 �
 
 여기에 제공된 것 이외의 ID 시스템을 사용하려는 경우 [.NET 서버 SDK에서 사용자 지정 인증 지원 미리 보기](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth)를 활용할 수 있습니다.
 
-또한 [앱 서비스 인증 개요](app-service-authentication-overview.md)에서 위의 흐름에 더 자세한 내용을 찾을 수 있습니다. 또한 이 항목은 더 이상 모바일 앱에서 사용하지 않는 앱 서비스 게이트웨이에 대한 정보를 포함하지만 개념적 콘텐츠는 여전히 적용됩니다.
-
 [iOS 앱에 인증 추가]: app-service-mobile-ios-get-started-users.md
 [Xamarin.iOS 앱에 인증 추가]: app-service-mobile-xamarin-ios-get-started-users.md
 [Xamarin Android 앱에 인증 추가]: app-service-mobile-xamarin-android-get-started-users.md
@@ -104,4 +102,4 @@ ID 공급자 중 하나를 사용하여 인증하려면 먼저 ID 공급자를 �
 [Microsoft 계정 로그인을 사용하도록 앱을 구성하는 방법]: app-service-mobile-how-to-configure-microsoft-authentication.md
 [Twitter 로그인을 사용하도록 앱을 구성하는 방법]: app-service-mobile-how-to-configure-twitter-authentication.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

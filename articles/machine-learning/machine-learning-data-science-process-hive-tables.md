@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="hangzh-msft"
-	manager="paulettm" 
+	manager="paulettm"
 	editor="cgronlun"  />
 
 <tags
@@ -16,7 +16,7 @@
 	ms.date="02/08/2016"
 	ms.author="hangzh;bradsev" />
 
-#<a name="heading"></a> 고급 분석 프로세스 및 기술에서 Hive 쿼리를 HDInsight Hadoop 클러스터에 제출 
+#<a name="heading"></a> 고급 분석 프로세스 및 기술에서 Hive 쿼리를 HDInsight Hadoop 클러스터에 제출
 
 이 문서에서는 Azure의 HDInsight 서비스에서 관리하는 Hadoop 클러스터에 Hive 쿼리를 제출하는 다양한 방법에 대해 설명합니다. 이 작업은 CAP(Cortana 분석 프로세스)의 일부입니다. 여러 데이터 랭글링 작업(데이터 탐색 및 기능 생성)에 대해 설명합니다. Azure HDInsight Hadoop 클러스터에서 Hive를 사용하여 데이터를 탐색하거나 기능을 생성하는 방법을 보여 주는 일반 Hive 쿼리를 살펴볼 것입니다. 이러한 Hive 쿼리는 제공되는 포함된 Hive UDF(사용자 정의 함수)를 사용합니다.
 
@@ -167,7 +167,7 @@ Azure 저장소 탐색기 또는 그에 상응하는 도구를 사용하여 Hado
 
 이 섹션에서는 Hive 쿼리를 사용하여 기능을 생성하는 방법에 대해 설명합니다.
 
-> [AZURE.NOTE] 이 섹션의 샘플 Hive 쿼리에서는 Azure HDInsight Hadoop 클러스터의 Hive 테이블에 데이터가 업로드된 것으로 가정합니다. 업로드되지 않은 경우 [데이터를 만들어서 Hive 테이블에 로드](machine-learning-data-science-hive-tables.md)의 지침에 따라 먼저 Hive 테이블에 데이터를 업로드하세요.
+> [AZURE.NOTE] 이 섹션의 샘플 Hive 쿼리에서는 Azure HDInsight Hadoop 클러스터의 Hive 테이블에 데이터가 업로드된 것으로 가정합니다. 업로드되지 않은 경우 [데이터를 만들어서 Hive 테이블에 로드](machine-learning-data-science-move-hive-tables.md)의 지침에 따라 먼저 Hive 테이블에 데이터를 업로드하세요.
 
 추가 기능을 생성한 후 기존 테이블에 열로 추가하거나 추가 기능 및 기본 키를 사용하여 새 테이블을 만들어서 원래 테이블과 조인할 수 있습니다.
 
@@ -310,8 +310,4 @@ Hive 클러스터의 기본 매개 변수 설정이 Hive 쿼리 및 쿼리에서
 		set mapred.reduce.tasks=128;
 		set mapred.tasktracker.reduce.tasks.maximum=128;
 
-
-
- 
-
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="04/01/2016"
+	ms.date="04/07/2016"
 	ms.author="tamram"/>
 
 
@@ -33,10 +33,10 @@ Azure Blob 저장소는 클라우드에 파일 데이터를 저장하는 서비�
 
 **필수 구성 요소**
 
-- [Microsoft Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)
+- [Microsoft Visual Studio](https://www.visualstudio.com/ko-KR/visual-studio-homepage-vs.aspx)
 - [.NET용 Azure 저장소 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage/)
 - [.NET용 Azure 구성 관리자](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
-- [Azure 저장소 계정](storage-create-storage-account.md#create-a-storage-account).
+- [Azure 저장소 계정](storage-create-storage-account.md#create-a-storage-account)
 
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
@@ -53,14 +53,13 @@ Azure Blob 저장소는 클라우드에 파일 데이터를 저장하는 서비�
 
 	using Microsoft.Azure; // Namespace for CloudConfigurationManager 
 	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
-    using Microsoft.WindowsAzure.Storage.Auth; // Namespace for authentication types
     using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage types
 
 [AZURE.INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
 ### Blob 서비스 클라이언트 만들기
 
-**CloudBlobClient** 클래스를 통해 Blob 저장소에 저장된 컨테이너 및 Blob를 나타내는 개체를 검색할 수 있습니다. Main() 메서드에 다음 코드를 추가합니다.
+**CloudBlobClient** 클래스를 통해 Blob 저장소에 저장된 컨테이너 및 Blob를 검색할 수 있습니다. **Main()** 메서드에 다음 코드를 추가합니다.
 
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
@@ -85,12 +84,12 @@ Azure Blob 저장소는 클라우드에 파일 데이터를 저장하는 서비�
     // Create the container if it doesn't already exist.
     container.CreateIfNotExists();
 
-기본적으로 새 컨테이너는 전용이며, 이 컨테이너에서 Blob을 다운로드하려면 저장소 액세스 키를 지정해야 합니다. 컨테이너 내의 파일을 모든 사용자가 사용할 수 있게 하려는 경우 다음 코드를 사용하여 컨테이너를 공용으로 설정할 수 있습니다.
+기본적으로 새 컨테이너는 전용입니다. 즉, 이 컨테이너에서 Blob을 다운로드하려면 저장소 액세스 키를 지정해야 합니다. 컨테이너 내의 파일을 모든 사용자가 사용할 수 있게 하려는 경우 다음 코드를 사용하여 컨테이너를 공용으로 설정할 수 있습니다.
 
     container.SetPermissions(
         new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
 
-인터넷상의 누구든지 공용 컨테이너의 Blob을 볼 수 있지만 해당 액세스 키가 있는 경우에만 수정하거나 삭제할 수 있습니다.
+인터넷상의 누구든지 공용 컨테이너의 Blob을 볼 수 있지만 적절한 계정 선택키 또는 공유 액세스 서명이 있는 경우에만 수정하거나 삭제할 수 있습니다.
 
 ## 컨테이너에 Blob 업로드
 
@@ -377,4 +376,4 @@ Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 **Delete** 메서
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

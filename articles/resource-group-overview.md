@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/02/2016"
+   ms.date="04/11/2016"
    ms.author="tomfitz"/>
 
 # Azure 리소스 관리자 개요
@@ -79,11 +79,13 @@
 
 Marketplace에서 솔루션을 만들 때 솔루션에 자동으로 배포 템플릿을 포함합니다. 솔루션용 템플릿으로 시작하고 특정 요구 사항에 맞게 사용자 지정할 수 있기 때문에 서식 파일을 처음부터 새로 만들 필요가 없습니다.
 
+템플릿에 리소스 그룹의 현재 상태를 내보내거나 특정 배포에 사용된 템플릿을 검토하여 기존 리소스 그룹에 대한 템플릿을 검색할 수 있습니다. 두 옵션은 모두 [Azure 포털을 사용하여 Azure 리소스 배포 및 관리](./azure-portal/resource-group-portal.md)에서 표시됩니다.
+
 마지막으로 템플릿은 앱에 대한 소스 코드의 일부가 됩니다. 소스 코드 리포지토리를 확인하고 앱이 발전하면 업데이트할 수 있습니다. Visual Studio를 통해 템플릿을 편집할 수 있습니다.
 
 템플릿을 정의하는 더 자세한 내용은 [Azure 리소스 관리자 템플릿 작성하기](./resource-group-authoring-templates.md)를 참조하십시오.
 
-배포용 템플릿을 사용하는 방법에 대한 정보는 [Azure 리소스 관리자 템플릿으로 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
+템플릿 작성에 대한 단계별 지침은 [Resource Manager 템플릿 연습](resource-manager-template-walkthrough.md)을 참조하세요.
 
 템플릿을 구성하는 방법에 대한 지침은 [Azure 리소스 관리자 템플릿 설계의 모범 사례](best-practices-resource-manager-design-templates.md)를 참조하세요.
 
@@ -121,7 +123,7 @@ Azure PowerShell에 대한 정보는 [Azure 리소스 관리자와 함께 Azure 
 
 Azure CLI에 대한 정보는 [Azure 리소스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](./xplat-cli-azure-resource-manager.md)을 참조하십시오.
 
-REST API에 대한 정보는 [Azure 리소스 관리자 REST API 참조](https://msdn.microsoft.com/library/azure/dn790568.aspx)를 참조하십시오..
+REST API에 대한 정보는 [Azure 리소스 관리자 REST API 참조](https://msdn.microsoft.com/library/azure/dn790568.aspx)를 참조하십시오.. 배포된 리소스에 대한 REST 작업을 보려면 [Azure 리소스 탐색기를 사용하여 리소스 보기 및 수정](resource-manager-resource-explorer.md)을 참조하세요.
 
 포털 사용에 대한 내용은 [Azure 포털을 사용하여 Azure 리소스 관리](azure-portal/resource-group-portal.md)를 참조하세요.
 
@@ -138,4 +140,4 @@ Azure 리소스 관리자는 크로스-원본 자원 공유 (CORS)를 지원합�
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

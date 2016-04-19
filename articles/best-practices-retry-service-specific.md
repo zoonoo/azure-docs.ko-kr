@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/28/2015"
+   ms.date="04/01/2016"
    ms.author="masashin"/>
 
 # 서비스 관련 재시도 지침
@@ -1107,4 +1107,4 @@ Azure 또는 타사 서비스에 액세스하는 경우 다음 사항을 고려�
 | **선형(고정 간격)** | retryCount<br />retryInterval<br />fastFirstRetry<br /> | 10<br />1초<br />true | 재시도 횟수입니다.<br />재시도 사이의 지연 시간입니다.<br />첫 번째 재시도가 즉시 수행되는지 여부입니다. |
 일시적인 오류 처리 응용 프로그램 블록 사용에 대한 예제는 이 지침의 앞 부분에서 ADO.NET을 사용하는 SQL 데이터베이스 및 Azure Active Directory에 대한 예제 섹션을 참조하세요.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -9,26 +9,26 @@ Oracle 이미지에 따라 가상 컴퓨터를 만들려면 [Azure 포털](https
 다음은 Azure의 Windows Server에서 실행되는 사용 가능한 Oracle 가상 컴퓨터 이미지 목록입니다. 이러한 이미지 요금은 종량제이므로 Oracle 라이선스 비용이 해당 이미지 사용료에 포함됩니다. 사용자 고유의 라이선스를 가져와 Windows 또는 Linux에서 Oracle 소프트웨어를 실행할 수도 있습니다. [Azure 가상 컴퓨터 및 가상 컴퓨터 갤러리 이미지의 가격 및 라이선스](https://azure.microsoft.com/pricing/details/virtual-machines/#oracle-software)에 대한 자세한 내용은 다음과 같습니다. 특정 Oracle 가격 책정에 대한 자세한 내용을 보려면 **Oracle** 탭을 클릭하세요.
 
 ###Oracle Database 가상 컴퓨터 이미지
-- Oracle Database 12c Enterprise Edition on Windows Server 2012
-- Oracle Database 12c Standard Edition on Windows Server 2012
+- Windows Server 2012에서 실행되는 Oracle Database 12c Enterprise Edition
+- Windows Server 2012에서 실행되는 Oracle Database 12c Standard Edition
 - 인기있는 옵션이 탑재된 Oracle 데이터베이스 12c
 - 고급 옵션이 탑제된 Oracle 데이터베이스 12c
-- Oracle Database 11g R2 Enterprise Edition on Windows Server 2008 R2
-- Oracle Database 11g R2 Standard Edition on Windows Server 2008 R2
+- Windows Server 2008 R2에서 실행되는 Oracle Database 11g R2 Enterprise Edition
+- Windows Server 2008 R2에서 실행되는 Oracle Database 11g R2 Standard Edition
 - 인기있는 옵션이 탑재된 Oracle 데이터베이스 12c
 - 고급 옵션이 탑재된 Oracle 데이터베이스 11g R2 EE  
 
 ###Oracle WebLogic Server 가상 컴퓨터 이미지
-- Oracle WebLogic Server 12c Enterprise Edition on Windows Server 2012
-- Oracle WebLogic Server 12c Standard Edition on Windows Server 2012
-- Oracle WebLogic Server 11g Enterprise Edition on Windows Server 2008 R2
-- Oracle WebLogic Server 11g Standard Edition on Windows Server 2008 R2  
+- Windows Server 2012에서 실행되는 Oracle WebLogic Server 12c Enterprise Edition
+- Windows Server 2012에서 실행되는 Oracle WebLogic Server 12c Standard Edition
+- Windows Server 2008 R2에서 실행되는 Oracle Database 12c Enterprise Edition
+- Windows Server 2008 R2에서 실행되는 Oracle WebLogic Server 11g Standard Edition  
 
 ###Oracle Database 및 WebLogic Server 가상 컴퓨터 이미지  
-- Oracle Database 12c and WebLogic Server 12c Enterprise Edition on Windows Server 2012
-- Oracle Database 12c and WebLogic Server 12c Standard Edition on Windows Server 2012
-- Oracle Database 11g and WebLogic Server 11g Enterprise Edition on Windows Server 2008 R2
-- Oracle Database 11g and WebLogic Server 11g Standard Edition on Windows Server 2008 R2
+- Windows Server 2012에서 실행되는 Oracle Database 12c 및 WebLogic Server 12c Enterprise Edition
+- Windows Server 2012에서 실행되는 Oracle Database 12c 및 WebLogic Server 12c Standard Edition
+- Windows Server 2008 R2에서 실행되는 Oracle Database 11g 및 WebLogic Server 11g Enterprise Edition
+- Windows Server 2008 R2에서 실행되는 Oracle Database 11g 및 WebLogic Server 11g Standard Edition
 
 ### Java 가상 컴퓨터 이미지
 -	JDK 8 on Windows Server 2012 R2
