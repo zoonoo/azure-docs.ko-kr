@@ -12,7 +12,7 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="03/30/2016" 
 	ms.author="mimig"/>
 
@@ -60,7 +60,7 @@ Microsoft Azure DocumentDB를 사용하려면 [DocumentDB 계정](documentdb-cre
 
 컬렉션은 JSON 문서 및 관련 JavaScript 응용 프로그램 논리의 컨테이너입니다. 컬렉션은 컬렉션의 프로비전된 처리량에 따라 [비용](documentdb-performance-levels.md)이 결정되는 청구 가능 엔터티입니다. 컬렉션은 하나 이상의 파티션/서버에 걸쳐 있을 수 있으며 크기가 거의 무제한인 저장소 또는 처리량을 처리하도록 확장할 수 있습니다.
 
-컬렉션은 DocumentDB에서 하나 이상의 물리적 서버에 자동으로 분할됩니다. 컬렉션을 만들 때 초당 요청 단위 및 파티션 키 속성을 기준으로 프로비전된 처리량을 지정할 수 있습니다. 이 속성의 값은 쿼리와 같은 파티션 및 경로 요청 간에 문서를 배포하기 위해 DocumentDB에서 사용됩니다. 또한 파티션 키 값도 저장된 프로시저 및 트리거에 대한 트랜잭션 경계의 역할을 합니다. 각 컬렉션에는 동일 계정에서 다른 컬렉션과 공유되지 않는 해당 컬렉션에 해당되는 예약된 처리량을 갖습니다. 따라서 저장소 및 처리량의 측면에서 응용 프로그램의 규모를 확장할 수 있습니다.
+컬렉션은 DocumentDB에서 하나 이상의 물리적 서버에 자동으로 분할됩니다. 컬렉션을 만들 때 초당 요청 단위 및 파티션 키 속성 면에서 프로비전된 처리량을 지정할 수 있습니다. 이 속성 값은 DocumentDB에서 파티션 간에 문서를 분산시키고 쿼리와 같은 요청을 라우팅하는 데 사용됩니다. 파티션 키 값은 저장 프로시저 및 트리거에 대한 트랜잭션 경계 역할도 수행합니다. 각 컬렉션에는 동일 계정에서 다른 컬렉션과 공유되지 않는 해당 컬렉션에 해당되는 예약된 처리량을 갖습니다. 따라서 저장소 및 처리량의 측면에서 응용 프로그램의 규모를 확장할 수 있습니다.
 
 컬렉션은 관계형 데이터베이스의 테이블과 동일하지 않습니다. 컬렉션은 스키마를 적용하지 않으며 사실상 DocumentDB는 스키마를 적용하지 않는 스키마 없는 데이터베이스입니다. 따라서 동일한 컬렉션에서도 다양한 스키마를 사용해서 여러 유형의 문서를 저장할 수 있습니다. 테이블에서와 같은 방식으로 컬렉션을 사용해서 단일 유형의 개체를 저장할 수도 있습니다. 모델 효율성은 쿼리 및 트랜잭션에 데이터가 표시되는 방법에 따라서만 결정됩니다.
 
@@ -87,4 +87,4 @@ Microsoft Azure DocumentDB를 사용하려면 [DocumentDB 계정](documentdb-cre
 
 컬렉션에 문서를 추가한 후에 포털의 [쿼리 탐색기](documentdb-query-collections-query-explorer.md), [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 또는 [SDK](documentdb-sdk-dotnet.md) 중 하나를 사용하여 문서에 [쿼리를 실행](documentdb-sql-query.md#executing-queries)하기 위해 [DocumentDB SQL](documentdb-sql-query.md)을 사용할 수 있습니다.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

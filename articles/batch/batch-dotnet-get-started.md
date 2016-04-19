@@ -13,12 +13,12 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="01/08/2016"
+	ms.date="04/11/2016"
 	ms.author="marsma"/>
 
-# .NET용 Azure 배치 라이브러리 시작  
+# .NET용 Azure 배치 라이브러리 시작
 
-이 문서에서는 C# 샘플 응용 프로그램을 단계별로 설명하면서 [Azure 배치][azure_batch] 및 [Batch .NET][net_api] 라이브러리의 기본에 대해 알아봅니다. 샘플 응용 프로그램에서 배치 서비스를 활용하여 클라우드에서 병렬 워크로드를 처리하는 방법과 파일 준비 및 검색을 위해 [Azure 저장소](./../storage/storage-introduction.md)와 상호 작용하는 방식을 살펴봅니다. 일반적인 배치 응용 프로그램 워크플로 기술을 배우게 됩니다. 작업, 태스크, 풀 및 계산 노드와 같은 배치의 주요 구성 요소에 대한 기본적인 이해를 습득하게 됩니다.
+이 문서에서는 C# 샘플 응용 프로그램을 단계별로 설명하면서 [Azure 배치][azure_batch] 및 [Batch .NET][net_api] 라이브러리의 기본에 대해 알아봅니다. 샘플 응용 프로그램에서 배치 서비스를 활용하여 클라우드에서 병렬 워크로드를 처리하는 방법과 파일 준비 및 검색을 위해 [Azure 저장소](../storage/storage-introduction.md)와 상호 작용하는 방식을 살펴봅니다. 일반적인 배치 응용 프로그램 워크플로 기술을 배우게 됩니다. 작업, 태스크, 풀 및 계산 노드와 같은 배치의 주요 구성 요소에 대한 기본적인 이해를 습득하게 됩니다.
 
 ![배치 솔루션 워크플로(기본)][11]<br/>
 
@@ -28,9 +28,9 @@
 
 ### 계정
 
-- **Azure 계정**--Azure 구독이 아직 없는 경우 [무료 Azure 계정][azure_free_account]을 만들 수 있습니다.
-- **배치 계정**--Azure 구독이 있으면 [Azure 배치 계정을 만들고 관리합니다](batch-account-create-portal.md).
-- **저장소 계정**--[Azure 저장소 계정 정보](./../storage/storage-create-storage-account.md)의 “저장소 계정 만들기” 섹션을 참조하세요.
+- **Azure 계정**: Azure 구독이 아직 없는 경우 [무료 Azure 계정][azure_free_account]을 만듭니다.
+- **배치 계정**: Azure 구독이 있으면 [Azure 배치 계정을 만듭니다](batch-account-create-portal.md).
+- **저장소 계정**: [Azure 저장소 계정 정보](../storage/storage-create-storage-account.md#create-a-storage-account)의 [저장소 계정 만들기](../storage/storage-create-storage-account.md) 섹션을 참조하세요.
 
 ### Visual Studio
 
@@ -58,7 +58,7 @@
 
 ![배치 예제 워크플로][8]<br/>
 
-**1단계.** Azure Blob 저장소에 **컨테이너**를 만듭니다.<br/> **2단계.** 컨테이너에 태스크 응용 프로그램 파일 및 입력 파일을 업로드합니다.<br/> **3단계.** 배치 **풀**을 만듭니다.<br/> &nbsp;&nbsp;&nbsp;&nbsp;**3a.** **StartTask** 풀은 노드가 풀에 연결되면 태스크 이진 파일(TaskApplication)을 노드에 다운로드합니다.<br/> **4단계.** 배치 **작업**을 만듭니다.<br/> **5단계.** 작업에 **태스크**를 추가합니다.<br/> &nbsp;&nbsp;&nbsp;&nbsp;**5a.** 태스크는 노드에서 실행되도록 에약됩니다.<br/> &nbsp;&nbsp;&nbsp;&nbsp;**5b.** 각 태스크는 Azure 저장소에서 입력 데이터를 다운로드한 다음 실행을 시작합니다.<br/> **6단계.** 태스크를 모니터링합니다.<br/> &nbsp;&nbsp;&nbsp;&nbsp;**6a.** 태스크가 완료되면 출력 데이터를 Azure 저장소에 업로드합니다.<br/> **7단계.** 저장소에서 태스크 출력을 다운로드합니다.
+[**1단계.**](#step-1-create-storage-containers) Azure Blob 저장소에 **컨테이너**를 만듭니다.<br/> [**2단계.**](#step-2-upload-task-application-and-data-files) 컨테이너에 태스크 응용 프로그램 파일 및 입력 파일을 업로드합니다.<br/> [**3단계.**](#step-3-create-batch-pool) 배치 **풀**을 만듭니다.<br/> &nbsp;&nbsp;&nbsp;&nbsp;**3a.** **StartTask** 풀은 노드가 풀에 연결되면 태스크 이진 파일(TaskApplication)을 노드에 다운로드합니다.<br/> [**4단계.**](#step-4-create-batch-job) 배치 **작업**을 만듭니다.<br/> [**5단계.**](#step-5-add-tasks-to-job) 작업에 **태스크**를 추가합니다.<br/> &nbsp;&nbsp;&nbsp;&nbsp;**5a.** 태스크는 노드에서 실행되도록 예약됩니다.<br/> &nbsp;&nbsp;&nbsp;&nbsp;**5b.** 각 태스크는 Azure 저장소에서 입력 데이터를 다운로드한 다음 실행을 시작합니다.<br/> [**6단계.**](#step-6-monitor-tasks) 태스크를 모니터링합니다.<br/> &nbsp;&nbsp;&nbsp;&nbsp;**6a.** 태스크가 완료되면 출력 데이터를 Azure 저장소에 업로드합니다.<br/> [**7단계.**](#step-7-download-task-output) 저장소에서 태스크 출력을 다운로드합니다.
 
 언급한 바와 같이, 모든 Batch 솔루션이 정확히 이러한 단계를 수행하는 것은 아니며, 훨씬 더 많은 단계를 포함할 수 있지만, *DotNetTutorial* 샘플 응용 프로그램은 배치 솔루션에서 찾을 수 있는 일반적인 프로세스를 보여줍니다.
 
@@ -69,8 +69,9 @@
 *DotNetTutorial* 프로젝트 내에서 `Program.cs`를 엽니다 파일의 위쪽에 지정된 대로 자격 증명을 추가합니다.
 
 ```
-// Update the Batch and Storage account credential strings below with the values unique to your accounts.
-// These are used when constructing connection strings for the Batch and Storage client objects.
+// Update the Batch and Storage account credential strings below with the values
+// unique to your accounts. These are used when constructing connection strings
+// for the Batch and Storage client objects.
 
 // Batch account credentials
 private const string BatchAccountName = "";
@@ -98,18 +99,20 @@ private const string StorageAccountKey  = "";
 
 ![Azure 저장소에 컨테이너 만들기][1] <br/>
 
-배치에는 Azure 저장소와의 상호 작용을 위해 기본 제공되는 지원이 포함됩니다. 저장소 계정 내의 컨테이너는 실행해야 하는 파일과 함께 배치 계정에서 실행되는 태스크를 제공합니다. 컨테이너는 태스크가 생성하는 출력 데이터를 저장할 공간도 제공합니다. *DotNetTutorial* 클라이언트 응용 프로그램이 실행하는 첫 번째 작업은 [Azure Blob 저장소](./../storage/storage-introduction.md)에 세 개의 컨테이너를 만드는 것입니다.
+배치에는 Azure 저장소와의 상호 작용을 위해 기본 제공되는 지원이 포함됩니다. 저장소 계정 내의 컨테이너는 배치 계정에서 실행되는 태스크에 필요한 파일을 제공합니다. 컨테이너는 태스크가 생성하는 출력 데이터를 저장할 공간도 제공합니다. *DotNetTutorial* 클라이언트 응용 프로그램이 실행하는 첫 번째 작업은 [Azure Blob 저장소](../storage/storage-introduction.md)에 세 개의 컨테이너를 만드는 것입니다.
 
-- **응용 프로그램**--이 컨테이너는 태스크가 실행하는 응용 프로그램은 물론 DLL과 같은 모든 종속 파일을 수용합니다.
-- **입력**--태스크는 처리할 데이터 파일을 *입력* 컨테이너에서 다운로드합니다.
-- **출력**--태스크가 입력 파일의 처리를 완료하면 그 결과를 *출력* 컨테이너에 업로드합니다.
+- **응용 프로그램**: 이 컨테이너는 태스크가 실행하는 응용 프로그램은 물론 DLL과 같은 모든 종속 파일을 저장합니다.
+- **입력**: 태스크가 *입력* 컨테이너에서 처리할 데이터 파일을 다운로드합니다.
+- **출력**: 태스크가 입력 파일의 처리를 완료하면 그 결과를 *출력* 컨테이너에 업로드합니다.
 
-저장소 계정과 상호 작용하고 컨테이너를 만들기 위해 [.NET용 Azure 저장소 클라이언트 라이브러리][net_api_storage]가 [CloudStorageAccount][net_cloudstorageaccount]로 계정에 대한 참조를 만드는 데 사용되고 이것으로부터 BLOB 클라이언트([CloudBlobClient][net_cloudblobclient])가 만들어집니다.
+저장소 계정과 상호 작용하고 컨테이너를 만들기 위해 [Azure Storage Client Library for .NET][net_api_storage]을 사용합니다. [CloudStorageAccount][net_cloudstorageaccount]로 계정에 대한 참조를 만들고, 그 참조에서 [CloudBlobClient][net_cloudblobclient]를 만듭니다.
 
 ```
 // Construct the Storage account connection string
-string storageConnectionString = String.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}",
-                                                StorageAccountName, StorageAccountKey);
+string storageConnectionString = String.Format(
+    "DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}",
+    StorageAccountName,
+    StorageAccountKey);
 
 // Retrieve the storage account
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnectionString);
@@ -118,10 +121,11 @@ CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnection
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 ```
 
-응용 프로그램 전체적으로 `blobClient` 참조를 사용하여 매개 변수로 많은 메서드에 전달합니다. 이 예는 위 블록 바로 다음에 나오는 코드 블록에 있으며 여기에서 `CreateContainerIfNotExistAsync`을(를) 호출하여 실제로 컨테이너를 만듭니다.
+응용 프로그램 전체적으로 `blobClient` 참조를 사용하여 매개 변수로 많은 메서드에 전달합니다. 이 예는 위를 즉시 따르는 코드 블록에 있으며 여기에서 `CreateContainerIfNotExistAsync`을(를) 호출하여 실제로 컨테이너를 만듭니다.
 
 ```
-// Use the blob client to create the containers in Azure Storage if they don't yet exist
+// Use the blob client to create the containers in Azure Storage if they don't
+// yet exist
 const string appContainerName    = "application";
 const string inputContainerName  = "input";
 const string outputContainerName = "output";
@@ -131,7 +135,9 @@ await CreateContainerIfNotExistAsync(blobClient, outputContainerName);
 ```
 
 ```
-private static async Task CreateContainerIfNotExistAsync(CloudBlobClient blobClient, string containerName)
+private static async Task CreateContainerIfNotExistAsync(
+    CloudBlobClient blobClient,
+    string containerName)
 {
 		CloudBlobContainer container = blobClient.GetContainerReference(containerName);
 
@@ -141,14 +147,15 @@ private static async Task CreateContainerIfNotExistAsync(CloudBlobClient blobCli
 		}
 		else
 		{
-				Console.WriteLine("Container [{0}] exists, skipping creation.", containerName);
+				Console.WriteLine("Container [{0}] exists, skipping creation.",
+                    containerName);
 		}
 }
 ```
 
 컨테이너를 만든 후 이제 응용 프로그램은 작업에 의해 사용될 파일을 업로드할 수 있습니다.
 
-> [AZURE.TIP] [How to use Blob Storage from .NET](./../storage/storage-dotnet-how-to-use-blobs.md)는 Azure 저장소 컨테이너 및 Blob을 사용한 작업의 개요를 제공합니다. 배치 작업 시작 단계 읽기 목록의 거의 위쪽에 있습니다.
+> [AZURE.TIP] [How to use Blob Storage from .NET](../storage/storage-dotnet-how-to-use-blobs.md)는 Azure 저장소 컨테이너 및 Blob을 사용한 작업의 개요를 제공합니다. 배치 작업 시작 단계 읽기 목록의 거의 위쪽에 있습니다.
 
 ## 2단계: 작업 응용 프로그램 및 데이터 파일 업로드
 
@@ -160,8 +167,8 @@ private static async Task CreateContainerIfNotExistAsync(CloudBlobClient blobCli
 // Paths to the executable and its dependencies that will be executed by the tasks
 List<string> applicationFilePaths = new List<string>
 {
-    // The DotNetTutorial project includes a project reference to TaskApplication, allowing us to
-    // determine the path of the task application binary dynamically
+    // The DotNetTutorial project includes a project reference to TaskApplication,
+    // allowing us to determine the path of the task application binary dynamically
     typeof(TaskApplication.Program).Assembly.Location,
     "Microsoft.WindowsAzure.Storage.dll"
 };
@@ -174,24 +181,35 @@ List<string> inputFilePaths = new List<string>
     @"..\..\taskdata3.txt"
 };
 
-// Upload the application and its dependencies to Azure Storage. This is the application that will
-// process the data files, and will be executed by each of the tasks on the compute nodes.
-List<ResourceFile> applicationFiles = await UploadFilesToContainerAsync(blobClient, appContainerName, applicationFilePaths);
+// Upload the application and its dependencies to Azure Storage. This is the
+// application that will process the data files, and will be executed by each
+// of the tasks on the compute nodes.
+List<ResourceFile> applicationFiles = await UploadFilesToContainerAsync(
+    blobClient,
+    appContainerName,
+    applicationFilePaths);
 
-// Upload the data files. This is the data that will be processed by each of the tasks that are
-// executed on the compute nodes within the pool.
-List<ResourceFile> inputFiles = await UploadFilesToContainerAsync(blobClient, inputContainerName, inputFilePaths);
+// Upload the data files. This is the data that will be processed by each of
+// the tasks that are executed on the compute nodes within the pool.
+List<ResourceFile> inputFiles = await UploadFilesToContainerAsync(
+    blobClient,
+    inputContainerName,
+    inputFilePaths);
 ```
 
 업로드 프로세스에 관련된 `Program.cs`에는 두 가지 메서드가 있습니다.
 
-- `UploadFilesToContainerAsync`--이 메서드는 [ResourceFile][net_resourcefile] 개체(아래 설명 참조)의 컬렉션을 반환하고 내부적으로 `UploadFileToContainerAsync`을(를) 호출하여 *filePaths* 매개 변수에 전달된 각 파일을 업로드합니다.
-- `UploadFileToContainerAsync`--실제로 파일 업로드를 수행하고 [ResourceFile][net_resourcefile] 개체를 만드는 메서드입니다. 파일 업로드 후 파일에 대한 SAS(공유 액세스 서명)을 가져오고 이를 나타내는 ResourceFile 개체를 반환합니다. 공유 액세스 서명도 아래에 설명되어 있습니다.
+- `UploadFilesToContainerAsync`: 이 메서드는 [ResourceFile][net_resourcefile] 개체(아래 설명 참조)의 컬렉션을 반환하고 내부적으로 `UploadFileToContainerAsync`을(를) 호출하여 *filePaths* 매개 변수에 전달된 각 파일을 업로드합니다.
+- `UploadFileToContainerAsync`: 실제로 파일 업로드를 수행하고 [ResourceFile][net_resourcefile] 개체를 만드는 메서드입니다. 파일 업로드 후 파일에 대한 SAS(공유 액세스 서명)을 가져오고 이를 나타내는 ResourceFile 개체를 반환합니다. 공유 액세스 서명도 아래에 설명되어 있습니다.
 
 ```
-private static async Task<ResourceFile> UploadFileToContainerAsync(CloudBlobClient blobClient, string containerName, string filePath)
+private static async Task<ResourceFile> UploadFileToContainerAsync(
+    CloudBlobClient blobClient,
+    string containerName,
+    string filePath)
 {
-		Console.WriteLine("Uploading file {0} to container [{1}]...", filePath, containerName);
+		Console.WriteLine(
+            "Uploading file {0} to container [{1}]...", filePath, containerName);
 
 		string blobName = Path.GetFileName(filePath);
 
@@ -199,8 +217,9 @@ private static async Task<ResourceFile> UploadFileToContainerAsync(CloudBlobClie
 		CloudBlockBlob blobData = container.GetBlockBlobReference(blobName);
 		await blobData.UploadFromFileAsync(filePath, FileMode.Open);
 
-		// Set the expiry time and permissions for the blob shared access signature. In this case, no start time is specified,
-		// so the shared access signature becomes valid immediately
+		// Set the expiry time and permissions for the blob shared access signature.
+        // In this case, no start time is specified, so the shared access signature
+        // becomes valid immediately
 		SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy
 		{
 				SharedAccessExpiryTime = DateTime.UtcNow.AddHours(2),
@@ -230,11 +249,11 @@ DotNetTutorial 샘플 응용 프로그램은 JobPreparationTask 또는 JobReleas
 
 공유 액세스 서명은 URL의 일부분으로 포함되는 경우 Azure 저장소의 컨테이너 및 Blob에 대한 보안 액세스를 제공하는 문자열입니다. DotNetTutorial 응용 프로그램은 Blob 및 컨테이너 공유 액세스 서명 URL 모두를 사용하고 저장소 서비스에서 이러한 공유 액세스 서명 문자열을 가져오는 방법을 보여 줍니다.
 
-- **Blob 공유 액세스 서명**--DotNetTutorial에서 풀의 StartTask는 저장소에서 응용 프로그램 이진 및 입력 데이터 파일을 다운로드하는 경우 Blob 공유 액세스 서명을 사용합니다(아래 #3단계 참조). DotNetTutorial의 `Program.cs`에서 `UploadFileToContainerAsync` 메서드는 각 Blob의 공유 액세스 서명을 가져오는 코드를 포함합니다. [CloudBlob.GetSharedAccessSignature][net_sas_blob]를 호출하여 작업을 수행합니다.
+- **Blob 공유 액세스 서명**: DotNetTutorial에서 풀의 StartTask는 저장소에서 응용 프로그램 이진 및 입력 데이터 파일을 다운로드하는 경우 Blob 공유 액세스 서명을 사용합니다(아래 #3단계 참조). DotNetTutorial의 `Program.cs`에서 `UploadFileToContainerAsync` 메서드는 각 Blob의 공유 액세스 서명을 가져오는 코드를 포함합니다. [CloudBlob.GetSharedAccessSignature][net_sas_blob]를 호출하여 작업을 수행합니다.
 
-- **컨테이너 공유 액세스 서명**--각 태스크는 계산 노드에서 작업을 완료면 해당 출력 파일을 Azure 저장소의 *출력* 컨테이너에 업로드합니다. 이렇게 하려면 TaskApplication은 파일을 업로드하는 경우 경로의 일부로 컨테이너에 쓰기 액세스를 제공하는 컨테이너 공유 액세스 서명을 사용합니다. 컨테이너 공유 액세스 서명 가져오기는 BLOB 공유 액세스 서명을 가져올 때와 유사한 방식으로 수행됩니다. DotNetTutorial에서 이렇게 하기 위해 `GetContainerSasUrl` 도우미 메서드가 [CloudBlobContainer.GetSharedAccessSignature][net_sas_container]를 호출하는 것을 확인할 수 있습니다. “6단계: 작업 모니터링"에서 TaskApplication이 컨테이너 공유 액세스 서명을 사용하는 방법에 대해 자세히 알아봅니다.
+- **컨테이너 공유 액세스 서명**: 각 태스크는 계산 노드에서 작업을 완료면 해당 출력 파일을 Azure 저장소의 *출력* 컨테이너에 업로드합니다. 이렇게 하려면 TaskApplication은 파일을 업로드하는 경우 경로의 일부로 컨테이너에 쓰기 액세스를 제공하는 컨테이너 공유 액세스 서명을 사용합니다. 컨테이너 공유 액세스 서명 가져오기는 BLOB 공유 액세스 서명을 가져올 때와 유사한 방식으로 수행됩니다. DotNetTutorial에서 이렇게 하기 위해 `GetContainerSasUrl` 도우미 메서드가 [CloudBlobContainer.GetSharedAccessSignature][net_sas_container]를 호출하는 것을 확인할 수 있습니다. “6단계: 작업 모니터링"에서 TaskApplication이 컨테이너 공유 액세스 서명을 사용하는 방법에 대해 자세히 알아봅니다.
 
-> [AZURE.TIP] 공유 액세스 서명에 대해 두 부분으로 이루어진 시리즈, [1부: 공유 액세스 서명(SAS) 모델 이해](./../storage/storage-dotnet-shared-access-signature-part-1.md) 및 [2부: Blob 서비스를 통해 공유 액세스 서명(SAS) 만들기 및 사용](./../storage/storage-dotnet-shared-access-signature-part-2.md)을 확인하여 저장소 계정의 데이터에 대한 보안 액세스 제공에 대한 자세한 내용을 확인합니다.
+> [AZURE.TIP] 공유 액세스 서명에 대해 두 부분으로 이루어진 시리즈, [1부: 공유 액세스 서명(SAS) 모델 이해](../storage/storage-dotnet-shared-access-signature-part-1.md) 및 [2부: Blob 서비스를 통해 공유 액세스 서명(SAS) 만들기 및 사용](../storage/storage-dotnet-shared-access-signature-part-2.md)을 확인하여 저장소 계정의 데이터에 대한 보안 액세스 제공에 대한 자세한 내용을 확인합니다.
 
 ## 3단계: 배치 풀 만들기
 
@@ -243,7 +262,11 @@ DotNetTutorial 샘플 응용 프로그램은 JobPreparationTask 또는 JobReleas
 저장소 계정에 응용 프로그램 및 데이터 파일을 업로드한 후 *DotNetTutorial*은 Batch .NET 라이브러리를 사용하여 배치 서비스와의 상호 작용을 시작합니다. 이렇게 하기 위해 [BatchClient][net_batchclient]가 먼저 만들어집니다.
 
 ```
-BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials(BatchAccountUrl, BatchAccountName, BatchAccountKey);
+BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials(
+    BatchAccountUrl,
+    BatchAccountName,
+    BatchAccountKey);
+
 using (BatchClient batchClient = BatchClient.Open(cred))
 {
 	...
@@ -252,31 +275,37 @@ using (BatchClient batchClient = BatchClient.Open(cred))
 그런 다음, 계산 노드의 풀이 `CreatePoolAsync`에 대한 호출로 배치 계정에서 만들어집니다. `CreatePoolAsync`은(는) [BatchClient.PoolOperations.CreatePool][net_pool_create] 메서드를 사용하여 배치 서비스에 풀을 실제로 만듭니다.
 
 ```
-private static async Task CreatePoolAsync(BatchClient batchClient, string poolId, IList<ResourceFile> resourceFiles)
+private static async Task CreatePoolAsync(
+    BatchClient batchClient,
+    string poolId,
+    IList<ResourceFile> resourceFiles)
 {
     Console.WriteLine("Creating pool [{0}]...", poolId);
 
-    // Create the unbound pool. Until we call CloudPool.Commit() or CommitAsync(), no pool is actually created in the
-    // Batch service. This CloudPool instance is therefore considered "unbound," and we can modify its properties.
+    // Create the unbound pool. Until we call CloudPool.Commit() or CommitAsync(),
+    // no pool is actually created in the Batch service. This CloudPool instance is
+    // therefore considered "unbound," and we can modify its properties.
     CloudPool pool = batchClient.PoolOperations.CreatePool(
-				poolId: poolId,
-				targetDedicated: 3,           // 3 compute nodes
-				virtualMachineSize: "small",  // single-core, 1.75 GB memory, 225 GB disk
-				osFamily: "4");               // Windows Server 2012 R2
+			poolId: poolId,
+			targetDedicated: 3,           // 3 compute nodes
+			virtualMachineSize: "small",  // single-core, 1.75 GB memory, 224 GB disk
+			cloudServiceConfiguration:
+			    new CloudServiceConfiguration(osFamily: "4")); // Win Server 2012 R2
 
-    // Create and assign the StartTask that will be executed when compute nodes join the pool.
-    // In this case, we copy the StartTask's resource files (that will be automatically downloaded
-    // to the node by the StartTask) into the shared directory that all tasks will have access to.
+    // Create and assign the StartTask that will be executed when compute nodes join
+    // the pool. In this case, we copy the StartTask's resource files (that will be
+    // automatically downloaded to the node by the StartTask) into the shared
+    // directory that all tasks will have access to.
     pool.StartTask = new StartTask
     {
-        // Specify a command line for the StartTask that copies the task application files to the
-        // node's shared directory. Every compute node in a Batch pool is configured with several
-        // pre-defined environment variables that you can reference by using commands or applications
-        // run by tasks.
+        // Specify a command line for the StartTask that copies the task application
+        // files to the node's shared directory. Every compute node in a Batch pool
+        // is configured with several pre-defined environment variables that you can
+        // reference by using commands or applications run by tasks.
 
-        // Since a successful execution of robocopy can return a non-zero exit code (e.g. 1 when one or
-        // more files were successfully copied) we need to manually exit with a 0 for Batch to recognize
-        // StartTask execution success.
+        // Since a successful execution of robocopy can return a non-zero exit code
+        // (e.g. 1 when one or more files were successfully copied) we need to
+        // manually exit with a 0 for Batch to recognize StartTask execution success.
         CommandLine = "cmd /c (robocopy %AZ_BATCH_TASK_WORKING_DIR% %AZ_BATCH_NODE_SHARED_DIR%) ^& IF %ERRORLEVEL% LEQ 1 exit 0",
         ResourceFiles = resourceFiles,
         WaitForSuccess = true
@@ -286,13 +315,15 @@ private static async Task CreatePoolAsync(BatchClient batchClient, string poolId
 }
 ```
 
-[CreatePool][net_pool_create]을 사용하여 풀을 만들 때 계산 노드 수, [노드의 크기](./../cloud-services/cloud-services-sizes-specs.md), 노드의 [운영 체제](./../cloud-services/cloud-services-guestos-update-matrix.md)와 같은 매개 변수를 몇 가지 지정합니다.
+[CreatePool][net_pool_create]을 사용하여 풀을 만들 때 계산 노드 수, [노드의 크기](../cloud-services/cloud-services-sizes-specs.md), 노드의 운영 체제와 같은 매개 변수를 몇 가지 지정합니다. *DotNetTutorial*에서 [CloudServiceConfiguration][net_cloudserviceconfiguration]을 사용하여 [클라우드 서비스](../cloud-services/cloud-services-guestos-update-matrix.md)의 Windows Server 2012 R2를 지정합니다. 그러나 [VirtualMachineConfiguration][net_virtualmachineconfiguration]을 지정하는 대신, 마켓플레이스 이미지로 만든 노드 풀을 만들 수도 있습니다. 마켓플레이스 이미지에는 Windows 및 Linux 이미지가 모두 포함되며, 자세한 내용은 [Azure 배치의 Linux 지원 소개][blog_linux]를 참조하세요.
 
 > [AZURE.IMPORTANT] 배치의 계산 리소스에 대한 요금이 부과됩니다. 비용을 최소화하려면 샘플을 실행하기 전에 `targetDedicated`을(를) 1로 낮출 수 있습니다.
 
 이러한 실제 노드 속성과 함께 풀에 대해 [StartTask][net_pool_starttask]를 지정할 수도 있습니다. StartTask는 노드가 다시 시작할 때도 해당 노드가 풀을 연결하는 대로 각 노드에서 실행됩니다. StartTask는 작업을 실행하기 전에 계산 노드에서 응용 프로그램을 설치하는 데 특히 유용합니다. 예를 들어 태스크에서 Python 스크립트를 사용하여 데이터를 처리하는 경우 계산 노드에서 Python을 설치하는 데 StartTask를 사용할 수 있습니다.
 
-이 샘플 응용 프로그램에서 StartTask는 저장소(StartTask의 *ResourceFiles* 속성을 사용하여 지정됨)에서 다운로드하는 파일을 StartTask 작업 디렉터리에서 노드에서 실행되는 *모든* 태스크를 액세스할 수 있는 공유 디렉터리에 복사합니다.
+이 샘플 응용 프로그램에서 StartTask는 저장소([StartTask][net_starttask]의 [ResourceFiles][net_starttask_resourcefiles] 속성을 사용하여 지정됨)에서 다운로드하는 파일을 StartTask 작업 디렉터리에서 노드에서 실행되는 *모든* 태스크를 액세스할 수 있는 공유 디렉터리에 복사합니다. 기본적으로 노드가 풀에 조인하면 `TaskApplication.exe` 및 해당 종속성이 각 노드의 공유 디렉터리에 복사되므로 노드에서 실행되는 모든 작업이 공유 디렉터리에 액세스할 수 있습니다.
+
+> [AZURE.TIP] Azure 배치의 **응용 프로그램 패키지** 기능은 풀의 계산 노드로 응용 프로그램을 가져올 수 있는 또 다른 방법을 제공합니다. 자세한 내용은 [Azure 배치 응용 프로그램 패키지를 사용하여 응용 프로그램 배포](batch-application-packages.md)를 참조하세요.
 
 위의 코드 조각에서 주목할 만한 것은 StartTask의 *CommandLine* 속성에서 두 개의 환경 변수(`%AZ_BATCH_TASK_WORKING_DIR%` 및 `%AZ_BATCH_NODE_SHARED_DIR%`) 사용입니다. 배치 풀 내의 각 계산 노드는 배치에 해당하는 많은 환경 변수를 사용하여 자동으로 구성됩니다. 태스크에 의해 실행되는 모든 프로세스는 이러한 환경 변수에 대한 액세스를 갖습니다.
 
@@ -307,7 +338,10 @@ private static async Task CreatePoolAsync(BatchClient batchClient, string poolId
 모든 배치 작업은 특정 풀에 연결됩니다. 연결은 작업의 태스크가 실행되는 노드를 나타냅니다. 이것은 아래 코드 조각에 표시된 것처럼 [CloudJob.PoolInformation][net_job_poolinfo] 속성을 사용하여 지정할 수 있습니다.
 
 ```
-private static async Task CreateJobAsync(BatchClient batchClient, string jobId, string poolId)
+private static async Task CreateJobAsync(
+    BatchClient batchClient,
+    string jobId,
+    string poolId)
 {
     Console.WriteLine("Creating job [{0}]...", jobId);
 
@@ -328,7 +362,11 @@ private static async Task CreateJobAsync(BatchClient batchClient, string jobId, 
 실제로 작업을 수행하려면 태스크가 작업에 추가되어야 합니다. 각 [CloudTask][net_task]는 명령줄 속성 및 명령줄이 자동으로 실행되기 전에 태스크가 노드에 다운로드하는 [ResourceFiles][net_task_resourcefiles](풀의 StartTask와 마찬가지로)을 사용하여 구성됩니다. *DotNetTutorial* 샘플 프로젝트에서 각 태스크는 파일을 하나만 처리합니다. 따라서 ResourceFiles 컬렉션은 단일 요소를 포함합니다.
 
 ```
-private static async Task<List<CloudTask>> AddTasksAsync(BatchClient batchClient, string jobId, List<ResourceFile> inputFiles, string outputContainerSasUrl)
+private static async Task<List<CloudTask>> AddTasksAsync(
+    BatchClient batchClient,
+    string jobId,
+    List<ResourceFile> inputFiles,
+    string outputContainerSasUrl)
 {
     Console.WriteLine("Adding {0} tasks to job [{1}]...", inputFiles.Count, jobId);
 
@@ -341,15 +379,19 @@ private static async Task<List<CloudTask>> AddTasksAsync(BatchClient batchClient
     foreach (ResourceFile inputFile in inputFiles)
     {
         string taskId = "topNtask" + inputFiles.IndexOf(inputFile);
-        string taskCommandLine = String.Format("cmd /c %AZ_BATCH_NODE_SHARED_DIR%\\TaskApplication.exe {0} 3 "{1}"", inputFile.FilePath, outputContainerSasUrl);
+        string taskCommandLine = String.Format(
+            "cmd /c %AZ_BATCH_NODE_SHARED_DIR%\\TaskApplication.exe {0} 3 "{1}"",
+            inputFile.FilePath,
+            outputContainerSasUrl);
 
         CloudTask task = new CloudTask(taskId, taskCommandLine);
         task.ResourceFiles = new List<ResourceFile> { inputFile };
         tasks.Add(task);
     }
 
-    // Add the tasks as a collection, as opposed to adding a separate AddTask call for each. Bulk task submission
-    // helps to ensure efficient underlying API calls to the Batch service.
+    // Add the tasks as a collection, as opposed to issuing a separate AddTask call
+    // for each. Bulk task submission helps to ensure efficient underlying API calls
+    // to the Batch service.
     await batchClient.JobOperations.AddTaskAsync(jobId, tasks);
 
     return tasks;
@@ -392,9 +434,10 @@ private static void UploadFileToContainer(string filePath, string containerSas)
 				Console.WriteLine("Additional error information: " + e.Message);
 				Console.WriteLine();
 
-				// Indicate that a failure has occurred so that when the Batch service sets the
-				// CloudTask.ExecutionInformation.ExitCode for the task that executed this application,
-				// it properly indicates that there was a problem with the task.
+				// Indicate that a failure has occurred so that when the Batch service
+                // sets the CloudTask.ExecutionInformation.ExitCode for the task that
+                // executed this application, it properly indicates that there was a
+                // problem with the task.
 				Environment.ExitCode = -1;
 		}
 }
@@ -408,33 +451,41 @@ private static void UploadFileToContainer(string filePath, string containerSas)
 
 DotNetTutorial의 `Program.cs`의 `MonitorTasks` 메서드 내에 설명의 근거가 되는 세 가지 Batch .NET 개념이 있습니다. 표시된 순서에 따라 아래 나열되어 있습니다.
 
-1. **ODATADetailLevel**--목록 작업에서 [ODATADetailLevel][net_odatadetaillevel] 지정(작업의 태스크 목록을 가져오는 것과 같은)은 배치 응용 프로그램 성능을 보장하는 데 반드시 필요합니다. 배치 응용 프로그램 내에서 상태 모니터링을 수행하려는 경우 [효율적인 Azure 배치 서비스 쿼리](batch-efficient-list-queries.md)를 읽기 목록에 추가합니다.
+1. **ODATADetailLevel**: 목록 작업에서 [ODATADetailLevel][net_odatadetaillevel] 지정(작업의 태스크 목록을 가져오는 것과 같은)은 배치 응용 프로그램 성능을 보장하는 데 반드시 필요합니다. 배치 응용 프로그램 내에서 상태 모니터링을 수행하려는 경우 [효율적인 Azure 배치 서비스 쿼리](batch-efficient-list-queries.md)를 읽기 목록에 추가합니다.
 
-2. **TaskStateMonitor**--[TaskStateMonitor][net_taskstatemonitor]는 태스크 상태를 모니터링하기 위한 도우미 유틸리티를 사용하여 배치 .NET 응용 프로그램을 제공합니다. `MonitorTasks`에서 *DotNetTutorial*은 제한 시간 내에서 모든 태스크가 [TaskState.Completed][net_taskstate]에 도달할 때까지 기다립니다. 그 후 작업을 종료합니다.
+2. **TaskStateMonitor**: [TaskStateMonitor][net_taskstatemonitor]는 태스크 상태를 모니터링하기 위한 도우미 유틸리티를 사용하여 배치 .NET 응용 프로그램을 제공합니다. `MonitorTasks`에서 *DotNetTutorial*은 제한 시간 내에서 모든 태스크가 [TaskState.Completed][net_taskstate]에 도달할 때까지 기다립니다. 그 후 작업을 종료합니다.
 
-3. **TerminateJobAsync**--[JobOperations.TerminateJobAsync][net_joboperations_terminatejob]로 작업 종료(또는 JobOperations.TerminateJob 차단)는 해당 작업을 완료로 표시합니다. 배치 솔루션에서 [JobReleaseTask][net_jobreltask]를 사용하는 경우 반드시 수행해야 합니다. 이것은 특수한 유형의 태스크이며, [작업 준비 및 완료 태스크](batch-job-prep-release.md)에 설명이 있습니다.
+3. **TerminateJobAsync**: [JobOperations.TerminateJobAsync][net_joboperations_terminatejob]로 작업 종료(또는 JobOperations.TerminateJob 차단)는 해당 작업을 완료로 표시합니다. 배치 솔루션에서 [JobReleaseTask][net_jobreltask]를 사용하는 경우 반드시 수행해야 합니다. 이것은 특수한 유형의 태스크이며, [작업 준비 및 완료 태스크](batch-job-prep-release.md)에 설명이 있습니다.
 
 *DotNetTutorial*의 `Program.cs`의 `MonitorTasks` 메서드는 아래와 같이 나타납니다.
 
 ```
-private static async Task<bool> MonitorTasks(BatchClient batchClient, string jobId, TimeSpan timeout)
+private static async Task<bool> MonitorTasks(
+    BatchClient batchClient,
+    string jobId,
+    TimeSpan timeout)
 {
     bool allTasksSuccessful = true;
     const string successMessage = "All tasks reached state Completed.";
     const string failureMessage = "One or more tasks failed to reach the Completed state within the timeout period.";
 
-    // Obtain the collection of tasks currently managed by the job. Note that we use a detail level to
-    // specify that only the "id" property of each task should be populated. Using a detail level for
-    // all list operations helps to lower response time from the Batch service.
+    // Obtain the collection of tasks currently managed by the job. Note that we use
+    // a detail level to specify that only the "id" property of each task should be
+    // populated. Using a detail level for all list operations helps to lower
+    // response time from the Batch service.
     ODATADetailLevel detail = new ODATADetailLevel(selectClause: "id");
-    List<CloudTask> tasks = await batchClient.JobOperations.ListTasks(JobId, detail).ToListAsync();
+    List<CloudTask> tasks =
+        await batchClient.JobOperations.ListTasks(JobId, detail).ToListAsync();
 
     Console.WriteLine("Awaiting task completion, timeout in {0}...", timeout.ToString());
 
-    // We use a TaskStateMonitor to monitor the state of our tasks. In this case, we will wait for all tasks to
-    // reach the Completed state.
+    // We use a TaskStateMonitor to monitor the state of our tasks. In this case, we
+    // will wait for all tasks to reach the Completed state.
     TaskStateMonitor taskStateMonitor = batchClient.Utilities.CreateTaskStateMonitor();
-    bool timedOut = await taskStateMonitor.WaitAllAsync(tasks, TaskState.Completed, timeout);
+    bool timedOut = await taskStateMonitor.WaitAllAsync(
+        tasks,
+        TaskState.Completed,
+        timeout);
 
     if (timedOut)
     {
@@ -448,12 +499,14 @@ private static async Task<bool> MonitorTasks(BatchClient batchClient, string job
     {
         await batchClient.JobOperations.TerminateJobAsync(jobId, successMessage);
 
-        // All tasks have reached the "Completed" state. However, this does not guarantee that all tasks were completed successfully.
-        // Here we further check each task's ExecutionInfo property to ensure that it did not encounter a scheduling error
-        // or return a non-zero exit code.
+        // All tasks have reached the "Completed" state. However, this does not
+        // guarantee that all tasks were completed successfully. Here we further
+        // check each task's ExecutionInfo property to ensure that it did not
+        // encounter a scheduling error or return a non-zero exit code.
 
-        // Update the detail level to populate only the task id and executionInfo properties.
-        // We refresh the tasks below, and need only this information for each task.
+        // Update the detail level to populate only the task id and executionInfo
+        // properties. We refresh the tasks below, and need only this information
+        // for each task.
         detail.SelectClause = "id, executionInfo";
 
         foreach (CloudTask task in tasks)
@@ -463,17 +516,23 @@ private static async Task<bool> MonitorTasks(BatchClient batchClient, string job
 
             if (task.ExecutionInformation.SchedulingError != null)
             {
-                // A scheduling error indicates a problem starting the task on the node. It is important to note that
-                // the task's state can be "Completed," yet the task still might have encountered a scheduling error.
+                // A scheduling error indicates a problem starting the task on the
+                // node. It is important to note that the task's state can be
+                // "Completed," yet the task still might have encountered a
+                // scheduling error.
 
                 allTasksSuccessful = false;
 
-                Console.WriteLine("WARNING: Task [{0}] encountered a scheduling error: {1}", task.Id, task.ExecutionInformation.SchedulingError.Message);
+                Console.WriteLine(
+                    "WARNING: Task [{0}] encountered a scheduling error: {1}",
+                    task.Id,
+                    task.ExecutionInformation.SchedulingError.Message);
             }
             else if (task.ExecutionInformation.ExitCode != 0)
             {
-                // A non-zero exit code may indicate that the application executed by the task encountered an error
-                // during execution. As not every application returns non-zero on failure by default (e.g. robocopy),
+                // A non-zero exit code may indicate that the application executed by
+                // the task encountered an error during execution. As not every
+                // application returns non-zero on failure by default (e.g. robocopy),
                 // your implementation of error checking may differ from this example.
 
                 allTasksSuccessful = false;
@@ -499,7 +558,10 @@ private static async Task<bool> MonitorTasks(BatchClient batchClient, string job
 이제 작업이 완료되었으므로 태스크의 출력을 Azure 저장소에서 다운로드할 수 있습니다. 이 작업은 *DotNetTutorial*의 `Program.cs`에서 `DownloadBlobsFromContainerAsync`에 대한 호출로 수행됩니다.
 
 ```
-private static async Task DownloadBlobsFromContainerAsync(CloudBlobClient blobClient, string containerName, string directoryPath)
+private static async Task DownloadBlobsFromContainerAsync(
+    CloudBlobClient blobClient,
+    string containerName,
+    string directoryPath)
 {
 		Console.WriteLine("Downloading all files from container [{0}]...", containerName);
 
@@ -507,7 +569,9 @@ private static async Task DownloadBlobsFromContainerAsync(CloudBlobClient blobCl
 		CloudBlobContainer container = blobClient.GetContainerReference(containerName);
 
 		// Get a flat listing of all the block blobs in the specified container
-		foreach (IListBlobItem item in container.ListBlobs(prefix: null, useFlatBlobListing: true))
+		foreach (IListBlobItem item in container.ListBlobs(
+                    prefix: null,
+                    useFlatBlobListing: true))
 		{
 				// Retrieve reference to the current blob
 				CloudBlob blob = (CloudBlob)item;
@@ -537,7 +601,9 @@ await DeleteContainerAsync(blobClient, outputContainerName);
 메서드 자체는 단순히 컨테이너에 대한 참조를 가져온 다음 [CloudBlobContainer.DeleteIfExistsAsync][net_container_delete]를 호출합니다.
 
 ```
-private static async Task DeleteContainerAsync(CloudBlobClient blobClient, string containerName)
+private static async Task DeleteContainerAsync(
+    CloudBlobClient blobClient,
+    string containerName)
 {
     CloudBlobContainer container = blobClient.GetContainerReference(containerName);
 
@@ -547,7 +613,8 @@ private static async Task DeleteContainerAsync(CloudBlobClient blobClient, strin
     }
     else
     {
-        Console.WriteLine("Container [{0}] does not exist, skipping deletion.", containerName);
+        Console.WriteLine("Container [{0}] does not exist, skipping deletion.",
+            containerName);
     }
 }
 ```
@@ -630,6 +697,7 @@ Sample complete, hit ENTER to exit...
 [azure_portal]: https://portal.azure.com
 [batch_explorer_blog]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
 [batch_learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
+[blog_linux]: http://blogs.technet.com/b/windowshpc/archive/2016/03/30/introducing-linux-support-on-azure-batch.aspx
 [github_batchexplorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [github_dotnettutorial]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/DotNetTutorial
 [github_samples]: https://github.com/Azure/azure-batch-samples
@@ -639,6 +707,11 @@ Sample complete, hit ENTER to exit...
 [net_api]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_api_storage]: https://msdn.microsoft.com/library/azure/mt347887.aspx
 [net_batchclient]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx
+[net_cloudblobclient]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobclient.aspx
+[net_cloudblobcontainer]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.aspx
+[net_cloudstorageaccount]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.cloudstorageaccount.aspx
+[net_cloudserviceconfiguration]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudserviceconfiguration.aspx
+[net_container_delete]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteifexistsasync.aspx
 [net_job]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.aspx
 [net_job_poolinfo]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.protocol.models.cloudjob.poolinformation.aspx
 [net_joboperations]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.joboperations
@@ -655,15 +728,14 @@ Sample complete, hit ENTER to exit...
 [net_resourcefile_blobsource]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.resourcefile.blobsource.aspx
 [net_sas_blob]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblob.getsharedaccesssignature.aspx
 [net_sas_container]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblobcontainer.getsharedaccesssignature.aspx
+[net_starttask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.starttask.aspx
+[net_starttask_resourcefiles]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.starttask.resourcefiles.aspx
 [net_task]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.aspx
 [net_task_resourcefiles]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.resourcefiles.aspx
 [net_taskstate]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.common.taskstate.aspx
 [net_taskstatemonitor]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.taskstatemonitor.aspx
 [net_thread_sleep]: https://msdn.microsoft.com/library/274eh01d(v=vs.110).aspx
-[net_cloudblobclient]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobclient.aspx
-[net_cloudblobcontainer]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.aspx
-[net_cloudstorageaccount]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.cloudstorageaccount.aspx
-[net_container_delete]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteifexistsasync.aspx
+[net_virtualmachineconfiguration]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.virtualmachineconfiguration.aspx
 [nuget_packagemgr]: https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c
 [nuget_restore]: https://docs.nuget.org/consume/package-restore/msbuild-integrated#enabling-package-restore-during-build
 [storage_explorers]: http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx
@@ -681,4 +753,4 @@ Sample complete, hit ENTER to exit...
 [10]: ./media/batch-dotnet-get-started/credentials_storage_sm.png "포털의 저장소 자격 증명"
 [11]: ./media/batch-dotnet-get-started/batch_workflow_minimal_sm.png "배치 솔루션 워크플로(최소 다이어그램)"
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

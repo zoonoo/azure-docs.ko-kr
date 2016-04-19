@@ -42,7 +42,7 @@ ADF와 함께 기존 데이터 처리 서비스는 가용성이 높고 클라우
 * 온-프레미스 SQL Server 데이터베이스에서 Azure Blob 저장소 계정으로 데이터 복사
 * Azure Blob 저장소 계정에서 Azure SQL 데이터베이스로 데이터 복사
 
-**참조**: 여기에 표시된 단계는 ADF 팀에서 제공한 보다 자세한 자습서인 [파이프라인에서 온-프레미스 데이터를 사용할 수 있도록 설정](data-factory-use-onpremises-datasources.md)에서 도입한 것이며 해당 항목의 관련 섹션에 대한 참조는 필요한 경우 제공됩니다.
+**참조**: 여기에 표시된 단계는 ADF 팀에서 제공한 보다 자세한 자습서인 [온-프레미스 원본과 클라우드 간에 데이터 관리 게이트웨이로 데이터 이동](../data-factory/data-factory-move-data-between-onprem-and-cloud.md)에서 도입한 것이며 해당 항목의 관련 섹션에 대한 참조는 필요한 경우 제공됩니다.
 
 
 ## <a name="prereqs"></a>필수 조건
@@ -50,8 +50,8 @@ ADF와 함께 기존 데이터 처리 서비스는 가용성이 높고 클라우
 
 * **Azure 구독**. 구독이 없는 경우 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 등록할 수 있습니다.
 * **Azure 저장소 계정**. 이 자습서에서는 데이터 저장을 위해 Azure 저장소 계정을 사용합니다. Azure 저장소 계정이 없는 경우 [저장소 계정 만들기](storage-create-storage-account.md#create-a-storage-account) 문서를 참조하세요. 저장소 계정을 만든 후에는 저장소 액세스에 사용되는 계정 키를 확보해야 합니다. [저장소 액세스 키 보기, 복사 및 다시 생성](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)을 참조하세요.
-* **Azure SQL 데이터베이스**에 대한 액세스. Azure SQL 데이터베이스를 설정해야 하는 경우, [Microsoft Azure SQL 데이터베이스 시작](sql-database-get-started.md)에서 Azure SQL 데이터베이스의 새 인스턴스를 프로비전하는 방법에 대한 정보를 제공합니다.
-* 로컬로 설치 및 구성된 **Azure PowerShell**. 자세한 내용은 [Azure PowerShell 설치 및 구성법](powershell-install-configure.md)을 참조하세요.
+* **Azure SQL 데이터베이스**에 대한 액세스. Azure SQL 데이터베이스를 설정해야 하는 경우, [Microsoft Azure SQL 데이터베이스 시작](../sql-database/sql-database-get-started.md)에서 Azure SQL 데이터베이스의 새 인스턴스를 프로비전하는 방법에 대한 정보를 제공합니다.
+* 로컬로 설치 및 구성된 **Azure PowerShell**. 자세한 내용은 [Azure PowerShell 설치 및 구성법](../powershell-install-configure.md)을 참조하세요.
 
 > [AZURE.NOTE] 이 절차에서는 [Azure 포털](https://ms.portal.azure.com/)을 사용합니다.
 
@@ -64,18 +64,18 @@ ADF와 함께 기존 데이터 처리 서비스는 가용성이 높고 클라우
 
 ##<a name="create-adf"></a>Azure 데이터 팩터리 만들기
 
-[Azure 포털](https://ms.portal.azure.com/)에서 새 Azure Data Factory 및 리소스 그룹을 만들기 위한 지침은 [Azure Data Factory 만들기](data-factory-build-your-first-pipeline-using-editor.md#step-1-creating-the-data-factory)에서 제공됩니다. 새 ADF 인스턴스의 이름은 *adfdsp*이고 생성된 리소스 그룹은 *adfdsprg*입니다.
+[Azure 포털](https://ms.portal.azure.com/)에서 새 Azure Data Factory 및 리소스 그룹을 만들기 위한 지침은 [Azure Data Factory 만들기](../data-factory/data-factory-build-your-first-pipeline-using-editor.md#step-1-creating-the-data-factory)에서 제공됩니다. 새 ADF 인스턴스의 이름은 *adfdsp*이고 생성된 리소스 그룹은 *adfdsprg*입니다.
 
 ## 데이터 관리 게이트웨이 설치 및 구성
 
 Azure 데이터 팩터리의 파이프라인에서 온-프레미스 SQL Server를 사용할 수 있게 하려면 데이터 팩터리에 연결된 서비스로 추가해야 합니다. 온-프레미스 SQL Server를 만들려면 먼저 온-프레미스 컴퓨터에 Microsoft 데이터 관리 게이트웨이를 다운로드하여 설치하고 온-프레미스 데이터 원본의 연결된 서비스에서 게이트웨이를 사용하도록 구성해야 합니다. 데이터 관리 게이트웨이는 호스팅되는 컴퓨터에서 원본 및 싱크 데이터를 직렬화 및 역직렬화합니다.
 
-데이터 관리 게이트웨이에 대한 설정 지침 및 자세한 내용은 [파이프라인에서 온-프레미스 데이터를 사용할 수 있도록 설정](data-factory-use-onpremises-datasources.md)을 참조하세요.
+데이터 관리 게이트웨이에 대한 설치 지침 및 세부 정보에 대한 내용은 [온-프레미스 원본과 클라우드 간에 데이터 관리 게이트웨이로 데이터 이동](../data-factory/data-factory-move-data-between-onprem-and-cloud.md)을 참조하세요.
 
 
 ## <a name="adflinkedservices"></a>데이터 리소스에 연결할 연결된 서비스 만들기
 
-연결된 서비스는 Azure 데이터 팩터리가 데이터 리소스에 연결하기 위해 필요한 정보를 정의합니다. 연결된 서비스를 만들기 위한 단계별 절차가 [연결된 서비스 만들기](data-factory-use-onpremises-datasources.md#step-2-create-linked-services)에 제공됩니다.
+연결된 서비스는 Azure 데이터 팩터리가 데이터 리소스에 연결하기 위해 필요한 정보를 정의합니다. 연결된 서비스를 만들기 위한 단계별 절차가 [연결된 서비스 만들기](../data-factory/data-factory-move-data-between-onprem-and-cloud.md#step-2-create-linked-services)에 제공됩니다.
 
 이 시나리오에는 연결된 서비스가 필요한 3개의 리소스가 있습니다.
 
@@ -96,7 +96,7 @@ Azure SQL 데이터베이스에 대한 연결된 서비스를 만들려면 Azure
 
 ##<a name="adf-tables"></a>데이터 집합에 액세스하는 방법을 지정하는 테이블 정의 및 만들기
 
-다음 스크립트 기반 프로시저로 데이터 집합의 구조, 위치 및 가용성을 지정하는 테이블을 만듭니다. 테이블을 정의하는 데 JSON 파일이 사용됩니다. 이러한 파일의 구조에 대한 자세한 내용은 [데이터 집합](data-factory-create-datasets.md)을 참조하세요.
+다음 스크립트 기반 프로시저로 데이터 집합의 구조, 위치 및 가용성을 지정하는 테이블을 만듭니다. 테이블을 정의하는 데 JSON 파일이 사용됩니다. 이러한 파일의 구조에 대한 자세한 내용은 [데이터 집합](../data-factory/data-factory-create-datasets.md)을 참조하세요.
 
 > [AZURE.NOTE]  [New-AzureDataFactoryTable](https://msdn.microsoft.com/library/azure/dn835096.aspx) cmdlet을 실행하기 전에 `Add-AzureAccount` cmdlet을 실행하여 명령 실행을 위해 Azure 구독을 선택했는지 확인해야 합니다. 이 cmdlet의 설명서는 [Add-azureaccount](https://msdn.microsoft.com/library/azure/dn790372.aspx)를 참조하세요.
 
@@ -111,7 +111,7 @@ Azure SQL 데이터베이스에 대한 연결된 서비스를 만들려면 Azure
 2. [Blob 테이블](#adf-table-blob-store)
 3. [SQL Azure 테이블](#adf-table-azure-sql)
 
-> [AZURE.NOTE]  다음 절차에서는 Azure PowerShell을 사용하여 ADF 활동을 정의하고 만듭니다. 그러나 이러한 작업은 Azure 포털을 사용해서도 수행할 수 있습니다. 자세한 내용은 [입력 및 출력 데이터 집합 만들기](data-factory-use-onpremises-datasources.md#step-3-create-input-and-output-datasets)를 참조하세요.
+> [AZURE.NOTE]  다음 절차에서는 Azure PowerShell을 사용하여 ADF 활동을 정의하고 만듭니다. 그러나 이러한 작업은 Azure 포털을 사용해서도 수행할 수 있습니다. 자세한 내용은 [입력 및 출력 데이터 집합 만들기](../data-factory/data-factory-move-data-between-onprem-and-cloud.md#step-3-create-input-and-output-datasets)를 참조하세요.
 
 ###<a name="adf-table-onprem-sql"></a>SQL 온-프레미스 테이블
 
@@ -141,7 +141,7 @@ Azure SQL 데이터베이스에 대한 연결된 서비스를 만들려면 Azure
 		    	}
 	    	}
     	}
-여기서는 열 이름이 포함되지 않았습니다. 여기에 열 이름을 포함하여 열 이름을 sub-select할 수 있습니다(자세한 내용은 [ADF 설명서](data-factory-data-movement-activities.md) 참조).
+여기서는 열 이름이 포함되지 않았습니다. 여기에 열 이름을 포함하여 열 이름을 sub-select할 수 있습니다(자세한 내용은 [ADF 설명서](../data-factory/data-factory-data-movement-activities.md) 참조).
 
 테이블의 JSON 정의를 *onpremtabledef.json*이라는 파일로 복사하고 알려진 위치에 저장합니다(여기서는 *C:\\temp\\onpremtabledef.json*으로 간주). 다음 Azure PowerShell cmdlet을 사용하여 ADF에 테이블을 만듭니다.
 
@@ -215,7 +215,7 @@ SQL Azure 출력에 대한 테이블 정의가 다음과 같습니다(이 스키
 * 스크립트는 **파이프라인 이름**이 *AMLDSProcessPipeline*이라고 가정합니다.
 * 또한 파이프라인이 매일 정기적으로 실행되도록 파이프라인의 주기성을 설정하고 작업에 대한 기본 실행 시간을 사용합니다(오전 12시 UTC).
 
-> [AZURE.NOTE]  다음 절차에서는 Azure PowerShell을 사용하여 ADF 파이프라인을 정의하고 만듭니다. 그러나 이러한 작업은 Azure 포털을 사용해서도 수행할 수 있습니다. 자세한 내용은 [파이프라인 만들기 및 실행](../data-factory/data-factory-use-onpremises-datasources.md#step-4-create-and-run-a-pipeline)을 참조하세요.
+> [AZURE.NOTE]  다음 절차에서는 Azure PowerShell을 사용하여 ADF 파이프라인을 정의하고 만듭니다. 그러나 이러한 작업은 Azure 포털을 사용해서도 수행할 수 있습니다. 자세한 내용은 [파이프라인 만들기 및 실행](../data-factory/data-factory-move-data-between-onprem-and-cloud.md#step-4-create-and-run-a-pipeline)을 참조하세요.
 
 위에 제공된 테이블 정의를 사용하여 ADF에 대한 파이프라인 정의는 다음과 같이 지정됩니다.
 
@@ -305,4 +305,4 @@ Azure 클래식 포털의 ADF에서 다음과 같이 파이프라인이 표시�
 
 데이터를 증분 방식으로 파이프하는 ADF 제공 기능을 활용하지 않았습니다. 이 작업을 수행하는 방법 및 ADF에서 제공하는 기타 기능에 대한 자세한 내용은 [ADF 설명서](https://azure.microsoft.com/services/data-factory/)를 참조하세요.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

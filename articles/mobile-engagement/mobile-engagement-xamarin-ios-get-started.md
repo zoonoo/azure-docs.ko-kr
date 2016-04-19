@@ -24,7 +24,7 @@
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
-+ [Xamarin Studio](http://xamarin.com/studio) 
++ [Xamarin Studio](http://xamarin.com/studio). Xamarin이 포함된 Visual Studio를 사용할 수도 있지만 이 자습서에서는 Xamarin Studio를 사용합니다. 또한 설치 지침은 [Visual Studio 및 Xamarin을 위한 설정 및 설치](https://msdn.microsoft.com/library/mt613162.aspx)를 참조하세요. 
 + [Mobile Engagement Xamarin SDK](https://www.nuget.org/packages/Microsoft.Azure.Engagement.Xamarin/)
 
 > [AZURE.NOTE] 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdocumentation%2Farticles%2Fmobile-engagement-xamarin-ios-get-started)을 참조하세요.
@@ -41,21 +41,21 @@
 
 ###새 Xamarin.iOS 프로젝트 만들기
 
-1. Xamarin Studio를 시작합니다. **File** -> **New** -> **Solution**으로 이동합니다. 
+1. Xamarin Studio를 시작합니다. **파일** -> **새로 만들기** -> **솔루션**으로 이동합니다. 
 
     ![][1]
 
-2. **Single View App**을 선택한 후 선택한 언어가 **C#**인지 확인하고 **Next**를 클릭합니다.
+2. **단일 보기 앱**을 선택한 후 선택한 언어가 **C#**인지 확인하고 **다음**을 클릭합니다.
 
     ![][2]
 
-3. **App Name** 및 **Organization Identifier**를 입력하고 **Next**를 클릭합니다.
+3. **앱 이름** 및 **조직 식별자**를 입력하고 **다음**를 클릭합니다.
 
     ![][3]
 
 	> [AZURE.IMPORTANT] iOS 앱을 배포하는 데 궁극적으로 사용할 게시 프로필에서 여기에 있는 번들 식별자와 정확히 일치하는 앱 ID를 사용하는지 확인합니다.
 
-4. 필요한 경우 **Project Name**, **Solution Name** 및 **Location**을 업데이트하고 **Create**를 클릭합니다.
+4. 필요한 경우 **프로젝트 이름**, **솔루션 이름** 및 **위치**를 업데이트하고 **만들기**를 클릭합니다.
 
     ![][4]
  
@@ -63,7 +63,7 @@ Xamarin Studio가 Mobile Engagement를 통합할 데모 앱을 만듭니다.
 
 ###Mobile Engagement 백 엔드에 앱 연결
 
-1. 솔루션 창에서 **Packages** 폴더를 마우스 오른쪽 단추로 클릭하고 **Add Packages...**를 선택합니다.
+1. 솔루션 창에서 **패키지** 폴더를 마우스 오른쪽 단추로 클릭하고 **패키지 추가...**를 선택합니다.
 
     ![][5]
 
@@ -91,7 +91,7 @@ Xamarin Studio가 Mobile Engagement를 통합할 데모 앱을 만듭니다.
 
 		using Microsoft.Azure.Engagement.Xamarin;
 
-2. `ViewController`가 `UIViewController`에서 `EngagementViewController`로 상속되는 클래스를 대체합니다.
+2. `ViewController`이 `UIViewController`에서 `EngagementViewController`로 상속하는 클래스를 대체합니다.
 
 ##<a id="monitor"></a>실시간 모니터링과 앱 연결
 
@@ -146,11 +146,11 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
             Console.WriteLine("Failed to register for remote notifications: Error '{0}'", error);
         }
 
-4. 솔루션의 **Info.plist** 파일에서 **Bundle Identifier**가 Apple 개발자 센터의 프로비전 프로필에 있는 **App ID**와 일치하는지 확인합니다.
+4. 솔루션의 **Info.plist** 파일에서 **번들 식별자**가 Apple 개발자 센터의 프로비전 프로필에 있는 **앱 ID**와 일치하는지 확인합니다.
 
 	![][7]
 
-5. 동일한 **Info.plist** 파일에서 **Enable Background Modes** 및 **Remote Notifications**를 선택했는지 확인합니다.
+5. 동일한 **Info.plist** 파일에서 **백그라운드 모드 사용** 및 **원격 알림**을 선택했는지 확인합니다.
 
  	![][8]
 
@@ -168,4 +168,4 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 [7]: ./media/mobile-engagement-xamarin-ios-get-started/info-plist-confirm-bundle.png
 [8]: ./media/mobile-engagement-xamarin-ios-get-started/info-plist-configure-push.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

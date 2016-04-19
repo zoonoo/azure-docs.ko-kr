@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/05/2016" 
+	ms.date="02/05/2016"
 	ms.author="bradsev;hangzh;weig"/>
 
 
@@ -48,11 +48,11 @@ NYC Taxi Trip 데이터는 1억 7,300만 개가 넘는 개별 여정 및 각 여
 
 trip\_data 및 trip\_fare를 조인하는 데 사용된 **고유 키**는 다음 세 필드로 구성됩니다.
 
-- medallion, 
-- hack\_license, 
+- medallion,
+- hack\_license,
 - pickup\_datetime
 
-## <a name="mltasks"></a>세 가지 유형의 예측 작업 처리 
+## <a name="mltasks"></a>세 가지 유형의 예측 작업 처리
 
 *tip\_amount*를 기반으로 예측 문제를 작성하여 세 종류의 모델링 작업을 보여 줍니다.
 
@@ -75,23 +75,23 @@ Azure 데이터 과학 환경을 설정하려면 다음 단계를 수행합니�
 
 **고유한 Azure Blob 저장소 계정 만들기**
 
-- 고유한 Azure Blob 저장소를 프로비전할 때 Azure Blob 저장소에 대한 지역 위치를 NYC 택시 데이터가 저장된 **미국 중남부**에 가능한 한 가깝게 선택합니다. 데이터는 공용 Blob 저장소 컨테이너에서 AzCopy를 사용하여 자체 저장소 계정의 컨테이너로 복사됩니다. Azure Blob 저장소가 미국 중남부에 가까울수록 이 작업(4단계)이 완료가 더 빨라집니다. 
-- 고유의 Azure 저장소 계정을 만들려면 [Azure 저장소 계정 정보](storage-create-storage-account.md)에 요약된 단계를 수행합니다. 이 연습의 뒷부분에서 필요하므로 다음 저장소 계정 자격 증명에 대한 값을 적어두어야 합니다. 
+- 고유한 Azure Blob 저장소를 프로비전할 때 Azure Blob 저장소에 대한 지역 위치를 NYC 택시 데이터가 저장된 **미국 중남부**에 가능한 한 가깝게 선택합니다. 데이터는 공용 Blob 저장소 컨테이너에서 AzCopy를 사용하여 자체 저장소 계정의 컨테이너로 복사됩니다. Azure Blob 저장소가 미국 중남부에 가까울수록 이 작업(4단계)이 완료가 더 빨라집니다.
+- 고유의 Azure 저장소 계정을 만들려면 [Azure 저장소 계정 정보](../storage/storage-create-storage-account.md)에 요약된 단계를 수행합니다. 이 연습의 뒷부분에서 필요하므로 다음 저장소 계정 자격 증명에 대한 값을 적어두어야 합니다.
 
   - **저장소 계정 이름**
   - **저장소 계정 키**
   - **컨테이너 이름**(데이터를 저장하려는 Azure Blob 저장소)
 
-**Azure SQL DW 인스턴스를 프로비전합니다.** [SQL 데이터 웨어하우스 만들기](sql-data-warehouse-get-started-provision.md)의 설명서에 따라 SQL 데이터 웨어하우스 인스턴스를 프로비전합니다. 이후 단계에서 사용되는 다음 SQL 데이터 웨어하우스 자격 증명에 표기하도록 합니다.
- 
+**Azure SQL DW 인스턴스를 프로비전합니다.** [SQL 데이터 웨어하우스 만들기](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)의 설명서에 따라 SQL 데이터 웨어하우스 인스턴스를 프로비전합니다. 이후 단계에서 사용되는 다음 SQL 데이터 웨어하우스 자격 증명에 표기하도록 합니다.
+
   - **서버 이름**: <server Name>.database.windows.net
-  - **SQLDW(데이터베이스) 이름** 
+  - **SQLDW(데이터베이스) 이름**
   - **사용자 이름**
   - **암호**
 
-**Visual Studio 2015 및 SQL Server 데이터 도구 설치** 자세한 지침은 [SQL 데이터 웨어하우스에 Visual Studio 2015 및/또는 SSDT(SQL Server Data Tools) 설치](sql-data-warehouse-install-visual-studio.md)를 참조하세요.
+**Visual Studio 2015 및 SQL Server 데이터 도구 설치** 자세한 지침은 [SQL 데이터 웨어하우스에 Visual Studio 2015 및/또는 SSDT(SQL Server Data Tools) 설치](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md)를 참조하세요.
 
-**Visual Studio로 Azure SQL DW에 연결합니다.** 자세한 지침은 [Visual Studio로 Azure SQL 데이터 웨어하우스에 연결](sql-data-warehouse-get-started-connect.md)의 1단계 및 2단계를 참조하세요.
+**Visual Studio로 Azure SQL DW에 연결합니다.** 자세한 지침은 [Visual Studio로 Azure SQL 데이터 웨어하우스에 연결](../sql-data-warehouse/sql-data-warehouse-get-started-connect.md)의 1단계 및 2단계를 참조하세요.
 
 >[AZURE.NOTE] SQL 데이터 웨어하우스에 만든 데이터베이스에 다음 SQL 쿼리(연결 항목의 3단계에서 제공된 쿼리 대신)를 실행하여 **마스터 키를 만듭니다**.
 
@@ -114,7 +114,7 @@ Windows PowerShell 명령 콘솔을 엽니다. 다음 PowerShell 명령을 실�
 	$source = "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/Download_Scripts_SQLDW_Walkthrough.ps1"
 	$ps1_dest = "$pwd\Download_Scripts_SQLDW_Walkthrough.ps1"
 	$wc = New-Object System.Net.WebClient
-	$wc.DownloadFile($source, $ps1_dest) 
+	$wc.DownloadFile($source, $ps1_dest)
 	.\Download_Scripts_SQLDW_Walkthrough.ps1 –DestDir 'C:\tempSQLDW'
 
 성공적으로 실행된 후에 현재 작업 디렉터리를 *-DestDir*로 변경합니다. 아래와 같은 화면을 볼 수 있어야 합니다.
@@ -149,13 +149,13 @@ PowerShell 스크립트가 처음으로 실행되면 Azure SQL DW 및 Azure Blob
 				if ($env_path -notlike '*' +$AzCopy_path_i+'*'){
 					Write-Host $AzCopy_path_i 'not in system path, add it...'
 					[Environment]::SetEnvironmentVariable("Path", "$AzCopy_path_i;$env_path", "Machine")
-					$env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") 
+					$env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine")
 					$env_path = $env:Path
-				}	
+				}
 
 - AzCopy로 공용 Blob에서 **개인 Blob 저장소 계정에 데이터 복사**
 
-		Write-Host "AzCopy is copying data from public blob to yo storage account. It may take a while..." -ForegroundColor "Yellow"	
+		Write-Host "AzCopy is copying data from public blob to yo storage account. It may take a while..." -ForegroundColor "Yellow"
 		$start_time = Get-Date
 		AzCopy.exe /Source:$Source /Dest:$DestURL /DestKey:$StorageAccountKey /S
 		$end_time = Get-Date
@@ -166,20 +166,20 @@ PowerShell 스크립트가 처음으로 실행되면 Azure SQL DW 및 Azure Blob
 
 
 - 다음 명령을 통해 개인 Blob 저장소 계정에서**Azure SQL DW에 Polybase를 사용(LoadDataToSQLDW.sql 실행)하여 데이터를 로드**합니다.
-	
+
 	- 스키마 만들기
 
 			EXEC (''CREATE SCHEMA {schemaname};'');
 
 	- 데이터베이스 범위 자격 증명 만들기
-			
-			CREATE DATABASE SCOPED CREDENTIAL {KeyAlias} 
-			WITH IDENTITY = ''asbkey'' , 
+
+			CREATE DATABASE SCOPED CREDENTIAL {KeyAlias}
+			WITH IDENTITY = ''asbkey'' ,
 			Secret = ''{StorageAccountKey}''
 
 	- Azure 저장소 Blob에 대한 외부 데이터 원본 만들기
 
-			CREATE EXTERNAL DATA SOURCE {nyctaxi_trip_storage} 
+			CREATE EXTERNAL DATA SOURCE {nyctaxi_trip_storage}
 			WITH
 			(
     			TYPE = HADOOP,
@@ -188,7 +188,7 @@ PowerShell 스크립트가 처음으로 실행되면 Azure SQL DW 및 Azure Blob
 			)
 			;
 
-			CREATE EXTERNAL DATA SOURCE {nyctaxi_fare_storage} 
+			CREATE EXTERNAL DATA SOURCE {nyctaxi_fare_storage}
 			WITH
 			(
     			TYPE = HADOOP,
@@ -199,10 +199,10 @@ PowerShell 스크립트가 처음으로 실행되면 Azure SQL DW 및 Azure Blob
 
 	- csv 파일에 대한 외부 파일 형식을 만듭니다. 데이터가 압축되지 않으며 필드는 파이프 문자로 분리됩니다.
 
-			CREATE EXTERNAL FILE FORMAT {csv_file_format} 
-			WITH 
+			CREATE EXTERNAL FILE FORMAT {csv_file_format}
+			WITH
 			(   
-    			FORMAT_TYPE = DELIMITEDTEXT, 
+    			FORMAT_TYPE = DELIMITEDTEXT,
     			FORMAT_OPTIONS  
     			(
         			FIELD_TERMINATOR ='','',
@@ -210,7 +210,7 @@ PowerShell 스크립트가 처음으로 실행되면 Azure SQL DW 및 Azure Blob
     			)
 			)
 			;
-		
+
 	- Azure Blob 저장소에 NYC Taxi 데이터 집합에 대한 외부 요금 및 여정 테이블을 만듭니다.
 
 			CREATE EXTERNAL TABLE {external_nyctaxi_fare}
@@ -244,7 +244,7 @@ PowerShell 스크립트가 처음으로 실행되면 Azure SQL DW 및 Azure Blob
        			rate_code char(3),
        			store_and_fwd_flag char(3),
        			pickup_datetime datetime  not null,
-       			dropoff_datetime datetime, 
+       			dropoff_datetime datetime,
        			passenger_count int,
        			trip_time_in_secs bigint,
        			trip_distance float,
@@ -264,40 +264,40 @@ PowerShell 스크립트가 처음으로 실행되면 Azure SQL DW 및 Azure Blob
 	- Azure Blob 저장소의 외부 테이블에서 SQL 데이터 웨어하우스에 데이터 로드
 
 			CREATE TABLE {schemaname}.{nyctaxi_fare}
-			WITH 
+			WITH
 			(   
     			CLUSTERED COLUMNSTORE INDEX,
 				DISTRIBUTION = HASH(medallion)
 			)
-			AS 
-			SELECT * 
+			AS
+			SELECT *
 			FROM   {external_nyctaxi_fare}
 			;
 
 			CREATE TABLE {schemaname}.{nyctaxi_trip}
-			WITH 
+			WITH
 			(   
     			CLUSTERED COLUMNSTORE INDEX,
 				DISTRIBUTION = HASH(medallion)
 			)
-			AS 
-			SELECT * 
+			AS
+			SELECT *
 			FROM   {external_nyctaxi_trip}
 			;
 
 	- 샘플 데이터 테이블(NYCTaxi\_Sample)을 만들고 여정 및 요금 테이블에 SQL 쿼리를 선택하여 데이터를 삽입합니다. (이 연습의 일부 단계는 이 샘플 테이블을 사용해야 합니다.)
 
 			CREATE TABLE {schemaname}.{nyctaxi_sample}
-			WITH 
+			WITH
 			(   
     			CLUSTERED COLUMNSTORE INDEX,
 				DISTRIBUTION = HASH(medallion)
 			)
-			AS 
+			AS
 			(
 	    		SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount, f.total_amount, f.tip_amount,
 				tipped = CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END,
-				tip_class = CASE 
+				tip_class = CASE
 						WHEN (tip_amount = 0) THEN 0
                         WHEN (tip_amount > 0 AND tip_amount <= 5) THEN 1
                         WHEN (tip_amount > 5 AND tip_amount <= 10) THEN 2
@@ -321,7 +321,7 @@ PowerShell 스크립트가 처음으로 실행되면 Azure SQL DW 및 Azure Blob
 ![그림 #21][21]
 
 >[AZURE.TIP] **고유 데이터 사용:** 데이터가 실제 응용 프로그램의 온-프레미스 컴퓨터에 있으면 AzCopy를 사용하여 개인 Azure Blob 저장소에 온-프레미스 데이터를 업로드할 수 있습니다. PowerShell 스크립트 파일의 AzCopy 명령에서 **원본** 위치인 `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`를 데이터가 있는 로컬 디렉터리로 변경해야만 합니다.
-	
+
 >[AZURE.TIP] 데이터가 실제 응용 프로그램의 개인 Azure Blob 저장소에 이미 있으면 PowerShell 스크립트에서 AzCopy 단계를 건너뛰고 직접 Azure SQL DW에 데이터를 업로드할 수 있습니다. 데이터 형식에 맞추려면 스크립트를 추가로 편집해야 합니다.
 
 
@@ -453,7 +453,7 @@ Visual Studio에서 SQL DW 로그인 이름 및 암호를 사용하여 Azure SQL
 
 	-- User-defined function to calculate the direct distance  in mile between two geographical coordinates.
 	CREATE FUNCTION [dbo].[fnCalculateDistance] (@Lat1 float, @Long1 float, @Lat2 float, @Long2 float)
-	
+
 	RETURNS float
 	AS
 	BEGIN
@@ -474,7 +474,7 @@ Visual Studio에서 SQL DW 로그인 이름 및 암호를 사용하여 Azure SQL
 	END
 	GO
 
-	SELECT pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude, 
+	SELECT pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude,
 	dbo.fnCalculateDistance(pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude) AS DirectDistance
 	FROM <schemaname>.<nyctaxi_trip>
 	WHERE datepart("mi",pickup_datetime)=1
@@ -500,7 +500,7 @@ Visual Studio에서 SQL DW 로그인 이름 및 암호를 사용하여 Azure SQL
 
 	-- User-defined function calculate the direct distance between two geographical coordinates.
 	CREATE FUNCTION [dbo].[fnCalculateDistance] (@Lat1 float, @Long1 float, @Lat2 float, @Long2 float)
-	
+
 	RETURNS float
 	AS
 	BEGIN
@@ -519,12 +519,12 @@ Visual Studio에서 SQL DW 로그인 이름 및 암호를 사용하여 Azure SQL
   		END
   		RETURN @distance
 	END
-	GO 
+	GO
 
 SQL 쿼리에서 기능을 생성하는 이 함수를 호출하는 예는 다음과 같습니다.
 
 	-- Sample query to call the function to create features
-	SELECT pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude, 
+	SELECT pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude,
 	dbo.fnCalculateDistance(pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude) AS DirectDistance
 	FROM <schemaname>.<nyctaxi_trip>
 	WHERE datepart("mi",pickup_datetime)=1
@@ -534,7 +534,7 @@ SQL 쿼리에서 기능을 생성하는 이 함수를 호출하는 예는 다음
 
 **출력:** 이 쿼리는 승차 및 하차 위도 및 경도와 해당 직선 거리(마일)가 포함된 테이블(2,803,538개 행)을 생성합니다. 처음 3개 행에 대한 결과는 다음과 같습니다.
 
-|pickup\_latitude | pickup\_longitude | dropoff\_latitude |dropoff\_longitude | DirectDistance |
+||pickup\_latitude | pickup\_longitude | dropoff\_latitude |dropoff\_longitude | DirectDistance |
 |---| --------- | -------|-------| --------- | -------|
 |1 | 40\.731804 | -74.001083 | 40\.736622 | -73.988953 | .7169601222 |
 |2 | 40\.715794 | -74,010635 | 40\.725338 | -74.00399 | .7448343721 |
@@ -564,7 +564,7 @@ SQL 쿼리에서 기능을 생성하는 이 함수를 호출하는 예는 다음
 Azure 기계 학습을 진행할 준비가 되었으면 다음을 수행할 수 있습니다.
 
 1. 데이터를 추출 및 샘플링할 최종 SQL 쿼리를 저장하고 Azure 기계 학습의 [판독기][reader] 모듈에 쿼리를 직접 복사하여 붙여 넣습니다. 또는
-2. 모델을 빌드하는 데 사용할 샘플링 및 엔지니어링된 데이터를 새 SQL DW 테이블에 유지하고 Azure 기계 학습의 [판독기][reader] 모듈에서 새 테이블을 사용합니다. 이전 단계에서 PowerShell 스크립트가 이를 수행했습니다. 판독기 모듈의 이 테이블에서 직접 읽을 수 있습니다. 
+2. 모델을 빌드하는 데 사용할 샘플링 및 엔지니어링된 데이터를 새 SQL DW 테이블에 유지하고 Azure 기계 학습의 [판독기][reader] 모듈에서 새 테이블을 사용합니다. 이전 단계에서 PowerShell 스크립트가 이를 수행했습니다. 판독기 모듈의 이 테이블에서 직접 읽을 수 있습니다.
 
 
 ## <a name="ipnb"></a>IPython Notebook에서 데이터 탐색 및 기능 엔지니어링
@@ -575,7 +575,7 @@ Azure 기계 학습을 진행할 준비가 되었으면 다음을 수행할 수 
 
 AzureML 작업 영역을 이미 설정한 경우 샘플 IPython Notebook을 AzureML IPython Notebook 서비스에 직접 업로드하고 실행을 시작할 수 있습니다. AzureML IPython Notebook 서비스에 업로드하는 단계는 다음과 같습니다.
 
-1. AzureML 작업 영역에 로그인하고 맨 위에 있는 "Studio"를 클릭한 다음 웹 페이지의 왼쪽에서 "NOTEBOOKS"를 클릭합니다. 
+1. AzureML 작업 영역에 로그인하고 맨 위에 있는 "Studio"를 클릭한 다음 웹 페이지의 왼쪽에서 "NOTEBOOKS"를 클릭합니다.
 
 	![그림 #22][22]
 
@@ -964,4 +964,4 @@ Azure 기계 학습에서는 학습 실험의 구성 요소를 기반으로 점�
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="01/14/2016"
+	ms.date="04/04/2016"
 	ms.author="ccompy"/>
 
 # 앱 서비스 환경에서 웹앱 만들기
@@ -118,4 +118,4 @@ ASE에서 웹앱을 실행하고 앱 서비스 계획을 관리하기 위해 고
 [ResourceGroups]: http://azure.microsoft.com/documentation/articles/resource-group-portal/
 [AzurePowershell]: http://azure.microsoft.com/documentation/articles/powershell-install-configure/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0406_2016-->

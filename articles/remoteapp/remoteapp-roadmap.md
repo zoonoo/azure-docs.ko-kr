@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="NA"
     ms.devlang="NA"
     ms.topic="article"
-    ms.date="03/23/2016"
+    ms.date="04/05/2016"
     ms.author="elizapo" />
 
 # Azure RemoteApp의 예정된 기능
@@ -25,7 +25,7 @@ Microsoft는 고객의 의견에 따라 Azure RemoteApp을 개선하기 위해 �
 |Azure RemoteApp용 Continuum과 Windows 10 범용 응용 프로그램 – 미리 보기|X| |
 |특정 사용자에게 개별 응용 프로그램을 게시하는 기능 - **비공개 미리 보기**([피드백](https://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6067043-allow-the-ability-to-publish-specific-apps-to-spec/))|X | |
 |Windows 클라이언트 재배포 가능 MSI 패키지([피드백](https://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6627191-client-deployment-provide-an-msi-package-to-allo/))| X| |
-|Azure RemoteApp을 위한 HTML5 기반 클라이언트|X ||
+|Azure RemoteApp을 위한 HTML5 기반 클라이언트| |X|
 |ARM(Azure 리소스 관리자) 지원||X|
 |Azure v2 리소스 지원| |X|
 |CSP(클라우드 솔루션 공급자)||X|
@@ -47,4 +47,4 @@ Microsoft는 고객의 의견에 따라 Azure RemoteApp을 개선하기 위해 �
 - 오스트레일리아 데이터 센터의 가용성
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

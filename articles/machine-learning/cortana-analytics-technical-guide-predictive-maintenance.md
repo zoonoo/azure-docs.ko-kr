@@ -1,6 +1,6 @@
 <properties
-	pageTitle="항공 우주 및 다른 비즈니스에서 예측 유지 관리를 위한 Cortana Analytics 솔루션 템플릿에 대한 기술 가이드 | Microsoft Azure"
-	description="항공, 유틸리티 및 운송에서 예측 유지 관리를 위한 Microsoft Cortana Analytics를 사용한 솔루션 템플릿에 대한 기술 지침"
+	pageTitle="항공 우주 및 다른 비즈니스에서 예측 유지 관리를 위한 Cortana Intelligence 솔루션 템플릿에 대한 기술 가이드 | Microsoft Azure"
+	description="항공, 유틸리티 및 운송에서 예측 유지 관리를 위한 Microsoft Cortana Intelligence를 사용한 솔루션 템플릿에 대한 기술 지침"
 	services="cortana-analytics"
 	documentationCenter=""
 	authors="fboylu"
@@ -16,14 +16,14 @@
 	ms.date="01/29/2016"
 	ms.author="fboylu" />
 
-# 항공 우주 및 다른 비즈니스에서 예측 유지 관리를 위한 Cortana Analytics 솔루션 템플릿에 대한 기술 가이드
+# 항공 우주 및 다른 비즈니스에서 예측 유지 관리를 위한 Cortana Intelligence 솔루션 템플릿에 대한 기술 가이드
 
 ## **승인**
 이 문서는 데이터 과학자 Yan Zhang, Gauher Shaheen, Fidan Boylu Uz 및 Microsoft의 소프트웨어 엔지니어 Dan Grecoe가 작성하였습니다.
 
 ## **개요**
 
-솔루션 템플릿은 Cortana Analytics Suite를 기반으로 E2E 데모 빌드 프로세스를 가속화하도록 디자인되었습니다. 배포된 템플릿은 필요한 Cortana Analytics 구성 요소로 구독을 프로비전하고 이들 간의 관계를 빌드합니다. 또한 솔루션 템플릿을 배포한 후 다운로드하여 로컬 컴퓨터에 설치하는 데이터 생성기 응용 프로그램에서 생성된 샘플 데이터로 데이터 파이프라인을 시드합니다. 생성기에서 생성된 데이터는 데이터 파이프라인을 하이드레이션하며 나중에 Power BI 대시보드에서 시각화할 수 있는 기계 학습 예측을 생성하기 시작합니다. 배포 프로세스는 솔루션 자격 증명을 설정하는 몇 가지 단계를 안내합니다. 솔루션 이름, 사용자 이름 및 배포하는 동안 제공하는 암호와 같은 이러한 자격 증명을 기록합니다.
+솔루션 템플릿은 Cortana Intelligence Suite를 기반으로 E2E 데모 빌드 프로세스를 가속화하도록 디자인되었습니다. 배포된 템플릿은 필요한 Cortana Intelligence 구성 요소로 구독을 프로비전하고 이들 간의 관계를 빌드합니다. 또한 솔루션 템플릿을 배포한 후 다운로드하여 로컬 컴퓨터에 설치하는 데이터 생성기 응용 프로그램에서 생성된 샘플 데이터로 데이터 파이프라인을 시드합니다. 생성기에서 생성된 데이터는 데이터 파이프라인을 하이드레이션하며 나중에 Power BI 대시보드에서 시각화할 수 있는 기계 학습 예측을 생성하기 시작합니다. 배포 프로세스는 솔루션 자격 증명을 설정하는 몇 가지 단계를 안내합니다. 솔루션 이름, 사용자 이름 및 배포하는 동안 제공하는 암호와 같은 이러한 자격 증명을 기록합니다.
 
 이 문서의 목적은 참조 아키텍처 및 이 솔루션 템플릿의 일부로 구독에 프로비전된 다른 구성 요소를 설명하는 것입니다. 문서는 사용자 고유 데이터에서 통찰력과 예측을 볼 수 있도록 샘플 데이터를 사용자 고유의 실제 데이터로 대체하는 방법에 대해서도 설명합니다. 또한 문서는 사용자 고유 데이터로 솔루션을 사용자 지정하려는 경우 수정되어야 하는 솔루션 템플릿의 부분을 설명합니다. 이 솔루션 템플릿에 대한 Power BI 대시보드를 빌드하는 방법에 대한 지침은 끝에 제공됩니다.
 
@@ -272,4 +272,4 @@ Power BI는 예측 결과가 저장되는 해당 데이터 원본으로 Azure SQ
 
 -   [Microsoft Azure 비용 추정 도구(데스크톱)](http://www.microsoft.com/download/details.aspx?id=43376)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -65,7 +65,7 @@ Azure 저장소를 사용하려면 저장소 REST 서비스와 통신하는 편�
 
 응용 프로그램에서 아래 코드를 **server.js** 파일의 맨 위에 추가합니다.
 
-    var azure = require('azure-storage');
+	var azure = require('azure-storage');
 
 ## Azure 저장소 연결 설정
 
@@ -77,27 +77,27 @@ Azure 웹 사이트의 [Azure 포털](https://portal.azure.com)에서 환경 변
 
 다음 코드는 **TableService** 개체를 만든 다음 이 개체를 사용하여 새 테이블을 만듭니다. **server.js**의 위쪽에 다음을 추가합니다.
 
-    var tableSvc = azure.createTableService();
+	var tableSvc = azure.createTableService();
 
 **createTableIfNotExists**를 호출하면 지정된 이름을 사용하는 테이블이 없는 경우 새 테이블을 만듭니다. 다음 예제에서는 'mytable'이라는 새 테이블(없는 경우)을 만듭니다.
 
-    tableSvc.createTableIfNotExists('mytable', function(error, result, response){
-		if(!error){
-			// Table exists or created
-		}
+	tableSvc.createTableIfNotExists('mytable', function(error, result, response){
+	  if(!error){
+	    // Table exists or created
+	  }
 	});
 
-새 테이블이 만들어지면 `result`는 `true`가 되고, 테이블이 이미 있으면 `false`가 됩니다. `response`에는 요청에 대한 정보가 포함됩니다.
+새 테이블이 만들어지면 `result.created`는 `true`가 되고, 테이블이 이미 있으면 `false`가 됩니다. `response`에는 요청에 대한 정보가 포함됩니다.
 
 ### 필터
 
 **TableService**를 사용하여 수행되는 작업에 선택적 필터링 작업을 적용할 수 있습니다. 필터링 작업은 로깅, 자동 재시도 등을 포함할 수 있습니다. 필터는 시그니쳐가 있는 메서드를 구현하는 개체입니다.
 
-		function handle (requestOptions, next)
+	function handle (requestOptions, next)
 
 요청 옵션에 대한 전처리를 수행한 후 메서드는 다음 서명을 사용하여 콜백을 전달하는 "next"를 호출해야 합니다.
 
-		function (returnObject, finalCallback, next)
+	function (returnObject, finalCallback, next)
 
 이 콜백에서 returnObject(서버에 요청 응답 반환)를 처리한 후 콜백은 next(있는 경우)를 호출하여 다른 필터를 계속 처리하거나 finalCallback을 호출하여 서비스 호출을 종료해야 합니다.
 
@@ -130,19 +130,19 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 **entityGenerator**를 사용하여 엔터티를 만들 수도 있습니다. 다음 예에서는 **entityGenerator**를 사용하여 같은 작업 엔터티를 만듭니다.
 
 	var entGen = azure.TableUtilities.entityGenerator;
-    var task = {
+	var task = {
 	  PartitionKey: entGen.String('hometasks'),
-      RowKey: entGen.String('1'),
-      description: entGen.String('take out the trash'),
-      dueDate: entGen.DateTime(new Date(Date.UTC(2015, 6, 20))),
-    };
+	  RowKey: entGen.String('1'),
+	  description: entGen.String('take out the trash'),
+	  dueDate: entGen.DateTime(new Date(Date.UTC(2015, 6, 20))),
+	};
 
 테이블에 엔터티를 추가하려면 엔터티 개체를 **insertEntity** 메서드에 전달합니다.
 
 	tableSvc.insertEntity('mytable',task, function (error, result, response) {
-		if(!error){
-			// Entity inserted
-		}
+	  if(!error){
+	    // Entity inserted
+	  }
 	});
 
 작업에 성공할 경우 `result` 값에는 삽입한 레코드의[ETag](http://en.wikipedia.org/wiki/HTTP_ETag)가 포함되고 `response` 값에는 작업에 대한 정보가 포함됩니다.
@@ -159,7 +159,7 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 
 다음과 같은 여러 메서드를 사용하여 기존 엔터티를 업데이트할 수 있습니다.
 
-* **updateEntity** - 기존 엔터티를 바꾸어서 업데이트합니다.
+* **replaceEntity** - 기존 엔터티를 바꾸어서 업데이트합니다.
 
 * **mergeEntity** - 새 속성 값을 기존 엔터티에 병합하여 기존 엔터티를 업데이트합니다.
 
@@ -167,13 +167,13 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 
 * **insertOrMergeEntity** - 새 속성 값을 기존 항목에 병합하여 기존 엔터티를 업데이트합니다. 엔터티가 없는 경우 새 엔터티를 삽입합니다.
 
-다음 예제에서는 **updateEntity**를 사용하여 엔터티를 업데이트하는 방법을 보여 줍니다.
+다음 예제에서는 **replaceEntity**를 사용하여 엔터티를 업데이트하는 방법을 보여 줍니다.
 
-	tableSvc.updateEntity('mytable', updatedTask, function(error, result, response){
-      if(!error) {
-        // Entity updated
-      }
-    });
+	tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response){
+	  if(!error) {
+	    // Entity updated
+	  }
+	});
 
 > [AZURE.NOTE] 기본적으로는 엔터티를 업데이트할 때 업데이트할 데이터를 다른 프로세서에서 이전에 수정했는지 확인하지 않습니다. 동시 업데이트를 지원하려면:
 >
@@ -182,10 +182,10 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 > 2. 엔터티에서 업데이트 작업을 수행할 때 이전에 검색한 ETag 정보를 새 엔터티에 추가합니다. 예:
 >
 >     `entity2['.metadata'].etag = currentEtag;`
->    
+>
 > 3. 업데이트 작업을 수행합니다. ETag 값을 검색한 후에 응용 프로그램의 다른 인스턴스 등에서 엔터티가 수정된 경우에는 요청에 지정된 업데이트 조건이 충족되지 않았다는 내용의 `error`가 반환됩니다.
 
-**updateEntity** 및 **mergeEntity**를 사용할 때 업데이트 중인 엔터티가 없는 경우 업데이트 작업이 실패합니다. 따라서 엔터티의 존재 여부에 상관없이 엔터티를 저장하려면 **insertOrReplaceEntity** 또는 **insertOrMergeEntity**를 사용합니다.
+**replaceEntity** 및 **mergeEntity**를 사용할 때 업데이트 중인 엔터티가 없는 경우 업데이트 작업이 실패합니다. 따라서 엔터티의 존재 여부에 상관없이 엔터티를 저장하려면 **insertOrReplaceEntity** 또는 **insertOrMergeEntity**를 사용합니다.
 
 업데이트 작업이 성공할 경우 `result` 값에는 업데이트된 엔터티의 **Etag**가 포함됩니다.
 
@@ -195,7 +195,7 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 
  다음 예제에서는 두 엔터티를 일괄적으로 제출하는 방법을 보여 줍니다.
 
-    var task1 = {
+	var task1 = {
 	  PartitionKey: {'_':'hometasks'},
 	  RowKey: {'_': '1'},
 	  description: {'_':'Take out the trash'},
@@ -239,11 +239,11 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 
 **PartitionKey**와 **RowKey**를 기준으로 특정 엔터티를 반환하려면 **retrieveEntity** 메서드를 사용합니다.
 
-    tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, response){
+	tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, response){
 	  if(!error){
 	    // result contains the entity
 	  }
-    });
+	});
 
 이 작업이 완료되면 `result`에 엔터티가 포함됩니다.
 
@@ -296,9 +296,9 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 	  RowKey: {'_': '1'}
 	};
 
-    tableSvc.deleteEntity('mytable', task, function(error, response){
+	tableSvc.deleteEntity('mytable', task, function(error, response){
 	  if(!error) {
-		// Entity deleted
+	    // Entity deleted
 	  }
 	});
 
@@ -308,7 +308,7 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 
 다음 코드는 저장소 계정에서 테이블을 삭제합니다.
 
-    tableSvc.deleteTable('mytable', function(error, response){
+	tableSvc.deleteTable('mytable', function(error, response){
 		if(!error){
 			// Table deleted
 		}
@@ -379,7 +379,7 @@ SAS 소유자가 테이블에 액세스할 때 필요하므로 호스트 정보�
 
 	sharedTableService.queryEntities(query, null, function(error, result, response) {
 	  if(!error) {
-		// result contains the entities
+	    // result contains the entities
 	  }
 	});
 
@@ -391,36 +391,30 @@ ACL(액세스 제어 목록)을 사용하여 SAS에 액세스 정책을 설정�
 
 ACL은 각 정책에 ID가 연결된 액세스 정책 배열을 사용하여 구현됩니다. 다음 예에서는 'user1'와 'user2'에 대해 하나씩, 두 개의 정책을 정의합니다.
 
-	var sharedAccessPolicy = [
-	  {
-	    AccessPolicy: {
-	      Permissions: azure.TableUtilities.SharedAccessPermissions.QUERY,
-	      Start: startDate,
-	      Expiry: expiryDate
-	    },
-	    Id: 'user1'
+	var sharedAccessPolicy = {
+	  user1: {
+	    Permissions: azure.TableUtilities.SharedAccessPermissions.QUERY,
+	    Start: startDate,
+	    Expiry: expiryDate
 	  },
-	  {
-	    AccessPolicy: {
-	      Permissions: azure.TableUtilities.SharedAccessPermissions.ADD,
-	      Start: startDate,
-	      Expiry: expiryDate
-	    },
-	    Id: 'user2'
+	  user2: {
+	    Permissions: azure.TableUtilities.SharedAccessPermissions.ADD,
+	    Start: startDate,
+	    Expiry: expiryDate
 	  }
-	];
+	};
 
 다음 예제에서는 **hometasks** 테이블의 현재 ACL을 가져온 다음 **setTableAcl**을 사용하여 새 정책을 추가합니다. 이 접근 방식을 통해 다음을 수행할 수 있습니다.
 
+	var extend = require('extend');
 	tableSvc.getTableAcl('hometasks', function(error, result, response) {
-      if(!error){
-		//push the new policy into signedIdentifiers
-		result.signedIdentifiers.push(sharedAccessPolicy);
-		tableSvc.setTableAcl('hometasks', result, function(error, result, response){
-	  	  if(!error){
-	    	// ACL set
-	  	  }
-		});
+    if(!error){
+	    var newSignedIdentifiers = extend(true, result.signedIdentifiers, sharedAccessPolicy);
+	    tableSvc.setTableAcl('hometasks', newSignedIdentifiers, function(error, result, response){
+	      if(!error){
+	        // ACL set
+	      }
+	    });
 	  }
 	});
 
@@ -448,4 +442,4 @@ ACL이 설정되고 나면 정책의 ID를 기반으로 SAS를 만들 수 있습
   [Azure 테이블 서비스를 사용하여 Node.js 웹앱]: ../storage-nodejs-use-table-storage-web-site.md
   [Create and deploy a Node.js application to an Azure website]: ../web-sites-nodejs-develop-deploy-mac.md
 
-<!----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0406_2016-->

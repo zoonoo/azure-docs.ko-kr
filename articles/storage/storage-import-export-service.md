@@ -284,8 +284,8 @@ Azure 가져오기/내보내기 도구는 각 드라이브가 준비되면 각 �
 [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)
 
 
-[import-job-03]: ./media/storage-import-export-service-classic-portal/import-job-03.png
-[export-job-03]: ./media/storage-import-export-service-classic-portal/export-job-03.png
-[export-job-bitlocker-keys]: ./media/storage-import-export-service-classic-portal/export-job-bitlocker-keys.png
+[import-job-03]: ./media/storage-import-export-service/import-job-03.png
+[export-job-03]: ./media/storage-import-export-service/export-job-03.png
+[export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0406_2016-->

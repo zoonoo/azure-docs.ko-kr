@@ -19,7 +19,7 @@
 # SQL 데이터베이스 동적 데이터 마스킹 시작(Azure 클래식 포털)
 
 > [AZURE.SELECTOR]
-- [Dynamic Data Masking - Azure Portal](sql-database-dynamic-data-masking-get-started.md)
+- [동적 데이터 마스킹-Azure 포털](sql-database-dynamic-data-masking-get-started.md)
 
 ## 개요
 
@@ -88,6 +88,10 @@ Azure 데이터베이스 관리자, 서버 관리자 또는 보안 관리자 역
 9. **저장**을 클릭하여 신규 또는 업데이트된 마스킹 정책을 저장합니다.
 
 
+## Transact-SQL 문을 사용하여 데이터베이스에 대한 동적 데이터 마스킹 설정
+
+[동적 데이터 마스킹](https://msdn.microsoft.com/library/mt130841.aspx)을 참조하세요.
+
 ## PowerShell cmdlet을 사용하여 데이터베이스에 대한 동적 데이터 마스킹 설정
 
 [Azure SQL 데이터베이스 cmdlet](https://msdn.microsoft.com/library/azure/mt574084.aspx)을 참조하세요.
@@ -96,4 +100,4 @@ Azure 데이터베이스 관리자, 서버 관리자 또는 보안 관리자 역
 
 [Azure SQL 데이터베이스에 대한 작업](https://msdn.microsoft.com/library/dn505719.aspx)을 참조하세요.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0406_2016-->

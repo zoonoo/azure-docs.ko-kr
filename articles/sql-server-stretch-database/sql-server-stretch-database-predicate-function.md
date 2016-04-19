@@ -18,16 +18,16 @@
 
 # 필터 조건자를 사용하여 마이그레이션할 행 선택(스트레치 데이터베이스)
 
-기록 데이터를 별도 테이블에 저장 하는 경우 전체 테이블을 마이그레이션할 스트레치 데이터베이스를 구성할 수 있습니다. 반면, 테이블이 기록 및 현재 데이터를 포함하는 경우 필터 조건자를 지정하여 마이그레이션할 행을 선택할 수 있습니다. 필터 조건자는 인라인 테이블 값 함수를 호출해야 합니다. 이 항목은 마이그레이션할 행을 선택하는 인라인 테이블 값 함수를 작성하는 방법을 설명합니다.
-
-CTP 3.1에서 RC1까지 조건자를 지정하는 옵션은 Stretch 마법사에 데이터베이스 사용에 사용할 수 없습니다. 이 옵션과 함께 ALTER TABLE 문을 사용하여 스트레치 데이터베이스를 구성해야 합니다. 자세한 내용은 [ALTER TABLE(Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)을 참조하세요.
-
-필터 조건자를 지정하지 않으면 전체 테이블이 마이그레이션됩니다.
+기록 데이터를 별도 테이블에 저장 하는 경우 전체 테이블을 마이그레이션할 스트레치 데이터베이스를 구성할 수 있습니다. 반면, 테이블이 현재 및 기록 데이터를 포함하는 경우 필터 조건자를 지정하여 마이그레이션할 행을 선택할 수 있습니다. 필터 조건자는 인라인 테이블 값 함수입니다. 이 항목은 마이그레이션할 행을 선택하는 인라인 테이블 값 함수를 작성하는 방법을 설명합니다.
 
 >   [AZURE.NOTE] 제대로 수행되지 않는 필터 조건자를 제공하는 경우 데이터 마이그레이션도 제대로 수행되지 않습니다. 스트레치 데이터베이스는 CROSS APPLY 연산자를 사용하여 테이블에 필터 조건자를 적용합니다.
 
+필터 조건자를 지정하지 않으면 전체 테이블이 마이그레이션됩니다.
+
+CTP 3.1~RC2의 경우 스트레치에 데이터베이스 사용 마법사에서 조건자를 지정하는 옵션이 제공되지 않습니다. 이 옵션과 함께 ALTER TABLE 문을 사용하여 스트레치 데이터베이스를 구성해야 합니다. 자세한 내용은 [테이블에 대해 스트레치 데이터베이스 사용](sql-server-stretch-database-enable-table.md) 및 [ALTER TABLE(Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)을 참조하세요.
+
 ## 인라인 테이블 값 함수의 기본 요구 사항
-스트레치 데이터베이스 필터 함수에 필요한 인라인 테이블 값 함수는 다음 예제와 같습니다.
+스트레치 데이터베이스 필터 조건자에 필요한 인라인 테이블 값 함수는 다음 예제와 같습니다.
 
 ```tsql
 CREATE FUNCTION dbo.fn_stretchpredicate(@column1 datatype1, @column2 datatype2 [, ...n])
@@ -42,7 +42,7 @@ RETURN	SELECT 1 AS is_eligible
 스키마 바인딩은 필터 조건자에 의해 사용되는 열이 삭제되거나 변경되는 것을 방지하기 위해 필요합니다.
 
 ### 반환 값
-함수가 비어 있지 않은 결과를 반환하는 경우 행은 마이그레이션될 수 있으며, 함수가 어떠한 행도 반환하지 않는 경우 행은 마이그레이션되지 않습니다.
+함수가 비어 있지 않은 결과를 반환하는 경우 해당 행을 마이그레이션할 수 있습니다. 그렇지 않은 경우, 즉 함수가 결과를 반환하지 않는 경우에는 해당 행을 마이그레이션할 수 없습니다.
 
 ### 조건
 &lt;*조건자*&gt;는 하나의 조건 또는 AND 논리 연산자로 결합된 여러 조건으로 구성할 수 있습니다.
@@ -133,7 +133,117 @@ BETWEEN과 NOT BETWEEN을 동등한 AND와 OR 식으로 대체한 후 결과 조
 
 하위 쿼리나 rand() 또는 getdate() 등의 비결정 함수를 사용할 수 없습니다.
 
-## 올바른 함수의 예제
+## 필터 조건자를 테이블에 추가
+ALTER TABLE 문을 실행하고 기존 인라인 테이블 값 함수를 FILTER\_PREDICATE 매개 변수 값으로 지정하여 필터 조건자를 테이블에 추가합니다. 예:
+
+```tsql
+ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
+	FILTER_PREDICATE = dbo.fn_stretchpredicate(column1, column2),
+	MIGRATION_STATE = <desired_migration_state>
+) )
+```
+함수를 조건자로 테이블에 바인딩한 후에는 다음과 같은 것들은 true가 됩니다.
+
+-   다음 번 데이터 마이그레이션 수행 시, 함수가 비어 있지 않은 값을 반환하는 행만 마이그레이션됩니다.
+
+-   함수에 의해 사용되는 열은 스키마 바운드됩니다. 테이블이 필터 조건자로 함수를 사용하는 한 이들 열을 변경할 수 없습니다.
+
+테이블이 필터 조건자로 함수를 사용하는 한 인라인 테이블 값 함수를 삭제할 수 없습니다.
+
+## 날짜별로 행 필터링
+다음 예제에서는 **date** 열에 2016년 1월1일 이전 값이 포함된 경우 행을 마이그레이션합니다.
+
+```tsql
+-- Filter by date
+--
+CREATE FUNCTION dbo.fn_stretch_by_date(@date datetime2)
+RETURNS TABLE
+WITH SCHEMABINDING
+AS
+       RETURN SELECT 1 AS is_eligible WHERE @date < CONVERT(datetime2, '1/1/2016', 101)
+GO
+```
+
+## 상태 열 값으로 행 필터링
+다음 예제에서는 **status** 열에 지정된 된 값 중 하나가 포함된 경우 행을 마이그레이션합니다.
+
+```tsql
+-- Filter by status column
+--
+CREATE FUNCTION dbo.fn_stretch_by_status(@status nvarchar(128))
+RETURNS TABLE
+WITH SCHEMABINDING
+AS
+       RETURN SELECT 1 AS is_eligible WHERE @status IN (N'Completed', N'Returned', N'Cancelled')
+GO
+```
+
+## 슬라이딩 윈도우를 사용하여 행 필터링
+슬라이딩 윈도우를 사용하여 행을 필터링하려면 필터 함수에 대한 다음 요구 사항을 염두에 두어야 합니다.
+
+-   함수는 명확해야 합니다. 따라서 시간이 지남에 따라 슬라이딩 윈도우를 자동으로 다시 계산하는 함수를 만들 수 없습니다.
+
+-   함수에서 스키마 바인딩을 사용해야 합니다. 따라서 슬라이딩 윈도우를 이동하기 위해 ALTER FUNCTION을 호출하여 매일 "현재 위치"에서 함수를 업데이트할 수 없습니다.
+
+다음 예제와 같이 **systemEndTime** 열에 2016년 1월 1일 이전 값이 포함된 행을 마이그레이션하는 필터 조건자로 시작합니다.
+
+```tsql
+CREATE FUNCTION dbo.fn_StretchBySystemEndTime20160101(@systemEndTime datetime2)
+RETURNS TABLE
+WITH SCHEMABINDING  
+AS  
+RETURN SELECT 1 AS is_eligible
+  WHERE @systemEndTime < CONVERT(datetime2, '2016-01-01T00:00:00', 101) ;
+```
+
+테이블에 필터 조건자를 적용합니다.
+
+```tsql
+ALTER TABLE <table name>
+SET (
+        REMOTE_DATA_ARCHIVE = ON
+                (
+                        FILTER_PREDICATE = dbo.fn_StretchBySystemEndTime20160101 (SysEndTime)
+                                , MIGRATION_STATE = OUTBOUND
+                )
+        )
+;
+```
+
+슬라이딩 윈도우를 업데이트하려는 경우에 다음을 수행합니다.
+
+1.  새 슬라이딩 윈도우를 지정하는 새 함수를 만듭니다. 다음 예제에서는 2016년 1월 1일 대신 2106년 1월 2일 이전 날짜를 선택합니다.
+
+2.  다음 예제와 같이 ALTER TABLE을 호출하여 이전 필터 조건자를 새 필터 조건자로 바꿉니다.
+
+3. 필요에 따라 DROP FUNCTION을 호출하여 더 이상 사용하지 않는 이전 필터 함수를 삭제합니다. 이 단계는 예제에 표시되어 있지 않습니다.
+
+```tsql
+BEGIN TRAN
+GO
+        /*(1) Create new predicate function definition */
+        CREATE FUNCTION dbo.fn_StretchBySystemEndTime20160102(@systemEndTime datetime2)
+        RETURNS TABLE
+        WITH SCHEMABINDING
+        AS
+        RETURN SELECT 1 AS is_eligible
+               WHERE @systemEndTime < CONVERT(datetime2,'2016-01-02T00:00:00', 101)
+        GO
+
+        /*(2) Set the new function as filter predicate */
+        ALTER TABLE <table name>
+        SET
+        (
+               REMOTE_DATA_ARCHIVE = ON
+               (
+                       FILTER_PREDICATE = dbo.fn_StretchBySystemEndTime20160102(SysEndTime),
+                       MIGRATION_STATE = OUTBOUND
+               )
+        )
+COMMIT ;
+```
+
+## 유효한 필터 조건자의 더 많은 예제
 
 -   다음 예제는 AND 논리 연산자를 사용하여 두 개의 기본 조건을 결합한 것입니다.
 
@@ -200,7 +310,7 @@ BETWEEN과 NOT BETWEEN을 동등한 AND와 OR 식으로 대체한 후 결과 조
     GO
     ```
 
-## 올바르지 않는 함수의 예제
+## 유효하지 않은 필터 조건자의 예제
 
 -   다음 함수는 비결정 변환을 포함하기 때문에 올바르지 않습니다.
 
@@ -289,32 +399,6 @@ SELECT * FROM stretch_table_name CROSS APPLY fn_stretchpredicate(column1, column
 ```
 함수가 행에 대해 비어 있지 않은 결과 반환할 경우 해당 행을 마이그레이션할 수 있습니다.
 
-## 필터 조건자를 테이블에 추가
-ALTER TABLE 문을 실행하고 기존 인라인 테이블 값 함수를 FILTER\_PREDICATE 매개 변수 값으로 지정하여 필터 조건자를 테이블에 추가합니다. 예:
-
-```tsql
-ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
-	FILTER_PREDICATE = dbo.fn_stretchpredicate(column1, column2),
-	MIGRATION_STATE = <desired_migration_state>
-) )
-```
-함수를 조건자로 테이블에 바인딩한 후에는 다음과 같은 것들은 true가 됩니다.
-
--   다음 번 데이터 마이그레이션 수행 시, 함수가 비어 있지 않은 값을 반환하는 행만 마이그레이션됩니다.
-
--   함수에 의해 사용되는 열은 스키마 바운드됩니다. 테이블이 필터 조건자로 함수를 사용하는 한 이들 열을 변경할 수 없습니다.
-
-## 테이블에서 필터 조건자 제거
-선택한 행이 아니라 테이블 전체를 마이그레이션하려면 기존 FILTER\_PREDICATE를 null로 설정하여 제거합니다. 예:
-
-```tsql
-ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
-	FILTER_PREDICATE = NULL,
-	MIGRATION_STATE = <desired_migration_state>
-) )
-```
-필터 조건자를 제거한 후 테이블의 모든 행은 마이그레이션할 수 있습니다.
-
 ## 기존 필터 조건자 대체
 ALTER TABLE 문을 다시 실행하고 FILTER\_PREDICATE 매개 변수에 대해 새 값을 지정하여 이전에 지정된 필터 조건자를 대체할 수 있습니다. 예:
 
@@ -400,8 +484,16 @@ RETURN	SELECT 1 AS is_eligible
 GO
 ```
 
-## 필터 조건자 삭제
-테이블이 필터 조건자로 함수를 사용하는 한 인라인 테이블 값 함수를 삭제할 수 없습니다.
+## 테이블에서 필터 조건자 제거
+선택한 행이 아니라 테이블 전체를 마이그레이션하려면 기존 FILTER\_PREDICATE를 null로 설정하여 제거합니다. 예:
+
+```tsql
+ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
+	FILTER_PREDICATE = NULL,
+	MIGRATION_STATE = <desired_migration_state>
+) )
+```
+필터 조건자를 제거한 후 테이블의 모든 행은 마이그레이션할 수 있습니다. 따라서 먼저 Azure에서 테이블에 대한 모든 원격 데이터를 다시 가져오지 않는 한 나중에 같은 테이블에 대해 필터 조건자를 지정할 수 없습니다. 이 제한 사항은 새 필터 조건자를 제공할 때 마이그레이션할 수 없는 행이 Azure에 이미 마이그레이션되는 상황을 방지하기 위한 것입니다.
 
 ## 테이블에 적용된 필터 조건자 확인
 테이블에 적용된 필터 조건자를 확인하려면 카탈로그 뷰 **sys.remote\_data\_archive\_tables**를 열고 **filter\_predicate** 열의 값을 확인합니다. 값이 null이면 전체 테이블을 보관할 수 있습니다. 자세한 내용은 [sys.remote\_data\_archive\_tables(TRANSACT-SQL)](https://msdn.microsoft.com/library/dn935003.aspx)를 참조하세요.
@@ -410,4 +502,4 @@ GO
 
 [ALTER TABLE(Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -18,10 +18,10 @@
 
 # Powershell을 사용한 Azure DNS 시작
 
-
 > [AZURE.SELECTOR]
-- [Azure CLI](dns-getstarted-create-dnszone-cli.md)
+- [Azure 포털](dns-getstarted-create-dnszone-portal.md)
 - [PowerShell](dns-getstarted-create-dnszone.md)
+- [Azure CLI](dns-getstarted-create-dnszone-cli.md)
 
 'contoso.com' 도메인은 'mail.contoso.com'(메일 서버) 및 'www.contoso.com'(웹 사이트)과 같은 많은 DNS 레코드를 포함할 수 있습니다. DNS 영역은 특정 도메인에 대한 DNS 레코드를 호스트하는 데 사용됩니다.
 
@@ -147,4 +147,4 @@ Azure DNS에서 새 영역을 사용하도록 도메인을 아직 위임하지 �
 [레코드 집합 및 레코드 만들기 시작](dns-getstarted-create-recordset.md)<BR> [DNS 영역을 관리하는 방법](dns-operations-dnszones.md)<BR> [DNS 레코드를 관리하는 방법](dns-operations-recordsets.md)<BR> [.NET SDK로 Azure 작업 자동화](dns-sdk.md)<BR> [Azure DNS REST API 참조](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

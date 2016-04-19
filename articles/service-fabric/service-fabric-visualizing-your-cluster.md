@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/13/2016"
+   ms.date="04/05/2016"
    ms.author="seanmck"/>
 
 # 서비스 패브릭 탐색기로 클러스터 시각화
@@ -24,7 +24,7 @@
 
 [개발 환경 준비](service-fabric-get-started.md)에 대한 지침을 따른 경우 http://localhost:19080/Explorer로 이동하여 로컬 클러스터에서 서비스 패브릭 탐색기를 시작할 수 있습니다.
 
->[AZURE.NOTE]서비스 패브릭 탐색기에서 Internet Explorer를 사용하여 원격 클러스터를 관리하는 경우 일부 Internet Explorer 설정을 구성해야 합니다. **도구** -> **호환성 보기 설정**으로 이동하고 **호환성 보기에서 인트라넷 사이트 표시**를 선택 취소하여 모든 정보가 올바르게 로드되도록 합니다.
+>[AZURE.NOTE] 서비스 패브릭 탐색기에서 Internet Explorer를 사용하여 원격 클러스터를 관리하는 경우 일부 Internet Explorer 설정을 구성해야 합니다. **도구** -> **호환성 보기 설정**으로 이동하고 **호환성 보기에서 인트라넷 사이트 표시**를 선택 취소하여 모든 정보가 올바르게 로드되도록 합니다.
 
 ## 서비스 패브릭 탐색기 레이아웃 이해
 
@@ -64,6 +64,8 @@
 
 ![서비스 패브릭 탐색기에서 응용 프로그램 삭제][sfx-delete-application]
 
+>[AZURE.TIP] 각 요소 옆의 줄임표를 클릭하여 트리 뷰에서 동일한 작업을 수행할 수 있습니다.
+
 다음 테이블에서는 각 엔터티에 사용할 수 있는 작업을 나열합니다.
 
 | **엔터티** | **작업** | **설명** |
@@ -79,7 +81,7 @@
 
 많은 작업이 안전하지 않으므로 작업이 완료되기 전에 실행할 것인지 묻는 메시지가 나타납니다.
 
->[AZURE.TIP]서비스 패브릭 탐색기를 통해 수행할 수 있는 모든 작업은 PowerShell 또는 REST API를 통해 수행할 수 있으므로 자동화를 사용하도록 설정할 수 있습니다.
+>[AZURE.TIP] 서비스 패브릭 탐색기를 통해 수행할 수 있는 모든 작업은 PowerShell 또는 REST API를 통해 수행할 수 있으므로 자동화를 사용하도록 설정할 수 있습니다.
 
 
 
@@ -114,4 +116,4 @@ http://&lt;your-cluster-endpoint&gt;:19080/Explorer
 [sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/SfxServiceEssentials.png
 [sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/SfxDeleteApplication.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0406_2016-->

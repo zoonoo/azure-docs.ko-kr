@@ -3,9 +3,9 @@
    description="서비스 패브릭 Reliable Actors의 다시 표시에 대해 소개합니다."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
-   editor="vturecek"/>
+   editor="amanbha"/>
 
 <tags
    ms.service="service-fabric"
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/19/2016"
-   ms.author="amanbha"/>
+   ms.date="03/25/2016"
+   ms.author="vturecek"/>
 
 
 # Reliable Actors 다시 표시
-기본적으로 패브릭 행위자 런타임은 논리적 호출 컨텍스트를 기반으로 다시 표시할 수 있습니다. 따라서 동일한 호출 컨텍스트 체인에 있는 경우 행위자가 다시 표시되도록 할 수 있습니다. 예를 들어 행위자 A가 행위자 C에 메시지를 보내는 행위자 B에 메시지를 보내는 경우 메시지 처리 과정의 일부로 행위자 C가 행위자 A를 호출하면 해당 메시지가 다시 표시됩니다. 다른 호출 컨텍스트의 일부인 다른 모든 메시지는 처리를 완료할 때까지 행위자 A에서 차단됩니다.
+기본적으로 Reliable Actors 런타임을 사용하면 논리적 호출 컨텍스트를 기반으로 다시 표시할 수 있습니다. 따라서 동일한 호출 컨텍스트 체인에 있는 경우 행위자가 다시 표시되도록 할 수 있습니다. 예를 들어 행위자 A가 행위자 C에 메시지를 보내는 행위자 B에 메시지를 보내는 경우 메시지 처리 과정의 일부로 행위자 C가 행위자 A를 호출하면 해당 메시지가 다시 표시됩니다. 다른 호출 컨텍스트의 일부인 다른 모든 메시지는 처리를 완료할 때까지 행위자 A에서 차단됩니다.
 
 논리적 호출 컨텍스트 기반 다시 표시를 허용하지 않는 행위자는 행위자 클래스를 `ReentrantAttribute(ReentrancyMode.Disallowed)`로 데코레이트하여 비활성화할 수 있습니다.
 
@@ -34,10 +34,15 @@ public enum ReentrancyMode
 
 ```csharp
 [Reentrant(ReentrancyMode.Disallowed)]
-class VoicemailBoxActor : StatefulActor<VoicemailBox>, IVoicemailBoxActor
+class MyActor : Actor, IMyActor
 {
     ...
 }
 ```
 
-<!---HONumber=AcomDC_0224_2016-->
+## 다음 단계
+ - [행위자 진단 및 성능 모니터링](service-fabric-reliable-actors-diagnostics.md)
+ - [행위자 API 참조 설명서](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+ - [샘플 코드](https://github.com/Azure/servicefabric-samples)
+
+<!---HONumber=AcomDC_0406_2016-->

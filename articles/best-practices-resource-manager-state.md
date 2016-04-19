@@ -374,7 +374,7 @@ enableJumpbox | 제한된 목록에서 가져온 문자열(enabled/disabled) | �
 
     "outputs": {
         "masterip": {
-            "value": "[reference(concat(variables('nicName'),0)).ipConfigurations[0].privateIPAddress]",
+            "value": "[reference(concat(variables('nicName'),0)).ipConfigurations[0].properties.privateIPAddress]",
             "type": "string"
          }
     }
@@ -389,4 +389,4 @@ enableJumpbox | 제한된 목록에서 가져온 문자열(enabled/disabled) | �
 - [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)
 - [Azure 리소스 관리자 템플릿 함수](resource-group-template-functions.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -206,11 +206,11 @@ Baidu 클라우드 푸시 프로젝트를 만들면 앱 ID, API 키 및 비밀 �
 	    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER" />
 	    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
 
-8. 예를 들어 **com.example.BaiduTest**와 같은 *yourprojectname*을 대체하여 **AndroidManifest.xml**의 **응용 프로그램** 요소에 **android:name** 속성을 추가합니다. 이 프로젝트 이름은 Baidu 콘솔에서 구성한 이름과 일치해야 합니다.
+8. 예를 들어 **com.example.BaiduTest**와 같은 *yourprojectname* 을 대체하여 **AndroidManifest.xml**의 **응용 프로그램** 요소에 **android:name** 속성을 추가합니다. 이 프로젝트 이름은 Baidu 콘솔에서 구성한 이름과 일치해야 합니다.
 
 		<application android:name="yourprojectname.DemoApplication"
 
-9. 예를 들어 **com.example.BaiduTest**와 같은 *yourprojectname*을 대체하여 **.MainActivity** 작업 요소 뒤의 응용 프로그램 요소 내에 다음 구성을 추가합니다.
+9. 예를 들어 **com.example.BaiduTest**와 같은 *yourprojectname* 을 대체하여 **.MainActivity** 작업 요소 뒤의 응용 프로그램 요소 내에 다음 구성을 추가합니다.
 
 		<receiver android:name="yourprojectname.MyPushMessageReceiver">
 		    <intent-filter>
@@ -413,7 +413,7 @@ Baidu 클라우드 푸시 프로젝트를 만들면 앱 ID, API 키 및 비밀 �
 
 * **Node.js** : [Node.js에서 알림 허브 사용 방법](notification-hubs-nodejs-how-to-use-notification-hubs.md).
 
-* **Azure 모바일 서비스**: 알림 허브와 통합된 Azure 모바일 서비스 백 엔드에서 알림을 보내는 방법에 대한 예는 "모바일 서비스에서 푸시 알림 시작"([.NET 백 엔드](../mobile-services/mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) | [JavaScript backend](../mobile-services/mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md))을 참조하세요.
+* **Azure 모바일 서비스**: 알림 허브와 통합된 Azure 모바일 서비스 백 엔드에서 알림을 보내는 방법에 대한 예제는 [모바일 서비스 앱에 푸시 알림 추가](../mobile-services/mobile-services-javascript-backend-windows-universal-dotnet-get-started-push.md)를 참조하세요.
 
 * **Java / PHP**: REST API를 사용하여 알림을 보내는 방법에 대한 예는 "Java/PHP에서 알림 허브를 사용하는 방법"([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md))을 참조하세요.
 
@@ -437,7 +437,7 @@ Baidu 클라우드 푸시 프로젝트를 만들면 앱 ID, API 키 및 비밀 �
 
         using Microsoft.Azure.NotificationHubs;
 
-4. `Program` 클래스에 다음 메서드를 추가하고 *DefaultFullSharedAccessSignatureSASConnectionString* 및 *NotificationHubName*을 보유한 값으로 대체합니다.
+4. `Program` 클래스에 다음 메서드를 추가하고 *DefaultFullSharedAccessSignatureSASConnectionString* 및 *NotificationHubName* 을 보유한 값으로 대체합니다.
 
 		private static async void SendNotificationAsync()
 		{
@@ -503,4 +503,4 @@ Baidu 클라우드 푸시 프로젝트를 만들면 앱 ID, API 키 및 비밀 �
 [Azure 클래식 포털]: https://manage.windowsazure.com/
 [Baidu 포털]: http://www.baidu.com/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

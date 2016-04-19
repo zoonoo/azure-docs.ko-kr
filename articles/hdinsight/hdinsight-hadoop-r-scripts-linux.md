@@ -13,14 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="04/05/2016"
 	ms.author="larryfr"/>
 
 # HDInsight Hadoop 클러스터에 R 설치 및 사용
 
 **스크립트 작업** 클러스터 사용자 지정을 사용하여 HDInsight의 Hadoop에서 모든 유형의 클러스터에 R을 설치할 수 있습니다. 이렇게 하면 데이터 과학자 및 분석가가 R을 사용하여 HDInsight에 배포된 Hadoop 클러스터에서 많은 양의 데이터를 처리하기 위한 강력한 MapReduce/YARN 프로그래밍 프레임워크를 배포할 수 있습니다.
 
-> [AZURE.NOTE] 이 문서의 단계에는 Linux 기반 HDInsight 클러스터가 필요합니다. Windows 기반 클러스터와 함께 R을 사용한 작업에 대한 자세한 내용은 [HDInsight Hadoop 클러스터(Windows)에 R 설치 및 사용](hdinsight-hadoop-r-scripts.md)을 참조하세요.
+HDInsight용 [Premium 계층](https://azure.microsoft.com/pricing/details/hdinsight/) 제품에는 HDInsight 클러스터의 일부로 R 서버가 포함됩니다. 이를 통해 R 스크립트에서 MapReduce 및 Spark를 사용하여 분산된 계산을 실행할 수 있습니다. 자세한 내용은 [HDInsight에서 R 서버 시작](hdinsight-hadoop-r-server-get-started.md)을 참조하세요.
+
 
 ## R이란?
 
@@ -62,7 +63,7 @@ HDFS 및 MapReduce와의 통합을 제공하는다음 RHadoop 패키지도 설�
     
 이 섹션에서는 Azure 포털을 사용하여 새 클러스터를 만들 때 스크립트를 사용하는 방법에 대한 지침을 제공합니다.
 
-> [AZURE.NOTE] Azure PowerShell, HDInsight .NET SDK 또는 Azure Resource Manager 템플릿을 스크립트 동작을 적용하는 데 사용할 수도 있습니다. 이미 실행 중인 클러스터에도 스크립트 동작을 적용할 수 있습니다. 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
+> [AZURE.NOTE] Azure PowerShell, Azure CLI, HDInsight .NET SDK 또는 Azure Resource Manager 템플릿을 스크립트 동작을 적용하는 데 사용할 수도 있습니다. 이미 실행 중인 클러스터에도 스크립트 동작을 적용할 수 있습니다. 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
 
 1. [Linux 기반 HDInsight 클러스터 프로비전](hdinsight-hadoop-provision-linux-clusters.md#portal)의 단계를 사용하여 클러스터를 프로비전하되, 완료하지는 않도록 합니다.
 
@@ -145,4 +146,4 @@ HDFS 및 MapReduce와의 통합을 제공하는다음 RHadoop 패키지도 설�
 
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -39,16 +39,15 @@ Azure 프리미엄 저장소를 시작하려면 방문 [무료로 시작 하기]
 
 **프리미엄 페이지 Blob**: 프리미엄 저장소는 Virtual VM(가상 컴퓨터)에 대한 영구 디스크를 보존하는 데 사용되는 Azure 페이지 Blob를 지원합니다. 현재 프리미엄 저장소는 Azure Block Blobs, Azure Append Blobs, Azure Files, Azure Tables 또는 Azure Queues를 지원하지 않습니다.
 
-**Premium\_LRS 계정**: 프리미엄 저장소를 사용하려면 프리미엄 저장소 계정을 만들어야 합니다. [Azure 포털](https://portal.azure.com) 또는 SDK 라이브러리([저장소 REST API](http://msdn.microsoft.com//library/azure/dd179355.aspx) 버전 2014-02-14 이상, [서비스 관리 REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx) 버전 2014-10-01 이상(클래식 배포), [Azure 저장소 리소스 공급자 REST API 참조](http://msdn.microsoft.com/library/azure/mt163683.aspx)(ARM 배포) 및 [Azure PowerShell](../powershell-install-configure.md) 버전 0.8.10 이상)를 사용하여 “Premium\_LRS” 유형의 저장소 계정을 만듭니다. [프리미엄 저장소 확장성 및 성능 목표](#premium-storage-scalability-and-performance-targets)에 대한 다음 섹션에서 프리미엄 저장소 계정 제한에 대해 자세히 알아보세요.
+**프리미엄 저장소 계정**: 프리미엄 저장소를 사용하려면 프리미엄 저장소 계정을 만들어야 합니다. [Azure 포털](https://portal.azure.com)을 사용하려는 경우 "프리미엄" 및 "LRS(로컬 중복 저장소)"를 복제 옵션으로 지정하여 프리미엄 저장소 계정을 만들 수 있습니다. 또한 [저장소 REST API](http://msdn.microsoft.com//library/azure/dd179355.aspx) 버전 2014-02-14 이상, [서비스 관리 REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx) 버전 2014-10-01 이상(클래식 배포), [Azure 저장소 리소스 공급자 REST API 참조](http://msdn.microsoft.com/library/azure/mt163683.aspx)(ARM 배포) 및 [Azure PowerShell](../powershell-install-configure.md) 버전 0.8.10 이상을 사용해 유형을 “Premium\_LRS”로 지정하여 프리미엄 저장소 계정을 만들 수도 있습니다. [프리미엄 저장소 확장성 및 성능 목표](#premium-storage-scalability-and-performance-targets)에 대한 다음 섹션에서 프리미엄 저장소 계정 제한에 대해 자세히 알아보세요.
 
-**프리미엄 로컬 중복 저장소**프리미엄 저장소 계정은 로컬에서 중복(LRS)되며 단일 지역 내에 데이터 복사본 3개를 유지합니다. 프리미엄 저장소 사용 시 지역에서 복제와 관련된 고려 사항은 이 문서의 [Blob 스냅숏 생성 및 복사](#snapshots-and-copy-blob)를 참조하세요.
+**프리미엄 로컬 중복 저장소**: 프리미엄 저장소 계정은 복제 옵션으로 LRS(로컬 중복 저장소)만 지원하며, 단일 지역 내에 데이터 복사본 3개를 유지합니다. 프리미엄 저장소 사용 시 지역에서 복제와 관련된 고려 사항은 이 문서의 [Blob 스냅숏 생성 및 복사](#snapshots-and-copy-blob)를 참조하세요.
 
 Azure는 저장소 계정을 운영 체제(OS) 및 데이터 디스크의 컨테이너로 사용합니다. Azure DS, DSv2 또는 GS VM을 만들고 Azure 프리미엄 저장소 계정을 선택하는 경우 운영 체제와 데이터 디스크가 해당 저장소 계정에 저장됩니다.
 
 다음 두 가지 방법 중 하나로 디스크용 프리미엄 저장소를 사용할 수 있습니다.
 - 먼저, 새 프리미엄 저장소 계정을 만듭니다. 다음으로, 새 DS, DSv2 또는 GS VM을 만들 때 저장소 구성 설정에서 프리미엄 저장소 계정을 선택합니다. 또는
 - 새 DS, DSv2 또는 GS VM을 만들 때 저장소 구성 설정에서 새 프리미엄 저장소 계정을 만들거나 Azure 포털이 기본 프리미엄 저장소 계정을 만들게 합니다.
-
 
 단계별 지침은 이 문서의 뒷부분에 나오는 [빠른 시작](#quick-start)을 참조하세요.
 
@@ -203,7 +202,7 @@ DS 시리즈, DSv2 시리즈 및 GS 시리즈 VM에 대한 최대 IOPS 및 처�
 프리미엄 저장소를 사용한 고성능 설계에 대한 자세한 내용은 [프리미엄 저장소를 사용한 성능을 위한 디자인](storage-premium-storage-performance.md)을 참조하세요.
 
 ## Blob 스냅숏 생성 및 복사
-표준 저장소 사용 시 스냅숏을 만드는 것과 동일한 방식으로 프리미엄 저장소에 대한 스냅숏을 만들 수 있습니다. 프리미엄 저장소는 로컬에서 중복되므로 스냅숏을 만든 후 지역 중복 표준 저장소 계정에 이러한 스냅숏을 복사하는 것이 좋습니다. 자세한 내용은 [Azure 저장소 중복 옵션](storage-redundancy.md)을 참조하세요.
+표준 저장소 사용 시 스냅숏을 만드는 것과 동일한 방식으로 프리미엄 저장소에 대한 스냅숏을 만들 수 있습니다. 프리미엄 저장소는 복제 옵션으로 LRS(로컬 중복 저장소)만 지원하므로 스냅숏을 만든 후 지역 중복 표준 저장소 계정에 이러한 스냅숏을 복사하는 것이 좋습니다. 자세한 내용은 [Azure 저장소 중복 옵션](storage-redundancy.md)을 참조하세요.
 
 디스크가 VM에 연결되어 있을 경우 디스크를 지원하는 페이지 Blob에 대해 특정 API 작업을 수행할 수 없습니다. 예를 들어 디스크가 VM에 연결되어 있는 한 해당 Blob에 대해 [Blob 복사](http://msdn.microsoft.com/library/azure/dd894037.aspx) 작업을 수행할 수 없습니다. 대신, 먼저 [Blob 스냅숏 생성](http://msdn.microsoft.com/library/azure/ee691971.aspx) REST API 메서드를 사용하여 해당 Blob의 스냅숏을 만든 후 스냅숏의 [Blob 복사](http://msdn.microsoft.com/library/azure/dd894037.aspx)를 수행하여 연결된 디스크를 복사합니다. 또는 디스크를 분리한 후 기본 Blob에 대해 필요한 작업을 수행할 수 있습니다.
 
@@ -363,17 +362,27 @@ OpenLogic CentOS VM을 실행하는 고객은 다음 명령을 실행하여 최�
 
 1.	[Azure 포털](https://portal.azure.com)에 로그인합니다. 아직 구독이 없으면 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/) 서비스를 확인하세요.
 
-2.	허브 메뉴에서 **새로 만들기**를 클릭합니다.
+2. 허브 메뉴에서 **새로 만들기** -> **데이터 + 저장소** -> **저장소 계정**을 선택합니다.
 
-3.	**새로 만들기** 아래에서 **데이터 + 저장소**를 선택합니다. 그 위치에서 **저장소 계정**을 클릭합니다. 배포 모델을 선택합니다. 새 배포에 리소스 관리자를 사용합니다. **만들기**를 클릭합니다.
+3. 저장소 계정의 이름을 입력합니다.
 
-4.	저장소 계정 블레이드에서 저장소 계정의 이름을 입력합니다. 원하는 배포 위치를 선택합니다. [지역별 Azure 서비스](https://azure.microsoft.com/regions/#services)를 참조하여 선택한 위치에 프리미엄 저장소가 제공되는지 확인합니다.
+	> [AZURE.NOTE] 저장소 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 포함할 수 있습니다.
+	>  
+	> 저장소 계정 이름은 Azure 내에서 고유해야 합니다. 선택한 저장소 계정 이름이 이미 사용 중인 경우 Azure 포털에 표시됩니다.
 
-5.	**유형**을 클릭합니다. **저장소 계정 유형 선택** 블레이드에서 **프리미엄 로컬 중복**을 선택합니다. **선택**을 클릭합니다. **선택**을 클릭하면 **유형**이 **프리미엄-LRS**로 표시됩니다.
+4. 사용할 배포 모델을 **Resource Manager** 또는 **클래식**으로 지정합니다. **리소스 관리자**는 권장되는 배포 모델입니다. 자세한 내용은 [리소스 관리자 배포 및 클래식 배포 이해](../resource-manager-deployment-model.md)를 참조하세요.
 
-6.	**저장소 계정** 블레이드에서 새 **리소스 그룹**을 만들거나 리소스 그룹이 이미 있는 경우 기존 리소스 그룹을 선택합니다. 만들기를 클릭합니다.
+5. 저장소 계정의 성능 계층을 **프리미엄**으로 지정합니다.
 
-	![가격 책정 계층][Image1]
+6. **LRS(로컬 중복 저장소)**는 프리미엄 저장소에서 사용할 수 있는 유일한 복제 옵션입니다. Azure 저장소 복제 옵션에 대한 자세한 내용은 아래의 [Azure 저장소 복제](storage-redundancy.md)를 참조하세요.
+
+7. 새 저장소 계정을 만들려는 구독을 선택합니다.
+
+8. 새 리소스 그룹을 지정하거나 기존 리소스 그룹을 선택합니다. 리소스 그룹에 대한 자세한 내용은 [Azure 포털을 사용하여 Azure 리소스 관리](../azure-portal/resource-group-portal.md)를 참조하세요.
+
+9. 저장소 계정에 대한 지리적 위치를 선택합니다. [지역별 Azure 서비스](https://azure.microsoft.com/regions/#services)를 참조하여 선택한 위치에 프리미엄 저장소가 제공되는지 확인할 수 있습니다.
+
+10. **만들기**를 클릭하여 저장소 계정을 만들 수 있습니다.
 
 #### II. Azure 포털을 통해 Azure 가상 컴퓨터 만들기
 
@@ -385,7 +394,7 @@ OpenLogic CentOS VM을 실행하는 고객은 다음 명령을 실행하여 최�
 2. VM **모든 설정**에서 **디스크**로 이동하여 **새 연결**을 클릭합니다.
 3. 데이터 디스크 이름을 입력하고 **유형**으로 **프리미엄**을 선택합니다. 원하는 **크기** 및 **호스트 캐싱** 설정을 선택합니다.
 
-	![프리미엄 디스크][Image2]
+	![프리미엄 디스크][Image1]
 
 자세한 단계는 [Azure 포털에서 데이터 디스크를 연결하는 방법](../virtual-machines/virtual-machines-windows-attach-disk-portal.md)을 참조하세요.
 
@@ -528,14 +537,11 @@ Azure 프리미엄 저장소에 대한 자세한 내용은 다음 문서를 참�
 
 - [Azure 프리미엄 저장소로 마이그레이션](storage-migration-to-premium-storage.md)
 
-
 ### 블로그 게시물
 
 - [일반적으로 제공되는 Azure 프리미엄 저장소](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)
 - [GS 시리즈 발표: 공용 클라우드의 최대 VM에 프리미엄 저장소 지원 추가](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)
 
+[Image1]: ./media/storage-premium-storage/Azure_attach_premium_disk.png
 
-[Image1]: ./media/storage-premium-storage/Azure_pricing_tier.png
-[Image2]: ./media/storage-premium-storage/Azure_attach_premium_disk.png
-
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

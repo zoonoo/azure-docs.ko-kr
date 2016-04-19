@@ -51,7 +51,33 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 
 |메트릭 이름|	단위|
 |---|---|
-|\\Processor(\_Total)\\% Processor Time |백분율| |\\Processor(\_Total)\\% Privileged Time |백분율| |\\Processor(\_Total)\\% User Time |백분율| |\\Processor Information(\_Total)\\Processor Frequency |개수| |\\System\\Processes| 개수| |\\Process(\_Total)\\Thread Count| 개수| |\\Process(\_Total)\\Handle Count |개수| |\\Memory\\% Committed Bytes In Use |백분율| |\\Memory\\Available Bytes| Bytes| |\\Memory\\Committed Bytes |Bytes| |\\Memory\\Commit Limit| Bytes| |\\Memory\\Pool Paged Bytes| Bytes| |\\Memory\\Pool Nonpaged Bytes| Bytes| |\\PhysicalDisk(\_Total)\\% Disk Time| 백분율| |\\PhysicalDisk(\_Total)\\% Disk Read Time| 백분율| |\\PhysicalDisk(\_Total)\\% Disk Write Time| 백분율| |\\PhysicalDisk(\_Total)\\Disk Transfers/sec |초당 개수| |\\PhysicalDisk(\_Total)\\Disk Reads/sec |초당 개수| |\\PhysicalDisk(\_Total)\\Disk Writes/sec |초당 개수| |\\PhysicalDisk(\_Total)\\Disk Bytes/sec |초당 바이트 수| |\\PhysicalDisk(\_Total)\\Disk Read Bytes/sec| 초당 바이트 수| |\\PhysicalDisk(\_Total)\\Disk Write Bytes/sec |초당 바이트 수| |\\PhysicalDisk(\_Total)\\Avg. Disk Queue Length| 개수| |＼PhysicalDisk(\_Total)＼Avg. Disk Read Queue Length| 개수| |＼PhysicalDisk(\_Total)＼Avg. Disk Write Queue Length | 개수| |＼LogicalDisk(\_Total)＼%Free Space| 백분율| |＼LogicalDisk(\_Total)＼Free Megabytes| 개수|
+|\\Processor(\_Total)\\% Processor Time |백분율|
+|\\Processor(\_Total)\\% Privileged Time |백분율|
+|\\Processor(\_Total)\\% User Time |백분율|
+|\\Processor Information(\_Total)\\Processor Frequency |개수|
+|\\System\\Processes| 개수|
+|\\Process(\_Total)\\Thread Count| 개수|
+|\\Process(\_Total)\\Handle Count |개수|
+|\\Memory\\% Committed Bytes In Use |백분율|
+|\\Memory\\Available Bytes| Bytes|
+|\\Memory\\Committed Bytes |Bytes|
+|\\Memory\\Commit Limit| Bytes|
+|\\Memory\\Pool Paged Bytes| Bytes|
+|\\Memory\\Pool Nonpaged Bytes| Bytes|
+|\\PhysicalDisk(\_Total)\\% Disk Time| 백분율|
+|\\PhysicalDisk(\_Total)\\% Disk Read Time| 백분율|
+|\\PhysicalDisk(\_Total)\\% Disk Write Time| 백분율|
+|\\PhysicalDisk(\_Total)\\Disk Transfers/sec |초당 개수|
+|\\PhysicalDisk(\_Total)\\Disk Reads/sec |초당 개수|
+|\\PhysicalDisk(\_Total)\\Disk Writes/sec |초당 개수|
+|\\PhysicalDisk(\_Total)\\Disk Bytes/sec |초당 바이트 수|
+|\\PhysicalDisk(\_Total)\\Disk Read Bytes/sec| 초당 바이트 수|
+|\\PhysicalDisk(\_Total)\\Disk Write Bytes/sec |초당 바이트 수|
+|\\PhysicalDisk(\_Total)\\Avg. Disk Queue Length| 개수|
+|\\PhysicalDisk(\_Total)\\Avg. Disk Read Queue Length| 개수|
+|\\PhysicalDisk(\_Total)\\Avg. Disk Write Queue Length | 개수|
+|\\PhysicalDisk(\_Total)\\%Free Space| 백분율|
+|\\PhysicalDisk(\_Total)\\Free Megabytes| 개수|
 
 
 

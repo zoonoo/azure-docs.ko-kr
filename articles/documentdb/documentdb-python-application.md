@@ -14,14 +14,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="python"
     ms.topic="hero-article"
-    ms.date="01/05/2016"
+    ms.date="04/08/2016"
     ms.author="ryancraw"/>
 
 # DocumentDB를 사용한 Python Flask 웹 응용 프로그램 개발
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-dotnet-application.md)
-- [Node.js](documentdb-nodejs-application.md)
+- [Node.JS](documentdb-nodejs-application.md)
 - [Java](documentdb-java-application.md)
 - [Python](documentdb-python-application.md)
 
@@ -44,12 +44,12 @@
 이 문서의 지침을 따르기 전에 다음이 설치되어 있는지 확인해야 합니다.
 
 - 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-- [Visual Studio 2013](http://www.visualstudio.com/) 이상 또는 [Visual Studio Express]().(무료 버전) 이 자습서의 지침은 특별히 Visual Studio 2015용으로 작성됩니다. 
+- [Visual Studio 2013](http://www.visualstudio.com/) 이상 또는 [Visual Studio Express]().(무료 버전) 이 자습서의 지침은 특별히 Visual Studio 2015용으로 작성되었습니다. 
 - [GitHub](http://microsoft.github.io/PTVS/)에서 Python Tools for Visual Studio. 이 자습서에서는 Python Tools for VS 2015를 사용합니다. 
 - [azure.com](https://azure.microsoft.com/downloads/)에서 사용 가능한 Azure Python SDK for Visual Studio 2.4 버전 이상. Python 2.7용 Microsoft Azure SDK를 사용했습니다.
 - [python.org][2]에서 Python 2.7. Python 2.7.11을 사용했습니다. 
 
-> [AZURE.IMPORTANT]처음으로 Python 2.7을 설치하는 경우 사용자 지정 Python 2.7.11 화면에서 **경로에 python.exe 추가**를 선택하도록 합니다.
+> [AZURE.IMPORTANT] 처음으로 Python 2.7을 설치하는 경우 사용자 지정 Python 2.7.11 화면에서 **경로에 python.exe 추가**를 선택하도록 합니다.
 > 
 >    ![사용자 지정 Python 2.7.11 화면의 스크린샷에서 경로에 python.exe 추가를 선택해야 합니다.](./media/documentdb-python-application/image2.png)
 
@@ -61,8 +61,7 @@
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-<br/> 
-이제 새 Python Flask 웹 응용 프로그램을 처음부터 만드는 방법을 살펴보겠습니다.
+<br/> 이제 새 Python Flask 웹 응용 프로그램을 처음부터 만드는 방법을 살펴보겠습니다.
 
 ## 2단계: 새 Python Flask 웹 응용 프로그램 만들기로 건너뛸 수 있습니다
 
@@ -86,7 +85,7 @@
 
 	![데이터베이스 자습서의 스크린샷 - Python Tools for Visual Studio 창](./media/documentdb-python-application/image10_A.png)
 
-    환경이 성공적으로 설치될 때 출력 창은 `Successfully installed Flask-0.10.1 Jinja2-2.8 MarkupSafe-0.23 Werkzeug-0.11.3 itsdangerous-0.24 'requirements.txt' was installed successfully.`을 표시합니다.
+    환경이 성공적으로 설치될 때 출력 창은 `Successfully installed Flask-0.10.1 Jinja2-2.8 MarkupSafe-0.23 Werkzeug-0.11.5 itsdangerous-0.24 'requirements.txt' was installed successfully.`을 표시합니다.
 
 ## 3단계: Python Flask 웹 응용 프로그램 수정
 
@@ -94,7 +93,7 @@
 
 프로젝트가 설정된 후 DocumentDB용 Python 패키지인 pydocumentdb를 포함해서 프로젝트에 필요한 Flask 패키지를 추가해야 합니다.
 
-1. 솔루션 탐색기에서 **requirements.txt** 파일을 열고 내용을 다음으로 바꾼 다음 파일을 저장합니다.
+1. 솔루션 탐색기에서 **requirements.txt** 파일을 열고 내용을 다음으로 바꿉니다.
 
     	flask==0.9
     	flask-mail==0.7.6
@@ -108,15 +107,16 @@
     	flup
     	pydocumentdb>=1.0.0
 
-2. 솔루션 탐색기에서 **env**를 마우스 오른쪽 단추로 클릭하고 **requirements.txt에서 설치**를 클릭합니다.
+2. **requirements.txt** 파일을 저장합니다.
+3. 솔루션 탐색기에서 **env**를 마우스 오른쪽 단추로 클릭하고 **requirements.txt에서 설치**를 클릭합니다.
 
 	![목록에서 강조 표시된 requirements.txt에서 설치를 사용하여 선택한 env(Python 2.7)를 보여주는 스크린샷](./media/documentdb-python-application/image11.png)
 
     성공적으로 설치한 후에 출력 창이 다음을 표시합니다.
 
-        Successfully installed Babel-2.1.1 Tempita-0.5.2 WTForms-2.1 Whoosh-2.7.0 blinker-1.4 decorator-4.0.6 flask-0.9 flask-babel-0.8 flask-mail-0.7.6 flask-sqlalchemy-0.16 flask-whooshalchemy-0.55a0 flask-wtf-0.8.4 flup-1.0.2 pydocumentdb-1.4.2 pytz-2013b0 speaklater-1.3 sqlalchemy-0.7.9 sqlalchemy-migrate-0.7.2
+        Successfully installed Babel-2.3.2 Tempita-0.5.2 WTForms-2.1 Whoosh-2.7.4 blinker-1.4 decorator-4.0.9 flask-0.9 flask-babel-0.8 flask-mail-0.7.6 flask-sqlalchemy-0.16 flask-whooshalchemy-0.55a0 flask-wtf-0.8.4 flup-1.0.2 pydocumentdb-1.6.1 pytz-2013b0 speaklater-1.3 sqlalchemy-0.7.9 sqlalchemy-migrate-0.7.2
 
-    > [AZURE.NOTE]출력 창에 실패가 표시되는 경우가 드물게 발생합니다. 그런 경우 오류가 정리와 관련이 있는지 확인하세요. 때때로 정리는 실패하지만 설치는 성공하는 경우가 있습니다(이를 확인하려면 출력 창에서 위로 스크롤). [가상 환경 확인](#verify-the-virtual-environment)에서 설치를 확인할 수 있습니다. 설치에 실패했지만 확인이 성공한 경우 계속해도 됩니다.
+    > [AZURE.NOTE] 출력 창에 실패가 표시되는 경우가 드물게 발생합니다. 그런 경우 오류가 정리와 관련이 있는지 확인하세요. 때때로 정리는 실패하지만 설치는 성공하는 경우가 있습니다(이를 확인하려면 출력 창에서 위로 스크롤). [가상 환경 확인](#verify-the-virtual-environment)에서 설치를 확인할 수 있습니다. 설치에 실패했지만 확인이 성공한 경우 계속해도 됩니다.
 
 ### 가상 환경 확인
 
@@ -127,14 +127,14 @@
 
 	![브라우저에 표시된 빈 Python Flask 웹 개발 프로젝트](./media/documentdb-python-application/image12.png)
 
-3. **Shift**+**F5**를 눌러 웹 사이트의 디버깅을 중지합니다.
+3. Visual Studio에서 **Shift**+**F5**를 눌러 웹 사이트의 디버깅을 중지합니다.
 
 ### 데이터베이스, 컬렉션 및 문서 정의 만들기
 
 이제 새 파일을 추가하고 다른 사용자를 업데이트하여 투표 응용 프로그램을 만들어 보겠습니다.
 
 1. 솔루션 탐색기에서 **자습서** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가**, **새 항목**을 차례로 클릭합니다. **빈 Python 파일**을 선택하고 파일 이름을 **forms.py**로 지정합니다.  
-2. 다음 코드를 the forms.py 파일에 추가한 다음 파일을 저장합니다.
+2. 다음 코드를 forms.py 파일에 추가한 다음 파일을 저장합니다.
 
 ```python
 from flask.ext.wtf import Form
@@ -199,7 +199,7 @@ def create():
         message='You just created a new database, collection, and document.  Your old votes have been deleted')
 ```
 
-> [AZURE.TIP]**CreateCollection** 메서드는 선택적 **RequestOptions**를 세 번째 매개 변수로 사용합니다. 컬렉션에 대한 제품 유형을 지정하는 데 사용할 수 있습니다. offerType 값을 제공하지 않으면 기본 제품 유형을 사용하여 컬렉션이 생성됩니다. DocumentDB 제품 유형에 대한 자세한 내용은 [DocumentDB 성능 수준](documentdb-performance-levels.md)을 참조하세요.
+> [AZURE.TIP] **CreateCollection** 메서드는 선택적 **RequestOptions**를 세 번째 매개 변수로 사용합니다. 컬렉션에 대한 제품 유형을 지정하는 데 사용할 수 있습니다. offerType 값을 제공하지 않으면 기본 제품 유형을 사용하여 컬렉션이 생성됩니다. DocumentDB 제품 유형에 대한 자세한 내용은 [DocumentDB 성능 수준](documentdb-performance-levels.md)을 참조하세요.
 
 
 ### 데이터베이스, 컬렉션 및 문서를 읽고 폼 제출
@@ -258,8 +258,8 @@ def vote():
 
 1. 솔루션 탐색기의 **자습서** 폴더에서 **템플릿** 폴더를 마우스 오른쪽 단추로 클릭하고 **추가**, **새 항목**을 차례로 클릭합니다. 
 2. **HTML 페이지**를 선택한 다음 이름 상자에 **create.html**을 입력합니다. 
-3. 1단계 및 2단계를 반복하여 results.html and vote.html과 같은 추가 HTML 파일을 만듭니다.
-4. <body> 요소의 **create.html**에 다음 코드를 추가합니다. 이 코드는 새 데이터베이스, 컬렉션 및 문서를 만들었다는 메시지를 표시합니다.
+3. 1단계 및 2단계를 반복하여 results.html 및 vote.html과 같은 추가 HTML 파일을 만듭니다.
+4. `<body>` 요소의 **create.html**에 다음 코드를 추가합니다. 이 코드는 새 데이터베이스, 컬렉션 및 문서를 만들었다는 메시지를 표시합니다.
 
 	```html
 	{% extends "layout.html" %}
@@ -270,7 +270,7 @@ def vote():
 	{% endblock %}
 	```
 
-5. <body> 요소의 **results.html**에 다음 코드를 추가합니다. 설문 조사 결과를 표시합니다.
+5. `<body`> 요소의 **results.html**에 다음 코드를 추가합니다. 설문 조사 결과를 표시합니다.
 
 	```html
 	{% extends "layout.html" %}
@@ -296,7 +296,7 @@ def vote():
 	{% endblock %}
 	```
 
-6. <body> 요소의 **vote.html**에 다음 코드를 추가합니다. 설문 조사를 표시하고 투표를 수락합니다. 투표를 등록하면 제어가 views.py로 전달되며, 여기서 투표 완료를 인식하고 그에 따라 문서를 추가합니다.
+6. `<body`> 요소의 **vote.html**에 다음 코드를 추가합니다. 설문 조사를 표시하고 투표를 수락합니다. 투표를 등록하면 제어가 views.py로 전달되며, 여기서 투표 완료를 인식하고 그에 따라 문서를 추가합니다.
 
 	```html
 	{% extends "layout.html" %}
@@ -340,7 +340,7 @@ def vote():
 	DOCUMENTDB_DOCUMENT = 'voting document'
 	```
 
-3. [Azure 포털](https://portal.azure.com/)에서 **찾아보기**, **DocumentDB 계정**을 클릭하여 **키** 블레이드를 탐색하고 사용할 계정 이름을 두 번 클릭한 다음 **키**를 클릭합니다. **키** 블레이드에서 **URI** 값을 복사하고 **DOCUMENTDB\_HOST** 속성에 대한 값으로 **config.py** 파일에 붙여 넣습니다.
+3. [Azure 포털](https://portal.azure.com/)에서 **찾아보기**, **DocumentDB 계정**을 클릭하여 **키** 블레이드를 탐색하고 사용할 계정 이름을 두 번 클릭한 다음 **Essentials** 영역에서 **키** 단추를 클릭합니다. **키** 블레이드에서 **URI** 값을 복사하고 **DOCUMENTDB\_HOST** 속성에 대한 값으로 **config.py** 파일에 붙여 넣습니다.
 4. 다시 Azure 포털의 **키** 블레이드에서 **기본 키** 또는 **보조 키** 값을 복사하고 **DOCUMENTDB\_KEY** 속성에 대한 값으로 **config.py** 파일에 붙여 넣습니다.
 5. **\_\_init\_\_.py** 파일에 다음 줄을 추가합니다. 
 
@@ -389,15 +389,15 @@ def vote():
 
  	![강조 표시된 게시 옵션을 사용하여 솔루션 탐색기에서 선택된 자습서의 스크린샷](./media/documentdb-python-application/image20.png)
 
-2. **웹 게시** 창에서 **Microsoft Azure 웹 사이트**를 선택합니다.
+2. **웹 게시** 창에서 **Microsoft Azure 웹앱**을 선택하고 **다음**을 클릭합니다.
 
-	![웹 게시 창의 스크린샷](./media/documentdb-python-application/image21.png)
+	![강조 표시된 Microsoft Azure 웹앱이 포함된 웹 게시 창의 스크린샷](./media/documentdb-python-application/image21.png)
 
-3. **기존 웹 사이트 선택** 창에서 **새로 만들기**를 클릭합니다.
+3. **Microsoft Azure 웹앱 창** 창에서 **새로 만들기**를 클릭합니다.
 
-	![기존 웹 사이트 선택의 스크린샷](./media/documentdb-python-application/select-existing-website.png)
+	![Microsoft Azure 웹앱 창 창의 스크린샷](./media/documentdb-python-application/select-existing-website.png)
 
-4. **Microsoft Azure에서 사이트 만들기** 창에서 **사이트 이름**을 입력하고 **하위 지역**을 선택한 다음 **만들기**를 클릭합니다.
+4. **Microsoft Azure에서 사이트 만들기** 창에서 **웹앱 이름**, **앱 서비스 계획**, **리소스 그룹** 및 **지역**을 입력한 다음 **만들기**를 클릭합니다.
 
 	![Microsoft Azure 창에서 사이트 만들기의 스크린 샷](./media/documentdb-python-application/create-site-on-microsoft-azure.png)
 
@@ -433,4 +433,4 @@ Azure, Visual Studio 및 Python에 대한 자세한 내용은 [Python 개발자 
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure portal]: http://portal.azure.com
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0413_2016-->

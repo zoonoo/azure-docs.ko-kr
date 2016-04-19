@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/23/2016" 
+	ms.date="03/31/2016" 
 	ms.author="tdykstra"/>
 
 # API 앱 개요
@@ -22,11 +22,11 @@ API 앱은 [Azure 앱 서비스](../app-service/app-service-value-prop-what-is.m
 
 ![Azure 앱 서비스의 앱 유형](./media/app-service-api-apps-why-best-platform/appservicesuite.png)
 
-[앱 서비스](../app-service/app-service-value-prop-what-is.md)는 웹, 모바일 및 통합 시나리오에 대해 완벽하게 관리되는 플랫폼입니다. 앱 서비스의 API 앱은 클라우드 및 온-프레미스에서 API를 더욱 쉽게 빌드, 호스트 및 사용하는 기능을 제공합니다. 앱 서비스에서 사용자의 API를 API 앱으로 배포하고 엔터프라이즈급 보안, 단순 액세스 제어, 하이브리드 연결, 자동 SDK 생성, 그리고 [논리 앱](../app-service-logic/app-service-logic-what-are-logic-apps.md)과의 원활한 통합에서 이점을 얻을 수 있습니다.
+[앱 서비스](../app-service/app-service-value-prop-what-is.md)는 웹, 모바일 및 통합 시나리오에 대해 완벽하게 관리되는 플랫폼입니다. 앱 서비스의 API 앱은 클라우드 및 온-프레미스에서 API를 더욱 쉽게 빌드, 호스트 및 사용하는 기능을 제공합니다. API 앱을 사용하면 엔터프라이즈급 보안, 단순 액세스 제어, 하이브리드 연결, 자동 SDK 생성, 그리고 [논리 앱](../app-service-logic/app-service-logic-what-are-logic-apps.md)과의 원활한 통합을 실현할 수 있습니다.
 
 ## API 앱을 사용하는 이유
 
-API 앱은 다음과 같은 기능을 제공합니다.
+API 앱의 몇 가지 주요 기능은 다음과 같습니다.
 
 - **쉽게 사용** - 통합된 [Swagger API 메타데이터](#concepts) 지원을 통해 다양한 클라이언트가 쉽게 API를 사용할 수 있도록 합니다. C#, Java 및 Javascript를 비롯한 다양한 언어로 API용 클라이언트 코드를 자동으로 생성할 수 있습니다. 코드 변경 없이 [CORS](#concepts)를 쉽게 구성합니다. 자세한 내용은 [API 검색 및 코드 생성에 대한 앱 서비스 API 앱 메타데이터](app-service-api-metadata.md) 및 [CORS를 사용하여 JavaScript에서 API 앱 사용](app-service-api-cors-consume-javascript.md)을 참조하세요. 
 
@@ -64,4 +64,4 @@ API 앱을 시작하려면 [API 앱 시작](app-service-api-dotnet-get-started.m
 
 API 앱에 대한 질문이 있으면 [API 앱 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=AzureAPIApps)에서 질문하세요.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

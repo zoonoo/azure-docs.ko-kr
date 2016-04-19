@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/25/2016"
+   ms.date="04/11/2016"
    ms.author="yurid"/>
 
 # Power BI로 Azure 보안 센터 데이터에서 통찰력 얻기
@@ -77,7 +77,7 @@ Azure 보안 센터에 대한 링크는 Azure 포털로 이동합니다. 차트�
 
 1\.**Azure 보안 센터** 대시보드에서 **Power BI에서 탐색** 단추를 클릭합니다.
 
-![Power BI를 사용하여 Azure 보안 센터에 연결](./media/security-center-powerbi/security-center-powerbi-fig9.png)
+![Power BI를 사용하여 Azure 보안 센터에 연결](./media/security-center-powerbi/security-center-powerbi-fig9-new.png)
 
 2\.**Power BI에서 탐색** 블레이드가 아래와 같이 오른쪽에 열립니다.
 
@@ -95,6 +95,8 @@ Azure 보안 센터에 대한 링크는 Azure 포털로 이동합니다. 차트�
 
 8\.Azure 보안 센터에 연결하는 데 사용하는 자격 증명을 입력해야 하는 인증 페이지로 이동합니다. 인증 프로세스를 완료한 후에 Power BI에서 데이터를 가져오기 시작하여 보고서를 작성합니다.
 
+> [AZURE.NOTE] 보고서의 새로 고침을 매일 수행하도록 예약했을 경우 이 새로 고침에 오류가 발생한다면 문제를 해결하는 방법에 대한 자세한 내용은 [Azure 보안 센터 Power BI의 잠재적인 새로 고침 문제](https://blogs.msdn.microsoft.com/azuresecurity/2016/04/07/azure-security-center-power-bi-refresh-fails/)를 참조하세요.
+
 ## 다음 단계
 이 문서에서는 Azure 보안 센터의 Power BI를 사용하는 방법을 살펴보았습니다. Azure 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
@@ -103,4 +105,4 @@ Azure 보안 센터에 대한 링크는 Azure 포털로 이동합니다. 차트�
 - [Azure 보안 센터 FAQ](security-center-faq.md) – 서비스 사용에 관한 질문과 대답 찾기
 - [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) – Azure 보안 및 규정 준수에 관한 블로그 게시물 찾기
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0413_2016-->

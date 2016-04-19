@@ -13,14 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="03/29/2016"
+   ms.date="04/01/2016"
    ms.author="SilviaDoomra"/>
 
 # 탄력적 데이터베이스 도구를 사용하도록 기존 데이터베이스 변환
 
-기존의 확장되고 분할된 솔루션이 있는 경우 여기에서 설명한 기술을 사용하여 탄력적 데이터베이스 도구를 활용할 수 있습니다. 변환 후 [탄력적 데이터베이스 클라이언트 라이브러리](sql-database-elastic-database-client-library.md) 및 [분할/병합 도구](sql-database-elastic-scale-overview-split-and-merge.md)를 사용할 수 있습니다.
+기존의 확장되고 분할된 솔루션이 있는 경우 여기에서 설명한 기술을 사용하여 탄력적 데이터베이스 도구(예: [탄력적 데이터베이스 클라이언트 라이브러리](sql-database-elastic-database-client-library.md) 및 [split-merge 도구](sql-database-elastic-scale-overview-split-and-merge.md))를 활용할 수 있습니다.
 
 이러한 기술은 [.NET Framework 클라이언트 라이브러리](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) 또는 [Azure SQL DB - 탄력적 데이터베이스 도구 스크립트](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db)에 있는 PowerShell 스크립트 중 하나를 사용하여 구현할 수 있습니다. 여기에 있는 예제에서는 PowerShell 스크립트를 사용합니다.
+
+Add-Shard 및 New-ShardMapManager cmdlet을 실행하기 전에 데이터베이스를 만들어야 합니다. 이러한 cmdlet은 데이터베이스를 자동으로 만들지 않습니다.
 
 이 프로세스는 다음 4개의 단계로 구성됩니다.
 
@@ -32,7 +34,7 @@
 ShardMapManager에 대한 자세한 내용은 [분할된 데이터베이스 맵 관리](sql-database-elastic-scale-shard-map-management.md)를 참조하세요. 탄력적 데이터베이스 도구에 대한 개요는 [탄력적 데이터베이스 기능 개요](sql-database-elastic-scale-introduction.md)를 참조하세요.
 
 ## 분할된 데이터베이스 맵 관리자 데이터베이스 준비
-분할된 데이터베이스 맵 관리자로 신규 또는 기존 데이터베이스를 사용할 수 있습니다. 이 작업은 한 번만 수행하면 됩니다.
+분할된 데이터베이스 맵 관리자로 신규 또는 기존 데이터베이스를 사용할 수 있습니다.
 
 ## 1단계: 분할된 데이터베이스 맵 관리자 만들기
 분할된 데이터베이스 맵 관리자의 역할을 하는 데이터베이스는 분할된 데이터베이스와 같은 데이터베이스가 아니어야 합니다.
@@ -179,4 +181,4 @@ ShardMapManager 개체를 사용하여 분할된 데이터베이스 맵을 만�
 [3]: ./media/sql-database-elastic-convert-to-use-elastic-tools/multipleonsingledb.png
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -36,7 +36,7 @@
 
 ![][0]
 
-이 자습서를 완료하려면 Xamarin Studio, Visual Studio 플러그 인(Windows의 경우) 및 최신 Android 플랫폼을 설치하는 [Xamarin.Android]가 필요합니다. Android 4.2 SDK 이상 버전이 필요합니다.
+이 자습서를 완료하려면 네트워크에 연결된 Mac과 함께 OS X용 XCode와 Xamarin Studio 또는 Windows의 Visual Studio가 필요합니다. 전체 설치 지침은 [Visual Studio 및 Xamarin을 위한 설정 및 설치](https://msdn.microsoft.com/library/mt613162.aspx)에 있습니다.
 
 다운로드한 빠른 시작 프로젝트에는 Xamarin.Android용 Azure 모바일 서비스 구성 요소가 포함되어 있습니다. 이 프로젝트는 Android 4.2 이상 버전을 대상으로 하지만 모바일 서비스 SDK에는 Android 2.2 이상 버전만 있으면 됩니다.
 
@@ -137,9 +137,8 @@
 [오프라인 데이터 동기화 시작]: mobile-services-xamarin-android-get-started-offline-data.md
 [인증 시작]: /develop/mobile/tutorials/get-started-with-users-xamarin-android
 [푸시 알림 시작]: /develop/mobile/tutorials/get-started-with-push-xamarin-android
-[Xamarin.Android]: http://xamarin.com/download
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Azure]: http://azure.microsoft.com/
 [Azure 클래식 포털]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

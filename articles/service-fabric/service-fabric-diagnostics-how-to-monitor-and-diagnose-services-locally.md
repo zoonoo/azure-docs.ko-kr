@@ -3,7 +3,7 @@
    description="로컬 개발 컴퓨터에서 Microsoft Azure 서비스 패브릭을 사용하여 작성된 서비스를 모니터링하고 진단하는 방법에 대해 알아보세요."
    services="service-fabric"
    documentationCenter=".net"
-   authors="toddabel"
+   authors="ms-toddabel"
    manager="timlt"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/04/2016"
+   ms.date="03/30/2016"
    ms.author="toddabel"/>
 
 
@@ -33,9 +33,7 @@
 
 서비스 패브릭은 ETW 이벤트를 내보내서 응용 프로그램 개발자가 플랫폼에서 일어나는 일을 이해할 수 있도록 도와줍니다. 아직 응용 프로그램을 만들지 않은 경우 [Visual Studio에서 응용 프로그램 처음 만들기](service-fabric-create-your-first-application-in-visual-studio.md)의 단계에 따라 지금 만드세요. 이 정보는 응용 프로그램이 실행되는 동안 진단 이벤트 뷰어에 추적 메시지를 표시하는 데 도움이 될 것입니다.
 
-1. 진단 이벤트 창이 자동으로 표시되지 않으면 Visual Studio의 **서버 탐색기** 탭으로 가서 **서비스 패브릭 클러스터**를 마우스 오른쪽 단추로 클릭하고 상황에 맞는 메뉴에서 **진단 이벤트 보기**를 선택하십시오.
-
-  ![Visual Studio 진단 이벤트 뷰어 열기](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/ServerExViewDiagEvents.png)
+1. 진단 이벤트 창이 자동으로 표시되지 않으면, Visual Studio에서 **보기** 탭으로 이동하여 **다른 창**, **진단 이벤트 뷰어**를 차례로 선택합니다.
 
 2. 각 이벤트는 이벤트가 기인하는 노드, 응용 프로그램 및 서비스를 알려 주는 표준 메타데이터 정보를 가지고 있습니다. 이벤트 창 상단의 **이벤트 필터링** 상자를 사용하여 이벤트 목록을 필터링할 수도 있습니다. 예를 들어 **노드 이름**이나 **서비스 이름**으로 필터링할 수 있습니다. 또한 이벤트 상세 정보를 볼 때 이벤트 창 상단의 단추를 사용하여 **일시 중지**하고 나중에 이벤트 손실 없이 재개할 수 있습니다.
 
@@ -59,7 +57,7 @@
 
 ## 다음 단계
 위에서 로컬 진단을 위해 응용 프로그램에 추가한 것과 동일한 추적 코드는 Azure 클러스터에서 응용 프로그램을 실행할 때 이 이벤트를 보는 데 이용할 수 있는 도구와 함께 작동합니다. 도구에 대한 다양한 옵션과 도구를 설정하는 방법에 대해 설명하는 이러한 문서를 확인합니다.
-* [Azure 진단 및 Operational Insights의 서비스 패브릭 클러스터에서 로그 수집](service-fabric-diagnostics-how-to-setup-wad-operational-insights.md)
+* [Azure 진단을 사용하여 로그를 수집하는 방법](service-fabric-diagnostics-how-to-setup-wad.md)
 * [서비스 패브릭 응용 프로그램 추적 저장소와 같은 ElasticSearch 사용](service-fabric-diagnostic-how-to-use-elasticsearch.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

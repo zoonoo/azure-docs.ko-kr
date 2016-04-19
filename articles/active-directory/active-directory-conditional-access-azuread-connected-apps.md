@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="03/30/2016"
 	ms.author="femila"/>
 
 # Azure Conditional Access Preview for SaaS Apps
@@ -49,6 +49,7 @@ SaaS 앱에 대한 Azure 조건부 액세스는 공개 미리 보기에 제공�
 ##액세스 규칙 이해
 
 이 섹션에서는 Azure 조건부 응용 프로그램 액세스 미리 보기에서 지원되는 액세스 규칙에 대해 자세히 설명합니다.
+
 ### 액세스 규칙이 적용되는 사용자 지정
 
 기본적으로 정책은 응용 프로그램에 대한 액세스 권한이 있는 모든 사용자에게 적용됩니다. 그러나 지정된 보안 그룹의 구성원인 사용자로만 정책을 제한할 수도 있습니다. **그룹 추가** 단추는 그룹 선택 대화 상자에서 액세스 규칙을 적용할 그룹을 하나 이상 선택하는 데 사용됩니다. 이 대화 상자는 선택한 그룹을 제거하는 데 사용할 수도 있습니다. 그룹에 적용할 규칙이 선택되면 액세스 규칙이 지정된 보안 그룹 중 하나에 속한 사용자에 대해서만 적용됩니다.
@@ -78,7 +79,7 @@ SaaS 앱에 대한 Azure 조건부 액세스는 공개 미리 보기에 제공�
 
 페더레이션된 테넌트의 경우 MFA(Multi-Factor Authentication)를 Azure Active Directory 또는 온-프레미스 AD FS 서버에서 수행할 수 있습니다.
 
-기본적으로 MFA는 Azure Active Directory에서 호스트되는 모든 페이지에 발생합니다. 온-프레미스에서 MFA를 구성하려면 Windows PowerShell용 Azure AD 모듈을 사용하여 Azure Active Directory에서 –SupportsMFA 속성을 true로 설정해야 합니다.
+기본적으로 MFA는 Azure Active Directory에서 호스트되는 모든 페이지에 발생합니다. 온-프레미스에서 MFA를 구성하려면 Windows PowerShell용 Azure AD 모듈을 사용하여 Azure Active Directory에서 –SupportsMFA 속성을 **true**로 설정해야 합니다.
 
 다음 예제는 contoso.com 테넌트에서 [Set-MsolDomainFederationSettings cmdlet](https://msdn.microsoft.com/library/azure/dn194088.aspx)을 사용하여 온-프레미스 MFA를 사용하도록 설정하는 방법을 보여 줍니다.
 
@@ -88,6 +89,7 @@ SaaS 앱에 대한 Azure 조건부 액세스는 공개 미리 보기에 제공�
 
 ##관련 문서
 
+- [Azure Active Directory에 연결된 Office 365 및 기타 앱에 대한 액세스 보호](active-directory-conditional-access.md)
 - [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

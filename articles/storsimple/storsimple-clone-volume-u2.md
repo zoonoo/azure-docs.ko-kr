@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/14/2015"
+   ms.date="03/31/2016"
    ms.author="alkohli" />
 
 # StorSimple 관리자 서비스를 사용하여 볼륨 복제(업데이트 2)
@@ -117,4 +117,4 @@ StorSimple에서 복제 및 복원 기능을 사용하여 삭제된 파일을 �
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0406_2016-->

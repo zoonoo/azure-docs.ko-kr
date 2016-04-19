@@ -112,9 +112,9 @@ Microsoft Azure에서 Windows 기반 가상 컴퓨터를 만들고 관리하는 
 	
 [Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 가상 컴퓨터 배포 및 관리](virtual-machines-windows-cli-deploy-templates.md)
 		
-[Azure 가상 컴퓨터에서 SQL Server의 자동화된 백업](virtual-machines-windows-classic-ps-sql-backup.md)
+[Azure 가상 컴퓨터에서 SQL Server의 자동화된 백업](virtual-machines-windows-classic-sql-automated-backup.md)
 
-[Azure 가상 컴퓨터에서 SQL Server의 자동화된 패치](virtual-machines-windows-classic-ps-sql-patch.md)
+[Azure 가상 컴퓨터에서 SQL Server의 자동화된 패치](virtual-machines-windows-classic-sql-automated-patching.md)
 
 [가상 컴퓨터 규모 집합에서 자동으로 컴퓨터 규모 조정](virtual-machines-windows-ps-vmss-create.md)
 
@@ -161,7 +161,7 @@ Microsoft Azure에서 Windows 기반 가상 컴퓨터를 만들고 관리하는 
 
 [HPC 팩](virtual-machines-windows-hpcpack-cluster-options.md)
 
-[SQL Server](virtual-machines-windows-classic-sql-overview.md)
+[SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)
 
 [Azure 인프라 서비스 워크로드: 고가용성 LOB(기간 업무) 응용 프로그램](virtual-machines-windows-lob.md)
 
@@ -281,9 +281,9 @@ Microsoft Azure에서 Windows 기반 가상 컴퓨터를 만들고 관리하는 
 
 [클래식 Windows 가상 컴퓨터용 사용자 지정 스크립트 확장](virtual-machines-windows-classic-extensions-customscript.md)
 
-[Azure 가상 컴퓨터에서 SQL Server의 자동화된 백업](virtual-machines-windows-classic-ps-sql-backup.md)
+[Azure 가상 컴퓨터에서 SQL Server의 자동화된 백업](virtual-machines-windows-classic-sql-automated-backup.md)
 
-[Azure 가상 컴퓨터에서 SQL Server의 자동화된 패치](virtual-machines-windows-classic-ps-sql-patch.md)
+[Azure 가상 컴퓨터에서 SQL Server의 자동화된 패치](virtual-machines-windows-classic-sql-automated-patching.md)
 
 
 
@@ -351,7 +351,7 @@ Microsoft Azure에서 Windows 기반 가상 컴퓨터를 만들고 관리하는 
 
 [Oracle](virtual-machines-windows-classic-oracle.md)
 
-[SQL Server](virtual-machines-windows-classic-sql-overview.md)
+[SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)
 
 [SharePoint](virtual-machines-windows-sharepoint-farm.md)
 
@@ -375,4 +375,4 @@ Microsoft Azure에서 Windows 기반 가상 컴퓨터를 만들고 관리하는 
 
 [Azure에서 VM을 만들거나 재시작하거나 크기를 조정하는 경우 할당 오류 해결](virtual-machines-windows-allocation-failure.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

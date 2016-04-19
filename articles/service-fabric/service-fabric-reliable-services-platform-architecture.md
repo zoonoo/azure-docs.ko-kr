@@ -1,11 +1,11 @@
 <properties
    pageTitle="신뢰할 수 있는 서비스 아키텍처 | Microsoft Azure"
-   description="상태 저장 및 비저장 서비스를 위한 Reliable Services 아키텍처 개요"
+   description="상태 저장 및 비저장 서비스를 위한 Reliable Service 아키텍처 개요"
    services="service-fabric"
    documentationCenter=".net"
    authors="AlanWarwick"
    manager="timlt"
-   editor=""/>
+   editor="vturecek"/>
 
 <tags
    ms.service="Service-Fabric"
@@ -16,9 +16,9 @@
    ms.date="03/30/2016"
    ms.author="alanwar"/>
 
-# 상태 비저장 신뢰할 수 있는 서비스를 위한 아키텍처
+# 상태 비저장 Reliable Services를 위한 아키텍처
 
-Azure 서비스 패브릭 Reliable Services는 상태 저장 또는 상태 비저장일 수 있습니다. 각 서비스 유형은 특정 아키텍처 내에서 실행됩니다. 이러한 아키텍처는 이 문서에 설명되어 있습니다. 상태 저장 서비스와 상태 비저장 서비스 간의 차이점에 대 한 자세한 내용은 [신뢰할 수 있는 서비스 개요](service-fabric-reliable-services-introduction.md)를 참조하세요.
+Azure 서비스 패브릭 Reliable Service는 상태 저장이거나 상태 비저장일 수 있습니다. 각 서비스 유형은 특정 아키텍처 내에서 실행됩니다. 이러한 아키텍처는 이 문서에 설명되어 있습니다. 상태 저장 서비스와 상태 비저장 서비스 간의 차이점에 대한 자세한 내용은 [Reliable Service 개요](service-fabric-reliable-services-introduction.md)를 참조하세요.
 
 ## 상태 저장 신뢰할 수 있는 서비스
 
@@ -27,13 +27,13 @@ Azure 서비스 패브릭 Reliable Services는 상태 저장 또는 상태 비�
 
 ### 상태 저장 신뢰할 수 있는 서비스
 
-상태 저장 신뢰할 수 있는 서비스는 StatefulService 또는 StatefulServiceBase 클래스에서 파생될 수 있습니다. 이러한 기본 클래스는 모두 서비스 패브릭에서 제공하며, 상태 저장 서비스가 서비스 패브릭과 상호 작용하고, 서비스 패브릭 클러스터 내에 서비스로 참여하도록 다양한 지원 및 추상화 수준을 제공합니다.
+상태 저장 Reliable Service는 StatefulService 또는 StatefulServiceBase 클래스에서 파생될 수 있습니다. 이러한 기본 클래스는 모두 서비스 패브릭에서 제공하며, 상태 저장 서비스가 서비스 패브릭과 상호 작용하고, 서비스 패브릭 클러스터 내에 서비스로 참여하도록 다양한 지원 및 추상화 수준을 제공합니다.
 
-StatefulService는 StatefulServiceBase에서 파생됩니다. StatefulServiceBase는 서비스에 보다 유연함을 제공하지만 서비스 패브릭의 내부 구조에 대한 자세한 이해가 필요합니다. StatefulService 및 StatefulServiceBase 클래스를 사용하여 서비스를 작성하는 방법에 대한 자세한 내용은 [Reliable Services 개요](service-fabric-reliable-services-introduction.md) 및 [Reliable Services 고급 사용법](service-fabric-reliable-services-advanced-usage.md)을 참조하세요.
+StatefulService는 StatefulServiceBase에서 파생됩니다. StatefulServiceBase는 서비스에 보다 유연함을 제공하지만 서비스 패브릭의 내부 구조에 대한 자세한 이해가 필요합니다. StatefulService 및 StatefulServiceBase 클래스를 사용하여 서비스를 작성하는 방법에 대한 자세한 내용은 [Reliable Service 개요](service-fabric-reliable-services-introduction.md) 및 [Reliable Service 고급 사용법](service-fabric-reliable-services-advanced-usage.md)을 참조하세요.
 
 두 기본 클래스는 서비스 구현의 수명 및 역할을 관리합니다. 서비스 구현이 서비스 구현 수명 주기에서 이 시점에 작업을 수행하는 경우 또는 통신 수신기 개체를 만들려고 하는 경우 서비스 구현이 기본 클래스의 가상 메서드를 재정의할 수 있습니다. 위의 다이어그램에서 서비스 구현은 ICommunicationListener를 노출하는 자체 통신 수신기 개체를 구현할 수 있지만 서비스 패브릭에서 통신 수신기를 구현합니다. 해당 서비스 구현이 서비스 패브릭에서 구현하는 통신 수신기를 사용하기 때문입니다.
 
-상태 저장 Reliable Services는 신뢰할 수 있는 상태 관리자를 사용하여 신뢰할 수 있는 컬렉션을 활용합니다. 신뢰할 수 있는 컬렉션은 서비스에서 대한 가용성이 높은, 즉 서비스 장애 조치에 관계없이 항상 사용 가능한 로컬 데이터 구조체입니다. 신뢰할 수 있는 컬렉션의 각 유형은 신뢰할 수 있는 상태 제공자에 의해 구현됩니다. 신뢰할 수 있는 컬렉션에 대한 자세한 내용은 [신뢰할 수 있는 컬렉션 개요](service-fabric-reliable-services-reliable-collections.md)를 참조하세요.
+상태 저장 Reliable Service는 신뢰할 수 있는 상태 관리자를 사용하여 신뢰할 수 있는 컬렉션을 활용합니다. 신뢰할 수 있는 컬렉션은 서비스에서 대한 가용성이 높은, 즉 서비스 장애 조치에 관계없이 항상 사용 가능한 로컬 데이터 구조체입니다. 신뢰할 수 있는 컬렉션의 각 유형은 신뢰할 수 있는 상태 제공자에 의해 구현됩니다. 신뢰할 수 있는 컬렉션에 대한 자세한 내용은 [신뢰할 수 있는 컬렉션 개요](service-fabric-reliable-services-reliable-collections.md)를 참조하세요.
 
 ### 신뢰할 수 있는 상태 관리자와 제공자
 
@@ -80,7 +80,7 @@ StatefulService는 StatefulServiceBase에서 파생됩니다. StatefulServiceBas
 
 서비스가 서비스 수명 주기에서 이 시점에 작업을 수행하는 경우 또는 통신 수신기 개체를 만들려고 하는 경우 서비스 구현이 기본 클래스의 가상 메서드를 재정의할 수 있습니다. 위의 다이어그램에서 서비스는 ICommunicationListener를 노출하는 자체 통신 수신기 개체를 구현할 수 있지만 서비스 패브릭에서 통신 수신기를 구현합니다. 해당 서비스 구현이 서비스 패브릭에서 구현하는 통신 수신기를 사용하기 때문입니다.
 
-StatelessService 및 StatelessServiceBase 클래스를 사용하여 서비스를 작성하는 방법에 대한 자세한 내용은 [Reliable Services 개요](service-fabric-reliable-services-introduction.md) 및 [Reliable Services 고급 사용법](service-fabric-reliable-services-advanced-usage.md)을 참조하세요.
+StatelessService 및 StatelessServiceBase 클래스를 사용하여 서비스를 작성하는 방법에 대한 자세한 내용은 [Reliable Service 개요](service-fabric-reliable-services-introduction.md) 및 [Reliable Service 고급 사용법](service-fabric-reliable-services-advanced-usage.md)을 참조하세요.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 다음 단계
@@ -97,4 +97,4 @@ StatelessService 및 StatelessServiceBase 클래스를 사용하여 서비스를
 
 [Reliable Services 구성](service-fabric-reliable-services-configuration.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

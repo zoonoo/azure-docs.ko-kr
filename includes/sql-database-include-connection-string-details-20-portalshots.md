@@ -10,7 +10,7 @@ Latest Freshness check:  2015-09-02 , GeneMi.
 ### Azure 포털에서 연결 문자열 가져오기
 
 
-[Azure Preview 포털](https://portal.azure.com/)에서 클라이언트 프로그램이 Azure SQL 데이터베이스와 상호 작용하는 데 필요한 연결 문자열을 가져올 수 있습니다.
+[Azure 포털](https://portal.azure.com/)에서 클라이언트 프로그램이 Azure SQL 데이터베이스와 상호 작용하는 데 필요한 연결 문자열을 가져올 수 있습니다.
 
 
 1. **찾아보기** > **SQL 데이터베이스**를 클릭합니다.
@@ -56,4 +56,4 @@ includes/sql-database-include-connection-string-30-compare.md
 includes/sql-database-include-connection-string-40-config.md
 -->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0406_2016-->

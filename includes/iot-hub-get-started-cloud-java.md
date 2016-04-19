@@ -88,9 +88,11 @@
 
 ## 장치-클라우드 메시지 받기
 
-이 섹션에서는 IoT Hub에서 장치-클라우드 메시지를 읽는 Java 콘솔 앱을 만듭니다. IoT Hub가 [이벤트 허브][lnk-event-hubs-overview]와 호환되는 끝점을 노출하여 장치-클라우드 메시지를 읽을 수 있습니다. 작업을 단순화하기 위해 이 자습서에서는 처리량이 높은 배포용이 아닌 기본적인 판독기를 만듭니다. [장치-클라우드 메시지 처리][lnk-processd2c-tutorial] 자습서에서는 규모로 장치-클라우드 메시지를 처리하는 방법을 보여 줍니다. [이벤트 허브 시작][lnk-eventhubs-tutorial] 자습서는 이벤트 허브에서 메시지를 처리하는 방법에 대한 추가 정보를 제공하고 IoT Hub 이벤트 허브 호환 끝점에 적용됩니다.
+이 섹션에서는 IoT Hub에서 장치-클라우드 메시지를 읽는 Java 콘솔 앱을 만듭니다. IoT Hub가 [이벤트 허브][lnk-event-hubs-overview]와 호환되는 끝점을 노출하여 장치-클라우드 메시지를 읽을 수 있습니다. 작업을 단순화하기 위해 이 자습서에서는 처리량이 높은 배포용이 아닌 기본적인 판독기를 만듭니다. [장치-클라우드 메시지 처리][lnk-processd2c-tutorial] 자습서에서는 대규모로 장치-클라우드 메시지를 처리하는 방법을 보여줍니다. [이벤트 허브 시작][lnk-eventhubs-tutorial] 자습서는 이벤트 허브에서 메시지를 처리하는 방법에 대한 추가 정보를 제공하고 IoT Hub 이벤트 허브 호환 끝점에 적용할 수 있습니다.
 
-1. *Create a device identity* 섹션에서 만든 iot-java-get-started 폴더에서 명령 프롬프트에서 다음 명령을 사용하여 **read-d2c-messages**라는 새 Maven 프로젝트를 만듭니다. 이것은 하나의 긴 명령입니다.
+> [AZURE.NOTE] 장치-클라우드 메시지를 읽는 이벤트 허브와 호환 가능한 끝점은 항상 AMQPS 프로토콜을 사용합니다.
+
+1. *장치 ID 만들기* 섹션에서 만든 iot-java-get-started 폴더에서 명령 프롬프트의 다음 명령을 사용하여 **read-d2c-messages**라는 새 Maven 프로젝트를 만듭니다. 이것은 하나의 긴 명령입니다.
 
     ```
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=read-d2c-messages -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -112,7 +114,7 @@
 
 5. 텍스트 편집기를 사용하여 read-d2c-messages\\src\\main\\java\\com\\mycompany\\app\\App.java 파일을 엽니다.
 
-6. 파일에 다음 **import** 문을 추가합니다.
+6. 파일에 다음 **가져오기** 문을 추가합니다.
 
     ```
     import java.io.IOException;
@@ -125,14 +127,14 @@
     import com.microsoft.eventhubs.client.ConnectionStringBuilder;
     ```
 
-7. 다음 클래스 수준의 변수를 **App** 클래스에 추가합니다.
+7. 다음 클래스 수준 변수를 **앱** 클래스에 추가합니다.
 
     ```
     private static EventHubClient client;
     private static long now = System.currentTimeMillis();
     ```
 
-8. **App** 클래스 안에 다음 중첩 클래스를 추가합니다. 응용 프로그램은 이벤트 허브의 두 개의 파티션에서 메시지를 읽도록 두 개의 스레드를 만들어 **MessageReceiver**를 실행합니다.
+8. **앱** 클래스 안에 다음 중첩된 클래스를 추가합니다. 응용 프로그램은 이벤트 허브의 두 개의 파티션에서 메시지를 읽도록 두 개의 스레드를 만들어 **MessageReceiver**를 실행합니다.
 
     ```
     private static class MessageReceiver implements Runnable
@@ -150,7 +152,7 @@
     }
     ```
 
-10. **MessageReceiver** 클래스에 다음 **run** 메서드를 추가합니다. 이 메서드는 이벤트 허브 파티션에서 읽도록 **EventHubReceiver** 인스턴스를 만듭니다. 지속적으로 반복하고 **stopThread**가 true일 때까지 콘솔에 메시지 세부 정보를 인쇄합니다.
+10. **MessageReceiver** 클래스에 다음 **실행** 메서드를 추가합니다. 이 메서드는 이벤트 허브 파티션에서 읽도록 **EventHubReceiver** 인스턴스를 만듭니다. **stopThread**가 true일 때까지 지속적으로 반복하고 콘솔에 메시지 세부 정보를 인쇄합니다.
 
     ```
     public void run() {
@@ -173,15 +175,15 @@
     }
     ```
 
-    > [AZURE.NOTE] 이 메서드는 수신기를 만들 때 필터를 사용하여 수신기는 수신기 실행이 시작된 후 IoT Hub에 전송된 메시지를 읽습니다. 테스트 환경에서 유용하므로 현재 메시지 집합을 볼 수 있지만 프로덕션 환경에서 코드가 모든 메시지를 처리하고 있는지 확인해야 합니다. 자세한 정보는 [IoT Hub가 장치-클라우드 메시지를 처리하는 방법][lnk-processd2c-tutorial] 자습서를 참조하세요.
+    > [AZURE.NOTE] 이 메서드는 수신기를 만들 때 필터를 사용하여 수신기는 수신기 실행이 시작된 후 IoT Hub에 전송된 메시지를 읽습니다. 테스트 환경에서 유용하므로 현재 일련의 메시지를 볼 수 있지만 프로덕션 환경에서 코드가 모든 메시지를 처리하고 있는지 확인해야 합니다. 자세한 정보는 [IoT Hub 장치-클라우드 메시지를 처리하는 방법][lnk-processd2c-tutorial] 자습서를 참조하세요.
 
-11. 아래 표시된 예외를 포함하도록 **main** 메서드의 서명을 수정합니다.
+11. 아래 표시된 예외를 포함하도록 **기본** 메서드의 서명을 수정합니다.
 
     ```
     public static void main( String[] args ) throws IOException
     ```
 
-12. **App** 클래스의 **main** 메서드에 다음 코드를 추가합니다. 이 코드는 **EventHubClient** 인스턴스를 만들어 IoT Hub의 이벤트 허브 호환 끝점에 연결합니다. 그런 다음 두 개의 파티션에서 읽도록 두 개의 스레드를 만듭니다. **{youriothubkey}**, **{youreventhubcompatiblenamespace}** 및 **{youreventhubcompatiblename}**을 이전에 기록한 값으로 대체합니다. **{youreventhubcompatiblenamespace}** 자리 표시자의 값은 **이벤트 허브 호환 끝점**에서 나오며 **xxxxnamespace** 형태를 취합니다(즉, 포털의 이벤트 허브 호환 끝점 값에서 ****sb://** 접두사와 **.servicebus.windows.net** 접미사 제거).
+12. **앱** 클래스의 **기본** 메서드에 다음 코드를 추가합니다. 이 코드는 **EventHubClient** 인스턴스를 만들어 IoT Hub의 이벤트 허브 호환 끝점에 연결합니다. 그런 다음 두 개의 파티션에서 읽도록 두 개의 스레드를 만듭니다. **{youriothubkey}**, **{youreventhubcompatiblenamespace}** 및 **{youreventhubcompatiblename}**을 이전에 기록한 값으로 대체합니다. **{youreventhubcompatiblenamespace}** 자리 표시자의 값은 **이벤트 허브 호환 끝점**에서 나오며 **xxxxnamespace** 형태를 취합니다(즉, 포털의 이벤트 허브 호환 끝점 값에서 **sb://** 접두사와 **.servicebus.windows.net** 접미사 제거).
 
     ```
     String policyName = "iothubowner";
@@ -223,9 +225,9 @@
 
 <!-- Links -->
 
-[lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
-[lnk-devguide-identity]: iot-hub-devguide.md#identityregistry
-[lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
-[lnk-processd2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-eventhubs-tutorial]: ../articles/event-hubs/event-hubs-csharp-ephcs-getstarted.md
+[lnk-devguide-identity]: ../articles/iot-hub/iot-hub-devguide.md#identityregistry
+[lnk-event-hubs-overview]: ../articles/event-hubs/event-hubs-overview.md
+[lnk-processd2c-tutorial]: ../articles/iot-hub/iot-hub-csharp-csharp-process-d2c.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -565,7 +565,7 @@ AzCopy는 /Source가 blob 컨테이너 또는 blob 가상 디렉터리일 때 �
 
 ### /BlobType:"block" | "page" | "append"
 
-복사 작업의 재귀 모드를 지정합니다. 재귀 모드에서 AzCopy는 하위 폴더의 Blob 또는 파일을 비롯하여 지정된 파일 패턴과 일치하는 모든 Blob 또는 파일을 복사합니다.
+대상 Blob이 블록 Blob인지, 페이지 Blob인지 아니면 추가 Blob인지를 지정합니다. 이 옵션은 Blob을 업로드하는 경우에만 적용됩니다. 그렇지 않은 경우 오류가 생성합니다. 대상이 Blob인데 이 옵션을 지정하지 않으면 기본적으로 AzCopy는 블록 Blob를 만듭니다.
 
 **적용 대상:** Blob
 
@@ -864,4 +864,4 @@ Azure 저장소 및 AzCopy에 대한 자세한 내용은 다음 리소스를 참
 - [AzCopy: 크로스 계정 Blob 복사 사용(영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 - [AzCopy: Azure Blob 파일 업로드/다운로드(영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

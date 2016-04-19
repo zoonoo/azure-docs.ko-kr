@@ -7,11 +7,14 @@
 
 	 새 **프로젝트 이름**을 입력하고 **프로젝트 만들기**를 클릭합니다.
 
-3. **Projects** 섹션에 있는 프로젝트 번호를 기록해 둡니다. 이 값을 클라이언트의 *PROJECT\_ID* 변수로 설정해야 합니다.
+3. **유틸리티 및 기타** 단추를 클릭한 다음 **프로젝트 정보**를 클릭합니다. **프로젝트 번호**를 기록해 둡니다. 이 값을 클라이언트 앱의 `SenderId` 변수로 설정해야 합니다.
 
-4. 프로젝트 대시보드에서 **Google API 사용** > **Android용 Cloud Messaging**를 클릭하고 다음 페이지에서 **API 사용**을 클릭합니다.
+   	![](./media/mobile-services-enable-google-cloud-messaging/notification-hubs-utilities-and-more.png)
 
-5. API 관리자에서 **자격 증명** > **자격 증명 추가** > **API 키**를 클릭합니다.
+
+4. 프로젝트 대시보드의 **모바일 API**에서 **Google Cloud Messaging**를 클릭하고 다음 페이지에서 **사용**을 클릭합니다.
+
+5. 프로젝트 대시보드에서 **자격 증명** > **자격 증명 만들기** > **API 키**를 클릭합니다.
 
    	![](./media/mobile-services-enable-google-cloud-messaging/mobile-services-google-create-server-key.png)
 
@@ -21,4 +24,4 @@
 
 	이 API 키를 사용하여 Azure 에서 GCM에 인증하고 앱 대신 푸시 알림을 보낼 수 있게 합니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0413_2016-->

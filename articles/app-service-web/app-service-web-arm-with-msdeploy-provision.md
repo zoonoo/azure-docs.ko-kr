@@ -174,7 +174,7 @@ ARM 배포 템플릿에 매개 변수로 이를 전달할 수 있습니다.
 
 	.\Deploy-AzureResourceGroup.ps1 -ResourceGroupLocation "East US" `
 									-ResourceGroupName $rgName `
-									-UploadArtifacts "container-name" `
+									-UploadArtifacts `
 									-StorageAccountName "name-of-storage-acct-for-package" `
 									-StorageAccountResourceGroupName "resource-group-name-storage-acct" `
 									-TemplateFile "web-app-deploy.json" `
@@ -197,4 +197,4 @@ ARM 배포 템플릿에 매개 변수로 이를 전달할 수 있습니다.
 
 이제 응용 프로그램이 배포되었고 https://www.yourcustomdomain.com을 통해 탐색할 수 있어야 합니다.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/19/2016"
+	ms.date="04/04/2016"
 	ms.author="jhubbard"/>
 
 
@@ -22,7 +22,7 @@
 
 이 자습서에서는 SQL Server 및 Azure SQL 데이터베이스를 사용한 경험이 매우 적다고 가정합니다. 이 자습서에서는 완전하게 구성되고 설정된 일정에 동기화되는 하이브리드(SQL Server 및 SQL 데이터베이스 인스턴스) 동기화 그룹을 만듭니다.
 
-> [AZURE.NOTE]이전에 MSDN에 있었던 Azure SQL 데이터 동기화에 설정된 전체 기술 설명서는 .pdf로 제공됩니다. [여기](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf)에서 다운로드하세요.
+> [AZURE.NOTE] 이전에 MSDN에 있었던 Azure SQL 데이터 동기화에 설정된 전체 기술 설명서는 .pdf로 제공됩니다. [여기](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf)에서 다운로드하세요.
 
 ## 1단계: Azure SQL 데이터베이스에 연결
 
@@ -174,7 +174,7 @@ Azure SQL 데이터 동기화에서는 동기화할 테이블과 열을 선택�
 
 ## 6단계: 동기화 그룹 구성
 
-언제든 데이터 동기화 방문 페이지 아래쪽의 동기화를 클릭하여 동기화 그룹을 동기화할 수 있습니다. 동기화 그룹을 일정에 따라 동기화하려면 동기화 그룹을 구성합니다.
+언제든 데이터 동기화 방문 페이지 아래쪽의 동기화를 클릭하여 동기화 그룹을 동기화할 수 있습니다. 일정에 따라 동기화하려면 동기화 그룹을 구성합니다.
 
 1.	[클래식 포털](http://manage.windowsazure.com)로 돌아갑니다.
 2.	**SQL 데이터베이스**를 클릭합니다.
@@ -202,4 +202,4 @@ SQL 데이터베이스와 SQL 데이터 동기화에 대한 자세한 내용은 
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0406_2016-->

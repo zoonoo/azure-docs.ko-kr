@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="03/08/2016"
+	ms.date="04/12/2016"
 	ms.author="sethm"/>
 
 # 이벤트 허브 시작
@@ -22,15 +22,15 @@
 
 ## 소개
 
-이벤트 허브는 연결된 장치 및 응용 프로그램에서 많은 양의 이벤트 데이터를 처리하는 서비스입니다. 이벤트 허브에 데이터를 수집한 후 저장소 클러스터를 사용하여 데이터를 저장하거나 실시간 분석 공급자를 사용하여 변환할 수 있습니다. 이 대규모 이벤트 수집 및 처리 기능은 IoT(사물 인터넷)를 포함하여 최신 응용 프로그램 아키텍처의 핵심 구성 요소입니다.
+이벤트 허브는 연결된 장치 및 응용 프로그램에서 많은 양의 이벤트 데이터(원격 분석)를 처리하는 서비스입니다. 이벤트 허브에 데이터를 수집한 후 저장소 클러스터를 사용하여 데이터를 저장하거나 실시간 분석 공급자를 사용하여 변환할 수 있습니다. 이 대규모 이벤트 수집 및 처리 기능은 IoT(사물 인터넷)를 포함하여 최신 응용 프로그램 아키텍처의 핵심 구성 요소입니다.
 
-이 자습서에서는 Azure 클래식 포털을 사용하여 이벤트 허브를 만드는 방법을 보여 줍니다. 또한 C#으로 작성한 콘솔 응용 프로그램을 사용하여 이벤트 허브에 메시지를 수집하는 방법 및 C# [이벤트 프로세서 호스트] 라이브러리를 사용하여 메시지를 병렬로 검색하는 방법을 알아봅니다.
+이 자습서에서는 Azure 클래식 포털을 사용하여 이벤트 허브를 만드는 방법을 보여 줍니다. 또한 C#으로 작성한 콘솔 응용 프로그램을 사용하여 이벤트 허브에 메시지를 수집하는 방법 및 C# [이벤트 프로세서 호스트][] 라이브러리를 사용하여 메시지를 병렬로 검색하는 방법을 알아봅니다.
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-+ Microsoft Visual Studio 2013 또는 Microsoft Visual Studio Express 2013 for Windows.
++ Microsoft Visual Studio 2013 이후 또는 Windows용 Microsoft Visual Studio Express. 이 문서의 예제에서는 Visual Studio 2015를 사용합니다.
 
-+ 활성 Azure 계정. <br/>계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F target="\_blank")을 참조하세요.
++ 활성 Azure 계정. <br/>계정이 없는 경우 몇 분 만에 무료 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F target="\_blank")을 참조하세요.
 
 ## 이벤트 허브 만들기
 
@@ -44,7 +44,7 @@
 
 	![][2]
 
-4. 방금 만든 네임스페이스(일반적으로 ***이벤트 허브 이름*-ns**)를 클릭합니다.
+4. 지정된 지역에서 기존 네임스페이스를 명시적으로 선택하지 않은 경우 포털은 네임스페이스를 만들어줍니다(일반적으로 ***event hub name*-ns**). 해당 네임스페이스(이 예제에서는 **eventhub-ns**)를 클릭합니다.
 
 	![][3]
 
@@ -52,11 +52,11 @@
 
 	![][4]
 
-6. 맨 위에 있는 **구성** 탭을 클릭하고 *보내기* 권한이 있는 **SendRule**이라는 규칙과 *관리, 보내기, 수신 대기* 권한이 있는 **ReceiveRule**이라는 규칙을 추가한 후 **저장**을 클릭합니다.
+6. 맨 위에 있는 **구성** 탭을 클릭하고 보내기 권한이 있는 **SendRule**이라는 규칙과 *관리*, *보내기*, *수신* 권한이 있는 **ReceiveRule**이라는 규칙을 추가한 후 **저장**을 클릭합니다.
 
 	![][5]
 
-7. 페이지 위쪽의 **대시보드** 탭을 클릭한 후 **연결 정보**를 클릭합니다. 두 연결 문자열을 메모하거나 이 자습서에서 나중에 사용하기 위해 복사합니다.
+7. 페이지 위쪽의 **대시보드** 탭을 클릭한 후 **연결 정보**를 클릭합니다. 이 자습서의 뒷부분에서 사용한 것처럼 두 연결 문자열을 임시 위치로 복사합니다.
 
 	![][6]
 
@@ -71,13 +71,33 @@
 
 이제 응용 프로그램을 실행할 준비가 되었습니다.
 
-1.	Visual Studio에서 **수신기** 프로젝트를 실행한 후 이 프로젝트에서 모든 파티션에 대한 수신기를 시작할 때까지 기다립니다.
+1. Visual Studio 내에서 앞서 만든 **수신기** 프로젝트를 엽니다.
+
+2. **수신기** 솔루션을 마우스 오른쪽 단추로 클릭한 다음 **추가**를 클릭한 후 **기존 프로젝트**를 클릭합니다.
+ 
+3. 기존 Sender.csproj 파일을 찾은 다음 두 번 클릭하여 솔루션에 추가합니다.
+ 
+4. 다시 **수신기** 솔루션을 마우스 오른쪽 단추로 클릭한 다음 **속성**을 클릭합니다. **수신기** 속성 페이지가 표시됩니다.
+
+5. **시작 프로젝트**를 클릭한 다음 **여러 시작 프로젝트** 단추를 클릭합니다. **수신기** 및 **보낸 사람** 프로젝트 모두에 대한 **동작** 상자를 설정하여 **시작**합니다.
+
+	![][19]
+
+6. **프로젝트 종속성**을 클릭합니다. **프로젝트** 상자에서 **보낸 사람**을 클릭합니다. **종속 대상** 상자에서 **수신기**를 확인해야 합니다.
+
+	![][20]
+
+7. **확인**을 클릭하여 **속성** 대화 상자를 해제합니다.
+
+1.	F5를 눌러서 Visual Studio 내에서 **수신기** 프로젝트를 실행한 다음 이 프로젝트에서 모든 파티션에 대한 수신기를 시작할 때까지 기다립니다.
 
 	![][21]
 
-2.	콘솔 창에서 **발신자** 프로젝트를 실행하고 **Enter** 키를 누른 다음 수신기 창에서 이벤트가 표시되는지 확인합니다.
+2.	**보낸 사람** 프로젝트는 자동으로 실행됩니다. 콘솔 창에서 **Enter** 키를 누르고 수신기 창에서 이벤트가 표시되는지 확인합니다.
 
 	![][22]
+
+**보낸 사람** 창에서 **Ctrl+C** 키를 눌러 발신자 응용 프로그램을 종료한 다음 수신기 창에서 **Enter** 키를 눌러 해당 응용 프로그램을 종료합니다.
 
 ## 다음 단계
 
@@ -96,6 +116,8 @@
 [5]: ./media/event-hubs-csharp-ephcs-getstarted/create-event-hub5.png
 [6]: ./media/event-hubs-csharp-ephcs-getstarted/create-event-hub6.png
 
+[19]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj1.png
+[20]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj2.png
 [21]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs1.png
 [22]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs2.png
 
@@ -108,4 +130,4 @@
 [큐 메시징 솔루션]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0413_2016-->

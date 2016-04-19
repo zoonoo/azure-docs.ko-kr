@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
+	ms.date="04/05/2016"
 	ms.author="jgao"/>
 
 # Azure CLI를 사용하여 HDInsight의 Hadoop 클러스터 관리
@@ -47,7 +47,7 @@
 	
 ##클러스터 만들기
 
-[Azure CLI을 사용하여 HDInsight의 Windows 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-create-windows-clusters-cli.md)를 참조하세요.
+[Azure CLI를 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-azure-cli.md) 참조하세요.
 
 ##클러스터 세부 정보 나열 및 표시
 클러스터 세부 정보를 나열하고 표시하려면 다음 명령을 사용합니다.
@@ -106,4 +106,4 @@ Hadoop 클러스터 크기를 변경하려면
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "클러스터 나열 및 표시"
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0406_2016-->

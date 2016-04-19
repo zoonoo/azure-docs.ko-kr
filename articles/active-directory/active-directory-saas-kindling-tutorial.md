@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/10/2016"
+	ms.date="04/05/2016"
 	ms.author="jeedes"/>
 
 
@@ -33,7 +33,7 @@ Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Direc
 Kindling과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
 - Azure AD 구독
-- Kindling Single Sign-On이 설정된 구독
+- Kindling 구독
 
 
 > [AZURE.NOTE] 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
@@ -84,7 +84,7 @@ Kindling에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 이 섹션은 Azure 클래식 포털에서 Azure AD Single Sign-On을 사용하도록 설정하고 Kindling 응용 프로그램에서 Single Sign-On을 구성하는 방법을 설명하기 위한 것입니다. 이 절차의 일부로 base-64로 인코딩된 인증서 파일을 만들어야 합니다. 이 절차를 잘 모르는 경우 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
 
-Kindling에 Single Sign-On을 구성하려면 등록된 도메인이 필요합니다. 등록된 도메인이 아직 없는 경우 [support@flatterfiles.com](mailto:support@flatterfiles.com)을 통해 Kindling 지원 팀에 문의하세요.
+Kindling에 Single Sign-On을 구성하려면 등록된 도메인이 필요합니다. 등록된 도메인이 아직 없는 경우 [support@kindlingapp.com](mailto:support@kindlingapp.com)을 통해 Kindling 지원 팀에 문의하세요.
 
 
 
@@ -97,11 +97,15 @@ Kindling에 Single Sign-On을 구성하려면 등록된 도메인이 필요합�
 3. **앱 설정 구성** 대화 상자 페이지에서 다음 단계를 수행합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_04.png) <br>
 
 
-    a. **로그온 URL** 텍스트 상자에 사용자가 Kindling 응용 프로그램에 로그인하는 데 사용하는 URL을 입력합니다(예: **https://fabrikam.Kindling.com/*)).
+    a. **로그온 URL** 텍스트 상자에 사용자가 Kindling 응용 프로그램에 로그인하는 데 사용하는 URL을 입력합니다(예: *https://\<company name>.kindlingapp.com/*).
 
-    b. **발급자** 및 **회신 URL** 값을 가져오려면 Kindling 지원팀에 문의합니다.
+    b. **발급자** 및 **회신 URL** 값을 가져오려면 [support@kindlingapp.com](mailto:support@kindlingapp.com)을 통해 Kindling 지원 팀에 문의합니다.
+
+    c. **발급자** 텍스트 상자에 발급자 URL을 입력합니다.
+
+    d. **회신 URL** 텍스트 상자에 회신 URL을 입력합니다.
  
-    c. **다음**을 클릭합니다.
+    e. **다음**을 클릭합니다.
  
  
 4. **Kindling에서 Single Sign-On 구성** 페이지에서 다음 단계를 수행합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_05.png) <br>
@@ -216,4 +220,4 @@ Kindling에 Single Sign-On을 구성하려면 등록된 도메인이 필요합�
 [204]: ./media/active-directory-saas-kindling-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-kindling-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

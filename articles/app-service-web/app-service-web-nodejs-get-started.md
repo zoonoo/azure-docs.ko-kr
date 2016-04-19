@@ -3,7 +3,7 @@
 	description="Azure 앱 서비스에서 웹앱에 Node.js 응용 프로그램을 배포하는 방법을 알아봅니다."
 	services="app-service\web"
 	documentationCenter="nodejs"
-	authors="rmcmurray"
+	authors="cephalin"
 	manager="wpickett"
 	editor=""/>
 
@@ -28,15 +28,13 @@
 
 이 자습서에서는 간단한 [Node.js](http://nodejs.org) 응용 프로그램을 만들고 cmd.exe 또는 bash와 같은 명령줄에서 [Azure 앱 서비스](../app-service/app-service-value-prop-what-is.md)의 [웹앱](app-service-web-overview.md)에 배포하는 방법을 보여줍니다. 이 자습서의 지침은 Node.js를 실행할 수 있는 모든 운영 체제에 적용될 수 있습니다.
 
-[Azure 앱 서비스 웹앱](/services/app-service/web/)
-
 <a name="prereq"/>
 ## 필수 조건
 
-- Node.js. 설치 이진이 [여기](https://nodejs.org/)에 있습니다.
-- Yoeman. 설치 지침이 [여기에](http://yeoman.io/) 있습니다.
-- Git. 설치 이진이 [여기](http://www.git-scm.com/downloads)에 있습니다.
-- Azure CLI. 설치 지침이 [여기에](../xplat-cli-install.md) 있습니다.
+- Node.js. 설치 이진은 [여기](https://nodejs.org/)에 있습니다.
+- Yoeman. 설치 지침은 [여기](http://yeoman.io/)에 있습니다.
+- Git. 설치 이진은 [여기](http://www.git-scm.com/downloads)에 있습니다.
+- Azure CLI. 설치 지침은 [여기](../xplat-cli-install.md)에 있습니다.
 - Microsoft Azure 계정. 계정이 없는 경우 [무료 평가판을 등록](/pricing/free-trial/?WT.mc_id=A261C142F)하거나 [Visual Studio 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있습니다.
 
 ## 간단한 Node.js 웹앱 만들기 및 배포
@@ -45,15 +43,15 @@
 
         npm install -g generator-express
 
-2. 작업 디렉터리로 `CD`하고 다음과 같이 Express 앱을 생성합니다.
+2. 작업 디렉터리에 대해 `CD`하고 다음과 같이 Express 앱을 생성합니다.
 
         yo express
         
     메시지가 표시되면 다음 옵션을 선택합니다.
 
-    `? Would you like to create a new directory for your project?` **Yes** `? Enter directory name` **&lt;appname>** `? Select a version to install:` **MVC** `? Select a view engine to use:` **Jade** `? Select a css preprocessor to use (Sass Requires Ruby):` **None** `? Select a database to use:` **None** `? Select a build tool to use:` **Grunt**
+    `? Would you like to create a new directory for your project?` **예** `? Enter directory name` **&lt;appname>** `? Select a version to install:` **MVC** `? Select a view engine to use:` **Jade** `? Select a css preprocessor to use (Sass Requires Ruby):` **없음** `? Select a database to use:` **없음** `? Select a build tool to use:` **Grunt**
 
-3. 새 앱의 루트 디렉터리로 `CD`하고 이를 시작하여 개발 환경에서 실행되는지 확인합니다.
+3. 새 앱의 루트 디렉터리에 대해 `CD`하고 이를 시작하여 개발 환경에서 실행되는지 확인합니다.
 
         npm start
 
@@ -65,11 +63,11 @@
 
     프롬프트를 따라 Azure 구독을 보유하고 있는 Microsoft 계정을 사용하여 브라우저에서 계속 로그인합니다.
 
-2. 앱의 루트 디렉터리에 있는지 확인합니다. 다음 명령을 사용하여 Azure에 고유한 앱 이름을 가진 앱 서비스 앱 리소스를 만듭니다. 웹앱의 URL은 http://&lt;appname>.azurewebsites.net이 됩니다.
+2. 앱의 루트 디렉터리에 있는지 확인합니다. 다음 명령을 사용하여 Azure에 고유한 앱 이름을 가진 앱 서비스 앱 리소스를 만듭니다. 웹앱의 URL은 http://&lt;appname>.azurewebsites.net입니다.
 
         azure site create --git <appname>
 
-    표시되는 메시지에 따라 배포할 Azure 지역을 선택합니다. Azure 구독에 대한 Git/FTP 배포 자격 증명을 설정하지 않은 경우에도 배포 자격 증명을 만들라는 메시지가 표시됩니다.
+    프롬프트에 따라 배포할 Azure 지역을 선택합니다. Azure 구독에 대한 Git/FTP 배포 자격 증명을 설정하지 않은 경우에도 배포 자격 증명을 만들라는 메시지가 표시됩니다.
 
 3. config/config.js를 열고 프로덕션 포트를 `process.env.port`로 변경합니다. 프로덕션 JSON 개체는 다음과 같습니다.
 
@@ -101,7 +99,7 @@
 
 ## Node.js 웹앱 업데이트
 
-앱 서비스에서 실행되는 Node.js 웹앱에 업데이트되도록 하려면 처음 배포할 때 했던 것처럼 `git add`, `git commit` 및 `git push`를 실행합니다.
+앱 서비스에서 실행되는 Node.js 웹앱을 업데이트하려면 처음 배포할 때 했던 것처럼 `git add`, `git commit` 및 `git push`를 실행합니다.
      
 ## 앱 서비스에서 Node.js 앱을 배포하는 방법
 
@@ -211,4 +209,4 @@ Node-Inspector를 사용하려면 다음 단계를 수행하세요.
 - [Node.js 개발자 센터](/develop/nodejs/)
 - [Azure 앱 서비스에서 웹 앱 시작](app-service-web-get-started.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->
