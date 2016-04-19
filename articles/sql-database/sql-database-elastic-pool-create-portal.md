@@ -4,21 +4,21 @@
 	keywords="확장성 있는 데이터베이스, 데이터베이스 구성"
 	services="sql-database"
 	documentationCenter=""
-	authors="jeffgoll"
-	manager="jeffreyg"
+	authors="sidneyh"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
 	ms.date="03/24/2016"
-	ms.author="jeffreyg"
+	ms.author="sidneyh"
 	ms.workload="data-management"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# Azure 포털을 사용하여 SQL 데이터베이스에 확장성 있는 탄력적 데이터베이스 풀 만들기
+# Azure 포털로 탄력적 데이터베이스 풀 만들기
 
 > [AZURE.SELECTOR]
 - [Azure 포털](sql-database-elastic-pool-create-portal.md)
@@ -70,7 +70,7 @@
     | **eDTU 최소**(데이터베이스 설정별)| 풀에서 언제든 풀의 모든 데이터베이스에 보장되는 최소 eDTU 수입니다. **eDTU 최소**는 일반적으로 0과 데이터베이스당 평균 기록 eDTU 사용률 사이의 값으로 설정됩니다. 풀에 있는 모든 데이터베이스에 적용되는 전역 설정입니다. |
     | **eDTU 최대**(데이터베이스 설정별) | 풀에 있는 단일 데이터베이스에서 사용할 수 있는 최대 eDTU 수입니다. 이 용량은 최대 **풀 eDTU**까지 설정할 수 있습니다. 데이터베이스의 최고 사용률에 대한 최대 증가치를 처리할 수 있는 충분한 데이터베이스당 **eDTU 최대**를 설정합니다. 풀은 일반적으로 모든 데이터베이스가 동시에 최대로 사용되지 않을 경우 데이터베이스에 대해 핫 및 콜드 사용률 패턴을 가정하므로 그룹에 대한 일정 수준의 오버커밋이 예상됩니다. **예제:** 데이터베이스당 최고 사용률이 50 DTU이며 그룹 내 100개의 데이터베이스 중 20%만이 동시에 최대로 사용된다고 가정합니다. 데이터베이스당 eDTU 최대값이 50 eDTU로 설정된 경우 풀을 5배만큼 초과 커밋하고 **풀 eDTU**를 1,000으로 설정하는 것이 적합합니다. 또한 **eDTU 최대**는 데이터베이스에 대한 리소스 보장이 아니며, 사용 가능한 경우 도달할 수 있는 eDTU 최고 한도입니다. 풀에 있는 모든 데이터베이스에 적용되는 전역 설정입니다. |
 
-    각 서비스 계층에 대한 제한의 자세한 내용은 [탄력적 데이터베이스 풀 참조](sql-database-elastic-pool-reference.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases)를 참조하고 적정한 풀의 크기에 대한 자세한 지침은 [탄력적 데이터베이스 풀에 대한 가격 책정 및 성능 고려 사항](sql-database-elastic-pool-guidance.md)을 참조하세요.
+    각 서비스 계층에 대한 제한의 자세한 내용은 [탄력적 데이터베이스 풀 참조](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases)를 참조하고 적정한 풀의 크기에 대한 자세한 지침은 [탄력적 데이터베이스 풀에 대한 가격 책정 및 성능 고려 사항](sql-database-elastic-pool-guidance.md)을 참조하세요.
 
 7. 완료하면 **선택**을 클릭한 다음 **확인**을 클릭하여 풀을 만듭니다.
 
@@ -90,7 +90,6 @@ SQL 데이터베이스 서비스는 사용 기록을 평가하고 단일 데이�
 
 - [포털을 사용하여 SQL 데이터베이스 탄력적 풀 관리](sql-database-elastic-pool-manage-portal.md)
 - [PowerShell을 통해 SQL 데이터베이스 탄력적 풀 관리](sql-database-elastic-pool-manage-powershell.md)
-- [C#을 통해 SQL 데이터베이스 탄력적 풀 관리](sql-database-client-library.md)
-- [탄력적 데이터베이스 참조](sql-database-elastic-pool-reference.md)
+- [C#을 통해 SQL 데이터베이스 탄력적 풀 관리](sql-database-elastic-pool-manage-csharp.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

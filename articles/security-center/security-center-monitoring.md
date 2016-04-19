@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/09/2016"
+   ms.date="04/11/2016"
    ms.author="yurid"/>
 
 #Azure 보안 센터에서 보안 상태 모니터링
@@ -34,7 +34,7 @@
 
 **리소스 보안 상태** 타일에서 리소스의 보안 상태를 모니터링할 수 있습니다. 아래 예제와 같이 주의가 필요한 심각도가 높고 보통인 여러 문제를 확인할 수 있습니다. 활성화된 보안 정책은 모니터링되는 컨트롤 유형에 영향을 줍니다.
 
-![리소스 상태](./media/security-center-monitoring/security-center-monitoring-fig1-new.png)
+![리소스 상태](./media/security-center-monitoring/security-center-monitoring-fig1-new2.png)
 
 보안 센터가 보안 업데이트가 누락된 VM 또는 [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md)이 없는 서브넷 등과 같이 조치가 필요한 취약점을 식별하면 여기에 나열됩니다.
 
@@ -188,4 +188,4 @@ Azure 워크로드에 노출된 웹 포트(TCP 포트 80 및 443)를 통해 [리
 - [Azure 보안 센터 FAQ](security-center-faq.md) – 서비스 사용에 관한 질문과 대답 찾기
 - [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) – Azure 보안 및 규정 준수에 관한 블로그 게시물 찾기
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

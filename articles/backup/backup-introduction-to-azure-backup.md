@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/28/2016"
+	ms.date="04/06/2016"
 	ms.author="jimpark; trinadhk"/>
 
 # Azure 백업이란?
@@ -56,7 +56,7 @@ Azure 백업은 Microsoft 클라우드에서 데이터를 백업 및 복원하�
 | Azure 백업(MARS) 에이전트 | <li>물리적 또는 가상 형태의 Windows OS 컴퓨터에 파일 및 폴더를 백업할 수 있음(VM은 위치에 구애받지 않는 온-프레미스 또는 Azure일 수 있음)<li>별도의 백업 서버가 필요하지 않음<li>Azure 백업 자격 증명 모음 사용 | <li>하루에 세 번 백업/파일 수준 복원<li>파일/폴더/볼륨 수준 복원만, 응용 프로그램 인식 안 함<li>Linux에 대해서는 지원되지 않음 | 파일/폴더/볼륨 |
 | System Center Data Protection Manager | <li>앱 인식 스냅샷(VSS)<li>백업을 가져올 때 충분한 유연성<li>복구 세분성(모두)<li>Azure 백업 자격 증명 모음 사용 가능<li>Linux 지원(Hyper-V에서 호스트되는 경우) | <li>다른 유형 지원 부족(VMware VM 백업, Oracle 워크로드 백업) | 파일/폴더/볼륨<br>/VM/응용 프로그램 |
 | Microsoft Azure 백업 서버 | <li>앱 인식 스냅샷(VSS)<li>백업을 가져올 때 충분한 유연성<li>복구 세분성(모두)<li>Azure 백업 자격 증명 모음 사용 가능<li>Linux 지원(Hyper-V에서 호스트되는 경우)<li>System Center 라이선스 필요하지 않음 | <li>다른 유형 지원 부족(VMware VM 백업, Oracle 워크로드 백업).<li>항상 라이브 Azure 구독 필요<li>테이프 백업 지원 안 함 | 파일/폴더/볼륨<br>/VM/응용 프로그램 |
-| Azure IaaS VM 백업 | <li>Windows/Linux에 대한 네이티브 백업<li>특정 에이전트 설치 필요 없음<li>백업 인프라가 필요 없는 패브릭 수준 백업<li>Azure 백업 자격 증명 모음 사용 | <li>하루에 한 번 백업/디스크 수준 복원<li>온-프레미스 백업 불가능 | VM<br>개별 디스크 |
+| Azure IaaS VM 백업 | <li>Windows/Linux에 대한 네이티브 백업<li>특정 에이전트 설치 필요 없음<li>백업 인프라가 필요 없는 패브릭 수준 백업 | <li>하루에 한 번 백업/디스크 수준 복원<li>온-프레미스 백업 불가능 | VM<br>(PowerShell을 사용하는)모든 디스크 |
 
 ## 어떤 응용 프로그램 및 워크로드를 백업할 수 있나요?
 
@@ -69,7 +69,7 @@ Azure 백업은 Microsoft 클라우드에서 데이터를 백업 및 복원하�
 | Microsoft SQL Server | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md)(+ Azure 백업 에이전트),</p> <p>[Azure 백업 서버](backup-azure-microsoft-azure-backup.md)(Azure 백업 에이전트 포함)</p> |
 | Microsoft SharePoint | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md)(+ Azure 백업 에이전트),</p> <p>[Azure 백업 서버](backup-azure-microsoft-azure-backup.md)(Azure 백업 에이전트 포함)</p> |
 | Microsoft Exchange | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md)(+ Azure 백업 에이전트),</p> <p>[Azure 백업 서버](backup-azure-microsoft-azure-backup.md)(Azure 백업 에이전트 포함)</p> |
-| Azure IaaS VM(Windows)| - | [Azure 백업(VM 확장)](backup-azure-vms-introduction.md) |
+| Azure IaaS VM(Windows)| - | [Azure 백업(VM 확장)](backup-azure-vms-introduction.md) | 
 | Azure IaaS VM(Linux) | - | [Azure 백업(VM 확장)](backup-azure-vms-introduction.md) |
 
 ## ARM 및 Linux 지원
@@ -79,7 +79,7 @@ Azure 백업은 Microsoft 클라우드에서 데이터를 백업 및 복원하�
 | Azure 백업(MARS) 에이전트 | 예 | 아니요(Windows 기반 에이전트만) |
 | System Center Data Protection Manager | 예(게스트에서 에이전트) | Hyper-V만(Azure VM 아님) 파일 일치 백업만 가능 |
 | Azure 백업 서버(MABS) | 예(게스트에서 에이전트) | Hyper-V만(Azure VM 아님) 파일 일치 백업만 가능(DPM과 같음) |
-| Azure IaaS VM 백업 | 서비스 예정 | 서비스 예정 - V2 Linux VM <br><br>(파일 시스템 수준 일관성) |
+| Azure IaaS VM 백업 | 공개 미리 보기에서 | 공개 미리 보기에서 - 리소스 관리자 배포 모델의 Linux VM <br>(파일 시스템 수준 일관성)<br><br>클래식 배포 모델의 Linux VM에 대해 예 |
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
@@ -211,4 +211,4 @@ Azure 백업은 데이터를 온-프레미스 및 클라우드에 백업합니�
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

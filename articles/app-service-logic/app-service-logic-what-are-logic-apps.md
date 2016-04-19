@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="03/01/2016"
+	ms.date="04/07/2016"
 	ms.author="klam"/>
 
 #논리 앱이란 무엇인가요?
@@ -65,11 +65,12 @@ Azure 앱 서비스는 웹앱, 모바일 앱 및 통합 앱을 쉽게 빌드할 
 -  **동작** - 워크플로에서 트리거 후의 각 단계를 동작이라고 합니다. 각 동작은 일반적으로 관리 또는 사용자 지정 API 앱의 작업에 매핑됩니다.
 - **BizTalk** - 고급 통합 시나리오를 위해 논리 앱에는 Biztalk의 기능이 포함됩니다. Biztalk는 Microsoft의 업계 선도적인 통합 플랫폼입니다. BizTalk API 앱을 통해 유효성 검사, 변환, 규칙 등을 논리 앱 워크플로에 쉽게 포함할 수 있습니다. 자세한 내용은 [BizTalk API 앱 정의][biztalk]를 참조하세요.
 
-## 시작
+## 시작  
 
-논리 앱을 시작하려면 [논리 앱 만들기][create] 자습서를 따르세요.
-
-Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스][appservice]를 참조하세요.
+ - 논리 앱을 시작하려면 [논리 앱 만들기][create] 자습서를 따르세요.  
+ - [논리 앱으로 비즈니스 프로세스를 자동화할 수 있습니다](http://channel9.msdn.com/Events/Build/2016/T694) 
+ - [논리 앱과 시스템을 통합하는 방법을 알아봅니다](http://channel9.msdn.com/Events/Build/2016/P462)
+- Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스][appservice]를 참조하세요.
 
 [biztalk]: app-service-logic-what-are-biztalk-api-apps.md
 [appservice]: ../app-service/app-service-value-prop-what-is.md
@@ -79,4 +80,4 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 [rules]: app-service-logic-use-biztalk-rules.md
 [templates]: app-service-logic-use-logic-app-templates.md
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

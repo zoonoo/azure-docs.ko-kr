@@ -75,7 +75,7 @@ Azure 포털에는 SQL Server 가상 컴퓨터를 구성하기 위한 5개의 �
 >![SQL ARM 기본 사항](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-basic.png) <br/>
 
 ## 2\. 가상 컴퓨터 크기 선택
-**가상 컴퓨터 만들기** 블레이드의 **크기** 아래에서 가상 컴퓨터 크기를 선택합니다. Azure 포털에 권장되는 크기가 표시됩니다. 가상 컴퓨터 크기에 대한 자세한 내용은 [가상 컴퓨터의 크기](virtual-machines-linux-sizes.md)를 참조하세요. 크기는 선택한 템플릿을 기반으로 합니다. 크기는 VM을 실행하는 월간 비용을 예측합니다. 서버에 대한 VM 크기를 선택합니다. SQL Server VM 크기에 대한 고려 사항은 [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](virtual-machines-windows-classic-sql-perf.md)를 참조하세요.
+**가상 컴퓨터 만들기** 블레이드의 **크기** 아래에서 가상 컴퓨터 크기를 선택합니다. Azure 포털에 권장되는 크기가 표시됩니다. 가상 컴퓨터 크기에 대한 자세한 내용은 [가상 컴퓨터의 크기](virtual-machines-linux-sizes.md)를 참조하세요. 크기는 선택한 템플릿을 기반으로 합니다. 크기는 VM을 실행하는 월간 비용을 예측합니다. 서버에 대한 VM 크기를 선택합니다. SQL Server VM 크기에 대한 고려 사항은 [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](virtual-machines-windows-sql-performance.md)를 참조하세요.
 
 ## 3\. 가상 컴퓨터 설정 구성
 **가상 컴퓨터 만들기** 블레이드의 **설정** 아래에서 가상 컴퓨터용 Azure 저장소, 네트워킹 및 모니터링을 구성합니다.
@@ -146,7 +146,7 @@ SQL Server 인증을 사용하도록 설정하는 경우 **로그인 이름** �
 
 <br/>![SQL ARM 패치](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-patching.png) <br/>
 
-자세한 내용은 [Azure 가상 컴퓨터의 SQL Server 자동화된 패치](virtual-machines-windows-classic-ps-sql-patch.md)를 참조하세요.
+자세한 내용은 [Azure 가상 컴퓨터의 SQL Server 자동화된 패치](virtual-machines-windows-classic-sql-automated-patching.md)를 참조하세요.
 
 ### 백업
 **SQL 자동화된 백업** 아래에서 모든 데이터베이스에 대해 자동 데이터베이스 백업을 사용하도록 설정합니다. SQL 자동화된 백업을 사용하면 다음을 구성할 수 있습니다.
@@ -157,7 +157,7 @@ SQL Server 인증을 사용하도록 설정하는 경우 **로그인 이름** �
 
 <br/>![SQL ARM 백업](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-autobackup.png) <br/>
 
- 자세한 내용은 [Azure 가상 컴퓨터에서 SQL Server에 대한 자동화된 백업](virtual-machines-windows-classic-ps-sql-backup.md)을 참조하세요.
+ 자세한 내용은 [Azure 가상 컴퓨터에서 SQL Server에 대한 자동화된 백업](virtual-machines-windows-classic-sql-automated-backup.md)을 참조하세요.
 
 ### 주요 자격 증명 모음 통합
 Azure에서 암호화를 위한 보안 암호를 저장하려면 **Azure 주요 자격 증명 모음 통합**을 클릭하고 **사용**을 클릭합니다.
@@ -201,6 +201,6 @@ SQL Server 가상 컴퓨터에 연결되었으면 SQL Server Management Studio�
 > [AZURE.INCLUDE [VM 리소스 관리자에서 SQL Server에 연결](../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
 
 ##<a id="Next">다음 단계
-Azure에서 SQL Server를 사용하는 방법에 대한 기타 정보는 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-windows-classic-sql-overview.md)를 참조하세요.
+Azure에서 SQL Server를 사용하는 방법에 대한 기타 정보는 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

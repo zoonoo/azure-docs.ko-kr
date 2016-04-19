@@ -14,11 +14,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/29/2016"
+	ms.date="04/13/2016"
 	ms.author="andkjell;billmath"/>
 
 # Azure Active Directory와 온-프레미스 ID 통합
 Azure AD Connect는 Azure Active Directory와 Windows Server Active Directory와 같은 온-프레미스 ID 시스템을 통합하고 사용자를 Office 365, Azure 및 수 천개의 SaaS 응용 프로그램에 연결하는 도구입니다. 이 항목에서는 최종 사용자에 필요한 구성 요소를 준비하고 배포할 포괄적인 가이드를 제공하여 오늘날 기존 회사 앱에 액세스에 사용되는 동일한 ID로 클라우드 서비스에 액세스합니다.
+
+<!-- The hardcoded link is a workaround for campaign ids not working in acom links-->
+
+> [AZURE.IMPORTANT] [Azure AD Connect is the best way to connect your on-premises directory with Azure AD and Office 365. This is a great time to upgrade to Azure AD Connect from Windows Azure Active Directory Sync (DirSync) or Azure AD Sync as these tools are now deprecated and will reach end of support on April 13, 2017.]( https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-dirsync-deprecated/?WT.mc_id=DirSyncDepACOM)
 
 ![Azure AD Connect의 정의](./media/active-directory-aadconnect/arch.png)
 
@@ -44,7 +48,7 @@ Azure Active Directory Connect는 기본 세 부분으로 구성됩니다. 이�
 
 ## Azure AD Connect 설치
 
-[Microsoft 다운로드 센터](http://go.microsoft.com/fwlink/?LinkId=615771)에서 Azure AD Connect를 다운로드할 수 있습니다 .
+[Microsoft 다운로드 센터]( http://go.microsoft.com/fwlink/?LinkId=615771)에서 Azure AD Connect를 다운로드할 수 있습니다 .
 
 
 | 해결 방법 | 시나리오 |
@@ -62,7 +66,7 @@ Azure Active Directory Connect는 기본 세 부분으로 구성됩니다. 이�
 
 | 항목 | |
 | --------- | --------- |
-| Azure AD Connect 다운로드 | [Azure AD Connect 다운로드](http://go.microsoft.com/fwlink/?LinkId=615771) |
+| Azure AD Connect 다운로드 | [Azure AD Connect 다운로드]( http://go.microsoft.com/fwlink/?LinkId=615771) |
 | Express 설정을 사용하여 설치 | [Azure AD Connect의 빠른 설치](active-directory-aadconnect-get-started-express.md) |
 | 사용자 지정 설정을 사용하여 설치 | [Azure AD Connect의 사용자 지정 설치](active-directory-aadconnect-get-started-custom.md) |
 | DirSync에서 업그레이드 | [Azure AD Sync 도구(DirSync)에서 업그레이드](active-directory-aadconnect-dirsync-upgrade-get-started.md) |
@@ -144,4 +148,4 @@ Azure AD Connect 동기화는 대부분의 고객 및 토폴로지에 대해 작
 
 [AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
 
-<!---HONumber=AcomDC_0302_2016-->
+<!----HONumber=AcomDC_0413_2016-->

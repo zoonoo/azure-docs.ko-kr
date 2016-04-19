@@ -46,9 +46,11 @@
 
 이 섹션에서는 모바일 서비스에 대한 새로운 Xamarin iOS 앱 및 서비스 프로젝트를 다운로드합니다.
 
-1. [Azure 클래식 포털]에서 **모바일 서비스**를 클릭한 후 방금 만든 모바일 서비스를 클릭합니다.
+1. 설치하지 않았다면 Xamarin이 있는 Visual Studio를 설치합니다. 지침은 [Visual Studio 및 Xamarin을 위한 설정 및 설치](https://msdn.microsoft.com/library/mt613162.aspx)에서 찾을 수 있습니다. 또한 Mac OS X 컴퓨터에서 Xamarin Studio를 사용할 수 있습니다. [Mac 사용자를 위한 설정, 설치 및 유효성 검사](https://msdn.microsoft.com/library/mt488770.aspx)를 참조하세요.
 
-2. 빠른 시작 탭에서 **플랫폼 선택** 아래의 **Xamarin**를 클릭하고 **새 Xamarin 앱 만들기**를 확장합니다.
+2. [Azure 클래식 포털]에서 **모바일 서비스**를 클릭한 후 방금 만든 모바일 서비스를 클릭합니다.
+
+3. 빠른 시작 탭에서 **플랫폼 선택** 아래의 **Xamarin**를 클릭하고 **새 Xamarin 앱 만들기**를 확장합니다.
 
    	![][6]
 
@@ -56,15 +58,11 @@
 
   	![][7]
 
-3. 아직 하지 않은 경우 로컬 컴퓨터나 가상 컴퓨터에 <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>을 다운로드하여 설치합니다.
-
-4. [Xcode] v4.4 이상 버전 및 [Xamarin Studio]를 다운로드하고 설치합니다. 또한 Visual Studio용 Xamarin을 사용할 수도 있습니다.
-
-5. **서비스를 다운로드하고 클라우드에 게시** 아래에서 **iOS**를 선택하고 **다운로드**를 클릭합니다.
+4. **서비스를 다운로드하고 클라우드에 게시** 아래에서 **iOS**를 선택하고 **다운로드**를 클릭합니다.
 
   	모바일 서비스 및 여기에 연결된 샘플 _할 일 모음_ 응용 프로그램 모두를 위한 프로젝트가 포함된 솔루션이 다운로드됩니다. 압축된 프로젝트 파일을 로컬 컴퓨터에 저장하고 저장 위치를 기록해 둡니다.
 
-6. 게시 프로필을 다운로드하고, 다운로드한 파일을 로컬 컴퓨터에 저장한 다음 저장 위치를 기록해 둡니다.
+5. 게시 프로필을 다운로드하고, 다운로드한 파일을 로컬 컴퓨터에 저장한 다음 저장 위치를 기록해 둡니다.
 
 ## 모바일 서비스 테스트
 
@@ -134,9 +132,4 @@
 [JavaScript 백 엔드 버전]: mobile-services-ios-get-started.md
 [모바일 서비스 .NET 백 엔드 문제 해결]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
-
-[Xamarin Studio]: http://xamarin.com/download
-[Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
-[Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
-
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

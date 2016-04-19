@@ -278,6 +278,5 @@ C&#x23;을 사용하여 [탄력적 데이터베이스 풀](sql-database-elastic-
 
 - [SQL 데이터베이스](https://azure.microsoft.com/documentation/services/sql-database/)
 - [Azure 리소스 관리 API](https://msdn.microsoft.com/library/azure/dn948464.aspx)
-- [탄력적 데이터베이스 풀 참조](sql-database-elastic-pool-reference.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

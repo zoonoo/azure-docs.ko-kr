@@ -1,6 +1,6 @@
 <properties
    pageTitle="Microsoft Power BI Embedded 미리 보기 시작"
-   description="With Power BI Embedded, you can add interactive Power BI reports into your application."
+   description="Microsoft Power BI Embedded 미리 보기 시작"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"
@@ -74,13 +74,11 @@ Power BI REST API를 호출하는 데 필요한 정보의 가장 중요한 부�
 
 ## 앱에 포함할 Power BI 데이터 집합 및 보고서 만들기
 
-이제 응용 프로그램에 대한 Power BI의 인스턴스를 만들었고 **액세스 키**가 있으므로 포함할 Power BI 데이터 집합 및 보고서를 만들어야 합니다. 데이터 집합 및 보고서는 **Power BI 데스크톱**을 사용하여 만들 수 있습니다. [Power BI 데스크톱은 무료로](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/) 다운로드할 수 있습니다. 또는 빠르게 시작하려면 [매출 데이터 PBIX 분석 샘플](http://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix)을 다운로드할 수 있습니다. **Power BI 데스크톱**을 사용하는 방법에 대해 알아보려면 [Power BI 데스크톱 시작](https://powerbi.microsoft.com/en-us/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop)을 참조하세요.
-
-> [AZURE.NOTE] 매출 데이터 PBIX 분석이 생성된 방법을 알아보려면 [자습서: Excel 및 OData 피드에서 매출 데이터 분석](https://powerbi.microsoft.com/en-us/documentation/powerbi-desktop-tutorial-analyzing-sales-data-from-excel-and-an-odata-feed)을 참조하세요.
+이제 응용 프로그램에 대한 Power BI의 인스턴스를 만들었고 **액세스 키**가 있으므로 포함할 Power BI 데이터 집합 및 보고서를 만들어야 합니다. 데이터 집합 및 보고서는 **Power BI 데스크톱**을 사용하여 만들 수 있습니다. [Power BI 데스크톱은 무료로](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/) 다운로드할 수 있습니다. 또는 빠르게 시작하려면 [소매 분석 샘플 PBIX](http://go.microsoft.com/fwlink/?LinkID=780547)를 다운로드할 수 있습니다. **Power BI 데스크톱**을 사용하는 방법에 대해 알아보려면 [Power BI 데스크톱 시작](https://powerbi.microsoft.com/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop)을 참조하세요.
 
 **Power BI 데스크톱**에서 데이터의 복사본을 **Power BI 데스크톱**으로 가져오거나 **DirectQuery**를 사용하여 데이터 원본에 직접 연결하여 데이터 원본에 연결합니다.
 
-**가져오기** 및 **DirectQuery** 사용 간의 차이점은 다음과 같습니다.
+**가져오기** 및 **DirectQuery**를 사용하는 차이점은 다음과 같습니다.
 
 |가져오기 | DirectQuery
 |---|---
@@ -90,10 +88,10 @@ Power BI REST API를 호출하는 데 필요한 정보의 가장 중요한 부�
 
 **Power BI 데스크톱**에 작업을 저장하면 PBIX 파일이 만들어집니다. 이 파일에는 보고서가 포함됩니다. 또한 데이터를 가져오는 경우 PBIX에 전체 데이터 집합이 포함되고 **DirectQuery**를 사용하는 경우 PBIX에 데이터 집합 스키마만 포함됩니다. [Power BI Import API](https://msdn.microsoft.com/library/mt711504.aspx)를 사용하여 프로그래밍 방식으로 PBIX를 작업 영역에 배포합니다.
 
-> [AZURE.NOTE] **Power BI Embedded**에는 데이터 집합이 가리키는 서버 및 데이터베이스를 변경하고 데이터 집합에서 데이터베이스에 연결하는 데 사용할 서비스 계정 자격 증명을 설정하기 위한 추가 API가 있습니다. [Post SetAllConnections](https://msdn.microsoft.com/library/mt711505.aspx) 및 [Patch Gateway Datasource](https://msdn.microsoft.com/library/mt711498.aspx)를 참조하세요.
+> [AZURE.NOTE] **Power BI Embedded**에는 데이터 집합이 가리키는 서버 및 데이터베이스를 변경하고 데이터 집합에서 데이터베이스에 연결하는 데 사용할 서비스 계정 자격 증명을 설정하기 위한 추가 API가 있습니다. [SetAllConnections 게시](https://msdn.microsoft.com/library/mt711505.aspx) 및 [게이트웨이 데이터 원본 패치](https://msdn.microsoft.com/library/mt711498.aspx)를 참조하세요.
 
 ## 다음 단계
-이전 단계에서 작업 영역 컬렉션과 첫 번째 보고서 및 데이터 집합을 만들었습니다. 이제 **Power BI Embedded**에 대한 코드를 작성하는 방법을 알아볼 시간입니다. 시작하는 것을 도와주기 위해 다음 샘플 웹앱을 만들었습니다. [샘플 시작](power-bi-embedded-get-started-sample.md) 샘플에서는 다음 작업 방법을 보여 줍니다.
+이전 단계에서 작업 영역 컬렉션과 첫 번째 보고서 및 데이터 집합을 만들었습니다. 이제 **Power BI Embedded**에 대한 코드를 작성하는 방법을 알아볼 시간입니다. 시작하는 것을 도와주기 위해 샘플 웹앱을 만들었습니다. [샘플 시작](power-bi-embedded-get-started-sample.md) 샘플에서는 다음 작업 방법을 보여 줍니다.
 
   -	콘텐츠 프로비전
       - 작업 영역 만들기
@@ -109,4 +107,4 @@ Power BI REST API를 호출하는 데 필요한 정보의 가장 중요한 부�
 - [Power BI 데스크톱](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 - [Power BI Embedded 가격](http://go.microsoft.com/fwlink/?LinkID=760527)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

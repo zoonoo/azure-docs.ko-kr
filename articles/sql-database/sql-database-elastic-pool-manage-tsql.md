@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management" 
-    ms.date="04/01/2016"
+    ms.date="04/11/2016"
     ms.author="sidneyh"/>
 
 # Transact-SQL로 탄력적 데이터베이스 풀 모니터링 및 관리  
@@ -81,8 +81,13 @@ SERVICE\_OBJECTIVE 옵션과 함께 데이터베이스 만들기 명령을 사�
 ## 탄력적 풀에서 데이터베이스의 리소스 사용 모니터링
 [sys.dm \_resource\_stats view](https://msdn.microsoft.com/library/dn800981.aspx) 또는 [sys.resource \_stats view](https://msdn.microsoft.com/library/dn269979.aspx)를 사용하여 탄력적 풀에서 데이터베이스의 리소스 사용 통계를 검사합니다. 이 프로세스는 모든 단일 데이터베이스에 대한 리소스 사용량을 쿼리하는 경우와 비슷합니다.
 
+## 탄력적 풀 작업의 대기 시간
+
+- 데이터베이스당 보장된 eDTU 또는 데이터베이스당 최대 eDTU를 변경하는 작업은 일반적으로 5분 이내에 완료됩니다.
+- 풀의 풀 저장소 한도를 변경하는 작업은 풀에 있는 모든 데이터베이스에서 사용 중인 공간의 전체 크기에 따라 달라집니다. 변경 시간은 100GB당 평균 90분 이하입니다. 예를 들어 풀에 있는 모든 데이터베이스에서 사용 중인 총 공간이 200GB일 경우, 풀 eDTU/저장소 용량 한도를 변경하는 예상 대기 시간은 3시간 이하입니다.
+
 ## 다음 단계
 
 탄력적 데이터베이스 풀을 만든 후에 탄력적 작업을 만들어 풀에 있는 탄력적 데이터베이스를 관리할 수 있습니다. 탄력적 작업을 통해 개수에 관계없이 풀에 있는 데이터베이스에 대해 T-SQL 스크립트를 실행할 수 있습니다. 자세한 내용은 [탄력적 데이터베이스 작업 개요](sql-database-elastic-jobs-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

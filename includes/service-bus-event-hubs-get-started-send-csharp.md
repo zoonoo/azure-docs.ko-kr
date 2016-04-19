@@ -6,11 +6,9 @@
 
    ![][7]
 
-2. 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭한 후 **Manage NuGet Packages for Solution...(솔루션에 대한 NuGet 패키지 관리...)**을 클릭합니다. 
+2. 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭한 다음 **솔루션에 대한 NuGet 패키지 관리**를 클릭합니다. 
 
-	그러면 NuGet 패키지 관리 대화 상자가 표시됩니다.
-
-3. `Microsoft Azure Service Bus`를 검색하고 **설치**를 클릭한 후 사용 약관에 동의합니다.
+3. **찾아보기** 탭을 클릭한 다음 `Microsoft Azure Service Bus`를 검색합니다. 프로젝트 이름(**보낸 사람**)이 **버전** 상자에 지정되는지 확인합니다. **설치**를 클릭하고 사용 약관에 동의합니다.
 
 	![][8]
 
@@ -23,10 +21,10 @@
 	using Microsoft.ServiceBus.Messaging;
 	```
 
-5. **Program** 클래스에 다음 필드를 추가하고, 이전 섹션에서 만든 이벤트 허브 이름과 **보내기** 권한이 있는 연결 문자열로 위치 지정자 값을 대체합니다.
+5. **Program** 클래스에 다음 필드를 추가하고, 이전 섹션에서 만든 이벤트 허브 이름과 **보내기** 권한(**SendRule** 연결 문자열)이 있는 연결 문자열로 위치 지정자 값을 대체합니다. 연결 문자열에서 `EntityPath` 접미사를 제거해야 합니다.
 
 	```
-	static string eventHubName = "{event hub name}";
+	static string eventHubName = "{Event Hub name}";
 	static string connectionString = "{send connection string}";
 	```
 
@@ -72,4 +70,4 @@
 [7]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 [8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0413_2016-->

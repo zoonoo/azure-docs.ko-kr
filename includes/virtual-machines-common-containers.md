@@ -1,11 +1,11 @@
 
- 
+
 
 Azure는 뛰어난 클라우드 솔루션을 제공합니다. 이 솔루션은 물리적 컴퓨터 하드웨어의 에뮬레이션에 기반한 가상 컴퓨터에 구축되어 물리적 하드웨어보다 소프트웨어가 빠르게 구축되고 리소스 통합이 훨씬 원활하게 수행됩니다. 지난 수년 동안 Linux 컨테이너 기술은 컨테이너 및 Docker 생태계에 대한 [Docker](https://www.docker.com) 접근 방식에 힘입어 분산 소프트웨어의 개발 및 관리 방식을 크게 확장시켰습니다. 컨테이너의 응용 프로그램 코드가 호스트 Azure VM 및 동일 VM 내 다른 컨테이너와 분리되어 있기 때문에 더욱 민첩하게 응용 프로그램을 개발 및 배포할 수 있는 것입니다.
 
 **이러한 알려진 기능 외에** Azure에서는 *새로운* 기능을 통해 더 큰 Docker의 혜택을 제공합니다.
 
-- [수많은](../articles/virtual-machines/virtual-machines-linux-classic-cli-use-docker.md) [다양한](virtual-machines-linux-classic-portal-use-docker.md) [방법들](virtual-machines-linux-classic-docker-quickstart.md)로 컨테이너용 [Docker 호스트를 ](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) 상황에 맞게 생성
+- [수많은](../articles/virtual-machines/virtual-machines-linux-classic-cli-use-docker.md) [다양한](../articles/virtual-machines/virtual-machines-linux-classic-portal-use-docker.md) [방법들](../articles/virtual-machines/virtual-machines-linux-classic-docker-quickstart.md)로 컨테이너용 [Docker 호스트를 ](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) 상황에 맞게 생성
 - [Azure 리소스 관리자](../articles/resource-group-overview.md) 및 [리소스 그룹 템플릿](../articles/resource-group-authoring-templates.md)으로 복잡한 분산 응용 프로그램을 간단하게 배포하고 업데이트
 - 여러 독점 및 공개 소스 구성 관리 도구와 통합
 
@@ -56,7 +56,7 @@ Windows 컨테이너는 Windows에서 실행되는 응용 프로그램에 Linux 
 개발자가 Docker 컨테이너를 빠르게 받아들인 이유는 무엇보다도 Linux 컨테이너를 쉽게 사용할 수 있기 때문입니다.
 
 - 간단한 증분 명령을 사용하여 배포하기 쉬운 고정 이미지를 생성할 수 있고 이 이미지들을 Docker 파일을 이용해 자동으로 구축할 수 있습니다
-- 이 이미지들은 간단한 [Git](https://git-scm.com/) 스타일의 푸시 앤 풀 명령을 사용하여 [공개](https://registry.hub.docker.com/) 또는 [비공개 Docker 레지스트리](../articles/virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md)에 쉽게 공유할 수 있습니다. 
+- 이 이미지들은 간단한 [Git](https://git-scm.com/) 스타일의 푸시 앤 풀 명령을 사용하여 [공개](https://registry.hub.docker.com/) 또는 [비공개 Docker 레지스트리](../articles/virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md)에 쉽게 공유할 수 있습니다.
 - 또한 컴퓨터가 아닌 격리된 응용 프로그램 구성 요소를 활용하고
 - Docker 컨테이너와 다양한 기본 이미지들을 잘 다룰 수 있는 수많은 도구를 사용할 수 있습니다
 
@@ -90,7 +90,7 @@ IT 및 운영 전문가 역시 컨테이너 및 가상 컴퓨터를 조합하여
 | “기본” 보안 지원 | 높은 수준으로 지원 | 약간 낮은 수준으로 지원 |
 | 디스크에 필요한 메모리 | 전체 OS + 앱 | 앱 요구 사항만 적용됨 |
 | 시작 소요 시간 | 매우 김: OS 부팅 및 앱 로딩 | 매우 짧음: 커널이 이미 실행 중이므로 앱만 시작하면 됨 |
-| 이식성 | 적절한 준비로 이식 가능 | 이미지 형식으로 이식 가능. 일반적으로 더 작음 | 
+| 이식성 | 적절한 준비로 이식 가능 | 이미지 형식으로 이식 가능. 일반적으로 더 작음 |
 | 이미지 자동화 | OS와 앱에 따라 크게 다름 | [Docker 레지스트리](https://registry.hub.docker.com/) 및 기타
 
 ## VM 및 컨테이너 그룹 생성 및 관리
@@ -122,7 +122,7 @@ Docker는 그 자체에 VM 생성 도구([Docker 컴퓨터](../articles/virtual-
 
 [Deis](http://deis.io/overview/)는 공개 소스 "PaaS"(Platform-as-a-Service)로, 사용자 서버에서 응용 프로그램을 손쉽게 배포하고 관리하는 데 사용됩니다. Deis는 Docker 및 CoreOS에 구축되어 Heroku 스타일의 워크플로우와 함께 가벼운 PaaS를 제공합니다. [3개 노드의 Azure VM 그룹을 간단하게 만들어 Deis를](../articles/virtual-machines/virtual-machines-linux-deis-cluster.md) Azure에 설치한 후 [Hello World Go 응용 프로그램을 설치](../articles/virtual-machines/virtual-machines-linux-deis-cluster.md#deploy-and-scale-a-hello-world-application)할 수 있습니다.
 
-Linux에서 배포한 [CoreOS](./articles/virtual-machines/virtual-machines-linux-classic-coreos-howto.md)는 최적화된 공간을 차지하고 Docker를 지원하며 [rkt](https://github.com/coreos/rkt)라 불리는 자체 컨테이너 시스템을 가지고 있으며 [fleet](../articles/virtual-machines/virtual-machines-linux-classic-coreos-fleet-get-started.md)라 불리는 컨테이너 그룹 관리 도구도 제공합니다.
+Linux에서 배포한 [CoreOS](../articles/virtual-machines/virtual-machines-linux-classic-coreos-howto.md)는 최적화된 공간을 차지하고 Docker를 지원하며 [rkt](https://github.com/coreos/rkt)라 불리는 자체 컨테이너 시스템을 가지고 있으며 [fleet](../articles/virtual-machines/virtual-machines-linux-classic-coreos-fleet-get-started.md)라 불리는 컨테이너 그룹 관리 도구도 제공합니다.
 
 또 다른 인기 Linux 제품인 Ubuntu는 Docker를 매우 적극적으로 지원하며 [Linux(LXC 스타일) 클러스터](https://help.ubuntu.com/lts/serverguide/lxc.html)도 지원합니다.
 
@@ -170,7 +170,7 @@ Microsoft Azure의 Docker:
 - [Azure 가상 컴퓨터에서 Docker 및 Compose 시작](../articles/virtual-machines/virtual-machines-linux-docker-compose-quickstart.md)
 - [Azure 리소스 그룹 템플릿을 사용하여 Azure에서 신속하게 Docker 호스트 생성](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)
 - 컨테이너 내 응용 프로그램에 대해 [`compose`를 기본적으로 지원](https://github.com/Azure/azure-docker-extension#11-public-configuration-keys)
-- [Azure에서 Docker 개인 레지스트리 구현](virtual-machines-linux-docker-registry-in-blob-storage.md)
+- [Azure에서 Docker 개인 레지스트리 구현](../articles/virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md)
 
 Linux 배포 도구 및 Azure 예시:
 
@@ -182,27 +182,27 @@ Linux 배포 도구 및 Azure 예시:
 
 -	Deis
 	- [3개 노드의 Azure VM 그룹 생성, Azure에 Deis 설치, Hello World Go 응용 프로그램 설치 시작](../articles/virtual-machines/virtual-machines-linux-deis-cluster.md)
-	
+
 -	Kubernetes
 	- [CoreOS 및 Weave로 자동화된 Kubernetes 클러스터에 대한 완벽한 가이드](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave)
 	- [Kubernetes Visualizer](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/)
-	
+
 -	[Mesos](http://mesos.apache.org/)
 	-	[Mesosphere의 데이터 센터 운영체제(DCOS)](http://beta-docs.mesosphere.com/install/azurecluster/)
-	
+
 -	[Jenkins](https://jenkins-ci.org/) 및 [Hudson](http://hudson-ci.org/)
 	- [블로그: Azure용 Jenkins Slave 플러그인](http://msopentech.com/blog/2014/09/23/announcing-jenkins-slave-plugin-azure/)
 	- [GitHub 리포지토리: Azure용 Jenkins 저장소 플러그인](https://github.com/jenkinsci/windows-azure-storage-plugin)
 	- [타사: Azure용 Hudson 슬레이브 플러그인](http://wiki.hudson-ci.org/display/HUDSON/Azure+Slave+Plugin)
 	- [타사: Azure용 Hudson Storage 플러그인](https://github.com/hudson3-plugins/windows-azure-storage-plugin)
-	
+
 -	[Chef](https://docs.chef.io/index.html)
 	- [Chef 및 가상 컴퓨터](../articles/virtual-machines/virtual-machines-windows-install-chef-client.md)
 	- [비디오: Chef의 정의 및 작동 방식](https://msopentech.com/blog/2014/03/31/using-chef-to-manage-azure-resources/)
 
 -	[Azure Automation](https://azure.microsoft.com/services/automation/)
 	- [비디오: Linux VM에서 Azure 자동화를 사용하는 방법](http://channel9.msdn.com/Shows/Azure-Friday/Azure-Automation-104-managing-Linux-and-creating-Modules-with-Joe-Levy)
-	
+
 -	Linux용 Powershell DSC
     - [블로그: Linux용 Powershell DSC 작업 방법](http://blogs.technet.com/b/privatecloud/archive/2014/05/19/powershell-dsc-for-linux-step-by-step.aspx)
     - [GitHub: Docker 클라이언트 DSC](https://github.com/anweiss/DockerClientDSC)
@@ -216,4 +216,4 @@ Linux 배포 도구 및 Azure 예시:
 [마이크로 서비스]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

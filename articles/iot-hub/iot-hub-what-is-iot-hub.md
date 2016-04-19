@@ -1,6 +1,6 @@
 <properties
  pageTitle="Azure IoT Hub 개요 | Microsoft Azure"
- description="사물 인터넷 아키텍처, 장치 연결, 통신 패턴 및 서비스 보조 통신 패턴을 포함한 Azure IoT Hub 서비스의 개요입니다."
+ description="IoT Hub, 장치 연결, 사물 인터넷 통신 패턴 및 서비스 보조 통신 패턴 정의를 포함한 Azure IoT Hub 서비스의 개요입니다."
  services="iot-hub"
  documentationCenter=""
  authors="dominicbetts"
@@ -27,7 +27,11 @@ Azure IoT Hub는 수백만의 IoT 장치와 솔루션 백 엔드 간에서 안�
 - 장치 연결 및 장치 ID 관리 이벤트에 대한 포괄적인 모니터링을 제공합니다.
 - 가장 인기 있는 언어 및 플랫폼에 대한 장치 라이브러리를 포함합니다.
 
+[IoT Hub와 이벤트 허브 비교][lnk-compare] 문서에서는 두 서비스 간의 주요한 차이를 설명하고 IoT 솔루션에서 loT Hub를 사용했을 때의 이점을 강조합니다.
+
 ![사물 인터넷 솔루션에서 클라우드 게이트웨이인 Azure IoT Hub][img-architecture]
+
+> [AZURE.NOTE] IoT 아키텍처에 대한 자세한 설명은 [Microsoft Azure IoT 참조 아키텍처][lnk-refarch]를 참조하세요.
 
 ## IoT 장치 연결 과제
 
@@ -47,11 +51,11 @@ IoT Hub 및 장치 라이브러리를 통해 장치를 솔루션 백 엔드에 �
 
 Azure IoT Hub는 다음과 같은 방법으로 장치 연결 과제를 해결합니다.
 
--   **장치별 인증 및 보안 연결**. IoT Hub에 연결할 수 있도록 각 장치를 고유한 보안 키로 프로비전할 수 있습니다. [IoT Hub ID 레지스트리][lnk-devguide-identityregistry]는 솔루션의 키와 장치 ID를 저장합니다. 솔루션 백 엔드는 개별 장치를 허용 목록 및 블랙 리스트에 추가하여 장치 액세스를 완전히 제어할 수 있습니다.
+-   **장치별 인증 및 보안 연결**. IoT Hub에 연결할 수 있도록 각 장치를 고유한 [보안 키][lnk-devguide-security]로 프로비전할 수 있습니다. [IoT Hub ID 레지스트리][lnk-devguide-identityregistry]는 솔루션의 키와 장치 ID를 저장합니다. 솔루션 백 엔드는 개별 장치를 허용 목록 및 블랙 리스트에 추가하여 장치 액세스를 완전히 제어할 수 있습니다.
 
--   **장치 연결 작업에 대한 모니터링** 장치 ID 관리 작업 및 장치 연결 이벤트에 대한 자세한 작업 로그를 받을 수 있습니다. 따라서 IoT 솔루션을 통해 잘못된 자격 증명을 사용하여 연결하려 하거나, 메시지를 너무 자주 보내거나, 장치나 모든 클라우드-장치 간 메시지 거부 등의 연결 문제를 쉽게 식별할 수 있습니다.
+-   **장치 연결 작업에 대한 모니터링**. 장치 ID 관리 작업 및 장치 연결 이벤트에 대한 자세한 작업 로그를 받을 수 있습니다. 따라서 IoT 솔루션을 통해 잘못된 자격 증명을 사용하여 연결하려 하거나, 메시지를 너무 자주 보내거나, 장치나 모든 클라우드-장치 간 메시지 거부 등의 연결 문제를 쉽게 식별할 수 있습니다.
 
--   **광범위한 장치 라이브러리 집합**. Azure IoT 장치 SDK는 사용 가능하며 다양한 언어 및 플랫폼(여러 Linux 배포판, Windows 및 실시간 운영 체제에 대한 C)에 대해 지원됩니다. 또한 Azure IoT 장치 SDK에서는 C#, Java 및 JavaScript와 같은 관리된 언어를 지원합니다.
+-   **광범위한 장치 라이브러리 집합**. [Azure IoT 장치 SDK][lnk-device-sdks]는 사용 가능하며 다양한 언어 및 플랫폼(여러 Linux 배포판, Windows 및 실시간 운영 체제에 대한 C)에 대해 지원됩니다. 또한 Azure IoT 장치 SDK에서는 C#, Java 및 JavaScript와 같은 관리된 언어를 지원합니다.
 
 -   **IoT 프로토콜 및 확장성**. 솔루션이 장치 라이브러리를 사용할 수 없는 경우 IoT Hub는 장치가 기본적으로 MQTT v3.1.1, HTTP 1.1 및 AMQP 1.0 프로토콜을 사용할 수 있도록 허용하는 공용 프로토콜을 노출합니다. IoT Hub를 확장하여 [Azure IoT 프로토콜 게이트웨이][protocol-gateway] 오픈 소스 구성 요소를 사용자 지정함으로써 사용자 지정 프로토콜 지원을 제공할 수도 있습니다. 클라우드 또는 온-프레미스에서 Azure IoT 프로토콜 게이트웨이를 실행할 수 있습니다.
 
@@ -64,8 +68,6 @@ Azure IoT Hub는 다음과 같은 방법으로 장치 연결 과제를 해결합
 -   **신뢰할 수 있는 클라우드-장치 메시징(또는 *명령*).** 솔루션 백 엔드는 IoT Hub를 사용하여 적어도 한 번 배달 보증으로 메시지를 개별 장치에 보낼 수 있습니다. 각 메시지는 개별 TTL(Time-to-Live) 설정이 있으며 백 엔드는 배달 및 만료 수신 확인을 모두 요청할 수 있습니다. 이렇게 하면 클라우드-장치 메시지의 수명 주기 전체에 대한 가시성을 확보할 수 있습니다. 그런 다음 장치에서 실행하는 작업을 포함하는 비즈니스 논리를 구현할 수 있습니다.
 
 또한 IoT Hub의 IoT 특정 기능을 활용하여 파일 업로드 및 다운로드와 같은 다른 일반적인 패턴도 구현할 수 있습니다. 이러한 기능으로는 일관된 장치 ID 관리, 연결 모니터링 및 크기 조정이 포함됩니다.
-
-[IoT Hub와 이벤트 허브 비교][lnk-compare] 문서에서는 두 서비스 간의 주요한 차이를 설명하고 IoT 솔루션에서 loT Hub를 사용했을 때의 이점을 강조합니다.
 
 ## 게이트웨이
 
@@ -108,8 +110,11 @@ Azure IoT Hub에 대해 더 알아보려면 다음 링크를 참조하세요.
 [lnk-gateway]: iot-hub-protocol-gateway.md
 [lnk-field-gateway]: iot-hub-guidance.md#field-gateways
 [lnk-devguide-identityregistry]: iot-hub-devguide.md#identityregistry
+[lnk-devguide-security]: iot-hub-devguide.md#security
 [lnk-wns]: https://msdn.microsoft.com/library/windows/apps/mt187203.aspx
 [lnk-google-messaging]: https://developers.google.com/cloud-messaging/
 [lnk-apple-push]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9
+[lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
+[lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

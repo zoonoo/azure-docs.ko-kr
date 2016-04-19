@@ -1,8 +1,8 @@
 
 
-1. [Azure 포털](https://portal.azure.com)에 로그온한 다음 화면 아래쪽에서 **+새로 만들기**를 클릭합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그온한 다음 화면 왼쪽 위에서 **+새로 만들기**를 클릭합니다.
 
-2. **새로 만들기**, **웹 + 모바일**, **알림 허브**, **빨리 만들기**를 차례대로 클릭합니다.
+2. **새로 만들기**, **웹 + 모바일**을 차례로 클릭합니다. 필요한 경우 아래로 스크롤하여 **알림 허브**를 클릭합니다.
 
    	![Azure 포털 - 알림 허브 만들기](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-create.png)
 
@@ -22,4 +22,4 @@
 
    	![Azure 포털 - 알림 허브 연결 문자열](./media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings-portal.png)
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->
