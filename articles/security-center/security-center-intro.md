@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/02/2016"
+   ms.date="04/11/2016"
    ms.author="terrylan"/>
 
 # Azure 보안 센터 소개
@@ -54,7 +54,7 @@ Azure 보안 센터, 주요 기능 및 작동 방법에 대해 알아봅니다.
 
 > [AZURE.NOTE] 구독 수준 또는 리소스 그룹 수준에서 보안 정책을 수정하려면 해당 구독 소유자 또는 참가자여야 합니다.
 
-**보안 센터** 블레이드에서 구독 및 리소스 그룹 목록에 대한 **보안 정책** 타일을 선택합니다.
+**보안 센터** 블레이드에서 구독 및 리소스 그룹 목록에 대한 **정책** 타일을 선택합니다.
 
 ![보안 센터 블레이드][2]
 
@@ -100,9 +100,9 @@ Azure 보안 센터, 주요 기능 및 작동 방법에 대해 알아봅니다.
 
 ### 리소스 상태
 
-**리소스 상태** 타일은 환경의 전체 보안 상태를 가상 컴퓨터, 웹 응용 프로그램 및 다른 리소스를 비롯한 리소스 종류별로 표시합니다.
+**리소스 보안 상태** 타일은 환경의 전체 보안 상태를 가상 컴퓨터, 웹 응용 프로그램 및 다른 리소스를 비롯한 리소스 종류별로 표시합니다.
 
-**리소스 상태** 타일에서 리소스 종류를 선택하여 식별된 잠재적 보안 취약성 목록을 비롯한 자세한 정보를 봅니다. (아래 예제에서 **가상 컴퓨터**를 선택합니다.)
+**리소스 보안 상태** 타일에서 리소스 종류를 선택하여 식별된 잠재적 보안 취약성 목록을 비롯한 자세한 정보를 봅니다. (아래 예제에서 **가상 컴퓨터**를 선택합니다.)
 
 ![리소스 상태 타일][6]
 
@@ -123,6 +123,14 @@ Azure 보안 센터, 주요 기능 및 작동 방법에 대해 알아봅니다.
 
 ![보안 경고 세부 정보][8]
 
+### 파트너 솔루션
+
+**파트너 솔루션** 타일을 통해 Azure 구독과 통합된 파트너 솔루션의 상태를 한 눈에 모니터링할 수 있습니다. 보안 센터에는 솔루션에서 가져온 경고가 표시됩니다.
+
+**파트너 솔루션** 타일을 선택합니다. 블레이드가 열리고 연결된 모든 파트너 솔루션의 목록을 표시합니다.
+
+![파트너 솔루션][9]
+
 ## 시작
 보안 센터를 시작하려면 Microsoft Azure에 대한 구독이 필요합니다. 보안 센터는 Azure 구독을 사용하여 사용하도록 설정됩니다. 구독이 없는 경우 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 등록할 수 있습니다.
 
@@ -133,12 +141,12 @@ Azure 보안 센터, 주요 기능 및 작동 방법에 대해 알아봅니다.
 ## 다음 단계
 이 문서에서는 보안 센터, 주요 기능 및 시작하는 방법을 소개하였습니다. 자세한 알아보려면 다음을 참조하세요.
 
-- [Azure 보안 센터에서 보안 정책 설정](security-center-policies.md)--Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법 알아보기
-- [Azure 보안 센터에서 보안 권장 사항 관리](security-center-recommendations.md)--권장 사항이 Azure 리소스 보호에 어떤 도움이 되는지 알아보기
-- [Azure 보안 센터에서 보안 상태 모니터링](security-center-monitoring.md)--Azure 리소스의 상태를 모니터링하는 방법 알아보기
-- [Azure 보안 센터에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md)--보안 경고를 관리하고 대응하는 방법 알아보기
-- [Azure 보안 센터 FAQ](security-center-faq.md)--서비스 사용에 관한 질문과 대답 찾기
-- [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/)--최신 Azure 보안 뉴스 및 정보 가져오기
+- [Azure 보안 센터에서 보안 정책 설정](security-center-policies.md)--Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법 알아보기.
+- [Azure 보안 센터에서 보안 권장 사항 관리](security-center-recommendations.md)--권장 사항이 Azure 리소스 보호에 어떤 도움이 되는지 알아보기.
+- [Azure 보안 센터에서 보안 상태 모니터링](security-center-monitoring.md)--Azure 리소스의 상태를 모니터링하는 방법 알아보기.
+- [Azure 보안 센터에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md)--보안 경고를 관리하고 대응하는 방법 알아보기.
+- [Azure 보안 센터 FAQ](security-center-faq.md)--서비스 사용에 관한 질문과 대답 찾기.
+- [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/)--최신 Azure 보안 뉴스 및 정보 가져오기.
 
 <!--Image references-->
 [1]: ./media/security-center-intro/security-tile.PNG
@@ -149,5 +157,6 @@ Azure 보안 센터, 주요 기능 및 작동 방법에 대해 알아봅니다.
 [6]: ./media/security-center-intro/resources-health.png
 [7]: ./media/security-center-intro/security-alert.png
 [8]: ./media/security-center-intro/security-alert-detail.png
+[9]: ./media/security-center-intro/partner-solutions.png
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

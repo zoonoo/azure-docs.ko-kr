@@ -39,7 +39,7 @@
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
-+ [Xamarin.Android]
++ Windows의 Xamarin이 포함된 Visual Studio 또는 Mac OS X의 Xamarin Studio. 전체 설치 지침은 [Visual Studio 및 Xamarin을 위한 설정 및 설치](https://msdn.microsoft.com/library/mt613162.aspx)에 있습니다.
 + 활성 Google 계정
 + [Azure 메시징 구성 요소]
 + [Google Cloud Messaging 클라이언트 구성 요소]
@@ -114,7 +114,7 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
 
 	- **GoogleProjectNumber**: Google 개발자 포털의 앱 개요에서 이 프로젝트의 번호 값을 가져옵니다. 앞서 포털에서 앱을 생성할 때 이 값을 기입해 두었습니다.
 	- **연결 문자열 수신 대기**: [Azure 클래식 포털]의 대시보드에서 **연결 문자열 보기**를 클릭합니다. 이 값에 대해 *DefaultListenSharedAccessSignature* 연결 문자열을 복사합니다.
-	- **허브 이름**: [Azure 클래식 포털]에서 허브의 이름입니다. 예를 들어 *mynotificationhub2* 입니다.
+	- **허브 이름**: [Azure 클래식 포털]에서 허브의 이름입니다. 예를 들어 *mynotificationhub2*입니다.
 
 	Xamarin 프로젝트에 대해 **Constants.cs** 클래스를 만들고 클래스에 다음 상수 값을 정의합니다. 자리 표시자는 해당 값으로 바꿉니다.
 
@@ -372,7 +372,7 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
 
 3. 위쪽 도구 모음에서 **Run**을 클릭하고 앱을 선택합니다. 에뮬레이터가 시작되고 앱이 실행됩니다.
 
-  앱이 GCM에서 *registrationId* 를 검색하고 알림 허브에 등록됩니다.
+  앱이 GCM에서 *registrationId*를 검색하고 알림 허브에 등록됩니다.
 
 ##백 엔드에서 알림 보내기
 
@@ -517,8 +517,7 @@ Xamarin Component Store에서 제공되는 Google Cloud Messaging 클라이언�
 [GCMClient Component page]: http://components.xamarin.com/view/GCMClient
 [Xamarin.NotificationHub GitHub page]: https://github.com/SaschaDittmann/Xamarin.NotificationHub
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331329
-[Xamarin.Android]: http://xamarin.com/download/
 [Google Cloud Messaging 클라이언트 구성 요소]: http://components.xamarin.com/view/GCMClient/
 [Azure 메시징 구성 요소]: http://components.xamarin.com/view/azure-messaging
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -8,6 +8,8 @@ Visual Studio에서 다음과 같이 새로운 Windows 콘솔 응용 프로그�
 
 ![Windows 콘솔 응용 프로그램 만들기](./media/storage-development-environment-include/storage-development-environment-include-1.png)
 
+이 자습서의 모든 코드 예제는 콘솔 응용 프로그램에 있는 `program.cs`의 **Main()** 메서드에 추가될 수 있습니다.
+
 Azure 클라우드 서비스, Azure 웹앱, 데스크톱 응용 프로그램 또는 모바일 응용 프로그램을 포함하여 .NET 응용 프로그램의 모든 형식에서 Azure 저장소 클라이언트 라이브러리를 사용할 수 있습니다. 이 가이드에서는 편의상 콘솔 응용 프로그램을 사용합니다.
 
 ### NuGet을 사용하여 필요한 패키지 설치
@@ -23,7 +25,7 @@ NuGet을 사용하여 패키지를 모두 가져올 수 있습니다. 다음 단
 2. 온라인에서 "WindowsAzure.Storage"를 검색하고 **설치**를 클릭하여 저장소 클라이언트 라이브러리와 종속성을 설치합니다.
 3. 온라인에서 "ConfigurationManager"를 검색하고 **설치**를 클릭하여 Azure 구성 관리자를 설치합니다.
 
->[AZURE.NOTE] 저장소 클라이언트 라이브러리도 [Azure SDK for.NET](https://azure.microsoft.com/downloads/)에 포함될 수 있습니다. 또한 NuGet에서 저장소 클라이언트 라이브러리를 설치하여 항상 클라이언트 라이브러리의 최신 버전이 있는지 확인하는 것이 좋습니다.
+>[AZURE.NOTE] 저장소 클라이언트 라이브러리도 [.NET용 Azure SDK](https://azure.microsoft.com/downloads/)에 포함될 수 있습니다. 또한 NuGet에서 저장소 클라이언트 라이브러리를 설치하여 항상 클라이언트 라이브러리의 최신 버전이 있는지 확인하는 것이 좋습니다.
 
 ### 대상 환경 확인
 
@@ -57,10 +59,10 @@ Azure Storage Client Library for .NET은 저장소 연결 문자열을 사용하
 
 예를 들어, 구성 설정은 다음과 유사합니다.
 
-	<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=nYV0gln9fT7bvY+rxu2iWAEyzPNITGkhM88J8HUoyofpK7C8fHcZc2kIZp6cKgYRUM74lHI84L50Iau1+9hPjB==" />
+	<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=nYV0gln6fT7mvY+rxu2iWAEyzPKITGkhM88J8HUoyofpK7C8fHcZc2kIZp6cKgYRUM74lHI84L50Iau1+9hPjB==" />
 
 저장소 에뮬레이터를 대상으로 하려면 잘 알려진 계정 이름 및 키에 매핑되는 바로 가기를 사용할 수 있습니다. 이 경우에 연결 문자열 설정은 다음과 같습니다.
 
 	<add key="StorageConnectionString" value="UseDevelopmentStorage=true;" />
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -40,7 +40,7 @@ Azure 포털에서 몇 번만 클릭하면 스트리밍 데이터의 입력된 �
 
 -   **참조 데이터:** 스트림 분석은 참조 데이터를 지정하고 사용할 수 있도록 합니다. 이러한 데이터는 기록 데이터일 수도 있고 시간이 지남에 따라 덜 자주 변경되는 단순한 비 스트리밍 데이터일 수도 있습니다. 시스템은 참조 데이터가 다른 이벤트 스트림처럼 실시간으로 수집된 기타 이벤트 스트림에 통합되도록 하여 간편하게 변환합니다.
 
--   **연결:** 스트림 분석은 스트림 수집을 위해 Azure 이벤트 허브, 기록 데이터를 수집하기 위해 Azure Blob 서비스에 직접 연결됩니다. 결과를 스트림 분석에서 이를 시각화하고 워크플로로 처리하며 [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/)를 통해 배치 분석에서 사용하거나 일련의 이벤트로 처리되는 Azure 저장소 Blob 또는 테이블, Azure SQL DB, 이벤트 허브, Azure 서비스 버스 항목 또는 큐 및 Power BI로 작성할 수 있습니다. 이벤트 허브를 사용하면 계산의 스트리밍 특성을 손실하지 않고도 여러 스트림 분석을 다른 데이터 소스 및 처리 엔진으로 작성할 수 있습니다.
+-   **연결:** 스트림 분석은 스트림 수집을 위해 Azure 이벤트 허브 및 Azure IOT Hub, 기록 데이터를 수집하기 위해 Azure Blob 서비스에 직접 연결됩니다. 결과를 스트림 분석에서 이를 시각화하고 워크플로로 처리하며 [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/)를 통해 배치 분석에서 사용하거나 일련의 이벤트로 처리되는 Azure 저장소 Blob 또는 테이블, Azure SQL DB, 이벤트 허브, Azure 서비스 버스 항목 또는 큐 및 Power BI로 작성할 수 있습니다. 이벤트 허브를 사용하면 계산의 스트리밍 특성을 손실하지 않고도 여러 스트림 분석을 다른 데이터 소스 및 처리 엔진으로 작성할 수 있습니다.
 
 ## 도움말 보기
 추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=AzureStreamAnalytics)을 참조하세요.
@@ -53,4 +53,4 @@ Azure 포털에서 몇 번만 클릭하면 스트리밍 데이터의 입력된 �
 - [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0413_2016-->

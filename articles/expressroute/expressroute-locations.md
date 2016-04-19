@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/31/2016"
+   ms.date="04/06/2016"
    ms.author="cherylmc" />
 
 # Express 경로 파트너 및 피어링 위치
@@ -60,9 +60,9 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | **[Aryaka Networks](http://www.aryaka.com/)** | 지원됨 | 지원됨 | 암스테르담, 실리콘밸리, 싱가포르, 도쿄, 워싱턴 DC |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | 지원됨 | 지원됨 | 암스테르담, 시카고, 댈러스, 런던, 실리콘밸리, 싱가포르, 시드니, 워싱턴 DC |
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | 지원됨 | 지원됨 | 암스테르담, 홍콩, 런던, 실리콘밸리, 싱가포르, 도쿄, 워싱턴 DC |
-| **CenturyLink** | 서비스 예정 | 서비스 예정| 실리콘밸리 |
-| **China Telecom Global** | 지원됨 | 지원되지 않음 | 홍콩 |
-| **Cologix** | 지원됨 | 서비스 예정 | 몬트리올+, 토론토 |
+|**CenturyLink** | 서비스 예정 | 서비스 예정| 실리콘밸리 |
+|**China Telecom Global** | 지원됨 | 지원되지 않음 | 홍콩 |
+|**Cologix** | 지원됨 | 서비스 예정 | 몬트리올+, 토론토 |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | 지원됨 | 지원됨 | 암스테르담, 더블린, 런던 |
 | **Comcast** | 지원됨 | 지원되지 않음 | 실리콘밸리, 워싱턴 DC |
 | **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** | 지원됨 | 지원됨 | 로스앤젤레스 | 
@@ -145,7 +145,8 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 
 |**시스템 통합 업체**|**대륙**|
 |---|---|
-|**[Dotnet 솔루션](http://www.dotnetsolutions.co.uk/)**|유럽|
+|**[Avanade Inc.](http://www.avanade.com/)**| 아시아, 유럽, 미국 |
+|**[Dotnet 솔루션](http://www.dotnetsolutions.co.uk/)**| 유럽 |
 |**[Nimbo](http://www.nimbo.com/)**|US||
 |**[OneAs1a](http://www.oneas1a.com/express-connect-any-cloud-ecac)** | 아시아 |
 |**[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | US |
@@ -156,4 +157,4 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 - Express 경로에 대한 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md)를 참조하세요.
 - 모든 필수 조건이 충족되었는지 확인합니다. [Express 경로 필수 조건](expressroute-prerequisites.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

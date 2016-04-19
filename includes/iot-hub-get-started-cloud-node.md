@@ -68,9 +68,11 @@
 
 ## 장치-클라우드 메시지 받기
 
-이 섹션에서는 IoT Hub에서 장치-클라우드 메시지를 읽는 Node.js 콘솔 앱을 만듭니다. IoT Hub가 [이벤트 허브][lnk-event-hubs-overview]와 호환되는 끝점을 노출하여 장치-클라우드 메시지를 읽을 수 있습니다. 작업을 단순화하기 위해 이 자습서에서는 처리량이 높은 배포용이 아닌 기본적인 판독기를 만듭니다. [장치-클라우드 메시지 처리][lnk-processd2c-tutorial] 자습서에서는 규모로 장치-클라우드 메시지를 처리하는 방법을 보여 줍니다. [이벤트 허브 시작][lnk-eventhubs-tutorial] 자습서는 이벤트 허브에서 메시지를 처리하는 방법에 대한 추가 정보를 제공하고 IoT Hub 이벤트 허브 호환 끝점에 적용됩니다.
+이 섹션에서는 IoT Hub에서 장치-클라우드 메시지를 읽는 Node.js 콘솔 앱을 만듭니다. IoT Hub가 [이벤트 허브][lnk-event-hubs-overview]와 호환되는 끝점을 노출하여 장치-클라우드 메시지를 읽을 수 있습니다. 작업을 단순화하기 위해 이 자습서에서는 처리량이 높은 배포용이 아닌 기본적인 판독기를 만듭니다. [장치-클라우드 메시지 처리][lnk-processd2c-tutorial] 자습서에서는 대규모로 장치-클라우드 메시지를 처리하는 방법을 보여줍니다. [이벤트 허브 시작][lnk-eventhubs-tutorial] 자습서는 이벤트 허브에서 메시지를 처리하는 방법에 대한 추가 정보를 제공하고 IoT Hub 이벤트 허브 호환 끝점에 적용할 수 있습니다.
 
-1. 이름이 **readdevicetocloudmessages**인 새 빈 폴더를 만듭니다. **readdevicetocloudmessages** 폴더에서 명령 프롬프트에 다음 명령을 사용하여 새 package.json 패키지 파일을 만듭니다. 모든 기본값을 수락합니다.
+> [AZURE.NOTE] 장치-클라우드 메시지를 읽는 이벤트 허브와 호환 가능한 끝점은 항상 AMQPS 프로토콜을 사용합니다.
+
+1. **readdevicetocloudmessages**라는 비어 있는 새 폴더를 만듭니다. **readdevicetocloudmessages** 폴더에서 명령 프롬프트에 다음 명령을 사용하여 새 package.json 패키지 파일을 만듭니다. 모든 기본값을 수락합니다.
 
     ```
     npm init
@@ -82,9 +84,9 @@
     npm install amqp10 bluebird --save
     ```
 
-3. 텍스트 편집기를 사용하여 **readdevicetocloudmessages** 폴더에 새**ReadDeviceToCloudMessages.js** 파일을 만듭니다.
+3. 텍스트 편집기를 사용하여 **readdevicetocloudmessages** 폴더에 새 **ReadDeviceToCloudMessages.js** 파일을 만듭니다.
 
-4. **ReadDeviceToCloudMessages.js** 파일의 첫 부분에 다음 `require` 코드를 추가합니다.
+4. **ReadDeviceToCloudMessages.js** 파일의 첫 부분에 다음 `require` 문을 추가합니다.
 
     ```
     'use strict';
@@ -108,7 +110,7 @@
 
     > [AZURE.NOTE] 이 코드는 F1(무료) 계층에서 IoT Hub를 만들었다고 가정합니다. 무료 IoT Hub에는 "0" 및 "1"이라는 두 개의 파티션이 있습니다. 다른 가격 책정 계층 중 하나를 사용하여 IoT Hub를 만든 경우 각 파티션에 대해 **MessageReceiver**를 만들도록 코드를 조정해야 합니다.
 
-6. 다음 필터 정의를 추가합니다. 이 응용 프로그램은 수신기를 만들 때 필터를 사용하여 수신기가 수신기 실행이 시작된 후 IoT Hub에 전송된 메시지만을 읽습니다. 테스트 환경에서 유용하므로 현재 메시지 집합을 볼 수 있지만 프로덕션 환경에서 코드가 모든 메시지를 처리하고 있는지 확인해야 합니다. 자세한 정보는 [IoT Hub가 장치-클라우드 메시지를 처리하는 방법][lnk-processd2c-tutorial] 자습서를 참조하세요.
+6. 다음 필터 정의를 추가합니다. 이 응용 프로그램은 수신기를 만들 때 필터를 사용하여 수신기가 수신기 실행이 시작된 후 IoT Hub에 전송된 메시지만을 읽습니다. 테스트 환경에서 유용하므로 현재 일련의 메시지를 볼 수 있지만 프로덕션 환경에서 코드가 모든 메시지를 처리하고 있는지 확인해야 합니다. 자세한 정보는 [IoT Hub 장치-클라우드 메시지를 처리하는 방법][lnk-processd2c-tutorial] 자습서를 참조하세요.
 
     ```
     var filterOffset = new Date().getTime();
@@ -177,9 +179,9 @@
 
 <!-- Links -->
 
-[lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
-[lnk-devguide-identity]: iot-hub-devguide.md#identityregistry
-[lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
-[lnk-processd2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-eventhubs-tutorial]: ../articles/event-hubs/event-hubs-csharp-ephcs-getstarted.md
+[lnk-devguide-identity]: ../articles/iot-hub/iot-hub-devguide.md#identityregistry
+[lnk-event-hubs-overview]: ../articles/event-hubs/event-hubs-overview.md
+[lnk-processd2c-tutorial]: ../articles/iot-hub/iot-hub-csharp-csharp-process-d2c.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

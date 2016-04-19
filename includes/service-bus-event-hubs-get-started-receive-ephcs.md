@@ -14,17 +14,15 @@
 
     ![][12]
 
-    이 자습서에서 나중에 사용할 액세스 키를 복사합니다.
+    이 자습서에서 나중에 사용할 기본 선택키를 복사합니다.
 
 4. Visual Studio에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 Visual C# 데스크톱 응용 프로그램 프로젝트를 새로 만듭니다. 프로젝트 이름을 **Receiver**로 지정합니다.
 
     ![][14]
 
-5. 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭합니다.
+5. 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭한 다음 **솔루션에 대한 NuGet 패키지 관리**를 클릭합니다.
 
-	**NuGet 패키지 관리** 대화 상자가 나타납니다.
-
-6. `Microsoft Azure Service Bus Event Hub - EventProcessorHost`를 검색하고 **설치**를 클릭한 후 사용 약관에 동의합니다.
+6. **찾아보기** 탭을 클릭한 다음 `Microsoft Azure Service Bus Event Hub - EventProcessorHost`를 검색합니다. 프로젝트 이름(**수신기**)이 **버전** 상자에 지정되는지 확인합니다. **설치**를 클릭하고 사용 약관에 동의합니다..
 
     ![][13]
 
@@ -37,7 +35,6 @@
 	```
 	using Microsoft.ServiceBus.Messaging;
 	using System.Diagnostics;
-	using System.Threading.Tasks;
 	```
 
 	그런 다음 다음 코드를 클래스의 본문으로 대체합니다.
@@ -82,25 +79,23 @@
             }
 	    }
 	}
-    ````
+    ```
 
 	이 클래스는 이벤트 허브에서 받는 이벤트를 처리하기 위해 **EventProcessorHost**에서 호출합니다. `SimpleEventProcessor` 클래스는 초시계를 사용하여 **EventProcessorHost** 컨텍스트에서 검사점 메서드를 주기적으로 호출합니다. 따라서 수신기가 다시 시작되는 경우 5분 이하의 처리 작업은 손실됩니다.
 
-9. **Program** 클래스에서 파일 맨 위에 다음 `using` 문을 추가합니다.
+9. **프로그램** 클래스에서 파일 맨 위에 다음 `using` 문을 추가합니다.
 
 	```
 	using Microsoft.ServiceBus.Messaging;
-	using Microsoft.Threading;
-	using System.Threading.Tasks;
 	```
 
-	그런 다음 `Program` 클래스의 `Main` 메서드를 다음과 같이 수정하고 이벤트 허브 이름 및 연결 문자열과 이전 섹션에서 복사한 저장소 계정 및 키로 대체합니다.
+	그런 다음 `Program` 클래스의 `Main` 메서드를 다음과 같이 수정하고 이벤트 허브 이름 및 **ReceiveRule** 연결 문자열과 이전 섹션에서 복사한 저장소 계정 및 키를 대체합니다. 연결 문자열에서 `EntityPath` 접미사를 제거해야 합니다.
 
     ```
 	static void Main(string[] args)
     {
-      string eventHubConnectionString = "{event hub connection string}";
-      string eventHubName = "{event hub name}";
+      string eventHubConnectionString = "{Event Hub connection string}";
+      string eventHubName = "{Event Hub name}";
       string storageAccountName = "{storage account name}";
       string storageAccountKey = "{storage account key}";
       string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", storageAccountName, storageAccountKey);
@@ -116,7 +111,7 @@
       Console.ReadLine();
       eventProcessorHost.UnregisterEventProcessorAsync().Wait();
     }
-	````
+	```
 
 > [AZURE.NOTE] 이 자습서에서는 [EventProcessorHost][]의 단일 인스턴스를 사용합니다. 처리량을 늘리려면 [EventProcessorHost][]의 여러 인스턴스를 사용하는 것이 좋습니다. [확장된 이벤트 처리 샘플][](영문)을 참조하세요. 이러한 경우 다양한 인스턴스가 자동으로 서로 조정하여 수신된 이벤트의 부하를 분산합니다. 여러 수신기가 각각 이벤트를 *모두* 처리하도록 하려면 **ConsumerGroup** 개념을 사용해야 합니다. 서로 다른 컴퓨터에서 이벤트를 수신하는 경우 [EventProcessorHost][] 인스턴스의 이름을 해당 인스턴스가 배포된 컴퓨터 또는 역할을 기준으로 지정하면 유용할 수 있습니다. 이러한 항목에 대한 자세한 내용은 [이벤트 허브 개요][] 및 [이벤트 허브 프로그래밍 가이드][]를 참조하세요.
 
@@ -136,4 +131,4 @@
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

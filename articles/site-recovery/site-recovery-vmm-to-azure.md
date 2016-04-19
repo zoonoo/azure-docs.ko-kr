@@ -21,7 +21,7 @@
 > [AZURE.SELECTOR]
 - [Azure 클래식 포털](site-recovery-vmm-to-azure.md)
 - [PowerShell - 클래식](site-recovery-deploy-with-powershell.md)
-- [PowerShell - Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md) 
+- [PowerShell - Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 
 
 Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제, 장애 조치(Failover) 및 복구를 오케스트레이션하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. 컴퓨터는 Azure 또는 보조 온-프레미스 데이터 센터로 복제할 수 있습니다. 빠른 개요를 알아보려면 [Azure Site Recovery란?](site-recovery-overview.md)을 확인하세요.
@@ -48,9 +48,9 @@ Azure에서 다음 항목이 필요합니다.
 
 **필수 요소** | **세부 정보**
 --- | ---
-**Azure 계정**| [Microsoft Azure](https://azure.microsoft.com/) 계정이 있어야 합니다. [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작할 수 있습니다. 사이트 복구 가격 책정에 대해 [자세히 알아보세요](https://azure.microsoft.com/pricing/details/site-recovery/). 
+**Azure 계정**| [Microsoft Azure](https://azure.microsoft.com/) 계정이 있어야 합니다. [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작할 수 있습니다. 사이트 복구 가격 책정에 대해 [자세히 알아보세요](https://azure.microsoft.com/pricing/details/site-recovery/).
 **Azure 저장소** | 복제된 데이터를 저장하려면 Azure 저장소 계정이 있어야 합니다. 복제된 데이터는 Azure 저장소에 저장되고 장애 조치(Failover) 발생 시 Azure VM이 작동합니다. <br/><br/>[표준 지역 중복 저장소 계정](../storage/storage-redundancy.md#geo-redundant-storage)이 필요합니다. 계정은 사이트 복구 서비스와 같은 하위 지역에 있고 같은 구독과 연결되어야 합니다. 프리미엄 저장소 계정으로 복제는 현재 지원되지 않으며 사용할 수 없습니다.<br/><br/>Azure 저장소에 대해 [자세히 알아보세요](../storage/storage-introduction.md).
-**Azure 네트워크** | 장애 조치(Failover) 발생 시 Azure VM에서 연결할 Azure 가상 네트워크가 필요합니다. Azure 가상 네트워크는 사이트 복구 자격 증명 모음과 동일한 지역에 있어야 합니다. 
+**Azure 네트워크** | 장애 조치(Failover) 발생 시 Azure VM에서 연결할 Azure 가상 네트워크가 필요합니다. Azure 가상 네트워크는 사이트 복구 자격 증명 모음과 동일한 지역에 있어야 합니다.
 
 ## 온-프레미스 필수 조건
 
@@ -113,10 +113,11 @@ Azure 네트워크에서 가상 컴퓨터를 보호하는 경우 매핑은 원�
 ## 3단계: Azure Site Recovery 공급자 설치
 
 1. **빠른 시작** > **VMM 서버 준비**에서 **VMM 서버에 설치할 Microsoft Azure Site Recovery 공급자 다운로드**를 클릭하여 최신 버전의 공급자 설치 파일을 받습니다.
-2. 원본 VMM 서버에서 이 파일을 실행합니다. VMM이 클러스터에 배포되고 공급자를 처음 설치하는 경우 활성 노드에 설치하고 설치를 완료하여 VMM 서버를 자격 증명 모음에 등록합니다. 그런 후에 다른 노드에 공급자를 설치합니다. 공급자를 업그레이드하는 경우 모두 동일한 공급자 버전을 실행해야 하므로 모든 노드에서 업그레이드해야 합니다.
-3. 설치 관리자는 사전 요구 사항 확인을 수행하고 공급자 설정을 시작하기 위해 VMM 서비스를 중지하는 권한을 요청합니다. 설정이 완료되면 VMM 서비스가 자동으로 다시 시작됩니다. VMM 클러스터에 설치하는 경우 클러스터 역할을 중지하라는 메시지가 표시됩니다.
+2. 원본 VMM 서버에서 이 파일을 실행합니다.
 
-	![선행 조건](./media/site-recovery-vmm-to-azure/prereq.png)
+	>[AZURE.NOTE] VMM이 클러스터에 배포되고 공급자를 처음 설치하는 경우 활성 노드에 설치하고 설치를 완료하여 VMM 서버를 자격 증명 모음에 등록합니다. 그런 후에 다른 노드에 공급자를 설치합니다. 공급자를 업그레이드하는 경우 모두 동일한 공급자 버전을 실행해야 하므로 모든 노드에서 업그레이드해야 합니다.
+	
+3. 설치 관리자는 사전 요구 사항 확인을 수행하고 공급자 설정을 시작하기 위해 VMM 서비스를 중지하는 권한을 요청합니다. 설정이 완료되면 VMM 서비스가 자동으로 다시 시작됩니다. VMM 클러스터에 설치하는 경우 클러스터 역할을 중지하라는 메시지가 표시됩니다.
 
 4. **Microsoft 업데이트**에서 업데이트를 선택할 수 있습니다. 이 설정이 사용되면 공급자가 Microsoft 업데이트 정책에 따라 설치됩니다.
 
@@ -138,17 +139,17 @@ Azure 네트워크에서 가상 컴퓨터를 보호하는 경우 매핑은 원�
 	- 사용자 지정 프록시를 사용하려는 경우 공급자를 설치하기 전에 설정해야 합니다. 사용자 지정 프록시 설정을 구성하면 테스트가 실행되어 프록시 연결을 확인합니다.
 	- 사용자 지정 프록시를 사용하지 않거나 기본 프록시에 인증이 필요한 경우 프록시 주소와 포트를 비롯한 프록시 정보를 입력해야 합니다.
 	- 다음 URL은 VMM 서버 및 Hyper-V 호스트에서 액세스할 수 있어야 합니다.
-		- *.hypervrecoverymanager.windowsazure.com
-		- *.accesscontrol.windows.net
-		- *.backup.windowsazure.com
-		- *.blob.core.windows.net
-		- *.store.core.windows.net
-	- [Azure 데이터센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653) 및 HTTPS(443) 프로토콜에 설명된 IP 주소를 허용합니다. 사용하려는 Azure 지역 및 미국 서부의 IP 범위를 허용해야 합니다.
+		- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
+- [Azure 데이터센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653) 및 HTTPS(443) 프로토콜에 설명된 IP 주소를 허용합니다. 사용하려는 Azure 지역 및 미국 서부의 IP 범위를 허용해야 합니다.
 
 	- 사용자 지정 프록시를 사용하는 경우 지정된 프록시 자격 증명을 사용하여 VMM 실행 계정(DRAProxyAccount)이 자동으로 만들어집니다. 이 계정이 성공적으로 인증될 수 있도록 프록시 서버를 구성합니다. VMM 콘솔에서 VMM 실행 계정 설정을 수정할 수 있습니다. 이렇게 하려면 설정 작업 영역을 열고 보안을 확장한 다음 실행 계정을 클릭하고 DRAProxyAccount의 암호를 수정합니다. 이 설정이 적용되도록 VMM 서비스를 다시 시작해야 합니다.
 
 8. **등록 키**에서 Azure 사이트 복구를 다운로드하고 VMM 서버에 복사했다는 것을 선택합니다.
-9. **자격 증명 모음 이름**에서 서버를 등록할 자격 증명 모음의 이름을 확인합니다. 
+9. **자격 증명 모음 이름**에서 서버를 등록할 자격 증명 모음의 이름을 확인합니다.
 
 	![서버 등록](./media/site-recovery-vmm-to-azure/credentials.png)
 
@@ -217,15 +218,15 @@ VMM 클라우드의 각 Hyper-V 호스트 서버에 Azure 복구 서비스 에�
 
 4. **설치 설정** 페이지에서 에이전트를 설치할 위치를 지정하고 백업 메타데이터를 설치할 캐시 위치를 선택합니다. **설치**를 클릭합니다.
 5. 설치를 마친 후 **닫기**를 클릭하여 마법사를 완료합니다.
-	
+
 	![MARS 에이전트 등록](./media/site-recovery-vmm-to-azure/agent-register.png)
 
-### 명령줄 설치 
+### 명령줄 설치
 
 이 명령을 사용하여 명령줄에서 Microsoft Azure 복구 서비스 에이전트를 설치할 수도 있습니다.
 
     marsagentinstaller.exe /q /nu
-	
+
 ## 6단계: 클라우드 보호 설정 구성
 
 VMM 서버가 등록되면 클라우드 보호 설정을 구성할 수 있습니다. 공급자를 설치할 때 **클라우드 데이터를 자격 증명 모음과 동기화** 옵션을 설정했으므로 VMM 서버에 있는 모든 클라우드가 자격 증명 모음에서 <b>보호되는 항목</b> 탭에 표시됩니다.
@@ -297,7 +298,7 @@ VMM 서버가 등록되면 클라우드 보호 설정을 구성할 수 있습니
 
 
 
-- **대상 가상 컴퓨터 네트워크 어댑터의 수** - 네트워크 어댑터의 수는 대상 가상 컴퓨터에 지정하는 크기에 따라 결정됩니다. [가상 컴퓨터 크기 사양](../virtual-machines/virtual-machines-linux-sizes.md#size-tables)에서 가상 컴퓨터 크기에 의해 지원되는 어댑터의 수를 확인합니다. 가상 컴퓨터의 크기를 수정하고 설정을 저장하면 다음에 **구성** 페이지를 열 때 네트워크 어댑터의 수가 변경됩니다. 대상 가상 컴퓨터의 네트워크 어댑터 수는 원본 가상 컴퓨터의 최소 네트워크 어댑터 수이며 선택한 가상 컴퓨터 크기에서 지원하는 최대 네트워크 어댑터 수입니다. 다음과 같습니다.
+- **대상 가상 컴퓨터 네트워크 어댑터의 수** - 네트워크 어댑터의 수는 대상 가상 컴퓨터에 지정하는 크기에 따라 결정됩니다. 가상 컴퓨터 크기에 의해 지원되는 어댑터의 수는 [가상 컴퓨터 크기 사양](../virtual-machines/virtual-machines-linux-sizes.md#size-tables)을 확인합니다. 가상 컴퓨터의 크기를 수정하고 설정을 저장하면 다음에 **구성** 페이지를 열 때 네트워크 어댑터의 수가 변경됩니다. 대상 가상 컴퓨터의 네트워크 어댑터 수는 원본 가상 컴퓨터의 최소 네트워크 어댑터 수이며 선택한 가상 컴퓨터 크기에서 지원하는 최대 네트워크 어댑터 수입니다. 다음과 같습니다.
 
 	- 원본 컴퓨터의 네트워크 어댑터 수가 대상 컴퓨터 크기에 허용되는 어댑터 수보다 작거나 같은 경우, 대상의 어댑터 수는 소스와 동일해야 합니다.
 	- 원본 가상 컴퓨터의 어댑터의 수가 대상 크기에 허용된 수를 초과하면 대상 크기 최대치가 사용됩니다.
@@ -320,6 +321,8 @@ VMM 서버가 등록되면 클라우드 보호 설정을 구성할 수 있습니
 - 장애 조치(Failover) 후에 원격 데스크탑을 사용하여 Azure의 가상 컴퓨터에 연결하려면 가상 컴퓨터에서 원격 데스크탑 연결을 사용하도록 설정하고 나서 테스트 장애 조치(Failover)를 실행합니다.
 - 장애 조치(Failover) 후에 공개 IP 주소를 사용하여 원격 데스크탑을 통해 Azure의 가상 컴퓨터에 연결합니다. 이 작업을 하려면 공개 주소를 사용하여 가상 컴퓨터에 연결하지 못하도록 차단하는 도메인 정책이 없어야 합니다.
 
+>[AZURE.NOTE] Azure에 장애 조치를 수행할 때 최상의 성능을 얻으려면 보호된 컴퓨터에 Azure 에이전트를 설치하도록 합니다. 더 빠른 부팅에 유용하고 문제가 발생한 경우 진단에도 도움이 됩니다. Linux 에이전트는 [여기](https://github.com/Azure/WALinuxAgent)에서 찾을 수 있습니다. Windows 에이전트는 [여기](http://go.microsoft.com/fwlink/?LinkID=394789)에서 찾을 수 있습니다.
+
 ### 복구 계획 만들기
 
 1. **복구 계획** 탭에서 새 계획을 추가합니다. 이름을 지정하고 **원본 유형**에 **VMM**, **원본**에 원본 VMM 서버를 지정합니다. 대상은 Azure입니다.
@@ -329,7 +332,7 @@ VMM 서버가 등록되면 클라우드 보호 설정을 구성할 수 있습니
 2. **가상 컴퓨터 선택** 페이지에서 복구 계획에 추가할 가상 컴퓨터를 선택합니다. 이러한 가상 컴퓨터는 복구 계획 기본 그룹(그룹 1)에 추가됩니다. 단일 복구 계획에서 최대 100개의 가상 컴퓨터가 테스트되었습니다.
 
 	- 가상 컴퓨터 속성을 계획에 추가하기 전에 검증하려면 가상 컴퓨터가 있는 클라우드의 속성 페이지에서 해당 가상 컴퓨터를 클릭합니다. VMM 콘솔에서 가상 컴퓨터 속성을 구성할 수도 있습니다.
-	- 표시되는 가상 컴퓨터는 모두 보호되도록 설정되었습니다. 목록에는 보호되도록 설정되고 초기 복제가 완료된 가상 컴퓨터 및 보호되도록 설정되고 초기 복제가 보류 중인 가상 컴퓨터가 모두 포함됩니다. 초기 복제가 완료된 가상 컴퓨터만 복구 계획의 일부로 장애 조치(Failover)될 수 있습니다. 
+	- 표시되는 가상 컴퓨터는 모두 보호되도록 설정되었습니다. 목록에는 보호되도록 설정되고 초기 복제가 완료된 가상 컴퓨터 및 보호되도록 설정되고 초기 복제가 보류 중인 가상 컴퓨터가 모두 포함됩니다. 초기 복제가 완료된 가상 컴퓨터만 복구 계획의 일부로 장애 조치(Failover)될 수 있습니다.
 
 
 	![복구 계획 만들기](./media/site-recovery-vmm-to-azure/select-rp.png)
@@ -372,4 +375,4 @@ Azure 대상 네트워크를 지정하지 않고 Azure로 보호되도록 설정
 
 [복구 계획 설정](site-recovery-create-recovery-plans.md) 및 [장애 조치(failover)](site-recovery-failover.md)에 대해 알아봅니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

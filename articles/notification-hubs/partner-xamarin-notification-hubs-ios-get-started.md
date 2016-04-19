@@ -35,7 +35,7 @@
 + [Xcode 6.0][Install Xcode]
 + iOS 7.0(이상) 호환 장치
 + iOS 개발자 프로그램 멤버 자격
-+ [Xamarin.iOS]
++ [Xamarin Studio]
 
    > [AZURE.NOTE] iOS 푸시 알림에 대한 구성 요구 사항 때문에 시뮬레이터 대신 실제 iOS 장치(iPhone 또는 iPad)에서 응용 프로그램 예제를 배포 및 테스트해야 합니다.
 
@@ -324,8 +324,8 @@ Apple [Local and Push Notification Programming Guide]에서 가능한 모든 페
 
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331329
-[Xamarin.iOS]: http://xamarin.com/download
+[Xamarin Studio]: http://xamarin.com/download
 [WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS
 [Azure 포털]: https://portal.azure.com
 
-<!----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

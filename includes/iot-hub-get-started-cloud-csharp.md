@@ -2,7 +2,7 @@
 
 이 섹션에서는 IoT Hub의 ID 레지스트리에서 새 장치 ID를 만드는 Windows 콘솔 앱을 작성합니다. 장치 ID 레지스트리에 항목이 없는 경우 장치를 IoT Hub에 연결할 수 없습니다. 자세한 내용은 [IoT Hub 개발자 가이드][lnk-devguide-identity]의 **장치 ID 레지스트리** 섹션을 참조하세요. 이 콘솔 응용 프로그램을 실행하면 장치-클라우드 메시지를 IoT Hub로 보낼 때 장치가 자체적으로 ID를 식별할 수 있는 고유한 장치 ID와 키를 생성합니다.
 
-1. Visual Studio에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 새로운 Visual C# Windows 클래식 데스크톱을 최신 솔루션에 추가합니다. 프로젝트 **CreateDeviceIdentity**의 이름을 지정합니다.
+1. Visual Studio에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 새로운 Visual C# Windows 클래식 데스크톱을 최신 솔루션에 추가합니다. .NET Framework 버전이 4.5.1 이상인지 확인합니다. 프로젝트 **CreateDeviceIdentity**의 이름을 지정합니다.
 
 	![][10]
 
@@ -12,7 +12,7 @@
 
 	![][11]
 
-4. 그러면 [Microsoft Azure IoT 서비스 SDK][lnk-nuget-service-sdk] NuGet 패키지가 다운로드 및 설치되고 참조가 추가됩니다.
+4. 그러면 [Microsoft Azure IoT 서비스 SDK][lnk-nuget-service-sdk] NuGet 패키지 및 종속성이 다운로드 및 설치되고 참조가 추가됩니다.
 
 4. **Program.cs** 파일 위에 다음 `using` 문을 추가합니다.
 
@@ -26,7 +26,7 @@
 
 6. **Program** 클래스에 다음 메서드를 추가합니다.
 
-		private async static Task AddDeviceAsync()
+		private static async Task AddDeviceAsync()
         {
             string deviceId = "myFirstDevice";
             Device device;
@@ -57,9 +57,11 @@
 
 ## 장치-클라우드 메시지 받기
 
-이 섹션에서는 IoT Hub에서 장치-클라우드 메시지를 읽는 Windows 콘솔 앱을 만듭니다. IoT Hub가 [이벤트 허브][lnk-event-hubs-overview]와 호환되는 끝점을 노출하여 장치-클라우드 메시지를 읽을 수 있습니다. 작업을 단순화하기 위해 이 자습서에서는 처리량이 높은 배포용이 아닌 기본적인 판독기를 만듭니다. [장치-클라우드 메시지 처리][lnk-processd2c-tutorial] 자습서에서는 규모로 장치-클라우드 메시지를 처리하는 방법을 보여 줍니다. [이벤트 허브 시작][lnk-eventhubs-tutorial] 자습서는 이벤트 허브에서 메시지를 처리하는 방법에 대한 추가 정보를 제공하고 IoT Hub 이벤트 허브 호환 끝점에 적용됩니다.
+이 섹션에서는 IoT Hub에서 장치-클라우드 메시지를 읽는 Windows 콘솔 앱을 만듭니다. IoT Hub가 [이벤트 허브][lnk-event-hubs-overview]와 호환되는 끝점을 노출하여 장치-클라우드 메시지를 읽을 수 있습니다. 작업을 단순화하기 위해 이 자습서에서는 처리량이 높은 배포용이 아닌 기본적인 판독기를 만듭니다. [장치-클라우드 메시지 처리][lnk-processd2c-tutorial] 자습서에서는 대규모로 장치-클라우드 메시지를 처리하는 방법을 보여줍니다. [이벤트 허브 시작][lnk-eventhubs-tutorial] 자습서는 이벤트 허브에서 메시지를 처리하는 방법에 대한 추가 정보를 제공하고 IoT Hub 이벤트 허브 호환 끝점에 적용할 수 있습니다.
 
-1. Visual Studio에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 새로운 Visual C# Windows 클래식 데스크톱을 최신 솔루션에 추가합니다. 프로젝트 **ReadDeviceToCloudMessages**의 이름을 지정합니다.
+> [AZURE.NOTE] 장치-클라우드 메시지를 읽는 이벤트 허브와 호환 가능한 끝점은 항상 AMQPS 프로토콜을 사용합니다.
+
+1. Visual Studio에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 새로운 Visual C# Windows 클래식 데스크톱을 최신 솔루션에 추가합니다. .NET Framework 버전이 4.5.1 이상인지 확인합니다. 프로젝트 **ReadDeviceToCloudMessages**의 이름을 지정합니다.
 
     ![][10]
 
@@ -67,11 +69,12 @@
 
 3. **NuGet 패키지 관리자** 창에서 **WindowsAzure.ServiceBus**를 검색하고 **설치**를 클릭하고 사용 약관에 동의합니다.
 
-    그러면 [Azure 서비스 버스][lnk-servicebus-nuget]가 모든 종속 항목과 함께 다운로드 및 설치되고 해당 참조가 추가됩니다.
+    그러면 [Azure 서비스 버스][lnk-servicebus-nuget]가 모든 종속 항목과 함께 다운로드 및 설치되고 해당 참조가 추가됩니다. 이 패키지를 사용하면 응용 프로그램을 IoT Hub의 이벤트 허브와 호환되는 끝점에 연결할 수 있습니다.
 
 4. **Program.cs** 파일 위에 다음 `using` 문을 추가합니다.
 
         using Microsoft.ServiceBus.Messaging;
+        using System.Threading;
 
 5. **Program** 클래스에 다음 필드를 추가하여, 자리 표시자 값을 *IoT Hub 만들기* 섹션에서 만든 IoT Hub의 연결 문자열로 대체합니다.
 
@@ -81,16 +84,17 @@
 
 6. **Program** 클래스에 다음 메서드를 추가합니다.
 
-        private async static Task ReceiveMessagesFromDeviceAsync(string partition)
+        private static async Task ReceiveMessagesFromDeviceAsync(string partition, CancellationToken ct)
         {
             var eventHubReceiver = eventHubClient.GetDefaultConsumerGroup().CreateReceiver(partition, DateTime.UtcNow);
             while (true)
             {
+                if (ct.IsCancellationRequested) break;
                 EventData eventData = await eventHubReceiver.ReceiveAsync();
                 if (eventData == null) continue;
 
                 string data = Encoding.UTF8.GetString(eventData.GetBytes());
-                Console.WriteLine(string.Format("Message received. Partition: {0} Data: '{1}'", partition, data));
+                Console.WriteLine("Message received. Partition: {0} Data: '{1}'", partition, data);
             }
         }
 
@@ -98,31 +102,41 @@
 
 7. 마지막으로 **Main** 메서드에 다음 줄을 추가합니다.
 
-        Console.WriteLine("Receive messages\n");
+        Console.WriteLine("Receive messages. Ctrl-C to exit.\n");
         eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, iotHubD2cEndpoint);
 
         var d2cPartitions = eventHubClient.GetRuntimeInformation().PartitionIds;
 
+        CancellationTokenSource cts = new CancellationTokenSource();
+
+        System.Console.CancelKeyPress += (s, e) =>
+        {
+          e.Cancel = true;
+          cts.Cancel();
+          Console.WriteLine("Exiting...");
+        };
+
+        var tasks = new List<Task>();
         foreach (string partition in d2cPartitions)
         {
-           ReceiveMessagesFromDeviceAsync(partition);
+           tasks.Add(ReceiveMessagesFromDeviceAsync(partition, cts.Token));
         }  
-        Console.ReadLine();
+        Task.WaitAll(tasks.ToArray());
 
 
 <!-- Links -->
 
-[lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
-[lnk-devguide-identity]: iot-hub-devguide.md#identityregistry
+[lnk-eventhubs-tutorial]: ../articles/event-hubs/event-hubs-csharp-ephcs-getstarted.md
+[lnk-devguide-identity]: ../articles/iot-hub/iot-hub-devguide.md#identityregistry
 [lnk-servicebus-nuget]: https://www.nuget.org/packages/WindowsAzure.ServiceBus
-[lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
+[lnk-event-hubs-overview]: ../articles/event-hubs/event-hubs-overview.md
 
 [lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
-[lnk-processd2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-processd2c-tutorial]: ../articles/iot-hub/iot-hub-csharp-csharp-process-d2c.md
 
 <!-- Images -->
 [10]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp1.png
 [11]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp2.png
 [12]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp3.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

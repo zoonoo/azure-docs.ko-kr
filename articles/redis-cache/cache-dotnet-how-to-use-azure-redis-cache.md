@@ -235,8 +235,8 @@ Azure Redis 캐시는 .NET 개체 및 기본 데이터 형식을 캐시할 수 �
 이제 기본 사항을 배웠으므로 다음 링크를 따라 Azure Redis Cache에 대해 알아보세요.
 
 -	Azure Redis Cache에 대한 ASP.NET 공급자를 확인합니다.
-	-	[Azure Redis 세션 상태 공급자](cache-asp.net-session-state-provider.md)
-	-	[Azure Redis Cache ASP.NET 출력 캐시 공급자](cache-asp.net-output-cache-provider.md)
+	-	[Azure Redis 세션 상태 공급자](cache-aspnet-session-state-provider.md)
+	-	[Azure Redis Cache ASP.NET 출력 캐시 공급자](cache-aspnet-output-cache-provider.md)
 -	캐시의 상태를 [모니터링](cache-how-to-monitor.md)할 수 있도록 [캐시 진단을 사용하도록 설정](cache-how-to-monitor.md#enable-cache-diagnostics)합니다. Azure 포털에서 메트릭을 볼 수 있으며 선택한 도구를 사용하여 메트릭을 [다운로드 및 검토](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring)할 수도 있습니다.
 -	[StackExchange.Redis 캐시 클라이언트 설명서][](영문)를 확인하세요.
 	-	Azure Redis Cache는 다양한 Redis 클라이언트와 개발 언어에서 액세스할 수 있습니다. 자세한 내용은 [http://redis.io/clients][](영문) 및 [Azure Redis Cache용으로 다른 언어에서 개발][]을 참조하세요.
@@ -335,4 +335,4 @@ Azure Redis 캐시는 .NET 개체 및 기본 데이터 형식을 캐시할 수 �
 
 [Azure 무료 체험]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

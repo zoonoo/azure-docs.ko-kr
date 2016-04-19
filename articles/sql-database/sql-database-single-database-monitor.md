@@ -1,4 +1,4 @@
-<properties pageTitle="Azure SQL 데이터베이스에서 데이터베이스 성능 모니터링" | Microsoft Azure" description="Azure 도구 및 동적 관리 뷰를 사용하여 데이터베이스를 모니터링하는 옵션에 대해 알아봅니다." keywords="데이터베이스 모니터링, 클라우드 데이터베이스 성능" services="sql-database" documentationCenter="" authors="jeffgoll" manager="jeffreyg" editor="jeffreyg"/>
+<properties pageTitle="Monitoring database performance in Azure SQL Database" | Microsoft Azure" description="Learn about the options for monitoring your database with Azure tools and dynamic management views." keywords="database monitoring, cloud database performance" services="sql-database" documentationCenter="" authors="carlrabeler" manager="jhubbard" editor=""/>
 
 <tags
 	ms.service="sql-database"
@@ -7,7 +7,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
 	ms.date="03/25/2016"
-	ms.author="jeffreyg"/>
+	ms.author="carlrab"/>
 
 # Azure SQL 데이터베이스에서 데이터베이스 성능 모니터링
 Azure에서 SQL 데이터베이스의 성능 모니터링은 데이터베이스에 대해 선택한 데이터베이스 성능 수준을 기준으로 리소스 사용률을 모니터링하는 것으로 시작합니다. 모니터링을 통해 데이터베이스에 과도한 용량이 있는지, 리소스가 최대값에 도달하는 문제가 있는지 확인한 후 데이터베이스의 성능 수준 및 [서비스 계층](sql-database-service-tiers.md)을 조정할 시기인지 여부를 결정할 수 있습니다. [Azure 포털](https://portal.azure.com)에서 그래픽 도구를 사용하거나 SQL [동적 관리 뷰](https://msdn.microsoft.com/library/ms188754.aspx)를 사용하여 데이터베이스를 모니터링할 수 있습니다.
@@ -39,4 +39,4 @@ Azure에서 SQL 데이터베이스의 성능 모니터링은 데이터베이스�
 
 탄력적 데이터베이스 풀의 경우 이 섹션에서 설명하는 기법을 사용하여 풀의 개별 데이터베이스를 모니터링할 수 있습니다. 하지만 전체적으로 풀을 모니터링할 수도 있습니다. 자세한 내용은 [탄력적 데이터베이스 풀 모니터링 및 관리](sql-database-elastic-pool-manage-portal.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

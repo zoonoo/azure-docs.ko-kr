@@ -13,17 +13,19 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/07/2016"
+   ms.date="04/07/2016"
    ms.author="nitinme"/>
 
 # .NET SDK를 사용하여 Azure 데이터 레이크 저장소 시작
 
 > [AZURE.SELECTOR]
-- [포털 사용](data-lake-store-get-started-portal.md)
-- [PowerShell 사용](data-lake-store-get-started-powershell.md)
-- [.NET SDK 사용](data-lake-store-get-started-net-sdk.md)
-- [Azure CLI 사용](data-lake-store-get-started-cli.md)
-- [Node.js 사용](data-lake-store-manage-use-nodejs.md)
+- [포털](data-lake-store-get-started-portal.md)
+- [PowerShell](data-lake-store-get-started-powershell.md)
+- [.NET SDK](data-lake-store-get-started-net-sdk.md)
+- [Java SDK](data-lake-store-get-started-java-sdk.md)
+- [REST API](data-lake-store-get-started-rest-api.md)
+- [Azure CLI](data-lake-store-get-started-cli.md)
+- [Node.JS](data-lake-store-manage-use-nodejs.md)
 
 Azure 데이터 레이크 저장소 .NET SDK를 사용하여 Azure 데이터 레이크 계정을 만들고 폴더 만들기, 데이터 파일 업로드 및 다운로드, 계정 삭제 등의 기본 작업을 수행하는 방법에 대해 알아봅니다. 데이터 레이크에 대한 자세한 내용은 [Azure 데이터 레이크 저장소](data-lake-store-overview.md)를 참조하세요.
 
@@ -307,12 +309,6 @@ Azure 데이터 레이크 저장소 .NET SDK를 사용하여 Azure 데이터 레
 
 8. 응용 프로그램을 빌드 및 실행합니다. 프롬프트에 따라 응용 프로그램을 실행하고 완료합니다.
 
-## 데이터 레이크 저장소 계정을 만드는 다른 방법
-
-- [포털을 사용하여 데이터 레이크 저장소 시작](data-lake-store-get-started-portal.md)
-- [PowerShell을 사용하여 데이터 레이크 저장소 시작](data-lake-store-get-started-powershell.md)
-- [Azure CLI를 사용하여 데이터 레이크 저장소 시작](data-lake-store-get-started-cli.md)
-
 
 ## 다음 단계
 
@@ -320,4 +316,4 @@ Azure 데이터 레이크 저장소 .NET SDK를 사용하여 Azure 데이터 레
 - [Azure 데이터 레이크 분석에 데이터 레이크 저장소 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Azure HDInsight에 데이터 레이크 저장소 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

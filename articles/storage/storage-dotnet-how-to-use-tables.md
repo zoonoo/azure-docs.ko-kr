@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="03/27/2016"
+	ms.date="04/07/2016"
 	ms.author="tamram"/>
 
 
@@ -27,7 +27,18 @@ Azure 테이블 저장소는 클라우드에 구조화된 NoSQL 데이터를 저
 
 테이블 저장소를 사용하여 웹 응용 프로그램의 사용자 데이터, 주소록, 장치 정보 및 서비스에 필요한 다른 유형의 메타데이터와 같은 유연한 데이터 집합을 저장할 수 있습니다. 테이블에 저장할 수 있는 엔터티 수에는 제한이 없으며, 저장소 계정에 포함할 수 있는 테이블의 수에는 저장소 계정의 최대 용량 한도까지 제한이 없습니다.
 
+### 이 자습서 정보
+
 이 자습서에는 테이블 만들기 및 삭제, 테이블 데이터 삽입, 업데이트, 삭제 및 쿼리를 포함하여 Azure 테이블 저장소를 사용하여 몇 가지 일반적인 시나리오에 대한 .NET 코드를 작성하는 방법을 보여 줍니다.
+
+**예상 완료 시간:** 45분
+
+**필수 구성 요소**
+
+- [Microsoft Visual Studio](https://www.visualstudio.com/ko-KR/visual-studio-homepage-vs.aspx)
+- [.NET용 Azure 저장소 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage/)
+- [.NET용 Azure 구성 관리자](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
+- [Azure 저장소 계정](storage-create-storage-account.md#create-a-storage-account)
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -35,36 +46,42 @@ Azure 테이블 저장소는 클라우드에 구조화된 NoSQL 데이터를 저
 
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
-[AZURE.INCLUDE [storage-configure-connection-string-include](../../includes/storage-configure-connection-string-include.md)]
+[AZURE.INCLUDE [storage-development-environment-include](../../includes/storage-development-environment-include.md)]
 
-## 프로그래밍 방식으로 테이블 저장소 액세스
+### 네임스페이스 선언 추가
 
-[AZURE.INCLUDE [저장소-dotnet-얻기-어셈블리](../../includes/storage-dotnet-obtain-assembly.md)]
+`program.cs` 파일 맨 위에 다음 `using` 문을 추가합니다.
 
-### 네임스페이스 선언
-프로그래밍 방식으로 Azure 저장소에 액세스하려는 C# 파일의 맨 위에 다음과 같은 코드 네임스페이스 선언을 추가합니다.
+	using Microsoft.Azure; // Namespace for CloudConfigurationManager 
+	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
+    using Microsoft.WindowsAzure.Storage.Table; // Namespace for Table storage types
 
-    using Microsoft.WindowsAzure.Storage;
-	using Microsoft.WindowsAzure.Storage.Auth;
-    using Microsoft.WindowsAzure.Storage.Table;
+[AZURE.INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
-`Microsoft.WindowsAzure.Storage.dll`어셈블리를 참조해야 합니다.
+### 테이블 서비스 클라이언트 만들기
 
-[AZURE.INCLUDE [storage-dotnet-retrieve-conn-string](../../includes/storage-dotnet-retrieve-conn-string.md)]
+**CloudTableClient** 클래스를 사용하면 테이블 저장소에 저장된 테이블 및 엔터티를 검색할 수 있습니다. **Main()** 메서드에 다음 코드를 추가합니다.
+
+	// Create the table client.
+	CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+
+이제 데이터를 읽어 오고 테이블 저장소에 데이터를 기록하는 코드를 작성할 준비가 되었습니다.
 
 ## 테이블 만들기
 
-**CloudTableClient** 개체를 사용하면 테이블 및 엔터티에 대한 참조 개체를 가져올 수 있습니다. 다음 코드는 **CloudTableClient** 개체를 만든 다음 이 개체를 사용하여 새 테이블을 만듭니다. 이 문서의 모든 코드에서는 빌드되는 응용 프로그램이 Azure 클라우드 서비스 프로젝트이며 Azure 응용 프로그램의 서비스 구성에 저장된 저장소 연결 문자열을 사용한다고 가정합니다.
+이 예제에서는 테이블이 없는 경우 만드는 방법을 보여 줍니다.
 
-    // Retrieve the storage account from the connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+	// Retrieve the storage account from the connection string.
+	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+	    CloudConfigurationManager.GetSetting("StorageConnectionString"));
+	
+	// Create the table client.
+	CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
-    // Create the table client.
-    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-
-    // Create the table if it doesn't exist.
+	// Retrieve a reference to the table.
     CloudTable table = tableClient.GetTableReference("people");
+		
+    // Create the table if it doesn't exist.
     table.CreateIfNotExists();
 
 ## 테이블에 엔터티 추가
@@ -444,4 +461,4 @@ Azure 테이블 저장소는 클라우드에 구조화된 NoSQL 데이터를 저
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->
