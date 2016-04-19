@@ -60,4 +60,4 @@ Visual Studio용 **HDInsight 도구**에서 Tez 그래프 표시 및 기타 언�
 
 [Azure SDK 2.9 발표 게시물](https://azure.microsoft.com/blog/announcing-visual-studio-azure-tools-and-sdk-2-9/)
 
-<!----HONumber=AcomDC_0330_2016-->
+<!-----HONumber=AcomDC_0330_2016-->
