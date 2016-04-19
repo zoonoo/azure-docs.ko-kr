@@ -183,7 +183,7 @@
     public static void main( String[] args ) throws IOException
     ```
 
-12. **앱** 클래스의 **기본** 메서드에 다음 코드를 추가합니다. 이 코드는 **EventHubClient** 인스턴스를 만들어 IoT Hub의 이벤트 허브 호환 끝점에 연결합니다. 그런 다음 두 개의 파티션에서 읽도록 두 개의 스레드를 만듭니다. **{youriothubkey}**, **{youreventhubcompatiblenamespace}** 및 **{youreventhubcompatiblename}**을 이전에 기록한 값으로 대체합니다. **{youreventhubcompatiblenamespace}** 자리 표시자의 값은 **이벤트 허브 호환 끝점**에서 나오며 **xxxxnamespace** 형태를 취합니다(즉, 포털의 이벤트 허브 호환 끝점 값에서 ****sb://** 접두사와 **.servicebus.windows.net** 접미사 제거).
+12. **앱** 클래스의 **기본** 메서드에 다음 코드를 추가합니다. 이 코드는 **EventHubClient** 인스턴스를 만들어 IoT Hub의 이벤트 허브 호환 끝점에 연결합니다. 그런 다음 두 개의 파티션에서 읽도록 두 개의 스레드를 만듭니다. **{youriothubkey}**, **{youreventhubcompatiblenamespace}** 및 **{youreventhubcompatiblename}**을 이전에 기록한 값으로 대체합니다. **{youreventhubcompatiblenamespace}** 자리 표시자의 값은 **이벤트 허브 호환 끝점**에서 나오며 **xxxxnamespace** 형태를 취합니다(즉, 포털의 이벤트 허브 호환 끝점 값에서 **sb://** 접두사와 **.servicebus.windows.net** 접미사 제거).
 
     ```
     String policyName = "iothubowner";

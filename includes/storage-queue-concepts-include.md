@@ -14,7 +14,8 @@ Azure 큐 저장소는 HTTP 또는 HTTPS를 사용하여 인증된 호출을 통
 ![Queue1](./media/storage-queue-concepts-include/queue1.png)
 
 
-- **URL 형식:** 다음 URL 형식을 사용하여 큐에 주소를 지정할 수 있습니다.http://`<storage account>`.queue.core.windows.net/`<queue> 
+- **URL 형식:** 다음 URL 형식을 사용하여 큐에 주소를 지정할 수 있습니다.   
+	http://`<storage account>`.queue.core.windows.net/`<queue>` 
       
 	다음 URL은 다이어그램에 있는 큐의 주소를 지정합니다.
 		
