@@ -29,7 +29,7 @@ Azure 자동화는 요구 사항에 맞게 크기가 조정되는 매우 안정�
 Azure 자동화에서 자동으로 실행되도록 클라우드 관리 작업을 예약하여 작업 오버헤드를 줄이고 IT 및 DevOps 직원들이 비즈니스 가치를 추가하는 작업에 집중할 수 있게 합니다.
 
 
-## Azure 자동화를 통해 Azure HDInsight을 쉽게 관리하려면 어떻게 해야 하나요?
+## Azure 자동화를 통해 Azure HDInsight을 쉽게 관리하려면 어떻게 해야 할까요? 
 
 [Azure PowerShell 도구](https://msdn.microsoft.com/library/azure/jj156055.aspx)에서 사용할 수 있는 [Azure HDInsight cmdlet](https://msdn.microsoft.com/library/azure/dn479228.aspx)을 통해 Azure 자동화에서 Azure 저장소를 관리할 수 있습니다. Azure 자동화에서는 이러한 cmdlet을 기본적으로 사용할 수 있으므로 서비스 내에서 HDInsight 관리 작업을 수행할 수 있습니다. Azure 자동화에서 이러한 cmdlet을 다른 Azure 서비스용 cmdlet과 연결하여 Azure 서비스와 타사 시스템 간의 복잡한 작업을 자동화할 수도 있습니다.
 
@@ -37,7 +37,7 @@ Azure HDInsight cmdlet을 사용하면 Linux 또는 Windows에서 HDInsight 클�
 
 
 ## 다음 단계
-Azure 자동화의 기본 사항과 Azure 자동화를 사용하여 Azure HDInsight를 관리하는 방법을 알아보았으므로 이제 다음 링크에 따라 Azure 자동화에 대해 자세히 알아보세요.
+Azure 자동화의 기본 사항과 Azure 자동화를 사용하여 Azure HDInsight를 관리하는 방법을 알아보았으므로 이제 다음 링크에 따라 Azure 자동화에 대해 자세히 알아보세요. 
 
 * Azure 자동화 [시작 자습서](../automation-create-runbook-from-samples.md)를 참조하세요.
 * [스크립트 센터](http://aka.ms/scriptcentergallery)에서 예를 볼 수 있습니다.  
