@@ -46,7 +46,9 @@
 | ---- | ---- |
 | type | 열거형<br />필수<br />**{namespace}/{type}/providers/links**<br /><br />만들려는 리소스 종류입니다. {namespace} 및 {type} 값은 원본 리소스의 공급자 네임스페이스 및 리소스 종류를 나타냅니다. |
 | apiVersion | 열거형<br />필수<br />**2015-01-01**<br /><br />리소스를 만들 때 사용하는 API 버전입니다. |  
-| name | 문자열<br />필수<br />**{resouce}/Microsoft.Resources/{linkname}****<br /> 최대 64자이며, <, > %, &, ? 또는 제어 문자를 포함할 수 없습니다.<br /><br />원본 리소스 이름과 링크 이름을 둘 다 지정하는 값입니다. | | dependsOn | Array<br />선택<br />쉼표로 구분된 리소스 이름 및 리소스 고유 식별자 목록입니다.<br /><br />이 링크에 따라 달라지는 리소스 컬렉션입니다. 연결하려는 리소스가 동일한 템플릿으로 배포되는 경우 해당 리소스 이름을 이 요소에 포함하여 먼저 배포되도록 해야 합니다. | | properties | 개체<br />필수<br />[properties 개체](#properties)<br /><br />연결할 리소스를 식별하고 링크에 대해 설명하는 개체입니다. | 
+| name | 문자열<br />필수<br />**{resouce}/Microsoft.Resources/{linkname}****<br /> 최대 64자이며, <, > %, &, ? 또는 제어 문자를 포함할 수 없습니다.<br /><br />원본 리소스 이름과 링크 이름을 둘 다 지정하는 값입니다. | 
+| dependsOn | Array<br />선택<br />쉼표로 구분된 리소스 이름 및 리소스 고유 식별자 목록입니다.<br /><br />이 링크에 따라 달라지는 리소스 컬렉션입니다. 연결하려는 리소스가 동일한 템플릿으로 배포되는 경우 해당 리소스 이름을 이 요소에 포함하여 먼저 배포되도록 해야 합니다. | 
+| properties | 개체<br />필수<br />[properties 개체](#properties)<br /><br />연결할 리소스를 식별하고 링크에 대해 설명하는 개체입니다. | 
 
 <a id="properties" />
 ### properties 개체
