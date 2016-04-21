@@ -43,4 +43,4 @@ Azure 포털의 **연결** 단추를 사용하여 원격 데스크톱 세션을 
 
 로그온에 대한 팁이 도움이 되지 않거나 필요한 정보가 아닌 경우[Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](virtual-machines-windows-troubleshoot-rdp-connection.md)을 참조하세요. 이 문서에서는 일반적인 문제를 진단 및 해결하는 과정을 안내합니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0323_2016-->
