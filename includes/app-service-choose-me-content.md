@@ -1,15 +1,15 @@
 <a name="tellmeas"></a>
 ## 앱 서비스에 대한 설명
 
-Azure 가상 컴퓨터는 광범위한 클라우드 호스팅 작업을 처리할 수 있습니다. 하지만 VM 인프라를 만들고 관리하려면 특수한 기술이 필요하며 많은 작업을 수행해야 합니다. 웹앱, 모바일 앱 백엔드, API 앱 등을 실행하는 VM을 완전히 제어할 필요가 없다면 더 쉽고 저렴한 솔루션인 *PaaS*(Platform as a Service)를 사용할 수 있습니다. Azure는 PaaS를 통해 응용 프로그램을 실행하는 VM의 관리 작업을 대부분 처리합니다. [Azure 앱 서비스](../article/app-service/app-service-value-prop-what-is.md)는 엔터프라이즈급 앱을 매우 빠르게 빌드, 배포 및 확장할 수 있는 완벽한 관리형 PaaS 서비스입니다.
+Azure 가상 컴퓨터는 광범위한 클라우드 호스팅 작업을 처리할 수 있습니다. 하지만 VM 인프라를 만들고 관리하려면 특수한 기술이 필요하며 많은 작업을 수행해야 합니다. 웹앱, 모바일 앱 백엔드, API 앱 등을 실행하는 VM을 완전히 제어할 필요가 없다면 더 쉽고 저렴한 솔루션인 *PaaS*(Platform as a Service)를 사용할 수 있습니다. Azure는 PaaS를 통해 응용 프로그램을 실행하는 VM의 관리 작업을 대부분 처리합니다. [Azure 앱 서비스](../articles/app-service/app-service-value-prop-what-is.md)는 엔터프라이즈급 앱을 매우 빠르게 빌드, 배포 및 확장할 수 있는 완벽한 관리형 PaaS 서비스입니다.
 
 다양한 종류의 응용 프로그램 워크로드에서는 앱 서비스가 가장 적합합니다. 기업은 매주 수백만 건의 방문 횟수를 처리할 수 있으며 전 세계 여러 데이터 센터에 배포되는 상업용 웹 사이트를 빌드하거나 마이그레이션할 수 있습니다. 그와 동시에 회사 Active Directory에서 인증된 사용자의 경비 보고서를 추적하는 LOB(기간 업무) 앱도 사용할 수 있으며, 앱에는 모바일 장치 구성 요소가 있고 온-프레미스 리소스와 비즈니스 프로세스에 연결할 수 있습니다. 경비 보고서에 대해 주기적인 백그라운드 작업을 수행하여 많은 양의 정보를 계산하고 요약해야 할 수도 있습니다. IT 컨설턴트는 중소기업용 콘텐츠 관리 시스템을 설치하기 위해 널리 사용되는 오픈 소스 응용 프로그램을 조정하여 사용할 수 있습니다. 아래 그림에는 Azure 앱 서비스에서 실행할 수 있는 몇 가지 종류의 웹 앱이 나와 있습니다.
 
 <a name="appservice_diagram"></a> ![앱 서비스 다이어그램](media/app-service-choose-me-content/diagram.png)
- 
+
 **그림: Azure 앱 서비스는 정적 웹 사이트, 인기 있는 웹 응용 프로그램 및 다양한 기술로 구축된 사용자 지정 웹 응용 프로그램을 지원합니다. 모바일 백엔드, API 앱, 계산을 수행하지 않는 작업도(WebJobs를 사용하여) 실행할 수 있습니다.**
 
-Azure 앱 서비스를 통해 [WebJobs 기능](../article/app-service-web/websites-webjobs-resources.md)을 사용하여 모든 종류의 계산 작업도 실행할 수 있습니다.
+Azure 앱 서비스를 통해 [WebJobs 기능](../articles/app-service-web/websites-webjobs-resources.md)을 사용하여 모든 종류의 계산 작업도 실행할 수 있습니다.
 
 Azure 앱 서비스는 여러 사용자가 만든 여러 웹 앱이 포함된 공유 VM에서 실행할 수도 있고 자신만 사용하는 VM에서 실행할 수도 있습니다. VM은 Azure 앱 서비스에서 관리하는 리소스 풀의 일부이므로 높은 안정성 및 내결함성을 제공합니다.
 
@@ -19,4 +19,4 @@ Azure 앱 서비스는 여러 사용자가 만든 여러 웹 앱이 포함된 �
 
 위의 [그림](#appservice_diagram)에서 볼 수 있듯이 코드 및 기타 웹 콘텐츠를 여러 가지 방법으로 Azure 앱 서비스에 게시할 수 있습니다. FTP, FTPS 또는 Microsoft의 WebDeploy 기술을 사용할 수 있습니다. 또한 Azure 앱 서비스는 Git, GitHub, CodePlex, BitBucket, Dropbox, Mercurial, Team Foundation Server 및 클라우드 기반의 Team Foundation Service를 포함하는 소스 제어 시스템으로부터 코드를 게시할 수 있습니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0413_2016-->

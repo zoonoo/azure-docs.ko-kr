@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Azure 앱 서비스에 응용 프로그램 배포" 
-	description="앱 서비스 작업에 응용 프로그램 배포 방법 알아보기" 
+<properties
+	pageTitle="Azure 앱 서비스에 응용 프로그램 배포"
+	description="앱 서비스 작업에 응용 프로그램 배포 방법 알아보기"
 	keywords="앱 서비스, azure 앱 서비스, 배포, 배포"
-	services="app-service" 
-	documentationCenter="" 
-	authors="dariagrigoriu" 
-	manager="wpickett" 
+	services="app-service"
+	documentationCenter=""
+	authors="dariagrigoriu"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/09/2016" 
+<tags
+	ms.service="app-service"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/09/2016"
 	ms.author="dariagrigoriu"/>
 
 # Azure 앱 서비스 배포 개요
@@ -23,4 +23,4 @@ Azure 앱 서비스는 강력하고 유연한 배포 워크플로 만들기를 �
 
 [AZURE.INCLUDE [app-service-blueprint-deployment](../../includes/app-service-blueprint-deployment.md)]
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

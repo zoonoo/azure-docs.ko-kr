@@ -3,8 +3,8 @@
 	description="이 항목에서는 SQL 데이터베이스 및 그 사용법에 대한 활성 지역 복제를 설명합니다."
 	services="sql-database"
 	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
+	authors="stevestein"
+	manager="jhubbard"
 	editor="monicar" />
 
 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
 	ms.date="03/07/2016"
-	ms.author="jroth" />
+	ms.author="sstein" />
 
 # Azure SQL 데이터베이스에 대한 활성 지역 복제
 
@@ -66,4 +66,4 @@
 ## 다음 단계
 SQL 데이터베이스의 추가 비즈니스 연속성 기능에 대한 자세한 내용은 [비즈니스 연속성 개요](sql-database-business-continuity.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -28,7 +28,7 @@
 
 ##개요
 
-이 항목에서는 Azure 모바일 서비스를 사용하여 Windows Phone 8 앱에서 데이터를 활용하는 방법을 보여 줍니다. 이 자습서에서는 데이터를 메모리에 저장하는 앱을 다운로드하여 새 모바일 서비스를 만들고 모바일 서비스를 앱과 통합한 후 Azure 관리 포털에 로그인하여 앱을 실행할 때 수행된 데이터 변경 내용을 확인합니다.
+이 항목에서는 Azure 모바일 서비스를 사용하여 Windows Phone 8 앱에서 데이터를 활용하는 방법을 보여 줍니다. 이 자습서에서는 데이터를 메모리에 저장하는 앱을 다운로드하여 새 모바일 서비스를 만들고 모바일 서비스를 앱과 통합한 후 [Azure 클래식 포털]에 로그인하여 앱을 실행할 때 수행된 데이터 변경 내용을 확인합니다.
 
 또한 다음 비디오에서 Nick Harris가 이를 데모하는 것을 볼 수도 있습니다.
 >[AZURE.VIDEO mobile-get-started-with-data-windows-phone]
@@ -172,7 +172,7 @@
 
 * [앱에 푸시 알림 추가](mobile-services-javascript-backend-windows-phone-get-started-push.md) <br/>모바일 서비스를 사용하여 기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
 
-* [모바일 서비스 C# 방법 개념 참조](mobile-services-windows-dotnet-how-to-use-client-library.md) <br/>.NET과 함께 모바일 서비스를 사용하는 방법을 자세히 알아봅니다.
+* [모바일 서비스 C# 방법 개념 참조](mobile-services-dotnet-how-to-use-client-library.md) <br/>.NET과 함께 모바일 서비스를 사용하는 방법을 자세히 알아봅니다.
 
 <!-- Anchors. -->
 [Download the Windows Phone 8 app project]: #download-app
@@ -196,4 +196,4 @@
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=271146
 [개발자 코드 샘플 사이트]: http://go.microsoft.com/fwlink/p/?LinkId=271146
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

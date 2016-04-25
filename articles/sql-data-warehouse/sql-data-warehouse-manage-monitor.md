@@ -3,7 +3,7 @@
    description="DMV를 사용하여 작업을 모니터링하는 방법을 알아봅니다."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sonyama"
+   authors="sonyam"
    manager="barbkess"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/29/2016"
+   ms.date="04/12/2016"
    ms.author="sonyama;barbkess;sahajs"/>
 
 # DMV를 사용하여 작업 모니터링
@@ -132,6 +132,17 @@ WHERE request_id = 'QID33209' AND step_index = 2;
 - *total\_elapsed\_time* 열을 검사하여 특정 배포에서 데이터 이동 시간이 다른 배포보다 오래 걸리는지 확인합니다.
 - 장기 실행 배포의 경우 *rows\_processed* 열을 검사하여 해당 배포에서 이동되는 행 수가 다른 배포보다 훨씬 큰지 확인합니다. 이동되는 행 수가 훨씬 많으면 기본 데이터가 기울어진 것일 수 있습니다.
 
+쿼리가 현재 실행되고 있으면 [DBCC PDW\_SHOWEXECUTIONPLAN][]을 사용하여 특정 배포에 대해 현재 실행 중인 DMS 단계의 SQL Server 실행 계획을 검색할 수 있습니다.
+
+```sql
+-- Find the SQL Server execution plan for a query running on a specific SQL Data Warehouse Compute or Control node.
+-- Replace distribution_id and spid with values from previous query.
+
+DBCC PDW_SHOWEXECUTIONPLAN(55, 238);
+
+```
+
+
 ## 데이터 기울이기 조사
 
 [DBCC PDW\_SHOWSPACEUSED][]를 사용하여 테이블에 사용되는 공간을 조회합니다.
@@ -143,7 +154,7 @@ DBCC PDW_SHOWSPACEUSED("dbo.FactInternetSales");
 
 이 쿼리의 결과는 데이터베이스 배포 60개에 각각 저장된 테이블 행 수를 보여 줍니다. 최적의 성능을 얻으려면 분산 테이블의 행을 모든 배포에 균등하게 나누어야 합니다.
 
-자세한 내용은 [테이블 디자인][]을 참조하세요.
+자세히 알아보려면 [분산 테이블에 대한 데이터 오차 관리][] 또는 [테이블 디자인][]을 참조하세요.
 
 ## 다음 단계
 Transact-SQL 및 DMV(동적 관리 뷰)에 대한 자세한 내용은 [참조 개요][]를 참조하세요. SQL 데이터 웨어하우스 관리에 대한 추가 팁은 [관리 개요][]를 참조하세요.
@@ -154,6 +165,9 @@ Transact-SQL 및 DMV(동적 관리 뷰)에 대한 자세한 내용은 [참조 �
 [관리 개요]: sql-data-warehouse-overview-manage.md
 [테이블 디자인]: sql-data-warehouse-develop-table-design.md
 [참조 개요]: sql-data-warehouse-overview-reference.md
+[분산 테이블에 대한 데이터 오차 관리]: sql-data-warehouse-manage-distributed-data-skew.md
+
+<!--MSDN references-->
 [sys.dm\_pdw\_dms\_workers]: http://msdn.microsoft.com/library/mt203878.aspx
 [sys.dm\_pdw\_exec\_requests]: http://msdn.microsoft.com/library/mt203887.aspx
 [sys.dm\_pdw\_exec\_sessions]: http://msdn.microsoft.com/library/mt203883.aspx
@@ -162,6 +176,4 @@ Transact-SQL 및 DMV(동적 관리 뷰)에 대한 자세한 내용은 [참조 �
 [DBCC PDW\_SHOWEXECUTIONPLAN]: http://msdn.microsoft.com/library/mt204017.aspx
 [DBCC PDW\_SHOWSPACEUSED]: http://msdn.microsoft.com/library/mt204028.aspx
 
-<!--MSDN references-->
-
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

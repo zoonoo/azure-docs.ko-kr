@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/13/2016"
+   ms.date="04/07/2016"
    ms.author="alkohli" />
 
-# StorSimple 가상 배열에 업데이트 및 핫픽스 적용(미리 보기)
+# StorSimple 가상 배열에 업데이트 및 핫픽스 적용
 
 ## 개요
 
@@ -39,4 +39,4 @@ StorSimple 가상 배열을 최신 상태로 유지하려면 소프트웨어 업
 
 [StorSimple 가상 배열 관리](storsimple-ova-web-ui-admin.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

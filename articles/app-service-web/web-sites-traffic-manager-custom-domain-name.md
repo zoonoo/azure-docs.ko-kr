@@ -1,12 +1,12 @@
 <properties pageTitle="트래픽 관리자를 사용하는 Azure 앱 서비스의 웹앱에 대한 사용자 지정 도메인 이름을 구성합니다."wpickett"부하 분산을 위해 트래픽 관리자를 포함하는 Azure 앱 서비스의 웹앱에 대한 사용자 지정 도메인 이름을 사용합니다." description="부하 분산을 위해 트래픽 관리자를 포함하는 Azure 앱 서비스의 웹앱에 대한 사용자 지정 도메인 이름을 사용합니다." services="app-service\\web" documentationCenter="" authors="rmcmurray" manager="wpickett" editor=""/>
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/04/2016" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/08/2016"
 	ms.author="robmcm"/>
 
 #트래픽 관리자를 사용하는 Azure 앱 서비스의 웹 앱에 대한 사용자 지정 도메인 이름 구성
@@ -38,7 +38,7 @@
 
 사용자 지정 도메인을 Azure 앱 서비스의 웹 앱에 연결하려면 도메인 이름을 구입한 도메인 등록 기관에서 제공하는 도구를 사용하여 DNS 테이블에 사용자 지정 도메인에 대한 새 항목을 추가해야 합니다. DNS 도구를 찾아 사용하려면 다음 단계를 사용하세요.
 
-1. 도메인 등록 기관에서 계정에 로그온하고 DNS 레코드 관리에 대한 페이지를 찾습니다. **도메인 이름**, **DNS** 또는 **이름 서버 관리**로 레이블이 지정된 사이트의 링크 또는 영역을 찾습니다. 종종 이 페이지에 대한 링크는 계정 정보를 확인한 다음 **내 도메인**과 같은 링크를 검색하여 찾을 수 있습니다.
+1. 도메인 등록 기관에서 계정에 로그인하고 DNS 레코드 관리에 대한 페이지를 찾습니다. **도메인 이름**, **DNS** 또는 **이름 서버 관리**로 레이블이 지정된 사이트의 링크 또는 영역을 찾습니다. 종종 이 페이지에 대한 링크는 계정 정보를 확인한 다음 **내 도메인**과 같은 링크를 검색하여 찾을 수 있습니다.
 
 4. 도메인 이름에 대한 관리 페이지를 찾았으면 DNS 레코드를 편집할 수 있는 링크를 찾습니다. 이 링크는 **영역 파일**, **DNS 레코드** 또는 **고급** 구성 링크로 나열될 수 있습니다.
 
@@ -59,4 +59,4 @@
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

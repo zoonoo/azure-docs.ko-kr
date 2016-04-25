@@ -45,7 +45,7 @@ Windows 7 도메인 가입 장치에 대한 장치 등록은 사용자 인터페
 다음을 수행하여 Windows 7 도메인 가입 장치의 등록을 취소할 수 있습니다. System Center Configuration Manager와 같은 소프트웨어 배포 시스템을 사용하여 Windows 7 도메인 가입 장치에서 작업 공간 연결 소프트웨어 패키지를 제거합니다.
 
 그런 다음 Windows 7 컴퓨터에서 명령 프롬프트를 열고 다음 명령을 실행하여 장치 등록을 취소합니다.
-    
+
     %ProgramFiles%\Microsoft Workplace Join\AutoWorkplace.exe /leave
 
 >[AZURE.NOTE]
@@ -57,9 +57,7 @@ Windows 7 컴퓨터의 Windows 이벤트 로그에는 작업 공간 연결과 �
 
 - [Azure Active Directory Device Registration 개요](active-directory-conditional-access-device-registration-overview.md)
 - [도메인 가입 Windows 장치의 Azure Active Directory 자동 장치 등록](active-directory-conditional-access-automatic-device-registration.md)
-- [Windows 8.1 도메인 가입 장치에 대한 자동 장치 등록 구성](active-directory-conditional-access-automatic-device-registration-windows8_1.md)
+- [Windows 8.1 도메인 가입 장치에 대한 자동 장치 등록 구성](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 - [Windows 10 도메인에 가입된 장치의 Azure Active Directory 자동 장치 등록](active-directory-azureadjoin-devices-group-policy.md)
 
- 
-
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

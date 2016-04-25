@@ -46,9 +46,10 @@
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
-* [Xamarin 확장]이 포함된 Visual Studio **또는 OS X의 ** [Xamarin Studio]
-* XCode 4.5 및 iOS 6.0(또는 이후 버전)
+* Xamarin이 포함된 Visual Studio입니다. 지침은 [Visual Studio 및 Xamarin을 위한 설치 및 설정](https://msdn.microsoft.com/library/mt613162.aspx)을 참조하세요. 
+* Xcode v7.0 이상 및 Xamarin Studio Community가 설치된 Mac입니다. [Visual Studio 및 Xamarin을 위한 설정 및 설치](https://msdn.microsoft.com/library/mt613162.aspx) 및 [Mac 사용자를 위한 설정, 설치 및 유효성 검사](https://msdn.microsoft.com/library/mt488770.aspx)(MSDN)를 참조하세요.
 * [모바일 서비스 시작] 자습서 완료
+
 
 ## <a name="review-offline"></a>모바일 서비스 동기화 코드 검토
 
@@ -181,9 +182,6 @@ Azure 모바일 서비스의 오프라인 동기화를 사용하면 최종 사�
 [모바일 서비스 시작]: mobile-services-ios-get-started.md
 [Azure 모바일 서비스용 Xamarin Component 클라이언트를 사용하는 방법]: partner-xamarin-mobile-services-how-to-use-client-library.md
 [일시 삭제]: mobile-services-using-soft-delete.md
-
-[Xamarin Studio]: http://xamarin.com/download
-[Xamarin 확장]: http://xamarin.com/visual-studio
 [Azure 클래식 포털]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/14/2016"
+    ms.date="04/07/2016"
     ms.author="markusvi"/>
 
 
@@ -84,13 +84,13 @@ Azure AD에 대한 자세한 내용을 알아볼 수 있도록 수많은 리소�
 
 - [Azure AD Connect를 사용하여 하이브리드 관리에 디렉터리 사용](active-directory-aadconnect.md)
 
-- [연결된 적이 있는 세계에 대한 추가 보안](multi-factor-authentication.md)
+- [연결된 적이 있는 세계에 대한 추가 보안](../multi-factor-authentication/multi-factor-authentication.md)
 
 - [Azure Active Directory를 사용하여 SaaS 응용 프로그램의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](active-directory-saas-app-provisioning.md)
 
 - [Azure AD Reporting 시작](active-directory-reporting-getting-started.md)
 
-- [어디에서나 암호 관리](articles/active-directory-passwords.md)
+- [어디에서나 암호 관리](active-directory-passwords.md)
 
 - [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
 
@@ -104,4 +104,4 @@ Azure AD에 대한 자세한 내용을 알아볼 수 있도록 수많은 리소�
 
 - [조직 내에서 사용되고 있는 허용되지 않은 클라우드 앱을 검색하는 방법](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0413_2016-->

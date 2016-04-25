@@ -1,10 +1,10 @@
-<properties 
-	pageTitle="Azure에서 제공하는 계산 호스팅 옵션" 
-	description="Azure 계산 호스팅 옵션 및 작동 방식에 대해 알아보세요. 가상 컴퓨터, 웹 사이트, 클라우드 서비스 등" 
-	headerExpose="" 
-	footerExpose="" 
-	services="cloud-services,virtual-machines"
-	authors="Thraka" 
+<properties
+	pageTitle="Azure에서 제공하는 계산 호스팅 옵션"
+	description="Azure 계산 호스팅 옵션 및 작동 방식에 대해 알아보세요. 가상 컴퓨터, 웹 사이트, 클라우드 서비스 등"
+	headerExpose=""
+	footerExpose=""
+	services="cloud-services"
+	authors="Thraka"
 	documentationCenter=""
 	manager="timlt"/>
 
@@ -14,68 +14,50 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/08/2015" 
-	ms.author="adegeo;cephalin;kathydav"/>
+	ms.date="03/28/2016" 
+	ms.author="adegeo"/>
 
 
+# 클라우드 서비스 또는 다른 항목을 선택해야 합니까?
 
+Azure 클라우드 서비스가 적절한 선택입니까? Azure는 응용 프로그램을 실행하기 위한 여러 호스팅 모델을 제공합니다. 각각은 다양한 서비스 세트를 제공하므로 정확히 무엇을 수행하고자 하는지에 따라 선택 항목이 달라집니다.
 
-# Azure에서 제공하는 계산 호스팅 옵션
+[AZURE.INCLUDE [compute-table](../../includes/compute-options-table.md)]
 
-Azure는 응용 프로그램을 실행하기 위한 여러 호스팅 모델을 제공합니다. 각각은 다양한 서비스 세트를 제공하므로 정확히 무엇을 수행하고자 하는지에 따라 선택 항목이 달라집니다. 이 문서는 옵션들을 살펴보면서 각 기술을 설명하고 그 용도의 예제를 제공합니다
+<a name="tellmecs"></a>
+## 클라우드 서비스에 대한 설명
 
-| 계산 옵션 | 대상 |
-| ------------------ | --------   |
-| [앱 서비스] | 모든 장치에 대한 확장 가능한 웹앱, 모바일 앱, API 앱 및 논리 앱 |
-| [클라우드 서비스] | 운영 체제의 향상된 제어를 통한 고가용성의 확장 가능한 N 계층 클라우드 앱 |
-| [가상 컴퓨터] | OS의 완벽한 제어와 더불어 사용자 지정된 Windows 및 Linux VM |
+클라우드 서비스는 PaaS(Platform-as-a-Service)의 예입니다. [앱 서비스](../app-service-web/app-service-web-overview.md)와 마찬가지로 이 기술은 확장성 있고 안정적이며 운영 비용이 저렴한 응용 프로그램을 지원하도록 설계되었습니다. 앱 서비스와 마찬가지로 클라우드 서비스도 VM에서 호스트되지만 VM에 대한 제어력이 높습니다. 클라우드 서비스 VM에 원하는 소프트웨어를 설치하여 원격으로 실행할 수 있습니다.
 
-[AZURE.INCLUDE [콘텐츠](../../includes/app-service-choose-me-content.md)]
+![cs\_diagram](./media/cloud-services-choose-me/diagram.png)
 
-[AZURE.INCLUDE [콘텐츠](../../includes/cloud-services-choose-me-content.md)]
+이처럼 VM을 더욱 긴밀하게 제어하게 되면 사용 편의성은 낮아지므로 추가 제어 옵션이 필요한 경우가 아니면 일반적으로는 클라우드 서비스에 비해 앱 서비스의 웹앱에서 웹 응용 프로그램을 작동하고 실행하는 것이 더 빠르고 간편합니다.
 
-[AZURE.INCLUDE [콘텐츠](../../includes/virtual-machines-choose-me-content.md)]
+이 기술은 약간 다른 두 가지 VM 옵션을 제공합니다. *웹 역할* 인스턴스는 IIS로 Windows Server 변형을 실행하고, *작업자 역할*은 동일한 Windows Server 변형을 IIS를 사용하지 않고 실행합니다. 클라우드 서비스 응용 프로그램은 이러한 두 옵션을 일부 조합하여 사용합니다.
 
-## 기타 옵션
+이렇게 약간 다른 두 가지 VM 호스팅 옵션의 모든 조합을 클라우드 서비스에서 이용할 수 있습니다.
 
-Azure에서는 좀 더 특수한 용도로 사용할 수 있는 다음과 같은 기타 계산 호스팅 모델도 제공합니다.
+* **웹 역할** IIS에 자동으로 배포된 웹앱과 함께 Windows Server를 실행합니다.
+  
+* **작업자 역할** IIS 없이 Windows Server를 실행합니다.
 
-* [모바일 서비스](/services/mobile-services/) 모바일 장치에서 실행되는 앱용 클라우드 백 엔드를 제공하도록 최적화되어 있습니다.
-* [일괄 처리](/services/batch/) 많은 양의 비슷한 작업(여러 컴퓨터에서 병렬 작업으로 실행되는 작업이 가장 적합함)을 처리하도록 최적화되어 있습니다.
-* [HDInsight (Hadoop)](/services/hdinsight/)Hadoop 클러스터에서 [ MapReduce](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options/#hadoop) 작업을 실행하도록 최적화되어 있습니다. 
+예를 들어 간단한 응용 프로그램은 웹 역할만 사용할 수 있지만 좀더 복잡한 응용 프로그램은 웹 역할을 사용하여 사용자로부터의 수신 요청을 처리한 후 요청을 만든 작업을 작업자 역할에 전달하여 처리할 수 있습니다. 이 통신은 [서비스 버스](../service-bus/service-bus-fundamentals-hybrid-solutions.md)나 [Azure 큐](../storage/storage-introduction.md)를 사용할 수 있음)
 
-## 무엇을 사용해야 합니까? 모델 선택
+위에 나와 있는 것처럼 단일 응용 프로그램의 모든 VM은 동일한 클라우드 서비스에서 실행됩니다. 그렇기 때문에 사용자는 응용 프로그램 VM의 자동 부하 분산 요청으로 하나의 공용 IP 주소를 통해 응용 프로그램에 액세스합니다. 플랫폼은 하드웨어 오류를 방지하는 방식으로 클라우드 서비스 응용 프로그램에 VM을 [확장 및 배포](cloud-services-how-to-scale.md)합니다.
 
-세 가지 범용 Azure 계산 호스팅 모델은 모두 확장 가능하며 안정적인 응용 프로그램을 클라우드에서 빌드할 수 있는 기능을 제공합니다. 기본적으로 유사하다면 어느 모델을 사용해야 합니까?
+응용 프로그램이 가상 컴퓨터에서 실행된다 해도 클라우드 서비스가 IaaS가 아닌 PaaS를 제공한다는 사실을 이해하는 것이 중요합니다. 다음과 같이 생각해보겠습니다. Azure 가상 컴퓨터처럼 IaaS로 응용 프로그램이 실행될 환경을 우선 만들고 구성한 후 응용 프로그램을 이 환경에 배포합니다. 각 VM에 운영 체제의 새 패치 버전을 배포하는 것과 같은 작업을 수행하며 많은 작업에 대해 관리해야 합니다. 그와 반대로 PaaS에서는 환경이 이미 존재하는 것과 같아 응용 프로그램을 배포하기만 하면 됩니다. 응용 프로그램이 실행되는 플랫폼을 관리합니다(운영 체제의 새 버전 배포 포함).
 
-대부분의 웹앱에서는 앱 서비스가 가장 적합합니다. Azure 웹 사이트에서는 배포와 관리 기능이 플랫폼에 통합되고, 높은 트래픽 부하를 처리하기 위해 사이트를 빠르게 확장할 수 있으며, 기본 제공 부하 분산 및 트래픽 관리자가 고가용성을 제공합니다. [온라인 마이그레이션 도구](https://www.migratetoazure.net/)를 사용하여 기존 사이트를 앱 서비스로 쉽게 이동하거나, 웹 응용 프로그램 갤러리에서 오픈 소스 앱을 사용하거나, 원하는 프레임워크와 도구를 사용하여 새 사이트를 만들 수 있습니다. [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) 기능을 사용하면 백그라운드 작업 처리 기능을 앱에 쉽게 추가할 수 있으며 웹앱이 아닌 계산 작업도 실행할 수 있습니다.
+## 확장 및 관리
+클라우드 서비스로 가상 컴퓨터를 만들지 않습니다. 대신 웹 역할 인스턴스 **세 개 웹 역할 인스턴스** 및 **두 개 작업자 역할 인스턴스**같이 원하는 개수를 Azure에게 알려 주는 구성 파일을 제공하고 플랫폼에서는 이를 만듭니다. 사용자는 이들 지원 VM의 [실제 크기](cloud-services-sizes-specs.md)를 선택하지만 명시적으로 직접 만들는지는 않습니다. 응용 프로그램이 더 큰 부하를 처리해야 하면 더 많은 VM을 요구할 수 있으며 Azure가 그러한 인스턴스를 만듭니다. 부하가 감소하면 이러한 인스턴스를 종료하여 지불을 중지할 수 있습니다.
 
-서버에 원격 접속하거나 서버 시작 작업을 구성하는 기능 등 웹 서버 환경에 대한 추가 제어 기능이 필요한 경우에는 대개 Azure 클라우드 서비스가 가장 적합한 옵션입니다.
+클라우드 서비스 응용 프로그램은 사용자가 사용할 수 있도록 일반적으로 두 단계 프로세스를 통해 만들어집니다. 우선 개발자가 응용 프로그램을 플랫폼의 [준비 영역에 업로드합니다](cloud-services-how-to-create-deploy.md). 개발자가 응용 프로그램을 사용할 준비가 되면 Azure 관리 포털을 사용하여 프로덕션 상태가 되도록 요청합니다. [준비와 프로덕션 간의 이러한](cloud-services-nodejs-stage-application.md) 전환은 가동 중지 시간 없이 수행될 수 있어서 사용자를 방해하지 않고도 실행 중인 응용 프로그램을 새 버전으로 업그레이드할 수 있습니다.
 
-Azure 웹 사이트 또는 Azure 클라우드 서비스에서 실행하려면 기존 응용 프로그램을 크게 수정해야 하는 경우에는 클라우드로의 마이그레이션을 간소화하기 위해 Azure 가상 컴퓨터를 선택할 수 있습니다. 그러나 VM을 올바르게 구성, 보호 및 유지 관리하려면 Azure 웹 사이트와 클라우드 서비스에 비해 훨씬 많은 시간과 IT 전문 지식이 필요합니다. Azure 가상 컴퓨터를 고려 중인 경우 VM 환경 패치/업데이트/관리에 필요한 지속적인 유지 관리 작업을 고려해야 합니다.
+## 모니터링
+클라우드 서비스는 모니터링도 제공합니다. Azure 가상 컴퓨터처럼 클라우드 서비스는 오류가 발생한 물리적 서버를 검색하여 해당 서버에서 실행 중이었던 VM을 새 컴퓨터에서 다시 시작합니다. 하지만 클라우드 서비스는 하드웨어 오류뿐만 아니라 오류가 발생한 VM과 응용 프로그램도 검색합니다. 가상 컴퓨터와 달리 클라우드 서비스에는 각 웹 역할 및 작업자 역할 내에 에이전트가 있어서 오류가 발생할 때 새 VM 및 응용 프로그램 인스턴스를 시작할 수 있습니다.
 
-적합한 옵션이 없는 수도 있습니다. 이런 경우 옵션을 조합하는 것이 가장 좋습니다. 예를 들어 클라우드 서비스 웹 역할의 관리 혜택을 원하는 위치에 응용 프로그램을 구축하고 있으나 호환성 및 성능 상의 이유로 가상 컴퓨터에서 호스트되는 표준 SQL Server를 사용해야 한다고 가정합니다.
-
-<!-- In this case, the best option is to combine compute hosting options, as the figure below shows.--
-
-<a name="fig4"></a>
-![07_CombineTechnologies][07_CombineTechnologies] 
- 
-**Figure: A single application can use multiple hosting options.**
-
-As the figure illustrates, the Cloud Services VMs run in a separate cloud service from the Virtual Machines VMs. Still, the two can communicate quite efficiently, so building an app this way is sometimes the best choice.
-[07_CombineTechnologies]: ./media/fundamentals-application-models/ExecModels_07_CombineTechnologies.png
-!-->
-
-[앱 서비스]: #tellmeas
-[가상 컴퓨터]: #tellmevm
-[클라우드 서비스]: #tellmecs
+클라우드 서비스의 PaaS 특성에는 다른 것도 있습니다. 가장 중요한 것 중 하나는 웹 역할 또는 작업자 역할 인스턴스에 오류가 발생할 때 이 기술로 구축된 응용 프로그램이 제대로 실행되도록 작성되어야 한다는 점입니다. 이렇게 하려면 클라우드 서비스 응용 프로그램이 자체 VM의 파일 시스템 상태를 관리해서는 안 됩니다. Azure 가상 컴퓨터로 만들어진 VM과 달리 클라우드 서비스 VM에 실행된 쓰기는 영구적이지 않습니다. 가상 컴퓨터 데이터 디스크가 가장 좋습니다. 대신 클라우드 서비스 응용 프로그램은 SQL 데이터베이스, Blob, 테이블 또는 일부 기타 외부 저장소에 모든 상태를 명확하게 작성해야 합니다. 이 방법으로 응용 프로그램을 구축하면 보다 쉽게 확장하고 오류를 방어할 수 있으며, 둘 다 클라우드 서비스의 중요한 목표입니다.
 
 ## 다음 단계
+[.NET에서 클라우드 서비스 앱 만들기](cloud-services-dotnet-get-started.md) [Node.js에서 클라우드 서비스 앱 만들기](cloud-services-nodejs-develop-deploy-app.md) [PHP에서 클라우드 서비스 앱 만들기](../cloud-services-php-create-web-role.md) [Python에서 클라우드 서비스 앱 만들기](../cloud-services-python-ptvs.md)
 
-* Azure 앱 서비스, 클라우드 서비스 및 가상 컴퓨터 [비교](../choose-web-site-cloud-service-vm/)
-* [앱 서비스](../app-service-web-overview.md)에 대해 자세히 알아보세요.
-* [클라우드 서비스](services/cloud-services/)에 대해 자세히 알아보세요.
-* [가상 컴퓨터](https://msdn.microsoft.com/library/azure/jj156143.aspx)에 대해 자세히 알아봅니다. 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0413_2016-->

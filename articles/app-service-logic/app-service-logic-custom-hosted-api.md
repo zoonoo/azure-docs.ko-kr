@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="논리 앱에서 사용자 지정 API 호출" 
-	description="논리 앱으로 앱 서비스에서 호스팅되는 사용자 지정 API 사용" 
-	authors="stepsic-microsoft-com" 
-	manager="dwrede" 
-	editor="" 
-	services="app-service\logic" 
+<properties
+	pageTitle="논리 앱에서 사용자 지정 API 호출"
+	description="논리 앱으로 앱 서비스에서 호스팅되는 사용자 지정 API 사용"
+	authors="stepsic-microsoft-com"
+	manager="dwrede"
+	editor=""
+	services="app-service\logic"
 	documentationCenter=""/>
 
 <tags
 	ms.service="app-service-logic"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
-	ms.devlang="na"	
+	ms.devlang="na"
 	ms.topic="article"
 	ms.date="02/23/2016"
 	ms.author="stepsic"/>
-	
+
 # 논리 앱으로 앱 서비스에서 호스팅되는 사용자 지정 API 사용
 
 논리 앱에는 다양한 서비스에 대해 40개가 넘는 다양한 집합의 커넥터가 있으나 고유의 코드를 실행할 수 있는 고유의 사용자 지정 API를 호출하려 할 수 있습니다. 고유의 사용자 지정 Web API를 호스트하는 가장 쉽고 확장성이 뛰어난 방법 중 하나는 앱 서비스를 사용하는 것입니다. 이 문서에서는 앱 서비스 API 앱, 웹앱 또는 모바일 앱에서 호스트되는 Web API를 호출하는 방법을 설명합니다.
@@ -37,7 +37,7 @@ API를 보호하려면 두 가지 다른 방법이 있습니다.
 1. 코드 변경 필요하지 않음 - Azure Active Directory를 사용하여 코드 변경 또는 다시 배포 없이 API를 보호할 수 있습니다.
 1. API의 코드에서 기본 인증, AAD 인증 또는 인증서 인증을 적용합니다.
 
-## 코드 변경 없이 API에 호출 보호 
+## 코드 변경 없이 API에 호출 보호
 
 이 섹션에서는 하나의 논리 앱 및 하나의 웹앱, 총 두 가지 Azure Active Directory 응용 프로그램을 만듭니다. 논리 앱용 AAD 응용 프로그램과 관련된 서비스 주체(클라이언트 ID 및 암호)를 사용하여 웹앱에 호출을 인증할 수 있습니다. 마지막으로 논리 앱 정의에서 응용 프로그램 ID를 포함합니다.
 
@@ -71,12 +71,12 @@ API를 보호하려면 두 가지 다른 방법이 있습니다.
 #### Azure 포털에서 권한 부여 사용
 
 1. 웹앱으로 이동하고 명령 모음에서 **설정**을 클릭합니다.
-2. **권한 부여/인증**을 클릭합니다. 
+2. **권한 부여/인증**을 클릭합니다.
 3. **켭니다**.
 
 이 시점에서 응용 프로그램은 사용자에 대해 자동으로 만들어집니다. 이 응용 프로그램의 클라이언트 ID는 3부에 필요하므로 다음을 수행해야 합니다.
 
-1. [Azure 클래식 포털의 Active Directory](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory)로 이동하고 디렉터리를 선택합니다. 
+1. [Azure 클래식 포털의 Active Directory](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory)로 이동하고 디렉터리를 선택합니다.
 2. 검색 상자에서 앱 검색
 3. 목록에서 클릭
 4. **구성** 탭을 클릭합니다.
@@ -110,7 +110,9 @@ API를 보호하려면 두 가지 다른 방법이 있습니다.
 ]
 ```
 
-AAD를 사용하는 빈 웹앱 및 논리 앱을 함께 배포하는 자동 배포를 실행하려면 다음 단추를 클릭합니다. [![Azure에 배포](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-custom-api%2Fazuredeploy.json)
+AAD를 사용하는 빈 웹앱 및 논리 앱을 함께 배포하는 자동 배포를 실행하려면 다음 단추를 클릭합니다.
+
+[![Azure에 배포](./media/app-service-logic-custom-hosted-api/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-custom-api%2Fazuredeploy.json)로 바꿉니다.
 
 전체 템플릿은 [AAD에서 보호하고 앱 서비스에서 호스팅되는 사용자 지정 API로 논리 앱 호출](https://github.com/Azure/azure-quickstart-templates/blob/master/201-logic-app-custom-api/azuredeploy.json)을 참조하세요.
 
@@ -125,7 +127,7 @@ AAD를 사용하는 빈 웹앱 및 논리 앱을 함께 배포하는 자동 배�
 | tenant | AD 테넌트를 식별하는 데 사용되는 테넌트 ID입니다. |
 | audience | 필수입니다. 연결 중인 리소스입니다. |
 | clientID | Azure AD 응용 프로그램의 클라이언트 ID입니다. |
-| secret | 필수입니다. 토큰을 요청하는 클라이언트의 암호입니다. | 
+| secret | 필수입니다. 토큰을 요청하는 클라이언트의 암호입니다. |
 
 위의 템플릿이 이미 이를 설치했지만 직접 논리 앱에 권한을 부여하려면 전체 권한 부여 섹션을 포함해야 합니다.
 
@@ -154,7 +156,7 @@ AAD를 사용하는 빈 웹앱 및 논리 앱을 함께 배포하는 자동 배�
 | type | 필수입니다. 인증 유형입니다. 기본 인증의 경우 이 값은 기본입니다. |
 | username | 필수입니다. 인증하기 위한 사용자 이름입니다. |
 | password | 필수입니다. 인증하기 위한 암호입니다. |
- 
+
 ### 코드에서 AAD 인증 처리
 
 기본적으로 포털에서 사용할 수 있는 Azure Active Directory 인증은 세분화된 권한 부여를 수행하지 않습니다. 예를 들어 API를 특정 사용자 또는 앱에 잠금을 만들지 않지만 특정 테넌트에는 잠금을 만듭니다.
@@ -165,4 +167,4 @@ AAD를 사용하는 빈 웹앱 및 논리 앱을 함께 배포하는 자동 배�
 
 위의 단계를 계속해서 수행하여 논리 앱에 대한 응용 프로그램 ID를 만들고 해당 ID를 사용하여 API를 호출해야 합니다.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

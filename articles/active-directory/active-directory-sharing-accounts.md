@@ -65,7 +65,7 @@ Azure AD를 사용하여 계정을 공유하려면 다음이 필요합니다.
 - [그룹 기반 할당](active-directory-accessmanagement-group-saasapps.md)을 사용하고 옵션을 선택하여 공유 자격 증명 입력
 - 선택 사항: Facebook, Twitter 또는 LinkedIn 등의 일부 응용 프로그램에서는 [Azure AD 자동 암호 롤오버](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx) 옵션을 사용할 수 있습니다.
 
-또한 MFA(Multi-Factor Authentication)로 공유 계정의 보안을 강화하고([Azure AD를 통한 응용 프로그램 보호](multi-factor-authentication-get-started.md)에 대한 자세한 정보) [Azure AD 셀프 서비스](active-directory-accessmanagement-self-service-group-management.md) 그룹 관리를 사용하여 응용 프로그램에 대한 액세스 권한이 있는 관리자에게 기능을 위임할 수 있습니다.
+또한 MFA(Multi-Factor Authentication)로 공유 계정의 보안을 강화하고([Azure AD를 통한 응용 프로그램 보호](../multi-factor-authentication/multi-factor-authentication-get-started.md)에 대한 자세한 정보) [Azure AD 셀프 서비스](active-directory-accessmanagement-self-service-group-management.md) 그룹 관리를 사용하여 응용 프로그램에 대한 액세스 권한이 있는 관리자에게 기능을 위임할 수 있습니다.
 
 ## 관련된 문서
 
@@ -73,4 +73,4 @@ Azure AD를 사용하여 계정을 공유하려면 다음이 필요합니다.
 - [조건부 액세스를 사용한 앱 보호](active-directory-conditional-access.md)
 - [셀프 서비스 그룹 관리/SSAA](active-directory-accessmanagement-self-service-group-management.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

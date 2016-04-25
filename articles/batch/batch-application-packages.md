@@ -198,10 +198,11 @@ Azure 포털을 사용하여 응용 프로그램 패키지를 업로드하고 �
 ```csharp
 // Create the unbound CloudPool
 CloudPool myCloudPool =
-    batchClient.PoolOperations.CreatePool(poolId: "myPool",
-                                          osFamily: "4",
-                                          virtualMachineSize: "small",
-                                          targetDedicated: "1");
+    batchClient.PoolOperations.CreatePool(
+        poolId: "myPool",
+        targetDedicated: "1",
+        virtualMachineSize: "small",
+        cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));
 
 // Specify the application and version to install on the compute nodes
 myCloudPool.ApplicationPackageReferences = new List<ApplicationPackageReference>
@@ -316,4 +317,4 @@ foreach (ApplicationSummary app in applications)
 [12]: ./media/batch-application-packages/app_pkg_12.png "Azure 포털의 패키지 삭제 확인 대화 상자"
 [13]: ./media/batch-application-packages/app_pkg_13.png "메타데이터 파일 선택 세부 사항"
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

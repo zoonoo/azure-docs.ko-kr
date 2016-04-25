@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="독립 실행형 Scala 응용 프로그램을 만들어 HDInsight Spark 클러스터에서 실행하기 | Microsoft Azure" 
-	description="독립 실행형 Spark 응용 프로그램을 만들어 HDInsight Spark 클러스터에서 실행하는 방법에 대해 알아봅니다." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="nitinme" 
-	manager="paulettm" 
+<properties
+	pageTitle="독립 실행형 Scala 응용 프로그램을 만들어 HDInsight Spark 클러스터에서 실행하기 | Microsoft Azure"
+	description="독립 실행형 Spark 응용 프로그램을 만들어 HDInsight Spark 클러스터에서 실행하는 방법에 대해 알아봅니다."
+	services="hdinsight"
+	documentationCenter=""
+	authors="nitinme"
+	manager="paulettm"
 	editor="cgronlun"
 	tags="azure-portal"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/05/2016" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/05/2016"
 	ms.author="nitinme"/>
 
 
@@ -34,7 +34,7 @@
 * Azure 구독. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 * HDInsight Linux의 Apache Spark 클러스터입니다. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](hdinsight-apache-spark-jupyter-spark-sql.md)를 참조하세요.
 * Oracle Java Development 키트. [여기](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)에서 설치할 수 있습니다.
-* Java IDE. 이 문서에서는 IntelliJ IDEA 15.0.1을 사용합니다. [여기](https://www.jetbrains.com/idea/download/)에서 설치할 수 있습니다. 
+* Java IDE. 이 문서에서는 IntelliJ IDEA 15.0.1을 사용합니다. [여기](https://www.jetbrains.com/idea/download/)에서 설치할 수 있습니다.
 
 
 ## IntelliJ IDEA용 Scala 플러그 인 설치
@@ -81,7 +81,7 @@ IntelliJ IDEA 설치가 Scala 플러그 인 활성화를 묻지 않은 경우 In
 	1. **파일** 메뉴에서 **설정**을 클릭합니다.
 	2. **설정** 대화 상자에서 **빌드, 실행, 배포** > **빌드 도구** > **Maven** > **가져오기**로 이동합니다.
 	3. **Maven 프로젝트 자동으로 가져오기**에 옵션을 선택합니다.
-	4. **적용**을 클릭한 다음 **확인**을 클릭합니다. 
+	4. **적용**을 클릭한 다음 **확인**을 클릭합니다.
 
 
 8. Scala 소스 파일을 업데이트하여 응용 프로그램 코드를 포함합니다. 기존 샘플 코드를 열고 다음 코드로 바꾸고 변경 내용을 저장합니다. 이 코드는 HVAC.csv(모든 HDInsight Spark 클러스터에서 사용 가능)에서 데이터를 읽고, 여섯 번째 열에 한 자리만 있는 행을 검색하고, 출력을 클러스터의 기본 저장 컨테이너 아래의 **/HVACOut**에 씁니다.
@@ -90,7 +90,7 @@ IntelliJ IDEA 설치가 Scala 플러그 인 활성화를 묻지 않은 경우 In
 
 		import org.apache.spark.SparkConf
 		import org.apache.spark.SparkContext
-		
+
 		/**
 		  * Test IO to wasb
 		  */
@@ -98,12 +98,12 @@ IntelliJ IDEA 설치가 Scala 플러그 인 활성화를 묻지 않은 경우 In
 		  def main (arg: Array[String]): Unit = {
 		    val conf = new SparkConf().setAppName("WASBIOTest")
 		    val sc = new SparkContext(conf)
-		
+
 		    val rdd = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
-		
+
 		    //find the rows which have only one digit in the 7th column in the CSV
 		    val rdd1 = rdd.filter(s => s.split(",")(6).length() == 1)
-		
+
 		    rdd1.saveAsTextFile("wasb:///HVACout")
 		  }
 		}
@@ -158,7 +158,7 @@ IntelliJ IDEA 설치가 Scala 플러그 인 활성화를 묻지 않은 경우 In
 
 클러스터에서 응용 프로그램을 실행하려면 다음을 수행해야 합니다.
 
-* 클러스터와 연결된 **Azure 저장소 Blob에 응용 프로그램 jar을 복사**합니다. 이렇게 하기 위해 명령줄 유틸리티 [**AzCopy**](storage/storage-use-azcopy.md)를 사용할 수 있습니다. 데이터를 업로드하는 데 사용할 수 있는 다른 클라이언트도 많이 있습니다. [HDInsight에서 Hadoop 작업용 데이터 업로드](hdinsight-upload-data.md)에서 자세한 정보를 찾을 수 있습니다.
+* 클러스터와 연결된 **Azure 저장소 Blob에 응용 프로그램 jar을 복사**합니다. 이렇게 하기 위해 명령줄 유틸리티 [**AzCopy**](../storage/storage-use-azcopy.md)를 사용할 수 있습니다. 데이터를 업로드하는 데 사용할 수 있는 다른 클라이언트도 많이 있습니다. [HDInsight에서 Hadoop 작업용 데이터 업로드](hdinsight-upload-data.md)에서 자세한 정보를 찾을 수 있습니다.
 
 * **Livy를 사용하여 응용 프로그램 작업을 원격으로** Spark 클러스터에 제출합니다. HDInsight의 Spark 클러스터에는 Spark 작업을 원격으로 제출하는 REST 끝점을 노출하는 Livy가 포함됩니다. 자세한 내용은 [HDInsight의 Spark 클러스터와 함께 Livy를 사용하여 원격으로 Spark 작업 제출](hdinsight-apache-spark-livy-rest-interface.md)을 참조하세요.
 
@@ -196,4 +196,4 @@ IntelliJ IDEA 설치가 Scala 플러그 인 활성화를 묻지 않은 경우 In
 
 * [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

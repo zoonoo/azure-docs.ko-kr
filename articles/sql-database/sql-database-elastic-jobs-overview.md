@@ -2,8 +2,9 @@
 	pageTitle="탄력적 데이터베이스 작업 개요 | Microsoft Azure" 
 	description="탄력적 데이터베이스 작업 서비스를 설명합니다." 
 	metaKeywords="azure sql database elastic databases" 
-	services="sql-database" documentationCenter=""  
-	manager="jeffreyg" 
+	services="sql-database" 
+    documentationCenter=""  
+	manager="jhubbard" 
 	authors="ddove"/>
 
 <tags 
@@ -124,4 +125,6 @@
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0224_2016-->
+ 
+
+<!---HONumber=AcomDC_0413_2016-->

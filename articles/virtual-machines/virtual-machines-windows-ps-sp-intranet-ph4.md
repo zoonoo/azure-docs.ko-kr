@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="04/01/2016"
 	ms.author="josephd"/>
 
 # SharePoint 인트라넷 팜 워크로드 4단계: SharePoint 서버 구성
@@ -205,4 +205,4 @@ SharePoint에서는 팜을 만들 때 주 SQL Server 가상 컴퓨터에 서버 
 
 - [5단계](virtual-machines-windows-ps-sp-intranet-ph5.md)를 사용하여 이 워크로드의 구성을 계속합니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

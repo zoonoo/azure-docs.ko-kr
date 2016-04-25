@@ -4,7 +4,7 @@
 	services="cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="04/06/2016" 
 	ms.author="sdanie"/>
 
 # Azure 관리된 캐시 서비스 사용 방법
 
 이 가이드에서는 **Azure 관리된 캐시 서비스**를 사용하는 방법을 설명합니다. 샘플은 C# 코드로 작성되었고 .NET API를 사용합니다. **캐시 클러스터 만들기와 구성**, **캐시 클라이언트 구성**, **캐시에서 개체 추가 및 삭제, 캐시에 ASP.NET 세션 상태 저장**, **캐시를 사용하여 ASP.NET 페이지 출력 캐싱 활성화** 등의 시나리오를 다룹니다. Azure 캐시 사용에 대한 자세한 내용은 [다음 단계][] 섹션을 참조하세요.
 
->[AZURE.IMPORTANT]2016년 11월 30일부터 Azure 관리 캐시된 서비스 및 Azure In-Role Cache가 사용 중지됩니다. 이러한 사용 중지에 대비하기 위해 Azure Redis Cache로 마이그레이션하는 것이 좋습니다. 날짜 및 마이그레이션 지침에 대한 자세한 내용은 [내게 적합한 Azure 캐시 제품은 무엇인가요?](../redis-cache/cache-faq.md#which-azure-cache-offering-is-right-for-me)를 참조하세요.
+>[AZURE.IMPORTANT]작년 [알림](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)에 따라 Azure 관리된 캐시 서비스 및 Azure In-Role Cache 서비스가 2016년 11월 30일에 종료됩니다. [Azure Redis Cache](https://azure.microsoft.com/services/cache/)를 사용할 것을 권장합니다. 마이그레이션에 대한 자세한 내용은 [관리된 캐시 서비스에서 Azure Redis Cache로 마이그레이션](../redis-cache/cache-migrate-to-redis.md)을 참조하세요.
 
 <a name="what-is"></a>
 ## Azure 관리된 캐시 서비스란?
@@ -484,4 +484,4 @@ Azure 캐시에 출력 캐시 공급자를 사용하는 방법에 대한 자세�
 [Which Azure Cache offering is right for me?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

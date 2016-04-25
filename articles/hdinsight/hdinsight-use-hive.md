@@ -70,11 +70,11 @@ Hive 내부 테이블 및 외부 테이블에 대해 알아야 할 사항이 몇
 
 Azure Blob 저장소가 HDInsight의 기본 저장소이므로 HiveQL의 **/example/data/sample.log**를 사용하여 파일에 액세스할 수도 있습니다.
 
-> [AZURE.NOTE] 구문 ****wasb:///**는 HDInsight 클러스터의 기본 저장소 컨테이너에 저장된 파일에 액세스하는 데 사용됩니다. 클러스터를 프로비전할 때 추가 저장소 계정을 지정한 경우 이러한 계정에 저장된 파일에 액세스하려면 컨테이너 이름과 저장소 계정 주소를 지정하여 데이터에 액세스하면 됩니다. 예를 들어 ****wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**와 같습니다.
+> [AZURE.NOTE] 구문 **wasb:///**는 HDInsight 클러스터의 기본 저장소 컨테이너에 저장된 파일에 액세스하는 데 사용됩니다. 클러스터를 프로비전할 때 추가 저장소 계정을 지정한 경우 이러한 계정에 저장된 파일에 액세스하려면 컨테이너 이름과 저장소 계정 주소를 지정하여 데이터에 액세스하면 됩니다. 예를 들어 **wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**와 같습니다.
 
 ##<a id="job"></a>샘플 작업: 구분된 데이터에 열을 투영
 
-다음 HiveQL 문은 ****wasb:///example/data** 디렉터리에 저장된 구분된 데이터의 열에 투영됩니다.
+다음 HiveQL 문은 **wasb:///example/data** 디렉터리에 저장된 구분된 데이터의 열에 투영됩니다.
 
 	DROP TABLE log4jLogs;
     CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
@@ -162,6 +162,8 @@ SSIS(SQL Server Integration Services)를 사용하여 Hive 작업을 실행할 �
 
 - [HDInsight에 데이터 업로드][hdinsight-upload-data]
 - [HDInsight에서 Pig 사용][hdinsight-use-pig]
+- [HDInsight에서 Sqoop 사용](hdinsight-use-sqoop.md)
+- [HDInsight에서 Oozie 사용](hdinsight-use-oozie.md)
 - [HDInsight에서 MapReduce 작업 사용][hdinsight-use-mapreduce]
 
 [check]: ./media/hdinsight-use-hive/hdi.checkmark.png
@@ -194,7 +196,7 @@ SSIS(SQL Server Integration Services)를 사용하여 Hive 작업을 실행할 �
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-get-started]: hdinsight-get-started.md
 
-[Powershell-install-configure]: ../install-configure-powershell.md
+[Powershell-install-configure]: ../powershell-install-configure.md
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
 [image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
@@ -204,4 +206,4 @@ SSIS(SQL Server Integration Services)를 사용하여 Hive 작업을 실행할 �
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

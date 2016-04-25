@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="리소스 관리자에서 템플릿을 사용하여 여러 NIC VM 배포 | Microsoft Azure"
    description="리소스 관리자에서 템플릿을 사용하여 여러 NIC VM을 배포하는 방법에 대해 알아봅니다."
    services="virtual-network"
@@ -27,7 +27,7 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-현재는 단일 NIC가 사용되는 VM과 여러 NIC가 사용되는 VM을 동일 리소스 그룹에서 사용할 수 없기 때문에 백 엔드 서버는 리소스 그룹에서 구현하고 다른 모든 구성 요소는 다른 보안 그룹에서 구현하게 됩니다. 다음 단계에서는 기본 리소스 그룹에 *IaaSStory* 라는 리소스 그룹을, 백 엔드 서버에는 *IaaSStory-BackEnd* 를 사용합니다.
+현재는 단일 NIC가 사용되는 VM과 여러 NIC가 사용되는 VM을 동일 리소스 그룹에서 사용할 수 없기 때문에 백 엔드 서버는 리소스 그룹에서 구현하고 다른 모든 구성 요소는 다른 보안 그룹에서 구현하게 됩니다. 다음 단계에서는 기본 리소스 그룹에 *IaaSStory*라는 리소스 그룹을, 백 엔드 서버에는 *IaaSStory-BackEnd*를 사용합니다.
 
 ## 필수 조건
 
@@ -229,20 +229,20 @@ PowerShell을 사용하여 다운로드한 템플릿을 배포하려면 다음 �
 
 		New-AzureRmResourceGroup -Name IaaSStory-Backend -Location uswest `
 		    -TemplateFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.json' `
-		    -TemplateParameterFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.parameters.json'	
+		    -TemplateParameterFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.parameters.json'
 
 	예상된 출력:
 
 		ResourceGroupName : IaaSStory-Backend
 		Location          : westus
 		ProvisioningState : Succeeded
-		Tags              : 
-		Permissions       : 
+		Tags              :
+		Permissions       :
 		                    Actions  NotActions
 		                    =======  ==========
 		                    *                  
-		                    
-		Resources         : 
+
+		Resources         :
 		                    Name                 Type                                 Location
 		                    ===================  ===================================  ========
 		                    ASDB                 Microsoft.Compute/availabilitySets   westus  
@@ -253,14 +253,14 @@ PowerShell을 사용하여 다운로드한 템플릿을 배포하려면 다음 �
 		                    NICDB-RA-1           Microsoft.Network/networkInterfaces  westus  
 		                    NICDB-RA-2           Microsoft.Network/networkInterfaces  westus  
 		                    wtestvnetstorageprm  Microsoft.Storage/storageAccounts    westus  
-		                    
+
 		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory-Backend
 
 ## Azure CLI를 사용하여 템플릿 배포
 
 Azure CLI를 사용하여 템플릿을 배포하려면 아래 단계를 따르세요.
 
-1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](xplat-cli.md)을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
+1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](../xplat-cli-install.md)을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
 2. 다음과 같이 **`azure config mode`** 명령을 실행하여 리소스 관리자 모드로 전환합니다.
 
 		azure config mode arm
@@ -292,4 +292,4 @@ Azure CLI를 사용하여 템플릿을 배포하려면 아래 단계를 따르�
 		data:
 		info:    group create command OK
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

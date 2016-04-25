@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 기계 학습의 기능 엔지니어링 및 선택 | Microsoft Azure" 
+	pageTitle="Azure 기계 학습의 기능 엔지니어링 및 선택 | Microsoft Azure"
 	description="기능 선택 및 기능 엔지니어링의 목적을 설명하고 기계 학습의 데이터 향상 프로세스에서 수행하는 역할의 예를 제공합니다."
 	services="machine-learning"
 	documentationCenter=""
@@ -51,7 +51,7 @@
 
 Azure 기계 학습을 시작할 때 스튜디오에 제공된 샘플을 사용하면 이 프로세스를 구체적으로 파악하기가 쉽습니다. 다음은 제공되는 두 가지 예입니다.
 
-* 대상 값이 알려진 감독된 실험에서의 회귀 예제 [자전거 대여 수 예측](../machine-learning-sample-prediction-of-number-of-bike-rentals.md)
+* 대상 값이 알려진 감독된 실험에서의 회귀 예제 [자전거 대여 수 예측](http://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4)
 * [기능 해싱][feature-hashing]을 사용하는 텍스트 마이닝 분류 예제
 
 ### 예 1: 회귀 모델을 위해 시간 기능 추가 ###
@@ -133,6 +133,5 @@ Azure 기계 학습 스튜디오에서는 기능 선택에 제공되는 모듈�
 [feature-hashing]: https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/
 [filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/
 [fisher-linear-discriminant-analysis]: https://msdn.microsoft.com/library/azure/dcaab0b2-59ca-4bec-bb66-79fd23540080/
- 
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

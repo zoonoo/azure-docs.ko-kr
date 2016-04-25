@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="tfitzmac"
 	manager="timlt"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="azure-resource-manager"
@@ -64,19 +64,21 @@ Azure 포털, Azure PowerShell, Azure CLI, Insights REST API 또는 [Insights .N
 
 1. 로그 항목을 검색하려면 **Get-AzureRmLog** 명령을 실행합니다. 항목의 목록을 필터링하는 추가 매개 변수를 제공합니다. 시작 및 종료 시간을 지정하지 않으면 지난 시간에 대한 항목이 반환됩니다. 예를 들어 지난 1시간 동안 리소스 그룹에 대해 수행된 작업을 검색하려면 다음 명령을 실행합니다.
 
-        PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup
+        Get-AzureRmLog -ResourceGroup ExampleGroup
 
     다음 예제에서는 지정된 시간 동안 수행된 작업을 조사하는 감사 로그를 사용하는 방법을 보여 줍니다. 시작 및 종료 날짜는 날짜 형식으로 지정됩니다.
 
-        PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 -EndTime 2015-09-10T06:00
+        Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 -EndTime 2015-09-10T06:00
 
     또는 날짜 기능을 사용하여 지난 14일 같은 날짜 범위를 지정할 수 있습니다.
 
-        PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14)
+        Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14)
 
-2. 지정한 시작 시간에 따라 이전 명령은 해당 리소스 그룹에 대한 긴 목록 작업을 반환할 수 있습니다. 검색 조건을 제공하여 찾고자 하는 결과를 필터링할 수 있습니다. 예를 들어 웹 앱이 중지된 방법을 조사하려는 경우 다음 명령을 실행하면 중지 작업이 someone@contoso.com을 통해 수행된 것을 볼 수 있습니다.
+2. 지정한 시작 시간에 따라 이전 명령은 해당 리소스 그룹에 대한 긴 목록 작업을 반환할 수 있습니다. 검색 조건을 제공하여 찾고자 하는 결과를 필터링할 수 있습니다. 예를 들어 웹앱이 중지된 방법을 조사하려는 경우 다음 명령을 실행할 수 있습니다.
 
-        PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14) | Where-Object OperationName -eq Microsoft.Web/sites/stop/action
+        Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14) | Where-Object OperationName -eq Microsoft.Web/sites/stop/action
+        
+    이 예에서는 중지 작업이 someone@contoso.com에 의해 수행되었음을 보여 줍니다.
         
         Authorization     :
         Scope     : /subscriptions/xxxxx/resourcegroups/ExampleGroup/providers/Microsoft.Web/sites/ExampleSite
@@ -96,7 +98,7 @@ Azure 포털, Azure PowerShell, Azure CLI, Insights REST API 또는 [Insights .N
 
 3. 더 이상 존재하지 않는 리소스 그룹에 대해서도 특정 사용자가 수행한 작업을 조회할 수 있습니다.
 
-        PS C:\> Get-AzureRmLog -ResourceGroup deletedgroup -StartTime (Get-Date).AddDays(-14) -Caller someone@contoso.com
+        Get-AzureRmLog -ResourceGroup deletedgroup -StartTime (Get-Date).AddDays(-14) -Caller someone@contoso.com
 
 ## Azure CLI를 통해 감사 로그 보기
 
@@ -123,4 +125,4 @@ Azure 포털, Azure PowerShell, Azure CLI, Insights REST API 또는 [Insights .N
 - 배포 문제를 해결하는 명령에 대해 알아보려면 [Azure에서 리소스 그룹 배포 문제 해결](resource-manager-troubleshoot-deployments-portal.md)을 참조하세요.
 - 모든 사용자의 리소스에서 삭제 작업을 방지하는 방법을 알아보려면 [Azure Resource Manager를 사용하여 리소스 잠그기](resource-group-lock-resources.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

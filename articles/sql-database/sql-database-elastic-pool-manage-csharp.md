@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="04/01/2016"
+    ms.date="04/11/2016"
     ms.author="sstein"/>
 
 # C&#x23;로 탄력적 데이터베이스 풀 관리 및 크기 조정
@@ -34,7 +34,6 @@ C&#x23;을 사용하여 [탄력적 데이터베이스 풀](sql-database-elastic-
 예제에서 [.NET용 SQL 데이터베이스 라이브러리](https://msdn.microsoft.com/library/azure/mt349017.aspx)를 사용하므로 라이브러리를 설치해야 합니다. Visual Studio의 [패키지 관리자 콘솔](http://docs.nuget.org/Consume/Package-Manager-Console)(**도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**)에서 다음 명령을 실행하여 설치할 수 있습니다.
 
     PM> Install-Package Microsoft.Azure.Management.Sql –Pre
-
 
 
 ## 풀 업데이트
@@ -124,7 +123,10 @@ C&#x23;을 사용하여 [탄력적 데이터베이스 풀](sql-database-elastic-
         Console.WriteLine("  Database {0}", db.Name);
     }
 
+## 탄력적 풀 작업의 대기 시간
 
+- 데이터베이스당 보장된 eDTU(databaseDtuMin) 또는 데이터베이스당 최대 eDTU(databaseDtuMax)를 변경하는 작업은 일반적으로 5분 이내에 완료됩니다.
+- 풀의 eDTU/저장소 용량 한도(storageMB) 변경은 풀에 있는 모든 데이터베이스에서 사용 중인 공간의 전체 크기에 따라 달라집니다. 변경 시간은 100GB당 평균 90분 이하입니다. 예를 들어 풀에 있는 모든 데이터베이스에서 사용 중인 총 공간이 200GB일 경우, 풀 eDTU/저장소 용량 한도를 변경하는 예상 대기 시간은 3시간 이하입니다.
 
 
 ## 풀 C&#x23; 예제 관리
@@ -458,4 +460,4 @@ C&#x23;을 사용하여 [탄력적 데이터베이스 풀](sql-database-elastic-
 - [Azure 리소스 관리 API](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 - [탄력적 데이터베이스 풀 참조](sql-database-elastic-pool-reference.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

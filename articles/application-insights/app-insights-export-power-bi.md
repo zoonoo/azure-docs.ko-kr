@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="스트림 분석을 사용하여 Application Insights에서 Power BI 내보내기" 
-	description="스트림 분석을 사용하여 내보낸 데이터를 처리하는 방법을 보여 줍니다." 
+	pageTitle="Application Insights에서 Power BI로 내보내기" 
+	description="문서" 
 	services="application-insights" 
     documentationCenter=""
 	authors="noamben" 
@@ -12,46 +12,50 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/25/2015" 
+	ms.date="04/05/2016" 
 	ms.author="awills"/>
- 
-# 스트림 분석을 사용하여 Application Insights에서 Power BI 공급
 
-이 문서에서는 [스트림 분석](https://azure.microsoft.com/services/stream-analytics/)을 사용하여 [Visual Studio Application Insights](app-insights-overview.md)에서 [내보낸](app-insights-export-telemetry.md) 데이터를 처리하는 방법을 보여 줍니다. 예제 대상으로 데이터를 [Microsoft Power BI](https://powerbi.microsoft.com/)로 보냅니다.
+# Application Insights에서 Power BI 공급
 
+[Power BI](http://www.powerbi.com/)는 데이터를 분석하고 통찰력을 공유하는 비즈니스 분석 도구 제품군입니다. 모든 장치에서 풍부한 대시보드를 사용할 수 있습니다. [Visual Studio Application Insights](app-insights-overview.md)를 포함하여 다양한 원본의 데이터를 포함할 수 있습니다.
 
-> [AZURE.NOTE] Application Insights에서 Power BI로 데이터를 가져오는 가장 쉬운 방법은 서비스 아래의 Power BI 갤러리에 있는 [어댑터를 사용](https://powerbi.microsoft.com/ko-KR/documentation/powerbi-content-pack-application-insights/)하는 것입니다. 이 문서에서 설명하는 내용은 현재 보다 다양하지만 Application Insights에서 스트림 분석을 사용하는 방법에 대한 데모이기도 합니다.
+시작하려면 [Power BI에서 Application Insights 데이터 표시](https://powerbi.microsoft.com/documentation/powerbi-content-pack-application-insights/)를 참조하세요.
 
-[Microsoft Power BI](https://powerbi.microsoft.com/)는 여러 소스의 정보를 같이 가져올 수 있는 기능과 함께 풍부하고 다양한 시각적 개체로 데이터를 표시합니다.
+Application Insights 차트를 다른 원본의 차트와 결합하여 사용자 지정 가능한 초기 대시보드를 가져올 수 있습니다. 추가 차트를 가져올 수 있는 시각화 갤러리가 있으며, 각 차트에는 설정할 수 있는 매개 변수가 있습니다.
 
-
-![Application Insights 사용 데이터의 Power BI 보기의 샘플](./media/app-insights-export-power-bi/010.png)
-
-[스트림 분석](https://azure.microsoft.com/services/stream-analytics/)은 어댑터로 작동하는 Azure 서비스로, Application Insights에서 내보낸 데이터를 지속적으로 처리합니다.
-
-![Application Insights 사용 데이터의 Power BI 보기의 샘플](./media/app-insights-export-power-bi/020.png)
+![](./media/app-insights-export-power-bi/010.png)
 
 
+초기 가져오기 후에는 대시보드와 보고서가 지속적으로 매일 업데이트됩니다. 데이터 집합에 대한 새로 고침 일정을 제어할 수 있습니다.
 
 
-## 비디오
+**샘플링** 응용 프로그램이 대량의 데이터를 전송하고 ASP.NET 버전 2.0.0-beta3 또는 그 이상에 대해 Application Insights SDK를 사용하는 경우 적응 샘플링 기능이 작동하여 원격 분석의 백분율만 보낼 수 있습니다. 이는 SDK 또는 수집에서 샘플링을 수동으로 설정한 경우에도 마찬가지입니다. [샘플링에 대해 자세히 알아봅니다.](app-insights-sampling.md)
 
-Noam Ben Zeev는 이 기사에서 설명한 내용을 보여줍니다.
+## Application Insights 데이터를 확인하는 다른 방법
 
-> [AZURE.VIDEO export-to-power-bi-from-application-insights]
+* Azure가 아닌 데이터를 표시할 필요가 없는 경우 [Application Insights 차트가 포함된 Azure 대시보드](app-insights-dashboards.md)가 더 적합할 수 있습니다. 예를 들어 일부 Azure 서비스 모니터와 함께 시스템의 여러 구성 요소를 모니터링하는 Application Insights 차트의 대시보드를 설정하려는 경우 Azure 대시보드를 사용하는 것이 가장 좋습니다. 이 대시보드는 기본적으로 더 자주 업데이트됩니다. 
+* [연속 내보내기](app-insights-export-telemetry.md)는 들어오는 데이터를 Azure 저장소에 복사합니다. 여기서 원하는 데이터를 이동하고 처리할 수 있습니다.
+* [분석](app-insights-analytics.md)을 통해 Application Insights에 의해 보존된 원시 데이터에서 복잡한 쿼리를 수행할 수 있습니다.
 
 
-**샘플링.** 응용 프로그램이 대량의 데이터를 전송하고 ASP.NET 버전 2.0.0-beta3 또는 그 이상에서의 Application Insights SDK를 사용하는 경우 적응 샘플링 기능이 작동하고 원격 분석의 백분율만 보낼 수 있습니다. [샘플링에 대해 자세히 알아봅니다.](app-insights-sampling.md)
+## 스트림 분석을 사용하여 사용자 고유의 Power BI 어댑터 만들기
 
-## Application Insights를 사용한 앱 모니터링
+Application Insights용 Power BI 콘텐츠 팩은 사용자 요구 사항에 충분한 앱 원격 분석의 유용한 하위 집합을 표시합니다. 그러나 제공되는 것보다 더 광범위한 원격 분석이 필요하거나 원시 원격 분석에서 일부 데이터를 사용하려는 경우 Azure 스트림 분석 서비스를 사용하여 사용자 고유의 어댑터를 만들 수 있습니다.
 
-아직 시도하지 않은 경우 지금이 시작 시간입니다. Application Insights는 Windows, iOS, Android, J2EE 등과 같은 광범위한 플랫폼에서 모든 장치 또는 웹앱을 모니터링할 수 있습니다. [시작](app-insights-overview.md).
+이 스키마에서는 Application Insights에서 Azure 저장소로 데이터를 내보냅니다. [스트림 분석](https://azure.microsoft.com/services/stream-analytics/)은 여기에서 데이터를 가져와 일부 필드의 이름을 바꾸고 처리하며 이를 Power BI에 파이프합니다. 스트림 분석은 데이터의 연속 스트림을 필터링, 집계 및 계산할 수 있는 서비스입니다.
 
-## Azure에서 저장소 만들기
+![SA를 통해 PBI로 내보내기에 대한 블록 다이어그램](./media/app-insights-export-power-bi/020.png)
+
+
+>[AZURE.TIP] Power BI에서 Application Insights 데이터를 확인하기 위해 **이 문서의 나머지 부분에 있는 절차(스트림 분석 사용)를 따르지 않아도 됩니다**. 훨씬 더 쉬운 방법이 있습니다! 대신 [무료 어댑터를 사용](https://powerbi.microsoft.com/documentation/powerbi-content-pack-application-insights/)할 수 있습니다. 해당 어댑터에서 원하는 모든 데이터를 제공하지 않거나, 데이터에 대한 사용자 고유의 집계 또는 함수를 정의하려는 경우에만 이 문서의 나머지 부분을 따르세요.
+
+### Azure에서 저장소 만들기
 
 연속 내보내기는 항상 Azure 저장소 계정에 데이터를 출력하므로 저장소를 먼저 만들어야 합니다.
 
-1. [Azure 포털](https://portal.azure.com)에서 구독에 "클래식" 저장소 계정을 만듭니다.
+1. [Application Insights용 Power BI PowerPack을 사용해 보셨나요](https://powerbi.microsoft.com/documentation/powerbi-content-pack-application-insights/)? 요구 사항에 충분한 경우 이 문서의 나머지 부분은 필요 없습니다.
+
+2.  [Azure 포털](https://portal.azure.com)에서 구독에 "클래식" 저장소 계정을 만듭니다.
 
     ![Azure 포털에서 새로 만들기, 데이터, 저장소 선택](./media/app-insights-export-power-bi/030.png)
 
@@ -65,7 +69,7 @@ Noam Ben Zeev는 이 기사에서 설명한 내용을 보여줍니다.
 
     ![저장소에서 설정, 키를 열고 기본 액세스 키 복사](./media/app-insights-export-power-bi/045.png)
 
-## Azure 저장소로 연속 내보내기 시작
+### Azure 저장소로 연속 내보내기 시작
 
 [연속 내보내기](app-insights-export-telemetry.md)는 Application Insights에서 Azure 저장소로 데이터를 이동합니다.
 
@@ -98,7 +102,7 @@ Noam Ben Zeev는 이 기사에서 설명한 내용을 보여줍니다.
 
 이벤트는 JSON 형식으로 blob 파일에 기록됩니다. 각 파일에는 하나 이상의 이벤트가 있을 수 있습니다. 따라서 이벤트 데이터를 읽고 원하는 필드를 필터링하려고 합니다. 데이터로 온갖 종류의 작업을 수행할 수 있지만, 지금은 스트림 분석을 사용하여 데이터를 Power BI로 파이프하려고 합니다.
 
-## Azure 스트림 분석 인스턴스 만들기
+### Azure 스트림 분석 인스턴스 만들기
 
 [클래식 Azure 포털](https://manage.windowsazure.com/)에서 Azure 스트림 분석 서비스를 선택하고 새 스트림 분석 작업을 만듭니다.
 
@@ -154,7 +158,7 @@ Noam Ben Zeev는 이 기사에서 설명한 내용을 보여줍니다.
 
 > [AZURE.TIP] 샘플 명령을 사용하여 일부 데이터를 다운로드합니다. 쿼리를 디버그할 테스트 샘플로 보관합니다.
 
-## 출력 설정
+### 출력 설정
 
 이제 사용자의 작업을 선택하고 출력을 설정합니다.
 
@@ -164,7 +168,7 @@ Noam Ben Zeev는 이 기사에서 설명한 내용을 보여줍니다.
 
 ![이름 3개를 생성합니다.](./media/app-insights-export-power-bi/170.png)
 
-## 쿼리 설정
+### 쿼리 설정
 
 쿼리는 입력에서 출력으로 번역을 제어합니다.
 
@@ -237,7 +241,7 @@ Test 함수를 사용하여 올바른 출력이 표시되는지 확인합니다.
 
 * 이 쿼리는 차원 배열에 고정된 인덱스의 특정 차원에 상관없이 차원 속성의 값을 포함합니다.
 
-## 작업 실행
+### 작업 실행
 
 작업을 시작할 과거의 날짜를 선택할 수 있습니다.
 
@@ -245,7 +249,7 @@ Test 함수를 사용하여 올바른 출력이 표시되는지 확인합니다.
 
 작업이 실행 중인 동안 기다립니다.
 
-## Power BI에 결과를 참조하세요.
+### Power BI에 결과를 참조하세요.
 
 회사 또는 학교 계정을 사용하여 Power BI를 열고 스트림 분석 작업의 출력으로 정의된 데이터 집합 및 테이블을 선택합니다.
 
@@ -256,7 +260,7 @@ Test 함수를 사용하여 올바른 출력이 표시되는지 확인합니다.
 
 ![Power BI에서 데이터 집합과 필드를 선택합니다.](./media/app-insights-export-power-bi/210.png)
 
-## 비디오
+### 비디오
 
 Noam Ben Zeev는 Power BI를 내보내는 방법을 보여줍니다.
 
@@ -268,5 +272,6 @@ Noam Ben Zeev는 Power BI를 내보내는 방법을 보여줍니다.
 * [속성 형식 및 값에 대한 자세한 데이터 모델 참조입니다.](app-insights-export-data-model.md)
 * [Application Insights](app-insights-overview.md)
 * [추가 샘플 및 연습](app-insights-code-samples.md)
+ 
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

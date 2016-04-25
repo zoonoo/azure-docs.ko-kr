@@ -3,8 +3,8 @@
    description="이 페이지는 Azure SQL 데이터베이스의 일반 제한 사항 일부와 상호 운용성 및 지원 영역을 설명합니다."
    services="sql-database"
    documentationCenter="na"
-   authors="rothja"
-   manager="jeffreyg"
+   authors="carlrabeler"
+   manager="jhubbard"
    editor="monicar" />
 <tags
    ms.service="sql-database"
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="01/15/2016"
-   ms.author="jroth" />
+   ms.date="04/11/2016"
+   ms.author="carlrab" />
 
 # Azure SQL 데이터베이스 일반 제한 사항 및 지침
 
@@ -59,8 +59,8 @@ Microsoft Azure SQL 데이터베이스에서 사용하는 기본 데이터베이
 
 - 보안 관련 지침은 [Azure SQL 데이터베이스 보안 지침 및 제한 사항](sql-database-security-guidelines.md)을 참조하세요.
 
-- 다른 관련된 영역은 Azure SQL 데이터베이스와 SQL Server 2014 등 SQL Server 온-프레미스 버전과의 호환성을 둘러쌉니다. Azure SQL 데이터베이스의 최신 V12 버전에는 이 영역에 향상된 기능이 많이 있습니다. 자세한 내용은 [SQL 데이터베이스 V12의 새로운 기능](sql-database-v12-whats-new.md)을 참조하세요.
+- 다른 관련된 영역은 Azure SQL 데이터베이스와 SQL Server 2014 및 SQL Server 2016 등 SQL Server 온-프레미스 버전과의 호환성을 둘러쌉니다. Azure SQL 데이터베이스의 최신 V12 버전에는 이 영역에 향상된 기능이 많이 있습니다. 자세한 내용은 [SQL 데이터베이스 V12의 새로운 기능](sql-database-v12-whats-new.md)을 참조하세요.
 
 - 드라이버 가용성 및 SQL 데이터베이스 지원에 대한 내용은 [SQL 데이터베이스 및 SQL Server의 연결 라이브러리](sql-database-libraries.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

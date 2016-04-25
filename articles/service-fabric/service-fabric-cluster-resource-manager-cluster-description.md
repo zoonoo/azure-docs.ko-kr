@@ -17,7 +17,7 @@
    ms.author="masnider"/>
 
 # 서비스 패브릭 클러스터 설명
-서비스 패브릭 클러스터 리소스 관리자는 클러스터를 설명하는 몇 가지 메커니즘을 제공합니다. 런타임 중에 리소스 관리자는 이 정보를 제공하여 클러스터에서 실행되는 서비스의 높은 가용성을 보장하고 동시에 클러스터의 리소스가 적절하게 사용되도록 합니다.
+서비스 패브릭 클러스터 리소스 관리자는 클러스터를 설명하는 몇 가지 메커니즘을 제공합니다. 런타임 중에 리소스 관리자는 이 정보를 사용하여 클러스터에서 실행되는 서비스의 높은 가용성을 보장하고 동시에 클러스터의 리소스가 적절하게 사용되도록 합니다.
 
 ## 주요 개념
 클러스터를 설명하는 클러스터 리소스 관리자 기능은 다음과 같습니다.
@@ -262,4 +262,4 @@ LoadMetricInformation     :
 [Image6]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-placement-constraints-node-properties.png
 [Image7]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-nodes-and-capacity.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

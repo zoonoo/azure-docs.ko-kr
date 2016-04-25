@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Application Insights에서 거의 실시간인 사전 진단" 
-	description="NRT 사전 진단은 서버 응답 시간이 비정상적인 동작을 나타낼 경우 자동으로 알립니다. 구성이 필요하지 않습니다." 
+	description="앱의 비정상적인 오류 패턴에 대한 경고를 보내고 진단 분석을 제공합니다. 구성이 필요하지 않습니다." 
 	services="application-insights" 
     documentationCenter=""
 	authors="yorac" 
@@ -138,4 +138,4 @@ NRT 사전 진단은 Application Insights의 다른 유사하지만 고유한 �
 
 *이에 대한 여러분의 의견을 기다리고 있습니다. *[ainrtpd@microsoft.com](mailto:ainrtpd@microsoft.com)으로 의견을 보내 주세요.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -22,7 +22,7 @@
 
 ##개요
 
-이 자습서에서는 푸시 알림을 [Xamarin.Android quickstart] 프로젝트에 추가하여 레코드가 삽입될 때마다 푸시 알림이 전송됩니다. 이 자습서는 먼저 완료해야 하는 [Xamarin.Android 빠른 시작] 자습서를 기반으로 합니다. 다운로드한 빠른 시작 서버 프로젝트를 사용하지 않는 경우 프로젝트에 푸시 알림 확장 패키지를 추가해야 합니다. 서버 확장 패키지에 대한 자세한 내용은 [Azure 모바일 앱용 .NET 백 엔드 서버 SDK 사용](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)을 참조하세요.
+이 자습서에서는 푸시 알림을 [Xamarin.Android 앱 만들기] 프로젝트에 추가하여 레코드가 삽입될 때마다 푸시 알림이 전송됩니다. 이 자습서는 먼저 완료해야 하는 [Xamarin.Android 앱 만들기] 자습서를 기반으로 합니다. 다운로드한 빠른 시작 서버 프로젝트를 사용하지 않는 경우 프로젝트에 푸시 알림 확장 패키지를 추가해야 합니다. 서버 확장 패키지에 대한 자세한 내용은 [Azure 모바일 앱용 .NET 백 엔드 서버 SDK 사용](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)을 참조하세요.
 
 ##필수 조건
 
@@ -31,9 +31,6 @@
 + 활성 Google 계정. [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302)에서 Google 계정을 등록할 수 있습니다.
 
 + [Google Cloud Messaging 클라이언트 구성 요소](http://components.xamarin.com/view/GCMClient/). 자습서에 이 구성 요소가 추가됩니다.
-
-+ [Xamarin.Android 빠른 시작] 자습서를 완료했습니다.
-
 
 ##<a name="create-hub"></a>알림 허브 만들기
 
@@ -78,10 +75,8 @@
 
 <!-- URLs. -->
 [Xamarin.Android quickstart]: app-service-mobile-xamarin-android-get-started.md
-[Xamarin.Android 빠른 시작]: app-service-mobile-xamarin-android-get-started.md
-
+[Xamarin.Android 앱 만들기]: app-service-mobile-xamarin-android-get-started.md
 [Google Cloud Messaging Client Component]: http://components.xamarin.com/view/GCMClient/
-[Xamarin.Android]: http://xamarin.com/download/
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

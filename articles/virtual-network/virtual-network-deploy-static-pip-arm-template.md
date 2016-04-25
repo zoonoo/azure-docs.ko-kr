@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="리소스 관리자에서 템플릿을 사용하여 고정 공용 IP를 사용하는 VM 배포 | Microsoft Azure"
    description="리소스 관리자에서 템플릿을 사용하여 고정 공용 IP를 사용하는 VM을 배포하는 방법을 알아봅니다."
    services="virtual-network"
@@ -101,7 +101,7 @@
 
 PowerShell을 사용하여 다운로드한 템플릿을 배포하려면 다음 단계를 수행합니다.
 
-1. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell 설치 및 구성 방법](powershell-install-configure.md)을 참조하고 1-3단계의 지침을 따릅니다.
+1. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하고 1-3단계의 지침을 따릅니다.
 
 2. 필요한 경우 PowerShell 콘솔에서 **New-AzureRmResourceGroup** cmdlet을 실행하여 새 리소스 그룹을 만듭니다. 리소스 그룹을 이미 만든 경우 3단계로 이동합니다.
 
@@ -112,7 +112,7 @@ PowerShell을 사용하여 다운로드한 템플릿을 배포하려면 다음 �
 		ResourceGroupName : StaticPublicIP
 		Location          : westus
 		ProvisioningState : Succeeded
-		Tags              : 
+		Tags              :
 		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/StaticPublicIP
 
 3. PowerShell 콘솔에서 **New-AzureRmResourceGroupDeployment** cmdlet을 실행하여 템플릿을 배포합니다.
@@ -128,31 +128,31 @@ PowerShell을 사용하여 다운로드한 템플릿을 배포하려면 다음 �
 		ProvisioningState : Succeeded
 		Timestamp         : 1/8/2016 7:04:44 PM
 		Mode              : Incremental
-		TemplateLink      : 
+		TemplateLink      :
 		                    Uri            : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/mas
 		                    ter/IaaS-Story/03-Static-public-IP/azuredeploy.json
 		                    ContentVersion : 1.0.0.0
-		                    
-		Parameters        : 
+
+		Parameters        :
 		                    Name                      Type                       Value     
 		                    ========================  =========================  ==========
-		                    vnetName                  String                     WTestVNet 
+		                    vnetName                  String                     WTestVNet
 		                    vnetPrefix                String                     192.168.0.0/16
 		                    frontEndSubnetName        String                     FrontEnd  
 		                    frontEndSubnetPrefix      String                     192.168.1.0/24
 		                    storageAccountNamePrefix  String                     iaasestd  
 		                    stdStorageType            String                     Standard_LRS
 		                    osType                    String                     Windows   
-		                    adminUsername             String                     adminUser 
+		                    adminUsername             String                     adminUser
 		                    adminPassword             SecureString                         
-		                    
-		Outputs           : 
+
+		Outputs           :
 
 ## Azure CLI를 사용하여 템플릿 배포
 
 Azure CLI를 사용하여 템플릿을 배포하려면 아래 단계를 따르세요.
 
-1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](xplat-cli.md)을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
+1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](../xplat-cli-install.md)을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
 2. 아래와 같이 **azure config mode** 명령을 실행하여 리소스 관리자 모드로 전환합니다.
 
 		azure config mode arm
@@ -184,4 +184,4 @@ Azure CLI를 사용하여 템플릿을 배포하려면 아래 단계를 따르�
 		data:
 		info:    group create command OK
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

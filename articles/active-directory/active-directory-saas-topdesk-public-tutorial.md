@@ -1,8 +1,8 @@
 <properties 
-    pageTitle="자습서: TOPdesk - Public과 Azure Directory 통합 | Microsoft Azure" 
+    pageTitle="자습서: TOPdesk - Public과 Azure Active Directory 통합 | Microsoft Azure" 
     description="Azure Active Directory에서 TOPdesk - Public을 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="04/06/2016" 
+    ms.author="jeedes" />
 
 #자습서: TOPdesk - Public과 Azure Directory 통합
 
@@ -95,11 +95,11 @@ TOPdesk - Public에 대한 Single Sign-On을 구성하려면 로고 아이콘 �
         ![AssertionConsumerService](./media/active-directory-saas-topdesk-public-tutorial/IC790619.png "AssertionConsumerService")
     3.  **AssertionConsumerService** 값을 복사합니다.  
 
-        >[AZURE.NOTE]해당 값은 자습서 뒷부분의 **앱 URL 구성** 섹션에서 필요합니다.
+        >[AZURE.NOTE] 해당 값은 자습서 뒷부분의 **앱 URL 구성** 섹션에서 필요합니다.
 
 6.  다른 웹 브라우저 창에서 **Azure Active Directory** 포털에 관리자 권한으로 로그인합니다.
 
-7.  **TOPdesk - Public** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성 ** 대화 상자를 엽니다.
+7.  **TOPdesk - Public** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성** 을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-topdesk-public-tutorial/IC790620.png "Single Sign-On 구성")
 
@@ -181,7 +181,7 @@ TOPdesk - Public의 경우 프로비전은 수동 작업입니다.
     3.  계정에 대한 **사이트**를 선택합니다.
     4.  **Save**를 클릭합니다.
 
->[AZURE.NOTE]다른 TOPdesk - Public 사용자 계정 생성 도구 또는 TOPdesk - Public이 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+>[AZURE.NOTE] 다른 TOPdesk - Public 사용자 계정 생성 도구 또는 TOPdesk - Public이 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
 
 ##사용자 할당
   
@@ -201,4 +201,4 @@ TOPdesk - Public의 경우 프로비전은 수동 작업입니다.
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0413_2016-->

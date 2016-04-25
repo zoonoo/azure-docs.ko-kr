@@ -29,7 +29,7 @@ Salesforce에 연결하여 개체 만들기, 개체 가져오기 등의 작업�
 
 &nbsp;
 
->[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다. 2014-12-01-preview 스키마 버전에 대한 내용을 보려면 [Salesforce 커넥터](../app-service-logic/app-service-logic-connector-salesforce.md)를 클릭하세요.
+>[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다.
 
 Salesforce를 사용하면 다음과 같은 작업을 수행할 수 있습니다.
 
@@ -256,7 +256,7 @@ Salesforce에서 개체를 수정할 때 흐름을 트리거합니다. ```GET: /
 
 ## 다음 단계
 
-[논리 앱을 만듭니다](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
 [API 목록](apis-list.md)으로 돌아갑니다.
 
@@ -266,4 +266,4 @@ Salesforce에서 개체를 수정할 때 흐름을 트리거합니다. ```GET: /
 [7]: ./media/connectors-create-api-salesforce/salesforce-create-app.png
 [8]: ./media/connectors-create-api-salesforce/salesforce-new-app.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

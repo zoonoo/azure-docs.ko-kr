@@ -1,14 +1,16 @@
 
-   * Sign in to the Azure account by entering your credentials.
+   * 자격 증명을 입력하여 Azure 계정에 로그인합니다.
 
-     This method is quicker and easier, but if you use this method you won't be able to see Azure SQL Database or Mobile Services in the **Server Explorer** window.
+     이 방법이 더 빠르고 쉽지만 이 방법을 사용하면 **서버 탐색기** 창에서 Azure SQL 데이터베이스 또는 모바일 서비스를 볼 수 없습니다.
 
-     In **Server Explorer**, click the **Connect to Azure** button. An alternative is to right-click the **Azure** node, and then click **Connect to Azure** in the context menu.
+     **서버 탐색기**에서 **Connect to Azure** 단추를 클릭합니다. 또는 **Azure** 노드를 마우스 오른쪽 단추로 클릭한 후 상황에 맞는 메뉴에서 **Connect to Azure**를 클릭합니다.
 
-   * Install a management certificate that enables access to your account.
+   * 계정에 액세스할 수 있게 해 주는 관리 인증서를 설치합니다.
 
-     In **Server Explorer**, right-click the **Azure** node, and then click **Manage Subscriptions** in the context menu. In the **Manage Azure Subscriptions** dialog box, click the **Certificates** tab, and then click **Import**. Follow the directions to download and then import a subscription file (also called a *.publishsettings* file) for your Azure account.
+     **서버 탐색기**에서 **Azure** 노드를 마우스 오른쪽 단추로 클릭한 후 상황에 맞는 메뉴에서 **구독 관리**를 클릭합니다. **Azure 구독 관리** 대화 상자에서 **인증서** 탭을 클릭한 후 **가져오기**를 클릭합니다. 지침에 따라 Azure 계정에 대한 구독 파일(*.publishsettings* 파일이라고도 함)을 다운로드하고 가져옵니다.
 
-     > [AZURE.NOTE] Download the subscription file to a folder outside your source code directories (for example, in the Downloads folder), and then delete it once the import has completed. A malicious user who gains access to the subscription file can edit, create, and delete your Azure services.
+     > [AZURE.NOTE] 소스 코드 디렉터리 밖의 폴더(예: 다운로드 폴더)에 구독 파일을 다운로드한 다음 일단 가져오기가 완료되면 삭제하세요. 악의적인 사용자가 구독 파일에 액세스할 경우 Azure 서비스를 편집, 생성 및 삭제할 수 있습니다.
 
-	For more information, see [How to Connect to Azure from Visual Studio](http://go.microsoft.com/fwlink/?LinkId=324796).
+	자세한 내용은 [Visual Studio에서 Azure에 연결하는 방법](http://go.microsoft.com/fwlink/?LinkId=324796)을 참조하십시오.
+
+<!---HONumber=AcomDC_0413_2016-->

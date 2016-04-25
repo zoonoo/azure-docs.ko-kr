@@ -1,24 +1,24 @@
-<properties 
-   pageTitle="데이터 레이크 저장소와 호환되는 빅 데이터 응용 프로그램 | Azure" 
-   description="Azure 데이터 레이크 저장소에서 작동하는 공개 소스 응용 프로그램의 목록" 
-   services="data-lake-store" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="paulettm" 
+<properties
+   pageTitle="데이터 레이크 저장소와 호환되는 빅 데이터 응용 프로그램 | Azure"
+   description="Azure 데이터 레이크 저장소에서 작동하는 공개 소스 응용 프로그램의 목록"
+   services="data-lake-store"
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
    editor="cgronlun"/>
- 
+
 <tags
    ms.service="data-lake-store"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
+   ms.workload="big-data"
    ms.date="02/03/2016"
    ms.author="nitinme"/>
 
 # Azure 데이터 레이크 저장소에서 작동하는 공개 소스 빅 데이터 응용 프로그램
 
-이 문서는 Azure 데이터 레이크 저장소에서 작동하는 공개 소스 빅 데이터 응용 프로그램 목록을 보여줍니다. 아래 표의 응용 프로그램은 지원되는 나열된 배포의 버전에서만 사용할 수 있습니다. HDInsight와 함께 사용할 수 있는 응용 프로그램의 버전에 대한 자세한 정보는 [HDInsight 구성 요소 버전 관리](/hdinsight/hdinsight-component-versioning.md)를 참조하세요.
+이 문서는 Azure 데이터 레이크 저장소에서 작동하는 공개 소스 빅 데이터 응용 프로그램 목록을 보여줍니다. 아래 표의 응용 프로그램은 지원되는 나열된 배포의 버전에서만 사용할 수 있습니다. HDInsight와 함께 사용할 수 있는 응용 프로그램의 버전에 대한 자세한 정보는 [HDInsight 구성 요소 버전 관리](../hdinsight/hdinsight-component-versioning.md)를 참조하세요.
 
 
 | 공개 소스 소프트웨어 | 배포 |
@@ -39,6 +39,5 @@
 ## 참고 항목
 
 - [Azure 데이터 레이크 저장소 개요](data-lake-store-overview.md)
- 
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

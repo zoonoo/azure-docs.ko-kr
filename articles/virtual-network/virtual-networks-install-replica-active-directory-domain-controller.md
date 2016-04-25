@@ -111,7 +111,7 @@ Windows PowerShell 사용에 대한 자세한 내용은 [Azure Cmdlets 시작하
 
 -  [Azure 가상 컴퓨터에 Windows Server Active Directory를 배포하기 위한 지침](https://msdn.microsoft.com/library/azure/jj156090.aspx)
 -  [Azure PowerShell을 사용하여 기존 온-프레미스 Hyper-V 도메인 컨트롤러를 Azure에 업로드하는 방법](http://support.microsoft.com/kb/2904015)
--  [Azure 가상 네트워크에 새 Active Directory 포리스트 설치](../active-directory-new-forest-virtual-machine.md)
+-  [Azure 가상 네트워크에 새 Active Directory 포리스트 설치](../active-directory/active-directory-new-forest-virtual-machine.md)
 -  [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)
 -  [Microsoft Azure IT Pro IaaS: (01) 가상 컴퓨터 기본 사항(영문)](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 -  [Microsoft Azure IT Pro IaaS: (05) 가상 네트워크 및 프레미스 간 연결 만들기(영문)](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
@@ -121,4 +121,4 @@ Windows PowerShell 사용에 대한 자세한 내용은 [Azure Cmdlets 시작하
 <!--Image references-->
 [1]: ./media/virtual-networks-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -37,7 +37,7 @@ IaaS VM의 SQL Server에서 Azure 프리미엄 저장소를 활용하는 전체 
 - 가능한 마이그레이션 방법
 - 기존 AlwaysOn 구현 환경의 마이그레이션을 위한 Azure, Windows 및 SQL Server 관련 단계를 전체적으로 보여주는 예제
 
-Azure 가상 컴퓨터의 SQL Server에 대한 추가 배경 정보는 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-windows-classic-sql-overview.md)를 참조하세요.
+Azure 가상 컴퓨터의 SQL Server에 대한 추가 배경 정보는 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
 
 **작성자:** Daniel Sol **기술 검토자:** Luis Carlos Vargas Herring, Sanjay Mishra, Pravin Mital, Juergen Thomas, Gonzalo Ruiz.
 
@@ -402,8 +402,6 @@ IO 처리량을 높이기 위해 VM 내에서 Windows 저장소 풀을 사용하
 1. **NORECOVERY**를 사용하여 전체 백업 및 복원을 복사합니다.
 1. 로그인 등의 사용자 DB 외부에 있는 종속 개체를 복사합니다.
 1. 새 ILB(내부 부하 분산 장치) 또는 ELB(외부 부하 분산 장치)를 만든 다음 두 새 노드에 모두 부하 분산된 끝점을 설정합니다.
-
-
 > [AZURE.NOTE] 계속하기 전에 모든 노드의 끝점 구성이 올바른지 확인합니다.
 
 1. 저장소 풀을 사용 중인 경우 SQL Server에 대한 사용자/응용 프로그램 액세스를 중지합니다.
@@ -1121,7 +1119,7 @@ IP 주소를 추가하려면 [부록](#appendix-migrating-a-multisite-alwayson-c
 ## 추가 리소스
 - [Azure 프리미엄 저장소](../storage/storage-premium-storage.md)
 - [가상 컴퓨터](https://azure.microsoft.com/services/virtual-machines/)
-- [Azure 가상 컴퓨터의 SQL Server](virtual-machines-windows-classic-sql-overview.md)
+- [Azure 가상 컴퓨터의 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)
 
 <!-- IMAGES -->
 [1]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/1_VNET_Portal.png
@@ -1150,4 +1148,4 @@ IP 주소를 추가하려면 [부록](#appendix-migrating-a-multisite-alwayson-c
 [24]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_14.png
 [25]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_15.png
 
-<!-----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

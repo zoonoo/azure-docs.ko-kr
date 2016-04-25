@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/13/2016"
+	ms.date="04/04/2016"
 	ms.author="byvinyal"/>
 
 #<a name="howtomonitor"></a>Azure 앱 서비스에서 웹 앱 모니터링
@@ -59,7 +59,7 @@
 ### 방법: 공유 모드로 구성된 웹 앱에 대한 사용 할당량 보기 ###
 웹 앱이 리소스 사용 할당량에 영향을 미치는 범위를 확인하려면 다음 단계를 따르세요.
 
-1. [클래식 포털](https://manage.windowsazure.com)에서 웹앱의 **대시보드 ** 관리 페이지를 엽니다.
+1. [클래식 포털](https://manage.windowsazure.com)에서 웹앱의 **대시보드** 관리 페이지를 엽니다.
 2. **사용 개요** 섹션에서 개별 [앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714) 계획에 대한 사용 할당량이 표시되며, 다음의 하위 집합입니다.
 	-	**데이터 출력**, **CPU 시간** 및 **메모리** - 할당량이 초과되면 Azure는 현재 할당량 간격의 남은 시간 동안 웹 앱을 중지합니다. Azure는 다음 할당 간격이 시작될 때 웹 앱을 시작합니다.
 	-	**파일 시스템 저장소** - 이 할당량에 도달하면 읽기 작업 중에는 파일 시스템 저장소에 액세스할 수 있지만 정상적인 웹 앱 활동에 필요한 작업을 비롯한 모든 쓰기 작업 중에는 파일 시스템 저장소가 차단됩니다. 파일 사용량을 줄이거나 웹 앱을 할당량이 더 높은 웹 호스팅 계획으로 전환하면 쓰기 작업이 다시 시작됩니다.
@@ -201,7 +201,7 @@ Azure PowerShell에서 **Set-AzureWebsite** cmdlet을 사용해서도 진단을 
 
 명령이 실행된 명령 프롬프트, PowerShell, bash 또는 터미널 세션에 로그 정보가 표시됩니다.
 
-> [AZURE.NOTE] **azure** 명령이 설치되지 않은 경우 설치 및 구성 정보에 대해서는 [Azure CLI를 사용하는 방법](../virtual-machines/virtual-machines-command-line-tools.md)을 참조하세요.
+> [AZURE.NOTE] **azure** 명령이 설치되지 않은 경우 설치 및 구성 정보에 대해서는 [Azure CLI 실행](../xplat-cli-install.md)을 참조하세요.
 
 ### 로그 파일 읽기 ###
 
@@ -286,6 +286,5 @@ Azure PowerShell에서 **Set-AzureWebsite** cmdlet을 사용해서도 진단을 
 
 [fzilla]: http://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
- 
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

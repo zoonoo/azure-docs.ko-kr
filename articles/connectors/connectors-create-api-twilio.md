@@ -21,7 +21,7 @@ ms.author="mandia"/>
 
 Twilio에 연결하여 전역 SMS, MMS 및 IP 메시지를 보내고 받습니다.
 
->[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다. 2014-12-01-preview 스키마 버전에 대한 내용을 보려면 [Twilio](../app-service-logic/app-service-logic-connector-twilio.md)를 클릭하세요.
+>[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다.
 
 Twilio를 사용하여 다음을 수행할 수 있습니다.
 
@@ -78,7 +78,8 @@ Twilio API에는 다음 작업이 포함됩니다. 트리거는 없습니다.
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
-|받는 사람|string|no|쿼리|없음|To phone number|
+|받는 사람  
+|string|no|쿼리|없음|To phone number|
 |원본|string|no|쿼리|없음|From phone number|
 |DateSent|string|no|쿼리|없음|이 날짜(GMT 형식, YYYY-MM-DD로 지정)에 보낸 메시지만 표시합니다. 예: DateSent=2009-07-06. 같지 않음을 지정할 수도 있습니다. 예를 들어 자정 또는 그 이전에 전송된 메시지의 경우 DateSent<=YYYY-MM-DD, 자정 또는 그 이후에 전송된 메시지의 경우 DateSent>=YYYY-MM-DD를 사용합니다.|
 |PageSize|정수|no|쿼리|50|각 목록 페이지에서 반환할 리소스의 개수입니다. 기본값은 50입니다.|
@@ -247,4 +248,4 @@ Twilio API에는 다음 작업이 포함됩니다. 트리거는 없습니다.
 ## 다음 단계
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!-----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

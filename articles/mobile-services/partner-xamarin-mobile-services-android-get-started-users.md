@@ -35,7 +35,7 @@
 
 이 자습서는 모바일 서비스 quickstart를 기반으로 합니다. 먼저 [모바일 서비스 시작] 자습서를 완료해야 합니다.
 
-이 자습서를 완료하려면 Xamarin.Android 및 Android SDK 4.2 이상 버전이 필요합니다.
+이 자습서를 완료하려면 Windows의 Xamarin이 포함된 Visual Studio 또는 Mac OS X의 Xamarin Studio가 필요합니다. 전체 설치 지침은 [Visual Studio 및 Xamarin을 위한 설정 및 설치](https://msdn.microsoft.com/library/mt613162.aspx)에 있습니다.
 
 ##<a name="register"></a>인증을 위해 앱 등록 및 모바일 서비스 구성
 
@@ -142,4 +142,4 @@
 [스크립트를 통해 사용자 권한 부여]: mobile-services-javascript-backend-service-side-authorization.md
 [완성된 예제 프로젝트]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

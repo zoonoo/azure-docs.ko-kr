@@ -3,7 +3,7 @@
 
 Azure 가상 컴퓨터에서 실행중인 응용 프로그램에 액세스 할 수 없는 경우, 이 문서는 문제의 원인을 찾아내고 해당 문제를 수정하기 위한 체계적인 방법을 설명합니다.
 
-> [AZURE.NOTE]  Azure 가상 컴퓨터에 연결하는 방법에 대한 도움말은 [Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](virtual-machines-windows-troubleshoot-rdp-connection.md) 또는 [Linux 기반 Azure 가상 컴퓨터에 대한 SSH(보안 셸) 연결 문제 해결](virtual-machines-linux-troubleshoot-ssh-connection.md)을 참조하세요.
+> [AZURE.NOTE]  Azure 가상 컴퓨터에 연결하는 방법에 대한 도움말은 [Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](../articles/virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md) 또는 [Linux 기반 Azure 가상 컴퓨터에 대한 SSH(보안 셸) 연결 문제 해결](../articles/virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md)을 참조하세요.
 
 이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 스택 오버플로 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수도 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 가서 **지원 받기**를 클릭합니다.
 
@@ -65,10 +65,10 @@ VM에서 응용 프로그램이 실행되고 있지만, 사용자의 원래 클�
 
 응용 프로그램에 액세스할 수 없는 경우, 다음 사항을 확인합니다.
 
-- VM에 대한 끝점 구성에서 클래식 배포 모델을 사용하여 만든 VM에 대한 수신 트래픽을 허용하는지, 특히 프로토콜(TCP 또는 UDP), 공용 및 개인 포트 번호가 허용되어 있는지 확인합니다. 자세한 내용은 [가상 컴퓨터로 끝점을 설정하는 방법](virtual-machines-windows-classic-setup-endpoints.md)을 참조하세요.
-- 클래식 배포 모델을 사용하여 만든 VM에 대해, 끝점의 ACL(액세스 제어 목록)이 인트라넷에서 들어오는 트래픽을 막지 않는지 확인합니다. 자세한 내용은 [가상 컴퓨터로 끝점을 설정하는 방법](virtual-machines-windows-classic-setup-endpoints.md)을 참조하세요.
+- VM에 대한 끝점 구성에서 클래식 배포 모델을 사용하여 만든 VM에 대한 수신 트래픽을 허용하는지, 특히 프로토콜(TCP 또는 UDP), 공용 및 개인 포트 번호가 허용되어 있는지 확인합니다. 자세한 내용은 [가상 컴퓨터로 끝점을 설정하는 방법](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md)을 참조하세요.
+- 클래식 배포 모델을 사용하여 만든 VM에 대해, 끝점의 ACL(액세스 제어 목록)이 인트라넷에서 들어오는 트래픽을 막지 않는지 확인합니다. 자세한 내용은 [가상 컴퓨터로 끝점을 설정하는 방법](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md)을 참조하세요.
 - VM에 대한 인바운드 NAT 규칙 구성에서 리소스 관리자 모델을 사용하여 만든 VM에 대한 수신 트래픽을 허용하는지, 특히 프로토콜(TCP 또는 UDP), 공용 및 개인 포트 번호가 허용되어 있는지 확인합니다.
-- 네트워크 보안 그룹이 인바운드 요청 및 아웃 바운드 요청 트래픽을 허용하는지 확인합니다. 자세한 내용은 [NSG(네트워크 보안 그룹)란?](../virtual-network/virtual-networks-nsg.md)을 참조하세요.
+- 네트워크 보안 그룹이 인바운드 요청 및 아웃 바운드 요청 트래픽을 허용하는지 확인합니다. 자세한 내용은 [NSG(네트워크 보안 그룹)란?](../articles/virtual-network/virtual-networks-nsg.md)을 참조하세요.
 
 가상 컴퓨터 또는 끝점이 부하 분산 집합의 구성원인 경우:
 
@@ -98,8 +98,8 @@ VM에서 응용 프로그램이 실행되고 있지만, 사용자의 원래 클�
 
 ## 추가 리소스
 
-[Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](virtual-machines-windows-troubleshoot-rdp-connection.md)
+[Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](../articles/virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md)
 
-[Linux 기반 Azure 가상 컴퓨터에 SSH(보안 셸) 연결 문제 해결](virtual-machines-linux-troubleshoot-ssh-connection.md)
+[Linux 기반 Azure 가상 컴퓨터에 SSH(보안 셸) 연결 문제 해결](../articles/virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="PowerShell을 사용하여 끝점에 대한 ACL(액세스 제어 목록)을 관리하는 방법"
    description="PowerShell을 사용하여 ACL을 관리하는 방법을 알아봅니다."
    services="virtual-network"
@@ -6,7 +6,7 @@
    authors="telmosampaio"
    manager="carmonm"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
@@ -17,7 +17,7 @@
 
 # PowerShell을 사용하여 끝점에 대한 ACL(액세스 제어 목록)을 관리하는 방법
 
-Azure PowerShell을 사용하거나 관리 포털에서 끝점에 대한 네트워크 ACL(액세스 제어 목록)을 생성 및 관리할 수 있습니다. 이 항목에서는 PowerShell을 사용하여 완료할 수 있는 ACL 공통 작업의 절차에 대해 알아봅니다. Azure PowerShell cmdlet 목록은 [Azure 관리 Cmdlet](http://go.microsoft.com/fwlink/?LinkId=317721)을 참조하세요. ACL에 대한 자세한 내용은 [네트워크 ACL(액세스 제어 목록)이란?](virtual-networks-acl.md)을 참조하세요. 관리 포털을 사용하여 ACL을 관리하려는 경우 [가상 컴퓨터에 끝점을 설정하는 방법](../virtual-machines/virtual-machines-set-up-endpoints.md)을 참조하세요.
+Azure PowerShell을 사용하거나 관리 포털에서 끝점에 대한 네트워크 ACL(액세스 제어 목록)을 생성 및 관리할 수 있습니다. 이 항목에서는 PowerShell을 사용하여 완료할 수 있는 ACL 공통 작업의 절차에 대해 알아봅니다. Azure PowerShell cmdlet 목록은 [Azure 관리 Cmdlet](http://go.microsoft.com/fwlink/?LinkId=317721)을 참조하세요. ACL에 대한 자세한 내용은 [네트워크 ACL(액세스 제어 목록)이란?](virtual-networks-acl.md)을 참조하세요. 관리 포털을 사용하여 ACL을 관리하려는 경우 [가상 컴퓨터에 끝점을 설정하는 방법](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md)을 참조하세요.
 
 ## Azure PowerShell을 사용하여 네트워크 ACL 관리
 
@@ -71,7 +71,7 @@ Azure PowerShell cmdlet을 사용하여 네트워크 ACL(액세스 제어 목록
 
 아래 예제는 네트워크 ACL 규칙을 제거하는 방법을 설명합니다. 원격 서브넷에 대한 허용 규칙이 있는 네트워크 ACL 규칙을 제거하려면 Azure PowerShell ISE를 엽니다. 아래 스크립트를 복사하고 붙여넣어 원하는 값으로 스크립트를 구성한 후 스크립트를 실행합니다.
 
-1. 첫 번째 단계는 가상 컴퓨터 끝점에 대한 네트워크 ACL 개체를 가져오는 것입니다. 그런 다음 ACL 규칙을 제거합니다. 이 경우 규칙 ID를 기준으로 규칙을 제거합니다. 여기서는 규칙 ID 0만 ACL에서 제거할 뿐, 가상 컴퓨터 끝점에서 ACL 개체를 제거하지는 않습니다. 
+1. 첫 번째 단계는 가상 컴퓨터 끝점에 대한 네트워크 ACL 개체를 가져오는 것입니다. 그런 다음 ACL 규칙을 제거합니다. 이 경우 규칙 ID를 기준으로 규칙을 제거합니다. 여기서는 규칙 ID 0만 ACL에서 제거할 뿐, 가상 컴퓨터 끝점에서 ACL 개체를 제거하지는 않습니다.
 
 		Get-AzureVM –ServiceName $serviceName –Name $vmName `
 		| Get-AzureAclConfig –EndpointName "web" `
@@ -95,4 +95,4 @@ Azure PowerShell cmdlet을 사용하여 네트워크 ACL(액세스 제어 목록
 
 [네트워크 ACL(액세스 제어 목록)이란?](virtual-networks-acl.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

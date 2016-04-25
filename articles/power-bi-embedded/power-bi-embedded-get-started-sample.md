@@ -21,7 +21,7 @@
 **Microsoft Power BI Embedded 미리 보기**를 사용하면 Power BI 보고서를 웹 또는 모바일 응용 프로그램에 통합할 수 있으므로 사용자에게 데이터를 시각화하기 위해 사용자 지정 솔루션을 빌드할 필요가 없습니다. 다음 리소스를 사용하여 Power BI 보고서를 앱으로의 통합을 시작할 수 있습니다.
 
  -	[샘플 대시보드 웹앱](http://go.microsoft.com/fwlink/?LinkId=761493)
- -	[Power BI Embedded API 참조](https://msdn.microsoft.com/library/mt711493.aspx)
+ -	[Power BI Embedded API 참조](https://msdn.microsoft.com/library/mt712303.aspx)
  -	[Power BI Embedded .NET SDK(NuGet을 통해 사용 가능)](http://go.microsoft.com/fwlink/?LinkId=746472)
 
 이 문서에서 **Power BI Embedded** 시작 샘플을 소개합니다. 샘플 웹앱을 실행할 수 있도록 샘플 앱 구성을 시작하겠습니다.
@@ -52,7 +52,7 @@
 
     ![](media\powerbi-embedded-get-started-sample\workspace-id.png)
 
-8. PBIX 파일을 **작업 영역**에 가져오려면 옵션 **6을 선택합니다. 기존 작업 영역**에 PBIX Desktop 파일을 가져옵니다. 사용할 수 있는 PBIX 파일이 없는 경우 [매출 데이터 PBIX 분석 샘플](http://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix)을 다운로드할 수 있습니다.
+8. PBIX 파일을 **작업 영역**에 가져오려면 옵션 **6을 선택합니다. 기존 작업 영역**에 PBIX Desktop 파일을 가져옵니다. 사용할 수 있는 PBIX 파일이 없는 경우 [소매 분석 샘플 PBIX](http://go.microsoft.com/fwlink/?LinkID=780547)를 다운로드할 수 있습니다.
 
 9. 메시지가 표시되면 **데이터 집합**의 식별 이름을 입력합니다.
 
@@ -86,7 +86,7 @@ Checking import state... Succeeded
     ```
 3. **EmbedSample** 웹 응용 프로그램을 실행합니다.
 
-**EmbedSample** 웹 응용 프로그램을 실행하면 왼쪽 탐색 패널에 **보고서** 메뉴가 포함되어야 합니다. 가져온 보고서를 보려면 **보고서**를 확장하고 보고서를 클릭합니다. [판매 데이터 PBIX 분석 샘플](http://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix)을 가져온 경우 샘플 웹앱이 다음과 같이 보입니다.
+**EmbedSample** 웹 응용 프로그램을 실행하면 왼쪽 탐색 패널에 **보고서** 메뉴가 포함되어야 합니다. 가져온 보고서를 보려면 **보고서**를 확장하고 보고서를 클릭합니다. [소매 분석 샘플 PBIX](http://go.microsoft.com/fwlink/?LinkID=780547)를 가져온 경우 샘플 웹앱이 다음과 같이 보입니다.
 
 ![](media\powerbi-embedded-get-started-sample\power-bi-embedded-sample-left-nav.png)
 
@@ -221,6 +221,20 @@ Task<ActionResult> Report(string reportId)
 
 ![](media\powerbi-embedded-get-started-sample\power-bi-embedded-iframe-code.png)
 
+
+### 응용 프로그램에 포함된 보고서 필터링
+
+URL 구문을 사용하여 포함된 보고서를 필터링할 수 있습니다. 이를 위해 지정된 필터와 함께 iFrame src url에 쿼리 문자열 매개 변수를 추가합니다. 필터 쿼리 구문은 다음과 같습니다.
+
+```
+https://app.powerbi.com/reportEmbed
+?reportId=d2a0ea38-0694-4c70-9673-ee9655d54a4a&
+$filter={tableName/fieldName} eq '{fieldValue}'
+```
+
+> [AZURE.NOTE] {tableName/fieldName}은(는) 공백이나 특수 문자를 포함할 수 없습니다. {fieldValue}은(는) 단일 범주 값을 허용합니다.
+
+
 ## 참고 항목
 
 - [Microsoft Power BI Embedded란](power-bi-embedded-what-is-power-bi-embedded.md)
@@ -228,4 +242,4 @@ Task<ActionResult> Report(string reportId)
 - [Microsoft Power BI Embedded 미리 보기 시작](power-bi-embedded-get-started.md)
 - [Power BI Embedded의 앱 토큰 흐름 정보](power-bi-embedded-app-token-flow.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

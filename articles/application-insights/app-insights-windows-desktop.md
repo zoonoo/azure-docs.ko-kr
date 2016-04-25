@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/15/2016" 
+	ms.date="04/06/2016" 
 	ms.author="awills"/>
 
 # Windows 데스크톱 앱, 서비스 및 작업자 역할의 Application Insights
@@ -31,15 +31,15 @@ Application Insights를 사용하면 사용량 및 성능을 위해 배포된 �
 ## <a name="add"></a> Application Insights 리소스 만들기
 
 
-1.  [Azure 포털][portal]에서 새 Application Insights 리소스를 만듭니다. 응용 프로그램 종류에 대해 Windows 스토어 앱을 선택합니다. 
+1.  [Azure 포털][portal]에서 새 Application Insights 리소스를 만듭니다. 응용 프로그램 유형으로 ASP.NET 앱을 선택합니다. 
 
     ![새로 만들기, Application Insights 클릭](./media/app-insights-windows-desktop/01-new.png)
 
-    (응용 프로그램 종류 선택은 개요 블레이드의 내용 및 [메트릭 탐색기][metrics]에서 사용할 수 있는 속성을 설정합니다.)
+    (원하는 경우 응용 프로그램 유형을 선택할 수 있으며 이에 따라 개요 블레이드의 내용 및 [메트릭 탐색기][metrics]에서 사용할 수 있는 속성이 설정됩니다.)
 
-2.  계측 키를 복사합니다. 방금 만든 새 리소스의 필수 드롭다운에서 키를 찾습니다.
+2.  계측 키를 복사합니다. 방금 만든 새 리소스의 필수 드롭다운에서 키를 찾습니다. 응용 프로그램 맵을 닫거나 리소스에 대한 개요 블레이드로 왼쪽으로 스크롤합니다.
 
-    ![Essentials 클릭, 키 선택 및 Ctrl+C 누르기](./media/app-insights-windows-desktop/02-props.png)
+    ![Essentials 클릭, 키 선택 및 Ctrl+C 누르기](./media/app-insights-windows-desktop/10.png)
 
 ## <a name="sdk"></a>응용 프로그램에 SDK를 설치합니다.
 
@@ -89,7 +89,7 @@ Application Insights를 사용하면 사용량 및 성능을 위해 배포된 �
             tc.InstrumentationKey = "key copied from portal";
 
             // Set session data:
-            tc.Context.User.Id = Environment.GetUserName();
+            tc.Context.User.Id = Environment.UserName;
             tc.Context.Session.Id = Guid.NewGuid().ToString();
             tc.Context.Device.OperatingSystem = Environment.OSVersion.ToString();
 
@@ -123,19 +123,20 @@ Application Insights를 사용하면 사용량 및 성능을 위해 배포된 �
 * 앱을 닫기 전에 모든 원격 분석이 전송되었는지 확인하려면 `Flush()`입니다. 코어 API(Microsoft.ApplicationInsights)를 사용하는 경우 이를 사용합니다. 웹 SDK는 이 동작을 자동으로 구현합니다. (인터넷을 항상 사용할 수 없는 컨텍스트에서 앱을 실행하는 경우 [지속성 채널](#persistence-channel)을 참조하세요.)
 
 
-#### 컨텍스트 이니셜라이저
+#### 원격 분석 이니셜라이저
 
-사용자 및 세션 수를 보려면 각 `TelemetryClient`인스턴스에 대한 값을 설정할 수 있습니다. 또는 컨텍스트 이니셜라이저를 사용하여 모든 클라이언트에 대해 이 덧셈을 수행할 수 있습니다.
+사용자 및 세션 수를 보려면 각 `TelemetryClient`인스턴스에 대한 값을 설정할 수 있습니다. 또는 원격 분석 이니셜라이저를 사용하여 모든 클라이언트에 대해 이 덧셈을 수행할 수 있습니다.
 
 ```C#
 
-    class UserSessionInitializer: IContextInitializer
+    class UserSessionInitializer : ITelemetryInitializer
     {
-        public void Initialize(TelemetryContext context)
+        public void Initialize(ITelemetry telemetry)
         {
-            context.User.Id = Environment.UserName;
-            context.Session.Id = Guid.NewGuid().ToString();
+            telemetry.Context.User.Id = Environment.UserName;
+            telemetry.Context.Session.Id = Guid.NewGuid().ToString();
         }
+        
     }
 
     static class Program
@@ -143,7 +144,7 @@ Application Insights를 사용하면 사용량 및 성능을 위해 배포된 �
         ...
         static void Main()
         {
-            TelemetryConfiguration.Active.ContextInitializers.Add(
+            TelemetryConfiguration.Active.TelemetryInitializers.Add(
                 new UserSessionInitializer());
             ...
 
@@ -159,15 +160,13 @@ Visual Studio에 전송한 이벤트 수가 표시됩니다.
 
 ![](./media/app-insights-windows-desktop/appinsights-09eventcount.png)
 
-
+이벤트는 진단 및 출력 창에도 표시됩니다.
 
 ## <a name="monitor"></a>데이터 모니터링 보기
 
 Azure 포털에서 사용자 응용 프로그램 블레이드로 돌아갑니다.
 
 첫 번째 이벤트가 [진단 검색](app-insights-diagnostic-search.md)에 표시됩니다.
-
-더 많은 데이터를 기대하는 경우 몇 초 후에 새로고침을 클릭합니다.
 
 TrackMetric 또는 TrackEvent의 측정 매개 변수를 사용한 경우 [메트릭을 탐색기][metrics]를 열고 필터 블레이드를 엽니다. 여기에 메트릭을 표시해야 하지만 때로 파이프라인을 통해 얻으려면 시간이 걸리므로 필터 블레이드 닫고 잠시 기다린 다음 새로 고쳐야 할 수 있습니다.
 
@@ -299,4 +298,4 @@ namespace ConsoleApplication1
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

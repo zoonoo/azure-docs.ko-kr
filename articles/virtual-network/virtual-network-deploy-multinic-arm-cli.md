@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="리소스 관리자에서 Azure CLI를 사용하여 여러 NIC VM 배포 | Microsoft Azure"
    description="리소스 관리자에서 Azure CLI를 사용하여 여러 NIC VM을 배포하는 방법에 대해 알아봅니다."
    services="virtual-network"
@@ -23,11 +23,11 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-intro-include.md](../../includes/virtual-network-deploy-multinic-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [클래식 배포 모델](virtual-network-deploy-multinic-classic-cli.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-network-deploy-multinic-classic-cli.md).
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-현재는 단일 NIC가 사용되는 VM과 여러 NIC가 사용되는 VM을 동일 리소스 그룹에서 사용할 수 없기 때문에 다른 모든 구성 요소와 다른 리소스 그룹에 백 엔드 서버를 구현하게 됩니다. 다음 단계에서는 기본 리소스 그룹에 *IaaSStory* 라는 리소스 그룹을, 백 엔드 서버에는 *IaaSStory-BackEnd* 를 사용합니다.
+현재는 단일 NIC가 사용되는 VM과 여러 NIC가 사용되는 VM을 같은 리소스 그룹에서 포함할 수 없습니다. 따라서 다른 모든 구성 요소와 다른 리소스 그룹에 백 엔드 서버를 구현해야 합니다. 다음 단계에서는 기본 리소스 그룹에 *IaaSStory* 라는 리소스 그룹을, 백 엔드 서버에는 *IaaSStory-BackEnd* 를 사용합니다.
 
 ## 필수 조건
 
@@ -47,7 +47,7 @@
 
 - **데이터 디스크용 저장소 계정**. 성능 향상을 위해 데이터베이스 서버의 데이터 디스크는 SSD(반도체 드라이브) 기술을 사용하며, 이 기술에는 프리미엄 저장소 계정이 필요합니다. 배포할 Azure 위치에서 프리미엄 저장소가 지원되는지 확인하세요.
 - **NIC**. 각 VM에 데이터베이스 액세스용으로 하나, 그리고 관리용으로 하나씩, 두 개의 NIC가 사용됩니다.
-- **가용성 집합**. 모든 데이터베이스 서버가 단일 가용성 집합에 추가되어, 유지 관리 도중에 하나 이상의 VM이 실행 중이도록 합니다. 
+- **가용성 집합**. 모든 데이터베이스 서버가 단일 가용성 집합에 추가되어, 유지 관리 도중에 하나 이상의 VM이 실행 중이도록 합니다.
 
 ### 1단계 - 스크립트 시작
 
@@ -60,7 +60,7 @@
 		vnetName="WTestVNet"
 		backendSubnetName="BackEnd"
 		remoteAccessNSGName="NSG-RemoteAccess"
-		
+
 2. 백 엔드 배포에 사용하려는 값을 기반으로 다음 변수 값을 변경합니다.
 
 		backendRGName="IaaSStory-Backend"
@@ -107,7 +107,7 @@
 		azure storage account create $prmStorageAccountName \
 		    --resource-group $backendRGName \
 		    --location $location \
-			--type PLRS 
+			--type PLRS
 
 3. VM의 가용성 집합을 만듭니다.
 
@@ -171,7 +171,7 @@
 		        --vhd-name $dataDiskName$suffixNumber-1.vhd \
 		        --size-in-gb $diskSize \
 		        --lun 0
-		
+
 		    azure vm disk attach-new --resource-group $backendRGName \
 		        --vm-name $vmNamePrefix$suffixNumber \        
 		        --storage-account-name $prmStorageAccountName \
@@ -330,4 +330,4 @@
 		info:    Updating VM "DB2"
 		info:    vm disk attach-new command OK
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

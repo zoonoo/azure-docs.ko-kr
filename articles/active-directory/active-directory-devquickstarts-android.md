@@ -22,7 +22,7 @@
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
-데스크톱 응용 프로그램을 개발하는 경우 Azure AD를 사용하면 간단하고 편리하게 Active Directory 계정에 사용하여 사용자를 인증할 수 있습니다. 또한 응용 프로그램에서 Office 365 API 또는 Azure API와 같이 Azure AD를 통해 보호되는 웹 API를 안전하게 사용할 수 있습니다.
+데스크톱 응용 프로그램을 개발하는 경우 Azure AD를 사용하면 간단하고 편리하게 Active Directory 계정을 사용하여 사용자를 인증할 수 있습니다. 또한 응용 프로그램에서 Office 365 API 또는 Azure API와 같이 Azure AD를 통해 보호되는 웹 API를 안전하게 사용할 수 있습니다.
 
 보호된 리소스에 액세스해야 하는 Android 클라이언트의 경우 Azure AD는 Active Directory 인증 라이브러리 또는 ADAL을 제공합니다. ADAL의 유일한 용도는 앱이 쉽게 액세스 토큰을 가져오도록 하는 것입니다. 액세스 토큰을 얼마나 쉽게 가져올 수 있는지 보여 주기 위해 다음을 수행하는 Android To-Do List 응용 프로그램을 빌드해 보겠습니다.
 
@@ -100,7 +100,7 @@ Maven으로 빌드하려면 최상위 수준에서 pom.xml을 사용할 수 있�
   * SDK 19를 사용하여 에뮬레이터를 설치합니다.
   * 리포지토리를 복제한 루트 폴더로 이동합니다.
   * mvn clean install 명령을 실행합니다.
-  * cd samples\\hello를 실행하여 빠른 시작 샘플로 디렉터리를 변경합니다.
+  * cd samples\hello를 실행하여 빠른 시작 샘플로 디렉터리를 변경합니다.
   * mvn android:deploy android:run 명령을 실행합니다.
   * 앱이 시작되는 것을 볼 수 있습니다.
   * 테스트 사용자 자격 증명을 입력하여 사용해 보세요.
@@ -136,7 +136,7 @@ repositories {
         dirs 'libs'
     }
     maven {
-        url "YourLocalMavenRepoPath\\.m2\\repository"
+        url "YourLocalMavenRepoPath\.m2\repository"
     }
 }
 dependencies {
@@ -271,7 +271,7 @@ maven에서 리포지토리로 jar 파일을 가져와 프로젝트의 *libs* �
     ```
 
 11. **Broker**: 
-  Microsoft Intune의 회사 포털 앱은 broker 구성 요소를 제공합니다. Adal은 broker 계정을 사용하며, 사용자 계정이 하나만 만들어지면 인증자 및 개발자는 해당 계정을 건너뛰지 않도록 선택합니다. 개발자는 다음을 사용해서 broker 사용자를 건너뛸 수 있습니다.
+  Microsoft Intune의 회사 포털 앱은 broker 구성 요소를 제공합니다. ADAL은 broker 계정을 사용하며, 사용자 계정이 하나만 만들어지면 인증자 및 개발자는 해당 계정을 건너뛰지 않도록 선택합니다. 개발자는 다음을 사용해서 broker 사용자를 건너뛸 수 있습니다.
 
     ```java
      AuthenticationSettings.Instance.setSkipBroker(true);
@@ -283,8 +283,8 @@ maven에서 리포지토리로 jar 파일을 가져와 프로젝트의 *libs* �
 
  ```java
  String brokerAccount =  mContext.getBrokerUser();
- ``` 
-계정이 유효하면 Broker 사용자가 반환됩니다.
+ ```
+ 계정이 유효하면 Broker 사용자가 반환됩니다.
 
  앱 매니페스트에는 AccountManager 계정을 사용할 수 있는 권한이 있어야 합니다. http://developer.android.com/reference/android/accounts/AccountManager.html
 
@@ -457,4 +457,4 @@ Adal 버전 1.1.0은 WebViewClient의 onReceivedHttpAuthRequest 이벤트를 통
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -36,7 +36,7 @@
 
 이 자습서는 모바일 서비스 quickstart를 기반으로 합니다. 먼저 [모바일 서비스 시작] 자습서를 완료해야 합니다.
 
-이 자습서를 완료하려면 [Xamarin.iOS], XCode 6.0 및 iOS 7.0 이상 버전이 필요합니다.
+이 자습서를 완료하려면 [Xamarin Studio], XCode 6.0 및 iOS 7.0 이상 버전이 필요합니다.
 
 ##<a name="register"></a>인증을 위해 앱 등록 및 모바일 서비스 구성
 
@@ -153,6 +153,6 @@
 [Get started with push notifications]: /develop/mobile/tutorials/-get-started-with-push-xamarin-ios
 [스크립트를 통해 사용자 권한 부여]: /develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
 [완성된 예제 프로젝트]: http://go.microsoft.com/fwlink/p/?LinkId=331328
-[Xamarin.iOS]: http://xamarin.com/download
+[Xamarin Studio]: http://xamarin.com/download
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -42,7 +42,7 @@ Azure 주요 자격 증명 모음 cmdlet 사용하면 많은 작업 중에 키 �
 
 Azure 자동화의 기본 사항과 이를 사용하여 Azure 주요 자격 증명 모음을 관리하는 방법을 알아보았으므로, 이제 다음 링크에 따라 Azure 자동화에 대해 자세히 알아보세요.
 
-* Azure 자동화 [시작 자습서](../automation-create-runbook-from-samples.md)를 참조하세요.
+* Azure 자동화 [시작 자습서](../automation/automation-first-runbook-graphical.md)를 참조하세요.
 * [Azure 주요 자격 증명 모음 PowerShell 스크립트](https://gallery.technet.microsoft.com/scriptcenter/Azure-Key-Vault-Powershell-1349b091)를 참조하세요.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

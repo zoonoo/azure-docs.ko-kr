@@ -10,7 +10,7 @@
 
 <tags
 	ms.service="sql-database"
-	ms.workload="data-management" 
+	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -60,7 +60,7 @@ V12부터 Azure SQL 데이터베이스는 기본, 표준 및 프리미엄이라�
 기본, 표준 및 프리미엄 서비스 계층에 대한 자세한 내용은 다음을 참조하세요.
 
 - [SQL 데이터베이스 서비스 계층](sql-database-service-tiers.md)
-- [SQL 데이터베이스 Web/Business 데이터베이스를 새 서비스 계층으로 업그레이드](sql-database-upgrade-new-service-tiers.md)
+- [SQL 데이터베이스 Web/Business 데이터베이스를 새 서비스 계층으로 업그레이드](sql-database-upgrade-server-portal.md)
 
 
 
@@ -225,7 +225,7 @@ V12로 업그레이드하는 동안에도 V11 이전 버전 데이터베이스�
 
 PowerShell cmdlet을 사용하여 V11 또는 기타 V12 이전 버전에서 Azure SQL 데이터베이스 V12로의 업그레이드를 시작, 중지 또는 모니터링할 수 있습니다.
 
-- [PowerShell을 사용하여 SQL 데이터베이스 V12로 업그레이드 준비](sql-database-upgrade-server.md)
+- [PowerShell을 사용하여 SQL 데이터베이스 V12로 업그레이드 준비](sql-database-upgrade-server-powershell.md)
 
 이러한 PowerShell cmdlet에 대한 참조 설명서는 다음을 참조하세요.
 
@@ -252,6 +252,5 @@ Stop- cmdlet은 취소를 의미하는 것으로, 일시 중지가 아닙니다.
 
 <!--Anchors-->
 [Subheading 1]: #subheading-1
- 
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

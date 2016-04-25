@@ -33,7 +33,7 @@
 + 활성 Google 계정.
 + [Google Cloud Messaging 클라이언트 구성 요소]. 자습서에 이 구성 요소가 추가됩니다.
 
-[모바일 서비스 시작]을 완료했다면 프로젝트에 [Xamarin.Android] 및 [Azure 모바일 서비스 구성 요소]가 설치되어 있을 것입니다.
+[모바일 서비스 시작]을 완료했다면 프로젝트에 Xamarin 및 [Azure 모바일 서비스 구성 요소]가 설치되어 있을 것입니다.
 
 ##<a id="register"></a>Google Cloud Messaging 사용
 
@@ -84,7 +84,6 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 [모바일 서비스 시작]: mobile-services-ios-get-started.md
 
 [Google Cloud Messaging 클라이언트 구성 요소]: http://components.xamarin.com/view/GCMClient/
-[Xamarin.Android]: http://xamarin.com/download/
 [Azure 모바일 서비스 구성 요소]: http://components.xamarin.com/view/azure-mobile-services/
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

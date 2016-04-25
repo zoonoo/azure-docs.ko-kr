@@ -14,13 +14,12 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="04/01/2016" 
 	ms.author="josephd"/>
 
 # Azure 인프라 서비스 워크로드: 고가용성 LOB(기간 업무) 응용 프로그램
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
-
 
 Microsoft Azure에서 첫 번째 또는 다음 인트라넷 전용 LOB(기간 업무) 응용 프로그램을 설정하고, 응용 프로그램의 간편한 구성 및 신속한 확장 기능을 통해 새 용량을 추가합니다.
  
@@ -36,11 +35,11 @@ Azure 가상 네트워크는 모두 올바른 이름 지정 및 적절한 트래
 
 ## Azure에서 호스팅되는 비즈니스 응용 프로그램의 개발/테스트 라인 만들기
 
-프레미스 간 가상 네트워크는 사이트 간 VPN 또는 Express 경로 연결을 사용하여 온-프레미스 네트워크에 연결됩니다. 최종 구성을 모방하는 개발/테스트 환경을 만든 후 응용 프로그램에 액세스하고 VPN 연결을 통해 원격 관리를 수행하는 작업을 시험하려는 경우 [하이브리드 클라우드에서 테스트를 위한 웹 기반 LOB 응용 프로그램 설정](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)을 참조하세요.
+프레미스 간 가상 네트워크는 사이트 간 VPN 또는 Express 경로 연결을 사용하여 온-프레미스 네트워크에 연결됩니다. 최종 구성을 모방하는 개발/테스트 환경을 만든 후 응용 프로그램에 액세스하고 VPN 연결을 통해 원격 관리를 수행하는 작업을 시험하려는 경우 [하이브리드 클라우드에서 테스트를 위한 웹 기반 LOB 응용 프로그램 설정](virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md)을 참조하세요.
 
 ![](./media/virtual-machines-windows-lob/CreateLOBAppHybridCloud_3.png)
  
-[MSDN 구독](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) 또는 [Azure 평가판 구독](https://azure.microsoft.com/pricing/free-trial/)을 사용하여 이러한 개발/테스트 환경을 무료로 만들 수 있습니다.
+[MSDN 구독](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) 또는 Azure 구독을 사용하여 이러한 개발/테스트 환경을 무료로 만들 수 있습니다.
 
 다음 단계는 Azure에서 고가용성 LOB(기간 업무) 응용 프로그램을 만드는 것입니다.
 
@@ -86,4 +85,4 @@ LOB(기간 업무) 응용 프로그램 개요는 [LOB(기간 업무) 응용 프�
 
 - 구성에 대해 자세히 알아보기 전에 프로덕션 워크로드의 [개요](virtual-machines-windows-lob-overview.md)를 확인합니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

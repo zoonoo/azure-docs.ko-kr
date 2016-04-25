@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="02/12/2016"
+     ms.date="04/07/2016"
      ms.author="dobett"/>
 
 # Powershell을 사용하여 IoT Hub 만들기
@@ -58,7 +58,7 @@ New-AzureRmResourceGroup -Name MyIoTRG1 -Location "East US"
 
 JSON 템플릿을 사용하여 리소스 그룹에 새 IoT hub를 만듭니다. 템플릿을 사용하여 기존 IoT Hub를 변경할 수도 있습니다.
 
-1. 텍스트 편집기에서 새로운 표준 IoT Hub를 만드는 다음 리소스 정의를 사용하여 **template.json**이라는 ARM 템플릿을 만듭니다. 이 예에서는 **미국 동부** 지역에 IoT Hub를 추가하고 **2016-02-03** API 버전을 사용합니다. 또한 이 템플릿에서 매개 변수로 IoT Hub 이름 **hubName**을 전달해야 합니다.
+1. 텍스트 편집기에서 새로운 표준 IoT Hub를 만드는 다음 리소스 정의를 사용하여 **template.json**이라는 ARM 템플릿을 만듭니다. 이 예에서는 **미국 동부** 지역에 IoT Hub를 추가하고 이벤트 허브와 호환되는 끝점에 두 개의 소비자 그룹(**cg1** 및 **cg2**)을 만들고 **2016-02-03** API 버전을 사용합니다. 또한 이 템플릿에서 매개 변수로 IoT Hub 이름 **hubName**을 전달해야 합니다.
 
     ```
     {
@@ -83,6 +83,22 @@ JSON 템플릿을 사용하여 리소스 그룹에 새 IoT hub를 만듭니다. 
         "properties": {
           "location": "East US"
         }
+      },
+      {
+        "apiVersion": "2016-02-03",
+        "type": "Microsoft.Devices/IotHubs/eventhubEndpoints/ConsumerGroups",
+        "name": "[concat(parameters('hubName'), '/events/cg1')]",
+        "dependsOn": [
+          "[concat('Microsoft.Devices/Iothubs/', parameters('hubName'))]"
+        ]
+      },
+      {
+        "apiVersion": "2016-02-03",
+        "type": "Microsoft.Devices/IotHubs/eventhubEndpoints/ConsumerGroups",
+        "name": "[concat(parameters('hubName'), '/events/cg2')]",
+        "dependsOn": [
+          "[concat('Microsoft.Devices/Iothubs/', parameters('hubName'))]"
+        ]
       }
       ],
       "outputs": {
@@ -96,7 +112,7 @@ JSON 템플릿을 사용하여 리소스 그룹에 새 IoT hub를 만듭니다. 
 
 2. 로컬 컴퓨터에 템플릿 파일을 저장합니다. 이 예에서는 **c:\\templates** 폴더에 저장하는 것으로 가정합니다.
 
-3. 다음 명령을 실행하여 새 IoT Hub를 배포하고, 매개 변수로 IoT Hub 이름을 전달합니다. 이 예에서는 IoT Hub 이름이 **myiothub**입니다.
+3. 다음 명령을 실행하여 새 IoT Hub를 배포하고, 매개 변수로 IoT Hub 이름을 전달합니다. 이 예에서는 IoT Hub의 이름이 **myiothub**입니다(이 이름은 전역적으로 고유해야 함).
 
     ```
     New-AzureRmResourceGroupDeployment -ResourceGroupName MyIoTRG1 -TemplateFile C:\templates\template.json -hubName myiothub
@@ -123,4 +139,4 @@ ARM 템플릿을 사용하여 PowerShell에서 IoT Hub를 배포했으니 구체
 [lnk-azure-rm-overview]: ../resource-group-overview.md
 [lnk-powershell-arm]: ../powershell-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0413_2016-->

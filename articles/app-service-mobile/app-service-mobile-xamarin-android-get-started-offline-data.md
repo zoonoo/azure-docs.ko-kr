@@ -28,12 +28,6 @@
 
 오프라인 동기화 기능에 대한 자세한 내용은 [Azure 모바일 앱에서 오프라인 데이터 동기화] 항목을 참조하세요.
 
-## 요구 사항
-
-* Visual Studio 2013
-* Visual Studio [Xamarin 확장] **또는** [Xamarin Studio]
-* 자습서 [Xamarin Android 앱 만들기] 완료. 이 자습서는 해당 자습서에서 설명한 완성된 앱을 사용합니다.
-
 ## 클라이언트 동기화 코드 검토
 
 자습서 [Xamarin Android 앱 만들기]를 완료한 경우 다운로드한 Xamarin 클라이언트 프로젝트는 로컬 SQLite 데이터베이스를 사용하여 오프라인 동기화를 지원하는 코드를 포함합니다. 이미 자습서 코드에 포함된 내용에 대한 간략한 개요입니다. 기능의 개념적 개요는 [Azure 모바일 앱에서 오프라인 데이터 동기화]를 참조하세요.
@@ -73,7 +67,7 @@
     제공된 코드에서 원격 `TodoItem` 테이블에 있는 모든 레코드를 쿼리하지만 쿼리 ID 및 쿼리를 `PushAsync`로 전달하여 레코드를 필터링할 수도 있습니다. 자세한 내용은 [Azure 모바일 앱에서 오프라인 데이터 동기화]에서 섹션 *증분 동기화*를 참조하세요.
 
 	<!-- Need updated conflict handling info : `InitializeAsync` uses the default conflict handler, which fails whenever there is a conflict. To provide a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services].
- 	-->
+	-->
 
 
 		// ToDoActivity.cs
@@ -172,8 +166,8 @@
 [How to use the Xamarin Component client for Azure Mobile Services]: ../partner-xamarin-mobile-services-how-to-use-client-library.md
 
 [Xamarin Studio]: http://xamarin.com/download
-[Xamarin 확장]: http://xamarin.com/visual-studio
+[Xamarin extension]: http://xamarin.com/visual-studio
 
 [Cloud Cover: Azure 모바일 서비스에서 오프라인 동기화]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

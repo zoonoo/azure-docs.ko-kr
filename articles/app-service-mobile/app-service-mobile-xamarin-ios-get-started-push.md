@@ -26,18 +26,9 @@
 
 ##필수 조건
 
-이 자습서를 완료하려면 다음이 필요합니다.
-
-* 활성 Azure 계정. 계정이 아직 없으면 Azure 평가판에 등록하고 최대 10개의 무료 모바일 앱 백 엔드를 가져옵니다. 평가판이 종료된 후에도 계속 사용할 수 있습니다. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-
-* [Xamarin Studio] 및 [Xcode] v4.4 이상이 설치되어 있는 Mac. 원하는 경우 Windows 컴퓨터에서 Visual Studio를 사용하여 Xamarin.iOS 앱을 실행할 수 있지만 Xamarin.iOS 빌드 호스트를 실행하는 네트워크에 연결된 Mac에 연결해야 하기 때문에 좀 더 복잡합니다. 실행에 대해 더 자세히 보려면 [Windows에서 Xamarin.iOS 설치]를 참조하세요.
-
-* 실제 iOS 장치. 푸시 알림은 iOS 시뮬레이터에서 지원되지 않습니다.
-
-* [Apple 개발자 프로그램 멤버 자격](https://developer.apple.com/programs/ios/)에는 APNS(Apple 푸시 알림 서비스)의 등록이 필요합니다.
-
 * [Xamarin.iOS 빠른 시작 자습서](app-service-mobile-xamarin-ios-get-started.md)를 완료합니다.
 
+* 실제 iOS 장치. 푸시 알림은 iOS 시뮬레이터에서 지원되지 않습니다.
 
 ##Apple 개발자 포털의 푸시 알림에 대한 앱 등록
 
@@ -164,9 +155,5 @@
 <!-- Images. -->
 
 <!-- URLs. -->
-[Xamarin Studio]: http://xamarin.com/platform
-[Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532
-[Windows에서 Xamarin.iOS 설치]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

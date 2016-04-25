@@ -5,7 +5,7 @@
     keywords="c# 데이터베이스,sql 개발"
     documentationCenter=""
     authors="stevestein"
-    manager="jeffreyg"
+    manager="jhubbard"
     editor=""/>
 
 <tags
@@ -285,7 +285,7 @@ C#에서 SQL 개발을 시작하기 전에 Azure 포털에서 일부 작업을 �
 
 ## 기존 데이터베이스를 탄력적 데이터베이스 풀 내로 이동
 
-*풀을 만든 후에 기존 데이터베이스를 풀 내부 및 외부로 이동하는 데 Transact-SQL을 사용할 수 있습니다. 자세한 정보는 [탄력적 데이터베이스 풀 참조 - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL)을 참조하세요.*
+풀을 만든 후에 기존 데이터베이스를 풀 내부 및 외부로 이동하는 데 Transact-SQL을 사용할 수 있습니다. 자세한 내용은 [Transact-SQL로 탄력적 데이터베이스 풀 모니터링 및 관리](sql-database-elastic-pool-manage-tsql.md)를 참조하세요.*
 
 다음 예에서는 기존 Azure SQL 데이터베이스를 풀로 이동시킵니다.
 
@@ -576,4 +576,4 @@ C#에서 SQL 개발을 시작하기 전에 Azure 포털에서 일부 작업을 �
 [8]: ./media/sql-database-elastic-pool-csharp/add-application2.png
 [9]: ./media/sql-database-elastic-pool-csharp/clientid.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

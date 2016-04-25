@@ -30,7 +30,7 @@ Twitter에 연결하여 트윗 게시, 사용자의 타임라인 가져오기 �
 
 &nbsp;
 
->[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다. 2014-12-01-preview 스키마 버전에 대한 내용을 보려면 [Twitter 커넥터](../app-service-logic/app-service-logic-connector-twitter.md)를 클릭하세요.
+>[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다.
 
 Twitter를 사용하면 다음과 같은 작업을 수행할 수 있습니다.
 
@@ -315,4 +315,4 @@ Twitter에는 다음 트리거 및 작업이 포함됩니다.
 [6]: ./media/connectors-create-api-twitter/twitter-apps-page.png
 [7]: ./media/connectors-create-api-twitter/twitter-app-create.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

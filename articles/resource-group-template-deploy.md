@@ -4,8 +4,8 @@
    description="Azure 리소스 관리자를 사용하여 Azure에 리소스를 배포합니다. 템플릿은 JSON 파일로, 포털, PowerShell, Mac/Linux/Windows용 Azure 명령줄 인터페이스 또는 REST에서 사용할 수 있습니다."
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+   manager="timlt"
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/21/2016"
+   ms.date="04/11/2016"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager 템플릿으로 리소스 배포
@@ -42,20 +42,22 @@
 
 1. Azure 계정에 로그인합니다. 자격 증명을 제공하면 사용자 계정에 대한 정보가 반환됩니다.
 
-        PS C:\> Login-AzureRmAccount
+        Add-AzureRmAccount
+
+     사용자 계정에 대한 요약이 반환됩니다.
 
         Environment : AzureCloud
         Account    : someone@example.com
         ...
 
 
-2. 여러 구독이 있는 경우 **Select-AzureRmSubscription** 명령을 사용하여 배포에 사용할 구독 ID를 제공합니다.
+2. 여러 구독이 있는 경우 **Set-AzureRmContext** 명령을 사용하여 배포에 사용할 구독 ID를 제공합니다.
 
-        PS C:\> Select-AzureRmSubscription -SubscriptionID <YourSubscriptionId>
+        Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
 
 3. 기본 리소스 그룹이 없는 경우 **New-AzureRmResourceGroup**을 사용하여 새 리소스 그룹을 만듭니다. 솔루션에 필요한 위치 및 리소스 그룹의 이름을 제공합니다.
 
-        PS C:\> New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "West US"
+        New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "West US"
    
      새 리소스 그룹에 대한 요약이 반환됩니다.
    
@@ -69,28 +71,28 @@
                     *
         ResourceId        : /subscriptions/######/resourceGroups/ExampleResourceGroup
 
-4. **Test-AzureRmResourceGroupDeployment** cmdlet을 실행하여 실행하기 전에 배포 유효성을 검사합니다. 배포를 테스트할 때는 배포를 실행할 때처럼 정확하게 매개 변수를 제공합니다(다음 단계에 표시됨).
+4. 배포를 실행하기 전에 **Test-AzureRmResourceGroupDeployment** cmdlet을 실행하여 배포 유효성을 검사합니다. 배포를 테스트할 때는 배포를 실행할 때처럼 정확하게 매개 변수를 제공합니다(다음 단계에 표시됨).
 
-        PS C:\> Test-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -myParameterName "parameterValue"
+        Test-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -myParameterName "parameterValue"
 
-5. 리소스 그룹에 대한 새 배포를 만들려면 **New-AzureRmResourceGroupDeployment** 명령을 실행하고 필요한 매개 변수를 제공합니다. 매개 변수에는 배포 이름, 리소스 그룹 이름, 만든 템플릿의 경로 또는 URL 및 시나리오에 필요한 기타 매개 변수가 포함됩니다. **Mode** 매개 변수가 지정되지 않으면 기본값 **Incremental**이 사용됩니다.
+5. 리소스 그룹에 대한 새 배포를 만들려면 **New-AzureRmResourceGroupDeployment** 명령을 실행하고 필요한 매개 변수를 제공합니다. 매개 변수에는 배포 이름, 리소스 그룹 이름, 만든 템플릿의 경로 또는 URL 및 시나리오에 필요한 기타 매개 변수가 포함됩니다. **Mode** 매개 변수가 지정되지 않은 경우 기본값 **Incremental**이 사용됩니다.
    
-     다음과 같은 방법으로 매개 변수 값을 제공할 수 있습니다.
+     매개 변수 값을 제공하는 옵션에는 다음 세 가지 옵션이 있습니다.
    
-     - 인라인 매개 변수를 사용합니다.
+     1. 인라인 매개 변수를 사용합니다.
 
-            PS C:\> New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -myParameterName "parameterValue"
+            New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -myParameterName "parameterValue"
 
-     - 매개 변수 개체를 사용합니다.
+     2. 매개 변수 개체를 사용합니다.
 
-            PS C:\> $parameters = @{"<ParameterName>"="<Parameter Value>"}
-            PS C:\> New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterObject $parameters
+            $parameters = @{"<ParameterName>"="<Parameter Value>"}
+            New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterObject $parameters
 
-     - 매개 변수 파일을 사용합니다. 템플릿 파일에 대한 정보는 [매개 변수 파일](./#parameter-file)을 참조하세요.
+     3. 매개 변수 파일을 사용합니다. 템플릿 파일에 대한 정보는 [매개 변수 파일](./#parameter-file)을 참조하세요.
 
-            PS C:\> New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterFile <PathOrLinkToParameterFile>
+            New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterFile <PathOrLinkToParameterFile>
 
-     리소스 그룹을 배포한 경우 배포에 대한 요약이 표시됩니다.
+     위 세 가지 방법 중 하나를 통해 리소스를 배포하면 배포 요약이 표시됩니다.
 
         DeploymentName    : ExampleDeployment
         ResourceGroupName : ExampleResourceGroup
@@ -99,20 +101,25 @@
         Mode              : Incremental
         ...
 
-     전체 배포를 실행하려면 **Mode**를 **Complete**로 설정합니다. 리소스 삭제 작업을 포함할 수 있는 Complete 모드를 사용할 것인지 확인하는 메시지가 표시됩니다.
+     전체 배포를 실행하려면 **Mode**를 **Complete**로 설정합니다.
 
-        PS C:\> New-AzureRmResourceGroupDeployment -Name ExampleDeployment -Mode Complete -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> 
+        New-AzureRmResourceGroupDeployment -Name ExampleDeployment -Mode Complete -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> 
+        
+     리소스 삭제가 포함될 수 있는 Complete 모드를 사용할지 확인하는 메시지가 나타납니다.
+        
         Confirm
         Are you sure you want to use the complete deployment mode? Resources in the resource group 'ExampleResourceGroup' which are not
         included in the template will be deleted.
         [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
 
-     템플릿이 해당 템플릿을 배포하는 명령의 매개 변수 중 하나와 일치하는 이름을 가진 매개 변수를 포함하는 경우(예: [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx) cmdlet의 **ResourceGroupName** 매개 변수와 동일한 **ResourceGroupName**이라는 매개 변수를 템플릿에 포함) **FromTemplate** 후위가 있는 매개 변수(예: **ResourceGroupNameFromTemplate**)에 대한 값을 제공하라는 메시지가 표시됩니다. 일반적으로 배포 작업에 사용되는 매개 변수와 동일한 이름을 가진 매개 변수를 명명하지 않음으로써 이러한 혼동이 발생하지 않도록 해야 합니다.
+     템플릿에 템플릿을 배포하는 명령의 매개 변수 중 하나와 일치하는 이름을 가진 매개 변수를 포함하는 경우(예: 템플릿에 [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx) cmdlet의 **ResourceGroupName** 매개 변수와 동일한 **ResourceGroupName**이라는 매개 변수 포함) **FromTemplate** 후위가 있는 매개 변수(예: **ResourceGroupNameFromTemplate**)에 대한 값을 제공하라는 메시지가 표시됩니다. 일반적으로 배포 작업에 사용되는 매개 변수와 동일한 이름을 가진 매개 변수를 명명하지 않음으로써 이러한 혼동이 발생하지 않도록 해야 합니다.
 
-6. 배포 오류에 대한 정보를 가져오려면 다음을 실행합니다.
+6. 배포 오류 문제를 해결하는 데 도움이 될 수 있는 배포에 대한 추가 정보를 기록하려면 **DeploymentDebugLogLevel** 매개 변수를 사용합니다. 요청 콘텐츠와 응답 콘텐츠 중 하나 또는 둘 다가 배포 작업과 함께 기록되도록 지정할 수 있습니다.
 
-        PS C:\> Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -Name ExampleDeployment
+        New-AzureRmResourceGroupDeployment -Name ExampleDeployment -DeploymentDebugLogLevel All -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate>
         
+     이 디버깅 콘텐츠를 사용하여 배포 문제를 해결하는 방법에 대한 자세한 내용은 [Azure PowerShell을 사용하여 리소스 그룹 배포 문제 해결](resource-manager-troubleshoot-deployments-powershell.md)을 참조하세요.
+       
         
 ### 비디오
 
@@ -158,27 +165,27 @@
         data:
         info:    group create command OK
 
-5. **azure group template validate** 명령을 실행하여 실행 전에 배포 유효성을 검사합니다. 배포를 테스트할 때는 배포를 실행할 때처럼 정확하게 매개 변수를 제공합니다(다음 단계에 표시됨).
+5. 배포를 실행하기 전에 **azure group template validate** 명령을 실행하여 배포 유효성을 검사합니다. 배포를 테스트할 때는 배포를 실행할 때처럼 정확하게 매개 변수를 제공합니다(다음 단계에 표시됨).
 
         azure group template vaildate -f <PathToTemplate> -p "{"ParameterName":{"value":"ParameterValue"}}" -g ExampleResourceGroup
 
 5. 리소스 그룹에 대한 새 배포를 만들려면 다음 명령을 실행하고 필요한 매개 변수를 제공합니다. 매개 변수에는 배포 이름, 리소스 그룹 이름, 만든 템플릿의 경로 또는 URL 및 시나리오에 필요한 기타 매개 변수가 포함됩니다.
    
-     다음과 같은 방법으로 매개 변수 값을 제공할 수 있습니다.
+     매개 변수 값을 제공하는 옵션에는 다음 세 가지 옵션이 있습니다.
 
-     - 인라인 매개 변수 및 로컬 템플릿을 사용합니다. 각 매개 변수는 `"ParameterName": { "value": "ParameterValue" }` 형식을 사용합니다. 다음 예제에서는 이스케이프 문자를 사용한 매개 변수를 보여줍니다.
+     1. 인라인 매개 변수 및 로컬 템플릿을 사용합니다. 각 매개 변수는 `"ParameterName": { "value": "ParameterValue" }` 형식을 사용합니다. 다음 예제에서는 이스케이프 문자를 사용한 매개 변수를 보여줍니다.
 
             azure group deployment create -f <PathToTemplate> -p "{"ParameterName":{"value":"ParameterValue"}}" -g ExampleResourceGroup -n ExampleDeployment
 
-     - 인라인 매개 변수 및 템플릿 링크를 사용합니다.
+     2. 인라인 매개 변수 및 템플릿 링크를 사용합니다.
 
             azure group deployment create --template-uri <LinkToTemplate> -p "{"ParameterName":{"value":"ParameterValue"}}" -g ExampleResourceGroup -n ExampleDeployment
 
-     - 매개 변수 파일을 사용합니다. 템플릿 파일에 대한 정보는 [매개 변수 파일](./#parameter-file)을 참조하세요.
+     3. 매개 변수 파일을 사용합니다. 템플릿 파일에 대한 정보는 [매개 변수 파일](./#parameter-file)을 참조하세요.
     
             azure group deployment create -f <PathToTemplate> -e <PathToParameterFile> -g ExampleResourceGroup -n ExampleDeployment
 
-     리소스 그룹을 배포한 경우 배포에 대한 요약이 표시됩니다.
+     위 세 가지 방법 중 하나를 통해 리소스를 배포하면 배포 요약이 표시됩니다.
   
         info:    Executing command group deployment create
         + Initializing template configurations and parameters
@@ -190,13 +197,9 @@
 
         azure group deployment create --mode Complete -f <PathToTemplate> -e <PathToParameterFile> -g ExampleResourceGroup -n ExampleDeployment
 
-6. 최신 배포에 대한 정보를 가져오려면 다음을 실행합니다.
+6. 배포 오류 문제를 해결하는 데 도움이 될 수 있는 배포에 대한 추가 정보를 기록하려면 **debug-setting** 매개 변수를 사용합니다. 요청 콘텐츠와 응답 콘텐츠 중 하나 또는 둘 다가 배포 작업과 함께 기록되도록 지정할 수 있습니다.
 
-        azure group log show -l ExampleResourceGroup
-
-7. 배포 오류에 대한 자세한 정보를 가져오려면 다음을 실행합니다.
-      
-        azure group log show -l -v ExampleResourceGroup
+        azure group deployment create --debug-setting All -f <PathToTemplate> -e <PathToParameterFile> -g ExampleResourceGroup -n ExampleDeployment
 
 ## REST API를 사용하여 배포
 1. 인증 토큰을 포함하여 [공통 매개 변수 및 헤더](https://msdn.microsoft.com/library/azure/8d088ecc-26eb-42e9-8acc-fe929ed33563#bk_common)를 설정합니다.
@@ -211,7 +214,7 @@
             }
           }
    
-3. [템플릿 배포 유효성 검사](https://msdn.microsoft.com/library/azure/dn790547.aspx) 작업을 실행하여 실행 전에 배포 유효성을 검사합니다. 배포를 테스트할 때는 배포를 실행할 때처럼 정확하게 매개 변수를 제공합니다(다음 단계에 표시됨).
+3. 배포를 실행하기 전에 [템플릿 배포 유효성 검사](https://msdn.microsoft.com/library/azure/dn790547.aspx) 작업을 실행하여 배포 유효성을 검사합니다. 배포를 테스트할 때는 배포를 실행할 때처럼 정확하게 매개 변수를 제공합니다(다음 단계에 표시됨).
 
 3. 새 리소스 그룹을 만듭니다. 템플릿의 구독 ID, 배포할 리소스 그룹 이름, 배포 이름 및 템플릿 위치를 제공합니다. 템플릿 파일에 대한 정보는 [매개 변수 파일](./#parameter-file)을 참조하세요. 리소스 그룹을 만드는 REST API에 대한 정보는 [템플릿 배포 만들기](https://msdn.microsoft.com/library/azure/dn790564.aspx)를 참조하세요. **mode**가 **Incremental**로 설정되어 있습니다. 전체 배포를 실행하려면 **mode**를 **Complete**로 설정합니다.
     
@@ -231,6 +234,13 @@
             }
           }
    
+      요청 콘텐츠와 응답 콘텐츠 중 하나 또는 둘 다를 기록하려면 요청에 **debugSetting**을 포함합니다.
+
+        "debugSetting": {
+          "detailLevel": "requestContent, responseContent"
+        }
+
+
 4. 템플릿 배포의 상태를 가져옵니다. 자세한 내용은 [템플릿 배포에 대한 정보 가져오기](https://msdn.microsoft.com/library/azure/dn790565.aspx)를 참조하세요.
 
           GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
@@ -240,7 +250,7 @@
 
 Visual Studio를 사용하여 리소스 그룹 프로젝트를 만들고 사용자 인터페이스를 통해 Azure에 배포할 수 있습니다. 프로젝트에 포함할 리소스 유형을 선택하면 해당 리소스가 리소스 관리자 템플릿에 자동으로 추가됩니다. 또한 프로젝트에서는 템플릿을 배포할 수 있는 PowerShell 스크립트를 제공합니다.
 
-Visual Studio를 리소스 그룹과 함께 사용하는 방법에 대한 소개는 [Visual Studio를 통해 Azure 리소스 그룹 생성 및 배포](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)를 참조하세요.
+리소스 그룹과 함께 Visual Studio를 사용하는 방법에 대한 지침은 [Visual Studio를 통해 Azure 리소스 그룹 만들기 및 배포](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)를 참조하세요.
 
 ## 포털로 배포
 
@@ -292,4 +302,4 @@ Visual Studio를 리소스 그룹과 함께 사용하는 방법에 대한 소개
 
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

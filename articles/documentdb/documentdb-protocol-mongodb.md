@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="MongoDB에 대한 DocumentDB 프로토콜 지원 | Microsoft Azure" 
 	description="MongoDB에 대한 DocumentDB 프로토콜 지원 및 현재 미리 보기에 사용할 수 있는지를 알아봅니다." 
-	keywords="mongodb 프로토콜, mongodb"
+	keywords="mongodb 프로토콜, mongodb, mongo 데이터베이스"
 	services="documentdb" 
 	authors="stephbaron" 
 	manager="jhubbard" 
@@ -13,7 +13,7 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="03/31/2016" 
 	ms.author="stbaro"/>
 
@@ -36,11 +36,11 @@
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. **새로 만들기**, **데이터 + 저장소**, **모두 보기**, **추가**를 클릭한 다음 **DocumentDB - MongoDB용 프로토콜 지원**을 클릭합니다.
 
-	![마켓플레이스 및 데이터의 스크린샷 + 저장소 블레이드, DocumentDB-MongoDB에 대한 프로토콜 지원 강조 표시](./media/documentdb-protocol-mongodb/marketplacegallery1.png)
+	![마켓플레이스 및 데이터의 스크린샷 + 저장소 블레이드, DocumentDB - MongoDB, Mongo 데이터베이스에 대한 프로토콜 지원 강조 표시](./media/documentdb-protocol-mongodb/marketplacegallery1.png)
 
 3. 또는 "DocumentDB 프로토콜"에 대한 **데이터 + 저장소** 범주를 검색합니다.
 
-	![마켓플레이스 및 데이터의 스크린샷 + 저장소 검색 블레이드, DocumentDB-MongoDB에 대한 프로토콜 지원 강조 표시](./media/documentdb-protocol-mongodb/marketplacegallery2.png)
+	![마켓플레이스 및 데이터의 스크린샷 + 저장소 검색 블레이드, DocumentDB - MongoDB, Mongo 데이터베이스에 대한 프로토콜 지원 강조 표시](./media/documentdb-protocol-mongodb/marketplacegallery2.png)
 
 4. **만들기**를 클릭하여 미리 보기 등록 프로세스를 시작합니다.
 
@@ -56,4 +56,4 @@
 
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

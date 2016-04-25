@@ -201,9 +201,9 @@ Azure Redis Cache는 가용성, 확장성 및 보안을 제공하는 고성능 �
 
  Azure Redis Cache는 클라이언트 응용 프로그램에서 사용되는 많고 다양한 API와 호환됩니다. 온-프레미스를 실행하는 Azure Redis Cache를 이미 사용하는 기존 응용 프로그램이 있는 경우 Azure Redis Cache는 클라우드에서 캐시에 빠른 마이그레이션 경로를 제공합니다.
 
-> [AZURE.NOTE] 또한 Azure는 관리된 캐시 서비스를 제공합니다. 이 서비스는 Azure 서비스 패브릭 캐시 엔진을 기반으로 합니다. 이것으로 느슨하게 결합된 응용 프로그램이 공유할 수 있는 분산된 캐시를 만들 수 있습니다. 캐시는 Azure 데이터 센터에서 실행하는 고성능 서버에서 호스팅됩니다. 그러나 이 옵션은 더이상 추천하지 않으며 이것을 사용하여 구축된 기존의 응용 프로그램을 지원하기 위해 제공됩니다. 모든 신규 개발에서 Azure Redis Cache를 대신 사용합니다.
+> [AZURE.NOTE] 또한 Azure는 관리된 캐시 서비스를 제공합니다. 이 서비스는 Azure 서비스 패브릭 캐시 엔진을 기반으로 합니다. 이것으로 느슨하게 결합된 응용 프로그램이 공유할 수 있는 분산된 캐시를 만들 수 있습니다. 캐시는 Azure 데이터 센터에서 실행하는 고성능 서버에서 호스팅됩니다. 그러나 이 옵션은 더 이상 추천하지 않으며 이것을 사용하여 구축된 기존의 응용 프로그램을 지원하기 위해 제공됩니다. 모든 신규 개발에서 Azure Redis Cache를 대신 사용합니다.
 >
-> 또한 Azure는 In-Role Cach를 지원합니다. 이 기능을 사용하면 클라우드 서비스와 관련된 캐시를 만들 수 있습니다. 캐시는 웹 또는 작업자 역할의 인스턴스에서 호스트되고 같은 클라우드 서비스 배포 단위의 일부로 작동하는 역할만 액세스할 수 있습니다. (배포 단위는 특정 지역에 클라우드 서비스로 배포되는 역할 인스턴스 집합임) 캐시는 클러스터되고 캐시를 호스트하는 동일한 배포 단위 내에서 역할의 모든 인스턴스가 동일한 캐시 클러스터의 일부가 됩니다. 그러나 이 옵션은 더이상 추천하지 않으며 이것을 사용하여 구축된 기존의 응용 프로그램을 지원하기 위해 제공됩니다. 모든 신규 개발에서 Azure Redis Cache를 대신 사용합니다.
+> 또한 Azure는 In-Role Cach를 지원합니다. 이 기능을 사용하면 클라우드 서비스와 관련된 캐시를 만들 수 있습니다. 캐시는 웹 또는 작업자 역할의 인스턴스에서 호스트되고 같은 클라우드 서비스 배포 단위의 일부로 작동하는 역할만 액세스할 수 있습니다. (배포 단위는 특정 지역에 클라우드 서비스로 배포되는 역할 인스턴스 집합임) 캐시는 클러스터되고 캐시를 호스트하는 동일한 배포 단위 내에서 역할의 모든 인스턴스가 동일한 캐시 클러스터의 일부가 됩니다. 그러나 이 옵션은 더 이상 추천하지 않으며 이것을 사용하여 구축된 기존의 응용 프로그램을 지원하기 위해 제공됩니다. 모든 신규 개발에서 Azure Redis Cache를 대신 사용합니다.
 >
 > Azure 관리된 캐시 서비스와 Azure In-Role Cache 둘 다 2016년 11월 16일에 사용 중지될 것으로 현재 예정되어 있습니다. 이러한 사용 중지에 대비하기 위해 Azure Redis Cache로 마이그레이션하는 것이 좋습니다. 자세한 내용은 Microsoft 웹 사이트의 [Azure Redis Cache 제품이 무엇이고 어떤 크기를 사용해야 하나요?](redis-cache/cache-faq.md#what-redis-cache-offering-and-size-should-i-use) 페이지를 방문하세요.
 
@@ -290,11 +290,11 @@ Azure Redis Cache와 세션 상태 제공자를 사용하면 다음을 포함하
 - 이것은 여러 판독기와 단일 작성기용 동일한 세션 상태 데이터에 제어된 동시 액세스를 지원합니다. 그리고
 - 메모리를 절약하고 네트워크 성능을 향상시키는데 압축을 사용할 수 있습니다.
 
-자세한 내용은 Microsoft 웹 사이트의 [Azure Redis Cache용 ASP.NET 세션 상태 제공자](redis-cache/cache-asp.net-session-state-provider.md) 페이지를 방문하십시오.
+자세한 내용은 Microsoft 웹 사이트의 [Azure Redis Cache용 ASP.NET 세션 상태 제공자](redis-cache/cache-aspnet-session-state-provider.md) 페이지를 방문하십시오.
 
 > [AZURE.NOTE] Azure 환경 외부에서 실행되는 ASP.NET 응용 프로그램용 Azure Redis Cache에 세션 상태 제공자를 사용하지 마십시오. Azure 외부에서 캐시에 액세스하는 대기 시간은 데이터를 캐시하는 성능 혜택을 제거할 수 있습니다.
 
-마찬가지로, Azure Redis Cache용 출력 캐시 공급자를 사용하면 ASP.NET 웹 응용 프로그램이 생성한 HTTP 응답을 저장할 수 있습니다. Azure Redis Cache와 함께 출력 캐시 공급자를 사용하여 복잡한 HTML 출력을 렌더링하는 응용 프로그램의 응답 시간을 향상시킬 수 있습니다. 유사한 응답을 생성 하는 응용 프로그램 인스턴스는 새로이 이 HTML을 생성하는 것이 아니라 캐시에서 공유 출력 조각을 사용 합니다. 자세한 내용은 Microsoft 웹 사이트의 [Azure Redis Cache용 ASP.NET 출력 캐시 공급자](redis-cache/cache-asp.net-output-cache-provider.md) 페이지를 방문하십시오.
+마찬가지로, Azure Redis Cache용 출력 캐시 공급자를 사용하면 ASP.NET 웹 응용 프로그램이 생성한 HTTP 응답을 저장할 수 있습니다. Azure Redis Cache와 함께 출력 캐시 공급자를 사용하여 복잡한 HTML 출력을 렌더링하는 응용 프로그램의 응답 시간을 향상시킬 수 있습니다. 유사한 응답을 생성 하는 응용 프로그램 인스턴스는 새로이 이 HTML을 생성하는 것이 아니라 캐시에서 공유 출력 조각을 사용 합니다. 자세한 내용은 Microsoft 웹 사이트의 [Azure Redis Cache용 ASP.NET 출력 캐시 공급자](redis-cache/cache-aspnet-output-cache-provider.md) 페이지를 방문하십시오.
 
 ### Azure Redis Cache
 
@@ -325,11 +325,11 @@ Azure Redis Cache와 세션 상태 제공자를 사용하면 다음을 포함하
 - 여러 판독기와 단일 작성기용 동일한 세션 상태 데이터에 제어된 동시 액세스를 지원합니다.
 - 압축을 사용하여 메모리를 절약하고 네트워크 성능을 향상시킵니다.
 
-자세한 내용은 Microsoft 웹 사이트의 [Azure Redis Cache용 ASP.NET 세션 상태 제공자](redis-cache/cache-asp.net-session-state-provider.md) 페이지를 방문하세요.
+자세한 내용은 Microsoft 웹 사이트의 [Azure Redis Cache용 ASP.NET 세션 상태 제공자](redis-cache/cache-aspnet-session-state-provider.md) 페이지를 방문하세요.
 
 > [AZURE.NOTE] Azure 환경 외부에서 실행되는 ASP.NET 응용 프로그램과 함께 Azure Redis Cache에 세션 상태 제공자를 사용하지 마세요. Azure 외부에서 캐시에 액세스하는 대기 시간은 데이터를 캐시하는 성능 혜택을 제거할 수 있습니다.
 
-마찬가지로, Azure Redis Cache용 출력 캐시 공급자를 사용하면 ASP.NET 웹 응용 프로그램이 생성한 HTTP 응답을 저장할 수 있습니다. Azure Redis Cache와 출력 캐시 공급자를 사용하면 복잡한 HTML 출력을 렌더링하는 응용 프로그램의 응답 시간을 향상시킬 수 있습니다. 유사한 응답을 생성하는 응용 프로그램 인스턴스는 이 HTML 출력을 새로 생성하기 보다 캐시에서 공유 출력 조각을 사용할 수 있습니다. 자세한 내용은 Microsoft 웹 사이트의 [Azure Redis Cache용 ASP.NET 출력 캐시 공급자](redis-cache/cache-asp.net-output-cache-provider.md) 페이지를 방문하세요.
+마찬가지로, Azure Redis Cache용 출력 캐시 공급자를 사용하면 ASP.NET 웹 응용 프로그램이 생성한 HTTP 응답을 저장할 수 있습니다. Azure Redis Cache와 출력 캐시 공급자를 사용하면 복잡한 HTML 출력을 렌더링하는 응용 프로그램의 응답 시간을 향상시킬 수 있습니다. 유사한 응답을 생성하는 응용 프로그램 인스턴스는 이 HTML 출력을 새로 생성하기 보다 캐시에서 공유 출력 조각을 사용할 수 있습니다. 자세한 내용은 Microsoft 웹 사이트의 [Azure Redis Cache용 ASP.NET 출력 캐시 공급자](redis-cache/cache-aspnet-output-cache-provider.md) 페이지를 방문하세요.
 
 ## 사용자 지정 Redis 캐시 빌드
 
@@ -927,11 +927,11 @@ subscriber.PublishAsync("messages:blogPosts", blogPost.Title);
 - Redis 웹 사이트의 [Redis 보안](http://redis.io/topics/security) 페이지입니다.
 - Azure 블로그의 [Azure Redis Cache 둘러보기](https://azure.microsoft.com/blog/2014/06/04/lap-around-azure-redis-cache-preview/) 페이지입니다.
 - Microsoft 웹 사이트에서 Azure의 [CentOS Linux VM에서 Redis 실행](http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx) 페이지입니다.
-- Microsoft 웹 사이트의 [Azure Redis Cache용 ASP.NET 세션 상태 제공자](redis-cache/cache-asp.net-session-state-provider.md) 페이지입니다.
-- Microsoft 웹 사이트의 [Azure Redis Cache용 ASP.NET 출력 캐시 제공자](redis-cache/cache-asp.net-output-cache-provider.md) 페이지입니다.
+- Microsoft 웹 사이트의 [Azure Redis Cache용 ASP.NET 세션 상태 제공자](redis-cache/cache-aspnet-session-state-provider.md) 페이지입니다.
+- Microsoft 웹 사이트의 [Azure Redis Cache용 ASP.NET 출력 캐시 제공자](redis-cache/cache-aspnet-output-cache-provider.md) 페이지입니다.
 - Redis 웹 사이트의 [Redis 데이터 형식 및 추상화 소개](http://redis.io/topics/data-types-intro) 페이지입니다.
 - StackExchange.Redis 웹 사이트의 [기본 사용법](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Basics.md) 페이지입니다.
 - StackExchange.Redis 리포지토리의 [Redis에서 트랜잭션](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) 페이지입니다.
 - Microsoft 웹 사이트의 [데이터 분할 가이드](http://msdn.microsoft.com/library/dn589795.aspx)입니다.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

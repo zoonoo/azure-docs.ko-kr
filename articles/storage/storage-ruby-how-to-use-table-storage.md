@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="02/17/2016"
+	ms.date="04/10/2016"
 	ms.author="robmcm"/>
 
 
@@ -31,7 +31,8 @@
 
 ## Ruby 응용 프로그램 만들기
 
-Ruby 응용 프로그램을 만드는 방법에 대한 지침은 [Azure VM의 Ruby on Rails 웹 응용 프로그램](../virtual-machines/virtual-machines-ruby-rails-linux-classic-web-app.md)을 참조하세요.
+Ruby 응용 프로그램을 만드는 방법에 대한 지침은 [Azure VM의 Ruby on Rails 웹 응용 프로그램](../virtual-machines/virtual-machines-linux-classic-ruby-rails-web-app.md)을 참조하세요.
+
 
 ## 저장소에 액세스하도록 응용 프로그램 구성
 
@@ -163,4 +164,4 @@ Azure 포털의 클래식 또는 ARM 저장소 계정에서 이러한 값을 가
 - [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)
 - GitHub의 [Azure SDK for Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby)(영문) 리포지토리
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

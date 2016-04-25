@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="04/02/2016"
 	ms.author="dastrock"/>
 
 # 단일 앱에서 Microsoft 계정 및 Azure AD 사용자 로그인
@@ -39,6 +39,7 @@
 ## 참조
 이러한 링크는 플랫폼을 자세히 탐색하는 데 유용합니다.
 
+- 빌드 2016: [Microsoft ID 시작하기: 앱에 대한 엔터프라이즈 수준 로그인](https://azure.microsoft.com/documentation/videos/build-2016-getting-started-with-microsoft-identities-enterprise-grade-sign-in-for-your-apps/)
 - [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) 또는 [adal](http://stackoverflow.com/questions/tagged/adal) 태그를 사용하여 스택 오버플로에 대한 도움말을 봅니다.
 - [v2.0 프로토콜 참조](active-directory-v2-protocols.md)
 - [v2.0 토큰 참조](active-directory-v2-tokens.md)
@@ -56,10 +57,4 @@
   - [Android OAuth2 클라이언트](https://github.com/wuman/android-oauth-client)
   - [Android OpenID Connect 클라이언트](https://github.com/kalemontes/OIDCAndroidLib)
 
-<!-- TODO: These articles
-- [ADAL Library Reference]()
-- [v2 Endpoint FAQs](active-directory-v2-faq.md)
-- Give us your thoughts on the preview using [User Voice](http://feedback.azure.com/forums/169401-azure-active-directory) - we want to hear them!  Use the phrase "AppModelv2:" in the title of your post so we can find it.
--->
-
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

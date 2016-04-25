@@ -84,7 +84,7 @@ Azure 계정 구독에서 특정 이름으로 저장소 계정 및 Blob 컨테�
 
 ![][8]
 
-**검색 ** 상자에 문자를 입력하면 리소스 트리에 해당 문자와 이름이 일치하는 저장소 계정 또는 Blob 컨테이너만 표시됩니다. 검색 조건을 지우려면 **검색** 상자의 **x** 단추를 선택합니다.
+**검색** 상자에 문자를 입력하면 리소스 트리에 해당 문자와 이름이 일치하는 저장소 계정 또는 Blob 컨테이너만 표시됩니다. 검색 조건을 지우려면 **검색** 상자의 **x** 단추를 선택합니다.
 
 ## 저장소 계정 편집
 
@@ -158,7 +158,7 @@ Blob 컨테이너에 대한 액세스를 제어하려면 **Manage Access Control
 	![][20]
 
 ## 다음 단계
-[Microsoft Azure 저장소 소개](/storage/storage-introduction.md)의 문서를 참조하여 Azure 저장소 서비스의 기능에 대해 알아봅니다.
+[Microsoft Azure 저장소 소개](./storage/storage-introduction.md)의 문서를 참조하여 Azure 저장소 서비스의 기능에 대해 알아봅니다.
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/AddAccount1c.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/AddAccount2c.png
@@ -182,4 +182,4 @@ Blob 컨테이너에 대한 액세스를 제어하려면 **Manage Access Control
 [19]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS3c.png
 [20]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS4c.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

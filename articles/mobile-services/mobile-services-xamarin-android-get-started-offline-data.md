@@ -46,9 +46,9 @@
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
-* [Xamarin 확장]이 포함된 Visual Studio **또는** [Xamarin Studio]
+* Windows의 Xamarin이 포함된 Visual Studio 또는 Mac OS X의 Xamarin Studio. 전체 설치 지침은 [Visual Studio 및 Xamarin을 위한 설정 및 설치](https://msdn.microsoft.com/library/mt613162.aspx)에 있습니다.
 * [모바일 서비스 시작] 자습서 완료
-
+ 
 ## <a name="review-offline"></a>모바일 서비스 동기화 코드 검토
 
 Azure 모바일 서비스의 오프라인 동기화를 사용하면 최종 사용자가 네트워크에 액세스할 수 없을 때 로컬 데이터베이스를 조작할 수 있습니다. 앱에서 이러한 기능을 사용하려면 로컬 저장소에서 `MobileServiceClient.SyncContext`을(를) 초기화합니다. 그런 다음 `IMobileServiceSyncTable` 인터페이스를 통해 테이블을 참조합니다. 이 섹션에서는 `ToDoActivity.cs`의 오프라인 동기화 관련 코드를 안내합니다.
@@ -172,9 +172,6 @@ Azure 모바일 서비스의 오프라인 동기화를 사용하면 최종 사�
 
 [Mobile Services SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
-[Xamarin Studio]: http://xamarin.com/download
-[Xamarin 확장]: http://xamarin.com/visual-studio
-[NuGet Addin for Xamarin]: https://github.com/mrward/monodevelop-nuget-addin
 [Azure 클래식 포털]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

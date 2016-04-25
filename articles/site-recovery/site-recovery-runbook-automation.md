@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="복구 계획에 Azure 자동화 runbook 추가 | Microsoft Azure" 
-   description="이 문서에서는 Azure Site Recovery에서 Azure 자동화를 사용하여 복구 계획을 확장하여 Azure로 복구하는 동안 복잡한 작업을 완료할 수 있도록 하는 방법을 설명합니다." 
-   services="site-recovery" 
-   documentationCenter="" 
-   authors="ruturaj" 
-   manager="mkjain" 
+<properties
+   pageTitle="복구 계획에 Azure 자동화 runbook 추가 | Microsoft Azure"
+   description="이 문서에서는 Azure Site Recovery에서 Azure 자동화를 사용하여 복구 계획을 확장하여 Azure로 복구하는 동안 복잡한 작업을 완료할 수 있도록 하는 방법을 설명합니다."
+   services="site-recovery"
+   documentationCenter=""
+   authors="ruturaj"
+   manager="mkjain"
    editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
    ms.devlang="powershell"
    ms.tgt_pltfrm="na"
    ms.topic="article"
-   ms.workload="required" 
+   ms.workload="required"
    ms.date="12/14/2015"
    ms.author="ruturajd@microsoft.com"/>
 
@@ -103,7 +103,7 @@ Azure 자동화는 Azure PowerShell을 사용하여 구독에 연결하고 해�
 
 ![](media/site-recovery-runbook-automation/11.png)
 
-powershell을 통해 구독에 연결하는 방법에 대한 자세한 내용은 [여기](../install-configure-powershell.md)를 참조하세요.
+powershell을 통해 구독에 연결하는 방법에 대한 자세한 내용은 [여기](../powershell-install-configure.md)를 참조하세요.
 
 다음으로, 장애 조치 후 프런트엔드 가상 컴퓨터에 끝점을 추가할 수 있는 Azure 자동화에서 runbook을 만듭니다.
 
@@ -137,11 +137,11 @@ ASR은 결정적 스크립트를 작성할 수 있도록 runbook에 컨텍스트
 **변수 이름** | **설명**
 ---|---
 RecoveryPlanName | 실행되는 계획의 이름입니다. 동일한 스크립트를 사용하는 이름에 따라 필요한 조치를 취할 수 있습니다.
-FailoverType | 장애 조치(failover)가 테스트, 계획됨 또는 계획되지 않음인지 지정합니다. 
+FailoverType | 장애 조치(failover)가 테스트, 계획됨 또는 계획되지 않음인지 지정합니다.
 FailoverDirection | 복구가 주 사이트 쪽으로 이루어지는지 보조 사이트 쪽으로 이루어지는지 지정합니다.
 GroupID | 계획이 실행 중일 때 복구 계획 내의 그룹 번호를 식별합니다.
 VmMap | 그룹에 있는 모든 가상 컴퓨터의 배열입니다.
-VMMap key | 각 VM에 대한 고유 키(GUID)입니다. 해당되는 경우 가상 컴퓨터의 VMM ID와 동일합니다. 
+VMMap key | 각 VM에 대한 고유 키(GUID)입니다. 해당되는 경우 가상 컴퓨터의 VMM ID와 동일합니다.
 RoleName | 복구 중인 Azure VM의 이름입니다.
 CloudServiceName | 가상 컴퓨터가 만들어지는 Azure 클라우드 서비스 이름입니다.
 
@@ -161,7 +161,7 @@ CloudServiceName | 가상 컴퓨터가 만들어지는 Azure 클라우드 서비
 2.  runbook의 작성자 보기로 이동하여 초안 모드를 입력합니다.
 
 3.  먼저, 복구 계획 컨텍스트로 사용할 변수를 지정합니다.
-  
+
 	```
 		param (
 			[Object]$RecoveryPlanContext
@@ -173,7 +173,7 @@ CloudServiceName | 가상 컴퓨터가 만들어지는 Azure 클라우드 서비
 
 	```
 		$Cred = Get-AutomationPSCredential -Name 'AzureCredential'
-	
+
 		# Connect to Azure
 		$AzureAccount = Add-AzureAccount -Credential $Cred
 		$AzureSubscriptionName = Get-AutomationVariable –Name ‘AzureSubscriptionName’
@@ -229,7 +229,7 @@ CloudServiceName | 가상 컴퓨터가 만들어지는 Azure 클라우드 서비
 	)
 
 	$Cred = Get-AutomationPSCredential -Name 'AzureCredential'
-	
+
 	# Connect to Azure
 	$AzureAccount = Add-AzureAccount -Credential $Cred
 	$AzureSubscriptionName = Get-AutomationVariable –Name ‘AzureSubscriptionName’
@@ -241,7 +241,7 @@ CloudServiceName | 가상 컴퓨터가 만들어지는 Azure 클라우드 서비
 	$AEPublicPort = 80
 	$AEName = "Port 80 for HTTP"
 	$VMGUID = "7a1069c6-c1d6-49c5-8c5d-33bfce8dd183"
-	
+
 	#Read the VM GUID from the context
 	$VM = $RecoveryPlanContext.VmMap.$VMGUID
 
@@ -266,7 +266,8 @@ CloudServiceName | 가상 컴퓨터가 만들어지는 Azure 클라우드 서비
 
 스크립트가 준비되면 앞서 만든 복구 계획에 이를 추가할 수 있습니다.
 
-1.  만든 복구 계획에서 그룹 2 다음에 스크립트를 추가하도록 선택합니다. ![](media/site-recovery-runbook-automation/15.png)
+1.  만든 복구 계획에서 그룹 2 다음에 스크립트를 추가하도록 선택합니다.
+![](media/site-recovery-runbook-automation/15.png)
 
 2.  스크립트 이름을 지정합니다. 복구 계획 내에 표시하기 위한 이 스크립트의 이름입니다.
 
@@ -308,6 +309,4 @@ Azure에 장애 조치(Failover)를 실행할 때 기본 측 스크립트를 실
 
 [Azure 자동화 스크립트 샘플](http://gallery.technet.microsoft.com/scriptcenter/site/search?f[0].Type=User&f[0].Value=SC%20Automation%20Product%20Team&f[0].Text=SC%20Automation%20Product%20Team "Azure 자동화 스크립트 샘플")
 
- 
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

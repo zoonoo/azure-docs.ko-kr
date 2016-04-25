@@ -28,13 +28,16 @@ Wait 커넥터를 사용하려면 먼저 Wait 커넥터 API 앱의 인스턴스�
 Wait 커넥터는 동작으로 사용할 수 있습니다. 트리거가 필요하지 않습니다.
 
 ### 작업
-- 오른쪽 창에서 Wait 커넥터를 클릭합니다. ![작업 목록][1]
+- 오른쪽 창에서 Wait 커넥터를 클릭합니다.
+![작업 목록][1]
 - Wait 커넥터는 다음 두 동작을 지원합니다. 
 	- 지연
 	- 다음까지 지연
 	 
-- *지연*을 선택합니다. ![지연 입력][2]
-- 동작에 대한 입력을 제공하고 구성합니다. ![구성된 동작][3]
+- *지연*을 선택합니다.
+![지연 입력][2]
+- 동작에 대한 입력을 제공하고 구성합니다.
+![구성된 동작][3]
 
 매개 변수|형식|매개 변수에 대한 설명
 ---|---|---
@@ -48,11 +51,11 @@ Wait 커넥터는 동작으로 사용할 수 있습니다. 트리거가 필요�
 
 [커넥터 및 API 앱 참조](http://go.microsoft.com/fwlink/p/?LinkId=529766)의 Swagger REST API 참조를 봅니다.
 
-커넥터의 성능 통계를 검토하고 보안을 제어할 수 있습니다. [API 앱 및 커넥터를 관리 및 모니터링](../app-service-api/app-service-api-manage-in-portal.md)을 참조하세요.
+ 
 
 <!--References -->
 [1]: ./media/app-service-logic-wait/ListOfActions.PNG
 [2]: ./media/app-service-logic-wait/DelayInput.PNG
 [3]: ./media/app-service-logic-wait/ActionConfigured.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

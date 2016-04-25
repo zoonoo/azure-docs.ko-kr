@@ -9,7 +9,7 @@
 <tags
     ms.service="application-insights"
     ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza" 
+	ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="article"
 	ms.date="11/17/2015"
@@ -17,7 +17,7 @@
 
 # Application Insights에 대해 Azure 진단 로깅 구성
 
-Microsoft Azure에서 클라우드 서비스 프로젝트나 가상 컴퓨터를 설정하는 경우 [Azure는 진단 로그를 생성할 수 있습니다](vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md). 이것을 Application Insights로 보내도록 설정하여 Application Insights SDK에 의해 앱 내부에서 전송되는 진단 및 사용량 원격 분석 자료와 함께 분석할 수 있습니다. Azure 로그는 시작, 중지, 충돌은 물론 성능 카운터와 같은 앱에 대한 관리의 이벤트를 포함합니다. 로그는 앱의 호출을 System.Diagnostics.Trace에 포함합니다.
+Microsoft Azure에서 클라우드 서비스 프로젝트나 가상 컴퓨터를 설정하는 경우 [Azure는 진단 로그를 생성할 수 있습니다](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md/). 이것을 Application Insights로 보내도록 설정하여 Application Insights SDK에 의해 앱 내부에서 전송되는 진단 및 사용량 원격 분석 자료와 함께 분석할 수 있습니다. Azure 로그는 시작, 중지, 충돌은 물론 성능 카운터와 같은 앱에 대한 관리의 이벤트를 포함합니다. 로그는 앱의 호출을 System.Diagnostics.Trace에 포함합니다.
 
 이 문서는 진단 캡처에 대한 구성을 자세히 설명합니다.
 
@@ -62,7 +62,7 @@ Azure 진단은 데이터를 Azure 저장소 테이블에 저장합니다. 그�
         <Channel logLevel="Verbose" name="MyLogData"  />
       </Channels>
      </Sink>
-    </SinksConfig> 
+    </SinksConfig>
 
 ```
 
@@ -116,7 +116,7 @@ Application Insights에 Verbose 응용 프로그램 로그만 보내려면, `Log
         <DataSource name="Application!*" />
       </WindowsEventLog>
       <Logs scheduledTransferPeriod="PT1M" scheduledTransferLogLevelFilter="Verbose"
-            sinks="ApplicationInsights.MyLogData"/> 
+            sinks="ApplicationInsights.MyLogData"/>
        <!-- This specific info sent to this channel -->
      </DiagnosticMonitorConfiguration>
 
@@ -136,9 +136,9 @@ Application Insights에 Verbose 응용 프로그램 로그만 보내려면, `Log
 
 이 기능을 사용할 경우 주의해야 할 몇 가지 제한 사항이 있습니다.
 
-* 채널은 성능 카운터가 아닌 로그 형식으로만 작업할 수 있다는 의미입니다. 성능 카운터 요소를 사용하여 채널을 지정하는 경우 무시됩니다. 
-* 채널에 대한 로그 수준은 Azure 진단에서 수집되는 로그 수준을 초과할 수 없습니다. 예를 들어 로그 요소에서 응용 프로그램 로그 오류를 수집하고 Application Insight 동기화에 자세한 정보 로그를 보내려고 시도할 수 없습니다. scheduledTransferLogLevelFilter 특성은 항상 싱크에 전송하려는 로그와 같거나 더 많은 로그를 수집해야 합니다. 
-* Application Insights에 Azure 진단 확장에서 수집된 Blob 데이터를 보낼 수 없습니다. 예를 들어 Directories 노드에 지정된 모든 항목입니다. 크래시 덤프의 경우 실제 크래시 덤프는 Blob 저장소에 보내지고 크래시 덤프가 생성된 알림이 Application Insights에 전송됩니다. 
+* 채널은 성능 카운터가 아닌 로그 형식으로만 작업할 수 있다는 의미입니다. 성능 카운터 요소를 사용하여 채널을 지정하는 경우 무시됩니다.
+* 채널에 대한 로그 수준은 Azure 진단에서 수집되는 로그 수준을 초과할 수 없습니다. 예를 들어 로그 요소에서 응용 프로그램 로그 오류를 수집하고 Application Insight 동기화에 자세한 정보 로그를 보내려고 시도할 수 없습니다. scheduledTransferLogLevelFilter 특성은 항상 싱크에 전송하려는 로그와 같거나 더 많은 로그를 수집해야 합니다.
+* Application Insights에 Azure 진단 확장에서 수집된 Blob 데이터를 보낼 수 없습니다. 예를 들어 Directories 노드에 지정된 모든 항목입니다. 크래시 덤프의 경우 실제 크래시 덤프는 Blob 저장소에 보내지고 크래시 덤프가 생성된 알림이 Application Insights에 전송됩니다.
 
 ## 관련된 항목
 
@@ -146,4 +146,4 @@ Application Insights에 Verbose 응용 프로그램 로그만 보내려면, `Log
 * [PowerShell을 사용하여 Azure 진단을 Application Insights에 보내기](app-insights-powershell-azure-diagnostics.md)
 * [Azure 진단 구성 파일](https://msdn.microsoft.com/library/azure/dn782207.aspx)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0413_2016-->

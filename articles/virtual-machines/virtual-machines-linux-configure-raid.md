@@ -2,11 +2,10 @@
 	pageTitle="Linux를 실행하는 가상 컴퓨터에 소프트웨어 RAID 구성 | Microsoft Azure" 
 	description="mdadm을 사용하여 Azure에서 Linux에 대해 RAID를 구성하는 방법에 대해 알아봅니다." 
 	services="virtual-machines-linux" 
-	documentationCenter="" 
-	authors="szarkos" 
-	writer="szark" 
+	documentationCenter="na" 
+	authors="rickstercdn"  
 	manager="timlt" 
-	editor=""
+	editor="tysonn"
 	tag="azure-service-management,azure-resource-manager" />
 
 <tags 
@@ -16,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="03/25/2016" 
-	ms.author="szark"/>
+	ms.author="rclaus"/>
 
 
 
@@ -25,9 +24,7 @@ Azure에서 Linux 가상 컴퓨터의 소프트웨어 RAID를 사용하여 연�
 
 
 ## 데이터 디스크 연결
-RAID 장치를 구성하는 데 일반적으로 두 개 이상의 빈 데이터 디스크가 필요합니다. 이 문서에서는 Linux 가상 컴퓨터에 데이터 디스크를 연결하는 방법은 자세히 다루지 않습니다. Azure에서 빈 데이터 디스크를 Linux 가상 컴퓨터에 연결하는 방법에 대한 자세한 내용은 Microsoft Azure 문서 [디스크 연결](virtual-machines-windows-classic-attach-disk.md#attachempty)을 참조하세요.
-
->[AZURE.NOTE] ExtraSmall VM 크기는 가상 컴퓨터에 연결된 2개 이상의 데이터 디스크를 지원하지 않습니다. VM 크기 및 지원되는 데이터 디스크 수에 대한 자세한 내용은 [Microsoft Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](https://msdn.microsoft.com/library/azure/dn197896.aspx)를 참조하세요.
+RAID 장치를 구성하는 데 일반적으로 두 개 이상의 빈 데이터 디스크가 필요합니다. RAID 장치를 만드는 주된 이유는 디스크 IO의 성능을 개선하기 위한 것입니다. IO 요구 사항에 따라 표준 저장소에 저장된 디스크(디스크당 최대 500IO/ps) 또는 프리미엄 저장소에 저장된 디스크(디스크당 최대 5000IO/ps)를 연결할 수 있습니다. Linux 가상 컴퓨터에 데이터 디스크를 프로비전 및 연결하는 방법은 이 문서에서 자세히 다루지 않습니다. Azure에서 빈 데이터 디스크를 Linux 가상 컴퓨터에 연결하는 방법에 대한 자세한 내용은 Microsoft Azure 문서 [디스크 연결](virtual-machines-linux-add-disk.md)을 참조하세요.
 
 
 ## mdadm 유틸리티 설치
@@ -49,7 +46,7 @@ RAID 장치를 구성하는 데 일반적으로 두 개 이상의 빈 데이터 
 ## 디스크 파티션 만들기
 이 예에서는 /dev/sdc에 단일 디스크 파티션을 만듭니다. 그런 다음 /dev/sdc1이라는 디스크 파티션을 호출합니다.
 
-- fdisk를 시작하여 파티션 만들기를 시작합니다.
+1. fdisk를 시작하여 파티션 만들기를 시작합니다.
 
 		# sudo fdisk /dev/sdc
 		Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
@@ -61,38 +58,37 @@ RAID 장치를 구성하는 데 일반적으로 두 개 이상의 빈 데이터 
 				 switch off the mode (command 'c') and change display units to
 				 sectors (command 'u').
 
-- 프롬프트에서 'n'을 눌러 새로운(**n**ew) 파티션을 만듭니다.
+2. 프롬프트에서 'n'을 눌러 새로운(**n**ew) 파티션을 만듭니다.
 
 		Command (m for help): n
 
-- 'p'를 눌러 주(**p**rimary) 파티션을 만듭니다.
+3. 'p'를 눌러 주(**p**rimary) 파티션을 만듭니다.
 
 		Command action
 			e   extended
 			p   primary partition (1-4)
-		p
 
-- '1'을 눌러 파티션 번호 1을 선택합니다.
+4. '1'을 눌러 파티션 번호 1을 선택합니다.
 
 		Partition number (1-4): 1
 
-- 새 파티션의 시작 지점을 선택하거나 `<enter>` 키를 눌러 드라이브의 가용 공간 시작 부분에 파티션을 배치하는 기본값을 적용할 수 있습니다.
+5. 새 파티션의 시작 지점을 선택하거나 `<enter>` 키를 눌러 드라이브의 가용 공간 시작 부분에 파티션을 배치하는 기본값을 적용할 수 있습니다.
 
 		First cylinder (1-1305, default 1):
 		Using default value 1
 
-- 파티션 크기를 선택합니다. 예를 들어 10기가바이트 파티션을 만들려면 '+10G'를 입력합니다. 또는 `<enter>` 키를 눌러 범위가 전체 드라이브인 단일 파티션을 만듭니다.
+6. 파티션 크기를 선택합니다. 예를 들어 10기가바이트 파티션을 만들려면 '+10G'를 입력합니다. 또는 `<enter>` 키를 눌러 범위가 전체 드라이브인 단일 파티션을 만듭니다.
 
 		Last cylinder, +cylinders or +size{K,M,G} (1-1305, default 1305): 
 		Using default value 1305
 
-- 그런 다음, 파티션의 ID 및 유형(**t**ype)을 기본 ID '83'(Linux)에서 ID 'fd'(Linux raid auto)로 변경합니다.
+7. 그런 다음, 파티션의 ID 및 유형(**t**ype)을 기본 ID '83'(Linux)에서 ID 'fd'(Linux raid auto)로 변경합니다.
 
 		Command (m for help): t
 		Selected partition 1
 		Hex code (type L to list codes): fd
 
-- 마지막으로, 드라이브에 파티션 테이블을 쓰고 fdisk를 종료합니다.
+8. 마지막으로, 드라이브에 파티션 테이블을 쓰고 fdisk를 종료합니다.
 
 		Command (m for help): w
 		The partition table has been altered!
@@ -100,13 +96,10 @@ RAID 장치를 구성하는 데 일반적으로 두 개 이상의 빈 데이터 
 
 ## RAID 배열 만들기
 
-1. 다음 예는 3개의 별도 데이터 디스크(sdc1, sdd1, sde1)에 위치한 3개의 파티션을 "스트라이프"합니다(RAID 수준 0).
+1. 다음 예는 3개의 별도 데이터 디스크(sdc1, sdd1, sde1)에 위치한 3개의 파티션을 "스트라이프"합니다(RAID 수준 0). 이 명령을 실행하면 **/dev/md127**이라는 새 RAID 장치가 만들어집니다. 이 데이터 디스크가 이전에 작동하지 않는 다른 RAID 배열의 일부였다면 `--force` 매개 변수를 `mdadm` 명령에 추가해야 합니다.
 
 		# sudo mdadm --create /dev/md127 --level 0 --raid-devices 3 \
 		  /dev/sdc1 /dev/sdd1 /dev/sde1
-
-이 예에서는 이 명령을 실행한 후에 **/dev/md127**이라는 새 RAID 장치가 만들어집니다. 이 데이터 디스크가 이전에 작동하지 않는 다른 RAID 배열의 일부였다면 `--force` 매개 변수를 `mdadm` 명령에 추가해야 합니다.
-
 
 2. 새 RAID 장치에서 파일 시스템 만들기
 
@@ -118,7 +111,7 @@ RAID 장치를 구성하는 데 일반적으로 두 개 이상의 빈 데이터 
 
 		# sudo mkfs -t ext3 /dev/md127
 
-3. **SLES 11 및 openSUSE** - boot.md 사용 및 mdadm.conf 만들기
+	**SLES 11 및 openSUSE** - boot.md 사용 및 mdadm.conf 만들기
 
 		# sudo -i chkconfig --add boot.md
 		# sudo echo 'DEVICE /dev/sd*[0-9]' >> /etc/mdadm.conf
@@ -178,6 +171,4 @@ RAID 장치를 구성하는 데 일반적으로 두 개 이상의 빈 데이터 
 
 	커널 매개 변수를 올바르게 편집하는 방법에 대해서는 배포 설명서를 참조하세요. 예를 들어 CentOS, Oracle Linux, SLES 11 등 많은 배포에서 이 매개 변수를 "`/boot/grub/menu.lst`" 파일에 수동으로 추가할 수 있습니다. Ubuntu에서는 "/etc/default/grub"의 `GRUB_CMDLINE_LINUX_DEFAULT` 변수에 이 매개 변수를 추가할 수 있습니다.
 
- 
-
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -27,6 +27,6 @@
 - 자격 증명 모음 자격 증명이 컴퓨터에서 액세스할 수 있는 위치에 저장되었는지 확인하세요. 파일 공유/SMB에 저장된 경우 액세스 권한을 확인합니다.
 - 자격 증명 모음 자격 증명 파일은 등록 워크플로 중에만 사용됩니다.
 - 자격 증명 모음 자격 증명 파일은 48시간 후에 만료되고, 만료된 후에는 포털에서 다운로드할 수 있습니다.
-- 워크플로에 대한 문의 사항은 Azure 백업 [FAQ](](../articles/backup/backup-azure-backup-faq.md)를 참조하세요.
+- 워크플로에 대한 질문이 있으면 Azure 백업 [FAQ](../articles/backup/backup-azure-backup-faq.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

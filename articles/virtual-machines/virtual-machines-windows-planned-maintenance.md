@@ -17,11 +17,13 @@
 	ms.date="01/05/2016"
 	ms.author="drewm"/>
 
-# Azure에서 Windows 가상 컴퓨터에 대한 계획된 유지 관리
+# Azure에서 가상 컴퓨터에 대한 계획된 유지 관리
+
+
+Azure 계획된 유지 관리의 정의와 계획된 유지 관리가 Windows 가상 컴퓨터의 가용성에 주는 영향에 대해 알아봅니다. 이 문서는 [Linux 가상 컴퓨터](virtual-machines-linux-planned-maintenance.md)에도 적용됩니다.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-Azure 계획된 유지 관리의 정의와 계획된 유지 관리가 Windows 가상 컴퓨터의 가용성에 주는 영향에 대해 알아봅니다. [Linux 가상 컴퓨터에 대한 계획된 유지 관리](virtual-machines-linux-planned-maintenance.md)에 대해 참조할 수도 있습니다.
 
 ## Azure에서 계획된 유지 관리를 수행하는 이유
 
@@ -33,4 +35,4 @@ Microsoft Azure는 가상 컴퓨터의 기반이 되는 호스트 인프라의 �
 
 [AZURE.INCLUDE [virtual-machines-common-planned-maintenance](../../includes/virtual-machines-common-planned-maintenance.md)]
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -28,9 +28,9 @@
 7. **앱 액세스에 필요한 사용자 할당** 토글을 예로 변경합니다.
 8. 화면 아래쪽에 있는 **저장** 단추를 클릭합니다.
 
-이제 응용 프로그램에 사용자 및/또는 그룹을 할당해야 합니다. [응용 프로그램에 사용자 지정](active-directory-guiding-developers-assigning-users.md) 및 [응용 프로그램에 그룹 지정](active-directory-guiding-developers-assigning-groups.md)을 참조하세요.
+이제 응용 프로그램에 사용자 및/또는 그룹을 할당해야 합니다. [응용 프로그램에 사용자 지정](active-directory-applications-guiding-developers-assigning-users.md) 및 [응용 프로그램에 그룹 지정](active-directory-applications-guiding-developers-assigning-groups.md)을 참조하세요.
 
 ## 다음 단계
 [AZURE.INCLUDE [active-directory-applications-guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0413_2016-->

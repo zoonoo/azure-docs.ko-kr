@@ -21,10 +21,7 @@
 
 Azure 미디어 Hyperlapse는 1인칭 또는 액션 카메라 콘텐츠에서 부드러운 시간 경과 비디오를 만드는 미디어 프로세서(MP)입니다. [Microsoft Research의 데스크톱 Hyperlapse Pro 및 전화 기반 Hyperlapse 모바일](http://aka.ms/hyperlapse)에 대한 클라우드 기반 형제 제품인 Azure 미디어 서비스용 Microsoft Hyperlapse는 Azure 미디어 서비스 미디어 처리 플랫폼의 상당 부분을 활용하여 대량의 Hyperlapse 처리를 수평적으로 확장하고 병렬 처리합니다.
 
->[AZURE.IMPORTANT] Azure 미디어 서비스용 Microsoft Hyperlapse는 무료 공개 미리 보기 상태입니다. 작업은 입력 자산의 처음 10,000개 프레임으로 제한됩니다.
-
-
-> Microsoft Hyperlapse는 이동 카메라를 사용한 1인칭 콘텐츠에 최적으로 작동하도록 설계되었습니다. 스틸 카메라 영상에도 작동할 수 있지만 다른 형식의 콘텐츠에서는 Azure 미디어 Hyperlapse 미디어 프로세서의 성능 및 품질을 보장할 수 없습니다. Azure 미디어 서비스용 Microsoft Hyperlapse에 대해 자세히 알아보고 예제 비디오를 보려면 공개 미리 보기 상태인 [소개 블로그 게시물](http://aka.ms/azurehyperlapseblog)을 확인하세요.
+>[AZURE.IMPORTANT]Microsoft Hyperlapse는 이동 카메라를 사용한 1인칭 콘텐츠에 최적으로 작동하도록 설계되었습니다. 스틸 카메라 영상에도 작동할 수 있지만 다른 형식의 콘텐츠에서는 Azure 미디어 Hyperlapse 미디어 프로세서의 성능 및 품질을 보장할 수 없습니다. Azure 미디어 서비스용 Microsoft Hyperlapse에 대해 자세히 알아보고 예제 비디오를 보려면 공개 미리 보기 상태인 [소개 블로그 게시물](http://aka.ms/azurehyperlapseblog)을 확인하세요.
 
 Azure 미디어 Hyperlapse 작업은 MP4, MOV 또는 WMV 자산 파일 및 어떤 비디오 프레임을 어떤 속도로 시간 경과시킬지 지정(예: 2배속으로 처음 10,000프레임)하는 구성 파일을 입력으로 사용합니다. 출력은 입력 비디오의 안정화되고 시간 경과된 표현입니다.
 
@@ -212,13 +209,8 @@ NumFrames|처리할 프레임 수
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
+##관련 링크
 
+[Azure 미디어 서비스 분석 개요](media-services-analytics-overview.md)
 
-
-<!-- Anchors. -->
-
-<!-- Images. -->
-
-<!-- URLs. -->
-
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0413_2016-->

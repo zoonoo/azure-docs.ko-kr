@@ -31,7 +31,7 @@
 
  	>[AZURE.NOTE] 쿼리 탐색기는 데이터베이스 및 컬렉션 블레이드에도 표시됩니다.
 
-    **문서 탐색기** 블레이드에서 **데이터베이스** 및 **컬렉션** 드롭다운 목록은 실행하는 쿼리 탐색기의 컨텍스트에 따라 미리 채워져 있습니다.
+    **문서 탐색기** 블레이드에서 **데이터베이스** 및 **컬렉션** 드롭다운 목록은 실행하는 문서 탐색기의 컨텍스트에 따라 미리 채워져 있습니다.
 
 	![문서 탐색기 블레이드 스크린샷](./media/documentdb-view-JSON-document-explorer/documentexplorerinitial.png)
 
@@ -158,4 +158,4 @@ Azure 포털의 문서 탐색기는 DocumentDB의 문서 작업 방법 중 한 �
 
 [학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/)도 DocumentDB에 대해 자세히 알 수 있는 유용한 리소스입니다.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -33,7 +33,7 @@
 
 + iOS 8 장치(iOS 시뮬레이터에서에서 푸시 알림을 테스트할 수 없음)
 + iOS 개발자 프로그램 멤버 자격
-+ [Xamarin.iOS Studio]
++ [Xamarin Studio]
 + [Azure 모바일 서비스 구성 요소]
 
 >[AZURE.IMPORTANT] APNS 요구 사항 때문에 에뮬레이터 대신 iOS 지원 장치(iPhone 또는 iPad)에서 푸시 알림을 배포 및 테스트해야 합니다.
@@ -387,7 +387,6 @@ APNS에 앱을 등록하고 프로젝트를 구성했으면 APNS와 통합되도
 [121]: ./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-21.png
 [122]: ./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-22.png
 
-[Xamarin.iOS Studio]: http://xamarin.com/platform
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
@@ -401,6 +400,6 @@ APNS에 앱을 등록하고 프로젝트를 구성했으면 APNS와 통합되도
 [apns 개체]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 [Azure 모바일 서비스 구성 요소]: http://components.xamarin.com/view/azure-mobile-services/
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331303
-[Xamarin.iOS]: http://xamarin.com/download
+[Xamarin Studio]: http://xamarin.com/download
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

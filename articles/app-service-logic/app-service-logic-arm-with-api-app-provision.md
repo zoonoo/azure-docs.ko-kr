@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="04/04/2016" 
 	ms.author="tomfitz"/>
 
 # 템플릿을 사용하여 논리 앱과 API 앱 만들기
@@ -22,7 +22,7 @@
 
 어떤 리소스를 배포할지 정의하는 방법 및 배포를 실행할 때 매개 변수를 지정하는 방법을 알아봅니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다.
 
-논리 앱 속성에 대한 자세한 내용은 [논리 앱 워크플로 관리 API](https://msdn.microsoft.com/library/azure/dn948513.aspx)를 참조하십시오.
+논리 앱 속성에 대한 자세한 내용은 [논리 앱 워크플로 관리 API](https://msdn.microsoft.com/library/azure/mt643788.aspx)를 참조하십시오.
 
 정의 자체의 예는 [작성자 논리 앱 정의](app-service-logic-author-definitions.md)를 참조하십시오.
 
@@ -39,7 +39,7 @@
 
 배포를 자동으로 실행하려면 다음 단추를 선택합니다.
 
-[![Azure에 배포](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-api-app-create%2Fazuredeploy.json)로 바꿉니다.
+[![Azure에 배포](media/app-service-logic-arm-with-api-app-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-api-app-create%2Fazuredeploy.json)로 바꿉니다.
 
 ## 매개 변수
 
@@ -396,4 +396,4 @@ API 앱에 대한 암호입니다.
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0413_2016-->

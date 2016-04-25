@@ -1,6 +1,6 @@
 <properties
 	pageTitle="VM에 대한 질문과 대답 | Microsoft Azure"
-	description="클래식 배포 모델을 사용하여 만든 Azure 가상 컴퓨터에 대해 가장 일반적인 질문 중 일부에 대한 답변을 제공합니다."
+	description="클래식 배포 모델을 사용하여 만든 Azure 가상 컴퓨터에 대해 가장 일반적인 질문 중 일부에 대한 답변입니다."
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="cynthn"
@@ -23,4 +23,4 @@
 
 [AZURE.INCLUDE [virtual-machines-common-classic-faq](../../includes/virtual-machines-common-classic-faq.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

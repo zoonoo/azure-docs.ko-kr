@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2016" 
+	ms.date="04/08/2016" 
 	ms.author="nitinme"/>
 
 
@@ -49,7 +49,7 @@
 
 ## 이 문서에서는 무엇을 수행할까요?
 
-[시카고 데이터 포털](https://data.cityofchicago.org/)을 통해 얻은 음식 검사 데이터(**Food\_Inspections1.csv**)를 Spark로 예측 분석할 것입니다. 이 데이터 집합에는 검사한 각 식품 회사에 대한 정보, 발견된 위반 사항(있는 경우), 검사 결과를 포함하여 음식 검사에 대한 정보가 포함되어 있습니다.
+[시카고 데이터 포털](https://data.cityofchicago.org/)을 통해 얻은 음식 검사 데이터(**Food\_Inspections1.csv**)를 Spark로 예측 분석할 것입니다. 이 데이터 집합에는 검사한 각 식품 회사에 대한 정보, 발견된 위반 사항(있는 경우), 검사 결과를 포함하여 음식 검사에 대한 정보가 포함되어 있습니다. CSV 데이터 파일은 클러스터와 연결된 저장소 계정에 이미 있습니다(**/HdiSamples/HdiSamples/FoodInspectionData/Food\_Inspections1.csv**).
 
 아래 단계에서는 음식 검사에 합격 또는 불합격하는 조건을 볼 수 있는 모델을 개발할 것입니다.
 
@@ -71,7 +71,7 @@
 
 	![노트북에 대한 이름 제공](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/hdispark.note.jupyter.notebook.name.png "노트북에 대한 이름 제공")
 
-3. PySpark 커널을 사용하여 노트북을 만들었기 때문에 컨텍스트를 명시적으로 만들 필요가 없습니다. 첫 번째 코드 셀을 실행하면 Spark, SQL 및 Hive 컨텍스트가 자동으로 만들어집니다. 이 시나리오에 필요한 형식을 가져와 기계 학습 응용 프로그램 빌드를 시작할 수 있습니다. 그렇게 하려면 셀에 커서를 놓고 **Shift + Enter**를 누릅니다.
+3. PySpark 커널을 사용하여 노트북을 만들었기 때문에 컨텍스트를 명시적으로 만들 필요가 없습니다. 첫 번째 코드 셀을 실행하면 Spark 및 Hive 컨텍스트가 자동으로 만들어집니다. 이 시나리오에 필요한 형식을 가져와 기계 학습 응용 프로그램 빌드를 시작할 수 있습니다. 그렇게 하려면 셀에 커서를 놓고 **Shift + Enter**를 누릅니다.
 
 
 		from pyspark.ml import Pipeline
@@ -83,7 +83,7 @@
 
 ## 입력 데이터 프레임 구축
 
-구조화된 데이터에 대해 변환을 수행할 때 사용할 수 있는 SQLContext가 이미 준비되어 있습니다. 첫 번째 작업으로 샘플 데이터(**Food\_Inspections1.csv**)를 Spark SQL *데이터 프레임*에 로드합니다. 아래 코드 조각은 Spark 클러스터와 연결된 기본 저장소 컨테이너에 이미 데이터가 업로드된 것으로 가정합니다.
+`sqlContext`를 사용하여 구조화된 데이터에 대해 변환을 수행할 수 있습니다. 첫 번째 작업으로 샘플 데이터(**Food\_Inspections1.csv**)를 Spark SQL *데이터 프레임*에 로드합니다.
 
 1. 원시 데이터가 CSV 형식이기 때문에 Spark 컨텍스트를 사용하여 파일의 모든 줄을 메모리에 구조화되지 않은 데이터로 가져와야 합니다. 그런 다음 Python의 CSV 라이브러리를 사용하여 각 줄을 개별적으로 구문 분석합니다. 
 
@@ -194,15 +194,15 @@
 		%%sql -o countResultsdf
 		SELECT results, COUNT(results) AS cnt FROM CountResults GROUP BY results
 
-	`-o countResultsdf` 앞의 `%%sql` magic은 쿼리 출력이 Jupyter 서버(일반적으로 클러스터의 헤드 노드)에서 로컬로 유지되도록 합니다. 출력은 **countResultsdf**라는 이름이 지정된 [Pandas](http://pandas.pydata.org/) 데이터 프레임으로 유지됩니다.
+	`-o countResultsdf` 앞의 `%%sql` 매직은 쿼리 출력이 Jupyter 서버(일반적으로 클러스터의 헤드 노드)에서 로컬로 유지되도록 합니다. 출력은 **countResultsdf**라는 이름이 지정된 [Pandas](http://pandas.pydata.org/) 데이터 프레임으로 유지됩니다.
 	
 	다음과 유사한 출력이 표시됩니다.
 	
 	![SQL 쿼리 출력](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/query.output.png "SQL 쿼리 출력")
 
-	`%%sql` magic 및 기타 PySpark 커널에서 사용 가능한 magic에 대한 자세한 내용은 [Spark HDInsight 클러스터와 함께 Jupyter 노트북에서 사용 가능한 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels)을 참조하세요.
+	`%%sql` 매직 및 기타 PySpark 커널에서 사용 가능한 매직에 대한 자세한 내용은 [Spark HDInsight 클러스터와 함께 Jupyter Notebook에서 사용 가능한 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels)을 참조하세요.
 
-3. 또한 데이터 시각화를 구성하는 데 사용되는 라이브러리인 Matplotlib를 사용하여 플롯을 만들 수 있습니다. 로컬로 유지되는 **countResultsdf** 데이터 프레임에서 플롯을 만들어야 하므로 코드 조각은 `%%local` magic으로 시작해야 합니다. 그러면 코드가 Jupyter 서버에서 로컬로 실행됩니다.
+3. 또한 데이터 시각화를 구성하는 데 사용되는 라이브러리인 Matplotlib를 사용하여 플롯을 만들 수 있습니다. 로컬로 유지되는 **countResultsdf** 데이터 프레임에서 플롯을 만들어야 하므로 코드 조각은 `%%local` 매직으로 시작해야 합니다. 그러면 코드가 Jupyter 서버에서 로컬로 실행됩니다.
 
 		%%local
 		%matplotlib inline
@@ -339,39 +339,32 @@ MLLib는 이 작업을 간단하게 수행할 수 있는 방법을 제공합니�
 
 ## 예측의 시각적 표현 만들기
 
-이 테스트 결과의 이유를 파악하는 데 도움이 되는 최종 시각화를 만들 수 있습니다.
+이제 이 테스트 결과의 이유를 파악하는 데 도움이 되는 최종 시각화를 만들 수 있습니다.
 
-1. 먼저 이전에 만든 **Predictions** 임시 테이블에서 여러 예측 및 결과를 추출합니다.
+1. 먼저 이전에 만든 **Predictions** 임시 테이블에서 여러 예측 및 결과를 추출합니다. 다음 쿼리는 출력을 *true\_positive*, *false\_positive*, *true\_negative* 및 *false\_negative*로 구분합니다. 아래 쿼리에서는 `-q`를 사용하여 시각화를 해제하고 `%%local` 매직에서 사용할 수 있는 데이터 프레임으로 출력을 저장(`-o` 사용)합니다. 
 
-		%%sql -o predictionstable
-		SELECT prediction, results FROM Predictions
+		%%sql -q -o true_positive
+		SELECT count(*) AS cnt FROM Predictions WHERE prediction = 0 AND results = 'Fail'
 
-2. 위 조각에서 **predictionstable**은 SQL 쿼리의 출력을 유지하는 Jupyter 서버의 로컬 데이터 프레임입니다. 이제 `%%local` magic을 사용하여 로컬로 유지되는 데이터 프레임에 대해 후속 코드 조각을 실행할 수 있습니다.
+		%%sql -q -o false_positive
+		SELECT count(*) AS cnt FROM Predictions WHERE prediction = 0 AND (results = 'Pass' OR results = 'Pass w/ Conditions')
 
-		%%local
-		failSuccess = predictionstable[(predictionstable.prediction == 0) & (predictionstable.results == 'Fail')]['prediction'].count()
-		failFailure = predictionstable[(predictionstable.prediction == 0) & (predictionstable.results <> 'Fail')]['prediction'].count()
-		passSuccess = predictionstable[(predictionstable.prediction == 1) & (predictionstable.results <> 'Fail')]['prediction'].count()
-		passFailure = predictionstable[(predictionstable.prediction == 1) & (predictionstable.results == 'Fail')]['prediction'].count()
-		failSuccess,failFailure,passSuccess,passFailure
+		%%sql -q -o true_negative
+		SELECT count(*) AS cnt FROM Predictions WHERE prediction = 1 AND results = 'Fail'
 
-	출력은 다음과 같이 표시됩니다.
-	
-		# -----------------
-		# THIS IS AN OUTPUT
-		# -----------------
-	
-		(276, 46, 1917, 261)
+		%%sql -q -o false_negative
+		SELECT count(*) AS cnt FROM Predictions WHERE prediction = 1 AND (results = 'Pass' OR results = 'Pass w/ Conditions') 
 
-3. 마지막으로, 다음 조각을 사용하여 플롯을 생성합니다.
+2. 마지막으로, 다음 조각을 사용하여 **Matplotlib**를 통해 플롯을 생성합니다.
 
 		%%local
 		%matplotlib inline
 		import matplotlib.pyplot as plt
 		
 		labels = ['True positive', 'False positive', 'True negative', 'False negative']
-		sizes = [failSuccess, failFailure, passSuccess, passFailure]
-		plt.pie(sizes, labels=labels, autopct='%1.1f%%')
+		sizes = [true_positive['cnt'], false_positive['cnt'], false_negative['cnt'], true_negative['cnt']]
+		colors = ['turquoise', 'seagreen', 'mediumslateblue', 'palegreen', 'coral']
+		plt.pie(sizes, labels=labels, autopct='%1.1f%%', colors=colors)
 		plt.axis('equal')
 	
 	다음 출력이 표시되어야 합니다.
@@ -419,4 +412,4 @@ MLLib는 이 작업을 간단하게 수행할 수 있는 방법을 제공합니�
 
 * [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

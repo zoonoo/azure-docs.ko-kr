@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="03/07/2016"
+   ms.date="04/13/2016"
    ms.author="hascipio; v-divte"/>
 
 # Azure 마켓플레이스에 대한 가상 컴퓨터 이미지 만들기 가이드
@@ -45,96 +45,13 @@ SKU는 VM 이미지에 대한 상업용 이름입니다. VM 이미지에는 운�
 
 1. **SKU를 추가합니다.** SKU는 URL에 사용되는 식별자가 필요합니다. 이 식별자는 게시 프로필 내에서 공유해야 하지만, 식별자가 다른 게시자와 충돌할 위험은 없습니다.
 
-> [AZURE.NOTE] 제품 및 SKU 식별자는 마켓플레이스의 제품 URL에 표시됩니다.
+    > [AZURE.NOTE] 제품 및 SKU 식별자는 마켓플레이스의 제품 URL에 표시됩니다.
 
 2. **SKU에 대한 요약 설명을 추가합니다.** 요약 설명은 고객에게 표시되므로 이해하기 쉽도록 작성합니다. 이 정보는 "스테이징으로 푸시" 단계까지 잠글 필요가 없습니다. 그때까지 자유롭게 편집할 수 있습니다.
 3. Windows 기반 SKU를 사용할 경우 제안된 링크를 따라 Windows Server의 승인된 버전을 습득하세요.
 
 ## 2\. Azure 호환 VHD 만들기(Linux 기반)
-이 섹션에서는 Azure 마켓플레이스에 대한 Linux 기반 VM 이미지를 만드는 모범 사례를 중심으로 다룹니다. 단계별 연습은 [Linux 운영 체제가 포함된 가상 하드 디스크 만들기 및 업로드][link-azure-vm-1] 설명서를 참조하세요.
-
-> [AZURE.TIP] 다음 단계의 대부분(예: 에이전트 설치, 커널 부팅 매개 변수)은 Microsoft Azure 이미지 갤러리에서 제공되는 Linux 이미지에 대해 이미 수행한 작업입니다. 따라서 이러한 이미지 중 하나를 토대로 시작하면 Azure 미인식 Linux 이미지를 구성하는 것보다 시간을 절약할 수 있습니다.
-
-### 2\.1 올바른 VHD 크기 선택
-게시된 SKU(VM 이미지)는 SKU에 대한 디스크 수를 지원하는 모든 VM 크기에서 작동하도록 설계되어야 합니다. 권장 크기에 대한 지침을 제공할 수 있지만, 이러한 지침은 권장 사항이지 강제 사항은 아닙니다.
-
-1. Linux 운영 체제 VHD: 30GB - 50GB 고정 형식의 VHD로 VM 이미지에서 Linux 운영 체제 VHD를 만들어야 합니다. 30GB 미만일 수 없습니다. 물리적 크기가 VHD 크기보다 작은 경우 VHD가 스파스여야 합니다. 50GB를 초과하는 Linux VHD는 사례별로 고려됩니다. 다른 형식으로 된 VHD가 이미 있는 경우 [Convert-VHD PowerShell cmdlet을 사용하여 형식을 변경할 수 있습니다.][link-technet-1]
-2. 데이터 디스크 VHD: 데이터 디스크는 1TB 정도 될 수 있습니다. 데이터 디스크 VHD는 고정 형식 VHD로 작성되어야 합니다. 또한 스파스여야 합니다. 디스크 크기를 결정할 때는 고객이 이미지 내에서 VHD 크기를 조정할 수 없음에 유의하세요.
-
-### 2\.2 최신 Azure Linux 에이전트가 설치되어 있는지 확인
-운영 체제 VHD를 준비할 경우 최신 [Azure Linux 에이전트][link-azure-vm-2]가 설치되어 있는지 확인합니다. 이때 RPM 또는 Deb 패키지를 사용합니다. 보통 패키지 이름은 walinuxagent 또는 WALinuxAgent이지만 배포 시 확실한 이름을 확인하세요. 에이전트는 Azure에서 Linux IaaS 배포를 구축하는 데 필요한 핵심 기능(예: VM 프로비전 및 네트워킹 기능)을 제공합니다.
-
-에이전트를 다양한 방법으로 구성할 수 있지만 일반 에이전트 구성을 사용하여 호환성을 최대화하는 것이 좋습니다. 에이전트를 수동으로 설치할 수 있지만, 가능한 경우 배포에서 미리 구성된 패키지를 사용하는 것이 좋습니다.
-
-[GitHub 리포지토리][link-github-waagent]에서 에이전트를 수동으로 설치하도록 선택한 경우 먼저 Waagent 파일을 /usr/sbin에 복사하고 다음 명령을 루트 디렉터리에서 실행합니다.
-
-    # chmod 755 /usr/sbin/waagent
-    # /usr/sbin/waagent -install
-
-에이전트 구성 파일은 /etc/waagent.conf에 있습니다.
-
-### 2\.3 필요한 라이브러리가 포함되어 있는지 확인
-Azure Linux 에이전트 이외에 다음 라이브러리도 포함해야 합니다.
-
-1. [Linux Integration Services][link-intsvc] 3.0 이상을 커널에 사용하도록 설정해야 합니다. [Linux 커널 요구 사항](./virtual-machines-linux-create-upload-vhd-generic/#linux-kernel-requirements)을 참조하세요.
-2. Azure I/O 안정성을 위한 [커널 패치](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c)(최신 커널에 대해 필요하지 않은 경우도 있지만 확인해야 함)
-3. [Python][link-python] 2.6 이상
-4. Python pyasn1 패키지(아직 설치되지 않은 경우)
-5. [OpenSSL][link-openssl](v1.0 이상 권장)
-
-### 2\.4 디스크 파티션 설정
-논리 볼륨 관리자는 사용하지 않는 것이 좋습니다. 운영 체제 디스크에 대해 단일 루트 파티션을 만듭니다. 운영 체제 또는 데이터 디스크에서 스왑 파티션을 사용하지 마세요. 스왑 파티션은 /etc/fstab에 탑재되지 않은 경우에도 제거하는 것이 좋습니다. 필요한 경우 Linux 에이전트를 사용하여 로컬 리소스 디스크(/dev/sdb)에 스왑 파티션을 만들 수 있습니다.
-
-### 2\.5 필요한 커널 부팅 줄 매개 변수 추가
-또한 다음 매개 변수를 커널 부팅 줄에 추가해야 합니다.
-
-        console=ttyS0 earlyprintk=ttyS0 rootdelay=300
-
-그러면 Azure 지원에서 필요 시 직렬 콘솔 출력을 고객에게 제공할 수 있습니다. 또한 클라우드 저장소에서 운영 체제 디스크를 탑재하는 데 적절한 제한 시간을 제공합니다. SKU가 고객이 가상 컴퓨터에 직접 SSH로 연결하지 못하도록 차단하는 경우에도 직렬 콘솔 출력을 사용해야 합니다.
-
-### 2\.6 기본적으로 SSH 서버 포함
-고객에 대해 SSH를 사용하는 것이 좋습니다. SSH 서버를 사용하도록 설정한 경우 sshd config에 SSH keep alive를 **ClientAliveInterval 180** 옵션과 함께 추가합니다. 180을 사용하는 것이 좋지만 30 - 235 범위가 허용됩니다. 일부 응용 프로그램은 고객에게 가상 컴퓨터에 대한 직접 SSH 액세스를 제공하려고 합니다. SSH가 명시적으로 차단된 경우 **ClientAliveInterval** 옵션을 설정할 필요가 없습니다.
-
-### 2\.7 네트워킹 요구 사항 충족
-Azure 호환 Linux VM 이미지에 대한 네트워킹 요구 사항은 다음과 같습니다.
-
-- 대부분의 경우 NetworkManager를 사용하지 않도록 설정하는 것이 가장 좋습니다. 단, CentOS 7.x 기반 시스템(및 파생 버전)에서는 NetworkManager를 사용하도록 설정해야 합니다.
-- 네트워킹 구성은 **ifup** 및 **ifdown** 스크립트를 통해 제어할 수 있어야 합니다. Linux 에이전트는 이러한 명령을 사용하여 프로비전 중에 네트워킹을 다시 시작할 수 있습니다.
-- 사용자 지정 네트워크 구성이 없어야 합니다. 마지막 단계로 Resolv.conf 파일을 삭제해야 합니다. 일반적으로 프로비전 해제의 일부로 수행됩니다([Azure Linux 에이전트 사용자 가이드](./virtual-machines-linux-agent-user-guide/) 참조). 다음 명령을 사용하여 이 단계를 수동으로 수행할 수도 있습니다.
-
-        rm /etc/resolv.conf
-
-- 네트워크 장치가 시작 시 호출되고 DHCP를 사용해야 합니다.
-- IPv6는 Azure에서 지원되지 않습니다. 이 속성은 사용하도록 설정해도 작동되지 않습니다.
-
-### 2\.8 보안 모범 사례가 충족되는지 확인
-Azure 마켓플레이스의 SKU는 보안에 대한 모범 사례를 따라야 합니다. 여기에는 다음이 포함됩니다.
-
-- 배포에 대한 모든 보안 패치를 설치합니다.
-- 배포 보안 지침을 따릅니다.
-- 프로비전 인스턴스 전체에서 동일하게 유지되는 기본 계정을 만들지 마세요.
-- bash 기록 항목을 지웁니다.
-- iptables(방화벽) 소프트웨어를 포함하되 규칙을 사용하도록 설정하지 마세요. 그러면 고객에게 원활한 기본 환경이 제공됩니다. 추가 구성을 위해 VM 방화벽을 사용하려는 고객은 해당 요구 사항을 충족하도록 iptables 규칙을 구성할 수 있습니다.
-
-### 2\.9 이미지 일반화
-Azure 마켓플레이스의 모든 이미지는 일반적으로 재사용 가능해야 합니다. 즉, 특정 구성 항목에 대한 이미지를 제거해야 합니다. Linux에서 이렇게 하려면 운영 체제 VHD를 프로비전 해제해야 합니다.
-
-Linux의 프로비전 해제 명령은 다음과 같습니다.
-
-        # waagent -deprovision
-
-이 명령은 자동으로 다음을 수행합니다.
-
-- /etc/resolv.conf에서 nameserver 구성 제거
-- 캐시된 DHCP 클라이언트 임대 제거
-- 호스트 이름을 localhost.localdomain으로 다시 설정
-
-또한 다음 작업을 완료하도록 구성 파일(/etc/waagent.conf)을 설정하는 것이 좋습니다.
-
-- 구성 파일에서 Provisioning.RegenerateSshHostKeyPair를 "y"로 설정하여 모든 SSH 호스트 키 제거
-- 구성 파일에서 Provisioning.DeleteRootPassword를 "y"로 설정하여 /etc/shadow에서 '루트' 암호 제거. 구성 파일의 내용에 대한 설명서는 Agent Github 리포지토리 페이지([https://github.com/Azure/WALinuxAgent](https://github.com/Azure/WALinuxAgent) 및 아래로 스크롤)에서 추가 정보 파일의 "구성" 섹션을 참조하세요.  
-
-이제 Linux VM의 일반화를 완료했습니다. Azure 포털, 명령줄 또는 VM 내에서 VM을 끕니다. VM이 꺼지면 3.4단계를 계속합니다.
+이 섹션에서는 Azure 마켓플레이스에 대한 Linux 기반 VM 이미지를 만드는 모범 사례를 중심으로 다룹니다. 단계별 연습은 [Linux 운영 체제가 포함된 가상 하드 디스크 만들기 및 업로드](../virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md) 설명서를 참조하세요.
 
 ## 3\. Azure 호환 VHD 만들기(Windows 기반)
 이 섹션에서는 Azure 마켓플레이스에 대해 Windows Server 기반 SKU를 만드는 단계를 중심으로 다룹니다.
@@ -252,7 +169,7 @@ Azure 마켓플레이스의 모든 이미지는 일반적으로 다시 사용할
 
         sysprep.exe /generalize /oobe /shutdown
 
-  운영 체제에 sysprep를 실행하는 방법은 MSDN 문서, [Windows Server VHD를 만들어서 Azure에 업로드](./virtual-machines-create-upload-vhd-windows-server/)의 단계를 참조하세요.
+  운영 체제에 sysprep를 실행하는 방법은 MSDN 문서, [Windows Server VHD를 만들어서 Azure에 업로드](../virtual-machines/virtual-machines-windows-classic-createupload-vhd.md)의 단계를 참조하세요.
 
 ## 4\. VHD에서 VM 배포
 VHD(일반화된 운영 체제 VHD 및 0개 이상의 데이터 디스크 VHD)가 Azure 저장소 계정에 업로드된 후에는 사용자 VM 이미지로 등록할 수 있습니다. 그런 다음 해당 이미지를 테스트할 수 있습니다. 운영 체제 VHD는 일반화되므로 VHD URL을 제공하여 VM을 직접 배포할 수 없습니다.
@@ -644,11 +561,10 @@ SKU 세부 정보를 완료하면 [Azure 마켓플레이스 마케팅 콘텐츠 
 [link-datactr-2012]: http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2012datacenter/
 [link-datactr-2008-r2]: http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2008r2sp1/
 [link-acct-creation]: marketplace-publishing-accounts-creation-registration.md
-[link-azure-vm-1]: ./virtual-machines-linux-create-upload-vhd/
 [link-technet-1]: https://technet.microsoft.com/library/hh848454.aspx
 [link-azure-vm-2]: ./virtual-machines-linux-agent-user-guide/
 [link-openssl]: https://www.openssl.org/
 [link-intsvc]: http://www.microsoft.com/download/details.aspx?id=41554
 [link-python]: https://www.python.org/
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0413_2016-->

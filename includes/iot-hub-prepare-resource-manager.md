@@ -47,6 +47,6 @@ Azure AD(Active Directory)에서 [Azure 리소스 관리자][lnk-authenticate-ar
 - 암호
 
 [lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
-[lnk-powershell-install]: ../powershell-install-configure.md
+[lnk-powershell-install]: ../articles/powershell-install-configure.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

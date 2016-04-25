@@ -21,7 +21,7 @@ ms.author="deonhe"/>
 
 Yammer에 연결하여 엔터프라이즈 네트워크의 대화에 액세스합니다.
 
->[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다. 2014-12-01-preview 스키마 버전에 대한 내용을 보려면 [Yammer](../app-service-logic/app-service-logic-connector-yammer.md)를 클릭하세요.
+>[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다.
 
 Yammer를 사용하면 다음과 같은 작업을 수행할 수 있습니다.
 
@@ -206,4 +206,4 @@ Yammer 웹 인터페이스의 "모든" 대화에 해당합니다. ```GET: /messa
 [4]: ./media/connectors-create-api-yammer/connectionconfig4.png
 [5]: ./media/connectors-create-api-yammer/connectionconfig5.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

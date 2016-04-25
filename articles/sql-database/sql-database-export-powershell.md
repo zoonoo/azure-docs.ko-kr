@@ -1,47 +1,51 @@
 <properties 
-    pageTitle="PowerShell을 사용하여 Azure SQL 데이터베이스의 BACPAC 만들기 및 내보내기" 
-    description="PowerShell을 사용하여 Azure SQL 데이터베이스의 BACPAC 만들기 및 내보내기" 
+    pageTitle="PowerShell을 사용하여 Azure SQL 데이터베이스를 BACPAC 파일에 보관" 
+    description="PowerShell을 사용하여 Azure SQL 데이터베이스를 BACPAC 파일에 보관" 
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="02/23/2016"
+	ms.date="04/06/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# PowerShell을 사용하여 Azure SQL 데이터베이스의 BACPAC 만들기 및 내보내기
-
+# PowerShell을 사용하여 Azure SQL 데이터베이스를 BACPAC 파일에 보관
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-export.md)
+- [Azure 포털](sql-database-export.md)
 - [PowerShell](sql-database-export-powershell.md)
 
 
-이 문서에서는 PowerShell을 사용하여 Azure SQL 데이터베이스의 BACPAC를 내보내는 방법에 대한 지침을 제공합니다.
+이 문서에서는 PowerShell을 사용하여 Azure Blob 저장소에 저장된 BACPAC 파일로 Azure SQL 데이터베이스를 보관하기 위한 지침을 제공합니다.
 
-[BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4)는 데이터베이스 스키마 및 데이터를 포함하는 .bacpac 파일입니다. BACPAC의 기본 사용 사례는 하나의 서버에서 다른 서버로 데이터베이스를 이동하고, [로컬 데이터베이스를 클라우드에 마이그레이션](sql-database-cloud-migrate.md)하고, 개방형 형식에서 기존 데이터베이스를 보관하는 것입니다.
+Azure SQL 데이터베이스의 보관 파일을 만들어야 하는 경우 데이터베이스 스키마 및 데이터를 BACPAC 파일로 내보낼 수 있습니다. BACPAC 파일은 BACPAC의 확장명을 가진 단순한 ZIP 파일입니다. BACPAC 파일은 나중에 Azure Blob 저장소 또는 온-프레미스 저장소의 로컬 저장소에 저장할 수 있으며 나중에 Azure SQL 데이터베이스 또는 SQL Server 온-프레미스 설치로 다시 가져올 수 있습니다.
 
+***고려 사항***
+
+- 보관 파일이 트랜잭션 일치하도록 내보내기 중에나 Azure SQL 데이터베이스의 [트랜잭션 일치 복사본](sql-database-copy.md)에서 내보내기 중에는 쓰기 활동이 발생하지 않도록 해야 합니다.
+- Azure Blob 저장소에 보관된 BACPAC 파일의 최대 크기는 200GB입니다. 이보다 큰 BACPAC 파일을 로컬 저장소에 보관하려면 [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) 명령 프롬프트 유틸리티를 사용합니다. 이 유틸리티는 Visual Studio 및 SQL Server에 기본적으로 제공됩니다. 최신 버전의 SQL Server Data Tools를 [다운로드](https://msdn.microsoft.com/library/mt204009.aspx)하여 이 유틸리티를 가져올 수도 있습니다.
+- BACPAC 파일을 사용하여 Azure 프리미엄 저장소에 보관하는 것은 지원되지 않습니다.
+- 내보내기 작업 20시간 초과되면 취소될 수 있습니다. 내보내는 중에 성능을 향상시키기 위해 다음을 수행할 수 있습니다.
+ - 서비스 수준 임시로 향상 
+ - 내보내기 중에 모든 읽기 및 쓰기 작업 중단
+ - 모든 대형 테이블에 클러스터형 인덱스 사용 클러스터형 인덱스가 없는 경우 6-12시간 이상 소요되면 내보내기에 실패할 수 있습니다. 전체 테이블 내보내기를 시도하려면 내보내기 서비스에서 테이블 스캔을 완료해야 하기 때문입니다.
+ 
 > [AZURE.NOTE] BACPAC는 백업에 사용되는 목적이 아니며 작업을 복원합니다. Azure SQL 데이터베이스에서는 모든 사용자 데이터베이스의 백업이 자동으로 생성됩니다. 자세한 내용은 [비즈니스 연속성 개요](sql-database-business-continuity.md)를 참조하세요.
-
-
-작업이 성공적으로 완료되면 다운로드할 수 있는 BACPAC이 Azure 저장소 Blob 컨테이너로 내보내집니다.
-
 
 이 문서를 완료하려면 다음이 필요합니다.
 
-- Azure 구독. Azure 구독이 필요할 경우 이 페이지 위쪽에서 **무료 계정**을 클릭하고 되돌아와 이 문서를 완료합니다.
-- Azure SQL 데이터베이스. SQL 데이터베이스가 없는 경우 [첫 Azure SQL 데이터베이스 만들기](sql-database-get-started.md) 문서의 단계에 따라 만듭니다.
-- BACPAC을 저장할 Blob 컨테이너가 있는 [Azure 저장소 계정](../storage/storage-create-storage-account.md). 현재 저장소 계정은 클래식 배포 모델을 사용해야 하므로 저장소 계정을 만들 때 **클래식**을 선택합니다.
+- Azure 구독. 
+- Azure SQL 데이터베이스. 
+- 표준 저장소에 BACPAC를 저장할 Blob 컨테이너가 있는 [Azure 표준 저장소 계정](../storage/storage-create-storage-account.md).
 - Azure PowerShell. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
-
 
 
 ## 자격 증명 구성 및 구독 선택
@@ -147,4 +151,4 @@
 - [재해 복구 연습](sql-database-disaster-recovery-drills.md)
 - [SQL 데이터베이스 설명서](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

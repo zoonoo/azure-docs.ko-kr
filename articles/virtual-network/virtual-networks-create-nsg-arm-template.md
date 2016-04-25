@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="템플릿을 사용하여 ARM 모드에서 NSG를 만드는 방법 | Microsoft Azure"
    description="템플릿을 사용하여 ARM에서 NSG를 만들고 배포하는 방법을 알아봅니다."
    services="virtual-network"
@@ -8,7 +8,7 @@
    editor="tysonn"
    tags="azure-resource-manager"
 />
-<tags 
+<tags
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
@@ -98,26 +98,26 @@ PowerShell을 사용하여 다운로드한 ARM 템플릿을 배포하려면 다�
 
 [AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
 
-1. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure.md)을 참조하고 지침을 끝까지 따르면서 Azure에 로그인하고 구독을 선택합니다.
+1. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하고 지침을 끝까지 따르면서 Azure에 로그인하고 구독을 선택합니다.
 
 3. **`New-AzureRmResourceGroup`** cmdlet을 실행하고 템플릿을 사용하여 리소스 그룹을 만듭니다.
 
 		New-AzureRmResourceGroup -Name TestRG -Location uswest `
 		    -TemplateFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' `
-		    -TemplateParameterFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'	
+		    -TemplateParameterFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'
 
 	예상된 출력:
 
 		ResourceGroupName : TestRG
 		Location          : westus
 		ProvisioningState : Succeeded
-		Tags              : 
-		Permissions       : 
+		Tags              :
+		Permissions       :
 		                    Actions  NotActions
 		                    =======  ==========
 		                    *                  
-		                    
-		Resources         : 
+
+		Resources         :
 		                    Name                Type                                     Location
 		                    ==================  =======================================  ========
 		                    sqlAvSet            Microsoft.Compute/availabilitySets       westus  
@@ -139,14 +139,14 @@ PowerShell을 사용하여 다운로드한 ARM 템플릿을 배포하려면 다�
 		                    TestVNet            Microsoft.Network/virtualNetworks        westus  
 		                    testvnetstorageprm  Microsoft.Storage/storageAccounts        westus  
 		                    testvnetstoragestd  Microsoft.Storage/storageAccounts        westus  
-		                    
+
 		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
 
 ## Azure CLI를 사용하여 ARM 템플릿 배포
 
 Azure CLI를 사용하여 ARM 템플릿을 배포하려면 아래 단계를 따르세요.
 
-1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](xplat-cli-install.md)을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
+1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](../xplat-cli-install.md)을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
 2. 다음과 같이 **`azure config mode`** 명령을 실행하여 리소스 관리자 모드로 전환합니다.
 
 		azure config mode arm
@@ -181,4 +181,4 @@ Azure CLI를 사용하여 ARM 템플릿을 배포하려면 아래 단계를 따�
 	- **-f (or --template-file)**. ARM 템플릿 파일에 대한 경로입니다.
 	- **-e(또는 --parameters-file)**. ARM 매개 변수 파일에 대한 경로입니다.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

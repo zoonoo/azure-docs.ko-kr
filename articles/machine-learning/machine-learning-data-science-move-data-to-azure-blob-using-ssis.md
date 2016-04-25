@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="SSIS 커넥터를 사용하여 Azure Blob 저장소의 데이터 이동 | Microsoft Azure" 
-	description="SSIS 커넥터를 사용하여 Azure Blob 저장소의 데이터 이동" 
-	services="machine-learning,storage" 
-	documentationCenter="" 
-	authors="bradsev" 
-	manager="paulettm" 
+<properties
+	pageTitle="SSIS 커넥터를 사용하여 Azure Blob 저장소의 데이터 이동 | Microsoft Azure"
+	description="SSIS 커넥터를 사용하여 Azure Blob 저장소의 데이터 이동"
+	services="machine-learning,storage"
+	documentationCenter=""
+	authors="bradsev"
+	manager="paulettm"
 	editor="cgronlun" />
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/08/2016" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/08/2016"
 	ms.author="bradsev" />
 
 # SSIS 커넥터를 사용하여 Azure Blob 저장소의 데이터 이동
@@ -32,14 +32,14 @@ Azure Blob 저장소로 및/또는 저장소에서 데이터를 이동하는 데
 
 SSIS를 사용하여 하이브리드 데이터 통합 시나리오에서 일반적인 비즈니스 요구 사항을 충족하는 정식 시나리오에 대한 자세한 내용은 [Azure용 SQL Server Integration Services 통합 팩으로 더 많은 작업 수행](http://blogs.msdn.com/b/ssis/archive/2015/06/25/doing-more-with-sql-server-integration-services-feature-pack-for-azure.aspx) 블로그를 참조하세요.
 
-> [AZURE.NOTE] Azure blob 저장소에 대한 전체 지침은 [Azure Blob 기본 사항](../storage-dotnet-how-to-use-blobs.md) 및 [Azure Blob 서비스](https://msdn.microsoft.com/library/azure/dd179376.aspx)를 참조하세요.
+> [AZURE.NOTE] Azure blob 저장소에 대한 전체 지침은 [Azure Blob 기본 사항](../storage/storage-dotnet-how-to-use-blobs.md) 및 [Azure Blob 서비스](https://msdn.microsoft.com/library/azure/dd179376.aspx)를 참조하세요.
 
 ## 필수 조건
 
 이 문서에 설명된 작업을 수행하려면 Azure 구독이 있어야 하며 Azure 저장소 계정을 설정해야 합니다. 데이터를 업로드하거나 다운로드하려면 Azure 저장소 계정 이름 및 계정 키를 알아야 합니다.
 
 - **Azure 구독**을 설정하려면 [1개월 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-- **저장소 계정**을 만들고 계정 및 키 정보를 가져오는 방법에 대한 지침은 [Azure 저장소 계정 정보](../storage-create-storage-account.md)를 참조하세요.
+- **저장소 계정**을 만들고 계정 및 키 정보를 가져오는 방법에 대한 지침은 [Azure 저장소 계정 정보](../storage/storage-create-storage-account.md)를 참조하세요.
 
 
 **SSIS 커넥터**를 사용하려면 다음을 다운로드해야 합니다.
@@ -77,7 +77,7 @@ SSIS 기능 팩을 사용하여 온-프레미스에서 Azure blob 저장소로 �
 
 
 > [AZURE.NOTE] 전송을 시도하기 전에 **AzureStorageConnection** 자격 증명이 올바르고 **BlobContainer**가 있어야 합니다.
- 
+
 ## Azure Blob 저장소에서 데이터 다운로드
 
 SSIS를 사용하여 Azure Blob 저장소에서 온-프레미스 저장소로 데이터를 다운로드하려면 [Azure Blob 업로드 작업](https://msdn.microsoft.com/library/mt146779.aspx)의 인스턴스를 사용합니다.
@@ -88,4 +88,4 @@ SSIS 기능 팩을 사용하면 패키징 작업을 통해 보다 복잡한 흐�
 - SSIS를 사용하여 Azure HDInsight 클러스터에서 Hive 스크립트를 실행하려면 [Azure HDInsight Hive 작업](https://msdn.microsoft.com/library/mt146771.aspx)을 사용합니다.
 - SSIS를 사용하여 Azure HDInsight 클러스터에서 Pig 스크립트를 실행하려면 [Azure HDInsight Pig 작업](https://msdn.microsoft.com/library/mt146781.aspx)을 사용합니다.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

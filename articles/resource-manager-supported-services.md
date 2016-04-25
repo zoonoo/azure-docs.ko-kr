@@ -4,8 +4,8 @@
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+   manager="timlt"
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -164,7 +164,7 @@ Azure Active Directory는 구독에 대해 리소스 관리자로 작동하므�
 
 다음 예제는 사용 가능한 모든 리소스 공급자를 가져오는 방법을 보여 줍니다.
 
-    PS C:\> Get-AzureRmResourceProvider -ListAvailable
+    Get-AzureRmResourceProvider -ListAvailable
     
 다음과 유사하게 출력됩니다.
 
@@ -176,7 +176,7 @@ Azure Active Directory는 구독에 대해 리소스 관리자로 작동하므�
 
 다음 예제는 특정 리소스 공급자에 대한 리소스 형식을 가져오는 방법을 보여 줍니다.
 
-    PS C:\> (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes
+    (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes
     
 다음과 유사하게 출력됩니다.
 
@@ -188,7 +188,7 @@ Azure Active Directory는 구독에 대해 리소스 관리자로 작동하므�
     
 네임스페이스를 제공하는 리소스 공급자를 등록하려면
 
-    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ApiManagement
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ApiManagement
 
 ### Azure CLI
 
@@ -229,7 +229,7 @@ Azure Active Directory는 구독에 대해 리소스 관리자로 작동하므�
 
 다음 예제에서는 웹 사이트에 대해 지원되는 지역을 가져오는 방법을 보여 줍니다.
 
-    PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
+    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
     
 다음과 유사하게 출력됩니다.
 
@@ -305,4 +305,4 @@ Azure Active Directory는 구독에 대해 리소스 관리자로 작동하므�
 - 리소스 관리자 템플릿을 만드는 방법에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 - 리소스 배포에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

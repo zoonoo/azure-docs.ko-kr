@@ -4,15 +4,15 @@
 	keywords=""
 	services="sql-database"
 	documentationCenter=""
-	authors="jeffgoll"
-	manager="jeffreyg"
+	authors="sidneyh"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
 	ms.date="04/01/2016"
-	ms.author="jeffreyg"
+	ms.author="sidneyh"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
@@ -125,11 +125,10 @@
 
 ## 추가 리소스
 
-- [탄력적 데이터베이스 참조](sql-database-elastic-pool-reference.md)
 - [SQL 데이터베이스 탄력적 풀](sql-database-elastic-pool.md)
 - [포털을 사용한 탄력적 데이터베이스 풀 만들기](sql-database-elastic-pool-create-csharp.md)
 - [PowerShell을 사용한 탄력적 데이터베이스 풀 만들기](sql-database-elastic-pool-create-powershell.md)
 - [C#을 사용한 탄력적 데이터베이스 풀 만들기](sql-database-elastic-pool-create-csharp.md)
 - [탄력적 데이터베이스 풀에 대한 가격 및 성능 고려 사항](sql-database-elastic-pool-guidance.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

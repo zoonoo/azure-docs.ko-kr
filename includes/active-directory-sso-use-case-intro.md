@@ -17,8 +17,8 @@ Azure AD를 사용하여 앱 및 프로비전된 계정을 통합할 수 있습�
 
 - 앱이 갤러리에 없는 경우에도 Azure AD에서 대부분의 앱을 사용자 지정 앱으로 설치할 수 있습니다. 이렇게 하려면 구성하는 데 기술적인 전문성이 조금 더 필요합니다. SAML 2.0을 페더레이션된 앱으로 지원하는 모든 응용 프로그램 또는 HTML 기반 로그인 페이지가 암호 SSO 앱으로 있는 모든 응용 프로그램을 추가할 수 있습니다.
 
-사용자가 IT에서 관리하지 않는 SaaS 앱에 대한 자신의 계정을 만든 경우 [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md) 도구가 해결책을 제공합니다. 이 도구는 웹 트래픽을 모니터링하여 조직 전체에서 사용되고 있는 앱과 이러한 각 앱을 사용하는 사용자 수를 식별합니다. IT는 이 정보를 사용하여 사용자가 선호하는 앱을 파악하고 SSO를 위해 Azure AD에 통합할 앱을 결정할 수 있습니다.
+사용자가 IT에서 관리하지 않는 SaaS 앱에 대한 자신의 계정을 만든 경우 [Cloud App Discovery](../articles/active-directory/active-directory-cloudappdiscovery-whatis.md) 도구가 해결책을 제공합니다. 이 도구는 웹 트래픽을 모니터링하여 조직 전체에서 사용되고 있는 앱과 이러한 각 앱을 사용하는 사용자 수를 식별합니다. IT는 이 정보를 사용하여 사용자가 선호하는 앱을 파악하고 SSO를 위해 Azure AD에 통합할 앱을 결정할 수 있습니다.
 
 Azure AD에 앱을 통합할 때 사용자의 설정된 응용 프로그램 ID를 개별 Azure AD ID에 매핑할 수 있습니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0413_2016-->

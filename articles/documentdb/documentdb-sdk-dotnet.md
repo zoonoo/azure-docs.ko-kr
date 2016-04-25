@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/31/2016" 
-	ms.author="ryancraw"/>
+	ms.date="04/08/2016" 
+	ms.author="rnagpal"/>
 
 # DocumentDB SDK
 
@@ -29,14 +29,17 @@
 <table>
 <tr><td>**다운로드**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
 <tr><td>**설명서**</td><td>[.NET SDK 참조 설명서](https://msdn.microsoft.com/library/azure/dn948556.aspx)</td></tr>
-<tr><td>**샘플**</td><td>[.NET 코드 샘플](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)</td></tr>
+<tr><td>**샘플**</td><td>[.NET 코드 샘플] (https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)</td></tr>
 <tr><td>**시작**</td><td>[DocumentDB .NET SDK 시작](documentdb-get-started.md)</td></tr>
 <tr><td>**현재 지원되는 프레임워크**</td><td>[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</td></tr>
 </table></br>
 
 ## 릴리스 정보
 
-### <a name="1.6.2"/>[1\.6.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.6.1)
+### <a name="1.6.3"/>[1\.6.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.6.3)
+  - Azure 클라우드 서비스 솔루션의 일부로 패키징에 대한 .NET SDK의 Nuget 패키징에서 버그가 수정되었습니다.
+  
+### <a name="1.6.2"/>[1\.6.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.6.2)
   - 구현된 [분할된 컬렉션](documentdb-partition-data.md) 및 [사용자 정의된 성능 수준](documentdb-performance-levels.md)입니다. 
 
 ### <a name="1.5.3"/>[1\.5.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.3)
@@ -92,7 +95,7 @@
   
 		**NB: Possible breaking change** 
   
-    	If you have existing code that provisions collections with a custom indexing policy, then your existing code will need to be updated to support the new IndexingPolicy class. If you have no custom indexing policy, then this change does not affect you.
+    	사용자 지정 인덱싱 정책을 사용하여 컬렉션을 프로비전하는 기존 코드가 있다면 기존 코드는 새 IndexingPolicy 클래스를 지원하도록 업데이트되어야 합니다.사용자 지정 인덱싱 정책이 없다면 이 변경 사항은 영향을 주지 않습니다.
 
 ### <a name="1.1.0"/>[1\.1.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.1.0)
 - 새로운 HashPartitionResolver 및 RangePartitionResolver 클래스와 IPartitionResolver를 사용한 데이터 분할 지원
@@ -124,6 +127,7 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
  
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 
 | ---	  | ---	         | ---
+| [1\.6.3](#1.6.3) | 2016년 4월 8일 |--- 
 | [1\.6.2](#1.6.2) | 2016년 3월 29일 |--- 
 | [1\.5.3](#1.5.3) | 2016년 2월 19일 |--- 
 | [1\.5.2](#1.5.2) | 2015년 12월 14일 |--- 
@@ -147,4 +151,4 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 DocumentDB에 대해 자세히 알아보려면 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 서비스 페이지를 참조하세요.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->
