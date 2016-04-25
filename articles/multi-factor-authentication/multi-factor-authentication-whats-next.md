@@ -98,9 +98,11 @@ Microsoft의 기본 음성 인사말은 사용자가 사기 행위 경고 제출
 1.	http://azure.microsoft.com에 로그온합니다.
 2.	이 페이지 맨 위에 있는 지침에 따라 MFA 관리 포털로 이동합니다.
 3.	Azure Multi-Factor Authentication 관리 포털의 왼쪽에서 옆에 +가 있는 테넌트 또는 Azure MFA 공급자의 이름이 나타날 경우 +를 클릭하여 다른 MFA 서버 복제 그룹 및 Azure 기본 그룹을 참조하세요. 적절한 그룹을 클릭합니다.
-4.	사용자 관리에서 **일회성 바이패스**를 클릭합니다. ![클라우드](./media/multi-factor-authentication-whats-next/create1.png)
+4.	사용자 관리에서 **일회성 바이패스**를 클릭합니다.
+![클라우드](./media/multi-factor-authentication-whats-next/create1.png)
 5.	일회성 바이패스 페이지에서 **새 일회성 바이패스**를 클릭합니다.
-6.	사용자 이름, 바이패스가 유지될 시간(초), 바이패스가 필요한 이유를 입력하고 **바이패스**를 클릭합니다. ![클라우드](./media/multi-factor-authentication-whats-next/create2.png)
+6.	사용자 이름, 바이패스가 유지될 시간(초), 바이패스가 필요한 이유를 입력하고 **바이패스**를 클릭합니다.
+![클라우드](./media/multi-factor-authentication-whats-next/create2.png)
 7.	이 시점에서 일회성 바이패스가 만료되기 전에 사용자가 로그인해야 합니다.
 
 
@@ -134,10 +136,14 @@ Microsoft의 기본 음성 인사말은 사용자가 사기 행위 경고 제출
 2.	http://azure.microsoft.com에 로그온합니다.
 3.	이 페이지 맨 위에 있는 지침에 따라 MFA 관리 포털로 이동합니다.
 4.	Azure Multi-Factor Authentication 관리 포털의 구성 섹션에서 음성 메시지를 클릭합니다.
-5.	음성 메시지 섹션에서 **새 음성 메시지**를 클릭합니다. ![클라우드](./media/multi-factor-authentication-whats-next/custom1.png)
-6.	구성: 새 음성 메시지 페이지에서 **사운드 파일 관리**를 클릭합니다. ![클라우드](./media/multi-factor-authentication-whats-next/custom2.png)
-7.	구성: 사운드 파일 페이지에서 **사운드 파일 업로드**를 클릭합니다. ![클라우드](./media/multi-factor-authentication-whats-next/custom3.png)
-8.	구성: 사운드 파일 업로드에서 **찾아보기**를 클릭하고 음성 메시지로 이동하여 **열기**를 클릭합니다. ![클라우드](./media/multi-factor-authentication-whats-next/custom4.png)
+5.	음성 메시지 섹션에서 **새 음성 메시지**를 클릭합니다.
+![클라우드](./media/multi-factor-authentication-whats-next/custom1.png)
+6.	구성: 새 음성 메시지 페이지에서 **사운드 파일 관리**를 클릭합니다.
+![클라우드](./media/multi-factor-authentication-whats-next/custom2.png)
+7.	구성: 사운드 파일 페이지에서 **사운드 파일 업로드**를 클릭합니다.
+![클라우드](./media/multi-factor-authentication-whats-next/custom3.png)
+8.	구성: 사운드 파일 업로드에서 **찾아보기**를 클릭하고 음성 메시지로 이동하여 **열기**를 클릭합니다.
+![클라우드](./media/multi-factor-authentication-whats-next/custom4.png)
 9.	설명을 추가하고 업로드를 클릭합니다.
 10.	이 작업이 완료되면 파일을 성공적으로 업로드했다는 메시지가 표시됩니다.
 11.	왼쪽에서 음성 메시지를 클릭합니다.
@@ -146,7 +152,8 @@ Microsoft의 기본 음성 인사말은 사용자가 사기 행위 경고 제출
 14.	이 메시지가 특정 응용 프로그램용인 경우 응용 프로그램 상자에서 지정하십시오.
 15.	메시지 유형에서 새 사용자 지정 메시지와 함께 재정의될 수 있는 메시지 유형을 선택합니다.
 16.	사운드 파일 드롭다운에서 사운드 파일을 선택합니다.
-17.	**만들기**를 클릭합니다. 성공적으로 음성 메시지를 만들었다는 메시지가 표시됩니다. ![클라우드](./media/multi-factor-authentication-whats-next/custom5.png)</center>
+17.	**만들기**를 클릭합니다. 성공적으로 음성 메시지를 만들었다는 메시지가 표시됩니다.
+![클라우드](./media/multi-factor-authentication-whats-next/custom5.png)</center>
 
 
 
@@ -349,7 +356,8 @@ Azure AD는 온-프레미스 Windows Server Active Directory 도메인 서비스
 3. Active Directory 아래에서 장치에 대한 Multi-Factor Authentication 기억을 설정하려는 디렉터리를 클릭합니다.
 4. 선택한 디렉터리에서 구성을 클릭합니다.
 5. Multi-factor Authentication 섹션에서 서비스 설정 관리를 클릭합니다.
-6. 서비스 설정 페이지의 사용자 장치 설정 관리 아래에서 **사용자가 신뢰하는 장치에 다단계 인증을 기억하도록 허용**을 선택/선택 취소합니다. ![장치 기억](./media/multi-factor-authentication-whats-next/remember.png)
+6. 서비스 설정 페이지의 사용자 장치 설정 관리 아래에서 **사용자가 신뢰하는 장치에 다단계 인증을 기억하도록 허용**을 선택/선택 취소합니다.
+![장치 기억](./media/multi-factor-authentication-whats-next/remember.png)
 8. 일시 중단을 허용하려는 일 수를 설정합니다. 기본값은 14일입니다.
 9. 저장을 클릭합니다.
 10. 닫기를 클릭합니다.

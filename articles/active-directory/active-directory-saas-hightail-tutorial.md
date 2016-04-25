@@ -165,7 +165,7 @@ Hightail 응용 프로그램은 특정 형식의 SAML 어설션이 필요합니�
 
 	![Single Sign-On 구성](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_06.png)
 
-	a. 로그온 URL 텍스트 상자에 ****https://www.hightail.com/loginSSO**과 같은 패턴을 사용하여 사용자가 Hightail 응용 프로그램에 로그인하는 데 사용할 URL을 입력합니다. 이는 SSO를 사용하려는 모든 고객에게 공통적인 로그인 페이지입니다.
+	a. 로그온 URL 텍스트 상자에 **https://www.hightail.com/loginSSO**과 같은 패턴을 사용하여 사용자가 Hightail 응용 프로그램에 로그인하는 데 사용할 URL을 입력합니다. 이는 SSO를 사용하려는 모든 고객에게 공통적인 로그인 페이지입니다.
 
 	b. **다음**를 클릭합니다.
 

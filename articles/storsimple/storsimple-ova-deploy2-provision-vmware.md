@@ -148,7 +148,8 @@
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image15.png)
 
-1.  **새 가상 컴퓨터 만들기** 창이 나타납니다. **구성** 페이지에서 **사용자 지정** 옵션을 선택합니다. **다음**을 클릭합니다. ![](./media/storsimple-ova-deploy2-provision-vmware/image16.png)
+1.  **새 가상 컴퓨터 만들기** 창이 나타납니다. **구성** 페이지에서 **사용자 지정** 옵션을 선택합니다. **다음**을 클릭합니다.
+![](./media/storsimple-ova-deploy2-provision-vmware/image16.png)
 
 2.  **이름 및 위치** 페이지에서 가상 컴퓨터의 이름을 지정합니다. 이 이름은 앞서 8단계에서 지정한 폴더 이름(권장 모범 사례)과 일치해야 합니다.
 

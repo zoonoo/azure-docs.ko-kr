@@ -124,12 +124,12 @@ WebPI 설치 프로그램은 Python Azure 앱에 필요한 모든 것을 제공�
 
 ## 추가 패키지 가져오기
 
-[Python 패키지 인덱스][](PyPI)에서 다양한 Python 라이브러리를 선택할 수 있습니다. Distro를 설치하도록 선택했다면 웹 개발 및 기술 컴퓨팅을 포함한 다양한 시나리오에 맞는 거의 모든 흥미로운 기능을 이미 갖추었습니다.
+[Python 패키지 인덱스](PyPI)에서 다양한 Python 라이브러리를 선택할 수 있습니다. Distro를 설치하도록 선택했다면 웹 개발 및 기술 컴퓨팅을 포함한 다양한 시나리오에 맞는 거의 모든 흥미로운 기능을 이미 갖추었습니다.
 
 
 ## Python Tools for Visual Studio
 
-[Visual Studio용 Python Tools][](PTVS)는 VS를 완전한 Python IDE로 전환하는 Microsoft의 무료/OSS 플러그 인입니다.
+[Visual Studio용 Python Tools](PTVS)는 VS를 완전한 Python IDE로 전환하는 Microsoft의 무료/OSS 플러그 인입니다.
 
 ![how-to-install-python-ptvs](./media/python-how-to-install/how-to-install-python-ptvs.png)
 

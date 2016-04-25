@@ -100,7 +100,7 @@ Sciforma를 프로비전하는 사용자를 구성할 작업 항목이 없습니
 
 1.  Azure AD 포털에서 테스트 계정을 만듭니다.
 
-2.  **Sciforma ** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+2.  **Sciforma** 응용 프로그램 통합 페이지에서 **사용자 할당** 을 클릭합니다.
 
     ![사용자 할당](./media/active-directory-saas-sciforma-tutorial/IC777377.png "사용자 할당")
 

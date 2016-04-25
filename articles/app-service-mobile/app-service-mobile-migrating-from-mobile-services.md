@@ -86,7 +86,7 @@ Azure 앱 서비스의 이점에 대한 자세한 내용은 [모바일 서비스
 
 무료 또는 기본 가격 책정 계층에 모바일 서비스를 마이그레이션하는 경우 해당 가격 책정 계층의 모든 모바일 서비스를 동시에 마이그레이션합니다. 마이그레이션하는 동안 [마이그레이션하는 모바일 서비스를 표준으로 올려서](#opt-raise-service-tier) 이를 방지할 수 있습니다.
 
-작업 모니터의 마이그레이션 상태를 모니터링할 수 있고 사이트가 Azure 클래식 포털에서 *마이그레이션*으로 나열됩니다.
+작업 모니터의 마이그레이션 상태를 모니터링할 수 있고 사이트가 Azure 클래식 포털에서 *마이그레이션* 으로 나열됩니다.
 
   ![마이그레이션 작업 모니터링][1]
 
@@ -281,7 +281,7 @@ PublishSettings 파일이 컴퓨터에 다운로드됩니다. 일반적으로 _s
 
 자세한 내용은 [알림 허브] 설명서를 검토합니다.
 
-> [AZURE.TIP] [Azure 포털]의 알림 허브 관리 기능은 아직 미리 보기 상태입니다. [Azure 클래식 포털]은 모든 알림 허브를 관리하기 위해 사용 가능합니다.
+> [AZURE.TIP] "[Azure 포털]"의 알림 허브 관리 기능은 아직 미리 보기 상태입니다. [Azure 클래식 포털]은 모든 알림 허브를 관리하기 위해 사용 가능합니다.
 
 ### <a name="app-settings"></a>기타 앱 설정
 
@@ -374,17 +374,17 @@ Azure PowerShell을 사용하여 마이그레이션된 모바일 서비스를 �
 [2]: ./media/app-service-mobile-migrating-from-mobile-services/triggering-job-with-postman.png
 
 <!-- Links -->
-[앱 서비스 가격]: https://azure.microsoft.com/ko-KR/pricing/details/app-service/
+[앱 서비스 가격]: https://azure.microsoft.com/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
 [자동 크기 조정]: ../app-service-web/web-sites-scale.md
 [Azure 앱 서비스]: ../app-service/app-service-value-prop-what-is.md
 [Azure 앱 서비스 배포 설명서]: ../app-service-web/web-sites-deploy.md
 [Azure 클래식 포털]: https://manage.windowsazure.com
 [Azure 포털]: https://portal.azure.com
-[Azure 지역]: https://azure.microsoft.com/ko-KR/regions/
+[Azure 지역]: https://azure.microsoft.com/regions/
 [Azure 스케줄러 계획]: ../scheduler/scheduler-plans-billing.md
 [지속적으로 배포]: ../app-service-web/web-sites-publish-source-control.md
-[혼합 네임스페이스를 변환]: https://azure.microsoft.com/ko-KR/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
+[혼합 네임스페이스를 변환]: https://azure.microsoft.com/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: http://curl.haxx.se/
 [사용자 지정 도메인 이름]: ../app-service-web/web-sites-custom-domain-name.md
 [Fiddler]: http://www.telerik.com/fiddler

@@ -407,7 +407,7 @@ Mahout에서 사용 가능한 분류 방법 중 하나는 [랜덤 포리스트][
 	    Reliability                                53.4921%
 	    Reliability (standard deviation)            0.4933
 
-  또한 이 작업은 \_\___wasb:///example/data/predictions/KDDTest+.arff.out__에 있는 파일을 생성합니다. 그러나 이 파일은 사용자가 읽을 수 없습니다.
+  또한 이 작업은 __wasb:///example/data/predictions/KDDTest+.arff.out__에 있는 파일을 생성합니다. 그러나 이 파일은 사용자가 읽을 수 없습니다.
 
 > [AZURE.NOTE] Mahout 작업은 파일을 덮어쓰지 않습니다. 이러한 작업을 다시 실행하려는 경우 이전 작업에서 생성된 파일을 삭제해야 합니다.
 
@@ -427,7 +427,7 @@ Mahout은 HDInsight 3.1 클러스터에 설치되며, 다음 단계를 사용하
 
     	After the build completes, you can find the JAR file at __mahout\mrlegacy\target\mahout-mrlegacy-1.0-SNAPSHOT-job.jar__.
 
-    	> [AZURE.NOTE] When Mahout 1.0 is released, you should be able to use the prebuilt packages with HDInsight 3.0.
+    	> [AZURE.NOTE] Mahout 1.0이 릴리스되면 HDInsight 3.0에 미리 빌드된 패키지를 사용할 수 있습니다.
 
 2. 클러스터용 기본 저장소의 __example/jars__에 jar 파일을 업로드합니다. 다음 스크립트에서 CLUSTERNAME을 해당 HDInsight 클러스터의 이름으로, FILENAME은 __mahout-coure-0.9-job.jar__ 파일에 대한 경로로 바꿉니다.
 

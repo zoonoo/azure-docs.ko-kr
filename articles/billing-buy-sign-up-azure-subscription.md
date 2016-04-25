@@ -44,7 +44,8 @@ Azure 무료 평가판 구독에 등록하려면 전화 번호, 신용 카드, M
 
 1. [Azure 무료 평가판 페이지](https://azure.microsoft.com/pricing/free-trial/)를 열고, **지금 평가판 사용**을 선택합니다.
 2. Microsoft 계정 또는 학교/직장 계정으로 로그인합니다.
-3. **사용자 정보** 섹션에 개인 정보를 입력합니다. ![개인 정보 스크린샷](./media/billing-buy-sign-up-azure-subscription/AboutYou.png)
+3. **사용자 정보** 섹션에 개인 정보를 입력합니다.
+![개인 정보 스크린샷](./media/billing-buy-sign-up-azure-subscription/AboutYou.png)
 
  **참고** Azure 구독에 등록할 때 제공하는 전자 메일 주소 및 국가 정보는 항상 구독과 연결되며 나중에 변경할 수 없습니다.</br>
 4. **전화로 확인** 섹션에서 확인 프로세스를 완료하기 위해 제공할 수 있는 인증 코드를 받을 전화번호를 제공해야 합니다.

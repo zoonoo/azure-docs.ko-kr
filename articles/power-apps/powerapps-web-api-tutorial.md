@@ -30,13 +30,15 @@
 ## 1단계: WebAPI를 만들고 Azure에 배포
 1. Visual Studio를 열고 새 C# ASP.NET 웹 응용 프로그램을 만듭니다.![](./media/powerapps-web-api-tutorial/newwebapp.png "새 웹앱")
 
-2. 다음 화면에서 Web API 템플릿을 선택하고 **인증 없음**을 선택합니다. ![](./media/powerapps-web-api-tutorial/noauth.png "권한 부여 없음")
+2. 다음 화면에서 Web API 템플릿을 선택하고 **인증 없음**을 선택합니다.
+![](./media/powerapps-web-api-tutorial/noauth.png "권한 부여 없음")
 
 	>[AZURE.IMPORTANT] "인증 없음"으로 인증을 설정해야 합니다.
 
 3. 프로젝트를 만들 때 리소스에 대한 Web API를 빌드해야 합니다. 이 자습서에서는 Web API 빌드를 자세히 설명하지 않습니다.
 
-4. 다음으로, Web API에 대한 Swagger 파일을 생성합니다. 이 작업은 __패키지 관리자 콘솔__을 열고 __Swashbuckle__을 설치하여 쉽게 수행할 수 있습니다. ![](./media/powerapps-web-api-tutorial/swashbuckle-console.png "Swashbuckle 콘솔")
+4. 다음으로, Web API에 대한 Swagger 파일을 생성합니다. 이 작업은 __패키지 관리자 콘솔__을 열고 __Swashbuckle__을 설치하여 쉽게 수행할 수 있습니다.
+![](./media/powerapps-web-api-tutorial/swashbuckle-console.png "Swashbuckle 콘솔")
 
 5. 설치 및 사용하도록 설정되면 다음 Swagger 문서 및 UI 끝점을 각각 찾습니다. **<your-root-url>/swagger/docs/v1**
 
@@ -59,7 +61,7 @@
 2. 두 번째 AAD 응용 프로그램은 사용자 지정 API 등록을 보호하고 첫 번째 앱으로 보호되는 Web API에 대한 위임된 액세스를 가져오는 데 사용됩니다. **webAPI-customAPI**로 이름을 지정합니다.
 3. **webAPI**의 경우 다음 구성을 사용합니다.  
 
-  1. 로그온 URL: ******https://login.windows.net***
+  1. 로그온 URL: ***https://login.windows.net***
   2. App-ID Uri: ***https://\<your-root-url>***(일반적으로 Azure에 배포된 웹 사이트의 URL)
   3. 회신 Uri: ***https://\<your-root-url>/.auth/login/aad/callback***  
   
@@ -67,9 +69,9 @@
 
 4. **webAPI-customAPI**의 경우 다음 구성을 사용합니다.
   
-  1. 로그온 URL: ****https://login.windows.net**
+  1. 로그온 URL: **https://login.windows.net**
   2. App-ID Uri: ***고유 URL이 될 수 있음***
-  3. 회신 URL: ******https://msmanaged-na.consent.azure-apim.net/redirect***
+  3. 회신 URL: ***https://msmanaged-na.consent.azure-apim.net/redirect***
   4. webAPI에 대한 위임된 액세스를 갖도록 사용 권한을 추가합니다.
   5. 나중에 이 앱의 클라이언트 ID도 필요하므로 메모해 둡니다.
   6. 키를 생성하고 안전한 위치에 보관합니다. 이 키는 나중에 필요합니다.
@@ -112,7 +114,7 @@
 
   1. 클라이언트 ID: 이 항목 **2단계**의 4.5에서 메모한 ***webAPI-CustomAPI의 클라이언트 ID***
   2. 비밀: 이 항목 **2단계**의 4.6에서 보관한 ***webPI-CustomAPI의 키***
-  3. 로그인 url: ******https://login.windows.net***
+  3. 로그인 url: ***https://login.windows.net***
   4. ResourceUri: 이 항목 **2단계**의 3.4에서 메모한 ***webAPI의 클라이언트 ID***
 
 5. **만들기**를 선택하고 사용자 지정 API의 연결을 만듭니다. 설치가 올바르게 되었으면 성공적으로 로그인할 수 있습니다.

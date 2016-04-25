@@ -78,7 +78,8 @@ SharePoint API를 사용하려면 먼저 **연결**을 만든 다음 이러한 �
 
 1. 검색 상자에 SharePoint를 입력하고 이름에 SharePoint가 있는 모든 항목이 반환될 때까지 검색을 기다립니다.![SharePoint 구성][1]  
 2. **SharePoint Online - 파일을 만들 때**를 선택합니다.   
-3. **SharePoint Online에 로그인**을 선택합니다. ![SharePoint 구성][2]    
+3. **SharePoint Online에 로그인**을 선택합니다.
+![SharePoint 구성][2]    
 4. SharePoint 자격 증명을 제공하여 로그인하고 SharePoint에 권한을 부여합니다.![SharePoint 구성][3]     
 5. 인증이 완료된 후 SharePoint의 **파일을 만들 때** 대화 상자를 구성하여 완료하기 위해 논리 앱으로 리디렉션됩니다.![SharePoint 구성][4]  
 6. 그런 다음 논리 앱을 완료하는 데 필요한 다른 트리거 및 작업을 추가할 수 있습니다.   

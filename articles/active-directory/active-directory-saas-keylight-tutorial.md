@@ -173,11 +173,11 @@ Keylight에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
    
     j. **자동 프로비전 보안 구성**으로 **표준 사용자 구성**을 선택합니다.
    
-    k. 전자 메일 특성 텍스트 상자에 ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**를 입력합니다.
+    k. 전자 메일 특성 텍스트 상자에 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**를 입력합니다.
 
-    l. **이름 특성** 텍스트 상자에 ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**을 입력합니다.
+    l. **이름 특성** 텍스트 상자에 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**을 입력합니다.
 
-    m. **성 특성** 텍스트 상자에 ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**을 입력합니다.
+    m. **성 특성** 텍스트 상자에 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**을 입력합니다.
 
     n. **Save**를 클릭합니다.
    

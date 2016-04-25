@@ -76,8 +76,10 @@ Azure는 전체 솔루션에 대한 갤러리 이미지를 제공합니다. 템�
 
 1. 	사용자 계정을 사용하여 Azure 포털에 로그인합니다.
 1.	Azure 포털에서 **+새로 만들기**를 클릭합니다. 포털에서 새 블레이드가 열립니다.
-1.	새 블레이드에서 **AlwaysOn**을 검색합니다. ![AlwaysOn 템플릿 찾기](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/16-findalwayson.png)
-1.	검색 결과에서 **SQL Server AlwaysOn 클러스터**를 찾습니다. ![AlwaysOn 템플릿](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/17-alwaysontemplate.png)
+1.	새 블레이드에서 **AlwaysOn**을 검색합니다.
+![AlwaysOn 템플릿 찾기](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/16-findalwayson.png)
+1.	검색 결과에서 **SQL Server AlwaysOn 클러스터**를 찾습니다.
+![AlwaysOn 템플릿](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/17-alwaysontemplate.png)
 1.	**배포 모델 선택**에서 **리소스 관리자**를 선택합니다.
 
 ### 기본 사항
@@ -243,7 +245,8 @@ SQL Server의 새 인스턴스는 인터넷에 연결되지 않은 가상 컴퓨
 
 1.	**리소스** 블레이드에서 기본 도메인 컨트롤러에 대한 가상 컴퓨터의 컴퓨터 이름인 **ad-primary-dc**를 클릭합니다.
 
-1.	**ad-primary-dc**에 대한 블레이드에서 **연결**을 클릭합니다. 브라우저에서 원격 연결 개체를 열거나 저장할지 여부를 묻습니다. **열기**를 클릭합니다. ![DC에 연결](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/13-ad-primary-dc-connect.png)
+1.	**ad-primary-dc**에 대한 블레이드에서 **연결**을 클릭합니다. 브라우저에서 원격 연결 개체를 열거나 저장할지 여부를 묻습니다. **열기**를 클릭합니다.
+![DC에 연결](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/13-ad-primary-dc-connect.png)
 1.	**원격 데스크톱 연결**은 이 원격 연결의 게시자를 식별할 수 없음을 경고할 수 있습니다. **연결**을 클릭합니다.
 
 1.	Windows 보안은 기본 도메인 컨트롤러의 IP 주소에 연결할 자격 증명을 입력하라는 메시지를 표시합니다. **다른 계정 사용**을 클릭합니다. **사용자 이름**에 **contoso\\DomainAdmin**을 입력합니다. 관리자 사용자 이름으로 선택한 계정입니다. 템플릿을 구성할 때 선택한 복잡한 암호를 사용합니다.

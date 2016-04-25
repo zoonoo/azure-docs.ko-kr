@@ -198,7 +198,8 @@ Asset Bank에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     e. **다음**을 클릭합니다.
 
-7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다. ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-assetbank-tutorial/create_aaduser_07.png)
+7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다.
+![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-assetbank-tutorial/create_aaduser_07.png)
 
 
 8. **임시 암호 가져오기** 대화 상자 페이지에서 다음 단계를 수행합니다.

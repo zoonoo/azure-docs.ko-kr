@@ -266,7 +266,8 @@ CloudServiceName | 가상 컴퓨터가 만들어지는 Azure 클라우드 서비
 
 스크립트가 준비되면 앞서 만든 복구 계획에 이를 추가할 수 있습니다.
 
-1.  만든 복구 계획에서 그룹 2 다음에 스크립트를 추가하도록 선택합니다. ![](media/site-recovery-runbook-automation/15.png)
+1.  만든 복구 계획에서 그룹 2 다음에 스크립트를 추가하도록 선택합니다.
+![](media/site-recovery-runbook-automation/15.png)
 
 2.  스크립트 이름을 지정합니다. 복구 계획 내에 표시하기 위한 이 스크립트의 이름입니다.
 

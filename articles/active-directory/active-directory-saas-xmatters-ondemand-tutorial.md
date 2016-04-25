@@ -70,7 +70,7 @@
 
 ###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
-1.  Azure AD 포털의 **xMatters OnDemand** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성 ** 대화 상자를 엽니다.
+1.  Azure AD 포털의 **xMatters OnDemand** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776791.png "Single Sign-On 구성")
 
@@ -141,7 +141,7 @@ Azure AD 사용자가 XMatters OnDemand에 로그인할 수 있도록 하려면 
 
 1.  Azure AD 포털에서 테스트 계정을 만듭니다.
 
-2.  **XMatters OnDemand ** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+2.  **XMatters OnDemand** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
 
     ![사용자 할당](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776799.png "사용자 할당")
 

@@ -33,12 +33,12 @@ Azure Active Directory Connect를 사용하여 AD FS 배포 및 Azure Active Dir
 3. AD FS 관리 콘솔을 열고 **AD FS**>**트러스트 관계>신뢰 당사자 트러스트**로 이동합니다. Microsoft Office 365 ID 플랫폼 신뢰 당사자 트러스트 개체를 마우스 오른쪽 단추로 클릭하고 **클레임 규칙 편집...**을 선택합니다.
 4. **발급 변환 규칙** 탭에서 **규칙 추가**를 선택합니다.
 5. **클레임 규칙** 템플릿 드롭다운 상자에서 **사용자 지정 규칙을 사용하여 클레임 보내기**를 선택합니다. **다음**을 선택합니다.
-6. **클레임 규칙 이름:** 텍스트 상자에 *인증 방법 클레임 규칙*을 입력합니다.
+6. **클레임 규칙 이름:** 텍스트 상자에 *인증 방법 클레임 규칙* 을 입력합니다.
 7. **클레임 규칙:** 텍스트 상자에 다음 클레임 규칙을 입력합니다.
 
         c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"]
         => issue(claim = c);
-
+    
 8. **확인**을 두 번 클릭하여 대화 상자를 완료합니다.
 
 Azure Active Directory 신뢰 당사자 트러스트 인증 클래스 참조 추가 구성
@@ -47,7 +47,7 @@ Azure Active Directory 신뢰 당사자 트러스트 인증 클래스 참조 추
 
 
   `Set-AdfsRelyingPartyTrust -TargetName <RPObjectName> -AllowedAuthenticationClassReferences wiaormultiauthn`
-
+   
 여기서 <RPObjectName>은 Azure Active Directory 신뢰 당사자 트러스트 개체에 대한 신뢰 당사자 개체 이름입니다. 일반적으로 이 개체의 이름은 Microsoft Office 365 ID 플랫폼입니다.
 
 AD FS 전역 인증 정책

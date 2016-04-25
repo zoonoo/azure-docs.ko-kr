@@ -110,8 +110,8 @@
 
     ![변경 내용 저장](./media/active-directory-saas-bluejeans-tutorial/IC785874.png "변경 내용 저장")
 
-    1.  **사용자 ID** 텍스트 상자에 ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**를 입력합니다.
-2.  **이메일** 텍스트 상자에 ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**를 입력합니다.
+    1.  **사용자 ID** 텍스트 상자에 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**를 입력합니다.
+    2.  **이메일** 텍스트 상자에 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**를 입력합니다.
 3.  **변경 내용 저장**을 클릭합니다.
 
 10. Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
@@ -148,7 +148,7 @@ Azure AD 사용자가 BlueJeans에 로그인할 수 있도록 하려면 BlueJean
 
 1.  Azure AD 포털에서 테스트 계정을 만듭니다.
 
-2.  **BlueJeans ** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+2.  **BlueJeans** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
 
     ![사용자 할당](./media/active-directory-saas-bluejeans-tutorial/IC785887.png "사용자 할당")
 

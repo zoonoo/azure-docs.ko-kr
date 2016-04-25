@@ -53,14 +53,14 @@ PowerApps 엔터프라이즈를 시작하려면 Azure Active Directory(Azure AD)
 다음 단계를 사용하여 테넌트가 이미 있는지 여부 또는 새 테넌트를 만드는 방법을 결정합니다.
 
 #### 기존 Office 365 구독이 있는 경우
-기존 Office 365 구독(또는 Microsoft Dynamic CRM Online, Enterprise Mobility Suite 또는 기타 Microsoft 서비스)이 있으면 Azure Active Directory에 대한 무료 구독을 가지고 있습니다. Azure AD를 사용하여 사용자 및 그룹 계정을 만들고 관리할 수 있습니다. Azure 포털에 로그인할 수 없으면 구독을 활성화해야 합니다. 이렇게 하려면 [Azure 클래식 포털](https://manage.windowsazure.com/)로 이동하고 일회용 등록 프로세스를 완료합니다. 이러한 [단계](https://technet.microsoft.com/library/dn832618.aspx)를 사용하여 Azure AD 테넌트에 액세스 권한을 얻습니다.
+기존 Office 365 구독(또는 Microsoft Dynamic CRM Online, Enterprise Mobility Suite 또는 기타 Microsoft 서비스)이 있으면 Azure Active Directory에 대한 무료 구독을 가지고 있습니다. Azure AD를 사용하여 사용자 및 그룹 계정을 만들고 관리할 수 있습니다. Azure 포털에 로그인할 수 없으면 구독을 활성화해야 합니다. 이렇게 하려면 [Azure 클래식 포털]( https://manage.windowsazure.com/)로 이동하고 일회용 등록 프로세스를 완료합니다. 이러한 [단계]( https://technet.microsoft.com/library/dn832618.aspx)를 사용하여 Azure AD 테넌트에 액세스 권한을 얻습니다.
 
 #### Microsoft 계정에 연결된 기존 Azure 구독이 있는 경우
-이전에 개인 Microsoft 계정(hotmail 또는 실시간)으로 Azure 구독을 등록했으면 이미 테넌트를 가지고 있습니다. [Azure 클래식 포털](https://manage.windowsazure.com/)에서 **기본 테넌트**는 **모든 항목** 및 **Active Directory** 아래에 나열됩니다. 필요에 따라 이 테넌트를 무료로 사용할 수 있으나 조직 관리자 계정을 만들 수도 있습니다.
+이전에 개인 Microsoft 계정(hotmail 또는 실시간)으로 Azure 구독을 등록했으면 이미 테넌트를 가지고 있습니다. [Azure 클래식 포털]( https://manage.windowsazure.com/)에서 **기본 테넌트**는 **모든 항목** 및 **Active Directory** 아래에 나열됩니다. 필요에 따라 이 테넌트를 무료로 사용할 수 있으나 조직 관리자 계정을 만들 수도 있습니다.
 
 이렇게 하려면 다음 단계를 수행합니다. 또는 새 테넌트를 만들고 유사한 프로세스 후에 이 테넌트에 관리자를 만들 수도 있습니다.
 
-1.	개인 계정으로 [Azure 클래식 포털](https://manage.windowsazure.com/)에 로그인합니다.
+1.	개인 계정으로 [Azure 클래식 포털]( https://manage.windowsazure.com/)에 로그인합니다.
 2.	왼쪽 메뉴 모음에서 **Active Directory**”를 선택합니다.
 3.	사용 가능한 디렉터리 목록에서 **기본 디렉터리**를 선택합니다.
 4.	위쪽에서 **사용자** 탭을 선택합니다. 원본 위치 열에 "Microsoft 계정"이 나열된 사용자 한 명이 있습니다.
@@ -78,14 +78,14 @@ PowerApps 엔터프라이즈를 시작하려면 Azure Active Directory(Azure AD)
 
 	**만들기** 단추를 선택하여 완료하고 임시 암호를 표시합니다.
 
-완료되면 새 관리자 사용자에 대해 이 임시 암호를 기록합니다. 임시 암호를 변경하려면 이 새 사용자 계정으로 [https://login.microsoftonline.com](https://login.microsoftonline.com)에 로그인하고 암호를 변경합니다. 또한 대체 메일을 사용하여 사용자에게 직접 암호를 보낼 수도 있습니다.
+완료되면 새 관리자 사용자에 대해 이 임시 암호를 기록합니다. 임시 암호를 변경하려면 이 새 사용자 계정으로 [https://login.microsoftonline.com]( https://login.microsoftonline.com)에 로그인하고 암호를 변경합니다. 또한 대체 메일을 사용하여 사용자에게 직접 암호를 보낼 수도 있습니다.
 
 
 #### 조직 계정에 연결된 기존 Azure 구독이 있는 경우
-이전에 조직 계정으로 Azure 구독을 등록했으면 이미 테넌트를 가지고 있습니다. [Azure 클래식 포털](https://manage.windowsazure.com/)에서 테넌트는 **모든 항목** 아래에 나열되며 **Active Directory** 아래에도 나열됩니다. 필요에 따라 이 테넌트를 무료로 사용할 수 있습니다. 아래쪽의 작업 표시줄에 있는 **새로 만들기** 메뉴를 사용하여 새 테넌트를 만들 수도 있습니다.
+이전에 조직 계정으로 Azure 구독을 등록했으면 이미 테넌트를 가지고 있습니다. [Azure 클래식 포털]( https://manage.windowsazure.com/)에서 테넌트는 **모든 항목** 아래에 나열되며 **Active Directory** 아래에도 나열됩니다. 필요에 따라 이 테넌트를 무료로 사용할 수 있습니다. 아래쪽의 작업 표시줄에 있는 **새로 만들기** 메뉴를 사용하여 새 테넌트를 만들 수도 있습니다.
 
 #### 위의 경우가 하나도 해당되지 않고 처음부터 시작하려는 경우
-위의 경우가 하나도 해당되지 않고 새 조직으로 Azure에 등록하려면 [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization)으로 이동합니다. 등록되고 나면 선택한 도메인 이름으로 자기만의 Azure AD 테넌트를 갖게 됩니다. [Azure 클래식 포털](https://manage.windowsazure.com/)의 왼쪽 메뉴에 있는 **Active Directory**에서 테넌트를 확인할 수 있습니다.
+위의 경우가 하나도 해당되지 않고 새 조직으로 Azure에 등록하려면 [https://account.windowsazure.com/organization]( https://account.windowsazure.com/organization)으로 이동합니다. 등록되고 나면 선택한 도메인 이름으로 자기만의 Azure AD 테넌트를 갖게 됩니다. [Azure 클래식 포털]( https://manage.windowsazure.com/)의 왼쪽 메뉴에 있는 **Active Directory**에서 테넌트를 확인할 수 있습니다.
 
 ## 2단계: 새로 만들기 또는 기존 Azure 구독 사용
 이제 본인의 AD 테넌트를 가지고 있으므로 새로 만들거나 기존 Azure 구독을 사용할 수 있습니다. Azure AD 구독에는 여러 버전이 포함됩니다. PowerApps 엔터프라이즈의 경우 무료 버전을 사용할 수 있습니다. 그러나 온-프레미스 데이터에 대한 하이브리드 연결을 만들기 위해 AAD 프록시를 사용해야 하는 경우 Basic 또는 Premium 버전이 필요 합니다.
@@ -98,7 +98,7 @@ PowerApps 엔터프라이즈를 시작하려면 Azure Active Directory(Azure AD)
 
 이제 AD 테넌트 및 Azure 구독을 가지고 있으므로 작업 구독 관리자가 PowerApps 엔터프라이즈에 대해 등록할 수 있습니다. 또한 관리자는 회사 내의 사용자를 'administer' PowerApps에 추가하고(사용자에게 권한 부여 등) Azure 구독에 게시된 PowerApps를 관리할 수 있습니다.
 
-PowerApps 엔터프라이즈에 대해 등록하지 않으면 [Azure 포털](https://portal.azure.com/)로 이동하여 PowerApps를 탐색할 때 액세스 블레이드가 표시되지 않습니다. 회사를 등록하려면 **구독 관리자**가 [PowerApps](http://go.microsoft.com/fwlink/p/?LinkId=716848)로 이동해 당사에 연락하여 가격 책정 및 등록 프로세스에 대해 더 자세히 알아볼 수 있습니다.
+PowerApps 엔터프라이즈에 대해 등록하지 않으면 [Azure 포털]( https://portal.azure.com/)로 이동하여 PowerApps를 탐색할 때 액세스 블레이드가 표시되지 않습니다. 회사를 등록하려면 **구독 관리자**가 [PowerApps]( http://go.microsoft.com/fwlink/p/?LinkId=716848)로 이동해 당사에 연락하여 가격 책정 및 등록 프로세스에 대해 더 자세히 알아볼 수 있습니다.
 
 ![][4]
 
@@ -135,17 +135,24 @@ PowerApps API 및 연결, 그리고 모바일 앱, 웹 앱, API 앱 및 논리 �
 ### 앱 서비스 환경 만들기
 > [AZURE.NOTE] 앱 서비스 환경을 만드는 옵션이 표시되지 않으면 테넌트에 대해 이미 만들어진 것입니다. 세부 정보를 보려면 **설정**을 선택하여 앱 서비스 환경을 엽니다.
 
-1. [Azure 포털](https://portal.azure.com/)에서 회사 계정으로 로그인합니다. 예를 들어 *yourUserName*@*YourCompany*.com으로 로그인합니다. 그러면 회사 구독에 자동으로 로그인됩니다.
+1. [Azure 포털]( https://portal.azure.com/)에서 회사 계정으로 로그인합니다. 예를 들어 *yourUserName*@*YourCompany*.com으로 로그인합니다. 그러면 회사 구독에 자동으로 로그인됩니다.
 
-2. 작업 표시줄에서 **찾아보기**를 선택합니다. ![PowerApps 찾아보기][1]
+2. 작업 표시줄에서 **찾아보기**를 선택합니다.
 
-3. 목록을 스크롤하여 PowerApps를 찾거나 *powerapps*를 입력합니다. ![PowerApps 검색][2]
+	![PowerApps 찾아보기][1]
 
-4. **PowerApps** 블레이드에서 **시작하기 위해 앱 서비스 환경 만들기**를 선택하거나 *설정* 아래에서 **앱 서비스 환경**을 선택합니다. ![][5]
+3. 목록을 스크롤하여 PowerApps를 찾거나 *powerapps*를 입력합니다.
+
+	![PowerApps 검색][2]
+
+4. **PowerApps** 블레이드에서 **시작하기 위해 앱 서비스 환경 만들기**를 선택하거나 *설정* 아래에서 **앱 서비스 환경**을 선택합니다.
+
+	![][5]
 
 	> [AZURE.NOTE] **시작하기 위한 앱 서비스 환경 만들기**를 클릭하면 추가 블레이드에 앱 서비스 환경에 관한 세부 정보가 표시됩니다. 블레이드 만들기를 시작하려면 해당 블레이드에서 만들기 링크를 클릭하기만 하면 됩니다.
 
-5. 다음으로 이름을 입력하고 사용할 구독을 선택하고 새 리소스 그룹을 선택하거나 만들고 가상 네트워크를 선택합니다. **여기서** 가상 네트워크를 선택한 후에는 변경할 수 없습니다. ![][6] 가상 네트워크가 앱 서비스 환경에서 작동하는 방법에 대한 자세한 내용은 [앱 서비스 환경을 만드는 방법](../app-service-web/app-service-web-how-to-create-an-app-service-environment.md)을 참조하세요.
+5. 다음으로 이름을 입력하고 사용할 구독을 선택하고 새 리소스 그룹을 선택하거나 만들고 가상 네트워크를 선택합니다. **여기서** 가상 네트워크를 선택한 후에는 변경할 수 없습니다.
+![][6] 가상 네트워크가 앱 서비스 환경에서 작동하는 방법에 대한 자세한 내용은 [앱 서비스 환경을 만드는 방법](../app-service-web/app-service-web-how-to-create-an-app-service-environment.md)을 참조하세요.
 
 6. **추가**를 선택하여 앱 서비스 환경 만들기를 완료합니다.
 
@@ -158,8 +165,15 @@ PowerApps API 및 연결, 그리고 모바일 앱, 웹 앱, API 앱 및 논리 �
 앱 서비스 환경에 대한 액세스 권한을 얻으려면 API, 연결 및 기타 리소스를 만들고 소유자 역할을 가진 사용자를 추가해야 합니다.
 
 1. 방금 만든 앱 서비스 환경을 선택합니다.
-2. Essentials에서 **리소스 그룹** 속성을 선택합니다. 그러면 앱 서비스 환경을 포함하고 있는 리소스 그룹이 열립니다. ![][7]
-3. 사용 권한을 관리하는 RBAC 아이콘을 선택합니다. ![][8] 사용자 추가 및 역할 할당은 Azure 내에서 [역할 기반 액세스 제어](https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/)를 사용할 때와 같습니다.
+2. Essentials에서 **리소스 그룹** 속성을 선택합니다. 그러면 앱 서비스 환경을 포함하고 있는 리소스 그룹이 열립니다.
+
+	![][7]
+
+3. 사용 권한을 관리하는 RBAC 아이콘을 선택합니다.
+
+	![][8]
+
+사용자 추가 및 역할 할당은 Azure 내에서 [역할 기반 액세스 제어]( https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/)를 사용할 때와 같습니다.
 
 > [AZURE.NOTE] 현재 앱 서비스 환경에 RBAC 권한을 부여할 수 없습니다. 부모 리소스 그룹 수준에서 RBAC 사용 권한을 부여할 수 있습니다.
 

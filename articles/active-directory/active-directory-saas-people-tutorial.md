@@ -121,7 +121,7 @@ People에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
 	c. **식별자** 텍스트 상자에 테넌트 URL을 입력합니다.
 
-    d. **회신 URL** 텍스트 상자에 "****https://itgs.peoplehr.net/Pages/Saml/ConsumeAzureAD.aspx**"과 같은 패턴으로 URL을 입력합니다.
+    d. **회신 URL** 텍스트 상자에 "**https://itgs.peoplehr.net/Pages/Saml/ConsumeAzureAD.aspx**"과 같은 패턴으로 URL을 입력합니다.
 
 	e. **다음**를 클릭합니다.
 

@@ -30,9 +30,11 @@ Azure에서 다양한 유형의 로그를 사용하여 응용 프로그램 게�
 ##로깅 사용
 감사 로깅은 모든 리소스 관리자 리소스에 대해 항상 사용하도록 설정됩니다. 이러한 로그를 통해 사용 가능한 데이터 수집을 시작하려면 액세스 및 성능 로깅을 사용하도록 설정해야 합니다. 로깅을 사용하려면 다음 단계를 따릅니다.
 
-1. 로그 데이터를 저장할 저장소 계정의 리소스 ID를 적어 둡니다. 이는 /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> 형식일 수 있습니다. 구독의 모든 저장소 계정을 사용할 수 있습니다. 미리 보기 포털을 사용하여 이 정보를 찾을 수 있습니다. ![미리 보기 포털 - 응용 프로그램 게이트웨이 진단](./media/application-gateway-diagnostics/diagnostics1.png)
+1. 로그 데이터를 저장할 저장소 계정의 리소스 ID를 적어 둡니다. 이는 /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> 형식일 수 있습니다. 구독의 모든 저장소 계정을 사용할 수 있습니다. 미리 보기 포털을 사용하여 이 정보를 찾을 수 있습니다.
+![미리 보기 포털 - 응용 프로그램 게이트웨이 진단](./media/application-gateway-diagnostics/diagnostics1.png)
  
-2. 로깅을 사용할 응용 프로그램 게이트웨이의 리소스 ID를 적어 둡니다. 이는 /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name> 형식일 수 있습니다. 미리 보기 포털을 사용하여 이 정보를 찾을 수 있습니다. ![미리 보기 포털 - 응용 프로그램 게이트웨이 진단](./media/application-gateway-diagnostics/diagnostics2.png)
+2. 로깅을 사용할 응용 프로그램 게이트웨이의 리소스 ID를 적어 둡니다. 이는 /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name> 형식일 수 있습니다. 미리 보기 포털을 사용하여 이 정보를 찾을 수 있습니다.
+![미리 보기 포털 - 응용 프로그램 게이트웨이 진단](./media/application-gateway-diagnostics/diagnostics2.png)
 
 3. 다음 PowerShell cmdlet을 사용하여 진단 로깅을 사용하도록 설정합니다.
 
