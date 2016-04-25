@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="수동 또는 자동으로 인스턴스 개수 조정" 
-	description="Azure에서 서비스 크기를 조정하는 방법을 알아봅니다." 
-	authors="stepsic-microsoft-com" 
-	manager="ronmart" 
-	editor="" 
-	services="azure-portal" 
+<properties
+	pageTitle="수동 또는 자동으로 인스턴스 개수 조정"
+	description="Azure에서 서비스 크기를 조정하는 방법을 알아봅니다."
+	authors="stepsic-microsoft-com"
+	manager="ronmart"
+	editor=""
+	services="azure-portal"
 	documentationCenter="na"/>
 
-<tags 
-	ms.service="azure-portal" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/08/2015" 
+<tags
+	ms.service="azure-portal"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/08/2015"
 	ms.author="stepsic"/>
 
 # 수동 또는 자동으로 인스턴스 개수 조정
@@ -31,11 +31,11 @@
 2. **작업**의 **크기 조정** 타일에 크기 조정 상태가 표시됩니다. 수동으로 크기 조정하는 경우 **Off**이고, 한 개 이상의 성능 메트릭을 기준으로 크기를 조정하는 경우 **On**입니다. ![크기 조정 타일](./media/insights-how-to-scale/Insights_UsageLens.png)
 
 3. 타일을 클릭하면 **크기 조정** 블레이드로 이동합니다. 크기 조정 블레이드의 맨 위에서 서비스의 자동 크기 조정 작업 기록을 볼 수 있습니다. ![크기 조정 블레이드](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
-    
->[AZURE.NOTE]자동 크기 조정에 의해 수행되는 작업만 이 차트에 표시됩니다. 인스턴스 개수를 수동으로 조정하는 경우 이 차트에 변경 내용이 반영되지 않습니다.
+
+>[AZURE.NOTE] 자동 크기 조정에 의해 수행되는 작업만 이 차트에 표시됩니다. 인스턴스 개수를 수동으로 조정하는 경우 이 차트에 변경 내용이 반영되지 않습니다.
 
 4. 슬라이더를 사용하여 수동으로 **인스턴스** 수를 조정할 수 있습니다.
-5. **저장**을 클릭하면 거의 즉시 해당 인스턴스 수로 크기가 조정됩니다. 
+5. **저장**을 클릭하면 거의 즉시 해당 인스턴스 수로 크기가 조정됩니다.
 
 ## 미리 설정된 메트릭을 기준으로 크기 조정
 
@@ -44,7 +44,7 @@
 1. 메트릭을 선택하면 슬라이더 및/또는 크기를 조정할 인스턴스 수의 범위를 입력할 수 있는 텍스트 상자가 표시됩니다.
 
     ![CPU 비율이 있는 크기 조정 블레이드](./media/insights-how-to-scale/Insights_ScaleBladeCPU.png)
-    
+
     자동 크기 조정은 부하에 관계없이 설정된 경계 아래나 위로 서비스를 설정하지 않습니다.
 
 2. 메트릭의 목표 범위를 선택합니다. 예를 들어 **CPU 비율**을 선택한 경우 서비스의 모든 인스턴스에 대한 평균 CPU 목표를 설정할 수 있습니다. 평균 CPU가 정의된 최대값을 초과하면 규모 확장이 발생하고, 평균 CPU가 최소값 아래로 떨어지면 규모 감축이 발생합니다.
@@ -65,9 +65,9 @@
 
 4. 이제 크기 조정 기준으로 사용하려는 메트릭을 선택해야 합니다. 메트릭을 선택할 때는 다음 몇 가지 사항을 고려해야 합니다.
     * 메트릭을 가져오는 *리소스*. 일반적으로 크기를 조정할 리소스와 동일합니다. 그러나 저장소 큐의 깊이를 기준으로 크기를 조정하는 경우 리소스는 크기 조정 기준으로 사용하려는 큐에 있습니다.
-    * *메트릭 이름* 자체 
+    * *메트릭 이름* 자체
     * 메트릭의 *시간 집계*. *기간* 동안 데이터가 결합된 방식입니다.
-    
+
 5. 메트릭을 선택한 후 메트릭에 대한 임계값과 연산자를 선택합니다. 예를 들어 **80%****보다 큼**이라고 설정할 수 있습니다.
 
 6. 그런 다음 수행할 작업을 선택합니다. 다음과 같은 몇 가지 유형의 작업이 있습니다.
@@ -76,7 +76,7 @@
     * 다음 개수로 증가 또는 감소 - 인스턴스 개수를 정의한 **값**으로 설정합니다.
 
 7. 끝으로, 정지 기간을 선택할 수 있습니다. 정지 기간은 이전 크기 조정 작업 이후 이 규칙이 다시 크기를 조정하기 위해 대기해야 하는 기간입니다.
-    
+
 8. 규칙을 구성한 후 **확인**을 누릅니다.
 
 9. 원하는 규칙을 모두 구성했으면 **저장** 명령을 눌러야 합니다.
@@ -117,7 +117,7 @@
 
 8. 기본 프로필과 마찬가지로, 이 프로필을 적용할 **요일** 및 **시작 시간**을 선택합니다.
 
->[AZURE.NOTE]자동 크기 조정은 선택한 **표준 시간대**에 대한 일광 절약 규칙을 사용합니다. 그러나 일광 절약 시간제 동안 UTC 오프셋은 일광 절약 UTC 오프셋이 아니라 기본 표준 시간대 오프셋을 표시합니다.
+>[AZURE.NOTE] 자동 크기 조정은 선택한 **표준 시간대**에 대한 일광 절약 규칙을 사용합니다. 그러나 일광 절약 시간제 동안 UTC 오프셋은 일광 절약 UTC 오프셋이 아니라 기본 표준 시간대 오프셋을 표시합니다.
 
 9. **확인**을 클릭합니다.
 
@@ -134,7 +134,6 @@
 * 작업 이벤트가 발생하거나 메트릭이 임계값을 초과할 때마다 [경고 알림을 수신](insights-receive-alert-notifications.md)합니다.
 * 클라우드에서 코드의 성능을 정확히 파악하려는 경우[응용 프로그램 성능을 모니터링](insights-perf-analytics.md)합니다.
 * [이벤트 및 감사 로그를 보고](insights-debugging-with-events.md) 서비스에서 발생한 모든 사항을 알아봅니다.
-* 페이지가 다운된 경우 이를 찾을 수 있도록 Application Insights를 사용하여 [웹 페이지의 가용성 및 응답성을 모니터링](../app-insights-monitor-web-app-availability.md)합니다.
- 
+* 페이지가 다운된 경우 이를 찾을 수 있도록 Application Insights를 사용하여 [웹 페이지의 가용성 및 응답성을 모니터링](../application-insights/app-insights-monitor-web-app-availability.md)합니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0413_2016-->

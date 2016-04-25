@@ -30,7 +30,7 @@ OneDrive에 연결하여 파일 업로드, 가져오기, 삭제 등을 포함하
 
 &nbsp;
 
->[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다. 2014-12-01-preview 스키마 버전에 대한 내용을 보려면 [OneDrive API](../app-service-logic/app-service-logic-connector-onedrive.md)를 클릭하세요.
+>[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다.
 
 OneDrive를 사용하면 다음과 같은 작업을 수행할 수 있습니다.
 
@@ -220,7 +220,7 @@ OneDrive 폴더에서 새 파일을 만들 때 흐름을 트리거합니다. ```
 
 
 ### OneDrive 폴더에서 파일을 수정할 때 흐름을 트리거합니다.
-OneDrive 폴더에서 파일을 수정할 때 흐름을 트리거합니다.```GET: /datasets/default/triggers/onupdatedfile```
+OneDrive 폴더에서 파일을 수정할 때 흐름을 트리거합니다. ```GET: /datasets/default/triggers/onupdatedfile```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
@@ -312,4 +312,4 @@ OneDrive로 폴더를 추출합니다. ```POST: /datasets/default/extractFolderV
 [6]: ./media/connectors-create-api-onedrive/onedrive-new-app.png
 [7]: ./media/connectors-create-api-onedrive/onedrive-app-api-settings.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

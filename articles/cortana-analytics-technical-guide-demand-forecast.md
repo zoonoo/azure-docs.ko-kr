@@ -225,8 +225,7 @@ Azure 스트림 분석 쿼리 생성에 대한 정보는 MSDN의 [스트림 분�
 
 	-	대시보드의 이 타일 위로 마우스를 이동하고 오른쪽 위 모서리에서 "편집" 아이콘을 클릭하여 제목을 "타임스탬프별 수요"로 변경할 수 있습니다.
 
-4.	적절한 데이터 집합에 따라 다른 대시보드 타일을 만듭니다. 최종 대시보드 보기는 다음과 같습니다.
-![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic5.png)
+4.	적절한 데이터 집합에 따라 다른 대시보드 타일을 만듭니다. 최종 대시보드 보기는 다음과 같습니다. ![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic5.png)
 
 
 ### 콜드 경로 대시보드 설정
@@ -253,8 +252,7 @@ Azure 스트림 분석 쿼리 생성에 대한 정보는 MSDN의 [스트림 분�
 
 	-	다운로드한 **"DemandForecastingDataGeneratorv1.0"** 폴더에서 **'Power BI Template\\DemandForecastPowerBI.pbix'** 파일을 두 번 클릭합니다. 초기 시각화는 더미 데이터를 기반으로 합니다. **참고:** 오류 메시지가 표시되면 최신 버전의 Power BI 데스크톱을 설치했는지 확인합니다.
 
-		열리면 파일의 맨 위에서 **'쿼리 편집'**을 클릭합니다. 표시되는 창에서 오른쪽 패널에 있는 **'원본'**을 두 번 클릭합니다.
-![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic1.png)
+		열리면 파일의 맨 위에서 **'쿼리 편집'**을 클릭합니다. 표시되는 창에서 오른쪽 패널에 있는 **'원본'**을 두 번 클릭합니다. ![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic1.png)
 
 	-   표시되는 창에서 **"서버"** 및 **"데이터베이스"**를 사용자 고유 서버 및 데이터베이스 이름으로 바꾼 다음 **"확인"**을 클릭합니다. 서버 이름의 경우 포트 1433을 지정했는지 확인합니다(**YourSoutionName.database.windows.net, 1433**). 화면에 나타나는 경고 메시지를 무시합니다.
 
@@ -279,7 +277,7 @@ Azure 스트림 분석 쿼리 생성에 대한 정보는 MSDN의 [스트림 분�
 
 	-   **새로 고침 예약** 섹션을 확장합니다. "데이터를 최신 상태로 유지"를 켭니다.
 
-	-   필요에 따라 새로 고침을 예약합니다. 자세한 정보를 찾으려면 [Power BI에서 데이터 새로 고침](https://support.powerbi.com/knowledgebase/articles/474669-data-refresh-in-power-bi)을 참조하세요.
+	-   필요에 따라 새로 고침을 예약합니다. 자세한 정보를 찾으려면 [Power BI에서 데이터 새로 고침](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/)을 참조하세요.
 
 
 ## **비용 예측 도구**
@@ -290,4 +288,4 @@ Azure 스트림 분석 쿼리 생성에 대한 정보는 MSDN의 [스트림 분�
 
 -   [Microsoft Azure 비용 추정 도구(데스크톱)](http://www.microsoft.com/download/details.aspx?id=43376)
 
-<!----HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

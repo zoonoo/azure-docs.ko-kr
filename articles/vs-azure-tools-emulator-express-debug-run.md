@@ -18,7 +18,7 @@
 
 # Emulator Express를 사용하여 클라우드 서비스를 로컬 컴퓨터에서 실행 및 디버그
 
-Emulator Express를 사용하여 관지라로 Visual Studio를 실행하지 않고 클라우드 서비스를 테스트 및 디버그할 수 있습니다. 클라우드 서비스의 요구 사항에 따라 Emulator Express 또는 전체 에뮬레이터를 사용하도록 프로젝트를 설정할 수 있습니다. 전체 에뮬레이터에 대한 자세한 내용은 [계산 에뮬레이터에서 Azure 응용 프로그램 실행](/storage/storage-use-emulator.md)을 참조하세요. Emulator Express는 Azure SDK 2.1에 처음 포함되었으며 Azure SDK 2.3에서는 기본 에뮬레이터입니다.
+Emulator Express를 사용하여 관지라로 Visual Studio를 실행하지 않고 클라우드 서비스를 테스트 및 디버그할 수 있습니다. 클라우드 서비스의 요구 사항에 따라 Emulator Express 또는 전체 에뮬레이터를 사용하도록 프로젝트를 설정할 수 있습니다. 전체 에뮬레이터에 대한 자세한 내용은 [계산 에뮬레이터에서 Azure 응용 프로그램 실행](./storage/storage-use-emulator.md)을 참조하세요. Emulator Express는 Azure SDK 2.1에 처음 포함되었으며 Azure SDK 2.3에서는 기본 에뮬레이터입니다.
 
 ## Visual Studio IDE에서에서 Emulator Express 사용
 
@@ -54,4 +54,4 @@ Emulator Express를 사용하려면 다음과 같은 몇 가지 제한 사항을
 
 [클라우드 서비스 디버깅](https://msdn.microsoft.com/library/azure/ee405479.aspx)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

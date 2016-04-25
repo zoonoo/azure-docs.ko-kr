@@ -4,7 +4,7 @@
 
 데이터 요소 메시지 또는 대화형 메시지 전달의 신뢰할 수 있는 저장소를 구현하는 경우 마주하는 가장 큰 문제는 이벤트 허브 이벤트 처리가 검사점 해당 진행 상태에 대한 메시지 소비자에 의존한다는 점입니다. 또한 높은 처리량을 달성하기 위해 이벤트 허브에서 읽은 경우 큰 배치에서 검사점을 수행해야 합니다. 오류가 발생하여 이전 검사점으로 되돌리려는 경우 많은 수의 메시지를 중복 처리할 가능성이 있습니다. 이 자습서에서는 **EventProcessorHost** 검사점을 사용하여 Azure 저장소 쓰기와 서비스 버스 중복 제거 창을 동기화하는 방법이 표시됩니다.
 
-Azure 저장소에 메시지를 안정적으로 기록하려면 심플은 [블록 Blob][Azure Block Blobs]의 개별 블록 커밋 기능을 사용합니다. 이벤트 프로세서는 메시지의 누적된 버퍼가 4Mb의 최대 블록 크기보다 커지거나 서비스 버스 중복 제거 시간 창이 경과된 이후와 같이 검사점을 수행하는 시간이 될 때까지 메모리에 메시지를 누적합니다. 그런 다음 검사점을 설정하기 전에 코드는 새 블록은 Blob에 커밋합니다.
+Azure 저장소에 메시지를 안정적으로 기록하려면 샘플은 [블록 Blob][Azure Block Blobs]의 개별 블록 커밋 기능을 사용합니다. 이벤트 프로세서는 메시지의 누적된 버퍼가 4Mb의 최대 블록 크기보다 커지거나 서비스 버스 중복 제거 시간 창이 경과된 이후와 같이 검사점을 수행하는 시간이 될 때까지 메모리에 메시지를 누적합니다. 그런 다음 검사점을 설정하기 전에 코드는 새 블록은 Blob에 커밋합니다.
 
 이벤트 프로세서는 블록 ID로 이벤트 허브 메시지 오프셋을 사용합니다. 이렇게 하면 블록 커밋과 검사점 간의 가능한 충돌을 처리하는 저장소에 새 블록을 커밋하기 전에 중복 제거 확인을 수행할 수 있습니다.
 
@@ -37,17 +37,15 @@ Azure 저장소에 메시지를 안정적으로 기록하려면 심플은 [블�
 
 ### 이벤트 프로세서 만들기
 
-1. 최신 Visual Studio 솔루션에서 **파일**, **추가** 및 **새 프로젝트**를 차례로 클릭하고 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 Visual C# Windows 프로젝트를 새로 만듭니다. 프로젝트 **ProcessDeviceToCloudMessages**의 이름을 지정합니다.
+1. 최신 Visual Studio 솔루션에서 **파일**, **추가** 및 **새 프로젝트**를 차례로 클릭하고 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 Visual C# Windows 프로젝트를 새로 만듭니다. .NET Framework 버전이 4.5.1 이상인지 확인합니다. 프로젝트 **ProcessDeviceToCloudMessages**의 이름을 지정합니다.
 
     ![][10]
 
 2. 솔루션 탐색기에서 **ProcessDeviceToCloudMessages** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리**를 클릭합니다. **NuGet 패키지 관리자** 대화 상자가 나타납니다.
 
-3. **WindowsAzure.ServiceBus**를 검색하고 **설치**를 클릭하며 사용 약관에 동의합니다.
- 	그러면 [Azure 서비스 버스 NuGet 패키지](https://www.nuget.org/packages/WindowsAzure.ServiceBus)에 대한 참조 및 해당하는 모든 종속 항목이 다운로드, 설치 및 추가됩니다.
+3. **WindowsAzure.ServiceBus**를 검색하고 **설치**를 클릭하며 사용 약관에 동의합니다. 그러면 [Azure 서비스 버스 NuGet 패키지](https://www.nuget.org/packages/WindowsAzure.ServiceBus)에 대한 참조 및 해당하는 모든 종속 항목이 다운로드, 설치 및 추가됩니다.
 
-4. **Microsoft Azure 서비스 버스 이벤트 허브 - EventProcessorHost**를 검색하고 **설치**를 클릭하며 사용 약관에 동의합니다.
-    그러면 [Azure 서비스 버스 이벤트 허브 - EventProcessorHost NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost)에 대한 참조 및 해당하는 모든 종속성이 다운로드, 설치 및 추가됩니다.
+4. **Microsoft Azure 서비스 버스 이벤트 허브 - EventProcessorHost**를 검색하고 **설치**를 클릭하며 사용 약관에 동의합니다. 그러면 [Azure 서비스 버스 이벤트 허브 - EventProcessorHost NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost)에 대한 참조 및 해당하는 모든 종속성이 다운로드, 설치 및 추가됩니다.
 
 5. **ProcessDeviceToCloudMessages** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가**를 클릭한 다음 **클래스**를 클릭합니다. 새 클래스의 이름을 **StoreEventProcessor**로 지정하고 **확인**을 클릭하여 클래스를 생성합니다.
 
@@ -233,7 +231,7 @@ Azure 저장소에 메시지를 안정적으로 기록하려면 심플은 [블�
     }
     ```
     
-    > [AZURE.NOTE] 간단히 하기 위해 이 자습서에서는 [EventProcessorHost] 클래스의 단일 인스턴스를 사용합니다. 자세한 내용은 [이벤트 허브 프로그래밍 가이드]를 참조합니다.
+    > [AZURE.NOTE] 간단히 하기 위해 이 자습서에서는 [EventProcessorHost] 클래스의 단일 인스턴스를 사용합니다. 자세한 내용은 [이벤트 허브 프로그래밍 가이드]를 참조하세요.
 
 ## 대화형 메시지 수신
 이 섹션에서는 서비스 버스 큐에서 대화형 메시지를 수신하는 Windows 콘솔 응용 프로그램을 작성합니다. 서비스 버스를 사용하여 솔루션을 설계하는 방법에 대한 자세한 내용은 [서비스 버스를 통해 다중 계층 응용 프로그램 빌드][]를 참조하세요.
@@ -287,21 +285,21 @@ Azure 저장소에 메시지를 안정적으로 기록하려면 심플은 [블�
     ```
 
 <!-- Links -->
-[Azure 저장소 정보]: ../storage/storage-create-storage-account.md#create-a-storage-account
+[Azure 저장소 정보]: ../articles/storage/storage-create-storage-account.md#create-a-storage-account
 [Azure IoT - Service SDK NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
-[이벤트 허브 시작]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
-[IoT Hub Developer Guide - Identity Registry]: iot-hub-devguide.md#identityregistry
-[Azure 저장소 확장성 지침]: ../storage/storage-scalability-targets.md
+[이벤트 허브 시작]: ../articles/event-hubs/event-hubs-csharp-ephcs-getstarted.md
+[IoT Hub Developer Guide - Identity Registry]: ../articles/iot-hub/iot-hub-devguide.md#identityregistry
+[Azure 저장소 확장성 지침]: ../articles/storage/storage-scalability-targets.md
 [Azure Block Blobs]: https://msdn.microsoft.com/library/azure/ee691964.aspx
-[이벤트 허브]: ../event-hubs/event-hubs-overview.md
+[이벤트 허브]: ../articles/event-hubs/event-hubs-overview.md
 [Scaled out event processing]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
-[이벤트 허브 프로그래밍 가이드]: ../event-hubs/event-hubs-programming-guide.md
+[이벤트 허브 프로그래밍 가이드]: ../articles/event-hubs/event-hubs-programming-guide.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure Portal]: https://manage.windowsazure.com/
-[Service Bus Queue]: ../service-bus/service-bus-dotnet-how-to-use-queues.md
-[서비스 버스를 통해 다중 계층 응용 프로그램 빌드]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
-[IoT Hub 시작]: iot-hub-csharp-csharp-getstarted.md
+[Service Bus Queue]: ../articles/service-bus/service-bus-dotnet-how-to-use-queues.md
+[서비스 버스를 통해 다중 계층 응용 프로그램 빌드]: ../articles/service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+[IoT Hub 시작]: ../articles/iot-hub/iot-hub-csharp-csharp-getstarted.md
 [서비스 버스 설명서]: https://azure.microsoft.com/documentation/services/service-bus/
 
 <!-- Images -->
@@ -316,4 +314,4 @@ Azure 저장소에 메시지를 안정적으로 기록하려면 심플은 [블�
 [31]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue3.png
 [32]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue4.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -1,24 +1,20 @@
-<properties 
-	pageTitle="음성 및 SMS에 Twilio를 사용하는 방법(.NET) | Microsoft Azure" 
-	description="Azure에서 Twilio API 서비스를 사용하여 전화를 걸고 SMS 메시지를 보내는 방법에 대해 알아봅니다. 코드 샘플은 .NET으로 작성되었습니다." 
-	services="" 
-	documentationCenter=".net" 
-	authors="devinrader" 
-	manager="twilio" 
+<properties
+	pageTitle="음성 및 SMS에 Twilio를 사용하는 방법(.NET) | Microsoft Azure"
+	description="Azure에서 Twilio API 서비스를 사용하여 전화를 걸고 SMS 메시지를 보내는 방법에 대해 알아봅니다. 코드 샘플은 .NET으로 작성되었습니다."
+	services=""
+	documentationCenter=".net"
+	authors="devinrader"
+	manager="twilio"
 	editor=""/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/24/2015" 
+<tags
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="04/24/2015"
 	ms.author="devinrader"/>
-
-
-
-
 
 # Azure에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법
 
@@ -80,7 +76,14 @@ Twilio 사용 응용 프로그램을 호스트하는 Azure 응용 프로그램�
 ## <a id="configure_app"></a>Twilio 라이브러리를 사용하도록 응용 프로그램 구성
 Twilio는 .NET 도우미 라이브러리 집합을 제공하며, 이 라이브러리 집합은 Twilio의 여러 가지 요소를 래핑함으로써 Twilio REST API 및 Twilio 클라이언트를 간단하고 쉽게 조작해서 TwiML 응답을 생성하는 방법을 제공합니다.
 
-Twilio는 .NET 개발자를 위한 다음 5개의 라이브러리를 제공합니다. 라이브러리|설명 ---|---Twilio.API|친숙한 .NET 라이브러리에서 Twilio REST API를 래핑하는 핵심 Twilio 라이브러리입니다. 이 라이브러리는 .NET, Silverlight 및 Windows Phone 7에 사용할 수 있습니다. Twilio.TwiML| TwiML 태그를 생성하는 친숙한 .NET 방법을 제공합니다. Twilio.MVC|ASP.NET MVC를 사용하는 개발자를 위해 이 라이브러리는 TwilioController, TwiML ActionResult 및 요청 유효성 검사 특성을 포함합니다. Twilio.WebMatrix|Microsoft의 무료 WebMatrix 개발 도구를 사용하는 개발자를 위해 이 라이브러리는 다양한 Twilio 작업에 사용할 수 있는 Razor 구문을 포함합니다. Twilio.Client.Capability|Twilio 클라이언트 JavaScript SDK와 함께 사용할 수 있는 기능 토큰 생성기를 포함합니다.
+Twilio는 다음과 같이 .NET 개발자를 위한 5가지 라이브러리를 제공합니다.
+라이브러리|설명
+---|---
+Twilio.API|친숙한 .NET 라이브러리에서 Twilio REST API를 래핑하는 핵심 Twilio 라이브러리입니다. 이 라이브러리는 .NET, Silverlight 및 Windows Phone 7에 사용할 수 있습니다.
+Twilio.TwiML|TwiML 태그를 생성하는 친숙한 .NET 방법을 제공합니다.
+Twilio.MVC|ASP.NET MVC를 사용하는 개발자를 위해 이 라이브러리는 TwilioController, TwiML ActionResult 및 요청 유효성 검사 특성을 포함합니다.
+Twilio.WebMatrix|Microsoft의 무료 WebMatrix 개발 도구를 사용하는 개발자를 위해 이 라이브러리는 다양한 Twilio 작업에 사용할 수 있는 Razor 구문을 포함합니다.
+Twilio.Client.Capability|Twilio 클라이언트 JavaScript SDK와 함께 사용할 수 있는 기능 토큰 생성기를 포함합니다.
 
 모든 라이브러리를 사용하려면 .NET 3.5, Silverlight 4 또는 Windows Phone 7 이상이 필요합니다.
 
@@ -90,7 +93,7 @@ Twilio는 .NET 개발자를 위한 다음 5개의 라이브러리를 제공합�
 
 기본적으로, Microsoft Visual Studio 2010은 버전 1.2의 NuGet을 설치합니다. Twilio 라이브러리를 설치하려면 버전 1.6 이상의 NuGet이 필요합니다. NuGet 설치 또는 업데이트에 대해서는 [http://nuget.org/][nuget](영문)를 참조하십시오.
 
-> [AZURE.NOTE]최신 버전의 NuGet을 설치하려면 먼저 Visual Studio 확장 관리자를 사용하여 로드된 버전을 제거해야 합니다. 이를 위해서는 Visual Studio를 관리자 권한으로 실행해야 합니다. 관리자 권한으로 실행하지 않으면 제거 단추를 사용할 수 없습니다.
+> [AZURE.NOTE] 최신 버전의 NuGet을 설치하려면 먼저 Visual Studio 확장 관리자를 사용하여 로드된 버전을 제거해야 합니다. 이를 위해서는 Visual Studio를 관리자 권한으로 실행해야 합니다. 관리자 권한으로 실행하지 않으면 제거 단추를 사용할 수 없습니다.
 
 ### <a id="use_nuget"></a>Visual Studio 프로젝트에 Twilio 라이브러리를 추가하려면
 
@@ -161,7 +164,7 @@ Twilio는 .NET 개발자를 위한 다음 5개의 라이브러리를 제공합�
 ## <a id="howto_provide_twiml_responses"></a>방법: 고유한 웹 사이트에서 TwiML 응답 제공
 응용 프로그램에서 Twilio API에 대한 호출을 시작하면(예: **client.InitiateOutboundCall** 메서드를 통해) Twilio에서 TwiML 응답을 반환해야 하는 URL로 요청을 보냅니다. [방법: 발신 전화 걸기](#howto_make_call)의 예제에서는 Twilio 제공 URL인 [http://twimlets.com/message][twimlet_message_url]를 사용하여 응답을 반환합니다.
 
-> [AZURE.NOTE]TwiML이 웹 서비스에 사용하도록 설계되었지만 브라우저에서도 TwiML을 볼 수 있습니다. 예를 들어 [http://twimlets.com/message](twimlet_message_url)를 클릭하면 빈 &lt;Response&gt; 요소가 표시됩니다. 또 다른 예로 [http://twimlets.com/message?Message%5B0%5D=Hello%20World](twimlet_message_url_hello_world)를 클릭하면 &lt;Say&gt; 요소를 포함하는 &lt;Response&gt; 요소가 표시됩니다.
+> [AZURE.NOTE] TwiML이 웹 서비스에 사용하도록 설계되었지만 브라우저에서도 TwiML을 볼 수 있습니다. 예를 들어 [http://twimlets.com/message](twimlet_message_url)를 클릭하면 빈 &lt;Response&gt; 요소가 표시됩니다. 또 다른 예로 [http://twimlets.com/message?Message%5B0%5D=Hello%20World](twimlet_message_url_hello_world)를 클릭하면 &lt;Say&gt; 요소를 포함하는 &lt;Response&gt; 요소가 표시됩니다.
 
 Twilio 제공 URL을 사용하지 않고 HTTP 응답을 반환하는 고유한 URL 사이트를 만들 수 있습니다. HTTP 응답을 반환하는 사이트는 어떤 언어로든 만들 수 있습니다. 이 항목에서는 ASP.NET 제네릭 처리기에서 URL을 호스트한다고 가정합니다.
 
@@ -252,7 +255,7 @@ TwiML 응답을 제공하는 방법을 설정한 후에는 **client.InitiateOutb
 
 Azure에서 ASP.NET과 함께 Twilio 사용에 대한 자세한 내용은 [Azure의 웹 역할에서 Twilio를 사용하여 전화를 거는 방법][howto_phonecall_dotnet]을 참조하십시오.
 
-[AZURE.INCLUDE [twilio\_additional\_services\_and\_next\_steps](../includes/twilio_additional_services_and_next_steps.md)]
+[AZURE.INCLUDE [twilio-additional-services-and-next-steps](../includes/twilio-additional-services-and-next-steps.md)]
 
 
 
@@ -279,4 +282,4 @@ Azure에서 ASP.NET과 함께 Twilio 사용에 대한 자세한 내용은 [Azure
 [twilio_account]: https://www.twilio.com/user/account
 [verify_phone]: https://www.twilio.com/user/account/phone-numbers/verified#
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0413_2016-->

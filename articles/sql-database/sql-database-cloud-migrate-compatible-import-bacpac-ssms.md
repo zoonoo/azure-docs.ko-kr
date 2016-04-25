@@ -4,7 +4,7 @@
    services="sql-database"
    documentationCenter=""
    authors="carlrabeler"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="03/14/2016"
+   ms.date="04/06/2016"
    ms.author="carlrab"/>
 
 # SSMS를 사용하여 BACPAC에서 SQL 데이터베이스로 가져오기
@@ -32,26 +32,24 @@
 
 	 > [AZURE.IMPORTANT] Microsoft Azure 및 SQL 데이터베이스에 대한 업데이트와 동기화 상태를 유지하려면 항상 최신 버전의 Management Studio를 사용하는 것이 좋습니다. [SQL Server Management Studio를 업데이트합니다](https://msdn.microsoft.com/library/mt238290.aspx).
 
-2. Management Studio를 열고 개체 탐색기에서 원본 데이터베이스에 연결합니다.
-
-	![작업 메뉴에서 데이터 계층 응용 프로그램 내보내기](./media/sql-database-cloud-migrate/MigrateUsingBACPAC01.png)
-
-3. BACPAC가 생성되면 Azure SQL 데이터베이스 서버에 연결하고 **Databases** 폴더를 마우스 오른쪽 단추로 클릭하고 **데이터 계층 응용 프로그램 가져오기...**를 클릭합니다.
+2. Azure SQL 데이터베이스 서버에 연결하고 **Databases** 폴더를 마우스 오른쪽 단추로 클릭하고 **데이터 계층 응용 프로그램 가져오기...**를 클릭합니다.
 
     ![데이터 계층 응용 프로그램 메뉴 항목 가져오기](./media/sql-database-cloud-migrate/MigrateUsingBACPAC03.png)
 
-4.	가져오기 마법사에서 방금 내보낸 BACPAC 파일을 선택하여 Azure SQL 데이터베이스에 새 데이터베이스를 만듭니다.
+3.	가져오기 마법사에서 로컬 디스크에서 BACPAC 파일을 가져오거나 BACPAC 파일을 업로드한 Azure 저장소 계정 및 컨테이너를 선택하여 Azure SQL 데이터베이스에 새 데이터베이스를 만듭니다.
 
     ![설정 가져오기](./media/sql-database-cloud-migrate/MigrateUsingBACPAC04.png)
 
-5.	Azure SQL DB에서 데이터베이스에 대해 **새 데이터베이스 이름**을 입력하고 **Microsoft Azure SQL 데이터베이스 버전**(서비스 계층), **최대 데이터베이스 크기**, **서비스 목표**(성능 수준)를 입력합니다.
+    ***중요:*** Azure Blob 저장소에서 BACPAC를 가져올 때 표준 저장소를 사용합니다. 프리미엄 저장소에서 BACPAC 가져오기는 지원되지 않습니다.
+
+4.	Azure SQL DB에서 데이터베이스에 대해 **새 데이터베이스 이름**을 입력하고 **Microsoft Azure SQL 데이터베이스 버전**(서비스 계층), **최대 데이터베이스 크기**, **서비스 목표**(성능 수준)를 입력합니다.
 
     ![데이터베이스 설정](./media/sql-database-cloud-migrate/MigrateUsingBACPAC05.png)
 
-6.	**다음**을 클릭한 다음 **마침**을 클릭하여 BACPAC 파일을 Azure SQL 데이터베이스 서버의 새 데이터베이스로 가져옵니다.
+5.	**다음**을 클릭한 다음 **마침**을 클릭하여 BACPAC 파일을 Azure SQL 데이터베이스 서버의 새 데이터베이스로 가져옵니다.
 
-7. 개체 탐색기를 사용하여 Azure SQL 데이터베이스 서버에서 마이그레이션된 데이터베이스에 연결합니다.
+6. 개체 탐색기를 사용하여 Azure SQL 데이터베이스 서버에서 마이그레이션된 데이터베이스에 연결합니다.
 
-8.	Azure 포털을 사용하여 데이터베이스와 해당 속성을 봅니다.
+6.	Azure 포털을 사용하여 데이터베이스와 해당 속성을 봅니다.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0413_2016-->

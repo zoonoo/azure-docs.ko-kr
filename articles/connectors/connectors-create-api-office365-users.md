@@ -30,7 +30,7 @@ Office 365 사용자에 연결하여 프로필 가져오기, 사용자 검색 �
 
 &nbsp;
 
->[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다. 2014-12-01-preview 스키마 버전에 대한 내용을 보려면 [Office 365 API](../app-service-logic/app-service-logic-connector-office365.md)를 클릭하세요.
+>[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다.
 
 
 Office 365 사용자를 사용하여 다음을 수행할 수 있습니다.
@@ -192,7 +192,7 @@ Office 365 사용자 API에서는 다음과 같은 작업을 사용할 수 있�
 
 ## 다음 단계
 
-[논리 앱을 만듭니다](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
 [API 목록](apis-list.md)으로 돌아갑니다.
 
@@ -204,4 +204,4 @@ Office 365 사용자 API에서는 다음과 같은 작업을 사용할 수 있�
 [10]: ./media/connectors-create-api-office365-users/contoso-aad-app.PNG
 [11]: ./media/connectors-create-api-office365-users/contoso-aad-app-configure.PNG
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -3,8 +3,8 @@
 	description="이 자습서는 Azure SQL 데이터 동기화를 시작하도록 도와줍니다."
 	services="sql-database"
 	documentationCenter=""
-	authors="spelluru"
-	manager="JennieHubbard"
+	authors="jhubbard"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -202,4 +202,4 @@ SQL 데이터베이스와 SQL 데이터 동기화에 대한 자세한 내용은 
 
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

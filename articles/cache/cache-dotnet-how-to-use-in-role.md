@@ -4,7 +4,7 @@
 	services="cache" 
 	documentationCenter=".net" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="04/06/2016" 
 	ms.author="sdanie"/>
 
 
@@ -25,7 +25,7 @@
 
 이 가이드에서는 **Azure 캐시용 In-Role Cache**를 사용하는 방법에 대해 설명합니다. 샘플은 C# 코드로 작성되었고 .NET API를 사용합니다. **캐시 클러스터 구성**, **캐시 클라이언트 구성**, **캐시에서 개체 추가 및 삭제, 캐시에 ASP.NET 세션 상태 저장**, **캐시를 사용하여 ASP.NET 페이지 출력 캐싱 활성화** 등의 시나리오를 다룹니다. In-Role Cache 사용에 대한 자세한 내용은 [다음 단계][] 섹션을 참조하세요.
 
->[AZURE.IMPORTANT]2016년 11월 30일부터 Azure 관리 캐시된 서비스 및 Azure In-Role Cache가 사용 중지됩니다. 이러한 사용 중지에 대비하기 위해 Azure Redis Cache로 마이그레이션하는 것이 좋습니다. 날짜 및 마이그레이션 지침에 대한 자세한 내용은 [내게 적합한 Azure 캐시 제품은 무엇인가요?](../redis-cache/cache-faq.md#which-azure-cache-offering-is-right-for-me)를 참조하세요.
+>[AZURE.IMPORTANT]작년 [알림](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)에 따라 Azure 관리된 캐시 서비스 및 Azure In-Role Cache 서비스가 2016년 11월 30일에 종료됩니다. [Azure Redis Cache](https://azure.microsoft.com/services/cache/)를 사용할 것을 권장합니다. 마이그레이션에 대한 자세한 내용은 [관리된 캐시 서비스에서 Azure Redis Cache로 마이그레이션](../redis-cache/cache-migrate-to-redis.md)을 참조하세요.
 
 <a name="what-is"></a>
 ## In-Role Cache란?
@@ -38,7 +38,7 @@ In-Role Cache는 Azure 응용 프로그램에 캐싱 계층을 제공합니다. 
 
 In-Role Cache는 Azure 클라우드 서비스(호스티드 서비스라고도 함)에 역할 인스턴스를 호스트하는 가상 컴퓨터의 메모리 일부를 사용하여 캐싱을 수행하는 방법을 제공합니다. 배포 옵션에서 유연성이 훨씬 뛰어나고, 매우 큰 크기의 캐시도 사용할 수 있으며, 캐시와 관련된 할당량 제한이 없습니다.
 
->[AZURE.IMPORTANT] Azure SDK 2.6부터 In-Role Cache에서는 Microsoft Azure 저장소 SDK 버전 4.3을 사용합니다. 이전 버전의 Azure SDK에서는 In-Role Cache에서 Azure Storage SDK 1.7을 사용했습니다. Azure SDK가 2.6 이전 버전인 In-Role Cache를 사용하는 응용 프로그램은 Azure 저장소 버전 2011-08-18이 사용 중단되는 2016년 8월 1일 전까지 Azure SDK 2.6으로 마이그레이션해야 합니다. 자세한 내용은 [Azure SDK 2.6 릴리스 정보 - In-Role Cache](../azure-sdk-dotnet-release-notes-2_6.md#in-role-cache-updates) 및 [Microsoft Azure 저장소 서비스 버전 제거 업데이트(2016에 확장)](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx)를 참조하세요.
+>[AZURE.IMPORTANT] Azure SDK 2.6부터 In-Role Cache에서는 Microsoft Azure 저장소 SDK 버전 4.3을 사용합니다. 이전 버전의 Azure SDK에서는 In-Role Cache에서 Azure Storage SDK 1.7을 사용했습니다. Azure SDK가 2.6 이전 버전인 In-Role Cache를 사용하는 응용 프로그램은 Azure 저장소 버전 2011-08-18이 사용 중단되는 2016년 8월 1일 전까지 Azure SDK 2.6으로 마이그레이션해야 합니다. 자세한 내용은 [Azure SDK 2.6 릴리스 정보 - In-Role Cache](../azure-sdk-dotnet-release-notes-2-6.md#in-role-cache-updates) 및 [Microsoft Azure 저장소 서비스 버전 제거 업데이트(2016에 확장)](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx)를 참조하세요.
 
 역할 인스턴스에 대한 캐싱에는 다음과 같은 이점이 있습니다.
 
@@ -412,4 +412,4 @@ In-Role Cache에 출력 캐시 공급자를 사용하는 방법에 대한 자세
 [Which Azure Cache offering is right for me?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

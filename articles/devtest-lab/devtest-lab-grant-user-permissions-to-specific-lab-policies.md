@@ -24,13 +24,13 @@
 
 ## 리소스인 정책
 
-[Azure 역할 기반 액세스 제어](/role-based-access-control-configure.md) 문서에 설명된 대로 Azure 리소스에 대해 세밀한 리소스 액세스 관리가 가능합니다. RBAC를 사용하여 DevOps 팀 내에서 업무를 분리하고 사용자에게 해당 작업을 수행하는 데 필요한 만큼의 권한만 부여할 수 있습니다.
+[Azure 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md) 문서에 설명된 대로 RBAC를 사용하면 Azure 리소스에 대해 세밀한 리소스 액세스 관리가 가능합니다. RBAC를 사용하여 DevOps 팀 내에서 업무를 분리하고 사용자에게 해당 작업을 수행하는 데 필요한 만큼의 권한만 부여할 수 있습니다.
 
 DevTest Lab에서 정책은 RBAC 작업 **Microsoft.DevTestLab/labs/policySets/policies/**를 지원하는 리소스 종류입니다. 각 DevTest Lab 정책은 정책 리소스 종류에 속한 리소스이며 RBAC 역할에 범위로 할당할 수 있습니다.
 
 예를 들어 사용자에게 **허용된 VM 크기** 정책에 대한 읽기/쓰기 권한을 부여하기 위해 **Microsoft.DevTestLab/labs/policySets/policies/*** 작업을 수행하는 사용자 지정 역할을 만든 다음 적절한 사용자를 **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab** 범위의 이 사용자 지정 역할에 할당합니다.
 
-RBAC의 사용자 지정 역할에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어](/role-based-access-control-configure.md) 문서의 [Azure RBAC에서 사용자 지정 역할](/role-based-access-control-configure.md#custom-roles-in-azure-rbac) 섹션을 참조하세요.
+RBAC의 사용자 지정 역할에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md) 문서의 [Azure RBAC에서 사용자 지정 역할](../active-directory/role-based-access-control-configure.md#custom-roles-in-azure-rbac) 섹션을 참조하세요.
 
 ##PowerShell을 사용하여 DevTest Lab 사용자 지정 역할 만들기
 시작하려면 Azure PowerShell cmdlet을 설치하고 구성하는 방법을 설명하는 다음 문서를 읽어야 합니다. [https://azure.microsoft.com/blog/azps-1-0-pre](https://azure.microsoft.com/blog/azps-1-0-pre).
@@ -95,4 +95,4 @@ Azure PowerShell cmdlet을 설정한 후 다음 작업을 수행할 수 있습�
 
 - [Azure DevTest Lab에 아티팩트를 사용하여 VM 추가](devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -1,5 +1,3 @@
-## 구성 개요
-
 이 작업에 대한 단계는 아래 값을 기준으로 VNet을 사용합니다. 추가 설정 및 이름도 이 목록에 설명되어 있습니다. 이 목록의 값을 기준으로 변수를 추가하지만 어느 단계에서도 이 목록을 직접 사용하지 않습니다. 목록을 복사하여 참조로 사용하고 값을 사용자 값으로 바꿀 수 있습니다.
 
 구성 참조 목록:
@@ -15,7 +13,7 @@
 - 게이트웨이 이름 = "GW"
 - 게이트웨이 IP 이름 = "GWIP"
 - 게이트웨이 IP 구성 이름 = "gwipconf"
-- VPN 유형 = "ExpressRoute" 이 VPN 유형이 Express 경로에 필요합니다.
+-  유형 = "ExpressRoute" 이 유형이 Express 경로 구성에 필요합니다.
 - 게이트웨이 공용 IP 이름 = "gwpip"
 
 
@@ -63,6 +61,25 @@
 
 9. 게이트웨이를 만듭니다. 이 단계에서는 **-GatewayType**이 특히 중요합니다. 값 **ExpressRoute**를 사용해야 합니다. 이러한 cmdlet을 실행한 후 게이트웨이를 만드는 데 20분 이상 걸릴 수 있습니다.
 
-		New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG -Location $Location -IpConfigurations $ipconf -GatewayType Expressroute
+		New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG -Location $Location -IpConfigurations $ipconf -GatewayType Expressroute -GatewaySku Standard
 
-<!---HONumber=AcomDC_0309_2016-->
+## 게이트웨이가 만들어졌는지 확인합니다.
+
+아래 명령을 사용하여 게이트웨이가 만들어졌는지 확인합니다.
+
+	Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG
+
+## 게이트웨이 크기 조정
+
+세 가지 [게이트웨이 SKU](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md)가 있습니다. 다음 명령을 사용하여 언제든지 게이트웨이 SKU를 변경합니다.
+
+	$gw = Get-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
+	Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
+
+## 게이트웨이 제거
+
+다음 명령을 사용하여 게이트웨이를 제거합니다.
+
+	Remove-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG  
+
+<!---HONumber=AcomDC_0413_2016-->

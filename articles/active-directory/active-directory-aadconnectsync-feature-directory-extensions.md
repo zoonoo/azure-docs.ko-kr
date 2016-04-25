@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/16/2016"
+   ms.date="04/12/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect 동기화: 디렉터리 확장
@@ -24,8 +24,8 @@
 설치 마법사의 사용자 지정 설정 경로에서 동기화할 추가 속성을 구성합니다. ![스키마 확장 마법사](./media/active-directory-aadconnectsync-feature-directory-extensions/extension2.png) 설치에 다음과 같은 특성이 표시됩니다. 이러한 특성은 유효한 후보입니다.
 
 - 사용자 및 그룹 개체 유형
-- 단일 값 특성
-- 문자열, 정수, 이진
+- 단일 값 특성: 문자열, 부울, 정수, 이진
+- 다중 값 특성: 문자열, 이진
 
 개체에는 최대 100개의 디렉터리 확장 특성이 있을 수 있습니다. 최대 길이는 250자입니다. 특성 값이 더 긴 경우 동기화 엔진에 의해 잘립니다.
 
@@ -40,4 +40,4 @@ Azure AD Connect를 설치하는 동안 이러한 특성을 사용할 수 있는
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

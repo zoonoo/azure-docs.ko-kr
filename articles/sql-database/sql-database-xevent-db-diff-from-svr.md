@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="SQL 데이터베이스의 확장 이벤트 | Microsoft Azure" 
-	description="Azure SQL 데이터베이스의 확장 이벤트(XEvent)와 Microsoft SQL Server의 이벤트 세션 간 차이점에 대해 설명합니다." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="MightyPen" 
-	manager="jhubbard" 
-	editor="" 
+<properties
+	pageTitle="SQL 데이터베이스의 확장 이벤트 | Microsoft Azure"
+	description="Azure SQL 데이터베이스의 확장 이벤트(XEvent)와 Microsoft SQL Server의 이벤트 세션 간 차이점에 대해 설명합니다."
+	services="sql-database"
+	documentationCenter=""
+	authors="MightyPen"
+	manager="jhubbard"
+	editor=""
 	tags=""/>
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/05/2016" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/05/2016"
 	ms.author="genemi"/>
 
 
@@ -27,14 +27,14 @@
 
 - SQL 데이터베이스 V12는 2015년 후반기 확장 이벤트 기능을 추가했습니다.
 - SQL Server는 2008년 이후 확장 이벤트를 추가해 왔습니다.
-- SQL 데이터베이스의 확장 이벤트 기능 집합은 SQL Server 기능의 견고한 하위 집합입니다. 
+- SQL 데이터베이스의 확장 이벤트 기능 집합은 SQL Server 기능의 견고한 하위 집합입니다.
 
 
 *XEvent*는 블로그 및 기타 비공식 위치에서 '확장 이벤트'를 가리키는 비공식적 별명입니다.
 
 
 > [AZURE.NOTE] 2015 년 10월을 기준으로 확장 이벤트 세션 기능은 Azure SQL 데이터베이스에서 미리 보기 수준으로 활성화됩니다. GA(일반 공급) 날짜는 아직 정해지지 않았습니다.
-> 
+>
 > Azure [서비스 업데이트](https://azure.microsoft.com/updates/?service=sql-database)페이지에 GA에 대한 공지 사항이 게시됩니다.
 
 
@@ -58,7 +58,7 @@
 
 
 - PowerShell
- - [Azure 저장소와 함께 Azure PowerShell 사용](storage-powershell-guide-full.md) - PowerShell 및 Azure 저장소 서비스에 대한 포괄적 정보를 제공합니다.
+ - [Azure 저장소와 함께 Azure PowerShell 사용](../storage/storage-powershell-guide-full.md) - PowerShell 및 Azure 저장소 서비스에 대한 포괄적 정보를 제공합니다.
 
 
 ## 코드 샘플
@@ -244,12 +244,12 @@ Azure 저장소 BLOB에 데이터를 유지하는 동안 **이벤트 파일** �
 ## 관련 링크
 
 
-- [Azure 저장소와 함께 Azure PowerShell 사용](storage-powershell-guide-full.md)
+- [Azure 저장소와 함께 Azure PowerShell 사용](../storage/storage-powershell-guide-full.md)
 - [Azure 저장소 Cmdlet](http://msdn.microsoft.com/library/dn806401.aspx)
 
 
-- [Azure 저장소와 함께 Azure PowerShell 사용](storage-powershell-guide-full.md) - PowerShell 및 Azure 저장소 서비스에 대한 포괄적 정보를 제공합니다.
-- [.NET에서 Blob 저장소를 사용하는 방법](storage-dotnet-how-to-use-blobs.md)
+- [Azure 저장소와 함께 Azure PowerShell 사용](../storage/storage-powershell-guide-full.md) - PowerShell 및 Azure 저장소 서비스에 대한 포괄적 정보를 제공합니다.
+- [.NET에서 Blob 저장소를 사용하는 방법](../storage/storage-dotnet-how-to-use-blobs.md)
 
 
 - [CREATE CREDENTIAL(Transact-SQL)](http://msdn.microsoft.com/library/ms189522.aspx)
@@ -269,4 +269,4 @@ Azure 저장소 BLOB에 데이터를 유지하는 동안 **이벤트 파일** �
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

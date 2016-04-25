@@ -3,7 +3,7 @@
     description="행 분할에서 탄력적 쿼리를 설정하는 방법"    
     services="sql-database"
     documentationCenter=""  
-    manager="jeffreyg"
+    manager="jhubbard"
     authors="torsteng"/>
 
 <tags
@@ -192,31 +192,20 @@ DISTRIBUTION 절은 이 테이블의 데이터 배포를 지정합니다.
 	where w_id > 100 and w_id < 200 
 	group by w_id, o_c_id 
  
-### 2\.2 저장 프로시저 SP\_ EXECUTE\_FANOUT 
+### 2\.2 원격 T-SQL 실행을 위한 저장 프로시저
 
-또한 탄력적 쿼리는 분할된 데이터베이스에 대한 직접 액세스를 제공하기 위해 저장 프로시저를 사용합니다. 저장 프로시저는 sp\_execute\_fanout이며 다음 매개 변수를 사용합니다.
+또한 탄력적 쿼리는 분할된 데이터베이스에 대한 직접 액세스를 제공하기 위해 저장 프로시저를 사용합니다. 저장 프로시저는 sp\_execute\_remote라고 하며, 원격 데이터베이스에서 원격 저장 프로시저 또는 T-SQL 코드를 실행하는 데 사용될 수 있습니다. 사용되는 매개 변수는 다음과 같습니다.
+* 데이터 원본 이름(nvarchar): RDBMS 형식의 외부 데이터 원본 이름입니다. 
+* 쿼리(nvarchar): T-SQL 쿼리를 각 분할된 데이터베이스에서 실행할 수 있습니다. 
+* 매개 변수 선언(nvarchar), 선택 사항: 쿼리 매개 변수(예: sp\_executesql)에 사용된 매개 변수에 대한 데이터 형식 정의가 있는 문자열입니다. 
+* 매개 변수 값 목록, 선택 사항: 쉼표로 구분한 매개 변수 값(예: sp\_executesql) 목록.
 
-* 서버 이름(nvarchar): 분할된 데이터베이스 맵에 호스트된 논리 서버의 정규화된 이름입니다. 
-* 분할 맵 데이터베이스 이름(nvarchar): 분할된 데이터베이스 맵 데이터베이스의 이름입니다. 
-* 사용자 이름(nvarchar): 분할된 데이터베이스 맵에 로그인하기 위한 사용자 이름입니다. 
-* 암호(nvarchar): 사용자 암호입니다. 
-* 분할된 데이터베이스 맵 이름(nvarchar): 쿼리에 대해 사용할 분할된 데이터베이스 맵 이름입니다. 이름은 \_ShardManagement.ShardMapsGlobal 테이블에 있으며 [탄력적 데이터베이스 도구 시작하기](sql-database-elastic-scale-get-started.md)에 있는 샘플 앱으로 데이터베이스를 만들 때 사용되는 기본 이름입니다. 앱에 있는 기본 이름은 "CustomerIDShardMap"입니다.
-*  쿼리: T-SQL 쿼리를 각 분할된 데이터베이스에서 실행할 수 있습니다. 
-*  매개 변수 선언(nvarchar), 선택 사항: 쿼리 매개 변수(예: sp\_executesql)에 사용된 매개 변수에 대한 데이터 형식 정의가 있는 문자열입니다. 
-*  매개 변수 값 목록, 선택 사항: 쉼표로 구분한 매개 변수 값(예: sp\_executesql) 목록  
-
-sp\_execute\_fanout은 호출 매개 변수에서 제공한 분할 맵 정보를 사용하여 분할 맵에 등록된 모든 분할된 데이터베이스에서 주어진 T-SQL 문을 실행합니다. 모든 결과는 UNION ALL 의미체계를 사용하여 병합됩니다. 결과에는 분할 이름으로 추가된 '가상' 열도 포함됩니다.
-
-동일한 자격증명은 분할 맵 데이터 베이스와 분할된 데이터베이스를 연결하는데 사용된다는 점을 명심하세요
+sp\_execute\_remote는 호출 매개 변수에 제공된 외부 데이터 원본을 사용하여 원격 데이터베이스에서 지정된 T-SQL 문을 실행합니다. 또한 외부 데이터 원본의 자격 증명을 사용하여 분할 맵 관리자 데이터베이스 및 원격 데이터베이스에 연결합니다.
 
 예제:
 
-	sp_execute_fanout 
-		N'myserver.database.windows.net', 
-		N'ShardMapDb', 
-		N'myuser', 
-		N'MyPwd', 
-		N'ShardMap', 
+	EXEC sp_execute_remote
+		N'MyExtSrc',
 		N'select count(w_id) as foo from warehouse' 
 
 ## 도구에 대한 연결  
@@ -241,4 +230,4 @@ sp\_execute\_fanout은 호출 매개 변수에서 제공한 분할 맵 정보를
 [1]: ./media/sql-database-elastic-query-horizontal-partitioning/horizontalpartitioning.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

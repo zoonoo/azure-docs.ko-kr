@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="02/29/2016"
+	ms.date="04/12/2016"
 	ms.author="kgremban"/>
 
 # Azure 명령줄 인터페이스를 사용하여 역할 기반 액세스 제어 관리
@@ -23,9 +23,14 @@
 - [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
 - [REST API](role-based-access-control-manage-access-rest.md)
 
-## 역할 기반 액세스 제어(RBAC) 역할 목록
+Azure 포털 및 Azure Resource Manager API의 RBAC(역할 기반 액세스 제어)를 사용하면 세밀한 수준에서 구독과 리소스에 대한 액세스를 관리할 수 있습니다. 이 기능을 통해 특정 범위에서 Active Directory 사용자, 그룹 또는 서비스 사용자에게 일부 역할을 할당하여 액세스 권한을 부여할 수 있습니다.
 
->[AZURE.IMPORTANT] 이 문서의 cmdlet을 사용하려면 먼저 [Azure CLI를 설치](../xplat-cli-install.md)해야 합니다.
+Azure CLI를 사용하여 RBAC를 관리하려면 다음 항목이 필요합니다.
+
+- Azure CLI 버전 0.8.8 이상을 사용하세요. 최신 버전을 설치하고 Azure 구독에 연결하려면 [Azure CLI 설치 및 구성 방법](../xplat-cli-install.md)을 참조하세요.
+- Azure CLI에서 Azure Resource Manager입니다. 자세한 내용을 보려면 [리소스 관리자에서 Azure CLI 사용](../xplat-cli-azure-resource-manager.md)으로 이동합니다.
+
+## 역할 나열
 
 ###	사용 가능한 모든 역할 나열
 사용 가능한 역할을 모두 사용하려면 다음을 사용합니다.
@@ -47,17 +52,17 @@
 
 ##	액세스 권한 나열
 ###	리소스 그룹에 적용되는 역할 할당 나열
-리소스 그룹에 적용되는 역할 할당을 나열하려면 다음을 사용합니다.
+리소스 그룹에 존재하는 역할 할당을 나열하려면 다음을 사용합니다.
 
     azure role assignment list --resource-group <resource group name>
 
-다음 예제에서는 *pharma-sales-projecforcast* 그룹에 적용되는 역할 할당을 보여 줍니다.
+다음 예제에서는 *pharma-sales-projecforcast* 그룹에 있는 역할 할당을 보여 줍니다.
 
 ![RBAC Azure 명령줄 - 그룹별 azure role assignment list - 스크린샷](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-1.png)
 
 ###	사용자 그룹에 할당된 역할을 비롯해 사용자에 대한 역할 할당 나열
 
-다음 예제에는 사용자 **sameert@aaddemo.com*에 적용되는 역할 할당을 보여 줍니다.
+다음 예제에는 사용자 **sameert@aaddemo.com*에 부여되는 역할 할당을 보여 줍니다. 여기에는 사용자에게 직접 할당된 역할뿐만 아니라 그룹에서 상속된 역할도 포함됩니다.
 
 ![RBAC Azure 명령줄 - 사용자별 azure role assignment list - 스크린샷](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-2.png)
 
@@ -157,4 +162,4 @@
 ## RBAC 항목
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0413_2016-->

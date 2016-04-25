@@ -19,7 +19,7 @@
 
 Azure의 호스팅 서비스와 확장성을 활용하기 위해 웹 응용 프로그램을 Azure 클라우드 서비스로 마이그레이션 및 게시해야 하는 경우가 있습니다. 기존 응용 프로그램을 최소한 변경하고 Azure에서 웹 응용 프로그램을 실행할 수 있습니다.
 
->[AZURE.NOTE] 이 토픽은 웹 사이트가 아닌 클라우드 서비스에 배포에 대한 것입니다. 웹 사이트에 배포에 대한 자세한 내용은 [Azure 앱 서비스에서 웹앱 배포](/app-service-web/web-sites-deploy.md)를 참조하세요.
+>[AZURE.NOTE] 이 토픽은 웹 사이트가 아닌 클라우드 서비스에 배포에 대한 것입니다. 웹 사이트에 배포에 대한 자세한 내용은 [Azure 앱 서비스에서 웹앱 배포](./app-service-web/web-sites-deploy.md)를 참조하세요.
 
 Visual C# 및 Visual Basic에 지원되는 특정 템플릿 목록을 보려면 이 항목의 뒷부분에 나오는 **지원되는 프로젝트 템플릿**을 참조하세요.
 
@@ -208,4 +208,4 @@ Azure에 웹 응용 프로그램을 게시하려면 응용 프로그램이 아�
 ## 다음 단계
 게시에 대한 자세한 내용은 [Visual Studio에서 Azure 응용 프로그램 게시 또는 배포 준비](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md)를 참조하세요. 또한 [명명된 인증 자격 증명 설정](vs-azure-tools-setting-up-named-authentication-credentials.md)도 참조하세요.
 
-<!----HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

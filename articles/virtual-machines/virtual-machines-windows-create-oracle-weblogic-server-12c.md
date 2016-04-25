@@ -43,7 +43,7 @@
 	2. **가용성 집합**을 "구성되지 않음"으로 둡니다.
 	3. 이때 모든 **끝점**을 추가하지 마십시오.
 
-9.	[리소스 그룹](../resource-group-portal.md)을 선택하거나 만듭니다.
+9.	[리소스 그룹](../azure-portal/resource-group-portal.md)을 선택하거나 만듭니다.
 
 10. **구독**을 선택합니다.
 
@@ -187,4 +187,4 @@
 
 -	[Azure용 Oracle 가상 컴퓨터 이미지](virtual-machines-linux-classic-oracle-images.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

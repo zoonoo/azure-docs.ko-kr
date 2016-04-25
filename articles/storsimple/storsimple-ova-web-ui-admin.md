@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/01/2016"
+   ms.date="04/07/2016"
    ms.author="alkohli" />
 
 # 웹 UI를 사용하여 StorSimple 가상 배열 관리
@@ -39,12 +39,12 @@
 #### 서비스 데이터 암호화 키를 가져오려면
 
 1. 로컬 웹 UI에 연결합니다. **구성** > **클라우드 설정**으로 이동합니다.
-
-    ![서비스 데이터 암호화 키 가져오기 1](./media/storsimple-ova-web-ui-admin/image27.png)
+  
 
 2. 페이지 아래쪽에서 **서비스 데이터 암호화 키 가져오기**를 클릭합니다. 키가 표시됩니다. 이 키를 복사하여 저장합니다.
-
-    ![서비스 데이터 암호화 키 가져오기 2](./media/storsimple-ova-web-ui-admin/image28.png)
+  	
+	![서비스 데이터 암호화 키 가져오기 1](./media/storsimple-ova-web-ui-admin/image27.png)
+   
 
 
 ## 웹 UI 설정 오류 해결
@@ -131,4 +131,4 @@
 
 [StorSimple Manager 서비스를 사용하여 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0413_2016-->

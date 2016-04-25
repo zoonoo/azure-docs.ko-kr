@@ -4,7 +4,7 @@
    services="sql-database" 
    documentationCenter="" 
    authors="elfisher" 
-   manager="jeffreyg" 
+   manager="jhubbard" 
    editor="monicar"/>
 
 <tags
@@ -80,14 +80,14 @@ Azure 포털의 지역 복원을 사용하여 SQL 데이터베이스를 복원�
 
 1. [Azure 포털](https://portal.Azure.com)에 로그인합니다.
 2. 화면 왼쪽에서 **찾아보기**를 선택한 다음 **SQL 탄력적 풀**을 선택합니다.
-3. 데이터베이스를 지역에서 복원할 풀을 선택합니다.
+3. 데이터베이스를 지역 복원할 풀을 선택합니다.
 4. 탄력적 풀 블레이드 위쪽에서 **데이터베이스 만들기**를 선택합니다.
 5. 원본으로 **백업**을 선택한 다음 복구에 사용할 지역 중복 백업을 선택합니다.
 6. 나머지 데이터베이스 속성을 지정한 다음 **만들기**를 클릭합니다.
 7. 데이터베이스 복원 프로세스가 시작되며 화면 왼쪽의 **알림**을 사용하여 모니터링할 수 있습니다.
 
 ###PowerShell 
-> [AZURE.NOTE] PowerShell에서 지역에서 복원을 사용할 경우 현재 독립 실행형 데이터베이스로의 복원만 지원됩니다. 탄력적 데이터베이스 풀로 지역에서 복원하려면 [Azure 포털](https://portal.Azure.com)을 사용하세요.
+> [AZURE.NOTE] PowerShell에서 지역 복원을 사용할 경우 현재 독립 실행형 데이터베이스로의 복원만 지원됩니다. 탄력적 데이터베이스 풀로 지역 복원하려면 [Azure 포털](https://portal.Azure.com)을 사용하세요.
 
 PowerShell 지역 복원을 사용하여 SQL 데이터베이스를 복원하려면 [start-AzureSqlDatabaseRecovery](https://msdn.microsoft.com/library/azure/dn720224.aspx) cmdlet에서 지역 복원 요청을 시작합니다.
 
@@ -137,11 +137,11 @@ PowerShell 지역 복원을 사용하여 SQL 데이터베이스를 복원하려�
   + 복구된 데이터베이스 이름으로 원본 데이터베이스와 다른 이름 사용
   + 복구된 데이터베이스가 원본 서버와 다른 서버에 존재
 
-데이터베이스 경고 규칙에 대한 자세한 내용은 [경고 알림 수신](insights-receive-alert-notifications.md) 및 [서비스 상태 추적](insights-service-health.md)을 참조하세요.
+데이터베이스 경고 규칙에 대한 자세한 내용은 [경고 알림 수신](../azure-portal/insights-receive-alert-notifications.md) 및 [서비스 상태 추적](../azure-portal/insights-service-health.md)을 참조하세요.
 
 
 ### 감사 사용
 
 데이터베이스에 액세스하기 위해 감사가 필요한 경우, 데이터베이스 복구 후에 감사 사용을 설정해야 합니다. 감사는 클라이언트 응용 프로그램이 *.database.secure.windows.net 패턴의 보안 연결 문자열을 사용한다는 것을 나타내기 위해 필요한 훌륭한 지표입니다. 자세한 내용은 [SQL 데이터베이스 감사 시작](sql-database-auditing-get-started.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

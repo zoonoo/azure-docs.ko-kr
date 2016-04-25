@@ -167,6 +167,12 @@ ApplicationInsights.config의 계측 키는 원격 분석이 전송되는 위치
 
 [종속성 원격 분석](app-insights-asp-net-dependencies.md) 및 [예외 원격 분석](app-insights-asp-net-exceptions.md)을 참조하세요.
 
+## 성능 데이터 없음
+
+성능 데이터(CPU, IO 속도 등)는 [Java 웹 서비스](app-insights-java-collectd.md), [Windows 데스크톱 앱](app-insights-windows-desktop.md), [IIS 웹앱 및 서비스(상태 모니터를 설치한 경우)](app-insights-monitor-performance-live-website-now.md) 및 [Azure 클라우드 서비스](app-insights-azure.md)에 사용할 수 있습니다. 이 내용은 설정, 서버 아래에 있습니다.
+
+Azure 웹 사이트에는 사용할 수는 없습니다.
+
 ## 내 서버에 앱을 게시한 이후로 (서버) 데이터가 없음
 
 + 실제로 Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll을 포함하여 모든 Microsoft ApplicationInsights DLL을 서버로 복사했는지 확인합니다.
@@ -183,7 +189,7 @@ ApplicationInsights.config의 계측 키는 원격 분석이 전송되는 위치
 
 ## 기대한 모든 데이터가 표시되지 않는 경우
 
-응용 프로그램이 대량의 데이터를 전송하고 Application Insights SDK for ASP.NET 버전 2.0.0-베타3 이상을 사용하는 경우 [적응 샘플링](app-insights-sampling.md) 기능이 작동하고 원격 분석의 백분율만 보낼 수 있습니다.
+응용 프로그램이 대량의 데이터를 전송하고 ASP.NET 버전 2.0.0-beta3 또는 그 이상에 대해 Application Insights SDK를 사용하는 경우 [적응 샘플링](app-insights-sampling.md) 기능이 작동하여 원격 분석의 백분율만 보낼 수 있습니다.
 
 이 기능을 비활성화할 수는 있지만 그러지 않는 것이 좋습니다. 샘플링은 진단을 목적으로 관련 원격 분석이 올바르게 전송되도록 설계되었습니다.
 
@@ -199,4 +205,4 @@ ApplicationInsights.config의 계측 키는 원격 분석이 전송되는 위치
 
 * [Application Insights 포럼](https://social.msdn.microsoft.com/Forums/vstudio/ko-KR/home?forum=ApplicationInsights)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

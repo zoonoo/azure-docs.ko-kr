@@ -38,7 +38,7 @@ Azure Active Directory Connect를 사용하여 AD FS 배포 및 Azure Active Dir
 
         c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"]
         => issue(claim = c);
-    
+
 8. **확인**을 두 번 클릭하여 대화 상자를 완료합니다.
 
 Azure Active Directory 신뢰 당사자 트러스트 인증 클래스 참조 추가 구성
@@ -47,7 +47,7 @@ Azure Active Directory 신뢰 당사자 트러스트 인증 클래스 참조 추
 
 
   `Set-AdfsRelyingPartyTrust -TargetName <RPObjectName> -AllowedAuthenticationClassReferences wiaormultiauthn`
-   
+
 여기서 <RPObjectName>은 Azure Active Directory 신뢰 당사자 트러스트 개체에 대한 신뢰 당사자 개체 이름입니다. 일반적으로 이 개체의 이름은 Microsoft Office 365 ID 플랫폼입니다.
 
 AD FS 전역 인증 정책
@@ -83,7 +83,7 @@ Windows 7 및 Windows 8.1 장치는 사용자 계정 이름을 잘 알려진 장
 
 아래 링크를 사용하여 Windows 7 및 Windows 8.1 도메인 가입 장치에 대해 자동 장치 등록을 구성합니다. 계속하기 전에 위의 필수 조건을 완료했는지 확인합니다.
 
-* [Windows 8.1 도메인 가입 장치에 대해 자동 장치 등록 구성](active-directory-conditional-access-automatic-device-registration-windows8_1.md)
+* [Windows 8.1 도메인 가입 장치에 대해 자동 장치 등록 구성](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 
 * [Windows 7 도메인 가입 장치에 대해 자동 장치 등록 구성](active-directory-conditional-access-automatic-device-registration-windows7.md)
 
@@ -102,7 +102,7 @@ Azure AD 장치 등록은 가장 광범위한 장치 기능을 제공합니다. 
 
 - [Azure Active Directory Device Registration 개요](active-directory-conditional-access-device-registration-overview.md)
 - [Windows 7 도메인 가입 장치에 대한 자동 장치 등록 구성](active-directory-conditional-access-automatic-device-registration-windows7.md)
-- [Windows 8.1 도메인 가입 장치에 대한 자동 장치 등록 구성](active-directory-conditional-access-automatic-device-registration-windows8_1.md)
+- [Windows 8.1 도메인 가입 장치에 대한 자동 장치 등록 구성](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 - [Windows 10 도메인에 가입된 장치의 Azure Active Directory 자동 장치 등록](active-directory-azureadjoin-devices-group-policy.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

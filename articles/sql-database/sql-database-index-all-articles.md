@@ -64,7 +64,7 @@
 | 19 | [Mac OS X(Yosemite)에서 Ruby를 사용하여 SQL 데이터베이스에 연결](sql-database-develop-ruby-simple-mac-osx.md) | Ruby 코드 샘플을 제공하면 Mac OS X(Yosemite)에서 실행하여 Azure SQL 데이터베이스에 연결할 수 있습니다. |
 | 20 | [Ubuntu Linux에서 Ruby를 사용하여 SQL 데이터베이스에 연결](sql-database-develop-ruby-simple-linux.md) | Ubuntu Linux에서 클라이언트로 실행할 수 있는 Ruby 코드 샘플을 제공하여 Azure SQL 데이터베이스에 연결할 수 있습니다. |
 | 21 | [Windows에서 Ruby를 사용하여 SQL 데이터베이스에 연결](sql-database-develop-ruby-simple-windows.md) | Ruby 코드 샘플을 제공하면 Windows에서 실행하여 Azure SQL 데이터베이스에 연결할 수 있습니다. |
-| 22 | [C#을 사용하여 SQL 데이터베이스 만들기 및 관리](sql-database-client-library.md) | 이 문서에서는 .NET용 Azure SQL 데이터베이스 라이브러리를 사용하여 C#으로 Azure SQL 데이터베이스를 만들고 관리하는 방법을 보여 줍니다. |
+| 22 | [C#을 사용하여 SQL 데이터베이스 만들기 및 관리](sql-database-get-started-csharp.md) | 이 문서에서는 .NET용 Azure SQL 데이터베이스 라이브러리를 사용하여 C#으로 Azure SQL 데이터베이스를 만들고 관리하는 방법을 보여 줍니다. |
 | 23 | [ADO.NET 4.5 및 SQL 데이터베이스 V12에 대한 1433 이외의 포트](sql-database-develop-direct-route-ports-adonet-v12.md) | ADO.NET에서 Azure SQL 데이터베이스 V12로 클라이언트 연결이 프록시를 무시하고 데이터베이스와 직접 상호 작용하는 경우가 있습니다. 1433 이외의 포트가 중요해집니다. |
 | 24 | [SQL 데이터베이스 클라이언트 응용 프로그램의 SQL 오류 코드: 데이터베이스 연결 오류 및 기타 문제](sql-database-develop-error-messages.md) | 일반적인 데이터베이스 연결 오류, 데이터베이스 복사 문제 및 일반적인 오류와 같은 SQL 데이터베이스 클라이언트 응용 프로그램에 대한 SQL 오류 코드에 대해 알아봅니다. |
 | 25 | ["서버의 데이터베이스는 현재 사용할 수 없습니다. 나중에 연결을 다시 시도하십시오."및 기타 연결 오류 문제 해결](sql-database-troubleshoot-connection.md) | Azure SQL 데이터베이스에 대한 연결 오류를 확인 및 해결하는 단계 |
@@ -354,4 +354,4 @@
 
 - 학습 경로 그래픽: [sql-database-elastic-scale](http://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

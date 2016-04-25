@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/08/2016"
+   ms.date="04/06/2016"
    ms.author="seanmck"/>
 
 # 로컬 개발 클러스터 설정 문제 해결
@@ -50,6 +50,8 @@ Azure PowerShell 창에서 `Connect-ServiceFabricCluster`와 같은 서비스 �
 #### 해결 방법
 
 항상 서비스 패브릭 cmdlet을 Windows PowerShell에서 직접 실행합니다.
+
+>[AZURE.NOTE] 최신 버전의 Azure PowerShell에서 특수 바로 가기를 만들지 않으므로 더 이상 발생하지 않습니다.
 
 ### 형식 초기화 예외
 
@@ -96,4 +98,4 @@ Visual Studio에서 디버그 시 FabricConnectionDeniedException 오류가 나�
 - [시스템 상태 보고서와 함께 클러스터 이해 및 문제 해결](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 - [서비스 패브릭 탐색기로 클러스터 시각화](service-fabric-visualizing-your-cluster.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0413_2016-->

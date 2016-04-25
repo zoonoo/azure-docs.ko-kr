@@ -23,7 +23,7 @@
 
 이 문서에서는 Azure Resource Manager 배포 모델에서 일반적으로 Azure 리소스를 만들고 관리하는 데 사용한 Azure CLI(명령줄 인터페이스) 명령에 대한 구문 및 옵션이 제공됩니다. ARM(Azure Resource Manager) 모드에서 CLI를 실행하여 이러한 명령에 액세스합니다. 전체 참조는 아니며 CLI 버전에서 약간 다른 명령 또는 매개 변수를 표시할 수도 있습니다.
 
-시작하려면 먼저 회사 또는 학교 계정 또는 Microsoft 계정 ID를 사용하여 [Azure CLI를 설치](xplat-cli-install.md)하고 [Azure 구독에 연결](xplat-cli-connect.md)합니다.
+시작하려면 먼저 회사 또는 학교 계정 또는 Microsoft 계정 ID를 사용하여 [Azure CLI를 설치](../xplat-cli-install.md)하고 [Azure 구독에 연결](../xplat-cli-connect.md)합니다.
 
 리소스 관리자 모드의 명령줄에 있는 현재 명령 구문 및 옵션의 경우 `azure help`를 입력합니다. 그렇지 않고 특정 명령에 대한 도움말을 표시하려면 `azure help [command]`를 입력합니다. 또한 설명서에 특정 Azure 서비스 만들기 및 관리에 대한 CLI 예제가 나와 있습니다.
 
@@ -208,11 +208,11 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 **리소스 그룹에 클러스터를 만드는 명령**
 
 	hdinsight cluster create [options] <clusterName>
-	 
+
 예: Linux 클러스터에 Storm을 만듭니다.
 
 	azure hdinsight cluster create -g myarmgroup -l westus -y Linux --clusterType Storm --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 myNewCluster01
-	
+
 	info:    Executing command hdinsight cluster create
 	+ Submitting the request to create cluster...
 	info:    hdinsight cluster create command OK
@@ -220,11 +220,11 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 예: 스크립트 동작으로 클러스터를 만듭니다.
 
 	azure hdinsight cluster create -g myarmgroup -l westus -y Linux --clusterType Hadoop --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 –configurationPath "C:\myFiles\configFile.config" myNewCluster01
-	
+
 	info:    Executing command hdinsight cluster create
 	+ Submitting the request to create cluster...
 	info:    hdinsight cluster create command OK
-	
+
 매개 변수 옵션:
 
 	-h, --help                                                 output usage information
@@ -255,7 +255,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 	--rdpPassword <rdpPassword>                                RDP password (only for Windows clusters)
 	--rdpAccessExpiry <rdpAccessExpiry>                        RDP access expiry.
 	For example 12/12/2015 (only for Windows clusters)
-	--virtualNetworkId <virtualNetworkId>                      (Optional) Virtual network ID for the cluster. 
+	--virtualNetworkId <virtualNetworkId>                      (Optional) Virtual network ID for the cluster.
 	Value is a GUID for Windows cluster and ARM resource ID for Linux cluster)
 	--subnetName <subnetName>                                  (Optional) Subnet for the cluster
 	--additionalStorageAccounts <additionalStorageAccounts>    (Optional) Additional storage accounts.
@@ -1822,7 +1822,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 
 	vm start [options] <resource-group> <name>
 
-**리소스 그룹 내 한 가상 컴퓨터를 종료하고 컴퓨팅 리소스 해제**
+** 리소스 그룹 내 한 가상 컴퓨터를 종료하고 컴퓨팅 리소스 해제**
 
 	vm deallocate [options] <resource-group> <name>
 
@@ -1872,4 +1872,4 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

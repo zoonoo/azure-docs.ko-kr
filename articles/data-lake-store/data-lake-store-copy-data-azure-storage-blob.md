@@ -1,18 +1,18 @@
-<properties 
+<properties
    pageTitle="Azure 저장소 Blob에서 데이터 레이크 저장소로 데이터 복사 | Microsoft Azure"
-   description="AdlCopy 도구를 사용하여 Azure 저장소 Blob에서 데이터 레이크 저장소로 데이터 복사" 
-   services="data-lake-store" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="paulettm" 
+   description="AdlCopy 도구를 사용하여 Azure 저장소 Blob에서 데이터 레이크 저장소로 데이터 복사"
+   services="data-lake-store"
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
    editor="cgronlun"/>
- 
+
 <tags
    ms.service="data-lake-store"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
+   ms.workload="big-data"
    ms.date="01/05/2016"
    ms.author="nitinme"/>
 
@@ -30,9 +30,9 @@ Azure 데이터 레이크 저장소는 **Azure 저장소 Blob에서 데이터 �
 이 문서를 시작하기 전에 다음이 있어야 합니다.
 
 - **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-- 데이터 레이크 저장소 공개 미리 보기를 위해 **Azure 구독을 사용하도록 설정합니다**. [지침](data-lake-store-get-started-portal.md#signup)을 참조하세요. 
+- 데이터 레이크 저장소 공개 미리 보기를 위해 **Azure 구독을 사용하도록 설정합니다**. [지침](data-lake-store-get-started-portal.md#signup)을 참조하세요.
 - 일부 데이터가 포함된 **Azure 저장소 Blob** 컨테이너
-- **Azure 데이터 레이크 분석 계정(선택 사항)** - 데이터 레이크 저장소 계정을 만드는 방법에 대한 지침은 [Azure 데이터 레이크 분석 시작](data-lake-analytics/data-lake-analytics-get-started-portal.md)을 참조하세요.
+- **Azure 데이터 레이크 분석 계정(선택 사항)** - 데이터 레이크 저장소 계정을 만드는 방법에 대한 지침은 [Azure 데이터 레이크 분석 시작](../data-lake-analytics/data-lake-analytics-get-started-portal.md)을 참조하세요.
 - **AdlCopy 도구**. [http://aka.ms/downloadadlcopy](http://aka.ms/downloadadlcopy)에서 AdlCopy 도구를 설치합니다.
 
 ## AdlCopy 도구 구문
@@ -63,7 +63,7 @@ Azure 데이터 레이크 저장소는 **Azure 저장소 Blob에서 데이터 �
 
 	예:
 
-		AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== 
+		AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
 
 	데이터 레이크 저장소 계정이 있는 Azure 구독에 대한 자격 증명을 입력하라는 메시지가 표시됩니다. 다음과 유사한 출력이 표시됩니다.
 
@@ -84,15 +84,15 @@ Azure 데이터 레이크 저장소는 **Azure 저장소 Blob에서 데이터 �
 
 	예:
 
-		AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== 
+		AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
 
-	
+
 
 ## 데이터 레이크 분석 계정에 AdlCopy 사용
 
 또한 데이터 레이크 분석 계정을 사용하여 Azure 저장소 Blob에서 데이터 레이크 저장소로 데이터 복사하는 AdlCopy 작업을 실행할 수 있습니다. 이동할 데이터가 기가바이트 및 테라바이트 범위에 있고 보다 향상되고 예측 가능한 성능 처리량을 원하는 경우 일반적으로 이 옵션을 사용합니다.
 
-AdlCopy와 함께 데이터 레이크 분석 계정을 사용하려면 원본(Azure 저장소 Blob) 및 대상(Azure 데이터 레이크 저장소)을 데이터 레이크 분석 계정에 대한 데이터 원본으로 추가해야 합니다. 데이터 레이크 분석 계정에 추가 데이터 원본을 추가하는 방법에 대한 지침은 [데이터 레이크 분석 계정 데이터 원본 관리](data-lake-analytics/data-lake-analytics-manage-use-portal.md#manage-account-data-sources)를 참조하세요.
+AdlCopy와 함께 데이터 레이크 분석 계정을 사용하려면 원본(Azure 저장소 Blob) 및 대상(Azure 데이터 레이크 저장소)을 데이터 레이크 분석 계정에 대한 데이터 원본으로 추가해야 합니다. 데이터 레이크 분석 계정에 추가 데이터 원본을 추가하는 방법에 대한 지침은 [데이터 레이크 분석 계정 데이터 원본 관리](..//data-lake-analytics/data-lake-analytics-manage-use-portal.md#manage-account-data-sources)를 참조하세요.
 
 다음 명령을 실행합니다.
 
@@ -100,7 +100,7 @@ AdlCopy와 함께 데이터 레이크 분석 계정을 사용하려면 원본(Az
 
 예:
 
-	AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== /Account mydatalakeaccount /Units 2 
+	AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== /Account mydatalakeaccount /Units 2
 
 ## 결제
 
@@ -115,7 +115,7 @@ AdlCopy와 함께 데이터 레이크 분석 계정을 사용하려면 원본(Az
 ## 다음 단계
 
 - [데이터 레이크 저장소의 데이터 보호](data-lake-store-secure-data.md)
-- [Azure 데이터 레이크 분석에 데이터 레이크 저장소 사용](data-lake-analytics-get-started-portal.md)
+- [Azure 데이터 레이크 분석에 데이터 레이크 저장소 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Azure HDInsight에 데이터 레이크 저장소 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0413_2016-->

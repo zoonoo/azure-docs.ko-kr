@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="서비스 메트릭 모니터링" 
-	description="Azure에서 모니터링 차트를 사용자 지정하는 방법에 대해 알아봅니다." 
-	authors="stepsic-microsoft-com" 
-	manager="ronmart" 
-	editor="" 
+<properties
+	pageTitle="서비스 메트릭 모니터링"
+	description="Azure에서 모니터링 차트를 사용자 지정하는 방법에 대해 알아봅니다."
+	authors="stepsic-microsoft-com"
+	manager="ronmart"
+	editor=""
 	services="azure-portal"
 documentationCenter=""/>
 
-<tags 
-	ms.service="azure-portal" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/08/2015" 
+<tags
+	ms.service="azure-portal"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/08/2015"
 	ms.author="stepsic"/>
 
 # 서비스 메트릭 모니터링
@@ -22,7 +22,7 @@ documentationCenter=""/>
 
 일부 서비스의 경우 메트릭을 확인하기 위해 진단을 켜야 할 수도 있습니다. 가상 컴퓨터와 같은 기타 서비스의 경우 기본 메트릭 집합이 표시되지만 전체 집합 고빈도 메트릭을 사용하도록 설정해야 합니다. 자세히 알아보려면 [모니터링 및 진단 사용](insights-how-to-use-diagnostics.md)을 참조하세요.
 
-## 모니터링 차트 사용 
+## 모니터링 차트 사용
 
 선택한 기간에 대한 메트릭을 차트로 작성할 수 있습니다.
 
@@ -51,7 +51,7 @@ documentationCenter=""/>
 
 1. 블레이드 맨 위에 있는 **...** 메뉴에서 **타일 추가**를 클릭합니다. ![메뉴 추가](./media/insights-how-to-customize-monitoring/Insights_AddMenu.png)
 2. 그런 다음 화면 오른쪽에 있는 **갤러리**에서 차트를 선택할 수 있습니다. ![갤러리](./media/insights-how-to-customize-monitoring/Insights_Gallery.png)
-3. 원하는 메트릭이 표시되지 않는 경우 언제든지 미리 설정된 메트릭 중 하나를 추가하고 차트를 **편집**하여 필요한 메트릭을 표시할 수 있습니다. 
+3. 원하는 메트릭이 표시되지 않는 경우 언제든지 미리 설정된 메트릭 중 하나를 추가하고 차트를 **편집**하여 필요한 메트릭을 표시할 수 있습니다.
 
 ## 사용 할당량 모니터링
 
@@ -69,8 +69,7 @@ documentationCenter=""/>
 * [모니터링 및 진단을 사용](insights-how-to-use-diagnostics.md)하여 서비스의 자세한 고빈도 메트릭을 수집합니다.
 * [인스턴스 개수를 자동으로 조정](insights-how-to-scale.md)하여 서비스를 사용 가능하며 응답할 수 있는 상태로 유지합니다.
 * 클라우드에서 코드의 성능을 정확히 파악하려는 경우[응용 프로그램 성능을 모니터링](insights-perf-analytics.md)합니다.
-* [JavaScript 앱 및 웹 페이지용 Application Insights](../app-insights-web-track-usage.md)를 사용하여 웹 페이지를 방문하는 브라우저에 대한 클라이언트 분석을 가져옵니다.
-* 페이지가 다운된 경우 이를 찾을 수 있도록 Application Insights를 사용하여 [웹 페이지의 가용성 및 응답성을 모니터링](../app-insights-monitor-web-app-availability.md)합니다.
- 
+* [JavaScript 앱 및 웹 페이지용 Application Insights](../application-insights/app-insights-web-track-usage.md)를 사용하여 웹 페이지를 방문하는 브라우저에 대한 클라이언트 분석을 가져옵니다.
+* 페이지가 다운된 경우 이를 찾을 수 있도록 Application Insights를 사용하여 [웹 페이지의 가용성 및 응답성을 모니터링](../application-insights/app-insights-monitor-web-app-availability.md)합니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0413_2016-->

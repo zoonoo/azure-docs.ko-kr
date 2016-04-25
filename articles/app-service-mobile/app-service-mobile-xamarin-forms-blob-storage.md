@@ -30,15 +30,7 @@ Azure 모바일 앱 클라이언트 및 서버 SDK는 /tables 끝점에 대해 C
 
 ## 필수 조건
 
-이 자습서를 완료하려면 다음이 필요합니다.
-
-* 활성 Azure 계정. 계정이 없는 경우 Azure 평가판을 등록하고 최대 10개의 무료 모바일 앱을 가져올 수 있습니다. 이러한 앱은 평가판 사용 기간이 끝난 후에도 계속 사용할 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-
-* [Visual Studio Community 2013] 이상 버전입니다.
-
-* [Xcode](https://go.microsoft.com/fwLink/?LinkID=266532) v7.0 이상 및 [Xamarin Studio](http://xamarin.com/download)가 설치된 Mac입니다.
-
-* 자습서 [Xamarin.Forms 앱 만들기] 완료. 이 문서에서는 해당 자습서에서 완성된 앱을 사용합니다.
+* 다른 필수 조건을 나열하는 [Xamarin.Forms 앱 만들기] 자습서를 완료합니다. 이 문서에서는 해당 자습서에서 완성된 앱을 사용합니다.
 
 >[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려는 경우 [앱 서비스 체험](https://tryappservice.azure.com/?appServiceName=mobile)으로 이동하세요. 여기서 신용 카드와 약정 없이 앱 서비스에서 수명이 짧은 스타터 모바일 앱을 즉시 만들 수 있습니다.
 
@@ -121,7 +113,7 @@ Azure 모바일 앱 클라이언트 및 서버 SDK는 /tables 끝점에 대해 C
 
 ###클라이언트 및 서버 통신
 
-`TodoItemStorageController`에는 Blob을 업로드하거나 다운로드할 경로가 *없습니다*. 우선 SAS 토큰(공유 액세스 서명)을 안전하게 특정 Blob 또는 컨테이너에 액세스하도록 가져온 후에 모바일 클라이언트가 작업을 수행하기 위해 Blob 저장소와 *직접* 상호 작용하기 때문입니다. 그렇지 않으면 저장소에 대한 액세스는 모바일 백 엔드의 scability 및 가용성에 의해 제한될 것이기에 중요한 아키텍처 설계입니다. 대신 직접 Azure 저장소에 연결하여 모바일 클라이언트가 자동 분할 및 지역 배포 등의 기능을 활용할 수 있습니다.
+`TodoItemStorageController`에는 Blob을 업로드하거나 다운로드할 경로가 *없습니다*. 우선 SAS 토큰(공유 액세스 서명)을 안전하게 특정 Blob 또는 컨테이너에 액세스하도록 가져온 후에 모바일 클라이언트가 작업을 수행하기 위해 Blob 저장소와 *직접* 상호 작용하기 때문입니다. 그렇지 않으면 저장소에 대한 액세스는 모바일 백 엔드의 확장성 및 가용성에 의해 제한될 것이기에 중요한 아키텍처 설계입니다. 대신 직접 Azure 저장소에 연결하여 모바일 클라이언트가 자동 분할 및 지역 배포 등의 기능을 활용할 수 있습니다.
 
 공유 액세스 서명은 저장소 계정의 리소스에 대한 위임된 권한을 제공합니다. 즉, 계정 액세스 키를 공유할 필요 없이 지정된 권한 집합을 사용하여 지정된 기간 동안 클라이언트에게 저장소 계정의 개체에 대한 제한된 권한을 부여할 수 있습니다. 자세한 내용은 [공유 액세스 서명 이해]를 참조하세요.
 
@@ -717,7 +709,7 @@ iOS 프로젝트에 플랫폼 특정 코드를 추가합니다.
 <!-- URLs. -->
 
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
-[Xamarin.Forms 앱 만들기]: ../app-service-mobile-xamarin-forms-get-started.md
+[Xamarin.Forms 앱 만들기]: app-service-mobile-xamarin-forms-get-started.md
 [Xamarin.Forms DependencyService]: https://developer.xamarin.com/guides/xamarin-forms/dependency-service/
 [Microsoft.Azure.Mobile.Client.Files]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.Files/
 [Microsoft.Azure.Mobile.Client.SQLiteStore]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.SQLiteStore/
@@ -725,4 +717,4 @@ iOS 프로젝트에 플랫폼 특정 코드를 추가합니다.
 [공유 액세스 서명 이해]: ../storage/storage-dotnet-shared-access-signature-part-1.md
 [Azure 저장소 계정 만들기]: ../storage/storage-create-storage-account.md#create-a-storage-account
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

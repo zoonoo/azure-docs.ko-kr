@@ -3,16 +3,16 @@
 	description="이 자습서에서는 채널이 온-프레미스 라이브 인코더에서 다중 비트 전송률 라이브 스트림을 받는 기본적인 미디어 서비스 라이브 스트리밍 응용 프로그램을 구현하는 단계를 안내합니다."
 	services="media-services"
 	documentationCenter=""
-	authors="Juliako,cenkdin" 
-	manager="dwrede" 
+	authors="Juliako,cenkdin"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="ne" 
-	ms.topic="article" 
+<tags
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="ne"
+	ms.topic="article"
 	ms.date="01/31/2016"  
 	ms.author="juliako"/>
 
@@ -37,7 +37,7 @@
 ## 필수 조건
 자습서를 완료하는 데 필요한 조건은 다음과 같습니다.
 
-- 이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 무료 체험](/pricing/free-trial/?WT.mc_id=A261C142F)을 참조하세요. 
+- 이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 무료 체험](/pricing/free-trial/?WT.mc_id=A261C142F)을 참조하세요.
 - 미디어 서비스 계정. 미디어 서비스 계정을 만들려면 [계정 만들기](media-services-create-account.md)를 참조하세요.
 - 다중 비트 전송률 라이브 스트림을 보낼 수 있는 웹캠 및 인코더.
 
@@ -88,7 +88,7 @@ Azure 클래식 포털에서 **채널** 페이지를 선택합니다. 그런 다
 
 ![ingesturls](./media/media-services-portal-get-started-with-live/media-services-ingest-urls.png)
 
-수집 URL에 대한 자세한 내용은 [온-프레미스 인코더를 사용하여 다중 비트 전송률 라이브 스트림을 채널에 보내기](media-services-channels-overview.md)를 참조하세요.
+수집 URL에 대한 자세한 내용은 [온-프레미스 인코더를 사용하여 다중 비트 전송률 라이브 스트림을 채널에 보내기](media-services-manage-channels-overview.md)를 참조하세요.
 
 ## 라이브 인코더를 구성하고 라이브 스트림 수집
 
@@ -212,4 +212,4 @@ MPEG DASH 스트리밍 URL을 작성하려면 URL에 (format=mpd-time-csf)를 �
 
 <!-- Images -->
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

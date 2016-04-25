@@ -46,7 +46,7 @@
 
 	c. 이때 끝점을 추가하지 마세요.
 
-9.	리소스 그룹을 선택하거나 만듭니다. 자세한 내용은 [Azure 포털을 사용하여 Azure 리소스 관리](../resource-group-portal.md)를 참조하세요.
+9.	리소스 그룹을 선택하거나 만듭니다. 자세한 내용은 [Azure 포털을 사용하여 Azure 리소스 관리](../azure-portal/resource-group-portal.md)를 참조하세요.
 
 10. **구독**을 선택합니다.
 
@@ -71,4 +71,4 @@
 
 [Oracle 데이터베이스 2일 DBA 12c 릴리스 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

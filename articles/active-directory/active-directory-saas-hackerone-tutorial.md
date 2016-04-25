@@ -1,5 +1,5 @@
 <properties
-	pageTitle="자습서: Novatus와 Azure Active Directory 통합 | Microsoft Azure"
+	pageTitle="자습서: HackerOne과 Azure Active Directory 통합 | Microsoft Azure"
 	description="Azure Active Directory와 HackerOne 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="04/06/2016"
 	ms.author="jeedes"/>
 
 
@@ -33,7 +33,7 @@ Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Direc
 
 HackerOne과 Azure AD의 통합을 구성하려면 다음 항목이 필요합니다.
 
-- Azure AD 구독
+- Azure 구독
 - HackerOne Single Sign-On이 설정된 구독
 
 
@@ -86,6 +86,8 @@ HackerOne에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 다음으로, 클래식 포털에서 Azure AD Single Sign-On을 사용하도록 설정하고 HackerOne 응용 프로그램에서 Single Sign-On을 구성합니다.
 
+이 절차의 일부로 base-64로 인코딩된 인증서 파일을 만들어야 합니다. 이 절차를 잘 모르는 경우 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
+
 **HackerOne에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
 1. Azure 클래식 포털의 **HackerOne** 응용 프로그램 통합 페이지에서 **Single Sign-on 구성**을 클릭하여 **Single Sign-on 구성** 대화 상자를 엽니다. <br><br> ![Single Sign-On 구성][6] <br>
@@ -95,29 +97,49 @@ HackerOne에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 3. **앱 설정 구성** 대화 상자 페이지에서 다음 단계를 수행하고 **다음**을 선택합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_04.png) <br>
 
 
-    a. 로그온 URL 텍스트 상자에 **“https://hackerone.com/companyname/authentication”** 패턴을 사용하여 사용자가 HackerOne 응용 프로그램에 로그인하는 데 사용할 URL을 입력합니다. **companyname**을 실제 이름으로 교체해야 하는 일반 이름을 참조하는 경우<br>
+    a. **로그온 URL** 텍스트 상자에 **“https://hackerone.com/<회사 이름>/authentication”** 패턴을 사용하여 사용자가 HackerOne 응용 프로그램에 로그인하는 데 사용할 URL을 입력합니다.
 
-	b. 식별자 텍스트 상자에 테넌트 URL을 입력합니다. support@hackerone.com을 통해 HackerOne 지원 팀에 문의하여 테넌트 URL을 가져옵니다.
+    b. 테넌트 URL을 모르는 경우 [support@hackerone.com](mailto:support@hackerone.com)을 통해 HackerOne 지원 팀에 문의합니다.
 
-	c. **다음**를 클릭합니다.
+	c. **식별자** 텍스트 상자에 테넌트 URL을 입력합니다.
+
+	d. **다음**을 클릭합니다.
 
 
-4. **HackerOne에서 Single Sign-On 구성** 페이지에서 다음 단계를 수행하고 **완료**를 클릭합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_05.png) <br>
+4. **HackerOne에서 Single Sign-On 구성** 페이지에서 다음 단계를 수행하고 **다음**을 클릭합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_05.png) <br>
 
     a. **인증서 다운로드**를 클릭하고 파일을 컴퓨터에 저장합니다.
 
     b. **다음**을 클릭합니다.
 
 
-5. 응용 프로그램에 구성된 SSO를 가져오려면 admin 사용자로 HackerOne 테넌트에 로그인해야 합니다.
+1. HackerOne 테넌트에 관리자 권한으로 로그온합니다.
+
+1. 위쪽 메뉴에서 **설정**을 클릭합니다.<br><br>![Single Sign-On 구성](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_001.png) <br>
+
+1. "**인증**"으로 이동하여 "**SAML 설정 추가**"를 클릭합니다.<br><br>![Single Sign-On 구성](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_003.png) <br>
+
+
+1. **SAML 설정** 대화 상자에서 다음 단계를 수행합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_004.png) <br><br>
+
+    a. **전자 메일 도메인** 텍스트 상자에 등록된 도메인을 입력합니다.
+
+	b. Azure 클래식 포털에서 **Single Sign-On 서비스 URL**을 복사한 다음 Single Sign-On URL 텍스트 상자에 붙여 넣습니다.
+
+    c. 다운로드한 인증서에서 **Base-64로 인코딩된** 파일을 만듭니다.
+
+       >[AZURE.TIP] 자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하세요.
 	
-	a. 대시보드로 이동하여 페이지의 오른쪽 위에 있는 **설정**을 클릭합니다.<br><br>![Single Sign-On 구성](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_001.png) <br>
+    d. Base 64로 인코딩된 인증서를 메모장에서 열고, 내용을 클립보드에 복사한 다음 전체 인증서를 **X509 인증서** 텍스트 상자에 붙여 넣습니다.
 
-	b. 그런 다음 "**인증**"으로 이동하여 "**SAML 설정 추가**" 단추를 클릭합니다.<br><br>![Single Sign-On 구성](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_003.png) <br>
+    e. **저장**을 클릭합니다.
 
-	c. **SAML 설정** 양식을 작성합니다.<br><br>![Single Sign-On 구성](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_004.png) <br><br> c1. **전자 메일 도메인** 텍스트 상자에 등록된 도메인을 입력합니다. HackerOne에서 도메인을 등록하려면 다음으로 문의하세요.support@hackerone.com.<br><br> c2. Azure AD에서 HackerOne의 **Single Sign On URL**로 Single Sign-On 서비스 URL을 복사합니다.<br><br>![Single Sign-On 구성](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_006.png) <br> c3. 다운로드한 인증서를 Base64 파일로 변환하여 메모장에서 열고 HackerOne **X509 인증서** 텍스트 상자에 복사하여 붙여 넣습니다.<br>
 
-	d. **저장** 단추를 클릭합니다.<br><br> e. **테스트 실행** 단추를 클릭하고 테스트가 작동하는지 확인합니다. 작동하는 경우 support@hackerone.com을 통해 HackerOne 지원 팀에서 SAML 설정을 검토하고 승인하도록 요청합니다.<br><br>![Single Sign-On 구성](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_005.png) <br><br>
+1. 인증 설정 대화 상자에서 다음 단계를 수행합니다. <br><br>![Single Sign-On 구성](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_005.png) <br><br>
+
+    a. **테스트 실행**을 클릭합니다.
+
+    b. **상태** 필드 값이 **마지막 테스트 상태: 생성됨**인 경우 [support@hackerone.com](mailto:support@hackerone.com)을 통해 HackerOne 지원 팀에 구성 검토를 요청합니다.
 
 
 6. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다. <br><br>![Azure AD Single Sign-On][10]<br>
@@ -227,4 +249,4 @@ HackerOne에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 [204]: ./media/active-directory-saas-hackerone-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-hackerone-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

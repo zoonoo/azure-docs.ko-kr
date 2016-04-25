@@ -26,4 +26,8 @@
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+## 다음 단계
+
+클래식 포털을 사용하여 [Linux를 실행하는 사용자 지정 가상 컴퓨터를 만들](virtual-machines-linux-classic-createportal.md) 수도 있습니다.
+
+<!---HONumber=AcomDC_0413_2016-->

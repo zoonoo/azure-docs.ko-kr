@@ -35,7 +35,7 @@
 
 + iOS 8 장치(iOS 시뮬레이터에서에서 푸시 알림을 테스트할 수 없음)
 + iOS 개발자 프로그램 멤버 자격
-+ [Xamarin.iOS Studio]
++ [Xamarin Studio]
 + [Azure 모바일 서비스 구성 요소]
 + 활성 Google 계정
 + [Google Cloud Messaging 클라이언트 구성 요소]. 자습서에 이 구성 요소가 추가됩니다.
@@ -838,7 +838,7 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 [127]: ./media/partner-xamarin-mobile-services-xamarin-forms-get-started-push/notification-area-received.png
 
 
-[Xamarin.iOS Studio]: http://xamarin.com/platform
+[Xamarin Studio]: http://xamarin.com/download
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
@@ -852,9 +852,8 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 [Azure 모바일 서비스 구성 요소]: http://components.xamarin.com/view/azure-mobile-services/
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331303
-[Xamarin.iOS]: http://xamarin.com/download
 [Google Cloud Messaging 클라이언트 구성 요소]: http://components.xamarin.com/view/GCMClient/
 [Xamarin.Forms Azure 푸시 알림 시작 샘플]: https://github.com/Azure/mobile-services-samples/tree/master/TodoListXamarinForms
 [전체 Xamarin.Forms Azure 푸시 알림 샘플]: https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPushXamarinForms
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

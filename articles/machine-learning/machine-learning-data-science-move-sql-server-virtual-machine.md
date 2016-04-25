@@ -173,7 +173,7 @@ SSIS(SQL Server Integrations Services)를 사용하여 플랫 파일의 데이�
 
 ### Microsoft Azure 가상 컴퓨터에 SQL Server 데이터베이스 배포 마법사
 
-**Microsoft Azure VM에 SQL Server 데이터베이스 배포 마법사**는 온-프레미스 SQL Server 인스턴스에서 Azure VM의 SQL Server로 데이터를 이동하는 간단한 권장 방법입니다. 자세한 단계 및 다른 대안에 대한 설명은 [Azure VM의 SQL Server로 데이터베이스 마이그레이션](../virtual-machines/virtual-machines-windows-classic-migrate-sql.md)을 참조하세요.
+**Microsoft Azure VM에 SQL Server 데이터베이스 배포 마법사**는 온-프레미스 SQL Server 인스턴스에서 Azure VM의 SQL Server로 데이터를 이동하는 간단한 권장 방법입니다. 자세한 단계 및 다른 대안에 대한 설명은 [Azure VM의 SQL Server로 데이터베이스 마이그레이션](../virtual-machines/virtual-machines-windows-migrate-sql.md)을 참조하세요.
 
 ### <a name="export-flat-file"></a>플랫 파일로 내보내기
 
@@ -217,11 +217,11 @@ SQL Server는 다음을 지원합니다.
 
 ## 리소스
 
-[Azure VM에서 SQL Server로 데이터베이스 마이그레이션](../virtual-machines/virtual-machines-windows-classic-migrate-sql.md)
+[Azure VM에서 SQL Server로 데이터베이스 마이그레이션](../virtual-machines/virtual-machines-windows-migrate-sql.md)
 
-[Azure 가상 컴퓨터의 SQL Server 개요](../virtual-machines/virtual-machines-windows-classic-sql-overview.md)
+[Azure 가상 컴퓨터의 SQL Server 개요](../virtual-machines/virtual-machines-windows-sql-server-iaas-overview.md)
 
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

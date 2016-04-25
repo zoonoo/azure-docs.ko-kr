@@ -35,7 +35,7 @@ Azure Site Recovery 서비스에서 지 원하는 각 복제 시나리오에 대
 ---|---|---|---
 **VMM** | System Center 2012 R2에서 실행되는 VMM 서버가 하나 이상 필요합니다. VMM 서버에는 VMM 호스트 그룹이 하나 이상 포함된 클라우드가 하나 이상 있어야 합니다. | 해당 없음 | System Center 2012 R2에서 실행 중인 VMM 서버가 하나 이상 필요합니다. 각 사이트의 VMM 서버를 사용하는 것이 좋습니다. VMM 서버에는 VMM 호스트 그룹이 하나 이상 포함된 클라우드가 하나 이상 있어야 합니다. 클라우드에는 Hyper-V 용량 프로필이 설정되어 있어야 합니다. 
 **Hyper-V** | Windows Server 2012 R2 이상을 실행하는 온-프레미스 데이터 센터에 Hyper-V 호스트 서버가 하나 이상 필요합니다. Hyper-V 서버는 VMM 클라우드의 호스트 그룹에 있어야 합니다. | Windows Server 2012 R2 이상을 실행하는 원본 및 대상 사이트에 Hyper-V 서버가 하나 이상 필요합니다. | 최신 업데이트된 Windows Server 2012를 실행하는 원본 및 대상 사이트에 Hyper-V 서버가 하나 이상 필요합니다. Hyper-V 서버는 VMM 클라우드의 호스트 그룹에 있어야 합니다.
-**가상 컴퓨터** | 원본 Hyper-V 서버에 VM이 하나 이상 필요합니다. Azure에 복제하는 VM은 [Azure 가상 컴퓨터 필수 조건](#azure-virtual-machine-requirements)에 부합해야 합니다. | 원본 Hyper-V 서버에서 하나 이상의 VM이 필요합니다. Azure에 복제하는 VM은 [Azure 가상 컴퓨터 필수 조건](#azure-virtual-machine-requirements)에 부합해야 합니다. | 원본 VMM 클라우드에 VM이 하나 이상 필요합니다.
+**가상 컴퓨터** | 원본 Hyper-V 서버에 VM이 하나 이상 필요합니다. Azure에 복제하는 VM은 [Azure 가상 컴퓨터 필수 조건](#azure-virtual-machine-requirements)에 부합해야 합니다. <br> [여기](https://technet.microsoft.com/library/hh846766.aspx#BKMK_step4) 제공된 단계를 사용하여 VM에서 [통합 서비스](https://technet.microsoft.com/library/dn798297.aspx)를 설치 또는 업그레이드합니다. | 원본 Hyper-V 서버에서 하나 이상의 VM이 필요합니다. Azure에 복제하는 VM은 [Azure 가상 컴퓨터 필수 조건](#azure-virtual-machine-requirements)에 부합해야 합니다. <br> [여기](https://technet.microsoft.com/library/hh846766.aspx#BKMK_step4) 제공된 단계를 사용하여 VM에서 [통합 서비스](https://technet.microsoft.com/library/dn798297.aspx)를 설치 또는 업그레이드합니다. | 원본 VMM 클라우드에 VM이 하나 이상 필요합니다. <br> [여기](https://technet.microsoft.com/library/hh846766.aspx#BKMK_step4) 제공된 단계를 사용하여 VM에서 [통합 서비스](https://technet.microsoft.com/library/dn798297.aspx)를 설치 또는 업그레이드합니다.
 **Azure 계정** | [Azure](https://azure.microsoft.com/) 계정 및 구독이 필요합니다. | 해당 없음 | [Azure](https://azure.microsoft.com/) 계정 및 구독이 필요합니다.
 **Azure 저장소** | 복제된 데이터를 저장하려면 [Azure 저장소 계정](../storage/storage-redundancy.md#geo-redundant-storage)이 있어야 합니다. 복제된 데이터는 Azure 저장소에 저장되고 장애 조치(Failover) 발생 시 Azure VM이 작동합니다. | 해당 없음 | 복제된 데이터를 저장하려면 [Azure 저장소 계정](../storage/storage-redundancy.md#geo-redundant-storage)이 있어야 합니다. 복제된 데이터는 Azure 저장소에 저장되고 장애 조치(Failover) 발생 시 Azure VM이 작동합니다.
 **공급자/에이전트** | 배포 중에 VMM 서버에 Azure Site Recovery 공급자를 설치하고 Hyper-V 호스트 서버에 Azure 복구 서비스 에이전트를 설치합니다. 공급자는 Azure Site Recovery와 통신합니다. 에이전트는 원본과 대상 Hyper-V 서버 간의 데이터 복제를 처리합니다. VM에는 아무 것도 설치되지 않습니다. | 배포 중에 Hyper-V 호스트 서버나 클러스터에서 Azure Site Recovery 공급자와 Azure Recovery Services 에이전트를 모두 설치합니다. VM에는 아무 것도 설치되지 않습니다. | 배포 중에 VMM 서버에 Azure Site Recovery 공급자를 설치하여 Azure Site Recovery와 통신합니다. LAN/VPN을 통해 Hyper-V 원본과 대상 서버 간에 복제가 발생합니다.
@@ -60,7 +60,7 @@ Azure Site Recovery 서비스에서 지 원하는 각 복제 시나리오에 대
 **온-프레미스 기본 사이트** | 모든 사이트 복구 구성 요소(구성, 프로세스, 마스터 대상)를 실행하는 관리 서버를 설치합니다. | 보조 사이트에 보내기 전에 복제 데이터를 캐싱, 압축 및 암호화하기 위해 프로세스 서버를 설치합니다. 부하 분산 또는 내결함성을 위한 추가 프로세스 서버를 설치할 수 있습니다. 
 **온-프레미스 보조 사이트** | 해당 없음 | 배포를 구성, 관리 및 모니터링하기 위해 사용되는 단일 구성 서버를 설치합니다.<br/><br>구성 서버를 쉽게 관리하기 위해 vContinuum 서버를 설치하는 것이 좋습니다.<br/><br/>vSphere 보조 서버에서 실행 중인 VM으로 마스터 대상 서버를 설정해야 합니다. 
 **VMware vCenter/ESXi** | 기본 사이트에서 VMware VM을 복제하는 경우(또는 물리적 서버를 장애 복구하려는 경우) 기본 사이트에서 vSphere ESX/ESXi가 필요합니다. 또한 ESXi 호스트를 관리하는 vCenter 서버를 두는 것이 좋습니다. | 기본 및 보조 사이트에서 하나 이상의 VMware ESXi 호스트(및 필요에 따라 vCenter 서버)가 필요합니다. 
-**장애 복구** | 물리적 서버를 복제하는 경우에도 Azure에서 장애 복구를 수행하려면 VMware 환경이 필요합니다.<br/><br/>Azure VM에서 프로세스 서버를 설정해야 합니다.<br/><br/>구성 서버는 마스터 대상 서버의 역할을 하지만 대용량 트래픽 볼륨을 장애 복구하려는 경우 추가 온-프레미스 마스터 대상 서버를 설정해야 합니다. [자세히 알아보기](site-recovery-failback-azure-to-vmware-classic.md)| 물리적 컴퓨터에서 실패하더라도 보조 사이트에서 기본 사이트로 장애 조치하는 경우 VMware에만 해당합니다. 장애 조치의 경우 vSphere 기본 서버의 VM으로 마스터 대상 서버를 설정해야 합니다.
+**장애 복구** | 물리적 서버를 복제하는 경우에도 Azure에서 장애 복구를 수행하려면 VMware 환경이 필요합니다.<br/><br/>Azure VM으로 프로세스 서버를 설정해야 합니다. <br/><br/>구성 서버는 마스터 대상 서버의 역할을 하지만 대용량 트래픽 볼륨을 장애 복구하려는 경우 추가 온-프레미스 마스터 대상 서버를 설정해야 합니다. [자세히 알아보기](site-recovery-failback-azure-to-vmware-classic.md)| 물리적 컴퓨터에서 실패하더라도 보조 사이트에서 기본 사이트로 장애 조치하는 경우 VMware에만 해당합니다. 장애 조치의 경우 vSphere 기본 서버의 VM으로 마스터 대상 서버를 설정해야 합니다.
 **Azure 계정** | [Azure](https://azure.microsoft.com/) 계정 및 구독이 필요합니다. | 해당 없음
 **Azure 저장소** | 복제된 데이터를 저장하려면 [Azure 저장소 계정](../storage/storage-redundancy.md#geo-redundant-storage)이 있어야 합니다. 복제된 데이터는 Azure 저장소에 저장되고 장애 조치(Failover) 발생 시 Azure VM이 작동합니다. | 해당 없음
 **Azure 가상 네트워크** | 장애 조치(Failover) 발생 시 Azure VM에서 연결할 Azure 가상 네트워크가 필요합니다. 장애 조치(Failover) 후 장애 복구를 수행하려면 Azure 네트워크에서 온-프레미스 사이트로 VPN 연결(또는 Azure Express 경로) 설정이 필요합니다. | 해당 없음
@@ -127,4 +127,4 @@ FC 디스크 | 지원되지 않음 | 지원되지 않는 경우 필수 구성 �
 - [SAN을 사용하여 Hyper-V VM을 보조 사이트로 복제](site-recovery-vmm-san.md)
 - [단일 VMM 서버를 사용하여 Hyper-V VM 복제](site-recovery-single-vmm.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

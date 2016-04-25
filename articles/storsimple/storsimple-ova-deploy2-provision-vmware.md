@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/10/2016"
+   ms.date="04/12/2016"
    ms.author="alkohli"/>
 
 
@@ -59,7 +59,7 @@
 
 시작하기 전에 다음 사항을 확인합니다.
 
--   StorSimple 가상 장치를 배포하기 위한 네트워킹 요구 사항을 검토하고, 요구 사항에 따라 데이터 센터 네트워크를 구성했습니다. 자세한 내용은 Microsoft Azure StorSimple 가상 배열 시스템 요구 사항 가이드를 참조하세요.
+-   StorSimple 가상 장치를 배포하기 위한 네트워킹 요구 사항을 검토하고, 요구 사항에 따라 데이터 센터 네트워크를 구성했습니다. 자세한 내용은 [StorSimple 가상 배열 시스템 요구 사항](storsimple-ova-system-requirements.md)을 참조하세요.
 
 ## 단계별 프로비전 
 
@@ -91,7 +91,9 @@
 
 하이퍼바이저에서 가상 장치를 프로비전하려면 다음 단계를 수행합니다.
 
-1.  시스템에서 가상 장치 이미지를 복사합니다. 이것은 Azure 클래식 포털을 통해 다운로드해 놓은 이미지입니다. 이미지를 복사한 위치를 나중에 나오는 단계에서 사용할 수 있도록 기록해 둡니다.
+1.  시스템에서 가상 장치 이미지를 복사합니다. 이것은 Azure 클래식 포털을 통해 다운로드해 놓은 이미지입니다. 
+	1.  다운로드한 최신 이미지 파일인지 확인합니다. 이전에 이미지를 다운로드한 경우 최신 이미지인지 확인하기 위해 다시 다운로드합니다. 최신 이미지에는 하나가 아니라 두 개의 파일이 있습니다.
+	2.  이미지를 복사한 위치를 나중에 나오는 단계에서 사용할 수 있도록 기록해 둡니다.
 
 2.  vSphere 클라이언트를 사용하여 ESXi 서버에 로그인합니다. 가상 컴퓨터를 만들려면 관리자 권한이 필요합니다.
 
@@ -129,17 +131,18 @@
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image11.png)
 
-1.  이제 다운로드한 VMDK를 찾아서 가리킵니다.
+1.  이제 다운로드한 VMDK 파일을 찾아서 가리킵니다. 두 개의 파일이 있습니다. 업로드할 파일을 선택합니다.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image12.png)
+	![](./media/storsimple-ova-deploy2-provision-vmware/image12m.png)
 
-1.  **열기**를 클릭합니다. 이렇게 하면 VMDK 파일을 지정된 데이터 저장소에 업로드하는 작업이 시작됩니다.
+1.  **열기**를 클릭합니다. 이렇게 하면 VMDK 파일을 지정된 데이터 저장소에 업로드하는 작업이 시작됩니다. 파일 업로드에 몇 분 정도 걸릴 수 있습니다.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image13.png)
 
-1.  파일 업로드에 몇 분 정도 걸릴 수 있습니다. 업로드가 완료되면 사용자가 만든 폴더의 데이터 저장소에 파일이 표시됩니다.
+1.  업로드가 완료되면 사용자가 만든 폴더의 데이터 저장소에 파일이 표시됩니다.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image14.png)
+
+	이제 두 번째 VMDK 파일을 동일한 데이터 저장소에 업로드해야 합니다.
 
 1.  vSphere 클라이언트 창으로 돌아갑니다. ESXi 서버를 선택한 상태에서 마우스 오른쪽 단추를 클릭하고 **새 가상 컴퓨터**를 선택합니다.
 
@@ -155,7 +158,7 @@
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image18.png)
 
-1.  **가상 컴퓨터 버전** 페이지에서 **가상 컴퓨터 버전: 8**을 선택합니다. 이 릴리스에는 이 옵션만 지원됩니다.
+1.  **Virtual Machine Version**(가상 컴퓨터 버전) 페이지에서 **Virtual Machine Version: 8**(가상 컴퓨터 버전: 8)을 선택합니다. 버전 8~11은 모두 지원됩니다.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image19.png)
 
@@ -163,7 +166,7 @@
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image20.png)
 
-1.  **CPU** 페이지에서 **총 코어 수**가 4(또는 그 이상)가 되도록 **가상 소켓의 수** 및 **가상 소켓당 코어의 수**를 조정합니다. **다음**을 클릭합니다.
+1.  **CPU** 페이지에서 **Total number of cores**(총 코어 수)가 4(또는 그 이상)가 되도록 **Number of virtual sockets**(가상 소켓의 수) 및 **Number of cores per virtual socket**(가상 소켓 당 코어의 수)를 조정합니다. **다음**을 클릭합니다.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image21.png)
 
@@ -175,15 +178,15 @@
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image23.png)
 
-1.  **SCSI 컨트롤러** 페이지에서 기본 **LSI Logic SAS 컨트롤러**를 그대로 둡니다.
+1.  **SCSI 컨트롤러** 페이지에서 기본 **LSI Logic SAS controller**(LSI Logic SAS 컨트롤러)를 그대로 둡니다.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image24.png)
 
-1.  **디스크 선택** 페이지에서 **기존 가상 디스크 사용**을 선택합니다. **다음**을 클릭합니다.
+1.  **디스크 선택** 페이지에서 **Use an existing virtual disk**(기존 가상 디스크 사용)을 선택합니다. **다음**을 클릭합니다.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image25.png)
 
-1.  **기존 디스크 선택** 페이지의 **디스크 파일 경로** 아래에서 **찾아보기**를 클릭합니다. **데이터 저장소 찾아보기** 대화 상자가 열립니다. VMDK를 업로드한 위치로 이동합니다. 파일을 선택하고 **확인**을 클릭합니다. **다음**을 클릭합니다.
+1.  **Select Existing Disk**(기존 디스크 선택) 페이지의 **Disk File Path**(디스크 파일 경로) 아래에서 **찾아보기**를 클릭합니다. **Browse Datastores**(데이터 저장소 찾아보기) 대화 상자가 열립니다. VMDK를 업로드한 위치로 이동합니다. 이제 처음에 업로드한 두 개의 파일이 병합되었으므로 데이터 저장소에 하나의 파일만 표시됩니다. 파일을 선택하고 **확인**을 클릭합니다. **다음**을 클릭합니다.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image26.png)
 
@@ -191,23 +194,23 @@
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image27.png)
 
-1.  **완료 준비** 페이지에서 새 가상 컴퓨터와 관련된 모든 설정을 검토합니다. **완료하기 전에 가상 컴퓨터 설정 편집**을 클릭합니다. **계속**을 클릭합니다.
+1.  **Ready to Complete**(완료 준비) 페이지에서 새 가상 컴퓨터와 관련된 모든 설정을 검토합니다. **Edit the virtual machine settings before completion**(완료하기 전에 가상 컴퓨터 설정 편집)을 클릭합니다. **계속**을 클릭합니다.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image28.png)
 
-1.  **가상 컴퓨터 속성** 페이지의 **하드웨어** 탭에서 장치 하드웨어를 찾습니다. **새 하드 디스크**를 선택합니다. **추가**를 클릭합니다.
+1.  **Virtual Machines Properties**(가상 컴퓨터 속성) 페이지의 **하드웨어** 탭에서 장치 하드웨어를 찾습니다. **새 하드 디스크**를 선택합니다. **추가**를 클릭합니다.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image29.png)
 
-1.  **하드웨어 추가** 창이 표시됩니다. **장치 유형** 페이지의 **추가할 장치 유형 선택**에서 **하드 디스크**를 선택하고 **다음**을 클릭합니다.
+1.  **하드웨어 추가** 창이 표시됩니다. **장치 유형** 페이지의 **Choose the type of device you wish to add**(추가할 장치 유형 선택)에서 **하드 디스크**를 선택하고 **다음**을 클릭합니다.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image30.png)
 
-1.  **디스크 선택** 페이지에서 **새 가상 디스크 만들기**를 선택합니다. **다음**을 클릭합니다.
+1.  **디스크 선택** 페이지에서 **Create a new virtual disk**(새 가상 디스크 만들기)를 선택합니다. **다음**을 클릭합니다.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image31.png)
 
-1.  **디스크 만들기** 페이지에서 **디스크 크기**를 500GB(또는 그 이상)로 변경합니다. **디스크 프로비전**에서 **씬 프로비전**을 선택합니다. **다음**을 클릭합니다.
+1.  **디스크 만들기** 페이지에서 **디스크 크기**를 500GB(또는 그 이상)로 변경합니다. **Disk Provisioning**(디스크 프로비전)에서 **Thin Provision**(씬 프로비전)을 선택합니다. **다음**을 클릭합니다.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image32.png)
 
@@ -215,7 +218,7 @@
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image33.png)
 
-1.  **완료 준비** 페이지에서 디스크 옵션을 검토합니다. **마침**을 클릭합니다.
+1.  **Ready to Complete**(완료 준비) 페이지에서 디스크 옵션을 검토합니다. **마침**을 클릭합니다.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image34.png)
 
@@ -303,4 +306,4 @@
 
 -   [StorSimple 가상 배열을 iSCSI 서버로 설정](storsimple-ova-deploy3-iscsi-setup.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0413_2016-->

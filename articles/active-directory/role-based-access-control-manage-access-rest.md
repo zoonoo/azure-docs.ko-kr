@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="rest-api"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/25/2016"
+	ms.date="04/12/2016"
 	ms.author="kgremban"/>
 
 # REST API를 사용하여 역할 기반 액세스 제어 관리
@@ -22,6 +22,9 @@
 - [PowerShell](role-based-access-control-manage-access-powershell.md)
 - [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
 - [REST API](role-based-access-control-manage-access-rest.md)
+
+Azure 포털 및 Azure Resource Manager API의 RBAC(역할 기반 액세스 제어)를 사용하면 세밀한 수준에서 구독과 리소스에 대한 액세스를 관리할 수 있습니다. 이 기능을 통해 특정 범위에서 Active Directory 사용자, 그룹 또는 서비스 사용자에게 일부 역할을 할당하여 액세스 권한을 부여할 수 있습니다.
+
 
 ## 모든 역할 할당 나열
 
@@ -53,8 +56,8 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 | 조건 | *{Filter}* | Replace |
 |-----------|------------|---------|
 | 하위 범위에서는 역할 할당을 포함시키지 않고 지정된 범위에 대해서만 역할 할당을 나열하려면 | `atScope()` | |
-| 특정 사용자, 그룹 또는 응용 프로그램에 대해서만 역할 할당을 나열하려면 | `principalId%20eq%20'{objectId}'` | *{objectId}*를 사용자, 그룹 또는 서비스 주체의 Azure AD objectId로 바꿉니다. 예를 들어 `&filter=principalId%20eq%20'3a477f6a-6739-4b93-84aa-3be3f8c8e7c2'` |
-| 사용자가 멤버인 그룹에 할당된 역할 할당을 포함하여 특정 사용자에 대해서만 역할 할당을 나열하려면 | `assignedTo('{objectId}')` | *{objectId}*를 사용자의 Azure AD objectId로 바꿉니다. 예를 들어 `&filter=assignedTo('3a477f6a-6739-4b93-84aa-3be3f8c8e7c2')` |
+| 특정 사용자, 그룹 또는 응용 프로그램에 대해서만 역할 할당을 나열하려면 | `principalId%20eq%20'{objectId}'` | *{objectId}*를 사용자, 그룹 또는 서비스 사용자의 Azure AD objectId로 바꿉니다. 예: `&filter=principalId%20eq%20'3a477f6a-6739-4b93-84aa-3be3f8c8e7c2'` |
+| 사용자가 멤버인 그룹에 할당된 역할 할당을 포함하여 특정 사용자에 대해서만 역할 할당을 나열하려면 | `assignedTo('{objectId}')` | *{objectId}*를 사용자의 Azure AD objectId로 바꿉니다. 예: `&filter=assignedTo('3a477f6a-6739-4b93-84aa-3be3f8c8e7c2')` |
 
 
 
@@ -275,7 +278,7 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 | 조건 | *{Filter}* | Replace |
 |-----------|------------|---------|
 | 지정된 범위 및 해당 자식 범위에서 할당에 사용할 수 있는 역할을 나열하려면 | `atScopeAndBelow()` | |
-| 정확한 표시 이름을 사용하여 역할을 검색하려면 | `roleName%20eq%20'{role-display-name}'` | *{role-display-name}*을 역할의 정확한 표시 이름의 URL 인코딩 형식으로 바꿉니다. 예를 들어 `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
+| 정확한 표시 이름을 사용하여 역할을 검색하려면 | `roleName%20eq%20'{role-display-name}'` | *{role-display-name}*을 역할의 정확한 표시 이름의 URL 인코딩 형식으로 바꿉니다. 예: `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
 
 
 
@@ -658,7 +661,7 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 
 URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 
-*{scope}*을 역할 정의를 삭제하려는 범위로 바꿉니다. 다음 예제에서는 서로 다른 수준에 대해 범위를 지정하는 방법을 보여 줍니다.
+*{scope}*를 역할 정의를 삭제하려는 범위로 바꿉니다. 다음 예제에서는 서로 다른 수준에 대해 범위를 지정하는 방법을 보여 줍니다.
 
 | Level | *{Scope}* |
 |-------|-----------|
@@ -711,4 +714,4 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 
 ```
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -162,6 +162,8 @@ SSIS(SQL Server Integration Services)를 사용하여 Hive 작업을 실행할 �
 
 - [HDInsight에 데이터 업로드][hdinsight-upload-data]
 - [HDInsight에서 Pig 사용][hdinsight-use-pig]
+- [HDInsight에서 Sqoop 사용](hdinsight-use-sqoop.md)
+- [HDInsight에서 Oozie 사용](hdinsight-use-oozie.md)
 - [HDInsight에서 MapReduce 작업 사용][hdinsight-use-mapreduce]
 
 [check]: ./media/hdinsight-use-hive/hdi.checkmark.png
@@ -194,7 +196,7 @@ SSIS(SQL Server Integration Services)를 사용하여 Hive 작업을 실행할 �
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-get-started]: hdinsight-get-started.md
 
-[Powershell-install-configure]: ../install-configure-powershell.md
+[Powershell-install-configure]: ../powershell-install-configure.md
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
 [image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
@@ -204,4 +206,4 @@ SSIS(SQL Server Integration Services)를 사용하여 Hive 작업을 실행할 �
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

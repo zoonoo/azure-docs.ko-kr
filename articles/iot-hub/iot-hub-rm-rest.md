@@ -61,7 +61,7 @@
     using Newtonsoft.Json;
     ```
     
-7. Program.cs에서 다음 정적 변수를 추가하여 자리 표시자 값을 바꿉니다. 이 자습서의 앞부분에서 **ApplicationId**, **SubscriptionId**, **TenantId** 및 **암호**를 적어 두었습니다. **리소스 그룹 이름**은 IoT Hub를 만들 때 사용할 리소스 그룹의 이름으로, 기존의 리소스 그룹이거나 새 리소스 그룹입니다. **IoT Hub 이름**은 **MyIoTHub**와 같이 만들 IoT Hub의 이름입니다. **배포 이름**은 **Deployment\_01**과 같은 배포의 이름입니다.
+7. Program.cs에서 다음 정적 변수를 추가하여 자리 표시자 값을 바꿉니다. 이 자습서의 앞부분에서 **ApplicationId**, **SubscriptionId**, **TenantId** 및 **암호**를 적어 두었습니다. **리소스 그룹 이름**은 IoT Hub를 만들 때 사용할 리소스 그룹의 이름으로, 기존의 리소스 그룹이거나 새 리소스 그룹입니다. **IoT Hub 이름**은 **MyIoTHub**처럼 만들 IoT Hub의 이름입니다(이 이름은 전역적으로 고유해야 함). **배포 이름**은 **Deployment\_01**과 같은 배포의 이름입니다.
 
     ```
     static string applicationId = "{Your ApplicationId}";
@@ -183,4 +183,4 @@ REST API를 사용하여 IoT Hub를 배포했으면 구체적인 내용을 알�
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
 [lnk-azure-rm-overview]: ../resource-group-overview.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

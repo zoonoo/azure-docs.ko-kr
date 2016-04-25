@@ -158,7 +158,7 @@ Blob 컨테이너에 대한 액세스를 제어하려면 **Manage Access Control
 	![][20]
 
 ## 다음 단계
-[Microsoft Azure 저장소 소개](/storage/storage-introduction.md)의 문서를 참조하여 Azure 저장소 서비스의 기능에 대해 알아봅니다.
+[Microsoft Azure 저장소 소개](./storage/storage-introduction.md)의 문서를 참조하여 Azure 저장소 서비스의 기능에 대해 알아봅니다.
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/AddAccount1c.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/AddAccount2c.png
@@ -182,4 +182,4 @@ Blob 컨테이너에 대한 액세스를 제어하려면 **Manage Access Control
 [19]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS3c.png
 [20]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS4c.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

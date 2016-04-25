@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Azure Government 이미지 갤러리" 
-   description="이 문서에서는 Azure Government 이미지 갤러리 및 포함된 이미지에 대한 개요를 제공합니다." 
-   services="Azure-Government" 
-   documentationCenter="" 
-   authors="joharve2" 
-   manager="chrisnie" 
+<properties
+   pageTitle="Azure Government 이미지 갤러리"
+   description="이 문서에서는 Azure Government 이미지 갤러리 및 포함된 이미지에 대한 개요를 제공합니다."
+   services="Azure-Government"
+   documentationCenter=""
+   authors="joharve2"
+   manager="chrisnie"
    editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="azure-government" 
+   ms.workload="azure-government"
    ms.date="05/20/2015"
    ms.author="jharve"/>
 
@@ -91,15 +91,15 @@ SUSE|SUSE Linux Enterprise Server 12|Microsoft Azure의 SUSE Linux Enterprise Se
 
 다음은 이미지 갤러리에서 배포하거나 사용자 고유의 VHD를 만드는 방법에 대한 자세한 정보를 제공하는 리소스입니다. Azure Government로 작업할 때 끝점 간의 프로그래밍 차이점은 <a href="../azure-government-developer-guide">Azure Government 개발자 가이드</a>를 참조하세요.
 
-###기타 리소스: 
+###기타 리소스:
 
-- [Windows 가상 컴퓨터 배포](virtual-machines/virtual-machines-windows-hero-tutorial.md)
+- [Windows 가상 컴퓨터 배포](./virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
-- [Linux 가상 컴퓨터 배포](virtual-machines/virtual-machines-linux-cli-create.md)
+- [Linux 가상 컴퓨터 배포](./virtual-machines/virtual-machines-linux-create-cli-complete.md)
 
-- [가상 컴퓨터 FAQ](http://msdn.microsoft.com/library/azure/dn683781.aspx)
+- [가상 컴퓨터 FAQ](./virtual-machines/virtual-machines-linux-classic-faq.md)
 
-- [사용자 고유의 VHD 만들기 및 업로드](virtual-machines-create-upload-vhd-windows-server/)
+- [사용자 고유의 VHD 만들기 및 업로드](./virtual-machines/virtual-machines-linux-about-disks-vhds.md/)
 
 - [Linux VM 이미지 캡처](virtual-machines/virtual-machines-linux-classic-capture-image.md)
 
@@ -114,8 +114,8 @@ SUSE|SUSE Linux Enterprise Server 12|Microsoft Azure의 SUSE Linux Enterprise Se
 [2]: ./media/azure-government-overview/azure-gov-overview.jpg
 
 <!--Link references-->
-[Link 1 to another azure.microsoft.com documentation topic]: virtual-machines/virtual-machines-windows-hero-tutorial.md
-[Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
-[Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
+[Link 1 to another azure.microsoft.com documentation topic]: ./virtual-machines/virtual-machines-windows-hero-tutorial.md
+[Link 2 to another azure.microsoft.com documentation topic]: ./app-service-web/web-sites-custom-domain-name.md
+[Link 3 to another azure.microsoft.com documentation topic]: ./storage/storage-whatis-account.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

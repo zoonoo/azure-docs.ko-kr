@@ -2,6 +2,6 @@
 
 >[AZURE.NOTE] Azure 수신기에 대한 문제 해결 팁에 대해서는 AlwaysOn 지원 팀 [블로그](http://blogs.msdn.com/b/alwaysonpro/)의 [Azure에서 가용성 그룹 수신기 문제 해결](http://blogs.msdn.com/b/alwaysonpro/archive/2016/02/01/troubleshooting-availability-group-listener-in-azure.aspx)을 참조하세요.
 
-Azure에서 SQL Server를 사용하는 방법에 대한 기타 정보는 [Azure 가상 컴퓨터의 SQL Server](../articles/virtual-machines/virtual-machines-windows-classic-sql-overview.md)를 참조하세요.
+Azure에서 SQL Server를 사용하는 방법에 대한 기타 정보는 [Azure 가상 컴퓨터의 SQL Server](../articles/virtual-machines/virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

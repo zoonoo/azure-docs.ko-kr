@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/18/2016"   
+	ms.date="04/08/2016"   
 	ms.author="adsolank;juliako;johndeu"/>
 
 
@@ -69,7 +69,7 @@ Azure 미디어 인덱서를 사용하면 미디어 파일 콘텐츠를 검색 �
 	    IJob job = _context.Jobs.Create("My Indexing Job");
 
 	    // Get a reference to the Azure Media Indexer.
-	    string MediaProcessorName = "Azure Media Indexer",
+	    string MediaProcessorName = "Azure Media Indexer";
 	    IMediaProcessor processor = GetLatestMediaProcessorByName(MediaProcessorName);
 
 	    // Read configuration from file if specified.
@@ -290,15 +290,12 @@ __features__ <br /><br /> 버전 1.2에 추가되었습니다. 현재 지원되�
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
-
 ## 관련 링크
+
+[Azure 미디어 서비스 분석 개요](media-services-analytics-overview.md)
 
 [Azure 미디어 인덱서 및 SQL Server에서 AIB 파일 사용(영문)](https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
 
-<!-- Anchors. -->
+[Azure 미디어 인덱서 2 미리 보기를 사용하여 미디어 파일 인덱싱](media-services-process-content-with-indexer2.md)
 
-<!-- Images. -->
-
-<!-- URLs. -->
-
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

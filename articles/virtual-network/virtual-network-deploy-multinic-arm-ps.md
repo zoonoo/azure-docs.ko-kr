@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="리소스 관리자에서 PowerShell을 사용하여 여러 NIC VM 배포 | Microsoft Azure"
    description="리소스 관리자에서 PowerShell을 사용하여 여러 NIC VM을 배포하는 방법에 대해 알아봅니다."
    services="virtual-network"
@@ -23,11 +23,11 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-intro-include.md](../../includes/virtual-network-deploy-multinic-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [클래식 배포 모델](virtual-network-deploy-multinic-classic-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-network-deploy-multinic-classic-ps.md).
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-현재는 단일 NIC가 사용되는 VM과 여러 NIC가 사용되는 VM을 동일 리소스 그룹에서 사용할 수 없기 때문에 다른 모든 구성 요소와 다른 리소스 그룹에 백 엔드 서버를 구현하게 됩니다. 다음 단계에서는 기본 리소스 그룹에 *IaaSStory* 라는 리소스 그룹을, 백 엔드 서버에는 *IaaSStory-BackEnd* 를 사용합니다.
+현재는 단일 NIC가 사용되는 VM과 여러 NIC가 사용되는 VM을 같은 리소스 그룹에서 포함할 수 없습니다. 따라서 다른 모든 구성 요소와 다른 리소스 그룹에 백 엔드 서버를 구현해야 합니다. 다음 단계에서는 기본 리소스 그룹에 *IaaSStory*라는 리소스 그룹을, 백 엔드 서버에는 *IaaSStory-BackEnd*를 사용합니다.
 
 ## 필수 조건
 
@@ -118,7 +118,7 @@
 		for ($suffixNumber = 1; $suffixNumber -le $numberOfVMs; $suffixNumber++){
 
 2. 데이터베이스 액세스에 사용되는 NIC를 만듭니다.
-		
+
 		    $nic1Name = $nicNamePrefix + $suffixNumber + "-DA"
 		    $ipAddress1 = $ipAddressPrefix + ($suffixNumber + 3)
 		    $nic1 = New-AzureRmNetworkInterface -Name $nic1Name -ResourceGroupName $backendRGName `
@@ -143,14 +143,14 @@
 		    $data1VhdUri = $prmStorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $dataDisk1Name + ".vhd"
 		    Add-AzureRmVMDataDisk -VM $vmConfig -Name $dataDisk1Name -DiskSizeInGB $diskSize `
 				-VhdUri $data1VhdUri -CreateOption empty -Lun 0
-		
+
 		    $dataDisk2Name = $vmName + "-" + $dataDiskSuffix + "-2"    
 		    $data2VhdUri = $prmStorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $dataDisk2Name + ".vhd"
 		    Add-AzureRmVMDataDisk -VM $vmConfig -Name $dataDisk2Name -DiskSizeInGB $diskSize `
 				-VhdUri $data2VhdUri -CreateOption empty -Lun 1
 
 6. 운영 체제와 VM에 사용될 이미지를 구성합니다.
-		    
+
 		    $vmConfig = Set-AzureRmVMOperatingSystem -VM $vmConfig -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
 		    $vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -PublisherName $publisher -Offer $offer -Skus $sku -Version $version
 
@@ -176,43 +176,43 @@
 		ResourceGroupName : IaaSStory-Backend
 		Location          : westus
 		ProvisioningState : Succeeded
-		Tags              : 
-		Permissions       : 
+		Tags              :
+		Permissions       :
 		                    Actions  NotActions
 		                    =======  ==========
 		                    *                  
-		                    
+
 		ResourceId        : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/IaaSStory-Backend
 
 2. 몇 분 후에 자격 증명 프롬프트에 정보를 입력하고 **확인**을 클릭합니다. 아래 출력은 단일 VM을 나타냅니다. 전체 프로세스를 완료하는 데 8분이 소요되었습니다.
 
-		ResourceGroupName            : 
-		Id                           : 
+		ResourceGroupName            :
+		Id                           :
 		Name                         : DB2
-		Type                         : 
-		Location                     : 
-		Tags                         : 
+		Type                         :
+		Location                     :
+		Tags                         :
 		TagsText                     : null
 		AvailabilitySetReference     : Microsoft.Azure.Management.Compute.Models.AvailabilitySetReference
 		AvailabilitySetReferenceText : {
 		                                 "ReferenceUri": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory-Backend/providers/
 		                               Microsoft.Compute/availabilitySets/ASDB"
 		                               }
-		Extensions                   : 
+		Extensions                   :
 		ExtensionsText               : null
 		HardwareProfile              : Microsoft.Azure.Management.Compute.Models.HardwareProfile
 		HardwareProfileText          : {
 		                                 "VirtualMachineSize": "Standard_DS3"
 		                               }
-		InstanceView                 : 
+		InstanceView                 :
 		InstanceViewText             : null
-		NetworkProfile               : 
+		NetworkProfile               :
 		NetworkProfileText           : null
-		OSProfile                    : 
+		OSProfile                    :
 		OSProfileText                : null
-		Plan                         : 
+		Plan                         :
 		PlanText                     : null
-		ProvisioningState            : 
+		ProvisioningState            :
 		StorageProfile               : Microsoft.Azure.Management.Compute.Models.StorageProfile
 		StorageProfileText           : {
 		                                 "DataDisks": [
@@ -232,38 +232,38 @@
 		                                 "OSDisk": null
 		                               }
 		DataDiskNames                : {DB2-datadisk-1}
-		NetworkInterfaceIDs          : 
-		RequestId                    : 
+		NetworkInterfaceIDs          :
+		RequestId                    :
 		StatusCode                   : 0
-		
-		
-		ResourceGroupName            : 
-		Id                           : 
+
+
+		ResourceGroupName            :
+		Id                           :
 		Name                         : DB2
-		Type                         : 
-		Location                     : 
-		Tags                         : 
+		Type                         :
+		Location                     :
+		Tags                         :
 		TagsText                     : null
 		AvailabilitySetReference     : Microsoft.Azure.Management.Compute.Models.AvailabilitySetReference
 		AvailabilitySetReferenceText : {
 		                                 "ReferenceUri": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory-Backend/providers/
 		                               Microsoft.Compute/availabilitySets/ASDB"
 		                               }
-		Extensions                   : 
+		Extensions                   :
 		ExtensionsText               : null
 		HardwareProfile              : Microsoft.Azure.Management.Compute.Models.HardwareProfile
 		HardwareProfileText          : {
 		                                 "VirtualMachineSize": "Standard_DS3"
 		                               }
-		InstanceView                 : 
+		InstanceView                 :
 		InstanceViewText             : null
-		NetworkProfile               : 
+		NetworkProfile               :
 		NetworkProfileText           : null
-		OSProfile                    : 
+		OSProfile                    :
 		OSProfileText                : null
-		Plan                         : 
+		Plan                         :
 		PlanText                     : null
-		ProvisioningState            : 
+		ProvisioningState            :
 		StorageProfile               : Microsoft.Azure.Management.Compute.Models.StorageProfile
 		StorageProfileText           : {
 		                                 "DataDisks": [
@@ -294,18 +294,18 @@
 		                                 "OSDisk": null
 		                               }
 		DataDiskNames                : {DB2-datadisk-1, DB2-datadisk-2}
-		NetworkInterfaceIDs          : 
-		RequestId                    : 
+		NetworkInterfaceIDs          :
+		RequestId                    :
 		StatusCode                   : 0
-		
-		
+
+
 		EndTime             : 10/30/2015 9:30:03 AM -08:00
-		Error               : 
-		Output              : 
+		Error               :
+		Output              :
 		StartTime           : 10/30/2015 9:22:54 AM -08:00
 		Status              : Succeeded
 		TrackingOperationId : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 		RequestId           : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 		StatusCode          : OK
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

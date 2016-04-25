@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="04/07/2016" 
 	ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication FAQ
@@ -161,6 +161,11 @@ Azure MFA 서버는 Windows Server 2012 이전 버전에서 LSA 보안 패키지
 
 그러나 Windows Server 2012 R2를 사용하는 경우 RD 게이트웨이가 필요합니다.
 
+**Q: 발신자 번호를 설정한 후 익명 호출자로부터 MFA 호출을 수신한 이유는 무엇입니까?**
+
+경우에 따라 MFA 호출이 공용 전화망을 통해 이루어진 경우 발신자 번호를 지원하지 않는 통신 회사를 통해 라우팅됩니다. 따라서 MFA 시스템에서 항상 전송하더라도 발신자 번호가 보장되지 않습니다.
+
+
 ## 오류
 
 **Q: 모바일 응용 프로그램 알림을 사용하여 인증할 때 "활성화된 계정에 대한 인증 요청이 아닙니다”라는 오류가 표시되면 어떻게 해야 하나요?**
@@ -180,4 +185,4 @@ Azure MFA 서버는 Windows Server 2012 이전 버전에서 LSA 보안 패키지
 
 이 문제를 해결하려면 관리 관련 작업용 사용자 계정과 비관리 관련 작업용 사용자 계정을 따로 두어야 합니다. 나중에 관리 계정과 비관리 계정 간의 사서함을 연결하면 비관리 계정을 사용하여 Outlook에 로그인할 수 있습니다. 이에 대한 자세한 내용은 [관리자에게 사용자의 사서함 내용을 열고 보는 기능 제공](http://help.outlook.com/141/gg709759(d=loband).aspx?sl=1))을 참조하세요.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

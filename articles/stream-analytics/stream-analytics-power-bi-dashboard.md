@@ -1,22 +1,22 @@
-<properties 
-	pageTitle="스트림 분석의 Power BI 대시보드 | Microsoft Azure" 
-	description="실시간 스트리밍 Power BI 대시보드를 사용하여 비즈니스 인텔리전스를 수집하고 스트림 분석 작업에서 대량의 데이터를 분석합니다." 
-	keywords="분석 대시보드, 실시간 대시보드"	
-	services="stream-analytics" 
-	documentationCenter="" 
-	authors="jeffstokes72" 
-	manager="paulettm" 
+<properties
+	pageTitle="스트림 분석의 Power BI 대시보드 | Microsoft Azure"
+	description="실시간 스트리밍 Power BI 대시보드를 사용하여 비즈니스 인텔리전스를 수집하고 스트림 분석 작업에서 대량의 데이터를 분석합니다."
+	keywords="분석 대시보드, 실시간 대시보드"
+	services="stream-analytics"
+	documentationCenter=""
+	authors="jeffstokes72"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="stream-analytics" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="data-services" 
-	ms.date="03/18/2016" 
+<tags
+	ms.service="stream-analytics"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="data-services"
+	ms.date="03/18/2016"
 	ms.author="jeffstok"/>
-	
+
 #  스트림 분석 및 Power BI: 스트리밍 데이터에 대한 실시간 분석 대시보드
 
 Azure 스트림 분석을 사용하면 최고의 비즈니스 인텔리전스 도구 중 하나인 Microsoft Power BI를 이용할 수 있습니다. Azure 스트림 분석을 사용하여 대용량, 스트리밍 데이터를 분석하고 실시간 Power BI 분석 대시보드에서 이해를 넓히는 방법에 대해 알아봅니다.
@@ -99,11 +99,11 @@ Azure 스트림 분석을 사용하면 최고의 비즈니스 인텔리전스 �
 * **데이터 집합 이름** - Power BI 출력에 포함할 데이터 집합 이름을 입력합니다. 예를 들어, “pbidemo”를 사용합니다.
 *	**테이블 이름** -Power BI 출력의 데이터 집합 아래 테이블 이름을 입력합니다. "Pbidemo"라고 입력합니다. 현재, 스트림 분석 작업의 Power BI 출력에는 하나의 데이터 집합에 하나의 테이블만 있을 수 있습니다.
 
->	[AZURE.NOTE] Power BI 계정에서 이 데이터 집합과 테이블을 명시적으로 만들면 안 됩니다. 스트림 분석 작업을 시작하면 자동으로 만들어지며 이 작업에서 출력을 Power BI로 펌프하기 시작합니다. 작업 쿼리에서 아무 결과도 반환하지 않는 경우에는 데이터 집합과 테이블이 만들어지지 않습니다.
+>	[AZURE.NOTE] You should not explicitly create this dataset and table in your Power BI account. They will be automatically created when you start your Stream Analytics job and the job starts pumping output into Power BI. If your job query doesn’t return any results, the dataset and table will not be created.
 
 *	**확인**, **연결 테스트**를 클릭하면 이제 출력 구성이 완료됩니다.
 
->	[AZURE.WARNING] 또한 이 스트림 분석 작업에서 제공한 이름과 동일한 이름의 데이터 집합과 테이블이 Power BI에 이미 있는 경우에는 기존 데이터를 덮어씁니다.
+>	[AZURE.WARNING] Also be aware that if Power BI already had a dataset and table with the same name as the one you provided in this Stream Analytics job, the existing data will be overwritten.
 
 
 ## 쿼리 작성
@@ -123,8 +123,8 @@ Azure 스트림 분석을 사용하면 최고의 비즈니스 인텔리전스 �
     	TUMBLINGWINDOW(ss,1),
     	dspl
 
-    
-    
+
+
 사용자의 작업을 시작합니다. 이벤트 허브는 이벤트를 수신하고 쿼리가 예상된 결과를 생성하는지 확인합니다. 쿼리가 0개의 행을 출력하면, Power BI 데이터 집합 및 테이블이 자동으로 만들어지지 않습니다.
 
 ## Power BI에서 대시보드 만들기
@@ -161,20 +161,20 @@ Azure 스트림 분석을 사용하면 최고의 비즈니스 인텔리전스 �
 
 이 자습서에서는 데이터 집합에 대한 한 종류의 차트를 만드는 방법에 대해 설명합니다. Power BI는 조직에 대한 다른 고객 비즈니스 인텔리전스 도구를 만드는 데 도움이 됩니다. Power BI 대시보드의 다른 예제는 [Power BI 시작](https://youtu.be/L-Z_6P56aas?t=1m58s) 비디오를 보세요.
 
-Power BI 출력 구성 및 Power BI 그룹 사용 방법에 대한 자세한 내용은 [스트림 분석 출력 이해](stream-analytics-define-outputs.md "스트림 분석 출력 이해")의 [Power BI 섹션](stream-analytics-define-outputs.md#power-bi)을 참조하세요. Power BI를 사용한 대시보드 만들기에 대해 알 수 있는 다른 유용한 리소스는 [Power BI 미리 보기의 대시보드](http://support.powerbi.com/knowledgebase/articles/424868-dashboards-in-power-bi-preview)입니다.
+Power BI 출력 구성 및 Power BI 그룹 사용 방법에 대한 자세한 내용은 [스트림 분석 출력 이해](stream-analytics-define-outputs.md "스트림 분석 출력 이해")의 [Power BI 섹션](stream-analytics-define-outputs.md#power-bi)을 참조하세요. Power BI를 사용한 대시보드 만들기에 대해 알 수 있는 다른 유용한 리소스는 [Power BI 미리 보기의 대시보드](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/)입니다.
 
 ## 제한 사항 및 모범 사례
 
 Power BI는 [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing "Power BI 가격 책정")에 설명된 바와 같이 동시성과 처리량 제약 조건을 모두 사용합니다.
 
 때문에 Power BI는 Azure 스트림 분석으로 상당한 데이터 부하 감소가 이루어 지는 경우에 가장 적합합니다. TumblingWindow 또는 HoppingWindow를 사용하여 데이터 푸시가 최대 1초마다 푸시되도록 하고 쿼리가 처리량 요구 사항 이내에 들도록 하는 것이 좋습니다. 다음 수식을 사용하여 수 초 내에 창에 공급할 값을 계산할 수 있습니다.
-  
+
 ![수식 1](./media/stream-analytics-power-bi-dashboard/equation1.png)
-  
+
 예를 들어 매초마다 데이터를 보내는 1,000개의 장치가 있다면 시간당 1,000,000행을 지원하는 Power BI Pro SKU를 사용하면서 Power BI에서 장치별 평균 데이터를 확인하고 아래 표시된 것과 같이 장치별로 최대 4초마다 푸시를 수행할 수 있습니다.
-  
+
 ![수식 2](./media/stream-analytics-power-bi-dashboard/equation2.png)
-  
+
 이를 위해 원래 쿼리가 아래와 같이 변경됩니다.
 
     SELECT
@@ -232,4 +232,4 @@ Power BI 출력을 포함하는 모든 작업에 대해 90일마다 인증 토�
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

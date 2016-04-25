@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="BYHAM"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article" 
-	ms.date="03/16/2016"
-	ms.author="rickbyh"/>
+	ms.date="04/12/2016"
+	ms.author="rickbyh;carlrab"/>
 
 
 # 방법: Azure 포털을 사용하여 SQL 데이터베이스에 방화벽 설정 구성
@@ -27,17 +27,11 @@
 - [PowerShell](sql-database-configure-firewall-settings-powershell.md)
 - [REST API](sql-database-configure-firewall-settings-rest.md)
 
-
 Azure SQL Server는 서버와 데이터베이스에 대한 연결을 허용하는 방화벽 규칙을 사용합니다. 선택적으로 데이터베이스에 대한 액세스를 허용하도록 Azure SQL Server 논리 서버에서 마스터 데이터베이스 또는 사용자 데이터베이스에 대한 서버 수준 및 데이터베이스 수준 방화벽 설정을 정의할 수 있습니다.
 
 > [AZURE.IMPORTANT] Azure에서 응용 프로그램을 Azure SQL Server에 연결할 수 있게 하려면 Azure 연결을 사용하도록 설정해야 합니다. 방화벽 규칙의 작동 방식을 이해하려면 [Azure SQL 데이터베이스 방화벽](sql-database-firewall-configure.md)을 참조하세요. Azure 클라우드 경계 내에서 연결하는 경우 일부 TCP 포트를 추가로 열어야 할 수도 있습니다. 자세한 내용은 [ADO.NET 4.5 및 SQL 데이터베이스 V12에 대한 1433 이외의 포트](sql-database-develop-direct-route-ports-adonet-v12.md)의 **SQL 데이터베이스의 V12: 내부 vs 외부** 섹션을 참조하세요.
 
-
-### Azure 포털을 통해 서버 수준 방화벽 규칙 추가
-
-
-[AZURE.INCLUDE [sql-database-include-ip-address-22-v12portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
-
+[AZURE.INCLUDE [SQL 데이터베이스 데이터베이스 만들기](../../includes/sql-database-create-new-server-firewall-portal.md)]
 
 ## Azure 포털을 통해 기존 서버 수준 방화벽 규칙 관리
 
@@ -50,10 +44,9 @@ Azure SQL Server는 서버와 데이터베이스에 대한 연결을 허용하�
 
 **저장**을 클릭하여 변경 내용을 저장합니다.
 
-
 ## 다음 단계
 
-서버 방화벽 규칙은 Azure SQL Server에 있는 모든 SQL 데이터베이스에 영향을 줍니다. 단일 데이터베이스에만 영향을 주는 데이터베이스 수준 방화벽 규칙을 구성하려면 [sp\_set\_firewall\_rule(Azure SQL 데이터베이스)](https://msdn.microsoft.com/library/dn270017.aspx")을 참조하세요.
+서버 방화벽 규칙은 Azure SQL Server에 있는 모든 SQL 데이터베이스에 영향을 줍니다. 단일 데이터베이스에만 영향을 주는 데이터베이스 수준 방화벽 규칙을 구성하려면 [sp\_set\_database\_firewall\_rule(Azure SQL 데이터베이스)](https://msdn.microsoft.com/library/dn270010.aspx")을 참조하세요.
 
 데이터베이스를 만드는 방법에 대한 자습서는 [첫 Azure SQL 데이터베이스 만들기](sql-database-get-started.md)를 참조하세요. 오픈 소스 또는 타사 응용 프로그램에서 Azure SQL 데이터베이스에 연결하는 방법에 대한 도움말은 [프로그래밍 방식으로 Azure SQL 데이터베이스에 연결하기 위한 지침](https://msdn.microsoft.com/library/azure/ee336282.aspx)을 참조하세요. 데이터베이스를 탐색하는 방법을 이해하려면 [Azure SQL 데이터베이스에서 데이터베이스 및 로그인 관리](https://msdn.microsoft.com/library/azure/ee336235.aspx)를 참조하세요.
 
@@ -64,4 +57,4 @@ Azure SQL Server는 서버와 데이터베이스에 대한 연결을 허용하�
 
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0413_2016-->

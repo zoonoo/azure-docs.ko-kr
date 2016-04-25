@@ -388,9 +388,7 @@ Analysis Services의 **명명된 인스턴스**의 경우 포트 액세스를 �
 
 	|포트|형식|설명|
 |---|---|---|
-|**80**|TCP|보고서 서버 원격 액세스(*).|
-|**1433**|TCP|SQL Server Management Studio(*).|
-|**1434**|UDP|SQL Server Browser입니다. VM이 도메인에 가입된 경우 필요합니다.|
+|**80**|TCP|보고서 서버 원격 액세스(*).| |**1433**|TCP|SQL Server Management Studio(*).| |**1434**|UDP|SQL Server Browser입니다. VM이 도메인에 가입된 경우 필요합니다.|
 |**2382**|TCP|SQL Server Browser입니다.|
 |**2383**|TCP|SQL Server Analysis Services 기본 인스턴스 및 클러스터된 명명된 인스턴스입니다.|
 |**사용자 정의**|TCP|선택하는 포트 번호에 대해 정적 Analysis Services 명명된 인스턴스 포트를 만든 다음 방화벽에서 포트 번호의 차단을 해제합니다.|
@@ -409,7 +407,7 @@ Analysis Services의 **명명된 인스턴스**의 경우 포트 액세스를 �
 
 - Azure 가상 컴퓨터 환경에서 사용되는 Microsoft 서버 소프트웨어에 대한 지원 정책을 검토합니다. 다음 항목은 BitLocker, 장애 조치(failover) 클러스터링 및 네트워크 부하 분산 등의 기능에 대한 지원을 요약합니다. [Azure 가상 컴퓨터에 대한 Microsoft 서버 소프트웨어 지원](http://support.microsoft.com/kb/2721672).
 
-- [Azure 가상 컴퓨터의 SQL Server 개요](virtual-machines-windows-classic-sql-overview.md)
+- [Azure 가상 컴퓨터의 SQL Server 개요](virtual-machines-windows-sql-server-iaas-overview.md)
 
 - [가상 컴퓨터](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
@@ -417,7 +415,7 @@ Analysis Services의 **명명된 인스턴스**의 경우 포트 액세스를 �
 
 - [가상 컴퓨터에 데이터 디스크를 연결하는 방법](virtual-machines-windows-classic-attach-disk.md)
 
-- [Azure VM에서 SQL Server로 데이터베이스 마이그레이션](virtual-machines-windows-classic-migrate-sql.md)
+- [Azure VM에서 SQL Server로 데이터베이스 마이그레이션](virtual-machines-windows-migrate-sql.md)
 
 - [Analysis Services 인스턴스의 서버 모드 확인](https://msdn.microsoft.com/library/gg471594.aspx)
 
@@ -433,4 +431,4 @@ Analysis Services의 **명명된 인스턴스**의 경우 포트 액세스를 �
 
 - [PowerShell을 사용한 Azure SQL 데이터베이스 관리](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

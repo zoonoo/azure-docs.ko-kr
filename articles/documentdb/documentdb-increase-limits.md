@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="04/07/2016"
 	ms.author="anhoh"/>
 
 # DocumentDB 계정 제한 증가 요청
@@ -25,9 +25,9 @@
 -	Azure 지원에 문의하여 조정할 수 있는 DocumentDB 계정 할당량은 무엇인가요?
 -	어떻게 DocumentDB 계정 할당량 조정을 요청할 수 있나요?
 
-##<a id="AdjustableQuotas"></a> 조정 가능한 DocumentDB 계정 할당량
+##<a id="Quotas"></a> DocumentDB 계정 할당량
 
-다음 표에서는 Azure 지원에 문의하여 조정할 수 있는 DocumentDB 할당량에 대해 설명합니다.
+다음 표에 DocumentDB 할당량이 나와 있습니다. 별표(*)가 표시된 할당량은 Azure 지원부에 문의하여 조정할 수 있습니다.
 
 [AZURE.INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
 
@@ -63,4 +63,4 @@
 ##<a name="NextSteps"></a> 다음 단계
 - DocumentDB에 대해 자세히 알아보려면 [여기](http://azure.com/docdb)를 클릭하세요.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

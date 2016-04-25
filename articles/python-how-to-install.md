@@ -196,7 +196,7 @@ Azure 웹 사이트 개발 및 게시에 대한 자세한 내용은 [Django를 �
 [Python 3.4용 Microsoft Azure SDK]: http://go.microsoft.com/fwlink/?LinkID=516990
 [Setting up a Linux VM via the Azure portal]: create-and-configure-opensuse-vm-in-portal.md
 [How to use the Azure Command-Line Interface]: crossplat-cmd-tools.md
-[Linux를 실행하는 가상 컴퓨터 만들기]: virtual-machines-linux-cli-create.md
+[Linux를 실행하는 가상 컴퓨터 만들기]: virtual-machines-linux-quick-create-cli.md
 [Django를 사용하여 웹 사이트 만들기]: web-sites-python-create-deploy-django-app.md
 [Bottle을 사용하여 웹 사이트 만들기]: web-sites-python-create-deploy-bottle-app.md
 [Flask를 사용하여 웹 사이트 만들기]: web-sites-python-create-deploy-flask-app.md
@@ -205,4 +205,4 @@ Azure 웹 사이트 개발 및 게시에 대한 자세한 내용은 [Django를 �
 [큐 저장소]: storage-python-how-to-use-queue-storage.md
 [Blob 저장소]: storage-python-how-to-use-blob-storage.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

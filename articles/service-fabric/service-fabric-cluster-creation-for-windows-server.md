@@ -52,7 +52,6 @@ Windows Server 2012 R2용 서비스 패브릭에 독립 실행형 패키지 배�
 - Windows Server 2012 R2 또는 Windows Server 2012(이를 위해 KB2858668를 설치해야 함).
 - .NET Framework 4.5.1 이상, 전체 설치
 - Windows PowerShell 3.0
-- Visual C++ 2012(VC++ 11.0) 재배포 가능 패키지
 - 클러스터를 배포하고 구성하는 클러스터 관리자는 각 컴퓨터에서 관리자 권한이 있어야 합니다.
 
 ### 3단계: 초기 클러스터 크기 결정
@@ -100,7 +99,7 @@ JSON 문서에서 클러스터 구성을 수정하고 여기에 모든 노드 �
 이 스크립트는 클러스터 구성 파일에서 노드로 나열된 모든 컴퓨터에 대한 관리자 액세스 권한이 있는 모든 컴퓨터에서 실행될 수 있습니다. 이 스크립트가 실행되는 컴퓨터는 클러스터의 일부일 수도 있고 일부가 아닐 수도 있습니다.
 
 ```
-C:\Microsoft.Azure.ServiceFabric.WindowsServer.5.0.135.9590> .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath C:\Microsoft.Azure.ServiceFabric.WindowsServer.5.0.135.9590\ClusterConfig.JSON -MicrosoftServiceFabricCabFilePath C:\Microsoft.Azure.ServiceFabric.WindowsServer.5.0.135.9590\MicrosoftAzureServiceFabric.cab
+.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath C:\Microsoft.Azure.ServiceFabric.WindowsServer.5.0.135.9590\ClusterConfig.JSON -MicrosoftServiceFabricCabFilePath C:\Microsoft.Azure.ServiceFabric.WindowsServer.5.0.135.9590\MicrosoftAzureServiceFabric.cab
 ```
 
 ## 다음 단계
@@ -115,4 +114,4 @@ C:\Microsoft.Azure.ServiceFabric.WindowsServer.5.0.135.9590> .\CreateServiceFabr
 Azure 클러스터 및 독립 실행형 클러스터에 대해 참고합니다.
 - [독립 실행형 클러스터 만들기 기능 개요 및 Azure 관리된 클러스터와 비교](service-fabric-deploy-anywhere.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

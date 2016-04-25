@@ -21,7 +21,7 @@ ms.author="deonhe"/>
 
 Azure 서비스 버스에 연결하여 메시지를 보내고 받습니다. 큐에 보내기, 항목에 보내기, 큐에서 수신, 구독에서 수신 등의 작업을 수행할 수 있습니다.
 
->[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다. 2014-12-01-preview 스키마 버전에 대한 내용을 보려면 [Azure 서비스 버스](../app-service-logic/app-service-logic-connector-azureservicebus.md)을 클릭하세요.
+>[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다.
 
 Azure 서비스 버스를 사용하여 다음을 수행할 수 있습니다.
 
@@ -60,7 +60,7 @@ Azure 서비스 버스 API를 사용하려면 먼저 **연결**을 만든 다음
 다음 단계에 따라 논리 앱에서 사용할 수 있는 서비스 버스 **연결**을 만듭니다.
 
 1. **되풀이**를 선택합니다.
-2. **빈도**를 선택하고 **간격**을 입력합니다.![서비스 버스 구성][1] 
+2. **빈도**를 선택하고 **간격**을 입력합니다. ![서비스 버스 구성][1] 
 3. **작업 추가**를 선택합니다.![서비스 버스 구성][2]   
 4. 검색 상자에 **서비스 버스**를 입력하고 이름에 서비스 버스가 있는 모든 항목이 반환될 때까지 검색을 기다립니다.
 5. **서비스 버스 - 메시지 보내기**를 선택합니다.![서비스 버스 구성][3]
@@ -165,4 +165,4 @@ ContentTransferEncoding
 [5]: ./media/connectors-create-api-servicebus/connectionconfig5.png
 [6]: ./media/connectors-create-api-servicebus/connectionconfig6.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

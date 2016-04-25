@@ -120,13 +120,13 @@ Multi-Factor Authentication을 위한 여러 옵션 중 하나를 구성하는 �
   1.	도메인을 추가합니다.
   2.	Azure AD Connect 설치 및 실행: [Azure AD Connect의 사용자 지정 설치](active-directory-aadconnect-get-started-custom.md) 지침을 사용하여 Azure AD Connect를 설치합니다.
   3. 디렉터리 동기화를 확인하고 관리합니다. 이 단계에는 SSO(Single Sign-On) 지침이 포함되어 있습니다.
-  >[AZURE.NOTE] 아래 링크의 문서에 설명된 대로 AD FS와의 페더레이션을 구성합니다.
-  >[AZURE.NOTE] 미리 보기 기능은 구성할 필요 없습니다.
-
-
+  
+  > [AZURE.NOTE] 
+  아래 링크의 문서에 설명된 대로 AD FS와의 페더레이션을 구성합니다. 미리 보기 기능은 구성할 필요 없습니다.
 
 
 ## Active Directory 도메인 서비스 스키마 업그레이드
+
 > [AZURE.NOTE]
 Active Directory 스키마 업그레이드는 취소할 수 없습니다. 먼저 테스트 환경에서 이 작업을 수행하는 것이 좋습니다.
 
@@ -136,6 +136,7 @@ Active Directory 스키마 업그레이드는 취소할 수 없습니다. 먼저
 4. 명령 프롬프트에서 adprep 디렉터리로 이동한 다음 **adprep.exe /forestprep**을 실행합니다. 화면의 지시에 따라 스키마 업그레이드를 완료합니다.
 
 ## 장치를 지원하도록 Active Directory 준비
+
 >[AZURE.NOTE] 장치를 지원하도록 Active Directory 포리스트를 준비하기 위해 실행해야 하는 일회성 작업입니다. 이 절차를 완료하려면 엔터프라이즈 관리자 권한으로 로그온해야 하며 Active Directory 포리스트에 Windows Server 2012 R2 스키마가 있어야 합니다.
 
 
@@ -206,6 +207,7 @@ LDP.exe 또는 ADSI 편집을 사용하여 장치 개체가 Active Directory에 
 다음 시나리오를 고려합니다. AD FS에서 응용 프로그램 신뢰 당사자 트러스트를 만들고 등록된 장치만 허용하는 발급 권한 부여 규칙을 구성합니다. 이제 등록된 장치만 응용 프로그램에 액세스할 수 있습니다. 사용자가 응용 프로그램에 쉽게 액세스할 수 있게 하려면 장치를 연결하는 방법에 대한 지침을 포함하는 사용자 지정 액세스 거부 메시지를 구성합니다. 이제 사용자가 응용 프로그램에 액세스하기 위해 해당 장치를 원활하게 등록할 수 있습니다.
 
 다음 단계는 이 시나리오를 구현하는 방법을 보여 줍니다.
+
 >[AZURE.NOTE]
 이 섹션에서는 AD FS에서 응용 프로그램에 대한 신뢰 당사자 트러스트를 이미 구성했다고 가정합니다.
 
@@ -250,4 +252,4 @@ LDP.exe 또는 ADSI 편집을 사용하여 장치 개체가 Active Directory에 
 
 - [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -115,7 +115,7 @@ JSON 템플릿과 매개 변수 파일을 사용하여 리소스 그룹에 새 I
 
 3. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가**, **새 항목**을 차례로 클릭합니다. 프로젝트에 **parameters.json**이라는 JSON 파일을 새로 추가합니다.
 
-4. 새 IoT Hub의 이름을 **mynewiothub**로 설정하는 다음 매개 변수 정보로 **parameters.json**의 내용을 대체합니다.
+4. 새 IoT Hub의 이름을 **mynewiothub**로 설정하는 다음 매개 변수 정보로 **parameters.json**의 내용을 대체합니다(이 이름은 전역적으로 고유해야 함).
 
     ```
     {
@@ -215,4 +215,4 @@ ARM 템플릿을 사용하여 C# 프로그램에서 IoT Hub를 배포했으니 �
 [lnk-azure-rm-overview]: ../resource-group-overview.md
 [lnk-storage-account]: ../storage/storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0413_2016-->

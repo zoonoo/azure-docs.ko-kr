@@ -6,7 +6,7 @@
 	authors="mmacy"
 	manager="timlt"
 	editor="" />
-	
+
 <tags
 	ms.service="batch"
 	ms.devlang="multiple"
@@ -15,7 +15,7 @@
 	ms.workload="big-compute"
 	ms.date="01/22/2016"
 	ms.author="marsma" />
-	
+
 # 동시 노드 작업으로 Azure Batch 계산 리소스 사용 극대화
 
 이 문서에서는 Azure 배치 풀 내에서 각 계산 노드에 대해 두 개 이상의 작업을 동시에 실행하는 방법을 배웁니다. 풀의 계산 노드에서 동시 작업 실행을 활성화하여 풀 안에서 더 적은 수의 노드로 리소스 사용량을 극대화할 수 있습니다. 일부 작업의 경우 이렇게 하면 시간과 비용을 절약할 수 있습니다.
@@ -38,7 +38,7 @@
 
 ## 병렬 작업 실행 사용
 
-풀 수준에서 병렬 작업 실행을 위한 배치 솔루션에 있는 계산 노드를 구성합니다. 배치 .NET 라이브러리를 사용하는 경우 풀을 만들 때 [CloudPool.MaxTasksPerComputeNode][maxtasks_net] 속성을 설정합니다. 배치 REST API를 사용하는 경우 풀을 만들 때 요청 본문에서 [maxTasksPerNode][maxtasks_rest] 요소를 설정합니다.
+풀 수준에서 병렬 작업 실행을 위한 배치 솔루션에 있는 계산 노드를 구성합니다. 배치 .NET 라이브러리를 사용하는 경우 풀을 만들 때 [CloudPool.MaxTasksPerComputeNode][maxtasks_net] 속성을 설정합니다. 배치 REST API를 사용하는 경우 풀을 만들 때 요청 본문에서 [maxTasksPerNode][rest_addpool] 요소를 설정합니다.
 
 Azure 배치를 사용하면 노드 코어의 최대 4배수의 노드 마다 최대 작업을 설정할 수 있습니다. 예를 들어, 풀이 노드 크기 “Large”로 구성되었다면(4코어) `maxTasksPerNode`는 16으로 설정될 수 있습니다. 각 노드 크기에 대한 코어의 수의 자세한 내용은 [클라우드 서비스에 대한 크기](./../cloud-services/cloud-services-sizes-specs.md)를 참조하세요. 서비스 제한에 대한 자세한 내용은 [Azure 배치 서비스에 대한 할당량 및 제한](batch-quota-limit.md)을 참조하세요.
 
@@ -56,27 +56,37 @@ Azure 배치를 사용하면 노드 코어의 최대 4배수의 노드 마다 �
 
 이 [배치 .NET][api_net] API 코드 조각은 노드 당 최대 4개의 작업이 있는 네 개의 대규모 노드를 포함하는 풀을 만드는 요청을 나타냅니다. 풀의 다른 노드로 작업을 할당하기 전에 각 노드를 채울 정책을 예약하는 작업을 지정합니다. 배치 .NET API를 사용하여 풀을 추가하는 방법에 대한 자세한 내용은 [BatchClient.PoolOperations.CreatePool][poolcreate_net]을 참조하세요.
 
-        CloudPool pool = batchClient.PoolOperations.CreatePool(poolId: "mypool",
-        													osFamily: "2",
-        													virtualMachineSize: "large",
-        													targetDedicated: 4);
-        pool.MaxTasksPerComputeNode = 4;
-        pool.TaskSchedulingPolicy = new TaskSchedulingPolicy(ComputeNodeFillType.Pack);
-        pool.Commit();
+```
+CloudPool pool =
+    batchClient.PoolOperations.CreatePool(
+        poolId: "mypool",
+		targetDedicated: 4
+		virtualMachineSize: "large",
+		cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));
+
+pool.MaxTasksPerComputeNode = 4;
+pool.TaskSchedulingPolicy = new TaskSchedulingPolicy(ComputeNodeFillType.Pack);
+pool.Commit();
+```
 
 ## Batch REST 예
 
-이 [배치 REST][api_rest] API 코드 조각은 노드당 최대 4개의 작업이 있는 두 대규모 노드를 포함하는 풀을 만드는 요청을 나타냅니다. REST API를 사용하여 풀을 추가하는 방법에 대한 자세한 내용은 [풀을 계정에 추가][maxtasks_rest]를 참조하세요.
+이 [배치 REST][api_rest] API 코드 조각은 노드당 최대 4개의 작업이 있는 두 대규모 노드를 포함하는 풀을 만드는 요청을 나타냅니다. REST API를 사용하여 풀을 추가하는 방법에 대한 자세한 내용은 [풀을 계정에 추가][rest_addpool]를 참조하세요.
 
-        {
-          "id": "mypool",
-          "vmSize": "Large",
-          "osFamily": "2",
-          "targetOSVersion": "*",
-          "targetDedicated": 2,
-          "enableInterNodeCommunication": false,
-          "maxTasksPerNode": 4
-        }
+```
+{
+  "odata.metadata":"https://myaccount.myregion.batch.azure.com/$metadata#pools/@Element",
+  "id":"mypool",
+  "vmSize":"large",
+  "cloudServiceConfiguration": {
+    "osFamily":"4",
+    "targetOSVersion":"*",
+  }
+  "targetDedicated":2,
+  "maxTasksPerNode":4,
+  "enableInterNodeCommunication":true,
+}
+```
 
 > [AZURE.NOTE] 풀을 만들 때만 `maxTasksPerNode` 요소 및 [MaxTasksPerComputeNode][maxtasks_net] 속성을 설정할 수 있습니다. 풀이 이미 만들어진 후에는 수정될 수 없습니다.
 
@@ -124,11 +134,11 @@ Azure 배치 [샘플 응용 프로그램][github_samples] 중 하나인 [Azure �
 [fill_type]: https://msdn.microsoft.com/library/microsoft.azure.batch.common.computenodefilltype.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [maxtasks_net]: http://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.maxtaskspercomputenode.aspx
-[maxtasks_rest]: https://msdn.microsoft.com/library/azure/dn820174.aspx
+[rest_addpool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
 [parallel_tasks_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ParallelTasks
 [poolcreate_net]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.createpool.aspx
 [task_schedule]: https://msdn.microsoft.com/library/microsoft.azure.batch.cloudpool.taskschedulingpolicy.aspx
 
 [1]: ./media/batch-parallel-node-tasks\heat_map.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="SQL 데이터베이스 V12의 새로운 기능 | Microsoft Azure" 
-	description="클라우드에서 Azure SQL 데이터베이스를 사용하는 비즈니스 시스템이 이제 V12 버전으로 업그레이드하면 이익이 되는지 이유를 설명합니다." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="MightyPen" 
-	manager="jhubbard" 
+<properties
+	pageTitle="SQL 데이터베이스 V12의 새로운 기능 | Microsoft Azure"
+	description="클라우드에서 Azure SQL 데이터베이스를 사용하는 비즈니스 시스템이 이제 V12 버전으로 업그레이드하면 이익이 되는지 이유를 설명합니다."
+	services="sql-database"
+	documentationCenter=""
+	authors="MightyPen"
+	manager="jhubbard"
 	editor=""/>
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/21/2016" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/21/2016"
 	ms.author="genemi"/>
 
 
@@ -37,10 +37,11 @@ SQL 데이터베이스의 리소스 제한에 대한 최신 정보는 <br/>[Azur
 ## 향상된 SQL Server와의 응용 프로그램 호환성
 
 
-SQL 데이터베이스 V12에 대한 주요 목표는 Microsoft SQL Server 2014와 호환성을 개선하고 새 버전의 SQL Server가 출시되면서 호환성을 유지하는 것입니다. 다른 영역 중 V12는 프로그래밍의 중요한 영역에서 SQL server와의 패리티를 실현합니다. 예를 들어 다음과 같습니다.
+SQL 데이터베이스 V12에 대한 주요 목표는 Microsoft SQL Server 2014와 호환성을 개선하고 새 버전의 SQL Server가 출시되면서 호환성을 유지하는 것입니다. 다른 영역 중 V12는 프로그래밍의 중요한 영역에서 SQL server와의 패리티를 실현합니다. 예:
 
+- [기본 제공 JSON 지원](https://msdn.microsoft.com/library/dn921897.aspx)
 
-- [OVER](http://msdn.microsoft.com/library/ms189461.aspx)를 포함한 [Window 함수](http://msdn.microsoft.com/library/ms189798.aspx) 
+- [OVER](http://msdn.microsoft.com/library/ms189461.aspx)를 포함한 [Window 함수](http://msdn.microsoft.com/library/ms189798.aspx)
 
 - [XML 인덱스](http://msdn.microsoft.com/library/bb934097.aspx) 및 [선택적 XML 인덱스](http://msdn.microsoft.com/library/jj670104.aspx)
 
@@ -128,7 +129,7 @@ V12는 대폭 개선된 복구 지점 목표(RPO) 및 예상된 복구 시간 (E
 
 - SQL 데이터베이스 V12는 V11를 넘어서는 다수의 기능이 있습니다.
 - 새 기능을 V12에 계속 추가하지만 V11에는 새로운 기능이 추가되지 않습니다.
-- Microsoft SQL Server용으로 릴리스되기 전에 SQL 데이터베이스 V12에서 대부분의 새로운 기능리 릴리스됩니다.
+- Microsoft SQL Server용으로 릴리스되기 전에 SQL 데이터베이스 V12에서 대부분의 새로운 기능이 릴리스됩니다.
 
 
 ## V12를 이미 사용 중입니까?
@@ -166,4 +167,4 @@ V12 논리 서버에만 V12 데이터베이스를 호스팅할 수 있습니다.
 
 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

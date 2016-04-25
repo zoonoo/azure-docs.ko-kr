@@ -69,7 +69,7 @@ GO
     USE <database>
     GO
 
-    CREATE MASTER KEY ENCRYPTION BY PASSWORD='<password>'
+    CREATE MASTER KEY ENCRYPTION BY PASSWORD ='<password>'
     ```
 
 4.  스트레치 데이터베이스에 대해 데이터베이스를 구성하는 경우 온-프레미스 SQL Server와 원격 Azure 서버 간의 통신에 사용할 스트레치 데이터베이스의 자격 증명을 제공해야 합니다. 다음 두 가지 옵션을 사용할 수 있습니다.
@@ -102,13 +102,13 @@ GO
 
     1.  SERVER 인수에 대해 기존 Azure 서버의 이름(`.database.windows.net` 부분 포함)을 제공합니다(예: `MyStretchDatabaseServer.database.windows.net`).
 
-    2.  CREDENTIAL 인수에 기존 관리자가 자격 증명을 제공하거나 FEDERATED\_SERVICE\_ACCOUNT \\= ON을 지정합니다. 다음 예제에서는 기존 자격 증명을 제공합니다.
+    2.  CREDENTIAL 인수에 기존 관리자가 자격 증명을 제공하거나 FEDERATED\_SERVICE\_ACCOUNT = ON을 지정합니다. 다음 예제에서는 기존 자격 증명을 제공합니다.
 
     ```tsql
     ALTER DATABASE <database name>
         SET REMOTE_DATA_ARCHIVE = ON
             (
-                SERVER = <server_name> ,
+                SERVER = '<server_name>',
                 CREDENTIAL = <db_scoped_credential_name>
             ) ;
     GO;
@@ -133,4 +133,4 @@ GO
 
 [ALTER DATABASE SET 옵션(TRANSACT-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0413_2016-->

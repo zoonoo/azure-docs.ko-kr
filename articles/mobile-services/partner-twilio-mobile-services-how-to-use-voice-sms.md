@@ -207,7 +207,7 @@ TwiML 응답을 제공하는 방법을 설정한 후에는 다음 코드 샘플�
         });
     };
 
-[AZURE.INCLUDE [twilio\_additional\_services\_and\_next\_steps](../../includes/twilio_additional_services_and_next_steps.md)]
+[AZURE.INCLUDE [twilio-additional-services-and-next-steps](../../includes/twilio-additional-services-and-next-steps.md)]
 
 
 [twilio_rest_making_calls]: http://www.twilio.com/docs/api/rest/making-calls
@@ -229,4 +229,4 @@ TwiML 응답을 제공하는 방법을 설정한 후에는 다음 코드 샘플�
 [azure_twilio_howto_python]: /partner-twilio-python-how-to-use-voice-sms.md
 [azure_twilio_howto_php]: /partner-twilio-php-how-to-use-voice-sms.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

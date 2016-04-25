@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="서비스 상태 추적" 
-	description="Azure에서 성능 저하 또는 서비스 중단이 발생한 시기를 확인합니다." 
-	authors="stepsic-microsoft-com" 
-	manager="kamrani" 
-	editor="" 
-	services="azure-portal" 
+<properties
+	pageTitle="서비스 상태 추적"
+	description="Azure에서 성능 저하 또는 서비스 중단이 발생한 시기를 확인합니다."
+	authors="stepsic-microsoft-com"
+	manager="kamrani"
+	editor=""
+	services="azure-portal"
 	documentationCenter="na"/>
 
-<tags 
-	ms.service="azure-portal" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/08/2015" 
+<tags
+	ms.service="azure-portal"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/08/2015"
 	ms.author="stepsic"/>
 
 # 서비스 상태 추적
@@ -45,12 +45,11 @@ Azure는 서비스 중단 또는 성능 저하가 있을 때마다 이 사실을
 7. 이제 자신의 구독에 영향을 준 모든 서비스 상태 이벤트를 볼 수 있습니다.![리소스 그룹](./media/insights-service-health/Insights_HealthEvent.png)
 
 8. 여기서 세부 정보 블레이드로 이동하여 이벤트의 세부 정보를 확인할 수 있습니다.
-   
+
 ## 다음 단계
 
 * 이벤트가 발생할 때마다 [경고 알림을 수신](insights-receive-alert-notifications.md)합니다.
 * [서비스 메트릭을 모니터링](insights-how-to-customize-monitoring.md)하여 서비스를 사용 가능하며 응답할 수 있는 상태로 유지합니다.
-* 페이지가 다운된 경우 이를 찾을 수 있도록 Application Insights를 사용하여 [웹 페이지의 가용성 및 응답성을 모니터링](../app-insights-monitor-web-app-availability.md)합니다.
- 
+* 페이지가 다운된 경우 이를 찾을 수 있도록 Application Insights를 사용하여 [웹 페이지의 가용성 및 응답성을 모니터링](../application-insights/app-insights-monitor-web-app-availability.md)합니다.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0413_2016-->

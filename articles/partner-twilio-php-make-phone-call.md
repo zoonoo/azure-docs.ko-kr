@@ -1,22 +1,22 @@
-<properties 
-	pageTitle="Twilio에서 전화를 거는 방법(PHP) | Microsoft Azure" 
-	description="Azure에서 Twilio API 서비스를 사용하여 전화를 걸고 SMS 메시지를 보내는 방법에 대해 알아봅니다. 샘플은 PHP 응용 프로그램용입니다." 
-	documentationCenter="php" 
-	services="" 
-	authors="devinrader" 
-	manager="twilio" 
+<properties
+	pageTitle="Twilio에서 전화를 거는 방법(PHP) | Microsoft Azure"
+	description="Azure에서 Twilio API 서비스를 사용하여 전화를 걸고 SMS 메시지를 보내는 방법에 대해 알아봅니다. 샘플은 PHP 응용 프로그램용입니다."
+	documentationCenter="php"
+	services=""
+	authors="devinrader"
+	manager="twilio"
 	editor="mollybos"/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="PHP" 
-	ms.topic="article" 
-	ms.date="11/25/2014" 
+<tags
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="PHP"
+	ms.topic="article"
+	ms.date="11/25/2014"
 	ms.author="microsofthelp@twilio.com"/>
 
-# Azure의 PHP 응용 프로그램에서 Twilio를 사용하여 전화를 거는 방법 
+# Azure의 PHP 응용 프로그램에서 Twilio를 사용하여 전화를 거는 방법
 
 다음 예제는 Azure에 호스트된 PHP 웹 페이지에서 Twilio를 사용하여 전화를 거는 방법을 보여 줍니다. 다음 스크린샷에 표시된 것처럼 응용 프로그램에서 사용자에게 전화 통화 값을 묻습니다.
 
@@ -25,7 +25,7 @@
 이 항목에서 코드를 사용하려면 다음을 수행해야 합니다.
 
 1. Twilio 계정 및 인증 토큰을 받습니다. Twilio를 시작하려면 [http://www.twilio.com/pricing][twilio_pricing](영문)에서 가격을 평가합니다. [https://www.twilio.com/try-twilio][try_twilio](영문)에서 체험 계정을 등록할 수 있습니다. Twilio에서 제공하는 API에 대한 내용은 [http://www.twilio.com/api][twilio_api](영문)를 참조하십시오.
-2. PHP용 Twilio 라이브러리를 가져옵니다. GitHub([https://github.com/twilio/twilio-php][twilio_php_github])에서 다운로드하거나 PEAR 패키지로 설치할 수 있습니다. 자세한 내용은 [https://github.com/twilio/twilio-php/blob/master/README.md][twilio_github_readme](영문)를 참조하십시오.
+2. [PHP용 Twilio 라이브러리](https://github.com/twilio/twilio-php)를 가져오거나 PEAR 패키지로 설치합니다. 자세한 내용은 [추가 정보 파일](https://github.com/twilio/twilio-php/blob/master/README.md)을 참조하세요.
 3. PHP용 Azure SDK를 설치합니다. SDK에 대한 개요 및 설치 지침은 [PHP용 Azure SDK 설정][setup_php_sdk](영문)을 참조하십시오.
 
 ## 전화 걸기 웹 양식 만들기
@@ -83,7 +83,7 @@
 	$client = new Services_Twilio($sid, $token, "2010-04-01");
 
 	$call = $client->account->calls->create(
-		$from_number, 
+		$from_number,
 		$to_number,
   		'http://twimlets.com/message?Message='.urlencode($message)
 	);
@@ -103,7 +103,6 @@
 
 * [PHP-MySQL Azure 웹 사이트 만들기 및 Git를 사용하여 배포][website-git]
 * [PHP-MySQL Azure 웹 사이트 만들기 및 FTP를 사용하여 배포][website-ftp]
-* [WebMatrix를 사용하여 PHP-MySQL Azure 웹 사이트 만들기 및 배포][website-webmatrix]
 
 ## 다음 단계
 이 코드는 Azure의 PHP에서 Twilio를 사용하는 기본 기능을 보여 줍니다. Azure를 프로덕션에 배포하기 전에 더 많은 오류 처리 또는 기타 기능을 추가할 수 있습니다. 예를 들면 다음과 같습니다.
@@ -121,8 +120,6 @@ Twilio에 대한 자세한 내용은 [https://www.twilio.com/docs][twilio_docs](
 [try_twilio]: http://www.twilio.com/try-twilio
 [twilio_api]: http://www.twilio.com/api
 [verify_phone]: https://www.twilio.com/user/account/phone-numbers/verified#
-[twilio_php]: https://github.com/twilio/twilio-php
-[twilio_github_readme]: https://github.com/twilio/twilio-php/blob/master/README.md
 [setup_php_sdk]: http://azurephp.interoperabilitybridges.com/articles/setup-the-windows-azure-sdk-for-php
 [twimlet_message_url]: http://twimlets.com/message
 [twiml]: http://www.twilio.com/docs/api/twiml
@@ -138,9 +135,8 @@ Twilio에 대한 자세한 내용은 [https://www.twilio.com/docs][twilio_docs](
 [ssl_validation]: http://readthedocs.org/docs/twilio-php/en/latest/usage/rest.html
 [twilio_php]: ./media/partner-twilio-php-make-phone-call/WA_TwilioPHPCallForm.jpg
 [twilio_php_response]: ./media/partner-twilio-php-make-phone-call/WA_TwilioPHPMakeCall.jpg
-[website-git]: https://www.windowsazure.com/develop/php/tutorials/website-w-mysql-and-git/
-[website-ftp]: https://www.windowsazure.com/develop/php/tutorials/website-w-mysql-and-ftp/
-[website-webmatrix]: https://www.windowsazure.com/develop/php/tutorials/website-w-mysql-and-webmatrix/
+[website-git]: ./web-sites/web-sites-php-mysql-deploy-use-git.md
+[website-ftp]: ./web-sites/web-sites-php-mysql-deploy-use-ftp.md
 [twilio_php_github]: https://github.com/twilio/twilio-php
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0413_2016-->

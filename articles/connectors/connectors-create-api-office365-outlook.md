@@ -30,7 +30,7 @@ Office 365 Outlook에 연결하여 전자 메일 받기, 전자 메일 회신, �
 
 &nbsp;
 
->[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다. 2014-12-01-preview 스키마 버전에 대한 내용을 보려면 [Office 365 API](../app-service-logic/app-service-logic-connector-office365.md)를 클릭하세요.
+>[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다.
 
 Office 365 Outlook을 사용하면 다음을 수행할 수 있습니다.
 
@@ -533,11 +533,14 @@ ID별로 메시지 첨부 파일을 검색합니다. ```GET: /Mail/{messageId}/A
 |원본|string|no|
 |참조|string|no|
 |Bcc|string|no|
-|제목|string|yes|
+|제목  
+|string|yes|
 |본문|string|yes|
-|중요도|string|no|
+|중요도  
+|string|no|
 |IsHtml|부울|no|
-|받는 사람|string|yes|
+|받는 사람  
+|string|yes|
 
 #### SendAttachment: 첨부 파일
 
@@ -560,11 +563,14 @@ ID별로 메시지 첨부 파일을 검색합니다. ```GET: /Mail/{messageId}/A
 |원본|string|no|
 |참조|string|no|
 |Bcc|string|no|
-|제목|string|yes|
+|제목  
+|string|yes|
 |본문|string|yes|
-|중요도|string|no|
+|중요도  
+|string|no|
 |IsHtml|부울|no|
-|받는 사람|string|yes|
+|받는 사람  
+|string|yes|
 
 
 #### ReceiveAttachment: 첨부 파일 받기
@@ -589,7 +595,8 @@ ID별로 메시지 첨부 파일을 검색합니다. ```GET: /Mail/{messageId}/A
 |string|no|
 |Digest|array|yes|
 |첨부 파일|array|no|
-|받는 사람|string|yes|
+|받는 사람  
+|string|yes|
 
 #### TriggerBatchResponse[ReceiveMessage]
 
@@ -654,7 +661,8 @@ ID별로 메시지 첨부 파일을 검색합니다. ```GET: /Mail/{messageId}/A
 |중요도  
 |string|no|
 |첨부 파일|array|no|
-|받는 사람|string|yes|
+|받는 사람  
+|string|yes|
 
 #### SubscriptionResponse: 승인 전자 메일 구독에 대한 모델
 
@@ -682,9 +690,11 @@ ID별로 메시지 첨부 파일을 검색합니다. ```GET: /Mail/{messageId}/A
 |string|yes|
 |옵션|string|yes|
 |본문|string|no|
-|중요도|string|no|
+|중요도  
+|string|no|
 |첨부 파일|array|no|
-|받는 사람|string|yes|
+|받는 사람  
+|string|yes|
 
 #### ApprovalEmailResponse: 승인 전자 메일 응답
 
@@ -773,4 +783,4 @@ ID별로 메시지 첨부 파일을 검색합니다. ```GET: /Mail/{messageId}/A
 [12]: ./media/connectors-create-api-office365-outlook/contoso-aad-app-delegate-office365-outlook.png
 [13]: ./media/connectors-create-api-office365-outlook/contoso-aad-app-delegate-office365-outlook-permissions.png
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

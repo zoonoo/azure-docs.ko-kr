@@ -62,15 +62,13 @@
 응용 프로그램에는 각자 다른 인증 요구 사항이 있을 수 있습니다. Azure AD과 함께 인증서 서명은 SAML 2.0, WS-페더레이션 또는 OpenID 연결 프로토콜 뿐만 아니라 암호 Single Sign-on을 사용하는 응용 프로그램을 사용하는 응용 프로그램과 사용될 수 있습니다. Azure AD와 함께 사용할 응용 프로그램 인증 형식에 대한 자세한 내용은 [Azure Active Directory에서 페더레이션된 Single Sign-on에 대한 인증서 관리](active-directory-sso-certs.md) 및 [암호 기반 Single Sign On](active-directory-appssoaccess-whatis.md)을 참조하세요.
 
 ### Azure AD 앱 프록시를 사용하는 SSO 사용
-Microsoft Azure AD 응용 프로그램 프록시를 사용하여 어디서든 어떤 장치에서든 안전하게 개인 네트워크 내부에 위치한 응용 프로그램에 액세스를 제공할 수 있습니다. 환경 내에서 응용 프로그램 프록시 커넥터를 설치한 후에 Azure AD를 이용하여 쉽게 구성될 수 있습니다 [Azure AD 앱 프록시를 사용하는 SSO 사용](active-directory-appssoaccess-enable-hybrid-access.md) 및 [Azure AD 앱 프록시를 사용하는 새 응용 프로그램 게시](active-directory-application-proxy-configure.md)를 참조하세요.
+Microsoft Azure AD 응용 프로그램 프록시를 사용하여 어디서든 어떤 장치에서든 안전하게 개인 네트워크 내부에 위치한 응용 프로그램에 액세스를 제공할 수 있습니다. 환경 내에서 응용 프로그램 프록시 커넥터를 설치한 후에 Azure AD를 이용하여 쉽게 구성될 수 있습니다
 
 ### Azure AD와 응용 프로그램 통합
 다음 문서에서는 응용 프로그램을 Azure AD와 통합하는 여러 가지 방법을 설명하고 일부 지침을 제공합니다.
 
 - [사용할 Active Directory 결정](active-directory-administer.md)
-- [기존 응용 프로그램과 통합](active-directory-sso-integrate-existing-apps.md)
-- [Azure AD 앱 프록시를 사용하여 새 응용 프로그램 게시](active-directory-application-proxy-configure.md)
-- [Azure 응용 프로그램 갤러리에서 응용 프로그램 사용](active-directory-appssoaccess-whatis.md/#get-started-with-the-azure-ad-application-gallery.md)
+- [Azure 응용 프로그램 갤러리에서 응용 프로그램 사용](active-directory-appssoaccess-whatis.md)
 - [SaaS 응용 프로그램 통합 자습서 목록](active-directory-saas-tutorial-list.md)
 
 ## 응용 프로그램에 대한 액세스 관리
@@ -91,4 +89,4 @@ Azure 응용 프로그램 갤러리에 사용자 지정 응용 프로그램을 �
 
 - [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

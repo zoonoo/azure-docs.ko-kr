@@ -28,6 +28,8 @@ Azure 가상 컴퓨터는 가상 컴퓨터를 실행하는 실제 하드웨어�
 
 이 표는 Azure를 통해 제공되는 선택 항목을 비교하는 데 도움이 됩니다.
 
+[AZURE.INCLUDE [compute-table](../../includes/compute-options-table.md)]
+
 [AZURE.INCLUDE [virtual-machines-choose-me-content](../../includes/virtual-machines-choose-me-content.md)]
 
 ## 다음 단계
@@ -36,10 +38,4 @@ Azure 가상 컴퓨터는 가상 컴퓨터를 실행하는 실제 하드웨어�
 
 이 자습서는 가상 컴퓨터를 신속하게 만들 수 있도록 안내하기 위해 가상 컴퓨터를 만들 때 사용할 수 있는 다양한 도구들을 설명하는 대신 한 가지 방법만 제공합니다. 이러한 도구 및 지침에 대한 링크 요약은 [Linux 가상 컴퓨터를 만드는 다양한 방법](virtual-machines-linux-creation-choices.md)을 참조하세요.
 
-
-<!--links-->
-[앱 서비스]: app-service-choose-me.md
-[가상 컴퓨터]: #tellmevm
-[클라우드 서비스]: cloud-services-choose-me.md
-
-<!------HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

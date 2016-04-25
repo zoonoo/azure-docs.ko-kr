@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="클래식 배포 모델에서 Azure CLI를 사용하여 여러 NIC VM 배포 | Microsoft Azure"
    description="클래식 배포 모델에서 Azure CLI를 사용하여 여러 NIC VM을 배포하는 방법을 알아봅니다."
    services="virtual-network"
@@ -27,7 +27,7 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-현재는 단일 NIC가 사용되는 VM과 여러 NIC가 사용되는 VM을 같은 클라우드 서비스에서 사용할 수 없기 때문에 시나리오의 다른 모든 구성 요소와 다른 클라우드 서비스에 백 엔드 서버를 구현하게 됩니다. 다음 단계에서는 기본 리소스에 *IaaSStory* 라는 클라우드 서비스를, 백 엔드 서버에는 *IaaSStory-BackEnd* 를 사용합니다.
+현재는 단일 NIC가 사용되는 VM과 여러 NIC가 사용되는 VM을 같은 클라우드 서비스에서 포함할 수 없습니다. 따라서 시나리오의 다른 모든 구성 요소와 다른 클라우드 서비스에 백 엔드 서버를 구현해야 합니다. 다음 단계에서는 기본 리소스에 *IaaSStory*라는 클라우드 서비스를, 백 엔드 서버에는 *IaaSStory-BackEnd*를 사용합니다.
 
 ## 필수 조건
 
@@ -41,7 +41,7 @@
 
 - **데이터 디스크용 저장소 계정**. 성능 향상을 위해 데이터베이스 서버의 데이터 디스크는 SSD(반도체 드라이브) 기술을 사용하며, 이 기술에는 프리미엄 저장소 계정이 필요합니다. 배포할 Azure 위치에서 프리미엄 저장소가 지원되는지 확인하세요.
 - **NIC**. 각 VM에 데이터베이스 액세스용으로 하나, 그리고 관리용으로 하나씩, 두 개의 NIC가 사용됩니다.
-- **가용성 집합**. 모든 데이터베이스 서버가 단일 가용성 집합에 추가되어, 유지 관리 도중에 하나 이상의 VM이 실행 중이도록 합니다. 
+- **가용성 집합**. 모든 데이터베이스 서버가 단일 가용성 집합에 추가되어, 유지 관리 도중에 하나 이상의 VM이 실행 중이도록 합니다.
 
 ### 1단계 - 스크립트 시작
 
@@ -81,7 +81,7 @@
 
 		azure storage account create $prmStorageAccountName \
 		    --location $location \
-		    --type PLRS 
+		    --type PLRS
 
 ### 3단계 - 여러 NIC를 사용하여 VM 만들기
 
@@ -95,7 +95,7 @@
 		    nic1Name=$vmNamePrefix$suffixNumber-DA
 		    x=$((suffixNumber+3))
 		    ipAddress1=$ipAddressPrefix$x
-		
+
 		    nic2Name=$vmNamePrefix$suffixNumber-RA
 		    x=$((suffixNumber+53))
 		    ipAddress2=$ipAddressPrefix$x
@@ -117,7 +117,7 @@
 		    azure vm disk attach-new $vmNamePrefix$suffixNumber \
 		        $diskSize \
 		        vhds/$dataDiskPrefix$suffixNumber$dataDiskName-1.vhd
-		
+
 		    azure vm disk attach-new $vmNamePrefix$suffixNumber \
 		        $diskSize \
 		        vhds/$dataDiskPrefix$suffixNumber$dataDiskName-2.vhd
@@ -174,4 +174,4 @@
 		info:    Adding Data-Disk
 		info:    vm disk attach-new command OK
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

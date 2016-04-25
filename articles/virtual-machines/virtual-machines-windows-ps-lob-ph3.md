@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/21/2016" 
+	ms.date="04/01/2016" 
 	ms.author="josephd"/>
 
 # 비즈니스 응용 프로그램 작업 라인 3단계: SQL Server 인프라 구성
@@ -180,7 +180,7 @@ SQL Server 서비스에서는 클라이언트가 데이터베이스 서버에 �
 
 각 SQL Server 가상 컴퓨터에 대해 로컬 관리자로 로그아웃합니다.
 
-Azure에서 SQL Server 성능을 최적화하는 방법에 대한 자세한 내용은 [ Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](virtual-machines-windows-classic-sql-perf.md)를 참조하세요. 비즈니스 응용 프로그램 저장소 계정에 대해 GRS(지역 중복 저장소)를 사용하지 않도록 설정하고 저장소 공간을 사용해 IOPS를 최적화할 수도 있습니다.
+Azure에서 SQL Server 성능을 최적화하는 방법에 대한 자세한 내용은 [ Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](virtual-machines-windows-sql-performance.md)를 참조하세요. 비즈니스 응용 프로그램 저장소 계정에 대해 GRS(지역 중복 저장소)를 사용하지 않도록 설정하고 저장소 공간을 사용해 IOPS를 최적화할 수도 있습니다.
 
 ## 클러스터 주 노드 서버 구성
 
@@ -259,4 +259,4 @@ SQL Server에서 AlwaysOn 가용성 그룹을 사용하도록 설정하려면 �
 
 - [4단계](virtual-machines-windows-ps-lob-ph4.md)를 사용하여 이 워크로드의 구성을 계속합니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

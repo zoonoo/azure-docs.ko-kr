@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/31/2016" 
-	ms.author="ryancraw"/>
+	ms.date="04/08/2016" 
+	ms.author="rnagpal"/>
 
 # DocumentDB SDK
 
@@ -29,14 +29,17 @@
 <table>
 <tr><td>**다운로드**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
 <tr><td>**설명서**</td><td>[.NET SDK 참조 설명서](https://msdn.microsoft.com/library/azure/dn948556.aspx)</td></tr>
-<tr><td>**샘플**</td><td>[.NET 코드 샘플](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)</td></tr>
+<tr><td>**샘플**</td><td>[.NET 코드 샘플] (https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)</td></tr>
 <tr><td>**시작**</td><td>[DocumentDB .NET SDK 시작](documentdb-get-started.md)</td></tr>
 <tr><td>**현재 지원되는 프레임워크**</td><td>[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</td></tr>
 </table></br>
 
 ## 릴리스 정보
 
-### <a name="1.6.2"/>[1\.6.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.6.1)
+### <a name="1.6.3"/>[1\.6.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.6.3)
+  - Azure 클라우드 서비스 솔루션의 일부로 패키징에 대한 .NET SDK의 Nuget 패키징에서 버그가 수정되었습니다.
+  
+### <a name="1.6.2"/>[1\.6.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.6.2)
   - 구현된 [분할된 컬렉션](documentdb-partition-data.md) 및 [사용자 정의된 성능 수준](documentdb-performance-levels.md)입니다. 
 
 ### <a name="1.5.3"/>[1\.5.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.3)
@@ -124,21 +127,7 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
  
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 
 | ---	  | ---	         | ---
-| [1\.6.2](#1.6.2) | 2016년 3월 29일 |--- 
-| [1\.5.3](#1.5.3) | 2016년 2월 19일 |--- 
-| [1\.5.2](#1.5.2) | 2015년 12월 14일 |--- 
-| [1\.5.1](#1.5.1) | 2015년 11월 23일 |--- 
-| [1\.5.0](#1.5.0) | 2015년 10월 5일 |--- 
-| [1\.4.1](#1.4.1) | 2015년 8월 25일 |--- 
-| [1\.4.0](#1.4.0) | 2015년 8월 13일 |--- 
-| [1\.3.0](#1.3.0) | 2015년 8월 5일 |--- 
-| [1\.2.0](#1.2.0) | 2015년 7월 6일 |--- 
-| [1\.1.0](#1.1.0) | 2015년 4월 30일 |--- 
-| [1\.0.0](#1.0.0) | 2015년 4월 08일 |--- 
-| [0\.9.3-prelease](#0.9.x-preview) | 2015년 3월 12일 | 2016년 2월 29일 
-| [0\.9.2-prelease](#0.9.x-preview) | 2015년 1월 | 2016년 2월 29일 
-| [.9.1-prelease](#0.9.x-preview) | 2014년 10월 13일 | 2016년 2월 29일 
-| [0\.9.0-prelease](#0.9.x-preview) | 2014년 8월 21일 | 2016년 2월 29일
+| [1\.6.3](#1.6.3) | 2016년 4월 8일 |--- | [1\.6.2](#1.6.2) | 2016년 3월 29일 |--- |[1\.5.3](#1.5.3) | 2016년 2월 19일 |--- | [1\.5.2](#1.5.2) | 2015년 12월 14일 |--- | [1\.5.1](#1.5.1) | 2015년 11월 23일 |--- | [1\.5.0](#1.5.0) | 2015년 10월 5일 |--- | [1\.4.1](#1.4.1) | 2015년 8월 25일 |--- | [1\.4.0](#1.4.0) | 2015년 8월 13일 |--- | [1\.3.0](#1.3.0) | 2015년 8월 5일 |--- | [1\.2.0](#1.2.0) | 2015년 7월 6일 |--- | [1\.1.0](#1.1.0) | 2015년 4월 30일 |--- | [1\.0.0](#1.0.0) | 2015년 4월 08일 |--- | [0\.9.3-prelease](#0.9.x-preview) | 2015년 3월 12일 | 2016년 2월 29일 | [0\.9.2-prelease](#0.9.x-preview) | 2015년 1월 | 2016년 2월 29일 | [.9.1-prelease](#0.9.x-preview) | 2014년 10월 13일 | 2016년 2월 29일 | [0\.9.0-prelease](#0.9.x-preview) | 2014년 8월 21일 | 2016년 2월 29일
 
 ## FAQ
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
@@ -147,4 +136,4 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 DocumentDB에 대해 자세히 알아보려면 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 서비스 페이지를 참조하세요.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

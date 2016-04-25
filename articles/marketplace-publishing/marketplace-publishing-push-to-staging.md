@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="01/07/2016"
+   ms.date="04/08/2016"
    ms.author="hascipio"/>
 
 # 마케팅 콘텐츠로 제품 만들기 완료
@@ -25,6 +25,8 @@
   1. 게시 포털 [https://publish.windowsazure.com](https://publish.windowsazure.com)으로 이동합니다.
   2. 왼쪽 메뉴에서 **Marketing** 탭을 클릭합니다.
   3. 주 패널에서 **English (US)** 단추를 클릭합니다.
+
+  > [AZURE.IMPORTANT] 스테이징에 푸시하려면 이미지를 포함하여 모든 필드에 항목이 있어야 합니다.
 
 ### 세부 정보
 1. 제품 요약, 세부 요약 및 제품 설명을 입력합니다.
@@ -52,8 +54,7 @@
 ### 법적 정보
 **Legal** 탭에 정책/사용 약관을 연결하는 링크를 제공합니다. 큰 **Terms of Use** 상자에 약관을 입력하거나 붙여넣습니다.
 
-> [AZURE.IMPORTANT] 스테이징에 푸시하려면 이미지를 포함하여 모든 필드에 항목이 있어야 합니다.
-
+> [AZURE.NOTE] 가상 컴퓨터의 경우 SKU가 스테이징 또는 라이브된 후 **제품 식별자**, **게시자 식별자** 및 **SKU 식별자**를 변경할 수 없습니다.
 
 ## 2단계: 가격 설정
 ### 가격 책정 모델
@@ -83,10 +84,12 @@
 3.	SKU가 BYOL인 경우 외부적으로 사용이 허가된 (BYOL) SKU 사용 가능성에 대한 확인란을 선택합니다.
 4.	SKU가 매시간인 경우 해당 소프트웨어에 대한 가격 책정을 입력합니다. 가격 책정이 없는 SKU는 구입 또는 사용할 수 없습니다.
 
-  >[AZURE.NOTE] BYOL 및 매시간 SKU를 모두 포함하는 경우 두 요건을 모두 다루어야 하므로 BYOL 확인란 및 매시간에 대한 가격 값을 모두 포함합니다.
+  > [AZURE.NOTE] BYOL 및 매시간 SKU를 모두 포함하는 경우 두 요건을 모두 다루어야 하므로 BYOL 확인란 및 매시간에 대한 가격 값을 모두 포함합니다.
 
 5.	가격 마법사가 열립니다. 마법사를 진행하여 가격 책정을 완료합니다. 지정된 시장의 외부 구입을 허용하려면 다른 국가에 대한 가격 책정도 완료합니다.
 6.	ISV 송금 국가도 있습니다. ISV 송금 국가에서 판매하려면 SKU로 세금을 청구하여 징수하고, 세금을 계산한 후 해당 국가의 정부에 납부할 수 있어야 합니다. Microsoft는 법률 또는 납세 안내의 책임이 없습니다. "구매처 국가"에 대한 자세한 내용은 이 문서의 소개에 있는 "제품의 구매처 국가" 섹션을 참조하세요.
+
+  > [AZURE.NOTE] 가상 컴퓨터의 경우 기존 고객의 청구에 영향을 주므로 SKU가 라이브 상태가 된 후에 **가격 변경**, **청구 모델 변경** 및 **청구 지역 제거**를 변경할 수 없습니다.
 
 ### 2\.2. 개발자 서비스 가격 설정
 요금제는 기본 + 사용량 과금의 모든 조합이 가능합니다. 여기서 기본은 월별 가격이고 초과분은 사용량에 따른 가격입니다. 자세한 내용은 다음을 참조하세요.
@@ -144,9 +147,9 @@
 ## 다음 단계
 마켓플레이스 콘텐츠를 로드했으므로 스테이징에서 제품 테스트를 진행하겠습니다. 그러나 제품 유형별로 다양한 단계에 따라 아래 목록에서 적절한 제품 유형을 선택해야 합니다.
 
-|가상 컴퓨터 이미지 |개발자 서비스 | 데이터 서비스 | 솔루션 템플릿 |
+||가상 컴퓨터 이미지 |개발자 서비스 | 데이터 서비스 | 솔루션 템플릿 |
 |----|----|----|----|----|
-| **3단계. 제품을 스테이징으로 푸시** | [스테이징에서 VM 제품 테스트](marketplace-publishing-vm-image-test-in-staging.md) | 스테이징에서 개발자 서비스 제품 테스트 | [스테이징에서 데이터 서비스 제품 테스트](marketplace-publishing-data-service-test-in-staging.md) | [스테이징에서 솔루션 템플릿 테스트](marketplace-publishing-solution-template-test-in-staging.md) |
+| **3단계. 제품을 스테이징으로 푸시** | [스테이징에서 VM 제품 테스트](marketplace-publishing-vm-image-test-in-staging.md) | 비공개 미리 보기 | [스테이징에서 데이터 서비스 제품 테스트](marketplace-publishing-data-service-test-in-staging.md) | [스테이징에서 솔루션 템플릿 테스트](marketplace-publishing-solution-template-test-in-staging.md) |
 
 ## 참고 항목
 - [시작: Azure 마켓플레이스에 제품을 게시하는 방법](marketplace-publishing-getting-started.md)
@@ -160,4 +163,4 @@
 [link-pubportal]: https://publish.windowsazure.com
 [link-push-to-production]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

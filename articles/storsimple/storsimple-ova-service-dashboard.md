@@ -3,7 +3,7 @@
    description="StorSimple Manager 서비스 대시보드 및 이 대시보드를 사용하여 StorSimple 가상 배열의 상태를 모니터링하는 방법을 설명합니다."
    services="storsimple"
    documentationCenter=""
-   authors="SharS"
+   authors="alkohli"
    manager="carmonm"
    editor="" />
 <tags 
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/18/2016"
-   ms.author="v-sharos" />
+   ms.date="04/07/2016"
+   ms.author="alkohli" />
 
-# StorSimple 가상 배열을 위한 StorSimple Manager 서비스 대시보드 사용(미리 보기)
+# StorSimple 가상 배열을 위한 StorSimple Manager 서비스 대시보드 사용
 
 ## 개요
 
@@ -62,4 +62,4 @@ StorSimple 관리자 서비스 대시보드에 다음 정보가 표시됩니다.
 
 로컬 웹 UI를 사용하여 [StorSimple 가상 배열을 관리](storsimple-ova-web-ui-admin.md)하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

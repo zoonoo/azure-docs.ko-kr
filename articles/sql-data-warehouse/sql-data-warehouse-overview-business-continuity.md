@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="04/07/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 
@@ -51,7 +51,7 @@ SQL 데이터 웨어하우스는 계산과 저장소를 분리하기 때문에, 
 
 ### 데이터베이스 복원
 
-데이터베이스 복원은 데이터베이스를 이전 시점으로 복원하도록 설계되었습니다. Azure SQL 데이터 웨어하우스 서비스는 적어도 8시간마다 자동 저장소 스냅숏을 사용하여 모든 데이터베이스를 보호하고 7일 동안 복원 지점의 불연속 집합 제공을 유지합니다. 이러한 백업은 RA-GRS Azure 저장소에 저장되므로 기본적으로 지리적으로 중복됩니다. 자동 백업 및 복원 기능은 추가 비용 없이 제공되며 실수로 손상 또는 삭제되지 않도록 데이터베이스를 보호하는 데 비용이 들지 않으며 별도의 관리 방법도 없습니다. 데이터베이스를 복원하는 방법에 대한 자세한 내용은 [사용자 오류로부터 복구][]를 참조하세요.
+데이터베이스 복원은 데이터베이스를 이전 시점으로 복원하도록 설계되었습니다. Azure SQL 데이터 웨어하우스 서비스는 적어도 8시간마다 자동 저장소 스냅숏을 사용하여 모든 데이터베이스를 보호하고 7일 동안 복원 지점의 불연속 집합 제공을 유지합니다. 이러한 백업은 RA-GRS Azure 저장소에 저장되므로 기본적으로 지리적으로 중복됩니다. 자동 백업 및 복원 기능은 추가 비용 없이 제공되며 실수로 손상 또는 삭제되지 않도록 데이터베이스를 보호하는 데 비용이 들지 않으며 별도의 관리 방법도 없습니다. 데이터베이스를 복원하는 방법에 대한 자세한 내용은 [스냅숏에서 복원][]을 참조하세요.
 
 ### 지역 복원
 
@@ -68,7 +68,7 @@ SQL 데이터 웨어하우스는 계산과 저장소를 분리하기 때문에, 
 [Finalize a recovered database]: ../sql-database/sql-database-recovered-finalize.md
 [Azure 저장소 중복 옵션]: ../storage/storage-redundancy.md#read-access-geo-redundant-storage
 [SQL 데이터베이스 비즈니스 연속성 개요]: ../sql-database/sql-database-business-continuity.md
-[사용자 오류로부터 복구]: sql-data-warehouse-business-continuity-recover-from-user-error.md
+[스냅숏에서 복원]: sql-data-warehouse-backup-and-restore-from-snapshot.md
 
 <!--MSDN references-->
 [Create database restore request]: http://msdn.microsoft.com/library/azure/dn509571.aspx
@@ -78,4 +78,4 @@ SQL 데이터 웨어하우스는 계산과 저장소를 분리하기 때문에, 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

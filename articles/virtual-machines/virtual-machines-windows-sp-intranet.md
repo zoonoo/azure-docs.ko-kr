@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="04/01/2016"
 	ms.author="josephd"/>
 
 # Azure 인프라 서비스 워크로드: 인트라넷 SharePoint 팜
@@ -35,8 +35,6 @@ Azure 인프라 서비스에서 인트라넷 SharePoint 팜을 호스트하는 �
 
 다음 단계는 Azure에서 호스트되는 개발/테스트 인트라넷 SharePoint 팜을 설정하는 것입니다.
 
-> [AZURE.NOTE] Microsoft은 SharePoint Server 2016 IT Preview를 출시했습니다. 이 Preview를 보다 쉽게 설치하고 테스트하기 위해 SharePoint Server 2016 IT Preview 및 해당 필수 구성 요소가 미리 설치된 상태에서 Azure 가상 컴퓨터 갤러리 이미지를 사용할 수 있습니다. 자세한 내용은 [Azure에서 SharePoint Server 2016 IT Preview 테스트](https://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/)를 참조하세요.
-
 ## Azure에서 호스트되는 개발/테스트 인트라넷 SharePoint 팜 만들기
 
 Azure에서 호스트되는 SharePoint 팜에 대한 개발/테스트 환경을 만들 수 있는 두 가지 옵션이 있습니다.
@@ -44,7 +42,7 @@ Azure에서 호스트되는 SharePoint 팜에 대한 개발/테스트 환경을 
 - 클라우드 전용 가상 네트워크
 - 프레미스 간 가상 네트워크
 
-[Visual Studio 구독](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) 또는 [Azure 평가판 구독](https://azure.microsoft.com/pricing/free-trial/)을 사용하여 이러한 개발/테스트 환경을 무료로 만들 수 있습니다.
+[Visual Studio 구독](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) 또는 Azure 구독을 사용하여 이러한 개발/테스트 환경을 만들 수 있습니다.
 
 ### 클라우드 전용 가상 네트워크
 
@@ -54,7 +52,7 @@ Azure에서 호스트되는 SharePoint 팜에 대한 개발/테스트 환경을 
 
 ### 프레미스 간 가상 네트워크
 
-프레미스 간 가상 네트워크는 사이트 간 VPN 또는 Express 경로 연결을 사용하여 온-프레미스 네트워크에 연결됩니다. SharePoint 서버에 액세스하고 VPN 연결을 통해 원격 관리를 수행하여 최종 구성을 모방하는 개발/테스트 환경을 만들려는 경우 [하이브리드 클라우드에서 테스트를 위한 SharePoint 인트라넷 팜 설정](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)을 참조하세요.
+프레미스 간 가상 네트워크는 사이트 간 VPN 또는 Express 경로 연결을 사용하여 온-프레미스 네트워크에 연결됩니다. SharePoint 서버에 액세스하고 VPN 연결을 통해 원격 관리를 수행하여 최종 구성을 모방하는 개발/테스트 환경을 만들려는 경우 [하이브리드 클라우드에서 테스트를 위한 SharePoint 인트라넷 팜 설정](virtual-machines-windows-ps-hybrid-cloud-test-env-sp.md)을 참조하세요.
 
 ![](./media/virtual-machines-windows-sp-intranet/CreateSPFarmHybridCloud.png)
 
@@ -102,4 +100,4 @@ Azure에서 호스트되는 SharePoint 팜에 대한 개발/테스트 환경을 
 
 - 구성에 대해 자세히 알아보기 전에 프로덕션 워크로드의 [개요](virtual-machines-windows-sp-intranet-overview.md)를 확인합니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

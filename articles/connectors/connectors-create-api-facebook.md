@@ -22,7 +22,7 @@ Facebook에 연결하여 타임라인에 게시, 페이지 피드 가져오기 �
 
 - 논리 앱 
 
->[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다. 2014-12-01-preview 스키마 버전에 대한 내용을 보려면 [Facebook 커넥터](../app-service-logic/app-service-logic-connector-facebook.md)를 클릭하세요.
+>[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다.
 
 
 Facebook을 사용하면 다음과 같은 작업을 수행할 수 있습니다.
@@ -435,4 +435,4 @@ Facebook API에는 다음 트리거 및 작업이 포함됩니다.
 
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

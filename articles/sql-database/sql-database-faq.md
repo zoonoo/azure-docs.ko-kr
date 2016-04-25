@@ -3,8 +3,8 @@
    description="클라우드 데이터베이스 및 Azure SQL 데이터베이스, Microsoft 관계형 데이터베이스 관리 시스템(RDBMS) 및 클라우드에서 서비스로 데이터베이스에 대해 고객이 궁금해하는 일반적인 질문에 대한 답변입니다." 
    services="sql-database" 
    documentationCenter="" 
-   authors="jeffgoll" 
-   manager="jeffreyg" 
+   authors="carlrabeler" 
+   manager="jhubbard" 
    editor="monicar"/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
    ms.date="02/25/2016"
-   ms.author="sashan"/>
+   ms.author="sashan;carlrab"/>
 
 # SQL 데이터베이스 FAQ
 
@@ -61,9 +61,9 @@ V12 데이터베이스를 사용하는 경우 서비스 계층(Basic, Standard �
 원하는 횟수만큼 조정할 수 있습니다.
 
 ## 단일 데이터베이스의 서비스 계층 또는 성능 수준을 변경하거나 탄력적 데이터베이스 풀 내부 및 외부로 데이터베이스를 이동하는 데는 얼마나 시간이 소요되나요? 
-데이터베이스의 서비스 계층을 변경하고 풀 내부 및 외부로 이동하려면 플랫폼에서 백그라운드 작업으로 데이터베이스를 복사해야 합니다. 데이터베이스 크기에 따라 몇 분에서 몇 시간까지 소요될 수 있습니다. 두 경우 모두 데이터베이스는 온라인 상태이고 이동 중에도 사용할 수 있습니다. 단일 데이터베이스 변경에 대한 자세한 내용은 [데이터베이스의 서비스 계층 변경](sql-database-scale-up.md)을 참조하세요. 탄력적 데이터베이스에 대한 내용은 [탄력적 풀 참조](sql-database-elastic-pool-reference.md#latency-of-elastic-pool-operations)를 참조하세요.
+데이터베이스의 서비스 계층을 변경하고 풀 내부 및 외부로 이동하려면 플랫폼에서 백그라운드 작업으로 데이터베이스를 복사해야 합니다. 데이터베이스 크기에 따라 몇 분에서 몇 시간까지 소요될 수 있습니다. 두 경우 모두 데이터베이스는 온라인 상태이고 이동 중에도 사용할 수 있습니다. 단일 데이터베이스 변경에 대한 자세한 내용은 [데이터베이스의 서비스 계층 변경](sql-database-scale-up.md)을 참조하세요.
 
-##탄력적 데이터베이스와 단일 데이터베이스는 언제 사용해야 하나요? 
+## 탄력적 데이터베이스와 단일 데이터베이스는 언제 사용해야 하나요? 
 일반적으로 탄력적 데이터베이스 풀은 고객 또는 테넌트당 하나의 데이터베이스가 있는 전형적인 SaaS(Software-as-a-Service) 응용 프로그램 패턴을 위해 설계되었습니다. 개별 데이터베이스를 만들고 각 데이터베이스의 가변적인 최대 수요를 충족하기 위해 과도하게 프로비저닝하는 것은 대체로 비용 효율적이지 않습니다. 풀을 사용하여 사용자는 풀의 집단 성능을 관리하고 데이터베이스는 자동으로 확장 및 축소됩니다.
 
 Azure의 지능형 엔진이 사용 패턴이 타당하다고 판단되는 경우 데이터베이스에 대한 풀을 추천합니다. 자세한 내용은 [SQL 데이터베이스 가격 책정 계층 권장 사항](sql-database-service-tier-advisor.md)을 참조하세요. 단일 및 탄력적 데이터베이스 중에서 선택 방법에 대한 자세한 지침은 [탄력적 데이터베이스 풀에 대한 가격 및 성능 고려 사항](sql-database-elastic-pool-guidance.md)을 참조하세요.
@@ -89,4 +89,4 @@ Azure SQL Web 및 Business 데이터베이스는 이제 사용되지 않습니�
 ## 주 데이터베이스와 지역 보조 데이터베이스 간의 복제 지연을 모니터링할 수 있는 도구는 무엇인가요?
 DMV를 통해 주 데이터베이스와 지역 보조 데이터베이스 간의 실시간 복제 지연을 표시합니다. 자세한 내용은 [sys.dm\_geo\_replication\_link\_status](https://msdn.microsoft.com/library/mt575504.aspx)를 참조하세요.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -105,7 +105,14 @@ HDInsight 플랫폼의 몇 가지 두드러진 기능은 다음과 같습니다.
 * 헤드 노드가 2개 있는 고가용성 클러스터는 기본적으로 HDInsight 2.1 이상에 대해 배포됩니다. HDInsight 1.6 클러스터에서는 사용할 수 없습니다.
 * 특정 버전에 대한 지원이 만료되면 Azure 클래식 포털을 통해 사용할 수 없게 됩니다. 다음 표에는 Azure 클래식 포털에서 사용할 수 있는 버전이 나와 있습니다. 클러스터 버전은 사용이 중단될 때까지 Windows PowerShell [New-RmAzureHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) 명령의 `Version` 매개 변수 및 .NET SDK를 사용하여 계속 사용할 수 있습니다.
 
-<table border="1"> <tr><th>HDInsight 버전</th><th>HDP 버전</a><th>고가용성</th></th><th>릴리스 날짜</th><th>Azure 클래식 포털에서 사용 가능 여부</th><th>지원 만료 날짜</th><th>사용 중단 날짜</th></tr> <tr><td>HDI 3.2</td><td>HDP 2.2</td><td>예</td><td>2015년 2월 18일</td><td>예</td><td></td><td></td></tr> <tr><td>HDI 3.1</td><td>HDP 2.1</td><td>예</td><td>2014년 6월 24일</td><td>예</td><td></td><td></td></tr> <tr><td>HDI 3.0</td><td>HDP 2.0</td><td>예</td><td>2014년 11월 2일</td><td>예</td><td>2014년 9월 17일</td><td>2015년 6월 30일</td></tr> <tr><td>HDI 2.1</td><td>HDP 1.3</td><td>예</td><td>2013년 10월 28일</td><td>아니요</td><td>2014년 12월 5일</td><td>2015년 5월 31일</td></tr> <tr><td>HDI 1.6</td><td>HDP 1.1</td><td>아니요</td><td>2013년 10월 28일</td><td>아니요</td><td>2014년 4월 26일</td><td>2015년 5월 31일</td></tr> </table><br>
+<table border="1">
+<tr><th>HDInsight 버전</th><th>HDP 버전</a><th>고가용성</th></th><th>릴리스 날짜</th><th>Azure 클래식 포털에서 사용 가능 여부</th><th>지원 만료 날짜</th><th>사용 중단 날짜</th></tr>
+<tr><td>HDI 3.2</td><td>HDP 2.2</td><td>예</td><td>2/18/2015</td><td>예</td><td></td><td></td></tr>
+<tr><td>HDI 3.1</td><td>HDP 2.1</td><td>예</td><td>6/24/2014</td><td>예</td><td></td><td></td></tr>
+<tr><td>HDI 3.0</td><td>HDP 2.0</td><td>예</td><td>2014/02/11</td><td>예</td><td>2014/09/17</td><td>2015/06/30</td></tr>
+<tr><td>HDI 2.1</td><td>HDP 1.3</td><td>예</td><td>2013/10/28</td><td>아니요</td><td>2014/05/12</td><td>2015/05/31</td></tr>
+<tr><td>HDI 1.6</td><td>HDP 1.1</td><td>아니요</td><td>2013/10/28</td><td>아니요</td><td>2014/04/26</td><td>2015/05/31</td></tr>
+</table><br>
 
 **기본이 아닌 클러스터의 배포**
 
@@ -120,7 +127,7 @@ SLA는 "지원 기간" 면에서 정의됩니다. 지원 기간은 Microsoft 고
 
 **사용 중단 날짜**는 HDInsight에서 해당 클러스터 버전을 만들 수 없게 되는 날짜입니다.
 
-> [AZURE.NOTE] HDInsight 2.1 및 3.0 클러스터는 모두 64비트 버전의 Windows Server 2012 R2를 사용하고 .NET Framework 4.0, 4.5 및 4.5.1을 지원하는 Azure 게스트 OS [제품군 4](../cloud-services-guestos-update-matrix.md)에서 실행됩니다.
+> [AZURE.NOTE] HDInsight 2.1 및 3.0 클러스터는 모두 64비트 버전의 Windows Server 2012 R2를 사용하고 .NET Framework 4.0, 4.5 및 4.5.1을 지원하는 Azure 게스트 OS [제품군 4](../cloud-services/cloud-services-guestos-update-matrix.md)에서 실행됩니다.
 
 ## HDInsight 버전과 관련된 Hortonworks 릴리스 정보##
 
@@ -160,4 +167,4 @@ SLA는 "지원 기간" 면에서 정의됩니다. 지원 기간은 Microsoft 고
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

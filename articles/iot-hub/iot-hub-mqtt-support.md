@@ -20,8 +20,6 @@
 
 IoT Hub를 사용하면 장치는 8883 포트의 [MQTT v3.1.1][lnk-mqtt-org] 프로토콜을 사용하여 IoT Hub 장치 끝점과 통신할 수 있습니다. IoT Hub는 TLS/SSL을 사용하여 모든 장치 통신이 보호되어야 합니다.
 
-자세한 내용은 Azure IoT Hub 개발자 가이드에서 [MQTT 지원에 대한 참고 사항][lnk-mqtt-devguide]을 참조하세요.
-
 ## IoT Hub에 연결
 
 장치는 [Microsoft Azure IoT SDK][lnk-device-sdks]의 라이브러리를 사용하거나 MQTT 프로토콜을 직접 사용하여 MQTT 프로토콜을 사용하는 IoT Hub에 연결할 수 있습니다.
@@ -85,6 +83,8 @@ IoT Hub에서 메시지를 수신하려면 장치는 **항목 필터**로서 `de
 
 ## 다음 단계
 
+IoT 장치 SDK의 MQTT 지원에 대한 자세한 내용은 Azure IoT Hub 개발자 가이드에서 [MQTT 지원에 대한 참고 사항][lnk-mqtt-devguide]을 참조하세요.
+
 IoT Hub와 통신하는 장치 클라이언트 SDK를 사용하는 방법에 대한 자세한 내용은 [Azure IoT Hub 시작][lnk-iot-get-stated]을 참조하세요.
 
 MQTT 프로토콜에 대한 자세한 내용은 [MQTT 설명서][lnk-mqtt-docs]를 참조하세요.
@@ -102,4 +102,4 @@ MQTT 프로토콜에 대한 자세한 내용은 [MQTT 설명서][lnk-mqtt-docs]�
 [lnk-sas-tokens]: iot-hub-sas-tokens.md
 [lnk-mqtt-devguide]: iot-hub-devguide.md#mqtt-support
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

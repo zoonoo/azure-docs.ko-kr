@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/24/2016" 
+	ms.date="04/11/2016" 
 	ms.author="billmath"/>
 
 # 클라우드에서 Azure Multi-Factor Authentication을 사용하여 사용자 설정 관리
@@ -22,7 +22,7 @@
 
 - [연락처 메서드를 다시 제공하도록 선택된 사용자 요구](#require-selected-users-to-provide-contact-methods-again)
 - [사용자 기존 앱 암호 삭제](#delete-users-existing-app-passwords)
-- [사용자에 대해 일시 중단된 모든 장치에서 MFA 복원(공개 미리 보기)](#restore-mfa-on-all-suspended-devices-for-a-user)
+- [사용자에 대해 일시 중단된 모든 장치에서 MFA 복원](#restore-mfa-on-all-suspended-devices-for-a-user)
 
 
 
@@ -86,4 +86,4 @@
 9. 저장을 클릭합니다.
 10. 닫기를 클릭합니다.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0413_2016-->

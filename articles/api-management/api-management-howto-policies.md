@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Azure API 관리의 정책" 
+	pageTitle="Azure API 관리의 정책 | Microsoft Azure" 
 	description="API 관리에서 정책을 만들고 편집하고 구성하는 방법에 대해 알아봅니다." 
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="04/12/2016" 
 	ms.author="sdanie"/>
 
 
@@ -51,6 +51,8 @@ Azure API 관리에서 정책은 게시자가 구성을 통해 API 동작을 변
 정책 정의는 일련의 인바운드 및 아웃바운드 명령문을 설명하는 단순한 XML 문서입니다. 정의 창에서 XML을 직접 편집할 수 있습니다. 명령문 목록이 오른쪽에 제공되고 현재 범위에 적용할 수 있는 명령문이 사용 가능해지며 강조 표시됩니다. 위의 스크린샷에서는 **호출 비율 제한** 문이 표시되어 있습니다.
 
 사용할 수 있는 명령문을 클릭하면 정의 뷰에서 커서의 위치에 적절한 XML이 추가됩니다.
+
+>[AZURE.NOTE] 추가하려는 정책이 활성화되지 않는 경우 해당 정책의 올바른 범위에 속하는지 확인하세요. 각 정책 문은 특정 범위 및 정책 섹션에서 사용하도록 되어 있습니다. 정책의 정책 섹션 및 범위를 검토하려면 [정책 참조][]에서 해당 정책에 대한 **사용** 섹션을 확인하세요.
 
 정책 명령문 및 설정의 전체 목록은 [정책 참조][]에서 확인할 수 있습니다.
 
@@ -148,4 +150,4 @@ Azure API 관리에서 정책은 게시자가 구성을 통해 API 동작을 변
 [policies-restrict]: ./media/api-management-howto-policies/api-management-policies-restrict.png
 [policies-save]: ./media/api-management-howto-policies/api-management-policies-save.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->
