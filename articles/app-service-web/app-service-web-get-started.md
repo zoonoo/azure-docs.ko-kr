@@ -65,13 +65,13 @@ Azure 앱 서비스에 웹 앱을 배포하겠습니다.
     
     프롬프트를 따라 Azure 구독을 보유하고 있는 Microsoft 계정을 사용하여 브라우저에서 계속 로그인합니다.
 
-4. 다음 명령을 사용하여 Azure에 고유한 앱 이름을 가진 앱 서비스 앱 리소스를 만듭니다. 웹 앱의 URL은 http://&lt;app_name>.azurewebsites.net이 됩니다.
+4. 다음 명령을 사용하여 Azure에 고유한 앱 이름을 가진 앱 서비스 앱 리소스를 만듭니다.
 
         azure site create --git <app_name>
       
     >[AZURE.NOTE] Azure 구독에 대한 배포 자격 증명을 전혀 설정하지 않은 경우 배포 자격 증명을 만들라는 메시지가 나타납니다. 이러한 자격 증명(Azure 계정 자격 증명 아님)은 앱 서비스에서 Git 배포 및 FTP 로그인에만 사용합니다.
     
-    이제 Azure에 앱이 생성될 뿐 아니라 현재 디렉터리가 Git 초기화되어 새로운 앱 서비스 앱에 Git 원격으로 연결됩니다. 앱의 URL을 탐색하여 아름다운 기본 HTML 페이지를 볼 수 있지만, 지금은 거기에 사용자 고유의 코드를 배치해 보겠습니다.
+    이제 Azure에서 앱이 생성되었습니다. 또한, 현재 디렉터리가 Git 초기화되어 새로운 앱 서비스 앱에 Git 원격으로 연결됩니다. 앱 URL(http://&lt;app_name>.azurewebsites.net)이 표시되도록 이동하여 아름다운 기본 HTML 페이지를 볼 수 있지만, 지금은 거기에 사용자 고유의 코드를 배치해 보겠습니다.
 
 4. 이제 Git로 코드를 푸시하듯이 새 앱 서비스 앱에 샘플 코드를 배포합니다.
 
@@ -79,7 +79,7 @@ Azure 앱 서비스에 웹 앱을 배포하겠습니다.
     
     >[AZURE.NOTE] 배포 암호가 필요할 것입니다. 앱 서비스를 처음 접하는 경우, 방금 만든 배포 암호를 입력하고 과정을 진행하면 됩니다.
     
-    `git push`는 Azure에 코드를 배치할 뿐만 아니라 배포 엔진에서 배포 작업을 트리거합니다. 프로젝트(리포지토리) 루트에 package.json(Node.js) 또는 requirements.txt(Python)가 있거나 ASP.NET 프로젝트에 packages.config가 있는 경우 배포 스크립트가 사용자에게 필요한 패키지를 복원할 것입니다. 또한 PHP 앱의 composer.json 파일을 자동으로 처리하도록 [작성기 확장](web-sites-php-mysql-deploy-use-git.md#composer)을 설정할 수 있습니다.
+    `git push`는 Azure에 코드를 배치할 뿐만 아니라 배포 엔진에서 배포 작업을 트리거합니다. 프로젝트(리포지토리) 루트에 package.json(Node.js) 또는 requirements.txt(Python)가 있거나 ASP.NET 프로젝트에 packages.config가 있는 경우 배포 스크립트가 사용자에게 필요한 패키지를 복원합니다. 또한 PHP 앱의 composer.json 파일을 자동으로 처리하도록 [작성기 확장](web-sites-php-mysql-deploy-use-git.md#composer)을 설정할 수 있습니다.
 
 축하합니다. Azure 앱 서비스에 앱을 배포하셨습니다.
 
@@ -109,7 +109,7 @@ Azure에서 라이브로 실행 중인 앱을 보려면 리포지토리의 디�
 
 2. 왼쪽 표시줄에서 **앱 서비스**를 클릭합니다.
 
-3. 방금 만든 앱 서비스 앱을 클릭하여 포털에서 해당 블레이드를 엽니다. 사용자 편의를 위해 기본적으로 **설정** 블레이드도 열립니다.
+3. 방금 만든 앱을 클릭하여 포털에서 해당 페이지([블레이드](../azure-portal-overview.md)라고 부르는)를 엽니다. 사용자 편의를 위해 기본적으로 **설정** 블레이드도 열립니다.
 
     ![Azure 앱 서비스에서 첫 번째 앱의 포털 보기](./media/app-service-web-get-started/portal-view.png)
 
@@ -139,4 +139,4 @@ Azure에서 라이브로 실행 중인 앱을 보려면 리포지토리의 디�
 - [모바일 앱 만들기](/documentation/learning-paths/appservice-mobileapps/)
 - [API 앱 만들기](../app-service-api/app-service-api-apps-why-best-platform.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

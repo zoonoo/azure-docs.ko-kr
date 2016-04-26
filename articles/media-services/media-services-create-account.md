@@ -4,7 +4,7 @@
 	services="media-services"
 	documentationCenter=""
 	authors="Juliako"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/03/2016"
+	ms.date="04/18/2016"
 	ms.author="juliako"/>
 
 
 # Azure 미디어 서비스 계정 만들기
 
 > [AZURE.SELECTOR]
-- [Portal](media-services-create-account.md)
+- [포털](media-services-create-account.md)
 - [PowerShell](media-services-manage-with-powershell.md)
-- [REST](http://msdn.microsoft.com/library/azure/dn194267.aspx)
+- [REST (영문)](http://msdn.microsoft.com/library/azure/dn194267.aspx)
 
 
 > [AZURE.NOTE] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 무료 체험](/pricing/free-trial/?WT.mc_id=A261C142F)을 참조하세요.
@@ -106,4 +106,4 @@ Azure 클래식 포털을 통해 Azure 미디어 서비스 계정을 신속하�
 
   [Azure 클래식 포털]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

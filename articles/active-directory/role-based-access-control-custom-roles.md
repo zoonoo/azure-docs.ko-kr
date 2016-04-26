@@ -13,14 +13,14 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="03/25/2016"
+	ms.date="04/18/2016"
 	ms.author="kgremban"/>
 
 
 # Azure RBAC에서 사용자 지정 역할
 
 
-특정 액세스 요구를 충족하는 기본 제공 역할이 없는 경우 Azure 역할 기반 액세스 제어(RBAC)에서 사용자 지정 역할을 만듭니다. Azure PowerShell, Azure 명령줄 인터페이스(CLI) 및 REST API를 사용하여 사용자 지정 역할을 만들 수 있습니다. 기본 제공 역할과 마찬가지로 사용자 지정 역할을 사용자, 그룹 및 응용 프로그램에 구독, 리소스 그룹 및 리소스 범위에서 할당할 수 있습니다.
+특정 액세스 요구를 충족하는 기본 제공 역할이 없는 경우 Azure 역할 기반 액세스 제어(RBAC)에서 사용자 지정 역할을 만듭니다. [Azure PowerShell](role-based-access-control-manage-access-powershell.md), [Azure 명령줄 인터페이스(CLI)](role-based-access-control-manage-access-azure-cli.md) 및 [REST API](role-based-access-control-manage-access-rest.md)를 사용하여 사용자 지정 역할을 만들 수 있습니다. 기본 제공 역할과 마찬가지로 사용자 지정 역할을 사용자, 그룹 및 응용 프로그램에 구독, 리소스 그룹 및 리소스 범위에서 할당할 수 있습니다.
 
 다음은 가상 컴퓨터의 모니터링 및 재시작을 위한 사용자 지정 역할에 관한 예제입니다.
 
@@ -53,7 +53,7 @@
 }
 ```
 ## 동작
-사용자 지정 역할의 **작업** 속성은 해당 역할에 액세스 권한이 부여되는 Azure 작업을 지정합니다. Azure 리소스 공급자의 보안 개체 작업을 식별하는 작업 문자열 모음입니다. 와일드카드(*)를 포함하는 작업 문자열은 작업 문자열과 일치하는 모든 작업에 대한 액세스 권한을 부여합니다. 예:
+사용자 지정 역할의 **Actions** 속성은 해당 역할에 액세스 권한이 부여되는 Azure 작업을 지정합니다. Azure 리소스 공급자의 보안 개체 작업을 식별하는 작업 문자열 모음입니다. 와일드카드(*)를 포함하는 작업 문자열은 작업 문자열과 일치하는 모든 작업에 대한 액세스 권한을 부여합니다. 예:
 
 -	`*/read`는 모든 Azure 리소스 공급자의 모든 리소스 종류에 대한 읽기 작업의 액세스 권한을 부여합니다.
 -	`Microsoft.Network/*/read`는 Azure의 Microsoft.Network 리소스 공급자에서 모든 리소스 종류에 대한 읽기 작업의 액세스 권한을 부여합니다.
@@ -92,11 +92,11 @@
 - 사용자 지정 역할을 볼 수 있는 사용자는 누구인가요? Azure RBAC에서 모든 기본 제공 역할은 할당 가능한 역할을 볼 수 있습니다. 범위에서 `Microsoft.Authorization/roleDefinition/read` 작업을 수행할 수 있는 사용자는 해당 범위에서 할당 가능한 RBAC 역할을 볼 수 있습니다.
 
 ## 참고 항목
-- Azure 포털에서 [Azure 역할 기반 액세스 제어](role-based-access-control-configure.md)를 통해 시작합니다.
+- [역할 기반 액세스 제어](role-based-access-control-configure.md): Azure 포털에서 RBAC를 통해 시작합니다.
 - 다음을 사용하여 액세스를 관리하는 방법에 대해 알아봅니다.
 	- [PowerShell](role-based-access-control-manage-access-powershell.md)
 	- [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
 	- [REST API](role-based-access-control-manage-access-rest.md)
-- [액세스 변경 기록 보고서 만들기](role-based-access-control-access-change-history-report.md)
+- [기본 제공 역할](role-based-access-built-in-roles.md): RBAC에서 표준이 되는 역할에 대한 세부 정보를 봅니다.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -89,7 +89,7 @@
 
 **type**에 대해 지정한 값은 리소스 공급자와 리소스 유형을 모두 포함합니다. 가용성 집합의 경우 리소스 공급자는 **Microsoft.Compute**이고 리소스 유형은 **availabilitySets**입니다. 다음 PowerShell 명령을 실행하여 사용 가능한 리소스 공급자의 목록을 얻을 수 있습니다.
 
-    PS C:\> Get-AzureRmResourceProvider -ListAvailable
+    Get-AzureRmResourceProvider -ListAvailable
 
 또는 Azure CLI를 사용하는 경우 다음 명령을 실행할 수 있습니다.
 
@@ -103,7 +103,7 @@
 
 특정 공급자에 대한 리소스 유형을 보려면 다음 PowerShell 명령을 실행합니다.
 
-    PS C:\> (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
+    (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
 
 또는 Azure CLI의 경우 다음 명령은 JSON 형식으로 사용 가능한 유형을 반환하며 이를 파일로 저장합니다.
 
@@ -133,7 +133,7 @@
 
 이제 **apiVersion**을 결정하는 방법을 살펴보겠습니다. 사용자가 지정하는 값은 리소스를 만들 때 사용할 REST API의 버전과 일치합니다. 따라서 해당 리소스 유형에 대한 REST API 설명서를 살펴볼 수 있습니다. 또는 특정 유형에 대해 다음 PowerShell 명령을 실행할 수 있습니다.
 
-    PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Network).ResourceTypes | Where-Object ResourceTypeName -eq publicIPAddresses).ApiVersions
+    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Network).ResourceTypes | Where-Object ResourceTypeName -eq publicIPAddresses).ApiVersions
 
 그러면 다음 값이 반환됩니다.
 
@@ -503,4 +503,4 @@ Azure CLI 및 API 버전을 보려면 이전에 본 것처럼 동일한 **azure 
 - 템플릿 구조에 대해 자세히 알아보려면 [Azure Resource Manager 템플릿 작성하기](resource-group-authoring-templates.md)를 참조하세요.
 - 템플릿 배포에 대해 자세히 알아보려면 [Azure Resource Manager 템플릿을 사용하여 리소스 그룹 배포](resource-group-template-deploy.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

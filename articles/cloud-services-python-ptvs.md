@@ -1,9 +1,9 @@
 <properties
 	pageTitle="Python Tools 2.2 for Visual Studio의 Python 웹 및 작업자 역할 | Microsoft Azure"
 	description="Python Tools for Visual Studio를 사용하여 웹 역할과 작업자 역할을 포함한 Azure 클라우드 서비스를 만드는 방법을 간략하게 설명합니다."
-	services=""
+	services="cloud-services"
 	documentationCenter="python"
-	authors="huguesv"
+	authors="thraka"
 	manager="wpickett"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="python"
 	ms.topic="hero-article"
 	ms.date="08/30/2015"
-	ms.author="huvalo"/>
+	ms.author="adegeo"/>
 
 
 
@@ -38,7 +38,7 @@ Azure는 응용 프로그램을 실행하기 위한 세 가지 컴퓨팅 모델�
 
 자세한 내용은 [클라우드 서비스란?]을 참조하세요.
 
-> [AZURE.NOTE]*간단한 웹 사이트를 빌드하려는 경우* 시나리오에 간단한 웹 사이트 프런트 엔드만 포함된 경우 Azure 웹 서비스의 간단한 웹앱의 사용을 고려합니다. 그러면 웹 사이트가 커지고 요구 사항이 변경될 때 클라우드 서비스로 쉽게 업그레이드할 수 있습니다. Azure 앱 서비스의 웹앱 기능 개발을 설명하는 문서는 <a href="/develop/python/">Python 개발자 센터</a>를 참조하세요. <br />
+> [AZURE.NOTE] *간단한 웹 사이트를 빌드하려는 경우* 시나리오에 간단한 웹 사이트 프런트 엔드만 포함된 경우 Azure 웹 서비스의 간단한 웹앱의 사용을 고려합니다. 그러면 웹 사이트가 커지고 요구 사항이 변경될 때 클라우드 서비스로 쉽게 업그레이드할 수 있습니다. Azure 앱 서비스의 웹앱 기능 개발을 설명하는 문서는 <a href="/develop/python/">Python 개발자 센터</a>를 참조하세요. <br />
 
 
 ## 프로젝트 만들기
@@ -114,17 +114,17 @@ Azure 저장소 또는 서비스 버스를 사용하는 등 웹 및 작업자 �
 
 <!--Link references-->
 
-[클라우드 서비스란?]: /manage/services/cloud-services/what-is-a-cloud-service/
-[execution model-web sites]: fundamentals-application-models.md#WebSites
-[execution model-vms]: fundamentals-application-models.md#VMachine
-[execution model-cloud services]: fundamentals-application-models.md#CloudServices
+[클라우드 서비스란?]: ./cloud-services/cloud-services-choose-me.md
+[execution model-web sites]: ./app-service-web/app-service-web-overview.md
+[execution model-vms]: ./virtual-machines/virtual-machines-windows-about.md
+[execution model-cloud services]: ./cloud-services/cloud-services-choose-me.md
 [Python Developer Center]: /develop/python/
 
-[Blob 서비스]: storage-python-how-to-use-blob-storage.md
-[큐 서비스]: storage-python-how-to-use-queue-storage.md
-[테이블 서비스]: storage-python-how-to-use-table-storage.md
-[서비스 버스 큐]: service-bus-python-how-to-use-queues.md
-[서비스 버스 토픽]: service-bus-python-how-to-use-topics-subscriptions.md
+[Blob 서비스]: ./storage/storage-python-how-to-use-blob-storage.md
+[큐 서비스]: ./storage/storage-python-how-to-use-queue-storage.md
+[테이블 서비스]: ./storage/storage-python-how-to-use-table-storage.md
+[서비스 버스 큐]: ./service-bus/service-bus-python-how-to-use-queues.md
+[서비스 버스 토픽]: ./service-bus/service-bus-python-how-to-use-topics-subscriptions.md
 
 
 <!--External Link references-->
@@ -138,4 +138,4 @@ Azure 저장소 또는 서비스 버스를 사용하는 등 웹 및 작업자 �
 [Python 2.7 32비트]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Python 3.4 32비트]: http://go.microsoft.com/fwlink/?LinkId=517191
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0420_2016-->

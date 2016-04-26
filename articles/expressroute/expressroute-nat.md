@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""/>
 <tags
    ms.service="expressroute"
@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/16/2016"
+   ms.date="04/18/2016"
    ms.author="cherylmc"/>
 
 # Express 경로 NAT 요구 사항
@@ -33,7 +33,7 @@ Azure 공용 피어링 경로를 사용하면 해당 공용 IP 주소에 걸쳐 
  
 피어링을 통해 보급된 NAT IP 접두사의 길이에 대한 제한은 없습니다. NAT 풀을 모니터링하고 NAT 세션이 부족하지 않은지를 확인해야 합니다.
 
->[AZURE.IMPORTANT]Microsoft에 보급된 NAT IP 풀은 인터넷에 보급되지 않아야 합니다. 다른 Microsoft 서비스에 대한 연결을 중단합니다.
+>[AZURE.IMPORTANT] Microsoft에 보급된 NAT IP 풀은 인터넷에 보급되지 않아야 합니다. 다른 Microsoft 서비스에 대한 연결을 중단합니다.
 
 ## Microsoft 피어링에 대한 NAT 요구 사항
 
@@ -48,7 +48,7 @@ Microsoft 피어링 경로를 사용하면 Azure 공용 피어링 경로를 통�
 
 - Azure 공용 피어링 설치 및 기타 Express 경로 회로에 사용되는 IP 주소는 BGP 세션을 통해 Microsoft에 보급하지 말아야 합니다. 피어링을 통해 보급된 NAT IP 접두사의 길이에 대한 제한은 없습니다.
 
-	>[AZURE.IMPORTANT]Microsoft에 보급된 NAT IP 풀은 인터넷에 보급되지 않아야 합니다. 다른 Microsoft 서비스에 대한 연결을 중단합니다.
+	>[AZURE.IMPORTANT] Microsoft에 보급된 NAT IP 풀은 인터넷에 보급되지 않아야 합니다. 다른 Microsoft 서비스에 대한 연결을 중단합니다.
 
 #### 네트워크에 보내는 Microsoft에서 생성된 트래픽
 
@@ -66,4 +66,4 @@ Microsoft 피어링 경로를 사용하면 Azure 공용 피어링 경로를 통�
 	- [라우팅 구성](expressroute-howto-routing-classic.md)
 	- [VNet을 Express 경로 회로에 연결](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0420_2016-->

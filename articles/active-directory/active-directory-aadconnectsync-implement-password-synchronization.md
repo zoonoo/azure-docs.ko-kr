@@ -12,49 +12,63 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/22/2016"
+	ms.date="04/15/2016"
 	ms.author="markusvi;andkjell"/>
 
 
 # Azure AD Connect 동기화로 암호 동기화 구현
 
-암호 동기화를 사용하면 사용자가 Azure Active Directory에 로그인하여 온-프레미스에 로그인하는데 사용하는 동일한 암호를 사용할 수 있습니다.
+암호 동기화를 사용하면 온-프레미스 Active Directory 암호를 사용하여 Azure Active Directory에 로그인할 수 있습니다.
 
-이 항목의 목표는 암호 동기화 작동 방법 및 사용하도록 설정하는 방법, 사용자 환경에서 문제를 해결하는 방법을 이해하는데 필요한 정보를 제공하는 것입니다.
+이 항목은 사용자 환경에서 암호 동기화를 사용하도록 설정하고 문제를 해결하는 데 필요한 정보를 제공합니다.
+
 
 ## 암호 동기화란 무엇입니까?
 
-암호 동기화는 온 프레미스 Active Directory에서 Azure Active Directory(Azure AD)로 사용자의 암호를 동기화하는 Azure Active Directory Connect 동기화(Azure AD Connect 동기화)의 기능입니다. 이 기능은 사용자가 자신의 Azure Active Directory 서비스 (예: Office 365, Microsoft Intune, CRM Online)에 로그인할 때 온-프레미스 네트워크에 로그인할 때 사용하는 동일한 암호를 사용합니다.
+암호 동기화는 온-프레미스 Active Directory에서 클라우드 기반 Azure Active Directory(Azure AD)로 사용자 암호를 동기화하는 기능입니다. 이 기능은 온-프레미스 네트워크 로그인에 사용하는 것과 동일한 암호를 사용하여 Azure Active Directory 서비스(Office 365, Microsoft Intune, 및 CRM Online)에 로그인할 수 있도록 해줍니다. 이 기능을 사용하려면 Azure Active Directory Connect 동기화 서비스(Azure AD Connect 동기화)를 설치해야 합니다.
+
 
 > [AZURE.NOTE] FIPS 및 암호 동기화에 대해 Active Directory 도메인 서비스 구성에 대한 자세한 내용은 [암호 동기화 및 FIPS](#password-synchronization-and-fips)를 참조하세요.
 
-### 암호 동기화의 가용성
-
-Azure Active Directory의 모든 고객은 암호 동기화를 실행할 수 있습니다. 암호 동기화의 호환성 및 페더레이션 인증과 같은 다른 기능에 대한 정보는 아래를 참조하세요.
-
 ## 암호 동기화 작동 방법
 
-암호 동기화는 Azure AD Connect 동기화를 통한 디렉터리 동기화 기능 구현의 확장판입니다. 따라서, 이 기능은 온-프레미스와 구성할 Azure Active Directory간에 디렉터리 동기화를 요구합니다.
+암호 동기화는 Azure AD Connect 동기화를 통한 디렉터리 동기화 기능 구현의 확장판입니다. 이 기능은 온-프레미스 AD와 구성할 Azure Active Directory간의 디렉터리 동기화를 필요로 합니다.
 
-Active Directory 도메인 서비스는 실제 사용자 암호의 해시 값 표시 형태로 암호를 저장합니다. 암호 해시는 온-프레미스 네트워크에 로그인할 때 사용할 수 없습니다. 또한 사용자의 일반 텍스트 암호에 대한 액세스 권한을 얻기 위해 reverse할 수 없도록 설계 되었습니다. 암호를 동기화 하기 위해, Azure AD Connect 동기화가 사용자의 암호 해시를 온-프레미스 Active Directory에서 추출합니다. Azure Active Directory 인증 서비스로 동기화 되기 전에 암호 해시에 추가적인 보안 처리가 적용됩니다. 암호 동기화 과정의 실제 흐름은 DisplayName 또는 전자 메일 주소와 같은 사용자 데이터 동기화와 비슷합니다.
+Active Directory 도메인 서비스는 실제 사용자 암호의 해시 값 표시 형태로 암호를 저장합니다. 다음 경우에 암호 해시를 사용할 수 없습니다.
 
-암호는 다른 특성에 대한 표준 디렉터리 동기화 창 보다 더 자주 동기화 됩니다. 암호는 각 사용자 기본별로 동기화되고 일반적으로는 시간 순서대로 동기화됩니다. 사용자의 암호가 온-프레미스 AD에서 클라우드로 동기화 될 때, 기존 클라우드 암호는 덮여쓰여집니다.
+- 온-프레미스 네트워크에 로그인
 
-처음 암호 동기화 기능을 실행하면 온-프레미스 Active Directory부터 Azure Active Directory까지의 모든 범위 내의 사용자 암호의 초기 동기화를 수행합니다. 클라우드에 동기화된 암호를 갖게될 사용자의 집합을 명시적으로 정의할 수 없습니다. 온-프레미스 사용자가 암호를 변경한 이후에, 암호 동기화 기능은 짧은 시간 동안 가장 자주 변경된 암호를 검색하고 동기화합니다. 암호 동기화 기능은 사용자 암호 동기화가 실패할 경우 자동으로 다시 시도합니다. 암호를 동기화하는 동안 오류가 발생하면 이벤트 뷰어에 오류가 기록됩니다.
+- 암호의 일반 텍스트 버전으로 되돌리기
 
-암호 동기화는 현재 로그온한 사용자에게 아무런 영향도 미치지 않습니다. 클라우드 서비스에 로그인한 사용자가 온-프레미스 암호를 바꿔도, 클라우드 서비스 세션을 중단없이 계속됩니다. 그러나, 새 암호를 제공 받으려면, 사용자는 클라우드 서비스에 빨리 재인증을 해야 합니다. 이 시점에서 사용자는 새 암호 즉, 온-프레미스 Active Directory에서 클라우드로 최근에 동기화된 암호를 제공하도록 요구받습니다.
+암호를 동기화 하기 위해, Azure AD Connect 동기화는 온-프레미스 Active Directory에서 사용자 암호 해시를 추출합니다. Azure Active Directory 인증 서비스로 동기화 되기 전에 암호 해시에 추가적인 보안 처리가 적용됩니다. 암호 동기화 과정의 실제 흐름은 DisplayName 또는 전자 메일 주소와 같은 사용자 데이터 동기화와 비슷합니다.
+
+암호 동기화는:
+
+- 사용자 별로
+
+- 시간 순으로
+
+- 다른 특성에 대한 표준 디렉터리 동기화 창 보다 더 자주 수행됩니다.
+
+동기화된 암호는 기존 클라우드 암호를 덮어씁니다.
+
+암호 동기화 기능을 사용하도록 처음으로 설정하면 범위 내 모든 사용자 암호에 대한 초기 동기화를 수행합니다. 동기화할 사용자 암호의 하위 집합을 명시적으로 정의할 수 없습니다.
+
+온-프레미스 암호를 변경하면, 업데이트된 암호는 대개 몇 분 내에 동기화됩니다. 암호 동기화 기능은 사용자 암호 동기화가 실패할 경우 자동으로 다시 시도합니다. 암호를 동기화하는 동안 오류가 발생하면 이벤트 뷰어에 오류가 기록됩니다.
+
+암호 동기화는 현재 로그온한 사용자에게 아무런 영향도 미치지 않습니다. 클라우드 서비스에 로그온해 있는 동안 암호 변경이 동기화되면, 이로 인해 클라우드 세션이 바로 영향을 받지는 않습니다. 하지만, 클라우드 서비스에서 다시 인증을 요구하면 새 암호를 제공해야 합니다.
 
 > [AZURE.NOTE] 암호 동기화는 Active Directory의 개체 형식 사용자에만 지원됩니다. iNetOrgPerson 개체 형식에 대해 지원되지 않습니다.
 
 ### Azure AD 도메인 서비스와 함께 암호를 동기화하는 방법
 
-Azure AD에서 이 서비스를 사용하는 경우 암호 동기화 옵션에서 Single-Sign On 환경을 가져와야 합니다. 이 서비스를 사용하도록 설정하면 암호 동기화에 대한 동작이 변경되고 암호 해시도 온-프레미스 Active Directory에서 Azure AD 도메인 서비스까지 현재 상태로 동기화될 것입니다. 이 기능은 ADMT(Active Directory Migration Tool: Active Directory 마이그레이션 도구)와 비슷하며 Azure AD 도메인 서비스를 통해 온-프레미스 AD에서 사용할 수 있는 모든 방법으로 사용자를 인증할 수 있습니다.
+Azure AD에서 이 서비스를 사용하는 경우 암호 동기화 옵션에서 Single-Sign On 환경을 가져와야 합니다. 이 서비스를 사용하도록 설정하면 암호 동기화에 대한 동작이 변경되고 암호 해시도 온-프레미스 Active Directory에서 Azure AD 도메인 서비스까지 그 상태로 동기화됩니다. 이 기능은 ADMT(Active Directory Migration Tool: Active Directory 마이그레이션 도구)와 비슷하며 Azure AD 도메인 서비스를 통해 온-프레미스 AD에서 사용할 수 있는 모든 방법으로 사용자를 인증할 수 있습니다.
 
 ### 보안 고려 사항
 
-암호를 동기화 할 때, 사용자 암호의 일반 텍스트 버전은 암호 동기화 기능이나 Azure AD 혹은 다른 어떤 관련 서비스에 노출되지 않아야 합니다.
+암호를 동기화 할 때, 사용자 암호의 일반 텍스트 버전은 암호 동기화 기능, Azure AD 혹은 다른 어떤 관련 서비스에 노출되지 않습니다.
 
-또한 역방향으로 암호화 된 형식으로 암호를 저장하는 온-프레미스 Director에서는 요구사항이 없습니다. Active Directory 암호 해시의 다이제스트는 온-프레미스 AD와 Azure Active Directory간의 전송에 사용됩니다. 암호 해시의 다이제스트는 고객의 온-프레미스 환경의 원본에 액세스 할 때 사용할 수 없습니다.
+또한 역방향으로 암호화 된 형식으로 암호를 저장하는 온-프레미스 Director에서는 요구사항이 없습니다. Active Directory 암호 해시의 다이제스트는 온-프레미스 AD와 Azure Active Directory간의 전송에 사용됩니다. 암호 해시의 다이제스트는 고객의 온-프레미스 환경의 리소스에 액세스할 때 사용할 수 없습니다.
 
 ### 암호 정책 고려 사항
 
@@ -71,24 +85,24 @@ Azure AD에서 이 서비스를 사용하는 경우 암호 동기화 옵션에�
 
 **암호 만료 정책**
 
-사용자가 암호 동기화 범위 내에 있을 경우 클라우드 계정 암호는 "*사용 기간 제한 없음*"으로 설정됩니다. 즉, 사용자의 암호가 온-프레미스 환경에서 만료되어도 다음 암호 동기화 주기 후에 새로운 암호를 사용하여 클라우드 서비스에 계속 로그인할 수 있습니다.
+사용자가 암호 동기화 범위 내에 있으면, 클라우드 계정 암호는 "*만료되지 않음*"으로 설정됩니다. 즉, 사용자는 온-프레미스 환경에서 만료된 동기화된 암호를 사용하여 클라우드 서비스에 계속 로그인할 수 있습니다.
 
-클라우드 암호는 사용자가 온-프레미스 환경의 암호를 변경한 후에 업데이트됩니다.
+클라우드 암호는 온-프레미스 환경에서 다음에 암호를 변경할 때 업데이트됩니다.
 
 ### 동기화된 암호 덮어쓰기
 
-관리자가 Azure Active Directory PowerShell을 사용하여 사용자의 암호를 수동으로 재설정할 수 있습니다.
+관리자는 PowerShell을 사용하여 사용자의 암호를 수동으로 재설정할 수 있습니다.
 
-이 경우, 새 암호는 사용자의 동기화 암호를 재정의하며, 클라우드 내에 정의된 모든 암호 정책이 새 암호에 적용됩니다.
+이런 경우, 새 암호는 사용자의 동기화된 암호를 재정의하고 클라우드 내에 정의된 모든 암호 정책이 새 암호에 적용됩니다.
 
-사용자가 온-프레미스 암호를 다시 변경하는 경우, 새 암호는 클라우드에 동기화되며, 수동으로 업데이트한 암호를 재정의합니다.
+사용자가 온-프레미스 암호를 다시 변경하면, 새 암호는 클라우드에 동기화되며, 수동으로 업데이트한 암호를 재정의합니다.
 
 
 ## 암호 동기화를 사용하도록 설정
 
 암호 동기화를 사용하도록 설정하려면 다음의 두 가지 옵션이 있습니다.
 
-- Azure AD Connect를 설치할 때 기본 설정을 사용하는 경우 암호 동기화는 기본값으로 설정됩니다.
+- Azure AD Connect를 설치할 때 Express 설정을 사용하면, 암호 동기화를 사용하도록 기본 설정됩니다.
 
 - Azure AD Connect를 설치할 때 사용자 지정 설정을 사용하는 경우 사용자 로그인 페이지에서 암호 동기화를 설정할 수 있습니다.
 
@@ -131,7 +145,7 @@ Azure AD에서 이 서비스를 사용하는 경우 암호 동기화 옵션에�
 
     ![사용자에 대한 계보 정보](./media/active-directory-aadconnectsync-implement-password-synchronization/cspasswordsync.png)
 
-7. 또한 메타버스에서 Azure AD 커넥터 공간에까지 [사용자를 따르고](active-directory-aadconnectsync-service-manager-ui-connectors.md#follow-an-object-and-its-data-through-the-system) **암호 동기화**가 **True**로 설정된 아웃바운드 규칙이 있는지 확인해야 합니다. 기본 구성에서 동기화 규칙의 이름은 **AAD로 나가기 - 사용자 조인**입니다.
+7. 또한 메타버스를 통해 Azure AD 커넥터 공간으로 [사용자를 따라야](active-directory-aadconnectsync-service-manager-ui-connectors.md#follow-an-object-and-its-data-through-the-system) 합니다. 커넥터 공간 개체에 **Password Sync** 아웃바운드 규칙이 **True**로 설정되어 있어야 합니다. 기본 구성에서 동기화 규칙의 이름은 **AAD로 나가기 - 사용자 조인**입니다.
 
     ![사용자의 커넥터 공간 속성](./media/active-directory-aadconnectsync-implement-password-synchronization/cspasswordsync2.png)
 
@@ -139,7 +153,7 @@ Azure AD에서 이 서비스를 사용하는 경우 암호 동기화 옵션에�
 
     ![개체 로그 세부 정보](./media/active-directory-aadconnectsync-implement-password-synchronization/csobjectlog.png)
 
-상태 열은 암호가 동기화되지 않은 이유 및 문제가 있음을 나타내는 다음 값을 가질 수 있습니다.
+상태 열에는 다음과 같은 값을 포함할 수 있습니다.
 
 | 상태 | 설명 |
 | ---- | ----- |
@@ -153,7 +167,7 @@ Azure AD에서 이 서비스를 사용하는 경우 암호 동기화 옵션에�
 
 ## 모든 암호의 전체 동기화 트리거
 
-대부분의 경우에서 모든 암호의 전체 동기화를 적용할 필요는 없습니다.<br> 그러나 이 작업을 수행해야 한다면 다음 스크립트를 사용하여 달성할 수 있습니다.
+일반적으로, 암호의 전체 동기화를 적용할 필요는 없습니다.<br> 하지만, 필요한 경우, 다음 스크립트를 사용하여 모든 암호의 전체 동기화를 트리거합니다.
 
     $adConnector = "<CASE SENSITIVE AD CONNECTOR NAME>"
     $aadConnector = "<CASE SENSITIVE AAD CONNECTOR NAME>"
@@ -175,4 +189,4 @@ Azure AD에서 이 서비스를 사용하는 경우 암호 동기화 옵션에�
 * [Azure AD Connect Sync: 사용자 지정 동기화 옵션](active-directory-aadconnectsync-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/18/2016" 
+	ms.date="04/20/2016" 
 	ms.author="mandia"/>
 
 # 커넥터 및 BizTalk API 앱 정의
->[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다.
+
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
+
 
 Azure 앱 서비스는 API 앱을 통한 일반적인 연결 및 확장성의 원칙을 기반으로 하여 빌드되었습니다. *커넥터*는 연결에 중점을 두는 API 앱 유형입니다. 다른 API 앱과 마찬가지로 커넥터는 웹앱, 모바일 앱 및 논리 앱에서 사용됩니다. 커넥터는 기존 서비스에 쉽게 연결할 수 있게 해주며 인증 관리에 도움이 되고 모니터링, 분석 등을 제공합니다.
 
@@ -48,4 +50,4 @@ Azure 앱 서비스에서 다양한 서비스 "계층"을 사용할 수 있습�
 표준 커넥터, BizTalk EAI, 프리미엄 커넥터 등을 포함하여 각 범주에 포함된 커넥터 및 API 앱의 전체 목록은 [커넥터 및 API 앱 목록](app-service-logic-connectors-list.md)을 참조하세요.
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

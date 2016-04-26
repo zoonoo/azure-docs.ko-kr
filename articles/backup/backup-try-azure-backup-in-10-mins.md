@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="hero-article"
-   ms.date="04/09/2016"
+   ms.date="04/14/2016"
    ms.author="jimpark;"/>
 
 # 소개: Windows Server 또는 클라이언트에서 Azure로 파일 및 폴더 백업
@@ -142,4 +142,4 @@ Azure 구독이 없는 경우 모든 Azure 서비스에 액세스할 수 있게 
 - 파일과 폴더를 백업했으니, [자격 증명 모음 및 서버](backup-azure-manage-windows-server.md)를 관리할 수 있습니다.
 - 백업을 복원해야 할 경우 이 문서를 참조하여 [Windows 컴퓨터에 파일을 복원](backup-azure-restore-windows-server.md)할 수 있습니다.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

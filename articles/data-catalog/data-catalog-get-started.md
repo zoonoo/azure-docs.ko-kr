@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/03/2016"
+   ms.date="04/15/2016"
    ms.author="derrickv"/>
 
 # Azure 데이터 카탈로그 시작
@@ -28,6 +28,8 @@
 - **Azure Active Directory** - Azure 데이터 카탈로그는 ID 및 액세스 관리를 위해 [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)를 사용합니다.
 - **데이터 원본** - Azure Data Catalog에는 데이터 원본을 검색하는 기능이 있습니다. 이 자습서는 Adventure Works 샘플 데이터베이스를 사용하지만 사용자의 역할과 관련된 친밀한 데이터로 작업하는 것을 선호하는 경우 지원되는 모든 데이터 원본을 사용할 수 있습니다. 지원되는 데이터 원본 목록은 [지원되는 데이터 원본](data-catalog-dsr.md)을 참조하세요.
 
+> [AZURE.NOTE] Azure 구독 및 Azure Active Directory에 대한 자세한 내용은 [Azure Data Catalog의 필수 구성 요소](data-catalog-prerequisites.md)를 참조하세요.
+
 이제 Adventure Works 샘플 데이터베이스를 설치하기 시작하겠습니다.
 
 ## 연습 1: Adventure Works 샘플 데이터베이스 설치
@@ -40,7 +42,7 @@ Adventure Works 데이터베이스는 제조, 판매 및 구매를 포함하는 
 
 다음은 Adventure Works 샘플 데이터베이스를 설치하는 방법입니다.
 
-Adventure Works 샘플 데이터베이스를 설치하려면 CodePlex의 [Adventure Works 2014 Full Database Backup.zip](https://msftdbprodsamples.codeplex.com/downloads/get/880661)에 있는 AdventureWorks2014 백업을 복원할 수 있습니다. 데이터베이스를 복원하는 한 가지 방법은 SQL Server Management Studio에서 T-SQL 스크립트를 실행하는 것입니다.
+Adventure Works 샘플 데이터베이스를 설치하려면 CodePlex의 [Adventure Works 2014 Full Database Backup.zip](https://msftdbprodsamples.codeplex.com/downloads/get/880661)에 있는 AdventureWorks2014 백업을 복원합니다. 데이터베이스를 복원하는 한 가지 방법은 SQL Server Management Studio에서 T-SQL 스크립트를 실행하는 것입니다.
 
 **T-SQL 스크립트로 Adventure Works 샘플 데이터베이스 설치**
 
@@ -76,7 +78,7 @@ T-SQL 스크립트를 실행하는 대신 SQL Server Management Studio를 사용
 
 ## 연습 2: 데이터 원본 등록
 
-이 연습에서는 **Azure Data Catalog** 등록 도구를 사용하여 카탈로그로 데이터 원본을 등록합니다. 등록의 목적은 데이터 원본 및 포함하는 자산에서 이름, 유형 및 위치와 같은 주요 구조적 메타데이터를 추출하고 카탈로그에 메타데이터를 복사하는 것입니다. 데이터 원본 및 해당 데이터는 있는 위치에 유지되지만 메타데이터는 보다 쉽게 검색 및 이해할 수 있도록 카탈로그를 통해 사용됩니다.
+이 연습에서는 **Azure Data Catalog** 등록 도구를 사용하여 카탈로그로 Adventure Works 데이터 원본을 등록합니다. 등록의 목적은 데이터 원본 및 포함하는 자산에서 이름, 유형 및 위치와 같은 주요 구조적 메타데이터를 추출하고 카탈로그에 메타데이터를 복사하는 것입니다. 데이터 원본 및 해당 데이터는 있는 위치에 유지되지만 메타데이터는 보다 쉽게 검색 및 이해할 수 있도록 카탈로그를 통해 사용됩니다.
 
 ### 다음은 데이터 원본을 등록하는 방법입니다.
 
@@ -100,13 +102,13 @@ T-SQL 스크립트를 실행하는 대신 SQL Server Management Studio를 사용
 
 7.	다음 페이지는 데이터 원본의 메타데이터를 등록하는 위치입니다. 이 예제에서는 AdventureWorks 프로덕션 네임스페이스에서 **프로덕션/제품** 개체를 등록합니다. 수행하는 방법은 다음과 같습니다.
 
-    a. **서버 계층** 트리에서 **프로덕션**을 클릭합니다.
+    a. **서버 계층 구조** 트리에서 **프로덕션**을 클릭합니다.
 
     ![](media/data-catalog-get-started/data-catalog-server-hierarchy.png)
 
     b. Product, ProductCategory, ProductDescription 및 ProductPhoto를 Ctrl+클릭합니다.
 
-    c. 선택 항목을 이동시키는 화살표(**>**)를 클릭합니다. 모든 제품 개체를 **등록할 개체** 목록으로 이동시킵니다.
+    c. 선택 항목을 이동시키는 화살표(**>**)를 클릭합니다. 선택한 모든 제품 개체를 **등록할 개체** 목록으로 이동시킵니다.
 
     ![](media/data-catalog-get-started/data-catalog-available-objects.png)
 
@@ -158,7 +160,7 @@ T-SQL 스크립트를 실행하는 대신 SQL Server Management Studio를 사용
 이 예에서는 이름이 제품과 동일하고 태그가 그림과 동일하거나 태그가 사진과 동일한 데이터 자산에 대해 **그룹화** 검색을 수행합니다.
 
 1. https://azure.microsoft.com/services/data-catalog로 이동하여 **시작**을 클릭하고 **Azure Data Catalog** 포털에 로그인합니다.
-2. **검색 데이터 카탈로그** 상자에 **그룹화**를: 쿼리:(tags:description OR tags:photo)로 입력합니다.
+2. **데이터 카탈로그 검색** 상자에 **그룹화**를: 쿼리:(tags:description OR tags:photo)로 입력합니다.
 3. 검색 아이콘을 클릭하거나 Enter를 누릅니다. **Azure 데이터 카탈로그**에서 이 검색 쿼리에 대한 데이터 자산을 표시합니다.
 
     ![](media/data-catalog-get-started/data-catalog-search-box.png)
@@ -252,10 +254,10 @@ T-SQL 스크립트를 실행하는 대신 SQL Server Management Studio를 사용
 
     ![](media/data-catalog-get-started/data-catalog-ownership.png)
 
-이 연습에서는 **Azure Data Catalog**의 관리 기능을 살펴보았으며 선택한 데이터 자산에 대한 표시를 제한했습니다.
+이 연습에서는 **Azure Data Catalog**의 관리 기능을 살펴보았으며 선택한 데이터 자산에 대한 표시 여부를 제한했습니다.
 
 ## 요약
 
 이 자습서에서는 엔터프라이즈 데이터 원본 등록, 주석 추가, 검색 및 관리를 비롯하여 **Azure Data Catalog**의 필수 기능을 살펴보았습니다. 이제 자습서를 완료했습니다. 시작할 시간입니다. 사용자 및 팀이 필요로 하는 데이터 원본을 등록하고, 카탈로그를 사용하도록 동료를 초대하여 시작할 수 있습니다.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

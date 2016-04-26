@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="서비스 버스 아키텍처 | Microsoft Azure"
-   description="Azure 서비스 버스의 메시지 처리 아키텍처를 설명합니다."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="서비스 버스 아키텍처 | Microsoft Azure"
+    description="Azure 서비스 버스의 메시지 처리 아키텍처를 설명합니다."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="tysonn" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="03/09/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="04/19/2016"
+    ms.author="sethm" />
 
 # 서비스 버스 아키텍처
 
@@ -29,13 +29,9 @@
 
 - **메시징 브로커 노드 집합.** 메시징 브로커 노드는 메시징 엔터티에 관한 요청을 처리합니다.
 
-- **알림 노드 집합.** 알림 노드는 등록된 모든 장치에 푸시 알림을 보냅니다.
-
 - **게이트웨이 저장소 1개.** 게이트웨이 저장소는 이 배율 단위로 정의된 모든 엔터티에 대한 데이터를 저장합니다. 게이트웨이 저장소는 SQL Azure 데이터베이스 위에 구현됩니다.
 
 - **여러 메시징 저장소.** 메시징 저장소는 이 배율 단위로 정의된 모든 큐, 토픽 및 구독 메시지를 저장합니다. 또한 모든 구독 데이터를 포함합니다. [메시징 엔터티 분할](service-bus-partitioning.md)을 사용하지 않으면 큐 또는 토픽이 하나의 메시징 저장소에 매핑됩니다. 구독은 해당 상위 토픽과 동일한 메시징 저장소에 저장됩니다. 서비스 버스 [프리미엄 메시징](service-bus-premium-messaging.md)을 제외하고, 메시징 저장소는 SQL Azure 데이터베이스 위에 구현됩니다.
-
-- **여러 등록 저장소.** 등록 저장소에는 이 배율 단위로 정의된 모든 알림 허브에 대한 장치 등록이 포함됩니다. 등록 저장소는 SQL Azure 데이터베이스 위에 구현됩니다.
 
 ## 컨테이너
 
@@ -55,12 +51,6 @@
 
 ![들어오는 릴레이 요청 처리](./media/service-bus-architecture/IC690645.png)
 
-## 들어오는 알림 허브 요청 처리
-
-클라이언트가 서비스 버스에 요청을 보내면 Azure 부하 분산 장치가 모든 게이트웨이 노드로 해당 요청을 라우팅합니다. 요청이 기존 알림 허브에 대한 장치 등록인 경우 게이트웨이 노드는 등록 저장소에 등록을 쓰고 호출 장치로 회신을 보냅니다. 요청이 알림 메시지인 경우 게이트웨이 노드는 알림 큐에 메시지를 삽입합니다. 알림 노드 중 하나가 알림 큐에서 메시지를 제거하고 등록 저장소에 등록된 모든 장치에 해당 메시지를 보냅니다. 메시지를 많은 수의 장치에서 받을 경우는 장치에 메시지를 보내는 데 여러 알림 노드가 사용됩니다.
-
-![들어오는 알림 허브 요청 처리](./media/service-bus-architecture/IC690646.png)
-
 ## 다음 단계
 
 서비스 버스 작동 방식에 대해 간략히 살펴보았으므로 다음 링크를 방문하여 시작하세요.
@@ -69,4 +59,4 @@
 - [서비스 버스 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
 - [서비스 버스 큐를 사용하는 큐 메시징 솔루션](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

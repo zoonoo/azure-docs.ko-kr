@@ -54,11 +54,13 @@ Azure 큐 저장소는 클라우드에서 메시징 큐를 제공하는 서비�
 	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
     using Microsoft.WindowsAzure.Storage.Queue; // Namespace for Queue storage types
 
+### 연결 문자열 구문 분석
+
 [AZURE.INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
 ### 큐 서비스 클라이언트 만들기
 
-**CloudQueueClient** 클래스를 사용하면 큐 저장소에 저장된 큐를 검색할 수 있습니다. **Main()** 메서드에 다음 코드를 추가합니다.
+**CloudQueueClient** 클래스를 사용하면 큐 저장소에 저장된 큐를 검색할 수 있습니다. 서비스 클라이언트를 만드는 한 가지 방법은 다음과 같습니다.
 
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
@@ -273,4 +275,4 @@ Azure 큐 저장소는 클라우드에서 메시징 큐를 제공하는 서비�
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

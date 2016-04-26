@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="identity"
 	ms.topic="get-started-article"
-    ms.date="02/12/2016"
+    ms.date="04/14/2016"
     ms.author="andkjell"/>
 
 # Azure AD Connect에 대한 토폴로지
@@ -110,6 +110,8 @@ Exchange가 1개 이상의 포리스트에 있다면 1개의 포리스트 내의
 
 이 시나리오에는 모든 계정 포리스트를 신뢰하는 하나의 포리스트가 포함됩니다. 이 포리스트에는 일반적으로 Exchange 및 Lync와 확장된 AD 스키마가 있습니다. 모든 Exchange 및 Lync 서비스는 물론 다른 공유 서비스도 이 포리스트에 있습니다. 사용자는 이 포리스트에 사용할 수 없는 사용자 계정을 가지며 사서함이 계정 포리스트에 연결됩니다.
 
+다중 리소스 포리스트를 사용하도록 지원되기도 합니다. 합병 후 상태가 될 수도 있습니다. 사용자는 비활성화된 계정을 리소스 포리스트에 하나만 가질 것으로 예상됩니다.
+
 ## Office 365 및 토폴로지 고려 사항
 일부 Office 365 워크로드의 경우 지원되는 토폴로지에 특정 제한이 있습니다. 이 중 하나를 사용하고자 한다면 각 워크로드의 지원되는 토폴로지 페이지를 참조하십시오.
 
@@ -147,7 +149,10 @@ Azure AD Connect Sync 서버와 Azure AD Directory 간에 1:1 관계가 있습�
 
 이 토폴로지에서는 Azure AD Directory 인스턴스 사이에 "GALsync"가 없으므로 Exchange Online 및 비즈니스용 Skype 내 주소록에서는 동일한 디렉터리에 있는 사용자만 표시됩니다.
 
-이 토폴로지를 통해 하나의 Azure AD Directory만 온-프레미스 Active Directory와 함께 Exchange 하이브리드를 활성화할 수 있습니다.
+이 토폴로지는 그 외의 시나리오에 대해 다음과 같은 제한 사항이 있습니다.
+
+- 하나의 Azure AD 디렉터리만 온-프레미스 Active Directory를 사용하여 Exchange 하이브리드를 활성화할 수 있습니다.
+- Windows 10 장치는 하나의 Azure AD 디렉터리와만 연결할 수 있습니다.
 
 상호 배타적인 집합 개체에 대한 요구사항은 쓰기 저장에도 적용됩니다. 이렇게 하면 단일 구성 온-프레미스로 가정되므로 일부 쓰기 저장 기능이 이 토폴로지로 지원되지 않습니다. 다음 내용이 포함됩니다.
 
@@ -177,4 +182,4 @@ Azure AD 디렉터리는 설계상 격리되어 있습니다. 디렉터리 간�
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

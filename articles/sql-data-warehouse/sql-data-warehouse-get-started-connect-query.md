@@ -3,7 +3,7 @@
    description="SQL 데이터 웨어하우스에 연결 및 일부 쿼리 실행 시작"
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="twounder"
+   authors="sonyama"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="03/23/2016"
-   ms.author="mausher;barbkess;sonyama"/>
+   ms.author="sonyama;barbkess"/>
 
 # Visual Studio를 사용하여 연결 및 쿼리
 
@@ -34,7 +34,7 @@
 
 ## 정규화된 SQL Azure 서버 이름 가져오기
 
-데이터베이스에 연결하려면 연결하려는 데이터베이스를 포함하는 서버의 전체 이름( ***servername**.database.windows.net* )이 필요합니다.
+데이터베이스에 연결하려면 연결하려는 데이터베이스를 포함하는 서버의 전체 이름(****servername**.database.windows.net*)이 필요합니다.
 
 1. [Azure 포털](https://portal.azure.com)로 이동합니다.
 2. 연결하려는 데이터베이스를 찾습니다.
@@ -91,4 +91,4 @@
 [3]: ./media/sql-data-warehouse-get-started-connect-query/connection-dialog.png
 [4]: ./media/sql-data-warehouse-get-started-connect-query/new-query.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

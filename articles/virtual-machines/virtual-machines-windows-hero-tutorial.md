@@ -48,7 +48,7 @@
 
 2. 허브 메뉴에서 **새로 만들기** > **계산** > **Windows Server 2012 R2 Datacenter**를 클릭합니다.
 
-	![미리 보기 포털에서 사용할 수 있는 Azure VM 이미지를 보여 주는 스크린샷](./media/virtual-machines-windows-hero-tutorial/marketplace_new.png)
+	![포털에서 사용할 수 있는 Azure VM 이미지를 보여 주는 스크린샷](./media/virtual-machines-windows-hero-tutorial/marketplace_new.png)
 
 	>[AZURE.TIP] 다른 이미지를 찾으려면 **마켓플레이스**를 클릭하고 사용 가능한 항목을 검색하거나 필터링합니다.
 
@@ -117,4 +117,4 @@
 * [Azure Resource Manager 템플릿](https://azure.microsoft.com/documentation/templates/)을 사용하여 가상 컴퓨터 및 워크로드 배포와 관리를 자동화합니다.
 * 또한 Azure CLI를 사용하여 신속하게 [Linux 가상 컴퓨터를 만들](virtual-machines-linux-quick-create-cli.md) 수 있습니다.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->
