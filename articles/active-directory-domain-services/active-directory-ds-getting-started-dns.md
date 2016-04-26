@@ -1,4 +1,11 @@
-<properties pageTitle="Azure Active Directory 도메인 서비스 미리 보기: 시작 | Microsoft Azure" description="Azure Active Directory 도메인 서비스 시작" services="active-directory-ds" documentationCenter="" authors="mahesh-unnikrishnan" manager="stevenpo editor="curtand"/>
+<properties
+	pageTitle="Azure Active Directory 도메인 서비스 미리 보기: 시작 | Microsoft Azure"
+	description="Azure Active Directory 도메인 서비스 시작"
+	services="active-directory-ds"
+	documentationCenter=""
+	authors="mahesh-unnikrishnan"
+	manager="stevenpo"
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory-ds"
@@ -6,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/26/2016"
+	ms.date="04/11/2016"
 	ms.author="maheshu"/>
 
 # Azure AD 도메인 서비스*(미리 보기)* - 시작
@@ -39,4 +46,4 @@ Azure AD 도메인 서비스를 사용하도록 설정한 가상 네트워크에
 ---
 [**다음 단계 - Azure AD 도메인 서비스에 대한 암호 동기화를 사용하도록 설정합니다.**](active-directory-ds-getting-started-password-sync.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

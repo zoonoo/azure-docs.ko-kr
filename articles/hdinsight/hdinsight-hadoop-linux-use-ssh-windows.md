@@ -35,7 +35,9 @@
 
 또는
 
-* [Mac, Linux 및 Windows용 Azure CLI](../xplat-cli-install.md)
+* [Azure CLI](../xplat-cli-install.md).
+
+    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
 ##SSH 정의
 
@@ -121,7 +123,7 @@ Linux 기반 HDInsight 클러스터를 만들 때 이전에 생성한 공개 키
 
 	![putty 인터페이스, 개인 키 선택](./media/hdinsight-hadoop-linux-use-ssh-windows/puttykey.png)
 
-3. **Category**에서 **Session** 을 선택합니다. **Basic options for your PuTTY session** 화면에서 **Host name (or IP address)** 필드에 HDInsight 서버의 SSH 주소를 입력합니다. 클러스터에 연결할 때 두 개의 SSH 주소를 사용할 수 있습니다.
+3. **Category**에서 **Session**을 선택합니다. **Basic options for your PuTTY session** 화면에서 **Host name (or IP address)** 필드에 HDInsight 서버의 SSH 주소를 입력합니다. 클러스터에 연결할 때 두 개의 SSH 주소를 사용할 수 있습니다.
 
     * __헤드 노드 주소__: 클러스터의 헤드 노드를 연결하려면 클러스터 이름을 사용한 다음 **-ssh.azurehdinsight.net**을 사용합니다. 예를 들면 **mycluster-ssh.azurehdinsight.net**과 같습니다.
     
@@ -233,4 +235,4 @@ SSH 터널의 생성 및 사용에 대한 자세한 내용은 [SSH 터널링을 
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -53,11 +53,11 @@
 
 빠른 설치 사용에 관한 비디오의 경우 다음을 확인합니다.
 
-[AZURE.VIDEO azure-active-directory-connect-express-settings]
+>[AZURE.VIDEO azure-active-directory-connect-express-settings]
 
 ## 다음 단계
 Azure AD Connect를 설치했으므로 [설치를 확인하고 라이선스를 할당](active-directory-aadconnect-whats-next.md)할 수 있습니다.
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

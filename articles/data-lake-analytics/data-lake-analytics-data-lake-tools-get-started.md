@@ -28,7 +28,7 @@ U-SQL은 데이터 레이크 등에서 데이터를 준비하고 변환하고 �
 
 ###필수 조건
 
-- **Visual Studio 2015, Visual Studio 2013 업데이트 4 또는 Visual Studio 2012. Enterprise(Ultimate/Premium), Professional, Community Edition이 지원됩니다. Express Edition은 지원되지 않습니다. Visual Studio "15"는 현재 지원되지 않으며 개발 중입니다.** 
+- **Visual Studio 2015, Visual Studio 2013 업데이트 4 또는 Visual Studio 2012. Enterprise(Ultimate/Premium), Professional, Community Edition이 지원됩니다. Express Edition은 지원되지 않습니다. Visual Studio "15"는 현재 지원되지 않으며 개발 중입니다.**
 - **Microsoft Azure SDK for .NET 버전 2.7.1 이상**. [웹 플랫폼 설치 관리자](http://www.microsoft.com/web/downloads/platform.aspx)를 사용하여 설치합니다.
 - **[Visual Studio용 데이터 레이크 도구](http://aka.ms/adltoolsvs)**
 
@@ -362,4 +362,4 @@ Azure 데이터 레이크 분석 서비스에 C# 어셈블리를 제출하고 �
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

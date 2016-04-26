@@ -1,6 +1,6 @@
 <properties
  pageTitle="Azure 포털에서 Azure 스케줄러 시작 | Microsoft Azure"
- description=""
+ description="Azure 포털에서 Azure 스케줄러 시작"
  services="scheduler"
  documentationCenter=".NET"
  authors="krisragh"
@@ -182,4 +182,4 @@ Azure RBAC(역할 기반 액세스 제어)를 통해 Azure 스케줄러에 대�
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="04/18/2016"
    ms.author="sahajs;barbkess;jrj;sonyama"/>
 
 
@@ -72,7 +72,7 @@
 
 Blob 서비스 끝점을 찾으려면:
 
-1. Azure 클래식 포털에서 **찾아보기** > **저장소 계정**을 선택합니다.
+1. Azure 포털에서 **찾아보기** > **저장소 계정**을 선택합니다.
 2. 사용하려는 저장소 계정을 클릭합니다.
 3. 저장소 계정 블레이드에서 BLOB을 클릭합니다.
 
@@ -86,7 +86,7 @@ Blob 서비스 끝점을 찾으려면:
 
 Azure 저장소 키를 찾으려면:
 
-1. 홈 화면에서 **찾아보기** > **저장소 계정**을 선택합니다.
+1. Azure 포털에서 **찾아보기** > **저장소 계정**을 선택합니다.
 2. 사용하려는 저장소 계정을 클릭합니다.
 3. **모든 설정** > **선택키**를 선택합니다.
 4. 복사 상자를 클릭하여 선택키 중 하나를 클립보드에 복사합니다.
@@ -128,7 +128,7 @@ Blob 저장소에 업로드한 파일을 보려면:
 
 이 섹션에서는 샘플 데이터를 정의하는 외부 테이블을 만듭니다.
 
-PolyBase는 외부 테이블을 사용하여 Azure Blob 저장소 또는 Hadoop의 데이터에 액세스합니다. 데이터가 SQL 데이터 웨어하우스 내에 저장되지 않기 때문에, PolyBase는 데이터베이스-범위 자격 증명을 사용하여 외부 데이터에 대한 인증을 처리합니다.
+PolyBase는 외부 테이블을 사용하여 Azure Blob 저장소의 데이터에 액세스합니다. 데이터가 SQL 데이터 웨어하우스 내에 저장되지 않기 때문에, PolyBase는 데이터베이스-범위 자격 증명을 사용하여 외부 데이터에 대한 인증을 처리합니다.
 
 이 단계의 예제는 다음 Transact-SQL 문을 사용하여 외부 테이블을 만듭니다.
 
@@ -162,6 +162,7 @@ WITH
 
 
 -- C: Create an external data source
+-- TYPE: HADOOP - PolyBase uses Hadoop APIs to access data in Azure blob storage.
 -- LOCATION: Provide Azure storage account name and blob container name.
 -- CREDENTIAL: Provide the credential created in the previous step.
 
@@ -286,4 +287,4 @@ PolyBase를 사용하는 솔루션을 개발하면서 알아야 하는 추가적
 [데이터베이스 범위 자격 증명 만들기(Transact-SQL)]: https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

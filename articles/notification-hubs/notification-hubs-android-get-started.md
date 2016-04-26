@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="04/11/2016"
+	ms.date="04/14/2016"
 	ms.author="wesmc"/>
 
 # Azure 알림 허브를 사용하여 Android에 푸시 알림 보내기
@@ -153,7 +153,7 @@
 	`NotificationSettings` 코드:
 
 		public class NotificationSettings {
-		    public static String SenderId = "<Your SenderId>";
+		    public static String SenderId = "<Your project number>";
 		    public static String HubName = "<Your HubName>";
 		    public static String HubListenConnectionString = "<Your default listen connection string>";
 		}
@@ -225,7 +225,13 @@
 		                NotificationHub hub = new NotificationHub(NotificationSettings.HubName,
 		                        NotificationSettings.HubListenConnectionString, this);
 		                Log.i(TAG, "Attempting to register with NH using token : " + token);
+
 		                regID = hub.register(token).getRegistrationId();
+
+		                // If you want to use tags...
+						// Refer to : https://azure.microsoft.com/ko-KR/documentation/articles/notification-hubs-routing-tag-expressions/
+		                // regID = hub.register(token, "tag1,tag2").getRegistrationId();
+
 		                resultString = "Registered Successfully - RegId : " + regID;
 		                Log.i(TAG, resultString);		
 		                sharedPreferences.edit().putString("registrationID", regID ).apply();
@@ -239,7 +245,9 @@
 		        }
 		
 		        // Notify UI that registration has completed.
-		        MainActivity.mainActivity.ToastNotify(resultString);
+		        if (MainActivity.isVisible) {
+		            MainActivity.mainActivity.ToastNotify(resultString);
+		        }
 		    }
 		}
 
@@ -258,9 +266,9 @@
 5. 클래스의 맨 위에 다음과 같은 private 멤버를 추가합니다. [Google 권장 사항에 따라 Google Play Services의 가용성을 확인](https://developers.google.com/android/guides/setup#ensure_devices_have_the_google_play_services_apk)합니다.
 
 	    public static MainActivity mainActivity;
+    	public static Boolean isVisible = false;	
 		private GoogleCloudMessaging gcm;
 	    private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
-	    private static Boolean isVisible = false;
 
 6. `MainActivity` 클래스에서 Google Play Services 가용성에 다음 메서드를 추가합니다.
 
@@ -340,19 +348,17 @@
 	        isVisible = false;
 	    }
 	
-	    public void ToastNotify(final String notificationMessage)
-	    {
-	        if (isVisible == true)
-	            runOnUiThread(new Runnable() {
-	                @Override
-	                public void run() {
-	                    Toast.makeText(MainActivity.this, notificationMessage, Toast.LENGTH_LONG).show();
-	                    TextView helloText = (TextView) findViewById(R.id.text_hello);
-	                    helloText.setText(notificationMessage);
-	                }
-	            });
+	    public void ToastNotify(final String notificationMessage) {
+	        runOnUiThread(new Runnable() {
+	            @Override
+	            public void run() {
+	                Toast.makeText(MainActivity.this, notificationMessage, Toast.LENGTH_LONG).show();
+	                TextView helloText = (TextView) findViewById(R.id.text_hello);
+	                helloText.setText(notificationMessage);
+	            }
+	        });
 	    }
-	}
+
 
 10. `ToastNotify` 메서드는 *"Hello World"* `TextView` 컨트롤을 사용하여 앱에서 영구적으로 상태 및 알림을 보고합니다. activity\_main.xml 레이아웃에서 해당 컨트롤에 대한 다음 ID를 추가합니다.
 
@@ -370,52 +376,54 @@
 		import android.support.v4.app.NotificationCompat;
 		import com.microsoft.windowsazure.notifications.NotificationsHandler;
 
+13. `MyHandler` 클래스에 대해 다음 코드를 추가하여 `com.microsoft.windowsazure.notifications.NotificationsHandler`의 하위 클래스로 만듭니다.
 
-13. 다음과 같이 클래스 선언을 업데이트하여 `MyHandler`를 `com.microsoft.windowsazure.notifications.NotificationsHandler`의 하위 클래스로 설정합니다.
+	이 코드는 처리기가 받은 알림을 보고할 수 있도록 `OnReceive` 메서드를 재정의합니다. 또한 처리기는 `sendNotification()` 메서드를 사용하여 Android Notification Manager에 푸시 알림을 보냅니다. `sendNotification()` 메서드는 앱이 실행되지 않을 때, 알림이 수신될 때 실행해야 합니다.
 
 		public class MyHandler extends NotificationsHandler {
-
-
-14. `MyHandler` 클래스에 대해 다음 코드를 추가합니다.
-
-	이 코드는 처리기가 수신된 알림을 보여주기 위해 알림 팝업을 표시하도록 `OnReceive` 메서드를 재정의합니다. 또한 처리기는 `sendNotification()` 메서드를 사용하여 Android Notification Manager에 푸시 알림을 보냅니다.
-
-    	public static final int NOTIFICATION_ID = 1;
-    	private NotificationManager mNotificationManager;
-    	NotificationCompat.Builder builder;
-    	Context ctx;
-
-    	static public MainActivity mainActivity;
-
-    	@Override
-    	public void onReceive(Context context, Bundle bundle) {
-        	ctx = context;
-        	String nhMessage = bundle.getString("message");
-
-        	sendNotification(nhMessage);
-	        mainActivity.ToastNotify(nhMessage);
-    	}
-
-    	private void sendNotification(String msg) {
-        	mNotificationManager = (NotificationManager)
-                ctx.getSystemService(Context.NOTIFICATION_SERVICE);
-
-        	PendingIntent contentIntent = PendingIntent.getActivity(ctx, 0,
-                new Intent(ctx, MainActivity.class), 0);
-
-			NotificationCompat.Builder mBuilder =
-				new NotificationCompat.Builder(ctx)
-					.setSmallIcon(R.mipmap.ic_launcher)
-					.setContentTitle("Notification Hub Demo")
-					.setStyle(new NotificationCompat.BigTextStyle()
-					.bigText(msg))
-					.setContentText(msg);
-
-			mBuilder.setContentIntent(contentIntent);
-			mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
+		    public static final int NOTIFICATION_ID = 1;
+		    private NotificationManager mNotificationManager;
+		    NotificationCompat.Builder builder;
+		    Context ctx;
+		
+		    @Override
+		    public void onReceive(Context context, Bundle bundle) {
+		        ctx = context;
+		        String nhMessage = bundle.getString("message");
+		        sendNotification(nhMessage);
+		        if (MainActivity.isVisible) {
+		            MainActivity.mainActivity.ToastNotify(nhMessage);
+		        }
+		    }
+		
+		    private void sendNotification(String msg) {
+		
+		        Intent intent = new Intent(ctx, MainActivity.class);
+		        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+		
+		        mNotificationManager = (NotificationManager)
+		                ctx.getSystemService(Context.NOTIFICATION_SERVICE);
+		
+		        PendingIntent contentIntent = PendingIntent.getActivity(ctx, 0,
+		                intent, PendingIntent.FLAG_ONE_SHOT);
+		
+		        Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+		        NotificationCompat.Builder mBuilder =
+		                new NotificationCompat.Builder(ctx)
+		                        .setSmallIcon(R.mipmap.ic_launcher)
+		                        .setContentTitle("Notification Hub Demo")
+		                        .setStyle(new NotificationCompat.BigTextStyle()
+		                                .bigText(msg))
+		                        .setSound(defaultSoundUri)
+		                        .setContentText(msg);
+		
+		        mBuilder.setContentIntent(contentIntent);
+		        mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
+		    }
 		}
 
-15. Android Studio의 메뉴 모음에서 **빌드** > **프로젝트 다시 빌드**를 클릭하여 코드에 오류가 없는지 확인합니다.
+
+14. Android Studio의 메뉴 모음에서 **빌드** > **프로젝트 다시 빌드**를 클릭하여 코드에 오류가 없는지 확인합니다.
 
 ##푸시 알림 보내기
 
@@ -427,7 +435,7 @@
 
 ## (선택 사항) 앱에서 바로 푸시 알림 보내기
 
-대부분의 테스트 사례에서 개발자는 현재 개발 중인 응용 프로그램에서 바로 푸시 알림을 보낼 수 있기를 원할 것입니다. 이 섹션에서는 이 시나리오를 적절하게 구현하는 방법을 설명합니다.
+일반적으로, 백 엔드 서버를 사용하여 알림을 보냅니다. 경우에 따라, 클라이언트 응용 프로그램에서 직접 푸시 알림을 보낼 수 있기를 원하기도 합니다. 이 섹션은 [Azure 알림 허브 REST API](https://msdn.microsoft.com/library/azure/dn223264.aspx)를 사용하여 클라이언트에서 알림을 보내는 방법을 설명합니다.
 
 1. Android Studio 프로젝트 뷰에서 **앱** > **원본** > **기본** > **자원** > **레이아웃**을 확장합니다. `activity_main.xml` 레이아웃 파일을 열고 **Text** 탭을 클릭하여 파일의 텍스트 내용을 업데이트합니다. 아래 코드로 업데이트하여 알림 허브에 푸시 알림 메시지를 보내는 새 `Button` 및 `EditText` 컨트롤을 추가합니다. 이 코드를 맨 아래의 `</RelativeLayout>` 바로 앞에 추가합니다.
 
@@ -449,53 +457,50 @@
         android:layout_marginBottom="42dp"
         android:hint="@string/notification_message_hint" />
 
-2. 이 줄을 `android` 아래에 있는 `build.gradle` 파일에 추가합니다.
-
-		useLibrary 'org.apache.http.legacy'
-
-3. Android Studio 프로젝트 뷰에서 **앱** > **원본** > **기본** > **자원** > **값**을 확장합니다. `strings.xml` 파일을 열고 `Button` 및 `EditText` 컨트롤에서 참조하는 문자열 값을 추가합니다. 파일 맨 아래의 `</resources>` 바로 앞에 이를 추가합니다.
+2. Android Studio 프로젝트 뷰에서 **앱** > **원본** > **기본** > **자원** > **값**을 확장합니다. `strings.xml` 파일을 열고 `Button` 및 `EditText` 컨트롤에서 참조하는 문자열 값을 추가합니다. 파일 맨 아래의 `</resources>` 바로 앞에 이를 추가합니다.
 
         <string name="send_button">Send Notification</string>
         <string name="notification_message_hint">Enter notification message text</string>
 
 
+3. `NotificationSetting.java` 파일에서 `NotificationSettings` 클래스에 다음 설정을 추가합니다.
+
+	허브에 **DefaultFullSharedAccessSignature** 연결 문자열을 사용하여 `HubFullAccess`을 업데이트합니다. 알림 허브에 대한 **설정** 블레이드에서 **액세스 정책**을 클릭하여 [Azure 포털]에서 이 연결 문자열을 복사할 수 있습니다.
+
+		public static String HubFullAccess = "<Enter Your DefaultFullSharedAccess Connection string>";
+
 4. `MainActivity.java` 파일에서 다음 `import` 문을 `MainActivity` 클래스 위에 추가합니다.
 
+		import java.io.BufferedOutputStream;
+		import java.io.BufferedReader;
+		import java.io.InputStreamReader;
+		import java.io.OutputStream;
+		import java.net.HttpURLConnection;
+		import java.net.URL;
 		import java.net.URLEncoder;
 		import javax.crypto.Mac;
 		import javax.crypto.spec.SecretKeySpec;
-
 		import android.util.Base64;
 		import android.view.View;
 		import android.widget.EditText;
 
-		import org.apache.http.HttpResponse;
-		import org.apache.http.client.HttpClient;
-		import org.apache.http.client.methods.HttpPost;
-		import org.apache.http.entity.StringEntity;
-		import org.apache.http.impl.client.DefaultHttpClient;
-
-
-5. `MainActivity.java` 파일에서 다음 멤버를 `MainActivity` 클래스 위에 추가합니다.
-
-	허브에 **DefaultFullSharedAccessSignature** 연결 문자열을 사용하여 `HubFullAccess`을 업데이트합니다. 알림 허브에 대한 **설정** 블레이드에서 **액세스 정책**을 클릭하여 [Azure 포털]에서 이 연결 문자열을 복사할 수 있습니다.
+6. `MainActivity.java` 파일에서 다음 멤버를 `MainActivity` 클래스 위에 추가합니다.
 
 	    private String HubEndpoint = null;
 	    private String HubSasKeyName = null;
 	    private String HubSasKeyValue = null;
-		private String HubFullAccess = "<Enter Your DefaultFullSharedAccess Connection string>";
 
-6. 활동에는 허브 이름 및 허브에 대한 전체 공유 액세스 연결 문자열이 유지됩니다. 알림 허브로 메시지를 보낼 POST 요청을 인증하기 위해 SaS(Software Access Signature) 토큰을 만들어야 합니다. 연결 문자열에서 키 데이터를 구문 분석한 다음 [일반적인 개념](http://msdn.microsoft.com/library/azure/dn495627.aspx) REST API 참조에 설명된 대로 SaS 토큰을 만들면 됩니다.
+6. 알림 허브로 메시지를 보낼 POST 요청을 인증하기 위해 SaS(Software Access Signature) 토큰을 만들어야 합니다. 연결 문자열에서 키 데이터를 구문 분석한 다음 [일반적인 개념](http://msdn.microsoft.com/library/azure/dn495627.aspx) REST API 참조에 설명된 대로 SaS 토큰을 만들면 됩니다. 다음 코드는 구현 예제입니다.
 
 	`MainActivity.java`에서 `MainActivity` 클래스에 다음 메서드를 추가하여 연결 문자열의 구문을 분석합니다.
 
 	    /**
-    	 * Example code from http://msdn.microsoft.com/library/azure/dn495627.aspx
-    	 * to parse the connection string so a SaS authentication token can be
-    	 * constructed.
-    	 *
-    	 * @param connectionString This must be the DefaultFullSharedAccess connection
-    	 *                         string for this example.
+	     * Example code from http://msdn.microsoft.com/library/azure/dn495627.aspx
+	     * to parse the connection string so a SaS authentication token can be
+	     * constructed.
+	     *
+	     * @param connectionString This must be the DefaultFullSharedAccess connection
+	     *                         string for this example.
 	     */
 	    private void ParseConnectionString(String connectionString)
 	    {
@@ -503,7 +508,7 @@
 	        if (parts.length != 3)
 	            throw new RuntimeException("Error parsing connection string: "
 	                    + connectionString);
-
+	
 	        for (int i = 0; i < parts.length; i++) {
 	            if (parts[i].startsWith("Endpoint")) {
 	                this.HubEndpoint = "https" + parts[i].substring(11);
@@ -515,107 +520,142 @@
 	        }
 	    }
 
+
 7. `MainActivity.java`에서 `MainActivity` 클래스에 다음 메서드를 추가하여 SaS 인증 토큰을 만듭니다.
 
-        /**
-         * Example code from http://msdn.microsoft.com/library/azure/dn495627.aspx to
-         * construct a SaS token from the access key to authenticate a request.
-         *
-         * @param uri The unencoded resource URI string for this operation. The resource
-         *            URI is the full URI of the Service Bus resource to which access is
-         *            claimed. For example,
-         *            "http://<namespace>.servicebus.windows.net/<hubName>"
-         */
-        private String generateSasToken(String uri) {
-
-            String targetUri;
-            try {
-                targetUri = URLEncoder
-                        .encode(uri.toString().toLowerCase(), "UTF-8")
-                        .toLowerCase();
-
-                long expiresOnDate = System.currentTimeMillis();
-                int expiresInMins = 60; // 1 hour
-                expiresOnDate += expiresInMins * 60 * 1000;
-                long expires = expiresOnDate / 1000;
-                String toSign = targetUri + "\n" + expires;
-
-                // Get an hmac_sha1 key from the raw key bytes
-                byte[] keyBytes = HubSasKeyValue.getBytes("UTF-8");
-                SecretKeySpec signingKey = new SecretKeySpec(keyBytes, "HmacSHA256");
-
-                // Get an hmac_sha1 Mac instance and initialize with the signing key
-                Mac mac = Mac.getInstance("HmacSHA256");
-                mac.init(signingKey);
-
-                // Compute the hmac on input data bytes
-                byte[] rawHmac = mac.doFinal(toSign.getBytes("UTF-8"));
-
-            	// Using android.util.Base64 for Android Studio instead of
+	    /**
+	     * Example code from http://msdn.microsoft.com/library/azure/dn495627.aspx to
+	     * construct a SaS token from the access key to authenticate a request.
+	     *
+	     * @param uri The unencoded resource URI string for this operation. The resource
+	     *            URI is the full URI of the Service Bus resource to which access is
+	     *            claimed. For example,
+	     *            "http://<namespace>.servicebus.windows.net/<hubName>"
+	     */
+	    private String generateSasToken(String uri) {
+	
+	        String targetUri;
+	        String token = null;
+	        try {
+	            targetUri = URLEncoder
+	                    .encode(uri.toString().toLowerCase(), "UTF-8")
+	                    .toLowerCase();
+	
+	            long expiresOnDate = System.currentTimeMillis();
+	            int expiresInMins = 60; // 1 hour
+	            expiresOnDate += expiresInMins * 60 * 1000;
+	            long expires = expiresOnDate / 1000;
+	            String toSign = targetUri + "\n" + expires;
+	
+	            // Get an hmac_sha1 key from the raw key bytes
+	            byte[] keyBytes = HubSasKeyValue.getBytes("UTF-8");
+	            SecretKeySpec signingKey = new SecretKeySpec(keyBytes, "HmacSHA256");
+	
+	            // Get an hmac_sha1 Mac instance and initialize with the signing key
+	            Mac mac = Mac.getInstance("HmacSHA256");
+	            mac.init(signingKey);
+	
+	            // Compute the hmac on input data bytes
+	            byte[] rawHmac = mac.doFinal(toSign.getBytes("UTF-8"));
+	
+	            // Using android.util.Base64 for Android Studio instead of
 	            // Apache commons codec
-                String signature = URLEncoder.encode(
-                        Base64.encodeToString(rawHmac, Base64.NO_WRAP).toString(), "UTF-8");
+	            String signature = URLEncoder.encode(
+	                    Base64.encodeToString(rawHmac, Base64.NO_WRAP).toString(), "UTF-8");
+	
+	            // Construct authorization string
+	            token = "SharedAccessSignature sr=" + targetUri + "&sig="
+	                    + signature + "&se=" + expires + "&skn=" + HubSasKeyName;
+	        } catch (Exception e) {
+	            if (isVisible) {
+	                ToastNotify("Exception Generating SaS : " + e.getMessage().toString());
+	            }
+	        }
+	
+	        return token;
+	    }
 
-                // Construct authorization string
-                String token = "SharedAccessSignature sr=" + targetUri + "&sig="
-                        + signature + "&se=" + expires + "&skn=" + HubSasKeyName;
-                return token;
-            } catch (Exception e) {
-                DialogNotify("Exception Generating SaS",e.getMessage().toString());
-            }
-
-            return null;
-        }
 
 
 8. `MainActivity.java`에서 `MainActivity` 클래스에 다음 메서드를 추가하여 **알림 보내기** 단추 클릭을 처리하고 내장된 REST API를 사용하여 허브에 푸시 알림 메시지를 보냅니다.
 
-        /**
-         * Send Notification button click handler. This method parses the
-         * DefaultFullSharedAccess connection string and generates a SaS token. The
-         * token is added to the Authorization header on the POST request to the
-         * notification hub. The text in the editTextNotificationMessage control
-         * is added as the JSON body for the request to add a GCM message to the hub.
-         *
-         * @param v
-         */
-        public void sendNotificationButtonOnClick(View v) {
-            EditText notificationText = (EditText) findViewById(R.id.editTextNotificationMessage);
-            final String json = "{"data":{"message":"" + notificationText.getText().toString() + ""}}";
+	    /**
+	     * Send Notification button click handler. This method parses the
+	     * DefaultFullSharedAccess connection string and generates a SaS token. The
+	     * token is added to the Authorization header on the POST request to the
+	     * notification hub. The text in the editTextNotificationMessage control
+	     * is added as the JSON body for the request to add a GCM message to the hub.
+	     *
+	     * @param v
+	     */
+	    public void sendNotificationButtonOnClick(View v) {
+	        EditText notificationText = (EditText) findViewById(R.id.editTextNotificationMessage);
+	        final String json = "{"data":{"message":"" + notificationText.getText().toString() + ""}}";
+	
+	        new Thread()
+	        {
+	            public void run()
+	            {
+	                try
+	                {
+	                    // Based on reference documentation...
+	                    // http://msdn.microsoft.com/library/azure/dn223273.aspx
+	                    ParseConnectionString(NotificationSettings.HubFullAccess);
+	                    URL url = new URL(HubEndpoint + NotificationSettings.HubName +
+	                            "/messages/?api-version=2015-01");
+	
+	                    HttpURLConnection urlConnection = (HttpURLConnection)url.openConnection();
+	
+	                    try {
+	                        // POST request
+	                        urlConnection.setDoOutput(true);
+	
+	                        // Authenticate the POST request with the SaS token
+	                        urlConnection.setRequestProperty("Authorization", 
+								generateSasToken(url.toString()));
+	
+	                        // Notification format should be GCM
+	                        urlConnection.setRequestProperty("ServiceBusNotification-Format", "gcm");
+	
+	                        // Include any tags
+	                        // Example below targets 3 specific tags
+	                        // Refer to : https://azure.microsoft.com/ko-KR/documentation/articles/notification-hubs-routing-tag-expressions/
+	                        // urlConnection.setRequestProperty("ServiceBusNotification-Tags", 
+							//		"tag1 || tag2 || tag3");
+	
+	                        // Send notification message
+	                        urlConnection.setFixedLengthStreamingMode(json.length());
+	                        OutputStream bodyStream = new BufferedOutputStream(urlConnection.getOutputStream());
+	                        bodyStream.write(json.getBytes());
+	                        bodyStream.close();
+	
+	                        // Get reponse
+	                        urlConnection.connect();
+	                        int responseCode = urlConnection.getResponseCode();
+	                        if ((responseCode != 200) && (responseCode != 201)) {
+                                BufferedReader br = new BufferedReader(new InputStreamReader((urlConnection.getErrorStream())));
+                                String line;
+                                StringBuilder builder = new StringBuilder("Send Notification returned " +
+                                        responseCode + " : ")  ;
+                                while ((line = br.readLine()) != null) {
+                                    builder.append(line);
+                                }
 
-            new Thread()
-            {
-                public void run()
-                {
-                    try
-                    {
-                        HttpClient client = new DefaultHttpClient();
-
-                        // Based on reference documentation...
-                        // http://msdn.microsoft.com/library/azure/dn223273.aspx
-                        ParseConnectionString(HubFullAccess);
-                        String url = HubEndpoint + HubName + "/messages/?api-version=2015-01";
-                        HttpPost post = new HttpPost(url);
-
-                        // Authenticate the POST request with the SaS token
-                        post.setHeader("Authorization", generateSasToken(url));
-
-                        // JSON content for GCM
-                        post.setHeader("Content-Type", "application/json;charset=utf-8");
-
-                        // Notification format should be GCM
-                        post.setHeader("ServiceBusNotification-Format", "gcm");
-                        post.setEntity(new StringEntity(json));
-
-                        HttpResponse response = client.execute(post);
-                    }
-                    catch(Exception e)
-                    {
-                        DialogNotify("Exception",e.getMessage().toString());
-                    }
-                }
-            }.start();
-        }
+                                ToastNotify(builder.toString());
+	                        }
+	                    } finally {
+	                        urlConnection.disconnect();
+	                    }
+	                }
+	                catch(Exception e)
+	                {
+	                    if (isVisible) {
+	                        ToastNotify("Exception Sending Notification : " + e.getMessage().toString());
+	                    }
+	                }
+	            }
+	        }.start();
+	    }
 
 
 
@@ -685,4 +725,4 @@
 [Azure 포털]: https://portal.azure.com
 [액세스 정책]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/26/2016"
+   ms.date="04/12/2016"
    ms.author="seanmck"/>
 
 # 로컬 클러스터에서 응용 프로그램 배포 및 업그레이드 시작
@@ -74,7 +74,7 @@ SDK는 Windows PowerShell 스크립트 및 로컬 클러스터 관리자 시스�
     Connect-ServiceFabricCluster localhost:19000
     ```
 
-6. 이름 및 응용 프로그램 패키지에 대한 경로를 제공하여 새 응용 프로그램을 만려면 SDK의 배포 명령을 호출합니다.
+6. 이름 및 응용 프로그램 패키지에 대한 경로를 제공하여 새 응용 프로그램을 만들려면 SDK의 배포 명령을 호출합니다.
 
     ```powershell  
   Publish-NewServiceFabricApplication -ApplicationPackagePath c:\ServiceFabric\WordCountV1.sfpkg -ApplicationName "fabric:/WordCount"
@@ -84,13 +84,13 @@ SDK는 Windows PowerShell 스크립트 및 로컬 클러스터 관리자 시스�
 
     ![로컬 클러스터에 응용 프로그램 배포][deploy-app-to-local-cluster]
 
-7. 작업에서 응용 프로그램을 보려면 브라우저를 시작하고 [http://localhost:8081/wordcount/index](http://localhost:8081/wordcount/index)로 이동합니다. 다음과 유사한 결과가 표시됩니다.
+7. 작업에서 응용 프로그램을 보려면 브라우저를 시작하고 [http://localhost:8081/wordcount/index.html](http://localhost:8081/wordcount/index.html)로 이동합니다. 다음과 유사한 결과가 표시됩니다.
 
     ![배포된 응용 프로그램 UI][deployed-app-ui]
 
     WordCount 응용 프로그램은 매우 간단합니다. 클라이언트쪽 JavaScript 코드를 포함하여 임의의 다섯 개의 문자 "words"를 생성하며 이는 ASP.NET Web API를 통해 응용 프로그램에 릴레이됩니다. 상태 저장 서비스는 계산된 단어의 수를 추적합니다. 단어의 첫 번째 문자를 기준으로 분할됩니다.
 
-    배포된 응용 프로그램은 네 개의 파티션을 포함합니다. 그러므로 A부터 G로 시작하는 단어는 첫번째 파티션에 저장되고 H부터 N까지로 시작하는 단어는 두번째 파티션에 저장되는 방식으로 계속됩니다.
+    배포된 응용 프로그램은 네 개의 파티션을 포함합니다. 그러므로 A부터 G로 시작하는 단어는 첫 번째 파티션에 저장되고 H부터 N까지로 시작하는 단어는 두 번째 파티션에 저장되는 방식으로 계속됩니다.
 
 ## 응용 프로그램 세부 정보 및 상태 보기
 응용 프로그램을 배포하였으므로 PowerShell의 앱 세부 정보 중 일부를 살펴보겠습니다.
@@ -148,11 +148,11 @@ SDK는 Windows PowerShell 스크립트 및 로컬 클러스터 관리자 시스�
 
     ![PowerShell에서 업그레이드 진행률][ps-appupgradeprogress]
 
-3. 업그레이드를 진행하는 동안 서비스 패브릭 탐색기에서 해당 상태를 모니터링하는 작업이 쉬워집니다. 브라우저 창을 시작하고 [http://localhost:19080/Explorer](http://localhost:19080/Explorer)로 이동합니다. 왼쪽 트리에서 **응용 프로그램**을 클릭하고 **진행 중인 업그레이드**를 선택합니다.
+3. 업그레이드를 진행하는 동안 서비스 패브릭 탐색기에서 해당 상태를 모니터링하는 작업이 쉬워집니다. 브라우저 창을 시작하고 [http://localhost:19080/Explorer](http://localhost:19080/Explorer)로 이동합니다. 왼쪽의 트리에서 **응용 프로그램**을 선택한 다음 **WordCount**, **패브릭:/WordCount**를 차례로 선택합니다. 필수 탭에서 클러스터의 업그레이드 도메인을 통해 진행될 때 업그레이드의 상태가 표시됩니다.
 
     ![서비스 패브릭 탐색기에서 업그레이드 진행][sfx-upgradeprogress]
 
-    업그레이드 진행률 표시기는 클러스터의 업그레이드 도메인 내에서 업그레이드의 상태를 나타냅니다. 각 도메인을 통해 업그레이드가 진행될 때 응용 프로그램이 제대로 작동되도록 상태 검사를 수행합니다.
+    각 도메인을 통해 업그레이드가 진행될 때 응용 프로그램이 제대로 작동되도록 상태 검사를 수행합니다.
 
 4. fabric:/WordCount 응용 프로그램에 포함된 서비스의 집합에 대 한 이전 쿼리를 다시 실행하는 경우 WordCountService의 버전을 변경하는 동안 WordCountWebService 버전은 변경되지 않았습니다.
 
@@ -190,4 +190,4 @@ SDK는 Windows PowerShell 스크립트 및 로컬 클러스터 관리자 시스�
 [sfx-upgradeprogress]: ./media/service-fabric-get-started-with-a-local-cluster/SfxUpgradeOverview.png
 [sfx-service-overview]: ./media/service-fabric-get-started-with-a-local-cluster/sfx-service-overview.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

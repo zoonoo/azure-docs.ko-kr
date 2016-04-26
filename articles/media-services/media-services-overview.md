@@ -3,8 +3,8 @@
 	description="이 항목에서는 Azure 미디어 서비스에 대한 개요를 제공합니다." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako,anilmur" 
-	manager="dwrede" 
+	authors="Juliako" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
-	ms.date="02/02/2016"
-	ms.author="juliako"/>
+ 	ms.date="04/18/2016"
+	ms.author="juliako;anilmur"/>
 
 #Azure 미디어 서비스 개요 및 일반적인 시나리오
 
@@ -57,7 +57,7 @@ Azure 미디어 서비스 사용을 시작하려면 다음이 있어야 합니�
 2. Azure 미디어 서비스 계정. Azure 클래식 포털, .NET 또는 REST API를 사용하여 Azure 미디어 서비스 계정을 만듭니다. 자세한 내용은 [계정 만들기](media-services-create-account.md)를 참조하세요.
 3. (선택 사항) 개발 환경 설정. 개발 환경에 .NET 또는 REST API를 선택합니다. 자세한 내용은 [환경 설정](media-services-dotnet-how-to-use.md)을 참조하세요. 
 
-	프로그래밍 방식으로 자동으로 [연결](media-services-dotnet-connect_programmatically.md)하는 방법도 알아봅니다.
+	프로그래밍 방식으로 자동으로 [연결](media-services-dotnet-connect-programmatically.md)하는 방법도 알아봅니다.
 4. (권장) 하나 이상의 배율 단위 할당. 프로덕션 환경에서 응용 프로그램에 대한 하나 이상의 확장 단위를 할당하는 것이 좋습니다. 자세한 내용은 [스트리밍 끝점 관리](media-services-manage-origins.md)를 참조하세요.
 
 ##개념 및 개요
@@ -236,4 +236,4 @@ Azure 미디어 서비스는 iOS 장치, Android 장치, Windows, Windows Phone,
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

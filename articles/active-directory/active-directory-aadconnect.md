@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/13/2016"
+	ms.date="04/14/2016"
 	ms.author="andkjell;billmath"/>
 
 # Azure Active Directory와 온-프레미스 ID 통합
@@ -84,7 +84,7 @@ Azure Active Directory Connect는 기본 세 부분으로 구성됩니다. 이�
 | 운영 계획 | [Azure AD Connect Sync: 운영 작업 및 고려 사항](active-directory-aadconnectsync-operations.md) |
 | 사용자 로그인 옵션 | [Azure AD Connect 사용자 로그인 옵션](active-directory-aadconnect-user-signin.md) |
 
-## 기능 구성
+## 동기화 기능 구성
 Azure AD Connect는 필요에 따라 기본적으로 키거나 사용할 수 있는 몇 가지 기능이 함께 제공됩니다. 일부 기능은 일부 경우에 특정한 시나리오 및 토폴로지에서 추가 구성을 필요로 할 수 있습니다.
 
 [필터링](active-directory-aadconnectsync-configure-filtering.md)은 어떤 개체가 Azure AD에 동기화되는지 제한하려는 경우 사용됩니다. 기본적으로 모든 사용자, 연락처, 그룹 및 Windows 10 컴퓨터는 동기화되지만 도메인, OU 또는 특성에 따라 제한할 수 있습니다.
@@ -99,7 +99,7 @@ Azure AD Connect는 필요에 따라 기본적으로 키거나 사용할 수 있
 
 [자동 업그레이드](active-directory-aadconnect-feature-automatic-upgrade.md)는 빠른 설정 설치에 기본적으로 사용되고 Azure AD Connect가 항상 최신 릴리스로 업데이트되도록 합니다.
 
-### 기능을 구성하는 다음 단계
+### 동기화 기능을 구성하는 다음 단계
 
 | 항목 | |
 | --------- | --------- |
@@ -130,12 +130,25 @@ Azure AD Connect 동기화는 대부분의 고객 및 토폴로지에 대해 작
 | 선언적 프로비전 | [Azure AD Connect Sync: 선언적 프로비전 식 이해](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |
 | 기본 구성 변경 | [기본 구성 변경에 대한 모범 사례](active-directory-aadconnectsync-best-practices-changing-default-configuration.md) |
 
+## 페더레이션 기능 구성
+ADFS는 [복수 도메인](active-directory-aadconnect-multiple-domains.md)을 지원하도록 구성될 수 있습니다. 예를 들어 페더레이션 사용에 필요한 복수의 최상위 도메인을 가질 수 있습니다.
+
+ADFS 서버가 Azure AD 인증서를 자동으로 업데이트하도록 구성되지 않았거나 비 ADFS 솔루션을 사용하는 경우에는 [인증서를 업데어트](active-directory-aadconnect-o365-certs.md)해야 하는 경우 알림이 표시됩니다.
+
+### 페더레이션 기능을 구성하는 다음 단계
+
+| 항목 | |
+| --------- | --------- |
+| ADFS에 하위 도메인 구성 | [Azure AD로 페더레이션에 대한 여러 도메인 지원](active-directory-aadconnect-multiple-domains.md) |
+| 페더레이션 인증서를 수동으로 업데이트 | [Office 365 및 Azure AD에 대한 페더레이션 인증서 갱신](active-directory-aadconnect-o365-certs.md) |
+
 ## 자세한 내용 및 참조
 
 | 항목 | |
 | --------- | --------- |
 | 버전 기록 | [버전 기록](active-directory-aadconnect-version-history.md) |
 | DirSync, Azure ADSync 및 Azure AD Connect 비교 | [디렉터리 통합 도구 비교](active-directory-hybrid-identity-design-considerations-tools-comparison.md) |
+| Azure AD의 비 ADFS 호환성 목록 | [Azure AD 페더레이션 호환성 목록](active-directory-aadconnect-federation-compatibility.md) |
 | 동기화된 특성 | [동기화된 특성](active-directory-aadconnectsync-attributes-synchronized.md) |
 | Azure AD Connect Health를 사용하여 모니터링 | [Azure AD Connect Health](active-directory-aadconnect-health.md) |
 | 질문과 대답 | [Azure AD Connect FAQ](active-directory-aadconnect-faq.md) |
@@ -148,4 +161,4 @@ Azure AD Connect 동기화는 대부분의 고객 및 토폴로지에 대해 작
 
 [AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
 
-<!----HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->
