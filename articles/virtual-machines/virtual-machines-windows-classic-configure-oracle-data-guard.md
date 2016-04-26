@@ -16,7 +16,7 @@
 
 #Azure용 Oracle Data Guard 구성하기
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] 리소스 관리자 모델.
 
 
 이 자습서에서는 고가용성 및 재해 복구를 위해 Azure 가상 컴퓨터 환경에서 Oracle Data Guard를 설정 및 구현하는 방법에 대해 설명합니다. 이 자습서에서는 비 RAC Oracle 데이터베이스에 대한 단방향 복제에 초점을 맞춥니다.
@@ -631,4 +631,4 @@ SQL*PLUS 명령 프롬프트 창을 열고 기본 컴퓨터(Machine1)에서 logf
 ##추가 리소스
 [Azure용 Oracle 가상 컴퓨터 이미지](virtual-machines-windows-classic-oracle-images.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!----HONumber=AcomDC_0413_2016-->
