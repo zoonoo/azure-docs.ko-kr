@@ -130,11 +130,11 @@
 
     이 명령을 실행하면 Node.js HTTP 서버가 시작되고 API가 제공되기 시작합니다.
 
-1. ****http://localhost:8000/contacts**로 이동하면 연락처 목록의 JSON 출력이 표시됩니다(또는 사용 중인 브라우저에 따라 다운로드할지 묻는 메시지가 표시됨).
+1. **http://localhost:8000/contacts**로 이동하면 연락처 목록의 JSON 출력이 표시됩니다(또는 사용 중인 브라우저에 따라 다운로드할지 묻는 메시지가 표시됨).
 
     ![모든 연락처 Api 호출](media/app-service-api-nodejs-api-app/all-contacts-api-call.png)
 
-1. ****http://localhost:8000/contacts/2**로 이동하면 해당 id 값이 나타내는 연락처가 표시됩니다.
+1. **http://localhost:8000/contacts/2**로 이동하면 해당 id 값이 나타내는 연락처가 표시됩니다.
 
     ![특정 연락처 Api 호출](media/app-service-api-nodejs-api-app/specific-contact-api-call.png)
 

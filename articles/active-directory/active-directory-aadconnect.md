@@ -22,7 +22,7 @@ Azure AD Connect는 Azure Active Directory와 Windows Server Active Directory와
 
 <!-- The hardcoded link is a workaround for campaign ids not working in acom links-->
 
-> [AZURE.IMPORTANT] [Azure AD Connect is the best way to connect your on-premises directory with Azure AD and Office 365. This is a great time to upgrade to Azure AD Connect from Windows Azure Active Directory Sync (DirSync) or Azure AD Sync as these tools are now deprecated and will reach end of support on April 13, 2017.](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-dirsync-deprecated/?WT.mc_id=DirSyncDepACOM)
+> [AZURE.IMPORTANT] [Azure AD Connect is the best way to connect your on-premises directory with Azure AD and Office 365. This is a great time to upgrade to Azure AD Connect from Windows Azure Active Directory Sync (DirSync) or Azure AD Sync as these tools are now deprecated and will reach end of support on April 13, 2017.]( https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-dirsync-deprecated/?WT.mc_id=DirSyncDepACOM)
 
 ![Azure AD Connect의 정의](./media/active-directory-aadconnect/arch.png)
 
@@ -48,7 +48,7 @@ Azure Active Directory Connect는 기본 세 부분으로 구성됩니다. 이�
 
 ## Azure AD Connect 설치
 
-[Microsoft 다운로드 센터](http://go.microsoft.com/fwlink/?LinkId=615771)에서 Azure AD Connect를 다운로드할 수 있습니다 .
+[Microsoft 다운로드 센터]( http://go.microsoft.com/fwlink/?LinkId=615771)에서 Azure AD Connect를 다운로드할 수 있습니다 .
 
 
 | 해결 방법 | 시나리오 |
@@ -66,7 +66,7 @@ Azure Active Directory Connect는 기본 세 부분으로 구성됩니다. 이�
 
 | 항목 | |
 | --------- | --------- |
-| Azure AD Connect 다운로드 | [Azure AD Connect 다운로드](http://go.microsoft.com/fwlink/?LinkId=615771) |
+| Azure AD Connect 다운로드 | [Azure AD Connect 다운로드]( http://go.microsoft.com/fwlink/?LinkId=615771) |
 | Express 설정을 사용하여 설치 | [Azure AD Connect의 빠른 설치](active-directory-aadconnect-get-started-express.md) |
 | 사용자 지정 설정을 사용하여 설치 | [Azure AD Connect의 사용자 지정 설치](active-directory-aadconnect-get-started-custom.md) |
 | DirSync에서 업그레이드 | [Azure AD Sync 도구(DirSync)에서 업그레이드](active-directory-aadconnect-dirsync-upgrade-get-started.md) |
