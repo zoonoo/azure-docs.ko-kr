@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/28/2016"
+   ms.date="04/07/2016"
    ms.author="larryfr"/>
 
 # HDInsight에서 Hadoop과 Pig 사용
@@ -65,7 +65,7 @@ Pig와 UDF를 사용하는 예로, 다음 문서를 참조하십시오:
 
 WASB가 HDInsight의 기본 저장소이므로 Pig Latin에서 **/example/data/sample.log**를 사용하여 파일에 액세스할 수도 있습니다.
 
-> [AZURE.NOTE] 구문 ****wasb:///**는 HDInsight 클러스터의 기본 저장소 컨테이너에 저장된 파일에 액세스하는 데 사용됩니다. 클러스터를 프로비전할 때 추가 저장소 계정을 지정한 경우 이러한 계정에 저장된 파일에 액세스하려면 컨테이너 이름과 저장소 계정 주소를 지정하여 데이터에 액세스하면 됩니다. 예를 들어 ****wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**와 같습니다.
+> [AZURE.NOTE] 구문 **wasb:///**는 HDInsight 클러스터의 기본 저장소 컨테이너에 저장된 파일에 액세스하는 데 사용됩니다. 클러스터를 프로비전할 때 추가 저장소 계정을 지정한 경우 이러한 계정에 저장된 파일에 액세스하려면 컨테이너 이름과 저장소 계정 주소를 지정하여 데이터에 액세스하면 됩니다. 예를 들어 **wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**와 같습니다.
 
 
 ##<a id="job"></a>샘플 앱 정보
@@ -115,6 +115,8 @@ Scalding을 사용하여 HDInsight와 함께 Pig를 사용하는 방법을 살�
 
 * [HDInsight에 데이터 업로드][hdinsight-upload-data]
 * [HDInsight에서 Hive 사용][hdinsight-use-hive]
+* [HDInsight에서 Sqoop 사용](hdinsight-use-sqoop.md)
+* [HDInsight에서 Oozie 사용](hdinsight-use-oozie.md)
 * [HDInsight에서 MapReduce 작업 사용][hdinsight-use-mapreduce]
 
 [check]: ./media/hdinsight-use-pig/hdi.checkmark.png
@@ -137,7 +139,7 @@ Scalding을 사용하여 HDInsight와 함께 Pig를 사용하는 방법을 살�
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md#mapreduce-sdk
 
-[Powershell-install-configure]: ../install-configure-powershell.md
+[Powershell-install-configure]: ../powershell-install-configure.md
 
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 
@@ -146,4 +148,4 @@ Scalding을 사용하여 HDInsight와 함께 Pig를 사용하는 방법을 살�
 [image-hdi-pig-powershell]: ./media/hdinsight-use-pig/hdi.pig.powershell.png
 [image-hdi-pig-architecture]: ./media/hdinsight-use-pig/HDI.Pig.Architecture.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

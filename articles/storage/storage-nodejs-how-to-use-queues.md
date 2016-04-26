@@ -5,7 +5,7 @@
 	documentationCenter="nodejs"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="tysonn"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="02/17/2016"
+	ms.date="04/08/2016"
 	ms.author="micurd"/>
 
 
@@ -325,4 +325,4 @@ ACL이 설정되고 나면 정책의 ID를 기반으로 SAS를 만들 수 있습
   [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
   [Web Matrix를 사용하여 Azure에 Node.js 웹앱 빌드 및 배포]: ../app-service-web/web-sites-nodejs-use-webmatrix.md
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

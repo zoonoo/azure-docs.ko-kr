@@ -1,6 +1,6 @@
 <properties
    pageTitle="계산, 네트워크 및 저장소 공급자 | Microsoft Azure"
-   description="Azure Resource Manager의 Windows 응용 프로그램에 대한 CRP, NRP 및 SRP(계산, 네트워크 및 저장소 리소스 공급자)에 대한 개념적 개요"
+   description="Azure Resource Manager 배포 모델의 Windows 응용 프로그램에 대한 CRP, NRP 및 SRP(계산, 네트워크 및 저장소 리소스 공급자)에 대한 개념적 개요"
    services="virtual-machines-windows"
    documentationCenter=""
    authors="mahthi"
@@ -17,10 +17,10 @@
    ms.date="04/29/2015"
    ms.author="mahthi"/>
 
-# Azure Resource Manager의 Windows 응용 프로그램에 대한 Azure 계산, 네트워크 및 저장소 공급자
+# Azure Resource Manager 배포 모델의 Windows 응용 프로그램을 위한 Azure 계산, 네트워크 및 저장소 공급자
 
-[AZURE.INCLUDE [learn-about-deployment-models-both-include](../../includes/learn-about-deployment-models-both-include.md)]
+Azure Resource Manager 배포 모델에 계산, 네트워크 및 저장소 기능을 포함하면 IaaS에서 실행되는 복잡한 응용 프로그램의 배포 및 관리가 근본적으로 간소화됩니다. 많은 응용 프로그램에는 가상 네트워크, 저장소 계정, 가상 컴퓨터 및 네트워크 인터페이스를 비롯한 리소스의 조합이 필요합니다. Azure Resource Manager 배포 모델은 JSON 템플릿을 생성하여 이 모든 리소스를 단일 응용 프로그램으로 배포 및 관리할 수 있는 기능을 제공합니다.
 
 [AZURE.INCLUDE [virtual-machines-common-compare-deployment-models](../../includes/virtual-machines-common-compare-deployment-models.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

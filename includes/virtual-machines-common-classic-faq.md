@@ -32,12 +32,12 @@ Azure는 고정된 VHD 형식 가상 하드 디스크를 지원합니다. VHDX�
 많은 측면에서, “1 세대” Hyper-V VM과 유사하지만, 정확히 동일하지는 않습니다. 두 형식 모두 가상화된 하드웨어를 제공하지만, VHD-형식 가상 하드 디스크는 호환이 가능합니다. 이 의미는 사용자가 Hyper-V 및 Azure 사이를 이동할 수 있다는 것입니다. Hyper-V 사용자에게 중요한 세 가지 차이점이 있습니다.
 
 - Azure에서는 가상 컴퓨터에 대한 콘솔 액세스를 제공하지 않습니다. 부팅이 완료될 때까지 VM에 액세스할 수 없습니다.
-- 대부분의 [크기](virtual-machines-linux-sizes.md)를 가진 Azure VM에는 가상 네트워크 어댑터가 하나만 있습니다. 따라서 외부 IP 주소가 하나만 지정될 수 있습니다. A8 및 A9 크기는 제한된 시나리오에서 인스턴스 간의 응용 프로그램 커뮤니케이션을 위해 두 번째 네트워크 어댑터를 사용합니다.
+- 대부분의 [크기](../articles/virtual-machines/virtual-machines-linux-sizes.md)를 가진 Azure VM에는 가상 네트워크 어댑터가 하나만 있습니다. 따라서 외부 IP 주소가 하나만 지정될 수 있습니다. A8 및 A9 크기는 제한된 시나리오에서 인스턴스 간의 응용 프로그램 커뮤니케이션을 위해 두 번째 네트워크 어댑터를 사용합니다.
 - Azure VM은 2세대 Hyper-V VM 기능을 지원하지 않습니다. 이러한 기능에 대한 자세한 내용은 [Hyper-v에 대한 가상 컴퓨터 사양](http://technet.microsoft.com/library/dn592184.aspx) 및 [2세대 가상 컴퓨터 개요](https://technet.microsoft.com/library/dn282285.aspx)를 참조하세요.
 
 ## 이러한 가상 컴퓨터는 현존하는 온-프레미스 네트워킹 인프라를 사용할 수 있습니까?
 
-클래식 배포 모델에서 만든 가상 컴퓨터의 경우 Azure 가상 네트워크를 사용하여 기존 인프라를 확장할 수 있습니다. 접근법은 지점 사무실을 설치와 유사합니다. 사용자는 Azure에서 VPN(가상 사설망)을 프로비전하고 관리하며 온-프레미스 IT 인프라에 안전하게 연결할 수 있습니다. 자세한 내용은 [가상 네트워크 개요](../virtual-network/virtual-networks-overview.md)를 참조하세요.
+클래식 배포 모델에서 만든 가상 컴퓨터의 경우 Azure 가상 네트워크를 사용하여 기존 인프라를 확장할 수 있습니다. 접근법은 지점 사무실을 설치와 유사합니다. 사용자는 Azure에서 VPN(가상 사설망)을 프로비전하고 관리하며 온-프레미스 IT 인프라에 안전하게 연결할 수 있습니다. 자세한 내용은 [가상 네트워크 개요](../articles/virtual-network/virtual-networks-overview.md)를 참조하세요.
 
 가상 컴퓨터를 만들 때, 사용자가 원하는 가상 컴퓨터가 소속될 네트워크를 지정해야 합니다. 가상 네트워크에 기존 가상 컴퓨터를 가입할 수 없습니다. 그러나 기본 가상 컴퓨터에서 가상 하드 디스크(VHD)를 분리한 후, 사용자가 원하는 네트워킹 구성으로 새로운 가상 컴퓨터를 만들어서 이 문제를 해결할 수 있습니다.
 
@@ -73,7 +73,7 @@ Windows 가상 컴퓨터에서, 페이지 파일을 이동하고 드라이브 �
 용어 업그레이드가 일반적으로 의미하는 것은 동일한 하드웨어를 그대로 사용하면서 사용중인 운영 체제의 최신 릴리스로 이동하는 것을 의미합니다. Azure VM의 경우, 보다 최신 릴리스로의 이동은 Linux 및 Windows에 따라 달라집니다.
 
 - Linux에 대해 배포시 패키지 관리 도구 및 적절한 도구를 사용하세요.
-- Windows 가상 컴퓨터의 경우 Windows Server 마이그레이션 도구 등을 사용하여 서버를 마이그레이션해야 합니다. Azure에 상주하는 동안, 게스트 OS를 업그레이드 하려고 시도하지 마십시오. 가상 컴퓨터에 대한 액세스를 손실할 수 있는 위험 때문에 해당 업그레이드는 지원되지 않습니다. 업그레이드를 하는 동안 문제가 발생하는 경우, 원격 데스크톱 세션을 시작할 수 있는 기능이 손실되며, 문제를 해결할 수 없습니다. 
+- Windows 가상 컴퓨터의 경우 Windows Server 마이그레이션 도구 등을 사용하여 서버를 마이그레이션해야 합니다. Azure에 상주하는 동안, 게스트 OS를 업그레이드 하려고 시도하지 마십시오. 가상 컴퓨터에 대한 액세스를 손실할 수 있는 위험 때문에 해당 업그레이드는 지원되지 않습니다. 업그레이드를 하는 동안 문제가 발생하는 경우, 원격 데스크톱 세션을 시작할 수 있는 기능이 손실되며, 문제를 해결할 수 없습니다.
 
 Windows Server 마이그레이션을 위한 도구 및 프로세스에 대한 자세한 일반 정보는 [Windows Server에 역할 및 기능 마이그레이션](http://go.microsoft.com/fwlink/p/?LinkId=396940)을 참조하세요.
 
@@ -129,14 +129,14 @@ Azure가 사용자의 VM에 영향을 주는 심각한 하드웨어 문제를 �
 
 또한 계획된 유지 관리로 인해 다시 부팅할 때 Azure 클래식 포털 또는 Azure PowerShell을 사용하여 다시 부팅 로그를 볼 수 있습니다. 자세한 내용은 [VM 다시 부팅 로그 보기](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/)를 참조하세요.
 
-중복성을 제공하려면 동일한 가용성 집합에 둘 이상의 비슷하게 구성된 VM을 넣습니다. 이렇게 하면 계획된 또는 계획되지 않은 유지 관리를 하는 동안 적어도 하나 이상의 VM을 사용할 수 있습니다. Azure는 이 구성에 대해 특정한 수준의 VM 가용성을 보장합니다. 자세한 내용은 [가상 컴퓨터의 가용성 관리](virtual-machines-windows-manage-availability.md)를 참조하세요.
+중복성을 제공하려면 동일한 가용성 집합에 둘 이상의 비슷하게 구성된 VM을 넣습니다. 이렇게 하면 계획된 또는 계획되지 않은 유지 관리를 하는 동안 적어도 하나 이상의 VM을 사용할 수 있습니다. Azure는 이 구성에 대해 특정한 수준의 VM 가용성을 보장합니다. 자세한 내용은 [가상 컴퓨터의 가용성 관리](../articles/virtual-machines/virtual-machines-windows-manage-availability.md)를 참조하세요.
 
 ## 추가 리소스
 
-[Azure 가상 컴퓨터 정보](virtual-machines-linux-about.md)
+[Azure 가상 컴퓨터 정보](../articles/virtual-machines/virtual-machines-linux-about.md)
 
-[Linux 가상 컴퓨터를 만드는 다양한 방법](virtual-machines-linux-creation-choices.md)
+[Linux 가상 컴퓨터를 만드는 다양한 방법](../articles/virtual-machines/virtual-machines-linux-creation-choices.md)
 
-[Windows 가상 컴퓨터를 만드는 다양한 방법](virtual-machines-windows-creation-choices.md)
+[Windows 가상 컴퓨터를 만드는 다양한 방법](../articles/virtual-machines/virtual-machines-windows-creation-choices.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

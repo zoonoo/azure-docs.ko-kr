@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2016" 
+	ms.date="03/28/2016" 
 	ms.author="josephd"/>
 
 # 테스트를 위한 시뮬레이션된 하이브리드 클라우드 환경 설정(클래식 배포 모드)
@@ -79,7 +79,7 @@ Azure 구독이 아직 없는 경우 [Azure 평가판 사용](https://azure.micr
 	- TestSubnet에 대한 **CIDR(주소 수)** 열에서 **/24 (256)**를 클릭합니다.
 7.	완료 아이콘을 클릭합니다. 가상 네트워크가 만들어질 때까지 기다렸다가 계속 진행합니다.
 
-다음으로는 [Azure PowerShell을 설치 및 구성하는 방법](../install-configure-powershell.md)의 지침을 사용하여 로컬 컴퓨터에 Azure PowerShell을 설치합니다.
+다음으로는 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)의 지침을 사용하여 로컬 컴퓨터에 Azure PowerShell을 설치합니다.
 
 그런 다음 TestVNET 가상 네트워크에 대한 새 클라우드 서비스를 만듭니다. 고유한 이름을 선택해야 합니다. 예를 들어, **TestVNET-***UniqueSequence*의 이름을 지정하며, 여기서 *UniqueSequence*는 조직의 약어입니다. 예를 들어 조직의 이름이 Tailspin Toys인 경우 클라우드 서비스 이름을 **TestVNET-Tailspin**으로 지정할 수 있습니다.
 
@@ -225,7 +225,7 @@ TestVNET 가상 네트워크에는 고유한 DNS 서버(DC2)가 있으므로 이
 
 ## <a id="costs"></a>이 환경의 지속적인 비용 최소화
 
-이 환경에서 가상 컴퓨터를 실행하는 데 드는 비용을 최소화하려면 가능한 신속하게 필요한 테스트 및 데모를 수행한 다음 가상 컴퓨터를 삭제하거나, 사용하지 않을 때 가상 컴퓨터를 종료합니다. 예를 들어 Azure 자동화 및 Runbook을 사용하여 업무 시간이 끝날 때마다 TestLab 및 Test\_VNET 가상 네트워크의 가상 컴퓨터를 자동으로 종료할 수 있습니다. 자세한 내용은 [Azure 자동화 시작](../automation-create-runbook-from-samples.md)을 참조하세요. Corpnet 서브넷의 가상 컴퓨터를 다시 시작할 때는 DC1을 먼저 시작하세요.
+이 환경에서 가상 컴퓨터를 실행하는 데 드는 비용을 최소화하려면 가능한 신속하게 필요한 테스트 및 데모를 수행한 다음 가상 컴퓨터를 삭제하거나, 사용하지 않을 때 가상 컴퓨터를 종료합니다. 예를 들어 Azure 자동화 및 Runbook을 사용하여 업무 시간이 끝날 때마다 TestLab 및 Test\_VNET 가상 네트워크의 가상 컴퓨터를 자동으로 종료할 수 있습니다. Corpnet 서브넷의 가상 컴퓨터를 다시 시작할 때는 DC1을 먼저 시작하세요.
 
 Azure VPN 게이트웨이는 지속적인 비용이 발생하는 두 개의 Azure 가상 컴퓨터 집합으로 구현됩니다. 자세한 내용은 [가격-가상 네트워크](https://azure.microsoft.com/pricing/details/virtual-network/)를 참조하세요. 두 VPN 게이트웨이(각각 TestLab과 TestVNET의 VPN 게이트웨이)의 비용을 최소화하려면 테스트 환경을 만들고 가능한 신속하게 필요한 테스트 및 데모를 수행하거나 다음 단계를 사용하여 게이트웨이를 삭제합니다.
  
@@ -261,4 +261,4 @@ Azure VPN 게이트웨이는 지속적인 비용이 발생하는 두 개의 Azur
 
 그런 다음 Azure 관리 포털의 네트워크 페이지에서 **TestLab** 가상 네트워크를 클릭한 후 작업 표시줄에서 **연결**을 클릭합니다. TestLab 가상 네트워크가 TestVNET 로컬 네트워크에 연결된 상태로 표시될 때까지 기다립니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

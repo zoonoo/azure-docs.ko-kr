@@ -62,7 +62,7 @@ Microsoft에서는 매개 변수화된 항목 집합에 대한 트윗 이벤트�
 	[OAuth 액세스 토큰을 생성하는 단계](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)
 
 	토큰을 생성하는 빈 응용 프로그램을 만들어야 합니다.  
-3.	TwitterClient.exe.config의 EventHubConnectionString 및 EventHubName 값을 이벤트 허브 연결 문자열 및 이름으로 바꿉니다.
+3.	TwitterClient.exe.config의 EventHubConnectionString 및 EventHubName 값을 이벤트 허브 연결 문자열 및 이름으로 바꿉니다. 앞에서 복사한 연결 문자열을 사용하면 이벤트 허브 연결 문자열과 이름이 모두 제공되어 이를 구분하고 올바른 필드에 각각 추가할 수 있습니다.
 4.	*선택 사항:* 검색할 키워드를 조정합니다. 기본적으로 이 응용 프로그램은 "Azure,Skype,XBox,Microsoft,Seattle"을 찾습니다. 필요한 경우 TwitterClient.exe.config에서 twitter\_keywords 값을 조정할 수 있습니다.
 5.	**TwitterClient.exe**를 실행하여 응용 프로그램을 시작합니다. CreatedAt, Topic 및 SentimentScore 값이 이벤트 허브로 전송 중인 트윗 이벤트가 표시됩니다.
 
@@ -81,8 +81,8 @@ Microsoft에서는 매개 변수화된 항목 집합에 대한 트윗 이벤트�
 	* **지역**: 작업을 실행할 지역을 선택합니다. 더 나은 성능을 보장하고 비용 부담 없이 지역 간에 데이터를 전송하려면 동일한 지역에 작업 및 이벤트 허브를 배치하는 것이 좋습니다.
 	* **저장소 계정**: 이 지역 내에서 실행되는 모든 스트림 분석 작업에 대한 모니터링 데이터를 저장하는 데 사용할 저장소 계정을 선택합니다. 기존 저장소 계정을 선택하거나 새 계정을 만들 수 있습니다.
 
-3.	왼쪽 창에서 **스트림 분석**을 클릭하여 스트림 분석 작업을 표시합니다.  
-	![스트림 분석 서비스 아이콘](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-service-icon.png)
+3.	왼쪽 창에서 **스트림 분석**을 클릭하여 스트림 분석 작업을 표시합니다.
+![스트림 분석 서비스 아이콘](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-service-icon.png)
 
 4.	새 작업이 **생성됨** 상태로 표시됩니다. 페이지 아래쪽에 있는 **시작** 단추는 사용할 수 없게 설정됩니다. 작업을 시작하려면 먼저 작업 입력, 출력 및 쿼리를 구성해야 합니다.
 
@@ -237,5 +237,4 @@ Blob 저장소의 컨테이너가 없는 경우 아래 단계에 따라 만듭�
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!-------HONumber=AcomDC_0224_2016-->
-
+<!---HONumber=AcomDC_0413_2016-->

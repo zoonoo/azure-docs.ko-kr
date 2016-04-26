@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/03/2016"
+	ms.date="04/06/2016"
 	ms.author="jgao"/>
 
 #HDInsight에서 Hadoop과 Sqoop 사용(Windows)
@@ -52,15 +52,31 @@ HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. 다
 
 - */hive/warehouse/hivesampletable*에 있는 데이터 파일을 참조하는 *hivesampletable*이라는 이름의 Hive 테이블. 이 테이블에는 일부 모바일 장치 데이터가 포함되어 있습니다.
 
+    | 필드 | 데이터 형식 |
+    | ----- | --------- |
+    | clientid | string |
+    | querytime | string |
+    | market | string |
+    | deviceplatform | string |
+    | devicemake | string |
+    | devicemodel | string |
+    | state | string |
+    | country | string |
+    | querydwelltime | double |
+    | sessionid | bigint |
+    | sessionpagevieworder | bigint |
+
 먼저 *sample.log*와 *hivesampletable*을 Azure SQL 데이터베이스 또는 SQL Server에 내보낸 후 모바일 장치 데이터를 포함하는 테이블을 다음 경로를 통해 HDInsight에 다시 가져옵니다.
 
 	/tutorials/usesqoop/importeddata
 
 ## 클러스터 및 SQL 데이터베이스 만들기
 
+이 섹션에서는 Azure 포털 및 ARM 템플릿을 사용하는 자습서를 실행하기 위해 클러스터 및 SQL 데이터베이스 스키마를 만드는 방법을 보여 줍니다. Azure PowerShell을 사용하는 것을 선호하는 경우 [부록 A](#appendix-a---a-powershell-sample)를 참조하세요.
+
 1. Azure 포털에서 ARM 템플릿을 열려면 다음 이미지를 클릭합니다.         
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fusesqoop%2Fcreate-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/ko-KR/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fusesqoop%2Fcreate-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
     ARM 템플릿은 공용 BLOB 컨테이너에 있습니다. **https://hditutorialdata.blob.core.windows.net/usesqoop/create-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json*.
     
@@ -73,25 +89,25 @@ HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. 다
 
     - **ClusterName**: 만들려는 Hadoop 클러스터의 이름을 입력합니다.
     - **클러스터 로그인 이름 및 암호**: 기본 로그인 이름은 admin입니다.
-    - **새 사용자 이름 및 암호**.
+    - **SSH 사용자 이름 및 암호**.
     - **SQL 데이터베이스 서버 로그인 이름 및 암호**.
 
     다음 값은 변수 섹션에서 하드 코드합니다.
     
-    |기본 저장소 계정 이름|<CluterName>저장소|
+    |기본 저장소 계정 이름|<CluterName>store|
     |----------------------------|-----------------|
     |Azure SQL 데이터베이스 서버 이름|<ClusterName>dbserver|
     |Azure SQL 데이터베이스 이름|<ClusterName>db|
     
     이러한 값을 기록해 두십시오. 이 정보는 자습서의 뒷부분에서 필요합니다.
     
-3\.**확인**을 클릭하여 매개 변수를 저장합니다.
+3\. **확인**을 클릭하여 매개 변수를 저장합니다.
 
-4\.**사용자 지정 배포** 블레이드에서 **리소스 그룹** 드롭다운 상자를 클릭한 후 **새로 만들기**를 클릭하여 새 리소스 그룹을 만듭니다. 리소스 그룹은 클러스터, 종속 저장소 계정 및 기타 연결된 리소스를 그룹화하는 컨테이너입니다.
+4\. **사용자 지정 배포** 블레이드에서 **리소스 그룹** 드롭다운 상자를 클릭한 후 **새로 만들기**를 클릭하여 새 리소스 그룹을 만듭니다. 리소스 그룹은 클러스터, 종속 저장소 계정 및 기타 연결된 리소스를 그룹화하는 컨테이너입니다.
 
-5\.**약관**을 클릭한 다음 **만들기**를 클릭합니다.
+5\. **약관**을 클릭한 다음 **만들기**를 클릭합니다.
 
-6\.**만들기**를 클릭합니다. 템플릿 배포에 배포 제출 중이라는 제목의 새 타일이 표시됩니다. 클러스터 및 SQL 데이터베이스를 만들려면 20분 정도가 걸립니다.
+6\. **만들기**를 클릭합니다. 템플릿 배포에 배포 제출 중이라는 제목의 새 타일이 표시됩니다. 클러스터 및 SQL 데이터베이스를 만들려면 20분 정도가 걸립니다.
 
 기존 Azure SQL 데이터베이스 또는 Microsoft SQL Server를 사용하기로 선택하는 경우
 
@@ -114,199 +130,24 @@ HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. 다
     * 가상 네트워크에 HDInsight 클러스터를 만들려면 [사용자 지정 옵션을 사용하여 HDInsight의 Hadoop 클러스터 만들기](hdinsight-provision-clusters.md)를 참조하세요.
 
     > [AZURE.NOTE] SQL Server는 인증도 허용해야 합니다. 이 문서의 단계를 완료하려면 SQL 서버 로그인을 사용해야 합니다.
-	
-
-## PowerShell을 사용하여 Sqoop 실행
-
-다음 PowerShell 스크립트는 소스 파일을 전처리하고 Azure SQL 데이터베이스를 내보냅니다.
-
-    $resourceGroupName = "<AzureResourceGroupName>"
-    $hdinsightClusterName = "<HDInsightClusterName>"
-
-    $httpUserName = "admin"
-    $httpPassword = "<Password>"
-
-    $defaultStorageAccountName = $hdinsightClusterName + "store"
-    $defaultBlobContainerName = $hdinsightClusterName
 
 
-    $sqlDatabaseServerName = $hdinsightClusterName + "dbserver"
-    $sqlDatabaseName = $hdinsightClusterName + "db"
-    $sqlDatabaseLogin = "sqluser"
-    $sqlDatabasePassword = "<Password>"
+## Sqoop 작업 실행
 
-    #region - Connect to Azure subscription
-    Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
-    try{Get-AzureRmContext}
-    catch{Login-AzureRmAccount}
-    #endregion
-        
-    #region - pre-process the source file
-        
-    Write-Host "`nPreprocessing the source file ..." -ForegroundColor Green
-        
-    # This procedure creates a new file with $destBlobName
-    $sourceBlobName = "example/data/sample.log"
-    $destBlobName = "tutorials/usesqoop/data/sample.log"
-        
-    # Define the connection string
-    $defaultStorageAccountKey = Get-AzureRmStorageAccountKey `
-                                    -ResourceGroupName $resourceGroupName `
-                                    -Name $defaultStorageAccountName |  %{ $_.Key1 }
-    $storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=$defaultStorageAccountName;AccountKey=$defaultStorageAccountKey"
-        
-    # Create block blob objects referencing the source and destination blob.
-    $storageAccount = [Microsoft.WindowsAzure.Storage.CloudStorageAccount]::Parse($storageConnectionString)
-    $storageClient = $storageAccount.CreateCloudBlobClient();
-    $storageContainer = $storageClient.GetContainerReference($defaultBlobContainerName)
-    $sourceBlob = $storageContainer.GetBlockBlobReference($sourceBlobName)
-    $destBlob = $storageContainer.GetBlockBlobReference($destBlobName)
-        
-    # Define a MemoryStream and a StreamReader for reading from the source file
-    $stream = New-Object System.IO.MemoryStream
-    $stream = $sourceBlob.OpenRead()
-    $sReader = New-Object System.IO.StreamReader($stream)
-        
-    # Define a MemoryStream and a StreamWriter for writing into the destination file
-    $memStream = New-Object System.IO.MemoryStream
-    $writeStream = New-Object System.IO.StreamWriter $memStream
-        
-    # Pre-process the source blob
-    $exString = "java.lang.Exception:"
-    while(-Not $sReader.EndOfStream){
-        $line = $sReader.ReadLine()
-        $split = $line.Split(" ")
-        
-        # remove the "java.lang.Exception" from the first element of the array
-        # for example: java.lang.Exception: 2012-02-03 19:11:02 SampleClass8 [WARN] problem finding id 153454612
-        if ($split[0] -eq $exString){
-            #create a new ArrayList to remove $split[0]
-            $newArray = [System.Collections.ArrayList] $split
-            $newArray.Remove($exString)
-        
-            # update $split and $line
-            $split = $newArray
-            $line = $newArray -join(" ")
-        }
-        
-        # remove the lines that has less than 7 elements
-        if ($split.count -ge 7){
-            write-host $line
-            $writeStream.WriteLine($line)
-        }
-    }
-        
-    # Write to the destination blob
-    $writeStream.Flush()
-    $memStream.Seek(0, "Begin")
-    $destBlob.UploadFromStream($memStream)
-        
-    #endregion
-        
-    #region - export the log file from the cluster to the SQL database
-        
-    Write-Host "Exporting the log file ..." -ForegroundColor Green
+HDInsight는 다양한 메서드를 사용하여 Sqoop 작업을 실행할 수 있습니다. 어떤 메서드가 적합한지 결정하는 다음 테이블을 사용하여 연습할 수 있는 링크를 따르세요.
 
-    $pw = ConvertTo-SecureString -String $httpPassword -AsPlainText -Force
-    $httpCredential = New-Object System.Management.Automation.PSCredential($httpUserName,$pw)
-        
-    # Connection string for Azure SQL Database.
-    # Comment if using SQL Server
-    $connectionString = "jdbc:sqlserver://$sqlDatabaseServerName.database.windows.net;user=$sqlDatabaseLogin@$sqlDatabaseServerName;password=$sqlDatabasePassword;database=$sqlDatabaseName"
-    # Connection string for SQL Server.
-    # Uncomment if using SQL Server.
-    #$connectionString = "jdbc:sqlserver://$sqlDatabaseServerName;user=$sqlDatabaseLogin;password=$sqlDatabasePassword;database=$sqlDatabaseName"
-        
-    $tableName_log4j = "log4jlogs"
-    $exportDir_log4j = "/tutorials/usesqoop/data"
-    $sqljdbcdriver = "/user/oozie/share/lib/sqoop/sqljdbc41.jar"
-        
-    # Submit a Sqoop job
-    $sqoopDef = New-AzureRmHDInsightSqoopJobDefinition `
-        -Command "export --connect $connectionString --table $tableName_log4j --export-dir $exportDir_log4j --input-fields-terminated-by \0x20 -m 1" `
-        -Files $sqljdbcdriver
-
-    $sqoopJob = Start-AzureRmHDInsightJob `
-                    -ClusterName $hdinsightClusterName `
-                    -HttpCredential $httpCredential `
-                    -JobDefinition $sqoopDef #-Debug -Verbose
-
-    Wait-AzureRmHDInsightJob `
-        -ResourceGroupName $resourceGroupName `
-        -ClusterName $hdinsightClusterName `
-        -HttpCredential $httpCredential `
-        -JobId $sqoopJob.JobId
-        
-    Write-Host "Standard Error" -BackgroundColor Green
-    Get-AzureRmHDInsightJobOutput -ResourceGroupName $resourceGroupName -ClusterName $hdinsightClusterName -DefaultStorageAccountName $defaultStorageAccountName -DefaultStorageAccountKey $defaultStorageAccountKey -DefaultContainer $defaultBlobContainerName -HttpCredential $httpCredential -JobId $sqoopJob.JobId -DisplayOutputType StandardError
-    Write-Host "Standard Output" -BackgroundColor Green
-    Get-AzureRmHDInsightJobOutput -ResourceGroupName $resourceGroupName -ClusterName $hdinsightClusterName -DefaultStorageAccountName $defaultStorageAccountName -DefaultStorageAccountKey $defaultStorageAccountKey -DefaultContainer $defaultBlobContainerName -HttpCredential $httpCredential -JobId $sqoopJob.JobId -DisplayOutputType StandardOutput
-    #endregion
-
-## .NET SDK를 사용하여 Sqoop 실행
-
-이 섹션에서는 C# 콘솔 응용 프로그램을 만들어 이 자습서의 앞 부분에서 만든 SQL 데이터베이스 테이블에 hivesampletable 내보냅니다.
-
-**Sqoop 작업을 제출하려면**
-
-1. Visual Studio 패키지 관리자 콘솔에서 다음 Nuget 명령을 실행하여 패키지를 가져옵니다.
-
-		Install-Package Microsoft.Azure.Management.HDInsight.Job -Pre
-2. Program.cs 파일에서 다음 using 문을 사용합니다.
-
-		using System;
-		using Microsoft.Azure.Management.HDInsight.Job;
-		using Microsoft.Azure.Management.HDInsight.Job.Models;
-		using Hyak.Common;
-3. Main() 함수에 다음 코드를 추가합니다. HDInsight .NET SDK 사용에 대한 일반적인 정보를 보려면 [프로그래밍 방식으로 Hadoop 작업 제출][hdinsight-submit-jobs]을 참조하세요.
-
-		var ExistingClusterName = "<HDInsightClusterName>";
-		var ExistingClusterUri = ExistingClusterName + ".azurehdinsight.net";
-		var ExistingClusterUsername = "<HDInsightClusterHttpUsername>";
-		var ExistingClusterPassword = "<HDInsightClusterHttpUserPassword>";
-		
-		var sqlDatabaseServerName = "<AzureSQLDatabaseServerName>";
-		var sqlDatabaseLogin = "<AzureSQLDatabaseLogin>";
-		var sqlDatabaseLoginPassword = "<AzureSQLDatabaseLoginPassword>";
-		var sqlDatabaseDatabaseName = "<AzureSQLDatabaseDatabaseName>";
-		
-		var sqlDatabaseTableName = "log4jlogs";
-		var exportDir = "/hive/warehouse/hivesampletable";
-
-		var cmdExport = @"export";
-		// Connection string for using Azure SQL Database.
-		// Comment if using SQL Server
-		cmdExport = cmdExport + @" --connect 'jdbc:sqlserver://" + sqlDatabaseServerName + ".database.windows.net;user=" + sqlDatabaseLogin + "@" + sqlDatabaseServerName + ";password=" + sqlDatabaseLoginPassword + ";database=" + sqlDatabaseDatabaseName +"'"; 
-		// Connection string for using SQL Server.
-		// Uncomment if using SQL Server
-		//cmdExport = cmdExport + @" --connect jdbc:sqlserver://" + sqlDatabaseServerName + ";user=" + sqlDatabaseLogin + ";password=" + sqlDatabaseLoginPassword + ";database=" + sqlDatabaseDatabaseName;
-		cmdExport = cmdExport + @" --table " + sqlDatabaseTableName;
-		cmdExport = cmdExport + @" --export-dir " + exportDir;
-		cmdExport = cmdExport + @" --input-fields-terminated-by \0x20 -m 1";
-		
-		HDInsightJobManagementClient _hdiJobManagementClient;
-		var clusterCredentials = new BasicAuthenticationCloudCredentials { Username = ExistingClusterUsername, Password = ExistingClusterPassword };
-		_hdiJobManagementClient = new HDInsightJobManagementClient(ExistingClusterUri, clusterCredentials);
-
-		var parameters = new SqoopJobSubmissionParameters
-		{
-		    Command = cmdExport
-		};
-		
-		System.Console.WriteLine("Submitting the Sqoop job to the cluster...");
-		var response = _hdiJobManagementClient.JobManagement.SubmitSqoopJob(parameters);
-		System.Console.WriteLine("Validating that the response is as expected...");
-		System.Console.WriteLine("Response status code is " + response.StatusCode);
-		System.Console.WriteLine("Validating the response object...");
-		System.Console.WriteLine("JobId is " + response.JobSubmissionJsonResponse.Id);
-		Console.WriteLine("Press ENTER to continue ...");
-		Console.ReadLine();
-4. **F5** 키를 눌러 프로그램을 실행합니다. 
+| 원하는 경우 **이것을 사용**하세요... | ...**대화형** 셸 | ...**배치** 처리 | ...**클러스터 운영 체제**로 | ...**클라이언트 운영 체제**에서 |
+|:--------------------------------------------------------------|:---------------------------:|:-----------------------:|:------------------------------------------|:-----------------------------------------|
+| [SSH](hdinsight-use-sqoop-mac-linux.md) | ✔ | ✔ | Linux | Linux, Unix, Mac OS X, 또는 Windows |
+| [Hadoop용 .NET SDK](hdinsight-hadoop-use-sqoop-dotnet-sdk.md) | &nbsp; | ✔ | Linux 또는or Windows | Windows(당분간) |
+| [Azure PowerShell](hdinsight-hadoop-use-sqoop-powershell.md) | &nbsp; | ✔ | Linux 또는or Windows | Windows |
 
 ##다음 단계
 
 이제 Sqoop을 사용하는 방법에 대해 알아봤습니다. 자세한 내용은 다음을 참조하세요.
 
+- [HDInsight에서 Hive 사용](hdinsight-use-hive.md)
+- [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 - [HDInsight와 함께 Oozie 사용][hdinsight-use-oozie]\: Oozie 워크플로에서 Sqoop 작업을 사용합니다.
 - [HDInsight를 사용하여 비행 지연 데이터 분석][hdinsight-analyze-flight-data]\: Hive를 사용하여 비행 지연 데이터를 분석한 후 Sqoop을 사용하여 데이터를 Azure SQL 데이터베이스로 내보냅니다.
 - [HDInsight에 데이터 업로드][hdinsight-upload-data]\: HDInsight/Azure Blob 저장소에 데이터를 업로드하는 다른 방법을 찾습니다.
@@ -792,4 +633,4 @@ PowerShell 샘플은 다음 단계를 수행합니다.
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

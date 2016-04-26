@@ -62,6 +62,11 @@ Azure 포털에서 자동화 계정을 만들고 Azure PowerShell을 사용하�
 
 1. [Windows PowerShell용 Azure Active Directory 모듈(64비트 버전)](http://go.microsoft.com/fwlink/p/?linkid=236297)을 다운로드하고 설치했습니다.
 2. 자동화 계정을 만들었습니다. 이 계정은 아래 스크립트에서 –AutomationAccountName 및 -ApplicationDisplayName 매개 변수에 대한 값으로 참조됩니다.
+3. [Azure 자동화 작성 도구 키트](https://www.powershellgallery.com/packages/AzureAutomationAuthoringToolkit/0.2.3.2)를 설치했습니다.
+
+```
+Install-Module AzureAutomationAuthoringToolkit -Scope CurrentUser
+```
 
 PowerShell 스크립트는 다음을 구성합니다.
 
@@ -82,20 +87,20 @@ PowerShell 스크립트는 다음을 구성합니다.
 
     [Parameter(Mandatory=$true)]
     [String] $AutomationAccountName,
-   
+
     [Parameter(Mandatory=$true)]
     [String] $ApplicationDisplayName,
-   
+
     [Parameter(Mandatory=$true)]
     [String] $CertPlainPassword,
-   
+
     [Parameter(Mandatory=$false)]
     [int] $NoOfMonthsUntilExpired = 12
     )
-   
+
     Login-AzureRmAccount
     Import-Module AzureRM.Resources
-		
+
     $CurrentDate = Get-Date
     $EndDate = $CurrentDate.AddMonths($NoOfMonthsUntilExpired)
     $KeyId = (New-Guid).Guid
@@ -151,20 +156,20 @@ PowerShell 스크립트는 다음을 구성합니다.
     ```
 <br>
 2. 사용자 컴퓨터에서 관리자 권한으로 **시작** 화면에서 **Windows PowerShell**을 시작합니다.
-3. 관리자 권한 PowerShell 명령줄 셸에서 1단계에서 만든 스크립트를 포함하는 폴더로 이동하고 *–ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName* 및 *-CertPlainPassword* 매개 변수에 대한 값을 변경하는 스크립트를 실행합니다.<br> 
+3. 관리자 권한 PowerShell 명령줄 셸에서 1단계에서 만든 스크립트를 포함하는 폴더로 이동하고 *–ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName* 및 *-CertPlainPassword* 매개 변수에 대한 값을 변경하는 스크립트를 실행합니다.<br>
 
     ```
-    .\New-AzureServicePrincipal.ps1 -ResourceGroup <ResourceGroupName> 
-     -AutomationAccountName <NameofAutomationAccount> 
-     -ApplicationDisplayName <DisplayNameofAutomationAccount> 
+    .\New-AzureServicePrincipal.ps1 -ResourceGroup <ResourceGroupName> `
+     -AutomationAccountName <NameofAutomationAccount> `
+     -ApplicationDisplayName <DisplayNameofAutomationAccount> `
      -CertPlainPassword "<StrongPassword>"
     ```   
 <br>
 
-    >[AZURE.NOTE] 스크립트를 실행한 후에 Azure 인증을 묻는 메시지가 나타납니다. 구독의 서비스 관리자인 계정으로 로그인*해야* 합니다. <br> 
+    >[AZURE.NOTE] 스크립트를 실행한 후에 Azure 인증을 묻는 메시지가 나타납니다. 구독의 서비스 관리자 계정으로 로그인*해야* 합니다. <br>
 4. 스크립트가 성공적으로 완료된 후에 다음 단계로 진행하여 새 자격 증명 구성을 테스트하고 확인합니다.
 
-### 인증 확인 
+### 인증 확인
 다음으로 작은 테스트를 수행하여 새 서비스 주체를 사용하여 성공적으로 인증될 수 있는지 확인합니다. 성공적으로 인증할 수 없는 경우 1단계로 돌아가서 다시 이전 단계 각각을 확인합니다.
 
 1. Azure 포털에서 이전에 만든 자동화 계정을 엽니다.  
@@ -172,10 +177,10 @@ PowerShell 스크립트는 다음을 구성합니다.
 3. **Runbook 추가** 단추를 클릭하여 새 Runbook을 만들고 **Runbook 추가** 블레이드에서 **새 Runbook 만들기**를 선택합니다.
 4. Runbook을 *Test-SecPrin-Runbook*으로 명명하고 **Runbook 유형**에 PowerShell을 선택합니다. **만들기**를 클릭하여 Runbook을 만듭니다.
 5. **PowerShell Runbook 편집** 블레이드에서 캔버스에 다음 코드를 붙여넣습니다.<br>
-  
+
     ```
-     $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
-     Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID 
+     $Conn = Get-AutomationConnection -Name AzureRunAsConnection `
+     Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
      -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
    ```  
 <br>
@@ -184,7 +189,7 @@ PowerShell 스크립트는 다음을 구성합니다.
 8. **시작**을 클릭하여 테스트를 시작합니다.
 9. 이 창에서 [Runbook 작업](automation-runbook-execution.md)이 생성되고 해당 상태가 표시됩니다.  
 10. 작업 상태는 클라우드의 Runbook 작업자가 사용 가능해질 때까지 기다리고 있음을 나타내는 *대기 중*으로 시작합니다. 작업자가 작업을 요구한 경우, *시작 중*으로 바뀐 다음 Runbook이 실제로 실행되기 시작하면 *실행 중*으로 바뀝니다.  
-11. Runbook 작업이 완료되면 해당 출력이 표시됩니다. 이 경우에 **완료됨**이라는 상태를 확인해야 합니다.<br> ![보안 주체 Runbook 테스트](media/automation-sec-configure-azure-runas-account/runbook-test-results.png)<br> 
+11. Runbook 작업이 완료되면 해당 출력이 표시됩니다. 이 경우에 **완료됨**이라는 상태를 확인해야 합니다.<br> ![보안 주체 Runbook 테스트](media/automation-sec-configure-azure-runas-account/runbook-test-results.png)<br>
 12. 캔버스로 돌아가려면 **테스트** 블레이드를 닫습니다.
 13. **PowerShell Runbook 편집** 블레이드를 닫습니다.
 14. **Test-SecPrin-Runbook** 블레이드를 닫습니다.
@@ -195,4 +200,4 @@ PowerShell 스크립트는 다음을 구성합니다.
 - 서비스 주체에 대한 자세한 내용은 [응용 프로그램 개체 및 서비스 주체 개체](../active-directory/active-directory-application-objects.md)를 참조합니다.
 - Azure 자동화의 역할 기반 액세스 제어에 대한 자세한 내용은 [Azure 자동화에서 역할 기반 액세스 제어](../automation/automation-role-based-access-control.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

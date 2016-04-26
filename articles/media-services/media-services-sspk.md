@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/07/2016"  
+	ms.date="03/11/2016"  
 	ms.author="xpouyat"/>
 
 #Microsoft® 부드러운 스트리밍 클라이언트 이식 키트 라이선스
@@ -93,6 +93,7 @@ Microsoft 부드러운 스트리밍 클라이언트 이식 키트는 두 가지�
 - AVC Multimedia Software Co., Ltd.
 - EchoStar Purchasing Corporation
 - Enseo, Inc.
+- Fluendo S.A.
 - Guangdong OPPO Mobile Telecommunications Corp., Ltd.
 - HANDAN BroadInfoCom Co., Ltd.
 - Infomir GMBH
@@ -106,6 +107,7 @@ Microsoft 부드러운 스트리밍 클라이언트 이식 키트는 두 가지�
 - Research In Motion Limited
 - Saffron Digital Limited
 - Sichuan Changhong Electric Co., Ltd
+- SoftAtHome
 - Tatung Technology Inc.
 - Vestel Elektronik Sanayi ve Ticaret A.S.
 - VisualOn, Inc.
@@ -127,6 +129,8 @@ Microsoft 부드러운 스트리밍 클라이언트 이식 키트는 두 가지�
 - EchoStar Purchasing Corporation
 - Enseo, Inc.
 - Filmflex Movies Limited
+- Fluendo S.A.
+- Gibson Innovations Limited
 - Guangdong OPPO Mobile Telecommunications Corp., Ltd.
 - HANDAN BroadInfoCom Co., Ltd.
 - Hisense International Co., Ltd
@@ -154,7 +158,6 @@ Microsoft 부드러운 스트리밍 클라이언트 이식 키트는 두 가지�
 - Virgin Media Limited
 - VIZIO, Inc.
 - Wistron Corporation
-- WOOX Innovations Limited
 - ZTE Corporation
 
 ##미디어 서비스 학습 경로
@@ -165,4 +168,4 @@ Microsoft 부드러운 스트리밍 클라이언트 이식 키트는 두 가지�
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

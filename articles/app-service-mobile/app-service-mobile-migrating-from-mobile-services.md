@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="04/11/2016"
 	ms.author="adrianhall"/>
 
 # <a name="article-top"></a>기존 Azure 모바일 서비스를 Azure 앱 서비스로 마이그레이션
@@ -344,6 +344,14 @@ Azure 앱 서비스에서 정상적으로 진단 로깅을 사용합니다. 진�
 
 로그는 생성될 때 제공된 창에 스트리밍합니다. 배포 자격 증명을 사용하여 나중에 분석에 대한 로그를 다운로드할 수 있습니다. 자세한 내용은 [로깅] 설명서를 참조하세요.
 
+## <a name="known-issues"></a>알려진 문제
+
+### 마이그레이션된 모바일 앱 복제를 삭제하면 사이트 중단이 발생함
+
+Azure PowerShell을 사용하여 마이그레이션된 모바일 서비스를 복제하고 복제본을 삭제하면 프로덕션 서비스에 대한 DNS 항목이 제거됩니다. 결과적으로 사이트는 인터넷에서 더 이상 액세스할 수 없습니다.
+
+해결 방법: 당사에서 이 문제에 대한 작업을 하고 있습니다. 사이트를 복제하려는 경우 포털을 통해 수행하세요.
+
 ## <a name="next-steps"></a>다음 단계
 
 응용 프로그램이 앱 서비스에 마이그레이션하지 않지만 더 많은 기능을 활용할 수 있습니다.
@@ -366,17 +374,17 @@ Azure 앱 서비스에서 정상적으로 진단 로깅을 사용합니다. 진�
 [2]: ./media/app-service-mobile-migrating-from-mobile-services/triggering-job-with-postman.png
 
 <!-- Links -->
-[앱 서비스 가격]: https://azure.microsoft.com/ko-KR/pricing/details/app-service/
+[앱 서비스 가격]: https://azure.microsoft.com/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
 [자동 크기 조정]: ../app-service-web/web-sites-scale.md
 [Azure 앱 서비스]: ../app-service/app-service-value-prop-what-is.md
 [Azure 앱 서비스 배포 설명서]: ../app-service-web/web-sites-deploy.md
 [Azure 클래식 포털]: https://manage.windowsazure.com
 [Azure 포털]: https://portal.azure.com
-[Azure 지역]: https://azure.microsoft.com/ko-KR/regions/
+[Azure 지역]: https://azure.microsoft.com/regions/
 [Azure 스케줄러 계획]: ../scheduler/scheduler-plans-billing.md
 [지속적으로 배포]: ../app-service-web/web-sites-publish-source-control.md
-[혼합 네임스페이스를 변환]: https://azure.microsoft.com/ko-KR/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
+[혼합 네임스페이스를 변환]: https://azure.microsoft.com/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: http://curl.haxx.se/
 [사용자 지정 도메인 이름]: ../app-service-web/web-sites-custom-domain-name.md
 [Fiddler]: http://www.telerik.com/fiddler
@@ -393,4 +401,4 @@ Azure 앱 서비스에서 정상적으로 진단 로깅을 사용합니다. 진�
 [VNet]: ../app-service-web/web-sites-integrate-with-vnet.md
 [WebJobs]: ../app-service-web/websites-webjobs-resources.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

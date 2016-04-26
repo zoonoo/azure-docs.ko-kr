@@ -32,9 +32,6 @@ PowerShell cmdlet을 사용하여 [탄력적 데이터베이스 풀](sql-databas
 
 Azure PowerShell 1.0 이상을 실행해야 합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
 
-
-
-
 ## 풀에 새 탄력적 데이터베이스 만들기
 
 풀 내에서 직접 새 데이터베이스를 만들려면 [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx) cmdlet을 사용하고 **ElasticPoolName** 매개 변수를 설정합니다.
@@ -132,6 +129,12 @@ CSV 파일로 내보내기:
     foreach($e in $table) { Export-csv -Path c:\temp\metrics.csv -input $e -Append -NoTypeInformation}
 
 
+## 탄력적 풀 작업의 대기 시간
+
+- 데이터베이스당 보장된 eDTU(DatabaseDtuMin) 또는 데이터베이스당 최대 eDTU(DatabaseDtuMax)를 변경하는 작업은 일반적으로 5분 이내에 완료됩니다.
+- 풀의 eDTU/저장소 용량 한도(Dtu) 변경은 풀에 있는 모든 데이터베이스에서 사용 중인 공간의 전체 크기에 따라 달라집니다. 변경 시간은 100GB당 평균 90분 이하입니다. 예를 들어 풀에 있는 모든 데이터베이스에서 사용 중인 총 공간이 200GB일 경우, 풀 eDTU/저장소 용량 한도를 변경하는 예상 대기 시간은 3시간 이하입니다.
+
+
 ## 풀 PowerShell 예제 모니터링 및 관리
 
 
@@ -173,9 +176,4 @@ CSV 파일로 내보내기:
 
 - [탄력적 작업 만들기](sql-database-elastic-jobs-overview.md) 탄력적 작업은 풀의 데이터베이스 개수에 관계없이 T-SQL 스크립트를 실행할 수 있습니다.
 
-
-## 탄력적 데이터베이스 참조
-
-API 및 오류 세부 정보를 포함하여 탄력적 데이터베이스 및 탄력적 데이터베이스 풀에 대한 자세한 내용은 [탄력적 데이터베이스 참조](sql-database-elastic-pool-reference.md)를 참조하세요.
-
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

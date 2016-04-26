@@ -24,7 +24,7 @@
 
 ## 개요
 
-이 자습서에서는 ASP.NET MVC 프런트 엔드를 사용하여 다중 계층 .NET 응용 프로그램을 만들어 [Azure 클라우드 서비스](fundamentals-application-models.md#CloudServices)에 배포하는 방법을 보여 줍니다. 이 응용 프로그램은 [Azure SQL 데이터베이스](http://msdn.microsoft.com/library/azure/ee336279), [Azure Blob 서비스](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage)(영문) 및 [Azure 큐 서비스](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern)를 사용합니다. MSDN 코드 갤러리에서 [Visual Studio 프로젝트를 다운로드](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4)할 수 있습니다.
+이 자습서에서는 ASP.NET MVC 프런트 엔드를 사용하여 다중 계층 .NET 응용 프로그램을 만들어 [Azure 클라우드 서비스](cloud-services-choose-me.md)에 배포하는 방법을 보여 줍니다. 이 응용 프로그램은 [Azure SQL 데이터베이스](http://msdn.microsoft.com/library/azure/ee336279), [Azure Blob 서비스](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage)(영문) 및 [Azure 큐 서비스](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern)를 사용합니다. MSDN 코드 갤러리에서 [Visual Studio 프로젝트를 다운로드](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4)할 수 있습니다.
 
 이 자습서에서는 응용 프로그램을 구축하고 로컬에서 실행하는 방법, 응용 프로그램을 Azure에 배포하고 클라우드에서 실행하는 방법, 그리고 마지막으로 응용 프로그램을 처음부터 구축하는 방법을 보여 줍니다. 처음부터 구축하는 방법으로 시작한 다음 원하는 경우 나중에 테스트 및 배포 단계를 수행할 수 있습니다.
 
@@ -51,7 +51,7 @@
 
 ## 필수 조건
 
-이 자습서에서는 [웹 역할](fundamentals-application-models.md#CloudServices) 및 *작업자 역할* 용어와 같이 *Azure 클라우드 서비스에 대한 기본 개념* 을 알고 있다고 가정합니다. 또한 Visual Studio에서 [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)(영문) 또는 [웹 양식](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview)(영문) 프로젝트를 작업하는 방법도 알고 있다고 가정합니다. 응용 프로그램 예제는 MVC를 사용하지만, 자습서 내용의 대부분은 Web Forms에도 적용됩니다.
+이 자습서에서는 [웹 역할](cloud-services-choose-me.md) 및 *작업자 역할* 용어와 같이 *Azure 클라우드 서비스에 대한 기본 개념* 을 알고 있다고 가정합니다. 또한 Visual Studio에서 [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)(영문) 또는 [웹 양식](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview)(영문) 프로젝트를 작업하는 방법도 알고 있다고 가정합니다. 응용 프로그램 예제는 MVC를 사용하지만, 자습서 내용의 대부분은 Web Forms에도 적용됩니다.
 
 Azure 구독 없이도 로컬에서 앱을 실행할 수 있지만 응용 프로그램을 클라우드에 배포하려면 구독이 필요합니다. 계정이 없는 경우 [MSDN 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668)하거나 [무료 평가판을 등록](/pricing/free-trial/?WT.mc_id=A55E3C668)할 수 있습니다.
 
@@ -205,7 +205,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 6. **복제** 드롭다운 목록을 **로컬 중복**으로 설정합니다.
 
-	저장소 계정에 대해 지역에서 복제를 사용하는 경우에는 저장된 콘텐츠가 보조 위치에 복제되어 기본 위치에서 주요 재해가 발생하는 경우 보조 데이터 센터로 장애 조치(Failover)할 수 있도록 합니다. 지역에서 복제는 추가 비용을 발생시킬 수 있습니다. 테스트 및 개발 계정의 경우 일반적으로 지역에서 복제 비용을 지불하지 않는 것이 좋습니다. 자세한 내용은 [저장소 계정 만들기, 관리 또는 삭제](../storage-create-storage-account/#replication-options)를 참조하세요
+	저장소 계정에 대해 지역에서 복제를 사용하는 경우에는 저장된 콘텐츠가 보조 위치에 복제되어 기본 위치에서 주요 재해가 발생하는 경우 보조 데이터 센터로 장애 조치(Failover)할 수 있도록 합니다. 지역에서 복제는 추가 비용을 발생시킬 수 있습니다. 테스트 및 개발 계정의 경우 일반적으로 지역에서 복제 비용을 지불하지 않는 것이 좋습니다. 자세한 내용은 [저장소 계정 만들기, 관리 또는 삭제](../storage/storage-create-storage-account.md#replication-options)를 참조하세요
 
 5. **저장소 계정 만들기**를 클릭합니다.
 
@@ -266,11 +266,11 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 웹 역할 프로젝트 및 작업자 역할 프로젝트에 대한 Azure 저장소 계정 연결 문자열은 클라우드 서비스 프로젝트의 환경 설정에 저장됩니다. 각 프로젝트에 대해 응용 프로그램이 로컬에서 실행될 때와 클라우드에서 실행될 때 사용되는 별도의 설정 집합이 있습니다. 웹 역할 및 작업자 역할 프로젝트의 클라우드 환경 설정을 업데이트합니다.
 
-1. **솔루션 탐색기**에서 **ContosoAdsCloudService** 프로젝트의 **역할** 아래에 있는 **ContosoAdsWeb**을 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
+1. **솔루션 탐색기**에서 **ContosoAdsCloudService** 프로젝트의 **역할** 아래에 있는 **ContosoAdsWeb** 을 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
 
 	![역할 속성](./media/cloud-services-dotnet-get-started/roleproperties.png)
 
-2. **설정** 탭을 클릭합니다. **서비스 구성** 드롭다운 상자에서 **클라우드**를 선택합니다.
+2. **설정** 탭을 클릭합니다. **서비스 구성** 드롭다운 상자에서 **클라우드** 를 선택합니다.
 
 	![클라우드 구성](./media/cloud-services-dotnet-get-started/sccloud.png)
 
@@ -278,7 +278,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 	![열린 연결 문자열 만들기 상자](./media/cloud-services-dotnet-get-started/opencscreate.png)
 
-4. **저장소 연결 문자열 만들기** 대화 상자에서 **구독**을 클릭하고 이전에 만든 저장소 계정을 선택한 다음 **확인**을 클릭합니다. 아직 로그인하지 않은 경우 Azure 계정 자격 증명을 요구하는 메시지가 나타납니다.
+4. **저장소 연결 문자열 만들기** 대화 상자에서 **구독** 을 클릭하고 이전에 만든 저장소 계정을 선택한 다음 **확인** 을 클릭합니다. 아직 로그인하지 않은 경우 Azure 계정 자격 증명을 요구하는 메시지가 나타납니다.
 
 	![저장소 연결 문자열 만들기](./media/cloud-services-dotnet-get-started/createstoragecs.png)
 
@@ -288,7 +288,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 	이 연결 문자열은 로깅에 사용됩니다.
 
-7. **ContosoAdsWeb** 역할에 사용한 것과 동일한 절차에 따라 **ContosoAdsWorker** 역할에 대한 연결 문자열을 모두 설정합니다. **서비스 구성**을 **클라우드**로 설정해야 합니다.
+7. **ContosoAdsWeb** 역할에 사용한 것과 동일한 절차에 따라 **ContosoAdsWorker** 역할에 대한 연결 문자열을 모두 설정합니다. **서비스 구성** 을 **클라우드** 로 설정해야 합니다.
 
 Visual Studio UI를 사용하여 구성한 역할 환경 설정은 ContosoAdsCloudService 프로젝트에서 다음 파일에 저장됩니다.
 
@@ -325,7 +325,7 @@ Visual Studio UI를 사용하여 구성한 역할 환경 설정은 ContosoAdsClo
 
 ###  Azure에 프로젝트 배포
 
-1.	**솔루션 탐색기**에서 **ContosoAdsCloudService** 클라우드 프로젝트를 마우스 오른쪽 단추로 클릭한 후 **게시**를 선택합니다.
+1.	**솔루션 탐색기**에서 **ContosoAdsCloudService** 클라우드 프로젝트를 마우스 오른쪽 단추로 클릭한 후 **게시** 를 선택합니다.
 
 	![게시 메뉴](./media/cloud-services-dotnet-get-started/pubmenu.png)
 
@@ -339,7 +339,7 @@ Visual Studio UI를 사용하여 구성한 역할 환경 설정은 ContosoAdsClo
 
 	**고급** 탭의 기본 설정은 이 자습서 내용에 적합합니다. 고급 탭에 대한 자세한 내용은 [Azure 응용 프로그램 게시 마법사](http://msdn.microsoft.com/library/hh535756.aspx)를 참조하세요.
 
-4. **요약** 단계에서 **게시**를 클릭합니다.
+4. **요약** 단계에서 **게시** 를 클릭합니다.
 
 	![요약 단계](./media/cloud-services-dotnet-get-started/pubsummary.png)
 
@@ -351,7 +351,7 @@ Visual Studio UI를 사용하여 구성한 역할 환경 설정은 ContosoAdsClo
 
 	![Azure 활동 로그 창](./media/cloud-services-dotnet-get-started/waal.png)
 
-6. 배포 상태가 완료되면 **웹 앱 URL**을 클릭하여 응용 프로그램을 시작합니다.
+6. 배포 상태가 완료되면 **웹 앱 URL** 을 클릭하여 응용 프로그램을 시작합니다.
 
 7. 이제 응용 프로그램을 로컬에서 실행할 때처럼 일부 광고를 만들고, 보고, 편집하는 방법으로 앱을 테스트할 수 있습니다.
 
@@ -399,7 +399,7 @@ Contoso Ads 응용 프로그램을 만드는 데는 다음 단계가 필요합�
 
 11. **새 프로젝트 추가** 대화 상자의 왼쪽 창에서 **Visual C#**에 있는 **Windows**을 선택한 다음 **클래스 라이브러리** 템플릿을 클릭합니다.
 
-10. 프로젝트의 이름을 *ContosoAdsCommon* 으로 지정한 다음 **확인**을 클릭합니다.
+10. 프로젝트의 이름을 *ContosoAdsCommon* 으로 지정한 다음 **확인** 을 클릭합니다.
 
 	Entity Framework 컨텍스트 및 웹 역할 프로젝트와 작업자 역할 프로젝트의 데이터 모델을 참조해야 합니다. 또는 웹 역할 프로젝트에서 EF 관련 클래스를 정의하고 작업자 역할 프로젝트에서 이 프로젝트를 참조할 수 있습니다. 하지만 대안에서는 작업자 역할 프로젝트에는 필요 없는 웹 어셈블리 참조가 포함됩니다.
 
@@ -407,13 +407,13 @@ Contoso Ads 응용 프로그램을 만드는 데는 다음 단계가 필요합�
 
 1. 솔루션에 대한 **NuGet 패키지 관리** 대화 상자를 엽니다.
 
-2. 창 맨 위에서 **업데이트**를 선택합니다.
+2. 창 맨 위에서 **업데이트** 를 선택합니다.
 
-3. *WindowsAzure.Storage* 패키지를 찾고 목록에 있는 경우 선택합니다. 업데이트하려면 웹 및 작업자 프로젝트를 선택한 다음 **업데이트**를 클릭합니다.
+3. *WindowsAzure.Storage* 패키지를 찾고 목록에 있는 경우 선택합니다. 업데이트하려면 웹 및 작업자 프로젝트를 선택한 다음 **업데이트** 를 클릭합니다.
 
 	저장소 클라이언트 라이브러리는 Visual Studio 프로젝트 템플릿보다 자주 업데이트됩니다. 따라서 새로 생성된 프로젝트에서 버전을 업데이트해야 하는 경우가 많습니다.
 
-4. 창 맨 위에서 **찾아보기**를 선택합니다.
+4. 창 맨 위에서 **찾아보기** 를 선택합니다.
 
 5. *EntityFramework* NuGet 패키지를 찾아 세 개의 프로젝트 모두에서 설치합니다.
 
@@ -421,7 +421,7 @@ Contoso Ads 응용 프로그램을 만드는 데는 다음 단계가 필요합�
 
 ### 프로젝트 참조 설정
 
-1. ContosoAdsWeb 프로젝트에서 ContosoAdsCommon 프로젝트에 대한 참조를 설정합니다. ContosoAdsWeb 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **참조** - **참조 추가**를 클릭합니다. **참조 관리자** 대화 상자의 왼쪽 창에서 **솔루션 – 프로젝트**를 선택하고 **ContosoAdsCommon**을 선택한 다음 **확인**을 클릭합니다.
+1. ContosoAdsWeb 프로젝트에서 ContosoAdsCommon 프로젝트에 대한 참조를 설정합니다. ContosoAdsWeb 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **참조** - **참조 추가** 를 클릭합니다. **참조 관리자** 대화 상자의 왼쪽 창에서 **솔루션 – 프로젝트** 를 선택하고 **ContosoAdsCommon** 을 선택한 다음 **확인** 을 클릭합니다.
 
 2. ContosoAdsWorker 프로젝트에서 ContosAdsCommon 프로젝트에 대한 참조를 설정합니다.
 
@@ -447,15 +447,15 @@ Contoso Ads 응용 프로그램을 만드는 데는 다음 단계가 필요합�
 
 2. 변경 내용을 저장합니다.
 
-3. ContosoAdsCloudService 프로젝트에서 **역할**아래의 ContosoAdsWeb을 마우스 오른쪽 단추로 클릭한 다음 **속성**을 클릭합니다.
+3. ContosoAdsCloudService 프로젝트에서 **역할** 아래의 ContosoAdsWeb을 마우스 오른쪽 단추로 클릭한 다음 **속성** 을 클릭합니다.
 
 	![역할 속성](./media/cloud-services-dotnet-get-started/roleproperties.png)
 
-4. **ContosAdsWeb [Role]** 속성 창에서 **설정** 탭을 클릭한 다음 **설정 추가**를 클릭합니다.
+4. **ContosAdsWeb [Role]** 속성 창에서 **설정** 탭을 클릭한 다음 **설정 추가** 를 클릭합니다.
 
 	**서비스 구성**을 **모든 구성**으로 설정해 둡니다.
 
-5. 이름이 *StorageConnectionString* 인 새 설정을 추가합니다. **형식**을 *ConnectionString* 으로 설정하고 **값**을 *UseDevelopmentStorage=true* 로 설정합니다.
+5. 이름이 *StorageConnectionString*인 새 설정을 추가합니다. **형식**을 *ConnectionString*으로 설정하고 **값**을 *UseDevelopmentStorage=true*로 설정합니다.
 
 	![새 연결 문자열](./media/cloud-services-dotnet-get-started/scall.png)
 
@@ -869,4 +869,4 @@ Azure 저장소 모범 사례 및 패턴에 대한 비디오 소개는 [Microsof
 * [클라우드 서비스를 관리하는 방법](cloud-services-how-to-manage.md)
 * [Azure 저장소](/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

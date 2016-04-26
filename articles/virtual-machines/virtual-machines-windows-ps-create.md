@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Windows VM 만들기 | Microsoft Azure"
-	description="Azure PowerShell 및 리소스 관리자 템플릿을 사용하여 Windows 가상 컴퓨터를 손쉽게 만들 수 있습니다."
+	pageTitle="PowerShell을 사용하여 Azure VM 만들기 | Microsoft Azure"
+	description="Azure PowerShell 및 Azure Resource Manager를 사용하여 Windows Server를 실행하는 새 VM을 손쉽게 만들 수 있습니다."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="davidmu1"
@@ -10,121 +10,137 @@
 
 <tags
 	ms.service="virtual-machines-windows"
-	ms.workload="infrastructure-services"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/05/2016"
+	ms.date="04/12/2016"
 	ms.author="davidmu"/>
 
 # 리소스 관리자 및 PowerShell을 사용하여 Windows VM 만들기
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
+이 문서는 리소스 관리자 및 PowerShell을 사용하여 Windows 서버를 실행하는 Azure 가상 컴퓨터 및 연결된 리소스를 빠르게 만드는 방법을 보여 줍니다.
 
-이 항목에서는 Azure 리소스 관리자 및 PowerShell을 사용하여 Windows 기반 Azure 가상 컴퓨터를 빠르게 만드는 방법을 설명합니다.
+이 문서의 단계를 수행하려면 약 30분이 걸립니다.
 
-## Windows 가상 컴퓨터 만들기
+## 1단계: Azure PowerShell 설치
 
-Azure PowerShell을 이미 설치한 경우 Azure PowerShell 버전 1.0.0 이상이 있어야 합니다. Azure PowerShell 명령 프롬프트에서 다음 명령을 사용하여 설치한 Azure PowerShell의 버전을 확인할 수 있습니다.
+최신 버전의 Azure PowerShell을 설치하고 사용하려는 구독을 선택하며 Azure 계정에 로그인하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
+        
+## 2단계: 리소스 그룹 만들기
 
-	Get-Module azure | format-table version
+모든 리소스는 리소스 그룹에 배포되어야 합니다. 자세한 내용은 [Azure Resource Manager 개요](../resource-group-overview.md)를 참조하세요.
 
-[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
+1. 리소스를 만들 수 있는 사용 가능한 위치 목록을 가져옵니다.
 
-먼저 다음 명령을 사용하여 Azure에 로그온해야 합니다.
+	    Get-AzureLocation | sort Name | Select Name
 
-	Login-AzureRmAccount
+2. **$locName** 값을 목록의 위치(예: **미국 중부**)로 바꿉니다. 변수를 만듭니다.
 
-Microsoft Azure 로그인 대화 상자에서 Azure 계정의 전자 메일 주소 및 해당 암호를 지정합니다.
+        $locName = "location name"
+        
+3. **$rgName** 값을 새 리소스 그룹 이름으로 바꿉니다. 변수 및 리소스 그룹을 만듭니다.
 
-다음으로, 여러 Azure 구독이 있는 경우 Azure 구독을 설정해야 합니다. 현재 구독 목록을 보려면 다음 명령을 실행합니다.
+        $rgName = "resource group name"
+        New-AzureRmResourceGroup -Name $rgName -Location $locName
+    
+## 3단계: 저장소 계정 만들기
 
-	Get-AzureRmSubscription | sort SubscriptionName | Select SubscriptionName
+만드는 가상 컴퓨터와 연결된 가상 하드 디스크를 저장하는 데 저장소 계정이 필요합니다.
 
-이제 < and > 문자를 포함하여 따옴표 안의 모든 항목을 올바른 구독 이름으로 바꾸고 다음 명령을 실행합니다.
+1. **$stName**(소문자와 숫자만 사용 가능) 값을 저장소 계정 이름으로 바꿉니다. 이름의 고유성을 테스트합니다.
 
-	$subscrName="<subscription name>"
-	Select-AzureRmSubscription -SubscriptionName $subscrName –Current
+        $stName = "storage account name"
+        Test-AzureName -Storage $stName
 
-다음으로, 저장소 계정을 만들어야 합니다. 소문자와 숫자만 포함된 고유한 이름을 선택해야 합니다. 다음 명령을 사용하여 저장소 계정 이름의 고유성을 테스트할 수 있습니다.
+    이 명령에서 **False**가 반환되면 제안한 이름이 고유한 것입니다.
+    
+2. 이제 명령을 실행하여 저장소 계정을 만듭니다.
+    
+        $storageAcc = New-AzureRmStorageAccount -ResourceGroupName $rgName -Name $stName -Type "Standard_LRS" -Location $locName
+        
+## 4단계: 가상 네트워크 만들기
 
-	Test-AzureName -Storage <Proposed storage account name>
+모든 가상 컴퓨터는 가상 네트워크와 연결되어야 합니다.
 
-이 명령에서 "False"가 반환되면 제안한 이름이 고유한 것입니다.
+1. **$subnetName** 값을 서브넷 이름으로 바꿉니다. 변수 및 서브넷을 만듭니다.
+    	
+        $subnetName = "subnet name"
+        $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
+        
+2. **$vnetName** 값을 가상 네트워크 이름으로 바꿉니다. 서브넷으로 변수 및 가상 네트워크를 만듭니다.
 
-Azure 데이터 센터의 위치를 지정해야 합니다. Azure 데이터 센터 목록을 가져오려면 다음 명령을 실행합니다.
+        $vnetName = "virtual network name"
+        $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
+        
+## 5단계: 공용 IP 주소 및 네트워크 인터페이스 만들기
 
-	Get-AzureLocation | sort Name | Select Name
+가상 네트워크에서 가상 컴퓨터와 통신하려면 공용 IP 주소 및 네트워크 인터페이스가 필요합니다.
 
-이제 다음 PowerShell 명령 블록을 텍스트 편집기에 복사합니다. < and > 문자를 포함하여 따옴표 안의 모든 항목을 바꿔 선택한 저장소 계정 및 위치를 입력합니다.
+1. **$ipName** 값을 공용 IP 주소 이름으로 바꿉니다. 변수 및 공용 IP 주소를 만듭니다.
 
-	$stName = "<chosen storage account name>"
-	$locName = "<chosen Azure location name>"
-	$rgName = "TestRG"
-	New-AzureRmResourceGroup -Name $rgName -Location $locName
-	$storageAcc = New-AzureRmStorageAccount -ResourceGroupName $rgName -Name $stName -Type "Standard_GRS" -Location $locName
-	$singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name singleSubnet -AddressPrefix 10.0.0.0/24
-	$vnet = New-AzureRmVirtualNetwork -Name TestNet -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
-	$pip = New-AzureRmPublicIpAddress -Name TestPIP -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
-	$nic = New-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
-	$cred = Get-Credential -Message "Type the name and password of the local administrator account."
-	$vm = New-AzureRmVMConfig -VMName WindowsVM -VMSize "Standard_A1"
-	$vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName MyWindowsVM -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-	$vm = Set-AzureRmVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
-	$vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
-	$osDiskUri = $storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/WindowsVMosDisk.vhd"
-	$vm = Set-AzureRmVMOSDisk -VM $vm -Name "windowsvmosdisk" -VhdUri $osDiskUri -CreateOption fromImage
-	New-AzureRmVM -ResourceGroupName $rgName -Location $locName -VM $vm
+        $ipName = "public IP address name"
+        $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
+        
+2. **$nicName** 값을 네트워크 인터페이스 이름으로 바꿉니다. 변수 및 네트워크 인터페이스를 만듭니다.
 
-클립보드에 위 명령 집합을 복사한 다음 열려 있는 Azure PowerShell 명령 프롬프트를 마우스 오른쪽 버튼으로 클릭합니다. 일련의 PowerShell 명령으로 명령 집합이 실행되고, 로컬 관리자 계정의 이름 및 암호를 묻는 메시지가 나타나며, Azure 가상 컴퓨터가 만들어집니다.
+        $nicName = "network interface name"
+        $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
+        
+## 6단계: 가상 컴퓨터 만들기
 
-예를 들면 다음과 같습니다.
+이제 모든 항목이 결합되었으므로 가상 컴퓨터를 만들 시간입니다.
 
-	PS C:\> $stName="contosost"
-	PS C:\> $locName="West US"
-	PS C:\> $rgName="TestRG"
-	PS C:\> New-AzureRmResourceGroup -Name $rgName -Location $locName
-	VERBOSE: 12:45:15 PM - Created resource group 'TestRG' in location 'westus'
+1. 명령을 실행하여 가상 컴퓨터에 대한 관리자 계정 이름 및 암호를 설정합니다.
 
+        $cred = Get-Credential -Message "Type the name and password of the local administrator account."
+        
+2. **$vmName** 값을 가상 컴퓨터 이름으로 바꿉니다. 변수 및 가상 컴퓨터 구성을 만듭니다.
 
-	ResourceGroupName : TestRG
-	Location          : westus
-	ProvisioningState : Succeeded
-	Tags              :
-	Permissions       :
-	                    Actions  NotActions
-	                    =======  ==========
-	                    *
+        $vmName = "virtual machine name"
+        $vm = New-AzureRmVMConfig -VMName $vmName -VMSize "Standard_A1"
+        
+    가상 컴퓨터에 사용 가능한 크기 목록은 [Azure에서 가상 컴퓨터에 대한 크기](virtual-machines-windows-sizes.md)를 참조하세요.
+    
+3. **$compName** 값을 가상 컴퓨터의 컴퓨터 이름으로 바꿉니다. 변수를 만들고 구성에 운영 체제 정보를 추가합니다.
 
-	ResourceId        : /subscriptions/fd92919d-eeca-4f5b-840a-e45c6770d92e/resourceGroups/TestRG
+        $compName = "computer name"
+        $vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName $compName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+        
+4. 가상 컴퓨터를 프로비전하는 데 사용할 이미지를 정의합니다.
 
+        $vm = Set-AzureRmVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
+        
+    사용할 이미지 선택에 대한 자세한 내용은 [PowerShell 또는 CLI로 Azure의 Windows 가상 컴퓨터 이미지 이동 및 선택](virtual-machines-windows-cli-ps-findimage.md)을 참조하세요.
+        
+5. 만든 네트워크 인터페이스를 구성에 추가합니다.
 
-	PS C:\> $storageAcc=New-AzureRmStorageAccount -ResourceGroupName $rgName -Name $stName -Type "Standard_GRS" -Location $locName
-	PS C:\> $singleSubnet=New-AzureRmVirtualNetworkSubnetConfig -Name singleSubnet -AddressPrefix 10.0.0.0/24
-	PS C:\> $vnet=New-AzureRmVirtualNetwork -Name TestNet3 -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
-	PS C:\> $pip = New-AzureRmPublicIpAddress -Name TestNIC -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
-	PS C:\> $nic = New-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
-	PS C:\> $cred = Get-Credential -Message "Type the name and password of the local administrator account."
-	PS C:\> $vm = New-AzureRmVMConfig -VMName WindowsVM -VMSize "Standard_A1"
-	PS C:\> $vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName MyWindowsVM -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-	PS C:\> $vm = Set-AzureRmVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
-	PS C:\> $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
-	PS C:\> $osDiskUri = $storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/MyWindowsVMosDisk.vhd"
-	PS C:\> $vm = Set-AzureRmVMOSDisk -VM $vm -Name "windowsvmosdisk" -VhdUri $osDiskUri -CreateOption fromImage
-	PS C:\> New-AzureRmVM -ResourceGroupName $rgName -Location $locName -VM $vm
+        $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
+        
+6. **$blobPath** 값을 가상 하드 디스크의 저장소에 있는 경로 및 파일 이름으로 바꿉니다. vhd 파일은 일반적으로 컨테이너에 저장됩니다(예: "vhds/WindowsVMosDisk.vhd"). 변수를 만듭니다.
 
+        $blobPath = "vhd path and file name"
+        $osDiskUri = $storageAcc.PrimaryEndpoints.Blob.ToString() + $blobPath
+        
+7. **$diskName** 값을 운영 체제 디스크 이름으로 바꿉니다. 변수를 만들고 구성에 디스크 정보를 추가합니다.
 
-	EndTime             : 4/28/2015 1:00:05 PM -07:00
-	Error               :
-	Output              :
-	StartTime           : 4/28/2015 12:52:52 PM -07:00
-	Status              : Succeeded
-	TrackingOperationId : 45035a90-ea12-4e1e-87e7-2a5e9ed12c93
-	RequestId           : 98c7b4fb-b26e-4a58-b17a-b0983d896aae
-	StatusCode          : OK
+        $diskName = "windowsvmosdisk"
+        $vm = Set-AzureRmVMOSDisk -VM $vm -Name $diskName -VhdUri $osDiskUri -CreateOption fromImage
+        
+8. 마지막으로 가상 컴퓨터를 만듭니다.
 
+        New-AzureRmVM -ResourceGroupName $rgName -Location $locName -VM $vm
+
+    Azure 포털에서 리소스 그룹 및 모든 해당 리소스가 표시되고 PowerShell 창에 성공 상태가 표시됩니다.
+
+        RequestId  IsSuccessStatusCode  StatusCode  ReasonPhrase
+        ---------  -------------------  ----------  ------------
+                                  True          OK  OK
+                                  
 ## 다음 단계
 
-[Azure Resource Manager 및 PowerShell을 사용하여 가상 컴퓨터 관리](virtual-machines-windows-ps-manage.md)를 검토하여 방금 만든 가상 컴퓨터를 관리하는 방법을 알아봅니다.
+- 배포에 문제가 있는 경우 다음 단계로서 [Azure 포털을 사용하여 리소스 그룹 배포 문제 해결](../resource-manager-troubleshoot-deployments-portal.md)을 살펴보세요.
+- [Azure Resource Manager 및 PowerShell을 사용하여 가상 컴퓨터 관리](virtual-machines-windows-ps-manage.md)에서 방금 만든 가상 컴퓨터를 관리하는 방법을 알아봅니다.
+- [리소스 관리자 템플릿을 사용하여 Windows 가상 컴퓨터 만들기](virtual-machines-windows-ps-template.md)의 정보를 사용하여 가상 컴퓨터를 만드는 데 템플릿을 활용합니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

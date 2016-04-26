@@ -17,7 +17,7 @@
 
 # Azure 클라우드 서비스 및 가상 컴퓨터에서 진단 구성
 
-Azure 클라우드 서비스 또는 Azure 가상 컴퓨터는 문제를 해결해야 하는 경우 Visual Studio를 사용하여 Azure 진단을 보다 쉽게 구성할 수 있습니다. Azure 진단은 클라우드 서비스를 실행하는 가상 컴퓨터 및 가상 컴퓨터 인스턴스에서 시스템 데이터와 로깅 데이터를 캡처하고 사용자가 선택한 저장소 계정으로 데이터를 전송합니다. Azure에서 진단 로깅에 대한 자세한 내용은 [Azure 앱 서비스에서 웹앱에 대한 진단 로깅 설정](/app-service-web/web-sites-enable-diagnostic-log.md)을 참조하세요.
+Azure 클라우드 서비스 또는 Azure 가상 컴퓨터는 문제를 해결해야 하는 경우 Visual Studio를 사용하여 Azure 진단을 보다 쉽게 구성할 수 있습니다. Azure 진단은 클라우드 서비스를 실행하는 가상 컴퓨터 및 가상 컴퓨터 인스턴스에서 시스템 데이터와 로깅 데이터를 캡처하고 사용자가 선택한 저장소 계정으로 데이터를 전송합니다. Azure에서 진단 로깅에 대한 자세한 내용은 [Azure 앱 서비스에서 웹앱에 대한 진단 로깅 설정](./app-service-web/web-sites-enable-diagnostic-log.md)을 참조하세요.
 
 이 항목에서는 배포 이전과 이후에 Visual Studio에서 뿐만 아니라 Azure 가상 컴퓨터에서 Azure 진단을 사용하고 구성하는 방법을 보여줍니다. 또한 수집할 진단 정보 유형을 선택하는 방법과 수집된 정보를 확인하는 방법도 보여줍니다.
 
@@ -169,7 +169,7 @@ Visual Studio에서 Azure 가상 컴퓨터에 대한 진단 데이터를 수집�
 
   ![응용 프로그램 로그](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC758145.png)
 
-  응용 프로그램 로그에 대한 자세한 내용은 [Azure 앱 서비스에서 웹앱에 대한 진단 로깅 설정](web-sites-enable-diagnostic-log.md)을 참조하세요.
+  응용 프로그램 로그에 대한 자세한 내용은 [Azure 앱 서비스에서 웹앱에 대한 진단 로깅 설정](./app-service-web/web-sites-enable-diagnostic-log.md)을 참조하세요.
 
 ### Windows 이벤트 로그
 
@@ -221,7 +221,7 @@ Azure 진단 인프라, RemoteAccess 모듈 및 RemoteForwarder 모듈에 대한
 
   ![ETW 로그](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC766025.png)
 
-  ASP.NET에서는 [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110) 네임스페이스의 클래스를 통해ETW 프레임워크가 지원됩니다. Microsoft.WindowsAzure.Diagnostics 네임스페이스는 표준 [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110) 클래스에서 상속 및 확장하며 Azure 환경에서 로깅 프레임워크로 [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110)를 사용하도록 설정합니다. 자세한 내용은 [Microsoft Azure에서 로깅 및 추적 관리](https://msdn.microsoft.com/magazine/ff714589.aspx) 및 [Azure 클라우드 서비스 및 가상 컴퓨터에서 진단 사용](/cloud-services/cloud-services-dotnet-diagnostics.md)을 참조하세요.
+  ASP.NET에서는 [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110) 네임스페이스의 클래스를 통해ETW 프레임워크가 지원됩니다. Microsoft.WindowsAzure.Diagnostics 네임스페이스는 표준 [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110) 클래스에서 상속 및 확장하며 Azure 환경에서 로깅 프레임워크로 [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110)를 사용하도록 설정합니다. 자세한 내용은 [Microsoft Azure에서 로깅 및 추적 관리](https://msdn.microsoft.com/magazine/ff714589.aspx) 및 [Azure 클라우드 서비스 및 가상 컴퓨터에서 진단 사용](./cloud-services/cloud-services-dotnet-diagnostics.md)을 참조하세요.
 
 ### 크래시 덤프
 
@@ -355,6 +355,6 @@ RoleEntryPoint 메서드는 IIS가 아닌, WAIISHost.exe 컨텍스트에서 호�
 
 ## 다음 단계
 
-Azure에서 로깅 진단에 대한 자세한 내용은 [Azure 클라우드 서비스 및 가상 컴퓨터에서 진단 사용](cloud-services-dotnet-diagnostics.md) 및 [Azure 앱 서비스에서 웹앱에 대한 진단 로깅 설정](web-sites-enable-diagnostic-log.md)을 참조하세요.
+Azure에서 로깅 진단에 대한 자세한 내용은 [Azure 클라우드 서비스 및 가상 컴퓨터에서 진단 사용](./cloud-services/cloud-services-dotnet-diagnostics.md) 및 [Azure 앱 서비스에서 웹앱에 대한 진단 로깅 설정](./app-service-web/web-sites-enable-diagnostic-log.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

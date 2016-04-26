@@ -32,7 +32,6 @@ HDInsight .NET SDK는 .NET Framework 응용 프로그램에서 HDInsight로 더 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 - **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
-
 - __Visual Studio 2013 또는 2015__
 
 ## 클러스터 만들기
@@ -365,4 +364,11 @@ HDInsight 클러스터를 성공적으로 만들었으므로 다음을 사용하
 * [기계 학습과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Spark 스트리밍: HDInsight에서 Spark를 사용하여 실시간 스트리밍 응용 프로그램 빌드](hdinsight-apache-spark-eventhub-streaming.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+### 작업 실행
+
+- [.NET SDK를 사용하여 HDInsight에서 Hive 작업 실행](hdinsight-hadoop-use-hive-dotnet-sdk.md)
+- [.NET SDK를 사용하여 HDInsight에서 Pig 작업 실행](hdinsight-hadoop-use-pig-dotnet-sdk.md)
+- [.NET SDK를 사용하여 HDInsight에서 Sqoop 작업 실행](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
+- [HDInsight에서 Oozie 작업 실행](hdinsight-use-oozie.md)
+
+<!---HONumber=AcomDC_0413_2016-->

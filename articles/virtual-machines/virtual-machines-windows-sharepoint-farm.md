@@ -13,8 +13,8 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="02/03/2016"
+	ms.topic="article"
+	ms.date="04/01/2016"
 	ms.author="josephd"/>
 
 # SharePoint 서버 팜 만들기
@@ -49,7 +49,9 @@ Microsoft Azure 포털 마켓플레이스를 사용하면 미리 구성된 Share
 1. [여기](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/)를 클릭합니다.
 2. **배포**를 클릭합니다.
 3. **SharePoint 2013 HA 팜** 창에서 **만들기**를 클릭합니다.
-4. **SharePoint 2013 HA 팜** 창의 7단계에서 설정을 지정한 다음 **SharePoint 2013 HA 팜 만들기**를 클릭합니다.
+4. **SharePoint 2013 HA 팜** 창의 7단계에서 설정을 지정한 다음 **만들기**를 클릭합니다.
+
+> [AZURE.NOTE] Azure 무료 평가판에서는 **SharePoint 2013 비 HA 팜** 또는 **SharePoint 2013 HA 팜**을 만들 수 없습니다.
 
 ## SharePoint 팜 관리
 
@@ -61,6 +63,7 @@ Microsoft Azure 포털 마켓플레이스를 사용하면 미리 구성된 Share
 
 ## 다음 단계
 
+- Azure 인프라 서비스에서 [SharePoint 2013 인트라넷 팜](virtual-machines-windows-sp-intranet-overview.md)을 프로덕션 워크로드로 배포합니다.
 - Azure 인프라 서비스에서 추가 [SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) 구성을 검색합니다.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

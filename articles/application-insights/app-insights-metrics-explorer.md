@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="04/01/2016" 
 	ms.author="awills"/>
  
 # Application Insights에서 메트릭 탐색
@@ -97,13 +97,14 @@
 ![모든 메트릭의 선택을 취소하여 기본값 표시](./media/app-insights-metrics-explorer/06-total.png)
 
 
+
 ## 차트 및 표 편집
 
 블레이드에 새 차트를 추가하려면:
 
 ![메트릭 탐색기에서 추가 차트 선택](./media/app-insights-metrics-explorer/04-add.png)
 
-기존 또는 새 차트를 선택하여 보이는 내용 편집:
+기존 또는 새 차트에서 **편집**을 선택하여 표시되는 항목을 편집합니다.
 
 ![하나 이상의 메트릭 선택](./media/app-insights-metrics-explorer/08-select.png)
 
@@ -135,21 +136,25 @@
 
 각 속성 값과 함께 이벤트 수를 확인합니다. 한 속성 값을 선택하면 다른 속성 값과 함께 수가 조정됩니다.
 
+필터는 블레이드의 모든 차트에 적용됩니다. 여러 차트에 서로 다른 필터를 적용하려면 다른 메트릭 블레이드를 만들고 저장합니다. 필요한 경우 다른 블레이드의 차트를 대시보드에 고정하여 서로 나란히 볼 수 있습니다.
+
+
+### 봇 및 웹 테스트 트래픽 제거
+
+**실제 또는 가상 트래픽** 필터를 사용하여 **실제**를 선택합니다.
+
+**가상 트래픽 소스**로 필터링할 수도 있습니다.
+
 ### 필터 목록에 속성을 추가하려면
 
 직접 선택한 범주에서 원격 분석을 필터링하려고 하시나요? 예를 들어 사용자를 서로 다른 범주로 나누고 데이터를 이러한 범주로 분할하려고 할 수 있습니다.
 
 [사용자 고유의 속성을 만듭니다](app-insights-api-custom-events-metrics.md#properties). [원격 분석 이니셜라이저](app-insights-api-custom-events-metrics.md#telemetry-initializers)에서 이를 설정하여 다른 SDK 모듈에서 보낸 표준 원격 분석을 포함하여 모든 원격 분석에 표시되도록 합니다.
 
-## 봇 및 웹 테스트 트래픽 제거
-
-**실제 또는 가상 트래픽** 필터를 사용하여 **실제**를 선택합니다.
-
-**가상 트래픽 소스**로 필터링할 수도 있습니다.
 
 ## 차트 종류 편집
 
-특히, 표 및 그래프 사이에서 전환할 수 있습니다.
+표와 그래프 간에 전환할 수 있습니다.
 
 ![표 또는 그래프를 선택한 다음 차트 종류 선택](./media/app-insights-metrics-explorer/16-chart-grid.png)
 
@@ -200,6 +205,23 @@
 
 보다 풍부한 데이터 보기를 사용하려는 경우 [Power BI를 내보낼](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx) 수 있습니다.
 
+## 분석
+
+[분석](app-insights-analytics.md)은 강력한 쿼리 언어를 사용하여 원격 분석을 분석하는 보다 유용한 방법입니다. 메트릭의 결과를 결합하거나 계산하려는 경우 또는 앱의 최근 성능을 면밀히 조사하려는 경우에 사용합니다. 반면, 대시보드의 차트와 경고를 자동으로 새로 고치려는 경우에는 메트릭 탐색기를 사용합니다.
+
+## 문제 해결
+
+*차트에 데이터가 표시되지 않습니다.*
+
+* 필터는 블레이드의 모든 차트에 적용됩니다. 하나의 필터에 포커스를 둔 동안 다른 차트에서 모든 데이터를 제외하는 필터를 설정하지 않았는지 확인하세요. 
+
+    여러 차트에서 서로 다른 필터를 설정하려면 해당 차트를 서로 다른 블레이드를 만들어 별도의 즐겨찾기로 저장합니다. 필요한 경우 대시보드에 고정하여 서로 나란히 볼 수 있습니다.
+
+* 메트릭에 정의되지 않은 속성으로 차트를 그룹화한 경우 차트에 아무 것도 표시되지 않습니다. '그룹화 기준'을 지우거나 다른 그룹화 속성을 선택하세요.
+* 성능 데이터(CPU, IO 속도 등)는 Java 웹 서비스, Windows 데스크톱 앱, [IIS 웹앱 및 서비스(상태 모니터를 설치한 경우)](app-insights-monitor-performance-live-website-now.md) 및 [Azure 클라우드 서비스](app-insights-azure.md)에 사용할 수 있습니다. Azure 웹 사이트에는 사용할 수는 없습니다.
+
+
+
 ## 다음 단계
 
 * [Application Insights를 사용하여 사용량 모니터링](app-insights-overview-usage.md)
@@ -214,4 +236,4 @@
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0413_2016-->

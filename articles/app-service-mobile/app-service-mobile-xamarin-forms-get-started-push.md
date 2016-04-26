@@ -30,15 +30,9 @@
 
 ##필수 조건
 
-이 자습서를 완료하려면 다음이 필요합니다.
-
-* 활성 Azure 계정. 계정이 아직 없으면 Azure 평가판에 등록하고 최대 10개의 무료 모바일 앱을 가져옵니다. 평가판이 종료된 후에도 계속 사용할 수 있습니다. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-
-* [Xamarin Studio] 및 [Xcode] v4.4 이상이 설치되어 있는 Mac. 원하는 경우 Windows 컴퓨터에서 Visual Studio를 사용하여 Xamarin.Forms 앱을 실행할 수 있지만 Xamarin.iOS 빌드 호스트를 실행하는 네트워크에 연결된 Mac에 연결해야 하기 때문에 좀 더 복잡합니다. 실행에 관심이 있다면 [Windows에서 Xamarin.iOS 설치]를 참조하세요.
+* 다른 필수 조건을 나열하는 [Xamarin.Forms 앱 만들기](app-service-mobile-xamarin-forms-get-started.md) 자습서를 완료합니다. 이 문서에서는 해당 자습서에서 완성된 앱을 사용합니다.
 
 * 실제 iOS 장치. 푸시 알림은 iOS 시뮬레이터에서 지원되지 않습니다.
-
-* [Xamarin.Forms 빠른 시작 자습서](app-service-mobile-xamarin-forms-get-started.md)를 완료합니다.
 
 ##모바일 앱에 대한 알림 허브 만들기
 
@@ -324,7 +318,7 @@
 
 ####APNS에 대한 알림 허브 구성
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다. **찾아보기** > **모바일 앱 ** > 사용 중인 모바일 앱 > **설정** > **푸시** > **Apple(APNS)** > **인증서 업로드**를 차례로 클릭합니다. 앞에서 내보낸 .p12 푸시 인증서 파일을 업로드합니다. 개발 및 테스트에 대한 개발 푸시 인증서를 만든 경우 **샌드박스**를 선택합니다. 그렇지 않은 경우 **프로덕션**을 선택합니다. 이제 iOS의 푸시 알림과 작동하도록 서비스가 구성되었습니다.
+1. [Azure 포털](https://portal.azure.com/)에 로그인합니다. **찾아보기** > **모바일 앱** > 사용 중인 모바일 앱 > **설정** > **푸시** > **Apple(APNS)** > **인증서 업로드**를 차례로 클릭합니다. 앞에서 내보낸 .p12 푸시 인증서 파일을 업로드합니다. 개발 및 테스트에 대한 개발 푸시 인증서를 만든 경우 **샌드박스**를 선택합니다. 그렇지 않은 경우 **프로덕션**을 선택합니다. 이제 iOS의 푸시 알림과 작동하도록 서비스가 구성되었습니다.
 
 	![](./media/app-service-mobile-xamarin-ios-get-started-push/mobile-app-upload-apns-cert.png)
 
@@ -529,10 +523,8 @@
 <!-- Images. -->
 
 <!-- URLs. -->
-[Xamarin Studio]: http://xamarin.com/platform
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532
-[Windows에서 Xamarin.iOS 설치]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

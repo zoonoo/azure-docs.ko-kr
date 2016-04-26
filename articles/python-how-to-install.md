@@ -124,12 +124,12 @@ WebPI 설치 프로그램은 Python Azure 앱에 필요한 모든 것을 제공�
 
 ## 추가 패키지 가져오기
 
-[Python 패키지 인덱스][](PyPI)에서 다양한 Python 라이브러리를 선택할 수 있습니다. Distro를 설치하도록 선택했다면 웹 개발 및 기술 컴퓨팅을 포함한 다양한 시나리오에 맞는 거의 모든 흥미로운 기능을 이미 갖추었습니다.
+[Python 패키지 인덱스](PyPI)에서 다양한 Python 라이브러리를 선택할 수 있습니다. Distro를 설치하도록 선택했다면 웹 개발 및 기술 컴퓨팅을 포함한 다양한 시나리오에 맞는 거의 모든 흥미로운 기능을 이미 갖추었습니다.
 
 
 ## Python Tools for Visual Studio
 
-[Visual Studio용 Python Tools][](PTVS)는 VS를 완전한 Python IDE로 전환하는 Microsoft의 무료/OSS 플러그 인입니다.
+[Visual Studio용 Python Tools](PTVS)는 VS를 완전한 Python IDE로 전환하는 Microsoft의 무료/OSS 플러그 인입니다.
 
 ![how-to-install-python-ptvs](./media/python-how-to-install/how-to-install-python-ptvs.png)
 
@@ -196,7 +196,7 @@ Azure 웹 사이트 개발 및 게시에 대한 자세한 내용은 [Django를 �
 [Python 3.4용 Microsoft Azure SDK]: http://go.microsoft.com/fwlink/?LinkID=516990
 [Setting up a Linux VM via the Azure portal]: create-and-configure-opensuse-vm-in-portal.md
 [How to use the Azure Command-Line Interface]: crossplat-cmd-tools.md
-[Linux를 실행하는 가상 컴퓨터 만들기]: virtual-machines-linux-cli-create.md
+[Linux를 실행하는 가상 컴퓨터 만들기]: virtual-machines-linux-quick-create-cli.md
 [Django를 사용하여 웹 사이트 만들기]: web-sites-python-create-deploy-django-app.md
 [Bottle을 사용하여 웹 사이트 만들기]: web-sites-python-create-deploy-bottle-app.md
 [Flask를 사용하여 웹 사이트 만들기]: web-sites-python-create-deploy-flask-app.md
@@ -205,4 +205,4 @@ Azure 웹 사이트 개발 및 게시에 대한 자세한 내용은 [Django를 �
 [큐 저장소]: storage-python-how-to-use-queue-storage.md
 [Blob 저장소]: storage-python-how-to-use-blob-storage.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

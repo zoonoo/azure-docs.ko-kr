@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure 리소스 관리자를 사용하는 기본 구성 테스트 환경"
-	description="리소스 관리자를 사용하여 Microsoft Azure에서 간소화된 인트라넷을 시뮬레이션하는 간단한 개발/테스트 환경을 만드는 방법에 대해 알아봅니다."
+	description="Microsoft Azure에서 간소화된 인트라넷을 시뮬레이션하는 간단한 개발/테스트 환경을 만드는 방법에 대해 알아봅니다."
 	documentationCenter=""
 	services="virtual-machines-windows"
 	authors="JoeDavies-MSFT"
@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="04/01/2016"
 	ms.author="josephd"/>
 
-# Azure 리소스 관리자를 사용하는 기본 구성 테스트 환경
+# 기본 구성 테스트 환경
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-windows-classic-test-config-env.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
 
 이 문서는 리소스 관리자에서 만든 가상 컴퓨터를 사용하는 Microsoft Azure 가상 네트워크에서 기본 구성 테스트 환경을 만드는 방법에 관한 단계별 지침을 제공합니다.
 
@@ -30,7 +30,7 @@
 
 기본 구성 테스트 환경은 시뮬레이션을 간소화시키는 TestLab이라고 하는 클라우드 전용 가상 네트워크의 Corpnet 서브넷과 인터넷에 연결된 개인 인트라넷으로 구성됩니다.
 
-![](./media/virtual-machines-windows-test-config-env/BC_TLG04.png)
+![](./media/virtual-machines-windows-test-config-env/virtual-machines-windows-test-config-env-ph4.png)
 
 다음과 같이 구성됩니다.
 
@@ -50,7 +50,7 @@ Azure에서 Windows Server 2012 R2 기본 구성 테스트 환경의 Corpnet 서
 3.	APP1 구성
 4.	CLIENT1 구성
 
-아직 Azure 계정이 없는 경우에는 [Azure 평가판 사용](https://azure.microsoft.com/pricing/free-trial/)에서 무료로 가입할 수 있습니다. MSDN 구독이 있는 경우 [MSDN 구독자를 위한 Azure 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조하세요.
+아직 Azure 계정이 없는 경우에는 [Azure 평가판 사용](https://azure.microsoft.com/pricing/free-trial/)에서 무료로 가입할 수 있습니다. MSDN 또는 Visual Studio 구독이 있는 경우에는 [Visual Studio 구독자를 위한 월간 Azure 크레딧](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조하세요.
 
 > [AZURE.NOTE] Azure의 가상 컴퓨터는 실행 중인 동안 지속적인 비용이 부과됩니다. 이 비용은 무료 평가판, MSDN 구독 또는 유료 구독에 대해 청구됩니다. 실행 중인 Azure 가상 컴퓨터의 비용에 대한 자세한 내용은 [가상 컴퓨터 가격 정보](https://azure.microsoft.com/pricing/details/virtual-machines/) 및 [Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/)를 참조하세요. 비용을 절감하려면 [Azure에서 테스트 환경 가상 컴퓨터의 비용 최소화](#costs)를 참조하세요.
 
@@ -94,16 +94,22 @@ Azure 구독을 설정합니다. < and > 문자를 포함하여 따옴표 안의
 	$saName="<storage account name>"
 	New-AzureRMStorageAccount -Name $saName -ResourceGroupName $rgName –Type Standard_LRS -Location $locName
 
-이제, 기본 구성의 Corpnet 서브넷에 호스팅하는 TestLab Azure 가상 네트워크를 만듭니다.
+이제, 기본 구성의 Corpnet 서브넷을 호스팅하는 TestLab Azure 가상 네트워크를 만들고 네트워크 보안 그룹으로 보호합니다.
 
 	$rgName="<name of your new resource group>"
 	$locName="<Azure location name, such as West US>"
+	$locShortName="<the location of your new resource group in lowercase with spaces removed, example: westus>"
 	$corpnetSubnet=New-AzureRMVirtualNetworkSubnetConfig -Name Corpnet -AddressPrefix 10.0.0.0/24
 	New-AzureRMVirtualNetwork -Name TestLab -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/8 -Subnet $corpnetSubnet –DNSServer 10.0.0.4
+	$rule1=New-AzureRMNetworkSecurityRuleConfig -Name "RDPTraffic" -Description "Allow RDP to all VMs on the subnet" -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 -SourceAddressPrefix Internet -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 3389
+	New-AzureRMNetworkSecurityGroup -Name Corpnet -ResourceGroupName $rgName -Location $locShortName -SecurityRules $rule1
+	$vnet=Get-AzureRMVirtualNetwork -ResourceGroupName $rgName -Name TestLab
+	$nsg=Get-AzureRMNetworkSecurityGroup -Name Corpnet -ResourceGroupName $rgName
+	Set-AzureRMVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name Corpnet -AddressPrefix "10.0.0.0/24" -NetworkSecurityGroup $nsg
 
 다음은 현재 구성입니다.
 
-![](./media/virtual-machines-windows-test-config-env/BC_TLG01.png)
+![](./media/virtual-machines-windows-test-config-env/virtual-machines-windows-test-config-env-ph1.png)
 
 ## 2단계: DC1 구성
 
@@ -162,8 +168,8 @@ DC1은 corp.contoso.com AD DS(Active Directory 도메인 서비스) 도메인의
 
 DC1이 다시 시작된 후 DC1 가상 컴퓨터에 다시 연결합니다.
 
-1.	Azure 포털에서 **가상 컴퓨터**를 클릭한 다음 **DC1** 가상 컴퓨터를 클릭합니다.
-2.	**DC1** 창에서 ** 연결**을 클릭합니다.
+1.	Azure 포털에서 **가상 컴퓨터** 를 클릭한 다음 **DC1** 가상 컴퓨터를 클릭합니다.
+2.	**DC1** 창에서 **연결** 을 클릭합니다.
 3.	DC1.rdp를 열라는 메시지가 나타나면 **열기**를 클릭합니다.
 4.	원격 데스크톱 연결 메시지 상자가 포함된 메시지가 나타나면 **연결**을 클릭합니다.
 5.	자격 증명을 묻는 메시지가 나타나면 다음을 사용합니다.
@@ -189,7 +195,7 @@ DC1으로 연결된 원격 데스크톱 세션을 닫고 CORP\\User1 계정을 �
 
 다음은 현재 구성입니다.
 
-![](./media/virtual-machines-windows-test-config-env/BC_TLG02.png)
+![](./media/virtual-machines-windows-test-config-env/virtual-machines-windows-test-config-env-ph2.png)
 
 ## 3단계: APP1 구성
 
@@ -238,7 +244,7 @@ Windows PowerShell 명령 프롬프트에서 다음 명령을 사용하여 APP1�
 
 다음은 현재 구성입니다.
 
-![](./media/virtual-machines-windows-test-config-env/BC_TLG03.png)
+![](./media/virtual-machines-windows-test-config-env/virtual-machines-windows-test-config-env-ph3.png)
 
 ## 4단계: CLIENT1 구성
 
@@ -283,7 +289,7 @@ CLIENT1이 다시 시작되면 CORP\\User1 계정 이름 및 암호로 연결하
 2.	**CLIENT1에 대한 속성**에서 **IE 보안 강화 구성** 옆의 **설정**을 클릭합니다.
 3.	**Internet Explorer 보안 강화 구성**에서 **관리자** 및 **사용자**에 대해 **해제**를 클릭한 후 **확인**을 클릭합니다.
 4.	시작 화면에서 **Internet Explorer**를 클릭한 후 **확인**을 클릭합니다.
-5.	주소 표시줄에 ****http://app1.corp.contoso.com/**을 입력하고 Enter 키를 누릅니다. APP1에 대한 기본 IIS(인터넷 정보 서비스) 웹 페이지가 표시됩니다.
+5.	주소 표시줄에 **http://app1.corp.contoso.com/**을 입력하고 Enter 키를 누릅니다. APP1에 대한 기본 IIS(인터넷 정보 서비스) 웹 페이지가 표시됩니다.
 6.	바탕 화면 작업 표시줄에서 파일 탐색기 아이콘을 클릭합니다.
 7.	주소 표시줄에 **\\\app1\\Files**를 입력하고 Enter 키를 누릅니다.
 8.	Files 공유 폴더의 내용이 포함된 폴더 창이 표시됩니다.
@@ -292,13 +298,13 @@ CLIENT1이 다시 시작되면 CORP\\User1 계정 이름 및 암호로 연결하
 
 최종 구성은 다음과 같습니다.
 
-![](./media/virtual-machines-windows-test-config-env/BC_TLG04.png)
+![](./media/virtual-machines-windows-test-config-env/virtual-machines-windows-test-config-env-ph4.png)
 
 Azure 기본 구성이 응용 프로그램 개발 및 테스트 또는 추가적인 테스트 환경에 대한 준비를 마쳤습니다.
 
 ## 다음 단계
 
-- Corpnet 서브넷(예: Microsoft SQL Server를 실행)에 [새 가상 컴퓨터를 추가](virtual-machines-windows-create-powershell.md)합니다.
+- [Azure 포털](virtual-machines-windows-hero-tutorial.md)을 사용하여 새 가상 컴퓨터를 추가하거나 [시뮬레이션된 하이브리드 클라우드 테스트 환경](virtual-machines-windows-ps-hybrid-cloud-test-env-sim.md)을 빌드합니다.
 
 
 ## <a id="costs"></a>Azure에서 테스트 환경 가상 컴퓨터의 비용 최소화
@@ -328,4 +334,4 @@ Azure PowerShell을 사용하여 가상 컴퓨터를 순서대로 시작하려�
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "APP1"
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "CLIENT1"
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

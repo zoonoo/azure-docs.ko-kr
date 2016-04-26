@@ -3,9 +3,9 @@
 	description="Azure SQL 데이터베이스 관리용 도구 및 옵션 비교"
 	services="sql-database"
 	documentationCenter=""
-	authors="jeffgoll"
-	manager="jeffreyg"
-	editor="jeffreyg"/>
+	authors="stevestein"
+	manager="jhubbard"
+	editor=""/>
 
 <tags
 	ms.service="sql-database"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
-	ms.author="jeffreyg"/>
+	ms.date="04/04/2016"
+	ms.author="sstein"/>
 
 # 개요: SQL 데이터베이스 관리 도구
 
@@ -36,4 +36,12 @@ PowerShell 같은 명령줄 도구를 사용하여 데이터베이스 및 탄력
 
 명령줄 도구를 사용하여 Azure SQL 데이터베이스를 관리하는 방법에 대한 자세한 내용은 [PowerShell를 사용하여 SQL 데이터베이스 관리](sql-database-command-line-tools.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0128_2016-->
+## 탄력적 데이터베이스 도구
+탄력적 데이터베이스 도구를 사용하여 다음과 같은 작업을 수행합니다.
+
+* [탄력적 작업](sql-database-elastic-jobs-overview.md)을 사용하여 데이터베이스 집합에 대해 T-SQL 스크립트 실행
+* [분할-병합 도구](sql-database-elastic-scale-overview-split-and-merge.md)로 다중 테넌트 모델 데이터베이스를 단일 테넌트 모델로 이동
+* [탄력적인 확장 클라이언트 라이브러리](sql-database-elastic-database-client-library.md)를 사용하여 단일 테넌트 모델 또는 다중 테넌트 모델에서 데이터베이스 관리
+ 
+
+<!---HONumber=AcomDC_0413_2016-->

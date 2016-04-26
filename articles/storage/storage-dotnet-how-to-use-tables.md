@@ -56,11 +56,13 @@ Azure 테이블 저장소는 클라우드에 구조화된 NoSQL 데이터를 저
 	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
     using Microsoft.WindowsAzure.Storage.Table; // Namespace for Table storage types
 
+### 연결 문자열 구문 분석
+
 [AZURE.INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
 ### 테이블 서비스 클라이언트 만들기
 
-**CloudTableClient** 클래스를 사용하면 테이블 저장소에 저장된 테이블 및 엔터티를 검색할 수 있습니다. **Main()** 메서드에 다음 코드를 추가합니다.
+**CloudTableClient** 클래스를 사용하면 테이블 저장소에 저장된 테이블 및 엔터티를 검색할 수 있습니다. 서비스 클라이언트를 만드는 한 가지 방법은 다음과 같습니다.
 
 	// Create the table client.
 	CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
@@ -461,4 +463,4 @@ Azure 테이블 저장소는 클라우드에 구조화된 NoSQL 데이터를 저
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

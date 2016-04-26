@@ -42,6 +42,6 @@ VM 리소스 사용 | 사용할 수 없음 | `azure vm list-usage [options] <loc
 
 ## 다음 단계
 
-* CLI 명령에 대한 다른 예제는 [Azure 서비스 관리에서 Azure 명령줄 인터페이스 사용](../articles/virtual-machines-command-line-tools.md) 및 [Azure 리소스 관리자에서 Azure CLI 사용](../articles/azure-cli-arm-commands.md)을 참조하세요.
+* CLI 명령에 대한 다른 예제는 [Azure 서비스 관리에서 Azure 명령줄 인터페이스 사용](../articles/virtual-machines-command-line-tools.md) 및 [Azure 리소스 관리자에서 Azure CLI 사용](../articles/virtual-machines/azure-cli-arm-commands.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

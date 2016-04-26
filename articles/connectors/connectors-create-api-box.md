@@ -22,7 +22,7 @@ Box에 연결하여 파일 만들기, 파일 삭제 등의 작업을 수행합�
 
 - 논리 앱 
 
->[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다. 2014-12-01-preview 스키마 버전에 대한 내용을 보려면 [Box 커넥터](../app-service-logic/app-service-logic-connector-box.md)를 클릭하세요.
+>[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다.
 
 Box를 사용하여 다음을 수행할 수 있습니다.
 
@@ -262,4 +262,4 @@ Box 폴더에서 파일을 수정할 때 흐름을 트리거합니다. ```GET: /
 
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

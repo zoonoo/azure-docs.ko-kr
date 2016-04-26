@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="02/29/2016"
+	ms.date="04/12/2016"
 	ms.author="kgremban"/>
 
 # Azure PowerShell을 사용하여 역할 기반 액세스 제어 관리
@@ -24,9 +24,15 @@
 - [REST API](role-based-access-control-manage-access-rest.md)
 
 
-## 역할 기반 액세스 제어(RBAC) 역할 목록
+Azure 포털 및 Azure 리소스 관리 API의 RBAC(역할 기반 액세스 제어)를 사용하면 세밀한 수준에서 구독에 대한 액세스를 관리할 수 있습니다. 이 기능을 통해 특정 범위에서 Active Directory 사용자, 그룹 또는 서비스 사용자에게 일부 역할을 할당하여 액세스 권한을 부여할 수 있습니다.
 
->[AZURE.IMPORTANT] 이 문서의 cmdlet을 사용하려면 먼저 PowerShell에서 [Azure Resource Manager cmdlet을 설치](https://msdn.microsoft.com/library/mt125356.aspx)해야 합니다.
+PowerShell을 사용하여 RBAC를 관리하려면 다음 항목이 필요합니다.
+
+- Azure PowerShell 버전 0.8.8 이상. 최신 버전을 설치하고 Azure 구독에 연결하려면 [Azure PowerShell 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
+
+- Azure Resource Manager cmdlet. PowerShell에서 [Azure Resource Manager cmdlet](https://msdn.microsoft.com/library/mt125356.aspx)을 설치합니다.
+
+## 역할 나열
 
 ### 사용 가능한 모든 역할 나열
 할당할 수 있는 RBAC 역할을 나열하고 액세스 권한을 부여하는 작업을 검사하려면 다음을 사용합니다.
@@ -42,23 +48,22 @@
 
 ![RBAC PowerShell - 특정 역할에 대한 Get-AzureRmRoleDefinition - 스크린샷](./media/role-based-access-control-manage-access-powershell/1-get-azure-rm-role-definition2.png)
 
-## 액세스 권한 나열
-### 선택한 구독에서 모든 역할 할당 나열
-지정된 구독, 리소스 또는 리소스 그룹에서 적용되는 RBAC 액세스 할당을 나열하려면 다음을 사용합니다.
+## 액세스 권한이 있는 사용자 확인
+RBAC 액세스 할당을 나열하려면 다음을 사용합니다.
 
     Get-AzureRmRoleAssignment
 
-###	리소스 그룹에 적용되는 역할 할당 나열
-리소스 그룹에 대한 액세스 할당을 나열하려면 다음을 사용합니다.
+###	특정 범위의 역할 할당 나열
+지정된 구독, 리소스 그룹 또는 리소스에 대한 모든 액세스 할당을 확인할 수 있습니다. 예를 들어 리소스 그룹에 대한 모든 활성 할당을 확인하려면 다음을 사용합니다.
 
     Get-AzureRmRoleAssignment -ResourceGroupName <resource group name>
 
 ![RBAC PowerShell - 리소스 그룹에 대한 Get-AzureRmRoleAssignment - 스크린샷](./media/role-based-access-control-manage-access-powershell/4-get-azure-rm-role-assignment1.png)
 
-### 사용자 그룹에 할당된 역할을 비롯해 사용자에 대한 역할 할당 나열
-지정된 사용자에 대한 액세스 할당 및 사용자가 구성원인 그룹에 대한 액세스 할당을 나열하려면 다음을 사용합니다.
+### 사용자에게 할당된 역할 나열
+소속 그룹에 할당된 역할을 포함하여 지정된 사용자에게 할당된 모든 역할을 나열하려면 다음을 사용합니다.
 
-    Get-AzureRmRoleAssignment -ExpandPrincipalGroups
+    Get-AzureRmRoleAssignment -SignInName <User email> -ExpandPrincipalGroups
 
 ![RBAC PowerShell - 사용자에 대한 Get-AzureRmRoleAssignment - 스크린샷](./media/role-based-access-control-manage-access-powershell/4-get-azure-rm-role-assignment2.png)
 
@@ -69,29 +74,22 @@
 
 ## 액세스 권한 부여
 ### 개체 ID 검색
-다음 명령 시퀀스를 사용하려면 먼저 개체 ID를 찾아야 합니다. 사용하는 구독 ID를 이미 알고 있다고 가정하지만, 그렇지 않은 경우 MSDN에서 [Get-AzureSubscription](https://msdn.microsoft.com/library/dn495302.aspx)을 참조하세요.
+역할을 할당하려면 개체(사용자, 그룹 또는 응용 프로그램)와 범위 둘 다를 식별해야 합니다.
 
-#### Azure AD 그룹에 대한 개체 ID 찾기
+구독 ID를 모르는 경우 Azure 포털의 **구독** 블레이드에서 확인할 수 있습니다. 또는 MSDN에서 [Get-AzureSubscription](https://msdn.microsoft.com/library/dn495302.aspx)을 통해 구독 ID를 쿼리하는 방법을 알아봅니다.
+
 Azure AD 그룹에 대한 개체 ID를 가져오려면 다음을 사용합니다.
 
     Get-AzureRmADGroup -SearchString <group name in quotes>
 
-#### Azure AD 서비스 주체에 대한 개체 ID 찾기
-Azure AD 서비스 주체에 대한 개체 ID를 찾으려면 다음을 사용합니다.
+Azure AD 서비스 사용자 또는 응용 프로그램에 대한 개체 ID를 찾으려면 다음을 사용합니다.
 
     Get-AzureRmADServicePrincipal -SearchString <service name in quotes>
-
-### 구독 범위에서 그룹에 역할 할당
-구독 범위에서 그룹에 액세스 권한을 부여하려면 다음을 사용합니다.
-
-    New-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name in quotes> -Scope <scope such as subscription/subscription id>
-
-![RBAC PowerShell - New-AzureRmRoleAssignment - 스크린샷](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment1.png)
 
 ### 구독 범위에서 응용 프로그램에 역할 할당
 구독 범위에서 응용 프로그램에 액세스 권한을 부여하려면 다음을 사용합니다.
 
-    New-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name in quotes> -Scope <scope such as subscription/subscription id>
+    New-AzureRmRoleAssignment -ObjectId <application id> -RoleDefinitionName <role name in quotes> -Scope <subscription id>
 
 ![RBAC PowerShell - New-AzureRmRoleAssignment - 스크린샷](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment2.png)
 
@@ -112,7 +110,7 @@ Azure AD 서비스 주체에 대한 개체 ID를 찾으려면 다음을 사용�
 ## 액세스 권한 제거
 사용자, 그룹 및 응용 프로그램의 액세스 권한을 제거하려면 다음을 사용합니다.:
 
-    Remove-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name> -Scope <scope such as subscription/subscription id>
+    Remove-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name> -Scope <scope such as subscription id>
 
 ![RBAC PowerShell - Remove-AzureRmRoleAssignment - 스크린샷](./media/role-based-access-control-manage-access-powershell/3-remove-azure-rm-role-assignment.png)
 
@@ -153,7 +151,7 @@ Azure AD 서비스 주체에 대한 개체 ID를 찾으려면 다음을 사용�
 
 ![RBAC PowerShell - Get-AzureRmRoleDefinition - 스크린샷](./media/role-based-access-control-manage-access-powershell/5-get-azurermroledefinition2.png)
 
-## RBAC 항목
-[AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
+## 참고 항목
+- [Azure 리소스 관리자로 Azure PowerShell 사용](../powershell-azure-resource-manager.md)[AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0413_2016-->

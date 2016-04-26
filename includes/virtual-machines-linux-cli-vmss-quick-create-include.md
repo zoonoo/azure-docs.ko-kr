@@ -1,7 +1,7 @@
-If you haven't already, you can get an [Azure subscription free trial](https://azure.microsoft.com/pricing/free-trial/) and the [Azure CLI](../articles/xplat-cli-install.md) [connected to your Azure account](../articles/xplat-cli-connect.md). Once you do, you can run the following commands to quick-create a scale set:
+아직 없는 경우 [Azure 구독 무료 평가판](https://azure.microsoft.com/pricing/free-trial/) 및 [Azure 계정에 연결된](../articles/xplat-cli-connect.md) [Azure CLI](../articles/xplat-cli-install.md)를 가져올 수 있습니다. 그러면 다음 명령을 실행하여 크기 집합을 신속하게 만들 수 있습니다.
 
 ```bash
-# make sure we are in Resource Manager mode (https://azure.microsoft.com/en-us/documentation/articles/resource-manager-deployment-model/)
+# make sure we are in Resource Manager mode (https://azure.microsoft.com/documentation/articles/resource-manager-deployment-model/)
 azure config mode arm
 
 # quick-create a scale set
@@ -13,9 +13,9 @@ azure config mode arm
 azure vmss quick-create -n negatvmss -g negatvmssrg -l westus -u negat -p P4ssw0rd -C 5 -Q Canonical:UbuntuServer:14.04.4-LTS:latest
 ```
 
-If you want to customize the location or image-urn, please look into the commands `azure location list` and `azure vm image {list-publishers|list-offers|list-skus|list|show}`.
+위치 또는 이미지 urn을 사용자 지정하려는 경우 `azure location list` 및 `azure vm image {list-publishers|list-offers|list-skus|list|show}` 명령을 확인하세요.
 
-Once this command has returned, the scale set will have been created. This scale set will have a load balancer with NAT rules mapping port 50,000+i on the load balancer to port 22 on VM i. Thus, once we figure out the FQDN of the load balancer, we will be able to connect via ssh to our VMs:
+이 명령이 반환되면 크기 집합이 만들어진 것입니다. 이 크기 집합에는 해당 부하 분산 장치의 50,000+i 포트를 VM i의 포트 22에 매핑하는 NAT 규칙이 설정된 부하 분산 장치가 있습니다. 따라서 부하 분산 장치의 FQDN을 확인한 경우 VM에 ssh를 통해 연결할 수 있습니다.
 
 ```bash
 # (if you decide to run this as a script, please invoke using bash)
@@ -55,3 +55,5 @@ FQDN=${split_line[3]}
 # example to connct via ssh into VM "0":
 ssh -p 50000 negat@$FQDN
 ```
+
+<!---HONumber=AcomDC_0413_2016-->

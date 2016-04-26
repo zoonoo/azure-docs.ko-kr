@@ -30,7 +30,7 @@ Dropbox에 연결하여 파일 만들기, 파일 가져오기 등 파일을 관�
 
 &nbsp;
 
->[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다. 2014-12-01-preview 스키마 버전에 대한 내용을 보려면 [Dropbox 커넥터](../app-service-logic/app-service-logic-connector-dropbox.md)를 클릭하세요.
+>[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다.
 
 
 Dropbox를 사용하여 다음과 같은 작업을 수행할 수 있습니다.
@@ -286,4 +286,4 @@ Dropbox 폴더에서 파일을 수정할 때 흐름을 트리거합니다. ```GE
 [10]: ./media/connectors-create-api-dropbox/dropbox-create-app-page1.png
 [11]: ./media/connectors-create-api-dropbox/dropbox-create-app-page2.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

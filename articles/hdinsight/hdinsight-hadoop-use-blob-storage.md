@@ -103,6 +103,8 @@ Blob을 사용하려면 먼저 [Azure 저장소 계정][azure-storage-create]을
 
 ###Azure CLI 사용
 
+[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+
 [Azure CLI를 설치 및 구성한](../xplat-cli-install.md) 경우, 다음 명령을 사용하여 저장소 계정 및 컨테이너를 사용할 수 있습니다.
 
 	azure storage account create <storageaccountname> --type LRS
@@ -155,7 +157,7 @@ HDInsight에서 Blob 저장소의 파일에 액세스하기 위한 URI 체계는
 
 
 
-URI 체계는 암호화되지 않은 액세스(*wasb:* 접두사가 있음)와 SSL로 암호화된 액세스(*wasbs*가 있음)를 제공합니다. Azure의 동일한 지역에 있는 데이터에 액세스하는 경우에도 가능하면 *wasbs*를 사용하는 것이 좋습니다.
+URI 체계는암호화되지 않은 액세스(*wasb:* 접두사가 있음)와 SSL로 암호화된 액세스(*wasbs*가 있음)를 제공합니다. Azure의 동일한 지역에 있는 데이터에 액세스하는 경우에도 가능하면 *wasbs*를 사용하는 것이 좋습니다.
 
 &lt;BlobStorageContainerName&gt;은 Azure Blob 저장소에서 컨테이너의 이름을 식별합니다. &lt;StorageAccountName&gt;은 Azure 저장소 계정 이름을 식별합니다. FQDN(정규화된 도메인 이름)이 필요합니다.
 
@@ -300,4 +302,4 @@ URI 체계는 암호화되지 않은 액세스(*wasb:* 접두사가 있음)와 S
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -35,7 +35,9 @@
 
 또는
 
-* [Mac, Linux 및 Windows용 Azure CLI](../xplat-cli-install.md)
+* [Azure CLI](../xplat-cli-install.md).
+
+    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
 ##SSH 정의
 
@@ -124,7 +126,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCelfkjrpYHYiks4TM+r1LVsTYQ4jAXXGeOAF9Vv/KG
 
 * **사용자 이름** - 클러스터를 만들 때 제공한 SSH 사용자 이름입니다.
 
-다음 예제에서는 **mycluster** 의 헤드 노드 0에 **me** 사용자로 연결합니다.
+다음 예제에서는 **mycluster**의 헤드 노드 0에 **me** 사용자로 연결합니다.
 
 	ssh me@mycluster-ssh.azurehdinsight.net
 
@@ -243,4 +245,4 @@ SSH 터널의 생성 및 사용에 대한 자세한 내용은 [SSH 터널링을 
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

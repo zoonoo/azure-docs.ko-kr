@@ -19,7 +19,7 @@
 
 # Azure에서 Linux 가상 컴퓨터에 대한 계획된 유지 관리
 
-Azure 계획된 유지 관리의 정의와 계획된 유지 관리가 Linux 가상 컴퓨터의 가용성에 주는 영향에 대해 알아봅니다. [Windows 가상 컴퓨터에 대한 계획된 유지 관리](virtual-machines-windows-planned-maintenance.md)에 대해 참조할 수도 있습니다.
+Azure 계획된 유지 관리의 정의와 계획된 유지 관리가 Linux 가상 컴퓨터의 가용성에 주는 영향에 대해 알아봅니다. 이 문서는 [Windows 가상 컴퓨터](virtual-machines-windows-planned-maintenance.md)에도 적용됩니다.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -33,4 +33,4 @@ Microsoft Azure는 가상 컴퓨터의 기반이 되는 호스트 인프라의 �
 
 [AZURE.INCLUDE [virtual-machines-common-planned-maintenance](../../includes/virtual-machines-common-planned-maintenance.md)]
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

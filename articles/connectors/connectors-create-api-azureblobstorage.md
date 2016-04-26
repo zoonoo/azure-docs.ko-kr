@@ -22,7 +22,7 @@ Azure Blob에 연결하여 파일 만들기, 파일 삭제 등 Blob 컨테이너
 
 - 논리 앱 
 
->[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다. 2014-12-01-preview 스키마 버전에 대한 내용을 보려면 [Azure 저장소 Blob 커넥터](../app-service-logic/app-service-logic-connector-azurestorageblob.md)를 클릭하세요.
+>[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다.
 
 Azure Blob 저장소를 사용하면 다음과 같은 작업을 수행할 수 있습니다.
 
@@ -102,7 +102,7 @@ Azure Blob 저장소에서 파일을 삭제합니다. ```DELETE: /datasets/defau
 
 
 ### 폴더에 보관 추출
-보관 파일(예: .zip)을 Azure Blob 저장소의 폴더에 추출합니다. ```POST: /datasets/default/ExtractFolderV2```
+보관 파일(예:.zip)을 Azure Blob 저장소의 폴더에 추출합니다. ```POST: /datasets/default/ExtractFolderV2```
 
 | 이름|데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
@@ -234,4 +234,4 @@ Azure Blob 저장소의 파일을 업데이트합니다. ```PUT: /datasets/defau
 
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

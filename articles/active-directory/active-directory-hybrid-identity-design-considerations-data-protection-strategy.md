@@ -12,7 +12,7 @@
 	ms.devlang="na"
 	ms.topic="article"
     ms.tgt_pltfrm="na"
-    ms.workload="identity" 
+    ms.workload="identity"
 	ms.date="03/18/2016"
 	ms.author="yuridio"/>
 
@@ -21,7 +21,7 @@
 
 이 작업에서 하이브리드 ID 솔루션에 대한 데이터 보호 전략을 정의하여 다음에서 정의된 비즈니스 요구 사항을 충족합니다.
 
-- [데이터 보호 요구 사항 결정](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md) 
+- [데이터 보호 요구 사항 결정](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
 - [콘텐츠 관리 요구 사항 결정](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)
 - [액세스 제어 요구 사항 확인](active-directory-hybrid-identity-design-considerations-accesscontrol-requirements.md)
 - [사고 대응 요구 사항 결정](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)
@@ -104,11 +104,11 @@ Azure AD를 사용하여 사용자가 인증되면 사용자를 갖게 된 액�
 
 그림x에서 보여준 다이어그램에서 각 상호 작용은 Azure AD에서 다룰 수 있는 하나의 액세스 제어 시나리오를 나타냅니다. 아래에서 각 시나리오에 대해 설명합니다.
 
-1. 온-프레미스에서 호스트되는 응용 프로그램에 대한 조건부 액세스: Windows Server 2012 R2에서 AD FS를 사용하도록 구성된 응용 프로그램에 대한 액세스 정책이 있는 등록된 장치를 사용할 수 있습니다. 온-프레미스에 대해 조건부 액세스를 설정하는 방법에 대한 자세한 내용은 [Azure Active Directory 장치 등록을 사용하여 온-프레미스 조건부 액세스 설정](active-directory-conditional-access-on-premises-setup.md)을 참조하세요. 
+1. 온-프레미스에서 호스트되는 응용 프로그램에 대한 조건부 액세스: Windows Server 2012 R2에서 AD FS를 사용하도록 구성된 응용 프로그램에 대한 액세스 정책이 있는 등록된 장치를 사용할 수 있습니다. 온-프레미스에 대해 조건부 액세스를 설정하는 방법에 대한 자세한 내용은 [Azure Active Directory 장치 등록을 사용하여 온-프레미스 조건부 액세스 설정](active-directory-conditional-access-on-premises-setup.md)을 참조하세요.
 2. Azure 관리 포털에 액세스 제어: 또한 Azure에는 RBAC(역할 기반 액세스 제어)를 사용하여 관리 포털에 대한 액세스를 제어하는 기능이 있습니다. 이 방법을 사용하면 회사에서 개인이 Azure 관리 포털에 액세스한 경우에 수행할 수 있는 작업의 양을 제한할 수 있습니다. RBAC를 사용하여 포털에 대한 액세스를 제어하려면 IT 관리자는 다음 액세스 관리 방법을 사용하여 액세스를 위임할 수 있습니다.
 
  - 그룹 기반 역할 할당: 로컬 Active Directory에서 동기화될 수 있는 Azure AD 그룹에 대한 액세스를 할당할 수 있습니다. 이렇게 하면 그룹 관리에 대한 도구 및 프로세스에서 조직이 만든 기존 투자를 활용할 수 있습니다. 또한 Azure AD Premium의 위임된 그룹 관리 기능을 사용할 수 있습니다.
- - Azure에서 기본 제공 역할 활용: 세 가지 역할(소유자, 참가자 및 읽기 권한자)을 사용하여 사용자 및 그룹에 작업 수행에 필요한 작업만 수행할 수 있는 권한을 제공할 수 있습니다. 
+ - Azure에서 기본 제공 역할 활용: 세 가지 역할(소유자, 참가자 및 읽기 권한자)을 사용하여 사용자 및 그룹에 작업 수행에 필요한 작업만 수행할 수 있는 권한을 제공할 수 있습니다.
  - 리소스에 대한 세부적인 액세스: 웹 사이트 또는 데이터베이스와 같은 특정 구독, 리소스 그룹 또는 개별 Azure 리소스에 대한 역할을 사용자 및 그룹에 할당할 수 있습니다. 이러한 방식으로 사용자는 필요한 모든 리소스에 대해 액세스하고 관리할 필요가 없는 리소스에 액세스하지 않을 수 있습니다.
 
  >[AZURE.NOTE]
@@ -123,8 +123,8 @@ Azure AD를 사용하여 사용자가 인증되면 사용자를 갖게 된 액�
 ## 인시던트 대응 옵션 정의
 Azure AD는 사용자의 활동을 모니터링하여 환경에서 잠재적인 보안 위험을 식별하도록 IT를 지원합니다. IT는 Azure AD 액세스 및 사용 보고서 기능을 활용하여 조직 디렉터리의 무결성 및 보안에 가시성을 얻을 수 있습니다. 이 정보를 사용하면 IT 관리자는 가능한 보안 위험이 발생할 수 있는 위치를 보다 잘 결정하여 이러한 위험을 적절하게 완화할 수 있습니다. [Azure AD Premium 구독](active-directory-get-started-premium.md)에는 IT가 이 정보를 가져올 수 있는 보안 보고서 집합이 있습니다. [Azure AD 보고서](active-directory-view-access-usage-reports.md)는 아래와 같이 분류됩니다.
 
-- **비정상 보고서**: 비정상으로 확인된 로그인 이벤트가 포함됩니다. 이러한 활동을 인식하고 이벤트가 의심스러운지 확인할 수 있게 해 줍니다. 
-- **통합 응용 프로그램 보고서**: 클라우드 응용 프로그램이 조직에서 사용되는 방식을 파악할 수 있게 해줍니다. Azure Active Directory는 수천 개의 클라우드 응용 프로그램과 통합을 제공합니다. 
+- **비정상 보고서**: 비정상으로 확인된 로그인 이벤트가 포함됩니다. 이러한 활동을 인식하고 이벤트가 의심스러운지 확인할 수 있게 해 줍니다.
+- **통합 응용 프로그램 보고서**: 클라우드 응용 프로그램이 조직에서 사용되는 방식을 파악할 수 있게 해줍니다. Azure Active Directory는 수천 개의 클라우드 응용 프로그램과 통합을 제공합니다.
 - **오류 보고서**: 외부 응용 프로그램에 계정을 프로비전할 때 발생할 수 있는 오류를 나타냅니다.
 - **사용자별 보고서**: 특정 사용자에 대한 장치/로그인 활동 데이터를 표시합니다.
 - **활동 로그**: 최근 24시간, 최근 7일 또는 최근 30일 이내에 감사된 모든 이벤트의 레코드와 그룹 활동 변경 사항, 암호 재설정 및 등록 활동이 포함됩니다.
@@ -150,10 +150,10 @@ Azure AD는 사용자의 활동을 모니터링하여 환경에서 잠재적인 
 인시던트 대응에 대한 옵션은 다중 계층 접근 방법을 사용하기 때문에 이러한 옵션 간의 비교는 이 작업에 적용될 수 없습니다. 회사의 인시던트 대응 프로세스의 일부로 Azure AD 보고 기능을 사용하도록 요구하는 각 시나리오에 사용 가능한 모든 옵션을 활용하도록 합니다.
 
 ## 다음 단계
-[하이브리드 ID 관리 작업 결정](active-directory-hybrid-identity-design-considerations-hybridId-management-tasks.md)
+[하이브리드 ID 관리 작업 결정](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)
 
 
 ## 참고 항목
 [디자인 고려 사항 개요](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -32,9 +32,9 @@
 
 ##릴리스 정보
 
-###3\.2.1(2015/12/11)
+###3\.2.2(2016/04/07)
 
--   딥 링크를 사용하는 알림에서 새 앱 인스턴스를 트리거할 때의 지연을 수정했습니다. 
+-   경우에 따라 충돌을 일으킬 수 있는 HTTP 요청 취소에 대한 버그가 수정되었습니다. 
 
 이전 버전에 대한 내용은 [전체 릴리스 정보](mobile-engagement-ios-release-notes.md)를 참조하세요.
 
@@ -59,4 +59,4 @@ iOS 4.X에 대한 지원을 삭제했습니다. 이 버전부터 응용 프로�
 	-(void)didFailToRetrieveLaunchMessage;
 	-(void)didReceiveLaunchMessage:(AEPushMessage*)launchMessage;
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0413_2016-->

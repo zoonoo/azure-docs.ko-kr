@@ -3,7 +3,7 @@
     description="탄력적 데이터베이스 API를 사용하여 자체 호스팅되는 서비스를 통해 분할된 데이터베이스를 조작하고 데이터를 이동하는 방법에 대해 설명합니다." 
     services="sql-database" 
     documentationCenter="" 
-    manager="jeffreyg" 
+    manager="jhubbard" 
     authors="ddove"/>
 
 <tags 
@@ -27,7 +27,13 @@
 
 분할-병합 도구 1.1.0 릴리스에서는 완료된 요청에서 메타데이터를 자동으로 정리하는 기능을 제공합니다. 구성 옵션은 이 메타데이터가 제거되기 전에 보존되는 기간을 제어합니다.
 
-분할-병합 도구 1.0.0 릴리스에서는 다음과 같은 향상된 기능을 제공합니다. * 분할-병합과 인터페이스하기 위해 .Net API가 추가되었습니다. 웹 역할은 이제 선택사항입니다. * 이제 분할 키에 날짜 및 시간 형식이 지원됩니다. * 이제 목록 분할된 데이터베이스 맵이 지원됩니다. * 요청의 범위 경계를 분할된 데이터베이스 맵에 저장된 범위와 보다 쉽게 일치시킬 수 있습니다. * 이제 여러 작업자 역할 인스턴스가 지원되므로 가용성이 향상됩니다. * 이제 분할-병합 작업의 일부로 저장된 자격 증명이 암호화됩니다.
+1\.0.0 릴리스의 분할 병합 도구는 다음과 같은 향상된 기능을 제공합니다.
+* .Net API가 분할-합병의 인터페이스에 추가 되었습니다.- 웹 역할은 이제 선택사항입니다. 
+* 분할 키에 날짜 및 시간 형식이 지원 됩니다. 
+* 이제 목록 분할된 데이터베이스 맵이 지원됩니다. 
+* 요청의 범위 경계를 분할된 데이터베이스 맵에 저장된 범위와 보다 쉽게 일치시킬 수 있습니다.
+* 이제 여러 작업자 역할 인스턴스가 지원되므로 가용성이 향상됩니다. 
+* 이제 분할-병합 작업의 일부로 저장된 자격 증명이 암호화됩니다.
 
 ## 업그레이드하는 방법
 
@@ -169,7 +175,7 @@
 
 ### Azure 진단
 
-분할 병합 서비스 모니터링 및 진단에 Azure SDK 2.5에 따라 Azure 진단을 사용합니다. [Azure 클라우드 서비스 및 가상 컴퓨터에서 진단 사용](../service-fabric/cloud-services-dotnet-diagnostics.md)에 설명된 대로 진단 구성을 제어합니다. 두 진단 구성이 포함된 패키지를 다운로드합니다- 웹 역할, 작업자 역할 [Microsoft Azure에서 클라우드 서비스 기본 사항](https://code.msdn.microsoft.com/windowsazure/Cloud-Service-Fundamentals-4ca72649) 지침을 따라 진단 구성이 서비스됩니다. 여기에는 성능 카운터, IIS 로그, Windows 이벤트 로그 및 분할/병합 응용 프로그램 이벤트 로그를 기록하는 정의가 포함됩니다.
+분할 병합 서비스 모니터링 및 진단에 Azure SDK 2.5에 따라 Azure 진단을 사용합니다. [Azure 클라우드 서비스 및 가상 컴퓨터에서 진단 사용](../cloud-services/cloud-services-dotnet-diagnostics.md)에 설명된 대로 진단 구성을 제어합니다. 두 진단 구성이 포함된 패키지를 다운로드합니다- 웹 역할, 작업자 역할 [Microsoft Azure에서 클라우드 서비스 기본 사항](https://code.msdn.microsoft.com/windowsazure/Cloud-Service-Fundamentals-4ca72649) 지침을 따라 진단 구성이 서비스됩니다. 여기에는 성능 카운터, IIS 로그, Windows 이벤트 로그 및 분할/병합 응용 프로그램 이벤트 로그를 기록하는 정의가 포함됩니다.
 
 ## 진단 배포 
 
@@ -195,7 +201,7 @@
     
     Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Production -Role "SplitMergeWorker" 
 
-[Azure 클라우드 서비스 및 가상 컴퓨터에서 진단 사용](../cloud-services-dotnet-diagnostics.md)에서 진단 설정을 구성 및 배포하는 방법에 자세한 내용을 확인할 수 있습니다.
+[Azure 클라우드 서비스 및 가상 컴퓨터에서 진단 사용](../cloud-services/cloud-services-dotnet-diagnostics.md)에서 진단 설정을 구성 및 배포하는 방법에 자세한 내용을 확인할 수 있습니다.
 
 ## 진단 검색 
 
@@ -239,4 +245,4 @@
 [3]: ./media/sql-database-elastic-scale-overview-split-and-merge/diagnostics-config.png
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

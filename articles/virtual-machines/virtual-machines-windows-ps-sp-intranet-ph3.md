@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="04/01/2016"
 	ms.author="josephd"/>
 
 # SharePoint 인트라넷 팜 워크로드 3단계: SQL Server 인프라 구성
@@ -23,7 +23,9 @@
 
 Azure 인프라 서비스에서 SQL Server AlwaysOn 가용성 그룹을 사용하여 인트라넷 전용 SharePoint 2013 팜을 배포하는 이 단계에서는 두 SQL Server 컴퓨터와 클러스터 주 노드 컴퓨터를 만들고 구성한 다음 Windows Server 클러스터에 결합합니다.
 
-[4단계](virtual-machines-windows-ps-sp-intranet-ph4.md)로 진행하기 전에 이 단계를 완료해야 합니다. 전체 단계를 보려면 [Azure에서 SQL Server AlwaysOn 가용성 그룹을 사용하여 SharePoint 배포](virtual-machines-windows-sp-intranet-overview.md)를 참조하세요. virtual-machines-windows-sp-intranet-overview.md>[AZURE.NOTE] 이 명령에서는 Azure 이미지 갤러리의 SQL Server 이미지를 사용하며 SQL Server 라이선스 사용에 대해 지속적인 비용이 청구됩니다. Azure에서 가상 컴퓨터를 만들고 사용자 고유의 SQL Server 라이선스를 설치할 수도 있지만 Azure 가상 컴퓨터를 포함하여 가상 컴퓨터에서 SQL Server 라이선스를 사용하려면 Software Assurance 및 License Mobility가 있어야 합니다. 가상 컴퓨터에 SQL Server를 설치하는 방법에 대한 자세한 내용은 [SQL Server 설치](https://msdn.microsoft.com/library/bb500469.aspx)를 참조하세요.
+[4단계](virtual-machines-windows-ps-sp-intranet-ph4.md)로 진행하기 전에 이 단계를 완료해야 합니다. 전체 단계를 보려면 [Azure에서 SQL Server AlwaysOn 가용성 그룹을 사용하여 SharePoint 배포](virtual-machines-windows-sp-intranet-overview.md)를 참조하세요.
+
+[AZURE.NOTE] 이 명령에서는 Azure 이미지 갤러리의 SQL Server 이미지를 사용하며 SQL Server 라이선스 사용에 대해 지속적인 비용이 청구됩니다. Azure에서 가상 컴퓨터를 만들고 사용자 고유의 SQL Server 라이선스를 설치할 수도 있지만 Azure 가상 컴퓨터를 포함하여 가상 컴퓨터에서 SQL Server 라이선스를 사용하려면 Software Assurance 및 License Mobility가 있어야 합니다. 가상 컴퓨터에 SQL Server를 설치하는 방법에 대한 자세한 내용은 [SQL Server 설치](https://msdn.microsoft.com/library/bb500469.aspx)를 참조하세요.
 
 ## Azure에서 SQL Server 클러스터 가상 컴퓨터 만들기
 
@@ -169,7 +171,7 @@ SQL Server에서는 클라이언트가 데이터베이스 서버에 액세스하
 
 각 SQL Server 가상 컴퓨터에 대해 로컬 관리자로 로그아웃합니다.
 
-Azure에서 SQL Server 성능을 최적화하는 방법에 대한 자세한 내용은 [ Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](virtual-machines-windows-classic-sql-perf.md)를 참조하세요. SharePoint 팜 저장소 계정에 대해 GRS(지역 중복 저장소)를 사용하지 않도록 설정하고 저장소 공간을 사용해 IOPS를 최적화할 수도 있습니다.
+Azure에서 SQL Server 성능을 최적화하는 방법에 대한 자세한 내용은 [ Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](virtual-machines-windows-sql-performance.md)를 참조하세요. SharePoint 팜 저장소 계정에 대해 GRS(지역 중복 저장소)를 사용하지 않도록 설정하고 저장소 공간을 사용해 IOPS를 최적화할 수도 있습니다.
 
 ## 클러스터 주 노드 서버 구성
 
@@ -240,4 +242,4 @@ SQL Server에서 AlwaysOn 가용성 그룹을 사용하도록 설정하려면 �
 
 - [4단계](virtual-machines-windows-ps-sp-intranet-ph4.md)를 사용하여 이 워크로드의 구성을 계속합니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

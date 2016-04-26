@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/24/2016"
+	ms.date="04/07/2016"
 	ms.author="genli"/>
 
 #  Azure 청구 및 구독 FAQ
@@ -44,6 +44,8 @@
 - [Azure 서비스 수준 계약은 현재 온-프레미스 Microsoft 라이선스 계약과 함께 어떻게 적용되나요?](#how-will-azure-service-level-agreements-work-with-current-on-premises-microsoft-licensing-agreements)
 
 **구독**
+
+- [Azure 포털에 로그인할 수 없습니다.](#i-am-unable-to-log-in-to-the-azure-portal)
 
 - [Azure 지원은 어떻게 구입하나요?](#how-do-i-purchase-azure-support)
 
@@ -144,6 +146,14 @@ Azure SLA 크레딧은 구독을 기준으로 하여 SLA가 누락된 청구 월
 Azure 서비스 수준 계약은 온-프레미스 Microsoft 라이선스 계약과 별도입니다. Azure에 대한 Microsoft SLA는 클라우드에서 소비하는 서비스에 대해 월간 작동 시간을 보증하며 보증 조건을 충족하지 못하는 경우 청구한 금액에 대한 SLA 크레딧을 제공합니다.
 
 ## 구독
+
+### Azure 포털에 로그인할 수 없습니다.
+
+다음 문서는 로그인 문제의 몇 가지 일반적인 원인을 해결하는 데 도움이 됩니다.
+
+[내 Azure 구독 관리를 위해 로그인할 수 없음](billing-cannot-login-subscription.md)
+
+**참고** 관리자 권한으로 로그인했는지 확인하세요. 계정 관리자는 [계정 센터](https://account.windowsazure.com/)에만 액세스할 수 있는 반면 SA(서비스 관리자) 및 CA(공동 관리자)는 [Azure 포털](https://portal.azure.com/) 또는 [Azure 클래식 포털](https://manage.windowsazure.com/)에 대한 액세스 권한이 있습니다.
 
 ### Azure 지원은 어떻게 구입하나요?
 Azure 지원 플랜은 온라인으로 또는 기업계약을 통해 구입할 수 있습니다. 개발자, 표준 또는 전문가 지원 플랜은 [Azure 지원 플랜](https://azure.microsoft.com/support/plans/) 페이지에서 온라인으로 사용할 수 있습니다. 지원 계획을 구매하려면 Microsoft Azure 계정 소유자여야 합니다.
@@ -258,4 +268,4 @@ Azure는 전 세계 140여 개 국가에서 구매할 수 있으며 여러 가�
 
 현재 SPLA를 통해 Azure 또는 SQL 데이터베이스를 사용할 수 있는 계획은 없습니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -1,8 +1,8 @@
 <properties 
     pageTitle="자습서: XMatters OnDemand와 Azure Active Directory 통합 | Microsoft Azure"
-    description="Azure Active Directory에서 XMatters OnDemand를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
+    description="Azure Active Directory에서 xMatters OnDemand를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="04/06/2016" 
+    ms.author="jeedes" />
 
 #자습서: xMatters OnDemand와 Azure Active Directory 통합
   
@@ -70,7 +70,7 @@
 
 ###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
-1.  Azure AD 포털의 **xMatters OnDemand** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성 ** 대화 상자를 엽니다.
+1.  Azure AD 포털의 **xMatters OnDemand** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776791.png "Single Sign-On 구성")
 
@@ -141,7 +141,7 @@ Azure AD 사용자가 XMatters OnDemand에 로그인할 수 있도록 하려면 
 
 1.  Azure AD 포털에서 테스트 계정을 만듭니다.
 
-2.  **XMatters OnDemand ** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+2.  **XMatters OnDemand** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
 
     ![사용자 할당](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776799.png "사용자 할당")
 
@@ -151,4 +151,4 @@ Azure AD 사용자가 XMatters OnDemand에 로그인할 수 있도록 하려면 
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

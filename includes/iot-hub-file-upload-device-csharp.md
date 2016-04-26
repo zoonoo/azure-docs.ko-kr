@@ -69,9 +69,9 @@
 > [AZURE.NOTE] 이렇게 구현된 시뮬레이트된 장치는 BLOB이 업로드된 후에만 클라우드-장치 메시지를 완료합니다. 이 접근 방법은 배달 승인이 처리할 업로드된 파일의 가용성을 나타내기 때문에 백 엔드에서 업로드된 파일의 처리를 단순화합니다. 그러나 [IoT Hub 개발자 가이드][IoT Hub Developer Guide - C2D]에서 설명한 대로 *가시성 타임아웃*(일반적으로 1분) 전에 완료되지 않은 메시지가 장치 큐에 다시 넣어지고 **ReceiveAsync()** 메서드가 메시지를 다시 수신합니다. 파일 업로드에 시간이 오래 걸릴 수 있는 경우에는 시뮬레이트된 장치로 현재 업로드 작업을 지속적으로 저장하는 것이 좋습니다. 이렇게 하면 파일 업로드가 완료되기 전에 시뮬레이트된 장치가 클라우드-장치 메시지를 완료하고 백 엔드 완료를 알리는 장치-클라우드 메시지를 보낼 수 있습니다.
 
 <!-- Links -->
-[IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
-[Azure 저장소 - BLOB을 사용하는 방법]: ../storage/storage-dotnet-how-to-use-blobs.md#upload-a-blob-into-a-container
+[IoT Hub Developer Guide - C2D]: ../articles/iot-hub/iot-hub-devguide.md#c2d
+[Azure 저장소 - BLOB을 사용하는 방법]: ../articles/storage/storage-dotnet-how-to-use-blobs.md#upload-a-blob-into-a-container
 
 <!-- Images -->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

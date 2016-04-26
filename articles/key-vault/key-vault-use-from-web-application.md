@@ -1,12 +1,12 @@
 <properties pageTitle="웹 응용 프로그램에서 Azure 주요 자격 증명 모음 사용 | Microsoft Azure" description="이 자습서를 사용하여 웹 응용 프로그램에서 Azure 주요 자격 증명 모음을 사용하는 방법에 대해 배웁니다." services="key-vault" documentationCenter="" authors="adamhurwitz" manager="" tags="azure-resource-manager"//>
 
-<tags 
-	ms.service="key-vault" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/29/2016" 
+<tags
+	ms.service="key-vault"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/29/2016"
 	ms.author="adhurwit"/>
 
 # 웹 응용 프로그램에서 Azure 주요 자격 증명 모음 사용 #
@@ -19,19 +19,19 @@
 
 Azure 키 자격 증명 모음에 대한 개요는 [Azure 키 자격 증명 모음이란?](key-vault-whatis.md)을 참조하세요.
 
-## 필수 조건 
+## 필수 조건
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
 - Azure 주요 자격 증명 모음의 암호에 대한 URI
 - 주요 자격 증명 모음에 액세스할 수 있는, Azure Active Directory에 등록된 웹 응용 프로그램의 클라이언트 ID 및 클라이언트 암호
-- 웹 응용 프로그램. Azure에 웹앱으로 배포된 ASP.NET MVC 응용 프로그램에 대한 단계를 살펴보겠습니다. 
+- 웹 응용 프로그램. Azure에 웹앱으로 배포된 ASP.NET MVC 응용 프로그램에 대한 단계를 살펴보겠습니다.
 
 > [AZURE.NOTE]  이 자습서에 대해 [Azure 주요 자격 증명 모음 시작](key-vault-get-started.md)에 나열된 단계를 완료하여 웹 응용 프로그램의 클라이언트 ID 및 클라이언트 암호에 대한 URI가 있어야 합니다.
 
 Azure Active Directory에 등록되고 주요 자격 증명 모음에 대한 액세스 권한이 부여된 웹 응용 프로그램에서 주요 자격 증명 모음에 액세스합니다. 그렇지 않은 경우 시작 자습서의 응용 프로그램 등록으로 돌아가서 나열된 단계를 반복합니다.
 
-이 자습서는 Azure에서 웹 응용 프로그램을 만들기 위한 기본 사항을 잘 알고 있는 웹 개발자를 대상으로 합니다. Azure 웹앱에 대한 자세한 내용은 [웹앱 개요](../app-service-web-overview.md)를 참조하세요.
+이 자습서는 Azure에서 웹 응용 프로그램을 만들기 위한 기본 사항을 잘 알고 있는 웹 개발자를 대상으로 합니다. Azure 웹앱에 대한 자세한 내용은 [웹앱 개요](../app-service-web/app-service-web-overview.md)를 참조하세요.
 
 
 
@@ -47,7 +47,7 @@ Azure Active Directory에 등록되고 주요 자격 증명 모음에 대한 액
 	// this is currently the latest stable version of ADAL
 	Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.16.204221202
 
-	Install-Package Microsoft.Azure.KeyVault 
+	Install-Package Microsoft.Azure.KeyVault
 
 
 ## <a id="webconfig"></a>Web.Config 수정 ##
@@ -72,7 +72,7 @@ Azure Active Directory에 등록되고 주요 자격 증명 모음에 대한 액
 	//add these using statements
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
 	using System.Web.Configuration;
-	
+
 	//this is an optional property to hold the secret after it is retrieved
 	public static string EncryptSecret { get; set; }
 
@@ -83,10 +83,10 @@ Azure Active Directory에 등록되고 주요 자격 증명 모음에 대한 액
 	    ClientCredential clientCred = new ClientCredential(WebConfigurationManager.AppSettings["ClientId"],
                     WebConfigurationManager.AppSettings["ClientSecret"]);
 	    AuthenticationResult result = await authContext.AcquireTokenAsync(resource, clientCred);
-	    
+
 	    if (result == null)
 	    	throw new InvalidOperationException("Failed to obtain the JWT token");
-	    
+
 	    return result.AccessToken;
     }
 
@@ -101,12 +101,12 @@ Azure Active Directory에 등록되고 주요 자격 증명 모음에 대한 액
 	using Microsoft.Azure.KeyVault;
 	using System.Web.Configuration;
 
-	// I put my GetToken method in a Utils class. Change for wherever you placed your method. 
+	// I put my GetToken method in a Utils class. Change for wherever you placed your method.
     var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetToken));
 
 	var sec = kv.GetSecretAsync(WebConfigurationManager.AppSettings["SecretUri"]).Result.Value;
-	
-	//I put a variable in a Utils class to hold the secret for general  application use. 
+
+	//I put a variable in a Utils class to hold the secret for general  application use.
     Utils.EncryptSecret = sec;
 
 
@@ -117,7 +117,7 @@ Azure 웹앱이 있는 경우 이제 Azure 포털에서 AppSettings의 실제 �
 ![Azure 포털에 표시되는 응용 프로그램 설정][1]
 
 
-## 클라이언트 암호 대신 인증서로 인증 
+## 클라이언트 암호 대신 인증서로 인증
 클라이언트 ID 및 클라이언트 암호 대신 클라이언트 ID 및 인증서를 사용하여 Azure AD 응용 프로그램을 인증하는 다른 방법입니다. Azure 웹앱에서 인증서를 사용하는 단계는 다음과 같습니다.
 
 1. 인증서 얻기 또는 만들기
@@ -139,22 +139,22 @@ Azure 웹앱이 있는 경우 이제 Azure 포털에서 AppSettings의 실제 �
 **인증서를 Azure AD 응용 프로그램에 연결** 이제 인증서를 만들었고 Azure AD 응용 프로그램에 연결해야 합니다. 하지만 Azure 관리 포털에서는 당장은 이 기능을 지원하지 않습니다. 대신 Powershell을 사용해야 합니다. 다음은 실행해야 하는 명령입니다.
 
 	$x509 = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
-	
+
 	PS C:\> $x509.Import("C:\data\KVWebApp.cer")
-	
+
 	PS C:\> $credValue = [System.Convert]::ToBase64String($x509.GetRawCertData())
-	
+
 	PS C:\> $now = [System.DateTime]::Now
-	
+
 	# this is where the end date from the cert above is used
-	PS C:\> $yearfromnow = [System.DateTime]::Parse("2016-07-31") 
-	
+	PS C:\> $yearfromnow = [System.DateTime]::Parse("2016-07-31")
+
 	PS C:\> $adapp = New-AzureADApplication -DisplayName "KVWebApp" -HomePage "http://kvwebapp" -IdentifierUris "http://kvwebapp" -KeyValue $credValue -KeyType "AsymmetricX509Cert" -KeyUsage "Verify" -StartDate $now -EndDate $yearfromnow
-	
+
 	PS C:\> $sp = New-AzureADServicePrincipal -ApplicationId $adapp.ApplicationId
-	
+
 	PS C:\> Set-AzureKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName $sp.ServicePrincipalName -PermissionsToKeys all -ResourceGroupName 'contosorg'
-	
+
 	# get the thumbprint to use in your app settings
 	PS C:\>$x509.Thumbprint
 
@@ -176,7 +176,7 @@ Azure AD 응용 프로그램 개체 및 ServicePrincipal 개체에 대해 자세
             try
             {
                 store.Open(OpenFlags.ReadOnly);
-                X509Certificate2Collection col = store.Certificates.Find(X509FindType.FindByThumbprint, 
+                X509Certificate2Collection col = store.Certificates.Find(X509FindType.FindByThumbprint,
                     findValue, false); // Don't validate certs, since the test root isn't installed.
                 if (col == null || col.Count == 0)
                     return null;
@@ -241,6 +241,5 @@ StoreLocation은 LocalMachine이 아닌, CurrentUser입니다. 테스트 인증�
 <!--Image references-->
 [1]: ./media/key-vault-use-from-web-application/PortalAppSettings.png
 [2]: ./media/key-vault-use-from-web-application/PortalAddCertificate.png
- 
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

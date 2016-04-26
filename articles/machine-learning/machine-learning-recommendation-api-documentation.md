@@ -93,18 +93,14 @@ API에서 반환되는 ID는 대/소문자를 구분하며, 후속 API 호출에
 
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
-|	modelName |	문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(\_)만 사용할 수 있습니다.<br>최대 길이: 20 | 
-| apiVersion | 1.0 | 
-||| 
-| 요청 본문 | 없음 |
+|	modelName |	문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(\_)만 사용할 수 있습니다.<br>최대 길이: 20 | | apiVersion | 1.0 | ||| | Request Body | NONE |
 
 
 **응답**:
 
 HTTP 상태 코드: 200
 
-- `feed/entry/content/properties/id` – 모델 ID를 포함합니다.
-**참고**: 모델 ID는 대/소문자를 구분합니다.
+- `feed/entry/content/properties/id` – 모델 ID를 포함합니다. **참고**: 모델 ID는 대/소문자를 구분합니다.
 
 OData XML
 
@@ -268,9 +264,7 @@ OData XML
 
 ###5\.4. 모델 업데이트
 
-모델 설명 또는 활성 빌드 ID를 업데이트할 수 있습니다.<br>
-<ins>활성 빌드 ID</ins> - 모든 모델에 대한 모든 빌드에는 "빌드 ID"가 있습니다. 활성 빌드 ID는 모든 새 모델 중 처음 성공한 빌드입니다. 활성 빌드 ID가 있는데 같은 모델에 대한 추가 빌드를 수행하려면 이 활성 빌드 ID를 기본 빌드 ID로 명시적으로 설정해야 합니다. 권장 사항을 소비할 때 사용할 빌드 ID를 지정하지 않으면 자동으로 기본 빌드 ID가 사용됩니다.<br>
-이 메커니즘을 사용하면 프로덕션에 권장 사항 모델을 포함하고 나서 새 모델을 빌드하고 프로덕션으로 수준을 올리기 전에 테스트할 수 있습니다.
+모델 설명 또는 활성 빌드 ID를 업데이트할 수 있습니다.<br> <ins>활성 빌드 ID</ins> - 모든 모델에 대한 모든 빌드에는 "빌드 ID"가 있습니다. 활성 빌드 ID는 모든 새 모델 중 처음 성공한 빌드입니다. 활성 빌드 ID가 있는데 같은 모델에 대한 추가 빌드를 수행하려면 이 활성 빌드 ID를 기본 빌드 ID로 명시적으로 설정해야 합니다. 권장 사항을 소비할 때 사용할 빌드 ID를 지정하지 않으면 자동으로 기본 빌드 ID가 사용됩니다.<br> 이 메커니즘을 사용하면 프로덕션에 권장 사항 모델을 포함하고 나서 새 모델을 빌드하고 프로덕션으로 수준을 올리기 전에 테스트할 수 있습니다.
 
 
 | HTTP 메서드 | URI |
@@ -897,7 +891,7 @@ OData XML
 <br>
 `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins>
 Upsale 규칙을 추가하려면:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br> <ins>
-허용 목록 규칙을 추가하려면:</ins><br> 
+허용 목록 규칙을 추가하려면:</ins><br>
 `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>
 <ins>FeatureWhiteList 규칙을 추가하려면:</ins><br>
 <br>
@@ -992,10 +986,10 @@ HTTP 상태 코드: 200
 
 | 이름 | 필수 | 형식 | 설명 |
 |:---|:---|:---|:---|
-| 항목 ID |예 | [A-z], [a-z], [0-9], [\_] &#40;밑줄&#41;, [-] &#40;대시&#41;<br>최대 길이: 50 | 항목의 고유 식별자입니다. |
-| 항목 이름 | 예 | 영숫자 문자<br> 최대 길이: 255 | 항목 이름입니다. |
-| 항목 범주 | 예 | 영숫자 문자 <br> 최대 길이: 255 | 이 항목이 속하는 범주(예: 요리 책, 드라마...); 비어 있을 수 있습니다. |
-| 설명 | 기능이 표시되지 않는 경우(비어 있을 수는 있음) 아니요. | 영숫자 문자 <br> 최대 길이: 4000 | 이 항목의 설명입니다. |
+| 항목 ID |예 | [A-z], [a-z], [0-9], [\_] &#40;밑줄&#41;, [-] &#40;대시&#41;<br>최대 길이: 50 | 항목의 고유 식별자입니다. | 
+| 항목 이름 | 예 | 영숫자 문자<br> 최대 길이: 255 | 항목 이름입니다. | 
+| 항목 범주 | 예 | 영숫자 문자 <br> 최대 길이: 255 | 이 항목이 속하는 범주(예: 요리 책, 드라마...); 비어 있을 수 있습니다. | 
+| 설명 | 기능이 표시되지 않는 경우(비어 있을 수는 있음) 아니요. | 영숫자 문자 <br> 최대 길이: 4000 | 이 항목의 설명입니다. | 
 | 기능 목록 | 아니요 | 영숫자 문자 <br> 최대 길이: 4000, 최대 기능 수: 20 | 쉼표로 구분된 기능 이름 목록=모델 권장을 강화하기 위해 사용할 수 있는 기능 값; [고급 항목](#2-advanced-topics) 섹션을 참조하세요. |
 
 
@@ -1007,9 +1001,9 @@ HTTP 상태 코드: 200
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 |	modelId |	모델의 고유 식별자 |
-| filename | 카탈로그의 텍스트 ID입니다.<br>문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(\_)만 사용할 수 있습니다.<br>최대 길이: 50 |
-| apiVersion | 1.0 |
-|||
+| filename | 카탈로그의 텍스트 ID입니다.<br>문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(\_)만 사용할 수 있습니다.<br>최대 길이: 50 | 
+| apiVersion | 1.0 | 
+||| 
 | 요청 본문 | 예제(기능 포함):<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
 
 
@@ -1045,7 +1039,7 @@ OData XML
 	</feed>
 
 ###8\.2. 카탈로그 가져오기
-모든 카탈로그 항목을 검색합니다.
+모든 카탈로그 항목을 검색합니다. 한 번에 한 페이지씩 카탈로그가 검색됩니다. 특정 인덱스에서 항목을 가져오려는 경우 $skip odata 매개 변수를 사용할 수 있습니다. 예를 들어 100 위치에서 시작하는 항목을 가져오려면 $skip=100 매개 변수를 요청에 추가합니다.
 
 | HTTP 메서드 | URI |
 |:--------|:--------|
@@ -1213,10 +1207,10 @@ OData XML
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 |	modelId |	모델의 고유 식별자 |
-| filename | 카탈로그의 텍스트 식별자입니다.<br>문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(_)만 사용할 수 있습니다.<br>최대 길이: 50 | 
+| filename | 카탈로그의 텍스트 식별자.<br>문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(_)만 사용할 수 있습니다.<br>최대 길이: 50 | 
 | apiVersion | 1.0 | 
 ||| 
-| 요청 본문 | 사용 데이터. 형식:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>이름</th><th>필수</th><th>유형</th><th>설명</th></tr><tr><td>사용자 ID</td><td>Yes</td><td>[A-z], [a-z], [0-9], [_] &#40;밑줄&#41;, [-] &#40;대시&#41;<br> 최대 길이: 255 </td><td>사용자의 고유 ID입니다.</td></tr><tr><td>항목 ID</td><td>예</td><td>[A-z], [a-z], [0-9], [&#95;] &#40;밑줄&#41;, [-] &#40;대시&#41;<br> 최대 길이: 50</td><td>항목의 고유 ID입니다.</td></tr><tr><td>시간</td><td>아니요</td><td>YYYY/MM/DDTHH:MM:SS 형식의 날짜(예: 2013/06/20T10:00:00)</td><td>데이터의 시간입니다.</td></tr><tr><td>이벤트</td><td>아니요. 제공된 다음 날짜를 배치해야 합니다.</td><td>다음 중 하나:<br>• 클릭<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• 구매</td><td></td></tr></table><br>최대 크기: 200MB<br><br>예:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
+| 요청 본문 | 사용 데이터. 형식:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>이름</th><th>필수</th><th>형식</th><th>설명</th></tr><tr><td>사용자 ID</td><td>예</td><td>[a-z], [a-z], [0-9], [_] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> 최대 길이: 255 </td><td>사용자의 고유 식별자입니다.</td></tr><tr><td>항목 ID</td><td>예</td><td>[a-z], [a-z], [0-9], [&#95;] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> 최대 길이: 50</td><td>항목의 고유 식별자입니다.</td></tr><tr><td>시간</td><td>No</td><td>날짜 형식: YYYY/MM/DDTHH:MM:SS (예: 2013/06/20T10:00:00)</td><td>데이터의 시간.</td></tr><tr><td>이벤트</td><td>아니요; 제공되면 그 다음 날짜를 삽입해야 합니다</td><td>다음 중 하나:<br>• 클릭<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• 구매</td><td></td></tr></table><br>최대 파일 크기: 200MB<br><br>예제:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **응답**:
 
@@ -1367,7 +1361,7 @@ OData XML
 **응답**: HTTP 상태 코드: 200
 
 ###9\.2. 모델 사용 파일 나열
-모든 모델 사용 파일의 메타데이터를 검색합니다.
+모든 모델 사용 파일의 메타데이터를 검색합니다. 한 번에 한 페이지씩 사용 파일이 검색됩니다. 각 페이지는 100개의 항목을 포함합니다. 특정 인덱스에서 항목을 가져오려는 경우 $skip odata 매개 변수를 사용할 수 있습니다. 예를 들어 100 위치에서 시작하는 항목을 가져오려면 $skip=100 매개 변수를 요청에 추가합니다.
 
 | HTTP 메서드 | URI |
 |:--------|:--------|
@@ -3106,4 +3100,4 @@ HTTP 상태 코드: 200
 © 2015 Microsoft. All rights reserved.
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

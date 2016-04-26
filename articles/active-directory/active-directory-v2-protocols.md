@@ -79,6 +79,5 @@ v2.0 끝점에서 사용되는 다양한 토큰 형식에 대한 자세한 내�
 - 흐름 대신 OAuth 2.0으로 웹 API에서 토큰 가져오기(출시 예정)
 
 <!-- - Get tokens using a username & password with the OAuth 2.0 Resource Owner Password Credentials Flow (coming soon) --> 
-<!-- [Call the Azure AD Graph API using the OAuth 2.0 Client Credentials Flow](active-directory-reference-graph.md) -->
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

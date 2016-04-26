@@ -3,8 +3,8 @@
 	description="이 항목에서는 SQL 데이터베이스에 대한 표준 또는 활성 지역 복제 시나리오를 관리하기 위한 보안 고려 사항을 설명합니다."
 	services="sql-database"
 	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
+	authors="carlrabeler"
+	manager="jhubbard"
 	editor="monicar" />
 
 
@@ -14,8 +14,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="10/22/2015"
-	ms.author="jroth" />
+	ms.date="02/01/2016"
+	ms.author="carlrab" />
 
 # 표준 또는 활성 지역 복제를 위한 보안 구성
 
@@ -27,7 +27,7 @@
 
 포함된 사용자를 사용하는 경우 동일한 로그인을 사용하는 여러 데이터베이스가 있는 경우 로그인을 서버 수준에서 관리하는 대신 각 데이터베이스에 대해 별도로 사용자를 관리해야 합니다(예: 암호 변경).
 
->[AZURE.NOTE]주 및 보조에 대한 읽기 액세스를 독립적으로 변경하려는 경우 기존 로그인 및 사용자를 사용해야 합니다. 포함된 사용자는 주 데이터베이스와 독립적으로 보조 데이터베이스에서 관리할 수 없습니다.
+>[AZURE.NOTE] 주 및 보조에 대한 읽기 액세스를 독립적으로 변경하려는 경우 기존 로그인 및 사용자를 사용해야 합니다. 포함된 사용자는 주 데이터베이스와 독립적으로 보조 데이터베이스에서 관리할 수 없습니다.
 
 ## 기존 로그인 및 사용자 사용
 기존 로그인 및 사용자를 사용하는 경우(포함된 사용자 대신) 보조 데이터베이스 서버에 동일한 로그인이 존재하는지 보장하기 위해 추가 단계를 수행해야 합니다. 다음 섹션에서는 관련된 단계 및 추가 고려 사항을 간략히 설명합니다.
@@ -67,7 +67,7 @@ db\_owner 데이터베이스 역할의 멤버, dbo 사용자 또는 서버 관�
 	FROM [sys].[database_principals]
 	WHERE [type_desc] = 'SQL_USER'
 
->[AZURE.NOTE]**INFORMATION\_SCHEMA** 및 **sys** 사용자는 *NULL* SID가 있으며 **게스트** SID는 **0x00**입니다. 데이터베이스 작성자가 **DbManager**의 멤버가 아닌 서버 관리자인 경우 **dbo** SID는 *0x01060000000001648000000000048454*로 시작할 수 있습니다.
+>[AZURE.NOTE] **INFORMATION\_SCHEMA** 및 **sys** 사용자는 *NULL* SID가 있으며 **게스트** SID는 **0x00**입니다. 데이터베이스 작성자가 **DbManager**의 멤버가 아닌 서버 관리자인 경우 **dbo** SID는 *0x01060000000001648000000000048454*로 시작할 수 있습니다.
 
 #### 3\. 대상 서버의 로그인을 생성합니다.
 마지막 단계는 대상 서버 또는 서버로 이동하고 적절한 SID를 사용하여 로그인을 생성하는 것입니다. 기본 구문은 다음과 같습니다.
@@ -76,7 +76,7 @@ db\_owner 데이터베이스 역할의 멤버, dbo 사용자 또는 서버 관�
 	WITH PASSWORD = <login password>,
 	SID = <desired login SID>
 
->[AZURE.NOTE]주 데이터베이스가 아닌 보조 데이터베이스에 사용자 액세스 권한을 부여하려는 경우 주 서버의 사용자 로그인을 변경하고 다음 구문을 사용하여 수행할 수 있습니다.
+>[AZURE.NOTE] 주 데이터베이스가 아닌 보조 데이터베이스에 사용자 액세스 권한을 부여하려는 경우 주 서버의 사용자 로그인을 변경하고 다음 구문을 사용하여 수행할 수 있습니다.
 >
 >ALTER LOGIN <login name> DISABLE
 >
@@ -98,4 +98,4 @@ db\_owner 데이터베이스 역할의 멤버, dbo 사용자 또는 서버 관�
 ## 다음 단계
 지역 복제 및 SQL 데이터베이스의 추가 비즈니스 연속성 기능에 대한 자세한 내용은 [비즈니스 연속성 개요](sql-database-business-continuity.md)를 참조하세요.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="VM 작업에 대한 동등한 Azure CLI 명령 | Microsoft Azure"
-	description="Azure 리소스 관리자 및 Azure 서비스 관리 모드에서 Azure VM을 만들고 관리하는 해당 Azure CLI 명령"
+	description="리소스 관리자 및 서비스 관리 모드에서 Azure VM을 만들고 관리하는 해당 Azure CLI 명령입니다."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="dlepow"
@@ -24,4 +24,4 @@
 
 [AZURE.INCLUDE [virtual-machines-common-cli-manage](../../includes/virtual-machines-common-cli-manage.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

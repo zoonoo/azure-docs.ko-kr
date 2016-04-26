@@ -3,9 +3,9 @@
 	description="이 자습서에서는 연결된 클라우드 서비스의 공용 가상 IP 주소를 사용하여 외부에서 액세스 가능한 Azure의 AlwaysOn 가용성 그룹 수신기를 만드는 과정을 안내합니다."
 	services="virtual-machines-windows"
 	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
-	editor="monicar"
+	authors="MikeRayMSFT"
+	manager="jhubbard"
+	editor=""
 	tags="azure-service-management" />
 <tags
 	ms.service="virtual-machines-windows"
@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="02/03/2016"
-	ms.author="jroth" />
+	ms.date="04/05/2016"
+	ms.author="mikeray" />
 
 # Azure에서 AlwaysOn 가용성 그룹에 대한 외부 수신기를 구성합니다.
 
@@ -27,7 +27,7 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
 
 
-가용성 그룹은 온-프레미스 전용, Azure 전용 또는 하이브리드 구성에 대한 온-프레미스와 Azure 모두에 걸쳐 있는 복제본을 포함할 수 있습니다. Azure 복제본은 동일한 지역 내 또는 여러 Vnet(가상 네트워크)을 사용하 여 여러 지역에 걸쳐 있을 수 있습니다. 다음 단계에서는 [가용성 그룹을 구성](virtual-machines-windows-classic-portal-sql-availability.md)했지만 수신기는 구성하지 않았다고 가정합니다.
+가용성 그룹은 온-프레미스 전용, Azure 전용 또는 하이브리드 구성에 대한 온-프레미스와 Azure 모두에 걸쳐 있는 복제본을 포함할 수 있습니다. Azure 복제본은 동일한 지역 내 또는 여러 Vnet(가상 네트워크)을 사용하 여 여러 지역에 걸쳐 있을 수 있습니다. 다음 단계에서는 [가용성 그룹을 구성](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)했지만 수신기는 구성하지 않았다고 가정합니다.
 
 ## 외부 수신기에 대한 지침 및 제한 사항
 
@@ -37,7 +37,7 @@
 
 - 클라이언트 응용 프로그램은 가용성 그룹 VM이 포함된 것과는 다른 클라우드 서비스에 있어야 합니다. Azure는 동일한 클라우드 서비스에 있는 클라이언트 및 서버에서의 직접 서버 반환을 지원하지 않습니다.
 
-- 이 문서의 단계는 기본적으로 클라우드 서비스 VIP(가상 IP) 주소를 사용하도록 하나의 수신기를 구성하는 방법을 보여 줍니다. 그러나 클라우드 서비스에 대한 여러 VIP 주소를 예약하고 만들 수 있습니다. 이렇게 하면 이 문서의 단계를 사용하여 각각 다른 VIP와 연결된 여러 수신기를 만들 수 있습니다. 여러 VIP 주소를 만드는 방법에 대한 자세한 내용은 [클라우드 서비스당 여러 VIP](load-balancer-multivip.md)를 참조하세요.
+- 이 문서의 단계는 기본적으로 클라우드 서비스 VIP(가상 IP) 주소를 사용하도록 하나의 수신기를 구성하는 방법을 보여 줍니다. 그러나 클라우드 서비스에 대한 여러 VIP 주소를 예약하고 만들 수 있습니다. 이렇게 하면 이 문서의 단계를 사용하여 각각 다른 VIP와 연결된 여러 수신기를 만들 수 있습니다. 여러 VIP 주소를 만드는 방법에 대한 자세한 내용은 [클라우드 서비스당 여러 VIP](../load-balancer/load-balancer-multivip.md)를 참조하세요.
 
 - 하이브리드 환경에 대한 수신기를 만드는 경우 온-프레미스 네트워크에 Azure 가상 네트워크와 사이트-사이트 VPN뿐 아니라 공용 인터넷에 대한 연결이 있어야 합니다. Azure 서브넷에 있을 때 가용성 그룹 수신기는 해당 클라우드 서비스의 공용 IP 주소를 통해서만 연결할 수 있습니다.
 
@@ -130,4 +130,4 @@ AlwaysOn 복제본이 다른 서브넷에 있는 경우 클라이언트는 연�
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

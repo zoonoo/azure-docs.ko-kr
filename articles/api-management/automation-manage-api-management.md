@@ -40,8 +40,6 @@ API 관리는 [API 관리 REST API](https://msdn.microsoft.com/library/azure/dn7
 
 Azure 자동화의 기본 사항과 Azure 자동화를 사용하여 Azure API 관리를 관리하는 방법을 알아보았으므로, 이제 다음 링크에 따라 더 자세히 알아보세요.
 
-* Azure 자동화 [시작 자습서](../automation-create-runbook-from-samples.md)를 참조하세요.
 * [#Azure API 관리 REST API에 대한 PowerShell 모듈](https://alexandrebrisebois.wordpress.com/2014/08/17/powershell-module-for-the-azure-api-management-rest-apis/) 커뮤니티 블로그 게시물을 읽어보세요.
- 
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

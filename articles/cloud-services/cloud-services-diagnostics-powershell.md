@@ -1,25 +1,25 @@
-<properties 
-	pageTitle="PowerShell을 사용하여 Azure 클라우드 서비스에 진단 사용 | Microsoft Azure" 
-	description="PowerShell을 사용하여 클라우드 서비스에 진단을 사용하도록 설정하는 방법을 알아봅니다." 
-	services="cloud-services" 
-	documentationCenter=".net" 
-	authors="sbtron" 
-	manager="" 
+<properties
+	pageTitle="PowerShell을 사용하여 Azure 클라우드 서비스에 진단 사용 | Microsoft Azure"
+	description="PowerShell을 사용하여 클라우드 서비스에 진단을 사용하도록 설정하는 방법을 알아봅니다."
+	services="cloud-services"
+	documentationCenter=".net"
+	authors="sbtron"
+	manager=""
 	editor=""/>
 
-<tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="02/09/2016" 
+<tags
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="02/09/2016"
 	ms.author="saurabh"/>
 
 
 # PowerShell을 사용하여 Azure 클라우드 서비스에 진단 사용
 
-Azure 진단 확장을 사용하여 클라우드 서비스로부터 응용 프로그램 로그, 성능 카운터 등과 같은 진단 데이터를 수집할 수 있습니다. 이 문서는 PowerShell을 사용하여 클라우드 서비스에 대해 Azure 진단 확장을 사용하도록 설정하는 방법을 설명합니다. 이 문서에 요구되는 필수 조건은 [Azure PowerShell 설치 및 구성하는 방법](powershell-install-configure.md)을 참조하세요.
+Azure 진단 확장을 사용하여 클라우드 서비스로부터 응용 프로그램 로그, 성능 카운터 등과 같은 진단 데이터를 수집할 수 있습니다. 이 문서는 PowerShell을 사용하여 클라우드 서비스에 대해 Azure 진단 확장을 사용하도록 설정하는 방법을 설명합니다. 이 문서에 요구되는 필수 조건은 [Azure PowerShell 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
 
 ## 클라우드 서비스 배포의 일부로 진단 확장을 사용하도록 설정
 
@@ -30,13 +30,13 @@ Azure 진단 확장을 사용하여 클라우드 서비스로부터 응용 프�
 	$service_name = "MyService"
 	$service_package = "CloudService.cspkg"
 	$service_config = "ServiceConfiguration.Cloud.cscfg"
-	$webrole_diagconfigpath = "MyService.WebRole.PubConfig.xml" 
+	$webrole_diagconfigpath = "MyService.WebRole.PubConfig.xml"
 	$workerrole_diagconfigpath = "MyService.WorkerRole.PubConfig.xml"
 
 	$webrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WebRole" -DiagnosticsConfigurationPath $webrole_diagconfigpath
 	$workerrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WorkerRole" -DiagnosticsConfigurationPath $workerrole_diagconfigpath
-	 
-	New-AzureDeployment -ServiceName $service_name -Slot Production -Package $service_package -Configuration $service_config -ExtensionConfiguration @($webrole_diagconfig,$workerrole_diagconfig) 
+
+	New-AzureDeployment -ServiceName $service_name -Slot Production -Package $service_package -Configuration $service_config -ExtensionConfiguration @($webrole_diagconfig,$workerrole_diagconfig)
 
 진단 구성 파일이 저장소 계정 이름으로 StorageAccount 요소를 지정할 경우 New-AzureServiceDiagnosticsExtensionConfig cmdlet에서 해당 저장소 계정을 자동으로 사용합니다. 이렇게 작동하려면, 저장소 계정이 배포된 클라우드 서비스와 동일한 구독에 있어야 합니다.
 
@@ -45,10 +45,10 @@ Azure SDK 2.6 이후부터 MSBuild 게시 대상 출력에 의해 생성된 확�
 	$service_name = "MyService"
 	$service_package = "C:\build\output\CloudService.cspkg"
 	$service_config = "C:\build\output\ServiceConfiguration.Cloud.cscfg"
-	
+
 	#Find the Extensions path based on service configuration file
 	$extensionsSearchPath = Join-Path -Path (Split-Path -Parent $service_config) -ChildPath "Extensions"
-	
+
 	$diagnosticsExtensions = Get-ChildItem -Path $extensionsSearchPath -Filter "PaaSDiagnostics.*.PubConfig.xml"
 	$diagnosticsConfigurations = @()
 	foreach ($extPath in $diagnosticsExtensions)
@@ -58,7 +58,7 @@ Azure SDK 2.6 이후부터 MSBuild 게시 대상 출력에 의해 생성된 확�
 	$roles = $extPath -split ".",0,"simplematch"
 	if ($roles -is [system.array] -and $roles.Length -gt 1)
 	    {
-	    $roleName = $roles[1] 
+	    $roleName = $roles[1]
 	    $x = 2
 	    while ($x -le $roles.Length)
 	        {
@@ -87,7 +87,7 @@ Visual Studio Online은 진단 확장으로 클라우드 서비스의 자동화�
 
 	$webrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WebRole" -DiagnosticsConfigurationPath $webrole_diagconfigpath -StorageAccountName $diagnosticsstorage_name -StorageAccountKey $diagnosticsstorage_key
 	$workerrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WorkerRole" -DiagnosticsConfigurationPath $workerrole_diagconfigpath -StorageAccountName $diagnosticsstorage_name -StorageAccountKey $diagnosticsstorage_key
- 
+
 
 ## 기존 클라우드 서비스에 진단 확장을 사용하도록 설정
 
@@ -95,18 +95,18 @@ Visual Studio Online은 진단 확장으로 클라우드 서비스의 자동화�
 
 
 	$service_name = "MyService"
-	$webrole_diagconfigpath = "MyService.WebRole.PubConfig.xml" 
+	$webrole_diagconfigpath = "MyService.WebRole.PubConfig.xml"
 	$workerrole_diagconfigpath = "MyService.WorkerRole.PubConfig.xml"
 
 	$webrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WebRole" -DiagnosticsConfigurationPath $webrole_diagconfigpath
 	$workerrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WorkerRole" -DiagnosticsConfigurationPath $workerrole_diagconfigpath
-	
-	Set-AzureServiceDiagnosticsExtension -DiagnosticsConfiguration @($webrole_diagconfig,$workerrole_diagconfig) -ServiceName $service_name 
-	  
+
+	Set-AzureServiceDiagnosticsExtension -DiagnosticsConfiguration @($webrole_diagconfig,$workerrole_diagconfig) -ServiceName $service_name
+
 
 ## 현재 진단 확장 구성 가져오기
 [Get-AzureServiceDiagnosticsExtension](https://msdn.microsoft.com/library/azure/mt589204.aspx) cmdlet을 사용하여 클라우드 서비스에 대한 현재 진단 구성을 가져올 수 있습니다.
-	
+
 	Get-AzureServiceDiagnosticsExtension -ServiceName "MyService"
 
 ## 진단 확장 제거
@@ -114,7 +114,7 @@ Visual Studio Online은 진단 확장으로 클라우드 서비스의 자동화�
 
 	Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService"
 
-*Role* 매개 변수 없이 *Set-AzureServiceDiagnosticsExtension* 또는 *New-AzureServiceDiagnosticsExtensionConfig* 를 사용하여 진단 확장을 사용하도록 설정한 경우에는 *Role* 매개 변수 없이 *Remove-AzureServiceDiagnosticsExtension* 을 사용하여 확장을 제거할 수 있습니다. *Role* 매개 변수가 확장을 사용하도록 설정할 때 사용되었으면, 확장을 제거할 때도 사용되어야 합니다.
+*Role* 매개 변수 없이 *Set-AzureServiceDiagnosticsExtension* 또는 *New-AzureServiceDiagnosticsExtensionConfig*를 사용하여 진단 확장을 사용하도록 설정한 경우에는 *Role* 매개 변수 없이 *Remove-AzureServiceDiagnosticsExtension*을 사용하여 확장을 제거할 수 있습니다. *Role* 매개 변수가 확장을 사용하도록 설정할 때 사용되었으면, 확장을 제거할 때도 사용되어야 합니다.
 
 각각의 개별 역할에서 진단 확장을 제거하려면:
 
@@ -127,4 +127,4 @@ Visual Studio Online은 진단 확장으로 클라우드 서비스의 자동화�
 - [진단 구성 스키마](https://msdn.microsoft.com/library/azure/dn782207.aspx)는 진단 확장에 대한 다양한 XML 구성 옵션을 설명합니다.
 - 가상 컴퓨터에 대해 진단 확장을 사용하도록 설정하는 방법을 알아보려면 [Azure 리소스 관리자 템플릿을 사용한 모니터링 및 진단으로 Windows 가상 컴퓨터 만들기(영문)](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)를 참조하세요.  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

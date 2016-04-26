@@ -1,6 +1,6 @@
 <properties
    pageTitle="Microsoft Power BI Embedded 미리 보기 시작"
-   description="Microsoft Power BI Embedded 미리 보기 시작"
+   description="Power BI Embedded, 대화형 Power BI 보고서를 비즈니스 인텔리전스 응용 프로그램에 추가"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"
@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="03/29/2016"
+   ms.date="04/18/2016"
    ms.author="derrickv"/>
 
 # Microsoft Power BI Embedded 미리 보기 시작
@@ -58,7 +58,7 @@ Azure 포털을 사용하여 **작업 영역 컬렉션**을 빌드하는 단계�
 <a name="view-access-keys"/>
 ## Power BI API 액세스 키 보기
 
-Power BI REST API를 호출하는 데 필요한 정보의 가장 중요한 부분 중 하나는 **액세스 키**입니다. API 요청을 인증하는 데 사용되는 **앱 토큰**을 생성하는 데 사용됩니다. **액세스 키**를 보려면 **설정 블레이드**에서 **액세스 키**를 클릭합니다. **앱 토큰**에 대한 자세한 내용은 [앱 토큰 흐름은 어떻게 작동하나요?](power-bi-embedded-get-started-sample.md#key-flow)를 참조하세요.
+Power BI REST API를 호출하는 데 필요한 정보의 가장 중요한 부분 중 하나는 **액세스 키**입니다. API 요청을 인증하는 데 사용되는 **앱 토큰**을 생성하는 데 사용됩니다. **액세스 키**를 보려면 **설정 블레이드**에서 **액세스 키**를 클릭합니다. **앱 토큰**에 대한 자세한 내용은 [How does app token flow work?(앱 토큰 흐름은 어떻게 작동하나요?)](power-bi-embedded-app-token-flow.md)를 참조하세요.
 
    ![](media\power-bi-embedded-get-started\access-keys.png)
 
@@ -74,7 +74,7 @@ Power BI REST API를 호출하는 데 필요한 정보의 가장 중요한 부�
 
 ## 앱에 포함할 Power BI 데이터 집합 및 보고서 만들기
 
-이제 응용 프로그램에 대한 Power BI의 인스턴스를 만들었고 **액세스 키**가 있으므로 포함할 Power BI 데이터 집합 및 보고서를 만들어야 합니다. 데이터 집합 및 보고서는 **Power BI 데스크톱**을 사용하여 만들 수 있습니다. [Power BI 데스크톱은 무료로](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/) 다운로드할 수 있습니다. 또는 빠르게 시작하려면 [소매 분석 샘플 PBIX](http://go.microsoft.com/fwlink/?LinkID=780547)를 다운로드할 수 있습니다. **Power BI 데스크톱**을 사용하는 방법에 대해 알아보려면 [Power BI 데스크톱 시작](https://powerbi.microsoft.com/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop)을 참조하세요.
+이제 응용 프로그램에 대한 Power BI의 인스턴스를 만들었고 **액세스 키**가 있으므로 포함할 Power BI 데이터 집합 및 보고서를 만들어야 합니다. 데이터 집합 및 보고서는 **Power BI 데스크톱**을 사용하여 만들 수 있습니다. [Power BI 데스크톱은 무료로](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/) 다운로드할 수 있습니다. 또는 빠르게 시작하려면 [소매 분석 샘플 PBIX](http://go.microsoft.com/fwlink/?LinkID=780547)를 다운로드할 수 있습니다. **Power BI 데스크톱**을 사용하는 방법에 대해 알아보려면 [Power BI 데스크톱 시작](https://powerbi.microsoft.com/ko-KR/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop)을 참조하세요.
 
 **Power BI 데스크톱**에서 데이터의 복사본을 **Power BI 데스크톱**으로 가져오거나 **DirectQuery**를 사용하여 데이터 원본에 직접 연결하여 데이터 원본에 연결합니다.
 
@@ -107,4 +107,4 @@ Power BI REST API를 호출하는 데 필요한 정보의 가장 중요한 부�
 - [Power BI 데스크톱](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 - [Power BI Embedded 가격](http://go.microsoft.com/fwlink/?LinkID=760527)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

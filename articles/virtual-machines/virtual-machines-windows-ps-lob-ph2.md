@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/21/2016" 
+	ms.date="04/01/2016" 
 	ms.author="josephd"/>
 
 # LOB(기간 업무) 응용 프로그램 워크로드 2단계: 도메인 컨트롤러 구성
@@ -111,7 +111,7 @@ Azure PowerShell 명령의 다음 블록을 사용하여 두 도메인 컨트롤
 	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
-> [AZURE.NOTE] 이러한 가상 컴퓨터는 인트라넷 응용 프로그램용이므로 공용 IP 주소 또는 DNS 도메인 이름 레이블이 할당되지 않으며 인터넷에 노출되지 않습니다. 그러나 이는 Azure 포털에서도 연결할 수 없음을 의미합니다. 가상 컴퓨터의 속성을 볼 때 **연결** 단추를 사용할 수 없습니다. 원격 데스크톱 연결 액세서리 또는 다른 원격 데스크톱 도구를 통해 해당 개인 IP 주소 또는 인트라넷 DNS 이름을 사용하여 가상 컴퓨터에 연결합니다.
+> [AZURE.NOTE] 이러한 가상 컴퓨터는 인트라넷 응용 프로그램용이므로 공용 IP 주소 또는 DNS 도메인 이름 레이블이 할당되지 않으며 인터넷에 노출되지 않습니다. 그러나 이는 Azure 포털에서도 연결할 수 없음을 의미합니다. 가상 컴퓨터의 속성을 볼 때 **연결** 단추를 사용할 수 없습니다.
 
 ## 첫 번째 도메인 컨트롤러 구성
 
@@ -197,4 +197,4 @@ Azure PowerShell 명령의 다음 블록을 사용하여 두 도메인 컨트롤
 
 - [3단계](virtual-machines-windows-ps-lob-ph3.md)를 사용하여 이 워크로드의 구성을 계속합니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

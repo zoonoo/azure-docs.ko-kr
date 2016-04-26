@@ -39,7 +39,7 @@
 1. Azure 가상 컴퓨터를 만듭니다. [Windows Server를 실행하는 가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md) 또는 [Visual Studio에서 Azure 가상 컴퓨터 만들기 및 관리](../virtual-machines/virtual-machines-windows-classic-manage-visual-studio.md)를 참조하세요.
 2. [Azure 클래식 포털 페이지](http://go.microsoft.com/fwlink/p/?LinkID=269851)에서, 가상 컴퓨터 대시보드를 보고 가상 컴퓨터의 **RDP 인증서 지문**을 확인합니다. 이 값은 확장 구성에서 `ServerThumbprint` 값에 사용됩니다.
 3. [Azure 클라우드 서비스에 대한 인증서 개요](cloud-services-certs-create.md)에서 간략히 설명한 대로 클라이언트 인증서를 만듭니다(.pfx 및 RDP 인증서 지문 유지).
-4. Azure PowerShell(0.7.4 이후 버전)을 [Azure PowerShell 설치 및 구성 방법](/powershell-install-configure.md)에 간략히 설명한 대로 설치합니다.
+4. Azure PowerShell(0.7.4 이후 버전)을 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)에 간략히 설명한 대로 설치합니다.
 5. 다음 스크립트를 실행하여 RemoteDebug 확장을 사용합니다. 경로 및 개인 데이터를 사용자의 데이터(예: 구독 이름, 서비스 이름 및 지문)로 바꿉니다.
 
 	>[AZURE.NOTE] 이 스크립트는 Visual Studio 2015에서 구성되었습니다. Visual Studio 2013을 사용하는 경우 아래 `$referenceName` 및 `$extensionName` 할당을 수정하여 `RemoteDebugVS2013`을(를) 사용합니다(`RemoteDebugVS2015` 대신).
@@ -91,4 +91,4 @@
 
 6. Visual Studio 및 Azure SDK for .NET 2.4가 설치된 컴퓨터로 인증서(.pfx)를 가져옵니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

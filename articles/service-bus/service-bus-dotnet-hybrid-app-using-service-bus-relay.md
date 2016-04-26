@@ -402,7 +402,7 @@ Azure에서 서비스 버스 기능 사용을 시작하려면 먼저 서비스 �
 
 ## 응용 프로그램의 Azure에 배포 준비 완료
 
-Azure 클라우드 서비스 또는 Azure 웹 사이트에 응용 프로그램을 배포할 수 있습니다. 웹 사이트와 클라우드 서비스의 차이점에 대한 자세한 내용은 [Azure 실행 모델][executionmodels](영문)을 참조하세요. Azure 웹 사이트에 응용 프로그램을 배포하는 방법에 대한 자세한 내용은 [Azure 웹 사이트에 ASP.NET 웹 응용 프로그램 배포](https://azure.microsoft.com/develop/net/tutorials/get-started/)를 참조하세요. 이 섹션에서는 Azure 클라우드 서비스에 응용 프로그램을 배포하는 자세한 단계를 설명합니다.
+Azure [클라우드 서비스][executionmodels] 또는 [Azure 웹 사이트][azureweb]에 응용 프로그램을 배포할 수 있습니다. Azure 웹 사이트에 응용 프로그램을 배포하는 방법에 대한 자세한 내용은 [Azure 웹 사이트에 ASP.NET 웹 응용 프로그램 배포](https://azure.microsoft.com/develop/net/tutorials/get-started/)를 참조하세요. 이 섹션에서는 Azure 클라우드 서비스에 응용 프로그램을 배포하는 자세한 단계를 설명합니다.
 
 클라우드 서비스에 응용 프로그램을 배포하기 위해 클라우드 서비스 프로젝트 배포 프로젝트를 솔루션에 추가합니다. 배포 프로젝트에는 클라우드에서 응용 프로그램을 올바르게 실행하는 데 필요한 구성 정보가 포함됩니다.
 
@@ -531,8 +531,6 @@ Azure 클라우드 서비스 또는 Azure 웹 사이트에 응용 프로그램�
 
     ![][37]
 
-웹 사이트와 클라우드 서비스의 차이점에 대한 자세한 내용은 [Azure 실행 모델][executionmodels](영문)을 참조하세요.
-
 ## 응용 프로그램 중지 및 삭제
 
 다른 응용 프로그램을 빌드 및 배포할 수 있도록 이전에 배포한 응용 프로그램을 무료 750시간/월(31일/월) 동안의 서버 시간 내에 비활성화할 수 있습니다.
@@ -608,6 +606,7 @@ Azure는 사용된 서버 시간의 시간당 웹 역할 인스턴스 요금을 
 
   [sbwacom]: /documentation/services/service-bus/
   [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md
-  [executionmodels]: ../cloud-services/fundamentals-application-models.md
+  [executionmodels]: ../cloud-services/cloud-services-choose-me.md
+  [azureweb]: ../app-service-web/app-service-web-overview.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0420_2016-->

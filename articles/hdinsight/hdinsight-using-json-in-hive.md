@@ -66,22 +66,22 @@ HDInsight에서 Hive를 사용하여 JSON 파일을 분석하고 처리하는 �
 
 	DROP TABLE IF EXISTS StudentsRaw;
 	CREATE EXTERNAL TABLE StudentsRaw (textcol string) STORED AS TEXTFILE LOCATION "wasb://processjson@hditutorialdata.blob.core.windows.net/";
-	
+
 	DROP TABLE IF EXISTS StudentsOneLine;
 	CREATE EXTERNAL TABLE StudentsOneLine
 	(
 	  json_body string
 	)
 	STORED AS TEXTFILE LOCATION '/json/students';
-	
+
 	INSERT OVERWRITE TABLE StudentsOneLine
-	SELECT CONCAT_WS(' ',COLLECT_LIST(textcol)) AS singlelineJSON 
+	SELECT CONCAT_WS(' ',COLLECT_LIST(textcol)) AS singlelineJSON
 	      FROM (SELECT INPUT__FILE__NAME,BLOCK__OFFSET__INSIDE__FILE, textcol FROM StudentsRaw DISTRIBUTE BY INPUT__FILE__NAME SORT BY BLOCK__OFFSET__INSIDE__FILE) x
 	      GROUP BY INPUT__FILE__NAME;
-	
+
 	SELECT * FROM StudentsOneLine
 
-원시 JSON 파일은 ****wasb://processjson@hditutorialdata.blob.core.windows.net/**에 있습니다. *StudentsRaw* Hive 테이블은 평면화되지 않은 JSON 문서를 가리킵니다.
+원시 JSON 파일은 **wasb://processjson@hditutorialdata.blob.core.windows.net/**에 있습니다. *StudentsRaw* Hive 테이블은 평면화되지 않은 JSON 문서를 가리킵니다.
 
 *StudentsOneLine* Hive 테이블은 HDInsight 기본 파일 시스템에서 데이터를 */json/students/* 경로에 저장합니다.
 
@@ -100,16 +100,16 @@ SELECT 문의 출력은 다음과 같습니다.
 - GET\_JSON\_OBJECT UDF(사용자 정의 함수) 사용
 - JSON\_TUPLE UDF 사용
 - 사용자 지정 SerDe 사용
-- Python 또는 기타 언어를 사용하여 자체 UDF를 작성합니다. Hive에서 Python 실행에 대한 자세한 내용은 [이 문서][hdinsight-python]를 참조하세요. 
+- Python 또는 기타 언어를 사용하여 자체 UDF를 작성합니다. Hive에서 Python 실행에 대한 자세한 내용은 [이 문서][hdinsight-python]를 참조하세요.
 
 ### GET\_JSON\_OBJECT UDF 사용
 Hive는 런타임에 JSON 쿼리를 수행할 수 있는 [get json object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object)라는 기본 제공 UDF를 제공합니다. 이 메서드에는 두 개의 인수, 즉 평면화된 JSON 문서와 구문 분석해야 하는 JSON 필드가 있는 테이블 이름 및 메서드 이름이 사용됩니다. 이 UDF의 작동 방식에 대한 예를 살펴보겠습니다.
 
 학생의 이름 및 성 가져오기
 
-	SELECT 
-	  GET_JSON_OBJECT(StudentsOneLine.json_body,'$.StudentDetails.FirstName'), 
-	  GET_JSON_OBJECT(StudentsOneLine.json_body,'$.StudentDetails.LastName') 
+	SELECT
+	  GET_JSON_OBJECT(StudentsOneLine.json_body,'$.StudentDetails.FirstName'),
+	  GET_JSON_OBJECT(StudentsOneLine.json_body,'$.StudentDetails.LastName')
 	FROM StudentsOneLine;
 
 이 쿼리를 콘솔 창에서 실행할 경우의 출력은 다음과 같습니다.
@@ -128,7 +128,7 @@ get-json\_object UDF에는 몇 가지 제한 사항이 있습니다.
 
 Hive에서 제공하는 다른 UDF는 [get\_ json \_object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object)보다 성능이 뛰어난 [json\_tuple](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-json_tuple)입니다. 이 메서드는 키 집합 및 JSON 문자열을 사용하며, 하나의 함수를 통해 값의 튜플을 반환합니다. 다음 쿼리는 JSON 문서에서 학생 ID와 등급을 반환합니다.
 
-    SELECT q1.StudentId, q1.Grade 
+    SELECT q1.StudentId, q1.Grade
       FROM StudentsOneLine jt
       LATERAL VIEW JSON_TUPLE(jt.json_body, 'StudentId', 'Grade') q1
         AS StudentId, Grade;
@@ -148,7 +148,7 @@ SerDe는 중첩된 JSON 문서에 가장 적합한 구문 분석으로, JSON 스
 
 1. [Java SE Development Kit 7u55 JDK 1.7.0\_55](http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase7-521261.html#jdk-7u55-oth-JPR)를 설치합니다. HDInsight의 Windows 배포를 사용하려면 Windows X64 버전 JDK를 선택합니다.
 
-	>[AZURE.WARNING]JDK 1.8은 이 SerDe에서 작동하지 않습니다.
+	>[AZURE.WARNING] JDK 1.8은 이 SerDe에서 작동하지 않습니다.
 
 	설치 완료 후 새 사용자 환경 변수를 추가합니다.
 
@@ -171,7 +171,7 @@ SerDe는 중첩된 JSON 문서에 가장 적합한 구문 분석으로, JSON 스
 4: 이 패키지를 다운로드한 폴더로 이동하여 "mvn package"를 입력합니다. 클러스터에 복사할 수 있는 필수 jar 파일이 만들어집니다.
 
 5: 패키지를 다운로드한 루트 폴더 아래의 대상 폴더로 이동합니다. 클러스터의 헤드 노드에 json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar 파일을 업로드합니다. 일반적으로 C:\\apps\\dist\\hive-0.13.0.2.1.11.0-2316\\bin과 유사한 하이브 이진 파일 폴더에 둡니다.
- 
+
 6: Hive 프롬프트에서 “add jar /path/to/json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar”을 입력합니다. 이 예제에서는 jar이 C:\\apps\\dist\\hive-0.13.x\\bin 폴더에 있으므로 아래 표시된 이름으로 jar을 직접 추가할 수 있습니다.
 
     add jar json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar;
@@ -184,7 +184,7 @@ SerDe는 중첩된 JSON 문서에 가장 적합한 구문 분석으로, JSON 스
 
     DROP TABLE json_table;
     CREATE EXTERNAL TABLE json_table (
-      StudentId string, 
+      StudentId string,
       Grade int,
       StudentDetails array<struct<
           FirstName:string,
@@ -216,7 +216,7 @@ JSON 문서의 성적 합계를 계산하려면
     SELECT SUM(scores)
     FROM json_table jt
       lateral view explode(jt.StudentClassCollection.Score) collection as scores;
-       
+
 위 쿼리에서는 성적의 합계를 구할 수 있도록 [lateral view explode](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) UDF를 사용하여 성적 배열을 확장합니다.
 
 하이브 콘솔의 출력은 다음과 같습니다.
@@ -224,7 +224,7 @@ JSON 문서의 성적 합계를 계산하려면
 ![SerDe 쿼리 2][image-hdi-hivejson-serde_query2]
 
 지정된 학생의 성적이 80점을 넘는 과목을 찾으려면 SELECT jt.StudentClassCollection.ClassId FROM json\_table jt lateral view explode(jt.StudentClassCollection.Score) collection as score where score > 80;
-      
+
 위 쿼리는 문자열을 반환하는 get\_json\_object와 달리 하이브 배열을 반환합니다.
 
 ![SerDe 쿼리 3][image-hdi-hivejson-serde_query3]
@@ -244,7 +244,7 @@ JSON 문서의 성적 합계를 계산하려면
 - [샘플 Apache log4j 파일 분석을 위해 HDInsight에서 Hadoop과 함께 Hive 및 HiveQL 사용](hdinsight-use-hive.md)
 - [HDInsight의 Hive를 사용하여 비행 지연 데이터 분석](hdinsight-analyze-flight-delay-data.md)
 - [HDInsight에서 Hive를 사용하여 Twitter 데이터 분석](hdinsight-analyze-twitter-data.md)
-- [DocumentDB 및 HDInsight를 사용해서 Hadoop 실행](documentdb-run-hadoop-with-hdinsight.md)
+- [DocumentDB 및 HDInsight를 사용해서 Hadoop 실행](../documentdb/documentdb-run-hadoop-with-hdinsight.md)
 
 [hdinsight-python]: hdinsight-python.md
 
@@ -259,6 +259,5 @@ JSON 문서의 성적 합계를 계산하려면
 [image-hdi-hivejson-serde_query2]: ./media/hdinsight-using-json-in-hive/serde_query2.png
 [image-hdi-hivejson-serde_query3]: ./media/hdinsight-using-json-in-hive/serde_query3.png
 [image-hdi-hivejson-serde_result]: ./media/hdinsight-using-json-in-hive/serde_result.png
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0413_2016-->

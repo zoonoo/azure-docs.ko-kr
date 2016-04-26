@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="03/28/2016"
+ms.date="04/07/2016"
 ms.author="larryfr"/>
 
 #Windows 기반 HDInsight 클러스터에서 Linux 기반 클러스터로 마이그레이션
@@ -21,6 +21,8 @@ ms.author="larryfr"/>
 Windows 기반 HDInsight는 클라우드에서 Hadoop을 간편하게 사용하는 방법을 제공하지만 솔루션에 필요한 도구와 기술을 이용하기 위해서는 Linux 기반 클러스터가 필요합니다. Hadoop 에코시스템 내의 많은 개체가 Linux 기반 시스템에서 개발되며 일부는 Windows 기반 HDInsight에서 사용하지 못할 수도 있습니다. 또한 많은 책, 동영상 및 기타 교육 자료에서 Hadoop 작업 시 Linux 시스템을 사용한다고 가정합니다.
 
 이 문서는 Windows와 Linux에서의 HDInsight 차이점과 기존 작업에서 Linux 기반 클러스터로 마이그레이션하는 방법에 대한 세부 정보를 제공합니다.
+
+> [AZURE.NOTE] Ubuntu 12.04.05 LTS는 Linux 기반 HDInsight 클러스터에 사용되는 Linux 배포판입니다.
 
 ## 마이그레이션 작업
 
@@ -252,4 +254,4 @@ Azure Data Factory 사용자 지정 .NET 작업은 현재 Linux 기반 HDInsight
 
 -   [Ambari를 사용하여 Linux 기반 클러스터 관리](hdinsight-hadoop-manage-ambari.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

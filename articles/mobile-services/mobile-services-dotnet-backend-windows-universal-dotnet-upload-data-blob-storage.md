@@ -8,13 +8,13 @@
 	editor=""/>
 
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="12/01/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-store"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="12/01/2015"
 	ms.author="glenga"/>
 
 # 모바일 서비스를 사용하여 Azure 저장소에 이미지 업로드
@@ -38,7 +38,7 @@
 이 자습서를 사용하려면 다음이 필요합니다.
 
 + Microsoft Visual Studio 2013 Update 3 이상 버전
-+ [Azure 저장소 계정](../storage-create-storage-account.md)
++ [Azure 저장소 계정](../storage/storage-create-storage-account.md)
 + 컴퓨터에 연결되는 카메라 또는 기타 이미지 캡처 장치
 
 이 자습서는 모바일 서비스 quickstart를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작하기]를 완료해야 합니다.
@@ -51,11 +51,11 @@
 
 이제 모바일 서비스를 Blob 서비스와 통합하여 이미지를 안전하게 업로드할 수 있게 되었으므로 몇 가지 기타 백엔드 서비스 및 통합 항목을 확인해보십시오.
 
-+ [모바일 서비스에서 백 엔드 작업 예약](../mobile-services-dotnet-backend-schedule-recurring-tasks.md)
++ [모바일 서비스에서 백 엔드 작업 예약](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
 
      모바일 서비스 작업 스케줄러 기능을 사용하여, 예약된 시간에 실행되는 서버 스크립트 코드를 정의하는 방법에 대해 알아보십시오.
 
-+ [모바일 서비스 .NET 방법 개념 참조](../mobile-services-windows-dotnet-how-to-use-client-library.md)
++ [모바일 서비스 .NET 방법 개념 참조](mobile-services-dotnet-how-to-use-client-library.md)
 
      모바일 서비스를 .NET과 함께 사용하는 방법에 대해 알아보십시오.
 
@@ -71,8 +71,8 @@
 <!-- Images. -->
 
 <!-- URLs. -->
-[모바일 서비스 시작하기]: ../mobile-services-windows-store-dotnet-get-started.md
-[How To Create a Storage Account]: ../storage-create-storage-account.md
+[모바일 서비스 시작하기]: mobile-services-windows-store-dotnet-get-started.md
+[How To Create a Storage Account]: ../storage/storage-create-storage-account.md
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0413_2016-->

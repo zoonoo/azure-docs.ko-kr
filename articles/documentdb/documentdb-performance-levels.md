@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2016" 
+	ms.date="04/08/2016" 
 	ms.author="johnmac"/>
 
 # DocumentDB의 성능 수준
@@ -97,9 +97,9 @@ DocumentDB 컬렉션을 사용하면 응용 프로그램의 쿼리 패턴 및 �
 
 ## Azure 포털을 사용하여 성능 수준 변경
 
-Azure 포털은 컬렉션의 성능 수준을 관리할 때 사용할 수 있는 한 가지 옵션입니다. Azure 클래식 포털에서 컬렉션의 성능 수준을 변경하려면 이 단계를 수행합니다.
+Azure 포털은 컬렉션의 성능 수준을 관리할 때 사용할 수 있는 한 가지 옵션입니다. 다음 단계에 따라 미리 정의된 성능 수준을 Azure 포털에서 사용자가 정의한 성능 수준으로 변경하거나 75초 분량의 [채널 9 비디오](https://channel9.msdn.com/Blogs/AzureDocumentDB/ChangeDocumentDBCollectionPerformance)를 시청하세요. 가격 책정 옵션 변경에 대한 자세한 내용은 블로그 게시물 [DocumentDB: 새 가격 책정 옵션 사용에 대해 알아야 하는 모든 항목](https://azure.microsoft.com/blog/documentdb-use-the-new-pricing-options-on-your-existing-collections/)(영문)을 참조하세요.
 
-1. 브라우저에서 [**Microsoft Azure 포털**](https://portal.azure.com)로 이동합니다.
+1. 브라우저에서 [**Azure 포털**](https://portal.azure.com)로 이동합니다.
 2. 왼쪽에 있는 점프 모음에서 **찾아보기**를 클릭합니다.
 3. **찾아보기** 허브의 **필터 기준** 레이블에서 **DocumentDB 계정**를 클릭합니다.
 4. **DocumentDB 계정** 블레이드에서 원하는 컬렉션을 포함하는 DocumentDB 계정을 클릭합니다.
@@ -176,4 +176,4 @@ DocumentDB에 대해 자세히 알아보려면 Azure DocumentDB [설명서](http
 [1]: ./media/documentdb-performance-levels/documentdb-change-collection-performance7-9.png
 [2]: ./media/documentdb-performance-levels/documentdb-change-collection-performance10-11.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

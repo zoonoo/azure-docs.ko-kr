@@ -104,8 +104,8 @@ DNS를 구성했다고 가정하면 연결 문자열에 SQL Server VM 호스트 
 
 고가용성 및 재해 복구를 위해 AlwaysOn 가용성 그룹도 사용하려는 경우 수신기의 구현을 고려해야 합니다. 데이터베이스 클라이언트는 SQL Server 인스턴스 중 하나에 직접 연결하기 보다는 수신기에 연결합니다. 수신기는 가용성 그룹의 주 복제본에 클라이언트를 라우팅합니다. 자세한 내용은 [Azure에서 AlwaysOn 가용성 그룹에 대한 ILB 수신기 구성](virtual-machines-windows-classic-ps-sql-int-listener.md)을 참조하세요.
 
-Azure 가상 컴퓨터에서 실행되는 SQL Server에 대한 모든 보안 모범 사례를 반드시 검토해야 합니다. 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server에 대한 보안 고려 사항](virtual-machines-windows-classic-sql-security.md)을 참조하세요.
+Azure 가상 컴퓨터에서 실행되는 SQL Server에 대한 모든 보안 모범 사례를 반드시 검토해야 합니다. 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server에 대한 보안 고려 사항](virtual-machines-windows-sql-security.md)을 참조하세요.
 
-Azure VM에서의 SQL Server 실행에 관한 다른 항목은 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-windows-classic-sql-overview.md)를 참조하세요.
+Azure VM에서의 SQL Server 실행에 관한 다른 항목은 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

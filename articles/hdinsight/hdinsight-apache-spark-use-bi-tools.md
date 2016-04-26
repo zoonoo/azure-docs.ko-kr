@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/21/2016" 
+	ms.date="04/08/2016" 
 	ms.author="nitinme"/>
 
 
@@ -58,7 +58,7 @@ Azure HDInsight에서 Apache Spark를 사용하여 다음을 수행하는 방법
 
 	![노트북에 대한 이름 제공](./media/hdinsight-apache-spark-use-bi-tools/hdispark.note.jupyter.notebook.name.png "노트북에 대한 이름 제공")
 
-4. PySpark 커널을 사용하여 노트북을 만들었기 때문에 컨텍스트를 명시적으로 만들 필요가 없습니다. 첫 번째 코드 셀을 실행하면 Spark, SQL 및 Hive 컨텍스트가 자동으로 만들어집니다. 이 시나리오에 필요한 형식을 가져와 시작할 수 있습니다. 그렇게 하려면 셀에 커서를 놓고 **Shift + Enter**를 누릅니다.
+4. PySpark 커널을 사용하여 노트북을 만들었기 때문에 컨텍스트를 명시적으로 만들 필요가 없습니다. 첫 번째 코드 셀을 실행하면 Spark 및 Hive 컨텍스트가 자동으로 만들어집니다. 이 시나리오에 필요한 형식을 가져와 시작할 수 있습니다. 그렇게 하려면 셀에 커서를 놓고 **Shift + Enter**를 누릅니다.
 
 		from pyspark.sql import *
 		
@@ -84,27 +84,27 @@ Azure HDInsight에서 Apache Spark를 사용하여 다음을 수행하는 방법
 		dfw = DataFrameWriter(hvacTable)
 		dfw.saveAsTable('hvac')
 
-5. 테이블이 성공적으로 만들어졌는지 확인합니다. `%%hive` magic을 사용하여 Hive 쿼리를 직접 실행할 수 있습니다. `%%hive` magic 및 기타 PySpark 커널에서 사용 가능한 magic에 대한 자세한 내용은 [Spark HDInsight 클러스터와 함께 Jupyter 노트북에서 사용 가능한 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels)을 참조하세요.
+5. 테이블이 성공적으로 만들어졌는지 확인합니다. `%%sql` magic을 사용하여 Hive 쿼리를 직접 실행할 수 있습니다. `%%sql` magic 및 기타 PySpark 커널에서 사용 가능한 매직에 대한 자세한 내용은 [Spark HDInsight 클러스터와 함께 Jupyter Notebook에서 사용 가능한 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels)을 참조하세요.
 
-		%%hive
+		%%sql
 		SHOW TABLES
 
 	다음과 유사한 결과가 표시됩니다.
 
-		+---------------+-----------+
-		|      tableName|isTemporary|
-		+---------------+-----------+
-		|  hvactemptable|       true|
-		|hivesampletable|      false|
-		|           hvac|      false|
-		+---------------+-----------+
+		+-----------+---------------+
+		|isTemporary|tableName		| 
+		+-----------+---------------+
+		|       true|hvactemptable  |
+		|      false|hivesampletable|
+		|      false|hvac			|
+		+-----------+---------------+
 
 
 	**isTemporary** 열 아래 false를 포함하는 테이블만 Metastore에 저장되는 하이브 테이블이며, BI 도구에서 액세스 가능합니다. 이 자습서에서는 방금 만든 **hvac** 테이블에 연결합니다.
 
 6. 테이블에 원하는 데이터가 들어 있는지 확인합니다. Notebook의 빈 셀에서 다음 코드 조각을 복사하고 **Shift + Enter**를 누릅니다.
 
-		%%hive
+		%%sql
 		SELECT * FROM hvac LIMIT 10
 	
 7. 이제 Notebook을 종료하여 리소스를 해제할 수 있습니다. 이렇게 하기 위해 Notebook의 **파일** 메뉴에서 **Close and Halt**를 클릭합니다. 그러면 Notebook이 종료되고 닫힙니다.
@@ -231,4 +231,4 @@ Azure HDInsight에서 Apache Spark를 사용하여 다음을 수행하는 방법
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

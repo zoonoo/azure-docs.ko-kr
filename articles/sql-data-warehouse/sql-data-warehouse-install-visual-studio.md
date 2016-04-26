@@ -3,7 +3,7 @@
    description="Azure SQL 데이터 웨어하우스용 Visual Studio 및/또는 SSDT 개발 도구 설치"
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="twounder"
+   authors="sonyam"
    manager="barbkess"
    editor=""/>
 
@@ -13,12 +13,12 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
-   ms.author="mausher;barbkess;sonyama"/>
+   ms.date="04/20/2016"
+   ms.author="sonyama;barbkess"/>
 
 # SQL 데이터 웨어하우스용 Visual Studio 2015 및/또는 SSDT 설치
 
-SQL 데이터 웨어하우스용 응용 프로그램을 개발하려면 Visual Studio 2013 또는 최신 버전과 함께 최신 버전의 SSDT(SQL Server 데이터 도구)를 사용하는 것이 좋습니다.
+SQL 데이터 웨어하우스용 응용 프로그램을 개발하려면 최신 버전의 SSDT(SQL Server 데이터 도구)와 함께 Visual Studio 2015를 사용하는 것이 좋습니다. SSDT와 함께 Visual Studio 2013도 지원됩니다.
 
 Visual Studio IDE(통합 개발 환경)에서 쿼리를 실행하려면 SSDT만 설치하면 됩니다. 그러면 Visual Studio IDE와 함께 SSDT가 설치되며 SQL Server 개체 탐색기를 사용하여 Azure SQL 서버에 연결할 수 있습니다. 그런 다음 SQL 데이터 웨어하우스 데이터베이스를 보고 쿼리를 실행할 수 있습니다.
 
@@ -49,4 +49,4 @@ Visual Studio가 설치되어 있는지 여부와 상관없이 SQL 데이터 웨
 
 <!--Image references-->
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

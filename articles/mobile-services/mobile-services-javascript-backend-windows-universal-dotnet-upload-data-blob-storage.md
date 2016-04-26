@@ -1,26 +1,26 @@
-<properties 
-	pageTitle="범용 Windows 앱에서 Azure Blob 저장소에 이미지 업로드 | Microsoft Azure" 
-	description="JavaScript 백엔드 모바일 서비스를 사용하여 Azure Blob 저장소에 이미지를 업로드하고 범용 Windows 앱에서 이미지에 액세스하는 방법에 대해 알아보기" 
-	services="mobile-services,storage" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="범용 Windows 앱에서 Azure Blob 저장소에 이미지 업로드 | Microsoft Azure"
+	description="JavaScript 백엔드 모바일 서비스를 사용하여 Azure Blob 저장소에 이미지를 업로드하고 범용 Windows 앱에서 이미지에 액세스하는 방법에 대해 알아보기"
+	services="mobile-services,storage"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="11/16/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-store"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="11/16/2015"
 	ms.author="glenga"/>
 
 # 모바일 서비스를 사용하여 Azure Blob 저장소에 이미지 업로드
 
 [AZURE.INCLUDE [mobile-services-selector-upload-data-blob-storage](../../includes/mobile-services-selector-upload-data-blob-storage.md)]
 
-##개요 
+##개요
 
 이 항목에서는 Azure 모바일 서비스를 사용하여, 사용자가 만든 이미지를 앱에서 Azure 저장소에 업로드하고 저장하는 방법에 대해 설명합니다. 모바일 서비스에서는 SQL 데이터베이스를 사용하여 데이터를 저장합니다. 그러나 Azure Blob 저장소 서비스에는 Blob(Binary Large Object) 데이터를 저장하는 것이 좀 더 효율적입니다.
 
@@ -33,7 +33,7 @@
 이 자습서를 사용하려면 다음이 필요합니다.
 
 + Microsoft Visual Studio 2013 Update 3 이상 버전
-+ [Azure 저장소 계정](../storage-create-storage-account.md)
++ [Azure 저장소 계정](../storage/storage-create-storage-account.md)
 + 컴퓨터에 연결되는 카메라 또는 기타 이미지 캡처 장치
 
 이 자습서는 모바일 서비스 quickstart를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작하기]를 완료해야 합니다.
@@ -55,12 +55,12 @@
 + [모바일 서비스 서버 스크립트 참조]
 
     서버 스크립트를 사용하여 서버 쪽 작업을 수행하고 기타 Azure 구성 요소 및 외부 리소스와 통합하는 방법을 안내하는 참조 항목입니다.
- 
+
 + [모바일 서비스 .NET 방법 개념 참조]
 
     모바일 서비스를 .NET과 함께 사용하는 방법에 대해 알아보십시오.
-  
- 
+
+
 <!-- Anchors. -->
 [Install the Storage Client library]: #install-storage-client
 [Update the client app to capture images]: #add-select-images
@@ -83,6 +83,5 @@
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866
 [모바일 서비스 .NET 방법 개념 참조]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
- 
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0413_2016-->

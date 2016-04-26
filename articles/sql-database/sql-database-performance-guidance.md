@@ -3,9 +3,9 @@
 	description="이 항목은 응용 프로그램에 적합한 서비스 계층을 결정하는 데 도움이 되는 지침과 Azure SQL 데이터베이스를 최대한 활용할 수 있도록 응용 프로그램을 튜닝하는 방법에 대한 권장 사항을 제공합니다."
 	services="sql-database"
 	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
-	editor="monicar" />
+	authors="carlrabeler"
+	manager="jhubbard"
+	editor="" />
 
 
 <tags
@@ -14,8 +14,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="11/03/2015"
-	ms.author="jroth" />
+	ms.date="04/11/2016"
+	ms.author="carlrab" />
 
 # 단일 데이터베이스의 Azure SQL 데이터베이스 성능 지침
 
@@ -23,7 +23,7 @@
 
 Microsoft Azure SQL 데이터베이스에는 세 가지 [서비스 계층](sql-database-service-tiers.md), 즉, Basic, Standard, Premium이 있습니다. 세 서비스 모두 Azure SQL 데이터베이스에 제공된 리소스를 엄격하게 격리하여 예측 가능한 성능을 보장합니다. 데이터베이스에 보장되는 처리량은 Basic, Standard, Premium 순서로 점점 많아집니다.
 
->[AZURE.NOTE] Business 및 Web 서비스 계층은 2015년 9월에 사용 중지됩니다. 자세한 내용은 [Web 및 Business 버전 지원 종료 FAQ](https://msdn.microsoft.com/library/azure/dn741330.aspx)를 참조하세요. 기존 Web 및 Business 데이터베이스를 새 서비스 계층으로 업그레이드에 대한 자세한 내용은 [새 서비스 계층으로 SQL 데이터베이스 Web/Business 데이터베이스 업그레이드](sql-database-upgrade-new-service-tiers.md)를 참조하세요.
+>[AZURE.NOTE] Business 및 Web 서비스 계층은 2015년 9월에 사용 중지됩니다. 자세한 내용은 [Web 및 Business 버전 지원 종료 FAQ](https://msdn.microsoft.com/library/azure/dn741330.aspx)를 참조하세요. 기존 Web 및 Business 데이터베이스를 새 서비스 계층으로 업그레이드에 대한 자세한 내용은 [새 서비스 계층으로 SQL 데이터베이스 Web/Business 데이터베이스 업그레이드](sql-database-upgrade-server-portal.md)를 참조하세요.
 
 이 문서는 응용 프로그램에 적합한 서비스 계층을 결정하는 데 도움이 되는 지침과 Azure SQL 데이터베이스를 최대한 활용할 수 있도록 응용 프로그램을 튜닝하는 방법에 대한 권장 사항을 제공합니다.
 
@@ -324,7 +324,7 @@ OLTP 데이터베이스 성능의 일반적인 문제는 물리적 데이터베�
 
 Azure SQL 데이터베이스에는 데이터베이스 관리자가 누락된 인덱스 조건을 쉽게 찾고 해결할 수 있는 기능이 포함되어 있습니다. Azure SQL 데이터베이스에 통합된 DMV(동적 관리 뷰)는 인덱스로 쿼리 실행의 예상 비용을 크게 줄일 수 있는 쿼리 컴파일을 확인합니다. 쿼리 실행 중에는 DMV가 각 쿼리 계획이 실행된 빈도뿐만 아니라 쿼리 계획 실행과 해당 인덱스가 있을 경우 예상되는 쿼리 실행 간 예상 차이를 추적합니다. 따라서 데이터베이스 관리자는 물리적 데이터베이스 설계를 어떻게 변경해야 특정 데이터베이스와 실제 워크로드의 전반적 워크로드 비용을 개선할 수 있을지 빠르게 추정할 수 있습니다.
 
->[AZURE.NOTE] DMV를 사용하여 누락된 인덱스를 찾기 전에 [쿼리 성능 관련 견해 및 인덱스 관리자](query-performance-insight-and-index-advisor.md)의 섹션을 먼저 검토하세요.
+>[AZURE.NOTE] DMV를 사용하여 누락된 인덱스를 찾기 전에 [쿼리 성능 관련 견해 및 인덱스 관리자](#query-performance-insight-and-index-advisor)의 섹션을 먼저 검토하세요.
 
 다음 쿼리를 사용하여 잠재적 누락 인덱스를 확인할 수 있습니다.
 
@@ -491,4 +491,4 @@ Azure SQL 데이터베이스 내에서 사용되는 확장형 아키텍처에서
 
 Azure SQL 데이터베이스의 서비스 계층을 사용하면 클라우드에 구축할 수 있는 응용 프로그램 유형이 더욱 다양해집니다. 자세한 응용 프로그램 튜닝과 결합하면 응용 프로그램에 강력하고 예측 가능한 성능을 얻을 수 있습니다. 이 문서는 데이터베이스의 리소스 사용을 최적화하여 한 가지 성능 수준에 맞추기 위한 기법을 간단히 설명했습니다. 튜닝은 클라우드 모델에서 지속적으로 활용하는 방식이며, 관리자는 서비스 계층 및 해당 성능 수준에 따라 성능을 극대화하는 동시에 Microsoft Azure 플랫폼에서 비용을 최고화할 수 있습니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

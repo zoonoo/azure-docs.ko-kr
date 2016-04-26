@@ -1,32 +1,32 @@
 <properties
 	pageTitle="SQL 데이터베이스에 대한 탄력적 데이터베이스 풀 | Microsoft Azure"
-	description="사용 가능한 데이터베이스를 여러 데이터베이스에서 공유하는 방법인, 탄력적 데이터베이스 풀을 사용하여 SQL 데이터베이스의 폭발적인 증가에 대처하는 방법을 알아봅니다."
+	description="풀을 사용하여 수백 또는 수천 개의 데이터베이스를 관리합니다. 성능 단위 집합에 대한 하나의 가격을 풀에 분배할 수 있습니다. 데이터베이스를 내/외부로 자유롭게 이동합니다."
 	keywords="탄력적 데이터베이스,SQL 데이터베이스"
 	services="sql-database"
 	documentationCenter=""
 	authors="sidneyh"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="03/24/2016"
+	ms.date="04/04/2016"
 	ms.author="sidneyh"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# 탄력적 데이터베이스 풀을 사용하여 리소스를 공유하여 SQL 데이터베이스의 폭발적인 증가에 대처하기
+# Azure 탄력적 데이터베이스 풀이란?
 
-SaaS 개발자는 수십, 수백 또는 수천 개의 SQL 데이터베이스를 만들고 관리해야 합니다. 탄력적 풀은 사용자가 제어하는 예산 내에서 이러한 데이터베이스 전반의 생성, 유지 관리 및 성능 관리를 간소화합니다. 풀에서 데이터베이스를 추가하거나 뺍니다. [Azure 포털에서 SQL 데이터베이스에 확장성 있는 탄력적 데이터베이스 풀 만들기](sql-database-elastic-pool-create-portal.md), [PowerShell 사용](sql-database-elastic-pool-powershell.md) 또는 [C#](sql-database-elastic-pool-csharp.md)을 참조하세요.
+SaaS 개발자는 수십, 수백 또는 수천 개의 SQL 데이터베이스를 만들고 관리해야 합니다. 탄력적 데이터베이스 풀은 여러 데이터베이스에 걸쳐 만들기, 유지 관리 및 성능 관리를 간소화합니다. 풀에서 데이터베이스를 추가하거나 뺍니다. [Azure 포털에서 SQL 데이터베이스에 확장성 있는 탄력적 데이터베이스 풀 만들기](sql-database-elastic-pool-create-portal.md), [PowerShell 사용](sql-database-elastic-pool-create-powershell.md) 또는 [C#](sql-database-elastic-pool-csharp.md)을 참조하세요.
 
 API 및 오류 세부 정보는 [탄력적 데이터베이스 풀 참조](sql-database-elastic-pool-reference.md)를 참조하세요.
 
 ## 작동 방법
 
-일반적인 SaaS 응용 프로그램 패턴은 데이터베이스를 제공 받을 각 고객을 위한 것입니다. 각 고객(데이터베이스)에는 메모리, IO 및 CPU에 대한 예측할 수 없는 리소스 요구 사항이 있습니다. 이러한 요구의 최대치와 최저치를 사용하여 리소스를 할당하는 방법은 무엇입니까? 일반적으로 두 가지 옵션, 즉 최대 사용량에 따른 리소스 오버프로비저닝과 과다 지불 또는 최대 사용 기간 동안 성능 및 고객 만족은 저하되지만 비용을 절감하는 언더프로비저닝이 있었습니다. 탄력적 데이터베이스 풀을 사용하면 데이터베이스에서 필요한 성능 리소스를 필요할 때 얻을 수 있도록 하여 문제를 해결하며, 동시에 예측 가능한 예산 내에서 간단한 리소스 할당 메커니즘을 제공합니다.
+일반적인 SaaS 응용 프로그램 패턴은 단일 테넌트 데이터베이스 모델이므로 각 고객에게 데이터베이스가 제공됩니다. 각 고객(데이터베이스)에는 메모리, IO 및 CPU에 대한 예측할 수 없는 리소스 요구 사항이 있습니다. 이러한 요구의 최대치와 최저치를 사용하여 리소스를 할당하는 방법은 무엇입니까? 일반적으로 두 가지 옵션, 즉 (1) 최대 사용량에 따른 리소스 오버프로비전과 과다 지불 또는 (2) 최대 사용 기간 동안 성능 및 고객 만족은 저하되지만 비용을 절감하는 언더프로비전이 있었습니다. 탄력적 데이터베이스 풀을 사용하면 데이터베이스에서 필요한 성능 리소스를 필요할 때 얻을 수 있도록 하여 문제를 해결하며, 동시에 예측 가능한 예산 내에서 간단한 리소스 할당 메커니즘을 제공합니다.
 
 > [AZURE.VIDEO elastic-databases-helps-saas-developers-tame-explosive-growth]
 
@@ -48,6 +48,23 @@ SQL 데이터베이스에서 리소스 수요를 처리하는 데이터베이스
 
 
 > [AZURE.NOTE] 탄력적 데이터베이스 풀은 현재 미리 보기 상태이며, SQL 데이터베이스 V12 서버에서만 사용할 수 있습니다.
+
+## 탄력적 데이터베이스 풀 속성
+탄력적 풀 및 탄력적 데이터베이스에 대한 제한
+
+| 속성 | 설명 |
+| :-- | :-- |
+| 서비스 계층 | Basic, Standard 또는 Premium. 서비스 계층에 따라 구성 가능한 성능 및 저장소 제한 범위와 비즈니스 연속성 선택 항목이 결정됩니다. 풀 내의 모든 데이터베이스는 풀과 동일한 서비스 계층을 가집니다. "서비스 계층"을 "에디션"이라고도 합니다.|
+| 풀당 eDtu | 풀의 데이터베이스에서 공유할 수 있는 최대 eDTU 수입니다. 풀의 데이터베이스에서 사용하는 총 eDTU는 동일한 시점에 이 한도를 초과할 수 없습니다. |
+| 풀당 저장소 | 풀의 데이터베이스에서 공유할 수 있는 최대 저장소 공간입니다. 풀의 모든 데이터베이스에서 사용하는 총 저장소는 이 한도를 초과할 수 없습니다. 이 한도는 풀당 eDTU에 따라 결정됩니다. 이 한도를 초과하면 모든 데이터베이스가 읽기 전용이 됩니다. |
+| 데이터베이스당 최대 eDTU | 풀의 데이터베이스에서 사용할 수 있으며 풀의 모든 데이터베이스에 적용되는 최대 eDTU 수입니다. 데이터베이스당 최대 eDTU는 리소스를 보장하지 않습니다. |
+| 데이터베이스당 최소 eDTU | 풀의 데이터베이스에 보장되며 풀의 모든 데이터베이스에 적용되는 최소 eDTU 수입니다. 데이터베이스당 최소 eDTU는 0으로 설정될 수 있습니다. 풀에 있는 데이터베이스 수와 데이터베이스당 최소 eDTU를 곱한 값은 풀당 eDTU를 초과할 수 없습니다. |
+
+
+## 탄력적 풀 및 탄력적 데이터베이스에 대한 eDTU 및 저장소 제한
+
+
+[AZURE.INCLUDE [탄력적 데이터베이스에 대한 SQL DB 서비스 계층 표](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
 ## 탄력적 데이터베이스 작업
 
@@ -86,4 +103,4 @@ SQL 데이터베이스에서 리소스 수요를 처리하는 데이터베이스
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

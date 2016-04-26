@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/15/2016"
+   ms.date="04/12/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: 버전 릴리스 내역
@@ -27,6 +27,14 @@ Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect�
 - Azure AD Connect 릴리스를 [이전 버전에서 최신 버전으로 업그레이드](active-directory-aadconnect-upgrade-previous-version.md)하는 다른 방법입니다.
 - 업데이트를 적용하는 데 필요한 사용 권한은 [계정 및 사용 권한](active-directory-aadconnect-accounts-permissions.md#upgrade)을 참조하세요.
 - [Azure AD Connect 다운로드](http://go.microsoft.com/fwlink/?LinkId=615771)
+
+## 1\.1.130.0
+릴리스 날짜: 2016년 4월
+
+**새로운 기능:**
+
+- 다중 값 특성에 대한 지원이 [디렉터리 확장](active-directory-aadconnectsync-feature-directory-extensions.md)에 추가되었습니다.
+- 업그레이드 가능한 것으로 간주되는 [자동 업그레이드](active-directory-aadconnect-feature-automatic-upgrade.md)에 대한 추가 구성 변형에 대한 지원이 추가되었습니다.
 
 ## 1\.1.119.0
 출시 날짜: 2016년 3월
@@ -257,4 +265,4 @@ AD로부터 암호 해시를 읽을 수 있으려면 AD 계정에 추가 권한�
 ## 다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0413_2016-->

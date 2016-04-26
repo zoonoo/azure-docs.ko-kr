@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/26/2016"
+   ms.date="04/18/2016"
    ms.author="seanmck"/>
 
 # 개발 환경 준비
@@ -27,6 +27,8 @@
 - Windows 8/Windows 8.1
 - Windows Server 2012 R2
 - Windows 10
+
+>[AZURE.NOTE] Windows 7은 기본적으로 Windows PowerShell 2.0만을 포함합니다. 서비스 패브릭 PowerShell cmdlet을 사용하려면 PowerShell 3.0 이상을 설치해야 합니다. Microsoft 다운로드 센터에서 [Windows PowerShell 5.0을 다운로드][powershell5-download]할 수 있습니다.
 
 ## 런타임, SDK 및 도구 설치
 
@@ -60,5 +62,6 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 [full-bundle-vs2015]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015 "VS 2015 WebPI 링크"
 [full-bundle-dev15]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Dev15 WebPI 링크"
 [core-sdk]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=ServiceFabricSDK "핵심 SDK WebPI 링크"
+[powershell5-download]: https://www.microsoft.com/ko-KR/download/details.aspx?id=50395
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

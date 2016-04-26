@@ -49,14 +49,8 @@ Azure PowerShell을 설치하기 위한 두 가지 주요 옵션이 있습니다
 		Install-Module AzureRM
 		Install-AzureRM
 		
-		# Install the Azure Service Management module from PowerShell Gallery
-		Install-Module Azure
-		
 		# Import AzureRM modules for the given version manifest in the AzureRM module
 		Import-AzureRM
-		
-		# Import Azure Service Management module
-		Import-Module Azure
 
 	자세한 내용은 [PowerShell 갤러리](https://www.powershellgallery.com/)를 참조하세요.
 
@@ -255,4 +249,4 @@ ARM 모드에서 각 HDInsight 클러스터는 Azure 리소스 그룹에 속합�
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

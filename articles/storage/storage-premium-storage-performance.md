@@ -276,7 +276,7 @@ Linux에서 MDADM 유틸리티를 사용하여 디스크를 함께 스트라이�
 예를 들어 응용 프로그램에 의해 생성된 IO 요청이 디스크 스트라이프 크기보다 큰 경우 저장소 시스템은 둘 이상의 디스크에 스트라이프 단위 경계를 넘어 작성합니다. 해당 데이터에 액세스할 때 요청을 완료하려면 둘 이상의 스트라이프 단위 간을 검색해야 합니다. 이러한 동작의 누적 된 효과로 성능이 상당히 저하될 수 있습니다. 반면에 IO 요청 크기가 스트라이프 크기보다 작고 기본적으로 임의일 경우 IO 요청은 병목 상태가 발생하고 궁극적으로 IO 성능이 저하되는 동일한 디스크에 추가할 수 있습니다.
 
 
-응용 프로그램이 실행하는 작업의 유형에 따라 적절한 스트라이프 크기를 선택합니다. 작은 임의 IO 요청의 경우 더 작은 스트라이프 크기를 사용합니다. 반면 큰 순차 IO 요청의 경우 더 큰 스트라이프 크기를 사용합니다. 프리미엄 저장소에서 실행되는 응용 프로그램에 대한 스트라이프 크기 권장 사항에 대해 알아봅니다. SQL Server의 경우 OLTP 작업에 대해 64KB의 스트라이프 크기, 데이터 웨어하우징 작업에 대해 256KB의 스트라이프 크기를 구성합니다. 자세한 내용은 [Azure VM의 SQL Server에 대한 성능 모범 사례](../virtual-machines/virtual-machines-windows-classic-sql-perf.md#disks-and-performance-considerations)를 참조하세요.
+응용 프로그램이 실행하는 작업의 유형에 따라 적절한 스트라이프 크기를 선택합니다. 작은 임의 IO 요청의 경우 더 작은 스트라이프 크기를 사용합니다. 반면 큰 순차 IO 요청의 경우 더 큰 스트라이프 크기를 사용합니다. 프리미엄 저장소에서 실행되는 응용 프로그램에 대한 스트라이프 크기 권장 사항에 대해 알아봅니다. SQL Server의 경우 OLTP 작업에 대해 64KB의 스트라이프 크기, 데이터 웨어하우징 작업에 대해 256KB의 스트라이프 크기를 구성합니다. 자세한 내용은 [Azure VM의 SQL Server에 대한 성능 모범 사례](../virtual-machines/virtual-machines-windows-sql-performance.md#disks-and-performance-considerations)를 참조하세요.
 
 
 >**참고:** DS 시리즈 VM에 최대 32개의 프리미엄 저장소 디스크를 GS 시리즈 VM에 64개의 프리미엄 저장소 디스크를 함께 스트라이프할 수 있습니다.
@@ -309,11 +309,13 @@ SQL Server에 [병렬 처리의 정도](https://technet.microsoft.com/library/ms
 
 예를 들어 SQL Server에서 쿼리에 대한 MAXDOP 값을 "4"로 설정하면 SQL Server에 쿼리를 실행하는데 최대 4개의 코어를 사용할 수 있음을 알립니다. SQL Server는 쿼리 실행에 대한 최적의 큐 크기 값 및 코어 수를 결정합니다.
 
-*최적의 큐 크기* 매우 높은 큐 크기 값 또한 단점이 있습니다. 큐 크기 값이 너무 높으면 응용 프로그램은 매우 높은 IOPS를 구동하려고 합니다. 응용 프로그램에 프로비전된 충분한 IOPS의 영구 디스크가 있지 않는 한 응용 프로그램 대기 시간이 늘어날 수 있습니다. 다음 수식은 IOPS, 대기 시간 및 큐 크기 간의 관계를 보여 줍니다. ![](media/storage-premium-storage-performance/image6.png)
+*최적의 큐 크기* 매우 높은 큐 크기 값 또한 단점이 있습니다. 큐 크기 값이 너무 높으면 응용 프로그램은 매우 높은 IOPS를 구동하려고 합니다. 응용 프로그램에 프로비전된 충분한 IOPS의 영구 디스크가 있지 않는 한 응용 프로그램 대기 시간이 늘어날 수 있습니다. 다음 수식은 IOPS, 대기 시간 및 큐 크기 간의 관계를 보여 줍니다.
+![](media/storage-premium-storage-performance/image6.png)
 
 큐 크기를 대기 시간에 영향을 주지 않고 응용 프로그램에 충분한 IOPS를 제공할 수 있는 최적의 값이 아닌 높은 값을 구성해서는 안됩니다. 예를 들어 응용 프로그램 대기 시간에 1밀리초가 필요한 경우 5,000개의 IOPS를 달성하기 위해 필요한 큐 크기는 QD = 5000 x 0.001 = 5입니다.
 
-*스트라이프 볼륨에 대한 큐 크기* 그러한 충분한 큐 크기를 유지하는 스트라이프 볼륨의 경우 모든 디스크는 개별적으로 최대 큐 크기를 가집니다. 예를 들어 2의 큐 크기를 푸시하는 응용 프로그램과 스트라이프에 4개의 디스크가 있다고 가정합니다. 두 개의 IO 요청은 2개의 디스크로 이동하고 나머지 두 디스크는 유휴 상태가 됩니다. 따라서 모든 디스크가 사용 중일 수 있도록 큐 크기를 구성합니다. 다음 수식에서는 스트라이프 볼륨의 큐 크기를 결정하는 방법을 보여 줍니다. ![](media/storage-premium-storage-performance/image7.png)
+*스트라이프 볼륨에 대한 큐 크기* 그러한 충분한 큐 크기를 유지하는 스트라이프 볼륨의 경우 모든 디스크는 개별적으로 최대 큐 크기를 가집니다. 예를 들어 2의 큐 크기를 푸시하는 응용 프로그램과 스트라이프에 4개의 디스크가 있다고 가정합니다. 두 개의 IO 요청은 2개의 디스크로 이동하고 나머지 두 디스크는 유휴 상태가 됩니다. 따라서 모든 디스크가 사용 중일 수 있도록 큐 크기를 구성합니다. 다음 수식에서는 스트라이프 볼륨의 큐 크기를 결정하는 방법을 보여 줍니다.
+![](media/storage-premium-storage-performance/image7.png)
 
 ## 제한  
 Azure 프리미엄 저장소는 선택한 VM 크기 및 디스크 크기에 따라 지정된 IOPS 수 및 처리량을 프로비전합니다. 응용 프로그램이 VM 또는 디스크가 처리할 수 있는 한도를 초과하여 IOPS 또는 처리량을 구동하려 할 때 프리미엄 저장소는 이를 제한합니다. 이는 응용 프로그램에서 성능 저하의 형태로 나타납니다. 이는 더 높은 대기 시간, 더 낮은 처리량 또는 더 낮은 IOPS를 의미할 수 있습니다. 프리미엄 저장소가 제한하지 않는 경우 응용 프로그램은 리소스가 달성할 수 있는 한도를 초과하여 완전히 실패할 수 있습니다. 따라서 제한으로 인한 성능 문제를 방지하려면 항상 응용 프로그램에 대한 충분한 리소스를 프로비전합니다. 위의 VM 크기 및 디스크 크기 섹션에서 설명한 것을 고려합니다. 벤치마킹은 응용 프로그램을 호스팅하는데 필요한 리소스를 찾는데 가장 적합합니다.
@@ -336,7 +338,8 @@ VM에 [Iometer 도구를 다운로드](http://sourceforge.net/projects/iometer/f
 
 *액세스 사양* 요청 IO 크기, % 읽기/쓰기, % 임의/순차 사양은 Iometer의 "액세스 사양" 탭을 사용하여 구성됩니다. 아래에 설명된 각 시나리오에 대한 액세스 사양을 만듭니다. 액세스 사양을 만들고 – RandomWrites\_8K, RandomReads\_8K와 같은 적절한 이름으로 "저장"합니다. 테스트 시나리오를 실행할 때 해당 사양을 선택합니다.
 
-최대 쓰기 IOPS 시나리오에 대한 액세스 사양의 예는 아래와 같습니다. ![](media/storage-premium-storage-performance/image8.png)
+최대 쓰기 IOPS 시나리오에 대한 액세스 사양의 예는 아래와 같습니다.
+![](media/storage-premium-storage-performance/image8.png)
 
 *최대 IOPS 테스트 사양* 최대 IOP를 보여주기 위해 작은 요청 크기를 사용합니다. 8K 요청 크기를 사용하고 임의 쓰기 및 읽기에 대한 사양을 만듭니다.
 
@@ -436,7 +439,8 @@ directory=/mnt/nocache
 
 	sudo fio --runtime 30 fiowrite.ini
 
-테스트가 실행되는 동안 VM 및 프리미엄 디스크가 제공하는 쓰기 IOPS 수를 볼 수 있습니다. 아래 예제처럼 DS14 VM은 50,000 IOPS의 해당 최대 쓰기 IOPS 제한을 제공합니다. ![](media/storage-premium-storage-performance/image11.png)
+테스트가 실행되는 동안 VM 및 프리미엄 디스크가 제공하는 쓰기 IOPS 수를 볼 수 있습니다. 아래 예제처럼 DS14 VM은 50,000 IOPS의 해당 최대 쓰기 IOPS 제한을 제공합니다.
+![](media/storage-premium-storage-performance/image11.png)
 
 *최대 읽기 IOPS* 최대 읽기 IOPS를 얻으려면 다음 사양을 가진 작업 파일을 만듭니다. "fioread.ini"로 이름을 지정합니다.
 
@@ -472,7 +476,8 @@ directory=/mnt/readcache
 
 	sudo fio --runtime 30 fioread.ini
 
-테스트가 실행되는 동안 VM 및 프리미엄 디스크가 제공하는 읽기 IOPS 수를 볼 수 있습니다. 아래 예제처럼 DS14 VM은 64,000 읽기 IOPS보다 많이 제공합니다. 이는 디스크와 캐시 성능의 조합입니다. ![](media/storage-premium-storage-performance/image12.png)
+테스트가 실행되는 동안 VM 및 프리미엄 디스크가 제공하는 읽기 IOPS 수를 볼 수 있습니다. 아래 예제처럼 DS14 VM은 64,000 읽기 IOPS보다 많이 제공합니다. 이는 디스크와 캐시 성능의 조합입니다.
+![](media/storage-premium-storage-performance/image12.png)
 
 *최대 읽기 및 쓰기 IOPS* 결합된 최대 읽기 및 쓰기 IOPS를 얻으려면 다음과 같은 사양의 작업 파일을 만듭니다. "fioreadwrite.ini"로 이름을 지정합니다.
 
@@ -525,7 +530,8 @@ rate_iops=12500
 
 	sudo fio --runtime 30 fioreadwrite.ini
 
-테스트가 실행되는 동안 VM 및 프리미엄 디스크가 제공하는 결합된 읽기 및 쓰기 IOPS 수를 볼 수 있습니다. 아래 예제처럼 DS14 VM은 결합된 읽기 및 쓰기 IOPS를 100,000 보다 많이 제공합니다. 이는 디스크와 캐시 성능의 조합입니다. ![](media/storage-premium-storage-performance/image13.png)
+테스트가 실행되는 동안 VM 및 프리미엄 디스크가 제공하는 결합된 읽기 및 쓰기 IOPS 수를 볼 수 있습니다. 아래 예제처럼 DS14 VM은 결합된 읽기 및 쓰기 IOPS를 100,000 보다 많이 제공합니다. 이는 디스크와 캐시 성능의 조합입니다.
+![](media/storage-premium-storage-performance/image13.png)
 
 *결합된 최대 처리량* 결합된 최대 읽기 및 쓰기 처리량을 얻으려면 읽기 및 쓰기를 수행하는 다중 스레드로 더 큰 블록 크기 및 큰 큐 크기를 사용합니다. 64KB의 블록 크기와 128의 큐 크기를 사용할 수 있습니다.
 
@@ -537,7 +543,7 @@ Azure 프리미엄 저장소에 대한 자세한 정보
 
 SQL Server 사용자의 경우 SQL Server에 대한 성능 모범 사례의 문서를 읽으세요.
 
-- [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](../virtual-machines/virtual-machines-windows-classic-sql-perf.md)
+- [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](../virtual-machines/virtual-machines-windows-sql-performance.md)
 - [Azure 프리미엄 저장소는 Azure VM의 SQL Server에 대해 가장 높은 성능을 제공합니다](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx) 
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

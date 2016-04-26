@@ -4,8 +4,8 @@
    services="sql-database"
    documentationCenter=""
    authors="BYHAM"
-   manager="jeffreyg"
-   editor="jeffreyg"
+   manager="jhubbard"
+   editor=""
    tags=""/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="04/04/2016"
+   ms.date="04/06/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Azure Active Directory 인증을 사용한 SQL Database 연결
@@ -251,6 +251,8 @@ Azure AD 관리자가 제대로 설정되었는지 확인하려면 Azure AD 관�
 페더레이션된 도메인의 Azure Active Directory 자격 증명을 사용하여 Windows에 로그인한 경우 이 방법을 사용합니다.
 
 1. Management Studio를 시작하고, **서버에 연결**(또는 **데이터베이스 엔진 연결**) 대화 상자의 **인증** 상자에서 **Active Directory 통합 인증**을 선택합니다. 연결에 대한 기존 자격 증명이 있으므로 암호 입력이 필요하지 않습니다.
+![AD 통합 인증 선택][11]
+
 2. **옵션** 단추를 클릭하고 **연결 속성** 페이지의 **데이터베이스에 연결** 상자에서 연결하려는 사용자 데이터베이스의 이름을 입력합니다.
 
 #### Active Directory 암호 인증을 사용하여 연결
@@ -262,6 +264,8 @@ Azure와 페더레이션되지 않은 도메인으로부터 자격 증명을 사
 1. Management Studio를 시작하고, **서버에 연결**(또는 **데이터베이스 엔진 연결**) 대화 상자의 **인증** 상자에서 **Active Directory 암호 인증**을 선택합니다.
 2. **사용자 이름** 상자에 **username@domain.com** 형식으로 Azure Active Directory 사용자 이름을 입력합니다. Azure Active Directory의 계정이거나, Azure Active Directory와 페더레이션된 도메인의 계정이어야 합니다.
 3. **암호** 상자에 Azure Active Directory 계정이나 페더레이션된 도메인 계정의 사용자 암호를 입력합니다.
+![AD 암호 인증 선택][12]
+
 4. **옵션** 단추를 클릭하고 **연결 속성** 페이지의 **데이터베이스에 연결** 상자에서 연결하려는 사용자 데이터베이스의 이름을 입력합니다.
 
 
@@ -327,6 +331,7 @@ Azure AD 인증과 관련한 특정 코드 예제는 MSDN의 [SQL Server 보안 
 
 ### 7\.3 Azure AD 토큰에 연결
 이 인증 방법을 사용하면 AAD(Azure Active Directory)에서 토큰을 가져와 Azure SQL 데이터베이스 또는 Azure SQL 데이터 웨어하우스에 연결할 수 있습니다. 이는 인증서 기반 인증을 비롯한 정교한 시나리오를 지원합니다. Azure AD 토큰 인증을 사용하려면 다음 네 가지 기본 단계를 완료해야 합니다.
+
 1. Azure Active Directory에 응용 프로그램을 등록하고 코드에 대한 클라이언트 ID를 가져옵니다. 
 2. 응용 프로그램을 나타내는 데이터베이스 사용자를 만듭니다(이전 6단계에서 완료).
 3. 응용 프로그램을 실행할 클라이언트 컴퓨터에서 인증서를 만듭니다.
@@ -354,5 +359,7 @@ Azure AD 인증과 관련한 특정 코드 예제는 MSDN의 [SQL Server 보안 
 [8]: ./media/sql-database-aad-authentication/8choose-ad.png
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
+[11]: ./media/sql-database-aad-authentication/11connect-using-int-auth.png
+[12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth.png
 
-<!----HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

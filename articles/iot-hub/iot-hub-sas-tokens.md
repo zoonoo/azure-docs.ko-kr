@@ -67,7 +67,7 @@ IoT Hub는 네트워크에서 토큰이 전송되는 것을 피하기 위해 보
 
         // construct autorization string
         var token = "SharedAccessSignature sr=" + resourceUri + "&sig="
-        * base64UriEncoded + "&se=" + expires;
+        + base64UriEncoded + "&se=" + expires;
         if (policyName) token += "&skn="+policyName;
         // console.log("signature:" + token);
         return token;
@@ -181,4 +181,4 @@ device1의 모든 기능에 액세스 권한을 부여하는 결과는 다음과
 [lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -1,4 +1,4 @@
-<properties pageTitle="Run Cassandra with Linux on Azure | Microsoft Azure" description="How to run a Cassandra cluster on Linux in Azure Virtual Machines from a Node.js app" services="virtual-machines-linux" documentationCenter="nodejs" authors="rmcmurray" manager="wpickett" editor="" azure-service-management"/>
+<properties pageTitle="Azure에서 Linux 환경의 Cassandra 실행 | Microsoft Azure" description="Node.js 앱에서 Azure 가상 컴퓨터의 Linux에서 Cassandra 클러스터를 실행하는 방법에 대해 알아봅니다." services="virtual-machines-linux" documentationCenter="nodejs" authors="hanuk" manager="wpickett" editor="" azure-service-management"/>
 
 <tags 
 	ms.service="virtual-machines-linux" 
@@ -6,8 +6,8 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/04/2016" 
-	ms.author="robmcm"/>
+	ms.date="04/12/2016" 
+	ms.author="hanuk;robmcm"/>
 
 # Azure에서 Linux 환경의 Cassandra 실행 및 Node.js에서 Cassandra에 액세스 
 
@@ -457,7 +457,7 @@ VM에 로그인하고 다음을 수행합니다.
 완료된 단일 지역 배포를 활용하며 두 번째 지역 설치를 위해 동일한 프로세스를 반복합니다. 단일 지역 배포와 다중 지역 배포 간의 주요 차이점은 지역 간 통신을 위한 VPN 터널 설정입니다. 네트워크 설치에서 시작하여 VM을 프로비전하고 Cassandra를 구성하겠습니다.
 
 ###1단계: 2번째 지역에 가상 네트워크 만들기
-Azure 클래식 포털에 로그인한 다음 표에 나열된 특성을 사용하여 가상 네트워크를 만듭니다. 프로세스의 자세한 단계는 [Azure 클래식 포털에서 클라우드 전용 가상 네트워크 구성](../virtual-network/virtual-networks-create-vnet.md)을 참조하세요.
+Azure 클래식 포털에 로그인한 다음 표에 나열된 특성을 사용하여 가상 네트워크를 만듭니다. 프로세스의 자세한 단계는 [Azure 클래식 포털에서 클라우드 전용 가상 네트워크 구성](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)을 참조하세요.
 
 <table>
 <tr><th>특성 이름    </th><th>값	</th><th>설명</th></tr>
@@ -697,4 +697,4 @@ Microsoft Azure는 이 연습에서 알 수 있듯이 Microsoft 및 오픈 소�
 - [http://www.datastax.com](http://www.datastax.com) 
 - [http://www.nodejs.org](http://www.nodejs.org) 
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

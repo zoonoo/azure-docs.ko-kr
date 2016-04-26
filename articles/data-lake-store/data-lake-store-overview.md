@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/22/2016"
+   ms.date="04/13/2016"
    ms.author="nitinme"/>
 
 # Azure 데이터 레이크 저장소 개요
@@ -87,4 +87,4 @@ Azure 포털을 사용하여 데이터 레이크 저장소를 프로비전하는
 - [데이터 레이크 저장소와 함께 Azure HDInsight 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [.NET SDK를 사용하여 Azure 데이터 레이크 저장소 시작](data-lake-store-get-started-net-sdk.md)
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

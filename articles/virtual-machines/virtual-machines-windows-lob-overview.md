@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="04/01/2016" 
 	ms.author="josephd"/>
 
 # 고가용성 LOB(기간 업무) 응용 프로그램 배포
@@ -91,6 +91,6 @@ Azure에 대한 IT 워크로드를 디자인하는 방법에 대한 자세한 �
 
 ## 다음 단계
 
-이 작업의 구성을 시작하려면 [1단계: Azure 구성](virtual-machines-windows-ps-lob-ph1.md)으로 진행하세요.
+- [1단계](virtual-machines-windows-ps-lob-ph1.md)를 사용하여 이 워크로드의 구성을 시작합니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -37,7 +37,7 @@ Visual Studio 및 무료로 제공되는 Azure SDK for .NET을 사용하면 Micr
 
 ![][0]
 
-> [AZURE.NOTE]Azure는 저장소 큐 기능도 제공합니다. Azure 저장소 큐 및 서비스 버스 큐에 대한 자세한 내용은 [Azure 큐 및 Azure 서비스 버스 큐 - 비교 및 대조][sbqueuecomparison]를 참조하십시오.
+> [AZURE.NOTE] Azure는 저장소 큐 기능도 제공합니다. Azure 저장소 큐 및 서비스 버스 큐에 대한 자세한 내용은 [Azure 큐 및 Azure 서비스 버스 큐 - 비교 및 대조][sbqueuecomparison]를 참조하십시오.
 
 ## 시나리오 개요: 역할 간 통신
 
@@ -103,7 +103,7 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 다운로�
 
 5.  네임스페이스 이름이 사용 가능한지 확인한 후 해당 네임스페이스를 호스트할 국가 또는 지역을 선택합니다(계산 리소스를 배포할 국가/지역과 같아야 함). 또한 **유형** 필드에서 **메시징**을 선택하고 **메시징 계층** 필드에서 **표준**을 선택해야 합니다.
 
-    > [AZURE.IMPORTANT]응용 프로그램을 배포하도록 선택할 지역과 **같은 지역**을 선택합니다. 그러면 최상의 성능을 얻을 수 있습니다.
+    > [AZURE.IMPORTANT] 응용 프로그램을 배포하도록 선택할 지역과 **같은 지역**을 선택합니다. 그러면 최상의 성능을 얻을 수 있습니다.
 
 6.  확인 확인 표시를 클릭합니다. 이제 시스템이 서비스 네임스페이스를 만들고 사용하도록 설정합니다. 시스템이 계정에 대한 리소스를 프로비전하는 동안 몇 분 정도 기다려야 할 수도 있습니다.
 
@@ -479,7 +479,7 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 다운로�
 
 * [저장소 테이블, 큐 및 Blob을 사용하는 .NET 다중 계층 응용 프로그램][mutitierstorage]  
 
-Azure 클라우드 서비스가 아닌 Azure 웹 사이트에서 다중 계층 응용 프로그램의 프런트 엔드를 구현할 수 있습니다. 웹 사이트와 클라우드 서비스의 차이점에 대한 자세한 내용은 [Azure 실행 모델][executionmodels](영문)을 참조하세요.
+Azure 클라우드 서비스가 아닌 Azure 웹 사이트에서 다중 계층 응용 프로그램의 프런트 엔드를 구현할 수 있습니다.
 
 이 자습서에서 만든 응용 프로그램을 클라우드 서비스 웹 역할이 아닌 표준 웹 프로젝트로 구현하려면 다음 차이점을 고려하여 이 자습서의 단계를 수행하세요.
 
@@ -542,6 +542,6 @@ Azure 웹 사이트에 프런트 엔드를 배포하는 방법에 대한 자세�
   [sbwacom]: /documentation/services/service-bus/
   [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md
   [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
-  [executionmodels]: ../cloud-services/fundamentals-application-models.md
+  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0420_2016-->

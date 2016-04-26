@@ -55,8 +55,7 @@ Xamarin용 Azure 저장소 클라이언트 라이브러리와 함께 개발할 �
 
 이 자습서를 위해 Visual Studio에서 Xamarin 응용 프로그램을 만들어 보겠습니다. 다음 단계에 따라 응용 프로그램을 만듭니다.
 
-1. [Visual Studio](https://www.visualstudio.com/)를 다운로드 및 설치합니다.
-2. [Xamarin](http://xamarin.com/platform)을 다운로드 및 설치합니다.
+1. [Visual Studio 2015 설치 관리자](https://www.visualstudio.com/)를 실행하고 **사용자 지정** 설치를 선택하고 **크로스 플랫폼 모바일 개발 > C#/.NET(Xamarin)** 아래 상자를 선택합니다. 이미 Visual Studio가 설치되어 있으면 [Xamarin](http://xamarin.com/platform)을 직접 다운로드하여 설치합니다. Visual Studio 및 Xamarin에 대한 전체 지침은 MSDN에서 [설정 및 설치](https://msdn.microsoft.com/library/mt613162.aspx)를 참조하세요.
 3. Visual Studio를 열고 **파일 > 새로 만들기 > 프로젝트 > Android > 빈 앱(Android)**을 선택합니다.
 4. 솔루션 탐색기 창에서 해당 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다. 그런 다음 **Azure 저장소**를 검색하고 **Azure 저장소 4.4.0-미리 보기**를 설치합니다.
 
@@ -180,4 +179,4 @@ Xamarin용 Azure 저장소 클라이언트 라이브러리와 함께 개발할 �
 - [Windows에서 Azure 파일 저장소 시작](storage-dotnet-how-to-use-files.md)
 - [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

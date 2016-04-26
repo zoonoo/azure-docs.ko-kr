@@ -45,10 +45,10 @@ Visual Studio용 HDInsight 도구를 사용하여 HDInsight 클러스터에 연�
 
 Visual Studio용 HDInsight 도구 및 Microsoft Hive ODBC 드라이버는 Microsoft Azure SDK for .NET 버전 2.5.1 이상과 함께 제공됩니다. [웹 플랫폼 설치 관리자](http://go.microsoft.com/fwlink/?LinkId=255386)를 사용하여 설치할 수 있습니다. 사용 중인 Visual Studio 버전과 일치하는 버전을 선택해야 합니다. Visual Studio가 설치되어 있지 않은 경우 [웹 플랫폼 설치 관리자](http://go.microsoft.com/fwlink/?LinkId=255386) 또는 다음 링크를 사용하여 최신 Visual Studio Community 및 Azure SDK를 설치할 수 있습니다.
 
-- [Visual Studio Community 2015 및 Microsoft Azure SDK](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VS2015CommunityAzurePack.appids) 
-- [Visual Studio Community 2013 및 Microsoft Azure SDK](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VS2013CommunityAzurePack.appids) 
-- [Microsoft Azure SDK for .NET(VS 2015)](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VWDOrVs2015AzurePack.appids) 
-- [Microsoft Azure SDK for .NET(VS 2013)](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VWDOrVs2013AzurePack.appids) 
+- [Visual Studio Community 2015 및 Microsoft Azure SDK](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VS2015CommunityAzurePack.appids)
+- [Visual Studio Community 2013 및 Microsoft Azure SDK](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VS2013CommunityAzurePack.appids)
+- [Microsoft Azure SDK for .NET(VS 2015)](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VWDOrVs2015AzurePack.appids)
+- [Microsoft Azure SDK for .NET(VS 2013)](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VWDOrVs2013AzurePack.appids)
 
 ![Hadoop 도구: Visual Studio용 HDInsight 도구 웹 플랫폼 설치 관리자][1]
 
@@ -182,14 +182,14 @@ Hive 작업에 대한 작업 쿼리, 작업 출력, 작업 로그 및 Yarn 로�
 
 >[AZURE.NOTE] 이 기능은 HDInsight 클러스터 버전 3.2 이상에만 적용됩니다.
 
-WebHCat(Templeton라고도 함)를 통해 Hive 작업을 제출하는 데 사용되는 HDInsight 도구입니다. 작업 세부 정보 및 오류 정보를 반환 하는 데 오랜 시간이 걸렸습니다. 이 성능 문제를 해결하기 위해 HDInsight 도구는 RDP/SSH를 무시하도록 HiveServer2를 통해 클러스터에서 직접 Hive 작업을 실행합니다. 성능 향상 외에도 사용자는 Tez의 Hive 그래프 및 작업 세부 정보를 볼 수 있습니다.
+[WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat)(Templeton라고도 함)를 통해 Hive 작업을 제출하는 데 사용되는 HDInsight 도구입니다. 작업 세부 정보 및 오류 정보를 반환 하는 데 오랜 시간이 걸렸습니다. 이 성능 문제를 해결하기 위해 HDInsight 도구는 RDP/SSH를 무시하도록 HiveServer2를 통해 클러스터에서 직접 Hive 작업을 실행합니다. 성능 향상 외에도 사용자는 Tez의 Hive 그래프 및 작업 세부 정보를 볼 수 있습니다.
 
 HDInsight 클러스터 버전 3.2 이상의 경우 **HiveServer2를 통해 실행** 단추를 볼 수 있습니다.
 
 ![hiveserver2 통해 hdinsight visual studio 도구 실행](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.execute.via.hiveserver2.png)
 
 그리고 실시간으로 스트리밍 백 된 로그를 확인하고 Hive 쿼리가 Tez에서 실행된 경우 작업 그래프를 볼 수 있습니다.
- 
+
 ![hdinsight visual studio 도구 빠른 경로 hive 실행](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.fast.path.hive.execution.png)
 
 **HiveServer2를 통한 쿼리 실행과 WebHCat을 통한 쿼리 제출 간의 차이**
@@ -208,7 +208,7 @@ HiveServer2를 통한 쿼리 실행에 다양한 성능 이점이 있지만 몇 
 
 HDInsight Visual Studio Tools는 Tez 실행 엔진이 실행한 Hive 작업에 대한 성능 그래프를 보여 줍니다. Tez를 사용하는 방법에 대한 자세한 내용은 [HDInsight에서 Hive 사용][hdinsight.hive]을 참조하세요. Visual Studio에서 Hive 작업을 제출하면 Visual Studio가 작업이 완료될 때 그래프를 보여줍니다. 최신 작업 상태를 가져오기 위해 **새로 고침** 단추를 클릭해야 할 수도 있습니다.
 
-> [AZURE.NOTE] 이 기능은 HDInsight 클러스터의 3.2.4.593 상위 버전에서만 사용할 수 있으며 완료된 작업에 대해서만 동작할 수 있습니다. Windows 및 Linux 기반 클러스터 모두에 대해 동작합니다.
+> [AZURE.NOTE] 이 기능은 HDInsight 클러스터의 3.2.4.593 상위 버전에서만 사용할 수 있으며 완료된 작업에 대해서만 작동합니다.(WebHCat을 통해 작업을 제출한 경우, 이 그래프는 HiveServer2를 통해 쿼리를 실행한 경우에만 표시됩니다.) Windows 및 Linux 기반 클러스터 모두에 대해 동작합니다.
 
 ![hadoop hive tez 성능 그래프](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.hive.tez.performance.graph.png)
 
@@ -223,6 +223,14 @@ Tez의 Hive 작업을 위한 작업 실행 보기는 Hive 작업에 대한 정�
 ## Pig 스크립트 실행
 
 Visual Studio용 HDInsight 도구는 Pig 스크립트를 만들어 HDInsight 클러스터에 제출하도록 지원합니다. 템플릿에서 Pig 프로젝트를 만들고 HDInsight 클러스터에 스크립트를 제출할 수 있습니다.
+
+## 피드백 및 알려진 문제
+
+- 현재 HiveServer2 결과는 일반 텍스트 버전으로 표시되며, 이것은 바람직하지 않습니다. 이 문제를 해결하기 위해 개발 중에 있습니다.
+
+- 결과가 NULL 값으로 시작되는 경우, 현재는 결과가 표시되지 않습니다. 이 문제는 해결되었습니다. 이 문제로 인해 어려움이 있으면, 전자 메일을 보내거나 지원 팀에 문의해 주시기 바랍니다.
+
+제안 또는 피드백이 있거나 이 도구를 사용할 때 문제가 발생하는 경우 microsoft.com의 hdivstool로 메일을 보내 주시기 바랍니다.
 
 ## 다음 단계
 이 문서에서는 Hadoop 도구 패키지를 사용하여 Visual Studio에서 HDInsight 클러스터에 연결하는 방법 및 Hive 쿼리를 실행하는 방법에 대해 알아보았습니다. 자세한 내용은 다음을 참조하세요.
@@ -267,4 +275,4 @@ Visual Studio용 HDInsight 도구는 Pig 스크립트를 만들어 HDInsight 클
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

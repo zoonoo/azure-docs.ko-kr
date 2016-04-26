@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure의 Linux용 Docker 가상 컴퓨터 확장"
-	description="Docker와 컨테이너 및 Azure 가상 컴퓨터 확장에 대해 설명하고 Azure CLI와 포털에서 Docker 컨테이너를 만드는 방법을 설명하는 추가 리소스 링크를 제공합니다."
+	description="Docker와 컨테이너 및 Azure 가상 컴퓨터 확장에 대해 설명하고 Azure CLI와 Azure 포털에서 Docker 컨테이너를 만드는 방법을 설명하는 추가 리소스 링크를 제공합니다."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="squillace"
@@ -22,4 +22,4 @@
 
 [AZURE.INCLUDE [virtual-machines-common-dockerextension](../../includes/virtual-machines-common-dockerextension.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

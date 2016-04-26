@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Azure 앱 서비스 보안" 
-	description="Azure 앱 서비스에서 웹, 모바일, API 및 논리 앱의 보안 방법을 알아봅니다." 
-	services="app-service" 
-	documentationCenter="" 
-	authors="naziml" 
-	manager="yochayk" 
+<properties
+	pageTitle="Azure 앱 서비스 보안"
+	description="Azure 앱 서비스에서 웹, 모바일, API 및 논리 앱의 보안 방법을 알아봅니다."
+	services="app-service"
+	documentationCenter=""
+	authors="naziml"
+	manager="yochayk"
 	editor="wpickett"/>
 
-<tags 
-	ms.service="app-service" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/10/2015" 
+<tags
+	ms.service="app-service"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="12/10/2015"
 	ms.author="naziml"/>
 
 # Azure 앱 서비스 보안
@@ -22,4 +22,4 @@ Azure 앱 서비스는 고객에게 안전한 플랫폼을 제공하기 위해 �
 
 [AZURE.INCLUDE [app-service-blueprint-security](../../includes/app-service-blueprint-security.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0413_2016-->

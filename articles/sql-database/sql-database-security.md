@@ -4,8 +4,8 @@
    services="sql-database"
    documentationCenter=""
    authors="tmullaney"
-   manager="jeffreyg"
-   editor="jeffreyg"/>
+   manager="jhubbard"
+   editor=""/>
 
 <tags
    ms.service="sql-database"
@@ -77,7 +77,7 @@ ALTER ROLE db_datawriter ADD MEMBER ApplicationUser; -- allows ApplicationUser t
 * [데이터 마스킹](sql-database-dynamic-data-masking-get-started.md)은 중요한 데이터의 노출을 제한하는 데 사용할 수 있습니다.
 * [저장 프로시저](https://msdn.microsoft.com/library/ms190782)는 데이터베이스에서 수행할 수 있는 작업을 제한하는 데 사용할 수 있습니다.
 
-Azure 클래식 포털에서 또는 Azure 리소스 관리자 API를 사용하여 데이터베이스 및 논리 서버를 관리하는 것은 포털 사용자 계정의 역할 할당에 의해 제어됩니다. 이 항목에 대한 자세한 내용은 [Azure 포털의 역할 기반 액세스 제어](../role-based-access-control-configure.md)를 참조하세요.
+Azure 클래식 포털에서 또는 Azure 리소스 관리자 API를 사용하여 데이터베이스 및 논리 서버를 관리하는 것은 포털 사용자 계정의 역할 할당에 의해 제어됩니다. 이 항목에 대한 자세한 내용은 [Azure 포털의 역할 기반 액세스 제어](../active-directory./role-based-access-control-configure.md)를 참조하세요.
 
 
 ## 암호화
@@ -106,4 +106,4 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 
 위의 기능 및 응용 프로그램이 다양한 보안 규정 준수 요구 사항을 충족하도록 도울 수 있는 기능 외에도 Azure SQL 데이터베이스는 정기적인 감사에 참여하고 여러 규정 준수 표준에 대해 인증받았습니다. 자세한 내용은 [Microsoft Azure 보안 센터](https://azure.microsoft.com/support/trust-center/)를 참조하세요. 여기서 최신 [SQL 데이터베이스 규정 준수 인증서](https://azure.microsoft.com/support/trust-center/services/) 목록을 찾을 수 있습니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

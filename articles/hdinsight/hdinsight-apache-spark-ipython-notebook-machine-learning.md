@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2016" 
+	ms.date="04/08/2016" 
 	ms.author="nitinme"/>
 
 
@@ -61,12 +61,12 @@ Apache Spark 클러스터를 사용하여 HDInsight에서 기계 학습 응용 �
 
 	![노트북에 대한 이름 제공](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.note.jupyter.notebook.name.png "노트북에 대한 이름 제공")
 
-3. PySpark 커널을 사용하여 노트북을 만들었기 때문에 컨텍스트를 명시적으로 만들 필요가 없습니다. 첫 번째 코드 셀을 실행하면 Spark, SQL 및 Hive 컨텍스트가 자동으로 만들어집니다. 이 시나리오에 필요한 형식을 가져와 시작할 수 있습니다. 빈 셀에 다음 코드 조각을 붙여넣은 다음 **Shift + Enter**를 누릅니다.
+3. PySpark 커널을 사용하여 노트북을 만들었기 때문에 컨텍스트를 명시적으로 만들 필요가 없습니다. 첫 번째 코드 셀을 실행하면 Spark 및 Hive 컨텍스트가 자동으로 만들어집니다. 이 시나리오에 필요한 형식을 가져와 시작할 수 있습니다. 빈 셀에 다음 코드 조각을 붙여넣은 다음 **Shift + Enter**를 누릅니다.
 
 		from pyspark.ml import Pipeline
 		from pyspark.ml.classification import LogisticRegression
 		from pyspark.ml.feature import HashingTF, Tokenizer
-		from pyspark.sql import Row, SQLContext
+		from pyspark.sql import Row
 		
 		import os
 		import sys
@@ -254,4 +254,4 @@ HDInsight에서 Apache Spark 클러스터에는 Anaconda 라이브러리가 포�
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -79,7 +79,7 @@ Azure 키 자격 증명 모음에 대한 개요는 [Azure 키 자격 증명 모�
 4.	포털에서 설정을 선택한 후 관리자를 선택합니다. 추가를 선택하고 새 사용자를 공동 관리자로 추가합니다. 그러면 조직 계정이 Azure 구독을 관리할 수 있습니다.
 5.	마지막으로, Azure 포털에서 로그아웃한 후 새 조직 계정을 사용하여 다시 로그인합니다. 이 계정으로 처음 로그인하는 경우 암호를 변경하라는 메시지가 표시됩니다.
 
-Microsoft Azure의 조직 계정 사용에 대한 자세한 내용은 [조직으로 Microsoft Azure에 등록](sign-up-organization.md)을 참조하세요.
+Microsoft Azure의 조직 계정 사용에 대한 자세한 내용은 [조직으로 Microsoft Azure에 등록](../active-directory/sign-up-organization.md)을 참조하세요.
 
 여러 구독이 있는 경우 Azure 키 자격 증명 모음에 사용할 특정 하나를 지정하려면, 다음을 입력하여 계정에 대한 구독을 표시합니다.
 
@@ -134,13 +134,13 @@ Azure 계정은 이제 이 키 자격 증명 모음에서 모든 작업을 수�
 
     azure keyvault key import --vaultName 'ContosoKeyVault' --key-name 'ContosoFirstKey' --pem-file './softkey.pem' --password 'PaSSWORD' --destination software
 
-이제 해당 URI를 사용하여 Azure 키 자격 증명 모음을 만들거나 업로드하는 이 키를 참조할 수 있습니다. ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey**를 사용하면 항상 최신 버전을 가져오고 ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**를 사용하면 이 특정 버전을 가져옵니다.
+이제 해당 URI를 사용하여 Azure 키 자격 증명 모음을 만들거나 업로드하는 이 키를 참조할 수 있습니다. **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey**를 사용하면 항상 최신 버전을 가져오고 **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**를 사용하면 이 특정 버전을 가져옵니다.
 
 자격 증명 모음에 암호를 추가하려면 다음을 입력합니다. 암호는 SQLPassword이며 Azure 키 자격 증명 모음에 대한 Pa$$w0rd 값을 가집니다.
 
     azure keyvault secret set --vault-name 'ContosoKeyVault' --secret-name 'SQLPassword' --value 'Pa$$w0rd'
 
-이제 해당 URI를 사용하여 Azure 키 자격 증명 모음에 추가한 이 암호를 참조할 수 있습니다. ****https://ContosoVault.vault.azure.net/secrets/SQLPassword**를 사용하면 항상 최신 버전을 가져오고 ****https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**를 사용하면 이 특정 버전을 가져옵니다.
+이제 해당 URI를 사용하여 Azure 키 자격 증명 모음에 추가한 이 암호를 참조할 수 있습니다. **https://ContosoVault.vault.azure.net/secrets/SQLPassword**를 사용하면 항상 최신 버전을 가져오고 **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**를 사용하면 이 특정 버전을 가져옵니다.
 
 방금 만든 키 또는 암호를 확인해 보겠습니다.
 
@@ -256,4 +256,4 @@ Azure 키 자격 증명 모음을 관리하는 데 유용할 수 있는 다른 �
 
 프로그래밍 참조는 [Azure 주요 자격 증명 모음 개발자 가이드](key-vault-developers-guide.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

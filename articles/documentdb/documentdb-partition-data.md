@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/05/2016" 
+	ms.date="04/10/2016" 
 	ms.author="arramac"/>
 
 # Azure DocumentDB의 분할 및 크기 조정
@@ -210,7 +210,7 @@ Azure DocumentDB에는 [REST API 버전 2015-12-16](https://msdn.microsoft.com/l
     // Read document. Needs the partition key and the ID to be specified
     Document result = await client.ReadDocumentAsync(
       UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"), 
-      new RequestOptions { PartitionKey = new object[] { "XMS-0001" }});
+      new RequestOptions { PartitionKey = new PartitionKey("XMS-0001") });
 
     DeviceReading reading = (DeviceReading)(dynamic)result;
 
@@ -225,7 +225,7 @@ Azure DocumentDB에는 [REST API 버전 2015-12-16](https://msdn.microsoft.com/l
     // Delete document. Needs partition key
     await client.DeleteDocumentAsync(
       UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"), 
-      new RequestOptions { PartitionKey = new object[] { "XMS-0001" } });
+      new RequestOptions { PartitionKey = new PartitionKey("XMS-0001") });
 
 
 
@@ -261,8 +261,6 @@ Azure DocumentDB에는 [REST API 버전 2015-12-16](https://msdn.microsoft.com/l
 ### 단일 파티션에서 분할된 컬렉션으로 마이그레이션
 단일 파티션 컬렉션을 사용한 응용 프로그램이 더 높은 처리량(>10,000RU/s) 또는 더 큰 데이터 저장소(>10GB)가 필요한 경우 [DocumentDB 데이터 마이그레이션 도구](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d)를 사용하여 단일 파티션 컬렉션에서 분할된 컬렉션으로 데이터를 마이그레이션할 수 있습니다.
 
-또한 컬렉션을 만드는 동안 파티션 키를 지정할 수 있으므로 분할된 컬렉션을 만들기 위해 [DocumentDB 데이터 마이그레이션 도구](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d)를 사용하여 데이터를 내보내고 다시 가져와야 합니다.
-
 단일 파티션 컬렉션에서 분할된 컬렉션으로 마이그레이션하려면
 
 1. 단일 파티션 컬렉션에서 JSON으로 데이터를 내보냅니다. 자세한 내용은 [JSON 파일로 내보내기](documentdb-import-data.md#export-to-json-file)를 참조하세요.
@@ -278,7 +276,7 @@ Azure DocumentDB에는 [REST API 버전 2015-12-16](https://msdn.microsoft.com/l
 파티션 키의 선택은 디자인 타임에서 결정해야 하는 중요한 사항입니다. 이 섹션에서는 컬렉션에 대한 파티션 키를 선택할 때의 일부 장단점을 설명합니다.
 
 ### 파티션 키를 트랜잭션 경계로 사용
-파티션 키를 선택할 때는 트랜잭션 사용에 대한 요구 사항과 여러 파티션에 엔터티를 분산하는 데 대한 요구 사항(솔루션의 확장성 향상) 간에 균형을 유지해야 합니다. 한 쪽으로 치우치면 모든 엔터티를 단일 파티션에 저장할 수 있지만 솔루션의 확장성이 제한될 수 있습니다. 다른 쪽으로 치우치면 파티션 키당 하나의 문서를 저장할 수 있으므로 확장성이 매우 높지만 저장 프로시저 및 트리거를 통해 문서 트랜잭션 간에 사용할 수 없습니다. 이상적인 파티션 키는 효율적인 쿼리를 사용할 수 있도록 하고 솔루션을 확장할 수 있는 충분한 파티션이 있는 키입니다.
+파티션 키를 선택할 때는 트랜잭션 사용에 대한 요구 사항과 여러 파티션 키에 엔터티를 분산하는 데 대한 요구 사항(솔루션의 확장성 향상) 간에 균형을 유지해야 합니다. 한 쪽으로 치우치면 모든 문서에 대해 동일한 파티션 키를 설정할 수 있지만 솔루션의 확장성이 제한될 수 있습니다. 다른 쪽으로 치우치면 각 문서에 대해 고유한 파티션 키를 할당할 수 있으므로 확장성이 매우 높지만 저장 프로시저 및 트리거를 통해 문서 트랜잭션 간에 사용할 수 없습니다. 이상적인 파티션 키는 효율적인 쿼리를 사용할 수 있도록 하고 솔루션을 확장할 수 있는 충분한 카디널리티가 있는 키입니다.
 
 ### 저장소 및 성능 병목 현상 방지 
 다양한 값 간에 쓰기를 분산시킬 수 있는 속성을 선택해야 합니다. 동일한 파티션 키에 대한 요청은 단일 파티션의 처리량을 초과할 수 없으며 제한됩니다. 따라서 응용 프로그램 내에서 **"핫 스폿"**을 초래하지 않는 파티션 키를 선택해야 합니다. 또한 파티션 키가 동일한 문서에 대한 총 저장소 크기는 저장소에서 10GB를 초과할 수 없습니다.
@@ -321,4 +319,4 @@ DocumentDB를 사용하여 다중 테넌트 응용 프로그램을 구현하는 
 
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

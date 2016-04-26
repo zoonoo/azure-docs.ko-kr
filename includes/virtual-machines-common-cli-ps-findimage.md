@@ -176,11 +176,6 @@ PowerShell에서 이 작업을 수행하려면 먼저 Azure PowerShell의 리소
 
 이 목록에서 선택한 SKU 이름을 복사하면 이미지에 대한 게시자, 제안 및 SKU를 지정하는 데 필요한 **Set-AzureVMSourceImage** PowerShell cmdlet 또는 리소스 그룹 템플릿 파일에 대한 모든 정보가 제공됩니다.
 
-### 연습 동영상
-
-이 비디오는 PowerShell을 사용하는 위의 단계를 보여줍니다.
-
-[AZURE.VIDEO virtual-machines-linux-cli-ps-findimage-posh]
 
 
 <!--Image references-->
@@ -194,4 +189,4 @@ PowerShell에서 이 작업을 수행하려면 먼저 Azure PowerShell의 리소
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

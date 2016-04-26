@@ -1,4 +1,11 @@
-<properties pageTitle="Azure Active Directory B2C Preview: Call a web API from an iOS application | Microsoft Azure" description="This article will show you how to create an iOS "to-do list" app that calls a Node.js web API by using OAuth 2.0 bearer tokens. iOS 앱과 Web API 모두는 Azure Active Directory B2C를 사용하여 사용자 ID를 관리하고 사용자를 인증합니다." services="active-directory-b2c" documentationCenter="ios" authors="brandwe" manager="mbaldwin" editor=""/>
+<properties
+	pageTitle="Azure Active Directory B2C 미리 보기: iOS 응용 프로그램에서 Web API 호출 | Microsoft Azure"
+	description="이 문서에서는 OAuth 2.0 전달자 토큰을 사용하여 Node.js Web API를 호출하는 iOS ‘할 일 목록’ 앱을 만드는 방법을 보여줍니다. iOS 앱 및 Web API는 Azure Active Directory B2C를 사용하여 사용자 ID를 관리하고 사용자를 인증합니다."
+	services="active-directory-b2c"
+	documentationCenter="ios"
+	authors="brandwe"
+	manager="mbaldwin"
+	editor=""/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -18,7 +25,7 @@ Azure AD(Azure Active Directory) B2C를 사용하여 몇 가지 간단한 단계
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 > [AZURE.NOTE]
-	제대로 작동하려면 이 빠른 시작은 Azure AD B2C으로 보호되는 Web API가 필요합니다. .NET 및 NET.js 모두에 사용할 수 있도록 만들었습니다. 이 연습에서는 Node.js Web API 샘플이 구성되었다고 가정합니다. 자세한 내용은 [Node.js 샘플에 대한 Azure Active Directory Web API](active-directory-b2c-devquickstarts-api-node.md)를 참조합니다.).
+	제대로 작동하려면 이 빠른 시작은 Azure AD B2C으로 보호되는 Web API가 필요합니다. .NET 및 NET.js 모두에 사용할 수 있도록 만들었습니다. 이 연습에서는 Node.js Web API 샘플이 구성되었다고 가정합니다. 자세한 내용은 [Node.js 샘플에 대한 Azure Active Directory Web API](active-directory-b2c-devquickstarts-api-node.md)를 참조합니다.
 
 > [AZURE.NOTE]
 	이 문서는 Azure AD B2C를 사용하여 등록, 로그인 및 프로필 관리를 구현하는 방법을 다루지 않습니다. 사용자를 인증한 후에 Web API를 호출하는 데 집중합니다. 아직 준비되지 않은 경우 [.NET 웹앱 시작 자습서](active-directory-b2c-devquickstarts-web-dotnet.md)로 시작하여 Azure AD B2C의 기본 사항에 대해 알아봅니다.
@@ -31,7 +38,7 @@ Azure AD B2C를 사용하기 전에 디렉터리 또는 테넌트를 만들어�
 
 다음으로 B2C 디렉터리에서 앱을 만들어야 합니다. 앱과 안전하게 통신하는 데 필요한 Azure AD 정보를 제공합니다. 이 경우 하나의 논리 앱을 구성하기 때문에 앱과 Web API는 모두 단일 **응용 프로그램 ID**에서 나타납니다. 앱을 만들려면 [다음 지침](active-directory-b2c-app-registration.md)에 따릅니다. 다음을 수행해야 합니다.
 
-- 응용 프로그램에서 **웹앱/Web API**를 포함합니다.
+- 응용 프로그램에서 **웹앱/웹 API**를 포함합니다.
 - **회신 URL**로 `http://localhost:3000/auth/openid/return`을 입력합니다. 이 코드 샘플에 대한 기본 URL입니다.
 - 응용 프로그램에 **응용 프로그램 암호**를 만들고 복사합니다. 이 시간은 나중에 필요합니다.
 - 앱에 할당된 **응용 프로그램 ID**를 복사합니다. 이 ID는 나중에도 필요합니다.
@@ -50,11 +57,11 @@ Azure AD B2C에서 모든 사용자 환경은 [정책](active-directory-b2c-refe
 
 세 가지 정책을 만들었다면 앱을 빌드할 준비가 되었습니다.
 
-이 문서는 방금 만든 정책을 사용하는 방법을 다루지 않습니다. Azure AD B2C에서 정책 작동 방법을 알아보려면 [.NET 웹앱 시작 자습서](active-directory-b2c-devquickstarts-web-dotnet.md)를 시작합니다.
+이 문서는 방금 만든 정책을 사용하는 방법을 다루지 않습니다. Azure AD B2C에서 정책 작동 방법을 알아보려면 [.NET 웹앱 시작 자습서](active-directory-b2c-devquickstarts-web-dotnet.md)로 시작합니다.
 
 ## 코드 다운로드
 
-이 자습서에 대한 코드는 [GitHub에서 유지 관리됩니다](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS). 진행하면서 샘플을 빌드하기 위해 [골격 프로젝트를 .zip 파일로 다운로드](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/skeleton.zip)할 수 있습니다. 기본 구조를 복제할 수도 있습니다.
+이 자습서에 대한 코드는 [GitHub에서 유지 관리됩니다](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS). 진행하면서 샘플을 작성하기 위해 [골격 프로젝트를 .zip 파일로 다운로드](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/skeleton.zip)할 수 있습니다. 기본 구조를 복제할 수도 있습니다.
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS.git
@@ -253,9 +260,9 @@ completionBlock:(void (^) (ADProfileInfo* userInfo, NSError* error)) completionB
 
 이 메서드는 간단합니다. 만든 `samplesPolicyData` 개체, 상위 `ViewController` 및 콜백을 입력으로 사용합니다. 콜백을 자세히 살펴보겠습니다.
 
-- `completionBlock`은 `userInfo` 개체를 사용하여 반환되는 형식으로 `ADProfileInfo`를 갖습니다. `ADProfileInfo`는 모든 클레임을 포함하여 서버에서 모든 응답을 확보하는 형식입니다.
+- `completionBlock`은 `userInfo` 개체를 사용하여 반환되는 형식으로 `ADProfileInfo`를 갖습니다. `ADProfileInfo`는 클레임을 포함하여 서버에서 모든 응답을 확보하는 형식입니다.
 - 또한 `readApplicationSettings`입니다. `settings.plist`에서 제공한 데이터를 읽습니다.
-- 마지막으로 대량 메서드 `getClaimsWithPolicyClearingCache`이 있습니다. 작성해야 하는 iOS 용 ADAL에 대한 실제 호출입니다. 나중에 여기로 돌아옵니다.
+- 마지막으로 대량 `getClaimsWithPolicyClearingCache` 메서드가 있습니다. 작성해야 하는 iOS 용 ADAL에 대한 실제 호출입니다. 나중에 여기로 돌아옵니다.
 
 다음으로 대량 메서드 `getClaimsWithPolicyClearingCache`을 작성합니다. 고유한 섹션을 사용할 만큼 충분히 큽니다.
 
@@ -316,7 +323,7 @@ GitHub에서 골격을 다운로드한 후에 샘플 응용 프로그램에 도�
 첫 번째 부분은 친숙해 보여야 합니다.
 
 - `settings.plist`에서 제공하는 설정을 로드하고 `data`에 할당합니다.
-- `ADAuthenticationError`을 설치하며 이는 iOS용 ADAL에서 나온 오류를 발생시킵니다.
+- `ADAuthenticationError`을 설치하며 이는 iOS용 ADAL에서 나온 오류를 처리합니다.
 - `authContext`을 만들며 이는 ADAL에 대한 호출을 설정합니다. 기관에 전달하여 작업을 시작합니다.
 - 상위 컨트롤러에 `authContext`을 참조로 제공하여 돌아갈 수 있도록 합니다.
 - `redirectURI`을 변환하며 이는 ADAL이 예상하는 NSURL 형식인 `settings.plist`의 문자열입니다.
@@ -611,7 +618,7 @@ completionBlock:(void (^) (bool, NSError* error)) completionBlock
 
 API가 수신한 액세스 토큰에서 사용자의 ID를 추출하므로 태스크가 API에 대해 사용자 단위로 저장됩니다.
 
-참조하기 위해 전체 샘플은 [.zip 파일로 제공됩니다](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/complete.zip). 또한 GitHub에서 복제할 수 있습니다.
+참조를 위해 전체 샘플은 [.zip 파일로 제공됩니다](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/complete.zip). 또한 GitHub에서 복제할 수 있습니다.
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS```
 
@@ -623,4 +630,4 @@ API가 수신한 액세스 토큰에서 사용자의 ID를 추출하므로 태�
 
 [B2C 앱을 위한 UX 사용자 지정]()
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

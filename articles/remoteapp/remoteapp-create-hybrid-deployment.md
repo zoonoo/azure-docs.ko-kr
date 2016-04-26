@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Azure RemoteApp용 하이브리드 컬렉션을 만드는 방법 | Microsoft Azure" 
-	description="내부 네트워크에 연결되는 RemoteApp 배포를 만드는 방법에 대해 알아봅니다." 
-	services="remoteapp" 
-	documentationCenter="" 
-	authors="lizap" 
-	manager="mbaldwin" 
+<properties
+	pageTitle="Azure RemoteApp용 하이브리드 컬렉션을 만드는 방법 | Microsoft Azure"
+	description="내부 네트워크에 연결되는 RemoteApp 배포를 만드는 방법에 대해 알아봅니다."
+	services="remoteapp"
+	documentationCenter=""
+	authors="lizap"
+	manager="mbaldwin"
 	editor=""/>
 
-<tags 
-	ms.service="remoteapp" 
-	ms.workload="compute" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/05/2016" 
+<tags
+	ms.service="remoteapp"
+	ms.workload="compute"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/05/2016"
 	ms.author="elizapo"/>
 
 # Azure RemoteApp용 하이브리드 컬렉션을 만드는 방법
@@ -40,12 +40,12 @@
 
 컬렉션을 만들기 전에 다음을 수행해야 합니다.
 
-- Azure RemoteApp에 [등록](https://azure.microsoft.com/services/remoteapp/)합니다. 
+- Azure RemoteApp에 [등록](https://azure.microsoft.com/services/remoteapp/)합니다.
 - Azure RemoteApp 서비스 계정으로 사용할 Active Directory의 사용자 계정을 만듭니다. 이 계정의 권한은 도메인에 컴퓨터를 가입시킬 수 있는 권한만으로 제한합니다.
 - 온-프레미스 네트워크에 대한 정보 수집: IP 주소 정보 및 VPN 장치 세부 정보입니다.
 - [Azure PowerShell](../powershell-install-configure.md) 모듈을 설치합니다.
 - 액세스 권한을 부여할 사용자에 대한 정보를 수집합니다. 사용자당 하나의 Azure Active Directory 사용자 계정 이름(예: name@contoso.com)이 필요합니다. Azure AD와 Active Directory 간에 UPN이 일치하는지 확인합니다.
-- 템플릿 이미지를 선택합니다. Azure RemoteApp 템플릿 이미지는 사용자를 위해 게시하려는 앱 및 프로그램을 포함합니다. 자세한 내용은 [Azure RemoteApp 이미지 옵션](remoteapp-imageoptions.md)을 참조하세요. 
+- 템플릿 이미지를 선택합니다. Azure RemoteApp 템플릿 이미지는 사용자를 위해 게시하려는 앱 및 프로그램을 포함합니다. 자세한 내용은 [Azure RemoteApp 이미지 옵션](remoteapp-imageoptions.md)을 참조하세요.
 - Office 365 ProPlus 이미지를 사용하려는 경우 [여기](remoteapp-officesubscription.md)서 정보를 확인하세요.
 - [RemoteApp에 대해 Azure Active Directory를 구성합니다](remoteapp-ad.md).
 
@@ -58,9 +58,9 @@ VNET을 만들기 전에 [VNET 계획](remoteapp-planvnet.md) 및 [VNET 크기](
 
 ### Azure VNET을 만들고 Active Directory 배포에 조인
 
-[가상 네트워크](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)를 만들기 시작합니다. 이 작업은 Azure 관리 포털의 **네트워크** 탭에서 수행됩니다. Azure Active Directory 테넌트로 동기화되는 Active Directory 배포에 가상 네트워크를 연결해야 합니다.
+[가상 네트워크](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)를 만들기 시작합니다. 이 작업은 Azure 포털의 **네트워크** 탭에서 수행됩니다. Azure Active Directory 테넌트로 동기화되는 Active Directory 배포에 가상 네트워크를 연결해야 합니다.
 
-자세한 내용은 [관리 포털에서 가상 네트워크 설정 정보](../virtual-network/virtual-networks-settings.md)를 참조하세요.
+자세한 내용은 [Azure 포털을 사용하여 가상 네트워크 만들기](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)를 참조하세요.
 
 ### 가상 네트워크가 Azure RemoteApp에 대해 사용할 수 있는지 확인합니다.
 컬렉션을 만들기 전에 새 가상 네트워크를 사용할 수 있는지 확인해 보겠습니다. 다음을 수행하여 이를 확인할 수 있습니다.
@@ -91,9 +91,9 @@ Azure RemoteApp 컬렉션을 만든 후에는 컬렉션의 이름을 두 번 클
 
 ## 3단계: 로컬 도메인에 컬렉션 가입 ##
 
- 
+
 1. **빠른 시작** 페이지에서 **로컬 도메인 가입**을 클릭합니다.
-2. 로컬 Active Directory 도메인에 Azure RemoteApp 서비스 계정을 추가합니다. 도메인 이름, 조직 구성 단위, 서비스 계정 사용자 이름 및 암호가 필요합니다. 
+2. 로컬 Active Directory 도메인에 Azure RemoteApp 서비스 계정을 추가합니다. 도메인 이름, 조직 구성 단위, 서비스 계정 사용자 이름 및 암호가 필요합니다.
 
 	[Azure RemoteApp에 대해 Active Directory 구성](remoteapp-ad.md)에서 단계를 수행하면 수집되는 정보입니다.
 
@@ -121,14 +121,14 @@ RemoteApp은 1) 암호 동기화 옵션을 포함하여 Azure Active Directory �
 Azure RemoteApp 앱은 사용자에게 제공하는 앱 또는 프로그램입니다. 이 프로그램은 컬렉션에 대해 업로드한 템플릿 이미지에 있습니다. 사용자가 앱에 액세스할 때 앱이 로컬 환경에서 실행하는 것처럼 보이지만 실제로는 Azure에서 실행됩니다.
 
 사용자가 앱에 액세스할 수 있도록 하려면 해당 앱을 게시해야 합니다. 이렇게 하면 사용자가 원격 데스크톱 클라이언트를 통해 해당 앱에 액세스할 수 있습니다.
- 
+
 컬렉션에 여러 앱을 게시할 수 있습니다. 게시 페이지에서 **게시**를 클릭하여 앱을 추가합니다. 템플릿 이미지의 **시작** 메뉴에서 또는 앱의 템플릿 이미지에 경로를 지정하여 게시할 수 있습니다. **시작** 메뉴에서 추가하도록 선택한 경우 추가할 프로그램을 선택합니다. 앱의 경로를 제공하도록 선택한 경우 앱의 이름 및 템플릿 이미지에서 앱이 설치된 경로를 입력합니다.
 
 ## 7단계: 사용자 액세스 구성 ##
 
 컬렉션을 만들었으므로 원격 리소스를 사용할 수 있는 사용자를 추가해야 합니다. 액세스 권한을 제공하는 사용자는 이 Azure RemoteApp 컬렉션을 만드는 데 사용한 구독과 연결된 Active Directory 테넌트에 존재해야 합니다.
 
-1.	빠른 시작 페이지에서 **사용자 액세스 구성**을 클릭합니다. 
+1.	빠른 시작 페이지에서 **사용자 액세스 구성**을 클릭합니다.
 2.	액세스 권한을 부여할 Microsoft 계정이나 Active Directory의 작업 계정을 입력합니다.
 
 	**참고:**
@@ -145,8 +145,8 @@ Azure RemoteApp 앱은 사용자에게 제공하는 앱 또는 프로그램입�
 Azure RemoteApp 하이브리드 컬렉션을 성공적으로 만들고 배포했습니다. 다음 단계는 사용자가 원격 데스크톱 클라이언트를 다운로드하여 설치하도록 설정하는 것입니다. Azure RemoteApp 빠른 시작 페이지에서 클라이언트의 URL을 찾을 수 있습니다. 그런 다음 사용자가 클라이언트에 로그인하여 게시된 앱에 액세스하도록 합니다.
 
 
- 
-### 의견 보내기 
+
+### 의견 보내기
 이 기사에 대한 등급을 매기고 아래에 의견을 다는 것은 물론 문서를 직접 변경할 수 있다는 사실을 알고 계셨나요? 누락된 부분이 있나요? 잘못된 부분이 있나요? 혼동을 줄 수 있는 부분이 있나요? 위로 스크롤하여 **GitHub에서 편집**을 클릭하면 변경할 수 있습니다. 당사에서 변경 사항을 검토하고 승인하면 변경 및 개선 사항을 바로 여기서 확인할 수 있습니다.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

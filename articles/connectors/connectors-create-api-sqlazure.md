@@ -25,7 +25,7 @@ SQL Azure API를 다음에서 사용할 수 있습니다.
 
 - 논리 앱 
 
->[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다. 2014-12-01-preview 스키마 버전에 대한 내용을 보려면 [SQL 커넥터](../app-service-logic/app-service-logic-connector-sql.md)를 클릭하세요.
+>[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다.
 
 SQL Azure로 다음을 수행할 수 있습니다.
 
@@ -227,4 +227,4 @@ SQL 테이블에서 기존 행을 업데이트합니다. ```PATCH: /datasets/def
 
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

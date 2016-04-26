@@ -3,7 +3,7 @@
    description="데이터 레이크 저장소 계정 및 파일 시스템을 관리하는 방법을 알아봅니다." 
    services="data-lake-store" 
    documentationCenter="" 
-   authors="mumian" 
+   authors="nitinme" 
    manager="paulettm" 
    editor="cgronlun"/>
  
@@ -13,18 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/11/2015"
-   ms.author="jgao"/>
+   ms.date="04/07/2016"
+   ms.author="nitinme"/>
 
 # Node.js용 Azure SDK를 사용하여 Azure 데이터 레이크 저장소 관리
 
 > [AZURE.SELECTOR]
-- [Using Portal](data-lake-store-get-started-portal.md)
-- [Using PowerShell](data-lake-store-get-started-powershell.md)
-- [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
-- [Using Azure CLI](data-lake-store-get-started-cli.md)
-- [Using Node.js](data-lake-store-manage-use-nodejs.md)
-
+- [포털](data-lake-store-get-started-portal.md)
+- [PowerShell](data-lake-store-get-started-powershell.md)
+- [.NET SDK](data-lake-store-get-started-net-sdk.md)
+- [Java SDK](data-lake-store-get-started-java-sdk.md)
+- [REST API](data-lake-store-get-started-rest-api.md)
+- [Azure CLI](data-lake-store-get-started-cli.md)
+- [Node.JS](data-lake-store-manage-use-nodejs.md)
 
 Node.js용 Azure ADK는 Azure 데이터 레이크 저장소 계정 및 파일 시스템 관리에 사용할 수 있습니다.
 
@@ -37,7 +38,7 @@ Node.js용 Azure ADK는 Azure 데이터 레이크 저장소 계정 및 파일 �
 
 - **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 - **Azure 데이터 레이크 저장소 계정**. 계정을 만들려면 [Azure 포털을 사용하여 Azure 데이터 레이크 저장소 시작](data-lake-store-get-started-portal.md)을 참조하세요.
-- **데이터 레이크 분석 계정에 액세스할 수 있는 권한이 있는 서비스 사용자**입니다. [Azure 리소스 관리자를 사용하여 서비스 사용자 인증](resource-group-authenticate-service-principal.md)을 참조하세요.
+- **데이터 레이크 분석 계정에 액세스할 수 있는 권한이 있는 서비스 사용자**입니다. [Azure 리소스 관리자를 사용하여 서비스 사용자 인증](../resource-group-authenticate-service-principal.md)을 참조하세요.
 
 ## SDK 설치
 
@@ -110,6 +111,6 @@ SDK를 설치하려면 다음 단계를 사용합니다.
 ##참고 항목 
 
 - [Node.js용 Azure SDK](http://azure.github.io/azure-sdk-for-node/)
-- [Node.js를 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-use-nodejs.md)
+- [Node.js를 사용하여 Azure 데이터 레이크 분석 관리](../data-lake-analytics/data-lake-analytics-manage-use-nodejs.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -72,4 +72,4 @@ Azure 함수를 실행하는 방법은 동적 앱 서비스 계획을 사용하�
 
 [AZURE.INCLUDE [문제 보고](../../includes/functions-reporting-issues.md)]
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
-Xamarin을 사용하여 모바일 장치 및 PC를 비롯한 여러 다른 플랫폼에서 실행할 수 있는 응용 프로그램을 C#으로 작성할 수 있습니다. Xamarin을 사용하여 앱을 빌드하는 경우 Azure AD를 사용하면 간단하고 편리하게 Active Directory 계정에 사용하여 사용자를 인증할 수 있습니다. 또한 응용 프로그램에서 Office 365 API 또는 Azure API와 같이 Azure AD를 통해 보호되는 웹 API를 안전하게 사용할 수 있습니다.
+Xamarin을 사용하면 iOS, Android 및 Windows(모바일 장치 및 PC)에서 실행할 수 있는 모바일 앱을 C#으로 작성할 수 있습니다. Xamarin을 사용하여 앱을 빌드하는 경우 Azure AD를 사용하면 간단하고 편리하게 Active Directory 계정에 사용하여 사용자를 인증할 수 있습니다. 또한 응용 프로그램에서 Office 365 API 또는 Azure API와 같이 Azure AD를 통해 보호되는 웹 API를 안전하게 사용할 수 있습니다.
 
 보호된 리소스에 액세스해야 하는 Xamarin 앱의 경우 Azure AD는 Active Directory 인증 라이브러리 또는 ADAL을 제공합니다. ADAL의 유일한 용도는 앱이 쉽게 액세스 토큰을 가져오도록 하는 것입니다. 이 작업이 얼마나 쉬운지 보여 주기 위해 다음 작업을 수행하는 "Directory Searcher" 앱을 빌드해 보겠습니다.
 
@@ -41,12 +41,9 @@ Xamarin을 사용하여 모바일 장치 및 PC를 비롯한 여러 다른 플�
 시작하려면 [기본 프로젝트를 다운로드](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/skeleton.zip)하거나 [완성된 샘플을 다운로드](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/complete.zip)하세요. 각 샘플은 Visual Studio 2013 솔루션입니다. 또한 사용자를 만들고 응용 프로그램을 등록할 수 있는 Azure AD 테넌트도 필요합니다. 테넌트가 아직 없는 경우 [가져오는 방법을 알아봅니다](active-directory-howto-tenant.md).
 
 ## *0. Xamarin 개발 환경 설정*
-대상으로 하려는 특정 플랫폼에 따라 Xamarin을 설정하는 여러 다양한 방법이 있습니다. 이 자습서에는 iOS, Android 및 Windows용 프로젝트가 포함되어 있으므로 Visual Studio 2013과 [Xamarin.iOS 빌드 호스트](http://developer.xamarin.com/guides/ios/getting_started/installation/windows/)(영문)를 사용하도록 선택할 것입니다. 이를 위해서는 Visual Studio 및 Windows 앱을 실행하기 위한 Windows 시스템, OSX 시스템(iOS 앱을 실행하려는 경우), Xamarin Business 구독([무료 평가판](http://developer.xamarin.com/guides/cross-platform/getting_started/beginning_a_xamarin_trial/)(영문)이면 충분함), Xamarin.iOS, Xamarin.Android 및 Visual Studio 통합(이 샘플에 권장됨)이 포함된 [Windows용 Xamarin](https://xamarin.com/download)(영문), Xamarin.iOS(및 Xamarin.iOS 빌드 호스트), Xamarin.Android, Xamarin.Mac 및 Xamarin Studio가 포함된 [OS X용 Xamarin](https://xamarin.com/download)(영문)이 필요합니다.
-
-[Xamarin 다운로드 페이지](https://xamarin.com/download)에서 Mac 및 PC에 Xamarin을 설치하는 것이 좋습니다. 두 컴퓨터를 모두 사용할 수는 없는 경우에도 샘플을 실행할 수 있지만 특정 프로젝트를 생략해야 합니다. iOS 및 Android에 대한 [자세한 설치 가이드](http://developer.xamarin.com/guides/cross-platform/getting_started/installation/)를 따르고, 개발에 사용할 수 있는 옵션에 대한 추가 정보를 이해하려면 [플랫폼 간 응용 프로그램 빌드](http://developer.xamarin.com/guides/cross-platform/application_fundamentals/building_cross_platform_applications/part_1_-_understanding_the_xamarin_mobile_platform/)(영문)를 확인해 보세요. 이번에는 개발을 위해 장치를 설정할 필요가 없으며 Apple 개발자 프로그램 구독도 필요하지 않습니다(장치에서 iOS 앱을 실행하지 않으려는 경우).
+이 자습서에는 iOS, Android 및 Windows용 프로젝트가 포함되어 있으므로 Visual Studio와 Xamarin이 둘 다 필요합니다. 필요한 환경을 만들려면 MSDN에서 [Visual Studio 및 Xamarin 설정 및 설치](https://msdn.microsoft.com/library/mt613162.aspx)의 전체 지침을 따르세요. 이러한 지침에는 설치 관리자가 완료되기를 기다리는 동안 Xamarin에 대해 자세히 알아보기 위해 검토할 수 있는 자료가 포함되어 있습니다.
 
 필요한 설정이 끝나면 Visual Studio에서 솔루션을 열어 시작합니다. 그러면 5개의 플랫폼별 프로젝트와 모든 플랫폼에서 공유되는 1개의 이식 가능 클래스 라이브러리(`DirectorySearcher.cs`)의 6개 프로젝트를 찾을 수 있습니다.
-
 
 ## *1. Directory Searcher 응용 프로그램 등록*
 앱에서 토큰을 가져올 수 있게 하려면 먼저 Azure AD 테넌트에 등록하고 Azure AD Graph API에 액세스할 수 있는 권한을 부여해야 합니다.
@@ -62,7 +59,8 @@ Xamarin을 사용하여 모바일 장치 및 PC를 비롯한 여러 다른 플�
 - 또한 **구성** 탭에서 “다른 응용 프로그램에 대한 권한” 섹션을 찾습니다. "Azure Active Directory" 응용 프로그램의 경우 **위임된 권한**에서 **조직 디렉터리 액세스** 권한을 추가합니다. 이렇게 하면 응용 프로그램은 Graph API에서 사용자를 쿼리할 수 있습니다.
 
 ## *2. ADAL 설치 및 구성*
-Azure AD에서 응용 프로그램이 있으므로 ADAL을 설치하고 ID 관련 코드를 작성할 수 있습니다. ADAL이 Azure AD와 통신할 수 있게 하려면 앱 등록에 대한 일부 정보를 제공해야 합니다. 먼저 패키지 관리자 콘솔을 사용하여 솔루션의 각 프로젝트에 ADAL을 추가합니다.
+Azure AD에서 응용 프로그램이 있으므로 ADAL을 설치하고 ID 관련 코드를 작성할 수 있습니다. ADAL이 Azura AD와 통신할 수 있게 하려면, 앱 등록에 관한 일부 정보를 제공해야 합니다.
+-	먼저 패키지 관리자 콘솔을 사용하여 솔루션의 각 프로젝트에 ADAL을 추가합니다.
 
 `
 PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirectorySearcherLib -IncludePrerelease
@@ -193,7 +191,7 @@ await UnivDirectoryHelper.Search(
 
 축하합니다. 이제 5개의 서로 다른 플랫폼에서 OAuth 2.0을 사용하여 사용자를 인증하고 안전 하 게 Web API를 호출하는 기능이 있는 Xamarin 앱이 작성되었습니다. 아직 일부 사용자로 테넌트를 채우지 않은 경우 지금 할 수 있습니다. DirectorySearcher 앱을 실행하고 해당 사용자 중 하나로 로그인합니다. 해당 UPN에 따라 다른 사용자를 검색합니다.
 
-ADAL은 응용 프로그램에 일반적인 ID 기능을 쉽게 통합할 수 있습니다. 또한 캐시 관리, OAuth 프로토콜 지원, 사용자에게 로그인 UI 제공, 만료된 토큰 새로 고침 등의 모든 귀찮은 작업을 관리해줍니다. 실제로 알아두어야 할 모든 항목은 단일 API 호출, `authContext.AcquireToken*(…)`입니다.
+ADAL은 앱에 일반적인 ID 기능을 쉽게 통합할 수 있습니다. 또한 캐시 관리, OAuth 프로토콜 지원, 사용자에게 로그인 UI 제공, 만료된 토큰 새로 고침 등의 모든 귀찮은 작업을 관리해줍니다. 실제로 알아두어야 할 모든 항목은 단일 API 호출, `authContext.AcquireToken*(…)`입니다.
 
 참조를 위해 완성된 샘플(사용자 구성 값 제외)이 [여기](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/complete.zip)에 제공됩니다. 이제 추가 ID 시나리오로 이동할 수 있습니다. 다음 작업을 시도할 수 있습니다.
 
@@ -201,4 +199,4 @@ ADAL은 응용 프로그램에 일반적인 ID 기능을 쉽게 통합할 수 �
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/30/2016"
+   ms.date="04/08/2016"
    ms.author="toddabel"/>
 
 
@@ -41,11 +41,12 @@ Azure 서비스 패브릭 클러스터를 실행할 때 모든 노드의 로그�
 로그를 수집하는 첫 단계는 서비스 패브릭 클러스터의 각 VM에 진단 확장을 배포하는 것입니다. 진단 확장은 각 VM에서 로그를 수집하여 사용자가 지정한 저장소 계정에 업로드합니다. Azure 포털과 Azure 리소스 관리자 중 어떤 것을 사용하는지, 클러스터 만들기의 일환으로 배포하는 것인지 아니면 이미 있는 기존 클러스터에 배포하는 것인지에 따라 단계에 약간 차이가 있습니다. 각 시나리오에 대한 단계를 살펴보겠습니다.
 
 ### 포털을 통해 클러스터 만들기의 일환으로 진단 확장 배포
-클러스터 만들기의 일환으로 VM에 진단을 배포하려면 아래 이미지에 표시된 진단 설정 패널을 사용합니다. *지원 로그*는 기본적으로 **사용**이고, *응용 프로그램 진단*은 기본적으로 **사용 안 함**입니다. 클러스터를 만든 후에는 포털을 사용하여 이러한 설정을 변경할 수 없습니다.
+클러스터 만들기의 일환으로 VM에 진단 확장을 배포하려면 아래 이미지에 표시된 진단 설정 패널을 사용합니다. 행위자나 Reliable Service 이벤트 컬렉션을 사용하려면 진단이 기본 설정인 **켜기**로 설정되어 있는지 확인합니다. 클러스터를 만든 후에는 포털을 사용하여 이러한 설정을 변경할 수 없습니다.
 
-![클러스터를 만들기 위해 포털에서 Azure 진단 설정](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/portal-cluster-creation-diagnostics-setting.png)
+![클러스터를 만들기 위해 포털에서 Azure 진단 설정](./media/service-fabric-diagnostics-how-to-setup-wad/portal-cluster-creation-diagnostics-setting.png)
 
-지원 로그는 Azure 지원 팀에서 사용자가 만든 지원 요청을 처리하는 데 **필요**합니다. 이러한 로그는 실시간으로 수집되어 현재 리소스 그룹에 만들어진 저장소 계정에 저장됩니다. 응용 프로그램 진단은 Azure 저장소에 저장되는 [작업자](service-fabric-reliable-actors-diagnostics.md) 이벤트, [Reliable Services](service-fabric-reliable-services-diagnostics.md) 이벤트 및 일부 시스템 수준 서비스 패브릭 이벤트를 포함하여 응용 프로그램 수준 이벤트를 구성합니다. [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md)와 같은 제품 또는 사용자 고유의 프로세스는 저장소 계정에서 이벤트를 선택할 수 있습니다. 현재 테이블로 전송되는 이벤트를 필터링하거나 영구 제거할 방법은 없습니다. 테이블에서 이벤트를 제거하는 프로세스가 구현되지 않은 경우 테이블이 계속 증가합니다. 포털을 사용하여 클러스터를 만드는 경우에는 배포가 완료된 후 템플릿을 내보내는 것이 좋습니다. 다음과 같은 방법으로 포털에서 템플릿을 내보낼 수 있습니다.
+지원 로그는 Azure 지원 팀에서 사용자가 만든 지원 요청을 처리하는 데 **필요**합니다. 이러한 로그는 실시간으로 수집되어 리소스 그룹에 만들어진 저장소 계정 중 하나에 저장됩니다. 진단 설정은 Azure 저장소에 저장되는 [행위자](service-fabric-reliable-actors-diagnostics.md) 이벤트, [Reliable Service](service-fabric-reliable-services-diagnostics.md) 이벤트 및 일부 시스템 수준 서비스 패브릭 이벤트를 포함하여 응용 프로그램 수준 이벤트를 구성합니다. [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md)와 같은 제품 또는 사용자 고유의 프로세스는 저장소 계정에서 이벤트를 선택할 수 있습니다. 현재 테이블로 전송되는 이벤트를 필터링하거나 영구 제거할 방법은 없습니다. 테이블에서 이벤트를 제거하는 프로세스가 구현되지 않은 경우 테이블이 계속 증가합니다. 포털을 사용하여 클러스터를 만드는 경우에는 배포가 완료된 후 템플릿을 내보내는 것이 좋습니다. 다음과 같은 방법으로 포털에서 템플릿을 내보낼 수 있습니다.
+
 1. 리소스 그룹을 엽니다.
 2. 설정을 선택하여 설정 패널을 표시합니다.
 3. 배포를 선택하여 배포 기록 패널을 표시합니다.
@@ -178,4 +179,4 @@ New-AzureResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $de
 ## 다음 단계
 문제를 해결하는 동안 조사해야 하는 이벤트에 대한 자세한 내용을 확인하려면 [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) 및 [Reliable Services](service-fabric-reliable-services-diagnostics.md)가 내보낸 진단 이벤트를 확인합니다.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

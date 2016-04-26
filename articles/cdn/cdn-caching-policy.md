@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="미디어 서비스 확장의 CDN 캐싱 정책" 
-	description="이 항목에서는 미디어 서비스 확장의 CDM 캐싱 정책에 대한 개요를 제공합니다." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="juliako" 
-	manager="dwrede" 
+<properties
+	pageTitle="미디어 서비스 확장의 CDN 캐싱 정책"
+	description="이 항목에서는 미디어 서비스 확장의 CDM 캐싱 정책에 대한 개요를 제공합니다."
+	services="cdn"
+	documentationCenter=".NET"
+	authors="juliako"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/01/2016" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/01/2016"
 	ms.author="juliako"/>
 
 #미디어 서비스 확장의 CDN 캐싱 정책
@@ -32,7 +32,7 @@ Azure 미디어 서비스는 스트리밍 끝점에 대한 [CDN 통합](https://
 
 Azure 관리 포털 또는 Azure 미디어 서비스 API를 사용하여 캐시 헤더 값을 구성할 수 있습니다.
 
-1. 관리 포털을 사용하여 캐시 헤더를 구성하려면 스트리밍 끝점 구성에서 [스트리밍 끝점을 관리하는 방법](../media-services-manage-origins.md) 섹션을 참조하세요.
+1. 관리 포털을 사용하여 캐시 헤더를 구성하려면 스트리밍 끝점 구성에서 [스트리밍 끝점을 관리하는 방법](../media-services/media-services-manage-origins.md) 섹션을 참조하세요.
 2. Azure 미디어 서비스 REST API, [StreamingEndpoint](https://msdn.microsoft.com/library/azure/dn783468.aspx#StreamingEndpointCacheControl)
 3. Azure 미디어 서비스 .NET SDK, [StreamingEndpointCacheControl 속성](http://go.microsoft.com/fwlink/?LinkId=615302)
 
@@ -41,6 +41,5 @@ Azure 관리 포털 또는 Azure 미디어 서비스 API를 사용하여 캐시 
 1. Azure 미디어 서비스에서 구성된 캐시 값은 기본값을 재정의합니다.
 2. 수동 구성이 없으면 기본값이 적용됩니다.
 3. 라이브 스트리밍에는 Azure 미디어 또는 Azure 저장소 구성에 상관없이 기본적으로 2초 캐시 헤더가 적용되며, 이 값은 재정의할 수 없습니다.
- 
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

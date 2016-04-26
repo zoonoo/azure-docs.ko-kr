@@ -4,7 +4,7 @@
 	services="app-service\api"
 	documentationCenter="java"
 	authors="bradygaster"
-	manager="mohisri" 
+	manager="mohisri"
 	editor="tdykstra"/>
 
 <tags
@@ -295,4 +295,4 @@ swagger.io 온라인 편집기를 사용하여 API의 구조를 나타내는 Swa
 
 Azure에서 Java를 사용하는 방법에 대한 자세한 내용은 [Java 개발자 센터](/develop/java/)를 참조하세요.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

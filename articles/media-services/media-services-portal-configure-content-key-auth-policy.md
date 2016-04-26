@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
+ 	ms.date="04/07/2016"  
 	ms.author="juliako"/>
 
 
@@ -24,14 +24,16 @@
 
 ##개요
 
-Microsoft Azure 미디어 서비스를 사용하면 128 비트 암호화 키를 사용하는 AES(Advanced Encryption Standard) 및 PlayReady DRM로 암호화된 콘텐츠를 제공할 수 있습니다. 또한 미디어 서비스는 **키\\라이선스 배달 서비스**를 제공하여 클라이언트가 암호화된 콘텐츠를 재생할 수 있는 키 또는 라이선스를 받을 수 있습니다.
+Microsoft Azure 미디어 서비스를 사용하면 AES(Advanced Encryption Standard)(128비트 암호화 키 사용) 또는 [Microsoft PlayReady DRM](https://www.microsoft.com/playready/overview/)으로 보호되는 MPEG-DASH, 부드러운 스트리밍 및 HTTP-Live-Streaming(HLS) 스트림을 배달할 수 있습니다. 또한 AMS를 사용하면 Widevine DRM으로 암호화된 DASH 스트림을 배달할 수 있습니다. PlayReady와 Widevine 모두 일반적인 암호화(ISO/IEC 23001-7 CENC) 사양에 따라 암호화됩니다.
+
+또한 미디어 서비스는 **키/라이선스 배달 서비스**를 제공하여 클라이언트가 암호화된 콘텐츠를 재생할 수 있는 AES 키 또는 PlayReady/Widevine 라이선스를 받을 수 있습니다.
 
 이 항목에서는 **Azure 클래식 포털**을 사용하여 콘텐츠 키 인증 정책을 구성하는 방법을 보여 줍니다. 키는 나중에 동적으로 콘텐츠를 암호화하는데 사용할 수 있습니다. 현재 암호화할 수 있는 스트리밍 형식은 HLS, MPEG DASH 및 부드러운 스트리밍입니다. HDS 스트리밍 형식 또는 점진적 다운로드는 암호화할 수 없습니다.
  
-플레이어가 동적으로 암호화되도록 설정된 스트림을 요청하는 경우, 미디어 서비스는 구성된 키를 사용하고 AES 또는 PlayReady 암호화를 사용하여 동적으로 사용자의 콘텐츠를 암호화합니다. 스트림을 해독하기 위해 플레이어는 키 배달 서비스에서 키를 요청합니다. 사용자에게 키를 얻을 수 있는 권한이 있는지 여부를 결정하기 위해 서비스는 키에 지정된 권한 부여 정책을 평가합니다.
+플레이어가 동적으로 암호화되도록 설정된 스트림을 요청하는 경우, 미디어 서비스는 구성된 키를 사용하고 AES 또는 DRM 암호화를 사용하여 동적으로 사용자의 콘텐츠를 암호화합니다. 스트림을 해독하기 위해 플레이어는 키 배달 서비스에서 키를 요청합니다. 사용자에게 키를 얻을 수 있는 권한이 있는지 여부를 결정하기 위해 서비스는 키에 지정된 권한 부여 정책을 평가합니다.
 
 
-여러 콘텐츠 키를 가지거나 미디어 서비스 키 배달 서비스가 아닌 **키\\라이선스 배달 서비스** URL을 지정하려면 미디어 서비스 키 배달 서비스 미디어 서비스 .NET SDK 또는 REST API를 사용하세요.
+여러 콘텐츠 키를 가지거나 미디어 서비스 키 배달 서비스가 아닌 **키/라이선스 배달 서비스** URL을 지정하려면 미디어 서비스 키 배달 서비스 미디어 서비스 .NET SDK 또는 REST API를 사용하세요.
 
 [미디어 서비스 .NET SDK를 사용하여 콘텐츠 키 권한 부여 정책 구성](media-services-dotnet-configure-content-key-auth-policy.md)
 
@@ -103,4 +105,4 @@ Microsoft Azure 미디어 서비스를 사용하면 128 비트 암호화 키를 
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

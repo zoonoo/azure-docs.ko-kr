@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Azure 이벤트 허브 개요 | Microsoft Azure"
-   description="Azure 이벤트 허브의 소개 및 개요."
-   services="event-hubs"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="" />
+    pageTitle="Azure 이벤트 허브 개요 | Microsoft Azure"
+    description="Azure 이벤트 허브의 소개 및 개요."
+    services="event-hubs"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="event-hubs"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="01/26/2016"
-   ms.author="sethm" />
+    ms.service="event-hubs"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="04/15/2016"
+    ms.author="sethm" />
 
 # Azure 이벤트 허브 개요
 
@@ -41,7 +41,7 @@ Azure 이벤트 허브는 짧은 대기 시간 및 높은 안정성으로 이벤
 
 ![이벤트 허브](./media/event-hubs-overview/IC759858.png)
 
-파티션 수가 이벤트 허브 작성 시간에 지정되고 2에서 32 사이여야 합니다(기본값은 4). 파티션은 데이터 조직 메커니즘이며 이벤트 허브 처리량보다 응용 프로그램 사용에 필요한 다운스트림 병렬 처리 수준과 더 관련이 있습니다. 있을 것으로 예상되는 동시 판독기의 수와 직접 관련된 이벤트 허브에서 파티션 수를 선택합니다. 이벤트 허브를 만든 후 파티션 수를 변경할 수 있습니다. 장기간의 예상된 크기로 이 숫자를 고려해야 합니다. 서비스 버스 팀에 문의하여 32개의 파티션 제한을 늘릴 수 있습니다.
+파티션 수가 이벤트 허브 작성 시간에 지정되고 2에서 32 사이여야 합니다.(기본값은 4) 파티션은 데이터 조직 메커니즘이며 이벤트 허브 처리량보다 응용 프로그램 사용에 필요한 다운스트림 병렬 처리 수준과 더 관련이 있습니다. 있을 것으로 예상되는 동시 판독기의 수와 직접 관련된 이벤트 허브에서 파티션 수를 선택합니다. 이벤트 허브를 만든 후 파티션 수를 변경할 수 있습니다. 장기간의 예상된 크기로 이 숫자를 고려해야 합니다. 서비스 버스 팀에 문의하여 32개의 파티션 제한을 늘릴 수 있습니다.
 
 파티션을 식별할 수 있고 직접 보낼 수 있지만, 일반적으로 특정 파티션에 데이터를 보내는 것을 방지하는 것이 좋습니다. 대신에, [이벤트 게시자](#event-publisher) 및 [게시자 정책](#capacity-and-security) 섹션에. 도입된 더 높은 수준의 구문을 사용할 수 있습니다.
 
@@ -168,4 +168,4 @@ Azure 이벤트 허브는 규모에 관계 없이 모니터링하는 일반 응�
 [큐 메시징 솔루션]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

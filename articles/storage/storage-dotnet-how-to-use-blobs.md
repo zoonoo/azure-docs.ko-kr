@@ -55,11 +55,13 @@ Azure Blob 저장소는 클라우드에 파일 데이터를 저장하는 서비�
 	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
     using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage types
 
+### 연결 문자열 구문 분석
+
 [AZURE.INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
 ### Blob 서비스 클라이언트 만들기
 
-**CloudBlobClient** 클래스를 통해 Blob 저장소에 저장된 컨테이너 및 Blob를 검색할 수 있습니다. **Main()** 메서드에 다음 코드를 추가합니다.
+**CloudBlobClient** 클래스를 통해 Blob 저장소에 저장된 컨테이너 및 Blob을 검색할 수 있습니다. 서비스 클라이언트를 만드는 한 가지 방법은 다음과 같습니다.
 
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
@@ -363,7 +365,6 @@ Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 **Delete** 메서
 - [.NET용 파일 저장소 시작](storage-dotnet-how-to-use-files.md)
 - [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy)
 - [WebJob SDK를 사용하여 Azure Blob 저장소로 작업하는 방법](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
-- [.NET(C#)에서 SQL 데이터베이스 사용하기](../sql-database/sql-database-dotnet-how-to-use.md)
 
   [Blob5]: ./media/storage-dotnet-how-to-use-blobs/blob5.png
   [Blob6]: ./media/storage-dotnet-how-to-use-blobs/blob6.png
@@ -376,4 +377,4 @@ Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 **Delete** 메서
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

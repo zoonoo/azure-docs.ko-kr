@@ -1,6 +1,6 @@
 <properties
 	pageTitle="인프라 서비스를 위한 부하 분산 | Microsoft Azure"
-	description="Azure에서 지원되는 부하 분산의 서로 다른 두 형식, 클라우드 서비스에 대해 부하 분산 장치 및 클라이언트 트래픽에 대해 Azure 트래픽 관리자를 설명 합니다."
+	description="Azure에서 지원되는 부하 분산의 두 형식, 클라우드 서비스에 대해 부하 분산 장치 및 클라이언트 트래픽에 대해 Azure 트래픽 관리자를 설명합니다."
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="joaoma"
@@ -22,4 +22,4 @@
 
 [AZURE.INCLUDE [virtual-machines-common-load-balance](../../includes/virtual-machines-common-load-balance.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

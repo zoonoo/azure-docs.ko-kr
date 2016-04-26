@@ -3,8 +3,8 @@
 	description="이 문서는 데이터베이스 작업을 일괄 처리하면 Azure SQL 데이터베이스 응용 프로그램의 속도와 확장성이 매우 향상된다는 증거를 제공합니다. 이러한 일괄 처리 기법은 SQL Server 데이터베이스에 적용되지만 이 문서는 Azure에 중점을 두었습니다. "
 	services="sql-database"
 	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
+	authors="carlrabeler"
+	manager="jhubbard"
 	editor="monicar" />
 
 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
 	ms.date="02/04/2016"
-	ms.author="jroth" />
+	ms.author="carlrab" />
 
 # SQL 데이터베이스 응용 프로그램 성능을 개선하기 위해 일괄 처리를 사용하는 방법
 
@@ -604,4 +604,4 @@ PurchaseOrderDetail 테이블의 OrderID 열은 PurchaseOrder 테이블에서 �
 
 이 문서는 일괄 처리와 관련된 데이터베이스 디자인과 코딩 기법이 응용 프로그램 성능과 확장성을 향상시킬 수 있는 방법에 중점을 두고 있습니다. 하지만 이것은 사용자의 전반적인 전략 중 한 가지 요소에 불과합니다. 성능과 확장성을 개선하는 방법을 더 보려면 [단일 데이터베이스의 Azure SQL 데이터베이스 성능 지침](sql-database-performance-guidance.md) 및 [탄력적 데이터베이스 풀의 가격 및 성능 고려 사항](sql-database-elastic-pool-guidance.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -28,7 +28,7 @@
 클래식 배포 모델에 익숙한 경우 [클래식과 리소스 관리자 간의 IP 주소 차이](virtual-network-ip-addresses-overview-classic.md#Differences-between-Resource-Manager-and-classic-deployments)를 확인합니다.
 
 ## 공용 IP 주소
-공용 IP 주소를 사용하면 Azure 리소스가 [Azure Redis Cache](https://azure.microsoft.com/services/cache/), [Azure 이벤트 허브](https://azure.microsoft.com/services/event-hubs/), [SQL 데이터베이스](sql-database-technical-overview.md) 및 [Azure 저장소](storage-introduction.md)와 같은 Azure의 공용 서비스 및 인터넷과 통신할 수 있습니다.
+공용 IP 주소를 사용하면 Azure 리소스가 [Azure Redis Cache](https://azure.microsoft.com/services/cache/), [Azure 이벤트 허브](https://azure.microsoft.com/services/event-hubs/), [SQL 데이터베이스](../sql-database/sql-database-technical-overview.md) 및 [Azure 저장소](../storage/storage-introduction.md)와 같은 Azure의 공용 서비스 및 인터넷과 통신할 수 있습니다.
 
 Azure 리소스 관리자에서 [공용 IP](resource-groups-networking.md#public-ip-address) 주소는 고유 속성을 가진 리소스입니다. 다음 리소스와 공용 IP 주소 리소스를 연결할 수 있습니다.
 
@@ -62,13 +62,13 @@ Azure 관리 DNS 서버에서 공용 IP 주소에 대한 *domainnamelabel*.*loca
 공용 IP 주소를 NIC(**네트워크 인터페이스 카드**)에 할당하여 [VM(가상 컴퓨터)](../virtual-machines/virtual-machines-linux-about.md)과 연결할 수 있습니다. 다중 NIC VM의 경우에는 *기본* NIC에만 할당할 수 있습니다. VM에 동적 또는 정적 공용 IP 주소를 할당할 수 있습니다.
 
 ### 인터넷 연결 부하 분산 장치
-공용 IP 주소를 부하 분산 장치 **프런트 엔드** 구성에 할당하여 [Azure 부하 분산 장치](load-balancer-overview.md)와 연결할 수 있습니다. 이 공용 IP 주소는 부하 분산 VIP(가상 IP 주소)로 사용됩니다. 부하 분산 장치 프런트 엔드에 동적 또는 정적 공용 IP 주소를 할당할 수 있습니다. 또한 부하 분산 장치 프런트 엔드에 여러 공용 IP 주소를 할당하여 SSL 기반 웹 사이트를 사용하는 다중 테넌트 환경과 같은 [다중 vip](load-balancer-multivip.md) 시나리오를 구현할 수도 있습니다.
+공용 IP 주소를 부하 분산 장치 **프런트 엔드** 구성에 할당하여 [Azure 부하 분산 장치](../load-balancer/load-balancer-overview.md)와 연결할 수 있습니다. 이 공용 IP 주소는 부하 분산 VIP(가상 IP 주소)로 사용됩니다. 부하 분산 장치 프런트 엔드에 동적 또는 정적 공용 IP 주소를 할당할 수 있습니다. 또한 부하 분산 장치 프런트 엔드에 여러 공용 IP 주소를 할당하여 SSL 기반 웹 사이트를 사용하는 다중 테넌트 환경과 같은 [다중 vip](../load-balancer/load-balancer-multivip.md) 시나리오를 구현할 수도 있습니다.
 
 ### VPN 게이트웨이
-[Azure VPN 게이트웨이](vpn-gateway-about-vpngateways.md)는 Azure 가상 네트워크(VNet)를 다른 Azure VNet 또는 온-프레미스 네트워크에 연결하는 데 사용됩니다. 공용 IP 주소를 해당 **IP 구성**에 할당해야 원격 네트워크와의 통신을 구현할 수 있습니다. 현재는 VPN 게이트웨이에 동적 공용 IP 주소만 할당할 수 있습니다.
+[Azure VPN 게이트웨이](../vpn-gateway/vpn-gateway-about-vpngateways.md)는 Azure 가상 네트워크(VNet)를 다른 Azure VNet 또는 온-프레미스 네트워크에 연결하는 데 사용됩니다. 공용 IP 주소를 해당 **IP 구성**에 할당해야 원격 네트워크와의 통신을 구현할 수 있습니다. 현재는 VPN 게이트웨이에 동적 공용 IP 주소만 할당할 수 있습니다.
 
 ### 응용 프로그램 게이트웨이
-공용 IP 주소를 게이트웨이의 **프런트 엔드** 구성에 할당하여 Azure [응용 프로그램 게이트웨이](application-gateway-introduction.md)와 연결할 수 있습니다. 이 공용 IP 주소는 부하 분산 VIP로 사용됩니다. 현재는 응용 프로그램 게이트웨이 프런트 엔드 구성에 *동적* 공용 IP 주소만 할당할 수 있습니다.
+공용 IP 주소를 게이트웨이의 **프런트 엔드** 구성에 할당하여 Azure [응용 프로그램 게이트웨이](../application-gateway/application-gateway-introduction.md)와 연결할 수 있습니다. 이 공용 IP 주소는 부하 분산 VIP로 사용됩니다. 현재는 응용 프로그램 게이트웨이 프런트 엔드 구성에 *동적* 공용 IP 주소만 할당할 수 있습니다.
 
 ### 요약
 아래 표는 공용 IP 주소가 최상위 리소스와 연결될 수 있는 특정 속성 및 사용 가능한 할당 메서드(동적 또는 정적)를 보여 줍니다.
@@ -113,7 +113,7 @@ VM을 만들 때 개인 IP 주소에 대한 호스트 이름 매핑이 Azure 관
 Azure 관리 DNS 서버를 사용하여 구성된 VM은 해당 VNet 내 모든 VM의 호스트 이름을 개인 IP 주소로 확인할 수 있게 됩니다.
 
 ### ILB(내부 부하 분산 장치) 및 응용 프로그램 게이트웨이
-[Azure 내부 부하 분산 장치](load-balancer-internal-overview.md)(ILB) 또는 [Azure 응용 프로그램 게이트웨이](application-gateway-introduction.md)의 **프런트 엔드** 구성에 개인 IP 주소를 할당할 수 있습니다. 이 개인 IP 주소는 가상 네트워크(VNet) 내 리소스와 VNet에 연결된 원격 네트워크에만 액세스할 수 있는 내부 끝점으로 사용됩니다. 프런트 엔드 구성에 동적 또는 정적 개인 IP 주소를 할당할 수 있습니다.
+[Azure 내부 부하 분산 장치](../load-balancer/load-balancer-internal-overview.md)(ILB) 또는 [Azure 응용 프로그램 게이트웨이](../application-gateway/application-gateway-introduction.md)의 **프런트 엔드** 구성에 개인 IP 주소를 할당할 수 있습니다. 이 개인 IP 주소는 가상 네트워크(VNet) 내 리소스와 VNet에 연결된 원격 네트워크에만 액세스할 수 있는 내부 끝점으로 사용됩니다. 프런트 엔드 구성에 동적 또는 정적 개인 IP 주소를 할당할 수 있습니다.
 
 ### 요약
 아래 표는 개인 IP 주소가 최상위 리소스와 연결될 수 있는 특정 속성 및 사용 가능한 할당 메서드(동적 또는 정적)를 보여 줍니다.
@@ -137,4 +137,4 @@ IP 주소 지정에 적용되는 제한은 Azure에서 [네트워킹에 대한 �
 - [템플릿을 사용하여 고정 공용 IP를 사용하는 VM을 배포](virtual-network-deploy-static-pip-arm-template.md)하는 방법을 알아봅니다.
 - Azure 포털을 사용하여 [고정 개인 IP 주소를 사용하는 VM을 배포](virtual-networks-static-private-ip-arm-pportal.md)합니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

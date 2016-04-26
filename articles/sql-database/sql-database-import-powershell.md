@@ -4,7 +4,7 @@
     services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
-    manager="jeffreyg" 
+    manager="jhubbard" 
     editor=""/>
 
 <tags
@@ -21,7 +21,7 @@
 **단일 데이터베이스**
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-database-import.md)
+- [Azure 포털](sql-database-import.md)
 - [PowerShell](sql-database-import-powershell.md)
 - [SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
 - [SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
@@ -38,7 +38,7 @@ BACPAC은 데이터베이스 스키마 및 데이터를 포함하는 .bacpac 파
 SQL 데이터베이스를 가져오려면 다음이 필요합니다.
 
 - Azure 구독. Azure 구독이 필요할 경우 이 페이지 위쪽에서 **무료 평가판**을 클릭하고 되돌아와 이 문서를 완료합니다.
-- 가져올 데이터베이스의 .bacpac 파일(BACPAC). BACPAC은 [Azure 저장소 계정(클래식)](storage-create-storage-account.md) Blob 컨테이너에 있어야 합니다.
+- 가져올 데이터베이스의 .bacpac 파일(BACPAC). BACPAC은 [Azure 저장소 계정(클래식)](../storage/storage-create-storage-account.md) Blob 컨테이너에 있어야 합니다.
 
 
 > [AZURE.IMPORTANT] 이 문서에서는 Azure PowerShell 버전 1.0 *미만*의 명령을 포함합니다. **Get-Module azure | format-table version** 명령으로 Azure PowerShell의 버전을 확인할 수 있습니다.
@@ -153,4 +153,4 @@ Blob 이름은 데이터베이스를 만들려는 기존 .bacpac 파일의 이�
 - [재해 복구 연습](sql-database-disaster-recovery-drills.md)
 - [SQL 데이터베이스 설명서](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

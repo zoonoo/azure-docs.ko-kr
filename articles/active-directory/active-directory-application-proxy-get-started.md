@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="02/10/2016"
+	ms.topic="article"
+	ms.date="04/12/2016"
 	ms.author="kgremban"/>
 
 # 온-프레미스 응용 프로그램에 보안된 원격 액세스를 제공하는 방법
@@ -63,4 +63,4 @@ Azure AD 기본 또는 프리미엄 구독이 있고 자신이 전역 관리자�
 - [조직으로 Azure에 등록](sign-up-organization.md)
 - [Azure ID](fundamentals-identity.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->
