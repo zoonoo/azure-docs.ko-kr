@@ -78,8 +78,7 @@
 |---|---|
 |가상 네트워크 세부 정보|**이름 = ContosoNET**<br/>**지역 = 미국 서부**|
 |DNS 서버 및 VPN 연결|없음|
-|가상 네트워크 주소 공간|설정이 아래 스크린샷에 나와 있습니다.
-![가상 네트워크 만들기](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784620.png)|
+|가상 네트워크 주소 공간|설정이 아래 스크린샷에 나와 있습니다. ![가상 네트워크 만들기](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784620.png)|
 
 1. 다음으로 도메인 컨트롤러(DC)로 사용할 VM을 만듭니다. 다시 **새로 만들기**를 클릭하고, 아래와 같이 **계산**, **가상 컴퓨터**, **갤러리에서**를 차례로 클릭합니다.
 
