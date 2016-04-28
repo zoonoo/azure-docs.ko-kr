@@ -18,12 +18,7 @@ Azure 문서에 관심을 가져 주셔서 감사합니다.
 
 ## 참가 방법
 
-[Azure 설명서](http://azure.microsoft.com/documentation/)에 참가할 수 있는 몇 가지 방법이 있습니다.
-
-* [포럼 토론](http://social.msdn.microsoft.com/Forums/windowsazure/home)에 참가합니다.
-* 문서의 맨 아래에 Disqus 의견을 제출합니다.
-* GitHub 사용자 인터페이스에서 기술 문서에 쉽게 참여할 수 있습니다. 이 레포지토리에서 문서를 찾거나 [http://azure.microsoft.com/documentation](http://azure.microsoft.com/documentation)의 문서를 방문하여 문서에 대한 GitHub 원본으로 이동하는 문서의 링크를 클릭합니다.
-* 기존 아티클을 변경하거나 이미지를 추가 또는 변경하고 혹은 새 기사에 참가하는 경우 이 리포지토리를 분기하고 Git Bash인 마크다운 패드를 설치하고 일부 git 명령을 알아보아야 합니다.
+GitHub 사용자 인터페이스에서 기술 문서에 쉽게 참여할 수 있습니다. 이 레포지토리에서 문서를 찾거나 [http://azure.microsoft.com/documentation](http://azure.microsoft.com/documentation)의 문서를 방문하여 문서에 대한 GitHub 원본으로 이동하는 문서의 링크를 클릭합니다.
 
 ##Azure 콘텐츠에 참가 방법
 
@@ -104,4 +99,4 @@ GitBash를 설치하고 로컬에서 작동하도록 선택하면 새 로컬 작
 
 모든 지침 항목은 [참가자 가이드의 인덱스](./contributor-guide/contributor-guide-index.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0307_2016-->
+<!----HONumber=AcomDC_0307_2016-->
