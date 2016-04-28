@@ -69,17 +69,14 @@ SMTP API를 사용하여 다음 작업을 수행할 수 있습니다. 트리거�
 
 | 이름 | 데이터 형식 | 필수|
 |---|---|---|
-|받는 사람  
-|string|no|
+|받는 사람|string|no|
 |CC|string|no|
-|제목  
-|string|no|
+|제목|string|no|
 |본문|string|no|
 |원본|string|no|
 |IsHtml|부울|no|
 |Bcc|string|no|
-|중요도  
-|string|no|
+|중요도|string|no|
 |첨부 파일|array|no|
 
 
