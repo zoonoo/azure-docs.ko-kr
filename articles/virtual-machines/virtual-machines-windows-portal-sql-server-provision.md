@@ -203,4 +203,4 @@ SQL Server 가상 컴퓨터에 연결되었으면 SQL Server Management Studio�
 ##<a id="Next">다음 단계
 Azure에서 SQL Server를 사용하는 방법에 대한 기타 정보는 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0413_2016---->
