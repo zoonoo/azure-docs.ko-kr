@@ -631,4 +631,4 @@ SQL*PLUS 명령 프롬프트 창을 열고 기본 컴퓨터(Machine1)에서 logf
 ##추가 리소스
 [Azure용 Oracle 가상 컴퓨터 이미지](virtual-machines-windows-classic-oracle-images.md)
 
-<!----HONumber=AcomDC_0413_2016-->
+<!-----HONumber=AcomDC_0413_2016-->
