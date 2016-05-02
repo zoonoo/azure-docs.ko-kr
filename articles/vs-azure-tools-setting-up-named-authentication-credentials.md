@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="12/18/2015"
+   ms.date="04/18/2016"
    ms.author="tarcher" />
 
 # 명명된 인증 자격 증명 설정
@@ -27,7 +27,7 @@ Azure에 인증하려면 다음 항목이 필요합니다.
 
 - 유효한 X.509 v3 인증서
 
->[AZURE.NOTE]X.509 v3 인증서 키의 길이는 2048비트 이상이어야 합니다. Azure는 이 요구 사항을 충족하지 않거나 올바르지 않은 모든 인증서를 거부합니다.
+>[AZURE.NOTE] X.509 v3 인증서 키의 길이는 2048비트 이상이어야 합니다. Azure는 이 요구 사항을 충족하지 않거나 올바르지 않은 모든 인증서를 거부합니다.
 
 Visual Studio는 자격 증명으로 인증서 데이터와 함께 구독 ID를 사용합니다. 적절한 자격 증명은 인증서에 대한 공용 키가 포함된 구독 파일(.publishsettings 파일)에서 참조됩니다. 구독 파일에는 둘 이상의 구독에 대한 자격 증명이 포함될 수 있습니다.
 
@@ -35,7 +35,7 @@ Visual Studio는 자격 증명으로 인증서 데이터와 함께 구독 ID를 
 
 인증서를 만들 려는 경우 [Azure용 관리 인증서 만들기 및 업로드](https://msdn.microsoft.com/library/windowsazure/gg551722.aspx)에서 지침을 참조한 다음 관리 포털에 수동으로 인증서를 업로드합니다.
 
->[AZURE.NOTE]Visual Studio에서 클라우드 서비스를 관리해야 하는 이러한 자격 증명은 Azure 저장소 서비스에 대한 요청을 인증하는데 필요한 자격 증명과 동일하지 않습니다.
+>[AZURE.NOTE] Visual Studio에서 클라우드 서비스를 관리해야 하는 이러한 자격 증명은 Azure 저장소 서비스에 대한 요청을 인증하는데 필요한 자격 증명과 동일하지 않습니다.
 
 ## Visual Studio에서 인증 자격 증명 수정 또는 내보내기
 
@@ -53,7 +53,7 @@ Visual Studio는 자격 증명으로 인증서 데이터와 함께 구독 ID를 
 
 1. **전체 경로 복사** 단추를 선택합니다. 인증서(.cer 파일)에 대한 경로가 클립보드에 복사됩니다.
 
-    >[AZURE.IMPORTANT]Visual Studio에서 Azure 응용 프로그램을 게시하려면 관리 포털에 이 인증서를 업로드해야 합니다.
+    >[AZURE.IMPORTANT] Visual Studio에서 Azure 응용 프로그램을 게시하려면 관리 포털에 이 인증서를 업로드해야 합니다.
 
 1. Azure 관리 포털로 인증서를 업로드하려면
 
@@ -71,4 +71,4 @@ Visual Studio는 자격 증명으로 인증서 데이터와 함께 구독 ID를 
 
     1. 방금 만든 .cer 파일의 전체 경로를 붙여넣은 다음 지정한 암호를 입력합니다.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0420_2016-->

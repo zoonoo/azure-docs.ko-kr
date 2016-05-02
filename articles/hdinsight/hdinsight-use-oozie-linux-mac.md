@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="04/07/2016"
 	ms.author="larryfr"/>
 
 
@@ -35,6 +35,8 @@ Apache Oozie는 Hadoop 작업을 관리하는 워크플로/코디네이션 시�
 - **Azure 구독**: [Azure 무료 평가판 받기](https://azure.microsoft.com/pricing/free-trial/)를 참조하세요.
 
 - **Azure CLI**: [Azure CLI 설치 및 구성](../xplat-cli-install.md)을 참조하세요.
+	
+	[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 - **HDInsight 클러스터**: [Linux에서 HDInsight 시작](hdinsight-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 
@@ -62,7 +64,7 @@ Apache Oozie는 Hadoop 작업을 관리하는 워크플로/코디네이션 시�
 
 ##작업 디렉터리 만들기
 
-Oozie에는 작업을 같은 디렉터리에 저장하는 데 사용되는 리소스가 필요합니다. 이 예제는 ****wasb:///tutorials/useoozie**를 사용합니다. 다음 명령을 사용하여 이 디렉터리와 이 워크플로에서 만든 새 Hive 테이블을 유지할 data 디렉터리를 만듭니다.
+Oozie에는 작업을 같은 디렉터리에 저장하는 데 사용되는 리소스가 필요합니다. 이 예제는 **wasb:///tutorials/useoozie**를 사용합니다. 다음 명령을 사용하여 이 디렉터리와 이 워크플로에서 만든 새 Hive 테이블을 유지할 data 디렉터리를 만듭니다.
 
 	hadoop fs -mkdir -p /tutorials/useoozie/data
 
@@ -720,4 +722,4 @@ Oozie UI를 사용하면 Oozie 로그뿐 아니라 Hive 쿼리와 같은 MapRedu
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

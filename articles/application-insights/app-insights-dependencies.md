@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2016" 
+	ms.date="04/13/2016" 
 	ms.author="awills"/>
  
 # Application Insights에서 종속성 문제 진단
@@ -50,15 +50,15 @@
 
 플랫폼 | 설치
 ---|---
-IIS 서버 | [상태 모니터를 서버에 설치](app-insights-monitor-performance-live-website-now.md) 또는 [응용 프로그램을 .NET Framework 4.6 이상으로 업그레이드](http://go.microsoft.com/fwlink/?LinkId=528259) 
+IIS 서버 | [상태 모니터를 서버에 설치](app-insights-monitor-performance-live-website-now.md) 또는 [응용 프로그램을 .NET Framework 4.6 이상으로 업그레이드](http://go.microsoft.com/fwlink/?LinkId=528259)하고 앱에 [Application Insights SDK](app-insights-asp-net.md)를 설치합니다.
 Azure 웹앱 | [Application Insights 확장](../azure-portal/insights-perf-analytics.md)
 Java 웹 서버 | [Java 웹앱](app-insights-java-agent.md)
 웹 페이지 | [JavaScript 모니터](app-insights-javascript.md)(웹 페이지 모니터링 외 추가 설정 없음)
-클라우드 서비스 | [시작 작업 사용](app-insights-cloudservices.md#dependencies) 또는 [.NET Framework 4.6+ 설치](../cloud-services/cloud-services-dotnet-install-dotnet.md)  
+Azure 클라우드 서비스 | [시작 작업 사용](app-insights-cloudservices.md#dependencies) 또는 [.NET Framework 4.6+ 설치](../cloud-services/cloud-services-dotnet-install-dotnet.md)  
 
 IIS 서버용 상태 모니터는 Application Insights SDK를 사용하여 소스 프로젝트를 다시 빌드할 필요가 없습니다.
 
-## <a name="diagnosis"></a> 웹 서버에서 종속성 성능 문제 진단하기
+## <a name="diagnosis"></a> 웹 서버에서 종속성 성능 문제 진단
 
 서버에서 요청 성능을 평가하려면:
 
@@ -140,4 +140,4 @@ IIS 서버용 상태 모니터는 Application Insights SDK를 사용하여 소�
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

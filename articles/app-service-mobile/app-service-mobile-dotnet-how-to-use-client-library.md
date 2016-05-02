@@ -19,7 +19,6 @@
 # Azure 모바일 앱에 관리되는 클라이언트를 사용하는 방법
 
 [AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
-&nbsp;
 
 ##개요
 
@@ -31,7 +30,7 @@
 
 ##<a name="setup"></a>설정 및 필수 조건
 
-하나의 테이블에 포함된 모바일 앱 백 엔드 프로젝트를 이미 만들고 게시했다고 가정합니다. 이 항목에 사용되는 코드에서 테이블은 이름이 `TodoItem`(이)고 `Id`, `Text` 및 `Complete` 열이 있습니다. [Azure 모바일 앱 빠른 시작 자습서]를 완료할 때 생성되는 동일한 테이블입니다.
+하나 이상의 테이블에 포함된 모바일 앱 백 엔드 프로젝트를 이미 만들고 게시했다고 가정합니다. 이 항목에 사용되는 코드에서 테이블은 이름이 `TodoItem`(이)고 `Id`, `Text` 및 `Complete` 열이 있습니다. [Azure 모바일 앱 빠른 시작 자습서]를 완료할 때 생성되는 동일한 테이블입니다.
 
 C#에서 해당하는 형식화된 클라이언트 쪽 형식은 다음과 같습니다.
 
@@ -58,8 +57,7 @@ C#에서 해당하는 형식화된 클라이언트 쪽 형식은 다음과 같�
 
 다음 코드는 모바일 앱 백 엔드에 액세스하는 데 사용되는 [MobileServiceClient] 개체를 만듭니다.
 
-	MobileServiceClient client = new MobileServiceClient(
-		"MOBILE_APP_URL");
+	MobileServiceClient client = new MobileServiceClient("MOBILE_APP_URL");
 
 위의 코드에서 `MOBILE_APP_URL`을 모바일 앱 백 엔드의 URL로 대체하며 이는 [Azure 포털]의 모바일 앱 백 엔드에 대한 블레이드에서 찾을 수 있습니다. 일반적이며 클라이언트 인스턴스는 단일 항목이 좋습니다.
 
@@ -85,8 +83,7 @@ C#에서 해당하는 형식화된 클라이언트 쪽 형식은 다음과 같�
 
 백 엔드 테이블의 데이터에 액세스하거나 데이터를 수정하는 모든 코드는 `MobileServiceTable` 개체의 함수를 호출합니다. 다음과 같이 `MobileServiceClient`의 인스턴스에 [GetTable] 메서드를 호출하여 테이블에 대한 참조를 얻습니다.
 
-    IMobileServiceTable<TodoItem> todoTable =
-		client.GetTable<TodoItem>();
+    IMobileServiceTable<TodoItem> todoTable = client.GetTable<TodoItem>();
 
 형식화된 직렬화 모델입니다. 형식화되지 않은 직렬화 모델도 지원됩니다. 다음은 [형식화되지 않은 테이블에 참조를 만듭니다].
 
@@ -443,7 +440,7 @@ Windows Phone 8 및 "Silverlight" 앱에서 새 컬렉션을 사용하려면 `IM
 두 경우에서 앱을 ID 공급자에 등록해야 합니다. ID 공급자는 클라이언트 ID 및 클라이언트 암호를 제공합니다. 그런 다음 ID 공급자가 제공한 클라이언트 ID 및 클라이언트 암호로 Azure 앱 서비스 인증 / 권한 부여를 구성해야 합니다. 자세한 내용은 [앱에 인증 추가] 자습서의 자세한 지침을 따르세요.
 
 ###<a name="serverflow"></a>서버 흐름
-ID 공급자를 등록하고 나면 공급자의 [MobileServiceAuthenticationProvider] 값을 사용하여 MobileServiceCleint.[LoginAsync 메서드]를 호출합니다. 예를 들어 다음 코드는 Facebook을 사용한 서버 흐름 로그인을 시작합니다.
+ID 공급자를 등록하고 나면 공급자의 [MobileServiceAuthenticationProvider] 값을 사용하여 MobileServiceClient.[LoginAsync 메서드]를 호출합니다. 예를 들어 다음 코드는 Facebook을 사용한 서버 흐름 로그인을 시작합니다.
 
 	private MobileServiceUser user;
 	private async System.Threading.Tasks.Task Authenticate()
@@ -913,4 +910,4 @@ Xamarin 앱에는 iOS 또는 Android 앱을 실행하는 앱을 각각 APNS(Appl
 [SymbolSource]: http://www.symbolsource.org/
 [SymbolSource 지침]: http://www.symbolsource.org/Public/Wiki/Using
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

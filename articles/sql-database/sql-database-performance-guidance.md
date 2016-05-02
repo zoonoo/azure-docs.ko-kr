@@ -14,12 +14,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="04/11/2016"
+	ms.date="04/19/2016"
 	ms.author="carlrab" />
 
 # 단일 데이터베이스의 Azure SQL 데이터베이스 성능 지침
 
-## 개요 
+## 개요
 
 Microsoft Azure SQL 데이터베이스에는 세 가지 [서비스 계층](sql-database-service-tiers.md), 즉, Basic, Standard, Premium이 있습니다. 세 서비스 모두 Azure SQL 데이터베이스에 제공된 리소스를 엄격하게 격리하여 예측 가능한 성능을 보장합니다. 데이터베이스에 보장되는 처리량은 Basic, Standard, Premium 순서로 점점 많아집니다.
 
@@ -39,10 +39,10 @@ Basic, Standard, Premium 서비스 계층이 Azure SQL 데이터베이스 서비
 
 또한 Microsoft는 자동 HA, 기본 관리와 같은 자동 관리 기능을 Azure SQL 데이터베이스에 포함하였습니다.
 
-### 자동 HA(고가용성) 
+### 자동 HA(고가용성)
  Azure SQL 데이터베이스는 각 사용자 데이터베이스에 3개 이상의 복제본을 유지하고 각 변경 사항을 복제본의 쿼럼에 동기적으로 자동 커밋하는 논리가 있습니다. 따라서 시스템의 단일 장애로 인해 데이터 손실이 발생하지 않습니다. 뿐만 아니라, 각 복제본을 다른 하드웨어 랙에 배치하므로 정전, 네트워크 스위치 손실과 같은 문제가 데이터베이스에 영향을 미치지 않습니다. 마지막으로, 시스템이 손실될 경우 자동으로 복제본을 리빌드하는 논리로 시스템 상태가 불안정해질 경우에도 시스템에서 정상적 상태 속성을 자동으로 보존할 수 있습니다. 이러한 메커니즘에서는 오늘날과 같이 고가용성 솔루션 설치 및 구성에서 많은 시간이 소요되는 프로세스가 필요하지 않습니다. 데이터에 사전 구성된 HA 솔루션을 갖출 경우 기존 기법을 사용하는 미션 크리티컬 데이터베이스 솔루션에서 또 하나의 주요 문제점이 해결됩니다.
 
-### 기본 관리 기능 
+### 기본 관리 기능
  Azure SQL 데이터베이스는 서비스로 실행됩니다. 즉, 각 데이터베이스에 대해 가동 시간 목표가 정의되어 있어 많은 시간이 소요되는 유지 관리 가동 중지 시간이 발생하지 않습니다. Microsoft는 단일 공급업체 솔루션으로 서비스를 제공합니다. 다시 말해, 문제가 발생할 경우 회사 한 곳에만 문의하면 됩니다. Microsoft는 또한 서비스를 지속적으로 업데이트하고 기능과 용량을 추가하며 Microsoft에서 실시하는 업데이트마다 환경을 개선할 방법을 찾고 있습니다. 업데이트는 가동 중지 시간 없이 자동으로 실행됩니다. 즉, 정상 HA 장애 조치(failover) 메커니즘에 통합되어 있습니다. 따라서 Microsoft에서 새 기능을 발표할 때마다 가동 중지 기간 동안 서버가 업그레이드될 때까지 기다릴 필요 없이 새 기능을 즉시 이용할 수 있습니다.
 
 이러한 기능은 월 몇 달러의 낮은 진입 가격대부터 모든 서비스 계층에서 제공됩니다. 이 비용은 자체 서버를 구입 및 운영하는 비용보다 훨씬 경제적이므로 아무리 작은 프로젝트에서도 많은 비용을 투자하지 않고 Azure를 활용할 수 있습니다.
@@ -123,12 +123,12 @@ Standard 및 Premium의 성능 수준 설정으로 필요한 용량에 대해서
 
 **최대 동시 요청**은 데이터베이스에서 동시에 실행되는 최대 동시 사용자/응용 프로그램 요청 수입니다. 동시 요청 수를 보려면 SQL 데이터베이스에서 다음 Transact-SQL 쿼리를 실행하세요.
 
-	SELECT COUNT(*) AS [Concurrent_Requests] 
+	SELECT COUNT(*) AS [Concurrent_Requests]
 	FROM sys.dm_exec_requests R
 
 온-프레미스 SQL Server 데이터베이스의 워크로드를 분석하려는 경우 이 쿼리를 수정하여 분석할 특정 데이터베이스에서 필터링해야 합니다. 예를 들어 MyDatabase라는 온-프레미스 데이터베이스가 있다면 다음 Transact-SQL 쿼리는 해당 데이터베이스의 동시 요청 수를 반환합니다.
 
-	SELECT COUNT(*) AS [Concurrent_Requests] 
+	SELECT COUNT(*) AS [Concurrent_Requests]
 	FROM sys.dm_exec_requests R
 	INNER JOIN sys.databases D ON D.database_id = R.database_id
 	AND D.name = 'MyDatabase'
@@ -176,14 +176,14 @@ SQL 데이터베이스 분석의 경우 **sys.resource\_stats**를 쿼리하여 
 이 뷰는 리소스 사용률에 대한 훨씬 구체적인 정보를 제공하므로 현재 상태 분석 또는 문제 해결에 **sys.dm\_db\_resource\_stats**를 먼저 사용해야 합니다. 예를 들어 다음 쿼리는 마지막 시간 동안 현재 데이터베이스의 평균 및 최대 리소스 사용률을 보여줍니다.
 
 	SELECT  
-	    AVG(avg_cpu_percent) AS 'Average CPU Utilization In Percent', 
-	    MAX(avg_cpu_percent) AS 'Maximum CPU Utilization In Percent', 
-	    AVG(avg_data_io_percent) AS 'Average Data IO In Percent', 
-	    MAX(avg_data_io_percent) AS 'Maximum Data IO In Percent', 
-	    AVG(avg_log_write_percent) AS 'Average Log Write Utilization In Percent', 
-	    MAX(avg_log_write_percent) AS 'Maximum Log Write Utilization In Percent', 
-	    AVG(avg_memory_usage_percent) AS 'Average Memory Usage In Percent', 
-	    MAX(avg_memory_usage_percent) AS 'Maximum Memory Usage In Percent' 
+	    AVG(avg_cpu_percent) AS 'Average CPU Utilization In Percent',
+	    MAX(avg_cpu_percent) AS 'Maximum CPU Utilization In Percent',
+	    AVG(avg_data_io_percent) AS 'Average Data IO In Percent',
+	    MAX(avg_data_io_percent) AS 'Maximum Data IO In Percent',
+	    AVG(avg_log_write_percent) AS 'Average Log Write Utilization In Percent',
+	    MAX(avg_log_write_percent) AS 'Maximum Log Write Utilization In Percent',
+	    AVG(avg_memory_usage_percent) AS 'Average Memory Usage In Percent',
+	    MAX(avg_memory_usage_percent) AS 'Maximum Memory Usage In Percent'
 	FROM sys.dm_db_resource_stats;  
 
 다른 쿼리는 [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx)의 예를 참조하세요.
@@ -206,9 +206,9 @@ Azure SQL 데이터베이스는 각 서버에 있는 **마스터** 데이터베�
 
 다음 예는 이 뷰의 데이터가 표시된 방식을 보여줍니다.
 
-	SELECT TOP 10 * 
-	FROM sys.resource_stats 
-	WHERE database_name = 'resource1' 
+	SELECT TOP 10 *
+	FROM sys.resource_stats
+	WHERE database_name = 'resource1'
 	ORDER BY start_time DESC
 
 ![sys 리소스 통계](./media/sql-database-performance-guidance/sys_resource_stats.png)
@@ -218,16 +218,16 @@ Azure SQL 데이터베이스는 각 서버에 있는 **마스터** 데이터베�
 >[AZURE.NOTE] **sys.resource\_stats**의 일부 열이 현재 V12 데이터베이스에서 변경되었기 때문에 다음 예의 샘플 쿼리가 오류를 생성합니다. 이후에 이 항목이 업데이트될 때 이 문제를 해결하는 새로운 버전의 쿼리가 제공될 것입니다.
 
 1. 예를 들어 데이터베이스 "userdb1"의 지난 주 리소스 사용을 살펴보기 위해 다음 쿼리를 실행할 수 있습니다.
-	
-		SELECT * 
-		FROM sys.resource_stats 
-		WHERE database_name = 'userdb1' AND 
+
+		SELECT *
+		FROM sys.resource_stats
+		WHERE database_name = 'userdb1' AND
 		      start_time > DATEADD(day, -7, GETDATE())
 		ORDER BY start_time DESC;
-	
+
 2. 워크로드가 성능 수준에 얼마나 적합한지 평가하려면 리소스 메트릭의 각 측면(CPU, 읽기, 쓰기, 작업자 수, 세션 수)에서 드릴다운해야 합니다. 다음은 이러한 리소스 메트릭의 평균값 및 최대값에 대해 보고하기 위해 sys.resource\_stats를 사용하여 수정한 쿼리입니다.
-	
-		SELECT 
+
+		SELECT
 		    avg(avg_cpu_percent) AS 'Average CPU Utilization In Percent',
 		    max(avg_cpu_percent) AS 'Maximum CPU Utilization In Percent',
 		    avg(avg_physical_data_read_percent) AS 'Average Physical Data Read Utilization In Percent',
@@ -238,41 +238,41 @@ Azure SQL 데이터베이스는 각 서버에 있는 **마스터** 데이터베�
 		    max(active_session_count) AS 'Maximum # of Sessions',
 		    avg(active_worker_count) AS 'Average # of Workers',
 		    max(active_worker_count) AS 'Maximum # of Workers'
-		FROM sys.resource_stats 
+		FROM sys.resource_stats
 		WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
-	
+
 3. 위의 각 리소스 메트릭의 평균값 최대값 정보를 사용하여 선택한 성능 수준에 워크로드가 얼마나 적합한지 평가할 수 있습니다. 대부분의 경우 sys.resource\_stats의 평균값은 대상 크기에 사용하기 적합한 기준선을 제공하며 기본 측정 기준이 되어야 합니다. 예를 들어 S2 성능 수준에서 Standard 서비스 계층을 사용하고, CPU, 읽기, 쓰기의 평균 활용률이 40% 미만이며, 평균 작업자 수가 50명 미만이고, 평균 세션 수가 200 미만인 경우 워크로드는 S1 성능 수준에 적합할 수 있습니다. 데이터베이스가 작업자 및 세션 제한 이내인지 여부는 쉽게 확인할 수 있습니다. 데이터베이스가 CPU, 읽기, 쓰기 기준의 하위 성능 수준에 적합한지 확인하려면 하위 성능 수준의 DTU 수를 현재 성능 수준의 DTU 수로 나눈 다음 결과에 100을 곱합니다.
-	
+
 	**S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40**
-	
+
 	결과는 백분율로 표시한 두 성능 수준 간 상대적 성능 차이입니다. 활용률이 이 백분율을 초과하지 않는 경우 워크로드가 이보다 낮은 성능 수준 이내일 수 있습니다. 하지만 모든 범위의 리소스 사용 값을 살펴보고 데이터베이스가 하위 성능 수준에 적합한 빈도를 백분율로 확인해야 합니다. 다음 쿼리는 위에서 계산된 40%의 임계값을 기준으로 리소스 규격당 적합률을 출력합니다.
-	
-		SELECT 
+
+		SELECT
 		    (COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU Fit Percent'
 		    ,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log Write Fit Percent'
 		    ,(COUNT(database_name) - SUM(CASE WHEN avg_physical_data_read_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical Data Read Fit Percent'
 		FROM sys.resource_stats
 		WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
-	
+
 	데이터베이스의 SLO(서비스 수준 목표)를 기준으로 워크로드가 하위 성능 수준에 적합한지 여부를 결정할 수 있습니다. 데이터베이스 워크로드 SLO가 99.9%이고 위 쿼리에서 세 가지 리소스 규격에 대해 99.9보다 큰 값을 반환할 경우 워크로드가 하위 성능 수준에 적합할 가능성이 매우 높습니다.
-	
+
 	적합률을 살펴보면 SLO를 충족하기 위해 상위 성능 수준으로 이동해야 하는지 여부를 알 수 있습니다. 예를 들어 "userdb1"에서 지난 주의 활용률은 다음과 같습니다.
-	
+
 	| 평균 CPU 사용률 | 최대 CPU 사용률 |
 	|---|---|
 	| 24\.5 | 100\.00 |
-	
+
 	평균 CPU는 성능 수준 한도의 약 1/4이며 데이터베이스 성능 수준에 적합합니다. 하지만 최대값은 데이터베이스가 성능 수준 한도에 도달함을 보여줍니다. 다음 상위 성능 수준으로 이동해야 하나요? 이 경우에도 워크로드가 100%에 도달하는 횟수를 살펴보고 데이터베이스 워크로드 SLO와 비교해야 합니다.
-	
-		SELECT 
+
+		SELECT
 		(COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU Fit Percent'
 		,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log Write Fit Percent’
 		,(COUNT(database_name) - SUM(CASE WHEN avg_physical_data_read_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical Data Read Fit Percent'
 		FROM sys.resource_stats
 		WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
-	
+
 	위 쿼리에서 세 가지 리소스 규격에 대해 99.9% 미만의 값을 반환할 경우 다음 상위 성능 수준으로 이동하거나 응용 프로그램 튜닝 기술을 사용하여 Azure SQL 데이터베이스에서 부하를 줄여야 합니다.
-	
+
 4. 위 연습은 향후 예상되는 워크로드 증가를 고려해야 합니다.
 
 ## 응용 프로그램 튜닝
@@ -316,8 +316,8 @@ OLTP 데이터베이스 성능의 일반적인 문제는 물리적 데이터베�
 	END
 	COMMIT TRANSACTION;
 	GO
-	SELECT m1.col1 
-	FROM dbo.missingindex m1 INNER JOIN dbo.missingindex m2 ON(m1.col1=m2.col1) 
+	SELECT m1.col1
+	FROM dbo.missingindex m1 INNER JOIN dbo.missingindex m2 ON(m1.col1=m2.col1)
 	WHERE m1.col2 = 4;
 
 ![인덱스가 누락된 쿼리 계획](./media/sql-database-performance-guidance/query_plan_missing_indexes.png)
@@ -328,25 +328,25 @@ Azure SQL 데이터베이스에는 데이터베이스 관리자가 누락된 인
 
 다음 쿼리를 사용하여 잠재적 누락 인덱스를 확인할 수 있습니다.
 
-	SELECT CONVERT (varchar, getdate(), 126) AS runtime, 
-	    mig.index_group_handle, mid.index_handle, 
-	    CONVERT (decimal (28,1), migs.avg_total_user_cost * migs.avg_user_impact * 
-	            (migs.user_seeks + migs.user_scans)) AS improvement_measure, 
-	    'CREATE INDEX missing_index_' + CONVERT (varchar, mig.index_group_handle) + '_' + 
-	              CONVERT (varchar, mid.index_handle) + ' ON ' + mid.statement + ' 
-	              (' + ISNULL (mid.equality_columns,'') 
-	              + CASE WHEN mid.equality_columns IS NOT NULL 
-	                          AND mid.inequality_columns IS NOT NULL 
+	SELECT CONVERT (varchar, getdate(), 126) AS runtime,
+	    mig.index_group_handle, mid.index_handle,
+	    CONVERT (decimal (28,1), migs.avg_total_user_cost * migs.avg_user_impact *
+	            (migs.user_seeks + migs.user_scans)) AS improvement_measure,
+	    'CREATE INDEX missing_index_' + CONVERT (varchar, mig.index_group_handle) + '_' +
+	              CONVERT (varchar, mid.index_handle) + ' ON ' + mid.statement + '
+	              (' + ISNULL (mid.equality_columns,'')
+	              + CASE WHEN mid.equality_columns IS NOT NULL
+	                          AND mid.inequality_columns IS NOT NULL
 	                     THEN ',' ELSE '' END + ISNULL (mid.inequality_columns, '')
-	              + ')' 
-	              + ISNULL (' INCLUDE (' + mid.included_columns + ')', '') AS create_index_statement, 
-	    migs.*, 
-	    mid.database_id, 
+	              + ')'
+	              + ISNULL (' INCLUDE (' + mid.included_columns + ')', '') AS create_index_statement,
+	    migs.*,
+	    mid.database_id,
 	    mid.[object_id]
 	FROM sys.dm_db_missing_index_groups AS mig
-	INNER JOIN sys.dm_db_missing_index_group_stats AS migs 
+	INNER JOIN sys.dm_db_missing_index_group_stats AS migs
 	    ON migs.group_handle = mig.index_group_handle
-	INNER JOIN sys.dm_db_missing_index_details AS mid 
+	INNER JOIN sys.dm_db_missing_index_details AS mid
 	    ON mig.index_handle = mid.index_handle
 	ORDER BY migs.avg_total_user_cost * migs.avg_user_impact * (migs.user_seeks + migs.user_scans) DESC
 
@@ -371,7 +371,7 @@ Azure SQL 데이터베이스에도 적용되는 SQL Server의 일반적 예제�
 
 	DROP TABLE psptest1;
 	CREATE TABLE psptest1(col1 int primary key identity, col2 int, col3 binary(200));
-	
+
 	DECLARE @a int = 0;
 	SET NOCOUNT ON;
 	BEGIN TRANSACTION
@@ -384,16 +384,16 @@ Azure SQL 데이터베이스에도 적용되는 SQL Server의 일반적 예제�
 	COMMIT TRANSACTION
 	CREATE INDEX i1 on psptest1(col2);
 	GO
-	
+
 	CREATE PROCEDURE psp1 (@param1 int)
 	AS
 	BEGIN
-	    INSERT INTO t1 SELECT * FROM psptest1 
+	    INSERT INTO t1 SELECT * FROM psptest1
 	    WHERE col2 = @param1
 	    ORDER BY col2;
 	END
 	GO
-	
+
 	CREATE PROCEDURE psp2 (@param2 int)
 	AS
 	BEGIN
@@ -402,7 +402,7 @@ Azure SQL 데이터베이스에도 적용되는 SQL Server의 일반적 예제�
 	    OPTION (OPTIMIZE FOR (@param2 UNKNOWN))
 	END
 	GO
-	
+
 	CREATE TABLE t1 (col1 int primary key, col2 int, col3 binary(200));
 	GO
 
@@ -413,7 +413,7 @@ Azure SQL 데이터베이스에도 적용되는 SQL Server의 일반적 예제�
 	-- Prime Procedure Cache with scan plan
 	EXEC psp1 @param1=1;
 	TRUNCATE TABLE t1;
-	
+
 	-- Iterate multiple times to show the performance difference
 	DECLARE @i int = 0;
 	WHILE @i < 1000
@@ -427,7 +427,7 @@ Azure SQL 데이터베이스에도 적용되는 SQL Server의 일반적 예제�
 
 	EXEC psp2 @param2=1;
 	TRUNCATE TABLE t1;
-	
+
 	DECLARE @i int = 0;
 	WHILE @i < 1000
 	BEGIN
@@ -452,9 +452,9 @@ Azure SQL 데이터베이스에도 적용되는 SQL Server의 일반적 예제�
 
 그 영향은 **sys.resource\_stats** 테이블을 확인하여 알 수 있습니다(참고: 테스트를 실행하는 시간에서 데이터가 테이블에 채워지는 시간까지 지연이 있습니다). 이 예제에서 1부는 22:25:00 기간 중 실행되었으며 2부는 22:35:00에 실행되었습니다. 여기서 이전 기간은 (계획 효율성 개선으로 인해) 이후 기간보다 더 많은 리소스를 사용했습니다.
 
-	SELECT TOP 1000 * 
-	FROM sys.resource_stats 
-	WHERE database_name = 'resource1' 
+	SELECT TOP 1000 *
+	FROM sys.resource_stats
+	WHERE database_name = 'resource1'
 	ORDER BY start_time DESC
 
 ![쿼리 튜닝](./media/sql-database-performance-guidance/query_tuning_4.png)
@@ -491,4 +491,4 @@ Azure SQL 데이터베이스 내에서 사용되는 확장형 아키텍처에서
 
 Azure SQL 데이터베이스의 서비스 계층을 사용하면 클라우드에 구축할 수 있는 응용 프로그램 유형이 더욱 다양해집니다. 자세한 응용 프로그램 튜닝과 결합하면 응용 프로그램에 강력하고 예측 가능한 성능을 얻을 수 있습니다. 이 문서는 데이터베이스의 리소스 사용을 최적화하여 한 가지 성능 수준에 맞추기 위한 기법을 간단히 설명했습니다. 튜닝은 클라우드 모델에서 지속적으로 활용하는 방식이며, 관리자는 서비스 계층 및 해당 성능 수준에 따라 성능을 극대화하는 동시에 Microsoft Azure 플랫폼에서 비용을 최고화할 수 있습니다.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

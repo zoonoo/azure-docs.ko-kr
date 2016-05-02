@@ -67,7 +67,7 @@ MQTT 연결 및 분리 패킷의 경우, IoT Hub는 **작업 모니터링** 채�
 
 ### IoT Hub에 메시지 보내기
 
-장치가 정상적으로 연결되면 **항목 이름**으로 `devices/{did}/messages/events/` 또는 `devices/{did}/messages/events/{property_bag}`를 사용하는 IoT Hub에 메시지를 보낼 수 있습니다 `{property_bag}` 요소는 URL 인코딩 형식의 속성을 추가하여 메시지를 보내는 장치를 사용할 수 있습니다. 예:
+장치가 정상적으로 연결되면 **항목 이름**으로 `devices/{device_id}/messages/events/` 또는 `devices/{device_id}/messages/events/{property_bag}`를 사용하는 IoT Hub에 메시지를 보낼 수 있습니다. `{property_bag}` 요소는 URL 인코딩 형식의 속성을 추가하여 메시지를 보내는 장치를 사용할 수 있습니다. 예:
 
 ```
 RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-encoded(<PropertyName2>)=RFC 2396-encoded(<PropertyValue2>)…
@@ -75,11 +75,11 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 
 > [AZURE.NOTE] 이는 HTTP 프로토콜의 쿼리 문자열에 사용되는 것과 동일한 인코딩입니다.
 
-또한 장치 클라이언트 응용 프로그램은 `devices/{did}/messages/events/{property_bag}`을(를) **Will 항목 이름**으로 사용하여 원격 분석 메시지로서 전달할 *Will 메시지*를 정의할 수 있습니다.
+또한 장치 클라이언트 응용 프로그램은 `devices/{device_id}/messages/events/{property_bag}`을 **Will 항목 이름**으로 사용하여 원격 분석 메시지로서 전달할 *Will 메시지*를 정의할 수 있습니다.
 
 ### 메시지 수신
 
-IoT Hub에서 메시지를 수신하려면 장치는 **항목 필터**로서 `devices/{did}/messages/devicebound/#”`을 사용하여 구독해야 합니다. 메시지 속성이 있는 경우 IoT Hub는 **항목 이름** `devices/{did}/messages/devicebound/` 또는 `devices/{did}/messages/devicebound/{property_bag}`와 함께 메시지를 전달합니다. `{property_bag}`에는 메시지 속성의 URL 인코딩된 키/값 쌍이 있습니다. 응용 프로그램 속성 및 사용자 설정 가능 시스템 속성(예: **messageId** 또는 **correlationId**)만 속성 모음에 포함됩니다. 시스템 속성 이름에는 접두사 **$**가 있고, 응용 프로그램 속성은 접두사가 없는 원래 속성 이름을 사용합니다.
+IoT Hub에서 메시지를 수신하려면 장치는 **항목 필터**로서 `devices/{device_id}/messages/devicebound/#”`을 사용하여 구독해야 합니다. 메시지 속성이 있는 경우 IoT Hub는 **항목 이름** `devices/{device_id}/messages/devicebound/` 또는 `devices/{device_id}/messages/devicebound/{property_bag}`와 함께 메시지를 전달합니다. `{property_bag}`에는 메시지 속성의 URL 인코딩된 키/값 쌍이 있습니다. 응용 프로그램 속성 및 사용자 설정 가능 시스템 속성(예: **messageId** 또는 **correlationId**)만 속성 모음에 포함됩니다. 시스템 속성 이름에는 접두사 **$**가 있고, 응용 프로그램 속성은 접두사가 없는 원래 속성 이름을 사용합니다.
 
 ## 다음 단계
 
@@ -102,4 +102,4 @@ MQTT 프로토콜에 대한 자세한 내용은 [MQTT 설명서][lnk-mqtt-docs]�
 [lnk-sas-tokens]: iot-hub-sas-tokens.md
 [lnk-mqtt-devguide]: iot-hub-devguide.md#mqtt-support
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

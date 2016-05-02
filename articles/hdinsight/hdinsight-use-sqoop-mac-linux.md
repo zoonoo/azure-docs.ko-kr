@@ -34,6 +34,8 @@ Sqoop을 사용하여 Linux 기반 HDInsight 클러스터와 Azure SQL 데이터
 - **워크스테이션**: SSH 클라이언트가 있는 컴퓨터입니다.
 - **Azure CLI**: 자세한 내용은 [Azure CLI 설치 및 구성](../xplat-cli-install.md)을 참조하십시오.
 
+    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+
 ##Sqoop 내보내기
 
 2. 다음 명령을 사용하여 Sqoop lib 디렉터리에서 SQL Server JDBC 드라이버에 링크를 만듭니다. 이를 통해 Sqoop이 다음 드라이버를 사용하여 SQL 데이터베이스와 통신할 수 있습니다.
@@ -143,4 +145,4 @@ Sqoop을 사용하여 Linux 기반 HDInsight 클러스터와 Azure SQL 데이터
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/20/2016"
+   ms.date="04/14/2016"
    ms.author="ryanwi"/>
 
 
@@ -57,11 +57,13 @@
 예는 [응용 프로그램 배포](service-fabric-deploy-remove-applications.md)를 참조하세요.
 
 ## 테스트
-1. 로컬 개발 클러스터 또는 클러스터에 배포한 후 *서비스 개발자*가 [**FailoverTestScenarioParameters**](https://msdn.microsoft.com/library/azure/system.fabric.testability.scenario.failovertestscenarioparameters.aspx) 및 [**FailoverTestScenario**](https://msdn.microsoft.com/library/azure/system.fabric.testability.scenario.failovertestscenario.aspx) 클래스 또는 [**Invoke-ServiceFabricFailoverTestScenario** cmdlet](https://msdn.microsoft.com/library/azure/mt125935.aspx)를 사용하여 기본 제공 장애 조치(failover) 테스트 시나리오를 실행합니다. 장애 조치(failover) 테스트 시나리오는 중요한 전환 및 장애 조치(failover)를 통해 지정된 서비스를 실행하여 서비스가 중단 없이 작동되도록 보장합니다.
+1. 로컬 개발 클러스터 또는 클러스터에 배포한 후 *서비스 개발자*가 [**FailoverTestScenarioParameters**](https://msdn.microsoft.com/library/azure/system.fabric.testability.scenario.failovertestscenarioparameters.aspx) 및 [**FailoverTestScenario**](https://msdn.microsoft.com/library/azure/system.fabric.testability.scenario.failovertestscenario.aspx) 클래스 또는 [**Invoke-ServiceFabricFailoverTestScenario** cmdlet](https://msdn.microsoft.com/library/azure/mt644783.aspx)를 사용하여 기본 제공 장애 조치(failover) 테스트 시나리오를 실행합니다. 장애 조치(failover) 테스트 시나리오는 중요한 전환 및 장애 조치(failover)를 통해 지정된 서비스를 실행하여 서비스가 중단 없이 작동되도록 보장합니다.
 
-2. 그런 다음 *서비스 개발자*가 [**ChaosTestScenarioParameters**](https://msdn.microsoft.com/library/azure/system.fabric.testability.scenario.chaostestscenarioparameters.aspx) 및 [**ChaosTestScenario**](https://msdn.microsoft.com/library/azure/system.fabric.testability.scenario.chaostestscenario.aspx) 클래스 또는 [**Invoke-ServiceFabricChaosTestScenario** cmdlet](https://msdn.microsoft.com/library/azure/mt126036.aspx)를 사용하여 기본 제공 비정상 상황 테스트 시나리오를 실행합니다. 비정상 상황 테스트 시나리오는 임의로 여러 노드, 코드 패키지 및 복제 오류를 클러스터로 유도합니다.
+2. 그런 다음 *서비스 개발자*가 [**ChaosTestScenarioParameters**](https://msdn.microsoft.com/library/azure/system.fabric.testability.scenario.chaostestscenarioparameters.aspx) 및 [**ChaosTestScenario**](https://msdn.microsoft.com/library/azure/system.fabric.testability.scenario.chaostestscenario.aspx) 클래스 또는 [**Invoke-ServiceFabricChaosTestScenario** cmdlet](https://msdn.microsoft.com/library/azure/mt644774.aspx)를 사용하여 기본 제공 비정상 상황 테스트 시나리오를 실행합니다. 비정상 상황 테스트 시나리오는 임의로 여러 노드, 코드 패키지 및 복제 오류를 클러스터로 유도합니다.
 
-예는 [테스트 성능 시나리오](service-fabric-testability-scenarios.md)를 참조하세요.
+3. *서비스 개발자*는 클러스터에서 주 복제본을 이동하는 테스트 시나리오를 작성하여 [서비스 간 통신을 테스트](service-fabric-testability-scenarios-service-communication.md)합니다.
+
+자세한 내용은 [오류 분석 서비스 소개](service-fabric-testability-overview.md)를 참조하세요.
 
 ## 업그레이드
 1. *서비스 개발자*는 인스턴스화된 응용 프로그램의 구성 서비스를 업데이트 하고/하거나 버그를 수정하고 새로운 서비스 매니페스트 버전을 제공합니다.
@@ -70,19 +72,19 @@
 
 3. *응용 프로그램 관리자*는 적절한 매개 변수를 업데이트하여 새로운 버전의 응용 프로그램 유형을 대상 응용 프로그램에 통합합니다.
 
-4. *운영자*는 [**CopyApplicationPackage** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage.aspx) 또는 [**Copy-ServiceFabricApplicationPackage** cmdlet](https://msdn.microsoft.com/library/azure/mt125905.aspx)를 사용하여 업데이트된 응용 프로그램 패키지를 클러스터 ImageStore에 업로드합니다. 응용 프로그램 패키지는 응용 프로그램 매니페스트 및 서비스 패키지 컬렉션을 포함합니다.
+5. *운영자*는 [**CopyApplicationPackage** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage.aspx) 또는 [**Copy-ServiceFabricApplicationPackage** cmdlet](https://msdn.microsoft.com/library/azure/mt125905.aspx)를 사용하여 업데이트된 응용 프로그램 패키지를 클러스터 ImageStore에 업로드합니다. 응용 프로그램 패키지는 응용 프로그램 매니페스트 및 서비스 패키지 컬렉션을 포함합니다.
 
-5. 그런 다음 *운영자*가 [**ProvisionApplicationAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync.aspx), [**Register-ServiceFabricApplicationType** cmdlet](https://msdn.microsoft.com/library/azure/mt125958.aspx) 또는 [**Provision an Application** REST 작업](https://msdn.microsoft.com/library/azure/dn707672.aspx)을 사용하여 대상 클러스터에 새로운 응용 프로그램 버전을 프로비전합니다.
+6. 그런 다음 *운영자*가 [**ProvisionApplicationAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync.aspx), [**Register-ServiceFabricApplicationType** cmdlet](https://msdn.microsoft.com/library/azure/mt125958.aspx) 또는 [**Provision an Application** REST 작업](https://msdn.microsoft.com/library/azure/dn707672.aspx)을 사용하여 대상 클러스터에 새로운 응용 프로그램 버전을 프로비전합니다.
 
-6. *운영자*가 [**UpgradeApplicationAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.upgradeapplicationasync.aspx), [**Start-ServiceFabricApplicationUpgrade** cmdlet](https://msdn.microsoft.com/library/azure/mt125975.aspx) 또는 [**응용 프로그램 업그레이드** REST 작업](https://msdn.microsoft.com/library/azure/dn707633.aspx)을 사용하여 대상 응용 프로그램을 새 버전으로 업그레이드합니다.
+7. *운영자*가 [**UpgradeApplicationAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.upgradeapplicationasync.aspx), [**Start-ServiceFabricApplicationUpgrade** cmdlet](https://msdn.microsoft.com/library/azure/mt125975.aspx) 또는 [**응용 프로그램 업그레이드** REST 작업](https://msdn.microsoft.com/library/azure/dn707633.aspx)을 사용하여 대상 응용 프로그램을 새 버전으로 업그레이드합니다.
 
-7. *운영자*가 [**GetApplicationUpgradeProgressAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.getapplicationupgradeprogressasync.aspx), [**Get-ServiceFabricApplicationUpgrade** cmdlet](https://msdn.microsoft.com/library/azure/mt125988.aspx) 또는 [**Get Application Upgrade Progress** REST 작업](https://msdn.microsoft.com/library/azure/dn707631.aspx)을 사용하여 업그레이드 진행 상황을 확인합니다.
+8. *운영자*가 [**GetApplicationUpgradeProgressAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.getapplicationupgradeprogressasync.aspx), [**Get-ServiceFabricApplicationUpgrade** cmdlet](https://msdn.microsoft.com/library/azure/mt125988.aspx) 또는 [**Get Application Upgrade Progress** REST 작업](https://msdn.microsoft.com/library/azure/dn707631.aspx)을 사용하여 업그레이드 진행 상황을 확인합니다.
 
-8. 필요한 경우 *운영자*가 [**UpdateApplicationUpgradeAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.updateapplicationupgradeasync.aspx), [**Update-ServiceFabricApplicationUpgrade** cmdlet](https://msdn.microsoft.com/library/azure/mt126030.aspx) 또는 [**Update Application Upgrade** 작업](https://msdn.microsoft.com/library/azure/mt628489.aspx)을 사용하여 현재 응용 프로그램 업그레이드의 매개 변수를 수정하고 다시 적용합니다.
+9. 필요한 경우 *운영자*가 [**UpdateApplicationUpgradeAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.updateapplicationupgradeasync.aspx), [**Update-ServiceFabricApplicationUpgrade** cmdlet](https://msdn.microsoft.com/library/azure/mt126030.aspx) 또는 [**Update Application Upgrade** 작업](https://msdn.microsoft.com/library/azure/mt628489.aspx)을 사용하여 현재 응용 프로그램 업그레이드의 매개 변수를 수정하고 다시 적용합니다.
 
-9. 필요한 경우 *운영자*가 [**RollbackApplicationUpgradeAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.rollbackapplicationupgradeasync.aspx), [**Start-ServiceFabricApplicationRollback** cmdlet](https://msdn.microsoft.com/library/azure/mt125833.aspx) 또는 [**Rollback Application Upgrade** 작업](https://msdn.microsoft.com/library/azure/mt628494.aspx)을 사용하여 현재 응용 프로그램 업그레이드를 롤백합니다.
+10. 필요한 경우 *운영자*가 [**RollbackApplicationUpgradeAsync** 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.rollbackapplicationupgradeasync.aspx), [**Start-ServiceFabricApplicationRollback** cmdlet](https://msdn.microsoft.com/library/azure/mt125833.aspx) 또는 [**Rollback Application Upgrade** 작업](https://msdn.microsoft.com/library/azure/mt628494.aspx)을 사용하여 현재 응용 프로그램 업그레이드를 롤백합니다.
 
-10. 모든 구성 서비스가 제공되는 상태로 서비스 패브릭이 클러스터에서 실행되는 대상 응용 프로그램을 업그레이드합니다.
+11. 모든 구성 서비스가 제공되는 상태로 서비스 패브릭이 클러스터에서 실행되는 대상 응용 프로그램을 업그레이드합니다.
 
 예제는 [응용 프로그램 업그레이드 자습서](service-fabric-application-upgrade-tutorial.md)를 참조하세요.
 
@@ -119,4 +121,4 @@
 - [테스트 용이성 개요](service-fabric-testability-overview.md)
 - [REST 기반 응용 프로그램 수명 주기 샘플](service-fabric-rest-based-application-lifecycle-sample.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -13,10 +13,18 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="03/18/2016" 
+	ms.date="04/15/2016" 
 	ms.author="jeffstok"/>
 
 #스트림 분석 릴리스 정보
+
+## 스트림 분석의 2016/04/15 릴리스에 대한 정보 ##
+
+이 릴리스에는 다음 업데이트가 포함됩니다.
+
+제목 | 설명
+---|---
+Power BI 출력에 대한 일반 공급 | [Power BI 출력](stream-analytics-power-bi-dashboard.md)이 이제 일반 공급됩니다. Power BI에 대한 90일 권한 부여 만료가 제거되었습니다. 권한 부여를 갱신해야 하는 시나리오에 대한 자세한 내용은 Power BI 대시보드 만들기의 [권한 부여 갱신](stream-analytics-power-bi-dashboard.md#Renew-authorization) 섹션을 참조하세요.
 
 ## 스트림 분석의 03/03/2016 릴리스 정보 ##
 
@@ -141,4 +149,4 @@ PowerBI 데이터 집합은 하나의 테이블만 포함할 수 있습니다.|P
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

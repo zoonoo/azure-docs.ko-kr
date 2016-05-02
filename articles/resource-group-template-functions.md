@@ -439,7 +439,7 @@ baseUri와 relativeUri 문자열을 결합하여 절대 URI를 만듭니다.
 | baseUri | 예 | 기본 uri 문자열입니다.
 | relativeUri | 예 | 기본 uri 문자열에 추가할 상대 uri 문자열입니다.
 
-**baseUri** 매개 변수에 대한 값은 특정 파일을 포함할 수 있지만 URI를 생성하는 경우 기본 경로만 사용됩니다. 예를 들어 ****http://contoso.com/resources/azuredeploy.json**을 baseUri 매개 변수로 전달하면 기본 URI는 ****http://contoso.com/resources/**가 됩니다.
+**baseUri** 매개 변수에 대한 값은 특정 파일을 포함할 수 있지만 URI를 생성하는 경우 기본 경로만 사용됩니다. 예를 들어 **http://contoso.com/resources/azuredeploy.json**을 baseUri 매개 변수로 전달하면 기본 URI는 **http://contoso.com/resources/**가 됩니다.
 
 다음 예제에서는 부모 템플릿의 값을 기반으로 중첩된 템플릿에 대한 링크를 생성하는 방법을 보여 줍니다.
 
@@ -611,7 +611,7 @@ listKeys 작업을 지원하는 모든 리소스 형식에 대한 키를 반환�
 | providerNamespace | 예 | 공급자의 네임스페이스입니다.
 | resourceType | 아니요 | 지정된 네임스페이스 내의 리소스 유형입니다.
 
-각 지원되는 유형이 다음 형식으로 반환됩니다.
+지원되는 각각의 유형이 다음 형식으로 반환되며 배열 순서는 다를 수 있습니다.
 
     {
         "resourceType": "",
@@ -807,4 +807,4 @@ listKeys 작업을 지원하는 모든 리소스 형식에 대한 키를 반환�
 - 리소스 유형을 만들 때 지정된 횟수만큼 반복하려면 [Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
 - 만든 템플릿을 배포하는 방법을 보려면 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

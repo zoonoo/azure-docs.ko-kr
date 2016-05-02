@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="04/18/2016" 
 	ms.author="spelluru"/>
 
 # Hive 작업
@@ -214,4 +214,12 @@ defines | 'hiveconf'를 사용하는 Hive 스크립트 내에서 참조하기 �
 			SUM(Duration)
 		FROM HiveSampleIn Group by ProfileID
 
-<!---HONumber=AcomDC_0302_2016-->
+
+## 참고 항목
+- [Pig 작업](data-factory-pig-activity.md)
+- [MapReduce 작업](data-factory-map-reduce.md)
+- [Hadoop 스트리밍 작업](data-factory-hadoop-streaming-activity.md)
+- [Spark 프로그램 호출](data-factory-spark.md)
+- [R 스크립트 호출](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
+
+<!---HONumber=AcomDC_0420_2016-->

@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="04/14/2016" 
 	ms.author="nitinme"/>
 
 
-# 기계 학습: HDInsight의 Spark(Linux)에서 MLlib를 사용하여 음식 검사 데이터에 대한 예측 분석
+# 기계 학습: HDInsight Linux의 Spark에서 MLlib를 사용하여 음식 검사 데이터에 대한 예측 분석(미리 보기)
 
 > [AZURE.TIP] 이 자습서는 HDInsight에서 만드는 Spark(Linux) 클러스터에서 Jupyter Notebook으로 사용할 수도 있습니다. Notebook 환경을 통해 Notebook 자체에서 Python 코드 조각을 실행할 수 있습니다. Notebook 내에서 자습서를 수행하려면 Spark 클러스터를 만들고 Jupyter Notebook(`https://CLUSTERNAME.azurehdinsight.net/jupyter`)을 시작한 다음 **Python** 폴더 아래의 Notebook **Spark 기계 학습 - MLLib.ipynb를 사용하여 음식 검사 데이터 예측 분석**을 실행합니다.
 
@@ -412,4 +412,4 @@ MLLib는 이 작업을 간단하게 수행할 수 있는 방법을 제공합니�
 
 * [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -2,7 +2,7 @@
 	pageTitle="PowerShell을 사용하여 Azure 미디어 서비스 계정 관리" 
 	description="PowerShell cmdlet를 사용하여 Azure 미디어 서비스 계정을 관리하는 방법에 대해 알아봅니다." 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="media-services" 
 	documentationCenter=""/>
@@ -13,18 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
+	ms.date="04/18/2016"
 	ms.author="juliako"/>
 
 
 #PowerShell을 사용하여 Azure 미디어 서비스 계정 관리
 
-> [AZURE.SELECTOR]
-- [Portal](media-services-create-account.md)
-- [PowerShell](media-services-manage-with-powershell.md)
-- [REST](http://msdn.microsoft.com/library/azure/dn194267.aspx)
 
-> [AZURE.NOTE] Azure 미디어 서비스 계정을 만들려면 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure 무료 평가판</a>을 참조하세요.
+> [AZURE.SELECTOR]
+- [포털](media-services-create-account.md)
+- [PowerShell](media-services-manage-with-powershell.md)
+- [REST (영문)](http://msdn.microsoft.com/library/azure/dn194267.aspx)
+
+
+> [AZURE.NOTE]Azure 미디어 서비스 계정을 만들려면 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure 무료 평가판</a>을 참조하세요.
 
 ##개요 
 
@@ -122,4 +124,4 @@ Azure 미디어 계정을 삭제할 준비가 되면 [Remove-AzureMediaServicesA
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -6,7 +6,7 @@
 	authors="szarkos"
 	manager="timlt"
 	editor=""
-	tags=“azure-service-management,azure-resource-manager"/>
+	tags="azure-service-management,azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines-linux"
@@ -129,4 +129,4 @@ Ubuntu에 LAMP 스택을 설치하는 여러 다른 리소스가 있습니다.
 - [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

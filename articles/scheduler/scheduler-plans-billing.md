@@ -1,6 +1,6 @@
 <properties
  pageTitle="Azure 스케줄러의 버전 및 요금 청구"
- description=""
+ description="Azure 스케줄러의 버전 및 요금 청구"
  services="scheduler"
  documentationCenter=".NET"
  authors="krisragh"
@@ -85,4 +85,4 @@ Standard 작업 컬렉션 수가 1~10,000인 경우 1개의 Premium 청구 단�
 
  [Azure 스케줄러 아웃바운드 인증](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

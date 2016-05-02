@@ -1,4 +1,10 @@
-<properties pageTitle="Analytics for windows store C++ apps" description="Analyze usage and performance of your C++ Windows Store app." services="application-insights" documentationCenter="cpp" authors="alancameronwills" manager="douge""/>
+<properties 
+    pageTitle="Windows 스토어 C++ 앱에 대한 분석" 
+    description="C++ Windows 스토어 앱의 사용량 및 성능을 분석합니다." 
+    services="application-insights" 
+    documentationCenter="cpp"
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
     ms.service="application-insights" 
@@ -11,7 +17,7 @@
 
 # C++ Windows 스토어 앱에 대한 분석
 
-Microsoft는 장치 devOps에 대해 클라이언트 장치를 위한 [HockeyApp](http://hockeyapp.net/)과 서버 쪽 및 클라이언트 웹 페이지를 위한 [Application Insights](app-insights-overview.md)라는 두 가지 솔루션을 제공합니다.
+Microsoft는 장치 devOps에 대해 클라이언트 장치를 위한 [HockeyApp](http://hockeyapp.net/)과 서버측 및 클라이언트 웹 페이지를 위한 [Application Insights](app-insights-overview.md)라는 두 가지 솔루션을 제공합니다.
 
 [HockeyApp](http://hockeyapp.net/)은 iOS, OS X, Android 또는 Windows 장치 앱 뿐만 아니라 Xamarin, Cordova, Unity에 기반하는 플랫폼 간 앱 빌드를 위한 Mobile DevOps 솔루션일 입니다. 이를 통해 빌드를 베타 테스터에게 배포하고, 충돌 데이터를 수집하고, 사용자 피드백을 얻을 수 있습니다. Visual Studio Team Services와 통합되어 있기 때문에 손쉬운 빌드 배포 및 작업 항목 통합이 가능합니다.
 
@@ -30,4 +36,4 @@ Microsoft는 장치 devOps에 대해 클라이언트 장치를 위한 [HockeyApp
 
 [이 변경 내용에 대한 자세한 정보](https://azure.microsoft.com/blog/transitioning-mobile-apps-from-application-insights-to-hockeyapp/)입니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

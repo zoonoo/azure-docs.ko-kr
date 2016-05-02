@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="03/04/2016"
+   ms.date="04/14/2016"
    ms.author="genli"/>
 
 # Azure 구독 양도
@@ -59,9 +59,9 @@
 
     서비스에 영향은 없습니다. 이는 현재 계정 관리자 하에서 구독을 효과적으로 취소하고 받는 사람의 계정 하에서 새 계정을 만들어 새 구독과 기본 Azure 서비스를 연결합니다. 구독 ID는 동일합니다.
 
--   **이 메커니즘을 어떻게 사용하여 구독 디렉터리를 변경하나요?**-   
+-   **이 메커니즘을 어떻게 사용하여 구독 디렉터리를 변경하나요?** - 
     Azure 구독은 계정 관리자가 속한 디렉터리에 생성됩니다. 따라서 디렉터리를 변경하려면 구독을 대상 디렉터리의 사용자 계정으로 전달하면 됩니다. 해당 사용자가 전달을 수락하는 절차를 완료하면 구독이 자동으로 대상 디렉터리로 이동합니다.
-   
+
 -   **다른 조직으로부터 구독 청구 소유권을 양도 받은 경우, 내 리소스에 계속 액세스할 수 있습니까?**
 
     구독을 다른 테넌트에 양도하는 경우, 이전 테넌트와 연결된 사용자는 구독에 액세스할 수 없게 됩니다. 사용자가 더 이상 서비스 관리자 또는 공동 관리자가 아닌 경우에도, 다른 보안 메커니즘을 통해 구독에 액세스할 수 있을 수 있습니다. 내용은 다음과 같습니다.
@@ -71,7 +71,7 @@
 
     이는 완전한 목록이 아닙니다. 받는 사람은 리소스에 액세스를 제한해야 하는 경우 서비스와 연결된 암호 업데이트를 고려해야 합니다. 대부분의 리소스는 다음과 같이 업데이트할 수 있습니다.
 
-    1.   Azure 포털로 이동합니다.[*https://portal.azure.com*](https://portal.azure.com)
+    1.   Azure 포털로 이동합니다.[**https://portal.azure.com*](https://portal.azure.com)
 
     2.    모두 찾아보기 -&gt; 모든 리소스를 클릭합니다.
 
@@ -100,15 +100,19 @@
 
     예. 여기에 제한 사항이 있습니다. 현재 구독 청구 내역은 두 계정으로 분할됩니다. 하지만 [지원 부서에 문의](http://go.microsoft.com/fwlink/?LinkID=619338)할 필요 없이 이를 수행할 수 있는 장점이 있습니다.
 
+-   **Azure 구독을 양도하면 결제 방법에 영향을 주나요?**
+
+    구독을 양도하려면 구독 지불을 위해 신용 카드 또는 이와 비슷한 결제 방법을 제공해야 합니다. 예를 들어 Bob이 Jane에게 구독을 양도하고 Jane이 양도를 수락하는 경우 Jane은 구독을 결제하는 데 사용할 결제 방법도 제공해야 합니다. 양도가 완료되면 Jane에게 구독이 양도되므로 Bob에게 더 이상 청구되지 않습니다.
+
 ## 구독 소유권을 수락한 후 다음 단계
 
 1. 이제 계정 관리자입니다. 서비스 관리자 및 공동 관리자를 검토하고 업데이트합니다. [Azure 클래식 포털](https://manage.windowsazure.com)에서 설정으로 이동하여 관리자를 관리합니다. [자세히 알아봅니다](http://go.microsoft.com/fwlink/?LinkID=533293).
 2. 구독 및 서비스에 대해 RBAC(역할 기반 액세스 제어)를 사용할 수도 있습니다. [Azure 포털](https://portal.azure.com) [RBAC에 대한 자세한 정보](http://go.microsoft.com/fwlink/?LinkID=544802)를 방문하세요.
 3. 이 구독의 서비스와 연결된 자격 증명을 업데이트합니다. 내용은 다음과 같습니다.
-    - 구독 리소스에 대한 관리자 권한을 사용자에게 부여하는 관리 인증서. 자세한 내용은 [Azure용 관리 인증서 만들기 및 업로드](https://msdn.microsoft.com/library/azure/gg551722.aspx)를 참조하세요.
+    -   구독 리소스에 대한 관리자 권한을 사용자에게 부여하는 관리 인증서. 자세한 내용은 [Azure용 관리 인증서 만들기 및 업로드](https://msdn.microsoft.com/library/azure/gg551722.aspx)를 참조하세요.
     -	저장소와 같은 서비스에 대한 액세스 키. 자세한 내용은 [저장소 액세스 키 보기, 복사 및 다시 생성](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)을 참조하세요.
     -	Azure 가상 컴퓨터와 같은 서비스에 대한 원격 액세스 자격 증명
 4. [Azure 계정 센터](https://account.windowsazure.com/Subscriptions) [자세한 정보](http://go.microsoft.com/fwlink/?LinkID=533292)에서 이 구독에 대한 청구 경고를 업데이트합니다.
 5. 	파트너와 함께 작업하는 경우 이 구독에서 파트너 ID를 업데이트하는 것이 좋습니다. 이 작업은 [Azure 계정 센터](https://account.windowsazure.com/Subscriptions)에서 수행할 수 있습니다.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

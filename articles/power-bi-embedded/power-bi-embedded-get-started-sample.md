@@ -1,6 +1,6 @@
 <properties
    pageTitle="샘플 시작"
-   description="샘플 시작"
+   description="Power BI Embedded, SDK를 사용하여 대화형 Power BI 보고서를 비즈니스 인텔리전스 응용 프로그램에 추가"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"
@@ -21,7 +21,7 @@
 **Microsoft Power BI Embedded 미리 보기**를 사용하면 Power BI 보고서를 웹 또는 모바일 응용 프로그램에 통합할 수 있으므로 사용자에게 데이터를 시각화하기 위해 사용자 지정 솔루션을 빌드할 필요가 없습니다. 다음 리소스를 사용하여 Power BI 보고서를 앱으로의 통합을 시작할 수 있습니다.
 
  -	[샘플 대시보드 웹앱](http://go.microsoft.com/fwlink/?LinkId=761493)
- -	[Power BI Embedded API 참조](https://msdn.microsoft.com/library/mt712303.aspx)
+ -	[Power BI Embedded API 참조](https://msdn.microsoft.com/library/mt711493.aspx)
  -	[Power BI Embedded .NET SDK(NuGet을 통해 사용 가능)](http://go.microsoft.com/fwlink/?LinkId=746472)
 
 이 문서에서 **Power BI Embedded** 시작 샘플을 소개합니다. 샘플 웹앱을 실행할 수 있도록 샘플 앱 구성을 시작하겠습니다.
@@ -242,4 +242,4 @@ $filter={tableName/fieldName} eq '{fieldValue}'
 - [Microsoft Power BI Embedded 미리 보기 시작](power-bi-embedded-get-started.md)
 - [Power BI Embedded의 앱 토큰 흐름 정보](power-bi-embedded-app-token-flow.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

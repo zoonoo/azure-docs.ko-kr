@@ -2,7 +2,7 @@
 	pageTitle="Azure 리소스 관리자 템플릿을 사용하여 DocumentDB 및 Azure 앱 서비스 웹앱 배포 | Microsoft Azure" 
 	description="Azure 리소스 관리자 템플릿을 사용하여 DocumentDB 계정, Azure 앱 서비스 웹앱 및 샘플 웹 응용 프로그램을 배포하는 방법을 알아봅니다." 
 	services="documentdb, app-service\web" 
-	authors="ryancrawcour" 
+	authors="stephbaron" 
 	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
@@ -14,9 +14,9 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="02/01/2016" 
-	ms.author="ryancraw"/>
+	ms.author="stbaro"/>
 
-# Azure 리소스 관리자 템플릿을 사용하여 DocumentDB 및 Azure 앱 서비스 웹앱 배포 #
+# Azure 리소스 관리자 템플릿을 사용하여 DocumentDB 및 Azure 앱 서비스 웹앱 배포
 
 이 자습서에서는 Azure 리소스 관리자 템플릿을 사용하여 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/), [Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714) 웹앱 및 샘플 웹 응용 프로그램을 배포 및 통합하는 방법을 설명합니다.
 
@@ -26,7 +26,7 @@
 -	Azure 리소스 관리자 템플릿을 사용하여 앱 서비스 웹앱 및 Webdeploy 앱에서 DocumentDB 계정 및 웹앱을 배포 및 통합하는 방법
 
 <a id="Prerequisites"></a>
-## 필수 조건 ##
+## 필수 조건
 > [AZURE.TIP] 이 자습서에서는 Azure 리소스 관리자 템플릿, JSON 또는 Azure PowerShell을 이전에 사용해 본 경험이 있다고 가정하지는 않지만, 참조된 템플릿 또는 배포 옵션을 수정하려면 이러한 각 영역에 대한 지식이 필요합니다.
 
 이 자습서의 지침을 따르기 전에 다음이 있는지 확인하세요.
@@ -47,7 +47,7 @@
 ![차단 해제 단추가 강조 표시된 속성 창의 스크린샷](./media/documentdb-create-documentdb-website/image1.png)
 
 <a id="Build"></a>
-##2단계: Document 계정, 앱 서비스 웹앱 및 데모 응용 프로그램 샘플 배포 ##
+##2단계: Document 계정, 앱 서비스 웹앱 및 데모 응용 프로그램 샘플 배포
 
 이제 첫 번째 템플릿을 배포합니다.
 
@@ -147,7 +147,7 @@
 12. 자유롭게 DocumentDB 포털 환경을 탐색하거나 샘플 Todo 응용 프로그램을 수정합니다. 준비가 되면 다른 템플릿을 배포합니다.
 	
 <a id="Build"></a>
-## 3단계: 문서 계정 및 웹앱 샘플 배포 ##
+## 3단계: 문서 계정 및 웹앱 샘플 배포
 
 이제 두 번째 템플릿을 배포합니다.
 
@@ -210,4 +210,4 @@
 >[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0420_2016-->

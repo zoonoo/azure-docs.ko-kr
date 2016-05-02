@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="04/14/2016" 
 	ms.author="nitinme"/>
 
 
-# Apache Spark를 사용하여 Azure HDInsight에서 기계 학습 응용 프로그램 빌드(Linux)
+# HDInsight Linux에서 Apache Spark를 실행하는 기계 학습 응용 프로그램 빌드(미리 보기)
 
 Apache Spark 클러스터를 사용하여 HDInsight에서 기계 학습 응용 프로그램을 빌드하는 방법을 알아봅니다. 이 문서에서는 응용 프로그램을 빌드하고 테스트할 클러스터와 함께 사용할 수 있는 Jupyter Python 노트북을 사용하는 방법을 보여 줍니다. 응용 프로그램은 기본적으로 모든 클러스터에서 사용할 수 있는 샘플 HVAC.csv 데이터를 사용합니다.
 
@@ -254,4 +254,4 @@ HDInsight에서 Apache Spark 클러스터에는 Anaconda 라이브러리가 포�
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

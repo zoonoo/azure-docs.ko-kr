@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/19/2016" 
+	ms.date="04/05/2016" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory를 사용한 분석 및 변환
@@ -33,6 +33,9 @@ Azure Data Factory의 변환 작업을 통해 원시 데이터를 변환 및 처
 [데이터 레이크 분석 U-SQL](data-factory-usql-activity.md) | Azure 데이터 레이크 분석 
 [DotNet](data-factory-use-custom-activities.md) | HDInsight [Hadoop] 또는 Azure Batch
    
+> [AZURE.NOTE] 
+MapReduce 작업을 사용하여 HDInsight Spark 클러스터에서 Spark 프로그램을 실행할 수 있습니다. 자세한 내용은 [Azure Data Factory에서 Spark 프로그램 호출](data-factory-spark.md)을 참조하세요. R이 설치된 HDInsight 클러스터에서 R 스크립트를 실행하는 사용자 지정 작업을 만들 수 있습니다. [Azure Data Factory를 사용하여 R 스크립트 실행](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)을 참조하세요.
+ 
 
 컴퓨팅 환경을 위한 연결된 서비스를 만들고 변환 작업을 정의할 때 이 연결된 서비스를 사용해야 합니다. 데이터 팩터리에서 지원하는 컴퓨팅 환경은 두 가지 유형이 있습니다.
 
@@ -41,4 +44,4 @@ Azure Data Factory의 변환 작업을 통해 원시 데이터를 변환 및 처
 
 데이터 팩터리에서 지원하는 컴퓨팅 연결 서비스에 대한 자세한 내용은 [컴퓨팅 연결 서비스](data-factory-compute-linked-services.md) 문서를 참조하세요.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0420_2016-->

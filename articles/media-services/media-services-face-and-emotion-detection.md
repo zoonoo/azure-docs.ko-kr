@@ -13,9 +13,9 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/08/2016"   
+	ms.date="04/14/2016"   
 	ms.author="milanga;juliako;"/>
-
+ 
 #Azure 미디어 분석으로 얼굴 및 감정 검색
 
 ##개요
@@ -30,7 +30,7 @@
 
 - **감정 검색**
 	
-	감정 검색은 검색된 얼굴로부터 행복, 슬픔, 두려움, 분노 등의 여러 감정적 특성에 대한 분석을 반환하는 얼굴 탐지 미디어 프로세서의 선택적 구성 요소입니다. 이 데이터는 얼굴별로 또는 그룹 값으로 반환될 수 있으며 사용자 지정 창 및 간격으로 집계될 수 있습니다.
+	감정 검색은 검색된 얼굴로부터 행복, 슬픔, 두려움, 분노 등의 여러 감정적 특성에 대한 분석을 반환하는 얼굴 탐지 미디어 프로세서의 선택적 구성 요소입니다.
 
 **Azure 미디어 얼굴 탐지기** MP는 현재 미리 보기 상태입니다.
 
@@ -164,18 +164,22 @@ facesDetected|이는 JSON 결과의 끝에서 발견되며 알고리즘이 동�
 	}
 
 
+####특성 설명
+
 특성 이름|설명
 ---|---
 Mode|Faces: 얼굴만 검색합니다. <br/>AggregateEmotion: 프레임의 모든 얼굴에 대한 평균 감정 값을 반환합니다.
 AggregateEmotionWindowMs|AggregateEmotion 모드가 선택된 경우에 사용합니다. 각 집계 결과를 생성하는 데 사용되는 동영상의 길이를 밀리초 단위로 지정합니다.
 AggregateEmotionIntervalMs|AggregateEmotion 모드가 선택된 경우에 사용합니다. 집계 결과 생성 빈도를 지정합니다.
 
-집계 기본값: 집계 창 및 간격 설정에는 아래 값이 권장됩니다. 창 길이는 간격보다 길어야 합니다.
+####집계 기본값
+
+집계 창 및 간격 설정에는 아래 값이 권장됩니다. AggregateEmotionWindowMs는 AggregateEmotionIntervalMs보다 길어야 합니다.
 
  |기본값|최대값|최소값
 ---|---|---|---
-창 길이|2|3|1
-간격|0\.5|1|0\.25
+AggregateEmotionWindowMs|0\.5|2|0\.25
+AggregateEmotionIntervalMs|0\.5|1|0\.25
 
 ###JSON 출력
 
@@ -531,4 +535,6 @@ AggregateEmotionIntervalMs|AggregateEmotion 모드가 선택된 경우에 사용
 
 [Azure 미디어 서비스 분석 개요](media-services-analytics-overview.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+[Azure 미디어 분석 데모](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+
+<!---HONumber=AcomDC_0420_2016-->

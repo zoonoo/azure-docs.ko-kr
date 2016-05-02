@@ -1,6 +1,6 @@
 <properties
  pageTitle="스케줄러 PowerShell Cmdlet 참조"
- description=""
+ description="스케줄러 PowerShell Cmdlet 참조"
  services="scheduler"
  documentationCenter=".NET"
  authors="krisragh"
@@ -54,4 +54,4 @@
 
  [Azure 스케줄러 아웃바운드 인증](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

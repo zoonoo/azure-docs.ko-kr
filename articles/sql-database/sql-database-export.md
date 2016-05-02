@@ -87,9 +87,8 @@ Azure SQL 데이터베이스의 보관 파일을 만들어야 하는 경우 데�
 
 ## 다음 단계
 
-- [Azure SQL 데이터베이스 가져오기][5]
-
-
+- [Azure SQL 데이터베이스로 BACPCAC 가져오기](sql-database-import.md)
+- [SQL Server 데이터베이스에 BACPCAC 가져오기](https://msdn.microsoft.com/library/hh710052.aspx)
 
 ## 추가 리소스
 
@@ -105,4 +104,4 @@ Azure SQL 데이터베이스의 보관 파일을 만들어야 하는 경우 데�
 [4]: ./media/sql-database-export/export-history.png
 [5]: ./media/sql-database-export/bacpac-archive.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

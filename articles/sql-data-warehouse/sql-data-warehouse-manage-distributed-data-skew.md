@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/07/2016"
+   ms.date="04/14/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Azure SQL 데이터 웨어하우스의 분산 테이블에 대한 데이터 오차 관리
@@ -27,6 +27,18 @@
 - 데이터 오차를 해결해야 하는 경우를 알기 위한 팁 학습
 - 테이블을 다시 만들어 데이터 오차 해결
 
+## DBCC PDW\_SHOWSPACEUSED
+
+데이터 오차를 식별하는 한 방법은 [DBCC PDW\_SHOWSPACEUSED()][]를 사용하는 것입니다.
+
+```sql
+-- Find data skew for a distributed table
+DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
+```
+
+각각의 60개 데이터베이스 배포에 저장된 테이블 행 수를 매우 빠르고 간편하게 보는 방법입니다. 가장 균형 있는 성능을 얻으려면 분산 테이블의 행을 모든 배포에 균등하게 나누어야 합니다.
+
+그러나 SQL 데이터 웨어하우스 DMV(동적 관리 뷰)를 쿼리하는 경우 보다 자세한 분석을 수행할 수 있습니다. 이 문서의 나머지 부분에서 이 작업을 수행하는 방법을 보여 줍니다.
 
 ## 1단계: 데이터 오차를 찾는 뷰 만들기
 
@@ -219,7 +231,8 @@ RENAME OBJECT [dbo].[FactInternetSales_ROUND_ROBIN] TO [FactInternetSales];
 [해시 분산]: sql-data-warehouse-develop-hash-distribution-key.md
 
 <!--MSDN references-->
+[DBCC PDW\_SHOWSPACEUSED()]: https://msdn.microsoft.com/ko-KR/library/mt204028.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

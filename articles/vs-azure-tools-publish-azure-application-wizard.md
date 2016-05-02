@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/30/2016"
+   ms.date="04/19/2016"
    ms.author="tarcher" />
 
 # Azure 응용 프로그램 게시 마법사
@@ -139,4 +139,4 @@ Azure에 웹 응용 프로그램을 게시하기 전에 Azure 구독과 Microsof
 
 [클라우드 서비스의 성능 테스트](https://msdn.microsoft.com/library/azure/hh369930.aspx)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0420_2016-->

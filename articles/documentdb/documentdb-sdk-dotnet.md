@@ -3,7 +3,7 @@
 	description="릴리스 날짜, 사용 중지 날짜 및 DocumentDB .NET SDK의 각 버전 간의 변경 내용을 포함하는 .NET SDK에 대한 모든 것을 알아봅니다." 
 	services="documentdb" 
 	documentationCenter=".net" 
-	authors="ryancrawcour" 
+	authors="aliuy" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="04/18/2016" 
 	ms.author="rnagpal"/>
 
 # DocumentDB SDK
@@ -93,7 +93,7 @@
   - OrderBy() 또는 OrderByDescending()에 대한 LINQ 공급자 지원
   - Order By를 지원하기 위한 IndexingPolicy 
   
-		**NB: Possible breaking change** 
+		**NB: 가능한 새로운 변경** 
   
     	사용자 지정 인덱싱 정책을 사용하여 컬렉션을 프로비전하는 기존 코드가 있다면 기존 코드는 새 IndexingPolicy 클래스를 지원하도록 업데이트되어야 합니다.사용자 지정 인덱싱 정책이 없다면 이 변경 사항은 영향을 주지 않습니다.
 
@@ -129,7 +129,7 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 | ---	  | ---	         | ---
 | [1\.6.3](#1.6.3) | 2016년 4월 8일 |--- 
 | [1\.6.2](#1.6.2) | 2016년 3월 29일 |--- 
-| [1\.5.3](#1.5.3) | 2016년 2월 19일 |--- 
+|[1\.5.3](#1.5.3) | 2016년 2월 19일 |--- 
 | [1\.5.2](#1.5.2) | 2015년 12월 14일 |--- 
 | [1\.5.1](#1.5.1) | 2015년 11월 23일 |--- 
 | [1\.5.0](#1.5.0) | 2015년 10월 5일 |--- 
@@ -151,4 +151,4 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 DocumentDB에 대해 자세히 알아보려면 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 서비스 페이지를 참조하세요.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

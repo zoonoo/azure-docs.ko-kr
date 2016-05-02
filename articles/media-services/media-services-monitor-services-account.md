@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
+	ms.date="04/18/2016" 
 	ms.author="juliako"/>
 
 #<a id="monitormediaservicesaccount"></a>미디어 서비스 계정을 모니터링하는 방법
@@ -71,4 +71,4 @@ Azure 미디어 서비스 대시보드는 사용량 메트릭 및 미디어 서�
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

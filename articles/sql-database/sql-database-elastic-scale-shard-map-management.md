@@ -3,7 +3,7 @@
 	description="ShardMapManager 및 .NET용 탄력적 데이터베이스를 사용하는 방법" 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	authors="ddove" 
 	editor=""/>
 
@@ -19,6 +19,8 @@
 # 분할된 데이터베이스 맵 관리
 
 분할된 데이터베이스 환경에서는 [**분할된 데이터베이스 맵**](sql-database-elastic-scale-glossary.md)이 **분할 키**의 값에 따라 응용 프로그램이 올바른 데이터베이스에 연결할 수 있도록 정보를 유지 관리합니다. 분할된 데이터베이스 맵 관리를 위해서는 이 맵의 구성을 이해하는 것이 필수적입니다. Azure SQL 데이터베이스의 경우 [탄력적 데이터베이스 클라이언트 라이브러리](sql-database-elastic-database-client-library.md)에 있는 [ShardMapManager 클래스](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)를 사용하여 분할된 데이터베이스 맵을 관리합니다.
+
+기존의 데이터베이스 집합을 변환하려면 [탄력적 데이터베이스 도구를 사용하도록 기존 데이터베이스 변환](sql-database-elastic-convert-to-use-elastic-tools.md)을 참조하세요.
  
 
 ## 분할된 데이터베이스 맵 및 분할된 데이터베이스 매핑
@@ -112,11 +114,40 @@
  
 대신 Powershell을 사용하여 새 분할된 데이터베이스 맵 관리자를 만들 수 있습니다. [여기](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db)에 예제가 있습니다.
 
+## RangeShardMap 또는 ListShardMap 가져오기
+
+분할된 데이터베이스 맵 관리자를 만든 후 [TryGetRangeShardMap](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap.aspx), [TryGetListShardMap](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap.aspx) 또는 [GetShardMap](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap.aspx) 메서드를 사용하여 [RangeShardMap](https://msdn.microsoft.com/library/azure/dn807318.aspx) 또는 [ListShardMap](https://msdn.microsoft.com/library/azure/dn807370.aspx)을 가져올 수 있습니다.
+
+	/// <summary>
+    /// Creates a new Range Shard Map with the specified name, or gets the Range Shard Map if it already exists.
+    /// </summary>
+    public static RangeShardMap<T> CreateOrGetRangeShardMap<T>(ShardMapManager shardMapManager, string shardMapName)
+    {
+        // Try to get a reference to the Shard Map.
+        RangeShardMap<T> shardMap;
+        bool shardMapExists = shardMapManager.TryGetRangeShardMap(shardMapName, out shardMap);
+
+        if (shardMapExists)
+        {
+            ConsoleUtils.WriteInfo("Shard Map {0} already exists", shardMap.Name);
+        }
+        else
+        {
+            // The Shard Map does not exist, so create it
+            shardMap = shardMapManager.CreateRangeShardMap<T>(shardMapName);
+            ConsoleUtils.WriteInfo("Created Shard Map {0}", shardMap.Name);
+        }
+
+        return shardMap;
+    } 
+
 ### 분할된 데이터베이스 맵 관리 자격 증명
 
-일반적으로 분할된 데이터베이스 맵을 관리하고 조작하는 응용 프로그램은 분할된 데이터베이스 맵을 사용하여 연결을 라우팅하는 응용 프로그램과 다릅니다.
+분할된 데이터베이스 맵을 관리하고 조작하는 응용 프로그램은 분할된 데이터베이스 맵을 사용하여 연결을 라우트하는 응용 프로그램과 다릅니다.
 
-분할된 데이터베이스, 분할된 데이터베이스 맵, 분할된 데이터베이스 매핑 등을 추가/변경하는 등 분할된 데이터베이스 맵을 관리하는 응용 프로그램의 경우 **ShardMapManager**를 인스턴스화해야 하며, 이때 **GSM 데이터베이스 및 분할된 데이터베이스로 사용되는 각 데이터베이스 모두에 대해 읽기/쓰기 권한이 있는 자격 증명**을 사용해야 합니다. 이 자격 증명은 분할된 데이터베이스 맵 정보를 입력하거나 변경할 뿐만 아니라 새로운 분할된 데이터베이스에 LSM 테이블을 생성할 때 GSM 및 LSM에서 테이블에 쓸 수 있도록 허용해야 합니다.
+분할된 데이터베이스, 분할된 데이터베이스 맵, 분할된 데이터베이스 매핑 등을 추가/변경하는 등 분할된 데이터베이스 맵을 관리하려는 경우 **ShardMapManager**를 인스턴스화해야 하며, 이때 **GSM 데이터베이스 및 분할된 데이터베이스로 사용되는 각 데이터베이스 모두에 대해 읽기/쓰기 권한이 있는 자격 증명**을 사용해야 합니다. 이 자격 증명은 분할된 데이터베이스 맵 정보를 입력하거나 변경할 뿐만 아니라 새로운 분할된 데이터베이스에 LSM 테이블을 생성할 때 GSM 및 LSM에서 테이블에 쓸 수 있도록 허용해야 합니다.
+
+[탄력적 데이터베이스 클라이언트 라이브러리 액세스에 사용되는 자격 증명](sql-database-elastic-scale-manage-credentials.md)을 참조하세요.
 
 ### 영향을 받는 메타데이터만 
 
@@ -282,4 +313,4 @@
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

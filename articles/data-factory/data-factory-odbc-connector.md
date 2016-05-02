@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/19/2016" 
+	ms.date="04/13/2016" 
 	ms.author="spelluru"/>
 
 # Azure 데이터 팩터리를 사용하여 ODBC 데이터 저장소에서 데이터 이동
@@ -327,4 +327,34 @@ ODBC 데이터 저장소에서 데이터를 이동할 때 [ODBC 데이터 형식
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+## GE Historian 저장소
+다음 예제와 같이 [GE Proficy Historian(현재 GE Historian)](http://www.geautomation.com/products/proficy-historian) 데이터 저장소를 Azure Data Factory에 연결하는 ODBC 연결된 서비스를 만듭니다.
+
+	{
+	    "name": "HistorianLinkedService",
+	    "properties":
+	    {
+	        "type": "OnPremisesOdbc",
+	        "typeProperties":
+	        {
+			    "connectionString": "DSN=<name of the GE Historian store>",
+			    "gatewayName": "<gateway name>",
+			    "authenticationType": "Basic",
+			    "userName": "<user name>",
+			    "password": "<password>"
+	        }
+	    }
+	}
+
+온-프레미스 컴퓨터에서 데이터 관리 게이트웨이를 설치하고 포털에 게이트웨이를 등록해야 합니다. 온-프레미스 컴퓨터에 설치된 게이트웨이는 GE Historian용 ODBC 드라이버를 사용하여 GE Historian 데이터 저장소에 연결하므로 게이트웨이 컴퓨터에 아직 설치되지 않은 경우 해당 드라이버를 설치하세요. 자세한 내용은 [연결 사용](#enabling-connectivity) 섹션을 참조하세요.
+
+Data Factory 솔루션에서 GE Historian 저장소를 사용하기 전에 게이트웨이에서 다음 섹션의 지침을 사용하여 데이터 저장소에 연결할 수 있는지 여부를 확인합니다.
+
+복사 작업에서 ODBC 데이터 저장소를 원본 데이터 저장소로 사용하는 데 대한 자세한 개요를 보려면 문서를 처음부터 읽어보세요.
+
+[AZURE.INCLUDE [data-factory-troubleshoot-connectivity](../../includes/data-factory-troubleshoot-connectivity.md)]
+
+## 성능 및 튜닝  
+Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
+
+<!---HONumber=AcomDC_0420_2016-->

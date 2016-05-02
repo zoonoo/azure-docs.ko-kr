@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="04/18/2016" 
 	ms.author="spelluru"/>
 
 # Azure 데이터 팩터리 - 질문과 대답
@@ -22,27 +22,11 @@
 
 ### Azure 데이터 팩터리란 무엇인가요?
 
-데이터 팩터리는 데이터의 이동과 변환을 조율하고 자동화하는 클라우드 기반의 데이터 통합 서비스입니다. 원자재를 가져다가 완제품으로 만들기 위해 장비를 실행하는 제조 공장처럼 데이터 팩터리는 원시 데이터를 수집하여 바로 사용할 수 있는 정보로 변환하는 기존 서비스를 오케스트레이션합니다.
-
-데이터 팩터리는 온-프레미스 및 클라우드 데이터 원본 및 SaaS 모두에서 작업하면서 데이터를 수집, 준비, 변환, 분석 및 게시합니다. 빅 데이터 컴퓨팅 요구를 위해 [Azure HDInsight(Hadoop)](http://azure.microsoft.com/documentation/services/hdinsight/) 및 [Azure Batch](https://azure.microsoft.com/documentation/services/batch/) 같은 서비스를 사용하여 데이터를 변환하기 위해, [Azure 기계 학습](https://azure.microsoft.com/documentation/services/machine-learning/)으로 분석 솔루션을 운영할 수 있도록 하기 위해 데이터 팩터리를 사용하여 서비스를 관리되는 데이터 흐름 파이프라인으로 작성합니다. 테이블 형식의 모니터링 뷰를 능가하는 데이터 팩터리의 풍성한 시각화를 사용하여 데이터 파이프라인 간의 종속성과 계보를 신속하게 나타냅니다. 단일의 통합된 보기에서 모든 데이터 흐름 파이프라인을 모니터링하여 쉽게 문제를 파악하고 모니터링 경고를 설정합니다.
+Data Factory는 **데이터의 이동과 변환을 자동화**하는 클라우드 기반 데이터 통합 서비스입니다. 원자재를 가져다가 완제품으로 만들기 위해 장비를 실행하는 제조 공장처럼 데이터 팩터리는 원시 데이터를 수집하여 바로 사용할 수 있는 정보로 변환하는 기존 서비스를 오케스트레이션합니다.
+ 
+Data Factory 서비스를 사용하면 온-프레미스와 클라우드 데이터 저장소 간에 데이터를 이동하는 데이터 기반 워크플로를 만들 수 있을 뿐 아니라, Azure HDInsight 및 Azure Data Lake 분석과 같은 계산 서비스를 사용하여 데이터를 처리/변환할 수 있습니다. 필요한 작업을 수행하는 파이프라인을 만든 후 정기적(매시간, 매일, 매주 등...)으로 실행되도록 예약할 수 있습니다.
 
 자세한 내용은 [개요 및 주요 개념](data-factory-introduction.md)을 참조하세요.
- 
-### Data Factory로 해결되는 고객 문제는 무엇인가요?
-
-Azure 데이터 팩터리는 구조화되지 않은 데이터와 함께 기존 관계형 저장소에서 다양한 데이터 저장소, 처리 및 이동 서비스를 활용하는 민첩성과 완전히 관리되는 서비스의 제어 및 모니터링 기능 사이의 균형을 유지합니다.
-
-### 데이터 팩터리의 대상 고객층은 누구인가요?
-
-
-- Hadoop과 다른 시스템 간의 통합 서비스를 구축하는 데이터 개발자
-	- 지속적으로 변경되고 확장되는 데이터 환경에 맞춰 확장하고 통합해야 합니다.
-	- 정보 생산을 위한 사용자 지정 코드를 작성해야 하며, 이 경우 비용이 많이 들고, 유지 관리하기 어렵고, 가용성이나 내결함성이 높지 않습니다.
-
-- IT 인프라 내에서 더 다양한 데이터를 통합하는 방법을 찾고 있는 IT 전문가
-	- 조직의 모든 데이터를 살펴서 다양한 비즈니스 통찰력을 도출해야 합니다.
-	- 온-프레미스와 클라우드 전반에서 비용과 규모에 맞춰 계산 및 저장소 리소스를 관리해야 합니다.
-	- 다양한 원본 및 처리를 빠르게 추가하여 새로운 비즈니스 요구를 해결하고 모든 계산 및 저장소 자산의 상태를 지속적으로 파악해야 합니다.
 
 ### Azure 데이터 팩터리에 대한 가격 정보는 어디서 찾을 수 있나요?
 
@@ -50,18 +34,12 @@ Azure 데이터 팩터리에 대한 가격 정보는 [데이터 팩터리 가격
 
 ### Azure 데이터 팩터리를 시작하려면 어떻게 해야 하나요?
 
-- Azure 데이터 팩터리에 대한 개요는 [Azure 데이터 팩터리 소개][adf-introduction]를 참조하세요.
-- 간략한 자습서는 [Azure 데이터 팩터리 시작][adfgetstarted]을 참조하세요.
-- 자세한 설명서는 [Azure 데이터 팩터리 설명서][adf-documentation-landingpage]를 참조하세요.
-
+- Azure 데이터 팩터리에 대한 개요는 [Azure 데이터 팩터리 소개](data-factory-introduction.md)를 참조하세요.
+- 간략한 자습서는 [Azure 데이터 팩터리 시작](data-factory-get-started.md)을 참조하세요.
+- 자세한 설명서는 [Azure 데이터 팩터리 설명서](https://azure.microsoft.com/documentation/services/data-factory/)를 참조하세요.
   
-### 고객이 데이터 팩터리에 액세스하려면 어떻게 해야 하나요?
-
-고객은 [Azure 포털][azure-portal]을 통해 데이터 팩터리에 액세스할 수 있습니다.
-
 ### 데이터 팩터리의 지역 가용성은 얼마나 되나요?
-
-데이터 팩터리는 미국 서부 및 북유럽에서 사용할 수 있습니다. 데이터 팩터리에서 사용되는 계산 및 저장소 서비스는 다른 지역에 있을 수 있습니다.
+Data Factory는 **미국 서부** 및 **북유럽**에서 사용할 수 있습니다. 데이터 팩터리에서 사용되는 계산 및 저장소 서비스는 다른 지역에 있을 수 있습니다. [지원되는 지역](data-factory-introduction.md#supported-regions)을 참조하세요.
  
 ### 데이터 팩터리/파이프라인/작업/데이터 집합의 수에 대한 제한은 어떻게 되나요?
  
@@ -72,19 +50,26 @@ Azure 데이터 팩터리에 대한 가격 정보는 [데이터 팩터리 가격
 
 다음 중 하나를 사용하여 데이터 팩터리를 작성/생성할 수 있습니다.
 
-- **Azure 포털** Azure 포털의 데이터 팩터리 블레이드는 데이터 팩터리 AD 연결된 서비스를 만들기 위한 풍부한 사용자 인터페이스를 제공합니다. 포털에 포함된 **데이터 팩터리 편집기**에서 이러한 아티팩트에 대한 JSON 정의를 지정하여 연결된 서비스, 테이블, 데이터 집합 및 파이프라인을 쉽게 만들 수 있습니다. 포털/편집기를 사용하여 데이터 팩터리를 만들고 배포하는 예제는 [데이터 팩터리 시작][datafactory-getstarted]을 참조하세요.   
-- **Azure PowerShell**. PowerShell 사용자이며 포털 UI 대신 PowerShell을 사용하려는 경우 Azure PowerShell의 일부로 제공되는 Azure 데이터 팩터리 cmdlet을 사용하여 데이터 팩터리를 만들고 배포할 수 있습니다. 간단한 예제는 [Azure PowerShell을 사용하여 Azure 데이터 팩터리 만들기 및 모니터링][create-data-factory-using-powershell]을 참조하고, PowerShell cmdlet을 사용하여 데이터 팩터리를 만들고 배포하는 고급 예제는 [자습서: 데이터 팩터리를 사용하여 로그 파일 이동 및 처리][adf-tutorial]를 참조하세요. 데이터 팩터리 cmdlet의 포괄적인 설명서는 MSDN 라이브러리의 [데이터 팩터리 Cmdlet 참조][adf-powershell-reference] 콘텐츠를 참조하세요.  
-- **Visual Studio**. 또한 Visual Studio를 사용하여 프로그래밍 방식으로 데이터 팩터리를 만들고, 모니터링하고, 관리할 수 있습니다. 자세한 내용은 [데이터 팩터리 .NET SDK를 사용하여 Azure 데이터 팩터리 만들기, 모니터링 및 관리](data-factory-create-data-factories-programmatically.md) 문서를 참조하세요.  
-- **.NET 클래스 라이브러리**. 데이터 팩터리 .NET SDK를 사용하여 프로그래밍 방식으로 데이터 팩터리를 만들 수 있습니다. .NET SDK를 사용하여 데이터 팩터리를 만드는 연습은 [.NET SDK를 사용하여 데이터 팩터리 만들기, 모니터링 및 관리][create-factory-using-dotnet-sdk]를 참조하세요. 데이터 팩터리 .NET SDK의 포괄적인 설명서는 [데이터 팩터리 클래스 라이브러리 참조][msdn-class-library-reference]를 참조하세요.  
-- **REST API**. Azure 데이터 팩터리 서비스에 의해 노출된 REST API를 사용하여 데이터 팩터리를 만들고 배포할 수도 있습니다. 데이터 팩터리 REST API의 포괄적인 설명서는 [데이터 팩터리 REST API 참조][msdn-rest-api-reference]를 참조하세요. 
+- **Azure 포털** Azure 포털의 Data Factory 블레이드는 데이터 팩터리 AD 연결된 서비스를 만들기 위한 풍부한 사용자 인터페이스를 제공합니다. 포털에 포함된 **데이터 팩터리 편집기**에서 이러한 아티팩트에 대한 JSON 정의를 지정하여 연결된 서비스, 테이블, 데이터 집합 및 파이프라인을 쉽게 만들 수 있습니다. 포털/편집기를 사용하여 데이터 팩터리를 만들고 배포하는 예제는 [Data Factory 시작](data-factory-get-started.md)을 참조하세요.   
+
+- **Azure PowerShell** PowerShell 사용자이며 포털 UI 대신 PowerShell을 사용하려는 경우 Azure PowerShell의 일부로 제공되는 Azure Data Factory cmdlet을 사용하여 데이터 팩터리를 만들고 배포할 수 있습니다. 간단한 예제는 [Azure PowerShell을 사용하여 Azure 데이터 팩터리 만들기 및 모니터링](data-factory-monitor-manage-using-powershell.md)을 참조하고, PowerShell cmdlet을 사용하여 데이터 팩터리를 만들고 배포하는 고급 예제는 [자습서: 데이터 팩터리를 사용하여 로그 파일 이동 및 처리][adf-tutorial]를 참조하세요. 데이터 팩터리 cmdlet의 포괄적인 설명서는 MSDN 라이브러리의 [데이터 팩터리 Cmdlet 참조][adf-powershell-reference] 콘텐츠를 참조하세요.
+  
+- **Visual Studio** 또한 Visual Studio를 사용하여 프로그래밍 방식으로 데이터 팩터리를 만들고, 모니터링하고, 관리할 수 있습니다. 자세한 내용은 [데이터 팩터리 .NET SDK를 사용하여 Azure 데이터 팩터리 만들기, 모니터링 및 관리](data-factory-create-data-factories-programmatically.md) 문서를 참조하세요.
+  
+- **.NET 클래스 라이브러리** Data Factory .NET SDK를 사용하여 프로그래밍 방식으로 데이터 팩터리를 만들 수 있습니다. .NET SDK를 사용하여 데이터 팩터리를 만드는 연습은 [.NET SDK를 사용하여 데이터 팩터리 만들기, 모니터링 및 관리][create-factory-using-dotnet-sdk]를 참조하세요. 데이터 팩터리 .NET SDK의 포괄적인 설명서는 [데이터 팩터리 클래스 라이브러리 참조][msdn-class-library-reference]를 참조하세요.
+
+- **REST API** Azure Data Factory 서비스에 의해 노출된 REST API를 사용하여 데이터 팩터리를 만들고 배포할 수도 있습니다. 데이터 팩터리 REST API의 포괄적인 설명서는 [데이터 팩터리 REST API 참조][msdn-rest-api-reference]를 참조하세요.
+ 
+- **Azure Resource Manager 템플릿** 자세한 내용은 [자습서: Azure Resource Manager 템플릿을 사용하여 첫 번째 Azure Data Factory 빌드](data-factory-build-your-first-pipeline-using-arm.md)를 참조하세요.
 
 ### Data Factory의 이름을 바꿀 수 있나요?
 아니요. 다른 Azure 리소스와 마찬가지로 Azure 데이터 팩터리의 이름을 변경할 수 없습니다.
 
 ## 작업 - FAQ
-### 지원되는 데이터 원본 및 작업은 무엇인가요?
+### Data Factory 파이프라인에서 사용할 수 있는 다른 형식의 작업은 무엇인가요? 
 
-지원되는 데이터 원본 및 작업은 [데이터 이동 작업](data-factory-data-movement-activities.md) 및 [데이터 변환 작업](data-factory-data-transformation-activities.md)을 참조하세요.
+- 데이터를 이동하는 [데이터 이동 작업](data-factory-data-movement-activities.md)
+- 데이터를 처리/변환하는 [데이터 변환 작업](data-factory-data-transformation-activities.md) 
 
 ### 작업은 언제 실행되나요?
 출력 데이터 테이블의 **가용성** 구성 설정에 따라 작업 실행 시기가 결정됩니다. 작업은 실행을 시작하기 전에 모든 입력 데이터 종속성이 충족되었는지(즉, **Ready** 상태) 검사합니다.
@@ -132,7 +117,7 @@ Azure 데이터 팩터리에 대한 가격 정보는 [데이터 팩터리 가격
 다음 방법 중 하나로 조각을 다시 실행할 수 있습니다.
 
 - 포털에서 조각의 **데이터 조각** 블레이드에 대해 명령 모음의 **실행**을 클릭합니다. 
-- 조각의 상태를 **대기**로 설정하여 **Set-AzureRmDataFactorySliceStatus** cmdlet를 실행합니다.   
+- 조각의 Status를 **Waiting**로 설정하여 **Set-AzureRmDataFactorySliceStatus** cmdlet을 실행합니다.   
 	
 		Set-AzureRmDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00" 
 
@@ -152,19 +137,12 @@ cmdlet에 대한 자세한 내용은 [Set-AzureRmDataFactorySliceStatus][set-azu
 모든 실행을 즉시 중지하려면 파이프라인을 삭제하고 다시 만들어야 합니다. 파이프라인을 삭제하도록 선택하는 경우 파이프라인에서 사용되는 테이블 및 연결된 서비스를 삭제할 필요는 없습니다.
 
 
-
-[adfgetstarted]: data-factory-get-started.md
-[adf-introduction]: data-factory-introduction.md
-[adf-troubleshoot]: data-factory-troubleshoot.md
-[datafactory-getstarted]: data-factory-get-started.md
-[create-data-factory-using-powershell]: data-factory-monitor-manage-using-powershell.md
 [adf-tutorial]: data-factory-tutorial.md
 [create-factory-using-dotnet-sdk]: data-factory-create-data-factories-programmatically.md
 [msdn-class-library-reference]: https://msdn.microsoft.com/library/dn883654.aspx
 [msdn-rest-api-reference]: https://msdn.microsoft.com/library/dn906738.aspx
 
 [adf-powershell-reference]: https://msdn.microsoft.com/library/dn820234.aspx
-[adf-documentation-landingpage]: http://go.microsoft.com/fwlink/?LinkId=516909
 [azure-portal]: http://portal.azure.com
 [set-azure-datafactory-slice-status]: https://msdn.microsoft.com/library/mt603522.aspx
 
@@ -174,4 +152,4 @@ cmdlet에 대한 자세한 내용은 [Set-AzureRmDataFactorySliceStatus][set-azu
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -177,7 +177,7 @@ CDN 프로필은 CDN 끝점의 컬렉션입니다. 각 프로필에는 CDN 끝�
 -	모든 controller/action
 -	CDN 끝점에서 쿼리 문자열을 사용하도록 설정한 경우 쿼리 문자열이 포함된 모든 URL
 
-실제로 위의 구성으로 **http://*&lt;cdnName>*.azureedge.net/**에서 전체 클라우드 서비스를 호스트할 수 있습니다. ****http://camservice.azureedge.net/**으로 이동한 경우 Home/Index에서 작업 결과를 가져옵니다.
+실제로 위의 구성으로 **http://*&lt;cdnName>*.azureedge.net/**에서 전체 클라우드 서비스를 호스트할 수 있습니다. **http://camservice.azureedge.net/**으로 이동한 경우 Home/Index에서 작업 결과를 가져옵니다.
 
 ![](media/cdn-cloud-service-with-cdn/cdn-2-home-page.PNG)
 
@@ -626,7 +626,7 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 
 ## 추가 정보 ##
 - [Azure CDN(콘텐츠 배달 네트워크) 개요](http://msdn.microsoft.com/library/azure/ff919703.aspx)
-- [Azure에 CDN 사용](cdn-how-to-use-cdn.md)
+- [Azure CDN 사용](cdn-create-new-endpoint.md)
 - [ASP.NET 묶음 및 축소](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
 
 
@@ -637,4 +637,4 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 [cdn-add-endpoint]: ./media/cdn-cloud-service-with-cdn/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-cloud-service-with-cdn/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -17,7 +17,7 @@
 	ms.date="12/22/2015" 
 	ms.author="nitinme"/>
 
-# 개요: Azure HDInsight에서 Apache Spark(Windows)
+# 개요: HDInsight Windows에서 Apache Spark(미리 보기)
  
 > [AZURE.NOTE] 이제 HDInsight가 Linux에서 Spark 클러스터를 제공합니다. Linux에서 HDInsight Spark와 함께 제공되는 기능에 대한 자세한 내용은 [개요: Azure HDInsight에서 Apache Spark(Linux)](hdinsight-apache-spark-overview.md)를 참조하세요.
 
@@ -98,4 +98,4 @@ HDInsight에서 Spark에는 기본적으로 클러스터에서 사용할 수 있
 
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

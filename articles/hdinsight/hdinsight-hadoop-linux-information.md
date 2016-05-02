@@ -27,6 +27,9 @@ Linux 기반 Azure HDInsight 클러스터는 Azure 클라우드에서 실행되�
 
 * [cURL](https://curl.haxx.se/) - 웹 기반 서비스와 통신하는 데 사용됩니다
 * [jq](https://stedolan.github.io/jq/) -JSON 문서를 구문 분석하는 데 사용됩니다
+* [Azure CLI](../xplat-cli-install.md) - Azure 서비스를 원격으로 관리 하는 데 사용됩니다.
+
+	[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
 ## 도메인 이름
 
@@ -254,4 +257,4 @@ HDInsight는 관리되는 서비스로 문제가 발견되면 클러스터의 �
 * [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 * [HDInsight에서 MapReduce 작업 사용](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

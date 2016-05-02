@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/26/2016"
-   ms.author="sumukhs"/>
+   ms.date="04/14/2016"
+   ms.author="mani-ramaswamy"/>
 
 # 서비스 매니페스트에서 리소스 지정
 
@@ -137,4 +137,4 @@ HTTPS에 대해 설정해야 하는 예제 ApplicationManifest는 다음과 같�
 </ApplicationManifest>
 ```
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

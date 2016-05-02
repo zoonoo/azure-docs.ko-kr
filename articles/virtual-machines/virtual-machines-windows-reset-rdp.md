@@ -3,7 +3,7 @@
 	description="리소스 관리자 배포 모델을 사용하여 만든 Windows VM에서 관리자 암호 또는 원격 데스크톱 서비스를 다시 설정합니다."
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="iainfoulds"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/17/2016"
-	ms.author="dkshir"/>
+	ms.date="04/12/2016"
+	ms.author="iainfou"/>
 
 # Windows VM에서 원격 데스크톱 서비스 또는 해당 로그인 암호를 다시 설정하는 방법
 
@@ -27,7 +27,7 @@
 가상 컴퓨터의 배포 모델에 따라 Azure PowerShell에서 Azure 포털 또는 VM 액세스 확장을 사용할 수 있습니다. PowerShell을 사용하는 경우 회사 컴퓨터에 최신 PowerShell 모듈을 설치하고 Azure 구독에 로그인하도록 합니다. 자세한 단계는 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
 
 
-> [AZURE.TIP] `Get-Module azure | format-table version` 명령을 사용하여 설치한 PowerShell의 버전을 확인할 수 있습니다.
+> [AZURE.TIP] `Import-Module Azure; Get-Module Azure | Format-Table Version`을 사용하여 설치한 PowerShell의 버전을 확인할 수 있습니다.
 
 
 ## 클래식 배포 모델의 Windows VM
@@ -140,4 +140,4 @@ Azure PowerShell 1.0 이상을 설치하고 `Login-AzureRmAccount` cmdlet을 사
 
 [Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](virtual-machines-windows-troubleshoot-rdp-connection.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -19,7 +19,7 @@
 
 # Azure 포털에서 Windows VM에 데이터 디스크를 연결하는 방법
 
-이 문서에서는 Azure 포털을 통해 신규 및 기존 디스크를 Linux 가상 컴퓨터에 연결하는 방법을 보여줍니다. 또한 [Azure 포털에서 Linux VM에 데이터 디스크를 연결](virtual-machines-linux-attach-disk-portal.md)할 수도 있습니다. 이 작업을 수행 하기 전에 다음 팁을 검토하세요.
+이 문서에서는 Azure 포털을 통해 신규 및 기존 디스크를 Windows 가상 컴퓨터에 연결하는 방법을 보여 줍니다. 또한 [Azure 포털에서 Linux VM에 데이터 디스크를 연결](virtual-machines-linux-attach-disk-portal.md)할 수도 있습니다. 이 작업을 수행 하기 전에 다음 팁을 검토하세요.
 
 - 가상 컴퓨터의 크기로 연결할 수 있는 디스크 개수가 제어됩니다. 자세한 내용은 [가상 컴퓨터의 크기](virtual-machines-windows-sizes.md)를 참조하세요.
 - 프리미엄 저장소를 사용하려면 DS 시리즈 또는 GS 시리즈 가상 컴퓨터가 필요합니다. 이 가상 컴퓨터를 사용하여 프리미엄 및 표준 저장소 계정에서 모두 디스크를 사용할 수 있습니다. 프리미엄 저장소는 특정 지역에서만 사용할 수 있습니다. 자세한 내용은 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../storage/storage-premium-storage.md)를 참조하세요.
@@ -31,7 +31,7 @@
 
 ## <a id="initializeinWS"></a>방법: Windows Server에서 새 데이터 디스크 초기화
 
-1. 가상 컴퓨터에 연결합니다. 지침은 [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법](virtual-machines-windows-log-on.md)을 참조하세요.
+1. 가상 컴퓨터에 연결합니다. 지침은 [Windows Server를 실행하는 Azure 가상 컴퓨터에 연결하고 로그온하는 방법](virtual-machines-windows-connect-logon.md)을 참조하세요.
 
 2. 가상 컴퓨터에 로그온한 후 **Server Manager**를 엽니다. 왼쪽 창에서 **파일 및 저장소 서비스**를 선택합니다.
 
@@ -55,4 +55,4 @@
 
 응용 프로그램이 데이터를 저장하는 데 D: 드라이브를 사용해야 하면 [Windows 임시 디스크의 드라이브 문자를 변경](virtual-machines-windows-classic-change-drive-letter.md)할 수 있습니다.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

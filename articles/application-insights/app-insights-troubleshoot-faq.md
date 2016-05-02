@@ -94,12 +94,6 @@
 솔루션 탐색기에서 `ApplicationInsights.config`를 마우스 오른쪽 단추로 클릭하고 **Application Insights 업데이트**를 선택합니다. Azure에서 기존 또는 새 리소스로 데이터를 보낼 수 있습니다. 업데이트 마법사는 서버 SDK에서 데이터를 전송하는 위치를 결정하는 ApplicationInsights.config의 계측 키를 변경합니다. "모두 업데이트"를 선택 취소하지 않은 한, 웹 페이지에 표시되는 키도 변경됩니다.
 
 
-## <a name="q06"></a>Microsoft Azure 미리 보기 홈 화면에서 해당 맵이 내 응용 프로그램의 상태를 보여 주나요?
-
-아니요! Azure 서비스의 상태를 보여 줍니다. 웹 테스트 결과를 확인하려면 찾아보기 > Application Insights > (응용 프로그램)을 선택한 후 웹 테스트 결과를 살펴봅니다.
-
-
-
 #### <a name="data"></a>데이터가 포털에 얼마나 오래 보존되나요? 안전한가요?
 
 [데이터 보존 및 개인 정보][data]를 살펴보십시오.
@@ -136,7 +130,7 @@ POST 데이터를 자동으로 기록 하지 않지만 TrackTrace 호출을 사�
 
 ## 자동화
 
-Application Insights 리소스를 만들고 업데이트하는 [PowerShell script 스크립트를 작성](app-insights-powershell.md)할 수 있습니다.
+Application Insights 리소스를 만들고 업데이트하는 [PowerShell 스크립트를 작성](app-insights-powershell.md)할 수 있습니다.
 
 ## 추가 대답
 
@@ -153,4 +147,4 @@ Application Insights 리소스를 만들고 업데이트하는 [PowerShell scrip
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

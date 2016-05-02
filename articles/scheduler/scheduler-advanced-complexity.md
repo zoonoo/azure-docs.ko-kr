@@ -1,6 +1,6 @@
 <properties
  pageTitle="Azure 스케줄러를 사용하여 복잡한 일정 및 고급 되풀이를 만드는 방법"
- description=""
+ description="Azure 스케줄러를 사용하여 복잡한 일정 및 고급 되풀이를 만드는 방법"
  services="scheduler"
  documentationCenter=".NET"
  authors="krisragh"
@@ -197,4 +197,4 @@ _schedule_은 작업 실행의 횟수를 _제한_할 수 있는 방법이기도 
 
  [Azure 스케줄러 아웃바운드 인증](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

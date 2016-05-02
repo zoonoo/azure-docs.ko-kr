@@ -13,12 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/08/2016"   
+	ms.date="04/14/2016"   
 	ms.author="adsolank;juliako;"/>
 
 
 # Azure 미디어 인덱서 2 미리 보기를 사용하여 미디어 파일 인덱싱
-
 
 ##개요
 
@@ -288,4 +287,6 @@ Azure 미디어 인덱서 2 미리 보기는 다음 언어에 대한 음성-텍�
 
 [Azure 미디어 서비스 분석 개요](media-services-analytics-overview.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+[Azure 미디어 분석 데모](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+
+<!---HONumber=AcomDC_0420_2016-->

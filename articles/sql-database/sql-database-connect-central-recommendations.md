@@ -3,8 +3,8 @@
 	description="ADO.NET 및 PHP와 같은 기술에서 Azure SQL 데이터베이스에 연결하는 클라이언트 프로그램에 대한 링크 및 모범 사례 권장 사항을 수집하는 시작 지점 항목입니다." 
 	services="sql-database" 
 	documentationCenter="" 
-	authors="MightyPen" 
-	manager="jeffreyg" 
+	authors="annemill" 
+	manager="jhubbard" 
 	editor=""/>
 
 
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="01/07/2016" 
-	ms.author="genemi"/>
+	ms.author="annemill"/>
 
 
 # SQL 데이터베이스에 연결: 모범 사례 및 설계 지침
@@ -178,4 +178,4 @@ Windows, Linux 및 Mac OS X 모두에서 실행 되는 클라이언트에 대한
 
 - [SQL 데이터베이스 및 SQL Server에 대한 연결 라이브러리](sql-database-libraries.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0420_2016-->

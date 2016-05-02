@@ -3,7 +3,7 @@
    description="솔루션 개발을 위한 Azure SQL 데이터 웨어하우스로 데이터를 마이그레이션하기 위한 팁"
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="barbkess"
+   authors="lodipalm"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="03/03/2016"
-   ms.author="barbkess;sonyama"/>
+   ms.author="lodipalm;barbkess;sonyama"/>
 
 # 데이터 마이그레이션
 데이터를 마이그레이션하는 주된 목표는 SQLDW 데이터베이스를 채우는 것입니다. 이 프로세스는 다양한 방법으로 구현할 수 있습니다. ADF Copy, SSIS 및 bcp는 모두 이 목표를 달성하기 위해 사용할 수 있습니다. 그러나 데이터 크기가 증가하면 단계별로 데이터 마이그레이션 프로세스 세분화를 고려해야 합니다. 부드러운 데이터 마이그레이션이 되도록 성능 및 복원 모두를 위한 각 단계를 최적화하는 기회를 제공합니다.
@@ -194,4 +194,4 @@ PolyBase 사용한 데이터 로드에 대해 자세히 알려면 [PolyBase를 �
 [ADO.NET 대상 어댑터]: https://msdn.microsoft.com/library/bb934041.aspx
 [SSIS 설명서]: https://msdn.microsoft.com/library/ms141026.aspx
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

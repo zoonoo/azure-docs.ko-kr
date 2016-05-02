@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2016" 
+	ms.date="04/13/2016" 
 	ms.author="awills"/>
 
 #  Application Insights의 샘플링
@@ -42,6 +42,7 @@
 
 다른 샘플링 유형과 마찬가지로 알고리즘에 관련 원격 분석 항목이 유지됩니다. 예를 들어 검색에서 원격 분석을 검사하는 경우 특정 예외와 관련된 요청을 찾을 수 있습니다. 요청 빈도 및 예외 처리 빈도와 같은 메트릭 수는 올바르게 유지됩니다.
 
+SDK 기반 적응 또는 고정 비율 샘플링이 작동되는 동안에는 수집 샘플링이 작동하지 않습니다. SDK의 샘플링 비율이 100%보다 작으면 설정된 수집 샘플링 설정이 무시됩니다.
 
 
 ## 웹 서버의 적응 샘플링
@@ -342,4 +343,4 @@ ASP.NET SDK 버전 2.0.0-beta3 이상을 사용하는 경우 적응 샘플링이
 
  * 기본 활성값이 아닌 새 TelemetryConfiguration을 사용하여 별도의 TelemetryClient 인스턴스를 초기화합니다. 이를 사용하여 드문 이벤트를 보냅니다.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

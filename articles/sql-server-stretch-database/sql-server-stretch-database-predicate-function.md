@@ -24,7 +24,13 @@
 
 필터 조건자를 지정하지 않으면 전체 테이블이 마이그레이션됩니다.
 
-CTP 3.1~RC2의 경우 스트레치에 데이터베이스 사용 마법사에서 조건자를 지정하는 옵션이 제공되지 않습니다. 이 옵션과 함께 ALTER TABLE 문을 사용하여 스트레치 데이터베이스를 구성해야 합니다. 자세한 내용은 [테이블에 대해 스트레치 데이터베이스 사용](sql-server-stretch-database-enable-table.md) 및 [ALTER TABLE(Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)을 참조하세요.
+RC3에서 스트레치에 데이터베이스 사용 마법사를 실행할 때, 전체 테이블을 마이그레이션하거나 마법사에서 간단한 날짜 기준 필터 조건자를 지정할 수 있습니다. 다른 필터 조건자를 사용하여 마이그레이션할 행을 선택하려면 다음 중 하나를 수행합니다.
+
+-   마법사를 종료하고 ALTER TABLE 문을 실행하여 테이블에 대한 스트레치를 사용하도록 설정하고 조건자를 지정합니다.
+
+-   마법사를 종료한 후 ALTER TABLE 문을 실행하여 조건자를 지정합니다.
+
+조건자를 추가하는 ALTER TABLE 구문은 이 항목의 뒷부분에서 설명합니다.
 
 ## 인라인 테이블 값 함수의 기본 요구 사항
 스트레치 데이터베이스 필터 조건자에 필요한 인라인 테이블 값 함수는 다음 예제와 같습니다.
@@ -70,7 +76,7 @@ RETURN	SELECT 1 AS is_eligible
 
 -   함수 매개 변수와 상수 식을 비교합니다. 예: `@column1 < 1000`.
 
-    다음은 *날짜* 열의 값이 &lt; 1/1/2016인지 확인하는 예제입니다.
+    다음은 *날짜* 열의 값이 2016/1/1 이전인지 확인하는 예제입니다.
 
     ```tsql
     CREATE FUNCTION dbo.fn_stretchpredicate(@column1 datetime)
@@ -151,7 +157,7 @@ ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
 테이블이 필터 조건자로 함수를 사용하는 한 인라인 테이블 값 함수를 삭제할 수 없습니다.
 
 ## 날짜별로 행 필터링
-다음 예제에서는 **date** 열에 2016년 1월1일 이전 값이 포함된 경우 행을 마이그레이션합니다.
+다음 예제에서는 **date** 열에 2016년 1월 1일 이전 값이 포함된 경우 행을 마이그레이션합니다.
 
 ```tsql
 -- Filter by date
@@ -212,7 +218,7 @@ SET (
 
 슬라이딩 윈도우를 업데이트하려는 경우에 다음을 수행합니다.
 
-1.  새 슬라이딩 윈도우를 지정하는 새 함수를 만듭니다. 다음 예제에서는 2016년 1월 1일 대신 2106년 1월 2일 이전 날짜를 선택합니다.
+1.  새 슬라이딩 윈도우를 지정하는 새 함수를 만듭니다. 다음 예제에서는 2016년 1월 1일 대신 2016년 1월 2일 이전 날짜를 선택합니다.
 
 2.  다음 예제와 같이 ALTER TABLE을 호출하여 이전 필터 조건자를 새 필터 조건자로 바꿉니다.
 
@@ -502,4 +508,4 @@ ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
 
 [ALTER TABLE(Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

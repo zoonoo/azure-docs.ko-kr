@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/29/2016"
+   ms.date="04/14/2016"
    ms.author="SubramaR"/>
 
 # Linux의 서비스 패브릭
@@ -38,4 +38,4 @@ Linux의 서비스 패브릭은 OS 관련 기능 및 프로그래밍 언어 지�
 
 [Reliable Actors](service-fabric-reliable-actors-introduction.md) 및 [Reliable Services](service-fabric-reliable-services-introduction.md) 프로그래밍 프레임워크에 대해 알아봅니다.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

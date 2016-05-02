@@ -13,11 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/11/2016" 
+	ms.date="04/20/2016" 
 	ms.author="mandia"/>
 
 # Microsoft Azure 앱 서비스의 B2B 커넥터 및 API 앱
->[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다.
+
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 Microsoft Azure 앱 서비스(또는 줄여서 앱 서비스)에는 통합 환경에 중요한 여러 BizTalk API 앱이 포함되어 있습니다. 이러한 API 앱은 BizTalk Server 내에서 사용되는 개념과 도구를 기반으로 하지만 이제 Azure 앱 서비스의 일부로 사용할 수 있습니다.
 
@@ -208,4 +209,4 @@ Microsoft Azure 앱 서비스는 이러한 B2B API 앱에서 사용할 수 있�
 
 [커넥터 및 API 앱 목록](app-service-logic-connectors-list.md)<br/><br/> [커넥터 및 BizTalk API 앱 정의](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

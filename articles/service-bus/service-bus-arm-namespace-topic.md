@@ -1,0 +1,165 @@
+<properties
+    pageTitle="토픽 및 구독이 있는 서비스 버스 네임스페이스 만들기 | Microsoft Azure"
+    description="ARM 템플릿을 사용하여 토픽 및 구독이 있는 서비스 버스 네임스페이스 만들기"
+    services="service-bus"
+    documentationCenter=".net"
+    authors="sethmanheim"
+    manager="timlt"
+    editor=""/>
+
+<tags
+    ms.service="service-bus"
+    ms.devlang="tbd"
+    ms.topic="article"
+    ms.tgt_pltfrm="dotnet"
+    ms.workload="na"
+    ms.date="04/15/2016"
+    ms.author="sethm;shvija"/>
+
+# ARM 템플릿을 사용하여 토픽 및 구독이 있는 서비스 버스 네임스페이스 만들기
+
+이 문서에서는 토픽 및 구독이 있는 서비스 버스 네임스페이스를 만드는 ARM(Azure Resource Manager)을 사용하는 방법을 보여 줍니다. 어떤 리소스를 배포할지 정의하는 방법 및 배포를 실행할 때 매개 변수를 지정하는 방법을 알게 됩니다. 자체 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정할 수 있습니다.
+
+템플릿을 만들기에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성][]을 참조하세요.
+
+전체 템플릿은 [토픽 및 구독이 있는 서비스 버스 네임스페이스][] 템플릿을 참조하세요.
+
+>[AZURE.NOTE] 다음과 같은 ARM 템플릿을 다운로드 및 배포에 사용할 수 있습니다.
+>
+>-    [큐 및 권한 부여 규칙이 있는 서비스 버스 네임스페이스 만들기](service-bus-arm-namespace-auth-rule.md)
+>-    [이벤트 허브 및 소비자 그룹이 있는 서비스 버스 네임스페이스 만들기](service-bus-arm-namespace-event-hub.md)
+>-    [큐가 있는 서비스 버스 네임스페이스 만들기](service-bus-arm-namespace-queue.md)
+>-    [서비스 버스 네임스페이스 만들기](service-bus-arm-namespace.md)
+>
+>최신 템플릿을 확인하려면 서비스 버스에 대한 [Azure 빠른 시작 템플릿][] 및 검색을 참조하세요.
+
+## 배포할 항목
+
+이 템플릿을 사용하여 토픽 및 구독이 있는 서비스 버스 네임스페이스를 배포합니다.
+
+토픽 및 구독은 *게시/구독* 패턴으로 일 대 다 형태의 통신을 제공합니다.
+
+[서비스 버스 토픽 및 구독에 대해 자세히 알아봅니다][].
+
+배포를 자동으로 실행하려면 다음 단추를 클릭합니다.
+
+[![Azure에 배포](./media/service-bus-arm-namespace-topic/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-topic-and-subscription%2Fazuredeploy.json)로 바꿉니다.
+
+## 매개 변수
+
+Azure 리소스 관리자와 함께 템플릿을 배포할 때 지정하고자 하는 값으로 매개 변수를 정의합니다. 템플릿은 모든 매개 변수 값이 포함된 `Parameters`라는 섹션을 포함합니다. 배포하는 프로젝트에 따라 또는 환경에 따라 달라지는 이러한 값에 대한 매개 변수를 정의해야 합니다. 항상 동일하게 유지되는 값으로 매개 변수를 정의하지 마십시오. 각 매개 변수 값은 배포되는 리소스를 정의하는 템플릿에 사용됩니다.
+
+템플릿에서 각 매개 변수에 대해 설명할 것입니다.
+
+### serviceBusNamespaceName
+
+만들 서비스 버스 네임스페이스 이름입니다.
+
+```
+"serviceBusNamespaceName": {
+"type": "string"
+}
+```
+
+### serviceBusTopicName
+
+서비스 버스 네임스페이스에서 만든 토픽의 이름입니다.
+
+```
+"serviceBusTopicName": {
+"type": "string"
+}
+```
+
+### serviceBusSubscriptionName
+
+서비스 버스 네임스페이스에서 만든 구독의 이름입니다.
+
+```
+"serviceBusSubscriptionName": {
+"type": "string"
+}
+```
+
+### serviceBusApiVersion
+
+템플릿의 서비스 버스 API 버전입니다.
+
+```
+" serviceBusApiVersion": {
+"type": "string"
+}
+```
+## 배포할 리소스
+
+토픽 및 구독이 있는 **메시징** 형식의 표준 서비스 버스 네임스페이스를 만듭니다.
+
+```
+"resources ": [{
+        "apiVersion": "[variables('sbVersion')]",
+        "name": "[parameters('serviceBusNamespaceName')]",
+        "type": "Microsoft.ServiceBus/Namespaces",
+        "location": "[variables('location')]",
+        "kind": "Messaging",
+        "sku": {
+            "name": "StandardSku",
+            "tier": "Standard"
+        },
+        "resources": [{
+            "apiVersion": "[variables('sbVersion')]",
+            "name": "[parameters('serviceBusTopicName')]",
+            "type": "Topics",
+            "dependsOn": [
+                "[concat('Microsoft.ServiceBus/namespaces/', parameters('serviceBusNamespaceName'))]"
+            ],
+            "properties": {
+                "path": "[parameters('serviceBusTopicName')]",
+            },
+            "resources": [{
+                "apiVersion": "[variables('sbVersion')]",
+                "name": "[parameters('serviceBusSubscriptionName')]",
+                "type": "Subscriptions",
+                "dependsOn": [
+                    "[parameters('serviceBusTopicName')]"
+                ],
+                "properties": {}
+            }]
+        }]
+    }]
+```
+
+## 배포 실행 명령
+
+[AZURE.INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
+
+## PowerShell
+
+```
+New-AzureResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateUri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-and-subscription/azuredeploy.json>
+```
+
+## Azure CLI
+
+```
+azure config mode arm
+
+azure group deployment create <my-resource-group> <my-deployment-name> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-and-subscription/azuredeploy.json>
+```
+
+## 다음 단계
+
+이제 ARM을 사용하여 리소스를 만들고 배포했으므로 다음 문서를 참조하여 이러한 리소스를 관리하는 방법에 대해 알아봅니다.
+
+- [Azure 자동화를 사용하여 Azure 서비스 버스 관리](service-bus-automation-manage.md)
+- [PowerShell을 사용하여 서비스 버스 관리](service-bus-powershell-how-to-provision.md)
+- [서비스 버스 탐색기로 서비스 버스 리소스 관리](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
+
+
+  [Azure Resource Manager 템플릿 작성]: ../resource-group-authoring-templates.md
+  [Azure 빠른 시작 템플릿]: https://azure.microsoft.com/documentation/templates/
+  [서비스 버스 토픽 및 구독에 대해 자세히 알아봅니다]: service-bus-queues-topics-subscriptions.md
+  [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
+  [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
+  [토픽 및 구독이 있는 서비스 버스 네임스페이스]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-topic-and-subscription/
+
+<!---HONumber=AcomDC_0420_2016-->

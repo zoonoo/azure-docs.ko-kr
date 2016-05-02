@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="04/14/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -22,7 +22,7 @@ Azure AD Connect 동기화는 Forefront Identity Manager 2010에 처음 도입�
 
 선언적 프로비전의 핵심적인 부분은 특성 흐름에 사용되는 표현 언어입니다. 사용 되는 언어는 VBA(Microsoft® Visual Basic® for Applications)의 하위 집합입니다. 이 언어는 Microsoft Office에서 사용되며, VBScript 경험이 있는 사용자 또한 이 언어를 인식합니다. 선언적 프로비저닝 표현 언어는 함수만 사용하며 구조적 언어는 아닙니다. 메서드 또는 문이 없습니다. 대신, 빠른 프로그램 흐름에 함수가 중첩됩니다.
 
-자세한 내용은 [Office 2013용 Visual Basic for Applications 언어 참조 시작](https://msdn.microsoft.com/library/gg264383.aspx)을 참조하세요.
+자세한 내용은 [Office 2013용 Visual basic for Applications 언어 참조 시작 을 참조하십시오](https://msdn.microsoft.com/library/gg264383(v=office.15).aspx).
 
 특성은 강력한 형식입니다. 함수는 올바른 형식의 특성만 허용합니다. 대/소문자를 구분하기도 합니다. 함수 이름과 특성 이름은 모두 적절한 대/소문자를 가지고 있어야 하며 그렇지 않으면 오류가 발생합니다.
 
@@ -112,13 +112,13 @@ Active Directory 내의 일부 특성은 Active Directory 사용자 및 컴퓨�
 
 ### ImportedValue
 
-ImportedValues 함수는 특성 이름을 대괄호 대신 따옴표에 묶어야 하므로 다른 모든 함수와 다릅니다. 예: ImportedValue("proxyAddresses").
+ImportedValue 함수는 특성 이름을 대괄호 대신 따옴표로 묶어야 하므로 다른 모든 함수와 다릅니다. 예: ImportedValue("proxyAddresses").
 
 일반적으로 동기화 중에는 내보내는 동안("타워 최상위")에 오류가 발생하거나 아직 내보내지 않았어도 특성이 예상 값을 사용합니다. 인바운드 동기화는 연결된 디렉터리에 아직 도달하지 않은 특성도 결국 도달할 것으로 가정합니다. 일부 경우에는 연결된 디렉터리에서 확인한 값만 동기화하는 것이 중요하며, 이 경우 함수 ImportedValue가 사용됩니다("홀로그램 및 델타 가져오기 타워").
 
 그 예로는 AD – User Common from Exchange 내의 즉시 사용 가능한 Synchronization Rule In에서 찾을 수 없으며, Hybrid Exchange에서 Exchange에 의해 온라인으로 추가된 값은 내보내기에 성공한 것이 확인된 경우에만 동기화해야 합니다.
 
-`proxyAddresses` <- `RemoveDuplicates(Trim(ImportedValues("proxyAddresses")))`
+`proxyAddresses` <- `RemoveDuplicates(Trim(ImportedValue("proxyAddresses")))`
 
 전체 함수 목록은 [Azure AD Connect 동기화: 함수 참조](active-directory-aadconnectsync-functions-reference.md)를 참조하세요.
 
@@ -130,4 +130,4 @@ ImportedValues 함수는 특성 이름을 대괄호 대신 따옴표에 묶어�
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

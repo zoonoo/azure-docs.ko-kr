@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/04/2016"
+   ms.date="04/14/2016"
    ms.author="subramar"/>
 
 # 응용 프로그램 업그레이드 문제 해결
@@ -190,7 +190,7 @@ PS D:\temp>
 
 가능한 원인 1:
 
-서비스 패브릭은 상태 병사에 대한 모든 백분율을 엔터티(예: 복제본, 파티션 및 서비스)의 실제 숫자로 변환하고, 항상 전체 엔터티에 가장 가까운 숫자로 반올림합니다. 예를 들어 최대 _MaxPercentUnhealthyReplicasPerPartition_이 21%이고 5개의 복제본이 있는 경우, 서비스 패브릭은 파티션 상태를 평가할 때 최대 2개의 복제본(예: `Math.Ceiling (5*0.21)`)이 비정상인 것까지 허용합니다. 상태 정책은 이 계정에 따라 설정해야 합니다.
+서비스 패브릭은 상태 병사에 대한 모든 백분율을 엔터티(예: 복제본, 파티션 및 서비스)의 실제 숫자로 변환하고, 항상 전체 엔터티에 가장 가까운 숫자로 반올림합니다. 예를 들어 최대 _MaxPercentUnhealthyReplicasPerPartition_이 21%이고 5개의 복제본이 있는 경우, 서비스 패브릭은 파티션 상태를 평가할 때 최대 2개의 복제본(즉, `Math.Ceiling (5*0.21)`)이 비정상인 것까지 허용합니다. 상태 정책은 이 계정에 따라 설정해야 합니다.
 
 가능한 원인 2:
 
@@ -233,4 +233,4 @@ PS D:\temp>
 [응용 프로그램 업그레이드 문제 해결](service-fabric-application-upgrade-troubleshooting.md)의 단계를 참조하여 응용 프로그램 업그레이드 중 발생하는 일반적인 문제를 해결합니다.
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

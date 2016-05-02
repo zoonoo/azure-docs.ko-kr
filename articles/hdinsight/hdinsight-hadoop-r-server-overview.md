@@ -1,6 +1,6 @@
 <properties
-	pageTitle="HDInsight의 R이란? HDInsight의 R 서버 소개 | Microsoft Azure"
-	description="HDInsight의 R에 대한 정의 및 빅 데이터 분석용 응용 프로그램을 만드는 데 R을 사용하는 방법"
+	pageTitle="HDInsight의 R이란? HDInsight의 R 서버 소개(미리 보기) | Microsoft Azure"
+	description="HDInsight(미리 보기)의 R 서버에 대한 정의 및 빅 데이터 분석용 응용 프로그램을 만드는 데 R을 사용하는 방법"
 	services="hdinsight"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -17,7 +17,7 @@
    ms.author="jeffstok"/>
 
 
-# 개요: HDInsight의 R 서버
+#개요: HDInsight의 R 서버(미리 보기)
 
 이제 HDInsight Premium을 사용하는 경우 Azure에서 HDInsight 클러스터를 만들 때 R 서버를 옵션으로 사용할 수 있습니다. 이 새로운 기능은 데이터 과학자, 통계학자 및 R 프로그래머에게 HDInsight의 확장 가능한 분산형 분석 방법에 요청 시 액세스할 수 있도록 해줍니다. 클러스터 크기를 프로젝트 및 작업에 맞게 손쉽게 조정하고 더 이상 필요 없을 때 클러스터를 폐기할 수 있습니다. Azure HDInsight의 일부인 이러한 클러스터에는 엔터프라이즈 수준의 연중무휴 24시간 지원, 99.9% 가동 시간의 SLA, Azure 에코시스템의 다른 구성 요소와 통합할 수 있는 유연성이 제공됩니다.
 
@@ -109,4 +109,4 @@ HDInsight 클러스터에서 R 서버를 사용하는 방법에 대한 자세한
 
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -13,16 +13,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="01/21/2016"
+	ms.date="04/18/2016"
 	ms.author="kgremban"/>
 
 #RBAC: 기본 제공 역할
 
 ## 기본 제공 역할
 
-Azure 역할 기반 액세스 제어(RBAC)에는 사용자, 그룹 및 서비스에 할당할 수 있는 다음 기본 제공 역할이 포함되었습니다. 기본 제공 역할의 정의는 수정할 수 없습니다. 향후 Azure RBAC 릴리스에서는 Azure 리소스에 대해 수행할 수 있는 작업 목록에서 작업 집합을 작성하여 사용자 지정 역할을 정의할 수 있도록 할 예정입니다.
+Azure 역할 기반 액세스 제어(RBAC)에는 사용자, 그룹 및 서비스에 할당할 수 있는 다음 기본 제공 역할이 포함되었습니다. 기본 제공 역할의 정의는 수정할 수 없습니다. 그러나 조직의 특정 요구 사항에 맞게 [Azure RBAC에서 사용자 지정 역할](role-based-access-control-custom-roles.md)을 만들 수 있습니다.
 
-역할 정의의 **작업** 및 **작업 안 함** 속성을 보려면 아래 링크를 클릭합니다. **작업** 속성은 Azure 리소스에 허용되는 작업을 지정합니다. 작업 문자열에는 와일드카드 문자를 사용할 수 있습니다. 역할 정의의 **작업 안 함** 속성 허용된 작업에서 제외해야 하는 작업을 지정합니다.
+아래 표에서 기본 제공 역할을 간략하게 설명합니다. 역할 이름을 클릭하면 역할에 대한 **작업** 및 **작업 안 함** 목록을 자세히 볼 수 있습니다. **작업** 속성은 Azure 리소스에 허용되는 작업을 지정합니다. 작업 문자열에는 와일드카드 문자를 사용할 수 있습니다. **작업 안 함** 속성은 허용된 작업에서 제외되는 작업을 지정합니다.
 
 
 | 역할 이름 | 설명 |
@@ -47,7 +47,7 @@ Azure 역할 기반 액세스 제어(RBAC)에는 사용자, 그룹 및 서비스
 | [보안 관리자](#security-manager) | 보안 구성 요소, 보안 정책 및 가상 컴퓨터를 관리할 수 있음 |
 | [SQL DB 참여자](#sql-db-contributor) | 해당 보안 관련 정책을 제외한 SQL 데이터베이스를 관리할 수 있음 |
 | [SQL 보안 관리자](#sql-security-manager) | SQL 서버 및 데이터베이스의 보안 관련 정책을 관리할 수 있음 |
-| [SQL Server 참여자](#sql-server-contributor) | 해당 보안 관련 정책을 제외한 SQL 서버 및 데이터베이스를 관리할 수 있음 |
+| [SQL Server 참여자](#sql-server-contributor) | 해당 보안 관련 정책을 제외한 SQL Server 및 데이터베이스를 관리할 수 있음 |
 | [클래식 저장소 계정 참여자](#classic-storage-account-contributor) | 클래식 저장소 계정을 관리할 수 있음 |
 | [저장소 계정 참여자](#storage-account-contributor) | 저장소 계정을 관리할 수 있음 |
 | [사용자 액세스 관리자](#user-access-administrator) | Azure 리소스에 대한 사용자 액세스를 관리할 수 있음 |
@@ -134,7 +134,7 @@ ClearDB MySQL 데이터베이스를 관리할 수 있음
 | ------- | ------ |
 | * | 모든 유형의 리소스 만들기 및 관리 |
 
-| **not actions** | |
+| **not actions** ||
 | ------- | ------ |
 | Microsoft.Authorization/*/Write | 역할 및 역할 할당을 만들 수 없음 |
 | Microsoft.Authorization/*/Delete | 역할 및 역할 할당을 삭제할 수 없음 |
@@ -304,7 +304,7 @@ Redis 캐시를 관리할 수 있음
 | Microsoft.Insights/alertRules/* | 경고 규칙 만들기 및 관리 |
 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
-| **not actions** | |
+| **not actions** ||
 | ------- | ------ |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | 감사 정책을 편집할 수 없음 |
 | Microsoft.Sql/servers/databases/connectionPolicies/* | 연결 정책을 편집할 수 없음 |
@@ -346,7 +346,7 @@ SQL 서버 및 데이터베이스의 보안 관련 정책을 관리할 수 있�
 | Microsoft.Insights/alertRules/* | Insights 경고 규칙 만들기 및 관리 |
 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
-| **not actions** | |
+| **not actions** ||
 | ------- | ------ |
 | Microsoft.Sql/servers/auditingPolicies/* | SQL 서버 감사 정책을 편집할 수 없음 |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | SQL 서버 데이터베이스 감사 정책을 편집할 수 없음 |
@@ -387,8 +387,7 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있음
 
 | **actions** ||
 | ------- | ------ |
-| */read | 암호를 제외한 모든 유형의 리소스 읽기 | 
-| Microsoft.Authorization/* | 읽기 권한 부여 |
+| */read | 암호를 제외한 모든 유형의 리소스 읽기 | | Microsoft.Authorization/* | 읽기 권한 부여 |
 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
 ### 클래식 가상 컴퓨터 참여자
@@ -486,7 +485,10 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있음
 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 | Microsoft.Insights/components/* | Insights 구성 요소 만들기 및 관리 |
 
-## RBAC 항목
-[AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
+## 참고 항목
+- [역할 기반 액세스 제어](role-based-access-control-configure.md): Azure 포털에서 RBAC를 통해 시작합니다.
+- [Azure RBAC에서 사용자 지정 역할](role-based-access-control-custom-roles.md): 액세스 요구 사항에 맞게 사용자 지정 역할을 만드는 방법에 대해 알아봅니다.
+- [액세스 변경 기록 보고서 만들기](role-based-access-control-access-change-history-report.md): RBAC에서 역할 할당 변경을 추적합니다.
+- [역할 기반 액세스 제어 문제 해결](role-based-access-control-troubleshooting.md): 일반적인 문제를 수정하기 위한 제안 사항을 봅니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0420_2016-->

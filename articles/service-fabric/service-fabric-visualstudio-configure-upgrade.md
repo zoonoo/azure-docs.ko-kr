@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="01/12/2016"
+   ms.date="04/14/2016"
    ms.author="cawaMS" />
 
 # Visual Studio에서 서비스 패브릭 응용 프로그램의 업그레이드 구성
@@ -94,4 +94,4 @@ PowerShell cmdlet을 사용하여 서비스 패브릭 응용 프로그램을 업
 ## 다음 단계
 응용 프로그램을 배포하는 방법에 대한 자세한 내용은 [Azure 서비스 패브릭에서 기존 응용 프로그램 배포](service-fabric-deploy-existing-app.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0420_2016-->

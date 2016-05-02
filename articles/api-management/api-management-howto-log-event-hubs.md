@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Azure API 관리에서 Azure 이벤트 허브에 이벤트를 기록하는 방법" 
+	pageTitle="Azure API 관리에서 Azure 이벤트 허브에 이벤트를 기록하는 방법 | Microsoft Azure" 
 	description="Azure API 관리에서 Azure 이벤트 허브에 이벤트를 기록하는 방법 배우기" 
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="04/15/2016" 
 	ms.author="sdanie"/>
 
 # Azure API 관리에서 Azure 이벤트 허브에 이벤트를 기록하는 방법
@@ -71,12 +71,14 @@ API 관리 로거는 [API 관리 REST API](http://aka.ms/smapi)를 사용하여 
       "credentials" : {
         "name" : "Name of the Event Hub from the Azure Classic Portal",
         "connectionString" : "Endpoint=Event Hub Sender connection string"
-        }
+        },
+        "isBuffered": "true | false"
     }
 
 -	`type`은 `AzureEventHub`로 설정해야 합니다.
 -	`description`는 로거에 대한 선택적 설명을 제공하고 원하는 경우 길이가 0인 문자열이 될 수 있습니다.
 -	`credentials`는 Azure 이벤트 허브의 `name` 및 `connectionString`을 포함합니다.
+-	`isBuffered`는 게시하기 전 로거의 레코드가 버퍼링되는지 여부를 결정합니다. 이 속성은 선택 사항이며 기본값은 `true`입니다. 레코드가 버퍼링되는 경우 15초마다 또는 버퍼에서 256kb의 메시지를 받을 때마다 이벤트 허브로 전송됩니다.
 
 요청을 만들 때 로거가 생성되면 `201 Created`의 상태 코드가 반환됩니다.
 
@@ -133,4 +135,4 @@ API 관리에 로거가 구성되면 원하는 이벤트를 기록하는 log-to-
 [event-hub-policy]: ./media/api-management-howto-log-event-hubs/event-hub-policy.png
 [add-policy]: ./media/api-management-howto-log-event-hubs/add-policy.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

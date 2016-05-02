@@ -18,7 +18,7 @@
 	ms.author="nitinme"/>
 
 
-# Azure HDInsight에서 Apache Spark와 함께 BI 도구 사용(Windows)
+# HDInsight Windows에서 Apache Spark와 함께 BI 도구 사용(미리 보기)
 
 > [AZURE.NOTE] 이제 HDInsight가 Linux에서 Spark 클러스터를 제공합니다. HDInsight Linux에서 Spark 클러스터와 함께 BI 도구를 사용하는 방법은 [Azure HDInsight에서 Apache Spark와 함께 BI 도구 사용(Linux)](hdinsight-apache-spark-use-bi-tools.md)을 참조하세요.
 
@@ -214,4 +214,4 @@ Azure HDInsight에서 Apache Spark를 사용하여 다음을 수행하는 방법
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

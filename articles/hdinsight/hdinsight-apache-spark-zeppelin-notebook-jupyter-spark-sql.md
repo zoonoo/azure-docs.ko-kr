@@ -18,7 +18,7 @@
 	ms.author="nitinme"/>
 
 
-# 시작: Azure HDInsight에서 Apache Spark를 만들기 및 Spark SQL을 사용하여 대화형 쿼리 실행
+# 시작: HDInsight Windows에서 Apache Spark 만들기 및 Spark SQL을 사용하여 대화형 쿼리 실행(미리 보기)
 
 > [AZURE.NOTE] 이제 HDInsight가 Linux에서 Spark 클러스터를 제공합니다. HDInsight Linux에서 Spark 클러스터를 시작하는 방법은 [시작: Azure HDInsight에서 Apache Spark 만들기(Linux)](hdinsight-apache-spark-jupyter-spark-sql.md)를 참조하세요.
 
@@ -296,4 +296,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

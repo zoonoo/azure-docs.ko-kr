@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="Juliako" 
 	writer="juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
+	ms.date="04/18/2016"
 	ms.author="juliako"/>
 
 
 #<a id="managemediaservicesorigins"></a>미디어 서비스 계정에서 스트리밍 끝점을 관리하는 방법
 
 > [AZURE.SELECTOR]
-- [Portal](media-services-manage-origins.md)
+- [포털](media-services-manage-origins.md)
 - [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 
 
@@ -68,10 +68,9 @@ Azure 클래식 포털을 사용하여 스트리밍 끝점을 추가\\삭제하�
 	새 스트리밍 단위를 할당하는 작업은 완료하는 데 20분 정도 걸립니다.
 
 	 
->[AZURE.NOTE] 현재, 스트리밍 단위의 양수 값을 0으로 변경하면 최대 1시간 동안 주문형 스트리밍을 사용하지 않을 수 있습니다.
+	>[AZURE.NOTE] 현재, 스트리밍 단위의 양수 값을 0으로 변경하면 최대 1시간 동안 주문형 스트리밍을 사용하지 않을 수 있습니다.
 
-</br>
->[AZURE.NOTE] 24시간 동안 가장 많은 단위 수가 비용 계산에 사용됩니다. 가격 정보에 대한 자세한 내용은 [미디어 서비스 가격 정보](http://go.microsoft.com/fwlink/?LinkId=275107)를 참조하세요.
+	>[AZURE.NOTE] 24시간 동안 가장 많은 단위 수가 비용 계산에 사용됩니다. 가격 정보에 대한 자세한 내용은 [미디어 서비스 가격 정보](http://go.microsoft.com/fwlink/?LinkId=275107)를 참조하세요.
 	
 ##<a id="configure_streaming_endpoints"></a>스트리밍 끝점 구성
 
@@ -151,4 +150,4 @@ CDN 통합은 모든 Azure 데이터 센터, 미국 서부, 미국 동부, 북�
 [configure-origin-configure-custom-host-names]: ./media/media-services-manage-origins/media-services-configure-custom-host-names.png
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

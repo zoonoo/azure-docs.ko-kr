@@ -246,11 +246,22 @@ Azure PowerShell을 설치하려면 이전 섹션 "Azure PowerShell 설치 및 �
 
 >[AZURE.NOTE] 이 명령을 통해 만드는 빌드 정의는 다중 동시 빌드를 지원하지 않으며 별도의 컴퓨터에서도 마찬가지입니다. 각 빌드가 동일한 리소스 그룹/클러스터를 경쟁하게 되기 때문입니다. 여러 빌드 에이전트를 실행할 경우 이러한 간섭을 방지하기 위해 다음 명령/스크립트를 수정해야 합니다.
 
-### 연속 통합 스크립트를 응용 프로그램에 대한 소스 제어에 추가
+### 응용 프로그램에 서비스 패브릭 Azure Resource Manager 템플릿 추가
 
-1.	컴퓨터 임의 폴더에 [ServiceFabricContinuousIntegrationScripts.zip](https://gallery.technet.microsoft.com/Set-up-continuous-f8b251f6)의 압축을 풉니다. `Powershell\Automation` 내용을 원본 제어의 임의 폴더에 복사합니다.
+1. [이 샘플](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype-wad)에서 `azuredeploy.json` 및 `azuredeploy.parameters.json`을 다운로드합니다.
 
-2.	결과 파일을 체크인합니다.
+2. `azuredeploy.parameters.json`을 열고 다음 매개 변수를 편집합니다.
+
+    |매개 변수|값|
+    |---|---|
+    |clusterLocation|사용자 키 자격 증명 모음의 위치와 일치해야 합니다. 예제: `westus`|
+    |clusterName|인증서의 DNS 이름과 일치해야 합니다. 예를 들어 인증서의 DNS 이름이 `mycluster.westus.cloudapp.net`인 경우 `clusterName`은 `mycluster`여야 합니다.|
+    |adminPassword|대문자, 소문자, 숫자, 특수 문자와 같은 문자 형식 중에서 3가지 이상의 문자를 사용한 8-123자입니다.|
+    |certificateThumbprint|`CreateAndUpload-Certificate.ps1` 출력 파일에서|
+    |sourceVaultValue|`CreateAndUpload-Certificate.ps1` 출력 파일에서|
+    |certificateUrlvalue|`CreateAndUpload-Certificate.ps1` 출력 파일에서|
+
+3. 소스 제어에 새 파일을 추가하고 VSTS에 푸시합니다.
 
 ### 빌드 정의 만들기
 
@@ -273,22 +284,7 @@ Azure PowerShell을 설치하려면 이전 섹션 "Azure PowerShell 설치 및 �
     |변수|값|Secret|큐 시간에 허용|
     |---|---|---|---|
     |BuildConfiguration|릴리스||X|
-    |BuildPlatform|x64|||
-    |ServicePrincipalPassword|서비스 주체를 만들 때 사용한 암호입니다.|X||
-    |ServicePrincipalId|스크립트의 출력에서 서비스 주체를 만드는 데 사용했습니다.|||
-    |ServicePrincipalTenantId|스크립트의 출력에서 서비스 주체를 만드는 데 사용했습니다.|||
-    |ServicePrincipalSubscriptionId|스크립트의 출력에서 서비스 주체를 만드는 데 사용했습니다.|||
-    |ServiceFabricCertificateThumbprint|CreateAndUpload-Certificate.ps1의 출력에서|||
-    |ServiceFabricKeyVaultId|CreateAndUpload-Certificate.ps1의 출력에서|||
-    |ServiceFabricCertificateSecretId|CreateAndUpload-Certificate.ps1의 출력에서|||
-    |ServiceFabricClusterName|인증서의 DNS 이름과 일치해야 합니다.|||
-    |ServiceFabricClusterResourceGroupName|임의의 이름|||
-    |ServiceFabricClusterLocation|사용자 키 자격 증명 모음의 위치와 일치해야 합니다.|||
-    |ServiceFabricClusterAdminPassword|대문자, 소문자, 숫자, 특수 문자와 같은 문자 형식 중에서 3가지 이상의 문자를 사용한 8-123자입니다.|X||
-    |ServiceFabricClusterResourceGroupTemplateFilePath|`<path/to/extracted/automation/scripts/ArmTemplate-Full-3xVM-Secure.json>`|||
-    |ServiceFabricPublishProfilePath|`<path/to/your/publish/profiles/MyPublishProfile.xml>` 게시 프로필에서의 연결 끝점은 무시됩니다. 대신 임시 클러스터에 대한 연결 끝점을 사용합니다.|||
-    |ServiceFabricDeploymentScriptPath|`<path/to/Deploy-FabricApplication.ps1>`|||
-    |ServiceFabricApplicationProjectPath|`<path/to/your/fabric/application/project/folder>` .sfproj 파일이 있는 폴더여야 합니다.||||
+    |BuildPlatform|x64||||
 
 3.  빌드 정의를 저장하고 이름을 지정합니다. 나중에 원하면 이 이름을 변경할 수 있습니다.
 
@@ -312,15 +308,15 @@ Azure PowerShell을 설치하려면 이전 섹션 "Azure PowerShell 설치 및 �
 
 3.	빌드 단계 이름 옆의 연필 아이콘을 선택하고 이름을 **빌드**로 변경합니다.
 
-4.	**솔루션** 필드 옆의 **…** 단추를 선택한 다음 .sln 파일을 선택합니다.
+4. 다음 값을 선택합니다.
 
-5.	**플랫폼**에 `$(BuildPlatform)`을 입력합니다.
+    |설정 이름|값|
+    |---|---|
+    |해결 방법|**...** 단추를 클릭하고 솔루션에 대한 `.sln` 파일을 선택합니다.|
+    |플랫폼|`$(BuildPlatform)`|
+    |구성|`$(BuildConfiguration)`|
 
-6.	**구성**에 `$(BuildConfiguration)`을 입력합니다.
-
-7.	**NuGet 패키지 복원** 확인란을 지웁니다(아직 선택하지 않은 경우).
-
-8.	빌드 정의를 저장합니다.
+5.	빌드 정의를 저장합니다.
 
 ### "패키지" 단계 추가
 
@@ -330,17 +326,16 @@ Azure PowerShell을 설치하려면 이전 섹션 "Azure PowerShell 설치 및 �
 
 3.	빌드 단계 이름 옆의 연필 아이콘을 선택하고 이름을 **패키지**로 변경합니다.
 
-4.	**솔루션** 필드 옆의 **…** 단추를 선택한 다음 응용 프로그램 프로젝트의 .sfproj 파일을 선택합니다.
+4. 다음 값을 선택합니다.
 
-5.	**플랫폼**에 `$(BuildPlatform)`을 입력합니다.
+    |설정 이름|값|
+    |---|---|
+    |해결 방법|**…** 단추를 클릭하고 응용 프로그램 프로젝트의 `.sfproj` 파일을 선택합니다.|
+    |플랫폼|`$(BuildPlatform)`|
+    |구성|`$(BuildConfiguration)`|
+    |MSBuild 인수|`/t:Package`|
 
-6.	**구성**에 `$(BuildConfiguration)`을 입력합니다.
-
-7.	**MSBuild 인수**에 `/t:Package`를 입력합니다.
-
-8.	**NuGet 패키지 복원** 확인란을 선택 취소합니다(아직 취소하지 않은 경우).
-
-9.	빌드 정의를 저장합니다.
+5.	빌드 정의를 저장합니다.
 
 ### "클러스터 리소스 그룹 제거" 단계 추가
 
@@ -348,66 +343,74 @@ Azure PowerShell을 설치하려면 이전 섹션 "Azure PowerShell 설치 및 �
 
 1.	**빌드** 탭에서 **빌드 단계 추가...** 명령을 선택합니다.
 
-2.	**유틸리티** > **PowerShell**을 선택합니다.
+2.	**배포** > **Azure 리소스 그룹 배포**를 선택합니다.
 
 3.	빌드 단계 이름 옆의 연필 아이콘을 선택하고 이름을 **클러스터 리소스 그룹 제거**로 변경합니다.
 
-4.	**스크립트 파일 이름** 옆의 **...** 명령을 선택합니다. 자동화 스크립트의 압축을 푼 위치로 이동한 다음 **Remove-ClusterResourceGroup.ps1**을 선택합니다.
+4. 다음 값을 선택합니다.
 
-5.	**인수**에 `-ServicePrincipalPassword "$(ServicePrincipalPassword)"`를 입력합니다.
+    |설정 이름|값|
+    |---|---|
+    |AzureConnectionType|**Azure 리소스 관리자**|
+    |Azure RM 구독|**서비스 주체 만들기** 섹션에서 만든 연결 끝점을 선택합니다.|
+    |작업|**리소스 그룹 삭제**|
+    |리소스 그룹|사용되지 않은 이름을 입력합니다. 다음 단계에서 동일한 이름을 사용해야 합니다.|
 
-6.	빌드 정의를 저장합니다.
+5.	빌드 정의를 저장합니다.
 
-### "보안 클러스터로 프로비전 및 배포" 단계 추가
+### "보안 클러스터 프로비전" 단계 추가
+
+1.	**빌드** 탭에서 **빌드 단계 추가...** 명령을 선택합니다.
+
+2.	**배포** > **Azure 리소스 그룹 배포**를 선택합니다.
+
+3.	빌드 단계 이름 옆의 연필 아이콘을 선택하고 이름을 **프로비전 보안 클러스터**로 변경합니다.
+
+4. 다음 값을 선택합니다.
+
+    |설정 이름|값|
+    |---|---|
+    |AzureConnectionType|**Azure 리소스 관리자**|
+    |Azure RM 구독|**서비스 주체 만들기** 섹션에서 만든 연결 끝점을 선택합니다.|
+    |작업|**리소스 그룹 만들기 또는 업데이트**|
+    |리소스 그룹|이전 단계에서 사용한 이름과 같아야 합니다.|
+    |위치|사용자 키 자격 증명 모음의 위치와 일치해야 합니다.|
+    |Template|**…** 단추를 클릭하고 `azuredeploy.json`를 선택합니다.|
+    |템플릿 매개 변수|**…** 단추를 클릭하고 `azuredeploy.parameters.json`를 선택합니다.|
+
+5.	빌드 정의를 저장합니다.
+
+### "배포" 단계 추가
 
 1.	**빌드** 탭에서 **빌드 단계 추가...** 명령을 선택합니다.
 
 2.	**유틸리티** > **PowerShell**을 선택합니다.
 
-3.	빌드 단계 이름 옆의 연필 아이콘을 선택하고 이름을 **보안 클러스터로 프로비전 및 배포**로 변경합니다.
+3.	빌드 단계 이름 옆의 연필 아이콘을 선택하고 이름을 **배포**로 변경합니다.
 
-4.	**스크립트 파일 이름** 옆의 **...** 단추를 선택합니다. 자동화 스크립트의 압축을 푼 위치로 이동한 다음 **ProvisionAndDeploy-SecureCluster.ps1**을 선택합니다.
+4. 다음 값을 선택합니다.
 
-5.	**인수**에 `-ServicePrincipalPassword "$(ServicePrincipalPassword)" -ServiceFabricClusterAdminPassword "$(ServiceFabricClusterAdminPassword)"`를 입력합니다.
+    |설정 이름|값|
+    |---|---|
+    |형식|**File Path(파일 경로)**|
+    |스크립트 파일 이름|**...** 단추를 클릭하여 응용 프로그램 프로젝트 내 **스크립트** 디렉터리로 이동합니다. `Deploy-FabricApplication.ps1`을 선택합니다.|
+    |인수|`-PublishProfileFile path/to/MySolution/MyApplicationProject/PublishProfiles/MyPublishProfile.xml -ApplicationPackagePath path/to/MySolution/MyApplicationProject/pkg/$(BuildConfiguration)`|
 
-6.	빌드 정의를 저장합니다.
-
-### "클러스터 리소스 그룹 제거" 단계 추가
-
-임시 클러스터를 마쳤으므로 이제 정리해야 합니다. 정리하지 않으면 임시 클러스터에 대한 비용이 계속 청구됩니다. 이 단계에서는 리소스 그룹을 제거하여 클러스터와 그룹 내 모든 다른 리소스를 제거합니다.
-
->[AZURE.NOTE] 이 단계와 이전 "클러스터 리소스 그룹 제거" 단계의 한 가지 차이점은 이 단계에서는 **항상 실행**이 선택되어 있어야 한다는 것입니다.
-
-1.	**빌드** 탭에서 **빌드 단계 추가...** 명령을 선택합니다.
-
-2.	**유틸리티** > **PowerShell**을 선택합니다.
-
-3.	빌드 단계 이름 옆의 연필 아이콘을 선택하고 이름을 **클러스터 리소스 그룹 제거**로 변경합니다.
-
-4.	**스크립트 파일 이름** 옆의 **...** 단추를 선택합니다. 자동화 스크립트의 압축을 푼 위치로 이동한 다음 **RemoveClusterResourceGroup.ps1**을 선택합니다.
-
-5.	**인수**에 `-ServicePrincipalPassword "$(ServicePrincipalPassword)`를 입력합니다."
-
-6.	**제어 옵션**에서 **항상 실행** 확인란을 선택합니다.
-
-7.	빌드 정의를 저장합니다.
+5.	빌드 정의를 저장합니다.
 
 ### 시도
 
 **빌드 큐 대기**를 선택하여 빌드를 시작합니다. 또한 빌드는 푸시 또는 체크인할 때 트리거됩니다.
 
-
 ## 대체 솔루션
 
 위의 지침은 각각의 빌드에 대해 새 클러스터를 만들며 빌드 마지막에 해당 클러스터를 제거합니다. 그 대신 각 빌드가 응용 프로그램 업그레이드를 수행하게 하려면(기존 클러스터에 대해) 다음 단계를 수행합니다.
 
-1.	Azure 포털 또는 Azure PowerShell을 통해 수동으로 테스트 클러스터를 만듭니다. 참조로 `ProvisionAndDeploy-SecureCluster.ps1` 스크립트를 참조할 수 있습니다.
+1.	[이러한 지침](service-fabric-cluster-creation-via-portal.md)을 따라 Azure 포털 또는 Azure PowerShell을 통해 수동으로 테스트 클러스터를 만듭니다.
 
 2.	[이 지침](service-fabric-visualstudio-configure-upgrade.md)에 따라 응용 프로그램 업그레이드를 지원하는 게시 프로필을 구성합니다.
 
-3.	**클러스터 보호를 위한 프로비전 및 배포** 단계를 Deploy-FabricApplication.ps1을 직접 호출하는 단계로 대체합니다(게시 프로필로 전달).
-
-4.	빌드 정의에서 **클러스터 리소스 그룹 제거** 빌드 단계를 모두 제거합니다.
+4.	빌드 정의에서 **클러스터 리소스 그룹 제거** 및 **프로비전 클러스터** 빌드 단계를 모두 제거합니다.
 
 ## 다음 단계
 
@@ -417,4 +420,4 @@ Azure PowerShell을 설치하려면 이전 섹션 "Azure PowerShell 설치 및 �
  - [빌드 에이전트 배포](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows)
  - [빌드 정의 만들기 및 구성](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

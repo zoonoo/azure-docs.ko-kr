@@ -3,7 +3,7 @@
    description="SQL 데이터 웨어하우스 관리 도구 소개"
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="HappyNicolle"
+   authors="barbkess"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="03/03/2016"
-   ms.author="mausher;nicw;barbkess;jrj;sonyama;"/>
+   ms.author="barbkess;sonyama;"/>
 
 # SQL 데이터 웨어하우스 관리 도구
 이 항목에서는 SQL 데이터 웨어하우스를 관리하기 위한 도구 및 옵션을 살펴보고 비교하므로 자신의 요구 사항에 맞는 도구를 선택할 수 있습니다. 적합한 도구를 선택하는 방법은 관리하는 데이터베이스 수, 작업 및 작업 수행 빈도에 따라 달라집니다.
@@ -49,4 +49,4 @@ SQL 데이터 웨어하우스에 대한 지원이 포함된 [SQL Server Data Too
 <!--Other web references-->
 [Azure 클래식 포털]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

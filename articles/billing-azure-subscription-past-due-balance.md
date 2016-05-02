@@ -15,16 +15,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/01/2016"
+	ms.date="04/17/2016"
 	ms.author="genli"/>
 
 # Azure 구독에 미지불액이 있다는 알림을 받는지 궁금하십니까?
-계정 구독의 계정 관리자이고, 정해진 기한에 결제하지 않는다면, 미지불액에 대한 통보를 전자메일로 받게 되거나 http://accounts.windowsazure.com이나 http://portal.azure.com같은 경고를 보게 됩니다.
+Azure 구독의 계정 관리자이고, 정해진 기한에 결제하지 않으면 미지불액에 대한 통보를 메일로 받게 되거나 [https://account.windowsazure.com](https://account.windowsazure.com)이나 [https://portal.azure.com](https://portal.azure.com)에 경고가 표시됩니다.
 
-### 결제를 잊은 경우 어떻게 되나요?
+## 결제를 잊은 경우 어떻게 되나요?
 서비스는 취소되고 리소스는 더 이상 사용할 수 없게 됩니다. 모든 데이터는 서비스가 종료된 후 90일 후에 삭제됩니다.
 
-### 문제를 해결하려면 어떻게 해야 하나요?
+## 문제를 해결하려면 어떻게 해야 하나요?
 
 전체 금액에서 미지불된 금액을 결제하면 됩니다.
 
@@ -35,4 +35,4 @@
 
 **시나리오 3**: 계정 관리자가 회사를 그만두거나 역할 변경의 이유로 고지서를 받지 못한 경우에는 [Azure 지원](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에 문의하여 문제를 해결할 수 있습니다.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

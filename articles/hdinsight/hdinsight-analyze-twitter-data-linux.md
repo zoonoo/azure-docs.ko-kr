@@ -37,8 +37,6 @@
 
 - __Python__ 및 [pip](https://pypi.python.org/pypi/pip)
 
-- __Azure CLI__. 자세한 내용은 [Azure CLI 설치 및 구성](../xplat-cli-install.md)을 참조하세요.
-
 ##Twitter 피드 가져오기
 
 Twitter를 사용하여 [각 트윗에 대한 데이터](https://dev.twitter.com/docs/platform-objects/tweets)를 REST API를 통해 JSON(JavaScript Notation) 개체로서 검색할 수 있습니다. [OAuth](http://oauth.net)는 API에 대한 인증을 필요로 합니다. API에 액세스하는데 사용되는 설정이 포함된 _Twitter 응용 프로그램_도 만들어야 합니다.
@@ -319,4 +317,4 @@ WASB(HDInsight에서 사용하는 분산 파일 시스템)에 데이터를 업�
 [twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

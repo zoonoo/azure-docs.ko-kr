@@ -3,8 +3,8 @@
 	description="이 항목에서는 Wirecast 라이브 인코더를 구성하여 라이브 인코딩에 대해 활성화된 AMS 채널에 단일 비트 전송률 스트림을 보내는 방법을 보여 줍니다." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako,cenkdin,anilmur" 
-	manager="dwrede" 
+	authors="Juliako" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="02/03/2016" 
-	ms.author="juliako"/>
+	ms.date="04/18/2016" 
+	ms.author="juliako;cenkdin;anilmur"/>
 
 #단일 비트 전송률 라이브 스트림을 보낼 Wirecast 인코더 사용
 
@@ -180,4 +180,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

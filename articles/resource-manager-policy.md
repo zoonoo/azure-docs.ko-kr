@@ -5,7 +5,7 @@
 	documentationCenter="na"
 	authors="ravbhatnagar"
 	manager="ryjones"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="azure-resource-manager"
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="02/26/2016"
+	ms.date="04/18/2016"
 	ms.author="gauravbh;tomfitz"/>
 
 # 정책을 사용하여 리소스 및 컨트롤 액세스 관리
@@ -23,8 +23,6 @@
 구체적으로 거부되는 작업 또는 리소스를 설명하는 정책 정의를 만듭니다. 구독, 리소스 그룹 또는 개별 리소스와 같이 원하는 범위에서 해당 정책 정의를 할당합니다.
 
 이 문서에서는 정책을 만드는 데 사용할 수 있는 정책 정의 언어의 기본 구조를 설명합니다. 그런 다음 이 정책을 서로 다른 범위에서 적용하는 방법을 설명하고 REST API를 통해 이를 달성할 수 있는 방법에 관한 몇 가지 예제를 보여 줍니다.
-
-정책은 현재 미리 보기로 사용할 수 있습니다.
 
 ## RBAC와 어떻게 다르나요?
 
@@ -56,10 +54,10 @@ RBAC는 **사용자**가 서로 다른 범위에서 수행할 수 있는 작업�
 
     {
       "if" : {
-        <condition> | <logical operator>
+          <condition> | <logical operator>
       },
       "then" : {
-        "effect" : "deny | audit"
+          "effect" : "deny | audit | append"
       }
     }
     
@@ -67,7 +65,7 @@ RBAC는 **사용자**가 서로 다른 범위에서 수행할 수 있는 작업�
 
 HTTP PUT을 사용하여 리소스 생성 또는 템플릿 배포가 발생하는 경우 정책이 평가됩니다. 템플릿 배포의 경우 템플릿에서 각 리소스 생성 중에 정책이 평가됩니다.
 
-참고: 태그, 종류, 위치를 지원하지 않는 리소스 유형은 Microsoft.Resources/deployments와 같은 정책에 의해 평가되지 않습니다. 지원은 나중에 추가됩니다. 이전 버전과 호환성 문제를 방지하기 위해 정책을 작성할 때 유형을 명시적으로 지정하는 것이 가장 좋습니다. 예를 들어 유형을 지정하지 않는 태그 정책은 모든 유형에 대해 적용되므로 나중에 리소스 유형을 평가에 추가할 때 태그를 지원하지 않는 중첩된 리소스가 있는 경우 템플릿 배포가 실패할 수 있습니다.
+> [AZURE.NOTE] 현재 정책은 태그, 종류 및 위치를 지원하지 않는 리소스 종류(예: Microsoft.Resources/deployments)를 평가하지 않습니다. 이 지원은 나중에 추가됩니다. 이전 버전과의 호환성 문제를 방지하기 위해 정책을 작성할 때 유형을 명시적으로 지정해야 합니다. 예를 들어 유형을 지정하지 않은 태그 정책이 모든 유형에 적용됩니다. 이 경우 태그를 지원하지 않는 중첩된 리소스가 있고 배포 리소스 종류가 정책 평가에 추가된 경우 나중에 템플릿 배포에 실패할 수 있습니다.
 
 ## 논리 연산자
 
@@ -93,7 +91,7 @@ HTTP PUT을 사용하여 리소스 생성 또는 템플릿 배포가 발생하�
 | 내용 | "in" : [ "&lt;value1&gt;","&lt;value2&gt;" ]|
 | ContainsKey | "containsKey" : "&lt;keyName&gt;" |
 
-## 필드 및 소스
+### 필드 및 소스
 
 조건은 필드와 소스를 사용하여 형성됩니다. 필드는 리소스의 상태를 설명하는 데 사용되는 리소스 요청 페이로드의 속성을 나타냅니다. 원본은 요청 자체의 특성을 나타냅니다.
 
@@ -103,37 +101,70 @@ HTTP PUT을 사용하여 리소스 생성 또는 템플릿 배포가 발생하�
 
 원본: **action**.
 
-속성 별칭은 설정 및 sku와 같은 리소스 종류 특정 속성에 액세스하는 정책 정의에 사용될 수 있는 이름입니다. 속성이 존재하는 모든 API 버전에서 작동합니다. 아래 REST API를 사용하여 별칭을 검색할 수 있습니다(Powershell 지원은 향후 추가될 예정).
+### 속성 별칭 
+속성 별칭은 설정 및 sku와 같은 리소스 종류 특정 속성에 액세스하는 정책 정의에 사용될 수 있는 이름입니다. 속성이 존재하는 모든 API 버전에서 작동합니다. 아래 표시된 REST API를 사용하여 별칭을 검색할 수 있습니다(Powershell 지원은 향후 추가될 예정).
 
     GET /subscriptions/{id}/providers?$expand=resourceTypes/aliases&api-version=2015-11-01
 	
-별칭 정의는 다음과 같습니다. 여기에서 볼 수 있듯이 별칭은 속성 이름을 변경하는 경우에도 서로 다른 API 버전에 경로를 정의합니다.
+별칭에 대한 정의는 아래와 같습니다. 여기에서 볼 수 있듯이 별칭은 속성 이름을 변경하는 경우에도 서로 다른 API 버전에 경로를 정의합니다.
 
-    "aliases": [
-      {
-        "name": "Microsoft.Storage/storageAccounts/sku.name",
-        "paths": [
-          {
-            "path": "Properties.AccountType",
-            "apiVersions": [ "2015-06-15", "2015-05-01-preview" ]
-          }
-        ]
-      }
-    ]
+	"aliases": [
+	    {
+	      "name": "Microsoft.Storage/storageAccounts/sku.name",
+	      "paths": [
+	        {
+	          "path": "properties.accountType",
+	          "apiVersions": [
+	            "2015-06-15",
+	            "2015-05-01-preview"
+	          ]
+	        },
+	        {
+	          "path": "sku.name",
+	          "apiVersions": [
+	            "2016-01-01"
+	          ]
+	        }
+	      ]
+	    }
+	]
 
 현재 지원되는 별칭:
 
 | 별칭 이름 | 설명 |
 | ---------- | ----------- |
-| {resourceType}/sku.name | 지원되는 리소스 유형: Microsoft.Storage/storageAccounts,<br />Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles |
+| {resourceType}/sku.name | 지원되는 리소스 유형: Microsoft.Compute/virtualMachines,<br />Microsoft.Storage/storageAccounts,<br />Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles |
 | {resourceType}/sku.family | 지원되는 리소스 종류: Microsoft.Cache/Redis |
 | {resourceType}/sku.capacity | 지원되는 리소스 종류: Microsoft.Cache/Redis |
+| Microsoft.Compute/virtualMachines/imagePublisher | |
+| Microsoft.Compute/virtualMachines/imageOffer | |
+| Microsoft.Compute/virtualMachines/imageSku | |
+| Microsoft.Compute/virtualMachines/imageVersion | |
 | Microsoft.Cache/Redis/enableNonSslPort | |
 | Microsoft.Cache/Redis/shardCount | |
 
 
 작업에 대한 자세한 내용은 [RBAC - 기본 제공 역할](active-directory/role-based-access-built-in-roles.md)을 참조하세요. 현재 정책은 PUT 요청에만 작동합니다.
 
+## 결과
+정책은 **거부**, **감사** 및 **추가**의 세 가지 유형의 효과를 지원합니다.
+
+- 거부는 감사 로그에 이벤트를 생성하고 요청을 실패합니다.
+- 감사는 감사 로그에 이벤트를 생성하지만 요청을 실패하지는 않습니다.
+- 추가는 정의된 필드 집합을 요청에 추가합니다. 
+
+**추가**의 경우 아래와 같이 세부 정보를 제공해야 합니다.
+
+    ....
+    "effect": "append",
+    "details": [
+      {
+        "field": "field name",
+        "value": "value of the field"
+      }
+    ]
+
+값은 문자열 또는 JSON 형식의 개체일 수 있습니다.
 
 ## 정책 정의 예제
 
@@ -154,6 +185,51 @@ HTTP PUT을 사용하여 리소스 생성 또는 템플릿 배포가 발생하�
         "effect" : "deny"
       }
     }
+
+태그가 없는 경우 아래 정책은 미리 정의된 값으로 costCenter 태그를 추가합니다.
+
+	{
+	  "if": {
+	    "field": "tags",
+	    "exists": "false"
+	  },
+	  "then": {
+	    "effect": "append",
+	    "details": [
+	      {
+	        "field": "tags",
+	        "value": {"costCenter":"myDepartment" }
+	      }
+	    ]
+	  }
+	}
+	
+다른 태그가 있는 경우 아래 정책은 미리 정의된 값으로 costCenter 태그를 추가합니다.
+
+	{
+	  "if": {
+	    "allOf": [
+	      {
+	        "field": "tags",
+	        "exists": "true"
+	      },
+	      {
+	        "field": "tags.costCenter",
+	        "exists": "false"
+	      }
+	    ]
+	
+	  },
+	  "then": {
+	    "effect": "append",
+	    "details": [
+	      {
+	        "field": "tags.costCenter",
+	        "value": "myDepartment"
+	      }
+	    ]
+	  }
+	}
 
 
 ### 지리적 준수: 리소스 위치 확인
@@ -311,22 +387,23 @@ HTTP PUT을 사용하여 리소스 생성 또는 템플릿 배포가 발생하�
     }
 
 
-정책 정의를 위에 나오는 예제 중 하나로 정의할 수 있습니다. api-version에는 *2015-10-01-preview*를 사용합니다. 예제 및 더 자세한 세부 정보는 [정책 정의에 대한 REST API](https://msdn.microsoft.com/library/azure/mt588471.aspx)를 참조하세요.
+정책 정의를 위에 나오는 예제 중 하나로 정의할 수 있습니다. api-version에는 *2016-04-01*을 사용합니다. 예제 및 더 자세한 세부 정보는 [정책 정의에 대한 REST API](https://msdn.microsoft.com/library/azure/mt588471.aspx)를 참조하세요.
 
 ### PowerShell을 사용하여 정책 정의 만들기
 
 아래와 같이 New-AzureRmPolicyDefinition cmdlet을 사용하여 새 정책 정의를 만들 수 있습니다. 아래 예제는 북유럽과 서유럽에서만 리소스를 허용하기 위한 정책을 만듭니다.
 
-    $policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation onlyin certain regions" -Policy '{	"if" : {
-    	    			    "not" : {
-    	      			    	"field" : "location",
-    	      			    		"in" : ["northeurope" , "westeurope"]
-    	    			    	}
-    	    		          },
-    	      		    		"then" : {
-    	    			    		"effect" : "deny"
-    	      			    		}
-    	    		    	}'    		
+    $policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain regions" -Policy '{	
+      "if" : {
+        "not" : {
+          "field" : "location",
+          "in" : ["northeurope" , "westeurope"]
+    	}
+      },
+      "then" : {
+        "effect" : "deny"
+      }
+    }'    		
 
 실행의 출력은 $policy 개체에 저장되어 나중에 정책 할당 중에 사용할 수 있습니다. 정책 매개 변수의 경우 아래 나와 있는 것처럼 정책 인라인을 지정하지 않고 정책이 포함된 .json 파일에 대한 경로가 제공될 수도 있습니다.
 
@@ -343,7 +420,7 @@ HTTP PUT을 사용하여 리소스 생성 또는 템플릿 배포가 발생하�
 
     PUT https://management.azure.com /subscriptions/{subscription-id}/providers/Microsoft.authorization/policyassignments/{policyAssignmentName}?api-version={api-version}
 
-{policy-assignment}는 정책 할당의 이름입니다. api-version에는 *2015-10-01-preview*를 사용합니다.
+{policy-assignment}는 정책 할당의 이름입니다. api-version에는 *2016-04-01*을 사용합니다.
 
 요청 본문이 다음과 유사한 경우:
 
@@ -380,11 +457,11 @@ Get-AzureRmPolicyDefinition, Set-AzureRmPolicyDefinition 및 Remove-AzureRmPolic
 
 거부 효과와 관련된 모든 이벤트를 보려면 다음 명령을 사용합니다.
 
-    Get-AzureRmLog | where {$_.subStatus -eq "Forbidden"}     
+    Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/deny/action"} 
 
 감사 효과와 관련된 모든 이벤트를 보려면 다음 명령을 사용합니다.
 
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
     
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

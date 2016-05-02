@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/30/2016"
+	ms.date="04/19/2016"
 	ms.author="tarcher"/>
 
 # Visual Studio Team Services 및 Git을 사용하여 Azure에 지속적으로 전송
@@ -23,12 +23,12 @@ Visual Studio Team Services 팀 프로젝트를 사용하여 소스 코드용 Gi
 Visual Studio 2013 및 Azure SDK가 설치되어 있어야 합니다. Visual Studio 2013을 아직 설치하지 않은 경우 **www.visualstudio.com**에서 [무료로 시작하기](http://www.visualstudio.com) 링크를 선택하여 다운로드하세요. Azure SDK의 경우 [여기](http://go.microsoft.com/fwlink/?LinkId=239540)에서 설치할 수 있습니다.
 
 
-> [AZURE.NOTE] 이 자습서를 완료하려면 Visual Studio Team Services 계정이 있어야 합니다.
-> [Visual Studio Team Services 계정은 무료로 개설](http://go.microsoft.com/fwlink/p/?LinkId=512979)할 수 있습니다.
+> [AZURE.NOTE] 이 자습서를 완료하려면 Visual Studio Team Services 계정이 있어야 합니다. 
+[Visual Studio Team Services 계정은 무료로 개설](http://go.microsoft.com/fwlink/p/?LinkId=512979)할 수 있습니다.
 
 Visual Studio Team Services를 사용하여 Azure에 자동으로 빌드 및 배포하도록 클라우드 서비스를 설정하려면 다음 단계를 따르세요.
 
-## 1단계: Git 리포지토리 만들기
+## 1: Git 리포지토리 만들기
 
 1. Visual Studio Team Services 계정이 없는 경우 [여기](http://go.microsoft.com/fwlink/?LinkId=397665)에서 계정을 확보할 수 있습니다. 팀 프로젝트를 만들 때 소스 제어 시스템으로 Git을 선택합니다. 지침을 따라 Visual Studio를 팀 프로젝트에 연결합니다.
 
@@ -38,7 +38,7 @@ Visual Studio Team Services를 사용하여 Azure에 자동으로 빌드 및 배
 
 3. 로컬 복사본의 위치를 지정한 다음 **복제** 단추를 클릭합니다.
 
-## 2단계: 프로젝트를 만들어 리포지토리로 푸시
+## 2: 프로젝트를 만들어 리포지토리로 푸시
 
 1. **팀 편집기**의 **솔루션** 섹션에서 로컬 리포지토리에 새 프로젝트를 만들 수 있는 **새** 링크를 선택합니다.
 
@@ -58,7 +58,7 @@ Visual Studio Team Services를 사용하여 Azure에 자동으로 빌드 및 배
 
 6. 이제 리포지토리에 있는 로컬 복사본의 변경 내용을 커밋했습니다. 그런 다음 **동기화** 링크를 선택하여 변경 내용을 서버와 동기화합니다.
 
-## 3단계: Azure에 프로젝트 연결
+## 3: Azure에 프로젝트 연결
 
 1. Visual Studio Team Services에 일부 소스 코드를 포함한 Git 리포지토리가 있으므로 Azure에 Git 리포지토리를 연결할 준비가 되었습니다. [Azure 클래식 포털](http://manage.windowsazure.com)에서 클라우드 서비스 또는 웹앱을 선택하거나, 왼쪽 아래에 있는 + 아이콘을 선택하고 **클라우드 서비스** 또는 **웹앱**을 선택한 후 **빠른 생성**을 선택하여 새로 만듭니다.
 
@@ -82,7 +82,7 @@ Visual Studio Team Services를 사용하여 Azure에 자동으로 빌드 및 배
 
 	다음에 리포지토리에 커밋을 푸시할 때 Visual Studio Team Services가 프로젝트를 빌드하여 Azure에 배포합니다.
 
-## 4단계: 프로젝트 다시 빌드 및 다시 배포 트리거
+## 4: 프로젝트 다시 빌드 및 다시 배포 트리거
 
 1. Visual Studio에서 파일을 열어 변경합니다. 예를 들어 MVC 웹 역할의 Views\\Shared 폴더에서 `_Layout.cshtml` 파일을 변경합니다.
 
@@ -171,19 +171,19 @@ Visual Studio Team Services를 사용하여 Azure에 자동으로 빌드 및 배
 
 	![][33]
 
-## 5단계: 초기 빌드 다시 배포
+## 5: 초기 빌드 다시 배포
 
 이 단계는 옵션입니다. Azure 클래식 포털에서 이전 배포를 선택하고 **다시 배포**를 선택하여 사이트를 이전 체크 인으로 되돌립니다. 그러면 TFS에 새 빌드가 트리거되고 배포 기록에 새 항목이 생성됩니다.
 
 ![][34]
 
-## 6단계: 프로덕션 배포 변경
+## 6: 프로덕션 배포 변경
 
 준비가 되면 Azure 클래식 포털에서 **교환**을 선택하여 스테이징 환경에서 프로덕션 환경으로 수준을 올릴 수 있습니다. 새로 배포된 스테이징 환경에서 프로덕션으로 수준이 올라가며, 이전 프로덕션 환경이 있는 경우 스테이징 환경으로 변경됩니다. 활성 배포는 프로덕션 환경과 스테이징 환경에서 서로 다를 수 있지만 최근 빌드의 배포 기록은 환경과 관계없이 동일합니다.
 
 ![][35]
 
-## 6단계: 작업 분기에서 배포
+## 6: 작업 분기에서 배포
 
 Git을 사용할 경우 보통 작업 분기에서 변경한 다음 개발이 최종 단계에 도달하면 마스터 분기로 통합합니다. 프로젝트의 개발 단계에서는 작업 분기를 구성하여 Azure에 배포합니다.
 
@@ -273,4 +273,4 @@ Visual Studio Team Services에서 Git 사용에 대해 더 많은 팁을 알아�
 [47]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/12/2016"
+   ms.date="04/14/2016"
    ms.author="sonyama;barbkess;sahajs"/>
 
 # DMV를 사용하여 작업 모니터링
@@ -142,20 +142,6 @@ DBCC PDW_SHOWEXECUTIONPLAN(55, 238);
 
 ```
 
-
-## 데이터 기울이기 조사
-
-[DBCC PDW\_SHOWSPACEUSED][]를 사용하여 테이블에 사용되는 공간을 조회합니다.
-
-```sql
--- Find data skew for a distributed table
-DBCC PDW_SHOWSPACEUSED("dbo.FactInternetSales");
-```
-
-이 쿼리의 결과는 데이터베이스 배포 60개에 각각 저장된 테이블 행 수를 보여 줍니다. 최적의 성능을 얻으려면 분산 테이블의 행을 모든 배포에 균등하게 나누어야 합니다.
-
-자세히 알아보려면 [분산 테이블에 대한 데이터 오차 관리][] 또는 [테이블 디자인][]을 참조하세요.
-
 ## 다음 단계
 Transact-SQL 및 DMV(동적 관리 뷰)에 대한 자세한 내용은 [참조 개요][]를 참조하세요. SQL 데이터 웨어하우스 관리에 대한 추가 팁은 [관리 개요][]를 참조하세요.
 
@@ -163,9 +149,9 @@ Transact-SQL 및 DMV(동적 관리 뷰)에 대한 자세한 내용은 [참조 �
 
 <!--Article references-->
 [관리 개요]: sql-data-warehouse-overview-manage.md
-[테이블 디자인]: sql-data-warehouse-develop-table-design.md
+[table design]: sql-data-warehouse-develop-table-design.md
 [참조 개요]: sql-data-warehouse-overview-reference.md
-[분산 테이블에 대한 데이터 오차 관리]: sql-data-warehouse-manage-distributed-data-skew.md
+[manage data skew for distributed tables]: sql-data-warehouse-manage-distributed-data-skew.md
 
 <!--MSDN references-->
 [sys.dm\_pdw\_dms\_workers]: http://msdn.microsoft.com/library/mt203878.aspx
@@ -174,6 +160,6 @@ Transact-SQL 및 DMV(동적 관리 뷰)에 대한 자세한 내용은 [참조 �
 [sys.dm\_pdw\_request\_steps]: http://msdn.microsoft.com/library/mt203913.aspx
 [sys.dm\_pdw\_sql\_requests]: http://msdn.microsoft.com/library/mt203889.aspx
 [DBCC PDW\_SHOWEXECUTIONPLAN]: http://msdn.microsoft.com/library/mt204017.aspx
-[DBCC PDW\_SHOWSPACEUSED]: http://msdn.microsoft.com/library/mt204028.aspx
+[DBCC PDW_SHOWSPACEUSED]: http://msdn.microsoft.com/library/mt204028.aspx
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="01/25/2016"
+   ms.date="04/18/2016"
    ms.author="zachal"/>
 
 # Azure DSC 확장 처리기에 자격 증명 전달 #
@@ -89,4 +89,4 @@ PowerShell DSC에 대한 자세한 내용을 보려면 [PowerShell 설명서 센
 
 PowerShell DSC로 관리할 수 있는 추가 기능을 찾으려면 추가 DSC 리소스를 [PowerShell 갤러리에서 찾아보세요](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

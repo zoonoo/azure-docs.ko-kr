@@ -11,10 +11,10 @@
 <tags
    ms.service="virtual-machines-linux"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="support-article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="09/01/2015"
+   ms.date="03/29/2016"
    ms.author="kundanap"/>
 
 # Azure Linux VM 확장 오류 문제 해결
@@ -72,4 +72,4 @@ Azure CLI:
 
 확장이 제거되면 템플릿을 다시 실행하여 VM에서 스크립트를 실행할 수 있습니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

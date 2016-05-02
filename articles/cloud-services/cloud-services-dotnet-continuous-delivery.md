@@ -24,7 +24,7 @@
 
 시작하기 전에 Visual Studio에서 응용 프로그램을 게시해야 합니다. 그러면 게시 프로세스를 자동화하려고 할 때 모든 리소스가 사용 가능하며 초기화됩니다.
 
-## 1단계: 빌드 서버 구성
+## 1: 빌드 서버 구성
 
 MSBuild를 사용하여 Azure 패키지를 만들려면 먼저 필요한 소프트웨어 및 도구를 빌드 서버에 설치해야 합니다.
 
@@ -38,13 +38,13 @@ Visual Studio는 빌드 서버에 설치할 필요가 없습니다. Team Foundat
 	Visual Studio가 설치된 컴퓨터에서 이 파일은 디렉터리 C:\\Program Files(x86)\\MSBuild\\Microsoft\\VisualStudio\\v14.0\\WebApplications에 있습니다. 빌드 서버의 동일한 디렉터리에 해당 파일을 복사해야 합니다.
 5.  [Azure Tools for Visual Studio](https://www.visualstudio.com/features/azure-tools-vs.aspx)를 설치합니다.
 
-## 2단계: MSBuild 명령을 사용하여 패키지 빌드
+## 2: MSBuild 명령을 사용하여 패키지 빌드
 
 이 섹션에서는 Azure 패키지를 빌드하는 MSBuild 명령 구성 방법에 대해 설명합니다. 빌드 서버에서 이 단계를 실행하여 모든 항목이 제대로 구성되어 있고 MSBuild 명령이 원하는 대로 수행되는지 확인합니다. 다음 섹션에 설명된 대로 이 명령줄을 빌드 서버의 기존 빌드 스크립트에 추가하거나 TFS 빌드 정의에서 명령줄을 사용할 수 있습니다. 명령줄 매개 변수 및 MSBuild에 대한 자세한 내용은 [MSBuild 명령줄 참조](https://msdn.microsoft.com/library/ms164311%28v=vs.140%29.aspx)를 참조하세요.
 
 1.  Visual Studio가 빌드 서버에 설치되어 있는 경우 Windows의 **Visual Studio 도구** 폴더에서 **Visual Studio 명령 프롬프트**를 찾아서 클릭합니다.
 
-    Visual Studio가 빌드 서버에 설치되어 있지 않으면 명령 프롬프트를 열고 해당 경로에서 MSBuild.exe에 액세스할 수 있는지 확인합니다. MSBuild는 .NET Framework와 함께 %WINDIR%\\Microsoft.NET\\Framework\\*Version* 경로에 설치됩니다. 예를 들어 .NET Framework 4를 설치한 경우 PATH 환경 변수에 MSBuild.exe를 추가하려면 명령 프롬프트에서 다음 명령을 입력하세요.
+    Visual Studio가 빌드 서버에 설치되어 있지 않으면 명령 프롬프트를 열고 해당 경로에서 MSBuild.exe에 액세스할 수 있는지 확인합니다. MSBuild는 .NET Framework와 함께 %WINDIR%\\Microsoft.NET\\Framework\*Version* 경로에 설치됩니다. 예를 들어 .NET Framework 4를 설치한 경우 PATH 환경 변수에 MSBuild.exe를 추가하려면 명령 프롬프트에서 다음 명령을 입력하세요.
 
         set PATH=%PATH%;"C:\Windows\Microsoft.NET\Framework\v4.0.30319"
 
@@ -58,7 +58,7 @@ Visual Studio는 빌드 서버에 설치할 필요가 없습니다. Team Foundat
 
     선택적으로 프로젝트 이름을 MSBuild 매개 변수로 지정할 수 있습니다. 지정하지 않으면 현재 디렉터리가 사용됩니다. MSBuild 명령줄 옵션에 대한 자세한 내용은 [MSBuild 명령줄 참조][1]를 참조하십시오.
 
-4.  출력을 찾습니다. 기본적으로 이 명령은 프로젝트의 루트 폴더를 기준으로 디렉터리를 만듭니다(예: *ProjectDir*\\bin\\*Configuration*\\app.publish\\). Azure 프로젝트를 빌드하면 패키지 파일 자체와 함께 제공되는 구성 파일의 두 파일이 생성됩니다.
+4.  출력을 찾습니다. 기본적으로 이 명령은 프로젝트의 루트 폴더를 기준으로 디렉터리를 만듭니다(예: *ProjectDir*\\bin\*Configuration*\\app.publish\\). Azure 프로젝트를 빌드하면 패키지 파일 자체와 함께 제공되는 구성 파일의 두 파일이 생성됩니다.
 
     -   Project.cspkg
     -   ServiceConfiguration.*TargetProfile*.cscfg
@@ -75,7 +75,7 @@ Visual Studio는 빌드 서버에 설치할 필요가 없습니다. Team Foundat
 
     적절한 MSBuild 명령줄을 구성하고 테스트하여 프로젝트를 빌드하고 Azure 패키지로 결합했으면 이 명령줄을 빌드 스크립트에 추가할 수 있습니다. 빌드 서버에서 사용자 지정 스크립트를 사용하는 경우 이 프로세스는 사용자 지정 빌드 프로세스의 세부 사항에 따라 달라집니다. TFS를 빌드 환경으로 사용하는 경우 다음 단계의 지침에 따라 Azure 패키지 빌드를 빌드 프로세스에 추가할 수 있습니다.
 
-## 3단계: TFS 팀 빌드를 사용하여 패키지 빌드
+## 3: TFS 팀 빌드를 사용하여 패키지 빌드
 
 TFS(Team Foundation Server)를 빌드 컨트롤러로 설정하고 빌드 서버를 TFS 빌드 컴퓨터로 설정한 경우 Azure 패키지에 대해 자동화된 빌드를 선택적으로 설정할 수 있습니다. Team Foundation Server를 빌드 시스템으로 설정하고 사용하는 방법에 대한 자세한 내용은 [빌드 시스템 확장][]을 참조하세요. 특히 다음 절차에서는 빌드 서버를 [빌드 서버 배포 및 구성][]에 설명된 대로 구성했고, 팀 프로젝트를 만들고 팀 프로젝트에 클라우드 서비스를 만들었다고 가정합니다.
 
@@ -101,7 +101,7 @@ Azure 패키지를 빌드하도록 TFS를 구성하려면 다음 단계를 수�
 
 5.  프로젝트의 변경 내용을 체크 인하여 빌드 단계의 성공 여부를 테스트하거나 새 빌드를 큐에 대기시킵니다. 새 빌드를 큐에 대기시키려면 팀 탐색기에서 **모든 빌드 정의**를 마우스 오른쪽 단추로 클릭한 다음 **새 빌드 큐 대기**를 선택합니다.
 
-## 4단계: Powershell 스크립트를 사용하여 패키지 게시
+## 4: PowerShell 스크립트를 사용하여 패키지 게시
 
 이 섹션에서는 선택적 매개 변수를 사용하여 클라우드 앱 패키지 출력을 Azure에 게시할 Windows PowerShell 스크립트를 구성하는 방법에 대해 설명합니다. 이 스크립트는 사용자 지정 빌드 자동화의 빌드 단계 후에 호출할 수 있으며, Visual Studio TFS 팀 빌드의 프로세스 템플릿 워크플로 작업에서 호출할 수도 있습니다.
 
@@ -123,7 +123,7 @@ Azure 패키지를 빌드하도록 TFS를 구성하려면 다음 단계를 수�
 
     그러면 구독에 대한 정보가 표시됩니다. 모든 정보가 올바른지 확인합니다.
 
-4.  이 문서의 끝에 제공된 스크립트 템플릿을 c:\\scripts\\WindowsAzure\\**PublishCloudService.ps1**로 스크립트 폴더에 저장합니다.
+4.  이 문서의 끝에 제공된 스크립트 템플릿을 c:\\scripts\\WindowsAzure\**PublishCloudService.ps1**로 스크립트 폴더에 저장합니다.
 
 5.  스크립트의 매개 변수 섹션을 검토합니다. 기본값을 추가하거나 수정합니다. 이러한 값은 명시적 매개 변수를 전달하여 언제든지 재정의할 수 있습니다.
 
@@ -179,7 +179,7 @@ Azure 패키지를 빌드하도록 TFS를 구성하려면 다음 단계를 수�
 
     >[AZURE.IMPORTANT] 스크립트는 기존 배포가 검색될 경우 기본적으로 항상 삭제하거나 대체합니다. 사용자에게 확인할 수 없는 경우 자동화에서 지속적인 전송을 사용하도록 설정해야 합니다.
 
-## 5단계: TFS 팀 빌드를 사용하여 패키지 게시
+## 5: TFS 팀 빌드를 사용하여 패키지 게시
 
 이 선택적 단계에서는 TFS 팀 빌드를 4단계에서 만든 스크립트에 연결하여 Azure에 패키지 빌드 게시를 처리합니다. 그런 다음 빌드 정의에서 사용하는 프로세스 템플릿을 수정하여 워크플로가 끝날 때 게시 작업이 실행되도록 합니다. 게시 작업에서는 빌드에서 매개 변수를 전달하는 PowerShell 명령을 실행합니다. MSBuild 대상 및 게시 스크립트의 출력은 표준 빌드 출력에 연결됩니다.
 
@@ -573,4 +573,4 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
   [5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png
   [6]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0420_2016-->

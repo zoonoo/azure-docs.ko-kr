@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-  ms.date="02/03/2016"
+	ms.date="04/18/2016"
 	ms.author="juliako"/>
 
 
 #.NET을 사용하여 Contentkey 만들기
 
 > [AZURE.SELECTOR]
-- [REST](media-services-rest-create-contentkey.md)
+- [REST (영문)](media-services-rest-create-contentkey.md)
 - [.NET](media-services-dotnet-create-contentkey.md)
 
 미디어 서비스를 사용하면 암호화된 자산을 만들어서 제공할 수 있습니다. **ContentKey**는 **자산**에 대한 보안 액세스를 제공합니다.
@@ -146,4 +146,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

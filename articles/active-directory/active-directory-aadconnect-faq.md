@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="04/20/2016"
 	ms.author="billmath"/>
 
 # Azure AD Connect FAQ
@@ -46,10 +46,12 @@
 - [Office 365, Azure, 또는 Intune의 사용자 이름이 온-프레미스 UPN 또는 대체 로그인 ID와 일치하지 않습니다(영문).](https://support.microsoft.com/ko-KR/kb/2523192)
 - [다른 페더레이션된 도메인을 사용하기 위해 사용자 계정의 UPN을 변경한 후에 Azure Active Directory 동기화 도구에서 변경 사항이 동기화되지 않습니다(영문).](https://support.microsoft.com/ko-KR/kb/2669550)
 
+[Azure AD Connect 동기화 서비스 기능](active-directory-aadconnectsyncservice-features.md)에 설명된 대로 동기화 엔진이 userPrincipalName을 업그레이드할 수 있도록 Azure AD를 구성할 수도 있습니다.
+
 ## 사용자 지정 구성
 **Q: Azure AD Connect에 대한 PowerShell cmdlet 설명서는 어디에 있나요?** 이 사이트에 설명되어 있는 cmdlet을 제외하고, Azure AD Connect에 나오는 다른 PowerShell cmdlet은 고객 사용이 지원되지 않습니다.
 
-**Q: *Synchronization Service Manager*의 "서버 내보내기/서버 가져오기"를 사용하여 서버 간에 구성을 이동할 수 있나요?** 아니요. 이 옵션은 모든 구성 설정을 가져오는 것이 아니므로 사용하지 말아야 합니다. 그 대신 마법사를 사용하여 두 번째 서버에 기본 구성을 만들고 동기화 규칙 편집기를 사용하여 PowerShell 스크립트를 생성하여 서버 간에 사용자 지정 규칙을 이동할 수 있습니다. [활성 서버에서 스테이징 서버로 사용자 지정 구성 이동](active-directory-aadconnect-upgrade-previous-version.md#move-custom-configuration-from-active-to-staging-server)을 참조하세요.
+**Q: *Synchronization Service Manager*의 "서버 내보내기/서버 가져오기"를 사용하여 서버 간에 구성을 이동할 수 있나요?** 아니요. 이 옵션은 모든 구성 설정을 가져오는 것이 아니므로 사용하지 말아야 합니다. 그 대신 마법사를 사용하여 두 번째 서버에 기본 구성을 만들고 동기화 규칙 편집기를 사용하여 PowerShell 스크립트를 생성하여 서버 간에 사용자 지정 규칙을 이동할 수 있습니다. [활성 서버에서 준비 서버로 사용자 지정 구성 이동](active-directory-aadconnect-upgrade-previous-version.md#move-custom-configuration-from-active-to-staging-server)을 참조하세요.
 
 ## 문제 해결
 **Q: Azure AD Connect에 대한 도움을 받으려면 어떻게 합니까?**
@@ -66,4 +68,4 @@
 
 - Azure 포털을 통해 지원을 받으려면 이 링크를 사용합니다.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

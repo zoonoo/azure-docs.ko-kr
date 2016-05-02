@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="01/30/2016"
+	ms.date="04/19/2016"
 	ms.author="tarcher" />
 
 # 저장소 탐색기(미리 보기)를 사용하여 Azure 저장소 리소스 관리
@@ -182,4 +182,4 @@ Blob 컨테이너에 대한 액세스를 제어하려면 **Manage Access Control
 [19]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS3c.png
 [20]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS4c.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

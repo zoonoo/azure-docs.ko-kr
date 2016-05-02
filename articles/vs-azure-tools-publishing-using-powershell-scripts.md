@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="01/30/2016"
+   ms.date="04/19/2016"
    ms.author="tarcher" />
 
 # Windows PowerShell 스크립트를 사용하여 개발 및 테스트 환경에 게시
@@ -351,4 +351,4 @@ Windows PowerShell 명령 프롬프트에서 사용할 수 있는 함수에 대�
 
 [Windows PowerShell를 사용하여 스크립팅](https://technet.microsoft.com/library/bb978526.aspx)을 읽어 PowerShell 스크립팅에 대해 자세히 알아보고 [스크립트 센터](https://azure.microsoft.com/documentation/scripts/)에서 기타 Azure PowerShell 스크립트에 대해 알아보세요.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

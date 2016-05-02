@@ -13,11 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="02/18/2016"
+   ms.date="04/20/2016"
    ms.author="rajram"/>
 
 # AS2 커넥터 시작 및 논리 앱에 추가
->[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다.
+
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 AS2 커넥터를 사용하여 B2B 통신에서 AS2(Applicability Statement 2) 전송 프로토콜을 통해 메시지를 주고받을 수 있습니다. 데이터는 인터넷을 통해 안전하고 안정적으로 전송됩니다. 보안은 디지털 인증서 및 암호화를 사용하여 수행됩니다.
 
@@ -121,4 +122,4 @@ Enable Archiving | boolean | 아웃바운드 메시지를 보관해야 하는지
 [9]: ./media/app-service-logic-connector-as2/EncodeAndSendInput.PNG
 [10]: ./media/app-service-logic-connector-as2/EncodeAndSendConfigured.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

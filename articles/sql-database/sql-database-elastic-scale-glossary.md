@@ -3,7 +3,7 @@
     description="탄력적 데이터베이스 도구에 쓰이는 용어 설명." 
     services="sql-database" 
     documentationCenter="" 
-    manager="jeffreyg" 
+    manager="jhubbard" 
     authors="ddove" 
     editor=""/>
 
@@ -34,6 +34,14 @@ Azure SQL 데이터베이스의 [탄력적 데이터베이스 도구](sql-databa
 **로컬 분할된 데이터베이스 맵**: 분할에 저장된 로컬 분할 맵에는 분할에 있는 shardlet에 대한 매핑이 포함됩니다.
 
 **다중 분할된 데이터베이스 쿼리**: 여러 분할된 데이터베이스에 대해 쿼리를 실행하는 기능이 UNION ALL 의미 체계(또는 "팬아웃 쿼리")를 사용하여 반환됩니다. **데이터 종속 라우팅**과 비교할 수 있습니다.
+
+**다중 테넌트** 및 **단일 테넌트**: 단일 테넌트 데이터베이스 및 다중 테넌트 데이터베이스를 보여 줍니다.
+
+![단일 및 다중 테넌트 데이터베이스](./media/sql-database-elastic-scale-glossary/multi-single-simple.png)
+
+여기에 대표적인 **분할된** 단일 및 다중 테넌트 데이터베이스가 있습니다.
+
+![단일 및 다중 테넌트 데이터베이스](./media/sql-database-elastic-scale-glossary/shards-single-multi.png)
 
 **범위 분할된 데이터베이스 맵**:분할된 데이터베이스 배포 전략이 인접 값의 여러 범위를 기반으로 하는 분할된 데이터베이스 맵입니다.
 
@@ -82,4 +90,4 @@ Azure SQL 데이터베이스의 [탄력적 데이터베이스 도구](sql-databa
 [3]: ./media/sql-database-elastic-scale-glossary/h_versus_vert.png
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

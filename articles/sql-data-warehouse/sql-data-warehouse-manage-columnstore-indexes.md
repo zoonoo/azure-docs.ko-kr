@@ -123,7 +123,7 @@ WHERE	[table_name] = 'FactInternetSales'
 | [OPEN\_rowgroup\_rows\_MIN] | 열려 있는 그룹은 데이터가 테이블로 서서히 로드되고 있거나 이전 부하가 나머지 행을 다 채우고 이 행 그룹까지 넘어 왔음을 뜻합니다. MIN, MAX, AVG 열을 사용하여 열려 있는 행 그룹에 데이터가 얼마나 있는지 확인할 수 있습니다. 작은 테이블의 경우 모든 데이터가 100%일 수 있습니다! 이 경우에는 ALTER INDEX REBUILD를 사용하여 데이터를 강제로 columnstore로 만들어야 합니다. |
 | [OPEN\_rowgroup\_rows\_MAX] | 위와 동일합니다. |
 | [OPEN\_rowgroup\_rows\_AVG] | 위와 동일합니다. |
-| [CLOSED\_rowgroup\_rows] | 닫힌 행 그룹이 있는 경우 닫힌 행 그룹 행을 살펴보고 온전성을 확인하세요. |
+| [CLOSED\_rowgroup\_rows] | 닫힌 행 그룹이 있는 경우 |
 | [CLOSED\_rowgroup\_count] | 닫힌 행 그룹이 있더라도 그 수가 적어야 합니다. ALTER INDEX ... REORGANISE 명령을 사용하여 닫힌 행 그룹을 압축된 행 그룹으로 변환할 수 있습니다. 그러나 일반적으로는 이 작업이 필요하지 않습니다. 닫힌 그룹은 백그라운드 "튜플 이동기" 프로세스를 통해 자동으로 columnstore 행 그룹으로 변환됩니다. |
 | [CLOSED\_rowgroup\_rows\_MIN] | 닫힌 행 그룹의 채우기 속도가 매우 높아야 합니다. 닫힌 행 그룹의 채우기 속도가 낮으면 columnstore의 추가 분석이 필요합니다. |
 | [CLOSED\_rowgroup\_rows\_MAX] | 위와 동일합니다. |
@@ -259,4 +259,4 @@ ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

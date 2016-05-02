@@ -41,10 +41,6 @@
 
 ## 포털을 사용하여 Solr 설치
 
-[AZURE.INCLUDE [hdinsight-azure-preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
-
-* [HDInsight 클러스터에 Solr 설치](hdinsight-hadoop-solr-install-v1.md)
-
 1. [HDInsight에서 Hadoop 클러스터 만들기](hdinsight-provision-clusters.md#portal)에서 설명한 대로 **사용자 지정 만들기** 옵션을 사용하여 클러스터를 만들기 시작합니다.
 2. 아래와 같이 마법사의 **스크립트 작업** 페이지에서 **스크립트 작업 추가**를 클릭하여 스크립트 작업에 대한 세부 정보를 제공합니다.
 
@@ -85,7 +81,7 @@
 
 	post.jar 유틸리티는 두 개의 샘플 문서 **solr.xml** 및 **monitor.xml**로 Solr을 인덱싱합니다. post.jar 유틸리티와 샘플 문서는 Solr 설치에서 사용할 수 있습니다.
 
-3. **Solr 대시보드를 사용하여 인덱싱된 문서 내에서 검색**합니다. HDInsight 클러스터에 대한 RDP 세션에서 Internet Explorer를 열고 ****http://headnodehost:8983/solr/#/**에서 Solr 대시보드를 실행합니다. 왼쪽 창의 **Core Selector** 드롭다운에서 **collection1**을 선택하고, 그 안에서 **Query**를 클릭합니다. 한 예로, Solr의 모든 문서를 선택하고 반환하려면 다음 값을 제공하세요.
+3. **Solr 대시보드를 사용하여 인덱싱된 문서 내에서 검색**합니다. HDInsight 클러스터에 대한 RDP 세션에서 Internet Explorer를 열고 **http://headnodehost:8983/solr/#/**에서 Solr 대시보드를 실행합니다. 왼쪽 창의 **Core Selector** 드롭다운에서 **collection1**을 선택하고, 그 안에서 **Query**를 클릭합니다. 한 예로, Solr의 모든 문서를 선택하고 반환하려면 다음 값을 제공하세요.
 
 	* **q** 텍스트 상자에 ***:***을 입력합니다. 이렇게 하면 Solr에서 인덱싱되는 문서는 모두 반환됩니다. 문서 내에서 특정 문자열을 검색하려는 경우 여기에 해당 문자열을 입력할 수 있습니다.
 	
@@ -200,4 +196,4 @@
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

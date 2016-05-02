@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/01/2016"
+   ms.date="04/19/2016"
    ms.author="larryfr"/>
 
 #HDInsight에서 Python을 사용하여 Apache Storm 토폴로지 개발
@@ -347,4 +347,4 @@ Linux 기반 HDInsight 클러스터가 만들어졌으면 다음 단계에 따�
 * [MapReduce 작업을 스트리밍하는 데 Python을 사용하는 방법](hdinsight-hadoop-streaming-python.md)
 * [Pig 및 Hive에서 UDF(사용자 정의 함수)를 사용하는 방법](hdinsight-python.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0420_2016-->

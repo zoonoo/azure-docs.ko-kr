@@ -1,5 +1,13 @@
-<properties pageTitle="PowerShell을 사용하여 VPN 게이트웨이에 대한 강제 터널링 구성 | Microsoft Azure" description="크로스-프레미스 VPN 게이트웨이를 사용한 클래식 배포 모델 가상 네트워크가 있는 경우 모든 인터넷 바인딩된 트래픽을 온-프레미스 위치에 다시 리디렉션하거나 "force"할 수 있습니다." services="vpn-gateway" documentationCenter="na" authors="cherylmc" manager="carmonm" editor="" tags="azure-service-management"/>
-<tags  
+<properties 
+   pageTitle="PowerShell을 사용하여 VPN 게이트웨이의 강제 터널링 구성 | Microsoft Azure"
+   description="프레미스 간 VPN 게이트웨이를 사용하는 클래식 배포 모델 가상 네트워크가 있는 경우 모든 인터넷 바인딩된 트래픽을 온-프레미스 위치에 다시 리디렉션하거나 '강제 적용'할 수 있습니다."
+   services="vpn-gateway"
+   documentationCenter="na"
+   authors="cherylmc"
+   manager="carmonm"
+   editor=""
+   tags="azure-service-management"/>
+<tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
@@ -111,7 +119,7 @@ Azure에서 강제 터널링은 가상 네트워크 사용자 정의 경로를 �
       </VirtualNetworkSite>
 	</VirtualNetworkSite>
 
-이 예제에서 가상 네트워크인 "MultiTier-VNet"에는 3개의 서브넷이 있습니다. 4개의 크로스-프레미스 연결(*DefaultSiteHQ* 및 3개의 *분기*)이 있는 *프런트 엔드*, *중간 계층* 및 *백 엔드* 서브넷 절차 단계에서는 강제 터널링에 대한 기본 사이트 연결로 *DefaultSiteHQ*를 설정하고 *중간 계층* 및 *백 엔드* 서브넷을 구성하여 강제 터널링을 사용합니다.
+이 예제에서 가상 네트워크인 "MultiTier-VNet"에는 3개의 서브넷(4개의 프레미스 간 연결(*DefaultSiteHQ* 및 3개의 *분기*)이 있는 *프런트 엔드*, *중간 계층* 및 *백 엔드* 서브넷)이 있습니다. 절차 단계에서는 강제 터널링에 대한 기본 사이트 연결로 *DefaultSiteHQ*를 설정하고 *중간 계층* 및 *백 엔드* 서브넷을 구성하여 강제 터널링을 사용합니다.
 
 
 1. 라우팅 테이블을 만듭니다. 경로 테이블을 만들려면 다음 cmdlet을 사용합니다.
@@ -167,4 +175,4 @@ Azure에서 강제 터널링은 가상 네트워크 사용자 정의 경로를 �
 
 	Remove-AzureVnetGatewayDefaultSites -VNetName <virtualNetworkName>
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

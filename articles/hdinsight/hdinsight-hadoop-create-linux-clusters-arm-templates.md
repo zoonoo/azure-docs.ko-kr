@@ -30,7 +30,9 @@ ARM(Azure 리소스 관리자) 템플릿을 사용하여 HDInsight 클러스터�
 이 문서의 지침을 시작하기 전에 다음이 있어야 합니다.
 
 - [Azure 구독](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- [Azure PowerShell](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater) 및/또는 [Azure CLI](../xplat-cli-install.md). 
+- [Azure PowerShell](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater) 및/또는 [Azure CLI](../xplat-cli-install.md).
+
+    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
 ## ARM 템플릿
 
@@ -127,7 +129,7 @@ ARM 템플릿에 대한 자세한 내용은 다음을 참조하세요.
 
 Visual Studio를 사용하여 리소스 그룹 프로젝트를 만들고 사용자 인터페이스를 통해 Azure에 배포할 수 있습니다. 프로젝트에 포함할 리소스 유형을 선택하면 해당 리소스가 리소스 관리자 템플릿에 자동으로 추가됩니다. 또한 프로젝트에서는 템플릿을 배포할 수 있는 PowerShell 스크립트를 제공합니다.
 
-Visual Studio를 리소스 그룹과 함께 사용하는 방법에 대한 소개는 [Visual Studio를 통해 Azure 리소스 그룹 생성 및 배포](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)를 참조하세요.
+리소스 그룹과 함께 Visual Studio를 사용하는 방법에 대한 지침은 [Visual Studio를 통해 Azure 리소스 그룹 만들기 및 배포](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)를 참조하세요.
 
 ##다음 단계
 이 문서에서는 HDInsight 클러스터를 만드는 여러 가지 방법에 대해 알아보았습니다. 자세한 내용은 다음 문서를 참조하세요.
@@ -311,4 +313,4 @@ Visual Studio를 리소스 그룹과 함께 사용하는 방법에 대한 소개
     }
     }
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

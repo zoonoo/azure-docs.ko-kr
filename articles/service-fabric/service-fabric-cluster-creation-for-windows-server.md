@@ -23,9 +23,9 @@ Azure 서비스 패브릭을 사용하면 Windows Server를 실행 중인 가상
 
 이 문서에서는 서비스 패브릭 온-프레미스에 독립 실행형 패키지를 사용하여 클러스터를 만드는 단계를 안내하지만 다른 클라우드와 같은 다른 환경에 쉽게 적용할 수 있습니다.
 
-## 서비스 패브릭 독립 실행형 패키지
+## 서비스 패브릭 독립 실행형 패키지 다운로드
 
-Windows Server 2012 R2용 서비스 패브릭에 독립 실행형 패키지 배포는 *Microsoft.Azure.ServiceFabric.WindowsServer.&lt;version&gt;.zip*이라는 이름이며 [여기](http://go.microsoft.com/fwlink/?LinkId=730690)에서 다운로드할 수 있습니다.
+*Microsoft.Azure.ServiceFabric.WindowsServer.&lt;버전&gt;.zip*이라는 [Windows Server 2012 R2용 서비스 패브릭에 독립 실행형 패키지를 다운로드합니다](http://go.microsoft.com/fwlink/?LinkId=730690).
 
 다운로드 패키지에서 다음 파일을 찾을 수 있습니다.
 
@@ -114,4 +114,4 @@ JSON 문서에서 클러스터 구성을 수정하고 여기에 모든 노드 �
 Azure 클러스터 및 독립 실행형 클러스터에 대해 참고합니다.
 - [독립 실행형 클러스터 만들기 기능 개요 및 Azure 관리된 클러스터와 비교](service-fabric-deploy-anywhere.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

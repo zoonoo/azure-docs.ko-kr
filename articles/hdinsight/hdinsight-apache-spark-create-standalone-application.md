@@ -14,20 +14,23 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="04/14/2016"
 	ms.author="nitinme"/>
 
 
-# 독립 실행형 Scala 응용 프로그램을 만들고 HDInsight Spark 클러스터(Linux)에서 실행하기
+# 독립 실행형 Scala 응용 프로그램을 만들고 HDInsight Spark Linux 클러스터에서 실행(미리 보기)
 
-이 문서에서는 IntelliJ IDEA를 사용하여 Scala로 작성된 독립 실행형 Spark 응용 프로그램 개발에 대한 단계별 지침을 제공합니다. 문서는 빌드 시스템으로 Apache Maven을 사용하고 IntelliJ IDEA에서 제공하는 Scala에 대한 기존 Maven 원형으로 시작합니다. IntelliJ IDEA에서 전반적인 Scala 응용 프로그램 만들기는 다음 단계를 포함합니다.
+이 문서에서는 IntelliJ IDEA와 함께 Maven을 사용하여 Scala로 작성된 독립 실행형 Spark 응용 프로그램 개발에 대한 단계별 지침을 제공합니다. 문서는 빌드 시스템으로 Apache Maven을 사용하고 IntelliJ IDEA에서 제공하는 Scala에 대한 기존 Maven 원형으로 시작합니다. IntelliJ IDEA에서 전반적인 Scala 응용 프로그램 만들기는 다음 단계를 포함합니다.
 
 
 * 빌드 시스템으로 Maven을 사용합니다.
-* POM(프로젝트 개체 모델) 파일을 업데이트하여 Spark 모듈 종속성 해결
+* POM(프로젝트 개체 모델) 파일을 업데이트하여 Spark 모듈 종속성을 해결합니다.
 * Scala에서 응용 프로그램을 작성합니다.
 * HDInsight Spark 클러스터에 제출할 수 있는 jar 파일을 생성합니다.
-* spark-submit을 사용하여 Spark 클러스터에서 응용 프로그램을 실행합니다.
+* Livy를 사용하여 Spark 클러스터에서 응용 프로그램을 실행합니다.
+
+>[AZURE.NOTE] 또한 HDInsight는 Linux의 HDInsight Spark 클러스터에 대한 응용 프로그램을 만들고 제출하는 과정을 용이하게 하는 IntelliJ IDEA 플러그 인 도구를 제공합니다. 자세한 내용은 [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark Scala 응용 프로그램 만들기 및 제출](hdinsight-apache-spark-intellij-tool-plugin.md)을 참조하세요.
+
 
 **필수 구성 요소**
 
@@ -196,4 +199,4 @@ IntelliJ IDEA 설치가 Scala 플러그 인 활성화를 묻지 않은 경우 In
 
 * [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

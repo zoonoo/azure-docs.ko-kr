@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="willzhan"  
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2016"  
+	ms.date="04/18/2016"     
 	ms.author="willzhan;kilroyh;yanmf;juliako"/>
 
 #다중 DRM 및 액세스 제어가 포함된 CENC: Azure 및 Azure 미디어 서비스에서 참조 디자인 및 구현
@@ -522,4 +522,4 @@ X509 인증서를 통해 비대칭 키를 사용하는 경우(Microsoft 최신 �
 
 William Zhang, Mingfei Yan, Roland Le Franc, Kilroy Hughes, Julia Kornich
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0420_2016-->
