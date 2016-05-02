@@ -39,13 +39,13 @@ Spark 클러스터에 Zeppelin Notebook을 설치하는 방법 및 Zeppelin Note
 
 ## 클러스터 만들기의 일부로 Zeppelin 설치
 
-스크립트 작업을 사용하여 Spark 클러스터에서 Zeppelin을 설치할 수 있습니다. 스크립트 작업은 사용자 지정 스크립트를 사용하여 기본적으로 사용할 수 없는 클러스터에 구성 요소를 설치합니다. Spark 클러스터에서 Zeppelin을 설치하는 사용자 지정 스크립트는 ****https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**에서 사용 가능합니다.
+스크립트 작업을 사용하여 Spark 클러스터에서 Zeppelin을 설치할 수 있습니다. 스크립트 작업은 사용자 지정 스크립트를 사용하여 기본적으로 사용할 수 없는 클러스터에 구성 요소를 설치합니다. Spark 클러스터에서 Zeppelin을 설치하는 사용자 지정 스크립트는 **https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**에서 사용 가능합니다.
 
 ### Azure 포털 사용
 
 HDInsight .NET SDK를 사용하여 Zeppelin을 설치하는 스크립트 작업을 실행하는 방법은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-from-the-azure-portal)을 참조하세요. 해당 문서의 지침을 약간 변경해야 합니다.
 
-* Zeppelin을 설치하기 위한 스크립트를 사용해야 합니다. 사용할 스크립트는 ****https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**입니다.
+* Zeppelin을 설치하기 위한 스크립트를 사용해야 합니다. 사용할 스크립트는 **https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**입니다.
 
 * 헤드 노드에서만 스크립트 동작을 실행해야 합니다.
 
@@ -55,7 +55,7 @@ HDInsight .NET SDK를 사용하여 Zeppelin을 설치하는 스크립트 작업�
 
 HDInsight .NET SDK를 사용하여 Zeppelin을 설치하는 스크립트 작업을 실행하는 방법은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-from-the-hdinsight-net-sdk)을 참조하세요. 해당 문서의 지침을 약간 변경해야 합니다.
 
-* Zeppelin을 설치하기 위한 스크립트를 사용해야 합니다. 사용할 스크립트는 ****https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**입니다.
+* Zeppelin을 설치하기 위한 스크립트를 사용해야 합니다. 사용할 스크립트는 **https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**입니다.
 
 * 이 스크립트는 매개 변수가 필요 없습니다.
 

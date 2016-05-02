@@ -538,7 +538,7 @@ BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression\_2016-04-1917\_24\_
 
 Spark는 Livy라는 구성 요소와의 REST 인터페이스를 통해 배치 작업 또는 대화형 쿼리를 원격으로 제출하는 메커니즘을 제공합니다. Livy는 HDInsight Spark 클러스터에서 기본적으로 사용하도록 설정되어 있습니다. Livy에 대한 자세한 내용은 [Livy를 사용하여 원격으로 Spark 작업 제출](../hdinsight/hdinsight-apache-spark-livy-rest-interface.md)을 참조하세요.
 
-Livy를 사용하면 Azure blob에 저장된 파일의 점수를 일괄적으로 매긴 다음 결과를 다른 blob에 쓰는 작업을 원격으로 제출할 수 있습니다. 이 작업을 수행하려면[Github](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py)에서 Python 스크립트를 Spark 클러스터의 blob에 업로드합니다. **Microsoft Azure 저장소 Explorer** 또는 **AzCopy** 등과 같은 도구를 사용하여 스크립트를 클러스터 blob에 복사합니다. 이 경우 우리는 스크립트를 ******wasb:///example/python/ConsumeGBNYCReg.py***에 업로드했습니다.
+Livy를 사용하면 Azure blob에 저장된 파일의 점수를 일괄적으로 매긴 다음 결과를 다른 blob에 쓰는 작업을 원격으로 제출할 수 있습니다. 이 작업을 수행하려면[Github](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py)에서 Python 스크립트를 Spark 클러스터의 blob에 업로드합니다. **Microsoft Azure 저장소 Explorer** 또는 **AzCopy** 등과 같은 도구를 사용하여 스크립트를 클러스터 blob에 복사합니다. 이 경우 우리는 스크립트를 ***wasb:///example/python/ConsumeGBNYCReg.py***에 업로드했습니다.
 
 >AZURE.NOTE: 필요한 액세스 키는 Spark 클러스터와 연결된 저장소 계정용 포털에서 찾을 수 있습니다.
 

@@ -392,7 +392,7 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 
 	![RawGameEventsTable 데이터 조각 블레이드][image-data-factory-monitoring-raw-game-events-table-dataslice-blade]
 
-	오류가 발생한 경우 여기에 **Failed ** 상태가 표시됩니다. 두 조각의 상태가 모두 **준비**이거나 **대기**일 수 있으며, 이는 조각이 얼마나 빨리 처리되는지에 따라 다릅니다.
+	오류가 발생한 경우 여기에 **Failed** 상태가 표시됩니다. 두 조각의 상태가 모두 **준비**이거나 **대기**일 수 있으며, 이는 조각이 얼마나 빨리 처리되는지에 따라 다릅니다.
  
 	조각의 가능한 모든 상태에 대해 알아보려면 [Azure 데이터 팩터리 개발자 참조][developer-reference](영문)를 참조하세요.
 

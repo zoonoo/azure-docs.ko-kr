@@ -169,21 +169,21 @@ Azure 디스크 암호화는 다음 Windows 클라이언트 SKU의 Windows 8 클
 
 	- 유효한 암호 URL의 예:
 
-		**https://contosovault.vault.azure.net/secrets/BitLockerEncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		*https://contosovault.vault.azure.net/secrets/BitLockerEncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 	- 유효한 KRK KEK의 예:
 
-		**https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		*https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 - Azure 디스크 암호화는 주요 자격 증명 모음 암호 및 KEK URL의 일부로 지정되는 포트 번호를 지원하지 않습니다. 지원되는 주요 자격 증명 모음 URL은 아래 예제를 참조하세요.
 
  	- 허용되지 않은 주요 자격 증명 모음 URL
 
-		**https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		*https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 	- 허용되는 주요 자격 증명 모음 URL:
 
-		**https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		*https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 - Azure 디스크 암호화 기능을 사용하도록 설정하려면 IaaS VM이 다음 네트워크 끝점 구성 요구 사항을 충족해야 합니다.
 

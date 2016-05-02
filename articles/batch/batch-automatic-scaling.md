@@ -56,7 +56,7 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
 
 자동 크기 조정 수식에 시스템 정의 변수와 사용자 정의 변수 모두를 사용할 수 있습니다. 위의 두 줄 예제 수식에서 `$averageActiveTaskCount`가 사용자 정의 변수인 반면 `$TargetDedicated`는 시스템 정의 변수입니다. 아래 테이블은 배치 서비스에서 정의된 읽고 쓰기 및 읽기 전용 변수를 모두 보여줍니다.
 
-이러한 **시스템 정의 변수** 값을 *가져와서* *설정*하여 풀의 계산 노드 개수를 관리합니다.
+이러한 **시스템 정의 변수** 값을 *가져와서* *설정* 하여 풀의 계산 노드 개수를 관리합니다.
 
 <table>
   <tr>
@@ -162,7 +162,7 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
 - doubleVec
 - doubleVecList
 - string
-- timestamp--타임스탬프는 다음의 멤버를 포함하는 복합 구조입니다.
+- timestamp -- 타임스탬프는 다음의 멤버를 포함하는 복합 구조입니다.
 	- year
 	- month (1-12)
 	- day (1-31)
@@ -188,7 +188,22 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
 
 | 작업 | 지원되는 연산자 | 결과 형식 |
 | ------------------------------------- | --------------------- | ------------- |
-| 이중 *연산자* 이중 | +, -, *, / | 이중 | | 이중 *연산자* timeinterval | * | timeinterval | | doubleVec *연산자* 이중 | +, -, *, / | doubleVec | | doubleVec *연산자* doubleVec | +, -, *, / | doubleVec | | timeinterval *연산자* 이중 | *, / | timeinterval | | timeinterval *연산자* timeinterval | +, - | timeinterval | | timeinterval *연산자* 타임스탬프 | + | 타임스탬프 | | 타임스탬프 *연산자* timeinterval | + | 타임스탬프 | | 타임스탬프 *연산자* 타임스탬프 | - | timeinterval | | *연산자*이중 | -, ! | 이중 | | *연산자*timeinterval | - | timeinterval | | 이중 *연산자* 이중 | <, <=, ==, >=, >, != | 이중 | | 문자열 *연산자* 문자열 | <, <=, ==, >=, >, != | 이중 | | 타임스탬프 *연산자* 타임스탬프 | <, <=, ==, >=, >, != | 이중 | | timeinterval *연산자* timeinterval | <, <=, ==, >=, >, != | 이중 | | 이중 *연산자* 이중 | &&, || | 이중 |
+| 이중 *연산자* 이중 | +, -, *, / | 이중 |
+| 이중 *연산자* timeinterval | * | timeinterval |
+| doubleVec *연산자* 이중 | +, -, *, / | doubleVec |
+| doubleVec *연산자* doubleVec | +, -, *, / | doubleVec |
+| timeinterval *연산자* 이중 | *, / | timeinterval |
+| timeinterval *연산자* timeinterval | +, - | timeinterval |
+| timeinterval *연산자* 타임스탬프 | + | 타임스탬프 |
+| 타임스탬프 *연산자* timeinterval | + | 타임스탬프 |
+| 타임스탬프 *연산자* 타임스탬프 | - | timeinterval |
+| *연산자*이중 | -, ! | 이중 |
+| *연산자*timeinterval | - | timeinterval |
+| 이중 *연산자* 이중 | <, <=, ==, >=, >, != | 이중 |
+| 문자열 *연산자* 문자열 | <, <=, ==, >=, >, != | 이중 |
+| 타임스탬프 *연산자* 타임스탬프 | <, <=, ==, >=, >, != | 이중 |
+| timeinterval *연산자* timeinterval | <, <=, ==, >=, >, != | 이중 |
+| 이중 *연산자* 이중 | &&, || | 이중 |
 
 3항 연산자(`double ? statement1 : statement2`)가 있는 이중 연산자를 테스트할 경우 0이 아님이 **true**이고 0이 **false**입니다.
 
@@ -218,7 +233,7 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
 | time(string dateTime="") | timestamp | 매개 변수가 전달되지 않는 경우 현재 시간의 타임스탬프 또는 매개 변수가 전달되는 경우 dateTime 문자열의 타임스탬프를 반환합니다. 지원되는 dateTime 형식은 W3C-DTF 및 RFC 1123입니다.
 | val(doubleVec v, double i) | double | 시작 인덱스가 0인 벡터 v의 위치 i 요소 값을 반환합니다.
 
-위 표에 설명된 함수 중 일부는 목록을 인수로 사용할 수 있습니다. 쉼표로 구분된 목록은 *double* 및 *doubleVec*의 조합입니다. 예:
+위 표에 설명된 함수 중 일부는 목록을 인수로 사용할 수 있습니다. 쉼표로 구분된 목록은 *double* 및 *doubleVec* 의 조합입니다. 예:
 
 `doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?`
 
@@ -492,7 +507,7 @@ if (pool.AutoScaleEnabled.HasValue && pool.AutoScaleEnabled.Value)
 
 ## <a name="examples"></a>예제 수식
 
-풀에서 계산 리소스의 크기를 자동으로 조정하기 위해 수식을 사용할 수 있는 몇 가지 방식을 보여 주는 몇 가지 예를 살펴보겠습니다.
+풀에서 계산 리소스의 크기를 자동으로 조정하기 위해 수식을 사용할 수 있는 몇 가지 방식을 보여주는 몇 가지 예를 살펴보겠습니다.
 
 ### 예제1: 시간 기반 조정
 
@@ -506,7 +521,7 @@ $IsWorkingWeekdayHour=$WorkHours && $IsWeekday;
 $TargetDedicated=$IsWorkingWeekdayHour?20:10;
 ```
 
-이 수식은 먼저 현재 시간을 가져옵니다. 평일(1-5)에 근무 시간(오전 8시-오후 6시)인 경우, 대상 풀 크기는 20개의 노드로 설정됩니다. 그렇지 않은 경우, 풀 크기는 10에 설정됩니다.
+이 수식은 먼저 현재 시간을 가져옵니다. 평일(1-5)에 근무 시간(오전 8시-오후 6시)인 경우, 대상 풀 크기는 20 개의 노드로 설정됩니다. 그렇지 않은 경우, 풀 크기는 10에 설정됩니다.
 
 ### 예제2: 작업 기반 조정
 
@@ -568,7 +583,7 @@ string formula = string.Format(@"
 
 - 초기 풀 크기를 4 노드로 설정합니다.
 - 풀의 수명 주기의 처음 10분 이내에는 풀 크기를 조정하지 않습니다.
-- 10분 후 지난 60분 이내에 실행 중이고 활성화된 작업 수의 최대값을 가져옵니다.
+- 10 분 후 지난 60분 이내에 실행 중이고 활성화된 작업 수의 최대값을 가져옵니다.
   - 두 값이 모두 0이면(마지막 60분 동안 실행 중이거나 활성화된 작업이 없었음을 나타냄) 풀 크기가 0입니다.
   - 값 중 하나가 0보다 큰 경우 변경되지 않습니다.
 
