@@ -1,25 +1,25 @@
 <properties 
-   pageTitle="이벤트 허브 가용성 및 지원 | Microsoft Azure"
-   description="이벤트 허브 가용성 및 지원 FAQ."
-   services="event-hubs"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="" />
+    pageTitle="이벤트 허브 가용성 및 지원 | Microsoft Azure"
+    description="이벤트 허브 가용성 및 지원 FAQ."
+    services="event-hubs"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="event-hubs"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="01/26/2016"
-   ms.author="sethm" />
+    ms.service="event-hubs"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="04/14/2016"
+    ms.author="sethm" />
 
 # 이벤트 허브 가용성 및 지원 FAQ
 
-이벤트 허브는 대규모 유입, 지속성 및 처리량이 높은 데이터 원본 및/또는 수백만 대의 장치에서 데이터 이벤트 처리를 제공합니다. 서비스 버스 큐와 항목이 연결되면, 이벤트 허브는 지속적인 명령을 사용하여 사물 인터넷 시나리오에 대한 배포를 제어할 수 있습니다.
+이벤트 허브는 대규모 유입, 지속성 및 처리량이 높은 데이터 원본 및/또는 수백만 대의 장치에서 데이터 이벤트 처리를 제공합니다. 서비스 버스 큐와 토픽이 연결되면, 이벤트 허브는 지속적인 명령을 사용하여 IoT([사물 인터넷)](https://azure.microsoft.com/services/iot-hub/) 시나리오에 대한 배포를 제어할 수 있습니다.
 
-이 문서에서는 가용성 정보를 설명하고 일부 자주 묻는 질문에 답변합니다.
+이 문서에서는 이벤트 허브 가용성 정보를 설명하고 일부 자주 묻는 질문에 답변합니다.
 
 ## 가격 정보
 
@@ -73,7 +73,7 @@
 
 ## 조정된 연결 요금이 이벤트 허브에 적용됩니까?
 
-송신자의 경우, AMQP 프로토콜을 사용하는 경우에 연결 요금이 적용됩니다. 시스템 또는 장치 수에 관계 없이 HTTP를 사용하여 이벤트를 보내는 데에는 연결 요금이 부과되지 않습니다. AMQP를 사용하려는 경우(예를 들어, 보다 효율적인 이벤트 스트리밍을 달성하거나는 사물 인터넷 명령 및 컨트롤 시나리오에서 양방향 통신을 설정하려면), 조정 된 연결을 구성하는 정보 및 계량 방법에 대한 자세한 내용은 [서비스 버스 가격 정보](https://azure.microsoft.com/pricing/details/service-bus/) 페이지를 참조하세요.
+송신자의 경우, AMQP 프로토콜을 사용하는 경우에 연결 요금이 적용됩니다. 시스템 또는 장치 수에 관계 없이 HTTP를 사용하여 이벤트를 보내는 데에는 연결 요금이 부과되지 않습니다. AMQP를 사용하려는 경우(예: 보다 효율적인 이벤트 스트리밍을 달성하거나 IoT 명령 및 컨트롤 시나리오에서 양방향 통신 설정), 조정된 연결을 구성하는 정보 및 계량 방법에 대한 자세한 내용은 [서비스 버스 가격 정보](https://azure.microsoft.com/pricing/details/service-bus/) 페이지를 참조하세요.
 
 ## 이벤트 허브 기본 및 표준 계층 간의 차이는 무엇입니까?
 
@@ -102,12 +102,12 @@ SLA에 대한 자세한 내용은 [서비스 수준 계약](https://azure.micros
 
 이벤트 허브에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-- [이벤트 허브 개요].
-- [이벤트 허브를 사용하는 샘플 응용 프로그램] 전체.
-- 서비스 버스 큐를 사용하는 [큐 메시징 솔루션].
+- [이벤트 허브 개요][].
+- [이벤트 허브를 사용하는 샘플 응용 프로그램][] 전체.
+- 서비스 버스 큐를 사용하는 [큐 메시징 솔루션][].
 
 [이벤트 허브 개요]: event-hubs-overview.md
 [이벤트 허브를 사용하는 샘플 응용 프로그램]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [큐 메시징 솔루션]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0420_2016-->

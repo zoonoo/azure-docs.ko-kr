@@ -1,6 +1,6 @@
 <properties
    pageTitle="Microsoft Power BI Embedded - 데이터 원본에 연결"
-   description="Microsoft Power BI Embedded - 데이터 원본에 연결"
+   description="Power BI Embedded, 데이터 원본에 연결"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"
@@ -55,4 +55,4 @@
 - [Power BI 데스크톱](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 - [Power BI Desktop 시작](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

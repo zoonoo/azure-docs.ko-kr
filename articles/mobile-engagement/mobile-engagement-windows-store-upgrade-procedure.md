@@ -22,6 +22,26 @@
 
 여러 SDK 버전을 건너뛴 경우에는 여러 절차를 수행해야 할 수 있습니다. 예를 들어 0.10.1에서 0.11.0으로 마이그레이션하는 경우에는 먼저 "0.9.0에서 0.10.1로 마이그레이션" 절차를 수행한 후에 "0.10.1에서 0.11.0으로 마이그레이션" 절차를 수행해야 합니다.
 
+##3\.3.0에서 3.4.0으로
+
+### 테스트 로그
+
+이제 SDK에서 생성된 콘솔 로그를 사용/사용 안 함/필터링할 수 있습니다. 이를 사용자 지정하려면 속성 `EngagementAgent.Instance.TestLogEnabled`를 `EngagementTestLogLevel` 열거형에서 사용 가능한 값 중 하나로 업데이트합니다. 예를 들어 다음과 같습니다.
+
+			EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
+			EngagementAgent.Instance.Init();
+
+### 리소스
+
+도달률 오버레이가 향상되었습니다. SDK NuGet 패키지 리소스의 일부입니다.
+
+새 버전의 SDK로 업그레이드하는 동안 리소스의 오버레이 폴더에서 기존 파일을 보관할 것인지 보관하지 않을 것인지 여부를 선택할 수 있습니다.
+
+* 이전 오버레이가 작동 중이거나 `WebView` 요소를 수동으로 통합하는 경우 기존 파일을 보관하도록 결정하여 계속 작동하도록 할 수 있습니다. 
+* 새 오버레이로 업데이트하려는 경우 리소스의 전체 `overlay` 폴더를 SDK 패키지의 새 폴더로 바꿉니다(UWP 앱: 업그레이드 후 새 오버레이 폴더를 %USERPROFILE%\\.nuget\\packages\\MicrosoftAzure.MobileEngagement\\3.4.0\\content\\win81\\Resources에서 가져올 수 있음).
+
+> [AZURE.WARNING] 새 오버레이를 사용하면 이전 버전에서 설정한 모든 사용자 지정을 덮어씁니다.
+
 ##3\.2.0에서 3.3.0으로
 
 ### 리소스
@@ -280,7 +300,7 @@ Engagement 구성은 프로젝트의 `Resources\EngagementConfiguration.xml` 파
 
 ### 항목 이름 변경
 
-이름에 *capptain* 이 포함된 모든 항목은 이름에 *engagement* 를 포함하도록 지정됩니다. 마찬가지로 *Capptain* 은 *Engagement* 로 지정됩니다.
+이름에 *capptain*이 포함된 모든 항목은 이름에 *engagement*를 포함하도록 지정됩니다. 마찬가지로 *Capptain*은 *Engagement*로 지정됩니다.
 
 일반적으로 사용되는 Capptain 항목의 예제:
 
@@ -294,4 +314,4 @@ Engagement 구성은 프로젝트의 `Resources\EngagementConfiguration.xml` 파
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

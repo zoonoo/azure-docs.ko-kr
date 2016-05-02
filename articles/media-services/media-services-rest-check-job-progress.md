@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
+ 	ms.date="04/18/2016"    
 	ms.author="juliako"/>
 
 #방법: 작업 진행 상태 확인
 
 > [AZURE.SELECTOR]
-- [Portal](media-services-portal-check-job-progress.md)
+- [포털](media-services-portal-check-job-progress.md)
 - [.NET](media-services-check-job-progress.md)
-- [REST](media-services-rest-check-job-progress.md)
+- [REST (영문)](media-services-rest-check-job-progress.md)
 
 작업을 실행할 때 작업 진행 상태를 추적하는 방법이 종종 필요합니다. 작업의 상태 속성을 사용하여 작업 상태를 찾을 수 있습니다. 상태 속성에 대한 자세한 내용은 [Job 엔터티 속성](https://msdn.microsoft.com/library/azure/5100ddd7-92ff-4c37-84d2-4f84fee250a7#job_entity_properties)을 참조하세요.
 
@@ -64,4 +64,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

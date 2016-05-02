@@ -611,7 +611,7 @@ listKeys 작업을 지원하는 모든 리소스 형식에 대한 키를 반환�
 | providerNamespace | 예 | 공급자의 네임스페이스입니다.
 | resourceType | 아니요 | 지정된 네임스페이스 내의 리소스 유형입니다.
 
-각 지원되는 유형이 다음 형식으로 반환됩니다.
+지원되는 각각의 유형이 다음 형식으로 반환되며 배열 순서는 다를 수 있습니다.
 
     {
         "resourceType": "",
@@ -807,4 +807,4 @@ listKeys 작업을 지원하는 모든 리소스 형식에 대한 키를 반환�
 - 리소스 유형을 만들 때 지정된 횟수만큼 반복하려면 [Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
 - 만든 템플릿을 배포하는 방법을 보려면 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

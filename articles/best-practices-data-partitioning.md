@@ -324,7 +324,7 @@ Blob 저장소는 Blob 이름을 기반으로 자동으로 분할됩니다. 각 
 
 단일 블록(블록 Blob) 또는 페이지(페이지 Blob)를 기록하는 작업은 원자성이 있지만 여러 블록, 페이지 또는 Blob에 분산된 작업은 그렇지 않습니다. 여러 블록, 페이지 및 Blob에서 쓰기 작업을 수행할 때 일관성을 유지해야 하는 경우에는 Blob 임대를 사용하여 쓰기 잠금을 제거합니다.
 
-Azure Blob 저장소는 Blob별 초당 60MB 또는 초당 500개 요청의 최대 전송 속도를 지원합니다. 이 한도를 초과할 것으로 예상되고 Blob 데이터가 상대적으로 정적인 경우에는 Azure 콘텐츠 배달 네트워크를 사용하여 Blob을 복제하는 것이 좋습니다. 자세한 내용은 Microsoft 웹 사이트의 [Azure에 콘텐츠 배달 네트워크 사용] 페이지를 참조하세요. 추가 참고 자료 및 고려 사항은 [Azure를 위한 콘텐츠 배달 네트워크 사용]을 참조하세요.
+Azure Blob 저장소는 Blob별 초당 60MB 또는 초당 500개 요청의 최대 전송 속도를 지원합니다. 이 한도를 초과할 것으로 예상되고 Blob 데이터가 상대적으로 정적인 경우에는 Azure 콘텐츠 배달 네트워크를 사용하여 Blob을 복제하는 것이 좋습니다. 자세한 내용은 Microsoft 웹 사이트의 [Azure에 콘텐츠 배달 네트워크 사용] 페이지를 참조하세요. 추가 참고 자료 및 고려 사항은 [Azure용 콘텐츠 배달 네트워크 사용]을 참조하세요.
 
 ## Azure 저장소 큐 분할
 
@@ -522,7 +522,7 @@ _그림 10. 고객 주문 및 세부 정보를 기록하기 위해 제안된 Red
 - Microsoft 웹 사이트의 [Azure 저장소 확장성 및 성능 목표](https://msdn.microsoft.com/library/azure/dn249410.aspx) 페이지에는 Azure 저장소의 현재 크기 조정 및 처리량 한도가 설명되어 있습니다.
 - Microsoft 웹 사이트의 [엔터티 그룹 트랜잭션 수행] 페이지에는 Azure 테이블 저장소에 저장된 엔터티에 트랜잭션 작업을 구현하는 방법에 대한 자세한 정보가 있습니다.
 - Microsoft 웹 사이트의 [Azure 저장소 테이블 설계 가이드]는 Azure 테이블 저장소에서 데이터를 분할하는 방법에 대한 자세한 내용을 포함합니다.
-- Microsoft 웹 사이트의 [Azure에 콘텐츠 배달 네트워크 사용] 페이지에서는 Azure 콘텐츠 배달 네트워크를 사용하여 Azure Blob 저장소에 보관된 데이터를 복제하는 방법을 설명합니다.
+- Microsoft 웹 사이트의 [Azure 콘텐츠 배달 네트워크 사용] 페이지에서는 Azure 콘텐츠 배달 네트워크를 사용하여 Azure Blob 저장소에 보관된 데이터를 복제하는 방법을 설명합니다.
 - Microsoft 웹 사이트의 [DocumentDB 용량 요구 관리] 페이지에는 Azure DocumentDB 데이터베이스에서 리소스를 할당하는 방법에 대한 내용이 있습니다.
 - Microsoft 웹 사이트의 [Azure 검색이란?] 페이지에는 Azure 검색에서 사용할 수 있는 기능에 대한 전체 설명이 있습니다.
 - Microsoft 웹 사이트의 [Azure 검색의 서비스 제한 사항] 페이지에는 Azure 검색의 각 인스턴스 용량에 대한 정보가 있습니다.
@@ -554,9 +554,8 @@ _그림 10. 고객 주문 및 세부 정보를 기록하기 위해 제안된 Red
 [Redis 클러스터 자습서]: http://redis.io/topics/cluster-tutorial
 [Azure의 CentOS Linux VM에서 Redis 실행]: http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx
 [탄력적 데이터베이스 분할/병합 도구를 사용하여 확장하기]: sql-database/sql-database-elastic-scale-overview-split-and-merge.md
-[Azure를 위한 콘텐츠 배달 네트워크 사용]: cdn/cdn-how-to-use-cdn.md
-[Azure에 콘텐츠 배달 네트워크 사용]: cdn/cdn-how-to-use-cdn.md
-[Azure용 CDN(콘텐츠 배달 네트워크) 사용]: cdn/cdn-how-to-use-cdn.md
+[Azure 콘텐츠 배달 네트워크 사용]: cdn/cdn-create-new-endpoint.md
+[Azure용 CDN(콘텐츠 배달 네트워크) 사용]: cdn/cdn-create-new-endpoint.md
 [서비스 버스 할당량]: service-bus/service-bus-quotas.md
 [Azure 검색의 서비스 제한 사항]: search/search-limits-quotas-capacity.md
 [분할 패턴]: http://aka.ms/Sharding-Pattern
@@ -565,4 +564,4 @@ _그림 10. 고객 주문 및 세부 정보를 기록하기 위해 제안된 Red
 [Azure 검색이란?]: search/search-what-is-azure-search.md
 [Azure SQL 데이터베이스 정의]: sql-database/sql-database-technical-overview.md
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

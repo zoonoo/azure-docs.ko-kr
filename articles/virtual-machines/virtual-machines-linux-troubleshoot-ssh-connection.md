@@ -4,7 +4,7 @@
 	keywords="ssh 연결 거부,ssh 오류,azure ssh,SSH 연결 실패"
 	services="virtual-machines-linux"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="iainfoulds"
 	manager="timlt"
 	editor=""
 	tags="top-support-issue,azure-service-management,azure-resource-manager"/>
@@ -14,17 +14,15 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="01/22/2016"
-	ms.author="dkshir"/>
+	ms.topic="support-article"
+	ms.date="04/12/2016"
+	ms.author="iainfou"/>
 
 # Linux 기반 Azure 가상 컴퓨터에 SSH(보안 셸) 연결 문제 해결
 
 Linux 기반 Azure 가상 컴퓨터에 연결을 시도하는 동안 SSH 오류가 발생하는 원인은 여러 가지가 있을 수 있습니다. 이 문서는 원인을 알아내어 해결하는 데 도움이 됩니다.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
-
-이 문서는 Linux를 실행하는 Azure 가상 컴퓨터에만 적용됩니다. Windows를 실행하는 Azure 가상 컴퓨터의 경우 [Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](virtual-machines-windows-troubleshoot-rdp-connection.md)을 참조하세요.
 
 이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 스택 오버플로 포럼](http://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](http://azure.microsoft.com/support/options/)로 가서 **지원 받기**를 클릭합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](http://azure.microsoft.com/support/faq/)를 참조하세요.
 
@@ -56,19 +54,14 @@ Linux 기반 Azure 가상 컴퓨터에 연결을 시도하는 동안 SSH 오류�
 
 리소스 관리자 배포 모델을 사용하여 만든 가상 컴퓨터에 대한 일반적인 SSH 문제를 해결하려면 다음 단계를 수행합니다.
 
-1. Azure CLI 또는 Azure PowerShell을 사용하여 명령줄에서 Linux VM에 대한 _SSH 연결을 다시 설정_합니다. [Microsoft Azure Linux Agent](virtual-machines-linux-agent-user-guide.md) 버전 2.0.5 이상이 설치되어 있는지 확인합니다.
+#### SSH 연결 다시 설정
+Azure CLI를 사용하여 [Microsoft Azure Linux 에이전트](virtual-machines-linux-agent-user-guide.md) 버전 2.0.5 이상이 설치되어 있는지 확인합니다.
 
-**Azure CLI 사용**:
-
-a. 아직 설치되지 않은 경우 `azure login` 명령을 사용하여 [Azure CLI를 설치하고 Azure 구독에 연결](../xplat-cli-install.md)합니다.
-
-b. 리소스 관리자 모드에 있는지 확인합니다. Azure CLI 최신 버전은 기본적으로 리소스 관리자 모드입니다.
-
-	```
+아직 설치되지 않은 경우 [Azure CLI를 설치하고 Azure 구독에 연결](../xplat-cli-install.md)한 다음 `azure login` 명령을 사용하여 로그인합니다. 리소스 관리자 모드에 있는지 확인합니다. ```
 	azure config mode arm
 	```
 
-c. 다음 방법 중 하나를 사용하여 SSH 연결을 재설정할 수 있습니다.
+다음 방법 중 하나를 사용하여 SSH 연결을 다시 설정할 수 있습니다.
 
 * 다음 예제처럼 `vm reset-access` 명령을 사용합니다.
 
@@ -92,23 +85,7 @@ c. 다음 방법 중 하나를 사용하여 SSH 연결을 재설정할 수 있�
 	azure vm extension set "YourResourceGroupName" "YourVirtualMachineName" VMAccessForLinux Microsoft.OSTCExtensions "1.2" --private-config-path PrivateConf.json
 	```
 
-**Azure PowerShell 사용**:
-
-a. 아직 설치되지 않은 경우 Azure AD 명령을 사용하여 [Azure PowerShell를 설치하고 Azure 구독에 연결](../powershell-install-configure.md)합니다. 1.0.x 이전의 Azure PowerShell 버전에서 _Switch-AzureMode_를 사용하여 리소스 관리자 모드로 명시적으로 전환해야 합니다.
-
-b. 아래 예처럼 `VMAccessForLinux` 확장을 실행하여 SSH 연결을 다시 설정합니다. 이전 버전에서는 명령이 _Set-AzureVMExtension_입니다.
-
-	```
-	Set-AzureRmVMExtension -ResourceGroupName "yourRG" -VMName "yourVM" -Location "West US" -Name "VMAccessForLinux" -Publisher "Microsoft.OSTCExtensions" -ExtensionType "VMAccessForLinux" -TypeHandlerVersion "1.2" -SettingString "{}" -ProtectedSettingString '{"reset_ssh":true}'
-	```
-
-2. [Azure 포털](https://portal.azure.com)에서 Linux VM을 다시 시작합니다.<br> **찾아보기** > **가상 컴퓨터** > Linux 가상 컴퓨터 > **다시 시작**을 클릭합니다.
-
-3. Azure CLI 또는 Azure PowerShell을 사용하여 명령줄에서 Linux VM에 대한 _암호 또는 SSH 키를 다시 설정_합니다. 다음 예제와 같이 _sudo_ 권한으로 새 사용자 이름 및 암호를 만들 수도 있습니다.
-
-**Azure CLI 사용**:
-
-위의 설명대로 Azure CLI를 설치 및 구성합니다. 필요하면 리소스 관리자 모드로 전환하고 다음 방법 중 하나를 사용하여 확장을 실행합니다.
+#### SSH 자격 증명 다시 설정
 
 * `vm reset-access` 명령을 실행하여 SSH 자격 증명을 설정합니다.
 
@@ -133,29 +110,6 @@ b. 아래 예처럼 `VMAccessForLinux` 확장을 실행하여 SSH 연결을 다�
 	```
 
 [Linux 기반 가상 컴퓨터의 암호 또는 SSH를 재설정하는 방법](virtual-machines-linux-classic-reset-access.md)과 유사한 단계를 따라 다르게 변형해 봅니다. 리소스 관리자 모드에 대한 Azure CLI 지침을 수정해야 합니다.
-
-
-**Azure PowerShell 사용**:
-
-위의 설명대로 Azure PowerShell을 설치 및 구성합니다. 리소스 관리자 모드로 전환한 후 다음과 같이 확장을 실행합니다.
-
-	```
-	$RGName = 'testRG'
-	$VmName = 'testVM'
-	$Location = 'West US'
-
-	$ExtensionName = 'VMAccessForLinux'
-	$Publisher = 'Microsoft.OSTCExtensions'
-	$Version = '1.2'
-
-	$PublicConf = '{}'
-	$PrivateConf = '{"username":"NewUsername", "password":"NewPassword", "ssh_key":"", "reset_ssh":false, "remove_user":""}'
-
-	Set-AzureRmVMExtension -ResourceGroupName $RGName -VMName $VmName -Location $Location -Name $ExtensionName -Publisher $Publisher -ExtensionType $ExtensionName -TypeHandlerVersion $Version -SettingString $PublicConf -ProtectedSettingString $PrivateConf
-	```
-
-설치에 특정 값을 가진 $RGName, $VmName, $Location 및 SSH 자격 증명의 값을 교체할 수 있는지 확인합니다.
-
 
 
 ## SSH 오류에 대한 자세한 문제 해결
@@ -281,4 +235,4 @@ b. 아래 예처럼 `VMAccessForLinux` 확장을 실행하여 SSH 연결을 다�
 
 [Azure 가상 컴퓨터에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결](virtual-machines-linux-troubleshoot-app-connection.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

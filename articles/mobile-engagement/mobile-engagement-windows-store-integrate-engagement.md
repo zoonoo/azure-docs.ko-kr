@@ -82,7 +82,7 @@ Engagement 구성은 프로젝트의 `Resources\EngagementConfiguration.xml` 파
           /* Engagement configuration. */
           EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
 
-          /* Connection string for my Windows Store App. */
+          /* Set the Engagement connection string. */
           engagementConfiguration.Agent.ConnectionString = "Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}";
 
           /* Initialize Engagement angent with above configuration. */
@@ -283,4 +283,4 @@ EngagementConfiguration 개체를 사용하여 작동 중단 보고를 false로 
 [NuGet website]: http://docs.nuget.org/docs/start-here/overview
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

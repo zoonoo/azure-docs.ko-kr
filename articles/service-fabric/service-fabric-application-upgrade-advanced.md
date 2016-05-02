@@ -13,10 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/04/2016"
+   ms.date="04/14/2016"
    ms.author="subramar"/>
 
 # 서비스 패브릭 응용 프로그램 업그레이드: 고급 항목
+
+## 응용 프로그램을 업그레이드하는 동안 서비스 추가 또는 제거
+
+이미 배포되어 업그레이드로 게시된 응용 프로그램에 새 서비스가 추가된 경우 새 서비스는 (이미 응용 프로그램의 일부인 서비스에 영향을 미치는 업그레이드 없이) 배포된 응용 프로그램에 추가됩니다. 하지만 새 서비스가 활성화(`New-ServiceFabricService` cmdlet 사용)되려면 추가된 서비스 인스턴스가 시작되어야 합니다.
+
+서비스는 업그레이드의 일부로 응용 프로그램에서 제거될 수도 있지만 (업그레이드의 일부로 제거되어야 하는) 서비스의 모든 현재 인스턴스가 업그레이드를 계속하기 전에 중지(`Remove-ServiceFabricService` cmdlet 사용)되어야 합니다.
 
 ## 수동 업그레이드 모드
 
@@ -31,7 +37,7 @@ Azure 서비스 패브릭은 개발 및 프로덕션 클러스터를 지원하�
 마지막으로 자동화된 롤링 응용 프로그램 업그레이드는 서비스를 개발하는 동안 개발 또는 테스트 환경에서 빠른 반복 주기를 제공하는 데 유용합니다.
 
 ## 수동 업그레이드 모드로 변경
-**수동** - 현재 UD에서 응용 프로그램 업그레이드를 중지하고 업그레이드 모드를 모니터링되지 않은 수동 모드로 변경합니다. 관리자가 수동으로 **MoveNextApplicationUpgradeDomainAsync**를 호출하고 새 업그레이드를 초기화하여 업그레이드를 진행하거나 롤백을 트리거해야 합니다. 업그레이드가 수동 모드로 전환되면 새 업그레이드가 초기화될 때까지 수동 모드가 유지됩니다. **GetApplicationUpgradeProgressAsync** 명령은 FABRIC\_APPLICATION\_UPGRADE\_STATE\_ROLLING\_FORWARD\_PENDING을 반환합니다.
+**수동**--현재 UD에서 응용 프로그램 업그레이드를 중지하고 업그레이드 모드를 모니터링되지 않은 수동 모드로 변경합니다. 관리자가 수동으로 **MoveNextApplicationUpgradeDomainAsync**를 호출하고 새 업그레이드를 초기화하여 업그레이드를 진행하거나 롤백을 트리거해야 합니다. 업그레이드가 수동 모드로 전환되면 새 업그레이드가 초기화될 때까지 수동 모드가 유지됩니다. **GetApplicationUpgradeProgressAsync** 명령은 FABRIC\_APPLICATION\_UPGRADE\_STATE\_ROLLING\_FORWARD\_PENDING을 반환합니다.
 
 ## diff 패키지로 업그레이드
 
@@ -47,6 +53,40 @@ Azure 서비스 패브릭은 개발 및 프로덕션 클러스터를 지원하�
 
 * 응용 프로그램 빌드 프로세스에서 직접 빌드 레이아웃을 생성하는 배포 시스템을 사용하는 경우에는 diff 패키지가 좋습니다. 이 경우 코드에서 아무 것도 변경하지 않아도 새로 빌드된 어셈블리는 다른 체크섬을 갖습니다. 전체 응용 프로그램 패키지를 사용하려면 모든 코드 패키지의 버전을 업데이트해야 합니다. diff 패키지를 사용하면 변경된 파일과 버전이 변경된 매니페스트 파일만 제공하면 됩니다.
 
+Visual Studio를 사용하여 응용 프로그램이 업그레이드되는 경우 diff 패키지가 자동으로 게시됩니다. diff 패키지를 수동으로 만들려는 경우(예: PowerShell을 사용하여 업그레이드) 응용 프로그램 및 서비스 매니페스트를 업데이트해야 하며 최종 응용 프로그램 패키지에서 변경된 패키지만 포함해야 합니다.
+
+예를 들어 다음 응용 프로그램을 시작하겠습니다(이해하기 쉽도록 버전 번호 제공).
+
+```text
+app1       	1.0.0
+  service1 	1.0.0
+    code   	1.0.0
+    config 	1.0.0
+  service2 	1.0.0
+    code   	1.0.0
+    config 	1.0.0
+```
+
+이제 PowerShell을 사용하여 diff 패키지로 service1의 코드 패키지만 업데이트하려고 한다고 가정해 보겠습니다. 이제 업데이트된 응용 프로그램이 다음과 같이 표시됩니다.
+
+```text
+app1       	2.0.0      <-- new version
+  service1 	2.0.0      <-- new version
+    code   	2.0.0      <-- new version
+    config 	1.0.0
+  service2 	1.0.0
+    code   	1.0.0
+    config 	1.0.0
+```
+
+이 경우 응용 프로그램 매니페스트를 2.0.0으로 업데이트하고 service1에 대한 서비스 매니페스트가 코드 패키지 업데이트를 반영하도록 업데이트합니다. 응용 프로그램 패키지에 대한 폴더 구조는 다음과 같습니다.
+
+```text
+app1/
+  service1/
+    code/
+```
+
 ## 다음 단계
 
 [Visual Studio를 사용하여 응용 프로그램 업그레이드](service-fabric-application-upgrade-tutorial.md)에서는 Visual Studio를 사용하여 응용 프로그램 업그레이드를 진행하는 방법을 안내합니다.
@@ -60,4 +100,4 @@ Azure 서비스 패브릭은 개발 및 프로덕션 클러스터를 지원하�
 [응용 프로그램 업그레이드 문제 해결](service-fabric-application-upgrade-troubleshooting.md)의 단계를 참조하여 응용 프로그램 업그레이드 중 발생하는 일반적인 문제를 해결합니다.
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

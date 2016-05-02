@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="11/01/2015"
+   ms.date="03/29/2016"
    ms.author="kundanap"/>
 
 # Azure Resource Manager 템플릿을 사용하여 Windows VM에 대한 사용자 지정 스크립트 확장 사용
@@ -38,7 +38,8 @@
        "properties": {
            "publisher": "Microsoft.Compute",
            "type": "CustomScriptExtension",
-           "typeHandlerVersion": "1.4",
+           "typeHandlerVersion": "1.7",
+           "autoUpgradeMinorVersion":true,
            "settings": {
                "fileUris": [
                "http://Yourstorageaccount.blob.core.windows.net/customscriptfiles/start.ps1"
@@ -47,7 +48,7 @@
          }
        }
      }
-     
+
 위의 예제에서 사용자 고유의 설정으로 파일 URL 및 파일 이름을 바꿉니다.
 
 템플릿을 작성한 후 Azure PowerShell을 사용하여 배포할 수 있습니다.
@@ -56,4 +57,4 @@
 
 * [Windows VM의 사용자 지정 스크립트 확장](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -13,58 +13,30 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/17/2016"
+   ms.date="04/15/2016"
    ms.author="kgremban"/>
 
 # Azure AD Privileged Identity Management 보안 마법사
 
-Azure Privileged Identity Management(PIM)를 처음 실행하면 마법사가 표시됩니다. 마법사는 권한 있는 ID에 대한 보안 위험을 이해하고 위험을 줄이도록 권한 있는 ID 관리를 사용하는 방법을 이해하도록 도와줍니다.
+조직에 대해 Azure PIM(Privileged Identity Management)을 처음 실행하면 마법사가 표시됩니다. 마법사는 권한 있는 ID에 대한 보안 위험을 이해하고 위험을 줄이도록 PIM을 사용하는 방법을 이해하도록 도와줍니다. 나중에 작업하려는 경우 마법사에서 기존 역할 할당을 변경할 필요가 없습니다.
 
-세 가지 검토할 섹션은 **YOUR ADMINS MIGHT PUT YOU AT RISK, MANAGE YOUR ADMINS’ ATTACK SURFACE**(관리자로 인해 위험에 처할 수 있음, 관리자의 공격 표면 관리) 및 **DEFINE TEMPORARY ADMIN SETTINGS**(임시 관리자 설정 정의)입니다. 각 섹션에는 수행할 작업에 대한 설명 및 개념에 대한 개요가 제공됩니다.
+## 예상 프로그램
 
-우선 모든 전역 관리자는 영구적입니다. **YOUR ADMINS MIGHT PUT YOU AT RISK**(관리자로 인해 위험에 처할 수 있음)을 클릭하면 전역 관리자 역할 목록과 현재 보유하고 있는 개수가 표시됩니다.
+조직에서 PIM 사용을 시작하기 전에 모든 역할 할당은 영구적입니다. 현재 해당 권한이 필요하지 않는 경우에도 사용자는 항상 이러한 역할에 할당되어 있습니다. 마법사의 첫 번째 단계에서는 권한이 높은 역할의 목록과 얼마나 많은 사용자가 현재 해당 역할에 있는지를 보여 줍니다. 특정 역할을 자세히 알아보면 익숙하지 않은 사용자에 대해 더 잘 알 수 있습니다.
 
-**MANAGE YOUR ADMINS’ ATTACK SURFACE**(관리자의 공격 표면 관리)를 클릭하면 관리자를 임시로 변경하거나 영구적으로 유지하거나 역할에서 완전히 삭제할 기회가 제공됩니다.
+마법사의 두 번째 단계는 관리자의 역할 할당을 변경할 기회를 제공합니다.
 
-**DEFINE TEMPORARY ADMINS SETTINGS**(임시 관리자 설정 정의)는 Multi-Factor Authentication을 요청하고 알림을 활성화하며 임시 관리자가 권한을 소유하는 기간을 정할 수 있도록 합니다.
+> [AZURE.WARNING] Microsoft 계정이 아니라 조직 계정을 사용하는 적어도 하나의 전역 관리자와 둘 이상의 보안 관리자가 있는 것이 중요합니다. 보안 관리자가 한 명인 경우 해당 계정이 삭제되면 조직은 PIM을 관리할 수 없습니다. 또한 사용자가 Microsoft 계정을 가진 경우 임시로 역할 할당을 변경하지 않습니다. 해당 역할의 활성화에 대해 MFA를 요구하려는 경우 해당 사용자가 역할에서 잠기게 됩니다.
 
-## 전역 관리자 역할을 임시 또는 영구적으로 변경
 
-전역 관리자의 시간 창을 변경하는 옵션이 세 가지 있습니다.
+항목을 변경한 후에는 마법사가 표시되지 않습니다. 다음에 사용자 또는 다른 보안 관리자가 PIM을 사용할 때 PIM 대시보드가 표시됩니다.
 
-1.  모든 전역 관리자를 임시로 만들려면 **Make all temporary**(모두 임시로 설정) 단추를 클릭합니다. 모든 관리자가 조직 계정이 있고 Azure MFA에 대해 등록된 경우에만 이 옵션을 선택합니다.
+- 역할에서 사용자를 추가 또는 제거하거나 영구에서 임시로 할당을 변경하려면 [사용자의 역할을 추가 또는 제거하는 방법](active-directory-privileged-identity-management-how-to-add-role-to-user)을 참조하세요.
+- 더 많은 사용자에게 PIM을 관리하기 위해 액세스 권한을 제공하려면 [PIM을 관리하기 위해 액세스 권한을 제공하는 방법](active-directory-privileged-identity-management-how-to-give-access-to-pim)을 참조하세요.
 
-2.  모든 전역 관리자를 영구적으로 만들려면 **Make all permanent**(모두 영구적으로 설정) 단추를 클릭합니다.
 
-3.  각각의 전역 관리자에 대해 **Keep Perm**(영구적으로 유지), **Make Temp**(임시로 설정), 또는 **Remove from Role**(역할에서 제거)을 선택합니다.
-
-## 전역 관리자 역할에 대한 활성화 기간을 변경합니다.
-
-전역 관리자 역할에 대한 활성화 기간을 설정하는 방법에는 두 가지가 있습니다.
-
-1.  **activation period**(활성화 기간) 슬라이더를 왼쪽 또는 오른쪽으로 이동하여 활성화 기간을 증가 또는 감소시킵니다. 활성화 기간은 최대 72시간 까지 가능합니다.
-
-2.  **hours**(시간) 필드에 시간을 입력합니다.
-
-## 알림 사용
-
-일부 관리자는 역할이 활성화되면 메일을 수신할 수 있습니다. **사용** 단추를 클릭하여 알림을 사용합니다. 나중에 이 기능을 해제할 수도 있습니다.
-
-## Multi-Factor Authentication 요구
-
-관리자가 자신의 계정에 로그인하고 역할에 대한 확장을 요청하기 위해 MFA를 사용하도록 요구하려면 **사용** 단추를 클릭하여 MFA를 사용합니다.
-
-<!--For more information about MFA and PIM, click here. PLACEHOLDER: NEED LINK TO MFA DOC.-->
-
-이러한 설정이 적용될 역할을 선택합니다. **확인**을 클릭합니다.
-
-> [AZURE.WARNING] 이때 Microsoft 계정이 아니라 조직 계정을 사용하는 둘 이상의 보안 관리자가 있는 것이 중요합니다. 영구적으로 설정되지 않은 보안 관리자가 하나만 있고 MFA를 설정하지 않은 경우 사용자는 계정이 삭제되면 PIM을 전혀 관리할 수 없게 됩니다.
-
-작업이 완료되었으면 **확인** 단추를 클릭합니다.
-
-항목을 변경한 후에는 마법사가 표시되지 않습니다. 하지만 **Manage identities**(ID 관리) 아래의 **마법사** 단추를 클릭하면 마법사에 다시 액세스할 수 있습니다.
 
 ## 다음 단계
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

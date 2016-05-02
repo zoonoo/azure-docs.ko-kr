@@ -31,7 +31,9 @@ Azure CLI을 사용하여 HDInsight 클러스터를 만드는 방법을 알아�
 이 문서의 지침을 시작하기 전에 다음이 있어야 합니다.
 
 - **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
-- **Azure CLI** - 설치 및 구성 정보는 [Azure CLI 설치 및 구성](../xplat-cli-install.md)을 참조하세요.
+- **Azure CLI**.
+
+	[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 ##Azure에 연결
 
@@ -137,4 +139,4 @@ ARM 템플릿을 호출하여 클러스터를 만기 위해 CLI를 사용할 수
 - [Azure CLI를 사용하여 HDInsight의 Hadoop 클러스터 관리](hdinsight-administer-use-command-line.md)
 - [Azure 서비스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](../virtual-machines-command-line-tools.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

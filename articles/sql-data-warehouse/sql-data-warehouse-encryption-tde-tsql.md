@@ -3,7 +3,7 @@
    description="SQL 데이터 웨어하우스 투명한 데이터 암호화(TDE) TSQL 시작"
    services="sql-data-warehouse"
    documentationCenter=""
-   authors="twounder"
+   authors="ronortloff"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.date="03/23/2016"
-   ms.author="mausher;barbkess;sonyama"/>
+   ms.author="rortloff;barbkess;sonyama"/>
 
 # 투명한 데이터 암호화(TDE) 시작
 > [AZURE.SELECTOR]
@@ -73,4 +73,4 @@ FROM
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

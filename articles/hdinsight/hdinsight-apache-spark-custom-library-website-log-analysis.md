@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="04/14/2016" 
 	ms.author="nitinme"/>
 
-# 사용자 지정 라이브러리(Linux)를 사용하여 HDInsight Spark에서 로그 분석
+# Linux에서 HDInsight Spark와 함께 사용자 지정 라이브러리를 사용하여 웹 사이트 로그 분석(미리 보기)
 
 이 노트북에서는 HDInsight의 Spark와 함께 사용자 지정 라이브러리를 사용하여 로그 데이터를 분석하는 방법을 보여 줍니다. 사용하는 사용자 지정 라이브러리는 **iislogparser.py**라는 Python 라이브입니다.
 
@@ -244,4 +244,4 @@
 
 * [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

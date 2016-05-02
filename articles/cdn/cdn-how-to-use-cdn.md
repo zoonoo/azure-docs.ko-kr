@@ -1,5 +1,5 @@
 <properties
-	pageTitle="CDN을 사용하는 방법 | Microsoft Azure"
+	pageTitle="Azure CDN 사용"
 	description="Azure CDN(콘텐츠 배달 네트워크)을 사용하여 Blob 및 정적 콘텐츠를 캐시해 고대역폭 콘텐츠를 배달하는 방법을 알아봅니다."
 	services="cdn"
 	documentationCenter=".net"
@@ -12,12 +12,12 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="03/18/2016"
+	ms.topic="article"
+	ms.date="04/15/2016"
 	ms.author="casoper"/>
 
 
-# Azure에 CDN 사용
+# Azure CDN 사용
 
 Azure CDN(콘텐츠 배달 네트워크)은 Azure에서 HTTP/HTTPS 응용 프로그램의 크기를 조정하기 위한 기본 구성 요소입니다. CDN은 콘텐츠를 캐시하고 최종 사용자에게 가까운 곳으로 배달하여 Azure 고객에게 글로벌 솔루션을 제공합니다. 결과적으로, 매번 원본을 누르는 대신 사용자 요청이 최상의 응답 시간을 제공하는 CDN 에지 노드(POP 또는 현재 상태 지점)에 지능적으로 라우팅됩니다. 이 경우 성능 및 사용자 환경이 훨씬 개선됩니다. CDN 노드 위치의 현재 목록은 [Azure CDN(콘텐츠 배달 네트워크) POP 위치](cdn-pop-locations.md)를 참조하세요.
 
@@ -128,7 +128,6 @@ HTTPS를 사용하여 CDN 콘텐츠에 액세스하는 경우 다음과 같은 �
 - CDN에서 제공된 인증서를 사용해야 합니다. 타사 인증서는 지원되지 않습니다.
 - CDN 도메인을 사용하여 콘텐츠에 액세스해야 합니다. 현재 CDN이 사용자 지정 인증서를 지원하지 않으므로 CNAME(사용자 지정 도메인 이름)에는 HTTPS 지원을 사용할 수 없습니다.
 
-CDN 콘텐츠에 대해 HTTPS를 사용하도록 설정하는 방법에 대한 자세한 내용은 [Azure에 대해 CDN(콘텐츠 배달 네트워크)을 사용하도록 설정하는 방법](cdn-create-new-endpoint.md)을 참조하세요.
 
 
 ## 사용자 지정 도메인을 사용하여 캐시된 콘텐츠 액세스
@@ -149,4 +148,4 @@ Microsoft Azure CDN은 [CDN 리소스 공급자 REST API](https://msdn.microsoft
 - [Azure CDN 끝점 삭제](cdn-purge-endpoint.md)
 - [CDN 리소스 공급자 REST API](https://msdn.microsoft.com/library/mt634456.aspx)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

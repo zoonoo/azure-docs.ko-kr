@@ -1,6 +1,6 @@
 <properties
-	pageTitle="R 서버가 설치된 HDInsight 클러스터에 RStudio 설치 | Microsoft Azure"
-	description="R 서버가 설치된 HDInsight 클러스터에 RStudio를 설치하는 방법을 알아봅니다."
+	pageTitle="HDInsight의 R 서버를 사용하여 RStudio 설치(미리 보기) | Microsoft Azure"
+	description="HDInsight의 R 서버를 사용하여 RStudio를 설치하는 방법"
 	services="hdinsight"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -17,11 +17,13 @@
    ms.author="jeffstok"/>
 
 
-# R 서버를 사용하여 HDInsight 클러스터에 RStudio 설치
+# HDInsight의 R 서버를 사용하여 RStudio 설치(미리 보기)
 
 현재 R에 사용할 수 있는 IDE(통합 개발 환경)에는 Microsoft에서 최근에 발표한 [R Tools for Visual Studio](https://www.visualstudio.com/ko-KR/features/rtvs-vs.aspx)(RTVS), [RStudio](https://www.rstudio.com/products/rstudio-server/)의 데스크톱 및 서버 도구 집합 또는 Walware의 Eclipse 기반 [StatET](http://www.walware.de/goto/statet)를 포함하여 여러 가지가 있습니다. Linux에서 가장 많이 사용되는 것은 원격 클라이언트에서 사용할 수 있도록 브라우저 기반 IDE를 제공하는 [RStudio 서버](https://www.rstudio.com/products/rstudio-server/)입니다. RStudio 서버를 HDInsight Premium 클러스터의 에지 노드에 설치하면 클러스터의 R 서버를 사용하여 R 스크립트를 개발 및 실행할 수 있는 완벽한 IDE 환경이 제공되므로 R 콘솔의 기본 사용 시보다 생산성을 크게 높일 수 있습니다.
 
 이 문서에서는 사용자 지정 스크립트를 사용하여 클러스터의 에지 노드에 RStudio 서버의 커뮤니티(무료) 버전을 설치하는 방법을 알아봅니다. 상업적으로 사용이 허가된 Pro 버전의 RStudio 서버를 사용하려면 [RStudio 서버](https://www.rstudio.com/products/rstudio/download-server/)에서 제공하는 설치 지침을 따라야 합니다.
+
+> [AZURE.NOTE] 이 문서의 단계에는 HDInsight 클러스터의 R 서버가 필요하며 [R 스크립트 작업 설치](hdinsight-hadoop-r-scripts-linux.md)를 사용하여 R이 설치된 HDInsight 클러스터를 사용하는 경우 제대로 작동하지 않습니다.
 
 ## 필수 조건
 
@@ -122,4 +124,4 @@
 
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

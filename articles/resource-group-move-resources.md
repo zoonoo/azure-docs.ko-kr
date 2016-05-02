@@ -4,8 +4,8 @@
 	services="azure-resource-manager" 
 	documentationCenter="" 
 	authors="tfitzmac" 
-	manager="wpickett" 
-	editor=""/>
+	manager="timlt" 
+	editor="tysonn"/>
 
 <tags 
 	ms.service="azure-resource-manager" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="04/18/2016" 
 	ms.author="tomfitz"/>
 
 # 새 리소스 그룹 또는 구독으로 리소스 이동
@@ -24,17 +24,18 @@
 2. 리소스가 이전에 그룹화되었던 리소스와 동일한 수명 주기를 더 이상 공유하지 않습니다. 해당 리소스를 다른 리소스와는 별도로 관리할 수 있도록 새 리소스 그룹으로 이동하려고 합니다.
 3. 이제 리소스는 다른 리소스 그룹의 다른 리소스와 동일한 수명 주기를 공유합니다. 함께 관리할 수 있도록 리소스를 다른 리소스가 있는 리소스 그룹으로 이동하려고 합니다.
 
-## 리소스를 이동하기 전의 고려 사항
+리소스를 이동할 때 원본 그룹과 대상 그룹은 작업 기간 동안 잠겨 있습니다. 쓰기 및 삭제 작업은 이동이 완료될 때까지 그룹에서 차단됩니다.
 
-리소스를 이동할 때 다음과 같은 몇 가지 사항을 고려해야 합니다.
+리소스의 위치는 변경할 수 없습니다. 리소스를 이동할 때는 새 리소스 그룹으로만 이동됩니다. 새 리소스 그룹은 다른 위치를 가질 수 있지만 리소스의 위치는 변경되지 않습니다.
 
-1. 리소스의 위치는 변경할 수 없습니다. 리소스를 이동할 때는 새 리소스 그룹으로만 이동됩니다. 새 리소스 그룹은 다른 위치를 가질 수 있지만 리소스의 위치는 변경되지 않습니다.
-2. 모든 서비스가 현재 리소스 이동 기능을 지원하는 것은 아닙니다. 리소스 이동을 지원하는 서비스에 대한 자세한 내용은 아래 목록을 참조하세요.
-3. 이동되는 리소스의 리소스 공급자가 대상 구독에 등록되어야 합니다. 해당 리소스 종류와 함께 사용된 적이 없는 새 구독으로 리소스를 이동할 때 이 문제가 발생할 수 있습니다. 예를 들어 **Microsoft.ApiManagement** 리소스 공급자가 등록되지 않은 구독으로 API 관리 서비스 인스턴스를 이동하면 이동이 실패합니다. 등록 상태 및 등록 리소스 공급자를 확인하는 방법은 [리소스 공급자 및 형식](../resource-manager-supported-services/#resource-providers-and-types)을 참조하세요.
-4. 대상 리소스 그룹은 사용자가 이동하는 리소스와 동일한 응용 프로그램 수명 주기를 공유하는 리소스만 포함해야 합니다.
-5. Azure PowerShell 또는 Azure CLI를 사용하는 경우 최신 버전을 사용하고 있는지 확인합니다. 사용 중인 버전을 업데이트하려면 Microsoft 웹 플랫폼 설치 관리자를 실행하고 새 버전을 사용할 수 있는지 확인합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure.md) 및 [Azure CLI 설치](xplat-cli-install.md)를 참조하세요.
-6. 이동 작업을 완료하는 데 다소 시간이 걸릴 수 있으며 이 시간 동안 프롬프트는 작업이 완료될 때까지 대기합니다.
-7. 리소스를 이동할 때 원본 그룹과 대상 그룹은 작업 기간 동안 잠겨 있습니다. 쓰기 및 삭제 작업은 이동이 완료될 때까지 그룹에서 차단됩니다.
+## 리소스를 이동하기 전의 검사 목록
+
+리소스를 이동하기 전에 몇 가지 중요한 단계가 있습니다. 이러한 조건을 확인하여 오류를 방지할 수 있습니다.
+
+1. 서비스는 리소스 이동 기능을 지원해야 합니다. [리소스 이동을 지원하는 서비스](#services-that-support-move)에 대한 자세한 내용은 아래 목록을 참조하세요.
+2. 이동되는 리소스의 리소스 공급자가 대상 구독에 등록되어야 합니다. 그러지 않으면 **구독이 리소스 종류에 대해 등록되지 않았음**을 알리는 오류 메시지가 표시됩니다. 해당 리소스 종류와 함께 사용된 적이 없는 새 구독으로 리소스를 이동할 때 이 문제가 발생할 수 있습니다. 등록 상태를 확인하고 리소스 공급자를 등록하는 방법은 [리소스 공급자 및 형식](../resource-manager-supported-services/#resource-providers-and-types)을 참조하세요.
+3. Azure PowerShell 또는 Azure CLI를 사용하는 경우 최신 버전을 사용합니다. 사용 중인 버전을 업데이트하려면 Microsoft 웹 플랫폼 설치 관리자를 실행하고 새 버전을 사용할 수 있는지 확인합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure.md) 및 [Azure CLI 설치](xplat-cli-install.md)를 참조하세요.
+4. 앱 서비스 앱을 이동하는 경우 [앱 서비스 제한](#app-service-limitations)을 먼저 검토해야 합니다.
 
 ## 이동을 지원하는 서비스
 
@@ -90,14 +91,14 @@
 
 첫 번째 예제는 새 리소스 그룹에 하나의 리소스를 이동하는 방법을 보여 줍니다.
 
-    PS C:\> $resource = Get-AzureRmResource -ResourceName ExampleApp -ResourceGroupName OldRG
-    PS C:\> Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $resource.ResourceId
+    $resource = Get-AzureRmResource -ResourceName ExampleApp -ResourceGroupName OldRG
+    Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $resource.ResourceId
 
 두 번째 예제는 새 리소스 그룹에 여러 리소스를 이동하는 방법을 보여 줍니다.
 
-    PS C:\> $webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite
-    PS C:\> $plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan
-    PS C:\> Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
+    $webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite
+    $plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan
+    Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
 
 새 구독으로 이동하려면 **DestinationSubscriptionId** 매개 변수 값을 포함합니다.
 
@@ -132,9 +133,9 @@
 ![대상 선택](./media/resource-group-move-resources/select-destination.png)
 
 ## 다음 단계
-- [리소스 관리자로 Azure PowerShell 사용](./powershell-azure-resource-manager.md)
-- [리소스 관리에서 Azure CLI 사용](./xplat-cli-azure-resource-manager.md)
-- [Azure 포털을 사용하여 리소스 관리](azure-portal/resource-group-portal.md)
-- [태그를 사용하여 리소스 구성](./resource-group-using-tags.md)
+- 구독을 관리하기 위한 PowerShell cmdlet에 대한 자세한 내용은 [리소스 관리자에서 Azure PowerShell 사용](powershell-azure-resource-manager.md)을 참조하세요.
+- 구독을 관리하기 위한 Azure CLI 명령에 대한 자세한 내용은 [리소스 관리자에서 Azure CLI 사용](xplat-cli-azure-resource-manager.md)을 참조하세요.
+- 구독을 관리하기 위한 포털 기능에 대한 자세한 내용은 [Azure 포털을 사용하여 리소스 관리](./azure-portal/resource-group-portal.md)를 참조하세요.
+- 리소스를 논리적으로 구성하는 방법에 대한 자세한 내용은 [태그를 사용하여 리소스 구성](resource-group-using-tags.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

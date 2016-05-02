@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016" 
+	ms.date="04/15/2016" 
 	ms.author="casoper"/>
 
 # 규칙 엔진을 사용하여 기본 HTTP 동작 재정의
 
 ## 개요
 
-규칙 엔진을 사용하면 특정 유형의 콘텐츠 전달 차단과 같이 HTTP 요청이 처리되는 방식을 사용자 지정하여 캐싱 정책을 정의하고 HTTP 헤더를 수정할 수 있습니다. 이 자습서에서는 CDN 자산의 캐싱 동작을 변경하는 규칙 만들기를 보여 줍니다.
+규칙 엔진을 사용하면 특정 유형의 콘텐츠 전달 차단과 같이 HTTP 요청이 처리되는 방식을 사용자 지정하여 캐싱 정책을 정의하고 HTTP 헤더를 수정할 수 있습니다. 이 자습서에서는 CDN 자산의 캐싱 동작을 변경하는 규칙 만들기를 보여 줍니다. "[참고 항목](#see-also)" 섹션에는 동영상 콘텐츠도 있습니다.
 
 > [AZURE.NOTE] 규칙 엔진은 프리미엄 CDN 계층의 기능입니다. 표준 및 프리미엄 CDN 기능을 비교하려면 [Azure CDN 개요](cdn-overview.md)를 참조하세요.
 
@@ -63,10 +63,7 @@
 - 여러 규칙이 나열된 순서는 규칙이 처리되는 방식에 영향을 줍니다. 후속 규칙은 이전 규칙에서 지정된 동작을 재정의할 수 있습니다.
 
 ## 참고 항목
+* [Azure Fridays: Azure CDN의 강력하고 새로운 프리미엄 기능](../../videos/azure-cdns-powerful-new-premium-features/)(동영상)
 * [규칙 엔진 일치 조건 및 기능 세부 정보](cdn-rules-engine-details.md)
-* [Azure CDN 개요](cdn-overview.md)
-* [Microsoft Azure CDN의 실시간 통계](cdn-real-time-stats.md)
-* [고급 HTTP 보고서](cdn-advanced-http-reports.md)
-* [에지 성능 분석](cdn-edge-performance.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

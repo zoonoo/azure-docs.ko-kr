@@ -1,6 +1,6 @@
 <properties
-pageTitle="Azure 클라우드 서비스에서 로컬 저장소 리소스 구성"
-description=""
+pageTitle="Azure 클라우드 서비스에서 로컬 저장소 리소스 구성 | Microsoft Azure"
+description="Azure 클라우드 서비스에서 로컬 저장소 리소스 구성에 대해 알아봅니다."
 services="cloud-services"
 documentationCenter=""
 authors="cristy"
@@ -56,7 +56,7 @@ ms.author="cristyg"/>
 
 서비스 정의 파일에 대한 자세한 내용은 [Azure 서비스 정의 스키마(.csdef 파일)](https://msdn.microsoft.com/library/azure/ee758711.aspx)를 참조하세요.
 
-> [AZURE.NOTE]Azure Tools for Microsoft Visual Studio를 사용하는 경우 역할의 **속성** 페이지 내에서 로컬 저장소 리소스를 정의할 수 있습니다. 자세한 내용은 [Visual Studio를 사용하여 Azure 응용 프로그램 구성](https://msdn.microsoft.com/library/ee405486.aspx)을 참조하세요.
+> [AZURE.NOTE] Azure Tools for Microsoft Visual Studio를 사용하는 경우 역할의 **속성** 페이지 내에서 로컬 저장소 리소스를 정의할 수 있습니다. 자세한 내용은 [Visual Studio를 사용하여 Azure 응용 프로그램 구성](https://msdn.microsoft.com/library/ee405486.aspx)을 참조하세요.
 
 ## 프로그래밍 방식으로 로컬 저장소 리소스에 액세스
 
@@ -104,4 +104,4 @@ Azure Managed Library는 역할 인스턴스에서 실행되는 코드 내부에
 
 - [Azure용 클라우드 서비스 설정](https://msdn.microsoft.com/library/azure/hh124108.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0420_2016-->

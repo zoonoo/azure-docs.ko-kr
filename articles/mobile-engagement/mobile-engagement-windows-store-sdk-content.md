@@ -28,9 +28,9 @@
 
 ### /html 폴더
 
-- `EngagementNotification.html` : `Notification` 웹 보기 html 디자인.
+- `EngagementNotification.html` : 앱 내 배너에 대한 `Notification` 웹 보기 HTML 디자인입니다.
 
-- `EngagementAnnouncement.html` : `Announcement` 웹 보기 html 디자인.
+- `EngagementAnnouncement.html` : 앱 내 중간 보기에 대한 `Announcement` 웹 보기 HTML 디자인입니다.
 
 ### /images 폴더
 
@@ -44,17 +44,7 @@
 
 ### /overlay 폴더
 
-- `EngagementBaseOverlay.cs` : `Announcement` 및 `Notification` 오버레이에서 사용되는 기본 코드입니다.
-
-- `EngagementOverlayAnnouncement.xaml` : `Announcement` xaml 디자인.
-
-- `EngagementOverlayAnnouncement.xaml.cs` : `EngagementOverlayAnnouncement.xaml` 연결된 코드.
- 
-- `EngagementOverlayNotification.xaml` : `Notification` xaml 디자인.
- 
-- `EngagementOverlayNotification.xaml.cs` : `EngagementOverlayNotification.xaml` 연결된 코드.
- 
-- `EngagementPageOverlay.cs` : `Overlay` 공지 및 알림 표시 코드.
+- `EngagementPageOverlay.cs` : 오버레이 페이지는 자식에 Engagement 도달률 앱 내 UI를 추가합니다.
   
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

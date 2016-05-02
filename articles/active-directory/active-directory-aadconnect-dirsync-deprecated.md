@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/13/2016"
+	ms.date="04/20/2016"
 	ms.author="andkjell"/>
 
 
@@ -53,12 +53,16 @@ DirSync에서 Azure AD Connect로 전체 업그레이드를 수행하는 방법�
 [Azure Active Directory Connect: 레거시 도구에서 전체 업그레이드](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-Connect-in-place-upgrade-from-legacy-tools) ![전체 업그레이드](./media/active-directory-aadconnect-dirsync-deprecated/inplaceupgrade.png)
 
 ## FAQ
+**Q: Azure 팀에서 메일 알림을 받았거나 Office 365 메시지 센터에서 메시지를 받았지만 Connect를 사용하고 있습니다.** 빌드 번호 1.0.*.0(사전 1.1 릴리스 사용)의 Azure AD Connect를 사용하는 고객에게도 알림을 보냈습니다. 고객은 Azure AD Connect 릴리스를 최신 상태로 유지하는 것이 좋습니다. 1.1에서 [자동 업그레이드](active-directory-aadconnect-feature-automatic-upgrade.md) 기능은 Azure AD Connect가 항상 최신 버전으로 설치되도록 합니다.
+
 **Q: DirSync/Azure AD Sync의 작동이 2017년 4월 13일에 중지됩니까?** 아니요. Azure AD와 더 이상 통신할 수 없는 날짜는 이후에 발표될 예정입니다. 사용 가능한 경우 이 항목에서 해당 정보를 찾을 수 있습니다.
 
-**Q: FIM/MIM용 Azure AD 커넥터는 어떻게 됩니까?** FIM/MIM용 Azure AD 커넥터는 사용 중단되는 것으로 발표되지 **않았습니다**. 현재 **기능이 동결**된 상태입니다. 즉, 새 기능이 추가되지 않으며 버그 수정이 제공되지 않습니다. 고객은 Azure AD Connect로 전환할 계획을 수립하고, 이 커넥터를 사용하여 새 배포를 시작하지 않는 것이 좋습니다. 이 커넥터는 향후에 사용 중단될 예정입니다.
+**Q: 어떤 DirSync 버전에서 업그레이드할 수 있나요?** 현재 사용 중인 모든 DirSync 릴리스의 업그레이드를 지원합니다.
+
+**Q: FIM/MIM용 Azure AD 커넥터는 어떻게 됩니까?** FIM/MIM용 Azure AD 커넥터는 사용 중단되는 것으로 발표되지 **않았습니다**. 현재 **기능 동결** 상태입니다. 즉, 새 기능이 추가되지 않으며 버그 수정이 제공되지 않습니다. 고객은 Azure AD Connect로 전환할 계획을 수립하고, 이 커넥터를 사용하여 새 배포를 시작하지 않는 것이 좋습니다. 이 커넥터는 향후에 사용 중단될 예정입니다.
 
 ## 추가 리소스
 
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

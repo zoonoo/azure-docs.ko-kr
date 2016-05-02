@@ -13,11 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="02/10/2016"
+   ms.date="04/20/2016"
    ms.author="rajram"/>
 
 # BizTalk Edifact 커넥터 시작 및 논리 앱에 추가  
->[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다.
+
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 Edifact 서비스를 사용하여 B2B 커뮤니케이션에서 Edifact 프로토콜을 통해 메시지를 주고받을 수 있습니다. Edifact는 일반적으로 ASC(공인 표준 위원회) Edifact라고도 하며 여러 산업에서 널리 사용됩니다.
 
@@ -41,25 +42,17 @@ Edifact 커넥터는 트리거 또는 작업으로 사용할 수 있습니다.
 
 ### 트리거
 - Azure 논리 앱 흐름 디자이너를 시작합니다.
-- 오른쪽 창에서 Edifact 커넥터를 클릭합니다.  
-![트리거 설정][3]
-- ->를 클릭합니다.  
-![트리거 옵션][4]
-- EDIFACT 커넥터에 하나의 트리거가 표시됩니다. *일괄 처리 릴리스*를 선택합니다.  
-![일괄 처리 릴리스 입력][5]
-- 이 트리거는 입력이 없습니다. ->를 클릭합니다.  
-![구성된 일괄 처리 릴리스][6]
+- 오른쪽 창에서 Edifact 커넥터를 클릭합니다.![트리거 설정][3]
+- ->를 클릭합니다. ![트리거 옵션][4]
+- EDIFACT 커넥터에 하나의 트리거가 표시됩니다. *일괄 처리 릴리스*를 선택합니다. ![일괄 처리 릴리스 입력][5]
+- 이 트리거는 입력이 없습니다. ->를 클릭합니다. ![구성된 일괄 처리 릴리스][6]
 - 출력의 일부로 커넥터는 Edifact 페이로드, 규약 ID 뿐 아니라 메시지가 일괄 처리되었는지 아닌지에 대한 정보도 반환합니다.
 
 ### 작업
-- 오른쪽 창에서 Edifact 커넥터를 클릭합니다.  
-![작업 설정][7]
-- ->를 클릭합니다.  
-![작업 목록][8]
-- Edifact 커넥터는 여러 작업을 지원합니다. *인코딩*을 선택합니다.  
-![입력 인코딩][9]
-- 동작에 대한 입력을 제공하고 구성합니다.  
-![구성된 인코딩][10]
+- 오른쪽 창에서 Edifact 커넥터를 클릭합니다.![작업 설정][7]
+- ->를 클릭합니다. ![작업 목록][8]
+- Edifact 커넥터는 여러 작업을 지원합니다. *인코딩*을 선택합니다. ![입력 인코딩][9]
+- 동작에 대한 입력을 제공하고 구성합니다. ![구성된 인코딩][10]
 
 	매개 변수|형식|매개 변수에 대한 설명
 ---|---|---
@@ -99,4 +92,4 @@ Segment Terminator Suffix|string|세그먼트 마침 표시 접미사
 [9]: ./media/app-service-logic-connector-edifact/EncodeInput.PNG
 [10]: ./media/app-service-logic-connector-edifact/EncodeConfigured.PNG
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

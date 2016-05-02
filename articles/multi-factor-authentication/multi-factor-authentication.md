@@ -35,7 +35,7 @@ Azure Multi-Factor Authentication은 사용자 이름 및 암호 이외의 다�
 Azure Multi-Factor Authentication의 작동 원리 개요는 다음 비디오를 참조하세요.
 
 
-<center>[AZURE.VIDEO multi-factor-authentication-overview]</center>
+> [AZURE.VIDEO multi-factor-authentication-overview]
 
 ##Azure Multi-Factor Authentication을 사용하는 이유
 
@@ -54,7 +54,7 @@ Azure Multi-Factor Authentication은 인증의 두번째 메서드를 제공하�
 
 Azure Multi-Factor Authentication을 사용하는 이유에 대한 추가 정보는 다음 비디오를 참조하세요.
 
-<center>[AZURE.VIDEO windows-azure-multi-factor-authentication]</center>
+> [AZURE.VIDEO windows-azure-multi-factor-authentication]
 
 
 ## Azure Multi-Factor Authentication 작동 방법
@@ -75,7 +75,7 @@ Azure Multi-Factor Authentication을 사용하는 이유에 대한 추가 정보
 
 작동 방법에 대한 추가 정보는 다음 비디오를 참조하십시오.
 
-[AZURE.VIDEO multi-factor-authentication-deep-dive-securing-access-on-premises]
+> [AZURE.VIDEO multi-factor-authentication-deep-dive-securing-access-on-premises]
 
 ## 다단계 인증에 사용할 수 있는 방법
 사용자가 로그인하면 사용자에게 추가 확인이 전송됩니다. 이 두 번째 확인에 사용할 수 있는 방법의 목록은 다음과 같습니다.
@@ -209,4 +209,4 @@ MFA 보고서 | ● | ●
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

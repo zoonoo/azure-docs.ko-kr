@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="01/25/2016"
+   ms.date="04/18/2016"
    ms.author="zachal"/>
 
 # Azure 필요한 상태 구성 확장 처리기 소개 #
@@ -144,4 +144,4 @@ PowerShell DSC로 관리할 수 있는 추가 기능을 찾으려면 추가 DSC 
 
 중요한 매개 변수를 구성에 전달하는 세부 정보는 [DSC 확장 처리기로 안전하게 자격 증명 관리](virtual-machines-windows-extensions-dsc-credentials.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

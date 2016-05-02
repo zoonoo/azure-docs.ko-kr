@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/27/2016"
+   ms.date="04/19/2016"
    ms.author="tarcher" />
 
 # 서버 탐색기로 저장소 리소스 찾아보기 및 관리
@@ -314,4 +314,4 @@ Azure 테이블 저장소 서비스는 다량의 구조화된 데이터를 저�
 
 Azure 저장소 서비스를 사용하는 방법에 대해 자세히 알아보려면 [Azure 저장소 서비스 액세스](https://msdn.microsoft.com/library/azure/ee405490.aspx)를 참조하세요.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

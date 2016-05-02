@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="02/10/2016"
+   ms.date="04/20/2016"
    ms.author="rajram"/>
 
 # BizTalk 거래 업체 관리 시작 및 논리 앱에 추가
->[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다.
+
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
+
 
 BizTalk TPM(거래 업체 관리) 서비스를 사용하면 스키마, 인증서와 같은 아티팩트와 함께 파트너 및 규약과 같은 기업 간 관계를 정의하고 유지할 수 있습니다. 이러한 관계는 AS2, EDIFACT, X12와 같은 관련 API 서비스를 통해 적용할 수 있습니다.
 
@@ -41,4 +43,4 @@ TPM API 앱은 AS2 커넥터, X12 API 앱 및 EDIFACT API 앱의 기본 요구 �
 <!--References-->
 [1]: app-service-logic-create-a-trading-partner-agreement.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

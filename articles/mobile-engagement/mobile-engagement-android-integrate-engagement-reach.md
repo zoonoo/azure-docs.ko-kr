@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Azure Mobile Engagement Android SDK 통합" 
+<properties
+	pageTitle="Azure Mobile Engagement Android SDK 통합"
 	description="Azure Mobile Engagement용 Android SDK의 최신 업데이트 및 절차"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="02/29/2016" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="04/18/2016"
 	ms.author="piyushjo" />
 
 #Android에서 Engagement 도달률을 통합하는 방법
@@ -145,7 +145,7 @@ Amazon 및 Google Play 장치를 모두 대상으로 하려는 경우 개발을 
 			    Log.d("tmp", "String data push message received: " + body);
 			    return true;
 			  }
-			
+
 			  @Override
 			  protected Boolean onDataPushBase64Received(Context context, String category, byte[] decodedBody, String encodedBody)
 			  {
@@ -218,15 +218,15 @@ Android의 **include** 문 덕분에 기존 레이아웃에서 알림 레이아�
 			  android:orientation="vertical"
 			  android:layout_width="fill_parent"
 			  android:layout_height="fill_parent">
-			
+
 			  <ListView
 			    android:id="@android:id/list"
 			    android:layout_width="fill_parent"
 			    android:layout_height="fill_parent"
 			    android:layout_weight="1" />
-			
+
 			  <include layout="@layout/engagement_notification_area" />
-			
+
 			</LinearLayout>
 
 이 예제에서는 원래 레이아웃이 최상위 요소로 목록 보기를 사용하므로 부모 컨테이너를 추가했습니다. 또한 `android:layout_weight="1"`을(를) 추가했으므로 `android:layout_height="fill_parent"`(으)로 구성한 목록 보기 아래에 뷰를 추가할 수 있습니다.
@@ -292,27 +292,27 @@ Engagement Reach SDK는 알림 레이아웃이 이 작업에 포함되었으며 
 ##### 앱 내 알림
 
 특정 범주에 대체 레이아웃을 사용하려는 경우 다음 예제와 같이 구현할 수 있습니다.
-			
+
 			public class MyNotifier extends EngagementDefaultNotifier
 			{
 			  public MyNotifier(Context context)
 			  {
 			    super(context);
 			  }
-			
+
 			  @Override
 			  protected int getOverlayLayoutId(String category)
 			  {
 			    return R.layout.my_notification_overlay;
 			  }
-			
-			
+
+
 			  @Override
 			  public Integer getOverlayViewId(String category)
 			  {
 			    return R.id.my_notification_overlay;
 			  }
-			
+
 			  @Override
 			  public Integer getInAppAreaId(String category)
 			  {
@@ -328,9 +328,9 @@ Engagement Reach SDK는 알림 레이아웃이 이 작업에 포함되었으며 
 			  android:id="@+id/my_notification_overlay"
 			  android:layout_width="fill_parent"
 			  android:layout_height="fill_parent">
-			
+
 			  <include layout="@layout/my_notification_area" />
-			
+
 			</RelativeLayout>
 
 여기에서 알 수 있듯이 오버레이 뷰 식별자는 표준 식별자와 다릅니다. 각 레이아웃에서 오버레이에 고유 식별자를 사용하는 것이 중요합니다.
@@ -342,25 +342,25 @@ Engagement Reach SDK는 알림 레이아웃이 이 작업에 포함되었으며 
 			  xmlns:android="http://schemas.android.com/apk/res/android"
 			  android:layout_width="fill_parent"
 			  android:layout_height="fill_parent">
-			
+
 			  <RelativeLayout
 			    android:id="@+id/my_notification_area"
 			    android:layout_width="fill_parent"
 			    android:layout_height="64dp"
 			    android:layout_alignParentTop="true"
 			    android:background="#B000">
-			
+
 			    <LinearLayout
 			      android:orientation="horizontal"
 			      android:layout_width="fill_parent"
 			      android:layout_height="fill_parent"
 			      android:gravity="center_vertical">
-			
+
 			      <ImageView
 			        android:id="@+id/engagement_notification_icon"
 			        android:layout_width="48dp"
 			        android:layout_height="48dp" />
-			
+
 			      <LinearLayout
 			        android:id="@+id/engagement_notification_text"
 			        android:orientation="vertical"
@@ -368,7 +368,7 @@ Engagement Reach SDK는 알림 레이아웃이 이 작업에 포함되었으며 
 			        android:layout_height="fill_parent"
 			        android:layout_weight="1"
 			        android:gravity="center_vertical">
-			
+
 			        <TextView
 			          android:id="@+id/engagement_notification_title"
 			          android:layout_width="fill_parent"
@@ -376,7 +376,7 @@ Engagement Reach SDK는 알림 레이아웃이 이 작업에 포함되었으며 
 			          android:singleLine="true"
 			          android:ellipsize="end"
 			          android:textAppearance="@android:style/TextAppearance.Medium" />
-			
+
 			        <TextView
 			          android:id="@+id/engagement_notification_message"
 			          android:layout_width="fill_parent"
@@ -384,15 +384,15 @@ Engagement Reach SDK는 알림 레이아웃이 이 작업에 포함되었으며 
 			          android:maxLines="2"
 			          android:ellipsize="end"
 			          android:textAppearance="@android:style/TextAppearance.Small" />
-			
+
 			      </LinearLayout>
-			
+
 			      <ImageView
 			        android:id="@+id/engagement_notification_image"
 			        android:layout_width="wrap_content"
 			        android:layout_height="fill_parent"
 			        android:adjustViewBounds="true" />
-			
+
 			      <ImageButton
 			        android:id="@+id/engagement_notification_close_area"
 			        android:visibility="invisible"
@@ -400,9 +400,9 @@ Engagement Reach SDK는 알림 레이아웃이 이 작업에 포함되었으며 
 			        android:layout_height="fill_parent"
 			        android:src="@android:drawable/btn_dialog"
 			        android:background="#0F00" />
-			
+
 			    </LinearLayout>
-			
+
 			    <ImageButton
 			      android:id="@+id/engagement_notification_close"
 			      android:layout_width="wrap_content"
@@ -410,9 +410,9 @@ Engagement Reach SDK는 알림 레이아웃이 이 작업에 포함되었으며 
 			      android:layout_alignParentRight="true"
 			      android:src="@android:drawable/btn_dialog"
 			      android:background="#0F00" />
-			
+
 			  </RelativeLayout>
-			
+
 			</merge>
 
 여기에서 알 수 있듯이 알림 영역 뷰 식별자는 표준 식별자와 다릅니다. 각 레이아웃에서 알림 영역에 고유 식별자를 사용하는 것이 중요합니다.
@@ -450,19 +450,19 @@ Engagement Reach SDK는 알림 레이아웃이 이 작업에 포함되었으며 
 			    .setSmallIcon(notification.icon)              // icon is mandatory
 			    .setContentIntent(notification.contentIntent) // keep content intent
 			    .setDeleteIntent(notification.deleteIntent);  // keep delete intent
-			
+
 			  /* Your customization */
 			  // builder.set...
-			
+
 			  /* Dismiss option can be managed only after build */
 			  Notification myNotification = builder.build();
 			  if (!content.isNotificationCloseable())
 			    myNotification.flags |= Notification.FLAG_NO_CLEAR;
-			
+
 			  /* Notify here instead of super class */
 			  NotificationManager manager = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
 			  manager.notify(getNotificationId(content), myNotification); // notice the call to get the right identifier
-			
+
 			  /* Return false, we notify ourselves */
 			  return false;
 			}
@@ -472,7 +472,7 @@ Engagement Reach SDK는 알림 레이아웃이 이 작업에 포함되었으며 
 공지만 알림에 대한 클릭 관리는 `EngagementDefaultNotifier.onNotifAnnouncementIntentPrepared`을(를) 재정의하여 준비된 `Intent`을(를) 수정함으로써 사용자 지정할 수 있습니다. 이 메서드를 사용하면 플래그를 쉽게 조정할 수 있습니다.
 
 다음은 `SINGLE_TOP` 플래그를 추가하는 예제입니다.
-			
+
 			@Override
 			protected Intent onNotifAnnouncementIntentPrepared(EngagementNotifAnnouncement notifAnnouncement,
 			  Intent intent)
@@ -521,7 +521,7 @@ Engagement Reach SDK는 알림 레이아웃이 이 작업에 포함되었으며 
 
 			<activity android:name="com.your_company.MyCustomTextAnnouncementActivity">
 			  <intent-filter>
-			    <action android:name="com.microsoft.azure.engagement.intent.action.ANNOUNCEMENT"/>
+			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT"/>
 			    <category android:name="my_category" />
 			    <data android:mimeType="text/plain" />
 			  </intent-filter>
@@ -550,7 +550,7 @@ Reach SDK는 의도 시스템을 사용하여 특정 범주에 대해 올바른 
 
 			<activity android:name="com.your_company.MyCustomWebAnnouncementActivity">
 			  <intent-filter>
-			    <action android:name="com.microsoft.azure.engagement.intent.action.ANNOUNCEMENT"/>
+			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT"/>
 			    <category android:name="my_category" />
 			    <data android:mimeType="text/html" />    <!-- only difference with text announcements in the intent is the data mime type -->
 			  </intent-filter>
@@ -560,11 +560,11 @@ Reach SDK는 의도 시스템을 사용하여 특정 범주에 대해 올바른 
 
 			<activity android:name="com.your_company.MyCustomPollActivity">
 			  <intent-filter>
-			    <action android:name="com.microsoft.azure.engagement.intent.action.POLL"/>
+			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.POLL"/>
 			    <category android:name="my_category" />
 			  </intent-filter>
 			</activity>
-			
+
 ##### 처음부터 구현
 
 Reach SDK에서 제공하는 `Engagement*Activity` 클래스 중 하나를 확장하지 않고 알림(및 설문 조사) 작업에 대한 범주를 구현할 수 있습니다. 이 작업은, 예를 들어 동일한 뷰를 표준 레이아웃으로 사용하지 않는 레이아웃을 정의하려는 경우에 유용합니다.
@@ -578,12 +578,12 @@ Reach SDK에서 제공하는 `Engagement*Activity` 클래스 중 하나를 확�
 			public class MyCustomTextAnnouncement extends EngagementActivity
 			{
 			  private EngagementAnnouncement mContent;
-			
+
 			  @Override
 			  protected void onCreate(Bundle savedInstanceState)
 			  {
 			    super.onCreate(savedInstanceState);
-			
+
 			    /* Get content */
 			    mContent = EngagementReachAgent.getInstance(this).getContent(getIntent());
 			    if (mContent == null)
@@ -592,16 +592,16 @@ Reach SDK에서 제공하는 `Engagement*Activity` 클래스 중 하나를 확�
 			      finish();
 			      return;
 			    }
-			
+
 			    setContentView(R.layout.my_text_announcement);
-			
+
 			    /* Configure views by querying fields on mContent */
 			    // ...
 			  }
 			}
 
 통계를 위해 다음과 같이 콘텐츠가 `onResume` 이벤트에 표시된다는 것을 보고해야 합니다.
-			
+
 			@Override
 			protected void onResume()
 			{
@@ -623,7 +623,7 @@ Reach SDK에서 제공하는 `Engagement*Activity` 클래스 중 하나를 확�
 			{
 			  finish();
 			}
-			
+
 			@Override
 			protected void onPause()
 			{
@@ -643,6 +643,5 @@ Reach SDK에서 제공하는 `Engagement*Activity` 클래스 중 하나를 확�
 [여기]: http://developer.android.com/tools/extras/support-library.html#Downloading
 [Google Cloud Messaging]: http://developer.android.com/guide/google/gcm/index.html
 [Amazon Device Messaging]: https://developer.amazon.com/sdk/adm.html
- 
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

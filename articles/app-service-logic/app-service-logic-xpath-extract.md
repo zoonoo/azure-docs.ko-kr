@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="rajram"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,12 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/18/2016"
+   ms.date="04/20/2016"
    ms.author="rajram"/>
 
 # BizTalk XPath 추출기
 
->[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다.
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
+
 
 BizTalk XPath Extract 커넥터는 앱 조회를 지원하며, 지정된 XPath에 따라 XML 내용에서 데이터를 추출합니다.
 
@@ -30,8 +31,7 @@ BizTalk XPath Extract 커넥터는 앱 조회를 지원하며, 지정된 XPath�
 3. 디자이너에서 오른쪽 창은 흐름을 작성하는데 사용할 수 있는 API 앱을 나열합니다. "BizTalk XPath 추출기"를 찾습니다. 이를 선택하면 Xpath 추출기가 흐름에 추가되고 해당 인스턴스가 프로비전됩니다.
 4. 프로비전되면 디자이너에 BizTalk XPath 추출기 API 앱과 관련된 작업이 표시됩니다. ![BIzTalk XPath 추출기 작업 선택][1]
 
-5. "XPath를 사용하여 추출"을 선택합니다. "XPath를 사용하여 추출"은 지정된 입력 XML에서 입력 xpath 식을 평가합니다.
-![BIzTalk XPath 추출기 입력][2]
+5. "XPath를 사용하여 추출"을 선택합니다. "XPath를 사용하여 추출"은 지정된 입력 XML에서 입력 xpath 식을 평가합니다. ![BIzTalk XPath 추출기 입력][2]
 
 	매개 변수|형식|매개 변수에 대한 설명
 ---|---|---
@@ -47,4 +47,4 @@ Input Xml|string|입력 Xml 내용
 <!-- Links -->
 [새 논리 앱 만들기]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

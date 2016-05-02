@@ -31,6 +31,8 @@ Azure 클래식 포털뿐 아니라 HDInsight 관리에 사용할 수 있는 기
 
 - Azure CLI를 사용하여 HDInsight를 관리하는 방법에 대한 자세한 내용은 [Azure CLI를 사용하여 HDInsight 관리](hdinsight-administer-use-command-line.md)를 참조하세요.
 
+> [AZURE.WARNING] Azure PowerShell 또는 Azure CLI의 최신 버전은 기본적으로 Azure Resource Manager를 사용합니다. 이 모드를 사용하여 만든 HDInsight 클러스터는 Azure 클래식 포털을 사용하여 관리할 수 없습니다.
+
 ##필수 조건
 
 이 문서를 시작하기 전에 다음이 있어야 합니다.
@@ -198,4 +200,4 @@ HDInsight 클러스터에는 다음과 같은 HTTP 웹 서비스가 있습니다
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal-v1/hdinsight-hadoop-command-line.png "Hadoop 명령줄"
 [image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal-v1/hdi.clustercreate.uploadcert.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

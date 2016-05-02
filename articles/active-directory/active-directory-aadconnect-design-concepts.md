@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="Identity"
-   ms.date="02/16/2016"
+   ms.date="04/20/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: 설계 개념
@@ -36,6 +36,7 @@ sourceAnchor 특성은 *개체의 수명 동안 변경할 수 없는 속성*으�
 특성 값은 다음 규칙을 따라야 합니다.
 
 - 길이는 60자 미만이어야 합니다.
+    - 문자가 a-z, A-Z 또는 0-9가 아니면 인코드되고 세 문자로 계산됩니다.
 - &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " @ \_ 기호와 같은 특수 문자는 포함할 수 없습니다.
 - 전역적으로 고유해야 합니다.
 - 문자열, 정수 또는 이진이어야 합니다.
@@ -67,4 +68,4 @@ sourceAnchor 특성값은 개체가 Azure AD에 생성되고 ID가 동기화된 
 ## 다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -1,13 +1,21 @@
-<properties" pageTitle="title="List of Oracle VM images | Microsoft Azure" description="Get the list of Oracle images in the Azure Gallery and learn how to create an Oracle virtual machine." services="virtual-machines-linux" documentationCenter="" authors="bbenz" manager="" editor="" tags="azure-service-management, azure-resource-manager"/>
+<properties
+  pageTitle="Oracle VM 이미지 목록 | Microsoft Azure"
+  description="Azure 갤러리의 Oracle 이미지 목록을 가져오고 Oracle 가상 컴퓨터를 만드는 방법을 알아봅니다."
+  services="virtual-machines-linux"
+  documentationCenter=""
+  authors="bbenz"
+  manager=""
+  editor=""
+  tags="azure-service-management, azure-resource-manager"/>
 
 <tags
-ms.service="virtual-machines-linux"
-ms.devlang="na"
-ms.topic="article"
-ms.tgt_pltfrm="vm-linux"
-ms.workload="infrastructure-services"
-ms.date="06/22/2015"
-ms.author="bbenz" />
+  ms.service="virtual-machines-linux"
+  ms.devlang="na"
+  ms.topic="article"
+  ms.tgt_pltfrm="vm-linux"
+  ms.workload="infrastructure-services"
+  ms.date="06/22/2015"
+  ms.author="bbenz" />
 
 #Oracle 가상 컴퓨터 이미지 목록
 
@@ -15,4 +23,4 @@ ms.author="bbenz" />
 
 [AZURE.INCLUDE [virtual-machines-common-classic-oracle-images](../../includes/virtual-machines-common-classic-oracle-images.md)]
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

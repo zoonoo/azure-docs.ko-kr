@@ -10,7 +10,7 @@
 <tags
    ms.service="virtual-machines-linux"
    ms.devlang="NA"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
    ms.date="02/01/2016"
@@ -60,4 +60,4 @@ Azure에서 VM을 배포할 경우 워크로드에 적합한 크기의 시리즈
 
 무료 평가판 계정. **[하나 가져옵니다](https://azure.microsoft.com/pricing/free-trial/)**. 이미 있는 경우 체험하려면 **[Azure CLI 설치](../xplat-cli-install.md)**합니다. 설치했다면 [이제 Linux VM 만들기로 이동](virtual-machines-linux-quick-create-cli.md)합니다.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

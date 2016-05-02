@@ -11,7 +11,7 @@
 <tags
    ms.service="virtual-machines-windows"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
    ms.date="02/24/2016"
@@ -37,9 +37,6 @@ Microsoft Azure에서 Windows 기반 가상 컴퓨터를 만들고 관리하는 
 [Azure 리소스 관리자 배포에 대해 알아보기](../resource-group-overview.md)
 
 [Azure 가상 컴퓨터 및 컨테이너](virtual-machines-windows-containers.md)
-
-[가상 컴퓨터 규모 집합 개요](virtual-machines-windows-scale-sets-overview.md)
-
 
 
 ### 환경 설정
@@ -115,8 +112,6 @@ Microsoft Azure에서 Windows 기반 가상 컴퓨터를 만들고 관리하는 
 [Azure 가상 컴퓨터에서 SQL Server의 자동화된 백업](virtual-machines-windows-classic-sql-automated-backup.md)
 
 [Azure 가상 컴퓨터에서 SQL Server의 자동화된 패치](virtual-machines-windows-classic-sql-automated-patching.md)
-
-[가상 컴퓨터 규모 집합에서 자동으로 컴퓨터 규모 조정](virtual-machines-windows-ps-vmss-create.md)
 
 
 
@@ -329,8 +324,6 @@ Microsoft Azure에서 Windows 기반 가상 컴퓨터를 만들고 관리하는 
 
 [Visual Studio에서 웹 응용 프로그램용 가상 컴퓨터 만들기](virtual-machines-windows-classic-web-app-visual-studio.md)
 
-[Azure 가상 컴퓨터에서 .NET으로 계산 집약적인 작업을 실행하는 방법](virtual-machines-windows-classic-run-compute-intensive-task.md)
-
 [가상 컴퓨터에서 Java로 계산 집약적인 작업을 실행하는 방법](virtual-machines-windows-classic-java-run-compute-intensive-task.md)
 
 [Windows Server VM의 Django Hello World 웹 응용 프로그램](virtual-machines-windows-classic-python-django-web-app.md)
@@ -375,4 +368,4 @@ Microsoft Azure에서 Windows 기반 가상 컴퓨터를 만들고 관리하는 
 
 [Azure에서 VM을 만들거나 재시작하거나 크기를 조정하는 경우 할당 오류 해결](virtual-machines-windows-allocation-failure.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

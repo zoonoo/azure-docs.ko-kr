@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2016" 
+	ms.date="04/19/2016" 
 	ms.author="larryfr"/>
 
 #HDInsight의 Hive를 사용하여 비행 지연 데이터 분석
@@ -34,6 +34,8 @@ Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터를 분
 - __Azure SQL 데이터베이스__. Azure SQL 데이터베이스를 대상 데이터 저장소로 사용합니다. SQL 데이터베이스가 없는 경우 [SQL 데이터베이스 자습서: 몇 분 만에 SQL 데이터베이스 만들기](../sql-database/sql-database-get-started.md)를 참조하세요.
 
 - __Azure CLI__. Azure CLI를 설치하지 않은 경우 자세한 단계는 [Azure CLI 설치 및 구성](../xplat-cli-install.md)을 참조하세요.
+
+	[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 
 ##비행 데이터 다운로드
@@ -304,4 +306,4 @@ Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터를 분
 
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0420_2016-->

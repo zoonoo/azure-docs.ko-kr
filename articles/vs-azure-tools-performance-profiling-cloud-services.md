@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="12/17/2015"
+   ms.date="04/18/2016"
    ms.author="tarcher" />
 
 
@@ -80,7 +80,7 @@ Visual Studio에서 클라우드 서비스를 게시할 때에 서비스를 프�
 
 Visual Studio에서 성능을 프로파일링하는 방법을 알아보려면 [성능 프로파일링 초보자 가이드](https://msdn.microsoft.com/library/azure/ms182372.aspx) 및 [프로파일링 도구를 사용하여 응용 프로그램 성능 분석](https://msdn.microsoft.com/library/azure/z9z62c29.aspx)을 참조하십시오.
 
->[AZURE.NOTE]응용 프로그램을 게시할 때 IntelliTrace 또는 프로파일링을 사용할 수 있습니다. 둘 다 사용할 수는 없습니다.
+>[AZURE.NOTE] 응용 프로그램을 게시할 때 IntelliTrace 또는 프로파일링을 사용할 수 있습니다. 둘 다 사용할 수는 없습니다.
 
 ###프로파일러 컬렉션 방법
 
@@ -102,7 +102,7 @@ Visual Studio에서 성능을 프로파일링하는 방법을 알아보려면 [�
 
 ![프로파일링 설정 구성](./media/vs-azure-tools-performance-profiling-cloud-services/IC526984.png)
 
->[AZURE.NOTE]**프로파일링 사용** 확인란을 활성화하려면 클라우드 서비스를 게시하는 데 사용 중인 로컬 컴퓨터에 프로파일러가 설치되어 있어야 합니다. 기본적으로 프로파일러는 Visual Studio를 설치할 때 설치됩니다.
+>[AZURE.NOTE] **프로파일링 사용** 확인란을 활성화하려면 클라우드 서비스를 게시하는 데 사용 중인 로컬 컴퓨터에 프로파일러가 설치되어 있어야 합니다. 기본적으로 프로파일러는 Visual Studio를 설치할 때 설치됩니다.
 
 ### 프로파일링 설정 구성
 
@@ -146,4 +146,4 @@ Visual Studio에서 성능을 프로파일링하는 방법을 알아보려면 [�
 
 [Visual Studio에서 Azure 클라우드 서비스에 게시](https://msdn.microsoft.com/library/azure/ee460772.aspx)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0420_2016-->

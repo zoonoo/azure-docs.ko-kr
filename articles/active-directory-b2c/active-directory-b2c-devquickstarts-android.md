@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure Active Directory B2C 미리 보기: Android 응용 프로그램에서 Web API 호출 | Microsoft Azure" 
-	description="이 문서는 OAuth 2.0 전달자 토큰을 사용하여 Node.js Web API를 호출하는 Android "할 일 목록" 앱을 만드는 방법을 보여줍니다. Android 앱과 Web API 모두는 Azure Active Directory B2C를 사용하여 사용자 ID를 관리하고 사용자를 인증합니다." 
+	pageTitle="Azure Active Directory B2C 미리 보기: Android 응용 프로그램에서 Web API 호출 | Microsoft Azure"
+	description="이 문서에서는 OAuth 2.0 전달자 토큰을 사용하여 Node.js Web API를 호출하는 Android ";할 일 목록"; 앱을 만드는 방법을 보여 줍니다. Android 앱 및 Web API는 Azure Active Directory B2C를 사용하여 사용자 ID를 관리하고 사용자를 인증합니다."
 	services="active-directory-b2c"
 	documentationCenter="android"
 	authors="brandwe"
@@ -34,13 +34,13 @@ Azure AD(Azure Active Directory) B2C를 사용하여 몇 가지 간단한 단계
 
 ## Azure AD B2C 디렉터리 가져오기
 
-Azure AD B2C를 사용하기 전에 디렉터리 또는 테넌트를 만들어야 합니다. 디렉터리는 모든 사용자, 앱, 그룹 등을 위한 컨테이너입니다. 아직 없는 경우 이 가이드를 계속하기 전에 [B2C 디렉터리를 만듭니다](active-directory-b2c-get-started.md).
+Azure AD B2C를 사용하기 전에 디렉터리 또는 테넌트를 만들어야 합니다. 디렉터리는 모든 사용자, 앱, 그룹 등을 위한 컨테이너입니다. 아직 없는 경우 [B2C 디렉터리를 만든](active-directory-b2c-get-started.md) 후에 이 가이드를 계속 진행합니다.
 
 ## 응용 프로그램 만들기
 
-다음으로 B2C 디렉터리에서 앱을 만들어야 합니다. 앱과 안전하게 통신하는 데 필요한 Azure AD 정보를 제공합니다. 이 경우 하나의 논리 앱을 구성하기 때문에 앱과 Web API는 모두 단일 **응용 프로그램 ID**에서 나타납니다. 앱을 만들려면 [다음 지침](active-directory-b2c-app-registration.md)에 따릅니다. 다음을 수행해야 합니다.
+다음으로 B2C 디렉터리에서 앱을 만들어야 합니다. 앱과 안전하게 통신하는 데 필요한 Azure AD 정보를 제공합니다. 이 경우 앱과 웹 API는 모두 하나의 논리 앱을 구성하기 때문에 단일 **응용 프로그램 ID**에서 나타납니다. 앱을 만들려면 [다음 지침](active-directory-b2c-app-registration.md)에 따릅니다. 다음을 수행해야 합니다.
 
-- 응용 프로그램에서 **웹앱**/**Web API**를 포함합니다.
+- 응용 프로그램에서 **웹앱/웹 API**를 포함합니다.
 - **회신 URL**로 `urn:ietf:wg:oauth:2.0:oob`을 입력합니다. 이 코드 샘플에 대한 기본 URL입니다.
 - 응용 프로그램에 **응용 프로그램 암호**를 만들고 복사합니다. 이 시간은 나중에 필요합니다. 참고로 이 값은 사용하기 전에 [XML 이스케이프](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape)되어야 합니다.
 - 앱에 할당된 **응용 프로그램 ID**를 복사합니다. 이 ID는 나중에도 필요합니다.
@@ -65,7 +65,7 @@ Azure AD B2C에서 모든 사용자 환경은 [정책](active-directory-b2c-refe
 
 ## 코드 다운로드
 
-이 자습서에 대한 코드는 [GitHub에서 유지 관리됩니다](https://github.com/AzureADQuickStarts/B2C-NativeClient-Android). 진행하면서 샘플을 작성하기 위해 [골격 프로젝트를 .zip 파일로 다운로드](https://github.com/AzureADQuickStarts/B2C-NativeClient-Android/archive/skeleton.zip)할 수 있습니다. 기본 구조를 복제할 수도 있습니다.
+이 자습서에 대한 코드는 [GitHub에서 유지 관리](https://github.com/AzureADQuickStarts/B2C-NativeClient-Android)됩니다. 진행하면서 샘플을 빌드하기 위해 [구조 프로젝트를 .zip 파일로 다운로드](https://github.com/AzureADQuickStarts/B2C-NativeClient-Android/archive/skeleton.zip)할 수 있습니다. 기본 구조를 복제할 수도 있습니다.
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClient-Android.git
@@ -73,9 +73,9 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClie
 
 > [AZURE.NOTE] **이 자습서를 완료하려면 골격을 다운로드해야 합니다.** 완벽하게 작동하는 Android 응용 프로그램을 구현하는 것이 복잡하기 때문에 이 자습서를 완료한 후에 실행될 UX 코드가 골격에 포함되어 있습니다. 개발자를 위한 시간 절약 측정입니다. UX 코드는 Android 응용 프로그램에 B2C를 추가하는 방법 항목과 밀접한 관련이 없습니다.
 
-완성된 앱도 [.zip 파일로 다운로드하거나](https://github.com/AzureADQuickStarts/B2C-NativeClient-Android/archive/complete.zip) 동일한 리포지토리의 `complete` 분기에서 사용할 수 있습니다.
+완성된 앱도 [.zip 파일로 가능](https://github.com/AzureADQuickStarts/B2C-NativeClient-Android/archive/complete.zip)하거나 동일한 리포지토리의 `complete` 분기에서 사용할 수 있습니다.
 
-Maven으로 작성하려면 최상위 수준에서 `pom.xml`을 사용할 수 있습니다.
+Maven으로 빌드하려면 최상위 수준에서 `pom.xml`을 사용할 수 있습니다.
 
   1. [Android용 Maven을 설정하기 위한 필수 조건 섹션](https://github.com/MSOpenTech/azure-activedirectory-library-for-android/wiki/Setting-up-maven-environment-for-Android)의 단계를 수행합니다.
   2. SDK 21로 에뮬레이터를 설정합니다.
@@ -190,7 +190,7 @@ public class Constants {
 - `ADDITIONAL_SCOPES`: 응용 프로그램에 사용하려는 추가 범위입니다. 나중에 사용될 것입니다.
 - `CLIENT_ID`: 포털에서 가져온 응용 프로그램 ID입니다.
 - `REDIRECT_URL`: 토큰이 다시 게시되는 위치의 리디렉션입니다.
-- `EXTRA_QP`: URL로 인코딩된 형식인 서버에 전달하려는 추가 데이터입니다.
+- `EXTRA_QP`: URL로 인코드된 형식인 서버에 전달하려는 추가 데이터입니다.
 - `FB_POLICY`: 호출하는 정책입니다. 이 연습에 대한 중요한 부분입니다.
 - `EMAIL_SIGNIN_POLICY`: 호출하는 정책입니다. 이 연습에 대한 중요한 부분입니다.
 - `EMAIL_SIGNUP_POLICY`: 호출하는 정책입니다. 이 연습에 대한 중요한 부분입니다.
@@ -359,7 +359,7 @@ public class LoginActivity extends Activity {
 
 설정 UI를 채우는 작업입니다.
 
-간단한 만들기, 읽기, 업데이트 및 삭제(CRUD) 작업에 `SettingsActivity.java`라는 파일을 만듭니다.
+간단한 CRUD(만들기, 읽기, 업데이트 및 삭제) 작업에 `SettingsActivity.java`라는 파일을 만듭니다.
 
 ```
  package com.microsoft.aad.taskapplication;
@@ -720,19 +720,19 @@ public class ToDoActivity extends Activity {
 ```
 
 
- 아직 작성하지 않은 메서드에 의존한다는 점을 알 수 있습니다. `updateLoggedInUser()`, `clearSessionCookie()`, 및 `getTasks()`을 포함합니다. 이 가이드의 뒷부분에 나오는 해당 사항을 작성합니다. 지금은 Android Studio의 오류를 안전하게 무시할 수 있습니다.
+ 아직 작성하지 않은 메서드에 의존한다는 점을 알 수 있습니다. `updateLoggedInUser()`, `clearSessionCookie()` 및 `getTasks()`을 포함합니다. 이 가이드의 뒷부분에 나오는 해당 사항을 작성합니다. 지금은 Android Studio의 오류를 안전하게 무시할 수 있습니다.
 
 매개 변수에 대한 설명:
 
-  - `SCOPES`: 필수 항목이며 액세스를 요청하려는 범위입니다. B2C 미리 보기의 경우 이는 `client_id`와 동일하지만 나중에 변경됩니다.
-  - `POLICY`: 사용자를 인증하려는 경우에 대한 정책입니다.
+  - `SCOPES`: 필수이며 액세스를 요청하려는 범위입니다. B2C 미리 보기의 경우 이는 `client_id`와 동일하지만 나중에 변경됩니다.
+  - `POLICY`: 사용자를 인증하기 위한 정책입니다.
   - `CLIENT_ID`: 필수이며 Azure AD 포털에서 가져옵니다.
   - `redirectUri`: 패키지 이름으로 설정될 수 있습니다. `acquireToken` 호출의 경우에는 제공하지 않아도 됩니다.
-  - `getUserInfo()`: 사용자가 캐시에 이미 있는지를 조회하는 방법입니다. 또한 매개 변수는 해당 사용자를 찾을 수 없거나 사용자의 액세스 토큰이 유효하지 않은 경우 사용자에게 메시지를 표시하는 방법을 설명합니다. 이 메서드는 이 가이드의 뒷부분에 작성됩니다.
+  - `getUserInfo()`: 사용자가 캐시에 이미 있는지 조회하는 방법입니다. 또한 매개 변수는 해당 사용자를 찾을 수 없거나 사용자의 액세스 토큰이 유효하지 않은 경우 사용자에게 메시지를 표시하는 방법을 설명합니다. 이 메서드는 이 가이드의 뒷부분에 작성됩니다.
   - `PromptBehavior.always`: 자격 증명을 요청하여 캐시 및 쿠키를 건너뛰는 데 도움이 됩니다.
   - `Callback`: 인증 코드가 토큰과 교환되면 호출됩니다. 액세스 토큰, 만료 날짜 및 ID 토큰 정보를 포함하는 `AuthenticationResult` 개체를 가져옵니다.
 
-> [AZURE.NOTE]	Microsoft Intune 회사 포털 앱은 broker 구성 요소를 제공하고 사용자의 장치에 설치될 수 있습니다. 앱은 장치에서 모든 응용 프로그램에 Single Sign-On(SSO) 액세스를 제공합니다. 개발자가 Intune에 대해 허용되도록 준비해야 합니다. Android용 ADAL은 인증자에서 만들어진 한 개의 사용자 계정이 있는 경우 broker 계정을 사용합니다. broker를 사용하기 위해 개발자는 broker에 특별한 `redirectUri`를 등록해야 합니다. `redirectUri`는 msauth://packagename/Base64UrlencodedSignature 형식입니다. `brokerRedirectPrint.ps1` 스크립트를 사용하거나 API 호출 `mContext.getBrokerRedirectUri()`을 사용하여 앱에 `redirectUri`를 가져올 수 있습니다. 서명은 Google Play 스토어의 인증서 서명과 관련이 있습니다.
+> [AZURE.NOTE]	Microsoft Intune 회사 포털 앱은 broker 구성 요소를 제공하고 사용자의 장치에 설치될 수 있습니다. 앱은 장치에서 모든 응용 프로그램에 Single Sign-On(SSO) 액세스를 제공합니다. 개발자가 Intune에 대해 허용되도록 준비해야 합니다. Android용 ADAL은 인증자에서 만들어진 한 개의 사용자 계정이 있는 경우 broker 계정을 사용합니다. broker를 사용하기 위해 개발자는 broker에 특별한 `redirectUri`를 등록해야 합니다. `redirectUri`는 msauth://packagename/Base64UrlencodedSignature 형식에 있습니다. `brokerRedirectPrint.ps1` 스크립트를 사용하거나 API 호출 `mContext.getBrokerRedirectUri()`을 사용하여 앱에 `redirectUri`를 가져올 수 있습니다. 서명은 Google Play 스토어의 인증서 서명과 관련이 있습니다.
 
  다음을 사용하여 broker 사용자를 건너뛸 수 있습니다.
 
@@ -800,7 +800,7 @@ Android용 ADAL은 `UserIdentifier` 개체의 형태로 사용자를 나타냅�
 
 다음으로, 쿠키를 지우고 `AuthenticationCallback`을 제공할 수 있도록 몇 가지 도우미 메서드를 작성합니다. 이러한 메서드는 `ToDo` 작업을 호출할 때 클린 상태인지 확인하는 샘플에만 사용됩니다.
 
-`ToDoActivity.java`이라는 동일한 파일에 다음을 추가합니다.
+`ToDoActivity.java`라는 동일한 파일에 다음을 작성합니다.
 
 ```
 
@@ -853,7 +853,7 @@ Android용 ADAL은 `UserIdentifier` 개체의 형태로 사용자를 나타냅�
 
 또한 첫 실행에서 테이블을 초기화하는 메서드를 작성합니다.
 
-`ToDoActivity.java`이라는 동일한 파일에 다음을 추가합니다.
+`ToDoActivity.java`라는 동일한 파일에 다음을 작성합니다.
 
 ```
     private void initAppTables() {
@@ -875,7 +875,7 @@ Android용 ADAL은 `UserIdentifier` 개체의 형태로 사용자를 나타냅�
 
 연결할 끝점 URL을 생성해야 합니다. 동일한 클래스 파일에서 이를 수행합니다.
 
-`ToDoActivity.java`라는 **동일한 파일에** 다음을 추가합니다.
+`ToDoActivity.java`라는 **동일한 파일**에 다음을 작성합니다.
 
  ```
     private URL getEndpointUrl() {
@@ -915,7 +915,7 @@ Android는 앱을 작동시키는 일부 콜백을 처리해야 합니다. 이�
 
 다음으로 대화 상자 콜백을 관리합니다.
 
-`ToDoActivity.java`이라는 동일한 파일에 다음을 추가합니다.
+`ToDoActivity.java`라는 동일한 파일에 다음을 작성합니다.
 
 ```
     /**
@@ -962,7 +962,7 @@ API가 수신한 액세스 토큰에서 사용자의 ID를 추출하므로 태�
 
 ### 암호화
 
-ADAL은 기본적으로 토큰을 암호화한 후 `SharedPreferences`에 저장합니다. `StorageHelper` 클래스를 확인하여 세부 정보를 볼 수 있습니다. Android에서는 개인 키의 보안 저장소 **4.3(API18)용 AndroidKeyStore**를 도입했습니다. ADAL은 API18 이상에 이 저장소를 사용합니다. 더 낮은 SDK 버전에 ADAL을 사용하려는 경우 `AuthenticationSettings.INSTANCE.setSecretKey`에서 비밀 키를 제공해야 합니다.
+ADAL은 기본적으로 토큰을 암호화한 후 `SharedPreferences`에 저장합니다. `StorageHelper` 클래스를 확인하여 세부 정보를 볼 수 있습니다. Android에서는 개인 키의 보안 저장소인 **4.3(API18)용 AndroidKeyStore**를 도입했습니다. ADAL은 API18 이상에 이 저장소를 사용합니다. 더 낮은 SDK 버전에 ADAL을 사용하려는 경우 `AuthenticationSettings.INSTANCE.setSecretKey`에서 비밀 키를 제공해야 합니다.
 
 ### 웹 뷰의 세션 쿠키
 
@@ -975,4 +975,4 @@ CookieSyncManager.getInstance().sync();
 ```
 [쿠키에 대해 자세히 알아봅니다](http://developer.android.com/reference/android/webkit/CookieSyncManager.html).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

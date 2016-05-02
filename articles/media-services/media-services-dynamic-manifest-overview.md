@@ -3,8 +3,8 @@
 	description="이 항목에서는 클라이언트가 스트림의 특정 섹션을 스트리밍하는 데 사용할 수 있는 필터를 생성하는 방법을 설명합니다. 이 선택적 스트리밍을 보관하기 위해 미디어 서비스는 동적 매니페스트를 생성합니다." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="cenkdin,Juliako" 
-	manager="dwrede" 
+	authors="cenkdin" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="01/28/2016" 
-	ms.author="juliako"/>
+ 	ms.date="04/18/2016" 
+	ms.author="cenkdin;juliako"/>
 
 #필터 및 동적 매니페스트
 
@@ -236,4 +236,4 @@
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0420_2016-->

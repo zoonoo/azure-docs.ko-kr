@@ -13,7 +13,7 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="support-article"
 	ms.date="04/06/2016"
 	ms.author="iainfou"/>
 
@@ -195,4 +195,4 @@ Azure VM에 대한 원격 데스크톱 끝점도 TCP 포트 3398을 내부 포�
 
 [Azure 가상 컴퓨터에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결](virtual-machines-linux-troubleshoot-app-connection.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

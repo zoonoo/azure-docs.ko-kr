@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/29/2016"
+   ms.date="04/19/2016"
    ms.author="larryfr"/>
 
 #Ambari REST API를 사용하여 HDInsight 클러스터 관리
@@ -29,6 +29,9 @@ Apache Ambari는 손쉬운 웹 UI 및 REST API 사용을 제공하여 Hadoop 클
 
 * [cURL](http://curl.haxx.se/): cURL은 명령줄에서 REST API와 함께 작동하도록 사용할 수 있는 크로스 플랫폼 유틸리티입니다. 이 문서에서 Ambari REST API와 통신하는데 사용됩니다.
 * [jq](https://stedolan.github.io/jq/): jq는 JSON 문서 작업에 대한 크로스 플랫폼 명령줄 유틸리티입니다. 이 문서에서 Ambari REST API에서 반환된 JSON 문서를 구문 분석하는데 사용됩니다.
+* [Azure CLI](../xplat-cli-install.md): Azure 서비스 작업에 대한 플랫폼 간 명령줄 유틸리티입니다.
+
+    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
 ##<a id="whatis"></a>Ambari 정의
 
@@ -111,7 +114,7 @@ HDInsight 클러스터를 만드는 경우 Azure 저장소 계정 및 Blob 컨�
 
     wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net
 
-그런 다음 [Azure CLI](../xplat-cli-install.md)로 이 정보를 사용하여 컨테이너에서 데이터를 업로드하거나 다운로드할 수 있습니다. 예:
+그런 다음 [Azure CLI](../xplat-cli-install.md)로 이 정보를 사용하여 컨테이너에서 데이터를 업로드하거나 다운로드할 수 있습니다.
 
 1. 저장소 계정에 대한 리소스 그룹을 가져옵니다. __ACCOUNTNAME__을 Ambari에서 검색한 저장소 계정 이름으로 대체합니다.
 
@@ -161,7 +164,7 @@ HDInsight 클러스터를 만드는 경우 Azure 저장소 계정 및 Blob 컨�
             "version" : 1
         }
 
-    이 목록에서 구성 요소의 이름(예: __spark\_thrift\_sparkconf__ 및 __tag__ 값을 복사해야 합니다.
+    이 목록에서 구성 요소의 이름(예: __spark\_thrift\_sparkconf__ 및 __tag__ 값)을 복사해야 합니다.
     
 2. 다음 명령을 사용하여 구성 요소 및 태그의 구성을 검색합니다. __spark-thrift-sparkconf__ 및 __INITIAL__을 구성을 검색할 구성 요소 및 태그로 바꿉니다.
 
@@ -171,7 +174,7 @@ HDInsight 클러스터를 만드는 경우 Azure 저장소 계정 및 Blob 컨�
     
     * 문자열 "version" 및 날짜를 포함하는 고유 값을 만듭니다. 이 값은 __newtag__에 저장됩니다.
     * 필요한 새 구성의 루트 문서를 만듭니다.
-    * .Items 배열의 내용을 가져와 __desired\_config__ 요소 아래에 추가합니다.
+    * .items 배열의 내용을 가져와 __desired\_config__ 요소 아래에 추가합니다.
     * __href__, __version__ 및 __Config__ 요소를 삭제합니다. 이러한 요소는 새 구성을 제출하는 데 필요 없기 때문입니다.
     * 새 __tag__ 요소를 추가하고 해당 값을 __version#################__으로 설정합니다. 여기서 숫자 부분은 현재 날짜를 기준으로 합니다. 각 구성에 고유한 태그가 있어야 합니다.
     
@@ -206,7 +209,7 @@ HDInsight 클러스터를 만드는 경우 Azure 저장소 계정 및 Blob 컨�
 
 ###예: 서비스 구성 요소 다시 시작
 
-이제 새 구성을 적용하려면 먼저 Spark 서비스를 다시 시작해야 한다는 메시지가 Ambari 웹 UI에 표시됩니다. 다음 단계를 사용하여 서비스를 다시 시작합니다. 신중하게 확인해야 합니다.
+이제 새 구성을 적용하려면 먼저 Spark 서비스를 다시 시작해야 한다는 메시지가 Ambari 웹 UI에 표시됩니다. 다음 단계를 사용하여 서비스를 다시 시작합니다.
 
 1. 다음을 사용하여 Spark 서비스에 대한 유지 관리 모드를 사용하도록 설정합니다.
 
@@ -254,4 +257,4 @@ REST API의 모든 참조 문서를 보려면 [Ambari API 참조 V1](https://git
 
 > [AZURE.NOTE] HDInsight 클라우드 서비스에 의해 관리되는 일부 Ambari 기능(예: 클러스터에서 호스트 추가 또는 제거 또는 새 서비스 추가)은 사용할 수 없습니다.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

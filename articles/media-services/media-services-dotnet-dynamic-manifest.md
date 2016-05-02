@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede,cenkdin" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-  ms.date="02/03/2016"
-	ms.author="juliako"/>
+	ms.date="04/18/2016"
+	ms.author="juliako;cenkdin"/>
 
 
 #Azure 미디어 서비스 .NET SDK로 필터 생성
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-dotnet-dynamic-manifest.md)
-- [REST](media-services-rest-dynamic-manifest.md)
+- [REST (영문)](media-services-rest-dynamic-manifest.md)
 
 미디어 서비스 2.11 버전부터 자산에 대한 필터를 정의할 수 있습니다. 이 필터는 고객이 전체 비디오를 재생하는 대신 비디오의 한 섹션만 재생하거나 자산과 연결된 모든 변환 대신 고객의 장치가 처리할 수 있는 오디오 및 비디오 변환의 하위 집합만 지정하는 등을 선택할 수 있도록 하는 서버 측 규칙입니다. 지정한 필터에 따라 비디오를 스트림하는 고객의 요청에 따라 생성된 **동적 매니페스트**를 통해 자산의 필터링이 이루어집니다.
 
@@ -148,4 +148,4 @@
 [동적 매니페스트 개요](media-services-dynamic-manifest-overview.md)
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -13,12 +13,25 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="03/23/2016"
+   ms.date="04/18/2016"
    ms.author="yuemlu"/>
 
 # Azure 게스트 OS 
 
 다음 테이블에서 Azure 게스트 OS에 적용된 Microsoft 보안 대응 센터(MSRC) 업데이트를 보여줍니다. 사용 중인 게스트 OS에 특정 업데이트가 적용되는 경우 이 문서를 검색합니다. 도입된 특정 [제품군][family-explain] 설명에 업데이트가 항상 수행됩니다.
+
+
+## 게스트 OS 4월 
+
+| 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-037 | [3148531] | Internet Explorer용 누적 보안 업데이트 | 4\.31, 3.38, 2.50 | 2016년 4월 12일 |  
+| MS16-039 | [3148522] | Microsoft 그래픽 구성 요소용 보안 업데이트 | 4\.31, 3.38, 2.50 | 2016년 4월 12일 | 
+| MS16-040 | [3148541] | Microsoft XML Core Service용 보안 업데이트 | 4\.31, 3.38, 2.50 | 2016년 4월 12일 | 
+| MS16-044 | [3146706] | Windows OLE용 보안 업데이트 | 4\.31, 3.38, 2.50 | 2016년 4월 12일 | 
+| MS16-045 | [3143118] | Windows Hyper-V용 보안 업데이트 | 4\.31, 3.38 | 2016년 4월 12일 | 
+| MS16-047 | [3148527] | 보안 계정 관리자 원격 프로토콜용 보안 업데이트 | 4\.31, 3.38, 2.50 | 2016년 4월 12일 | 
+| MS16-048 | [3148528] | CSRSS용 보안 업데이트 | 4\.31, 3.38 | 2016년 4월 12일 | 
 
 ## 게스트 OS 3월 
 
@@ -256,6 +269,14 @@
 | 해당 없음 | [2999802][2999802] | 점선 대신 실선이 Windows에서 인쇄됨 | 4\.15, 3.22, 2.34 | 2015년 1월 13일 |
 | 해당 없음 | [2896881][2896881] | Windows에서 로그온 프로세스 중 사용자에 대한 프린터를 매핑하도록 AddPrinterConnection VBScript 명령을 사용하는 경우 로그온에 오랜 시간이 걸림 | 4\.15, 3.22, 2.34 | 2015년 1월 13일 |
 
+[3148531]: http://support.microsoft.com/kb/3148531
+[3148522]: http://support.microsoft.com/kb/3148522
+[3148541]: http://support.microsoft.com/kb/3148541
+[3146706]: http://support.microsoft.com/kb/3146706
+[3143118]: http://support.microsoft.com/kb/3143118
+[3148527]: http://support.microsoft.com/kb/3148527
+[3148528]: http://support.microsoft.com/kb/3148528
+
 
 [3142015]: http://support.microsoft.com/kb/3142015
 [3143148]: http://support.microsoft.com/kb/3143148
@@ -432,4 +453,4 @@
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="visual-studio-online"
-   ms.date="12/16/2015"
+   ms.date="04/18/2016"
    ms.author="tarcher" />
 
 # Visual Studio에서 연결된 서비스를 사용하여 Azure Active Directory 추가 
@@ -79,4 +79,4 @@ Azure Active Directory(Azure AD)를 사용하여 ASP.NET MVC 웹 응용 프로�
 
  - [블로그 게시물: Azure AD에 대한 소개](http://blogs.msdn.com/b/brunoterkaly/archive/2014/03/03/introduction-to-windows-azure-active-directory.aspx)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0420_2016-->

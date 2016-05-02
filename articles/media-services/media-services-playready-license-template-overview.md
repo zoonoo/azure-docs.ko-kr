@@ -2,7 +2,7 @@
 	pageTitle="미디어 서비스 PlayReady 라이선스 템플릿 개요" 
 	description="이 항목에서는 PlayReady 라이선스를 구성하는 데 사용되는 PlayReady 라이선스 템플릿에 대해 간략히 설명합니다." 
 	authors="juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="media-services" 
 	documentationCenter=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
+ 	ms.date="04/18/2016"  
 	ms.author="juliako"/>
 
 #미디어 서비스 PlayReady 라이선스 템플릿 개요
@@ -311,4 +311,4 @@ Silverlight에서 지원하는 보호 수준의 예는 [출력 보호를 위한 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

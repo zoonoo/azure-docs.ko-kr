@@ -36,7 +36,9 @@ Azure 리소스 관리 템플릿은 __리소스 그룹__ 및 그 안에 모든 �
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 - **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
-- __Azure CLI__. CLI를 설치하는 방법에 대한 자세한 내용은 [Azure CLI 설치](../xplat-cli-install.md)를 참조하세요.
+- __Azure CLI__.
+
+    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 ##Azure 구독에 로그인
 
@@ -122,4 +124,4 @@ HDInsight 클러스터를 성공적으로 만들었으므로 다음을 사용하
 * [HDInsight의 Storm에서 Python 구성 요소 사용](hdinsight-storm-develop-python-topology.md)
 * [HDInsight에서 Storm을 사용하는 토폴로지 배포 및 모니터링](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

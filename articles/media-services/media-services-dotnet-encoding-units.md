@@ -3,8 +3,8 @@
 	description=".NET을 사용하여 인코딩 단위를 추가하는 방법 알아보기"  
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,milangada,gtrifonov" 
-	manager="dwrede" 
+	authors="juliako" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/29/2016"
-	ms.author="juliako"/>
+ 	ms.date="04/18/2016"
+	ms.author="juliako;milangada;gtrifonov"/>
 
 
 #.NET SDK를 사용하여 인코딩 크기를 조정하는 방법
 
 
 > [AZURE.SELECTOR]
-- [Portal](media-services-portal-encoding-units.md)
+- [포털](media-services-portal-encoding-units.md)
 - [.NET](media-services-dotnet-encoding-units.md)
-- [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
+- [REST (영문)](https://msdn.microsoft.com/library/azure/dn859236.aspx)
 - [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 - [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 
@@ -81,4 +81,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0420_2016-->

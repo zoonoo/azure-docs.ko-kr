@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="02/03/2016"
+ ms.date="04/18/2016"
  ms.author="nberdy"/>
 
 # 진단 메트릭 소개
@@ -70,4 +70,4 @@ IoT Hub는 허브의 상태와 연결 된 장치의 총 수에 대한 개요를 
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-dr]: iot-hub-ha-dr.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0420_2016-->

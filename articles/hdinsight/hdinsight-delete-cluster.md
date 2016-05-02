@@ -44,7 +44,7 @@ __CLUSTERNAME__을 HDInsight 클러스터의 이름으로 바꿉니다.
 
 ##Azure CLI
 
-> [AZURE.NOTE] Azure CLI를 설치 및 구성하지 않은 경우 [Azure CLI 설치 및 구성](../xplat-cli-install.md) 문서의 단계를 사용합니다.
+[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 프롬프트에서 다음을 사용하여 클러스터를 삭제합니다.
 
@@ -52,4 +52,4 @@ __CLUSTERNAME__을 HDInsight 클러스터의 이름으로 바꿉니다.
     
 __CLUSTERNAME__을 HDInsight 클러스터의 이름으로 바꿉니다.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

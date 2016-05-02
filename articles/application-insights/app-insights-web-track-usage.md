@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/25/2015" 
+	ms.date="04/08/2016" 
 	ms.author="awills"/>
  
 # Application Insights를 사용한 웹 응용 프로그램의 사용 현황 분석
@@ -317,12 +317,13 @@ Application Insights는 종합 트래픽을 자동으로 결정하고 분류한 
 
 ```C#
 
+
     // Telemetry initializer class
-    public class MyTelemetryInitializer : IContextInitializer
+    public class MyTelemetryInitializer : ITelemetryInitializer
     {
-        public void Initialize (TelemetryContext context)
+        public void Initialize (ITelemetry telemetry)
         {
-            context.Properties["AppVersion"] = "v2.1";
+            telemetry.Properties["AppVersion"] = "v2.1";
         }
     }
 ```
@@ -334,7 +335,7 @@ Global.asax.cs 같은 앱 이니셜라이저에서:
     protected void Application_Start()
     {
         // ...
-        TelemetryConfiguration.Active.ContextInitializers
+        TelemetryConfiguration.Active.TelemetryInitializers
         .Add(new MyTelemetryInitializer());
     }
 ```
@@ -375,4 +376,4 @@ Global.asax.cs 같은 앱 이니셜라이저에서:
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0420_2016-->

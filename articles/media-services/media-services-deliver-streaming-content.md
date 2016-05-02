@@ -2,7 +2,7 @@
 	pageTitle="미디어 서비스에서 스트리밍 콘텐츠를 제공하는 방법" 
 	description="스트리밍 URL을 작성하는 데 사용되는 로케이터를 만드는 방법에 대해 알아봅니다. 코드 샘플은 C#으로 작성되었으며 Media Services SDK for .NET을 사용합니다." 
 	authors="juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="media-services" 
 	documentationCenter=""/>
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-  ms.date="02/03/2016"
+	ms.date="04/18/2016"
 	ms.author="juliako"/>
 
 
 #방법: 스트리밍 콘텐츠 제공
  
 > [AZURE.SELECTOR]
-- [REST](media-services-rest-deliver-streaming-content.md)
+- [REST (영문)](media-services-rest-deliver-streaming-content.md)
 - [.NET](media-services-deliver-streaming-content.md)
-- [Portal](media-services-manage-content.md#publish)
+- [포털](media-services-manage-content.md#publish)
 
 ##개요
 
@@ -171,4 +171,4 @@
 
 [자산 다운로드](media-services-deliver-asset-download.md) [자산 배달 정책 구성](media-services-dotnet-configure-asset-delivery-policy.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

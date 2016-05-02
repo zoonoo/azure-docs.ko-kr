@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="09/01/2015"
+   ms.date="03/29/2016"
    ms.author="kundanap"/>
 
 # Windows VM 확장을 사용하여 Azure Resource Manager 템플릿 작성
@@ -52,4 +52,4 @@ VM 확장으로 템플릿을 완벽하게 완료하려면 다음을 참조하세
 
 템플릿을 작성한 후 Azure PowerShell을 사용하여 배포할 수 있습니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

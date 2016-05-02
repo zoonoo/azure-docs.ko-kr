@@ -1,6 +1,6 @@
 <properties
  pageTitle="HPC 팩 클러스터에 버스트 노드 추가 | Microsoft Azure"
- description="주문형 클라우드 서비스에서 실행되는 작업자 역할 인스턴스를 Azure의 HPC 팩 헤드 노드에 계산 리소스로 추가하는 방법을 살펴봅니다."
+ description="클라우드 서비스에서 실행되는 작업자 역할 인스턴스를 추가하여 요청에 따라 HPC Pack 클러스터 용량을 확장하는 방법에 대해 알아봅니다."
  services="virtual-machines-windows"
  documentationCenter=""
  authors="dlepow"
@@ -13,15 +13,16 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="01/08/2016"
+ ms.date="04/13/2016"
  ms.author="danlep"/>
 
 # 주문형 "버스트" 노드(작업자 역할 인스턴스)를 Azure의 HPC 팩 헤드 노드에 계산 리소스로 추가
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
 
 
 이 문서는 Azure 주문형 "버스트" 노드(클라우드 서비스에서 실행되는 작업자 역할 인스턴스)를 Azure의 기존 HPC 팩 헤드 노드에 계산 리소스로 추가하는 방법을 보여줍니다. 이렇게 하면 사전 구성된 컴퓨터 노드 VM을 유지 관리하지 않고 요청 시 Azure에서 HPC 클러스터의 계산 용량을 확장할 수 있습니다.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
 
 ![버스트 노드][burst]
 
@@ -33,7 +34,7 @@ A8 또는 A9 계산 집약적 인스턴스 크기를 사용하려는 경우 [A8,
 
 ## 필수 조건
 
-* **Azure VM에 배포된 HPC 팩 헤드 노드** - [Azure VM에 HPC 팩 헤드 노드 배포](virtual-machines-windows-hpcpack-cluster-headnode.md)에서 클래식(서비스 관리) 배포 모델로 클러스터 헤드 노드를 만드는 단계를 참조하세요.
+* **Azure VM에 배포된 HPC Pack 헤드 노드** - [Azure VM에 HPC Pack 헤드 노드 배포](virtual-machines-windows-hpcpack-cluster-headnode.md)에서 클래식 배포 모델로 클러스터 헤드 노드를 만드는 단계를 참조하세요.
 
 * **Azure 구독** - Azure 노드를 추가하려는 경우 헤드 노드 VM을 배포하는 데 사용하는 것과 동일한 구독 또는 다른 구독을 하나 이상 선택할 수 있습니다.
 
@@ -46,13 +47,13 @@ Azure 클래식 포털 또는 동급의 도구를 사용하여 Azure 노드 배�
 * 새 Azure 클라우드 서비스
 * 새 Azure 저장소 계정
 
->[AZURE.NOTE] 구독에서 기존 클라우드 서비스를 다시 사용하지 마십시오. 또한 이 클라우드 서비스에 별도의 사용자 지정 클라우드 서비스 패키지를 배포하지 마십시오. Azure 노드를 시작(프로비전)하면 HPC 팩에서 클라우드 서비스 패키지를 자동으로 배포합니다.
+>[AZURE.NOTE] 구독에서 기존 클라우드 서비스를 다시 사용하지 마십시오.
 
 **고려 사항**
 
 * 만들려는 각 Azure 노드 템플릿에 대해 별도의 클라우드 서비스를 구성합니다. 하지만 여러 노드 템플릿에 대해 동일한 저장소 계정을 사용할 수 있습니다.
 
-* 동일한 지역에서 배포하는 데 사용할 저장소 계정과 클라우드 서비스는 일반적인 방법으로 찾을 수 있습니다.
+* 동일한 Azure 지역에서 배포하는 데 사용할 저장소 계정과 클라우드 서비스는 일반적인 방법으로 찾을 수 있습니다.
 
 
 
@@ -79,13 +80,13 @@ Azure 노드를 계산 리소스로 추가하려면 헤드 노드에 관리 인�
 
 노드를 추가 및 시작하면 클러스터 작업을 실행하는 데 사용할 수 있습니다.
 
-Azure 노드를 배포할 때 문제가 발행할 경우 [Microsoft HPC 팩을 사용하여 Azure 노드 배포 시 문제 해결을 참조하세요](http://technet.microsoft.com/library/jj159097(v=ws.10).aspx)).
+Azure 노드를 배포할 때 문제가 발생할 경우 [Microsoft HPC Pack을 사용하여 Azure 노드 배포 시 문제 해결](http://technet.microsoft.com/library/jj159097.aspx)을 참조하세요.
 
 ## 다음 단계
 
-* Azure 컴퓨팅 리소스를 현재 작업 워크로드 및 클러스터 작업에 따라 자동으로 증가 또는 축소하려는 경우 [HPC 팩 클러스터에서 Azure 계산 리소스 자동 증가 및 축소](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md)를 참조하세요.
+* Azure 컴퓨팅 리소스를 현재 작업 워크로드 및 클러스터 작업에 따라 자동으로 증가 또는 축소하려는 경우 [HPC Pack 클러스터에서 Azure 계산 리소스를 자동으로 증가 및 축소](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md)를 참조하세요.
 
 <!--Image references-->
 [burst]: ./media/virtual-machines-windows-classic-hpcpack-cluster-node-burst/burst.png
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

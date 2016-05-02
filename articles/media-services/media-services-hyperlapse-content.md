@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/08/2016"   
+	ms.date="04/14/2016"   
 	ms.author="adsolank"/>
 
 
@@ -213,4 +213,6 @@ NumFrames|처리할 프레임 수
 
 [Azure 미디어 서비스 분석 개요](media-services-analytics-overview.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+[Azure 미디어 분석 데모](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+
+<!---HONumber=AcomDC_0420_2016-->

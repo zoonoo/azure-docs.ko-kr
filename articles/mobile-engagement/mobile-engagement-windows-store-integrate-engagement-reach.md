@@ -54,21 +54,18 @@ Microsoft 계정 및 Engagement 플랫폼에 앱을 동기화해야 합니다. �
 
 ## 통합
 
-Engagement는 도달률 알림 및 공지를 구현하는 두 가지 방법(오버레이 및 웹 보기 통합)을 제공합니다.
+Engagement는 도달률 앱 내 배너와 알림 및 설문 조사에 대한 중간 보기를 응용 프로그램에 추가하는 두 가지 방법(오버레이 통합 및 웹 보기 수동 통합)을 제공합니다. 동일한 페이지에서 두 가지 방법을 결합할 수 없습니다.
 
-오버레이 통합을 위해 응용 프로그램에 많은 코드를 작성할 필요는 없습니다. EngagementPageOverlay를 사용하여 페이지, xaml, cs 파일에 태그만 지정하면 됩니다. 또한 Engagement 기본 보기를 사용자 지정하는 경우에는 사용자 지정 내용이 한 번만 정의되어 태그가 지정된 모든 페이지에서 공유됩니다. 그러나 페이지가 EngagementPageOverlay 이외의 다른 개체에서 상속해야 하는 경우에는 웹 보기 통합을 사용하도록 중단 및 강제 적용됩니다.
+두 가지 통합 간의 선택은 다음과 같은 방식으로 요약할 수 있습니다.
 
-웹 보기 통합은 구현이 더 복잡합니다. 하지만 앱 페이지가 "Page" 이외의 다른 개체에서 상속해야 하는 경우에는 웹 보기와 해당 동작을 통합해야 합니다.
-
-> [AZURE.TIP] 모든 페이지 내용을 포함하려면 루트 수준 `<Grid></Grid>` 요소 추가를 고려해야 합니다. 웹 보기 통합에서는 웹 보기를 이 Grid 요소의 자식으로 추가하기만 하면 됩니다. 다른 위치에 Engagement 구성 요소를 설정해야 하는 경우 표시 크기를 직접 관리해야 합니다.
+-   이미 페이지가 에이전트 `EngagementPage`에서 상속된 경우 오버레이 통합을 선택할 수 있으며 이는 페이지에서 `EngagementPage`를 `EngagementPageOverlay`로 바꾸고 `xmlns:engagement="using:Microsoft.Azure.Engagement"`를 `xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"`로 바꾸는 정도의 문제입니다.
+-   페이지에서 도달률 UI를 정확히 배치하거나 페이지에 다른 상속 수준을 추가하지 않으려는 경우 웹 보기 수동 통합을 선택할 수 있습니다. 
 
 ### 오버레이 통합
 
-Engagement에서는 알림(notification 및 announcement) 표시를 위한 오버레이를 제공합니다.
+Engagement 오버레이는 페이지에서 도달률 캠페인을 표시하는 데 사용되는 UI 요소를 동적으로 추가합니다. 오버레이가 레이아웃에 적합하지 않은 경우 대신 웹 보기 수동 통합을 고려해야 합니다.
 
-이를 사용하려면 웹 보기 통합을 사용하지 마세요.
-
-.xaml 파일에서 EngagementPage 참조를 EngagementPageOverlay로 변경합니다.
+.xaml 파일에서 `EngagementPage` 참조를 `EngagementPageOverlay`로 변경합니다.
 
 -   다음 줄을 네임스페이스 선언에 추가합니다.
 
@@ -81,7 +78,7 @@ Engagement에서는 알림(notification 및 announcement) 표시를 위한 오�
 		<engagement:EngagementPage 
 		    xmlns:engagement="using:Microsoft.Azure.Engagement">
 		
-		    <!-- layout -->
+		    <!-- Your layout -->
 		</engagement:EngagementPage>
 
 **EngagementPageOverlay를 사용하는 경우:**
@@ -89,19 +86,10 @@ Engagement에서는 알림(notification 및 announcement) 표시를 위한 오�
 		<engagement:EngagementPageOverlay 
 		    xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay">
 		
-		    <!-- layout -->
+		    <!-- Your layout -->
 		</engagement:EngagementPageOverlay>
 
-> **8.1용 EngagementPageOverlay를 사용하는 경우:**
-
-		<engagement:EngagementPageOverlay 
-		    xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay">
-		    <Grid>
-		      <!-- layout -->
-		    </Grid>
-		</engagement:EngagementPageOverlay>
-
-그런 다음 .cs 파일에서 "EngagementPage 대신 "EngagementPageOverlay"로 페이지에 태그를 지정하고 "Microsoft.Azure.Engagement.Overlay"를 가져옵니다.
+그런 다음 .cs 파일에서 `EngagementPage` 대신 `EngagementPageOverlay`로 페이지에 태그를 지정하고 `Microsoft.Azure.Engagement.Overlay`를 가져옵니다.
 
 			using Microsoft.Azure.Engagement.Overlay;
 
@@ -131,156 +119,33 @@ Engagement에서는 알림(notification 및 announcement) 표시를 위한 오�
 			  }
 			}
 
-이제 이 페이지는 Engagement 오버레이 메커니즘을 사용하므로 웹 보기를 삽입하지 않아도 됩니다.
 
-Engagement 오버레이는 xaml 파일에서 발견되는 첫 번째 "Grid" 요소를 사용하여 페이지에 웹 보기 2개를 추가합니다. 웹 보기를 설정할 위치를 찾으려는 경우 "EngagementGrid"라는 그리드를 다음과 같이 정의할 수 있습니다.
+Engagement 오버레이는 레이아웃에 구성된 페이지 맨 위에 `Grid` 요소 및 두 개의 `WebView` 요소(하나는 배너용이고 나머지 하나는 중간 보기용)를 추가합니다.
 
-			<Grid x:Name="EngagementGrid"></Grid>
+`EngagementPageOverlay.cs` 파일에서 직접 오버레이 요소를 사용자 지정할 수 있습니다.
 
-오버레이 알림(notification 및 announcement)은 해당 xaml 및 cs 파일에서 직접 사용자 지정할 수 있습니다.
+### 웹 보기 수동 통합
 
--   `EngagementAnnouncement.html` : `Announcement` 웹 보기 html 디자인.
--   `EngagementOverlayAnnouncement.xaml` : `Announcement` xaml 디자인.
--   `EngagementOverlayAnnouncement.xaml.cs` : `EngagementOverlayAnnouncement.xaml` 연결된 코드.
--   `EngagementNotification.html` : `Notification` 웹 보기 html 디자인.
--   `EngagementOverlayNotification.xaml` : `Notification` xaml 디자인.
--   `EngagementOverlayNotification.xaml.cs` : `EngagementOverlayNotification.xaml` 연결된 코드.
--   `EngagementPageOverlay.cs` : `Overlay` 공지 및 알림 표시 코드.
+도달률은 페이지에서 배너 및 중간 보기의 표시를 담당할 두 개의 `WebView` 요소를 검색합니다. 두 개의 `WebView` 요소를 페이지의 임의 위치에 추가하기만 하면 되며 예제는 다음과 같습니다.
 
-### 웹 보기 통합
+    <Grid x:Name="engagementGrid">
 
-이를 사용하려면 오버레이 통합을 사용하지 마세요.
+      <!-- Your layout -->
 
-Engagement 콘텐츠를 표시하려면 각 페이지에 xaml WebView 2개를 통합하고 공지 및 알림을 표시해야 합니다. 다음 코드를 xaml 파일에 추가합니다.
+      <WebView x:Name="engagement_notification_content" Visibility="Collapsed" Height="80" HorizontalAlignment="Stretch" VerticalAlignment="Top"/>
+      <WebView x:Name="engagement_announcement_content" Visibility="Collapsed"  HorizontalAlignment="Stretch"  VerticalAlignment="Stretch"/>
+    </Grid>
 
-			<WebView x:Name="engagement_notification_content" Visibility="Collapsed" Height="80" HorizontalAlignment="Right" VerticalAlignment="Top"/>
-			<WebView x:Name="engagement_announcement_content" Visibility="Collapsed" HorizontalAlignment="Right" VerticalAlignment="Top"/> 
 
-> **8.1 통합:**
+이 예제에서 `WebView` 요소는 화면 회전 또는 창 크기를 변경할 때 자동으로 크기를 조정하는 컨테이너에 맞게 확장됩니다.
 
-			<engagement:EngagementPage
-			    xmlns:engagement="using:Microsoft.Azure.Engagement">
-			    <Grid>
-			      <!-- Your layout -->
-			      <WebView x:Name="engagement_notification_content" Visibility="Collapsed" Height="80" HorizontalAlignment="Right" VerticalAlignment="Top"/>
-			      <WebView x:Name="engagement_announcement_content" Visibility="Collapsed"  HorizontalAlignment="Right" VerticalAlignment="Top"/> 
-			    </Grid>
-			</engagement:EngagementPage>
-
-연결된 .cs 파일은 다음과 같이 표시됩니다.
-
-    using Microsoft.Azure.Engagement;
-    using System;
-    using Windows.ApplicationModel.Core;
-    using Windows.UI.ViewManagement;
-    using Windows.UI.Xaml;
-    using Windows.UI.Xaml.Navigation;
-
-    namespace My.Namespace.Example
-    {
-			/// <summary>
-			/// An empty page that can be used on its own or navigated to within a Frame.
-			/// </summary>
-			public sealed partial class ExampleEngagementReachPage : EngagementPage
-			{
-			  public ExampleEngagementReachPage()
-			  {
-			    this.InitializeComponent();
-			
-			    /* Set your webview elements to the correct size. */
-			    SetWebView(width, height);
-			  }
-			
-			  #region to implement
-              /* Attach events when page is navigated. */
-              protected override void OnNavigatedTo(NavigationEventArgs e)
-              {
-                /* Update the webview when the app window is resized. */
-                Window.Current.SizeChanged += DisplayProperties_OrientationChanged;
-
-                /* Update the webview when the app/status bar is resized. */
-    #if WINDOWS_PHONE_APP || WINDOWS_UWP
-                ApplicationView.GetForCurrentView().VisibleBoundsChanged += DisplayProperties_VisibleBoundsChanged; 
-    #endif
-                base.OnNavigatedTo(e);
-              }
-
-			  /* When page is left ensure to detach SizeChanged handler. */
-			  protected override void OnNavigatedFrom(NavigationEventArgs e)
-			  {
-			    Window.Current.SizeChanged -= DisplayProperties_OrientationChanged;
-    #if WINDOWS_PHONE_APP || WINDOWS_UWP
-                ApplicationView.GetForCurrentView().VisibleBoundsChanged -= DisplayProperties_VisibleBoundsChanged;
-    #endif
-			    base.OnNavigatedFrom(e);
-			  }
-			  
-			  /* "width" and "height" are the current size of your application display. */
-    #if WINDOWS_PHONE_APP || WINDOWS_UWP
-			  double width = ApplicationView.GetForCurrentView().VisibleBounds.Width;
-			  double height = ApplicationView.GetForCurrentView().VisibleBounds.Height;
-    #else
-			  double width =  Window.Current.Bounds.Width;
-			  double height =  Window.Current.Bounds.Height;
-    #endif
-			
-			  /// <summary>
-			  /// Set your webview elements to the correct size.
-			  /// </summary>
-			  /// <param name="width">The width of your current display.</param>
-			  /// <param name="height">The height of your current display.</param>
-			  private void SetWebView(double width, double height)
-			  {
-			    #pragma warning disable 4014
-			    CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal,
-			            () =>
-			            {
-			              this.engagement_notification_content.Width = width;
-			              this.engagement_announcement_content.Width = width;
-			              this.engagement_announcement_content.Height = height;
-			            });
-			  }
-			
-			  /// <summary>
-			  /// Handler that takes the Windows.Current.SizeChanged and indicates that webviews have to be resized.
-			  /// </summary>
-			  /// <param name="sender">Original event trigger.</param>
-			  /// <param name="e">Window Size Changed Event arguments.</param>
-			  private void DisplayProperties_OrientationChanged(object sender, Windows.UI.Core.WindowSizeChangedEventArgs e)
-			  {
-			    double width = e.Size.Width;
-			    double height = e.Size.Height;
-			
-			    /* Set your webview elements to the correct size. */
-			    SetWebView(width, height);
-			  }
-
-    #if WINDOWS_PHONE_APP || WINDOWS_UWP			  
-			  /// <summary>
-			  /// Handler that takes the ApplicationView.VisibleBoundsChanged and indicates that webviews have to be resized
-			  /// </summary>
-			  /// <param name="sender">The related application view.</param>
-			  /// <param name="e">Related event arguments.</param>
-			  private void DisplayProperties_VisibleBoundsChanged(ApplicationView sender, Object e)
-			  {
-			    double width = sender.VisibleBounds.Width;
-			    double height = sender.VisibleBounds.Height;
-			
-			    /* Set your webview elements to the correct size. */
-			    SetWebView(width, height);
-			  }
-    #endif
-			  #endregion
-			}
-    }
-
-> 이 경우 장치 화면을 회전하면 포함된 웹 보기 크기 조정이 구현됩니다.
+> [AZURE.WARNING] `WebView` 요소에 동일한 이름 지정 `engagement_notification_content` 및 `engagement_announcement_content`를 유지하는 것이 중요합니다. 도달률은 요소를 이름으로 식별합니다.
 
 ## datapush 처리(선택 사항)
 
 응용 프로그램이 도달률 데이터 푸시를 수신할 수 있도록 하려면 EngagementReach 클래스의 두 이벤트를 구현해야 합니다.
 
-App.xaml.cs의 "Public App(){}"에 다음 코드를 추가합니다.
+App.xaml.cs의 App() 생성자에서 다음을 추가합니다.
 
 			EngagementReach.Instance.DataPushStringReceived += (body) =>
 			{
@@ -469,4 +334,4 @@ Engagement 개체를 보존하는 경우 원하는 알림 및 공지 웹 보기�
 			  #endregion
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

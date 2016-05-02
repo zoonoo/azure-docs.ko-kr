@@ -87,10 +87,10 @@ npm update -g azure-cli
 
 * Linux 시스템의 경우 [소스](http://aka.ms/linux-azure-cli)에서 빌드하여 Azure CLI를 설치할 수도 있습니다. 원본에서 빌드하는 방법에 대한 자세한 내용은 원본 보관 파일에 포함된 INSTALL 파일을 참조하세요.
 
-[mac-installer]: http://go.microsoft.com/fwlink/?LinkId=252249
-[windows-installer]: http://go.microsoft.com/?linkid=9828653&clcid=0x409
-[linux-installer]: http://go.microsoft.com/fwlink/?linkid=253472
+[mac-installer]: http://aka.ms/mac-azure-cli
+[windows-installer]: https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=windowsazurexplatcli&mode=new
+[linux-installer]: http://aka.ms/linux-azure-cli
 [cliasm]: virtual-machines-command-line-tools.md
-[cliarm]: virtual-machines/azure-cli-arm-commands.md
+[cliarm]: ./virtual-machines/azure-cli-arm-commands.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

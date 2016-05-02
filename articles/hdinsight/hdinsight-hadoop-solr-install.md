@@ -41,10 +41,6 @@
 
 ## 포털을 사용하여 Solr 설치
 
-[AZURE.INCLUDE [hdinsight-azure-preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
-
-* [HDInsight 클러스터에 Solr 설치](hdinsight-hadoop-solr-install-v1.md)
-
 1. [HDInsight에서 Hadoop 클러스터 만들기](hdinsight-provision-clusters.md#portal)에서 설명한 대로 **사용자 지정 만들기** 옵션을 사용하여 클러스터를 만들기 시작합니다.
 2. 아래와 같이 마법사의 **스크립트 작업** 페이지에서 **스크립트 작업 추가**를 클릭하여 스크립트 작업에 대한 세부 정보를 제공합니다.
 
@@ -200,4 +196,4 @@
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

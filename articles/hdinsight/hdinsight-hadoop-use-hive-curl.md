@@ -116,7 +116,7 @@ Curl은 실행, 모니터링 및 Hive 쿼리 검색 결과를 원시 HTTP 요청
 
 4. 작업 상태가 **SUCCEEDED**로 변경되면 Azure Blob 저장소에서 작업 결과를 검색할 수 있습니다. 쿼리와 함께 전달된 `statusdir` 매개 변수에는 출력 파일의 위치(이 예의 경우 ****wasb:///example/curl**)가 포함됩니다. HDInsight 클러스터에서 사용하는 기본 저장소 컨테이너의 **example/curl** 디렉터리에 작업의 출력을 저장합니다.
 
-    [Mac, Linux 및 Windows용 Azure CLI](../xplat-cli-install.md)를 사용하여 이러한 파일을 나열하고 다운로드할 수 있습니다. 예를 들어 **example/curl**에 파일을 나열하려면 다음 명령을 사용합니다.
+    [Azure CLI](../xplat-cli-install.md)를 사용하여 이러한 파일을 나열하고 다운로드할 수 있습니다. 예를 들어 **example/curl**에 파일을 나열하려면 다음 명령을 사용합니다.
 
 		azure storage blob list <container-name> example/curl
 
@@ -192,4 +192,4 @@ Hive와 함께 Tez를 사용하는 경우 디버깅 정보에 대한 다음 문�
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

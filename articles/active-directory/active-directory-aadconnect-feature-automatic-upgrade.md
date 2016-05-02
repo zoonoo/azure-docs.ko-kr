@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/16/2016"
+   ms.date="04/15/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: 자동 업그레이드
@@ -43,7 +43,44 @@
 
 **Synchronization Service Manager** UI가 서버에서 실행되고 있는 경우에는 UI를 닫을 때까지 업그레이드가 일시 중단됩니다.
 
+## 문제 해결
+Connect 설치 자체가 예상대로 업그레이드되지 않는 경우 다음 단계에 따라 문제점을 확인합니다.
+
+첫째, 새 버전이 출시되는 첫 날에는 자동 업그레이드 시도를 기대할 수 없습니다. 업그레이드를 시도하기 전에 의도적인 임의성이 있으므로 설치가 즉시 업그레이드되지 않더라도 경고가 표시되지 않습니다.
+
+뭔가 잘못되었다고 생각되면 우선 `Get-ADSyncAutoUpgrade`를 실행하여 자동 업그레이드가 사용하도록 설정되어 있는지 확인합니다.
+
+이벤트 로그를 시작하고 **응용 프로그램** 이벤트 로그를 확인합니다. **Azure AD Connect 업그레이드** 원본 및 이벤트 Id 범위 **300-399**에 대한 이벤트 로그 필터를 추가합니다. ![자동 업그레이드에 대한 이벤트 로그 필터](./media/active-directory-aadconnect-feature-automatic-upgrade/eventlogfilter.png)
+
+그러면 자동 업그레이드 상태와 관련된 이벤트 로그가 표시됩니다. ![자동 업그레이드에 대한 이벤트 로그 필터](./media/active-directory-aadconnect-feature-automatic-upgrade/eventlogresult.png)
+
+결과의 앞부분은 상태의 개요를 나타냅니다.
+
+| 결과 접두사 | 설명 |
+| --- | --- |
+| 성공 | 설치가 성공적으로 업그레이드되었습니다. |
+| UpgradeAborted | 일시적인 현상으로 업그레이드가 중지되었습니다. 다시 시도하면 업그레이드될 것입니다. |
+| UpgradeNotSupported | 시스템이 자동으로 업그레이드되지 않도록 차단하는 구성이 시스템에 있습니다. 상태가 변경되었는지 다시 시도하겠지만 시스템을 수동으로 업그레이드해야 할 것으로 보입니다. |
+
+가장 일반적인 메시지 목록은 다음과 같습니다. 전부가 나열된 것은 아니지만 결과 메시지를 통해 문제점이 무엇인지 파악할 수 있습니다.
+
+| 결과 메시지 | 설명 |
+| --- | --- |
+| **UpgradeAborted** | |
+| UpgradeAbortedSyncExeInUse | [Synchronization Service Manager UI](active-directory-aadconnectsync-service-manager-ui.md)가 서버에 열려 있습니다.
+| UpgradeAbortedInsufficientDiskSpace | 업그레이드를 지원하기 위한 디스크 공간이 충분하지 않습니다. |
+| UpgradeAbortedSyncCycleDisabled | [스케줄러](active-directory-aadconnectsync-feature-scheduler.md)에 SyncCycle 옵션이 사용하지 않도록 설정되어 있습니다. |
+| UpgradeAbortedSyncOrConfigurationInProgress | 설치 마법사가 실행 중이거나 동기화가 스케줄러 외부에서 예약되었습니다. |
+| **UpgradeNotSupported** | |
+| UpgradeNotSupportedCustomizedSyncRules | 사용자 지정 규칙을 구성에 추가했습니다. |
+| UpgradeNotSupportedDeviceWritebackEnabled | [장치 쓰기 저장](active-directory-aadconnect-feature-device-writeback.md) 기능을 사용하도록 설정했습니다. |
+| UpgradeNotSupportedGroupWritebackEnabled | [그룹 쓰기 저장](active-directory-aadconnect-feature-preview.md#group-writeback) 기능을 사용하도록 설정했습니다. |
+| UpgradeNotSupportedMetaverseSizeExceeeded | 메타버스에 10만 개가 넘는 개체가 있습니다. |
+| UpgradeNotSupportedMultiForestSetup | 둘 이상의 포리스트에 연결되어 있습니다. 빠른 설치는 하나의 포리스트에만 연결합니다. |
+| UpgradeNotSupportedNonMsolAccount | [AD Connector 계정](active-directory-aadconnect-accounts-permissions.md#active-directory-account)이 더 이상 기본 MSOL\_ 계정이 아닙니다.
+| UpgradeNotSupportedStagingModeEnabled | 서버가 [준비 모드](active-directory-aadconnectsync-operations.md#staging-mode)로 설정되어 있습니다. |
+
 ## 다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

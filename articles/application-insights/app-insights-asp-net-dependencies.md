@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2016" 
+	ms.date="04/13/2016" 
 	ms.author="awills"/>
 
 
@@ -47,7 +47,7 @@
 
 ### 앱이 IIS 서버에서 실행되는 경우
 
-웹앱을 .NET 4.6 이상에서 실행하는 경우 앱에 [Application Insights SDK를 설치](app-insights-asp-net.md)하면 자동으로 종속성을 추적합니다. 다른 작업은 필요하지 않습니다.
+웹앱이 .NET 4.6 이상에서 실행되는 경우 앱에 [Application Insights SDK를 설치](app-insights-asp-net.md)하거나 Application Insights 상태 모니터를 설치합니다. 둘 다 설치할 필요는 없습니다.
 
 그렇지 않으면 서버에 Application Insights 상태 모니터를 설치합니다.
 
@@ -170,11 +170,17 @@ Azure 웹앱의 제어판에서 Application Insights 확장을 추가합니다.
 
 표준 종속성 추적 모듈을 해제하려는 경우, [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)에서 DependencyTrackingTelemetryModule에 대한 참조를 삭제합니다.
 
+## 문제 해결
+
+*종속성 성공 플래그는 항상 true 또는 false로 표시됩니다.*
+
+* 최신 버전의 SDK로 업그레이드합니다. .NET 버전이 4.6보다 낮은 경우 [상태 모니터](app-insights-monitor-performance-live-website-now.md)를 설치합니다.
+
 ## 다음 단계
 
-- [예외](../article/application-insights/app-insights-asp-net-exception-mvc.md#selector1)
-- [사용자 및 페이지 데이터](../article/application-insights/app-insights-asp-net-client.md#selector1)
-- [Availability](../article/application-insights/app-insights-monitor-web-app-availability.md#selector1)
+- [예외](app-insights-asp-net-exception-mvc.md#selector1)
+- [사용자 및 페이지 데이터](app-insights-asp-net-client.md#selector1)
+- [Availability](app-insights-monitor-web-app-availability.md#selector1)
 
 
 
@@ -196,4 +202,4 @@ Azure 웹앱의 제어판에서 Application Insights 확장을 추가합니다.
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

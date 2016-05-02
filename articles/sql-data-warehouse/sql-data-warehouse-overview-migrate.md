@@ -3,7 +3,7 @@
    description="Azure SQL 데이터 웨어하우스 플랫폼에 솔루션을 가져오기 위한 마이그레이션 지침"
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="jrowlandjones"
+   authors="barbkess"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="03/14/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+   ms.author="barbkess;jrj;sonyama"/>
 
 # SQL 데이터 웨어하우스에 솔루션 마이그레이션
 
@@ -52,4 +52,4 @@ SQL 데이터 웨어하우스는 Microsoft Azure를 기반으로 하는 플랫�
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

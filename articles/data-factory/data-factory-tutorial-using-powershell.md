@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="04/18/2016" 
 	ms.author="spelluru"/>
 
 # 자습서: Data Factory를 사용하여 로그 파일 이동 및 처리(PowerShell)
@@ -108,7 +108,7 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 		![MarketingCampaignPipeline][image-data-factory-tutorial-analyze-marketing-campaign-pipeline]
 
 
-6. [파이프라인 및 데이터 조각 모니터링](#monitor-pipelines) 이 단계에서는 Azure 클래식 포털을 사용하여 파이프라인, 테이블 및 데이터 조각을 모니터링합니다.
+6. [파이프라인 및 데이터 조각 모니터링](#monitor-pipelines) 이 단계에서는 Azure 포털을 사용하여 파이프라인, 테이블 및 데이터 조각을 모니터링합니다.
 
 ## 샘플 데이터 및 스크립트 업로드
 이 단계에서는 모든 샘플 데이터(로그 및 참조 데이터 모두 포함)와 워크플로에서 호출되는 Hive/Pig 스크립트를 업로드합니다. 실행하는 스크립트에서는 **MarketingCampaigns**라는 Azure SQL 데이터베이스, 테이블, 사용자 정의 형식 및 저장 프로시저도 만듭니다.
@@ -129,7 +129,7 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 	
 	또는 C:\\ADFWalkthrough\\Scripts 폴더의 파일을 사용하여 pig/hive 스크립트 및 샘플 파일을 blob 저장소의 adfwalkthrough 컨테이너로 업로드하고 MarketingCamapaigns Azure SQL 데이터베이스에 MarketingCampaignEffectiveness 테이블을 만들 수 있습니다.
    
-2. 로컬 컴퓨터가 Azure SQL 데이터베이스에 액세스할 수 있는지 확인합니다. 액세스할 수 있게 하려면 [Azure 클래식 포털](http://manage.windowsazure.com)이나 master 데이터베이스의 **sp\_set\_firewall\_rule**을 사용하여 컴퓨터의 IP 주소에 대한 방화벽 규칙을 만듭니다. 이 변경 내용이 적용되려면 최대 5분까지 걸릴 수 있습니다. [Azure SQL에 대한 방화벽 규칙 설정][azure-sql-firewall]을 참조하세요.
+2. 로컬 컴퓨터가 Azure SQL 데이터베이스에 액세스할 수 있는지 확인합니다. 액세스할 수 있게 하려면 [Azure 포털](http://manage.windowsazure.com)이나 master 데이터베이스의 **sp\_set\_firewall\_rule**을 사용하여 컴퓨터의 IP 주소에 대한 방화벽 규칙을 만듭니다. 이 변경 내용이 적용되려면 최대 5분까지 걸릴 수 있습니다. [Azure SQL에 대한 방화벽 규칙 설정][azure-sql-firewall]을 참조하세요.
 4. Azure PowerShell에서 샘플의 압축을 푼 위치(**C:\\ADFWalkthrough**)로 이동합니다.
 5. **uploadSampleDataAndScripts.ps1** 실행 
 6. 스크립트가 성공적으로 실행되면 다음이 표시됩니다.
@@ -250,7 +250,7 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
  
 위 그림에서는 가운데 행에는 파이프라인을, 위쪽과 아래쪽 행에는 테이블을 표시합니다.
 
-이 릴리스에서는 Azure 클래식 포털을 통해 데이터 집합/테이블을 만들 수 없으므로 Azure PowerShell을 사용하여 테이블을 만들어야 합니다.
+이 릴리스에서는 Azure 포털을 통해 데이터 집합/테이블을 만들 수 없으므로 Azure PowerShell을 사용하여 테이블을 만들어야 합니다.
 
 ### 테이블을 만들려면
 
@@ -504,4 +504,4 @@ Azure Blob에서 온-프레미스 SQL Server로 마케팅 캠페인 효과 데�
 
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-tutorial-using-powershell/NewDataFactoryMenu.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

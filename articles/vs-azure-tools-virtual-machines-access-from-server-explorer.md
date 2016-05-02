@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="01/05/2016"
+   ms.date="04/18/2016"
    ms.author="tarcher" />
 
 # 서버 탐색기에서 Azure 가상 컴퓨터 액세스(영문)
@@ -53,4 +53,4 @@ Azure에서 호스팅되는 가상 컴퓨터가 있는 경우 서버 탐색기�
 
 Visual Studio에서 Azure 역할을 사용하는 방법에 대한 자세한 내용은 [Azure 역할로 원격 데스크톱 사용](vs-azure-tools-remote-desktop-roles.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0420_2016-->

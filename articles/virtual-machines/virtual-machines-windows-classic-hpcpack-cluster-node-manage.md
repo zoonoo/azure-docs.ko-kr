@@ -13,21 +13,21 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="01/08/2016"
+ ms.date="04/18/2016"
  ms.author="danlep"/>
 
 # Azure의 HPC 팩 클러스터에 있는 계산 노드의 수 및 가용성 관리
 
+Azure VM에 HPC 팩 클러스터를 만든 경우 클러스터에서 여러 계산 노드 VM을 손쉽게 추가, 제거, 시작(프로비전), 중지(프로비전 해제)할 수 있어야 합니다. 이러한 작업을 하려면 헤드 노드 VM에 설치된 Azure PowerShell 스크립트를 실행합니다. 이러한 스크립트로 HPC 팩 클러스터 리소스의 수와 가용성을 관리하여 비용을 관리할 수 있습니다.
+
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
 
 
-Azure VM에 HPC 팩 클러스터를 만든 경우 클러스터에서 여러 계산 노드 VM을 손쉽게 추가, 제거, 시작(프로비전), 중지(프로비전 해제)할 수 있어야 합니다. 이러한 작업을 하려면 헤드 노드 VM에 설치된 Azure PowerShell 스크립트를 실행합니다(HPC 팩 2012 R2 업데이트 1 이후). 이러한 스크립트로 HPC 팩 클러스터 리소스의 수와 가용성을 관리하여 비용을 관리할 수 있습니다.
-
->[AZURE.NOTE] 스크립트는 헤드 노드의 %CCP\_HOME%bin 폴더에 있습니다. 각 스크립트는 관리자 권한으로 실행해야 합니다.
-
 ## 필수 조건
 
-* **Azure VM의 HPC 팩 클러스터** - HPC 팩 2012 R2 업데이트 1 이상을 사용하여 클래식(서비스 관리) 배포 모델로 HPC 팩 클러스터를 만듭니다. 예를 들어 Azure 마켓플레이스 및 Azure PowerShell 스크립트에서 HPC 팩 VM 이미지를 사용하여 배포를 자동화할 수 있습니다. 자세한 내용 및 필수 구성 요소는 [HPC 팩 IaaS 배포 스크립트를 사용하여 HPC 클러스터 만들기](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md)를 참조하세요.
+* **Azure VM의 HPC Pack 클러스터** - HPC Pack 2012 R2 업데이트 1 이상을 사용하여 클래식 배포 모델로 HPC Pack 클러스터를 만듭니다. 예를 들어 Azure 마켓플레이스 및 Azure PowerShell 스크립트에서 현재 HPC Pack VM 이미지를 사용하여 배포를 자동화할 수 있습니다. 자세한 내용 및 필수 구성 요소는 [HPC 팩 IaaS 배포 스크립트를 사용하여 HPC 클러스터 만들기](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md)를 참조하세요.
+
+    배포 후 헤드 노드의 %CCP\_HOME%bin 폴더에서 노드 관리 스크립트를 찾습니다. 각 스크립트는 관리자 권한으로 실행해야 합니다.
 
 * **Azure 게시 설정 파일 또는 관리 인증서** - 헤드 노드에서 다음 중 하나를 수행해야 합니다.
 
@@ -76,7 +76,7 @@ Add-HPCIaaSNode.ps1 [-ServiceName] <String> [-ImageName] <String>
 
 * **DomainUserPassword** - 도메인 사용자의 암호입니다.
 
-* **NodeNameSeries**(선택 사항) - 컴퓨터 노드의 명명 패턴입니다. 형식은 &lt;*Root\_Name*&gt;&lt;*Start\_Number*&gt;%여야 합니다. 예를 들어 MyCN%10%은 MyCN11부터 시작하는 계산 노드 이름의 시리즈를 의미합니다. 이 매개 변수를 지정하지 않을 경우 스크립트는 HPC 클러스터에서 구성된 노드 명명 시리즈를 사용합니다.
+* **NodeNameSeries**(선택 사항) - 계산 노드의 명명 패턴입니다. 형식은 &lt;*Root\_Name*&gt;&lt;*Start\_Number*&gt;%여야 합니다. 예를 들어 MyCN%10%은 MyCN11부터 시작하는 계산 노드 이름의 시리즈를 의미합니다. 이 매개 변수를 지정하지 않을 경우 스크립트는 HPC 클러스터에서 구성된 노드 명명 시리즈를 사용합니다.
 
 ### 예
 
@@ -177,6 +177,6 @@ Stop-HPCIaaSNode.ps1 –Name HPCNodeCN-* -Force
 
 ## 다음 단계
 
-* 클러스터 노드를 현재 클러스터 작업의 워크로드에 따라 자동으로 증가 또는 축소하려는 경우 [HPC 팩 클러스터에서 Azure 계산 리소스 증가 및 축소](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md)를 참조하세요.
+* 클러스터 노드를 현재 클러스터 작업의 워크로드에 따라 자동으로 증가 또는 축소하려는 경우 [클러스터 워크로드에 따라 Azure에서 HPC Pack 클러스터를 자동으로 증가 및 축소](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

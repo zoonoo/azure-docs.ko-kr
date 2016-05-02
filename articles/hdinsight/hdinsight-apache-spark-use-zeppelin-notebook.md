@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="04/14/2016" 
 	ms.author="nitinme"/>
 
 
-# HDInsight에서 Spark 클러스터와 함께 Zeppelin Notebook 사용(Linux)
+# HDInsight Linux에서 Spark 클러스터와 함께 Zeppelin Notebook 사용(미리 보기)
 
 Spark 클러스터에 Zeppelin Notebook을 설치하는 방법 및 Zeppelin Notebook 사용 방법을 알아봅니다.
 
@@ -332,4 +332,4 @@ SSH 터널링을 설정했으면 아래 단계에 따라 Spark 클러스터의 Z
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

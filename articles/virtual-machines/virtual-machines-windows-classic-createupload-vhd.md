@@ -14,17 +14,15 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="04/15/2016"
 	ms.author="cynthn"/>
 
 # Windows Server VHD를 만들어서 Azure에 업로드
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
-
-
 이 문서에서는 운영 체제가 설치된 VHD(가상 하드 디스크)를 업로드하여 이미지로 사용하고 해당 이미지를 기반으로 가상 컴퓨터를 만드는 방법을 보여 줍니다. Microsoft Azure의 디스크 및 VHD에 대한 자세한 내용은 [가상 컴퓨터용 디스크 및 VHD에 대하여](virtual-machines-linux-about-disks-vhds.md)를 참조하세요.
 
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델. 리소스 관리자 모델을 사용하여 가상 컴퓨터를 [캡처](virtual-machines-windows-capture-image.md)하고 [업로드](virtual-machines-windows-upload-image.md)할 수도 있습니다.
 
 ## 필수 조건
 
@@ -205,4 +203,4 @@ Add-AzureVhd cmdlet에 대한 자세한 내용은 [Add-AzureVhd](http://msdn.mic
 [Step 3: Prepare the connection to Azure]: #prepAzure
 [Step 4: Upload the .vhd file]: #upload
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

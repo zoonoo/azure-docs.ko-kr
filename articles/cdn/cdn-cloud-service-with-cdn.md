@@ -626,7 +626,7 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 
 ## 추가 정보 ##
 - [Azure CDN(콘텐츠 배달 네트워크) 개요](http://msdn.microsoft.com/library/azure/ff919703.aspx)
-- [Azure에 CDN 사용](cdn-how-to-use-cdn.md)
+- [Azure CDN 사용](cdn-create-new-endpoint.md)
 - [ASP.NET 묶음 및 축소](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
 
 
@@ -637,4 +637,4 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 [cdn-add-endpoint]: ./media/cdn-cloud-service-with-cdn/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-cloud-service-with-cdn/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -3,7 +3,7 @@
    description="데이터 감사에 대한 SQL 데이터 웨어하우스 하위 수준 클라이언트 지원에 대해 알아보기"
    services="sql-data-warehouse"
    documentationCenter=""
-   authors="twounder"
+   authors="ronortloff"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.date="03/03/2016" 
-   ms.author="mausher;barbkess;sonyama"/>
+   ms.author="rortloff;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스 - 감사 및 동적 데이터 마스킹에 대한 하위 수준 클라이언트 지원
 
@@ -38,4 +38,4 @@ TDS 버전 7.3 이하를 지원하는 "하위 클라이언트"의 경우, 연결
 
 **주석:** 위의 서버 FDQN 수정은 각 데이터베이스에서 구성 단계에 대한 요구 없이 SQL 서버 수준 감사 정책의 적용에도 유용할 수 있습니다.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

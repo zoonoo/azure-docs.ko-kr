@@ -1,4 +1,11 @@
-<properties pageTitle="Azure Site Recovery를 사용하여 Azure에 VMware 가상 컴퓨터 및 물리적 서버 복제(레거시) | Microsoft Azure" description="Azure Site Recovery를 설정하여 온-프레미스 VMware 가상 컴퓨터 및 Windows/Linux 물리적 서버에서 Azure로 복제, 장애 조치(Failover) 및 복구를 오케스트레이션하는 레거시 배포에 대해 설명합니다." " services="site-recovery" documentationCenter="" authors="rayne-wiselman" manager="jwhit" editor=""/>
+<properties
+	pageTitle="Azure Site Recovery를 사용하여 Azure에 VMware 가상 컴퓨터 및 물리적 서버 복제(레거시) | Microsoft Azure" 
+	description="온-프레미스 VMware 가상 컴퓨터 및 Windows/Linux 물리적 서버에서 Azure로 복제, 장애 조치(failover) 및 복구를 오케스트레이션하기 위해 Azure Site Recovery 설정에 대한 레거시 배포에 대해 설명합니다." 
+	services="site-recovery"
+	documentationCenter=""
+	authors="rayne-wiselman"
+	manager="jwhit"
+	editor=""/>
 
 <tags
 	ms.service="site-recovery"
@@ -16,14 +23,14 @@
 - [레거시](site-recovery-vmware-to-azure-classic-legacy.md)
 
 
-Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제, 장애 조치(Failover) 및 복구를 오케스트레이션하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. 컴퓨터는 Azure 또는 보조 온-프레미스 데이터 센터로 복제할 수 있습니다. 빠른 개요를 알아보려면 [Azure Site Recovery란?](site-recovery-overview.md)을 참조하세요.
+Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제, 장애 조치(Failover) 및 복구를 오케스트레이션하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. 컴퓨터는 Azure 또는 보조 온-프레미스 데이터 센터로 복제할 수 있습니다. 빠른 개요를 알아보려면 [Azure Site Recovery란?](site-recovery-overview.md)을 확인하세요.
 
 ## 개요
 
 이 문서에서는 다음과 같이 방법을 설명합니다.
 
-- **Azure에 VMware 가상 컴퓨터 복제** - 온-프레미스 VMware 가상 컴퓨터에서 Azure 저장소로 복제, 장애 조치(failover), 복구 조정을 위해 사이트 복구를 배포합니다.
-- **Azure에 물리적 서버 복제** - 온-프레미스 Windows 및 Linux 물리적 서버에서 Azure로 복제, 장애 조치(failover), 복구 조정을 위해 Azure Site Recovery를 배포합니다.
+- **Azure에 VMware 가상 컴퓨터 복제**—온-프레미스 VMware 가상 컴퓨터에서 Azure 저장소로 복제, 장애 조치(Failover), 복구 조정을 위해 사이트 복구를 배포합니다.
+- **Azure에 물리적 서버 복제**—온-프레미스 Windows 및 Linux 물리적 서버에서 Azure로 복제, 장애 조치(Failover), 복구 조정을 위해 Azure Site Recovery를 배포합니다.
 
 >[AZURE.NOTE] 이 문서에 설명된 시나리오는 **레거시 지침**을 포함합니다. 새 배포인 경우 이 문서를 사용하지 마세요. 대신 클래식 포털을 위한 [향상된 배포](site-recovery-vmware-to-azure-classic.md) 지침을 사용합니다. 이 문서에 설명된 방법을 사용하여 이미 배포한 경우 아래 설명된 대로 새 버전으로 마이그레이션하는 것이 좋습니다.
 
@@ -310,11 +317,11 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 	- 사용자 지정 프록시를 사용하거나 기본 프록시에 인증이 필요한 경우 주소, 포트, 자격 증명을 포함한 프록시 정보를 입력해야 합니다.
 	- 다음 URL은 프록시를 통해 액세스할 수 있습니다.
 		- **.hypervrecoverymanager.windowsazure.com
-		- **.accesscontrol.windows.net
-		- **.backup.windowsazure.com
-		- **.blob.core.windows.net
-		- **.store.core.windows.net
-	- IP 주소 기반 방화벽 규칙이 구성 서버에서 [Azure 데이터 센터 IP 주소](https://msdn.microsoft.com/library/azure/dn175718.aspx)에 설명된 IP 주소 및 HTTPS(443) 프로토콜로 연결하는 통신을 허용하는지 확인하세요. 사용하려는 Azure 지역 및 미국 서부의 IP 범위를 허용해야 합니다.
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
+- IP 주소 기반 방화벽 규칙이 구성 서버에서 [Azure 데이터 센터 IP 주소](https://msdn.microsoft.com/library/azure/dn175718.aspx)에 설명된 IP 주소 및 HTTPS(443) 프로토콜로 연결하는 통신을 허용하는지 확인하세요. 사용하려는 Azure 지역 및 미국 서부의 IP 범위를 허용해야 합니다.
 
 	![프록시 등록](./media/site-recovery-vmware-to-azure-classic-legacy/register-proxy.png)
 
@@ -417,9 +424,8 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 8. Linux를 실행하는 경우 다음을 수행합니다.
 	1. 마스터 대상 서버 소프트웨어를 설치하기 전에 최신 LIS(Linux Integration Services)를 설치했는지 확인하십시오. [여기](https://www.microsoft.com/download/details.aspx?id=46842)에서 설치 방법에 대한 지침과 함께 최신 버전의 LIS를 찾을 수 있습니다. LIS 설치 후 컴퓨터를 다시 시작합니다.
 	2. **대상(Azure) 리소스 준비**에서 **추가 소프트웨어 다운로드 및 설치(Linux 마스터 대상 서버 전용)**를 클릭하고 Linux 마스터 대상 서버 패키지를 다운로드합니다. 다운로드한 tar 파일을 sftp 클라이언트를 사용하여 가상 컴퓨터로 복사합니다. 또는 배포된 Linux 마스터 대상 서버에 로그인한 다음 *wget http://go.microsoft.com/fwlink/?LinkID=529757&clcid=0x409*을 사용하여 파일을 다운로드할 수 있습니다.
-	2. 보안 셸 클라이언트를 사용하여 서버에 로그온합니다. VPN을 통해 Azure 네트워크에 연결되어 있는 경우 내부 IP 주소를 사용합니다. 그렇지 않으면 외부 IP 주소와 SSH 공용 끝점을 사용합니다.
-	3. **tar –xvzf Microsoft-ASR\_UA\_8.4.0.0\_RHEL6-64***  
-	![Linux 마스터 대상 서버](./media/site-recovery-vmware-to-azure-classic-legacy/linux-tar.png)를 실행하여 GZip 압축된 설치 프로그램에서 파일을 추출합니다.
+2. 보안 셸 클라이언트를 사용하여 서버에 로그온합니다. VPN을 통해 Azure 네트워크에 연결되어 있는 경우 내부 IP 주소를 사용합니다. 그렇지 않으면 외부 IP 주소와 SSH 공용 끝점을 사용합니다.
+	3. **tar –xvzf Microsoft-ASR\_UA\_8.4.0.0\_RHEL6-64*** ![Linux 마스터 대상 서버](./media/site-recovery-vmware-to-azure-classic-legacy/linux-tar.png)를 실행하여 GZip 압축된 설치 프로그램에서 파일을 추출합니다.
 	4. 현재 위치가 tar 파일의 내용을 추출한 디렉터리인지 확인합니다.
 	5. **echo *`<passphrase>`* >passphrase.txt** 명령을 사용하여 구성 서버 암호를 로컬 파일로 복사합니다.
 	6. "**sudo ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i *`<Configuration server internal IP address>`* -p 443 -s y -c https -P passphrase.txt**" 명령을 실행합니다.
@@ -698,7 +704,7 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 	![V-Center Server 추가](./media/site-recovery-vmware-to-azure-classic-legacy/select-vms.png)	
 4. **대상 리소스 지정**에서 복제에 사용할 마스터 대상 서버 및 저장소를 선택하고 설정을 모든 워크로드에 사용해야 할지 여부를 선택합니다. IO를 많이 사용하는 작업을 호스트하기 위해 일관된 IO 고성능과 짧은 대기 시간이 요구되는 워크로드에 대한 보호를 구성하는 동안에는 [프리미엄 저장소 계정](../storage/storage-premium-storage.md)을 선택합니다. 워크로드 디스크에 프리미엄 저장소 계정을 사용하려는 경우 DS 시리즈의 마스터 대상을 사용해야 합니다. DS 시리즈가 아닌 마스터 대상의 경우 프리미엄 저장소 디스크를 사용할 수 없습니다.
 
-	>[AZURE.NOTE] 리소스 그룹 간에서 [새 Azure 포털](../storage/storage-create-storage-account.md)을 사용하여 만든 저장소 계정 이동을 지원하지 않습니다.
+	>[AZURE.NOTE] 여러 리소스 그룹에 [새 Azure 포털](../storage/storage-create-storage-account.md)을 사용하여 만든 저장소 계정의 이동을 지원하지 않습니다.
 
 	![vCenter Server](./media/site-recovery-vmware-to-azure-classic-legacy/machine-resources.png)
 
@@ -807,4 +813,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

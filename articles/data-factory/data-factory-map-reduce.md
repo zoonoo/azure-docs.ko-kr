@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="04/01/2016" 
 	ms.author="spelluru"/>
 
 # 데이터 팩터리에서 MapReduce 프로그램 호출
@@ -208,6 +208,9 @@ linkedServiceName | 이전에 만든 HDInsight 연결된 서비스를 말합니�
 	    }
 	}
 
+## Spark 프로그램 실행
+MapReduce 작업을 사용하여 HDInsight Spark 클러스터에서 Spark 프로그램을 실행할 수 있습니다. 자세한 내용은 [Azure Data Factory에서 Spark 프로그램 호출](data-factory-spark.md)을 참조하세요.
+
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 
@@ -217,7 +220,13 @@ linkedServiceName | 이전에 만든 HDInsight 연결된 서비스를 말합니�
 [adftutorial]: data-factory-tutorial.md
 
 [Developer Reference]: http://go.microsoft.com/fwlink/?LinkId=516908
-[Azure Classic Portal]: http://portal.azure.com
+[Azure Portal]: http://portal.azure.com
  
+## 참고 항목
+- [Hive 작업](data-factory-hive-activity.md)
+- [Pig 작업](data-factory-pig-activity.md)
+- [Hadoop 스트리밍 작업](data-factory-hadoop-streaming-activity.md)
+- [Spark 프로그램 호출](data-factory-spark.md)
+- [R 스크립트 호출](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

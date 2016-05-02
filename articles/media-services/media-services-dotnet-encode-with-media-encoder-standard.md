@@ -3,8 +3,8 @@
 	description="이 항목에서는 .NET을 사용하여 미디어 인코더 표준으로 자산을 인코딩하는 방법을 보여줍니다." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,anilmur" 
-	manager="dwrede" 
+	authors="juliako" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-  ms.date="02/03/2016"
-	ms.author="juliako"/>
+ 	ms.date="04/18/2016"
+	ms.author="juliako;anilmur"/>
 
 
 #미디어 인코더 표준을 사용하여 자산을 인코드하는 방법
@@ -147,4 +147,4 @@
 
 [.NET과 함께 미디어 인코더 표준을 사용하여 미리 보기를 생성하는 방법](media-services-dotnet-generate-thumbnail-with-mes.md) [미디어 서비스 인코딩 개요](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -310,27 +310,31 @@ Engagement API는 모든 Engagement의 고급 기능 사용을 허용하며 Andr
 
 ##고급 구성(AndroidManifest.xml의)
 
+### 절전 모드 해제 잠금
+
 Wifi를 사용하는 경우 또는 화면이 꺼져 있을 때 실시간으로 통계를 보내려면 다음과 같은 선택적 권한을 추가합니다.
 
 			<uses-permission android:name="android.permission.WAKE_LOCK"/>
+
+### 충돌 보고서
 
 크래시 보고를 비활성화하려는 경우 `<application>` 태그와 `</application>` 태그 사이에 다음을 추가합니다.
 
 			<meta-data android:name="engagement:reportCrash" android:value="false"/>
 
+### 버스트 임계값
+
 기본적으로 Engagement 서비스는 로그를 실시간으로 보고합니다. 응용 프로그램이 로그를 매우 자주 보고하는 경우 로그를 버퍼링한 후 정기적으로 한 번에 모두 보고하는 것이 좋습니다. 이를 "버스트 모드"라고 합니다. 그렇게 하려면 `<application>` 태그와 `</application>` 태그 사이에 다음을 추가합니다.
 
-			<meta-data android:name="engagement:burstThreshold" android:value="<interval between too bursts (in milliseconds)>"/>
+			<meta-data android:name="engagement:burstThreshold" android:value="{interval between too bursts (in milliseconds)}"/>
 
 버스트 모드를 사용하는 경우 배터리 수명은 약간 길어지지만 Engagement 모니터에 영향을 주게 됩니다. 모든 세션 및 작업 기간이 버스트 임계값으로 반올림되므로 버스트 임계값보다 짧은 세션과 작업은 표시되지 않을 수도 있습니다. 30000(30초) 이하의 버스트 임계값을 사용하는 것이 좋습니다.
 
-기본적으로 Engagement 서비스는 네트워크가 사용 가능해지는 즉시 서버와의 연결을 설정합니다. 연결을 연기하려는 경우 `<application>` 태그와 `</application>` 태그 사이에 다음을 추가합니다.
-
-			<meta-data android:name="engagement:connection:delay" android:value="<delay (in milliseconds)>"/>
+### 세션 시간 제한
 
 기본적으로 세션은 마지막 작업(일반적으로 홈 또는 뒤로 키를 누르거나, 휴대폰을 유휴로 설정하거나, 다른 응용 프로그램으로 이동함으로써 발생)의 종료 10초 후에 종료됩니다. 그러면 사용자가 응용 프로그램을 종료하고 빠르게 응용 프로그램으로 돌아갈 때(이미지를 선택하거나 알림을 확인하는 등의 작업을 통해)마다 세션 분할을 피할 수 있습니다. 이 매개 변수를 수정할 수도 있습니다. 그렇게 하려면 `<application>` 태그와 `</application>` 태그 사이에 다음을 추가합니다.
 
-			<meta-data android:name="engagement:sessionTimeout" android:value="<session timeout (in milliseconds)>"/>
+			<meta-data android:name="engagement:sessionTimeout" android:value="{session timeout (in milliseconds)}"/>
 
 ##로그 보고 사용 안 함
 
@@ -380,4 +384,4 @@ Engagement는 이 설정을 관리하기 위한 기본 설정 파일 내에서 �
 <!-- URLs. -->
 [Device API]: http://go.microsoft.com/?linkid=9876094
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

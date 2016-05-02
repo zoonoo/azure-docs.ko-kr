@@ -4,7 +4,7 @@
    services=""
    documentationCenter="Azure"
    authors="erihur"
-   manager="kareni"
+   manager="stevenpo"
    editor=""
    tags="billing"/>
 
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/22/2016"
+   ms.date="04/13/2016"
    ms.author="erihur"/>
 
 
@@ -33,32 +33,17 @@ Microsoft Azure 구독 요금은 요금제에 따라 다릅니다. Visual Studio
 
 <!-- *NOTE: The **csv1** link refers to the column header names for csv version 1 and **csv2** link refers to the new column header names for csv version 2.  These files are updated monthly.*-->
 
-<!-- Below section commented out as a new "right nav" floating bar is created for each article and is no longer necessary to have this section.
-
-## Content:
-
-This topic helps you with the following tasks when reading your bill.
-
--  View or Download a Bill for Azure
--  Customer Information
--  Understand the Invoice Summary
--  Understand the Current Charges
--  Footer Information
--  Understand the Additional Information
--  Understand Detailed Usage Charges
--  Analyze Daily Usage Data -->
-
 ### Microsoft Azure 청구서 보기 또는 다운로드
 
-[사용 현황 및 대금 청구 포털](https://account.windowsazure.com/subscriptions)에서 현재 청구서를 보고 과거 청구서를 다운로드할 수 있습니다.
+[Azure 계정 포털](https://account.windowsazure.com/subscriptions)에서 현재 청구서를 보고 과거 청구서를 다운로드할 수 있습니다.
 
 청구서를 보거나 다운로드하려면
 
-1. Microsoft 계정 ID나 회사 또는 학교 계정 ID를 사용하여 [사용 현황 및 대금 청구 포털](https://account.windowsazure.com/subscriptions)에 로그인합니다.
+1. Microsoft 계정 ID나 회사 또는 학교 계정 ID를 사용하여 [계정 포털](https://account.windowsazure.com/subscriptions)에 로그인합니다.
 
 2. 세부 정보 및 사용 현황을 확인할 구독을 클릭합니다.
 
-3. **청구** 내역을 클릭합니다.
+3. **청구 내역**을 클릭합니다.
 
     ![요약 - 청구 내역 1](./media/billing-understand-your-bill/ContentViewaBillforMA1.png)
 
@@ -78,7 +63,7 @@ This topic helps you with the following tasks when reading your bill.
     ![요약 - 청구 내역 5](./media/billing-understand-your-bill/ContentViewaBillforMA5.png)
 
 
-***중요:*** *전세계 고객용 청구 명세서에 나열된 요금은 은행이 전환율에 대해 서로 다른 비용을 부과하므로 예측 용도로만 사용합니다.*
+***중요:*** *전 세계 고객용 청구 명세서에 나열된 요금은 은행이 전환율에 대해 서로 다른 비용을 부과하므로 예측 용도로만 사용합니다.*
 
 
 아래는 Microsoft Azure에서 사용 가능한 두 개의 제안에 대한 일부 샘플 문입니다.
@@ -90,9 +75,9 @@ Pay-As-You-Go | 후불 월정액 | [샘플 파일](https://azurepricing.blob.cor
 
 
 
-## 머리글 - 고객 정보
+## 계정 정보
 
-고객 정보 섹션은 사용 현황 및 프로필과 관련된 정보를 식별합니다. ![머리글](./media/billing-understand-your-bill/Header.png)
+계정 정보 섹션은 사용 현황 및 프로필과 관련된 정보를 식별합니다. ![머리글](./media/billing-understand-your-bill/Header.png)
 
 ### 청구서 번호
 추적을 위한 고유한 청구서 식별자입니다.
@@ -103,26 +88,26 @@ Pay-As-You-Go | 후불 월정액 | [샘플 파일](https://azurepricing.blob.cor
 ### 청구서 날짜
 청구서가 생성된 날짜입니다.
 
-### 지불 방법
+### 결제 방법
 계정에 사용되는 지불 유형(즉, 청구서 또는 신용 카드)입니다.
 
 ### 청구지
 Microsoft Azure 지불 주소입니다.
 
 ### 구독 제안
-구매한 구독 제안의 유형(예: 종량제, MSDN-Visual Studio Enterprise)
+구매한 구독 제안의 유형(예: 종량제, BizSpark Plus, Azure Pass)
 
-### 계정 소유자 전자 메일
+### 계정 소유자 메일
 Microsoft Azure 계정이 등록된 계정 전자 메일 주소입니다.
 
 
 
 ## 청구서 요약 이해
-청구서의 청구서 요약 섹션은 마지막 청구 이후의 트랜잭션 및 현재 사용 요금을 요약합니다.
+청구서의 **청구서 요약** 섹션은 마지막 청구 이후의 트랜잭션 및 현재 사용 요금을 요약합니다.
 
 ![청구서 요약](./media/billing-understand-your-bill/InvoiceSummary.png)
 
-청구서의 잔고, 지불 및 기타 크레딧을 섹션은 마지막 청구 이후의 트랜잭션을 요약합니다.
+청구서의 이전 잔액, 지불 및 미지불 잔액 섹션에는 마지막 청구 이후의 트랜잭션이 요약됩니다.
 
 ### 이전 잔액
 이전 잔액은 마지막 청구에서 지불할 총 금액입니다.
@@ -155,7 +140,7 @@ Microsoft Azure 계정이 등록된 계정 전자 메일 주소입니다.
 ![추가 정보](./media/billing-understand-your-bill/AdditionalInformation.png)
 
 ### 자세한 사용 현황
-자세한 사용 현황 아래의 설명에 있는 링크를 클릭하면 이 구독에 대한 세부 사용 현황을 볼 수 있는 Azure 사용 현황 및 대금 청구 포털로 이동합니다. 이제 두 버전을 다운로드할 수 있습니다: **.csv 버전 1**은 이전 명명 규칙 및 사용 현황 필드를 포함하고 **.csv 버전 2**는 Microsoft Azure에서 사용하는 서비스를 이해할 수 있도록 돕는 각 범주를 더한 추가 필드에 고객 친화적인 이름을 포함합니다.
+**자세한 사용 현황** 아래의 설명에 있는 링크를 클릭하면 이 구독에 대한 세부 사용 현황을 볼 수 있는 계정 포털로 이동합니다. 이제 두 버전을 다운로드할 수 있습니다: **.csv 버전 1**은 이전 명명 규칙 및 사용 현황 필드를 포함하고 **.csv 버전 2**는 Microsoft Azure에서 사용하는 서비스를 이해할 수 있도록 돕는 각 범주를 더한 추가 필드에 고객 친화적인 이름을 포함합니다. .csv 버전 1에는 Azure Resource Manager 세부 정보가 없습니다. Azure Resource Manager 정보는 .csv 버전 2에서 확인할 수 있습니다.
 
 ### 추가 정보 및 유용한 리소스
 이 섹션에는 계산 인스턴스 크기 및 SQL DB 요금에 대해 간단히 질문할 수 있는 링크와 추가 질문에 대답하는 데 유용한 링크가 있습니다.
@@ -191,7 +176,7 @@ SKU | SKU | 각 Azure 리소스에 대한 고유한 시스템 식별자를 식�
 비용 | 비용 | 청구 가능한 단위별로 청구되는 요금입니다.
 값 | 값 | 청구 가능 열과 요금 열을 곱한 결과를 표시합니다. 사용량이 포함된 양을 초과하는 경우에는 이 열에 청구 금액이 없습니다.
 
-## 일일 사용 데이터 분석
+## 일일 사용 현황 데이터 분석
 사용량에 따라 수천 개의 일일 사용 데이터 행이 있을 수 있습니다. 이 데이터를 분석하려는 경우 **사용량 다운로드**를 클릭하고 쉼표로 구분된 변수 파일(.csv) 버전을 선택하여 적절한 청구 기간에 대한 일일 사용량 데이터를 참조합니다. 참조용으로 아래 각 버전의 샘플 .csv 파일을 다운로드할 수 있습니다.
 
  이름 | 다운로드 |
@@ -267,4 +252,4 @@ SKU | SKU | 각 Azure 리소스에 대한 고유한 시스템 식별자를 식�
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

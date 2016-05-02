@@ -1,4 +1,12 @@
-<properties pageTitle="Azure에서 Linux 환경의 Cassandra 실행 | Microsoft Azure" description="Node.js 앱에서 Azure 가상 컴퓨터의 Linux에서 Cassandra 클러스터를 실행하는 방법에 대해 알아봅니다." services="virtual-machines-linux" documentationCenter="nodejs" authors="hanuk" manager="wpickett" editor="" azure-service-management"/>
+<properties 
+	pageTitle="Azure에서 Linux로 Cassandra 실행 | Microsoft Azure" 
+	description="Node.js 앱에서 Azure 가상 컴퓨터의 Linux에서 Cassandra 클러스터를 실행하는 방법에 대해 알아봅니다." 
+	services="virtual-machines-linux" 
+	documentationCenter="nodejs" 
+	authors="hanuk" 
+	manager="wpickett" 
+	editor=""
+	tags="azure-service-management"/>
 
 <tags 
 	ms.service="virtual-machines-linux" 
@@ -697,4 +705,4 @@ Microsoft Azure는 이 연습에서 알 수 있듯이 Microsoft 및 오픈 소�
 - [http://www.datastax.com](http://www.datastax.com) 
 - [http://www.nodejs.org](http://www.nodejs.org) 
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

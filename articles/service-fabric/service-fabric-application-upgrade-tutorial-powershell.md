@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/04/2016"
+   ms.date="04/14/2016"
    ms.author="subramar"/>
 
 
@@ -51,17 +51,17 @@ VisualObjects 솔루션에서 VisualObjects.ActorService 프로젝트를 선택�
 변경 후 매니페스트 버전은 다음과 같이 설정됩니다(강조 표시된 글씨가 변경된 부분임).
 
 ```xml
-<ServiceManifestName="VisualObjects.ActorService"Version="2.0"xmlns="http://schemas.microsoft.com/2011/01/fabric"xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ServiceManifestName="VisualObjects.ActorService" Version="2.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
-<CodePackageName="Code"Version="2.0">
+<CodePackageName="Code" Version="2.0">
 ```
 
 이제 **VisualObjects.ActorService** 프로젝트의 2.0 버전을 사용하기 위해 *ApplicationManifest.xml* 파일(**VisualObjects** 솔루션 내 **VisualObjects** 프로젝트 내에서 찾을 수 있음)을 업데이트하고, 응용 프로그램의 버전도 1.0.0.0에서 2.0.0.0으로 업데이트해야 합니다. 이제 *ApplicationManifest.xml*의 해당 줄은 다음과 같습니다.
 
 ```xml
-<ApplicationManifestxmlns:xsd="http://www.w3.org/2001/XMLSchema"xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"ApplicationTypeName="VisualObjects"ApplicationTypeVersion="2.0.0.0"xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifestxmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VisualObjects" ApplicationTypeVersion="2.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
 
- <ServiceManifestRefServiceManifestName="VisualObjects.ActorService"ServiceManifestVersion="2.0" />
+ <ServiceManifestRefServiceManifestName="VisualObjects.ActorService" ServiceManifestVersion="2.0" />
 ```
 
 
@@ -91,7 +91,7 @@ UpgradeTimeout = 3000
 
 이 응용 프로그램 패키지는 서비스 패브릭 SDK의 압축을 푼 다음 상대 경로 아래 저장됩니다. *Samples\\Services\\Stateful\\VisualObjects\\VisualObjects\\obj\\x64\\Debug* 디렉터리에서 응용 프로그램 패키지가 저장된 "Package" 폴더를 찾을 수 있습니다. 타임 스탬프를 확인하여 최신 빌드인지 확인하십시오(경로를 적절하게 수정해야 할 수 있습니다).
 
-이제 업데이트된 응용 프로그램 패키지를 서비스 패브릭 ImageStore(서비스 패브릭에 의해 응용 프로그램 패키지가 저장된 곳)에 복사합니다. 매개 변수 *ApplicationPackagePathInImageStore* 는 서비스 패브릭에 응용 프로그램 패키지를 찾을 수 있는 위치를 알립니다. 다음 명령으로 업데이트된 응용 프로그램을 "VisualObjects\_V2"에 저장하였습니다(경로를 다시 적절하게 수정해야 할 수 있습니다).
+이제 업데이트된 응용 프로그램 패키지를 서비스 패브릭 ImageStore(서비스 패브릭에 의해 응용 프로그램 패키지가 저장된 곳)에 복사합니다. 매개 변수 *ApplicationPackagePathInImageStore*는 서비스 패브릭에 응용 프로그램 패키지를 찾을 수 있는 위치를 알립니다. 다음 명령으로 업데이트된 응용 프로그램을 "VisualObjects\_V2"에 저장하였습니다(경로를 다시 적절하게 수정해야 할 수 있습니다).
 
 ```powershell
 Copy-ServiceFabricApplicationPackage  -ApplicationPackagePath .\Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug\Package
@@ -136,4 +136,4 @@ Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/VisualObjects -Ap
 
 [응용 프로그램 업그레이드 문제 해결](service-fabric-application-upgrade-troubleshooting.md)의 단계를 참조하여 응용 프로그램 업그레이드 중 발생하는 일반적인 문제를 해결합니다.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

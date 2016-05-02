@@ -1,4 +1,11 @@
-<properties pageTitle="Use PowerShell to enable Azure Diagnostics in a virtual machine running Windows | Microsoft Azure" services="virtual-machines-windows" documentationCenter="" description="Learn how to use PowerShell to enable Azure Diagnostics in a virtual machine running Windows" authors="sbtron" manager="" editor="""/>
+<properties
+	pageTitle="PowerShell을 사용하여 Windows를 실행하는 가상 컴퓨터에서 Azure 진단을 사용하도록 설정 | Microsoft Azure"
+	services="virtual-machines-windows"
+	documentationCenter=""
+	description="PowerShell을 사용하여 Windows를 실행하는 가상 컴퓨터에서 Azure 진단을 사용하도록 설정하는 방법에 대해 알아봅니다."
+	authors="sbtron"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="virtual-machines-windows"
@@ -20,7 +27,7 @@ Azure 진단은 배포된 응용 프로그램에서 진단 데이터를 수집�
 
 Azure 리소스 관리자 배포 모델을 통해 Windows VM을 만드는 동안 리소스 관리자 템플릿에 확장 구성을 추가하여 진단 확장을 사용하도록 설정할 수 있습니다. [Azure Resource Manager를 사용하여 Windows 가상 컴퓨터와 모니터링 및 진단 기능 만들기](virtual-machines-windows-extensions-diagnostics-template.md)를 참조하세요.
 
-리소스 관리자 배포 모델을 통해 만든 기존 VM에서 진단 확장을 사용하도록 설정하려면 아래 표시된 [Set-AzureRMVMDiagnosticsExtension](https://msdn.microsoft.com/library/mt603499.aspx) powershell cmdlet을 사용합니다.
+리소스 관리자 배포 모델을 통해 만든 기존 VM에서 진단 확장을 사용하도록 설정하려면 아래 표시된 [Set-AzureRMVMDiagnosticsExtension](https://msdn.microsoft.com/library/mt603499.aspx) PowerShell cmdlet을 사용합니다.
 
 
 	$vm_resourcegroup = "myvmresourcegroup"
@@ -34,7 +41,7 @@ Azure 리소스 관리자 배포 모델을 통해 Windows VM을 만드는 동안
 
 진단 구성 파일이 저장소 계정 이름으로 **StorageAccount** 요소를 지정할 경우 *Set-AzureRMVMDiagnosticsExtension* 스크립트에서 해당 저장소 계정으로 진단 데이터를 보내도록 진단 확장을 자동으로 설정합니다. 이렇게 작동하려면, 저장소 계정이 VM과 동일한 구독 내에 있어야 합니다.
 
-진단 구성에 **StorageAccount**가 지정되지 않은 경우 cmdlet에 *StorageAccountName* 매개 변수를 전달해야 합니다. *StorageAccountName* 매개 변수가 지정된 경우에 cmdlet은 매개 변수에 지정된 저장소 계정을 항상 사용하며 진단 구성 파일에 지정된 것은 사용하지 않습니다.
+진단 구성에 **StorageAccount**가 지정되지 않은 경우 cmdlet에 *StorageAccountName* 매개 변수를 전달해야 합니다. *StorageAccountName* 매개 변수가 지정된 경우 cmdlet은 항상 진단 구성 파일에 지정된 저장소 계정이 아닌 매개 변수에 지정된 저장소 계정을 사용합니다.
 
 진단 저장소 계정이 VM과 다른 구독에 있는 경우 *StorageAccountName* 및 *StorageAccountKey* 매개 변수를 cmdlet에 명시적으로 전달해야 합니다. 진단 저장소 계정이 동일한 구독에 있는 경우 진단 확장을 사용하도록 설정하면 cmdlet이 키 값을 자동으로 쿼리하고 설정할 수 있으므로 *StorageAccountKey* 매개 변수가 필요하지 않습니다. 하지만 진단 저장소 계정이 다른 구독에 있는 경우에는 cmdlet이 자동으로 키를 얻지 못할 수 있으며, 사용자가 *StorageAccountKey* 매개 변수를 통해 키를 명시적으로 지정해야 합니다.
 
@@ -194,4 +201,4 @@ cmdlet은 *PublicSettings*을 반환하며, 여기에는 Base64 인코딩 형식
 - 문제 해결을 위한 Azure 진단 기능 및 기타 기법 사용에 대한 추가 지침은 [Azure 클라우드 서비스 및 가상 컴퓨터에서 진단 사용](../cloud-services/cloud-services-dotnet-diagnostics.md)을 참조하세요.
 - [진단 구성 스키마](https://msdn.microsoft.com/library/azure/mt634524.aspx)는 진단 확장에 대한 다양한 XML 구성 옵션을 설명합니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

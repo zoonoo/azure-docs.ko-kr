@@ -19,9 +19,32 @@
 
 [분석](app-insights-analytics.md)은 [Application Insights](app-insights-overview.md)의 강력한 검색 기능입니다. 다음 페이지에서는 분석 쿼리 언어에 대해 설명합니다.
 
-*브라우저 검색을 사용하여 이 페이지에서 쿼리, 집계 및 스칼라 페이지의 콘텐츠를 결합하는 언어 요소를 찾습니다.*
 
 [AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
+
+
+| | | | | 
+|---|---|---|---|---
+|[ago](#ago)|[dayofweek](#dayofweek)|[let 절](#let-clause)|[range](#range)|[summarize 연산자](#summarize-operator)
+|[모든](#any)|[dcount](#dcount)|[limit 연산자](#limit-operator)|[range 연산자](#range-operator)|[take 연산자](#take-operator)
+|[argmax](#argmax)|[let 절의 동적 개체](#dynamic-objects-in-let-clauses)|[makelist](#makelist)|[reduce 연산자](#reduce-operator)|[todatetime](#todatetime)
+|[argmin](#argmin)|[extend 연산자](#extend-operator)|[makeset](#makeset)|[render 지시문](#render-directive)|[todouble](#todouble)
+|[Arithmetic 연산자](#arithmetic-operators)|[extract](#extract)|[max](#max)|[replace](#replace)|[todynamic](#todynamic)
+|[배열 및 개체 리터럴](#array-and-object-literals)|[extractjson](#extractjson)|[min](#min)|[스칼라 비교](#scalar-comparisons)|[toint](#toint)
+|[arraylength](#arraylength)|[floor](#floor)|[mvexpand 연산자](#mvexpand-operator)|[sort 연산자](#sort-operator)|[tolong](#tolong)
+|[avg](#avg)|[getmonth](#getmonth)|[notempty](#notempty)|[분할](#split)|[tolower](#tolower)
+|[bin](#bin)|[gettype](#gettype)|[notnull](#notnull)|[sqrt](#sqrt)|[top 연산자](#top-operator)
+|[부울 리터럴](#boolean-literals)|[getyear](#getyear)|[now](#now)|[startofmonth](#startofmonth)|[totimespan](#totimespan)
+|[Boolean 연산자](#boolean-operators)|[hash](#hash)|[숫자 리터럴](#numeric-literals)|[startofyear](#startofyear)|[toupper](#toupper)
+|[buildschema](#buildschema)|[iff](#iff)|[난독 처리된 문자열 리터럴](#obfuscated-string-literals)|[stdev](#stdev)|[treepath](#treepath)
+|[Casts](#casts)|[isempty](#isempty)|[parse 연산자](#parse-operator)|[strcat](#strcat)|[union 연산자](#union-operator)
+|[count](#count)|[isnotempty](#isnotempty)|[parsejson](#parsejson)|[문자열 비교](#string-comparisons)|[variance](#variance)
+|[count 연산자](#count-operator)|[isnotnull](#isnotnull)|[percentile](#percentile)|[문자열 리터럴](#string-literals)|[where 연산자](#where-operator)
+|[countof](#countof)|[isnull](#isnull)|[percentiles](#percentiles)|[strlen](#strlen)
+|[날짜 및 시간 식](#date-and-time-expressions)|[join 연산자](#join-operator)|[project 연산자](#project-operator)|[substring](#substring)
+|[날짜 및 시간 리터럴](#date-and-time-literals)|[JSON Path 식](#json-path-expressions)|[rand](#rand)|[sum](#sum)
+
+
 
 
 
@@ -36,9 +59,9 @@ requests
 | count
 ```
     
-파이프 문자 `|`가 접두사로 붙는 각 필터는 몇몇 매개 변수를 가진 *연산자*의 인스턴스입니다. 연산자에 대한 입력은 앞에 붙는 파이프라인의 결과인 테이블입니다. 대부분의 경우 모든 매개 변수는 입력 열에 대한 [스칼라 식](##scalars)입니다. 매개 변수가 입력 열의 이름인 경우도 있고 매개 변수가 두 번째 테이블인 경우도 있습니다. 테이블에 열 및 행이 한 개만 있더라도 쿼리의 결과는 언제나 테이블입니다.
+파이프 문자 `|`이 접두사로 붙는 각 필터는 몇몇 매개 변수를 가진 *연산자*의 인스턴스입니다. 연산자에 대한 입력은 앞에 붙는 파이프라인의 결과인 테이블입니다. 대부분의 경우 모든 매개 변수는 입력 열에 대한 [스칼라 식](##scalars)입니다. 매개 변수가 입력 열의 이름인 경우도 있고 매개 변수가 두 번째 테이블인 경우도 있습니다. 테이블에 열 및 행이 한 개만 있더라도 쿼리의 결과는 언제나 테이블입니다.
 
-쿼리에는 스칼라, 테이블 또는 쿼리 내에서 사용할 수 있는 함수를 정의하는 [let 절](#let-clause)이 한 개 이상 접두사로 붙을 수 있습니다.
+쿼리에는 스칼라, 테이블 또는 쿼리 내에서 사용할 수 있는 함수를 정의하는 [let clauses](#let-clause)가 한 개 이상 접두사로 붙을 수 있습니다.
 
 ```AIQL
 
@@ -50,12 +73,12 @@ requests
     req(city) | count
 ```
 
-> 아래 쿼리 예제에서 `T`는 앞에 붙는 파이프라인 또는 원본 테이블을 나타내기 위해 사용됩니다.
+> 아래 쿼리 예제에서 `T`는 앞에 붙는 파이프라인 또는 소스 테이블을 나타내기 위해 사용됩니다.
 > 
 
 ### count 연산자
 
-`count` 연산자는 입력 레코드 집합의 레코드(행) 수를 반환합니다.
+`count` 연산자는 입력된 레코드 집합의 레코드(행) 수를 반환합니다.
 
 **구문**
 
@@ -100,8 +123,8 @@ requests | count
 
 **팁**
 
-* 일부 열을 삭제하거나 이름을 바꾸려면 [`project`](#project-operator)를 대신 사용합니다.
-* 단지 긴 식에 사용할 목적으로 더 짧은 이름을 얻기 위해 `extend`를 사용하지 마세요. `...| extend x = anonymous_user_id_from_client | ... func(x) ...` 
+* 일부 열의 삭제 또는 이름 바꾸기도 원하는 경우 [`project`](#project-operator)를 대신 사용합니다.
+* 단지 긴 식에 사용할 목적으로 더 짧은 이름을 얻기 위해 `extend`를 사용하지 마십시오. `...| extend x = anonymous_user_id_from_client | ... func(x) ...` 
 
     테이블의 기본 열은 인덱싱되었으며, 새 이름은 인덱싱되지 않은 추가 열을 정의하므로 쿼리가 더 느리게 실행될 가능성이 있습니다.
 
@@ -129,7 +152,7 @@ traces
 
 * *Table1* - join의 '좌변'입니다.
 * *Table2* - join의 '우변'입니다. 테이블을 출력하는 중첩 된 쿼리 식일 수 있습니다.
-* *CommonColumn* - 두 테이블에서 같은 이름을 가진 열입니다.
+* *CommonColumn* - 두 테이블에 같은 이름을 가진 열입니다.
 * *Kind* - 두 테이블의 행을 일치시킬 방법을 지정합니다.
 
 **반환**
@@ -147,7 +170,7 @@ traces
  
      왼쪽 및 오른쪽에서 일치하는 행의 모든 조합에 대해 한 개의 출력 행이 있습니다.
 
-* `kind=leftouter`(또는 `kind=rightouter` 또는 `kind=fullouter`)
+* `kind=leftouter`(또는 `kind=rightouter`, `kind=fullouter`)
 
      내부 일치 외에도 일치 항목이 없더라도 왼쪽(및/또는 오른쪽)의 모든 행에 대한 행이 있습니다. 이 경우 일치하지 않는 출력 셀에는 null 값이 포함되어 있습니다.
 
@@ -239,7 +262,7 @@ Self-join:
 
 입력된 테이블에서 지정한 수까지의 행을 반환합니다. 레코드가 반환된다는 보장은 없습니다. (특정 레코드를 반환하려면 [`top`](#top-operator)을 사용합니다.)
 
-**Alias** `take`
+**별칭** `take`
 
 **구문**
 
@@ -248,9 +271,9 @@ Self-join:
 
 **팁**
 
-`Take`은 대화형으로 작업하는 경우 결과의 샘플을 참조하는 간단하고 효율적인 방법입니다. 특정 행을 생성하거나 행을 특정 순서로 생성한다는 보장이 없다는 데 유의하십시오.
+`Take`는 대화형으로 작업하는 경우 결과의 샘플을 참조하는 간단하고 효율적인 방법입니다. 특정 행을 생성하거나 행을 특정 순서로 생성한다는 보장이 없다는 데 유의하십시오.
 
-`take`을 사용하더라도 클라이언트에 반환되는 행 수에 대한 암시적 제한이 있습니다. 이 제한을 사용하려면 `notruncation` 클라이언트 요청 옵션을 사용합니다.
+`take`를 사용하더라도 클라이언트에 반환되는 행 수에 대한 암시적 제한이 있습니다. 이 제한을 사용하려면 `notruncation` 클라이언트 요청 옵션을 사용합니다.
 
 
 
@@ -260,7 +283,7 @@ Self-join:
 
 동적 형식(JSON)의 셀에서 각 항목이 별도의 행을 가진 목록을 확장합니다. 확장된 행의 모든 다른 셀이 중복됩니다.
 
-(반대 기능을 수행하는 [`summarize makelist`](#summarize-operator)을 참조하세요.)
+(반대 기능을 수행하는 [`summarize makelist`](#summarize-operator)를 참조하세요.)
 
 **예제**
 
@@ -328,7 +351,7 @@ Self-join:
 
 문자열에서 값을 추출합니다. simple 또는 보통의 식 일치를 사용할 수 있습니다.
 
-`with` 절의 요소는 원본 문자열에 대해 차례로 일치됩니다. 각 요소는 소스 텍스트의 청크를 분할합니다. 일반 문자열인 경우 일치한다면 일치하는 커서가 따라서 움직입니다. 형식 이름을 가진 열인 경우 커서는 지정된 형식을 구문 분석하기에 충분할 만큼 따라서 움직입니다. (문자열 일치는 다음 요소에 대한 일치가 발견될 때까지 따라서 움직입니다.) regex인 경우 정규 식을 일치시킵니다(그리고 결과 열이 언제나 문자열 형식을 가짐).
+`with` 절의 요소는 소스 문자열에 대해 차례로 일치됩니다. 각 요소는 소스 텍스트의 청크를 분할합니다. 일반 문자열인 경우 일치한다면 일치하는 커서가 따라서 움직입니다. 형식 이름을 가진 열인 경우 커서는 지정된 형식을 구문 분석하기에 충분할 만큼 따라서 움직입니다. (문자열 일치는 다음 요소에 대한 일치가 발견될 때까지 따라서 움직입니다.) regex인 경우 정규 식을 일치시킵니다(그리고 결과 열이 언제나 문자열 형식을 가짐).
 
 **구문**
 
@@ -340,11 +363,11 @@ Self-join:
 **인수**
 
 * *T:* 입력 테이블입니다.
-* *kind:* simple 또는 regex. 기본값은 simple입니다.
+* *kind:* simple 또는 regex입니다. 기본값은 simple입니다.
 * *StringExpression:* 문자열로 계산되거나 변환할 수 있는 식입니다.
 * *SimpleMatch:* 텍스트의 다음 부분과 일치시키는 문자열입니다.
 * *Column:* 일치 항목을 할당할 새 열을 지정합니다.
-* *Type:* 원본 문자열의 다음 부분을 구문 분석하는 방법을 지정합니다.
+* *Type:* 소스 문자열의 다음 부분을 구문 분석하는 방법을 지정합니다.
 * *Regex:* 문자열의 다음 부분과 일치시키는 정규식입니다. 
 
 **반환**
@@ -361,10 +384,10 @@ Self-join:
 
 |EventNarrative|
 |---|
-|브라운스빌(Brownsville)의 그린 리버(Green River) 강은 12월 12일 오전 9시 30분 EST 경에 18.8피트의 수위를 형성하였습니다. Brownsville의 고수위는 18피트입니다. 이 수위에 경미한 홍수가 발생합니다. 강의 범람으로 벽면과 일부 하부 둑이 일부 농지와 함께 잠깁니다.|
-|보스턴(Boston)의 롤링 포크 리버 강은 12월 12일 오후 5시 EST 경에 39.3피트의 수위를 형성하였습니다. 보스턴의 고수위는 35피트입니다. 이 수위에서 경미한 홍수가 발생하여 일부 농지가 덮였습니다.|
-|우드베리(Woodbury)의 그린 리버(Green River) 강은 12월 16일 오전 6시 EST 경에 36.7피트의 수위를 형성하였습니다. Woodbury에서 홍수 단계 33 피트입니다. 이 수위에 경미한 홍수가 발생하고 우드베리 시내 주위의 저지대가 물로 덮였습니다.|
-|텔 시티(Tell City)의 오하이오 리버(Ohio River) 강이 12월18일 오전 7시 EST에 경에 39.0피트의 수위를 형성하였습니다. 텔 시티의 고수위는 38피트입니다. 이 수위에서 강은 표준보다 높게 둑을 범람하기 시작합니다. 인디아나 고속도로 66번 가가 로마와 더비(Derby) 사이에 범람합니다.|
+|브라운스빌(Brownsville)의 그린 리버(Green River) 강은 12월 12일 오전 9시 30분 EST 경에 18.8피트의 수위를 형성하였습니다 (The Green River at Brownsville crested at 18.8 feet around 0930EST on December 12). Brownsville의 고수위는 18피트입니다 (Flood stage at Brownsville is 18 feet). 이 수위에 경미한 홍수가 발생합니다 (Minor flooding occurs at this level). 강의 범람으로 벽면과 일부 하부 둑이 일부 농지와 함께 잠깁니다 (The river overflows lock walls and some of the lower banks, along with some agricultural bottom land).|
+|보스턴(Boston)의 롤링 포크 리버 강은 12월 12일 오후 5시 EST 경에 39.3피트의 수위를 형성하였습니다 (The Rolling Fork River at Boston crested at 39.3 feet around 1700EST on December 12). 보스턴의 고수위는 35피트입니다 (Flood stage at Boston is 35 feet). 이 수위에서 경미한 홍수가 발생하여 일부 농지가 덮였습니다 (Minor flooding occurs at this level, with some agricultural bottom land covered).|
+|우드베리(Woodbury)의 그린 리버(Green River) 강은 12월 16일 오전 6시 EST 경에 36.7피트의 수위를 형성하였습니다 (The Green River at Woodbury crested at 36.7 feet around 0600EST on December 16). Woodbury에서 홍수 단계 33 피트입니다 (Flood stage at Woodbury is 33 feet). 이 수위에 경미한 홍수가 발생하고 우드베리 시내 주위의 저지대가 물로 덮였습니다 (Minor flooding occurs at this level, with some lowlands around the town of Woodbury covered with water).|
+|텔 시티(Tell City)의 오하이오 리버(Ohio River) 강이 12월18일 오전 7시 EST에 경에 39.0피트의 수위를 형성하였습니다 (The Ohio River at Tell City crested at 39.0 feet around 7 AM EST on December 18). 텔 시티의 고수위는 38피트입니다 (Flood stage at Tell City is 38 feet). 이 수위에서 강은 표준보다 높게 둑을 범람하기 시작합니다 (At this level, the river begins to overflow its banks above the gage). 인디아나 고속도로 66번 가가 로마와 더비(Derby) 사이에 범람합니다 (Indiana Highway 66 floods between Rome and Derby).|
 
 ```AIQL
 
@@ -436,7 +459,7 @@ StormEvents
 
 **예제**
 
-다음 예제에서는 `project` 연산자를 사용하여 수행할 수 있는 여러 종류의 조작을 보여줍니다. 입력된 테이블 `T`에는 형식 `int`의 열 세 개, 즉 `A`, `B` 및 `C`가 있습니다.
+다음 예제에서는 `project` 연산자를 사용하여 수행할 수 있는 여러 종류의 조작을 보여줍니다. 입력된 테이블 `T`에는 형식 `int`의 열 세 개: 즉, `A`, `B` 및 `C`가 있습니다.
 
 ```AIQL
 T
@@ -475,7 +498,7 @@ T
 * *Stop:* 출력에서 생성되는 가장 높은 값입니다(또는 *step*으로 이 값에 대해 단계를 지정한 경우 가장 높은 값에 대한 범위).
 * *Step:* 연속된 두 값 사이의 차입니다. 
 
-인수는 숫자, 날짜 또는 시간 간격 값이어야 합니다. 아무 테이블의 열이나 참조할 수는 없습니다. (입력 테이블을 기반으로 범위를 계산하려면 [range *함수*](#range)를 사용하며, [mvexpand 연산자](#mvexpand-operator)와 함께 사용할 수 있습다.)
+인수는 숫자, 날짜 또는 시간 간격 값이어야 합니다. 아무 테이블의 열이나 참조할 수는 없습니다. (입력 테이블을 기반으로 범위를 계산하려면 [range *함수*](#range)를 사용하며, [mvexpand 연산자](#mvexpand-operator)와 함께 사용할 수 있습니다.)
 
 **반환**
 
@@ -487,7 +510,7 @@ T
 range Steps from 1 to 8 step 3
 ```
 
-`Steps`라는 단일 열을 가진 테이블이며, 해당 열의 형식은 `long`, 해당 열의 값은 `1`, `4` 및 `7`입니다.
+`Steps`이라는 단일 열을 가진 테이블이며, 해당 열의 형식은 `long`, 해당 열의 값은 `1`, `4` 및 `7`입니다.
 
 **예제**
 
@@ -508,13 +531,13 @@ range timestamp from ago(4h) to now() step 1m
 | render timechart  
 ```
 
-`range` 연산자를 사용하여 작은 임시 차원 테이블을 생성할 수 있는 방법을 보여주며, 이 테이블은 원본 데이터에 값이 없는 경우 0을 도입하기 위해 사용됩니다.
+`range` 연산자를 사용하여 작은 임시 차원 테이블을 생성할 수 있는 방법을 보여주며, 이 테이블은 소스 데이터에 값이 없는 경우 0을 도입하기 위해 사용됩니다.
 
 ### reduce 연산자
 
     exceptions | reduce by outerMessage
 
-유사한 레코드에 대해 그룹화를 시도합니다. 각 그룹에 대해 연산자는 그룹을 가장 잘 설명하는 것으로 여겨지는 `Pattern` 및 해당 그룹의 레코드 `Count`를 출력합니다.
+유사한 레코드에 대해 그룹화를 시도합니다. 각 그룹에 대해 연산자는 그룹을 가장 잘 설명하는 것으로 여겨지는 `Pattern` 및 그룹의 레코드 `Count`개를 출력합니다.
 
 
 ![](./media/app-insights-analytics-queries/reduce.png)
@@ -530,7 +553,7 @@ range timestamp from ago(4h) to now() step 1m
 
 **반환**
 
-두 개의 열 `Pattern` 및 `Count`. 대부분의 경우 패턴은 열의 전체 값입니다. 경우에 따라 일반적인 용어를 식별하고 변수 부분을 '*'로 바꿉니다.
+두 개의 열 `Pattern` 및 `Count`입니다. 대부분의 경우 패턴은 열의 전체 값입니다. 경우에 따라 일반적인 용어를 식별하고 변수 부분을 '*'로 바꿉니다.
 
 예를 들어 `reduce by city`의 결과는 다음을 포함할 수 있습니다.
 
@@ -564,7 +587,7 @@ Render는 프레젠테이션 계층에 테이블 표시 방법을 지시합니�
 
 **인수**
 
-* *T:* 정렬할 테이블 입력입니다.
+* *T:* 정렬하기 위해 입력한 테이블입니다.
 * *Column:* 정렬 기준이 되는 *T*의 열입니다. 값의 형식은 숫자, 날짜, 시간 또는 문자열이어야 합니다.
 * `asc` 오름차순으로, 즉 낮은 값에서 높은 값의 순서로 정렬합니다. 기본값은 `desc` 내림차순, 즉 높은 값에서 낮은 값으로 정렬하는 것입니다.
 
@@ -575,7 +598,7 @@ Traces
 | where ActivityId == "479671d99b7b"
 | sort by Timestamp asc
 ```
-특정 `ActivityId`를 갖고 해당 타임스탬프를 기준으로 정렬된 테이블의 모든 행을 추적합니다.
+특정 `ActivityId`을 갖고 해당 타임스탬프를 기준으로 정렬된 테이블의 모든 행을 추적합니다.
 
 ### summarize 연산자
 
@@ -603,7 +626,7 @@ Traces
 **인수**
 
 * *Column:* 결과 열에 대한 선택적 이름입니다. 기본적으로 식에서 파생된 이름입니다. 
-* *Aggregation:* 열 이름을 인수로 하는 `count()` 또는 `avg()`와 같은 집계 함수에 대한 호출입니다. [집계](#aggregations)를 참조하세요.
+* *Aggregation:* 열 이름을 인수로 하는 `count()` 또는 `avg()` 등과 같은 집계 함수에 대한 호출입니다. [집계](#aggregations)를 참조하세요.
 * *GroupExpression:* 고유 값 집합을 제공하는 열에 대한 식입니다. 일반적으로 제한된 값 집합을 제공하는 열 이름, 또는 숫자 또는 시간 열을 인수로 하는 `bin()`입니다. 
 
 `bin()`을 사용하지 않고 숫자 또는 시간 식을 제공할 경우 분석은 시간에 대해 `1h`의 간격 또는 숫자에 대해 `1.0`과 함께 자동으로 이를 적용합니다.
@@ -616,7 +639,7 @@ Traces
 
 입력 행은 `by` 식의 같은 값을 가진 그룹으로 배열됩니다. 그런 다음 지정된 집계 함수를 각 그룹에 대해 계산하여 각 그룹에 대해 한 행을 생성합니다. 결과는 `by` 열 및 계산된 각 집계에 대해 열을 하나 이상 포함하고 있습니다. (일부 집계 함수는 여러 열을 반환합니다.)
 
-결과에는 `by` 값의 고유 집합의 수만큼 행이 있습니다. 숫자 값의 범위에 대해 요약하려는 경우 `bin()`을 사용하여 범위를 불연속 값으로 줄입니다.
+결과에는 `by` 값의 고유 집합의 수만큼 행이 있습니다. 숫자 값의 범위에 대해 요약하려는 경우 `bin()`를 사용하여 범위를 불연속 값으로 줄입니다.
 
 **참고**
 
@@ -626,14 +649,14 @@ Traces
 
 ### take 연산자
 
-[limit](#limit-operator)의 별칭
+[제한](#limit-operator)의 별칭
 
 
 ### top 연산자
 
     T | top 5 by Name desc
 
-지정된 열을 기준으로 정렬된 처음 *N*개 레코드를 반환합니다.
+지정된 열을 기준으로 정렬된 첫 번째 *N* 레코드를 반환합니다.
 
 
 **구문**
@@ -649,7 +672,7 @@ Traces
 
 **팁**
 
-`top 5 by name`은 겉보기에 `sort by name | take 5`와 같습니다. 그러나 이는 더 빠르게 실행되며 언제나 정렬된 결과를 반환하는 반면에, `take`는 그러한 실행과 결과가 보장되지 않습니다.
+`top 5 by name`은 겉보기에 `sort by name | take 5`와 같습니다. 그러나 이는 더 빠르게 실행되며 언제나 정렬된 결과를 반환하는 반면에, `take`은 그러한 실행과 결과가 보장되지 않습니다.
 
 
 ### union 연산자
@@ -667,13 +690,13 @@ Traces
 **인수**
 
 * *Table1*, *Table2* ...
- *  `events`와 같은 테이블의 이름, 또는
- *  `(events | where id==42)`와 같은 쿼리 식
+ *  `events` 등과 같은 테이블의 이름, 또는
+ *  `(events | where id==42)`과 같은 쿼리 식
  *  와일드 카드를 사용하여 지정한 테이블 집합입니다. 예를 들어 `E*`는 이름이 `E`로 시작하는 데이터베이스의 모든 테이블의 합집합을 형성할 수 있습니다.
 * `kind`: 
  * `inner` - 결과에는 모든 입력 테이블에 공통인 열의 하위 집합이 있습니다.
- * `outer` - 결과에는 입력에서 발생하는 모든 열이 있습니다. 입력 행에 의해 정의되지 않은 셀은 `null`로 설정됩니다.
-* `withsource=`*ColumnName:* 지정된 경우 출력은 값이 각 행에 기여한 원본 테이블을 나타내는 *ColumnName*이라는 열을 포함합니다.
+ * `outer` - 결과에는 입력에서 발생하는 모든 열이 있습니다. 입력된 행에 의해 정의되지 않은 셀은 `null`로 설정됩니다.
+* `withsource=`*ColumnName:* 지정된 경우 출력은 값이 각 행에 기여한 소스 테이블을 나타내는 *ColumnName*이라는 열을 포함합니다.
 
 **반환**
 
@@ -724,22 +747,22 @@ exceptions
 
 **인수**
 
-* *T:* 레코드를 필터링할 테이블 형식 입력입니다.
+* *T*: 레코드를 필터링할 테이블 형식 입력입니다.
 * *Predicate:* *T*의 열에 대한 `boolean` [식](#boolean)입니다. *T*의 각 행에 대해 계산합니다.
 
 **반환**
 
-*Predicate*가 `true`인 *T*의 행입니다.
+*Predicate*이 `true`인 *T*의 행입니다.
 
 **팁**
 
 가장 빠른 성능을 얻으려면:
 
-* 열 이름과 상수 사이에 **단순 비교를 사용**합니다. ('상수'는 테이블에 대한 상수를 의미합니다. 따라서 `now()` 및 `ago()`를 사용 가능하며 [`let` 절](#let-clause)을 사용하여 할당한 스칼라 값입니다.)
+* 열 이름과 상수 사이에 **단순 비교를 사용**합니다('상수'는 테이블에 대한 상수를 의미합니다. 따라서 `now()` 및 `ago()`를 사용 가능하며 [`let` 절](#let-clause)을 사용하여 할당한 스칼라 값입니다).
 
     예를 들어 `where floor(Timestamp, 1d) == ago(1d)`보다 `where Timestamp >= ago(1d)`를 선호합니다.
 
-* **가장 단순한 항 먼저**: 여러 개의 절을 `and`로 공동 조인한 경우 열을 한 개만 포함하고 있는 절을 먼저 놓습니다. 따라서 `Timestamp > ago(1d) and OpId == EventId`가 다른 방법보다 낫습니다.
+* **가장 단순한 행 먼저**: 여러 개의 절을 `and`와 공동 조인한 경우 열을 한 개만 포함하고 있는 절을 먼저 놓습니다. 따라서 `Timestamp > ago(1d) and OpId == EventId`가 다른 방법보다 낫습니다.
 
 
 **예제**
@@ -911,7 +934,7 @@ traces
 
 **성능 팁**: `where filter | summarize count()` 대신 `summarize count(filter)` 사용
 
-> [AZURE.NOTE] 발생한 요청, 예외 또는 기타 이벤트 수를 찾는 데는 count()를 사용하지 마세요. [샘플링](app-insights-sampling.md)이 작동 중이면 데이터 요소 수가 실제 이벤트 수보다 적습니다. 대신 `summarize sum(itemCount)...`를 사용하세요. itemCount 속성은 각 보존된 데이터 요소로 나타내는 원래 이벤트 수를 반영합니다.
+> [AZURE.NOTE] 발생한 요청, 예외 또는 기타 이벤트 수를 찾는 데는 count()를 사용하지 마세요. [샘플링](app-insights-sampling.md)이 작동 중이면 데이터 요소 수가 실제 이벤트 수보다 적어집니다. 대신 `summarize sum(itemCount)...`를 사용하세요. itemCount 속성은 보존된 각 데이터 요소로 표시되는 원래 이벤트 수를 반영합니다.
    
 
 ### dcount
@@ -923,8 +946,8 @@ traces
 *정확도* 지정한 경우 속도와 정확도 간의 균형을 제어합니다.
 
  * `0` = 정확성은 가장 떨어지지만 가장 빠른 계산입니다.
- * `1` 기본값이며, 정확도와 계산 시간의 균형을 맞춥니다. 오류 비율: 약 0.8%.
- * `2` = 가장 정확하지만 가장 느린 계산입니다. 오류 비율: 약 0.4%.
+ * `1` 기본값이며, 정확도와 계산 시간의 균형을 맞춥니다. 오류 비율: 약 0.8%
+ * `2` = 가장 정확하지만 가장 느린 계산입니다. 오류 비율: 0.4%
 
 **예제**
 
@@ -1098,7 +1121,7 @@ traces
 
 **반환**
 
-단일 인수의 기본 저장소 유형을 나타내는 문자열. 이는 종류 `dynamic`의 값을 가질 때 특히 유용합니다. 이 경우 `gettype()`는 값이 인코딩되는 방법을 표시합니다.
+단일 인수의 기본 저장소 유형을 나타내는 문자열. 이는 종류 `dynamic`의 값을 가질 때 특히 유용합니다. 이 경우 `gettype()`은 값이 인코딩되는 방법을 표시합니다.
 
 **예**
 
@@ -1127,7 +1150,7 @@ traces
 
 **인수**
 
-* *source*: 해시를 계산하는 대상인 원본 스칼라입니다.
+* *source*: 해시를 계산하는 대상인 소스 스칼라입니다.
 * *mod*: 해시 결과에 적용할 모듈로 값입니다.
 
 **반환**
@@ -1152,13 +1175,13 @@ hash(datetime("2015-01-01"))    // 1380966698541616202
 
 **인수**
 
-* *predicate:* `boolean` 값으로 계산되는 식.
-* *ifTrue:* *predicate*가 `true`로 계산되는 경우 계산이 이루어지는 식 및 함수에서 반환되는 식의 값.
+* *조건자:* `boolean` 값으로 계산되는 식.
+* *ifTrue:* *조건자*가 `true`로 계산되는 경우 계산이 이루어지는 식 및 함수에서 반환되는 식의 값.
 * *ifFalse:* *predicate*가 `false`로 계산되는 경우 계산이 이루어지는 식 및 함수에서 반환되는 식의 값.
 
 **반환**
 
-이 함수는 *predicate*가 `true`로 계산되는 경우 *ifTrue*의 값 또는 그렇지 않은 경우 *ifFalse*의 값을 반환합니다.
+이 함수는 *조건자*가 `true`으로 계산되는 경우 *ifTrue*의 값 또는 그렇지 않은 경우 *ifFalse*의 값을 반환합니다.
 
 **예제**
 
@@ -1240,17 +1263,7 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 || |
 |---|-------------|
 | + | 추가 |
-| - | 빼기 |
-| * | 곱하기
-| / | 나누기
-| % | 모듈로 |
-||
-|`<` |보다 작음
-|`<=`|작거나 같음
-|`>` |보다 큼
-|`>=`|크거나 같음
-|`<>`|같지 않음
-|`!=`|같지 않음
+| - | 빼기 | | * | 곱하기 | | / | 나누기 | | % | 모듈로 | || |`<` |보다 작음 |`<=`|작거나 같음 |`>` |보다 큼 |`>=`|크거나 같음 |`<>`|같지 않음 |`!=`|같지 않음
 
 
 
@@ -1268,11 +1281,11 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 **인수**
 
 * *value:* 숫자, 날짜 또는 시간 범위. 
-* *roundTo:* "bin 크기". *value*를 나누는 숫자, 날짜 또는 시간 범위. 
+* *roundTo:* "bin 크기". *값*을 나누는 숫자, 날짜 또는 시간 범위. 
 
 **반환**
 
-*value*보다 작은 *roundTo*의 가장 가까운 배수.
+*값*보다 작은 *roundTo*의 가장 가까운 배수.
  
     (toint((value/roundTo)-0.5)) * roundTo
 
@@ -1317,12 +1330,12 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 
 **인수**
 
-* *x:* 실수 >= 0.
+* *x:* 0 이상의 실수
 
 **반환**
 
-* `sqrt(x) * sqrt(x) == x`가 다음과 같이 되도록 하는 양수
-* 인수가 음수이거나 `real` 값으로 변환할 수 없는 경우 `null`. 
+* `sqrt(x) * sqrt(x) == x`가 되도록 하는 양수
+* 인수가 음수이거나 `real` 값으로 변환할 수 없는 경우 `null` 
 
 
 
@@ -1650,7 +1663,7 @@ h"hello"
 
 *regex*가 *text*에서 일치 항목을 찾은 경우: 지시된 캡처 그룹 *captureGroup*에 대해 일치된 부분 문자열, 선택적으로 *typeLiteral*로 변환됩니다.
 
-일치 항목이 없거나 형식 변환에 실패한 경우: `null`.
+일치 항목이 없거나 형식 변환에 실패한 경우 `null`입니다.
 
 **예**
 
@@ -1662,7 +1675,7 @@ h"hello"
 | extend Duration = extract("Duration=([0-9.]+)", 1, Trace, typeof(real)) * time(1s) 
 ```
 
-이 예제는 `substring(Text, 2, 4)`와 같습니다.
+이 예제는 `substring(Text, 2, 4)`과 같음:
 
 ```AIQL
 extract("^.{2,2}(.{4,4})", 1, Text)
@@ -1723,7 +1736,7 @@ extract("^.{2,2}(.{4,4})", 1, Text)
 
 **반환**
 
-*regex*의 모든 일치 항목을 *rewrite* 계산으로 바꾼 후 *text*. 일치 항목은 겹치지 않습니다.
+*regex*의 모든 일치 항목을 *rewrite*로 바꾼 후 *text*. 일치 항목은 겹치지 않습니다.
 
 **예제**
 
@@ -1760,9 +1773,9 @@ range x from 1 to 5 step 1
 
 **인수**
 
-* *source*: 지정된 구분 기호에 따라 분할될 원본 문자열입니다.
-* *delimiter*: 원본 문자열을 분할하기 위해 사용될 구분 기호입니다.
-* *requestedIndex*: 선택적 0부터 시작하는 인덱스`int`입니다. 제공된 경우, 반환되는 문자열 배열은 요청된 부분 문자열(있는 경우)을 포함합니다. 
+* *source*: 지정된 구분 기호에 따라 분할될 소스 문자열입니다.
+* *delimiter*: 소스 문자열을 분할하기 위해 사용될 구분 기호입니다.
+* *requestedIndex*: 선택적 0 기반 인덱스`int`입니다. 제공된 경우, 반환되는 문자열 배열은 요청된 부분 문자열(있는 경우)을 포함합니다. 
 
 **반환**
 
@@ -1805,8 +1818,8 @@ split("aabbcc", "bb")         // ["aa","cc"]
 
 **인수**
 
-* *source:* 부분 문자열을 가져올 원본 문자열입니다.
-* *startingIndex:* 요청된 부분 문자열의 0부터 시작하는 시작 문자 위치입니다.
+* *source:* 부분 문자열을 가져올 소스 문자열입니다.
+* *startingIndex:* 요청된 부분 문자열의 0 기반 시작 문자 위치입니다.
 * *length:* 부분 문자열에서 요청된 문자 수를 지정하는 데 사용할 수 있는 선택적 매개 변수입니다. 
 
 **반환**
@@ -1858,7 +1871,7 @@ substring("ABCD", 0, 2)       // AB
 
 * 하지만 `arraylength` 및 다른 분석 함수(".length" 아님!)를 사용합니다.
 
-**Casting** 경우에 따라 형식이 달라질 수 있기 때문에 개체에서 추출하는 요소를 캐스트해야 합니다. 예를 들어 `summarize...to`에 특정 형식이 필요합니다.
+**Casting** 경우에 따라 형식이 달라질 수 있기 때문에 개체에서 추출하는 요소를 캐스트해야 합니다. 예를 들어 `summarize...to`에 특정 형식이 필요함:
 
     exceptions 
     | summarize count() 
@@ -1868,7 +1881,7 @@ substring("ABCD", 0, 2)       // AB
     | summarize count() 
       by tostring(details[0].parsedStack[0].assembly)
 
-**Literals** 명시적 배열 또는 속성 모음 개체를 만들려면 JSON 문자열로 쓰고 캐스트합니다.
+**Literals** 명시적 배열 또는 속성 모음 개체를 만들려면 JSON 문자열로 쓰고 캐스트함:
 
     todynamic('[{"x":"1", "y":"32"}, {"x":"6", "y":"44"}]')
 
@@ -1882,7 +1895,7 @@ substring("ABCD", 0, 2)       // AB
 ![](./media/app-analytics-scalars/410.png)
 
 
-**treepath:** 복잡한 개체에서 모든 경로 찾습니다.
+**treepath:** 복잡한 개체에서 모든 경로 찾음:
 
     exceptions | take 1 | project timestamp, details 
     | extend path = treepath(details) 
@@ -1891,7 +1904,7 @@ substring("ABCD", 0, 2)       // AB
 
 ![](./media/app-analytics-scalars/420.png)
 
-**buildschema:** 테이블에 있는 식의 모든 값을 인정하는 최소 스키마를 찾습니다.
+**buildschema:** 테이블에 있는 식의 모든 값을 인정하는 최소 스키마를 찾음:
 
     exceptions | summarize buildschema(details)
 
@@ -1924,7 +1937,7 @@ substring("ABCD", 0, 2)       // AB
 
 ### 배열 및 개체 리터럴
 
-동적 리터럴을 만들려면 JSON 문자 인수와 함께 `parsejson`(별칭 `todynamic`)을 사용합니다.
+동적 리터럴을 만들려면 JSON 문자 인수와 함께 `parsejson`(별칭 `todynamic`) 사용:
 
 * `parsejson('[43, 21, 65]')` - 숫자의 배열
 * `parsejson('{"name":"Alan", "age":21, "address":{"street":432,"postcode":"JLK32P"}}')` 
@@ -1943,7 +1956,7 @@ T
 ```
 
 
-### 동적 형식에 대한 연산자 및 함수
+## 동적 개체 함수
 
 |||
 |---|---|
@@ -1985,7 +1998,7 @@ T
 
 **반환**
 
-*array*의 요소 수 또는 *array*가 배열이 아닌 경우 `null`.
+*array*의 배열 수 또는 *array*가 배열이 아닌 경우 `null`.
 
 **예**
 
@@ -2034,7 +2047,7 @@ path 식을 사용하여 JSON 텍스트에서 지정된 요소를 가져옵니�
 
 **성능 팁**
 
-* `extractjson()`을 사용하기 전에 where 절 적용
+* `extractjson()`사용하기 전에 where 절 적용
 * 정규식 일치 사용은 [extract](#extract)를 대신 사용하는 것으로 간주합니다. 이렇게 하면 훨씬 더 빠르게 실행될 수 있으며 JSON이 템플릿에서 생성된 경우 효과적입니다.
 * JSON에서 둘 이상의 값을 추출해야 하는 경우 `parsejson()`을 사용합니다.
 * 열 형식을 동적으로 선언하여 수집 시 JSON이 구문 분석되게 하는 것으로 간주합니다.
@@ -2071,7 +2084,7 @@ path 식을 사용하여 JSON 텍스트에서 지정된 요소를 가져옵니�
 
 **예제**
 
-다음 예제에서 `context_custom_metrics`가 `string`인 경우 다음과 유사 합니다.
+다음 예제에서 `context_custom_metrics`가 `string`인 경우 다음과 유사합니다.
 
 ```
 {"duration":{"value":118.0,"count":5.0,"min":100.0,"max":150.0,"stdDev":0.0,"sampledValue":118.0,"sum":118.0}}
@@ -2088,7 +2101,7 @@ T
 
 
 
-#### range
+### range
 
 `range()` 함수(`range` 연산자와 혼동하지 말 것)는 간격이 같은 일련의 값을 저장하는 동적 배열을 생성합니다.
 
@@ -2104,7 +2117,7 @@ T
 
 **예**
 
-다음 예제는 `[1, 4, 7]`을 반환합니다.
+다음 예제는 `[1, 4, 7]`을 반환함:
 
 ```AIQL
 range(1, 8, 3)
@@ -2148,5 +2161,4 @@ path 식의 배열입니다.
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0330_2016-->
-
+<!---HONumber=AcomDC_0420_2016-->

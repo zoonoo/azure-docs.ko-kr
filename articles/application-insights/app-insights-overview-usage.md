@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="02/19/2016"
+	ms.date="04/08/2016"
 	ms.author="awills"/>
 
 # Application Insights를 사용하여 사용량 분석
@@ -248,11 +248,11 @@ Application Insights는 독립 실행형 앱(iOS, Android 및 Windows)과 웹앱
 유니버설 아니셜라이저를 설정하여 새로운 모든 TelemetryClients는 사용자 컨텍스트를 자동으로 사용할 수 있습니다.
 
     // Telemetry initializer class
-    public class MyTelemetryInitializer : IContextInitializer
+    public class MyTelemetryInitializer : ITelemetryInitializer
     {
-        public void Initialize (TelemetryContext context)
+        public void Initialize (ITelemetry telemetry)
         {
-            context.Properties["AppVersion"] = "v2.1";
+            telemetry.Properties["AppVersion"] = "v2.1";
         }
     }
 
@@ -261,7 +261,7 @@ Global.asax.cs 같은 앱 이니셜라이저에서:
     protected void Application_Start()
     {
         // ...
-        TelemetryConfiguration.Active.ContextInitializers
+        TelemetryConfiguration.Active.TelemetryInitializers
         .Add(new MyTelemetryInitializer());
     }
 
@@ -288,4 +288,4 @@ Global.asax.cs 같은 앱 이니셜라이저에서:
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

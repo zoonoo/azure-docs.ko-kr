@@ -27,10 +27,6 @@
 
 다른 도구를 사용하여 HDInsight에서 Hadoop 클러스터를 만드는 정보를 보려면 탭 선택기를 클릭합니다.
 
-[AZURE.INCLUDE [hdinsight-azure-preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
-
-* [Azure 포털을 사용하여 HDInsight의 Hadoop 클러스터 관리](hdinsight-administer-use-management-portal-v1.md)
-
 **필수 구성 요소**
 
 이 문서를 시작하기 전에 다음이 있어야 합니다.
@@ -120,14 +116,14 @@ HDInsight는 다양한 Hadoop 구성 요소에서 작동합니다. 검증되어 
 	
 	- **호스트 이름**: 클러스터 이름입니다.
 	- **클러스터 URL**.
-	- **상태**: Aborted, Accepted, ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, Operational, Running, Error, Deleting, Deleted, Timedout, DeleteQueued, DeleteTimedout, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued, ClusterCustomization를 포함합니다.
+	- **상태**: 중단됨, 수락됨, ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, 운영, 실행 중, 오류, 삭제 중, 삭제됨, 시간 초과됨, DeleteQueued, DeleteTimedout, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued, ClusterCustomization를 포함합니다.
 	- **지역**: Azure 위치입니다. 지원되는 Azure 위치를 보려면, [HDInsight 가격](https://azure.microsoft.com/pricing/details/hdinsight/)의 **지역** 드롭다운 목록 상자를 참고하세요.
 	- **생성된 데이터**.
 	- **운영 체제**: **Windows** 또는 **Linux**입니다.
 	- **형식**: Hadoop, HBase, Storm, Spark. 
 	- **버전**. [HDInsight 버전](hdinsight-component-versioning.md)을 참조하세요.
 	- **구독**: 구독 이름입니다.
-	- **구독 ID**.
+	- **구독 ID**
 	- **주 데이터 원본**. Azure Blob 저장소 계정이 기본 Hadoop 파일 시스템으로 사용됩니다.
 	- **작업자 노드 가격 책정 계층**.
 	- **헤드 노드 가격 책정 계층**.
@@ -387,4 +383,4 @@ Yarn 사용자 인터페이스를 사용하려면 HDInsight 쿼리 콘솔에서 
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-command-line.png "Hadoop 명령줄"
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -22,12 +22,6 @@
 
 기본적으로 Hadoop 클러스터는 성능을 위해 최적화되지 않습니다. 이 문서에서는 쿼리에 적용할 수 있는 가장 일반적인 Hive 성능 최적화 방법 중 몇가지를 설명합니다.
 
-
-[AZURE.INCLUDE [preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
-
-
-* [HDInsight에서 Hadoop에 대한 Hive 쿼리 최적화](hdinsight-hadoop-optimize-hive-query-v1.md)
-
 ##작업자 노드 확장
 
 클러스터의 작업자 노드 수를 늘리면 더 많은 매퍼와 리듀서를 활용하여 병렬로 실행할 수 있습니다. HDInsight에서 크기를 확장할 수 있는 두 가지 방법이 있습니다.
@@ -226,4 +220,4 @@ ORC 형식에 대한 자세한 내용은 [여기](https://cwiki.apache.org/confl
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

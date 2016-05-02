@@ -477,6 +477,8 @@ HDInsight .NET SDK는 .NET 응용 프로그램에서 HDInsight로 더 쉽게 작
 
 계속하기 전에 Azure CLI를 설치 및 구성했는지 확인하세요. 자세한 내용은 [Azure CLI 설치](../xplat-cli-install.md)를 참조하세요.
 
+	[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
+
 1. 셸 세션, 터미널, 명령 프롬프트 또는 시스템의 다른 명령줄을 열고 다음 명령을 사용하여 Azure Resource Manager 모드로 전환합니다.
 
         azure config mode arm
@@ -614,7 +616,7 @@ Ambari 웹 UI를 사용하여 스크립트 작업에서 기록한 정보를 볼 
 	* **작업자 노드** - `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net`
 	* **Zookeeper 노드** - `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
 
-* 해당 호스트의 모든 stdout 및 stderr은 저장소 계정에 업로드됩니다. 각 스크립트 작업마다 하나의 **output-*.txt** 및  **errors-\*.txt** 가 있습니다. output-*.txt 파일은 호스트에서 실행되는 스크립트의 URI 정보를 포함합니다. 예를 들면 다음과 같습니다.
+* 해당 호스트의 모든 stdout 및 stderr은 저장소 계정에 업로드됩니다. 각 스크립트 작업마다 하나의 **output-*.txt** 및 **errors-*.txt**가 있습니다. output-*.txt 파일은 호스트에서 실행되는 스크립트의 URI 정보를 포함합니다. 예를 들면 다음과 같습니다.
 
 		'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
 
@@ -678,4 +680,4 @@ HDInsight 서비스는 사용자 지정 구성 요소를 사용하는 여러 방
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "클러스터를 만드는 동안의 단계"
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

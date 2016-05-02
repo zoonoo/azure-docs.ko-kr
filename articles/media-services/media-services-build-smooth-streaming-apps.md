@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2016" 
+	ms.date="04/18/2016"   
 	ms.author="juliako"/>
 
 
@@ -986,4 +986,4 @@ lesson1을 완성했습니다. 이 단원에서는 MediaElement 컨트롤을 사
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

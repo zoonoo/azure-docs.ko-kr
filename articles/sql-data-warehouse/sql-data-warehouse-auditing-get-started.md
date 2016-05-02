@@ -3,7 +3,7 @@
    description="SQL 데이터 웨어하우스 데이터베이스 감사 시작"
    services="sql-data-warehouse"
    documentationCenter=""
-   authors="twounder"
+   authors="ronortloff"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.date="03/03/2016" 
-   ms.author="mausher;barbkess;sonyama"/>
+   ms.author="rortloff;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스 데이터베이스 감사 시작
 Azure SQL 데이터 웨어하우스 감사는 데이터베이스 이벤트를 추적하고 Azure 저장소 계정의 감사 로그에 감사된 이벤트를 작성합니다.
@@ -141,4 +141,4 @@ Azure 리소스 관리자 모드에서 `Get-Command *AzureSql*`을 실행하여 
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

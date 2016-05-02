@@ -71,7 +71,7 @@ Azure 검색에서는 문서 키가 문서를 고유하게 식별합니다. 모�
 
 테이블 행에 복합 키가 있으므로 Azure 검색에서 파티션 키와 행 키 값을 연결한 `Key`라는 합성 필드를 생성합니다. 예를 들어 행의 PartitionKey가 `PK1`이고 RowKey가 `RK1`인 경우 `Key` 필드의 값은 `PK1RK1`이 됩니다.
 
-> AZURE.NOTE `Key` 값은 문서 키의 유효하지 않은 문자(예: 대시)를 포함할 수 있습니다. 인덱서 속성에서 `base64EncodeKeys` 옵션을 사용하여 유효하지 않은 문자를 처리할 수 있습니다. 이렇게 하면 Lookup과 같은 API 호출에 전달할 때 문서 키를 인코딩해야 합니다. (예를 들어, .NET에서 이러한 용도로 [UrlTokenEncode 메서드](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) 를 사용할 수 있습니다).
+> [AZURE.NOTE] `Key` 값은 문서 키의 유효하지 않은 문자(예: 대시)를 포함할 수 있습니다. 인덱서 속성에서 `base64EncodeKeys` 옵션을 사용하여 유효하지 않은 문자를 처리할 수 있습니다. 이렇게 하면 Lookup과 같은 API 호출에 전달할 때 문서 키를 인코딩해야 합니다. (예를 들어, .NET에서 이러한 용도로 [UrlTokenEncode 메서드](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) 를 사용할 수 있습니다).
 
 ## 다른 필드 이름 처리
 
@@ -100,4 +100,4 @@ Azure 검색에서는 문서 키가 문서를 고유하게 식별합니다. 모�
 
 기능 요청 또는 개선에 대한 아이디어가 있는 경우 [UserVoice 사이트](https://feedback.azure.com/forums/263029-azure-search/)를 통해 연락해 주세요.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

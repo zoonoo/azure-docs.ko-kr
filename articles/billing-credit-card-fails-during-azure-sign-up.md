@@ -14,11 +14,13 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/25/2015"
+	ms.date="04/14/2016"
 	ms.author="cjiang"/>
 
 # Azure에 로그인하려고 할 때 내 신용 카드가 진행되지 않습니다.
 이 문서에서는 신용 카드 또는 직불 카드를 사용하여 등록 문제의 공통적인 원인을 설명합니다.
+
+[AZURE.INCLUDE [support-disclaimer](../includes/support-disclaimer.md)]
 
 ## 신용 카드 또는 직불 카드 외에 다른 지불 옵션이 있습니까?
 Azure 지불 옵션은 다음을 포함합니다.
@@ -31,6 +33,7 @@ Azure 지불 옵션은 다음을 포함합니다.
 - 허용되는 신용/직불 카드 공급자는 국가에 따라 다릅니다.
 
 제안:
+
 - 가상 또는 선불 직불/신용 카드를 사용하지 않습니다.
 - 지불 또는 활성화에 실패하면 유효하고 지원되는 대체 신용 카드를 사용해 봅니다.
 - 지불 방법이 활성화되고 은행이 보안 정책상 온라인 거래를 차단하지 않는지 확인합니다.
@@ -43,25 +46,32 @@ Azure 지불 옵션은 다음을 포함합니다.
 - 은행과 협력하여 카드상의 정보에서 맞춤법을 고치거나 다른 문제를 해결하십시오.
 
 제안:
+
 - 프로필 세부 정보는 청구 명세서를 생성하는 데에도 사용되므로 등록 시 정확한 정보를 제공하세요.
 
 ## 계정 프로필 정보가 정확하고 완전합니까?
+
 - 계정 소유자는 등록 중에 요청된 모든 관련 정보를 삽입해야 계정을 소유한 개인이 식별되고 필요 시 정확한 청구 명세서를 생성할 수 있습니다.
 - 틀리거나 불완전한 필드의 예: 이름 또는 성 누락, 잘못된 전화 번호, 비표준(특수) 문자.
 
 제안:
+
 - Azure 계정을 이미 생성한 경우 등록 시 또는 [프로필 설정](https://account.windowsazure.com/Profile/)에서 프로필의 각 필드를 꼼꼼히 점검합니다.
 - 프로필 세부 정보는 청구 명세서를 생성하는 데에도 사용되므로 등록 시 정확한 정보를 제공하세요.
 
 ## MSDN, BizSpark 또는 MPN 같은 한 Azure 혜택 계획을 활성화하려고 합니까?  
 선택한 계획에 대한 자격이 있는 경우 드리는 혜택 프로그램 채널을 통해 확인합니다.
+
 - MSDN:
-  - [MSDN 계정 페이지](https://msdn.microsoft.com/subscriptions/manage/default.aspx)에서 자격 상태를 확인합니다.
+
+  - [MSDN 계정 페이지](https://msdn.microsoft.com/subscriptions/manage/deult.aspx)에서 자격 상태를 확인합니다.
   - 사용자의 상태를 확인할 수 없는 경우 [MSDN 구독 고객 서비스 센터](https://msdn.microsoft.com/subscriptions/contactus.aspx)에 문의하세요.
 - MPN
+
   - [MPN 포털](https://mspartner.microsoft.com/en/us/Pages/Locale.aspx)에 로그인하고 자격 상태를 확인합니다. 적절한 [클라우드 플랫폼 역량](https://mspartner.microsoft.com/en/us/pages/membership/cloud-platform-competency.aspx)을 가지고 있는 경우 추가 혜택의 자격이 있을 수 있습니다.
   - 사용자의 상태를 확인할 수 없는 경우 [MPN 지원](https://mspartner.microsoft.com/en/us/Pages/Support/Premium/contact-support.aspx)에 문의하세요.
 - Bizpark:
+
   - [BizSpark 포털](https://www.microsoft.com/bizspark/default.aspx#start-two)에 로그인하고 BizSpark 및 BizSpark Plus에 대한 자격 상태를 확인합니다. 본인의 상태를 확인할 수 없는 경우 [BizSpark 팀에 문의](mailto:bizspark@microsoft.com?subject=BizSpark%20Support&body=Thank%20you%20for%20contacting%20BizSpark.%20Please%20provide%20as%20much%20of%20the%20following%20information%20as%20possible,%20as%20it%20will%20help%20expedite%20our%20response%20to%20you.%0aContact%20name:%0aStartup%20name:%0aMicrosoft%20Account/Live%20ID:%0aSpecific%20description%20of%20issue%20experienced%20or%20question:%0a%0aThank%20you,%0a%0aThe%20BizSpark%20Team)로 이메일을 보내서 BizSpark 지원에 문의하십시오.
 
 제안:
@@ -75,7 +85,7 @@ Azure 무료 평가판 제품은 무료 평가판 활성화 한 번으로 제한
 
 과거에 Azure 구독을 이미 활성화했기 때문에 무료 평가판 활성화에 실패한 경우 Azure 무료 평가판 계획 대신에 [Microsoft Azure 제품 정보](https://azure.microsoft.com/support/legal/offer-details/)에 나열된 사용 가능한 또 다른 Azure 계획을 사용하십시오.
 
-## Azure 지원 문의
-이 문제 해결 단계를 수행한 후 등록 문제가 계속 발생하면 [Azure 지원](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409)에 문의하십시오.
+## 다음 단계
+Microsoft Azure에 대한 청구 또는 구독 관련 질문이 있나요? [Azure 청구 및 구독 FAQ](billing-subscription-faq.md#what-payment-options-do-i-have-in-purchasing-azure)를 확인하세요.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

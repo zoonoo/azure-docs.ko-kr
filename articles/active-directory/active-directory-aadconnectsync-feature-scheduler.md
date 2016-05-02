@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/26/2016"
+   ms.date="04/20/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect 동기화: 스케줄러
@@ -48,20 +48,26 @@ Azure AD Connect 동기화는 스케줄러를 사용하여 온-프레미스 디�
 - **MaintenanceEnabled**. 유지 관리 프로세스를 사용할 수 있는지 표시합니다. 인증서/키를 업데이트하고 작업 로그를 삭제합니다.
 - **IsStagingModeEnabled**. [준비 모드](active-directory-aadconnectsync-operations.md#staging-mode)를 사용할 수 있는지 표시합니다.
 
-`Set-ADSyncScheduler`로 이러한 모든 설정을 수정할 수 있습니다. 매개 변수 IsStagingModeEnabled는 설치 마법사에서만 설정할 수 있습니다.
+`Set-ADSyncScheduler`로 이러한 모든 설정 중 일부를 변경할 수 있습니다. 다음 매개 변수를 수정할 수 있습니다.
+
+- CustomizedSyncCycleInterval
+- NextSyncCyclePolicyType
+- PurgeRunHistoryInterval
+- SyncCycleEnabled
+- MaintenanceEnabled
 
 스케줄러 구성은 Azure AD에 저장됩니다. 스테이징 서버가 있는 경우 주 서버를 변경하면 스테이징 서버에도 영향을 줍니다(IsStagingModeEnabled 제외).
 
 ## 스케줄러 시작
 스케줄러는 기본적으로 30분마다 실행됩니다. 경우에 따라 예약된 주기 사이에서 동기화 주기를 실행하려고 하거나 다른 종류를 실행해야 합니다.
 
-**델타 동기화 주기** 델타 동기화 주기에는 다음 단계가 포함됩니다.
+**델타 동기화 주기** 델타 동기화 주기에는 다음 단계가 포함됩니다:
 
 - 모든 커넥터에서 델타 가져오기
 - 모든 커넥터에서 델타 동기화
 - 모든 커넥터에서 내보내기
 
-즉시 동기화되어야 하는 긴급한 변경 사항이 있을 수 있으므로 수동으로 주기를 실행해야 합니다. 수동으로 주기를 실행해야 하는 경우 PowerShell에서 `Start-ADSyncSyncCycle -PolicyType Delta`를 실행합니다.
+즉시 동기화되어야 하는 긴급한 변경 사항이 있을 수 있으므로 수동으로 주기를 실행해야 합니다. 수동으로 주기를 실행해야 하는 경우 PowerShell에서 `Start-ADSyncSyncCycle -PolicyType Delta`을 실행합니다.
 
 **전체 동기화 주기** 다음 구성 변경 사항 중 하나를 수행한 경우 전체 동기화 주기(초기화라고도 함)를 실행해야 합니다.
 
@@ -86,9 +92,47 @@ Azure AD Connect 동기화는 스케줄러를 사용하여 온-프레미스 디�
 
 1. 먼저 PowerShell cmdlet `Stop-ADSyncSyncCycle`을 사용하여 스케줄러가 현재 주기를 중지하도록 합니다.
 2. 스케줄러를 중지해도 현재 작업에서 현재 커넥터는 중지되지 않습니다. 커넥터를 강제로 중지하려면 다음 작업을 수행합니다. ![StopAConnector](./media/active-directory-aadconnectsync-feature-scheduler/stopaconnector.png)
-    - 시작 메뉴에서 **동기화 서비스**를 시작합니다. **커넥터**로 이동하고 **실행** 상태인 커넥터를 강조 표시하고 작업에서 **중지**를 선택합니다.
+    - 시작 메뉴에서 **동기화 서비스**를 시작합니다. **커넥터**로 이동하여 **실행** 상태인 커넥터를 강조 표시하고 작업에서 **중지**를 선택합니다.
 
 스케줄러가 아직 활성화되어 있으며 다음에 다시 시작합니다.
+
+## 사용자 지정 스케줄러
+이 섹션에서 설명하는 cmdlet은 빌드 [1\.1.130.0](active-directory-aadconnect-version-history.md#111300) 이상에서만 사용할 수 있습니다.
+
+기본 제공 스케줄러가 요구 사항을 충족하지 않으면 PowerShell을 사용하여 커넥터를 예약할 수 있습니다.
+
+### Invoke-ADSyncRunProfile
+다음과 같이 커넥터에 대한 프로필을 시작할 수 있습니다.
+
+```
+Invoke-ADSyncRunProfile -ConnectorName "name of connector" -RunProfileName "name of profile"
+```
+
+[커넥터 이름](active-directory-aadconnectsync-service-manager-ui-connectors.md)으로 사용할 이름과 [실행 프로필 이름](active-directory-aadconnectsync-service-manager-ui-connectors.md#configure-run-profiles)은 [Synchronization Service Manager UI](active-directory-aadconnectsync-service-manager-ui.md)에서 찾을 수 있습니다.
+
+![실행 프로필 호출](./media/active-directory-aadconnectsync-feature-scheduler/invokerunprofile.png)
+
+`Invoke-ADSyncRunProfile` cmdlet은 동기화됩니다. 즉 커넥터가 작업을 성공 또는 오류가 발생한 상태로 완료할 때까지 컨트롤을 반환하지 않습니다.
+
+커넥터를 예약할 경우 다음 순서대로 예약하는 것이 좋습니다.
+
+1. (전체/델타) Active Directory와 같은 온-프레미스 디렉터리에서 가져오기
+2. (전체/델타) Azure AD에서 가져오기
+3. (전체/델타) Active Directory와 같은 온-프레미스 디렉터리에서 동기화
+4. (전체/델타) Azure AD에서 동기화
+5. Azure AD로 내보내기
+6. Active Directory와 같은 온-프레미스 디렉터리로 내보내기
+
+기본 제공 스케줄러를 보면 커넥터가 실행하는 순서로 표시됩니다.
+
+### Get-ADSyncConnectorRunStatus
+동기화 엔진이 사용 중인지 또는 유휴 상태인지 모니터링할 수도 있습니다. 이 cmdlet은 동기화 엔진이 유휴 상태이고 커넥터를 실행 중이 아닌 경우 빈 결과를 반환합니다. 커넥터가 실행 중이면 커넥터의 이름을 반환합니다.
+
+```
+Get-ADSyncConnectorRunStatus
+```
+
+![커넥터 실행 상태](./media/active-directory-aadconnectsync-feature-scheduler/getconnectorrunstatus.png) 위의 그림에서 첫 번째 줄은 동기화 엔진이 유휴 상태인 경우이고, 두 번째 줄은 Azure AD 커넥터가 실행 중인 경우입니다.
 
 ## 스케줄러 및 설치 마법사
 설치 마법사를 시작하면 스케줄러가 일시 중단됩니다. 이는 구성을 변경했다고 가정하기 때문이며 동기화 엔진이 실행 중인 경우에는 적용되지 않습니다. 이러한 이유로 동기화 엔진이 동기화 작업을 수행하지 못하므로 설치 마법사를 열어두지 마세요.
@@ -98,4 +142,4 @@ Azure AD Connect 동기화는 스케줄러를 사용하여 온-프레미스 디�
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

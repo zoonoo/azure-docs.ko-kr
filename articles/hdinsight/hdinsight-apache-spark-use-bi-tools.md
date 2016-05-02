@@ -14,18 +14,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="04/18/2016" 
 	ms.author="nitinme"/>
 
 
-# Azure HDInsight에서 Apache Spark와 함께 BI 도구 사용(Linux)
+# HDInsight Linux에서 Apache Spark와 함께 BI 도구 사용(미리 보기)
 
 Azure HDInsight에서 Apache Spark를 사용하여 다음을 수행하는 방법에 대해 알아봅니다.
 
 * 원시 샘플 데이터를 가져와서 하이브 테이블로 저장
 * Power BI 및 Tableau와 같은 BI 도구를 사용하여 데이터를 분석하고 시각화합니다.
 
-> [AZURE.TIP] 이 자습서는 HDInsight에서 만드는 Spark(Linux) 클러스터에서 Jupyter Notebook으로 사용할 수도 있습니다. Notebook 환경을 통해 Notebook 자체에서 Python 코드 조각을 실행할 수 있습니다. Notebook 내에서 자습서를 수행하려면 Spark 클러스터를 만들고 Jupyter Notebook(`https://CLUSTERNAME.azurehdinsight.net/jupyter`)을 시작한 다음 **Python** 폴더 아래의 Notebook **HDInsight.ipynb에서 Apache Spark와 함께 BI 도구 사용**을 실행합니다.
+> [AZURE.NOTE] 이 자습서는 Azure HDInsight에서 만든 Spark 1.5.2 클러스터에만 적용할 수 있습니다.
+
+이 자습서는 HDInsight에서 만드는 Spark(Linux) 클러스터에서 Jupyter Notebook으로 사용할 수도 있습니다. Notebook 환경을 통해 Notebook 자체에서 Python 코드 조각을 실행할 수 있습니다. Notebook 내에서 자습서를 수행하려면 Spark 클러스터를 만들고 Jupyter Notebook(`https://CLUSTERNAME.azurehdinsight.net/jupyter`)을 시작한 다음 **Python** 폴더 아래의 Notebook **HDInsight.ipynb에서 Apache Spark와 함께 BI 도구 사용**을 실행합니다.
 
 **필수 조건:**
 
@@ -79,12 +81,12 @@ Azure HDInsight에서 Apache Spark를 사용하여 다음을 수행하는 방법
 		hvac = hvacParts.map(lambda p: Entry(str(p[0]), str(p[1]), int(p[2]), int(p[3]), int(p[6])))
 		
 		# Infer the schema and create a table       
-		hvacTable = hiveContext.createDataFrame(hvac)
+		hvacTable = sqlContext.createDataFrame(hvac)
 		hvacTable.registerTempTable('hvactemptable')
 		dfw = DataFrameWriter(hvacTable)
 		dfw.saveAsTable('hvac')
 
-5. 테이블이 성공적으로 만들어졌는지 확인합니다. `%%sql` magic을 사용하여 Hive 쿼리를 직접 실행할 수 있습니다. `%%sql` magic 및 기타 PySpark 커널에서 사용 가능한 매직에 대한 자세한 내용은 [Spark HDInsight 클러스터와 함께 Jupyter Notebook에서 사용 가능한 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels)을 참조하세요.
+5. 테이블이 성공적으로 만들어졌는지 확인합니다. `%%sql` 매직을 사용하여 Hive 쿼리를 직접 실행할 수 있습니다. `%%sql` 매직 및 기타 PySpark 커널에서 사용 가능한 매직에 대한 자세한 내용은 [Spark HDInsight 클러스터와 함께 Jupyter Notebook에서 사용 가능한 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels)을 참조하세요.
 
 		%%sql
 		SHOW TABLES
@@ -231,4 +233,4 @@ Azure HDInsight에서 Apache Spark를 사용하여 다음을 수행하는 방법
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -42,26 +42,24 @@
 
 ## 포털을 사용하여 Giraph 설치
 
-[AZURE.INCLUDE [hdinsight-azure-preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
-
-* [HDInsight 클러스터에 Giraph 설치](hdinsight-hadoop-giraph-install-v1.md)
-
 1. [HDInsight에서 Hadoop 클러스터 만들기](hdinsight-provision-clusters.md#portal)에서 설명한 대로 **사용자 지정 만들기** 옵션을 사용하여 클러스터를 만들기 시작합니다.
 2. 아래와 같이 마법사의 **스크립트 작업** 페이지에서 **스크립트 작업 추가**를 클릭하여 스크립트 작업에 대한 세부 정보를 제공합니다.
 
 	![스크립트 작업을 사용하여 클러스터 사용자 지정](./media/hdinsight-hadoop-giraph-install/hdi-script-action-giraph.png "스크립트 작업을 사용하여 클러스터 사용자 지정")
 
 	<table border='1'>
-	<tr><th>속성</th><th>값</th></tr>
-	<tr><td>이름</td>
-		<td>스크립트 작업의 이름을 지정합니다. 예: <b>Install Giraph</b>.</td></tr>
-	<tr><td>스크립트 URI</td>
-		<td>클러스터를 사용자 지정하기 위해 호출되는 스크립트에 URI(Uniform Resource Identifier)를 지정합니다. 예: <i>https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1</i></td></tr>
-	<tr><td>노드 유형</td>
-		<td>사용자 지정 스크립트가 실행되는 노드를 지정합니다. <b>모든 노드</b>, <b>헤드 노드만</b> 또는 <b>작업자 노드만</b>을 선택할 수 있습니다.
-	<tr><td>매개 변수</td>
-		<td>스크립트에 필요한 경우 매개 변수를 지정합니다. Giraph를 설치하는 스크립트는 매개 변수가 필요하지 않으므로 공백으로 둘 수 있습니다.</td></tr>
-</table>두 개 이상의 스크립트 작업을 추가하여 클러스터에 여러 구성 요소를 설치할 수 있습니다. 스크립트를 추가한 후 확인 표시를 클릭하여 클러스터 만들기를 시작합니다.
+		<tr><th>속성</th><th>값</th></tr>
+		<tr><td>이름</td>
+			<td>스크립트 작업의 이름을 지정합니다. 예: <b>Install Giraph</b>.</td></tr>
+		<tr><td>스크립트 URI</td>
+			<td>클러스터를 사용자 지정하기 위해 호출되는 스크립트에 URI(Uniform Resource Identifier)를 지정합니다. 예: <i>https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1</i></td></tr>
+		<tr><td>노드 유형</td>
+			<td>사용자 지정 스크립트가 실행되는 노드를 지정합니다. <b>모든 노드</b>, <b>헤드 노드만</b> 또는 <b>작업자 노드만</b>을 선택할 수 있습니다.
+		<tr><td>매개 변수</td>
+			<td>스크립트에 필요한 경우 매개 변수를 지정합니다. Giraph를 설치하는 스크립트는 매개 변수가 필요하지 않으므로 공백으로 둘 수 있습니다.</td></tr>
+	</table>
+
+	두 개 이상의 스크립트 작업을 추가하여 클러스터에 여러 구성 요소를 설치할 수 있습니다. 스크립트를 추가한 후 확인 표시를 클릭하여 클러스터 만들기를 시작합니다.
 
 ## Giraph 사용
 
@@ -183,4 +181,4 @@ SimpleShortestPathsComputation 예제를 사용하여 그래프의 개체 간 �
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

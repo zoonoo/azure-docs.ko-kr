@@ -36,11 +36,11 @@
 
   - [Azure 포털](https://portal.azure.com/)입니다.
 
-   ![Azure 포털](./media/resource-manager-deployment-model/preview-portal.png)
+        ![Azure portal](./media/resource-manager-deployment-model/preview-portal.png)
 
-   계산, 저장, 네트워킹 리소스에 리소스 관리자를 사용할지 클래식 배포를 사용할지 선택할 수 있습니다. **리소스 관리자**를 선택합니다.
+        For Compute, Storage, and Networking resources, you have the option of using either Resource Manager or Classic deployment. Select **Resource Manager**.
 
-   ![리소스 관리자 배포](./media/resource-manager-deployment-model/select-resource-manager.png)
+        ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
   - Azure PowerShell의 경우 리소스 관리자 버전의 명령을 사용합니다. 이 명령은 다음과 같이 *동사-AzureRm명사* 형식을 갖습니다.
 
@@ -53,7 +53,7 @@
 
 - 리소스 종류는 이름에 **(클래식)**을 포함하지 않습니다. 아래 이미지는 형식을 **저장소 계정**으로 표시합니다.
 
-   ![웹앱](./media/resource-manager-deployment-model/resource-manager-type.png)
+    ![웹앱](./media/resource-manager-deployment-model/resource-manager-type.png)
 
 다음 다이어그램에 표시된 응용 프로그램은 리소스 관리자를 통해 배포된 리소스가 단일 리소스 그룹에 포함되는 방식을 보여줍니다.
 
@@ -83,11 +83,11 @@ Azure 서비스 관리에서 다음을 통해 가상 컴퓨터 호스팅에 대�
 
   - [클래식 포털](https://manage.windowsazure.com)
 
-   ![클래식 포털](./media/resource-manager-deployment-model/azure-portal.png)
+        ![Classic portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-   또는 Azure 포털과 **클래식** 배포(계산, 저장소 및 네트워킹의 경우)를 지정합니다.
+        Or, the Azure portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
 
-   ![클래식 배포](./media/resource-manager-deployment-model/select-classic.png)
+        ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 
   - Azure PowerShell의 경우 서비스 관리 버전의 명령을 사용합니다. 이러한 명령의 이름은 다음과 같이 *동사-Azure명사* 형식을 갖습니다.
 
@@ -97,7 +97,7 @@ Azure 서비스 관리에서 다음을 통해 가상 컴퓨터 호스팅에 대�
   - Azure CLI 명령은 **asm** 또는 기본 모드에서 실행됩니다.
 - 리소스 종류는 이름에 **(클래식)**을 포함합니다. 아래 이미지는 형식을 **저장소 계정(클래식)**으로 표시합니다.
 
-   ![클래식 유형](./media/resource-manager-deployment-model/classic-type.png)
+    ![클래식 유형](./media/resource-manager-deployment-model/classic-type.png)
 
 여전히 클래식 배포를 통해 생성된 리소스를 관리하는 Azure 포털을 사용할 수 있습니다.
 
@@ -169,8 +169,6 @@ Azure 서비스 관리를 위한 구성 요소 및 해당 관계는 다음과 �
 
 가상 컴퓨터에 대한 가동 중지를 이용할 수 있는 경우 [ASM2ARM PowerShell 스크립트](https://github.com/fullscale180/asm2arm)를 사용하여 클래식 배포에서 리소스 관리자로 전환할 수 있습니다.
 
-클래식 배포에서 리소스 관리자로 전환 시 해당 Azure CLI 명령 목록은 [VM 작업을 위한 해당 리소스 관리자 및 서비스 관리 명령](./virtual-machines/virtual-machines-linux-cli-manage.md)을 참조하세요.
-
 전환, 계산, 저장소 및 네트워킹 리소스에 관한 자세한 내용은 [Azure 리소스 관리자에서 Azure 계산, 네트워크 및 저장소 공급자](./virtual-machines/virtual-machines-windows-compare-deployment-models.md)를 참조하세요.
 
 여러 배포 모델에서 가상 네트워크 연결에 대한 자세한 내용은 [클래식 VNet을 새 VNet에 연결](./virtual-network/virtual-networks-arm-asm-s2s.md)을 참조하세요.
@@ -181,4 +179,4 @@ Azure 서비스 관리를 위한 구성 요소 및 해당 관계는 다음과 �
 - 리소스 관리자 템플릿의 구조에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 - 템플릿 배포에 대한 명령을 보려면 [Azure 리소스 관리자 템플릿으로 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

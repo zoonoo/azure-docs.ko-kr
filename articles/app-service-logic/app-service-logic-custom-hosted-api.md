@@ -20,9 +20,11 @@
 
 논리 앱에는 다양한 서비스에 대해 40개가 넘는 다양한 집합의 커넥터가 있으나 고유의 코드를 실행할 수 있는 고유의 사용자 지정 API를 호출하려 할 수 있습니다. 고유의 사용자 지정 Web API를 호스트하는 가장 쉽고 확장성이 뛰어난 방법 중 하나는 앱 서비스를 사용하는 것입니다. 이 문서에서는 앱 서비스 API 앱, 웹앱 또는 모바일 앱에서 호스트되는 Web API를 호출하는 방법을 설명합니다.
 
+논리 앱 내에서 트리거 또는 작업으로 API를 구축하는 데 대한 자세한 내용은 [이 문서](app-service-logic-create-api-app.md)를 참조하세요.
+
 ## 웹앱 배포
 
-우선 API를 앱 서비스에서 웹앱으로 배포해야 합니다. 여기서 지침은 기본 배포, [ASP.NET 웹앱 만들기](../app-service-web/web-sites-dotnet-get-started.md)를 다룹니다. 논리 앱에서 API를 호출할 수 있지만 최상의 경험을 위해 논리 앱 작업과 쉽게 통합하도록 Swagger 메타데이터를 추가하는 것이 좋습니다. [swagger 추가](../app-service-api/app-service-api-dotnet-get-started.md/#use-swagger-metadata-and-ui)에서 세부정보를 찾을 수 있습니다.
+우선 API를 앱 서비스에서 웹앱으로 배포해야 합니다. 여기서 지침은 기본 배포, [ASP.NET 웹앱 만들기](../app-service-web/web-sites-dotnet-get-started.md)를 다룹니다. 논리 앱에서 API를 호출할 수 있지만 최상의 경험을 위해 논리 앱 작업과 쉽게 통합하도록 Swagger 메타데이터를 추가하는 것이 좋습니다. [swagger 추가](../app-service-api/app-service-api-dotnet-get-started.md/#use-swagger-metadata-and-ui)에서 세부 정보를 찾을 수 있습니다.
 
 ### API 설정
 
@@ -167,4 +169,4 @@ AAD를 사용하는 빈 웹앱 및 논리 앱을 함께 배포하는 자동 배�
 
 위의 단계를 계속해서 수행하여 논리 앱에 대한 응용 프로그램 ID를 만들고 해당 ID를 사용하여 API를 호출해야 합니다.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

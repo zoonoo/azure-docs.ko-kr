@@ -5,7 +5,7 @@
    services="sql-database"
    documentationCenter=""
    authors="BYHAM"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor=""
    tags=""/>
 
@@ -20,7 +20,7 @@
 
 # SQL 데이터베이스 보안: 데이터베이스 액세스 및 로그인 보안 관리  
 
-SQL 데이터베이스 보안 관리, 특히 서버 수준 보안 주체 계정을 통해 데이터베이스 액세스 및 로그인 보안을 관리하는 방법에 대해 알아봅니다. SQL 데이터베이스와 온-프레미스 SQL Server에서 로그인 보안 옵션의 차이점과 유사점을 파악합니다.
+SQL 데이터베이스 보안 관리, 특히 서버 수준 보안 주체 계정을 통해 데이터베이스 액세스 및 로그인 보안을 관리하는 방법에 대해 알아봅니다. SQL 데이터베이스와 온-프레미스 SQL Server에서 로그인 보안 옵션의 차이점과 유사점을 파악합니다. 간략한 자습서는 [Azure SQL 데이터베이스 자습서: Azure SQL 데이터베이스 보안 시작](sql-database-get-started-security.md)을 참조하세요.
 
 ## 데이터베이스 프로비저닝 및 서버 수준 보안 주체 로그인
 
@@ -174,6 +174,6 @@ SELECT * FROM sys.databases;
 
 ## 참고 항목
 
-[Azure SQL 데이터베이스 보안 지침 및 제한 사항](sql-database-security-guidelines.md) [Azure Active Directory 인증을 사용하여 SQL 데이터베이스에 연결](sql-database-aad-authentication.md)
+[Azure SQL 데이터베이스 자습서: Azure SQL 데이터베이스 보안 시작](sql-database-get-started-security.md) [Azure SQL 데이터베이스 보안 지침 및 제한 사항](sql-database-security-guidelines.md) [Azure Active Directory 인증을 사용한 SQL 데이터베이스에 연결](sql-database-aad-authentication.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

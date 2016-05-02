@@ -33,4 +33,4 @@
 - [시작 샘플](power-bi-embedded-get-started.md)
 - [사용자 지정 시각화 개체를 사용하여 Power BI 확장](https://powerbi.microsoft.com/custom-visuals/)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/25/2016" 
+	ms.date="04/13/2016" 
 	ms.author="awills"/>
 
 # Application Insights SDK에서 원격 분석 샘플링, 필터링 및 전처리
@@ -48,9 +48,11 @@ Application Insights SDK에 대한 플러그인을 작성하고 구성하여 원
 
 설정 표시줄에서 할당량 및 가격 책정 블레이드를 엽니다. 샘플링을 클릭하고 샘플링 비율을 선택합니다.
 
+SDK가 고정 비율 또는 적응 샘플링을 수행하는 경우에는 수집이 작동하지 않습니다. SDK의 샘플링 비율이 100%보다 작으면 수집 샘플링 설정이 무시됩니다.
+
 ### 적응 샘플링을 사용하도록 설정하려면
 
-최신 *시험판* 버전의 Application Insights로 **프로젝트의 NuGet 패키지를 업데이트**합니다. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고, NuGet 패키지 관리를 선택한 다음 **Include Prerelease(시험판 포함)**를 선택하고 Microsoft.ApplicationInsights.Web을 검색합니다.
+최신 *시험판* 버전의 Application Insights로 **프로젝트의 NuGet 패키지를 업데이트**합니다. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고, NuGet 패키지 관리를 선택하고 **Include prerelease(시험판 포함)**를 선택한 다음 Microsoft.ApplicationInsights.Web을 검색합니다.
 
 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)에서 적응 알고리즘에서 목표로 하는 원격 분석의 최대 비율을 조정할 수 있습니다.
 
@@ -407,4 +409,4 @@ TelemetryItem에서 사용할 수 있는 사용자 지정이 아닌 속성의 �
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

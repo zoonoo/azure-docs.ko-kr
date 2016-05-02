@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/06/2016"
+   ms.date="04/13/2016"
    ms.author="nitinme"/>
 
 # Distcp를 사용하여 Azure 저장소 Blob과 데이터 레이크 저장소 간에 데이터 복사
@@ -67,4 +67,4 @@ HDInsight 클러스터는 서로 다른 원본에서 HDInsight 클러스터로 �
 - [Azure 데이터 레이크 분석에 데이터 레이크 저장소 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Azure HDInsight에 데이터 레이크 저장소 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

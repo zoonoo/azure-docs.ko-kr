@@ -18,7 +18,7 @@
 	ms.author="nitinme"/>
 
 
-# Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리(Windows)
+# HDInsight Windows에서 Apache Spark 클러스터에 대한 리소스 관리(미리 보기)
 
 > [AZURE.NOTE] 이제 HDInsight가 Linux에서 Spark 클러스터를 제공합니다. HDInsight Linux에서 Spark 클러스터에 대한 리소스를 관리하는 방법에 대한 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리(Linux)](hdinsight-apache-spark-resource-manager.md)를 참조하세요.
 
@@ -84,4 +84,4 @@ Thrift 서버 코어 개수 및 Thrift 서버 실행자 메모리를 0으로 지
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

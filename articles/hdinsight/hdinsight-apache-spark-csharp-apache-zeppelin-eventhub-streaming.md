@@ -18,7 +18,7 @@
 	ms.author="nitinme"/>
 
 
-# Spark 스트리밍: HDInsight에서 Apache Spark로 Azure 이벤트 허브의 이벤트 처리(Windows)
+# Spark 스트리밍: HDInsight Windows에서 Apache Spark로 Azure 이벤트 허브의 이벤트 처리(미리 보기)
 
 > [AZURE.NOTE] 이제 HDInsight가 Linux에서 Spark 클러스터를 제공합니다. Hdinsight Spark Linux 클러스터에서 스트리밍 응용 프로그램을 실행하는 방법에 대한 자세한 내용은 [Spark 스트리밍: HDInsight에서 Apache Spark로 Azure 이벤트 허브의 이벤트 처리(Linux)](hdinsight-apache-spark-eventhub-streaming.md)를 참조하세요.
 
@@ -196,4 +196,4 @@ HDInsight에서 Spark 클러스터로 스트리밍 데이터를 받으려면 Zep
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

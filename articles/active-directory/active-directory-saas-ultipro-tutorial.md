@@ -106,7 +106,7 @@ Ultipro에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
     b. **다음**을 클릭합니다.
 
 
-5. 응용 프로그램에 대해 구성된 SSO를 얻으려면 [ultiproinfo@ultimatesoftware.com](mailto:ultiproinfo@ultimatesoftware.com)을 통해 Ultipro 지원 팀에 문의하고 다음을 제공하십시오.
+5. 응용 프로그램에 대해 구성된 SSO를 얻으려면 UltiPro 계정 관리자에 문의하고 다음을 제공하세요.
 
     - 다운로드한 인증서 파일
 
@@ -221,4 +221,4 @@ Ultipro에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 [204]: ./media/active-directory-saas-ultipro-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-ultipro-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

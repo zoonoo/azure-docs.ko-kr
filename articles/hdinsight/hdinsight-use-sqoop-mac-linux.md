@@ -34,6 +34,8 @@ Sqoop을 사용하여 Linux 기반 HDInsight 클러스터와 Azure SQL 데이터
 - **워크스테이션**: SSH 클라이언트가 있는 컴퓨터입니다.
 - **Azure CLI**: 자세한 내용은 [Azure CLI 설치 및 구성](../xplat-cli-install.md)을 참조하십시오.
 
+    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+
 ##Sqoop 내보내기
 
 2. 다음 명령을 사용하여 Sqoop lib 디렉터리에서 SQL Server JDBC 드라이버에 링크를 만듭니다. 이를 통해 Sqoop이 다음 드라이버를 사용하여 SQL 데이터베이스와 통신할 수 있습니다.
@@ -50,7 +52,7 @@ Sqoop을 사용하여 Linux 기반 HDInsight 클러스터와 Azure SQL 데이터
 
         sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --export-dir 'wasb:///hive/warehouse/hivesampletable' --fields-terminated-by '\t' -m 1
 
-    이것은 Sqoop에게 SQL 데이터베이스, **sqooptest** 데이터베이스에 연결하고 **wasb:///hive/warehouse/hivesampletable**(*hivesampletable*에 대한 물리적 파일)에서 **mobiledata** 테이블로 데이터를 내보내도록 지시합니다.
+    이것은 Sqoop에게 SQL 데이터베이스, **sqooptest** 데이터베이스에 연결하고 ****wasb:///hive/warehouse/hivesampletable**(*hivesampletable*에 대한 물리적 파일)에서 **mobiledata** 테이블로 데이터를 내보내도록 지시합니다.
 
 5. 명령이 완료되면 다음을 통해 TSQL을 사용하여 데이터베이스에 연결합니다.
 
@@ -65,7 +67,7 @@ Sqoop을 사용하여 Linux 기반 HDInsight 클러스터와 Azure SQL 데이터
 
 ##Sqoop 가져오기
 
-1. 다음을 사용하여 SQL 데이터베이스에 있는 **mobiledata** 테이블로부터 데이터를 HDInsight 내 **wasb:///tutorials/usesqoop/importeddata** 디렉터리로 가져옵니다.
+1. 다음을 사용하여 SQL 데이터베이스에 있는 **mobiledata** 테이블로부터 데이터를 HDInsight 내 ****wasb:///tutorials/usesqoop/importeddata** 디렉터리로 가져옵니다.
 
         sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
 
@@ -143,4 +145,4 @@ Sqoop을 사용하여 Linux 기반 HDInsight 클러스터와 Azure SQL 데이터
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

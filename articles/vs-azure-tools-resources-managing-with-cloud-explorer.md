@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="12/17/2015"
+   ms.date="04/18/2016"
    ms.author="tarcher" />
 
 # 클라우드 탐색기를 사용하여 Azure 리소스 관리
@@ -95,4 +95,4 @@ Azure 계정 구독에서 특정 이름의 리소스를 찾으려면, 클라우�
 
 검색 상자에 문자를 입력하면 해당 문자와 일치하는 리소스만 리소스 트리에 나타납니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0420_2016-->

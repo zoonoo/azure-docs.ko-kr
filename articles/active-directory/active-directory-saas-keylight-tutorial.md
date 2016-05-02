@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/08/2016"
+	ms.date="04/18/2016"
 	ms.author="jeedes"/>
 
 
@@ -84,7 +84,7 @@ Keylight와 Azure AD 통합을 구성하려면 갤러리의 Keylight를 관리�
 
 7. 결과 창에서 **Keylight**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
 
-
+	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_02.png)
 
 ##  Azure AD Single Sign-on 구성 및 테스트
 이 섹션에서는 "Britta Simon"이라는 테스트 사용자를 기반으로 Keylight에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
@@ -93,7 +93,7 @@ Keylight에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 1. **[Azure AD Single Sign-on 구성](#configuring-azure-ad-single-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
 2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-4. **[Keylight 테스트 사용자 만들기](#creating-a-Keylight-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Keylight에 만듭니다.
+4. **[Keylight 테스트 사용자 만들기](#creating-a-keylight-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Keylight에 만듭니다.
 5. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
 5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
@@ -104,7 +104,7 @@ Keylight에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 **Keylight에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure 포털의 **Keylight** 응용 프로그램 통합 페이지에서 **Single Sign-on 구성**을 클릭하여 **Single Sign-on 구성** 대화 상자를 엽니다.
+1. Azure 포털의 **Keylight** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
 
 	![Single Sign-On 구성][6]
 
@@ -154,30 +154,30 @@ Keylight에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
     a. **SAML 인증**을 **활성**으로 설정합니다.
 
 
-    b. Azure AD 클래식 포털에서 **SAML SSO URL** 값을 복사한 다음 **ID 공급자 로그인 URL** 텍스트 상자에 붙여 넣습니다.
+    b. Azure AD 클래식 포털에서 **SAML SSO URL** 값을 복사한 다음 **ID 공급자 로그인 URL** 텍스트 상자에 붙여넣습니다.
 
-    c. Azure AD 클래식 포털에서 **Single Sign-Out 서비스 URL** 값을 복사한 다음 **ID 공급자 로그아웃 URL** 텍스트 상자에 붙여 넣습니다.
+    c. Azure AD 클래식 포털에서 **Single Sign-Out 서비스 URL** 값을 복사한 다음 **ID 공급자 로그아웃 URL** 텍스트 상자에 붙여넣습니다.
 
     d. **파일 선택**을 클릭하여 다운로드한 Keylight 인증서를 선택하고 **열기**를 클릭하여 인증서를 업로드합니다.
 
 
-    e. **SAML 사용자 ID 위치**를 **Subject 문의 NameIdentifier 요소**로 설정합니다.
+    e. **SAML User Id location(SAML 사용자 ID 위치)**을 **NameIdentifier element of the subject statement(Subject 문의 NameIdentifier 요소)**로 설정합니다.
    
     f. **https://&lt;Company Name&gt;.keylightgrc.com** 패턴을 사용하여 **Keylight 서비스 공급자를 입력합니다.
 
-    g. **사용자 자동 프로비전**을 **활성**으로 설정합니다.
+    g. **Auto-provision users(사용자 자동 프로비전)**를 **활성**으로 설정합니다.
 
-    h. **자동 프로비전 계정 유형**을 **전체 사용자**로 설정합니다.
+    h. **Auto-provision account type(자동 프로비전 계정 유형)**을 **전체 사용자**로 설정합니다.
 
-    i **자동 프로비전 보안 역할**로 **SAML을 사용하는 표준 사용자**를 선택합니다.
+    i **Auto-provision security role(자동 프로비전 보안 역할)**로 **Standard User with SAML(SAML을 사용하는 표준 사용자)**을 선택합니다.
    
-    j. **자동 프로비전 보안 구성**으로 **표준 사용자 구성**을 선택합니다.
+    j. **Auto-provision security config(자동 프로비전 보안 구성)**로 **Standard User Configuration(표준 사용자 구성)**을 선택합니다.
    
-    k. 전자 메일 특성 텍스트 상자에 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**를 입력합니다.
+    k. 메일 특성 텍스트 상자에 ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**를 입력합니다.
 
-    l. **이름 특성** 텍스트 상자에 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**을 입력합니다.
+    l. **이름 특성** 텍스트 상자에 ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**을 입력합니다.
 
-    m. **성 특성** 텍스트 상자에 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**을 입력합니다.
+    m. **성 특성** 텍스트 상자에 ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**을 입력합니다.
 
     n. **Save**를 클릭합니다.
    
@@ -222,7 +222,7 @@ Keylight에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-keylight-tutorial/create_aaduser_04.png)
 
-5. **이 사용자에 대한 정보 입력** 대화 상자 페이지에서 다음 단계를 수행합니다.
+5. **이 사용자에 대해 알리기** 대화 상자 페이지에서 다음 단계를 수행합니다.
 
 	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-keylight-tutorial/create_aaduser_05.png)
 
@@ -264,7 +264,7 @@ Keylight에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 이 섹션에서는 Keylight에서 Britta Simon이라는 사용자를 만듭니다. Keylight는 기본적으로 사용하도록 설정된 Just-In-Time 프로비전을 지원합니다.
 
-이 섹션에 작업 항목이 없습니다. Keylight에 액세스할 때 사용자가 아직 존재하지 않는 경우 새 사용자가 만들어집니다. [Azure AD Single Sign-On 구성](#configuring-azure-ad-single-single-sign-on)
+이 섹션에 작업 항목이 없습니다. Keylight에 액세스할 때 사용자가 아직 존재하지 않는 경우 새 사용자가 만들어집니다.
 
 > [AZURE.NOTE] 사용자를 수동으로 만들어야 하는 경우 Keylight 지원 팀에 문의해야 합니다.
 
@@ -329,4 +329,4 @@ Keylight에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 [204]: ./media/active-directory-saas-keylight-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-keylight-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->
