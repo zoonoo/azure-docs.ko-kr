@@ -12,14 +12,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/06/2016"
+   ms.date="04/19/2016"
    ms.author="cherylmc" />
 
 # Express 경로 파트너 및 피어링 위치
 
 이 문서의 표에서는 Express 경로 연결 공급자, Express 경로 지역 범위, Express 경로를 통해 지원되는 Microsoft 클라우드 서비스 및 Express 경로 SI(시스템 통합업체)에 대한 정보를 제공합니다.
 
-## Express 경로 연결 공급자
+## <a name="partners"></a>Express 경로 연결 공급자
 
 Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵에 Azure 지역 및 Express 경로 위치 목록을 제공합니다. Express 경로 위치는 Microsoft가 여러 서비스 공급자와 피어링하는 위치를 말합니다.
 
@@ -118,7 +118,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | **e-shelter** | 서비스 예정 | 지원되지 않음 | 베를린+|
 | **Interxion** | 지원됨 | 지원되지 않음 | 프랑크푸르트|
 
-## 나열되지 않은 서비스 공급자를 통한 연결
+## <a name="nonpartners"></a>나열되지 않은 서비스 공급자를 통한 연결
 
 연결 공급자가 이전 섹션에 없는 경우에도 연결을 설정할 수 있습니다.
 
@@ -157,4 +157,4 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 - Express 경로에 대한 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md)를 참조하세요.
 - 모든 필수 조건이 충족되었는지 확인합니다. [Express 경로 필수 조건](expressroute-prerequisites.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

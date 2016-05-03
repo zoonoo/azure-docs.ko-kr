@@ -25,7 +25,7 @@ Azure 저장소는 내구성, 가용성, 확장성을 활용하여 고객의 요
 - Azure 저장소의 정의 및 클라우드, 모바일, 서버 및 데스크톱 응용 프로그램에서 Azure 저장소를 활용할 수 있는 방법
 - Azure 저장소 서비스에서 저장할 수 있는 데이터의 종류: blob(개체) 데이터, NoSQL 테이블 데이터, 큐 메시지 및 파일 공유
 - Azure 저장소의 데이터에 대한 액세스를 관리하는 방법
-- 중복 및 복제를 통해 Azure 저장소 데이터를 보호하는 방법
+- 중복 및 복제를 통해 Azure 저장소 데이터의 영속성을 유지하는 방법
 - 첫 Azure 저장소 응용 프로그램을 작성하기 위한 다음 단계
 
 Azure 저장소를 빠르게 시작 및 실행하려면 [5분 만에 Azure 저장소 시작](storage-getting-started-guide.md)을 참조하세요.
@@ -44,47 +44,30 @@ Azure 저장소는 트래픽을 기반으로 자동으로 데이터 부하를 �
 
 Azure 저장소에는 전 세계 어디에서나 클라우드, 데스크톱, 온-프레미스 서버, 모바일 또는 태블릿 장치 등 어떤 종류의 응용 프로그램에서나 액세스할 수 있습니다. 응용 프로그램이 장치에 데이터 하위 집합을 저장하고 이를 클라우드에 저장된 전체 데이터 집합과 동기화하는 모바일 시나리오에서 Azure 저장소를 사용할 수 있습니다.
 
-Azure 저장소는 편리한 개발을 위해 다양한 운영 체제 집합(Windows 및 Linux 포함) 및 다양한 프로그래밍 언어(.NET, Java 및 C++ 포함)를 사용하는 클라이언트를 지원합니다. 또한 Azure 저장소는 간단한 REST API를 통해 데이터를 노출하며, 이 API는 HTTP/HTTPS를 통해 데이터를 송수신할 수 있는 클라이언트에서 사용할 수 있습니다.
+Azure 저장소는 편리한 개발을 위해 다양한 운영 체제 집합(Windows 및 Linux 포함) 및 다양한 프로그래밍 언어( .NET, Java, Node.js, Python, Ruby, PHP 및 C++과 모바일 프로그래밍 언어 포함)를 사용하는 클라이언트를 지원합니다. 또한 Azure 저장소는 간단한 REST API를 통해 데이터를 노출하며, 이 API는 HTTP/HTTPS를 통해 데이터를 송수신할 수 있는 클라이언트에서 사용할 수 있습니다.
 
 Azure 프리미엄 저장소는 Azure 가상 컴퓨터에서 실행되는 I/O 사용량이 많은 작업을 지원하는 짧은 대기 시간의 고성능 디스크를 제공합니다. Azure 프리미엄 저장소를 사용하면 여러 영구 데이터 디스크를 가상 컴퓨터에 연결하여 성능 요구 사항을 충족하도록 구성할 수 있습니다. 각 데이터 디스크는 Azure 프리미엄 저장소에서 SSD 디스크의 지원을 받으며 최대 I/O 성능을 제공합니다. 자세한 내용은 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](storage-premium-storage.md)를 참조하세요.
 
 ## Azure 저장소 서비스 소개
 
-Azure 저장소 계정은 Azure 저장소의 서비스에 대한 액세스 권한을 제공하는 보안 계정입니다. 저장소 계정은 저장소 리소스에 고유한 네임스페이스를 제공합니다. 저장소 계정에는 다음과 같은 두 종류가 있습니다.
+Azure 저장소 서비스는 Blob 저장소, 테이블 저장소, 큐 저장소 및 파일 저장소 등의 4가지 서비스를 제공합니다.
 
-- 표준 저장소 계정에는 Blob, 테이블, 큐 및 파일 저장소가 포함됩니다.
-- 프리미엄 저장소 계정은 현재 Azure 가상 컴퓨터 디스크만 지원합니다.
+- Blob 저장소는 구조화되지 않은 개체 데이터를 저장합니다. Blob은 문서, 미디어 파일 또는 응용 프로그램 설치 프로그램 등 모든 종류의 텍스트 또는 이진 데이터일 수 있습니다. Blob 저장소를 개체 저장소라고도 합니다.
+- 테이블 저장소는 구조화된 데이터 집합을 저장합니다. 테이블 저장소는 신속한 개발과 대량 데이터에 대한 빠른 액세스를 가능하게 하는 NoSQL 키-특성 데이터 저장소입니다.
+- 큐 저장소는 워크플로 처리 및 클라우드 서비스 구성 요소 사이의 통신을 위한 안정적인 메시지를 제공합니다.
+- 파일 저장소는 표준 SMB 프로토콜을 사용하여 레거시 응용 프로그램을 위한 공유 저장소를 제공합니다. Azure 가상 컴퓨터 및 클라우드 서비스는 탑재된 공유를 통해 여러 응용 프로그램 구성 요소에서 파일 데이터를 공유할 수 있으며 온-프레미스 응용 프로그램은 파일 서비스 REST API를 통해 공유의 파일 데이터에 액세스할 수 있습니다.
 
-저장소 계정을 만들려면 먼저 다양한 Azure 서비스에 대한 액세스 권한을 제공하는 계획인 Azure 구독이 있어야 합니다. 단일 구독으로 고유하게 명명된 저장소 계정을 100개까지 만들 수 있습니다. 저장소 계정 제한에 대한 자세한 내용은 [Azure 저장소 확장성 및 성능 목표](storage-scalability-targets.md)를 참조하세요. 볼륨 가격에 대한 자세한 내용은 [Azure 저장소 가격 정보](https://azure.microsoft.com/pricing/details/storage/)를 참조하세요.
-
-[무료 계정](https://azure.microsoft.com/pricing/free-trial/)으로 Azure를 시작할 수 있습니다. 구독 계획을 구매하기로 결정하는 경우 다양한 [구입 옵션](https://azure.microsoft.com/pricing/purchase-options/) 중에서 선택할 수 있습니다. [MSDN 구독자](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)는 Azure 저장소를 포함한 Azure 서비스에 사용할 수 있는 무료 월별 크레딧을 받습니다.
-
-### 표준 저장소 계정
-
-표준 저장소 계정은 Blob 저장소, 테이블 저장소, 큐 저장소 및 파일 저장소 등 Azure 저장소 데이터 서비스에 대한 액세스 권한을 제공합니다.
-
-- **Blob 저장소**는 파일 데이터를 저장합니다. Blob은 문서, 미디어 파일 또는 응용 프로그램 설치 프로그램 등 모든 종류의 텍스트 또는 이진 데이터일 수 있습니다. Blob 저장소를 개체 저장소라고도 합니다.
-- **테이블 저장소**는 구조화된 데이터 집합을 저장합니다. 테이블 저장소는 신속한 개발과 대량 데이터에 대한 빠른 액세스를 가능하게 하는 NoSQL 키-특성 데이터 저장소입니다.
-- **큐 저장소**는 워크플로 처리 및 클라우드 서비스 구성 요소 사이의 통신을 위한 안정적인 메시지를 제공합니다.
-- **파일 저장소**는 표준 SMB 프로토콜을 사용하여 레거시 응용 프로그램을 위한 공유 저장소를 제공합니다. Azure 가상 컴퓨터 및 클라우드 서비스는 탑재된 공유를 통해 여러 응용 프로그램 구성 요소에서 파일 데이터를 공유할 수 있으며 온-프레미스 응용 프로그램은 파일 서비스 REST API를 통해 공유의 파일 데이터에 액세스할 수 있습니다.
-
-각 표준 저장소 계정은 Blob, 큐, 테이블 및 파일 데이터를 합해서 최대 500TB까지 포함할 수 있습니다. 표준 저장소 계정 용량에 대한 자세한 내용은 [Azure 저장소 확장성 및 성능 목표](storage-scalability-targets.md)를 참조하세요.
-
-아래 이미지에서는 표준 저장소 계정에서 Azure 저장소 리소스 간의 관계의 보여 줍니다.
+Azure 저장소 계정은 Azure 저장소의 서비스에 대한 액세스 권한을 제공하는 보안 계정입니다. 저장소 계정은 저장소 리소스에 고유한 네임스페이스를 제공합니다. 아래 이미지에서는 저장소 계정에서 Azure 저장소 리소스 간의 관계의 보여 줍니다.
 
 ![Azure 저장소 리소스](./media/storage-introduction/storage-concepts.png)
 
-표준 저장소 계정을 만드는 방법을 알아보려면 [저장소 계정 만들기](storage-create-storage-account.md#create-a-storage-account)를 참조하세요.
-
-### 프리미엄 저장소 계정
-
-Azure 프리미엄 저장소는 현재 Azure 가상 컴퓨터 디스크만 지원합니다. Azure 프리미엄 저장소의 자세한 개요는 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](storage-premium-storage.md)를 참조하세요.
+[AZURE.INCLUDE [storage-account-types-include](../../includes/storage-account-types-include.md)]
 
 [AZURE.INCLUDE [storage-versions-include](../../includes/storage-versions-include.md)]
 
 ## Blob 저장소
 
-클라우드에 저장할 대량의 구조화되지 않은 데이터를 가진 사용자에게 Blob 저장소는 비용 효율적이고 확장성 있는 솔루션이 됩니다. Blob 저장소를 사용하여 다음과 같은 콘텐츠를 저장할 수 있습니다.
+클라우드에 저장할 대량의 구조화되지 않은 개체 데이터를 가진 사용자에게 Blob 저장소는 비용 효율적이고 확장성 있는 솔루션이 됩니다. Blob 저장소를 사용하여 다음과 같은 콘텐츠를 저장할 수 있습니다.
 
 - 문서
 - 사진, 비디오, 음악, 블로그 등의 소셜 데이터
@@ -95,9 +78,11 @@ Azure 프리미엄 저장소는 현재 Azure 가상 컴퓨터 디스크만 지�
 
 모든 Blob은 컨테이너로 구성됩니다. 컨테이너를 통해 유용하게 개체 그룹에 보안 정책을 할당할 수도 있습니다. 저장소 계정에 포함할 수 있는 컨테이너 수에는 제한이 없으며, 컨테이너에 포함할 수 있는 Blob의 수에는 저장소 계정의 최대 500TB 용량 한도까지 제한이 없습니다.
 
-Blob 저장소에는 블록 Blob, 추가 Blob 및 페이지 Blob(디스크)의 세 가지 Blob 유형이 있습니다. 블록 Blob은 클라우드 개체 스트리밍 및 저장을 위해 최적화되며 문서, 미디어 파일, 백업 등을 저장하는 데 적합합니다. 추가 Blob은 블록 Blob과 유사하지만 추가 작업에 최적화되어 있습니다. 새 블록을 끝에 추가해야만 추가 Blob을 업데이트할 수 있습니다. 추가 Blob은 Blob 끝에만 새 데이터를 써야 하는 로깅과 같은 시나리오에 적합합니다.
+Blob 저장소에는 블록 Blob, 추가 Blob 및 페이지 Blob(디스크)의 세 가지 Blob 유형이 있습니다.
 
-페이지 Blob은 IaaS 디스크를 나타내고 임의 쓰기를 지원하기 위해 최적화되며 크기가 최대 1TB일 수 있습니다. Azure 가상 컴퓨터 네트워크에 추가된 IaaS 디스크는 페이지 Blob으로 저장된 VHD입니다.
+- 블록 Blob은 클라우드 개체 스트리밍 및 저장을 위해 최적화되며 문서, 미디어 파일, 백업 등을 저장하는 데 적합합니다.
+- 추가 Blob은 블록 Blob과 유사하지만 추가 작업에 최적화되어 있습니다. 새 블록을 끝에 추가해야만 추가 Blob을 업데이트할 수 있습니다. 추가 Blob은 Blob 끝에만 새 데이터를 써야 하는 로깅과 같은 시나리오에 적합합니다.
+- 페이지 Blob은 IaaS 디스크를 나타내고 임의 쓰기를 지원하기 위해 최적화되며 크기가 최대 1TB일 수 있습니다. Azure 가상 컴퓨터 네트워크에 추가된 IaaS 디스크는 페이지 Blob으로 저장된 VHD입니다.
 
 네트워크 제약 조건으로 인해 네트워크를 통해 Blob 저장소를 대상으로 데이터를 업로드하거나 다운로드하는 것이 불가능한 대규모 데이터 집합의 경우, 하드 드라이브를 Microsoft로 운송하여 데이터 센터에서 바로 데이터를 가져오거나 내보내도록 요청할 수 있습니다. [Microsoft Azure 가져오기/내보내기 서비스를 사용하여 Blob 저장소로 데이터 전송](storage-import-export-service.md)을 참조하세요.
 
@@ -159,11 +144,7 @@ Azure 가져오기/내보내기 서비스는 Azure 데이터 센터에 우편으
 
 ## 가격
 
-Azure 저장소에 대한 요금은 사용한 저장소 용량, 선택한 복제 옵션, 서비스에 대한 요청 수, 데이터 송신의 4가지 요소에 따라 부과됩니다.
-
-저장소 용량은 데이터를 저장하는 데 사용하는 저장소 계정 서비스 단위가 어느 정도인지를 나타냅니다. 단순히 데이터를 저장하는 비용은 저장하는 데이터의 양과 복제 방법에 따라 결정됩니다. Azure 저장소에 대한 모든 읽기 및 쓰기 작업은 Azure 서비스에 대해 요청을 생성합니다. 데이터 송신은 Microsoft Azure 지역 외부에서 전송되는 데이터를 나타냅니다. 저장소 계정의 데이터에 동일한 지역에서 실행되지 않는 응용 프로그램이 액세스하는 경우 해당 응용 프로그램이 클라우드 서비스인지 다른 유형의 응용 프로그램인지 여부에 상관없이 데이터 송신 요금이 부과됩니다. Microsoft Azure 서비스의 경우 프로세스 및 데이터 송신 요금을 줄이거나 제거하기 위해 동일한 데이터 센터의 데이터와 서비스를 그룹화하는 조치를 취할 수 있습니다.
-
-[Azure 저장소 가격 책정](https://azure.microsoft.com/pricing/details/storage/) 페이지에서 저장소 용량, 복제 및 트랜잭션에 대한 자세한 가격 정보를 제공합니다. [데이터 전송 가격 정보](https://azure.microsoft.com/pricing/details/data-transfers/)에서는 데이터 송신에 대한 자세한 가격 정보를 제공합니다. [Azure 저장소 가격 계산기](https://azure.microsoft.com/pricing/calculator/?scenario=data-management)를 사용하여 비용을 예측할 수 있습니다.
+[AZURE.INCLUDE [storage-account-billing-include](../../includes/storage-account-billing-include.md)]
 
 ## 저장소 API, 라이브러리 및 도구
 
@@ -188,7 +169,7 @@ Azure 저장소 리소스는 HTTP/HTTPS 요청을 수행할 수 있는 모든 �
 - [PowerShell 1.0용 저장소 리소스 공급자 Cmdlet](https://msdn.microsoft.com/library/azure/mt607151.aspx)
 - [저장소 서비스 관리 REST API(클래식](https://msdn.microsoft.com/library/azure/ee460790.aspx)
 
-### Azure 저장소 데이터 이동 서비스 
+### Azure 저장소 데이터 이동 서비스
 
 - [저장소 가져오기/내보내기 서비스 REST API](https://msdn.microsoft.com/library/azure/dn529096.aspx)
 - [.NET용 저장소 데이터 이동 클라이언트 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/)
@@ -208,9 +189,10 @@ Azure 저장소에 대한 자세한 내용은 다음 리소스를 살펴보세�
 
 - [Azure 저장소 설명서](https://azure.microsoft.com/documentation/services/storage/)
 
-### PowerShell 사용자
+### 관리자용
 
 - [Azure 저장소와 함께 Azure PowerShell 사용](storage-powershell-guide-full.md)
+- [Azure 저장소에서 Azure CLI 사용](storage-azure-cli.md)
 
 ### .NET 개발자
 
@@ -224,7 +206,7 @@ Azure 저장소에 대한 자세한 내용은 다음 리소스를 살펴보세�
 - [Java에서 Blob 저장소를 사용하는 방법](storage-java-how-to-use-blob-storage.md)
 - [Java에서 테이블 저장소를 사용하는 방법](storage-java-how-to-use-table-storage.md)
 - [Java에서 큐 저장소를 사용하는 방법](storage-java-how-to-use-queue-storage.md)
-- [Java에서 파일 저장소를 사용하는 방법](storage-java-how-to-use-file-storage.md) 
+- [Java에서 파일 저장소를 사용하는 방법](storage-java-how-to-use-file-storage.md)
 
 ### Node.js 개발자
 
@@ -251,4 +233,4 @@ Azure 저장소에 대한 자세한 내용은 다음 리소스를 살펴보세�
 - [Python에서 큐 저장소를 사용하는 방법](storage-python-how-to-use-queue-storage.md)
 - [Python에서 파일 저장소를 사용하는 방법](storage-python-how-to-use-file-storage.md)
 
-<!-----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0427_2016-->

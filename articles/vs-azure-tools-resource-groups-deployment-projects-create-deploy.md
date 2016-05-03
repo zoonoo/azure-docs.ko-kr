@@ -196,4 +196,4 @@ Visual Studio는 또한 템플릿을 편집하는 경우 사용 가능한 속성
 - 포털을 통한 리소스 관리에 대한 내용은 [Azure 포털을 사용하여 Azure 리소스 관리](./azure-portal/resource-group-portal.md)를 참조하세요.
 - 템플릿에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -3,22 +3,24 @@
 	description="Azure 리소스 관리자 모드에서 SQL Server 가상 컴퓨터 만들기 이 자습서에서는 스크립트보다는 사용자 인터페이스 및 도구를 주로 사용합니다."
 	services="virtual-machines-windows"
 	documentationCenter="na"
-	authors="MikeRayMSFT"
-    editor=""
-	manager="jeffreyg"
+	authors="rothja"
+	editor=""
+	manager="jhubbard"
 	tags="azure-resource-manager" />
-
-
 <tags
 	ms.service="virtual-machines-windows"
 	ms.devlang="na"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="03/24/2016"
-	ms.author="mikeray" />
+	ms.date="04/22/2016"
+	ms.author="jroth" />
 
 # Azure 포털에서 SQL Server 가상 컴퓨터 프로비전
+
+> [AZURE.SELECTOR]
+- [포털](virtual-machines-windows-portal-sql-server-provision.md)
+- [PowerShell](virtual-machines-windows-ps-sql-create.md)
 
 ## 개요
 
@@ -69,7 +71,7 @@ Azure 포털에는 SQL Server 가상 컴퓨터를 구성하기 위한 5개의 �
 * **사용자 이름** 상자에 컴퓨터 로컬 관리자 계정의 고유한 사용자 이름을 입력합니다. 이 계정은 SQL Server sysadmin 고정 서버 역할의 멤버이기도 합니다.
 * **암호** 상자에 강력한 암호를 입력합니다.
 * 구독이 여러 개인 경우 구독이 작성하려고 하는 VM에 대해 올바른지 확인합니다.
-* **리소스 그룹** 상자에 리소스 그룹의 이름을 입력합니다. 또는 기존 리소스 그룹을 사용하려면 **기존 선택**을 클릭합니다. 리소스 그룹은 Azure에서 관련된 서비스의 컬렉션입니다. 리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager 개요](../resource-group-overview.md)를 참조하세요. **위치**가 요구 사항에 적합한지 확인합니다.
+* **리소스 그룹** 상자에 리소스 그룹의 이름을 입력합니다. 또는 기존 리소스 그룹을 사용하려면 **기존 선택**을 클릭합니다. 리소스 그룹은 Azure에서 관련된 서비스의 컬렉션입니다. 리소스 그룹에 대한 자세한 내용은 [Azure 리소스 관리자 개요](../resource-group-overview.md)를 참조하세요. **위치**가 요구 사항에 적합한지 확인합니다.
 * **확인**을 클릭하여 설정을 저장합니다. <br/>
 
 >![SQL ARM 기본 사항](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-basic.png) <br/>
@@ -114,7 +116,7 @@ Azure 포털에는 SQL Server 가상 컴퓨터를 구성하기 위한 5개의 �
 - 동일한 가상 네트워크의 컴퓨터 또는 서비스에서 SQL Server에 연결할 수 있도록 하려면 **사설(가상 네트워크 내부)**을 선택합니다.
 
 
-**포트** 기본값은 1433입니다. 다른 포트 번호를 지정할 수 있습니다. 자세한 내용은 [SQL Server 가상 컴퓨터에 연결(Resource Manager) | Microsoft Azure](virtual-machines-windows-sql-connect.md)를 참조하세요.
+**포트** 기본값은 1433입니다. 다른 포트 번호를 지정할 수 있습니다. 자세한 내용은 [SQL Server 가상 컴퓨터에 연결(리소스 관리자) | Microsoft Azure](virtual-machines-windows-sql-connect.md)를 참조하세요.
 
 
 
@@ -203,4 +205,4 @@ SQL Server 가상 컴퓨터에 연결되었으면 SQL Server Management Studio�
 ##<a id="Next">다음 단계
 Azure에서 SQL Server를 사용하는 방법에 대한 기타 정보는 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0413_2016---->
+<!---HONumber=AcomDC_0427_2016-->

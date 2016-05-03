@@ -36,12 +36,9 @@ Linux 또는 OS X에서 SSH 터널을 만들 때 먼저 수행할 작업은 부�
 
 **PORT**는 노출하려는 끝점의 포트입니다. Swarm의 경우 2375입니다. DC/OS의 경우 포트 80을 사용합니다. **USERNAME**은 클러스터를 배포할 때 제공된 사용자 이름입니다. **DNSPREFIX**는 클러스터를 배포할 때 제공한 DNS 접두사입니다. **REGION**은 리소스 그룹이 있는 하위 지역입니다.
 
-> SSH 연결 포트는 표준 22가 아니라 2200입니다
-
 ```bash
 # ssh sample
-
-ssh -L PORT:localhost:PORT -N [USERNAME]@[DNSPREFIX]man.[REGION].cloudapp.azure.com -p 2200
+ssh -L PORT:localhost:PORT -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
 ```
 
 ### DC/OS 터널
@@ -120,4 +117,4 @@ DC/OS 또는 Swarm으로 컨테이너를 배포 및 관리합니다.
 
 [Azure 컨테이너 서비스 및 DC/OS로 작업](./container-service-mesos-marathon-rest.md) [Azure 컨테이너 서비스 및 Docker Swarm으로 작업](./container-service-docker-swarm.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

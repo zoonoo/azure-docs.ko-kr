@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure 포털에서 Windows 가상 컴퓨터 만들기| Microsoft Azure"
-	description="Azure 포털의 Azure 마켓플레이스를 사용하여 Windows 가상 컴퓨터 또는 가상 컴퓨터를 만드는 방법에 대해 알아봅니다."
+	pageTitle="Azure 포털에서 Windows VM 만들기| Microsoft Azure"
+	description="Azure 포털에서 Windows 가상 컴퓨터를 만드는 방법 알아보기"
 	keywords="Windows 가상 컴퓨터, 가상 컴퓨터 만들기, 가상 컴퓨터, 가상 컴퓨터 설정"
 	services="virtual-machines-windows"
 	documentationCenter=""
@@ -14,43 +14,28 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="03/11/2016"
+	ms.date="04/14/2016"
 	ms.author="cynthn"/>
 
-# Azure 포털에서 Windows 가상 컴퓨터 만들기#
+# Azure 포털에서 Windows 가상 컴퓨터 만들기
 
-> [AZURE.SELECTOR]
-- [포털](virtual-machines-windows-hero-tutorial.md)
-- [PowerShell](virtual-machines-windows-create-powershell.md)
-- [템플릿](virtual-machines-windows-ps-template.md)
+이 자습서에서는 Azure 포털에서 단 몇 분 만에 Windows VM을 간단히 만드는 방법을 보여 줍니다. Windows Server 2012 R2 Datacenter 이미지를 예로 사용할 것이지만, 해당 이미지는 Azure가 제공하는 여러 이미지 중 하나일 뿐입니다. 선택할 수 있는 이미지는 구독에 따라 달라집니다. 예를 들어 데스크톱 이미지는 [MSDN 구독자](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)가 사용할 수 있습니다.
 
-
-이 자습서에서는 Azure 포털에서 Windows 가상 컴퓨터를 몇 분 이내에 간편하게 만드는 방법을 보여 줍니다. 여기에서는 Windows Server 2012 R2 Datacenter 이미지를 예로 들어 가상 컴퓨터를 이는 Azure에서 제공하는 여러 이미지 중 하나일 뿐입니다. 선택할 수 있는 이미지는 구독에 따라 달라집니다. 예를 들어 데스크톱 이미지는 MSDN 구독자가 사용할 수 있습니다.
-
-[AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]<br>
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-windows-classic-createportal.md).
+Azure 구독이 없는 경우 몇 분 만에 [무료 계정](https://azure.microsoft.com/free/)을 만들 수 있습니다.
 
 ## 연습 동영상
 
-이 자습서의 연습은 다음과 같습니다.
-
-[AZURE.VIDEO create-a-virtual-machine-running-windows-in-the-azure-preview-portal]
-<br>
-
->[AZURE.TIP] VM이 가용성 설정의 일부가 되도록 하려는 경우 포털을 사용할 때 첫 번째 VM을 만들기 전 또는 만드는 동안 가용성 집합을 만들어야 합니다. 가용성 집합을 만들고 사용하는 방법에 대한 자세한 내용은 [가상 컴퓨터의 가용성 관리](virtual-machines-windows-manage-availability.md)를 참조하세요.
+이 자습서의 [비디오 연습](https://channel9.msdn.com/Blogs/Azure-Documentation-Shorts/Create-A-Virtual-Machine-Running-Windows-In-The-Azure-Preview-Portal)은 다음과 같습니다.
 
 
+## 마켓플레이스에서 Windows 2012 R2 가상 컴퓨터 이미지를 선택합니다.
 
-## Windows 가상 컴퓨터 이미지 선택
-
-1. Azure 포털에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
 2. 허브 메뉴에서 **새로 만들기** > **계산** > **Windows Server 2012 R2 Datacenter**를 클릭합니다.
 
 	![포털에서 사용할 수 있는 Azure VM 이미지를 보여 주는 스크린샷](./media/virtual-machines-windows-hero-tutorial/marketplace_new.png)
 
-	>[AZURE.TIP] 다른 이미지를 찾으려면 **마켓플레이스**를 클릭하고 사용 가능한 항목을 검색하거나 필터링합니다.
 
 3. **Windows Server 2012 R2 Datacenter** 페이지의 **배포 모델 선택**에서 **리소스 관리자**를 선택합니다. **만들기**를 클릭합니다.
 
@@ -64,9 +49,10 @@
 
 2. 가상 컴퓨터에 원하는 **이름**을 입력합니다. 이름은 특수 문자를 포함할 수 없습니다.
 
-3. 관리 **사용자 이름** 및 강력한 **암호**를 입력합니다. 암호의 길이는 8-123자여야 하며 다음 중 적어도 3가지를 포함해야 합니다. 1개의 소문자, 1개의 대문자, 1개의 숫자 및 1개의 특수 문자. **가상 컴퓨터에 로그온하는 데 이 사용자 이름과 암호가 필요합니다**.
+3. 관리 **사용자 이름** 및 강력한 **암호**를 입력합니다. 암호의 길이는 8-123자여야 하며 다음 중 적어도 3가지를 포함해야 합니다. 1개의 소문자, 1개의 대문자, 1개의 숫자 및 1개의 특수 문자. **가상 컴퓨터에 연결하는 데 사용자 이름과 암호가 필요합니다**.
 
-4. 구독이 둘 이상인 경우 새 가상 컴퓨터에 대한 구독을 지정하고 새로운 또는 기존 **리소스 그룹** 및 Azure 데이터 센터 **위치**도 지정합니다.
+
+4. 둘 이상의 구독이 있는 경우 새 가상 컴퓨터에 하나를 지정합니다. 새 또는 기존 [리소스 그룹](../resource-group-overview/#resource-groups)과 Azure 데이터센터 **위치**(예: **미국 서부**)를 선택합니다.
 
 	![Azure VM에 대해 구성하도록 기본 설정을 보여 주는 스크린샷](./media/virtual-machines-windows-hero-tutorial/create_vm_basics.PNG)
 
@@ -87,34 +73,28 @@
 
 8. Azure에서 가상 컴퓨터를 만드는 동안 허브 메뉴의 **가상 컴퓨터**에서 진행 상황을 추적할 수 있습니다.
 
-## Windows 가상 컴퓨터에 로그온
 
-가상 컴퓨터를 만든 후 해당 가상 컴퓨터에 로그인하여 자체 설정 및 실행할 응용 프로그램을 관리할 수 있습니다.
+## 가상 컴퓨터에 연결하고 로그온
 
->[AZURE.NOTE] 자세한 요구 사항 및 문제 해결 팁은 [RDP 또는 SSH를 사용하여 Azure 가상 컴퓨터에 연결](https://msdn.microsoft.com/library/azure/dn535788.aspx)을 참조하십시오.
+1. 아직 로그인하지 않은 경우 [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
-1. 아직 로그인하지 않은 경우 Azure 포털에 로그인합니다.
+2.	허브 메뉴에서 **가상 컴퓨터**를 클릭합니다.
 
-2. 대시보드에서 가상 컴퓨터를 클릭하거나 가상 컴퓨터를 클릭하고 목록에서 선택합니다.
+3.	목록에서 가상 컴퓨터를 선택합니다.
 
-3. 가상 컴퓨터 블레이드에서 **연결**을 클릭합니다.
+4. 가상 컴퓨터 블레이드에서 **연결**을 클릭합니다.
 
-	![Azure VM 블레이드에서 연결 단추를 찾을 위치를 보여 주는 스크린샷](./media/virtual-machines-windows-hero-tutorial/connect_vm_portal.png)
+	![VM에 연결하는 방법을 보여 주는 Azure 포털의 스크린샷입니다.](./media/virtual-machines-windows-connect-logon/preview-portal-connect.png)
 
-4. **열기**를 클릭하여 Windows Server 가상 컴퓨터에 대해 자동으로 만들어진 원격 데스크톱 프로토콜 파일을 사용합니다.
 
-5. **연결**을 클릭합니다.
+[AZURE.INCLUDE [virtual-machines-log-on-win-server](../../includes/virtual-machines-log-on-win-server.md)]
 
-6. 가상 컴퓨터를 만들 때 설정한 사용자 이름 및 암호를 입력하고 **확인**을 클릭합니다.
-
-7. **예**를 클릭하여 가상 컴퓨터의 ID를 확인합니다.
+연결하려고 할 때 문제가 발생할 경우 [Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](virtual-machines-windows-troubleshoot-rdp-connection.md)을 참조하세요.
 
 이제 다른 서버처럼 가상 컴퓨터에서 작업할 수 있습니다.
 
 ## 다음 단계
 
-* Azure PowerShell 및 Azure CLI를 사용하여 [가상 컴퓨터 이미지를 찾아서 선택](virtual-machines-linux-cli-ps-findimage.md)합니다.
-* [Azure Resource Manager 템플릿](https://azure.microsoft.com/documentation/templates/)을 사용하여 가상 컴퓨터 및 워크로드 배포와 관리를 자동화합니다.
-* 또한 Azure CLI를 사용하여 신속하게 [Linux 가상 컴퓨터를 만들](virtual-machines-linux-quick-create-cli.md) 수 있습니다.
+* [Powershell을 사용하여 Windows VM 만들기](virtual-machines-windows-ps-create.md) 또는 [Azure CLI를 사용하여 Linux 가상 컴퓨터 만들기](virtual-machines-linux-quick-create-cli.md)를 사용할 수도 있습니다.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

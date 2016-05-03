@@ -1,6 +1,6 @@
 <properties
-	pageTitle="ASP.NET 및 Azure 앱 서비스 시작 | Microsoft Azure"
-	description="Visual Studio에서 ASP.NET 웹 프로젝트를 만들고 Azure 앱 서비스의 새로운 웹앱에 배포하는 방법에 대해 알아봅니다."
+	pageTitle="Azure 앱 서비스 및 ASP.NET 시작 | Microsoft Azure"
+	description="Visual Studio를 사용하여 Azure 앱 서비스에서 새 웹 앱에 ASP.NET을 배포하는 방법에 대해 알아봅니다."
 	services="app-service\web"
 	documentationCenter=".net"
 	authors="tdykstra"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="03/02/2016"
+	ms.date="04/22/2016"
 	ms.author="tdykstra"/>
 
-# Visual Studio를 사용하여 Azure 앱 서비스에서 ASP.NET 웹앱 시작
+# ASP.NET a및 Visual Studio를 사용하여 Azure 앱 서비스에서 웹 앱 시작
 
 > [AZURE.SELECTOR]
 - [.Net](web-sites-dotnet-get-started.md)
@@ -293,4 +293,4 @@ Azure 앱 서비스에서 ASP.NET 웹앱이 실행 중인 경우 문제 해결�
 
 	Azure에서는 앱 서비스 웹앱을 웹 사이트(이 자습서에 설명됨), 클라우드 서비스 또는 가상 컴퓨터에서 실행할 수 있습니다. 자세한 내용은 [Azure 웹앱, 클라우드 서비스 및 VM: 사용하는 경우](/manage/services/web-sites/choose-web-app-service/)를 참조하세요.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

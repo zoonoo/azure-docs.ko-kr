@@ -49,8 +49,8 @@ Azure 앱 서비스 웹앱은 엔터프라이즈급 웹앱을 몇 초 내에 빌
 - **WebJobs** - 웹앱 VM에서 프로그램이나 스크립트를 실행합니다. 지속형 또는 예약형 작업을 실행하고 여러 VM에서 실행되도록 크기를 조정합니다. Azure [WebJobs SDK][Webjobs]를 사용하여 Azure 저장소 또는 서비스 버스와 통합합니다.
 - **하이브리드 연결** - - [하이브리드 연결](../biztalk-services/integration-hybrid-connection-overview.md) 및 [VNET](../app-service-web/web-sites-integrate-with-vnet.md)를 사용하는 온-프레미스 데이터에 액세스.
 
-## 시작 ##
-웹앱을 시작하려면 [ASP.NET 웹앱 만들기][create] 자습서를 따르세요.
+## 시작하기 ##
+웹앱을 시작하려면 [Azure 앱 서비스에서 웹 앱 시작][create] 자습서를 따르세요.
 
 Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스][appservice]를 참조하세요.
 
@@ -60,10 +60,10 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
 
 [appservice]: ../app-service/app-service-value-prop-what-is.md
-[create]: web-sites-dotnet-get-started.md
+[create]: app-service-web-get-started.md
 [Webjobs]: websites-dotnet-webjobs-sdk-get-started.md
 [Slots]: web-sites-staged-publishing.md
 
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

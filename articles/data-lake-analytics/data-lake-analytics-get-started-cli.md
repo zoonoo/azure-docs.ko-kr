@@ -3,7 +3,7 @@
    description="Azure 명령줄 인터페이스를 사용하여 데이터 레이크 저장소 계정을 만들고, U-SQL을 사용하여 데이터 레이크 분석 작업을 만들고, 작업을 제출하는 방법에 대해 알아봅니다." 
    services="data-lake-analytics" 
    documentationCenter="" 
-   authors="mumian" 
+   authors="edmacauley" 
    manager="paulettm" 
    editor="cgronlun"/>
  
@@ -13,8 +13,8 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="02/10/2016"
-   ms.author="jgao"/>
+   ms.date="04/21/2016"
+   ms.author="edmaca"/>
 
 # 자습서: Azure CLI(명령줄 인터페이스)를 사용하여 Azure 데이터 레이크 분석 시작
 
@@ -25,16 +25,9 @@ Azure CLI를 사용하여 Azure 데이터 레이크 분석 계정을 만들고, 
 
 이 자습서에서는 TSV(탭 분리 값) 파일을 읽고 CSV(쉼표로 구분된 값) 파일로 변환하는 작업을 개발합니다. 지원되는 다른 도구를 사용하여 같은 자습서를 진행하려면 이 섹션의 맨 위에 있는 탭을 클릭하세요.
 
-**기본 데이터 레이크 분석 프로세스:**
+[AZURE.INCLUDE [basic-process-include](../../includes/data-lake-analytics-basic-process.md)]
 
-![Azure 데이터 레이크 분석 프로세스 흐름 다이어그램](./media/data-lake-analytics-get-started-portal/data-lake-analytics-process.png)
-
-1. 데이터 레이크 분석 계정을 만듭니다.
-2. 원본 데이터를 준비합니다. 데이터 레이크 분석 작업은 Azure 데이터 레이크 저장소 계정 또는 Azure Blob 저장소 계정에서 데이터를 읽어올 수 있습니다.   
-3. U-SQL 스크립트를 개발합니다.
-4. 작업(U-SQL 스크립트)을 데이터 레이크 분석 계정에 제출합니다. 이 작업은 원본 데이터를 읽고 U-SQL 스크립트에서 지시한 대로 데이터를 처리한 다음 출력을 데이터 레이크 저장소 계정 또는 Blob 저장소 계정에 저장합니다.
-
-**필수 구성 요소**
+##필수 조건
 
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
@@ -169,4 +162,4 @@ CLI를 사용하여 파일을 업로드하려면 다음 명령을 사용합니�
 - 관리 작업을 보려면 [Azure 포털을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-manage-use-portal.md)를 참조하세요.
 - 데이터 레이크 분석에 대한 개요를 보려면 [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

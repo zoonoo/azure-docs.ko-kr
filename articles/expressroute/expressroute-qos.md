@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""/>
 <tags
    ms.service="expressroute"
@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/16/2016"
+   ms.date="04/18/2016"
    ms.author="cherylmc"/>
 
 # Express 경로 QoS 요구 사항
@@ -21,7 +21,7 @@
 
 ![](./media/expressroute-qos/expressroute-qos.png)
 
-**참고:** QoS 요구 사항은 Microsoft 피어링에만 적용합니다.
+>[AZURE.NOTE] QoS 요구 사항은 Microsoft 피어링에만 적용합니다.
 
 다음 테이블에서는 비즈니스용 Skype에서 사용하는 DSCP 표시의 목록을 제공합니다. 자세한 내용은 [비즈니스용 Skype에 대한 QoS 관리](https://technet.microsoft.com/library/gg405409.aspx)를 참조합니다.
 
@@ -50,4 +50,4 @@
 	- [라우팅 구성](expressroute-howto-routing-classic.md)
 	- [VNet을 Express 경로 회로에 연결](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0427_2016-->
