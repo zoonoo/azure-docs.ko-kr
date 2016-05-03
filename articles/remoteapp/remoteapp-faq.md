@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/25/2016" 
+	ms.date="04/08/2016" 
 	ms.author="elizapo"/>
 
 # Azure RemoteApp FAQ
@@ -37,7 +37,7 @@ Azure RemoteApp과 관련된 질문은 다음과 같습니다. 다른 질문이 
 
 ## 컬렉션 - 사용해야 하는 지원되는 기능 및 기타 기능
 - **사용자 지정 LOB(기간 업무) 응용 프로그램이 지원되나요?** 예. Azure RemoteApp에서 사용자 지정 응용 프로그램을 사용하려면 [사용자 지정 템플릿 이미지](remoteapp-create-custom-image.md)를 만든 후 RemoteApp 컬렉션에 업로드하세요.
-- **Azure RemoteApp에서 사용자 지정 LOB 응용 프로그램이 동작하나요?** 이를 알아보는 가장 좋은 방법은 테스트하는 것입니다. [응용 프로그램 호환성 요구 사항](http://www.microsoft.com/download/details.aspx?id=18704)을 검토하고 [RD 호환성 센터](http://www.rdcompatibility.com/compatibility/default.aspx)를 확인하세요.
+- **Azure RemoteApp에서 사용자 지정 LOB 응용 프로그램이 동작하나요?** 이를 알아보는 가장 좋은 방법은 테스트하는 것입니다. [RD 호환성 센터](http://www.rdcompatibility.com/compatibility/default.aspx)를 확인해 보세요.
 - **어느 배포 메서드(클라우드 또는 하이브리드)가 내 조직에 가장 적합한가요?** 하이브리드 컬렉션은 SSO(Single Sign-On) 및 안전한 온-프레미스 네트워크 연결을 완벽하게 통합하려는 경우에 가장 완벽한 경험을 제공합니다. 클라우드 컬렉션은 여러 인증 방법을 사용하여 배포를 분리하는 민첩하고 쉬운 방법을 제공합니다. [배포 옵션](remoteapp-whatis.md)에 대해 자세히 알아봅니다.
 - **SQL 또는 다른 데이터베이스가 온-프레미스나 Azure에 있습니다. 어떤 배포 유형을 사용해야 하나요?** SQL 또는 백 엔드 데이터베이스의 위치에 따라 달라집니다. 데이터베이스가 개인 네트워크에 있는 경우 하이브리드 컬렉션을 사용하세요. 데이터베이스가 인터넷에 노출되며 클라이언트 연결을 통해 데이터베이스에 연결할 수 있는 경우 클라우드 컬렉션을 사용할 수 있습니다.
 - **드라이브 매핑, USB 및 직렬 포트, 클립보드 공유 및 프린터 리디렉션이란 무엇인가요?** 모든 해당 기능은 Azure RemoteApp에서 지원됩니다. 클립보드 공유 및 프린터 리디렉션은 기본적으로 설정되어 있습니다. 리디렉션에 대해 [여기](remoteapp-redirection.md)에서 더 알아볼 수 있습니다. 
@@ -114,4 +114,4 @@ Azure RemoteApp과 관련된 질문은 다음과 같습니다. 다른 질문이 
 ### 의견 보내기 
 이 기사에 대한 등급을 매기고 아래에 의견을 다는 것은 물론 문서를 직접 변경할 수 있다는 사실을 알고 계셨나요? 누락된 부분이 있나요? 잘못된 부분이 있나요? 혼동을 줄 수 있는 부분이 있나요? 위로 스크롤하여 **GitHub에서 편집**을 클릭하면 변경할 수 있습니다. 당사에서 변경 사항을 검토하고 승인하면 변경 및 개선 사항을 바로 여기서 확인할 수 있습니다.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0427_2016-->

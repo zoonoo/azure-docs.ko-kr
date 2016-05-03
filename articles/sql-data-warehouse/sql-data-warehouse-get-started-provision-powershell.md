@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/30/2016"
+   ms.date="04/20/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Powershell을 사용하여 SQL 데이터 웨어하우스 만들기
@@ -23,78 +23,71 @@
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
-## Azure PowerShell cmdlet을 다운로드하여 실행합니다.
+### 필수 조건
+시작하기 전에 다음과 같은 필수 조건을 갖추고 있는지 확인합니다.
 
-> [AZURE.NOTE]  SQL 데이터 웨어하우스와 함께 Microsoft Azure Powershell을 사용하기 위해 ARM cmdlet과 함께 Azure PowerShell의 최신 버전을 다운로드하고 설치해야 합니다. `Get-Module -ListAvailable -Name Azure`을 실행하여 사용 중인 버전을 확인할 수 있습니다. 이 문서는 Microsoft Azure PowerShell 버전 1.0.3 이상을 기반으로 합니다.
+- 데이터베이스를 호스팅하는 A V12 Azure SQL 서버
+- SQL Server에 대한 리소스 그룹 이름을 알고 있습니다.
 
-PowerShell을 사용하여 설치하지 않은 경우 다운로드하고 구성해야 합니다.
+위의 필수 조건에 대한 자세한 내용은 [Azure 포털에서 SQL 데이터 웨어하우스를 만드는 방법][] 문서의 **서버 구성 및 만들기**를 참조하세요.
 
-1. Azure PowerShell 모듈을 다운로드하려면 [Microsoft 웹 플랫폼 설치 관리자](http://aka.ms/webpi-azps)를 실행합니다. 이 설치 관리자에 대한 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법][]을 참조하세요.
-2. 모듈을 실행하려면 시작 창에서 **Windows PowerShell**을 입력합니다.
-3. 이 cmdlet을 실행하여 Azure 리소스 관리자에 로그인합니다.
+> [AZURE.NOTE]  SQL 데이터 웨어하우스에서 Azure PowerShell을 사용하려면 Azure PowerShell 버전 1.0.3 이상을 설치해야 합니다. **Get-Module -ListAvailable -Name Azure**를 실행하여 버전을 확인할 수 있습니다. 최신 버전은 [Microsoft 웹 플랫폼 설치 관리자][]를 통해 설치할 수 있습니다. 최신 버전 설치에 관한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법][]을 참조하세요.
+
+## SQL 데이터 웨어하우스 데이터베이스 만들기
+1. Windows PowerShell을 엽니다.
+2. 이 cmdlet을 실행하여 Azure 리소스 관리자에 로그인합니다.
 
 	```Powershell
 	Login-AzureRmAccount
 	```
-
-4. 현재 세션에 사용하려는 구독을 선택합니다.
+	
+3. 현재 세션에 사용하려는 구독을 선택합니다.
 
 	```Powershell
 	Get-AzureRmSubscription	-SubscriptionName "MySubscription" | Select-AzureRmSubscription
 	```
 
-## SQL 데이터 웨어하우스 데이터베이스 만들기
-SQL 데이터 웨어하우스를 배포하려면 New-AzureRmSQLDatabase cmdlet을 사용합니다. 명령을 실행하기 전에 다음과 같은 필수 조건을 갖추고 있는지 확인합니다.
+4.  데이터베이스를 만듭니다. 이 예제에서는 서비스 목표 수준이 "DW400”이고 이름이 "mynewsqldw"인 새 데이터베이스를 만들고, 리소스 그룹 "mywesteuroperesgp1"에 있는 이름이 "sqldwserver1"인 서버에 배치합니다. **참고: 새 SQL 데이터 웨어하우스 데이터베이스를 만들면 새로운 요금이 발생할 수 있습니다. 가격에 대한 자세한 내용은 [SQL 데이터 웨어하우스 가격 책정][]을 참조하세요.**
 
-### 필수 조건
+	```Powershell
+	New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "mynewsqldw" -ServerName "sqldwserver1" -ResourceGroupName "mywesteuroperesgp1" -Edition "DataWarehouse"
+	```
 
-- 데이터베이스를 호스팅하는 A V12 Azure SQL 서버
-- SQL Server에 대한 리소스 그룹 이름을 알고 있습니다.
+이 cmdlet에 필요한 매개 변수 목록은 다음과 같습니다.
 
-### 배포 명령
+- **RequestedServiceObjectiveName**: "DWXXX" 형식의 요청 중인 DWU의 양입니다. DWU는 CPU 및 메모리 할당을 나타냅니다. 각 DWU 값은 이 리소스에서 선형적으로 증가합니다. 현재 지원되는 값은 100, 200, 300, 400, 500, 600, 1000, 1200, 1500, 2000입니다.
+- **DatabaseName**: 만들려는 SQL 데이터 웨어하우스의 이름입니다.
+- **ServerName**: 만들기에 사용하는 서버의 이름입니다(V12이어야 함).
+- **ResourceGroupName**: 사용 중인 리소스 그룹입니다. 구독에서 사용 가능한 리소스 그룹을 찾으려면 Get-AzureResource를 사용합니다.
+- **Edition**: SQL 데이터 웨어하우스를 만들 버전을 "DataWarehouse"로 설정해야 합니다.
 
-이 명령은 SQL 데이터 웨어하우스의 새 데이터베이스를 배포합니다.
-
-```Powershell
-New-AzureRmSqlDatabase -RequestedServiceObjectiveName "<Service Objective>" -DatabaseName "<Data Warehouse Name>" -ServerName "<Server Name>" -ResourceGroupName "<ResourceGroupName>" -Edition "DataWarehouse"
-```
-
-이 예제에서는 서비스 목표 수준 "DW400"으로 "mynewsqldw1"이라는 새 데이터베이스를 "mywesteuroperesgp1"이라는 리소스 그룹에 있는 "sqldwserver1"이라는 서버에 배포합니다.
-
-```Powershell
-New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "mynewsqldw1" -ServerName "sqldwserver1" -ResourceGroupName "mywesteuroperesgp1" -Edition "DataWarehouse"
-```
-
-이 cmdlet에 대한 필요한 매개 변수는 다음과 같습니다.
-
- + **RequestedServiceObjectiveName**: "DWXXX" 형식의 요청 중인 DWU의 양입니다. 현재 지원되는 값은 100, 200, 300, 400, 500, 600, 1000, 1200, 1500, 2000입니다.
- + **DatabaseName**: 만들려는 SQL 데이터 웨어하우스의 이름입니다.
- + **ServerName**: 만들기에 사용하는 서버의 이름입니다(V12이어야 함).
- + **ResourceGroupName**: 사용 중인 리소스 그룹입니다. 구독에서 사용 가능한 리소스 그룹을 찾으려면 Get-AzureResource를 사용합니다.
- + **Edition**: SQL 데이터 웨어하우스를 만들 버전을 "DataWarehouse"로 설정해야 합니다.
-
-명령 참조는 [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/mt619339.aspx)를 참조하세요.
-
-매개 변수 옵션은 [데이터베이스 만들기(Azure SQL 데이터 웨어하우스)](https://msdn.microsoft.com/library/mt204021.aspx)를 참조하세요.
+매개 변수 옵션에 대한 자세한 내용은 [데이터베이스 만들기(Azure SQL 데이터 웨어하우스)][]를 참조하세요. 명령 참조는 [New-AzureRmSqlDatabase][]를 참조하세요.
 
 ## 다음 단계
-SQL 데이터 웨어하우스에서 프로비전을 완료한 후 [샘플 데이터를 로드][]하거나 [개발][], [로드][] 또는 [마이그레이션][] 방법을 확인할 수 있습니다.
+SQL 데이터 웨어하우스에서 프로비전을 완료한 후 [샘플 데이터를 로드][]하거나 [개발][], [로드][] 또는 [마이그레이션][]을 시도할 수 있습니다.
 
-SQL 데이터 웨어하우스를 프로그래밍 방식으로 관리하는 방법에 대한 자세한 내용은 [Powershell][] 또는 [REST API][] 설명서를 확인하세요.
-
-
+SQL 데이터 웨어하우스를 프로그래밍 방식으로 관리하는 방법에 대한 자세한 내용은 [PowerShell cmdlet and REST API][] 사용 방법에 관한 문서를 참조하세요.
 
 <!--Image references-->
 
 <!--Article references-->
-[마이그레이션]: ./sql-data-warehouse-overview-migrate.md
-[개발]: ./sql-data-warehouse-overview-develop.md
-[로드]: ./sql-data-warehouse-load-with-bcp.md
-[샘플 데이터를 로드]: ./sql-data-warehouse-get-started-manually-load-samples.md
-[Powershell]: ./sql-data-warehouse-reference-powershell-cmdlets.md
-[REST API]: https://msdn.microsoft.com/library/azure/dn505719.aspx
-[MSDN]: https://msdn.microsoft.com/library/azure/dn546722.aspx
-[firewall rules]: ../sql-database/sql-database-configure-firewall-settings.md
-[Azure PowerShell을 설치 및 구성하는 방법]: ./powershell-install-configure.md
+[마이그레이션]: sql-data-warehouse-overview-migrate.md
+[개발]: sql-data-warehouse-overview-develop.md
+[로드]: sql-data-warehouse-load-with-bcp.md
+[샘플 데이터를 로드]: sql-data-warehouse-get-started-manually-load-samples.md
+[PowerShell cmdlet and REST API]: sql-data-warehouse-reference-powershell-cmdlets.md
+[firewall rules]: sql-database-configure-firewall-settings.md
+[Azure PowerShell 설치 및 구성 방법]: powershell-install-configure.md
+[Azure 포털에서 SQL 데이터 웨어하우스를 만드는 방법]: sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=AcomDC_0406_2016-->
+<!--MSDN references--> 
+[MSDN]: https://msdn.microsoft.com/library/azure/dn546722.aspx
+[New-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619339.aspx
+[데이터베이스 만들기(Azure SQL 데이터 웨어하우스)]: https://msdn.microsoft.com/library/mt204021.aspx
+
+<!--Other Web references-->
+[Microsoft 웹 플랫폼 설치 관리자]: https://aka.ms/webpi-azps
+[SQL 데이터 웨어하우스 가격 책정]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
+ 
+
+<!---HONumber=AcomDC_0427_2016-->

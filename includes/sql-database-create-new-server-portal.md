@@ -8,7 +8,7 @@ As of circa 2016-04-11, the following topics might include this include:
 articles/sql-database/sql-database-get-started-tutorial.md
 
 -->
-## Aure SQL 데이터베이스 논리 서버 만들기
+## Azure SQL 데이터베이스 논리 서버 만들기
 
 Azure 포털에서 다음 단계를 사용하여 Azure SQL 데이터베이스 논리 서버를 만듭니다.
 
@@ -44,4 +44,4 @@ Azure 포털에서 다음 단계를 사용하여 Azure SQL 데이터베이스 �
 
        ![새 논리 서버](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-6.png)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

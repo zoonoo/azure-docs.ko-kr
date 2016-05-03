@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="04/07/2016"
+	ms.date="04/25/2016"
 	ms.author="tamram"/>
 
 
@@ -23,7 +23,7 @@
 
 ## 개요
 
-Azure Blob 저장소는 클라우드에 파일 데이터를 저장하는 서비스입니다. Blob 저장소는 문서, 미디어 파일 또는 응용 프로그램 설치 프로그램과 같은 모든 종류의 텍스트 또는 이진 데이터를 저장할 수 있습니다. 또한 Blob 저장소를 개체 저장소라고 합니다.
+Azure Blob 저장소는 클라우드에 구조화되지 않은 데이터를 개체/Blob로 저장하는 서비스입니다. Blob 저장소는 문서, 미디어 파일 또는 응용 프로그램 설치 프로그램과 같은 모든 종류의 텍스트 또는 이진 데이터를 저장할 수 있습니다. 또한 Blob 저장소를 개체 저장소라고 합니다.
 
 ### 이 자습서 정보
 
@@ -51,7 +51,7 @@ Azure Blob 저장소는 클라우드에 파일 데이터를 저장하는 서비�
 
 `program.cs` 파일 맨 위에 다음 `using` 문을 추가합니다.
 
-	using Microsoft.Azure; // Namespace for CloudConfigurationManager 
+	using Microsoft.Azure; // Namespace for CloudConfigurationManager
 	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
     using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage types
 
@@ -349,21 +349,39 @@ Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 **Delete** 메서
 
 세 가지 Blob 유형의 차이점에 대한 자세한 내용은 [블록 Blob, 페이지 Blob 및 추가 Blob 이해](https://msdn.microsoft.com/library/azure/ee691964.aspx)를 참조하세요.
 
+## Blob 보안 관리
+
+기본적으로 Azure 저장소는 데이터 액세스를 계정 액세스 키를 보유한 계정 소유자로 제한하여 데이터를 보호합니다. 저장소 계정의 Blob 데이터를 공유해야 할 경우 계정 액세스 키의 보안을 손상시키지 않고 공유하는 것이 중요합니다. 또한 Blob 데이터를 암호화하여 유선 및 Azure 저장소에서 데이터가 안전하게 이동하게 할 수 있습니다.
+
+[AZURE.INCLUDE [storage-account-key-note-include](../../includes/storage-account-key-note-include.md)]
+
+### Blob 데이터에 대한 액세스 제어
+
+기본적으로 저장소 계정의 Blob 데이터는 저장소 계정 소유자만 액세스할 수 있습니다. 기본적으로 Blob 저장소에 대한 요청을 인증할 때는 계정 액세스 키가 필요합니다. 그러나 다른 사용자에게 특정 Blob 데이터를 사용 가능하게 제공하고자 할 수 있습니다. 다음 두 가지 옵션을 사용할 수 있습니다.
+
+- **익명 액세스:** 컨테이너나 Blob를 공개 제공하여 익명 액세스를 구현할 수 있습니다. 자세한 내용은 [컨테이너 및 Blob에 대한 익명읽기 권한 관리](storage-manage-access-to-resources.md)를 참조하세요.
+- **공유 액세스 서명:** 공유 액세스 서명(SAS)을 클라이언트에 제공할 수 있습니다. 여기서는 저장소 계정의 리소스에 대해 사용자가 지정한 권한과 사용자가 지정한 간격에 따라 제한적인 액세스를 제공합니다. 자세한 내용은 [공유 액세스 서명: SAS 모델 이해](storage-dotnet-shared-access-signature-part-1.md)를 참조하세요.
+
+### Blob 데이터 암호화
+
+Azure 저장소는 클라이언트와 서버 모두에서 Blob 데이터를 암호화합니다.
+
+- **클라이언트 쪽 암호화:** NET용 Azure 저장소 클라이언트 라이브러리는 Azure 저장소에 업로드하기 전에 클라이언트 응용 프로그램 내부에서 데이터를 암호화하고 클라이언트로 다운로드하는 동안 데이터 암호를 해독하는 기능을 지원합니다. 라이브러리 또한 저장소 계정 키 관리를 위해 Azure 키 자격 증명 모음과의 통합을 지원합니다. 자세한 내용은 [Microsoft Azure 저장소용 .NET을 사용하는 클라이언트 쪽 암호화](storage-client-side-encryption.md)를 참조하세요. 또한 [자습서: Microsoft Azure 저장소에서 Azure 키 자격 증명 모음을 사용하여 Blob 암호화 및 해독](storage-encrypt-decrypt-blobs-key-vault.md)을 참조하세요.
+- **서버 쪽 암호화**: 이제 Azure 저장소에서는 서버 쪽 암호화를 지원합니다. [미사용 데이터에 대한 Azure 저장소 서비스 암호화(미리 보기)](storage-service-encryption.md)를 참조하세요. 
+
 ## 다음 단계
 
 이제 Blob 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 자세히 알아보세요.
 
-### Blob 저장소 참조 설명서
+### Blob 저장소 참조
 
 - [Storage Client Library for .NET 참조](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
 - [REST API 참조](http://msdn.microsoft.com/library/azure/dd179355)
 
-### 추가 기능 가이드
+### 개념적 지침
 
-- [.NET용 테이블 저장소 시작](storage-dotnet-how-to-use-tables.md)
-- [.NET용 큐 저장소 시작](storage-dotnet-how-to-use-queues.md)
-- [.NET용 파일 저장소 시작](storage-dotnet-how-to-use-files.md)
 - [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy)
+- [.NET용 파일 저장소 시작](storage-dotnet-how-to-use-files.md)
 - [WebJob SDK를 사용하여 Azure Blob 저장소로 작업하는 방법](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
 
   [Blob5]: ./media/storage-dotnet-how-to-use-blobs/blob5.png
@@ -377,4 +395,4 @@ Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 **Delete** 메서
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

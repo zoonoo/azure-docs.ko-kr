@@ -147,6 +147,10 @@ Azure AD Connect를 사용하여 AD FS를 구성하는 것은 단 몇 번의 클
 - 원격 관리가 사용 가능한 웹 응용 프로그램 프록시 서버용 Windows Server 2012 R2 서버
 - 사용할 페더레이션 서비스 이름에 대한 SSL 인증서(예: sts.contoso.com)
 
+### AD FS 구성 필수 조건
+
+Azure AD Connect를 사용하여 AD FS 팜을 성공적으로 구성하려면, 원격 서버에서 WinRM이 활성화되도록 합니다. 또한, [테이블 3 - Azure AD Connect 및 페더레이션 서버/WAP](active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-federation-serverswap)에서 포트 요구 사항 목록을 확인합니다.
+
 ### 새 AD FS 팜을 만들거나 기존 AD FS 팜 사용
 기존 AD FS 팜을 사용하거나 새 AD FS 팜을 만들도록 선택할 수 있습니다. 새로 만들기를 선택하면 SSL 인증서를 제공해야 합니다. SSL 인증서가 암호로 보호되는 경우, 암호를 제공하라는 메시지가 표시됩니다.
 
@@ -240,4 +244,4 @@ Azure AD Connect를 설치했으므로 [설치를 확인하고 라이선스를 �
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

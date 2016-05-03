@@ -8,7 +8,7 @@ As of circa 2016-04-11, the following topics might include this include:
 articles/sql-database/sql-database-get-started-tutorial.md
 
 -->
-## 새 Aure SQL 데이터베이스 만들기
+## 새 Azure SQL 데이터베이스 만들기
 
 Azure 포털에서 다음 단계를 사용하여 새로운 또는 기존 Azure SQL 데이터베이스 논리 서버에 새 Azure SQL 데이터베이스를 만듭니다.
 
@@ -47,4 +47,4 @@ Azure 포털에서 다음 단계를 사용하여 새로운 또는 기존 Azure S
 
      ![새 데이터베이스](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-6.png)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

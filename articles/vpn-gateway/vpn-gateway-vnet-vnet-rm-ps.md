@@ -453,7 +453,7 @@ cmdlet이 완료되면 스크롤하여 값을 확인합니다. 아래 PowerShell
 
 		$vnet5     = Get-AzureRmVirtualNetwork -Name $VnetName5 -ResourceGroupName $RG5
 		$subnet5   = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet5
-		$gwipconf5 = New-AzureRmVirtualNetworkGatewayIpConfig 
+		$gwipconf5 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName5 -Subnet $subnet5 -PublicIpAddress $gwpip5
 
 8. TestVNet5 게이트웨이 만들기
 
@@ -530,4 +530,4 @@ cmdlet이 완료되면 스크롤하여 값을 확인합니다. 아래 PowerShell
 
 연결이 완료되면 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 단계는 [가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

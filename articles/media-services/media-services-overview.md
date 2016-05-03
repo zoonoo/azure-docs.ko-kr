@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
- 	ms.date="04/18/2016"
+ 	ms.date="04/26/2016"
 	ms.author="juliako;anilmur"/>
 
 #Azure 미디어 서비스 개요 및 일반적인 시나리오
@@ -70,7 +70,7 @@ Azure 미디어 서비스의 모든 주요 구성 요소를 소개하는 사용 
 
 이 섹션에서는 일반적인 시나리오를 설명하고 관련 항목에 대한 링크를 제공합니다. 다음 다이어그램에서는 주문 시 콘텐츠 배달과 관련된 미디어 서비스 플랫폼의 주요 부분을 보여 줍니다.
 
-![VoD 워크플로][vod-overview]
+![VoD 워크플로](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
 
 
 ###저장소에서 콘텐츠 보호 및 암호화하지 않고 스트리밍 미디어 배달(암호화되지 않음)
@@ -105,14 +105,19 @@ Azure 미디어 서비스의 모든 주요 구성 요소를 소개하는 사용 
 1. 주문형 로케이터를 만들어 자산을 게시합니다.
 1. 게시된 콘텐츠를 스트리밍합니다. 
 
-###콘텐츠 인덱싱
+###미디어 분석을 사용하여 비디오에 대한 실질적인 통찰력 얻기 
+
+미디어 분석은 조직과 기업이 비디오 파일에서 실질적인 통찰력을 끌어내기 쉽도록 만드는 언어 및 시각 구성 요소 모음입니다. 자세한 내용은 [Azure 미디어 서비스 분석 개요](media-services-analytics-overview.md)를 참조하세요.
 
 1. 자산에 고품질 mezzanine 파일을 업로드합니다.
-1. 콘텐츠를 인덱싱합니다.
-
-	인덱싱 작업은 비디오 재생에서 CC(선택 캡션)으로 사용할 수 있는 파일을 생성합니다. 또한 비디오 내 검색을 수행하고 비디오의 정확한 위치로 이동할 수 있는 파일을 생성합니다.
-
-1. 인덱싱된 콘텐츠를 사용합니다.
+2. 다음 미디어 분석 서비스 중 하나를 사용하여 비디오를 처리합니다.
+	
+	- **인덱서** – [Azure 미디어 인덱서 2를 통해 비디오 처리](media-services-process-content-with-indexer2.md)
+	- **Hyperlapse** – [미디어 파일 및 Azure 미디어 Hyperlapse](media-services-hyperlapse-content.md)
+	- **동작 감지** – [Azure 미디어 분석을 위한 동작 감지](media-services-motion-detection.md)
+	- **얼굴 감지 및 표정** – [Azure 미디어 분석을 위한 얼굴 및 표정 감지](media-services-face-and-emotion-detection.md)
+	- **비디오 요약 만들기** – [Azure 미디어 비디오 미리 보기를 사용하여 비디오 요약 만들기](media-services-video-summarization.md)
+3. 미디어 분석 미디어 프로세서는 MP4 파일 또는 JSON 파일을 생성합니다. 미디어 프로세서가 MP4 파일을 생한 경우 파일을 점진적으로 다운로드할 수 있습니다. 미디어 프로세서가 JSON 파일을 생성한 경우 Azure Blob 저장소에서 해당 파일을 다운로드할 수 있습니다. 
 
 
 ###점진적 다운로드 제공 
@@ -133,7 +138,7 @@ Azure 미디어 서비스의 모든 주요 구성 요소를 소개하는 사용 
 - [미디어 프로세서를 가져오는 방법](media-services-get-media-processor.md)
 - [콘텐츠를 인코딩하는 방법](media-services-manage-content.md#encode)
 - [작업을 모니터링하는 방법](media-services-portal-check-job-progress.md)
-- [콘텐츠를 인덱싱하는 방법](media-services-manage-content.md#index)
+- [분석을 사용하는 방법](media-services-analytics-overview.md)
 - [콘텐츠를 보호하는 방법](media-services-manage-content.md#encrypt)
 - [게시를 보호하는 방법](media-services-manage-content.md#publish)
 - [인코딩 크기를 조정하는 방법](media-services-portal-encoding-units.md)
@@ -210,11 +215,6 @@ Azure 미디어 서비스는 iOS 장치, Android 장치, Windows, Windows Phone,
 
 [Azure 지원](https://azure.microsoft.com/support/options/)에서는 미디어 서비스를 포함하여 Azure에 대한 지원 옵션을 제공합니다.
 
-##패턴 및 작업 방식 지침
-
-[패턴 및 작업 방식 지침](https://wamsg.codeplex.com/) [온라인 설명서](https://msdn.microsoft.com/library/dn735912.aspx) [다운로드 가능한 전자책](https://www.microsoft.com/download/details.aspx?id=42629)
-
-
 ##피드백 제공
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
@@ -236,4 +236,4 @@ Azure 미디어 서비스는 iOS 장치, Android 장치, Windows, Windows Phone,
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -9,7 +9,7 @@ articles/sql-database/sql-database-get-started-tutorial.md
 articles/sql-database/sql-database-configure-firewall-settings
 
 -->
-## 새 Aure SQL 데이터베이스 서버 수준 방화벽 만들기
+## 새 Azure SQL 데이터베이스 서버 수준 방화벽 만들기
 
 Azure 포털에서 다음 단계를 사용하여 (클라이언트 컴퓨터의)개별 IP 주소 또는 전체 IP 주소 범위에서 SQL 데이터베이스 논리 서버에 연결을 허용하는 서버 수준 방화벽 규칙을 만듭니다.
 
@@ -44,4 +44,4 @@ Azure 포털에서 다음 단계를 사용하여 (클라이언트 컴퓨터의)�
 
 	>[AZURE.IMPORTANT] 클라이언트 IP 주소가 수시로 변경될 수 있으면 새 방화벽 규칙을 만들 때까지 서버에 액세스하지 못할 수 있습니다. [Bing](http://www.bing.com/search?q=my%20ip%20address)을 사용하여 IP 주소를 확인한 후 단일 IP 주소 또는 IP 주소 범위를 추가할 수 있습니다. 자세한 내용은 [방화벽 설정 관리](sql-database-configure-firewall-settings.md#manage-existing-server-level-firewall-rules-through-the-azure-portal)를 참조하세요.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

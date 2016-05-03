@@ -47,7 +47,7 @@ curl localhost/marathon/v2/apps
 
 ## Docker로 포맷된 컨테이너 배포
 
-Marathon을 통해 원하는 배포를 설명하는 JSON 파일을 사용하여 Docker로 포맷된 컨테이너를 배포합니다. 다음 샘플은 Nginx 컨테이너를 배포하며 DC/OS 에이전트의 포트 80을 컨테이너의 포트 80에 바인딩합니다.
+Marathon을 통해 원하는 배포를 설명하는 JSON 파일을 사용하여 Docker로 포맷된 컨테이너를 배포합니다. 다음 샘플은 Nginx 컨테이너를 배포하며 DC/OS 에이전트의 포트 80을 컨테이너의 포트 80에 바인딩합니다. ‘acceptedResourceRoles’ 속성은 ‘slave\_public’으로 설정됩니다. 이렇게 하면 컨테이너가 공용 에이전트 규모 집합의 에이전트에 배포됩니다.
 
 ```json
 {
@@ -55,6 +55,9 @@ Marathon을 통해 원하는 배포를 설명하는 JSON 파일을 사용하여 
   "cpus": 0.1,
   "mem": 16.0,
   "instances": 1,
+    "acceptedResourceRoles": [
+    "slave_public"
+  ],
   "container": {
     "type": "DOCKER",
     "docker": {
@@ -171,4 +174,4 @@ Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -Cont
 
 [Meso HTTP 끝점에 대해 자세히 알아봅니다](http://mesos.apache.org/documentation/latest/endpoints/). [Marathon REST API에 대해 자세히 알아봅니다](https://mesosphere.github.io/marathon/docs/rest-api.html).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

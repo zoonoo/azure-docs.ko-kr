@@ -288,12 +288,23 @@ Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이
 23. **항목 게시** 페이지에서 모든 데이터 팩터리 엔터티가 선택되었는지 확인하고 **다음**을 클릭하여 **요약** 페이지로 전환합니다.     
 24. 요약을 검토한 후 **다음**을 클릭하여 배포 프로세스를 시작하고 **배포 상태**를 봅니다.
 25. **배포 상태** 페이지에 배포 프로세스의 상태가 표시됩니다. 배포가 완료되면 마침을 클릭합니다. 
+
+"**구독이 Microsoft.DataFactory 네임스페이스를 사용하도록 등록되어 있지 않습니다.**" 오류를 수신하는 경우 다음 중 하나를 수행하고 다시 게시하세요.
+
+- Azure PowerShell에서 다음 명령을 실행하여 Data Factory 공급자를 등록합니다. 
+		
+		Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+	
+	데이터 팩터리 공급자가 등록되어 있는지 확인하려면 다음 명령을 실행할 수 있습니다.
+	
+		Get-AzureRmResourceProvider
+- Azure 구독을 사용하여 [Azure 포털](https://portal.azure.com)에 로그인하고 데이터 팩터리 블레이드로 이동하거나 Azure 포털에 데이터 팩터리를 만듭니다. 그러면 공급자가 자동으로 등록됩니다.
+
  
 ## 파이프라인 모니터링
 
 6. [Azure 포털](https://portal.azure.com/)에 로그인하고 다음을 수행합니다.
-	1. **찾아보기**를 클릭하고 **데이터 팩터리**를 선택합니다.
-		 ![데이터 팩터리 찾아보기](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
+	1. **찾아보기**를 클릭하고 **데이터 팩터리**를 선택합니다. ![데이터 팩터리 찾아보기](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
 	2. 데이터 팩터리의 목록에서 **FirstDataFactoryUsingVS**를 선택합니다. 
 7. 데이터 팩터리에 대한 홈페이지에서 **다이어그램**을 클릭합니다.
   
@@ -450,4 +461,4 @@ VS에서 Azure 데이터 팩터리 엔터티를 게시하는 경우 해당 게�
 이 문서에서 파이프라인과 주문형 HDInsight 클러스터에서 Hive 스크립트를 실행하는 변환 작업(HDInsight 작업)을 만들었습니다. 복사 작업을 사용하여 Azure Blob에서 Azure SQL로 데이터를 복사하는 방법은 [자습서: Azure Blob에서 Azure SQL로 데이터 복사](data-factory-get-started.md)를 참조하세요.
   
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

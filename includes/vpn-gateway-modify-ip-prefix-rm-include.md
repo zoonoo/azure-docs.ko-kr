@@ -13,11 +13,13 @@
 
 ### VPN 게이트웨이 연결을 이미 만든 경우 접두사 추가 또는 제거
 
-VPN 연결을 만들었고 로컬 네트워크 게이트웨이에 포함된 IP 주소 접두사를 추가 또는 제거하려면 다음 단계를 순서대로 수행해야 합니다. 게이트웨이를 제거하고 다시 빌드해야 하므로 VPN 연결에 가동 중지 시간이 발생합니다. 그러나 연결을 위한 IP 주소를 요청했기 때문에 이전에 사용한 값을 변경하려는 경우가 아니면 온-프레미스 VPN 라우터를 다시 구성할 필요가 없습니다.
+VPN 연결을 만들었고 로컬 네트워크 게이트웨이에 포함된 IP 주소 접두사를 추가 또는 제거하려면 다음 단계를 순서대로 수행해야 합니다. 이로 인해 VPN 연결에 다소 간의 가동 중지 시간이 발생합니다.
+
+>[AZURE.IMPORTANT] VPN 게이트웨이는 삭제하지 않습니다. 삭제할 경우 다시 만들기 위해 이전 단계를 수행해야 할 뿐 아니라 온-프레미스 라우터를 새 설정으로 다시 구성해야 합니다.
  
-1. 게이트웨이 연결을 제거합니다. 
+1. IPsec 연결을 제거합니다. 
 2. 로컬 네트워크 게이트웨이에 대한 접두사를 수정합니다. 
-3. 새 게이트웨이 연결을 만듭니다. 
+3. 새 IPsec 연결을 만듭니다. 
 
 다음 샘플을 지침으로 사용할 수 있습니다.
 
@@ -31,4 +33,4 @@ VPN 연결을 만들었고 로컬 네트워크 게이트웨이에 포함된 IP �
 	
 	New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -57,6 +57,18 @@ ID | nginx
 
 ![](media/dcos/dcos6.png)
 
+컨테이너 포트를 에이전트의 포트에 정적으로 매핑하려면, ‘JSON Mode’를 사용하여 완료해야 합니다. 이렇게 하려면, 토글을 사용하여 새 응용 프로그램 마법사를 JSON Mode로 전환한 다음, 응용 프로그램 정의 ‘portMappings’ 섹션에 다음을 입력합니다. 이 예제는 컨테이너의 포트 80을 DC/OS 에이전트의 포트80으로 바인딩합니다. 이 마법사는 변경이 적용된 후에 JSON Mode를 빠져 나올 수 있습니다.
+
+```none
+“hostPort”: 80,
+```
+
+![](media/dcos/dcos13.png)
+
+DC/OS 클러스터는 사설 및 공용 에이전트와 함께 배포됩니다. 인터넷에서 응용 프로그램에 액세스하려면, 공용 에이전트에 배포되어야 합니다. 이를 위해, 새 응용 프로그램 마법사의 ‘optional(선택 사항)’ 탭을 선택하고 ‘Accepted Resource Roles(수락된 리소스 역할)’에 ‘slave\_public’을 입력합니다.
+
+![](media/dcos/dcos14.png)
+
 다시 Marathon 주 페이지에서 컨테이너에 대한 배포 상태를 볼 수 있습니다.
 
 ![](media/dcos/dcos7.png)
@@ -85,4 +97,4 @@ DC/OS 앱(http://localhost/)으로 다시 전환하면 이 경우 Docker로 포�
 
 [DC/OS 및 Marathon API 작업](./container-service-mesos-marathon-rest.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

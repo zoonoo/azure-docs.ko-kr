@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="04/18/2016"
+   ms.date="04/24/2016"
    ms.author="derrickv"/>
 
 # Microsoft Power BI Embedded 미리 보기 시작
@@ -107,4 +107,4 @@ Power BI REST API를 호출하는 데 필요한 정보의 가장 중요한 부�
 - [Power BI 데스크톱](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 - [Power BI Embedded 가격](http://go.microsoft.com/fwlink/?LinkID=760527)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

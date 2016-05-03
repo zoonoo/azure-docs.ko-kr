@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/16/2016"
+   ms.date="04/21/2016"
    ms.author="cherylmc"/>
 
 # PowerShell 및 Azure Resource Manager를 사용하여 사이트 간 VPN 연결로 가상 네트워크 만들기
@@ -189,4 +189,4 @@ VPN 연결을 확인하는 몇 가지 방법이 있습니다. 아래에서는 Az
 
 연결이 완료되면 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 단계는 [가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0427_2016-->

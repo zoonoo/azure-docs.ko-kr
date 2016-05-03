@@ -9,10 +9,10 @@
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/12/2016"
+   ms.date="04/20/2016"
    ms.author="alkohli" />
 
 # Azure에서 StorSimple 가상 장치 배포 및 관리(업데이트 2)
@@ -146,8 +146,7 @@ StorSimple 가상 장치는 Microsoft Azure 가상 컴퓨터의 단일 노드에
 
 이 절차를 시작하기 전에 서비스 데이터 암호화 키의 복사본을 가지고 있는지 확인합니다. 첫번째 StorSimple 장치를 구성하고 안전한 위치에 저장하도록 명령한 경우, 서비스 데이터 암호화 키가 만들어집니다. 서비스 데이터 암호화 키의 복사본이 없는 경우 Microsoft 지원에 문의해야 합니다.
 
-다음 단계에 따라 StorSimple 가상 장치를 구성하고 등록합니다.
-[AZURE.INCLUDE [가상 장치 구성 및 등록](../../includes/storsimple-configure-register-virtual-device.md)]
+다음 단계에 따라 StorSimple 가상 장치를 구성하고 등록합니다.[AZURE.INCLUDE [가상 장치 구성 및 등록](../../includes/storsimple-configure-register-virtual-device.md)]
 
 ### 3단계: (선택 사항) 장치 구성 설정 수정
 
@@ -282,4 +281,4 @@ StorSimple 가상 장치를 이전에 구성하고 사용했지만 이제 용도
  
 - [백업 세트에서 StorSimple 볼륨을 복원](storsimple-restore-from-backup-set.md)하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

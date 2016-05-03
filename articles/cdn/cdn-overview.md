@@ -75,4 +75,6 @@ CDN을 시작하려면 [Azure CDN 사용](./cdn-create-new-endpoint.md)을 참�
 
 기존 CDN 고객인 경우 이제 [Microsoft Azure 포털](https://portal.azure.com)을 통해 CDN 끝점을 관리할 수 있습니다.
 
-<!---HONumber=AcomDC_0420_2016-->
+작동 중인 CDN을 보려면 [빌드 2016 세션 비디오](../../videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/)를 참고하세요.
+
+<!---HONumber=AcomDC_0427_2016-->

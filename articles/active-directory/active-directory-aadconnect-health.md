@@ -44,7 +44,7 @@ AD FS에 대한 Azure AD Connect Health는 Windows Server 2008 R2에서 AD FS 2.
 
 다음 비디오는 AD FS에 대한 Azure AD Connect Health의 개요를 제공합니다.
 
-[AZURE.VIDEO azure-ad-connect-health--monitor-you-identity-bridge]
+>[AZURE.VIDEO azure-ad-connect-health--monitor-you-identity-bridge]
 
 ## [동기화에 대한 Azure AD Connect Health](active-directory-aadconnect-health-sync.md)
 동기화에 대한 Azure AD Connect Health는 온-프레미스 Active Directory와 Azure Active Directory 간에 발생하는 동기화에 대한 정보를 모니터링하고 제공합니다. 동기화에 대한 Azure AD Connect Health는 다음과 같은 주요 기능 집합을 제공합니다.
@@ -74,9 +74,9 @@ Azure AD Connect Health를 시작하기가 매우 쉽습니다. 다음 단계를
 
 - Azure AD Connect Health [요구 사항](active-directory-aadconnect-health-agent-install.md#Requirements)을 참조하세요.
 
-- AD FS에 대한 Azure AD Connect Health를 사용하여 시작하려면 [AD FS에 대한 Azure AD Connect Health 에이전트 다운로드](http://go.microsoft.com/fwlink/?LinkID=518973)를 사용하여 최신 버전을 다운로드할 수 있습니다.[](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)
+- AD FS에 대한 Azure AD Connect Health를 사용하여 시작하려면 [AD FS에 대한 Azure AD Connect Health 에이전트 다운로드](http://go.microsoft.com/fwlink/?LinkID=518973)를 사용하여 최신 버전을 다운로드할 수 있습니다. [](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)
 
-- 동기화에 대한 Azure AD Connect Health를 사용하여 시작하려면 [Azure AD Connect의 최신 버전](http://go.microsoft.com/fwlink/?linkid=615771)을 다운로드하고 설치합니다. 상태 에이전트는 Azure AD Connect 설치의 일부로 설치됩니다(버전 1.0.9125.0 이상). Azure AD Connect는 이전 버전에서 전체 업그레이드를 지원합니다.
+- 동기화에 대한 Azure AD Connect Health를 사용하여 시작하려면 [Azure AD Connect 최신 버전](http://go.microsoft.com/fwlink/?linkid=615771)을 다운로드하고 설치합니다. 상태 에이전트는 Azure AD Connect 설치의 일부로 설치됩니다(버전 1.0.9125.0 이상). Azure AD Connect는 이전 버전에서 전체 업그레이드를 지원합니다.
 
 
 ## Azure AD Connect Health 포털
@@ -106,4 +106,4 @@ Azure AD Connect Health 포털을 사용하여 경고, 성능 모니터링 및 �
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health 버전 내역](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

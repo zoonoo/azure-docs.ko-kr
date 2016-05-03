@@ -9,10 +9,10 @@
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/16/2016"
+   ms.date="04/20/2016"
    ms.author="alkohli" />
 
 # 온-프레미스 StorSimple 장치(업데이트 1) 배포
@@ -290,4 +290,4 @@ Linux 호스트에 연결된 StorSimple 도구에 대한 MPIO 설치 지침은 [
 - [StorSimple 관리자 서비스](storsimple-manager-service-administration.md)를 사용하여 StorSimple 장치를 관리할 수 있습니다.
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

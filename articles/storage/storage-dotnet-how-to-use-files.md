@@ -199,8 +199,8 @@ SMB 3.0에 대한 지원을 통해 파일 저장소는 이제 SMB 3.0 클라이�
 
 클라이언트가 파일 저장소에 액세스하면 사용되는 SMB 버전은 운영 체제에서 지원하는 SMB 버전에 따라 달라집니다. 아래 표에 Windows 클라이언트에 대한 지원에 대한 요약을 제공합니다. [SMB 버전](http://blogs.technet.com/b/josebda/archive/2013/10/02/windows-server-2012-r2-which-version-of-the-smb-protocol-smb-1-0-smb-2-0-smb-2-1-smb-3-0-or-smb-3-02-you-are-using.aspx)에 대한 자세한 내용은 이 블로그를 참조합니다.
 
-| Windows 클라이언트 | SMB 버전 지원 |
-|------------------------|----------------------|
+| Windows 클라이언트 | 지원되는 SMB 버전 |
+|------------------------|-----------------------|
 | Windows 7 | SMB 2.1 |
 | Windows Server 2008 R2 | SMB 2.1 |
 | Windows 8 | SMB 3.0 |
@@ -642,4 +642,4 @@ Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합�
 - [Microsoft Azure 파일 서비스 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Microsoft Azure 파일에 대한 연결 유지](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

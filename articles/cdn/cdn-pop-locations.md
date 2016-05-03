@@ -40,6 +40,7 @@
 ## 남미
 
 - 상파울루
+- 리우데자네이루
 - 키토
 - 메데인
 - 부에노스아이레스
@@ -84,4 +85,4 @@
 
 Microsoft가 [Akamai와 제휴를 맺었다는](https://azure.microsoft.com/blog/microsoft-and-akamai-bring-cdn-to-azure-customers/) 소식을 들어 보였을 겁니다. 이 제휴를 통해 앞으로 몇 달간 전세계에서 Azure CDN의 도달 범위를 크게 확대할 예정입니다.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

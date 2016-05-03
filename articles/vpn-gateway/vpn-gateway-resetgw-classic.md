@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/04/2016"
+   ms.date="04/26/2016"
    ms.author="cherylmc"/>
 
 # PowerShell을 사용하여 Azure VPN 게이트웨이 재설정
@@ -40,14 +40,14 @@ Azure VPN 게이트웨이를 재설정하기 위한 PowerShell cmdlet은 *Reset-
 
 다음 예제에서는 "ContosoVNet"이라는 가상 네트워크에 대한 Azure VPN 게이트웨이를 재설정합니다.
  
-			D:\PS> Reset-AzureVNetGateway –VnetName “ContosoVNet” 
+		Reset-AzureVNetGateway –VnetName “ContosoVNet” 
 
-	 		Error          :
-	 		HttpStatusCode : OK
-	 		Id             : f1600632-c819-4b2f-ac0e-f4126bec1ff8
-	 		Status         : Successful
-			RequestId      : 9ca273de2c4d01e986480ce1ffa4d6d9
-			StatusCode     : OK
+	 	Error          :
+	 	HttpStatusCode : OK
+	 	Id             : f1600632-c819-4b2f-ac0e-f4126bec1ff8
+	 	Status         : Successful
+		RequestId      : 9ca273de2c4d01e986480ce1ffa4d6d9
+		StatusCode     : OK
 
 
 첫 번째 재부팅 후 연결이 복원되지 않으면 같은 명령을 다시 실행하여 두 번째 VM인스턴스(새 활성 게이트웨이)를 재부팅합니다. 두 번의 재부팅이 연속으로 요청되는 경우 두 VM 인스턴스(활성 및 대기)가 재부팅되는 기간이 약간 길어집니다. 이로 인해 VM에서 재부팅을 완료하는 데 VPN 연결에 최대 2~4분까지 긴 간격이 발생합니다.
@@ -58,4 +58,4 @@ Azure VPN 게이트웨이를 재설정하기 위한 PowerShell cmdlet은 *Reset-
 	
 이 cmdlet에 대한 자세한 내용은 [PowerShell 참조](https://msdn.microsoft.com/library/azure/mt270366.aspx)를 참조하세요.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0427_2016-->

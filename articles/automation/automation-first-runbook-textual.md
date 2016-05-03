@@ -4,7 +4,7 @@
     services="automation"
     documentationCenter=""
     authors="mgoedtel"
-    manager="stevenka"
+    manager="jwhit"
     editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="02/23/2016"
+    ms.date="04/21/2016"
     ms.author="magoedte;bwren"/>
 
 # 내 첫 번째 PowerShell 워크플로 Runbook
@@ -26,10 +26,9 @@
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
--	동작합니다. 계정이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 <a href="/pricing/free-trial/" target="_blank">[무료 평가판에 등록](https://azure.microsoft.com/pricing/free-trial/)할 수 있습니다.
--	Runbook을 저장할 [자동화 계정](automation-configuring.md)
+-	Azure 구독. 계정이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 <a href="/pricing/free-account/" target="_blank">[무료 계정을 등록](https://azure.microsoft.com/free/)할 수 있습니다.
+-	Runbook을 보유하고 Azure 리소스를 인증할 [자동화 계정](automation-security-overview.md). 이 계정은 가상 컴퓨터를 시작하고 중지할 수 있는 권한이 있어야 합니다.
 -	Azure 가상 컴퓨터. 프로덕션이 되지 않게하기 위해 이 가상 컴퓨터를 중지하고 시작합니다.
--	Azure 리소스에서 인증을 받을 [Azure Active Directory 사용자 및 자동화 자격 증명 자산](automation-configuring.md) 이 사용자는 가상 컴퓨터를 시작하고 중지할 수 있는 권한이 있어야 합니다.
 
 ## 1 단계-새 runbook 만들기
 
@@ -117,4 +116,4 @@ Runbook이 Azure 구독에서 인증을 받으므로 리소스를 관리할 수 
 -	[내 첫 번째 그래픽 Runbook](automation-first-runbook-graphical.md)
 -	[내 첫 번째 PowerShell Runbook](automation-first-runbook-textual-PowerShell.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0427_2016-->

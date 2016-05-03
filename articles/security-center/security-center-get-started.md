@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure 보안 센터 시작 | Microsoft Azure"
+   pageTitle="Azure 보안 센터 빠른 시작 가이드| Microsoft Azure"
    description="이 문서는 Azure 보안 센터를 신속하게 시작할 수 있도록 보안 모니터링 및 정책 관리 구성 요소를 안내하고 다음 단계로 연결해 줍니다."
    services="security-center"
    documentationCenter="na"
@@ -13,10 +13,10 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/11/2016"
+   ms.date="04/26/2016"
    ms.author="terrylan"/>
 
-# Azure 보안 센터 시작
+# Azure 보안 센터 빠른 시작 가이드
 
 이 문서는 Azure 보안 센터를 신속하게 시작할 수 있도록 보안 모니터링 및 정책 관리 구성 요소를 안내하고 다음 단계로 연결해 줍니다.
 
@@ -86,15 +86,6 @@ Azure 구독 및 리소스 그룹에 대한 보안 정책을 구성할 수 있�
 
 3. 파트너 솔루션을 선택합니다. 이 예제에서는 **F5 WAF2** 솔루션을 선택하도록 합니다. 블레이드가 열리고 파트너 솔루션의 상태 및 솔루션의 관련 리소스를 표시합니다. **솔루션 콘솔**을 선택하여 이 솔루션에 대한 파트너 관리 환경을 엽니다. ![파트너 솔루션 세부 정보][10]
 
-파트너 솔루션의 **상태**는 다음과 같을 수 있습니다.
-
-- 정상(녹색) - 상태 문제가 없습니다.
-- 비정상(빨강) - 즉각적인 주의가 필요한 상태 문제가 있습니다.
-- 중지된 보고(주황) - 솔루션이 상태의 보고를 중지했습니다.
-- 알 수 없음(주황) - 이 때에는 기존 솔루션에 새 리소스를 추가하는 실패한 프로세스로 인해 솔루션의 상태를 알 수 없습니다.
-- 보고되지 않음(회색) - 솔루션이 아무 것도 보고하지 않았습니다. 솔루션이 방금 연결되었고 여전히 배포 중인 경우 솔루션의 상태를 보고하지 않을 수 있습니다.
-
-
 ## 다음 단계
 이 문서에서는 보안 센터의 보안 모니터링 및 정책 관리 구성 요소를 소개했습니다. 자세한 알아보려면 다음을 참조하세요.
 
@@ -102,6 +93,7 @@ Azure 구독 및 리소스 그룹에 대한 보안 정책을 구성할 수 있�
 - [Azure 보안 센터에서 보안 권장 사항 관리](security-center-recommendations.md)--권장 사항이 Azure 리소스 보호에 어떤 도움이 되는지 알아보기.
 - [Azure 보안 센터에서 보안 상태 모니터링](security-center-monitoring.md)--Azure 리소스의 상태를 모니터링하는 방법 알아보기.
 - [Azure 보안 센터에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md)--보안 경고를 관리하고 대응하는 방법 알아보기.
+- [Azure 보안 센터를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md)--파트너 솔루션의 상태를 모니터링하는 방법 알아보기.
 - [Azure 보안 센터 FAQ](security-center-faq.md)--서비스 사용에 관한 질문과 대답 찾기.
 - [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/)--최신 Azure 보안 뉴스 및 정보 가져오기.
 
@@ -117,4 +109,4 @@ Azure 구독 및 리소스 그룹에 대한 보안 정책을 구성할 수 있�
 [9]: ./media/security-center-get-started/partner-solutions.png
 [10]: ./media/security-center-get-started/partner-solutions-detail.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

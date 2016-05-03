@@ -59,4 +59,4 @@
 
 [SQL 데이터베이스 개요](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

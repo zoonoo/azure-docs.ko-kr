@@ -1,0 +1,83 @@
+<properties
+	pageTitle="Azure AD 도메인 서비스: 암호 동기화 활성화 | Microsoft Azure"
+	description="Azure Active Directory 도메인 서비스 시작"
+	services="active-directory-ds"
+	documentationCenter=""
+	authors="mahesh-unnikrishnan"
+	manager="stevenpo"
+	editor="curtand"/>
+
+<tags
+	ms.service="active-directory-ds"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="04/25/2016"
+	ms.author="maheshu"/>
+
+# Azure AD 도메인 서비스*(미리 보기)* - Azure AD 도메인 서비스에 대한 암호 동기화 활성화
+
+## Task 5: 동기화된 Azure AD 테넌트에 대해 AAD 도메인 서비스에 대한 암호 동기화 활성화
+Azure AD 디렉터리에 Azure AD 도메인 서비스를 사용하도록 설정한 후에 수행할 작업은 Azure AD 도메인 서비스에 암호 동기화를 사용하도록 설정하는 것입니다. 이렇게 하면 사용자가 회사 자격 증명을 사용하여 도메인에 로그인할 수 있습니다.
+
+관련된 단계는 조직이 클라우드 전용 Azure AD 디렉터리인지, 아니면 Azure AD Connect를 사용하여 온-프레미스 디렉터리와 동기화되도록 설정되었는지에 따라 다릅니다.
+
+<br>
+
+> [AZURE.SELECTOR]
+- [클라우드 전용 Azure AD 디렉터리](active-directory-ds-getting-started-password-sync.md)
+- [동기화된 Azure AD 디렉터리](active-directory-ds-getting-started-password-sync-synced-tenant.md)
+
+<br>
+
+### 동기화된 테넌트 - Azure AD로 NTLM 및 Kerberos 자격 증명 해시를 동기화하도록 설정
+조직의 Azure AD 테넌트가 Azure AD Connect를 사용하여 온-프레미스 디렉터리와 동기화되도록 설정된 경우 NTLM 및 Kerberos 인증에 필요한 자격 증명 해시를 동기화하도록 Azure AD Connect를 구성해야 합니다. 이러한 해시는 기본적으로 Azure AD에 동기화되지 않으며 다음 단계를 통해 Azure AD 테넌트에 해시를 동기화할 수 있도록 설정됩니다.
+
+#### Azure AD Connect 설치 또는 업데이트
+
+도메인에 가입한 컴퓨터에 Azure AD Connect의 최신 권장 릴리스를 설치해야 합니다. Azure AD Connect 설치의 기존 인스턴스가 있는 경우 Azure AD Connect GA 빌드를 사용하도록 업데이트해야 합니다. 이미 해결되었을 수도 있는, 알려진 문제/버그를 피하려면 최신 버전의 Azure AD Connect를 사용해야 합니다.
+
+**[Azure AD Connect 다운로드](http://www.microsoft.com/download/details.aspx?id=47594)**
+
+권장 버전: **1.1.130.0** - 2016년 4월 12일에 게시되었습니다.
+
+  > [AZURE.WARNING] Azure AD 테넌트에 동기화할 레거시 암호 자격 증명(NTLM 및 Kerberos 인증에 필요)을 사용하도록 설정하려면 Azure AD Connect의 최신 권장 릴리스를 설치해야 합니다. 이 기능은 Azure AD Connect의 이전 릴리스 또는 레거시 DirSync 도구에서 사용할 수 없습니다.
+
+Azure AD Connect에 대한 설치 지침은 [Azure AD Connect 시작](../active-directory/active-directory-aadconnect.md) 문서에 나와 있습니다.
+
+
+#### Azure AD에 전체 암호 동기화 강제 적용
+
+전체 암호 동기화를 강제로 적용하고 모든 온-프레미스 사용자의 암호 해시(NTLM/Kerberos 인증에 필요한 자격 증명 해시 포함)가 Azure AD 테넌트에 동기화될 수 있도록 설정하려면 각 AD 포리스트에서 다음 PowerShell 스크립트를 실행합니다.
+
+```
+$adConnector = "<CASE SENSITIVE AD CONNECTOR NAME>"  
+$azureadConnector = "<CASE SENSITIVE AZURE AD CONNECTOR NAME>"  
+Import-Module adsync  
+$c = Get-ADSyncConnector -Name $adConnector  
+$p = New-Object Microsoft.IdentityManagement.PowerShell.ObjectModel.ConfigurationParameter "Microsoft.Synchronize.ForceFullPasswordSync", String, ConnectorGlobal, $null, $null, $null
+$p.Value = 1  
+$c.GlobalParameters.Remove($p.Name)  
+$c.GlobalParameters.Add($p)  
+$c = Add-ADSyncConnector -Connector $c  
+Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $azureadConnector -Enable $false   
+Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $azureadConnector -Enable $true  
+```
+
+디렉터리의 크기(사용자, 그룹 등의 수)에 따라 자격 증명을 Azure AD에 동기화하는 데는 시간이 걸립니다. 자격 증명 해시를 Azure AD에 동기화한 직후 Azure AD 도메인 서비스 관리되는 도메인에서 암호를 사용할 수 있습니다.
+
+
+<br>
+
+## 관련 콘텐츠
+
+- [클라우드 전용 Azure AD 디렉터리에 대해 AAD 도메인 서비스에 대한 암호 동기화 활성화](active-directory-ds-getting-started-password-sync.md)
+
+- [Azure AD 도메인 서비스 관리되는 도메인 관리](active-directory-ds-admin-guide-administer-domain.md)
+
+- [Windows 가상 컴퓨터를 Azure AD 도메인 서비스 관리되는 도메인에 가입](active-directory-ds-admin-guide-join-windows-vm.md)
+
+- [Red Hat Enterprise Linux 가상 컴퓨터를 Azure AD 도메인 서비스 관리되는 도메인에 가입](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+
+<!---HONumber=AcomDC_0427_2016-->

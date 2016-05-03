@@ -87,7 +87,7 @@ SPA 프런트 엔드의 스크린샷은 다음과 같습니다.
 
 	c. 각 프로젝트에 대해 **작업**을 **시작**으로 설정합니다.
 
-2. F5 키를 눌러 프로젝트를 시작합니다.
+2. 디버그 모드에서 프로젝트를 시작하려면 F5 키를 누르거나 **디버그 > 디버깅 시작**을 클릭합니다.
 
 	세 개의 브라우저 창이 열립니다. 두 개의 브라우저 창은 웹 API 프로젝트의 일반적인 HTTP 403 오류 페이지(디렉터리 검색은 허용되지 않음)를 보여줍니다. 세 번째 브라우저 창은 AngularJS UI를 표시합니다.
 
@@ -113,9 +113,9 @@ ASP.NET Web API 프로젝트는 [Swashbuckle](https://www.nuget.org/packages/Swa
 
 자습서의 이 섹션에서는 생성된 Swagger 2.0 메타데이터를 살펴본 다음 Swagger 메타데이터를 기반으로 하는 테스트 UI를 사용해봅니다.
 
-2. ToDoListDataAPI 프로젝트를 시작 프로젝트로 설정합니다. 
+2. ToDoListDataAPI 프로젝트(ToDoListAPI 프로젝트가 **아닌**)를 시작 프로젝트로 설정합니다. 
  
-4. F5 키를 눌러 디버그 모드에서 프로젝트를 실행합니다.
+4. 디버그 모드에서 프로젝트를 실행하려면 F5 키를 누르거나 **디버그 > 디버깅 시작**을 클릭합니다.
 
 	브라우저가 열리고 HTTP 403 오류 페이지가 표시됩니다.
 
@@ -184,13 +184,13 @@ ASP.NET Web API 프로젝트는 [Swashbuckle](https://www.nuget.org/packages/Swa
 
 5. 프로젝트를 다시 실행합니다.
 
-3. 브라우저의 주소 표시줄에서 줄 끝에 `swagger`을 추가한 다음 Enter 키를 누릅니다. (URL은 `http://localhost:45914/swagger`입니다.)
+3. 브라우저의 주소 표시줄에서 줄 끝에 `swagger`를 추가한 다음 Enter 키를 누릅니다. (URL은 `http://localhost:45914/swagger`입니다.)
 
 4. Swagger UI 페이지가 나타나면 **ToDoList**를 클릭하여 사용 가능한 메서드를 확인합니다.
 
 	![Swagger UI 사용 가능한 메서드](./media/app-service-api-dotnet-get-started/methods.png)
 
-5. **가져오기**를 클릭합니다.
+5. 목록에서 첫 번째 **Get** 단추를 클릭합니다.
 
 6. `owner` 매개 변수의 값에 별표를 입력하고 **사용해 보기**를 클릭합니다.
 
@@ -220,11 +220,11 @@ ASP.NET Web API 프로젝트는 [Swashbuckle](https://www.nuget.org/packages/Swa
 
 	ToDoList API는 성공 여부를 나타내는 HTTP 204 응답 코드를 반환합니다.
 
-11. **Get > Try it out**을 클릭합니다.
+11. 첫 번째 **Get** 단추를 클릭한 다음 페이지의 해당 섹션에서 **사용해 보기** 단추를 클릭합니다.
 
 	가져오기 메서드 응답은 이제 새 할 일 항목을 포함합니다.
 
-12. Put, Delete 및 Get by ID 메서드도 사용해봅니다.
+12. 선택 사항: Put, Delete 및 Get by ID 메서드도 사용해봅니다.
 
 14. 브라우저를 닫고 Visual Studio 디버깅을 중지합니다.
 
@@ -266,7 +266,7 @@ Swashbuckle은 모든 ASP.NET Web API 프로젝트에서 작동합니다. Swagge
 
 	다른 사용자가 이미 사용한 이름을 입력한 경우 녹색 확인 표시 대신 오른쪽에 빨간색 느낌표가 표시되며, 다른 이름을 입력해야 합니다.
 
-	Azure에서는 응용 프로그램의 URL에 대한 접두사로 이 이름을 사용합니다. 전체 URL은 이 이름과 *.azurewebsites.net* 으로 구성됩니다. 예를 들어 이름이 `ToDoListDataAPI`이면 URL은 `todolistdataapi.azurewebsites.net`이 됩니다.
+	Azure에서는 응용 프로그램의 URL에 대한 접두사로 이 이름을 사용합니다. 전체 URL은 이 이름과 *.azurewebsites.net*으로 구성됩니다. 예를 들어 이름이 `ToDoListDataAPI`이면 URL은 `todolistdataapi.azurewebsites.net`이 됩니다.
 
 6. **리소스 그룹** 드롭다운에서 **새로 만들기**를 클릭한 다음, "ToDoListGroup" 또는 원하는 이름을 입력합니다.
 
@@ -358,7 +358,7 @@ Swashbuckle은 모든 ASP.NET Web API 프로젝트에서 작동합니다. Swagge
 
 	![설정 블레이드에서 API 정의](./media/app-service-api-dotnet-get-started/apidefinsettings.png)
 
-	**API 정의** 블레이드에서 JSON 형식으로 Swagger 2.0 메타데이터를 반환하는 URL을 지정할 수 있습니다. Visual Studio에서 API 앱을 만든 경우, API 정의 URL을 이전에 본 Swashbuckle 생성 메타데이터의 기본값으로 설정됩니다. 즉, API 앱의 기준 URL에 `/swagger/docs/v1`이(가) 추가됩니다.
+	**API 정의** 블레이드에서 JSON 형식으로 Swagger 2.0 메타데이터를 반환하는 URL을 지정할 수 있습니다. Visual Studio에서 API 앱을 만든 경우, API 정의 URL이 이전에 본 Swashbuckle 생성 메타데이터의 기본값으로 설정됩니다. 즉, API 앱의 기준 URL에 `/swagger/docs/v1`이(가) 추가됩니다.
 
 	![API 정의 URL](./media/app-service-api-dotnet-get-started/apidefurl.png)
 
@@ -470,7 +470,7 @@ ToDoListAPI 프로젝트에는 생성된 클라이언트 코드가 이미 있지
  
 1. [Azure 포털](https://portal.azure.com/)로 이동한 다음, TodoListAPI(중간 계층) 프로젝트를 호스트하기 위해 만든 API 앱용 **API 앱** 블레이드로 이동합니다.
 
-2. API 앱의 **설정** 블레이드에서 **앱 설정**을 클릭합니다.
+2. API 앱의 **설정** 블레이드에서 **응용 프로그램 설정**을 클릭합니다.
  
 4. API 앱의 **응용 프로그램 설정** 블레이드에서 **앱 설정** 섹션까지 아래로 스크롤하고 다음 키와 값을 추가합니다.
 
@@ -491,7 +491,7 @@ ToDoListAPI 프로젝트에는 생성된 클라이언트 코드가 이미 있지
 
 13. 브라우저 주소 표시줄에서 URL에 "swagger"를 추가한 다음 Enter 키를 누릅니다. (URL은 `http://{apiappname}.azurewebsites.net/swagger`입니다.)
 
-	브라우저가 ToDoListDataAPI에 대해 앞서 살펴본 동일한 Swagger UI를 표시하지만 중간 계층 API 앱이 해당 값을 데이터 계층 API 앱에 보내고 있기 때문에 이제 `owner`은 가져오기 작업에서 필수 필드가 아닙니다. (인증 자습서를 수행하는 경우 중간 계층은 `owner` 매개 변수에 대한 실제 사용자 ID를 보냅니다. 지금은 별표를 하드 코딩하고 있습니다.)
+	브라우저가 ToDoListDataAPI에 대해 앞서 살펴본 동일한 Swagger UI를 표시하지만 중간 계층 API 앱이 해당 값을 데이터 계층 API 앱에 보내고 있기 때문에 이제 `owner`은 가져오기 작업에서 필수 필드가 아닙니다. (인증 자습서를 수행하는 경우 중간 계층은 `owner` 매개 변수에 대한 실제 사용자 ID를 보냅니다. 지금은 별표를 하드 코딩합니다.)
 
 12. 가져오기 메서드 및 다른 메서드를 사용하여 중간 계층 API 앱이 데이터 계층 API 앱을 성공적으로 호출하는지 유효성을 검사합니다.
 
@@ -521,6 +521,8 @@ API 정의 속성을 설정하는 Azure Resource Manager 템플릿의 예를 보
 
 이 자습서를 진행하면서 문제에 직면하는 경우 .NET용 Azure SDK의 최신 버전을 사용하도록 합니다. 작업을 수행하는 가장 쉬운 방법은 [Visual Studio 2015용 Azure SDK를 다운로드](http://go.microsoft.com/fwlink/?linkid=518003)하는 것입니다. 현재 버전이 설치되어 있다면 웹 플랫폼 설치 관리자에서 설치가 필요하지 않다고 알려줍니다.
 
+프로젝트 이름 두 개가 비슷합니다(ToDoListAPI, ToDoListDataAPI). 프로젝트 작업 시 지침의 설명과 다르게 보이는 경우에는, 올바른 프로젝트를 열었는지 확인합니다.
+
 회사 네트워크에서 방화벽을 통해 Azure 앱 서비스에 배포하려고 하는 경우 포트 443 및 8172가 웹 배포에 열려 있는지 확인합니다. 해당 포트를 열 수 없으면 다른 배포 옵션에서 다음 단계 섹션을 참조하세요.
 
 실수로 API 앱에 잘못된 프로젝트를 배포하고 나중에 올바른 프로젝트를 그 위치에 다시 배포할 경우 "경로 이름이 고유해야 한다"는 오류가 표시될 수 있습니다. 이 오류를 해결하려면 프로젝트를 API 앱에 다시 배포하고, **웹 게시** 마법사의 **설정** 탭에서 **대상에서 추가 파일 제거**를 선택합니다.
@@ -531,4 +533,4 @@ Azure 앱 서비스에서 ASP.NET API 앱이 실행 중인 경우 문제 해결�
 
 이 자습서에서는 API 앱을 만들고, 이 앱에 코드를 배포하고, 클라이언트 코드를 생성하고, .NET 클라이언트에서 이를 사용하는 방법을 살펴보았습니다. API 앱 시작 시리즈의 다음 자습서에서는 [CORS를 사용하여 JavaScript 클라이언트에서 API 앱을 사용](app-service-api-cors-consume-javascript.md)하는 방법을 보여 줍니다. 시리즈의 후반부 자습서에서는 인증 및 권한 부여를 구현하는 방법을 보여 줍니다.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->
