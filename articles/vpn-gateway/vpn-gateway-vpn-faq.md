@@ -3,8 +3,8 @@
    description="VPN 게이트웨이 FAQ. Microsoft Azure 가상 네트워크 프레미스 간 연결, 하이브리드 구성 연결 및 VPN 게이트웨이에 대한 FAQ"
    services="vpn-gateway"
    documentationCenter="na"
-   authors="cherylmc"
-   manager="carmonm"
+   authors="yushwang"
+   manager="rossort"
    editor="" />
 <tags 
    ms.service="vpn-gateway"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/10/2016"
-   ms.author="cherylmc" />
+   ms.author="yushwang" />
 
 # VPN 게이트웨이 FAQ
 
@@ -273,4 +273,4 @@ VPN 게이트웨이에 대한 자세한 정보는 [VPN 게이트웨이 설명서
 
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0427_2016-->

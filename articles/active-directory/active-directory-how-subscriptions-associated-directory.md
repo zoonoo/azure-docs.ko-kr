@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/11/2016"
+	ms.date="04/26/2016"
 	ms.author="curtand"/>
 
 # Azure 구독과 Azure Active Directory의 연관 관계
@@ -110,7 +110,7 @@ Azure에 등록하기 전에 Office 365에 등록했다고 가정해 보겠습�
 
 1. Microsoft 계정을 사용하여 Azure 클래식 포털에 로그인합니다.
 
-2. **새로 만들기** > **앱 서비스** > **Active Directory** > **디렉터리 ** > **사용자 지정 만들기**를 클릭합니다.
+2. **새로 만들기** > **앱 서비스** > **Active Directory** > **디렉터리** > **사용자 지정 만들기**를 클릭합니다.
 
 3. **기존 디렉터리 사용**을 클릭하고 **지금 로그아웃할 준비가 되었습니다**를 선택하고 확인 표시를 클릭하여 작업을 완료합니다.
 
@@ -139,4 +139,4 @@ Azure에 등록하기 전에 Office 365에 등록했다고 가정해 보겠습�
 [2]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png
 [3]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_SignInDisambiguation.PNG
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0427_2016-->

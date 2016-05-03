@@ -1,22 +1,21 @@
 
-<properties 
-  pageTitle="Azure 저장소에서 개체에 대한 속성 및 메타데이터를 설정 및 검색 | Microsoft Azure" 
-  description="Azure 저장소의 개체에 사용자 지정 메타데이터를 저장하고 시스템 속성을 설정 및 검색합니다." 
-  services="storage" 
-  documentationCenter="" 
-  authors="tamram" 
-  manager="carmonm" 
+<properties
+  pageTitle="Azure 저장소에서 개체에 대한 속성 및 메타데이터를 설정 및 검색 | Microsoft Azure"
+  description="Azure 저장소의 개체에 사용자 지정 메타데이터를 저장하고 시스템 속성을 설정 및 검색합니다."
+  services="storage"
+  documentationCenter=""
+  authors="tamram"
+  manager="carmonm"
   editor="tysonn"/>
 
-<tags 
-  ms.service="storage" 
-  ms.workload="storage" 
-  ms.tgt_pltfrm="na" 
-  ms.devlang="na" 
-  ms.topic="article" 
-  ms.date="02/20/2016" 
+<tags
+  ms.service="storage"
+  ms.workload="storage"
+  ms.tgt_pltfrm="na"
+  ms.devlang="na"
+  ms.topic="article"
+  ms.date="02/20/2016"
   ms.author="tamram"/>
-
 
 # 속성 및 메타 데이터 설정 및 검색 #
 
@@ -99,4 +98,4 @@ Blob 또는 컨테이너 리소스에 하나 이상의 이름-값 쌍으로 메�
 - [.NET용 Azure 저장소 클라이언트 라이브러리 참조](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
 - [.NET용 Azure 저장소 클라이언트 라이브러리 패키지](https://www.nuget.org/packages/WindowsAzure.Storage/) 
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

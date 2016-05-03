@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
+	ms.date="04/18/2016" 
 	ms.author="juliako"/>
 
 #파트너를 사용하여 Azure 미디어 서비스에 Widevine 라이선스 제공
@@ -47,4 +47,4 @@ Microsoft Azure 미디어 서비스를 사용하면 CENC(Common Encryption) 사�
 
 [Mingfei의 블로그](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

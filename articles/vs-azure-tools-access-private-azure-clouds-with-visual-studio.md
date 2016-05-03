@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="12/17/2015"
+   ms.date="04/18/2016"
    ms.author="tarcher" />
 
 # Visual Studio로 사설 Azure 클라우드에 액세스
@@ -43,4 +43,4 @@
 
 [방법: 게시 설정 및 구독 정보를 다운로드 및 가져오기] (https://msdn.microsoft.com/library/dn385850(v=nav.70).aspx)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0420_2016-->

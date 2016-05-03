@@ -569,10 +569,10 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 - [웹 응용 프로그램에서 Azure CDN의 콘텐츠 제공](../cdn/cdn-serve-content-from-cdn-in-your-web-application.md)
 - [Azure CDN과 클라우드 서비스 통합](../cdn/cdn-cloud-service-with-cdn.md)
 - [ASP.NET 묶음 및 축소](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
-- [Azure에 CDN 사용](../cdn/cdn-how-to-use-cdn.md)
+- [Azure CDN 사용](../cdn/cdn-create-new-endpoint.md)
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

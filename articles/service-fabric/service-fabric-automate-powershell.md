@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/02/2016"
+	ms.date="04/15/2016"
 	ms.author="ryanwi"/>
 
 # PowerShell을 사용하여 응용 프로그램 수명 주기 자동화
 
-[서비스 패브릭 응용 프로그램 수명 주기](service-fabric-application-lifecycle.md)의 여러 측면을 자동화할 수 있습니다. 이 문서에서는 PowerShell을 사용해 Azure 서비스 패브릭 응용 프로그램을 배포, 업그레이드, 제거 및 테스트하는 일반적인 작업을 자동화하는 방법을 보여줍니다.
+[서비스 패브릭 응용 프로그램 수명 주기](service-fabric-application-lifecycle.md)의 여러 측면을 자동화할 수 있습니다. 이 문서에서는 PowerShell을 사용해 Azure 서비스 패브릭 응용 프로그램을 배포, 업그레이드, 제거 및 테스트하는 일반적인 작업을 자동화하는 방법을 보여줍니다. 앱 관리용 HTTP API 및 관리되는 API도 사용할 수 있으므로 자세한 내용은 [앱 수명 주기](service-fabric-application-lifecycle.md)를 참조하세요.
 
 ## 필수 조건
 다음은 문서의 작업으로 넘어가기 전에 해야 할 일입니다.
@@ -107,7 +107,7 @@ Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/WordCount -Applic
 Get-ServiceFabricApplicationUpgrade fabric:/WordCount
 ```
 
-잠시 후에 [Get-ServiceFabricApplicationUpgrade](https://msdn.microsoft.com/library/azure/mt125988.aspx) cmdlet이 업그레이드된(완료된) 모든 업그레이드 도메인을 보여줍니다.
+잠시 후에 [Get-ServiceFabricApplicationUpgrade](https://msdn.microsoft.com/library/azure/mt125988.aspx) cmdlet이 업그레이드된(완료된) 모든 업그레이드 도메인을 보여 줍니다.
 
 ## 작업: 서비스 패브릭 응용 프로그램 테스트
 
@@ -172,4 +172,4 @@ Remove-ServiceFabricApplicationPackage -ImageStoreConnectionString file:C:\SfDev
 
 [Azure 서비스 패브릭 테스트 용이성 cmdlet](https://msdn.microsoft.com/library/azure/mt125844.aspx)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

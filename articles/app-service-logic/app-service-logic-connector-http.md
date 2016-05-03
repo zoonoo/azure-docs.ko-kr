@@ -13,12 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/11/2016"
+   ms.date="04/19/2016"
    ms.author="prkumar"/>
 
 
 # HTTP Listener 및 HTTP 동작 시작 및 논리 앱에 추가
->[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다.
+
+> [AZURE.NOTE] 이제 새 논리 앱을 만들 때 이 커넥터의 기능이 기본적으로 **수동 트리거**로 포함되므로 이 커넥터에 대한 지원은 곧 종료될 예정입니다. 이 커넥터를 사용하는 모든 논리 앱을 업그레이드하는 것이 좋습니다. 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다.
 
 HTTP 리소스에 직접 연결하여 HTTP 요청을 수신 대기하고 HTTP 웹 요청을 구성합니다. 직접 HTTP 연결을 사용해야 하는 몇 가지 시나리오가 있습니다. 즉, 다음과 같은 경우입니다.
 
@@ -88,4 +89,4 @@ HTTP 동작의 출력은 헤더 및 본문이며, 다른 동작 및 커넥터의
 [9]: ./media/app-service-logic-connector-http/9.png
 [10]: ./media/app-service-logic-connector-http/10.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

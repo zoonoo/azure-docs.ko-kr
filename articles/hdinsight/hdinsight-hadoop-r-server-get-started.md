@@ -1,6 +1,6 @@
 <properties
-   pageTitle="HDInsight에서 R 서버 시작 | Azure"
-   description="R 서버를 포함하는 HDInsight(Hadoop) 클러스터에서 Apache Spark를 만든 다음 클러스터에서 R 스크립트를 제출하는 방법을 알아봅니다."
+   pageTitle="HDInsight에서 R 서버 시작(미리 보기) | Azure"
+   description="R 서버를 포함하는 HDInsight의 Apache Spark(미리 보기) 클러스터를 만든 다음 클러스터에서 R 스크립트를 제출하는 방법을 알아봅니다."
    services="HDInsight"
    documentationCenter=""
    authors="jeffstokes72"
@@ -17,9 +17,9 @@
    ms.date="03/25/2016"
    ms.author="jeffstok"/>
 
-# HDInsight에서 R 서버 사용 시작
+#HDInsight에서 R 서버 사용 시작(미리 보기)
 
-HDInsight용 Premium 계층 제품에는 HDInsight 클러스터의 일부로 R 서버가 포함됩니다. 이를 통해 R 스크립트에서 MapReduce 및 Spark를 사용하여 분산된 계산을 실행할 수 있습니다. 이 문서에서는 HDInsight에서 새 R 서버를 만든 다음 R 스크립트를 실행하여 분산된 R 계산에 Spark를 사용하는 방법을 알아봅니다.
+HDInsight용 Premium 계층 제공에는 HDInsight의 R 서버가 포함됩니다(미리 보기). 이를 통해 R 스크립트에서 MapReduce 및 Spark를 사용하여 분산된 계산을 실행할 수 있습니다. 이 문서에서는 HDInsight에서 새 R 서버를 만든 다음 R 스크립트를 실행하여 분산된 R 계산에 Spark를 사용하는 방법을 알아봅니다.
 
 ![이 문서에 대한 워크플로의 다이어그램](./media/hdinsight-getting-started-with-r/rgettingstarted.png)
 
@@ -322,4 +322,4 @@ Azure Resource Manager 템플릿을 사용하여 HDInsight에서 R 서버를 자
 
 ARM 템플릿 사용에 대한 일반적인 내용은 [ARM 템플릿을 사용하여 HDInsight의 Linux 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

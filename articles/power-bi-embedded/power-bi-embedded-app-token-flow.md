@@ -1,6 +1,6 @@
 <properties
    pageTitle="Power BI Embedded의 앱 토큰 흐름 정보"
-   description="Power BI Embedded의 앱 토큰 흐름 정보"
+   description="인증 및 권한 부여를 위한 앱 토큰에 대한 Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"
@@ -56,4 +56,4 @@
 - [일반적인 Microsoft Power BI Embedded 미리 보기 시나리오](power-bi-embedded-scenarios.md)
 - [Microsoft Power BI Embedded 미리 보기 시작](power-bi-embedded-get-started.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/10/2016"
+	ms.date="04/18/2016"
 	ms.author="spelluru"/>
 
 # Azure Data Factory 파이프라인에서 사용자 지정 작업 사용
@@ -823,6 +823,15 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 	  }
 	}
 
+## 예
+
+| 샘플 | 사용자 지정 작업의 기능| 
+| ------ | ----------- | 
+| [HTTP 데이터 다운로더](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample) | Data Factory의 사용자 지정 C# 작업을 사용하여 HTTP 끝점에서 Azure Blob 저장소로 데이터를 다운로드합니다. |
+| [Twitter 감성 분석 샘플](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) | Azure ML 모델을 호출하고 감성 분석, 점수 매기기, 예측 등을 수행합니다. |
+| [R 스크립트 실행](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample) | R이 이미 설치된 HDInsight 클러스터에서 RScript.exe를 실행하여 R 스크립트를 호출합니다. | 
+| [크로스 AppDomain .NET 작업](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) | Data Factory 시작 관리자(예: WindowsAzure.Storage v4.3.0, Newtonsoft.Json v6.0.x)가 사용한 것과 다른 버전의 어셈블리를 사용합니다.
+ 
 
 ## 참고 항목
 
@@ -863,4 +872,4 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -1,4 +1,11 @@
-<properties pageTitle="Azure Site Recovery를 사용하여 Azure에 VMware 가상 컴퓨터 및 물리적 서버 복제(레거시) | Microsoft Azure" description="Azure Site Recovery를 설정하여 온-프레미스 VMware 가상 컴퓨터 및 Windows/Linux 물리적 서버에서 Azure로 복제, 장애 조치(Failover) 및 복구를 오케스트레이션하는 레거시 배포에 대해 설명합니다." " services="site-recovery" documentationCenter="" authors="rayne-wiselman" manager="jwhit" editor=""/>
+<properties
+	pageTitle="Azure Site Recovery를 사용하여 Azure에 VMware 가상 컴퓨터 및 물리적 서버 복제(레거시) | Microsoft Azure" 
+	description="온-프레미스 VMware 가상 컴퓨터 및 Windows/Linux 물리적 서버에서 Azure로 복제, 장애 조치(failover) 및 복구를 오케스트레이션하기 위해 Azure Site Recovery 설정에 대한 레거시 배포에 대해 설명합니다." 
+	services="site-recovery"
+	documentationCenter=""
+	authors="rayne-wiselman"
+	manager="jwhit"
+	editor=""/>
 
 <tags
 	ms.service="site-recovery"
@@ -16,14 +23,14 @@
 - [레거시](site-recovery-vmware-to-azure-classic-legacy.md)
 
 
-Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제, 장애 조치(Failover) 및 복구를 오케스트레이션하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. 컴퓨터는 Azure 또는 보조 온-프레미스 데이터 센터로 복제할 수 있습니다. 빠른 개요를 알아보려면 [Azure Site Recovery란?](site-recovery-overview.md)을 참조하세요.
+Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제, 장애 조치(Failover) 및 복구를 오케스트레이션하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. 컴퓨터는 Azure 또는 보조 온-프레미스 데이터 센터로 복제할 수 있습니다. 빠른 개요를 알아보려면 [Azure Site Recovery란?](site-recovery-overview.md)을 확인하세요.
 
 ## 개요
 
 이 문서에서는 다음과 같이 방법을 설명합니다.
 
-- **Azure에 VMware 가상 컴퓨터 복제** - 온-프레미스 VMware 가상 컴퓨터에서 Azure 저장소로 복제, 장애 조치(failover), 복구 조정을 위해 사이트 복구를 배포합니다.
-- **Azure에 물리적 서버 복제** - 온-프레미스 Windows 및 Linux 물리적 서버에서 Azure로 복제, 장애 조치(failover), 복구 조정을 위해 Azure Site Recovery를 배포합니다.
+- **Azure에 VMware 가상 컴퓨터 복제**—온-프레미스 VMware 가상 컴퓨터에서 Azure 저장소로 복제, 장애 조치(Failover), 복구 조정을 위해 사이트 복구를 배포합니다.
+- **Azure에 물리적 서버 복제**—온-프레미스 Windows 및 Linux 물리적 서버에서 Azure로 복제, 장애 조치(Failover), 복구 조정을 위해 Azure Site Recovery를 배포합니다.
 
 >[AZURE.NOTE] 이 문서에 설명된 시나리오는 **레거시 지침**을 포함합니다. 새 배포인 경우 이 문서를 사용하지 마세요. 대신 클래식 포털을 위한 [향상된 배포](site-recovery-vmware-to-azure-classic.md) 지침을 사용합니다. 이 문서에 설명된 방법을 사용하여 이미 배포한 경우 아래 설명된 대로 새 버전으로 마이그레이션하는 것이 좋습니다.
 
@@ -309,11 +316,11 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 	- **다음**을 클릭하면 프록시 연결을 확인하는 테스트가 실행됩니다.
 	- 사용자 지정 프록시를 사용하거나 기본 프록시에 인증이 필요한 경우 주소, 포트, 자격 증명을 포함한 프록시 정보를 입력해야 합니다.
 	- 다음 URL은 프록시를 통해 액세스할 수 있습니다.
-		- **.hypervrecoverymanager.windowsazure.com
-		- **.accesscontrol.windows.net
-		- **.backup.windowsazure.com
-		- **.blob.core.windows.net
-		- **.store.core.windows.net
+		- *.hypervrecoverymanager.windowsazure.com
+		- *.accesscontrol.windows.net
+		- *.backup.windowsazure.com
+		- *.blob.core.windows.net
+		- *.store.core.windows.net
 	- IP 주소 기반 방화벽 규칙이 구성 서버에서 [Azure 데이터 센터 IP 주소](https://msdn.microsoft.com/library/azure/dn175718.aspx)에 설명된 IP 주소 및 HTTPS(443) 프로토콜로 연결하는 통신을 허용하는지 확인하세요. 사용하려는 Azure 지역 및 미국 서부의 IP 범위를 허용해야 합니다.
 
 	![프록시 등록](./media/site-recovery-vmware-to-azure-classic-legacy/register-proxy.png)
@@ -698,7 +705,7 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 	![V-Center Server 추가](./media/site-recovery-vmware-to-azure-classic-legacy/select-vms.png)	
 4. **대상 리소스 지정**에서 복제에 사용할 마스터 대상 서버 및 저장소를 선택하고 설정을 모든 워크로드에 사용해야 할지 여부를 선택합니다. IO를 많이 사용하는 작업을 호스트하기 위해 일관된 IO 고성능과 짧은 대기 시간이 요구되는 워크로드에 대한 보호를 구성하는 동안에는 [프리미엄 저장소 계정](../storage/storage-premium-storage.md)을 선택합니다. 워크로드 디스크에 프리미엄 저장소 계정을 사용하려는 경우 DS 시리즈의 마스터 대상을 사용해야 합니다. DS 시리즈가 아닌 마스터 대상의 경우 프리미엄 저장소 디스크를 사용할 수 없습니다.
 
-	>[AZURE.NOTE] 리소스 그룹 간에서 [새 Azure 포털](../storage/storage-create-storage-account.md)을 사용하여 만든 저장소 계정 이동을 지원하지 않습니다.
+	>[AZURE.NOTE] 여러 리소스 그룹에 [새 Azure 포털](../storage/storage-create-storage-account.md)을 사용하여 만든 저장소 계정의 이동을 지원하지 않습니다.
 
 	![vCenter Server](./media/site-recovery-vmware-to-azure-classic-legacy/machine-resources.png)
 
@@ -807,4 +814,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

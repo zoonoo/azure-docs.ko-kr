@@ -3,8 +3,8 @@
 	description="이 항목에서는 FMLE(Flash Media Live Encoder) 인코더를 구성하여 라이브 인코딩에 사용할 수 있는 AMS 채널에 단일 비트 전송률 스트림을 보내는 방법을 보여 줍니다." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako,cenkdin,anilmur" 
-	manager="dwrede" 
+	authors="Juliako" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="02/03/2016"   
-	ms.author="juliako"/>
+	ms.date="04/18/2016" 
+	ms.author="juliako;cenkdin;anilmur"/>
 
 #FMLE 인코더를 사용하여 단일 비트 전송률 라이브 스트림 보내기
 
@@ -170,4 +170,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

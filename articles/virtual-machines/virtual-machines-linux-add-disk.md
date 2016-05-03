@@ -11,7 +11,7 @@
 
 <tags
 	ms.service="virtual-machines-linux"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
@@ -20,7 +20,7 @@
 
 # Linux VM에 디스크 추가
 
-이 문서에는 VM이 유지 관리 또는 크기 조정으로 인해 다시 프로비전되더라도 데이터를 유지할 수 있도록 VM에 영구 디스크를 연결하는 방법을 보여줍니다. 디스크를 추가하려면 리소스 관리자 모드에서 [Azure CLI](../xplat-cli-install.md)가 필요합니다(`azure config mode arm`).
+이 문서에는 VM이 유지 관리 또는 크기 조정으로 인해 다시 프로비전되더라도 데이터를 유지할 수 있도록 VM에 영구 디스크를 연결하는 방법을 보여줍니다. 디스크를 추가하려면 리소스 관리자 모드에 구성된 [Azure CLI](../xplat-cli-install.md)가 필요합니다(`azure config mode arm`).
 
 ## 빠른 명령
 
@@ -32,7 +32,7 @@ rick@ubuntu$ azure vm disk attach-new <myuniquegroupname> <myuniquevmname> <size
 
 ## 디스크 연결
 
-새 디스크 연결이 빠릅니다. `azure vm disk attach-new <myuniquegroupname> <myuniquevmname> <size-in-GB>`를 입력하여 VM에 대한 새 GB 디스크를 만들어 연결합니다. 다음과 같이 표시됩니다.
+새 디스크 연결이 빠릅니다. `azure vm disk attach-new <myuniquegroupname> <myuniquevmname> <size-in-GB>`를 입력하여 VM에 대한 새 GB 디스크를 만들어 연결합니다. 저장소 계정을 명시적으로 식별하지 않는 경우 만드는 모든 디스크가 OS 디스크가 있는 동일한 저장소 계정에 배치됩니다. 다음과 같이 표시됩니다.
 
 	azure vm disk attach-new myuniquegroupname myuniquevmname 5
 	info:    Executing command vm disk attach-new
@@ -177,4 +177,4 @@ VM에 연결했으므로 디스크를 연결할 준비가 되었습니다. 먼�
 - [Linux 컴퓨터 성능 최적화](virtual-machines-linux-optimization.md) 권장 사항을 검토하여 Linux VM를 올바르게 구성하였는지 확인합니다.
 - 추가 디스크를 추가하여 저장소 용량을 확장하고 추가 성능을 위해 [RAID를 구성](virtual-machines-linux-configure-raid.md)합니다.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

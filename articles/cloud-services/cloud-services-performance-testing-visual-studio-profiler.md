@@ -123,7 +123,7 @@ Concatenate 메서드와 String.Concat가 실행 시간의 대부분을 사용�
 
 ![][14]
 
-## 5: 변경 및 성능 비교
+## 4: 변경 및 성능 비교
 
 코드 변경 이전과 이후의 성능을 비교할 수도 있습니다. 실행 중인 프로세스를 중지하고 코드를 편집하여 문자열 연결 작업을 StringBuilder 사용으로 바꿉니다.
 
@@ -186,4 +186,4 @@ Concatenate 메서드와 String.Concat가 실행 시간의 대부분을 사용�
 [17]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally08.png
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

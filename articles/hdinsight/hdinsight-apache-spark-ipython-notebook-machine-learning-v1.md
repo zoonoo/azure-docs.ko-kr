@@ -18,7 +18,7 @@
 	ms.author="nitinme"/>
 
 
-# Apache Spark를 사용하여 Azure HDInsight에서 기계 학습 응용 프로그램 빌드(Windows)
+# HDInsight Windows에서 Apache Spark를 사용하여 기계 학습 응용 프로그램 빌드(미리 보기)
 
 > [AZURE.NOTE] 이제 HDInsight가 Linux에서 Spark 클러스터를 제공합니다. HDInsight Spark Linux 클러스터에서 기계 학습 응용 프로그램을 만드는 방법에 대한 자세한 내용은 [Apache Spark를 사용하여 Azure HDInsight에서 기계 학습 응용 프로그램 빌드(Linux)](hdinsight-apache-spark-ipython-notebook-machine-learning.md)를 참조하세요.
 
@@ -245,4 +245,4 @@ HDInsight에서 Apache Spark 클러스터에는 Anaconda 라이브러리가 포�
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

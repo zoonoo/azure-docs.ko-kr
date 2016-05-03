@@ -13,11 +13,37 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/30/2016" 
+	ms.date="04/18/2016" 
 	ms.author="spelluru"/>
 
 # Azure 데이터 팩터리 - .NET API 변경 로그 
 이 문서에서는 특정 버전의 Azure Data Factory SDK 변경 내용에 대해 설명합니다. [여기](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactories)에서 Azure Data Factory용 최신 NuGet 패키지를 찾을 수 있습니다.
+
+## 버전 4.6.0
+릴리스 날짜: 2016.04.14
+
+### 기능 추가 사항
+
+- 다음 속성이 [PipelineProperties](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties_properties.aspx)에 추가되었습니다.
+	- [PipelineMode](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties.pipelinemode.aspx)
+	- [ExpirationTime](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties.expirationtime.aspx)
+	- [데이터 집합](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties.datasets.aspx)
+- 다음 속성이 [PipelineRuntimeInfo](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.common.models.pipelineruntimeinfo.aspx)에 추가되었습니다.
+	- [PipelineState](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.common.models.pipelineruntimeinfo.pipelinestate.aspx)
+- 데이터가 JSON 형식인 데이터 집합을 정의하는 [StorageFormat](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.storageformat.aspx) 형식 [JsonFormat](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.jsonformat.aspx) 형식이 새로 추가되었습니다. 
+
+## 버전 4.5.0
+릴리스 날짜: 2016.02.24
+
+### 기능 추가 사항
+* [작업 창에 대한 작업 목록](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.activitywindowoperationsextensions.aspx)이 추가되었습니다.
+    * 엔터티 형식(즉, 데이터 팩터리, 데이터 집합, 파이프라인 및 작업)을 기준으로 필터를 사용하여 작업 창을 검색하는 메서드가 추가되었습니다.
+* 다음에 링크된 서비스 유형이 추가 되었습니다. 
+    * [ODataLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.odatalinkedservice.aspx), [WebLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.weblinkedservice.aspx)
+* 다음과 같은 데이터 집합이 추가 되었습니다. 
+    * [ODataResourceDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.odataresourcedataset.aspx), [WebTableDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.webtabledataset.aspx)
+* 다음과 같은 원본 복사 형식이 추가되었습니다. 	
+    * [WebSource](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.websource.aspx)
 
 ## 버전 4.4.0
 릴리스 날짜: 2016.01.28
@@ -33,8 +59,8 @@
 ### 기능 추가 사항
 
 - 다음 연결된 서비스 유형이 복사 작업에 대한 데이터 원본으로 추가되었습니다.
-	- [HdfsLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.hdfslinkedservice.aspx). 개념 정보 및 예제는 [데이터 팩터리를 사용하여 HDFS에서 데이터 이동](data-factory-hdfs-connector.md)을 참조하세요. 
-	- [OnPremisesOdbcLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.onpremisesodbclinkedservice.aspx). 개념 정보 및 예제는 [Azure 데이터 팩터리를 사용하여 ODBC 데이터 저장소에서 데이터 이동](data-factory-odbc-connector.md)을 참조하세요. 
+	- [HdfsLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.hdfslinkedservice.aspx). 개념 정보 및 예제는 [Data Factory를 사용하여 HDFS에서 데이터 이동](data-factory-hdfs-connector.md)을 참조하세요. 
+	- [OnPremisesOdbcLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.onpremisesodbclinkedservice.aspx). 개념 정보 및 예제는 [Azure Data Factory를 사용하여 ODBC 데이터 저장소에서 데이터 이동](data-factory-odbc-connector.md)을 참조하세요. 
 
 ## 버전 4.2.0
 릴리스 날짜: 2015-11-10
@@ -123,4 +149,4 @@ SqlServerDataset | [SqlServerTableDataset](https://msdn.microsoft.com/library/mi
 
 - 이제 복사 작업의 일부로 Azure SQL 데이터베이스 및 Azure SQL 데이터 웨어하우스 소스에 대한 저장 프로시저 실행을 지원합니다. 이를 지원하기 위해 [SqlSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqlsource.aspx) 및 [SqlDWSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsource.aspx) 클래스에는 **SqlReaderStoredProcedureName** 및 **StoredProcedureParameters** 속성이 있습니다. 이러한 속성에 대한 자세한 내용은 Azure.com에서 [Azure SQL 데이터베이스](data-factory-azure-sql-connector.md#sqlsource) 및 [Azure SQL 데이터 웨어하우스](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) 문서를 참조하세요.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0420_2016-->

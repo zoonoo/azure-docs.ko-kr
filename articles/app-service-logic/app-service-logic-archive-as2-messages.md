@@ -13,13 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="02/18/2016"
+   ms.date="04/20/2016"
    ms.author="rajram"/>
 
 
 # AS2 커넥터 메시지 보관 개요
 
->[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다.
+
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 [AS2 커넥터](app-service-logic-connector-as2.md)는 메시지 보관 기능을 노출합니다. 보관은 패키지 설정의 일부인 **Azure Blob 컨테이너**에 메시지를 저장하는 것입니다.
 
@@ -41,4 +42,4 @@ AS2 커넥터 API 앱 인스턴스를 찾아 ‘추적'을 클릭합니다. 필�
 [1]: ./media/app-service-logic-archive-as2-messages/Tracking.jpg
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

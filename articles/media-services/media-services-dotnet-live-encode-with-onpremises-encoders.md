@@ -3,8 +3,8 @@
 	description="이 항목에서는 .NET을 사용하여 온-프레미스 인코더로 라이브 인코딩을 수행하는 방법을 보여줍니다." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako,cenkdin" 
-	manager="dwrede" 
+	authors="Juliako" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
-	ms.author="juliako"/>
+ 	ms.date="04/18/2016"  
+	ms.author="cenkdin;juliako"/>
 
 #온-프레미스 인코더로 라이브 인코딩을 수행하는 방법
 
@@ -385,4 +385,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

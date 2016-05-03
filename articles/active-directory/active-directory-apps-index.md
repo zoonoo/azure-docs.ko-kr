@@ -197,7 +197,7 @@ Azure AD 액세스 패널은 최종 사용자가 자신의 앱을 시작하고 �
 
 | 문서 가이드 | |
 | :---: | --- |
-| 사용자에게 Single Sign-On 앱을 배포하는 데 사용할 수 있는 다양한 옵션의 비교 | [사용자에게 Azure AD 통합 응용 프로그램 배포](active-directory-appssoaccess-whatis/#deploying-azure-ad-integrated-applications-to-users) |
+| 사용자에게 Single Sign-On 앱을 배포하는 데 사용할 수 있는 다양한 옵션의 비교 | [사용자에게 Azure AD 통합 응용 프로그램 배포](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users) |
 | MyApps에 해당하는 액세스 패널 및 해당 모바일의 개요 | [액세스 패널 및 MyApps 소개](active-directory-saas-access-panel-introduction.md)<br />— [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
 | Office 365 웹 사이트에서 Azure AD 앱에 액세스하는 방법 | [Office 365 앱 시작 관리자 사용](https://support.office.com/ko-KR/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) |
 | Intune 관리된 브라우저 모바일 앱에서 Azure AD 앱에 액세스하는 방법 | [Intune 관리된 브라우저](https://technet.microsoft.com/ko-KR/library/dn878029.aspx)<br />— [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
@@ -228,4 +228,4 @@ Azure Active Directory의 다른 버전에 포함된 보고서를 보려면 [여
 
 [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

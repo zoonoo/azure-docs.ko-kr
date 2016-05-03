@@ -17,7 +17,7 @@
     ms.date="12/08/2015"
     ms.author="nitinme"/>
 
-# 사용자 지정 옵션을 사용하여 HDInsight에서 Apache Spark 클러스터 만들기(Windows)
+# 사용자 지정 옵션을 사용하여 HDInsight Windows에서 Apache Spark 클러스터 만들기(미리 보기)
 
 > [AZURE.NOTE] 이제 HDInsight가 Linux에서 Spark 클러스터를 제공합니다. HDInsight Linux에서 사용자 지정 Spark 클러스터를 만드는 방법은 [HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
 
@@ -242,4 +242,4 @@ Spark 클러스터 형식을 지정합니다.
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "HDInsight에서 Sqoop 사용"
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

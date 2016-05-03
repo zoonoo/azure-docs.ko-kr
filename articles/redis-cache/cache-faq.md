@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Azure Redis Cache FAQ" 
+	pageTitle="Azure Redis Cache FAQ | Microsoft Azure" 
 	description="Azure Redis Cache에 대한 일반적인 질문과 대답, 패턴 및 모범 사례를 알아봅니다." 
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/17/2016" 
+	ms.date="04/18/2016" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache FAQ
@@ -49,19 +49,19 @@ Azure Redis Cache에 대한 일반적인 질문과 대답, 패턴 및 모범 사
 
 | 가격 책정 계층 | 크기 | 사용 가능한 대역폭 | 1KB 키 크기 |
 |----------------------|--------|----------------------------|--------------------------------|
-| **표준 캐시 크기** | &nbsp; |**초당 메가비트(Mbps)** | **초당 요청 수(RPS)** |
-| C0 | 250MB | 5 | 600 |
-| C1 | 1 GB | 100 | 12200 |
-| C2 | 2\.5GB | 200 | 24000 |
-| C3 | 6GB | 400 | 49000 |
-| C4 | 13GB | 500 | 61000 |
-| C5 | 26GB | 1000 | 115000 |
-| C6 | 53GB | 2000 | 150000 |
+| **표준 캐시 크기** | &nbsp; |**Mb/s(초당 메가비트) / MB/s(초당 메가바이트)** | **초당 요청 수(RPS)** |
+| C0 | 250MB | 5/0.625 | 600 |
+| C1 | 1 GB | 100/12.5 | 12200 |
+| C2 | 2\.5GB | 200/25 | 24000 |
+| C3 | 6GB | 400/50 | 49000 |
+| C4 | 13GB | 500/62.5 | 61000 |
+| C5 | 26GB | 1000/125 | 115000 |
+| C6 | 53GB | 2000/250 | 150000 |
 | **프리미엄 캐시 크기** | &nbsp; | &nbsp; | **초당 요청 수(RPS), 분할된 데이터베이스당** |
-| P1 | 6GB | 1000 | 140000 |
-| P2 | 13GB | 2000 | 220000 |
-| P3 | 26GB | 2000 | 220000 |
-| P4 | 53GB | 4000 | 250000 |
+| P1 | 6GB | 1000/125 | 140000 |
+| P2 | 13GB | 2000/250 | 220000 |
+| P3 | 26GB | 2000/250 | 220000 |
+| P4 | 53GB | 4000/500 | 250000 |
 
 
 `redis-benchmark.exe`와 같은 Redis 도구 다운로드에 대한 지침은 [어떻게 Redis 명령을 실행할 수 있나요?](#cache-commands) 섹션을 참조하세요.
@@ -264,25 +264,7 @@ Microsoft Azure Redis Cache는 많이 사용되는 오픈 소스 Redis Cache를 
 
 ## 내게 적합한 Azure 캐시 기능
 
->[AZURE.IMPORTANT] 신규 개발에서는 항상 Azure Redis Cache를 사용하는 것이 좋습니다.
-
-Azure 캐시에는 현재 다음과 같은 세 가지 제품이 있습니다.
-
--	Azure Redis 캐시(영문)
--	Azure 관리된 캐시 서비스
--	Azure In-Role Cache
-
->[AZURE.IMPORTANT]2016년 11월 30일부터 Azure 관리된 캐시 서비스 및 Azure In-Role Cache가 사용 중지됩니다. 이러한 사용 중지에 대비하기 위해 Azure Redis Cache로 마이그레이션하는 것이 좋습니다.
->
->Azure Redis Cache는 일반적으로 사용할 수 있게 되었기 때문에 Azure에서 권장되는 캐싱 솔루션입니다. 또한 이제 중국 및 미국 정부를 비롯한 모든 Azure 지역에서 사용할 수 있습니다. 이 가용성으로 인해 관리된 캐시 서비스 및 In-Role Cache 서비스에 대한 사용 중지가 예정되었음을 발표합니다.
->
->관리된 캐시 서비스 및 In-Role Cache 서비스는 기존 고객을 위해 이 알림의 날짜인 2015년 11월 30일로부터 최대 12개월 동안 계속 사용할 수 있습니다—두 서비스의 서비스 종료 날짜는 2016년 11월 30일입니다. 이 날짜 후에 관리된 캐시 서비스는 종료되고 In-Role Cache 서비스도 더 이상 지원되지 않습니다.
->
->2016년 2월 1일 이후에 발생하는 첫 번째 Azure SDK 릴리스에서 새로운 In-Role Cache를 만드는 지원을 삭제합니다. 고객은 In-Role Cache를 사용하는 기존 프로젝트를 열 수 없게 됩니다.
->
->이 기간 동안 모든 기존의 관리된 캐시 서비스 및 In-Role Cache 서비스 고객은 Azure Redis Cache로 마이그레이션하는 것이 좋습니다. Azure Redis Cache는 전체적으로 더 많은 기능과 더 나은 가치를 제공합니다. 마이그레이션에 대한 자세한 내용은 [관리된 캐시 서비스에서 Azure Redis Cache로 마이그레이션](cache-migrate-to-redis.md) 설명서 웹 페이지를 참조하세요.
->
->질문이 있으면 [문의](https://azure.microsoft.com/support/options/?WT.mc_id=azurebg_email_Trans_933)하시기 바랍니다.
+>[AZURE.IMPORTANT]작년 [알림](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)에 따라 Azure 관리된 캐시 서비스 및 Azure In-Role Cache 서비스가 2016년 11월 30일에 종료됩니다. [Azure Redis Cache](https://azure.microsoft.com/services/cache/)를 사용할 것을 권장합니다. 마이그레이션에 대한 자세한 내용은 [관리된 캐시 서비스에서 Azure Redis Cache로 마이그레이션](cache-migrate-to-redis.md)을 참조하세요.
 
 ### Azure Redis 캐시(영문)
 Azure Redis Cache가 이제 최대 53GB 크기로 출시되었으며 99.9%의 가용성 SLA를 제공합니다. 새 [프리미엄 계층](cache-premium-tier-intro.md)은 99.9%의 SLA와 함께 최대 530GB 크기를 제공하며 클러스터링, VNET, 지속성 등을 지원합니다.
@@ -296,11 +278,11 @@ Redis 성공의 또 다른 중요한 측면은 이를 기반으로 구축된 정
 Azure Redis Cache를 시작하는 방법에 대한 자세한 내용은 [Azure Redis Cache를 사용하는 방법](cache-dotnet-how-to-use-azure-redis-cache.md) 및 [Azure Redis Cache 설명서](https://azure.microsoft.com/documentation/services/redis-cache/)를 참조하세요.
 
 ### 관리된 캐시 서비스
-관리된 캐시 서비스는 2016년 11월 30일에 사용 중지되도록 설정됩니다.
+[관리된 캐시 서비스는 2016년 11월 30일에 사용 중지되도록 설정됩니다.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
 
 ### In-Role Cache
-In-Role Cache는 2016년 11월 30일에 사용 중지되도록 설정됩니다.
+[In-Role Cache는 2016년 11월 30일에 사용 중지되도록 설정됩니다.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
 
 ["minIoThreads" 구성 설정]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

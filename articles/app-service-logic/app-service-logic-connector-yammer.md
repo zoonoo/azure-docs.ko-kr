@@ -13,19 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="04/11/2016"
+   ms.date="04/19/2016"
    ms.author="deonhe"/>
 
 
 # Yammer 커넥터가 향상되었습니다. 
 
-이 커넥터는 이제 새 [논리 앱 스키마 버전 2015-08-01-preview](./app-service-logic-schema-2015-08-01.md) 이상에서만 지원됩니다.
+이 커넥터가 업그레이드되어 이제 새 [논리 앱 스키마 버전 2015-08-01-preview](./app-service-logic-schema-2015-08-01.md) 이상에서만 지원되므로 이 페이지에서 콘텐츠(논리 앱 버전 2014-12-01-preview용)를 제거했습니다.
 
 
 ## 다음 단계    
 
 - [이 새로운 커넥터에 대해 자세히 알아보기](../connectors/connectors-create-api-yammer.md)
-- [이전 커넥터를 새 논리 앱 스키마 버전 2015-08-01-preview로 마이그레이션](../connectors/connectors-schema-migration.md)
 - 새 논리 앱 스키마 버전 2015-08-01-preview에서 실행되는 모든 커넥터의 [전체 목록](../connectors/apis-list.md)을 참조하세요.  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

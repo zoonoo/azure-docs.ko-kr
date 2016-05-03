@@ -1,4 +1,11 @@
-<properties pageTitle="트래픽 관리자를 사용하는 Azure 앱 서비스의 웹앱에 대한 사용자 지정 도메인 이름을 구성합니다."wpickett"부하 분산을 위해 트래픽 관리자를 포함하는 Azure 앱 서비스의 웹앱에 대한 사용자 지정 도메인 이름을 사용합니다." description="부하 분산을 위해 트래픽 관리자를 포함하는 Azure 앱 서비스의 웹앱에 대한 사용자 지정 도메인 이름을 사용합니다." services="app-service\\web" documentationCenter="" authors="rmcmurray" manager="wpickett" editor=""/>
+<properties
+	pageTitle="부하 분산을 위해 트래픽 관리자를 사용하는 Azure 앱 서비스의 사용자 지정 도메인 이름 구성"
+    description="부하 분산을 위해 트래픽 관리자를 포함하는 Azure 앱 서비스의 웹 앱에 대한 사용자 지정 도메인 이름을 사용합니다."
+	services="app-service\web"
+	documentationCenter=""
+	authors="rmcmurray"
+	manager="wpickett"
+	editor=""/>
 
 <tags
 	ms.service="app-service-web"
@@ -59,4 +66,4 @@
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

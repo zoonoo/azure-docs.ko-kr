@@ -19,6 +19,10 @@
 
 # Azure 클래식 포털을 사용하여 미디어 처리를 확장하는 방법
 
+## 다른 기술과 함께 이 작업 수행  
+
+이 페이지에서는 미디어 처리를 확장하는 방법의 개요를 제공하며 Azure 클래식 포털을 사용하여 이 작업을 수행하는 방법을 보여 줍니다. 또한 다른 기술과 함께 이 작업을 수행합니다.
+
 > [AZURE.SELECTOR]
 - [.NET](media-services-dotnet-encoding-units.md)
 - [포털](media-services-portal-encoding-units.md)
@@ -28,7 +32,7 @@
 
 ## 개요
 
-미디어 서비스 계정은 미디어 처리 작업을 처리하는 속도를 결정하는 예약 단위 유형과 연결됩니다. **S1**, **S2** 또는 **S3** 예약 단위 유형 중에서 선택할 수 있습니다. 예를 들어 **S2** 예약 단위 유형을 사용하는 경우 **S1** 유형에 비해 동일한 인코딩 작업이 더 빠르게 실행됩니다. 자세한 내용은 [예약 단위 유형](https://azure.microsoft.com/blog/author/milanga/)을 참조하세요.
+미디어 서비스 계정은 미디어 처리 작업을 처리하는 속도를 결정하는 예약 단위 유형과 연결됩니다. **S1**, **S2**, **S3** 예약 단위 유형 중에서 선택할 수 있습니다. 예를 들어 **S2** 예약 단위 유형을 사용하는 경우 **S1** 유형에 비해 동일한 인코딩 작업이 더 빠르게 실행됩니다. 자세한 내용은 [예약 단위 유형](https://azure.microsoft.com/blog/author/milanga/)을 참조하세요.
 
 예약 단위 유형을 지정하는 것 외에도 계정에 예약 단위를 프로비전하도록 지정할 수 있습니다. 프로비전되는 예약 단위의 수에 따라 특정 계정에서 동시에 처리할 수 있는 미디어 작업의 수가 결정됩니다. 예를 들어 계정에 5개의 예약 단위가 있는 경우 처리할 미디어 작업이 있다면 5개의 미디어 작업이 동시에 실행됩니다. 나머지 작업은 큐에 대기하다가 실행 중인 작업이 완료되자마자 순차적으로 처리를 위해 선택됩니다. 계정에 프로비전된 예약 단위가 없는 경우에는 작업이 순차적으로 선택됩니다. 이 경우 한 작업 완료와 다음 작업 시작 사이의 대기 시간은 시스템의 리소스 가용성에 따라 다릅니다.
 
@@ -38,8 +42,8 @@
 
  |**S1**|**S2**|**S3**|
 ----------|------------|----------|------------
-대상 사용 사례| 단일 비트 전송률 인코딩 <br/>SD 이하 해상도의 파일, 시간이 중요하지 않은 인코딩, 저가형 비디오|단일 비트 전송률 및 다중 비트 전송률 인코딩<br/>SD 및 HD 인코딩에서 모두 일반적으로 사용됨 |단일 비트 전송률 및 다중 비트 전송률 인코딩<br/>풀 HD 및 4K 해상도 비디오, 시간이 중요하며 소요 시간이 짧은 인코딩 
-벤치마크|[입력 파일: 길이 5분/640x360p/초당 29.97프레임](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_360p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D)<br/><br/>같은 해상도에서 단일 비트 전송률 MP4 파일로 인코딩할 때 약 11분이 걸립니다.|[입력 파일: 길이 5분/1280x720p/초당 29.97프레임](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_720p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D)<br/><br/>"H264 단일 비트 전송률 720p" 기본 설정을 사용하여 인코딩할 때 약 5분이 걸립니다.<br/><br/>"H264 다중 비트 전송률 720p" 기본 설정을 사용하여 인코딩할 때 약 11.5분이 걸립니다.|[입력 파일: 길이 5분/1920x1080p/초당 29.97프레임](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_1080p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D) <br/><br/>"H264 단일 비트 전송률 1080p" 기본 설정을 사용하여 인코딩할 때 약 2.7분이 걸립니다.<br/><br/>"H264 다중 비트 전송률 1080p" 기본 설정을 사용하여 인코딩할 때 약 5.7분이 걸립니다.
+대상 사용 사례| 단일 비트 전송률 인코딩 <br/>SD 이하 해상도의 파일, 시간이 중요하지 않은 인코딩, 저가형 비디오|단일 비트 전송률 및 다중 비트 전송률 인코딩.<br/>SD 및 HD 인코딩에서 모두 일반적으로 사용됨 |단일 비트 전송률 및 다중 비트 전송률 인코딩.<br/>풀 HD 및 4K 해상도 비디오 시간이 중요하며 소요 시간이 짧은 인코딩 
+벤치마크|[입력 파일: 길이 5분/640x360p/초당 29.97프레임](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_360p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D).<br/><br/>같은 해상도에서 단일 비트 전송률 MP4 파일로 인코딩할 때 약 11분이 걸립니다.|[입력 파일: 길이 5분/1280x720p/초당 29.97프레임](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_720p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D)<br/><br/>"H264 단일 비트 전송률 720p" 기본 설정을 사용하여 인코딩할 때 약 5분이 걸립니다.<br/><br/>"H264 다중 비트 전송률 720p" 기본 설정을 사용하여 인코딩할 때 약 11.5분이 걸립니다.|[입력 파일: 길이 5분/1920x1080p/초당 29.97프레임](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_1080p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D) <br/><br/>"H264 단일 비트 전송률 1080p" 기본 설정을 사용하여 인코딩할 때 약 2.7분이 걸립니다.<br/><br/>"H264 다중 비트 전송률 1080p" 기본 설정을 사용하여 인코딩할 때 약 5.7분이 걸립니다.
 
 ##고려 사항
 
@@ -61,7 +65,7 @@
 
 2. **ENCODING** 페이지를 선택합니다.
 
-	**예약된 단위 유형**을 변경하려면 S1, S2 또는 S3을 누릅니다.
+	**예약 단위 유형**을 변경하려면 S1, S2 또는 S3을 누릅니다.
 
 	선택한 예약 단위 유형에 대한 예약 단위 수를 변경하려면 **인코딩** 슬라이더를 사용합니다.
 
@@ -87,4 +91,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

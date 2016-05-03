@@ -3,7 +3,7 @@
 	description="릴리스 날짜, 사용 중지 날짜 및 DocumentDB Python SDK의 각 버전 간의 변경 내용을 포함하는 Python SDK에 대한 모든 것을 알아봅니다." 
 	services="documentdb" 
 	documentationCenter="python" 
-	authors="ryancrawcour" 
+	authors="aliuy" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="04/18/2016" 
 	ms.author="rnagpal"/>
 
 # DocumentDB SDK
@@ -99,4 +99,4 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 DocumentDB에 대해 자세히 알아보려면 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 서비스 페이지를 참조하세요.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

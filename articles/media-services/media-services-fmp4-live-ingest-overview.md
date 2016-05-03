@@ -3,8 +3,8 @@
 	description="이 사양에서는 Microsoft Azure 미디어 서비스용 라이브 스트리밍 수집에 기반한 조각화된 MP4에 대한 프로토콜 및 형식을 설명합니다. Microsoft Azure 미디어 서비스는 Microsoft Azure를 클라우드 플랫폼으로 사용하여 고객이 라이브 이벤트를 스트리밍하고 콘텐츠를 실시간으로 방송할 수 있는 라이브 스트리밍 서비스를 제공합니다. 이 문서에서는 매우 중복되고 강력한 라이브 수집 메커니즘을 구축하는 모범 사례도 다룹니다." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="cenkdin,juliako" 
-	manager="dwrede" 
+	authors="cenkdin" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
-	ms.author="juliako"/>
+ 	ms.date="04/18/2016"    
+	ms.author="cenkdin;juliako"/>
 
 #Azure 미디어 서비스 조각화된 MP4 라이브 수집 사양
 
@@ -221,4 +221,4 @@ Microsoft Azure 미디어 서비스용 라이브 수집에 기반한 ISO 조각�
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

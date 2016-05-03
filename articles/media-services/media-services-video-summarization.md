@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/18/2016"   
+	ms.date="04/14/2016"   
 	ms.author="milanga;juliako;"/>
 
 #Azure 미디어 비디오 미리 보기를 사용하여 비디오 요약 만들기
@@ -271,4 +271,6 @@ maxMotionThumbnailDurationInSecs|전체 결과 비디오의 길이를 지정하�
 
 [Azure 미디어 서비스 분석 개요](media-services-analytics-overview.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+[Azure 미디어 분석 데모](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+
+<!---HONumber=AcomDC_0420_2016-->

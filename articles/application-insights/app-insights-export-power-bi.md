@@ -133,7 +133,7 @@ Application Insights용 Power BI 콘텐츠 팩은 사용자 요구 사항에 충
 ![](./media/app-insights-export-power-bi/140.png)
 
 
-날짜 형식을 YYYY-MM-DD(파선 포함)로 설정해야 합니다.
+**날짜 형식을 YYYY-MM-DD(파선 포함)로 설정해야 합니다.**
 
 전위 패턴은 스트림 분석이 저장소에서 입력 파일을 찾는 위치를 지정합니다. 연속 내보내기에서 데이터를 저장하는 방법과 일치하도록 설정해야 합니다. 다음과 같이 설정합니다.
 
@@ -260,6 +260,12 @@ Test 함수를 사용하여 올바른 출력이 표시되는지 확인합니다.
 
 ![Power BI에서 데이터 집합과 필드를 선택합니다.](./media/app-insights-export-power-bi/210.png)
 
+
+### 데이터가 없나요?
+
+* [날짜 형식](#set-path-prefix-pattern)을 YYYY-MM-DD(대시 사용)로 정확하게 설정했는지 확인합니다.
+
+
 ### 비디오
 
 Noam Ben Zeev는 Power BI를 내보내는 방법을 보여줍니다.
@@ -274,4 +280,4 @@ Noam Ben Zeev는 Power BI를 내보내는 방법을 보여줍니다.
 * [추가 샘플 및 연습](app-insights-code-samples.md)
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

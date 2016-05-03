@@ -5,7 +5,7 @@
 	services="stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage"
 	documentationCenter="" 
 	authors="jeffstokes72"
-	manager="paulettm"
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="03/16/2016"
+	ms.date="04/15/2016"
 	ms.author="jeffstok"/>
 
 # 스트림 분석 데이터 변환 출력을 분석 도구 및 데이터 저장소 옵션에 연결
@@ -169,8 +169,6 @@
 
 [Power BI](https://powerbi.microsoft.com/)를 스트림 분석 작업의 출력으로 사용하여 분석 결과에 대한 풍부한 시각화 환경을 제공할 수 있습니다. 작업 대시보드, 보고서 생성 및 메트릭 제어 보고에 이 기능을 이용할 수 있습니다.
 
-> [AZURE.NOTE] 이때 Power BI 출력의 생성 및 구성은 Azure 클래식 포털에서만 지원됩니다.
-
 ### Power BI 계정 권한 부여
 
 1.	Azure 관리 포털에서 Power BI를 출력으로 선택하는 경우 메시지가 표시되어 기존 Power BI 사용자 권한을 부여하거나 새 Power BI 계정을 만듭니다.  
@@ -200,7 +198,7 @@ Power BI 출력 및 대시보드 구성에 대한 연습은 [Azure스트림 분�
 
 ### Power BI 권한 부여 갱신
 
-Power BI 출력을 포함하는 모든 작업에 대해 90일마다 인증 토큰을 수동으로 새로 고쳐야 하는 임시 제한 사항이 있습니다. 작업을 만들거나 마지막으로 인증한 후에 암호가 변경된 경우에도 Power BI 계정을 다시 인증해야 합니다. 이 문제의 증상은 작업 출력이 없으며 작업 로그에 "사용자 인증 오류"가 표시됩니다.
+작업을 만들거나 마지막으로 인증한 후에 암호가 변경된 경우에 Power BI 계정을 다시 인증해야 합니다. MFA(Multi-Factor Authentication)가 AAD(Azure Active Directory) 테넌트에 구성된 경우 2주마다 Power BI 권한 부여도 갱신해야 합니다. 이 문제의 증상은 작업 출력이 없으며 작업 로그에 "사용자 인증 오류"가 표시됩니다.
 
   ![Power BI 새로 고침 토큰 오류](./media/stream-analytics-define-outputs/03-stream-analytics-define-outputs.png)
 
@@ -318,4 +316,4 @@ Power BI 출력을 포함하는 모든 작업에 대해 90일마다 인증 토�
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

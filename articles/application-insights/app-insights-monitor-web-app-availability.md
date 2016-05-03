@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/01/2016"
+	ms.date="04/18/2016"
 	ms.author="awills"/>
 
 # 웹 사이트의 가용성 및 응답성 모니터링
@@ -65,6 +65,8 @@ Application Insights 리소스에서 가용성 타일을 찾습니다. 이것을
 
 
 - **경고**는 기본적으로 5분 동안 세 곳에서 오류가 발생하는 경우 사용자에게 전송됩니다. 한 곳에서 발생한 오류는 사이트의 문제가 아니라 네트워크에 문제가 있을 가능성이 높습니다. 그러나 다소 민감하게 작동하도록 임계값을 변경할 수 있으며 메일이 보내지는 주소도 변경할 수 있습니다.
+
+    경고가 발생하면 호출되는 [webhook](../azure-portal/insights-webhooks-alerts.md)을 설정할 수 있습니다.
 
 #### 더 많은 URL 테스트
 
@@ -235,7 +237,8 @@ Visual Studio Enterprise 또는 Ultimate를 사용하여 웹 세션을 기록합
 
 ## 자동화
 
-[PowerShell 스크립트를 사용하여 웹 테스트를 자동으로 설정](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)할 수 있습니다.
+* [PowerShell 스크립트를 사용하여 웹 테스트를 자동으로 설정](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)합니다. 
+* 경고가 발생하면 호출되는 [webhook](../azure-portal/insights-webhooks-alerts.md)을 설정합니다.
 
 ## 질문이 있으십니까? 문제가 있습니까?
 
@@ -393,4 +396,4 @@ Visual Studio Enterprise 또는 Ultimate를 사용하여 웹 세션을 기록합
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0427_2016-->

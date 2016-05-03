@@ -1,6 +1,6 @@
 <properties
  pageTitle="Azure CDN(콘텐츠 배달 네트워크)에서 Blob 콘텐츠의 만료를 관리하는 방법"
- description=""
+ description="Azure CDN 캐싱의 Blob에 대한 TTL(Time-To-Live)을 제어하기 위한 옵션에 대해 알아봅니다."
  services="cdn"
  documentationCenter=".NET"
  authors="camsoper"
@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="02/25/2016" 
+ ms.date="02/25/2016"
  ms.author="casoper"/>
 
 
@@ -96,4 +96,4 @@ CDN 특정 URL을 통해 Blob을 사용할 수 있는지 테스트합니다. 위
 
 [Azure CDN(콘텐츠 배달 네트워크)에서 클라우드 서비스 콘텐츠의 만료를 관리하는 방법](./cdn-manage-expiration-of-cloud-service-content.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

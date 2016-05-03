@@ -13,9 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/18/2016"   
+	ms.date="04/14/2016"   
 	ms.author="milanga;juliako;johndeu"/>
-
 
 # Azure 미디어 서비스 분석 개요
 
@@ -49,7 +48,9 @@ Azure 미디어 분석을 통해 개발자는 제한된 규모로 비디오에 �
 
 - **감시** - IP 카메라의 성장으로 감시 비디오가 급증하고 있습니다. 감시 비디오를 수동으로 검토하는 것은 많은 시간이 소요되고 실수가 발생하기 쉽습니다. Azure 미디어 분석에서는 파생물을 보다 쉽게 검토, 관리 및 생성할 수 있도록 동작 감지, 얼굴 감지 및 Hyperlapse와 같은 여러 구성 요소를 제공합니다.
 
+##데모
 
+[Azure 미디어 분석 데모](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
 ##미디어 서비스 학습 경로
 
@@ -67,4 +68,4 @@ Azure 미디어 분석을 통해 개발자는 제한된 규모로 비디오에 �
 
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

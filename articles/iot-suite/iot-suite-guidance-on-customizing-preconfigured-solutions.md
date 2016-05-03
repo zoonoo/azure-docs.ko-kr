@@ -58,15 +58,13 @@ Azure IoT Suite와 함께 제공되는 미리 구성된 솔루션은 제품 내�
 
 가장 일반적인 확장 작업 중 하나는 시나리오와 관련된 장치를 사용하는 것입니다. 장치를 사용하는 여러 방법이 있습니다. 이 방법은 해당 시나리오에 맞게 시뮬레이션된 장치를 변경하거나 [IoT 장치 SDK][]를 사용하여 솔루션에 대한 실제 장치에 연결하는 것이 포함됩니다.
 
-미리 구성된 원격 모니터링 솔루션에 장치를 추가하는 단계별 가이드는 [Iot Suite 연결 장치](iot-suite-connecting-devices.md)를 참조하세요.
+미리 구성된 원격 모니터링 솔루션에 장치를 추가하기 위한 단계별 가이드는 [Iot Suite 연결 장치](iot-suite-connecting-devices.md) 및 미리 구성된 원격 모니터링 솔루션과 함께 사용하도록 디자인된 [원격 모니터링 C SDK 샘플](https://github.com/Azure/azure-iot-sdks/tree/master/c/serializer/samples/remote_monitoring)을 참조하세요.
 
 ### 고유한 시뮬레이션된 장치 만들기
 
 .NET 시뮬레이터는 원격 모니터링 솔루션 소스 코드(위 참조)에 포함되어 있습니다. 이 시뮬레이터는 솔루션의 일부로 프로비전되었으며 다른 메타데이터, 원격 분석을 보내거나 다른 명령에 응답하도록 변경될 수 있습니다.
 
 원격 모니터링 미리 구성된 솔루션에서 미리 구성된 시뮬레이터는 온도 및 습도 원격 분석을 내보내는 냉각 장치이며 GitHub 리포지토리를 분기한 경우 [Simulator.WebJob](https://github.com/Azure/azure-iot-remote-monitoring/tree/master/Simulator/Simulator.WebJob) 프로젝트에서 시뮬레이터를 수정할 수 있습니다.
-
-또한 Azure IoT는 미리 구성된 원격 모니터링 솔루션과 함께 사용하도록 설계된 [C SDK 샘플](https://github.com/Azure/azure-iot-sdks/tree/master/c/serializer/samples/remote_monitoring)을 제공합니다.
 
 ### 고유한 (물리적) 장치 빌드 및 사용
 
@@ -143,4 +141,4 @@ IoT 장치에 대한 자세한 내용은 [Azure IoT 개발자 사이트](https:/
 [lnk-permissions]: iot-suite-permissions.md
 [lnk-classic-portal]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

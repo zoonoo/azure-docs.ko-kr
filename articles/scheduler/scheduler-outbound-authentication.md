@@ -1,6 +1,6 @@
 <properties
  pageTitle="스케줄러 아웃바운드 인증"
- description=""
+ description="스케줄러 아웃바운드 인증"
  services="scheduler"
  documentationCenter=".NET"
  authors="krisragh"
@@ -120,4 +120,4 @@ Azure PowerShell에서 `Get-AzureAccount`를 실행하여 Azure AD 테넌트의 
 
  [Azure 스케줄러 제한, 기본값 및 오류 코드](scheduler-limits-defaults-errors.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/10/2016"
+   ms.date="04/20/2016"
    ms.author="rajram"/>
 
 # BizTalk JSON 인코더 시작 및 논리 앱에 추가 
->[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다.
+
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
+
 
 BizTalk JSON Encode Decode 커넥터를 사용하면 JSON 및 XML 데이터 간에 사용자 앱을 상호 운용할 수 있습니다. 이것은 주어진 JSON 인스턴스를 XML로 변환하며 그 반대로 변환할 수도 있습니다.
 
@@ -70,4 +72,4 @@ Input Xml|object|입력 Xml 내용
 <!--Links -->
 [논리 앱 만들기]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

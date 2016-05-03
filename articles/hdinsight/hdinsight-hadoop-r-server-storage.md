@@ -1,6 +1,6 @@
 <properties
-   pageTitle="HDInsight Premium의 R 서버에 대한 Azure 저장소 옵션 | Azure"
-   description="HDInsight Premium의 R 서버에서 사용할 수 있는 다양한 저장소 옵션을 알아봅니다."
+   pageTitle="HDInsight의 R 서버에 대한 Azure 저장소 옵션(미리 보기) | Azure"
+   description="HDInsight의 R 서버 사용자가 사용할 수 있는 다양한 저장소 옵션을 알아봅니다(미리 보기)."
    services="HDInsight"
    documentationCenter=""
    authors="jeffstokes72"
@@ -18,9 +18,9 @@
    ms.author="jeffstok"
 />
 
-# HDInsight Premium의 R 서버에 대한 Azure 저장소 옵션
+# HDInsight의 R 서버에 대한 Azure 저장소 옵션(미리 보기)
 
-HDI 클러스터의 R 서버는 데이터, 코드, 분석의 결과 개체 등을 유지하기 위해 Azure Blob과 Azure Data Lake 저장소 모두에 액세스할 수 있습니다.
+HDInsight의 R 서버(미리 보기)는 데이터, 코드, 분석의 결과 개체 등을 유지하기 위해 Azure Blob과 Azure Data Lake 저장소 모두에 액세스할 수 있습니다.
 
 HDInsight의 Hadoop 클러스터를 만들 때 Azure 저장소 계정을 지정합니다. 해당 계정은 특정 Blob 저장소 컨테이너는 사용자가 만든 클러스터의 파일 시스템, 즉 HDFS(Hadoop Distributed File System)를 유지하도록 지정됩니다. 성능을 위해 HDInsight 클러스터는 사용자가 지정한 기본 저장소 계정과 동일한 데이터 센터에 만들어집니다. 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용](hdinsight-hadoop-use-blob-storage.md "HDInsight에서 Azure Blob 저장소 사용")을 참조하세요.
 
@@ -110,4 +110,4 @@ R 코드에서 이름 노드 참조를 "storage2" 저장소 계정으로 변경�
 - [HDInsight Premium에 RStudio 서버 추가](hdinsight-hadoop-r-server-install-r-studio.md)
 - [HDInsight Premium의 R 서버에 대한 계산 컨텍스트 옵션](hdinsight-hadoop-r-server-compute-contexts.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

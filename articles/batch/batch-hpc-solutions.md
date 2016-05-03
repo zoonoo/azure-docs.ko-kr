@@ -1,6 +1,6 @@
 <properties
    pageTitle="클라우드의 배치 및 HPC 솔루션 | Microsoft Azure"
-   description="Azure의 배치 및 고성능 컴퓨팅 (큰 계산) 시나리오와 솔루션 옵션을 소개합니다."
+   description="Azure의 배치 및 고성능 컴퓨팅 (HPC 및 큰 계산) 시나리오와 솔루션 옵션을 소개합니다."
    services="batch, virtual-machines, cloud-services"
    documentationCenter=""
    authors="dlepow"
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="01/21/2016"
+   ms.date="04/21/2016"
    ms.author="danlep"/>
 
 # Azure 클라우드의 배치 및 HPC 솔루션
@@ -26,7 +26,7 @@ Azure는 효율적이고 확장성 있는 *빅 컴퓨팅*이라고도 하는 배
 
 * Azure에서 전체 HPC 클러스터 도구 및 워크로드 실행
 
-* [배치](https://azure.microsoft.com/documentation/services/batch/)와 같은 관리되고 확장 가능한 Azure 서비스를 사용하여 계산 인프라를 배포하고 관리할 필요없이 계산 집약적인 워크로드를 실행합니다.
+* [배치](https://azure.microsoft.com/documentation/services/batch/)와 같은 관리되고 확장성 있는 Azure 서비스를 사용하여 계산 인프라를 배포하고 관리할 필요없이 계산 집약적인 워크로드를 실행합니다.
 
 또한 이 문서에서 다루지 않지만 Azure는 개발자와 파트너에게 다양한 기능, 아키텍처 선택 및 개발 도구를 제공하여 대규모의 사용자 지정 빅 컴퓨팅 워크플로를 구축합니다. 그리고 파트너 에코시스템의 증가로 Azure 클라우드에서 빅 컴퓨팅 워크로드의 생산성이 향상될 수 있습니다.
 
@@ -68,7 +68,7 @@ Azure 또는 하이브리드(크로스-프레미스) 환경에대해 온-프레�
 
 ## 계산 관리 및 작업 예약
 
-일반적으로 배치 및 HPC 응용 프로그램 실행에는 클러스터형 계산 리소스를 관리하 고 작업을 실행하는 응용 프로그램에 할당하는 *클러스터 관리자* 및 *작업 스케줄러*가 포함됩니다. 이러한 함수는 별도 도구나 통합된 도구 또는 서비스로 수행할 수 있습니다.
+일반적으로 배치 및 HPC 응용 프로그램 실행에는 클러스터형 계산 리소스를 관리하고 작업을 실행하는 응용 프로그램에 할당하는 *클러스터 관리자* 및 *작업 스케줄러*가 포함됩니다. 이러한 함수는 별도 도구나 통합된 도구 또는 서비스로 수행할 수 있습니다.
 
 * **클러스터 관리자** - 계산 리소스 (또는 계산 노드)를 프로비전하고 릴리스하고 관리합니다. 클러스터 관리자는 계산 노드의 운영 체제 이미지 및 응용 프로그램의 설치를 자동화하고, 요구 사항에 따라 계산 리소스의 크기를 조정하고 노드의 성능을 모니터링 할 수 있습니다.
 
@@ -85,9 +85,9 @@ Windows 기반 및 Linux 기반 클러스터용 클러스터링 및 작업 예�
 
  | 시나리오 | 선택한 이유는 무엇인가요?
 ------------- | ----------- | ---------------
-**Azure에 HPC 클러스터 버스트**<br/><br/>[![클러스터 버스트][burst_cluster]](./media/batch-hpc-solutions/burst_cluster.png) <br/><br/> 자세한 정보:<br/>• [Microsoft HPC Pack으로 Azure에 버스트](https://technet.microsoft.com/library/gg481749.aspx)<br/><br/>• [Microsoft HPC Pack으로 하이브리드 계산 클러스터 설정](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)<br/><br/>|• 하이브리드 솔루션에서 온-프레미스 [Microsoft HPC 팩](https://technet.microsoft.com/library/cc514029) 클러스터를 추가 Azure 리소스와 결합.<br/><br/>• 빅 컴퓨팅을 확장하여 PaaS(Platform as a Service) 가상 컴퓨터 인스턴스(현재 Windows Server만 해당)에서 실행.<br/><br/>• 선택적 Azure 가상 네트워크를 사용하여 온-프레미스 라이선스 서버 또는 데이터 저장소에 액세스|• 기존 HPC 팩 클러스터가 있으며 더 많은 리소스가 필요함 <br/><br/>• 추가 HPC 클러스터 인프라를 구입 및 관리하지 않으려 함<br/><br/>• 일시적인 최대 수요 기간 또는 특수한 프로젝트가 존재함
+**Azure에 HPC 클러스터 버스트**<br/><br/>[![클러스터 버스트][burst_cluster]](./media/batch-hpc-solutions/burst_cluster.png) <br/><br/> 자세한 정보:<br/>• [Microsoft HPC Pack으로 Azure에 버스트](https://technet.microsoft.com/library/gg481749.aspx)<br/><br/>• [Microsoft HPC Pack으로 하이브리드 계산 클러스터 설정](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)<br/><br/>|• 하이브리드 솔루션에서 [Microsoft HPC 팩](https://technet.microsoft.com/library/cc514029) 또는 기타 온-프레미스 클러스터를 추가적인 Azure 리소스와 결합.<br/><br/>• 빅 컴퓨팅 워크로드를 확장하여 PaaS(Platform as a Service) 가상 컴퓨터 인스턴스(현재 Windows Server만 해당)에서 실행.<br/><br/>• 선택적 Azure 가상 네트워크를 사용하여 온-프레미스 라이선스 서버 또는 데이터 저장소에 액세스|• 기존 HPC 클러스터가 있으며 더 많은 리소스가 필요함 <br/><br/>• 추가 HPC 클러스터 인프라를 구입 및 관리하지 않으려 함<br/><br/>• 일시적인 최대 수요 기간 또는 특수한 프로젝트가 존재함
 **Azure에서 HPC 클러스터 전체 만들기**<br/><br/>[![IaaS에서 클러스터][iaas_cluster]](./media/batch-hpc-solutions/iaas_cluster.png)<br/><br/>자세한 정보:<br/>• [Azure에서 HPC 클러스터 솔루션](./big-compute-resources.md)<br/><br/>|• 표준 또는 사용자 지정 Windows 또는 Linux IaaS(infrastructure as a service) 가상 컴퓨터에 빠르고 일관되게 응용 프로그램 및 클러스터 도구 배포.<br/><br/>• 선택한 작업 예약 솔루션을 사용하여 다양한 빅 컴퓨팅 워크로드 실행.<br/><br/>• 전체 클라우드 기반 솔루션을 만들기 위해 네트워킹 및 저장소를 포함하여 추가 Azure 서비스 사용. |• 추가 Linux 또는 Windows HPC 클러스터 인프라를 구입 및 관리하지 않으려 함<br/><br/>• 일시적인 최대 수요 기간 또는 특수한 프로젝트가 존재함<br/><br/>• 일정 기간 동안 추가 클러스터가 필요하지만 배포할 컴퓨터 및 공간에 투자하지 않으려 함<br/><br/>• 클라우드에서 완전히 서비스로 실행되도록 계산 집약적인 응용 프로그램을 오프로드하려 함
-**Azure에 병렬 응용 프로그램 규모 확장**<br/><br/>[![Azure 배치][batch_proc]](./media/batch-hpc-solutions/batch_proc.png)<br/><br/>자세한 정보:<br/>• [Azure 배치의 기본 사항](./batch-technical-overview.md)<br/><br/>• [.NET용 Azure 배치 라이브러리 시작](./batch-dotnet-get-started.md)|• [Azure 배치](https://azure.microsoft.com/documentation/services/batch/) API로 개발하여 PaaS(Platform as a Service) 가상 컴퓨터(현재 Windows Server만 해당)의 풀에서 실행하는 다양한 빅 컴퓨팅 워크로드의 규모 확장.<br/><br/>• Azure 서비스를 사용하여 별도의 HPC 클러스터 또는 작업 스케줄러를 요구하지 않고 가상 컴퓨터, 작업 예약, 재해 복구, 데이터 이동, 종속성 관리 및 응용 프로그램 배포의 배포 및 자동 크기 조정 관리.|• 계산 리소스 또는 작업 스케줄러를 관리하지 않는 대신 응용 프로그램의 실행에 집중하려고 함<br/><br/>• 클라우드에서 서비스로 실행되도록 계산 집약적인 응용 프로그램을 오프로드하려 함<br/><br/>• 계산 워크로드와 일치하도록 계산 리소스의 크기를 자동 조정하려 함
+**Azure에 병렬 응용 프로그램 규모 확장**<br/><br/>[![Azure 배치][batch_proc]](./media/batch-hpc-solutions/batch_proc.png)<br/><br/>자세한 정보:<br/>• [Azure 배치의 기본 사항](./batch-technical-overview.md)<br/><br/>• [.NET용 Azure 배치 라이브러리 시작](./batch-dotnet-get-started.md)|• [Azure 배치](https://azure.microsoft.com/documentation/services/batch/) API로 개발하여 Windows 또는 Linux 가상 컴퓨터 풀에서 실행하는 다양한 빅 컴퓨팅 워크로드의 규모 확장.<br/><br/>• Azure 서비스를 사용하여 별도의 HPC 클러스터 또는 작업 스케줄러를 요구하지 않고 가상 컴퓨터, 작업 예약, 재해 복구, 데이터 이동, 종속성 관리 및 응용 프로그램 배포의 배포 및 자동 크기 조정 관리.|• 계산 리소스 또는 작업 스케줄러를 관리하지 않는 대신 응용 프로그램의 실행에 집중하려고 함<br/><br/>• 클라우드에서 서비스로 실행되도록 계산 집약적인 응용 프로그램을 오프로드하려 함<br/><br/>• 계산 워크로드와 일치하도록 계산 리소스의 크기를 자동 조정하려 함
 
 
 ## 큰 계산에 대한 azure 서비스
@@ -98,14 +98,14 @@ Windows 기반 및 Linux 기반 클러스터용 클러스터링 및 작업 예�
 
 ### 계산 서비스
 
-Azure 계산 서비스는 빅 컴퓨팅 솔루션의 핵심이며 다른 계산 서비스는 다양한 시나리오에 대한 장점을 제공합니다. 기본적인 수준에서 이러한 서비스는 응용 프로그램이 Windows Server Hyper-v 기술을 사용하여 Azure에서 제공하는 가상 컴퓨터 기반 계산 인스턴스에서 실행되도록 서로 다른 모드를 제공합니다. 이러한 인스턴스는 다양한 표준과 사용자 지정 Linux 및 Windows 운영 체제 및 도구를 실행할 수 있습니다. Azure는 CPU 코어, 메모리, 디스크 용량 및 기타 특성의 서로 다른 구성을 가진 [인스턴트 크기](../virtual-machines/virtual-machines-linux-sizes.md)를 선택하도록 합니다. 필요에 따라 인스턴스를 수천 개의 코어로 확장하고 리소스가 더 적게 필요할 때는 축소할 수 있습니다.
+Azure 계산 서비스는 빅 컴퓨팅 솔루션의 핵심이며 다른 계산 서비스는 다양한 시나리오에 대한 장점을 제공합니다. 기본적인 수준에서 이러한 서비스는 응용 프로그램이 Windows Server Hyper-v 기술을 사용하여 Azure에서 제공하는 가상 컴퓨터 기반 계산 인스턴스에서 실행되도록 서로 다른 모드를 제공합니다. 이러한 인스턴스는 다양한 표준과 사용자 지정 Linux 및 Windows 운영 체제 및 도구를 실행할 수 있습니다. Azure는 CPU 코어, 메모리, 디스크 용량 및 기타 특성의 서로 다른 구성을 가진 [인스턴스 크기](../virtual-machines/virtual-machines-windows-sizes.md)를 선택하도록 합니다. 필요에 따라 인스턴스를 수천 개의 코어로 확장하고 리소스가 더 적게 필요할 때는 축소할 수 있습니다.
 
 >[AZURE.NOTE] 대기 시간이 짧고 처리량이 높은 응용 프로그램 네트워크를 요구하는 병렬 MPI 응용 프로그램을 포함하여 일부 HPC 워크로드의 성능을 향상시키기 위해 A8-A11 인스턴스를 활용합니다. [A8, A9, A10 및 A11 계산 집약적인 인스턴스 정보](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md)를 참조하세요.
 
 부여 | 설명
 ------------- | -----------
 **[클라우드 서비스](https://azure.microsoft.com/documentation/services/cloud-services/)**<br/><br/> |• Windows Server를 실행 중인 가상 컴퓨터에 있으며 Azure에서 완전히 관리되는 작업자 역할 인스턴스에서 큰 계산 응용 프로그램을 실행할 수 있음<br/><br/>• 서비스 (PaaS) 모델로 플랫폼에서 실행되는 관리 오버헤드가 낮은 확장 가능하고 신뢰할 수 있는 응용 프로그램을 사용<br/><br/>• 온-프레미스 HPC 클러스터 솔루션으로 통합하는 추가 도구 또는 개발이 필요함
-**[가상 컴퓨터](https://azure.microsoft.com/documentation/services/virtual-machines/)**<br/><br/> |• Microsoft Hyper-V 기술을 사용하여 서비스(IaaS)로서 계산 인프라를 제공<br/><br/>•사용자가 표준 Windows Server 또는 Linux 이미지, 또는 사용자가 공급하거나 [Azure Marketplace](https://azure.microsoft.com/marketplace/)<br/><br/>에서 공급된 이미지 및 데이터 디스크에 서 나온 영구 클라우드 컴퓨터를 유연하게 제공하고 관리할 수 있도록 함• 클라우드에서 온-프레미스 계산 클러스터 도구 및 응용 프로그램을 완전히 실행
+**[가상 컴퓨터](https://azure.microsoft.com/documentation/services/virtual-machines/)**<br/><br/> |• Microsoft Hyper-V 기술을 사용하여 서비스(IaaS)로서 계산 인프라를 제공<br/><br/>•사용자가 표준 Windows Server 또는 Linux 이미지, 또는 사용자가 공급하거나 [Azure 마켓플레이스](https://azure.microsoft.com/marketplace/)에서 공급된 이미지 및 데이터 디스크에 서 나온 영구 클라우드 컴퓨터를 유연하게 제공하고 관리할 수 있도록 함<br/><br/>• 용량을 자동으로 증가 또는 감소시키는 자동 크기 조정과 함께, 동일한 가상 컴퓨터로부터 대규모 서비스를 빌드하기 위해 [VM 크기 집합](https://azure.microsoft.com/documentation/services/virtual-machine-scale-sets/)으로 배포 및 관리될 수 있음<br/><br/>• 클라우드에서 온-프레미스 계산 클러스터 도구 및 응용 프로그램을 완전히 실행<br/><br/>
 **[배치](https://azure.microsoft.com/documentation/services/batch/)**<br/><br/> |• 완전히 관리되는 서비스에서 대규모 병렬 및 배치 워크로드를 실행<br/><br/>• 작업 예약 및 가상 컴퓨터의 관리된 풀의 자동 크기 조정 제공<br/><br/>• 개발자가 서비스 또는 클라우드 가능 기존 응용 프로그램으로 응용 프로그램을 작성하거나 실행할 수 있도록 함<br/>
 
 ### 저장소 서비스
@@ -114,7 +114,9 @@ Azure 계산 서비스는 빅 컴퓨팅 솔루션의 핵심이며 다른 계산 
 
 * [Blob, 테이블 및 큐 저장소](https://azure.microsoft.com/documentation/services/storage/) - 대량의 구조화되지 않은 데이터, NoSQL 데이터 및 워크플로와 통신에 대한 메시지를 각각 관리합니다. 예: 큰 기술 데이터 집합 또는 응용 프로그램이 처리하는 입력된 이미지 또는 미디어 파일에 대해 blob 저장소를 사용할 수 있습니다. 솔루션에서 비동기 통신을 위한 큐를 사용할 수 있습니다. [Microsoft Azure 저장소 소개](../storage/storage-introduction.md)를 참조하세요.
 
-* [Azure 파일 저장소](https://azure.microsoft.com/services/storage/files/) - 일부 HPC 클러스터 솔루션에 필요한 표준 SMB 프로토콜을 사용 하여 Azure에 일반적인 파일 및 데이터를 공유합니다.
+* [Azure 파일 저장소](https://azure.microsoft.com/services/storage/files/) - 일부 HPC 클러스터 솔루션에 필요한 표준 SMB 프로토콜을 사용하여 Azure에 일반적인 파일 및 데이터를 공유합니다.
+
+* [Data Lake 저장소](https://azure.microsoft.com/services/data-lake-store/) - 클라우드용 대규모 Apache Hadoop 분산 파일 시스템을 제공합니다. 배치, 실시간 및 대화형 분석에 특히 유용합니다.
 
 ### 데이터 및 분석 서비스
 
@@ -140,7 +142,7 @@ Azure 계산 서비스는 빅 컴퓨팅 솔루션의 핵심이며 다른 계산 
 
 ## 다음 단계
 
-* 솔루션을 구축할 기술 지침을 찾으려면 [배치 및 HPC에 대한 기술 리소스](big-compute-resources.md)를 참조하세요.
+* 솔루션을 구축에 대한 기술 지침을 찾으려면 [배치 및 HPC에 대한 기술 리소스](big-compute-resources.md)를 참조하세요.
 
 * Cycle Computing 및 UberCloud를 포함하여 파트너와 Azure 옵션을 살펴봅니다.
 
@@ -155,4 +157,4 @@ Azure 계산 서비스는 빅 컴퓨팅 솔루션의 핵심이며 다른 계산 
 [burst_cluster]: ./media/batch-hpc-solutions/burst_cluster.png
 [batch_proc]: ./media/batch-hpc-solutions/batch_proc.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

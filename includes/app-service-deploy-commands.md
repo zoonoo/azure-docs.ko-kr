@@ -4,6 +4,6 @@
 - [Azure 리소스 관리자로 Azure PowerShell 사용](../articles/powershell-azure-resource-manager.md)
 - [Azure 리소스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](../articles/xplat-cli-azure-resource-manager.md).
 
-아래 예제에서는 지정된 이름을 가진 계정에 리소스 그룹을 이미 보유했다고 가정합니다.
+다음 예제에서는 지정된 이름을 가진 계정에 리소스 그룹을 이미 보유했다고 가정합니다.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0420_2016-->

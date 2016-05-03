@@ -14,17 +14,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="04/14/2016" 
 	ms.author="nitinme"/>
 
-# Azure HDInsight(Linux)에서 Apache Spark의 알려진 문제
+# HDInsight Linux의 Apache Spark에 대해 알려진 문제(미리 보기)
 
 이 문서는 HDInsight Spark 공개 미리 보기에 대한 모든 알려진 문제를 추적합니다.
 
 ##Livy 누수 대화형 세션
  
-**증상:**
-
 Livy가 여전히 활성 상태인 대화형 세션(Ambari에서 또는 헤드 노드 0 가상 컴퓨터 재부팅으로 인해)으로 시작하는 경우 대화형 작업 세션이 손실됩니다. 이로 인해 새 작업은 수락된 상태에 멈출 수 있으며 시작할 수 없습니다.
 
 **해결 방법:**
@@ -46,8 +44,6 @@ Livy가 여전히 활성 상태인 대화형 세션(Ambari에서 또는 헤드 �
 
 ##Spark 기록 서버가 시작되지 않음 
 
-**증상:**
- 
 클러스터가 만들어진 후 Spark 기록 서버가 자동으로 시작되지 않습니다.
 
 **해결 방법:**
@@ -56,8 +52,6 @@ Ambari에서 기록 서버를 수동으로 시작합니다.
 
 ## Spark 로그 디렉터리에 대한 사용 권한 문제 
 
-**증상:**
- 
 hdiuser가 spark-제출로 작업을 제출하는 경우 오류 java.io.FileNotFoundException: /var/log/spark/sparkdriver\_hdiuser.log(사용 권한 거부됨)가 있고 드라이버 로그가 작성되지 않습니다.
 
 **해결 방법:**
@@ -71,13 +65,21 @@ hdiuser가 spark-제출로 작업을 제출하는 경우 오류 java.io.FileNotF
 
 다음은 Jupyter Notebook과 관련된 몇 가지 알려진 문제입니다.
 
+### .ipynb 형식으로 Jupyter Notebook을 다운로드할 수 없음
+
+HDInsight Spark용 Jupyter Notebook 최신 버전을 실행 중이고 Jupyter Notebook 사용자 인터페이스에서 **.ipynb** 파일로 Notebook의 복사본을 다운로드하려는 경우 내부 서버 오류가 표시됩니다.
+
+**해결 방법:**
+
+1.	.ipynb(예:.txt) 외에 다른 형식으로 Notebook을 다운로드하면 성공합니다.  
+2.	.ipynb 파일이 필요한 경우 **/HdiNotebooks**의 저장소 계정에 있는 클러스터 컨테이너에서 다운로드할 수 있습니다. 이는 저장소 계정에서 Notebook 백업을 지원하는 최신 버전의 HDInsight용 Jupyter Notebook에만 적용됩니다. 즉, 이전 버전의 HDInsight Spark용 Jupyter Notebook에는 이 문제가 없습니다.
+
+
 ### 파일 이름에 ASCII가 아닌 문자가 있는 Notebook
 
 Spark HDInsight 클러스터에서 사용할 수 있는 Jupyter Notebook은 파일 이름에 ASCII가 아닌 문자를 포함할 수 없습니다. ASCII가 아닌 파일 이름을 가진 파일을 Jupyter UI를 통해 업로드하려고 하면 자동으로 실패합니다. 즉, Jupyter에서 파일을 업로드할 수 없지만 시각적 오류도 throw되지 않습니다.
 
 ### 더 큰 Notebook을 로드하는 중 오류
-
-**증상:**
 
 더 큰 Notebook을 로드할 때 **`Error loading notebook`** 오류가 표시될 수 있습니다.
 
@@ -92,17 +94,13 @@ Spark HDInsight 클러스터에서 사용할 수 있는 Jupyter Notebook은 파�
 
 ### 노트북 초기 시작이 예상보다 오래 걸리는 경우 
 
-**증상:**
-
-Jupyter 노트북에서 Spark Magic을 사용한 첫 번째 문의 경우 1분 이상이 걸릴 수 있습니다.
+Jupyter Notebook에서 Spark 매직을 사용한 첫 번째 코드 문의 경우 1분 이상이 걸릴 수 있습니다.
 
 **설명:**
  
 이는 첫 번째 코드 셀이 실행될 때 발생합니다. 백그라운드에서 세션 구성이 시작되고 Spark, SQL 및 Hive 컨텍스트가 설정됩니다. 이러한 컨텍스트가 설정된 후 첫 번째 문이 실행되므로 문이 완료되는 데 시간이 오래 걸린 것 같은 느낌이 듭니다.
 
 ### 세션 만들기에서 Jupyter 노트북 시간 제한
-
-**증상:**
 
 Spark 클러스터에 리소스가 부족할 때 Jupyter 노트북에서 Spark 및 Pyspark 커널은 세션을 만들려고 할 때 시간 초과가 됩니다.
 
@@ -124,4 +122,4 @@ Spark 클러스터에 리소스가 부족할 때 Jupyter 노트북에서 Spark �
 - [개요: Azure HDInsight에서 Apache Spark(Linux)](hdinsight-apache-spark-overview.md)
 - [시작: Azure HDInsight(Linux)에서 Apache Spark 프로비전 및 Spark SQL을 사용하여 대화형 쿼리 실행](hdinsight-apache-spark-jupyter-spark-sql.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

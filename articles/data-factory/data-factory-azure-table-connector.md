@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/24/2016" 
+	ms.date="04/18/2016" 
 	ms.author="spelluru"/>
 
 # Azure 데이터 팩터리를 사용하여 Azure 테이블 간 데이터 이동
@@ -402,7 +402,7 @@ Azure 테이블 열이 날짜/시간 형식인 경우:
 azureTableDefaultPartitionKeyValue | 싱크에서 사용할 수 있는 기본 파티션 키 값입니다. | 문자열 값 | 아니요 
 azureTablePartitionKeyName | 사용자 지정 열 이름으로, 해당 열 값이 파티션 키로 사용됩니다. 지정하지 않으면 AzureTableDefaultPartitionKeyValue가 파티션 키로 사용됩니다. | 열 이름 | 아니요 |
 azureTableRowKeyName | 사용자 지정 열 이름으로, 해당 열 값이 행 키로 사용됩니다. 지정하지 않으면 각 행에 GUID를 사용합니다. | 열 이름 | 아니요  
-azureTableInsertType | Azure 테이블에 데이터를 삽입하는 모드입니다. | merge<br/>replace | 아니요 
+azureTableInsertType | Azure 테이블에 데이터를 삽입하는 모드입니다.<br/><br/>이 속성은 출력 테이블에서 파티션 및 행 키가 일치하는 기존 행의 값을 바꿀지 또는 병합할지 제어합니다. <br/><br/>이러한 설정(병합 및 바꾸기)이 작동하는 방법을 알아보려면 [엔터티 삽입 또는 병합](https://msdn.microsoft.com/library/azure/hh452241.aspx) 및 [엔터티 삽입 또는 바꾸기](https://msdn.microsoft.com/library/azure/hh452242.aspx)를 참조하세요. <br/><br> 이 설정은 테이블 수준이 아니라 행 수준에서 적용되며, 두 옵션 모두 출력 테이블에서 입력에 존재하지 않는 행을 삭제하지 않습니다. | 병합(기본값)<br/>바꾸기 | 아니요 
 writeBatchSize | WriteBatchSize 또는 writeBatchTimeout에 도달하면 Azure 테이블에 데이터를 삽입합니다. | 1에서 100 사이의 정수(단위 = 행 수) | 아니요(기본값 = 100) 
 writeBatchTimeout | WriteBatchSize 또는 writeBatchTimeout에 도달하면 Azure 테이블에 데이터를 삽입합니다. | (단위 = timespan)샘플: “00:20:00” (20분) | No (기본적으로 저장소 클라이언트 기본 시간 제한 값인 90초로 설정)
 
@@ -526,4 +526,7 @@ lastlogindate | Edm.DateTime
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+## 성능 및 튜닝  
+Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
+
+<!---HONumber=AcomDC_0420_2016-->

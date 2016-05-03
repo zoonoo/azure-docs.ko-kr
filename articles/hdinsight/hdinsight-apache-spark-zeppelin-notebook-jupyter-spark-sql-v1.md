@@ -17,7 +17,7 @@
 	ms.author="nitinme"/>
 
 
-# 빠른 시작: HDInsight에서 Apache Spark 만들기 및 Spark SQL을 사용하여 대화형 쿼리 실행(Windows)
+# 빠른 시작: HDInsight Windows에서 Apache Spark 만들기 및 Spark SQL을 사용하여 대화형 쿼리 실행(미리 보기)
 
 [AZURE.INCLUDE [hdinsight-azure-portal](../../includes/hdinsight-azure-portal.md)]
 
@@ -262,4 +262,4 @@ HDInsight에서 HDInsight 클러스터를 만들 때 Azure 저장소 계정을 �
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

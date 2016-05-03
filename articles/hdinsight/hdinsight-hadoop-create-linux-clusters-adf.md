@@ -56,6 +56,8 @@ Hive 작업 외에도 데이터 팩터리의 데이터 변환 활동 목록은 [
 - [Azure 구독](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - [Azure CLI](../xplat-cli-install.md) 또는 [Azure PowerShell](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater). 
 
+    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
+
 ##저장소 계정 준비
 
 이 시나리오에서는 최대 3개의 저장소 계정을 사용할 수 있습니다.
@@ -82,6 +84,8 @@ Hive 작업 외에도 데이터 팩터리의 데이터 변환 활동 목록은 [
 **저장소를 준비하고 Azure CLI를 사용하여 파일을 복사하려면**
 
     azure login
+    
+    azure config mode arm
 
     azure group create --name "<Azure Resource Group Name>" --location "East US 2"
 
@@ -258,7 +262,7 @@ Hive 작업 외에도 데이터 팩터리의 데이터 변환 활동 목록은 [
             "style": "EndOfInterval"
         },
 
-    Azure Data Factory에서 출력 데이터 집합 가용성이 파이프라인을 유도합니다. 즉, 월의 마지막 날에 조각이 매달 생성됩니다. 자세한 내용은 [데이터 팩터리 예약 및 실행](../data-factory/data-factory-scheduling-and-execution.md)을 참조하세요.
+    Azure Data Factory에서 출력 데이터 집합 가용성이 파이프라인을 유도합니다. 즉, 월의 마지막 날에 조각이 매달 생성됩니다. 자세한 내용은 [Data Factory 예약 및 실행](../data-factory/data-factory-scheduling-and-execution.md)을 참조하세요.
 
     파이프라인 정의는 다음과 같습니다.
     
@@ -278,7 +282,7 @@ Hive 작업 외에도 데이터 팩터리의 데이터 변환 활동 목록은 [
             }
         }
                 
-    하나의 작업이 포함됩니다. 작업의 *start* 및 *end*는 모두 과거 날짜이며 이것은 조각이 하나뿐이라는 것을 의미합니다. end가 미래 날짜이면 데이터 팩터리는 시간이 되면 다른 조각을 만듭니다. 자세한 내용은 [데이터 팩터리 예약 및 실행](../data-factory/data-factory-scheduling-and-execution.md)을 참조하세요.
+    하나의 작업이 포함됩니다. 작업의 *start* 및 *end*는 모두 과거 날짜이며 이것은 조각이 하나뿐이라는 것을 의미합니다. end가 미래 날짜이면 데이터 팩터리는 시간이 되면 다른 조각을 만듭니다. 자세한 내용은 [Data Factory 예약 및 실행](../data-factory/data-factory-scheduling-and-execution.md)을 참조하세요.
 
     다음은 작업 정의입니다.
     
@@ -318,11 +322,11 @@ Hive 작업 외에도 데이터 팩터리의 데이터 변환 활동 목록은 [
 
 1. Azure 포털에 로그인하여 Azure 포털에서 ARM 템플릿을 열려면 다음 이미지를 클릭합니다. 템플릿은 https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json에 있습니다. 
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fadfhiveactivity%2Fdata-factory-hdinsight-on-demand.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/ko-KR/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fadfhiveactivity%2Fdata-factory-hdinsight-on-demand.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. 마지막 섹션에서 만든 계정에 대해 **DATAFACTORYNAME**, **STORAGEACCOUNTNAME** 및 **STORAGEACCOUNTKEY**를 입력한 후 **확인**을 클릭합니다. 데이터 팩터리 이름은 전역적으로 고유해야 합니다.
 3. **리소스 그룹**에서, 마지막 섹션에서 사용한 동일한 리소스 그룹을 선택합니다.
-4. **약관**을 클릭한 후에 **만들기**를 클릭합니다.
+4. **약관**을 클릭한 다음 **만들기**를 클릭합니다.
 5. **만들기**를 클릭합니다. 대시보드에 **템플릿 배포 배포 중**이라는 타일이 표시됩니다. 타일 텍스트가 리소스 그룹 이름으로 변경될 때까지 기다립니다. HDInsight 클러스터를 만들려면 보통 약 20분 정도 걸립니다.
 6. 타일을 클릭하여 리소스 그룹을 엽니다. 이제 저장소 계정 리소스 외에 하나 이상의 데이터 팩터리 리소스가 나열됩니다.
 7. **hdinsight-hive-on-demand**를 클릭합니다.
@@ -434,4 +438,4 @@ Hive 작업 외에도 데이터 팩터리의 데이터 변환 활동 목록은 [
 - [HDInsight 설명서](https://azure.microsoft.com/documentation/services/hdinsight/)
 - [데이터 팩터리 설명서](https://azure.microsoft.com/documentation/services/data-factory/)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

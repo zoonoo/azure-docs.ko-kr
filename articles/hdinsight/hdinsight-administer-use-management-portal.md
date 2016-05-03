@@ -27,10 +27,6 @@
 
 다른 도구를 사용하여 HDInsight에서 Hadoop 클러스터를 만드는 정보를 보려면 탭 선택기를 클릭합니다.
 
-[AZURE.INCLUDE [hdinsight-azure-preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
-
-* [Azure 포털을 사용하여 HDInsight의 Hadoop 클러스터 관리](hdinsight-administer-use-management-portal-v1.md)
-
 **필수 구성 요소**
 
 이 문서를 시작하기 전에 다음이 있어야 합니다.
@@ -83,7 +79,8 @@ HDInsight는 다양한 Hadoop 구성 요소에서 작동합니다. 검증되어 
 	
 	- 메뉴를 사용자 지정하려면 메뉴의 아무 곳이나 마우스 오른쪽 단추로 클릭한 후 **사용자 지정**을 클릭합니다.
 	- **설정** 및 **모든 설정**: 클러스터의 자세한 구성 정보에 액세스할 수 있는 클러스터의 **설정** 블레이드를 표시합니다.
-	- **대시보드**, **클러스터 대시보드** 및 **URL: 이러한 항목을 통해 Linux 기반 클러스터용 Ambari 웹인 클러스터 대시보드에 액세스할 수 있습니다. -**Secure Shell**: SSH(Secure Shell) 연결을 사용하여 클러스터에 연결하는 방법에 대한 지침을 보여 줍니다.
+	- **대시보드**, **클러스터 대시보드** 및 **URL: 이러한 항목을 통해 Linux 기반 클러스터용 Ambari 웹인 클러스터 대시보드에 액세스할 수 있습니다.
+	-**Secure Shell**: SSH(Secure Shell) 연결을 사용하여 클러스터에 연결하는 방법에 대한 지침을 보여 줍니다.
 	- **클러스터 크기 조정**: 이 클러스터의 작업자 노드 수를 변경할 수 있습니다.
 	- **삭제**: 클러스터를 삭제합니다.
 	- **빠른 시작(![구름과 벼락 아이콘 = 빠른 시작](./media/hdinsight-administer-use-portal-linux/quickstart.png))**: HDInsight를 사용하여 시작하는 데 도움이 되는 정보를 표시합니다.
@@ -127,7 +124,7 @@ HDInsight는 다양한 Hadoop 구성 요소에서 작동합니다. 검증되어 
 	- **형식**: Hadoop, HBase, Storm, Spark. 
 	- **버전**. [HDInsight 버전](hdinsight-component-versioning.md)을 참조하세요.
 	- **구독**: 구독 이름입니다.
-	- **구독 ID**.
+	- **구독 ID**
 	- **주 데이터 원본**. Azure Blob 저장소 계정이 기본 Hadoop 파일 시스템으로 사용됩니다.
 	- **작업자 노드 가격 책정 계층**.
 	- **헤드 노드 가격 책정 계층**.
@@ -387,4 +384,4 @@ Yarn 사용자 인터페이스를 사용하려면 HDInsight 쿼리 콘솔에서 
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-command-line.png "Hadoop 명령줄"
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

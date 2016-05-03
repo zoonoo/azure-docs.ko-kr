@@ -20,9 +20,9 @@
 
 HDInsight 클러스터 프로비전에 대한 계획을 세우는 방법에 대해 알아봅니다.
 
-[AZURE.INCLUDE [hdinsight-azure-portal](../../includes/hdinsight-azure-portal.md)]
-
-* [HDInsight에서 Hadoop 클러스터 프로비전](hdinsight-provision-clusters.md) 
+> [AZURE.WARNING] 이 문서의 단계에서는 이전 버전의 Azure PowerShell 및 Azure CLI와 함께 Azure 클래식 포털을 사용합니다. 이러한 단계를 사용하지 않는 것이 좋습니다. 대신, Azure 포털과 최신 버전의 Azure PowerShell 및 Azure CLI를 사용해야 합니다. Azure 포털과 최신 버전의 Azure PowerShell 및 Azure CLI를 사용하는 이 문서의 버전은 [HDInsight에서 Hadoop 클러스터 프로비전](hdinsight-provision-clusters.md)을 참조하세요.
+>
+> Azure 포털의 장점에 대한 자세한 내용은 [Microsoft Azure 포털](https://azure.microsoft.com/features/azure-portal/)을 참조하세요.
 
 **필수 조건:**
 
@@ -442,12 +442,9 @@ Azure 계정 자격 증명을 입력하라는 메시지가 표시됩니다.
 
 > [AZURE.NOTE] 2014년 8월 29일부터 Azure CLI를 사용하여 클러스터를 Azure 가상 네트워크와 연결할 수 없습니다.
 
-HDInsight 클러스터를 프로비전하는 다른 옵션은 Azure CLI입니다. Azure CLI는 Node.js로 구현됩니다. Windows, Mac, Linux를 포함하여 Node.js를 지원하는 플랫폼에서 사용할 수 있습니다. 다음 위치에서 CLI를 설치할 수 있습니다.
+HDInsight 클러스터를 프로비전하는 다른 옵션은 Azure CLI입니다. Azure CLI는 Node.js로 구현됩니다. Windows, Mac, Linux를 포함하여 Node.js를 지원하는 플랫폼에서 사용할 수 있습니다.
 
-- **Node.js SDK** - <a href="https://www.npmjs.com/package/azure-mgmt-hdinsight" target="_blank">https://www.npmjs.com/package/azure-mgmt-hdinsight</a>
-- **Azure CLI** - <a href="https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz" target="_blank">https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz</a>  
-
-Azure CLI 사용 방법에 대한 일반적인 설명은 [Mac, Linux 및 Windows용 Azure CLI](../xplat-cli-install.md)를 참조하세요.
+Azure CLI를 사용하는 방법에 대한 일반 가이드는 [Azure CLI](../xplat-cli-install.md)를 참조하세요.
 
 아래 지침에서는 Linux 및 Windows에서 Azure CLI를 설치하는 방법 및 명령줄을 사용하여 클러스터를 프로비전하는 방법을 안내합니다.
 
@@ -535,7 +532,7 @@ NPM 또는 Windows Installer를 사용하여 Azure CLI를 설치할 수 있습�
 
 **Windows Installer를 사용하여 Azure CLI를 설치하려면**
 
-1.	****http://azure.microsoft.com/downloads/**로 이동합니다.
+1.	**http://azure.microsoft.com/downloads/**로 이동합니다.
 2.	**명령줄 도구** 섹션으로 스크롤하여 **Azure 명령줄 인터페이스**를 클릭하고 웹 플랫폼 설치 관리자 마법사를 따릅니다.
 
 **게시 설정을 다운로드하거나 가져오려면**
@@ -817,4 +814,4 @@ Visual Studio에 응용 프로그램이 열려 있을 때 **F5**를 눌러 응�
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

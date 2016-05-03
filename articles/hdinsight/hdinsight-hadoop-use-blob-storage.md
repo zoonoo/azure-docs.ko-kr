@@ -125,6 +125,8 @@ Blob을 사용하려면 먼저 [Azure 저장소 계정][azure-storage-create]을
 
 [Azure PowerShell을 설치하고 구성한][powershell-install] 경우 Azure PowerShell 프롬프트에서 다음을 사용하여 저장소 계정 및 컨테이너를 만들 수 있습니다.
 
+[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+
 	$SubscriptionID = "<Your Azure Subscription ID>"
 	$ResourceGroupName = "<New Azure Resource Group Name>"
 	$Location = "EAST US 2"
@@ -288,7 +290,7 @@ URI 체계는암호화되지 않은 액세스(*wasb:* 접두사가 있음)와 SS
 * [Azure 저장소 공유 액세스 서명을 사용하여 HDInsight에서 데이터 액세스 제한][hdinsight-use-sas]
 
 [hdinsight-use-sas]: hdinsight-storage-sharedaccesssignature-permissions.md
-[powershell-install]: powershell-install-configure.md
+[powershell-install]: ../powershell-install-configure.md
 [hdinsight-creation]: hdinsight-provision-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-tutorial-get-started-windows.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
@@ -296,10 +298,10 @@ URI 체계는암호화되지 않은 액세스(*wasb:* 접두사가 있음)와 SS
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
 [blob-storage-restAPI]: http://msdn.microsoft.com/library/windowsazure/dd135733.aspx
-[azure-storage-create]: ../storage-create-storage-account.md
+[azure-storage-create]: ../storage/storage-create-storage-account.md
 
 [img-hdi-powershell-blobcommands]: ./media/hdinsight-hadoop-use-blob-storage/HDI.PowerShell.BlobCommands.png
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

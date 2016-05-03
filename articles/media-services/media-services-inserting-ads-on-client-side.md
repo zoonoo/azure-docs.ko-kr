@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2016"
+	ms.date="04/18/2016"
 	ms.author="juliako"/>
 
 
@@ -160,7 +160,7 @@ Application/x-javascript – 리소스가 HTML <**script**> 태그에 표시됩�
 
 Application/x-shockwave-flash – 리소스가 Flash Player에 표시됩니다.
 
-**<IFrameResource>**는 IFrame에 표시될 수 있는 HTML 리소스를 설명합니다. **<HTMLResource>**는 웹 페이지에 삽입될 수 있는 HTML 코드 조각을 설명합니다. **<TrackingEvents>**는 이벤트가 발생할 때 요청할 URI 및 추적 이벤트를 지정합니다. 이 샘플에서 acceptInvitation 및 collapse 이벤트가 추적됩니다. **<NonLinearAds>** 요소 및 해당 자식에 대한 자세한 내용은 IAB.NET/VAST를 참조하세요. **<TrackingEvents>** 요소는 **<NonLinear>** 요소가 아닌 ** <NonLinearAds>** 요소 내에 있습니다.
+**<IFrameResource>**는 IFrame에 표시될 수 있는 HTML 리소스를 설명합니다. **<HTMLResource>**는 웹 페이지에 삽입될 수 있는 HTML 코드 조각을 설명합니다. **<TrackingEvents>**는 이벤트가 발생할 때 요청할 URI 및 추적 이벤트를 지정합니다. 이 샘플에서 acceptInvitation 및 collapse 이벤트가 추적됩니다. **<NonLinearAds>** 요소 및 해당 자식에 대한 자세한 내용은 IAB.NET/VAST를 참조하세요. **<TrackingEvents>** 요소는 **<NonLinear>** 요소가 아닌 **<NonLinearAds>** 요소 내에 있습니다.
 
 동반 광고는 <CompanionAds> 요소 내에서 정의됩니다. <CompanionAds> 요소에는 하나 이상의 <Companion> 요소가 포함될 수 있습니다. 각 <Companion> 요소는 동반을 설명하며, 비선형 광고에서와 같은 방법으로 지정되는 <StaticResource>, <IFrameResource> 또는 <HTMLResource>를 포함할 수 있습니다. VAST 파일은 여러 동반 광고를 포함할 수 있고 플레이어 응용 프로그램은 표시할 가장 적합한 광고를 선택할 수 있습니다. VAST에 대한 자세한 내용은 [VAST 3.0](http://www.iab.net/media/file/VASTv3.0.pdf)(영문)을 참조하세요.
 
@@ -813,4 +813,4 @@ Microsoft Media Platform: iOS용 플레이어 프레임워크에는 프레임워
 
 [비디오 플레이어 응용 프로그램 개발](media-services-develop-video-players.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

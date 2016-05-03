@@ -1,6 +1,6 @@
 <properties
-   pageTitle="HDI Premium의 R 서버에 대한 계산 컨텍스트 옵션 | Azure"
-   description="HDInsight Premium에서 R 서버 사용자가 사용할 수 있는 다양한 계산 컨텍스트 옵션을 알아봅니다."
+   pageTitle="HDInsight의 R 서버에 대한 계산 컨텍스트 옵션(미리 보기) | Azure"
+   description="HDInsight(미리 보기)의 R 서버 사용자가 사용할 수 있는 다양한 계산 컨텍스트 옵션을 알아봅니다."
    services="HDInsight"
    documentationCenter=""
    authors="jeffstokes72"
@@ -18,9 +18,9 @@
    ms.author="jeffstok"
 />
 
-# HDInsight Premium의 R 서버에 대한 계산 컨텍스트 옵션
+#HDInsight의 R 서버에 대한 계산 컨텍스트 옵션(미리 보기)
 
-HDI Spark의 R 서버는 [Azure Blob](../storage/storage-introduction.md "Azure Blob 저장소") 저장소 계정 또는 로컬 Linux 파일 시스템의 컨테이너에 있는 HDFS에 저장된 데이터를 사용하는 최신 R 기반 분석 기능을 제공합니다. R 서버는 오픈 소스 R을 기반으로 하기 때문에 빌드한 R 기반 응용 프로그램에서 8000 이상의 오픈 소스 R 패키지와 R 서버에 포함된 Microsoft의 빅 데이터 분석 패키지인 [ScaleR](http://www.revolutionanalytics.com/revolution-r-enterprise-scaler "Revolution Analytics ScaleR")의 루틴을 활용할 수 있습니다. Premium 클러스터의 에지 노드는 클러스터에 연결하고 R 스크립트를 실행하는 데 편리한 연결 영역을 제공합니다. 에지 노드를 사용하는 경우 ScaleR의 Hadoop Map Reduce 또는 Spark 계산 컨텍스트를 통해 에지 노드 서버의 코어 또는 클러스터 노드에서 ScaleR의 병렬화된 분산 함수를 실행할 수 있습니다.
+HDInsight(미리 보기)의 R 서버는 [Azure Blob](../storage/storage-introduction.md "Azure Blob 저장소") 저장소 계정 또는 로컬 Linux 파일 시스템의 컨테이너에 있는 HDFS에 저장된 데이터를 사용하는 최신 R 기반 분석 기능을 제공합니다. R 서버는 오픈 소스 R을 기반으로 하기 때문에 빌드한 R 기반 응용 프로그램에서 8000 이상의 오픈 소스 R 패키지와 R 서버에 포함된 Microsoft의 빅 데이터 분석 패키지인 [ScaleR](http://www.revolutionanalytics.com/revolution-r-enterprise-scaler "Revolution Analytics ScaleR")의 루틴을 활용할 수 있습니다. Premium 클러스터의 에지 노드는 클러스터에 연결하고 R 스크립트를 실행하는 데 편리한 연결 영역을 제공합니다. 에지 노드를 사용하는 경우 ScaleR의 Hadoop Map Reduce 또는 Spark 계산 컨텍스트를 통해 에지 노드 서버의 코어 또는 클러스터 노드에서 ScaleR의 병렬화된 분산 함수를 실행할 수 있습니다.
 
 ## 가장자리 노드에 대한 계산 컨텍스트
 
@@ -79,4 +79,4 @@ HDI Spark의 R 서버는 [Azure Blob](../storage/storage-introduction.md "Azure 
 - [HDInsight Premium에 RStudio 서버 추가](hdinsight-hadoop-r-server-install-r-studio.md)
 - [HDInsight Premium의 R 서버에 대한 Azure 저장소 옵션](hdinsight-hadoop-r-server-storage.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

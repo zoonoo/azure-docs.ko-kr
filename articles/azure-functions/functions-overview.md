@@ -15,11 +15,13 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="03/09/2016"
+   ms.date="04/21/2016"
    ms.author="cfowler;mahender"/>
    
    
 # Azure 함수 개요
+
+이 항목에서는 Azure Functions에 대한 간략한 개요를 제공합니다. 지금 바로 Azure Functions로 이동하여 시작하려면 [첫 번째 Azure Function 만들기](functions-create-first-azure-function.md)를 시작합니다. 함수에 대한 자세한 기술 정보를 찾으려는 경우 [개발자 참조](functions-reference.md)를 참조하세요.
 
 ## 함수에 대한 더 빠른 방법
 
@@ -51,8 +53,8 @@ Azure 함수는 복잡한 통합 및 연결 태스크를 간소화하는 기능�
 * **고유한 종속성 가져오기** - 함수는 즐겨찾는 라이브러리를 사용할 수 있도록 NuGet 및 NPM을 지원합니다.  
 * **통합 보안** -Azure Active Directory, Facebook, Google, Twitter 및 Microsoft 계정과 같은 OAuth 공급자로 HTTP 트리거된 함수를 보호합니다.  
 * **코드 없는 통합** - Azure 서비스 및 SaaS(software-as-a-service) 제품을 쉽게 활용합니다. 몇 가지 예제는 아래 [통합 섹션](#integrations)을 참조하세요.  
-* **유연한 개발** - 포털내 편집기를 사용하여 함수를 수정하거나 연속 통합을 설정하고 GitHub, Visual Studio Team Services를 통해 코드를 배포합니다.  
-* **오픈 소스** - 함수는 오픈 소스이며 [GitHub에서 사용할 수 있](https://github.com/azure/azure-webjobs-sdk-script)습니다.  
+* **유연한 개발** - 포털 내 편집기를 사용하여 함수를 수정하거나 연속 통합을 설정하고 GitHub, Visual Studio Team Services를 통해 코드를 배포합니다.  
+* **오픈 소스** - 함수는 오픈 소스이며 [GitHub에서 사용](https://github.com/azure/azure-webjobs-sdk-script)할 수 있습니다.  
 
 ### <a name="integrations"></a>통합
 
@@ -72,4 +74,12 @@ Azure 함수를 실행하는 방법은 동적 앱 서비스 계획을 사용하�
 
 [AZURE.INCLUDE [문제 보고](../../includes/functions-reporting-issues.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+##다음 단계
+
++ [첫 번째 Azure Function 만들기](functions-create-first-azure-function.md) 바로 Azure Functions 빠른 시작을 사용하여 첫 번째 함수를 만듭니다. 
++ [Azure Functions 개발자 참조](functions-reference.md) 함수를 코딩하고 트리거 및 바인딩을 정의하기 위한 Azure Functions 런타임 및 참조에 대한 보다 기술적인 정보를 제공합니다.
++ [Azure Functions 테스트](functions-test-a-function.md) 함수를 테스트하는 다양한 도구와 기법을 설명합니다.
++ [Azure Functions를 확장하는 방법](functions-scale.md) 동적 서비스 계획 등 Azure Functions에 사용할 수 있는 서비스 계획과 적절한 계획을 선택하는 방법을 설명합니다. 
++ [Azure 앱 서비스 정의](../app-service/app-service-value-prop-what-is.md) Azure Functions는 배포, 환경 변수 및 진단과 같은 핵심 기능을 위해 Azure 앱 서비스 플랫폼을 활용합니다. 
+
+<!---HONumber=AcomDC_0427_2016-->

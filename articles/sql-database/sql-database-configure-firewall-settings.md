@@ -1,5 +1,5 @@
 <properties
-	pageTitle="방법: 방화벽 설정 구성 | Microsoft Azure"
+	pageTitle="방법: SQL 데이터베이스 방화벽 구성 | Microsoft Azure"
 	description="Azure SQL 데이터베이스에 액세스하는 IP 주소에 대한 방화벽을 구성하는 방법을 알아봅니다."
 	services="sql-database"
 	documentationCenter=""
@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article" 
-	ms.date="04/12/2016"
+	ms.date="04/14/2016"
 	ms.author="rickbyh;carlrab"/>
 
 
-# 방법: Azure 포털을 사용하여 SQL 데이터베이스에 방화벽 설정 구성
+# Azure 포털을 사용하여 Azure SQL 데이터베이스 방화벽을 구성하는 방법
 
 
 > [AZURE.SELECTOR]
@@ -57,4 +57,4 @@ Azure SQL Server는 서버와 데이터베이스에 대한 연결을 허용하�
 
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

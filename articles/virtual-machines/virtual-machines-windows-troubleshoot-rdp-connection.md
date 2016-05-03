@@ -4,7 +4,7 @@
 	keywords="원격 데스크톱 오류,원격 데스크톱 연결 오류,VM에 연결할 수 없습니다,원격 데스크톱 문제 해결"
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="iainfoulds"
 	manager="timlt"
 	editor=""
 	tags="top-support-issue,azure-service-management,azure-resource-manager"/>
@@ -14,9 +14,9 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="01/25/2016"
-	ms.author="dkshir"/>
+	ms.topic="support-article"
+	ms.date="04/12/2016"
+	ms.author="iainfou"/>
 
 # Windows를 실행하는 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결
 
@@ -48,7 +48,7 @@ Windows 기반 Azure 가상 컴퓨터에 원격 데스크톱(RDP) 연결은 여�
 
 - VM 리소스 상태에 플랫폼 문제가 있는지 확인합니다.<br> **찾아보기** > **가상 컴퓨터(클래식)** > Windows 가상 컴퓨터 > **설정** > **상태 검사**를 클릭합니다.
 
-## 리소스 관리자 배포 모델을 사용하여 만든 가상 컴퓨터
+### 리소스 관리자 배포 모델을 사용하여 만든 가상 컴퓨터
 
 이 단계는 리소스 관리자 배포 모델을 통해 만든 Azure 가상 컴퓨터에서 대부분의 원격 데스크톱 연결 오류를 해결할 수 있습니다. 각 단계 후 VM에 다시 연결을 시도합니다.
 
@@ -171,4 +171,4 @@ Windows 기반 컴퓨터는 로컬 계정 또는 도메인 계정 자격 증명�
 
 [Azure 가상 컴퓨터에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결](virtual-machines-linux-troubleshoot-app-connection.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

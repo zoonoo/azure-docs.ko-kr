@@ -152,7 +152,7 @@ Azure 데이터 레이크 저장소 간에 데이터를 이동하려면 복사 �
 		"name": "AzureDataLakeStoreOutput",
 	  	"properties": {
 			"type": "AzureDataLakeStore",
-		    "linkedServiceName": " AzureDataLakeStoreLinkedService",
+		    "linkedServiceName": "AzureDataLakeStoreLinkedService",
 		    "typeProperties": {
 				"folderPath": "datalake/output/"
 		    },
@@ -608,4 +608,7 @@ Hive 테이블에서 Avro 형식을 사용하려는 경우 [Apache Hive의 자�
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+## 성능 및 튜닝  
+Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
+
+<!---HONumber=AcomDC_0420_2016-->

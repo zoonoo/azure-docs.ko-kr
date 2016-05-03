@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Azure BizTalk 서비스에 대한 릴리스 정보 | Microsoft Azure BizTalk 서비스" 
-	description="" 
-	services="biztalk-services" 
-	documentationCenter="" 
-	authors="msftman" 
-	manager="erikre" 
+<properties
+	pageTitle="Azure BizTalk 서비스에 대한 릴리스 정보 | Microsoft Azure BizTalk 서비스"
+	description="Azure BizTalk 서비스에 대한 알려진 문제를 나열합니다." 
+	services="biztalk-services"
+	documentationCenter=""
+	authors="msftman"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="biztalk-services" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/29/2016" 
+<tags
+	ms.service="biztalk-services"
+	ms.workload="integration"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/29/2016"
 	ms.author="deonhe"/>
 
 # Azure BizTalk 서비스에 대한 릴리스 정보
@@ -195,6 +195,4 @@ BizTalk 서비스 미리 보기 구독에 배포된 XML 브리지가 있는 시�
 
 [BizTalk 서비스](https://msdn.microsoft.com/library/azure/hh689864.aspx)
 
-<!---HONumber=AcomDC_0302_2016-->
-
-
+<!---HONumber=AcomDC_0420_2016-->

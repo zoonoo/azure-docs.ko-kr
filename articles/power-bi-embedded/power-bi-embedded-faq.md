@@ -1,6 +1,6 @@
 <properties
    pageTitle="FAQ"
-   description="FAQ"
+   description="Power BI Embedded FAQ"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"
@@ -116,4 +116,4 @@
 - [Microsoft Power BI Embedded란](power-bi-embedded-what-is-power-bi-embedded.md)
 - [Microsoft Power BI Embedded 미리 보기 시작](power-bi-embedded-get-started.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

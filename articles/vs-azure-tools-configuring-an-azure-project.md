@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="01/05/2016"
+   ms.date="04/18/2016"
    ms.author="tarcher" />
 
 # Visual Studio에서 Azure 클라우드 서비스 프로젝트 구성
@@ -47,7 +47,7 @@
 
 1. 클라우드 서비스를 로컬로 실행 또는 디버깅할 때 사용할 서비스 구성을 선택하려면 **서비스 구성** 목록에서 서비스 구성을 선택합니다.
 
-  >[AZURE.NOTE]사용할 서비스 구성을 만들려면 서비스 구성 및 프로필을 관리하는 방법을 참조하세요. 역할에 대한 서비스 구성을 수정하려면 [Visual Studio를 사용하여 Azure 클라우드 서비스에 대한 역할을 구성하는 방법](vs-azure-tools-configure-roles-for-cloud-service.md)을 참조하세요.
+  >[AZURE.NOTE] 사용할 서비스 구성을 만들려면 서비스 구성 및 프로필을 관리하는 방법을 참조하세요. 역할에 대한 서비스 구성을 수정하려면 [Visual Studio를 사용하여 Azure 클라우드 서비스에 대한 역할을 구성하는 방법](vs-azure-tools-configure-roles-for-cloud-service.md)을 참조하세요.
 
 1. 클라우드 서비스를 로컬로 실행 또는 디버깅할 경우 Azure 저장소 에뮬레이터를 시작하려면 **Azure 저장소 에뮬레이터 시작**에서 **True**를 선택합니다.
 
@@ -61,4 +61,4 @@
 
 Visual Studio에서 Azure 클라우드 서비스 프로젝트를 구성하는 방법을 자세히 알아보려면 [여러 서비스 구성을 사용하여 Azure 프로젝트 구성](vs-azure-tools-multiple-services-project-configurations.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0420_2016-->

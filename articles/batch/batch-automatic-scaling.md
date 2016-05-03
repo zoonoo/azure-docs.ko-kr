@@ -13,20 +13,20 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="multiple"
-	ms.date="01/08/2016"
+	ms.date="04/18/2016"
 	ms.author="marsma"/>
 
 # Azure Batch 풀에서 자동으로 계산 노드 크기 조정
 
-Azure 배치에서 자동 크기 조정을 사용하여 작업 실행 중 배치 풀에서 계산 노드를 동적으로 추가하거나 제거하여 응용 프로그램에서 사용되는 처리량을 자동으로 조정할 수 있습니다. 이 자동 조정은 시간과 비용을 모두 절약할 수 있습니다.
+자동 크기 조정으로 Azure 배치 서비스에서는 정의한 매개 변수에 따라 풀에서 계산 노드를 동적으로 추가하거나 제거할 수 있습니다. 이 옵션을 사용하면 응용 프로그램에서 사용하는 계산 리소스의 양을 자동으로 조정하여 잠재적으로 시간 및 비용을 절감할 수 있습니다.
 
-[배치 .NET](batch-dotnet-get-started.md) 라이브러리의 [PoolOperations.EnableAutoScale][net_enableautoscale] 메서드와 같은 풀과 *자동 크기 조정 수식*을 연결하여 계산 노드의 풀에서 자동 크기 조정을 사용하도록 설정할 수 있습니다. 그러면 배치 서비스는 이 수식을 사용하여 워크로드를 실행하는 데 필요한 계산 노드의 수를 결정합니다. 주기적으로 수집되는 서비스 메트릭 데이터 샘플에 응답하는 풀의 계산 노드 수는 연결된 식에 따라 구성 가능한 간격으로 조정됩니다.
+[배치 .NET](batch-dotnet-get-started.md) 라이브러리의 [PoolOperations.EnableAutoScale][net_enableautoscale] 메서드와 같이 정의한 *자동 크기 조정 수식*을 연결하여 계산 노드의 풀에서 자동 크기 조정을 사용하도록 설정할 수 있습니다. 그러면 배치 서비스는 이 수식을 사용하여 워크로드를 실행하는 데 필요한 계산 노드의 수를 결정합니다. 배치는 주기적으로 수집되는 서비스 메트릭 데이터 샘플에 응답하고 풀의 계산 노드 수를 수식에 따라 구성 가능한 간격으로 조정합니다.
 
-풀이 만들어질 때 또는 기존 풀에서 자동 크기 조정을 사용하도록 설정할 수 있습니다. "자동 크기 조정"이 활성화된 풀의 기존 수식을 변경할 수도 있습니다. 배치는 수식을 자동 크기 조정 실행의 상태를 모니터링하기 위해서 뿐만 아니라 풀에 할당하기 전에 평가하는 기능을 제공합니다.
+풀이 만들어질 때 또는 기존 풀에서 자동 크기 조정을 사용하도록 설정할 수 있습니다. "자동 크기 조정"이 활성화된 풀의 기존 수식을 변경할 수도 있습니다. 배치는 자동 크기 조정 실행의 상태를 모니터링할 뿐만 아니라 수식을 풀에 할당하기 전에 평가하는 기능을 제공합니다.
 
 ## 자동 크기 조정 수식
 
-자동 크기 조정 수식은 풀의 [autoScaleFormula][rest_autoscaleformula] 요소(배치 REST API) 또는 [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] 속성(배치 .NET API)에 할당된 하나 이상의 문을 포함하는 문자열 값입니다. 이러한 수식을 정의합니다. 수식을 풀에 할당할 때 처리할 다음 간격에 대한 풀에 사용할 수 있는 계산 노드 수를 결정합니다(간격은 나중에 자세히 설명함). 이 수식 문자열의 크기는 8KB를 초과할 수 없으며, 세미콜론으로 구분된 구문을 100개까지 포함할 수 있으며 줄 바꿈과 주석을 포함할 수 있습니다.
+자동 크기 조정 수식은 하나 이상의 문을 포함하고 풀의 [autoScaleFormula][rest_autoscaleformula] 요소(배치 REST) 또는 [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] 속성(배치 .NET)에 할당된 것으로 정의된 문자열 값입니다. 풀에 할당할 경우 배치 서비스는 처리할 다음 간격을 위해 풀에 계산 노드의 대상 수를 결정하는 수식을 사용합니다(간격은 나중에 자세히 설명함). 이 수식 문자열의 크기는 8KB를 초과할 수 없으며, 세미콜론으로 구분된 구문을 100개까지 포함할 수 있으며 줄 바꿈과 주석을 포함할 수 있습니다.
 
 배치 크기 자동 조정 "언어"를 사용할 때 자동 크기 조정 수식을 고려할 수 있습니다. 수식 문은 자유 형식이고 시스템 및 사용자가 정의한 변수 뿐만 아니라 상수를 포함할 수 있습니다. 기본 제공 형식, 연산자 및 함수를 사용하여 이러한 값에 다양한 작업을 수행할 수 있습니다. 예를 들어 문은 다음과 같은 형태일 수 있습니다.
 
@@ -39,7 +39,7 @@ VAR₀ = Expression₀(system-defined variables);
 VAR₁ = Expression₁(system-defined variables, VAR₀);
 ```
 
-수식에 문을 사용하여 풀의 크기를 조정하는 계산 노드 수인 **전용 노드**의 **대상** 수에 도달하는 것이 목표입니다. 이 수는 현재 풀의 노드 수 보다 높거나, 낮거나 또는 동일할 수 있습니다. 배치는 특정 간격으로 풀의 자동 크기 조정 수식을 평가([간격 자동 크기 조정](#interval)은 아래에서 설명함)합니다. 그런 다음 평가 시 자동 크기 조정 수식이 지정하는 수로 풀의 노드 대상 수를 조정합니다.
+수식에서 이러한 문으로 풀의 크기를 조정하는 계산 노드 수인 **전용 노드**의 **대상** 수에 도달하는 것이 목표입니다. 이 수는 현재 풀의 노드 수 보다 높거나, 낮거나 또는 동일할 수 있습니다. 배치는 특정 간격으로 풀의 자동 크기 조정 수식을 평가합니다([간격 자동 크기 조정](#automatic-scaling-interval)은 아래에서 설명함). 그런 다음 평가 시 자동 크기 조정 수식이 지정하는 수로 풀의 노드 대상 수를 조정합니다.
 
 간단한 예로 이 두 줄 자동 크기 조정 수식은 숫자 노드가 활성 작업 수에 따라 최대 10개의 계산 노드로 조정되어야 한다고 지정합니다.
 
@@ -50,7 +50,7 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
 
 문서의 다음 섹션은 변수, 연산자, 작업 및 함수를 포함하여 자동 크기 조정 수식을 구성하는 다양한 엔터티를 설명합니다. 배치 내의 다양한 계산 리소스 및 작업 메트릭을 가져오는 방법을 알아봅니다. 이러한 메트릭을 사용하여 리소스 사용량 및 작업 상태에 따라 풀의 노드 수를 적절하게 조정할 수 있습니다. 그런 다음 배치 REST 및 .NET API를 모두 사용하여 수식을 구성하고 풀에서 자동 크기 조정을 사용하는 방법을 알아봅니다. 몇 가지 예제 수식으로 마무리하겠습니다.
 
-> [AZURE.NOTE] 각 Azure Batch 계정은 처리에 사용할 수 있는 최대 계산 노드 수로 제한됩니다. 배치 서비스는 해당 제한까지만 노드를 만듭니다. 따라서 수식에 지정된 대상 번호에 도달하지 않을 수 있습니다. 계정 할당량을 보고 늘리는 방법에 대한 내용은 [Azure 배치 서비스에 대한 할당량 및 제한](batch-quota-limit.md)을 참조하세요.
+> [AZURE.IMPORTANT] 각 Azure Batch 계정은 처리에 사용할 수 있는 최대 계산 노드 수로 제한됩니다. 배치 서비스는 해당 제한까지만 노드를 만듭니다. 따라서 수식에 지정된 대상 번호에 도달하지 않을 수 있습니다. 계정 할당량을 보고 늘리는 방법에 대한 내용은 [Azure 배치 서비스에 대한 할당량 및 제한](batch-quota-limit.md)을 참조하세요.
 
 ## <a name="variables"></a>변수
 
@@ -162,7 +162,7 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
 - doubleVec
 - doubleVecList
 - string
-- timestamp--타임스탬프는 다음의 멤버를 포함하는 복합 구조입니다.
+- timestamp -- 타임스탬프는 다음의 멤버를 포함하는 복합 구조입니다.
 	- year
 	- month (1-12)
 	- day (1-31)
@@ -186,166 +186,52 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
 
 이들 **연산**은 위에 나열된 형식에서 허용됩니다.
 
-<table>
-  <tr>
-    <th>작업</th>
-    <th>허용되는 연산자</th>
-  </tr>
-  <tr>
-    <td>double &lt;operator> double => double</td>
-    <td>+, -, *, /</td>
-  </tr>
-  <tr>
-    <td>double &lt;operator> timeinterval => timeinterval</td>
-    <td>*</td>
-  </tr>
-  <tr>
-    <td>doubleVec &lt;operator> double => doubleVec</td>
-    <td>+, -, *, /</td>
-  </tr>
-  <tr>
-    <td>doubleVec &lt;operator> doubleVec => doubleVec</td>
-    <td>+, -, *, /</td>
-  </tr>
-  <tr>
-    <td>timeinterval &lt;operator> double => timeinterval</td>
-    <td>*, /</td>
-  </tr>
-  <tr>
-    <td>timeinterval &lt;operator> timeinterval => timeinterval</td>
-    <td>+, -</td>
-  </tr>
-  <tr>
-    <td>timeinterval &lt;operator> timestamp => timestamp</td>
-    <td>+</td>
-  </tr>
-  <tr>
-    <td>timestamp &lt;operator> timeinterval => timestamp</td>
-    <td>+</td>
-  </tr>
-  <tr>
-    <td>timestamp &lt;operator> timestamp => timeinterval</td>
-    <td>-</td>
-  </tr>
-  <tr>
-    <td>&lt;operator>double => double</td>
-    <td>-, !</td>
-  </tr>
-  <tr>
-    <td>&lt;operator>timeinterval => timeinterval</td>
-    <td>-</td>
-  </tr>
-  <tr>
-    <td>double &lt;operator> double => double</td>
-    <td>&lt;, &lt;=, ==, >=, >, !=</td>
-  </tr>
-  <tr>
-    <td>string &lt;operator> string => double</td>
-    <td>&lt;, &lt;=, ==, >=, >, !=</td>
-  </tr>
-  <tr>
-    <td>timestamp &lt;operator> timestamp => double</td>
-    <td>&lt;, &lt;=, ==, >=, >, !=</td>
-  </tr>
-  <tr>
-    <td>timeinterval &lt;operator> timeinterval => double</td>
-    <td>&lt;, &lt;=, ==, >=, >, !=</td>
-  </tr>
-  <tr>
-    <td>double &lt;operator> double => double</td>
-    <td>&amp;&amp;, ||</td>
-  </tr>
-  <tr>
-    <td>test double only (nonzero is true, zero is false)</td>
-    <td>? :</td>
-  </tr>
-</table>
+| 작업 | 지원되는 연산자 | 결과 형식 |
+| ------------------------------------- | --------------------- | ------------- |
+| 이중 *연산자* 이중 | +, -, *, / | 이중 |
+| 이중 *연산자* timeinterval | * | timeinterval |
+| doubleVec *연산자* 이중 | +, -, *, / | doubleVec |
+| doubleVec *연산자* doubleVec | +, -, *, / | doubleVec |
+| timeinterval *연산자* 이중 | *, / | timeinterval |
+| timeinterval *연산자* timeinterval | +, - | timeinterval |
+| timeinterval *연산자* 타임스탬프 | + | 타임스탬프 |
+| 타임스탬프 *연산자* timeinterval | + | 타임스탬프 |
+| 타임스탬프 *연산자* 타임스탬프 | - | timeinterval |
+| *연산자*이중 | -, ! | 이중 |
+| *연산자*timeinterval | - | timeinterval |
+| 이중 *연산자* 이중 | <, <=, ==, >=, >, != | 이중 |
+| 문자열 *연산자* 문자열 | <, <=, ==, >=, >, != | 이중 |
+| 타임스탬프 *연산자* 타임스탬프 | <, <=, ==, >=, >, != | 이중 |
+| timeinterval *연산자* timeinterval | <, <=, ==, >=, >, != | 이중 |
+| 이중 *연산자* 이중 | &&, || | 이중 |
+
+3항 연산자(`double ? statement1 : statement2`)가 있는 이중 연산자를 테스트할 경우 0이 아님이 **true**이고 0이 **false**입니다.
 
 ## 함수
 
 이러한 미리 정의된 **함수**는 자동 크기 조정 수식을 정의하는 데 사용할 수 있습니다.
 
-<table>
-  <tr>
-    <th>함수</th>
-    <th>설명</th>
-  </tr>
-  <tr>
-    <td>double <b>avg</b>(doubleVecList)</td>
-    <td>doubleVecList에 있는 모든 값의 평균 값을 반환합니다.</td>
-  </tr>
-  <tr>
-    <td>double <b>len</b>(doubleVecList)</td>
-    <td>doubleVecList에서 만든 벡터의 길이를 반환합니다.</td>
-  <tr>
-    <td>double <b>lg</b>(double)</td>
-    <td>double의 로그 밑 2를 반환합니다.</td>
-  </tr>
-  <tr>
-    <td>doubleVec <b>lg</b>(doubleVecList)</td>
-    <td>doubleVecList의 구성 요소 로그 밑 2를 반환합니다. vec(double)은 단일 double 매개 변수에 대해 명시적으로 전달되어야 합니다. 그렇지 않으면 double lg(double) 버전으로 간주됩니다.</td>
-  </tr>
-  <tr>
-    <td>double <b>ln</b>(double)</td>
-    <td>double의 자연 로그를 반환합니다.</td>
-  </tr>
-  <tr>
-    <td>doubleVec <b>ln</b>(doubleVecList)</td>
-    <td>doubleVecList의 구성 요소 로그 밑 2를 반환합니다. vec(double)은 단일 double 매개 변수에 대해 명시적으로 전달되어야 합니다. 그렇지 않으면 double lg(double) 버전으로 간주됩니다.</td>
-  </tr>
-  <tr>
-    <td>double <b>log</b>(double)</td>
-    <td>double의 로그 밑 10을 반환합니다.</td>
-  </tr>
-  <tr>
-    <td>doubleVec <b>log</b>(doubleVecList)</td>
-    <td>doubleVecList의 구성 요소 로그 밑 10을 반환합니다. vec(double)은 단일 double 매개 변수에 대해 명시적으로 전달되어야 합니다. 그렇지 않으면 double log(double) 버전으로 간주됩니다.</td>
-  </tr>
-  <tr>
-    <td>double <b>max</b>(doubleVecList)</td>
-    <td>doubleVecList의 최대값을 반환합니다.</td>
-  </tr>
-  <tr>
-    <td>double <b>min</b>(doubleVecList)</td>
-    <td>doubleVecList의 최소값을 반환합니다.</td>
-  </tr>
-  <tr>
-    <td>double <b>norm</b>(doubleVecList)</td>
-    <td>doubleVecList에서 만든 벡터의 두 기준을 반환합니다.
-  </tr>
-  <tr>
-    <td>double <b>percentile</b>(doubleVec v, double p)</td>
-    <td>벡터 v의 백분위수 요소를 반환합니다.</td>
-  </tr>
-  <tr>
-    <td>double <b>rand</b>()</td>
-    <td>0.0에서 1.0 사이의 임의 값을 반환합니다.</td>
-  </tr>
-  <tr>
-    <td>double <b>range</b>(doubleVecList)</td>
-    <td>doubleVecList에 있는 최소값과 최대값 사이의 차이를 반환합니다.</td>
-  </tr>
-  <tr>
-    <td>double <b>std</b>(doubleVecList)</td>
-    <td>doubleVecList에 있는 값의 샘플 표준 편차를 반환합니다.</td>
-  </tr>
-  <tr>
-    <td><b>stop</b>()</td>
-    <td>자동 크기 조정 식의 평가를 중지합니다.</td>
-  </tr>
-  <tr>
-    <td>double <b>sum</b>(doubleVecList)</td>
-    <td>doubleVecList에 있는 모든 구성 요소의 합계를 반환합니다.</td>
-  </tr>
-  <tr>
-    <td>timestamp <b>time</b>(string dateTime="")</td>
-    <td>매개 변수가 전달되지 않는 경우 현재 시간의 타임스탬프 또는 매개 변수가 전달되는 경우 dateTime 문자열의 타임스탬프를 반환합니다. 지원되는 dateTime 형식은 W3C-DTF 및 RFC 1123입니다.</td>
-  </tr>
-  <tr>
-    <td>double <b>val</b>(doubleVec v, double i)</td>
-    <td>시작 인덱스가 0인 벡터 v의 위치 i 요소 값을 반환합니다.</td>
-  </tr>
-</table>
+| 함수 | 반환 형식 | 설명
+| --------------------------------- | ------------- | --------- |
+| avg(doubleVecList) | double | doubleVecList에 있는 모든 값의 평균 값을 반환합니다.
+| len(doubleVecList) | double | doubleVecList에서 만든 벡터의 길이를 반환합니다.
+| lg(double) | double | double의 로그 밑 2를 반환합니다.
+| lg(doubleVecList) | doubleVec | doubleVecList의 구성 요소 로그 밑 2를 반환합니다. vec(double)은 단일 이중 매개 변수에 대해 명시적으로 전달되어야 합니다. 그렇지 않으면 double lg(double) 버전으로 간주됩니다.
+| ln(double) | double | double의 자연 로그를 반환합니다.
+| ln(doubleVecList) | doubleVec | doubleVecList의 구성 요소 로그 밑 2를 반환합니다. vec(double)은 단일 이중 매개 변수에 대해 명시적으로 전달되어야 합니다. 그렇지 않으면 double lg(double) 버전으로 간주됩니다.
+| log(double) | double | double의 로그 밑 10을 반환합니다.
+| log(doubleVecList) | doubleVec | doubleVecList의 구성 요소 로그 밑 10을 반환합니다. vec(double)은 단일 double 매개 변수에 대해 명시적으로 전달되어야 합니다. 그렇지 않으면 double log(double) 버전으로 간주됩니다.
+| max(doubleVecList) | double | doubleVecList의 최대값을 반환합니다.
+| min(doubleVecList) | double | doubleVecList의 최소값을 반환합니다.
+| norm(doubleVecList) | double | doubleVecList에서 만든 벡터의 두 기준을 반환합니다.
+| percentile(doubleVec v, double p) | double | 벡터 v의 백분위수 요소를 반환합니다.
+| rand() | double | 0\.0에서 1.0 사이의 임의 값을 반환합니다.
+| range(doubleVecList) | double | doubleVecList에 있는 최소값과 최대값 사이의 차이를 반환합니다.
+| std(doubleVecList) | double | doubleVecList에 있는 값의 샘플 표준 편차를 반환합니다.
+| stop() | | 자동 크기 조정 식의 평가를 중지합니다.
+| sum(doubleVecList) | double | doubleVecList에 있는 모든 구성 요소의 합계를 반환합니다.
+| time(string dateTime="") | timestamp | 매개 변수가 전달되지 않는 경우 현재 시간의 타임스탬프 또는 매개 변수가 전달되는 경우 dateTime 문자열의 타임스탬프를 반환합니다. 지원되는 dateTime 형식은 W3C-DTF 및 RFC 1123입니다.
+| val(doubleVec v, double i) | double | 시작 인덱스가 0인 벡터 v의 위치 i 요소 값을 반환합니다.
 
 위 표에 설명된 함수 중 일부는 목록을 인수로 사용할 수 있습니다. 쉼표로 구분된 목록은 *double* 및 *doubleVec* 의 조합입니다. 예:
 
@@ -424,7 +310,7 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
 
 `runningTasksSample=[1,1,1,1,1,1,1,1,1,1];`
 
-샘플의 벡터를 수집했으면 `min()`, `max()`, 및 `avg()`와 같은 함수를 사용하여 수집된 범위에서 의미있는 값을 파생할 수 있습니다.
+샘플의 벡터를 수집했으면 `min()`, `max()` 및 `avg()`과 같은 함수를 사용하여 수집된 범위에서 의미있는 값을 파생할 수 있습니다.
 
 보안을 강화하려면 특정 기간 동안 샘플의 특정 비율 보다 작은 경우 *실패*에 대한 수식 평가를 강제할 수 있습니다. 수식 평가가 실패하도록 강제하면 지정된 샘플의 비율을 사용할 수 없는 경우 배치가 수식의 추가 평가를 중단하도록 지시하여 풀 크기가 변경되지 않습니다. 평가가 성공하기 위해 샘플의 필요한 백분율을 지정하려면 `GetSample()`에 대한 세 번째 매개 변수로 지정합니다. 여기에서는 샘플의 75% 요구 사항이 지정됩니다.
 
@@ -505,19 +391,19 @@ $TotalNodes = (avg($CPUPercent.GetSample(TimeInterval_Minute*60)) < 0.2) ? ($Cur
 $TargetDedicated = min(400, $TotalNodes)
 ```
 
-> [AZURE.NOTE] 자동 크기 조정 수식은 [배치 REST][rest_api] API 변수, 형식, 작업 및 함수로 구성됩니다. [배치 .NET][net_api] 라이브러리와 함께 연동되면서 수식 문자열에서 사용합니다.
+> [AZURE.NOTE] 자동 크기 조정 수식은 [배치 REST][rest_api] API 변수, 형식, 작업 및 함수로 구성됩니다. [배치 .NET][net_api] 라이브러리로 작업하더라도 수식 문자열에서 사용합니다.
 
 ## 자동 크기 조정을 사용하는 풀 만들기
 
 풀을 만들 때 자동 크기 조정을 사용하려면 다음 방법 중 하나를 사용합니다.
 
-- [New-AzureBatchPool](https://msdn.microsoft.com/library/azure/mt125936.aspx)–-이 Azure PowerShell cmdlet은 AutoScaleFormula 매개 변수를 사용하여 자동 크기 조정 수식을 지정합니다.
-- [BatchClient.PoolOperations.CreatePool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.createpool.aspx)--풀을 만들기 위해 이 .NET 메서드가 호출되면 풀의 [CloudPool.AutoScaleEnabled](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscaleenabled.aspx) 속성 및 [CloudPool.AutoScaleFormula](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscaleformula.aspx) 속성을 설정하여 자동 크기 조정을 사용할 수 있게 됩니다.
+- [New-AzureBatchPool](https://msdn.microsoft.com/library/azure/mt125936.aspx)--이 Azure PowerShell cmdlet은 AutoScaleFormula 매개 변수를 사용하여 자동 크기 조정 수식을 지정합니다.
+- [BatchClient.PoolOperations.CreatePool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.createpool.aspx)--풀을 만들기 위해 이 .NET 메서드가 호출되면 풀의 [CloudPool.AutoScaleEnabled](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscaleenabled.aspx) 속성 및 [CloudPool.AutoScaleFormula](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscaleformula.aspx) 속성을 설정하여 자동 크기 조정을 사용할 수 있게 합니다.
 - [계정에 풀 추가](https://msdn.microsoft.com/library/azure/dn820174.aspx)--풀이 만들어질 때 이 REST API 요청에서 enableAutoScale 및 autoScaleFormula 요소를 사용하여 풀에 대해 자동 크기 조정을 설정합니다.
 
 > [AZURE.IMPORTANT] 위의 방법 중 하나를 사용하여 자동 크기 조정 사용 풀을 만드는 경우 풀에 대한 *targetDedicated* 매개 변수는 지정되지 **않아야** 합니다. 또한 자동 크기 조정 사용 풀의 크기를 수동으로 조정하려는 경우(예: [BatchClient.PoolOperations.ResizePool][net_poolops_resizepool]을 사용하여) 먼저 풀에서 자동 크기 조정을 **사용하지 않도록** 다음 풀의 크기를 조정해야 합니다.
 
-다음 코드 조각은 [배치 .NET][net_api] 라이브러리를 사용하여 자동 크기 조정 사용 풀([CloudPool][net_cloudpool]) 만들기를 보여 줍니다. 풀의 자동 크기 조정 수식은 월요일에 5의 대상 노드 수를 모든 다른 요일에 1의 대상 노드 수를 설정합니다. 또한 자동 크기 조정 간격을 30분으로 설정합니다.(아래에서 [자동 크기 조정 간격](#interval) 참조) 이 코드와 이 문서의 다른 C# 코드 조각에서 "myBatchClient"는 [BatchClient][net_batchclient]의 적절히 초기화된 인스턴스입니다.
+다음 코드 조각은 [배치 .NET][net_api] 라이브러리를 사용하여 자동 크기 조정 사용 풀([CloudPool][net_cloudpool]) 만들기를 보여 줍니다. 풀의 자동 크기 조정 수식은 월요일에 5의 대상 노드 수를 모든 다른 요일에 1의 대상 노드 수를 설정합니다. 또한 자동 크기 조정 간격을 30분으로 설정합니다.(아래에서 [자동 크기 조정 간격](#automatic-scaling-interval) 참조) 여기와 이 문서의 다른 C# 코드 조각에서 "myBatchClient"는 [BatchClient][net_batchclient]의 적절히 초기화된 인스턴스입니다.
 
 ```
 CloudPool pool = myBatchClient.PoolOperations.CreatePool("mypool", "3", "small");
@@ -527,7 +413,7 @@ pool.AutoScaleEvaluationInterval = TimeSpan.FromMinutes(30);
 pool.Commit();
 ```
 
-### <a name="interval"></a>자동 크기 조정 간격
+### 자동 크기 조정 간격
 
 기본적으로 배치 서비스는 자동 크기 조정 수식에 따라 풀의 크기를 **15분** 마다 조정합니다. 그러나 다음 풀 속성을 사용하여 이 간격은 구성할 수 있습니다.
 
@@ -540,14 +426,14 @@ pool.Commit();
 
 ## 풀을 만든 후 자동 크기 조정을 사용하도록 설정
 
-이미 *targetDedicated* 매개 변수를 사용하여 계산 노드 수가 지정된 풀을 설정한 경우 나중에 기존 풀을 업데이트하여 자동으로 크기 조정되도록 할 수 있습니다. 다음 방법 중 하나를 사용하여 이 작업을 수행할 수 있습니다.
+이미 *targetDedicated* 매개 변수를 사용하여 계산 노드 수가 지정된 풀을 설정한 경우 나중에 기존 풀을 업데이트하여 자동으로 크기를 조정할 수 있습니다. 다음 방법 중 하나를 사용하여 이 작업을 수행할 수 있습니다.
 
 - [BatchClient.PoolOperations.EnableAutoScale][net_enableautoscale]--이 .NET 메서드는 기존 풀의 ID와 풀에 적용할 자동 크기 조정 수식이 필요합니다.
 - [풀에서 자동 크기 조정 사용][rest_enableautoscale]--이 REST API 요청은 URI에 기존 풀의 ID가 필요하고 요청 본문에 자동 크기 조정 수식이 필요합니다.
 
 > [AZURE.NOTE] 풀을 만들 때 *targetDedicated* 매개 변수에 대해 값이 지정된 경우, 자동 크기 조정 수식이 평가될 때 이 값은 무시됩니다.
 
-이 코드 조각은 [배치 .NET][net_api] 라이브러리를 사용하여 기존 풀에서 자동 크기 조정을 사용하는 것을 보여 줍니다. 기존 풀에서 수식을 사용하고 업데이트하는 것은 모두 동일한 메서드를 사용합니다. 이 기술은 자동 크기 조정을 이미 사용하고 있던 경우 지정된 풀에서 수식을 *업데이트*합니다. 코드 조각은 "mypool"이 기존 풀([CloudPool][net_cloudpool])의 ID라고 가정합니다.
+이 코드 조각은 [배치 .NET][net_api] 라이브러리를 사용하여 기존 풀에서 자동 크기 조정을 사용하는 것을 보여줍니다. 기존 풀에서 수식을 사용하고 업데이트하는 것은 모두 동일한 메서드를 사용합니다. 이 기술은 자동 크기 조정을 이미 사용하고 있던 경우 지정된 풀에서 수식을 *업데이트*합니다. 코드 조각은 "mypool"이 기존 풀([CloudPool][net_cloudpool])의 ID라고 가정합니다.
 
 		 // Define the autoscaling formula. In this snippet, the  formula sets the target number of nodes to 5 on
 		 // Mondays, and 1 on every other day of the week
@@ -617,11 +503,11 @@ if (pool.AutoScaleEnabled.HasValue && pool.AutoScaleEnabled.Value)
   - [AutoScaleRun.Error](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.error.aspx)
   - [AutoScaleRun.Results](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.results.aspx)
   - [AutoScaleRun.Timestamp](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.timestamp.aspx)
-- [풀에 대한 정보 가져오기](https://msdn.microsoft.com/library/dn820165.aspx)--이 REST API 요청은 풀에 대한 정보를 반환하며 이 정보에는 최신 자동 크기 조정 실행이 포함되어 있습니다.
+- [풀에 대한 정보 가져오기](https://msdn.microsoft.com/library/dn820165.aspx)--이 REST API 요청은 풀에 대한 정보를 반환하며 여기에는 최신 자동 크기 조정 실행이 포함되어 있습니다.
 
 ## <a name="examples"></a>예제 수식
 
-풀에서 계산 리소스의 크기를 자동으로 조정하기 위해 수식을 사용할 수 있는 몇 가지 방식을 보여 주는 몇 가지 예를 살펴보겠습니다.
+풀에서 계산 리소스의 크기를 자동으로 조정하기 위해 수식을 사용할 수 있는 몇 가지 방식을 보여주는 몇 가지 예를 살펴보겠습니다.
 
 ### 예제1: 시간 기반 조정
 
@@ -635,7 +521,7 @@ $IsWorkingWeekdayHour=$WorkHours && $IsWeekday;
 $TargetDedicated=$IsWorkingWeekdayHour?20:10;
 ```
 
-이 수식은 먼저 현재 시간을 가져옵니다. 평일(1-5)에 근무 시간(오전 8시-오후 6시)인 경우, 대상 풀 크기는 20개의 노드로 설정됩니다. 그렇지 않은 경우, 풀 크기는 10에 설정됩니다.
+이 수식은 먼저 현재 시간을 가져옵니다. 평일(1-5)에 근무 시간(오전 8시-오후 6시)인 경우, 대상 풀 크기는 20 개의 노드로 설정됩니다. 그렇지 않은 경우, 풀 크기는 10에 설정됩니다.
 
 ### 예제2: 작업 기반 조정
 
@@ -697,22 +583,15 @@ string formula = string.Format(@"
 
 - 초기 풀 크기를 4 노드로 설정합니다.
 - 풀의 수명 주기의 처음 10분 이내에는 풀 크기를 조정하지 않습니다.
-- 10분 후 지난 60분 이내에 실행 중이고 활성화된 작업 수의 최대값을 가져옵니다.
+- 10 분 후 지난 60분 이내에 실행 중이고 활성화된 작업 수의 최대값을 가져옵니다.
   - 두 값이 모두 0이면(마지막 60분 동안 실행 중이거나 활성화된 작업이 없었음을 나타냄) 풀 크기가 0입니다.
   - 값 중 하나가 0보다 큰 경우 변경되지 않습니다.
 
 ## 다음 단계
 
-1. 응용 프로그램의 효율성을 완전하게 평가하려면, 계산 노드에 액세스해야 할 수 있습니다. 원격 액세스를 활용하려면 액세스하려는 노드에 사용자 계정이 추가되어야 하며 해당 노드에 대해 RDP(원격 데스크톱 프로토콜) 파일이 검색되어야 합니다.
-    - 사용자 계정은 다음 방법 중 하나를 사용하여 추가합니다.
-        * [New-AzureBatchVMUser](https://msdn.microsoft.com/library/mt149846.aspx)--이 PowerShell cmdlet은 풀 이름, 계산 노드 이름, 계정 이름 및 암호를 매개 변수로 사용합니다.
-        * [BatchClient.PoolOperations.CreateComputeNodeUser](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.createcomputenodeuser.aspx)--이 .NET 메서드는 계산 노드에 대해 계정 이름 및 암호를 설정할 수 있는 [ComputeNodeUser](https://msdn.microsoft.com/library/microsoft.azure.batch.computenodeuser.aspx) 클래스의 인스턴스를 만듭니다. 그런 다음 [ComputeNodeUser.Commit](https://msdn.microsoft.com/library/microsoft.azure.batch.computenodeuser.commit.aspx)가 인스턴스에서 호출되어 해당 노드에 사용자를 만듭니다.
-        * [노드에 사용자 계정 추가](https://msdn.microsoft.com/library/dn820137.aspx) --풀 이름 및 계산 노드는 URI에 지정됩니다. 계정 이름 및 암호는 이 REST API 요청의 요청 본문에 있는 노드로 전송됩니다.
-    - RDP 파일 가져오기:
-        * [BatchClient.PoolOperations.GetRDPFile](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.getrdpfile.aspx)--이 .NET 메서드는 풀의 ID, 노드 ID, 그리고 만들려는 파일 RDP의 이름이 필요합니다.
-        * [노드에서 원격 데스크톱 프로토콜 파일 가져오기](https://msdn.microsoft.com/library/dn820120.aspx)--이 REST API 요청은 풀의 이름과 계산 노드의 이름이 필요합니다. 응답에는 RDP 파일 콘텐츠가 포함되어 있습니다.
-        * [Get-AzureBatchRDPFile](https://msdn.microsoft.com/library/mt149851.aspx)--이 PowerShell cmdlet은 지정된 계산 노드에서 RDP 파일을 가져와 지정된 파일 위치 또는 스트림에 저장합니다.
-2.	일부 응용 프로그램은 많은 양의 데이터를 생성하여 처리하기가 어려울 수 있습니다. 이 문제를 해결하는 한 가지 방법은 [효율적인 목록 쿼리](batch-efficient-list-queries.md)를 사용하는 것입니다.
+* [동시 노드 작업으로 Azure 배치 계산 리소스 사용 극대화](batch-parallel-node-tasks.md)는 풀의 계산 노드에서 여러 작업을 동시에 실행할 수 있는 방법을 자세히 설명합니다. 자동 크기 조정 외에도 이 기능은 일부 워크로드에 대한 작업 기간을 줄여서 비용을 절약하는 데 도움이 될 수 있습니다.
+
+* 다른 효율성 부스터의 경우 배치 응용 프로그램이 배치 서비스를 최적화하여 쿼리하도록 합니다. [효율적인 Azure 배치 서비스 쿼리](batch-efficient-list-queries.md)에서 잠재적으로 수천 개의 계산 노드 또는 작업의 상태를 쿼리할 경우 네트워크를 교차하는 데이터의 양을 제한하는 방법을 알아봅니다.
 
 [net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_batchclient]: http://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx
@@ -728,4 +607,4 @@ string formula = string.Format(@"
 [rest_autoscaleinterval]: https://msdn.microsoft.com/ko-KR/library/azure/dn820173.aspx
 [rest_enableautoscale]: https://msdn.microsoft.com/library/azure/dn820173.aspx
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

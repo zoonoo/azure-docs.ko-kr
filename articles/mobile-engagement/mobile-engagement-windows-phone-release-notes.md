@@ -18,6 +18,12 @@
 
 #Windows Phone Silverlight SDK 릴리스 정보
 
+
+##3\.3.0(2016/04/19)
+*MicrosoftAzure.MobileEngagement* Nuget 패키지 **v3.4.0**의 일부
+
+-   SDK로 내보낸 콘솔 로그를 사용/사용 안 함/필터링하기 위해 "TestLogLevel" API를 추가했습니다.
+
 ##3\.2.0(2016/01/22)
 *MicrosoftAzure.MobileEngagement* Nuget 패키지 **v3.3.0**의 일부
 
@@ -43,4 +49,4 @@
 -   보안이 개선되었습니다.
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

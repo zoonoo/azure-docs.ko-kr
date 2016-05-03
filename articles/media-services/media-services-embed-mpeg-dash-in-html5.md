@@ -2,7 +2,7 @@
 	pageTitle="DASH.js를 사용하여 HTML5 응용 프로그램에 MPEG-DASH 적응 스트리밍 비디오 포함" 
 	description="이 항목에서는 DASH.js를 사용하여 HTML5 응용 프로그램에 MPEG-DASH 적응 스트리밍 비디오를 포함시키는 방법을 보여줍니다." 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="media-services" 
 	documentationCenter=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
+ 	ms.date="04/18/2016"  
 	ms.author="juliako"/>
 
 
@@ -114,4 +114,4 @@ Dash.js는 JavaScript로 작성된 오픈 소스 MPEG-DASH 비디오 플레이�
 
 [GitHub dash.js 리포지토리](https://github.com/Dash-Industry-Forum/dash.js)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

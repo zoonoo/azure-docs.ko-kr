@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="04/14/2016" 
 	ms.author="nitinme"/>
 
 
-# Spark 스트리밍: HDInsight의 Apache Spark로 Azure 이벤트 허브에서 이벤트 처리(Linux)
+# Spark 스트리밍: HDInsight Linux에서 Apache Spark로 Azure 이벤트 허브의 이벤트 처리(미리 보기)
 
 Spark 스트리밍은 핵심 Spark API를 확장하여 뛰어난 확장성, 높은 처리량, 내결함성 스트림 처리 응용 프로그램을 빌드합니다. 여러 소스에서 데이터를 수집할 수 있습니다. 이 문서에서는 Azure 이벤트 허브를 사용하여 데이터를 수집합니다. 이벤트 허브는 초당 수백만의 이벤트를 유입하는 확장성이 뛰어난 수집 시스템입니다.
 
@@ -374,4 +374,4 @@ hive 테이블이 성공적으로 만들어졌는지 확인하려면 클러스�
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

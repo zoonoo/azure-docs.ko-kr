@@ -1,6 +1,6 @@
 <properties
    pageTitle="Microsoft Power BI Embedded란"
-   description="Microsoft Power BI Embedded란"
+   description="Power BI Embedded를 사용하면 Power BI 보고서를 웹 또는 모바일 응용 프로그램으로 통합할 수 있으므로 사용자에게 데이터를 시각화하기 위해 사용자 지정 솔루션을 빌드할 필요가 없습니다."
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"
@@ -99,4 +99,4 @@ Azure의 다른 서비스와 같이 **Microsoft Power BI Embedded**의 리소스
 - [Power BI REST API](http://docs.powerbi.apiary.io/reference)
 - [Azure 지역](https://azure.microsoft.com/regions/)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="04/18/2016" 
 	ms.author="spelluru"/>
 
 # Azure 데이터 팩터리를 사용하여 PostgreSQL에서 데이터 이동
@@ -179,7 +179,7 @@ PostgreSQL 데이터베이스에 연결할 데이터 관리 게이트웨이의 �
 	                "typeProperties": {
 	                    "source": {
 	                        "type": "RelationalSource",
-	                        "query": "select * from public.usstates"
+	                        "query": "select * from "public"."usstates""
 	                    },
 	                    "sink": {
 	                        "type": "BlobSink"
@@ -221,7 +221,7 @@ PostgreSQL 데이터베이스에 연결할 데이터 관리 게이트웨이의 �
 type | 형식 속성은 **OnPremisesPostgreSql**로 설정되어야 합니다. | 예
 server | PostgreSQL 서버의 이름입니다. | 예 
 database | PostgreSQL 데이터베이스의 이름입니다. | 예 
-schema | 데이터베이스에서 스키마의 이름입니다. | 아니요 
+schema | 데이터베이스에서 스키마의 이름입니다. schema 이름은 대/소문자를 구분합니다. | 아니요 
 authenticationType | PostgreSQL 데이터베이스에 연결하는 데 사용되는 인증 형식입니다. 가능한 값은 익명, 기본 및 Windows입니다. | 예 
 username | 기본 또는 Windows 인증을 사용하는 경우 사용자 이름을 지정합니다. | 아니요 
 password | 사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. | 아니요 
@@ -237,7 +237,7 @@ typeProperties 섹션은 데이터 집합의 각 형식에 따라 다르며 데�
 
 속성 | 설명 | 필수
 -------- | ----------- | --------
-tableName | 연결된 서비스가 참조하는 PostgreSQL 데이터베이스 인스턴스에서 테이블의 이름입니다. | 아니요(**RelationalSource**의 **쿼리**가 지정된 경우) 
+tableName | 연결된 서비스가 참조하는 PostgreSQL 데이터베이스 인스턴스에서 테이블의 이름입니다. tableName은 대/소문자를 구분합니다. | 아니요(**RelationalSource**의 **쿼리**가 지정된 경우) 
 
 ## PostgreSQL 복사 작업 형식 속성
 
@@ -249,7 +249,13 @@ tableName | 연결된 서비스가 참조하는 PostgreSQL 데이터베이스 �
 
 속성 | 설명 | 허용되는 값 | 필수
 -------- | ----------- | -------------- | --------
-쿼리 | 사용자 지정 쿼리를 사용하여 데이터를 읽습니다. | SQL 쿼리 문자열. 예: select * from MyTable. | 아니요(**데이터 집합**의 **tableName**이 지정된 경우)
+쿼리 | 사용자 지정 쿼리를 사용하여 데이터를 읽습니다. | SQL 쿼리 문자열. 예: "query": "select * from "MySchema"."MyTable"" | 아니요(**데이터 집합**의 **tableName**이 지정된 경우)
+
+> [AZURE.NOTE] 스키마와 테이블 이름은 대/소문자를 구분하며 쿼리에서 ""(큰따옴표)로 묶어야 합니다.
+
+**예제:**
+
+ "query": "select * from "MySchema"."MyTable""
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -310,4 +316,7 @@ serial | serial4 | Int32
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+## 성능 및 튜닝  
+Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
+
+<!---HONumber=AcomDC_0420_2016-->

@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="rajeshramabathiran"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/18/2016"
+   ms.date="04/20/2016"
    ms.author="rajram"/>
 
 
 # VETR을 사용하여 EAI 논리 앱 만들기
 
->[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다.
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 대부분의 EAI(엔터프라이즈 응용 프로그램 통합) 시나리오에서는 원본과 대상 간에 데이터를 조정합니다. 이러한 시나리오에는 다음과 같은 공통된 요구 사항이 있습니다.
 
@@ -118,4 +118,4 @@ Azure 포털에서 **+새로 만들기**를 선택하고 **웹 + 모바일**을 
 [4]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/BizTalkTransforms.PNG
 [5]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/AzureServiceBus.PNG
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -21,6 +21,11 @@
 
 # Azure의 가상 컴퓨터 복원
 
+> [AZURE.SELECTOR]
+- [Azure 포털에서 VM 복원](backup-azure-arm-restore-vms.md)
+- [클래식 포털에서 VM 복원](backup-azure-restore-vms.md)
+
+
 다음 단계를 사용하여 Azure 백업 자격 증명에 저장된 백업에서 새 VM에 가상 컴퓨터를 복원합니다.
 
 ## 워크플로 복원
@@ -135,7 +140,7 @@ PowerShell은 백업에서 VM 디스크만 복원하고 가상 컴퓨터를 만�
 
 2. PowerShell cmdlet을 사용하여 부하 분산 장치/다중 NIC/다중의 예약된 IP에 필요한 VM 구성을 만들어 원하는 구성의 VM을 만드는데 사용합니다.
 	- [내부 부하 분산 장치](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/)를 사용하여 클라우드 서비스에서 VM 만들기
-	- [인터넷 연결 부하 분산 장치](https://azure.microsoft.com/ko-KR/documentation/articles/load-balancer-internet-getstarted/)에 연결할 VM 만들기
+	- [인터넷 연결 부하 분산 장치](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/)에 연결할 VM 만들기
 	- [다중 NIC](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics/)를 사용하여 VM 만들기
 	- [다중의 예약된 IP](https://azure.microsoft.com/documentation/articles/virtual-networks-reserved-public-ip/)가 있는 VM 만들기
 
@@ -144,4 +149,4 @@ PowerShell은 백업에서 VM 디스크만 복원하고 가상 컴퓨터를 만�
 - [문제 해결](backup-azure-vms-troubleshoot.md#restore)
 - [가상 컴퓨터 관리](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0420_2016-->

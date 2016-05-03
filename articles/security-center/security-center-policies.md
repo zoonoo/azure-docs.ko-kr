@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/01/2016"
+   ms.date="04/22/2016"
    ms.author="yurid"/>
 
 # Azure 보안 센터에서 보안 정책 설정
@@ -96,7 +96,8 @@ Azure 보안 센터는 Azure 리소스의 보안에 대한 향상된 가시성�
 
 - [Azure 보안 센터에서 보안 상태 모니터링](security-center-monitoring.md) – Azure 리소스의 상태를 모니터링하는 방법 알아보기
 - [Azure 보안 센터에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법 알아보기
+- [Azure 보안 센터를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md)--파트너 솔루션의 상태를 모니터링하는 방법 알아보기
 - [Azure 보안 센터 FAQ](security-center-faq.md) – 서비스 사용에 관한 질문과 대답 찾기
 - [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) – Azure 보안 및 규정 준수에 관한 블로그 게시물 찾기
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

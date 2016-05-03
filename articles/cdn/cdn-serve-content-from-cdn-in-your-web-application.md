@@ -45,7 +45,9 @@
 -	Blob 관리 GUI용 [Azure SDK](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)를 설치한 Visual Studio 2013
 -	[Azure PowerShell](http://go.microsoft.com/?linkid=9811175&clcid=0x409)([ASP.NET 응용 프로그램에서 CDN 끝점으로 콘텐츠 업로드 자동화](#upload)에서 사용)
 
-> [AZURE.NOTE] 이 자습서를 완료하려면 Azure 계정이 있어야 합니다. + [Azure 계정을 무료로 개설](/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있음 - 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스(예: 웹 사이트)를 사용할 수 있습니다. + [MSDN 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/)할 수 있음 - MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
+> [AZURE.NOTE] 이 자습서를 완료하려면 Azure 계정이 있어야 합니다.
+> + [Azure 계정을 무료로 개설](/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있음 - 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스(예: 웹 서비스)를 사용할 수 있습니다.
+> + [MSDN 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/)할 수 있음 - MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
 
 <a name="static"></a>
 ## Azure CDN 끝점에서 정적 콘텐츠 제공 ##
@@ -256,7 +258,9 @@ Azure 앱 서비스 또는 Azure 클라우드 서비스를 Azure CDN에 통합�
 - CDN 제공 NuGet 패키지(예: jQuery 또는 부트스트랩 버전)를 쉽게 업그레이드 
 - 동일한 Visual Studio 인터페이스에서 웹 응용 프로그램 및 CDN 제공 콘텐츠 관리
 
-관련 자습서는 다음을 참조하세요. - [Azure 앱 서비스에서Azure CDN 사용](../app-service-web/cdn-websites-with-cdn.md) - [Azure CDN와 클라우드 서비스 통합](cdn-cloud-service-with-cdn.md)
+관련 자습서에 대해서는 다음을 참조하세요.
+- [Azure 앱 서비스에서 Azure CDN 사용](../app-service-web/cdn-websites-with-cdn.md)
+- [Azure CDN과 클라우드 서비스 통합](cdn-cloud-service-with-cdn.md)
 
 Azure 앱 서비스 웹앱 또는 Azure 클라우드 서비스와 통합하지 않고도 다음 사항을 주의하면 스크립트 번들에 Azure CDN을 사용할 수 있습니다.
 
@@ -270,7 +274,7 @@ Azure 앱 서비스 웹앱 또는 Azure 클라우드 서비스와 통합하지 �
 - [Azure 앱 서비스에서 Azure CDN 사용](../app-service-web/cdn-websites-with-cdn.md)
 - [Azure CDN과 클라우드 서비스 통합](cdn-cloud-service-with-cdn.md)
 - [CDN(콘텐츠 배달 네트워크) 콘텐츠를 사용자 지정 도메인에 매핑하는 방법](http://msdn.microsoft.com/library/azure/gg680307.aspx)
-- [Azure에 CDN 사용](cdn-how-to-use-cdn.md)
+- [Azure CDN 사용](cdn-create-new-endpoint.md)
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

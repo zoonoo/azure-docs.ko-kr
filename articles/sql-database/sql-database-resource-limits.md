@@ -3,8 +3,8 @@
 	description="이 페이지에서는 Azure SQL 데이터베이스에 대한 몇 가지 일반적인 리소스 제한을 설명합니다."
 	services="sql-database"
 	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
+	authors="carlrabeler"
+	manager="jhubbard"
 	editor="monicar" />
 
 
@@ -14,8 +14,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="03/02/2016"
-	ms.author="jroth" />
+	ms.date="04/19/2016"
+	ms.author="carlrab" />
 
 
 # Azure SQL 데이터베이스 리소스 제한
@@ -60,6 +60,10 @@ CPU, 메모리, 로그 I/O 및 데이터 I/O 이외의 리소스는 제한에 �
 | 영역 | 제한 | 설명 |
 |---|---|---|
 | 구독당 자동화된 내보내기를 사용하는 데이터베이스 | 10 | 자동화된 내보내기를 사용하면 SQL 데이터베이스 백업에 대한 사용자 지정 일정을 만들 수 있습니다. 자세한 내용은 [SQL 데이터베이스: 자동화된 SQL 데이터베이스 내보내기 지원](http://weblogs.asp.net/scottgu/windows-azure-july-updates-sql-database-traffic-manager-autoscale-virtual-machines)을 참조하세요.|
+| 서버당 데이터베이스 | 최대 5000 | V12 서버에서는 서버당 최대 5,000개의 데이터베이스를 허용합니다. 서버에서의 모든 데이터베이스 로그인 활동 및 master 데이터베이스에서의 시스템 뷰에 대한 쿼리 사용량에 따라 실제로 더 낮은 제한이 적용될 수 있습니다. 서버에서 데이터베이스의 수가 크게 증가하는 경우 모든 문제에 대해 데이터베이스 연결을 모니터링하는 것이 좋습니다. |  
+| 서버당 DTU | 45000 | V12 서버에서는 데이터베이스, 탄력적 풀 및 데이터 웨어하우스를 프로비전하는 데 서버당 45,000개의 DTU를 사용할 수 있습니다. |
+
+
 
 ## 리소스
 
@@ -69,4 +73,4 @@ CPU, 메모리, 로그 I/O 및 데이터 I/O 이외의 리소스는 제한에 �
 
 [SQL 데이터베이스 클라이언트 프로그램에 대한 오류 메시지](sql-database-develop-error-messages.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

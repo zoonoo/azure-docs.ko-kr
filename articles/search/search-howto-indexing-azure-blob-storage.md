@@ -74,6 +74,7 @@ BLOB 인덱서는 다음과 같은 문서 형식에서 텍스트를 추출할 �
 - ZIP
 - EML
 - 일반 텍스트 파일  
+- JSON(자세한 내용은 [JSON BLOB 인덱싱](search-howto-index-json-blobs.md) 참조)
 
 ## 문서 추출 프로세스
 
@@ -191,7 +192,7 @@ PPT(application/vnd.ms-powerpoint) | `metadata_content_type`<br/>`metadata_autho
 MSG(application/vnd.ms-outlook) | `metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` | 첨부 파일을 비롯한 텍스트 추출
 ZIP(application/zip) | `metadata_content_type` | 보관 파일의 모든 문서에서 텍스트 추출
 XML(application/xml) | `metadata_content_type`</br>`metadata_content_encoding`</br> | XML 태그를 제거하고 텍스트 추출
-JSON(application/json) | `metadata_content_type`</br>`metadata_content_encoding` | 텍스트 추출<br/>참고: JSON Blob에서 여러 문서 필드를 추출해야 하는 경우 [이 UserVoice 제안](https://feedback.azure.com/forums/263029-azure-search/suggestions/11113539-extract-document-structure-from-json-blobs/)에 응답해 주세요.
+JSON(application/json) | `metadata_content_type`</br>`metadata_content_encoding` | 텍스트 추출<br/>참고: JSON BLOB에서 여러 문서 필드를 추출해야 하는 경우 자세한 내용은 [JSON BLOB 인덱싱](search-howto-index-json-blobs.md)을 참조하세요.
 EML(메시지/rfc822) | `metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` | 첨부 파일을 비롯한 텍스트 추출
 일반 텍스트(text/plain) | `metadata_content_type`</br>`metadata_content_encoding`</br> | 
 
@@ -223,4 +224,4 @@ AzureSearch\_SkipContent | "true" | Blob 인덱서에게 메타데이터만 인�
 
 기능 요청 또는 개선에 대한 아이디어가 있는 경우 [UserVoice 사이트](https://feedback.azure.com/forums/263029-azure-search/)를 통해 연락해 주세요.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

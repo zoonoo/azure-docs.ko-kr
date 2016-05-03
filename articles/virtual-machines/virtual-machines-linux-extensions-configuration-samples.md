@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="09/01/2015"
+   ms.date="03/29/2016"
    ms.author="kundanap"/>
 
 # Linux VM 확장 구성 샘플
@@ -51,11 +51,34 @@
       "publisher": "Publisher Namespace",
       "type": "extension Name",
       "typeHandlerVersion": "extension version",
+      "autoUpgradeMinorVersion":true,
       "settings": {
       // Extension specific configuration goes in here.
       }
       }
       }
+
+## VM 규모 집합에서 VM 확장에 대한 샘플 템플릿 코드 조각
+
+          {
+           "type":"Microsoft.Compute/virtualMachineScaleSets",
+          ....
+                 "extensionProfile":{
+                 "extensions":[
+                   {
+                     "name":"extension Name",
+                     "properties":{
+                       "publisher":"Publisher Namespace",
+                       "type":"extension Name",
+                       "typeHandlerVersion":"extension version",
+                       "autoUpgradeMinorVersion":true,
+                       "settings":{
+                       // Extension specific configuration goes in here.
+                       }
+                     }
+                    }
+                  }
+                }
 
 확장을 배포하기 전에 최신 확장 버전을 확인하고 "typeHandlerVersion"을 현재 최신 버전으로 바꿉니다.
 
@@ -197,4 +220,4 @@
 
 [Linux VM의 사용자 지정 스크립트 확장](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

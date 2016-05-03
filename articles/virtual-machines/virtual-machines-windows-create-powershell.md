@@ -50,15 +50,14 @@
 
 	Login-AzureRmAccount
 
-다음 명령을 사용하여 구독 이름을 가져옵니다.
+다음 명령으로 사용 가능한 구독을 가져옵니다.
 
 	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
 
-Azure 구독을 설정합니다. < and > 문자를 포함하여 따옴표 안의 모든 항목을 올바른 이름으로 바꿉니다.
+현재 세션에 대한 Azure 구독을 설정합니다. < and > 문자를 포함하여 따옴표 안의 모든 항목을 올바른 이름으로 바꿉니다.
 
 	$subscr="<subscription name>"
-	Select-AzureSubscription -SubscriptionName $subscr –Current
-
+	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
 
 ## 3단계: 리소스 만들기
 
@@ -393,4 +392,4 @@ VM에 데이터 디스크를 더 추가하려면 다음 줄을 명령 집합으�
 
 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

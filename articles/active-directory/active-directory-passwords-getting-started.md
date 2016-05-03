@@ -50,7 +50,7 @@
 - AAD 테넌트를 Azure 구독과 연결합니다. 자세한 내용은 [Azure 구독과 Azure AD의 연관 관계](https://msdn.microsoft.com/library/azure/dn629581.aspx)를 참조하세요.
 - Azure AD Premium, Basic을 업그레이드하거나 O365 유료 라이선스를 사용합니다. 자세한 내용은 [Azure Active Directory 버전](https://azure.microsoft.com/pricing/details/active-directory/)을 참조하세요.
 
-  >[AZURE.NOTE] 클라우드 사용자를 위해 셀프 서비스 암호 재설정을 사용하려면 Azure AD Premium, Azure AD Basic 또는 유료 O365 라이선스로 업그레이드해야 합니다. 온-프레미스 사용자를 위해 셀프 서비스 암호 재설정을 사용하려면 Azure AD Premium으로 업그레이드해야 합니다. 자세한 내용은 Azure Active Directory 버전을 참조하세요. 이 정보에는 Azure AD Premium 또는 Basic을 등록하는 방법, 라이선스 계획을 활성화하고 Azure AD 액세스를 활성화하는 방법 및 관리자와 사용자 계정에 대한 액세스를 할당하는 방법에 대한 지침이 포함됩니다.
+  >[AZURE.NOTE] 클라우드 사용자를 위해 셀프 서비스 암호 재설정을 사용하려면 Azure AD Premium, Azure AD Basic 또는 유료 O365 라이선스로 업그레이드해야 합니다. 온-프레미스 사용자를 위해 셀프 서비스 암호 재설정을 사용하려면 Azure AD Premium으로 업그레이드해야 합니다. 자세한 내용은 [Azure Active Directory 버전](https://azure.microsoft.com/pricing/details/active-directory/)을 참조하세요. 이 정보에는 Azure AD Premium 또는 Basic을 등록하는 방법, 라이선스 계획을 활성화하고 Azure AD 액세스를 활성화하는 방법 및 관리자와 사용자 계정에 대한 액세스를 할당하는 방법에 대한 지침이 포함됩니다.
 
 - AAD 디렉터리에 하나 이상의 관리자 계정 및 사용자 계정 하나를 만듭니다.
 - 만든 관리자 및 사용자 계정에 AAD Premium, Basic 또는 O365 유료 라이선스를 할당합니다.
@@ -77,7 +77,7 @@
 
     ![][004]
 
-6.	사용자 암호 재설정 정책을 구성하려면, **암호 재설정을 위해 사용할 수 있는 사용자** 토글을 **예**로 밀어 설정합니다. 디렉터리에서 이 기능의 작동 방식을 구성할 수 있는 여러 제어를 표시합니다. 필요에 따라 자유롭게 암호 재설정을 사용자 지정할 수 있습니다. 각 암호 재설정 정책 컨트롤이 수행하는 내용을 자세히 알려면, [사용자 지정: Azure AD 암호 관리](active-directory-passwords-customize)를 참조하세요.
+6.	사용자 암호 재설정 정책을 구성하려면, **암호 재설정을 위해 사용할 수 있는 사용자** 토글을 **예**로 밀어 설정합니다. 디렉터리에서 이 기능의 작동 방식을 구성할 수 있는 여러 제어를 표시합니다. 필요에 따라 자유롭게 암호 재설정을 사용자 지정할 수 있습니다. 각 암호 재설정 정책 컨트롤이 수행하는 내용을 자세히 알려면, [사용자 지정: Azure AD 암호 관리](active-directory-passwords-customize.md)를 참조하세요.
 
     ![][005]
 
@@ -135,7 +135,7 @@
 
     ![][014]
 
-5.	사용자가 전화 번호를 확인한 후, 전화를 클릭하면 스피너가 표시되며 전화가 울립니다. 수화기를 들면 **사용자가 "#"를 눌러야 ** 계정을 확인할 수 있다는 메시지가 한 번 재생됩니다. 이 키를 누르면 사용자는 첫 번째 질문을 소유하고 두 번째 확인 단계로의 UI를 진행함을 자동으로 확인합니다.
+5.	사용자가 전화 번호를 확인한 후, 전화를 클릭하면 스피너가 표시되며 전화가 울립니다. 수화기를 들면 **사용자가 "#"를 눌러야** 계정을 확인할 수 있다는 메시지가 한 번 재생됩니다. 이 키를 누르면 사용자는 첫 번째 질문을 소유하고 두 번째 확인 단계로의 UI를 진행함을 자동으로 확인합니다.
 
     ![][015]
 
@@ -247,7 +247,7 @@ Azure AD Connect 도구에서 암호 쓰기 저장을 사용하도록 설정한 
 1.	설치가 완료되면, 사용자 환경에서 알 수 없는 아웃바운드 연결을 차단한 경우 방화벽에 다음 규칙도 추가해야 합니다. 변경한 후 AAD Connect 컴퓨터를 다시 부팅해야 합니다.
    - 포트 443 TCP를 통한 아웃바운드 연결 허용
    - https://ssprsbprodncu-sb.accesscontrol.windows.net/에 아웃바운드 연결 허용
-   - 프록시를 사용하거나 일반적인 연결 문제가 있는 경우, 포트 9350-9354 TCP를 통한 아웃바운드 연결 허용
+   - 프록시를 사용하거나 일반적인 연결 문제가 있는 경우, 포트 9350-9354 및 포트 5671 TCP를 통한 아웃바운드 연결 허용
 
 ### 4단계: 적절한 Active Directory 사용 권한 설정
 암호를 재설정한 사용자를 포함한 모든 포리스트의 경우, X가 구성 마법사에서 해당 포리스트에 대해 지정된 계정이면(초기 구성 중), X는 **암호 재설정**, **암호 변경**, `lockoutTime`에서 **쓰기 권한**, `pwdLastSet`에서 **쓰기 권한**를 제공하며 해당 포리스트에서 각 도메인의 루트 개체에 대한 권한을 확장합니다. 오른쪽은 모든 사용자 개체에서 상속된 것으로 표시되어야 합니다.
@@ -353,4 +353,4 @@ Azure AD Connect 도구에서 암호 쓰기 저장을 사용하도록 설정한 
 [031]: ./media/active-directory-passwords-getting-started/031.jpg "Image_031.jpg"
 [032]: ./media/active-directory-passwords-getting-started/032.jpg "Image_032.jpg"
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0427_2016-->

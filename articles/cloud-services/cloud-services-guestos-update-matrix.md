@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="03/11/2016"
+   ms.date="04/17/2016"
    ms.author="yuemlu"/>
 
 # Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스
@@ -28,6 +28,9 @@
 게스트 OS가 무엇인지 또는 게스트 OS 릴리스가 어떻게 작동하는지 잘 모르시나요? [이](#how-it-works) 섹션을 읽어보세요.
 
 ## 새 업데이트
+
+###### **2016년 4월 18일**
+게스트 OS 4월 롤아웃은 2016년 4월 18일에 시작되며 2016년 5월 12일에 출시될 예정입니다.
 
 ###### **2016년 3월 14일**
 게스트 OS 3월 롤아웃은 2016년 3월 14일에 시작되며 2016년 4월 8일에 출시될 예정입니다.
@@ -52,9 +55,10 @@
 
 | 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 | 만료 날짜 |
 | ------------------------------ | --------------- | ------------- | ---- |
-| WA-GUEST-OS-4.30\_201603-01 | *2016년 4월 8일 | Post 4.32 | TBD |
-| WA-GUEST-OS-4.29\_201602-01 | 2016년 3월 12일 | Post 4.31 | TBD |
-| WA-GUEST-OS-4.28\_201601-01 | 2016년 2월 12일 | Post 4.30 | TBD |
+| WA-GUEST-OS-4.31\_201604-01 | 2016년 5월 12일* | 4\.33 후 | TBD |
+| WA-GUEST-OS-4.30\_201603-01 | 2016년 4월 7일 | 4\.32 후 | TBD |
+| WA-GUEST-OS-4.29\_201602-02 | 2016년 3월 12일 | 4\.31 후 | TBD |
+| WA-GUEST-OS-4.28\_201601-01 | 2016년 2월 12일 | 2016년 5월 7일 | TBD | 
 | WA-GUEST-OS-4.27\_201512-01 | 2016년 1월 12일 | 2016년 4월 12일 | TBD |
 | ~~WA-GUEST-OS-4.26\_201511-02~~ | 2016년 1월 4일 | 2016년 3월 12일 | TBD |
 | ~~WA-GUEST-OS-4.26\_201511-01~~ | 2015년 12월 10일 | 2016년 3월 12일 | TBD |
@@ -62,7 +66,7 @@
 | ~~WA-GUEST-OS-4.24\_201509-01~~ | 2015년 10월 1일 | 2016년 1월 10일 | TBD |
 | ~~WA-GUEST-OS-4.23\_201508-02~~ | 2015년 9월 9일 | 2015년 12월 6일 | TBD |
 | ~~WA-GUEST-OS-4.22\_201507-02~~ | 2015년 8월 7일 | 2015년 11월 1일 | TBD |
-| ~~WA-GUEST-OS-4.21\_201506-01~~ | 2015년 7월 9일 | 2015년 10일 9일 | TBD |
+| ~~WA-GUEST-OS-4.21\_201506-01~~ | 2015년 7월 9일 | 2015년 10월 9일 | TBD |
 | ~~WA-GUEST-OS-4.20\_201505-02~~ | 2015년 6월 12일 | 2015년 9월 7일 | TBD |
 | ~~WA-GUEST-OS-4.19\_201504-01~~ | 2015년 4월 17일 | 2015년 8월 9일 | TBD |
 
@@ -76,9 +80,10 @@
 
 | 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 | 만료 날짜 |
 | ------------------------------ | -------------- | ------------- | --- |
-| WA-GUEST-OS-3.37\_201603-01 | *2016년 4월 8일 | Post 3.39 | TBD |
-| WA-GUEST-OS-3.36\_201602-01 | 2016년 3월 12일 | Post 3.38 | TBD |
-| WA-GUEST-OS-3.35\_201601-01 | 2016년 2월 12일 | Post 3.37 | TBD |
+| WA-GUEST-OS-3.38\_201604-01 | 2016년 5월 12일* | 3\.40 후 | TBD |
+| WA-GUEST-OS-3.37\_201603-01 | 2016년 4월 7일 | 3\.39 후 | TBD |
+| WA-GUEST-OS-3.36\_201602-02 | 2016년 3월 12일 | 3\.38 후 | TBD |
+| WA-GUEST-OS-3.35\_201601-01 | 2016년 2월 12일 | 2016년 5월 7일 | TBD |
 | WA-GUEST-OS-3.34\_201512-01 | 2016년 1월 12일 | 2016년 4월 12일 | TBD |
 | ~~WA-GUEST-OS-3.33\_201511-02~~ | 2016년 1월 4일 | 2016년 3월 12일 | TBD |
 | ~~WA-GUEST-OS-3.33\_201511-01~~ | 2015년 12월 10일 | 2016년 3월 12일 | TBD |
@@ -101,9 +106,10 @@
 
 | 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 | 만료 날짜 |
 | ------------------------------ | ------------- | ------------  | --- |
-| WA-GUEST-OS-2.49\_201603-01 | *2016년 4월 8일 | Post 2.51 | TBD |
-| WA-GUEST-OS-2.48\_201602-01 | 2016년 3월 12일 | Post 2.50 | TBD |
-| WA-GUEST-OS-2.47\_201601-01 | 2016년 2월 12일 | Post 2.49 | TBD |
+| WA-GUEST-OS-2.50\_201604-01 | 2016년 5월 12일* | 2\.52 후 | TBD |
+| WA-GUEST-OS-2.49\_201603-01 | 2016년 4월 7일 | 2\.51 후 | TBD |
+| WA-GUEST-OS-2.48\_201602-02 | 2016년 3월 12일 | 2\.50 후 | TBD |
+| WA-GUEST-OS-2.47\_201601-01 | 2016년 2월 12일 | 2016년 5월 7일 | TBD |
 | WA-GUEST-OS-2.46\_201512-01 | 2016년 1월 12일 | 2016년 4월 12일 | TBD |
 | ~~WA-GUEST-OS-2.45\_201511-02~~ | 2016년 1월 4일 | 2016년 3월 12일 | TBD |
 | ~~WA-GUEST-OS-2.45\_201511-01~~ | 2015년 12월 10일 | 2016년 3월 12일 | TBD |
@@ -139,9 +145,9 @@
 ## 게스트 OS 제품군 버전 설명
 게스트 OS 제품군은 출시된 Microsoft Windows Server 버전을 기반으로 합니다. 게스트 OS는 Azure 클라우드 서비스에서 실행되는 기본 운영 체제입니다. 각 게스트 OS에는 제품군, 버전 및 릴리스 번호가 있습니다.
 
-- **게스트 OS 제품군**은 게스트 OS가 기반으로 하는 Windows Server 운영 체제 릴리스입니다. 예를 들어, *제품군 3*은 Windows Server 2012를 기반으로 합니다.
+- **게스트 OS 제품군**은 게스트 OS가 기반으로 하는 Windows Server 운영 체제 릴리스입니다. 예를 들어 *제품군 3*은 Windows Server 2012를 기반으로 합니다.
 
-- **게스트 OS 버전**은 새 게스트 OS 버전이 생성되는 날짜에 사용 가능한 게스트 OS 제품군 이미지 및 관련 [Microsoft 보안 대응 센터(MSRC)][msrc] 패치로 한정됩니다. 일부 패치는 포함될 수 있습니다.
+- **게스트 OS 버전**은 새 게스트 OS 버전이 생성되는 날짜에 사용 가능한 게스트 OS 제품군 이미지 및 관련 [MSRC(Microsoft 보안 대응 센터)][msrc] 패치로 한정됩니다. 일부 패치는 포함될 수 있습니다.
 
     0에서 시작하고 새 업데이트 집합이 추가 될 때마다 1씩 증가하는 숫자입니다. 중요한 경우.후행 0만 표시됩니다. 즉, 버전 2.10은 다르며, 버전 2.1 버전보다 더 한참 후의 버전입니다.
 
@@ -170,7 +176,7 @@ Microsoft Azure는 지속적으로 업데이트를 릴리스하고 있습니다.
 ## 게스트 OS 지원 가능성 및 사용 중지 정책
 게스트 OS 지원 가능성 및 사용 중지 정책은 [여기][retirepolicy]에 설명됩니다.
 
-[Install .NET on a Cloud Service Role]: https://azure.microsoft.com/ko-KR/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
+[Install .NET on a Cloud Service Role]: https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Azure 게스트 OS 업데이트 설정]: cloud-services-how-to-configure.md
 [rss]: http://sxp.microsoft.com/feeds/3.0/msdntn/WindowsAzureOSUpdates
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
@@ -191,4 +197,4 @@ Microsoft Azure는 지속적으로 업데이트를 릴리스하고 있습니다.
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

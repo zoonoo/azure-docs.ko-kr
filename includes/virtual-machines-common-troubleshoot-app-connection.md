@@ -25,7 +25,7 @@ Azure 가상 컴퓨터에서 실행되는 응용 프로그램의 액세스 문�
 
 ![](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access2.png)
 
-예를 들어 응용 프로그램이 웹 서버인 경우, VM에서 브라우저를 실행하고 해당 VM에서 호스트되는 웹 페이지에 액세스를 시도합니다.
+예를 들어 응용 프로그램이 웹 서버인 경우, VM에서 브라우저를 열고 해당 VM에서 호스트되는 웹 페이지에 액세스를 시도합니다.
 
 응용 프로그램에 액세스할 수 있는 경우 [2단계](#step2)로 이동합니다.
 
@@ -102,4 +102,4 @@ VM에서 응용 프로그램이 실행되고 있지만, 사용자의 원래 클�
 
 [Linux 기반 Azure 가상 컴퓨터에 SSH(보안 셸) 연결 문제 해결](../articles/virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

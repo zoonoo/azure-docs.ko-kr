@@ -36,7 +36,7 @@ Azure REST API를 사용하면 Linux 기반 HDInsight 클러스터 등과 같은
 
 - __Azure CLI__ Azure CLI는 서비스 주체를 만드는 데 사용됩니다. 서비스 주체는 Azure REST API에 대한 요청의 인증 토큰을 생성하는 데 사용됩니다.
 
-    CLI를 설치하는 방법에 대한 자세한 내용은 [Azure CLI 설치](../xplat-cli-install.md)를 참조하세요.
+    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 - __cURL__. 이 유틸리티는 패키지 관리 시스템을 통해서나 [http://curl.haxx.se/](http://curl.haxx.se/)에서 다운로드하여 사용할 수 있습니다.
 
@@ -358,4 +358,4 @@ HDInsight 클러스터를 성공적으로 만들었으므로 다음을 사용하
 * [HDInsight의 Storm에서 Python 구성 요소 사용](hdinsight-storm-develop-python-topology.md)
 * [HDInsight에서 Storm을 사용하는 토폴로지 배포 및 모니터링](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

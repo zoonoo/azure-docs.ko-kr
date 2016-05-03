@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/25/2015" 
+	ms.date="04/08/2016" 
 	ms.author="awills"/>
  
 # Application Insights에서 ASP.NET에 대한 로그, 예외 및 사용자 지정 진단
@@ -241,11 +241,11 @@ Application Insights는 [상태 모니터][redfield] 또는 [Application Insight
 모든 예외 호출에는 속성을 개별적으로 추가하는 대신 기본 컨텍스트에서 정보를 설정할 수 있습니다.
 
     // Telemetry initializer class
-    public class MyTelemetryInitializer : IContextInitializer
+    public class MyTelemetryInitializer : ITelemetryInitializer
     {
-        public void Initialize (TelemetryContext context)
+        public void Initialize (ITelemetry telemetry)
         {
-            context.Properties["AppVersion"] = "v2.1";
+            telemetry.Properties["AppVersion"] = "v2.1";
         }
     }
 
@@ -254,7 +254,7 @@ Global.asax.cs 같은 앱 이니셜라이저에서:
     protected void Application_Start()
     {
         // ...
-        TelemetryConfiguration.Active.ContextInitializers
+        TelemetryConfiguration.Active.TelemetryInitializers
         .Add(new MyTelemetryInitializer());
     }
 
@@ -305,4 +305,4 @@ Application Insights를 설치하지 않고 로깅 어댑터 Nuget 패키지를 
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0420_2016-->

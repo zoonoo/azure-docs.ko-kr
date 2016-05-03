@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/31/2016"
+    ms.date="04/20/2016"
     ms.author="magoedte"/>
 
 # Azure 실행 계정으로 Runbook 인증
@@ -70,7 +70,7 @@ Install-Module AzureAutomationAuthoringToolkit -Scope CurrentUser
 
 PowerShell 스크립트는 다음을 구성합니다.
 
-* Azure AD 응용 프로그램은 이 응용 프로그램에 대한 Azure AD의 서비스 주체 계정인 자체 서명된 인증서로 인증될 수 있고 현재 구독에서 이 계정에 대한 참가자 역할(소유자 또는 다른 역할로 변경할 수 있음)을 할당합니다. 보다 자세한 정보는 [Azure 자동화에서 역할 기반 액세스 제어](../automation/automation-role-based-access-control.md) 문서를 검토합니다.  
+* 자체 서명된 인증서로 인증되는 Azure AD 응용 프로그램은, Azure AD에서 이 응용 프로그램에 대한 서비스 주체 계정을 만들며, 현재 구독 내에 이 계정에 대한 참가자 역할(소유자 또는 다른 어떤 역할로든 변경 가능)을 할당합니다. 보다 자세한 정보는 [Azure 자동화에서 역할 기반 액세스 제어](../automation/automation-role-based-access-control.md) 문서를 검토합니다.  
 * **AzureRunAsCertificate**라는 지정된 자동화 계정의 자동화 인증서 자산은 서비스 주체에서 사용되는 인증서를 보유합니다.
 * **AzureRunAsConnection**이라는 지정된 자동화 계정의 자동화 연결 자산은 applicationId, tenantId, subscriptionId 및 인증서 지문을 보유합니다.  
 
@@ -123,7 +123,7 @@ PowerShell 스크립트는 다음을 구성합니다.
     $KeyCredential.Value = $KeyValue
 
     # Use Key credentials
-    $Application = New-AzureRmADApplication -DisplayName $ApplicationDisplayName -HomePage ("http://" + $ServicePrincipalDisplayName) -IdentifierUris ("http://" + $KeyId) -KeyCredentials $keyCredential
+    $Application = New-AzureRmADApplication -DisplayName $ApplicationDisplayName -HomePage ("http://" + $ApplicationDisplayName) -IdentifierUris ("http://" + $KeyId) -KeyCredentials $keyCredential
 
     New-AzureRMADServicePrincipal -ApplicationId $Application.ApplicationId | Write-Verbose
     Get-AzureRmADServicePrincipal | Where {$_.ApplicationId -eq $Application.ApplicationId} | Write-Verbose
@@ -200,4 +200,4 @@ PowerShell 스크립트는 다음을 구성합니다.
 - 서비스 주체에 대한 자세한 내용은 [응용 프로그램 개체 및 서비스 주체 개체](../active-directory/active-directory-application-objects.md)를 참조합니다.
 - Azure 자동화의 역할 기반 액세스 제어에 대한 자세한 내용은 [Azure 자동화에서 역할 기반 액세스 제어](../automation/automation-role-based-access-control.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

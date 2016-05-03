@@ -2,4 +2,4 @@
 >
 > 최신 버전을 사용하려면 [Azure CLI 설치 및 구성](../articles/xplat-cli-install.md) 단계를 사용하여 최신 버전을 설치합니다.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

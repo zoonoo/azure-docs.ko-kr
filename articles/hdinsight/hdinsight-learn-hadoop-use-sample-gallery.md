@@ -30,10 +30,6 @@ HDInsight 시작 갤러리는 HDInsight에서 샘플 응용 프로그램을 실�
 	- 웹 사이트 로그 분석
 	- Mahout 동영상 권장 사항
 
-[AZURE.INCLUDE [hdinsight-azure-preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
-
-* [HDInsight 시작 갤러리를 사용하여 Hadoop에 대해 알아보기](hdinsight-learn-hadoop-use-sample-gallery-v1.md)
-
 ![샘플 데이터가 포함된 HDInsight Hadoop, Storm 및 HBase 시작 갤러리 솔루션][hdinsight.sample.gallery]
 
 다음 동영상에서는 Twitter 추세 분석 샘플을 실행하는 방법을 보여 줍니다.
@@ -68,4 +64,4 @@ HDInsight에 대해 알아볼 수 있는 다른 방법은 다음과 같습니다
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
 [azure.portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

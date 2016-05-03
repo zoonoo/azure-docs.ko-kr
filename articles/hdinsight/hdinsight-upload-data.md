@@ -62,6 +62,8 @@ Microsoft는 Azure Blob 저장소에서 작업할 다음 유틸리티를 제공�
 
 Azure CLI는 Azure 서비스를 관리할 수 있도록 하는 크로스 플랫폼 도구입니다. Azure Blob 저장소에 데이터를 업로드하려면 다음 단계를 사용합니다:
 
+[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+
 1. [Mac, Linux 및 Windows용 Azure CLI의 설치 및 구성](../xplat-cli-install.md)
 
 2. 명령 프롬프트, bash 또는 다른 셸을 열고 다음을 사용하여 Azure 구독을 인증합니다.
@@ -103,6 +105,8 @@ Azure CLI는 Azure 서비스를 관리할 수 있도록 하는 크로스 플랫�
 ###<a id="powershell"></a>Azure PowerShell
 
 Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 및 자동화하기 위해 사용할 수 있는 스크립팅 환경입니다. Azure PowerShell을 실행하기 위해 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](../powershell-install-configure.md)을 참조하세요.
+
+[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell.md)]
 
 **Azure Blob 저장소에 로컬 파일을 업로드하려면**
 
@@ -278,4 +282,4 @@ Azure SDK 설치에 대한 자세한 내용은 [Azure 다운로드](https://azur
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

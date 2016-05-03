@@ -3,8 +3,8 @@
    description="Azure DNS에 대한 호스트 레코드를 만드는 방법입니다. CLI를 사용하여 레코드 집합 및 레코드를 설정합니다."
    services="dns"
    documentationCenter="na"
-   authors="joaoma"
-   manager="Adinah"
+   authors="cherylmc"
+   manager="carmonm"
    editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="01/20/2016"
-   ms.author="joaoma"/>
+   ms.author="cherylmc"/>
 
 
 # CLI를 사용하여 DNS 레코드 만들기
@@ -121,4 +121,4 @@ nslookup 또는 다른 DNS 도구를 사용하여 새 레코드 집합을 쿼리
 [.NET SDK로 Azure 작업 자동화](dns-sdk.md)
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0427_2016-->

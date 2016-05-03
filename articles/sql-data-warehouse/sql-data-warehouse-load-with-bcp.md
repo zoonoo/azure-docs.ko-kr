@@ -3,7 +3,7 @@
    description="bcp 정의 및 데이터 웨어하우징 시나리오에 대해 사용하는 방법에 대해 알아봅니다."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="TwoUnder"
+   authors="lodipalm"
    manager="barbkess"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="04/21/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 
@@ -27,7 +27,7 @@
 
 **[bcp][]**는 명령줄 대량 로드 유틸리티로, SQL Server, 데이터 파일 및 SQL 데이터 웨어하우스 간에 데이터를 복사할 수 있습니다. bcp 유틸리티를 사용하여 SQL 데이터 웨어하우스 테이블로 많은 수의 행을 가져오거나, 또는 SQL Server 테이블에서 데이터 파일로 데이터를 내보냅니다. Queryout 옵션을 사용하는 경우를 제외하고, bcp를 사용하려면 TRANSACT-SQL 지식이 없어도 됩니다.
 
-bcp는 SQL 데이터 웨어하우스 데이터베이스 내부 및 외부로 더 작은 데이터 집합을 이동하는 빠르고 쉬운 방법입니다. bcp를 통한 로드/추출을 권장하는 정확한 크기의 데이터는 Azure 데이터 센터에 연결된 네트워크에 따라 다릅니다. 일반적으로 차원 테이블을 로드하고 추출할 수 있지만 매우 큰 팩트 테이블은 추출 하거나 로드하는 데 시간이 많이 걸릴 수 있습니다.
+bcp는 SQL 데이터 웨어하우스 데이터베이스 내부 및 외부로 더 작은 데이터 집합을 이동하는 빠르고 쉬운 방법입니다. bcp를 통한 로드/추출을 권장하는 정확한 크기의 데이터는 Azure 데이터 센터에 연결된 네트워크에 따라 다릅니다. 일반적으로 차원 테이블은 bcp를 통해 쉽게 로드 및 추출할 수 있으나, 대용량 데이터를 로드 또는 추출할 때는 bcp가 권장되지 않습니다. 대용량 데이터의 로드 및 추출에는 SQL 데이터 웨어하우스의 병렬 처리 아키텍처를 더 잘 활용하는 Polybase가 권장됩니다.
 
 bcp를 사용하면 다음과 같은 작업을 수행할 수 있습니다.
 
@@ -57,32 +57,29 @@ bcp를 사용하면 다음과 같은 작업을 수행할 수 있습니다.
 
 ### 1단계: Azure SQL 데이터 웨어하우스에서 테이블 만들기
 
-명령 프롬프트에서 다음 명령을 사용하여 인스턴스에 연결하고 값을 적절하게 대체합니다.
+명령 프롬프트에서 sqlcmd를 사용하여 다음 쿼리를 실행하여 인스턴스에 테이블을 만듭니다.
 
 ```sql
-sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I
+sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "
+    CREATE TABLE DimDate2
+    (
+        DateId INT NOT NULL,
+        CalendarQuarter TINYINT NOT NULL,
+        FiscalQuarter TINYINT NOT NULL
+    )
+    WITH
+    (
+        CLUSTERED COLUMNSTORE INDEX,
+        DISTRIBUTION = ROUND_ROBIN
+    );
+"
 ```
-연결되면, sqlcmd 프롬프트에서 다음 테이블 스크립트를 복사한 다음 Enter 키를 누릅니다.
 
-```sql
-CREATE TABLE DimDate2
-(
-    DateId INT NOT NULL,
-    CalendarQuarter TINYINT NOT NULL,
-    FiscalQuarter TINYINT NOT NULL
-)
-WITH
-(
-    CLUSTERED COLUMNSTORE INDEX,
-    DISTRIBUTION = ROUND_ROBIN
-);
-GO
-```
->[AZURE.NOTE] WITH 절에서 사용 가능한 옵션에 대한 자세한 내용은 항목의 개발 그룹에서 [테이블 설계][] 항목을 참조하세요.
+>[AZURE.NOTE] SQL 데이터 웨어하우스에서 테이블을 만드는 방법과 WITH 절에서 사용 가능한 옵션에 대한 자세한 내용은 [T테이블 설계][] 또는 [CREATE TABLE 구문][]을 참조하세요.
 
 ### 2단계: 원본 데이터 파일 만들기
 
-메모장을 열고 새 파일로 다음 데이터 줄을 복사합니다.
+메모장을 열고 다음 데이터 줄을 새 텍스트 파일에 복사한 다음 이 파일을 로컬 임시 디렉터리 C:\\Temp\\DimDate2.txt에 저장합니다.
 
 ```
 20150301,1,3
@@ -99,9 +96,7 @@ GO
 20150101,1,3
 ```
 
-로컬 임시 디렉터리, C:\\Temp\\DimDate2.txt로 저장합니다.
-
-> [AZURE.NOTE] 해당 bcp.exe는 UTF-8 파일 인코딩을 지원하지 않습니다. bcp.exe 사용 시 파일에 ASCII 인코딩 파일 또는 UTF-16 인코딩을 사용하세요.
+> [AZURE.NOTE] 해당 bcp.exe는 UTF-8 파일 인코딩을 지원하지 않습니다. bcp.exe 사용 시 파일에 ASCII 파일 또는 UTF-16 인코딩 파일을 사용하세요.
 
 ### 3단계: 데이터 연결 및 가져오기
 bcp를 사용하여, 연결하고 값을 적절하게 대체하는 다음 명령을 사용하여 데이터를 가져올 수 있습니다.
@@ -110,11 +105,10 @@ bcp를 사용하여, 연결하고 값을 적절하게 대체하는 다음 명령
 bcp DimDate2 in C:\Temp\DimDate2.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -c -t  ','
 ```
 
-앞에서와 같이 sqlcmd를 사용하여 연결하고 다음 TSQL 명령을 실행하여 데이터가 로드되었음을 확인할 수 있습니다.
+sqlcmd에서 다음 쿼리를 실행하여 데이터가 로드되었음을 확인할 수 있습니다.
 
 ```sql
-SELECT * FROM DimDate2 ORDER BY 1;
-GO
+sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "SELECT * FROM DimDate2 ORDER BY 1;"
 ```
 
 다음 결과를 반환해야 합니다.
@@ -141,10 +135,11 @@ Azure SQL 데이터 웨어하우스는 자동 만들기 또는 통계 자동 업
 sqlcmd 프롬프트에서 다음 CREATE STATISTICS 문을 실행합니다.
 
 ```sql
-create statistics [DateId] on [DimDate2] ([DateId]);
-create statistics [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
-create statistics [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
-GO
+sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "
+    create statistics [DateId] on [DimDate2] ([DateId]);
+    create statistics [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
+    create statistics [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
+"
 ```
 
 ## SQL 데이터 웨어하우스에서 데이터 내보내기
@@ -174,7 +169,7 @@ bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name>
 20150101,1,3
 ```
 
->[AZURE.NOTE] 분산된 시스템의 특성상 데이터 순서는 SQL 데이터 웨어하우스 데이터베이스에서 동일하지 않을 수 있습니다. 선택적으로 queryout 매개변수를 사용하여 실행할 TRANSACT-SQL 쿼리를 지정합니다.
+>[AZURE.NOTE] 분산된 시스템의 특성상 데이터 순서는 SQL 데이터 웨어하우스 데이터베이스에서 동일하지 않을 수 있습니다. 또 다른 옵션은 전체 테이블을 내보내는 것이 아니라 쿼리 추출을 작성하는 bcp의 **queryout** 함수를 사용하는 것입니다.
 
 ## 다음 단계
 로드 개요는 [SQL 데이터 웨어하우스로 데이터 로드][]를 참조하세요. 더 많은 개발 팁은 [SQL 데이터 웨어하우스 개발 개요][]를 참조하세요.
@@ -183,17 +178,16 @@ bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name>
 
 <!--Article references-->
 
-[SQL 데이터 웨어하우스로 데이터 로드]: ./sql-data-warehouse-overview-load.md
-[SQL 데이터 웨어하우스 개발 개요]: ./sql-data-warehouse-overview-develop.md
-[테이블 설계]: ./sql-data-warehouse-develop-table-design.md
-[통계]: ./sql-data-warehouse-develop-statistics.md
-
+[SQL 데이터 웨어하우스로 데이터 로드]: sql-data-warehouse-overview-load.md
+[SQL 데이터 웨어하우스 개발 개요]: sql-data-warehouse-overview-develop.md
+[T테이블 설계]: sql-data-warehouse-develop-table-design.md
+[통계]: sql-data-warehouse-develop-statistics.md
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
-
+[CREATE TABLE 구문]: https://msdn.microsoft.com/library/mt203953.aspx
 
 <!--Other Web references-->
-[Microsoft 다운로드 센터]: http://www.microsoft.com/download/details.aspx?id=36433
+[Microsoft 다운로드 센터]: https://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0427_2016-->

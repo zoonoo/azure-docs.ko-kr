@@ -12,10 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="12/17/2015"
+   ms.date="04/18/2016"
    ms.author="tarcher" />
-
-
 
 # IntelliTrace 및 Visual Studio를 사용하여 게시된 클라우드 서비스 디버깅
 
@@ -23,9 +21,9 @@
 
 IntelliTrace를 사용하여 Azure에서 실행할 때 역할 인스턴스에 대한 광범위한 정보를 기록할 수 있습니다. 문제의 원인을 찾아야 하는 경우 Azure에서 실행 중인 것처럼 Visual Studio에서 코드를 단계별로 거쳐 IntelliTrace 로그를 사용할 수 있습니다. 실제로 Azure에서 Azure 응용 프로그램을 클라우드 서비스로 실행 중일 때 IntelliTrace는 키 코드 실행 및 환경 데이터를 기록하여 Visual Studio에서 기록된 데이터를 재생할 수 있습니다. 대체 방법으로 원격 디버깅을 사용하여 Azure에서 실행 중인 클라우드 서비스로 직접 연결할 수 있습니다. [클라우드 서비스 디버깅](http://go.microsoft.com/fwlink/p/?LinkId=623041)을 참조하십시오.
 
->[AZURE.IMPORTANT]IntelliTrace는 디버그 시나리오 전용이며 프로덕션 배포용으로 사용할 수 없습니다.
+>[AZURE.IMPORTANT] IntelliTrace는 디버그 시나리오 전용이며 프로덕션 배포용으로 사용할 수 없습니다.
 
->[AZURE.NOTE]Visual Studio Enterprise가 설치되어 있으며 Azure 응용 프로그램 대상 .NET Framework 4 이상 버전이 있는 경우 IntelliTrace를 사용할 수 있습니다. IntelliTrace는 Azure 역할에 대한 정보를 수집합니다. 이러한 역할에 대한 가상 컴퓨터는 항상 64비트 운영 체제를 실행합니다.
+>[AZURE.NOTE] Visual Studio Enterprise가 설치되어 있으며 Azure 응용 프로그램 대상 .NET Framework 4 이상 버전이 있는 경우 IntelliTrace를 사용할 수 있습니다. IntelliTrace는 Azure 역할에 대한 정보를 수집합니다. 이러한 역할에 대한 가상 컴퓨터는 항상 64비트 운영 체제를 실행합니다.
 
 ## IntelliTrace에 대한 Azure 응용 프로그램 구성
 
@@ -39,7 +37,7 @@ Azure 응용 프로그램에 IntelliTrace를 사용하려면 Visual Studio Azure
 
 1. 클라우드에 게시될 때 응용 프로그램에 대한 IntelliTrace 로그를 수집하려면 **IntelliTrace 사용** 확인란을 선택합니다.
 
-    >[AZURE.NOTE]Azure 응용 프로그램을 게시할 때 IntelliTrace 또는 프로파일링을 사용할 수 있습니다. 둘 다 사용할 수는 없습니다.
+    >[AZURE.NOTE] Azure 응용 프로그램을 게시할 때 IntelliTrace 또는 프로파일링을 사용할 수 있습니다. 둘 다 사용할 수는 없습니다.
 
 1. 기본 IntelliTrace 구성을 사용자 지정하려면 **설정** 하이퍼링크를 선택합니다.
 
@@ -63,10 +61,10 @@ Azure 응용 프로그램을 Azure에 게시한 후 다음 그림에 표시된 �
 
 IntelliTrace 로그를 다운로드하는 동안 Visual Studio에서 작업을 계속할 수 있습니다. 로그 다운로드가 완료되면 Visual Studio에서 자동으로 열립니다.
 
->[AZURE.NOTE]IntelliTrace 로그는 프레임워크가 생성하고 이후에 처리하는 예외를 포함할 수 있습니다. 내부 프레임워크 코드는 안전하게 무시할 수 있도록 역할을 시작할 때의 일반적인 한 부분으로 이러한 예외를 생성합니다.
+>[AZURE.NOTE] IntelliTrace 로그는 프레임워크가 생성하고 이후에 처리하는 예외를 포함할 수 있습니다. 내부 프레임워크 코드는 안전하게 무시할 수 있도록 역할을 시작할 때의 일반적인 한 부분으로 이러한 예외를 생성합니다.
 
 ## 참고 항목
 
 [클라우드 서비스 디버깅](https://msdn.microsoft.com/library/ee405479.aspx)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0420_2016-->

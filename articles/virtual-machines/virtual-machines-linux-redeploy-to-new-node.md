@@ -3,7 +3,7 @@
 	description="SSH 연결 문제를 완화하도록 가상 컴퓨터를 다시 배포하는 방법을 설명합니다." 
 	services="virtual-machines-linux" 
 	documentationCenter="virtual-machines" 
-	authors="dsk-2015" 
+	authors="iainfoulds" 
 	manager="timlt"
 	tags="azure-resource-manager,top-support-issue" 
 />
@@ -12,11 +12,11 @@
 <tags 
 	ms.service="virtual-machines-linux" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="support-article" 
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure" 
-	ms.date="03/02/2016" 
-	ms.author="dkshir;manavis" 
+	ms.date="04/13/2016" 
+	ms.author="iainfou;manavis" 
 />
 
 
@@ -26,4 +26,4 @@
 
 [AZURE.INCLUDE [virtual-machines-common-redeploy-to-new-node](../../includes/virtual-machines-common-redeploy-to-new-node.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

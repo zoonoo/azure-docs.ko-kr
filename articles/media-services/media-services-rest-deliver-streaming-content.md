@@ -2,7 +2,7 @@
 	pageTitle="미디어 서비스에서 스트리밍 콘텐츠를 제공하는 방법" 
 	description="스트리밍 URL을 작성하는 데 사용되는 로케이터를 만드는 방법에 대해 알아봅니다. REST API를 사용하는 코드입니다." 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="media-services" 
 	documentationCenter=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
+ 	ms.date="04/18/2016"  
 	ms.author="juliako"/>
 
 
@@ -21,8 +21,8 @@
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-deliver-streaming-content.md)
-- [REST](media-services-rest-deliver-streaming-content.md)
-- [Portal](media-services-manage-content.md#publish)
+- [REST (영문)](media-services-rest-deliver-streaming-content.md)
+- [포털](media-services-manage-content.md#publish)
 
 ##개요
 
@@ -191,4 +191,4 @@ URL: **경로** + 자산 파일 mp4 이름
 
 [자산 배달 정책 구성](media-services-rest-configure-asset-delivery-policy.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

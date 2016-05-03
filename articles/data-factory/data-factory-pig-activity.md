@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="04/18/2016" 
 	ms.author="spelluru"/>
 
 # Pig 작업
@@ -186,4 +186,12 @@ defines | Pig 스크립트 내에서 참조하기 위해 매개 변수를 키/�
 		PigSampleOut = Foreach GroupProfile Generate PigSampleIn.ProfileID, SUM(PigSampleIn.Duration);		
 		Store PigSampleOut into '$Output' USING PigStorage (','); 
 
-<!---HONumber=AcomDC_0302_2016-->
+
+## 참고 항목
+- [Hive 작업](data-factory-hive-activity.md)
+- [MapReduce 작업](data-factory-map-reduce.md)
+- [Hadoop 스트리밍 작업](data-factory-hadoop-streaming-activity.md)
+- [Spark 프로그램 호출](data-factory-spark.md)
+- [R 스크립트 호출](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
+
+<!---HONumber=AcomDC_0420_2016-->

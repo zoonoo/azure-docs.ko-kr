@@ -85,13 +85,14 @@ Asset Bank의 Azure AD 통합을 구성하려면 갤러리의 Asset Bank를 관�
 
 7. 결과 창에서 **Asset Bank**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
 
+	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-assetbank-tutorial/tutorial_assetbank_02.png)
 
 ##  Azure AD Single Sign-on 구성 및 테스트
 이 섹션은 "Britta Simon"이라는 테스트 사용자를 기반으로 Asset Bank에서 Azure AD Single Sign-On을 구성하고 테스트하는 방법을 보여 주기 위해 작성되었습니다.
 
 Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하는 Asset Bank 사용자가 누군지 알고 있어야 합니다. 즉, Azure AD 사용자와 Asset Bank의 관련 사용자 간에 연결이 설정되어야 합니다.
 
-이 연결 관계는 Azure AD의 **사용자 이름** 값을 Asset Bank의 **Username** 값으로 할당하여 설정합니다.
+이 연결 관계는 Azure AD의 **사용자 이름** 값을 Asset Bank의 **Username** 값을 할당하여 설정합니다.
 
 Asset Bank에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
@@ -174,7 +175,7 @@ Asset Bank에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-assetbank-tutorial/create_aaduser_04.png)
 
-5. **이 사용자에 대한 정보 입력** 대화 상자 페이지에서 다음 단계를 수행합니다.
+5. **이 사용자에 대해 알리기** 대화 상자 페이지에서 다음 단계를 수행합니다.
 
 	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-assetbank-tutorial/create_aaduser_05.png)
 
@@ -198,8 +199,7 @@ Asset Bank에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     e. **다음**을 클릭합니다.
 
-7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다.
-![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-assetbank-tutorial/create_aaduser_07.png)
+7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다. ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-assetbank-tutorial/create_aaduser_07.png)
 
 
 8. **임시 암호 가져오기** 대화 상자 페이지에서 다음 단계를 수행합니다.
@@ -281,4 +281,4 @@ Asset Bank에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 [204]: ./media/active-directory-saas-assetbank-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-assetbank-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

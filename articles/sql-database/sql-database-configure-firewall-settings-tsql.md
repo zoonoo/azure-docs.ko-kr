@@ -1,10 +1,10 @@
 <properties
-	pageTitle="방법: 방화벽 설정 구성 | Microsoft Azure"
+	pageTitle="방법: SQL 데이터베이스 방화벽 구성 | Microsoft Azure"
 	description="Azure SQL 데이터베이스에 액세스하는 IP 주소에 대한 방화벽을 구성하는 방법을 알아봅니다."
 	services="sql-database"
 	documentationCenter=""
 	authors="BYHAM"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 
@@ -18,11 +18,11 @@
 	ms.author="rickbyh"/>
 
 
-# 방법: TSQL을 사용하여 SQL 데이터베이스에 방화벽 설정 구성
+# 방법: TSQL을 사용하여 Azure SQL 데이터베이스 방화벽 구성
 
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-database-configure-firewall-settings.md)
+- [Azure 포털](sql-database-configure-firewall-settings.md)
 - [TSQL](sql-database-configure-firewall-settings-tsql.md)
 - [PowerShell](sql-database-configure-firewall-settings-powershell.md)
 - [REST API](sql-database-configure-firewall-settings-rest.md)
@@ -70,4 +70,4 @@ Microsoft Azure SQL 데이터베이스 서버와 데이터베이스에 대한 �
 
 데이터베이스를 만드는 방법에 대한 자습서는 [첫 Azure SQL 데이터베이스 만들기](sql-database-get-started.md)를 참조하세요. 오픈 소스 또는 타사 응용 프로그램에서 Azure SQL 데이터베이스에 연결하는 방법에 대한 도움말은 [프로그래밍 방식으로 Azure SQL 데이터베이스에 연결하기 위한 지침](https://msdn.microsoft.com/library/azure/ee336282.aspx)을 참조하세요. 데이터베이스를 탐색하는 방법을 이해하려면 [Azure SQL 데이터베이스에서 데이터베이스 및 로그인 관리](https://msdn.microsoft.com/library/azure/ee336235.aspx)를 참조하세요.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -12,9 +12,9 @@
    ms.workload="identity"
    ms.tgt_pltfrm="na"
    ms.devlang="na"
-   ms.topic="article"
-   ms.date="03/16/2016"
-   ms.author="shoatman;billmath"/>
+   ms.topic="get-started-article"
+   ms.date="04/25/2016"
+   ms.author="andkjell;shoatman;billmath"/>
 
 # Azure AD Connect: Microsoft Azure Active Directory 동기화(DirSync) 업그레이드
 
@@ -199,4 +199,4 @@ Azure AD Connect를 설치했으므로 [설치를 확인하고 라이선스를 �
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

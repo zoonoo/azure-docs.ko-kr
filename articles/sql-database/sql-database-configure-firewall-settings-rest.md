@@ -1,10 +1,10 @@
 <properties
-	pageTitle="방법: 방화벽 설정 구성 | Microsoft Azure"
+	pageTitle="방법: Azure SQL 데이터베이스 방화벽 구성 | Microsoft Azure"
 	description="Azure SQL 데이터베이스에 액세스하는 IP 주소에 대한 방화벽을 구성하는 방법을 알아봅니다."
 	services="sql-database"
 	documentationCenter=""
 	authors="BYHAM"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 
@@ -18,11 +18,11 @@
 	ms.author="rickbyh"/>
 
 
-# 방법: REST API를 사용하여 SQL 데이터베이스에 방화벽 설정 구성
+# 방법: REST API를 사용하여 Azure SQL 데이터베이스 방화벽 구성
 
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-database-configure-firewall-settings.md)
+- [Azure 포털](sql-database-configure-firewall-settings.md)
 - [TSQL](sql-database-configure-firewall-settings-tsql.md)
 - [PowerShell](sql-database-configure-firewall-settings-powershell.md)
 - [REST API](sql-database-configure-firewall-settings-rest.md)
@@ -71,4 +71,6 @@ Microsoft Azure SQL 데이터베이스 서버와 데이터베이스에 대한 �
 [2]: ./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0211_2016-->
+ 
+
+<!---HONumber=AcomDC_0420_2016-->

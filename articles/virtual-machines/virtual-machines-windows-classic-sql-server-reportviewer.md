@@ -3,8 +3,8 @@
 	description="이 항목에서는 Microsoft Azure 가상 컴퓨터에 저장된 보고서를 표시하는 Visual Studio ReportViewer 컨트롤을 사용하여 Microsoft Azure 웹 사이트를 빌드하는 방법에 대해 설명합니다."
 	services="virtual-machines-windows"
 	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
+	authors="guyinacube"
+	manager="jhubbard"
 	editor="monicar" 
 	tags="azure-service-management" />
 <tags 
@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="12/11/2015"
-	ms.author="jroth" />
+	ms.date="04/14/2016"
+	ms.author="asaxton" />
 
 # Azure에서 호스트되는 웹 사이트에서 ReportViewer 사용
 
@@ -109,4 +109,4 @@ Azure에 ASP.NET 웹 응용 프로그램을 게시하기 위한 지침은 [Visua
 
 [Reporting Services 보고서 뷰어 컨트롤 및 Microsoft Azure 가상 컴퓨터 기반 보고서 서버](http://download.microsoft.com/download/2/2/0/220DE2F1-8AB3-474D-8F8B-C998F7C56B5D/Reporting%20Services%20report%20viewer%20control%20and%20Azure%20VM%20based%20report%20servers.docx)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

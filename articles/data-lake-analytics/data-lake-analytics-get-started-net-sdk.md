@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="02/25/2016"
+   ms.date="04/21/2016"
    ms.author="edmaca"/>
 
 # 자습서: .NET SDK를 사용하여 Azure 데이터 레이크 분석 시작
@@ -25,14 +25,7 @@ Azure .NET SDK를 사용하여 Azure 데이터 레이크 분석 계정을 만들
 
 이 자습서에서는 TSV(탭으로 구분된 값) 파일을 읽어 CSV(쉼표로 구분된 값) 파일로 변환하는 U-SQL 스크립트가 포함된 C# 콘솔 응용 프로그램을 개발합니다. 지원되는 다른 도구를 사용하여 같은 자습서를 진행하려면 이 섹션의 맨 위에 있는 탭을 클릭하세요.
 
-**기본 데이터 레이크 분석 프로세스:**
-
-![Azure 데이터 레이크 분석 프로세스 흐름 다이어그램](./media/data-lake-analytics-get-started-portal/data-lake-analytics-process.png)
-
-1. 데이터 레이크 분석 계정을 만듭니다.
-2. 원본 데이터를 준비합니다. 데이터 레이크 분석 작업은 Azure 데이터 레이크 저장소 계정 또는 Azure Blob 저장소 계정에서 데이터를 읽을 수 있습니다.   
-3. U-SQL 스크립트를 개발합니다.
-4. 작업(U-SQL 스크립트)을 데이터 레이크 분석 계정에 제출합니다. 이 작업은 원본 데이터를 읽고 U-SQL 스크립트에서 지시한 대로 데이터를 처리한 다음 출력을 데이터 레이크 저장소 계정 또는 Blob 저장소 계정에 저장합니다.
+[AZURE.INCLUDE [basic-process-include](../../includes/data-lake-analytics-basic-process.md)]
 
 ##필수 조건
 
@@ -41,9 +34,6 @@ Azure .NET SDK를 사용하여 Azure 데이터 레이크 분석 계정을 만들
 - **Visual Studio 2015, Visual Studio 2013 업데이트 4 또는 Visual Studio 2012와 Visual C++ 설치**.
 - **.NET 버전 2.5 이상용 Microsoft Azure SDK**. [웹 플랫폼 설치 관리자](http://www.microsoft.com/web/downloads/platform.aspx)를 사용하여 설치합니다.
 - **[Visual Studio용 데이터 레이크 도구](http://aka.ms/adltoolsvs)** 
-- **데이터 레이크 분석 계정**. [Azure 데이터 레이크 분석 계정 만들기](data-lake-analytics-get-started-portal.md#create_adl_analytics_account)를 참조하세요.
-
-	Visual Studio용 데이터 레이크 도구는 데이터 레이크 분석 계정 만들기를 지원하지 않습니다. 계정 하나를 만들려면 Azure 포털, Azure PowerShell, Azure .NET SDK 또는 Azure CLI를 사용합니다.
 
 ##콘솔 응용 프로그램 만들기
 
@@ -139,7 +129,7 @@ Azure .NET SDK를 사용하여 Azure 데이터 레이크 분석 계정을 만들
                     
                     // Authenticate the user
                     // For more information about applications and instructions on how to get a client ID, see: 
-                    //   https://azure.microsoft.com/ko-KR/documentation/articles/resource-group-create-service-principal-portal/
+                    //   https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
                     var tokenCreds = AuthenticateUser("common", "https://management.core.windows.net/",
                         "<APPLICATION-CLIENT-ID>", new Uri("https://<APPLICATION-REDIRECT-URI>")); // TODO: Replace bracketed values.
                     
@@ -192,7 +182,7 @@ Azure .NET SDK를 사용하여 Azure 데이터 레이크 분석 계정을 만들
                 // Authenticate the user with AAD through an interactive popup.
                 // You need to have an application registered with AAD in order to authenticate.
                 //   For more information and instructions on how to register your application with AAD, see: 
-                //   https://azure.microsoft.com/ko-KR/documentation/articles/resource-group-create-service-principal-portal/
+                //   https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
                 public static TokenCredentials AuthenticateUser(string tenantId, string resource, string appClientId, Uri appRedirectUri, string userId = "")
                 {
                     var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenantId);
@@ -206,7 +196,7 @@ Azure .NET SDK를 사용하여 Azure 데이터 레이크 분석 계정을 만들
                 // Authenticate the application with AAD through the application's secret key.
                 // You need to have an application registered with AAD in order to authenticate.
                 //   For more information and instructions on how to register your application with AAD, see: 
-                //   https://azure.microsoft.com/ko-KR/documentation/articles/resource-group-create-service-principal-portal/
+                //   https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
                 public static TokenCredentials AuthenticateApplication(string tenantId, string resource, string appClientId, Uri appRedirectUri, SecureString clientSecret)
                 {
                     var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenantId);
@@ -224,16 +214,13 @@ Azure .NET SDK를 사용하여 Azure 데이터 레이크 분석 계정을 만들
                     _adlaClient.SubscriptionId = subscriptionId;
 
                     _adlaJobClient = new DataLakeAnalyticsJobManagementClient(tokenCreds);
-                    _adlaJobClient.SubscriptionId = subscriptionId;
 
                     _adlaCatalogClient = new DataLakeAnalyticsCatalogManagementClient(tokenCreds);
-                    _adlaCatalogClient.SubscriptionId = subscriptionId;
 
                     _adlsClient = new DataLakeStoreAccountManagementClient(tokenCreds);
                     _adlsClient.SubscriptionId = subscriptionId;
 
                     _adlsFileSystemClient = new DataLakeStoreFileSystemManagementClient(tokenCreds);
-                    _adlsFileSystemClient.SubscriptionId = subscriptionId;
                 }
 
                 // Create accounts
@@ -296,7 +283,7 @@ Azure .NET SDK를 사용하여 Azure 데이터 레이크 분석 계정을 만들
                     var properties = new USqlJobProperties(script);
                     var parameters = new JobInformation(jobName, JobType.USql, properties);
 
-                    var jobInfo = _adlaJobClient.Job.Create(jobId, parameters, _adlaAccountName);
+                    var jobInfo = _adlaJobClient.Job.Create(_adlaAccountName, jobId, parameters);
                     
                     return jobId;
                 }
@@ -310,17 +297,17 @@ Azure .NET SDK를 사용하여 Azure 데이터 레이크 분석 계정을 만들
                     var properties = new USqlJobProperties(script);
                     var parameters = new JobInformation(jobName, JobType.USql, properties, priority: 1000, degreeOfParallelism: 1);
 
-                    var jobInfo = _adlaJobClient.Job.Create(jobId, parameters, _adlaAccountName);
+                    var jobInfo = _adlaJobClient.Job.Create(_adlaAccountName, jobId, parameters);
 
                     return jobId;
                 }
 
                 public static JobResult WaitForJob(Guid jobId)
                 {
-                    var jobInfo = _adlaJobClient.Job.Get(jobId, _adlaAccountName);
+                    var jobInfo = _adlaJobClient.Job.Get(_adlaAccountName, jobId);
                     while (jobInfo.State != JobState.Ended)
                     {
-                        jobInfo = _adlaJobClient.Job.Get(jobId, _adlaAccountName);
+                        jobInfo = _adlaJobClient.Job.Get(_adlaAccountName, jobId);
                     }
                     return jobInfo.Result.Value;
                 }
@@ -369,8 +356,8 @@ Azure .NET SDK를 사용하여 Azure 데이터 레이크 분석 계정을 만들
 - 다른 도구를 사용하여 같은 자습서를 보려면 페이지 맨 위의 탭 선택기를 클릭합니다.
 - 더 복잡한 쿼리를 보려면 [Azure 데이터 레이크 분석을 사용하여 웹 사이트 로그 분석](data-lake-analytics-analyze-weblogs.md)을 참조하세요.
 - U-SQL 응용 프로그램 개발을 시작하려면 [Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)을 참조하세요.
-- U-SQL에 대해 알아보려면 [Azure 데이터 레이크 분석 U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md) 및 [U-SQL 언어 참조](http://go.microsoft.com/fwlink/?LinkId=691348)를 참조하세요.
+- U-SQL에 대해 알아보려면 [Azure Data Lake 분석 U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md) 및 [U-SQL 언어 참조](http://go.microsoft.com/fwlink/?LinkId=691348)를 참조하세요.
 - 관리 작업을 보려면 [Azure 포털을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-manage-use-portal.md)를 참조하세요.
 - 데이터 레이크 분석에 대한 개요를 보려면 [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

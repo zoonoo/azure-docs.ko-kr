@@ -6,7 +6,7 @@
 	authors="mmacy"
 	manager="timlt"
 	editor="" />
-	
+
 <tags
 	ms.service="batch"
 	ms.devlang="multiple"
@@ -15,7 +15,7 @@
 	ms.workload="big-compute"
 	ms.date="01/22/2016"
 	ms.author="marsma" />
-	
+
 # Azure 배치 계산 노드에서 작업 준비와 완료 작업 실행
 
 Azure 배치 작업은 실행하기 전에 설치의 형태를 필요로 하는 것과 마찬가지로 작업의 태스크가 완료된 후에 일종의 이후 작업 유지 관리를 필요로 합니다. 배치는 선택적인 *작업 준비* 및 *작업 릴리스* 작업의 형태로 이 준비 및 유지 관리에 대한 메커니즘을 제공합니다.
@@ -78,7 +78,7 @@ Azure 배치 작업은 실행하기 전에 설치의 형태를 필요로 하는 
 
 		await myJob.CommitAsync();
 
-위에서 설명했듯이 릴리스 태스크는 작업이 종료되거나 삭제될 때 실행됩니다. 배치 .NET API로 작업을 종료하려면 [PoolOperations.TerminateJobAsync][net_job_terminate]를 호출하여 수행됩니다. 작업 삭제는 [PoolOperations.DeleteJobAsync][net_job_delete]를 사용하여 수행됩니다. 이러한 작업은 모두 작업의 태스크를 완료할 때 또는 사용자가 정의한 시간 제한에 도달한 경우 일반적으로 수행됩니다.
+위에서 설명했듯이 릴리스 태스크는 작업이 종료되거나 삭제될 때 실행됩니다. 배치 .NET API로 작업을 종료하려면 [JobOperations.TerminateJobAsync][net_job_terminate]를 호출하여 수행됩니다. 작업 삭제는 [JobOperations.DeleteJobAsync][net_job_delete]를 사용하여 수행됩니다. 이러한 작업은 모두 작업의 태스크를 완료할 때 또는 사용자가 정의한 시간 제한에 도달한 경우 일반적으로 수행됩니다.
 
 		// Terminate the job to mark it as Completed; this will initiate the Job Release Task on any node
 		// that executed job tasks. Note that the Job Release Task is also executed when a job is deleted,
@@ -187,4 +187,4 @@ Sample complete, hit ENTER to exit...
 [1]: ./media/batch-job-prep-release/batchexplorer-01.png
 [2]: ./media/batch-job-prep-release/batchexplorer-02.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0420_2016-->

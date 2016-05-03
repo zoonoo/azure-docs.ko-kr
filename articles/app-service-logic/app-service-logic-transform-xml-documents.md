@@ -2,7 +2,7 @@
 	pageTitle="Azure 앱 서비스의 논리 앱에서 BizTalk 변환 사용 | Microsoft Azure" 
 	description="XML 문서를 한 스키마에서 다른 스키마로 변환하는 방법을 알아봅니다." 
 	authors="anuragdalmia" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="app-service\logic" 
 	documentationCenter=""/>
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/18/2016"
+	ms.date="04/20/2016"
 	ms.author="anuragdalmia"/>
 
 # BizTalk 변환
 
->[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다.
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 ## 개요
 BizTalk 변환 API 앱은 한 형식에서 다른 형식으로 데이터를 변환합니다. 예를 들어 구매 주문에서 배송 및 청구 주소를 가져와 송장 문서에 삽입할 수 있습니다. 또는 *YearMonthDay* 형식의 현재 날짜가 포함된 들어오는 메시지가 있을 수 있습니다. 날짜를 *MonthDayYear* 형식으로 변경하려고 합니다.
@@ -117,4 +117,4 @@ API 앱 통계 페이지에서 SQL, SAP 및 SharePoint와 같은 커넥터에 �
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="04/14/2016" 
 	ms.author="nitinme"/>
 
 
-# Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리(Linux)
+# HDInsight Linux에서 Apache Spark 클러스터에 대한 리소스 관리(미리 보기)
 
 Azure HDInsight(Linux)의 Spark는 클러스터 리소스를 관리하고 클러스터 상태를 모니터링할 수 있는 Ambari 웹 UI를 제공합니다. 또한 Spark 기록 서버를 사용하여 클러스터에서 실행이 완료된 응용 프로그램을 추적할 수 있습니다. YARN UI를 사용하여 현재 클러스터에서 실행 중인 응용 프로그램을 모니터링할 수 있습니다. 이 문서에서는 이러한 UI에 액세스하는 방법과 이러한 인터페이스를 사용하여 몇 가지 기본적인 리소스 관리 작업을 수행하는 방법을 설명합니다.
 
@@ -138,4 +138,4 @@ Spark 클러스터를 사용하여 발생할 수 있는 일반적인 시나리�
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

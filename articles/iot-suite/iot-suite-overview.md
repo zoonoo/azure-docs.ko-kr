@@ -17,7 +17,7 @@
      ms.date="02/19/2016"
      ms.author="dobett"/>
 
-# Azure IoT Suite의 개요
+# Azure IoT Suite란?
 
 Azure IoT(사물 인터넷) 서비스는 광범위한 기능을 제공합니다. 이러한 엔터프라이즈급 서비스를 사용하면 다음과 같은 작업을 할 수 있습니다.
 
@@ -74,4 +74,4 @@ IoT 제품군은에 Azure IoT Suite가 가능하게 하는 일반적인 IoT 시�
 [lnk-preconfig-start]: iot-suite-getstarted-preconfigured-solutions.md
 [lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0427_2016-->

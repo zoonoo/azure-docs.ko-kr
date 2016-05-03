@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="rajram"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/18/2016"
+   ms.date="04/20/2016"
    ms.author="rajram"/>
 
 # BizTalk XML 유효성 검사기
 
->[AZURE.NOTE] 이 문서 버전은 논리 앱 2014-12-01-미리 보기 스키마 버전에 적용됩니다.
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 앱에서 BizTalk XML 유효성 검사기 커넥터를 사용하여 미리 정의된 XML 스키마에 대해 XML 데이터의 유효성을 검사합니다. 사용자는 기존 스키마를 사용하거나 플랫 파일 인스턴스, JSON 인스턴스 또는 기존 커넥터에 따라 스키마를 생성할 수 있습니다.
 
@@ -64,4 +64,4 @@ Input Xml|string|유효성을 검사할 입력 Xml
 [4]: ./media/app-service-logic-xml-validator/XmlValidator.ListOfActions.PNG
 [5]: ./media/app-service-logic-xml-validator/XmlValidator.ValidateXml.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="MySQL을 실행하는 VM 만들기 | Microsoft Azure"
-	description="클래식 배포 모델을 사용하여 만든, Windows Server 2012 R2를 실행하는 Azure 가상 컴퓨터를 만든 다음 해당 가상 컴퓨터에서 MySQL 데이터베이스를 설치 및 구성하는 방법을 알아봅니다."
+	description="클래식 배포 모델을 사용하여 Windows Server 2012 R2와 MySQL 데이터베이스를 실행하는 Azure 가상 컴퓨터를 만듭니다."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,29 +14,19 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/09/2015"
+	ms.date="04/15/2016"
 	ms.author="cynthn"/>
 
 
 # 클래식 배포 모델을 사용하여 만든, Windows Server 2012 R2를 실행하는 가상 컴퓨터에 MySQL 설치
 
+[MySQL](http://www.mysql.com)은 인기 있는 오픈 소스 SQL 데이터베이스입니다. 이 자습서에서는 Windows Server 2012 R2를 실행하는 가상 컴퓨터에 MySQL Server로 커뮤니티 버전의 MySQL 5.6.23을 설치하고 실행하는 방법을 보여 줍니다. Linux에서 MySQL을 설치하는 방법에 대한 지침은 [Azure에 MySQL을 설치하는 방법](virtual-machines-linux-mysql-install.md)을 참조하세요.
+
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
 
+## Windows Server 2012 R2를 실행하는 가상 컴퓨터 만들기
 
-[MySQL](http://www.mysql.com)은 인기 있는 오픈 소스 SQL 데이터베이스입니다. [Azure 클래식 포털](http://manage.windowsazure.com)을 사용하면 이미지 갤러리에서 Windows Server 2012 R2를 실행하는 가상 컴퓨터를 만들 수 있습니다. 그런 다음 해당 가상 컴퓨터를 설치하고 MySQL Server로 구성할 수 있습니다.
-
-Linux에서 MySQL을 설치하는 방법에 대한 지침은 [Azure에 MySQL을 설치하는 방법](virtual-machines-linux-mysql-install.md)을 참조하세요.
-
-이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
-
-- Azure 클래식 포털을 사용하여 Windows Server 2012 R2를 실행하는 가상 컴퓨터를 만듭니다.
-
-- 커뮤니티 버전의 MySQL 5.6.23을 가상 컴퓨터에 설치하고 MySQL Server로 실행합니다.
-
-
-## Windows Server를 실행하는 가상 컴퓨터 만들기
-
-[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
+Windows Server 2012 R2를 실행하는 VM이 아직 없는 경우 이 [자습서](virtual-machines-windows-classic-tutorial.md)를 사용하여 가상 컴퓨터를 만들 수 있습니다.
 
 ## 데이터 디스크 연결
 
@@ -46,9 +36,7 @@ Linux에서 MySQL을 설치하는 방법에 대한 지침은 [Azure에 MySQL을 
 
 ## 가상 컴퓨터에 로그온
 
-다음에는 MySQL을 설치할 수 있게 가상 컴퓨터에 로그온합니다.
-
-[AZURE.INCLUDE [virtual-machines-log-on-win-server](../../includes/virtual-machines-log-on-win-server.md)]
+다음으로, MySQL을 설치할 수 있도록 [가상 컴퓨터에 로그온](virtual-machines-windows-classic-connect-logon.md)합니다.
 
 ##가상 컴퓨터에서 MySQL Community Server 설치 및 실행
 
@@ -134,8 +122,8 @@ Azure 가상 컴퓨터에서 실행되는 MySQL Server 서비스에 대한 원�
 		mysql -u dbadmin3 -p -h testmysql.cloudapp.net
 
 
-## 추가 리소스
+## 다음 단계
 
-MySQL에 대한 자세한 내용은 [MySQL 설명서](http://dev.mysql.com/doc/)를 참조하세요.
+MySQL 실행에 대한 자세한 내용은 [MySQL 설명서](http://dev.mysql.com/doc/)를 참조하세요.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

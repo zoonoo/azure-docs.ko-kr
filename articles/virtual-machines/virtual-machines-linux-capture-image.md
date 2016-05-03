@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/22/2016"
+	ms.date="04/15/2016"
 	ms.author="danlep"/>
 
 
@@ -23,11 +23,11 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-linux-classic-capture-image.md).
 
 
-이 문서는 Azure 명령줄 인터페이스(CLI)를 통해 Linux가 실행되는 Azure 가상 컴퓨터를 캡처하여 다른 가상 컴퓨터를 만드는 Azure 리소스 관리자 템플릿으로 사용하는 방법을 소개합니다. 이 템플릿에는 OS 디스크를 비롯해 가상 컴퓨터에 연결되는 데이터 디스크가 지정됩니다. Azure 리소스 관리자 VM을 만들 때 필요한 가상 네트워크 리소스는 포함되지 않으므로, 대부분의 경우 템플릿을 사용하는 다른 가상 컴퓨터를 만들기 전에 별도로 설정해야 합니다.
+Azure CLI(명령줄 인터페이스)를 통해 Linux가 실행되는 Azure 가상 컴퓨터를 캡처하여 다른 가상 컴퓨터를 만드는 Azure Resource Manager 템플릿으로 사용하는 방법을 소개합니다. 이 템플릿에는 OS 디스크를 비롯해 가상 컴퓨터에 연결되는 데이터 디스크가 지정됩니다. Azure 리소스 관리자 VM을 만들 때 필요한 가상 네트워크 리소스는 포함되지 않으므로, 대부분의 경우 템플릿을 사용하는 다른 가상 컴퓨터를 만들기 전에 별도로 설정해야 합니다.
 
 ## 시작하기 전에
 
-이 단계는 Azure 리소스 관리자 배포 모델에서 Azure 가상 컴퓨터를 이미 만들었고 응용 프로그램 설치와 같은 사용자 지정 및 데이터 디스크 연결을 비롯한 운영 체제 구성을 완료했다고 가정합니다. 아직 완료되지 않았으면, Azure 리소스 관리자 모드에서 Azure CLI를 사용하는 관련 지침을 참고하세요.
+이 단계는 Azure 리소스 관리자 배포 모델에서 Azure 가상 컴퓨터를 이미 만들었고 응용 프로그램 설치와 같은 사용자 지정 및 데이터 디스크 연결을 비롯한 운영 체제 구성을 완료했다고 가정합니다. Azure CLI를 통한 방법을 포함하여 여러 가지 방법으로 이를 수행할 수 있습니다. 아직 완료되지 않았으면, Azure 리소스 관리자 모드에서 Azure CLI를 사용하는 관련 지침을 참고하세요.
 
 - [Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 가상 컴퓨터 배포 및 관리](virtual-machines-linux-cli-deploy-templates.md)
 
@@ -83,7 +83,7 @@ VM이 프로비전되고 실행되면 데이터 디스크를 연결하고 탑재
 
 	이 명령은 VM 디스크에 지정한 VHD 이름 접두사를 사용하여 일반화된 OS 이미지를 만듭니다. 이미지 VHD 파일이 원본 VM이 사용된 동일한 저장소 계정에서 기본적으로 생성됩니다. **-t** 옵션은 이미지로부터 새로운 VM을 만들 때 사용할 수 있는 로컬 JSON 파일 템플릿을 만듭니다.
 
->[AZURE.TIP] 이미지의 위치를 찾으려면 JSON 파일 템플릿을 엽니다. **storageProfile**에서 **시스템** 컨테이너에 있는 **이미지**의 **uri**를 찾습니다. 예를 들어, OS 디스크 이미지의 uri는 `https://clixxxxxxxxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/your-prefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`와 유사합니다.
+>[AZURE.TIP] 이미지의 위치를 찾으려면 JSON 파일 템플릿을 엽니다. **storageProfile**에서 **시스템** 컨테이너에 있는 **이미지**의 **uri**를 찾습니다. 예를 들어, OS 디스크 이미지의 uri는 `https://xxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/<your-image-prefix>-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`와 유사합니다.
 
 ## 캡처한 이미지에서 새 VM 만들기
 템플릿과 이미지를 사용하여 새 Linux VM을 만듭니다. 이 단계는 `azure vm capture` 명령을 사용하여 만든 Azure CLI 및 JSON 파일 템플릿을 사용하여 새 가상 네트워크에 VM을 만드는 방법을 보여줍니다.
@@ -178,7 +178,7 @@ VM이 프로비전되고 실행되면 데이터 디스크를 연결하고 탑재
 
 ## azure vm create 명령 사용
 
-리소스 관리자 템플릿을 사용하여 이미지에서 VM을 만드는 것이 일반적입니다. 하지만 **--os-disk-vhd** (**-d**) 매개 변수와 함께 **azure vm create** 명령을 사용하면 _명령문_으로 VM을 만들 수 있습니다.
+리소스 관리자 템플릿을 사용하여 이미지에서 VM을 만드는 것이 일반적입니다. 하지만 **-Q**(**--image-urn**) 매개 변수와 함께 **azure vm create** 명령을 사용하면 _명령문_으로 VM을 만들 수 있습니다. 새 VM에 대한 OS .vhd 파일 위치를 지정하는 **-d**(**--os-dist-vhd**) 매개 변수도 전달합니다. 이는 이미지 VHD 파일이 저장된 저장소 계정의 VHD 컨테이너에 있어야 합니다. 이 명령은 새 VM에 대한 VHD를 자동으로 VHD 컨테이너에 복사합니다.
 
 이미지에 **azure vm create**을 실행하기 전에 다음을 수행합니다.
 
@@ -186,11 +186,10 @@ VM이 프로비전되고 실행되면 데이터 디스크를 연결하고 탑재
 
 2.	새 VM에 대한 NIC 리소스와 공용 IP 주소 리소스를 만듭니다. CLI를 사용하여 가상 네트워크, 공용 IP 주소, NIC를 만드는 단계는 이 문서의 앞쪽을 참조하세요.(**azure vm create** 명령이 새 NIC를 만들 수 있지만 가상 네트워크와 서브넷을 위해 매개 변수를 추가로 전달해야 합니다.)
 
-3.	이미지 VHD를 폴더(가상 디렉터리)가 없는 BLOB 컨테이너 위치로 복사해야 합니다. 기본적으로 캡처한 이미지는 저장소 BLOB 컨테이너의 중첩된 폴더에 저장되며, URI는 `https://clixxxxxxxxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/your-prefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`와 유사합니다. 현재 **azure vm create** 명령은 BLOB 컨테이너의 최상위에 저장된 OS 디스크 VHD에서만 VM을 만들 수 있습니다. 예를 들어, 이미지 VHD를 `https://yourstorage.blob.core.windows.net/vhds/your-prefix-OsDisk.vhd`에 복사할 수 있습니다.
 
-그 후 다음과 유사한 명령을 실행합니다.
+그런 다음 새 OS VHD 파일 및 기존 이미지에 URI를 전달하는 다음과 유사한 명령을 실행합니다.
 
-	azure vm create <your-resource-group-name> <your-new-vm-name> eastus Linux -o <your-storage-account-name> -d "https://yourstorage.blob.core.windows.net/vhds/your-prefix-OsDisk.vhd" -z Standard_A1 -u <your-admin-name> -p <your-admin-password> -f <your-nic-name>
+	azure vm create <your-resource-group-name> <your-new-vm-name> eastus Linux -d "https://xxxxxxxxxxxxxx.blob.core.windows.net/vhds/<your-new-VM-prefix>.vhd" -Q "https://xxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/<your-image-prefix>-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd" -z Standard_A1 -u <your-admin-name> -p <your-admin-password> -f <your-nic-name>
 
 추가적인 명령 옵션은 `azure help vm create`을 실행합니다.
 
@@ -198,4 +197,4 @@ VM이 프로비전되고 실행되면 데이터 디스크를 연결하고 탑재
 
 CLI를 사용하여 VM을 관리하려면 [Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 가상 컴퓨터 배포 및 관리](virtual-machines-linux-cli-deploy-templates.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

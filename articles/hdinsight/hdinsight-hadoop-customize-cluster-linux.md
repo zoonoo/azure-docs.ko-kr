@@ -477,6 +477,8 @@ HDInsight .NET SDK는 .NET 응용 프로그램에서 HDInsight로 더 쉽게 작
 
 계속하기 전에 Azure CLI를 설치 및 구성했는지 확인하세요. 자세한 내용은 [Azure CLI 설치](../xplat-cli-install.md)를 참조하세요.
 
+	[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
+
 1. 셸 세션, 터미널, 명령 프롬프트 또는 시스템의 다른 명령줄을 열고 다음 명령을 사용하여 Azure Resource Manager 모드로 전환합니다.
 
         azure config mode arm
@@ -678,4 +680,4 @@ HDInsight 서비스는 사용자 지정 구성 요소를 사용하는 여러 방
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "클러스터를 만드는 동안의 단계"
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

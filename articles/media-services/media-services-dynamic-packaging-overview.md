@@ -2,7 +2,7 @@
 	pageTitle="동적 패키징 개요"
 	description="이 항목에서는 동적 패키징에 대해 간략하게 설명합니다."
 	authors="Juliako"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
 	services="media-services"
 	documentationCenter=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/28/2016"
+ 	ms.date="04/18/2016" 
 	ms.author="juliako"/>
 
 
@@ -80,4 +80,4 @@ Microsoft Azure 미디어 서비스를 사용하여 많은 미디어 소스 파�
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0420_2016-->

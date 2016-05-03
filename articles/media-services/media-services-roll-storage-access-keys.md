@@ -3,8 +3,8 @@
 	description="이 문서에서는 저장소 액세스 키를 롤링한 후 미디어 서비스를 업데이트하는 방법에 대한 지침을 제공합니다." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako,milangada,cenkdin" 
-	manager="dwrede" 
+	authors="Juliako"
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
-	ms.author="juliako"/>
+ 	ms.date="04/18/2016" 
+	ms.author="milangada;cenkdin;juliako"/>
 
 #방법: 저장소 액세스 키 롤링 후 미디어 서비스 업데이트
 
@@ -159,4 +159,4 @@ SAS 로케이터를 업데이트하거나 다시 만들 때마다 URL이 변경�
 
 이 문서를 만들 때 기여한 다음 사람들에게 감사 드리고자 합니다. Cenk Dingiloglu, Milan Gada, Seva Titov
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

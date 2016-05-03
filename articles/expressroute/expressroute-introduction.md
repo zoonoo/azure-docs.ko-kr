@@ -12,7 +12,7 @@
    ms.topic="get-started-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="01/16/2016"
+   ms.date="04/19/2016"
    ms.author="cherylmc"/>
 
 # Express 경로 기술 개요
@@ -33,17 +33,27 @@ Microsoft Azure Express 경로를 사용하면 연결 공급자에서 쉽게 처
 
 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md)를 참조하세요.
 
-## Express 경로를 사용하여 Microsoft에 네트워크를 어떻게 연결하나요?
+## <a name="howtoconnect"></a>Express 경로를 사용하여 Microsoft에 네트워크를 어떻게 연결하나요?
 
 세 가지 방법으로 온-프레미스 네트워크와 Microsoft 클라우드 간에 연결을 만들 수 있습니다.
 
-1. **클라우드 Exchange에 배치합니다.** 클라우드 Exchange를 사용하여 설비에 공존하는 경우 공동 배치 공급자의 이더넷 Exchange를 통해 Microsoft 클라우드로 가상 간 연결을 나열할 수 있습니다. 공동 배치 공급자는 공동 시설의 인프라와 Microsoft 클라우드 간에 2계층 간 연결 또는 관리된 3계층 간 연결을 제공할 수 있습니다.
-2.	**지점 간 이더넷 연결입니다.** 지점 간 이더넷 연결을 통해 온-프레미스 데이터 센터/사무소를 Microsoft 클라우드에 연결할 수 있습니다. 지점 간 이더넷 공급자는 사이트와 Microsoft 클라우드 간에 2계층 연결 또는 관리된 3계층 연결을 제공합니다.
-3.	**임의(IPVPN)의 네트워크입니다.** Microsoft 클라우드로 WAN을 통합할 수 있습니다. IPVPN 공급자(일반적으로 MPLS VPN)는 지사 및 데이터 센터 간에 임의의 연결을 제공합니다. Microsoft 클라우드는 다른 지사와 마찬가지로 보이도록 WAN에 상호 연결될 수 있습니다. WAN 공급자는 일반적으로 관리된 3계층 연결을 제공합니다.
+### 클라우드 Exchange에 배치합니다.
+
+클라우드 Exchange를 사용하여 설비에 공존하는 경우 공동 배치 공급자의 이더넷 Exchange를 통해 Microsoft 클라우드로 가상 간 연결을 나열할 수 있습니다. 공동 배치 공급자는 공동 시설의 인프라와 Microsoft 클라우드 간에 2계층 간 연결 또는 관리된 3계층 간 연결을 제공할 수 있습니다.
+
+### 지점 간 이더넷 연결 
+
+지점 간 이더넷 연결을 통해 온-프레미스 데이터 센터/사무소를 Microsoft 클라우드에 연결할 수 있습니다. 지점 간 이더넷 공급자는 사이트와 Microsoft 클라우드 간에 2계층 연결 또는 관리된 3계층 연결을 제공합니다.
+
+### 임의(IPVPN)의 네트워크
+
+Microsoft 클라우드로 WAN을 통합할 수 있습니다. IPVPN 공급자(일반적으로 MPLS VPN)는 지사 및 데이터 센터 간에 임의의 연결을 제공합니다. Microsoft 클라우드는 다른 지사와 마찬가지로 보이도록 WAN에 상호 연결될 수 있습니다. WAN 공급자는 일반적으로 관리된 3계층 연결을 제공합니다. Express 경로 기능 및 특징은 위의 모든 연결 모델에 걸쳐 동일합니다.
+
+연결 공급자는 하나 이상의 연결 모델을 제공할 수 있습니다. 연결 공급자로 작업하여 사용자에게 적합한 다양한 모델을 선택할 수 있습니다.
 
 ![](./media/expressroute-introduction/expressroute-connectivitymodels.png)
 
-Express 경로 기능 및 특징은 위의 모든 연결 모델에 걸쳐 동일합니다. 연결 공급자는 위 목록에서 하나 이상의 연결 모델을 제공할 수 있습니다. 연결 공급자로 작업하여 사용자에게 적합한 다양한 모델을 선택할 수 있습니다.
+
 
 ## Express 경로 기능
 
@@ -124,4 +134,4 @@ Microsoft는 특별한 지리학적 지역 및 고객 세그먼트에 격리된 
 	- [라우팅 구성](expressroute-howto-routing-classic.md)
 	- [VNet을 Express 경로 회로에 연결](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0427_2016-->

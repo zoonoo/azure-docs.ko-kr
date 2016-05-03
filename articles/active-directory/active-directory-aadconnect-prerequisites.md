@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="03/04/2016"
+   ms.date="04/14/2016"
    ms.author="andkjell;billmath"/>
 
 # Azure AD Connect에 대한 필수 조건
@@ -27,9 +27,13 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
 - Azure AD에서 사용하려는 [도메인을 추가하고 확인합니다](active-directory-add-domain.md). 예를 들어 사용자가 contoso.com을 사용 하려는 경우 해당 도메인을 확인하고 contoso.onmicrosoft.com 기본 도메인을 사용하지 않도록 합니다.
 - Azure AD 디렉터리는 기본적으로 5만 개의 개체를 허용합니다. 도메인을 확인하는 경우 제한은 30만 개의 개체로 늘어납니다. Azure AD에서 더 많은 개체가 필요한 경우 제한을 더 증가시키려면 지원 사례를 열어야 합니다. 50만 개가 넘게 필요한 경우 Office 365, Azure AD Basic, Azure AD Premium 또는 Enterprise Mobility Suite와 같은 라이선스가 필요합니다.
 
+### 온-프레미스 데이터 준비
+- [Azure AD에서 사용하도록 설정할 수 있는 선택적 동기화 기능](active-directory-aadconnectsyncservice-features.md)을 검토하여 사용하도록 설정해야 할 기능을 평가합니다.
+
 ### 온-프레미스 서버 및 환경
 - AD 스키마의 버전 및 포리스트 기능 수준은 Windows Server 2003 이상이어야 합니다. 도메인 컨트롤러는 스키마와 포레스트의 수준 요구 사항이 맞으면 어떤 버전도 실행할 수 있습니다.
 - **비밀번호 쓰기 저장** 기능을 사용하려는 경우 도메인 컨트롤러가 Windows Server 2008(최신 SP 포함) 이상에 있어야 합니다. 또한 DC가 Windows Server 2008(R2 이전 버전)에 있는 경우 [핫픽스 KB2386717](http://support.microsoft.com/kb/2386717)을 적용해야 합니다.
+- Azure AD에서 사용되는 도메인 컨트롤러는 쓰기 가능해야 합니다. RODC(읽기 전용 도메인 컨트롤러)를 사용하는 것은 지원되지 않으며 Azure AD Connect는 쓰기 리디렉션을 따르지 않습니다.
 - Azure AD Connect는 Small Business Server 또는 Windows Server Essentials에 설치할 수 없습니다. 서버는 Windows Server Standard 이상을 사용해야 합니다.
 - Azure AD Connect는 반드시 Windows Server 2008 이상의 버전에 설치되어야 합니다. Express 설정을 사용하는 경우 이 서버는 도메인 컨트롤러 또는 멤버 서버일 수 있습니다. 사용자 지정 설정을 사용하는 경우 서버는 독립 실행형일 수 있고 도메인에 가입할 필요는 없습니다.
 - Windows Server 2008에 Azure AD Connect를 설치하는 경우 Windows 업데이트에서 최신 핫픽스를 적용해야 합니다. 패치가 적용되지 않은 서버에서는 설치를 시작할 수 없습니다.
@@ -46,13 +50,13 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
 - 사용자 지정 설정 설치 경로를 사용하는 경우 [계정은 Active Directory입니다](active-directory-aadconnect-accounts-permissions.md).
 
 ### Azure AD Connect 서버 구성
-- 전역 관리자가 MFA를 사용하도록 설정한 경우 URL ****https://secure.aadcdn.microsoftonline-p.com**이 신뢰할 수 있는 사이트 목록에 있어야 합니다. MFA 챌린지를 묻는 메시지가 표시되기 전에 URL을 추가하지 않은 경우 신뢰할 수 있는 사이트 목록에 추가하라는 메시지가 표시됩니다. Internet Explorer를 사용하여 신뢰할 수 있는 사이트에 추가할 수 있습니다.
+- 전역 관리자가 MFA를 사용하도록 설정한 경우 URL **https://secure.aadcdn.microsoftonline-p.com**이 신뢰할 수 있는 사이트 목록에 있어야 합니다. MFA 챌린지를 묻는 메시지가 표시되기 전에 URL을 추가하지 않은 경우 신뢰할 수 있는 사이트 목록에 추가하라는 메시지가 표시됩니다. Internet Explorer를 사용하여 신뢰할 수 있는 사이트에 추가할 수 있습니다.
 
 ### 연결
 - Azure AD Connect 서버는 인트라넷 및 인터넷에 대해 DNS 확인을 해야 합니다. DNS 서버는 Azure AD 끝점뿐만 아니라 온-프레미스 Active Directory에 대해 이름을 확인할 수 있어야 합니다.
 - 인트라넷에 방화벽이 있고 Azure AD Connect 서버와 도메인 컨트롤러 사이에서 포트를 열어야 하는 경우 자세한 내용은 [Azure AD Connect 포트](active-directory-aadconnect-ports.md)를 참조하세요.
 - 프록시가 액세스할 수 있는 URL을 제한하는 경우 [Office 365 URL 및 IP 주소 범위](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)에서 설명한 URL이 프록시에서 열려야 합니다.
-- 인터넷에 연결하는 데 아웃바운드 프록시를 사용하는 경우 설치 마법사 및 Azure AD Connect 동기화에서 인터넷 및 Azure AD에 연결할 수 있으려면 **C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\Config\\machine.config** 파일에 다음 설정을 추가해야 합니다. 이 텍스트는 파일의 맨 아래에 입력해야 합니다. 이 코드에서 &lt;PROXYADRESS&gt;는 실제 프록시 IP 주소 또는 호스트 이름을 나타냅니다.
+- 인터넷에 연결하는 데 아웃바운드 프록시를 사용하는 경우 설치 마법사 및 Azure AD Connect 동기화에서 인터넷 및 Azure AD에 연결하려면 **C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\Config\\machine.config** 파일에 다음 설정을 추가해야 합니다. 이 텍스트는 파일의 맨 아래에 입력해야 합니다. 이 코드에서 &lt;PROXYADRESS&gt;는 실제 프록시 IP 주소 또는 호스트 이름을 나타냅니다.
 
 ```
     <system.net>
@@ -95,10 +99,10 @@ Azure AD Connect는 Microsoft PowerShell 및 .NET Framework 4.5.1에 따라 다�
   - .NET Framework 4.5.1 이후 릴리스는 Windows 업데이트를 통해 제공됩니다. 제어판에서 Windows Server에 최신 업데이트를 설치했는지 확인합니다.
 - Windows Server 2008R2 및 Windows Server 2012
   - 최신 버전의 Microsoft PowerShell은 **Windows Management Framework 4.0**에서 사용할 수 있으며 이는 [Microsoft 다운로드 센터](http://www.microsoft.com/downloads)에서 찾을 수 있습니다.
-  - .NET Framework 4.5.1 이후 릴리스는 [Microsoft 다운로드 센터](http://www.microsoft.com/downloads)에서 찾을 수 있습니다.
+  - .NET Framework 4.5.1과 이후 릴리스는 [Microsoft 다운로드 센터](http://www.microsoft.com/downloads)에서 찾을 수 있습니다.
 - Windows Server 2008
   - 지원되는 최신 버전의 PowerShell은 **Windows Management Framework 3.0**에서 사용할 수 있으며 이는 [Microsoft 다운로드 센터](http://www.microsoft.com/downloads)에서 찾을 수 있습니다.
- - .NET Framework 4.5.1 이후 릴리스는 [Microsoft 다운로드 센터](http://www.microsoft.com/downloads)에서 찾을 수 있습니다.
+ - .NET Framework 4.5.1과 이후 릴리스는 [Microsoft 다운로드 센터](http://www.microsoft.com/downloads)에서 찾을 수 있습니다.
 
 ## 페더레이션 설치 및 구성을 위한 필수 조건
 
@@ -168,4 +172,4 @@ AD FS 또는 웹 응용 프로그램 서버를 실행하는 컴퓨터에 대한 
 ## 다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

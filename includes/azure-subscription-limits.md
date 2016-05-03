@@ -3,7 +3,7 @@
 [구독](../articles/billing-buy-sign-up-azure-subscription.md)당 코어<sup>1</sup>|20|10000
 구독당 [공동 관리자](../articles/billing-add-change-azure-subscription-administrator.md)|200|200
 구독당 [저장소 계정](../articles/storage/storage-create-storage-account.md)<sup>2</sup>|100|100
-구독당 [클라우드 서비스](../articles/cloud-services/fundamentals-application-models.md#tellmecs)|20|200
+구독당 [클라우드 서비스](../articles/cloud-services/cloud-services-choose-me.md)|20|200
 구독당 [로컬 네트워크](http://msdn.microsoft.com/library/jj157100.aspx)|10|500
 구독당 SQL 데이터베이스 서버|6|150
 구독당 DNS 서버|9|100
@@ -18,4 +18,4 @@
 
 <sup>2</sup>저장소 계정이 100개 이상 필요한 경우 [Azure 지원](https://azure.microsoft.com/support/faq/)에 요청합니다. Azure 저장소 팀은 비즈니스 사례를 검토합니다. 이에 대해 승인하면 최대 250개의 저장소 계정을 사용할 수 있습니다.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="04/08/2016"
 	ms.author="robmcm"/>
 
 #PHP 웹 및 작업자 역할을 만드는 방법
@@ -26,7 +26,7 @@
 
 Azure는 응용 프로그램을 실행하기 위한 세 가지 계산 모델인 Azure 앱 서비스, Azure 가상 컴퓨터 및 Azure 클라우드 서비스를 제공합니다. 이 세 모델은 모두 PHP를 지원합니다. 웹 및 작업자 역할을 포함하는 클라우드 서비스는 *PaaS(Platform as a Service)*를 제공합니다. 클라우드 서비스 안에서 웹 역할은 프런트 엔드 웹 응용 프로그램을 호스팅할 전용 IIS(인터넷 정보 서비스) 웹 서버를 제공합니다. 작업자 역할은 비동기, 장기 실행 또는 영구 작업을 사용자 조작 또는 입력과 독립적으로 실행할 수 있습니다.
 
-이러한 옵션에 대한 자세한 내용은 [Azure에서 제공하는 계산 호스팅 옵션](./cloud-services/fundamentals-application-models.md)을 참조하세요.
+이러한 옵션에 대한 자세한 내용은 [Azure에서 제공하는 계산 호스팅 옵션](./cloud-services/cloud-services-choose-me.md)을 참조하세요.
 
 ## PHP용 Azure SDK 다운로드
 
@@ -211,4 +211,4 @@ Azure 에뮬레이터는 클라우드에 배포하기 전에 Azure 응용 프로
 [sqlsrv drivers]: http://php.net/sqlsrv
 [sqlncli.msi x64 설치 관리자]: http://go.microsoft.com/fwlink/?LinkID=239648
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

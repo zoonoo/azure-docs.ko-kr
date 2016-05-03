@@ -3,8 +3,8 @@
    description="이 문서에서는 Express 경로 회로의 개인, 공용 및 Microsoft 피어링을 만들고 프로비전하는 단계를 안내합니다. 또한 회로의 상태를 확인하고 업데이트 또는 삭제하는 방법을 보여줍니다."
    documentationCenter="na"
    services="expressroute"
-   authors="cherylmc"
-   manager="carolz"
+   authors="ganesr"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"/>
 <tags
@@ -13,18 +13,24 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/09/2016"
-   ms.author="cherylmc"/>
+   ms.date="04/08/2016"
+   ms.author="ganesr"/>
 
-# PowerShell을 사용하여 Express 경로 회로의 라우팅 만들기 및 수정
+# Express 경로 회로의 라우팅 만들기 및 수정
 
 > [AZURE.SELECTOR]
-[PowerShell - Classic](expressroute-howto-routing-classic.md)
+[Azure Portal - Resource Manager](expressroute-howto-routing-portal-resource-manager.md)
 [PowerShell - Resource Manager](expressroute-howto-routing-arm.md)
+[PowerShell - Classic](expressroute-howto-routing-classic.md)
 
-이 문서에서는 PowerShell cmdlet 및 일반 배포 모델을 사용하여 Express 경로 회로에 대한 라우팅 구성을 만들고 관리하는 단계를 안내합니다. 아래 단계에서는 Express 경로 회로에 대한 피어링의 상태 확인, 업데이트 또는 삭제 및 프로비전 해제를 수행하는 방법도 설명합니다.
 
-[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
+
+이 문서에서는 PowerShell 및 클래식 배포 모델을 사용하여 Express 경로 회로에 대한 라우팅 구성을 만들고 관리하는 단계를 안내합니다. 아래 단계에서는 Express 경로 회로에 대한 피어링의 상태 확인, 업데이트 또는 삭제 및 프로비전 해제를 수행하는 방법도 설명합니다.
+
+
+**Azure 배포 모델 정보**
+
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## 필수 구성 요소
 
@@ -94,7 +100,7 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 
 	>[AZURE.IMPORTANT] 고객 ASN이 아닌 피어링 ASN로 AS 번호를 지정했는지 확인합니다.
 
-### Azure 개인 피어링 세부 정보를 가져오려면
+### Azure 개인 피어링 세부 정보를 보려면
 
 다음 cmdlet을 사용하여 구성 세부 정보를 가져올 수 있습니다.
 
@@ -144,7 +150,7 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 
 2. **Express 경로 회로 만들기**
 	
-	지침을 따라 [Express 경로 회로](expressroute-howto-circuit-classic.md)를 만들고 연결 공급자를 통해 프로비전합니다. 연결 공급자가 관리된 3계층 서비스를 제공하는 경우 연결 공급자를 요청하여 Azure 개인 피어링을 사용하도록 할 수 있습니다. 이 경우에 다음 섹션에 나열된 지침에 따를 필요가 없습니다. 그러나 회로를 만든 후에 연결 공급자가 라우팅을 관리하지 않는 경우 아래 지침을 수행합니다.
+	지침에 따라 [Express 경로 회로](expressroute-howto-circuit-classic.md)를 만들고 연결 공급자를 통해 프로비전합니다. 연결 공급자가 관리된 3계층 서비스를 제공하는 경우 연결 공급자를 요청하여 Azure 공용 피어링을 사용하도록 할 수 있습니다. 이 경우에 다음 섹션에 나열된 지침에 따를 필요가 없습니다. 그러나 회로를 만든 후에 연결 공급자가 라우팅을 관리하지 않는 경우 아래 지침을 수행합니다.
 
 3. **Express 경로 회로를 확인하여 프로비전되도록 합니다.**
 
@@ -175,10 +181,10 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 	- 기본 링크에 대한 /30 서브넷입니다. 유효한 공용 IPv4 접두사여야 합니다.
 	- 보조 링크에 대한 /30 서브넷입니다. 유효한 공용 IPv4 접두사여야 합니다.
 	- 피어링을 설정할 유효한 VLAN ID입니다. 회로에 다른 피어링이 동일한 VLAN ID를 사용하지 않는지 확인합니다.
-	- 피어링에 대한 AS 숫자입니다. 2바이트 및 4바이트 AS 번호를 모두 사용할 수 있습니다. 이 피어링에 공용 AS 숫자를 사용해야 합니다.
+	- 피어링에 대한 AS 숫자입니다. 2바이트 및 4바이트 AS 번호를 모두 사용할 수 있습니다.
 	- 하나를 사용하기로 선택한 경우 MD5 해시를 사용합니다. **선택 사항입니다**.
 	
-	다음 cmdlet을 실행하여 회로에 Azure 개인 피어링을 구성할 수 있습니다.
+	다음 cmdlet을 실행하여 회로에 Azure 공용 피어링을 구성할 수 있습니다.
 
 		New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200
 
@@ -188,7 +194,7 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 
 	>[AZURE.IMPORTANT] 고객 ASN이 아닌 피어링 ASN로 AS 번호를 지정했는지 확인합니다.
 
-### Azure 공용 피어링 세부 정보를 가져오려면
+### Azure 공용 피어링 세부 정보를 보려면
 
 다음 cmdlet을 사용하여 구성 세부 정보를 가져올 수 있습니다.
 
@@ -267,7 +273,7 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 	- 기본 링크에 대한 /30 서브넷입니다. 사용자가 소유하고 RIR/IRR에 등록된 유효한 공용 IPv4 접두사여야 합니다.
 	- 보조 링크에 대한 /30 서브넷입니다. 사용자가 소유하고 RIR/IRR에 등록된 유효한 공용 IPv4 접두사여야 합니다.
 	- 피어링을 설정할 유효한 VLAN ID입니다. 회로에 다른 피어링이 동일한 VLAN ID를 사용하지 않는지 확인합니다.
-	- 피어링에 대한 AS 숫자입니다. 2바이트 및 4바이트 AS 번호를 모두 사용할 수 있습니다. 공용 AS 번호만 사용해야 합니다. AS 번호를 소유해야 합니다.
+	- 피어링에 대한 AS 숫자입니다. 2바이트 및 4바이트 AS 번호를 모두 사용할 수 있습니다.
 	- 보급된 접두사: BGP 세션을 통해 보급하려는 모든 접두사 목록을 제공해야 합니다. 공용 IP 주소 접두사만 수락됩니다. 접두사 집합을 보내려는 경우에 쉼표로 구분 된 목록을 보낼 수 있습니다. 이 접두사는 RIR/IRR에 등록되어야 합니다.
 	- 고객 ASN: 피어링 AS 숫자에 등록되지 않은 광고 접두사인 경우 등록된 AS 번호를 지정할 수 있습니다. **선택 사항입니다**.
 	- 라우팅 레지스트리 이름: AS 번호 및 접두사가 등록된 RIR/ IRR를 지정할 수 있습니다.
@@ -278,7 +284,7 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 		New-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
 
 
-### Microsoft 피어링 정보를 가져오려면
+### Microsoft 피어링 세부 정보를 보려면
 
 다음 cmdlet을 사용하여 구성 세부 정보를 가져올 수 있습니다.
 
@@ -318,4 +324,4 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 -  워크플로에 대한 자세한 내용은 [Express 경로 워크플로](expressroute-workflows.md)를 참조하세요.
 -  회로 피어링에 대한 자세한 내용은 [Express 경로 회로 및 라우팅 도메인](expressroute-circuit-peerings.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

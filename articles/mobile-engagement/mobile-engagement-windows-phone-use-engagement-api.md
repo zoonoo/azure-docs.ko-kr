@@ -378,5 +378,12 @@ SendAppInfo() 함수를 사용하면 추적 정보 또는 기타 응용 프로�
 
 			{"subscription":"2013-12-07","premium":"true"}
  
+##로깅
+###로깅 사용
 
-<!---HONumber=AcomDC_0302_2016-->
+SDK는 IDE 콘솔에서 테스트 로그를 생성하도록 구성될 수 있습니다. 이러한 로그는 기본적으로 활성화되지 않습니다. 이를 사용자 지정하려면 속성 `EngagementAgent.Instance.TestLogEnabled`를 `EngagementTestLogLevel` 열거형에서 사용 가능한 값 중 하나로 업데이트합니다. 예를 들어 다음과 같습니다.
+
+			EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
+			EngagementAgent.Instance.Init();
+
+<!---HONumber=AcomDC_0420_2016-->

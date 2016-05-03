@@ -18,7 +18,7 @@
 	ms.author="nitinme"/>
 
 
-# Azure HDInsight 클러스터에서 Spark 작업 서버(Windows)
+# Azure HDInsight Window 클러스터용 Spark 작업 서버(미리 보기)
 
 > [AZURE.NOTE] 이제 HDInsight가 Linux에서 Spark 클러스터를 제공하며 Spark 클러스터에 원격으로 작업을 제출하기 위해 Livy를 사용합니다. Linux에서 HDInsight Spark 클러스터와 함께 Livy를 사용하는 방법에 대한 자세한 내용은 [HDInsight에서 Spark 클러스터와 함께 Livy를 사용하여 원격으로 Spark 작업 제출(Linux)](hdinsight-apache-spark-livy-rest-interface.md)을 참조하세요.
 
@@ -84,4 +84,4 @@ mypostdata.txt가 응용 프로그램을 정의합니다.
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

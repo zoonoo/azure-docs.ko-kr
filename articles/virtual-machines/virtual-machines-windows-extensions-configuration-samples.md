@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="09/01/2015"
+   ms.date="03/29/2016"
    ms.author="kundanap"/>
 
 # Azure Windows VM 확장 구성 샘플
@@ -39,7 +39,7 @@
 
 이 문서에서는 일부 Windows 확장에 대해 예상되는 구성 값을 나열합니다.
 
-## VM 확장에 대한 샘플 템플릿 코드 조각
+## IaaS VM에서 VM 확장에 대한 샘플 템플릿 코드 조각
 확장을 배포하기 위한 템플릿 코드 조각은 다음과 같습니다.
 
       {
@@ -53,11 +53,34 @@
       "publisher": "Publisher Namespace",
       "type": "extension Name",
       "typeHandlerVersion": "extension version",
+      "autoUpgradeMinorVersion":true,
       "settings": {
       // Extension specific configuration goes in here.
       }
       }
       }
+
+## VM 규모 집합에서 VM 확장에 대한 샘플 템플릿 코드 조각
+
+    {
+     "type":"Microsoft.Compute/virtualMachineScaleSets",
+    ....
+           "extensionProfile":{
+           "extensions":[
+             {
+               "name":"extension Name",
+               "properties":{
+                 "publisher":"Publisher Namespace",
+                 "type":"extension Name",
+                 "typeHandlerVersion":"extension version",
+                 "autoUpgradeMinorVersion":true,
+                 "settings":{
+                 // Extension specific configuration goes in here.
+                 }
+               }
+              }
+            }
+          }
 
 확장을 배포하기 전에 최신 확장 버전을 확인하고 "typeHandlerVersion"을 현재 최신 버전으로 바꿉니다.
 
@@ -65,18 +88,50 @@
 
 확장을 배포하기 전에 최신 확장 버전을 확인하고 "typeHandlerVersion"을 현재 최신 버전으로 바꿉니다.
 
-### CustomScript 확장
-    {
-        "publisher": "Microsoft.Compute",
-        "type": "CustomScriptExtension",
-        "typeHandlerVersion": "1.4",
-        "settings": {
-            "fileUris": [
-                "http: //Yourstorageaccount.blob.core.windows.net/customscriptfiles/start.ps1"
-            ],
-            "commandToExecute": "powershell.exe-ExecutionPolicyUnrestricted-Filestart.ps1"
+### CustomScript 확장 1.4
+      {
+          "publisher": "Microsoft.Compute",
+          "type": "CustomScriptExtension",
+          "typeHandlerVersion": "1.4",
+          "settings": {
+              "fileUris": [
+                  "http: //Yourstorageaccount.blob.core.windows.net/customscriptfiles/start.ps1"
+              ],
+              "commandToExecute": "powershell.exe-ExecutionPolicyUnrestricted -start.ps1"
+          },
+          "protectedSettings": {
+            "storageAccountName": "yourStorageAccountName",
+            "storageAccountKey": "yourStorageAccountKey"
+          }
+      }
+
+#### 매개 변수 설명:
+
+- fileUris: 확장에 의해 VM에 다운로드할 파일의 URL 목록(쉼표로 구분됨) 아무것도 지정하지 않으면 파일이 다운로드되지 않습니다. 파일이 Azure 저장소에 있는 경우 fileURLs를 비공개로 표시할 수 있으며 해당하는 storageAccountName 및 storageAccountKey를 다음 파일에 액세스하기 위한 개인 매개 변수로 전달할 수 있습니다.
+- commandToExecute: [필수 매개 변수]: 확장에 의해 실행되는 명령입니다.
+- storageAccountName: [선택적 매개 변수]: 비공개로 표시된 경우 fileURLs에 액세스하기 위한 저장소 계정 이름입니다.
+- storageAccountKey: [선택적 매개 변수]: 비공개로 표시된 경우 fileURLs에 액세스하기 위한 저장소 계정 키입니다.
+
+### CustomScript 확장 1.7
+
+매개 변수에 대한 설명은 CustomScript 버전 1.4를 참조하세요. 버전 1.7에서는 스크립트 매개 변수(commandToExecute)를 protectedSettings로 보내는 작업을 지원하며 이 경우 매개 변수는 보내기 전에 암호화됩니다. 'commandToExecute' 매개 변수는 settings 또는 protectedSettings 중 하나에만 지정될 수 있습니다.
+
+        {
+            "publisher": "Microsoft.Compute",
+            "type": "CustomScriptExtension",
+            "typeHandlerVersion": "1.7",
+            "settings": {
+                "fileUris": [
+                    "http: //Yourstorageaccount.blob.core.windows.net/customscriptfiles/start.ps1"
+                ],
+                "commandToExecute": "powershell.exe-ExecutionPolicyUnrestricted -start.ps1"
+            },
+            "protectedSettings": {
+              "commandToExecute": "powershell.exe-ExecutionPolicyUnrestricted -start.ps1",
+              "storageAccountName": "yourStorageAccountName",
+              "storageAccountKey": "yourStorageAccountKey"
+            }
         }
-    }
 
 ### VMAccess 확장
 
@@ -316,4 +371,4 @@
 
 [Windows VM의 사용자 지정 스크립트 확장](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

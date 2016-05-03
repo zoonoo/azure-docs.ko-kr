@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="04/14/2016" 
 	ms.author="spelluru"/>
 
 # Azure 데이터 팩터리를 사용하여 Azure SQL 데이터 웨어하우스 간 데이터 이동
@@ -463,7 +463,13 @@ sqlReaderQuery 또는 sqlReaderStoredProcedureName 중 하나를 지정하지 �
 | writeBatchSize | 버퍼 크기가 writeBatchSize에 도달하는 경우 SQL 테이블에 데이터 삽입 | Integer(단위 = 행 수). | 아니요(기본값 = 10000) |
 | writeBatchTimeout | 시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다. | (단위 = timespan) 예: "00:30:00"(30분). | 아니요 | 
 | sqlWriterCleanupScript | 사용자는 데이터의 특정 조각을 정리할 수 있도록 실행하는 복사 작업에 쿼리를 지정했습니다. 자세한 내용은 아래 반복성 섹션을 참조하세요. | 쿼리 문입니다. | 아니요 |
-| sliceIdentifierColumnName | 사용자는 자동 생성된 조각 식별자로 채워진 복사 작업에 열 이름을 지정하여 다시 실행하는 경우 특정 조각의 데이터를 정리하는 데 사용합니다. 자세한 내용은 아래 반복성 섹션을 참조하세요. | 이진(32) 데이터 형식이 있는 열의 열 이름입니다. | 아니요 |
+| allowPolyBase | BULKINSERT 메커니즘 대신 (해당하는 경우)PolyBase를 사용하여 Azure SQL 데이터 웨어하우스로 데이터를 로드할지 여부를 나타냅니다. <br/><br/>이 때 원본 데이터 집합인 **TextFormat**으로 설정된 **서식**을 가진 **Azure Blob** 데이터 집합이 지원되고 다른 원본 유형에 대한 지원도 곧 제공됩니다. <br/><br/>제약 조건 및 세부 정보는 [PolyBase를 사용하여 Azure SQL 데이터 웨어하우스로 데이터 로드](#use-polybase-to-load-data-into-azure-sql-data-warehouse) 섹션을 참조하세요. | True <br/>False(기본값) | 아니요 |  
+| polyBaseSettings | **allowPolybase** 속성이 **true**로 설정된 경우 지정될 수 있는 속성의 그룹입니다. | &nbsp; | 아니요 |  
+| rejectValue | 쿼리가 실패하기 전에 거부될 수 있는 행의 수 또는 백분율을 지정합니다. <br/><br/>[외부 테이블 만들기(Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) 항목의 **인수** 섹션에 있는 PolyBase의 거부 옵션에 대해 자세히 알아봅니다. | 0(기본값), 1, 2, … | 아니요 |  
+| rejectType | rejectValue 옵션을 리터럴 값 또는 백분율로 지정할지 여부를 지정합니다. | 값(기본값), 백분율 | 아니요 |   
+| rejectSampleValue | PolyBase가 거부된 행의 비율을 다시 계산하기 전에 검색할 행 수를 결정합니다. | 1, 2, … | 예. **rejectType**가 **백분율**인 경우 |  
+| useTypeDefault | PolyBase가 텍스트 파일에서 데이터를 검색할 경우 구분된 텍스트 파일에서 누락된 값을 처리하는 방법을 지정합니다.<br/><br/>[외부 파일 서식 만들기(TRANSACT-SQL)](https://msdn.microsoft.com/library/dn935026.aspx)의 인수 섹션에서 이 속성에 대해 자세히 알아봅니다. | True, False(기본값) | 아니요 | 
+
 
 #### SqlDWSink 예제
 
@@ -471,8 +477,113 @@ sqlReaderQuery 또는 sqlReaderStoredProcedureName 중 하나를 지정하지 �
     "sink": {
         "type": "SqlDWSink",
         "writeBatchSize": 1000000,
-        "writeBatchTimeout": "00:05:00",
+        "writeBatchTimeout": "00:05:00"
     }
+
+## PolyBase를 사용하여 Azure SQL 데이터 웨어하우스에 데이터 로드
+**PolyBase**는 처리량이 높은 많은 양의 데이터를 Azure Blob 저장소에서 Azure SQL 데이터 웨어하우스에 로드하는 효율적인 방법입니다. 기본 BULKINSERT 메커니즘 대신 PolyBase를 사용하여 처리량의 증가를 확인할 수 있습니다.
+
+원본 데이터 저장소가 Azure Blob 저장소가 아닌 경우 우선 준비로 원본 데이터에서 Azure Blob 저장소에 데이터를 복사하는 것을 고려한 다음 PolyBase를 사용하여 준비 저장소의 Azure SQL 데이터 웨어하우스로 데이터를 로드할 수 있습니다. 이 시나리오에서는 원본 데이터 저장소에서 Azure Blob 저장소로 데이터를 복사하도록 구성된 첫 번째 복사 작업 및 Azure Blob 저장소에서 Azure SQL 데이터 웨어하우스로 데이터를 복사하는 두 번째 복사 작업 등 PolyBase를 사용하는 두 개의 복사 작업을 사용합니다.
+
+Azure 데이터 팩터리에 대한 다음 예와 같이 **allowPolyBase** 속성을 **true**로 설정하여 Azure Blob 저장소에서 Azure SQL 데이터 웨어하우스에 데이터를 복사하기 위해 PolyBase를 사용합니다. allowPolyBase를 true로 설정하면 **polyBaseSettings** 속성 그룹을 사용하여 PolyBase 특정 속성을 지정할 수 있습니다. polyBaseSettings에 사용할 수 있는 속성에 대한 세부 정보는 위의 [SqlDWSink](#SqlDWSink) 섹션을 참조하세요.
+
+
+    "sink": {
+        "type": "SqlDWSink",
+		"allowPolyBase": true,
+		"polyBaseSettings":
+		{
+			"rejectType": "percentage",
+			"rejectValue": 10,
+			"rejectSampleValue": 100,
+			"useTypeDefault": true 
+		}
+
+    }
+
+Azure 데이터 팩터리는 Azure SQL 데이터 웨어하우스에 데이터를 복사하기 위해 PolyBase를 사용하기 전에 데이터가 다음 요구 사항을 충족하는지 여부를 확인합니다. 요구 사항을 충족하지 않는 경우 데이터 이동을 위한 BULKINSERT 메커니즘으로 자동으로 대체됩니다.
+
+1.	**원본에 연결된 서비스**는 **Azure 저장소** 형식이며 SAS(공유 액세스 서명) 인증을 사용하도록 구성되지 않습니다. 자세한 내용은 [Azure 저장소 연결된 서비스](data-factory-azure-blob-connector.md#azure-storage-linked-service)를 참조하세요.  
+2. **입력 데이터 집합**은 **Azure Blob** 형식이며 데이터 집합의 형식 속성은 다음 조건을 충족합니다. 
+	1. **형식**은 **TextFormat**이어야 합니다. 
+	2. **rowDelimiter**는 **\\n**이어야 합니다. 
+	3. **nullValue**는 **빈 문자열**("")로 설정됩니다. 
+	4. **encodingName**은 **utf-8**로 설정되며 이는 **기본** 값이므로 다른 값으로 설정하지 마세요. 
+	5. **escapeChar** 및 **quoteChar**은 지정되지 않습니다. 
+	6. **압축**은 **BZIP2**가 아닙니다.
+	 
+			"typeProperties": {
+				"folderPath": "<blobpath>",
+				"format": {
+					"type": "TextFormat",     
+					"columnDelimiter": "<any delimiter>", 
+					"rowDelimiter": "\n",       
+					"nullValue": "",           
+					"encodingName": "utf-8"    
+				},
+            	"compression": {  
+                	"type": "GZip",  
+	                "level": "Optimal"  
+    	        }  
+			},
+3.	**skipHeaderLineCount**는 파이프라인에서 복사 작업에 대한 **BlobSource**에 설정되지 않습니다. 
+4.	**sliceIdentifierColumnName**은 파이프라인에서 복사 작업에 대한 **SqlDWSink**에 설정되지 않습니다. (PolyBase는 한 번의 실행으로 모든 데이터를 업데이트하거나 아무 것도 업데이트하지 않도록 보장합니다. **반복성**을 달성하려면 **sqlWriterCleanupScript**를 사용할 수 있습니다.
+5.	**columnMapping**은 연결된 복사 작업에서 사용되지 않습니다. 
+
+### PolyBase를 사용하는 경우 모범 사례
+
+#### 행 크기 제한
+Polybase는 32KB보다 큰 크기의 행을 지원하지 않습니다. 32KB보다 큰 행이 있는 테이블을 로드하려고 시도하면 다음과 같은 오류가 발생합니다.
+
+	Type=System.Data.SqlClient.SqlException,Message=107093;Row size exceeds the defined Maximum DMS row size: [35328 bytes] is larger than the limit of [32768 bytes],Source=.Net SqlClient
+
+32KB보다 큰 크기의 행을 포함한 원본 데이터가 있는 경우 각 항목의 최대 행 크기가 제한을 초과하지 않는 정도의 작은 테이블로 원본 테이블을 수직으로 분할하는 것이 좋습니다. 작은 테이블은 PolyBase를 사용하여 로드될 수 있고 Azure SQL 데이터 웨어하우스에서 병합될 수 있습니다.
+
+#### Azure SQL 데이터 웨어하우스의 tableName
+다음 테이블은 스키마와 테이블 이름의 다양한 조합에 대한 JSON 데이터 집합에서 **tableName** 속성을 지정하는 방법에 대한 예제를 제공합니다.
+
+| DB 스키마 | 테이블 이름 | tableName JSON 속성 |
+| --------- | -----------| ----------------------- | 
+| dbo | MyTable | MyTable 또는 dbo.MyTable 또는 [dbo].[MyTable] |
+| dbo1 | MyTable | dbo1.MyTable 또는 [dbo1].[MyTable] |
+| dbo | My.Table | [My.Table] 또는 [dbo].[My.Table] |
+| dbo1 | My.Table | [dbo1].[My.Table] |
+
+아래와 같이 오류를 표시하는 경우 tableName 속성에 지정한 값에 관한 문제일 수 있습니다. tableName JSON 속성에 대한 값을 지정하는 올바른 방법은 위의 테이블을 참조하세요.
+
+	Type=System.Data.SqlClient.SqlException,Message=Invalid object name 'stg.Account_test'.,Source=.Net SqlClient Data Provider
+
+#### 기본값이 있는 열
+현재 데이터 팩터리의 PolyBase 기능은 대상 테이블과 동일한 열 수를 허용합니다. 예를 들어 4개의 열을 포함한 테이블이 있고 그 중 하나를 기본값으로 정의하면 입력 데이터는 4개의 열을 포함합니다. 3열 입력 데이터 집합을 제공하면 아래와 같이 오류가 발생합니다.
+
+	All columns of the table must be specified in the INSERT BULK statement.
+
+NULL 값은 특별한 형태의 기본값입니다. 열이 null을 허용하면 해당 열에 대한 입력 데이터(Blob)는 비어 있을 수 있습니다(입력 데이터 집합에서 누락될 수 없음). PolyBase는 Azure SQL 데이터 웨어하우스의 해당 항목에 NULL을 삽입합니다.
+
+#### PolyBase를 사용하기 위해 2단계 복사 활용
+PolyBase에는 데이터 저장소 및 함께 작동할 수 있는 서식에 대한 제한이 있습니다. 시나리오가 요구 사항에 맞지 않으면 PolyBase에서 지원하는 데이터 저장소로 데이터 복사 및/또는 PolyBase가 지원하는 서식으로 데이터를 변환하는 복사 작업을 활용해야 합니다. 다음은 할 수 있는 변환의 예입니다.
+
+-	다른 인코딩의 원본 파일을 UTF-8의 Azure Blob로 변환
+-	SQL Server/Azure SQL 데이터베이스의 데이터를 CSV 서식인 Azure Blob에 직렬화합니다.
+-	columnMapping 속성을 지정하여 열의 순서를 변경합니다.
+
+다음은 변환을 수행하는 경우의 몇 가지 팁입니다.
+
+- 표 형식 데이터를 CSV 파일로 변환하는 경우 적절한 구분 기호를 선택합니다.
+
+	열 구분 기호에 따라 데이터에서 나타날 가능성이 매우 적은 문자를 사용하는 것이 좋습니다. 일반 구분 기호는 쉼표(,), 물결표(~), 파이프(|) 및 TAB(\\t)을 포함합니다. 데이터가 해당 기호를 포함하는 경우 열 구분 기호를 "\\u0001"과 같은 인쇄할 수 없는 문자가 되도록 설정할 수 있습니다. Polybase는 좀 더 복잡한 열 구분 기호를 생성할 수 있는 다중 문자 열 구분 기호를 허용합니다.	
+- 날짜/시간 개체의 서식
+
+	날짜/시간 개체가 직렬화되면 복사 작업은 기본적으로 "yyyy-MM-dd HH:mm:ss.fffffff" 서식을 사용합니다. 이는 기본적으로 PolyBase에서 지원되지 않습니다. 지원되는 날짜/시간 서식을 [외부 파일 서식 만들기(Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx)에서 확인할 수 있습니다. 아래와 같이 날짜/시간 서식의 Polybase 예상을 충족하지 못하면 오류가 발생합니다.
+
+		Query aborted-- the maximum reject threshold (0 rows) was reached while reading from an external source: 1 rows rejected out of total 1 rows processed.
+		(/AccountDimension)Column ordinal: 97, Expected data type: DATETIME NOT NULL, Offending value: 2010-12-17 00:00:00.0000000  (Column Conversion Error), Error: Conversion failed when converting the NVARCHAR value '2010-12-17 00:00:00.0000000' to data type DATETIME.
+
+	이 오류를 해결하기 위해 다음 예제와 같이 날짜/시간 서식을 지정합니다.
+	
+		"structure": [
+    		{ "name" : "column", "type" : "int", "format": "yyyy-MM-dd HH:mm:ss" }
+		]
 
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)]
@@ -531,4 +642,7 @@ SQL Azure, SQL server, Sybase에서 데이터를 이동하는 경우 SQL 형식�
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+## 성능 및 튜닝  
+Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
+
+<!---HONumber=AcomDC_0420_2016-->

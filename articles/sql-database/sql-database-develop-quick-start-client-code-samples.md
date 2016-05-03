@@ -3,8 +3,8 @@
 	description="Linux의 Node.js, Mac OS의 Python, Java 및 Windows, Enterprise Library에 대한 코드 샘플 및 드라이버와 Azure SQL 데이터베이스 클라이언트에 대한 추가 항목을 제공합니다."
 	services="sql-database" 
 	documentationCenter="" 
-	authors="MightyPen" 
-	manager="jeffreyg" 
+	authors="annemill" 
+	manager="jhubbard" 
 	editor=""/>
 
 
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="01/10/2016" 
-	ms.author="genemi"/>
+	ms.author="annemill"/>
 
 
 # SQL 데이터베이스에 대한 클라이언트 빠른 시작 코드 샘플
@@ -94,4 +94,4 @@
 - [첫 Azure SQL 데이터베이스 만들기](sql-database-get-started.md)
 - [GitHub의 EF 7, Entity Framework 6](http://entityframework.codeplex.com/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0420_2016-->

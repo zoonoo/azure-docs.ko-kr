@@ -13,9 +13,9 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/08/2016"   
+	ms.date="04/14/2016"   
 	ms.author="milanga;juliako;"/>
-
+ 
 # Azure 미디어 검색으로 동작 검색
 
 ##개요
@@ -349,4 +349,6 @@ RegionID|위에서 설명했듯이 이 버전에서 이 값은 항상 0입니다
 
 [Azure 미디어 서비스 분석 개요](media-services-analytics-overview.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+[Azure 미디어 분석 데모](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+
+<!---HONumber=AcomDC_0420_2016-->
