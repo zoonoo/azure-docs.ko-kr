@@ -14,7 +14,7 @@ Azure 문서에 관심을 가져 주셔서 감사합니다.
 * [GitHub, Git 및 이 리포지토리 사용](#use-github-git-and-this-repository)
 * [항목의 서식을 지정하는 마크다운을 사용하는 방법](#how-to-use-markdown-to-format-your-topic)
 * [추가 리소스](#more-resources)
-* [모든 참여자 가이드 문서의 인덱스](./contributor-guide/contributor-guide-index.md)(새 페이지를 엽니다)
+* [모든 참여자 가이드 문서의 인덱스](https://github.com/Azure/azure-content/blob/master/contributor-guide/contributor-guide-index.md)(새 페이지를 엽니다)
 
 ## 참가 방법
 
@@ -48,7 +48,7 @@ azure-content 리포지토리의 내용은 [Azure.Microsoft.com](http://azure.mi
 
 루트 디렉터리의 문서는 경로 *http://azure.microsoft.com/documentation/articles/{article-name-without-md}/*의 Azure.Microsoft.com에 게시됩니다.
 
-* **문서 파일 이름:** [파일 명명 지침](./contributor-guide/file-names-and-locations.md)을 참조하세요.
+* **문서 파일 이름:** [파일 명명 지침](https://github.com/Azure/azure-content/blob/master/contributor-guide/file-names-and-locations.md)을 참조하세요.
 
 고유한 서비스 폴더 내의 문서는 경로 
 *http://azure.microsoft.com/documentation/articles/service-folder/{article-name-without-md}/*의 Azure.Microsoft.com에 게시됩니다
@@ -57,7 +57,7 @@ azure-content 리포지토리의 내용은 [Azure.Microsoft.com](http://azure.mi
 
 ### \includes
 
-하나 이상의 문서에 포함될 재사용 가능한 콘텐츠 섹션을 만들 수 있습니다. [기술 콘텐츠에 사용되는 사용자 지정 확장](./contributor-guide/custom-markdown-extensions.md)을 참조하세요.
+하나 이상의 문서에 포함될 재사용 가능한 콘텐츠 섹션을 만들 수 있습니다. [기술 콘텐츠에 사용되는 사용자 지정 확장](https://github.com/Azure/azure-content/blob/master/contributor-guide/custom-markdown-extensions.md)을 참조하세요.
 
 ### \markdown templates
 
@@ -69,9 +69,9 @@ azure-content 리포지토리의 내용은 [Azure.Microsoft.com](http://azure.mi
 
 ## GitHub, Git 및 이 리포지토리 사용
 
-참가하는 방법, 몇 가지 변경에 참가하는 GitHub UI를 사용하는 방법 및 중요한 참가에 대한 리포지토리를 분기 및 복제하는 방법에 대한 내용은 [GitHub에서 작성을 위한 도구 설치 및 설정](./contributor-guide/tools-and-setup.md)을 참조하세요.
+참가하는 방법, 몇 가지 변경에 참가하는 GitHub UI를 사용하는 방법 및 중요한 참가에 대한 리포지토리를 분기 및 복제하는 방법에 대한 내용은 [GitHub에서 작성을 위한 도구 설치 및 설정](https://github.com/Azure/azure-content/blob/master/contributor-guide/tools-and-setup.md)을 참조하세요.
 
-GitBash를 설치하고 로컬에서 작동하도록 선택하면 새 로컬 작업 분기를 만들고 내용을 변경하며 주요 분기에 변경 내용을 다시 제출하는 단계는 [새 문서를 만들거나 기존 문서를 업데이트하기 위한 Git 명령](./contributor-guide/git-commands-for-master.md)에 나열됩니다.
+GitBash를 설치하고 로컬에서 작동하도록 선택하면 새 로컬 작업 분기를 만들고 내용을 변경하며 주요 분기에 변경 내용을 다시 제출하는 단계는 [새 문서를 만들거나 기존 문서를 업데이트하기 위한 Git 명령](https://github.com/Azure/azure-content/blob/master/contributor-guide/git-commands-for-master.md)에 나열됩니다.
 
 ### 분기
 
@@ -87,16 +87,16 @@ GitBash를 설치하고 로컬에서 작동하도록 선택하면 새 로컬 작
 
 - [마크다운 기본 사항](https://help.github.com/articles/markdown-basics/)
 
-- [인쇄 가능한 마크다운 치트 시트](./contributor-guide/media/documents/markdown-cheatsheet.pdf?raw=true)
+- [인쇄 가능한 마크다운 치트 시트](https://github.com/Azure/azure-content/blob/master/contributor-guide/media/documents/markdown-cheatsheet.pdf?raw=true)
 
-- 마크다운 편집기의 목록은 [도구 및 설치 항목](./contributor-guide/tools-and-setup.md#install-a-markdown-editor)을 참조하세요.
+- 마크다운 편집기의 목록은 [도구 및 설치 항목](https://github.com/Azure/azure-content/blob/master/contributor-guide/tools-and-setup.md#install-a-markdown-editor)을 참조하세요.
 
 ## 문서 메타데이터
 
-문서 메타데이터를 사용하면 azure.microsoft.com 웹 사이트에서 작성자 특성, 참여자 특성, 이동 경로, 문서 설명 및 SEO 최적화 뿐만 아니라 Microsoft가 콘텐츠의 성능을 평가하는 데 사용하는 보고 등과 같은 특정 기능을 사용할 수 있습니다. 따라서 메타데이터는 중요합니다! [메타데이터가 제대로 수행되도록 하기 위한 지침은 다음과 같습니다](./contributor-guide/article-metadata.md).
+문서 메타데이터를 사용하면 azure.microsoft.com 웹 사이트에서 작성자 특성, 참여자 특성, 이동 경로, 문서 설명 및 SEO 최적화 뿐만 아니라 Microsoft가 콘텐츠의 성능을 평가하는 데 사용하는 보고 등과 같은 특정 기능을 사용할 수 있습니다. 따라서 메타데이터는 중요합니다! [메타데이터가 제대로 수행되도록 하기 위한 지침은 다음과 같습니다](https://github.com/Azure/azure-content/blob/master/contributor-guide/article-metadata.md).
 
 ## 추가 리소스
 
-모든 지침 항목은 [참가자 가이드의 인덱스](./contributor-guide/contributor-guide-index.md)를 참조하세요.
+모든 지침 항목은 [참가자 가이드의 인덱스](https://github.com/Azure/azure-content/blob/master/contributor-guide/contributor-guide-index.md)를 참조하세요.
 
 <!----HONumber=AcomDC_0307_2016-->
