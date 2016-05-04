@@ -301,7 +301,8 @@ ASP.net MVC 샘플 응용 프로그램의 [GetObjectIdOfServicePrincipalInOrgani
 |----|----
 | grant\_type | **client\_credentials**
 | client\_id | 응용 프로그램의 클라이언트 ID
-| resource | 액세스 토큰이 요청하는 리소스의 URL 인코딩된 액세스 ID입니다. 이 경우 Azure AD Graph API의 ID: **https://graph.windows.net/** | client\_secret 또는 client\_assertion\_type + client\_assertion | 응용 프로그램이 암호 자격 증명을 사용하는 경우 client\_secret을 사용합니다. 인증서 자격 증명을 사용하는 경우 응용 프로그램 client\_assertion을 사용합니다.
+| resource | 액세스 토큰이 요청하는 리소스의 URL 인코딩된 액세스 ID입니다. 이 경우 Azure AD Graph API의 ID: **https://graph.windows.net/** 
+| client\_secret 또는 client\_assertion\_type + client\_assertion | 응용 프로그램이 암호 자격 증명을 사용하는 경우 client\_secret을 사용합니다. 인증서 자격 증명을 사용하는 경우 응용 프로그램 client\_assertion을 사용합니다.
 
 클라이언트 자격 증명 부여 토큰에 대한 요청 예제:
 
