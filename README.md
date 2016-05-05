@@ -13,7 +13,7 @@ Azure 문서에 관심을 가져 주셔서 감사합니다.
 * [리포지토리 조직](#repository-organization)
 * [GitHub, Git 및 이 리포지토리 사용](#use-github-git-and-this-repository)
 * [항목의 서식을 지정하는 마크다운을 사용하는 방법](#how-to-use-markdown-to-format-your-topic)
-* [추가 리소스](#more-resources)
+* [추가 리소스](#추가 리소스)
 * [모든 참여자 가이드 문서의 인덱스](https://github.com/Azure/azure-content/blob/master/contributor-guide/contributor-guide-index.md)(새 페이지를 엽니다)
 
 ## 참가 방법
