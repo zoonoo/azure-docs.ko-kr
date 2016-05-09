@@ -39,11 +39,11 @@ Python용 Azure SDK는 REST API인 [Azure 서비스 관리 API][svc-mgmt-rest-ap
 ### Windows/Mac/Linux의 관리 인증서(OpenSSL)
 [OpenSSL](http://www.openssl.org/)을 사용하여 관리 인증서를 만들 수 있습니다. 실제로 서버용(`.cer` 파일)과 클라이언트용(`.pem` 파일)으로 두 개의 인증서를 만들어야 합니다. `.pem` 파일을 만들려면 다음을 실행합니다.
 
-	`openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem`
+    openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
 
 `.cer` 인증서를 만들려면 다음을 실행합니다.
 
-	`openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
+    openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer
 
 Azure 인증서에 대한 자세한 내용은 [Azure 클라우드 서비스 인증서 개요](./cloud-services-certs-create.md)를 참조하세요. OpenSSL 매개 변수에 대한 자세한 설명은 [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html)(영문)의 자료를 참조하세요.
 
@@ -435,4 +435,4 @@ Windows 가상 컴퓨터를 캡처하는 방법에 대한 자세한 내용은 [W
 
 [클라우드 서비스]: https://azure.microsoft.com/ko-KR/documentation/services/cloud-services/
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

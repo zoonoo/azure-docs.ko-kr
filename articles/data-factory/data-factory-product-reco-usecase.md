@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="04/01/2016" 
 	ms.author="spelluru"/>
 
 # 사용 사례 - 제품 추천 
 
-Azure Data Factory는 솔루션 가속기의 Cortana Analytics Suite를 구현하는 데 사용되는 다양한 서비스 중 하나입니다. 이 제품군에 대한 자세한 내용은 [Cortana Analytics Suite](http://www.microsoft.com/cortanaanalytics) 페이지를 참조하세요. 이 문서에서는 Azure 사용자가 Azure Data Factory 및 기타 Cortana Analytics 구성 요소 서비스를 사용하여 이미 해결하고 구현한 경험이 있는 일반적인 사용 사례를 설명합니다.
+Azure Data Factory는 솔루션 가속기의 Cortana Intelligence Suite를 구현하는 데 사용되는 다양한 서비스 중 하나입니다. 이 제품군에 대한 자세한 내용은 [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics) 페이지를 참조하세요. 이 문서에서는 Azure 사용자가 Azure Data Factory 및 기타 Cortana Intelligence 구성 요소 서비스를 사용하여 이미 해결하고 구현한 경험이 있는 일반적인 사용 사례를 설명합니다.
 
 ## 시나리오
 
@@ -36,7 +36,7 @@ Azure Data Factory는 솔루션 가속기의 Cortana Analytics Suite를 구현�
 
 ## 솔루션 개요
 
-이 사용 사례 예에서는 실제 Azure 사용자가 [HDInsight](https://azure.microsoft.com/services/hdinsight/) and [Power BI](https://powerbi.microsoft.com/)를 포함한 Azure Data Factory 및 기타 Cortana Analytics 구성 요소 서비스를 사용하여 최종 데이터를 수집, 준비, 변환, 분석 및 게시하는 방법으로 해결 및 구현했습니다.
+이 사용 사례 예에서는 실제 Azure 사용자가 [HDInsight](https://azure.microsoft.com/services/hdinsight/) and [Power BI](https://powerbi.microsoft.com/)를 포함한 Azure Data Factory 및 기타 Cortana Intelligence 구성 요소 서비스를 사용하여 최종 데이터를 수집, 준비, 변환, 분석 및 게시하는 방법으로 해결 및 구현했습니다.
 
 이 온라인 소매점은 전체 워크플로에서 Azure Blob 저장소, 온-프레미스 SQL server, Azure SQL DB 및 관계형 데이터 마트를 데이터 저장소 옵션으로 사용합니다. Blob 저장소는 고객 정보, 고객 동작 데이터 및 제품 정보 데이터를 포함합니다. 제품 정보 데이터는 SQL 데이터 웨어하우스에 온-프레미스로 저장된 제품 브랜드 정보와 제품 카탈로그를 포함합니다.
 
@@ -52,7 +52,7 @@ Azure Data Factory는 솔루션 가속기의 Cortana Analytics Suite를 구현�
 
 ## 이점
 
-제품 추천 전략을 최적화하고 비즈니스 목표에 부합하도록 한다면 이 솔루션은 온라인 소매점의 머천다이징 및 마케팅 목표를 충족합니다. 또한 제품 추천 워크플로를 효율적이고 안정적이며 비용 효율적인 방식으로 개인 설정 및 관리할 수 있어서 자신의 모델을 쉽게 업데이트하고 클릭-판매 변환 성공을 측정한 결과에 따라 효율성을 미세하게 조정할 수 있습니다. Azure Data Factory를 사용하면 시간과 비용이 많이 드는 수동 클라우드 리소스 관리를 중단하고 주문형 클라우드 리소스 관리로 전환하여 시간, 비용을 절약하고 솔루션 배포 시간을 단축할 수 있습니다. 데이터 계보 뷰 및 작업 서비스 상태를 직관적인 데이터 팩터리 모니터링 및 Azure 클래식 포털에서 제공되는 관리 UI로 쉽게 시각화하여 문제 해결을 할 수 있습니다. 이제 이러한 솔루션을 예약 및 관리할 수 있으므로 완료된 데이터를 안정적으로 생성하고 사용자에게 전달할 수 있으며 데이터 및 처리 종속성이 사용자의 개입 없이 자동으로 관리됩니다.
+제품 추천 전략을 최적화하고 비즈니스 목표에 부합하도록 한다면 이 솔루션은 온라인 소매점의 머천다이징 및 마케팅 목표를 충족합니다. 또한 제품 추천 워크플로를 효율적이고 안정적이며 비용 효율적인 방식으로 개인 설정 및 관리할 수 있어서 자신의 모델을 쉽게 업데이트하고 클릭-판매 변환 성공을 측정한 결과에 따라 효율성을 미세하게 조정할 수 있습니다. Azure Data Factory를 사용하면 시간과 비용이 많이 드는 수동 클라우드 리소스 관리를 중단하고 주문형 클라우드 리소스 관리로 전환하여 시간, 비용을 절약하고 솔루션 배포 시간을 단축할 수 있습니다. 데이터 계보 뷰 및 작업 서비스 상태를 직관적인 데이터 팩터리 모니터링과 Azure 포털에서 제공되는 관리 UI로 손쉽게 시각화하고 문제 해결할 수 있습니다. 이제 이러한 솔루션을 예약 및 관리할 수 있으므로 완료된 데이터를 안정적으로 생성하고 사용자에게 전달할 수 있으며 데이터 및 처리 종속성이 사용자의 개입 없이 자동으로 관리됩니다.
 
 이러한 개인 설정된 쇼핑 경험을 제공함으로써 온라인 소매점은 보다 경쟁력 있고 뛰어난 고객 환경을 만들어 결과적으로 매출이 증가하며 전체적인 고객 만족도가 향상됩니다.
 
@@ -60,4 +60,4 @@ Azure Data Factory는 솔루션 가속기의 Cortana Analytics Suite를 구현�
 
   
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0427_2016-->

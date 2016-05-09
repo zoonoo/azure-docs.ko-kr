@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="12/07/2015"
+   ms.date="04/19/2016"
    ms.author="yuemlu"/>
 
 # Azure 게스트 OS 지원 가능성 및 사용 중지 정책
@@ -90,4 +90,4 @@ Microsoft의 판단에 따라 고객이 전환하기에 용이하도록 이 기�
 ## 다음 단계
 최신 [게스트 OS 릴리스](cloud-services-guestos-update-matrix.md)를 검토합니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/19/2016"
+	ms.date="04/25/2016"
 	ms.author="maheshu"/>
 
 # Azure AD 도메인 서비스 관리되는 도메인에 대해 보안 LDAP(LDAPS) 구성
@@ -32,7 +32,7 @@
     - **권장** - 엔터프라이즈 CA 또는 공용 인증 기관에서 인증서를 가져옵니다. 훨씬 더 안전한 구성 옵션입니다.
 	- 또는 이 문서의 뒷부분에 나와 있는 것처럼[자체 서명된 인증서를 만들도록](./active-directory-ds-admin-guide-configure-secure-ldap.md/#task-1---obtain-a-certificate-for-secure-ldap) 선택할 수도 있습니다.
 
-
+<br>
 
 ### 보안 LDAP 인증서에 대한 요구 사항
 보안 LDAP를 사용하도록 설정하기 전에 아래 지침에 따라 유효한 인증서를 획득합니다. 유효하지 않거나/잘못된 인증서로 관리되는 도메인에 대해 보안 LDAP를 사용 하도록 설정하려는 경우 오류가 발생합니다.
@@ -195,6 +195,8 @@ LDAPS 인증서를 .PFX 파일로 내보내기 위해서는 다음 단계를 수
 
     ![보안 LDAP 사용](./media/active-directory-domain-services-admin-guide/secure-ldap-enabled.png)
 
+<br>
+
 
 ## 작업 4 - 인터넷을 통해 보안 LDAP 액세스 사용
 **선택적 작업** - 인터넷을 통해 LDAPS를 사용하여 관리되는 도메인에 액세스하지 않으려면 이 작업을 건너뜁니다.
@@ -217,6 +219,7 @@ LDAPS 인증서를 .PFX 파일로 내보내기 위해서는 다음 단계를 수
 
     ![보안 LDAP 사용](./media/active-directory-domain-services-admin-guide/secure-ldap-internet-access-enabled.png)
 
+<br>
 
 ## 작업 5 - 인터넷에서 관리되는 도메인에 액세스할 DNS 구성
 **선택적 작업** - 인터넷을 통해 LDAPS를 사용하여 관리되는 도메인에 액세스하지 않으려면 이 작업을 건너뜁니다.
@@ -233,4 +236,10 @@ LDAPS 인증서를 .PFX 파일로 내보내기 위해서는 다음 단계를 수
 
 > [AZURE.WARNING] 클라이언트 컴퓨터가 LDAPS를 사용하여 관리되는 도메인에 성공적으로 연결하기 위해서는 LDAPS 인증서의 발급자를 신뢰해야 한다는 점을 유의하세요. 엔터프라이즈 인증 기관 또는 공개적으로 신뢰할 수 있는 인증 기관을 사용하는 경우 클라이언트 컴퓨터가 이러한 인증서 발급자를 신뢰하므로 문제가 되지 않습니다. 자체 서명된 인증서를 사용하는 경우 자체 서명된 인증서의 공개 부분(즉, 개인 키 없이 내보낸 부분)을 클라이언트 컴퓨터의 신뢰할 수 있는 인증서 저장소에 설치해야 합니다.
 
-<!---HONumber=AcomDC_0420_2016-->
+<br>
+
+## 관련 콘텐츠
+
+- [Azure AD 도메인 서비스 관리되는 도메인 관리](active-directory-ds-admin-guide-administer-domain.md)
+
+<!---HONumber=AcomDC_0427_2016-->

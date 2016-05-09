@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="04/11/2016" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory 릴리스 정보
@@ -270,7 +270,10 @@ HDInsight 작업(Hive, Pig, MapReduce, Hadoop 스트리밍)은 새 속성인 **g
 
 목록의 제목 또는 **...(줄임표)**을 클릭하여 더 큰 조각 목록을 표시합니다. 도구 모음의 **필터**를 클릭하여 조각을 필터링합니다.
  
-**데이터 조각(조각 시간별)** 타일을 클릭하면 조각 시간을 기준으로 정렬된 조각을 볼 수 있습니다. 해당 컬렉션의 조각은 조각 시간을 기준으로 정렬됩니다. 예를 들어 매시간 일정인 경우 조각은 다음과 같습니다. - 4/4/2015 5pm In progress - 4/4/2015 4pm Succeeded - 4/4/2015 3pm Failed
+**데이터 조각(조각 시간별)** 타일을 클릭하면 조각 시간을 기준으로 정렬된 조각을 볼 수 있습니다. 해당 컬렉션의 조각은 조각 시간을 기준으로 정렬됩니다. 예를 들어, 시간별 일정인 경우 조각은 다음과 같습니다.
+- 4/4/2015 5pm In progress 
+- 4/4/2015 4pm Succeeded
+- 4/4/2015 3pm Failed
 
 그러나 이전 조각을 다시 실행하는 경우 사용자가 더 관심을 가진 조각인 경우에도 이 목록의 맨 위에 표시되지 않습니다.
 
@@ -353,4 +356,4 @@ HDInsight 작업(Hive, Pig, MapReduce, Hadoop 스트리밍)은 새 속성인 **g
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0427_2016-->

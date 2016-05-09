@@ -3,7 +3,7 @@
    description="SQL 데이터 웨어하우스 문제를 해결합니다."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="TwoUnder"
+   authors="sonyam"
    manager="barbkess"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="04/20/2016"
    ms.author="mausher;sonyama;barbkess"/>
 
 # 문제 해결
@@ -28,41 +28,106 @@
 ### 방화벽 규칙
 Azure SQL 데이터베이스가 알려진 IP 주소만 데이터베이스에 액세스할 수 있도록 서버 및 데이터베이스 수준 방화벽으로 보호됩니다. 방화벽은 연결하기 전에 IP 주소 액세스를 허용해야 하기 때문에 기본적으로 안전합니다.
 
-액세스를 위해 방화벽을 구성하려면 [프로비전](sql-data-warehouse-get-started-provision.md) 페이지의 [클라이언트 IP에 대한 서버 방화벽 액세스 구성](sql-data-warehouse-get-started-provision.md/#step-4-configure-server-firewall-access-for-your-client-ip) 섹션의 단계를 따르세요.
+액세스를 위해 방화벽을 구성하려면 [프로비전][] 페이지의 [클라이언트 IP에 대한 서버 방화벽 액세스 구성][] 섹션의 단계를 따르세요.
 
 ### 지원되지 않는 도구/프로토콜 사용
-SQL 데이터 웨어하우스는 [Visual Studio 2013/2015](sql-data-warehouse-get-started-connect.md)를 개발자 환경으로 지원하며 클라이언트 연결의 경우 [SQL Server Native Client 10/11(ODBC)](https://msdn.microsoft.com/library/ms131415.aspx)을 지원합니다.
+SQL 데이터 웨어하우스는 [Visual Studio 2013/2015][]를 개발자 환경으로 지원하며 클라이언트 연결의 경우 [SQL Server Native Client 10/11(ODBC)][]을 지원합니다.
 
-자세한 내용은 [연결](sql-data-warehouse-get-started-connect.md) 페이지를 참조하세요.
+자세한 내용은 [연결][] 페이지를 참조하세요.
 
 ## 쿼리 성능
-SQL 데이터 웨어하우스는 통계를 포함하여 쿼리를 실행하기 위한 일반적인 SQL Server 구문을 사용합니다. [통계](sql-data-warehouse-develop-statistics.md)는 데이터베이스 열에 있는 값의 범위 및 빈도에 대한 정보를 포함하는 개체입니다. 쿼리 엔진은 이러한 통계를 사용하여 쿼리 실행을 최적화하고 쿼리 성능을 개선합니다. 다음 쿼리를 사용하여 마지막으로 통계가 업데이트된 위치를 확인할 수 있습니다.
+
+### 통계
+
+[통계][]는 데이터베이스 열에 있는 값의 범위 및 빈도에 대한 정보를 포함하는 개체입니다. 쿼리 엔진은 이러한 통계를 사용하여 쿼리 실행을 최적화하고 쿼리 성능을 개선합니다. SQL Server 또는 SQL DB와 달리 SQL 데이터 웨어하우스는 통계를 자동으로 만들거나 자동으로 업데이트하지 않습니다. 통계는 모든 테이블에서 수동으로 유지해야 합니다.
+
+다음 쿼리를 사용하여 각 테이블에서 마지막으로 통계가 업데이트된 위치를 확인할 수 있습니다.
 
 ```sql
 SELECT
-	sm.[name]								    AS [schema_name],
-	tb.[name]								    AS [table_name],
-	co.[name]									AS [stats_column_name],
-	st.[name]									AS [stats_name],
-	STATS_DATE(st.[object_id],st.[stats_id])	AS [stats_last_updated_date]
+    sm.[name] AS [schema_name],
+    tb.[name] AS [table_name],
+    co.[name] AS [stats_column_name],
+    st.[name] AS [stats_name],
+    STATS_DATE(st.[object_id],st.[stats_id]) AS [stats_last_updated_date]
 FROM
-	sys.objects				AS ob
-	JOIN sys.stats			AS st	ON	ob.[object_id]		= st.[object_id]
-	JOIN sys.stats_columns	AS sc	ON	st.[stats_id]		= sc.[stats_id]
-									AND	st.[object_id]		= sc.[object_id]
-	JOIN sys.columns		AS co	ON	sc.[column_id]		= co.[column_id]
-									AND	sc.[object_id]		= co.[object_id]
-	JOIN sys.types           AS ty	ON	co.[user_type_id]	= ty.[user_type_id]
-	JOIN sys.tables          AS tb	ON	co.[object_id]		= tb.[object_id]
-	JOIN sys.schemas         AS sm	ON	tb.[schema_id]		= sm.[schema_id]
+    sys.objects ob
+    JOIN sys.stats st
+        ON  ob.[object_id] = st.[object_id]
+    JOIN sys.stats_columns sc    
+        ON  st.[stats_id] = sc.[stats_id]
+        AND st.[object_id] = sc.[object_id]
+    JOIN sys.columns co    
+        ON  sc.[column_id] = co.[column_id]
+        AND sc.[object_id] = co.[object_id]
+    JOIN sys.types  ty    
+        ON  co.[user_type_id] = ty.[user_type_id]
+    JOIN sys.tables tb    
+        ON  co.[object_id] = tb.[object_id]
+    JOIN sys.schemas sm    
+        ON  tb.[schema_id] = sm.[schema_id]
 WHERE
-	1=1
-	AND st.[user_created] = 1;
+    st.[user_created] = 1;
 ```
 
-자세한 내용은 [통계](sql-data-warehouse-develop-statistics.md) 페이지를 참조하세요.
+### 클러스터된 Columnstore 세그먼트 품질
 
-## 주요 성능 개념
+클러스터된 Columnstore 세그먼트 품질은 클러스터된 Columnstore 테이블에서 최적의 쿼리 성능을 제공하는 데 중요합니다. 세그먼트 품질은 압축된 행 그룹에 있는 행의 수로 측정할 수 있습니다. 다음 쿼리는 Columnstore 인덱스 세그먼트 상태가 나쁜 테이블을 식별하고 이러한 테이블에서 Columnstore 인덱스를 다시 빌드하기 위한 T-SQL을 생성합니다. 이 쿼리 결과의 첫 번째 열에는 각 인덱스를 다시 빌드하기 위한 T-SQL이 표시됩니다. 두 번째 열에는 압축을 최적화하는 데 사용할 최소 리소스 클래스에 대한 권장 사항이 표시됩니다.
+ 
+**1단계:** 각 SQL 데이터 웨어하우스 데이터베이스에서 이 쿼리를 실행하여 최적이 아닌 클러스터 columnstore 인덱스를 식별합니다. 반환되는 행이 없을 경우 이 회귀는 아무 영향을 미치지 않으며 추가 작업도 필요하지 않습니다.
+
+```sql
+SELECT 
+     'ALTER INDEX ALL ON ' + s.name + '.' + t.NAME + ' REBUILD;' AS [T-SQL to Rebuild Index]
+    ,CASE WHEN n.nbr_nodes < 3 THEN 'xlargerc' WHEN n.nbr_nodes BETWEEN 4 AND 6 THEN 'largerc' ELSE 'mediumrc' END AS [Resource Class Recommendation]
+    ,s.name AS [Schema Name]
+    ,t.name AS [Table Name]
+    ,AVG(CASE WHEN rg.State = 3 THEN rg.Total_rows ELSE NULL END) AS [Ave Rows in Compressed Row Groups]
+FROM 
+    sys.pdw_nodes_column_store_row_groups rg
+    JOIN sys.pdw_nodes_tables pt 
+        ON rg.object_id = pt.object_id AND rg.pdw_node_id = pt.pdw_node_id AND pt.distribution_id = rg.distribution_id
+    JOIN sys.pdw_table_mappings tm 
+        ON pt.name = tm.physical_name
+    INNER JOIN sys.tables t 
+        ON tm.object_id = t.object_id
+INNER JOIN sys.schemas s
+    ON t.schema_id = s.schema_id
+CROSS JOIN (SELECT COUNT(*) nbr_nodes  FROM sys.dm_pdw_nodes WHERE type = 'compute') n
+GROUP BY 
+    n.nbr_nodes, s.name, t.name
+HAVING 
+    AVG(CASE WHEN rg.State = 3 THEN rg.Total_rows ELSE NULL END) < 100000
+ORDER BY 
+    s.name, t.name
+```
+ 
+**2단계:** 이 테이블의 인덱스를 위 쿼리의 두 번째 열의 권장 리소스 클래스에 다시 빌드할 수 있는 권한이 있는 사용자의 리소스 클래스를 증가합니다.
+
+```sql
+EXEC sp_addrolemember 'xlargerc', 'LoadUser'
+```
+
+> [AZURE.NOTE]  위의 LoadUser는 ALTER INDEX 문을 실행할 수 있도록 유효한 사용자를 만들어야 합니다. db\_owner 사용자의 리소스 클래스는 변경할 수 없습니다. 리소스 클래스에 대한 자세한 내용과 새 사용자를 만드는 방법은 아래 링크를 참조하십시오.
+
+ 
+**3단계:** 이제 더 높은 리소스 클래스를 사용 중인 2단계의 사용자(예: "LoadUser")로 로그온하고 1단계의 쿼리에서 생성한 ALTER INDEX 문을 실행합니다. 이 사용자가 1단계 쿼리에서 식별한 테이블에 대한 ALTER 권한이 있는지 확인합니다.
+ 
+**4단계:** 1단계의 쿼리를 다시 실행합니다. 인덱스가 효율적으로 구축된 경우 이 쿼리에서 반환되는 행이 없어야 합니다. 반환되는 행이 없으면 완료된 것입니다. SQL DW 데이터베이스가 여러 개인 경우에는 각 데이터베이스에서 이 프로세스를 반복합니다. 반환된 행이 있을 경우 5단계에서 계속합니다.
+ 
+**5단계:** 1단계의 쿼리를 다시 실행할 때 반환되는 행이 있을 경우 매우 넓은 행이 포함된 테이블이 있어 클러스터된 columnstore 인덱스를 최적으로 구축할 때 너무 많은 양의 메모리가 필요할 수 있습니다. 이 경우 xlargerc 클래스를 사용하여 해당 테이블에 대해 이 프로세스를 다시 시도합니다. 리소스 클래스를 변경할 경우 xlargerc를 사용하여 2단계를 반복합니다. 그런 다음 최적이 아닌 인덱스가 포함된 테이블에 대해 3단계를 반복합니다. DW100 - DW300을 사용하고 있고 이미 xlargerc를 사용한 경우에는 인덱스를 그대로 두거나 일시적으로 DWU를 높여 이 작업에 추가 메모리를 제공할 수 있습니다.
+ 
+**마지막 단계:** 위에서 지정한 리소스 클래스는 가장 높은 품질의 columnstore 인덱스를 구축하는 데 권장하는 최소 리소스 클래스입니다. 데이터를 로드하는 사용자에 대해 이 설정을 유지하는 것이 좋습니다. 하지만 2단계의 변경 사항을 취소하려면 다음 명령을 실행하십시오.
+
+```sql
+EXEC sp_droprolemember 'smallrc', 'LoadUser'
+```
+
+
+CCI 테이블에 대한 부하의 최소 리소스 클래스는 DW100-DW300의 경우 xlargerc, DW400-DW600의 경우 largerc, DW1000 이상에는 mediumrc를 사용하는 것이 좋습니다. 이 지침은 대부분의 워크로드에 적합합니다. 목표는 각 인덱스 빌드 작업에 400MB 이상의 메모리를 할당하는 것입니다. 하지만 모든 상황에 일괄적인 지침은 아닙니다. columnstore 인덱스를 최적화하는 데 필요한 메모리는 로드 중인 데이터에 따라 달라지며, 기본적으로 행 크기의 영향을 받습니다. 행 너비가 좁은 테이블은 더 적은 메모리가 필요하며 행 너비가 넓은 테이블은 더 많은 메모리가 필요합니다. 실험해 보고 싶은 경우 1단계의 쿼리를 사용하여 작은 메모리 할당 시 최적의 columnstore 인덱스를 얻을 수 있는지 확인해 보십시오. 행 그룹당 평균 10만 개 이상의 행이 적합합니다. 50만 개 이상이 더 좋습니다. 결과적으로 행 그룹당 최대 1백만 개의 행이 포함됩니다. 리소스 클래스 및 동시성을 관리하는 방법은 아래 링크를 참조하십시오.
+
+
+### 주요 성능 개념
 
 일부 추가적인 주요 성능 및 확장성 개념을 이해하는 데 도움이 필요하다면 다음 문서들을 참조하십시오.
 
@@ -70,7 +135,6 @@ WHERE
 - [동시성 모델][]
 - [테이블 디자인][]
 - [테이블에 대한 해시 배포 키를 선택합니다.][]
-- [성능 향상을 위해 통계][]
 
 ## 다음 단계
 [개발 개요][] 문서에서 SQL 데이터 웨어하우스 솔루션 구축에 관한 지침을 참조할 수 있습니다.
@@ -78,16 +142,20 @@ WHERE
 <!--Image references-->
 
 <!--Article references-->
-
 [성능 및 확장]: sql-data-warehouse-performance-scale.md
 [동시성 모델]: sql-data-warehouse-develop-concurrency.md
 [테이블 디자인]: sql-data-warehouse-develop-table-design.md
 [테이블에 대한 해시 배포 키를 선택합니다.]: sql-data-warehouse-develop-hash-distribution-key
-[성능 향상을 위해 통계]: sql-data-warehouse-develop-statistics.md
 [개발 개요]: sql-data-warehouse-overview-develop.md
+[프로비전]: sql-data-warehouse-get-started-provision.md
+[클라이언트 IP에 대한 서버 방화벽 액세스 구성]: sql-data-warehouse-get-started-provision.md/#step-4-configure-server-firewall-access-for-your-client-ip
+[Visual Studio 2013/2015]: sql-data-warehouse-get-started-connect.md
+[연결]: sql-data-warehouse-get-started-connect.md
+[통계]: sql-data-warehouse-develop-statistics.md
 
 <!--MSDN references-->
+[SQL Server Native Client 10/11(ODBC)]: https://msdn.microsoft.com/library/ms131415.aspx
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0427_2016-->

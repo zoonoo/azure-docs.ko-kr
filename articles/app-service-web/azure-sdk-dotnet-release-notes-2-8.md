@@ -5,7 +5,7 @@
    services="app-service\web" 
    documentationCenter=".net" 
    authors="Juliako" 
-   manager="dwrede" 
+   manager="erikre" 
    editor=""/>
 
 <tags
@@ -14,9 +14,9 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="01/31/2016"
+   ms.date="04/25/2016"
    ms.author="juliako"/>
-
+ 
 # Azure SDK for .NET 2.8, 2.8.1, 2.8.2
 
 ##개요
@@ -103,4 +103,4 @@ SDK 2.8을 사용하려면 Azure PowerShell cmdlet 버전 1.0이 필요합니다
 
 [.NET 및 API용 Azure SDK에 대한 지원 및 사용 중지 정보](https://msdn.microsoft.com/library/azure/dn479282.aspx)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

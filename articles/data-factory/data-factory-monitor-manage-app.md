@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/14/2016" 
+	ms.date="04/04/2016" 
 	ms.author="spelluru"/>
 
 # 새 모니터링 및 관리 앱을 사용하여 Azure 데이터 팩터리 파이프라인 모니터링 및 관리
@@ -21,9 +21,11 @@
 - [Azure 포털/Azure PowerShell 사용](data-factory-monitor-manage-pipelines.md)
 - [모니터링 및 관리 앱 사용](data-factory-monitor-manage-app.md)
 
-이 문서는 **모니터링 및 관리 앱**을 사용하여 파이프라인을 모니터링하고 관리하고 디버그하는 방법을 설명합니다. 응용 프로그램을 사용하여 경고를 생성하고 오류에 대한 알림을 받는 방법에 대한 정보도 제공합니다.
+이 문서는 **모니터링 및 관리 앱**을 사용하여 파이프라인을 모니터링하고 관리하고 디버그하며, 오류에 대한 알림을 받도록 경고를 만드는 방법을 설명합니다. 모니터링 및 관리 앱에 대해 자세히 알아보려면 다음 동영상을 시청하세요.
+   
+> [AZURE.VIDEO how-to-monitor--manage-big-data-pipelines-with-azure-data-factory]
       
-## 모니터링 및 관리 앱 시작 
+## 모니터링 및 관리 앱 시작
 모니터 및 관리 앱을 시작하려면 데이터 팩터리에 대한 **데이터 팩터리** 블레이드에서 **모니터링 및 관리** 타일을 클릭합니다.
 
 ![데이터 팩터리 홈 페이지에서 모니터링 타일](./media/data-factory-monitor-manage-app/MonitoringAppTile.png)
@@ -32,7 +34,11 @@
 
 ![모니터링 및 관리 앱](./media/data-factory-monitor-manage-app/AppLaunched.png)
 
-> [AZURE.NOTE] 맨 아래 목록에 활동 창이 표시되지 않으면 도구 모음에서 **새로 고침** 단추를 클릭하여 목록을 새로 고칩니다. 또한 **시작 시간** 및 **종료 시간** 필터에 대한 올바른 값을 설정합니다.
+> [AZURE.NOTE] 웹 브라우저가 "권한 부여..." 상태로 중지된 것을 확인하면 **타사 쿠키 및 사이트 데이터 차단** 설정을 사용 안 함/선택 취소하고 (또는) 계속 사용하지 않습니다. 그리고 **login.microsoftonline.com**에 대한 예외를 만든 다음 앱을 다시 시작해봅니다.
+
+
+맨 아래 목록에 활동 창이 표시되지 않으면 도구 모음에서 **새로 고침** 단추를 클릭하여 목록을 새로 고칩니다. 또한 **시작 시간** 및 **종료 시간** 필터에 대한 올바른 값을 설정합니다.
+
 
 ## 모니터링 및 관리 앱 이해
 왼쪽에 **리소스 탐색기**, **모니터링 보기** 및 **경고** 등 세 개의 탭이 있으며 첫 번째 탭(리소스 탐색기)이 기본적으로 선택됩니다.
@@ -49,7 +55,7 @@
 
 ![리소스 탐색기](./media/data-factory-monitor-manage-app/ResourceExplorer.png)
 
-작업 창에 대한 자세한 개념 정보는 [일정 예약 및 실행](data-factory-scheduling-and-execution.md) 문서를 참조하세요.
+작업 창에 대한 자세한 개념 정보는 [예약 및 실행](data-factory-scheduling-and-execution.md) 문서를 참조하세요.
 
 ### 다이어그램 뷰
 데이터 팩터리의 다이어그램 뷰에는 데이터 팩터리와 그 자산을 모니터링하고 관리하기 위한 단일 돋보기 창이 제공됩니다. 다이어그램 뷰에서 데이터 팩터리 엔터티(데이터 집합/파이프라인)를 선택하면 다음을 알려줍니다.
@@ -186,7 +192,7 @@
 ![작업 창 탐색기](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
 
 ### 작업 창 새로 고침  
-세부 정보는 자동으로 새로 고쳐지지 않으므로 명령 모음에서 **새로 고침** 단추(두 번째 단추)를 사용하여 수동으로 착업 창 목록을 새로 고칩니다.
+세부 정보는 자동으로 새로 고쳐지지 않으므로 명령 모음에서 **새로 고침** 단추(두 번째 단추)를 사용하여 수동으로 작업 창 목록을 새로 고칩니다.
  
 
 ### 속성 창
@@ -277,9 +283,6 @@
 
 	![경고 만들기 - 필터 페이지](./media/data-factory-monitor-manage-app/CreateAlertFiltersPage.png)
 
-	또한 아래와 같이 경고 이벤트를 **집계**할 수 있습니다.
-
-	![집계 경고](./media/data-factory-monitor-manage-app/AggregateAlerts.png)
 2. Data Factory 서비스에서 경고를 보낼 **이벤트**, **상태** 및 **하위 상태**(선택 사항)를 선택하고 **다음**을 클릭합니다. **받는 사람** 페이지가 표시됩니다.
 
 	![경고 만들기 - 받는 사람 페이지](./media/data-factory-monitor-manage-app/CreateAlertRecipientsPage.png) 
@@ -310,4 +313,4 @@
     
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0427_2016-->

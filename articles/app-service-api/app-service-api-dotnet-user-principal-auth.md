@@ -74,11 +74,17 @@
 
 API 앱에 대한 Node.js 또는 Java 시작 시리즈를 진행 중인 경우 다음 글인 [API 앱용 서비스 주체 인증](app-service-api-dotnet-service-principal-auth.md)으로 건너뜁니다.
 
-API 앱에 대한 .NET 시작 시리즈를 따르고 있고 이미 [첫 번째](app-service-api-dotnet-get-started.md) 및 [두 번째](app-service-api-cors-consume-javascript.md) 자습서에서 지시한 대로 샘플 응용 프로그램을 배포한 경우 [인증 구성](#azureauth) 섹션으로 건너뜁니다.
+API 앱에 대한 .NET 시작 시리즈를 따르고 있고 이미 [첫 번째](app-service-api-dotnet-get-started.md) 및 [두 번째](app-service-api-cors-consume-javascript.md) 자습서에서 지시한 대로 샘플 응용 프로그램을 배포한 경우 [앱 서비스와 Azure AD에서 인증 설정](#azureauth) 섹션으로 건너뜁니다.
 
-첫 번째 및 두 번째 자습서를 수행하지 않고 이 자습서를 따라 수행하려는 경우 [첫 번째 자습서](app-service-api-dotnet-get-started.md)에 나열된 필수 조건을 확인한 후 [To Do List 샘플 리포지토리 추가 정보 파일](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/readme.md)의 **Azure에 배포** 단추를 사용하여 API 앱 및 웹앱을 배포합니다.
+첫 번째 및 두 번째 자습서를 거치지 않고 이 자습서를 진행하려면, 다음 단계를 수행합니다.
 
-배포가 완료되면 웹앱에 대한 HTTP 링크가 표시됩니다. 응용 프로그램을 실행하고 작동하는지 확인하려면 해당 URL을 HTTPS로 변경합니다.
+1. [첫 번째 자습서](app-service-api-dotnet-get-started.md)에 나열된 모든 필수 조건이 있는지 확인합니다. 필수 조건 목록 외에도, 이 인증 자습서에서는 Visual Studio 및 Azure 포털에서 앱 서비스 웹앱 및 API 앱 작업을 수행한 것으로 가정합니다.
+
+2. [To Do List 샘플 리포지토리 추가 정보 파일](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/readme.md)의 **Azure에 배포** 단추를 클릭하여 API 앱을 웹앱에 배포합니다. 생성되는 Azure리소스 그룹을 기록해 둡니다. 나중에 웹앱 및 API 앱 이름을 조회하는 데 사용할 수 있습니다.
+ 
+3. Visual Studio로 로컬에서 작업할 코드를 가져오려면 [To Do List 샘플 리포지토리](https://github.com/Azure-Samples/app-service-api-dotnet-todo-list)를 다운로드하거나 복제합니다.
+
+이러한 단계는 마치 앞 쪽의 두 가지 자습서를 수행한 것 같이, 동일한 시작 지점을 만들어 주지만, 한가지 예외 사항이 있습니다. Visual Studio에서는 각 프로젝트가 배포되는 웹앱 또는 API 앱이 무엇인지 알지 못합니다. 프로젝트를 배포하는 경우, 프로젝트를 배포할 Azure 웹앱 또는 API 앱을 선택해야 합니다. 웹앱 및 API 앱 이름을 가져오려면, Azure 포털을 열고 **Azure에 배포** 단추를 클릭할 때 생성한 리소스 그룹에 대한 리소스 그룹 블레이드로 이동합니다.
 
 ## <a id="azureauth"></a> 앱 서비스와 Azure AD에서 인증 설정
 
@@ -331,4 +337,4 @@ ToDoListAPI 프로젝트를 다음과 같이 변경합니다.
 
 이 자습서에서는 API 앱에 앱 서비스 인증을 사용하는 방법과, ADAL JS 라이브러리를 사용하여 API 앱을 호출하는 방법을 배웠습니다. 다음 자습서에서는 [서비스 간 시나리오에 대해 API 앱에 대한 액세스를 보호](app-service-api-dotnet-service-principal-auth.md)하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -38,7 +38,7 @@
 
 작업자 역할과 마찬가지로 웹 역할도 상태 비저장 작업을 나타내므로 개념적으로 서비스 패브릭 상태 비저장 서비스에 매핑할 수 있습니다. 그러나 웹 역할과 달리 서비스 패브릭은 IIS를 지원하지 않습니다. 웹 역할의 웹 응용 프로그램을 상태 비저장 서비스에 마이그레이션하려면 자체 호스팅될 수 있고 ASP.NET Core 1과 같은 IIS 또는 System.Web에 의존하지 않는 웹 프레임워크로 이동이 필요합니다.
 
-**응용 프로그램 ** | **지원됨** | **마이그레이션 경로**
+****응용 프로그램 ** | **지원됨** | **마이그레이션 경로**
 --- | --- | ---
 ASP.NET 웹 양식 | 아니요 | ASP.NET Core 1 MVC로 변환
 ASP.NET MVC | 마이그레이션 사용 | ASP.NET Core 1로 업그레이드
@@ -152,7 +152,7 @@ string value = RoleEnvironment.GetConfigurationSettingValue("Key");
 
 ```
 
-#### ServiceFabic
+#### 서비스 패브릭
 
 각 서비스에는 자체 개별 구성 패키지가 있습니다. 클러스터의 모든 응용 프로그램에서 액세스할 수 있는 전역 구성 설정에 대한 기본 제공 메커니즘이 없습니다. 구성 패키지 내에서 서비스 패브릭의 특별한 Settings.xml 구성 파일을 사용할 때 가능한 응용 프로그램 수준에서 응용 프로그램 수준 구성 설정을 가능하도록 하는 Settings.xml의 값을 덮어쓸 수 있습니다.
 
@@ -196,7 +196,7 @@ foreach (var settingChange in settingChanges)
 
 ```
 
-#### ServiceFabic
+#### 서비스 패브릭
 
 서비스의 각 세 가지 패키지 유형(코드, 구성 및 데이터)은 패키지를 업데이트, 추가 또는 제거하는 경우 서비스 인스턴스를 알리는 이벤트를 가집니다. 서비스는 각 유형의 여러 패키지를 포함할 수 있습니다. 예를 들어 서비스에는 각각 개별적으로 버전이 지정되고 업그레이드 가능한 여러 config 패키지가 있을 수 있습니다.
 
@@ -277,4 +277,4 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
 [3]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/service-fabric-cloud-service-projects.png
 [4]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/worker-role-to-stateless-service.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0427_2016-->

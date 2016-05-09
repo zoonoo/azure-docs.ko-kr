@@ -22,7 +22,7 @@
 
 이 가이드에서는 Azure 큐 저장소 서비스에서 Azure WebJobs SDK 버전 1.x를 사용하는 방법을 보여 주는 C# 코드 샘플을 제공합니다.
 
-이 가이드에서는 을 알고 있는 것으로 가정합니다[저장소 계정 또는 을 가리키는 연결 문자열을 사용하여 Visual Studio에서 WebJob 프로젝트를 만드는](websites-dotnet-webjobs-sdk-get-started.md#configure-storage) 방법 [여러 저장소 계정](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs).
+이 가이드에서는 [저장소 계정 또는 [여러 저장소 계정](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs)을 가리키는 연결 문자열을 사용하여 Visual Studio에서 WebJob 프로젝트를 만드는 방법](websites-dotnet-webjobs-sdk-get-started.md#configure-storage)을 알고 있는 것으로 가정합니다.
 
 대부분의 코드 조각은 다음 예제와 같이 `JobHost` 개체를 만드는 코드가 아니라 함수만 보여 줍니다.
 
@@ -544,7 +544,7 @@ SDK는 최대 5회까지 함수를 호출하여 큐 메시지를 처리합니다
 처리량이 많은 시나리오에 대해 대시보드 로깅을 사용하지 않도록 설정합니다. 기본적으로 SDK는 저장소에 로그를 쓰며, 많은 메시지를 처리하는 경우 이 작업으로 인해 성능이 저하될 수 있습니다. 로깅을 사용하지 않도록 설정하려면 다음 예제와 같이 대시보드 연결 문자열을 null로 설정합니다.
 
 		JobHostConfiguration config = new JobHostConfiguration();       
-		config.DashboardConnectionString = “”;        
+		config.DashboardConnectionString = "";        
 		JobHost host = new JobHost(config);
 		host.RunAndBlock();
 
@@ -611,4 +611,4 @@ public static void ErrorMonitor(
 이 가이드에서는 Azure 큐 작업에 대한 일반적인 시나리오를 처리하는 방법을 보여 주는 코드 샘플을 제공했습니다. Azure WebJob 및 WebJob SDK를 사용하는 방법에 대한 자세한 내용은 [Azure WebJob 권장 리소스](http://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
  
 
-<!-------HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0427_2016-->

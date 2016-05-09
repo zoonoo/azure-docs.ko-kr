@@ -35,7 +35,7 @@ Azure CLI(명령줄 인터페이스)를 통해 Linux가 실행되는 Azure 가�
 
  	azure vm quick-create -g MyResourceGroup -n <your-virtual-machine-name> "centralus" -y Linux -Q canonical:ubuntuserver:14.04.2-LTS:latest -u <your-user-name> -p <your-password>
 
-VM이 프로비전되고 실행되면 데이터 디스크를 연결하고 탑재할 수 있습니다. [여기](virtual-machines-linux-add-disk)의 지침을 참조하세요.
+VM이 프로비전되고 실행되면 데이터 디스크를 연결하고 탑재할 수 있습니다. [여기](virtual-machines-linux-add-disk.md)의 지침을 참조하세요.
 
 
 ## VM 캡처
@@ -197,4 +197,4 @@ VM이 프로비전되고 실행되면 데이터 디스크를 연결하고 탑재
 
 CLI를 사용하여 VM을 관리하려면 [Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 가상 컴퓨터 배포 및 관리](virtual-machines-linux-cli-deploy-templates.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/27/2016"    
+	ms.date="04/24/2016"    
 	ms.author="juliako"/>
 
 
@@ -21,7 +21,7 @@
 
 ##개요
 
-이 항목에서는 미디어 인코더 표준을 사용하여 고급 인코딩 작업을 수행하는 방법을 보여줍니다. 항목은 [.NET을 사용하여 인코딩 작업 및 이 작업을 실행하는 작업을 만드는 방법](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet)을 보여줍니다. 또한 인코딩 작업에 사용자 지정 사전 설정을 제공하는 방법을 보여줍니다. 사전 설정에서 사용되는 요소에 대한 설명은 [이 문서](https://msdn.microsoft.com/library/mt269962.aspx)를 참조하세요.
+이 토픽에서는 미디어 인코더 표준을 사용하여 고급 인코딩 작업을 수행하는 방법을 보여줍니다. 항목은 [.NET을 사용하여 인코딩 작업 및 이 작업을 실행하는 작업을 만드는 방법](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet)을 보여줍니다. 또한 인코딩 작업에 사용자 지정 사전 설정을 제공하는 방법을 보여줍니다. 사전 설정에서 사용되는 요소에 대한 설명은 [이 문서](https://msdn.microsoft.com/library/mt269962.aspx)를 참조하세요.
 
 다음 인코딩 작업을 수행하는 사용자 지정 사전 설정을 보여줍니다.
 
@@ -31,6 +31,7 @@
 - [입력에 오디오가 없을 때 조용한 오디오 트랙 삽입](media-services-custom-mes-presets-with-dotnet.md#silent_audio)
 - [자동 디인터레이스 사용 안 함](media-services-custom-mes-presets-with-dotnet.md#deinterlacing)
 - [오디오 전용 사전 설정](media-services-custom-mes-presets-with-dotnet.md#audio_only)
+- [둘 이상의 비디오 파일 연결](media-services-custom-mes-presets-with-dotnet.md#concatenate)
 
 ##<a id="encoding_with_dotnet"></a>미디어 서비스 .NET SDK를 사용하여 인코딩
 
@@ -40,8 +41,8 @@
 - 미디어 인코더 표준 인코더에 대한 참조를 가져옵니다.
 - 사용자 지정 XML 또는 JSON 사전 설정 로드 XML 또는 JSON(예: [XML](media-services-custom-mes-presets-with-dotnet.md#xml) 또는 [JSON](media-services-custom-mes-presets-with-dotnet.md#json)을 파일에 저장하고 다음 코드를 사용하여 파일을 로드할 수 있습니다.
 
-			// Load the XML (or JSON) from the local file.
-		    string configuration = File.ReadAllText(fileName);  
+		// Load the XML (or JSON) from the local file.
+	    string configuration = File.ReadAllText(fileName);  
 - 작업에 인코딩 작업을 추가합니다. 
 - 인코딩할 입력 자산을 지정합니다.
 - 인코딩된 자산을 포함할 출력 자산을 만듭니다.
@@ -445,7 +446,7 @@
 
 이 섹션에서는 입력이 소위 중 2층 파일이나 주문형 파일인 경우 입력 비디오를 클립하거나 자르는 인코더 사전 설정을 수정하는 방법을 설명합니다. 인코더는 라이브 스트림에서 캡처되거나 보관된 자산을 클립하거나 자르는 데 사용할 수도 있습니다. 이에 대한 세부 정보는 [이 블로그](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/)에서 확인할 수 있습니다.
 
-비디오를 자르려면 [여기](https://msdn.microsoft.com/library/mt269960.aspx)에서 문서화된 MES 사전 설정 중 하나를 수행하고 **원본** 요소를 아래와 같이 수정할 수 있습니다. StartTime 값이 입력 비디오의 절대 타임스탬프와 일치해야 합니다. 예를 들어 입력 비디오의 첫 번째 프레임에 12:00:10.000 타임스탬프가 있으면 StartTime은 12:00:10.000 이상이어야 합니다. 아래 예에서는 입력 비디오의 시작 타임스탬프가 0인 것으로 가정합니다. 스키마의 맨 위에 **원본**이 배치되어야 합니다.
+비디오를 자르려면 [여기](https://msdn.microsoft.com/library/mt269960.aspx)에서 문서화된 MES 사전 설정 중 하나를 수행하고 **원본** 요소를 아래와 같이 수정할 수 있습니다. StartTime 값이 입력 비디오의 절대 타임스탬프와 일치해야 합니다. 예를 들어 입력 비디오의 첫 번째 프레임에 12:00:10.000 타임스탬프가 있으면 StartTime은 12:00:10.000 이상이어야 합니다. 아래 예에서는 입력 비디오의 시작 타임스탬프가 0인 것으로 가정합니다. 사전 설정의 맨 처음에 **원본**이 배치되어야 합니다.
  
 ###<a id="json"></a>JSON 사전 설정
 	
@@ -698,7 +699,7 @@
 >
 >오버레이 불투명도 설정이 지원되지 않습니다.
 >
->원본 비디오 파일과 오버레이 파일이 같은 자산에 있어야 합니다.
+>원본 비디오 파일과 오버레이 이미지 파일은 같은 자산에 있어야 하며 이 자산에서 비디오 파일을 기본 파일로 설정해야 합니다.
 
 ###JSON 사전 설정
 	
@@ -747,7 +748,7 @@
 	      "KeyFrameInterval": "00:00:02",
 	      "H264Layers": [
 	        {
-	          "Profile": "Baseline",
+	          "Profile": "Auto",
 	          "Level": "auto",
 	          "Bitrate": 1045,
 	          "MaxBitrate": 1045,
@@ -756,8 +757,8 @@
 	          "EntropyMode": "Cavlc",
 	          "AdaptiveBFrame": true,
 	          "Type": "H264Layer",
-	          "Width": "400",
-	          "Height": "400",
+	          "Width": "640",
+	          "Height": "360",
 	          "FrameRate": "0/1"
 	        }
 	      ],
@@ -776,6 +777,7 @@
 	    }
 	  ]
 	}
+
 
 ###XML 사전 설정
 	
@@ -816,10 +818,10 @@
 	      <H264Layers>
 	        <H264Layer>
 	          <Bitrate>1045</Bitrate>
-	          <Width>400</Width>
-	          <Height>400</Height>
+	          <Width>640</Width>
+	          <Height>360</Height>
 	          <FrameRate>0/1</FrameRate>
-	          <Profile>Baseline</Profile>
+	          <Profile>Auto</Profile>
 	          <Level>auto</Level>
 	          <BFrames>0</BFrames>
 	          <ReferenceFrames>3</ReferenceFrames>
@@ -839,6 +841,7 @@
 	    </Output>
 	  </Outputs>
 	</Preset>
+
 
 ##<a id="silent_audio"></a>입력에 오디오가 없을 때 조용한 오디오 트랙 삽입
 
@@ -947,6 +950,116 @@
 	  ]
 	}
 
+##<a id="concatenate"></a>둘 이상의 비디오 파일 연결
+
+다음 예제에서는 사전 설정을 생성하여 둘 이상의 비디오 파일을 연결하는 방법을 보여줍니다. 가장 일반적인 시나리오는 기본 비디오에 헤더나 트레일러를 추가하려는 경우입니다. 편집 중인 비디오 파일이 같은 속성(비디오 해상도, 프레임 속도, 오디오 트랙 수 등)을 공유하는 경우에 적합합니다. 프레임 속도나 오디오 트랙 수가 서로 다른 비디오를 섞지 않게 주의가 필요합니다.
+
+###요구 사항 및 고려 사항
+
+- 입력 비디오에는 오디오 트랙이 하나만 있어야 합니다.
+- 입력 비디오는 모두 프레임 속도가 같아야 합니다.
+- 비디오는 별도의 자산에 업로드하고 비디오를 각 자산의 기본 파일로 설정해야 합니다.
+- 비디오의 기간을 알아야 합니다.
+- 아래의 사전 설정 예제에서는 모든 입력 비디오가 타임스탬프 0에서 시작한다고 가정합니다. 비디오의 시작 타임스탬프가 다르면 StartTime 값을 수정해야 합니다. 라이브 아카이브에는 이런 경우가 일반적입니다.
+- JSON 사전 설정은 입력 자산의 AssetID 값에 대한 명시적 참조를 만듭니다.
+- 샘플 코드에서는 JSON 사전 설정이 로컬 파일(예: "C:\\supportFiles\\preset.json")에 저장되었다고 가정합니다. 또한 두 비디오 파일을 업로드하여 두 자산을 만들었으며 사용자가 그에 따른 AssetID 값을 알고 있다고 가정합니다.
+- 코드 조각 및 JSON 사전 설정은 두 비디오 파일을 연결하는 예제를 보여줍니다. 이 예를 다음을 통해 3개 이상의 비디오로 확장할 수 있습니다.
+
+	1. task.InputAssets.Add()를 반복 호출하여 순서대로 더 많은 비디오 추가
+	2. 같은 순서로 다른 항목을 추가하여 JSON에서 "Sources" 요소를 그에 맞게 편집 
+
+
+###.NET 코드
+
+	
+	IAsset asset1 = _context.Assets.Where(asset => asset.Id == "nb:cid:UUID:606db602-efd7-4436-97b4-c0b867ba195b").FirstOrDefault();
+	IAsset asset2 = _context.Assets.Where(asset => asset.Id == "nb:cid:UUID:a7e2b90f-0565-4a94-87fe-0a9fa07b9c7e").FirstOrDefault();
+	
+	// Declare a new job.
+	IJob job = _context.Jobs.Create("Media Encoder Standard Job for Concatenating Videos");
+	// Get a media processor reference, and pass to it the name of the 
+	// processor to use for the specific task.
+	IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
+	
+	// Load the XML (or JSON) from the local file.
+	string configuration = File.ReadAllText(@"c:\supportFiles\preset.json");
+	
+	// Create a task
+	ITask task = job.Tasks.AddNew("Media Encoder Standard encoding task",
+	    processor,
+	    configuration,
+	    TaskOptions.None);
+	
+	// Specify the input videos to be concatenated (in order).
+	task.InputAssets.Add(asset1);
+	task.InputAssets.Add(asset2);
+	// Add an output asset to contain the results of the job. 
+	// This output is specified as AssetCreationOptions.None, which 
+	// means the output asset is not encrypted. 
+	task.OutputAssets.AddNew("Output asset",
+	    AssetCreationOptions.None);
+	
+	job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
+	job.Submit();
+	job.GetExecutionProgressTask(CancellationToken.None).Wait();
+
+###JSON 사전 설정
+
+연결하려는 자산의 ID와 각 비디오에 적합한 시간 세그먼트로 사용자 지정 사전 설정을 업데이트합니다.
+
+	{
+	  "Version": 1.0,
+	  "Sources": [
+	    {
+	      "AssetID": "606db602-efd7-4436-97b4-c0b867ba195b",
+	      "StartTime": "00:00:01",
+	      "Duration": "00:00:15"
+	    },
+	    {
+	      "AssetID": "a7e2b90f-0565-4a94-87fe-0a9fa07b9c7e",
+	      "StartTime": "00:00:02",
+	      "Duration": "00:00:05"
+	    }
+	  ],
+	  "Codecs": [
+	    {
+	      "KeyFrameInterval": "00:00:02",
+	      "SceneChangeDetection": true,
+	      "H264Layers": [
+	        {
+	          "Level": "auto",
+	          "Bitrate": 1800,
+	          "MaxBitrate": 1800,
+	          "BufferWindow": "00:00:05",
+	          "BFrames": 3,
+	          "ReferenceFrames": 3,
+	          "AdaptiveBFrame": true,
+	          "Type": "H264Layer",
+	          "Width": "640",
+	          "Height": "360",
+	          "FrameRate": "0/1"
+	        }
+	      ],
+	      "Type": "H264Video"
+	    },
+	    {
+	      "Channels": 2,
+	      "SamplingRate": 48000,
+	      "Bitrate": 128,
+	      "Type": "AACAudio"
+	    }
+	  ],
+	  "Outputs": [
+	    {
+	      "FileName": "{Basename}_{Width}x{Height}_{VideoBitrate}.mp4",
+	      "Format": {
+	        "Type": "MP4Format"
+	      }
+	    }
+	  ]
+	}
+	
+
 ##미디어 서비스 학습 경로
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -959,4 +1072,4 @@
 
 [미디어 서비스 인코딩 개요](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/08/2015"
+	ms.date="04/08/2016"
 	ms.author="danlep"/>
 
 # Azure 명령줄 인터페이스(Azure CLI)에서 Azure 구독에 연결합니다.
@@ -153,4 +153,4 @@ Azure CLI는 Azure 리소스로 작업하는 두 가지 명령 모드(명령 집
 
 * Azure CLI 또는 Azure를 사용하는 데 문제가 있는 경우 [Azure 포럼](http://social.msdn.microsoft.com/Forums/windowsazure/home)을 방문하세요.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -6,19 +6,19 @@
 	authors="mmacy"
 	manager="timlt"
 	editor="" />
-	
+
 <tags
 	ms.service="batch"
 	ms.devlang="multiple"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="01/22/2016"
+	ms.date="04/21/2016"
 	ms.author="marsma" />
-	
+
 # 효율적인 Azure 배치 서비스 쿼리
 
-이 문서에서 [배치 .NET][api_net] 라이브러리를 사용하여 배치 서비스를 쿼리할 때 반환되는 데이터의 양을 줄여 Azure 배치 응용 프로그램의 성능을 향상시키는 방법을 알아봅니다.
+여기에서는 [배치 .NET][api_net] 라이브러리를 사용하여 배치 서비스를 쿼리할 때 반환되는 데이터의 양을 줄여 Azure 배치 응용 프로그램의 성능을 향상시키는 방법을 알아봅니다.
 
 Azure 배치는 큰 계산 기능을 제공하며 프로덕션 환경에서 작업, 태스크 및 계산 노드 같은 엔터티가 수천 개 있을 수 있습니다. 이러한 항목에 대한 정보를 얻으면 각 쿼리의 응용 프로그램에 대한 서비스에서 전송해야 하는 많은 양의 데이터가 생성될 수 있습니다. 항목의 수와 각 항목에 대해 반환되는 정보의 형식을 제한하여 쿼리의 속도 및 응용 프로그램의 성능을 높일 수 있습니다.
 
@@ -26,14 +26,14 @@ Azure 배치를 사용하는 거의 모든 응용 프로그램은 정기적으�
 
 이 [배치 .NET][api_net] API 코드 조각은 태스크의 속성 *모두*와 함께 작업과 관련된 모든 태스크를 검색합니다.
 
-```
+```csharp
 // Get a collection of all of the tasks and all of their properties for job-001
 IPagedEnumerable<CloudTask> allTasks = batchClient.JobOperations.ListTasks("job-001");
 ```
 
 그러나 훨씬 더 효율적인 목록 쿼리를 수행할 수 있습니다. [JobOperations.ListTasks][net_list_tasks] 메서드에 [ODATADetailLevel][odata] 개체를 제공하여 이를 수행합니다. 이 코드 조각은 완료된 태스크의 ID, 명령줄 및 계산 노드 정보 속성만 반환합니다.
 
-```
+```csharp
 // Configure an ODATADetailLevel specifying a subset of tasks and their properties to return
 ODATADetailLevel detailLevel = new ODATADetailLevel();
 detailLevel.FilterClause = "state eq 'completed'";
@@ -43,7 +43,7 @@ detailLevel.SelectClause = "id,commandLine,nodeInfo";
 IPagedEnumerable<CloudTask> completedTasks = batchClient.JobOperations.ListTasks("job-001", detailLevel);
 ```
 
-위의 예제 시나리오에서 작업에 수천 개의 태스크가 있다면 두 번째 쿼리의 결과는 보통 첫 번째보다 더 빠르게 반환됩니다. 배치 .NET API를 사용하여 항목을 나열할 때 ODATADetailLevel 사용에 대한 자세한 내용은 아래에 포함되어 있습니다.
+위의 예제 시나리오에서 작업에 수천 개의 태스크가 있다면 두 번째 쿼리의 결과는 보통 첫 번째보다 더 빠르게 반환됩니다. 배치 .NET API를 사용하여 항목을 나열할 때 ODATADetailLevel 사용에 대한 자세한 내용은 [아래](#efficient-querying-in-batch-net)에 포함되어 있습니다.
 
 > [AZURE.IMPORTANT]
 응용 프로그램의 최고 효율성과 성능을 위해 *항상* .NET API 목록 호출에 ODATADetailLevel 개체를 제공하는 것이 좋습니다. 세부 정보 수준을 지정하여 배치 서비스 응답 시간을 낮추고, 네트워크 사용률을 개선하며 클라이언트 응용 프로그램의 메모리 사용을 최소화하는 데 도움이 될 수 있습니다.
@@ -57,7 +57,7 @@ IPagedEnumerable<CloudTask> completedTasks = batchClient.JobOperations.ListTasks
 
 - filter 문자열은 하나 이상의 식으로 구성된 문자열로 구성됩니다. 식은 속성 이름, 연산자, 값으로 이루어져 있습니다. 각 속성에 대해 지원되는 연산자의 경우처럼 지정할 수 있는 속성은 쿼리한 항목 마다 고유합니다.
 - 논리 연산자 `and` 및 `or`를 사용하여 여러 식을 결합할 수 있습니다.
-- 이 예제 필터 문자열은 실행 중인 "렌더링" 태스크만 나합니다. `(state eq 'running') and startswith(id, 'renderTask')`
+- 이 예제 필터 문자열은 실행 중인 "렌더링" 태스크만 나열합니다. `(state eq 'running') and startswith(id, 'renderTask')`
 
 ### 여기서
 선택 문자열은 각 항목에 대해 반환되는 속성 값을 제한합니다. 속성 이름의 목록을 지정하고 해당 속성 값은 쿼리 결과의 항목에 대해 반환됩니다.
@@ -89,13 +89,13 @@ IPagedEnumerable<CloudTask> completedTasks = batchClient.JobOperations.ListTasks
 
 [배치 .NET][api_net] API 안에서 [ODATADetailLevel][odata] 클래스를 filter, select 및 expand 문자열에 사용하여 작업을 나열합니다. ODataDetailLevel 클래스에는 생성자 내에 지정되어 있거나 개체에 직접 설정된 세 개의 공용 문자열 속성이 있습니다. ODataDetailLevel 개체를 [ListPools][net_list_pools], [ListJobs][net_list_jobs] 및 [ListTasks][net_list_tasks]와 같은 다양한 목록 작업에 매개 변수로 전달합니다.
 
-- [ODATADetailLevel.FilterClause][odata_filter]\: 반환되는 항목 수를 제한합니다.
-- [ODATADetailLevel.SelectClause][odata_select]\: 각 항목에 반환되는 속성 값을 지정합니다.
-- [ODATADetailLevel.ExpandClause][odata_expand]\: 각 항목에 대한 별도 호출 대신 단일 API 호출의 모든 항목에 대한 데이터를 검색합니다.
+- [ODATADetailLevel][odata].[FilterClause][odata_filter]\: 반환되는 항목 수를 제한합니다.
+- [ODATADetailLevel][odata].[SelectClause][odata_select]\: 각 항목에 반환되는 속성 값을 지정합니다.
+- [ODATADetailLevel][odata].[ExpandClause][odata_expand]\: 각 항목에 대한 별도 호출 대신 단일 API 호출의 모든 항목에 대한 데이터를 검색합니다.
 
 다음 코드 조각에서는 풀의 특정 집합에 대한 통계에 대해 배치 서비스를 효율적으로 쿼리하기 위해 배치 .NET API를 사용합니다. 이 시나리오에서 배치 사용자는 테스트 및 프로덕션 풀을 가집니다. 테스트 풀 ID는 "test"를 접두사로 사용하고 프로덕션 풀 ID는 "prod"를 접두사로 사용합니다. 이 코드 조각에서 *myBatchClient*는 다음과 같은 [BatchClient](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient) 클래스의 인스턴스를 적절하게 초기화합니다.
 
-```
+```csharp
 // First we need an ODATADetailLevel instance on which to set the expand, filter, and select
 // clause strings
 ODATADetailLevel detailLevel = new ODATADetailLevel();
@@ -126,8 +126,8 @@ filter, select 및 expand 문자열의 속성 이름은 이름과 대소문자 �
 
 ### 필터 문자열에 대한 매핑
 
-- **.NET 목록 메서드**--이 열의 각 .NET API 메서드는 [ODATADetailLevel][odata] 개체를 매개 변수 형태로 수락합니다.
-- **REST 목록 요청**--이 열에 연결된 각 REST API 페이지에는 *filter* 문자열에서 허용되는 속성과 연산을 지정하는 테이블이 들어 있습니다. [ODATADetailLevel.FilterClause][odata_filter] 문자열을 구성할 때 이 속성 이름과 작업을 사용합니다.
+- **.NET 목록 메서드**: 이 열의 각 .NET API 메서드는 [ODATADetailLevel][odata] 개체를 매개 변수 형태로 수락합니다.
+- **REST 목록 요청**: 이 열에 연결된 각 REST API 페이지에는 *filter* 문자열에서 허용되는 속성과 연산을 지정하는 테이블이 들어 있습니다. [ODATADetailLevel.FilterClause][odata_filter] 문자열을 구성할 때 이 속성 이름과 작업을 사용합니다.
 
 | .NET 목록 메서드 | REST 목록 요청 |
 |---|---|
@@ -144,8 +144,8 @@ filter, select 및 expand 문자열의 속성 이름은 이름과 대소문자 �
 
 ### Select 문자열에 대한 매핑
 
-- **배치 .NET 형식**--배치 .NET API 형식.
-- **REST API 엔터티**--이 열의 각 페이지에는 형식에 대한 REST API 속성 이름을 나열하는 하나 이상의 표가 들어 있습니다. 이러한 속성 이름은 *선택* 문자열을 구성할 때 사용됩니다. [ODATADetailLevel.SelectClause][odata_select] 문자열을 구성할 때 이와 동일한 속성을 사용합니다.
+- **배치 .NET 형식**: 배치 .NET API 형식.
+- **REST API 엔터티**: 이 열의 각 페이지에는 형식에 대한 REST API 속성 이름을 나열하는 하나 이상의 표가 들어 있습니다. 이러한 속성 이름은 *선택* 문자열을 구성할 때 사용됩니다. [ODATADetailLevel.SelectClause][odata_select] 문자열을 구성할 때 이와 동일한 속성을 사용합니다.
 
 | 배치 .NET 형식 | REST API 엔터티 |
 |---|---|
@@ -183,6 +183,8 @@ filter, select 및 expand 문자열의 속성 이름은 이름과 대소문자 �
 
 ## 다음 단계
 
+### 효율적인 목록 쿼리 코드 샘플
+
 GitHub의 [EfficientListQueries][efficient_query_sample] 샘플 프로젝트를 확인하여 응용 프로그램에서 효율적인 목록 쿼리가 성능에 미치는 영향을 확인할 수 있습니다. 이 C# 콘솔 응용 프로그램은 많은 작업을 만들고 또 작업에 추가합니다. 그런 다음 [JobOperations.ListTasks][net_list_tasks] 메서드에 대한 여러 호출을 만들고 다른 속성 값으로 구성된 [ODATADetailLevel][odata] 개체를 전달하여 반환될 데이터의 크기를 다양화합니다. 다음과 유사한 출력을 생성합니다.
 
 		Adding 5000 tasks to job jobEffQuery...
@@ -199,10 +201,16 @@ GitHub의 [EfficientListQueries][efficient_query_sample] 샘플 프로젝트를 
 
 경과된 시간 정보에서 보는 것처럼 반환되는 항목 수와 속성을 제한하여 쿼리 응답 시간을 크게 낮출 수 있습니다. 이 샘플 프로젝트와 다른 샘플 프로젝트가 GitHub의 [azure-batch-samples][github_samples] 리포지토리에 있습니다.
 
+### 배치 포럼
+
+MSDN의 [Azure 배치 포럼][forum]은 배치를 설명하고 서비스에 대한 질문을 하는 데 많은 도움이 됩니다. 유용한 "고정" 게시물을 참조하고 배치 솔루션을 빌드하는 동안 질문이 생기면 즉시 게시합니다.
+
+
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
 [efficient_query_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/EfficientListQueries
+[forum]: https://social.msdn.microsoft.com/forums/azure/ko-KR/home?forum=azurebatch
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [odata]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.aspx
 [odata_ctor]: https://msdn.microsoft.com/library/azure/dn866178.aspx
@@ -246,4 +254,4 @@ GitHub의 [EfficientListQueries][efficient_query_sample] 샘플 프로젝트를 
 [net_schedule]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjobschedule.aspx
 [net_task]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.aspx
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="04/08/2016"
+   ms.date="04/25/2016"
    ms.author="hascipio"/>
 
 # 마케팅 콘텐츠로 제품 만들기 완료
@@ -29,30 +29,59 @@
   > [AZURE.IMPORTANT] 스테이징에 푸시하려면 이미지를 포함하여 모든 필드에 항목이 있어야 합니다.
 
 ### 세부 정보
-1. 제품 요약, 세부 요약 및 제품 설명을 입력합니다.
-2.	각 크기별로 하나씩 PNG 형식으로 필요한 사양(게시 포털에서 언급한)의 이미지를 업로드합니다.
+1. **세부 정보** 탭에 제품 제목(최대 50자), 제품 요약(최대 100자), 긴 요약(최대 256자), 제품 설명(최대 1300자), 로고 입력
+2. **계획** 탭에 SKU 제목(최대 50자), SKU 요약(최대 100자), SKU 설명(최대 2000자) 입력
+3. 제품 및 SKU 설명에 중복 텍스트는 입력하지 않습니다.
+4. SKU의 제목 및 긴 제품 요약에 중복 텍스트는 입력하지 않습니다.
+5. SKU의 제목 및 제품 요약에 중복 텍스트는 입력하지 않습니다.
+6. 각 크기별로 하나씩 PNG 형식으로 필요한 사양(게시 포털에서 언급한)의 이미지를 업로드합니다.
+7. 로고가 아래에서 설명한 Azure 마켓플레이스 로고 지침에 부합하는지 확인합니다.
 
-  ![drawing](media/marketplace-publishing-push-to-staging/pubportal-02.png)
+  ![drawing](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-details-02.png)
 
-  *제품 제목, 설명 및 로고*
+**Azure 마켓플레이스 로고 지침**
+
+게시 포털에 업로드되는 모든 로고는 다음 지침에 따라야 합니다.
+
+- Azure 디자인은 단순한 색 팔레트를 사용합니다. 로고의 기본 색상과 보조 색상 수는 적게 유지합니다.
+- 로고를 흰색 배경에 배치해서는 안 됩니다. 간단한 기본 색상이나 투명한 배경이 좋습니다.
+- 로고의 배경에 그라데이션 효과는 사용하지 않습니다.
+- 로고에 회사 또는 브랜드 이름을 포함한 텍스트를 놓지 않습니다.
+- 로고의 모양과 느낌은 평면적이어야 하며 그라데이션은 사용하지 않습니다.
+- 로고를 확장할 수 없습니다.
+- 작은 로고 크기는 40 X 40픽셀이어야 합니다.
+- 중간 로고 크기는 90 X 90픽셀이어야 합니다.
+- 큰 로고 크기는 115 X 115픽셀이어야 합니다.
+- 넓은 로고 크기는 255 X 115픽셀이어야 합니다.
+- 대표 로고 크기는 815 X 290픽셀이어야 합니다.
+
+  ![그리기](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-details-03.png)
+
+**대표 로고 배너에 대한 추가 지침:**
+
+- 대표 로고는 선택 사항입니다. 대표 로고를 업로드하지 않아도 됩니다.
+- 제품이 라이브 상태가 되면 대표 로고 안에 게시자 표시 이름, SKU 제목, 제품 긴 요약과 만들기 단추가 자동으로 포함됩니다. 따라서 대표 로고를 디자인할 때 이런 내용을 입력할 필요가 없습니다.
+- 게시자 표시 이름, SKU 제목 및 제품 긴 요약은 흰색 글꼴로 표시되므로 대표 아이콘의 배경을 흰색 또는 기타 밝은 색으로 하지 않아야 합니다.
+- 대표 아이콘 맨 위쪽에는 상단 텍스트가 들어갈 공간을 남겨야 합니다. 이 텍스트의 공간은 415x100이며 왼쪽부터 370픽셀이 오프셋됩니다.
+
+  ![그리기](media/marketplace-publishing-push-to-staging/pubportal-herobanner.png)
 
 ### 링크
 왼쪽 막대의 **Links** 탭에 고객에게 유용한 정보가 있는 링크를 입력합니다. 각 링크의 이름과 URL을 입력합니다.
 
-![그리기](media/marketplace-publishing-push-to-staging/pubportal-02.png)
+![그리기](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-link-01.png)
 
 ### 샘플 이미지(선택 사항)
 > [AZURE.NOTE] 샘플 이미지를 포함하는 것은 선택적인 단계입니다. 기타 마케팅 콘텐츠를 작성하여 스테이징으로 푸시하기 위한 요건을 갖춥니다.
 
 왼쪽 메뉴의 **Sample Images** 탭에서 **Upload a new image**를 클릭하여 새 이미지를 업로드합니다. 기존 이미지가 있고 이를 바꾸려는 경우 **Replace image**를 클릭합니다.
 
-![그리기](media/marketplace-publishing-push-to-staging/pubportal-03.png)
-
-### 요금제
-![그리기](media/marketplace-publishing-push-to-staging/pubportal-02.png)
+![그리기](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-sampleimg-01.png)
 
 ### 법적 정보
-**Legal** 탭에 정책/사용 약관을 연결하는 링크를 제공합니다. 큰 **Terms of Use** 상자에 약관을 입력하거나 붙여넣습니다.
+**Legal** 탭에 정책/사용 약관을 연결하는 링크를 제공합니다. 큰 **Terms of Use** 상자에 약관을 입력하거나 붙여넣습니다. 사용 약관의 문자 제한은 1,000,000자입니다.
+
+![그리기](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-legal-01.png)
 
 > [AZURE.NOTE] 가상 컴퓨터의 경우 SKU가 스테이징 또는 라이브된 후 **제품 식별자**, **게시자 식별자** 및 **SKU 식별자**를 변경할 수 없습니다.
 
@@ -107,7 +136,7 @@
 |Gold|1,000달러/월|기능 X의 10,000 할당량, 기능 Y의 1,000 할당량 및 기능 Z 무제한입니다.|무료를 제외한 모든 요금제로 마이그레이션 가능|
 
 ## 3단계: 지원 정보 제공
-일부 정보는 인증 단계 중에 완료됩니다. 아래 단계와 같이 정보를 추가하거나 편집할 수 있습니다. 연락처 정보는 파트너와 Microsoft 간의 내부 통신에만 사용됩니다. 지원 URL은 최종 고객에게 제공됩니다.
+연락처 정보는 파트너와 Microsoft 간의 내부 통신에만 사용됩니다. 지원 URL은 최종 고객에게 제공됩니다.
 
 1.	게시 포털 왼쪽의 **지원** 머리글로 이동합니다.
 2.	**엔지니어링 연락처** 아래에 정보를 입력합니다.
@@ -118,7 +147,7 @@
 **범주** 탭에서는 선택 항목의 배열을 제공합니다. 개발자의 제품이 이러한 범주에 포함될 수 있으며, 최대 다섯 개의 범주를 선택할 수 있습니다.
 
 ## 마케팅이 표시되는 방식
-다음은 제품 마케팅 정보가 [Azure 마켓플레이스 웹 사이트](https://azure.microsoft.com/marketplace/) 및 [Azure Preview 포털](https://ms.portal.azure.com)에서 어떻게 사용되는지를 자세히 보여 줍니다.
+다음은 제품 마케팅 정보가 [Azure 마켓플레이스 웹 사이트](https://azure.microsoft.com/marketplace/) 및 [Azure 포털](https://portal.azure.com)에서 어떻게 사용되는지를 자세히 보여 줍니다.
 
 ### Azure 마켓플레이스 웹 사이트
 ![그리기](media/marketplace-publishing-push-to-staging/acom-catalog-01.png)
@@ -135,14 +164,14 @@
 
 *Azure 마켓플레이스 웹 사이트에서 제품 설명 가격 책정 정보*
 
-### Azure 미리 보기 포털
+### Azure 포털
 ![그리기](media/marketplace-publishing-push-to-staging/portal-catalog-01.png)
 
-*Azure Preview 포털에서 제품 목록*
+*Azure 포털의 제품 목록*
 
 ![그리기](media/marketplace-publishing-push-to-staging/portal-listing-details-01.png)
 
-*Azure Preview 포털에서 제품 설명 정보*
+*Azure 포털의 제품 설명 정보*
 
 ## 다음 단계
 마켓플레이스 콘텐츠를 로드했으므로 스테이징에서 제품 테스트를 진행하겠습니다. 그러나 제품 유형별로 다양한 단계에 따라 아래 목록에서 적절한 제품 유형을 선택해야 합니다.
@@ -163,4 +192,4 @@
 [link-pubportal]: https://publish.windowsazure.com
 [link-push-to-production]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

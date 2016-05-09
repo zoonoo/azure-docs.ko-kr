@@ -3,7 +3,7 @@
 	description="이 항목에서는 클래식 배포 모델로 만든 리소스를 사용하고 Azure VM(가상 컴퓨터)에서 실행 중인 SQL Server에 사용할 수 있는 BI(비즈니스 인텔리전스) 기능에 대해 설명합니다."
 	services="virtual-machines-windows"
 	documentationCenter="na"
-	authors="rothja"
+	authors="guyinacube"
 	manager="jeffreyg"
 	editor="monicar"
 	tags="azure-service-management"/>
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="12/11/2015"
-	ms.author="jroth" />
+	ms.author="asaxton" />
 
 # Azure 가상 컴퓨터의 SQL Server Business Intelligence
 
@@ -388,9 +388,7 @@ Analysis Services의 **명명된 인스턴스**의 경우 포트 액세스를 �
 
 	|포트|형식|설명|
 |---|---|---|
-|**80**|TCP|보고서 서버 원격 액세스(*).|
-|**1433**|TCP|SQL Server Management Studio(*).|
-|**1434**|UDP|SQL Server Browser입니다. VM이 도메인에 가입된 경우 필요합니다.|
+|**80**|TCP|보고서 서버 원격 액세스(*).| |**1433**|TCP|SQL Server Management Studio(*).| |**1434**|UDP|SQL Server Browser입니다. VM이 도메인에 가입된 경우 필요합니다.|
 |**2382**|TCP|SQL Server Browser입니다.|
 |**2383**|TCP|SQL Server Analysis Services 기본 인스턴스 및 클러스터된 명명된 인스턴스입니다.|
 |**사용자 정의**|TCP|선택하는 포트 번호에 대해 정적 Analysis Services 명명된 인스턴스 포트를 만든 다음 방화벽에서 포트 번호의 차단을 해제합니다.|
@@ -433,4 +431,4 @@ Analysis Services의 **명명된 인스턴스**의 경우 포트 액세스를 �
 
 - [PowerShell을 사용한 Azure SQL 데이터베이스 관리](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->
