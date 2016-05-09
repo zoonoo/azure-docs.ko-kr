@@ -91,7 +91,7 @@ VM이 만들어지면 기본 섹션의 4단계에서 만든 관리자 계정 자
 
 VM이 만들어지고 프로비전되면 여기에 설치 및 구성되는 도구를 사용하여 시작할 준비가 되었습니다. 여러 도구에 대한 시작 메뉴 타일 및 데스크톱 아이콘이 있습니다.
 
-##Jupyter Notebook 서버에 강력한 암호를 만드는 방법 
+## Jupyter Notebook 서버에 강력한 암호를 만드는 방법 
 
 컴퓨터에 설치된 Jupyter Notebook에 대한 사용자 고유의 강력한 암호를 만들려면 데이터 과학 가상 컴퓨터의 명령 프롬프트에서 다음 명령을 실행합니다.
 
@@ -149,4 +149,4 @@ SQL Server의 제한된 버전에는 Visual Studio Community edition도 포함�
 * 체계적으로 [데이터 과학 프로세스](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)를 사용하여 종단 간 분석 솔루션을 구축하는 방법을 알아봅니다.
 * Cortana Intelligence 모음을 사용하는 기계 학습 및 데이터 분석 샘플은 [Cortana Intelligence 갤러리](http://gallery.cortanaintelligence.com)를 방문하세요. 또한 손쉽게 액세스할 수 있도록 가상 컴퓨터의 시작 메뉴 및 데스크톱에 아이콘을 제공합니다. 
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

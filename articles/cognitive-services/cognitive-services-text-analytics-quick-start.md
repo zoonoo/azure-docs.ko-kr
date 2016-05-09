@@ -8,7 +8,7 @@
 	editor="cgronlun"/>
 
 <tags
-	ms.service="machine-learning"
+	ms.service="cognitive-services"
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -53,7 +53,7 @@ API에 대한 기술 설명서는 [API 정의](//go.microsoft.com/fwlink/?LinkID
 
 1. [Azure 포털](//go.microsoft.com/fwlink/?LinkId=761108)의 **Cognitive Services**로 이동하여 **텍스트 분석**이 'API 형식'으로 선택되어 있는지 확인합니다.
 
-1. 요금제를 선택합니다. **free tier for 5,000 transactions/month(무료 계층 - 5,000개 트랜잭션/월)**을 선택할 수 있습니다. 무료 요금제이므로 서비스 사용에 요금이 청구되지 않습니다. Azure 구독에 로그인해야 합니다.
+1. 요금제를 선택합니다. **free tier for 5,000 transactions/month(무료 계층 - 5,000개 트랜잭션/월)**을 선택할 수 있습니다. 무료 요금제이므로 서비스 사용 요금이 청구되지 않습니다. Azure 구독에 로그인해야 합니다.
 
 1. 기타 필드를 완료하고 계정을 만듭니다.
 
@@ -240,4 +240,4 @@ API에 대한 기술 설명서는 [API 정의](//go.microsoft.com/fwlink/?LinkID
 
 축하합니다. 데이터에 대한 텍스트 분석 사용을 완료했습니다. 이제 데이터를 시각화하고 통찰력을 자동화하여 텍스트 데이터의 실시간 보기를 제공하는 [Power BI](//powerbi.microsoft.com)와 같은 도구 사용에 대해 살펴보고 싶을 수 있습니다.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2016" 
+	ms.date="04/01/2016" 
 	ms.author="spelluru"/>
 
 # Azure 데이터 팩터리 개발자 참조
 
-Azure 클래식 포털, Azure PowerShell, .NET 클래스 라이브러리 또는 REST API를 사용하여 팩터리를 만들고 모니터링하고 관리할 수 있습니다.
+Azure 포털, Azure PowerShell, .NET 클래스 라이브러리 또는 REST API를 사용하여 팩터리를 만들고 모니터링하고 관리할 수 있습니다.
 
 메서드 | 리소스 위치 | 개발자 참조
 ---------------------------------------------------- | ------------------------------ | -----------
@@ -30,4 +30,4 @@ REST API | 데이터 팩터리 REST API를 사용하여 Azure 데이터 팩터�
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0427_2016-->

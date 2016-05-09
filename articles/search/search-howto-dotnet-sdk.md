@@ -73,7 +73,7 @@ Azure 검색.NET SDK는.NET Framework 4.5를 대상으로 한 응용 프로그�
         // service name is myservice.
         string searchServiceName = "myservice";
 
-        string apiKey = "Put your API admin key here."
+        string apiKey = "Put your API admin key here.";
 
         SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(apiKey));
 
@@ -105,7 +105,7 @@ Azure 검색.NET SDK는.NET Framework 4.5를 대상으로 한 응용 프로그�
         // service name is myservice.
         string searchServiceName = "myservice";
 
-        string apiKey = "Put your API admin key here."
+        string apiKey = "Put your API admin key here.";
 
         SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(apiKey));
 
@@ -643,4 +643,4 @@ Hotel.cs:
         }
     }
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0427_2016-->

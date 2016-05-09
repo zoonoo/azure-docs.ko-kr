@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="04/01/2016" 
 	ms.author="spelluru"/>
 
 
@@ -38,7 +38,7 @@
 2. [SQL Server 연결 서비스 만들기](#create-sql-server-linked-service) 이 단계에서는 먼저 온-프레미스 SQL Server 컴퓨터에서 데이터베이스와 테이블을 만든 다음 연결된서비스 **OnPremSqlLinkedService**를 만듭니다.
 3. [데이터 집합 및 파이프라인을 만듭니다](#create-dataset-and-pipeline). 이 단계에서는 **MarketingCampaignEffectivenessOnPremSQLTable** 테이블과 **EgressDataToOnPremPipeline** 파이프라인을 만듭니다. 
 
-4. [파이프라인 모니터링](#monitor-pipeline) 이 단계에서는 Azure 클래식 포털을 사용하여 파이프라인, 테이블 및 데이터 조각을 모니터링합니다.
+4. [파이프라인 모니터링](#monitor-pipeline) 이 단계에서는 Azure 포털을 사용하여 파이프라인, 테이블 및 데이터 조각을 모니터링합니다.
 
 
 ## 데이터 관리 게이트웨이 만들기
@@ -170,4 +170,4 @@
 
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

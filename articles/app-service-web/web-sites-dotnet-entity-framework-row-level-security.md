@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/25/2016"
+	ms.date="04/25/2016"
 	ms.author="thmullan"/>
 
 # 자습서: Entity Framework 및 행 수준 보안을 사용하여 다중 테넌트 데이트베이스를 포함하는 웹 앱
@@ -250,4 +250,4 @@ go
 
 이러한 가능성 외에도 RLS를 훨씬 더 개선하기 위해 최선을 다하고 있습니다. 질문이나 아이디어가 있거나 보고 싶은 내용이 있으면 의견을 알려 주시기 바랍니다. 여러분의 의견에 감사드립니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0427_2016-->

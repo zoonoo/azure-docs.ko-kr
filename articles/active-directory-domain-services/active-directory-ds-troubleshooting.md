@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="04/25/2016"
 	ms.author="maheshu"/>
 
 # Azure AD 도메인 서비스*(미리 보기)* - 문제 해결 가이드
@@ -41,14 +41,19 @@ Azure AD 테넌트에서 하나 이상의 사용자가 새로 만든 관리된 �
 
 - 시작 가이드에 설명된 단계에 따라 [암호 동기화를 사용하도록 설정](active-directory-ds-getting-started-password-sync.md)했는지 확인합니다.
 
-- 영향을 받는 사용자 계정이 Azure AD 테넌트의 외부 계정인지 확인합니다. 외부 계정의 예는 Microsoft 계정(예: 'joe@live.com') 또는 외부 Azure AD 디렉터리에서 사용자 계정을 포함합니다. Azure AD 도메인 서비스에는 이러한 사용자 계정에 대한 자격 증명이 없으므로 이러한 사용자는 관리된 도메인에 로그인할 수 없습니다.
+- **외부 계정** 영향을 받는 사용자 계정이 Azure AD 테넌트의 외부 계정이 아닌지 확인합니다. 외부 계정의 예는 Microsoft 계정(예: 'joe@live.com') 또는 외부 Azure AD 디렉터리에서 사용자 계정을 포함합니다. Azure AD 도메인 서비스에는 이러한 사용자 계정에 대한 자격 증명이 없으므로 이러한 사용자는 관리된 도메인에 로그인할 수 없습니다.
 
-- Azure AD 테넌트에서 영향을 받는 사용자 계정의 UPN 접두사(즉, UPN의 첫 번째 부분) 길이가 20자보다 작은지 확인합니다. 예를 들어 'joereallylongnameuser@contoso.com' UPN의 경우 접두사('joereallylongnameuser')가 20자를 초과하여 이 계정은 Azure AD 도메인 서비스 관리된 도메인에서 사용할 수 없습니다.
+- **너무 긴 UPN 접두사** Azure AD 테넌트에서 영향을 받는 사용자 계정의 UPN 접두사(즉, UPN의 첫 번째 부분) 길이가 20자 미만인지 확인합니다. 예를 들어 'joereallylongnameuser@contoso.com' UPN의 경우 접두사('joereallylongnameuser')가 20자를 초과하여 이 계정은 Azure AD 도메인 서비스 관리된 도메인에서 사용할 수 없습니다.
+
+- **중복된 UPN 접두사** Azure AD 테넌트에 영향을 받는 사용자 계정과 UPN 접두사(즉, UPN의 첫 번째 부분)가 같은 다른 사용자 계정이 없도록 합니다. 예를 들어, 'joeuser@finance.contoso.com' 및 'joeuser@engineering.contoso.com'라는 두 개의 사용자 계정이 있으면, 두 사용자 모두 관리되는 도메인에 로그인할 때 문제를 겪게 됩니다. 이것은 사용자 계정 중 하나가 외부 계정(예: 'joeuser@live.com')인 경우에도 발생할 수 있습니다. 이 문제를 해결하기 위해 작업 중입니다.
 
 - **동기화된 계정:** 영향을 받는 사용자 계정이 온-프레미스 디렉터리에서 동기화되는 경우 다음을 확인합니다.
     - [Azure AD Connect의 최신 권장 사항](active-directory-ds-getting-started-password-sync.md#install-or-update-azure-ad-connect)으로 배포하거나 업데이트했습니다.
+
     - [전체 동기화를 수행](active-directory-ds-getting-started-password-sync.md)하도록 Azure AD Connect를 구성했습니다.
+
     - 디렉터리의 크기에 따라 사용자 계정 및 해시 자격 증명이 Azure AD 도메인 서비스에서 사용할 수 있도록 하는 데 시간이 걸릴 수 있습니다. 인증을 다시 시도하기 전에 충분한 시간 동안 대기합니다(디렉터리 크기에 따라 몇 시간에서 큰 디렉터리는 하루나 이틀까지).
+
     - 위의 단계를 확인한 후 문제가 지속되면 Microsoft Azure AD Sync 서비스를 다시 시작해 봅니다. 동기화 컴퓨터에서 명령 프롬프트를 시작하고 다음 명령을 실행합니다.
       1. net stop 'Microsoft Azure AD Sync'
       2. net start 'Microsoft Azure AD Sync'
@@ -57,9 +62,6 @@ Azure AD 테넌트에서 하나 이상의 사용자가 새로 만든 관리된 �
 
 
 ### 문의처
-관리된 도메인과 관련된 문제가 발생하는 경우 이 문제 해결 가이드에 설명된 단계가 문제를 해결하는지 확인해 주세요. 여전히 문제가 발생하는 경우 다음으로 마음껏 문의해 주세요.
+[지원이 필요하거나 피드백을 공유하려면](active-directory-ds-contact-us.md) Azure Active Directory 도메인 서비스 제품 팀에 문의하세요.
 
-- **메일:** [Azure AD 도메인 서비스 피드백](mailto:aaddsfb@microsoft.com)에 메일을 보낼 수 있습니다. 문제를 조사할 수 있도록 Azure AD 디렉터리에 대한 테넌트 ID와 AAD 도메인 서비스에 대해 구성한 도메인 이름을 포함해야 합니다.
-- **[Azure Active Directory 사용자 의견 채널](https://feedback.azure.com/forums/169401-azure-active-directory/):** 문의하시려면 **'AADDS'**라는 단어로 질문을 시작해야 합니다.
-
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -252,8 +252,8 @@ Azure DocumentDB에는 [REST API 버전 2015-12-16](https://msdn.microsoft.com/l
 
     await client.ExecuteStoredProcedureAsync<DeviceReading>(
         UriFactory.CreateStoredProcedureUri("db", "coll", "SetLatestStateAcrossReadings"),
-        "XMS-001-FE24C",
-        new RequestOptions { PartitionKey = new PartitionKey("XMS-001") });
+        new RequestOptions { PartitionKey = new PartitionKey("XMS-001") },
+        "XMS-001-FE24C");
 
 다음 섹션에서는 단일 파티션 컬렉션에서 분할된 컬렉션으로 이동하는 방법에 대해 살펴봅니다.
 
@@ -319,4 +319,4 @@ DocumentDB를 사용하여 다중 테넌트 응용 프로그램을 구현하는 
 
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

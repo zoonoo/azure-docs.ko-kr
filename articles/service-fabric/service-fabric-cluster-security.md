@@ -83,7 +83,7 @@ Login-AzureRmAccount
 
 다음 스크립트는 새 리소스 그룹 및/또는 주요 자격 증명 모음이 아직 없는 경우 만듭니다. **참고: 기존 주요 자격 증명 모음을 사용하는 경우 이 스크립트를 사용하여 배포를 지원하도록 구성되어야 합니다.**
 ```
-Set-AzureRmKeyVaultAccessPolicy -VaultName <Name of the Vault> -ResourceGroupName <string> -EnabledForTemplateDeployment -EnabledForDeployment
+Set-AzureRmKeyVaultAccessPolicy -VaultName <Name of the Vault> -ResourceGroupName <string> -EnabledForDeployment
 ```
 
 ```
@@ -134,11 +134,11 @@ Invoke-AddCertToKeyVault -SubscriptionId 35389201-c0b3-405e-8a23-9f1450994307 -R
 자체 서명된 인증서이므로 이 인증서를 보안 클러스터에 연결하는 데 사용하기 전에 사용자 컴퓨터의 "신뢰할 수 있는 사용자" 저장소로 가져와야 합니다.
 
 ```
-Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPeople -FilePath C:C:\MyCertificates\ChackdanTestCertificate.pfx -Password (Read-Host -AsSecureString -Prompt "Enter Certificate Password ")
+Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPeople -FilePath C:\MyCertificates\ChackdanTestCertificate.pfx -Password (Read-Host -AsSecureString -Prompt "Enter Certificate Password")
 ```
 
 ```
-Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My -FilePath C:C:\MyCertificates\ChackdanTestCertificate.pfx -Password (Read-Host -AsSecureString -Prompt "Enter Certificate Password ")
+Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My -FilePath C:\MyCertificates\ChackdanTestCertificate.pfx -Password (Read-Host -AsSecureString -Prompt "Enter Certificate Password")
 ```
 
 스크립트가 성공적으로 완료되면 아래와 같은 출력을 얻게 됩니다. 이는 3단계에 필요합니다.
@@ -217,8 +217,8 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My -FileP
 
 >[AZURE.NOTE] 보안 클러스터의 경우 항상 적어도 하나의 유효한(취소되지 않거나 만료되지 않은) 주 또는 보조 인증서 배포가 필요하며 그렇지 않으면 클러스터에 액세스할 수 없습니다.
 
-## 
-서비스 패브릭에서 사용하는 인증서 유형
+
+## 서비스 패브릭에서 사용하는 인증서 유형
 
 ### X.509 인증서
 
@@ -262,4 +262,4 @@ X.509 디지털 인증서는 클라이언트 및 서버를 인증하고 암호�
 [Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png
 [Client-to-Node]: ./media/service-fabric-cluster-security/client-to-node.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

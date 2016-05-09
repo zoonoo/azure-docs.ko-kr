@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="04/19/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 미리 보기: 제한 사항
@@ -92,4 +92,4 @@ Azure 클래식 포털에서 Azure AD B2C 테넌트를 삭제할 수 없습니�
 
 현재는 [Azure 클래식 포털](https://manage.windowsazure.com/)에서 도메인을 성공적으로 확인할 수 없습니다. 문제를 해결하기 위한 작업을 하고 있습니다.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0427_2016-->

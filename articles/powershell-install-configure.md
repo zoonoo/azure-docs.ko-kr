@@ -2,7 +2,7 @@
 	pageTitle="Azure PowerShell을 설치 및 구성하는 방법"
 	description="Azure PowerShell을 설치 및 구성하는 방법에 대해 알아봅니다."
 	editor="tysonn"
-	manager="stevenka"
+	manager="dongill"
 	documentationCenter=""
 	services=""
 	authors="coreyp-at-msft"/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="04/22/2016"
 	ms.author="coreyp"/>
 
 # Azure PowerShell을 설치 및 구성하는 방법
@@ -175,4 +175,4 @@ cmdlet에 대한 참조 정보는 [Azure cmdlet 참조](https://msdn.microsoft.c
 
 스크립팅을 사용하여 Azure를 관리하는 방법을 배우는 데 도움이 되는 샘플 스크립트 및 지침은 [스크립트 센터](http://go.microsoft.com/fwlink/p/?LinkId=321940)를 참조하세요.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0427_2016-->

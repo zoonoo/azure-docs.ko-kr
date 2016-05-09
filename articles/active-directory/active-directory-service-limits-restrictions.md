@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="02/01/2016"
+	ms.date="04/26/2016"
 	ms.author="curtand"/>
 
 # Azure AD 서비스 제한 및 제한 사항
@@ -26,4 +26,4 @@ Microsoft Azure 서비스 제한을 모두 보려면 [Azure 구독 및 서비스
 - [조직으로 Azure에 등록](sign-up-organization.md)
 - [Azure 구독과 Azure AD의 연관 관계](active-directory-how-subscriptions-associated-directory.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0427_2016-->

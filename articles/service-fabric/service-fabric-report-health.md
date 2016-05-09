@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/23/2016"
+   ms.date="04/25/2016"
    ms.author="oanapl"/>
 
 # 사용자 지정 서비스 패브릭 상태 보고서 추가
@@ -117,7 +117,7 @@ GatewayInformation   : {
 
 - 현재 응용 프로그램에 대해 보고하려면 [CodePackageActivationContext.ReportApplicationHealth](https://msdn.microsoft.com/library/system.fabric.codepackageactivationcontext.reportapplicationhealth.aspx)를 사용합니다.
 
-- 현재 노드에 배포된 현재 응용 프로그램에 보고하려면 [CodePackageActivationContext.ReportDeployedApplicationHealth](https://msdn.microsoft.com/library/system.fabric.codepackageactivationcontext.reportdeployedapplicationhealth.aspx)를 사용합니다.
+- 현재 노드에 배포된 현재 응용 프로그램에 대해 보고하려면 [CodePackageActivationContext.ReportDeployedApplicationHealth](https://msdn.microsoft.com/library/system.fabric.codepackageactivationcontext.reportdeployedapplicationhealth.aspx)를 사용합니다.
 
 - 현재 노드에 배포된 현재 응용 프로그램의 서비스 패키지에 대해 보고하려면 [CodePackageActivationContext.ReportDeployedServicePackageHealth](https://msdn.microsoft.com/library/system.fabric.codepackageactivationcontext.reportdeployedservicepackagehealth.aspx)를 사용합니다.
 
@@ -297,4 +297,4 @@ HealthEvents          :
 
 [서비스 패브릭 응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0427_2016-->

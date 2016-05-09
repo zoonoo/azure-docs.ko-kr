@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Azure 이벤트 허브로 공용 데이터 풀 | Microsoft Azure"
-   description="웹 샘플에서 이벤트 허브 가져오기 개요"
-   services="event-hubs"
-   documentationCenter="na"
-   authors="spyrossak"
-   manager="timlt"
-   editor=""/>
+    pageTitle="Azure 이벤트 허브로 공용 데이터 풀 | Microsoft Azure"
+    description="웹 샘플에서 이벤트 허브 가져오기 개요"
+    services="event-hubs"
+    documentationCenter="na"
+    authors="spyrossak"
+    manager="timlt"
+    editor=""/>
 
 <tags 
-   ms.service="event-hubs"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="02/05/2016"
-   ms.author="spyros;sethm" />
+    ms.service="event-hubs"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="04/26/2016"
+    ms.author="spyros;sethm" />
 
 # Azure 이벤트 허브로 공용 데이터 풀
 
@@ -47,4 +47,4 @@ GenericWebToEH 솔루션을 시작하면 다음과 같은 많은 항목을 얻�
 
 [Azure 샘플 갤러리](https://azure.microsoft.com/documentation/samples/?service=event-hubs) 및 [MSDN](https://code.msdn.microsoft.com/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5)에서 더 많은 이벤트 허브 샘플을 볼 수 있습니다.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/21/2016"
+   ms.date="04/05/2016"
    ms.author="joaoma" />
 
 
@@ -93,4 +93,4 @@ TCP 및 HTTP 프로브는 다음과 같은 경우 정상으로 간주되며 역�
 
 [부하 분산 장치에 대한 로그 분석](load-balancer-monitor-log.md)을 사용하여 프로브 상태 및 프로브 수를 확인할 수 있습니다. Power BI 또는 Azure Operation Insights에서 로깅을 사용하여 부하 분산 장치 상태에 대한 통계를 제공할 수 있습니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

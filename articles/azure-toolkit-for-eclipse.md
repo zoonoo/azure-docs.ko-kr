@@ -22,7 +22,7 @@
 
 Eclipse용 Azure 도구 키트는 Eclipse 개발 환경에서 Azure 응용 프로그램을 쉽게 작성, 개발, 테스트 및 배포할 수 있는 템플릿과 기능을 제공합니다. 다음 프로젝트 사이트를 통해 Apache 라이선스 2.0에 따라 소스 코드 사용이 허가된 오픈 소스 프로젝트입니다.
 
-* <https://github.com/microsoft/azure-tools-for-java.>
+* <https://github.com/microsoft/azure-tools-for-java>
 
 ## Eclipse용 Azure 도구 키트 시작 ##
 
@@ -95,4 +95,4 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 [JSP에서 Azure 서비스 런타임 라이브러리 사용]: http://go.microsoft.com/fwlink/?LinkID=699551
 [Eclipse용 Azure 도구 키트의 새로운 기능]: http://go.microsoft.com/fwlink/?LinkID=699552
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0427_2016-->

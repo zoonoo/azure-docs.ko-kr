@@ -190,10 +190,10 @@ Azure Redis Cache는 .NET 개체 및 기본 데이터 형식으로 작업할 수
 
 ## Azure Redis Cache로 ASP.NET 세션 상태 및 출력 캐싱 마이그레이션
 
-Azure Redis Cache에는 ASP.NET 세션 상태 및 페이지 출력 캐싱 모두에 공급자가 있습니다. 관리된 캐시 서비스 버전의 이러한 공급자를 사용하는 응용 프로그램을 마이그레이션하려면 먼저 web.config에서 기존 섹션을 제거하고 Azure Redis Cache 버전의 공급자를 구성합니다. Azure Redis Cache ASP.NET 공급자를 사용하는 데 대한 지침은 [Azure Redis Cache에 대한 ASP.NET 세션 상태 제공자](cache-asp.net-session-state-provider.md) 및 [Azure Redis Cache에 대한 ASP.NET 출력 캐시 공급자](cache-asp.net-output-cache-provider.md)를 참조하세요.
+Azure Redis Cache에는 ASP.NET 세션 상태 및 페이지 출력 캐싱 모두에 공급자가 있습니다. 관리된 캐시 서비스 버전의 이러한 공급자를 사용하는 응용 프로그램을 마이그레이션하려면 먼저 web.config에서 기존 섹션을 제거하고 Azure Redis Cache 버전의 공급자를 구성합니다. Azure Redis Cache ASP.NET 공급자를 사용하는 데 대한 지침은 [Azure Redis Cache에 대한 ASP.NET 세션 상태 제공자](cache-aspnet-session-state-provider.md) 및 [Azure Redis Cache에 대한 ASP.NET 출력 캐시 공급자](cache-aspnet-output-cache-provider.md)를 참조하세요.
 
 ## 다음 단계
 
 자습서, 샘플, 비디오, 등은 [Azure Redis Cache 설명서](https://azure.microsoft.com/documentation/services/cache/)를 탐색합니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

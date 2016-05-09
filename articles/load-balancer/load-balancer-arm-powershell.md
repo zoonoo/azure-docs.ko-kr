@@ -32,7 +32,7 @@
 
 부하 분산 장치를 만들기 전에 다음 항목을 구성해야 합니다.
 
-- 프런트 엔드 IP 구성 - 들어오는 네트워크 트래픽의 부하가 분산될 수 있도록 프런트 엔드 IP 풀에 공용 IP 주소를 추가합니다. 
+- 프런트 엔드 IP 구성 - 들어오는 네트워크 트래픽의 부하가 분산될 수 있도록 프런트 엔드 IP 풀에 공용 IP 주소를 추가합니다.
 
 - 백 엔드 주소 풀 - 프런트 엔드 IP 풀에서 들어오는 부하 분산된 트래픽을 수신하는 네트워크 인터페이스를 구성합니다.
 
@@ -54,7 +54,7 @@ Azure 리소스 관리자의 분산 장치 구성 요소에 대한 자세한 내
 
 
 ### 1단계
-ARM cmdlet을 사용하려면 PowerShell 모드를 전환해야 합니다. 자세한 내용은 [리소스 관리자에서 Windows PowerShell](powershell-azure-resource-manager.md) 사용을 참조하세요.
+ARM cmdlet을 사용하려면 PowerShell 모드를 전환해야 합니다. 자세한 내용은 [리소스 관리자에서 Windows PowerShell](../powershell-azure-resource-manager.md) 사용을 참조하세요.
 
 
     PS C:\> Switch-AzureMode -Name AzureResourceManager
@@ -107,7 +107,7 @@ Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치�
 
 프런트 엔드 IP 풀에서 사용할 공용 IP 주소 만들기:
 
-	$publicIP = New-AzurePublicIpAddress -Name PublicIp -ResourceGroupName NRP-RG -Location "West US" –AllocationMethod Dynamic -DomainNameLabel lbip 
+	$publicIP = New-AzurePublicIpAddress -Name PublicIp -ResourceGroupName NRP-RG -Location "West US" –AllocationMethod Dynamic -DomainNameLabel lbip
 
 >[AZURE.NOTE]공용 IP 주소 도메인 이름 레이블 속성은 부하 분산 장치의 FQDN에 대한 접두사가 됩니다.
 
@@ -115,14 +115,14 @@ Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치�
 
 들어오는 부하 분산 장치 네트워크 트래픽에 대한 프런트 엔드 IP 풀을 설정하고 부하 분산된 트래픽을 수신할 백 엔드 주소 풀을 설정합니다.
 
-### 1단계 
+### 1단계
 
 공용 IP 변수($publicIP)를 사용하여 프런트 엔드 IP 풀을 만듭니다.
 
-	$frontendIP = New-AzureLoadBalancerFrontendIpConfig -Name LB-Frontend -PublicIpAddress $publicIP 
+	$frontendIP = New-AzureLoadBalancerFrontendIpConfig -Name LB-Frontend -PublicIpAddress $publicIP
 
 
-### 2단계 
+### 2단계
 
 프런트 엔드 IP 풀에서 들어오는 트래픽을 받는 데 사용되는 백 엔드 주소 풀을 설정합니다.
 
@@ -157,7 +157,7 @@ Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치�
 
 모든 개체(NAT 규칙, 부하 분산 장치 규칙, 프로브 구성)를 함께 추가하는 부하 분산 장치를 만듭니다.
 
-	$NRPLB = New-AzureLoadBalancer -ResourceGroupName "NRP-RG" -Name "NRP-LB" -Location "West US" -FrontendIpConfiguration $frontendIP -InboundNatRule $inboundNATRule1,$inboundNatRule2 -LoadBalancingRule $lbrule -BackendAddressPool $beAddressPool -Probe $healthProbe 
+	$NRPLB = New-AzureLoadBalancer -ResourceGroupName "NRP-RG" -Name "NRP-LB" -Location "West US" -FrontendIpConfiguration $frontendIP -InboundNatRule $inboundNATRule1,$inboundNatRule2 -LoadBalancingRule $lbrule -BackendAddressPool $beAddressPool -Probe $healthProbe
 
 
 ## 네트워크 인터페이스 만들기
@@ -165,18 +165,18 @@ Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치�
 부하 분산 장치를 만든 후에는 들어오는 부하 분산된 네트워크 트래픽, NAT 규칙 및 프로브를 수신할 네트워크 인터페이스를 정의해야 합니다. 이 경우 네트워크 인터페이스는 개별적으로 구성되며 나중에 가상 컴퓨터에 할당할 수 있습니다.
 
 
-### 1단계 
+### 1단계
 
 
 네트워크 인터페이스를 만들 리소스 가상 네트워크 및 서브넷 가져오기:
 
 	$vnet = Get-AzureVirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG
 
-	$backendSubnet = Get-AzureVirtualNetworkSubnetConfig -Name LB-Subnet-BE -VirtualNetwork $vnet 
+	$backendSubnet = Get-AzureVirtualNetworkSubnetConfig -Name LB-Subnet-BE -VirtualNetwork $vnet
 
 
 이 단계에서는 부하 분산 장치 백 엔드 풀에 속하는 네트워크 인터페이스를 만들고 이 네트워크 인터페이스의 RDP에 대한 첫 번째 NAT 규칙을 연결합니다.
-	
+
 	$backendnic1= New-AzureNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic1-be -Location "West US" -PrivateIpAddress 10.0.2.6 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[0]
 
 ### 2단계
@@ -238,7 +238,7 @@ PS C:\> $backendnic1
 
 
 
-### 3단계 
+### 3단계
 
 Add-AzureVMNetworkInterface 명령을 사용하여 가상 컴퓨터에 NIC를 할당합니다.
 
@@ -280,6 +280,5 @@ Remove-AzureLoadBalancer 명령을 사용하여 “NRP-RG”라는 리소스 그
 [부하 분산 장치 배포 모드 구성](load-balancer-distribution-mode.md)
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
- 
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

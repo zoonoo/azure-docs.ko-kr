@@ -3,7 +3,7 @@
    description="Azure DNS를 사용하여 웹앱에 대한 사용자 지정 도메인 DNS 레코드를 만드는 방법입니다. CNAME 또는 A 레코드를 사용하여 도메인 소유권을 검증하는 단계별 가이드입니다." 
    services="dns" 
    documentationCenter="na" 
-   authors="joaoma" 
+   authors="cherylmc" 
    manager="carmonm" 
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
    ms.date="03/03/2016"
-   ms.author="joaoma"/>
+   ms.author="cherylmc"/>
 
 # 사용자 지정 도메인에서 웹앱에 대한 DNS 레코드 만들기
 
@@ -165,4 +165,4 @@ Set-AzureRMDnsRecordSet cmdlet을 사용하여 변경 내용을 커밋합니다.
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0427_2016-->

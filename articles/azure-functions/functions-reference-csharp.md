@@ -180,7 +180,7 @@ C# 함수에서 NuGet 패키지를 사용하려면 *project.json* 파일을 함�
 
 #### 함수 앱의 SCM(Kudu) 끝점을 사용하여 project.json를 업로드하려면
 
-1. *https://<function_app_name>.scm.azurewebsites.net*으로 이동합니다.
+1. `https://<function_app_name>.scm.azurewebsites.net`로 이동합니다.
 
 2. **디버그 콘솔 > CMD**를 클릭합니다.
 
@@ -190,7 +190,7 @@ C# 함수에서 NuGet 패키지를 사용하려면 *project.json* 파일을 함�
 
 #### FTP를 사용하여 project.json을 업로드하려면
 
-1. [여기](../app-service-web/web-sites-deploy.md#ftp)에 있는 지침에 따라 구성된 FTP를 가져옵니다.
+1. [여기](../app-service-web/web-sites-deploy.md#ftp)에 있는 지침에 따라 FTP를 구성합니다.
 
 2. 함수 앱 사이트에 연결된 경우 *project.json* 파일을 */site/wwwroot/<function_name>*에 복사합니다.
 
@@ -258,4 +258,4 @@ public static void MyLogger(TraceWriter log, string logtext)
 * [Azure Functions NodeJS 개발자 참조](functions-reference-node.md)
 * [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

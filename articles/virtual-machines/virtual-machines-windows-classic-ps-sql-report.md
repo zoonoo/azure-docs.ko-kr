@@ -3,7 +3,7 @@
 	description="이 항목에서는 Azure 가상 컴퓨터에서 SQL Server Reporting Services 기본 모드 보고서 서버의 배포 및 구성에 대해 설명하고 안내합니다."
 	services="virtual-machines-windows"
 	documentationCenter="na"
-	authors="rothja"
+	authors="guyinacube"
 	manager="jeffreyg"
 	editor="monicar" 
 	tags="azure-service-management"/>
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="12/11/2015"
-	ms.author="jroth" />
+	ms.author="asaxton" />
 
 # PowerShell을 사용하여 기본 모드 보고서 서버로 Azure VM 만들기
 
@@ -77,8 +77,7 @@
 	
 	- **새 암호** 및 **확인**. 이 암호는 새 관리자 계정에 대해 사용되므로 강력한 암호를 사용하는 것이 좋습니다.
 	
-	- **다음**을 클릭합니다.
-![다음](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
+	- **다음**을 클릭합니다. ![다음](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 
 1. 다음 페이지에서 다음 필드를 편집합니다.
 
@@ -98,13 +97,11 @@
 
 		- **HTTPS**: 기본 공용 포트 및 개인 포트가 **443**입니다. 보안 모범 사례는 개인 포트를 변경하고 개인 포트를 사용하도록 방화벽 및 보고서 서버를 구성하는 것입니다. 끝점에 대한 자세한 내용은 [가상 컴퓨터로 끝점을 설정하는 방법](virtual-machines-windows-classic-setup-endpoints.md)을 참조하세요. 443 이외의 포트를 사용하는 경우 HTTPS 스크립트에서 매개 변수 **$HTTPsport = 443**을 변경합니다.
 	
-	- 다음을 클릭합니다.
-![다음](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
+	- 다음을 클릭합니다. ![다음](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 
 1. 마법사의 마지막 페이지에서 기본 **VM 에이전트 설치**를 선택한 상태로 유지합니다. 이 항목의 단계에서 VM 에이전트를 이용하지 않지만 이 VM을 유지하려는 경우 VM 에이전트 및 확장을 사용하면 CM이 향상됩니다. VM 에이전트에 대한 자세한 내용은 [VM 에이전트 및 확장 – 1부](https://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/)를 참조하세요. AD 실행을 설치한 기본 확장 중 하나가 VM 데스크톱에서 내부 IP 및 여유 드라이브 공간 같은 시스템 정보를 표시하는 “BGINFO” 확장입니다.
 
-1. 완료를 클릭합니다.
-![확인](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
+1. 완료를 클릭합니다. ![확인](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
 
 1. VM의 **상태**는 프로비전 프로세스 중에는 **시작 중(프로비전 중)**으로 표시되다가 VM이 프로비전되고 사용할 준비가 되면 **실행 중**으로 표시됩니다.
 
@@ -636,7 +633,7 @@ HTTPS에 대해 443 이외의 개인 포트를 구성한 경우 다음 스크립
 
 		http://localhost/Reports
 
-- 로컬 컴퓨터의 VM에서 **원격** 보고서 관리자로 이동합니다. 다음 예제에서 DNS 이름을 적절하게 업데이트합니다. 암호를 입력하라는 메시지가 표시되면 VM이 프로비전되었을 때 만든 관리자 자격 증명을 사용합니다. 사용자 이름은 [도메인] \[사용자 이름] 형식이며, 여기서 도메인은 VM 컴퓨터 이름입니다. 예를 들어 ssrsnativecloud\\testuser입니다. HTTP**S**를 사용하지 않는 경우 URL에서 **s**를 제거합니다. VM에서 추가 사용자를 만드는 방법에 대한 자세한 내용은 다음 섹션을 참조하세요.
+- 로컬 컴퓨터의 VM에서 **원격** 보고서 관리자로 이동합니다. 다음 예제에서 DNS 이름을 적절하게 업데이트합니다. 암호를 입력하라는 메시지가 표시되면 VM이 프로비전되었을 때 만든 관리자 자격 증명을 사용합니다. 사용자 이름은 [도메인]\[사용자 이름] 형식이며, 여기서 도메인은 VM 컴퓨터 이름입니다. 예를 들어 ssrsnativecloud\\testuser입니다. HTTP**S**를 사용하지 않는 경우 URL에서 **s**를 제거합니다. VM에서 추가 사용자를 만드는 방법에 대한 자세한 내용은 다음 섹션을 참조하세요.
 
 		https://ssrsnativecloud.cloudapp.net/Reports
 
@@ -708,4 +705,4 @@ HTTPS에 대해 443 이외의 개인 포트를 구성한 경우 다음 스크립
 
 [Azure 가상 컴퓨터의 SQL Server 개요](virtual-machines-windows-sql-server-iaas-overview.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->
