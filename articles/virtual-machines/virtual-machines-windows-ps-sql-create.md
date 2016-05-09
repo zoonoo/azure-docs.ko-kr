@@ -26,7 +26,7 @@
 
 이 자습서에서는 Azure PowerShell cmdlet을 사용하여 **Azure Resource Manager** 배포 모델을 사용하는 단일 Azure 가상 컴퓨터를 만드는 방법을 보여 줍니다. 이 자습서에서는 SQL 갤러리의 이미지에서 단일 디스크 드라이브를 사용하여 단일 가상 컴퓨터를 만듭니다. 가상 컴퓨터에서 사용할 저장소, 네트워크 및 계산 리소스에 대한 새 공급자를 만듭니다. 이러한 리소스에 대한 기존 공급자가 있는 경우 대신 이러한 공급자를 사용할 수 있습니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델. 이 항목의 클래식 버전이 필요한 경우 [Azure PowerShell 클래식을 사용하여 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-classic-ps-sql-create.md)을 참조하세요.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] 클래식 배포 모델. 이 항목의 클래식 버전이 필요한 경우 [Azure PowerShell 클래식을 사용하여 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-classic-ps-sql-create.md)을 참조하세요.
 
 ## 필수 조건
 
@@ -310,4 +310,4 @@ Get-AzureRmVMImageSku 명령을 사용하여 제품에 사용 가능한 Sku를 �
 ## 다음 단계
 가상 컴퓨터가 만들어지면 RDP를 사용하여 가상 컴퓨터에 연결하고 연결을 설정할 수 있습니다. 자세한 내용은 [Azure(리소스 관리자)에서 SQL Server 가상 컴퓨터에 연결](virtual-machines-windows-sql-connect.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0427_2016--->

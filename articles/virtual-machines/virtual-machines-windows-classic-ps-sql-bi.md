@@ -388,7 +388,9 @@ Analysis Services의 **명명된 인스턴스**의 경우 포트 액세스를 �
 
 	|포트|형식|설명|
 |---|---|---|
-|**80**|TCP|보고서 서버 원격 액세스(*).| |**1433**|TCP|SQL Server Management Studio(*).| |**1434**|UDP|SQL Server Browser입니다. VM이 도메인에 가입된 경우 필요합니다.|
+|**80**|TCP|보고서 서버 원격 액세스(*).|
+|**1433**|TCP|SQL Server Management Studio(*).|
+|**1434**|UDP|SQL Server Browser입니다. VM이 도메인에 가입된 경우 필요합니다.|
 |**2382**|TCP|SQL Server Browser입니다.|
 |**2383**|TCP|SQL Server Analysis Services 기본 인스턴스 및 클러스터된 명명된 인스턴스입니다.|
 |**사용자 정의**|TCP|선택하는 포트 번호에 대해 정적 Analysis Services 명명된 인스턴스 포트를 만든 다음 방화벽에서 포트 번호의 차단을 해제합니다.|

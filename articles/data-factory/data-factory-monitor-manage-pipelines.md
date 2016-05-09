@@ -547,7 +547,7 @@ OnDemandClusterDeleted | Succeeded
  
 위 샘플의 subscriptionId, resourceGroupName, dataFactoryName을 적절한 값으로 변경합니다.
 
-*metricName*은 현재 두 가지 값을 지원합니다.
+*metricName* 은 현재 두 가지 값을 지원합니다.
 - FailedRuns
 - SuccessfulRuns
 

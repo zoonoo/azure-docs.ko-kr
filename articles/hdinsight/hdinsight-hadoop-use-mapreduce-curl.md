@@ -58,7 +58,7 @@ Curl은 MapReduce 작업 실행을 원시 HTTP 요청을 사용하여 HDInsight�
     * **-u**: 요청을 인증하는 데 사용되는 사용자 이름 및 암호입니다.
     * **-G**: GET 요청임을 나타냅니다.
 
-    URL 시작 부분인 ****https://CLUSTERNAME.azurehdinsight.net/templeton/v1**은 모든 요청에서 동일합니다.
+    URL 시작 부분인 **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**은 모든 요청에서 동일합니다.
 
 2. MapReduce 작업을 제출하려면 다음 명령을 사용합니다.
 
@@ -85,7 +85,7 @@ Curl은 MapReduce 작업 실행을 원시 HTTP 요청을 사용하여 HDInsight�
 
     > [AZURE.NOTE] 이 Curl 요청은 작업에 관한 정보가 있는 JSON 문서를 반환합니다. jq는 상태 값을 검색하는 데에만 사용됩니다.
 
-4. 작업 상태가 **SUCCEEDED**로 변경되면 Azure Blob 저장소에서 작업 결과를 검색할 수 있습니다. 쿼리와 함께 전달된 `statusdir` 매개 변수에는 출력 파일의 위치(이 예의 경우 ****wasb:///example/curl**)가 포함됩니다. HDInsight 클러스터에서 사용하는 기본 저장소 컨테이너의 **example/curl** 디렉터리에 작업의 출력을 저장합니다.
+4. 작업 상태가 **SUCCEEDED**로 변경되면 Azure Blob 저장소에서 작업 결과를 검색할 수 있습니다. 쿼리와 함께 전달된 `statusdir` 매개 변수에는 출력 파일의 위치(이 예의 경우 **wasb:///example/curl**)가 포함됩니다. HDInsight 클러스터에서 사용하는 기본 저장소 컨테이너의 **example/curl** 디렉터리에 작업의 출력을 저장합니다.
 
 [Azure CLI](../xplat-cli-install.md)를 사용하여 이러한 파일을 나열하고 다운로드할 수 있습니다. 예를 들어 **example/curl**에 파일을 나열하려면 다음 명령을 사용합니다.
 

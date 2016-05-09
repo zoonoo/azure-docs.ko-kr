@@ -761,11 +761,11 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
 
 	-   **AssemblyName**을 DLL의 이름 **MyDotNetActivity.dll**로 설정합니다.
 
-	-   **EntryPoint**를 **MyDotNetActivityNS.MyDotNetActivity**로 설정합니다. 기본적으로 코드에 있는 <namespace>.<classname>입니다.
+	-   **EntryPoint**를 **MyDotNetActivityNS.MyDotNetActivity**로 설정합니다. 기본적으로 코드에 있는 \<namespace\>.\<classname\>입니다.
 
 	-   **PackageLinkedService**가 사용자 지정 작업 zip 파일을 포함하는 Blob 저장소를 가리키는 **StorageLinkedService**로 설정됩니다. 입/출력 파일 및 사용자 지정 작업 zip 파일에 대해 서로 다른 Azure 저장소 계정을 사용하는 경우 다른 Azure 저장소 연결된 서비스를 만들어야 합니다. 이 문서에서는 동일한 Azure 저장소 계정을 사용 중이라고 가정합니다.
 
-	-   **PackageFile**을 **customactivitycontainer/MyDotNetActivity.zip**으로 설정합니다. <containerforthezip>/<nameofthezip.zip> 형식입니다.
+	-   **PackageFile**을 **customactivitycontainer/MyDotNetActivity.zip**으로 설정합니다. \<containerforthezip\>/\<nameofthezip.zip\> 형식입니다.
 
 	-   사용자 지정 작업은 입력으로 **InputDataset**을, 출력으로 **OutputDataset**을 사용합니다.
 
