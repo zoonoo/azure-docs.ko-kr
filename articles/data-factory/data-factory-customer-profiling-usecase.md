@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="04/01/2016" 
 	ms.author="spelluru"/>
 
 # 사용 사례 - 고객 프로파일링
 
-Azure Data Factory는 솔루션 가속기의 Cortana Analytics Suite를 구현하는 데 사용되는 다양한 서비스 중 하나입니다. Cortana Analytics에 대한 자세한 내용은 [Cortana Analytics Suite](http://www.microsoft.com/cortanaanalytics)를 방문하십시오. 이 문서에서는 Azure 데이터 팩터리가 어떻게 일반적인 분석 문제를 해결할 수 있는지를 이해하기 시작하는 데 도움이 되는 간단한 사용 사례를 설명합니다.
+Azure Data Factory는 솔루션 가속기의 Cortana Intelligence Suite를 구현하는 데 사용되는 다양한 서비스 중 하나입니다. Cortana Intelligence에 대한 자세한 내용은 [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics)를 참조하세요. 이 문서에서는 Azure 데이터 팩터리가 어떻게 일반적인 분석 문제를 해결할 수 있는지를 이해하기 시작하는 데 도움이 되는 간단한 사용 사례를 설명합니다.
 
 이 간단한 사용 사례에 엑세스하고 사용하려면 [Azure를 구독](https://azure.microsoft.com/pricing/free-trial/)하기만 하면 됩니다. [샘플](data-factory-samples.md) 문서에 설명된 단계를 수행하여 이 사용 사례를 구현하는 샘플을 배포할 수 있습니다.
 
@@ -36,7 +36,7 @@ Contoso의 목표는 사용자의 게임 기록 프로필을 기반으로 상향
 
 이 간단한 사용 사례는 Azure 데이터 팩터리를 사용하여 데이터를 수집, 준비, 변환, 분석 및 게시하는 방법의 예로 사용할 수 있습니다.
 
-![종단 간 워크플로](./media/data-factory-customer-profiling-usecase/EndToEndWorkflow.png) 위의 그림은 배포된 후 Azure 클래식 포털 UI에서 데이터 파이프라인을 표시하는 방법을 보여줍니다.
+![종단 간 워크플로](./media/data-factory-customer-profiling-usecase/EndToEndWorkflow.png) 위의 그림은 배포된 후 Azure 포털 UI에서 데이터 파이프라인을 표시하는 방법을 보여줍니다.
 
 1.	**PartitionGameLogsPipeline**은 Blob 저장소에서 원시 게임 이벤트를 읽고 연도, 월 및 일을 기준으로 파티션을 만듭니다.
 2.	**EnrichGameLogsPipeline**은 분할된 게임 이벤트를 지역 코드 참조 데이터와 조인하고 IP 주소를 해당하는 지리적 위치에 매핑하여 데이터를 강화합니다.
@@ -48,4 +48,4 @@ Contoso의 목표는 사용자의 게임 기록 프로필을 기반으로 상향
 
 사용자 프로필 분석을 최적화하고 비즈니스 목표에 맞추어 게임 회사는 신속하게 사용 패턴을 수집하고 모든 다른 게임 제품에 대한 마케팅 캠페인의 효과를 분석할 수 있습니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0427_2016-->

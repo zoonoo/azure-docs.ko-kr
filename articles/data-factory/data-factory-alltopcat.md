@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/08/2016"
+	ms.date="04/22/2016"
 	ms.author="spelluru"/>
 
 
@@ -24,13 +24,21 @@
 
 
 
+## 새로 만들기
+
+
+| 제목 | 설명 |
+| :-- | :-- |
+| [Data Factory에서 Spark 프로그램 호출](data-factory-spark.md) | MapReduce 작업을 사용하여 Azure Data Factory에서 Spark 프로그램을 호출하는 방법에 대해 알아봅니다. |
+
+
 ## 핵심 개념
 
 
 | 제목 | 설명 |
 | :-- | :-- |
-| [Azure Data Factory 서비스 소개](data-factory-introduction.md) | Azure Data Factory 서비스를 통해 데이터 처리, 데이터 저장 및 데이터 이동 서비스를 구성하여 신뢰할 수 있는 정보를 생성하는 파이프라인을 만드는 방법을 알아봅니다. |
 | [Azure 데이터 팩터리의 데이터 집합](data-factory-create-datasets.md) | Azure Data Factory 데이터 집합을 이해하고 만드는 방법을 알아봅니다. |
+| [Azure Data Factory 서비스 소개](data-factory-introduction.md) | Azure Data Factory 서비스를 통해 데이터 처리, 데이터 저장 및 데이터 이동 서비스를 구성하여 신뢰할 수 있는 정보를 생성하는 파이프라인을 만드는 방법을 알아봅니다. |
 | [Azure 데이터 팩터리의 파이프라인 및 활동](data-factory-create-pipelines.md) | Azure 데이터 팩터리 파이프라인을 이해하며 데이터를 이동하게 만들고 통찰력을 얻는 데 사용할 수 있는 정보를 생성하게 변환하는 방법을 알아봅니다. |
 | [데이터 팩터리에서 예약 및 실행](data-factory-scheduling-and-execution.md) | Azure Data Factory 응용 프로그램 모델의 예약 및 실행에 대한 내용을 알아봅니다. |
 
@@ -40,18 +48,19 @@
 
 | 제목 | 설명 |
 | :-- | :-- |
-| [자습서: 첫 번째 데이터 팩터리 빌드(개요)](data-factory-build-your-first-pipeline.md) | 이 자습서에서는 Azure HDInsight를 사용하여 데이터를 변환하는 데이터 파이프라인이 있는 데이터 팩터리를 만드는 방법을 보여 줍니다. |
 | [Microsoft Visual Studio를 사용하여 첫 번째 Azure Data Factory 빌드](data-factory-build-your-first-pipeline-using-vs.md) | 이 자습서에서는 Visual Studio를 사용하여 샘플 Azure Data Factory 파이프라인을 만듭니다. |
 | [Azure 포털/Data Factory 편집기를 사용하여 첫 번째 Azure Data Factory 빌드](data-factory-build-your-first-pipeline-using-editor.md) | 이 자습서에서는 Azure 포털의 데이터 팩터리 편집기를 사용하여 샘플 Azure Data Factory 파이프라인을 만듭니다. |
 | [Azure PowerShell을 사용하여 첫 번째 Azure Data Factory 빌드](data-factory-build-your-first-pipeline-using-powershell.md) | 이 자습서에서는 Azure PowerShell을 사용하여 샘플 Azure Data Factory 파이프라인을 만듭니다. |
 | [자습서: Azure Resource Manager 템플릿을 사용하여 첫 번째 Azure Data Factory 빌드](data-factory-build-your-first-pipeline-using-arm.md) | 이 자습서에서는 Azure 리소스 관리자 템플릿을 사용하여 샘플 Azure Data Factory 파이프라인을 만듭니다. |
+| [자습서: 첫 번째 데이터 팩터리 빌드(개요)](data-factory-build-your-first-pipeline.md) | 이 자습서에서는 Azure HDInsight를 사용하여 데이터를 변환하는 데이터 파이프라인이 있는 데이터 팩터리를 만드는 방법을 보여 줍니다. |
 | [자습서: Azure Blob 저장소에서 Azure SQL 데이터베이스로 데이터 복사](data-factory-get-started.md) | 이 자습서에서는 Azure Data Factory 파이프라인에 Azure Blob에서 Azure SQL 데이터베이스로 데이터를 복사하는 복사 작업을 사용하는 방법을 보여 줍니다. |
 | [자습서: Azure PowerShell을 사용하여 복사 작업이 있는 파이프라인 만들기](data-factory-monitor-manage-using-powershell.md) | 이 자습서에서는 Azure PowerShell을 사용하여 복사 작업이 있는 Azure Data Factory 파이프라인을 만듭니다. |
-| [자습서: 데이터 팩터리 편집기를 사용하여 복사 작업이 있는 파이프라인 만들기](data-factory-get-started-using-editor.md) | 이 자습서에서는 Azure 클래식 포털의 데이터 팩터리 편집기를 사용하여 복사 작업이 있는 Azure Data Factory 파이프라인을 만듭니다. |
+| [자습서: 데이터 팩터리 복사 마법사를 사용하여 복사 작업이 있는 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md) | 이 자습서에서는 데이터 팩터리가 지원하는 복사 마법사를 사용하여 복사 작업이 있는 Azure 데이터 팩터리 파이프라인을 만들 것입니다. |
+| [자습서: 데이터 팩터리 편집기를 사용하여 복사 작업이 있는 파이프라인 만들기](data-factory-get-started-using-editor.md) | 이 자습서에서는 Azure 포털의 데이터 팩터리 편집기를 사용하여 복사 작업이 있는 Azure Data Factory 파이프라인을 만듭니다. |
 | [자습서: Visual Studio를 사용하여 복사 작업이 있는 파이프라인 만들기](data-factory-get-started-using-vs.md) | 이 자습서에서는 Visual Studio를 사용하여 복사 작업이 있는 Azure Data Factory 파이프라인을 만듭니다. |
-| [자습서: 마케팅 캠페인의 효과 측정](data-factory-tutorial.md) | 이 고급 자습서에서는 거의 실제 시나리오를 설명하고 Azure 클래식 포털의 Azure Data Factory 서비스 및 데이터 팩터리 편집기를 사용하여 시나리오를 구현합니다. |
-| [자습서: 데이터 팩터리 [PowerShell]을 사용하여 로그 파일 이동 및 처리](data-factory-tutorial-using-powershell.md) | 이 고급 자습서에서는 거의 실제 시나리오를 설명하고 Azure Data Factory 서비스 및 Azure PowerShell을 사용하여 시나리오를 구현합니다. |
-| [연습: 온-프레미스 SQL Server 데이터베이스에 출력 데이터 복사(Azure 클래식 포털)](data-factory-tutorial-extend-onpremises.md) | 이 연습에서는 파이프라인이 출력 데이터를 SQL Server 데이터베이스에 복사하도록 Azure 클래식 포털의 데이터 팩터리 편집기를 사용하는 자습서를 확장합니다. |
+| [자습서: Azure Data Factory를 사용하여 로그 파일 이동 및 처리(Azure 포털)](data-factory-tutorial.md) | 이 고급 자습서에서는 거의 실제 시나리오를 설명하고 Azure 포털의 Azure Data Factory 서비스 및 데이터 팩터리 편집기를 사용하여 시나리오를 구현합니다. |
+| [자습서: Data Factory를 사용하여 로그 파일 이동 및 처리(PowerShell)](data-factory-tutorial-using-powershell.md) | 이 고급 자습서에서는 거의 실제 시나리오를 설명하고 Azure Data Factory 서비스 및 Azure PowerShell을 사용하여 시나리오를 구현합니다. |
+| [연습: 온-프레미스 SQL Server 데이터베이스에 출력 데이터 복사(Azure 포털)](data-factory-tutorial-extend-onpremises.md) | 이 연습에서는 파이프라인이 출력 데이터를 SQL Server 데이터베이스에 복사하도록 Azure 포털의 데이터 팩터리 편집기를 사용하는 자습서를 확장합니다. |
 | [연습: 온-프레미스 SQL Server 데이터베이스에 출력 데이터 복사(Azure PowerShell)](data-factory-tutorial-extend-onpremises-using-powershell.md) | 이 연습에서는 파이프라인이 출력 데이터를 SQL Server 데이터베이스에 복사하도록 Azure PowerShell을 사용하는 자습서를 확장합니다. |
 
 
@@ -94,13 +103,13 @@
 | [Azure 기계 학습 작업을 사용하여 예측 파이프라인 만들기](data-factory-azure-ml-batch-execution-activity.md) | Azure Data Factory 및 Azure 기계 학습을 사용하여 예측 파이프라인을 만드는 방법을 설명합니다. |
 | [Hadoop 스트리밍 작업](data-factory-hadoop-streaming-activity.md) | Azure Data Factory에서 Hadoop 스트리밍 작업을 사용하여 주문형/사용자 고유의 HDInsight 클러스터에서 Hadoop 스트리밍 프로그램을 실행하는 방법에 대해 알아봅니다. |
 | [Hive 작업](data-factory-hive-activity.md) | Azure 데이터 공장에서 Hive 활동을 사용하여 필요 시/사용자 고유의 HDInsight 클러스터에서 Hive 쿼리를 실행하는 방법을 알아봅니다. |
+| [Azure 배치 및 데이터 팩터리를 사용하여 HPC 및 데이터 오케스트레이션](data-factory-data-processing-using-batch.md) | Azure 배치의 병렬 처리 기능을 사용하여 Azure Data Factory 파이프라인에서 대용량 데이터를 처리하는 방법을 설명합니다. |
 | [데이터 팩터리에서 MapReduce 프로그램 호출](data-factory-map-reduce.md) | Azure HDInsight 클러스터에서 Azure 데이터 팩터리의 MapReduce 프로그램을 실행하여 데이터를 처리하는 방법을 알아봅니다. |
 | [Pig 작업](data-factory-pig-activity.md) | Azure Data Factory에서 Pig 작업을 사용하여 주문형/사용자 고유의 HDInsight 클러스터에서 Pig 스크립트를 실행하는 방법을 알아봅니다. |
 | [Azure Data Factory의 Azure 데이터 레이크 분석에서 U-SQL 스크립트 실행](data-factory-usql-activity.md) | Azure 데이터 레이크 분석 계산 서비스에서 U-SQL 스크립트를 실행하여 데이터를 처리하는 방법에 대해 알아봅니다. |
 | [SQL Server 저장 프로시저 작업](data-factory-stored-proc-activity.md) | SQL Server 저장 프로시저 작업을 사용하여 데이터 팩터리 파이프라인으로 Azure SQL 데이터베이스 또는 Azure SQL 데이터 웨어하우스에서 저장 프로시저를 호출하는 방법을 알아봅니다. |
 | [Azure Data Factory를 사용한 분석 및 변환](data-factory-data-transformation-activities.md) | Azure Data Factory 서비스를 사용하여 데이터를 변환하고 분석하는 방법을 알아봅니다. |
 | [Azure Data Factory 파이프라인에서 사용자 지정 작업 사용](data-factory-use-custom-activities.md) | 사용자 지정 작업을 만들고 Azure Data Factory 파이프라인에서 사용하는 방법에 대해 알아봅니다. |
-| [Azure 배치 및 데이터 팩터리를 사용하여 HPC 및 데이터 오케스트레이션](data-factory-data-processing-using-batch.md) | Azure 배치의 병렬 처리 기능을 사용하여 Azure Data Factory 파이프라인에서 대용량 데이터를 처리하는 방법을 설명합니다. |
 
 
 ## 샘플
@@ -126,7 +135,7 @@
 
 | 제목 | 설명 |
 | :-- | :-- |
-| [Azure Data Factory 파이프라인 모니터링 및 관리](data-factory-monitor-manage-pipelines.md) | Azure 클래식 포털과 Azure PowerShell을 사용하여 사용자가 만든 Azure Data Factory와 파이프라인을 모니터링하고 관리하는 방법에 대해 알아봅니다. |
+| [Azure Data Factory 파이프라인 모니터링 및 관리](data-factory-monitor-manage-pipelines.md) | Azure 포털과 Azure PowerShell을 사용하여 사용자가 만든 Azure Data Factory와 파이프라인을 모니터링하고 관리하는 방법에 대해 알아봅니다. |
 
 
 ## SDK)
@@ -153,12 +162,12 @@
 
 #### 추가 항목
 
-- 학습 경로 그래픽: [Data Factory](http://azure.microsoft.com/documentation/learning-paths/data-factory/)
-
 - [Microsoft Azure 설명서 검색](http://azure.microsoft.com/search/documentation/)
 
-- [Data Factory 서비스에 대한 최신 업데이트 보기](http://azure.microsoft.com/updates/?service=data-factory)
+- [데이터 팩터리 서비스에 대한 최신 업데이트 보기](http://azure.microsoft.com/updates/?service=data-factory)
 
 - [Microsoft Azure 서비스에 대한 학습 경로 그래픽](http://azure.microsoft.com/documentation/learning-paths/)
 
-<!---HONumber=AcomDC_0309_2016-->
+- 학습 경로 그래픽: [data-factory](http://azure.microsoft.com/documentation/learning-paths/data-factory/)
+
+<!---HONumber=AcomDC_0427_2016-->

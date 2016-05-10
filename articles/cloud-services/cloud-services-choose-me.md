@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="04/15/2016" 
 	ms.author="adegeo"/>
 
 # 클라우드 서비스 또는 다른 항목을 선택해야 합니까?
@@ -57,4 +57,4 @@ Azure 클라우드 서비스가 적절한 선택입니까? Azure는 응용 프�
 ## 다음 단계
 [.NET에서 클라우드 서비스 앱 만들기](cloud-services-dotnet-get-started.md) [Node.js에서 클라우드 서비스 앱 만들기](cloud-services-nodejs-develop-deploy-app.md) [PHP에서 클라우드 서비스 앱 만들기](../cloud-services-php-create-web-role.md) [Python에서 클라우드 서비스 앱 만들기](../cloud-services-python-ptvs.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

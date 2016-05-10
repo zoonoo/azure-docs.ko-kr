@@ -139,4 +139,4 @@ Azure에서 라이브로 실행 중인 앱을 보려면 리포지토리의 디�
 - [모바일 앱 만들기](/documentation/learning-paths/appservice-mobileapps/)
 - [API 앱 만들기](../app-service-api/app-service-api-apps-why-best-platform.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!----HONumber=AcomDC_0420_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="04/04/2016"
+	ms.date="04/27/2016"
 	ms.author="v-livech"/>
 
 # Azure 템플릿을 사용하여 보안 Linux VM 만들기
@@ -66,4 +66,4 @@ info:    group create command OK
 
 템플릿을 사용하여 Linux VM을 만들면 템플릿과 함께 사용할 수 있는 다른 앱 프레임워크를 확인하려고 합니다. [템플릿 갤러리](https://azure.microsoft.com/documentation/templates/)를 검색하여 다음에 배포하는 앱 프레임워크를 검색합니다.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

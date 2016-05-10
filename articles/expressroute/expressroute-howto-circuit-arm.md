@@ -1,10 +1,10 @@
 <properties
    pageTitle="리소스 관리자 및 PowerShell을 사용하여 Express 경로 회로 만들기 및 수정 | Microsoft Azure"
-   description="이 문서에서는 Express 경로 회로를 만들고 프로비전하는 방법을 설명합니다. 또한 회로를 확인, 업데이트 또는 삭제 및 프로비전 해제하는 방법도 보여 줍니다."
+   description="이 문서에서는 Express 경로 회로를 만들고, 프로비전하고, 확인하고, 업데이트하고, 삭제하고, 프로비전을 해제하는 방법을 설명합니다."
    documentationCenter="na"
    services="expressroute"
-   authors="cherylmc"
-   manager="carolz"
+   authors="ganesr"
+   manager="carmonm"
    editor=""
    tags="azure-resource-manager"/>
 <tags
@@ -13,393 +13,396 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/03/2016"
-   ms.author="cherylmc"/>
+   ms.date="04/15/2016"
+   ms.author="ganesr"/>
 
-# 리소스 관리자 및 PowerShell을 사용하여 Express 경로 회로 만들기 및 수정
+# Express 경로 회로 만들기 및 수정
 
-   > [AZURE.SELECTOR]
-   [PowerShell - Classic](expressroute-howto-circuit-classic.md)
-   [PowerShell - Resource Manager](expressroute-howto-circuit-arm.md)
+> [AZURE.SELECTOR]
+[Azure Portal - Resource Manager](expressroute-howto-circuit-portal-resource-manager.md)
+[PowerShell - Resource Manager](expressroute-howto-circuit-arm.md)
+[PowerShell - Classic](expressroute-howto-circuit-classic.md)
 
-이 문서에서는 Windows PowerShell cmdlet 및 Azure Resource Manager 배포 모델을 사용하여 Azure Express 경로 회로를 만드는 방법을 설명합니다. 아래 단계에서는 회로의 상태 확인, 업데이트 또는 삭제 및 프로비전 해제를 수행하는 방법도 보여 줍니다.
 
-   [AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
+이 문서에서는 Windows PowerShell cmdlet 및 Azure Resource Manager 배포 모델을 사용하여 Azure Express 경로 회로를 만드는 방법을 설명합니다. 이 문서는 회로의 상태 확인, 업데이트 또는 삭제 및 프로비전 해제를 수행하는 방법도 보여 줍니다.
 
-## 필수 구성 요소
+**Azure 배포 모델 정보**
 
-Express 경로 회로를 만들려면 다음 작업을 수행해야 합니다.
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-- 최신 버전(버전 1.0 이상)의 Azure PowerShell 모듈 받기 Azure PowerShell 모듈을 사용하도록 컴퓨터를 구성하는 방법에 대한 단계별 지침은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md) 페이지의 지침을 따르세요.
-- 구성을 시작하기 전에 [필수 조건](expressroute-prerequisites.md) 페이지와 [워크플로](expressroute-workflows.md) 페이지 검토
+## 시작하기 전에
+
+
+- Azure PowerShell 모듈의 최신 버전(버전 1.0 이상)을 확보합니다. Azure PowerShell 모듈을 사용하도록 컴퓨터를 구성하는 방법에 대한 단계별 지침은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)의 지침을 따르세요.
+
+- 구성을 시작하기 전에 [필수 조건](expressroute-prerequisites.md) 페이지와 [워크플로](expressroute-workflows.md) 페이지를 검토합니다.
 
 ## Express 경로 회로 만들기 및 프로비전
 
-**1단계. Express 경로에 대한 PowerShell 모듈을 가져옵니다.**
+### 1\. Azure 계정에 로그인하고 구독을 선택합니다.
 
-Express 경로 cmdlet을 사용하려면 [PowerShell 갤러리](http://www.powershellgallery.com/)에서 최신 Powershell 설치 관리자를 설치하고 PowerShell 세션으로 리소스 관리자 모듈을 가져와야 합니다. 관리자 권한으로 PowerShell을 실행합니다.
+구성을 시작하려면, Azure 계정에 로그인합니다. PowerShell에 대한 자세한 내용은 [리소스 관리자에서 Windows PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하세요. 연결에 도움이 되도록 다음 예제를 사용합니다.
 
-```
-Install-Module AzureRM
+	Login-AzureRmAccount
 
-Install-AzureRM
-```
+계정에 대한 구독을 확인합니다.
 
-알려진 의미 체계 버전 범위의 모든 AzureRM 모듈을 가져옵니다.
-
-```
-Import-AzureRM
-```
-
-또한 알려진 의미 체계 버전 범위의 선택 모듈을 가져올 수 있습니다.
-
-```
-Import-Module AzureRM.Network
-```
-
-계정에 로그인합니다.
-
-```
-Login-AzureRmAccount
-```
+	Get-AzureRmSubscription
 
 Express 경로 회로를 만들려는 구독을 선택합니다.
 
-```
-Select-AzureRmSubscription -SubscriptionId "<subscription ID>"   			
-```
+	Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
 
-**2단계. 지원되는 공급자, 위치 및 대역폭 목록을 가져옵니다.**
+### 2\. 지원되는 공급자, 위치 및 대역폭 목록을 가져옵니다.
 
-Express 경로 회로를 만들기 전에 연결 공급자, 지원되는 위치 및 대역폭 옵션 목록이 필요합니다. PowerShell cmdlet *Get-AzureRmExpressRouteServiceProvider*는 나중에 사용할 이 정보를 반환합니다.
+Express 경로 회로를 만들기 전에 연결 공급자, 지원되는 위치 및 대역폭 옵션 목록이 필요합니다.
 
-```
-PS C:\> Get-AzureRmExpressRouteServiceProvider
-```
+PowerShell cmdlet `Get-AzureRmExpressRouteServiceProvider`은(는) 이후 단계에서 사용할 이 정보를 반환합니다.
+
+	Get-AzureRmExpressRouteServiceProvider
 
 연결 공급자가 여기에 나열되었는지 확인합니다. 다음 정보는 나중에 회로를 만들 때 필요하므로 적어 둡니다.
 
 - 이름
+
 - PeeringLocations
+
 - BandwidthsOffered
 
 이제 Express 경로 회로를 만들 준비가 되었습니다.
 
-**3단계. Express 경로 회로를 만듭니다.**
+### 3\. Express 경로 회로 만들기
 
 아직 리소스 그룹이 없는 경우 Express 경로 회로를 만들기 전에 먼저 리소스 그룹을 만들어야 합니다. 다음 명령을 실행하여 수행할 수 있습니다.
 
-```
-New-AzureRmResourceGroup -Name "ExpressRouteResourceGroup" -Location "West US"
-```
+
+	New-AzureRmResourceGroup -Name "ExpressRouteResourceGroup" -Location "West US"
+
 
 아래 예제에서는 Equinix 실리콘밸리를 통해 200Mbps Express 경로 회로를 만드는 방법을 보여 줍니다. 다른 공급자와 다른 설정을 사용하는 경우, 요청을 수행할 때 해당 정보를 대체합니다. 다음은 새 서비스 키에 대한 예제 요청입니다.
 
-```
-New-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup" -Location "West US" -SkuTier Standard -SkuFamily MeteredData -ServiceProviderName "Equinix" -PeeringLocation "Silicon Valley" -BandwidthInMbps 200
-```
+	New-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup" -Location "West US" -SkuTier Standard -SkuFamily MeteredData -ServiceProviderName "Equinix" -PeeringLocation "Silicon Valley" -BandwidthInMbps 200
 
 올바른 SKU 계층과 SKU 제품군을 지정하는지 확인합니다.
 
-- SKU 계층은 Express 경로 표준 또는 Express 경로 Premium 추가 기능이 사용되는지 여부를 결정합니다. *표준*을 지정하여 표준 SKU를 가져오거나 Premium 추가 기능에 대해 *프리미엄*을 지정할 수 있습니다.
-- SKU 제품군은 청구서 유형을 결정합니다. 데이터 요금제의 경우 *metereddata*를 선택하고 무제한 데이터 요금제의 경우 *unlimiteddata*를 선택할 수 있습니다. **참고:** 회로를 만든 후에는 청구서 유형을 변경할 수 없습니다.
+- SKU 계층은 Express 경로 표준 또는 Express 경로 Premium 추가 기능이 사용되는지 여부를 결정합니다. "표준"을 지정하여 표준 SKU를 가져오거나 Premium 추가 기능을 위해 "프리미엄"을 지정할 수 있습니다.
+ 
+- SKU 제품군은 청구서 유형을 결정합니다. 데이터 요금제의 경우 "Metereddata"를 선택하고 무제한 데이터 요금제의 경우 "Unlimiteddata"를 선택할 수 있습니다. **참고:** 청구서 유형을 "Metereddata"에서 "Unlimiteddata"로 변경할 수 있지만, "Unlimiteddata"에서 "Metereddata"로는 변경할 수 없습니다.
+
+
+>[AZURE.IMPORTANT] Express 경로 회로는 서비스 키가 발급된 순간부터 비용이 청구됩니다. 연결 공급자가 회로를 프로비전할 준비가 된 후에 이 작업을 수행하도록 하십시오.
 
 응답에 서비스 키가 포함됩니다. 다음을 실행하여 모든 매개 변수에 대한 자세한 설명을 볼 수 있습니다.
 
-```
-get-help New-AzureRmExpressRouteCircuit -detailed
-```
 
-**4단계. 모든 Express 경로 회로를 나열합니다.**
+	get-help New-AzureRmExpressRouteCircuit -detailed
 
-만든 모든 Express 경로 회로 목록을 가져오려면 *Get-AzureRmExpressRouteCircuit* 명령을 실행합니다.
 
-```
-#Getting service key
-Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
-```
+### 4\. 모든 Express 경로 회로 나열
+
+만들어 놓은 모든 Express 경로 회로 목록을 가져오려면 `Get-AzureRmExpressRouteCircuit` 명령을 실행합니다.
+
+
+	Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+	
+응답은 다음 예제와 유사합니다.
+	
+
+	Name                             : ExpressRouteARMCircuit
+	ResourceGroupName                : ExpressRouteResourceGroup
+	Location                         : westus
+	Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
+	Etag                             : W/"################################"
+	ProvisioningState                : Succeeded
+	Sku                              : {
+	                                     "Name": "Standard_MeteredData",
+	                                     "Tier": "Standard",
+	                                     "Family": "MeteredData"
+	   		                           }
+	CircuitProvisioningState          : Enabled
+	ServiceProviderProvisioningState  : NotProvisioned
+	ServiceProviderNotes              :
+	ServiceProviderProperties         : {
+	                                      "ServiceProviderName": "Equinix",
+	                                      "PeeringLocation": "Silicon Valley",
+	                                      "BandwidthInMbps": 200
+	                                    }
+	ServiceKey                        : **************************************
+	Peerings                          : []
+	
+`Get-AzureRmExpressRouteCircuit` cmdlet을 사용하여 이 정보를 언제든지 검색할 수 있습니다. 매개 변수 없이 호출을 수행하면 모든 회로가 표시됩니다. 서비스 키는 "ServiceKey" 필드에 나열됩니다.
+	
+
+	Get-AzureRmExpressRouteCircuit
+
 
 응답은 다음 예제와 유사합니다.
+	
 
-```
-Name                             : ExpressRouteARMCircuit
-ResourceGroupName                : ExpressRouteResourceGroup
-Location                         : westus
-Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
-Etag                             : W/"################################"
-ProvisioningState                : Succeeded
-Sku                              : {
-                                     "Name": "Standard_MeteredData",
-                                     "Tier": "Standard",
-                                     "Family": "MeteredData"
-   		                           }
-CircuitProvisioningState          : Enabled
-ServiceProviderProvisioningState  : NotProvisioned
-ServiceProviderNotes              :
-ServiceProviderProperties         : {
-                                      "ServiceProviderName": "Equinix",
-                                      "PeeringLocation": "Silicon Valley",
-                                      "BandwidthInMbps": 200
-                                    }
-ServiceKey                        : **************************************
-Peerings                          : []
-```
+	Name                             : ExpressRouteARMCircuit
+	ResourceGroupName                : ExpressRouteResourceGroup
+	Location                         : westus
+	Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
+	Etag                             : W/"################################"
+	ProvisioningState                : Succeeded
+	Sku                              : {
+	                                     "Name": "Standard_MeteredData",
+	                                     "Tier": "Standard",
+	                                     "Family": "MeteredData"
+	   		                           }
+	CircuitProvisioningState         : Enabled
+	ServiceProviderProvisioningState : NotProvisioned
+	ServiceProviderNotes             :
+	ServiceProviderProperties        : {
+	                                     "ServiceProviderName": "Equinix",
+	                                     "PeeringLocation": "Silicon Valley",
+	                                     "BandwidthInMbps": 200
+	   		                           }
+	ServiceKey                       : **************************************
+	Peerings                         : []
 
-언제든지 *Get-AzureRmExpressRouteCircuit* cmdlet을 사용하여 이 정보를 검색할 수 있습니다. 매개 변수 없이 호출을 수행하면 모든 회로가 표시됩니다. 서비스 키는 *ServiceKey* 필드에 나열됩니다.
-
-```
-Get-AzureRmExpressRouteCircuit
-```
-
-응답은 다음 예제와 유사합니다.
-
-```
-Name                             : ExpressRouteARMCircuit
-ResourceGroupName                : ExpressRouteResourceGroup
-Location                         : westus
-Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
-Etag                             : W/"################################"
-ProvisioningState                : Succeeded
-Sku                              : {
-                                     "Name": "Standard_MeteredData",
-                                     "Tier": "Standard",
-                                     "Family": "MeteredData"
-   		                           }
-CircuitProvisioningState         : Enabled
-ServiceProviderProvisioningState : NotProvisioned
-ServiceProviderNotes             :
-ServiceProviderProperties        : {
-                                     "ServiceProviderName": "Equinix",
-                                     "PeeringLocation": "Silicon Valley",
-                                     "BandwidthInMbps": 200
-   		                           }
-ServiceKey                       : **************************************
-Peerings                         : []
-```
 
 다음을 실행하여 모든 매개 변수에 대한 자세한 설명을 볼 수 있습니다.
 
-```
-get-help Get-AzureRmExpressRouteCircuit -detailed
-```
 
-**5단계. 프로비전을 위해 연결 공급자에 서비스 키를 보냅니다.**
+	get-help Get-AzureRmExpressRouteCircuit -detailed
+
+### 5\. 프로비전을 위해 연결 공급자에 서비스 키 보내기
+
+"ServiceProviderProvisioningState"는 서비스 공급자 측의 현재 프로비전 상태에 대한 정보를 제공하며, Status는 Microsoft 측의 상태를 제공합니다. 회로 프로비전 상태에 대한 자세한 내용은 [워크플로](expressroute-workflows.md#expressroute-circuit-provisioning-states) 문서를 참조하세요.
 
 새 Express 경로 회로를 만들면 회로는 다음 상태가 됩니다.
 
-```
-ServiceProviderProvisioningState : NotProvisioned
 
-CircuitProvisioningState         : Enabled
-```
+	ServiceProviderProvisioningState : NotProvisioned
+	CircuitProvisioningState         : Enabled
 
-*ServiceProviderProvisioningState*는 서비스 공급자 측의 현재 프로비전 상태에 대한 정보를 제공하며, Status는 Microsoft 측의 상태를 제공합니다. Express 경로 회로를 사용하려면 다음 상태여야 합니다.
 
-```
-ServiceProviderProvisioningState : Provisioned
-
-CircuitProvisioningState         : Enabled
-```
 
 연결 공급자가 사용자에 대해 활성화를 처리 중이면 회로가 다음 상태로 변경됩니다.
 
-```
-ServiceProviderProvisioningState : Provisioned
+	ServiceProviderProvisioningState : Provisioning
+	Status                           : Enabled
 
-Status                           : Enabled
-```
+Express 경로 회로를 사용하려면 다음 상태여야 합니다.
 
-**6단계. 주기적으로 회로 키의 상태 및 상태를 확인합니다.**
+	ServiceProviderProvisioningState : Provisioned
+	CircuitProvisioningState         : Enabled
 
-회로 키의 상태를 확인하면 공급자가 회로를 사용하도록 설정한 시점을 알 수 있습니다. 회로가 구성된 후에는 *ServiceProviderProvisioningState*가 아래 예에서처럼 *프로비전됨*으로 표시됩니다.
+### 6\. 회로 키의 상태를 주기적으로 확인
 
-```
-Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
-```
+회로 키의 상태를 확인하면 공급자가 회로를 사용하도록 설정한 시점을 알 수 있습니다. 회로가 구성된 후에는 "ServiceProviderProvisioningState"가 아래 예에서처럼 "Provisioned"로 표시됩니다.
 
+
+	Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+
+	
 응답은 다음 예제와 유사합니다.
+	
 
-```
-Name                             : ExpressRouteARMCircuit
-ResourceGroupName                : ExpressRouteResourceGroup
-Location                         : westus
-Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
-Etag                             : W/"################################"
-ProvisioningState                : Succeeded
-Sku                              : {
-                                     "Name": "Standard_MeteredData",
-                                     "Tier": "Standard",
-                                     "Family": "MeteredData"
-                                   }
-CircuitProvisioningState         : Enabled
-ServiceProviderProvisioningState : Provisioned
-ServiceProviderNotes             :
-ServiceProviderProperties        : {
-                                     "ServiceProviderName": "Equinix",
-                                     "PeeringLocation": "Silicon Valley",
-                                     "BandwidthInMbps": 200
-   	                            }
-ServiceKey                       : **************************************
-Peerings                         : []
+	Name                             : ExpressRouteARMCircuit
+	ResourceGroupName                : ExpressRouteResourceGroup
+	Location                         : westus
+	Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
+	Etag                             : W/"################################"
+	ProvisioningState                : Succeeded
+	Sku                              : {
+	                                     "Name": "Standard_MeteredData",
+	                                     "Tier": "Standard",
+	                                     "Family": "MeteredData"
+	                                   }
+	CircuitProvisioningState         : Enabled
+	ServiceProviderProvisioningState : Provisioned
+	ServiceProviderNotes             :
+	ServiceProviderProperties        : {
+	                                     "ServiceProviderName": "Equinix",
+	                                     "PeeringLocation": "Silicon Valley",
+	                                     "BandwidthInMbps": 200
+	   	                            }
+	ServiceKey                       : **************************************
+	Peerings                         : []
 
-```
+### 7\. 라우팅 구성 만들기
 
-**7단계. 라우팅 구성을 만듭니다.**
+단계별 지침은 [Express 경로 회로 라우팅 구성(회로 피어링 만들기 및 수정)](expressroute-howto-routing-arm.md)을 참조하세요.
 
-단계별 지침은 [Express 경로 회로 라우팅 구성(회로 피어링 만들기 및 수정)](expressroute-howto-routing-arm.md) 페이지를 참조하세요.
 
-**8단계. 가상 네트워크를 Express 경로 회로에 연결합니다.**
+>[AZURE.IMPORTANT] 이 지침은 2계층 연결 서비스를 제공하는 서비스 공급자를 사용하여 만든 회로에만 적용됩니다. 관리된 3계층 서비스(일반적으로 MPLS와 같은 IP VPN)를 제공하는 서비스 공급자를 사용하는 경우 연결 공급자는 사용자를 위해 라우팅을 구성하고 관리합니다.
 
-그 다음 가상 네트워크를 Express 경로 회로에 연결합니다. 리소스 관리자 배포 모드로 작업할 때 [이 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection)을 사용할 수 있습니다. 현재 PowerShell을 사용하여 이 작업을 수행하는 단계입니다.
+### 8\. 가상 네트워크를 Express 경로 회로에 연결합니다.
+
+그 다음 가상 네트워크를 Express 경로 회로에 연결합니다. 리소스 관리자 배포 모델을 작업하는 경우에는 [Express 경로 회로에 가상 네트워크 연결](expressroute-howto-linkvnet-arm.md) 문서를 사용할 수 있습니다.
 
 ## Express 경로 회로의 상태 가져오기
 
-언제든지 *Get-AzureRmExpressRouteCircuit* cmdlet을 사용하여 이 정보를 검색할 수 있습니다. 매개 변수 없이 호출을 수행하면 모든 회로가 표시됩니다.
+`Get-AzureRmExpressRouteCircuit` cmdlet을 사용하여 이 정보를 언제든지 검색할 수 있습니다. 매개 변수 없이 호출을 수행하면 모든 회로가 표시됩니다.
 
-```
-Get-AzureRmExpressRouteCircuit
-```
+	Get-AzureRmExpressRouteCircuit
+
 
 응답은 다음 예와 유사합니다.
 
-```
-Name                             : ExpressRouteARMCircuit
-ResourceGroupName                : ExpressRouteResourceGroup
-Location                         : westus
-Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
-Etag                             : W/"################################"
-ProvisioningState                : Succeeded
-Sku                              : {
-                                     "Name": "Standard_MeteredData",
-                                     "Tier": "Standard",
-                                     "Family": "MeteredData"
-                                   }
-CircuitProvisioningState         : Enabled
-ServiceProviderProvisioningState : Provisioned
-ServiceProviderNotes             :
-ServiceProviderProperties        : {
-   		                             "ServiceProviderName": "Equinix",
-   		                             "PeeringLocation": "Silicon Valley",
-   		                             "BandwidthInMbps": 200
-   		                           }
-ServiceKey                       : **************************************
-Peerings                         : []
-```
+
+	Name                             : ExpressRouteARMCircuit
+	ResourceGroupName                : ExpressRouteResourceGroup
+	Location                         : westus
+	Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
+	Etag                             : W/"################################"
+	ProvisioningState                : Succeeded
+	Sku                              : {
+	                                     "Name": "Standard_MeteredData",
+	                                     "Tier": "Standard",
+	                                     "Family": "MeteredData"
+	                                   }
+	CircuitProvisioningState         : Enabled
+	ServiceProviderProvisioningState : Provisioned
+	ServiceProviderNotes             :
+	ServiceProviderProperties        : {
+	   		                             "ServiceProviderName": "Equinix",
+	   		                             "PeeringLocation": "Silicon Valley",
+	   		                             "BandwidthInMbps": 200
+	   		                           }
+	ServiceKey                       : **************************************
+	Peerings                         : []
+
 
 리소스 그룹 이름 및 회로 이름을 매개 변수 형태로 호출에 전달하면 특정 Express 경로 회로에 대한 정보를 가져올 수 있습니다.
 
-```
-Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
-```
+
+	Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+
 
 응답은 다음 예제와 유사합니다.
 
-```
-Name                             : ExpressRouteARMCircuit
-ResourceGroupName                : ExpressRouteResourceGroup
-Location                         : westus
-Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
-Etag                             : W/"################################"
-ProvisioningState                : Succeeded
-Sku                              : {
-                                     "Name": "Standard_MeteredData",
-   		                             "Tier": "Standard",
-   		                             "Family": "MeteredData"
-   		                           }
-CircuitProvisioningState         : Enabled
-ServiceProviderProvisioningState : Provisioned
-ServiceProviderNotes             :
-ServiceProviderProperties        : {
-                                     "ServiceProviderName": "Equinix",
-                                     "PeeringLocation": "Silicon Valley",
-                                     "BandwidthInMbps": 200
-   		                           }
-ServiceKey                       : **************************************
-Peerings                         : []
-```
+
+	Name                             : ExpressRouteARMCircuit
+	ResourceGroupName                : ExpressRouteResourceGroup
+	Location                         : westus
+	Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
+	Etag                             : W/"################################"
+	ProvisioningState                : Succeeded
+	Sku                              : {
+	                                     "Name": "Standard_MeteredData",
+	   		                             "Tier": "Standard",
+	   		                             "Family": "MeteredData"
+	   		                           }
+	CircuitProvisioningState         : Enabled
+	ServiceProviderProvisioningState : Provisioned
+	ServiceProviderNotes             :
+	ServiceProviderProperties        : {
+	                                     "ServiceProviderName": "Equinix",
+	                                     "PeeringLocation": "Silicon Valley",
+	                                     "BandwidthInMbps": 200
+	   		                           }
+	ServiceKey                       : **************************************
+	Peerings                         : []
+
 
 다음을 실행하여 모든 매개 변수에 대한 자세한 설명을 볼 수 있습니다.
 
-```
-get-help get-azurededicatedcircuit -detailed
-```
+	get-help get-azurededicatedcircuit -detailed
 
-## Express 경로 회로 수정
+
+## <a name="modify"></a>Express 경로 회로 수정
 
 연결에 미치는 영향 없이 Express 경로 회로의 특정 속성을 수정할 수 있습니다.
 
 가동 중지 시간 없이 다음을 수행할 수 있습니다.
 
 - Express 경로 회로에 대해 Express 경로 프리미엄 추가 기능을 사용하거나 사용하지 않을 수 있습니다.
-- Express 경로 회로의 대역폭 증대
+- Express 경로 회로의 대역폭 증대 회로 대역폭 다운그레이드는 지원되지 않습니다. 
+- 요금제를 데이터 요금에서 무제한 데이터 요금으로 변경합니다. 요금제를 무제한 데이터 요금에서 데이터 요금으로 변경하는 것은 지원되지 않습니다. 
+-  "Allow Classic Operations"(클래식 작업 허용)을 활성화하거나 비활성화할 수 있습니다. 
 
 제한 및 제한 사항에 대한 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md) 페이지를 참조하세요.
 
-### Express 경로 프리미엄 추가 기능 사용
+### Express 경로 Premium 추가 기능을 활성화하려면
 
 다음 PowerShell 코드 조각을 사용하여 기존 회로에 대해 Express 경로 프리미엄 추가 기능을 활성화할 수 있습니다.
 
-```
-$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+	$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+	
+	$ckt.Sku.Tier = "Premium"
+	$ckt.sku.Name = "Premium_MeteredData"
+	
+	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
-$ckt.Sku.Tier = "Premium"
-$ckt.sku.Name = "Premium_MeteredData"
-
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
-```
 
 이제 Express 경로 프리미엄 추가 기능을 사용할 수 있게 됩니다. Microsoft는 명령이 성공적으로 실행되는 즉시 프리미엄 추가 기능에 대한 청구를 시작합니다.
 
-### Express 경로 프리미엄 추가 기능 사용 안 함
+### Express 경로 Premium 추가 기능을 비활성화하려면
+
+>[AZURE.IMPORTANT] 표준 회로에 허용된 것보다 많은 리소스를 사용할 경우 이 작업이 실패할 수 있습니다.
+
+다음 사항에 유의하세요.
+
+- 프리미엄을 표준으로 다운그레이드하기 전에 회로에 연결된 가상 네트워크 수가 10개 미만인지 확인해야 합니다. 그렇게 하지 않으면 업데이트 요청이 실패하고 Microsoft에서 프리미엄 요금을 청구합니다.
+
+- 다른 지리적 위치의 모든 가상 네트워크를 연결 해제해야 합니다. 그렇게 하지 않으면 업데이트 요청이 실패하고 Microsoft에서 프리미엄 요금을 청구합니다.
+
+- 사설 피어링을 위해서는 경로 테이블의 경로가 4000개 미만이어야 합니다. 경로 테이블 크기가 4000개 경로 이상이면 BGP 세션이 폐기되고 게시된 프리픽스 수가 4000개 미만이 될 때까지 다시 활성화되지 않습니다.
 
 다음 PowerShell cmdlet을 사용하여 기존 회로에 대해 Express 경로 프리미엄 추가 기능을 사용하지 않도록 설정할 수 있습니다.
 
-```
-$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-$ckt.Sku.Tier = "Standard"
-$ckt.sku.Name = "Standard_MeteredData"
+	$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+	
+	$ckt.Sku.Tier = "Standard"
+	$ckt.sku.Name = "Standard_MeteredData"
+	
+	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
-```
 
-그러면 회로에 대해 프리미엄 추가 기능을 사용할 수 없습니다.
+### Express 경로 회로 대역폭을 업데이트하려면
 
-표준 회로에 허용된 것보다 많은 리소스를 사용할 경우 이 작업이 실패합니다.
+공급자에 대해 지원되는 대역폭 옵션은 [Express 경로 FAQ](expressroute-faqs.md) 페이지를 확인하세요. 기존 회로의 크기보다 큰 모든 크기를 선택할 수 있습니다.
 
-- 프리미엄을 표준으로 다운그레이드하기 전에 회로에 연결된 가상 네트워크 수가 10개 미만인지 확인해야 합니다. 그렇게 하지 않으면 업데이트 요청이 실패하고 Microsoft가 프리미엄 요금을 청구합니다.
-- 다른 지리적 위치의 모든 가상 네트워크를 연결 해제해야 합니다. 그렇게 하지 않으면 업데이트 요청이 실패하고 Microsoft가 프리미엄 요금을 청구합니다.
-- 사설 피어링을 위해서는 경로 테이블의 경로가 4000개 미만이어야 합니다. 경로 테이블 크기가 4000개 경로 이상이면 BGP 세션이 폐기되고 게시된 프리픽스 수가 4000개 미만이 될 때까지 다시 활성화되지 않습니다.
+>[AZURE.IMPORTANT] 그러나 중단 없이 Express 경로 회로의 대역폭을 줄일 수는 없습니다. 대역폭을 다운그레이드하려면 Express 경로 회로의 프로비전을 해제하고 새 Express 경로 회로를 다시 프로비전해야 합니다.
 
-### Express 경로 회로 대역폭 업데이트
+필요한 크기를 선택하면, 다음 명령을 사용하여 회로 크기를 조정합니다.
 
-공급자에 대해 지원되는 대역폭 옵션은 [Express 경로 FAQ](expressroute-faqs.md) 페이지를 확인하세요. 기존 회로의 크기보다 큰 모든 크기를 선택할 수 있습니다. 필요한 크기를 선택하면, 다음 명령을 사용하여 회로 크기를 조정합니다.
 
-```
-$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+	$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+	
+	$ckt.ServiceProviderProperties.BandwidthInMbps = 1000
+	
+	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
-$ckt.ServiceProviderProperties.BandwidthInMbps = 1000
-
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
-```
 
 회로의 크기는 Microsoft 쪽에서 조정됩니다. 그런 다음 변경 사항에 맞게 구성을 업데이트하려면 해당 공급자에게 연락해야 합니다. 이 알림을 통보하고 나면 Microsoft는 업데이트된 대역폭 옵션에 대한 요금을 청구를 시작합니다.
 
-**중요**: 중단 없이 Express 경로 회로의 대역폭을 줄일 수는 없습니다. 대역폭을 다운그레이드하려면 Express 경로 회로의 프로비전을 해제하고 새 Express 경로 회로를 다시 프로비전해야 합니다.
 
-## Express 경로 회로 삭제 및 프로비전
+### SKU를 요금제에서 무제한으로 이동하려면
+
+다음 PowerShell 코드 조각을 사용하여 Express 경로 회로의 SKU를 변경할 수 있습니다.
+
+	$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+	
+	$ckt.Sku.Family = "UnlimitedData"
+	$ckt.sku.Name = "Premium_UnlimitedData"
+	
+	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+
+### 클래식 및 리소스 관리자 환경에 대한 액세스를 제어하려면  
+
+[클래식에서 리소스 관리자 배포 모델로 Express 경로 회로 이동](expressroute-howto-move-arm.md)의 지침을 검토합니다.
+
+
+## Express 경로 회로 삭제 및 프로비전 해제
+
+다음 사항에 유의하세요.
+
+- 모든 가상 네트워크를 Express 경로 회로에서 연결 해제해야 합니다. 이 작업에 실패한 경우 회로에 연결된 가상 네트워크가 있는지 확인하세요.
+
+- Express 경로 회로 서비스 공급자 프로비전 상태를 사용할 경우 상태가 사용함 상태에서 *사용 안 함*으로 바뀝니다. 서비스 공급자 측에서 회로를 프로비전 해제하도록 서비스 공급자와 협조해야 합니다. Microsoft에서는 서비스 공급자가 회로의 프로비전을 해제한 다음 통지를 보낼 때까지 리소스를 계속 예약하며 요금을 청구합니다.
+
+- 위의 cmdlet을 실행하기 전에 서비스 공급자가 회로의 프로비전을 해제한 경우(서비스 공급자 프로비전 상태가 *프로비전 안 됨*으로 설정) Microsoft는 회로의 프로비전을 해제하고 청구를 중지합니다.
 
 다음 명령을 실행하여 Express 경로 회로를 삭제할 수 있습니다.
 
-```
-Remove-AzureRmExpressRouteCircuit -ResourceGroupName "ExpressRouteResourceGroup" -Name "ExpressRouteARMCircuit"
-```
+	Remove-AzureRmExpressRouteCircuit -ResourceGroupName "ExpressRouteResourceGroup" -Name "ExpressRouteARMCircuit"
 
-이 작업이 성공하려면 모든 가상 네트워크를 Express 경로에서 연결 해제해야 합니다. 이 작업에 실패한 경우 회로에 연결된 가상 네트워크가 있는지 확인하세요.
 
-Express 경로 회로 서비스 공급자 프로비전 상태를 사용할 경우 상태가 사용함 상태에서 *사용 안 함*으로 바뀝니다. 서비스 공급자 측에서 회로를 프로비전 해제하도록 서비스 공급자와 협조해야 합니다. Microsoft에서는 서비스 공급자가 회로의 프로비전을 해제한 다음 통지를 보낼 때까지 리소스를 계속 예약하며 요금을 청구합니다.
-
-위의 cmdlet을 실행하기 전에 서비스 공급자가 회로의 프로비전을 해제한 경우(서비스 공급자 프로비전 상태가 *프로비전 안 됨*으로 설정) Microsoft는 회로의 프로비전을 해제하고 청구를 중지합니다.
 
 ## 다음 단계
 
@@ -408,4 +411,4 @@ Express 경로 회로 서비스 공급자 프로비전 상태를 사용할 경�
 - [Express 경로 회로의 라우팅 만들기 및 수정](expressroute-howto-routing-arm.md)
 - [가상 네트워크를 Express 경로 회로에 연결](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0427_2016-->

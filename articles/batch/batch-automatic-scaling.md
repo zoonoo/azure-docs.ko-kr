@@ -203,7 +203,7 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
 | 문자열 *연산자* 문자열 | <, <=, ==, >=, >, != | 이중 |
 | 타임스탬프 *연산자* 타임스탬프 | <, <=, ==, >=, >, != | 이중 |
 | timeinterval *연산자* timeinterval | <, <=, ==, >=, >, != | 이중 |
-| 이중 *연산자* 이중 | &&, || | 이중 |
+| 이중 *연산자* 이중 |&&, &#124;&#124;      | 이중 |
 
 3항 연산자(`double ? statement1 : statement2`)가 있는 이중 연산자를 테스트할 경우 0이 아님이 **true**이고 0이 **false**입니다.
 

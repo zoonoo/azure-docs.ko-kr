@@ -2,9 +2,11 @@
 
 4. **연결**을 클릭하면 원격 데스크톱 프로토콜 파일(.rdp 파일)이 생성되어 다운로드됩니다. **열기**를 클릭하여 이 파일을 사용합니다.
 
-5. 원격 데스크톱 창에서 **연결**을 클릭하여 계속합니다.
+	![다운로드된 .rdp 파일의 스크린샷](./media/virtual-machines-log-on-win-server/open-rdp.png)
 
-	![알 수 없는 게시자에 대한 경고의 스크린샷입니다.](./media/virtual-machines-log-on-win-server/connectpublisher.png)
+5. .rdp이 알 수 없는 게시자에게서 비롯되었다는 경고를 받게 됩니다. 이것은 정상입니다. 원격 데스크톱 창에서 **연결**을 클릭하여 계속합니다.
+
+	![알 수 없는 게시자에 대한 경고의 스크린샷입니다.](./media/virtual-machines-log-on-win-server/rdp-warn.png)
 
 6. Windows 보안 창에서 가상 컴퓨터의 계정에 대한 자격 증명을 입력하고 **확인**을 클릭합니다.
 
@@ -16,6 +18,6 @@
 
 7.	**예**를 클릭하여 가상 컴퓨터의 ID를 확인하고 로그온을 완료합니다.
 
-	![VM의 ID 확인에 대한 메시지를 보여 주는 스크린샷입니다.](./media/virtual-machines-log-on-win-server/connectverify.png)
+	![VM의 ID 확인에 대한 메시지를 보여 주는 스크린샷입니다.](./media/virtual-machines-log-on-win-server/cert-warning.png)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

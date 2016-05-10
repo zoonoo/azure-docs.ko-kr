@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/15/2016"
+	ms.date="04/19/2016"
 	ms.author="adegeo"/>
 
 # Azure 클라우드 서비스 인증서 개요
@@ -74,10 +74,10 @@ Java를 사용하여 [인증서를 만들](../app-service-web/java-create-azure-
 
 ## 다음 단계
 
-[서비스 인증서를 Azure 클래식 포털에 업로드합니다.](cloud-services-configure-ssl-certificate.md) (또는 [Azure 포털](cloud-services-configure-ssl-certificate-portal.md)).
+[서비스 인증서를 Azure 클래식 포털(또는 [Azure 포털](cloud-services-configure-ssl-certificate-portal.md))에 업로드합니다.](cloud-services-configure-ssl-certificate.md)
 
 [관리 API 인증서](../azure-api-management-certs.md)를 Azure 클래식 포털에 업로드합니다.
 
 >[AZURE.NOTE] Azure 포털은 API에 액세스하는 데 관리 인증서를 사용하지 않고 사용자 계정을 사용합니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

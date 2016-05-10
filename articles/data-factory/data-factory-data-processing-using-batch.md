@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/20/2016"
+    ms.date="04/05/2016"
     ms.author="spelluru"/>
 # Azure 배치 및 데이터 팩터리를 사용하여 HPC 및 데이터 오케스트레이션
 
@@ -707,7 +707,7 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
 
 이 단계에서는 이전에 만든 하나의 작업, 사용자 지정 작업을 사용하여 파이프라인을 만듭니다.
 
-> [AZURE.IMPORTANT] **file.txt** 를 Blob 컨테이너의 입력 폴더에 업로드하지 않은 경우 파이프라인을 만들기 전에 업로드하세요. **isPaused** 속성은 파이프라인 JSON에서 false로 설정되었으므로 파이프라인은 즉시 과거의 **시작** 날짜로 실행합니다.
+> [AZURE.IMPORTANT] **file.txt**를 Blob 컨테이너의 입력 폴더에 업로드하지 않은 경우 파이프라인을 만들기 전에 업로드하세요. **isPaused** 속성은 파이프라인 JSON에서 false로 설정되었으므로 파이프라인은 즉시 과거의 **시작** 날짜로 실행합니다.
 
 1.  데이터 팩터리 편집기의 명령 모음에서 **새 파이프라인**을 클릭합니다. 명령이 표시되지 않으면 **... (줄임표)**을 클릭하여 표시합니다.
 
@@ -901,13 +901,13 @@ Azure Data Factory 및 Azure 배치 기능에 대한 자세한 내용을 보려�
 
 데이터를 처리한 후 **Microsoft Power BI**와 같은 온라인 도구와 함께 사용할 수 있습니다. 다음은 Power BI 및 Azure에서 사용하는 방법을 이해하는 데 도움을 주는 링크입니다.
 
--   [Power BI에서 데이터 집합 탐색](https://support.powerbi.com/knowledgebase/articles/475159)
+-   [Power BI에서 데이터 집합 탐색](https://powerbi.microsoft.com/ko-KR/documentation/powerbi-service-get-data/)
 
--   [Power BI Desktop 시작](https://support.powerbi.com/knowledgebase/articles/471664)
+-   [Power BI Desktop 시작](https://powerbi.microsoft.com/ko-KR/documentation/powerbi-desktop-getting-started/)
 
--   [Power BI에서 데이터 새로 고침](https://support.powerbi.com/knowledgebase/articles/474669)
+-   [Power BI에서 데이터 새로 고침](https://powerbi.microsoft.com/ko-KR/documentation/powerbi-refresh-data/)
 
--   [Azure 및 Power BI - 기본 개요](https://support.powerbi.com/knowledgebase/articles/568614)
+-   [Azure 및 Power BI - 기본 개요](https://powerbi.microsoft.com/ko-KR/documentation/powerbi-azure-and-power-bi/)
 
 ## 참조
 
@@ -929,4 +929,4 @@ Azure Data Factory 및 Azure 배치 기능에 대한 자세한 내용을 보려�
 
     -   [Azure 배치 라이브러리 .NET 시작](../batch/batch-dotnet-get-started.md)
 
-<!---HONumber=AcomDC_0128_2016--->
+<!---HONumber=AcomDC_0427_2016-->

@@ -225,4 +225,12 @@ GROUP BY
 
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_08.png)
 
-<!----HONumber=AcomDC_0309_2016-->
+
+## 다음 단계
+
+다음 TechNet 블로그 게시물은 미리 구성된 원격 모니터링 솔루션에 대한 추가 정보를 제공합니다.
+
+- [IoT 도구 모음 - 내부 살펴보기 - 원격 모니터링](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx)
+- [IoT 도구 모음 - 원격 모니터링 - 라이브 및 시뮬레이션된 장치 추가](http://social.technet.microsoft.com/wiki/contents/articles/32975.iot-suite-remote-monitoring-adding-live-and-simulated-devices.aspx)
+
+<!---HONumber=AcomDC_0504_2016-->

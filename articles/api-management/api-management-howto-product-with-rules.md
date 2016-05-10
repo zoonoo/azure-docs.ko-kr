@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/13/2016"
+	ms.date="04/27/2016"
 	ms.author="sdanie"/>
 
 # Azure API 관리를 사용하여 속도 제한으로 API 보호
@@ -60,7 +60,7 @@ API 관리의 제품은 보호되거나 개방될 수 있습니다. 사용하기
 
 기본적으로 새 제품은 **관리자** 그룹의 사용자에게 표시됩니다. 여기서는 **개발자** 그룹에 추가하겠습니다. **무료 평가판**을 클릭한 다음 **표시 여부** 탭을 클릭합니다.
 
->API 관리에서 그룹은 개발자에 대한 제품 표시 여부를 관리하는 데 사용됩니다. 제품은 그룹에 대한 표시 여부를 부여하고, 개발자는 자신이 속한 그룹에게 표시되는 제품을 보고 구독할 수 있습니다. 자세한 내용은 [Azure API 관리에서 그룹을 만들고 사용하는 방법](영문)을 참조하세요.
+>API 관리에서 그룹은 개발자에 대한 제품 표시 여부를 관리하는 데 사용됩니다. 제품은 그룹에 대한 표시 여부를 부여하고, 개발자는 자신이 속한 그룹에게 표시되는 제품을 보고 구독할 수 있습니다. 자세한 내용은 [Azure API 관리에서 그룹을 만들고 사용하는 방법][] \(영문)을 참조하세요.
 
 ![개발자 그룹 추가][api-management-add-developers-group]
 
@@ -294,4 +294,4 @@ API 관리의 제품은 보호되거나 개방될 수 있습니다. 사용하기
 [Limit call rate]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Set usage quota]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

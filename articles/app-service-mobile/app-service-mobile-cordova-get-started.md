@@ -4,7 +4,7 @@
     services="app-service\mobile"
     documentationCenter="javascript"
     authors="adrianhall"
-    manager="ggailey777"
+    manager="erikre"
     editor=""
     tags=""
     keywords="cordova,javascript,모바일,클라이언트" />
@@ -15,8 +15,8 @@
     ms.tgt_pltfrm="mobile-html"
     ms.devlang="javascript"
     ms.topic="hero-article"
-    ms.date="02/09/2016"
-    ms.author="adrianha"/>
+    ms.date="05/02/2016"
+    ms.author="glenga"/>
 
 #Apache Cordova 앱 만들기
 
@@ -82,4 +82,4 @@ SDK 사용 방법을 알아봅니다.
 [ASP.NET 서버 SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Node.js 서버 SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

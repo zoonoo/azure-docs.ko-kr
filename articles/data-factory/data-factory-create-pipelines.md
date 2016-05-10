@@ -228,16 +228,20 @@ Azure 데이터 팩터리에서 파이프라인을 만드는 경우 일반적인
 --- | ----------- | --------
 name | 작업 또는 파이프라인의 이름입니다. 작업 또는 파이프라인을 수행하도록 구성된 작업을 나타내는 이름을 지정합니다<br/><ul><li>최대 문자 수: 260개</li><li>문자 숫자 또는 밑줄(\_)로 시작해야 합니다</li><li>다음 문자는 사용할 수 없습니다. ".", "+","?", "/", "<",">", "*", "%", "&", ":","\"</li></ul>| 예 
 설명 | 작업 또는 파이프라인의 용도를 설명하는 텍스트 | 예
-형식 | 활동의 형식을 지정합니다. 다른 활동의 형식은 [데이터 이동 활동](data-factory-data-movement-activities.md) 및 [데이터 변환 작업](data-factory-data-transformation-activities.md) 문서를 참조하세요. | 예 
-입력 | 활동에서 사용하는 테이블 입력<br/><br/>//한 개의 입력 테이블<br/>"inputs": [{"name": "inputtable1"}],<br/><br/>// 2개의 입력 테이블 /<br/>"inputs": [{"name": "inputtable1"}, {"name": "inputtable2"}], | 예 
-출력 | 활동에서 사용하는 테이블을 출력합니다.//한 개의 출력 테이블<br/>"outputs": [{"name": "outputtable1"}],<br/><br/>//두 개의 출력 테이블<br/>"outputs": [{"name": "outputtable1"}, {"name": "outputtable2"}], | 예 
-linkedServiceName | 활동에서 사용하는 연결된 서비스의 이름입니다. <br/><br/>활동은 필요한 계산 환경에 연결되는 연결된 서비스를 지정할 필요가 있습니다. | HDInsight 활동 및 Azure 기계 학습 배치 평가 활동에 예<br/><br/>다른 모든 
+형식 | 활동의 형식을 지정합니다. 다른 활동의 형식은 [데이터 이동 활동](data-factory-data-movement-activities.md) 및 [데이터 변환 작업](data-factory-data-transformation-activities.md) 문서를 참조하세요. | 예
+입력 | 활동에서 사용하는 테이블 입력<br/><br/>//한 개의 입력 테이블<br/>"inputs": [{"name": "inputtable1"}],<br/><br/>// 2개의 입력 테이블 /<br/>"inputs": [{"name": "inputtable1"}, {"name": "inputtable2"}], | 예
+출력 | 활동에서 사용하는 테이블을 출력합니다.//한 개의 출력 테이블<br/>"outputs": [{"name": "outputtable1"}],<br/><br/>//두 개의 출력 테이블<br/>"outputs": [{"name": "outputtable1"}, {"name": "outputtable2"}], | 예
+linkedServiceName | 활동에서 사용하는 연결된 서비스의 이름입니다. <br/><br/>활동은 필요한 계산 환경에 연결되는 연결된 서비스를 지정할 필요가 있습니다. | HDInsight 활동 및 Azure 기계 학습 배치 평가 활동에 예<br/><br/>다른 모든
 typeProperties에 대해 아니요 | typeProperties 섹션의 속성은 활동의 형식에 따라 달라집니다. 이에 대해 자세히 알아보려면 각 개별 활동에 대한 문서를 참조하십시오 | 정책
-이 없음 | 활동의 런타임 동작에 영향을 주는 정책입니다. 지정하지 않으면 기본 정책이 사용됩니다. 자세한 내용은 아래로 스크롤합니다 | 시작 
+이 없음 | 활동의 런타임 동작에 영향을 주는 정책입니다. 지정하지 않으면 기본 정책이 사용됩니다. 자세한 내용은 아래로 스크롤합니다 | 시작
 없음 | 파이프라인의 시작 날짜-시간입니다. [ISO 형식](http://en.wikipedia.org/wiki/ISO_8601)에 있어야 합니다. 예: 2014-10-14T16:32:41Z. <br/><br/>예를 들어 EST 시간처럼 현지 시간을 지정할 수 있습니다. 예: 6 AM EST인 "2016-02-27T06:00:00**-05:00**".<br/><br/>start 및 end 속성은 함께 파이프라인의 활성 기간을 지정합니다. 출력 조각은 이 활성 기간에만 생성됩니다. | 아니요<br/><br/>end 속성에 대한 값을 지정하면 start 속성에 대한 값을 지정해야 합니다.<br/><br/>파이프라인을 만들 때에는 시작 및 종료 시간을 비워 둘 수 있지만 파이프라인을 실행할 활성 기간을 설정하려면 둘 다 값을 지정해야 합니다. 파이프라인을 만들 때 시작 시간과 종료 시간을 지정하지 않으면 나중에 Set-AzureRmDataFactoryPipelineActivePeriod cmdlet를 사용하여 설정할 수 있습니다. 
 end | 파이프라인에 대한 종료 날짜-시간입니다. 지정된 경우 ISO 형식에 있어야 합니다. 예: 2014-10-14T17:32:41Z <br/><br/>예를 들어 EST 시간처럼 현지 시간을 지정할 수 있습니다. 예: 6 AM EST인 "2016-02-27T06:00:00**-05:00**".<br/><br/>파이프라인을 무기한으로 실행하려면 end 속성에 대한 값으로 9999-09-09를 지정합니다. | 아니요 <br/><br/>start 속성에 대한 값을 지정하면 end 속성에 대한 값을 지정해야 합니다.<br/><br/>**start** 속성에 대한 설명을 참조하세요. 
-isPaused | true로 설정하면 파이프라인이 실행되지 않습니다. 기본값 = false입니다. 속성을 활성화 또는 비활성화하여 사용할 수 있습니다. | 스케줄러가 아님 
-| "스케줄러" 속성을 작업에 원하는 예정을 정의하는 데 사용합니다. 하위 속성은 [데이터 집합에서 가용성 속성](data-factory-create-datasets.md#Availability)과 같습니다. | 아니요 | 
+isPaused | true로 설정하면 파이프라인이 실행되지 않습니다. 기본값 = false입니다. 속성을 활성화 또는 비활성화하여 사용할 수 있습니다. | 스케줄러가 아님
+| "스케줄러" 속성을 작업에 원하는 예정을 정의하는 데 사용합니다. 하위 속성은 [데이터 집합에서 가용성 속성](data-factory-create-datasets.md#Availability)과 같습니다. | 아니요 |
+| pipelineMode | 예약에 대한 메서드가 파이프라인에 대해 실행됩니다. 허용되는 값은 scheduled(기본), onetime입니다.<br/><br/>‘Scheduled’는 파이프라인이 활성 기간(시작 및 종료 시간)에 따라 지정된 간격으로 실행된다는 것을 나타냅니다. ‘Onetime’은 파이프라인이 한 번만 실행된다는 것을 나타냅니다. 현재는, Onetime 파이프라인이 생성된 후에 수정/업데이트가 불가능합니다. Onetime 설정에 대한 자세한 내용은 [Onetime 파이프라인](data-factory-scheduling-and-execution.md#onetime-pipeline)을 참조하세요. | 아니요|
+| expirationTime | 생성 후 파이프라인이 유효하고 프로비전 상태로 남아야 하는 기간. 활성 작업, 실패한 작업, 또는 보류중인 작업이 없는 경우, 만료 시간이 되면 파이프라인은 자동으로 삭제됩니다. | 아니요 |
+| datasets | 파이프라인에 정의된 활동에 의해 사용될 데이터 집합 목록. 이것은 데이터 팩터리 내에 정의되지 않은 파이프라인에만 해당되는 데이터 집합을 정의하는 데 사용될 수 있습니다. 이 파이프라인 내에 정의된 데이터 집합은 이 파이프라인에서만 사용될 수 있고 공유될 수 없습니다. 자세한 내용은 [범위가 지정된 데이터 집합](data-factory-create-datasets.md#scoped-datasets)을 참조하세요.| 아니요 | 
+ 
 
 ### 활동 형식
 Azure 데이터 팩터리는 다양한 [데이터 이동](data-factory-data-movement-activities.md) 및 [데이터 변환](data-factory-data-transformation-activities.md) 활동을 제공합니다.
@@ -309,7 +313,7 @@ Azure 데이터 팩터리는 파이프라인을 작성하고 배포하는 다양
 
 	**참고:** 배포하는 동안 Azure 데이터 팩터리 서비스는 유효성 검사를 수행하여 몇 가지 일반적인 문제를 해결하는 데 도움을 줍니다. 오류가 있는 경우 해당 정보가 표시됩니다. 정정 작업을 수행하고 작성된 파이프라인을 다시 배포합니다. 파이프라인을 업데이트 및 삭제하려면 편집기를 사용할 수 있습니다.
 
-파이프라인으로 데이터 팩터리 만들기에 대한 전체 연습은 [Azure Data Factory 시작(Data Factory 편집기)](data-factory-build-your-first-pipeline-using-editor.md)을 참조하세요.
+파이프라인으로 데이터 팩터리 만들기에 대한 전체 연습은 [Azure Data Factory 시작(데이터 팩터리 편집기)](data-factory-build-your-first-pipeline-using-editor.md)을 참조하세요.
 
 ### Visual Studio 플러그인 사용
 Azure 데이터 팩터리에 파이프라인을 작성하고 배포하려면 Visual Studio를 사용할 수 있습니다. 파이프라인으로 데이터 팩터리 만들기에 대한 전체 연습의 자세한 내용은 [Azure Data Factory 시작(Visual Studio)](data-factory-build-your-first-pipeline-using-vs.md)을 참조하세요.
@@ -368,4 +372,4 @@ REST API를 사용하여 파이프라인을 만들고 배포할 수 있습니다
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/27/2016" 
+	ms.date="04/11/2016" 
 	ms.author="spelluru"/>
 
 # 데이터 팩터리에서 예약 및 실행
@@ -262,7 +262,7 @@ Azure SQL에서는 데이터가 다음과 같다고 가정합니다.
 ![동일한 파이프라인에서 활동 연결](./media/data-factory-scheduling-and-execution/chaining-one-pipeline.png)
 
 ### 순서가 지정된 복사
-순차/순서가 지정된 방식으로 하나씩 여러 복사 작업을 실행하는 것이 가능합니다. 파이프라인에 두 번의 복사 작업, 즉 다음과 같은 입력 데이터 출력 데이터 집합으로 된 CopyActivity1과 CopyActivity가 있다고 가정합니다.
+순차/순서가 지정된 방식으로 하나씩 여러 복사 작업을 실행하는 것이 가능합니다. 파이프라인에 두 번의 복사 작업, 즉 다음과 같은 입력 데이터 출력 데이터 집합으로 된 CopyActivity1과 CopyActivity2가 있다고 가정합니다.
 
 CopyActivity1: 입력: Dataset1 출력: Dataset2
 
@@ -621,6 +621,51 @@ Azure Data Factory에서 지원하는 함수 및 시스템 변수 목록은 [Dat
 	} 
 
 
+## 일회성 파이프라인
+파이프라인 정의 내에 지정한 시작 및 종료 시간 내에서 정기적(매시간, 매일 등)으로 실행되도록 파이프라인을 만들고 일정을 예약할 수 있습니다. 자세한 내용은 [활동 예약](#scheduling-and-execution)을 참고하세요. 한 번만 실행되는 파이프라인을 만들 수도 있습니다. 이렇게 하려면, 파이프라인 정의 내에서 **pipelineMode** 속성을 **onetime**으로 설정합니다(아래 JSON 샘플 참조). 이 속성에 대한 기본 값은 **scheduled**입니다.
+
+	{
+	    "name": "CopyPipeline",
+	    "properties": {
+	        "activities": [
+	            {
+	                "type": "Copy",
+	                "typeProperties": {
+	                    "source": {
+	                        "type": "BlobSource",
+	                        "recursive": false
+	                    },
+	                    "sink": {
+	                        "type": "BlobSink",
+	                        "writeBatchSize": 0,
+	                        "writeBatchTimeout": "00:00:00"
+	                    }
+	                },
+	                "inputs": [
+	                    {
+	                        "name": "InputDataset"
+	                    }
+	                ],
+	                "outputs": [
+	                    {
+	                        "name": "OutputDataset"
+	                    }
+	                ]
+	                "name": "CopyActivity-0"
+	            }
+	        ]
+	        "pipelineMode": "OneTime"
+	    }
+	}
+
+다음 사항에 유의하세요.
+ 
+- 파이프라인에 대한 **시작** 및 **종료** 시간을 지정할 필요가 없습니다. 
+- 데이터 팩터리에서 이 값이 사용되지 않더라도 이 때는 입력 및 출력 데이터 집합의 가용성(빈도 및 간격)을 지정해야 합니다.  
+- 다이어그램 뷰는 일회성 파이프라인을 표시하지 않습니다. 의도적인 작동입니다. 
+- 일회성 파이프라인은 업데이트할 수 없습니다. 일회성 파이프라인을 복제하고, 이름을 변경하고, 속성을 업데이트하고, 배포하여 또 다른 파이프라인을 만들 수 있습니다. 
+
+  
 
 
 
@@ -653,4 +698,4 @@ Azure Data Factory에서 지원하는 함수 및 시스템 변수 목록은 [Dat
 
   
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0427_2016-->

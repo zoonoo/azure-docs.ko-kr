@@ -109,6 +109,8 @@ RUL가 160(데모를 위해 선택한 대 한 임의의 임계값) 보다 작은
 
 이제 수정하려는 미리 구성된 예측 유지 관리 솔루션을 실행했으면 [미리 구성된 사용자 지정 솔루션에 대한 지침][lnk-customize]을 참조하세요.
 
+[IoT 도구 모음 - 내부 살펴보기 - 예측 유지 관리](http://social.technet.microsoft.com/wiki/contents/articles/33527.iot-suite-under-the-hood-predictive-maintenance.aspx) TechNet 블로그 게시물은 미리 구성된 예측 유지 관리 솔루션에 대한 추가 정보를 제공합니다.
+
   
 [img-architecture]: media/iot-suite-predictive-walkthrough/architecture.png
 [img-resource-group]: media/iot-suite-predictive-walkthrough/resource-group.png
@@ -124,4 +126,4 @@ RUL가 160(데모를 위해 선택한 대 한 임의의 임계값) 보다 작은
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->
