@@ -21,10 +21,10 @@
 
 > [AZURE.SELECTOR]
 - [Azure 포털](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-- [Azure 포털 - 클래식](vpn-gateway-site-to-site-create.md)
+- [Azure 클래식 포털](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
-이 문서에서는 **Azure Resource Manager** 배포 모델을 사용하여 온-프레미스 네트워크에 대한 가상 네트워크와 사이트 간 VPN 연결을 만드는 과정을 안내합니다. 사이트간 연결은 프레미스 간 및 하이브리드 구성에 사용될 수 있습니다.
+이 문서에서는 Azure Resource Manager 배포 모델을 사용하여 온-프레미스 네트워크에 대한 가상 네트워크 및 사이트 간 VPN 연결을 만드는 과정을 안내합니다. 사이트간 연결은 프레미스 간 및 하이브리드 구성에 사용될 수 있습니다.
 
 **Azure 배포 모델 정보**
 
@@ -67,7 +67,9 @@ PowerShell 콘솔을 열고 계정에 연결합니다. 연결에 도움이 되�
 
 ## 2\. 가상 네트워크 및 게이트웨이 서브넷 만들기
 
-아래 예제는 /28의 게이트웨이 서브넷을 보여 줍니다. 게이트웨이 서브넷을 /29만큼 작게 만들 수 있지만 권장하지 않습니다. 추가 기능 요구 사항을 수용하기 위해 게이트웨이 서브넷 /27 이상(/26, /25 등)을 만드는 것을 권장합니다. /29 이상인 게이트웨이 서브넷이 포함된 가상 네트워크가 이미 있는 경우 [3단계 - 로컬 네트워크 게이트웨이 추가](#localnet)로 바로 이동할 수 있습니다.
+아래 예제는 /28의 게이트웨이 서브넷을 보여 줍니다. 게이트웨이 서브넷을 /29만큼 작게 만들 수 있지만 권장하지 않습니다. 추가 기능 요구 사항을 수용하기 위해 게이트웨이 서브넷 /27 이상(/26, /25 등)을 만드는 것을 권장합니다.
+
+/29 이상인 게이트웨이 서브넷이 포함된 가상 네트워크가 이미 있는 경우 [로컬 네트워크 게이트웨이 추가](#localnet)로 바로 이동할 수 있습니다.
 
 ### 가상 네트워크 및 게이트웨이 서브넷을 만들려면
 
@@ -146,10 +148,10 @@ PowerShell 예제를 사용할 때는 다음 사항에 유의하세요.
 
 다음 값을 사용합니다.
 
-- 사이트 간 구성에 대한 **-GatewayType**은 **Vpn**입니다. 게이트웨이 유형은 항상 구현하는 구성에 따라 다릅니다. 예를 들어 다른 게이트웨이 구성인 GatewayType Express 경로가 필요할 수 있습니다. 
+- 사이트 간 구성에 대한 *-GatewayType*은 *Vpn*입니다. 게이트웨이 유형은 항상 구현하는 구성에 따라 다릅니다. 예를 들어 다른 게이트웨이 구성인 GatewayType Express 경로가 필요할 수 있습니다. 
 
-- **-VpnType**은 **RouteBased**(일부 설명서에서는 동적 게이트웨이라고도 함) 또는 **PolicyBased**(일부 설명서에서는 정적 게이트웨이라고도 함)일 수 있습니다. VPN 게이트웨이 형식에 대한 자세한 내용은 [VPN 게이트웨이 정보](vpn-gateway-about-vpngateways.md#vpntype)를 참조하세요.
-- **-GatewaySku**는 **기본**, **표준** 또는 **HighPerformance**일 수 있습니다. 	
+- *-VpnType*은 *RouteBased*(일부 설명서에서는 동적 게이트웨이라고도 함) 또는 *PolicyBased*(일부 설명서에서는 정적 게이트웨이라고도 함)일 수 있습니다. VPN 게이트웨이 형식에 대한 자세한 내용은 [VPN 게이트웨이 정보](vpn-gateway-about-vpngateways.md#vpntype)를 참조하세요.
+- *-GatewaySku*는 *기본*, *표준* 또는 *HighPerformance*일 수 있습니다. 	
 
 		New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased -GatewaySku Standard
 
@@ -163,7 +165,7 @@ PowerShell 예제를 사용할 때는 다음 사항에 유의하세요.
 
 ## 8\. VPN 연결 만들기
 
-가상 네트워크 게이트웨이와 VPN 장치 사이에 사이트 간 VPN 연결을 만들겠습니다. 사용자 고유의 값으로 대체해야 합니다. 공유 키는 VPN 장치 구성에 사용한 값과 일치해야 합니다. 사이트 간 `-ConnectionType`은 **IPsec**입니다.
+가상 네트워크 게이트웨이와 VPN 장치 사이에 사이트 간 VPN 연결을 만들겠습니다. 사용자 고유의 값으로 대체해야 합니다. 공유 키는 VPN 장치 구성에 사용한 값과 일치해야 합니다. 사이트 간에 대한 `-ConnectionType`은 *IPsec*입니다.
 
 	$gateway1 = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 	$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
@@ -187,6 +189,8 @@ VPN 연결을 확인하는 몇 가지 방법이 있습니다. 아래에서는 Az
 
 ## 다음 단계
 
-연결이 완료되면 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 단계는 [가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md)를 참조하세요.
+- 연결이 완료되면 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 단계는 [가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0427_2016-->
+- BGP에 대한 내용은 [BGP 개요](vpn-gateway-bgp-overview.md) 및 [BGP를 구성하는 방법](vpn-gateway-bgp-resource-manager-ps.md)을 참조하세요.
+
+<!---HONumber=AcomDC_0504_2016-->

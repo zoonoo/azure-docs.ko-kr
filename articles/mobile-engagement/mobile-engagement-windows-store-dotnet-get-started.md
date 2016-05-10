@@ -13,15 +13,14 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="03/25/2016"
+	ms.date="05/03/2016"
 	ms.author="piyushjo" />
 
 # Windows 유니버설 앱용 Azure Mobile Engagement 시작
 
 [AZURE.INCLUDE [영웅 자습서 전환기](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
-이 항목에서는 Azure Mobile Engagement를 사용하여 Windows 유니버설 응용 프로그램에서 구분된 사용자에게 푸시 알림을 보내고 앱 사용량을 파악하는 방법을 설명합니다.
-이 자습서에서는 Mobile Engagement를 사용하는 간단한 브로드캐스트 시나리오를 보여 줍니다. WNS(Windows 알림 서비스)를 사용하여 푸시 알림을 받고 기본적인 앱 사용 데이터를 수집하는 빈 Windows 유니버설 앱을 만듭니다.
+이 항목에서는 Azure Mobile Engagement를 사용하여 Windows 유니버설 응용 프로그램에서 구분된 사용자에게 푸시 알림을 보내고 앱 사용량을 파악하는 방법을 설명합니다. 이 자습서에서는 Mobile Engagement를 사용하는 간단한 브로드캐스트 시나리오를 보여 줍니다. WNS(Windows 알림 서비스)를 사용하여 푸시 알림을 받고 기본적인 앱 사용 데이터를 수집하는 빈 Windows 유니버설 앱을 만듭니다.
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
@@ -36,7 +35,7 @@
 
 ##<a id="connecting-app"></a>Mobile Engagement 백 엔드에 앱 연결
 
-이 자습서에서는 데이터를 수집하고 푸시 알림을 보내는 데 필요한 최소 집합인 "기본 통합" 방법을 설명합니다. 전체 통합 설명서는 [Mobile Engagement Windows 유니버설 SDK 통합](../mobile-engagement-windows-store-sdk-overview/)에서 확인할 수 있습니다.
+이 자습서에서는 데이터를 수집하고 푸시 알림을 보내는 데 필요한 최소 집합인 "기본 통합" 방법을 설명합니다. 전체 통합 설명서는 [Mobile Engagement Windows 유니버설 SDK 통합](mobile-engagement-windows-store-sdk-overview.md)에서 확인할 수 있습니다.
 
 여기서는 통합을 시연하기 위해 Visual Studio를 사용하여 기본적인 앱을 만듭니다.
 
@@ -129,8 +128,7 @@
 
 ##<a id="integrate-push"></a>푸시 알림 및 앱 내 메시징 사용
 
-Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 내 메시징을 사용하여 사용자와 상호 작용하고 사용자에게 메시지를 보낼 수 있습니다. Mobile Engagement 포털에서는 이 모듈을 도달률이라고 합니다.
-다음 섹션에서는 이러한 알림과 메시지를 받도록 앱을 설정합니다.
+Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 내 메시징을 사용하여 사용자와 상호 작용하고 사용자에게 메시지를 보낼 수 있습니다. Mobile Engagement 포털에서는 이 모듈을 도달률이라고 합니다. 다음 섹션에서는 이러한 알림과 메시지를 받도록 앱을 설정합니다.
 
 ###WNS 푸시 알림을 받도록 앱 설정
 
@@ -185,8 +183,7 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 
 [AZURE.INCLUDE [Windows 푸시 캠페인 만들기](../../includes/mobile-engagement-windows-push-campaign.md)]
 
-앱이 실행 중이면 앱 내 알림이 표시되며 그렇지 않고 앱이 닫힌 경우 토스트 알림이 표시됩니다.
-앱 내 알림이 표시되지만 토스트 알림이 표시되지 않고 앱을 Visual Studio의 디버그 모드에서 실행 중인 경우 도구 모음의 **수명 주기 이벤트 -> 일시 중단**을 시도하여 앱이 실제로 일시 중단되었는지 확인해야 합니다. Visual Studio에서 응용 프로그램을 디버깅하는 동안 홈 단추를 클릭한 경우 일시 중단되지 않을 수 있으며 알림이 앱 내 알림으로 표시되어 있는 동안 토스트 알림이 표시되지 않을 수 있습니다.
+앱이 실행 중이면 앱 내 알림이 표시되며 그렇지 않고 앱이 닫힌 경우 토스트 알림이 표시됩니다. 앱 내 알림이 표시되지만 토스트 알림이 표시되지 않고 앱을 Visual Studio의 디버그 모드에서 실행 중인 경우 도구 모음의 **수명 주기 이벤트 -> 일시 중단**을 시도하여 앱이 실제로 일시 중단되었는지 확인해야 합니다. Visual Studio에서 응용 프로그램을 디버깅하는 동안 홈 단추를 클릭한 경우 일시 중단되지 않을 수 있으며 알림이 앱 내 알림으로 표시되어 있는 동안 토스트 알림이 표시되지 않을 수 있습니다.
 
 ![][8]
 
@@ -210,4 +207,4 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 [12]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_1.png
 [13]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_creds.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

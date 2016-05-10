@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/20/2016"
+   ms.date="04/27/2016"
    ms.author="nitinme"/>
 
 # .NET SDK를 사용하여 Azure 데이터 레이크 저장소 시작
@@ -34,11 +34,17 @@ Azure 데이터 레이크 저장소 .NET SDK를 사용하여 Azure 데이터 레
 * Visual Studio 2013 또는 2015 아래 지침에서는 Visual Studio 2015를 사용합니다.
 * **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * 데이터 레이크 저장소 공개 미리 보기를 위해 **Azure 구독을 사용하도록 설정합니다**. [지침](data-lake-store-get-started-portal.md#signup)을 참조하세요.
-* **Azure Active Directory 응용 프로그램 만들기**. [포털을 사용하여 Active Directory 응용 프로그램 및 서비스 사용자 만들기](../resource-group-create-service-principal-portal.md)를 참조하세요. 이 문서에서 만든 .NET 콘솔 응용 프로그램에 대해 **네이티브 클라이언트 응용 프로그램**을 만들어야 합니다(링크에 표시된 웹 응용 프로그램이 아닌). 응용 프로그램을 만든 후 응용 프로그램과 관련된 다음 값을 검색합니다.
-	- 응용 프로그램의 **클라이언트 ID** 및 **리디렉션 URI** 가져오기
-	- 위임된 권한 설정
+* **Azure Active Directory 응용 프로그램 만들기**. **대화형** 및 **비대화형**과 같은 두 가지 방법으로 Azure Active Direcotry를 사용하여 인증할 수 있습니다. 인증하려는 방법에 따라 다른 필수 구성 요소가 있습니다.
+	* **대화형 인증의 경우** (이 문서에 사용됨) - Azure Active Directory에서 **네이티브 클라이언트 응용 프로그램**을 만들어야 합니다. 응용 프로그램을 만든 후 응용 프로그램과 관련된 다음 값을 검색합니다.
+		- 응용 프로그램의 **클라이언트 ID** 및 **리디렉션 URI** 가져오기
+		- 위임된 권한 설정
 
-	이러한 값을 검색하고 사용 권한을 설정하는 방법에 대한 지침은 위에 제공된 링크에서 확인할 수 있습니다.
+	* **비대화형 인증의 경우** - Azure Active Directory에서 **웹 응용 프로그램**을 만들어야 합니다. 응용 프로그램을 만든 후 응용 프로그램과 관련된 다음 값을 검색합니다.
+		- 응용 프로그램의 **클라이언트 ID**, **클라이언트 암호** 및 **리디렉션 URI** 가져오기
+		- 위임된 권한 설정
+		- 역할에 Azure Active Directory 응용 프로그램을 할당합니다. Azure Active Directory 응용 프로그램에 권한을 부여하려는 범위의 수준을 역할에 지정할 수 있습니다. 예를 들어 응용 프로그램을 구독 수준 또는 리소스 그룹 수준에 할당할 수 있습니다. 
+
+	이러한 값을 검색하고 권한을 설정하며 역할을 할당하는 방법에 대한 지침은 [포털을 사용하여 Active Directory 응용 프로그램 및 서비스 주체 만들기](../resource-group-create-service-principal-portal.md)를 참조하세요.
 
 ## .NET 응용 프로그램 만들기
 
@@ -59,7 +65,7 @@ Azure 데이터 레이크 저장소 .NET SDK를 사용하여 Azure 데이터 레
 5. Nuget 패키지를 프로젝트에 추가합니다.
 
 	1. 솔루션 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭합니다.
-	2. **Nuget 패키지 관리자** 탭에서 **패키지 원본**이 **nuget.org**로 설정되어 있고 **Include Prerelease**(시험판 포함) 확인란이 선택되어 있는지 확인합니다.
+	2. **Nuget 패키지 관리자** 탭에서 **패키지 원본**이 **nuget.org**로 설정되어 있고 **시험판 포함** 확인란이 선택되어 있는지 확인합니다.
 	3. 다음 데이터 레이크 저장소 패키지를 검색하고 설치합니다.
 
 		* `Microsoft.Azure.Management.DataLake.Store`
@@ -116,15 +122,15 @@ Azure 데이터 레이크 저장소 .NET SDK를 사용하여 Azure 데이터 레
 			}
 		}
 
-문서의 나머지 섹션에서는 제공되는 .NET 메서드를 사용하여 사용자 인증, Data Lake 저장소 계정 생성, 파일 업로드 등의 작업을 수행하는 방법을 볼 수 있습니다. Data Lake 저장소 작업 방법에 대한 전체 샘플을 찾으려면, 이 문서 맨 아래의 [부록](#appendix-sample-code)를 참조하세요.
+문서의 나머지 섹션에서는 제공되는 .NET 메서드를 사용하여 사용자 인증, Data Lake 저장소 계정 생성, 파일 업로드 등의 작업을 수행하는 방법을 볼 수 있습니다. Data Lake 저장소 작업 방법에 대한 전체 샘플을 찾으려면, 이 문서 맨 아래의 [부록](#appendix-sample-code)을 참조하세요.
 
 ## 사용자 인증
 
 Azure Active Directory를 사용하여 사용자를 인증하는 방법은 두 가지입니다.
 
-* **대화형** - 응용 프로그램을 사용하여 사용자가 로그인합니다. 아래 코드 조각의 메서드 `AuthenticateUser`에서 구현됩니다.
+* **대화형**, 응용 프로그램을 사용하여 사용자가 로그인합니다. 아래 코드 조각의 메서드 `AuthenticateUser`에서 구현됩니다.
 
-* **비대화형** - 응용 프로그램이 자체 자격 증명을 제공합니다. 아래 코드 조각의 메서드 `AuthenticateAppliaction`에서 구현됩니다.
+* **비대화형**, 응용 프로그램이 자체 자격 증명을 제공합니다. 아래 코드 조각의 메서드 `AuthenticateAppliaction`에서 구현됩니다.
 
 ### 대화형 인증
 
@@ -133,7 +139,7 @@ Azure Active Directory를 사용하여 사용자를 인증하는 방법은 두 �
  	// Authenticate the user with AAD through an interactive popup.
     // You need to have an application registered with AAD in order to authenticate.
     //   For more information and instructions on how to register your application with AAD, see:
-    //   https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
+    //   https://azure.microsoft.com/ko-KR/documentation/articles/resource-group-create-service-principal-portal/
 	public static TokenCredentials AuthenticateUser(string tenantId, string resource, string appClientId, Uri appRedirectUri, string userId = "")
 	{
 	    var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenantId);
@@ -151,7 +157,7 @@ Azure Active Directory를 사용하여 사용자를 인증하는 방법은 두 �
 	// Authenticate the application with AAD through the application's secret key.
 	// You need to have an application registered with AAD in order to authenticate.
 	//   For more information and instructions on how to register your application with AAD, see:
-	//   https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
+	//   https://azure.microsoft.com/ko-KR/documentation/articles/resource-group-create-service-principal-portal/
 	public static TokenCredentials AuthenticateApplication(string tenantId, string resource, string appClientId, Uri appRedirectUri, SecureString clientSecret)
 	{
 	    var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenantId);
@@ -284,7 +290,7 @@ Azure Active Directory를 사용하여 사용자를 인증하는 방법은 두 �
 
 ## 부록: 샘플 코드
 
-다음 코드 조각은 Data Lake 저장소의 종단 간 작업을 보기 위해 응용 프로그램에 복사하여 붙여 넣을 수 있는 포괄적인 코드 샘플입니다. 코드 조각을 실행하기 전에 Data Lake 저장소 이름, 리소스 그룹 이름 등의 필요한 값을 제공해야 합니다. Azure Active Directory 인증에 필요한 값(예: **<APPLICATION-CLIENT-ID>** , **<APPLICATION-REPLY-URI>**, 및 **<SUBSCRIPTION-ID>**)도 제공해야 합니다.
+다음 코드 조각은 Data Lake 저장소의 종단 간 작업을 보기 위해 응용 프로그램에 복사하여 붙여 넣을 수 있는 포괄적인 코드 샘플입니다. 코드 조각을 실행하기 전에 Data Lake 저장소 이름, 리소스 그룹 이름 등의 필요한 값을 제공해야 합니다. Azure Active Directory 인증에 필요한 값(예: **<APPLICATION-CLIENT-ID>** , **<APPLICATION-REPLY-URI>** 및 **<SUBSCRIPTION-ID>**)도 제공해야 합니다.
 
 아래 코드 조각에 대화형 및 비대화형이라는 두 가지 방법에 대한 메서드가 모두 제공되지만, 비대화형 코드 블록은 주석으로 처리되어 있습니다. 비대화형 메서드에는 AAD 응용 프로그램 클라이언트 ID 및 리디렉션 URI를 제공해야 합니다. 필수 조건에 있는 링크에서 이들을 가져오는 방법에 대한 지침을 제공합니다.
 
@@ -394,7 +400,7 @@ Azure Active Directory를 사용하여 사용자를 인증하는 방법은 두 �
             // Authenticate the user with AAD through an interactive popup.
             // You need to have an application registered with AAD in order to authenticate.
             //   For more information and instructions on how to register your application with AAD, see:
-            //   https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
+            //   https://azure.microsoft.com/ko-KR/documentation/articles/resource-group-create-service-principal-portal/
             public static TokenCredentials AuthenticateUser(string tenantId, string resource, string appClientId, Uri appRedirectUri, string userId = "")
             {
                 var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenantId);
@@ -409,7 +415,7 @@ Azure Active Directory를 사용하여 사용자를 인증하는 방법은 두 �
             // Authenticate the application with AAD through the application's secret key.
             // You need to have an application registered with AAD in order to authenticate.
             //   For more information and instructions on how to register your application with AAD, see:
-            //   https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
+            //   https://azure.microsoft.com/ko-KR/documentation/articles/resource-group-create-service-principal-portal/
             public static TokenCredentials AuthenticateApplication(string tenantId, string resource, string appClientId, Uri appRedirectUri, SecureString clientSecret)
             {
                 var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenantId);
@@ -520,4 +526,4 @@ Azure Active Directory를 사용하여 사용자를 인증하는 방법은 두 �
 - [Azure 데이터 레이크 분석에 데이터 레이크 저장소 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Azure HDInsight에 데이터 레이크 저장소 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -14,14 +14,14 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/16/2016"
+   ms.date="05/02/2016"
    ms.author="cherylmc"/>
 
 # Azure 클래식 포털을 사용하여 사이트 간 VPN 연결로 가상 네트워크 만들기
 
 > [AZURE.SELECTOR]
 - [Azure 포털](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-- [Azure 포털 - 클래식](vpn-gateway-site-to-site-create.md)
+- [Azure 클래식 포털](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 
@@ -109,4 +109,4 @@ VNet을 서로 연결하면서도 온-프레미스 위치에 대한 연결을 �
 
 연결이 완료되면 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 자세한 내용은 [가상 컴퓨터](https://azure.microsoft.com/documentation/services/virtual-machines/) 설명서를 참조하세요.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="SQL 데이터베이스 자습서: SQL 데이터베이스 만들기 | Microsoft Azure"
 	description="SQL 데이터베이스 논리 서버, 서버 방화벽 규칙, SQL 데이터베이스, 샘플 데이터를 설정하고 클라이언트 도구로 연결하며 사용자 및 데이터베이스 방화벽 규칙을 구성하는 방법을 알아봅니다."
-	keywords="sql 데이터베이스 자습서, sql 데이터베이스 만들기"
+	keywords="SQL 데이터베이스 자습서, SQL 데이터베이스 만들기"
 	services="sql-database"
 	documentationCenter=""
 	authors="carlrabeler"
@@ -50,7 +50,7 @@
 
 - Excel을 알고 있는 경우 [Excel로 SQL 데이터베이스에 연결](sql-database-connect-excel.md)하는 방법에 대해 알아보세요.
 
-- 코딩을 시작할 준비가 되었으면 [C#으로 SQL 데이터베이스 연결 및 쿼리](sql-database-connect-query.md) 및 [.NET(C#)에서 SQL 데이터베이스 사용](sql-database-develop-dotnet-simple.md)을 참조하세요. C# 외에도 Node.js, Python, Ruby, Java, PHP 및 C++ 샘플 및 방법에 대한 내용은 [SQL 데이터베이스에 대한 빠른 시작 코드 샘플](sql-database-develop-quick-start-client-code-samples.md)을 참조하세요.
+- 코딩을 시작할 준비가 되었다면 [SQL 데이터베이스 및 SQL Server에 대한 연결 라이브러리](sql-database-libraries.md)에서 프로그래밍 언어를 선택합니다.
 
 - 온-프레미스 SQL 서버 데이터베이스를 Azure로 이동하려면 [Azure SQL 데이터베이스로 데이터베이스 마이그레이션](sql-database-cloud-migrate.md)에서 자세히 알아보세요.
 
@@ -59,4 +59,4 @@
 
 [SQL 데이터베이스 개요](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

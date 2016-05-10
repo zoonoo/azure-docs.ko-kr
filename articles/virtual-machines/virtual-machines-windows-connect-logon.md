@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/14/2016"
+	ms.date="04/28/2016"
 	ms.author="cynthn"/>
 
 # Windows Server를 실행하는 Azure 가상 컴퓨터에 연결하고 로그온하는 방법 
@@ -32,7 +32,7 @@ Azure 포털의 **연결** 단추를 사용하여 RDP(원격 데스크톱) 세�
 
 4. 가상 컴퓨터 블레이드에서 **연결**을 클릭합니다.
 
-	![VM에 연결하는 방법을 보여 주는 Azure 포털의 스크린샷입니다.](./media/virtual-machines-windows-connect-logon/preview-portal-connect.png)
+	![VM에 연결하는 방법을 보여 주는 Azure 포털의 스크린샷입니다.](./media/virtual-machines-windows-connect-logon/connect.png)
 
 ## 가상 컴퓨터에 로그온
 
@@ -43,4 +43,4 @@ Azure 포털의 **연결** 단추를 사용하여 RDP(원격 데스크톱) 세�
 
 연결하려고 할 때 문제가 발생할 경우 [Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](virtual-machines-windows-troubleshoot-rdp-connection.md)을 참조하세요. 이 문서에서는 일반적인 문제를 진단 및 해결하는 과정을 안내합니다.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

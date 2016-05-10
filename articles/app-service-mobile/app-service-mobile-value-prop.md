@@ -3,7 +3,7 @@
 	description="앱 서비스가 엔터프라이즈 모바일 앱에 제공하는 이점을 알아봅니다."
 	services="app-service\mobile"
 	documentationCenter=""
-	authors="kirillg"
+	authors="adrianhall"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="02/04/2016"
-	ms.author="kirillg"/>
+	ms.date="05/03/2016"
+	ms.author="adrianha"/>
 
 # <a name="getting-started"> </a>모바일 앱 정의
 
@@ -102,4 +102,4 @@ Azure 모바일 앱에 대한 자세한 내용은 [학습 맵]을 검토하세�
 [앱 서비스 환경]: ../app-service-web/app-service-app-service-environment-intro.md
 [학습 맵]: https://azure.microsoft.com/ko-KR/documentation/learning-paths/appservice-mobileapps/
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

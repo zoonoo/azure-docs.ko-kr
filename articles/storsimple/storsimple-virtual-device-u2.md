@@ -12,18 +12,14 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/20/2016"
+   ms.date="04/29/2016"
    ms.author="alkohli" />
 
-# Azure에서 StorSimple 가상 장치 배포 및 관리(업데이트 2)
+# Azure에서 StorSimple 가상 장치 배포 및 관리
 
-> [AZURE.SELECTOR]
-- [업데이트 2](../articles/storsimple/storsimple-virtual-device-u2.md)
-- [업데이트 1](../articles/storsimple/storsimple-virtual-device-u1.md)
-- [GA 릴리스](../articles/storsimple/storsimple-virtual-device.md)
 
 ##개요
-StorSimple 가상 장치는 Microsoft Azure StorSimple 솔루션과 함께 제공되는 추가 기능입니다. StorSimple 가상 장치는 Microsoft Azure 가상 네트워크의 가상 컴퓨터에서 실행되며, 이 장치를 사용하여 호스트에서 데이터를 백업하고 복제할 수 있습니다.
+StorSimple 8000 시리즈 가상 장치는 Microsoft Azure StorSimple 솔루션과 함께 제공되는 추가 기능입니다. StorSimple 가상 장치는 Microsoft Azure 가상 네트워크의 가상 컴퓨터에서 실행되며, 이 장치를 사용하여 호스트에서 데이터를 백업하고 복제할 수 있습니다. 이 자습서는 Azure에서 가상 장치를 배포하고 관리하는 방법을 설명하고 소프트웨어 버전 업데이트 2 이하를 실행하는 모든 가상 장치에 적용할 수 있습니다.
 
 
 #### 가상 장치 모델 비교
@@ -37,10 +33,12 @@ StorSimple 가상 장치 모델은 두 가지 모델 즉, 표준 8010(이전의 
 | **Azure VM** | Standard\_A3(4 코어, 7GB 메모리) | Standard\_DS3 (4 코어, 14GB 메모리) |
 | **버전 호환성** | 사전 업데이트 2 이상을 실행하는 버전 | 업데이트 2 이상을 실행하는 버전 |
 | **지역 가용성** | 모든 Azure 지역 | 프리미엄 저장소를 지원하는 Azure 지역<br></br>하위 지역 목록은 [8020에 대해 지원되는 하위 지역](#supported-regions-for-8020)을 참조하세요. |
-| **저장소 유형** | Azure 표준 저장소 사용<br></br> [표준 저장소 계정을 만드는]() 방법 알아보기 | Azure 프리미엄 저장소 사용<br></br> [프리미엄 저장소 계정을 만드는](storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) 방법 알아보기 |
+| **저장소 유형** | 로컬 디스크에 Azure 표준 저장소 사용<br></br> [표준 저장소 계정을 만드는]() 방법 알아보기 | 로컬 디스크<sup>2</sup>에 Azure 프리미엄 저장소 사용 <br></br>[프리미엄 저장소 계정을 만드는](storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) 방법 알아보기 |
 | **워크로드 지침** | 백업으로부터 항목 수준 파일 읽어오기 | 클라우드 개발 및 테스트 시나리오, 짧은 대기 시간, 높은 성능 워크로드 <br></br>재해 복구용 보조 장치 |
  
 <sup>1</sup> *이전에 1100로 알려짐*.
+
+<sup>2</sup> *8010와 8020은 모두 클라우드 계층에 Azure 표준 저장소를 사용합니다. 차이점은 장치* 내의 로컬 계층에만 존재한다는 것입니다.
 
 #### 8020에 대해 지원되는 하위 지역
 
@@ -146,8 +144,7 @@ StorSimple 가상 장치는 Microsoft Azure 가상 컴퓨터의 단일 노드에
 
 이 절차를 시작하기 전에 서비스 데이터 암호화 키의 복사본을 가지고 있는지 확인합니다. 첫번째 StorSimple 장치를 구성하고 안전한 위치에 저장하도록 명령한 경우, 서비스 데이터 암호화 키가 만들어집니다. 서비스 데이터 암호화 키의 복사본이 없는 경우 Microsoft 지원에 문의해야 합니다.
 
-다음 단계에 따라 StorSimple 가상 장치를 구성하고 등록합니다.
-[AZURE.INCLUDE [가상 장치 구성 및 등록](../../includes/storsimple-configure-register-virtual-device.md)]
+다음 단계에 따라 StorSimple 가상 장치를 구성하고 등록합니다.[AZURE.INCLUDE [가상 장치 구성 및 등록](../../includes/storsimple-configure-register-virtual-device.md)]
 
 ### 3단계: (선택 사항) 장치 구성 설정 수정
 
@@ -282,4 +279,4 @@ StorSimple 가상 장치를 이전에 구성하고 사용했지만 이제 용도
  
 - [백업 세트에서 StorSimple 볼륨을 복원](storsimple-restore-from-backup-set.md)하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

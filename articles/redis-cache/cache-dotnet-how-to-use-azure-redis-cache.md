@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Azure Redis Cache 사용 방법" 
+	pageTitle="Azure Redis Cache를 사용하는 방법 | Microsoft Azure" 
 	description="Azure Redis Cache를 사용하여 Azure 응용 프로그램의 성능을 향상시키는 방법을 알아봅니다." 
 	services="redis-cache,app-service" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="01/21/2016" 
+	ms.date="04/28/2016" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache 사용 방법
@@ -34,7 +34,7 @@ Microsoft Azure Redis 캐시는 다음 계층에서 사용할 수 있습니다.
 
 각 계층은 기능과 가격이 다릅니다. 가격 책정에 대한 내용은 [캐시 가격 책정 정보][]를 참조하세요.
 
-이 가이드는 C# 코드를 사용하는 [StackExchange.Redis][] 클라이언트를 사용하는 방법을 보여줍니다. 적용되는 시나리오에는 **캐시 만들기 및 구성**, **캐시 클라이언트 구성** 및 **캐시에서 개체 추가 및 제거** 등이 포함됩니다. Azure Redis Cache 사용에 대한 자세한 내용은 [다음 단계][] 섹션을 참조하세요.
+이 가이드는 C# 코드를 사용하는 [StackExchange.Redis][] 클라이언트를 사용하는 방법을 보여줍니다. 적용되는 시나리오에는 **캐시 만들기 및 구성**, **캐시 클라이언트 구성** 및 **캐시에서 개체 추가 및 제거** 등이 포함됩니다. Azure Redis Cache 사용에 대한 자세한 내용은 [다음 단계][] 섹션을 참조하세요. Redis Cache를 사용하여 ASP.NET MVC 웹앱을 만드는 단계별 자습서는 [Redis Cache를 사용하여 웹앱을 만드는 방법](cache-web-app-howto.md)을 참조하세요.
 
 <a name="getting-started-cache-service"></a>
 ## Azure Redis Cache 시작
@@ -57,7 +57,7 @@ Azure Redis 캐시를 시작하기는 쉽습니다. 먼저 캐시를 프로비�
 
 ![새 캐시][NewCacheMenu]
 
->[AZURE.NOTE] Azure 계정이 없는 경우 몇 분 만에 무료 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험][]을 참조하세요.
+>[AZURE.NOTE] Azure 계정이 없는 경우 몇 분 만에 [Azure 무료 계정을 열 수 있습니다](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero).
 
 **새 Redis Cache** 블레이드에서 원하는 캐시 구성을 지정합니다.
 
@@ -65,7 +65,7 @@ Azure Redis 캐시를 시작하기는 쉽습니다. 먼저 캐시를 프로비�
 
 -	**DNS 이름** - 캐시 끝점에 사용할 캐시 이름을 입력합니다. 캐시 이름은 1~63자의 문자열로, 숫자, 영문자 및 `-` 문자만 포함할 수 있습니다. 캐시 이름은 `-` 문자로 시작하거나 끝날 수 없고 연속되는 `-` 문자는 유효하지 않습니다.
 -	**구독**에서는 캐시에 사용할 Azure 구독을 선택합니다. 계정에 구독이 하나뿐인 경우 해당 구독이 자동으로 선택되며 **구독** 드롭다운은 표시되지 않습니다.
--	**리소스 그룹**에서 캐시에 대한 리소스 그룹을 선택하거나 만듭니다. 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](영문)를 참조하세요. 
+-	**리소스 그룹**에서 캐시에 대한 리소스 그룹을 선택하거나 만듭니다. 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리][](영문)를 참조하세요. 
 -	**위치**를 사용하여 캐시가 호스트되는 지리적 위치를 지정합니다. 성능을 최적화하려면 캐시 클라이언트 응용 프로그램과 동일한 지역에 캐시를 만드는 것이 좋습니다.
 -	**가격 계층**을 사용하여 원하는 캐시 크기 및 기능을 선택합니다.
 -	**Redis 클러스터**를 사용하면 53GB 보다 큰 캐시를 만들고 여러 Redis 노드에 걸쳐 데이터를 분할할 수 있습니다. 자세한 내용은 [프리미엄 Azure Redis Cache에 클러스터링을 구성하는 방법](cache-how-to-premium-clustering.md)을 참조하세요.
@@ -90,13 +90,13 @@ Azure Redis 캐시를 시작하기는 쉽습니다. 먼저 캐시를 프로비�
 
 Azure Redis Cache를 사용하여 만든 캐시는 모든 Azure 응용 프로그램에서 액세스할 수 있습니다. Visual Studio에서 개발한 .NET 응용 프로그램은 **StackExchange.Redis** 캐시 클라이언트를 사용할 수 있습니다. 이는 캐시 클라이언트 응용 프로그램의 구성을 단순화하는 NuGet 패키지를 사용하여 구성할 수 있습니다.
 
->[AZURE.NOTE] 자세한 내용은 [StackExchange.Redis](영문) github 페이지 및 [StackExchange.Redis 캐시 클라이언트 설명서](영문)를 참조하세요.
+>[AZURE.NOTE] 자세한 내용은 [StackExchange.Redis][](영문) github 페이지 및 [StackExchange.Redis 캐시 클라이언트 설명서][](영문)를 참조하세요.
 
 StackExchange.Redis NuGet 패키지를 사용하여 Visual Studio에서 클라이언트 응용 프로그램을 구성하려면 **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다.
 
 ![NuGet 패키지 관리][NuGetMenu]
 
-**온라인 검색** 텍스트 상자에 **StackExchange.Redis** 또는 **StackExchange.Redis.StrongName**을 입력하고 결과에서 원하는 버전을 선택한 후 **설치**를 클릭합니다.
+검색 텍스트 상자에 **StackExchange.Redis** 또는 **StackExchange.Redis.StrongName**을 입력하고 결과에서 원하는 버전을 선택한 후 **설치**를 클릭합니다.
 
 >[AZURE.NOTE] 강력한 이름의 **StackExchange.Redis** 클라이언트 라이브러리 버전을 사용하려면 **StackExchange.Redis.StrongName**을 선택하고 그렇지 않으면 **StackExchange.Redis**를 선택합니다.
 
@@ -130,7 +130,7 @@ Azure Redis Cache에 연결하고 연결된 `ConnectionMultiplexer` 인스턴스
 
 	ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
 
->[AZURE.IMPORTANT] 경고: 소스 코드에 자격 증명을 저장해서는 안 됩니다. 이 샘플을 단순하게 유지하기 위해 소스 코드로 표시합니다. [응용 프로그램 설정 및 연결 문자열 작동 방식](영문)에서 자격 증명 저장 방법에 대해 자세히 알아보세요.
+>[AZURE.IMPORTANT] 경고: 소스 코드에 자격 증명을 저장해서는 안 됩니다. 이 샘플을 단순하게 유지하기 위해 소스 코드로 표시합니다. [응용 프로그램 설정 및 연결 문자열 작동 방식][](영문)에서 자격 증명 저장 방법에 대해 자세히 알아보세요.
 
 SSL을 사용하지 않으려면 `ssl=false`를 설정하거나 `ssl` 매개 변수를 생략합니다.
 
@@ -151,7 +151,7 @@ SSL을 사용하지 않으려면 `ssl=false`를 설정하거나 `ssl` 매개 변
 	    }
 	}
 
-고급 연결 구성 옵션에 대한 자세한 내용은 [StackExchange.Redis 구성 모델](영문)을 참조하세요.
+고급 연결 구성 옵션에 대한 자세한 내용은 [StackExchange.Redis 구성 모델][](영문)을 참조하세요.
 
 캐시 끝점 및 키는 캐시 인스턴스에 대한 **Redis Cache** 블레이드에서 가져올 수 있습니다.
 
@@ -238,10 +238,10 @@ Azure Redis 캐시는 .NET 개체 및 기본 데이터 형식을 캐시할 수 �
 	-	[Azure Redis 세션 상태 공급자](cache-aspnet-session-state-provider.md)
 	-	[Azure Redis Cache ASP.NET 출력 캐시 공급자](cache-aspnet-output-cache-provider.md)
 -	캐시의 상태를 [모니터링](cache-how-to-monitor.md)할 수 있도록 [캐시 진단을 사용하도록 설정](cache-how-to-monitor.md#enable-cache-diagnostics)합니다. Azure 포털에서 메트릭을 볼 수 있으며 선택한 도구를 사용하여 메트릭을 [다운로드 및 검토](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring)할 수도 있습니다.
--	[StackExchange.Redis 캐시 클라이언트 설명서](영문)를 확인하세요.
-	-	Azure Redis Cache는 다양한 Redis 클라이언트와 개발 언어에서 액세스할 수 있습니다. 자세한 내용은 [http://redis.io/clients](영문) 및 [Azure Redis Cache용으로 다른 언어에서 개발][]을 참조하세요.
-	-	Redsmin과 같은 서비스와 함께 Azure Redis Cache를 사용할 수도 있습니다. 자세한 내용은 [Azure Redis 연결 문자열을 검색하고 Redsmin과 함께 사용하는 방법](영문)을 참조하세요.
--	[redis](영문) 설명서를 참조하고 [redis 데이터 형식](영문) 및 [Redis 데이터 형식에 대한 15분 소개](영문)에 대해 읽어 보세요.
+-	[StackExchange.Redis 캐시 클라이언트 설명서][](영문)를 확인하세요.
+	-	Azure Redis Cache는 다양한 Redis 클라이언트와 개발 언어에서 액세스할 수 있습니다. 자세한 내용은 [http://redis.io/clients][]를 참조하세요.
+	-	Redsmin과 같은 서비스와 함께 Azure Redis Cache를 사용할 수도 있습니다. 자세한 내용은 [Azure Redis 연결 문자열을 검색하고 Redsmin과 함께 사용하는 방법][](영문)을 참조하세요.
+-	[redis][](영문) 설명서를 참조하고 [redis 데이터 형식][](영문) 및 [Redis 데이터 형식에 대한 15분 소개][](영문)에 대해 읽어 보세요.
 
 
 
@@ -291,7 +291,7 @@ Azure Redis 캐시는 .NET 개체 및 기본 데이터 형식을 캐시할 수 �
    
 <!-- LINKS -->
 [http://redis.io/clients]: http://redis.io/clients
-[Azure Redis Cache용으로 다른 언어에서 개발]: http://msdn.microsoft.com/library/azure/dn690470.aspx
+[Develop in other languages for Azure Redis Cache]: http://msdn.microsoft.com/library/azure/dn690470.aspx
 [Azure Redis 연결 문자열을 검색하고 Redsmin과 함께 사용하는 방법]: https://redsmin.uservoice.com/knowledgebase/articles/485711-how-to-connect-redsmin-to-azure-redis-cache
 [Azure Redis Session State Provider]: http://go.microsoft.com/fwlink/?LinkId=398249
 [How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
@@ -333,6 +333,4 @@ Azure Redis 캐시는 .NET 개체 및 기본 데이터 형식을 캐시할 수 �
 
 [응용 프로그램 설정 및 연결 문자열 작동 방식]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
 
-[Azure 무료 체험]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
-
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -41,11 +41,11 @@ Azure 앱 서비스는 Azure 웹 사이트, Azure 모바일 서비스 및 Azure 
 ### 앱 유형
 앱 서비스를 통해 단일 개발 환경에서 다음과 같은 앱 유형을 만들 수 있습니다.
 
-- [**웹앱**](../app-service-web-overview) - 비즈니스와 더불어 크기가 조정되는 중요 업무용 웹앱을 신속하게 만들고 배포합니다.
-- [**모바일 앱**](../app-service-mobile-value-prop-preview) - 언제든지 어떤 장치에서든 직원, 파트너 및 고객을 관리합니다.
-- [**API 앱**](../app-service-api-apps-why-best-platform) - 클라우드 API를 간편하게 빌드하고 사용합니다.
-- [**함수 앱**](../functions-overview) - Azure, 온-프레미스, SaaS 공급자의 이벤트에 응답하는 간단한 기능을 만듭니다.
-- [**논리 앱**](../app-service-logic-what-are-logic-apps) - 코드를 작성하지 않고 클라우드 간의 데이터 액세스 및 사용을 자동화합니다.
+- [**웹앱**](../app-service-web/app-service-web-overview.md) - 비즈니스와 더불어 크기가 조정되는 중요 업무용 웹앱을 신속하게 만들고 배포합니다.
+- [**모바일 앱**](../app-service-mobile/app-service-mobile-value-prop.md) - 언제든지 어떤 장치에서든 직원, 파트너 및 고객을 관리합니다.
+- [**API 앱**](../app-service-api/app-service-api-apps-why-best-platform.md) - 클라우드 API를 간편하게 빌드하고 사용합니다.
+- [**함수 앱**](../azure-functions/functions-overview.md) - Azure, 온-프레미스, SaaS 공급자의 이벤트에 응답하는 간단한 기능을 만듭니다.
+- [**논리 앱**](../app-service-logic/app-service-logic-what-are-logic-apps.md) - 코드를 작성하지 않고 클라우드 간의 데이터 액세스 및 사용을 자동화합니다.
 
 단일 통합 서비스인 앱 서비스를 통해 위와 같은 앱 형식을 단일 솔루션으로 쉽게 작성할 수 있으므로 동일한 백 엔드를 사용하는 웹 클라이언트 및 모바일 클라이언트를 모두 대상으로 하는 앱을 쉽게 빌드하고 온-프레미스 시스템 뿐만 아니라 인기 있는 서비스(예: Office 365 및 salesforce.com)와 통합할 수 있습니다.
 
@@ -60,4 +60,4 @@ Azure 앱 서비스를 사용하면 언어를 선택하는 것만큼 쉽습니�
 지금 무료로 [새로운 앱을 만드세요](http://go.microsoft.com/fwlink/?LinkId=523751). 신용 카드는 필요하지 않으며 약정이나 수고도 필요하지 않습니다.
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

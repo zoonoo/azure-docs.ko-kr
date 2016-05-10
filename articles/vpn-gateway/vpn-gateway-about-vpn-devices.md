@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/25/2016"
+   ms.date="04/29/2016"
    ms.author="cherylmc" />
 
 # 사이트 간 VPN 게이트웨이 연결에 대한 VPN 장치 정보
@@ -60,7 +60,7 @@ VPN 장치를 구성하려면 적절한 장치 패밀리에 해당하는 링크�
 | Microsoft | 라우팅 및 원격 액세스 서비스 | Windows Server 2012 | 호환되지 않음 | [Microsoft 샘플](http://go.microsoft.com/fwlink/p/?LinkId=717761) |
 | 개방형 시스템 AG | 핵심 업무 제어 보안 게이트웨이 | 해당 없음 | [설치 가이드](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) | [설치 가이드](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |
 | Openswan | Openswan | 2\.6.32 | (출시 예정) | 호환되지 않음 |
-| Palo Alto Networks | PAN-OS 5.0 이상을 실행하는 모든 장치 | PAN-OS 5x 이상 | [Palo Alto Networks](https://support.paloaltonetworks.com/) | 호환되지 않음 |
+| Palo Alto Networks | PAN-OS를 실행하는 모든 장치 | PAN-OS 6.1.5 이상(정책 기반), PAN-OS 7.0.5 이상(경로 기반) | [구성 지침](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) | [구성 지침](https://live.paloaltonetworks.com/t5/Integration-Articles/Configuring-IKEv2-VPN-for-Microsoft-Azure-Environment/ta-p/60340) |
 | Watchguard | 모두 | Fireware XTM v11.x | [구성 지침](http://customers.watchguard.com/articles/Article/Configure-a-VPN-connection-to-a-Windows-Azure-virtual-network/) | 호환되지 않음 |
 
 
@@ -117,10 +117,7 @@ VPN 장치를 구성하려면 적절한 장치 패밀리에 해당하는 링크�
 | IKE 버전 | IKEv1 | IKEv2 |
 | 해시 알고리즘 | SHA1(SHA128) | SHA1(SHA128) |
 | 2단계 SA(보안 연결) 수명(시간) | 3,600초 | 3,600초 |
-| 2단계 SA(보안 연결) 수명(처리량) | 102,400,000KB | - |
-| IPsec SA 암호화 및 인증 제품(우선 순위 순서로) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. 해당 없음 | *경로 기반 게이트웨이 IPsec SA(보안 연결) 제품*(아래) 참조 |
-| PFS(Perfect Forward Secrecy) | 아니요 | 예(DH Group1, 2, 5, 14, 24) |
-| Dead Peer Detection | 지원되지 않음 | 지원됨 |
+| 2단계 SA(보안 연결) 수명(처리량) | 102,400,000KB | - | | IPsec SA 암호화 및 인증 제품(우선 순위 순서로) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. 해당 없음 | *경로 기반 게이트웨이 IPsec SA(보안 연결) 제품*(아래) 참조 | | PFS(Perfect Forward Secrecy) | 아니요 | 예(DH Group1, 2, 5, 14, 24) | | Dead Peer Detection | 지원되지 않음 | 지원됨 |
 
 ### 경로 기반 게이트웨이 IPsec SA(보안 연결) 제안
 
@@ -144,12 +141,11 @@ VPN 장치를 구성하려면 적절한 장치 패밀리에 해당하는 링크�
 | 14 | AH MD5(ESP DES null HMAC 사용), 제안된 수명 없음 | AH MD5(ESP DES MD5 사용), 수명 없음 |
 | 15 | AH SHA1(ESP DES SHA1 사용), 수명 없음 | ESP SHA, 수명 없음 |
 | 16 | AH MD5(ESP DES MD5 사용), 수명 없음 | ESP MD5, 수명 없음 |
-| 17 | - | AH SHA, 수명 없음 |
-| 18 | - | AH MD5, 수명 없음 |
+| 17 | - | AH SHA, 수명 없음 | | 18 | - | AH MD5, 수명 없음 |
 
 
 - 경로 기반 및 고성능 VPN 게이트웨이를 사용하여 IPsec ESP NULL 암호화를 지정할 수 있습니다. Null 기반 암호화는 전송 중인 데이터를 보호하지 않으며, 최대 처리량 및 최소 대기 시간이 필요한 경우에만 사용됩니다. 클라이언트에서는 VNet 간 통신 시나리오 또는 솔루션의 다른 곳에서 암호화가 적용된 경우에 이 암호화를 사용할 수 있습니다.
 
 - 인터넷을 통한 프레미스 간 연결의 경우 중요한 통신의 보안을 보장하려면 위의 표에 나열된 암호화 및 해시 알고리즘을 사용하는 기본 Azure VPN 게이트웨이 설정을 사용하세요.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/26/2016"
+   ms.date="05/03/2016"
    ms.author="lodipalm;barbkess;mausher;jrj;sonyama;"/>
 
 
@@ -154,11 +154,11 @@ SQL 데이터 웨어하우스에 대한 내용을 파악했으면, 이제 [데�
 
 <!--Article references-->
 [데이터 웨어하우스 워크로드]: ./sql-data-warehouse-overview-workload.md
-[샘플 데이터]: ./sql-data-warehouse-get-started-load-samples.md
+[샘플 데이터]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [프로비전]: ./sql-data-warehouse-get-started-provision.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

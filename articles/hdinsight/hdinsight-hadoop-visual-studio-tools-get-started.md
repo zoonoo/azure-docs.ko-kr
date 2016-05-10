@@ -15,7 +15,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="01/27/2016"
+	ms.date="04/28/2016"
 	ms.author="jgao"/>
 
 # HDInsight용 Visual Studio Hadoop 도구를 사용하여 Hive 쿼리 실행 시작
@@ -95,7 +95,7 @@ HDInsight 클러스터에 대해 Hive 스크립트를 테스트하려면 많은 
 Visual Studio용 HDInsight 도구를 사용하여 일부 Hive 작업의 YARN 로그를 수집하고 표시하여 사용자가 Hive 작업 내에 무엇이 있는지 볼 수 있습니다.
 
 ### **hivesampletable** 보기
-모든 HDInsight 클러스터에는 *hivesampletable* 이라는 샘플 Hive 테이블이 함께 제공됩니다. 여기서는 이 테이블을 사용하여 Hive 테이블을 나열하고, 테이블 스키마를 보고, Hive 테이블의 행을 나열하는 방법을 보여줍니다.
+모든 HDInsight 클러스터에는 *hivesampletable*이라는 샘플 Hive 테이블이 함께 제공됩니다. 여기서는 이 테이블을 사용하여 Hive 테이블을 나열하고, 테이블 스키마를 보고, Hive 테이블의 행을 나열하는 방법을 보여줍니다.
 
 
 
@@ -264,15 +264,15 @@ Visual Studio용 HDInsight 도구는 Pig 스크립트를 만들어 HDInsight 클
 
 
 <!--Link references-->
-[hdinsight-provision]: hdinsight/hdinsight-provision-clusters.md
-[hdinsight.introduction]: hdinsight-introduction.md
+[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight.introduction]: hdinsight-hadoop-introduction.md
 [hdinsight.get.started]: hdinsight-hadoop-linux-tutorial-get-started.md
-[hdinsight.hive]: hdinsight/hdinsight-use-hive.md
-[hdinsight.submit.jobs]: hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md
-[hdinsight.analyze.twitter.data]: hdinsight/hdinsight-analyze-twitter-data.md
-[hdinsight.storm.visual.studio.tools]: hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
-[hdinsight.access.application.logs]: hdinsight/hdinsight-hadoop-access-yarn-app-logs.md
+[hdinsight.hive]: hdinsight-use-hive.md
+[hdinsight.submit.jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
+[hdinsight.analyze.twitter.data]: hdinsight-analyze-twitter-data.md
+[hdinsight.storm.visual.studio.tools]: hdinsight-storm-develop-csharp-visual-studio-topology.md
+[hdinsight.access.application.logs]: hdinsight-hadoop-access-yarn-app-logs.md
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->
