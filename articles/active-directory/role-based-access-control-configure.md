@@ -23,9 +23,11 @@ Azure RBAC(역할 기반 액세스 제어)를 통해 Azure에 대한 세밀한 �
 ## 액세스 보기
 [Azure 포털](https://portal.azure.com)의 기본 블레이드에서 리소스, 리소스 그룹 또는 구독에 대한 액세스 권한이 있는 사용자를 볼 수 있습니다. 예를 들어 리소스 그룹 중 하나에 대한 액세스 권한이 있는 사용자를 확인하려는 경우 다음과 같이 합니다.
 
-1. 왼쪽 탐색 모음에서 **리소스 그룹**을 선택합니다. ![리소스 그룹 - 아이콘](./media/role-based-access-control-configure/resourcegroups_icon.png)
+1. 왼쪽 탐색 모음에서 **리소스 그룹**을 선택합니다. 
+![리소스 그룹 - 아이콘](./media/role-based-access-control-configure/resourcegroups_icon.png)
 2. **리소스 그룹** 블레이드에서 리소스 그룹의 이름을 선택합니다.
-3. 리소스 그룹 블레이드의 오른쪽 위에서 **사용자**를 선택합니다. ![사용자 - 아이콘](./media/role-based-access-control-configure/users_icon.png)
+3. 리소스 그룹 블레이드의 오른쪽 위에서 **사용자**를 선택합니다. 
+![사용자 - 아이콘](./media/role-based-access-control-configure/users_icon.png)
 4. **사용자** 블레이드에 리소스 그룹에 대한 액세스가 부여된 모든 사용자, 그룹 및 응용 프로그램이 나열됩니다.  
 
 	![사용자 블레이드 - 상속된 및 할당된 액세스 스크린샷](./media/role-based-access-control-configure/view-access.png)
@@ -38,21 +40,25 @@ Azure RBAC(역할 기반 액세스 제어)를 통해 Azure에 대한 세밀한 �
 ## 액세스 추가
 역할 할당의 범위인 리소스, 리소스 그룹 또는 구독 내에서 액세스 권한을 부여합니다.
 
-1. **사용자** 블레이드에서 **추가**를 선택합니다. ![추가 - 아이콘](./media/role-based-access-control-configure/add_icon.png)  
+1. **사용자** 블레이드에서 **추가**를 선택합니다. 
+![추가 - 아이콘](./media/role-based-access-control-configure/add_icon.png)  
 2. **역할 선택** 블레이드에서 할당하고자 하는 역할을 선택합니다.
 3. 액세스 권한을 부여할 디렉터리에서 사용자, 그룹 또는 응용 프로그램을 선택합니다. 표시 이름, 전자 메일 주소 및 개체 식별자를 사용하여 디렉터리를 검색할 수 있습니다.  
 
 	![사용자 추가 블레이드 - 검색 스크린샷](./media/role-based-access-control-configure/grant-access2.png)
 
-4. **확인**을 선택하여 할당을 만듭니다. **사용자 추가** 팝업은 진행 상태를 추적합니다. ![사용자 진행률 표시줄 추가 - 스크린샷](./media/role-based-access-control-configure/addinguser_popup.png)
+4. **확인**을 선택하여 할당을 만듭니다. **사용자 추가** 팝업은 진행 상태를 추적합니다. 
+![사용자 진행률 표시줄 추가 - 스크린샷](./media/role-based-access-control-configure/addinguser_popup.png)
 
 역할 할당을 성공적으로 추가한 후에 **사용자** 블레이드가 나타납니다.
 
 ## 액세스 제거
 
 1. **사용자** 블레이드에서 역할 할당을 선택합니다.
-2. 할당 세부 정보 블레이드에서 **제거**를 선택합니다. ![제거 - 아이콘](./media/role-based-access-control-configure/remove_icon.png)
-3. **예**를 선택하여 제거를 확인합니다. ![사용자 블레이드 - 역할에서 제거 스크린샷](./media/role-based-access-control-configure/remove-access1.png)
+2. 할당 세부 정보 블레이드에서 **제거**를 선택합니다. 
+![제거 - 아이콘](./media/role-based-access-control-configure/remove_icon.png)
+3. **예**를 선택하여 제거를 확인합니다. 
+![사용자 블레이드 - 역할에서 제거 스크린샷](./media/role-based-access-control-configure/remove-access1.png)
 
 상속된 할당을 제거할 수 있습니다. 그러면 아래 이미지에서 제거 단추가 회색으로 표시됩니다. 대신 **할당 위치** 세부 정보를 볼 수 있습니다. 여기에 나열된 리소스로 이동하여 역할 할당을 제거합니다.
 

@@ -31,7 +31,7 @@
 
 
 ## 탄력적 풀에 새 데이터베이스 생성
-SERVICE\_OBJECTIVE 옵션과 함께 데이터베이스 만들기 명령을 사용합니다.
+SERVICE_OBJECTIVE 옵션과 함께 데이터베이스 만들기 명령을 사용합니다.
 
 	CREATE DATABASE db1 ( SERVICE_OBJECTIVE = ELASTIC_POOL (name = [S3M100] ));
 	-- Create a database named db1 in a pool named S3M100.
@@ -46,13 +46,13 @@ SERVICE\_OBJECTIVE 옵션과 함께 데이터베이스 만들기 명령을 사�
 	-- Move the database named db1 to a pool named P1M125  
 
 ## 탄력적 풀로 데이터베이스 이동 
-수정으로 데이터베이스 변경 명령을 사용하고 SERVICE\_OBJECTIVE 옵션을 ELASTIC\_POOL로 설정합니다. 이름을 대상 풀의 이름으로 설정합니다.
+수정으로 데이터베이스 변경 명령을 사용하고 SERVICE\_OBJECTIVE 옵션을 ELASTIC_POOL로 설정합니다. 이름을 대상 풀의 이름으로 설정합니다.
 
 	ALTER DATABASE db1 MODIFY ( SERVICE_OBJECTIVE = ELASTIC_POOL (name = [S3100] ));
 	-- Move the database named db1 to a pool named S3100.
 
 ## 탄력적 풀 외부로 데이터베이스 이동
-데이터베이스 변경 명령을 사용하고 성능 수준(S0, S1 등) 중 하나에 SERVICE\_OBJECTIVE를 설정합니다.
+데이터베이스 변경 명령을 사용하고 성능 수준(S0, S1 등) 중 하나에 SERVICE_OBJECTIVE를 설정합니다.
 
 	ALTER DATABASE db1 MODIFY ( SERVICE_OBJECTIVE = 'S1');
 	-- Changes the database into a stand-alone database with the service objective S1.

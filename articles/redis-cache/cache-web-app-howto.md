@@ -229,9 +229,9 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 
 ### 보기 구성
 
-1. **솔루션 탐색기**에서 **Views** 폴더, **Shared** 폴더를 차례로 확장하고 **\_Layout.cshtml**를 두 번 클릭합니다.
+1. **솔루션 탐색기**에서 **Views** 폴더, **Shared** 폴더를 차례로 확장하고 **_Layout.cshtml**를 두 번 클릭합니다.
 
-    ![\_Layout.cshtml][cache-layout-cshtml]
+    ![_Layout.cshtml][cache-layout-cshtml]
 
 2. 다음 예제와 같이 `title` 요소의 내용을 변경하고 `My ASP.NET Application`을 `Contoso Team Stats`로 바꿉니다.
 

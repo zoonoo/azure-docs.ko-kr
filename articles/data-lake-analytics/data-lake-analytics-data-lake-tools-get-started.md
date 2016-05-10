@@ -130,9 +130,10 @@ U-SQL은 데이터 레이크 등에서 데이터를 준비하고 변환하고 �
 
 		카탈로그 엔터티(데이터베이스, 스키마, 테이블, UDO 등)용 IntelliSense는 사용자의 계산 계정과 관련됩니다. 상단 도구 모음에서 현재 활성 계산 계정, 데이터베이스, 스키마를 확인하고 드롭다운 목록을 통해 전환할 수 있습니다.
 
-    - *** 열 확장**
+    - **열 *확장**
 
-        *의 오른쪽을 클릭하면 * 아래에 파란색 밑줄이 표시됩니다. 파란색 밑줄에 마우스 커서를 가져간 다음 아래쪽 화살표를 클릭합니다. ![데이터 레이크 visual studio 도구 확장*](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
+        \*의 오른쪽을 클릭하면* 아래에 파란색 밑줄이 표시됩니다. 파란색 밑줄에 마우스 커서를 가져간 다음 아래쪽 화살표를 클릭합니다.  
+	![데이터 레이크 visual studio 도구 확장*](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
 
         **열 확장**을 클릭하면 도구가 열 이름으로 *을 대체합니다.
 
@@ -215,7 +216,7 @@ Visual Studio에서 U-SQL 로컬 실행 환경을 사용하면 다음과 같은 
 - 로컬에서 C# 어셈블리를 디버그합니다.
 - Azure 데이터 레이크 분석 서비스에서 하듯이 서버 탐색기에서 로컬 데이터베이스, 어셈블리, 스키마 및 테이블을 만들고/삭제하고/봅니다.
 
-Visual Studio에 *로컬* 계정이 표시되고 설치 관리자가 *C:\\LocalRunRoot*에 *DataRoot* 폴더를 만듭니다. DataRoot 폴더가 사용되는 경우는 다음과 같습니다.
+Visual Studio에 *로컬* 계정이 표시되고 설치 관리자가 *C:\LocalRunRoot*에 *DataRoot* 폴더를 만듭니다. DataRoot 폴더가 사용되는 경우는 다음과 같습니다.
 
 - 테이블, DB, TVF를 비롯한 메타데이터를 저장합니다.
 - 특정 스크립트에 대해, 상대 경로가 입/출력 경로에 참조되는 경우, DataRoot 폴더(는 물론 입력인 경우 스크립트의 경로)를 찾아봅니다.

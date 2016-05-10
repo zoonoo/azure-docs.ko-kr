@@ -80,17 +80,17 @@ VPN 장치를 구성하려면 적절한 장치 패밀리에 해당하는 링크�
 
 | **샘플 텍스트** | **변경** |
 |----------------------------------|----------------------------------------------------------------------------------------------------------------------|
-| &lt;RP\_OnPremisesNetwork&gt; | 이 개체에 대해 선택한 이름입니다. 예: myOnPremisesNetwork |
-| &lt;RP\_AzureNetwork&gt; | 이 개체에 대해 선택한 이름입니다. 예: myAzureNetwork |
-| &lt;RP\_AccessList&gt; | 이 개체에 대해 선택한 이름입니다. 예: myAzureAccessList |
-| &lt;RP\_IPSecTransformSet&gt; | 이 개체에 대해 선택한 이름입니다. 예: myIPSecTransformSet |
-| &lt;RP\_IPSecCryptoMap&gt; | 이 개체에 대해 선택한 이름입니다. 예: myIPSecCryptoMap |
-| &lt;SP\_AzureNetworkIpRange&gt; | 범위를 지정합니다. 예: 192.168.0.0 |
-| &lt;SP\_AzureNetworkSubnetMask&gt; | 서브넷 마스크를 지정합니다. 예: 255.255.0.0 |
-| &lt;SP\_OnPremisesNetworkIpRange&gt; | 온-프레미스 범위를 지정합니다. 예: 10.2.1.0 |
-| &lt;SP\_OnPremisesNetworkSubnetMask&gt; | 온-프레미스 서브넷 마스크를 지정합니다. 예: 255.255.255.0 |
-| &lt;SP\_AzureGatewayIpAddress&gt; | 이 정보는 가상 네트워크와 관련이 있으며 **게이트웨이 IP 주소**인 관리 포털에 있습니다. |
-| &lt;SP\_PresharedKey&gt; | 이 정보는 가상 네트워크와 관련이 있으며 키 관리인 관리 포털에 있습니다. |
+| &lt;RP_OnPremisesNetwork&gt; | 이 개체에 대해 선택한 이름입니다. 예: myOnPremisesNetwork |
+| &lt;RP_AzureNetwork&gt; | 이 개체에 대해 선택한 이름입니다. 예: myAzureNetwork |
+| &lt;RP_AccessList&gt; | 이 개체에 대해 선택한 이름입니다. 예: myAzureAccessList |
+| &lt;RP_IPSecTransformSet&gt; | 이 개체에 대해 선택한 이름입니다. 예: myIPSecTransformSet |
+| &lt;RP_IPSecCryptoMap&gt; | 이 개체에 대해 선택한 이름입니다. 예: myIPSecCryptoMap |
+| &lt;SP_AzureNetworkIpRange&gt; | 범위를 지정합니다. 예: 192.168.0.0 |
+| &lt;SP_AzureNetworkSubnetMask&gt; | 서브넷 마스크를 지정합니다. 예: 255.255.0.0 |
+| &lt;SP_OnPremisesNetworkIpRange&gt; | 온-프레미스 범위를 지정합니다. 예: 10.2.1.0 |
+| &lt;SP_OnPremisesNetworkSubnetMask&gt; | 온-프레미스 서브넷 마스크를 지정합니다. 예: 255.255.255.0 |
+| &lt;SP_AzureGatewayIpAddress&gt; | 이 정보는 가상 네트워크와 관련이 있으며 **게이트웨이 IP 주소**인 관리 포털에 있습니다. |
+| &lt;SP_PresharedKey&gt; | 이 정보는 가상 네트워크와 관련이 있으며 키 관리인 관리 포털에 있습니다. |
 
 
 
@@ -117,7 +117,10 @@ VPN 장치를 구성하려면 적절한 장치 패밀리에 해당하는 링크�
 | IKE 버전 | IKEv1 | IKEv2 |
 | 해시 알고리즘 | SHA1(SHA128) | SHA1(SHA128) |
 | 2단계 SA(보안 연결) 수명(시간) | 3,600초 | 3,600초 |
-| 2단계 SA(보안 연결) 수명(처리량) | 102,400,000KB | - | | IPsec SA 암호화 및 인증 제품(우선 순위 순서로) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. 해당 없음 | *경로 기반 게이트웨이 IPsec SA(보안 연결) 제품*(아래) 참조 | | PFS(Perfect Forward Secrecy) | 아니요 | 예(DH Group1, 2, 5, 14, 24) | | Dead Peer Detection | 지원되지 않음 | 지원됨 |
+| 2단계 SA(보안 연결) 수명(처리량) | 102,400,000KB | - |
+| IPsec SA 암호화 및 인증 제품(우선 순위 순서로) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. 해당 없음 | *경로 기반 게이트웨이 IPsec SA(보안 연결) 제품*(아래) 참조 |
+| PFS(Perfect Forward Secrecy) | 아니요 | 예(DH Group1, 2, 5, 14, 24) |
+| Dead Peer Detection | 지원되지 않음 | 지원됨 |
 
 ### 경로 기반 게이트웨이 IPsec SA(보안 연결) 제안
 
@@ -125,23 +128,24 @@ VPN 장치를 구성하려면 적절한 장치 패밀리에 해당하는 링크�
 
 | **IPsec SA 암호화 및 인증 제안** | **Azure 게이트웨이(초기자)** | **Azure 게이트웨이(응답자)** |
 |---------------------------------------------------|--------------------------------------------------------------|--------------------------------------------------------------|
-| 1 | ESP AES\_256 SHA | ESP AES\_128 SHA |
-| 2 | ESP AES\_128 SHA | ESP 3\_DES MD5 |
-| 3 | ESP 3\_DES MD5 | ESP 3\_DES SHA |
-| 4 | ESP 3\_DES SHA | AH SHA1(ESP AES\_128, null HMAC 사용) |
-| 5 | AH SHA1(ESP AES\_256, null HMAC 사용) | AH SHA1(ESP 3\_DES, null HMAC 사용) |
-| 6 | AH SHA1(ESP AES\_128, null HMAC 사용) | AH MD5(ESP 3\_DES, null HMAC 사용), 제안된 수명 없음 |
-| 7 | AH SHA1(ESP 3\_DES, null HMAC 사용) | AH SHA1(ESP 3\_DES SHA1 사용), 수명 없음 |
-| 8 | AH MD5(ESP 3\_DES, null HMAC 사용), 제안된 수명 없음 | AH MD5(ESP 3\_DES MD5 사용), 수명 없음 |
-| 9 | AH SHA1(ESP 3\_DES SHA1 사용), 수명 없음 | ESP DES MD5 |
-| 10 | AH MD5(ESP 3\_DES MD5 사용), 수명 없음 | ESP DES SHA1, 수명 없음 |
+| 1 | ESP AES_256 SHA | ESP AES_128 SHA |
+| 2 | ESP AES_128 SHA | ESP 3_DES MD5 |
+| 3 | ESP 3_DES MD5 | ESP 3_DES SHA |
+| 4 | ESP 3_DES SHA | AH SHA1(ESP AES_128, null HMAC 사용) |
+| 5 | AH SHA1(ESP AES_256, null HMAC 사용) | AH SHA1(ESP 3_DES, null HMAC 사용) |
+| 6 | AH SHA1(ESP AES_128, null HMAC 사용) | AH MD5(ESP 3_DES, null HMAC 사용), 제안된 수명 없음 |
+| 7 | AH SHA1(ESP 3_DES, null HMAC 사용) | AH SHA1(ESP 3_DES SHA1 사용), 수명 없음 |
+| 8 | AH MD5(ESP 3_DES, null HMAC 사용), 제안된 수명 없음 | AH MD5(ESP 3_DES MD5 사용), 수명 없음 |
+| 9 | AH SHA1(ESP 3_DES SHA1 사용), 수명 없음 | ESP DES MD5 |
+| 10 | AH MD5(ESP 3_DES MD5 사용), 수명 없음 | ESP DES SHA1, 수명 없음 |
 | 11 | ESP DES MD5 | AH SHA1(ESP DES null HMAC 사용), 제안된 수명 없음 |
 | 12 | ESP DES SHA1, 수명 없음 | AH MD5(ESP DES null HMAC 사용), 제안된 수명 없음 |
 | 13 | AH SHA1(ESP DES null HMAC 사용), 제안된 수명 없음 | AH SHA1(ESP DES SHA1 사용), 수명 없음 |
 | 14 | AH MD5(ESP DES null HMAC 사용), 제안된 수명 없음 | AH MD5(ESP DES MD5 사용), 수명 없음 |
 | 15 | AH SHA1(ESP DES SHA1 사용), 수명 없음 | ESP SHA, 수명 없음 |
 | 16 | AH MD5(ESP DES MD5 사용), 수명 없음 | ESP MD5, 수명 없음 |
-| 17 | - | AH SHA, 수명 없음 | | 18 | - | AH MD5, 수명 없음 |
+| 17 | - | AH SHA, 수명 없음 |
+| 18 | - | AH MD5, 수명 없음 |
 
 
 - 경로 기반 및 고성능 VPN 게이트웨이를 사용하여 IPsec ESP NULL 암호화를 지정할 수 있습니다. Null 기반 암호화는 전송 중인 데이터를 보호하지 않으며, 최대 처리량 및 최소 대기 시간이 필요한 경우에만 사용됩니다. 클라이언트에서는 VNet 간 통신 시나리오 또는 솔루션의 다른 곳에서 암호화가 적용된 경우에 이 암호화를 사용할 수 있습니다.

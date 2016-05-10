@@ -30,7 +30,7 @@ StorSimple 가상 장치 모델은 두 가지 모델 즉, 표준 8010(이전의 
 | 장치 모델 | 8010<sup>1</sup> | 8020 |
 |-----------------------|---------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
 | **최대 용량** | 30TB | 64TB |
-| **Azure VM** | Standard\_A3(4 코어, 7GB 메모리) | Standard\_DS3 (4 코어, 14GB 메모리) |
+| **Azure VM** | Standard_A3(4 코어, 7GB 메모리) | Standard_DS3 (4 코어, 14GB 메모리) |
 | **버전 호환성** | 사전 업데이트 2 이상을 실행하는 버전 | 업데이트 2 이상을 실행하는 버전 |
 | **지역 가용성** | 모든 Azure 지역 | 프리미엄 저장소를 지원하는 Azure 지역<br></br>하위 지역 목록은 [8020에 대해 지원되는 하위 지역](#supported-regions-for-8020)을 참조하세요. |
 | **저장소 유형** | 로컬 디스크에 Azure 표준 저장소 사용<br></br> [표준 저장소 계정을 만드는]() 방법 알아보기 | 로컬 디스크<sup>2</sup>에 Azure 프리미엄 저장소 사용 <br></br>[프리미엄 저장소 계정을 만드는](storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) 방법 알아보기 |
@@ -144,7 +144,8 @@ StorSimple 가상 장치는 Microsoft Azure 가상 컴퓨터의 단일 노드에
 
 이 절차를 시작하기 전에 서비스 데이터 암호화 키의 복사본을 가지고 있는지 확인합니다. 첫번째 StorSimple 장치를 구성하고 안전한 위치에 저장하도록 명령한 경우, 서비스 데이터 암호화 키가 만들어집니다. 서비스 데이터 암호화 키의 복사본이 없는 경우 Microsoft 지원에 문의해야 합니다.
 
-다음 단계에 따라 StorSimple 가상 장치를 구성하고 등록합니다.[AZURE.INCLUDE [가상 장치 구성 및 등록](../../includes/storsimple-configure-register-virtual-device.md)]
+다음 단계에 따라 StorSimple 가상 장치를 구성하고 등록합니다.
+[AZURE.INCLUDE [가상 장치 구성 및 등록](../../includes/storsimple-configure-register-virtual-device.md)]
 
 ### 3단계: (선택 사항) 장치 구성 설정 수정
 

@@ -58,7 +58,7 @@
 
 4. 시작 프로젝트인 Windows 스토어 앱을 사용하여 프로젝트를 다시 빌드하고 Windows 스토어 앱을 시작하려면 F5 키를 누릅니다.
 
-5. 앱에서 **Insert a TodoItem** 텍스트 상자에 *자습서 완료*와 같은 의미 있는 텍스트를 입력하고 **저장**을 클릭합니다.
+5. 앱에서 **Insert a TodoItem** 텍스트 상자에 *자습서 완료* 와 같은 의미 있는 텍스트를 입력하고 **저장**을 클릭합니다.
 
 	![](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-startup.png)
 

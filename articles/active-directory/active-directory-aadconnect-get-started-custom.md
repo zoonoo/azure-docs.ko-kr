@@ -57,9 +57,11 @@ AD FS로 페더레이션 | 사용자는 자신의 온-프레미스 네트워크�
 ## Azure에 연결
 Azure AD에 연결 화면에서, 전역 관리자 계정 및 암호를 입력합니다. 이전 페이지에서 **AD FS로 페더레이션**을 선택한 경우 페더레이션을 사용하도록 설정할 도메인의 계정으로 로그인하지 마십시오. Azure AD 디렉터리와 함께 제공되는 기본 **onmicrosoft.com** 도메인에서 계정을 사용하는 것이 좋습니다.
 
-이 계정은 Azure AD에서 서비스 계정을 만드는 데에만 사용되며 마법사를 완료한 후에는 사용되지 않습니다. ![사용자 로그인](./media/active-directory-aadconnect-get-started-custom/connectaad.png)
+이 계정은 Azure AD에서 서비스 계정을 만드는 데에만 사용되며 마법사를 완료한 후에는 사용되지 않습니다. 
+![사용자 로그인](./media/active-directory-aadconnect-get-started-custom/connectaad.png)
 
-전역 관리자 계정이 MFA를 사용하도록 설정된 경우 로그인 팝업에서 암호를 다시 제공하고 MFA 인증을 완료해야 합니다. 확인 코드를 제공하거나 또는 전화 통화로 인증할 수 있습니다. ![사용자 로그인 MFA](./media/active-directory-aadconnect-get-started-custom/connectaadmfa.png)
+전역 관리자 계정이 MFA를 사용하도록 설정된 경우 로그인 팝업에서 암호를 다시 제공하고 MFA 인증을 완료해야 합니다. 확인 코드를 제공하거나 또는 전화 통화로 인증할 수 있습니다. 
+![사용자 로그인 MFA](./media/active-directory-aadconnect-get-started-custom/connectaadmfa.png)
 
 또한 전역 관리자 계정은 [Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md)를 사용하도록 설정할 수 있습니다.
 
@@ -68,14 +70,18 @@ Azure AD에 연결 화면에서, 전역 관리자 계정 및 암호를 입력합
 ## 섹션 동기화의 페이지
 
 ### 디렉터리에 연결
-Active Directory 도메인 서비스에 연결하려면, Azure AD Connect는 충분한 권한이 있는 계정의 자격 증명이 필요합니다. NetBios 또는 FQDN 형식으로 도메인 부분을 입력할 수 있습니다(예: FABRIKAM\\syncuser 또는 fabrikam.com\\syncuser). 기본 읽기 권한만 필요하기 때문에 이 계정은 일반 사용자 계정일 수 있습니다. 그러나 시나리오에 따라 더 많은 사용 권한이 할 수 있습니다. 자세한 내용은 [Azure AD Connect 계정 및 사용 권한](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account) 참조
+Active Directory 도메인 서비스에 연결하려면, Azure AD Connect는 충분한 권한이 있는 계정의 자격 증명이 필요합니다. NetBios 또는 FQDN 형식으로 도메인 부분을 입력할 수 있습니다(예: FABRIKAM\syncuser 또는 fabrikam.com\syncuser). 기본 읽기 권한만 필요하기 때문에 이 계정은 일반 사용자 계정일 수 있습니다. 그러나 시나리오에 따라 더 많은 사용 권한이 할 수 있습니다. 자세한 내용은 [Azure AD Connect 계정 및 사용 권한](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account) 참조
 
 ![연결 디렉터리](./media/active-directory-aadconnect-get-started-custom/connectdir.png)
 
 ### 도메인 및 OU 필터링
-기본적으로 모든 도메인 및 OU가 동기화됩니다. Azure AD로 동기화하지 않으려는 일부 도메인 또는 OU가 있는 경우 이러한 도메인 및 OU의 선택을 취소할 수 있습니다. ![DomainOU 필터링](./media/active-directory-aadconnect-get-started-custom/domainoufiltering.png) 마법사의이 페이지에서는 도메인 기반 필터링을 구성합니다. 자세한 내용은 [도메인 기반 필터링](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering)을 참조하세요.
+기본적으로 모든 도메인 및 OU가 동기화됩니다. Azure AD로 동기화하지 않으려는 일부 도메인 또는 OU가 있는 경우 이러한 도메인 및 OU의 선택을 취소할 수 있습니다. 
+![DomainOU 필터링](./media/active-directory-aadconnect-get-started-custom/domainoufiltering.png) 
+마법사의이 페이지에서는 도메인 기반 필터링을 구성합니다. 자세한 내용은 [도메인 기반 필터링](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering)을 참조하세요.
 
-일부 도메인은 방화벽 제한으로 인해 연결할 수 없을 수도 있습니다. 이러한 도메인은 기본적으로 선택 취소되며 경고가 표시됩니다. ![연결할 수 없는 도메인](./media/active-directory-aadconnect-get-started-custom/unreachable.png) 이 경고가 표시된 경우 이러한 도메인에 실제로 연결할 수 없는지 그리고 경고가 예상되는지 확인합니다.
+일부 도메인은 방화벽 제한으로 인해 연결할 수 없을 수도 있습니다. 이러한 도메인은 기본적으로 선택 취소되며 경고가 표시됩니다. 
+![연결할 수 없는 도메인](./media/active-directory-aadconnect-get-started-custom/unreachable.png) 
+이 경고가 표시된 경우 이러한 도메인에 실제로 연결할 수 없는지 그리고 경고가 예상되는지 확인합니다.
 
 ### 사용자를 고유하게 식별
 포리스트 기능 간에 일치를 사용하여 AD DS 포리스트의 사용자가 Azure AD에서 표현되는 방법을 정의할 수 있습니다. 사용자는 포리스트 전반에 걸쳐 한번만 표시할 수 있거나 활성화된 계정과 비활성화된 계정의 조합으로 이루어집니다. 사용자가 일부 포리스트 내에서 연락처로 표시될 수 있습니다.
