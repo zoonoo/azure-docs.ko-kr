@@ -3,7 +3,7 @@
    description="데이터 레이크 분석은 Azure 빅 데이터 계산 서비스로, 이를 통해 위치 및 크기에 관계없이 클라우드의 데이터에서 얻은 통찰력을 통해 데이터를 비즈니스 운영에 사용할 수 있습니다. 데이터 레이크 분석을 사용하면 가장 간단하고 확장성이 뛰어나면서도 가장 경제적인 방법으로 이 작업을 수행할 수 있습니다." 
    services="data-lake-analytics" 
    documentationCenter="" 
-   authors="mumian" 
+   authors="edmacauley" 
    manager="paulettm" 
    editor="cgronlun"/>
  
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/06/2016"
-   ms.author="jgao"/>
+   ms.date="04/26/2016"
+   ms.author="edmaca"/>
 
 # Microsoft Azure 데이터 레이크 분석 개요
 
@@ -77,4 +77,4 @@ Azure 데이터 레이크 분석은 빅 데이터 분석을 쉽게 수행하기 
     - [기능 요청 제출](http://aka.ms/adlafeedback)
     - [포럼에서 도움말 보기](http://aka.ms/adlaforums)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->

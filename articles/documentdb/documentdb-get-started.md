@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="04/15/2016"
+	ms.date="04/25/2016"
 	ms.author="anhoh"/>
 
 # NoSQL 자습서: DocumentDB C# 콘솔 응용 프로그램 빌드
@@ -61,12 +61,15 @@ DocumentDB 계정을 만들어 보겠습니다. 계정이 이미 있는 경우 [
 
 1. 컴퓨터에서 **Visual Studio 2015**를 엽니다.
 2. **파일** 메뉴에서 **새로 만들기**와 **프로젝트**를 차례로 선택합니다.
-3. **새 프로젝트** 대화 상자에서 **템플릿**/**Visual C#**/**콘솔 응용 프로그램**을 선택하고 프로젝트 이름을 지정한 후 **확인**을 클릭합니다. ![새 프로젝트 창의 스크린샷](./media/documentdb-get-started/nosql-tutorial-new-project-2.png)
+3. **새 프로젝트** 대화 상자에서 **템플릿**/**Visual C#**/**콘솔 응용 프로그램**을 선택하고 프로젝트 이름을 지정한 후 **확인**을 클릭합니다. 
+![새 프로젝트 창의 스크린샷](./media/documentdb-get-started/nosql-tutorial-new-project-2.png)
 4. **솔루션 탐색기**에서 Visual Studio 솔루션 아래에 있는 새 콘솔 응용 프로그램을 마우스 오른쪽 단추로 클릭합니다.
-5. 그런 다음 메뉴를 종료하지 않고 **NuGet 패키지 관리...**를 클릭합니다. ![프로젝트의 마우스 오른쪽 단추 클릭 메뉴의 스크린샷](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges.png)
-6. **NuGet 패키지 관리** 창의 맨 왼쪽 패널에서 **온라인**/**nuget.org**를 클릭합니다.
-7. **온라인 검색** 입력 상자에서 **DocumentDB**를 검색합니다.
-8. 결과 내에서 **Microsoft Azure DocumentDB Client Library**를 찾아 **설치**를 클릭합니다. DocumentDB 클라이언트 라이브러리의 패키지 ID는 [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB)입니다. ![DocumentDB 클라이언트 SDK를 찾기 위한 Nuget 메뉴의 스크린샷](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
+5. 그런 다음 메뉴를 종료하지 않고 **NuGet 패키지 관리...**를 클릭합니다.  
+![프로젝트의 마우스 오른쪽 단추 클릭 메뉴의 스크린샷](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges.png)
+6. **Nuget** 탭에서 **찾아보기**를 클릭하고 검색 상자에 **azure documentdb**를 입력합니다.
+7. 결과 내에서 **Microsoft.Azure.DocumentDB**를 찾아 **설치**를 클릭합니다. 
+DocumentDB 클라이언트 라이브러리의 패키지 ID는 [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB)입니다. 
+![DocumentDB 클라이언트 SDK를 찾기 위한 Nuget 메뉴의 스크린샷](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
 
 잘하셨습니다. 설치를 완료했으므로 코드를 작성해 보겠습니다. [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs)에서 이 자습서의 완성된 코드 프로젝트를 찾을 수 있습니다.
 
@@ -74,10 +77,11 @@ DocumentDB 계정을 만들어 보겠습니다. 계정이 이미 있는 경우 [
 
 먼저 Program.cs에서 C# 응용 프로그램의 시작 부분에 다음 참조를 추가합니다.
 
-		// ADD THIS PART TO YOUR CODE
-		using System;
+    using System;
     using System.Linq;
     using System.Threading.Tasks;
+
+    // ADD THIS PART TO YOUR CODE
     using System.Net;
     using Microsoft.Azure.Documents;
     using Microsoft.Azure.Documents.Client;
@@ -85,7 +89,7 @@ DocumentDB 계정을 만들어 보겠습니다. 계정이 이미 있는 경우 [
 
 > [AZURE.IMPORTANT] 이 NoSQL 자습서를 완료하려면 위의 종속성을 추가했는지 확인합니다.
 
-이제, 두 가지 상수와 *client* 변수를 public class *Program* 아래 추가합니다.
+이제, 두 가지 상수와 *클라이언트* 변수를 공용 클래스 *프로그램* 아래 추가합니다.
 
 	public class Program
 	{
@@ -94,17 +98,17 @@ DocumentDB 계정을 만들어 보겠습니다. 계정이 이미 있는 경우 [
 		private const string PrimaryKey = "<your key>";
 		private DocumentClient client;
 
-그 다음, [Azure 포털](https://portal.azure.com)로 이동하여 URI 및 기본 키를 검색합니다. DocumentDB URI 및 기본 키는 응용 프로그램에서 연결할 곳을 이해하고 DocumentDB에서 응용 프로그램 연결을 신뢰하는 데 필요합니다.
+다음으로 [Azure 포털](https://portal.azure.com)로 이동하여 URI 및 기본 키를 검색합니다. DocumentDB URI 및 기본 키는 응용 프로그램에서 연결할 곳을 이해하고 DocumentDB에서 응용 프로그램 연결을 신뢰하는 데 필요합니다.
 
 Azure 포털에서 1단계의 DocumentDB 계정으로 이동합니다.
 
-**Essentials** 모음의 **키** 아이콘을 클릭합니다. URI를 복사하고 *<your endpoint URI>*을(를) 프로그램에 복사된 URI로 바꿉니다. 기본 키를 복사하고 *<your key>*을(를) 프로그램에 복사된 키로 바꿉니다.
+**Essentials** 모음에서 **키** 아이콘을 클릭합니다. URI를 복사하고 *<your endpoint URI>*를 프로그램에 복사된 URI로 바꿉니다. 기본 키를 복사하고 *<your key>* 을 프로그램에 복사된 키로 바꿉니다.
 
 ![C# 콘솔 응용 프로그램을 만들기 위해 NoSQL 자습서에서 사용하는 Azure 포털의 스크린샷 DocumentDB 계정 블레이드의 키 단추 및 키 블레이드의 URI, 기본 키 및 보조키 값이 강조 표시된 DocumentDB 계정을 보여 줌][keys]
 
 **DocumentClient**의 새 인스턴스를 만드는 것으로 시작 응용 프로그램을 시작해 보겠습니다.
 
-**Main** 메서드 아래에 **GetStartedDemo**라는 이름의 새 비동기 작업을 추가하면, 새 **DocumentClient**가 인스턴스화됩니다.
+**기본** 메서드 아래에 **GetStartedDemo**라는 이름의 새 비동기 작업을 추가하면, 새 **DocumentClient**가 인스턴스화됩니다.
 
 	static void Main(string[] args)
 	{
@@ -116,7 +120,7 @@ Azure 포털에서 1단계의 DocumentDB 계정으로 이동합니다.
 		this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 	}
 
-다음 코드를 추가하여 **Main** 메서드에서 비동기 작업을 실행합니다. **Main** 메서드가 예외를 catch하여 콘솔에 기록합니다.
+다음 코드를 추가하여 **기본** 메서드에서 비동기 작업을 실행합니다. **기본** 메서드가 예외를 catch하여 콘솔에 기록합니다.
 
 	static void Main(string[] args)
 	{
@@ -141,7 +145,6 @@ Azure 포털에서 1단계의 DocumentDB 계정으로 이동합니다.
 					Console.WriteLine("End of demo, press any key to exit.");
 					Console.ReadKey();
 			}
-	}
 
 **F5** 키를 눌러 응용 프로그램을 실행합니다.
 
@@ -162,7 +165,7 @@ Azure 포털에서 1단계의 DocumentDB 계정으로 이동합니다.
 
 **DocumentClient** 클래스의 [CreateDatabaseAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) 메서드를 사용하여 DocumentDB [데이터베이스](documentdb-resources.md#databases)를 만들 수 있습니다. 데이터베이스는 여러 컬렉션으로 분할된 JSON 문서 저장소의 논리적 컨테이너입니다.
 
-**GetStartedDemo** 메서드 아래에 **CreateDatabaseIfNotExists** 메서드를 복사하여 붙여넣습니다.
+**WriteToConsoleAndPromptToContinue** 메서드 아래에 **CreateDatabaseIfNotExists** 메서드를 복사하여 붙여넣습니다.
 
 	// ADD THIS PART TO YOUR CODE
 	private async Task CreateDatabaseIfNotExists(string databaseName)
@@ -203,7 +206,7 @@ Azure 포털에서 1단계의 DocumentDB 계정으로 이동합니다.
 
 ##<a id="CreateColl"></a>5단계: 컬렉션 만들기  
 
-> [AZURE.WARNING] **CreateDocumentCollectionAsync**는 가격의 의미가 포함된 예약된 처리량이 있는 새 컬렉션을 만듭니다. 자세한 내용은 [가격 페이지](https://azure.microsoft.com/pricing/details/documentdb/)를 참조하세요.
+> [AZURE.WARNING] **CreateDocumentCollectionAsync**는 가격 책정 의미가 포함된 예약된 처리량이 있는 새 컬렉션을 만듭니다. 자세한 내용은 [가격 페이지](https://azure.microsoft.com/pricing/details/documentdb/)를 참조하세요.
 
 **DocumentClient** 클래스의 [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) 메서드를 사용하여 [컬렉션](documentdb-resources.md#collections)을 만들 수 있습니다. 컬렉션은 JSON 문서 및 관련 JavaScript 응용 프로그램 논리의 컨테이너입니다.
 
@@ -259,9 +262,9 @@ Azure 포털에서 1단계의 DocumentDB 계정으로 이동합니다.
 ##<a id="CreateDoc"></a>6단계: JSON 문서 만들기
 **DocumentClient** 클래스의 [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) 메서드를 사용하여 [문서](documentdb-resources.md#documents)를 만들 수 있습니다. 문서는 사용자 정의(임의) JSON 콘텐츠입니다. 이제 하나 이상의 문서를 삽입할 수 있습니다. 데이터베이스에 저장하려는 데이터가 이미 있다면 DocumentDB의 [데이터 마이그레이션 도구](documentdb-import-data.md)를 사용할 수 있습니다.
 
-먼저 이 샘플에서는 DocumentDB 내에 저장된 개체를 나타내는 **Family** 클래스를 만들어야 합니다. 또한 **Family** 내에서 사용되는 하위 클래스인 **Parent**, **Child**, **Pet**, **Address**를 만듭니다. 문서에는 JSON에서 **ID**로 직렬화된 **ID** 속성이 있어야 합니다. **GetStartedDemo** 메서드 다음에 다음 내부 하위 클래스를 추가하여 이러한 클래스를 만듭니다.
+먼저 이 샘플에서는 DocumentDB 내에 저장된 개체를 나타내는 **가족** 클래스를 만들어야 합니다. 또한 **가족** 내에서 사용되는 **부모**, **자식**, **애완 동물**, **주소** 하위 클래스를 만듭니다. 문서에는 JSON에서 **ID**로 직렬화된 **ID** 속성이 있어야 합니다. **GetStartedDemo** 메서드 다음에 다음 내부 하위 클래스를 추가하여 이러한 클래스를 만듭니다.
 
-**WriteToConsoleAndPromptToContinue** 메서드 아래에 **Family**, **Parent**, **Child**, **Pet**, 및 **Address** 클래스를 복사하여 붙여 넣습니다.
+**WriteToConsoleAndPromptToContinue** 메서드 아래에 **가족**, **부모**, **자식**, **애완 동물** 및 **주소** 클래스를 복사하여 붙여 넣습니다.
 
 	private void WriteToConsoleAndPromptToContinue(string format, params object[] args)
 	{
@@ -611,4 +614,4 @@ Visual Studio에서 DocumentDB .NET SDK에 대한 참조를 복원하려면 솔�
 [documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

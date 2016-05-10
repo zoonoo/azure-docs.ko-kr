@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="hero-article"
-	ms.date="02/08/2016"
+	ms.date="04/08/2016"
 	ms.author="robmcm"/>
 
 # Azure 앱 서비스에서 WordPress 웹앱 만들기
+
+[AZURE.INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
 이 자습서는 Azure 마켓플레이스에서 WordPress 블로그 사이트를 배포하는 방법을 설명합니다.
 
@@ -32,7 +34,7 @@
 
 Azure 마켓플레이스에서 Microsoft, 타사 및 오픈 소스 소프트웨어에서 개발된 다양한 인기 웹앱을 사용할 수 있습니다. 웹앱은 이 WordPress 예제에서 [PHP](/develop/nodejs/), [.NET](/develop/net/), [Node.js](/develop/nodejs/), [Java](/develop/java/), 및 [Python](/develop/python/) 등과 같은 광범위하고 인기있는 프레임워크에서 작성됩니다. Azure 마켓플레이스에서 웹앱을 만들려면 유일하게 필요한 소프트웨어는 [Azure 포털](https://portal.azure.com/)에 대해 사용하는 브라우저입니다.
 
-이 자습서에서 배포하는 WordPress 사이트는 데이터베이스에 MySQL을 사용합니다. 대신 데이터베이스에 SQL 데이터베이스를 사용하려는 경우 [프로젝트 Nami](http://projectnami.org/)를 참조하세요. **프로젝트 Nami**는 마켓플레이스를 통해 제공됩니다.
+이 자습서에서 배포하는 WordPress 사이트는 데이터베이스에 MySQL을 사용합니다. 대신 데이터베이스에 SQL 데이터베이스를 사용하려는 경우 [프로젝트 Nami](http://projectnami.org/)를 참조하세요. **프로젝트 Nami**는 마켓플레이스를 통해서도 제공됩니다.
 
 > [AZURE.NOTE]
 이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우 [Visual Studio 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)하거나 [무료 평가판을 등록](/ko-KR/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있습니다.
@@ -126,4 +128,4 @@ Azure 마켓플레이스에서 Microsoft, 타사 및 오픈 소스 소프트웨�
 [7]: ./media/web-sites-php-web-site-gallery/search-web-app.png
 [browse]: ./media/web-sites-php-web-site-gallery/browse-web.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -48,7 +48,7 @@ CDN을 사용하여 Azure 데이터를 캐시할 경우의 이점은 다음과 �
 
 표준 CDN 계층에는 이러한 기능이 포함됩니다.
 
-- [저장소](cdn-create-a-storage-account-with-cdn.md), [클라우드 서비스](cdn-cloud-service-with-cdn.md), 웹앱 및 [미디어 서비스](../media-services/media-services-manage-origins.md#enable_cdn)와 같은 Azure와의 간편한 통합
+- [저장소](cdn-create-a-storage-account-with-cdn.md), [클라우드 서비스](cdn-cloud-service-with-cdn.md), [웹앱](../app-service-web/cdn-websites-with-cdn.md) 및 [미디어 서비스](../media-services/media-services-manage-origins.md#enable_cdn)와 같은 Azure와의 간편한 통합
 - HTTPS 지원
 - 부하 분산
 - DDOS 보호
@@ -75,6 +75,6 @@ CDN을 시작하려면 [Azure CDN 사용](./cdn-create-new-endpoint.md)을 참�
 
 기존 CDN 고객인 경우 이제 [Microsoft Azure 포털](https://portal.azure.com)을 통해 CDN 끝점을 관리할 수 있습니다.
 
-작동 중인 CDN을 보려면 [빌드 2016 세션 비디오](../../videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/)를 참고하세요.
+작동 중인 CDN을 보려면 [빌드 2016 세션 비디오](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/)를 참고하세요.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

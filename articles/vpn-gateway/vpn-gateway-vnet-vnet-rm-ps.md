@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/15/2016"
+   ms.date="05/02/2016"
    ms.author="cherylmc"/>
 
 # Azure 리소스 관리자 및 PowerShell을 사용하여 VNet-VNet 연결 구성
@@ -95,7 +95,7 @@
 - [다른 구독에 있는 VNet](#difsub)
 
 
-## <a name ="samesub"/>같은 구독에 있는 VNet을 연결하는 방법
+## <a name="samesub"></a>같은 구독에 있는 VNet을 연결하는 방법
 
 이 구성은 아래 다이어그램에 표시 된 것처럼 동일한 구독에 있는 가상 네트워크에 적용됩니다.
 
@@ -107,7 +107,7 @@
 	
 - Azure 리소스 관리자 PowerShell cmdlet을 설치해야 합니다. PowerShell cmdlet 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
 
-### <a name ="Step1"/>1단계 - IP 주소 범위 계획
+### <a name="Step1"></a>1단계 - IP 주소 범위 계획
 
 
 네트워크 구성을 구성하는 데 사용할 범위를 결정하는 것이 중요합니다. 따라서 VNet 범위 또는 로컬 네트워크 범위가 겹치지 않는지 확인해야 합니다.
@@ -152,7 +152,7 @@
 
 
 
-### <a name ="Step2"/>2단계 - TestVNet1 만들기 및 구성
+### <a name="Step2"></a>2단계 - TestVNet1 만들기 및 구성
 
 1. 변수 선언
 
@@ -312,7 +312,7 @@ TestVNet1를 구성한 후 단계를 반복하여 TestVNet4를 만듭니다. 아
 
 	몇 분 후 연결이 설정됩니다.
 
-## <a name ="Verify"/>VNet 간 연결을 확인하는 방법
+## <a name="Verify"></a>VNet 간 연결을 확인하는 방법
 
 아래 예제는 연결을 확인하는 방법을 보여줍니다. 반드시 사용자의 환경에 맞는 값으로 변경해야 합니다.
 
@@ -355,7 +355,7 @@ cmdlet이 완료되면 스크롤하여 값을 확인합니다. 아래 PowerShell
 	Name                       : VNet1toVNet4
 	Id                         : /subscriptions/<SubscriptionID>/resourceGroups/TestRG1/providers/Micr osoft.Network/connections/VNet1toVNet4
 
-## <a name ="difsub"/>다른 구독에 있는 VNet을 연결하는 방법
+## <a name="difsub"></a>다른 구독에 있는 VNet을 연결하는 방법
 
 아래 구성 단계에서는 VNet 간 연결을 더 추가하여 TestVNet1을 다른 구독에 있는 TestVNet5에 연결합니다. 여기서 차이점은 두 번째 구독의 상황에서, 특히 두 구독이 다른 조직에 속한 경우 구성 단계의 일부를 별도의 PowerShell 세션에서 수행해야 한다는 것입니다. 아래 단계를 완료하면 결과적인 구성이 아래 다이어그램에 표시됩니다.
 
@@ -530,4 +530,4 @@ cmdlet이 완료되면 스크롤하여 값을 확인합니다. 아래 PowerShell
 
 연결이 완료되면 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 단계는 [가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->
