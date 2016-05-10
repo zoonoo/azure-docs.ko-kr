@@ -44,11 +44,7 @@ Azure 클래식 포털을 사용하기
 
 	새 가상 컴퓨터의 대시보드에서 **구성**을 클릭하면 가상 컴퓨터가 새 가용성 집합에 속함을 확인할 수 있습니다.
 
-Azure PowerShell 명령을 사용하여 Azure 가상 컴퓨터를 만들고 새 또는 기존 가용성 집합에 추가하려면 다음을 참조하세요.
-
-
-- [Azure PowerShell을 사용하여 Linux 기반 가상 컴퓨터 만들기 및 미리 구성](../articles/virtual-machines/virtual-machines-linux-classic-createpowershell.md)
-- [Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성](../articles/virtual-machines/virtual-machines-windows-classic-create-powershell.md)
+Azure PowerShell 명령을 사용하여 Azure 가상 컴퓨터를 만들고 새로운 또는 기존 가용성 집합에 추가하려면 [Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성](../articles/virtual-machines/virtual-machines-windows-classic-create-powershell.md)을 참조하세요.
 
 ## <a id="addmachine"> </a>옵션 2: 기존 가상 컴퓨터를 가용성 집합에 추가##
 
@@ -80,7 +76,7 @@ Azure PowerShell 명령을 사용하려면 관리자 수준의 Azure PowerShell 
 
 ## 추가 리소스
 
-[서비스 관리의 가상 컴퓨터 관련 문서]
+[클래식 가상 컴퓨터에 대한 문서][]
 
 <!-- LINKS -->
 [옵션 1: 가상 컴퓨터와 가용성 집합을 동시에 만듭니다.]: #createset
@@ -91,6 +87,6 @@ Azure PowerShell 명령을 사용하려면 관리자 수준의 Azure PowerShell 
 
 [Windows를 실행하는 가상 컴퓨터 만들기]: ../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md
 [가상 네트워크 개요(영문)]: ../articles/virtual-network/virtual-networks-overview.md
-[서비스 관리의 가상 컴퓨터 관련 문서]: https://azure.microsoft.com/documentation/articles/?tag=azure-service-management&service=virtual-machines
+[클래식 가상 컴퓨터에 대한 문서]: https://azure.microsoft.com/documentation/articles/?tag=azure-service-management&service=virtual-machines
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0427_2016-->

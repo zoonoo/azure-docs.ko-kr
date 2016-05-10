@@ -32,7 +32,7 @@ Azure 데이터 팩터리 서비스는 데이터를 처리하는 Windows/Linux �
 주문형 HDInsight 연결된 서비스에 대해 다음 **중요한** 점에 유의하십시오.
 
 - Azure 구독에서 만든 주문형 HDInsight 클러스터는 표시되지 않습니다. Azure 데이터 팩터리 서비스는 사용자를 대신해 주문형 HDInsight 클러스터를 관리합니다.
-- 주문형 HDInsight 클러스터에서 실행하는 작업에 대한 로그는 HDInsight 클러스터와 연결된 저장소 계정에 복사됩니다. **활동 실행 세부 정보** 블레이드의 Azure 클래식 포털에서 이러한 로그에 액세스할 수 있습니다. 세부 정보는 [파이프라인 모니터링 및 관리](data-factory-monitor-manage-pipelines.md) 문서를 참조하십시오.
+- 주문형 HDInsight 클러스터에서 실행하는 작업에 대한 로그는 HDInsight 클러스터와 연결된 저장소 계정에 복사됩니다. **작업 실행 세부 정보** 블레이드의 Azure 포털에서 이러한 로그에 액세스할 수 있습니다. 세부 정보는 [파이프라인 모니터링 및 관리](data-factory-monitor-manage-pipelines.md) 문서를 참조하십시오.
 - HDInsight 클러스터가 작업을 실행 중인 경우에 대해서만 청구됩니다.
 
 > [AZURE.IMPORTANT] 일반적으로 **15분**이 더 걸려서 필요한 Azure HDInsight 클러스터를 프로비전합니다.
@@ -200,7 +200,7 @@ Azure 일괄 처리 서비스가 처음이라면 다음 항목을 참조하십�
 
 
 - Azure 배치 서비스의 개요에 대한 [Azure 배치 기본 사항](../batch/batch-technical-overview.md)입니다.
-- Azure 배치 계정을 만드는 [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) cmdlet (또는) Azure 클래식 포털을 사용하여 Azure 배치 계정을 만드는 [Azure 클래식 포털](../batch/batch-account-create-portal.md)입니다. 이 cmdlet 사용에 관한 자세한 지침은 [PowerShell을 사용하여 Azure 배치 계정 관리](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) 항목을 참조하세요.
+- Azure 배치 계정을 만드는 [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) cmdlet (또는) Azure 포털을 사용하여 Azure 배치 계정을 만드는 [Azure 포털](../batch/batch-account-create-portal.md)입니다. 이 cmdlet 사용에 관한 자세한 지침은 [PowerShell을 사용하여 Azure 배치 계정 관리](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) 항목을 참조하세요.
 - [New-AzureBatchPool](https://msdn.microsoft.com/library/mt125936.aspx) cmdlet을 사용하여 Azure 배치 풀을 만듭니다.
 
 ### 예
@@ -339,4 +339,4 @@ sessionId | OAuth 권한 부여 세션의 세션 ID입니다. 각 세션 ID는 �
 
 Azure SQL 연결된 서비스를 만들고 [저장 프로시저 활동](data-factory-stored-proc-activity.md)에서 사용하여 Data Factory 파이프라인에서 저장 프로시저를 호출합니다. 이 연결된 서비스에 대한 자세한 내용은 [Azure SQL 커넥터](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) 문서를 참조하세요.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

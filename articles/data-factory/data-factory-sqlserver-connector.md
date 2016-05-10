@@ -206,7 +206,7 @@ SQL Server가 호스팅되는 온-프레미스 또는 Azure IaaS(Infrastructure-
 	   }
 	}
 
-위의 예에서 **sqlReaderQuery**는 SqlSource에 지정됩니다. 복사 작업은 데이터를 가져오는 SQL Server 데이터베이스 원본에 대해 이 쿼리를 실행합니다. 또는 **sqlReaderStoredProcedureName** 및 **storedProcedureParameters**를 지정하여 저장 프로시저를 지정할 수 있습니다(저장 프로시저가 매개 변수를 사용하는 경우).
+위의 예에서 **sqlReaderQuery**는 SqlSource에 지정됩니다. 복사 작업은 데이터를 가져오는 SQL Server 데이터베이스 원본에 대해 이 쿼리를 실행합니다. 또는 **sqlReaderStoredProcedureName** 및 **storedProcedureParameters**를 지정하여 저장 프로시저를 지정할 수 있습니다(저장 프로시저가 매개 변수를 사용하는 경우). sqlReaderQuery는 입력 데이터 집합에 의해 참조되는 데이터베이스 내의 여러 테이블을 참조할 수 있습니다. 데이터 집합의 tableName typeProperty로 설정된 테이블 집합으로만 제한되지 않습니다.
  
 sqlReaderQuery 또는 sqlReaderStoredProcedureName 중 하나를 지정하지 않으면 JSON 데이터 집합의 구조 섹션에 정의된 열이 SQL Server 데이터베이스에 대해 실행되는 쿼리를 작성하는 데 사용됩니다(mytable에서 column1, column2 선택). 데이터 집합 정의에 구조가 없는 경우 모든 열은 테이블에서 선택됩니다.
 
@@ -457,7 +457,7 @@ typeProperties 섹션은 데이터 집합의 각 형식에 따라 다르며 데�
 
 | 속성 | 설명 | 허용되는 값 | 필수 |
 | -------- | ----------- | -------------- | -------- |
-| sqlReaderQuery | 사용자 지정 쿼리를 사용하여 데이터를 읽습니다. | SQL 쿼리 문자열입니다. 예: select * from MyTable. 지정하지 않는 경우 실행되는 SQL 문: select from MyTable. | 아니요 |
+| sqlReaderQuery | 사용자 지정 쿼리를 사용하여 데이터를 읽습니다. | SQL 쿼리 문자열입니다. 예: select * from MyTable. 입력 데이터 집합에 의해 참조되는 데이터베이스의 여러 테이블을 참조할 수 있습니다. 지정하지 않는 경우 실행되는 SQL 문: select from MyTable. | 아니요 |
 | sqlReaderStoredProcedureName | 원본 테이블에서 데이터를 읽는 저장 프로시저의 이름입니다. | 저장 프로시저의 이름입니다. | 아니요 |
 | storedProcedureParameters | 저장 프로시저에 대한 매개 변수입니다. | 이름/값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. | 아니요 |
 
@@ -640,4 +640,4 @@ Azure SQL, SQL server, Sybase에서 데이터를 이동하는 경우 SQL 형식�
 ## 성능 및 튜닝  
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2016" 
+	ms.date="04/25/2016" 
 	ms.author="josephd"/>
 
 # 고가용성 LOB(기간 업무) 응용 프로그램 배포
@@ -85,7 +85,7 @@
 - 기존 Azure 하이브리드 클라우드 구현이 이미 있는 경우 1~2단계의 지침을 조정하거나 건너뛰어 적절한 서브넷에서 새 가상 컴퓨터를 호스팅할 수 있습니다.
 - 모든 서버는 Azure 가상 네트워크에서 단일 서브넷에 있습니다. 서브넷 격리에 해당하는 추가 보안을 제공하려는 경우 [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md)을 사용할 수 있습니다.
 
-이 구성의 개념 증명 또는 개발/테스트 환경을 구축하려면 [테스트를 위한 하이브리드 클라우드에서 웹 기반 LOB 응용 프로그램 설정](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)을 참조하세요.
+이 구성의 개념 증명 또는 개발/테스트 환경을 구축하려면 [테스트를 위한 하이브리드 클라우드에서 웹 기반 LOB 응용 프로그램 설정](virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md)을 참조하세요.
 
 Azure에 대한 IT 워크로드를 디자인하는 방법에 대한 자세한 내용은 [Azure 인프라 서비스 구현 지침](virtual-machines-linux-infrastructure-service-guidelines.md)을 참조하세요.
 
@@ -93,4 +93,4 @@ Azure에 대한 IT 워크로드를 디자인하는 방법에 대한 자세한 �
 
 - [1단계](virtual-machines-windows-ps-lob-ph1.md)를 사용하여 이 워크로드의 구성을 시작합니다.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

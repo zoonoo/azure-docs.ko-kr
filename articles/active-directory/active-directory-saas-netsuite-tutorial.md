@@ -3,7 +3,7 @@
     description="Azure Active Directory에서 NetSuite를 사용하여 Single Sign-On, 자동화된 프로비저닝 등을 사용하도록 설정하는 방법을 알아봅니다."
     services="active-directory"
     documentationCenter=""
-    authors="liviodlc"
+    authors="asmalser-msft"
     manager="stevenpo"
     editor=""/>
 
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="identity"
     ms.date="02/09/2016"
-    ms.author="liviodlc"/>
+    ms.author="asmalser-msft"/>
 
 #자습서: Azure Active Directory와 NetSuite를 통합하는 방법
 
@@ -156,7 +156,7 @@
 
 	- **Save**를 클릭합니다.
 
-	- 위쪽에 있는 메뉴에서 ** 사용 권한**을 클릭합니다. **설치**를 클릭합니다.
+	- 위쪽에 있는 메뉴에서 **사용 권한**을 클릭합니다. **설치**를 클릭합니다.
 
 		![사용 권한으로 이동][24]
 
@@ -259,4 +259,4 @@
 [31]: ./media/active-directory-saas-netsuite-tutorial/assign-users.png
 [32]: ./media/active-directory-saas-netsuite-tutorial/assign-confirm.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0427_2016-->

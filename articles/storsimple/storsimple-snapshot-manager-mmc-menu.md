@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/28/2015"
+   ms.date="04/25/2016"
    ms.author="v-sharos" />
 
 # StorSimple 스냅숏 관리자에서 MMC 메뉴 작업 사용
@@ -27,9 +27,7 @@ StorSimple 스냅숏 관리자에서 모든 작업 메뉴에 나열된 다음과
 - 목록 내보내기 
 - 도움말 
 
-이러한 작업은 Microsoft Management Console(MMC)의 일부로, StorSimple 스냅숏 관리자 특정 메뉴가 아닙니다.
-
-이 자습서에서는 이러한 작업 및 StorSimple 스냅숏 관리자에서 각 작업을 사용하는 방법에 대해 설명합니다.
+이러한 작업은 Microsoft Management Console(MMC)의 일부로, StorSimple 스냅숏 관리자 특정 메뉴가 아닙니다. 이 자습서에서는 이러한 작업 및 StorSimple 스냅숏 관리자에서 각 작업을 사용하는 방법에 대해 설명합니다.
 
 ## 보기
 
@@ -128,4 +126,4 @@ StorSimple 스냅숏 관리자에서 모든 작업 메뉴에 나열된 다음과
 - [StorSimple 스냅숏 관리자 사용자 인터페이스](storsimple-use-snapshot-manager.md)에 대해 자세히 알아봅니다.
 - [StorSimple 스냅숏 관리자를 사용하여 StorSimple 솔루션을 관리](storsimple-snapshot-manager-admin.md)하는 방법을 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="04/27/2016"
+   ms.date="04/29/2016"
    ms.author="v-livech"/>
 
 
@@ -23,22 +23,29 @@
 
 ## 빠른 명령 요약
 
+VM를 배포하고 SSH 키를 연결하는 하나의 명령
+
 ```
-# One command to deploy the VM and attach your SSH key
-ahmet@fedora$ azure vm quick-create -M ~/.ssh/azure_id_rsa.pub
+azure vm quick-create -M ~/.ssh/azure_id_rsa.pub
 ```
 
 ## Linux VM 배포
 
 위와 동일한 명령을 사용하여 각 프롬프트와, 나타나는 출력을 살펴보겠습니다.
 
-ImageURN의 경우 `canonical:ubuntuserver:14.04.2-LTS:latest`를 사용하여 Ubuntu 14.04 VM을 배포합니다. (마켓플레이스에서 이미지를 찾으려면 [이미지 검색](virtual-machines-linux-cli-ps-findimage.md) 또는 [고유의 사용자 지정 이미지 업로드](virtual-machines-linux-create-upload-generic.md)를 사용할 수 있습니다.)
+ImageURN의 경우 `canonical:ubuntuserver:14.04.2-LTS:latest`을 사용하여 Ubuntu 14.04 VM을 배포합니다. (마켓플레이스에서 이미지를 찾으려면 [이미지 검색](virtual-machines-linux-cli-ps-findimage.md) 또는 [고유의 사용자 지정 이미지 업로드](virtual-machines-linux-create-upload-generic.md)를 사용할 수 있습니다.)
 
 다음 명령 연습에서 프롬프트를 사용자 환경의 값으로 바꿉니다. 여기서는 "example" 값을 사용합니다. 출력에는 다음과 같은 출력 블록이 있습니다.
 
+프롬프트에 따라 고유한 이름을 입력합니다.
+
 ```bash
-# Follow the prompts and enter your own names
-ahmet@fedora$ azure vm quick-create -M ~/.ssh/azure_id_rsa.pub
+azure vm quick-create -M ~/.ssh/azure_id_rsa.pub
+```
+
+출력
+
+```bash
 info:    Executing command vm quick-create
 Resource group name: exampleRGname
 Virtual machine name: exampleVMname
@@ -48,10 +55,6 @@ ImageURN (in the format of "publisherName:offer:skus:version") or a VHD link to 
 User name: ahmet
 Password: ************************************************
 Confirm password: ************************************************
-```
-
-```bash
-########### expected output ###########
 + Looking up the VM "exampleVMname"
 info:    Verifying the public key SSH file: /home/ahmet/.ssh/azure_id_rsa.pub
 info:    Using the VM Size "Standard_D1"
@@ -130,7 +133,7 @@ info:    vm quick-create command OK
 이제 위의 출력에 나열된 기본 SSH 포트 22 및 공용 IP 주소(또는 정규화된 도메인 이름 -- FQDN) 에서 VM에 SSH할 수 있습니다.
 
 ```
-ahmet@fedora$ ssh -i ~/.ssh/azure_id_rsa ubuntu@13.88.22.244
+ssh -i ~/.ssh/azure_id_rsa ubuntu@13.88.22.244
 ```
 
 ## 다음 단계
@@ -138,11 +141,11 @@ ahmet@fedora$ ssh -i ~/.ssh/azure_id_rsa ubuntu@13.88.22.244
 `azure vm quick-create`은 bash 셸에 로그인하고 작업할 수 있도록 VM을 신속하게 배포하는 방법입니다. `vm quick-create` 사용 시 복잡한 환경에서 추가적인 혜택은 없습니다. 아래 문서 중 하나를 수행하여 인프라에 대해 사용자 지정된 Linux VM을 배포합니다.
 
 - [Azure 리소스 관리자 템플릿을 사용하여 특정 배포 만들기](virtual-machines-linux-cli-deploy-templates.md)
-- [Azure CLI 명령을 직접 사용하여 Linux VM에 대한 자체 사용자 지정 환경 만들기](virtual-machines-linux-cli-deploy-templates.md)
+- [Azure CLI 명령을 직접 사용하여 Linux VM에 대한 고유한 사용자 지정 환경 만들기](virtual-machines-linux-cli-deploy-templates.md)
 - [템플릿을 사용하여 Azure에서 Linux VM 만들기](virtual-machines-linux-cli-deploy-templates.md)
 - [템플릿을 사용하여 Azure에서 SSH 보안 Linux VM 만들기](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
 - [Azure CLI를 사용하여 Linux VM 만들기](virtual-machines-linux-create-cli-complete.md)
 
 이러한 문서로 Azure 인프라뿐만 아니라 독점 및 오픈 소스 인프라 배포, 구성 및 오케스트레이션 도구 작성을 시작합니다.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

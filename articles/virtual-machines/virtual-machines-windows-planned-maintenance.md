@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="04/26/2016"
 	ms.author="drewm"/>
 
 # Azure에서 가상 컴퓨터에 대한 계획된 유지 관리
@@ -35,4 +35,4 @@ Microsoft Azure는 가상 컴퓨터의 기반이 되는 호스트 인프라의 �
 
 [AZURE.INCLUDE [virtual-machines-common-planned-maintenance](../../includes/virtual-machines-common-planned-maintenance.md)]
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

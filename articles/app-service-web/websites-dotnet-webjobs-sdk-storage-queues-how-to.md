@@ -544,7 +544,7 @@ SDK는 최대 5회까지 함수를 호출하여 큐 메시지를 처리합니다
 처리량이 많은 시나리오에 대해 대시보드 로깅을 사용하지 않도록 설정합니다. 기본적으로 SDK는 저장소에 로그를 쓰며, 많은 메시지를 처리하는 경우 이 작업으로 인해 성능이 저하될 수 있습니다. 로깅을 사용하지 않도록 설정하려면 다음 예제와 같이 대시보드 연결 문자열을 null로 설정합니다.
 
 		JobHostConfiguration config = new JobHostConfiguration();       
-		config.DashboardConnectionString = “”;        
+		config.DashboardConnectionString = "";        
 		JobHost host = new JobHost(config);
 		host.RunAndBlock();
 
@@ -611,4 +611,4 @@ public static void ErrorMonitor(
 이 가이드에서는 Azure 큐 작업에 대한 일반적인 시나리오를 처리하는 방법을 보여 주는 코드 샘플을 제공했습니다. Azure WebJob 및 WebJob SDK를 사용하는 방법에 대한 자세한 내용은 [Azure WebJob 권장 리소스](http://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
  
 
-<!-------HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0427_2016-->

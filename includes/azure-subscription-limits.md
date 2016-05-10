@@ -16,6 +16,6 @@
 
 <sup>1</sup>매우 작은 인스턴스는 부분 코어를 사용하더라도 코어 제한에 대해 하나의 코어로 계산됩니다.
 
-<sup>2</sup>저장소 계정이 100개 이상 필요한 경우 [Azure 지원](https://azure.microsoft.com/support/faq/)에 요청합니다. Azure 저장소 팀은 비즈니스 사례를 검토합니다. 이에 대해 승인하면 최대 250개의 저장소 계정을 사용할 수 있습니다.
+<sup>2</sup>표준 및 프리미엄 저장소 계정이 모두 포함됩니다. 저장소 계정이 100개 이상 필요한 경우 [Azure 지원](https://azure.microsoft.com/support/faq/)에 요청합니다. Azure 저장소 팀이 비즈니스 사례를 검토하고 저장소 계정을 250개까지 승인할 수 있습니다.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

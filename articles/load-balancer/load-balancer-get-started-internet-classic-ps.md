@@ -4,7 +4,7 @@
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"
 />
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/21/2016"
+   ms.date="04/05/2016"
    ms.author="joaoma" />
 
 # PowerShell에서 인터넷 연결 부하 분산 장치(클래식) 만들기 시작
@@ -33,7 +33,7 @@
 
 PowerShell을 사용하여 부하 분산 장치를 설정하려면 다음 단계를 수행합니다.
 
-1. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure.md)을 참조하고 지침을 끝까지 따르면서 Azure에 로그인하고 구독을 선택합니다.
+1. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 구성하는 방법](../../articles/powershell-install-configure.md)을 참조하고 지침을 끝까지 따르면서 Azure에 로그인하고 구독을 선택합니다.
 
 
 2. 가상 컴퓨터를 만든 후 PowerShell cmdlet을 사용하여 동일한 클라우드 서비스 내에서 가상 컴퓨터로 부하 분산 장치를 추가할 수 있습니다.
@@ -64,4 +64,4 @@ Remove-AzureEndpoint를 사용하여 부하 분산 장치에서 가상 컴퓨터
 
 응용 프로그램이 부하 분산 장치 뒤의 서버에 대한 연결을 유지해야 하는 경우 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정](load-balancer-tcp-idle-timeout.md)에 대해 자세히 이해할 수 있습니다. Azure 부하 분산 장치를 사용하는 경우 유휴 연결 동작에 대해 알아보는 데 도움이 됩니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0427_2016-->

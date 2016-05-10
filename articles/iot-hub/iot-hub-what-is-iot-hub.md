@@ -13,7 +13,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="02/03/2016"
+ ms.date="04/29/2016"
  ms.author="dobett"/>
 
 # Azure IoT Hub란?
@@ -57,7 +57,10 @@ Azure IoT Hub는 다음과 같은 방법으로 장치 연결 과제를 해결합
 
 -   **광범위한 장치 라이브러리 집합**. [Azure IoT 장치 SDK][lnk-device-sdks]는 사용 가능하며 다양한 언어 및 플랫폼(여러 Linux 배포판, Windows 및 실시간 운영 체제에 대한 C)에 대해 지원됩니다. 또한 Azure IoT 장치 SDK에서는 C#, Java 및 JavaScript와 같은 관리된 언어를 지원합니다.
 
--   **IoT 프로토콜 및 확장성**. 솔루션이 장치 라이브러리를 사용할 수 없는 경우 IoT Hub는 장치가 기본적으로 MQTT v3.1.1, HTTP 1.1 및 AMQP 1.0 프로토콜을 사용할 수 있도록 허용하는 공용 프로토콜을 노출합니다. IoT Hub를 확장하여 [Azure IoT 프로토콜 게이트웨이][protocol-gateway] 오픈 소스 구성 요소를 사용자 지정함으로써 사용자 지정 프로토콜 지원을 제공할 수도 있습니다. 클라우드 또는 온-프레미스에서 Azure IoT 프로토콜 게이트웨이를 실행할 수 있습니다.
+-   **IoT 프로토콜 및 확장성**. 솔루션이 장치 라이브러리를 사용할 수 없는 경우 IoT Hub는 장치가 기본적으로 MQTT v3.1.1, HTTP 1.1 및 AMQP 1.0 프로토콜을 사용할 수 있도록 허용하는 공용 프로토콜을 노출합니다. 다음을 수행하여 사용자 지정 프로토콜에 대한 지원을 제공하는 IoT Hub를 확장할 수도 있습니다.
+
+    - IoT Hub가 이해하는 세 가지 프로토콜 중 하나에 사용자 지정 프로토콜을 변환하는 [Azure IoT 게이트웨이 SDK][lnk-gateway-sdk]로 필드 게이트웨이를 만듭니다. 
+    - 클라우드에서 실행되는 오픈 소스 구성 요소인 [Azure IoT 프로토콜 게이트웨이][protocol-gateway]를 사용자 지정합니다.
 
 -   **확장**. Azure IoT Hub는 동시에 연결된 수백만 대의 장치 및 수백만 개의 초당 이벤트로 확장 가능합니다.
 
@@ -71,7 +74,7 @@ Azure IoT Hub는 다음과 같은 방법으로 장치 연결 과제를 해결합
 
 ## 게이트웨이
 
-loT 솔루션의 게이트웨이는 일반적으로 클라우드에 배포된 [프로토콜 게이트웨이][lnk-gateway] 또는 장치에 로컬로 배포된 [필드 게이트웨이][lnk-field-gateway]입니다. 프로토콜 게이트웨이는 MQTT에서 AMQP와 같은 프로토콜 변환을 수행합니다. 필드 게이트웨이는 장치에 대한 로컬 관리 서비스를 제공합니다. 기존 하드웨어에서 실행되는 전용 장치 또는 소프트웨어를 필드 게이트웨이로 사용할 수 있습니다. 두 유형의 게이트웨이는 장치와 loT Hub 간의 중개자 역할을 합니다.
+loT 솔루션의 게이트웨이는 일반적으로 클라우드에 배포된 [프로토콜 게이트웨이][lnk-gateway] 또는 장치에 로컬로 배포된 [필드 게이트웨이][lnk-field-gateway]입니다. 프로토콜 게이트웨이는 MQTT에서 AMQP와 같은 프로토콜 변환을 수행합니다. 필드 게이트웨이는 에지에 분석을 실행하고 대기 시간을 줄일 수 있는 시간이 중요한 결정을 내리며 장치 관리 서비스를 제공하고 보안 및 개인 정보 제약 조건을 적용하고 프로토콜 변환을 수행할 수도 있습니다. 두 유형의 게이트웨이는 장치와 loT Hub 간의 중개자 역할을 합니다.
 
 현장 게이트웨이는 일반적으로 솔루션에서 액세스 및 정보 흐름을 관리하는 실제 역할을 수행하므로 단순한 트래픽 라우팅 장치(예: NAT(네트워크 주소 변환) 장치 또는 방화벽)와는 다릅니다.
 
@@ -116,5 +119,6 @@ Azure IoT Hub에 대해 더 알아보려면 다음 링크를 참조하세요.
 [lnk-apple-push]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
+[lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

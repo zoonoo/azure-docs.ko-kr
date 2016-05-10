@@ -3,7 +3,7 @@
     description="Azure AD를 사용하여 여러 타사 SaaS 응용 프로그램에서 사용자 계정을 자동으로 프로비저닝, 프로비저닝 해제, 지속적으로 업데이트하는 방법을 소개합니다."
     services="active-directory"
     documentationCenter=""
-    authors="liviodlc"
+    authors="asmalser-msft"
     manager="stevenpo"
     editor=""/>
 
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="identity"
     ms.date="02/09/2016"
-    ms.author="liviodlc"/>
+    ms.author="asmalser-msft"/>
 
 #Azure Active Directory를 사용하여 SaaS 응용 프로그램의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제
 
@@ -116,4 +116,4 @@ Azure AD와 SaaS 앱 사이에서 특성이 매핑되는 방법에 대한 자세
 - [계정 프로비전 알림](active-directory-saas-account-provisioning-notifications.md)
 - [SaaS App을 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0427_2016-->

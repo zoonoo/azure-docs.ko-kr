@@ -181,6 +181,7 @@ swagger.io 온라인 편집기를 사용하여 API의 구조를 나타내는 Swa
         import com.sun.jersey.core.header.FormDataContentDisposition;
         import com.sun.jersey.multipart.FormDataParam;
         import javax.ws.rs.core.Response;
+        import javax.ws.rs.core.SecurityContext;
 
         @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JaxRSServerCodegen", date = "2015-11-24T21:54:11.648Z")
         public class ContactsApiServiceImpl extends ContactsApiService {
@@ -295,4 +296,4 @@ swagger.io 온라인 편집기를 사용하여 API의 구조를 나타내는 Swa
 
 Azure에서 Java를 사용하는 방법에 대한 자세한 내용은 [Java 개발자 센터](/develop/java/)를 참조하세요.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

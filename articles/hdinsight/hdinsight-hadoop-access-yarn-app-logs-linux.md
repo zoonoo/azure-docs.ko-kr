@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="04/22/2016"
 	ms.author="larryfr"/>
 
-# Linux 기반 HDInsight에서 YARN 응용 프로그램 로그에 액세스
+# Linux 기반 HDInsight에서 YARN 응용 프로그램 로그에 액세스 
 
 이 문서에서는 Azure HDInsight의 Hadoop 클러스터에서 완료된 YARN(Yet Another Resource Negotiator) 응용 프로그램에 대한 로그에 액세스하는 방법에 대해 설명합니다.
 
@@ -96,4 +96,4 @@ SSH 터널을 만든 후 다음 단계를 사용하여 YARN 로그를 봅니다.
 [binary-format]: https://issues.apache.org/jira/browse/HADOOP-3315
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0427_2016-->

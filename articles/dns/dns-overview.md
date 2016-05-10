@@ -3,8 +3,8 @@
    description="Microsoft Azure의 Azure DNS 호스팅 서비스 및 Microsoft Azure에서 도메인 호스팅 시작에 대한 개요입니다." 
    services="dns" 
    documentationCenter="na" 
-   authors="joaoma" 
-   manager="adinah" 
+   authors="cherylmc" 
+   manager="carmonm" 
    editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
    ms.date="02/09/2016"
-   ms.author="joaoma"/>
+   ms.author="cherylmc"/>
 
 # Azure DNS 개요
 
@@ -44,4 +44,4 @@ Azure DNS는 현재 도메인 이름 구입을 지원하지 않습니다. 도메
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0427_2016-->

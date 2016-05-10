@@ -13,7 +13,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="02/03/2016"
+ ms.date="04/29/2016"
  ms.author="dobett"/>
 
 [AZURE.INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
@@ -24,6 +24,7 @@ Azure IoT Hub는 응용 프로그램 백 엔드와 수백 만개의 IoT 장치 �
 
 - [IoT Hub란?][lnk-iot-hub]
 - [IoT Hub 시작][lnk-getstarted]
+- [Azure IoT Hub 장치 관리의 개요][lnk-device-management]
 
 다양한 장치 하드웨어 플랫폼과 운영 체제에서 클라이언트 응용 프로그램을 구현하기 위해 IoT 장치 SDK를 제공할 수 있습니다. IoT 장치 SDK에는 IoT Hub로 원격 분석 전송 및 클라우드-장치 명령 수신을 용이하게 하는 라이브러리가 있습니다. SDK를 사용하면 다양한 네트워크 프로토콜 중에서 선택하여 IoT Hub와 통신할 수 있습니다. 자세한 내용은 [장치 SDK에 대한 정보][lnk-device-sdks]를 참조하세요.
 
@@ -34,5 +35,6 @@ Azure IoT Hub는 응용 프로그램 백 엔드와 수백 만개의 IoT 장치 �
 [lnk-iot-hub]: iot-hub-what-is-iot-hub.md
 [lnk-iot-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
+[lnk-device-management]: iot-hub-device-management-overview.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0504_2016-->

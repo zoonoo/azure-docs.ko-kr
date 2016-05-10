@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Azure Data Factory 파이프라인 모니터링 및 관리" 
-	description="Azure 클래식 포털과 Azure PowerShell을 사용하여 사용자가 만든 Azure Data Factory와 파이프라인을 모니터링하고 관리하는 방법에 대해 알아봅니다." 
+	description="Azure 포털과 Azure PowerShell을 사용하여 사용자가 만든 Azure Data Factory와 파이프라인을 모니터링하고 관리하는 방법에 대해 알아봅니다." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/04/2016" 
+	ms.date="03/28/2016" 
 	ms.author="spelluru"/>
 
 
@@ -101,6 +101,7 @@ Azure 포털을 사용하면 데이터 팩터리를 다이어그램으로 볼 �
 <td>ValidationRetry</td><td>유효성 검사를 다시 시도하기를 기다리고 있습니다.</td>
 </tr>
 <tr>
+&lt;tr
 <td rowspan="2">InProgress</td><td>유효성 검사 중</td><td>유효성 검사가 진행 중입니다.</td>
 </tr>
 <td></td>
@@ -186,14 +187,14 @@ Azure PowerShell을 사용하여 파이프라인을 관리할 수 있습니다. 
 
 
 ## 파이프라인 디버깅
-Azure Data Factory는 Azure 클래식 포털 및 Azure PowerShell을 통해 파이프라인 디버그와 문제 해결을 위한 다양한 기능을 제공합니다.
+Azure Data Factory는 Azure 포털 및 Azure PowerShell을 통해 파이프라인 디버그와 문제 해결을 위한 다양한 기능을 제공합니다.
 
 ### 파이프라인에서 오류 찾기
 파이프라인에서 작업이 실패하면 파이프라인에 의해 생성된 데이터 집합은 실패로 인한 오류 상태가 됩니다. 다음과 같은 메커니즘을 사용하여 Azure Data Factory에서 오류의 문제를 해결하고 디버그할 수 있습니다.
 
-#### Azure 클래식 포털을 사용한 오류 디버그:
+#### Azure 포털을 사용한 오류 디버그:
 
-1.	데이터 팩터리 홈페이지의 **데이터 집합** 타일에서 **With errors**(오류 있음)를 클릭합니다.
+1.	데이터 팩터리 홈페이지의 **데이터 집합** 타일에서 **With errors(오류 있음)**를 클릭합니다.
 	
 	![오류가 있는 데이터 집합 타일](./media/data-factory-monitor-manage-pipelines/datasets-tile-with-errors.png)
 2.	**Datasets with errors**(오류가 있는 데이터 집합) 블레이드에서 원하는 테이블을 클릭합니다.
@@ -264,7 +265,7 @@ Azure Data Factory는 Azure 클래식 포털 및 Azure PowerShell을 통해 파�
 
 ## 파이프라인에서 실패한 항목을 다시 실행합니다.
 
-### Azure 클래식 포털 사용
+### Azure 포털 사용
 
 파이프라인에서 실패에 대한 문제를 해결하고 디버그한 후에는 오류 조각으로 이동하고 명령 모음의 **실행** 단추를 클릭하여 실패한 항목을 다시 실행할 수 있습니다.
 
@@ -546,7 +547,7 @@ OnDemandClusterDeleted | Succeeded
  
 위 샘플의 subscriptionId, resourceGroupName, dataFactoryName을 적절한 값으로 변경합니다.
 
-*metricName*은 현재 두 가지 값을 지원합니다.
+*metricName* 은 현재 두 가지 값을 지원합니다.
 - FailedRuns
 - SuccessfulRuns
 
@@ -584,4 +585,4 @@ Data Factory의 홈 페이지에서 **이동** 명령 모음 단추를 사용하
 
 ![리소스 이동 대화 상자](./media/data-factory-monitor-manage-pipelines/MoveResources.png)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -240,9 +240,9 @@ StorSimple 장치에서 단일 볼륨에 대한 주문형 수동 백업을 만�
 
 ## 다음 단계
 
-- [가상 장치](storsimple-virtual-device.md)를 구성합니다.
+- [가상 장치](storsimple-virtual-device-u2.md)를 구성합니다.
 
 - [StorSimple 관리자 서비스](storsimple-manager-service-administration.md)를 사용하여 StorSimple 장치를 관리할 수 있습니다.
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

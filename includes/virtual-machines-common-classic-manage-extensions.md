@@ -19,13 +19,11 @@ Azure VM 확장은 Azure VM의 타 프로그램 작업을 지원하거나(예: *
 
 ##사용 가능한 확장 찾기
 
-Azure VM 확장(지원하는 기능별 전체 확장 목록은 [Azure VM 확장 및 기능](../articles/virtual-machines/virtual-machines-windows-extensions-features.md) 참조) 다음을 통해 확장 및 확대 정보를 찾을 수 있습니다.
+다음을 사용하여 확장 및 확장 정보를 찾을 수 있습니다.
 
 -   PowerShell
 -   Azure 플랫폼 간 인터페이스(Azure CLI)
 -   서비스 관리 REST API
-
-[Azure PowerShell](https://msdn.microsoft.com/library/azure/dn495240.aspx) cmdlet 또는 [서비스 관리 REST API](https://msdn.microsoft.com/library/ee460799.aspx)로 사용 가능한 확장에 대한 정보를 찾을 수 있습니다.
 
 ###Azure PowerShell
 
@@ -121,4 +119,4 @@ REST Api를 사용하여 사용 가능한 확장 목록을 검색할 때 해당 
 
 >[AZURE.NOTE]확장은 JSON으로 정의된 구성을 사용할 수도 있습니다. 이러한 유형의 확장을 사용할 때는 만**SampleConfig** 요소만 사용됩니다.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0427_2016-->

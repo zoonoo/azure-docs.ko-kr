@@ -14,7 +14,7 @@
 	ms.topic="get-started-article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/04/2016" 
+	ms.date="05/03/2016" 
 	ms.author="jeffstok"/>
 
 
@@ -53,4 +53,4 @@ Azure 포털에서 몇 번만 클릭하면 스트리밍 데이터의 입력된 �
 - [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

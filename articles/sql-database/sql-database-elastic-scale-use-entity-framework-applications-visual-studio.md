@@ -3,7 +3,7 @@
 	description="데이터베이스 코딩을 위해 탄력적 데이터베이스 클라이언트 라이브러리 및 Entity Framework 사용" 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	authors="torsteng" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/04/2016" 
+	ms.date="04/26/2016" 
 	ms.author="torsteng;sidneyh"/>
 
 # 엔터티 프레임 작업과 함께 탄력적 데이터베이스 클라이언트 라이브러리 
@@ -281,4 +281,4 @@ EF 마이그레이션을 통한 스키마 배포는 **열려 있지 않은 연�
 [1]: ./media/sql-database-elastic-scale-use-entity-framework-applications-visual-studio/sample.png
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0427_2016-->

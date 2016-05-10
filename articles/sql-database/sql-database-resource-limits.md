@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="04/19/2016"
+	ms.date="04/20/2016"
 	ms.author="carlrab" />
 
 
@@ -73,4 +73,4 @@ CPU, 메모리, 로그 I/O 및 데이터 I/O 이외의 리소스는 제한에 �
 
 [SQL 데이터베이스 클라이언트 프로그램에 대한 오류 메시지](sql-database-develop-error-messages.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

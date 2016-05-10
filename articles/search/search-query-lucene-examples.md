@@ -15,30 +15,38 @@
     ms.workload="search"
     ms.topic="article"
     ms.tgt_pltfrm="na"
-    ms.date="03/25/2016"
+    ms.date="04/22/2016"
     ms.author="liamca"
 />
 
 # Lucene은 Azure 검색에서 퀴리를 만들기 위해 구문 예제를 쿼리합니다.
 
-기본 [단순 쿼리 구문](https://msdn.microsoft.com/library/azure/dn798920.aspx)에 대한 대안은 [Azure 검색에서 Lucene 쿼리 구문 파서](https://msdn.microsoft.com/library/azure/mt589323.aspx)를 사용하는 것입니다. Lucene 쿼리 파서는 필드 범위 쿼리, 유사 항목 검색, 근접 검색, 용어 상승 및 정규식 등의 더 복잡한 쿼리 구조를 지원합니다.
+Azure 검색을 위한 쿼리를 구성할 때는 [단순 쿼리 구문](https://msdn.microsoft.com/library/azure/dn798920.aspx)을 사용하거나, [Azure 검색의 Lucene 쿼리 파서](https://msdn.microsoft.com/library/azure/mt589323.aspx)를 대신 사용할 수 있습니다. Lucene 쿼리 파서는 필드 범위 쿼리, 유사 항목 검색, 근접 검색, 용어 상승 및 정규식 등의 더 복잡한 쿼리 구조를 지원합니다.
 
-이 문서에서는 쿼리 구문과 결과를 나란히 표시하는 예제를 살펴볼 수 있습니다. 예제는 스크립트 및 HTML 테스트용 온라인 코드 편집기인 [JSFiddle](https://jsfiddle.net/)에서 사전 로드된 검색 인덱스를 기준으로 실행됩니다.
+이 문서에서는 Lucene 쿼리 구문과 결과를 나란히 표시하는 예제를 살펴볼 수 있습니다. 예제는 스크립트 및 HTML 테스트용 온라인 코드 편집기인 [JSFiddle](https://jsfiddle.net/)에서 사전 로드된 검색 인덱스를 기준으로 실행됩니다.
 
 쿼리 예제 URL을 마우스 오른쪽 단추로 클릭하여 별도의 브라우저 창에서 JSFiddle을 엽니다.
 
 > [AZURE.NOTE] 다음 예제는 [City of New York OpenData](https://nycopendata.socrata.com/) 이니셔티브에서 제공하는 데이터 집합에 기반하여 사용 가능한 작업으로 구성된 검색 인덱스를 활용합니다. 이 데이터는 최신 또는 완료로 간주되어서는 안 됩니다. 인덱스는 Microsoft에서 제공하는 샌드박스 서비스에 있습니다. 이러한 쿼리를 시도하기 위해 Azure 구독 또는 Azure 검색이 필요하지 않습니다.
 
-## 검색 요청에서 Lucene 쿼리 파서를 설정합니다.
+## 이 문서의 예제 살펴보기
 
-Lucene 쿼리 파서를 사용하려면 **queryType** 검색 매개 변수를 설정하여 사용할 파서를 지정하십시오. 모든 요청에 대해 **queryType**을 지정하게 됩니다. 유효한 값은 **단순**|**전체**를 포함하며, 기본값은 **단순**입니다. 쿼리 매개 변수 지정에 대한 자세한 내용은 [문서 검색(Azure 검색 서비스 REST API)](https://msdn.microsoft.com/library/azure/dn798927.aspx)을 참조하십시오.
+이 문서의 모든 예제에서는 **queryType** 검색 매개 변수를 통해 Lucene 쿼리 파서를 지정합니다. 사용자 코드에서 Lucene 쿼리 파서를 사용할 때는 모든 요청마다 **queryType**을 지정합니다. 유효한 값은 **simple**|**full**이며 기본값은 **simple**이고 Lucene 쿼리 파서의 경우 **full**입니다. 쿼리 매개 변수 지정에 대한 자세한 내용은 [문서 검색(Azure 검색 서비스 REST API)](https://msdn.microsoft.com/library/azure/dn798927.aspx)을 참조하십시오.
 
-**예제 1** -- 다음 쿼리 조각을 마우스 오른쪽 단추로 클릭하여 새 브라우저 페이지에서 열고 JSFiddle을 로드한 후 쿼리를 실행합니다. 이 쿼리는 작업 인덱스(샌드박스 서비스에서 로드한)에서 문서를 반환합니다.
+**예제 1** -- 다음 쿼리 조각을 마우스 오른쪽 단추로 클릭하여 새 브라우저 페이지에서 열고 JSFiddle을 로드한 후 쿼리를 실행합니다.
 - [&queryType=full&search=*](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26searchFields=business_title%26$select=business_title%26queryType=full%26search=*)
 
-## 필드 지정 쿼리 작업
+이 쿼리는 작업 인덱스(샌드박스 서비스에서 로드한)에서 문서를 반환합니다.
 
-다음 예제에서는 **fieldname:searchterm** 구조를 정의하여 필드 지정 쿼리 작업을 정의하게 됩니다. 여기서 필드는 단일 단어이고, 검색어도 선택적으로 부울 연산이 포함된 단일 단어 또는 구입니다. 몇 가지 예제는 다음과 같습니다.
+새 브라우저 창에 JavaScript 소스 및 HTML 출력이 나란히 표시됩니다. 스크립트는 이 문서의 예제 URL에서 제공하는 쿼리를 참조합니다. 예를 들어 **예제 1**에서 기본 쿼리는 다음과 같습니다.
+
+    http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26searchFields=business_title%26$select=business_title%26queryType=full%26search=*
+
+쿼리는 nycjobs라고 하는 사전 구성된 Azure 검색을 사용합니다. **searchFields** 매개 변수는 검색을 직위 필드로만 제한합니다. **queryType**이 **full**로 설정되어,이 쿼리에 Lucene 쿼리 파서를 사용하도록 Azure 검색에 지시합니다.
+
+### 필드 지정 쿼리 작업
+
+**fieldname:searchterm** 구조를 정의하여 필드 지정 쿼리 작업을 정의하도록 이 문서의 예제를 수정할 수 있습니다. 여기서 필드는 단일 단어이고, 검색어도 선택적으로 부울 연산이 포함된 단일 단어 또는 구입니다. 몇 가지 예제는 다음과 같습니다.
 
 - business\_title:senior NOT junior
 - state:"New York" AND "New Jersey"
@@ -49,7 +57,7 @@ Lucene 쿼리 파서를 사용하려면 **queryType** 검색 매개 변수를 �
 
 ## 유사 항목 검색
 
-유사 항목 검색은 용어에서 구조가 유사한 일치 항목을 찾습니다. [Lucene 문서](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)에 따라 유사 항목 검색은 [다메라우-레펜슈타인 거리(Damerau-Levenshtein) 거리](https://en.wikipedia.org/wiki/Damerau%e2%80%93Levenshtein_distance)에 기반합니다.
+유사 항목 검색은 용어에서 구조가 유사한 일치 항목을 찾습니다. [Lucene 문서](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)에 따라 유사 항목 검색은 [다메라우-레펜슈타인(Damerau-Levenshtein) 거리](https://en.wikipedia.org/wiki/Damerau%e2%80%93Levenshtein_distance)에 기반합니다.
 
 유사 항목 검색을 수행하려면 편집 거리를 지정하는 0과 2 사이의 값을 선택적 매개 변수로 포함하여 단일 단어의 끝에 물결표("~") 기호를 사용하십시오. 예를 들어, "blue~" 또는 "blue~1"은 blue, blues 및 glue를 반환합니다.
 
@@ -121,4 +129,4 @@ musicstoreindex 예제에서 **genre**와 같이, 특정 필드에서 일치 항
 
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0427_2016-->

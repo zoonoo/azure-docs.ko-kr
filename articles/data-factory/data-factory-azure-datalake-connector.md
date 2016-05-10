@@ -412,7 +412,8 @@ Azure 저장소 연결된 서비스를 사용하여 Azure 저장소 계정을 Az
 | subscriptionId | Azure 구독 ID | 아니요(지정하지 않으면 데이터 팩터리의 구독이 사용됨) |
 | resourceGroupName | Azure 리소스 그룹 이름 | 아니요(지정하지 않으면 Data Factory의 리소스 그룹이 사용됨). |
 
-**권한 부여** 단추를 사용하여 생성된 권한 부여 코드는 잠시 후 만료됩니다. 다양한 유형의 사용자 계정에 대한 만료 시간은 다음 표를 참조하세요. 인증 **토큰이 만료**되는 경우 다음과 같은 오류 메시지가 표시될 수 있습니다. "자격 증명 작업 오류: invalid\_grant - AADSTS70002: 자격 증명의 유효성 검사 오류 AADSTS70008: 제공된 액세스 권한 부여가 만료되었거나 해지됩니다. 추적 ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 상관관계 ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 타임스탬프: 2015-12-15 21-09-31Z".
+## 토큰 만료 
+**권한 부여** 단추를 사용하여 생성한 권한 부여 코드는 잠시 후 만료됩니다. 다양한 유형의 사용자 계정에 대한 만료 시간은 다음 표를 참조하세요. 인증 **토큰이 만료**되는 경우 다음과 같은 오류 메시지가 표시될 수 있습니다. "자격 증명 작업 오류: invalid\_grant - AADSTS70002: 자격 증명의 유효성 검사 오류 AADSTS70008: 제공된 액세스 권한 부여가 만료되었거나 해지됩니다. 추적 ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 상관관계 ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 타임스탬프: 2015-12-15 21-09-31Z".
 
 
 | 사용자 유형 | 다음 시간 후에 만료 |
@@ -420,7 +421,9 @@ Azure 저장소 연결된 서비스를 사용하여 Azure 저장소 계정을 Az
 | Azure Active Directory에서 관리되지 않는 사용자 계정(@hotmail.com, @live.com 등) | 12시간 |
 | AAD(Azure Active Directory)에서 관리되는 사용자 계정 | 마지막 조각이 실행된 후 14일 <br/><br/>OAuth 기반 연결된 서비스를 기반으로 하는 조각이 14일마다 한 번 이상 실행된 경우 90일 |
 
-이 오류를 방지/해결하려면 **토큰이 만료**되면 **권한 부여** 단추를 사용하여 다시 인증하고 연결된 서비스를 다시 배포해야 합니다. 다음 섹션의 코드를 사용하여 프로그래밍 방식으로 **sessionId** 및 **authorization** 속성의 값을 생성할 수도 있습니다.
+토큰 만료 시간 전에 암호를 변경하면, 토큰이 즉시 만료되고 위와 같은 오류 메시지가 표시됩니다.
+
+이 오류를 방지/해결하려면 **토큰이 만료**되면 **권한 부여** 단추를 사용하여 다시 인증하고 연결된 서비스를 다시 배포해야 합니다. 다음 섹션의 코드를 사용하여 프로그래밍 방식으로 **sessionId** 및 **권한 부여** 속성의 값을 생성할 수도 있습니다.
 
 ### 프로그래밍 방식으로 sessionId와 권한 부여 값을 생성하려면 
 
@@ -447,7 +450,7 @@ Azure 저장소 연결된 서비스를 사용하여 Azure 저장소 계정을 Az
         }
     }
 
-코드에 사용되는 Data Factory 클래스에 대한 세부 정보는 [AzureDataLakeStoreLinkedService 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) 및 [AuthorizationSessionGetResponse 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) 항목을 참조하세요. WindowsFormsWebAuthenticationDialog 클래스의 Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll에 대한 참조를 추가해야 합니다.
+코드에 사용되는 데이터 팩터리 클래스에 대한 세부 정보는 [AzureDataLakeStoreLinkedService 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) 및 [AuthorizationSessionGetResponse 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) 항목을 참조하세요. WindowsFormsWebAuthenticationDialog 클래스의 Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll에 대한 참조를 추가해야 합니다.
  
 
 ## Azure 데이터 레이크 데이터 집합 형식 속성
@@ -461,7 +464,7 @@ Azure 저장소 연결된 서비스를 사용하여 Azure 저장소 계정을 Az
 | folderPath | Azure 데이터 레이크 저장소의 컨테이너 및 폴더에 대한 경로입니다. | 예 |
 | fileName | Azure Data Lake 저장소에 있는 파일의 이름입니다. fileName은 선택 사항이며 대/소문자를 구분합니다. <br/><br/>filename을 지정하면 활동(복사 포함)이 특정 파일에서 작동합니다.<br/><br/> fileName이 지정되지 않으면 복사는 입력 데이터 집합에 대한 folderPath의 모든 파일을 포함합니다.<br/><br/>fileName이 출력 데이터 집합에 대해 지정되지 않으면 생성된 파일의 이름이 Data.<Guid>.txt(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) 형식으로 표시됩니다. | 아니요 |
 | partitionedBy | partitionedBy는 선택적 속성입니다. 동적 folderPath 및 시계열 데이터에 대한 filename을 지정하는 데 사용할 수 있습니다. 예를 들어 folderPath는 매시간 데이터에 대한 매개 변수화됩니다. 자세한 내용과 예제는 아래 partitionedBy 속성 활용 섹션을 참조하세요. | 아니요 |
-| format | **TextFormat**, **AvroFormat** 및 **JsonFormat**과 같은 세 가지 서식 유형이 지원됩니다. 값이 있으면 이 중 하나로 서식에서 형식 속성을 설정해야 합니다. 서식이 TextFormat인 경우 형식에 선택적 추가 속성을 지정할 수 있습니다. 자세한 내용은 아래 [TextFormat 지정](#specifying-textformat) 섹션을 참조하세요. JsonFormat을 사용하려면 [JsonFormat 지정](#specifying-jsonformat) 섹션을 참조하세요. | 아니요
+| format | **TextFormat**, **AvroFormat** 및 **JsonFormat**과 같은 세 가지 서식 유형이 지원됩니다. 값이 있으면 이 중 하나로 서식에서 형식 속성을 설정해야 합니다. 서식이 TextFormat인 경우 형식에 선택적 추가 속성을 지정할 수 있습니다. 자세한 내용은 아래 [TextFormat 지정](#specifying-textformat) 섹션을 참조하세요. AvroFormat을 사용하는 경우에는 [AvroFormat 지정](#specifying-avroformat) 섹션을 참조하세요. JsonFormat을 사용하는 경우에는 [JsonFormat 지정](#specifying-jsonformat) 섹션을 참조하세요. | 아니요
 | 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate** 및 **BZip2**이고 지원되는 수준은 **최적** 및 **가장 빠름**입니다. 현재 **AvroFormat**의 데이터에 대한 압축 설정은 지원되지 않습니다. 자세한 내용은 [압축 지원](#compression-support) 섹션을 참조하세요. | 아니요 |
 
 ### partitionedBy 속성 활용
@@ -611,4 +614,4 @@ Hive 테이블에서 Avro 형식을 사용하려는 경우 [Apache Hive의 자�
 ## 성능 및 튜닝  
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

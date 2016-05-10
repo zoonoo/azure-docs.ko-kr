@@ -18,13 +18,7 @@
 
 # Azure 앱 서비스에서 Node.js 웹앱 시작
 
-> [AZURE.SELECTOR]
-- [.Net](web-sites-dotnet-get-started.md)
-- [Node.JS](app-service-web-nodejs-get-started.md)
-- [Java](web-sites-java-get-started.md)
-- [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
-- [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
-- [Python](web-sites-python-ptvs-django-mysql.md)
+[AZURE.INCLUDE [탭](../../includes/app-service-web-get-started-nav-tabs.md)]
 
 이 자습서에서는 간단한 [Node.js](http://nodejs.org) 응용 프로그램을 만들고 cmd.exe 또는 bash와 같은 명령줄에서 [Azure 앱 서비스](../app-service/app-service-value-prop-what-is.md)의 [웹앱](app-service-web-overview.md)에 배포하는 방법을 보여줍니다. 이 자습서의 지침은 Node.js를 실행할 수 있는 모든 운영 체제에 적용될 수 있습니다.
 
@@ -32,9 +26,9 @@
 ## 필수 조건
 
 - Node.js. 설치 이진은 [여기](https://nodejs.org/)에 있습니다.
-- Yoeman. 설치 지침은 [여기](http://yeoman.io/)에 있습니다.
+- Yoeman. 설치 지침은 [여기에](http://yeoman.io/) 있습니다.
 - Git. 설치 이진은 [여기](http://www.git-scm.com/downloads)에 있습니다.
-- Azure CLI. 설치 지침은 [여기](../xplat-cli-install.md)에 있습니다.
+- Azure CLI. 설치 지침은 [여기에](../xplat-cli-install.md) 있습니다.
 - Microsoft Azure 계정. 계정이 없는 경우 [무료 평가판을 등록](/pricing/free-trial/?WT.mc_id=A261C142F)하거나 [Visual Studio 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있습니다.
 
 ## 간단한 Node.js 웹앱 만들기 및 배포
@@ -209,4 +203,4 @@ Node-Inspector를 사용하려면 다음 단계를 수행하세요.
 - [Node.js 개발자 센터](/develop/nodejs/)
 - [Azure 앱 서비스에서 웹 앱 시작](app-service-web-get-started.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

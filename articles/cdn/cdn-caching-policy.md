@@ -4,7 +4,7 @@
 	services="cdn"
 	documentationCenter=".NET"
 	authors="juliako"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,9 +13,9 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/01/2016"
+	ms.date="04/25/2016"
 	ms.author="juliako"/>
-
+ 
 #미디어 서비스 확장의 CDN 캐싱 정책
 
 Azure 미디어 서비스는 HTTP 기반 적응 스트리밍 및 점진적 다운로드를 제공합니다. HTTP 기반 스트리밍은 클라이언트 쪽 캐싱뿐만 아니라 프록시 및 CDN 계층의 캐싱을 활용하므로 확장성이 뛰어납니다. 스트리밍 끝점은 일반적인 스트리밍 기능 및 HTTP 캐시 헤더에 대한 구성을 제공합니다. 스트리밍 끝점은 HTTP Cache-Control: max-age 및 Expires 헤더를 설정합니다. HTTP 캐시 헤더에 대한 자세한 내용은 [W3.org](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html)에서 확인할 수 있습니다.
@@ -42,4 +42,4 @@ Azure 관리 포털 또는 Azure 미디어 서비스 API를 사용하여 캐시 
 2. 수동 구성이 없으면 기본값이 적용됩니다.
 3. 라이브 스트리밍에는 Azure 미디어 또는 Azure 저장소 구성에 상관없이 기본적으로 2초 캐시 헤더가 적용되며, 이 값은 재정의할 수 없습니다.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

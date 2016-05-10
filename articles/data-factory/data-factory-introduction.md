@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/09/2016" 
+	ms.date="04/26/2016" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory 서비스 소개
@@ -69,4 +69,4 @@ Azure 데이터 팩터리 자체는 데이터를 저장하지 않습니다. 데�
 나중에 Azure에서 지원하는 모든 지리적 위치에서 Azure 데이터 팩터리를 사용하게 될 예정입니다.
   
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->

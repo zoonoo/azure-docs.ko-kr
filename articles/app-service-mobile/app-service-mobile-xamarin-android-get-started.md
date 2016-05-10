@@ -4,7 +4,7 @@
 	services="app-service\mobile"
 	documentationCenter="xamarin"
 	authors="ggailey777"
-	manager="dwrede"
+	manager="erikre"
 	editor="" />
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="02/05/2016"
+	ms.date="05/03/2016"
 	ms.author="glenga" />
 
 #Xamarin.Android 앱 만들기
@@ -70,7 +70,9 @@
 
 ##다음 단계
 
-* [앱에 인증 추가](app-service-mobile-xamarin-android-get-started-users.md) <br/> ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
+* [앱에 인증 추가](app-service-mobile-xamarin-android-get-started-users.md) ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
+* [Xamarin.Android 앱에 푸시 알림 추가](app-service-mobile-xamarin-android-get-started-push.md) 앱에 푸시 알림을 추가하는 방법을 알아봅니다.
+* [Azure 모바일 앱에 대한 관리되는 클라이언트를 사용하는 방법](app-service-mobile-dotnet-how-to-use-client-library.md) Xamarin 앱에서 관리되는 클라이언트 SDK로 작업하는 방법에 대해 알아봅니다. 
 
 
 <!-- Images. -->
@@ -84,4 +86,4 @@
 [Azure Portal]: https://azure.portal.com/
 [Visual Studio]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

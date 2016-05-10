@@ -77,11 +77,11 @@ Azure 저장소는 여러 개발자가 보안 응용 프로그램을 함께 빌�
 
 -   기능을 등록하려면 Register-AzureRmProviderFeature PowerShell cmdlet을 사용할 수 있습니다.
 
-    `Register-AzureRmProviderFeature -FeatureName "EncryptionAtRest" -ProviderNamespace "Microsoft.Storage“`
-        
+    `Register-AzureRmProviderFeature -FeatureName "EncryptionAtRest" -ProviderNamespace "Microsoft.Storage"`
+
 -   구독이 승인되었는지를 확인하기 위해 등록 상태를 쿼리하려면 Get-AzureRmProviderFeature PowerShell cmdlet을 사용하면 됩니다.
 
-    `Get-AzureRmProviderFeature -FeatureName "EncryptionAtRest" -ProviderNamespace "Microsoft.Storage“`
+    `Get-AzureRmProviderFeature -FeatureName "EncryptionAtRest" -ProviderNamespace "Microsoft.Storage"`
 
 등록 상태가 "등록됨"으로 반환되면 구독이 승인된 것입니다. Yammer에서 Azure 저장소 서비스 암호화 미리 보기 그룹도 방문하세요.
 
@@ -225,4 +225,4 @@ A: 저장소 서비스 암호화에 대한 문제는 [ssediscussions@microsoft.c
 
 Azure 저장소는 여러 개발자가 보안 응용 프로그램을 함께 빌드할 수 있도록 하는 포괄적인 보안 기능을 제공합니다. 자세한 내용은 [저장소 보안 가이드](storage-security-guide.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0427_2016-->

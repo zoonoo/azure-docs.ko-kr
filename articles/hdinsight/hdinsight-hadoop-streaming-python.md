@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/05/2016"
+   ms.date="04/22/2016"
    ms.author="larryfr"/>
 
 #HDInsight용 Python 스트리밍 프로그램 개발
@@ -205,4 +205,4 @@ HDInsight에서 스트리밍 MapRedcue 작업을 사용하는 방법을 배웠�
 * [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 * [HDInsight에서 MapReduce 작업 사용](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0427_2016-->

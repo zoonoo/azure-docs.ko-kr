@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/21/2016"
+   ms.date="04/05/2016"
    ms.author="joaoma" />
 
 # PowerShell을 사용하여 리소스 관리자에서 인터넷 연결 부하 분산 장치 만들기 시작
@@ -93,7 +93,7 @@ DNS 이름이 *loadbalancernrp.westus.cloudapp.azure.com* 인 프런트 엔드 I
 
 	$publicIP = New-AzureRmPublicIpAddress -Name PublicIp -ResourceGroupName NRP-RG -Location 'West US' –AllocationMethod Static -DomainNameLabel loadbalancernrp 
 
->[AZURE.IMPORTANT]부하 분산 장치는 FQDN에 대한 접두사로 공용 IP의 도메인 레이블을 사용합니다. 이는 부하 분산 장치 FQDN으로 클라우드 서비스를 사용하는 클래식 배포 모델의 변경입니다. 이 예제에서는 FQDN이 *loadbalancernrp.westus.cloudapp.azure.com* 입니다.
+>[AZURE.IMPORTANT] 부하 분산 장치는 FQDN에 대한 접두사로 공용 IP의 도메인 레이블을 사용합니다. 이는 부하 분산 장치 FQDN으로 클라우드 서비스를 사용하는 클래식 배포 모델의 변경입니다. 이 예제에서는 FQDN이 *loadbalancernrp.westus.cloudapp.azure.com* 입니다.
 
 ## 프런트 엔드 IP 풀 및 백 엔드 주소 풀 만들기
 
@@ -308,4 +308,4 @@ Set-AzureLoadBalancer를 사용하여 새 구성 저장
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

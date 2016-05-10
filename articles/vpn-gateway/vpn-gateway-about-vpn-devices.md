@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/25/2016"
+   ms.date="04/29/2016"
    ms.author="cherylmc" />
 
 # 사이트 간 VPN 게이트웨이 연결에 대한 VPN 장치 정보
@@ -60,7 +60,7 @@ VPN 장치를 구성하려면 적절한 장치 패밀리에 해당하는 링크�
 | Microsoft | 라우팅 및 원격 액세스 서비스 | Windows Server 2012 | 호환되지 않음 | [Microsoft 샘플](http://go.microsoft.com/fwlink/p/?LinkId=717761) |
 | 개방형 시스템 AG | 핵심 업무 제어 보안 게이트웨이 | 해당 없음 | [설치 가이드](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) | [설치 가이드](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |
 | Openswan | Openswan | 2\.6.32 | (출시 예정) | 호환되지 않음 |
-| Palo Alto Networks | PAN-OS 5.0 이상을 실행하는 모든 장치 | PAN-OS 5x 이상 | [Palo Alto Networks](https://support.paloaltonetworks.com/) | 호환되지 않음 |
+| Palo Alto Networks | PAN-OS를 실행하는 모든 장치 | PAN-OS 6.1.5 이상(정책 기반), PAN-OS 7.0.5 이상(경로 기반) | [구성 지침](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) | [구성 지침](https://live.paloaltonetworks.com/t5/Integration-Articles/Configuring-IKEv2-VPN-for-Microsoft-Azure-Environment/ta-p/60340) |
 | Watchguard | 모두 | Fireware XTM v11.x | [구성 지침](http://customers.watchguard.com/articles/Article/Configure-a-VPN-connection-to-a-Windows-Azure-virtual-network/) | 호환되지 않음 |
 
 
@@ -80,17 +80,17 @@ VPN 장치를 구성하려면 적절한 장치 패밀리에 해당하는 링크�
 
 | **샘플 텍스트** | **변경** |
 |----------------------------------|----------------------------------------------------------------------------------------------------------------------|
-| &lt;RP\_OnPremisesNetwork&gt; | 이 개체에 대해 선택한 이름입니다. 예: myOnPremisesNetwork |
-| &lt;RP\_AzureNetwork&gt; | 이 개체에 대해 선택한 이름입니다. 예: myAzureNetwork |
-| &lt;RP\_AccessList&gt; | 이 개체에 대해 선택한 이름입니다. 예: myAzureAccessList |
-| &lt;RP\_IPSecTransformSet&gt; | 이 개체에 대해 선택한 이름입니다. 예: myIPSecTransformSet |
-| &lt;RP\_IPSecCryptoMap&gt; | 이 개체에 대해 선택한 이름입니다. 예: myIPSecCryptoMap |
-| &lt;SP\_AzureNetworkIpRange&gt; | 범위를 지정합니다. 예: 192.168.0.0 |
-| &lt;SP\_AzureNetworkSubnetMask&gt; | 서브넷 마스크를 지정합니다. 예: 255.255.0.0 |
-| &lt;SP\_OnPremisesNetworkIpRange&gt; | 온-프레미스 범위를 지정합니다. 예: 10.2.1.0 |
-| &lt;SP\_OnPremisesNetworkSubnetMask&gt; | 온-프레미스 서브넷 마스크를 지정합니다. 예: 255.255.255.0 |
-| &lt;SP\_AzureGatewayIpAddress&gt; | 이 정보는 가상 네트워크와 관련이 있으며 **게이트웨이 IP 주소**인 관리 포털에 있습니다. |
-| &lt;SP\_PresharedKey&gt; | 이 정보는 가상 네트워크와 관련이 있으며 키 관리인 관리 포털에 있습니다. |
+| &lt;RP_OnPremisesNetwork&gt; | 이 개체에 대해 선택한 이름입니다. 예: myOnPremisesNetwork |
+| &lt;RP_AzureNetwork&gt; | 이 개체에 대해 선택한 이름입니다. 예: myAzureNetwork |
+| &lt;RP_AccessList&gt; | 이 개체에 대해 선택한 이름입니다. 예: myAzureAccessList |
+| &lt;RP_IPSecTransformSet&gt; | 이 개체에 대해 선택한 이름입니다. 예: myIPSecTransformSet |
+| &lt;RP_IPSecCryptoMap&gt; | 이 개체에 대해 선택한 이름입니다. 예: myIPSecCryptoMap |
+| &lt;SP_AzureNetworkIpRange&gt; | 범위를 지정합니다. 예: 192.168.0.0 |
+| &lt;SP_AzureNetworkSubnetMask&gt; | 서브넷 마스크를 지정합니다. 예: 255.255.0.0 |
+| &lt;SP_OnPremisesNetworkIpRange&gt; | 온-프레미스 범위를 지정합니다. 예: 10.2.1.0 |
+| &lt;SP_OnPremisesNetworkSubnetMask&gt; | 온-프레미스 서브넷 마스크를 지정합니다. 예: 255.255.255.0 |
+| &lt;SP_AzureGatewayIpAddress&gt; | 이 정보는 가상 네트워크와 관련이 있으며 **게이트웨이 IP 주소**인 관리 포털에 있습니다. |
+| &lt;SP_PresharedKey&gt; | 이 정보는 가상 네트워크와 관련이 있으며 키 관리인 관리 포털에 있습니다. |
 
 
 
@@ -128,16 +128,16 @@ VPN 장치를 구성하려면 적절한 장치 패밀리에 해당하는 링크�
 
 | **IPsec SA 암호화 및 인증 제안** | **Azure 게이트웨이(초기자)** | **Azure 게이트웨이(응답자)** |
 |---------------------------------------------------|--------------------------------------------------------------|--------------------------------------------------------------|
-| 1 | ESP AES\_256 SHA | ESP AES\_128 SHA |
-| 2 | ESP AES\_128 SHA | ESP 3\_DES MD5 |
-| 3 | ESP 3\_DES MD5 | ESP 3\_DES SHA |
-| 4 | ESP 3\_DES SHA | AH SHA1(ESP AES\_128, null HMAC 사용) |
-| 5 | AH SHA1(ESP AES\_256, null HMAC 사용) | AH SHA1(ESP 3\_DES, null HMAC 사용) |
-| 6 | AH SHA1(ESP AES\_128, null HMAC 사용) | AH MD5(ESP 3\_DES, null HMAC 사용), 제안된 수명 없음 |
-| 7 | AH SHA1(ESP 3\_DES, null HMAC 사용) | AH SHA1(ESP 3\_DES SHA1 사용), 수명 없음 |
-| 8 | AH MD5(ESP 3\_DES, null HMAC 사용), 제안된 수명 없음 | AH MD5(ESP 3\_DES MD5 사용), 수명 없음 |
-| 9 | AH SHA1(ESP 3\_DES SHA1 사용), 수명 없음 | ESP DES MD5 |
-| 10 | AH MD5(ESP 3\_DES MD5 사용), 수명 없음 | ESP DES SHA1, 수명 없음 |
+| 1 | ESP AES_256 SHA | ESP AES_128 SHA |
+| 2 | ESP AES_128 SHA | ESP 3_DES MD5 |
+| 3 | ESP 3_DES MD5 | ESP 3_DES SHA |
+| 4 | ESP 3_DES SHA | AH SHA1(ESP AES_128, null HMAC 사용) |
+| 5 | AH SHA1(ESP AES_256, null HMAC 사용) | AH SHA1(ESP 3_DES, null HMAC 사용) |
+| 6 | AH SHA1(ESP AES_128, null HMAC 사용) | AH MD5(ESP 3_DES, null HMAC 사용), 제안된 수명 없음 |
+| 7 | AH SHA1(ESP 3_DES, null HMAC 사용) | AH SHA1(ESP 3_DES SHA1 사용), 수명 없음 |
+| 8 | AH MD5(ESP 3_DES, null HMAC 사용), 제안된 수명 없음 | AH MD5(ESP 3_DES MD5 사용), 수명 없음 |
+| 9 | AH SHA1(ESP 3_DES SHA1 사용), 수명 없음 | ESP DES MD5 |
+| 10 | AH MD5(ESP 3_DES MD5 사용), 수명 없음 | ESP DES SHA1, 수명 없음 |
 | 11 | ESP DES MD5 | AH SHA1(ESP DES null HMAC 사용), 제안된 수명 없음 |
 | 12 | ESP DES SHA1, 수명 없음 | AH MD5(ESP DES null HMAC 사용), 제안된 수명 없음 |
 | 13 | AH SHA1(ESP DES null HMAC 사용), 제안된 수명 없음 | AH SHA1(ESP DES SHA1 사용), 수명 없음 |
@@ -152,4 +152,4 @@ VPN 장치를 구성하려면 적절한 장치 패밀리에 해당하는 링크�
 
 - 인터넷을 통한 프레미스 간 연결의 경우 중요한 통신의 보안을 보장하려면 위의 표에 나열된 암호화 및 해시 알고리즘을 사용하는 기본 Azure VPN 게이트웨이 설정을 사용하세요.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->
