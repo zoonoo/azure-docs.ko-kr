@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="02/16/2016"
+ms.date="05/03/2016"
 ms.author="larryfr"/>
 
 # Windows 기반 HDInsight 클러스터에서 Tez UI를 사용하여 Tez 작업 디버깅
@@ -147,4 +147,4 @@ Tez를 사용하여 실행하는 Hive 쿼리를 실행하기 위해 다음 단�
 
 Tez에서 자세한 기술 정보는 [Hortonworks의 Tez 페이지](http://hortonworks.com/hadoop/tez/)를 참조하세요.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0504_2016-->

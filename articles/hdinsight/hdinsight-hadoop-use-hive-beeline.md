@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/16/2016"
+   ms.date="04/27/2016"
    ms.author="larryfr"/>
 
 #Beeline를 사용하여 HDInsight에서 Hadoop과 Hive 사용
@@ -65,9 +65,11 @@ PuTTY 사용에 대한 자세한 내용은 [Windows에서 HDInsight의 Linux 기
 
         beeline
 
-2. `beeline>`라는 메시지에서 다음을 사용하여 HiveServer2 서비스에 연결합니다. __HOSTNAME__을 이전의 헤드 노드에 반환된 호스트 이름으로 교체합니다.
+2. `beeline>`라는 메시지에서 다음을 사용하여 HiveServer2 서비스에 연결합니다. __HOSTNAME__을 이전의 헤드 노드에 반환된 호스트 이름으로 바꿉니다.
 
         !connect jdbc:hive2://HOSTNAME:10001/;transportMode=http admin
+        
+    이렇게 하면 Beeline이 지정된 __HOSTNAME__의 포트 __10001__에 연결되고 __HTTP__이 전송 방법이 됩니다. 연결을 인증하는 데 __관리자__ 계정을 사용합니다.
 
     메시지가 표시되면 HDInsight 클러스터에 관리자(관리자) 계정에 암호를 입력합니다. 연결이 설정되면 프롬프트는 메시지는 다음으로 변경됩니다.
     
@@ -243,4 +245,4 @@ Hive와 함께 Tez를 사용하는 경우 디버깅 정보에 대한 다음 문�
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0504_2016-->

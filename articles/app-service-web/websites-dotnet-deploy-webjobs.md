@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="na" 
-	ms.date="01/08/2016" 
+	ms.date="04/27/2016" 
 	ms.author="tdykstra"/>
 
 # Visual Studio를 사용하여 WebJob 배포
@@ -39,16 +39,12 @@ WebJob 지원 프로젝트에는 다음 항목이 추가됩니다.
 프로젝트를 WebJob 자체로 배포하거나 웹 프로젝트를 배포할 때마다 자동으로 배포되도록 웹 프로젝트에 연결할 수 있습니다. 프로젝트를 연결할 수 있게 Visual Studio는 웹 프로젝트의 [webjobs-list.json](#webjobslist) 파일에 WebJob 지원 프로젝트의 이름을 포함합니다.
 
 ![웹 프로젝트에 연결된 WebJob 프로젝트를 보여 주는 다이어그램](./media/websites-dotnet-deploy-webjobs/link.png)
- 
-
 
 ## 필수 조건
 
-WebJob 배포 기능은 Azure SDK 버전 2.4 이상 버전을 설치할 때 Visual Studio 2013에서 사용할 수 있습니다.
+WebJobs 배포 기능은 Azure SDK for .NET을 설치할 때 Visual Studio 2015에서 사용할 수 있습니다.
 
-* [Visual Studio 2013용 Azure SDK](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)(영문)
-
-WebJob 배포 기능은 [Visual Studio 2013 Update 3](http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409) 이후 업데이트에도 포함됩니다.
+* [Azure SDK for .NET(Visual Studio 2015)](http://go.microsoft.com/fwlink/?linkid=518003).
 
 ## <a id="convert"></a>기존 콘솔 응용 프로그램 프로젝트에 WebJob 배포 사용
 
@@ -100,7 +96,7 @@ WebJob 배포 기능은 [Visual Studio 2013 Update 3](http://go.microsoft.com/fw
 
 	동일한 솔루션의 웹 프로젝트가 배포될 때 자동으로 WebJob으로 배포되도록 구성된 프로젝트를 만듭니다. 관련 웹 응용 프로그램을 실행하는 동일한 웹 앱에서 WebJob을 실행하려는 경우에 이 옵션을 사용합니다.
 
-> [AZURE.NOTE]WebJobs new-project 새 프로젝트 템플릿은 자동으로 NuGet 패키지를 설치하고 [WebJobs SDK](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs)에 대한 *Program.cs*에 코드를 포함하고 있습니다. WebJobs SDK를 사용하지 않거나 연속 WebJob이 아닌 예약된 WebJob을 사용하려는 경우 *Program.cs*에서 `host.RunAndBlock` 문을 제거하거나 변경합니다.
+> [AZURE.NOTE] WebJobs new-project 새 프로젝트 템플릿은 NuGet 패키지를 자동으로 설치하고 [WebJobs SDK](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs)에 대한 *Program.cs*에 코드를 포함합니다. WebJobs SDK를 사용하지 않거나 연속 WebJob이 아닌 예약된 WebJob을 사용하려는 경우 *Program.cs*에서 `host.RunAndBlock` 문을 제거하거나 변경합니다.
 
 ### <a id="createnolink"></a> 독립 WebJob을 위해 WebJob new-project 템플릿 사용
   
@@ -188,13 +184,8 @@ WebJob 프로젝트 자체를 배포하려면 **솔루션 탐색기**에서 이 
 	
 독립 WebJob의 경우 웹 프로젝트에 사용되는 것과 동일한 **웹 게시** 마법사가 나타나지만 변경할 수 있는 설정은 더 적습니다.
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
-
 ## <a id="nextsteps"></a>다음 단계
 
-이 문서는 Visual Studio를 사용하여 WebJobs를 배포하는 방법을 설명했습니다. Visual Studio에서 지속적인 전송을 사용하여 Azure WebJob을 배포하는 방법에 대한 자세한 내용은 [Azure WebJob - 권장 리소스 - 배포](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/azure-webjobs-recommended-resources#deploying)를 참조하세요.
+이 문서는 Visual Studio를 사용하여 WebJobs를 배포하는 방법을 설명했습니다. Azure WebJobs를 배포하는 방법은 [Azure WebJobs - 권장 리소스 - 배포](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/azure-webjobs-recommended-resources#deploying)를 참조하세요.
 
-## 변경된 내용
-* 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
-
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0504_2016-->

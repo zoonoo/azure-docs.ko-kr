@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/28/2016"
+   ms.date="04/20/2016"
    ms.author="cherylmc"/>
 
 # VPN 게이트웨이 계획 및 설계
 
-크로스 프레미스 및 VNet-VNet 연결을 계획 및 설계할 경우 네트워킹 요구 사항에 따라 연결이 매우 단순하거나 복잡해질 수 있습니다.
+크로스 프레미스 및 VNet-VNet 연결을 계획 및 설계할 경우 네트워킹 요구 사항에 따라 연결이 매우 단순하거나 복잡해질 수 있습니다. 이 문서에서는 계획 및 설계 시 기본적으로 고려해야 할 사항을 안내합니다.
 
 ## 계획
 
@@ -164,4 +164,4 @@ VNet에 대한 게이트웨이 서브넷을 만들어서 VPN 게이트웨이를 
 
 설계에 도움이 되는 정보를 보려면 [VPN 게이트웨이 FAQ](vpn-gateway-vpn-faq.md) 및 [VPN 게이트웨이 정보](vpn-gateway-about-vpngateways.md)를 참조하세요. 연결 토폴로지에 대한 자세한 내용은 [연결 토폴로지](vpn-gateway-topology.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

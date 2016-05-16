@@ -184,7 +184,7 @@
 2015년 9월 11일 주를 기준으로 다음과 같은 기능이 **Azure 데이터 카탈로그**에 추가되었습니다.
 
 - HTTP/HTTPS를 통한 SQL Server Analysis Services 개체 등록 및 검색에 대한 지원. 사용자는 이제 서버 이름 대신에 URL(예: https://servername/olap/msmdpump.dll)을 사용하여 SSAS 서버에 연결할 수 있으며 Windows 인증 외에도 기본 인증 및 익명 연결을 사용할 수 있습니다. SSAS에 대한 HTTP/HTTPS 연결의 추가 정보는 [Analysis Services에 대한 HTTP 액세스 구성](https://msdn.microsoft.com/library/gg492140.aspx)을 참조하세요.
-- HDInsight의 Hive 데이터 원본에 대한 지원. 사용자는 이제 HDInsight 데이터 원본의 Hadoop에서 Apache Hive에 대한 Hive 테이블을 등록하고 검색할 수 있습니다. HDInsight의 Hive에 대한 추가 정보는 [HDInsight 설명서 센터](../hdinsight-use-hive/)를 참조하세요.
+- HDInsight의 Hive 데이터 원본에 대한 지원. 사용자는 이제 HDInsight 데이터 원본의 Hadoop에서 Apache Hive에 대한 Hive 테이블을 등록하고 검색할 수 있습니다. HDInsight의 Hive에 대한 추가 정보는 [HDInsight 설명서 센터](../hdinsight/hdinsight-use-hive.md)를 참조하세요.
 - 컨테이너로 Oracle 데이터베이스 및 HDFS 클러스터 등록 및 검색에 대한 지원. Oracle 테이블 및 뷰 또는 HDFS를 등록하면 **Azure 데이터 카탈로그**에 테이블 및 뷰는 물론 데이터베이스에 대한 항목도 생성됩니다. **Azure 데이터 카탈로그** 포털을 사용하여 데이터베이스를 검색하고 주석을 추가할 수 있습니다. 사용자는 카탈로그 내용을 검색 및 필터링하는 것은 물론 데이터베이스 또는 클러스터의 내용을 검색 및 필터링할 수도 있습니다.
 
 
@@ -216,4 +216,4 @@
 - Standard Edition에만 해당: 이제 데이터 자산에 소유자를 추가하는 경우 **Azure 데이터 카탈로그**에서 사용자 계정과 보안 그룹을 모두 소유자로 지원합니다. 선택한 데이터 자산에 대해 소유자로 보안 그룹을 추가하려면 있는 경우 그룹의 표시 이름 또는 그룹의 UPN 전자 메일 주소를 입력할 수 있습니다.
 - Azure Blob 저장소의 데이터 원본에 대한 지원입니다. 이제 사용자는 Azure 저장소 Blob 및 디렉터리를 등록하고 검색할 수 있습니다.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

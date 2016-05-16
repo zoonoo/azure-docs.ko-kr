@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/09/2016" 
+	ms.date="04/27/2016" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache 프리미엄 계층 소개
@@ -54,4 +54,4 @@ Azure Redis Cache는 분산되고 관리된 캐시로, 데이터에 매우 빠�
 -	[프리미엄 Azure Redis Cache에 클러스터링을 구성하는 방법](cache-how-to-premium-clustering.md)
   
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

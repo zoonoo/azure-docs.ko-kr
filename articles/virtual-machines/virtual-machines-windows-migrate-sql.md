@@ -3,7 +3,7 @@
 	description="온-프레미스 사용자 데이터베이스를 Azure 가상 컴퓨터에서 SQL Server로 마이그레이션하는 방법에 대해 알아봅니다."
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="rothja"
+	authors="sabotta"
 	manager="jhubbard"
 	editor=""
 	tags="azure-service-management" />
@@ -13,16 +13,18 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
-	ms.author="jroth"/>
+	ms.date="05/02/2016"
+	ms.author="carlasab"/>
 
 
 # Azure VM에서 SQL Server로 SQL Server 데이터베이스 마이그레이션
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]리소스 관리자 모델.
 
 
 Azure VM에서 온-프레미스 SQL Server 사용자 데이터베이스를 SQL Server로 마이그레이션하는 메서드가 많이 있습니다. 이 문서는 다양한 메서드를 간략하게 설명하고 다양한 시나리오에 맞는 최상의 메서드를 추천하고 **Microsoft Azure VM에 SQL Server 데이터베이스 배포** 마법사를 사용하는 과정을 안내하는 [자습서](#azure-vm-deployment-wizard-tutorial)를 포함합니다.
+
+[자습서](#azure-vm-deployment-wizard-tutorial)에 설명된 **Microsoft Azure VM에 SQL Server 데이터베이스 배포**를 사용하는 방법은 클래식 배포 모델에만 해당합니다.
 
 ## 기본 마이그레이션 메서드란?
 
@@ -34,8 +36,8 @@ Azure VM에서 온-프레미스 SQL Server 사용자 데이터베이스를 SQL S
 - 데이터와 로그 파일을 분리하여 Azure Blob 저장소에 복사한 후 URL로 Azure VM의 SQL Server에 첨부
 - 온-프레미스 물리적 컴퓨터를 Hyper-V VHD로 변환하고 Azure Blob 저장소에 업로드한 후 업로드된 VHD를 사용하여 새 VM으로 배포
 - Windows 가져오기/내보내기 서비스를 사용하여 하드 드라이브 제공
-- AlwaysOn 배포 온-프레미스가 있는 경우에는 [Azure 복제본 추가 마법사](virtual-machines-windows-classic-sql-onprem-availability.md)를 사용하여 Azure에 복제본을 만들고 장애 조치(failover)하며 이는 Azure 데이터베이스 인스턴스에 사용자를 가리킵니다.
-- SQL Server [트랜잭션 복제](https://msdn.microsoft.com/library/ms151176.aspx)를 사용하여 Azure SQL Server 인스턴스를 구독자로 구성하고 복제를 비활성화하며 이는 Azure 데이터베이스 인스턴스에 사용자를 가리킵니다.
+- AlwaysOn 배포 온-프레미스가 있는 경우에는 [Azure 복제본 추가 마법사](virtual-machines-windows-classic-sql-onprem-availability.md)를 사용하여 Azure에 복제본을 만든 다음 사용자가 Azure 데이터베이스 인스턴스에 연결되도록 하는 장애 조치(failover)를 설정합니다.
+- SQL Server [트랜잭션 복제](https://msdn.microsoft.com/library/ms151176.aspx)를 사용하여 Azure SQL Server 인스턴스를 구독자로 구성한 다음 사용자가 Azure 데이터베이스 인스턴스로 연결되도록 하여 복제를 비활성화합니다.
 
 
 
@@ -60,11 +62,13 @@ Azure VM에서 온-프레미스 SQL Server 사용자 데이터베이스를 SQL S
 | [URL에 백업을 수행하고 URL에서 Azure 가상 컴퓨터로 복원](#backup-to-url-and-restore) | SQL Server 2012 SP1 CU2 이상 | SQL Server 2012 SP1 CU2 이상 | > 1TB(SQL Server 2016의 경우 < 12.8TB) | 일반적으로 [URL에 백업](https://msdn.microsoft.com/library/dn435916.aspx)을 사용하는 것이 마법사를 사용하는 것과 성능 면에서 동등하지만 그만큼 쉽지는 않음 |
 | [데이터와 로그 파일을 분리하여 Azure Blob 저장소에 복사한 후 URL로 Azure 가상 컴퓨터의 SQL Server에 첨부](#detach-and-copy-to-url-and-attach-from-url) | SQL Server 2005 이상 | SQL Server 2014 이상 | [Azure VM 저장소 제한](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) | 특히 매우 큰 데이터베이스에 대해 [Azure Blob 저장소 서비스를 사용하여 파일을 저장](https://msdn.microsoft.com/library/dn385720.aspx)하고 Azure VM에서 실행되는 SQL Server에 연결하려는 경우 이 메서드를 사용합니다. |
 | [온-프레미스 컴퓨터를 Hyper-V VHD로 변환하고 Azure Blob 저장소에 업로드한 후 업로드된 VHD를 사용하여 새 가상 컴퓨터 배포](#convert-to-vm-and-upload-to-url-and-deploy-as-new-vm) | SQL Server 2005 이상 | SQL Server 2005 이상 | [Azure VM 저장소 제한](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) | [자체 SQL Server 라이선스를 소유](../data-management-azure-sql-database-and-sql-server-iaas/)하는 경우, 이전 버전의 SQL Server에서 실행되는 데이터베이스를 마이그레이션하는 경우, 또는 다른 사용자 데이터베이스 및/또는 시스템 데이터베이스에 종속되는 데이터베이스 마이그레이션의 일부로 시스템과 사용자 데이터베이스를 함께 마이그레이션하는 경우에 사용합니다. |
-| [Windows 가져오기/내보내기 서비스를 사용하여 하드 드라이브 제공](#ship-hard-drive) | SQL Server 2005 이상 | SQL Server 2005 이상 | [Azure VM 저장소 제한](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) | 매우 큰 데이터베이스에 사용하는 경우와 같이 수동 복사 메서드가 너무 느린 경우 [Windows 가져오기/내보내기 서비스](../storage-import-export-service/)를 사용 |
+| [Windows 가져오기/내보내기 서비스를 사용하여 하드 드라이브 제공](#ship-hard-drive) | SQL Server 2005 이상 | SQL Server 2005 이상 | [Azure VM 저장소 제한](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) | 매우 큰 데이터베이스에 사용하는 경우와 같이 수동 복사 메서드가 너무 느린 경우 [Windows 가져오기/내보내기 서비스](../storage/storage-import-export-service.md)를 사용 |
 
 ## Azure VM 배포 마법사 자습서
 
 Microsoft SQL Server Management Studio에서 **Microsoft Azure VM에 SQL Server 데이터베이스 배포** 마법사를 사용하여 SQL Server 2005, SQL Server 2008, SQL Server 2008 R2, SQL Server 2012, SQL Server 2014 또는 SQL Server 2016 온-프레미스 사용자 데이터베이스(최대 1TB)를 Azure 가상 컴퓨터의 SQL Server 2014 또는 SQL Server 2016으로 마이그레이션합니다. 이 마법사를 사용하여 사용자 데이터베이스를 기존 Azure 가상 컴퓨터에 마이그레이션하거나 마이그레이션 과정에서 마법사에 의해 생성된 SQL Server가 있는 Azure VM에 마이그레이션합니다. 데이터베이스를 최신 버전의 SQL Server로 마이그레이션하는 경우 데이터베이스는 이 과정에서 자동으로 업그레이드됩니다.
+
+이 방법은 클래식 배포 모델에만 해당합니다.
 
 ### 최신 버전의 Microsoft Azure 가상 컴퓨터에 SQL Server 데이터베이스 배포 마법사 사용
 
@@ -74,7 +78,7 @@ SQL Server에 대해 최신 버전의 Microsoft SQL Server Management Studio를 
 
 기존 Azure VM에 마이그레이션하는 경우 다음과 같은 구성 단계가 필요합니다.
 
-- [Azure에서 SQL Server 가상 컴퓨터 프로비전](../virtual-machines-provision-sql-server/#SSMS)의 다른 컴퓨터에서 SQL Server VM 인스턴스를 SSMS에서 연결 섹션에 포함된 단계에 따라서 다른 컴퓨터에서 연결할 수 있도록 Azure VM과 SQL Server 인스턴스를 구성합니다. 마법사를 사용하여 마이그레이션하는 경우에는 갤러리의 SQL Server 2014 및 SQL Server 2016 이미지만 지원됩니다.
+- [다른 컴퓨터의 SSMS에서 SQL Server VM 인스턴스에 연결](virtual-machines-windows-sql-connect.md)하는 단계에 따라 다른 컴퓨터에서 연결할 수 있도록 설정하려면 Azure VM 및 SQL Server 인스턴스를 구성합니다. 마법사를 사용하여 마이그레이션하는 경우에는 갤러리의 SQL Server 2014 및 SQL Server 2016 이미지만 지원됩니다.
 - 개인 포트 11435로 Microsoft Azure 게이트웨이의 SQL Server 클라우드 어댑터 서비스에 대해 열린 끝점을 구성합니다. 이 포트는 Microsoft Azure VM에서 SQL Server 2014 또는 SQL Server 2016 프로비전의 일부로 생성됩니다. 클라우드 어댑터는 기본 포트 11435에서 들어오는 TCP 연결을 허용하도록 Windows 방화벽 규칙도 생성합니다. 마법사는 이 끝점을 통해 클라우드 어댑터 서비스를 활용하여 온-프레미스 인스턴스에서 Azure VM으로 백업 파일을 복사합니다. 자세한 내용은 [SQL Server에 대한 클라우드 어댑터](https://msdn.microsoft.com/library/dn169301.aspx)를 참조하세요.
 
 	![클라우드 어댑터 끝점 만들기](./media/virtual-machines-windows-migrate-sql/cloud-adapter-endpoint.png)
@@ -133,7 +137,7 @@ SQL Server에 대해 최신 버전의 Microsoft SQL Server Management Studio를 
 	![결과](./media/virtual-machines-windows-migrate-sql/results.png)
 
 13. 마법사가 완료되면 가상 컴퓨터에 연결하여 데이터베이스가 마이그레이션 되었는지 확인합니다.
-14. 새 가상 컴퓨터를 만든 경우에는 [Azure에서 SQL Server 가상 컴퓨터 프로비전](../virtual-machines-provision-sql-server/#SSMS)의 다른 컴퓨터에서 SQL Server VM 인스턴스를 SSMS에서 연결 섹션에 포함된 단계에 따라서 Azure 가상 컴퓨터와 SQL Server 인스턴스를 구성합니다.
+14. 새 가상 컴퓨터를 만든 경우에는 [다른 컴퓨터의 SSMS에서 SQL Server VM 인스턴스에 연결](virtual-machines-windows-sql-connect.md)하는 단계에 따라 Azure 가상 컴퓨터 및 SQL Server 인스턴스를 구성합니다.
 
 ## 파일에 백업하고 VM에 복사하고 복원
 
@@ -146,14 +150,14 @@ SQL Server 2014보다 오래된 버전의 SQL Server에 마이그레이션하거
 
 ## URL에 백업 및 복원
 
-SQL Server 2016에서 SQL Server 2016으로 마이그레이션하면서 백업 파일이 1TB를 초과하기 때문에 Microsoft Azure VM에 SQL Server 데이터베이스 배포 마법사를 사용할 수 없는 경우에는 [URL에 백업](https://msdn.microsoft.com/library/dn435916.aspx) 메서드를 사용합니다. 데이터베이스가 1TB 미만이거나 SQL Server 2016보다 오래된 버전의 SQL Server를 실행하는 경우에는 마법사를 사용하는 것이 좋습니다. SQL Server 2016에 대해서는 스트라이프 백업 세트가 지원되며 성능을 위해 권장되고 Blob 당 크기 제한을 초과하는데 필요합니다. 매우 큰 데이터베이스의 경우 [Windows 가져오기/내보내기 서비스](../storage-import-export-service/)를 사용하는 것이 좋습니다.
+SQL Server 2016에서 SQL Server 2016으로 마이그레이션하면서 백업 파일이 1TB를 초과하기 때문에 Microsoft Azure VM에 SQL Server 데이터베이스 배포 마법사를 사용할 수 없는 경우에는 [URL에 백업](https://msdn.microsoft.com/library/dn435916.aspx) 메서드를 사용합니다. 데이터베이스가 1TB 미만이거나 SQL Server 2016보다 오래된 버전의 SQL Server를 실행하는 경우에는 마법사를 사용하는 것이 좋습니다. SQL Server 2016에 대해서는 스트라이프 백업 세트가 지원되며 성능을 위해 권장되고 Blob 당 크기 제한을 초과하는데 필요합니다. 매우 큰 데이터베이스의 경우 [Windows 가져오기/내보내기 서비스](../storage/storage-import-export-service.md)를 사용하는 것이 좋습니다.
 
 ## 분리 및 URL에 복사 및 URL에서 연결
 
 특히 매우 큰 데이터베이스에 대해 [Azure Blob 저장소 서비스를 사용하여 파일을 저장](https://msdn.microsoft.com/library/dn385720.aspx)하고 Azure VM에서 실행되는 SQL Server에 연결하려는 경우 이 메서드를 사용합니다. 수동 메서드를 사용하여 사용자 데이터베이스를 마이그레이션하려면 다음과 같은 일반적인 단계를 사용합니다.
 
 1.	온-프레미스 데이터베이스 인스턴스에서 데이터베이스 파일을 분리합니다.
-2.	분리한 데이터베이스 파일을 [AZCopy 명령줄 유틸리티](../storage-use-azcopy/)를 사용하여 Azure Blob 저장소로 복사합니다.
+2.	분리한 데이터베이스 파일을 [AZCopy 명령줄 유틸리티](../storage/storage-use-azcopy.md)를 사용하여 Azure Blob 저장소로 복사합니다.
 3.	Azure URL의 데이터베이스 파일을 Azure VM에서 SQL Server 인스턴스로 연결합니다.
 
 ## VM으로 변환하고 URL에 업로드하고 새 VM으로 배포
@@ -164,14 +168,14 @@ SQL Server 2016에서 SQL Server 2016으로 마이그레이션하면서 백업 �
 2.	[Add-AzureVHD cmdlet](https://msdn.microsoft.com/library/windowsazure/dn495173.aspx)을 사용하여 VHD 파일을 Azure 저장소에 업로드합니다.
 3.	업로드된 VHD를 사용하여 새 가상 컴퓨터를 배포합니다.
 
-> [AZURE.NOTE] 전체 응용 프로그램을 마이그레이션하려면 [Azure Site Recovery](../services/site-recovery/) 사용을 고려합니다.
+> [AZURE.NOTE] 전체 응용 프로그램을 마이그레이션하려면 [Azure Site Recovery](../site-recovery/site-recovery-overview.md) 사용을 고려합니다.
 
 ## 하드 드라이브를 제공합니다.
 
-네트워크를 통한 업로드가 엄청나게 많은 비용이 들거나 적합하지 않은 경우 [Windows 가져오기/내보내기 서비스 메서드](../storage-import-export-service/)를 사용하여 대량의 파일 데이터를 Azure Blob 저장소로 전송합니다. 이 서비스를 사용하여 해당 데이터가 포함된 하나 이상의 하드 드라이브를 Azure 데이터 센터로 보내서 데이터를 저장소 계정으로 업로드할 수 있습니다.
+네트워크를 통한 업로드가 엄청나게 많은 비용이 들거나 적합하지 않은 경우 [Windows 가져오기/내보내기 서비스 메서드](../storage/storage-import-export-service.md)를 사용하여 대량의 파일 데이터를 Azure Blob 저장소로 전송합니다. 이 서비스를 사용하여 해당 데이터가 포함된 하나 이상의 하드 드라이브를 Azure 데이터 센터로 보내서 데이터를 저장소 계정으로 업로드할 수 있습니다.
 
 ## 다음 단계
 
 Azure 가상 컴퓨터의 SQL Server 실행에 대한 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server 개요](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

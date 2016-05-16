@@ -49,9 +49,9 @@ CDN을 사용하도록 설정하여 Azure 저장소의 콘텐츠를 캐시할 �
 
 	이 값은 프로그래밍 방식으로 이 계정에 액세스할 때 또는 포털에서 이 저장소 계정의 이름으로도 사용됩니다.
 
-5.  **가격 책정 계층**을 선택하거나 기본값을 사용합니다. 가격 책정 계층에 대한 자세한 내용은 [Azure 저장소 가격 책정](../../pricing/details/storage)을 참조하세요.
+5.  **가격 책정 계층**을 선택하거나 기본값을 사용합니다. 가격 책정 계층에 대한 자세한 내용은 [Azure 저장소 가격 책정](https://azure.microsoft.com/pricing/details/storage/)을 참조하세요.
 
-6.  **리소스 그룹**을 선택하거나 만듭니다. 리소스 그룹에 대한 자세한 내용은 [Azure 리소스 관리자 개요](resource-group-overview/#resource-groups)를 참조하세요.
+6.  **리소스 그룹**을 선택하거나 만듭니다. 리소스 그룹에 대한 자세한 내용은 [Azure 리소스 관리자 개요](resource-group-overview.md#resource-groups)를 참조하세요.
 
 7. 저장소 계정을 사용할 **구독**을 선택합니다.
 
@@ -104,7 +104,7 @@ CDN 프로필은 CDN 끝점의 컬렉션입니다. 각 프로필에는 CDN 끝�
 
     ![끝점 추가 블레이드][cdn-add-endpoint]
 
-3. 이 CDN 끝점에 대한 **이름**을 입력합니다. 이 이름은 `<EndpointName>.azureedge.net` 도메인의 캐시된 리소스에 액세스하기 위해 사용됩니다.
+3. 이 CDN 끝점에 대한 **이름**을 입력합니다. 이 이름은 `<endpointname>.azureedge.net` 도메인의 캐시된 리소스에 액세스하기 위해 사용됩니다.
 
 4. **원본 형식** 드롭다운에서 *저장소*를 선택합니다.
 
@@ -135,7 +135,7 @@ http://<*EndpointName*>.azureedge.net/<*myPublicContainer*>/<*BlobName*>
 
 더 이상 Azure CDN(콘텐츠 배달 네트워크)에 개체를 캐시하지 않으려면 다음 단계 중 하나를 수행할 수 있습니다.
 
--   컨테이너를 공용 대신 전용으로 설정할 수 있습니다. 자세한 내용은 [컨테이너 및 Blob에 대한 익명읽기 권한 관리](../storage-manage-access-to-resources/)를 참조하세요.
+-   컨테이너를 공용 대신 전용으로 설정할 수 있습니다. 자세한 내용은 [컨테이너 및 Blob에 대한 익명읽기 권한 관리](../storage/storage-manage-access-to-resources.md)를 참조하세요.
 -   관리 포털을 사용하여 CDN 끝점을 사용하지 않도록 설정하거나 삭제할 수 있습니다.
 -   더 이상 개체 요청에 응답하지 않도록 호스티드 서비스를 수정할 수 있습니다.
 
@@ -154,4 +154,4 @@ CDN에 이미 캐시된 개체는 개체의 TTL(Time-to-Live) 기간이 만료�
 [cdn-add-endpoint]: ./media/cdn-create-a-storage-account-with-cdn/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-a-storage-account-with-cdn/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/12/2016" 
+	ms.date="04/27/2016" 
 	ms.author="tdykstra"/>
 
 # WebJob으로 백그라운드 작업 실행
@@ -25,6 +25,8 @@
 이 문서에서는 [Azure 포털](https://portal.azure.com)에서 웹 작업을 배포하는 방법을 보여줍니다. Visual Studio 또는 지속적인 전송 프로세스를 사용하여 배포하는 방법에 대한 자세한 내용은 [Azure 웹 작업을 웹 앱에 배포하는 방법](websites-dotnet-deploy-webjobs.md)을 참조하세요.
 
 Azure WebJobs SDK는 많은 웹 작업 프로그래밍 작업을 간소화합니다. 자세한 내용은 [WebJobs SDK 정의](websites-dotnet-webjobs-sdk.md)를 참조하세요.
+
+ Azure Functions(현재 미리 보기 모드)를 사용해도 Azure 앱 서비스에서 프로그램과 스크립트를 실행할 수 있습니다. 자세한 내용은 [Azure Functions 개요](../azure-functions/functions-overview.md)를 참조하세요.
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -201,14 +203,9 @@ Azure 포털은 아직 예약된 웹 작업을 만들 수 없지만, [클래식 
 - 기본 및 표준 모드에는 무중단 기능이 제공되며, 이 기능을 사용하도록 설정하면 웹 앱이 유휴 상태로 전환되지 않습니다.
 - 계속 실행되는 웹 작업만을 디버깅할 수 있습니다. 예약된 또는 주문형 웹 작업 디버깅이 지원되지 않습니다.
 
->[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
-
 ## <a name="NextSteps"></a>다음 단계
  
 자세한 내용은 [Azure WebJob 권장 리소스][WebJobsRecommendedResources]를 참조하세요.
-
-## 변경된 내용
-* 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
 
 [PSonWebJobs]: http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx
 [WebJobsRecommendedResources]: http://go.microsoft.com/fwlink/?LinkId=390226
@@ -238,4 +235,4 @@ Azure 포털은 아직 예약된 웹 작업을 만들 수 없지만, [클래식 
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

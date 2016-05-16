@@ -3,7 +3,7 @@
 	description="Azure SQL 데이터베이스의 탄력적인 확장에 대한 질문과 대답을 제공합니다." 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	authors="sidneyh" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="05/03/2016" 
 	ms.author="sidneyh"/>
 
 # 탄력적 데이터베이스 도구 FAQ 
@@ -56,4 +56,4 @@
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0504_2016-->

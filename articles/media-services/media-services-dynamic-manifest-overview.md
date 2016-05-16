@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
- 	ms.date="04/18/2016" 
+ 	ms.date="05/03/2016" 
 	ms.author="cenkdin;juliako"/>
 
 #필터 및 동적 매니페스트
@@ -87,7 +87,7 @@
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyLocalFilter)
 
 
-콘텐츠를 전달하고 스트리밍 URL을 빌드하는 방법에 대한 자세한 내용은 [콘텐츠 배달 개요](media-services-deliver-content-overview/)를 참조하세요.
+콘텐츠를 전달하고 스트리밍 URL을 빌드하는 방법에 대한 자세한 내용은 [콘텐츠 배달 개요](media-services-deliver-content-overview.md)를 참조하세요.
 
 
 >[AZURE.NOTE]동적 매니페스트는 자산 및 해당 자산의 기본 매니페스트를 변경하지 않습니다. 클라이언트는 필터와 관계 없이 스트림을 요청할 수 있습니다.
@@ -236,4 +236,4 @@
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

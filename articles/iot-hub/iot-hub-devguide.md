@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="02/03/2016"
+ ms.date="04/29/2016"
  ms.author="dobett"/>
 
 # Azure IoT Hub 개발자 가이드
@@ -68,7 +68,7 @@ IoT Hub를 인식하지 않는 SDK(또는 제품 통합)를 사용하는 경우 
 
     ![][img-eventhubcompatible]
 
-> [AZURE.NOTE] SDK가 **Hostname** 또는 **Namespace** 값을 필요로 하는 경우 **이벤트 허브와 호환 가능한 끝점** 에서 구성표를 제거합니다. 예를 들어 이벤트 허브와 호환 가능한 끝점이 **sb://iothub-ns-myiothub-1234.servicebus.windows.net/** 인 경우 **호스트 이름** 은 **iothub-ns-myiothub-1234.servicebus.windows.net** 이고 **네임스페이스** 는 **iothub-ns-myiothub-1234**입니다.
+> [AZURE.NOTE] SDK가 **Hostname** 또는 **Namespace** 값을 필요로 하는 경우 **이벤트 허브와 호환 가능한 끝점**에서 구성표를 제거합니다. 예를 들어 이벤트 허브와 호환 가능한 끝점이 ****sb://iothub-ns-myiothub-1234.servicebus.windows.net/**인 경우 **호스트 이름**은 **iothub-ns-myiothub-1234.servicebus.windows.net**이고 **네임스페이스**는 **iothub-ns-myiothub-1234**입니다.
 
 지정된 이벤트 허브에 연결할 수 있는 **ServiceConnect** 권한이 있는 공유 액세스 보안 정책을 사용할 수 있습니다.
 
@@ -145,107 +145,17 @@ IoT 솔루션에는 일반적으로 응용 프로그램 관련 메타데이터�
 - 오케스트레이션 과정을 프로비전하는 동안입니다. 자세한 내용은 [솔루션 설계 - 장치 프로비전][lnk-guidance-provisioning]을 참조하세요.
 - 어떤 이유로든 손상되거나 권한이 없는 장치를 사용하도록 고려합니다.
 
-### 장치 ID 내보내기 <a id="importexport"></a>
+### 장치 ID 가져오기 및 내보내기 <a id="importexport"></a>
 
-내보내기는 고객이 제공한 Blob 컨테이너를 사용하여 ID 레지스터에서 읽은 장치 ID 데이터를 저장하는 장기 실행 작업입니다.
+[IoT Hub 리소스 공급자 끝점](#endpoints)에서 비동기 작업을 사용하여 IoT Hub의 ID 레지스트리에서 장치 ID를 대량으로 내보낼 수 있습니다. 내보내기는 고객이 제공한 Blob 컨테이너를 사용하여 ID 레지스터에서 읽은 장치 ID 데이터를 저장하는 장기 실행 작업입니다.
 
-[IoT Hub 리소스 공급자 끝점](#endpoints)에서 비동기 작업을 사용하여 IoT Hub의 ID 레지스트리에서 장치 ID를 대량으로 내보낼 수 있습니다.
+- API를 가져오고 내보내는 작업에 대한 자세한 정보는 [Azure IoT Hub - 리소스 공급자 API][lnk-resource-provider-apis]를 참조하세요.
+- 가져오기 및 내보내기 작업 실행에 대한 자세한 내용은 [IoT Hub 장치 ID의 대량 관리][lnk-bulk-identity]를 참조하세요.
 
-다음은 내보내기 작업에 사용할 수 있는 작업입니다.
+[IoT Hub 리소스 공급자 끝점](#endpoints)에서 비동기 작업을 사용하여 IoT Hub의 ID 레지스트리로 장치 ID를 대량으로 가져올 수 있습니다. 가져오기는 고객이 제공한 Blob 컨테이너의 데이터를 사용하여 장치 ID 데이터를 장치 ID 레지스트리에 쓰는 장기 실행 작업입니다.
 
-* 내보내기 작업 만들기
-* 실행 중인 작업의 상태 검색
-* 실행 중인 작업 취소
-
-> [AZURE.NOTE] 각 허브는 지정된 시간에 실행되는 단일 작업만을 가질 수 있습니다.
-
-API를 가져오고 내보내는 작업에 대한 자세한 정보는 [Azure IoT Hub - 리소스 공급자 API][lnk-resource-provider-apis]를 참조하세요.
-
-가져오기 및 내보내기 작업 실행에 대한 자세한 내용은 [IoT Hub 장치 ID의 대량 관리][lnk-bulk-identity]를 참조하세요.
-
-### 작업 내보내기
-
-모든 내보내기 작업에는 다음과 같은 속성이 있습니다.
-
-| 속성 | 옵션 | 설명 |
-| -------- | ------- | ----------- |
-| jobId | 시스템에서 생성된, 생성 시 무시된 | |
-| creationTime | 시스템에서 생성된, 생성 시 무시된 | |
-| endOfProcessingTime | 시스템에서 생성된, 생성 시 무시된 | |
-| type | 읽기 전용 | **ExportDevices** |
-| status | 시스템에서 생성된, 생성 시 무시된 | **큐에 넣음**, **시작**, **완료**, **실패** |
-| 진행률 | 시스템에서 생성된, 생성 시 무시된 | 완료율의 정수 값 |
-| outputBlobContainerURI | 모든 작업에 필요함 | Blob 컨테이너에 쓰기 액세스 권한이 있는 Blob 공유 액세스 서명 URI입니다([Blob 서비스로 SAS 만들기 및 사용][lnk-createuse-sas]을 참조). 이 작업은 작업 및 결과의 상태를 출력하는 데 사용됩니다. |
-| excludeKeysInExport | 선택 사항 | **false**인 경우 키가 내보내기 출력에 포함되지 않고 그렇지 않으면 키는 **null**로 내보내 집니다. 기본값은 **false**입니다. |
-| failureReason | 시스템에서 생성된, 생성 시 무시된 | 상태가 **실패**인 경우 원인을 포함하는 문자열입니다. |
-
-작업을 내보내면 Blob 공유 액세스 서명 URI를 매개 변수로 인식합니다. 결과를 출력하는 작업을 사용하도록 Blob 컨테이너에 대한 쓰기 권한을 부여합니다.
-
-작업은 출력 결과를 **devices.txt**라는 파일에 지정된 Blob 컨테이너에 기록합니다. 이 파일은 [장치 id 속성](#deviceproperties)에 지정된 JSON으로 직렬화된 장치 ID를 포함합니다. **excludeKeysInExport** 매개 변수가 **true**로 설정된 경우 **devices.txt** 파일에 있는 각 장치에 대한 인증 값은 **null**로 설정됩니다.
-
-**예제**:
-
-```
-{"id":"devA","eTag":"MQ==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"123","secondaryKey":"123"}}}
-{"id":"devB","eTag":"MQ==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"123","secondaryKey":"123"}}}
-{"id":"devC","eTag":"MQ==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"123","secondaryKey":"123"}}}
-```
-
-### 장치 ID 가져오기
-
-가져오기는 고객이 제공한 Blob 컨테이너의 데이터를 사용하여 장치 ID 데이터를 장치 ID 레지스터에 쓰는 장기 실행 작업입니다.
-
-[IoT Hub 리소스 공급자 끝점](#endpoints)에서 비동기 작업을 사용하여 IoT Hub의 ID 레지스트리로 장치 ID를 대량으로 가져올 수 있습니다.
-
-다음은 가져오기 작업에 사용할 수 있는 작업입니다.
-
-* 가져오기 작업 만들기
-* 실행 중인 작업의 상태 검색
-* 실행 중인 작업 취소
-
-> [AZURE.NOTE] 각 허브는 지정된 시간에 실행되는 단일 작업만을 가질 수 있습니다.
-
-API를 가져오고 내보내는 작업에 대한 자세한 정보는 [Azure IoT Hub - 리소스 공급자 API][lnk-resource-provider-apis]를 참조하세요.
-
-가져오기 및 내보내기 작업 실행에 대한 자세한 내용은 [IoT Hub 장치 ID의 대량 관리][lnk-bulk-identity]를 참조하세요.
-
-### 가져오기 작업
-
-모든 가져오기 작업에는 다음과 같은 속성이 있습니다.
-
-| 속성 | 옵션 | 설명 |
-| -------- | ------- | ----------- |
-| jobId | 시스템에서 생성된, 생성 시 무시된 | |
-| creationTime | 시스템에서 생성된, 생성 시 무시된 | |
-| endOfProcessingTime | 시스템에서 생성된, 생성 시 무시된 | |
-| type | 읽기 전용 | **ImportDevices** |
-| status | 시스템에서 생성된, 생성 시 무시된 | **큐에 넣음**, **시작**, **완료**, **실패** |
-| 진행률 | 시스템에서 생성된, 생성 시 무시된 | 완료율의 정수 값 |
-| outputBlobContainerURI | 모든 작업에 필요함 | Blob 컨테이너에 쓰기 액세스 권한이 있는 Blob 공유 액세스 서명 URI입니다([Blob 서비스로 SAS 만들기 및 사용][lnk-createuse-sas]을 참조). 이 작업은 작업의 상태를 출력하는 데 사용됩니다. |
-| inputBlobContainerURI | 필수 | Blob 컨테이너에 읽기 액세스 권한이 있는 Blob 공유 액세스 서명 URI입니다([Blob 서비스로 SAS 만들기 및 사용][lnk-createuse-sas]을 참조). 작업이 장치 정보를 읽고 이 Blob를 가져옵니다. |
-| failureReason | 시스템에서 생성된, 생성 시 무시된 | 상태가 **실패**인 경우 원인을 포함하는 문자열입니다. |
-
-작업을 가져오면 두 개의 Blob 공유 액세스 서명 URI를 매개 변수로 인식합니다. 하나는 Blob 컨테이너에 대한 읽기 액세스 권한을 부여하여 작업 상태를 출력할 수 있으며, 다른 하나는 Blob 컨테이너에 대한 읽기 액세스 권한을 부여하여 작업 입력 데이터를 읽을 수 있습니다.
-
-작업은 **devices.txt**라는 파일에 지정된 Blob 컨테이너로부터 입력 데이터를 읽어옵니다. 이 파일은 [장치 id 속성](#deviceproperties)에 지정된 JSON으로 직렬화된 장치 ID를 포함합니다. **importMode** 속성을 추가하여 각 장치에 대한 기본 가져오기 동작을 재정의할 수 있습니다. 이 속성은 다음 값 중 하나를 사용할 수 있습니다.
-
-| importMode | 설명 |
-| -------- | ----------- |
-| **createOrUpdate** | 지정된 **ID**를 가진 장치가 존재하지 않는 경우, 새로 등록됩니다. <br/>장치가 이미 존재하는 경우 **ETag** 값과 관계 없이 제공된 입력 데이터가 기존 정보를 덮어씁니다. |
-| **create** | 지정된 **ID**를 가진 장치가 존재하지 않는 경우, 새로 등록됩니다. <br/>장치에 이미 존재하는 경우 오류가 로그 파일에 기록됩니다. |
-| **update** | 지정된 **ID**를 가진 장치가 이미 존재하는 경우 **ETag** 값과 관계 없이 제공된 입력 데이터가 기존 정보를 덮어씁니다. <br/>장치가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. |
-| **updateIfMatchETag** | 지정된 **ID**를 가진 장치가 이미 존재하는 경우 **ETag**가 일치하는 경우에만 제공된 입력 데이터가 기존 정보를 덮어씁니다. <br/>장치가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. <br/>**ETag**가 일치하지 않는 경우 오류가 로그 파일에 기록됩니다. |
-| **createOrUpdateIfMatchETag** | 지정된 **ID**를 가진 장치가 존재하지 않는 경우, 새로 등록됩니다. <br/>장치가 이미 존재하는 경우 **ETag**가 일치하는 경우에만 제공된 입력 데이터가 기존 정보를 덮어씁니다. <br/>**ETag**가 일치하지 않는 경우 오류가 로그 파일에 기록됩니다. |
-| **delete** | 지정된 **ID**를 가진 장치가 이미 존재하는 경우, **ETag** 값과 관계 없이 삭제됩니다. <br/>장치가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. |
-| **deleteIfMatchETag** | 지정된 **ID**를 가진 장치가 이미 존재하는 경우, **ETag**가 일치하는 경우에만 삭제됩니다. 장치가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. <br/>ETag가 일치하지 않는 경우 불일치 오류가 로그 파일에 기록됩니다. |
-
-**예제**:
-
-```
-{"id":"devA","eTag":"MQ==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"123","secondaryKey":"123"}}, "importMode":"delete"}
-{"id":"devB","eTag":"MQ==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"123","secondaryKey":"123"}}, "importMode":"createOrUpdate"}
-{"id":"devC","eTag":"MQ==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"123","secondaryKey":"123"}}, "importMode":"create"}
-```
+- API를 가져오고 내보내는 작업에 대한 자세한 정보는 [Azure IoT Hub - 리소스 공급자 API][lnk-resource-provider-apis]를 참조하세요.
+- 가져오기 및 내보내기 작업 실행에 대한 자세한 내용은 [IoT Hub 장치 ID의 대량 관리][lnk-bulk-identity]를 참조하세요.
 
 ## 보안 <a id="security"></a>
 
@@ -333,6 +243,7 @@ SASL PLAIN을 사용할 때 IoT Hub에 연결한 클라이언트는 각 TCP 연�
 ## 메시징
 
 IoT Hub는 다음 통신을 위한 메시징 기본 요소를 제공합니다.
+
 - [클라우드-장치](#c2d): 응용 프로그램 백 엔드(*서비스* 또는 *클라우드*)에서
 - [장치-클라우드](#d2c): 장치에서 응용 프로그램 백 엔드로
 
@@ -356,7 +267,8 @@ IoT Hub 메시지에서 시스템 속성의 집합입니다.
 | -------- | ----------- |
 | MessageId | 사용자가 설정할 수 있는 메시지에 대한 식별자는 요청-회신 패턴에 일반적으로 사용됩니다. 형식: ASCII 7 비트 영숫자 문자 + `{'-', ':',’.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`의 대/소문자 구분 문자열(최대 128자 길이)입니다. |
 | 시퀀스 번호 | 숫자(장치 큐 별로 고유함)는 IoT Hub에서 각 클라우드-장치 메시지에 할당됩니다. |
-| 받는 사람   | 대상을 지정하는 [클라우드-장치](#c2d) 메시지에 사용됩니다. |
+| 받는 사람  
+ | 대상을 지정하는 [클라우드-장치](#c2d) 메시지에 사용됩니다. |
 | ExpiryTimeUtc | 메시지 만료 날짜 및 시간입니다. |
 | EnqueuedTime | IoT Hub에서 메시지를 수신한 날짜 및 시간입니다. |
 | CorrelationId | 일반적으로 요청-응답 패턴으로 요청의 MessageId가 포함된 응답 메시지의 String 속성입니다. |
@@ -386,6 +298,8 @@ IoT Hub는 다음과 같은 제한 사항과 특정 동작으로 MQTT v3.1.1 프
 
   * **QoS 2는 지원되지 않습니다**: 장치 클라이언트가 **QoS 2**의 메시지를 게시하는 경우, IoT Hub는 네트워크 연결을 닫습니다. 장치 클라이언트가 **QoS 2**의 토픽을 구독하는 경우, IoT Hub는 **SUBACK** 패킷에서 최대 QoS level 1을 부여합니다.
   * **보존**: 장치 클라이언트가 RETAIN 플래그가 1로 설정된 메시지를 게시하는 경우, IoT Hub는 **x-opt-retain** 응용 프로그램 속성을 메시지에 추가합니다. 즉, IoT Hub는 보관 메시지를 유지하지 않고 백 엔드 응용 프로그램에 전달합니다.
+  
+자세한 내용은 [IoT Hub MQTT 지원][lnk-mqtt-support] 문서를 참조하세요.
 
 최종 고려 사항으로 IoT Hub와 직접 인터페이스하는 고성능 사용자 지정 프로토콜 게이트웨이를 배포할 수 있도록 [Azure IoT 프로토콜 게이트웨이][lnk-azure-protocol-gateway]를 검토해야 합니다. Azure IoT 프로토콜 게이트웨이를 사용하면 brownfield MQTT 배포를 수용하는 장치 프로토콜 또는 기타 사용자 지정 프로토콜을 사용자 지정할 수 있습니다. 이 방법의 단점은 프로토콜 게이트웨이를 자체 호스팅하고 운영해야 한다는 점입니다.
 
@@ -473,6 +387,7 @@ IoT Hub는 다음 속성을 노출하여 장치-클라우드 메시징을 제어
 서비스가 보내는 메시지는 *Enqueued* 상태로 간주됩니다. 장치가 메시지를 *수신*하려고 하면 IoT Hub는 동일한 장치에 있는 다른 스레드가 다른 메시지 받기를 시작할 수 있도록 메시지를 *잠그고* 상태를 **Invisible**로 설정합니다. 장치 스레드가 메시지의 처리를 완료하면 IoT Hub에 메시지를 *완료*했다고 알립니다.
 
 또한 장치는 다음을 수행할 수 있습니다.
+
 - 메시지 *거부*. 이 경우 IoT Hub는 메시지를 **Deadlettered** 상태로 설정합니다.
 - 메시지 *중단*. 이 경우 IoT Hub는 상태를 **Enqueued**으로 설정하여 메시지를 큐에 다시 넣습니다.
 
@@ -580,6 +495,7 @@ IoT Hub는 다음 속성을 노출하여 장치-클라우드 메시징을 제어
 
 예를 들어 S1 단위 하나를 구매하는 경우 초당 연결 제한은 100개입니다. 즉, 장치 10만 개를 연결하려면 최소 1,000초(약 16분)가 걸립니다. 그러나 장치 ID 레지스트리에 등록한 수만큼의 장치를 동시에 연결할 수 있습니다.
 
+블로그 게시물 [IoT Hub 제한][lnk-throttle-blog]은 IoT Hub 제한 동작을 심도 있게 설명합니다.
 
 **참고**. 지정된 시간에 IoT Hub에 프로비전된 단위 수를 늘려 할당량이나 조정 제한을 증가시킬 수 있습니다.
 
@@ -602,8 +518,8 @@ IoT Hub 개발의 개요를 살펴보았습니다. 자세한 내용을 보려면
 [img-lifecycle]: ./media/iot-hub-devguide/lifecycle.png
 [img-eventhubcompatible]: ./media/iot-hub-devguide/eventhubcompatible.png
 
-[lnk-compatibility]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
-[lnk-apis-sdks]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
+[lnk-compatibility]: iot-hub-tested-configurations.md
+[lnk-apis-sdks]: iot-hub-sdks-summary.md
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
 [lnk-resource-provider-apis]: https://msdn.microsoft.com/library/mt548492.aspx
 
@@ -639,5 +555,7 @@ IoT Hub 개발의 개요를 살펴보았습니다. 자세한 내용을 보려면
 [lnk-bulk-identity]: iot-hub-bulk-identity-mgmt.md
 [lnk-eventhub-partitions]: ../event-hubs/event-hubs-overview.md#partitions
 [lnk-manage]: iot-hub-manage-through-portal.md
+[lnk-mqtt-support]: iot-hub-mqtt-support.md
+[lnk-throttle-blog]: https://azure.microsoft.com/blog/iot-hub-throttling-and-you/
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

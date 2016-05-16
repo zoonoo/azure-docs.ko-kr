@@ -1,6 +1,6 @@
 <properties
 	pageTitle="PowerShell을 사용하여 서비스 버스 관리 | Microsoft Azure"
-	description=".NET 대신 PowerShelll 스크립트를 사용하여 서비스 버스 관리"
+	description="PowerShell 스크립트를 사용하여 서비스 버스 관리"
 	services="service-bus"
 	documentationCenter=".net"
 	authors="sethmanheim"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="05/02/2016"
 	ms.author="sethm"/>
 
 # PowerShell을 사용하여 서비스 버스 관리
@@ -156,6 +156,21 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 	Write-Output "The consumer group [$ConsumerGroupName] for the [$Path] event hub has been successfully created."
 	```
 
+## 다른 Azure 구독으로 네임스페이스 마이그레이션
+
+다음 명령 시퀀스는 네임스페이스를 Azure 구독 간에 이동합니다. 이 작업을 실행하려면 네임스페이스 이미 활성 상태여야 하며 PowerShell 명령을 실행하는 사용자는 원본 및 대상 구독의 관리자여야 합니다.
+
+```
+# Create a new resource group in target subscription
+Select-AzureRmSubscription -SubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff'
+New-AzureRmResourceGroup -Name 'targetRP' -Location 'East US'
+
+# Move namespace from source subscription to target subscription
+Select-AzureRmSubscription -SubscriptionId 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa'
+$res = Find-AzureRmResource -ResourceNameContains mynamespace -ResourceType 'Microsoft.ServiceBus/namespaces'
+Move-AzureRmResource -DestinationResourceGroupName 'targetRP' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
+```
+
 ## 다음 단계
 
 이 문서에서는 PowerShell을 사용하여 서비스 버스 엔터티를 프로비전하는 방법에 대해 간략하게 설명했습니다. .NET 클라이언트 라이브러리를 사용하여 수행할 수 있는 모든 작업은 PowerShell 스크립트에서도 수행할 수 있습니다.
@@ -165,7 +180,8 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 - [PowerShell 스크립트를 사용하여 서비스 버스 큐, 토픽 및 구독을 만드는 방법](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
 - [PowerShell 스크립트를 사용하여 서비스 버스 네임스페이스 및 이벤트 허브를 만드는 방법](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
 
-[서비스 버스 PowerShell 스크립트](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)에서 즉시 사용 가능한 스크립트도 다운로드할 수 있습니다.
+즉시 사용 가능한 스크립트도 다운로드 가능합니다.
+- [Service Bus PowerShell 스크립트](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
 
 <!--Link references-->
 [구매 옵션]: http://azure.microsoft.com/pricing/purchase-options/
@@ -179,4 +195,4 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 [서비스 버스용 .NET API]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.aspx
 [NamespaceManager]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

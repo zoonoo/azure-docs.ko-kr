@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2016" 
+	ms.date="05/02/2016" 
 	ms.author="thmullan;torsteng;sidneyh" />
 
 # 탄력적 데이터베이스 도구 및 행 수준 보안을 제공하는 다중 테넌트 응용 프로그램 
@@ -58,7 +58,7 @@
 
 ### Entity Framework
 
-Entity Framework를 사용하는 응용 프로그램의 경우 가장 간단한 방법은 [EF DbContext를 사용하는 데이터 종속 라우팅](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md/#data-dependent-routing-using-ef-dbcontext)에 설명된 ElasticScaleContext 재정의 내에서 SESSION\_CONTEXT를 설정하는 것입니다. 데이터 종속 라우팅을 통해 조정된 연결을 반환하기 전에 SESSION\_CONTEXT의 'TenantId'를 해당 연결에 대해 지정된 shardingKey로 설정하는 SqlCommand를 만들어서 실행하면 됩니다. 이 방법을 사용하면 SESSION\_CONTEXT를 설정하는 코드를 한 번만 작성하면 됩니다.
+Entity Framework를 사용하는 응용 프로그램의 경우 가장 간단한 방법은 [EF DbContext를 사용하는 데이터 종속 라우팅](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md#data-dependent-routing-using-ef-dbcontext)에 설명된 ElasticScaleContext 재정의 내에서 SESSION\_CONTEXT를 설정하는 것입니다. 데이터 종속 라우팅을 통해 조정된 연결을 반환하기 전에 SESSION\_CONTEXT의 'TenantId'를 해당 연결에 대해 지정된 shardingKey로 설정하는 SqlCommand를 만들어서 실행하면 됩니다. 이 방법을 사용하면 SESSION\_CONTEXT를 설정하는 코드를 한 번만 작성하면 됩니다.
 
 ```
 // ElasticScaleContext.cs 
@@ -312,4 +312,4 @@ GO
 
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

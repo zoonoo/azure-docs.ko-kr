@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="02/12/2016"
+	ms.date="04/28/2016"
 	ms.author="yuridio"/>
 
 # 하이브리드 ID 솔루션에 대한 콘텐츠 관리 요구 사항 확인
@@ -61,4 +61,4 @@ ID 솔루션은 아래 그림에 표시된 것처럼 콘텐츠 관리를 제공�
 ## 참고 항목
 [설계 고려 사항 개요](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="05/02/2016"
 	ms.author="jodebrui"/>
 
 
@@ -68,8 +68,8 @@ SELECT DatabasePropertyEx(Db_Name(), 'IsXTPSupported');
 
 SSMS는 활성 워크로드를 사용하여 데이터베이스에 대해 실행할 수 있는 **트랜잭션 성능 분석 개요** 보고서를 포함합니다. 보고서는 메모리 내 OLTP로 마이그레이션하기 위한 후보인 테이블 및 저장된 프로시저를 식별합니다.
 
-SSMS에서 보고서를 생성하려면:
-- **개체 탐색기**에서 마우스 오른쪽 단추로 데이터베이스 노드를 클릭합니다.
+SSMS에서 보고서를 생성합니다.
+- **개체 탐색기**에서 데이터베이스 노드를 마우스 오른쪽 단추로 클릭합니다.
 - **보고서** > **표준 보고서** > **트랜잭션 성능 분석 개요**를 클릭합니다.
 
 자세한 내용은 [테이블 또는 저장 프로시저가 메모리 내 OLTP로 이식되어야 하는지 결정](http://msdn.microsoft.com/library/dn205133.aspx)을 참조하세요.
@@ -85,7 +85,7 @@ SSMS에서 보고서를 생성하려면:
 
 1. SSMS를 사용하여 테스트 데이터베이스에 연결합니다.
 
-2. 쿼리에서 WITH(스냅숏) 옵션의 필요를 방지하려면 다음 T-SQL 문에서와 같이 데이터베이스 옵션을 설정합니다.
+2. 쿼리에서 WITH(SNAPSHOT) 옵션의 필요를 방지하려면 다음 T-SQL 문에서와 같이 데이터베이스 옵션을 설정합니다.
 ```
 ALTER DATABASE CURRENT
 	SET
@@ -111,7 +111,7 @@ ALTER DATABASE CURRENT
  - **테이블 메모리 최적화 관리자** 마법사가 표시됩니다.
 
 3. 마법사에서 **마이그레이션 유효성 검사**(또는 **다음** 단추)을 클릭하여 메모리에 최적화된 테이블에서 지원하지 않는 지원되지 않는 기능이 테이블에 있는지 확인합니다. 자세한 내용은 다음을 참조하세요.
- - [메모리 최적화 관리자](http://msdn.microsoft.com/library/dn284308.aspx)의 *메모리 최적화 검사 목록* .
+ - [메모리 최적화 관리자](http://msdn.microsoft.com/library/dn284308.aspx)의 *메모리 최적화 검사 목록*.
  - [메모리 내 OLTP에서 지원되지 않는 TRANSACT-SQL 항목](http://msdn.microsoft.com/library/dn246937.aspx).
  - [메모리 내 OLTP로 마이그레이션](http://msdn.microsoft.com/library/dn247639.aspx).
 
@@ -237,4 +237,4 @@ CREATE PROCEDURE schemaname.procedurename
 
 - [메모리 최적화 관리자](http://msdn.microsoft.com/library/dn284308.aspx)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0504_2016-->

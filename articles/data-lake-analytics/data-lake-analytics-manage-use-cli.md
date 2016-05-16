@@ -3,7 +3,7 @@
    description="Azure CLI를 사용하여 데이터 레이크 분석 계정, 데이터 원본, 작업, 사용자를 관리하는 방법을 알아봅니다." 
    services="data-lake-analytics" 
    documentationCenter="" 
-   authors="mumian" 
+   authors="edmacauley" 
    manager="paulettm" 
    editor="cgronlun"/>
  
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="02/11/2016"
-   ms.author="jgao"/>
+   ms.date="04/26/2016"
+   ms.author="edmaca"/>
 
 # Azure 명령줄 인터페이스(CLI)를 사용하여 Azure 데이터 레이크 분석 관리
 
@@ -214,4 +214,4 @@ U-SQL 카탈로그는 U-SQL 스크립트에서 공유할 수 있도록 데이터
 - [Azure 포털을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-manage-use-portal.md)
 - [Azure 포털을 사용하여 Azure 데이터 레이크 분석 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

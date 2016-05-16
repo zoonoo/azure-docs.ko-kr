@@ -104,12 +104,7 @@ Azure 데이터 팩터리 및 다른 클라우드 서비스와 게이트웨이�
 
 | 도메인 이름 | 포트 | 설명 |
 | ------ | --------- | ------------ |
-| **.servicebus.windows.net | 443, 80 | TCP를 통한 서비스 버스 릴레이 상의 수신기(액세스 제어 토큰을 획득하려면 443 필요) |
-| *.servicebus.windows.net | 9350-9354 | TCP를 통한 선택적 서비스 버스 릴레이 |
-| *.core.windows.net | 443 | HTTPS |
-| *.clouddatahub.net | 443 | HTTPS |
-| graph.windows.net | 443 | HTTPS |
-| login.windows.net | 443 | HTTPS | 
+| **.servicebus.windows.net | 443, 80 | TCP를 통한 서비스 버스 릴레이 상의 수신기(액세스 제어 토큰을 획득하려면 443 필요) | | *.servicebus.windows.net | 9350-9354 | TCP를 통한 선택적 서비스 버스 릴레이 | | *.core.windows.net | 443 | HTTPS | | *.clouddatahub.net | 443 | HTTPS | | graph.windows.net | 443 | HTTPS | | login.windows.net | 443 | HTTPS | 
 
 Windows 방화벽 수준에서 이러한 아웃바운드 포트는 일반적으로 사용할 수 있습니다. 그렇지 않은 경우 게이트웨이 컴퓨터에서 도메인 및 포트를 그에 따라 구성할 수 있습니다.
 
@@ -268,12 +263,12 @@ Windows 방화벽 수준에서 이러한 아웃바운드 포트는 일반적으�
 			1. **Integrated Security**를 **true**로 설정합니다.
 			2. 데이터베이스 **server name**과 **database name**을 지정합니다. 
 			2. **User ID** 및 **Password**를 제거합니다. 
-		3. **userName** 및 **password** 속성에 사용자 이름과 암호를 지정합니다.
+		3. **userName** 및 **password** 속성에 사용자 이름과 암호를 지정합니다.  
 		
 				"typeProperties": {
             		"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;",
             		"gatewayName": "adftutorialgateway",
-            		"userName": "<Specify user name if you are using Windows Authentication>",
+            		"userName": "<Specify user name if you are using Windows Authentication. Example: <domain>\<user>",
             		"password": "<Specify password for the user account>"
         		}
 
@@ -480,7 +475,7 @@ Windows 방화벽 수준에서 이러한 아웃바운드 포트는 일반적으�
 	- activities 섹션에는 **type**이 **Copy**로 설정된 작업 하나밖에 없습니다.
 	- 작업에 대한 **입력**을 **EmpOnPremSQLTable**로 설정하고 작업에 대한 **출력**을 **OutputBlobTable**로 설정합니다.
 	- **transformation** 섹션에서 **SqlSource**를 **source type**으로 지정하고 **BlobSink**를 **sink type**으로 지정합니다.
-	- **SqlSource**의 **sqlReaderQuery** 속성에 대해 SQL 쿼리 **select * from emp**를 지정합니다.
+- **SqlSource**의 **sqlReaderQuery** 속성에 대해 SQL 쿼리 **select * from emp**를 지정합니다.
 
 	**start** 속성 값을 현재 날짜로 바꾸고 **end** 값을 다음 날짜로 바꿉니다. start 및 end 날짜/시간은 둘 다 [ISO 형식](http://en.wikipedia.org/wiki/ISO_8601)(영문)이어야 합니다. 예: 2014-10-14T16:32:41Z. **end** 시간은 선택 사항이지만 이 자습서에서는 사용합니다.
 	
@@ -682,8 +677,7 @@ Azure 포털에서 시작된 **자격 증명 설정** 응용 프로그램을 사
 ## 데이터 관리 게이트웨이를 사용하는 복사에 대한 데이터 흐름
 데이터 파이프라인에는 복사 활동을 사용하여 온-프레미스 데이터를 클라우드로 수집하거나 결과 데이터를 클라우드에서 온-프레미스 데이터 저장소에 다시 내보내는 경우 복사 작업은 내부적으로 게이트웨이를 사용하여 온-프레미스 데이터 원본에서 클라우드로 그리고 반대로 데이터를 전송합니다.
 
-다음은 높은 수준의 데이터 흐름 및 데이터 게이트웨이를 사용한 복사본에 대한 단계의 요약입니다.
-![게이트웨이를 사용하는 데이터 흐름](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
+다음은 높은 수준의 데이터 흐름 및 데이터 게이트웨이를 사용한 복사본에 대한 단계의 요약입니다.![게이트웨이를 사용하는 데이터 흐름](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
 
 1.	데이터 개발자는 [Azure 포털](https://portal.azure.com) 또는 [PowerShell Cmdlet](https://msdn.microsoft.com/library/dn820234.aspx) 중 하나를 사용하는 Azure Data Factory에 대한 새 게이트웨이를 만듭니다. 
 2.	데이터 개발자는 게이트웨이로 "연결된 서비스" 패널을 사용하여 온-프레미스 데이터 저장소에 대한 새 연결 된 서비스를 정의합니다. 연결된 서비스 데이터 설정의 일부로서 개발자는 단계별 연습에 표시된 대로 자격 증명 설정 응용 프로그램을 사용하여 인증 유형 및 자격 증명을 지정합니다. 자격 증명 설정 응용 프로그램 대화 상자는 연결을 테스트하는 데이터 저장소 및 자격 증명을 저장하는 게이트웨이와 통신합니다.
@@ -692,4 +686,4 @@ Azure 포털에서 시작된 **자격 증명 설정** 응용 프로그램을 사
 5.	게이트웨이는 동일한 인증서로 자격 증명의 암호를 해독하고 적절한 인증 형식으로 온-프레미스 데이터 저장소에 연결합니다.
 6.	게이트웨이는 데이터 파이프라인에서 복사 활동을 구성하는 방법에 따라 온-프레미스 저장소에서 클라우드 저장소에 또는 클라우드 저장소에서 온-프레미스 데이터 저장소에 데이터를 복사합니다. 참고: 이 단계의 경우 게이트웨이는 보안(HTTPS) 채널을 통해 클라우드 기반 저장소 서비스(예: Azure Blob, Azure SQL 등)와 직접 통신합니다.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/14/2016"
+	ms.date="05/03/2016"
 	ms.author="billmath"/>
 
 
@@ -99,6 +99,6 @@ AutocertificateRollover 설정이 True이지만 페더레이션 메타 데이터
 4.	AD FS 기본 페더레이션 서버가 아닌 컴퓨터에서 이러한 명령을 실행하는 경우 Set-MSOLAdfscontext -Computer <AD FS primary server>을 실행합니다. 여기서 <AD FS primary server>는 기본 AD FS 서버의 내부 FQDN 이름입니다. 이 cmdlet은 AD FS에 연결되는 컨텍스트를 만듭니다.
 5.	Update-MSOLFederatedDomain –DomainName <domain>을 실행합니다. 이 cmdlet은 AD FS에서 클라우드 서비스로 설정을 업데이트하고 둘 사이의 트러스트 관계를 구성합니다.
 
->[AZURE.NOTE] contoso.com과 fabrikam.com 등의 여러 최상위 도메인을 지원해야 하는 경우에는 cmdlet과 함께 SupportMultipleDomain 스위치를 사용해야 합니다. 자세한 내용은 여러 최상위 도메인에 대한 지원을 참조하세요. 마지막으로, 모든 웹 응용 프로그램 프록시 서버가 [Windows Server May 2014](http://support.microsoft.com/kb/2955164) 롤업으로 업데이트되었는지 확인합니다. 그렇지 않으면 프록시가 새 인증서로 업데이트되지 못하여 중단될 수 있습니다.
+>[AZURE.NOTE] contoso.com과 fabrikam.com 등의 여러 최상위 도메인을 지원해야 하는 경우에는 cmdlet과 함께 SupportMultipleDomain 스위치를 사용해야 합니다. 자세한 내용은 [여러 최상위 도메인에 대한 지원](active-directory-aadconnect-multiple-domains.md)을 참조하세요. 마지막으로, 모든 웹 응용 프로그램 프록시 서버가 [Windows Server May 2014](http://support.microsoft.com/kb/2955164) 롤업으로 업데이트되었는지 확인합니다. 그렇지 않으면 프록시가 새 인증서로 업데이트되지 못하여 중단될 수 있습니다.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0504_2016-->

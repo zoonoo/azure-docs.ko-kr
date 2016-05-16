@@ -54,7 +54,7 @@
 80|인증서 유효성 검사용 HTTP 포트에 **필요하며** 선택적으로 데이터 연결에 필요합니다.
 443|데이터 연결에 대해 **선택사항**입니다. 443에 대한 아웃바운드 연결을 사용할 수 없으면 TCP 포트 80이 사용됩니다.
 5671 및 9352|데이터 연결에 대해 **권장**하지만 선택사항입니다. 이 모드를 사용하면 일반적으로 더 높은 처리량을 얻을 수 있습니다. 이러한 포트에 대한 아웃바운드 연결을 사용할 수 없으면 TCP 포트 443이 사용됩니다.
-- 온-프레미스 리소스의 *호스트이름*:*포트번호* 에 연결할 수 있어야 합니다.
+- 온-프레미스 리소스의 *호스트이름*:*포트번호*에 연결할 수 있어야 합니다.
 
 이 자습서의 단계에서는 온-프레미스 하이브리드 연결 에이전트를 호스트하는 컴퓨터에서 브라우저를 사용하고 있다고 가정합니다.
 
@@ -298,7 +298,7 @@ Visual Studio 웹 응용 프로그램을 사용하려면 Azure에서 액세스�
 
 [하이브리드 연결 개요](/services/biztalk-services/)
 
-[BizTalk 서비스: 대시보드, 모니터, 확장, 구성 및 하이브리드 연결 탭](../biztalk-dashboard-monitor-scale-tabs/)
+[BizTalk 서비스: 대시보드, 모니터, 확장, 구성 및 하이브리드 연결 탭](../biztalk-services/biztalk-dashboard-monitor-scale-tabs.md)
 
 [원활한 응용 프로그램 이식성으로 실시간 하이브리드 연결 클라우드 구축(채널 9 비디오)(영문)](http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
 
@@ -363,4 +363,4 @@ Visual Studio 웹 응용 프로그램을 사용하려면 Azure에서 액세스�
 [HCTestSSMSTree]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F10HCTestSSMSTree.png
 [HCTestShowMemberDb]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F11HCTestShowMemberDb.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

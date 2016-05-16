@@ -251,6 +251,8 @@ AzureSqlLinkedService는 다음과 같이 정의됩니다.
 ## 범위가 지정된 데이터 집합
 **datasets** 속성을 사용하여 파이프라인으로 범위가 지정되는 데이터 집합을 만들 수 있습니다. 이러한 데이터 집합은 다른 파이프라인이 아닌 이 파이프라인 내의 작업에서만 사용할 수 있습니다. 다음 예제에서는 파이프라인 내에서 사용될 두 개의 데이터 집합(InputDataset rdc 및 OutputDataset-rdc)을 사용하는 파이프라인을 정의합니다.
 
+> [AZURE.IMPORTANT] 범위가 지정된 데이터 집합은 일회성 파이프라인으로만 지원됩니다(**pipelineMode**를 **OneTime**으로 설정). 자세한 내용은 [일회성 파이프라인](data-factory-scheduling-and-execution.md#onetime-pipeline)을 참조하세요.
+
 	{
 	    "name": "CopyPipeline-rdc",
 	    "properties": {
@@ -340,4 +342,4 @@ AzureSqlLinkedService는 다음과 같이 정의됩니다.
 	    }
 	}
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

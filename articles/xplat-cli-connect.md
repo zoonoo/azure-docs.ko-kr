@@ -31,7 +31,7 @@ Azure CLI는 Azure 플랫폼 작업을 위한 플랫폼 간 오픈 소스 명령
 
 다른 계정 ID 및 Azure 구독에 대한 배경 정보는 [Azure 구독과 Azure Active Directory의 연관 관계](./active-directory/active-directory-how-subscriptions-associated-directory.md)를 참조하세요.
 
-## Azure 로그인을 사용하여 웹 포털을 통해 대화형으로 인증
+## azure 로그인을 사용하여 대화형으로 인증
 
 아무 인수 없이 `azure login` 명령을 사용하여 대화형으로 다음 중 하나를 인증합니다.
 
@@ -54,7 +54,7 @@ Azure CLI는 Azure 플랫폼 작업을 위한 플랫폼 간 오픈 소스 명령
 	+
 	info:    login command OK
 
-## 조직 계정의 사용자 이름 및 암호와 함께 Azure 로그인 사용
+## 사용자 이름 및 암호로 azure 로그인 사용
 
 
 다단계 인증이 필요 없는 회사 또는 학교 계정을 사용하려면 사용자 이름 매개 변수 또는 사용자 이름 및 암호 둘 다와 함께 `azure login` 명령을 사용하여 인증합니다. 다음 예제에서는 조직 계정의 사용자 이름을 전달합니다.
@@ -76,7 +76,7 @@ Azure CLI는 Azure 플랫폼 작업을 위한 플랫폼 간 오픈 소스 명령
 
 Active Directory 응용 프로그램에 대한 서비스 사용자를 만들고 해당 서비스 사용자에게 구독에 대한 권한이 있는 경우 `azure login` 명령을 사용하여 서비스 사용자를 인증할 수 있습니다. 시나리오에 따라 서비스 사용자의 자격 증명을 CLI 스크립트나 응용 프로그램 코드를 통해 또는 `azure login` 명령의 명시적 매개 변수로 제공할 수 있습니다. 또한 인증서를 사용하여 자동화 시나리오에서 비대화형으로 서비스 사용자를 인증할 수 있습니다. 자세한 내용 및 예제는 [Azure Resource Manager를 사용하여 서비스 사용자 인증](resource-group-authenticate-service-principal.md)을 참조하세요.
 
-## 게시 설정 파일 방법 사용
+## 게시 설정 파일 사용
 
 Azure 서비스 관리 모드 CLI 명령만 사용해야 하는 경우 게시 설정 파일을 사용하여 연결할 수 있습니다.
 
@@ -122,13 +122,13 @@ Azure 구독에 연결하게 되면 Azure CLI 명령을 사용하여 Azure 리�
 
 Azure CLI는 Azure 리소스로 작업하는 두 가지 명령 모드(명령 집합이 서로 다름)를 제공합니다.
 
-* **Azure Resource Manager 모드** - Resource Manager 배포 모델에서 Azure 리소스를 사용합니다. 이 모드를 설정하려면 `azure config mode arm`을 실행합니다.
+* **Resource Manager 모드** - Resource Manager 배포 모델에서 Azure 리소스를 사용합니다. 이 모드를 설정하려면 `azure config mode arm`을 실행합니다.
 
-* **Azure 서비스 관리 모드** - 클래식 배포 모델에서 Azure 리소스를 사용합니다. 이 모드를 설정하려면 `azure config mode asm`을 실행합니다.
+* **서비스 관리 모드** - 클래식 배포 모델에서 Azure 리소스를 사용합니다. 이 모드를 설정하려면 `azure config mode asm`을 실행합니다.
 
 처음 설치하면 CLI가 서비스 관리 모드로 설정됩니다.
 
->[AZURE.NOTE]Azure 리소스 관리자 모드 및 Azure 서비스 관리 모드는 함께 사용할 수 없습니다. 즉, 한 모드에서 만든 리소스는 다른 모드에서 관리할 수 없습니다.
+>[AZURE.NOTE]리소스 관리자 모드와 서비스 관리 모드는 함께 사용할 수 없습니다. 즉, 한 모드에서 만든 리소스는 다른 모드에서 관리할 수 없습니다.
 
 ## CLI 설정 저장소
 
@@ -147,10 +147,10 @@ Azure CLI는 Azure 리소스로 작업하는 두 가지 명령 모드(명령 집
 계정과 연결된 구독이 Active Directory에서만 인증된 경우 로그아웃하면 구독 정보가 로컬 프로필에서 삭제됩니다. 그러나 구독에 대해 게시 설정 파일도 가져온 경우에는 로그아웃해도 Active Directory 관련 정보만 로컬 프로필에서 삭제됩니다.
 ## 다음 단계
 
-* Azure CLI 명령을 사용하려면 [Azure Resource Manager 모드의 Azure CLI 명령](./virtual-machines/azure-cli-arm-commands.md) 및 [Azure 서비스 관리 모드의 Azure CLI 명령](virtual-machines-command-line-tools.md)을 참조하세요.
+* CLI 명령을 사용하려면 [Resource Manager 모드의 Azure CLI 명령](./virtual-machines/azure-cli-arm-commands.md) 및 [서비스 관리 모드의 Azure CLI 명령](virtual-machines-command-line-tools.md)을 참조하세요.
 
 * Azure CLI에 대한 자세한 내용을 보거나, 소스 코드를 다운로드하거나, 문제를 보고하거나, 프로젝트에 기여하려면 [Azure CLI에 대한 GitHub 리포지토리](https://github.com/azure/azure-xplat-cli)를 방문하세요.
 
 * Azure CLI 또는 Azure를 사용하는 데 문제가 있는 경우 [Azure 포럼](http://social.msdn.microsoft.com/Forums/windowsazure/home)을 방문하세요.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

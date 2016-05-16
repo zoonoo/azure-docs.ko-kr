@@ -4,8 +4,8 @@
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+   manager="timlt"
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/23/2016"
+   ms.date="04/27/2016"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager 및 클래식 배포: 배포 모델 및 리소스 상태 이해
@@ -38,7 +38,7 @@
 
         ![Azure portal](./media/resource-manager-deployment-model/preview-portal.png)
 
-        계산, 저장, 네트워킹 리소스에 리소스 관리자를 사용할지 클래식 배포를 사용할지 선택할 수 있습니다. **리소스 관리자**를 선택합니다.
+        For Compute, Storage, and Networking resources, you have the option of using either Resource Manager or Classic deployment. Select **Resource Manager**.
 
         ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
@@ -131,29 +131,23 @@ Azure 서비스 관리를 위한 구성 요소 및 해당 관계는 다음과 �
 
 ## 배포 모델을 위해 지원되는 작업
 
-클래식 배포 모델에서 만든 리소스는 리소스 관리자 작업을 지원하지 않습니다. 경우에 따라 리소스 관리자 명령은 클래식 배포를 통해 생성되는 리소스에 대한 정보를 검색하거나, 다른 리소스 그룹으로 기존 리소스 이동과 같은 관리 작업을 수행할 수 있지만, 이 경우 해당 유형이 리소스 관리자 작업을 지원한다는 느낌을 주어서는 안됩니다. 예를 들어, 리소스 관리자 및 클래식으로 만든 가상 컴퓨터가 포함된 리소스 그룹이 있다고 가정합니다. 다음 PowerShell 명령을 실행하는 경우
+클래식 배포 모델에서 만든 리소스는 리소스 관리자 작업을 지원하지 않습니다. 경우에 따라 리소스 관리자 명령은 클래식 배포를 통해 생성되는 리소스에 대한 정보를 검색하거나, 다른 리소스 그룹으로 기존 리소스 이동과 같은 관리 작업을 수행할 수 있지만, 이 경우 해당 유형이 리소스 관리자 작업을 지원한다는 느낌을 주어서는 안됩니다. 예를 들어 클래식 배포로 만든 가상 컴퓨터가 포함된 리소스 그룹이 있다고 가정합니다. 다음 PowerShell 명령을 실행하는 경우
 
-    Get-AzureRmResourceGroup -Name ExampleGroup
+    Get-AzureRmResource -ResourceGroupName ExampleGroup -ResourceType Microsoft.ClassicCompute/virtualMachines
 
-모든 가상 컴퓨터를 반환합니다.
+가상 컴퓨터를 반환합니다.
+    
+    Name              : ExampleClassicVM
+    ResourceId        : /subscriptions/{guid}/resourceGroups/ExampleGroup/providers/Microsoft.ClassicCompute/virtualMachines/ExampleClassicVM
+    ResourceName      : ExampleClassicVM
+    ResourceType      : Microsoft.ClassicCompute/virtualMachines
+    ResourceGroupName : ExampleGroup
+    Location          : westus
+    SubscriptionId    : {guid}
 
-    Resources :
-     Name                 Type                                          Location
-     ================     ============================================  ========
-     ExampleClassicVM     Microsoft.ClassicCompute/domainNames          eastus
-     ExampleClassicVM     Microsoft.ClassicCompute/virtualMachines      eastus
-     ExampleResourceVM    Microsoft.Compute/virtualMachines             eastus
-    ...
-
-그러나 **Get-AzureRmVM** 명령을 실행하는 경우
+그러나 **Get-AzureRmVM** cmdlet만 리소스 관리자를 통해 배포된 가상 컴퓨터를 반환합니다. 다음 명령은 클래식 배포를 통해 만든 가상 컴퓨터를 반환하지 않습니다.
 
     Get-AzureRmVM -ResourceGroupName ExampleGroup
-
-리소스 관리자로 만든 가상 컴퓨터만 가져옵니다.
-
-    Id       : /subscriptions/xxxx/resourceGroups/ExampleGroup/providers/Microsoft.Compute/virtualMachines/ExampleResourceVM
-    Name     : ExampleResourceVM
-    ...
 
 일반적으로 클래식 배포를 통해 만든 리소스는 리소스 관리자 명령과 함께 작동되지 않습니다.
 
@@ -179,4 +173,4 @@ Azure 서비스 관리를 위한 구성 요소 및 해당 관계는 다음과 �
 - 리소스 관리자 템플릿의 구조에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 - 템플릿 배포에 대한 명령을 보려면 [Azure 리소스 관리자 템플릿으로 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

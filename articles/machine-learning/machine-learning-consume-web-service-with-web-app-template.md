@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="05/02/2016"
 	ms.author="garye;raymondl"/>
 
 # 웹 앱 템플릿을 사용한 Azure 기계 학습 웹 서비스 사용
@@ -125,4 +125,4 @@ Azure 마켓플레이스에서 사용할 수 있는 웹 앱 템플릿은 웹 서
 [image6]: media\machine-learning-consume-web-service-with-web-app-template\web-service-info.png
 [image7]: media\machine-learning-consume-web-service-with-web-app-template\storage.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0504_2016-->

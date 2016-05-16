@@ -13,16 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/28/2016"
+   ms.date="04/28/2016"
    ms.author="jgao"/>
 
 #HDInsight에서 Hadoop 클러스터 프로비전
 
 HDInsight 클러스터 프로비전에 대한 계획을 세우는 방법에 대해 알아봅니다.
 
-> [AZURE.WARNING] 이 문서의 단계에서는 이전 버전의 Azure PowerShell 및 Azure CLI와 함께 Azure 클래식 포털을 사용합니다. 이러한 단계를 사용하지 않는 것이 좋습니다. 대신, Azure 포털과 최신 버전의 Azure PowerShell 및 Azure CLI를 사용해야 합니다. Azure 포털과 최신 버전의 Azure PowerShell 및 Azure CLI를 사용하는 이 문서의 버전은 [HDInsight에서 Hadoop 클러스터 프로비전](hdinsight-provision-clusters.md)을 참조하세요.
+> [AZURE.IMPORTANT] 이 문서의 단계는 Azure 클래식 포털을 사용합니다. 새 서비스를 만들 때 클래식 포털을 사용하지 않는 것이 좋습니다. Azure 포털의 장점에 대한 자세한 내용은 [Microsoft Azure 포털](https://azure.microsoft.com/features/azure-portal/)을 참조하세요.
 >
-> Azure 포털의 장점에 대한 자세한 내용은 [Microsoft Azure 포털](https://azure.microsoft.com/features/azure-portal/)을 참조하세요.
+> 또한 이 문서는 Azure PowerShell 및 Azure CLI를 사용하는 방법에 관한 정보도 포함하고 있습니다. 제공된 코드 조각은 Azure 서비스 관리(ASM)를 사용하여 HDInsight와 작동하고 현재 __사용되지 않는__ 명령을 기반으로 작성되었습니다. 이러한 명령은 2017년 1월 1일에 제거 됩니다.
+>
+>ARM(Azure Resource Manager)을 사용하는 Azure 리소스 PowerShell 및 Azure CLI 코드 조각과 함께 Azure 포털을 사용하는 이 문서의 버전에 대해서는 [HDInsight에서 Hadoop 클러스터 프로비전](hdinsight-provision-clusters.md)을 참조하세요.
 
 **필수 조건:**
 
@@ -532,7 +534,7 @@ NPM 또는 Windows Installer를 사용하여 Azure CLI를 설치할 수 있습�
 
 **Windows Installer를 사용하여 Azure CLI를 설치하려면**
 
-1.	**http://azure.microsoft.com/downloads/**로 이동합니다.
+1.	****http://azure.microsoft.com/downloads/**로 이동합니다.
 2.	**명령줄 도구** 섹션으로 스크롤하여 **Azure 명령줄 인터페이스**를 클릭하고 웹 플랫폼 설치 관리자 마법사를 따릅니다.
 
 **게시 설정을 다운로드하거나 가져오려면**
@@ -709,7 +711,6 @@ SDK를 사용하여 HDInsight 클러스터를 프로비전하려면 다음 절�
 		using Microsoft.Azure.Common.Authentication.Models;
 		using Microsoft.Azure.Management.HDInsight;
 		using Microsoft.Azure.Management.HDInsight.Models;
-		using Microsoft.Azure.Management.Resources;
 
 		namespace CreateHDICluster
 		{
@@ -723,7 +724,7 @@ SDK를 사용하여 HDInsight 클러스터를 프로비전하려면 다음 절�
 		        private const string NewClusterName = "<HDINSIGHT CLUSTER NAME>";
 		        private const int NewClusterNumNodes = <NUMBER OF NODES>;
 		        private const string NewClusterLocation = "<LOCATION>";  // Must match the Azure Storage account location
-		        private const HDInsightClusterType NewClusterType = HDInsightClusterType.Hadoop;
+                private const string NewClusterType = "Hadoop";
 		        private const OSType NewClusterOSType = OSType.Windows;
 		        private const string NewClusterVersion = "3.2";
 
@@ -814,4 +815,4 @@ Visual Studio에 응용 프로그램이 열려 있을 때 **F5**를 눌러 응�
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

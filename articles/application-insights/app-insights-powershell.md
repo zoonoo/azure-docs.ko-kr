@@ -181,7 +181,7 @@ Azure에서는 엄격한 순서로 리소스를 설정해야 합니다. 다음 �
 
 ## 메트릭 경고 정의
 
-[경고를 설정하는 PowerShell 메서드](app-insights-alerts.md/#set-alerts-by-using-powershell)가 있습니다.
+[경고를 설정하는 PowerShell 메서드](app-insights-alerts.md#set-alerts-by-using-powershell)가 있습니다.
 
 
 ## 예제
@@ -321,4 +321,4 @@ Azure에서는 엄격한 순서로 리소스를 설정해야 합니다. 다음 �
 * [Application Insights에 Azure 진단 보내기](app-insights-powershell-azure-diagnostics.md)
 * [릴리스 주석 만들기](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

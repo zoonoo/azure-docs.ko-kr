@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="02/04/2016"
+  ms.date="04/29/2016"
   ms.author="hascipio; v-divte"/>
 
 # Azure 마켓플레이스를 위해 온-프레미스 가상 컴퓨터 이미지 개발
@@ -43,7 +43,6 @@ VHD를 다운로드하려면 먼저 운영 체제 디스크에 대한 Blob URL�
 
 ### VHD 다운로드
 Blob URL을 알고 있는 경우 [Azure 포털](http://manage.windowsazure.com/) 또는 PowerShell을 사용하여 VHD를 다운로드할 수 있습니다.
-
 > [AZURE.NOTE] 이 가이드를 작성한 시점에는 VHD를 다운로드하는 기능이 새 Microsoft Azure 포털에 아직 없습니다.
 
 **현재 [Azure 포털](http://manage.windowsazure.com/)을 통해 운영 체제 VHD 다운로드**
@@ -116,7 +115,7 @@ PowerShell을 사용하여 [New-AzureStorageAccount](http://msdn.microsoft.com/l
 
 > [AZURE.NOTE] 이러한 명령은 현재 저장소 계정 컨텍스트가 PowerShell에 이미 설정되어 있다고 가정합니다. PowerShell 설정에 대한 자세한 내용은 [Azure PowerShell 설정](marketplace-publishing-powershell-setup.md)을 참조하세요.
 ### Mac 및 Linux용 명령줄 도구를 사용하여 저장소 계정 만들기
-[Linux 명령줄 도구](../virtual-machines/command-line-tools/)에서 다음과 같이 저장소 계정을 만듭니다.
+[Linux 명령줄 도구](../virtual-machines/virtual-machines-linux-cli-manage.md)에서 다음과 같이 저장소 계정을 만듭니다.
 
         azure storage account create mystorageaccount --location "West US"
 
@@ -139,4 +138,4 @@ PowerShell을 사용하여 [New-AzureStorageAccount](http://msdn.microsoft.com/l
 - [마켓플레이스에 대한 가상 컴퓨터 이미지 만들기](marketplace-publishing-vm-image-creation.md)
 - [Azure PowerShell 설정](marketplace-publishing-powershell-setup.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

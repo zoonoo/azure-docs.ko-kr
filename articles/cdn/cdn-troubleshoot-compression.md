@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/21/2016" 
+	ms.date="04/28/2016" 
 	ms.author="casoper"/>
     
 # CDN 파일 압축 문제 해결
@@ -36,12 +36,14 @@
 
 ## 문제 해결 단계
 
+> [AZURE.TIP] 새 끝점 배포와 마찬가지로, CDN 구성 변경이 네트워크 전체에 전파되려면 다소 시간이 걸립니다. 대부분의 경우 90분 내에 변경 내용이 적용됩니다. CDN 끝점에 압축을 처음으로 설정한 경우 압축 설정이 POP까지 전파되도록 1~2시간 기다리는 것이 좋습니다.
+
 ### 요청 확인
 
 우선, 요청에 대해 빠른 온전성 검사를 수행합니다. 브라우저의 [개발자 도구](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/)를 사용하여 생성되는 요청을 볼 수 있습니다.
 
 - 요청이 원본이 아닌 끝점 URL, `<endpointname>.azureedge.net`에 전송되는지 확인합니다.
-- 요청에 **Accept-Encoding** 헤더가 포함되는지, 헤더 값에 **gzip**, **defalte**, 또는 **bzip2**가 포함되는지 확인합니다.
+- 요청에 **Accept-Encoding** 헤더가 포함되는지, 헤더 값에 **gzip**, **deflate** 또는 **bzip2**가 포함되는지 확인합니다.
 
 ![CDN 요청 헤더](./media/cdn-troubleshoot-compression/cdn-request-headers.png)
 
@@ -63,11 +65,10 @@
 [Azure 포털](https://portal.azure.com)에서 끝점으로 이동하여 **관리** 단추를 클릭합니다. 보조 포털이 열립니다. **HTTP Large**(HTTP 크게) 탭을 가리킨 다음 **캐시 설정** 플라이아웃을 가리킵니다. **압축**을 클릭합니다.
 
 - 압축이 활성화되어 있는지 확인합니다.
-- **파일 형식** 목록에 쉼표로 구분된 MIME 형식 목록이 포함되는지 확인합니다.
+- **파일 형식** 목록에 쉼표로 구분된(공백 없음) MIME 형식 목록이 포함되는지 확인합니다.
 - 압축될 콘텐츠에 대한 MIME 형식이 압축된 형식의 목록에 포함되어 있는지 확인합니다.
 
 ![CDN 프리미엄 압축 설정](./media/cdn-troubleshoot-compression/cdn-compression-settings-premium.png)
-
 
 ### 콘텐츠 캐시 여부 확인
 
@@ -85,4 +86,4 @@
 - 128바이트 초과.
 - 1MB 미만.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

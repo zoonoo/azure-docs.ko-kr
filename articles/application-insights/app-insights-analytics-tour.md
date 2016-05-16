@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
+	ms.date="04/27/2016" 
 	ms.author="awills"/>
 
 
@@ -160,14 +160,14 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 
 `name=`을 사용하여 집계 식 또는 by 절에서 결과 열의 이름을 설정할 수 있습니다.
 
-### 데이터 요소 수 계산
+## 샘플링된 데이터 수 계산
 
 `sum(itemCount)` 이벤트 수에 대한 권장 집계입니다. 대부분의 경우 itemCount=1이므로 함수는 단순히 그룹의 행 수를 계산합니다. 하지만 [샘플링](app-insights-sampling.md)이 작동 중인 경우에는 Application Insights에서 원래 이벤트의 일부만 데이터 요소로 유지되므로 각 데이터 요소에 `itemCount`개의 이벤트가 있습니다. 따라서 itemCount를 합하면 원래 이벤트 수에 대한 적절한 추정치가 제공됩니다.
 
 
 ![](./media/app-insights-analytics-tour/510.png)
 
-그룹의 행 수를 계산하려는 경우 `count()` 집계도 있습니다.
+그룹의 행 수를 계산하려는 경우 `count()` 집계(및 개수 계산 작업)도 있습니다.
 
 
 [집계 함수](app-insights-analytics-aggregations.md)의 범위가 있습니다.
@@ -423,4 +423,4 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

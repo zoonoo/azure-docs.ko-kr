@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="04/30/2016"
 	ms.author="markusvi"/>
 
 
@@ -29,8 +29,7 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 
 특성 매핑을 위한 식의 구문은 VBA(Visual Basic Applications) 함수를 연상시킵니다.
 
-- 전체 식은 과 같이 함수 조건으로 정의되며, 괄호 안에 인수 이름으로 구성됩니다: <br>
-*FunctionName(<<argument 1>>,<<argument N>>)*
+- 전체 식은 <br>*FunctionName(<<argument 1>>,<<argument N>>)*과 같이 함수 조건으로 정의되며, 괄호 안에 인수 이름으로 구성됩니다.
 
 
 - 서로 함수를 중첩할 수 있습니다. 예: <br>*FunctionOne(FunctionTwo(<<argument1>>))*
@@ -316,4 +315,4 @@ Azure AD에 저장된 상태 코드를 기반으로 사용자의 시간대를 �
 - [계정 프로비전 알림](active-directory-saas-account-provisioning-notifications.md)
 - [SaaS App을 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -3,7 +3,7 @@
 	description="앱 서비스 모바일 앱을 사용하여 Android 응용 프로그램에서 오프라인 데이터를 캐시 및 동기화하는 방법을 알아봅니다."
 	documentationCenter="android"
 	authors="lindydonna"
-	manager="dwrede"
+	manager="erikre"
 	services="app-service\mobile"/>
 
 <tags
@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="02/04/2016"
-	ms.author="donnam"/>
+	ms.date="05/03/2016"
+	ms.author="donnam;ricksal"/>
 
 # Android 모바일 앱에 대해 오프라인 동기화 사용
 
@@ -116,4 +116,4 @@ Azure 모바일 앱을 처음 사용하는 경우, 먼저 [Android 앱 만들기
 [Cloud Cover: Azure 모바일 서비스에서 오프라인 동기화]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

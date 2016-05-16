@@ -1,10 +1,10 @@
 <properties
-	pageTitle="모바일 앱을 사용하여 Android에 인증 추가| Azure 앱 서비스"
+	pageTitle="모바일 앱을 사용하여 Android에 인증 추가 | Azure 앱 서비스"
 	description="Azure 앱 서비스에서 모바일 앱을 사용하여 Google, Facebook, Twitter, Microsoft를 비롯한 다양한 ID 공급자를 통해 Android 앱의 사용자를 인증하는 방법을 알아봅니다."
 	services="app-service\mobile"
 	documentationCenter="android"
-	authors="ggailey777"
-	manager="dwrede"
+	authors="RickSaling"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="02/04/2016"
-	ms.author="glenga"/>
+	ms.date="05/03/2016"
+	ms.author="ricksal"/>
 
 # Android 앱에 인증 추가
 
@@ -68,4 +68,4 @@
 <!-- URLs. -->
 [모바일 앱 시작]: app-service-mobile-android-get-started.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

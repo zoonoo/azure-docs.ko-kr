@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/22/2016"
+	ms.date="04/26/2016"
 	ms.author="davidmu"/>
 
 # 가상 컴퓨터 규모 집합에서 자동으로 컴퓨터 규모 조정
@@ -39,17 +39,17 @@
 
 이 자습서에서 작성하는 템플릿은 템플릿 갤러리에서 찾을 수 있는 템플릿과 유사합니다. 자세한 내용은 [Windows VM 및 Jumpbox로 간단한 VM 규모 집합 배포](https://azure.microsoft.com/documentation/templates/201-vmss-windows-jumpbox/)를 참조하세요.
 
-[AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)]
+## 1단계: Azure PowerShell 설치
 
-## 1단계: 리소스 그룹 및 저장소 계정 만들기
+최신 버전의 Azure PowerShell을 설치하는 방법, 사용할 구독을 선택하는 방법, Azure 계정에 로그인하는 방법은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
 
-1. **Microsoft Azure에 로그인합니다**. Microsoft Azure PowerShell 창을 열고 **로그인-AzureRmAccount**를 실행합니다.
+## 2단계: 리소스 그룹 및 저장소 계정 만들기
 
-2. **리소스 그룹 만들기** – 모든 리소스는 리소스 그룹에 배포되어야 합니다. 이 자습서의 경우 리소스 그룹의 이름을 **vmsstestrg1**로 지정합니다. [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx)을 참조하세요.
+1. **리소스 그룹 만들기** – 모든 리소스는 리소스 그룹에 배포되어야 합니다. 이 자습서의 경우 리소스 그룹의 이름을 **vmsstestrg1**로 지정합니다. [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx)을 참조하세요.
 
-3. **새 리소스 그룹에 저장소 계정 배포** – 이 자습서에서는 여러 저장소 계정을 사용하여 가상 컴퓨터 규모 집합을 용이하게 합니다. [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx)를 사용하여 **vmsstestsa**라는 저장소 계정을 만듭니다. 이 자습서의 뒷부분 단계를 위해 Azure PowerShell 창을 열어 둡니다.
+2. **새 리소스 그룹에 저장소 계정 배포** – 이 자습서에서는 여러 저장소 계정을 사용하여 가상 컴퓨터 규모 집합을 용이하게 합니다. [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx)를 사용하여 **vmsstestsa**라는 저장소 계정을 만듭니다. 이 자습서의 뒷부분 단계를 위해 Azure PowerShell 창을 열어 둡니다.
 
-## 2단계: 템플릿 만들기
+## 3단계: 템플릿 만들기
 Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 매개 변수에 대한 JSON 설명을 사용하여 Azure 리소스를 함께 배포하고 관리할 수 있습니다.
 
 1. 원하는 편집기에서 C:\\VMSSTemplate.json 파일을 만들고 템플릿을 지원하기 위한 초기 JSON 구조를 추가합니다.
@@ -472,7 +472,7 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 �
     이 자습서의 경우 다음은 중요한 값입니다.
 
     - **metricName** - wadperfcounter 변수에 정의한 성능 카운터와 동일합니다. 해당 변수를 사용하여 진단 확장은 **Processor(\_Total)\\% Processor Time** 카운터를 수집합니다.
-	- **metricResourceUri** - 가상 컴퓨터 규모 집합의 리소스 식별자입니다.
+- **metricResourceUri** - 가상 컴퓨터 규모 집합의 리소스 식별자입니다.
     - **timeGrain** – 수집되는 메트릭의 세분성입니다. 이 템플릿에서 1분으로 설정됩니다.
     - **statistic** – 자동 규모 조정 작업을 수용하기 위해 메트릭을 결합하는 방법을 결정합니다. 가능한 값은 평균, 최소, 최대입니다. 이 템플릿에서 규모 집합의 가상 컴퓨터 간의 총 평균 CPU 사용량을 살펴봅니다.
     - **timeWindow** – 인스턴스 데이터가 수집되는 시간 범위입니다. 5분에서 12시간 사이여야 합니다.
@@ -486,7 +486,7 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 �
 
 12.	템플릿 파일을 저장합니다.
 
-## 3단계: 템플릿을 저장소에 업로드
+## 4단계: 템플릿을 저장소에 업로드
 
 1단계에서 만든 저장소 계정의 계정 이름 및 기본 키를 알고 있는 한 Microsoft Azure PowerShell 창에서 템플릿을 업로드할 수 있습니다.
 
@@ -515,15 +515,15 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 �
             $fileName = "C:" + $BlobName
             Set-AzureStorageBlobContent -File $fileName -Container $ContainerName -Blob  $BlobName -Context $ctx
 
-## 4단계: 템플릿 배포
+## 5단계: 템플릿 배포
 
 템플릿을 만들었으므로 리소스 배포를 시작할 수 있습니다. 이 명령을 사용하여 프로세스를 시작합니다.
 
-        New-AzureRmResourceGroupDeployment -Name "vmsstestdp1" -ResourceGroupName "vmsstestrg1" -TemplateUri "https://vmsstestsa.blob.core.windows.net/templates/VMSSTemplate.json"
+    New-AzureRmResourceGroupDeployment -Name "vmsstestdp1" -ResourceGroupName "vmsstestrg1" -TemplateUri "https://vmsstestsa.blob.core.windows.net/templates/VMSSTemplate.json"
 
 Enter 키를 누르면 지정한 변수에 대한 값을 제공하라는 메시지가 표시됩니다. 다음 값을 제공합니다.
 
-	vmName: vmsstestvm1
+    vmName: vmsstestvm1
 	vmSSName: vmsstest1
 	instanceCount: 5
 	adminUserName: vmadmin1
@@ -532,26 +532,30 @@ Enter 키를 누르면 지정한 변수에 대한 값을 제공하라는 메시�
 
 모든 리소스가 성공적으로 배포되는 데 15분 정도가 소요됩니다.
 
->[AZURE.NOTE]포털의 기능을 사용하여 리소스를 배포할 수도 있습니다. 이렇게 하려면 이 링크를 사용합니다. https://portal.azure.com/#create/Microsoft.Template/uri/<link to VM Scale Set JSON template>
+>[AZURE.NOTE] 포털의 기능을 사용하여 리소스를 배포할 수도 있습니다. 이렇게 하려면 다음 링크를 사용합니다. "https://portal.azure.com/#create/Microsoft.Template/uri/<link to VM Scale Set JSON template>"
 
-## 5단계: 리소스 모니터링
+## 6단계: 리소스 모니터링
 
 이러한 메서드를 사용하여 가상 컴퓨터 규모 집합에 대한 정보를 얻을 수 있습니다.
 
  - Azure 포털 - 포털을 사용하여 현재 제한된 양의 정보를 얻을 수 있습니다.
  - [Azure 리소스 탐색기](https://resources.azure.com/) - 규모 집합의 현재 상태를 탐색할 수 있는 최상의 도구입니다. 이 경로를 따르고 사용자가 만든 규모 집합의 인스턴스 보기가 표시되어야 합니다.
 
-		subscriptions > {your subscription} > resourceGroups > vmsstestrg1 > providers > Microsoft.Compute > virtualMachineScaleSets > vmsstest1 > virtualMachines
+        subscriptions > {your subscription} > resourceGroups > vmsstestrg1 > providers > Microsoft.Compute > virtualMachineScaleSets > vmsstest1 > virtualMachines
 
  - Azure PowerShell - 이 명령을 사용하여 몇 가지 정보를 가져옵니다.
 
-		Get-AzureRmResource -name vmsstest1 -ResourceGroupName vmsstestrg1 -ResourceType Microsoft.Compute/virtualMachineScaleSets -ApiVersion 2015-06-15
+        Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
+        
+        Or
+        
+        Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceView
 
  - 다른 컴퓨터와 마찬가지로 jumpbox 가상 컴퓨터에 연결한 다음 개별 프로세스를 모니터링하도록 규모 집합의 가상 컴퓨터에 원격으로 액세스할 수 있습니다.
 
->[AZURE.NOTE]규모 집합에 대한 정보를 얻기 위해 전체 REST API를 [가상 컴퓨터 크기 규모 집합](https://msdn.microsoft.com/library/mt589023.aspx)에서 찾을 수 있습니다.
+>[AZURE.NOTE] 규모 집합에 대한 정보를 얻기 위해 전체 REST API를 [가상 컴퓨터 크기 규모 집합](https://msdn.microsoft.com/library/mt589023.aspx)에서 찾을 수 있습니다.
 
-## 6단계: 리소스 제거
+## 7단계: 리소스 제거
 
 Azure에서 사용되는 리소스에 대한 요금이 부과되기 때문에, 더 이상 필요하지 않은 리소스를 항상 삭제하는 것이 좋습니다. 리소스 그룹에서 각 리소스를 개별적으로 삭제할 필요가 없습니다. 리소스 그룹을 삭제하면 모든 해당 리소스가 자동으로 삭제됩니다.
 
@@ -559,6 +563,11 @@ Azure에서 사용되는 리소스에 대한 요금이 부과되기 때문에, �
 
 리소스 그룹을 유지하려는 경우 규모 집합만을 삭제할 수 있습니다.
 
-	Remove-AzureRmResource -Name vmsstest1 -ResourceGroupName vmsstestrg1 -ApiVersion 2015-06-15 -ResourceType Microsoft.Compute/virtualMachineScaleSets
+	Remove-AzureRmVmss -ResourceGroupName "resource group name" –VMScaleSetName "scale set name"
+    
+## 다음 단계
 
-<!-----HONumber=AcomDC_0427_2016-->
+- 방금 [가상 컴퓨터 크기 집합의 가상 컴퓨터 관리](virtual-machine-scale-sets-windows-manage.md)의 정보에 따라 만든 크기 집합을 관리합니다.
+- [가상 컴퓨터 크기 집합을 사용하여 수직 자동 크기 조정](virtual-machine-scale-sets-vertical-scale-reprovision.md)을 검토하여 수직 크기 조정에 대해 자세히 알아봅니다.
+
+<!---HONumber=AcomDC_0504_2016-->

@@ -27,7 +27,7 @@ Unix 시스템 성능 메트릭을[Application Insights](app-insights-overview.m
 
 ## 계측 키 가져오기
 
-[Microsoft Azure 포털](https://portal.azure.com)에서 데이터를 표시하고 싶은 [Application Insights](start) 리소스를 엽니다. (또는[새 리소스를 만듭니다](app-insights-create-new-resource.md).)
+[Microsoft Azure 포털](https://portal.azure.com)에서 데이터를 표시하고 싶은 [Application Insights](app-insights-overview.md) 리소스를 엽니다. (또는[새 리소스를 만듭니다](app-insights-create-new-resource.md).)
 
 리소스를 식별하는 계측 키의 복사본을 만듭니다.
 
@@ -143,4 +143,4 @@ Application Insights 리소스에서[메트릭 탐색기 및 차트 추가하기
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -1,19 +1,19 @@
 <properties
-   pageTitle="캐시 ASP.NET 세션 상태 제공자"
-   description="Azure Redis Cache를 사용하여 ASP.NET 세션 상태를 저장하는 방법을 알아봅니다."
-   services="redis-cache"
-   documentationCenter="na"
-   authors="steved0x"
-   manager="erikre"
-   editor="tysonn" />
+	pageTitle="캐시 ASP.NET 세션 상태 제공자 | Microsoft Azure"
+	description="Azure Redis Cache를 사용하여 ASP.NET 세션 상태를 저장하는 방법을 알아봅니다."
+	services="redis-cache"
+	documentationCenter="na"
+	authors="steved0x"
+	manager="douge"
+	editor="tysonn" />
 <tags
-   ms.service="cache"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="cache-redis"
-   ms.workload="tbd"
-   ms.date="03/04/2016"
-   ms.author="sdanie" />
+	ms.service="cache"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="cache-redis"
+	ms.workload="tbd"
+	ms.date="04/27/2016"
+	ms.author="sdanie" />
 
 # Azure Redis Cache에 대한 ASP.NET 세션 상태 제공자
 
@@ -25,19 +25,19 @@ Azure Redis Cache는 메모리 내 또는 SQL Server 데이터베이스가 아�
 
 Redis 캐시 세션 상태 NuGet 패키지를 사용하여 Visual Studio에서 클라이언트 응용 프로그램을 구성하려면 **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다.
 
-![Azure Redis Cache 관리 NuGet 패키지](./media/cache-asp.net-session-state-provider/IC729541.png)
+![Azure Redis Cache 관리 NuGet 패키지](./media/cache-aspnet-session-state-provider/redis-cache-manage-nuget-menu.png)
 
-온라인 검색 텍스트 상자에 **RedisSessionStateProvider**를 입력하여 결과에서 선택한 후 설치를 클릭합니다.
+검색 텍스트 상자에 **RedisSessionStateProvider**를 입력하여 결과에서 선택한 후 **설치**를 클릭합니다.
 
 >[AZURE.IMPORTANT] 프리미엄 계층에서 클러스터링 기능을 사용하는 경우 [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 이상을 사용하지 않으면 예외가 throw됩니다. 주요 변경 내용입니다. 자세한 내용은 [v2.0.0 주요 변경 세부 사항](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details)을 참조하세요.
 
-![Azure Redis Cache 세션 상태 제공자](./media/cache-asp.net-session-state-provider/IC751730.png)
+![Azure Redis Cache 세션 상태 제공자](./media/cache-aspnet-session-state-provider/redis-cache-session-state-provider.png)
 
 Reids 세션 상태 제공자 NuGet 패키지는 StackExchange.Redis.StrongName 패키지에 종속성을 갖습니다. StackExchange.Redis.StrongName 패키지가 프로젝트에 나타나지않는 경우 설치됩니다. 강력한 이름의 StackExchange.Redis.StrongName 패키지 외에도 StackExchange.Redis non-strong-name 버전이 있다는 것을 참고하세요. 프로젝트에 non-strong 이름의 StackExchange.Redis 버전을 사용하고 있다면 Redis 세션 상태 제공자 NuGet Package 설치 전이나 후에 꼭 삭제해야 합니다. 그렇지 않은 경우 프로젝트 내에 이름 충돌이 일어납니다. 이 패키지에 대한 자세한 내용은 [.NET 캐시 클라이언트 구성](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients)을 참조하세요.
 
 NuGet 패키지는 필요한 어셈블리 참조를 다운로드 및 추가하고 ASP.NET 응용 프로그램이 Redis 캐시 세션 상태 제공자를 사용하는 데 필요한 구성이 포함된 web.config 파일에 다음 섹션을 추가합니다.
 
-    <sessionStatemode="Custom" customProvider="MySessionStateStore">
+    <sessionState mode="Custom" customProvider="MySessionStateStore">
         <providers>
         <!--
 		<add name="MySessionStateStore"
@@ -106,4 +106,4 @@ Web.config 파일에서 표준 InProc 세션 상태 제공자 섹션을 주석�
 
 [Azure Redis Cache에 대한 ASP.NET 출력 캐시 제공자](cache-aspnet-output-cache-provider.md)를 확인합니다.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

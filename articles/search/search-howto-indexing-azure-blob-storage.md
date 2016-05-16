@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="03/08/2016"
+ms.date="05/03/2016"
 ms.author="eugenesh" />
 
 # Azure 검색으로 Azure Blob 저장소에서 문서 인덱싱
@@ -34,9 +34,10 @@ BLOB 인덱서를 설정하려면 다음을 수행합니다.
 1. Azure 저장소 계정에서 컨테이너(및 필요에 따라, 해당 컨테이너의 폴더)를 참조하는 `azureblob` 유형의 데이터 원본을 만듭니다.
 	- 저장소 계정 연결 문자열을 `credentials.connectionString` 매개 변수로 전달합니다.
 	- 컨테이너 이름을 지정합니다. 필요에 따라 `query` 매개 변수를 사용하여 폴더를 포함할 수도 있습니다.
-2. 데이터 원본을 기존 대상 인덱스에 연결하여 인덱서를 만듭니다(아직 없는 경우 인덱스를 생성).
+2. 검색 가능한 `content` 필드로 검색 인덱스 만들기 
+3. 대상 인덱스에 데이터 원본을 연결하여 인덱서 만들기
 
-다음 예제는 이에 대한 설명합니다.
+### 데이터 원본 만들기
 
 	POST https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
 	Content-Type: application/json
@@ -49,7 +50,27 @@ BLOB 인덱서를 설정하려면 다음을 수행합니다.
 	    "container" : { "name" : "my-container", "query" : "my-folder" }
 	}   
 
-다음으로 데이터 원본과 대상 인덱스를 참조하는 인덱서를 만듭니다. 예:
+데이터 원본 만들기 API에 대한 자세한 내용은 [데이터 원본 만들기](search-api-indexers-2015-02-28-preview.md#create-data-source)를 참조하세요.
+
+### 인덱스 만들기 
+
+	POST https://[service name].search.windows.net/indexes?api-version=2015-02-28
+	Content-Type: application/json
+	api-key: [admin key]
+
+	{
+  		"name" : "my-target-index",
+  		"fields": [
+    		{ "name": "id", "type": "Edm.String", "key": true, "searchable": false },
+    		{ "name": "content", "type": "Edm.String", "searchable": true }
+  		]
+	}
+
+인덱스 만들기 API에 대한 자세한 내용은 [인덱스 만들기](https://msdn.microsoft.com/library/dn798941.aspx) 참조
+
+### 인덱서 만들기 
+
+마지막으로 데이터 원본과 대상 인덱스를 참조하는 인덱서를 만듭니다. 예:
 
 	POST https://[service name].search.windows.net/indexers?api-version=2015-02-28-Preview
 	Content-Type: application/json
@@ -61,6 +82,8 @@ BLOB 인덱서를 설정하려면 다음을 수행합니다.
 	  "targetIndexName" : "my-target-index",
 	  "schedule" : { "interval" : "PT2H" }
 	}
+
+인덱서 만들기 API에 대한 자세한 내용은 [인덱서 만들기](search-api-indexers-2015-02-28-preview.md#create-indexer)를 확인하세요.
 
 
 ## 지원되는 문서 형식
@@ -112,7 +135,7 @@ Azure 검색에서는 문서 키가 문서를 고유하게 식별합니다. 모�
    
 어떤 추출된 필드를 인덱스에 대한 키 필드에 매핑할지 신중하게 고려해야 합니다. 후보는 다음과 같습니다.
 
-- **metadata\_storage\_name** - 편리한 후보일 수 있으나 1) 다른 폴더에 같은 이름을 가진 BLOB를 포함할 수 있으므로 이름이 고유하지 않을 수 있으며 2) 이름에 대시와 같은 문서 키로 유효하지 않은 문자가 포함될 수 있습니다. 인덱서 속성에서 `base64EncodeKeys` 옵션을 사용하여 유효하지 않은 문자를 처리할 수 있습니다. 이렇게 하면 Lookup과 같은 API 호출에 전달할 때 문서 키를 인코딩해야 합니다. (예를 들어, .NET에서 이러한 용도로 [UrlTokenEncode 메서드](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) 를 사용할 수 있습니다).
+- **metadata\_storage\_name** - 편리한 후보일 수 있으나 1) 다른 폴더에 같은 이름을 가진 BLOB를 포함할 수 있으므로 이름이 고유하지 않을 수 있으며 2) 이름에 대시와 같은 문서 키로 유효하지 않은 문자가 포함될 수 있습니다. 인덱서 속성에서 `base64EncodeKeys` 옵션을 사용하여 유효하지 않은 문자를 처리할 수 있습니다. 이렇게 하면 Lookup과 같은 API 호출에 전달할 때 문서 키를 인코딩해야 합니다. (예를 들어, .NET에서 이러한 용도로 [UrlTokenEncode 메서드](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx)를 사용할 수 있습니다.)
 
 - **metadata\_storage\_path** - 전체 경로를 사용하여 고유성을 보장할 수 있지만 해당 경로에 [문서 키로 유효하지 않은](https://msdn.microsoft.com/library/azure/dn857353.aspx) `/` 문자가 분명히 포함됩니다. 위와 같이 `base64EncodeKeys` 옵션을 사용하여 키를 인코딩하는 옵션이 제공됩니다.
 
@@ -144,7 +167,7 @@ Azure 검색에서는 문서 키가 문서를 고유하게 식별합니다. 모�
 	  "parameters" : { "base64EncodeKeys": true }
 	}
 
-> [AZURE.NOTE] 필드 매핑에 대한 자세한 내용은 [이 문서](search-indexers-customization.md)를 참조하세요.
+> [AZURE.NOTE] 필드 매핑에 대한 자세한 내용은 [이 문서](search-indexer-field-mappings.md)를 참조하세요.
 
 ## 증분 인덱싱 및 삭제 감지
 
@@ -209,9 +232,54 @@ AzureSearch\_SkipContent | "true" | Blob 인덱서에게 메타데이터만 인�
 <a name="IndexerParametersConfigurationControl"></a>
 ## 인덱서 매개 변수를 사용하여 문서 추출 제어
 
-각 Blob에 개별적으로 `AzureSearch_SkipContent` 메타데이터를 추가해야 하는 대신 인덱서 구성을 사용하여 모든 Blob에 대한 콘텐츠 추출을 건너뛸 수 있지만 메타데이터는 추출할 수 있습니다. 이렇게 하려면 `parameters` 개체의 `true`에 `skipContent` 구성 속성을 설정합니다.
+인덱싱될 Blob 및 Blob의 콘텐츠 및 메타데이터 부분을 제어하는 데 여러 인덱서 구성 매개 변수를 사용할 수 있습니다.
 
- 	PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
+### 특정 파일 확장명을 가진 Blob만 인덱싱
+
+`indexedFileNameExtensions` 인덱서 구성 매개 변수를 사용하여 지정한 파일 이름 확장명을 가진 Blob만 인덱싱할 수 있습니다. 값은 파일 확장명의 쉼표로 구분된 목록을 포함하는 문자열입니다(선행 점 포함). 예를 들어 .PDF 및 .DOCX Blob만을 인덱싱하려면 다음을 수행합니다.
+
+	PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
+	Content-Type: application/json
+	api-key: [admin key]
+
+	{
+	  ... other parts of indexer definition
+	  "parameters" : { "configuration" : { "indexedFileNameExtensions" : ".pdf,.docx" } }
+	}
+
+### 인덱싱에서 특정 파일 확장명으로 Blob 제외
+
+`excludedFileNameExtensions` 구성 매개 변수를 사용하여 인덱싱에서 특정 파일 이름 확장명으로 Blob을 제외할 수 있습니다. 값은 파일 확장명의 쉼표로 구분된 목록을 포함하는 문자열입니다(선행 점 포함). 예를 들어 .PNG 및 .JPEG 확장명을 가진 Blob을 제외한 모든 Blob을 인덱싱하려면 다음을 수행합니다.
+
+	PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
+	Content-Type: application/json
+	api-key: [admin key]
+
+	{
+	  ... other parts of indexer definition
+	  "parameters" : { "configuration" : { "excludedFileNameExtensions" : ".png,.jpeg" } }
+	}
+
+`indexedFileNameExtensions` 및 `excludedFileNameExtensions` 매개 변수가 모두 있는 경우 Azure 검색은 먼저 `indexedFileNameExtensions`을(를) 찾은 후 `excludedFileNameExtensions`을(를) 찾습니다. 동일한 파일 확장명이 두 목록 모두에 있는 경우 인덱싱에서 제외되는 것을 의미합니다.
+
+### 저장소 메타데이터만 인덱싱
+
+`indexStorageMetadataOnly` 구성 속성을 사용하여 저장소 메타데이터만을 인덱싱하고 문서 추출 프로세스를 완전히 건너뛸 수 있습니다. 문서 콘텐츠 또는 콘텐츠 형식별 메타데이터 속성이 필요하지 않은 경우에 유용합니다. 이렇게 하려면 `true`에 `indexStorageMetadataOnly` 속성을 설정합니다.
+
+	PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
+	Content-Type: application/json
+	api-key: [admin key]
+
+	{
+	  ... other parts of indexer definition
+	  "parameters" : { "configuration" : { "indexStorageMetadataOnly" : true } }
+	}
+
+### 저장소와 콘텐츠 형식 메타데이터를 인덱싱하지만 콘텐츠 추출은 건너뜀
+
+모든 메타데이터는 추출하지만 모든 Blob에 대한 콘텐츠 추출을 건너뛰어야 하는 경우 각 Blob에 개별적으로 `AzureSearch_SkipContent` 메타데이터를 추가해야 하는 대신 인덱서 구성을 사용하여 이 동작을 요청할 수 있습니다. 이렇게 하려면 `true`에 `skipContent` 인덱서 구성 속성을 설정합니다.
+
+	PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
 	Content-Type: application/json
 	api-key: [admin key]
 
@@ -224,4 +292,4 @@ AzureSearch\_SkipContent | "true" | Blob 인덱서에게 메타데이터만 인�
 
 기능 요청 또는 개선에 대한 아이디어가 있는 경우 [UserVoice 사이트](https://feedback.azure.com/forums/263029-azure-search/)를 통해 연락해 주세요.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

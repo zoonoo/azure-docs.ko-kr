@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="05/04/2016"
 	ms.author="robmcm"/>
 
 #Azure 앱 서비스 웹 앱에서 PHP 구성
@@ -188,4 +188,4 @@ Azure 명령줄 인터페이스를 사용하려면 **Node.js**를 컴퓨터에 �
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

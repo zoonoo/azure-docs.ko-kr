@@ -57,7 +57,7 @@ SLA에 대한 자세한 내용은 [서비스 수준 계약](https://azure.micros
 
 이러한 계획된 유지 관리 이벤트는 이러한 유형의 가상 컴퓨터 구성에서 응용 프로그램의 가용성에 영향을 미칩니다. Azure는 단일 인스턴스 구성에서 가상 컴퓨터에 대해 계획된 유지 관리의 1주 사전 알림을 제공합니다.
 
-### 메일 알림
+## 메일 알림
 
 단일 인스턴스 및 다중 인스턴스 가상 컴퓨터 구성인 경우에만 Azure가 향후 계획된 유지 관리에 대해 알려주기 위해 1주 전에 메일을 전송합니다. 이 메일은 구독에 제공된 계정 관리자 및 공동 관리자 메일 계정으로 전송됩니다. 이러한 유형의 메일의 예는 아래와 같습니다.
 
@@ -95,4 +95,3 @@ SLA에 대한 자세한 내용은 [서비스 수준 계약](https://azure.micros
 
 [Understand planned versus unplanned maintenance]: ../articles/virtual-machines/virtual-machines-windows-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
 
-<!---HONumber=AcomDC_0330_2016-->

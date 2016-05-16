@@ -1,12 +1,11 @@
 <properties
-	pageTitle=".NET(C#)을 사용하여 SQL 데이터베이스에 연결"
+	pageTitle=".NET을 사용하여 SQL 데이터베이스에 연결(C#) | Microsoft Azure"
 	description="이 빠른 시작에 포함된 샘플 코드를 사용하여 C#으로 최신 응용 프로그램을 개발하고 Azure SQL 데이터베이스로 클라우드에서 강력한 관계형 데이터베이스를 통해 지원할 수 있습니다."
 	services="sql-database"
 	documentationCenter=""
 	authors="tobbox"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
-
 
 <tags
 	ms.service="sql-database"
@@ -14,19 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/16/2016"
+	ms.date="04/20/2016"
 	ms.author="tobiast"/>
 
-
-# .NET(C#)에서 SQL 데이터베이스 사용하기
-
+# .NET(C#)을 사용하여 SQL 데이터베이스에 연결
 
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
-
 ## 1단계: 개발 환경 구성
 
-.NET Framework는 Windows에 사전 설치되어 있습니다. Linux 및 Mac OS X의 경우 [모노 프로젝트](http://www.mono-project.com/)에서 .NET Framework를 다운로드할 수 있습니다.
+[ADO.NET 개발을 위한 개발 환경 구성](https://msdn.microsoft.com/library/mt718321.aspx)
 
 ## 2단계: SQL 데이터베이스 만들기
 
@@ -36,106 +32,9 @@
 
 [AZURE.INCLUDE [sql-database-include-connection-string-dotnet-20-portalshots](../../includes/sql-database-include-connection-string-dotnet-20-portalshots.md)]
 
-## 4단계: 연결
+## 4단계: 샘플 코드 실행
 
-SQL 데이터베이스에 연결하는 데에는 [System.Data.SqlClient.SqlConnection 클래스](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx)가 사용됩니다.
+* [ADO.NET을 사용하여 SQL에 연결하는 개념 증명](https://msdn.microsoft.com/library/mt718320.aspx)
+* [ADO.NET으로 SQL에 탄력적으로 연결](https://msdn.microsoft.com/library/mt703195.aspx)
 
-
-```
-using System.Data.SqlClient;
-
-class Sample
-{
-  static void Main()
-  {
-	  using(var conn = new SqlConnection("Server=tcp:yourserver.database.windows.net,1433;Database=yourdatabase;User ID=yourlogin@yourserver;Password={yourpassword};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
-	  {
-		  conn.Open();
-	  }
-  }
-}
-```
-
-## 5단계: 쿼리 실행
-
-[System.Data.SqlClient.SqlCommand](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.aspx) 및 [SqlDataReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqldatareader.aspx) 클래스를 사용하여 SQL 데이터베이스에 대한 쿼리에서 결과 집합을 검색할 수 있습니다. System.Data.SqlClient의 경우 오프라인 [System.Data.DataSet](https://msdn.microsoft.com/library/system.data.dataset.aspx)으로 데이터를 검색하는 것도 지원합니다.
-
-```
-using System;
-using System.Data.SqlClient;
-
-class Sample
-{
-	static void Main()
-	{
-	  using(var conn = new SqlConnection("Server=tcp:yourserver.database.windows.net,1433;Database=yourdatabase;User ID=yourlogin@yourserver;Password={yourpassword};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
-		{
-			var cmd = conn.CreateCommand();
-			cmd.CommandText = @"
-					SELECT
-						c.CustomerID
-						,c.CompanyName
-						,COUNT(soh.SalesOrderID) AS OrderCount
-					FROM SalesLT.Customer AS c
-					LEFT OUTER JOIN SalesLT.SalesOrderHeader AS soh ON c.CustomerID = soh.CustomerID
-					GROUP BY c.CustomerID, c.CompanyName
-					ORDER BY OrderCount DESC;";
-
-			conn.Open();
-
-			using(var reader = cmd.ExecuteReader())
-			{
-				while(reader.Read())
-				{
-					Console.WriteLine("ID: {0} Name: {1} Order Count: {2}", reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2));
-				}
-			}					
-		}
-	}
-}
-
-```  
-
-## 6단계: 행 삽입
-
-이 예제에서는 [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) 문을 안전하게 실행하고, [SQL 삽입](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) 취약성으로부터 응용 프로그램을 보호하는 매개 변수를 전달하며, 자동으로 생성된 [기본 키](https://msdn.microsoft.com/library/ms179610.aspx) 값을 검색하는 방법을 보여 줍니다.
-
-```
-using System;
-using System.Data.SqlClient;
-
-class Sample
-{
-    static void Main()
-    {
-		using(var conn = new SqlConnection("Server=tcp:yourserver.database.windows.net,1433;Database=yourdatabase;User ID=yourlogin@yourserver;Password={yourpassword};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
-        {
-            var cmd = conn.CreateCommand();
-            cmd.CommandText = @"
-                INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate)
-                OUTPUT INSERTED.ProductID
-                VALUES (@Name, @Number, @Cost, @Price, CURRENT_TIMESTAMP)";
-
-            cmd.Parameters.AddWithValue("@Name", "SQL Server Express");
-            cmd.Parameters.AddWithValue("@Number", "SQLEXPRESS1");
-            cmd.Parameters.AddWithValue("@Cost", 0);
-            cmd.Parameters.AddWithValue("@Price", 0);
-
-            conn.Open();
-
-            int insertedProductId = (int)cmd.ExecuteScalar();
-
-            Console.WriteLine("Product ID {0} inserted.", insertedProductId);
-        }
-    }
-}
-```
-
-
-## 다음 단계
-
-[코드 샘플: SQL 데이터베이스에 연결 하기 위한 C#에서 논리 다시 시도](sql-database-develop-csharp-retry-windows.md)에서 코드의 복원력을 높이기 위해 일시적인 오류 코드를 처리하여 다시 시도 논리를 사용하는 방법을 알아봅니다.
-
-[SQL 데이터베이스 클라이언트 응용 프로그램의 SQL 오류 코드: 데이터베이스 연결 오류 및 기타 문제](sql-database-develop-error-messages.md)에서 가능한 오류 코드에 대해 알아봅니다.
-
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

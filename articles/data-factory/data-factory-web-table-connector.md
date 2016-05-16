@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="05/02/2016" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory를 사용하여 웹 테이블 원본에서 데이터 이동
@@ -27,7 +27,7 @@
 
 1.	[웹](#web-linked-service-properties) 형식의 연결된 서비스
 2.	[AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 형식의 연결된 서비스
-3.	[WebTabe](#WebTable-dataset-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)입니다.
+3.	[WebTable](#WebTable-dataset-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)
 4.	[AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)
 4.	[WebSource](#websource-copy-activity-type-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다.
 
@@ -174,7 +174,7 @@ WebSource에서 지원하는 속성 목록은 [WebSource 형식 속성](#websour
 | userName | 기본 인증을 위한 사용자 이름입니다. | 예(기본 인증의 경우)
 | password | 기본 인증을 위한 암호입니다. | 예(기본 인증의 경우)
 | authenticationType | Anonymous, Basic 또는 WebApi입니다. | 예 |
-| apiKey | WebApi 인증에 대한 ApiKey입니다. | 예(WebApi 인증)|   
+| apiKey | WebApi 인증에 대한 ApiKey입니다. | 예(WebApi 인증의 경우)|   
 
 ### 익명 인증 사용
 
@@ -283,4 +283,7 @@ Excel 2013을 사용하는 경우 [Microsoft Excel용 파워 쿼리](https://www
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
-<!---HONumber=AcomDC_0224_2016-->
+## 성능 및 튜닝  
+Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
+
+<!---HONumber=AcomDC_0504_2016-->

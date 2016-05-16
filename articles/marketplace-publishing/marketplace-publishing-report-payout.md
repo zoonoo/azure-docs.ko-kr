@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/04/2016"
+   ms.date="05/03/2016"
    ms.author="v-jeana; hascipio; v-dabosl"/>
 
 # Azure 마켓플레이스 지급 보고서 이해
@@ -22,15 +22,19 @@
 
 개발자 센터로 전환함에 따라 일부 지급 보고서는 https://dev.windows.com/ko-KR의 개발자 센터에서 제공되지만 일부는 https://publish.windowsazure.com의 게시 포털에서 확인할 수 있습니다.
 
-지급 보고는 최신 지급과 관련된 모든 마켓플레이스 제품에 대한 **개발자 센터**에서 제공되며 현재 다음을 포함합니다.- VM - B+C 제품 - EA에 따라 제공되는 데이터 및 개발자 서비스
+지급 보고는 최신 지급과 관련된 모든 마켓플레이스 제품에 대한 **개발자 센터**에서 제공되며 현재 다음을 포함합니다.
+- VM
+- B+C 제품
+- EA에서 제공되는 데이터 및 개발자 서비스
 
-다음에 대한 지급 보고는 **게시 포털**에 계속 제공됩니다. - Direct 웹에 따라 제공되는 데이터 및 개발자 서비스(계속 레거시 지불 시스템 사용).
+다음에 대한 지급 보고는 **게시 포털**에 계속 제공됩니다.
+- Direct 웹에 따라 제공되는 데이터 및 개발자 서비스(계속 레거시 지불 시스템 사용).
 
 보고서는 분기가 끝난 후 45일이 지나면 사용할 수 있으며 모든 환불이 이루어진 후에 계산됩니다.
 
 ### 개발자 센터에서 지급액 보고서 액세스
 
-1. https://dev.windows.com/ko-KR의 개발자 센터로 이동합니다.
+1. 개발자 센터(https://dev.windows.com/ko-KR)로 이동합니다.
 2. **Dashboard**를 클릭합니다.
 
     ![LandingPageDashboardHighlight][1]
@@ -112,4 +116,4 @@
 [8]: ./media/marketplace-publishing-report-payout/ledgerdefinitions.png
 [9]: ./media/marketplace-publishing-report-payout/payoutquestions.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0504_2016-->

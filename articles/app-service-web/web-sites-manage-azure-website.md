@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/12/2016" 
+	ms.date="04/27/2016" 
 	ms.author="tdykstra"/>
 
 # Azure 앱 서비스에서 웹 앱 관리
@@ -90,12 +90,7 @@ Visual Studio Team Services를 사용하는 경우 소스 제어에서 연속 �
 - [TFVC(Team Foundation Version Control) 사용](../cloud-services/cloud-services-continuous-delivery-use-vso.md) 
 - [Git 사용](../cloud-services/cloud-services-continuous-delivery-use-vso-git.md)
  
-[AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
-
-[AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
- 
 <!-- Anchors. -->
-
 
 [Before you deploy your site to production]: #before-you-deploy-your-site-to-production
 [While your website is running]: #while-your-website-is-running
@@ -103,4 +98,4 @@ Visual Studio Team Services를 사용하는 경우 소스 제어에서 연속 �
 
   
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

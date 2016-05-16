@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/11/2016"
+   ms.date="04/27/2016"
    ms.author="nitinme"/>
 
 # Azure 포털을 사용하여 데이터 레이크 저장소로 HDInsight 클러스터 만들기
@@ -29,7 +29,9 @@ Azure 포털을 사용하여 Azure 데이터 레이크 저장소에 대한 액�
 
 * **Storm 클러스터(Windows 및 Linux)의 경우** Data Lake 저장소는 Storm 토폴로지에서 데이터를 쓰는 데 사용될 수 있습니다. 데이터 레이크 저장소는 Storm 토폴로지에서 읽을 수 있는 참조 데이터를 저장하는 데도 사용될 수 있습니다. 자세한 내용은 [Storm 토폴로지에서 Data Lake 저장소 사용](#use-data-lake-store-in-a-storm-topology)을 참조하세요.
 
-* **HBase 클러스터(Windows 및 Linux)의 경우** 데이터 레이크 저장소는 기본 저장소나 추가 저장소로 사용될 수 있습니다. 데이터 레이크 저장소에 액세스할 수 있는 HBase 클러스터를 만드는 옵션은 HDI 버전 3.1 또는 3.2(Windows의 경우) 또는 HDI 버전 3.2(Linux의 경우)를 사용할 경우에만 사용할 수 있습니다. 자세한 내용은 [HBase 클러스터에서 Data Lake 저장소 사용](#use-data-lake-store-with-hbase-clusters)을 참조하세요.
+* **HBase 클러스터(Windows 및 Linux)의 경우** 데이터 레이크 저장소는 기본 저장소나 추가 저장소로 사용될 수 있습니다. 자세한 내용은 [HBase 클러스터에서 Data Lake 저장소 사용](#use-data-lake-store-with-hbase-clusters)을 참조하세요.
+
+> [AZURE.NOTE] Data Lake 저장소에 액세스할 수 있는 HDInsight 클러스터를 만드는 옵션은 HDInsight 버전 3.2(Windows 및 Linux의 경우)에만 사용할 수 있습니다.
 
 
 ## 필수 조건
@@ -105,7 +107,7 @@ HDInsight 클러스터를 구성한 후에 클러스터에서 테스트 작업�
 
 	웹 브라우저의 https://CLUSTERNAME.azurehdinsight.net으로 이동하여 Ambari로 직접 탐색할 수도 있습니다(여기서 **CLUSTERNAME**은 HDInsight 클러스터의 이름임).
 
-2. Hive 뷰를 엽니다. 사용 가능한 뷰를 나열하려면 페이지 메뉴(**관리자** 링크 옆 및 페이지 오른쪽의 단추)에서 사각형 집합을 선택합니다. **하이브** 뷰를 선택합니다.
+2. Hive 뷰를 엽니다. 사용 가능한 뷰를 나열하려면 페이지 메뉴(**관리자** 링크 옆 및 페이지 오른쪽의 단추)에서 사각형 집합을 선택합니다. **Hive** 뷰를 선택합니다.
 
 	![Ambari 뷰 선택](./media/data-lake-store-hdinsight-hadoop-use-portal/selecthiveview.png)
 
@@ -117,7 +119,7 @@ HDInsight 클러스터를 구성한 후에 클러스터에서 테스트 작업�
 
 		CREATE EXTERNAL TABLE vehicles (str string) LOCATION 'adl://mydatalakestore.azuredatalakestore.net:443/mynewfolder'
 
-5. **쿼리 편집기** 하단의 **실행** 단추를 클릭하여 쿼리를 시작합니다. **쿼리 편집기** 아래에 **쿼리 프로세스 결과** 섹션이 나타나고 작업에 대한 정보가 표시됩니다.
+5. **쿼리 편집기** 하단의 **실행** 단추를 클릭하여 쿼리를 시작합니다. **쿼리 편집기** 아래에 **쿼리 프로세스 결과** 섹션이 나타나고 작업에 대한 정보가 표시될 것입니다.
 
 6. 쿼리가 완료되면 **쿼리 프로세스 결과** 섹션에 작업 결과가 표시됩니다. **결과** 탭에는 다음 정보가 표시됩니다.
 
@@ -132,7 +134,7 @@ HDInsight 클러스터를 구성한 후에 클러스터에서 테스트 작업�
 
 	**vehicles**는 앞에서 만든 테이블입니다. **hivesampletable**은 모든 HDInsight 클러스터에서 기본으로 사용할 수 있는 샘플 테이블입니다.
 
-8. 쿼리를 실행하여 **vehicles** 테이블에서 데이터를 검색할 수도 있습니다.
+8. 쿼리를 실행하여 **차량** 테이블에서 데이터를 검색할 수도 있습니다.
 
 		SELECT * FROM vehicles LIMIT 5;
 
@@ -169,7 +171,7 @@ HDInsight 클러스터를 구성한 후에 클러스터에서 테스트 작업�
 
 	**vehicles**는 앞에서 만든 테이블입니다. **hivesampletable**은 모든 HDInsight 클러스터에서 기본으로 사용할 수 있는 샘플 테이블입니다.
 
-5. 쿼리를 실행하여 **vehicles** 테이블에서 데이터를 검색할 수도 있습니다.
+5. 쿼리를 실행하여 **차량** 테이블에서 데이터를 검색할 수도 있습니다.
 
 		SELECT * FROM vehicles LIMIT 5;
 
@@ -182,7 +184,7 @@ HDInsight 클러스터를 구성한 후에 클러스터에서 테스트 작업�
 
 이 섹션에서 클러스터로 SSH하고 HDFS 명령을 실행합니다. Windows에는 SSH 클라이언트가 기본 제공되지 않습니다. **PuTTY**를 사용하는 것이 좋습니다([http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)에서 다운로드할 수 있음).
 
-PuTTY 사용에 대한 자세한 내용은 [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md)을 참조하세요.
+PuTTY 사용에 대한 자세한 내용은 [Windows에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md)을 참조하세요.
 
 연결되면 다음 HDFS 파일 시스템 명령을 사용하여 데이터 레이크 저장소에 파일을 나열합니다.
 
@@ -250,4 +252,4 @@ HBase 클러스터에서 추가 저장소 외에 기본 저장소로 Data Lake �
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0504_2016-->

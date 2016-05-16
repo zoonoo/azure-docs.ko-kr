@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="04/29/2016"
 	ms.author="robinsh"/>
 
 # Microsoft Azure 저장소 성능 및 확장성 검사 목록
@@ -149,7 +149,7 @@ Azure CDN에 대한 자세한 내용은 [Azure CDN](https://azure.microsoft.com/
 이 두 기술을 사용하면 웹 응용 프로그램에서 불필요한 로드와 병목 현상을 방지할 수 있습니다.
 
 ####유용한 리소스
-SAS에 대한 자세한 내용은 [공유 액세스 서명, 1부: SAS 모델 이해](../storage-dotnet-shared-access-signature-part-1/)를 참조하세요.
+SAS에 대한 자세한 내용은 [공유 액세스 서명, 1부: SAS 모델 이해](storage-dotnet-shared-access-signature-part-1.md)를 참조하세요.
 
 CORS에 대한 자세한 내용은 [Azure 저장소 서비스에 대한 CORS(Cross-Origin Resource Sharing) 지원](http://msdn.microsoft.com/library/azure/dn535601.aspx)을 참조하세요.
 
@@ -393,7 +393,7 @@ Nagle 알고리즘에 대해 설명하는 테이블 구성 섹션을 참조하�
 ###<a name=subheading44"></a>UpdateMessage
 **UpdateMessage**를 사용하면 표시 안 함 시간 제한을 늘리거나 메시지의 상태 정보를 업데이트할 수 있습니다. 이 기능은 유용하기는 하지만 각 **UpdateMessage** 작업이 확장성 목표 계산에 포함된다는 점을 기억해야 합니다. 그러나 각 작업 단계가 완료되면 작업을 다음 큐에 순서대로 전달하는 워크플로보다는 UpdateMessage 작업이 훨씬 더 효율적인 방식일 수 있습니다. **UpdateMessage** 작업을 사용하는 경우 응용 프로그램이 단계가 완료될 때마다 작업의 다음 단계를 위해 메시지를 다시 큐에 대기시키는 대신 메시지에 작업 상태를 저장한 다음 작업을 계속할 수 있습니다.
 
-자세한 내용은 [방법: 대기 중인 메시지의 콘텐츠 변경](storage-dotnet-how-to-use-queues#change-the-contents-of-a-queued-message) 문서를 참조하세요.
+자세한 내용은 [방법: 대기 중인 메시지의 콘텐츠 변경](storage-dotnet-how-to-use-queues.md#change-the-contents-of-a-queued-message) 문서를 참조하세요.
 
 ###<a name=subheading45"></a>응용 프로그램 아키텍처
 응용 프로그램 아키텍처를 확장 가능하게 설정하려면 큐를 사용해야 합니다. 다음 목록에는 큐를 사용하여 응용 프로그램의 확장성을 높이는 몇 가지 방법이 나와 있습니다.
@@ -404,4 +404,4 @@ Nagle 알고리즘에 대해 설명하는 테이블 구성 섹션을 참조하�
 ##결론
 이 문서에서는 Azure 저장소 사용 시 성능을 최적화하기 위한 가장 일반적인 검증된 작업 방식 중 일부에 대해 설명했습니다. 모든 응용 프로그램 개발자는 Azure 저장소를 사용하는 응용 프로그램의 성능을 높일 수 있도록 위에서 설명한 각 작업 방식을 기준으로 응용 프로그램을 평가한 다음 권장 사항을 적용하는 것이 좋습니다.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

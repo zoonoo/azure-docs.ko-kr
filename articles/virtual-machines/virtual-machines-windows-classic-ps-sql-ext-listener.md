@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/05/2016"
+	ms.date="04/28/2016"
 	ms.author="mikeray" />
 
 # Azure에서 AlwaysOn 가용성 그룹에 대한 외부 수신기를 구성합니다.
@@ -22,7 +22,7 @@
 - [내부 수신기](virtual-machines-windows-classic-ps-sql-int-listener.md)
 - [외부 수신기](virtual-machines-windows-classic-ps-sql-ext-listener.md)
 
-이 항목에서는 외부에서 인터넷에 액세스할 수 있는 AlwaysOn 가용성 그룹에 대해 수신기를 구성하는 방법을 보여줍니다. 클라우드 서비스의 **공용 VIP(가상 IP)** 주소를 수신기와 연결하면 이 작업이 가능합니다.
+이 항목에서는 외부에서 인터넷에 액세스할 수 있는 AlwaysOn 가용성 그룹에 대해 수신기를 구성하는 방법을 보여줍니다. 수신기를 구성하려면 클라우드 서비스의 **공용 VIP(가상 IP)** 주소를 수신기와 연결해야 합니다.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
 
@@ -130,4 +130,4 @@ AlwaysOn 복제본이 다른 서브넷에 있는 경우 클라이언트는 연�
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

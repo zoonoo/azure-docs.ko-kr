@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="02/14/2016"
+    ms.date="05/02/2016"
     ms.author="micurd"/>
 
 # Azure 저장소에서 Azure CLI 사용
@@ -221,4 +221,4 @@ Azure CLI 버전 0.9.8부터 파일을 다른 파일로, 파일을 Blob으로 �
 
 [Image1]: ./media/storage-azure-cli/azure_command.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

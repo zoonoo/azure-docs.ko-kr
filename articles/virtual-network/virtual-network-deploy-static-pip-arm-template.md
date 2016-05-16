@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/08/2016"
+   ms.date="04/27/2016"
    ms.author="telmos" />
 
 # 템플릿을 사용하여 고정 공용 IP를 사용하는 VM 배포
@@ -46,9 +46,9 @@
         }
       },
 
-*고정*으로 설정된 **publicIPAllocationMethod** 속성을 확인합니다. 이 속성은 *동적*(기본값) 또는 *고정*입니다. 고정으로 설정하면 이 공용 IP 주소는 변경할 수 없습니다.
+*고정*으로 설정된 **publicIPAllocationMethod** 속성을 확인합니다. 이 속성은 *동적*(기본값) 또는 *고정*입니다. 고정으로 설정할 경우 할당된 공용 IP 주소가 절대 변경되지 않습니다.
 
-아래 섹션에서는 위의 공용 IP와 NIC의 연결을 보여 줍니다.
+아래 섹션에서는 공용 IP 주소와 네트워크 인터페이스의 연결을 보여 줍니다.
 
       {
         "apiVersion": "2015-06-15",
@@ -83,7 +83,7 @@
 
 **variables('webVMSetting').pipName**이라는 리소스의 **ID**를 가리키는 **publicIPAddress** 속성을 확인합니다. 이는 위에 표시된 공용 IP 리소스의 이름입니다.
 
-마지막으로 위의 NIC는 만들고 있는 VM의 **networkProfile** 속성에 나열됩니다.
+마지막으로 위의 네트워크 인터페이스는 생성하는 VM의 **networkProfile** 속성에 나열됩니다.
 
       "networkProfile": {
         "networkInterfaces": [
@@ -95,7 +95,7 @@
 
 ## 클릭하여 배포하는 방식으로 템플릿 배포
 
-공용 저장소에서 사용할 수 있는 샘플 템플릿은 위에 설명된 시나리오를 생성하는 데 사용된 기본값을 포함하는 매개 변수 파일을 사용합니다. 클릭하여 배포하는 방식으로 이 템플릿을 배포하려면 [이 링크](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/03-Static-public-IP)에 따라 **Azure에 배포**를 클릭하고 필요한 경우 기본 매개 변수 값을 대체하고 포털의 지침을 따릅니다.
+공용 저장소에서 사용할 수 있는 샘플 템플릿은 위에 설명된 시나리오를 생성하는 데 사용된 기본값을 포함하는 매개 변수 파일을 사용합니다. 클릭-배포를 사용하여 이 템플릿을 배포하려면 [고정 PIP 템플릿이 포함된 VM](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/03-Static-public-IP)의 Readme.md 파일에서 **Azure에 배포**를 클릭합니다. 원할 경우 기본 매개 변수 값을 바꾸고 빈 매개 변수의 값을 입력합니다. 포털의 지침을 따라 고정 공용 IP 주소를 사용하여 가상 컴퓨터를 만듭니다.
 
 ## PowerShell을 사용하여 템플릿 배포
 
@@ -105,11 +105,11 @@ PowerShell을 사용하여 다운로드한 템플릿을 배포하려면 다음 �
 
 2. 필요한 경우 PowerShell 콘솔에서 **New-AzureRmResourceGroup** cmdlet을 실행하여 새 리소스 그룹을 만듭니다. 리소스 그룹을 이미 만든 경우 3단계로 이동합니다.
 
-		New-AzureRmResourceGroup -Name StaticPublicIP -Location westus
+		New-AzureRmResourceGroup -Name PIPTEST -Location westus
 
 	예상된 출력:
 
-		ResourceGroupName : StaticPublicIP
+		ResourceGroupName : PIPTEST
 		Location          : westus
 		ProvisioningState : Succeeded
 		Tags              :
@@ -126,7 +126,7 @@ PowerShell을 사용하여 다운로드한 템플릿을 배포하려면 다음 �
 		DeploymentName    : DeployVM
 		ResourceGroupName : PIPTEST
 		ProvisioningState : Succeeded
-		Timestamp         : 1/8/2016 7:04:44 PM
+		Timestamp         : <Deployment date> <Deployment time>
 		Mode              : Incremental
 		TemplateLink      :
 		                    Uri            : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/mas
@@ -152,7 +152,7 @@ PowerShell을 사용하여 다운로드한 템플릿을 배포하려면 다음 �
 
 Azure CLI를 사용하여 템플릿을 배포하려면 아래 단계를 따르세요.
 
-1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](../xplat-cli-install.md)을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
+1. 이전에 Azure CLI를 사용한 적이 없는 경우 [Azure CLI 설치 및 구성](../xplat-cli-install.md) 문서의 단계를 따른 다음 [Azure CLI(Azure 명령줄 인터페이스)에서 Azure 구독에 연결](../xplat-cli-connect.md) 문서의 "azure 로그인을 사용하여 대화식으로 인증" 섹션에 나와 있는 구독에 CLI를 연결하는 단계를 따릅니다.
 2. 아래와 같이 **azure config mode** 명령을 실행하여 리소스 관리자 모드로 전환합니다.
 
 		azure config mode arm
@@ -161,13 +161,13 @@ Azure CLI를 사용하여 템플릿을 배포하려면 아래 단계를 따르�
 
 		info:    New mode is arm
 
-3. [매개 변수 파일](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.parameters.json)을 열고 해당 내용을 선택한 후 컴퓨터의 파일에 저장합니다. 이 예에서는 매개 변수 파일을 *parameters.json*에 저장했습니다.
+3. [매개 변수 파일](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.parameters.json)을 열고 해당 내용을 선택한 다음 컴퓨터에 파일로 저장합니다. 이 예제에서는 *parameters.json*이라는 파일로 저장되었습니다. 원할 경우 파일 내 매배 변수 값을 변경합니다. 단, 최소한 adminPassword 매개 변수 값을 고유하고 복잡한 암호로 변경하는 것이 좋습니다.
 
-4. **azure group deployment create** cmdlet을 실행하고 위에서 다운로드한 후 수정한 템플릿 및 매개 변수 파일을 사용하여 새 VNet을 배포합니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다.
+4. **azure group deployment create** cmdlet을 실행하고 위에서 다운로드한 후 수정한 템플릿 및 매개 변수를 사용하여 새 VNet을 배포합니다. 아래 명령에서 <path>를 파일을 저장한 경로로 바꿉니다.
 
-		azure group create -n PIPTEST2 -l westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.json -e parameters.json
+		azure group create -n PIPTEST2 -l westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.json -e <path>\parameters.json
 
-	예상된 출력:
+	예상 출력(사용한 매개 변수 값 나열):
 
 		info:    Executing command group create
 		+ Getting resource group PIPTEST2
@@ -176,7 +176,7 @@ Azure CLI를 사용하여 템플릿을 배포하려면 아래 단계를 따르�
 		+ Initializing template configurations and parameters
 		+ Creating a deployment
 		info:    Created template deployment "azuredeploy"
-		data:    Id:                  /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/PIPTEST2
+		data:    Id:                  /subscriptions/<Subscription ID>/resourceGroups/PIPTEST2
 		data:    Name:                PIPTEST2
 		data:    Location:            westus
 		data:    Provisioning State:  Succeeded
@@ -184,4 +184,4 @@ Azure CLI를 사용하여 템플릿을 배포하려면 아래 단계를 따르�
 		data:
 		info:    group create command OK
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->
