@@ -75,7 +75,7 @@ Excel용 파워 쿼리 추가 기능을 사용하면 HDInsight 클러스터에�
 
 이 문서에서는 파워 쿼리를 사용하여 HDInsight에서 Excel로 데이터를 가져오는 방법을 알아보았습니다. 마찬가지로 HDInsight에서 Azure SQL 데이터베이스로 데이터를 가져올 수 있습니다. 데이터를 HDInsight에 업로드할 수도 있습니다. 자세한 내용은 다음 문서를 참조하세요.
 
-* [Microsoft Hive ODBC 드라이버로 HDInsight에 Excel 연결][hdinsight-ODBC]
+* [Microsoft Hive ODBC 드라이버로 HDInsight에 Excel 연결](hdinsight-connect-excel-hive-odbc-driver.md)
 * [HDInsight에 데이터 업로드][hdinsight-upload-data]
 
 [hdinsight-ODBC]: hdinsight-connect-excel-hive-odbc-driver.md
@@ -88,4 +88,4 @@ Excel용 파워 쿼리 추가 기능을 사용하면 HDInsight 클러스터에�
 
 [powerquery-download]: http://go.microsoft.com/fwlink/?LinkID=286689
 
-<!----HONumber=AcomDC_0504_2016-->
+<!------HONumber=AcomDC_0504_2016-->
