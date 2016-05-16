@@ -111,7 +111,7 @@ ALTER DATABASE CURRENT
  - **테이블 메모리 최적화 관리자** 마법사가 표시됩니다.
 
 3. 마법사에서 **마이그레이션 유효성 검사**(또는 **다음** 단추)을 클릭하여 메모리에 최적화된 테이블에서 지원하지 않는 지원되지 않는 기능이 테이블에 있는지 확인합니다. 자세한 내용은 다음을 참조하세요.
- - [메모리 최적화 관리자](http://msdn.microsoft.com/library/dn284308.aspx)의 *메모리 최적화 검사 목록*.
+ - [메모리 최적화 관리자](http://msdn.microsoft.com/library/dn284308.aspx)의 *메모리 최적화 검사 목록* .
  - [메모리 내 OLTP에서 지원되지 않는 TRANSACT-SQL 항목](http://msdn.microsoft.com/library/dn246937.aspx).
  - [메모리 내 OLTP로 마이그레이션](http://msdn.microsoft.com/library/dn247639.aspx).
 

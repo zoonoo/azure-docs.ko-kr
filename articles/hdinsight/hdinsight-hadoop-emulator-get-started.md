@@ -494,7 +494,7 @@ HDInsight Emulator에서는 일부 Azure PowerShell cmdlet도 지원됩니다. �
 	$hdinsightJob = <JobDefinition>
 	Start-AzureHDInsightJob -Cluster http://localhost:50111 -Credential $creds -JobDefinition $hdinsightJob
 
-Get-Credential을 호출하면 프롬프트가 나타납니다. 사용자 이름으로 **hadoop**을 사용해야 합니다. 암호는 아무 문자열이나 사용할 수 있습니다. 클러스터 이름은 항상 ****http://localhost:50111**입니다.
+Get-Credential을 호출하면 프롬프트가 나타납니다. 사용자 이름으로 **hadoop**을 사용해야 합니다. 암호는 아무 문자열이나 사용할 수 있습니다. 클러스터 이름은 항상 **http://localhost:50111** 입니다.
 
 Hadoop 작업 제출에 대한 자세한 내용은 [Hadoop 작업을 프로그래밍 방식으로 제출](hdinsight-submit-hadoop-jobs-programmatically.md)을 참조하세요. HDInsight의 Azure PowerShell cmdlet에 대한 자세한 내용은 [HDInsight cmdlet 참조][hdinsight-powershell-reference]를 참조하세요.
 

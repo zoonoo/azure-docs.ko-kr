@@ -120,7 +120,7 @@ CA PPM에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     a. **식별자** 텍스트 상자에 **https://ca.ondemand.saml.20.post.\<회사 이름>** 패턴을 사용하여 사용자가 CA PPM 응용 프로그램에 로그인하는 데 사용할 URL을 입력합니다.
 	
-	b. **회신 URL** 텍스트 상자에서 ****https://fedsso.ondemand.ca.com/affwebservices/public/saml2assertionconsumer**을 입력합니다.
+	b. **회신 URL** 텍스트 상자에서 **https://fedsso.ondemand.ca.com/affwebservices/public/saml2assertionconsumer** 을 입력합니다.
 
 	c. **다음**을 클릭합니다.
  

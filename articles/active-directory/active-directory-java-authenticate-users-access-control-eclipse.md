@@ -115,8 +115,8 @@ Azure에서 네임스페이스를 만들고 활성화합니다. 계속하기 전
 3.  **신뢰 당사자 응용 프로그램 추가** 페이지에서 다음을 수행합니다.
     1.  **이름**에 RP의 이름을 입력합니다. 이 자습서에서는 **Azure Web App**을 입력합니다.
     2.  **모드**에서 **Enter settings manually**를 선택합니다.
-    3.  **영역**에 ACS가 발급한 보안 토큰이 적용되는 URI를 입력합니다. 이 작업의 경우 ****http://localhost:8080/**을 입력합니다. ![계산 에뮬레이터에 사용할 신뢰 당사자 영역][relying_party_realm_emulator]
-4.  **반환 URL**에 ACS가 보안 토큰을 반환하는 URL을 입력합니다. 이 작업의 경우 ****http://localhost:8080/MyACSHelloWorld/index.jsp**을 입력합니다. ![계산 에뮬레이터에 사용할 신뢰 당사자 반환 URL][relying_party_return_url_emulator]
+    3.  **영역**에 ACS가 발급한 보안 토큰이 적용되는 URI를 입력합니다. 이 작업의 경우 **http://localhost:8080/** 을 입력합니다. ![계산 에뮬레이터에 사용할 신뢰 당사자 영역][relying_party_realm_emulator]
+4.  **반환 URL**에 ACS가 보안 토큰을 반환하는 URL을 입력합니다. 이 작업의 경우 **http://localhost:8080/MyACSHelloWorld/index.jsp** 을 입력합니다. ![계산 에뮬레이터에 사용할 신뢰 당사자 반환 URL][relying_party_return_url_emulator]
 5.  나머지 필드는 기본값을 그대로 사용합니다.
 
 4.  **Save**를 클릭합니다.

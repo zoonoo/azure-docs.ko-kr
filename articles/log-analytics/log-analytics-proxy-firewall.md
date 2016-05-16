@@ -131,7 +131,7 @@ Operations Manager 관리 그룹을 OMS 서비스에 등록하려면 다음 절�
 
 2. **Operational Insights**를 확장하고 **Operational Insights 연결**을 선택합니다. ![Operations Manager OMS 연결](./media/log-analytics-proxy-firewall/proxy-om01.png)
 3. OMS 연결 보기에서 **프록시 서버 구성**을 클릭합니다. ![Operations Manager OMS 연결 프록시 서버 구성](./media/log-analytics-proxy-firewall/proxy-om02.png)
-4. Operational Insights 설정 마법사: 프록시 서버에서 **프록시 서버를 사용하여 Operational Insights 웹 서비스에 액세스**를 선택하고 포트 번호와 함께 URL을 입력합니다(예: ****http://myproxy:80**).![Operations Manager OMS 프록시 주소](./media/log-analytics-proxy-firewall/proxy-om03.png)
+4. Operational Insights 설정 마법사: 프록시 서버에서 **프록시 서버를 사용하여 Operational Insights 웹 서비스에 액세스**를 선택하고 포트 번호와 함께 URL을 입력합니다(예: **http://myproxy:80**).![Operations Manager OMS 프록시 주소](./media/log-analytics-proxy-firewall/proxy-om03.png)
 
 
 ### 프록시 서버에 인증이 필요한 경우 자격 증명을 지정하려면
