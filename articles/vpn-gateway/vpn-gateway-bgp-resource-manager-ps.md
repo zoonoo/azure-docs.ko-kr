@@ -278,7 +278,7 @@ AS 번호를 사용하여 VPN 게이트웨이를 만듭니다. Azure VPN 게이�
 로그인하고 구독 1에 연결해야 합니다.
 
 	$vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
-	$vnet2gw = Get-AzureRmVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2
+	$vnet2gw = Get-AzureRmLocalNetworkGateway -Name $GWName2 -ResourceGroupName $RG2
 	
 #### 2\. 두 연결 만들기
 
@@ -300,4 +300,4 @@ AS 번호를 사용하여 VPN 게이트웨이를 만듭니다. Azure VPN 게이�
 
 연결이 완료되면 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 단계는 [가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

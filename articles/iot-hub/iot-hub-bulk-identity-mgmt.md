@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="02/03/2016"
+ ms.date="04/29/2016"
  ms.author="dobett"/>
 
 # IoT Hub 장치 ID의 대량 관리
@@ -77,7 +77,7 @@ while(true)
 
 *  내보내기 데이터에서 인증 키를 제외하려는지 여부를 나타내는 *부울* 값입니다. **false**인 경우 인증 키가 내보내기 출력에 포함되지 않고 그렇지 않으면 키는 **null**로 내보내집니다.
 
-다음 C# 코드 조각은 내보내기 작업을 시작한 다음 완료를 폴링하는 방법을 보여 줍니다.
+다음 C# 코드 조각은 내보내기 데이터에 장치 인증 키를 포함하고 있는 내보내기 작업을 시작한 다음 완료를 폴링하는 방법을 보여 줍니다.
 
 ```
 // Call an export job on the IoT Hub to retrieve all devices
@@ -131,21 +131,21 @@ using (var streamReader = new StreamReader(await blob.OpenReadAsync(AccessCondit
 
 ## 장치 가져오기
 
-**RegistryManager** 클래스의 **ImportDevicesAsync** 메서드를 사용하여 IoT Hub 장치 레지스터에서 대량 가져오기 및 동기화 작업을 수행할 수 있습니다. **ExportDevicesAsync** 메서드와 마찬가지로 **ImportDevicesAsync** 메서드도 작업 프레임워크를 사용합니다.
+**RegistryManager** 클래스의 **ImportDevicesAsync** 메서드를 사용하여 IoT Hub 장치 레지스터에서 대량 가져오기 및 동기화 작업을 수행할 수 있습니다. **ExportDevicesAsync** 메서드와 마찬가지로 **ImportDevicesAsync** 메서드도 **작업** 프레임워크를 사용합니다.
 
 장치 ID 레지스트리에 새 장치를 프로비전할 뿐만 아니라 기존 장치를 업데이트 및 삭제할 수도 있으므로 **ImportDevicesAsync** 메서드를 사용할 때 주의해야 합니다.
 
 > [AZURE.WARNING]  가져오기 작업은 실행 취소할 수 없습니다. 장치 ID 레지스트리를 대량 변경하기 전에 언제나 **ExportDevicesAsync** 메서드를 사용하여 기존 데이터를 다른 blob 컨테이너에 백업해야 합니다.
 
-**ImportDevicesAsync** 메서드에 매개변수 두 개를 지정해야 합니다.
+**ImportDevicesAsync** 메서드에 매개 변수 두 개를 선택합니다.
 
-*  작업에 대한 *입력*으로 [Azure 저장소](https://azure.microsoft.com/documentation/services/storage/) blob 컨테이너의 URI가 포함된 *문자열*. 이 URI는 컨테이너에 대한 읽기 액세스 권한을 부여하는 SAS 토큰을 포함해야 합니다. 이 컨테이너는 장치 ID 레지스트리에 가져오기 위해 직렬화된 장치 데이터가 포함된 **devices.txt** 이름의 blob를 포함하고 있어야 합니다. 가져오기 데이터는 **ExportImportDevice** 작업이 생성하는 같은 JSON 형식의 장치 정보를 포함해야 합니다. SAS 토큰은 이러한 사용 권한을 포함해야 합니다.
+*  작업에 대한 *입력*으로 [Azure 저장소](https://azure.microsoft.com/documentation/services/storage/) blob 컨테이너의 URI가 포함된 *문자열*. 이 URI는 컨테이너에 대한 읽기 액세스 권한을 부여하는 SAS 토큰을 포함해야 합니다. 이 컨테이너는 장치 ID 레지스트리에 가져오기 위해 직렬화된 장치 데이터가 포함된 **devices.txt** 이름의 blob를 포함하고 있어야 합니다. 가져오기 데이터는 **ExportImportDevice** 작업이 **devices.txt** Blob을 생성할 때 사용하는 것과 같은 JSON 형식의 장치 정보를 포함해야 합니다. SAS 토큰은 이러한 사용 권한을 포함해야 합니다.
 
     ```
     SharedAccessBlobPermissions.Read
     ```
 
-*  작업에서 *출력*으로 [Azure 저장소](https://azure.microsoft.com/documentation/services/storage/) blob 컨테이너의 URK가 포함된 *문자열*. 작업은 이 컨테이너에 완료된 가져오기 **작업**에서 나온 오류 정보를 저장하기 위한 블록 blob를 생성합니다. SAS 토큰은 이러한 사용 권한을 포함해야 합니다.
+*  작업에서 *출력*으로 [Azure 저장소](https://azure.microsoft.com/documentation/services/storage/) blob 컨테이너의 URI가 포함된 *문자열*. 작업은 이 컨테이너에 완료된 가져오기 **작업**에서 나온 오류 정보를 저장하기 위한 블록 blob를 생성합니다. SAS 토큰은 이러한 사용 권한을 포함해야 합니다.
     
     ```
     SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Delete
@@ -178,10 +178,10 @@ JobProperties importJob = await registryManager.ImportDevicesAsync(containerSasU
 | **createOrUpdate** | 지정된 **ID**를 가진 장치가 존재하지 않는 경우, 새로 등록됩니다. <br/>장치가 이미 존재하는 경우 **ETag** 값과 관계 없이 제공된 입력 데이터가 기존 정보를 덮어씁니다. |
 | **create** | 지정된 **ID**를 가진 장치가 존재하지 않는 경우, 새로 등록됩니다. <br/>장치에 이미 존재하는 경우 오류가 로그 파일에 기록됩니다. |
 | **update** | 지정된 **ID**를 가진 장치가 이미 존재하는 경우 **ETag** 값과 관계 없이 제공된 입력 데이터가 기존 정보를 덮어씁니다. <br/>장치가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. |
-| **updateIfMatchETag** | 지정된 **ID**를 가진 장치가 이미 존재하는 경우 **ETag**가 일치하는 경우에만 제공된 입력 데이터가 기존 정보를 덮어씁니다. <br/>장치가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. <br/>**ETag**가 일치하지 않는 경우 오류가 로그 파일에 기록됩니다. |
-| **createOrUpdateIfMatchETag** | 지정된 **ID**를 가진 장치가 존재하지 않는 경우, 새로 등록됩니다. <br/>장치가 이미 존재하는 경우 **ETag**가 일치하는 경우에만 제공된 입력 데이터가 기존 정보를 덮어씁니다. <br/>**ETag**가 일치하지 않는 경우 오류가 로그 파일에 기록됩니다. |
+| **updateIfMatchETag** | 지정된 **ID**를 가진 장치가 이미 존재하는 경우 **ETag**가 일치하는 경우에만 제공된 입력 데이터가 기존 정보를 덮어씁니다. <br/>장치가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. <br/>**ETag**가 일치하지 않는 경우 불일치 오류가 로그 파일에 기록됩니다. |
+| **createOrUpdateIfMatchETag** | 지정된 **ID**를 가진 장치가 존재하지 않는 경우, 새로 등록됩니다. <br/>장치가 이미 존재하는 경우 **ETag**가 일치하는 경우에만 제공된 입력 데이터가 기존 정보를 덮어씁니다. <br/>**ETag**가 일치하지 않는 경우 불일치 오류가 로그 파일에 기록됩니다. |
 | **delete** | 지정된 **ID**를 가진 장치가 이미 존재하는 경우, **ETag** 값과 관계 없이 삭제됩니다. <br/>장치가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. |
-| **deleteIfMatchETag** | 지정된 **ID**를 가진 장치가 이미 존재하는 경우, **ETag**가 일치하는 경우에만 삭제됩니다. 장치가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. <br/>ETag가 일치하지 않는 경우 오류가 로그 파일에 기록됩니다. |
+| **deleteIfMatchETag** | 지정된 **ID**를 가진 장치가 이미 존재하는 경우, **ETag**가 일치하는 경우에만 삭제됩니다. 장치가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. <br/>ETag가 일치하지 않는 경우 불일치 오류가 로그 파일에 기록됩니다. |
 
 > [AZURE.NOTE] 직렬화 데이터가 장치에 대한 **importMode** 플래그를 명시적으로 정의하는 경우 가져오기 작업 중에 기본적으로 **createOrUpdate**를 가정합니다.
 
@@ -338,4 +338,4 @@ static string GetContainerSasUri(CloudBlobContainer container)
 - [IoT Hub 사용 현황 메트릭](iot-hub-metrics.md)
 - [IoT Hub 작업 모니터링](iot-hub-operations-monitoring.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

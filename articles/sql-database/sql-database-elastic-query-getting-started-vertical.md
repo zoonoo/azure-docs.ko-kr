@@ -3,7 +3,7 @@
 	description="수직 분할 데이터베이스에서 탄력적 데이터베이스 쿼리를 사용하는 방법"
 	services="sql-database"
 	documentationCenter=""  
-	manager="jeffreyg"
+	manager="jhubbard"
 	authors="sidneyh"/>
 
 <tags
@@ -12,10 +12,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="04/26/2016"
 	ms.author="torsteng" />
 
-# 데이터베이스 간 쿼리 시작(수직 분할) 
+# 데이터베이스 간 쿼리 시작(수직 분할)(미리 보기)
 
 Azure SQL 데이터베이스에 탄력적 데이터베이스 쿼리 (미리 보기)를 사용 하면 단일 연결 지점을 사용하여 여러 데이터베이스에 걸쳐 있는 T-SQL 쿼리를 실행할 수 있습니다. 이 항목은 [데이터베이스 수직 분할](sql-database-elastic-query-vertical-partitioning.md)에 적용됩니다.
 
@@ -39,7 +39,7 @@ Azure SQL 데이터베이스에 탄력적 데이터베이스 쿼리 (미리 보�
 	INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (321, 1) 
 	INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (564, 8) 
 
-이제 고객 데이터베이스에서 다음 쿼리를 실행하여 고객 정보 테이블을 만들고 샘플 데이터를 입력합니다.
+이제 **고객** 데이터베이스에서 다음 쿼리를 실행하여 **고객 정보** 테이블을 만들고 샘플 데이터를 입력합니다.
 
 	CREATE TABLE [dbo].[CustomerInformation]( 
 		[CustomerID] [int] NOT NULL, 
@@ -53,9 +53,6 @@ Azure SQL 데이터베이스에 탄력적 데이터베이스 쿼리 (미리 보�
 
 ## 데이터베이스 개체 만들기
 ### 데이터베이스 범위 마스터 키 및 자격 증명
-
-
-분할된 데이터베이스와 분할된 데이터베이스 관리자를 연결하는데 사용됩니다.
 
 1. SQL Server Management Studio 또는 Visual Studio의 SQL Server Data Tools를 엽니다.
 2. 주문 데이터베이스에 연결하고 T-SQL 명령을 실행 합니다.
@@ -109,4 +106,4 @@ Azure SQL 데이터베이스에 탄력적 데이터베이스 쿼리 (미리 보�
 
 <!--anchors-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0504_2016-->

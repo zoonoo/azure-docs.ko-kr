@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="04/28/2016" 
 	ms.author="bradsev" />
 
 
@@ -99,11 +99,9 @@ XUF99EW9OIQOMV7Q7 | 가족용 승용차
 
 
 ### 시뮬레이션된 데이터 생성
-1.	차량 텔레매틱스 노드 안의 오른쪽 위에 있는 화살표를 클릭하여 데이터 시뮬레이터 패키지를 다운로드합니다. 파일을 컴퓨터에 로컬로 저장하고 추출합니다.
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig3-vehicle-telemetry-blueprint.png) *그림 3 - 차량 원격 분석 솔루션 청사진*
+1.	차량 텔레매틱스 노드의 오른쪽 위에 있는 화살표를 클릭하여 데이터 시뮬레이터 패키지를 다운로드합니다. 파일을 저장하고 컴퓨터에 로컬로 추출합니다. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig3-vehicle-telemetry-blueprint.png) *그림 3 - 차량 원격 분석 솔루션 청사진*
 
-2.	로컬 컴퓨터에서 차량 텔레매틱스 시뮬레이터 패키지를 추출한 폴더로 이동합니다.
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig4-vehicle-telematics-simulator-folder.png) *그림 4 – 차량 텔레매틱스 시뮬레이터 폴더*
+2.	로컬 컴퓨터에서 차량 텔레매틱스 시뮬레이터 패키지를 추출한 폴더로 이동합니다. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig4-vehicle-telematics-simulator-folder.png) *그림 4 – 차량 텔레매틱스 시뮬레이터 폴더*
 
 3.	응용 프로그램 **CarEventGenerator.exe**를 실행합니다.
 
@@ -137,7 +135,7 @@ Azure 이벤트 허브, 스트림 분석 및 데이터 팩터리의 조합을 �
 *그림 7 - 데이터 수집을 위한 스트림 분석 작업 쿼리*
 
 ### 일괄 분석
-또한 더욱 충분한 일괄 분석을 위해 시뮬레이션된 차량 신호와 진단 데이터 집합의 추가 볼륨을 생성합니다. 이 작업은 일괄 처리에 적합한 대표 데이터 볼륨을 보장하는 데 필요합니다. 이 작업을 위해 1년 분량의 시뮬레이션된 차량 신호 및 진단 데이터 집합을 생성하기 위해 Azure Data Factory 워크플로에서 'PrepareSampleDataPipeline'이라는 파이프라인을 사용합니다. 요구 사항에 따라 사용자 지정할 데이터 팩터리 사용자 지정 DotNet Activity Visual Studio 솔루션을 다운로드하려면 [데이터 팩터리 사용자 지정 작업](http://go.microsoft.com/fwlink/?LinkId=717077)을 클릭하세요.
+또한 더욱 충분한 일괄 분석을 위해 시뮬레이션된 차량 신호와 진단 데이터 집합의 추가 볼륨을 생성합니다. 이 작업은 일괄 처리에 적합한 대표 데이터 볼륨을 보장하는 데 필요합니다. 이 작업을 위해 1년 분량의 시뮬레이션된 차량 신호 및 진단 데이터 집합을 생성하기 위해 Azure Data Factory 워크플로에서 "PrepareSampleDataPipeline"이라는 파이프라인을 사용합니다. 요구 사항에 따라 사용자 지정할 데이터 팩터리 사용자 지정 DotNet Activity Visual Studio 솔루션을 다운로드하려면 [데이터 팩터리 사용자 지정 작업](http://go.microsoft.com/fwlink/?LinkId=717077)을 클릭하세요.
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig8-vehicle-telematics-prepare-sample-data-for-batch-processing.png)
 
@@ -149,7 +147,7 @@ Azure 이벤트 허브, 스트림 분석 및 데이터 팩터리의 조합을 �
 
 *그림 9 - PrepareSampleDataPipeline*
 
-파이프라인이 성공적으로 실행되고 'RawCarEventsTable' 데이터 집합이 'Ready'로 표시되면 1년 분량의 시뮬레이션된 차량 신호 및 진단 데이터가 생성됩니다. 다음 폴더와 'connectedcar' 컨테이너 아래 저장소 계정에 생성된 파일을 볼 수 있습니다.
+파이프라인이 성공적으로 실행되고 "RawCarEventsTable" 데이터 집합이 "Ready"로 표시되면 1년 분량의 시뮬레이션된 차량 신호 및 진단 데이터가 생성됩니다. 다음 폴더와 "connectedcar" 컨테이너 아래 저장소 계정에 생성된 파일을 볼 수 있습니다.
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig10-vehicle-telematics-prepare-sample-data-pipeline-output.png)
 
@@ -167,19 +165,19 @@ Azure 이벤트 허브, 스트림 분석 및 데이터 팩터리의 조합을 �
 ## 준비
 >[AZURE.ALERT] 솔루션의 이 단계는 일괄 처리에만 적용됩니다.
 
-원시의 반구조화된 차량 신호 및 진단 데이터 집합은 효율적인 쿼리 및 확장성 있는 장기 저장을 위해 데이터 준비 단계에서 연/월 형식으로 분할됩니다(이를 통해 최초로 가득 참과 동시에 한 BLOB 계정에서 다른 계정으로 장애 조치할 수 있음). 출력 데이터(*PartitionedCarEventsTable*로 레이블 지정)는 고객의 "데이터 레이크"에 기초적이고 "가장 원시적인" 데이터 형식으로 장기간 보관됩니다. 이 파이프라인에 대한 입력 데이터는 일반적으로 무시됩니다. 출력 데이터가 입력에 대해 완전한 충실도를 포함하며 이후에 사용할 수 있도록 잘 저장(분할)되기 때문입니다.
+원시의 반구조화된 차량 신호 및 진단 데이터 집합은 효율적인 쿼리 및 확장성 있는 장기 저장을 위해 데이터 준비 단계에서 연/월 형식으로 분할됩니다(*즉*, 이를 통해 최초로 가득 참과 동시에 한 BLOB 계정에서 다른 계정으로 장애 조치할 수 있음). 출력 데이터(*PartitionedCarEventsTable*로 레이블 지정)는 고객의 "데이터 레이크"에 기초적이고 "가장 원시적인" 데이터 형식으로 장기간 보관됩니다. 이 파이프라인에 대한 입력 데이터는 일반적으로 무시됩니다. 출력 데이터가 입력에 대해 완전한 충실도를 포함하며 이후에 사용할 수 있도록 잘 저장(분할)되기 때문입니다.
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig11-vehicle-telematics-partition-car-events-workflow.png)
 
 *그림 11 - 자동차 이벤트 분할 워크플로*
 
-원시 데이터는 'PartitionCarEventsPipeline'에서 하이브 HDInsight 작업을 사용하여 분할됩니다. 1단계에서 생성한 1년 분량의 샘플 데이터가 연/월로 분할되어 1년 동안 각 월(총 12 분할)에 해당하는 차량 신호 및 진단 데이터 파티션을 생성합니다.
+원시 데이터는 “PartitionCarEventsPipeline”에서 하이브 HDInsight 작업을 사용하여 분할됩니다. 1단계에서 생성한 1년 분량의 샘플 데이터가 연/월로 분할되어 1년 동안 각 월(총 12 분할)에 해당하는 차량 신호 및 진단 데이터 파티션을 생성합니다.
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig12-vehicle-telematics-partition-car-events-pipeline.png)
 
 *그림 12 - PartitionCarEventsPipeline*
 
-아래에 표시된 'partitioncarevents.hql'라는 하이브 스크립트는 분할에 사용되며 다운로드한 zip의 '\\demo\\src\\connectedcar\\scripts' 폴더에 있습니다.
+아래에 표시된 "partitioncarevents.hql"이라는 하이브 스크립트는 분할에 사용되며 다운로드한 zip의 "\\demo\\src\\connectedcar\\scripts" 폴더에 있습니다.
 
 	SET hive.exec.dynamic.partition=true;
 	SET hive.exec.dynamic.partition.mode = nonstrict;
@@ -318,7 +316,7 @@ Azure 이벤트 허브, 스트림 분석 및 데이터 팩터리의 조합을 �
 
 *그림 13 - PartitionConnectedCarEvents 하이브 스크립트*
 
-파이프라인이 성공적으로 실행되면 'connectedcar' 컨테이너 아래 저장소 계정에 다음 파티션이 생성된 것을 확인할 수 있습니다.
+파이프라인이 성공적으로 실행되면 "connectedcar" 컨테이너 아래 저장소 계정에 다음 파티션이 생성된 것을 확인할 수 있습니다.
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig14-vehicle-telematics-partitioned-output.png)
 
@@ -372,14 +370,13 @@ PCA(주성분 분석)는 기능 선택, 분류 및 이상 감지에 적용할 �
 
 모든 평균은 3초의 TumblingWindow를 통해 계산됩니다. 이 경우 중복되지 않는 연속적인 시간 간격이 필요하므로 TubmlingWindow를 사용합니다.
 
-Azure 스트림 분석에서 모든 '창 작업' 기능에 대한 자세한 내용을 알아보려면 [창 작업(Azure 스트림 분석)](https://msdn.microsoft.com/library/azure/dn835019.aspx)을 클릭하세요.
+Azure 스트림 분석에서 모든 “창 작업” 기능에 대한 자세한 내용을 알아보려면 [창 작업(Azure 스트림 분석)](https://msdn.microsoft.com/library/azure/dn835019.aspx)을 클릭하세요.
 
 **실시간 예측**
 
 응용 프로그램은 실시간으로 기계 학습 모델을 운영할 솔루션의 일부로 포함됩니다. "RealTimeDashboardApp"이라는 응용 프로그램이 솔루션 배포의 일부로 만들어지고 구성됩니다. 이 응용 프로그램은 다음을 수행합니다.
 
-1.	스트림 분석이 이벤트를 연속적인 패턴으로 게시하는 이벤트 허브 인스턴스를 수신 대기합니다.
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig16-vehicle-telematics-stream-analytics-query-for-publishing.png)* 그림 16 - 데이터를 출력 이벤트 허브 인스턴스에 게시하기 위한 스트림 분석 쿼리* 
+1.	스트림 분석이 이벤트를 연속적인 패턴으로 게시하는 이벤트 허브 인스턴스를 수신 대기합니다. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig16-vehicle-telematics-stream-analytics-query-for-publishing.png)* 그림 16 - 데이터를 출력 이벤트 허브 인스턴스에 게시하기 위한 스트림 분석 쿼리* 
 
 2.	이 응용 프로그램이 수신하는 모든 이벤트에 대해 다음을 수행합니다.
 
@@ -392,17 +389,14 @@ Azure 스트림 분석에서 모든 '창 작업' 기능에 대한 자세한 내�
 
 ****실시간 대시보드 응용 프로그램을 실행하려면**
 
-1.	다이어그램 보기에서 PowerBI 노드를 클릭하고 속성 창에서 '실시간 대시보드 응용 프로그램 다운로드' 링크를 클릭합니다.
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17-vehicle-telematics-powerbi-dashboard-setup.png) *그림 17 - PowerBI 대시보드 설정 지침*
-2.	로컬에 압축을 풀고 저장합니다.
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig18-vehicle-telematics-realtimedashboardapp-folder.png) *그림 18 - RealtimeDashboardApp 폴더*
+1.	다이어그램 보기에서 PowerBI 노드를 클릭하고 속성 창에서 “실시간 대시보드 응용 프로그램 다운로드” 링크를 클릭합니다. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17-vehicle-telematics-powerbi-dashboard-setup.png) *그림 17 - PowerBI 대시보드 설정 지침*
+2.	로컬에 압축을 풀고 저장합니다. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig18-vehicle-telematics-realtimedashboardapp-folder.png) *그림 18 - RealtimeDashboardApp 폴더*
 3.	'RealtimeDashboardApp.exe' 응용 프로그램을 실행합니다.
-4.	유효한 Power BI 자격 증명을 제공하고 로그인한 후 동의를 클릭합니다.
-![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19a-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19b-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) 
+4.	유효한 Power BI 자격 증명을 제공하고 로그인한 후 동의를 클릭합니다. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19a-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19b-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) 
 
 *그림 19 - RealtimeDashboardApp: PowerBI에 로그인*
 
->[AZURE.NOTE] 참고: PowerBI 데이터 집합을 플러시하려는 경우 RealtimeDashboardApp을 'flushdata' 매개 변수와 함께 실행합니다.
+>[AZURE.NOTE] 참고: PowerBI 데이터 집합을 플러시하려는 경우 RealtimeDashboardApp을 “flushdata” 매개 변수와 함께 실행합니다.
 
 	RealtimeDashboardApp.exe -flushdata
 
@@ -424,11 +418,11 @@ Contoso Motors가 Azure 계산 기능으로 빅 데이터를 활용하여 주행
 
 **공격적인 주행 패턴**
 
-분할된 차량 신호 및 진단 데이터가 하이브를 사용하여 'AggresiveDrivingPatternPipeline'이라는 파이프라인에서 처리되어 공격적인 주행 패턴을 나타내는 모델, 위치, 차량 및 주행 상태 등을 결정합니다.
+분할된 차량 신호 및 진단 데이터가 하이브를 사용하여 "AggresiveDrivingPatternPipeline"이라는 파이프라인에서 처리되어 공격적인 주행 패턴을 나타내는 모델, 위치, 차량 및 주행 상태 등을 결정합니다.
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig20-vehicle-telematics-aggressive-driving-pattern.png) *그림 20 – 공격적인 주행 패턴 워크플로*
 
-공격적인 주행 조건 패턴을 분석하는 데 사용된 'aggresivedriving.hql'이라는 하이브 스크립트는 다운로드한 zip의 '\\demo\\src\\connectedcar\\scripts' 폴더에 있습니다.
+공격적인 주행 조건 패턴을 분석하는 데 사용된 "aggresivedriving.hql"이라는 하이브 스크립트는 다운로드한 zip의 "\\demo\\src\\connectedcar\\scripts" 폴더에 있습니다.
 
 	DROP TABLE IF EXISTS PartitionedCarEvents; 
 	CREATE EXTERNAL TABLE PartitionedCarEvents
@@ -491,7 +485,7 @@ Contoso Motors가 Azure 계산 기능으로 빅 데이터를 활용하여 주행
 
 차량의 트랜스미션 기어 위치, 브레이크 페달 상태 및 속도의 조합을 사용하여 고속에서 브레이크 패턴에 따라 난폭하고 공격적인 주행 동작을 감지합니다.
 
-파이프라인이 성공적으로 실행되면 'connectedcar' 컨테이너 아래 저장소 계정에 다음 파티션이 생성된 것을 확인할 수 있습니다.
+파이프라인이 성공적으로 실행되면 "connectedcar" 컨테이너 아래 저장소 계정에 다음 파티션이 생성된 것을 확인할 수 있습니다.
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig22-vehicle-telematics-aggressive-driving-pattern-output.png)
 
@@ -500,13 +494,13 @@ Contoso Motors가 Azure 계산 기능으로 빅 데이터를 활용하여 주행
 
 **연료 효율이 좋은 주행 패턴**
 
-분할된 차량 신호 및 진단 데이터가 하이브를 사용하여 'FuelEfficientDrivingPatternPipeline'이라는 파이프라인에서 처리되어 연료 효율이 좋은 주행 패턴을 나타내는 모델, 위치, 차량 및 주행 상태 등을 결정합니다.
+분할된 차량 신호 및 진단 데이터가 하이브를 사용하여 "FuelEfficientDrivingPatternPipeline"이라는 파이프라인에서 처리되어 연료 효율이 좋은 주행 패턴을 나타내는 모델, 위치, 차량 및 주행 상태 등을 결정합니다.
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig23-vehicle-telematics-fuel-efficient-driving-pattern.png)
 
 *그림 23 - 연료 효율이 좋은 주행 패턴 워크플로*
 
-공격적인 주행 조건 패턴을 분석하는 데 사용된 'fuelefficientdriving.hql'이라는 하이브 스크립트는 다운로드한 zip의 '\\demo\\src\\connectedcar\\scripts' 폴더에 있습니다.
+공격적인 주행 조건 패턴을 분석하는 데 사용된 "fuelefficientdriving.hql"이라는 하이브 스크립트는 다운로드한 zip의 "\\demo\\src\\connectedcar\\scripts" 폴더에 있습니다.
 
 	DROP TABLE IF EXISTS PartitionedCarEvents; 
 	CREATE EXTERNAL TABLE PartitionedCarEvents
@@ -570,7 +564,7 @@ Contoso Motors가 Azure 계산 기능으로 빅 데이터를 활용하여 주행
 
 차량의 트랜스미션 기어 위치, 브레이크 페달 상태, 속도 및 가속 페달 위치의 조합을 사용하여 가속, 브레이크 및 속도 패턴에 따라 연료 효율이 좋은 주행 동작을 감지합니다.
 
-파이프라인이 성공적으로 실행되면 'connectedcar' 컨테이너 아래 저장소 계정에 다음 파티션이 생성된 것을 확인할 수 있습니다.
+파이프라인이 성공적으로 실행되면 "connectedcar" 컨테이너 아래 저장소 계정에 다음 파티션이 생성된 것을 확인할 수 있습니다.
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig25-vehicle-telematics-fuel-efficient-driving-pattern-output.png)
 
@@ -658,7 +652,7 @@ Contoso Motors가 Azure 계산 기능으로 빅 데이터를 활용하여 주행
 
 *그림 29 - 회수 집계 하이브 쿼리*
 
-파이프라인이 성공적으로 실행되면 'connectedcar' 컨테이너 아래 저장소 계정에 다음 파티션이 생성된 것을 확인할 수 있습니다.
+파이프라인이 성공적으로 실행되면 "connectedcar" 컨테이너 아래 저장소 계정에 다음 파티션이 생성된 것을 확인할 수 있습니다.
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig30-vehicle-telematics-detect-anamoly-pipeline-output.png)
 
@@ -712,4 +706,4 @@ PowerBI 보고서 및 대시보드 설정에 관한 자세한 지침을 보려�
 
 이 문서는 차량 원격 분석 솔루션에 대한 자세한 드릴다운을 포함됩니다. 예측 및 동작과 함께 실시간 및 일괄 분석을 위한 람다 아키텍처 패턴을 설명합니다. 이 패턴은 실행 부하 과다 경로(실시간) 및 콜드 경로(일괄 처리) 분석이 필요한 다양한 사용 사례에 적용됩니다.
 
-<!----HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

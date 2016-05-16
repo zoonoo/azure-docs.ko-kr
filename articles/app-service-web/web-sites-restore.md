@@ -18,7 +18,7 @@
 
 # Azure 앱 서비스에서 앱 복원
 
-이 문서에서는 [앱 서비스](app-service-value-prop-what-is) 백업 기능을 사용하여 이전에 백업한 앱 서비스를 복원하는 방법을 보여 줍니다. 자세한 내용은 [앱 서비스 백업](web-sites-backup.md)을 참조하세요.
+이 문서에서는 [앱 서비스](../app-service/app-service-value-prop-what-is.md) 백업 기능을 사용하여 이전에 백업한 앱 서비스를 복원하는 방법을 보여 줍니다. 자세한 내용은 [앱 서비스 백업](web-sites-backup.md)을 참조하세요.
 
 앱 서비스 복원 기능을 사용하면 요청 시 연결된 데이터베이스(SQL 데이터베이스 또는 MySQL)와 함께 앱을 이전 상태로 복원하거나, 원래 앱의 백업 중 하나를 기반으로 새 앱을 만들 수 있습니다. 최신 버전과 병행하여 실행되는 앱을 새로 만드는 것이 A/B를 테스트하는 데 유용할 수 있습니다.
 
@@ -106,4 +106,4 @@
 [OperationDetails]: ./media/web-sites-restore/13OperationDetails.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0504_2016-->

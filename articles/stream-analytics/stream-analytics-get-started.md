@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="02/04/2016"
+	ms.date="05/03/2016"
 	ms.author="jeffstok" />
 
 
@@ -28,14 +28,16 @@ Azure 스트림 분석으로 실시간 부정 행위 검색에 대한 종단간 
 
 ## 시나리오: 실시간으로 통신 및 SIM 사기 감지
 
-통신 회사에는 많은 양의 들어오는 호출 데이터가 있습니다. 회사는 이 데이터로부터 다음 사항이 필요합니다. * 이 데이터를 관리하기 쉬운 양으로 줄이고 시간 및 지리적 지역에 따른 고객 사용량에 대한 정보를 파악합니다. * SIM 사기(지역적으로 다른 위치에 있지만 동일한 시간대에 동일한 ID에서 발생한 다중 호출)를 실시간으로 감지하여 고객에게 알리거나 서비스를 중단하여 쉽게 대응할 수 있도록 합니다.
+통신 회사에는 많은 양의 들어오는 호출 데이터가 있습니다. 회사는 데이터에 다음과 같은 사항이 필요합니다.
+* 이 데이터를 관리하기 쉬운 양으로 줄이고 시간 및 지리적 지역에 따른 고객 사용량에 대한 정보를 파악하고자 합니다.
+* 실시간으로 SIM 사기(지역적으로 다른 위치에 있지만 동일한 시간대에 동일한 ID에서 발생한 다중 호출)를 감지하여 고객에게 알리거나 서비스를 중단하여 쉽게 대응할 수 있도록 해야 합니다.
 
 정식 IoT(사물 인터넷) 시나리오에는 생성되고 있는 원격 분석 또는 센서 데이터가 엄청나게 많이 있으며 고객들은 이를 집계하거나 이상 활동에 대해 실시간으로 경고하기를 원합니다.
 
 ## 필수 조건
 
 - Microsoft 다운로드 센터에서 [TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip)을 다운로드합니다. 
-- 선택 사항: 이벤트 생성기의 소스 코드([GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGenerator))
+- 선택 사항: [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGenerator)에서 가져온 이벤트 생성기 소스 코드
 
 ## Azure 이벤트 허브 입력 및 소비자 그룹 만들기
 
@@ -257,4 +259,4 @@ Blob 저장소의 컨테이너가 없는 경우 아래 단계에 따라 만듭�
 - [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0504_2016-->

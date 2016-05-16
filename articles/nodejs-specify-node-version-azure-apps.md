@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="03/04/2016"
+	ms.date="05/04/2016"
 	ms.author="robmcm"/>
 
 # Azure 응용 프로그램에서 Node.js 버전 지정
@@ -102,4 +102,4 @@ Azure는 Node.js의 기본 버전을 여러 개 제공하지만 기본적으로 
 [모듈 작업]: nodejs-use-node-modules-azure-apps.md
 [Node.js 웹 사이트 빌드 및 배포]: web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

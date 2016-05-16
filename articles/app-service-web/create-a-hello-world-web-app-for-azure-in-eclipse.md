@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Eclipse에서 Azure용 Hello World 웹앱 만들기" 
-	description="이 자습서에서는 Azure Toolkit for Eclipse 사용하여 Azure용 Hello World 웹앱을 만드는 방법을 보여 줍니다." 
+	description="이 자습서에서는Eclipse용 Azure 도구 키트를 사용하여 Azure용 Hello World 웹앱을 만드는 방법을 보여 줍니다." 
 	services="app-service\web" 
 	documentationCenter="java" 
 	authors="rmcmurray" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="03/07/2016" 
+	ms.date="05/04/2016" 
 	ms.author="robmcm"/>
 
 # Eclipse에서 Azure용 Hello World 웹앱 만들기
 
-이 자습서에서는 [Azure Toolkit for Eclipse]를 사용하여 기본 Hello World 응용 프로그램을 만들고 Azure에 웹앱으로 배포하는 방법을 보여 줍니다. 기본 JSP 예제는 편의를 위해 표시되지만 Azure 배포가 관련되는 한 아주 유사한 단계는 Java 서블릿에 적합합니다.
+이 자습서에서는 [Eclipse용 Azure 도구 키트]를 사용하여 기본 Hello World 응용 프로그램을 만들고 Azure에 웹앱으로 배포하는 방법을 보여 줍니다. 기본 JSP 예제는 편의를 위해 표시되지만 Azure 배포가 관련되는 한 아주 유사한 단계는 Java 서블릿에 적합합니다.
 
 이 자습서를 완료한 경우 웹 브라우저에서 응용 프로그램을 보면 다음 그림과 같이 표시됩니다.
 
@@ -29,7 +29,7 @@
 * JDK(Java 개발자 키트), v 1.7 이상
 * Eclipse IDE for Java EE Developers, Indigo 이상. <http://www.eclipse.org/downloads/>에서 다운로드할 수 있습니다.
 * Java 기반 웹 서버 또는 응용 프로그램 서버의 배포(예: Apache Tomcat 또는 Jetty)
-* Azure 구독(<https://azure.microsoft.com/ko-KR/free/> 또는 <http://azure.microsoft.com/pricing/purchase-options/>에서 구입할 수 있음)
+* Azure 구독(<https://azure.microsoft.com/free/> 또는 <http://azure.microsoft.com/pricing/purchase-options/>에서 구입할 수 있음)
 * Eclipse용 Azure 도구 키트 자세한 내용은 [Eclipse용 Azure 도구 키트 설치]를 참조하세요.
 
 ## Hello World 응용 프로그램을 만들려면
@@ -53,90 +53,102 @@
 
 1. Eclipse의 Project Explorer에서 **MyHelloWorld**를 마우스 오른쪽 단추로 클릭합니다.
 
-1. 상황에 맞는 메뉴에서 **Azure**를 선택하고 **Publish as Azure Web App...**을 클릭합니다.
+1. 상황에 맞는 메뉴에서 **Azure**를 선택하고 **Azure 웹앱으로 게시...**를 클릭합니다.
+
    ![][03]
-1. Eclipse에서 Azure에 이미 로그인하지 않은 경우 Azure 계정에 로그인하라는 메시지가 표시됩니다.
+   
+   또는 프로젝트 탐색기에서 웹 응용 프로그램 프로젝트를 선택한 상태로 도구 모음에서 **게시** 드롭다운 단추를 클릭하고 다음에서 **Azure 웹앱으로 게시**를 선택할 수 있습니다.
+   
+   ![][publishDropdownButton]
+   
+1. Eclipse에서 Azure에 로그인하지 않은 경우 Azure 계정으로 로그인하라는 메시지가 표시됩니다.
+
    ![][04]
-   참고: 여러 Azure 계정이 있는 경우 로그인 프로세스 중에 동일하게 보이는 메시지를 포함하여 일부 메시지가 여러 번 표시될 수 있습니다. 이 경우 로그인 지침에 따라 계속 진행합니다.
-1. Azure 계정에 성공적으로 로그인하면 **Manage Subscriptions** 대화 상자에 자격 증명과 연결된 구독 목록이 표시됩니다. 여러 구독이 나열된 경우 특정 하위 집합만 사용하려면 선택적으로 사용할 구독을 선택 취소할 수 있습니다. 구독을 선택했으면 **Close**를 클릭합니다.
+   
+   참고: Azure 계정이 여러 개 있으면 로그인 프로세스 중에 일부 메시지가 동일한 것이더라도 두 번 이상 표시될 수 있습니다. 이 경우 로그인 지침에 따라 계속 진행합니다.
+1. Azure 계정에 성공적으로 로그인하면 **구독 관리** 대화 상자에는 자격 증명과 연결된 구독 목록이 표시됩니다. 여러 구독이 나열된 경우 특정 하위 집합만 사용하려면 선택적으로 사용할 구독을 선택 취소할 수 있습니다. 구독을 선택했으면 **닫기**를 클릭합니다.
+
    ![][05]
-1. **Deploy to Azure Web App Container** 대화 상자가 나타나는 경우 이전에 만든 웹앱 컨테이너가 표시됩니다. 컨테이너를 만들지 않은 경우에는 목록이 비어 있습니다.   
+   
+1. **Azure 웹앱 컨테이너에 배포** 대화 상자가 나타나는 경우 이전에 만든 웹앱 컨테이너가 표시됩니다. 컨테이너를 만들지 않은 경우에는 목록이 비어 있습니다.
+
    ![][06]
+   
 1. 이전에 Azure 웹앱 컨테이너를 만들지 않은 경우 또는 응용 프로그램을 새 컨테이너에 게시하려는 경우 다음 단계를 사용합니다. 그렇지 않으면 기존 웹앱 컨테이너를 선택하고 아래의 7단계로 건너뜁니다.
 
-  1. **New...**를 클릭합니다.
+  1. **새로 만들기...**를 클릭합니다.
 
-  1. **New Web App Container** 대화 상자가 표시됩니다.
+  1. **새 웹앱 컨테이너** 대화 상자가 표시됩니다.
 
         ![][07]
 
-  1. 웹앱 컨테이너의 **DNS Label**을 입력합니다. 이는 Azure에서 웹 응용 프로그램에 대한 호스트 URL의 리프 DNS 레이블을 형성합니다. 참고: 이름은 사용 가능한 이름이어야 하며, Azure 웹앱 명명 요구 사항을 준수해야 합니다.
+  1. 웹앱 컨테이너에 **DNS 레이블**을 입력합니다. 이는 Azure에서 웹 응용 프로그램에 대한 호스트 URL의 리프 DNS 레이블을 형성합니다. 참고: 이름은 사용 가능해야 하며, Azure 웹앱 명명 요구 사항을 준수해야 합니다.
 
-  1. **Web Container** 드롭다운 메뉴에서 응용 프로그램의 적절한 소프트웨어를 선택합니다.
+  1. **웹 컨테이너** 드롭다운 메뉴에서 응용 프로그램에 적절한 소프트웨어를 선택합니다.
 
         현재, Tomcat 8, Tomcat 7, Jetty 9 중에서 선택할 수 있습니다. 선택한 소프트웨어의 최근 배포는 Azure에서 제공되며, Oracle에서 만들고 Azure에서 제공되는 JDK 8의 최근 배포에서 실행됩니다.
 
-  1. **Subscription** 드롭다운 메뉴에서 이 배포에 사용할 구독을 선택합니다.
+  1. **구독** 드롭다운 메뉴에서 이 배포에 사용할 구독을 선택합니다.
 
-  1. **Resource Group** 드롭다운 메뉴에서 웹앱을 연결할 리소스 그룹을 선택합니다.
+  1. **리소스 그룹** 드롭다운 메뉴에서 웹앱을 연결할 리소스 그룹을 선택합니다.
 
         참고: Azure 리소스 그룹을 사용하여 함께 삭제할 수 있도록 관련된 리소스를 그룹화할 수 있습니다.
 
         기존 리소스 그룹(있는 경우)을 선택하고 아래 g 단계로 건너뛰거나 이들 단계를 통해 새 리소스 그룹을 만들 수 있습니다.
 
-      * **New...**를 클릭합니다.
+      * **새로 만들기...**를 클릭합니다.
 
-      * **New Resource Group** 대화 상자가 표시됩니다.
+      * **새 리소스 그룹** 대화 상자가 표시됩니다.
 
             ![][08]
 
-      * **Name** 텍스트 상자에서 새 리소스 그룹의 이름을 지정합니다.
+      * **이름** 텍스트 상자에서 새 리소스 그룹의 이름을 지정합니다.
 
-      * **Region** 드롭다운 메뉴에서 리소스 그룹의 적절한 Azure 데이터 센터 위치를 선택합니다.
+      * **지역** 드롭다운 메뉴에서 리소스 그룹에 적절한 Azure 데이터 센터 위치를 선택합니다.
 
       * **확인**을 클릭합니다.
 
-  1. **App Service Plan** 드롭다운 메뉴에 선택한 리소스 그룹과 연결된 앱 서비스 요금제가 나열됩니다.
+  1. **앱 서비스 계획** 드롭다운 메뉴에 선택한 리소스 그룹과 연결된 앱 서비스 계획이 나열됩니다.
 
         참고: 앱 서비스 계획은 웹 앱, 가격 책정 계층 및 계산 인스턴스 크기의 위치와 같은 정보를 지정합니다. 하나의 앱 서비스 계획은 여러 개의 웹 앱에 대해 사용될 수 있기 때문에 특정 웹 앱 배포와는 별도로 관리됩니다.
 
         기존 앱 서비스 계획(있는 경우)을 선택하고 아래 h 단계로 건너뛰거나 이들 단계를 통해 새 앱 서비스 계획을 만들 수 있습니다.
 
-      * **New...**를 클릭합니다.
+      * **새로 만들기...**를 클릭합니다.
 
-      * **New App Service Plan** 대화 상자가 표시됩니다.
+      * **새 앱 서비스 계획** 대화 상자가 표시됩니다.
 
             ![][09]
 
-      * **Name** 텍스트 상자에서 새 앱 서비스 요금제의 이름을 지정합니다.
+      * **이름** 텍스트 상자에서 새 앱 서비스 계획의 이름을 지정합니다.
 
-      * **Location** 드롭다운 메뉴에서 요금제의 적절한 Azure 데이터 센터 위치를 선택합니다.
+      * **위치** 드롭다운 메뉴에서 계획에 적절한 Azure 데이터 센터 위치를 선택합니다.
 
-      * **Pricing Tier** 드롭다운 메뉴에서 요금제의 적절한 가격 책정을 선택합니다. 테스트 목적으로 **Free**를 선택할 수 있습니다.
+      * **가격 책정 계층** 드롭다운 메뉴에서 계획에 적절한 가격 책정을 선택합니다. 테스트 목적으로 **Free**를 선택할 수 있습니다.
 
-      * **Instance Size** 드롭다운 메뉴에서 요금제의 적절한 인스턴스 크기를 선택합니다. 테스트 목적으로 **Small**을 선택할 수 있습니다.
+      * **인스턴스 크기** 드롭다운 메뉴에서 계획에 적절한 인스턴스 크기를 선택합니다. 테스트 목적으로 **Small**을 선택할 수 있습니다.
 
   1. 위 단계를 모두 완료한 경우 New Web App Container 대화 상자가 다음 그림과 유사하게 표시됩니다.
 
         ![][10]
 
-  1. **OK**를 클릭하여 웹앱 컨테이너 만들기를 완료합니다.
+  1. **확인**을 클릭하여 새 웹앱 컨테이너 만들기를 완료합니다.
 
-        웹 앱 컨테이너의 목록이 새로 고쳐지도록 몇 초 간 기다리고 나면 새로 만든 웹 앱 컨테이너를 목록에서 선택할 수 있게 됩니다.
+        Wait a few seconds for the list of the Web App containers to be refreshed, and your newly-created web app container should now be selected in the list.
 
 1. 이제 Azure에 웹앱의 초기 배포를 완료할 준비가 되었습니다.
 
     ![][11]
 
-    **OK**를 클릭하여 선택한 웹앱 컨테이너에 Java 응용 프로그램을 배포합니다.
+    **확인**을 클릭하여 선택한 웹앱 컨테이너에 Java 응용 프로그램을 배포합니다.
 
-    참고: 기본적으로 응용 프로그램은 응용 프로그램 서버의 하위 디렉터리로 배포됩니다. 루트 응용 프로그램으로 배포하려면 **OK**를 클릭하기 전에 **Deploy to root** 확인란을 선택하세요.
+    참고: 기본적으로 응용 프로그램은 응용 프로그램 서버의 하위 디렉터리로 배포됩니다. 루트 응용 프로그램으로 배포하려면 **확인**을 클릭하기 전에 **루트에 배포** 확인란을 선택합니다.
 
-1. 이제 웹앱의 배포 상태를 나타내는 **Azure Activity Log** 보기를 확인합니다.
+1. 이제 웹앱의 배포 상태를 나타내는 **Azure 동작 로그** 보기를 확인합니다.
 
     ![][12]
 
-    Azure에 웹앱을 배포하는 프로세스는 몇 초 내에 완료됩니다. 응용 프로그램이 준비되면 **Status** 열에 **Published**라는 링크가 표시됩니다. 이 링크를 클릭하면 배포된 웹앱의 홈 페이지로 이동합니다.
+    Azure에 웹앱을 배포하는 프로세스는 몇 초 내에 완료됩니다. 응용 프로그램이 준비되면 **상태** 열에 **게시됨**이라는 링크가 표시됩니다. 이 링크를 클릭하면 배포된 웹앱의 홈 페이지로 이동합니다.
 
 ## 웹앱 업데이트
 
@@ -145,29 +157,28 @@
 * 기존 Java 웹앱의 배포를 업데이트할 수 있습니다.
 * 동일한 웹앱 컨테이너에 추가 Java 응용 프로그램을 게시할 수 있습니다.
 
-두 경우 모두 프로세스는 동일하며 몇 초 정도만 걸립니다.
+두 경우 모두 프로세스는 동일하며 몇 초만 소요됩니다.
 
 1. Eclipse Project Explorer에서 업데이트하거나 기존 웹앱 컨테이너에 추가할 Java 응용 프로그램을 마우스 오른쪽 단추로 클릭합니다.
 
-2. 상황에 맞는 메뉴가 나타나면 **Azure**를 선택한 다음 **Publish as Azure Web App...**을 선택합니다.
+2. 상황에 맞는 메뉴가 나타나면 **Azure**를 선택한 다음 **Azure 웹앱으로 게시...**를 선택합니다.
 
-3. 이전에 이미 로그인했으므로 기존 웹앱 컨테이너 목록이 표시됩니다. Java 응용 프로그램을 게시하거나 다시 게시할 컨테이너를 선택하고 **OK**를 클릭합니다.
+3. 이전에 이미 로그인했으므로 기존 웹앱 컨테이너 목록이 표시됩니다. Java 응용 프로그램을 게시하거나 다시 게시할 컨테이너를 선택하고 **확인**을 클릭합니다.
 
-몇 초 후 **Azure Activity Log** 보기에 업데이트된 배포가 **Published**로 표시되고, 웹 브라우저에서 업데이트된 응용 프로그램을 확인할 수 있습니다.
+몇 초 후 **Azure 동작 로그** 보기에 업데이트된 배포가 **게시됨**로 표시되고, 웹 브라우저에서 업데이트된 응용 프로그램을 확인할 수 있습니다.
 
 ## 기존 웹앱 중지
 
-기존 Azure 웹앱 컨테이너(배포된 모든 Java 응용 프로그램 포함)를 중지하려면 **Azure Explorer** 보기를 사용하면 됩니다.
+기존 Azure 웹앱 컨테이너(여기에 배포된 모든 Java 응용 프로그램 포함)를 중지하려면 **Azure 탐색기** 보기를 사용하면 됩니다.
 
-**Azure Explorer** 보기가 이미 열려 있지 않은 경우 Eclipse에서 **Window** 메뉴를 클릭한 다음 **Show View**, **Other...**, **Azure**, **Azure Explorer**를 차례로 클릭합니다. 이전에 로그인하지 않은 경우 로그인하라는 메시지가 나타납니다.
+**Azure 탐색기** 보기가 열려 있지 않은 경우 Eclipse에서 **Window** 메뉴를 클릭한 다음 **보기 표시**, **기타...**, **Azure**, **Azure 탐색기**를 차례로 클릭합니다. 이전에 로그인하지 않은 경우 로그인하라는 메시지가 나타납니다.
 
-**Azure Explorer** 보기가 표시되면 다음 단계에 따라 웹앱을 중지합니다.
+**Azure 탐색기** 보기가 표시되면 다음 단계에 따라 웹앱을 중지합니다.
 
 1. **Azure** 노드를 확장합니다.
-2. **Web Apps** 노드를 확장합니다. 
+2. **웹앱** 노드를 확장합니다. 
 3. 원하는 웹앱을 마우스 오른쪽 단추로 클릭합니다.
-5. 상황에 맞는 메뉴가 나타나면 **Stop**을 클릭합니다.
-    ![][13]
+5. 상황에 맞는 메뉴가 나타나면 **중지**를 클릭합니다. ![][13]
 
 ## 다음 단계
 
@@ -183,7 +194,7 @@
 <!-- URL List -->
 
 [Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
-[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Eclipse용 Azure 도구 키트]: http://go.microsoft.com/fwlink/?LinkID=699529
 [Eclipse용 Azure 도구 키트 설치]: http://go.microsoft.com/fwlink/?LinkId=699546
 
 <!-- IMG List -->
@@ -201,7 +212,6 @@
 [11]: ./media/create-a-hello-world-web-app-for-azure-in-eclipse/11-Completed-Deploy-Dialog.png
 [12]: ./media/create-a-hello-world-web-app-for-azure-in-eclipse/12-Activity-Log-View.png
 [13]: ./media/create-a-hello-world-web-app-for-azure-in-eclipse/13-Azure-Explorer-Web-App.png
+[publishDropdownButton]: ./media/create-a-hello-world-web-app-for-azure-in-eclipse/publishDropdownButton.png
 
-<!---HONumber=AcomDC_0309_2016-->
-
-
+<!---HONumber=AcomDC_0504_2016-->

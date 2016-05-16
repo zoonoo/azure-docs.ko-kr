@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="04/28/2016"
 	ms.author="mohabib;xibingao;bradsev" />
 
 # 고급 분석을 위해 Azure SQL Server 가상 컴퓨터를 IPython Notebook으로 설정
@@ -81,6 +81,7 @@ Azure 가상 컴퓨터 갤러리에는 Microsoft SQL Server가 포함된 몇 개
     -   실행 중(프로비전 중)
     -   실행 중
 
+
 ##<a name="RemoteDesktop"></a>원격 데스크톱을 사용하여 가상 컴퓨터 열기 및 설치 완료
 
 1.  프로비전이 완료되면 가상 컴퓨터의 이름을 클릭하여 대시보드 페이지로 이동합니다. 페이지 맨 아래에 있는 **Connect**를 클릭합니다.
@@ -93,11 +94,12 @@ Azure 가상 컴퓨터 갤러리에는 Microsoft SQL Server가 포함된 몇 개
 
 Windows 원격 데스크톱을 사용하여 가상 컴퓨터에 연결된 후 가상 컴퓨터는 다른 컴퓨터와 상당히 유사하게 작동합니다. SQL Server Management Studio(가상 컴퓨터에서 실행 중인)가 설치되어 있는 기본 SQL Server 인스턴스에 일반적인 방식으로 연결합니다.
 
+
 ##<a name="InstallIPython"></a>IPython Notebook 및 기타 지원 도구 설치
 
 IPython Notebook 서버 역할을 하도록 새 SQL Server VM을 구성하고 AzCopy, Azure 저장소 탐색기, 유용한 데이터 과학 Python 패키지 등의 추가 지원 도구를 설치할 수 있도록 특별한 사용자 지정 스크립트가 제공됩니다. 설치하려면 다음을 수행합니다.
 
-- Windows 시작 아이콘을 마우스 오른쪽 단추로 클릭하고 **명령 프롬프트(관리자)**를 클릭합니다.
+- **Windows 시작** 아이콘을 마우스 오른쪽 단추로 클릭하고 **명령 프롬프트(관리자)**를 클릭합니다.
 - 다음 명령을 복사하여 명령 프롬프트에 붙여 넣습니다.
 
     	set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/MachineSetup/Azure_VM_Setup_Windows.ps1'
@@ -154,7 +156,7 @@ SQL Server 데이터베이스 엔진은 도메인 환경에서만 Windows 인증
 
 	SQL Server Management Studio를 사용하여 인증 모드를 변경하려면 다음을 수행합니다.
 
-3.  SQL Server Management Studio 개체 탐색기에서 SQL Server 인스턴스의 이름(가상 컴퓨터 이름)을 마우스 오른쪽 단추로 클릭한 후 **속성**을 클릭합니다.
+3.  **SQL Server Management Studio 개체 탐색기**에서 SQL Server 인스턴스의 이름(가상 컴퓨터 이름)을 마우스 오른쪽 단추로 클릭한 후 **속성**을 클릭합니다.
 
     ![서버 속성][7]
 
@@ -162,19 +164,20 @@ SQL Server 데이터베이스 엔진은 도메인 환경에서만 Windows 인증
 
     ![인증 모드 선택][8]
 
-5.  SQL Server Management Studio 대화 상자에서 **확인**을 클릭하여 SQL Server를 다시 시작해야 하는 요구 사항을 확인합니다.
+5.  **SQL Server Management Studio** 대화 상자에서 **확인**을 클릭하여 SQL Server를 다시 시작해야 하는 요구 사항을 확인합니다.
 
-6.  개체 탐색기에서 서버를 마우스 오른쪽 단추로 클릭한 후 **다시 시작**을 클릭합니다. SQL Server 에이전트가 실행 중인 경우 에이전트도 다시 시작해야 합니다.
+6.  **개체 탐색기**에서 서버를 마우스 오른쪽 단추로 클릭한 후 **다시 시작**을 클릭합니다. SQL Server 에이전트가 실행 중인 경우 에이전트도 다시 시작해야 합니다.
 
     ![다시 시작][9]
 
-7.  SQL Server Management Studio 대화 상자에서 **예**를 클릭하여 SQL Server를 다시 시작한다는 데 동의합니다.
+7.  **SQL Server Management Studio** 대화 상자에서 **예**를 클릭하여 SQL Server를 다시 시작한다는 데 동의합니다.
 
 ##<a name="Logins"></a>SQL Server 인증 로그인 만들기
 
 다른 컴퓨터에서 데이터베이스 엔진에 연결하려면 SQL Server 인증 로그인을 하나 이상 만들어야 합니다.
 
-> [AZURE.TIP] SQL Server Management Studio를 사용하거나 프로그래밍 방식으로 새 SQL Server 로그인을 만들 수 있습니다. SQL 인증을 사용하는 새 sysadmin 사용자를 프로그래밍 방식으로 만들려면 **새 쿼리**를 시작하고 다음 스크립트를 실행합니다. <새 사용자 이름> 및 <새 암호>를 원하는 사용자 이름 및 암호로 바꿉니다. 필요에 따라 암호 정책을 조정합니다(샘플 코드에서는 정책 확인 및 암호 만료를 해제함). SQL Server 로그인에 대한 자세한 내용은 [로그인 만들기](http://msdn.microsoft.com/library/aa337562.aspx)를 참조하십시오.
+SQL Server Management Studio를 사용하거나 프로그래밍 방식으로 새 SQL Server 로그인을 만들 수 있습니다. SQL 인증을 사용하는 새 sysadmin 사용자를 프로그래밍 방식으로 만들려면 **새 쿼리**를 시작하고 다음 스크립트를 실행합니다. <새 사용자 이름> 및 <새 암호>를 원하는 *사용자 이름* 및 *암호*로 바꿉니다.
+
 
     USE master
     go
@@ -185,9 +188,12 @@ SQL Server 데이터베이스 엔진은 도메인 환경에서만 Windows 인증
 
     EXEC sp_addsrvrolemember @loginame = N'<new user name>', @rolename = N'sysadmin';
 
+
+필요에 따라 암호 정책을 조정합니다(샘플 코드에서는 정책 확인 및 암호 만료를 해제함). SQL Server 로그인에 대한 자세한 내용은 [로그인 만들기](http://msdn.microsoft.com/library/aa337562.aspx)를 참조하십시오.
+
 SQL Server Management Studio를 사용하여 새 SQL Server 로그인을 만들려면 다음을 수행합니다.
 
-1.  SQL Server Management Studio 개체 탐색기에서 새 로그인을 만들 서버 인스턴스의 폴더를 확장합니다.
+1.  **SQL Server Management Studio 개체 탐색기**에서 새 로그인을 만들 서버 인스턴스의 폴더를 확장합니다.
 
 2.  **보안** 폴더를 마우스 오른쪽 단추로 클릭하고, **새로 만들기**를 가리키고 **로그인...**을 선택합니다.
 
@@ -221,11 +227,13 @@ SQL Server Management Studio를 사용하여 새 SQL Server 로그인을 만들�
 
 ##<a name="DNS"></a>가상 컴퓨터의 DNS 이름 확인
 
-다른 컴퓨터에서 SQL Server 데이터베이스 엔진에 연결하려면 가상 컴퓨터의 DNS(Domain Name System) 이름을 알아야 합니다. 이 이름은 인터넷에서 가상 컴퓨터를 식별하는 이름입니다. IP 주소를 사용할 수 있지만 Azure가 중복 또는 유지 관리를 위해 리소스를 이동할 경우 IP 주소가 변경될 수 있습니다. DNS 이름은 새 IP 주소로 리디렉션할 수 있으므로 안정적입니다.
+다른 컴퓨터에서 SQL Server 데이터베이스 엔진에 연결하려면 가상 컴퓨터의 DNS(Domain Name System) 이름을 알아야 합니다.
+
+이 이름은 인터넷에서 가상 컴퓨터를 식별하는 이름입니다. IP 주소를 사용할 수 있지만 Azure가 중복 또는 유지 관리를 위해 리소스를 이동할 경우 IP 주소가 변경될 수 있습니다. DNS 이름은 새 IP 주소로 리디렉션할 수 있으므로 안정적입니다.
 
 1.  Azure 클래식 포털(또는 이전 단계)에서 **가상 컴퓨터**를 선택합니다.
 
-2.  **가상 컴퓨터 인스턴스** 페이지의 **DNS 이름** 열에서 **http://**로 시작하는 가상 컴퓨터의 DNS 이름을 찾아서 복사합니다. 사용자 인터페이스에 전체 이름이 표시되지 않을 수도 있지만 이름을 마우스 오른쪽 단추로 클릭하고 복사를 선택합니다.
+2.  **가상 컴퓨터 인스턴스** 페이지의 **DNS 이름** 열에서 **http://** 로 시작하는 가상 컴퓨터의 DNS 이름을 찾아서 복사합니다. 사용자 인터페이스에 전체 이름이 표시되지 않을 수도 있지만 이름을 마우스 오른쪽 단추로 클릭하고 복사를 선택합니다.
 
 ##<a name="cde"></a>다른 컴퓨터에서 데이터베이스 엔진에 연결
 
@@ -243,7 +251,7 @@ SQL Server Management Studio를 사용하여 새 SQL Server 로그인을 만들�
 
 ##<a name="amlconnect"></a>Azure 기계 학습에서 데이터베이스 엔진에 연결
 
-고급 분석 프로세스 및 기술의 이후 단계에서는 [Azure 기계 학습 스튜디오](https://studio.azureml.net)를 사용하여 기계 학습 모델을 빌드 및 배포합니다. 학습 또는 점수 매기기를 위해 SQL Server VM 데이터베이스에서 직접 Azure 기계 학습으로 데이터를 수집하려면 새 [Azure 기계 학습 스튜디오](https://studio.azureml.net) 실험에서 판독기 모듈을 사용합니다. 이 항목은 고급 분석 프로세스 및 기술 링크를 통해 보다 자세히 다룹니다. 지침은 [Azure 기계 학습 스튜디오란?](machine-learning-what-is-ml-studio.md)을 참조하세요.
+Cortana 분석 프로세스의 이후 단계에서는 [Azure 기계 학습 스튜디오](https://studio.azureml.net)를 사용하여 기계 학습 모델을 빌드 및 배포합니다. 학습 또는 점수 매기기를 위해 SQL Server VM 데이터베이스에서 직접 Azure 기계 학습으로 데이터를 수집하려면 새 [Azure 기계 학습 스튜디오](https://studio.azureml.net) 실험에서 **판독기** 모듈을 사용합니다. 이 항목은 Cortana 분석 프로세스 가이드 링크를 통해 보다 자세히 다룹니다. 지침은 [Azure 기계 학습 스튜디오란?](machine-learning-what-is-ml-studio.md)을 참조하세요.
 
 2.	[판독기 모듈](https://msdn.microsoft.com/library/azure/dn905997.aspx)의 **속성** 창에 있는 **데이터 원본** 드롭다운 목록에서 **Azure SQL 데이터베이스**를 선택합니다.
 
@@ -298,4 +306,4 @@ Azure 가상 컴퓨터는 **종량제**로 비용이 청구됩니다. 가상 컴
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

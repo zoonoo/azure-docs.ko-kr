@@ -14,12 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="04/27/2016"
 	ms.author="jgao"/>
 
 
-#HDInsight에서 Hadoop 클러스터의 가용성 및 안정성
+#HDInsight에서 Windows 기반 Hadoop 클러스터의 가용성 및 안정성
 
+
+>[AZURE.NOTE] 이 문서에서 사용한 단계는 Windows 기반 HDInsight 클러스터를 대상으로 합니다. Linux 기반 클러스터를 사용하는 경우 Linux 관련 정보는 [HDInsight에서 Linux 기반 Hadoop 클러스터의 가용성 및 안정성](hdinsight-high-availability-linux.md)을 참조하세요.
 
 HDInsight를 사용하면 고객이 서로 다른 데이터 분석 작업을 위한 다양한 클러스터 형식을 배포할 수 있습니다. 현재 제공되는 클러스터 유형은 쿼리 및 분석 작업을 위한 Hadoop 클러스터, NoSQL 작업을 위한 HBase 클러스터 및 실시간 이벤트 처리 작업을 위한 Storm 클러스터입니다. 지정된 클러스터 유형 내에서는 다양한 노드에 대해 여러 역할이 존재합니다. 예:
 
@@ -106,4 +108,4 @@ SDK의 경우에도 상황은 비슷합니다. SDK를 사용하는 클러스터�
 - [RDP를 사용하여 HDInsight 클러스터에 연결](hdinsight-administer-use-management-portal.md#rdp)
 - [HDInsight .NET SDK 사용](hdinsight-provision-clusters.md#sdk)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

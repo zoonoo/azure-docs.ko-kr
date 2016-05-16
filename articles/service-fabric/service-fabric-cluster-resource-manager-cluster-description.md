@@ -214,10 +214,10 @@ ClusterManifest.xml
 ClusterManifest.xml
 
 ```xml
-        <Section Name=" NodeBufferPercentage">
-            <Parameter Name="DiskSpace" Value="10" />
-            <Parameter Name="Memory" Value="15" />
-            <Parameter Name="SomeOtherMetric" Value="20" />
+        <Section Name="NodeBufferPercentage">
+            <Parameter Name="DiskSpace" Value="0.10" />
+            <Parameter Name="Memory" Value="0.15" />
+            <Parameter Name="SomeOtherMetric" Value="0.20" />
         </Section>
 ```
 클러스터의 버퍼링된 용량이 부족하면 새 서비스에 만들기 위한 호출은 실패합니다. 업그레이드 및 실패로 인해 노드가 용량을 초과하지 않도록 클러스터가 예비 공간을 유지해야 합니다. 리소스 관리자는 PowerShell 및 쿼리 API를 통해 이 정보를 많이 공개하기 때문에, 버퍼링된 용량 설정, 총 용량, 주어진 모든 메트릭에 대한 현재 소비량을 볼 수 있습니다. 여기에서 출력의 예제를 볼 수 있습니다.
@@ -262,4 +262,4 @@ LoadMetricInformation     :
 [Image6]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-placement-constraints-node-properties.png
 [Image7]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-nodes-and-capacity.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

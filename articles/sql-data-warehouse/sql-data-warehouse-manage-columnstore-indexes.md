@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/07/2016"
+   ms.date="05/02/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Azure SQL 데이터 웨어하우스의 columnstore 인덱스 관리
@@ -240,9 +240,7 @@ ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [
 
 ## 다음 단계
 
-인덱스 관리에 대한 자세한 내용은 [인덱스 관리][] 문서를 참조하세요.
-
-추가 관리 팁을 보려면 [관리][] 개요를 참조하세요.
+관리에 대한 추가 팁을 보려면 [관리][] 개요를 참조하세요.
 
 <!--Image references-->
 
@@ -251,7 +249,6 @@ ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [
 [테이블 분할]: sql-data-warehouse-develop-table-partitions.md
 [동시성]: sql-data-warehouse-develop-concurrency.md
 [관리]: sql-data-warehouse-manage-monitor.md
-[인덱스 관리]: sql-data-warehouse-manage-indexes.md
 
 <!--MSDN references-->
 [ALTER INDEX]: https://msdn.microsoft.com/library/ms188388.aspx
@@ -259,4 +256,4 @@ ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

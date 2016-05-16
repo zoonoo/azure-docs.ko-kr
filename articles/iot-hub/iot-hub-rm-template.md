@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="02/12/2016"
+     ms.date="05/03/2016"
      ms.author="dobett"/>
 
 # ARM 템플릿을 사용하여 C# 프로그램에서 IoT Hub 만들기
@@ -115,7 +115,7 @@ JSON 템플릿과 매개 변수 파일을 사용하여 리소스 그룹에 새 I
 
 3. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가**, **새 항목**을 차례로 클릭합니다. 프로젝트에 **parameters.json**이라는 JSON 파일을 새로 추가합니다.
 
-4. 새 IoT Hub의 이름을 **mynewiothub**로 설정하는 다음 매개 변수 정보로 **parameters.json**의 내용을 대체합니다(이 이름은 전역적으로 고유해야 함).
+4. **{your initials}mynewiothub**와 같은 새 IoT Hub의 이름(이 이름은 전역적으로 고유해야 하므로 사용자의 이름 또는 이니셜을 포함해야 함)을 설정하는 다음 매개 변수 정보로 **parameters.json**의 내용을 바꿉니다.
 
     ```
     {
@@ -215,4 +215,4 @@ ARM 템플릿을 사용하여 C# 프로그램에서 IoT Hub를 배포했으니 �
 [lnk-azure-rm-overview]: ../resource-group-overview.md
 [lnk-storage-account]: ../storage/storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

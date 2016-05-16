@@ -41,7 +41,9 @@ HDInsight Emulator에서는 Hadoop 샌드박스와 매우 비슷한 로컬 개�
 	- Windows 8
 	- Windows Server 2012
 
-- **Azure PowerShell**. [Azure PowerShell 설치 및 사용](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)을 참조하세요.
+- **Azure PowerShell**
+
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 
 ##<a name="install"></a>HDInsight Emulator 설치
@@ -492,7 +494,7 @@ HDInsight Emulator에서는 일부 Azure PowerShell cmdlet도 지원됩니다. �
 	$hdinsightJob = <JobDefinition>
 	Start-AzureHDInsightJob -Cluster http://localhost:50111 -Credential $creds -JobDefinition $hdinsightJob
 
-Get-Credential을 호출하면 프롬프트가 나타납니다. 사용자 이름으로 **hadoop**을 사용해야 합니다. 암호는 아무 문자열이나 사용할 수 있습니다. 클러스터 이름은 항상 ****http://localhost:50111**입니다.
+Get-Credential을 호출하면 프롬프트가 나타납니다. 사용자 이름으로 **hadoop**을 사용해야 합니다. 암호는 아무 문자열이나 사용할 수 있습니다. 클러스터 이름은 항상 **http://localhost:50111** 입니다.
 
 Hadoop 작업 제출에 대한 자세한 내용은 [Hadoop 작업을 프로그래밍 방식으로 제출](hdinsight-submit-hadoop-jobs-programmatically.md)을 참조하세요. HDInsight의 Azure PowerShell cmdlet에 대한 자세한 내용은 [HDInsight cmdlet 참조][hdinsight-powershell-reference]를 참조하세요.
 
@@ -506,7 +508,6 @@ Emulator를 설치한 컴퓨터에서 제어판을 열고 **프로그램**에서
 
 - [Azure HDInsight 사용 시작](hdinsight-hadoop-linux-tutorial-get-started.md)
 - [HDInsight용 Java MapReduce 프로그램 개발](hdinsight-develop-deploy-java-mapreduce.md)
-- [HDInsight용 C# Hadoop 스트리밍 MapReduce 프로그램 개발](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
 - [HDInsight 토론을 위한 MSDN 포럼](http://social.msdn.microsoft.com/Forums/hdinsight)
 
 
@@ -524,7 +525,6 @@ Emulator를 설치한 컴퓨터에서 제어판을 열고 **프로그램**에서
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
-[hdinsight-develop-deploy-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-versions]: hdinsight-component-versioning.md
 
 [Powershell-install-configure]: powershell-install-configure.md
@@ -534,4 +534,4 @@ Emulator를 설치한 컴퓨터에서 제어판을 열고 **프로그램**에서
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

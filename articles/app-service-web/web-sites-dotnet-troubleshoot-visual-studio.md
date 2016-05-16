@@ -5,7 +5,7 @@
 	documentationCenter=".net" 
 	authors="tdykstra" 
 	manager="wpickett" 
-	editor="jimbe"/>
+	editor=""/>
 
 <tags 
 	ms.service="app-service" 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="01/08/2016" 
+	ms.date="04/28/2016" 
 	ms.author="tdykstra"/>
 
 # Visual Studio를 사용하여 Azure 앱 서비스에서 웹 앱 문제 해결
 
 ## 개요
 
-이 자습서에서는 웹 앱을 [앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)에서 실행할 때 디버그할 수 있도록 지원하는 Visual Studio 도구를 사용하여 원격으로 [디버그 모드](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx)를 실행하는 방법 또는 응용 프로그램 로그 및 웹 서버 로그를 보는 방법을 보여 줍니다.
+이 자습서에서는 원격으로 [디버그 모드](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx)를 실행하거나 응용 프로그램 로그 및 웹 서버 로그를 확인하여 [앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)에서 웹앱을 디버그할 수 있는 Visual Studio 도구를 사용하는 방법을 보여줍니다.
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -41,17 +41,17 @@ Visual Studio Ultimate가 있으면 디버깅에 [IntelliTrace](http://msdn.micr
 
 이 자습서에 제시된 코드 샘플은 C# MVC 웹 응용 프로그램용이지만 문제 해결 절차는 Visual Basic 및 Web Forms 응용 프로그램에도 동일하게 적용됩니다.
 
-원격 디버깅을 사용하려면 Visual Studio 2013 또는 Visual Studio 2012 업데이트 4가 필요합니다. WebJob에 원격 디버깅 및 **서버 탐색기** 기능을 사용하려면 [Visual Studio 2013 Update 4](http://go.microsoft.com/fwlink/?LinkID=510314) 이상이 필요합니다. 이 자습서에 표시된 다른 기능은 Visual Studio 2013 Express for Web 및 Visual Studio 2012 Express for Web에서도 작동합니다.
+이 자습서는 Visual Studio 2015 또는 2013을 사용하는 경우를 가정합니다. Visual Studio 2013을 사용하는 경우 WebJobs 기능을 사용하려면 [업데이트 4](http://go.microsoft.com/fwlink/?LinkID=510314) 이상이 필요합니다.
 
 로그 스트리밍 기능은 .NET Framework 4 이상을 대상으로 하는 응용 프로그램에 대해서만 작동합니다.
 
 ## <a name="sitemanagement"></a>웹 앱 구성 및 관리
 
-Visual Studio를 사용하면 [Azure 포털](http://go.microsoft.com/fwlink/?LinkId=529715)에서 사용할 수 있는 웹 앱 관리 기능 및 구성 설정의 일부에 액세스할 수 있습니다. 이 섹션에서는 사용할 수 있는 기능이 무엇인지 살펴보겠습니다.
+Visual Studio를 사용하면 [Azure 포털](http://go.microsoft.com/fwlink/?LinkId=529715)에서 사용할 수 있는 웹 앱 관리 기능 및 구성 설정의 일부에 액세스할 수 있습니다. 이 섹션에서는 **서버 탐색기**를 사용하여 사용할 수 있는 기능에 대해 알아봅니다. 최신 Azure 통합 기능을 확인하려면 **클라우드 탐색기**도 사용해 보십시오. **보기** 메뉴에서 두 창을 모두 열 수 있습니다.
 
 1. Visual Studio에서 Azure에 아직 로그인하지 않았으면 **서버 탐색기**에서 **Connect to Azure** 단추를 클릭합니다.
 
-	계정에 액세스할 수 있게 해 주는 또 다른 방법은 관리 인증서를 설치하는 것입니다. 인증서를 설치하도록 선택한 경우 **서버 탐색기**에서 **Azure** 노드를 마우스 오른쪽 단추로 클릭한 후 상황에 맞는 메뉴에서 **구독 관리**를 클릭합니다. **Azure 구독 관리** 대화 상자에서 **인증서** 탭을 클릭한 후 **가져오기**를 클릭합니다. 지침에 따라 Azure 계정에 대한 구독 파일(*.publishsettings* 파일이라고도 함)을 다운로드하고 가져옵니다.
+	계정에 액세스할 수 있게 해 주는 또 다른 방법은 관리 인증서를 설치하는 것입니다. 인증서를 설치하도록 선택한 경우 **서버 탐색기**에서 **Azure** 노드를 마우스 오른쪽 단추로 클릭한 다음 상황에 맞는 메뉴에서 **구독 관리 및 필터링**을 클릭합니다. **Azure 구독 관리** 대화 상자에서 **인증서** 탭을 클릭한 후 **가져오기**를 클릭합니다. 지침에 따라 Azure 계정에 대한 구독 파일(*.publishsettings* 파일이라고도 함)을 다운로드하고 가져옵니다.
 
 	> [AZURE.NOTE]
 	구독 파일을 다운로드한 경우 소스 코드 디렉터리 외부 폴더(예: Downloads 폴더)에 구독 파일을 저장한 다음 가져오기가 완료되면 해당 파일을 삭제해야 합니다. 악의적인 사용자가 구독 파일에 액세스할 경우 Azure 서비스를 편집, 생성 및 삭제할 수 있습니다.
@@ -72,7 +72,7 @@ Visual Studio를 사용하면 [Azure 포털](http://go.microsoft.com/fwlink/?Lin
    
 	이 창에 있는 응용 프로그램 설정 및 연결 문자열 상자에 대한 자세한 내용은 [Azure 웹 앱: 응용 프로그램 문자열 및 연결 문자열 작동 방식](http://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx)을 참조하세요.
 
-	이 창에서 지원하지 않는 웹앱 관리 작업을 수행하려는 경우 **관리 포털에서 열기**를 클릭하여 브라우저 창에서 Azure 클래식 포털을 엽니다. 자세한 내용은 [웹 앱을 구성하는 방법](/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig)을 참조하세요
+	이 창에서 지원하지 않는 웹앱 관리 작업을 수행하려는 경우 **관리 포털에서 열기**를 클릭하여 브라우저 창에서 Azure 포털을 엽니다.
 
 ## <a name="remoteview"></a>서버 탐색기에서 웹 앱 파일 액세스
 
@@ -149,31 +149,13 @@ Web.config 파일을 편집하는 방법은 문제를 더 쉽게 해결할 수 �
 
 4. 배포를 마치고 브라우저에 웹 앱의 Azure URL이 열리면 브라우저를 닫습니다.
 
-5. Visual Studio 2013: **서버 탐색기**에서 웹 앱을 마우스 오른쪽 단추로 클릭한 다음 **디버거 연결**을 클릭합니다.
+5. **서버 탐색기**에서 웹앱을 마우스 오른쪽 단추로 클릭한 다음 **디버거 연결**을 클릭합니다.
 
 	![디버거 연결](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-attachdebugger.png)
 
 	브라우저에 Azure에서 실행되는 홈 페이지가 자동으로 열립니다. Azure에서 디버깅용 서버를 설정할 때까지 약 20초 정도 기다려야 할 수 있습니다. 이 지연은 웹 앱에서 디버그 모드를 처음 실행하는 경우에만 발생합니다. 이후 48시간 내에 디버그를 다시 시작하면 지연이 발생하지 않습니다.
 
-6. Visual Studio 2012 업데이트 4 이상의 경우:<a id="vs2012"></a>
-
-	* Azure 클래식 포털에서 사용자 웹앱의 **설정 > 응용 프로그램 설정**으로 이동하고 **디버깅** 섹션까지 아래로 스크롤합니다.
-
-	* **원격 디버깅**을 **켜기**로 설정하고 **Remote Visual Studio 버전**을 **2012**로 설정합니다.
-
-	* Visual Studio **디버그** 메뉴에서 **프로세스에 연결**을 클릭합니다.
-
-	* **한정자** 상자에 웹 앱의 URL을 `http://` 접두사 없이 입력합니다.
-
-	* **모든 사용자의 프로세스 표시**를 선택합니다.
-
-	* 자격 증명을 묻는 메시지가 표시되면 웹 앱에 콘텐츠 배포에 대한 사용 권한이 있는 사용자 이름 및 암호를 입력합니다. 이러한 자격 증명을 확인하려면 클래식 포털에서 사용자의 웹앱에 대한 대시보드 탭으로 이동한 후 **게시 프로필 다운로드**를 클릭합니다. 텍스트 편집기에서 파일을 열고 첫 번째로 검색되는 **userName=** 및 **userPWD=** 다음의 사용자 이름과 암호를 찾습니다.
-
-	* **사용 가능한 프로세스** 테이블에 프로세스가 나타나는 경우 **w3wp.exe**를 선택하고 **연결**을 클릭합니다.
-
-	* 웹 앱의 URL로 브라우저를 엽니다.
-
-	Azure에서 디버깅용 서버를 설정할 때까지 약 20초 정도 기다려야 할 수 있습니다. 이 지연은 웹 앱에서 디버그 모드를 처음 실행하는 경우에만 발생합니다. 이후 48시간 내에 디버그를 다시 시작하면 지연이 발생하지 않습니다.
+	**참고**: 디버거를 시작하는 데 문제가 있는 경우 **서버 탐색기** 대신 **클라우드 탐색기**를 사용해 보십시오.
 
 6. 메뉴에서 **정보**를 클릭합니다.
 
@@ -195,7 +177,11 @@ Web.config 파일을 편집하는 방법은 문제를 더 쉽게 해결할 수 �
 
 ## <a name="remotedebugwj"></a> 원격 디버깅 WebJob
 
-이 섹션에서는 [Azure WebJob SDK 시작](websites-dotnet-webjobs-sdk.md)에서 만든 프로젝트 및 웹 앱을 사용하여 원격으로 디버그하는 방법을 보여 줍니다 이 섹션에 표시된 기능은 Visual Studio 2013 업데이트 4에서만 사용할 수 있습니다. 연속 WebJobs에서 원격 디버깅만 작동합니다. 예약 및 주문형 WebJobs은 디버깅을 지원하지 않습니다.
+이 섹션에서는 [Azure WebJob SDK 시작](websites-dotnet-webjobs-sdk.md)에서 만든 프로젝트 및 웹 앱을 사용하여 원격으로 디버그하는 방법을 보여 줍니다
+
+이 섹션에 표시된 기능은 Visual Studio 2013 업데이트 4에서만 사용할 수 있습니다.
+
+연속 WebJobs에서 원격 디버깅만 작동합니다. 예약 및 주문형 WebJobs은 디버깅을 지원하지 않습니다.
 
 1. [Azure WebJobs SDK 시작][GetStartedWJ]에서 만든 웹 프로젝트를 엽니다.
 
@@ -299,49 +285,36 @@ WebJob에서 응용 프로그램을 만드는 방법에 대한 자세한 내용�
 
 ### 응용 프로그램에 추적 문 추가
 
-1. *Controllers\\HomeController.cs*를 열고 파일 내용을 다음 코드로 바꿔 `System.Diagnostics`에 대한 `Trace` 문과 `using` 문을 추가합니다.
+1. *Controllers\\HomeController.cs*를 열고 `Index`, `About`, `Contact` 메서드를 다음 코드로 바꾸어 `System.Diagnostics`에 대해 `Trace` 문과 `using` 문을 추가합니다.
 
-		using System;
-		using System.Collections.Generic;
-		using System.Configuration;
-		using System.Diagnostics;
-		using System.Linq;
-		using System.Web;
-		using System.Web.Configuration;
-		using System.Web.Mvc;
-		namespace MyExample.Controllers
+		public ActionResult Index()
 		{
-		    public class HomeController : Controller
-		    {
-		        public ActionResult Index()
-		        {
-		            Trace.WriteLine("Entering Index method");
-		            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-		            Trace.TraceInformation("Displaying the Index page at " + DateTime.Now.ToLongTimeString());
-		            Trace.WriteLine("Leaving Index method");
-		            return View();
-		        }
-		
-		        public ActionResult About()
-		        {
-		            Trace.WriteLine("Entering About method");
-		            ViewBag.Message = "Your app description page.";
-		            Trace.TraceWarning("Transient error on the About page at " + DateTime.Now.ToShortTimeString());
-		            Trace.WriteLine("Leaving About method");
-		            return View();
-		        }
-		
-		        public ActionResult Contact()
-		        {
-		            Trace.WriteLine("Entering Contact method");
-		            ViewBag.Message = "Your contact page.";
-		            Trace.TraceError("Fatal error on the Contact page at " + DateTime.Now.ToLongTimeString());
-		            Trace.WriteLine("Leaving Contact method");
-		            return View();
-		        }
-		    }
+		    Trace.WriteLine("Entering Index method");
+		    ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
+		    Trace.TraceInformation("Displaying the Index page at " + DateTime.Now.ToLongTimeString());
+		    Trace.WriteLine("Leaving Index method");
+		    return View();
 		}
 		
+		public ActionResult About()
+		{
+		    Trace.WriteLine("Entering About method");
+		    ViewBag.Message = "Your app description page.";
+		    Trace.TraceWarning("Transient error on the About page at " + DateTime.Now.ToShortTimeString());
+		    Trace.WriteLine("Leaving About method");
+		    return View();
+		}
+		
+		public ActionResult Contact()
+		{
+		    Trace.WriteLine("Entering Contact method");
+		    ViewBag.Message = "Your contact page.";
+		    Trace.TraceError("Fatal error on the Contact page at " + DateTime.Now.ToLongTimeString());
+		    Trace.WriteLine("Leaving Contact method");
+		    return View();
+		}		
+
+2. 파일 맨 위에 `using System.Diagnostics;` 문을 추가합니다.
 				
 ### 로컬에서 추적 출력 보기
 
@@ -476,9 +449,9 @@ WebJob에서 응용 프로그램을 만드는 방법에 대한 자세한 내용�
 	![출력 창의 웹 서버 로그](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-wslogs.png)
 
 
-기본적으로 Visual Studio를 사용하여 웹 서버 로그를 사용하도록 처음 설정하는 경우 Azure는 로그를 파일 시스템에 기록합니다. 또는 클래식 포털을 사용하여 웹 서버 로그가 저장소 계정의 Blob 컨테이너에 기록되도록 지정할 수 있습니다. 자세한 내용은 **웹 사이트를 구성하는 방법**의 [사이트 진단](/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig) 섹션을 참조하십시오.
+기본적으로 Visual Studio를 사용하여 웹 서버 로그를 사용하도록 처음 설정하는 경우 Azure는 로그를 파일 시스템에 기록합니다. 또는 Azure 포털을 사용하여 웹 서버 로그가 저장소 계정의 Blob 컨테이너에 기록되도록 지정할 수 있습니다.
 
-클래식 포털을 사용하여 Azure 저장소 계정에 기록하도록 웹 서버 로깅을 설정한 후 Visual Studio에서 로깅을 사용하지 않도록 설정하면 Visual Studio에서 로깅을 사용하도록 다시 설정할 때 저장소 계정 설정이 복원됩니다.
+포털을 사용하여 Azure 저장소 계정에 기록하도록 웹 서버 로깅을 설정한 후 Visual Studio에서 로깅을 사용하지 않도록 설정하는 경우 Visual Studio에서 로깅을 사용하도록 다시 설정하면 저장소 계정 설정이 복원됩니다.
 
 ## <a name="detailederrorlogs"></a>자세한 오류 메시지 로그 보기
 
@@ -639,13 +612,13 @@ Visual Studio를 사용하여 실패한 요청 추적을 사용하도록 설정�
 
 2. Visual Studio의 **Azure 웹 앱** 창에 있는 **구성** 탭에서 **관리 포털에서 열기**를 클릭합니다.
 
-3. 웹앱의 Azure 포털(https://portal.azure.com) 블레이드에서 **설정 > 배포 자격 증명**을 클릭한 다음 새 사용자 이름 및 암호를 입력합니다.
+3. 웹앱의 [Azure 포털](https://portal.azure.com) **설정** 블레이드에서 **배포 자격 증명**을 클릭한 다음 새 사용자 이름 및 암호를 입력합니다.
 
 	![새 FTP 사용자 이름 및 암호](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-enterftpcredentials.png)
 
 	****로그인할 때, 앞에 웹 앱 이름이 있는 상태로 전체 사용자 이름을 사용해야 합니다. 예를 들어, 사용자 이름으로 "myid"를 입력하고 사이트가 "myexample"인 경우, "myexample\\myid"로 로그인합니다.
 
-5. 새 브라우저 창에서, 사용자 웹앱에 대한 **웹앱** 블레이드의 **FTP 호스트 이름 ** 또는 **FTPS 호스트 이름** 아래에 표시된 URL로 이동합니다.
+5. 새 브라우저 창에서, 사용자 웹앱에 대한 **웹앱** 블레이드의 **FTP 호스트 이름** 또는 **FTPS 호스트 이름** 아래에 표시된 URL로 이동합니다.
 
 6. 이전에 만든 FTP 자격 증명을 사용하여 로그인합니다(사용자 이름 앞에 웹 앱 이름 포함).
 
@@ -751,15 +724,8 @@ Azure 웹 앱 및 WebJob의 원격 디버깅에 대한 자세한 내용은 다�
 
 Microsoft TechNet 웹 사이트에 포함된 [실패한 요청 추적 사용](http://www.iis.net/learn/troubleshoot/using-failed-request-tracing)(영문) 섹션은 이러한 로그 사용 방법을 이해하는 데 유용할 수 있습니다. 하지만 이 설명서에서는 IIS에서 실패한 요청 추적을 구성하는 방법을 중점적으로 다루며, 이는 Azure 웹 앱에서 수행할 수 없습니다.
 
-### 클라우드 서비스 디버깅
-
-웹 앱이 아닌 Azure 클라우드 서비스를 디버그하려면 [클라우드 서비스 디버깅](http://msdn.microsoft.com/library/windowsazure/ee405479.aspx)을 참조하세요.
-
-## 변경된 내용
-* 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
-
 [GetStarted]: web-sites-dotnet-get-started.md
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

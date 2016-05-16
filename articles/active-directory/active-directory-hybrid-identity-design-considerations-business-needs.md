@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="02/02/2016"
+	ms.date="05/02/2016"
 	ms.author="billmath"/>
 
 # 하이브리드 ID 솔루션에 대한 ID 요구 사항 확인
@@ -44,7 +44,10 @@
 - 회사에는 현재 온-프레미스 동기화 서비스가 있습니까?
 - 회사가 타사 ID 공급자(IdP)를 사용합니까?
 
-또한 회사에 있을 수도 있는 클라우드 서비스를 인식해야 합니다. 사용자 환경에서 SaaS IaaS, PaaS 모델을 사용하는 현재 통합을 이해하도록 평가를 수행하는 것이 매우 중요합니다. 이 평가 동안 다음 질문에 대답하도록 합니다: - 회사가 클라우드 서비스 공급자와 통합해 있습니까? - 그렇다면 어떤 서비스를 사용하고 있습니까? - 현재 이러한 통합은 생산 중입니까 아니면 파일럿입니까?
+또한 회사에 있을 수도 있는 클라우드 서비스를 인식해야 합니다. 사용자 환경에서 SaaS IaaS, PaaS 모델을 사용하는 현재 통합을 이해하도록 평가를 수행하는 것이 매우 중요합니다. 이 평가를 진행하는 동안 다음 질문에 답변하세요.
+- 귀사가 클라우드 서비스 공급자와 통합된 부분이 있습니까?
+- 만약 그렇다면 어떤 서비스를 사용하십니까?
+- 이 통합이 현재 운영 중입니까 아니면 파일럿입니까?
 
 
 >[AZURE.NOTE]
@@ -89,7 +92,8 @@
 - 일반적으로 사용자는 해당 온-프레미스 환경에 어떻게 로그인합니까?
 - 사용자가 클라우드에 어떻게 로그인합니까?
 
->[참고] 각 답변을 주목하고 답변 이유를 이해해야 합니다. [사고 대응 요구 사항 결정](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)은 사용할 수 있는 옵션 및 각 옵션의 장단점을 검토합니다. 질문에 답변함으로써 비즈니스 요구 사항에 가장 적합한 옵션을 선택할 수 있습니다.
+>[AZURE.NOTE]
+각 답변을 주목하고 답변 이유를 이해해야 합니다. [사고 대응 요구 사항 결정](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)은 사용할 수 있는 옵션 및 각 옵션의 장단점을 검토합니다. 질문에 답변함으로써 비즈니스 요구 사항에 가장 적합한 옵션을 선택할 수 있습니다.
 
 ## 다음 단계
 [디렉터리 동기화 요구 사항 결정](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
@@ -97,4 +101,4 @@
 ## 참고 항목
 [설계 고려 사항 개요](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0504_2016-->

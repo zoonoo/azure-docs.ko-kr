@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/05/2016"
+   ms.date="04/27/2016"
    ms.author="alkohli" />
 
 # StorSimple 장치에 대한 다중 경로 I/O 구성
@@ -23,7 +23,7 @@ StorSimple 솔루션의 고가용성을 위해 MPIO는 StorSimple 장치에서 �
 
 MPIO는 Windows Server에서 선택적 기능이며 기본적으로 설치되지 않습니다. 서버 관리자를 통해 기능으로 설치해야 합니다. 이 항목에서는 Windows Server 2012 R2를 실행하는 호스트에서 MPIO 기능을 설치 및 사용하고 StorSimple 실제 장치에 연결하기 위해 수행해야 할 단계에 대해 설명합니다.
 
->[AZURE.NOTE] **MPIO는 StorSimple 가상 장치에서 지원되지 않습니다.**
+>[AZURE.NOTE] **이 절차는 StorSimple 8000 시리즈에만 적용됩니다. MPIO는 현재 StorSimple 가상 장치에서 지원되지 않습니다.**
 
 StorSimple 장치에서 MPIO를 구성하려면 다음 단계를 수행해야 합니다.
 
@@ -173,4 +173,4 @@ MPIO가 Windows Server에 구성된 후 StorSimple 장치에 생성된 볼륨이
 [StorSimple 관리자 서비스를 사용하여 StorSimple 장치 구성 수정](storsimple-modify-device-config.md)에 대해 자세히 알아봅니다.
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0504_2016-->

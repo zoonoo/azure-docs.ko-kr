@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="TBD" 
-   ms.date="03/02/2016"
+   ms.date="04/29/2016"
    ms.author="coreyp"/>
 
 # Azure 자동화 DSC 개요 #
@@ -98,8 +98,6 @@ Azure 자동화 DSC의 컴파일 작업은 하나 이상의 노드 구성을 만
 
 ##알려진 문제##
 
-- WMF 5 RTM로 업그레이드할 때 컴퓨터가 Azure 자동화 DSC의 노드로 이미 등록되어 있으면 Azure 자동화 DSC에서 등록을 취소하고 WMF 5 RTM 업그레이드 후에 다시 등록합니다.
-
 - Azure 자동화 DSC는 현재 부분 또는 복합 DSC 구성을 지원하지 않습니다. 그러나 DSC 복합 리소스는 로컬 PowerShell과 마찬가지로 가져와서 사용될 수 있으며 이는 구성을 다시 사용하도록 합니다.
 
 - Windows용 PowerShell DSC 에이전트가 Azure 자동화와 통신하려면 최신 버전의 WMF 5가 설치되어 있어야 합니다. 최신 버전 Linux용 PowerShell DSC 에이전트가 Azure 자동화와 통신하려면 Linux용으로 설치되어야 합니다.
@@ -114,9 +112,11 @@ Azure 자동화 DSC의 컴파일 작업은 하나 이상의 노드 구성을 만
 
 - 등록 후에는 1년 후 만료되는 인증에 대해 각 노드가 자동으로 고유의 인증서를 협상합니다. 현재 PowerShell DSC 등록 프로토콜이 만료가 임박한 인증서를 자동으로 갱신할 수 없으므로 1년 기한 후 노드를 다시 등록해야 합니다. 다시 등록하기 전에 각 노드가 Windows Management Framework 5.0 RTM을 실행 중인지 확인합니다. 노드의 인증 인증서가 만료되고 노드가 다시 등록되지 않은 경우, 노드가 Azure 자동화와 통신할 수 없으며 '응답 없음'으로 표시됩니다. 재등록은 노드를 처음 등록할 때와 같은 방식으로 수행됩니다. 노드 만료 시점으로부터 90일 안이나, 인증서 만료 이후에 재등록을 수행하면 새 인증서를 생성하여 사용하게 됩니다.
 
-- WMF 5 RTM로 업그레이드할 때 컴퓨터가 Azure 자동화 DSC의 노드로 이미 등록되어 있으면 Azure 자동화 DSC에서 등록을 취소하고 WMF 5 RTM 업그레이드 후에 다시 등록합니다. 다시 등록하기 전에 $env:windir\\system32\\configuration\\DSCEngineCache.mof 파일을 삭제합니다.
+- WMF 5 RTM로 업그레이드할 때 컴퓨터가 Azure 자동화 DSC의 노드로 이미 등록되어 있으면 Azure 자동화 DSC에서 등록을 취소하고 WMF 5 RTM 업그레이드 후에 다시 등록합니다. 다시 등록하기 전에 `$env:windir\system32\configuration\DSCEngineCache.mof` 파일을 삭제합니다.
 
 - PowerShell DSC cmdlet은 WMF 5 프로덕션 미리 보기 위에 WMF 5 RTM가 설치된 경우 작동하지 않을 수 있습니다. 이 문제를 해결하려면 관리자 권한 PowerShell 세션(관리자 권한으로 실행)에서 다음 명령을 실행합니다. `mofcomp $env:windir\system32\wbem\DscCoreConfProv.mof`
+
+- 이전에 컴퓨터에서 WMF 4 PowerShell DSC 기능을 사용한 경우 Azure 자동화 DSC에서 이 컴퓨터의 구성 정보를 끌어오는 작업이 "암호 해독 실패" 예외와 함께 실패할 수 있습니다. 이 문제를 해결하려면 `$env:windir\system32\configuration\Current.mof`, `$env:windir\system32\configuration\DSCEngineCache.mof`, `$env:windir\system32\configuration\DSCStatusHistory.mof` 파일을 삭제하고 Azure 자동화 DSC에 컴퓨터를 다시 등록합니다.
  
 
 ##관련 문서##
@@ -127,4 +127,4 @@ Azure 자동화 DSC의 컴파일 작업은 하나 이상의 노드 구성을 만
 - [Azure 자동화 DSC 가격 책정](https://azure.microsoft.com/pricing/details/automation/)
 - [Azure 자동화 DSC 및 Chocolatey를 사용하여 IaaS VM에 연속 배포](automation-dsc-cd-chocolatey.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

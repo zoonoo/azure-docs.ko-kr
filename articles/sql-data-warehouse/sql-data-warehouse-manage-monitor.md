@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/14/2016"
+   ms.date="05/03/2016"
    ms.author="sonyama;barbkess;sahajs"/>
 
 # DMV를 사용하여 작업 모니터링
@@ -39,7 +39,7 @@ SELECT * FROM sys.dm_pdw_exec_sessions where status <> 'Closed';
 -- Monitor running queries
 SELECT * FROM sys.dm_pdw_exec_requests WHERE status = 'Running';
 
--- Find the 10 longest running queries
+-- Find 10 queries which ran the longest
 SELECT TOP 10 * FROM sys.dm_pdw_exec_requests ORDER BY total_elapsed_time DESC;
 ```
 
@@ -143,15 +143,15 @@ DBCC PDW_SHOWEXECUTIONPLAN(55, 238);
 ```
 
 ## 다음 단계
-Transact-SQL 및 DMV(동적 관리 뷰)에 대한 자세한 내용은 [참조 개요][]를 참조하세요. SQL 데이터 웨어하우스 관리에 대한 추가 팁은 [관리 개요][]를 참조하세요.
+DMV(Dynamic Management Views)에 대한 자세한 내용은 [시스템 뷰][]를 참조하세요. SQL 데이터 웨어하우스 관리에 대한 팁은 [관리 개요][]를 참조하세요. 모범 사례는 [SQL 데이터 웨어하우스 모범 사례][]를 참조하세요.
 
 <!--Image references-->
 
 <!--Article references-->
-[관리 개요]: sql-data-warehouse-overview-manage.md
-[table design]: sql-data-warehouse-develop-table-design.md
-[참조 개요]: sql-data-warehouse-overview-reference.md
 [manage data skew for distributed tables]: sql-data-warehouse-manage-distributed-data-skew.md
+[관리 개요]: sql-data-warehouse-overview-manage.md
+[SQL 데이터 웨어하우스 모범 사례]: sql-data-warehouse-best-practices.md
+[시스템 뷰]: sql-data-warehouse-reference-tsql-system-views.md
 
 <!--MSDN references-->
 [sys.dm\_pdw\_dms\_workers]: http://msdn.microsoft.com/library/mt203878.aspx
@@ -162,4 +162,4 @@ Transact-SQL 및 DMV(동적 관리 뷰)에 대한 자세한 내용은 [참조 �
 [DBCC PDW\_SHOWEXECUTIONPLAN]: http://msdn.microsoft.com/library/mt204017.aspx
 [DBCC PDW_SHOWSPACEUSED]: http://msdn.microsoft.com/library/mt204028.aspx
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

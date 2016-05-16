@@ -3,8 +3,8 @@
    description="데이터 레이크 분석은 Azure 빅 데이터 계산 서비스로, 이를 통해 위치 및 크기에 관계없이 클라우드의 데이터에서 얻은 통찰력을 통해 데이터를 비즈니스 운영에 사용할 수 있습니다. 데이터 레이크 분석을 사용하면 가장 간단하고 확장성이 뛰어나면서도 가장 경제적인 방법으로 이 작업을 수행할 수 있습니다. 이 페이지는 당사 설명서 작성에 대한 백로그입니다."
    documentationCenter="na"
    services="data-lake-analytics"
-   authors="pablissima"
-   manager="pablissima"
+   authors="edmacauley"
+   manager="paulettm"
    editor="cgronlun"/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/10/2016"
-   ms.author="mwinkle"/>
+   ms.date="04/26/2016"
+   ms.author="edmaca"/>
 
 # Azure 데이터 레이크 분석 설명서 백로그
 
@@ -62,4 +62,4 @@ U-SQL | 감소 및 결합에 대한 참조 문서 업데이트 | 1 | Pending | [
 * [Azure 콘텐츠 리포지토리](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)에서 이 문서에 대한 끌어오기 요청 제출
 * [microsoft.com의 adlafeedback](mailto:adlafeedback@microsoft.com?subject=DocBacklog)으로 메일 보내기
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

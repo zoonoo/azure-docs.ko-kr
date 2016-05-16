@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="04/07/2016"
+     ms.date="05/03/2016"
      ms.author="dobett"/>
 
 # Powershell을 사용하여 IoT Hub 만들기
@@ -112,10 +112,10 @@ JSON 템플릿을 사용하여 리소스 그룹에 새 IoT hub를 만듭니다. 
 
 2. 로컬 컴퓨터에 템플릿 파일을 저장합니다. 이 예에서는 **c:\\templates** 폴더에 저장하는 것으로 가정합니다.
 
-3. 다음 명령을 실행하여 새 IoT Hub를 배포하고, 매개 변수로 IoT Hub 이름을 전달합니다. 이 예에서는 IoT Hub의 이름이 **myiothub**입니다(이 이름은 전역적으로 고유해야 함).
+3. 다음 명령을 실행하여 새 IoT Hub를 배포하고, 매개 변수로 IoT Hub 이름을 전달합니다. 이 예에서, IoT Hub 이름은 **abcmyiothub**입니다. (이 이름은 전역적으로 고유해야 하므로 사용자의 이름 또는 이니셜을 포함해야 합니다.)
 
     ```
-    New-AzureRmResourceGroupDeployment -ResourceGroupName MyIoTRG1 -TemplateFile C:\templates\template.json -hubName myiothub
+    New-AzureRmResourceGroupDeployment -ResourceGroupName MyIoTRG1 -TemplateFile C:\templates\template.json -hubName abcmyiothub
     ```
 
 4. 앞에서 만든 IoT Hub의 키가 출력에 표시됩니다.
@@ -139,4 +139,4 @@ ARM 템플릿을 사용하여 PowerShell에서 IoT Hub를 배포했으니 구체
 [lnk-azure-rm-overview]: ../resource-group-overview.md
 [lnk-powershell-arm]: ../powershell-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

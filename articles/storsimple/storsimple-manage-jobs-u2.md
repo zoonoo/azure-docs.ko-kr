@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor=""/>
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/15/2016"
+   ms.date="04/25/2016"
    ms.author="alkohli" />
 
 # StorSimple 관리자 서비스를 사용하여 StorSimple 작업 보기 및 관리(업데이트 2)
@@ -21,9 +21,9 @@
 
 ## 개요
 
-**작업** 페이지에서는 StorSimple 관리자 서비스에 연결된 장치에서 시작한 작업을 보고 관리하기 위한 하나 중앙 포털을 제공합니다. 여러 장치에 대한 예약, 실행, 완료 및 실패한 작업을 볼 수 있습니다. 결과는 표 형식으로 나타납니다.
+**작업** 페이지에서는 StorSimple 관리자 서비스에 연결된 장치에서 시작한 작업을 보고 관리하기 위한 하나 중앙 포털을 제공합니다. 여러 장치에 대해 예약, 실행 중, 완료, 취소, 실패한 작업을 볼 수 있습니다. 결과는 표 형식으로 나타납니다.
 
-![작업 페이지](./media/storsimple-manage-jobs-u2/HCS_JobsPage.png)
+![작업 페이지](./media/storsimple-manage-jobs-u2/jobs.png)
 
 다음과 같이 필드에서 필터링하여 관심 있는 작업을 빠르게 찾을 수 있습니다.
 
@@ -73,7 +73,7 @@
 
 다음 단계에 따라 실행 중인 작업을 취소합니다.
 
->[AZURE.NOTE]볼륨 형식을 변경하기 위해 볼륨을 수정하거나 볼륨을 확장하는 등의 일부 작업은 취소할 수 없습니다.
+>[AZURE.NOTE] 볼륨 형식을 변경하기 위해 볼륨을 수정하거나 볼륨을 확장하는 등의 일부 작업은 취소할 수 없습니다.
 
 ### 작업 취소 방법
 
@@ -93,4 +93,4 @@
 
 - [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0504_2016-->

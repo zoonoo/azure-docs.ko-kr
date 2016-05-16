@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="03/04/2016"
+	ms.date="05/04/2016"
 	ms.author="robmcm"/>
 
 #Azure에서 MySQL 데이터베이스를 만드는 방법
@@ -27,4 +27,4 @@ Azure에서 MySQL을 PHP와 함께 사용하는 방법을 보여 주는 샘플�
 
 자세한 내용은 [PHP 개발자 센터](/develop/php/)를 참조하세요.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

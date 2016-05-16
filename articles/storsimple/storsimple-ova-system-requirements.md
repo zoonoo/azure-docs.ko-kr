@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/01/2016"
+   ms.date="04/28/2016"
    ms.author="alkohli"/>
 
 # StorSimple 가상 배열 시스템 요구 사항
@@ -87,15 +87,37 @@
 | TCP 443(HTTPS) | 아웃 | WAN | 예 | 아웃바운드 포트는 클라우드의 데이터에 액세스하는 데 사용됩니다. <br></br>아웃바운드 웹 프록시는 사용자가 구성할 수 있습니다. |
 | UDP 53(DNS) | 아웃 | WAN | 일부 경우에는 메모를 참조하십시오. | 이 포트는 인터넷 기반 DNS 서버로 사용하는 경우에만 필요합니다. <br></br> **참고**: 파일 서버를 배포하는 경우에는 로컬 DNS 서버를 사용하는 것이 좋습니다.|
 | UDP 123(NTP) | 아웃 | WAN | 일부 경우에는 메모를 참조하십시오. | 이 포트는 인터넷 기반 NTP 서버로 사용하는 경우에만 필요합니다.<br></br> **참고:** 파일 서버를 배포하는 경우에는 Active Directory 도메인 컨트롤러와 시간을 동기화하는 것이 좋습니다. |
-|TCP 9354 | 아웃 | WAN | 예 | 아웃바운드 포트는 StorSimple 장치에서 StorSimple 관리자 서비스와 통신하는 데 사용됩니다.|
-| TCP 80(HTTP) | 그런 다음 | LAN | 예 | 로컬 관리용 StorSimple 장치의 로컬 UI에 대한 인바운드 포트입니다. <br></br> **참고**: HTTP를 통해 로컬 UI에 액세스하면 자동으로 HTTPS에 리디렉션됩니다.|
+| TCP 80(HTTP) | 그런 다음 | LAN | 예 | 로컬 관리용 StorSimple 장치의 로컬 UI에 대한 인바운드 포트입니다. <br></br> **참고**: HTTP를 통해 로컬 UI에 액세스할 경우 HTTPS로 자동으로 리디렉션됩니다.|
 | TCP 443(HTTPS) | 그런 다음 | LAN | 예 | 로컬 관리용 StorSimple 장치의 로컬 UI에 대한 인바운드 포트입니다.|
 | TCP 3260(iSCSI) | 그런 다음 | LAN | 아니요 | 이 포트는 iSCSI를 통해 데이터에 액세스하는 데 사용됩니다.|
 
 <sup>1</sup> 인바운드 포트는 공용 인터넷에서 열릴 필요가 없습니다.
 
+### 방화벽 규칙에 대한 URL 패턴 
+
+네트워크 관리자는 URL 패턴을 기준으로 하는 고급 방화벽 규칙이 인바운드 및 아웃바운드 트래픽을 필터링하도록 구성할 수 있습니다. 가상 배열 및 StorSimple Manager 서비스는 Azure 서비스 버스, Azure Active Directory 액세스 제어, 저장소 계정, Microsoft 업데이트 서버 등의 다른 Microsoft 응용 프로그램에 의존합니다. 이러한 응용 프로그램과 연결된 URL 패턴을 사용하여 방화벽 규칙을 구성할 수 있습니다. 이러한 응용 프로그램과 연결된 URL 패턴은 달라질 수 있습니다. 따라서 네트워크 관리자는 StorSimple에 대한 방화벽 규칙을 모니터링하고 필요에 따라 업데이트해야 합니다.
+
+StorSimple 고정 IP 주소에 따라 대부분의 경우에서 자유롭게 아웃바운드 트래픽에 대한 방화벽 규칙을 설정하는 것이 좋습니다. 그러나 보안 환경을 만드는 데 필요한 고급 방화벽 규칙을 설정하려면 아래 정보를 사용할 수 있습니다.
+
+> [AZURE.NOTE] 
+> 
+> - 장치(원본) IP는 항상 클라우드를 사용하도록 설정된 네트워크 인터페이스로 설정해야 합니다. 
+> - 대상 IP는 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/ko-KR/download/confirmation.aspx?id=41653)로 설정해야 합니다.
+
+
+| URL 패턴 | 구성 요소/기능 |
+|------------------------------------------------------------------|---------------------------------------------------------------|
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` | StorSimple Manager 서비스<br>액세스 제어 서비스<br>Azure 서비스 버스|
+|`http://*.backup.windowsazure.com`|장치 등록|
+|`http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*`|인증서 해지 |
+| `https://*.core.windows.net/*` | Azure 저장소 계정 및 모니터링 |
+| `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Microsoft 업데이트 서버<br> |
+| `http://*.deploy.akamaitechnologies.com` |Akamai CDN |
+| `https://*.partners.extranet.microsoft.com/*` | 지원 패키지 |
+| `http://*.data.microsoft.com ` | Windows의 원격 분석 서비스는 [사용자 환경 및 진단 원격 분석 업데이트](https://support.microsoft.com/ko-KR/kb/3068708)를 참조하세요. |
+
 ## 다음 단계
 
 -   [StorSimple 가상 배열 배포를 위한 포털 준비](storsimple-ova-deploy1-portal-prep.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->

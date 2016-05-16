@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/04/2016" 
+	ms.date="05/03/2016" 
 	ms.author="jeffstok"/>
 
 #스트림 분석 작업에서 입력 및 출력을 위한 로그인 자격 증명 회전
@@ -121,7 +121,11 @@ Azure 스트림 분석은 마지막 출력에서 작업 재시작을 지원하�
 4.	5부로 이동합니다.  
 
 ##5부: 이전 자격 증명 집합 제거
-이 부분은 * Blob 저장소 * 이벤트 허브 * SQL 데이터베이스 * 테이블 저장소 입/출력에 적용할 수 있습니다.
+이 부분은 다음 입력/출력에 적용할 수 있습니다.
+* Blob 저장소
+* 이벤트 허브(영문)
+* SQL 데이터베이스
+* 테이블 저장소
 
 ###Blob 저장소/테이블 저장소
 이제 사용되지 않은 액세스 키를 갱신하 도록 이전에 작업에서 사용한 액세스 키에 대해 1부를 반복합니다.
@@ -194,4 +198,4 @@ Azure 스트림 분석은 마지막 출력에서 작업 재시작을 지원하�
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0504_2016-->

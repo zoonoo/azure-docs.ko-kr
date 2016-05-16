@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="02/03/2016"
+     ms.date="04/29/2016"
      ms.author="dobett"/>
 
 # 자습서: IoT Hub 장치-클라우드 메시지를 처리하는 방법
@@ -24,26 +24,26 @@ Azure IoT Hub는 수백만의 IoT 장치와 응용 프로그램 백 엔드 간�
 
 이 자습서는 [IoT Hub 시작] 자습서에 나와있는 코드에 기반하고 장치-클라우드 메시지를 처리하는 데 사용할 수 있는 두 개의 확장 가능한 패턴을 보여줍니다.
 
-- [Azure Blob 저장소]에서 장치-클라우드 메시지의 신뢰할 수 있는 저장소입니다. 콜드 경로 분석을 구현할 때 매우 일반적인 시나리오이며 Blob에 데이터를 저장하여 [Azure Data Factory] 또는 [HDInsight(Hadoop)] 스택과 같은 도구로 제어되는 분석 프로세스에 대한 입력으로 사용합니다.
+- [Azure Blob 저장소]에서 장치-클라우드 메시지의 신뢰할 수 있는 저장소입니다. *콜드 경로* 분석은 매우 일반적인 시나리오이며 원격 분석 데이터를 Blob에 저장하여 [Azure Data Factory] 또는 [HDInsight(Hadoop)] 스택과 같은 도구로 제어되는 분석 프로세스에 대한 입력으로 사용합니다.
 
-- *대화형* 장치-클라우드 메시지의 신뢰할 수 있는 처리입니다. 장치-클라우드 메시지는 분석 엔진에 공급되는 *데이터 요소* 메시지에 비해 응용 프로그램 백 엔드에서 일련의 작업에 대해 즉각적인 트리거인 경우 대화형입니다. 예를 들어 CRM 시스템에서 티켓의 삽입을 트리거해야 하는 장치에서 보내는 경보는 데이터 요소 장치-클라우드 메시지인 온도 샘플과 같은 원격 분석에 비해 대화형 장치-클라우드 메시지입니다.
+- *대화형* 장치-클라우드 메시지의 신뢰할 수 있는 처리입니다. 장치-클라우드 메시지는 분석 엔진에 공급되는 *데이터 요소* 메시지에 비해 응용 프로그램 백 엔드에서 일련의 작업에 대해 즉각적인 트리거인 경우 대화형입니다. 예를 들어 CRM 시스템에 티켓 삽입을 트리거해야 하는 장치에서 나온 경보는 대화형 메시지인 반면에, 나중에 분석하기 위해 저장해야 하는 장치에서의 온도 원격 분석은 데이터 요소 메시지입니다.
 
 IoT Hub가 [이벤트 허브][lnk-event-hubs] 호환 끝점을 노출하여 장치-클라우드 메시지를 받기 때문에 이 자습서에서는 다음과 같이 [EventProcessorHost] 인스턴스를 사용합니다.
 
-* 안전하게 Azure Blob에 *데이터 요소* 메시지를 저장합니다.
+* *데이터 요소* 메시지를 Azure Blob 저장소에 안정적으로 저장합니다.
 * 즉시 처리를 위해 *대화형* 장치-클라우드 메시지를 [서비스 버스 큐]에 전달합니다.
 
 서비스 버스는 메시지 당 검사점 및 시간 창 기반 중복 제거 기능을 제공하므로 신뢰할 수 있게 대화형 메시지를 처리할 수 있는 방법입니다.
 
 > [AZURE.NOTE] **EventProcessorHost** 인스턴스는 대화형 메시지를 처리하는 유일한 방법이며 다른 옵션으로 [Azure 서비스 패브릭][lnk-service-fabric] 및 [Azure 스트림 분석][lnk-stream-analytics]이 있습니다.
 
-이 자습서의 끝 부분에서 다음의 세 가지 Windows 콘솔 응용 프로그램을 실행합니다.
+이 자습서의 끝 부분에서 다음의 세 가지 Windows 콘솔 앱을 실행합니다.
 
-* **SimulatedDevice**, [IoT Hub 시작] 자습서에서 만든 수정된 버전의 앱은 초 마다 데이터 요소 장치-클라우드 메시지를 보내고 10초 마다 대화형 장치-클라우드 메시지를 보냅니다. 이 앱에서는 IoT Hub와 통신하는 데 AMQPS 프로토콜을 사용합니다.
-* **ProcessDeviceToCloudMessages**는 [EventProcessorHost]를 사용하여 이벤트 허브와 호환 가능한 끝점에서 메시지를 검색하고 Azure Blob에서 데이터 지점 메시지를 안정적으로 저장하며 서비스 버스 큐에 대화형 메시지를 전달합니다.
+* **SimulatedDevice**, [IoT Hub 시작] 자습서에서 만든 수정된 버전의 앱이며, 매 초마다 데이터 요소 장치-클라우드 메시지를 보내고 10초마다 대화형 장치-클라우드 메시지를 보냅니다. 이 앱에서는 IoT Hub와 통신하는 데 AMQPS 프로토콜을 사용합니다.
+* **ProcessDeviceToCloudMessages**는 [EventProcessorHost]를 사용하여 이벤트 허브와 호환 가능한 끝점에서 메시지를 검색한 다음, 데이터 요소 메시지를 Azure Blob 저장소에 안정적으로 저장하며 서비스 버스 큐에 대화형 메시지를 전달합니다.
 * **ProcessD2CInteractiveMessages**는 서비스 버스 큐에서 대화형 메시지를 제거합니다.
 
-> [AZURE.NOTE] IoT Hub는 많은 장치 플랫폼 및 언어(C, Java 및 JavaScript 포함)에 SDK를 지원합니다. 물리적 장치를 사용하여 이 자습서의 시뮬레이션된 장치를 바꾸는 방법 및 일반적으로 장치를 Azure IoT Hub에 연결하는 방법에 대한 단계별 지침은 [Azure IoT 개발자 센터]를 참조하세요.
+> [AZURE.NOTE] IoT Hub는 많은 장치 플랫폼 및 언어(C, Java 및 JavaScript 포함)에 SDK를 지원합니다. 물리적 장치를 사용하여 이 자습서의 시뮬레이션된 장치를 바꾸는 방법 및 일반적으로 장치를 IoT Hub에 연결하는 방법에 대한 단계별 지침은 [Azure IoT 개발자 센터]를 참조하세요.
 
 이 자습서는 [HDInsight(Hadoop)] 프로젝트와 같이 이벤트 허브와 호환되는 메시지를 사용하는 다른 방법에 직접 적용할 수 있습니다. 자세한 내용은 [Azure IoT Hub 개발자 가이드 - 장치-클라우드]를 참조하세요.
 
@@ -51,7 +51,7 @@ IoT Hub가 [이벤트 허브][lnk-event-hubs] 호환 끝점을 노출하여 장�
 
 + Microsoft Visual Studio 2015.
 
-+ 활성 Azure 계정. <br/>계정이 없는 경우 몇 분 만에 무료 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdevelop%2Fiot%2Ftutorials%2Fprocess-d2c%2F target="\_blank")을 참조하세요.
++ 활성 Azure 계정. <br/>Azure 구독이 없는 경우 몇 분 만에 [무료 계정](https://azure.microsoft.com/free/)을 만들 수 있습니다.
 
 [Azure 저장소] 및 [Azure 서비스 버스]의 기본 지식이 있어야 합니다.
 
@@ -65,13 +65,13 @@ IoT Hub가 [이벤트 허브][lnk-event-hubs] 호환 끝점을 노출하여 장�
 
 이제 응용 프로그램을 실행할 준비가 되었습니다.
 
-1.	솔루션 탐색기의 Visual Studio에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트 설정**을 선택합니다. **여러 개의 시작 프로젝트**를 선택한 다음 **ProcessDeviceToCloudMessages**, **SimulatedDevice** 및 **ProcessD2CInteractiveMessages** 프로젝트에 **시작**을 동작으로 선택합니다.
+1.	솔루션 탐색기의 Visual Studio에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트 설정**을 선택합니다. **여러 개의 시작 프로젝트**를 선택한 다음 **ProcessDeviceToCloudMessages**, **SimulatedDevice** 및 **ProcessD2CInteractiveMessages** 프로젝트에 **시작**을 작업으로 선택합니다.
 
 2.	**F5** 키를 눌러 세 가지 콘솔 응용 프로그램을 시작합니다. **ProcessD2CInteractiveMessages** 응용 프로그램은 **SimulatedDevice** 응용 프로그램에서 보낸 모든 대화형 메시지를 처리해야 합니다.
 
   ![][50]
 
-> [AZURE.NOTE] Blob 파일의 업데이트를 보려면 **StoreEventProcessor** 클래스의 **MAX\_BLOCK\_SIZE** 상수를 **1024**과 같은 더 작은 값으로 줄여야 합니다. 즉, 시뮬레이션된 장치에서 보낸 데이터로 블록 크기 제한에 도달하는데 시간이 걸리기 때문입니다. 블록 크기가 작을수록 Blob가 만들어지고 업데이트되는 과정을 오래 기다리지 않습니다. 그러나 더 큰 블록 크기를 사용하면 응용 프로그램을 더 확장할 수 있습니다.
+> [AZURE.NOTE] Blob 파일의 업데이트를 보려면 **StoreEventProcessor** 클래스의 **MAX\_BLOCK\_SIZE** 상수를 **1024**와 같은 더 작은 값으로 줄여야 합니다. 즉, 시뮬레이션된 장치에서 보낸 데이터로 블록 크기 제한에 도달하는데 시간이 걸리기 때문입니다. 블록 크기가 작을수록 Blob가 만들어지고 업데이트되는 과정을 오래 기다리지 않습니다. 그러나 더 큰 블록 크기를 사용하면 응용 프로그램을 더 확장할 수 있습니다.
 
 ## 다음 단계
 
@@ -122,4 +122,4 @@ IoT Hub에 대한 추가 정보:
 [lnk-stream-analytics]: https://azure.microsoft.com/documentation/services/stream-analytics/
 [lnk-event-hubs]: https://azure.microsoft.com/documentation/services/event-hubs/
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

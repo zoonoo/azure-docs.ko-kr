@@ -22,6 +22,8 @@
 
 Azure 계획된 유지 관리의 정의와 계획된 유지 관리가 Windows 가상 컴퓨터의 가용성에 주는 영향에 대해 알아봅니다. 이 문서는 [Linux 가상 컴퓨터](virtual-machines-linux-planned-maintenance.md)에도 적용됩니다.
 
+이 문서는 Azure 계획 유지 보수 프로세스에 대한 배경을 제공합니다. VM이 다시 부팅되는 문제를 해결하려는 경우 [VM 재부팅 로그 보기에 대해 자세히 설명하는 이 블로그 게시물을 읽으십시오](https://azure.microsoft.com/blog/viewing-vm-reboot-logs/).
+
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 
@@ -35,4 +37,4 @@ Microsoft Azure는 가상 컴퓨터의 기반이 되는 호스트 인프라의 �
 
 [AZURE.INCLUDE [virtual-machines-common-planned-maintenance](../../includes/virtual-machines-common-planned-maintenance.md)]
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

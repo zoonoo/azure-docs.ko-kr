@@ -125,7 +125,7 @@ Azure에 게시하고 하이브리드 연결을 사용하기 전에 로컬로 �
 
 ##참고 항목##
 
-+ [하이브리드 연결 웹 사이트](../../services/biztalk-services/)
++ [하이브리드 연결 웹 사이트](https://azure.microsoft.com/services/biztalk-services/)
 + [하이브리드 연결 개요](../biztalk-services/integration-hybrid-connection-overview.md)
 + [BizTalk 서비스: 대시보드, 모니터, 확장, 구성 및 하이브리드 연결 탭](../biztalk-services/biztalk-dashboard-monitor-scale-tabs.md)
 + [.NET 백 엔드 모바일 서비스에 대한 데이터 모델 변경 방법](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md)
@@ -137,4 +137,4 @@ Azure에 게시하고 하이브리드 연결을 사용하기 전에 로컬로 �
 [Azure 클래식 포털]: http://manage.windowsazure.com
 [모바일 서비스 시작]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

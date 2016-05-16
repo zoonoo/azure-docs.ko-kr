@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-html"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="02/11/2016"
-	ms.author="adrianha"/>
+	ms.date="05/02/2016"
+	ms.author="glenga"/>
 
 # Apache Cordova 앱에 푸시 알림 추가
 
@@ -61,20 +61,17 @@ Google Android 플랫폼을 대상으로 하므로 Google Cloud Messaging을 사
 
 Android 장치에 응용 프로그램을 배포하려면 먼저 USB 디버깅을 사용하도록 설정해야 합니다. Android 휴대폰에서 다음 단계를 수행합니다.
 
-1. **설정** > **전화 정보**로 이동합니다.
-2. 개발자 모드가 사용하도록 설정될 때까지 **빌드 번호**를 탭합니다.
-3. **설정**으로 돌아갑니다.
-4. **개발자 옵션**을 선택합니다.
-5. **USB 디버깅**을 켭니다.
-6. USB 케이블로 Android 휴대폰을 개발 PC에 연결합니다.
+1. **설정** > **전화 정보**로 이동한 다음 개발자 모드가 활성화될 때까지 **빌드 번호**를 누릅니다(약 7회).
+ 
+2. **설정** > **개발자 옵션**으로 돌아가서 **USB 디버깅**을 활성화한 다음 USB 케이블을 사용하여 Android 휴대폰을 개발 PC에 연결합니다.
 
-이 자습서를 테스트할 때 Android 6.0(Marshmallow) 릴리스를 실행하는 Google Nexus 5X를 사용했습니다. 그러나 기술은 모든 최신 Android 릴리스에서 공통적입니다.
+이 방법은 Android 6.0(Marshmallow)을 실행하는 Google Nexus 5X를 사용하여 테스트되었습니다. 그러나 기술은 모든 최신 Android 릴리스에서 공통적입니다.
 
 ##<a name="add-push-to-app"></a>앱에 푸시 알림 추가
 
-Apache Cordova 앱 프로젝트가 푸시 알림을 처리할 준비가 되었는지 확인해야 합니다.
+Apache Cordova 앱 프로젝트가 푸시 알림을 처리할 준비가 되었는지 확인해야 합니다. Cordova 푸시 플러그 인과 플랫폼별 푸시 서비스를 설치해야 합니다.
 
-### Apache Cordova 푸시 플러그 인 설치
+### 푸시 플러그 인 설치
 
 Apache Cordova 응용 프로그램에서는 기본적으로 장치 또는 네트워크 기능을 처리하지 않습니다. 이러한 기능은 [npm](https://www.npmjs.com/) 또는 GitHub에 게시된 플러그 인에서 제공됩니다. `phonegap-plugin-push` 플러그 인은 네트워크 푸시 알림을 처리하는 데 사용됩니다.
 
@@ -82,32 +79,31 @@ Apache Cordova 응용 프로그램에서는 기본적으로 장치 또는 네트
 
 **명령 프롬프트에서:**
 
+다음 명령을 실행합니다.
+
     cordova plugin add phonegap-plugin-push
 
 **Visual Studio 내에서:**
 
-1.  솔루션 탐색기에서 `config.xml` 파일을 엽니다.
-2.  **플러그 인** > **사용자 지정**을 클릭하고 설치 원본으로 **Git**를 선택한 다음 원본으로 `https://github.com/phonegap/phonegap-plugin-push`를 입력합니다.
+1.  솔루션 탐색기에서 `config.xml` 파일을 열고, **플러그 인** > **사용자 지정**을 클릭하고, 설치 원본으로 **Git**를 선택한 다음 원본으로 `https://github.com/phonegap/phonegap-plugin-push`를 입력합니다.
 
 	![](./media/app-service-mobile-cordova-get-started-push/add-push-plugin.png)
 
-4.  설치 원본 옆의 화살표를 클릭한 다음 **추가**를 클릭합니다.
+2.  설치 원본 옆의 화살표를 클릭하고 **추가**를 클릭합니다.
 
 이제 푸시 플러그 인이 설치되었습니다.
 
-### Android Google Play Services 설치
+### Google Play Services 설치
 
-PhoneGap 푸시 플러그 인은 푸시 알림용으로 Google Play Services를 사용합니다. 설치하려면 다음을 수행합니다.
+푸시 플러그 인은 푸시 알림용으로 Google Play Services를 사용합니다.
 
-1.  **Visual Studio**를 엽니다.
-2.  **도구** > **Android** > **Android SDK Manager**를 클릭합니다.
-3.  Extras 폴더에서 설치되어 있지 않은 필요한 SDK 옆의 확인란을 각각 선택합니다. 다음과 같은 패키지가 필요합니다.
+1.  **Visual Studio**에서 **도구** > **Android** > **Android SDK Manager**를 클릭하고, **Extras** 폴더를 확장한 후 다음 SDK가 모두 설치되도록 확인란을 선택합니다.    
     * Android 지원 라이브러리 버전 23 이상
     * Android 지원 리포지토리 버전 20 이상
     * Google Play Services 버전 27 이상
     * Google 리포지토리 버전 22 이상
-4.  **패키지 설치**를 클릭합니다.
-5.  설치가 완료될 때까지 기다립니다.
+     
+2.  **패키지 설치**를 클릭하고 설치가 완료될 때까지 기다립니다.
 
 현재 필요한 라이브러리가 [phonegap-plugin-push 설치 설명서]에 나열되어 있습니다.
 
@@ -169,13 +165,13 @@ PhoneGap 푸시 플러그 인은 푸시 알림용으로 Google Play Services를 
 
 3. 위 코드에서는 `Your_Project_ID`를 [Google 개발자 콘솔]의 앱에 대한 숫자 프로젝트 ID로 바꿉니다.
 
-## 게시된 모바일 서비스에 대해 앱 테스트
+## 앱에서 푸시 알림 테스트 
 
-Android 휴대폰을 USB 케이블로 직접 연결하여 앱을 테스트할 수 있습니다. **Google Android 에뮬레이터** 대신 **장치**를 선택합니다. Visual Studio에서 장치에 응용 프로그램을 다운로드하고 응용 프로그램을 실행합니다. 그런 다음 장치에서 응용 프로그램을 조작합니다.
+이제 앱을 실행하고 TodoItem 테이블에 항목을 삽입하여 푸시 알림을 테스트할 수 있습니다. 동일한 백 엔드를 사용하는 한, 같은 장치에서 테스트해도 되고 두 번째 장치에서 테스트해도 됩니다. 다음 방법 중 하나로 Android 플랫폼에서 Cordova 앱을 테스트합니다.
 
-개발 환경을 개선합니다. [Mobizen]과 같은 화면 공유 응용 프로그램은 Android 화면을 PC의 웹 브라우저에 표시하여 Android 응용 프로그램을 개발하는 데 도움을 줍니다.
+- **실제 장치에서:** USB 케이블을 사용하여 Android 장치를 개발 컴퓨터에 연결합니다. **Google Android 에뮬레이터** 대신 **장치**를 선택합니다. Visual Studio에서 장치에 응용 프로그램을 배포하고 실행할 것입니다. 이제 장치에서 응용 프로그램과 상호 작용할 수 있습니다. 개발 환경을 개선합니다. [Mobizen]과 같은 화면 공유 응용 프로그램은 Android 화면을 PC의 웹 브라우저에 표시하여 Android 응용 프로그램을 개발하는 데 도움을 줍니다.
 
-또한 Android 에뮬레이터에서 Android 앱을 테스트할 수 있습니다. 먼저 에뮬레이터에 Google 계정을 추가해야 합니다.
+- **Android 에뮬레이터에서:** 푸시 알림을 받으려면 에뮬레이터에서 Google 계정을 추가해야 합니다.
 
 ##<a name="next-steps"></a>다음 단계
 
@@ -205,4 +201,4 @@ SDK 사용 방법을 알아봅니다.
 [ASP.NET 서버 SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Node.js 서버 SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

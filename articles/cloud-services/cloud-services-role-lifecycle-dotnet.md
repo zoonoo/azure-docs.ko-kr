@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="12/07/2015" 
+ms.date="05/02/2016" 
 ms.author="adegeo"/>
 
 # .NET에서 웹 또는 작업자 역할의 수명 주기 사용자 지정
@@ -63,7 +63,7 @@ public override bool OnStart()
 
 역할 인스턴스가 Azure에서 오프라인으로 사용된 후 및 프로세스 종료 전에 **OnStop** 메서드가 호출됩니다. 역할 인스턴스가 올바르게 종료하는 데 필요한 코드를 호출하도록 이 메서드를 재정의할 수 있습니다.
 
-> [AZURE.IMPORTANT]사용자가 시작한 종료 이외의 이유로 호출될 때 **OnStop** 메서드에서 실행 중인 코드는 완료 시간이 제한됩니다. 이 시간이 지난 후 프로세스가 종료되므로, **OnStop** 메서드의 해당 코드가 신속하게 실행하거나 완료될 때까지 실행되지않는 것을 허용합니다. **Stopping** 이벤트가 발생한 후 **OnStop** 메서드가 호출됩니다.
+> [AZURE.IMPORTANT] 사용자가 시작한 종료 이외의 이유로 호출될 때 **OnStop** 메서드에서 실행 중인 코드는 완료 시간이 제한됩니다. 이 시간이 지난 후 프로세스가 종료되므로, **OnStop** 메서드의 해당 코드가 신속하게 실행하거나 완료될 때까지 실행되지않는 것을 허용합니다. **Stopping** 이벤트가 발생한 후 **OnStop** 메서드가 호출됩니다.
 
 
 ## Run 메서드
@@ -80,4 +80,4 @@ public override bool OnStart()
 ## 다음 단계
 [클라우드 서비스 패키지를 만드는](cloud-services-model-and-package.md) 방법에 대해 알아봅니다.
 
-<!---HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0504_2016-->

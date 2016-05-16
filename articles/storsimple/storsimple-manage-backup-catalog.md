@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/30/2015"
+   ms.date="04/28/2016"
    ms.author="v-sharos" />
 
 # StorSimple 관리자 서비스를 사용하여 백업 카탈로그 관리
@@ -23,7 +23,7 @@ StorSimple 관리자 서비스 **백업 카탈로그** 페이지는 수동 또�
 
 이 자습서에서는 백업 세트를 표시하고 선택하고 삭제하는 방법을 설명합니다. 백업에서 장치를 복원하는 방법을 알아보려면[백업 세트에서 장치 복원](storsimple-restore-from-backup-set.md)으로 이동합니다. 볼륨 복제 방법을 알아보려면 [StorSimple 볼륨 복제](storsimple-clone-volume.md)로 이동합니다.
 
-![백업 카탈로그](./media/storsimple-manage-backup-catalog/HCS_BackupCatalog.png)
+![백업 카탈로그](./media/storsimple-manage-backup-catalog/backupcatalog.png)
 
 **백업 카탈로그** 페이지는 백업 세트 선택 범위를 좁힐 수 있는 쿼리를 제공합니다. 다음 매개 변수를 기반으로 검색되는 백업 세트를 필터링 할 수 있습니다.
 
@@ -117,4 +117,4 @@ StorSimple 관리자 서비스 **백업 카탈로그** 페이지는 수동 또�
 
 - [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0504_2016-->

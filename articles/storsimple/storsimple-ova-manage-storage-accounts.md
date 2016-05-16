@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/02/2016"
+   ms.date="04/18/2016"
    ms.author="alkohli" />
 
-# StorSimple 관리자 서비스를 사용하여 저장소 계정 관리
+# StorSimple Manager 서비스를 사용하여 StorSimple 가상 배열의 저장소 계정 관리
 
 ## 개요
 
@@ -56,7 +56,9 @@ StorSimple 장치에서 사용할 수 있는 저장소 계정에는 다음과 �
 
 특정 클라우드 서비스 공급자에 대해 여러 계정을 만들 수 있습니다. 저장소 계정을 저장하는 동안 해당 서비스는 클라우드 서비스 공급자와 통신을 시도합니다. 사용자가 지정한 자격 증명 및 액세스 자료가 이 때 인증됩니다. 인증에 성공하는 경우에만 저장소 계정이 만들어집니다. 인증에 실패하는 경우 그에 따른 오류 메시지가 표시됩니다.
 
-저장소 계정 추가 대한 절차는 아래 자세히 나와 있습니다.
+Azure 포털에서 만든 Resource Manager 저장소 계정은 StorSimple에서도 지원됩니다. Resource Manager 저장소 계정은 드롭다운 목록에서 선택할 수 있도록 표시되지 않으며 Azure 클래식 포털에서 만든 저장소 계정만 표시됩니다. 아래에 설명된 저장소 계정 추가 절차에 따라 Resource Manager 저장소 계정을 추가해야 합니다.
+
+Azure 클래식 저장소 계정을 추가하는 절차는 아래에 자세히 나와 있습니다.
 
 [AZURE.INCLUDE [저장소 계정 추가](../../includes/storsimple-ova-configure-new-storage-account.md)]
 
@@ -101,4 +103,4 @@ StorSimple 장치에서 사용할 수 있는 저장소 계정에는 다음과 �
 
 - [StorSimple 가상 배열을 관리](storsimple-ova-web-ui-admin.md)하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

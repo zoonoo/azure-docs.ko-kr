@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/08/2016" 
+	ms.date="04/27/2016" 
 	ms.author="tdykstra"/>
 
 # Azure WebJobs 설명서 리소스
@@ -22,7 +22,7 @@
 
 이 항목은 Azure WebJob 및 Azure WebJobs SDK를 사용하는 방법에 대한 설명서 리소스에 연결됩니다. Azure WebJobs는 스크립트 또는 프로그램을 [앱 서비스 웹앱, API 앱 또는 모바일 앱](../app-service/app-service-value-prop-what-is.md)의 컨텍스트에서 백그라운드 프로세스로 실행하는 편리한 방법을 제공합니다. cmd, bat, exe(.NET), ps1, sh, php, py, js 및 jar와 같은 실행 파일을 업로드하고 실행할 수 있습니다. 이러한 프로그램은 일정에 따라(cron) 또는 지속적으로 WebJob으로 실행됩니다.
 
-[WebJobs SDK](websites-webjobs-resources.md) 목적은 WebJob이 이미지 처리, 큐 처리, RSS 집계, 파일 유지 관리, 전자 메일 보내기 등을 수행한는 일반적인 작업에 대해 작성하는 코드를 간소화하는 것입니다. WebJobs SDK에는 Azure 저장소 및 서비스 버스 작업, 작업 예약 및 오류 처리, 기타 여러 일반적인 시나리오를 위한 기본 제공 기능이 있습니다. 또한 확장이 가능하기 때문에 [확장을 위한 오픈 소스 리포지토리](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview)도 있습니다.
+[WebJobs SDK](websites-webjobs-resources.md) 목적은 WebJob이 이미지 처리, 큐 처리, RSS 집계, 파일 유지 관리, 전자 메일 보내기 등을 수행한는 일반적인 작업에 대해 작성하는 코드를 간소화하는 것입니다. WebJobs SDK에는 Azure 저장소 및 서비스 버스 작업, 작업 예약 및 오류 처리, 기타 여러 일반적인 시나리오를 위한 기본 제공 기능이 있습니다. 또한 확장이 가능하기 때문에 [확장을 위한 오픈 소스 리포지토리](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview)도 있습니다. [Azure Functions](../azure-functions/functions-overview.md)(현재 미리 보기 모드)는 C# 스크립트, Node.js, 기타 언어를 지원하는 WebJobs SDK 버전을 기준으로 합니다.
 
 Visual Studio의 통합 도구를 사용하면 WebJob을 원활하게 만들고, 배포하고, 관리할 수 있습니다. 템플릿에서 WebJob을 만들고, 게시하고 관리(실행/중지/모니터링/디버깅)할 수 있습니다.
 
@@ -82,7 +82,7 @@ Azure 포털의 WebJob 대시보드는 WebJob 내의 개별 함수를 호출하�
 * [Blob 작성 주체](http://blogs.msdn.com/b/jmstall/archive/2014/02/19/who-wrote-that-blob.aspx) 
 * [클라우드에서 대화형 코드 호스트](http://blogs.msdn.com/b/jmstall/archive/2014/04/26/hosting-interactive-code-in-the-cloud.aspx)
 * [Azure WebJobs에 추적 추가](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx)
-* [Microsoft Azure 저장소 모니터링, 진단 및 문제 해결](../storage-monitoring-diagnosing-troubleshooting/)
+* [Microsoft Azure 저장소 모니터링, 진단 및 문제 해결](../storage/storage-monitoring-diagnosing-troubleshooting.md)
 * 비디오
 	* [WebJobs Tooling 및 원격 디버깅](http://channel9.msdn.com/Shows/Web+Camps+TV/WebJobs-GA-Series-Episode-1-WebJobs-Tooling-with-Brady-Gaster) 
 
@@ -109,11 +109,13 @@ Azure 포털의 WebJob 대시보드는 WebJob 내의 개별 함수를 호출하�
 ##<a name="additionalsdk"></a>추가 WebJobs SDK 리소스
 
 * [WebJobs SDK 릴리스 정보](https://github.com/Azure/azure-webjobs-sdk/wiki/Release-Notes)
-* [WebJobs SDK 확장의 오픈 소스 리포지토리](https://github.com/Azure/azure-webjobs-sdk-extensions), [확장성 모델에 대한 자세한 가이드](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview).  
 * [WebJobs SDK 소스 코드](https://github.com/Azure/azure-webjobs-sdk)
+* [WebJobs SDK 확장 소스 코드](https://github.com/Azure/azure-webjobs-sdk-extensions) 및 [확장성 모델에 대한 자세한 가이드](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview)  
+* [WebJobs SDK 스크립트 소스 코드](https://github.com/Azure/azure-webjobs-sdk-script/)([Azure Functions](../azure-functions/functions-overview.md)에 사용)
 * [WebJobs SDK를 사용하여 Azure 저장소에 FREB 파일을 업로드하기 위한 WebJob](http://thenextdoorgeek.com/post/WAWS-WebJob-to-upload-FREB-files-to-Azure-Storage-using-the-WebJobs-SDK)
 * [Azure 외부에 Azure WebJobs를 호스트하여 Azure 호스트 WebJob의 로깅 이점 얻기](http://bypassion.dk/?p=510)
 * [Azure WebJobs를 사용하여 데이터 가져오기 도구 구축](http://www.freshconsulting.com/building-data-import-tool-azure-webjobs/)
+* [Azure 함수 개요](../azure-functions/functions-overview.md)
 * 비디오
 	* [Channel 9의 Azure WebJobs 비디오 시리즈](http://channel9.msdn.com/Tags/azurefridaywebjobs)
 
@@ -133,10 +135,11 @@ Azure 포털의 WebJob 대시보드는 WebJob 내의 개별 함수를 호출하�
 
 * [WebJobs의 스택 오버플로](http://stackoverflow.com/questions/tagged/azure-webjobs)
 * [WebJobs SDK의 스택 오버플로](http://stackoverflow.com/questions/tagged/azure-webjobssdk)
+* [Azure Functions의 스택 오버플로](http://stackoverflow.com/questions/tagged/azure-functions)
 * [Azure 및 ASP.NET 포럼](http://forums.asp.net/1247.aspx)
 * [Azure 앱 서비스 웹앱 포럼](http://social.msdn.microsoft.com/Forums/azure/home?forum=windowsazurewebsitespreview)
 * [Azure 웹앱 사용자 음성 사이트](https://feedback.azure.com/forums/169385-websites/)
 * [Twitter](http://twitter.com/). 해시 태그 #AzureWebJobs를 사용합니다.
 * [WebJobs 버그 또는 문제 보고](https://github.com/projectkudu/kudu/wiki/Reporting-WebJobs-issues)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

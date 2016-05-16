@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/01/2016"   
+ 	ms.date="05/03/2016"    
 	ms.author="juliako"/>
 
 
@@ -27,7 +27,7 @@
 
 미디어 서비스는 동적 및 정적 패키징을 지원합니다. 정적 패키징을 사용하는 경우 고객에게 필요한 각 형식으로 콘텐츠 복사본을 만들어야 합니다. 동적 패키징을 사용하는 경우 적응 비트 전송률 MP4 또는 부드러운 스트리밍 파일의 집합이 포함된 자산을 만들기만 하면 됩니다. 이렇게 하면 매니페스트 또는 조각 요청의 지정된 형식에 따라 주문형 스트리밍 서버는 사용자가 선택한 프로토콜로 스트림을 받을 수 있도록 합니다. 따라서 사용자는 단일 저장소 형식으로 파일을 저장하고 해당 파일에 대한 요금을 지불하기만 하면 되며, 미디어 서비스에서 클라이언트의 요청에 따라 적절한 응답을 작성하고 제공합니다.
 
->[AZURE.NOTE] [동적 패키징](media-services-dynamic-packaging-overview.md)을 사용하는 것이 좋습니다.
+>[AZURE.NOTE] [동적 패키징](media-services-dynamic-packaging-overview.md)을 사용하는 것이 좋습니다.
 
 그러나 정적 패키징이 필요한 일부 시나리오가 있습니다.
 
@@ -689,7 +689,7 @@ PlayReady를 사용하여 콘텐츠를 보호하려는 경우 [동적 암호화]
 
 ## 정적 암호화를 사용하여 AES-128로 HLSv3 보호
 
-AES-128을 사용하여 HLS를 암호화하려는 경우 동적 암호화(권장되는 옵션) 또는 정적 암호화(이 섹션에서 설명) 사용 중에서 선택할 수 있습니다. 동적 암호화를 사용하도록 결정한 경우 [AES-128 동적 암호화 및 키 전달 서비스 사용](media-services-protect-with-aes128)을 참조하세요.
+AES-128을 사용하여 HLS를 암호화하려는 경우 동적 암호화(권장되는 옵션) 또는 정적 암호화(이 섹션에서 설명) 사용 중에서 선택할 수 있습니다. 동적 암호화를 사용하도록 결정한 경우 [AES-128 동적 암호화 및 키 전달 서비스 사용](media-services-protect-with-aes128.md)을 참조하세요.
 
 >[AZURE.NOTE]콘텐츠를 HLS로 변환하려면 먼저 콘텐츠를 부드러운 스트리밍으로 변환/인코딩해야 합니다. 또한 AES로 암호화된 HLS의 경우 MediaPackager\_SmoothToHLS.xml 파일의 다음 속성을 설정합니다. 암호화 속성을 true로 설정하고 키 값을 설정하고 keyuri 값을 인증/권한 부여 서버를 가리키도록 합니다. 미디어 서비스는 키 파일을 만들고 이를 자산 컨테이너에 배치합니다. /asset-containerguid/*.key 파일을 서버에 복사(또는 고유 키 파일 만들기)한 다음 자산 컨테이너에서 *.key 파일을 삭제합니다.
 
@@ -1447,4 +1447,4 @@ PlayReady를 사용하여 콘텐츠를 보호하려는 경우 [동적 암호화]
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->

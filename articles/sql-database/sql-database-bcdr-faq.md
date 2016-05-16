@@ -4,7 +4,7 @@
    services="sql-database" 
    documentationCenter="" 
    authors="elfisher" 
-   manager="jeffreyg" 
+   manager="jhubbard" 
    editor="monicar"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="02/09/2016"
+   ms.date="04/25/2016"
    ms.author="elfish"/>
 
 # 비즈니스 연속성 FAQ
@@ -50,14 +50,8 @@
 
 대량 복원을 위한 기본 제공 기능은 없습니다. [Azure SQL Database: Full Server Recovery](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) 스크립트는 이 작업을 수행하는 한 가지 방법의 예입니다.
 
-## 8\. 표준 지역에서 복제와 활성 지역 복제의 차이 무엇입니까?
-
-표준 지역에서 복제의 경우 보조 데이터베이스를 읽을 수 없습니다. 이는 중단 상태 동안 장애 조치에만 사용할 수 있습니다.
-
-활성 지역 복제의 경우 최대 4개까지, 모든 보조 데이터베이스를 읽을 수 있습니다.
-
-## 9\. 표준 지역에서 복제 또는 활성 지역 복제를 사용하는 경우 복제 지연이란 무엇입니까?
+## 8\. 활성 지역 복제를 사용하는 경우 복제 지연이란 무엇입니까?
 
 [sys.dm\_geo\_replication\_link\_status](https://msdn.microsoft.com/library/mt575504.aspx) 동적 관리 뷰(DMVs)를 사용하여 마지막 복제 시간, 마지막 복제 간격 및 복제 링크에 대한 기타 정보를 얻을 수 있습니다.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

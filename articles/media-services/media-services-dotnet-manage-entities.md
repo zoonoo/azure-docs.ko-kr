@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/11/2016"  
+ 	ms.date="05/03/2016"
 	ms.author="juliako"/>
 
 
@@ -23,7 +23,7 @@
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-dotnet-manage-entities.md)
-- [REST](media-services-rest-manage-entities.md)
+- [REST (영문)](media-services-rest-manage-entities.md)
 
 
 이 항목에서는 다음 미디어 서비스 관리 작업을 수행하는 방법을 보여 줍니다.
@@ -381,4 +381,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0504_2016-->

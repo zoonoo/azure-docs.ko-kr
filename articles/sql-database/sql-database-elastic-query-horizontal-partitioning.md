@@ -23,7 +23,7 @@
 
 빠른 시작은 [확장된 클라우드 데이터베이스에서 보고](sql-database-elastic-query-getting-started.md)를 참조하세요.
 
-비분할 데이터베이스의 경우 [분할된 클라우드 데이터베이스에서 쿼리(수직 분할)](sql-database-elastic-query-vertical-partitioning.md)을 참조하세요.
+비분할 데이터베이스의 경우 [여러 스키마를 사용하여 클라우드 데이터베이스에서 쿼리](sql-database-elastic-query-vertical-partitioning.md)를 참조하세요.
 
  
 ## 필수 조건
@@ -173,7 +173,7 @@ DISTRIBUTION 절은 이 테이블에 사용되는 데이터 배포를 지정합�
  
 ## 원격 T-SQL 실행을 위한 저장 프로시저: sp\_execute\_remote
 
-또한 탄력적 쿼리는 분할된 데이터베이스에 대한 직접 액세스를 제공하기 위해 저장 프로시저를 사용합니다. 저장 프로시저는 **sp\_execute\_remote**라고 하며, 원격 데이터베이스에서 원격 저장 프로시저 또는 T-SQL 코드를 실행하는 데 사용될 수 있습니다. 사용되는 매개 변수는 다음과 같습니다.
+또한 탄력적 쿼리는 분할된 데이터베이스에 대한 직접 액세스를 제공하기 위해 저장 프로시저를 사용합니다. 저장 프로시저는 [sp\_execute\_remote](https://msdn.microsoft.com/library/mt703714)라고 하며, 원격 데이터베이스에서 원격 저장 프로시저 또는 T-SQL 코드를 실행하는 데 사용될 수 있습니다. 사용되는 매개 변수는 다음과 같습니다.
 
 * 데이터 원본 이름(nvarchar): RDBMS 형식의 외부 데이터 원본 이름입니다. 
 * 쿼리(nvarchar): T-SQL 쿼리를 각 분할된 데이터베이스에서 실행할 수 있습니다. 
@@ -208,4 +208,4 @@ sp\_execute\_remote는 호출 매개 변수에 제공된 외부 데이터 원본
 [1]: ./media/sql-database-elastic-query-horizontal-partitioning/horizontalpartitioning.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

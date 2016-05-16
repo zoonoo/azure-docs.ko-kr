@@ -14,106 +14,108 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/29/2016"
+   ms.date="05/02/2016"
    ms.author="litran"/>
 
 # PowerApps 엔터프라이즈에 새 Office 365 사용자 API 만들기
 
-> [AZURE.SELECTOR]
-- [논리 앱](../articles/connectors/connectors-create-api-office365-users.md)
-- [PowerApps 엔터프라이즈](../articles/power-apps/powerapps-create-api-office365-users.md)
+> [AZURE.IMPORTANT] 이 항목은 보관되고 곧 제거될 예정입니다. 새 [PowerApps](https://powerapps.microsoft.com)의 새로운 내용을 살펴보세요.
+> 
+> - PowerApps에 대해 자세히 알아보고 시작하려면 [PowerApps](https://powerapps.microsoft.com)로 이동합니다.  
+> - PowerApps에서 사용 가능한 연결에 대해 자세히 알아보려면 [사용 가능한 연결](https://powerapps.microsoft.com/tutorials/connections-list/)로 이동합니다. 
 
-조직의 (테넌트) 앱 서비스 환경에 Office 365 사용자 API를 추가합니다.
+<!--Archived
+Add the Office 365 Users API to your organization's (tenant) app service environment. 
 
-## Azure 포털에서 API 만들기
+## Create the API in the Azure portal
 
-1. [Azure 포털](https://portal.azure.com/)에서 회사 계정으로 로그인합니다. 예를 들어 *yourUserName*@*YourCompany*.com으로 로그인합니다. 그러면 회사 구독에 자동으로 로그인됩니다.
+1. In the [Azure portal](https://portal.azure.com/), sign-in with your work account. For example, sign-in with *yourUserName*@*YourCompany*.com. When you do this, you are automatically signed in to your company subscription.
  
-2. 작업 표시줄에서 **찾아보기**를 선택합니다.  
+2. Select **Browse** in the task bar:  
 ![][14]
 
-3. 목록을 스크롤하여 PowerApps를 찾거나 *powerapps*를 입력합니다.  
-![][15]
+3. In the list, you can scroll to find PowerApps or type in *powerapps*:  
+![][15]  
 
-4. **PowerApps**에서 **API 관리**를 선택합니다.    
-![등록된 API 찾아보기][1]
+4. In **PowerApps**, select **Manage APIs**:    
+![Browse to registered apis][1]
 
-5. **API 관리**에서 **추가**를 선택하여 새 API를 추가합니다.  
-![API 추가][2]
+5. In **Manage APIs**, select **Add** to add the new API:  
+![Add API][2]
 
-6. API에 대한 설명이 포함된 **이름**을 입력합니다.
+6. Enter a descriptive **name** for your API.  
 	
-7. **원본**에서 **사용 가능한 API**를 선택하여 이미 만들어진 API를 선택한 다음 **Office 365 사용자**를 선택합니다.  
-![Office 365 사용자 API 선택][3]
+7. In **Source**, select **Available APIs** to select the pre-built APIs, and select **Office 365 Users**:  
+![select Office 365 Users api][3]
 
-8. **설정 - 필수 설정 구성**을 선택합니다.  
- ![Office 365 사용자 API 설정 구성][4]
+8. Select **Settings - Configure required settings**:  
+![configure Office 365 Users API settings][4]
 
-9. Office 365 AAD(Azure Active Directory) 응용 프로그램의 *클라이언트 ID* 및 *클라이언트 암호*를 입력합니다. 없는 경우 이 항목의 "PowerApps에서 사용할 AAD 앱 등록" 섹션을 참조하여 필요한 ID와 암호 값을 만듭니다.
+9. Enter the *Client Id* and *Client Secret* of your Office 365 Azure Active Directory (AAD) application. If you don't have one, see the "Register an AAD app for use with PowerApps" section in this topic to create the ID and secret values you need.  
 
-	> [AZURE.IMPORTANT] **리디렉션 URL**을 저장합니다. 이 항목 뒷부분에서 이 값이 필요할 수 있습니다.
+	> [AZURE.IMPORTANT] Save the **redirect URL**. You may need this value later in this topic.  
 
-10. **확인**을 선택하여 이 단계를 완료합니다.
+10. Select **OK** to complete the steps.
 
-완료하면 새 Office 365 사용자 API가 앱 서비스 환경에 추가됩니다.
+When finished, a new Office 365 Users API is added to your app service environment.
 
-## 옵션: PowerApps Office 365 사용자 API에서 사용할 AAD 앱 등록
+## Optional: Register an AAD app for use with PowerApps Office 365 Users API
 
-키와 암호 값을 가진 기존 AAD 앱이 없는 경우 다음 단계를 사용하여 응용 프로그램을 만들고 필요한 값을 가져옵니다.
+If you don't have an existing AAD app with the key and secret values, then use the following steps to create the application, and get the values you need. 
 
-1. [Azure 포털][5]을 엽니다.
+1. Open [Azure Portal][5].
 
-2. **찾아보기**를 선택한 다음 **Active Directory**를 선택합니다.
+2. Select **Browse** and then select **Active Directory**:  
 
-	> [AZURE.NOTE] 그러면 Azure 클래식 포털에서 Active Directory가 열립니다.
+	> [AZURE.NOTE] This opens Active Directory in the Azure classic portal.  
 
-3. 조직의 테넌트 이름을 선택합니다.  
-![Azure Active Directory 시작][6]
+3. Select your organization's tenant name:  
+![Launch Azure Active Directory][6]
 
-4. **응용 프로그램** 탭을 선택한 다음 **추가**를 선택합니다.
-![AAD 테넌트 응용 프로그램][7]
+4. Select the **Applications** tab, and select **Add**:  
+![AAD tenant applications][7]
 
-5. **응용 프로그램 추가**에서:
+5. In **Add application**:  
 
-	1. 응용 프로그램의 **이름**을 입력합니다.  
-	2. 응용 프로그램 형식은 그대로 **웹**으로 유지합니다.  
-	3. **다음**을 선택합니다.  
+	1. Enter a **Name** for your application.  
+	2. Leave the application type as **Web**.  
+	3. Select **Next**.  
 
-	![AAD 응용 프로그램 추가 - 앱 정보][8]
+	![Add AAD application - app info][8]
 
-6. **앱 속성**에서:
+6. In **App Properties**:  
 
-	1. 응용 프로그램의 **로그온 URL**을 입력합니다. PowerApps에 대해 AAD로 인증하기 때문에 로그온 URL을 \__https://login.windows.net_으로 설정합니다.
-	2. 앱에 대해 올바른 **앱 ID URI**를 입력합니다.  
-	3. **확인**을 선택합니다.  
+	1. Enter the **SIGN-ON URL** of your application. Since you are going to authenticate with AAD for PowerApps, set the sign-on url to _https://login.windows.net_.  
+	2. Enter a valid **APP ID URI** for your app.  
+	3. Select **OK**.  
 
-	![AAD 응용 프로그램 추가 - 앱 속성][9]
+	![Add AAD application - app properties][9]
 
-7. 성공적으로 완료되면 새 AAD 앱으로 리디렉션됩니다. **구성**을 선택합니다.  
-![Contoso AAD 앱][10]
+7. On successful completion, you are redirected to the new AAD app. Select **Configure**:  
+![Contoso AAD app][10]
 
-8. _OAuth 2_ 섹션의 **회신 URL**을 이 항목의 Azure 포털에서 새 Office 365 사용자 API를 추가했을 때 받은 리디렉션 URL로 설정합니다. **응용 프로그램 추가**를 선택합니다.  
-![Contoso AAD 앱 구성][11]
+8. Set the **Reply URL** under the _OAuth 2_ section to the redirect URL you received when you added the new Office 365 Users API in the Azure Portal (in this topic). Select **Add application**:  
+![Configure Contoso AAD app][11]
 
-9. **다른 응용 프로그램에 대한 권한** 창에서 **Office 365 통합 API(미리 보기)**를 선택하고 **확인**을 선택합니다.
+9. In the **Permissions to other applications** window, select **Office 365 Unified API (Preview)**, and select **OK**.
 
-10. 구성 페이지로 돌아가 보면 _Office 365 통합 API(미리 보기)_가 _다른 응용 프로그램에 대한 권한_ 목록에 추가되었습니다.
+10. Back in the configure page, note that _Office 365 Unified API (Preview)_ is added to the _Permission to other applications_ list.
 
-11. _Office 365 통합 API(미리 보기)_에 대해 **위임된 권한**을 선택하고 **Read all users' basic profiles**(모든 사용자의 기본 프로필 읽기) 권한을 선택합니다.
+11. Select **Delegated Permissions** for _Office 365 Unified API (Preview)_, and select the **Read all users' basic profiles** permission.
 
-새 Azure Active Directory 앱이 만들어졌습니다. 이 앱을 Azure 포털의 Office 365 사용자 API 구성에서 사용할 수 있습니다.
+A new Azure Active Directory app is created. You can use this app in your Office 365 Users API configuration in the Azure portal. 
 
-[응용 프로그램을 Azure AD에 추가하는 방법 및 이유](../active-directory/active-directory-how-applications-are-added.md)에서 AAD 응용 프로그램에 대한 몇 가지 좋은 정보를 참조하세요.
+Some good info on AAD applications at [How and why applications are added to Azure AD](../active-directory/active-directory-how-applications-are-added.md).
 
-## REST API 참조
+## See the REST APIs
 
-[Office 365 사용자 REST API](../connectors/connectors-create-api-office365-users.md) 참조.
+[Office 365 Users REST API](../connectors/connectors-create-api-office365-users.md) reference.
 
-## 요약 및 다음 단계
-이 항목에서는 PowersApps 엔터프라이즈에 Office 365 사용자 API를 추가했습니다. 그 다음에는 이 API를 사용자의 앱에 추가할 수 있도록 사용자에게 이 API에 대한 액세스 권한을 부여합니다.
+## Summary and next steps
+In this topic, you added the Office 365 Users API to your PowersApps Enterprise. Next, give users access to the API so it can be added to their apps: 
 
-[연결 추가 및 사용자에게 액세스 권한 부여](powerapps-manage-api-connection-user-access.md)
-
+[Add a connection and give users access](powerapps-manage-api-connection-user-access.md)
+-->
 
 <!--References-->
 [1]: ./media/powerapps-create-api-office365-users/browse-to-registered-apis.PNG
@@ -128,4 +130,4 @@
 [10]: ./media/powerapps-create-api-office365-users/contoso-aad-app.PNG
 [11]: ./media/powerapps-create-api-office365-users/contoso-aad-app-configure.PNG
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

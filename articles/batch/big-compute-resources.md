@@ -10,10 +10,10 @@
 <tags
    ms.service="multiple"
    ms.devlang="multiple"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="01/26/2016"
+   ms.date="04/29/2016"
    ms.author="danlep"/>
 
 # Azure에서의 큰 계산: 배치 및 HPC(고성능 컴퓨팅)에 대한 기술 리소스
@@ -30,11 +30,13 @@ Azure의 큰 계산 옵션에 대해 알아보고 사용자의 작업 및 비즈
 
 ## Azure 배치
 
-[배치](https://azure.microsoft.com/services/batch/)는 응용 프로그램에서 클라우드를 쉽게 지원하도록 만들고 클러스터 및 작업 스케줄러를 설정 및 관리하지 않고도 작업을 실행할 수 있게 해주는 플랫폼 서비스입니다. SDK를 사용하면 다양한 언어로 Azure 배치와 응용 프로그램을 통합하고, 데이터를 Azure에 스테이징하고, 작업 실행 파이프라인을 빌드할 수 있습니다.
+[배치](https://azure.microsoft.com/services/batch/)는 Linux 및 Windows 응용 프로그램에서 클라우드를 쉽게 지원하도록 만들고 클러스터 및 작업 스케줄러를 설정 및 관리하지 않고도 작업을 실행할 수 있게 해주는 플랫폼 서비스입니다. SDK를 사용하면 다양한 언어로 Azure 배치와 응용 프로그램을 통합하고, 데이터를 Azure에 스테이징하고, 작업 실행 파이프라인을 빌드할 수 있습니다.
 
 * [설명서](https://azure.microsoft.com/documentation/services/batch/)
 
-* [.NET](https://msdn.microsoft.com/library/azure/mt348682.aspx) 및 [REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) API 참조
+* [.NET](https://msdn.microsoft.com/library/azure/mt348682.aspx), [Python](http://azure-sdk-for-python.readthedocs.io/latest/), [Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/) 및 [REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) API 참조
+
+* [배치 관리 .NET 라이브러리](https://msdn.microsoft.com/library/mt463120.aspx) 참조
 
 * [자습서: .NET용 Azure 배치 라이브러리 시작](batch-dotnet-get-started.md)
 
@@ -55,7 +57,7 @@ HPC Pack은 Microsoft Azure 및 Windows Server 기술로 구축된 무료 HPC �
 * [설명서](https://technet.microsoft.com/library/jj899572.aspx)
 
 
-* [Azure에서 Microsoft HPC 팩을 사용하는 HPC 클러스터 옵션](../virtual-machines/virtual-machines-linux-hpcpack-cluster-options.md)
+* Azure의 [Linux](../virtual-machines/virtual-machines-linux-hpcpack-cluster-options.md) 및 [Windows](../virtual-machines/virtual-machines-windows-hpcpack-cluster-options.md) HPC 팩 클러스터 옵션
 
 * [HPC 팩을 사용한 Azure 작업자 인스턴스에 버스트](https://technet.microsoft.com/library/gg481749.aspx)
 
@@ -76,7 +78,7 @@ Linux HPC 클러스터를 배포하려면 이러한 Azure 템플릿을 사용합
 
 ## Microsoft MPI
 
-[Microsoft MPI](https://msdn.microsoft.com/library/bb524831.aspx)(MS-MPI)는 Microsoft가 구현한 메시지 전달 인터페이스 표준으로서, Windows 플랫폼에서 병렬 응용 프로그램을 개발 및 실행하는 데 사용됩니다.
+[Microsoft MPI](https://msdn.microsoft.com/library/bb524831.aspx)(MS-MPI)는 Microsoft가 구현한 메시지 전달 인터페이스 표준으로서, Windows 플랫폼에서 병렬 응용 프로그램을 개발 및 실행하는 데 사용됩니다. 최신 버전은 MS-MPI v7입니다.
 
 
 * [MS-MPI 다운로드](http://go.microsoft.com/FWLink/p/?LinkID=389556)
@@ -94,13 +96,13 @@ Azure는 Linux 및 Windows HPC 워크로드를 실행하도록 백 엔드 RDMA �
 
 * [MPI 응용 프로그램을 실행하기 위해 Microsoft HPC Pack을 사용하여 Windows RDMA 클러스터 설정](../virtual-machines/virtual-machines-windows-classic-hpcpack-rdma-cluster.md)
 
-## 아키텍처 청사진
 
-* [Azure 배치 및 Azure 데이터 팩토리를 사용하여 HPC 및 데이터 오케스트레이션](http://go.microsoft.com/fwlink/?linkid=717686) (PDF) 및 [문서](../data-factory/data-factory-data-processing-using-batch.md)
 
 ## 샘플 및 데모
 
-* [Azure 배치 코드 샘플](https://github.com/Azure/azure-batch-samples)
+* [Azure 배치 C# 및 Python 코드 샘플](https://github.com/Azure/azure-batch-samples)
+
+* [HPC용 SUSE Linux Enterprise Server 시험 사용](https://azure.microsoft.com/marketplace/partners/suse/suselinuxenterpriseserver12optimizedforhighperformancecompute/)
 
 ## 관련 Azure 서비스
 
@@ -112,12 +114,23 @@ Azure는 Linux 및 Windows HPC 워크로드를 실행하도록 백 엔드 RDMA �
 
 * [가상 컴퓨터](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
+* [가상 컴퓨터 크기 집합](https://azure.microsoft.com/documentation/services/virtual-machine-scale-sets/)
+
 * [클라우드 서비스](https://azure.microsoft.com/documentation/services/cloud-services/)
 
 * [미디어 서비스](https://azure.microsoft.com/documentation/services/media-services/)
 
-## 고객 사례
+## 아키텍처 청사진
 
+* [Azure 배치 및 Azure 데이터 팩토리를 사용하여 HPC 및 데이터 오케스트레이션](http://go.microsoft.com/fwlink/?linkid=717686) (PDF) 및 [문서](../data-factory/data-factory-data-processing-using-batch.md)
+
+## 업계 솔루션
+
+* [뱅킹 및 자금 시장](https://finance.azure.com/)
+
+* [엔지니어링 시뮬레이션](https://simulation.azure.com/)
+
+## 고객 사례
 
 * [ANEO](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=4168) 
 
@@ -135,9 +148,7 @@ Azure는 Linux 및 Windows HPC 워크로드를 실행하도록 백 엔드 RDMA �
 
 * [Towers Watson](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18222)
 
-
-
-
+* [UberCloud](https://simulation.azure.com/casestudies/Team-182-ABB-UC-Final.pdf)
 
 
 
@@ -146,4 +157,4 @@ Azure는 Linux 및 Windows HPC 워크로드를 실행하도록 백 엔드 RDMA �
 * 최신 공지 사항은 [Microsoft HPC 및 배치 팀 블로그](http://blogs.technet.com/b/windowshpc/) 및 [Azure 블로그](https://azure.microsoft.com/blog/tag/hpc/)를 참조하세요.
 * 또한 [배치의 새로운 기능](https://azure.microsoft.com/updates/?service=batch)을 참조하거나 [RSS 피드](https://azure.microsoft.com/updates/feed/?service=batch)를 구독하세요.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="04/25/2016"
+   ms.date="04/26/2016"
    ms.author="hascipio"/>
 
 # 마케팅 콘텐츠로 제품 만들기 완료
@@ -165,11 +165,11 @@
 *Azure 마켓플레이스 웹 사이트에서 제품 설명 가격 책정 정보*
 
 ### Azure 포털
-![그리기](media/marketplace-publishing-push-to-staging/portal-catalog-01.png)
+![그리기](media/marketplace-publishing-push-to-staging/azureportal-galleryblade-01.png)
 
 *Azure 포털의 제품 목록*
 
-![그리기](media/marketplace-publishing-push-to-staging/portal-listing-details-01.png)
+![그리기](media/marketplace-publishing-push-to-staging/azureportal-galleryblade-02.png)
 
 *Azure 포털의 제품 설명 정보*
 
@@ -192,4 +192,4 @@
 [link-pubportal]: https://publish.windowsazure.com
 [link-push-to-production]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

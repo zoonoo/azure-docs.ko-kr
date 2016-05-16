@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-	ms.date="12/07/2015"
+	ms.date="04/28/2016"
 	ms.author="yuridio"/>
 
 # 하이브리드 ID 솔루션에 대한 액세스 제어 요구 사항 확인
@@ -73,4 +73,4 @@
 ## 참고 항목
 [설계 고려 사항 개요](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->
