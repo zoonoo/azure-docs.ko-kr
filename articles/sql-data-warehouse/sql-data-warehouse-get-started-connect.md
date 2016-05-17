@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/20/2016"
+   ms.date="05/10/2016"
    ms.author="sonyama;barbkess"/>
 
 # Visual Studio를 사용하여 SQL 데이터 웨어하우스에 연결
@@ -53,7 +53,7 @@
 
     ![SQL Server 추가][3]
 
-1. 서버 창에 연결에서 필드를 입력합니다.
+4. 서버 창에 연결에서 필드를 입력합니다.
 
     ![서버에 연결][4]
 
@@ -63,10 +63,11 @@
     - **데이터베이스 이름**. SQL DW 데이터베이스에 대한 데이터베이스 이름을 입력합니다.
     - **Connect**를 클릭합니다.
 
-1. 탐색하려면 SQL Azure Server를 확장합니다. 서버와 연결된 데이터베이스를 볼 수 있습니다. AdventureWorksDW를 확장하여 샘플 데이터베이스의 테이블을 확인합니다.
+5. 탐색하려면 SQL Azure Server를 확장합니다. 서버와 연결된 데이터베이스를 볼 수 있습니다. AdventureWorksDW를 확장하여 샘플 데이터베이스의 테이블을 확인합니다.
 
     ![AdventureWorksDW 탐색하기][5]
 
+> [AZURE.NOTE] 개체 트리가 제대로 작동하려면, 연결 시간의 **데이터베이스 이름** 필드에 SQL 데이터 웨어하우스 데이테베이스를 지정하는 것이(4단계) 중요합니다. 이 옵션을 비워두고 기본 데이터베이스에 연결하면, 로컬 서버의 일부 데이터베이스가 중단된 경우, **마스터**가 작동하지 않을 수 있습니다. 이러한 제한 사항은 최종적으로 해결될 예정이지만, 그 동안은, SQL 데이터 웨어하우스 데이터베이스에 연결해야 개체 탐색기 트리가 위와 같이 제대로 작동합니다.
 
 ## 3단계: 샘플 쿼리 실행
 
@@ -88,7 +89,7 @@
 
     ![쿼리 실행][7]
 
-1. 쿼리 결과를 봅니다. 이 예에서 FactInternetSales 테이블에는 60398 행이 있습니다.
+5. 쿼리 결과를 봅니다. 이 예에서 FactInternetSales 테이블에는 60398 행이 있습니다.
 
     ![쿼리 결과][8]
 
@@ -110,4 +111,4 @@
 [7]: ./media/sql-data-warehouse-get-started-connect/run-query.png
 [8]: ./media/sql-data-warehouse-get-started-connect/query-results.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -27,7 +27,7 @@
 이 자습서는 AzCopy 및 PolyBase를 사용하여 SQL 데이터 웨어하우스로 데이터를 로드하는 방법을 보여줍니다. 자습서를 마치면 다음과 같은 방법을 알게 됩니다.
 
 - AzCopy를 사용하여 Azure Blob 저장소에 데이터 복사
-- 외부 데이터를 정의하는 데이터베이스 개체 만들기
+- 데이터를 정의하는 데이터베이스 개체 만들기
 - 데이터를 로드하는 T-SQL 쿼리 실행
 
 >[AZURE.VIDEO loading-data-with-polybase-in-azure-sql-data-warehouse]
@@ -253,7 +253,7 @@ CREATE STATISTICS [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 PolyBase를 사용하는 솔루션을 개발하면서 알아야 하는 추가적인 내용은 [PolyBase 가이드][]를 참조하세요.
 
 <!--Image references-->
-[1]: ./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png
+
 
 <!--Article references-->
 [PolyBase in SQL Data Warehouse Tutorial]: sql-data-warehouse-get-started-load-with-polybase.md
@@ -287,4 +287,4 @@ PolyBase를 사용하는 솔루션을 개발하면서 알아야 하는 추가적
 [데이터베이스 범위 자격 증명 만들기(Transact-SQL)]: https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

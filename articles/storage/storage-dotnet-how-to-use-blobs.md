@@ -1,6 +1,6 @@
 <properties
 	pageTitle=".NET을 사용하여 Azure Blob 저장소 시작 | Microsoft Azure"
-	description="Azure Blob 저장소(개체 저장소)를 사용하여 클라우드에 파일 데이터를 저장합니다. 컨테이너 만들기 및 Blob 콘텐츠 업로드, 다운로드, 나열 및 삭제를 포함하여 간단한 Blob 저장소 작업을 시작합니다."
+	description="Azure Blob 저장소(개체 저장소)를 사용하여 클라우드에 구조화되지 않은 데이터를 저장합니다."
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
@@ -89,8 +89,7 @@ Azure Blob 저장소는 클라우드에 구조화되지 않은 데이터를 개�
 기본적으로 새 컨테이너는 전용입니다. 즉, 이 컨테이너에서 Blob을 다운로드하려면 저장소 액세스 키를 지정해야 합니다. 컨테이너 내의 파일을 모든 사용자가 사용할 수 있게 하려는 경우 다음 코드를 사용하여 컨테이너를 공용으로 설정할 수 있습니다.
 
     container.SetPermissions(
-        new BlobContainerPermissions { PublicAccess =
-	    BlobContainerPublicAccessType.Blob });
+        new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
 
 인터넷상의 누구든지 공용 컨테이너의 Blob을 볼 수 있지만 적절한 계정 선택키 또는 공유 액세스 서명이 있는 경우에만 수정하거나 삭제할 수 있습니다.
 
@@ -381,7 +380,7 @@ Azure 저장소는 클라이언트와 서버 모두에서 Blob 데이터를 암�
 
 ### 개념적 지침
 
-- [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy)
+- [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)
 - [.NET용 파일 저장소 시작](storage-dotnet-how-to-use-files.md)
 - [WebJob SDK를 사용하여 Azure Blob 저장소로 작업하는 방법](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
 
@@ -396,4 +395,4 @@ Azure 저장소는 클라이언트와 서버 모두에서 Blob 데이터를 암�
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

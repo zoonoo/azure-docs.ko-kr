@@ -4,20 +4,19 @@
 	services="automation"
 	documentationCenter=""
 	authors="mgoedtel"
-	manager="stevenka"
-	editor=""/>
-
+	manager="jwhit"
+	editor=""
+	keywords="자동화란, azure 자동화, azure 자동화 예"/>
 <tags
 	ms.service="automation"
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="02/23/2016"
+	ms.date="05/10/2016"
 	ms.author="magoedte;bwren"/>
 
 # Azure 자동화 개요
-
 
 Microsoft Azure 자동화를 통해 사용자는 일반적으로 클라우드 엔터프라이즈 환경에서 장시간 동안 수동으로 실행되며 오류가 발생하기 쉬운 자주 반복되는 작업을 자동화할 수 있습니다. 시간을 절약하며 일반 관리 작업의 안정성을 향상시키고 정기적으로 자동으로 수행되도록 예약합니다. Runbook을 사용하는 프로세스를 자동화하거나 원하는 상태 구성을 사용하여 구성 관리를 자동화할 수 있습니다. 이 문서에서는 Azure 자동화의 간단한 개요 및 일반적인 질문에 대한 답변을 제공합니다. 이 라이브러리의 다른 문서를 참조하여 다른 항목에 대한 자세한 내용을 얻을 수 있습니다.
 
@@ -67,7 +66,7 @@ Azure 자동화의 Runbook은 Windows PowerShell 또는 Windows PowerShell 워�
 
 ## Azure 자동화의 실제 응용 프로그램 예제 
 
-다음은 Azure 자동화를 사용하여 자동화할 수 있는 시나리오 종류의 몇 가지 예입니다.
+다음은 Azure 자동화에서 지원되는 몇 가지 자동화 시나리오 유형의 예입니다.
 
 * 여러 Azure 구독에 가상 컴퓨터를 만들고 복사합니다. 
 * 로컬 컴퓨터에서 Azure Blob 저장소 컨테이너로 파일 복사본을 예약합니다. 
@@ -101,4 +100,4 @@ Azure 자동화의 Runbook은 Windows PowerShell 또는 Windows PowerShell 워�
 
 **사용자 의견을 보내 주세요!** Azure 자동화 Runbook 솔루션 또는 통합 모듈을 찾고 있는 경우 스크립트 센터에 스크립트 요청을 게시하세요. Azure 자동화에 대한 의견이나 기능 요청이 있는 경우 [사용자 음성](http://feedback.windowsazure.com/forums/34192--general-feedback)에 게시하세요. 감사합니다.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0511_2016-->

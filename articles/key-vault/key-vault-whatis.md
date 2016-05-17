@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/08/2016"
+	ms.date="05/06/2016"
 	ms.author="cabailey"/>
 
 
 
 # Azure 키 자격 증명 모음이란?
 
-Azure 키 자격 증명 모음은 대부분 지역에서 사용할 수 있습니다. 자세한 내용은 [키 자격 증명 모음 가격 책정 페이지](../../../../pricing/details/key-vault/)를 참조하세요.
+Azure 키 자격 증명 모음은 대부분 지역에서 사용할 수 있습니다. 자세한 내용은 [키 자격 증명 모음 가격 책정 페이지](https://azure.microsoft.com/pricing/details/key-vault/)를 참조하세요.
 
 ## 소개
 
@@ -67,4 +67,4 @@ Azure 키 자격 증명 모음을 포함한 키 및 비밀을 사용하는 방�
 <!--Image references-->
 [1]: ./media/key-vault-whatis/AzureKeyVault_overview.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0511_2016-->

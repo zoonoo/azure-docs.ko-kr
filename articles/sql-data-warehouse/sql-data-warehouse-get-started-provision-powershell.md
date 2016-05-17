@@ -77,7 +77,7 @@ SQL 데이터 웨어하우스를 프로그래밍 방식으로 관리하는 방�
 [샘플 데이터를 로드]: sql-data-warehouse-get-started-manually-load-samples.md
 [PowerShell cmdlet and REST API]: sql-data-warehouse-reference-powershell-cmdlets.md
 [firewall rules]: sql-database-configure-firewall-settings.md
-[Azure PowerShell 설치 및 구성 방법]: powershell-install-configure.md
+[Azure PowerShell 설치 및 구성 방법]: ../powershell/powershell-install-configure.md
 [Azure 포털에서 SQL 데이터 웨어하우스를 만드는 방법]: sql-data-warehouse-get-started-provision.md
 
 <!--MSDN references--> 
@@ -90,4 +90,4 @@ SQL 데이터 웨어하우스를 프로그래밍 방식으로 관리하는 방�
 [SQL 데이터 웨어하우스 가격 책정]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

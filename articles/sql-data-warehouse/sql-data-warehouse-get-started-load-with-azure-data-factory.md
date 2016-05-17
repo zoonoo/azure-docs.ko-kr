@@ -65,7 +65,7 @@ AzCopy /Source:<Sample Data Location>  /Dest:https://<storage account>.blob.core
 
 이제 데이터가 생성되었으므로 Azure 데이터 팩터리 파이프라인을 만들어 Azure Blob 저장소에서 SQL 데이터 웨어하우스로 데이터를 이동할 수 있습니다.
 
-시작하려면 [Azure 포털][]을 열고 왼쪽 메뉴에서 사용자의 데이터 팩터리를 선택합니다.
+시작하려면 [Azure 포털][]을 열고 왼쪽 메뉴에서 사용자의 data factory를 선택합니다.
 
 ### 2\.1단계: 연결된 서비스 만들기
 
@@ -240,4 +240,4 @@ Azure 저장소 계정과 SQL 데이터 웨어하우스를 데이터 팩터리�
 [Azure 포털]: https://portal.azure.com
 [샘플 데이터를 다운로드합니다]: https://migrhoststorage.blob.core.windows.net/adfsample/FactInternetSales.csv
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

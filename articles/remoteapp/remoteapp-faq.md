@@ -32,8 +32,8 @@ Azure RemoteApp과 관련된 질문은 다음과 같습니다. 다른 질문이 
 
 - **서비스의 제한 사항은 무엇입니까?** [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)에서 Azure RemoteApp의 기본 설정 및 서비스 제한 사항에 대해 자세히 알아볼 수 있습니다. 추가 질문이 있으면 알려주세요.
 - **얼마나 많은 사용자가 필요합니까?** 최소 20명의 사용자입니다. 분명히 알아두어야 합니다. 최소 20명입니다. 20명에 대한 비용이 청구됩니다. 
-- **RemoteApp 비용은 얼마인가요?** [Azure RemoteApp 가격 정보](../../../pricing/details/remoteapp/)를 확인하세요.
-- **한 가지 형식의 컬렉션이 다른 것 보다 비용이 듭니까?** 예, 컬렉션 요구 사항에 따라 다를 수 있습니다. 하이브리드 컬렉션은 Azure RemoteApp에서 온-프레미스 네트워크까지 연결을 필요로 합니다. 기존 VNET/Express 경로를 사용하면 추가 비용이 없습니다. 하지만 새 Azure VNET 및 게이트웨이 또는 Express 경로를 사용하는 경우 [VPN 게이트웨이](../../../pricing/details/vpn-gateway) 또는 [Express 경로](../../../pricing/details/expressroute/)의 비용이 청구됩니다. 해당 비용(링크에 자세히 설명됨)은 월별 Azure RemoteApp 비용에 우선합니다.
+- **RemoteApp 비용은 얼마인가요?** [Azure RemoteApp 가격 정보](https://azure.microsoft.com/pricing/details/remoteapp/)를 확인하세요.
+- **한 가지 형식의 컬렉션이 다른 것 보다 비용이 듭니까?** 예, 컬렉션 요구 사항에 따라 다를 수 있습니다. 하이브리드 컬렉션은 Azure RemoteApp에서 온-프레미스 네트워크까지 연결을 필요로 합니다. 기존 VNET/Express 경로를 사용하면 추가 비용이 없습니다. 하지만 새 Azure VNET 및 게이트웨이 또는 Express 경로를 사용하는 경우 [VPN 게이트웨이](https://azure.microsoft.com/pricing/details/vpn-gateway) 또는 [Express 경로](../../../pricing/details/expressroute/)의 비용이 청구됩니다. 해당 비용(링크에 자세히 설명됨)은 월별 Azure RemoteApp 비용에 우선합니다.
 
 ## 컬렉션 - 사용해야 하는 지원되는 기능 및 기타 기능
 - **사용자 지정 LOB(기간 업무) 응용 프로그램이 지원되나요?** 예. Azure RemoteApp에서 사용자 지정 응용 프로그램을 사용하려면 [사용자 지정 템플릿 이미지](remoteapp-create-custom-image.md)를 만든 후 RemoteApp 컬렉션에 업로드하세요.
@@ -55,7 +55,7 @@ Azure RemoteApp과 관련된 질문은 다음과 같습니다. 다른 질문이 
 
 
 
-- **인증은 어떻게 처리되나요? 어떤 방법이 지원되나요?** 클라우드 컬렉션은 Microsoft 계정과 Azure Active Directory 계정(Office 365 계정이기도 함)을 지원합니다. 하이브리드 컬렉션은 Windows Server Active Directory 배포에서 [Azure Active Directory 동기화](http://blogs.technet.com/b/ad/archive/2014/09/16/azure-active-directory-sync-is-now-ga.aspx)와 같은 도구를 사용하여 동기화된 Azure Active Directory 계정만 지원합니다. 특히 암호 동기화 옵션을 사용하여 동기화되거나 AD FS(Active Directory Federation Services) 페더레이션을 구성하여 동기화됩니다. [MFA(Multi-Factor Authentication)](../../services/multi-factor-authentication/)를 구성할 수도 있습니다.
+- **인증은 어떻게 처리되나요? 어떤 방법이 지원되나요?** 클라우드 컬렉션은 Microsoft 계정과 Azure Active Directory 계정(Office 365 계정이기도 함)을 지원합니다. 하이브리드 컬렉션은 Windows Server Active Directory 배포에서 [Azure Active Directory 동기화](http://blogs.technet.com/b/ad/archive/2014/09/16/azure-active-directory-sync-is-now-ga.aspx)와 같은 도구를 사용하여 동기화된 Azure Active Directory 계정만 지원합니다. 특히 암호 동기화 옵션을 사용하여 동기화되거나 AD FS(Active Directory Federation Services) 페더레이션을 구성하여 동기화됩니다. [MFA(Multi-Factor Authentication)](https://azure.microsoft.com/services/multi-factor-authentication/)를 구성할 수도 있습니다.
 
 >[AZURE.NOTE]Azure Active Directory 사용자는 구독과 연결된 테넌트로부터 시작되어야 합니다. (포털의 **설정** 페이지에서 구독을 보고 수정할 수 있습니다. 자세한 내용은 [RemoteApp에서 사용되는 Azure Active Directory 테넌트 변경](remoteapp-changetenant.md)을 참조하세요.)
 
@@ -88,7 +88,7 @@ Azure RemoteApp과 관련된 질문은 다음과 같습니다. 다른 질문이 
 ##지원 및 피드백
 
 
-- **RemoteApp에 대한 지원 계획은 무엇인가요?** 청구 및 구독 관리 지원은 무료로 제공됩니다. 기술 지원은 [Azure 서비스 플랜](../../../support/plans/)을 통해 이용할 수 있습니다. [Azure 토론 포럼](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=AzureRemoteApp)을 통해 커뮤니티 지원을 무료로 이용할 수도 있습니다. 
+- **RemoteApp에 대한 지원 계획은 무엇인가요?** 청구 및 구독 관리 지원은 무료로 제공됩니다. 기술 지원은 [Azure 서비스 플랜](https://azure.microsoft.com/support/plans/)을 통해 이용할 수 있습니다. [Azure 토론 포럼](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=AzureRemoteApp)을 통해 커뮤니티 지원을 무료로 이용할 수도 있습니다. 
 - **사용자 의견을 제출하려면 어떻게 해야 하나요?** [피드백 포럼](https://feedback.azure.com/forums/247748-azure-remoteapp/)을 방문하세요.
 - **Azure RemoteApp에 대해 자세히 알아보려면 어디로 문의해야 하나요?** 질문을 게시하는 데 유용한 [토론 포럼](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=AzureRemoteApp) 외에도 RemoteApp과 관련된 모든 사항을 토론하는 주간 [전문가에게 물어보세요 웹 세미나](https://azureinfo.microsoft.com/US-Azure-WBNR-FY15-11Nov-AzureRemoteAppAskTheExperts-Registration-Page.html)에 참가할 수 있습니다.
 - **RemoteApp 설명서는 어떤가요?** 질문해 주셔서 감사합니다. 포털 도움말 서랍에 있는 도움말 콘텐츠(포털의 아무 페이지에서나 **?** 클릭) 외에도 RemoteApp과 관련된 모든 사항을 알려주는 다음 문서를 사용할 수 있습니다.
@@ -114,4 +114,4 @@ Azure RemoteApp과 관련된 질문은 다음과 같습니다. 다른 질문이 
 ### 의견 보내기 
 이 기사에 대한 등급을 매기고 아래에 의견을 다는 것은 물론 문서를 직접 변경할 수 있다는 사실을 알고 계셨나요? 누락된 부분이 있나요? 잘못된 부분이 있나요? 혼동을 줄 수 있는 부분이 있나요? 위로 스크롤하여 **GitHub에서 편집**을 클릭하면 변경할 수 있습니다. 당사에서 변경 사항을 검토하고 승인하면 변경 및 개선 사항을 바로 여기서 확인할 수 있습니다.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -14,7 +14,7 @@
   ms.topic="get-started-article"
   ms.tgt_pltfrm="na"
   ms.workload="na"
-  ms.date="04/22/2016"
+  ms.date="05/09/2016"
   ms.author="araguila"/>
    
 # IoT Suite에 대한 질문과 대답
@@ -51,6 +51,8 @@
    
   `<setting name="MapApiQueryKey" value="" />`
 
+### DreamSpark용 Microsoft Azure가 있는 경우 사전 구성된 솔루션을 만들 수 있나요?
+현재는 [DreamSpark용 Microsoft Azure][lnk-dreamspark] 계정을 사용하여 사전 구성된 솔루션을 만들 수 없습니다. 하지만 몇 분 이내에 [Azure용 무료 평가판 계정][lnk-30daytrial]을 만들면 사전 구성된 솔루션을 만들 수 있습니다.
 
 ### AAD 테넌트를 어떻게 삭제하나요?
 
@@ -61,6 +63,8 @@ Eric Golpe의 블로그 게시물 [Azure AD 테넌트 삭제 연습(영문)][lnk
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-classic-portal]: https://manage.windowsazure.com
 [lnk-remote-monitoring-github]: https://github.com/Azure/azure-iot-remote-monitoring
+[lnk-dreamspark]: https://www.dreamspark.com/Product/Product.aspx?productid=99
+[lnk-30daytrial]: https://azure.microsoft.com/free/
 [lnk-delete-aad-tennant]: http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

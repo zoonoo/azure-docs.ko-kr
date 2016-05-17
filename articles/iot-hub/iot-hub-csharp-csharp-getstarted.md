@@ -52,10 +52,199 @@ Azure IoT Hub는 수백만의 IoT(사물 인터넷) 장치와 솔루션 백 엔�
 
 이제 IoT Hub가 만들어졌고 이 자습서 나머지 부분을 완료하는 데 필요한 호스트 이름과 연결 문자열을 갖게 되었습니다.
 
-[AZURE.INCLUDE [iot-hub-get-started-cloud-csharp](../../includes/iot-hub-get-started-cloud-csharp.md)]
+## 장치 ID 만들기
+
+이 섹션에서는 IoT Hub의 ID 레지스트리에서 새 장치 ID를 만드는 Windows 콘솔 앱을 작성합니다. 장치 ID 레지스트리에 항목이 없는 경우 장치를 IoT Hub에 연결할 수 없습니다. 자세한 내용은 [IoT Hub 개발자 가이드][lnk-devguide-identity]의 **장치 ID 레지스트리** 섹션을 참조하세요. 이 콘솔 응용 프로그램을 실행하면 장치-클라우드 메시지를 IoT Hub로 보낼 때 장치가 자체적으로 ID를 식별할 수 있는 고유한 장치 ID와 키를 생성합니다.
+
+1. Visual Studio에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 새로운 Visual C# Windows 클래식 데스크톱을 최신 솔루션에 추가합니다. .NET Framework 버전이 4.5.1 이상인지 확인합니다. 프로젝트 **CreateDeviceIdentity**의 이름을 지정합니다.
+
+	![][10]
+
+2. 솔루션 탐색기에서 **CreateDeviceIdentity** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리**를 클릭합니다.
+
+3. **NuGet 패키지 관리자** 창에서 **찾아보기**를 선택하고 **microsoft.azure.devices**를 검색한 다음 **설치**를 클릭하여 **Microsoft.Azure.Devices** 패키지를 설치하고 사용 약관에 동의합니다.
+
+	![][11]
+
+4. 그러면 [Microsoft Azure IoT Service SDK][lnk-nuget-service-sdk] NuGet 패키지 및 해당 종속 항목이 다운로드, 설치되고 참조가 추가됩니다.
+
+4. **Program.cs** 파일 위에 다음 `using` 문을 추가합니다.
+
+		using Microsoft.Azure.Devices;
+        using Microsoft.Azure.Devices.Common.Exceptions;
+
+5. **Program** 클래스에 다음 필드를 추가하고, 자리 표시자 값을 이전 섹션에서 만든 IoT Hub의 연결 문자열로 대체합니다.
+
+		static RegistryManager registryManager;
+        static string connectionString = "{iothub connection string}";
+
+6. **Program** 클래스에 다음 메서드를 추가합니다.
+
+		private static async Task AddDeviceAsync()
+        {
+            string deviceId = "myFirstDevice";
+            Device device;
+            try
+            {
+                device = await registryManager.AddDeviceAsync(new Device(deviceId));
+            }
+            catch (DeviceAlreadyExistsException)
+            {
+                device = await registryManager.GetDeviceAsync(deviceId);
+            }
+            Console.WriteLine("Generated device key: {0}", device.Authentication.SymmetricKey.PrimaryKey);
+        }
+
+	이 메서드는 ID **myFirstDevice**(레지스트리에 해당 장치 ID가 이미 있는 경우 코드는 기존 장치 정보만 검색)가 있는 새로운 장치 ID를 만듭니다. 그러면 앱에서 해당 ID에 대한 기본 키를 표시합니다. 이 키는 IoT Hub에 연결할 시뮬레이트된 장치에서 사용합니다.
+
+7. 마지막으로 **Main** 메서드에 다음 줄을 추가합니다.
+
+		registryManager = RegistryManager.CreateFromConnectionString(connectionString);
+        AddDeviceAsync().Wait();
+        Console.ReadLine();
+
+8. 이 응용 프로그램을 실행하고 장치 키를 기록합니다.
+
+    ![][12]
+
+> [AZURE.NOTE] IoT Hub ID 레지스트리는 장치 ID만 저장하여 허브에 보안 액세스를 사용합니다. 보안 자격 증명으로 사용하기 위해 장치 ID 및 키와 개별 장치에 대해 액세스하지 못하도록 설정할 수 있는 사용/사용 안 함 플래그를 저장합니다. 응용 프로그램이 다른 장치별 메타데이터를 저장해야 할 경우 응용 프로그램별 저장소를 사용해야 합니다. 자세한 내용은 [IoT Hub 개발자 가이드][lnk-devguide-identity]를 참조하세요.
+
+## 장치-클라우드 메시지 받기
+
+이 섹션에서는 IoT Hub에서 장치-클라우드 메시지를 읽는 Windows 콘솔 앱을 만듭니다. IoT Hub가 [이벤트 허브][lnk-event-hubs-overview]와 호환되는 끝점을 노출하여 장치-클라우드 메시지를 읽을 수 있습니다. 작업을 단순화하기 위해 이 자습서에서는 처리량이 높은 배포용이 아닌 기본적인 판독기를 만듭니다. [장치-클라우드 메시지 처리][lnk-process-d2c-tutorial] 자습서는 대량의 장치-클라우드 메시지를 처리하는 방법을 보여줍니다. [이벤트 허브 시작][lnk-eventhubs-tutorial] 자습서는 이벤트 허브의 메시지를 처리하는 방법에 대해 추가 정보를 제공하며 IoT Hub 이벤트 허브 호환 끝점에 적용됩니다.
+
+> [AZURE.NOTE] 장치-클라우드 메시지를 읽는 이벤트 허브와 호환 가능한 끝점은 항상 AMQPS 프로토콜을 사용합니다.
+
+1. Visual Studio에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 새로운 Visual C# Windows 클래식 데스크톱을 최신 솔루션에 추가합니다. .NET Framework 버전이 4.5.1 이상인지 확인합니다. 프로젝트 **ReadDeviceToCloudMessages**의 이름을 지정합니다.
+
+    ![][10]
+
+2. 솔루션 탐색기에서 **ReadDeviceToCloudMessages** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리**를 클릭합니다.
+
+3. **NuGet 패키지 관리자** 창에서 **WindowsAzure.ServiceBus**를 검색하고 **설치**를 클릭한 다음 사용 약관에 동의합니다.
+
+    그러면 [Azure 서비스 버스][lnk-servicebus-nuget]가 모든 종속 항목과 함께 다운로드 및 설치되고 해당 참조가 추가됩니다. 이 패키지를 사용하면 응용 프로그램을 IoT Hub의 이벤트 허브와 호환되는 끝점에 연결할 수 있습니다.
+
+4. **Program.cs** 파일 위에 다음 `using` 문을 추가합니다.
+
+        using Microsoft.ServiceBus.Messaging;
+        using System.Threading;
+
+5. **Program** 클래스에 다음 필드를 추가하여, 자리 표시자 값을 *IoT Hub 만들기* 섹션에서 만든 IoT Hub의 연결 문자열로 대체합니다.
+
+        static string connectionString = "{iothub connection string}";
+        static string iotHubD2cEndpoint = "messages/events";
+        static EventHubClient eventHubClient;
+
+6. **Program** 클래스에 다음 메서드를 추가합니다.
+
+        private static async Task ReceiveMessagesFromDeviceAsync(string partition, CancellationToken ct)
+        {
+            var eventHubReceiver = eventHubClient.GetDefaultConsumerGroup().CreateReceiver(partition, DateTime.UtcNow);
+            while (true)
+            {
+                if (ct.IsCancellationRequested) break;
+                EventData eventData = await eventHubReceiver.ReceiveAsync();
+                if (eventData == null) continue;
+
+                string data = Encoding.UTF8.GetString(eventData.GetBytes());
+                Console.WriteLine("Message received. Partition: {0} Data: '{1}'", partition, data);
+            }
+        }
+
+    이 메서드는 **EventHubReceiver** 인스턴스를 사용하여 모든 IoT Hub 장치-클라우드 수신 파티션의 메시지를 수신합니다. 시작된 후 보낸 메시지만 수신하도록 **EventHubReceiver** 개체를 만든 경우 `DateTime.Now` 매개 변수를 전달하는 방법을 참조하세요. 테스트 환경에서는 현재 메시지 집합을 볼 수 있어 유용하지만 프로덕션 환경에서는 코드가 모든 메시지를 처리하는지 확인해야 합니다. 자세한 내용은 [IoT Hub 장치-클라우드 메시지 처리 방법][lnk-process-d2c-tutorial] 자습서를 참조하세요.
+
+7. 마지막으로 **Main** 메서드에 다음 줄을 추가합니다.
+
+        Console.WriteLine("Receive messages. Ctrl-C to exit.\n");
+        eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, iotHubD2cEndpoint);
+
+        var d2cPartitions = eventHubClient.GetRuntimeInformation().PartitionIds;
+
+        CancellationTokenSource cts = new CancellationTokenSource();
+
+        System.Console.CancelKeyPress += (s, e) =>
+        {
+          e.Cancel = true;
+          cts.Cancel();
+          Console.WriteLine("Exiting...");
+        };
+
+        var tasks = new List<Task>();
+        foreach (string partition in d2cPartitions)
+        {
+           tasks.Add(ReceiveMessagesFromDeviceAsync(partition, cts.Token));
+        }  
+        Task.WaitAll(tasks.ToArray());
+
+## 시뮬레이션된 장치 앱 만들기
+
+이 섹션에서는 IoT Hub로 장치-클라우드 메시지를 전송하는 장치를 시뮬레이션하는 Windows 콘솔 앱을 작성합니다.
+
+1. Visual Studio에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 새로운 Visual C# Windows 클래식 데스크톱을 최신 솔루션에 추가합니다. .NET Framework 버전이 4.5.1 이상인지 확인합니다. 프로젝트 **SimulatedDevice**의 이름을 지정합니다.
+
+   	![][10]
+
+2. 솔루션 탐색기에서 **SimulatedDevice** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리**를 클릭합니다.
+
+3. **NuGet 패키지 관리자** 창에서 **찾아보기**를 선택하고 **Microsoft.Azure.Devices.Client**를 검색한 다음 **설치**를 클릭하여 **Microsoft.Azure.Devices.Client** 패키지를 설치하고 사용 약관에 동의합니다.
+
+	그러면 [Azure IoT - 장치 SDK NuGet 패키지][lnk-device-nuget] 및 종속 항목이 다운로드, 설치되고 참조가 추가됩니다.
+
+4. **Program.cs** 파일 위에 다음 `using` 문을 추가합니다.
+
+		using Microsoft.Azure.Devices.Client;
+        using Newtonsoft.Json;
 
 
-[AZURE.INCLUDE [iot-hub-get-started-device-csharp](../../includes/iot-hub-get-started-device-csharp.md)]
+5. 다음 필드를 **프로그램** 클래스에 추가하여, 자리 표시자 값을 *IoT Hub 만들기* 섹션에서 가져온 IoT Hub 호스트 이름과 *장치 ID 만들기* 섹션에서 가져온 장치 키로 대체합니다.
+
+		static DeviceClient deviceClient;
+        static string iotHubUri = "{iot hub hostname}";
+        static string deviceKey = "{device key}";
+
+6. **Program** 클래스에 다음 메서드를 추가합니다.
+
+		private static async void SendDeviceToCloudMessagesAsync()
+        {
+            double avgWindSpeed = 10; // m/s
+            Random rand = new Random();
+
+            while (true)
+            {
+                double currentWindSpeed = avgWindSpeed + rand.NextDouble() * 4 - 2;
+
+                var telemetryDataPoint = new
+                {
+                    deviceId = "myFirstDevice",
+                    windSpeed = currentWindSpeed
+                };
+                var messageString = JsonConvert.SerializeObject(telemetryDataPoint);
+                var message = new Message(Encoding.ASCII.GetBytes(messageString));
+
+                await deviceClient.SendEventAsync(message);
+                Console.WriteLine("{0} > Sending message: {1}", DateTime.Now, messageString);
+
+                Task.Delay(1000).Wait();
+            }
+        }
+
+	이 메서드는 1초마다 새로운 장치-클라우드 메시지를 보냅니다. 메시지에는 deviceId가 있는 JSON 직렬화된 개체와 풍속 센서를 시뮬레이션하기 위해 임의로 생성된 숫자가 있습니다.
+
+7. 마지막으로 **Main** 메서드에 다음 줄을 추가합니다.
+
+        Console.WriteLine("Simulated device\n");
+        deviceClient = DeviceClient.Create(iotHubUri, new DeviceAuthenticationWithRegistrySymmetricKey("myFirstDevice", deviceKey));
+
+        SendDeviceToCloudMessagesAsync();
+        Console.ReadLine();
+
+  기본적으로 **만들기** 메서드는 AMQP 프로토콜을 사용하여 IoT Hub와 통신하는 **DeviceClient** 인스턴스를 만듭니다. HTTPS 프로토콜을 사용하려면 프로토콜을 지정할 수 있도록 해주는 **Create** 메서드의 재정의를 사용합니다. HTTPS 프로토콜을 사용하려면 **Microsoft.AspNet.WebApi.Client** NuGet 패키지를 프로젝트에 추가하여 **System.Net.Http.Formatting** 네임스페이스를 포함해야 합니다.
+
+이 자습서에서는 IoT Hub 장치 클라이언트를 만드는 단계를 안내합니다. 대신 [Azure IoT Hub에 연결된 서비스][lnk-connected-service] Visual Studio 확장을 사용하여 장치 클라이언트 응용 프로그램에 필요한 코드를 추가할 수 있습니다.
+
+
+> [AZURE.NOTE] 간단히 하기 위해 이 자습서에서는 다시 시도 정책을 구현하지 않습니다. 프로덕션 코드에서는 MSDN 문서 [일시적인 오류 처리][lnk-transient-faults]에서 제시한 대로 다시 시도 정책(예: 지수 백오프)을 구현해야 합니다.
 
 ## 응용 프로그램 실행
 
@@ -69,7 +258,7 @@ Azure IoT Hub는 수백만의 IoT(사물 인터넷) 장치와 솔루션 백 엔�
 
    	![][42]
 
-3. [Azure 포털][lnk-portal]의 **사용 현황** 타일은 허브로 전송된 메시지의 수를 보여줍니다.
+3. [Azure 포털][lnk-portal]의 **사용량** 타일에 허브로 전송된 메시지 수가 표시됩니다.
 
     ![][43]
 
@@ -86,6 +275,9 @@ Azure IoT Hub는 수백만의 IoT(사물 인터넷) 장치와 솔루션 백 엔�
 [41]: ./media/iot-hub-csharp-csharp-getstarted/run-apps1.png
 [42]: ./media/iot-hub-csharp-csharp-getstarted/run-apps2.png
 [43]: ./media/iot-hub-csharp-csharp-getstarted/usage.png
+[10]: ./media/iot-hub-csharp-csharp-getstarted/create-identity-csharp1.png
+[11]: ./media/iot-hub-csharp-csharp-getstarted/create-identity-csharp2.png
+[12]: ./media/iot-hub-csharp-csharp-getstarted/create-identity-csharp3.png
 
 <!-- Links -->
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
@@ -96,4 +288,14 @@ Azure IoT Hub는 수백만의 IoT(사물 인터넷) 장치와 솔루션 백 엔�
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0413_2016-->
+[lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
+[lnk-devguide-identity]: iot-hub-devguide.md#identityregistry
+[lnk-servicebus-nuget]: https://www.nuget.org/packages/WindowsAzure.ServiceBus
+[lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
+
+[lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
+[lnk-device-nuget]: https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/
+[lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
+[lnk-connected-service]: https://visualstudiogallery.msdn.microsoft.com/e254a3a5-d72e-488e-9bd3-8fee8e0cd1d6
+
+<!---HONumber=AcomDC_0511_2016-->

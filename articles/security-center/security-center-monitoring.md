@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/22/2016"
+   ms.date="05/10/2016"
    ms.author="yurid"/>
 
 #Azure 보안 센터에서 보안 상태 모니터링
@@ -98,54 +98,50 @@
 이 블레이드에는 VM에 대한 보안 세부 정보가 있습니다. 이 블레이드의 하단에서 권장되는 작업과 각 문제의 심각도를 볼 수 있습니다.
 
 ###가상 네트워크 모니터링
-네트워킹에 대한 방지 상태 섹션은 보안 센터에서 모니터링하는 가상 네트워크를 나열합니다. **리소스 보안 상태** 타일에서 **네트워킹**을 클릭하면 아래와 같이 자세한 내용이 포함된 **네트워킹** 블레이드가 열립니다.
+**리소스 보안 상태** 타일에서 **네트워킹**을 클릭하면 아래와 같이 자세한 내용이 포함된 **네트워킹** 블레이드가 열립니다.
 
 ![네트워킹](./media/security-center-monitoring/security-center-monitoring-fig9-new.png)
-
-이 블레이드를 열면 두 개 섹션이 표시됩니다.
-- 네트워킹 권장 사항
-- 네트워킹
-
-각 섹션에서 권장 사항에 대한 자세한 내용의 개별 옵션을 선택할 수 있습니다. 아래 섹션에서는 이 부분에 대해 더 자세히 설명합니다.
 
 ####네트워킹 권장 사항
 
 가상 컴퓨터 리소스 상태 정보와 마찬가지로, 이 블레이드는 맨 위에서 요약된 문제 목록을 제공하고 하단에서 모니터링된 네트워크 목록을 제공합니다.
 
-![끝점](./media/security-center-monitoring/security-center-monitoring-fig10-new.png)
+![네트워킹 블레이드](./media/security-center-monitoring/security-center-monitoring-fig9-new2.png)
 
 네트워킹 상태 분석 섹션은 잠재적인 보안 문제를 나열하고 권장 사항을 제공합니다. 가능한 문제는 다음을 포함할 수 있습니다.
 
-- [끝점에서 ACL](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md)을 사용할 수 없음
-- [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md)을 사용할 수 없음
-- 정상 서브넷 및 제한되지 않은 NSG의 액세스가 나열됩니다.
+- 서브넷에서 NSG(네트워크 보안 그룹) 사용 안 함
+- VM에서 NSG 사용 안 함
+- 공용 외부 끝점을 통한 외부 액세스 제한
+- 정상 서브넷
 
 이들 권장 사항 중 하나를 클릭하면 새 블레이드가 열리고 아래 예에 표시된 것과 같이 권장 사항에 대한 자세한 내용이 표시됩니다.
 
-![끝점 제한](./media/security-center-monitoring/security-center-monitoring-fig11-new.png)
+![끝점 제한](./media/security-center-monitoring/security-center-monitoring-fig11-new2.png)
 
-이 예제에서 **공용 외부 끝점을 통한 액세스 제한** 블레이드에는 이 경고의 일부분인 NSG(네트워크 보안 그룹), NSG가 연결된 서브넷과 네트워크, 권장 사항의 현재 상태 및 문제의 심각도의 목록이 있습니다. 네트워크 보안 그룹을 클릭하면, 또 다른 블레이드가 아래와 같이 열립니다.
+이 예제에서 **서브넷에 누락된 네트워크 보안 그룹 구성** 블레이드에는 NSG 보호가 누락된 서브넷 및 가상 컴퓨터 목록이 있습니다. NSG를 적용하려는 서브넷을 클릭하면 다른 블레이드가 열립니다.
 
-이 블레이드에는 네트워크 보안 그룹 정보 및 위치가 있습니다. 또한 현재 사용하는 인바운드 규칙의 목록이 있습니다. 이 블레이드의 하단에는 네트워크 보안 그룹과 연관된 VM이 표시됩니다. 인바운드 규칙을 활성화하여 현재 열려 있지만 원하지 않는 포트를 차단하거나 현재 인바운드 규칙의 원본을 변경하려면 블레이드 맨 위의 **인바운드 규칙 편집** 단추를 클릭합니다.
+**네트워크 보안 그룹 선택** 블레이드에서 서브넷에 적절한 네트워크 보안 그룹을 선택하거나 새 네트워크 보안 그룹을 만들 수 있습니다.
 
 ####네트워킹 섹션
 
-**네트워킹** 섹션에는 아래와 같이 VM과 연결된 리소스 그룹, 서브넷 및 네트워크 인터페이스에 대한 계층 구조 보기가 있습니다.
+**네트워킹** 섹션에 아래와 같이 리소스의 계층적 보기가 있습니다.
 
-![네트워크 트리](./media/security-center-monitoring/security-center-monitoring-fig121-new.png)
+![네트워크 트리](./media/security-center-monitoring/security-center-monitoring-fig121-new2.png)
 
-이 섹션은 [클래식 VM에서 리소스 관리자 기반 VM](../resource-manager-deployment-model.md)을 나눕니다. 그러면 Azure 서비스 관리 또는 Azure 리소스 관리 네트워킹 기능을 가상 컴퓨터에 사용할 수 있는지 여부를 빠르게 확인할 수 있습니다. 이 위치에서 네트워크 인터페이스 카드의 속성에 액세스하려면 서브넷을 확장하고 VM 이름을 클릭해야 합니다. 리소스 관리자 기반 VM에 이 작업을 수행하면 아래와 유사한 새 블레이드가 표시됩니다.
+이 테이블은 아래에 설명한 대로 심각도 별로 정렬됩니다(VM 및 서브넷).
+- 레드(최우선): 우선 순위가 높고 즉시 해결해야 합니다. 
+- 주황색: 우선 순위가 보통이며 가능한 한 빨리 해결해야 합니다.
+- 녹색(마지막): 성능 상태
 
-![네트워크 트리](./media/security-center-monitoring/security-center-monitoring-fig13-new.png)
+이 계층에서 첫 번째 수준에는 [가상 네트워크](../virtual-network/virtual-networks-overview.md), [가상 네트워크 게이트웨이](../vpn-gateway/vpn-gateway-site-to-site-create.md) 및 [가상 네트워크(클래식)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)가 있습니다. 두 번째 수준에는 서브넷이 있고 세 번째 수준에는 해당 서브넷에 속하는 VM이 있습니다. 오른쪽 열에는 해당 리소스에 대한 NSG(네트워크 보안 그룹)의 현재 상태가 있습니다. 다음 예제는 VM VM-CL-W1을 선택한 결과입니다.
 
-이 블레이드에는 네트워크 인터페이스 카드 및 그에 대한 현재 권장 사항의 요약 정보가 표시됩니다. 선택한 VM이 클래식 VM이면 아래와 같이 다른 옵션을 포함하는 새 블레이드가 나타납니다.
+![네트워크 트리](./media/security-center-monitoring/security-center-monitoring-fig13-new2.png)
 
-![ACL](./media/security-center-monitoring/security-center-monitoring-fig14-new.png)
-
-이 블레이드에서 공용 및 개인 포트를 변경할 수 있으며 이 VM에 대한 ACL을 만들 수 있습니다.
+이 블레이드의 아래 부분에는 위에 설명한 것과 비슷한 이 VM에 대한 권장 사항이 있습니다. 권장 사항을 클릭하여 필요한 보안 제어/구성을 자세히 알아보거나 적용할 수 있습니다.
 
 ###SQL 리소스 모니터링
-**리소스 보안 상태** 타일에서 **SQL**을 클릭하면 SQL 블레이드가 감사, 활성화되지 않은 투명한 데이터 암호화와 같은 문제에 대한 권장 사항을 통해 열립니다. 또한 데이터베이스의 일반 성능 상태에 대한 권장 사항이 있습니다.
+**리소스 보안 상태** 타일에서 **SQL**을 클릭하면 SQL 블레이드가 감사, 활성화되지 않은 투명한 데이터 암호화와 같은 문제에 대한 권장 사항을 사용하여 열립니다. 또한 데이터베이스의 일반 성능 상태에 대한 권장 사항이 있습니다.
 
 ![SQL 리소스 상태](./media/security-center-monitoring/security-center-monitoring-fig15-new.png)
 
@@ -168,7 +164,7 @@
 감사를 활성화하려면 **감사** 옵션에서 **켜기**를 선택하고 **저장**을 클릭합니다.
 
 ###응용 프로그램 모니터링
-Azure 워크로드에 노출된 웹 포트(TCP 포트 80 및 443)를 통해 [리소스 관리자 VM](../resource-manager-deployment-model.md)에 위치한 응용 프로그램이 있는 경우 보안 센터에서 해당 응용 프로그램을 모니터링하여 잠재적 보안 문제를 파악하고 해결 단계를 수정할 수 있습니다. **응용 프로그램** 타일을 클릭하면 아래와 같이 **응용 프로그램** 블레이드가 열리고 방지 단계 섹션에 일련의 권장 사항이 표시됩니다. 또한 호스트/가상 IP 당 응용 프로그램 분석 결과가 표시됩니다.
+Azure 워크로드에 노출된 웹 포트(TCP 포트 80 및 443)가 있는 [리소스 관리자 VM](../resource-manager-deployment-model.md)에 위치한 응용 프로그램이 있는 경우 보안 센터에서는 해당 응용 프로그램을 모니터링하여 잠재적 보안 문제를 파악하고 해결 단계를 권장할 수 있습니다. **응용 프로그램** 타일을 클릭하면 아래와 같이 **응용 프로그램** 블레이드가 열리고 방지 단계 섹션에 일련의 권장 사항이 표시됩니다. 또한 호스트/가상 IP 당 응용 프로그램 분석 결과가 표시됩니다.
 
 ![응용프로그램 보안 상태](./media/security-center-monitoring/security-center-monitoring-fig18-new.png)
 
@@ -185,8 +181,8 @@ Azure 워크로드에 노출된 웹 포트(TCP 포트 80 및 443)를 통해 [리
 
 - [Azure 보안 센터에서 보안 정책 설정](security-center-policies.md) - Azure 보안 센터에서 보안 설정을 구성하는 방법 알아보기
 - [Azure 보안 센터에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법 알아보기
-- [Azure 보안 센터를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md)--파트너 솔루션의 상태를 모니터링하는 방법 알아보기.
+- [Azure 보안 센터를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md) -- 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
 - [Azure 보안 센터 FAQ](security-center-faq.md) – 서비스 사용에 관한 질문과 대답 찾기
 - [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) – Azure 보안 및 규정 준수에 관한 블로그 게시물 찾기
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

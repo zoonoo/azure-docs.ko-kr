@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Azure 클래식 포털을 사용하여 단일 비트 전송률에서 다중 비트 전송률 스트림으로 라이브 인코딩을 수행하는 채널 만들기" 
+	pageTitle="Azure 미디어 서비스를 사용하여 Azure 클래식 포털에서 다중 비트 전송률 스트림을 만드는 라이브 스트리밍 수행 방법" 
 	description="이 자습서에서는 Azure 클래식 포털을 사용하여 단일 비트 전송률 라이브 스트림을 받아서 다중 비트 전송률 스트림으로 인코딩하는 채널을 만드는 단계를 안내합니다." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako,anilmur" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
- 	ms.date="05/03/2016" 
+ 	ms.date="05/05/2016" 
 	ms.author="juliako"/>
 
 
-#Azure 클래식 포털을 사용하여 단일 비트 전송률에서 다중 비트 전송률 스트림으로 라이브 인코딩을 수행하는 채널 만들기
+#Azure 미디어 서비스를 사용하여 Azure 클래식 포털에서 다중 비트 전송률 스트림을 만드는 라이브 스트리밍 수행 방법
 
 > [AZURE.SELECTOR]
 - [포털](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -26,7 +26,7 @@
 
 이 자습서에서는 단일 비트 전송률 라이브 스트림을 받아서 다중 비트 전송률 스트림으로 인코딩하는 **채널**을 만드는 단계를 안내합니다.
 
->[AZURE.NOTE]라이브 인코딩에 사용할 수 있는 채널과 관련된 자세한 개념 정보는 [단일 비트 전송률에서 다중 비트 전송률 스트림으로 라이브 인코딩을 수행하는 채널 작업](media-services-manage-live-encoder-enabled-channels.md)을 참조하세요.
+>[AZURE.NOTE]라이브 인코딩에 대해 사용할 수 있는 채널과 관련하여 더욱 개념적인 정보는 [Azure 미디어 서비스를 사용하여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍](media-services-manage-live-encoder-enabled-channels.md)을 참조하세요.
 
 ##일반적인 라이브 스트리밍 시나리오
 
@@ -109,7 +109,7 @@ Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나
 2.	채널 페이지를 선택합니다.
 3.	추가+를 선택하여 새 채널을 추가합니다.
 
-**표준** 인코딩 형식을 선택합니다. 이 형식은 라이브 인코딩에 사용할 수 있는 채널을 만들도록 지정합니다. 즉, 들어오는 단일 비트 전송률 스트림이 채널로 전송되고 지정한 라이브 인코더 설정을 사용하여 다중 비트 전송률 스트림으로 인코딩됩니다. 자세한 내용은 [단일 비트 전송률에서 다중 비트 전송률 스트림으로 라이브 인코딩을 수행하는 채널 작업](media-services-manage-live-encoder-enabled-channels.md)을 참조하세요.
+**표준** 인코딩 형식을 선택합니다. 이 형식은 라이브 인코딩에 사용할 수 있는 채널을 만들도록 지정합니다. 즉, 들어오는 단일 비트 전송률 스트림이 채널로 전송되고 지정한 라이브 인코더 설정을 사용하여 다중 비트 전송률 스트림으로 인코딩됩니다. 자세한 내용은 [Azure 미디어 서비스를 사용하여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍](media-services-manage-live-encoder-enabled-channels.md)을 참조하세요.
 
 ![standard0][standard0]
 
@@ -119,7 +119,7 @@ Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나
 - 단일 비트 전송률 RTMP
 - RTP(MPEG-TS): RTP를 통한 MPEG-2 전송 스트림
 
-각 프로토콜에 대한 자세한 설명은 [단일 비트 전송률에서 다중 비트 전송률 스트림으로 라이브 인코딩을 수행하는 채널 작업](media-services-manage-live-encoder-enabled-channels.md)을 참조하세요.
+각 프로토콜에 대한 자세한 설명은 [Azure 미디어 서비스를 사용하여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍](media-services-manage-live-encoder-enabled-channels.md)을 참조하세요.
 
 ![standard1][standard1]
 
@@ -127,7 +127,7 @@ Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나
 
 **광고 구성** 페이지에서 광고 표식 신호의 원본을 지정할 수 있습니다. 포털을 사용하는 경우 API만 선택할 수 있습니다. 이는 채널 내의 라이브 인코더가 비동기 광고 표식 API를 수신해야 함을 나타냅니다. 포털을 사용하는 경우 API만 선택할 수 있습니다.
 
-자세한 내용은 [단일 비트 전송률에서 다중 비트 전송률 스트림으로 라이브 인코딩을 수행하는 채널 작업](media-services-manage-live-encoder-enabled-channels.md)을 참조하세요.
+자세한 내용은 [Azure 미디어 서비스를 사용하여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍](media-services-manage-live-encoder-enabled-channels.md)을 참조하세요.
 
 ![standard2][standard2]
 
@@ -148,7 +148,7 @@ IP 주소가 지정되지 않고 정의된 규칙이 없는 경우 IP 주소가 
 
 ![standard5][standard5]
 
-자세한 내용은 [단일 비트 전송률에서 다중 비트 전송률 스트림으로 라이브 인코딩을 수행하는 채널 작업](media-services-manage-live-encoder-enabled-channels.md)을 참조하세요.
+자세한 내용은 [Azure 미디어 서비스를 사용하여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍](media-services-manage-live-encoder-enabled-channels.md)을 참조하세요.
 
 
 ##수집 URL 가져오기
@@ -276,4 +276,4 @@ MPEG DASH 스트리밍 URL을 작성하려면 URL에 (format=mpd-time-csf)를 �
 [standard4]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard4.png
 [standard5]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard_encode.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

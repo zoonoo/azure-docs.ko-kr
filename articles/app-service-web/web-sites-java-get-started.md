@@ -167,9 +167,12 @@
 
 Azure에서 Java 응용 프로그램을 개발하는 방법에 대한 자세한 내용은 [Java 개발자 센터](/develop/java/)를 참조하세요.
 
-<!-- External Links -->
+<!-- URL List -->
+
 [Visual Studio 구독자 혜택을 활성화]: http://go.microsoft.com/fwlink/?LinkId=623901
 [무료 평가판을 등록]: http://go.microsoft.com/fwlink/?LinkId=623901
 [앱 서비스 평가]: http://go.microsoft.com/fwlink/?LinkId=523751
 
-<!---HONumber=AcomDC_0504_2016-->
+<!-- IMG List -->
+
+<!---HONumber=AcomDC_0511_2016-->
