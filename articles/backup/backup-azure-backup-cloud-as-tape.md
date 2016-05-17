@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
-   ms.date="02/09/2016"
+   ms.date="05/03/2016"
    ms.author="jimpark;"/>
 
 # Azure 백업을 사용하여 테이프 인프라 대체
@@ -69,6 +69,6 @@ Azure 백업 및 System Center Data Protection Manager 고객은 다음을 수�
 Azure 백업에 대한 자세한 내용은 참조
 
 - [Azure 백업 소개](backup-introduction-to-azure-backup.md)
-- [Azure 백업 시도](backup-try-azure-backup-in-10-mins)
+- [Azure 백업 시도](backup-try-azure-backup-in-10-mins.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/04/2016" 
 	ms.author="robmcm"/>
 
 # Azure 클라우드 서비스에서 Socket.IO를 사용하여 Node.js 채팅 응용 프로그램 빌드
@@ -115,7 +115,7 @@ Azure 에뮬레이터에서 응용 프로그램을 테스트하기 전에 몇 �
 
         PS C:\node\chatapp\WorkerRole1> Start-AzureEmulator -Launch
 
-2.  브라우저를 열고 ****http://127.0.0.1**로 이동합니다.
+2.  브라우저를 열고 **http://127.0.0.1** 로 이동합니다.
 
 3.  브라우저 창이 열리면 애칭을 입력하고 Enter 키를 누릅니다. 이렇게 하면 특정 애칭으로 메시지를 게시할 수 있습니다. 다중 사용자 기능을 테스트하려면 같은 URL을 사용하여 브라우저 창을 추가로 열고 다른 애칭을 입력합니다.
 
@@ -170,4 +170,4 @@ Azure 에뮬레이터에서 응용 프로그램을 테스트하기 전에 몇 �
   
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

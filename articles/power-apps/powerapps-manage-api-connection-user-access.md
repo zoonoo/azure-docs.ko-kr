@@ -14,76 +14,88 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/02/2016"
+   ms.date="05/02/2016"
    ms.author="litran"/>
 
 
 # 새 API 추가, 연결 추가 및 사용자에게 액세스 권한 부여
 
-API는 [앱 서비스 환경](powerapps-get-started-azure-portal.md) 내에 존재합니다. API는 PowerApps용으로 제공되는 API나 앱 서비스 환경에 호스트되는 API 앱 또는 Swagger 2.0을 사용하여 만들 수 있습니다. PowerApps에 손쉽게 추가할 수 있는 미리 만들어진 API도 많이 있습니다. JSON 형식으로 된 자신의 API 또는 Swagger 2.0을 업로드할 수도 있습니다.
+> [AZURE.IMPORTANT] 이 항목은 보관되고 곧 제거될 예정입니다. 새 [PowerApps](https://powerapps.microsoft.com)의 새로운 내용을 살펴보세요.
+> 
+> - PowerApps에 대해 자세히 알아보고 시작하려면 [PowerApps](https://powerapps.microsoft.com)로 이동합니다.  
+> - PowerApps에서 사용 가능한 연결에 대해 자세히 알아보려면 [사용 가능한 연결](https://powerapps.microsoft.com/tutorials/connections-list/)로 이동합니다. 
 
-이 토픽은:
+<!--Archived
+APIs exist within an [app service environment](powerapps-get-started-azure-portal.md). APIs can be created from the available APIs for PowerApps, from API apps hosted in your app service environment, or from Swagger 2.0. There are many pre-built APIs available that can easily be added to your PowerApps. You can also upload your own API in JSON format or Swagger 2.0. 
 
-- PowerApps에 API를 추가하고 회사 내 사용자에게 API 사용 권한(API 속성 변경 포함)을 부여하는 단계를 나열합니다.
-- API에 연결을 추가하고 회사 내 사용자에게 연결 사용 권한을 부여하는 단계를 나열합니다.
+This topic:
 
-
-#### 시작하기 위한 필수 조건
-
-- [Azure 구독에서 PowerApps](powerapps-get-started-azure-portal.md)을 사용하도록 설정합니다.
-- [앱 서비스 환경](powerapps-get-started-azure-portal.md)을 만듭니다.
-- 다음 메서드를 사용하여 API를 만듭니다.  
-	- [Microsoft 관리되는 API 또는 IT 관리되는 API](powerapps-register-from-available-apis.md)를 만듭니다.
-	- [앱 서비스 환경](powerapps-register-api-hosted-in-app-service.md) 내에서 호스트되는 API를 만듭니다.
-	- [Swagger 2.0 API 정의](powerapps-register-existing-api-from-api-definition.md)를 사용하여 만듭니다.
+- Lists the steps to add an API to PowerApps, and give users within your company permissions to use the API, including changing its properties.
+- Lists the steps to add a connection to your API, and give users within your company permissions to use the connection.
 
 
-## 사용자에게 API에 대한 액세스 부여
-API를 만들고 앱 서비스 환경에 추가했으니, 이제 회사 내 사용자에게 사용 권한을 부여할 차례입니다.
+#### Prerequisites to get started
 
-1. PowerApps에서 **Manage APIs**(API 관리)를 선택하고 자신의 API를 선택합니다. 예를 들어, *MS Power BI* API를 만들었으면 해당 API를 선택하여 블레이드를 엽니다. **API 사용자 액세스**를 선택합니다. ![][1]  
+- Enable [PowerApps in your Azure subscription](powerapps-get-started-azure-portal.md).
+- Create an [App Service environment](powerapps-get-started-azure-portal.md).
+- Create an API using any of the following methods:  
+	- Create a [Microsoft managed API or an IT managed API](powerapps-register-from-available-apis.md).
+	- Create an API hosted within [your App Service Environment](powerapps-register-api-hosted-in-app-service.md).
+	- Create using a [Swagger 2.0 API definition](powerapps-register-existing-api-from-api-definition.md).
 
-2. **추가**를 선택하여 사용자를 추가하고 권한을 선택합니다. 완료되면 **추가**를 선택하여 변경 내용을 저장합니다. **API 사용자 액세스** 창의 사용자 또는 그룹 수가 증가됩니다.
+
+## Give users access to the API
+Now that the API is created and added to your app service environment, it's time to give users within your company the permissions to use it. 
+
+1. In PowerApps, select **Manage APIs**, and select your API. For example, if you created a *MS Power BI* API, select it to open its blade. Select **API user access**:  
+![][1]  
+
+2. Select **Add** to add users, and select the rights. When done, select **Add** to save your changes. The Users or Groups count increases in the **API user access** window.
 
 
-## API에 대한 새 연결 만들기
-다음은 API에 대한 “연결”을 생성하는 단계이며, 연결 문자열과 유사합니다. 이 단계를 통해 API를 “백 엔드” 시스템에 성공적으로 연결할 수 있습니다. PowerApps Enterprise 공개 미리 보기에서는 SQL Server 연결만 추가하고 구성할 수 있습니다. 더 많은 옵션이 추가되고 있습니다.
+## Add a new connection to your API
+The next step is to create the "connection" to your API, which is kind of like a connection string. This allows the API to successfully connect to your "backend" system. For PowerApps Enterprise public preview, only SQL Server's connection can be added and configured. More are being added. 
 
-- [SQL Server 연결 만들기](powerapps-create-api-sqlserver.md)
+- [Create SQL Server's connection](powerapps-create-api-sqlserver.md)
 
-## 사용자에게 연결에 대한 런타임 액세스 부여
-회사 내 사용자에게 연결을 사용할 수 있는 권한을 부여합니다.
+## Give users runtime access to the connection
+Now give users within your company permissions to use the connection.
 
-1. API를 열고 **연결**을 선택한 후 특정 연결을 선택합니다. 그러면 새 블레이드가 열리고 연결 이름이 위쪽에 나열됩니다. 
-2. 새 블레이드에서 **Connection user access**(연결 사용자 액세스)를 선택합니다. 아래 예제에서는 **Hybrid Tunnel** 연결이 선택되었습니다. 새 블레이드가 열리면 그 블레이드에서 **Connection user access**(연결 사용자 액세스)를 선택합니다. ![][2]
+1. Open your API, select **Connections**, and then select your specific connection. This opens a new blade that lists your connection name at the top. 
+2. In this new blade, select **Connection user access**.  In the following example, the **Hybrid Tunnel** connection is selected. The new blade opens and this is where you select **Connection user access**:  
+![][2]
   
-3. **Connection user access**(연결 사용자 액세스)에서 **추가**를 선택한 후에 부여할 권한을 선택합니다. ![][3]
+3. In **Connection user access**, select **Add**, and then select the permission you want to give:  
+![][3]
   
-4. 사용자 또는 그룹을 추가합니다. **추가**를 선택하여 변경 내용을 저장합니다.
+4. Add your user or group. Select **Add** to save your changes.
 
-사용자에게 API 및 API의 연결에 대한 권한이 있으면, PowerApps에서 만든 자신의 앱에 해당 API를 추가할 수 있습니다. 구체적으로 살펴보면 다음과 같습니다.
+Now that users have permissions to the API and its connection, your users can add these APIs to their apps created in PowerApps. Specifically: 
 
-- 사용자는 PowerApps의 **사용 가능한 연결**에 나열되는 API를 볼 수 있습니다.
-- 사용자는 PowerApps의 **내 연결** 아래 표시되는 연결을 볼 수 있습니다.
-
-
-## API 삭제
-이전에 추가한 API를 삭제할 수 있습니다. PowerApps에서 **Manage APIs**(API 관리)를 선택하고 해당 API를 선택한 후 **삭제**를 선택합니다. ![][4]
+- Users can see the API listed under **Available Connections** in PowerApps.
+- Users can see the connection under **My Connections** in PowerApps.
 
 
-## 요약 및 다음 단계
-이 토픽에서:
+## Delete an API
+You can also delete an API you previously added. In PowerApps, select the **Manage APIs**, select the API, and select **Delete**:  
+![][4]
 
-- API를 추가하고 회사 내 사용자에게 API 사용 권한을 부여했습니다. 이 단계를 사용하여 런타임 액세스를 언제든 관리할 수도 있습니다. 예를 들어, userA가 회사를 떠나면 Azure 포털을 사용하여 이 사용자의 권한을 손쉽게 제거할 수 있습니다. UserB가 회사에 입사해도 시나리오는 같습니다.
-- 연결을 추가했습니다. (연결 문자열과 유사합니다.) 이 단계를 통해 Azure에 호스트되는 API를 시스템(예: 온-프레미스 SQL Server)에 연결할 수 있습니다. 회사 내 사용자에게 연결을 사용할 수 있는 권한도 부여했습니다. 
-- 작업에 따라서 다양한 블레이드 작업을 했습니다. 연결을 추가하려면, API를 열고 해당 블레이드를 사용합니다. 사용자에게 액세스를 부여하려면, 무엇에 대한 액세스를 부여하는지에 따라서 API 또는 연결을 엽니다. 
-- 앱 서비스 환경 내에 만든 API를 삭제할 수 있습니다.
 
-이제 [PowerApps을 관리하고 모니터링](powerapps-manage-monitor-usage.md)할 수 있습니다.
+## Summary and next steps
+In this topic, you:
+
+- Added an API and gave users within your company the rights to use it. You can also use these steps to manage the runtime access at any time. For example, if userA leaves your company, you can use the Azure portal to easily remove this user's permissions. Same scenario if a UserB joins your company.
+- Added a connection (which is similar to a connection string). This step lets the API hosted in Azure to connect to your system, like an on-premises SQL Server. You also gave users within your company permissions to use the connection. 
+- You worked with different blades, depending on the task. To add a connection, you open the API and use its blade. To grant user access, you open the API or the connection, depending on what you're giving access. 
+- You can also delete any of the APIs you create within your app service environment.
+
+Next, you can [manage and monitor your PowerApps](powerapps-manage-monitor-usage.md).
+-->
+
 
 [1]: ./media/powerapps-manage-api-connection-user-access/apiuseraccess.png
 [2]: ./media/powerapps-manage-api-connection-user-access/connectionuseraccess.png
 [3]: ./media/powerapps-manage-api-connection-user-access/selectpermission.png
 [4]: ./media/powerapps-manage-api-connection-user-access/deleteapi.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

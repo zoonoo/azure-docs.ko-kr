@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/27/2016" 
+	ms.date="04/28/2016" 
 	ms.author="mimig"/>
 
 # DocumentDB 소개 - Microsoft Azure용 NoSQL 데이터베이스 
@@ -31,4 +31,4 @@ DocumentDB가 응용 프로그램 또는 데이터에 적합한지 잘 모르십
 **PDF다운로드:** [ DocumentDB 소개 - Microsoft Azure용 NoSQL 데이터베이스](http://go.microsoft.com/fwlink/?LinkId=511318)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0504_2016-->

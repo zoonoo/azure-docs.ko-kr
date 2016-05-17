@@ -15,69 +15,83 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/03/2016"
+   ms.date="05/02/2016"
    ms.author="litran"/>
 
 
 # PowerApps 엔터프라이즈에 새 SQL Server API 만들기
 
-조직의 (테넌트) 앱 서비스 환경에 SQL Server API를 추가합니다.
+> [AZURE.IMPORTANT] 이 항목은 보관되고 곧 제거될 예정입니다. 새 [PowerApps](https://powerapps.microsoft.com)의 새로운 내용을 살펴보세요.
+> 
+> - PowerApps에 대해 자세히 알아보고 시작하려면 [PowerApps](https://powerapps.microsoft.com)로 이동합니다.  
+> - PowerApps에서 사용 가능한 연결에 대해 자세히 알아보려면 [사용 가능한 연결](https://powerapps.microsoft.com/tutorials/connections-list/)로 이동합니다. 
 
-## Azure 포털에서 API 만들기
+<!--Archived
+Add the SQL Server API to your organization's (tenant) app service environment. 
 
-1. [Azure 포털](https://portal.azure.com/)에서 회사 계정으로 로그인합니다. 예를 들어 *yourUserName*@*YourCompany*.com으로 로그인합니다. 그러면 회사 구독에 자동으로 로그인됩니다. 
-2. 작업 표시줄에서 **찾아보기**를 선택합니다. ![][14]  
-3. 목록을 스크롤하여 PowerApps를 찾거나 *powerapps*를 입력합니다. ![][15]  
-4. **PowerApps**에서 **API 관리**를 선택합니다.
-5. **API 관리**에서 **추가**를 선택하여 새 API를 추가합니다.
-6. API에 대한 설명이 포함된 **이름**을 입력합니다. 예를 들어 데모에 대해 SQL Server API를 추가하고 이름을 *SQLServerDemo*로 지정할 수 있습니다.  	
-7. **원본**에서 **사용 가능한 API**를 선택하여 이미 만들어진 API를 선택한 다음 **SQL Server**를 선택합니다. 
-8. **확인**을 선택하여 이 단계를 완료합니다.
+## Create the API in the Azure portal
 
-완료하면 새 SQL Server API가 앱 서비스 환경에 추가됩니다.
+1. In the [Azure portal](https://portal.azure.com/), sign-in with your work account. For example, sign-in with *yourUserName*@*YourCompany*.com. When you do this, you are automatically signed in to your company subscription. 
+2. Select **Browse** in the task bar:  
+![][14]  
+3. In the list, you can scroll to find PowerApps or type in *powerapps*:  
+![][15]  
+4. In **PowerApps**, select **Manage APIs**.
+5. In **Manage APIs**, select **Add** to add the new API.
+6. Enter a descriptive **name** for your API. For example, you're adding the SQL Server API for demo, you can name it *SQLServerDemo*.  	
+7. In **Source**, select **Available APIs** to select the pre-built APIs, and select **SQL Server**. 
+8. Select **OK** to complete the steps.
 
-## SQL Server 온-프레미스에 대한 연결 구성
+When finished, a new SQL Server API is added to your app service environment.
 
-SQL Server 온-프레미스에 연결할 수 있습니다. 이 하이브리드 연결을 설정하려면 Azure에서 다음을 포함한 기존 하이브리드 네트워킹 솔루션을 활용할 수 있습니다.
+## Configure connectivity to SQL Server on-premises
 
-- [Express 경로](../expressroute/expressroute-introduction.md)
-- [사이트 간 VPN](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
-- [지점 및 사이트 간 연결](../vpn-gateway/vpn-gateway-point-to-site-create.md)  
+You can connect to SQL Server on-premises. To establish this hybrid connectivity, you can leverage existing hybrid networking solutions in Azure, including:
 
-	> [AZURE.NOTE]  모든 앱 서비스 환경에는 가상 네트워크가 연결되어 있습니다. 이 가상 네트워크에 이 네트워크 연결을 설정할 수 있습니다.  
-- [하이브리드 연결](../app-service-web/web-sites-hybrid-connection-get-started.md)  
+- [ExpressRoute](../expressroute/expressroute-introduction.md)
+- [Site-to-site VPN](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Point-to-site connectivity](../vpn-gateway/vpn-gateway-point-to-site-create.md)  
 
-	> [AZURE.NOTE]  앱 서비스 환경에 등록된 모든 API에는 해당 웹앱이 있습니다. 다른 웹앱에서와 마찬가지로 이 웹앱에서 하이브리드 연결을 설정할 수 있습니다.
+	> [AZURE.NOTE]  Every app service environment has a virtual  network associated with it. You can establish this network connectivity to this virtual network.  
+- [Hybrid connections](../app-service-web/web-sites-hybrid-connection-get-started.md)  
+
+	> [AZURE.NOTE]  Every registered API in your app service environment has a corresponding web app. You can establish hybrid connections from this web app just like you can from any other web app.
 	
-다음 예제에서는 하이브리드 연결을 만드는 방법을 보여 줍니다.
+The following example shows how to create a hybrid connection:  
 
-1. 방금 만든 SQL Server API를 선택하고 리소스 그룹을 선택합니다. 이 예제에서는 *sqlconnectordemo*라는 API를 선택하고 *DedicatedAses* 리소스 그룹을 선택합니다. ![리소스 그룹](./media/powerapps-create-api-sqlserver/sqlapi.png)
+1. Select the SQL Server API you just created and select the Resource group. In this example, select the API called *sqlconnectordemo*, and select the *DedicatedAses* Resource Group:  
+![Resource group](./media/powerapps-create-api-sqlserver/sqlapi.png)
 
-2.  **리소스** 타일을 선택한 다음 SQL Server API와 이름이 같은 웹앱을 선택합니다. 이 예제에서는 *sqlconnectordemo*를 선택합니다. ![Sql 웹앱](./media/powerapps-create-api-sqlserver/sqlwebapp.png)
+2.  Select the **Resources** tile, and then select the web app with the same name as your SQL Server API. In this example, select *sqlconnectordemo*:  
+![Sql Web app](./media/powerapps-create-api-sqlserver/sqlwebapp.png)
 
-3.  **설정**에서 **네트워킹**을 선택합니다. **하이브리드 연결 끝점 구성**을 선택하고 [다음 지침](../app-service-web/web-sites-hybrid-connection-get-started.md)을 따라 하이브리드 연결을 만듭니다. ![네트워킹](./media/powerapps-create-api-sqlserver/network.png)
+3.  In **Settings**, select **Networking**. Select **Configure your hybrid connection endpoints**, and then follow [these instructions](../app-service-web/web-sites-hybrid-connection-get-started.md) to create the hybrid connection:  
+![Networking](./media/powerapps-create-api-sqlserver/network.png)
 
-하이브리드 연결을 만들고 연결되면 온-프레미스 서버에 대한 연결을 사용하도록 설정한 것입니다. 그런 다음 데이터에 대한 연결을 만들고 사용자에게 액세스 권한을 제공합니다. ![하이브리드 연결](./media/powerapps-create-api-sqlserver/hybridconn.png)
+Once your hybrid connection is created and connected, you have enabled the connection to your on-premises server. Next, create the connection to your data and give users access:  
+![Hybrid connection](./media/powerapps-create-api-sqlserver/hybridconn.png)
 
-## SQL Server API에 대한 연결 만들기
+## Create connection for SQL Server API
 
-1. Azure 포털에서 PowerApps를 열고 **API 관리**를 선택합니다. 구성된 API 목록이 표시됩니다. ![](./media/powerapps-create-api-sqlserver/apilist.png)
+1. In the Azure portal, open PowerApps, and select **Manage APIs**. A list of the configured APIs is displayed:  
+  ![](./media/powerapps-create-api-sqlserver/apilist.png)
 
-2. 원하는 API를 선택합니다. 이 예제에서는 **SQLServerDemo**를 선택하고 **연결**을 선택합니다.
+2. Select the API you want. In this example, select **SQLServerDemo**, and select **Connections**. 
 
-3. 연결에서 **연결 추가**를 선택합니다. ![](./media/powerapps-create-api-sqlserver/addconnection.png)
+3. In Connections, select **Add connection**:  
+![](./media/powerapps-create-api-sqlserver/addconnection.png)
 
-4. 연결에 대한 이름을 입력하고 연결 문자열을 입력합니다. 연결 문자열을 입력하려면 연결하는 서비스에 대한 특정 속성 일부를 알아야 합니다. 예를 들어 온-프레미스 SQL Server에 연결하려면 성공적으로 연결하는 데 필요한 사용자 이름, 암호 및 기타 속성이 필요합니다.
+4. Enter a name for the connection and enter the connection string. Entering the connection string requires you to know some specific properties about the service you're connecting to. For example, if you're connecting to on-premises SQL Server, then you need to know the username, password, and other properties required to successfully make the connection. 
 
-5. **추가**를 선택하여 변경 내용을 저장합니다.
+5. Select **Add** to save your changes.
 
-## 요약 및 다음 단계
-이 항목에서는 SQL Server 온-프레미스에 연결하기 위해 SQL Server API를 추가했습니다. 그 다음에는 이 API를 사용자의 앱에 추가할 수 있도록 사용자에게 이 API에 대한 액세스 권한을 부여합니다.
+## Summary and next steps
+In this topic, you added the SQL Server API to connect to SQL Server on-premises. Next, give users access to the API so it can be added to their apps: 
 
-[연결 추가 및 사용자에게 액세스 권한 부여](powerapps-manage-api-connection-user-access.md)
-
+[Add a connection and give users access](powerapps-manage-api-connection-user-access.md)
+-->
 
 [14]: ./media/powerapps-create-api-sqlserver/browseall.png
 [15]: ./media/powerapps-create-api-sqlserver/allresources.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

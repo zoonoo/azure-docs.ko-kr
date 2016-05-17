@@ -1,4 +1,13 @@
-<properties pageTitle="Microsoft Azure 구독에 대한 청구 경고 설정 | Microsoft Azure" description="갑작스러운 청구에 당황하지 않도록 Azure 청구에 대한 경고를 설정하는 방법을 설명합니다." services="billing" documentationCenter="" authors="vikdesai" manager="msmbaldwin" editor=""/ tags="billing" />
+<properties
+	pageTitle="Microsoft Azure 구독에 대한 청구 경고 설정 | Microsoft Azure"
+	description="갑작스러운 청구에 당황하지 않도록 Azure 청구에 대한 경고를 설정하는 방법을 설명합니다."
+	services="billing"
+	documentationCenter=""
+	authors="vikdesai"
+	manager="msmbaldwin"
+	editor=""
+	tags="billing"
+	/>
 
 <tags
 	ms.service="multiple"
@@ -39,4 +48,4 @@ Azure는 모든 메일 주소를 지원하지만 해당 메일 주소가 작동�
 [Image2]: ./media/azure-billing-set-up-alerts/billingalert2.png
 [Image3]: ./media/azure-billing-set-up-alerts/billingalerts3.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

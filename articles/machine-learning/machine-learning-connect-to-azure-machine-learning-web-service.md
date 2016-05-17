@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016" 
+	ms.date="05/02/2016" 
 	ms.author="garye" />
 
 
@@ -24,10 +24,9 @@ Azure 기계 학습 개발자 환경은 실시간 또는 일괄 처리 모드로
 
 기계 학습 스튜디오를 사용하여 기계 학습 웹 서비스를 만들고 배포하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
-- [기계 학습 웹 서비스 배포](machine-learning-publish-a-machine-learning-web-service.md)
-- [기계 학습 스튜디오 시작](https://azure.microsoft.com/documentation/videos/getting-started-with-ml-studio/)
-- [Azure 기계 학습 미리 보기](https://studio.azureml.net/)
-- [기계 학습 설명서 센터](https://azure.microsoft.com/documentation/services/machine-learning/)
+- 기계 학습 스튜디오에서 실험을 만드는 방법에 대한 자습서는 [첫 번째 실험 만들기](machine-learning-create-experiment.md)를 참조하세요.
+- 웹 서비스를 배포하는 방법에 대한 자세한 내용은 [기계 학습 웹 서비스 배포](machine-learning-publish-a-machine-learning-web-service.md)를 참조하세요.
+- 기계 학습에 대한 자세한 내용은 [기계 학습 설명서 센터](https://azure.microsoft.com/documentation/services/machine-learning/)를 참조하세요.
 
 ## Azure 기계 학습 웹 서비스 ##
 
@@ -62,7 +61,7 @@ HTTP 요청 및 응답을 지원하는 모든 프로그래밍 언어를 사용�
 웹 서비스를 배포하면 기계 학습 API 도움말 페이지가 생성됩니다. [Azure 기계 학습 연습 - 웹 서비스 배포](machine-learning-walkthrough-5-publish-web-service.md)를 참조하세요.
 
 
-기계 학습 스튜디오에서 **기계 학습 API 도움말 페이지를 보려면**
+**기계 학습 API 도움말 페이지를 보려면** 기계 학습 스튜디오에서 다음을 수행합니다.
 
 1. **웹 서비스**를 선택합니다.
 2. 웹 서비스를 선택합니다.
@@ -103,4 +102,4 @@ HTTP 요청 및 응답을 지원하는 모든 프로그래밍 언어를 사용�
 2. 웹 서비스에서 가져온 키로 apiKey를 할당합니다. 위의 **Azure 기계 학습 권한 부여 키 가져오기**를 참조하세요.
 3. 요청 URI로 serviceUri를 할당합니다. 요청 URI를 가져오는 방법을 참조하세요.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0504_2016-->

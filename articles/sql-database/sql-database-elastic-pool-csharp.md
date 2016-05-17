@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management"
-    ms.date="02/23/2016"
+    ms.date="05/03/2016"
     ms.author="sstein"/>
 
 # C&#x23; 데이터베이스 개발: SQL 데이터베이스에 대한 탄력적 데이터베이스 풀 만들기 및 구성
@@ -317,7 +317,7 @@ C#에서 SQL 개발을 시작하기 전에 Azure 포털에서 일부 작업을 �
 
 ## 탄력적 데이터베이스 풀 내에 새 데이터베이스 생성
 
-*풀을 만든 후에 풀에서 탄력적인 새 데이터베이스를 만드는 데 Transact-SQL을 사용할 수 있습니다. 자세한 정보는 [탄력적 데이터베이스 풀 참조 - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL)을 참조하세요.*
+*풀을 만든 후에 풀에서 탄력적인 새 데이터베이스를 만드는 데 Transact-SQL을 사용할 수 있습니다. 자세한 내용은 [Transact-SQL로 탄력적 데이터베이스 풀 모니터링 및 관리](sql-database-elastic-pool-manage-tsql.md)를 참조하세요.*
 
 다음 예제에서는 새로운 탄력적 데이터베이스를 풀에 직접 만듭니다.
 
@@ -562,9 +562,6 @@ C#에서 SQL 개발을 시작하기 전에 Azure 포털에서 일부 작업을 �
 
 [Azure 리소스 관리 API](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
-[탄력적 데이터베이스 풀 참조](sql-database-elastic-pool-reference.md)
-
-
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool-csharp/aad.png
 [2]: ./media/sql-database-elastic-pool-csharp/permissions.png
@@ -576,4 +573,4 @@ C#에서 SQL 개발을 시작하기 전에 Azure 포털에서 일부 작업을 �
 [8]: ./media/sql-database-elastic-pool-csharp/add-application2.png
 [9]: ./media/sql-database-elastic-pool-csharp/clientid.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

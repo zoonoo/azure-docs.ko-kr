@@ -4,7 +4,7 @@
    services="sql-database" 
    documentationCenter="" 
    authors="elfisher" 
-   manager="jeffreyg" 
+   manager="jhubbard" 
    editor="monicar"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="02/09/2016"
+   ms.date="04/25/2016"
    ms.author="elfish"/>
 
 #비즈니스 연속성을 위한 설계
@@ -45,11 +45,6 @@ SQL 데이터베이스는 기본적으로 모든 데이터베이스를 보호할
 2. 데이터 변경 비율(예: 분 또는 초당당 트랜잭션 수)이 높습니다. 기본 보호 기능을 적용한 상태에서 1시간의 RPO가 허용할 수 없는 수준의 데이터 손실로 이어질 수 있습니다.
 3. 지역에서 복제를 사용하는 것에 관련된 비용이 잠재적인 재무적 책임과 연계된 비즈니스 손실보다 크게 낮습니다.
 
-> [AZURE.NOTE] 응용 프로그램에서 기본 계층 데이터베이스를 사용하는 경우 지역에서 복제는 지원되지 않습니다.
-
-##표준 vs를 선택 하는 경우. 활성 지역 복제
-
-표준 계층 데이터베이스는 활성 지역 복제를 사용하는 옵션이 없으므로 응용 프로그램이 표준 데이터베이스를 사용하고 위 조건에 맞는 경우 표준 지역 복제를 사용하도로 설정해야 합니다. 반면 프리미엄 데이터베이스는 두 옵션 모두 선택할 수 있습니다. 표준 지역에서 복제는 간편하고 비용이 적은 재해 복구 솔루션으로 설계되었습니다. 특히 작동 중단과 같은 계획되지 않은 이벤트로부터 보호할 때만 사용하는 응용 프로그램에 적절합니다. 표준 지역에서 복제를 사용하면 복구를 위해 DR 쌍을 이루는 지역만 사용할 수 있으며 각각의 주 데이터베이스에 대해 보조 데이터베이스를 하나만 만들 수 없습니다. 응용 프로그램 업그레이드 시나리오에서 보조 데이터베이스가 추가로 필요할 수 있습니다. 따라서 이러한 시나리오가 응용 프로그램에 중요한 경우 활성 지역 복제를 사용하도록 설정해야 합니다. 추가 정보는 [가동 중지 시간 없이 응용 프로그램 업그레이드](sql-database-business-continuity-application-upgrade.md)를 참조하세요.
 
 > [AZURE.NOTE] 활성 지역 복제는 보조 데이터베이스에 대한 읽기 전용 액세스도 지원하므로 읽기 전용 작업에 대한 추가 용량도 확보됩니다.
 
@@ -69,19 +64,19 @@ Azure 클래식 포털을 사용하거나 REST API 또는 PowerShell 명령을 �
 6. 보조 유형(*Readable* 또는 *Non-readable*)을 선택합니다.
 7. **만들기**를 클릭하여 구성을 완료합니다.
 
-> [AZURE.NOTE] 지역에서 복제 블레이드에서 DR 쌍을 이루는 영역이 *권장* 으로 표시됩니다. 프리미엄 계층 데이터베이스를 사용하는 경우 다른 영역을 선택할 수 있습니다. 표준 데이터베이스를 사용하는 경우 변경할 수 없습니다. 프리미엄 데이터베이스의 경우 보조 유형(*Readable* 또는 *Non-readable*)을 선택할 수 있습니다. 표준 데이터베이스에서는 *Non-readable* 보조만 선택할 수 있습니다.
+> [AZURE.NOTE] 지역에서 복제 블레이드에서 DR 쌍을 이루는 지역이 *권장* 으로 표시되지만 다른 지역을 선택할 수 있습니다.
 
 
 ###PowerShell
 
 [New-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603689.aspx) PowerShell cmdlet을 사용하면 지역에서 복제 구성을 만들 수 있습니다. 이 명령은 동기식이며 주 데이터베이스와 보조 데이터베이스가 동기화 상태일 때 반환됩니다.
 
-프리미엄 또는 표준 데이터베이스를 위한 읽을 수 없는 보조 데이터베이스가 포함된 지역에서 복제를 구성하려면:
+읽을 수 없는 보조 데이터베이스가 포함된 지역에서 복제를 구성하려면:
 		
     $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
     $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "None"
 
-프리미엄 데이터베이스를 위한 읽을 수 있는 보조 데이터베이스가 포함된 지역에서 복제를 만들려면:
+읽을 수 있는 보조 데이터베이스가 포함된 지역에서 복제를 만들려면:
 
     $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
     $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "All"
@@ -98,4 +93,4 @@ Azure 클래식 포털을 사용하거나 REST API 또는 PowerShell 명령을 �
 
 비즈니스 연속성을 위해 응용 프로그램을 설계할 때는 몇 가지 구성 옵션을 고려해야 합니다. 선택할 옵션은 응용 프로그램 배포 토폴로지와 응용 프로그램의 어느 부분이 작동 중단에 가장 취약한지에 따라 달라집니다. 지침은 [지역에서 복제를 사용하여 재해 복구를 위한 클라우드 솔루션 설계](sql-database-designing-cloud-solutions-for-disaster-recovery.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

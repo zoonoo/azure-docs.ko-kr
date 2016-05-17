@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="05/03/2016" 
 	ms.author="piyushjo" />
 
 #Windows 유니버설에서 Engagement API를 사용하는 방법
 
-이 문서는 [Windows 유니버설에서 Engagement를 통합하는 방법](../mobile-engagement-windows-store-integrate-engagement/) 문서를 보완하는 추가 문서로, Engagement API를 사용하여 응용 프로그램 통계를 보고하는 방법을 자세히 설명합니다.
+이 문서는 [Windows 유니버설에서 Engagement를 통합하는 방법](mobile-engagement-windows-store-integrate-engagement.md) 문서를 보완하는 추가 문서로, Engagement API를 사용하여 응용 프로그램 통계를 보고하는 방법을 자세히 설명합니다.
 
 Engagement에서 응용 프로그램 세션, 활동, 충돌 및 기술 정보만 보고하도록 하려는 경우, 가장 간단한 방법은 모든 `Page` 서브클래스가 `EngagementPage` 클래스에서 상속되도록 지정하는 것입니다.
 
@@ -30,7 +30,7 @@ Engagement API는 `EngagementAgent` 클래스를 통해 제공됩니다. 해당 
 
 ##Engagement 개념
 
-다음 요소는 Windows 유니버설 플랫폼과 관련된 일반적인 [Mobile Engagement 개념](../mobile-engagement-concepts/)을 구체화합니다.
+다음 요소는 Windows 유니버설 플랫폼과 관련된 일반적인 [Mobile Engagement 개념](mobile-engagement-concepts.md)을 구체화합니다.
 
 ### `Session` 및 `Activity`
 
@@ -368,4 +368,4 @@ SDK는 IDE 콘솔에서 테스트 로그를 생성하도록 구성될 수 있습
 			EngagementAgent.Instance.Init();
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

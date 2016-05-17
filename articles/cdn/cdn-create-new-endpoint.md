@@ -12,7 +12,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="get-started-article"
-	 ms.date="04/26/2016" 
+	 ms.date="05/11/2016" 
 	 ms.author="casoper"/>
 
 # Azure CDN 사용  
@@ -27,28 +27,9 @@ CDN 프로필은 CDN 끝점의 컬렉션입니다. 각 프로필에는 CDN 끝�
 
 > [AZURE.NOTE] 기본적으로 단일 Azure 구독은 CDN 프로필이 네 개로 제한됩니다. 각 CDN 프로필은 CDN 끝점이 열 개로 제한됩니다.
 >
-> CDN 가격 책정은 CDN 프로필 수준에서 적용됩니다. 다양한 표준 및 프리미엄 CDN 기능을 사용하려는 경우 여러 CDN 프로필이 필요합니다.
+> CDN 가격 책정은 CDN 프로필 수준에서 적용됩니다. 다양한 Azure CDN 가격 책정 계층을 사용하려는 경우 여러 CDN 프로필이 필요합니다.
 
-
-**새 CDN 프로필을 만들려면**
-
-1. [Azure 포털](https://portal.azure.com)의 왼쪽 위에서 **새로 만들기**를 클릭합니다. **새로 만들기** 블레이드에서 **미디어 + CDN**, **CDN**을 차례로 선택합니다.
-
-    새 CDN 프로필 블레이드가 나타납니다.
-
-    ![새 CDN 프로필][new-cdn-profile]
-
-2. CDN 프로필에 대한 이름을 입력합니다.
-
-3. **가격 책정 계층**을 선택하거나 기본값을 사용합니다.
-
-4. **리소스 그룹**을 선택하거나 만듭니다. 리소스 그룹에 대한 자세한 내용은 [Azure 리소스 관리자 개요](resource-group-overview.md#resource-groups)를 참조하세요.
-
-5. 이 CDN 프로필에 대한 **구독**을 선택합니다.
-
-6. **위치**를 선택합니다. CDN 프로필 정보가 저장될 Azure 위치입니다. CDN 끝점 위치에는 영향을 주지 않습니다. 저장소 계정과 동일한 위치일 필요는 없습니다.
-
-7. **만들기** 단추를 클릭하여 새 프로필을 만듭니다.
+[AZURE.INCLUDE [cdn-create-profile](../../includes/cdn-create-profile.md)]
 
 ## 새 CDN 끝점 만들기
 
@@ -70,7 +51,7 @@ CDN 프로필은 CDN 끝점의 컬렉션입니다. 각 프로필에는 CDN 끝�
 
 3. 이 CDN 끝점에 대한 **이름**을 입력합니다. 이 이름은 `<endpointname>.azureedge.net` 도메인의 캐시된 리소스에 액세스하기 위해 사용됩니다.
 
-4. **원본 형식** 드롭다운에서 원본 형식을 선택합니다. Azure 저장소 계정에 대해 **저장소**, Azure 클라우드 서비스에 대해 **클라우드 서비스**, Azure 웹앱에 대해 **웹앱**, 또는 기타 공개적으로 액세스할 수 있는 웹 서버 원본(Azure 또는 다른 곳에 호스팅되는)에 대해 **사용자 지정 원본**을 선택합니다.
+4. **원본 형식** 드롭다운에서 원본 형식을 선택합니다. Azure 저장소 계정에 대해 **저장소**, Azure 클라우드 서비스에 대해 **클라우드 서비스**, Azure 웹앱에 대해 **웹앱**을 선택하고 기타 공개적으로 액세스할 수 있는 웹 서버 원본(Azure 또는 다른 곳에서 호스팅)에 대해 **사용자 지정 원본**을 선택합니다.
 
 	![CDN 원본 형식](./media/cdn-create-new-endpoint/cdn-origin-type.png)
 		
@@ -82,9 +63,11 @@ CDN 프로필은 CDN 끝점의 컬렉션입니다. 각 프로필에는 CDN 끝�
 
 8. **프로토콜** 및 **원본 포트**에 원본의 리소스에 액세스하는 데 사용되는 프로토콜과 포트를 지정합니다. 프로토콜을 적어도 하나는(HTTP 또는 HTTPS) 선택해야 합니다.
 	
-	> [AZURE.NOTE] **원본 포트**는 원본에서 정보를 검색하는 데 끝점이 사용하는 포트에만 영향을 줍니다. 끝점 자체는 **원본 포트**에 관계 없이 기본 HTTP 및 HTTPS 포트(80 및 443)의 최종 클라이언트에 사용할 수 있습니다.
+	> [AZURE.NOTE] **원본 포트**는 원본에서 정보를 검색하는 데 끝점이 사용하는 포트에만 영향을 줍니다. 끝점 자체는 **원본 포트**에 관계 없이 기본 HTTP 및 HTTPS 포트(80 및 443)의 최종 클라이언트에만 사용할 수 있습니다.
 	>
-	>HTTPS를 사용하여 CDN 콘텐츠에 액세스하는 경우 다음과 같은 제약 조건이 있습니다.
+	> **Akamai의 Azure CDN** 끝점에서는 원본에 대해 전체 TCP 포트 범위를 허용하지 않습니다. 허용되지 않는 원본 포트 목록을 보려면 [Akamai의 Azure CDN 동작 상세 정보](cdn-akamai-behavior-details.md)를 참조하세요.
+	>
+	> HTTPS를 사용하여 CDN 콘텐츠에 액세스하는 경우 다음과 같은 제약 조건이 있습니다.
 	> 
 	> - CDN에서 제공된 SSL 인증서를 사용해야 합니다. 타사 인증서는 지원되지 않습니다.
 	> - CDN 제공 도메인(`<endpointname>.azureedge.net`)을 사용하여 HTTPS 콘텐츠에 액세스해야 합니다. 현재 CDN이 사용자 지정 인증서를 지원하지 않으므로 CNAME(사용자 지정 도메인 이름)에는 HTTPS 지원을 사용할 수 없습니다.
@@ -95,9 +78,9 @@ CDN 프로필은 CDN 끝점의 컬렉션입니다. 각 프로필에는 CDN 끝�
 
     ![CDN 끝점][cdn-endpoint-success]
 
-    > [AZURE.IMPORTANT] 등록이 CDN 전체에 전파되는 등록에 시간이 걸리기 때문에, 끝점을 즉시 사용할 수는 없습니다. 일반적으로 90분 내에 사용이 가능해 지지만 일부 경우에는 시간이 더 길어질 수 있습니다.
+    > [AZURE.IMPORTANT] 등록이 CDN 전체에 전파되는 등록에 시간이 걸리기 때문에, 끝점을 즉시 사용할 수는 없습니다. <b>Akamai의 Azure CDN</b> 프로필의 경우 일반적으로 1분 이내에 전파가 완료됩니다. <b>Verizon의 Azure CDN</b> 프로필의 경우 일반적으로 90분 이내에 전파가 완료되지만 더 오래 소요될 수도 있습니다.
 	>	 
-	> 끝점 구성이 POP에 전파되기 전에 CDN 도메인 이름을 사용하려고 하면 HTTP 404 응답 코드가 반환됩니다. 해당 끝점을 만들고 404 응답을 수신한지 몇 시간이 경과했다면 [404 상태를 반환하는 CDN 끝점 문제 해결](cdn-troubleshoot-endpoint.md)을 참조하세요.
+	> 끝점 구성이 POP에 전파되기 전에 CDN 도메인 이름을 사용하려고 하면 HTTP 404 응답 코드가 반환됩니다. 끝점을 만든 후 몇 시간 후에도 404 응답이 수신되는 경우 [404 상태를 반환하는 CDN 끝점 문제 해결](cdn-troubleshoot-endpoint.md)을 참조하세요.
 
 
 ##참고 항목
@@ -107,10 +90,9 @@ CDN 프로필은 CDN 끝점의 컬렉션입니다. 각 프로필에는 CDN 끝�
 - [Azure CDN 끝점 삭제](cdn-purge-endpoint.md)
 - [404 상태를 반환하는 CDN 끝점 문제 해결](cdn-troubleshoot-endpoint.md)
 
-[new-cdn-profile]: ./media/cdn-create-new-endpoint/cdn-new-profile.png
 [cdn-profile-settings]: ./media/cdn-create-new-endpoint/cdn-profile-settings.png
 [cdn-new-endpoint-button]: ./media/cdn-create-new-endpoint/cdn-new-endpoint-button.png
 [cdn-add-endpoint]: ./media/cdn-create-new-endpoint/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

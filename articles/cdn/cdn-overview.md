@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="04/15/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 # Azure CDN(콘텐츠 배달 네트워크) 개요
 
-Azure CDN(콘텐츠 배달 네트워크)은 웹 사이트에서 사용하는 Azure Blob 및 정적 콘텐츠를 전략적으로 배치된 위치에 캐시하여 사용자에게 콘텐츠를 배달하는 데 최대 처리량 제공합니다. CDN은 전 세계 물리적 노드에 콘텐츠를 캐시하여 고대역폭 콘텐츠를 배달하기 위한 글로벌 솔루션을 개발자에게 제공합니다. 현재 CDN 노드 위치 목록은 [Azure CDN POP 위치](cdn-pop-locations.md)를 참조하십시오.
+Azure CDN(콘텐츠 배달 네트워크)은 전략적으로 배치된 위치에서 정적 웹 콘텐츠를 캐싱하여 사용자에게 콘텐츠를 배달하기 위한 최대 처리량을 제공합니다. CDN은 전 세계 물리적 노드에 콘텐츠를 캐시하여 고대역폭 콘텐츠를 배달하기 위한 글로벌 솔루션을 개발자에게 제공합니다. 현재 CDN 노드 위치 목록을 보려면 [Azure CDN POP 위치](cdn-pop-locations.md)를 참조하세요.
 
-CDN을 사용하여 Azure 데이터를 캐시할 경우의 이점은 다음과 같습니다.
+CDN을 사용하여 웹 사이트 자산을 캐시할 경우의 이점은 다음과 같습니다.
 
 - 콘텐츠를 로드하기 위해 많은 왕복이 필요한 응용 프로그램을 사용 중인 최종 사용자의 성능 및 사용자 환경 향상
 - 제품 런칭 이벤트 시작 시와 같이 순간적인 높은 부하를 더 효율적으로 처리하기 위한 대규모 조정
@@ -44,30 +44,27 @@ CDN을 사용하여 Azure 데이터를 캐시할 경우의 이점은 다음과 �
 6. 파일의 TTL이 만료되지 않았으면, 에지 서버는 캐시로부터 파일을 반환합니다. 이렇게 하면 보다 신속하고 응답성이 뛰어난 사용자 환경이 가능합니다.
 
 
-## 표준 기능
+## Azure CDN 기능
 
-표준 CDN 계층에는 이러한 기능이 포함됩니다.
+Azure CDN 제품은 **Akamai의 Azure CDN Standard**, **Verizon의 Azure CDN Standard**, **Verizon의 Azure CDN Premium**, 세 가지가 있습니다. 다음 표는 각 제품에 사용할 수 있는 기능입니다.
 
-- [저장소](cdn-create-a-storage-account-with-cdn.md), [클라우드 서비스](cdn-cloud-service-with-cdn.md), [웹앱](../app-service-web/cdn-websites-with-cdn.md) 및 [미디어 서비스](../media-services/media-services-manage-origins.md#enable_cdn)와 같은 Azure와의 간편한 통합
-- HTTPS 지원
-- 부하 분산
-- DDOS 보호
-- [쿼리 문자열 캐싱](cdn-query-string.md)
-- [사용자 지정 도메인 이름 지원](cdn-map-content-to-custom-domain.md)
-- [국가 필터링](cdn-restrict-access-by-country.md)
-- [핵심 분석](cdn-analyze-usage-patterns.md)
-- [빠른 삭제](cdn-purge-endpoint.md)
-- [자산 미리 로드](cdn-preload-endpoint.md)
-- [REST API를 통한 관리](https://msdn.microsoft.com/library/mt634456.aspx)
+| | Standard Akamai | Standard Verizon | Premium Verizon |
+|-------|-----------------|------------------|-----------------|
+| [저장소](cdn-create-a-storage-account-with-cdn.md), [클라우드 서비스](cdn-cloud-service-with-cdn.md), [웹앱](../app-service-web/cdn-websites-with-cdn.md), [미디어 서비스](../media-services/media-services-manage-origins.md#enable_cdn)와 같은 Azure와 간편하게 통합 | **&#x2713;** | **&#x2713;** | **&#x2713;**|
+| HTTPS 지원 | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| 부하 분산 | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| DDOS 보호 | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [사용자 지정 도메인 이름 지원](cdn-map-content-to-custom-domain.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [쿼리 문자열 캐싱](cdn-query-string.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [국가 필터링](cdn-restrict-access-by-country.md) | | **&#x2713;** | **&#x2713;** |
+| [빠른 삭제](cdn-purge-endpoint.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [자산 미리 로드](cdn-preload-endpoint.md) | | **&#x2713;** | **&#x2713;** |
+| [핵심 분석](cdn-analyze-usage-patterns.md) | | **&#x2713;** | **&#x2713;** |
+| [REST API를 통한 관리](https://msdn.microsoft.com/library/mt634456.aspx) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [사용자 지정이 가능한 규칙 기반의 콘텐츠 배달 엔진](cdn-rules-engine.md) | | | **&#x2713;** |
+| [고급 HTTP 보고서](cdn-advanced-http-reports.md) | | | **&#x2713;** |
+| [실시간 통계](cdn-real-time-stats.md) | | | **&#x2713;** |
 
-
-## 프리미엄 기능
-
-프리미엄 CDN 계층에는 표준 계층의 모든 기능과 함께 이러한 추가 기능이 포함됩니다.
-
-- [사용자 지정이 가능한 규칙 기반의 콘텐츠 배달 엔진](cdn-rules-engine.md)
-- [고급 HTTP 보고서](cdn-advanced-http-reports.md)
-- [실시간 통계](cdn-real-time-stats.md)
 
 ## 다음 단계
 
@@ -75,6 +72,8 @@ CDN을 시작하려면 [Azure CDN 사용](./cdn-create-new-endpoint.md)을 참�
 
 기존 CDN 고객인 경우 이제 [Microsoft Azure 포털](https://portal.azure.com)을 통해 CDN 끝점을 관리할 수 있습니다.
 
-작동 중인 CDN을 보려면 [빌드 2016 세션 비디오](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/)를 참고하세요.
+작동 중인 CDN 작업을 보려면 [빌드 2016 세션 비디오](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/)를 참조하세요.
 
-<!---HONumber=AcomDC_0504_2016-->
+가격 정보는 [CDN 가격 책정](https://azure.microsoft.com/pricing/details/cdn/)을 참조하세요.
+
+<!---HONumber=AcomDC_0511_2016-->

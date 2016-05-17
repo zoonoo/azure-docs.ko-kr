@@ -14,124 +14,133 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/02/2016"
+   ms.date="05/02/2016"
    ms.author="guayan"/>
 
 # Microsoft 관리 API 또는 IT 관리 API 등록
-**Microsoft 관리** 및 **IT 관리** API가 있습니다. PowerApps Enterprise를 사용하도록 설정하면 Microsoft 관리 API를 자동으로 사용할 수 있게 됩니다. 메모리, 연결, 트러스트 등도 자동으로 관리됩니다. 다음 단계는 Twitter 계정 및 암호와 같은 특정 사용자 설정을 입력하는 것입니다.
 
-IT 관리 API를 사용하여 메모리, 연결, 트러스트 등을 포함하여 모든 사항을 모니터링합니다. IT 관리 API는 SQL Server 및 SharePoint Server와 같은 온-프레미스 시스템에 연결할 수 있는 API도 포함하고 있습니다.
+> [AZURE.IMPORTANT] 이 항목은 보관되고 곧 제거될 예정입니다. 새 [PowerApps](https://powerapps.microsoft.com)의 새로운 내용을 살펴보세요.
+> 
+> - PowerApps에 대해 자세히 알아보고 시작하려면 [PowerApps](https://powerapps.microsoft.com)로 이동합니다.  
+> - PowerApps에서 사용 가능한 연결에 대해 자세히 알아보려면 [사용 가능한 연결](https://powerapps.microsoft.com/tutorials/connections-list/)로 이동합니다.  
+> - PowerApps에서 사용자 지정 API에 대해 자세히 알아보려면 [사용자 지정 API란?](https://powerapps.microsoft.com/tutorials/register-custom-api/)으로 이동합니다. 
+
+<!--Archived
+There are **Microsoft managed** and **IT managed** APIs. When you enable PowerApps Enterprise, the Microsoft managed APIs are available to you automatically. The memory, connectivity, trust, and more are also automatically managed for you. Your next step is to enter any specific user settings, like a Twitter account and password. 
+
+Using the IT managed APIs, you control and monitor everything, including memory, connectivity, trust, and more. The IT managed APIs also include the APIs that can connect to an on-premises system, like SQL Server and SharePoint Server. 
 
 > [AZURE.SELECTOR]
-- [관리되는 API](../articles/power-apps/powerapps-register-from-available-apis.md)
-- [ASE의 API](../articles/power-apps/powerapps-register-api-hosted-in-app-service.md)
-- [Swagger API](../articles/power-apps/powerapps-register-existing-api-from-api-definition.md)
+- [Managed APIs](../articles/power-apps/powerapps-register-from-available-apis.md)
+- [APIs in your ASE](../articles/power-apps/powerapps-register-api-hosted-in-app-service.md)
+- [Swagger APIs](../articles/power-apps/powerapps-register-existing-api-from-api-definition.md)
 
-이 항목에서는 첫 번째 옵션 - **Microsoft 관리 API 및 IT 관리 API 등록**에 초점을 둡니다.
+In this topic, we focus on the first option - **registering the Microsoft managed APIs and the IT managed APIs**. 
 
-#### 시작하기 위한 필수 조건
+#### Prerequisites to get started
 
-- [PowerApps 엔터프라이즈](powerapps-get-started-azure-portal.md)에 등록합니다.
-- [앱 서비스 환경](powerapps-get-started-azure-portal.md)을 만듭니다.
-
-
-## 사용 가능한 Microsoft 관리 API 보기
-**Microsoft 관리** API는 PowerApps 엔터프라이즈와 함께 제공되며 Microsoft에서도 호스트됩니다. 많은 시나리오에서 Microsoft 관리 API는 앱에 최적입니다. 예를 들어 앱이 트윗을 보내거나 OneDrive에 파일을 업로드하거나 Excel 파일의 데이터를 표시하면 이러한 Microsoft 관리 앱이 좋은 선택입니다.
-
-몇몇 추가 혜택은 다음을 포함합니다.
-
-- 사용자의 고유한 인스턴스를 등록하는 데 사용할 수 있는 모든 Microsoft 관리 API를 얻습니다. 
-- 네트워크, 메모리 또는 보안 구성을 포함한 리소스는 자동으로 모니터링됩니다. 예를 들어 앱에서 Excel 데이터를 표시하기 위해 더 많은 메모리가 필요한 경우 더 많은 메모리가 자동으로 추가됩니다. 
-- Office 및 Twitter와 같은 API와 앱 간의 트러스트는 자동으로 만들어집니다. 
+- Sign up for [PowerApps Enterprise](powerapps-get-started-azure-portal.md).
+- Create an [app service environment](powerapps-get-started-azure-portal.md).
 
 
-#### Microsoft 관리 API
+## View the available Microsoft managed APIs
+The **Microsoft managed** APIs are provided with PowerApps Enterprise and are also hosted by Microsoft. In many scenarios, the Microsoft managed APIs are ideal for your apps. For example, if your app sends a tweet, uploads a file to OneDrive, or displays data from an Excel file, then these Microsoft managed APIs are a good choice. 
 
-API | 설명 | 단계 링크
+Some additional benefits include: 
+
+- You get all the Microsoft managed APIs available for you to register your own instance. 
+- The resources, including network, memory, or security configurations, are monitored automatically. For example, if you need more memory to display Excel data in your app, more memory is automatically added. 
+- A trust between your app and the API, like Office and Twitter, is created automatically. 
+
+
+#### Microsoft managed APIs
+
+API | Description | Steps Link
 --- | --- | ---
-![][31] | **Dropbox**<br/><br/> 항목 가져오기, 업데이트, 삭제 등을 수행할 수 있습니다. | [**시작**](powerapps-create-api-dropbox.md)
-![][32] | **DynamicsCRM Online**<br/><br/> 항목 가져오기, 업데이트, 삭제 등을 수행할 수 있습니다. | [**시작**](powerapps-create-api-crmonline.md)
-![][33] | **Excel**<br/><br/> 항목 가져오기, 업데이트, 삭제 등을 수행할 수 있습니다. | [**시작**](powerapps-create-api-excel.md)
-![][34] | **Google Drive**<br/><br/>항목 가져오기, 업데이트, 삭제 등을 수행할 수 있습니다. | [**시작**](powerapps-create-api-googledrive.md)
-![][35] | **Microsoft Translator**<br/><br/>텍스트 번역, 언어 감지 등을 수행합니다. | [**시작**](powerapps-create-api-microsofttranslator.md)
-![][36] | **Office 365 Outlook**<br/><br/>메일을 관리합니다. | [**시작**](powerapps-create-api-office365-outlook.md)
-![][37] | **Office 365 사용자**<br/><br/>사용자 프로필, 사용자의 관리자, 사용자의 직접 보고서 등에 액세스합니다. | [**시작**](powerapps-create-api-office365-users.md)
-![][38] | **OneDrive**<br/><br/> 항목 가져오기, 업데이트, 삭제 등을 수행할 수 있습니다. | [**시작**](powerapps-create-api-onedrive.md)
-![][39] | **Salesforce**<br/><br/> 항목 가져오기, 업데이트, 삭제 등을 수행할 수 있습니다. | [**시작**](powerapps-create-api-salesforce.md)
-![][40] | **SharePoint Online**<br/><br/> 항목 가져오기, 업데이트, 삭제 등을 수행할 수 있습니다. | [**시작**](powerapps-create-api-sharepointonline.md)
-![][43] | **Twitter**<br/><br/> 트윗 보내기, 트윗 검색, 폴로워 확인 등을 수행할 수 있습니다. | [**시작**](powerapps-create-api-twitter.md)
+![][31] | **Dropbox**<br/><br/> You can get, update, delete items, and more. | [**Get Started**](powerapps-create-api-dropbox.md)
+![][32] | **DynamicsCRM Online**<br/><br/> You can get, update, delete items, and more. | [**Get Started**](powerapps-create-api-crmonline.md)
+![][33] | **Excel**<br/><br/> You can get, update, delete items, and more. | [**Get Started**](powerapps-create-api-excel.md)
+![][34] | **Google Drive**<br/><br/> You can get, update, delete items, and more. | [**Get Started**](powerapps-create-api-googledrive.md)
+![][35] | **Microsoft Translator**<br/><br/>Translates text, detects languages, and more. | [**Get Started**](powerapps-create-api-microsofttranslator.md)
+![][36] | **Office 365 Outlook**<br/><br/>Manage your email. | [**Get Started**](powerapps-create-api-office365-outlook.md)
+![][37] | **Office 365 Users**<br/><br/>Access user profiles, their managers, their direct reports, and more. | [**Get Started**](powerapps-create-api-office365-users.md)
+![][38] | **OneDrive**<br/><br/> You can get, update, delete items, and more. | [**Get Started**](powerapps-create-api-onedrive.md)
+![][39] | **Salesforce**<br/><br/> You can get, update, delete items, and more. | [**Get Started**](powerapps-create-api-salesforce.md)
+![][40] | **SharePoint Online**<br/><br/> You can get, update, delete items, and more. | [**Get Started**](powerapps-create-api-sharepointonline.md)
+![][43] | **Twitter**<br/><br/> Send tweets, search tweets, see followers, and more. | [**Get Started**](powerapps-create-api-twitter.md)
 
 
-## 사용 가능한 IT 관리 API 보기
-**IT 관리** API는 사용자가 제어하고 사용자가 관리합니다. Microsoft 관리 환경에서는 실행하지 마십시오. 일부 시나리오에서 사용자만의 IT 관리 환경에 이러한 API를 사용하는 것은 앱의 요구를 충족할 수 있습니다. 예를 들어 앱에서 Twitter API를 사용 하는데 조직의 Twitter 키(Microsoft Twitter 키 대신)를 사용해야 하는 경우가 있습니다. 이 상황에서는 Twitter API를 IT 관리 API로 구성하는 가장 좋습니다. 또 다른 예로, 앱이 SQL Server API를 사용하여 온-프레미스 데이터베이스에 연결하는 경우가 있습니다. IT 관리 환경에서 가상 네트워크를 설정하거나 Express 경로를 사용하여 온-프레미스에 연결할 수 있습니다. 선택은 사용자의 몫입니다.
+## View the available IT managed APIs
+The **IT managed** APIs are controlled by you and managed by you. They do not run in the Microsoft managed environment. In some scenarios, using these APIs in your own IT managed environment may suit the needs of your apps. For example, your app uses the Twitter API and you need to use your organization's Twitter key (instead of the Microsoft Twitter key). In this situation, it's best to configure the Twitter API as an IT managed API. In another example, your app use the SQL Server API to connect to an on-premises database. In an IT managed environment, you can set up a virtual network or use Express Route to connect to on-premises. The choice is yours.
 
-몇몇 추가 혜택은 다음을 포함합니다.
+Some additional benefits include:
 
-- 네트워크, 메모리 또는 보안 구성을 포함한 리소스는 사용자가 모니터링합니다. 예를 들어 앱에서 Excel 데이터를 표시하기 위해 더 많은 메모리가 필요한 경우 사용자가 자신의 환경에서 추가할 메모리 양을 제어합니다. 
-- 트러스트를 설정하고 앱 및 API 간의 보안을 제어합니다. 예를 들어 Office 365 API를 Microsoft에서 관리할 수 있는지(자동 트러스트) 아니면 사용자 고유의 환경에서 Office 365 API를 사용하는지(사용자 자신의 트러스트를 만듦) 여부를 결정합니다. 
-- **모든** Microsoft 관리 API는 IT 관리형일 수도 있습니다. 예를 들어 사용자 고유의 Office 365 인스턴스를 만들고 이 인스턴스를 완전히 제어하려면 다음과 같이 할 수 있습니다. 그런 다음 동일한 환경에서 Office 365 IT 관리 API 및 Office 365 Microsoft 관리 API를 사용할 수 있습니다. 이는 실제로 사용자 앱의 요구에 따라 달라집니다.
-- 온-프레미스 시스템에 연결하거나 Bing 검색 API를 사용하는 경우 보안, 인증, 라이선스 등을 제어합니다.
+- The resources, including network, memory, or security configurations, are monitored by you. For example, if you need more memory to display Excel data in your app, you control how much more memory to add in your environment. 
+- You set up the trust and control the security between your apps and the API. For example, you determine if the Office 365 API can be Microsoft managed (an automatic trust) or use the Office 365 API within your own environment (create your own trust). 
+- **All** of the Microsoft managed APIs can also be IT managed. For example, if you want to create your own instance of Office 365 and have full control over this instance, you can. You can then use your Office 365 IT managed API and the Office 365 Microsoft managed API in the same environment. It really depends on the needs of your app.
+- When connecting to on-premises systems or using the Bing Search API, you control security, authentication, licensing, and more.
 
 
-#### IT 관리 API
-> [AZURE.NOTE] 참고로 **모든** Microsoft 관리 API는 IT 관리형일 수도 있습니다. 다음 API는 IT 관리 전용이며 Microsoft 관리형일 수 없습니다.
+#### IT managed APIs
+> [AZURE.NOTE] Remember, **all** of the Microsoft managed APIs can also be IT managed. The following APIs are only IT managed; they cannot be Microsoft managed.
 
-API | 설명 | 단계 링크
+API | Description | Steps Link
 --- | --- | ---
-![][30] | **Bing 검색**<br/><br/>검색 결과 포함, 검색 기능 추가 등을 수행합니다. | [**시작**](powerapps-create-api-bingsearch.md)
-![][42] | **SQL Server**<br/><br/>항목 가져오기, 업데이트, 삭제 등을 수행할 수 있습니다. | [**시작**](powerapps-create-api-sqlserver.md)
-![][41] | **SharePoint Server**<br/><br/>항목 가져오기, 업데이트, 삭제 등을 수행할 수 있습니다. | [**시작**](powerapps-create-api-sharepointserver.md)
+![][30] | **Bing Search**<br/><br/>Embed search results, add search functionality, and more. | [**Get Started**](powerapps-create-api-bingsearch.md)
+![][42] | **SQL Server**<br/><br/>You can get, update, delete items, and more. | [**Get Started**](powerapps-create-api-sqlserver.md)
+![][41] | **SharePoint Server**<br/><br/>You can get, update, delete items, and more. | [**Get Started**](powerapps-create-api-sharepointserver.md)
 
 
-#### 자신의 고유한 인스턴스를 등록하는 이유
+#### Why register your own instances
 
-기본 Microsoft 관리 API 사용은 편리합니다. 사실 자신의 고유한 인스턴스를 IT 관리 API로 등록하면 많은 이점이 있습니다. 높은 수준에서 다음과 같은 작업을 원하는 경우 IT 관리 API를 만드는 것이 좋습니다.
+Using the out-of-box Microsoft managed APIs is convenient. Having said that, registering your own instances as IT managed APIs has many benefits. At a high level, we recommend you create IT managed APIs when you want to: 
 
-- API에 대한 완전한 관리 가능, 사용자 액세스, 다른 시스템에 연결할 때의 보안, API 호출 한계, 모니터링 및 정책 등의 고급 기능 같은 이점이 있습니다.
-- 앱 서비스 환경이 가상 네트워크를 지원하므로 온-프레미스 데이터에 액세스합니다.
-- 단독으로 사용할 수 없는 비즈니스 사용자에 대한 API를 설정합니다.
+- Have full manageability on the APIs, including user access, security when connecting to other systems, API call limits, monitoring and advanced features like policies, and more.
+- Access on-premises data since App Service Environment supports virtual networks.
+- Set up the APIs for business users, which they may not be able to use by themselves.
 
-다음 표에서 Microsoft 관리 IT API와 IT 관리 API의 기능을 비교합니다.
+The following table compares the capabilities of the Microsoft managed and IT managed APIs:
 
-| 기능 | Microsoft 관리 | IT 관리 |
+| Capability | Microsoft Managed | IT Managed |
 | ---------- | ----------------- | ------------ |
-| API 호출 제한 | Microsoft가 정의 | 본인이 직접 정의(정책을 통해) |
-| SaaS에 연결할 때 자신의 고유한 키 가져오기 | 지원되지 않음 | 지원됨 |
-| API 사용자 액세스 | 모든 사용자에게 사용하도록 설정 | AAD 사용자 및 그룹 수준에서 완전 하게 관리 가능 |
-| API 모니터링 | 지원되지 않음 | 지원됨 |
-| API 정책 | 지원되지 않음 | 지원됨 |
-| 연결 사용자 액세스 | 보기 전용 | AAD 사용자 및 그룹 수준에서 완전 하게 관리 가능 |
-| 연결 관리 | 보기 전용 | 완전히 관리 가능 |
+| API call limits | Defined by Microsoft | Defined by yourself (via policies) |
+| Bring your own key when connecting to SaaS | Not supported | Supported |
+| API user access | Enabled for everyone | Fully manageable at AAD user and group level |
+| API Monitoring | Not supported | Supported |
+| API Policies | Not supported | Supported |
+| Connection user access | View only | Fully manageable at AAD user and group level |
+| Connection management | View only | Fully manageable |
 
 
-## Microsoft 관리 API 또는 IT 관리 API 등록
+## Register a Microsoft managed or IT managed API
 
-1. [Azure 포털](https://portal.azure.com/)에서 회사 계정(*yourUserName*@*YourCompany*.com)으로 로그인합니다. 그러면 회사 구독에 자동으로 로그인됩니다.
-2. **찾아보기**, **PowerApps**, **API 관리**를 차례로 선택합니다.  
+1. In the [Azure portal](https://portal.azure.com/), sign-in with your work account (*yourUserName*@*YourCompany*.com). You are automatically signed in to your company subscription.
+2. Select **Browse**, select **PowerApps**, and then select **Manage APIs**:  
 ![][17]
-3. API 관리에서 **추가**를 클릭합니다.  
-![][18]
-4. **API 추가**에서 API 속성을 입력합니다.  
+3. In Manage APIs, select **Add**:  
+![][18]  
+4. In **Add API**, enter the API properties:  
 
-	- **이름**에 API에 대한 이름을 입력합니다. 여기서 입력하는 이름은 API의 런타임 URL에 포함됩니다. 이름을 조직에서 의미 있고 고유하게 만듭니다.
-	- **원본**에서 **사용 가능한 API에서**를 선택합니다. !  
-	[][19]
-5. **API**를 선택하고 등록할 API를 선택합니다.  
+	- In **Name**, enter a name for your API. Notice that the name you enter is included in the runtime URL of the API. Make the name meaningful and unique within your organization.
+	- In **Source**, select **From available APIs**:  
+	![][19]
+5. Select **API** and then choose the API you want to register:  
 ![][20]
-6. 특정 API를 선택하고 구성 가능한 속성을 추가합니다.
-7. **추가**를 선택하여 이 단계를 완료합니다.
+6. Select your specific API and add any configurable properties.
+7. Select **ADD** to complete these steps.
 
-> [AZURE.TIP] API를 등록하는 경우 API를 앱 서비스 환경에 등록하는 것입니다. 앱 서비스 환경에 있는 경우 동일한 앱 서비스 환경 내의 다른 앱에서 사용할 수 있습니다.
-
-
-## 요약 및 다음 단계
-
-이 항목에서는 PowerApps가 기본적으로 제공하는 사용 가능한 API 중 자신의 고유한 인스턴스를 등록 하는 방법을 살펴보았습니다. 다음은 PowerApps에 대한 자세한 내용을 확인할 수 있는 몇 가지 관련 항목 및 리소스입니다.
+> [AZURE.TIP] When you register an API, you're registering the API to your app service environment. Once in the app service environment, it can be used by other apps within the same app service environment.
 
 
-- [API 속성 구성](powerapps-configure-apis.md)
-- [사용자에게 API에 대한 액세스 부여](powerapps-manage-api-connection-user-access.md)
-- [PowerApps에서 앱 만들기 시작](https://powerapps.microsoft.com/tutorials/)
+## Summary and next steps
+
+In this topic, you've seen how to register your own instance of the available APIs that PowerApps provides out-of-box. Here are some related topics and resources for learning more about PowerApps:  
+
+
+- [Configure the API properties](powerapps-configure-apis.md)
+- [Give users access to the APIs](powerapps-manage-api-connection-user-access.md)
+- [Start creating your apps in PowerApps](https://powerapps.microsoft.com/tutorials/)
+-->
 
 
 <!--References-->
@@ -155,4 +164,4 @@ API | 설명 | 단계 링크
 [42]: ./media/powerapps-register-from-available-apis/sqlserver.png
 [43]: ./media/powerapps-register-from-available-apis/twitter.png
 
-<!-----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

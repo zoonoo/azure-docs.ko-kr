@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/31/2016"
+   ms.date="04/26/2016"
    ms.author="v-sharos" />
 
 # 백업 세트에서 StorSimple 볼륨 복원(업데이트 2)
@@ -23,7 +23,7 @@
 
 **백업 카탈로그** 페이지는 수동 또는 자동화된 백업을 수행할 때 생성되는 모든 백업 세트를 표시합니다. 이 페이지를 사용하여 백업 정책 또는 볼륨에 대한 모든 백업을 나열하거나, 백업을 선택 또는 삭제하거나 백업을 사용하여 볼륨을 복원 또는 복제할 수 있습니다.
 
- ![백업 카탈로그 페이지](./media/storsimple-restore-from-backup-set-u2/HCS_BackupCatalog.png)
+ ![백업 카탈로그 페이지](./media/storsimple-restore-from-backup-set-u2/restore.png)
 
 이 자습서에서는 **백업 카탈로그** 페이지를 사용하여 백업 세트에서 장치를 복원하는 방법을 설명합니다.
 
@@ -73,7 +73,7 @@
 
 1. StorSimple 관리자 서비스 페이지에서 **백업 카탈로그** 탭을 클릭합니다.
 
-    ![백업 카탈로그](./media/storsimple-restore-from-backup-set-u2/HCS_Restore.png)
+    ![백업 카탈로그](./media/storsimple-restore-from-backup-set-u2/restore.png)
 
 2. 백업 세트를 다음과 같이 선택합니다.
   1. 해당 장치를 선택합니다.
@@ -115,4 +115,4 @@ StorSimple에서 클론 및 복원 기능을 사용하여 삭제된 파일을 �
 
 - [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="05/03/2016" 
 	ms.author="piyushjo" />
 
 #Windows Phone Silverlight에서 Engagement API를 사용하는 방법
 
-이 문서는 [Windows Phone Silverlight 앱에 Mobile Engagement를 통합하는 방법](../mobile-engagement-windows-phone-integrate-engagement/) 문서를 보완하는 추가 문서로, Engagement API를 사용하여 응용 프로그램 통계를 보고하는 방법을 자세히 설명합니다.
+이 문서는 [Windows Phone Silverlight 앱에 Mobile Engagement를 통합하는 방법](mobile-engagement-windows-phone-integrate-engagement.md) 문서를 보완하는 추가 문서로, Engagement API를 사용하여 응용 프로그램 통계를 보고하는 방법을 자세히 설명합니다.
 
 Engagement에서 응용 프로그램 세션, 활동, 작동 중단, 기술 정보만 보고하도록 하려는 경우 가장 간단한 방법은 모든 `PhoneApplicationPage` 서브클래스가 `EngagementPage` 클래스에서 상속하도록 지정하는 것입니다.
 
@@ -386,4 +386,4 @@ SDK는 IDE 콘솔에서 테스트 로그를 생성하도록 구성될 수 있습
 			EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
 			EngagementAgent.Instance.Init();
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

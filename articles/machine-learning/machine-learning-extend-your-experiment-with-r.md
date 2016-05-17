@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="05/02/2016"
 	ms.author="garye" />
 
 
@@ -31,12 +31,15 @@
 
 ##현재 설치된 모든 패키지 나열
 
-설치된 패키지 목록을 변경할 수 있습니다. 전체 목록을 얻으려면 [R 스크립트 실행][execute-r-script] 모듈에 다음 줄을 포함하여 출력 데이터 집합에 목록을 보냅니다.
+설치된 패키지 목록을 변경할 수 있습니다. 각 패키지의 설명을 포함하여 설치된 패키지의 완전한 현재 목록을 가져오려면 [R 스크립트 실행][execute-r-script] 모듈에 다음 코드를 입력합니다.
 
-    out <- data.frame(installed.packages())
-    maml.mapOutputPort("out")
+    out <- data.frame(installed.packages(,,,fields="Description"))
+	maml.mapOutputPort("out")
 
-패키지 목록을 보려면 [CSV로 변환][convert-to-csv]과 같은 변환 모듈을 [R 스크립트 실행][execute-r-script] 모듈의 출력에 연결하고, 실험을 실행한 다음, 변환 모듈의 출력을 클릭하고 **다운로드**를 선택합니다. 편의상 다음은 [Excel 형식 버전 번호를 가진 현재 전체 목록](http://az754797.vo.msecnd.net/docs/RPackages.xlsx)입니다.
+[R 스크립트 실행][execute-r-script] 모듈의 출력 포트에 패키지의 목록을 전송합니다. 패키지 목록을 보려면 [CSV로 변환][convert-to-csv]과 같은 변환 모듈을 [R 스크립트 실행][execute-r-script] 모듈의 왼쪽 출력에 연결하고, 실험을 실행한 다음, 변환 모듈의 출력을 클릭하고 **다운로드**를 선택합니다.
+
+![](./media/machine-learning-extend-your-experiment-with-r/download-package-list.png)
+
 
 ##패키지 가져오기
 
@@ -47,459 +50,462 @@
 
 여기서 `my_favorite_package.zip`에는 패키지의 zip이 포함되어 있습니다.
 
-##설치된 패키지 나열
+<!--
 
-사용자의 편의를 위해 현재 릴리스에 포함된 패키지 목록이 다음 표에 제공됩니다.
+##List of installed packages
 
-현재 사용 가능한 전체 패키지 목록을 가져오려면 위의 **현재 설치된 모든 패키지 나열**이라는 섹션을 참조하세요. 현재 R 설명서는 [여기](http://cran.r-project.org/manuals.html)에 있습니다.
+For your convenience, the list of packages included in the current release is provided in the following table.
 
-- [A-E로 시작하는 R 모듈]
-- [F-L로 시작하는 R 모듈]
-- [M-R로 시작하는 R 모듈]
-- [S-Z로 시작하는 R 모듈]
+To get the complete list of packages that are currently available, see the section titled **Listing all currently-installed packages** above. Current R documentation is available [here](http://cran.r-project.org/manuals.html).
 
-[A-E로 시작하는 R 모듈]: #r-modules-beginning-with-a-through-e
-[F-L로 시작하는 R 모듈]: #r-modules-beginning-with-f-through-l
-[M-R로 시작하는 R 모듈]: #r-modules-beginning-with-m-through-r
-[S-Z로 시작하는 R 모듈]: #r-modules-beginning-with-s-through-z
+- [R modules beginning with A through E]
+- [R modules beginning with F through L]
+- [R modules beginning with M through R]
+- [R modules beginning with S through Z]
+
+[R modules beginning with A through E]: #r-modules-beginning-with-a-through-e
+[R modules beginning with F through L]: #r-modules-beginning-with-f-through-l
+[R modules beginning with M through R]: #r-modules-beginning-with-m-through-r
+[R modules beginning with S through Z]: #r-modules-beginning-with-s-through-z
 
 
-###A-E로 시작하는 R 모듈
+###R modules beginning with A through E
 
-| 패키지 이름 | 패키지 설명 |
+| Package name | Package description |
 | ------------ | ------------------- |
-| abc | ABC(Approximate Bayesian Computation)의 도구 |
-| abind | 다차원 배열 결합 |
-| 보험 통계 | 보험 통계 함수 |
-| ade4 | 생태계 데이터 분석: 환경 과학의 예비 및 유클리드 메서드 |
-| AdMit | Adaptive Mixture of Student-t 분산 |
+| abc | Tools for Approximate Bayesian Computation (ABC) |
+| abind | Combine multi-dimensional arrays |
+| actuar | Actuarial functions |
+| ade4 | Analysis of Ecological Data : Exploratory and Euclidean methods in Environmental sciences |
+| AdMit | Adaptive Mixture of Student-t distributions |
 | aod | Analysis of Overdispersed Data |
 | ape | Analyses of Phylogenetics and Evolution |
-| 근사기 | 복잡한 컴퓨터 코드의 Bayesian 예측 |
-| arm | 회귀 및 여러 수준/계층 구조 모델을 사한 데이터 분석 |
-| arules | 연결 규칙 및 자주 발생하는 항목 집합 마이닝 |
-| arulesViz | 연결 규칙 및 자주 발생하는 항목 집합 시각화 |
-| ash | David Scott ASH 루틴 |
-| assertthat | 쉬운 사전 및 사후 어설션 |
-| AtelieR | 통계 추론의 기본 개념을 가르치고 기본적인 Bayesian 테스트를 수행하는 GTK GUI |
-| BaBooN | Bayesian 부트스트랩 예측 평균 일치 - 불연속 데이터의 다중 및 단일 대체 |
-| BACCO | BACCO(Bayesian Analysis of Computer Code Output) |
-| BaM | Jeff Gill이작성한 서적의 함수 및 데이터 집합 |
+| approximator | Bayesian prediction of complex computer codes |
+| arm | Data Analysis Using Regression and Multilevel/Hierarchical Models |
+| arules | Mining Association Rules and Frequent Itemsets |
+| arulesViz | Visualizing Association Rules and Frequent Itemsets |
+| ash | David Scott's ASH routines |
+| assertthat | Easy pre and post assertions |
+| AtelieR | A GTK GUI for teaching basic concepts in statistical inference, and doing elementary bayesian tests |
+| BaBooN | Bayesian Bootstrap Predictive Mean Matching - Multiple and single imputation for discrete data |
+| BACCO | Bayesian Analysis of Computer Code Output (BACCO) |
+| BaM | Functions and datasets for books by Jeff Gill |
 | bark | Bayesian Additive Regresssion Kernels |
-| BAS | Bayesian Adaptive Sampling을 사용한 Bayesian 모델 평균화 |
-| 기본 | R 기본 패키지 |
-| BayesDA | Bayesian 데이터 분석 서적의 함수 및 데이터 집합 |
-| bayesGARCH | Student-t 혁신을 사용하는 GARCH(1,1) 모델의 Bayesian 추정 |
-| bayesm | 마케팅/마이크로 계량 경제학의 Bayesian 인터페이스 |
-| bayesmix | JAGS를 사용하는 Bayesian 혼합 모델 |
-| bayesQR | Bayesian 변위치 회귀 |
-| bayesSurv | 유연한 오차 및 임의 효과 분포를 사용하는 Bayesian 생존 회귀 |
-| Bayesthresh | 범주형 데이터를 위한 Bayesian 임계값 혼합 효과 모델 |
-| BayesTree | 트리 기반 모델을 위한 Bayesian 메서드 |
-| BayesValidate | BayesValidate 패키지 |
-| BayesX | 소프트웨어 패키지 BayesX를 수반하는 R 유틸리티 |
-| BayHaz | Bayesian 위험 비율 추정을 위한 R 함수 |
-| bbemkr | 가우스 오차를 사용하는 다변량 커널 회귀를 위한 Bayesian 대역폭 예측 |
-| BCBCSF | 선택한 기능으로 편향 수정된 Bayesian 분류 |
-| BCE | Bayesian 컴퍼지션 평가자: 생물 지표 데이터에서 샘플(분류) 컴퍼지션 예측 |
-| bclust | 고차원 데이터를 클러스터링하는 데 적합한 스파이크 앤 슬래브(spike and slab) 계층 모델을 사용하는 Bayesian 클러스터링 |
-| bcp | 변경 지점 문제의 Bayesian 분석을 수행하는 패키지 |
-| BenfordTests | 벤포드 법칙 준수를 평가하기 위한 통계 테스트 |
-| bfp | Bayesian 분수 다항식 |
-| BH | Boost C++ 헤더 파일 |
-| bisoreg | 번스타인 다항식을 사용하는(Bernstein Polynomials) Bayesian 등장의 회귀(Isotonic Regression) |
-| bit | 1비트 부울 벡터의 클래스 |
-| bitops | 비트 연산자 |
-| BLR | Bayesian 선형 회귀 |
-| BMA | Bayesian 모델 평균화 |
-| Bmix | Stick-breaking Mixtures를 위한 Bayesian 샘플링 |
-| BMS | Bayesian 모델 평균화 라이브러리 |
-| bnlearn | Bayesian 네트워크 구조 학습, 매개 변수 학습 및 추론 |
-| boa | MCMC용 BOA(Bayesian Output Analysis) 프로그램 |
-| Bolstad | Bolstad 함수 |
-| boot | 부트스트랩 함수(Angelo Canty가 S용으로 고안) |
-| bootstrap | 부트스트랩에 대한 소개 서적을 위한 함수 |
-| bqtl | Bayesian QTL 매핑 도구 키트 |
-| BradleyTerry2 | Bradley-Terry 모델 |
-| brew | 보고서 생성을 위한 템플릿 프레임워크 |
-| brglm | 이항 응답 일반화 선형 모델의 편향 감소 |
-| bspec | Bayesian 스펙트럼 유추 |
-| bspmma | bspmma: 메타 분석을 위한 Bayesian 준모수 변수 모델 |
-| BVS | Bayesian 변형 선택: 유전적 연결 연구를 위한 Bayesian 모델 불확실성 기술 |
-| cairoDevice | 카이로 기반 크로스 플랫폼 안티앨리어싱 그래픽 장치 드라이버 |
-| calibrator | 복잡한 컴퓨터 코드의 Bayesian 보정 |
+| BAS | Bayesian Model Averaging using Bayesian Adaptive Sampling |
+| base | The R Base Package |
+| BayesDA | Functions and Datasets for the book Bayesian Data Analysis |
+| bayesGARCH | Bayesian Estimation of the GARCH(1,1) Model with Student-t Innovations |
+| bayesm | Bayesian Inference for Marketing/Micro-econometrics |
+| bayesmix | Bayesian Mixture Models with JAGS |
+| bayesQR | Bayesian quantile regression |
+| bayesSurv | Bayesian Survival Regression with Flexible Error and Random Effects Distributions |
+| Bayesthresh | Bayesian thresholds mixed-effects models for categorical data |
+| BayesTree | Bayesian Methods for Tree Based Models |
+| BayesValidate | BayesValidate Package |
+| BayesX | R Utilities Accompanying the Software Package BayesX |
+| BayHaz | R Functions for Bayesian Hazard Rate Estimation |
+| bbemkr | Bayesian bandwidth estimation for multivariate kernel regression with Gaussian error |
+| BCBCSF | Bias-corrected Bayesian Classification with Selected Features |
+| BCE | Bayesian composition estimator: estimating sample (taxonomic) composition from biomarker data |
+| bclust | Bayesian clustering using spike-and-slab hierarchical model, suitable for clustering high-dimensional data |
+| bcp | A Package for Performing a Bayesian Analysis of Change Point Problems |
+| BenfordTests | Statistical Tests for Evaluating Conformity to Benford's Law |
+| bfp | Bayesian Fractional Polynomials |
+| BH | Boost C++ header files |
+| bisoreg | Bayesian Isotonic Regression with Bernstein Polynomials |
+| bit | A class for vectors of 1-bit booleans |
+| bitops | Bitwise Operations |
+| BLR | Bayesian Linear Regression |
+| BMA | Bayesian Model Averaging |
+| Bmix | Bayesian Sampling for Stick-breaking Mixtures |
+| BMS | Bayesian Model Averaging Library |
+| bnlearn | Bayesian network structure learning, parameter learning and inference |
+| boa | Bayesian Output Analysis Program (BOA) for MCMC |
+| Bolstad | Bolstad functions |
+| boot | Bootstrap Functions (originally by Angelo Canty for S) |
+| bootstrap | Functions for the book An Introduction to the Bootstrap |
+| bqtl | Bayesian QTL mapping toolkit |
+| BradleyTerry2 | Bradley-Terry Models |
+| brew | Templating Framework for Report Generation |
+| brglm | Bias reduction in binomial-response generalized linear models |
+| bspec | Bayesian spectral inference |
+| bspmma | bspmma: Bayesian Semiparametric Models for Meta-Analysis |
+| BVS | Bayesian Variant Selection: Bayesian Model Uncertainty Techniques for Genetic Association Studies |
+| cairoDevice | Cairo-based cross-platform antialiased graphics device driver |
+| calibrator | Bayesian calibration of complex computer codes |
 | car | Companion to Applied Regression |
-| caret | 분류 및 회귀 교육 |
-| catnet | 범주형 Bayesian 네트워크 유추 |
-| caTools | 도구: 이동 창 통계, GIF, Base64, ROC AUC 등. |
-| chron | 날짜와 시간을 처리할 수 있는 시간순 개체 |
-| class | 분류 함수 |
-| 프로비전 | 클러스터 분석 확장 Rousseeuw 외. |
-| clusterSim | 데이터 집합에 최적인 클러스터링 프로시저 검색 |
-| coda | MCMC용 출력 분석 및 진단 |
-| codetools | R용 코드 분석 도구 |
-| coin | 순열 테스트 프레임워크의 조건부 유추 프로시저 |
-| colorspace | 색상 공간 조작 |
-| combinat | 조합론 유틸리티 |
-| compiler | R 컴파일러 패키지 |
-| corpcor | 공변성 및 (부분) 상관의 효율적 추정 |
-| cslogistic | 조건부로 지정된 로지스틱 회귀 |
-| ctv | CRAN 작업 보기 |
-| cubature | 하이퍼큐브에 대한 적응 다변량 통합 |
-| data.table | data.frame 확장 |
-| datasets | R 데이터 집합 패키지 |
-| date | 날짜 처리 함수 |
-| dclone | 최대 유사도 메서드를 위한 데이터 복제 및 MCMC 도구 |
-| deal | 혼합 변수를 사용하여 Bayesian 네트워크 학습 |
-| Deducer | Deducer: R을 위한 데이터 분석 GUI |
-| DeducerExtras | 추론 프로그램용 추가 대화 상자 및 함수 |
-| deldir | Delaunay 삼각형 및 Dirichlet(Voronoi) 분할(Tessellation). |
-| DEoptimR | 순수 R의 차등 진화 최적화 |
-| deSolve | 일반 차등 방정식(ODE), 부분 차등 방정식(PDE), 차등 대수 방정식(DAE) 및 지연 차등 방정식(DDE)의 초기값 문제에 대한 일반 해 찾기 |
-| devtools | R 코드 개발을 용이하게 하는 도구 |
-| dichromat | Dichromats에 대한 색 구성표 |
-| digest | R 개체의 암호화 해시 요약 만들기 |
-| distrom | 분산 다항 회귀 |
-| dlm | 동적 선형 모델의 Bayesian 및 유사도 분석 |
-| doSNOW | snow 패키지의 Foreach 병렬 어댑터 |
-| dplyr | dplyr: 데이터 조작 문법 |
-| DPpackage | R에서 Bayesian 비모수 모델링 |
-| dse | 동적 시스템 추정(시간 시리즈 패키지) |
-| e1071 | 통계 부서의 기타 함수(e1071), TU Wien |
-| EbayesThresh | 경험적 Bayes 임계 처리 및 관련 메서드 |
-| ebdbNet | 동적 Bayesian 네트워크의 경험적 Bayes 추정 |
-| 효과 | 선형, 일반화된 선형, 다항식 로짓(Multinomial-Logit), 비례 오즈 로짓(Proportional-Odds Logit) 모델 및 혼합 효과 모델의 효과 표시 |
-| emulator | 컴퓨터 프로그램의 Bayesian 에뮬레이션 |
-| ensembleBMA | Ensembles 및 Bayesian 모델 평균화를 사용하여 확률 예측 |
-| entropy | 엔트로피, 상호 정보 및 관련 수량 추정 |
-| EvalEst | 동적 시스템 추정 - 확장 |
-| evaluate | 기본값보다 자세한 정보를 제공하는 구문 분석 및 평가 도구 |
-| evdbayes | 극단적인 값 이론의 Bayesian 분석 |
-| evora | 위험 예측 분석을 위한 후생 변수 이상값 |
-| exactLoglinTest | 로그 선형 모델에 대한 몬테 칼로 정확 검정 |
-| expm | 행렬 지수 |
-| extremevalues | 일변량 이상값 검색 |
+| caret | Classification and Regression Training |
+| catnet | Categorical Bayesian Network Inference |
+| caTools | Tools: moving window statistics, GIF, Base64, ROC AUC, etc. |
+| chron | Chronological objects which can handle dates and times |
+| class | Functions for Classification |
+| cluster | Cluster Analysis Extended Rousseeuw et al. |
+| clusterSim | Searching for optimal clustering procedure for a data set |
+| coda | Output analysis and diagnostics for MCMC |
+| codetools | Code Analysis Tools for R |
+| coin | Conditional Inference Procedures in a Permutation Test Framework |
+| colorspace | Color Space Manipulation |
+| combinat | combinatorics utilities |
+| compiler | The R Compiler Package |
+| corpcor | Efficient Estimation of Covariance and (Partial) Correlation |
+| cslogistic | Conditionally Specified Logistic Regression |
+| ctv | CRAN Task Views |
+| cubature | Adaptive multivariate integration over hypercubes |
+| data.table | Extension of data.frame |
+| datasets | The R Datasets Package |
+| date | Functions for handling dates |
+| dclone | Data Cloning and MCMC Tools for Maximum Likelihood Methods |
+| deal | Learning Bayesian Networks with Mixed Variables |
+| Deducer | Deducer: A data analysis GUI for R |
+| DeducerExtras | Additional dialogs and functions for Deducer |
+| deldir | Delaunay Triangulation and Dirichlet (Voronoi) Tessellation. |
+| DEoptimR | Differential Evolution Optimization in pure R |
+| deSolve | General Solvers for Initial Value Problems of Ordinary Differential Equations (ODE), Partial Differential Equations (PDE), Differential Algebraic Equations (DAE), and Delay Differential Equations (DDE) |
+| devtools | Tools to make developing R code easier |
+| dichromat | Color Schemes for Dichromats |
+| digest | Create cryptographic hash digests of R objects |
+| distrom | Distributed Multinomial Regression |
+| dlm | Bayesian and Likelihood Analysis of Dynamic Linear Models |
+| doSNOW | Foreach parallel adaptor for the snow package |
+| dplyr | dplyr: a grammar of data manipulation |
+| DPpackage | Bayesian nonparametric modeling in R |
+| dse | Dynamic Systems Estimation (time series package) |
+| e1071 | Misc Functions of the Department of Statistics (e1071), TU Wien |
+| EbayesThresh | Empirical Bayes Thresholding and Related Methods |
+| ebdbNet | Empirical Bayes Estimation of Dynamic Bayesian Networks |
+| effects | Effect Displays for Linear, Generalized Linear, Multinomial-Logit, Proportional-Odds Logit Models and Mixed-Effects Models |
+| emulator | Bayesian emulation of computer programs |
+| ensembleBMA | Probabilistic Forecasting using Ensembles and Bayesian Model Averaging |
+| entropy | Estimation of Entropy, Mutual Information and Related Quantities |
+| EvalEst | Dynamic Systems Estimation - extensions |
+| evaluate | Parsing and evaluation tools that provide more details than the default |
+| evdbayes | Bayesian Analysis in Extreme Value Theory |
+| evora | Epigenetic Variable Outliers for Risk prediction Analysis |
+| exactLoglinTest | Monte Carlo Exact Tests for Log-linear models |
+| expm | Matrix exponential |
+| extremevalues | Univariate outlier detection |
 
 
-###F-L로 시작하는 R 모듈
+###R modules beginning with F through L
 
-| 패키지 이름 | 패키지 설명 |
+| Package name | Package description |
 | ------------ | ------------------- |
-| factorQR | Bayesian 변위치 회귀 요인 모델 |
-| faoutlier | 요인 분석 및 SEM에 영향을 주는 사례 검색 메서드 |
-| fitdistrplus | 비중도절단 및 중도절단 데이터에 맞게 모수 분산 지원 |
-| FME | 역모델링, 민감도, 식별성, Monte-Carlo 분석을 위한 유연한 모델링 환경 |
-| foreach | R을 위한 Foreach 루프 구문 |
-| forecast | 시계열 및 선형 모델의 예측 함수 |
-| foreign | Minitab, S, SAS, SPSS, Stata, Systat, Weka, dBase 등으로 저장된 읽기 데이터 |
-| formatR | 자동으로 R 코드 서식 지정 |
-| Formula | 확장된 모델 수식 |
-| fracdiff | 부분적으로 차별화된 ARIMA(ARFIMA(p,d,q) 모델이라고도 함) |
-| gam | 일반화된 가산 모델 |
-| gamlr | 감마 Lasso 회귀 |
-| gbm | 일반화되고 향상된 회귀 모델 |
-| gclus | 클러스터링 그래픽 |
-| gdata | 데이터 조작을 위한 다양한 R 프로그래밍 도구 |
-| gee | 일반화된 추정 수식 해 찾기 |
-| genetics | 집단 유전학 |
-| geoR | 지구통계학 데이터 분석 |
-| geoRglm | geoRglm - 일반화된 선형 공간 모델의 패키지 |
-| geosphere | 구면 삼각법 |
-| ggmcmc | Bayesian 추론에서 마르코프 체인 몬테 칼로 시뮬레이션 분석을 위한 그래픽 도구 |
-| ggplot2 | 그래픽 문법 구현 |
-| glmmBUGS | WinBUGS, BRugs 또는 OpenBUGS를 사용하는 일반화 선형 혼합 모델 및 공간 모델 |
-| glmnet | Lasso와 Elastic-Net 정칙 일반화 선형 모델 |
-| gmodels | 모델 적합을 위한 다양한 R 프로그래밍 도구 |
-| gmp | 여러 정밀 산술 |
-| gnm | 일반화된 비선형 모델 |
-| googlePublicData | Google의 공용 데이터 탐색기 DSPL 메타 데이터 파일을 빌드하는 R 라이브러리 |
-| googleVis | R 및 Google 차트 간의 인터페이스 |
-| GPArotation | GPA 요소 회전 |
-| gplots | 데이터를 그래프에 표시하기 위한 다양한 R 프로그래밍 도구 |
-| graphics | R 그래픽 패키지 |
-| grDevices | R 그래픽 장치 및 색상과 글꼴 지원 |
-| gregmisc | Greg의 기타 함수 |
-| grid | 그리드 그래픽 패키지 |
-| gridExtra | 그리드 그래픽의 함수 |
-| growcurves | 추가로 여러 멤버 자격 임의 효과를 포함하는 Bayesian 준모수 및 비모수 성장 곡선 모델 |
-| grpreg | 그룹화된 공변량이 있는 회귀 모델의 정규화 경로 |
-| gsubfn | 문자열 및 함수 인수에 대한 유틸리티 |
-| gtable | 테이블에 grobs 정렬 |
-| gtools | 다양한 R 프로그래밍 도구 |
-| gWidgets | 도구 키트 독립적 대화식 GUI를 구축하기 위한 gWidgets API |
-| gWidgetsRGtk2 | RGtk2용 gWidgets의 도구 키트 구현 |
-| haplo.stats | 연결 단계가 모호한 경우 특성과 공변량을 사용하는 단상형 통계 분석 |
-| hbsae | 계층적 Bayesian 소지역 추정 |
-| hdrcde | 밀도가 가장 높은 영역 및 조건부 밀도 추정 |
-| heavy | 두꺼운 꼬리 분포를 사용하는 이상값 처리 패키지 |
-| hflights | 2011년에 휴스턴을 출발한 항공편 |
-| HH | 통계 분석 및 데이터 표시: 하이버거 및 네덜란드 |
-| HI | 중첩된 초평면에서 지원하는 분산에서 시뮬레이션 |
-| highr | R에 대한 구문 강조 |
+| factorQR | Bayesian quantile regression factor models |
+| faoutlier | Influential case detection methods for factor analysis and SEM |
+| fitdistrplus | Help to fit of a parametric distribution to non-censored or censored data |
+| FME | A Flexible Modelling Environment for Inverse Modelling, Sensitivity, Identifiability, Monte Carlo Analysis |
+| foreach | Foreach looping construct for R |
+| forecast | Forecasting functions for time series and linear models |
+| foreign | Read Data Stored by Minitab, S, SAS, SPSS, Stata, Systat, Weka, dBase, ... |
+| formatR | Format R Code Automatically |
+| Formula | Extended Model Formulas |
+| fracdiff | Fractionally differenced ARIMA aka ARFIMA(p,d,q) models |
+| gam | Generalized Additive Models |
+| gamlr | Gamma Lasso Regression |
+| gbm | Generalized Boosted Regression Models |
+| gclus | Clustering Graphics |
+| gdata | Various R programming tools for data manipulation |
+| gee | Generalized Estimation Equation solver |
+| genetics | Population Genetics |
+| geoR | Analysis of geostatistical data |
+| geoRglm | geoRglm - a package for generalised linear spatial models |
+| geosphere | Spherical Trigonometry |
+| ggmcmc | Graphical tools for analyzing Markov Chain Monte Carlo simulations from Bayesian inference |
+| ggplot2 | An implementation of the Grammar of Graphics |
+| glmmBUGS | Generalised Linear Mixed Models and Spatial Models with WinBUGS, BRugs, or OpenBUGS |
+| glmnet | Lasso and elastic-net regularized generalized linear models |
+| gmodels | Various R programming tools for model fitting |
+| gmp | Multiple Precision Arithmetic |
+| gnm | Generalized Nonlinear Models |
+| googlePublicData | An R library to build Google's Public Data Explorer DSPL Metadata files |
+| googleVis | Interface between R and Google Charts |
+| GPArotation | GPA Factor Rotation |
+| gplots | Various R programming tools for plotting data |
+| graphics | The R Graphics Package |
+| grDevices | The R Graphics Devices and Support for Colours and Fonts |
+| gregmisc | Greg's Miscellaneous Functions |
+| grid | The Grid Graphics Package |
+| gridExtra | functions in Grid graphics |
+| growcurves | Bayesian semi and nonparametric growth curve models that additionally include multiple membership random effects |
+| grpreg | Regularization paths for regression models with grouped covariates |
+| gsubfn | Utilities for strings and function arguments |
+| gtable | Arrange grobs in tables |
+| gtools | Various R programming tools |
+| gWidgets | gWidgets API for building toolkit-independent, interactive GUIs |
+| gWidgetsRGtk2 | Toolkit implementation of gWidgets for RGtk2 |
+| haplo.stats | Statistical Analysis of Haplotypes with Traits and Covariates when Linkage Phase is Ambiguous |
+| hbsae | Hierarchical Bayesian Small Area Estimation |
+| hdrcde | Highest density regions and conditional density estimation |
+| heavy | Package for outliers accommodation using heavy-tailed distributions |
+| hflights | Flights that departed Houston in 2011 |
+| HH | Statistical Analysis and Data Display: Heiberger and Holland |
+| HI | Simulation from distributions supported by nested hyperplanes |
+| highr | Syntax highlighting for R |
 | Hmisc | Harrell Miscellaneous |
-| htmltools | HTML용 도구 |
-| httpuv | HTTP 및 WebSocket 서버 라이브러리 |
-| httr | URL 및 HTTP 작업을 위한 도구 |
-| IBrokers | Interactive Brokers Trader Workstation에 대한 R API |
-| igraph | 네트워크 분석 및 시각화 |
-| intervals | 지점 및 간격에 대한 작업용 도구 |
-| iplots | iPlots - R을 위한 대화형 그래픽 |
-| ipred | 향상된 예측 변수 |
-| irr | 평정자간 신뢰도 및 합치도의 다양한 계수 |
-| iterators | R의 반복기 구문 |
-| JavaGD | Java 그래픽 장치 |
-| JGR | JGR - R용 Java GUI |
-| kernlab | 커널 기반 기계 학습 랩 |
-| KernSmooth | Wand 및 Jones를 위한 커널 평활법 함수(1995) |
-| KFKSDS | 칼만 필터, 평활기 및 교란 평활기 |
-| kinship2 | Pedigree 함수 |
-| kknn | 가중치가 적용 k-최근접 이웃 |
-| klaR | 분류 및 시각화 |
-| knitr | R에서 동적 보고서 생성에 사용하는 범용 패키지 |
-| ks | 커널 평활화 |
-| labeling | 축 레이블 지정 |
-| Lahman | Sean Lahman 야구 데이터베이스 |
-| lars | 최소 각도 회귀, Lasso and Forward Stagewise |
-| lattice | 격자 그래픽 |
-| latticeExtra | 격자를 기반으로 하는 추가 그래픽 유틸리티 |
-| lava | 선형 잠재 변수 모델 |
-| lavaan | 잠재 변수 분석 |
-| leaps | 회귀 하위 집합 선택 |
-| LearnBayes | Bayesian 유추 학습을 위한 함수 |
-| limSolve | 선형 역모델 해결 |
-| lme4 | Eigen 및 S4를 사용하는 선형 혼합 효과 모델 |
-| lmm | 선형 혼합 모델 |
-| lmPerm | 선형 모델의 순열 검정 |
-| lmtest | 선형 회귀 모델 검정 |
-| locfit | 로컬 회귀, 유사도 및 밀도 추정 |
-| lpSolve | Lp\_solve v에 대한 인터페이스. 선형/정수 프로그램을 해결하기 위한 5.5 |
+| htmltools | Tools for HTML |
+| httpuv | HTTP and WebSocket server library |
+| httr | Tools for working with URLs and HTTP |
+| IBrokers | R API to Interactive Brokers Trader Workstation |
+| igraph | Network analysis and visualization |
+| intervals | Tools for working with points and intervals |
+| iplots | iPlots - interactive graphics for R |
+| ipred | Improved Predictors |
+| irr | Various Coefficients of Interrater Reliability and Agreement |
+| iterators | Iterator construct for R |
+| JavaGD | Java Graphics Device |
+| JGR | JGR - Java GUI for R |
+| kernlab | Kernel-based Machine Learning Lab |
+| KernSmooth | Functions for kernel smoothing for Wand and Jones (1995) |
+| KFKSDS | Kalman Filter, Smoother and Disturbance Smoother |
+| kinship2 | Pedigree functions |
+| kknn | Weighted k-Nearest Neighbors |
+| klaR | Classification and visualization |
+| knitr | A general-purpose package for dynamic report generation in R |
+| ks | Kernel smoothing |
+| labeling | Axis Labeling |
+| Lahman | Sean Lahman's Baseball Database |
+| lars | Least Angle Regression, Lasso and Forward Stagewise |
+| lattice | Lattice Graphics |
+| latticeExtra | Extra Graphical Utilities Based on Lattice |
+| lava | Linear Latent Variable Models |
+| lavaan | Latent Variable Analysis |
+| leaps | regression subset selection |
+| LearnBayes | Functions for Learning Bayesian Inference |
+| limSolve | Solving Linear Inverse Models |
+| lme4 | Linear mixed-effects models using Eigen and S4 |
+| lmm | Linear mixed models |
+| lmPerm | Permutation tests for linear models |
+| lmtest | Testing Linear Regression Models |
+| locfit | Local Regression, Likelihood and Density Estimation |
+| lpSolve | Interface to Lp_solve v. 5.5 to solve linear/integer programs |
 
 
-###M-R로 시작하는 R 모듈
+###R modules beginning with M through R
 
-| 패키지 이름 | 패키지 설명 |
+| Package name | Package description |
 | ------------ | ------------------- |
-| magic | 마정방 만들기 및 조사 |
-| magrittr | magrittr - R용 정방향 파이프 연산자 |
-| mapdata | 추가 맵 데이터베이스 |
-| mapproj | 맵 투영 |
-| maps | 지리 지도 그리기 |
-| maptools | 공간 개체를 읽고 처리하기 위한 도구 |
-| maptree | 트리 모델 매핑, 정리 및 그래프 구성 |
-| markdown | R용 마크다운 렌더링 |
-| MASS | Venables 및 Ripley의 MASS를 위한 함수 및 데이터 집합 지원 |
-| MasterBayes | Pedigree 재구성 및 분석을 위한 ML 및 MCMC 메서드 |
-| Matrix | 스파스 및 덴스 행렬 클래스와 메서드 |
-| matrixcalc | 행렬 계산을 위한 함수 컬렉션 |
-| MatrixModels | 스파스 및 조밀 매트릭스를 사용하여 모델링 |
-| maxent | 텍스트 분류 지원을 통한 부족 메모리 다항 로지스틱 회귀 |
-| maxLik | 최대 유사도 추정 |
-| mcmc | 마르코프 체인 몬테 칼로 |
-| MCMCglmm | MCMC 일반화된 선형 혼합 모델 |
-| MCMCpack | Markov 체인 몬테 칼로(MCMC) 패키지 |
-| memoise | Memoise 함수 |
-| methods | 공식 메서드 및 클래스 |
-| mgcv | GCV/AIC/REML 평활화 추정을 사용하는 혼합 GEM 계산 도구 |
-| mice | 연쇄 방정식으로 다변량 대체 |
-| microbenchmark | 마이크로초 미만의 정확한 타이밍 함수 |
-| mime | MIME 형식에 파일 이름 매핑 |
-| minpack.lm | MINPACK에 있는 Levenberg-Marquardt 비선형 최소제곱법 알고리즘의 R 인터페이스와 범위 지원 |
-| minqa | 이차근사를 통한 미분계수가 없는 최적화 알고리즘 |
-| misc3d | 기타 3D 그림 |
-| miscF | 기타 함수 |
-| miscTools | 기타 도구 및 유틸리티 |
-| mixtools | 한정된 혼합 모델을 분석하기 위한 도구 |
-| mlbench | 기계 학습 벤치마크 문제 |
-| mlogitBMA | 다항 로짓 모델의 Bayesian 모델 평균화 |
-| mnormt | 다변량 정규 및 t 분포 |
-| MNP | 다항 프로빗 모델에 맞추기 위한 R 패키지 |
-| modeltools | 통계 모델용 도구 및 클래스 |
-| mombf | 적률 및 역적률 Bayes 요인 |
-| monomvn | 단조 결측을 사용하여 다변량 정규 및 Student-t 데이터 추정 |
-| monreg | 비모수 단조 회귀 |
-| mosaic | 프로젝트 MOSAIC(mosaic-web.org) 통계 및 수학 교육 유틸리티 |
-| MSBVAR | 마르코프 전환, Bayesian, 벡터 자기회귀 모델 |
-| msm | 연속 시간의 다중 상태 마르코프 및 숨겨진 마르코프 모델 |
-| multcomp | 일반 모수 모델의 동시 추론 |
-| multicool | cool-lex 순서로 된 다중 집합 순열 |
-| munsell | Munsell 색 시스템 |
-| mvoutlier | 강력한 메서드를 기반으로 하는 다변량 이상값 검색 |
-| mvtnorm | 다변량 정규 및 t 분포 |
-| ncvreg | SCAD- 및 MCP-벌점 회귀 모델의 정규화 경로 |
-| nlme | 선형 및 비선형 혼합 효과 모델 |
-| NLP | 자연어 처리 인프라 |
-| nnet | 피드 정방향 신경망 및 다항 로그 선형 모델 |
-| numbers | 숫자-이론 함수 |
-| numDeriv | 정확한 숫자 파생물 |
-| openNLP | Apache OpenNLP 도구 인터페이스 |
-| openNLPdata | Apache OpenNLP Jars 및 Basic 영어 언어 모델 |
-| OutlierDC | 중도절단 데이터의 분위수 회귀를 사용한 이상값 검색 |
-| OutlierDM | 복제된 처리량이 높은 데이터의 이상값 검색 |
-| outliers | 이상값 테스트 |
-| pacbpred | PAC Bayesian 추정 및 스파스 가산 모델의 추정 |
-| 병렬 | R에서 병렬 계산 지원 |
-| partitions | 정수의 가산 파티션 |
-| party | 재귀 분할을 위한 랩 |
-| PAWL | PAWL 알고리즘 구현 |
-| pbivnorm | 벡터화된 이변량 정규 CDF |
-| pcaPP | 사영추적을 통한 강력한 PCA |
-| permute | 제한된 데이터 순열을 생성하는 함수 |
-| pls | 부분 최소제곱 및 주성분 회귀 |
-| plyr | 데이터 분할, 적용 및 결합 도구 |
-| png | PNG 이미지 읽기 및 쓰기 |
-| polynom | 일변량 다항 조작을 위한 클래스를 구현하는 함수 컬렉션 |
-| PottsUtils | Potts 모델의 유틸리티 함수 |
-| predmixcor | 기능 선택 편향 수정이 포함된 Bayesian 혼합 모델을 기반으로 하는 분류 규칙 |
-| PresenceAbsence | 현재 상태 부재 모델 평가 |
-| prodlim | 제품 한계 추정. 중도절단 이벤트 기록(생존) 분석을 위한 카플란-마이어 및 Aalen-Johansson 메서드 |
-| profdpm | 프로필 디리슈레 프로세스 혼합 |
-| profileModel | 다양한 모델 클래스의 인터페이스 함수를 프로파일링하는 도구 |
-| proto | 프로토타입 개체 기반 프로그래밍 |
+| magic | create and investigate magic squares |
+| magrittr | magrittr - a forward-pipe operator for R |
+| mapdata | Extra Map Databases |
+| mapproj | Map Projections |
+| maps | Draw Geographical Maps |
+| maptools | Tools for reading and handling spatial objects |
+| maptree | Mapping, pruning, and graphing tree models |
+| markdown | Markdown rendering for R |
+| MASS | Support Functions and Datasets for Venables and Ripley's MASS |
+| MasterBayes | ML and MCMC Methods for Pedigree Reconstruction and Analysis |
+| Matrix | Sparse and Dense Matrix Classes and Methods |
+| matrixcalc | Collection of functions for matrix calculations |
+| MatrixModels | Modelling with Sparse And Dense Matrices |
+| maxent | Low-memory Multinomial Logistic Regression with Support for Text Classification |
+| maxLik | Maximum Likelihood Estimation |
+| mcmc | Markov Chain Monte Carlo |
+| MCMCglmm | MCMC Generalised Linear Mixed Models |
+| MCMCpack | Markov chain Monte Carlo (MCMC) Package |
+| memoise | Memoise functions |
+| methods | Formal Methods and Classes |
+| mgcv | Mixed GAM Computation Vehicle with GCV/AIC/REML smoothness estimation |
+| mice | Multivariate Imputation by Chained Equations |
+| microbenchmark | Sub microsecond accurate timing functions |
+| mime | Map filenames to MIME types |
+| minpack.lm | R interface to the Levenberg-Marquardt nonlinear least-squares algorithm found in MINPACK, plus support for bounds |
+| minqa | Derivative-free optimization algorithms by quadratic approximation |
+| misc3d | Miscellaneous 3D Plots |
+| miscF | Miscellaneous Functions |
+| miscTools | Miscellaneous Tools and Utilities |
+| mixtools | Tools for analyzing finite mixture models |
+| mlbench | Machine Learning Benchmark Problems |
+| mlogitBMA | Bayesian Model Averaging for Multinomial Logit Models |
+| mnormt | The multivariate normal and t distributions |
+| MNP | R Package for Fitting the Multinomial Probit Model |
+| modeltools | Tools and Classes for Statistical Models |
+| mombf | Moment and Inverse Moment Bayes factors |
+| monomvn | Estimation for multivariate normal and Student-t data with monotone missingness |
+| monreg | Nonparametric monotone regression |
+| mosaic | Project MOSAIC (mosaic-web.org) statistics and mathematics teaching utilities |
+| MSBVAR | Markov-Switching, Bayesian, Vector Autoregression Models |
+| msm | Multi-state Markov and hidden Markov models in continuous time |
+| multcomp | Simultaneous Inference in General Parametric Models |
+| multicool | Permutations of multisets in cool-lex order. |
+| munsell | Munsell colour system |
+| mvoutlier | Multivariate outlier detection based on robust methods |
+| mvtnorm | Multivariate Normal and t Distributions |
+| ncvreg | Regularization paths for SCAD- and MCP-penalized regression models |
+| nlme | Linear and Nonlinear Mixed Effects Models |
+| NLP | Natural Language Processing Infrastructure |
+| nnet | Feed-forward Neural Networks and Multinomial Log-Linear Models |
+| numbers | Number-theoretic Functions |
+| numDeriv | Accurate Numerical Derivatives |
+| openNLP | Apache OpenNLP Tools Interface |
+| openNLPdata | Apache OpenNLP Jars and Basic English Language Models |
+| OutlierDC | Outlier Detection using quantile regression for Censored Data |
+| OutlierDM | Outlier detection for replicated high-throughput data |
+| outliers | Tests for outliers |
+| pacbpred | PAC-Bayesian Estimation and Prediction in Sparse Additive Models |
+| parallel | Support for Parallel computation in R |
+| partitions | Additive partitions of integers |
+| party | A Laboratory for Recursive Partytioning |
+| PAWL | Implementation of the PAWL algorithm |
+| pbivnorm | Vectorized Bivariate Normal CDF |
+| pcaPP | Robust PCA by Projection Pursuit |
+| permute | Functions for generating restricted permutations of data |
+| pls | Partial Least Squares and Principal Component regression |
+| plyr | Tools for splitting, applying and combining data |
+| png | Read and write PNG images |
+| polynom | A collection of functions to implement a class for univariate polynomial manipulations |
+| PottsUtils | Utility Functions of the Potts Models |
+| predmixcor | Classification rule based on Bayesian mixture models with feature selection bias corrected |
+| PresenceAbsence | Presence-Absence Model Evaluation |
+| prodlim | Product-limit estimation. Kaplan-Meier and Aalen-Johansson method for censored event history (survival) analysis |
+| profdpm | Profile Dirichlet Process Mixtures |
+| profileModel | Tools for profiling inference functions for various model classes |
+| proto | Prototype object-based programming |
 | pscl | Political Science Computational Laboratory, Stanford University |
-| psych | 심리학, 계량심리학 및 인성 연구 절차 |
-| quadprog | 이차 프로그래밍 문제를 해결하는 함수 |
-| quantreg | 분위수 회귀 |
-| qvcalc | 통계 모델의 요인 효과를 위한 의사 분산 |
-| R.matlab | R-MATLAB 연결과 함께 MAT 읽기 및 쓰기 |
-| R.methodsS3 | S3 메서드를 정의하기 위한 유틸리티 함수 |
-| R.oo | 참조 포함 또는 포함하지 않는 R 개체 지향 프로그래밍 |
-| R.utils | 다양한 프로그래밍 유틸리티 |
-| R2HTML | R 개체의 HTML 내보내기 |
-| R2jags | R에서 jags를 실행하기 위한 패키지 |
-| R2OpenBUGS | R에서 OpenBUGS 실행 |
-| R2WinBUGS | R / S-PLUS에서 WinBUGS 및 OpenBUGS 실행 |
-| ramps | RAMPS를 사용하는 Bayesian 지구통계학 모델링 |
-| RandomFields | 임의 필드 분석 및 시뮬레이션 |
-| randomForest | 분류 및 회귀에 대한 Breiman and Cutler의 임의 포리스트 |
-| RArcInfo | Arc/Info V7.x 이진 포함에서 데이터를 가져오는 함수 |
-| raster | 래스터: 지리적 데이터 분석 및 모델링 |
-| rbugs | Fusing R, OpenBugs 및 Beyond |
-| RColorBrewer | ColorBrewer 색상표 |
-| Rcpp | 원활한 R 및 C++ 통합 |
-| RcppArmadillo | Armadillo 템플릿 기반 선형 대수 라이브러리를 위한 Rcpp 통합 |
-| rcppbugs | cppbugs에 대한 R 바인딩 |
-| RcppEigen | 고유 템플릿 기반 선형 대수 라이브러리의 Rcpp 통합 |
-| RcppExamples | R 및 C++에 대한 인터페이스로 Rcpp를 사용하는 예제 |
-| RCurl | R에 대한 일반 네트워크(HTTP/FTP/...) 클라이언트 인터페이스 |
-| relimp | 회귀 모델에 대한 효과의 상대적 기여도 |
-| reshape | 유연하게 데이터 모양 변경 |
-| reshape2 | 유연하게 데이터 모양 변경: 모양을 변경한 패키지 다시 부팅 |
-| rgdal | 지리 공간 데이터 추상화 라이브러리에 대한 바인딩 |
-| rgeos | GEOS(Geometry Engine - Open Source) 인터페이스 |
-| rgl | 3D 시각화 장치 시스템(OpenGL) |
-| RGraphics | R 그래픽 서적, 제2판의 데이터 및 함수 |
-| RGtk2 | Gtk 2.8.0 이상을 위한 R 바인딩 |
-| RJaCGH | CGH 배열 분석을 위한 가역 점프 MCMC |
-| rjags | MCMC를 사용하는 Bayesian 그래픽 모델 |
-| rJava | 하위 수준 R-Java 인터페이스 |
-| RJSONIO | JSON(JavaScript Object Notation)에 맞게 R 개체 직렬화 |
-| robCompositions | 구성 데이터에 대한 강력한 추정 |
-| robustbase | 강력한 기본 통계 |
-| RODBC | ODBC 데이터베이스 액세스 |
-| rootSolve | 비선형 루트 찾기, 일반 차등 수식의 평형 및 안정적인 상태 분석 |
-| roxygen | R에서 익숙하게 프로그래밍 |
-| roxygen2 | R에 대한 소스 내 설명서 |
-| rpart | 재귀 분할 및 회귀 트리 |
-| rrcov | 높은 붕괴점을 통해 확장 가능한 강력한 추정량 |
-| rscproxy | statconn: R에 이식 가능한 C-스타일 인터페이스 제공(StatConnector) |
-| RSGHB | 계층 구조 Bayesian 추정을 위한 함수: 유연한 방법 |
-| RSNNS | SNNS(Stuttgart Neural Network Simulator)를 사용하는 R의 신경망 |
-| RTextTools | 감독된 학습을 통해 텍스트 자동 분류 |
-| RUnit | R 단위 테스트 프레임워크 |
-| runjags | JAGS의 MCMC 모델을 위한 인터페이스 유틸리티, 병렬 컴퓨팅 메서드 및 추가 배포 |
-| Runuran | UNU.RAN 임의 변량 생성기를 위한 R 인터페이스 |
-| rworldmap | 글로벌 데이터, 벡터 및 래스터 매핑 |
-| rworldxtra | 높은 해상도에서 국가 경계 |
+| psych | Procedures for Psychological, Psychometric, and Personality Research |
+| quadprog | Functions to solve quadratic programming problems |
+| quantreg | Quantile Regression |
+| qvcalc | Quasi variances for factor effects in statistical models |
+| R.matlab | Read and write of MAT files together with R-to-MATLAB connectivity |
+| R.methodsS3 | Utility function for defining S3 methods |
+| R.oo | R object-oriented programming with or without references |
+| R.utils | Various programming utilities |
+| R2HTML | HTML exportation for R objects |
+| R2jags | A Package for Running jags from R |
+| R2OpenBUGS | Running OpenBUGS from R |
+| R2WinBUGS | Running WinBUGS and OpenBUGS from R / S-PLUS |
+| ramps | Bayesian Geostatistical Modeling with RAMPS |
+| RandomFields | Simulation and Analysis of Random Fields |
+| randomForest | Breiman and Cutler's random forests for classification and regression |
+| RArcInfo | Functions to import data from Arc/Info V7.x binary coverages |
+| raster | raster: Geographic data analysis and modeling |
+| rbugs | Fusing R and OpenBugs and Beyond |
+| RColorBrewer | ColorBrewer palettes |
+| Rcpp | Seamless R and C++ Integration |
+| RcppArmadillo | Rcpp integration for Armadillo templated linear algebra library |
+| rcppbugs | R binding for cppbugs |
+| RcppEigen | Rcpp integration for the Eigen templated linear algebra library |
+| RcppExamples | Examples using Rcpp to interface R and C++ |
+| RCurl | General network (HTTP/FTP/...) client interface for R |
+| relimp | Relative Contribution of Effects in a Regression Model |
+| reshape | Flexibly reshape data |
+| reshape2 | Flexibly reshape data: a reboot of the reshape package |
+| rgdal | Bindings for the Geospatial Data Abstraction Library |
+| rgeos | Interface to Geometry Engine - Open Source (GEOS) |
+| rgl | 3D visualization device system (OpenGL) |
+| RGraphics | Data and Functions from the book R Graphics, Second Edition |
+| RGtk2 | R bindings for Gtk 2.8.0 and above |
+| RJaCGH | Reversible Jump MCMC for the analysis of CGH arrays |
+| rjags | Bayesian graphical models using MCMC |
+| rJava | Low-level R to Java interface |
+| RJSONIO | Serialize R objects to JSON, JavaScript Object Notation |
+| robCompositions | Robust Estimation for Compositional Data |
+| robustbase | Basic Robust Statistics |
+| RODBC | ODBC Database Access |
+| rootSolve | Nonlinear root finding, equilibrium and steady-state analysis of ordinary differential equations |
+| roxygen | Literate Programming in R |
+| roxygen2 | In-source documentation for R |
+| rpart | Recursive Partitioning and Regression Trees |
+| rrcov | Scalable Robust Estimators with High Breakdown Point |
+| rscproxy | statconn: provides portable C-style interface to R (StatConnector) |
+| RSGHB | Functions for Hierarchical Bayesian Estimation: A Flexible Approach |
+| RSNNS | Neural Networks in R using the Stuttgart Neural Network Simulator (SNNS) |
+| RTextTools | Automatic Text Classification via Supervised Learning |
+| RUnit | R Unit test framework |
+| runjags | Interface utilities, parallel computing methods and additional distributions for MCMC models in JAGS |
+| Runuran | R interface to the UNU.RAN random variate generators |
+| rworldmap | Mapping global data, vector and raster |
+| rworldxtra | Country boundaries at high resolution |
 
 
-###S-Z로 시작 하는 R 모듈
+###R modules beginning with S through Z
 
-| 패키지 이름 | 패키지 설명 |
+| Package name | Package description |
 | ------------ | ------------------- |
-| SampleSizeMeans | 정규 평균값을 위한 샘플 크기 계산 |
-| SampleSizeProportions | 두 이항 비율 간의 차이 추정할 때 샘플 크기 요구 사항 계산 |
-| sandwich | 강력한 공분산 행렬 추정량 |
-| sbgcop | 준모수적 Bayesian 가우스 연결 동사 추정 및 대체 |
-| scales | 그래픽의 배율 함수 |
-| scapeMCMC | MCMC 진단 그림 |
-| scatterplot3d | 3D 산점도 |
-| sciplot | 계승 디자인의 과학 그래프 작성 함수 |
-| segmented | 중단점/변경점 추정을 사용하는 회귀 모델의 조각화된 관계 |
-| sem | 구조방정식 모델 |
-| seriation | 순차 배열을 위한 인프라 |
-| setRNG | (일반) 난수 생성기 및 초기값 설정 |
-| sgeostat | S+의 지구통계학 모델링을 위한 개체 지향 프레임워크 |
-| shapefiles | ESRI 셰이프 파일 읽기 및 쓰기 |
-| shiny | R용 웹 응용 프로그램 프레임워크 |
-| SimpleTable | 측정되지 않은 혼선 존재 에서 2 x 2 및 2 x 2 x K 테이블에서 인과 효과를 위한 Bayesian 추론 및 민감도 분석 |
-| slam | 스파스 경량 배열 및 행렬 |
-| smoothSurv | 평활된 오차 분포를 사용하는 생존 회귀 |
-| sna | 소셜 네트워크 분석을 위한 도구 |
-| snow | 워크스테이션의 간단한 네트워크(Simple Network of Workstations) |
-| SnowballC | C libstemmer UTF-8 라이브러리를 기반으로 하는 스노우볼 형태소 분석기 |
-| snowFT | 워크스테이션의 내결함성이 있는 간단한 네트워크 |
-| sp | 공간 데이터의 클래스 및 메서드 |
-| spacetime | 공간 시간 데이터의 클래스 및 메서드 |
-| SparseM | 스파스 선형 대수 |
-| Spatial | 크리깅 및 점 패턴 분석을 위한 함수 |
-| spBayes | 일변량 및 다변량 공간 시간 모델링 |
-| spdep | 공간 종속성: 가중치 구성표, 통계 및 모델 |
-| spikeslab | 스파이크 및 슬래브 회귀를 사용한 추정 및 변수 선택 |
-| splancs | 공간 및 시공간 점 패턴 분석 |
-| splines | 회귀 스플라인 함수 및 클래스 |
-| spTimer | R을 사용하는 공간 시간 Bayesian 모델링 |
-| stats | R 통계 패키지 |
-| stats4 | S4 클래스를 사용하는 통계 함수 |
-| stochvol | SV(Stochastic Volatility) 모델을 위한 효율적인 Bayesian 추론 |
-| stringr | 문자열에 대한 작업을 용이화 |
-| strucchange | 구조 변경 테스트, 모니터링 및 날짜 지정 |
-| stsm | 구조적 시계열 모델 |
-| stsm.class | 구조적 시계열 모델의 클래스 및 메서드 |
-| SuppDists | 보조 분포 |
-| survival | 생존 분석 |
-| svmpath | svmpath: SVM 경로 알고리즘 |
-| tau | 텍스트 분석 유틸리티 |
-| tcltk | Tcl/Tk 인터페이스 |
-| tcltk2 | Tcl/Tk 추가 |
-| TeachingDemos | 교육 및 학습을 위한 데모 |
-| tensorA | 명명된 인덱스로 고급 텐서 산술 |
-| testthat | Testthat 코드. 테스트를 재미있게 만드는 도구 |
-| textcat | N-Gram 기반 텍스트 분류 |
-| textir | 텍스트 분석을 위한 역회귀 |
-| tfplot | 시간 프레임 사용자 유틸리티 |
-| tframe | 시간 프레임 코딩 커널 |
-| tgp | Bayesian 트리 가우스 프로세스 모델 |
-| TH.data | TH의 데이터 보관 |
-| timeDate | Rmetrics - 시간 및 달력 개체 |
-| tm | 텍스트 마이닝 패키지 |
-| 도구 | 패키지 개발을 위한 도구 |
-| translations | R 번역 패키지 |
-| tree | 분류 및 회귀 트리 |
-| tseries | 시계열 분석 및 재무 계산 |
-| tsfa | 시계열 요소 분석 |
-| tsoutliers | 시계열에서 이상값을 자동으로 검색 |
-| TSP | 출장 중인 영업 사원 문제(TSP) |
-| UsingR | 소개 통계를 위해 R을 사용하는 텍스트의 데이터 집합 |
-| utils | R 유틸리티 패키지 |
-| varSelectIP | 목적 Bayes 모델 선택 |
-| vcd | 범주 데이터 시각화 |
-| vegan | 커뮤니티 생태 패키지 |
-| VGAM | 벡터 일반화 선형 및 가산 모델 |
-| VIF | VIF 회귀: 대형 데이터를 위한 빠른 회귀 알고리즘 |
-| whisker | R용 {{mustache}}, 로직이 없는 템플릿 |
-| wordcloud | Word 클라우드 |
-| XLConnect | R용 Excel 커넥터 |
-| XML | R 및 S-Plus에서 XML의 구문을 분석하고 생성하기 위한 도구 |
-| xtable | LaTeX 또는 HTML로 테이블 내보내기 |
-| xts | 확장 가능한 시계열 |
-| YAML | R 데이터를 YAML로 변환하거나 반대로 변환하는 메서드 |
-| zic | 영(0) 확장 개수 모델을 위한 Bayesian 추론 |
-| zipfR | 단어 빈도 분포를 위한 통계 모델 |
-| zoo | 정칙 및 비정칙 시계열(Z의 순서 지정된 관찰)을 위한 S3 인프라 |
+| SampleSizeMeans | Sample size calculations for normal means |
+| SampleSizeProportions | Calculating sample size requirements when estimating the difference between two binomial proportions |
+| sandwich | Robust Covariance Matrix Estimators |
+| sbgcop | Semiparametric Bayesian Gaussian copula estimation and imputation |
+| scales | Scale functions for graphics |
+| scapeMCMC | MCMC Diagnostic Plots |
+| scatterplot3d | 3D Scatter Plot |
+| sciplot | Scientific Graphing Functions for Factorial Designs |
+| segmented | Segmented relationships in regression models with breakpoints/changepoints estimation |
+| sem | Structural Equation Models |
+| seriation | Infrastructure for seriation |
+| setRNG | Set (Normal) Random Number Generator and Seed |
+| sgeostat | An Object-oriented Framework for Geostatistical Modeling in S+ |
+| shapefiles | Read and Write ESRI Shapefiles |
+| shiny | Web Application Framework for R |
+| SimpleTable | Bayesian Inference and Sensitivity Analysis for Causal Effects from 2 x 2 and 2 x 2 x K Tables in the Presence of Unmeasured Confounding |
+| slam | Sparse Lightweight Arrays and Matrices |
+| smoothSurv | Survival Regression with Smoothed Error Distribution |
+| sna | Tools for Social Network Analysis |
+| snow | Simple Network of Workstations |
+| SnowballC | Snowball stemmers based on the C libstemmer UTF-8 library |
+| snowFT | Fault Tolerant Simple Network of Workstations |
+| sp | classes and methods for spatial data |
+| spacetime | classes and methods for spatio-temporal data |
+| SparseM | Sparse Linear Algebra |
+| spatial | Functions for Kriging and Point Pattern Analysis |
+| spBayes | Univariate and Multivariate Spatial-temporal Modeling |
+| spdep | Spatial dependence: weighting schemes, statistics and models |
+| spikeslab | Prediction and variable selection using spike and slab regression |
+| splancs | Spatial and Space-Time Point Pattern Analysis |
+| splines | Regression Spline Functions and Classes |
+| spTimer | Spatio-Temporal Bayesian Modelling Using R |
+| stats | The R Stats Package |
+| stats4 | Statistical Functions using S4 Classes |
+| stochvol | Efficient Bayesian Inference for Stochastic Volatility (SV) Models |
+| stringr | Make it easier to work with strings |
+| strucchange | Testing, Monitoring, and Dating Structural Changes |
+| stsm | Structural Time Series Models |
+| stsm.class | Class and Methods for Structural Time Series Models |
+| SuppDists | Supplementary distributions |
+| survival | Survival Analysis |
+| svmpath | svmpath: the SVM Path algorithm |
+| tau | Text Analysis Utilities |
+| tcltk | Tcl/Tk Interface |
+| tcltk2 | Tcl/Tk Additions |
+| TeachingDemos | Demonstrations for teaching and learning |
+| tensorA | Advanced tensors arithmetic with named indices |
+| testthat | Testthat code. Tools to make testing fun |
+| textcat | N-Gram Based Text Categorization |
+| textir | Inverse Regression for Text Analysis |
+| tfplot | Time Frame User Utilities |
+| tframe | Time Frame coding kernel |
+| tgp | Bayesian treed Gaussian process models |
+| TH.data | TH's Data Archive |
+| timeDate | Rmetrics - Chronological and Calendar Objects |
+| tm | Text Mining Package |
+| tools | Tools for Package Development |
+| translations | The R Translations Package |
+| tree | Classification and regression trees |
+| tseries | Time series analysis and computational finance |
+| tsfa | Time Series Factor Analysis |
+| tsoutliers | Automatic Detection of Outliers in Time Series |
+| TSP | Traveling Salesperson Problem (TSP) |
+| UsingR | Data sets for the text Using R for Introductory Statistics |
+| utils | The R Utils Package |
+| varSelectIP | Objective Bayes Model Selection |
+| vcd | Visualizing Categorical Data |
+| vegan | Community Ecology Package |
+| VGAM | Vector Generalized Linear and Additive Models |
+| VIF | VIF Regression: A Fast Regression Algorithm For Large Data |
+| whisker | {{mustache}} for R, logicless templating |
+| wordcloud | Word Clouds |
+| XLConnect | Excel Connector for R |
+| XML | Tools for parsing and generating XML within R and S-Plus |
+| xtable | Export tables to LaTeX or HTML |
+| xts | eXtensible Time Series |
+| yaml | Methods to convert R data to YAML and back |
+| zic | Bayesian Inference for Zero-Inflated Count Models |
+| zipfR | Statistical models for word frequency distributions |
+| zoo | S3 Infrastructure for Regular and Irregular Time Series (Z's ordered observations) |
 
+-->
 
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 [convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

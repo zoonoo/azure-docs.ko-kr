@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="04/30/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스에 연결
-SQL 데이터 웨어하우스에 연결하려면 인증 목적으로 보안 자격 증명을 전달해야 합니다. 연결을 설정할 때 특정 연결 설정이 쿼리 세션을 설정하는 일부로 구성된다는 사실도 확인하게 될 것입니다.
+SQL 데이터 웨어하우스에 연결하려면 인증 목적으로 보안 자격 증명을 전달해야 합니다. 연결을 설정할 때 특정 연결 설정이 쿼리 세션을 설정하는 일부로 구성된다는 사실도 확인하게 될 것입니다. 보안에 대한 자세한 내용과 SQL 데이터 웨어하우스에 연결하는 방법은 [SQL 데이터 웨어하우스에서 데이터베이스 보호][] 문서를 참조하십시오.
 
-이 문서에서는 SQL 데이터 웨어하우스에 연결하는 다음과 같은 측면에 대해 자세히 설명합니다.
+이 문서는 SQL 데이터 웨어하우스 연결에 대한 다음 측면에 대해 자세히 설명합니다.
 
 - 인증
 - 연결 설정
@@ -52,7 +52,9 @@ SQL 데이터 웨어하우스에 연결하려면 다음 정보를 제공해야 �
 - ADO.NET
 - ODBC
 - PHP
-- JDBC
+- JDBC 
+
+다음은 각 프로토콜에 대한 연결 문제열의 몇 가지 예입니다. 또한 Azure 포털을 사용하여 연결 문자열을 설정할 수 있습니다. Azure 포털에서 데이터베이스로 이동한 다음 *필수*에서 *데이터베이스 연결 문자열 표시*를 클릭합니다.
 
 ### 샘플 ADO.NET 연결 문자열
 
@@ -95,7 +97,7 @@ SQL 데이터 웨어하우스는 연결 및 개체 생성 중에 몇 가지 설�
 
 각 쿼리는 하나 이상의 요청 식별자로 표시됩니다. 해당 연결에 대해 제출된 모든 쿼리는 단일 세션의 일부이므로 단일 세션 ID로 표시됩니다.
 
-그러나 SQL 데이터 웨어하우스는 분산된 MPP 시스템이므로 세션과 요청 식별자 모두 SQL Server와 조금 다르게 표시됩니다.
+하지만 SQL 데이터 웨어하우스는 MPP(Massively Parallel Processing) 시스템으로 배포되므로 SQL Server에 비해 세션과 요청 식별자 모두 약간 다르게 노출됩니다.
 
 세션과 요청은 해당 식별자에 의해 논리적으로 표시됩니다.
 
@@ -153,9 +155,10 @@ WHERE   s.[session_id] <> SESSION_ID()
 <!--Azure.com references-->
 [연결 및 쿼리]: ./sql-data-warehouse-get-started-connect.md
 [테이블 디자인]: ./sql-data-warehouse-develop-table-design.md
+[SQL 데이터 웨어하우스에서 데이터베이스 보호]: ./sql-data-warehouse-overview-security.md
 
 <!--MSDN references-->
 
 <!--Other references-->
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

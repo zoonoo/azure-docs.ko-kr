@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="05/03/2016"
+	ms.date="05/10/2016"
 	ms.author="piyushjo;ricksal" />
 
 # Android 앱용 Azure Mobile Engagement 시작
@@ -132,11 +132,14 @@
 
 	public class MainActivity extends EngagementActivity {
 
+> [AZURE.NOTE] 기본 클래스가 *활동*이 아닌 경우 [고급 Android 보고](mobile-engagement-android-advanced-reporting.md#modifying-your-codeactivitycode-classes)에서 다른 클래스에서 상속하는 방법을 참조하세요.
+
+
 간단한 샘플 시나리오에 대해 다음 줄을 주석 처리해야 합니다.(제외)
 
     // setSupportActionBar(toolbar);
 
-이를 유지하려면 [고급 Android 통합](mobile-engagement-android-integrate-engagement.md/#basic-reporting)의 "기본 보고" 시나리오를 확인해야 합니다.
+이를 유지하려면 [고급 Android 보고](mobile-engagement-android-advanced-reporting.md#modifying-your-codeactivitycode-classes)를 확인하세요.
 
 ## 실시간 모니터링과 앱 연결
 
@@ -152,7 +155,7 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 
 	![][10]
 
-2. Android Studio로 돌아가서 프로젝트 파일의 **기본** 디렉터리를 선택하고 붙여넣어 프로젝트에 리소스를 추가합니다.
+2. Android Studio로 돌아가서 프로젝트 파일의 **main** 디렉터리를 선택하고 붙여넣어 프로젝트에 리소스를 추가합니다.
 
 	![][11]
 
@@ -161,6 +164,10 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 [AZURE.INCLUDE [앱 내 메시징 사용](../../includes/mobile-engagement-android-send-push.md)]
 
 [AZURE.INCLUDE [포털에서 알림 보내기](../../includes/mobile-engagement-android-send-push-from-portal.md)]
+
+## 추가 리소스
+
+[Android SDK](mobile-engagement-android-sdk-overview.md)로 돌아가 SDK 통합에 대한 자세한 정보를 확인합니다.
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-android-get-started/android-studio-new-project.png
@@ -175,4 +182,4 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 [10]: ./media/mobile-engagement-android-get-started/copy-resources.png
 [11]: ./media/mobile-engagement-android-get-started/paste-resources.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

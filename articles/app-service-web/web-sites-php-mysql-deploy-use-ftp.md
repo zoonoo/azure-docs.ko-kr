@@ -12,20 +12,12 @@
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
-	ms.topic="get-started-article" 
-	ms.date="01/12/2016" 
+	ms.topic="article" 
+	ms.date="04/08/2016" 
 	ms.author="robmcm"/>
 
 
 #Azure 웹 앱 서비스에서 PHP-MySQL 웹 앱 만들기 및 FTP를 사용하여 배포
-
-> [AZURE.SELECTOR]
-- [.Net](web-sites-dotnet-get-started.md)
-- [Node.JS](app-service-web-nodejs-get-started.md)
-- [Java](web-sites-java-get-started.md)
-- [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
-- [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
-- [Python](web-sites-python-ptvs-django-mysql.md)
 
 이 자습서에서는 PHP-MySQL 웹 앱을 만들고 FTP를 사용하여 배포하는 방법을 설명합니다. 이 자습서의 내용은 컴퓨터에 [PHP][install-php], [MySQL][install-mysql], 웹 서버 및 FTP 클라이언트가 설치되어 있다는 것을 전제로 합니다. 이 자습서의 지침은 Windows, Mac 및 Linux를 포함하여 모든 운영 체제에 적용될 수 있습니다. 이 가이드를 완료하면 Azure에서 실행하는 PHP/MySQL 웹 앱이 완성됩니다.
  
@@ -50,7 +42,7 @@
 
 	![새 Azure 웹 사이트 만들기][new-website]
 
-3. 검색에 **웹 앱 + MySQL**을 입력하고 **웹 앱 + MySQL**을 클릭합니다.
+3. 검색에 **웹앱 + MySQL**을 입력하고 **웹앱 + MySQL**을 클릭합니다.
 
 	![새 웹 사이트 사용자 지정 만들기][custom-create]
 
@@ -303,4 +295,4 @@
 [download-publish-profile]: ./media/web-sites-php-mysql-deploy-use-ftp/download_publish_profile_3.png
  
 
-<!----HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

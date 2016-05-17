@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016" 
+ 	ms.date="05/03/2016"  
 	ms.author="juliako"/>
 
 #방법: 작업 진행 상태 확인
@@ -44,10 +44,10 @@
 
 ##다음 단계
 
-콘텐츠를 게시합니다. 자세한 내용은 [방법: 자산 인코딩](../media-services-manage-content#publish)을 참조하세요.
+콘텐츠를 게시합니다. 자세한 내용은 [방법: 자산 인코딩](media-services-manage-content.md#publish)을 참조하세요.
 
 
 [checkstatus]: ./media/media-services-portal-check-job-progress/media-services-monitor-job-progress.png
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

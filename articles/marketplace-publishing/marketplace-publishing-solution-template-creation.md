@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="02/06/2016"
+      ms.date="04/29/2016"
       ms.author="hascipio; v-divte" />
 
 # Azure 마켓플레이스용 솔루션 템플릿 만들기 가이드
@@ -58,13 +58,13 @@ Zip 파일을 업로드한 후 **인증 요청**을 클릭합니다. Microsoft �
 
 - VM 확장: [VM 에이전트 및 VM 확장 개요](https://msdn.microsoft.com/library/azure/dn832621.aspx) 및 [Azure VM 확장 및 기능](https://msdn.microsoft.com/library/azure/dn606311.aspx)
 
-- Azure 리소스 관리자: [Azure ARM 템플릿 작성](../resource-group-authoring-templates/) 및 [간단한 ARM 템플릿 예제](https://github.com/rjmax/ArmExamples)
+- Azure 리소스 관리자: [Azure ARM 템플릿 작성](../resource-group-authoring-templates.md) 및 [간단한 ARM 템플릿 예제](https://github.com/rjmax/ArmExamples)
 
 - 저장소 계정 제한: [저장소 계정 제한을 모니터링하는 방법](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx) 및 [프리미엄 저장소](../storage/storage-premium-storage.md#scalability-and-performance-targets-whko-KRing-premium-storage)
 
 [img-pubportal-menu-sol-templ]: media/marketplace-publishing-solution-template-creation/pubportal-menu-solution-templates.png
 [img-pubportal-sol-templ-new]: media/marketplace-publishing-solution-template-creation/pubportal-solution-template-new.png
-[link-acct-creation]: marketplace-publishing-microsoft-accounts-creation-registration.md
+[link-acct-creation]: marketplace-publishing-accounts-creation-registration.md
 [link-pubportal]: https://publish.windowsazure.com
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

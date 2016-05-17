@@ -13,27 +13,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="03/04/2016"
+	ms.date="04/29/2016"
 	ms.author="robmcm"/>
-
-
-
 
 # Azure 앱 서비스에서 Socket.IO를 사용하여 Node.js 채팅 응용 프로그램 만들기
 
-Socket.IO는 WebSocket을 사용하여 node.js 서버와 클라이언트 간의 실시간 통신을 제공합니다. 또한 이전 브라우저에서 작동하는 다른 전송(예: 긴 폴링)으로의 대체를 지원합니다. 이 자습서는 Azure 웹 앱으로 Socket.IO를 기반으로 하는 호스팅을 안내하고 [Azure Redis Cache](/documentation/services/cache)를 사용하여 응용 프로그램을 [크기 조정하는](#scale-out) 방법을 보여줍니다. Socket.IO에 대한 자세한 내용은 [http://socket.io/][socketio](영문)를 참조하십시오.
+Socket.IO는 WebSocket을 사용하여 node.js 서버와 클라이언트 간의 실시간 통신을 제공합니다. 또한 이전 브라우저에서 작동하는 다른 전송(예: 긴 폴링)으로의 대체를 지원합니다. 이 자습서는 Azure 웹앱으로 Socket.IO를 기반으로 하는 호스팅을 안내하고 [Azure Redis Cache]를 사용하여 응용 프로그램의 크기를 조정하는 방법을 보여줍니다. Socket.IO에 대한 자세한 내용은 <http://socket.io/>를 참조하세요.
 
-> [AZURE.NOTE] 이 작업의 절차는 [앱 서비스 웹 앱](http://go.microsoft.com/fwlink/?LinkId=529714)에 적용됩니다. 클라우드 서비스에 대해서는 <a href="http://www.windowsazure.com/develop/nodejs/tutorials/app-using-socketio/">Azure 클라우드 서비스에서 Socket.IO를 사용하여 Node.js 채팅 응용 프로그램 빌드</a>를 참조하세요.
-
+> [AZURE.NOTE] 이 작업의 절차는 [앱 서비스 웹앱]에 적용됩니다. 클라우드 서비스에 대해서는 [Azure 클라우드 서비스에서 Socket.IO를 사용하여 Node.js 채팅 응용 프로그램 빌드]를 참조하세요.
 
 ## 채팅 예제 다운로드
 
 이 프로젝트에서는 [Socket.IO GitHub 리포지토리](영문)의 채팅 예제를 사용합니다. 다음 단계에 따라 예제를 다운로드하여 이전에 만든 프로젝트에 추가하십시오.
 
-1.  Socket.IO 프로젝트의 [ZIP 또는 GZ 보관 릴리스][release]를 다운로드합니다(이 문서에서는 버전 1.3.5 사용).
+1.  Socket.IO 프로젝트의 [ZIP 또는 GZ 보관 릴리스]를 다운로드합니다(이 문서에서는 버전 1.3.5 사용).
 
-
-3.  보관 파일을 추출하고 **examples\\chat** 디렉터리를 새 위치에 복사합니다. 예를들어, **\\node\\chat**입니다.
+1.  보관 파일을 추출하고 **examples\\chat** 디렉터리를 새 위치에 복사합니다. 예를들어, **\\node\\chat**입니다.
 
 ## app.js 수정 및 모듈 설치
 
@@ -49,15 +44,14 @@ Socket.IO는 WebSocket을 사용하여 node.js 서버와 클라이언트 간의 
 		var io = require('socket.io')(server);
 		var port = process.env.PORT || 3000;
 
-
-3. 아래와 같이 **package.json** 파일을 열고 `dependencies` 아래의 socket.io에 참조를 추가합니다.
+1. 아래와 같이 **package.json** 파일을 열고 `dependencies` 아래의 socket.io에 참조를 추가합니다.
 
         "dependencies": {
 		  "express": "3.4.8",
 		  "socket.io": "1.3.5"
 		}
 
-4. 명령줄에서 **\\node\\chat** 디렉터리로 변경하고 npm을 사용하여 이 응용 프로그램에 필요한 모듈을 설치합니다.
+1. 명령줄에서 **\\node\\chat** 디렉터리로 변경하고 npm을 사용하여 이 응용 프로그램에 필요한 모듈을 설치합니다.
 
         npm install
 
@@ -69,25 +63,24 @@ Socket.IO는 WebSocket을 사용하여 node.js 서버와 클라이언트 간의 
 
 > [AZURE.NOTE] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Azure 무료 평가판</a>을 참조하세요.
 
-1. Azure CLI(Azure 명령줄 인터페이스)를 설치하고 Azure 구독에 연결합니다. [Azure CLI 설치 및 구성](../xplat-cli)을 참조하세요.
+1. Azure CLI(Azure 명령줄 인터페이스)를 설치하고 Azure 구독에 연결합니다. [Azure CLI 설치 및 구성](../xplat-cli-install.md)을 참조하세요.
 
-2. Azure에서 리포지토리를 처음 설정하는 경우 로그인 자격 증명을 만들어야 합니다. Azure CLI에서 다음 명령을 입력합니다.
+1. Azure에서 리포지토리를 처음 설정하는 경우 로그인 자격 증명을 만들어야 합니다. Azure CLI에서 다음 명령을 입력합니다.
 
 		azure site deployment user set [username] [password]
 
-
-3. **\\node\\chat** 디렉터리로 변경하고 다음 명령을 사용하여 새 Azure 웹 앱 및 로컬 Git 리포지토리를 만듭니다. 이 명령은 'azure'라는 Git 원격도 만듭니다.
+1. **\\node\\chat** 디렉터리로 변경하고 다음 명령을 사용하여 새 Azure 웹 앱 및 로컬 Git 리포지토리를 만듭니다. 이 명령은 'azure'라는 Git 원격도 만듭니다.
 
 		azure site create mysitename --git
 
 	'mysitename'을 웹 앱의 고유한 이름으로 바꿔야 합니다.
 
-2. 다음 명령을 사용하여 기존 파일을 로컬 리포지토리로 커밋합니다.
+1. 다음 명령을 사용하여 기존 파일을 로컬 리포지토리로 커밋합니다.
 
 		git add .
 		git commit -m "Initial commit"
 
-3. 다음 명령으로 파일을 Azure 웹 앱 리포지토리로 푸시합니다.
+1. 다음 명령으로 파일을 Azure 웹 앱 리포지토리로 푸시합니다.
 
 		git push azure master
 
@@ -95,7 +88,7 @@ Socket.IO는 WebSocket을 사용하여 node.js 서버와 클라이언트 간의 
 
  	> [AZURE.NOTE] 모듈이 설치되는 동안 'The imported project ... was not found' 오류가 발생할 수 있습니다. 이 오류는 무시해도 됩니다.
 
-4. Socket.IO는 Azure에서 기본적으로 사용되지 않는 WebSocket을 사용합니다. WebSocket을 사용하도록 설정하려면 다음 명령을 사용하십시오.
+1. Socket.IO는 Azure에서 기본적으로 사용되지 않는 WebSocket을 사용합니다. WebSocket을 사용하도록 설정하려면 다음 명령을 사용하십시오.
 
 		azure site set -w
 
@@ -106,25 +99,25 @@ Socket.IO는 WebSocket을 사용하여 node.js 서버와 클라이언트 간의 
 	>
 	>Azure Portal에서 WebSocket을 사용하도록 설정하려면 웹 앱 블레이드에서 해당 웹 앱을 클릭하고 **모든 설정** > **응용 프로그램 설정**을 클릭합니다. **웹 소켓**에서 **켜기**를 클릭합니다. 그런 다음 **Save**를 클릭합니다.
 
-5. Azure에서 웹 앱을 보려면 다음 명령을 사용하여 웹 브라우저를 시작하고 호스트되는 웹 앱으로 이동합니다.
+1. Azure에서 웹 앱을 보려면 다음 명령을 사용하여 웹 브라우저를 시작하고 호스트되는 웹 앱으로 이동합니다.
 
 		azure site browse
 
 현재 앱이 Azure에서 실행되고 있으며 Socket.IO를 사용하여 다른 클라이언트 간에 채팅 메시지를 릴레이할 수 있습니다.
 
-##확장
+## 확장
 
-__어댑터__를 사용하여 여러 응용 프로그램 인스턴스 간에 메시지 및 이벤트를 배포하는 방식으로 Socket.IO 응용 프로그램을 확장할 수 있습니다. 사용 가능한 여러 어댑터가 있지만 Azure Redis 캐시 기능에 사용하기 편리한 어댑터는 [socket.io-redis](https://github.com/automattic/socket.io-redis) 어댑터입니다.
+__어댑터__를 사용하여 여러 응용 프로그램 인스턴스 간에 메시지 및 이벤트를 배포하는 방식으로 Socket.IO 응용 프로그램을 확장할 수 있습니다. 사용 가능한 여러 어댑터가 있지만 Azure Redis 캐시 기능에 사용하기 편리한 어댑터는 [socket.io-redis] 어댑터입니다.
 
-> [AZURE.NOTE] Socket.IO 솔루션 확장에 대한 추가 요구 사항은 고정 세션의 지원입니다. 고정 세션은 Azure 요청 라우팅을 통해 Azure 웹 앱에서 기본적으로 사용하도록 설정됩니다. 자세한 내용은 [Azure 웹 사이트의 인스턴스 선호도](https://azure.microsoft.com/blog/2013/11/18/disabling-arrs-instance-affinity-in-windows-azure-web-sites/)를 참조하세요.
+> [AZURE.NOTE] Socket.IO 솔루션 확장에 대한 추가 요구 사항은 고정 세션의 지원입니다. 고정 세션은 Azure 요청 라우팅을 통해 Azure 웹 앱에서 기본적으로 사용하도록 설정됩니다. 자세한 내용은 [Azure 웹 사이트의 인스턴스 선호도]를 참조하세요.
 
-###Redis 캐시 만들기
+### Redis 캐시 만들기
 
-[Azure Redis 캐시에서 캐시 만들기](/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#create-a-cache)의 단계를 수행하여 새 캐시를 만듭니다.
+[Azure Redis 캐시에서 캐시 만들기]의 단계를 수행하여 새 캐시를 만듭니다.
 
 > [AZURE.NOTE] 캐시의 __호스트 이름__ 및 __기본 키__를 저장합니다. 이러한 정보는 다음 단계에서 필요합니다.
 
-###Redis 및 socket.io-redis 모듈 추가
+### Redis 및 socket.io-redis 모듈 추가
 
 1. 명령줄에서 __\\node\\chat__ 디렉터리로 변경하여 다음 명령을 사용합니다.
 
@@ -132,7 +125,7 @@ __어댑터__를 사용하여 여러 응용 프로그램 인스턴스 간에 메
 
 	> [AZURE.NOTE] 이 명령에 지정된 버전은 이 문서를 테스트할 때 사용된 버전입니다.
 
-2. __app.js__ 파일을 수정하여 다음 줄을 `var io = require('socket.io')(server);` 바로 뒤에 추가합니다.
+1. __app.js__ 파일을 수정하여 다음 줄을 `var io = require('socket.io')(server);` 바로 뒤에 추가합니다.
 
 		var pub = require('redis').createClient(6379,'redishostname', {auth_pass: 'rediskey', return_buffers: true});
 		var sub = require('redis').createClient(6379,'redishostname', {auth_pass: 'rediskey', return_buffers: true});
@@ -148,9 +141,9 @@ __어댑터__를 사용하여 여러 응용 프로그램 인스턴스 간에 메
 	>
 	> Azure Redis 캐시는 포트 6380을 사용한 보안 연결을 지원하지만 이 예제에 사용된 모듈에서는 2014년 7월 14일 현재 보안 연결을 지원하지 않습니다. 위의 코드에서는 기본적으로 비보안 포트 6379를 사용합니다.
 
-3. 수정한 __app.js__를 저장합니다.
+1. 수정한 __app.js__를 저장합니다.
 
-###변경 내용 커밋 및 다시 배포
+### 변경 내용 커밋 및 다시 배포
 
 __\\node\\chat__ 디렉터리의 명령줄에서 다음 명령을 사용하여 변경 내용을 커밋하고 응용 프로그램을 다시 배포합니다.
 
@@ -168,11 +161,11 @@ __\\node\\chat__ 디렉터리의 명령줄에서 다음 명령을 사용하여 �
 
 ## 문제 해결
 
-###연결 제한
+### 연결 제한
 
-Azure 웹 앱은 여러 SKU에서 사용할 수 있으며, 이러한 SKU에 따라 사이트에 사용 가능한 리소스가 결정됩니다. 여기에는 허용되는 WebSocket 연결 수가 포함됩니다. 자세한 내용은 [웹 앱 가격 책정 페이지][pricing]를 참조하세요.
+Azure 웹 앱은 여러 SKU에서 사용할 수 있으며, 이러한 SKU에 따라 사이트에 사용 가능한 리소스가 결정됩니다. 여기에는 허용되는 WebSocket 연결 수가 포함됩니다. 자세한 내용은 [웹 앱 가격 책정 페이지]를 참조하세요.
 
-###메시지가 WebSocket을 사용하여 전송되지 않음
+### 메시지가 WebSocket을 사용하여 전송되지 않음
 
 클라이언트 브라우저에서 WebSocket을 사용하는 대신 긴 폴링으로의 대체를 유지하는 경우 다음 중 하나가 원인일 수 있습니다.
 
@@ -263,26 +256,39 @@ Azure 웹 앱은 여러 SKU에서 사용할 수 있으며, 이러한 SKU에 따�
 
 	사용자 응용 프로그램에서 **app.js**가 아닌 다른 진입점을 사용하는 경우, 표시되는 **app.js**를 모두 올바른 진입점으로 바꿔야 합니다. 예를 들어 **app.js**를 **server.js**로 바꿉니다.
 
->[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE] Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가]로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
-##다음 단계
+## 다음 단계
 
-이 자습서에서는 Azure 웹 앱에 호스트되는 기본 채팅 응용 프로그램을 만드는 방법을 알아보았습니다. 이 응용 프로그램은 Azure 클라우드 서비스로 호스트할 수도 있습니다. 이를 수행하는 방법에 대한 단계는 [Azure 클라우드 서비스에서 Socket.IO를 사용하여 Node.js 채팅 응용 프로그램 빌드][cloudservice]를 참조하십시오.
+이 자습서에서는 Azure 웹 앱에 호스트되는 기본 채팅 응용 프로그램을 만드는 방법을 알아보았습니다. 이 응용 프로그램은 Azure 클라우드 서비스로 호스트할 수도 있습니다. 이를 수행하는 방법에 대한 단계는 [Azure 클라우드 서비스에서 Socket.IO를 사용하여 Node.js 채팅 응용 프로그램 빌드]를 참조하십시오.
 
-자세한 내용은 [Node.js 개발자 센터](/develop/nodejs/)도 참조하세요.
+자세한 내용은 [Node.js 개발자 센터]도 참조하세요.
 
 ## 변경된 내용
-* 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
 
-[socketio]: http://socket.io/
-[completed-app]: ./media/web-sites-nodejs-chat-app-socketio/websitesocketcomplete.png
-[Socket.IO GitHub 리포지토리]: https://github.com/Automattic/socket.io
-[release]: https://github.com/Automattic/socket.io/releases
-[cloudservice]: /develop/nodejs/tutorials/app-using-socketio/
+* 웹 사이트에서 앱 서비스로 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향]을 참조하세요.
+
+<!-- URL List -->
+
+[Azure Redis Cache]: /documentation/services/redis-cache/
+[앱 서비스 웹앱]: http://go.microsoft.com/fwlink/?LinkId=529714
+[웹 앱 가격 책정 페이지]: http://go.microsoft.com/fwlink/?LinkId=511643
+[Azure 클라우드 서비스에서 Socket.IO를 사용하여 Node.js 채팅 응용 프로그램 빌드]: ../cloud-services/cloud-services-nodejs-chat-app-socketio.md
+[Install and Configure the Azure CLI]: ../xplat-cli-install.md
+[Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향]: http://go.microsoft.com/fwlink/?LinkId=529714
+[Node.js 개발자 센터]: /develop/nodejs/
+[앱 서비스 평가]: http://go.microsoft.com/fwlink/?LinkId=523751
+[Azure 웹 사이트의 인스턴스 선호도]: https://azure.microsoft.com/blog/2013/11/18/disabling-arrs-instance-affinity-in-windows-azure-web-sites/
+[Azure Redis 캐시에서 캐시 만들기]: ../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md
+
+[socket.io-redis]: https://github.com/socketio/socket.io-redis
+[Socket.IO GitHub 리포지토리]: https://github.com/socketio/socket.io
+[ZIP 또는 GZ 보관 릴리스]: https://github.com/socketio/socket.io/releases
+
+<!-- IMG List -->
 
 [chat-example-view]: ./media/web-sites-nodejs-chat-app-socketio/socketio-2.png
 [npm-output]: ./media/web-sites-nodejs-chat-app-socketio/socketio-7.png
-[pricing]: /pricing/details/web-sites/
- 
+[completed-app]: ./media/web-sites-nodejs-chat-app-socketio/websitesocketcomplete.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

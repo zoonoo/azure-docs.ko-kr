@@ -13,22 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/28/2016"
+   ms.date="04/30/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스의 사용자 오류에서 데이터베이스 복구
 
-SQL 데이터 웨어하우스는 의도하지 않은 데이터 손상 또는 삭제를 유발 하는 사용자 오류에서 복구하기 위한 두 가지 핵심 기능을 제공합니다.
+SQL 데이터 웨어하우스는 의도하지 않은 데이터 손상 또는 삭제를 유발하는 사용자 오류에서 복구하기 위한 두 가지 핵심 기능을 제공합니다.
 
 - 라이브 데이터베이스 복원
 - 삭제된 데이터베이스 복원
 
-두 기능 모두 동일한 서버의 새 데이터베이스로 복원합니다. 복원하는 서버에 새 데이터베이스를 위한 충분한 DTU 용량이 있는지 확인하는 것이 중요합니다. [지원 센터에 연락][]하여 이 할당량을 늘리도록 요청할 수 있습니다.
-
+두 기능 모두 동일한 서버의 새 데이터베이스로 복원합니다. 복원하는 서버에 새 데이터베이스를 위한 충분한 DTU 용량이 있는지 확인하는 것이 중요합니다. [DTU 할당량을 보고 늘리는 방법][]에 대한 자세한 내용은 이 블로그 게시물을 참조하세요.
 
 ## 라이브 데이터베이스 복구
 Azure SQL 데이터 웨어하우스 서비스는 적어도 8시간마다 데이터베이스 스냅숏을 사용하여 모든 라이브 데이터베이스를 보호하고 7일 동안 복원 지점의 불연속 집합 제공을 유지합니다. 또한 데이터베이스 스냅숏은 데이터베이스를 일시 중지하거나 삭제한 경우에 만들어지며 7일 동안 보존됩니다. 의도하지 않은 데이터 수정을 유발하는 사용자 오류가 발생한 경우, 데이터베이스를 보존 기간 이내의 임의 복원 지점으로 복원할 수 있습니다.
-
 
 ### Azure 포털
 
@@ -41,12 +39,11 @@ Azure 포털을 사용하여 복원하려면 다음 단계를 사용하세요.
 5. 새 **데이터베이스 이름**을 지정하고 **복원 지점**을 선택한 다음 **만들기**를 클릭합니다.
 6. 데이터베이스 복원 프로세스가 시작되며 **알림**을 사용하여 모니터링할 수 있습니다.
 
-
 ### PowerShell
 
-프로그래밍 방식으로 데이터베이스 복원을 수행하려면 Azure PowerShell을 사용합니다. Azure PowerShell 모듈을 다운로드하려면 [Microsoft 웹 플랫폼 설치 관리자](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)를 실행합니다. Get-Module -ListAvailable -Name AzureRM.Sql을 실행하여 버전을 확인할 수 있습니다. 이 문서는 Microsoft AzureRM.Sql PowerShell 버전 1.0.5를 기반으로 합니다.
+Azure PowerShell을 사용하여 [Restore-AzureRmSqlDatabase][] cmdlet으로 데이터베이스 복원을 프로그래밍 방식으로 수행합니다.
 
-데이터베이스를 복원하려면 [Restore-AzureRmSqlDatabase][] cmdlet을 사용합니다.
+> [AZURE.NOTE]  SQL 데이터 웨어하우스에서 Azure PowerShell을 사용하려면 Azure PowerShell 버전 1.0.3 이상을 설치해야 합니다. **Get-Module -ListAvailable -Name Azure**를 실행하여 버전을 확인할 수 있습니다. 최신 버전은 [Microsoft 웹 플랫폼 설치 관리자][]를 통해 설치할 수 있습니다. 최신 버전 설치에 관한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법][]을 참조하세요.
 
 1. Windows PowerShell을 엽니다.
 2. Azure 계정에 연결하고 사용자 계정과 연결된 모든 구독을 나열합니다.
@@ -58,24 +55,30 @@ Azure 포털을 사용하여 복원하려면 다음 단계를 사용하세요.
 
 ```Powershell
 
+$SubscriptionName="<YourSubscriptionName>"
+$ResourceGroupName="<YourResourceGroupName>"
+$ServerName="<YourServerNameWithoutURLSuffixSeeNote>"  # Without database.windows.net
+$DatabaseName="<YourDatabaseName>"
+$NewDatabaseName="<YourDatabaseName>"
+
 Login-AzureRmAccount
 Get-AzureRmSubscription
-Select-AzureRmSubscription -SubscriptionName "<Subscription_name>"
+Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 
 # List the last 10 database restore points
-((Get-AzureRMSqlDatabaseRestorePoints -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourServerName>" -DatabaseName "<YourDatabaseName>").RestorePointCreationDate)[-10 .. -1]
+((Get-AzureRMSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName ($DatabaseName).RestorePointCreationDate)[-10 .. -1]
 
 # Or list all restore points
-Get-AzureRmSqlDatabaseRestorePoints -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourServerName>" -DatabaseName "<YourDatabaseName>" 
-
-# Pick desired restore point using RestorePointCreationDate
-$PointInTime = "<RestorePointCreationDate>"
+Get-AzureRmSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
 
 # Get the specific database to restore
-$Database = Get-AzureRmSqlDatabase -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourServerName>" -DatabaseName "<YourDatabaseName>"
+$Database = Get-AzureRmSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
+
+# Pick desired restore point using RestorePointCreationDate
+$PointInTime="<RestorePointCreationDate>"  
 
 # Restore database from a restore point
-$RestoredDatabase = Restore-AzureRmSqlDatabase –FromPointInTimeBackup –PointInTime $PointInTime -ResourceGroupName $Database.ResourceGroupName -ServerName $Database.ServerName -TargetDatabaseName "<NewDatabaseName>" –ResourceId $Database.ResourceID
+$RestoredDatabase = Restore-AzureRmSqlDatabase –FromPointInTimeBackup –PointInTime $PointInTime -ResourceGroupName $Database.ResourceGroupName -ServerName $Database.$ServerName -TargetDatabaseName $NewDatabaseName –ResourceId $Database.ResourceID
 
 # Verify the status of restored database
 $RestoredDatabase.status
@@ -84,7 +87,6 @@ $RestoredDatabase.status
 
 >[AZURE.NOTE] foo.database.windows.net 서버의 경우 위의 PowerShell cmdlet에서 -ServerName으로 "foo"를 사용합니다.
 
-
 ### REST API
 프로그래밍 방식으로 데이터베이스 복원을 수행하려면 REST를 사용합니다.
 
@@ -92,13 +94,10 @@ $RestoredDatabase.status
 2. [데이터베이스 복원 요청 만들기][] 작업을 사용하여 복원을 시작합니다.
 3. [데이터베이스 작업 상태][] 작업을 사용하여 복원 상태를 추적합니다.
 
-
 >[AZURE.NOTE] 복원이 완료된 후 [복구된 데이터베이스 마무리][] 가이드에 따라 복구된 데이터베이스를 구성할 수 있습니다.
-
 
 ## 삭제된 데이터베이스 복구
 Azure SQL 데이터 웨어하우스는 데이터베이스가 삭제되기 전에 데이터베이스 스냅숏을 생성하여 7일 동안 유지합니다. 데이터베이스가 실수로 삭제된 경우, 삭제된 데이터베이스를 삭제 시점으로 복원할 수 있습니다.
-
 
 ### Azure 포털
 
@@ -114,8 +113,6 @@ Azure 포털을 사용하여 삭제된 데이터베이스를 복원하려면 다
 
 
 ### PowerShell
-프로그래밍 방식으로 삭제된 데이터베이스 복원을 수행하려면 Azure PowerShell을 사용합니다. Azure PowerShell 모듈을 다운로드하려면 [Microsoft 웹 플랫폼 설치 관리자](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)를 실행합니다. Get-Module -ListAvailable -Name AzureRM.Sql을 실행하여 버전을 확인할 수 있습니다. 이 문서는 Microsoft AzureRM.Sql PowerShell 버전 1.0.5를 기반으로 합니다.
-
 삭제된 데이터베이스를 복원하려면 [Restore-AzureRmSqlDatabase][] cmdlet을 사용합니다.
 
 1. Windows PowerShell을 엽니다.
@@ -127,15 +124,21 @@ Azure 포털을 사용하여 삭제된 데이터베이스를 복원하려면 다
 
 ```Powershell
 
+$SubscriptionName="<YourSubscriptionName>"
+$ResourceGroupName="<YourResourceGroupName>"
+$ServerName="<YourServerNameWithoutURLSuffixSeeNote>"  # Without database.windows.net
+$DatabaseName="<YourDatabaseName>"
+$NewDatabaseName="<YourDatabaseName>"
+
 Login-AzureRmAccount
 Get-AzureRmSubscription
-Select-AzureRmSubscription -SubscriptionName "<Subscription_name>"
+Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 
 # Get the deleted database to restore
-$DeletedDatabase = Get-AzureRmSqlDeletedDatabaseBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourServerName>" -DatabaseName "<YourDatabaseName>"
+$DeletedDatabase = Get-AzureRmSqlDeletedDatabaseBackup -ResourceGroupName $ResourceGroupNam -ServerName $ServerName -DatabaseName $DatabaseName
 
 # Restore deleted database
-$RestoredDatabase = Restore-AzureRmSqlDatabase –FromDeletedDatabaseBackup –DeletionDate $DeletedDatabase.DeletionDate -ResourceGroupName $DeletedDatabase.ResourceGroupName -ServerName $DeletedDatabase.ServerName -TargetDatabaseName "<NewDatabaseName>" –ResourceId $DeletedDatabase.ResourceID
+$RestoredDatabase = Restore-AzureRmSqlDatabase –FromDeletedDatabaseBackup –DeletionDate $DeletedDatabase.DeletionDate -ResourceGroupName $DeletedDatabase.ResourceGroupName -ServerName $DeletedDatabase.ServerName -TargetDatabaseName $NewDatabaseName –ResourceId $DeletedDatabase.ResourceID
 
 # Verify the status of restored database
 $RestoredDatabase.status
@@ -143,7 +146,6 @@ $RestoredDatabase.status
 ```
 
 >[AZURE.NOTE] foo.database.windows.net 서버의 경우 위의 PowerShell cmdlet에서 -ServerName으로 "foo"를 사용합니다.
-
 
 ### REST API
 프로그래밍 방식으로 데이터베이스 복원을 수행하려면 REST를 사용합니다.
@@ -153,29 +155,30 @@ $RestoredDatabase.status
 3.	[데이터베이스 복원 요청 만들기][] 작업을 사용하여 복원을 시작합니다.
 4.	[데이터베이스 작업 상태][] 작업을 사용하여 복원 상태를 추적합니다.
 
-
 >[AZURE.NOTE] 복원이 완료된 후 [복구된 데이터베이스 마무리][] 가이드에 따라 복구된 데이터베이스를 구성할 수 있습니다.
-
 
 ## 다음 단계
 Azure SQL 데이터베이스 버전의 비즈니스 연속성 기능에 대해 알아보려면 [Azure SQL 데이터베이스 비즈니스 연속성 개요][]를 읽으세요.
 
-
 <!--Image references-->
 
 <!--Article references-->
-[Azure SQL 데이터베이스 비즈니스 연속성 개요]: sql-database/sql-database-business-continuity.md
-[복구된 데이터베이스 마무리]: sql-database/sql-database-recovered-finalize.md
+[Azure SQL 데이터베이스 비즈니스 연속성 개요]: sql-database-business-continuity.md
+[복구된 데이터베이스 마무리]: sql-database-recovered-finalize.md
+[Azure PowerShell 설치 및 구성 방법]: powershell-install-configure.md
 
 <!--MSDN references-->
-[데이터베이스 복원 요청 만들기]: http://msdn.microsoft.com/library/azure/dn509571.aspx
-[데이터베이스 작업 상태]: http://msdn.microsoft.com/library/azure/dn720371.aspx
-[복원 가능한 삭제된 데이터베이스 가져오기]: http://msdn.microsoft.com/library/azure/dn509574.aspx
-[복원 가능한 삭제된 데이터베이스 나열]: http://msdn.microsoft.com/library/azure/dn509562.aspx
+[데이터베이스 복원 요청 만들기]: https://msdn.microsoft.com/library/azure/dn509571.aspx
+[데이터베이스 작업 상태]: https://msdn.microsoft.com/library/azure/dn720371.aspx
+[복원 가능한 삭제된 데이터베이스 가져오기]: https://msdn.microsoft.com/library/azure/dn509574.aspx
+[복원 가능한 삭제된 데이터베이스 나열]: https://msdn.microsoft.com/library/azure/dn509562.aspx
 [Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
+
+<!--Blog references-->
+[DTU 할당량을 보고 늘리는 방법]: https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/
 
 <!--Other Web references-->
 [Azure 포털]: https://portal.azure.com/
-[지원 센터에 연락]: https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/
+[Microsoft 웹 플랫폼 설치 관리자]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

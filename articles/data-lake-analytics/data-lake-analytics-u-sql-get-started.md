@@ -3,7 +3,7 @@
    description="Visual Studio용 데이터 레이크 도구를 설치하는 방법과 U-SQL 스크립트를 개발하고 테스트하는 방법을 알아봅니다." 
    services="data-lake-analytics" 
    documentationCenter="" 
-   authors="mumian" 
+   authors="edmacauley" 
    manager="paulettm" 
    editor="cgronlun"/>
  
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/04/2016"
-   ms.author="jgao"/>
+   ms.date="04/26/2016"
+   ms.author="edmaca"/>
 
 # 자습서: Azure 데이터 레이크 분석 U-SQL 언어 시작
 
-U-SQL은 모든 규모의 데이터를 처리하도록 SQL의 장점을 사용자 코드의 표현력과 결합하는 언어입니다. U-SQL의 확장 가능한 분산 쿼리 기능을 통해 저장소 및 Azure SQL 데이터베이스와 같은 관계형 저장소의 데이터를 효율적으로 분석할 수 있습니다. 이를 통해, 읽기에 스키마를 적용하여 구조화되지 않은 데이터를 처리하고, 사용자 지정 논리 및 UDF를 삽입하고, 대규모 실행 방법을 정교하게 세분화하여 제어할 수 있도록 확장성을 포함할 수 있습니다. U-SQL의 디자인 원리에 대해 자세히 알아보려면 [Visual Studio 블로그 게시물](http://blogs.msdn.com/b/visualstudio/archive/2015/09/28/introducing-u-sql.aspx)을 참조하세요.
+U-SQL은 모든 규모의 데이터를 처리하도록 SQL의 장점을 사용자 코드의 표현력과 결합하는 언어입니다. U-SQL의 확장 가능한 분산 쿼리 기능을 통해 저장소 및 Azure SQL 데이터베이스와 같은 관계형 저장소의 데이터를 효율적으로 분석할 수 있습니다. 이를 통해, 읽기에 스키마를 적용하여 구조화되지 않은 데이터를 처리하고, 사용자 지정 논리 및 UDF를 삽입하고, 대규모 실행 방법을 정교하게 세분화하여 제어할 수 있도록 확장성을 포함할 수 있습니다. U-SQL의 디자인 원리에 대해 자세히 알아보려면 [Visual Studio 블로그 게시물](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/)을 참조하세요.
 
 ANSI SQL 또는 T-SQL과 일부 다른 점이 있습니다. 예를 들어, 키워드(예: SELECT)는 대문자여야 합니다.
 
@@ -47,7 +47,7 @@ select 절 내부의 식 언어 및 형식 시스템이며 조건자 등이 C#�
         TO "/output/SearchLog-first-u-sql.csv"
     USING Outputters.Csv();
 
-이 스크립트에는 변환 단계가 없습니다. **SearchLog.tsv**라는 원본 파일을 읽어와서 스키마를 만들고, 행 집합을 출력하여 **SearchLog-from-adltools.csv** 파일에 넣습니다.
+이 스크립트에는 변환 단계가 없습니다. **SearchLog.tsv**라는 원본 파일을 읽어와서 스키마를 만들고, 행 집합을 출력하여 **SearchLog-first-u-sql.csv** 파일에 넣습니다.
 
 Duration 필드의 데이터 형식 옆에 있는 물음표에 유의합니다. Duration 필드가 null이어도 된다는 것을 의미합니다.
 
@@ -64,7 +64,7 @@ Duration 필드의 데이터 형식 옆에 있는 물음표에 유의합니다. 
     
         wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
 
-    >[AZURE.NOTE]공용 Blob 또는 공용 컨테이너 액세스 권한이 있는 Azure Blob 컨테이너는 현재 지원되지 않습니다.
+    >[AZURE.NOTE] 공용 Blob 또는 공용 컨테이너 액세스 권한이 있는 Azure Blob 컨테이너는 현재 지원되지 않습니다.
 
 ## 스칼라 변수 사용
 
@@ -419,4 +419,4 @@ U-SQL은 데이터베이스 및 스키마 컨텍스트에서 데이터를 사용
 - [포럼에서 도움말 보기](http://aka.ms/adlaforums)
 - [U-SQL에 대한 피드백 제공](http://aka.ms/usqldiscuss)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0504_2016-->

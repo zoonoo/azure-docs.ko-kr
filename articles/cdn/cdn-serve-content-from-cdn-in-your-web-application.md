@@ -3,8 +3,8 @@
 	description="CDN에서 콘텐츠를 사용하여 웹 응용 프로그램의 성능을 향상시키는 방법에 대해 설명하는 자습서입니다." 
 	services="cdn" 
 	documentationCenter=".net" 
-	authors="cephalin" 
-	manager="wpickett" 
+	authors="camsoper" 
+	manager="erikre" 
 	editor="jimbe"/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
-	ms.author="cephalin"/>
+	ms.date="04/29/2016" 
+	ms.author="casoper"/>
 
 # 웹 응용 프로그램에서 Azure CDN의 콘텐츠 제공 #
 
@@ -277,4 +277,4 @@ Azure 앱 서비스 웹앱 또는 Azure 클라우드 서비스와 통합하지 �
 - [Azure CDN 사용](cdn-create-new-endpoint.md)
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

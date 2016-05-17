@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/07/2016"  
+ 	ms.date="05/03/2016"   
 	ms.author="juliako"/>
 
 
@@ -97,7 +97,7 @@ Microsoft Azure 미디어 서비스를 사용하면 AES(Advanced Encryption Stan
 
 
 ##다음 단계
-콘텐츠 키의 인증 정책을 구성했으므로 [방법: Azure 클래식 포털을 사용하여 암호화를 사용하도록 설정](../media-services-manage-content#encrypt/) 항목으로 이동합니다.
+콘텐츠 키의 인증 정책을 구성했으므로 [방법: Azure 클래식 포털을 사용하여 암호화를 사용하도록 설정](media-services-manage-content.md#encrypt) 항목으로 이동합니다.
 
 
 [open_policy]: ./media/media-services-portal-configure-content-key-auth-policy/media-services-protect-content-with-open-restriction.png
@@ -105,4 +105,4 @@ Microsoft Azure 미디어 서비스를 사용하면 AES(Advanced Encryption Stan
 
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

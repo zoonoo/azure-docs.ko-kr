@@ -5,7 +5,7 @@
 	documentationCenter=".net" 
 	authors="tdykstra" 
 	manager="wpickett" 
-	editor="jimbe"/>
+	editor=""/>
 
 <tags 
 	ms.service="app-service-web" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="01/19/2016" 
+	ms.date="04/27/2016" 
 	ms.author="tdykstra"/>
 
 # WebJob SDK를 사용하여 Azure Blob 저장소로 작업하는 방법
@@ -24,7 +24,7 @@
 
 Blob를 만드는 방법을 보여 주는 코드 샘플은 [WebJobs SDK를 사용하여 Azure 큐 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)을 참조하세요
 		
-이 가이드에서는 저장소 계정 또는 [여러 저장소 계정](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs)을 가리키는 연결 문자열을 사용하여 [Visual Studio에서 WebJob 프로젝트를 만드는 방법](websites-dotnet-webjobs-sdk-get-started.md)을 알고 있는 것으로 가정합니다.
+이 가이드에서는 저장소 계정 또는 [여러 저장소 계정](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs)을 가리키는 연결 문자열을 사용하여 Visual Studio에서 WebJob 프로젝트를 만드는 방법](websites-dotnet-webjobs-sdk-get-started.md)을 알고 있는 것으로 가정합니다.
 
 ## <a id="trigger"></a> Blob가 만들어지거나 업데이트될 때 함수를 트리거하는 방법
 
@@ -97,7 +97,7 @@ Blob를 만드는 방법을 보여 주는 코드 샘플은 [WebJobs SDK를 사�
 
 Azure 저장소 계정으로 직접 작업하려는 경우 메서드 서명에 `CloudStorageAccount` 매개 변수를 추가할 수도 있습니다.
 
-예제는 [GitHub.com의 azure-webjobs-sdk 리포지토리에 있는 blob 바인딩 코드](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/BlobBindingEndToEndTests.cs)를 참조하세요.
+예제는 [GitHub.com의 azure-webjobs-sdk 리포지토리에 있는 Blob 바인딩 코드](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/BlobBindingEndToEndTests.cs)를 참조하세요.
 
 ## <a id="string"></a> 문자열에 바인딩하여 텍스트 Blob 콘텐츠 가져오기
 
@@ -222,7 +222,7 @@ WebJobs SDK는 응용 프로그램이 시작될 때 `BlobTrigger` 특성에 지�
 
 WebJobs SDK는 동일한 새 Blob 또는 업데이트된 Blob에 대해 `BlobTrigger` 함수가 두 번 이상 호출되지 않도록 합니다. 이를 위해 *blob 수신 확인* 을 유지 관리하여 지정된 Blob 버전이 처리되었는지 확인합니다.
 
-Blob 수신 확인은 AzureWebJobsStorage 연결 문자열에 지정된 Azure 저장소 계정의 *azure-webjobs-hosts* 라는 컨테이너에 저장됩니다. Blob 수신 확인에는 다음 정보가 포함됩니다.
+Blob 수신 확인은 AzureWebJobsStorage 연결 문자열에 지정된 Azure 저장소 계정의 *azure-webjobs-hosts*라는 컨테이너에 저장됩니다. Blob 수신 확인에는 다음 정보가 포함됩니다.
 
 * Blob에 대해 호출된 함수("*{WebJob 이름}*.Functions.*{함수 이름}*", 예: "WebJob1.Functions.CopyBlob")
 * 컨테이너 이름
@@ -253,4 +253,4 @@ Blob를 강제로 처리하려면 *azure-webjobs-hosts* 컨테이너에서 해�
 이 가이드에서는 Azure Blob 작업에 대한 일반적인 시나리오를 처리하는 방법을 보여 주는 코드 샘플을 제공했습니다. Azure WebJob 및 WebJob SDK를 사용하는 방법에 대한 자세한 내용은 [Azure WebJob 권장 리소스](http://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

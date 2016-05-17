@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="04/25/2016"
+	ms.date="05/11/2016"
 	ms.author="anhoh"/>
 
 # NoSQL 자습서: DocumentDB C# 콘솔 응용 프로그램 빌드
@@ -61,15 +61,12 @@ DocumentDB 계정을 만들어 보겠습니다. 계정이 이미 있는 경우 [
 
 1. 컴퓨터에서 **Visual Studio 2015**를 엽니다.
 2. **파일** 메뉴에서 **새로 만들기**와 **프로젝트**를 차례로 선택합니다.
-3. **새 프로젝트** 대화 상자에서 **템플릿**/**Visual C#**/**콘솔 응용 프로그램**을 선택하고 프로젝트 이름을 지정한 후 **확인**을 클릭합니다. 
-![새 프로젝트 창의 스크린샷](./media/documentdb-get-started/nosql-tutorial-new-project-2.png)
+3. **새 프로젝트** 대화 상자에서 **템플릿**/**Visual C#**/**콘솔 응용 프로그램**을 선택하고 프로젝트 이름을 지정한 후 **확인**을 클릭합니다. ![새 프로젝트 창의 스크린샷](./media/documentdb-get-started/nosql-tutorial-new-project-2.png)
 4. **솔루션 탐색기**에서 Visual Studio 솔루션 아래에 있는 새 콘솔 응용 프로그램을 마우스 오른쪽 단추로 클릭합니다.
 5. 그런 다음 메뉴를 종료하지 않고 **NuGet 패키지 관리...**를 클릭합니다.  
 ![프로젝트의 마우스 오른쪽 단추 클릭 메뉴의 스크린샷](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges.png)
 6. **Nuget** 탭에서 **찾아보기**를 클릭하고 검색 상자에 **azure documentdb**를 입력합니다.
-7. 결과 내에서 **Microsoft.Azure.DocumentDB**를 찾아 **설치**를 클릭합니다. 
-DocumentDB 클라이언트 라이브러리의 패키지 ID는 [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB)입니다. 
-![DocumentDB 클라이언트 SDK를 찾기 위한 Nuget 메뉴의 스크린샷](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
+7. 결과 내에서 **Microsoft.Azure.DocumentDB**를 찾아 **설치**를 클릭합니다. DocumentDB 클라이언트 라이브러리의 패키지 ID는 [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB)입니다. ![DocumentDB 클라이언트 SDK를 찾기 위한 Nuget 메뉴의 스크린샷](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
 
 잘하셨습니다. 설치를 완료했으므로 코드를 작성해 보겠습니다. [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs)에서 이 자습서의 완성된 코드 프로젝트를 찾을 수 있습니다.
 
@@ -102,7 +99,7 @@ DocumentDB 클라이언트 라이브러리의 패키지 ID는 [Microsoft.Azure.D
 
 Azure 포털에서 1단계의 DocumentDB 계정으로 이동합니다.
 
-**Essentials** 모음에서 **키** 아이콘을 클릭합니다. URI를 복사하고 *<your endpoint URI>*를 프로그램에 복사된 URI로 바꿉니다. 기본 키를 복사하고 *<your key>* 을 프로그램에 복사된 키로 바꿉니다.
+**Essentials** 모음에서 **키** 아이콘을 클릭합니다. URI를 복사하고 *<your endpoint URI>*를 프로그램에 복사된 URI로 바꿉니다. 기본 키를 복사하고 *<your key>*을 프로그램에 복사된 키로 바꿉니다.
 
 ![C# 콘솔 응용 프로그램을 만들기 위해 NoSQL 자습서에서 사용하는 Azure 포털의 스크린샷 DocumentDB 계정 블레이드의 키 단추 및 키 블레이드의 URI, 기본 키 및 보조키 값이 강조 표시된 DocumentDB 계정을 보여 줌][keys]
 
@@ -451,7 +448,7 @@ DocumentDB는 각 컬렉션에 저장된 JSON 문서에 대해 다양한 [쿼리
 					queryOptions);
 
 			Console.WriteLine("Running direct SQL query...");
-			foreach (Family family in familyQuery)
+			foreach (Family family in familyQueryInSql)
 			{
 					Console.WriteLine("\tRead {0}", family);
 			}
@@ -614,4 +611,4 @@ Visual Studio에서 DocumentDB .NET SDK에 대한 참조를 복원하려면 솔�
 [documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

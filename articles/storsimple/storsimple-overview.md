@@ -1,10 +1,10 @@
 <properties 
    pageTitle="StorSimple 정의 | Microsoft Azure" 
-   description="StorSimple 계층화, 장치, 가상 장치, 서비스 및 저장소 관리에 대해 설명하고 Azure Storsimple에서 사용하는 주요 용어를 소개합니다." 
+   description="StorSimple 계층화, 장치, 가상 장치, 서비스, 저장소 관리에 대해 설명하고 StorSimple에서 사용하는 주요 용어를 소개합니다." 
    services="storsimple" 
    documentationCenter="NA" 
    authors="SharS" 
-   manager="carolz" 
+   manager="carmonm" 
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="01/15/2016"
+   ms.date="04/26/2016"
    ms.author="v-sharos@microsoft.com"/>
 
 # StorSimple 8000 시리즈: 하이브리드 클라우드 저장소 솔루션
@@ -26,7 +26,7 @@ StorSimple은 [저장소 계층화](#automatic-storage-tiering)를 사용하여 
 
 StorSimple 업데이트 2를 사용하여 *로컬로 고정*으로 적절한 볼륨을 식별하여 주 데이터를 장치에 로컬로 유지할 수 있으며 클라우드로 계층화하지 않습니다. 이를 통해 백업에 대한 클라우드를 사용하여 계속 진행하면서 로컬로 고정 볼륨에 SQL 및 가상 컴퓨터 작업과 같은 클라우드 대기 시간에 영향을 받는 작업을 실행할 수 있습니다. 로컬로 고정된 볼륨에 대한 자세한 내용은 [StorSimple 관리자 서비스를 사용하여 볼륨 관리](storsimple-manage-volumes-u2.md)를 참조하세요.
 
-업데이트 2를 통해 Azure 프리미엄 저장소에서 제공하는 낮은 대기 시간 및 고성능을 활용하는 StorSimple 가상 장치를 만들 수 있습니다. StorSimple 프리미엄 가상 장치에 대한 자세한 내용은 [Azure에서 StorSimple 가상 장치 배포 및 관리](storsimple-virtual-device-u1.md)를 참조하세요. Azure 프리미엄 저장소에 대한 자세한 내용은 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../storage/storage-premium-storage.md)로 이동합니다.
+업데이트 2를 통해 Azure 프리미엄 저장소에서 제공하는 낮은 대기 시간 및 고성능을 활용하는 StorSimple 가상 장치를 만들 수 있습니다. StorSimple 프리미엄 가상 장치에 대한 자세한 내용은 [Azure에서 StorSimple 가상 장치 배포 및 관리](storsimple-virtual-device-u2.md)를 참조하세요. Azure 프리미엄 저장소에 대한 자세한 내용은 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../storage/storage-premium-storage.md)로 이동합니다.
 
 저장소 관리 외에도 StorSimple 데이터 보호 기능을 통해 주문형 백업 및 예약된 백업을 만든 다음 로컬로 또는 클라우드에 저장할 수 있습니다. 백업은 증분 스냅숏 형태로 생성되므로 빠르게 만들고 복원할 수 있습니다. 클라우드 스냅숏은 보조 저장소 시스템(예: 테이프 백업)을 대체하기 때문에 재해 복구 시나리오에서 매우 중요할 수 있으며, 필요한 경우 데이터 센터 또는 대체 사이트에 데이터를 복원할 수 있게 해줍니다.
 
@@ -99,9 +99,9 @@ StorSimple을 사용하여 물리적 하이브리드 저장소 장치의 아키�
 - 클라우드에서 개수에 제한 없이 가상 장치를 만들 수 있으며 필요에 따라 설정 및 해제합니다. 
 - 재해 복구, 개발 및 테스트 시나리오에서 온-프레미스 환경을 시뮬레이션할 수 있고 백업에서 항목 수준의 검색에 도움이 될 수 있습니다. 
 
-업데이트 2 이상을 사용하여 StorSimple 가상 장치는 두 가지 모델, 8010 장치(이전의 1100 모델)와 8020 장치에서 사용할 수 있습니다. 8010 장치의 최대 용량은 30TB입니다. Azure 프리미엄 저장소를 활용하는 8020 장치의 최대 용량은 64TB입니다. (Azure 프리미엄 저장소는 SSD에 데이터를 저장하는 반면 표준 저장소는 HDD에 데이터를 저장합니다.) 프리미엄 저장소를 사용하려면 Azure 프리미엄 저장소 계정이 있어야 합니다. 프리미엄 저장소에 대한 자세한 내용은 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../storage/storage-premium-storage.md)로 이동합니다.
+업데이트 2 이상을 사용하여 StorSimple 가상 장치는 두 가지 모델, 8010 장치(이전의 1100 모델)와 8020 장치에서 사용할 수 있습니다. 8010 장치의 최대 용량은 30TB입니다. Azure 프리미엄 저장소를 활용하는 8020 장치의 최대 용량은 64TB입니다. (로컬 계층에서 Azure 프리미엄 저장소는 SSD에 데이터를 저장하는 반면 표준 저장소는 HDD에 데이터를 저장합니다.) 프리미엄 저장소를 사용하려면 Azure 프리미엄 저장소 계정이 있어야 합니다. 프리미엄 저장소에 대한 자세한 내용은 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../storage/storage-premium-storage.md)로 이동합니다.
 
-StorSimple 가상 장치에 대한 자세한 내용은 [Azure에서 StorSimple 가상 장치 배포 및 관리](storsimple-virtual-device-u1.md)로 이동합니다.
+StorSimple 가상 장치에 대한 자세한 내용은 [Azure에서 StorSimple 가상 장치 배포 및 관리](storsimple-virtual-device-u2.md)로 이동합니다.
 
 ## StorSimple 관리자 서비스
 
@@ -278,4 +278,4 @@ Microsoft Azure StorSimple 솔루션을 배포하기 전에 다음 용어와 정
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->

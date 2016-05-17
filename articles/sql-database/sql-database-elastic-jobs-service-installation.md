@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2016" 
+	ms.date="05/02/2016" 
 	ms.author="ddove;sidneyh"/>
 
 # 탄력적 데이터베이스 작업 설치 개요
@@ -50,7 +50,7 @@
 
 		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd tools
 
-2.	.\\InstallElasticDatabaseJobs.ps1 PowerShell 스크립트를 실행하고 요청된 변수에 대한 값을 제공합니다. 이 스크립트는 [탄력적 데이터베이스 작업 구성 요소 및 가격 책정](sql-database-elastic-jobs-overview/#components-and-pricing)에 설명된 구성 요소를 만들고 종속 구성 요소를 적절하게 사용하도록 Azure 클라우드 서비스를 구성합니다.
+2.	.\\InstallElasticDatabaseJobs.ps1 PowerShell 스크립트를 실행하고 요청된 변수에 대한 값을 제공합니다. 이 스크립트는 [탄력적 데이터베이스 작업 구성 요소 및 가격 책정](sql-database-elastic-jobs-overview.md#components-and-pricing)에 설명된 구성 요소를 만들고 종속 구성 요소를 적절하게 사용하도록 Azure 클라우드 서비스를 구성합니다.
 
 		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\InstallElasticDatabaseJobs.ps1
 		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\InstallElasticDatabaseJobs.ps1
@@ -187,4 +187,4 @@
 [3]: ./media/sql-database-elastic-jobs-service-installation/start-board.png
 [4]: ./media/sql-database-elastic-jobs-service-installation/not-done.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

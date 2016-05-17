@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/29/2016"
+	ms.date="05/10/2016"
 	ms.author="mandia"/>
 
 
@@ -35,7 +35,7 @@
 - 하이브리드 연결을 사용하는 응용 프로그램은 하이브리드 연결을 통해 게시되는 특정 온-프레미스 리소스에만 액세스합니다.
 - SQL Server, MySQL, HTTP Web API 및 대부분의 사용자 지정 웹 서비스와 같이 정적 TCP 포트를 사용하는 모든 온-프레미스 리소스에 연결할 수 있습니다.
 
-	> [AZURE.NOTE] 동적 포트(예: FTP 수동 모드 또는 확장 수동 모드)를 사용하는 TCP 기반 서비스는 현재 지원되지 않습니다.
+	> [AZURE.NOTE] 동적 포트(예: FTP 수동 모드 또는 확장 수동 모드)를 사용하는 TCP 기반 서비스는 현재 지원되지 않습니다. LDAP도 지원되지 않습니다. LDAP는 고정 TCP 포트를 사용하지만 UDP도 사용할 수 있기 때문에 지원되지 않습니다.
 
 - 웹앱에서 지원하는 모든 프레임워크(.NET, PHP, Java, Python, Node.js) 및 모바일 앱에서 지원하는 모든 프레임워크(Node.js, .NET)에서 사용할 수 있습니다.
 - 웹앱 및 모바일 앱은 웹이나 모바일 앱이 로컬 네트워크에 위치하는 것처럼 정확히 동일한 방식으로 온-프레미스 리소스에 액세스할 수 있습니다. 예를 들어 온-프레미스에 사용되는 동일한 연결 문자열을 Azure에서도 사용할 수 있습니다.
@@ -47,7 +47,7 @@
 - 회사 네트워크의 이벤트 및 감사 로그를 사용하여 하이브리드 연결을 통해 액세스하는 리소스를 확인할 수 있습니다.
 
 
-## 지원되는 구성
+## 예제 시나리오
 
 하이브리드 연결은 다음 프레임워크 및 응용 프로그램 조합을 지원합니다.
 
@@ -103,4 +103,4 @@
 [HCOnPremSetup]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0511_2016-->

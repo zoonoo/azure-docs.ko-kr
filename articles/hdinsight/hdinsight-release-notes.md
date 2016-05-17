@@ -14,11 +14,35 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/29/2016"
+	ms.date="05/03/2016"
 	ms.author="nitinme"/>
 
 
 # Azure HDInsight에서 Hadoop 구성 요소에 대한 릴리스 정보
+
+## HDInsight의 2016/04/11 릴리스 정보
+
+이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
+
+* HDInsight(Windows) 2.1.10.889.2191206(HDP 1.3.12.0-01795 - 변경되지 않음)
+* HDInsight(Windows) 3.0.6.889.2191206(HDP 2.0.13.0-2117 - 변경되지 않음)
+* HDInsight(Windows) 3.1.4.889.2191206(HDP 2.1.15.0-2374 - 변경되지 않음)
+* HDInsight(Windows) 3.2.7.889.2191206(HDP 2.2.9.1-10)
+* HDInsight(Windows) 3.3.0.889.2191206(HDP 2.3.3.1-16 -변경되지 않음)
+* HDInsight(Linux) 3.2.1000.0.7339916(HDP 2.2.9.1-10)
+* HDInsight(Linux) 3.3.1000.0.7339916(HDP 2.3.3.1-16)
+* HDInsight(Linux) 3.3.1000.0.7338911(HDP 2.4.1.1-3)
+* SDK 1.5.8
+
+이 릴리스에는 다음 업데이트가 포함되어 있습니다.
+
+| 제목 | 설명 | 영향을 받는 영역(예: 서비스, 구성 요소 또는 SDK) | 클러스터 유형(예: Hadoop, HBase 또는 Storm) | JIRA(적용 가능한 경우) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| HDI 3.4에 대한 사용자 지정 Metastore 업그레이드 문제 | 다른 HDInsight 클러스터의 더 낮은 버전에서 이전에 사용한 사용자 지정 Metastore를 사용 하는 경우 클러스터 생성이 실패할 수 있습니다. 이렇게 되는 이유는 업그레이드 스크립트 오류 때문이었으며 지금은 해결됨| 클러스터 만들기 | 모두 | 해당 없음
+| Livy Crash 복구 | Livy를 통해 제출된 모든 작업에 대한 작업 상태 복원력 제공 | 안정성 | Linux에서의 Spark| 해당 없음
+| Jupyter 콘텐츠 HA | 클러스터와 연결된 저장소 계정에 대해 Jupyter 노트북 콘텐츠를 저장 및 로드하는 기능을 제공합니다. 자세한 내용은 [Jupyter 노트북에 사용할 수 있는 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md)을 참조하세요.| 노트북 | Linux에서의 Spark| 해당 없음
+| Jupter 노트북에서 HiveContext 제거 | `%%hive` 매직 대신 `%%sql` 매직을 사용합니다. SqlContext는 hiveContext와 같습니다. 자세한 내용은 [Jupyter 노트북에 사용할 수 있는 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md)을 참조하세요.| 노트북 | Linux에서 Spark 클러스터| 해당 없음
+| 이전 Spark 버전의 사용 중단 | 5/31에 이전 버전 Spark 1.3.1이 서비스에서 제거됩니다. | 부여 | Linux에서 Spark 클러스터 | 해당 없음
 
 ## HDInsight의 2016/03/29 릴리스 정보
 
@@ -1499,7 +1523,7 @@ Oozie Metastore는 특정 클러스터에 연결되며 클러스터 간에 공�
 
 
 ### 드라이버
-SQL Server용 JDBC(Java Database Connnectivity) 드라이버는 HDInsight에서 내부적으로 사용되며 외부 작업에는 사용되지 않습니다. ODBC를 사용하여 HDInsight에 연결하려는 경우 Microsoft Hive ODBC(Open Database Connectivity) 드라이버를 사용하세요. 자세한 내용은 [HDInsight에 Microsoft Hive ODBC 드라이버로 Excel 연결](hdinsight-connect-excel-hive-odbc-driver.md)을 참조하세요.
+SQL Server용 JDBC(Java Database Connnectivity) 드라이버는 HDInsight에서 내부적으로 사용되며 외부 작업에는 사용되지 않습니다. odbc를 사용하여 HDInsight에 연결하려는 경우 Microsoft Hive odbc(Open Database Connectivity) 드라이버를 사용하세요. 자세한 내용은 [HDInsight에 Microsoft Hive ODBC 드라이버로 Excel 연결](../../articles/hdinsight/hdinsight-connect-excel-hive-odbc-driver.md) 을 참조하세요.
 
 
 ### 버그 수정
@@ -1541,4 +1565,4 @@ HDInsight 버전 클러스터에 사용되는 HDP(Hortonworks Data Platform)에 
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!------HONumber=AcomDC_0504_2016-->

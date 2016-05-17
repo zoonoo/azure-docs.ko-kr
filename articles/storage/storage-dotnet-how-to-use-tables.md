@@ -1,6 +1,6 @@
 <properties
 	pageTitle=".NET을 사용하여 Azure 테이블 저장소 시작 | Microsoft Azure"
-	description="Azure 테이블 저장소, Microsoft의 NoSQL 데이터 저장소를 사용하여 클라우드에 구조화된 데이터를 저장합니다. 테이블 만들기 및 삭제, 데이터 삽입, 업데이트, 삭제 및 쿼리를 포함하여 간단한 테이블 저장소 작업을 시작합니다."
+	description="Azure 테이블 저장소, NoSQL 데이터 저장소를 사용하여 클라우드에 구조화된 데이터를 저장합니다."
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="04/07/2016"
+	ms.date="04/29/2016"
 	ms.author="tamram"/>
 
 
@@ -463,4 +463,4 @@ Azure 테이블 저장소는 클라우드에 구조화된 NoSQL 데이터를 저
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

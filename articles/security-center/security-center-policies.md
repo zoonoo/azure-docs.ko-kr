@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/22/2016"
+   ms.date="05/10/2016"
    ms.author="yurid"/>
 
 # Azure 보안 센터에서 보안 정책 설정
@@ -37,11 +37,11 @@ Azure 보안 센터는 Azure 리소스의 보안에 대한 향상된 가시성�
 
 2. 오른쪽에 열리는 **보안 정책 - 구독 또는 리소스 그룹당 정책 정의** 블레이드에서 보안 정책을 활성화할 구독을 선택합니다. 전체 구독 대신 리소스 그룹에 대한 보안 정책을 사용하려는 경우 다음 섹션까지 아래로 스크롤하면 리소스 그룹에 대한 보안 정책의 설정에 대한 설명이 있습니다.
 
-    ![데이터 수집 사용](./media/security-center-policies/security-center-policies-fig01.png)
+    ![정책 정의](./media/security-center-policies/security-center-policies-fig01.png)
 
 3. 해당 구독에 대한 **보안 정책** 블레이드가 열리고 아래와 비슷한 옵션이 제공됩니다.
 
-    ![데이터 수집 사용](./media/security-center-policies/security-center-policies-fig1-1.png)
+    ![데이터 수집 사용](./media/security-center-policies/security-center-policies-fig1-new.png)
 
 4. **가상 컴퓨터에서 데이터 수집** 옵션을 **켜기**로 설정합니다. 이 옵션은 기존 및 새 리소스에 대한 자동 로그 수집을 활성화합니다.
 
@@ -61,20 +61,24 @@ Azure 보안 센터는 Azure 리소스의 보안에 대한 향상된 가시성�
 
     > [AZURE.NOTE] 원한다면 여러 지역에 있는 가상 컴퓨터의 데이터를 중앙 저장소 계정 하나에 집계할 수 있습니다. 자세한 내용은 [Azure 보안 센터 FAQ](security-center-faq.md)를 참조하세요.
 
-9. **보안 정책** 블레이드에서 **켜기**를 클릭하고 이 구독에 사용할 보안 권장 사항을 활성화합니다. 아래 표를 참조하여 각 옵션의 역할에 대해 알아보세요.
+9. **보안 정책** 블레이드에서 **켜기**를 클릭하고 이 구독에 사용할 보안 권장 사항을 활성화합니다. **방지 정책** 옵션을 클릭합니다. **보안 정책** 블레이드가 아래와 같이 열립니다.
+
+	![보안 정책 선택](./media/security-center-policies/security-center-policies-fig1-1-new2.png)
+
+아래 표를 참조하여 각 옵션의 역할에 대해 알아보세요.
 
 | 정책 | 상태가 켜진 경우 |
 |----- |-----|
 | 시스템 업데이트 | 해당 가상 컴퓨터에 대해 구성된 서비스에 따라 12시간마다 Windows 업데이트 또는 WSUS에서 사용 가능한 업데이트 목록을 검색하여 누락된 보안 및 중요 업데이트를 Windows 가상 컴퓨터에 설치합니다. |
 | 기준 규칙 | 모든 지원되는 가상 컴퓨터를 분석하여 공격에 취약한 OS 구성을 파악하고 이러한 취약점을 해결하기 위한 구성 변경을 권장합니다. 모니터링되는 특정 구성에 대한 자세한 내용은 [권장 기준 목록](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335)을 참조하세요. |
-| 맬웨어 방지 | 바이러스, 스파이웨어 및 기타 악성 소프트웨어를 파악하여 제거할 수 있도록 모든 Windows 가상 컴퓨터에 맬웨어 방지 프로그램을 프로비전하도록 권장합니다. |
-| 끝점에 액세스 제어 목록 | [ACL(액세스 제어 목록)](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md)을 구성하여 클래식 가상 컴퓨터 끝점에 대한 액세스를 제한할 것을 권장합니다. 이 방법은 회사 네트워크에 연결된 사용자만 가상 컴퓨터에 액세스할 수 있도록 제한할 때 주로 사용됩니다. |
-| 네트워크 보안 그룹 | 리소스 관리자 가상 컴퓨터의 서브넷 및 네트워크 인터페이스에 대한 인바운드 및 아웃바운드 트래픽을 제어할 수 있도록 [NSG(네트워크 보안 그룹)](../virtual-network/virtual-networks-nsg.md)를 구성할 것을 권장합니다. 별도로 지정하지 않는 한, 서브넷에 대해 구성된 NSG는 모든 가상 컴퓨터 네트워크 인터페이스에서 상속합니다. NSG가 구성되었는지 확인하는 것 외에도 이 옵션은 인바운드 보안 규칙을 평가하여 들어오는 트래픽을 허용하는 규칙이 있는지 식별합니다. |
-| 웹 응용 프로그램 방화벽 | [ILPIP(인스턴스 수준 공용 IP)](../virtual-network/virtual-networks-instance-level-public-ip.md)가 사용되고 연결된 NSG 인바운드 보안 규칙이 포트 80/443에 대한 액세스를 허용하도록 구성된 경우 가상 컴퓨터에 웹 응용 프로그램 방화벽을 프로비전할 것을 권장합니다. VIP(부하 분산 IP)가 사용되고 연결된 부하 분산 및 인바운드 NAT 규칙이 포트 80/443에 대한 액세스를 허용하도록 구성된 경우(자세한 내용은 [부하 분산 장치에 대한 Azure 리소스 관리자 지원](../load-balancer/load-balancer-arm.md) 참조) |
+| Endpoint Protection | 바이러스, 스파이웨어 및 기타 악성 소프트웨어를 파악하여 제거할 수 있도록 모든 Windows 가상 컴퓨터에 Endpoint Protection을 프로비전하도록 권장합니다. 
+| 네트워크 보안 그룹 | 서브넷 및 네트워크 인터페이스에 대한 인바운드 및 아웃바운드 트래픽을 제어할 수 있도록 [NSG(네트워크 보안 그룹)](../virtual-network/virtual-networks-nsg.md)를 구성하도록 권장합니다. 별도로 지정하지 않는 한, 서브넷에 대해 구성된 NSG는 모든 가상 컴퓨터 네트워크 인터페이스에서 상속합니다. NSG가 구성되었는지 확인하는 것 외에도 이 옵션은 인바운드 보안 규칙을 평가하여 들어오는 트래픽을 허용하는 규칙이 있는지 식별합니다. |
+| 웹 응용 프로그램 방화벽 | [ILPIP(인스턴스 수준 공용 IP)](../virtual-network/virtual-networks-instance-level-public-ip.md)가 사용되고 연결된 NSG 인바운드 보안 규칙이 포트 80/443에 대한 액세스를 허용하도록 구성된 경우 가상 컴퓨터에 웹 응용 프로그램 방화벽을 프로비전하도록 권장합니다. VIP(부하 분산 IP)가 사용되고 연결된 부하 분산 및 인바운드 NAT 규칙이 포트 80/443에 대한 액세스를 허용하도록 구성된 경우(자세한 내용은 [부하 분산 장치에 대한 Azure 리소스 관리자 지원](../load-balancer/load-balancer-arm.md) 참조) |
+| 차세대 방화벽 | Azure에 기본 제공되는 네트워크 보안 그룹 외에도 네트워크 보호 기능을 확장합니다. 보안 센터는 차세대 방화벽을 권장하는 배포를 검색하고 가상 어플라이언스를 프로비전할 수 있도록 합니다. |
 | SQL 감사 | 규정 준수, 고급 감지 및 조사를 위해 Azure SQL Server 및 데이터베이스에 대한 액세스 감사를 활성화할 것을 권장합니다. |
 | SQL 투명한 데이터 암호화 | 데이터 위반이 있더라도 데이터를 읽을 수 없도록 Azure SQL 데이터베이스, 연결된 백업 및 트랜잭션 로그 파일에 대해 휴지 상태의 암호화를 활성화할 것을 권장합니다. |
 
-10\.모든 옵션을 구성한 후 **저장**을 클릭하여 변경합니다.
+11\. 옵션을 모두 구성하여 완료되면 권장 사항이 있는 **보안 정책** 블레이드에서 **확인 **을 클릭하고 초기 설정이 있는 **보안 정책** 블레이드에서 **저장**을 클릭합니다.
 
 ## 리소스 그룹에 대한 보안 정책 설정
 
@@ -82,10 +86,9 @@ Azure 보안 센터는 Azure 리소스의 보안에 대한 향상된 가시성�
 
 ![리소스 그룹 선택](./media/security-center-policies/security-center-policies-fig4.png)
 
-리소스 그룹을 선택한 후에 **보안 정책** 블레이드가 열립니다. 기본적으로 **상속** 옵션을 사용하면 리소스 그룹에 대한 모든 보안 정책이 구독 수준에서 상속되게 됩니다. 리소스 그룹당 보안 정책을 사용자 지정하려는 경우 이 구성을 변경할 수 있습니다. 이런 경우 **고유**를 선택하고 **권장 사항 표시** 옵션에서 변경 사항을 만듭니다.
+리소스 그룹을 선택한 후에 **보안 정책** 블레이드가 열립니다. 기본적으로 **상속** 옵션을 사용하면 리소스 그룹에 대한 모든 보안 정책이 구독 수준에서 상속되게 됩니다. 리소스 그룹당 보안 정책을 사용자 지정하려는 경우 이 구성을 변경할 수 있습니다. 이런 경우 **고유**를 선택하고 **방지 정책** 옵션에서 변경 사항을 만듭니다.
 
-
-![리소스 그룹당 보안 정책](./media/security-center-policies/security-center-policies-fig5.png)
+![리소스 그룹당 보안 정책](./media/security-center-policies/security-center-policies-fig5-new.png)
 
 > [AZURE.NOTE] 구독 수준 정책과 리소스 그룹 수준 정책 간에 충돌이 발생한 경우 리소스 수준 정책이 우선 적용됩니다.
 
@@ -94,10 +97,11 @@ Azure 보안 센터는 Azure 리소스의 보안에 대한 향상된 가시성�
 
 이 문서에서는 Azure 보안 센터에서 보안 정책을 구성하는 방법을 배웠습니다. Azure 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
+- [Azure 보안 센터의 계획 및 운영 가이드](security-center-planning-and-operations-guide.md) - 디자인 고려 사항을 계획하고 이해하여 Azure 보안 센터를 채택하는 방법을 알아봅니다.
 - [Azure 보안 센터에서 보안 상태 모니터링](security-center-monitoring.md) – Azure 리소스의 상태를 모니터링하는 방법 알아보기
 - [Azure 보안 센터에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법 알아보기
-- [Azure 보안 센터를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md)--파트너 솔루션의 상태를 모니터링하는 방법 알아보기
+- [Azure 보안 센터를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md) -- 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
 - [Azure 보안 센터 FAQ](security-center-faq.md) – 서비스 사용에 관한 질문과 대답 찾기
 - [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) – Azure 보안 및 규정 준수에 관한 블로그 게시물 찾기
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

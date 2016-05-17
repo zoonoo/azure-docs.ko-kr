@@ -19,10 +19,11 @@
 |[NetOnewayRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.netonewayrelaybinding.aspx) 및 [NetEventRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.neteventrelaybinding.aspx) 릴레이의 메시지 크기|시스템 수준|정적|이러한 할당량을 초과하는 들어오는 메시지는 거부되며 호출 코드에서 예외를 수신합니다.|64KB 
 |[HttpRelayTransportBindingElement](https://msdn.microsoft.com/library/microsoft.servicebus.httprelaytransportbindingelement.aspx) 및 [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) 릴레이의 메시지 크기|시스템 수준|정적|-|제한 없음| 
 |큐/토픽/구독 엔터티의 메시지 속성 크기|시스템 수준|정적|A **SerializationException** 예외가 생성됩니다.|각 속성의 최대 메시지 속성 크기는 32K입니다. 모든 속성의 누적 크기는 64K를 초과할 수 없습니다. 이 제한은 사용자 속성과 시스템 속성([SequenceNumber](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.sequencenumber.aspx), [Label](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.label.aspx), [MessageId](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx) 등)을 모두 포함하는 [BrokeredMessage](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.aspx)의 전체 헤더에 적용됩니다.| 
-|토픽당 구독 수|시스템 수준|정적|항목에서 추가 구독을 만들기 위한 후속 요청은 거부됩니다. 따라서 포털을 통해 구성된 경우 오류 메시지가 표시됩니다. 관리 API에서 호출된 경우 호출 코드에서 예외를 수신합니다.|2,000| |토픽당 SQL 필터 수|시스템 수준|정적|토픽에서 추가 필터를 만들기 위한 후속 요청이 거부되며 호출 코드에서 예외를 수신합니다.|2,000| 
+|토픽당 구독 수|시스템 수준|정적|항목에서 추가 구독을 만들기 위한 후속 요청은 거부됩니다. 따라서 포털을 통해 구성된 경우 오류 메시지가 표시됩니다. 관리 API에서 호출된 경우 호출 코드에서 예외를 수신합니다.|2,000|
+|토픽당 SQL 필터 수|시스템 수준|정적|토픽에서 추가 필터를 만들기 위한 후속 요청이 거부되며 호출 코드에서 예외를 수신합니다.|2,000| 
 |토픽당 상관 관계 필터 수|시스템 수준|정적|토픽에서 추가 필터를 만들기 위한 후속 요청이 거부되며 호출 코드에서 예외를 수신합니다.|100,000| 
 |SQL 필터/작업 크기|시스템 수준|정적|추가 필터를 만들기 위한 후속 요청이 거부되며 호출 코드에서 예외를 수신합니다.|필터 조건 문자열의 최대 길이: 1024(1K)<br /><br />규칙 동작 문자열의 최대 길이: 1024(1K)<br /><br />규칙 동작당 최대 식 수: 32|
 
 [Azure 클래식 포털]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0420_2016-->
+<!-----HONumber=AcomDC_0420_2016-->

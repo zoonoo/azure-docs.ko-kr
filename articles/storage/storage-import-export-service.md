@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/06/2016"
+	ms.date="04/29/2016"
 	ms.author="renash"/>
 
 
@@ -239,13 +239,13 @@ Azure 가져오기/내보내기 도구는 각 드라이브가 준비되면 각 �
 
 - 미국 및 유럽 지역에서는 [Federal Express](http://www.fedex.com/us/oadr/)(FedEx)만 지원됩니다. 모든 패키지는 FedEx Ground 또는 FedEx International Economy를 통해 반송됩니다.
 
-- 아시아 지역에서는 [DHL](http://www.dhl.com/)만 지원됩니다. 모든 패키지는 DHL Express Worldwide를 통해 반환됩니다.
+- APAC 동부, APAC 남동부, 오스트레일리아 동부, 오스트레일리아 남동부 및 일본 서부에서만 [DHL](http://www.dhl.com/)이 지원됩니다. 모든 패키지는 DHL Express Worldwide를 통해 반환됩니다.
 
 	> [AZURE.IMPORTANT] Azure 가져오기/내보내기 서비스에 추적 번호를 제공해야 합니다. 그렇지 않으면 작업을 처리할 수 없습니다.
 
 **반환 발송과 관련된 비용이 있습니까?**
 
-- Microsoft는 작업 완료 시 사용자가 제공한 택배사 계정 번호를 사용하여 데이터 센터에서 사용자의 반품 주소로 드라이브를 배송합니다. 데이터 센터 지역의 지원되는 택배사의 택배사 계정 번호를 제공해야 합니다. 계정 번호가 없으면 [FedEx](http://www.fedex.com/us/oadr/)(미국 및 유럽) 또는 [DHL](http://www.dhl.com/)(아시아) 택배사 계정을 만들 수 있습니다.
+- Microsoft는 작업 완료 시 사용자가 제공한 택배사 계정 번호를 사용하여 데이터 센터에서 사용자의 반품 주소로 드라이브를 배송합니다. 데이터 센터 지역의 지원되는 택배사의 택배사 계정 번호를 제공해야 합니다. 계정 번호가 없을 경우 [FedEx](http://www.fedex.com/us/oadr/)(미국 및 유럽) 또는 [DHL](http://www.dhl.com/)(아시아 및 오스트레일리아) 운송업체 계정을 만들 수 있습니다.
 
 - 반송료는 택배사 계정에 부과되며 택배사에 따라 다릅니다.
 
@@ -254,12 +254,17 @@ Azure 가져오기/내보내기 도구는 각 드라이브가 준비되면 각 �
 - 가져오기/내보내기 서비스는 다음 지역의 저장소 계정에 대한 데이터 가져오기 및 데이터 내보내기를 지원합니다.
 	- 미국 동부
 	- 미국 서부
+	- 미국 동부 2
+	- 미국 중부
 	- 미국 중북부
 	- 미국 중남부
 	- 북유럽
 	- 서유럽
 	- 동아시아
 	- 동남아시아
+	- 오스트레일리아 동부
+	- 오스트레일리아 남동부
+	- 일본 서부
 
 - 저장소 계정이 있는 지역의 배송지 주소가 제공됩니다. 예를 들어 미국에 거주하며 저장소 계정이 서유럽 데이터 센터에 있는 경우 드라이브 전송을 위해 유럽의 배송지 주소가 제공됩니다.
 
@@ -288,4 +293,4 @@ Azure 가져오기/내보내기 도구는 각 드라이브가 준비되면 각 �
 [export-job-03]: ./media/storage-import-export-service/export-job-03.png
 [export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

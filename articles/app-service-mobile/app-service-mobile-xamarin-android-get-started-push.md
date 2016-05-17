@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Azure 앱 서비스를 사용하여 Xamarin.Android 앱에 푸시 알림 추가"
+	pageTitle="Xamarin.Android 앱에 푸시 알림 추가 | Azure 앱 서비스"
 	description="Azure 앱 서비스와 Azure 알림 허브를 사용하여 Xamarin Android 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다."
 	services="app-service\mobile"
 	documentationCenter="xamarin"
 	authors="ggailey777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="05/03/2016"
 	ms.author="glenga"/>
 
 # Xamarin.Android 앱에 푸시 알림 추가
@@ -79,4 +79,4 @@
 [Google Cloud Messaging Client Component]: http://components.xamarin.com/view/GCMClient/
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -1,7 +1,7 @@
 <properties
 
-	pageTitle="Managing security groups in Azure Active Directory | Microsoft Azure"
-	description="How to create and manage security groups to manage Azure resource access using Azure Active Directory."
+	pageTitle="Managing groups in Azure Active Directory | Microsoft Azure"
+	description="How to create and manage groups to manage Azure resource access using Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
@@ -22,7 +22,7 @@
 
 Azure AD(Azure Active Directory)의 주요 기능 중 하나는 리소스에 대한 액세스를 관리하는 기능입니다. 이러한 리소스는 디렉터리에 있는 개체이거나 SaaS 응용 프로그램, Azure 서비스, SharePoint 사이트 또는 온-프레미스 리소스와 같이디렉터리 외부에 있는 리소스일 수 있습니다. 또한 리소스 소유자는 Azure AD 그룹에 리소스에 대한 액세스를 할당할 수 있습니다. 이는 해당 그룹의 멤버에게 리소스에 대한 액세스 권한을 부여합니다. 그런 다음 그룹의 소유자는 그룹의 멤버 자격을 관리합니다. 실질적으로 리소스 소유자는 그룹의 소유자에게 권한을 위임하여 해당 리소스에 사용자를 할당합니다.
 
-## 보안 그룹을 만드는 방법
+## 그룹을 만드는 방법
 
 **그룹 만들려면**
 
@@ -102,4 +102,4 @@ Azure AD에서는 간단한 규칙을 매우 쉽게 설정하여(단일 비교�
 
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

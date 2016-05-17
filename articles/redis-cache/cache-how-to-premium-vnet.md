@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/04/2016" 
+	ms.date="04/27/2016" 
 	ms.author="sdanie"/>
 
 # 프리미엄 Azure Redis Cache에 가상 네트워크 지원을 구성하는 방법
@@ -119,4 +119,4 @@ VNET은 프리미엄 캐시에만 사용할 수 있습니다.
 
 [redis-cache-vnet-info]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-info.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -219,9 +219,9 @@ Microsoft 데이터 저장소의 경우 데이터 저장소 성능 특성를 이
 
 - Azure 저장소(Azure Blob, Azure 테이블 포함): [Azure 저장소 확장성 목표](../storage/storage-scalability-targets.md) 및 [Azure 저장소 성능 및 확장성 검사 목록](../storage//storage-performance-checklist.md)입니다.
 - Azure SQL 데이터베이스: [성능을 모니터링](../sql-database/sql-database-service-tiers.md#monitoring-performance)하고 DTU(데이터베이스 트랜잭션 단위) 비율을 확인할 수 있습니다.
-- Azure SQL 데이터 웨어하우스: 해당 기능은 데이터 웨어하우스 단위(DWU)로 측정됩니다. [SQL 데이터 웨어하우스를 통한 탄력적인 성능과 확장](../sql-data-warehouse/sql-data-warehouse-performance-scale.md)을 참조합니다.
+- Azure SQL 데이터 웨어하우스: 해당 기능은 데이터 웨어하우스 단위(DWU)로 측정됩니다. [SQL 데이터 웨어하우스를 통한 탄력적인 성능과 확장](../sql-data-warehouse/sql-data-warehouse-overview-scalability.md)을 참조합니다.
 - Azure DocumentDB: [DocumentDB의 성능 수준](../documentdb/documentdb-performance-levels.md)입니다.
 - 온-프레미스 SQL Server: [성능에 대한 모니터링 및 튜닝](https://msdn.microsoft.com/library/ms189081.aspx)을 수행합니다.
 - 온-프레미스 파일 서버: [파일 서버에 대한 성능 튜닝](https://msdn.microsoft.com/library/dn567661.aspx)입니다.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

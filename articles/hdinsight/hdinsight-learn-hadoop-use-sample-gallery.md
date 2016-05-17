@@ -14,12 +14,12 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="02/04/2016"
+   ms.date="04/27/2016"
    ms.author="jgao"/>
 
 # Azure HDInsight 시작 갤러리를 사용하여 Hadoop에 대해 알아보기
 
-HDInsight 시작 갤러리는 HDInsight에서 샘플 응용 프로그램을 실행하여 쉽고 빠르게 Hadoop을 학습하는 방법을 제공합니다. 일부 샘플이 샘플 데이터와 함께 제공됩니다. 샘플의 나머지 부분에 자신만의 데이터를 제공할 수 있습니다. 현재는 다음 6개의 샘플이 있습니다(향후 추가 예정).
+시작 갤러리는 Windows 기반 HDInsight 클러스터에서만 사용할 수 있습니다. 갤러리는 HDInsight에서 샘플 응용 프로그램을 실행하여 쉽고 빠르게 Hadoop을 학습하는 방법을 제공합니다. 일부 샘플이 샘플 데이터와 함께 제공됩니다. 샘플의 나머지 부분에 자신만의 데이터를 제공할 수 있습니다. 현재는 다음 6개의 샘플이 있습니다(향후 추가 예정).
 
 - Azure 데이터를 사용한 솔루션
 	- Microsoft Azure 웹사이트 로그 분석
@@ -60,8 +60,8 @@ HDInsight에 대해 알아볼 수 있는 다른 방법은 다음과 같습니다
 [hdinsight.twitter.sample]: ./media/hdinsight-learn-hadoop-use-sample-gallery/HDInsight-Twitter-Trend-Analysis-sample.png
 
 <!--Link references-->
-[hdinsight.learn.map]: hdinsight-learn-map.md
+[hdinsight.learn.map]: https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
 [azure.portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory 도메인 서비스 미리 보기: 관리 가이드 | Microsoft Azure"
+	pageTitle="Azure Active Directory 도메인 서비스 미리 보기: 관리되는 도메인에서 DNS 관리 | Microsoft Azure"
 	description="Azure Active Directory 도메인 서비스를 사용하여 관리되는 도메인에서 DNS 관리"
 	services="active-directory-ds"
 	documentationCenter=""
@@ -13,19 +13,37 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/08/2016"
+	ms.date="04/27/2016"
 	ms.author="maheshu"/>
 
 # Azure AD 도메인 서비스 관리되는 도메인에서 DNS 관리
-Azure Active Directory 도메인 서비스는 관리되는 도메인에 대한 DNS 확인을 제공하는 DNS(도메인 이름 확인) 서버를 포함합니다. 경우에 따라 부하 분산 장치 또는 외부 DNS 전달자에 대한 가상 IP 주소, 도메인에 가입되지 않은 컴퓨터에 대한 레코드를 위해 관리되는 도메인에서 DNS를 구성해야 할 수 있습니다. 이러한 이유로 'AAD DC 관리자' 그룹에 속한 사용자에게 관리되는 도메인에 대한 DNS 관리 권한이 부여됩니다.
-
-## 관리되는 도메인에 대한 DNS를 원격으로 관리하기 위해 도메인에 가입된 가상 컴퓨터 프로비전
-Azure AD 도메인 서비스 관리되는 도메인을 AD PowerShell 또는 ADAC(Active Directory 관리 센터)와 같은 친숙한 Active Directory 관리 도구를 사용하여 원격으로 관리할 수 있습니다. 마찬가지로, DNS 서버 관리 도구를 사용하여 관리되는 도메인에 대한 DNS를 원격으로 관리할 수 있습니다. 테넌트 관리자는 원격 데스크톱을 통해 관리되는 도메인의 도메인 컨트롤러에 연결할 권한이 없습니다. 따라서 'AAD DC 관리자' 그룹의 멤버는 관리되는 도메인에 가입된 Windows Server/클라이언트 컴퓨터에서 DNS 서버 도구를 사용하여 관리되는 도메인에 대한 DNS를 원격으로 관리할 수 있습니다. DNS 서버 도구는 관리되는 도메인에 가입된 클라이언트 컴퓨터 및 Windows Server에서 원격 서버 관리 도구(RSAT) 선택적 기능의 일부로 설치할 수 있습니다.
-
-첫 번째 단계는 관리되는 도메인에 가입된 Windows Server 가상 컴퓨터를 설정하는 것입니다. 이 작업을 수행하는 지침은 [Window Server 가상 컴퓨터를 Azure AD 도메인 서비스 관리되는 도메인에 가입](active-directory-ds-admin-guide-join-windows-vm.md)이라는 문서를 참조하세요. 이러한 지침에서는 AAD-DS 관리되는 도메인을 관리하기 위해 Windows Server 가상 컴퓨터를 사용합니다. 또한 이 작업을 위해 Windows 클라이언트(예: Windows 10) 가상 컴퓨터를 사용하도록 선택할 수도 있습니다. 이 경우 가상 컴퓨터에서 원격 서버 관리 도구 선택적 기능을 설치할 수 있습니다.
+Azure Active Directory 도메인 서비스는 관리되는 도메인에 대한 DNS 확인을 제공하는 DNS(도메인 이름 확인) 서버를 포함합니다. 경우에 따라 부하 분산 장치 또는 외부 DNS 전달자에 대한 가상 IP 주소, 도메인에 가입되지 않은 컴퓨터에 대한 DNS 레코드를 만들기 위해 관리되는 도메인에서 DNS를 구성해야 할 수 있습니다. 이러한 이유로 'AAD DC 관리자' 그룹에 속한 사용자에게 관리되는 도메인에 대한 DNS 관리 권한이 부여됩니다.
 
 
-## 가상 컴퓨터에 DNS 서버 도구 설치
+## 시작하기 전에
+이 문서에 나열된 작업을 수행하려면 다음이 필요합니다.
+
+1. 유효한 **Azure 구독**
+
+2. **Azure AD 디렉터리** - 온-프레미스 디렉터리 또는 클라우드 전용 디렉터리와 동기화됩니다.
+
+3. Azure AD 디렉터리에 대해 **Azure AD 도메인 서비스**를 사용하도록 설정해야 합니다. 그렇지 않은 경우 [시작 가이드](./active-directory-ds-getting-started.md)에 간략히 설명된 모든 작업을 따릅니다.
+
+4. Azure AD 도메인 서비스 관리되는 도메인을 관리하게 될 **도메인에 가입된 가상 컴퓨터**. 이러한 가상 컴퓨터가 없는 경우 [Windows 가상 컴퓨터를 관리되는 도메인에 가입](./active-directory-ds-admin-guide-join-windows-vm.md) 문서에 설명된 모든 작업을 수행하세요.
+
+5. 관리되는 도메인에 대한 DNS를 관리하려면 디렉터리의 **'AAD DC 관리자' 그룹에 속한 사용자 계정**의 자격 증명이 필요합니다.
+
+<br>
+
+## 작업 1 - 관리되는 도메인에 대한 DNS를 원격으로 관리하기 위해 도메인에 가입된 가상 컴퓨터 프로비전
+Azure AD 도메인 서비스 관리되는 도메인을 AD PowerShell 또는 ADAC(Active Directory 관리 센터)와 같은 친숙한 Active Directory 관리 도구를 사용하여 원격으로 관리할 수 있습니다. 마찬가지로, DNS 서버 관리 도구를 사용하여 관리되는 도메인에 대한 DNS를 원격으로 관리할 수 있습니다.
+
+Azure AD 디렉터리의 테넌트 관리자는 원격 데스크톱을 통해 관리되는 도메인의 도메인 컨트롤러에 연결할 권한이 없습니다. 따라서 'AAD DC 관리자' 그룹의 멤버는 관리되는 도메인에 가입된 Windows Server/클라이언트 컴퓨터에서 DNS 서버 도구를 사용하여 관리되는 도메인에 대한 DNS를 원격으로 관리할 수 있습니다. DNS 서버 도구는 관리되는 도메인에 가입된 클라이언트 컴퓨터 및 Windows Server에서 원격 서버 관리 도구(RSAT) 선택적 기능의 일부로 설치할 수 있습니다.
+
+Windows Server 가상 컴퓨터를 프로비전하기 위한 첫 번째 작업은 관리되는 도메인에 가입하는 것입니다. 이 작업을 수행하는 지침은 [Windows Server 가상 컴퓨터를 Azure AD 도메인 서비스 관리되는 도메인에 가입](active-directory-ds-admin-guide-join-windows-vm.md)이라는 문서를 참조하세요.
+
+
+## 작업 2 - 가상 컴퓨터에 DNS 서버 도구 설치
 도메인에 가입된 가상 컴퓨터에 DNS 관리 도구를 설치하려면 다음 단계를 수행합니다. [원격 서버 관리 도구 설치 및 사용](https://technet.microsoft.com/library/hh831501.aspx)에 대한 자세한 내용은 TechNet을 참조하세요.
 
 1. Azure 클래식 포털에서 **가상 컴퓨터** 노드로 이동합니다. 방금 만든 가상 컴퓨터를 선택하고 창 아래쪽에 있는 명령 모음에서 **연결**을 클릭합니다.
@@ -63,8 +81,10 @@ Azure AD 도메인 서비스 관리되는 도메인을 AD PowerShell 또는 ADAC
 	![확인 페이지](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-dns-confirmation.png)
 
 
-## DNS 관리 콘솔 시작
+## 작업 3 - DNS 관리 콘솔을 실행하여 DNS 관리
 이제 DNS 서버 도구 기능을 도메인에 가입된 가상 컴퓨터에 설치했으므로 DNS 도구를 사용하여 관리되는 도메인에서 DNS를 관리할 수 있습니다.
+
+> [AZURE.NOTE] 관리되는 도메인의 DNS를 관리하려면 'AAD DC 관리자' 그룹의 구성원이어야 합니다.
 
 1. 시작 화면에서 **관리 도구**를 클릭합니다. 가상 컴퓨터에 설치된 **DNS** 콘솔이 표시됩니다.
 
@@ -87,4 +107,15 @@ Azure AD 도메인 서비스 관리되는 도메인을 AD PowerShell 또는 ADAC
 
 DNS 관리에 대한 자세한 내용은 [Technet의 DNS 도구 문서](https://technet.microsoft.com/library/cc753579.aspx)를 참조하세요.
 
-<!---HONumber=AcomDC_0420_2016-->
+
+## 관련 콘텐츠
+
+- [Azure AD 도메인 서비스 - 시작 가이드](./active-directory-ds-getting-started.md)
+
+- [Azure AD 도메인 서비스 관리되는 도메인 관리](active-directory-ds-admin-guide-administer-domain.md)
+
+- [Windows Server 가상 컴퓨터를 Azure AD 도메인 서비스 관리되는 도메인에 가입](active-directory-ds-admin-guide-join-windows-vm.md)
+
+- [DNS 관리 도구](https://technet.microsoft.com/library/cc753579.aspx)
+
+<!---HONumber=AcomDC_0504_2016-->

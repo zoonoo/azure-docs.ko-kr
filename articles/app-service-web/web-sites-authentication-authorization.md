@@ -39,7 +39,7 @@
 	-	Azure AD는 [신뢰 당사자](http://en.wikipedia.org/wiki/Relying_party) 응용 프로그램의 관리를 관리자가 아닌 역할에 위임하지만, 중요한 디렉터리 데이터에 대한 응용 프로그램 액세스는 여전히 전역 관리자가 구성해야 합니다.
 	-	모든 신뢰 당사자 응용 프로그램에 대한 범용 클레임 유형 집합을 보냅니다. 클레임 유형 목록은 [지원되는 토큰 및 클레임 유형](http://msdn.microsoft.com/library/azure/dn195587.aspx)을 참조하세요. 클레임은 사용자 지정할 수 없습니다.
 	-	[Azure AD Graph API](http://msdn.microsoft.com/library/azure/hh974476.aspx)는 Azure AD의 디렉터리 데이터에 대한 응용 프로그램 액세스를 지원합니다.
--	[AD FS와 같은 온-프레미스 STS(보안 토큰 서비스)](../web-sites-dotnet-lob-application-adfs/) - AD FS와 같은 온-프레미스 STS를 사용하여 웹앱에 대한 인증 및 권한 부여를 구현할 수 있습니다. 온-프레미스 AD FS를 사용할 경우의 특징은 다음과 같습니다.
+-	[AD FS와 같은 온-프레미스 STS(보안 토큰 서비스)](web-sites-dotnet-lob-application-adfs.md) - AD FS와 같은 온-프레미스 STS를 사용하여 웹앱에 대한 인증 및 권한 부여를 구현할 수 있습니다. 온-프레미스 AD FS를 사용할 경우의 특징은 다음과 같습니다.
 	-	AD FS 토폴로지를 온-프레미스에 배포해야 하므로 비용 및 관리 오버헤드가 발생합니다.
 	-	회사 정책에 따라 AD 데이터를 온-프레미스에 저장해야 하는 경우에 가장 적합합니다.
 	-	AD FS 관리자만 [신뢰 당사자 트러스트 및 클레임 규칙](http://technet.microsoft.com/library/dd807108.aspx)을 구성할 수 있습니다.
@@ -52,4 +52,4 @@
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->

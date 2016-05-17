@@ -108,7 +108,7 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 
 ``` powershell
 
-$Namespace = "<Enter your namespace>
+$Namespace = "<Enter your namespace>"
 $Path  = "<Enter a name for your notification hub>"
 $WnsPackageSid = "<your package sid>"
 $WnsSecretkey = "<enter your secret key>"
@@ -165,11 +165,11 @@ else
 [구매 옵션]: http://azure.microsoft.com/pricing/purchase-options/
 [구성원 제공 항목]: http://azure.microsoft.com/pricing/member-offers/
 [무료 평가판]: http://azure.microsoft.com/pricing/free-trial/
-[Azure PowerShell 설치 및 구성]: ../install-configure-powershell.md
+[Azure PowerShell 설치 및 구성]: ../powershell-install-configure.md
 [알림 허브용 .NET API]: https://msdn.microsoft.com/library/azure/mt414893.aspx
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

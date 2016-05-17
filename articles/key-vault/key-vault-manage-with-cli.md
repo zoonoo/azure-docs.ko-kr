@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="04/29/2016"
 	ms.author="bruceper"/>
 
 # CLI를 사용하여 키 자격 증명 모음 관리 #
@@ -31,7 +31,6 @@ Azure 키 자격 증명 모음은 대부분 지역에서 사용할 수 있습니
 Azure 키 자격 증명 모음에 대한 개요는 [Azure 키 자격 증명 모음이란?](key-vault-whatis.md)을 참조하세요.
 
 ## 필수 조건
-
 이 자습서를 완료하려면 다음이 필요합니다.
 
 - Microsoft Azure 구독. 아직 구독하지 않은 경우 [무료 평가판](../../../pricing/free-trial)에 등록할 수 있습니다.
@@ -106,6 +105,12 @@ Azure 리소스 관리자를 사용하면 관련된 모든 리소스는 리소�
 
 첫 번째 매개 변수는 리소스 그룹 이름이고, 두 번째 매개 변수 위치입니다. 위치의 경우, `azure location list` 명령을 사용하여 이 예에서 대체 위치를 지정하는 방법을 식별합니다. 자세한 정보가 필요한 경우 `azure help location`을 입력합니다.
 
+## 키 자격 증명 모음 리소스 공급자 등록
+키 자격 증명 모음 리소스 공급자가 구독에 등록되어 있는지 확인합니다.
+
+`azure provider register Microsoft.KeyVault`
+
+구독당 한 번만 수행하면 됩니다.
 
 
 ## 키 자격 증명 모음 만들기
@@ -134,13 +139,13 @@ Azure 계정은 이제 이 키 자격 증명 모음에서 모든 작업을 수�
 
     azure keyvault key import --vaultName 'ContosoKeyVault' --key-name 'ContosoFirstKey' --pem-file './softkey.pem' --password 'PaSSWORD' --destination software
 
-이제 해당 URI를 사용하여 Azure 키 자격 증명 모음을 만들거나 업로드하는 이 키를 참조할 수 있습니다. **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey**를 사용하면 항상 최신 버전을 가져오고 **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**를 사용하면 이 특정 버전을 가져옵니다.
+이제 해당 URI를 사용하여 Azure 키 자격 증명 모음을 만들거나 업로드하는 이 키를 참조할 수 있습니다. **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** 를 사용하면 항상 최신 버전을 가져오고 **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** 를 사용하면 이 특정 버전을 가져옵니다.
 
 자격 증명 모음에 암호를 추가하려면 다음을 입력합니다. 암호는 SQLPassword이며 Azure 키 자격 증명 모음에 대한 Pa$$w0rd 값을 가집니다.
 
     azure keyvault secret set --vault-name 'ContosoKeyVault' --secret-name 'SQLPassword' --value 'Pa$$w0rd'
 
-이제 해당 URI를 사용하여 Azure 키 자격 증명 모음에 추가한 이 암호를 참조할 수 있습니다. **https://ContosoVault.vault.azure.net/secrets/SQLPassword**를 사용하면 항상 최신 버전을 가져오고 **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**를 사용하면 이 특정 버전을 가져옵니다.
+이제 해당 URI를 사용하여 Azure 키 자격 증명 모음에 추가한 이 암호를 참조할 수 있습니다. **https://ContosoVault.vault.azure.net/secrets/SQLPassword** 를 사용하면 항상 최신 버전을 가져오고 **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** 를 사용하면 이 특정 버전을 가져옵니다.
 
 방금 만든 키 또는 암호를 확인해 보겠습니다.
 
@@ -186,6 +191,8 @@ Azure Active Directory에 응용 프로그램을 등록하려면:
 예를 들어, 자격 증명 모음 이름은 ContosoKeyVault이고 권한을 부여하려는 응용 프로그램에 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed의 클라이언트 ID가 있고 자격 증명 모음에 있는 키로 서명하고 암호 해제하도록 응용 프로그램을 인증하려면, 다음을 실행합니다.
 
     azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perms-to-keys '["decrypt","sign"]'
+
+>[AZURE.NOTE] Windows 명령 프롬프트에서 실행하는 경우 작은따옴표를 큰따옴표로 바꾸고 내부 큰따옴표를 이스케이프해야 합니다(예: "["decrypt","sign"]").
 
 자격 증명 모음에서 기밀 정보를 읽기 위해 동일한 응용 프로그램에 권한을 부여하려면 다음을 실행합니다.
 
@@ -256,4 +263,4 @@ Azure 키 자격 증명 모음을 관리하는 데 유용할 수 있는 다른 �
 
 프로그래밍 참조는 [Azure 주요 자격 증명 모음 개발자 가이드](key-vault-developers-guide.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

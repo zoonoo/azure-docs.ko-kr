@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="04/28/2016"
 	ms.author="jgao"/>
 
 # HDInsight용 스크립트 작업 스크립트 개발
@@ -31,6 +31,8 @@ HDInsight용 스크립트 작업 스크립트를 작성하는 방법을 알아�
 ## 샘플 스크립트
 
 Windows 운영 체제에서 HDInsight 클러스터를 만드는 경우 스크립트 작업은 Azure PowerShell 스크립트입니다. 다음은 사이트 구성 파일 구성에 대한 샘플 스크립트입니다.
+
+[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 	param (
 	    [parameter(Mandatory)][string] $ConfigFileName,
@@ -351,4 +353,4 @@ HDInsight 스크립트 작업 명령에서 사용하기 전에 사용자 지정 
 <!--Reference links in article-->
 [1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

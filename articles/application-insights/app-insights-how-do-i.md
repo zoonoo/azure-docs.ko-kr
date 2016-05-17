@@ -79,12 +79,12 @@
 
 ### 자동 경고 설정
 
-[PowerShell을 사용하여 새 경고 만들기](app-insights-alerts/#set-alerts-by-using-powershell)
+[PowerShell을 사용하여 새 경고 만들기](app-insights-alerts.md#set-alerts-by-using-powershell)
 
 ## PowerShell을 사용하여 Application Insights 관리
 
 * [새 리소스 만들기](app-insights-powershell-script-create-resource.md)
-* [새 경고 만들기](app-insights-alerts/#set-alerts-by-using-powershell)
+* [새 경고 만들기](app-insights-alerts.md#set-alerts-by-using-powershell)
 
 ## 응용 프로그램 버전 및 스탬프
 
@@ -242,4 +242,4 @@
 * 먼저 [새 차트를 추가하고](app-insights-metrics-explorer.md) 제공한 기본 집합에 카운터가 있는지 확인합니다.
 * 없으면 [성능 카운터 모듈에서 수집한 집합에 카운터를 추가합니다](app-insights-web-monitor-performance.md#system-performance-counters).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

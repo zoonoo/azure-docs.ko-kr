@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="02/03/2016"
+ ms.date="04/29/2016"
  ms.author="dobett"/>
 
 # IoT Hub에 대한 액세스 구성 및 관리
@@ -30,6 +30,7 @@
 | AMQP | 5671 |
 | Websocket 통한 AMQP | 443 |
 | MQTT | 8883 |
+| LWM2M(장치 관리) | 5684 |
 
 Azure 지역에 IoT Hub를 만들면 허브는 해당 허브의 수명 동안 동일한 IP 주소를 유지합니다. 그러나 서비스 품질을 유지하기 위해 Microsoft가 IoT Hub를 다른 배율 단위로 이동하는 경우에는 새 IP 주소로 할당됩니다.
 
@@ -51,4 +52,4 @@ IoT Hub에 등록된 장치만 해당 IoT Hub와 통신할 수 있습니다. 등
 [lnk-devguide]: iot-hub-devguide.md#security
 [lnk-manage-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

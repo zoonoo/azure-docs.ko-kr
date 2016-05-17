@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/06/2016"
+	ms.date="04/29/2016"
 	ms.author="jahogg"/>
 
 # Microsoft Azure 저장소 모니터링, 진단 및 문제 해결
@@ -28,7 +28,7 @@
 
 > [AZURE.NOTE] 영역 중복 저장소(ZRS)의 복제 유형이 있는 저장소 계정에는 현재 활성화된 메트릭 또는 로깅 기능이 없습니다.
 
-Azure 저장소 응용 프로그램에서 종단간 문제 해결 실습 가이드는, [Azure 저장소 및 로깅, Azcopy, 메시지 분석기를 사용한 종단 간 문제 해결](../storage-e2e-troubleshooting/)을 참조하세요.
+Azure 저장소 응용 프로그램에서 종단간 문제 해결 실습 가이드는, [Azure 저장소 및 로깅, Azcopy, 메시지 분석기를 사용한 종단 간 문제 해결](storage-e2e-troubleshooting.md)을 참조하세요.
 
 + [소개]
 	+ [이 가이드의 구성 방식]
@@ -409,7 +409,7 @@ Blob 다운로드 요청에 대해 **AverageServerLatency**가 높게 표시되�
 
 테이블이나 쿼리의 디자인이 잘못되어 검사 작업이 수행되거나 추가/앞에 추가 방지 패턴을 따르는 경우에도 **AverageServerLatency** 값이 높아지는 증상이 발생할 수 있습니다. 자세한 내용은 "[메트릭에서 PercentThrottlingError가 증가하는 것으로 표시됨]"을 참조하세요.
 
-> [AZURE.NOTE] 주의해야 할 다른 문제를 포함한 통합 검사목록은 여기에서 확인할 수 있습니다. "[확장성과 성능이 뛰어난 저장소 기반 응용 프로그램 디자인 검사 목록](storage-performance-checklist.md)".
+> [AZURE.NOTE] [Microsoft Azure 저장소 성능 및 확장성 검사 목록](storage-performance-checklist.md)에서 포괄적 성능 및 확장성 검사 목록을 확인할 수 있습니다.
 
 ### <a name="you-are-experiencing-unexpected-delays-in-message-delivery"></a>큐에서 메시지 배달 중에 예기치 않은 대기 시간이 발생함
 
@@ -487,7 +487,8 @@ Microsoft.WindowsAzure.Storage|오류|1|85d077ab -…|다시 시도 정책에서
 
 - 보통 클라이언트에 대해 즉시 사용할 SAS를 만들 때는 시작 시간을 설정하면 안 됩니다. 현재 시간을 사용하여 SAS를 생성하는 호스트와 저장소 서비스 간에 약간의 클럭 차이가 있는 경우에는 저장소 서비스가 아직 유효하지 않은 SAS를 받을 가능성이 있습니다.
 - SAS에 대해 매우 짧은 만료 시간을 설정해서는 안 됩니다. 마찬가지로 SAS를 생성하는 호스트와 저장소 서비스 간에 클럭 차이가 약간이라도 있으면 SAS가 예상보다 빨리 만료됩니다.
-- SAS 키의 버전 매개 변수(예: **sv=2012-02-12**)가 사용 중인 저장소 클라이언트 라이브러리의 버전과 일치하는지 확인합니다. 항상 최신 버전의 저장소 클라이언트 라이브러리를 사용해야 합니다. SAS 토큰 버전 관리 및 클라이언트 라이브러리 버전에 대한 종속성과 관련된 자세한 내용은 <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/14/what-s-new-for-microsoft-azure-storage-at-teched-2014.aspx" target="_blank">Microsoft Azure 저장소의 새로운 기능</a> 항목을 참조하세요.
+- SAS 키의 버전 매개 변수(예: **sv=2012-02-12**)가 사용 중인 저장소 클라이언트 라이브러리의 버전과 일치하는지 확인합니다. 항상 최신 버전의 저장소 클라이언트 라이브러리를 사용해야 합니다. SAS 토큰 버전 관리에 대한 자세한 내용은 [Microsoft Azure 저장소의 새로운 기능](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/14/what-s-new-for-microsoft-azure-storage-at-teched-2014.aspx)을 참조하세요.
+- 
 - Azure 클래식 포털의 저장소 계정 내 임의의 페이지에서 **액세스 키 관리**를 클릭하여 저장소 액세스 키를 다시 생성하는 경우 기존 SAS 토큰이 무효화될 수 있습니다. 클라이언트 응용 프로그램이 캐시하도록 만료 시간이 매우 긴 SAS 토큰을 생성하는 경우 문제가 발생할 수 있습니다.
 
 저장소 클라이언트 라이브러리를 사용하여 SAS 토큰을 생성하는 경우에는 유효한 토큰을 쉽게 작성할 수 있습니다. 그러나 저장소 REST API를 사용 중이며 수동으로 SAS 토큰을 생성하는 경우에는 MSDN의 <a href="http://msdn.microsoft.com/library/azure/ee395415.aspx" target="_blank">공유 액세스 서명으로 액세스 위임 항목</a>을 자세히 확인해야 합니다.
@@ -924,4 +925,4 @@ Blob 저장소에서 다운로드한 저장소 로깅 데이터를 Excel로 가�
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/mma-screenshot-2.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

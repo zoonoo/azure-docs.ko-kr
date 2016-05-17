@@ -16,7 +16,9 @@
  ms.date="04/29/2016"
  ms.author="elfarber"/>
 
-# Azure IoT Hub 장치 관리 시작(미리 보기)
+# C#(미리 보기)을 사용하여 Azure IoT Hub 장치 관리 시작
+
+[AZURE.INCLUDE [iot-hub-device-management-get-started-selector](../../includes/iot-hub-device-management-get-started-selector.md)]
 
 ## 소개
 Azure IoT Hub 장치 관리를 시작하려면 Azure IoT Hub를 만들고 IoT Hub의 장치를 프로비전하며 여러 시뮬레이션된 장치를 시작해야 합니다. 이 자습서에서는 다음 단계를 안내합니다.
@@ -43,27 +45,29 @@ Azure IoT Hub 장치 관리를 시작하려면 Azure IoT Hub를 만들고 IoT Hu
 
 	![][img-new-hub]
 
-3.  **IoT Hub** 블레이드에서 IoT Hub의 구성을 선택합니다.
+3.  **IoT Hub** 블레이드에서 IoT Hub에 대한 구성을 선택합니다.
 
 	![][img-configure-hub]
 
   -   **이름** 상자에 IoT Hub의 이름을 입력합니다. **이름**의 유효하고 사용 가능하면 **이름** 상자에 녹색 확인 표시가 나타납니다.
   -   **가격 및 크기 조정 계층**을 선택합니다. 이 자습서에는 특정 계층이 필요하지 않습니다.
   -   **리소스 그룹**에서 새 리소스 그룹을 만들거나 기존 리소스 그룹을 선택합니다. 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리]를 참조하세요.
-  -   **장치 관리 사용**하도록 확인란을 선택합니다.
-  -   **위치**에서 IoT Hub를 호스트하는 위치를 선택합니다. IoT Hub 장치 관리는 미국 동부, 북유럽 및 동아시아에서만 사용할 수 있습니다.
+  -   **장치 관리 사용** 상자를 선택합니다.
+  -   **위치**에서 IoT Hub를 호스팅할 위치를 선택합니다. IoT Hub 장치 관리는 공개 미리 보기 중 미국 동부, 북유럽, 동아시아에서만 사용할 수 있습니다. 향후에는 모든 지역에서 사용할 수 있습니다.
 
-4.  IoT Hub 구성 옵션을 선택한 경우 **만들기**를 클릭합니다. Azure가 IoT Hub를 만드는 데 몇 분 정도 걸릴 수 있습니다. 상태를 확인하려면 **시작 보드** 또는 **알림** 패널에서 진행률을 모니터링할 수 있습니다.
+    > [AZURE.NOTE]  **장치 관리 사용** 상자를 선택하지 않으면 샘플이 작동하지 않습니다.
+
+4.  IoT Hub 구성 옵션을 선택했으면 **만들기**를 클릭합니다. Azure가 IoT Hub를 만드는 데 몇 분 정도 걸릴 수 있습니다. 상태를 확인하려면 **시작 보드** 또는 **알림** 패널에서 진행률을 모니터링합니다.
 
 	![][img-monitor]
 
-5.  IoT Hub가 성공적으로 만들어지면, 새 IoT Hub의 블레이드를 열고, **호스트 이름**를 기록한 다음 **키** 아이콘을 클릭합니다.
+5.  IoT Hub가 성공적으로 생성되면 새 IoT Hub의 블레이드를 열고 **호스트 이름**을 기록해 둔 다음 **키** 아이콘을 클릭합니다.
 
 	![][img-keys]
 
 6.  **iothubowner** 정책을 클릭한 다음, **iothubowner** 블레이드에 있는 연결 문자열을 복사하여 기록해둡니다. 이 자습서의 나머지 단계를 완료하는 데 필요하기 때문에 나중에 액세스할 수 있는 위치에 복사합니다.
 
- 	> [AZURE.NOTE] 프로덕션 시나리오에서 **iothubowner** 자격 증명을 사용하지 않도록 합니다.
+ 	> [AZURE.NOTE] 프로덕션 시나리오에서는 **iothubowner** 자격 증명을 사용하지 않도록 합니다.
 
 	![][img-connection]
 
@@ -79,25 +83,25 @@ Azure IoT Hub 장치 관리를 시작하려면 Azure IoT Hub를 만들고 IoT Hu
 
 2.  Github 리포지토리를 복제합니다. **공백이 없는 디렉터리에 복제하도록 합니다.**
 
-  ```
-  git clone --recursive --branch dmpreview https://github.com/Azure/azure-iot-sdks.git
-  ```
+	  ```
+	  git clone --recursive --branch dmpreview https://github.com/Azure/azure-iot-sdks.git
+	  ```
 
-3.  **azure-iot-sdks** 리포지토리를 복제한 루트 폴더에서 **\\azure-iot-sdks\\csharp\\service\\samples**로 이동하고 실행하여 자리 표시자 값을 이전 섹션의 연결 문자열로 바꿉니다.
+3.  **azure-iot-sdks** 리포지토리를 복제한 루트 폴더에서 **\\azure-iot-sdks\\csharp\\service\\samples** 폴더로 이동하여 실행한 다음 자리 표시자 값을 이전 섹션의 연결 문자열로 대체합니다.
 
-  ```
-  setup.bat <IoT Hub Connection String>
-  ```
+	  ```
+	  setup.bat <IoT Hub Connection String>
+	  ```
 
 이 스크립트는 다음을 수행합니다.
 
-1.  **cmake**를 실행하여 시뮬레이션된 장치에 Visual Studio 2015 솔루션을 만듭니다. 이 프로젝트 파일은 **azure-iot-sdks\\csharp\\service\\samples\\cmake\\iotdm\_client\\samples\\iotdm\_simple\_sample\\iotdm\_simple\_sample.vcxproj**입니다. 원본 파일은 **azure-iot-sdks\\c\\iotdm\_client\\samples\\iotdm\_simple\_sample** 폴더에 있습니다.
+1.  **cmake**를 실행하여 시뮬레이션 장치의 Visual Studio 2015 솔루션을 만듭니다. 이 프로젝트 파일은 **azure-iot-sdks\\csharp\\service\\samples\\cmake\\iotdm\_client\\samples\\iotdm\_simple\_sample\\iotdm\_simple\_sample.vcxproj**입니다. 원본 파일은 ****azure-iot-sdks\\c\\iotdm\_client\\samples\\iotdm\_simple\_sample** 폴더에 있습니다.
 
-2.  시뮬레이션된 장치 프로젝트 **iotdm\_simple\_sample.vcxproj**를 빌드합니다.
+2.  시뮬레이션 장치 프로젝트 **iotdm\_simple\_sample.vcxproj**를 빌드합니다.
 
 3.  장치 관리 샘플 **azure-iot-sdks\\csharp\\service\\samples\\GetStartedWithIoTDM\\GetStartedWithIoTDM.sln**을 빌드합니다.
 
-4.  **GenerateDevices.exe**를 실행하여 IoT Hub에 장치 ID를 프로비전합니다. 장치는 **sampledevices.json**(**azure-iot-sdks\\node\\service\\samples** 폴더에 있음)에 설명되어 있고 장치를 프로비전한 후에 자격 증명이 **devicecreds.txt** 파일(**azure-iot-sdks\\csharp\\service\\samples\\bin** 폴더에 있음)에 저장됩니다.
+4.  **GenerateDevices.exe**를 실행하여 IoT Hub에 장치 ID를 프로비전합니다. 장치 설명은 **sampledevices.json**(**azure-iot-sdks\\node\\service\\samples** 폴더에 있음)에 있으며 장치를 프로비전한 후 자격 증명은 **devicecreds.txt** 파일(**azure-iot-sdks\\csharp\\service\\samples\\bin** 폴더에 위치)에 저장됩니다.
 
 ## 시뮬레이션된 장치 시작
 
@@ -109,13 +113,13 @@ Azure IoT Hub 장치 관리를 시작하려면 Azure IoT Hub를 만들고 IoT Hu
   simulate.bat
   ```
 
-이 스크립트는 **devicecreds.txt** 파일에 나열된 각 장치에 하나의 **iotdm\_simple\_sample.exe** 인스턴스만을 실행합니다. 시뮬레이션된 장치는 명령 창을 닫을 때까지 계속 실행됩니다.
+이 스크립트는 **devicecreds.txt** 파일에 나열된 각 장치에 대해 **iotdm\_simple\_sample.exe** 인스턴스 하나를 실행합니다. 시뮬레이션된 장치는 명령 창을 닫을 때까지 계속 실행됩니다.
 
-**iotdm\_simple\_sample** 샘플 응용 프로그램은 C용 Azure IoT Hub 장치 관리 클라이언트 라이브러리를 사용하여 빌드되며 이를 통해 Azure IoT Hub에 의해 관리될 수 있는 IoT 장치를 만들 수 있습니다. 장치 제조업체는 이 라이브러리를 사용하여 장치 속성을 보고하고 장치 작업에 필요한 실행 동작을 구현할 수 있습니다. 이 라이브러리는 오픈 소스 Azure IoT Hub SDK의 일부로 제공되는 구성 요소입니다.
+**iotdm\_simple\_sample** 샘플 응용 프로그램은 C에 대한 Azure IoT Hub 장치 관리 클라이언트 라이브러리를 사용하여 빌드하며, 여기서 Azure IoT Hub으로 관리할 수 있는 IoT 장치를 만들 수 있습니다. 장치 제조업체는 이 라이브러리를 사용하여 장치 속성을 보고하고 장치 작업에 필요한 실행 동작을 구현할 수 있습니다. 이 라이브러리는 오픈 소스 Azure IoT Hub SDK의 일부로 제공되는 구성 요소입니다.
 
-**simulate.bat**을 실행하는 경우 출력 창에서 데이터의 스트림을 참조하세요. 이 출력은 들어오고 나가는 트래픽 뿐만 아니라 응용 프로그램 특정 콜백 함수의 **printf** 문도 보여 줍니다. 이를 통해 샘플 응용 프로그램이 디코딩된 패킷을 처리하는 방법과 함께 들어오고 나가는 트래픽을 볼 수 있습니다. 장치가 IoT Hub에 연결된 경우 서비스는 장치에서 리소스를 자동으로 확인하기 시작합니다. 그런 다음 IoT Hub DM 클라이언트 라이브러리는 장치 콜백을 호출하여 장치에서 최신 값을 검색합니다.
+**simulate.bat**을 실행하면 출력 창에 데이터의 스트림이 표시됩니다. 이 출력에는 들어오고 나가는 트래픽과 응용 프로그램별 콜백 함수의 **printf** 문이 표시됩니다. 이를 통해 샘플 응용 프로그램이 디코딩된 패킷을 처리하는 방법과 함께 들어오고 나가는 트래픽을 볼 수 있습니다. 장치가 IoT Hub에 연결된 경우 서비스는 장치에서 리소스를 자동으로 확인하기 시작합니다. 그런 다음 IoT Hub DM 클라이언트 라이브러리는 장치 콜백을 호출하여 장치에서 최신 값을 검색합니다.
 
-아래는 **iotdm\_simple\_sample** 샘플 응용 프로그램의 출력입니다. 맨 위쪽에서 성공적으로 **등록되었습니다**라는 메시지가 표시되며 IoT Hub에 연결된 ID **Device11-7ce4a850**를 가진 장치를 보여 줍니다.
+다음은 **iotdm\_simple\_sample** 샘플 응용 프로그램의 출력입니다. 맨 위에는 Id가 **Device11-7ce4a850**인 장치가 IoT Hub에 연결된 상태를 보여주는 성공적 **등록** 메시지가 표시되어 있습니다.
 
 > [AZURE.NOTE]  대략적인 출력을 보려면 소매 구성을 빌드하고 실행합니다.
 
@@ -125,11 +129,11 @@ Azure IoT Hub 장치 관리를 시작하려면 Azure IoT Hub를 만들고 IoT Hu
 
 ## 다음 단계
 
-Azure IoT Hub 장치 관리 기능에 대해 자세히 알아보려면 이 자습서를 진행합니다.
+Azure IoT Hub 장치 관리 기능에 대해 자세히 알아보려면 이 자습서를 차례로 실행해 볼 수 있습니다.
 
 - [장치 쌍을 사용하는 방법][lnk-tutorial-twin]
 
-- [쿼리를 사용하여 쌍 장치를 찾는 방법][lnk-tutorial-queries]
+- [쿼리를 사용하여 장치 쌍을 찾는 방법][lnk-tutorial-queries]
 
 - [장치 작업을 사용하여 장치 펌웨어를 업데이트하는 방법][lnk-tutorial-jobs]
 
@@ -148,4 +152,4 @@ Azure IoT Hub 장치 관리 기능에 대해 자세히 알아보려면 이 자�
 [lnk-tutorial-queries]: iot-hub-device-management-device-query.md
 [lnk-tutorial-jobs]: iot-hub-device-management-device-jobs.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

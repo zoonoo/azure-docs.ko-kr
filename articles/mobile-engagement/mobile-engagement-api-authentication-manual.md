@@ -13,14 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="03/11/2016"
+	ms.date="05/03/2016"
 	ms.author="piyushjo"/>
 
 # Mobile Engagement REST API를 사용한 인증 - 수동 설치
 
 이 부록 설명서는 [Mobile Engagement REST API를 사용한 인증](mobile-engagement-api-authentication.md)을 설명합니다. 먼저 읽고 상황을 파악하도록 합니다. Azure 포털을 사용하여 Mobile Engagement REST API에 대한 인증을 설정하기 위해 일회성 설치 프로세스를 수행하는 대체 방법을 설명합니다.
 
->[AZURE.NOTE] 아래 지침은 [Active Directory 가이드](../resource-group-create-service-principal-portal/)를 기반으로 하며 Mobile Engagement API에 대한 인증을 위해 필요한 항목을 사용자 지정합니다. 따라서 아래 단계를 자세히 이해하려면 참조합니다.
+>[AZURE.NOTE] 아래 지침은 [Active Directory 가이드](../resource-group-create-service-principal-portal.md)를 기반으로 하며 Mobile Engagement API에 대한 인증을 위해 필요한 항목을 사용자 지정합니다. 따라서 아래 단계를 자세히 이해하려면 참조합니다.
 
 1. [클래식 포털](https://manage.windowsazure.com/)을 통해 Azure 계정에 로그인합니다.
 
@@ -144,4 +144,4 @@
 [20]: ./media/mobile-engagement-api-authentication-manual/add-user-select.png
 [21]: ./media/mobile-engagement-api-authentication-manual/add-access-final.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -13,16 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/22/2015"
+	ms.date="04/22/2016"
 	ms.author="MikeRayMSFT" />
 
 # Azure VM의 AlwaysOn 가용성 그룹 구성(GUI)
 
 > [AZURE.SELECTOR]
-- [포털 - 리소스 관리자 - 템플릿](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-- [포털 - 리소스 관리자 - 수동](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
-- [포털 - 클래식 - 설명서](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
-- [PowerShell - 클래식](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
+- [Template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+- [설명서](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
 
 <br/>
 
@@ -30,7 +28,7 @@
 
 이 종단 간 자습서에서는 Azure Resource Manager 가상 컴퓨터에서 실행되는 SQL Server AlwaysOn을 사용하여 가용성 그룹을 구현하는 방법을 보여 줍니다.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]리소스 관리자 모델.
+> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]리소스 관리자 모델.
 
 자습서 마지막에서 Azure의 SQL Server AlwaysOn 솔루션은 다음 요소로 구성됩니다.
 
@@ -52,7 +50,7 @@
 
 이것은 가능한 구성 중 하나입니다. 예를 들어, Azure에서 계산 시간을 줄이기 위해 2노드 WSFC 클러스터에서 쿼럼 파일 공유 감시로 도메인 컨트롤러를 사용하여 두 개의 복제된 가용성 그룹에 대한 VM 수를 최소화할 수 있습니다. 이 방법을 사용하면 위의 구성에서 하나로 VM 수가 줄어듭니다.
 
->[AZURE.NOTE] 이 자습서를 완료하는 데는 상당한 시간이 걸립니다. 또한 이 전체 솔루션을 자동으로 빌드할 수 있습니다. Azure 포털에는 수신기와 함께 AlwaysOn 가용성 그룹을 위한 갤러리 설치가 있습니다. 설치 시 AlwaysOn 가용성 그룹에 필요한 모든 항목이 자동으로 구성됩니다. 자세한 내용은 [포털 - 리소스 관리자](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)를 참조하세요.
+>[AZURE.NOTE] 이 자습서를 완료하는 데는 상당한 시간이 걸립니다. 또한 이 전체 솔루션을 자동으로 빌드할 수 있습니다. Azure 포털에는 수신기와 함께 AlwaysOn 가용성 그룹을 위한 갤러리 설치가 있습니다. 설치 시 AlwaysOn 가용성 그룹에 필요한 모든 항목이 자동으로 구성됩니다. 자세한 내용은 [포털 - Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)를 참조하세요.
 
 이 자습서에서는 다음을 가정합니다.
 
@@ -64,7 +62,7 @@
 
 >[AZURE.NOTE] SharePoint와 AlwaysOn 가용성 그룹을 사용하는 것에 관심이 있는 경우 [SharePoint 2013에 대해 SQL Server 2012 AlwaysOn 가용성 그룹 구성](https://technet.microsoft.com/library/jj715261.aspx)을 참조하세요.
 
-## 리소스 그룹, 네트워크 및 도메인 컨트롤러 만들기
+## 리소스 그룹, 네트워크, 가용성 집합 만들기
 
 ### Azure 구독에 연결하고 리소스 그룹 만들기
 
@@ -110,7 +108,7 @@
 
 1. **가상 네트워크**를 클릭합니다.
 
-1. **가상 네트워크** 블레이드에서 **리소스 관리자** 배포 모델을 클릭하고 **만들기**를 클릭합니다.
+1. **가상 네트워크** 블레이드에서 **Resource Manager** 배포 모델을 클릭하고 **만들기**를 클릭합니다.
 
  ![가상 네트워크 만들기](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/05-createvirtualnetwork.png)
  
@@ -157,7 +155,7 @@
 
 1. 두 번째 서브넷을 만듭니다. **+ 서브넷**을 클릭합니다. 
 
- **서브넷 추가** 블레이드에서 **이름** 아래에 **subnet-2**를 입력하여 서브넷을 구성합니다. 적합한 **주소 범위**가 자동으로 지정됩니다. 이 주소 범위에 최소 10개의 주소가 있는지 확인합니다. 프로덕션 환경에서는 더 많은 주소가 필요할 수 있습니다.
+ **서브넷 추가** 블레이드에서 **이름** 아래에 **subnet-2**를 입력하여 서브넷을 구성합니다. 유효한 **주소 범위**가 자동으로 지정됩니다. 이 주소 범위에 최소 10개의 주소가 있는지 확인합니다. 프로덕션 환경에서는 더 많은 주소가 필요할 수 있습니다.
 
 **확인**을 클릭합니다.
 
@@ -243,7 +241,7 @@
 
 가상 컴퓨터를 만든 후에 도메인 컨트롤러를 구성합니다.
 
-## 도메인 컨트롤러 구성
+### 도메인 컨트롤러 구성
 
 다음 단계에서는 corp.contoso.com에 대한 도메인 컨트롤러로 **ad-primary-dc** 컴퓨터를 구성합니다.
 
@@ -578,7 +576,7 @@ SQL Server VM이 프로비전되어 실행 중이지만 기본 옵션으로 SQL 
 
 ## AlwaysOn 가용성 그룹 구성
 
-이 섹션에서는 **sqlserver-0** 및 **sqlserver-1** 모두에 대해 다음을 수행합니다.
+이 섹션에서는 **sqlserver-0** 및 **sqlserver-1**에 대해 다음을 수행합니다.
 
 - 기본 SQL Server 인스턴스에 sysadmin 역할로 **CORP\\Install** 추가
 
@@ -588,7 +586,7 @@ SQL Server VM이 프로비전되어 실행 중이지만 기본 옵션으로 SQL 
 
 - SQL Server 서비스 계정을 **CORP\\SQLSvc1** 및 **CORP\\SQLSvc2**로 각각 변경
 
-이 작업은 순서와 관계없이 수행할 수 있습니다. 하지만 아래 단계는 순서대로 진행합니다. **sqlserver-0** 및 **sqlserver-1** 모두에 대해 단계를 수행합니다.
+이 작업은 순서와 관계없이 수행할 수 있습니다. 하지만 아래 단계는 순서대로 진행합니다. **sqlserver-0** 및 **sqlserver-1**에 대해 단계를 수행합니다.
 
 ### 각 SQL Server에서 sysadmin 고정 서버 역할로 설치 계정 추가
 
@@ -867,4 +865,4 @@ SQL Server VM이 프로비전되어 실행 중이지만 기본 옵션으로 SQL 
 
 Azure에서 SQL Server를 사용하는 방법에 대한 기타 정보는 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

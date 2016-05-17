@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="02/16/2016"
+      ms.date="05/03/2016"
       ms.author="markvi"/>
 
 # Azure Active Directory로 응용 프로그램 관리
@@ -24,7 +24,7 @@
 
 2. 보안 및 관리를 사용하려면 조직은 각 응용 프로그램에 실제로 액세스할 수 있는 사람을 제어하고 감독해야 합니다.
 
-클라우드 응용 프로그램의 단어에서 ID를 사용하여 “*누가 무엇을 수행할 수 있는지*”를 제어할 수 있습니다.
+클라우드 응용 프로그램의 세계에서는 ID를 사용하여 “*누가 무엇을 수행할 수 있는지*”를 제어할 수 있습니다.
 
 용어 계산에서
 
@@ -135,4 +135,4 @@ Azure AD를 사용하여 세부적인 액세스 정책 및 사전 통합된 MFA�
 
 [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0504_2016-->

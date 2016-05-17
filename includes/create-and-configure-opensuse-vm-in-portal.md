@@ -1,6 +1,6 @@
-<properties writer="kathydav" editor="tysonn" manager="timlt" />
+<properties writer="cynthn" editor="tysonn" manager="timlt" />
 
-1. [Azure 클래식 포털](http://manage.windowsazure.com)에 로그인합니다. 아직 구독이 없으면 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/) 서비스를 확인하세요.
+1. [Azure 클래식 포털](http://manage.windowsazure.com)에 로그인합니다.  
 
 2. 창 맨 아래의 명령 모음에서 **새로 만들기**를 클릭합니다.
 
@@ -21,7 +21,7 @@
 6. 다음 **가상 컴퓨터 구성** 페이지에서:
 
 	- 기본 **새 클라우드 서비스 만들기**를 사용합니다.
-	- **DNS 이름** 상자에 주소의 일부로 사용할 고유의 DNS 이름(예: "testlinuxvm")을 입력합니다.
+	- **DNS 이름** 상자에 주소의 일부로 사용할 고유한 DNS 이름(예: "testlinuxvm")을 입력합니다.
 	- **Region/Affinity Group/Virtual Network** 상자에서 이 가상 이미지를 호스트할 영역을 선택합니다.
 	- **끝점**아래에서 SSH 끝점을 유지합니다. 지금 다른 사용자를 추가하거나 가상 컴퓨터를 만든 후 추가, 변경 또는 삭제할 수 있습니다.
 
@@ -65,4 +65,3 @@
 
 [Image6]: ./media/create-and-configure-opensuse-vm-in-portal/putty.png
 
-<!---HONumber=AcomDC_0323_2016-->

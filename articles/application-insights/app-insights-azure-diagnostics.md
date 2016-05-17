@@ -17,7 +17,7 @@
 
 # Application Insights에 대해 Azure 진단 로깅 구성
 
-Microsoft Azure에서 클라우드 서비스 프로젝트나 가상 컴퓨터를 설정하는 경우 [Azure는 진단 로그를 생성할 수 있습니다](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md/). 이것을 Application Insights로 보내도록 설정하여 Application Insights SDK에 의해 앱 내부에서 전송되는 진단 및 사용량 원격 분석 자료와 함께 분석할 수 있습니다. Azure 로그는 시작, 중지, 충돌은 물론 성능 카운터와 같은 앱에 대한 관리의 이벤트를 포함합니다. 로그는 앱의 호출을 System.Diagnostics.Trace에 포함합니다.
+Microsoft Azure에서 클라우드 서비스 프로젝트나 가상 컴퓨터를 설정하는 경우 [Azure는 진단 로그를 생성할 수 있습니다](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md). 이것을 Application Insights로 보내도록 설정하여 Application Insights SDK에 의해 앱 내부에서 전송되는 진단 및 사용량 원격 분석 자료와 함께 분석할 수 있습니다. Azure 로그는 시작, 중지, 충돌은 물론 성능 카운터와 같은 앱에 대한 관리의 이벤트를 포함합니다. 로그는 앱의 호출을 System.Diagnostics.Trace에 포함합니다.
 
 이 문서는 진단 캡처에 대한 구성을 자세히 설명합니다.
 
@@ -146,4 +146,4 @@ Application Insights에 Verbose 응용 프로그램 로그만 보내려면, `Log
 * [PowerShell을 사용하여 Azure 진단을 Application Insights에 보내기](app-insights-powershell-azure-diagnostics.md)
 * [Azure 진단 구성 파일](https://msdn.microsoft.com/library/azure/dn782207.aspx)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

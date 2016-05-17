@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="04/30/2016"
 	ms.author="markusvi"/>
 
 
@@ -104,7 +104,7 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 |이름| 필수/ 반복 | 형식 | 참고 사항 |
 |--- | ---                 | ---  | ---   |
 | **구분 기호** | 필수 | 문자열 | 문자열이 하나의 문자열로 연결되면 원본 값을 구분하는데 문자열을 사용합니다. 구분 기호가 필요하지 않은 경우 ""일 수 있습니다. |
-| ****source1 … sourceN ** | 필수, 시간 변수 | 문자열 | 함께 조인될 문자열 값 |
+| **source1 … sourceN** | 필수, 시간 변수 | 문자열 | 함께 조인될 문자열 값 |
 
 
 
@@ -316,4 +316,4 @@ Azure AD에 저장된 상태 코드를 기반으로 사용자의 시간대를 �
 - [계정 프로비전 알림](active-directory-saas-account-provisioning-notifications.md)
 - [SaaS App을 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -3,9 +3,9 @@
 	description="Azure 리소스 관리자 템플릿을 사용하여 GitHub 리포지토리에서 프로젝트가 포함된 웹앱을 배포합니다." 
 	services="app-service" 
 	documentationCenter="" 
-	authors="tfitzmac" 
+	authors="cephalin" 
 	manager="wpickett" 
-	editor="jimbe"/>
+	editor=""/>
 
 <tags 
 	ms.service="app-service" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/09/2016" 
-	ms.author="tomfitz"/>
+	ms.date="04/27/2016" 
+	ms.author="cephalin"/>
 
 # GitHub 리포지토리에 연결된 웹앱 배포
 
@@ -69,31 +69,32 @@ GitHub의 프로젝트에 연결된 웹앱 만들기
 또한 웹앱에는 아래 **리소스** 섹션에 정의된 자식 리소스가 있습니다. 이 자식 리소스는 웹앱과 함께 배포된 프로젝트에 대한 소스 제어를 정의합니다. 이 템플릿에서 소스 제어는 특정 GitHub 리포지토리에 연결됩니다. GitHub 리포지토리에 코드 **"RepoUrl": "https://github.com/davidebbo-test/Mvc52Application.git"**로 정의됩니다. 최소한의 매개 변수를 필요로 하는 동안 반복해서 단일 프로젝트를 배포하는 템플릿을 만드는 경우 리포지토리 URL를 하드 코딩할 수 있습니다. 하드 코드한 리포지토리 URL 대신에 리포지토리 URL에 대한 매개 변수를 추가하고 해당 값을 **RepoUrl** 속성에 사용할 수 있습니다.
 
     {
-      "apiVersion":"2015-04-01",
-      "name":"[parameters('siteName')]",
-      "type":"Microsoft.Web/sites",
-      "location":"[parameters('siteLocation')]",
-      "dependsOn":[
-         "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
+      "apiVersion": "2015-08-01",
+      "name": "[parameters('siteName')]",
+      "type": "Microsoft.Web/sites",
+      "location": "[resourceGroup().location]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
       ],
-      "properties":{
-        "serverFarmId":"[parameters('hostingPlanName')]"
+      "properties": {
+        "serverFarmId": "[parameters('hostingPlanName')]"
       },
-       "resources":[
-         {
-           "apiVersion":"2015-04-01",
-           "name":"web",
-           "type":"sourcecontrols",
-           "dependsOn":[
-             "[resourceId('Microsoft.Web/Sites', parameters('siteName'))]"
-           ],
-           "properties":{
-             "RepoUrl":"https://github.com/davidebbo-test/Mvc52Application.git",
-             "branch":"master"
-           }
-         }
-       ]
-     }
+      "resources": [
+        {
+          "apiVersion": "2015-08-01",
+          "name": "web",
+          "type": "sourcecontrols",
+          "dependsOn": [
+            "[resourceId('Microsoft.Web/Sites', parameters('siteName'))]"
+          ],
+          "properties": {
+            "RepoUrl": "[parameters('repoURL')]",
+            "branch": "[parameters('branch')]",
+            "IsManualIntegration": true
+          }
+        }
+      ]
+    }
 
 ## 배포 실행 명령
 
@@ -110,4 +111,4 @@ GitHub의 프로젝트에 연결된 웹앱 만들기
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

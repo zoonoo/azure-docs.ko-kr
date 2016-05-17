@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="03/02/2016" 
+	ms.date="04/18/2016" 
 	ms.author="awills"/>
 
 # 사용자 지정 이벤트 및 메트릭용 Application Insights API 
@@ -339,7 +339,7 @@ SDK에서 대부분의 예외를 자동으로 catch하므로 항상 TrackExcepti
     // Allow some time for flushing before shutdown.
     System.Threading.Thread.Sleep(1000);
 
-함수는 메모리 내 채널에서 비동기 상태이지만 [영구 채널](app-insights-windows-desktop.md#persistence-channel)을 사용하도록 선택하면 동기 상태가 됩니다.
+함수는 메모리 내 채널에서 비동기 상태이지만 [영구 채널](app-insights-windows-services.md#persistence-channel)을 사용하도록 선택하면 동기 상태가 됩니다.
 
 
 ## 인증된 사용자
@@ -567,16 +567,16 @@ ASP.NET 웹 MVC 응용 프로그램에서의 예:
 
 **JavaScript 웹 클라이언트의 경우** [JavaScript 원격 분석 이니셜라이저를 사용합니다](#js-initializer).
 
-표준 컬렉션 모듈에서의 데이터를 포함하여 **속성을 모든 원격 분석에 추가하려면** [원격 분석 이니셜라이저를 만듭니다](app-insights-api-filtering-sampling.md#add-properties).
+표준 컬렉션 모듈의 데이터를 포함하여 **모든 원격 분석에 속성을 추가하려면** [`ITelemetryInitializer`를 구현합니다](app-insights-api-filtering-sampling.md#add-properties).
 
 
 ## 원격 분석 샘플링, 필터링 및 처리 
 
 SDK에서 전송하기 전에 원격 분석을 처리하는 코드를 작성할 수 있습니다. 처리는 HTTP 요청 컬렉션 및 종속성 컬렉션과 같은 표준 원격 분석 모듈에서 전송된 데이터를 포함합니다.
 
-* 원격 분석에 [속성 추가](app-insights-api-filtering-sampling.md#add-properties) - 예: 다른 속성에서 계산된 값 또는 버전 번호.
-* [샘플링](app-insights-api-filtering-sampling.md#sampling)은 표시된 메트릭에 영향을 주지 않고 예외, 요청 및 페이지 뷰와 같은 관련된 항목 간을 이동하며 문제를 진단하는 기능에 영향을 주지 않으면서 응용 프로그램에서 포털로 전송되는 데이터의 양을 감소시킵니다.
-* [필터링](app-insights-api-filtering-sampling.md#filtering) 또한 볼륨을 줄입니다. 전송 또는 삭제될 대상을 제어하지만 메트릭에 미치는 영향을 고려해야 합니다. 항목 삭제 방법에 따라 관련된 항목 사이를 이동하는 기능이 손실될 수 있습니다.
+* `ITelemetryInitializer`를 구현하여 원격 분석에 [속성 추가](app-insights-api-filtering-sampling.md#add-properties) - 예를 들어 다른 속성에서 계산된 값 또는 버전 번호를 추가합니다. 
+* `ITelemetryProcesor`를 구현하면 원격 분석이 SDK에서 전송되기 전에 [필터링](app-insights-api-filtering-sampling.md#filtering)을 통해 원격 분석을 수정 또는 삭제할 수 있습니다. 전송 또는 삭제될 대상을 제어하지만 메트릭에 미치는 영향을 고려해야 합니다. 항목 삭제 방법에 따라 관련된 항목 사이를 이동하는 기능이 손실될 수 있습니다.
+* [샘플링](app-insights-api-filtering-sampling.md#sampling)은 앱에서 포털로 전송되는 데이터의 양을 줄이는 패키지 솔루션입니다. 샘플링은 표시된 메트릭에 영향을 주지 않고 예외, 요청 및 페이지 뷰와 같은 관련된 항목 간을 이동하며 문제를 진단하는 기능에 영향을 주지 않습니다.
 
 [자세히 알아보기](app-insights-api-filtering-sampling.md)
 
@@ -676,24 +676,14 @@ TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격
 * **Session** 사용자의 세션을 식별합니다. ID는 생성된 값으로 설정되며, 사용자가 잠시 동안 비활성 상태이면 값이 변경됩니다.
 * **User** 사용자 정보입니다. 
 
-
-
 ## 제한
 
-응용 프로그램별(즉, 계측 키별) 메트릭 및 이벤트의 수에 몇 가지 제한이 있습니다.
 
-1. 각 계측 키에 별도로 적용되는 초당 최대 속도입니다. 제한을 초과하면 일부 데이터가 삭제됩니다.
- * TrackTrace 호출 및 캡처된 로그 데이터의 경우 초당 최대 500개 데이터 요소입니다. (무료 가격 책정 계층의 경우 초당 100개)
- * 모듈 또는 TrackException 호출에 의해 캡처된 예외의 경우 초당 최대 50개 데이터 요소입니다. 
- * SDK 모듈 및 사용자 지정 이벤트에서 보낸 표준 원격 분석과 코드에서 보낸 메트릭 및 기타 원격 분석을 비롯하여 다른 모든 데이터의 경우 초당 최대 500개 데이터 요소입니다. (무료 가격 책정 계층의 경우 초당 100개)
-1. 월별 총 데이터 볼륨은 [가격 책정 계층](app-insights-pricing.md)에 따라 다릅니다.
-1.	응용 프로그램에는 최대 200개의 고유한 메트릭 이름과 200개의 고유한 속성 이름이 허용됩니다. 메트릭은 TrackMetric을 통해 전송된 데이터와 이벤트 같은 기타 데이터 유형의 측정을 포함합니다. 메트릭 및 속성 이름의 범위는 데이터 유형으로 한정되지 않고 계측 키마다 전역적입니다.
-2.	속성은 필터링 및 그룹화에만 사용할 수 있으며 각 속성에 허용되는 고유한 값은 100개 미만입니다. 고유한 값이 100개를 초과할 경우 해당 속성을 검색에 계속 사용할 수 있지만 필터에는 더 이상 사용할 수 없습니다.
-3.	요청 이름 및 페이지 URL 같은 표준 속성은 일주일에 고유한 값 1000개로 제한됩니다. 고유한 값이 1000개를 초과할 경우 초과하는 값이 "기타 값"으로 표시됩니다. 원래 값을 전체 텍스트 검색 및 필터링에 계속 사용할 수 있습니다.
+[AZURE.INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]
 
 *데이터 속도 제한에 도달하지 않도록 하려면 어떻게 해야 하나요?*
 
-* 최신 SDK를 설치하여 [샘플링](app-insights-sampling.md)을 사용합니다.
+* [샘플링](app-insights-sampling.md)을 사용합니다.
 
 *데이터는 얼마 동안 보존되나요?*
 
@@ -758,4 +748,4 @@ TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->

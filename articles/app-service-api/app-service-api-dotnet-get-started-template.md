@@ -12,7 +12,7 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="04/13/2016"
 	ms.author="tdykstra"/>
 
@@ -263,4 +263,4 @@ Azure 앱 서비스에서 ASP.NET API 앱이 실행 중인 경우 문제 해결�
 
 이 자습서에서는 간단한 Web API를 만들고 Azure 앱 서비스에서 API 앱에 배포하는 방법을 확인했습니다. Web API를 손쉽게 배포하고 소비할 수 있도록 해 주는 앱 서비스 기능에 대한 소개는 [API 앱 및 ASP.NET 시작](app-service-api-dotnet-get-started.md)으로 시작되는 자습서 시리즈를 참조하세요.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

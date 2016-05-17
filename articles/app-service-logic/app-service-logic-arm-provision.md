@@ -3,8 +3,8 @@
 	description="Azure 리소스 관리자 템플릿을 사용하여 워크플로를 정의하기 위한 빈 논리 앱을 배포합니다." 
 	services="app-service\logic" 
 	documentationCenter="" 
-	authors="tfitzmac" 
-	manager="wpickett" 
+	authors="MSFTMan" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/04/2016" 
-	ms.author="tomfitz"/>
+	ms.date="04/27/2016" 
+	ms.author="deonhe"/>
 
 # 템플릿을 사용하여 논리 앱 만들기
 
@@ -56,20 +56,22 @@ Azure 리소스 관리자 템플릿을 사용하여 워크플로 정의에 사�
 배포될 리소스 그룹과 동일한 위치를 사용합니다.
 
     {
-        "apiVersion": "2014-06-01",
-        "name": "[parameters('svcPlanName')]",
-        "type": "Microsoft.Web/serverfarms",
-        "location": "[resourceGroup().location]",
-        "tags": {
-            "displayName": "AppServicePlan"
-        },
-        "properties": {
-            "name": "[parameters('svcPlanName')]",
-            "sku": "[parameters('sku')]",
-            "workerSize": "[parameters('svcPlanSize')]",
-            "numberOfWorkers": 1
-        }
-    }
+      "apiVersion": "2015-08-01",
+      "name": "[parameters('hostingPlanName')]",
+      "type": "Microsoft.Web/serverfarms",
+      "location": "[resourceGroup().location]",
+      "tags": {
+        "displayName": "HostingPlan"
+      },
+      "sku": {
+        "name": "[parameters('hostingSkuName')]",
+        "capacity": "[parameters('hostingSkuCapacity')]"
+      },
+      "properties": {
+        "name": "[parameters('hostingPlanName')]"
+      }
+    },
+
 
 ### 논리 앱
 
@@ -80,52 +82,53 @@ Azure 리소스 관리자 템플릿을 사용하여 워크플로 정의에 사�
 이 특정 정의는 한 시간에 한 번 실행되며, **testUri** 매개 변수에서 지정된 위치를 ping합니다.
 
     {
-        "type": "Microsoft.Logic/workflows",
-        "apiVersion": "2015-02-01-preview",
-        "name": "[parameters('logicAppName')]",
-        "location": "[resourceGroup().location]",
-        "tags": {
-            "displayName": "LogicApp"
+      "type": "Microsoft.Logic/workflows",
+      "apiVersion": "2015-08-01-preview",
+      "name": "[parameters('logicAppName')]",
+      "location": "[resourceGroup().location]",
+      "tags": {
+        "displayName": "LogicApp"
+      },
+      "properties": {
+        "sku": {
+          "name": "[parameters('flowSkuName')]",
+          "plan": {
+            "id": "[concat(resourceGroup().id, '/providers/Microsoft.Web/serverfarms/',parameters('hostingPlanName'))]"
+          }
         },
-        "properties": {
-            "sku": {
-                "name": "[parameters('sku')]",
-                "plan": {
-                    "id": "[concat(resourceGroup().id, '/providers/Microsoft.Web/serverfarms/',parameters('svcPlanName'))]"
-                }
-            },
-            "definition": {
-                "$schema": "http://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
-                "contentVersion": "1.0.0.0",
-                "parameters": {
-                    "testURI": {
-                        "type": "string",
-                        "defaultValue": "[parameters('testUri')]"
-                    }
-                },
-                "triggers": {
-                    "recurrence": {
-                        "type": "recurrence",
-                        "recurrence": {
-                            "frequency": "Hour",
-                            "interval": 1
-                        }
-                    }
-                },
-                "actions": {
-                    "http": {
-                        "type": "Http",
-                        "inputs": {
-                            "method": "GET",
-                            "uri": "@parameters('testUri')"
-                        }
-                    }
-                },
-                "outputs": { }
-            },
-            "parameters": { }
-        }
+        "definition": {
+          "$schema": "http://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+            "testURI": {
+              "type": "string",
+              "defaultValue": "[parameters('testUri')]"
+            }
+          },
+          "triggers": {
+            "recurrence": {
+              "type": "recurrence",
+              "recurrence": {
+                "frequency": "Hour",
+                "interval": 1
+              }
+            }
+          },
+          "actions": {
+            "http": {
+              "type": "Http",
+              "inputs": {
+                "method": "GET",
+                "uri": "@parameters('testUri')"
+              }
+            }
+          },
+          "outputs": {}
+        },
+        "parameters": {}
+      }
     }
+
 
 ## 배포 실행 명령
 
@@ -142,4 +145,4 @@ Azure 리소스 관리자 템플릿을 사용하여 워크플로 정의에 사�
 
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

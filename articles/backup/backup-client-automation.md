@@ -77,8 +77,8 @@ PS C:\> MARSAgentInstaller.exe /?
 | 옵션 | 세부 정보 | 기본값 |
 | ---- | ----- | ----- |
 | /q | 무인 설치 | - |
-| /p:"location" | Azure 백업 에이전트에 대한 설치 폴더 경로. | C:\Program Files\Microsoft Azure Recovery Services Agent |
-| /s:"location" | Azure 백업 에이전트에 대한 캐시 폴더 경로. | C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
+| /p:"location" | Azure 백업 에이전트에 대한 설치 폴더 경로. | C:\\Program Files\\Microsoft Azure Recovery Services Agent |
+| /s:"location" | Azure 백업 에이전트에 대한 캐시 폴더 경로. | C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch |
 | /m | Opt-in to Microsoft Update | - |
 | /nu | 설치 완료 후 업데이트 확인 안 함 | - |
 | /d | Microsoft Azure 복구 서비스 에이전트 제거 | - |
@@ -592,7 +592,7 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 ## 다음 단계
 Windows Server/Client용 Azure 백업에 대한 자세한 정보는 다음을 참조하세요.
 
-- [Azure 백업 소개](backup-configure-vault.md)
-- [Windows 서버 백업](backup-azure-backup-windows-server.md)
+- [Azure 백업 소개](backup-introduction-to-azure-backup.md)
+- [Windows 서버 백업](backup-configure-vault.md)
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0504_2016-->

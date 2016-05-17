@@ -1,19 +1,19 @@
 <properties
-   pageTitle="캐시 ASP.NET 출력 캐시 공급자"
-   description="Azure Redis Cache를 사용하여 ASP.NET 페이지 출력 캐시하는 방법을 알아봅니다."
-   services="redis-cache"
-   documentationCenter="na"
-   authors="steved0x"
-   manager="erikre"
-   editor="tysonn" />
+	pageTitle="캐시 ASP.NET 출력 캐시 공급자"
+	description="Azure Redis Cache를 사용하여 ASP.NET 페이지 출력 캐시하는 방법을 알아봅니다."
+	services="redis-cache"
+	documentationCenter="na"
+	authors="steved0x"
+	manager="erikre"
+	editor="tysonn" />
 <tags
-   ms.service="cache"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="cache-redis"
-   ms.workload="tbd"
-   ms.date="01/13/2016"
-   ms.author="sdanie" />
+	ms.service="cache"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="cache-redis"
+	ms.workload="tbd"
+	ms.date="04/27/2016"
+	ms.author="sdanie" />
 
 # Azure Redis Cache에 대한 ASP.NET 출력 캐시 공급자
 
@@ -25,11 +25,11 @@ Redis 출력 캐시 공급자를 사용 하려면 먼저 캐시를 구성하고 
 
 Redis 출력 캐시 공급자 NuGet 패키지를 사용하여 Visual Studio에서 클라이언트 응용 프로그램을 구성하려면 **솔루션 탐색**을 오른쪽 클릭하고 **NuGet 패키지 관리**를 선택합니다.
 
-![Azure Redis Cache 관리 NuGet 패키지](./media/cache-asp.net-output-cache-provider/IC729541.png)
+![Azure Redis Cache 관리 NuGet 패키지](./media/cache-aspnet-output-cache-provider/redis-cache-manage-nuget-menu.png)
 
-**RedisOutputCacheProvider**를 **온라인** 검색 텍스트 상자에 입력하고 검색 결과를 선택하고 **설치**를 클릭합니다.
+**RedisOutputCacheProvider**를 검색 텍스트 상자에 입력하고 검색 결과를 선택하고 **설치**를 클릭합니다.
 
-![Azure Redis Cache 출력 캐시 공급자](./media/cache-asp.net-output-cache-provider/IC751727.jpg)
+![Azure Redis Cache 출력 캐시 공급자](./media/cache-aspnet-output-cache-provider/redis-cache-page-output-provider.png)
 
 Reids Output 캐시 공급자 NuGet 패키지는 StackExchange.Redis.StrongName 패키지에 종속성을 갖습니다. StackExchange.Redis.StrongName 패키지가 프로젝트에 나타나지 않는 경우 설치됩니다. 강력한 이름의 StackExchange.Redis.StrongName 패키지 외에도 StackExchange.Redis non-strong-name 버전이 있다는 것을 참고하세요. 프로젝트에 non-strong 이름의 StackExchange.Redis 버전을 사용하고 있다면 Redis 출력 캐시 공급자 NuGet Package 설치 전이나 후에 꼭 삭제해야 합니다. 그렇지 않은 경우 프로젝트 내에 이름 충돌이 일어납니다. 이 패키지에 대한 자세한 내용은 [.NET 캐시 클라이언트 구성](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients)을 참조하세요.
 
@@ -81,4 +81,4 @@ Microsoft Azure 포털의 캐시 블레이드에서 값으로 특성을 구성�
 
 [Azure Redis Cache에 대한 ASP.NET 세션 상태 제공자](cache-aspnet-session-state-provider.md)를 확인하세요.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

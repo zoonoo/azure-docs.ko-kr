@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/19/2016"
+   ms.date="05/05/2016"
    ms.author="nicw;barbkess;sonyama"/>
 
 
@@ -62,7 +62,7 @@ SQL 데이터 웨어하우스는 해당 데이터에 사용자 데이터 및 제
 
 ### 업그레이드 및 가동 중지 시간
 
-미리 보기 동안 SQL 데이터 웨어하우스는 새 기능을 추가하고 중요한 수정 사항을 설치하기 위해 주기적으로 업그레이드됩니다. 이러한 업그레이드로 인해 작업이 중단될 수 있으며 현재 업그레이드는 예측 가능한 일정에 따라 수행되지 않습니다. 이 프로세스로 인해 작업이 너무 자주 중단되면 이 프로세스 해결에 도움을 받을 수 있도록 [지원 티켓 만들기]를 권장합니다.
+미리 보기 동안 SQL 데이터 웨어하우스는 새 기능을 추가하고 중요한 수정 사항을 설치하기 위해 주기적으로 업그레이드됩니다. 이러한 업그레이드로 인해 작업이 중단될 수 있으며 현재 업그레이드는 예측 가능한 일정에 따라 수행되지 않습니다. 이 프로세스로 인해 작업이 너무 자주 중단되면 이 프로세스 해결에 도움을 받을 수 있도록 [지원 티켓 만들기][]를 권장합니다.
 
 
 ## 다음 단계
@@ -72,10 +72,11 @@ SQL 데이터 웨어하우스는 해당 데이터에 사용자 데이터 및 제
 <!--Image references-->
 
 <!--Article references-->
+[지원 티켓 만들기]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [시작]: ./sql-data-warehouse-get-started-provision.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="03/04/2016" 
+	ms.date="05/04/2016" 
 	ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694270.aspx -->
@@ -24,21 +24,29 @@
 
 이 문서는 다양한 릴리스 정보 및 Eclipse용 Azure 도구 키트에 대한 최신 업데이트를 포함합니다.
 
+### 2016년 4월 12일
+
+Eclipse용 Azure 도구 키트 - 2016년 4월 릴리스에는 다음과 같은 향상 기능이 포함되어 있습니다.
+
+* **Azure SDK v2.9.0에 대한 지원**. 이제 Azure SDK 최신 버전은 Eclipse용 Azure 도구 키트에 필요한 최소 구성 요소입니다.
+* **Azure 웹앱 지원과 관련된 여러 유용성, 응답성 및 성능 개선**. 도구 키트가 Azure 결과와 통신하는 방법에 있어서 보다 응답성이 뛰어난 UI를 통해 다양한 성능 최적화가 이루어졌습니다.
+* **Eclipse 내에서 Azure의 기존 웹 응용 프로그램 컨테이너를 삭제하는 기능**. 이제 Eclipse용 Azure 도구 키트를 사용하면 Eclipse를 종료하지 않고 기존 Azure 웹 컨테이너를 삭제할 수 있습니다.
+
 ### 2016년 3월 7일
 
 Eclipse용 Azure 도구 키트 - 2016년 3월 릴리스에는 다음과 같은 향상 기능이 포함되어 있습니다.
 
-* **간단한 Java 응용 프로그램의 빠른 배포 지원** Eclipse용 Azure 도구 키트는 Azure 웹앱 컨테이너에 간단한 Java 응용 프로그램의 빠른 배포를 지원하므로 이제는 Java 응용 프로그램 배포를 몇 분이 아닌 몇 초만에 할 수 있습니다.
-* **Azure 탐색기 보기를 사용한 웹앱 관리 지원** 이제 도구 키트의 Azure 탐색기 보기를 통해 Azure 웹앱을 나열하고 시작하고 중지할 수 있습니다.
-* **업데이트된 Tomcat, Jetty 및 Zulu OpenJDK 배포판** Eclipse용 Azure 도구 키트는 Azure 클라우드 서비스로의 Java 배포를 위해 업데이트된 버전의 Tomcat, Jetty 및 Zulu OpenJDK를 지원합니다.
+* **간단한 Java 응용 프로그램의 빠른 배포 지원**. Eclipse용 Azure 도구 키트는 Azure 웹앱 컨테이너에 간단한 Java 응용 프로그램의 빠른 배포를 지원하므로 이제는 Java 응용 프로그램 배포를 몇 분이 아닌 몇 초만에 할 수 있습니다.
+* **Azure 탐색기 보기를 사용한 웹앱 관리 지원**. 이제 도구 키트의 Azure 탐색기 보기를 통해 Azure 웹앱을 나열하고 시작하고 중지할 수 있습니다.
+* **업데이트된 Tomcat, Jetty 및 Zulu OpenJDK 배포판**. Eclipse용 Azure 도구 키트는 Azure 클라우드 서비스로의 Java 배포를 위해 업데이트된 버전의 Tomcat, Jetty 및 Zulu OpenJDK를 지원합니다.
 
-### 2015년 1월 4일
+### 2016년 1월 4일
 
 Eclipse용 Azure 도구 키트 - 2016년 1월 릴리스에는 다음과 같은 향상 기능이 포함되어 있습니다.
 
 * **Zulu OpenJDK 업데이트에 대한 지원**. 자세한 내용은 [Zulu OpenJDK용 Azul Systems 웹 페이지]를 참조하세요.
 * **업데이트된 Tomcat 및 Jetty 배포판**. Eclipse용 Azure 도구 키트와 함께 사용할 Microsoft Azure에서 사용할 수 있는 Jetty 및 Tomcat 배포판이 업데이트되었습니다.
-* **Eclipse 및 IntelliJ Azure용 도구 키트 간 기능 패리티**입니다. 이제 Eclipse용 Azure 도구 키트 및 [IntelliJ용 Azure 도구 키트]는 동일한 기능 집합을 지원합니다.
+* **Eclipse 및 IntelliJ Azure용 도구 키트 간 기능 패리티**. 이제 Eclipse용 Azure 도구 키트 및 [IntelliJ용 Azure 도구 키트]는 동일한 기능 집합을 지원합니다.
 
 ### 2015년 9월 1일
 
@@ -334,4 +342,4 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 [ic710882]: ./media/azure-toolkit-for-eclipse-whats-new/ic710882.png
 [ic710883]: ./media/azure-toolkit-for-eclipse-whats-new/ic710883.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

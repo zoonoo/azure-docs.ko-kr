@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="get-started-article"
-    ms.date="01/26/2016"
+    ms.date="05/06/2016"
     ms.author="sethm"/>
 
 # 서비스 버스 토픽 및 구독을 사용하는 방법
@@ -28,13 +28,11 @@
 
 ## 서비스 버스를 사용하도록 응용 프로그램 구성
 
-서비스 버스를 사용하는 응용 프로그램을 만드는 경우 서비스 버스 어셈블리에 대한 참조를 추가하고 해당 네임스페이스를 포함해야 합니다.
+서비스 버스를 사용하는 응용 프로그램을 만드는 경우 서비스 버스 어셈블리에 대한 참조를 추가하고 해당 네임스페이스를 포함해야 합니다. 이 작업을 수행하는 가장 쉬운 방법은 적절한 NuGet 패키지를 다운로드하는 것입니다.
 
 ## 서비스 버스 NuGet 패키지 다운로드
 
-[서비스 버스 NuGet 패키지](https://www.nuget.org/packages/WindowsAzure.ServiceBus)는 서비스 버스 API를 가져오고 모든 서비스 버스 종속성으로 응용 프로그램을 구성하는 가장 쉬운 방법입니다. NuGet Visual Studio 확장을 사용하면 Visual Studio 및 Visual Studio Express에서 라이브러리와 도구를 쉽게 설치 및 업데이트할 수 있습니다.
-
-응용 프로그램에서 NuGet 패키지를 설치하려면 다음을 수행합니다.
+[서비스 버스 NuGet 패키지](https://www.nuget.org/packages/WindowsAzure.ServiceBus)는 서비스 버스 API를 가져오고 모든 필요한 서비스 버스 종속성으로 응용 프로그램을 구성하는 가장 쉬운 방법입니다. 응용 프로그램에서 NuGet 패키지를 설치하려면 다음을 수행합니다.
 
 1.  솔루션 탐색기에서 **참조**를 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭합니다.
 2.  "서비스 버스"를 검색하고 **Microsoft Azure 서비스 버스** 항목을 선택합니다. **설치**를 클릭하여 설치를 완료한 후 다음의 대화 상자를 닫습니다.
@@ -47,14 +45,14 @@
 
 서비스 버스는 연결 문자열을 사용하여 끝점과 자격 증명을 저장합니다. 하드 코딩하는 대신 구성 파일에 연결 문자열을 저장할 수 있습니다.
 
-- Azure 클라우드 서비스를 사용하는 경우 Azure 서비스 구성 시스템(.csdef 및 .cscfg 파일)을 사용하여 연결 문자열을 저장하는 것이 좋습니다.
+- Azure 서비스를 사용하는 경우 Azure 서비스 구성 시스템(.csdef 및 .cscfg 파일)을 사용하여 연결 문자열을 저장하는 것이 좋습니다.
 - Azure 웹 사이트나 Azure 가상 컴퓨터를 사용하는 경우 .NET 구성 시스템(예: Web.config 파일)을 사용하여 연결 문자열을 저장하는 것이 좋습니다.
 
 두 경우 모두, 이 문서의 뒷부분에 표시된 대로 `CloudConfigurationManager.GetSetting` 메서드를 사용하여 연결 문자열을 검색할 수 있습니다.
 
-### 클라우드 서비스를 사용하는 경우 연결 문자열 구성
+### 연결 문자열 구성
 
-서비스 구성 메커니즘은 Azure 클라우드 서비스 프로젝트에 고유하며, 응용 프로그램을 다시 배포하지 않고도 [Azure 클래식 포털][]에서 구성 설정을 동적으로 변경할 수 있게 해줍니다. 예를 들어 다음 예에 표시된 대로 서비스 정의(****.csdef**) 파일에 `Setting` 레이블을 추가합니다.
+서비스 구성 메커니즘은 응용 프로그램을 다시 배포하지 않고도 [Azure 클래식 포털][]에서 구성 설정을 동적으로 변경할 수 있게 해줍니다. 예를 들어 다음 예에 표시된 대로 서비스 정의(****.csdef**) 파일에 `Setting` 레이블을 추가합니다.
 
 ```
 <ServiceDefinition name="Azure1">
@@ -107,7 +105,7 @@
 다음 예제에서는 Azure `CloudConfigurationManager` 클래스를 사용하여 `NamespaceManager` 개체를 생성합니다. 연결 문자열은 서비스 버스 네임스페이스의 기준 주소와 관리 권한이 있는 적절한 SAS 자격 증명으로 구성됩니다. 이 연결 문자열은 다음 형식을 사용합니다.
 
 ```
-Endpoint=sb://<yourServiceNamespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey
+Endpoint=sb://<yourNamespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<yourKey>
 ```
 
 이전 섹션의 구성 설정이 제공될 경우 다음 예를 사용합니다.
@@ -126,7 +124,7 @@ if (!namespaceManager.TopicExists("TestTopic"))
 }
 ```
 
-토픽의 속성을 조정할 수 있게 해 주는 [CreateTopic](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.createtopic.aspx) 메서드 오버로드가 있습니다. 예를 들어 토픽에 전송되는 메시지에 적용할 기본 TTL(Time-To-Live) 값을 설정할 수 있습니다. 이러한 설정은 [TopicDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.aspx) 클래스를 사용하여 적용됩니다. 다음 예제에서는 최대 크기가 5GB이고 기본 메시지 TTL(Time-To-Live)이 1분인 **TestTopic**이라는 토픽을 만드는 방법을 보여 줍니다.
+토픽의 속성을 설정할 수 있게 해 주는 [CreateTopic](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.createtopic.aspx) 메서드 오버로드가 있습니다. 예를 들어 토픽에 전송되는 메시지에 적용할 기본 TTL(Time-To-Live) 값을 설정할 수 있습니다. 이러한 설정은 [TopicDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.aspx) 클래스를 사용하여 적용됩니다. 다음 예제에서는 최대 크기가 5GB이고 기본 메시지 TTL(Time-To-Live)이 1분인 **TestTopic**이라는 토픽을 만드는 방법을 보여 줍니다.
 
 ```
 // Configure Topic Settings.
@@ -151,7 +149,7 @@ if (!namespaceManager.TopicExists("TestTopic"))
 
 ## 구독 만들기
 
-[`NamespaceManager`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) 클래스를 사용하여 항목 구독을 만들 수도 있습니다. 구독에는 이름이 지정되며, 구독의 가상 큐에 전달되는 메시지 집합을 제한하는 선택적 필터가 있을 수 있습니다.
+[NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) 클래스를 사용하여 토픽 구독을 만들 수도 있습니다. 구독에는 이름이 지정되며, 구독의 가상 큐에 전달되는 메시지 집합을 제한하는 선택적 필터가 있을 수 있습니다.
 
 ### 기본(MatchAll) 필터를 사용하여 구독 만들기
 
@@ -236,7 +234,7 @@ for (int i=0; i<5; i++)
 }
 ```
 
-서비스 버스 토픽은 [256KB의 최대 메시지 크기](service-bus-quotas.md)를 지원합니다(표준 및 사용자 지정 응용 프로그램 속성이 포함된 헤더의 최대 크기는 64KB임). 한 토픽에 저장되는 메시지 수에는 제한이 없지만 한 토픽에 저장되는 총 메시지 크기는 제한됩니다. 이 토픽 크기는 생성 시 정의되며 상한이 5GB입니다. 분할을 사용하는 경우 상한이 더 높습니다. 자세한 내용은 [분할된 메시징 엔티티](service-bus-partitioning.md)을 참조하세요.
+서비스 버스 토픽은 [256KB의 최대 메시지 크기](service-bus-quotas.md)를 지원합니다(표준 및 사용자 지정 응용 프로그램 속성이 포함된 헤더의 최대 크기는 64KB임). 한 토픽에 저장되는 메시지 수에는 제한이 없지만 한 토픽에 저장되는 총 메시지 크기는 제한됩니다. 이 토픽 크기는 생성 시 정의되며 상한이 5GB입니다. 분할을 사용하는 경우 상한이 더 높습니다. 자세한 내용은 [분할된 메시징 엔터티](service-bus-partitioning.md)를 참조하세요.
 
 ## 구독에서 메시지를 받는 방법
 
@@ -313,6 +311,7 @@ namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
 이제 서비스 버스 토픽 및 구독의 기본 사항을 익혔으므로 다음 링크를 따라 자세히 알아보세요.
 
 -   [큐, 토픽 및 구독][]
+-   [항목 필터 샘플][]
 -   [SqlFilter][]에 대한 API 참조
 -   서비스 버스 큐로 메시지를 보내고 받는 작동하는 응용 프로그램 만들기: [서비스 버스 조정된 메시징 .NET 자습서][].
 -   서비스 버스 샘플: [Azure 샘플][]에서 다운로드하거나 [개요](service-bus-samples.md)를 참조하세요.
@@ -322,9 +321,10 @@ namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
   [7]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
 
   [큐, 토픽 및 구독]: service-bus-queues-topics-subscriptions.md
+  [항목 필터 샘플]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters
   [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
   [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [서비스 버스 조정된 메시징 .NET 자습서]: service-bus-brokered-tutorial-dotnet.md
   [Azure 샘플]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0511_2016-->

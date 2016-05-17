@@ -14,50 +14,58 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/29/2016"
+   ms.date="05/02/2016"
    ms.author="litran"/>
 
 # PowerApps 엔터프라이즈에 새 Bing 검색 만들기
 
-> [AZURE.SELECTOR]
-- [논리 앱](../articles/connectors/connectors-create-api-bingsearch.md)
-- [PowerApps 엔터프라이즈](../articles/power-apps/powerapps-create-api-bingsearch.md)
+> [AZURE.IMPORTANT] 이 항목은 보관되고 곧 제거될 예정입니다. 새 [PowerApps](https://powerapps.microsoft.com)의 새로운 내용을 살펴보세요.
+> 
+> - PowerApps에 대해 자세히 알아보고 시작하려면 [PowerApps](https://powerapps.microsoft.com)로 이동합니다.  
+> - PowerApps에서 사용 가능한 연결에 대해 자세히 알아보려면 [사용 가능한 연결](https://powerapps.microsoft.com/tutorials/connections-list/)로 이동합니다. 
 
-조직의 (테넌트) 앱 서비스 환경에 Bing 검색 API를 추가합니다.
+<!--Archived
+Add the Bing Search API to your organization's (tenant) app service environment. 
 
-## Azure 포털에서 API 만들기
+## Create the API in the Azure portal
 
-1. [Azure 포털](https://portal.azure.com/)에서 회사 계정으로 로그인합니다. 예를 들어 *yourUserName*@*YourCompany*.com으로 로그인합니다. 그러면 회사 구독에 자동으로 로그인됩니다.
+1. In the [Azure portal](https://portal.azure.com/), sign-in with your work account. For example, sign-in with *yourUserName*@*YourCompany*.com. When you do this, you are automatically signed in to your company subscription.
  
-2. 작업 표시줄에서 **찾아보기**를 선택합니다. ![][4]
+2. Select **Browse** in the task bar:  
+![][4]
 
-3. 목록을 스크롤하여 PowerApps를 찾거나 *powerapps*를 입력합니다. ![][5]
+3. In the list, you can scroll to find PowerApps or type in *powerapps*:  
+![][5]  
 
-4. **PowerApps**에서 **API 관리**를 선택합니다. ![등록된 API 찾아보기][2]
+4. In **PowerApps**, select **Manage APIs**:  
+![Browse to registered apis][2]
 
-2. **API 관리**에서 **추가**를 선택하여 새 API를 추가합니다. ![API 추가][3]
+2. In **Manage APIs**, select **Add** to add the new API:  
+![Add API][3]
 
-3. API에 대한 설명이 포함된 **이름**을 입력합니다.
+3. Enter a descriptive **name** for your API. 
 
-4. **원본**에서 **사용 가능한 API**를 선택하여 이미 만들어진 API를 선택한 다음 **Bing 검색**을 선택합니다.
+4. In **Source**, select **Available API** to select the pre-built APIs, and select **Bing Search**:  
 
-	1. **설정 - 필수 설정 구성**을 선택합니다.
-	2. *계정 키*를 입력합니다. Bing 검색 키가 없는 경우 무료 [Bing 검색 제안][1]을 만들어 키를 가져옵니다.
-	3. **확인**을 선택합니다. 
+	1. Select **Settings - Configure required settings**.
+	2. Enter *Account Key*. If you don't have a Bing Search Key, create a free [Bing Search offer][1] to get a key.
+	3. Select **OK**. 
 
-5. **확인**을 선택하여 이 단계를 완료합니다.
+5. Select **OK** to complete the steps. 
 
-완료하면 새 Bing 검색 API가 앱 서비스 환경에 추가됩니다.
+When finished, a new Bing Search API is added to your app service environment.
 
-## REST API 참조
+## See the REST APIs
 
-[Bing 검색 REST API](../connectors/connectors-create-api-bingsearch.md) 참조.
+[Bing Search REST API](../connectors/connectors-create-api-bingsearch.md) reference.
 
 
-## 요약 및 다음 단계
-이 항목에서는 PowersApps 엔터프라이즈에 Bing 검색 API를 추가했습니다. 그 다음에는 이 API를 사용자의 앱에 추가할 수 있도록 사용자에게 이 API에 대한 액세스 권한을 부여합니다.
+## Summary and next steps
+In this topic, you added the Bing Search API to your PowersApps Enterprise. Next, give users access to the API so it can be added to their apps: 
 
-[연결 추가 및 사용자에게 액세스 권한 부여](powerapps-manage-api-connection-user-access.md)
+[Add a connection and give users access](powerapps-manage-api-connection-user-access.md)
+-->
+
 
 <!--References-->
 [1]: https://datamarket.azure.com/dataset/bing/search
@@ -66,4 +74,4 @@
 [4]: ./media/powerapps-create-api-dropbox/browseall.png
 [5]: ./media/powerapps-create-api-dropbox/allresources.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

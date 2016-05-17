@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="04/30/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스에서 데이터베이스 보호
@@ -24,7 +24,9 @@
 
 연결 보안은 방화벽 규칙 및 연결 암호화를 사용하여 데이터베이스에 대 한 연결을 제한하고 보호하는 방법을 가리킵니다.
 
-방화벽 규칙은 서버와 데이터베이스에서 명시적으로 허용 목록에 없는 IP 주소로부터의 연결 시도를 거부하는 데 사용됩니다. 응용 프로그램 또는 클라이언트 컴퓨터의 공용 IP 주소에서 새 데이터베이스에 대해 연결을 시도할 수 있도록 허용하려면 먼저 Azure 클래식 포털, REST API 또는 PowerShell을 사용하여 서버 수준 방화벽 규칙을 만들어야 합니다. 서버 방화벽을 통해 허용되는 IP 주소 범위를 최대한 많이 제한하는 것이 좋습니다. 자세한 내용은 [Azure SQL 데이터베이스 방화벽][]을 참조하세요.
+방화벽 규칙은 서버와 데이터베이스에서 명시적으로 허용 목록에 없는 IP 주소로부터의 연결 시도를 거부하는 데 사용됩니다. 응용 프로그램 또는 클라이언트 컴퓨터의 공용 IP 주소에서 연결할 수 있도록 허용하려면 먼저 Azure 클래식 포털, REST API 또는 PowerShell을 사용하여 서버 수준 방화벽 규칙을 만들어야 합니다. 서버 방화벽을 통해 허용되는 IP 주소 범위를 최대한 많이 제한하는 것이 좋습니다. 로컬 컴퓨터에서 Azure SQL 데이터 웨어하우스로 액세스하려면 네트워크의 방화벽과 로컬 컴퓨터가 TCP 포트 1433으로 나가는 통신을 허용하는지 확인합니다. 자세한 내용은 [Azure SQL 데이터베이스 방화벽][]을 참조하세요.
+
+연결 문자열에서 암호화 모드를 설정하여 SQL 데이터 웨어하우스에 대한 연결을 암호화할 수 있습니다. 연결에 암호화를 설정하는 구문은 프로토콜에 따라 다릅니다. 연결 문자열 설정 방법을 알아보려면 Azure 포털에서 사용자 데이터베이스로 이동합니다. *필수*에서 *데이터베이스 연결 문자열 표시*를 클릭합니다.
 
 
 ## 인증
@@ -67,7 +69,7 @@ EXEC sp_addrolemember 'db_datawriter', 'ApplicationUser'; -- allows ApplicationU
 
 사용자가 Azure SQL 데이터베이스로 수행할 수 있는 작업을 더욱 제한할 수 있는 방법이 있습니다.
 
-- 세분화된 [권한][]을 사용하면 개별 열, 테이블, 뷰, 프로시저 및 데이터베이스의 다른 개체에서 수행할 수 있는 작업을 제어할 수 있습니다. 세분화된 사용 권한을 사용하여 최대한으로 제어하고 최소한의 필요한 권한을 부여합니다. 세분화된 사용 권한 시스템은 다소 복잡하며 효과적으로 사용하려면 약간의 연구가 필요합니다.
+- 세분화된 [권한][]을 사용하면 개별 열, 테이블, 뷰, 프로시저 및 데이터베이스의 다른 개체에서 수행할 수 있는 작업을 제어할 수 있습니다. 세분화된 사용 권한을 사용하여 최대한으로 제어하고 최소한의 필요 권한을 부여합니다. 세분화된 사용 권한 시스템은 다소 복잡하며 효과적으로 사용하려면 약간의 연구가 필요합니다.
 - db\_datareader 및 db\_datawriter 이외의 [데이터베이스 역할][]은 더 강력한 응용 프로그램 사용자 계정이나 덜 강력한 관리 계정을 만드는 데 사용할 수 있습니다. 기본 제공되는 고정 데이터베이스 역할은 사용 권한을 부여하는 쉬운 방법을 제공하지만 필요한 것보다 많은 사용 권한이 부여될 수 있습니다.
 - [저장 프로시저][]는 데이터베이스에서 수행할 수 있는 작업을 제한하는 데 사용할 수 있습니다.
 
@@ -91,14 +93,13 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 데이터베이스 이벤트의 감사 및 추적은 규정을 준수하고 의심스러운 활동을 식별할 수 있도록 도와줍니다. SQL 데이터 웨어하우스 감사를 사용하면 Azure 저장소 계정의 감사 로그에 데이터베이스의 이벤트를 기록할 수 있습니다. 또한 드릴다운 보고서 및 분석을 용이하게 하려면 SQL 데이터 웨어하우스 감사 기능을 Microsoft Power BI와 통합합니다. 자세한 내용은 [SQL 데이터베이스 감사 시작][]을 참조하세요.
 
 ## 다음 단계
-더 많은 개발 팁은 [개발 개요][]를 참조하세요.
-
+다양한 프로토콜의 SQL 데이터 웨어하우스에 연결하는 방법에 대한 정보와 예제는 [SQL 데이터 웨어하우스에 연결][]을 참조하세요.
 
 <!--Image references-->
 
 <!--Article references-->
-[개발 개요]: sql-data-warehouse-overview-develop.md
-
+[SQL 데이터 웨어하우스에 연결]: sql-data-warehouse-develop-connections.md
+[SQL 데이터베이스 감사 시작]: sql-database-auditing-get-started.md
 
 <!--MSDN references-->
 [Azure SQL 데이터베이스 방화벽]: https://msdn.microsoft.com/library/ee621782.aspx
@@ -107,10 +108,9 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 [권한]: https://msdn.microsoft.com/library/ms191291.aspx
 [저장 프로시저]: https://msdn.microsoft.com/library/ms190782.aspx
 [투명한 데이터 암호화]: http://go.microsoft.com/fwlink/?LinkId=526242
-[SQL 데이터베이스 감사 시작]: sql-database-auditing-get-started.md
 [Azure 클래식 포털]: https://portal.azure.com/
 
 <!--Other Web references-->
 [Azure 포털의 역할 기반 액세스 제어]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->
