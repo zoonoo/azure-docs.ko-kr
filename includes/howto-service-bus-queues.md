@@ -22,9 +22,11 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 
 2.  포털의 왼쪽 탐색 창에서 **서비스 버스**를 클릭합니다.
 
-3.  포털의 아래쪽 창에서 **만들기**를 클릭합니다. ![](./media/howto-service-bus-queues/sb-queues-03.png)
+3.  포털의 아래쪽 창에서 **만들기**를 클릭합니다.
+	![](./media/howto-service-bus-queues/sb-queues-03.png)
 
-4.  **Add a new namespace** 대화 상자에서 네임스페이스 이름을 입력합니다. 시스템에서 사용 가능한 이름인지 즉시 확인합니다. ![](./media/howto-service-bus-queues/sb-queues-04.png)
+4.  **Add a new namespace** 대화 상자에서 네임스페이스 이름을 입력합니다. 시스템에서 사용 가능한 이름인지 즉시 확인합니다.
+	![](./media/howto-service-bus-queues/sb-queues-04.png)
 
 5.  네임스페이스 이름이 사용 가능한지 확인한 후 해당 네임스페이스를 호스트할 국가 또는 지역을 선택합니다(계산 리소스를 배포할 국가/지역과 같아야 함).
 
@@ -42,11 +44,15 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 
 ###포털에서 관리 자격 증명을 가져오려면
 
-1.  왼쪽 탐색 창에서 **서비스 버스** 노드를 클릭하여 사용 가능한 네임스페이스 목록을 표시합니다. ![](./media/howto-service-bus-queues/sb-queues-13.png)
+1.  왼쪽 탐색 창에서 **서비스 버스** 노드를 클릭하여 사용 가능한 네임스페이스 목록을 표시합니다.
+	![](./media/howto-service-bus-queues/sb-queues-13.png)
 
-2.  표시된 목록에서 방금 만든 네임스페이스를 선택합니다. ![](./media/howto-service-bus-queues/sb-queues-09.png)
+2.  표시된 목록에서 방금 만든 네임스페이스를 선택합니다.
+	![](./media/howto-service-bus-queues/sb-queues-09.png)
 
-3.  **연결 정보**를 클릭합니다. ![](./media/howto-service-bus-queues/sb-queues-06.png)
+3.  **연결 정보**를 클릭합니다.
+
+![](./media/howto-service-bus-queues/sb-queues-06.png)
 
 4.  **Access 연결 정보** 창에서 SAS 키 및 키 이름이 포함된 연결 문자열을 찾습니다.
 

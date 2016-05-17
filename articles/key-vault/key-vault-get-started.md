@@ -116,7 +116,7 @@ Azure 계정은 이제 이 키 자격 증명 모음에서 모든 작업을 수�
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -KeyFilePath 'c:\softkey.pfx' -KeyFilePassword $securepfxpwd
 
 
-이제 해당 URI를 사용하여 Azure 키 자격 증명 모음을 만들거나 업로드하는 이 키를 참조할 수 있습니다. ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey**를 사용하면 항상 최신 버전을 가져오고 ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**를 사용하면 이 특정 버전을 가져옵니다.
+이제 해당 URI를 사용하여 Azure 키 자격 증명 모음을 만들거나 업로드하는 이 키를 참조할 수 있습니다. **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey**를 사용하면 항상 최신 버전을 가져오고 **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**를 사용하면 이 특정 버전을 가져옵니다.
 
 이 키에 대한 URI를 표시하려면 다음을 입력합니다.
 
@@ -130,7 +130,7 @@ Azure 계정은 이제 이 키 자격 증명 모음에서 모든 작업을 수�
 
 	$secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword' -SecretValue $secretvalue
 
-이제 해당 URI를 사용하여 Azure 키 자격 증명 모음에 추가한 이 암호를 참조할 수 있습니다. ****https://ContosoVault.vault.azure.net/secrets/SQLPassword**를 사용하면 항상 최신 버전을 가져오고 ****https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**를 사용하면 이 특정 버전을 가져옵니다.
+이제 해당 URI를 사용하여 Azure 키 자격 증명 모음에 추가한 이 암호를 참조할 수 있습니다. **https://ContosoVault.vault.azure.net/secrets/SQLPassword**를 사용하면 항상 최신 버전을 가져오고 **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**를 사용하면 이 특정 버전을 가져옵니다.
 
 이 비밀에 대한 URI를 표시하려면 다음을 입력합니다.
 
