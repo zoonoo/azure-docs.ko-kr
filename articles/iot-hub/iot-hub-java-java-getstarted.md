@@ -58,10 +58,385 @@ Azure IoT Hub는 수백만의 IoT(사물 인터넷) 장치와 솔루션 백 엔�
 
 이제 IoT Hub를 만들었고 이 자습서의 나머지 부분을 완료해야 할 IoT Hub 호스트 이름, IoT Hub 연결 문자열, 이벤트 허브 호환 이름 및 이벤트 허브 호환 끝점이 있습니다.
 
-[AZURE.INCLUDE [iot-hub-get-started-cloud-java](../../includes/iot-hub-get-started-cloud-java.md)]
+## 장치 ID 만들기
 
+이 섹션에서는 IoT Hub의 ID 레지스트리에서 새 장치 ID를 만드는 Java 콘솔 앱을 작성합니다. 장치 ID 레지스트리에 항목이 없는 경우 장치를 IoT Hub에 연결할 수 없습니다. 자세한 내용은 [IoT Hub 개발자 가이드][lnk-devguide-identity]의 **장치 ID 레지스트리** 섹션을 참조하세요. 이 콘솔 응용 프로그램을 실행하면 장치-클라우드 메시지를 IoT Hub로 보낼 때 장치가 자체적으로 ID를 식별할 수 있는 고유한 장치 ID와 키를 생성합니다.
 
-[AZURE.INCLUDE [iot-hub-get-started-device-java](../../includes/iot-hub-get-started-device-java.md)]
+1. iot-java-get-started라는 새로운 빈 폴더를 만듭니다. 명령 프롬프트에서 다음 명령을 사용하여 iot-java-get-started 폴더에 **create-device-identity**라는 새 Maven 프로젝트를 만듭니다. 이것은 하나의 긴 명령입니다.
+
+    ```
+    mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=create-device-identity -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+    ```
+
+2. 명령 프롬프트에서 새 create-device-identity 폴더로 이동합니다.
+
+3. 텍스트 편집기를 사용하여 create-device-identity 폴더에서 pom.xml 파일을 열고 **종속성** 노드에 다음 종속성을 추가합니다. 응용 프로그램에서 iothub-service-sdk 패키지를 사용할 수 있습니다.
+
+    ```
+    <dependency>
+      <groupId>com.microsoft.azure.iothub-java-client</groupId>
+      <artifactId>iothub-java-service-client</artifactId>
+      <version>1.0.2</version>
+    </dependency>
+    ```
+    
+4. pom.xml 파일을 저장하고 닫습니다.
+
+5. 텍스트 편집기를 사용하여 create-device-identity\\src\\main\\java\\com\\mycompany\\app\\App.java 파일을 엽니다.
+
+6. 파일에 다음 **import** 문을 추가합니다.
+
+    ```
+    import com.microsoft.azure.iot.service.exceptions.IotHubException;
+    import com.microsoft.azure.iot.service.sdk.Device;
+    import com.microsoft.azure.iot.service.sdk.RegistryManager;
+
+    import java.io.IOException;
+    import java.net.URISyntaxException;
+    ```
+
+7. **App** 클래스에 다음 클래스 수준 변수를 추가하고 **{yourhubname}** 및 **{yourhubkey}**를 앞에서 기록해둔 값으로 바꿉니다.
+
+    ```
+    private static final String connectionString = "HostName={yourhubname}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={yourhubkey}";
+    private static final String deviceId = "javadevice";
+    
+    ```
+    
+8. **main** 메서드의 서명을 수정하여 아래의 예외를 포함합니다.
+
+    ```
+    public static void main( String[] args ) throws IOException, URISyntaxException, Exception
+    ```
+    
+9. **main** 메서드의 본문으로 다음 코드를 추가합니다. 이 코드는 IoT Hub ID 레지스트리에 *javadevice*라는 장치를 만듭니다(없는 경우). 그런 다음 나중에 필요한 장치 ID와 키를 표시합니다.
+
+    ```
+    RegistryManager registryManager = RegistryManager.createFromConnectionString(connectionString);
+
+    Device device = Device.createFromId(deviceId, null, null);
+    try {
+      device = registryManager.addDevice(device);
+    } catch (IotHubException iote) {
+      try {
+        device = registryManager.getDevice(deviceId);
+      } catch (IotHubException iotf) {
+        iotf.printStackTrace();
+      }
+    }
+    System.out.println("Device id: " + device.getDeviceId());
+    System.out.println("Device key: " + device.getPrimaryKey());
+    ```
+
+10. App.java 파일을 저장하고 닫습니다.
+
+11. Maven을 사용하여 **create-device-identity** 응용 프로그램을 빌드하려면 create-device-identity 폴더의 명령 프롬프트에서 다음 명령을 실행합니다.
+
+    ```
+    mvn clean package -DskipTests
+    ```
+
+12. Maven을 사용하여 **create-device-identity** 응용 프로그램을 실행하려면 create-device-identity 폴더의 명령 프롬프트에서 다음 명령을 실행합니다.
+
+    ```
+    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
+    ```
+
+13. **장치 ID**와 **장치 키**를 기록해 둡니다. 나중에 장치로 IoT Hub에 연결하는 응용 프로그램을 만들 때 필요합니다.
+
+> [AZURE.NOTE] IoT Hub ID 레지스트리는 장치 ID만 저장하여 허브에 보안 액세스를 사용합니다. 보안 자격 증명으로 사용하기 위해 장치 ID 및 키와 개별 장치에 대해 액세스하지 못하도록 설정할 수 있는 사용/사용 안 함 플래그를 저장합니다. 응용 프로그램이 다른 장치별 메타데이터를 저장해야 할 경우 응용 프로그램별 저장소를 사용해야 합니다. 자세한 내용은 [IoT Hub 개발자 가이드][lnk-devguide-identity]를 참조하세요.
+
+## 장치-클라우드 메시지 받기
+
+이 섹션에서는 IoT Hub에서 장치-클라우드 메시지를 읽는 Java 콘솔 앱을 만듭니다. IoT Hub가 [이벤트 허브][lnk-event-hubs-overview]와 호환되는 끝점을 노출하여 장치-클라우드 메시지를 읽을 수 있습니다. 작업을 단순화하기 위해 이 자습서에서는 처리량이 높은 배포용이 아닌 기본적인 판독기를 만듭니다. [장치-클라우드 메시지 처리][lnk-process-d2c-tutorial] 자습서는 대량의 장치-클라우드 메시지를 처리하는 방법을 보여줍니다. [이벤트 허브 시작][lnk-eventhubs-tutorial] 자습서는 이벤트 허브의 메시지를 처리하는 방법에 대해 추가 정보를 제공하며 IoT Hub 이벤트 허브 호환 끝점에 적용됩니다.
+
+> [AZURE.NOTE] 장치-클라우드 메시지를 읽는 이벤트 허브와 호환 가능한 끝점은 항상 AMQPS 프로토콜을 사용합니다.
+
+1. *장치 ID 만들기* 섹션에서 만든 iot-java-get-started 폴더의 명령 프롬프트에서 다음 명령을 사용하여 **read-d2c-messages**라는 새 Maven 프로젝트를 만듭니다. 이것은 하나의 긴 명령입니다.
+
+    ```
+    mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=read-d2c-messages -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+    ```
+
+2. 명령 프롬프트에서 새 read-d2c-messages 폴더로 이동합니다.
+
+3. 텍스트 편집기를 사용하여 read-d2c-messages 폴더에서 pom.xml 파일을 열고 **종속성** 노드에 다음 종속성을 추가합니다. 이 옵션을 사용하면 응용 프로그램에서 eventhub 클라이언트 패키지를 사용하여 이벤트 허브 호환 끝점에서 읽을 수 있습니다.
+
+    ```
+    <dependency>
+      <groupId>com.microsoft.eventhubs.client</groupId>
+      <artifactId>eventhubs-client</artifactId>
+      <version>1.0</version>
+    </dependency>
+    ```
+
+4. pom.xml 파일을 저장하고 닫습니다.
+
+5. 텍스트 편집기를 사용하여 read-d2c-messages\\src\\main\\java\\com\\mycompany\\app\\App.java 파일을 엽니다.
+
+6. 파일에 다음 **import** 문을 추가합니다.
+
+    ```
+    import java.io.IOException;
+    import com.microsoft.eventhubs.client.Constants;
+    import com.microsoft.eventhubs.client.EventHubClient;
+    import com.microsoft.eventhubs.client.EventHubEnqueueTimeFilter;
+    import com.microsoft.eventhubs.client.EventHubException;
+    import com.microsoft.eventhubs.client.EventHubMessage;
+    import com.microsoft.eventhubs.client.EventHubReceiver;
+    import com.microsoft.eventhubs.client.ConnectionStringBuilder;
+    ```
+
+7. 다음 클래스 수준 변수를 **App** 클래스에 추가합니다.
+
+    ```
+    private static EventHubClient client;
+    private static long now = System.currentTimeMillis();
+    ```
+
+8. 다음 중첩 클래스를 **App** 클래스 안에 추가합니다. 응용 프로그램이 이벤트 허브의 두 파티션에서 메시지를 읽기 위해 **MessageReceiver**를 실행하는 두 개의 스레드를 만듭니다.
+
+    ```
+    private static class MessageReceiver implements Runnable
+    {
+        public volatile boolean stopThread = false;
+        private String partitionId;
+    }
+    ```
+
+9. **MessageReceiver** 클래스에 다음 생성자를 추가합니다.
+
+    ```
+    public MessageReceiver(String partitionId) {
+        this.partitionId = partitionId;
+    }
+    ```
+
+10. **MessageReceiver** 클래스에 다음 **run** 메서드를 추가합니다. 이 메서드는 이벤트 허브 파티션에서 읽기 위한 **EventHubReceiver** 인스턴스를 만듭니다. 이 메서드는 **stopThread**가 true가 될 때까지 연속적으로 루핑하며 메시지 정보를 콘솔에 인쇄합니다.
+
+    ```
+    public void run() {
+      try {
+        EventHubReceiver receiver = client.getConsumerGroup(null).createReceiver(partitionId, new EventHubEnqueueTimeFilter(now), Constants.DefaultAmqpCredits);
+        System.out.println("** Created receiver on partition " + partitionId);
+        while (!stopThread) {
+          EventHubMessage message = EventHubMessage.parseAmqpMessage(receiver.receive(5000));
+          if(message != null) {
+            System.out.println("Received: (" + message.getOffset() + " | "
+                + message.getSequence() + " | " + message.getEnqueuedTimestamp()
+                + ") => " + message.getDataAsString());
+          }
+        }
+        receiver.close();
+      }
+      catch(EventHubException e) {
+        System.out.println("Exception: " + e.getMessage());
+      }
+    }
+    ```
+
+    > [AZURE.NOTE] 이 메서드는 수신기를 만들 때 필터를 사용하여 수신기는 수신기 실행이 시작된 후 IoT Hub에 전송된 메시지를 읽습니다. 테스트 환경에서는 현재 메시지 집합을 볼 수 있어 유용하지만 프로덕션 환경에서는 코드가 모든 메시지를 처리하는지 확인해야 합니다. 자세한 내용은 [IoT Hub 장치-클라우드 메시지 처리 방법][lnk-process-d2c-tutorial] 자습서를 참조하세요.
+
+11. **main** 메서드의 서명을 수정하여 아래의 예외를 포함합니다.
+
+    ```
+    public static void main( String[] args ) throws IOException
+    ```
+
+12. **App** 클래스의 **main** 메서드에 다음 코드를 추가합니다. 이 코드는 IoT Hub의 이벤트 허브 호환 끝점에 연결하기 위한 **EventHubClient** 인스턴스를 만듭니다. 그런 다음 두 개의 파티션에서 읽도록 두 개의 스레드를 만듭니다. **{youriothubkey}**, **{youreventhubcompatiblenamespace}** 및 **{youreventhubcompatiblename}**을 앞에서 기록해둔 값으로 바꿉니다. **{youreventhubcompatiblenamespace}** 자리 표시자의 값은 **이벤트 허브 호환 끝점** 값이 적용되며 **xxxxnamespace** 형식을 사용합니다(즉, 포털의 이벤트 허브 호환 끝점 값에서 ****sb://** 접두사 및 **.servicebus.windows.net** 접미사를 제거함).
+
+    ```
+    String policyName = "iothubowner";
+    String policyKey = "{youriothubkey}";
+    String namespace = "{youreventhubcompatiblenamespace}";
+    String name = "{youreventhubcompatiblename}";
+    try {
+      ConnectionStringBuilder csb = new ConnectionStringBuilder(policyName, policyKey, namespace);
+      client = EventHubClient.create(csb.getConnectionString(), name);
+    }
+    catch(EventHubException e) {
+        System.out.println("Exception: " + e.getMessage());
+    }
+    
+    MessageReceiver mr0 = new MessageReceiver("0");
+    MessageReceiver mr1 = new MessageReceiver("1");
+    Thread t0 = new Thread(mr0);
+    Thread t1 = new Thread(mr1);
+    t0.start(); t1.start();
+
+    System.out.println("Press ENTER to exit.");
+    System.in.read();
+    mr0.stopThread = true;
+    mr1.stopThread = true;
+    client.close();
+    ```
+
+    > [AZURE.NOTE] 이 코드는 F1(무료) 계층에서 IoT Hub를 만들었다고 가정합니다. 무료 IoT Hub에는 "0" 및 "1"이라는 두 개의 파티션이 있습니다. 다음 중 한 가지 가격 책정 계층을 사용하여 IoT Hub를 만든 경우 코드를 조정하여 각 파티션에 대해 **MessageReceiver**를 만들어야 합니다.
+
+13. App.java 파일을 저장하고 닫습니다.
+
+14. Maven을 사용하여 **read-d2c-messages** 응용 프로그램을 빌드하려면 read-d2c-messages 폴더의 명령 프롬프트에서 다음 명령을 실행합니다.
+
+    ```
+    mvn clean package -DskipTests
+    ```
+
+## 시뮬레이션된 장치 앱 만들기
+
+이 섹션에서는 IoT Hub로 장치-클라우드 메시지를 전송하는 장치를 시뮬레이션하는 Java 콘솔 앱을 작성합니다.
+
+1. *장치 ID 만들기* 섹션에서 만든 iot-java-get-started 폴더의 명령 프롬프트에서 다음 명령을 사용하여 **simulated-device**라는 새 Maven 프로젝트를 만듭니다. 이것은 하나의 긴 명령입니다.
+
+    ```
+    mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+    ```
+
+2. 명령 프롬프트에서 새 simulated-device 폴더로 이동합니다.
+
+3. 텍스트 편집기를 사용하여 simulated-device 폴더에서 pom.xml 파일을 열고 **종속성** 노드에 다음 종속성을 추가합니다. 이 옵션을 사용하면 IoT Hub와 통신하고 JSON으로 Java 개체를 직렬화하도록 응용 프로그램에서 iothub-java-client 패키지를 사용할 수 있습니다.
+
+    ```
+    <dependency>
+      <groupId>com.microsoft.azure.iothub-java-client</groupId>
+      <artifactId>iothub-java-device-client</artifactId>
+      <version>1.0.2</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.3.1</version>
+    </dependency>
+    ```
+
+4. pom.xml 파일을 저장하고 닫습니다.
+
+5. 텍스트 편집기를 사용하여 simulated-device\\src\\main\\java\\com\\mycompany\\app\\App.java 파일을 엽니다.
+
+6. 파일에 다음 **import** 문을 추가합니다.
+
+    ```
+    import com.microsoft.azure.iothub.DeviceClient;
+    import com.microsoft.azure.iothub.IotHubClientProtocol;
+    import com.microsoft.azure.iothub.Message;
+    import com.microsoft.azure.iothub.IotHubStatusCode;
+    import com.microsoft.azure.iothub.IotHubEventCallback;
+    import com.microsoft.azure.iothub.IotHubMessageResult;
+    import java.io.IOException;
+    import java.net.URISyntaxException;
+    import java.security.InvalidKeyException;
+    import java.util.Random;
+    import javax.naming.SizeLimitExceededException;
+    import com.google.gson.Gson;
+    ```
+
+7. 다음의 클래스 수준 변수를 **App** 클래스에 추가하고 **{youriothubname}**을 IoT Hub 이름, **{yourdeviceid}** 및 **{yourdevicekey}**를 *장치 ID 만들기* 섹션에서 만든 장치 값으로 바꿉니다.
+
+    ```
+    private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}";
+    private static IotHubClientProtocol protocol = IotHubClientProtocol.AMQPS;
+    private static boolean stopThread = false;
+    ```
+
+    이 샘플 응용 프로그램은 **DeviceClient** 개체를 인스턴스화할 때 **프로토콜** 변수를 사용합니다. HTTPS 또는 AMQPS 프로토콜을 사용하여 IoT Hub와 통신할 수 있습니다.
+
+8. 다음의 중첩 **TelemetryDataPoint** 클래스를 **앱** 클래스 안에 추가하여 장치가 IoT Hub에 전송하는 원격 분석 데이터를 지정합니다.
+
+    ```
+    private static class TelemetryDataPoint {
+      public String deviceId;
+      public double windSpeed;
+        
+      public String serialize() {
+        Gson gson = new Gson();
+        return gson.toJson(this);
+      }
+    }
+    ```
+
+9. 다음의 중첩된 **EventCallback** 클래스를 **App** 클래스 안에 추가하여 시뮬레이션된 장치의 메시지를 처리할 때 IoT Hub가 반환하는 확인 상태를 표시합니다. 이 메서드는 또한 메시지가 처리되면 응용 프로그램에서 메인 스레드를 알립니다.
+
+    ```
+    private static class EventCallback implements IotHubEventCallback
+    {
+      public void execute(IotHubStatusCode status, Object context) {
+        System.out.println("IoT Hub responded to message with status " + status.name());
+      
+        if (context != null) {
+          synchronized (context) {
+            context.notify();
+          }
+        }
+      }
+    }
+    ```
+
+10. 다음의 중첩된 **MessageSender** 클래스를 **App** 클래스 안에 추가합니다. 이 클래스의 **run** 메서드는 IoT Hub에 전송할 샘플 원격 분석 데이터를 생성하고 다음 메시지를 전송하기 전에 확인을 기다립니다.
+
+    ```
+    private static class MessageSender implements Runnable {
+      public volatile boolean stopThread = false;
+
+      public void run()  {
+        try {
+          double avgWindSpeed = 10; // m/s
+          Random rand = new Random();
+          DeviceClient client;
+          client = new DeviceClient(connString, protocol);
+          client.open();
+        
+          while (!stopThread) {
+            double currentWindSpeed = avgWindSpeed + rand.nextDouble() * 4 - 2;
+            TelemetryDataPoint telemetryDataPoint = new TelemetryDataPoint();
+            telemetryDataPoint.deviceId = "myFirstDevice";
+            telemetryDataPoint.windSpeed = currentWindSpeed;
+      
+            String msgStr = telemetryDataPoint.serialize();
+            Message msg = new Message(msgStr);
+            System.out.println(msgStr);
+        
+            Object lockobj = new Object();
+            EventCallback callback = new EventCallback();
+            client.sendEventAsync(msg, callback, lockobj);
+    
+            synchronized (lockobj) {
+              lockobj.wait();
+            }
+            Thread.sleep(1000);
+          }
+          client.close();
+        } catch (Exception e) {
+          e.printStackTrace();
+        }
+      }
+    }
+    ```
+
+    이 메서드는 IoT Hub에서 이전 메시지를 확인하고 1초 후 새 장치-클라우드 메시지를 보냅니다. 메시지에는 deviceId가 있는 JSON 직렬화된 개체와 풍속 센서를 시뮬레이션하기 위해 임의로 생성된 숫자가 있습니다.
+
+11. **main** 메서드를 장치-클라우드 메시지를 사용자의 IoT Hub로 전송하는 스레드를 만드는 다음 코드로 바꿉니다.
+
+    ```
+    public static void main( String[] args ) throws IOException, URISyntaxException {
+    
+      MessageSender ms0 = new MessageSender();
+      Thread t0 = new Thread(ms0);
+      t0.start(); 
+    
+      System.out.println("Press ENTER to exit.");
+      System.in.read();
+      ms0.stopThread = true;
+    }
+    ```
+
+12. App.java 파일을 저장하고 닫습니다.
+
+13. Maven을 사용하여 **simulated-device** 응용 프로그램을 빌드하려면 simulated-device 폴더의 명령 프롬프트에서 다음 명령을 실행합니다.
+
+    ```
+    mvn clean package -DskipTests
+    ```
+
+> [AZURE.NOTE] 간단히 하기 위해 이 자습서에서는 다시 시도 정책을 구현하지 않습니다. 프로덕션 코드에서는 MSDN 문서 [일시적인 오류 처리][lnk-transient-faults]에서 제시한 대로 다시 시도 정책(예: 지수 백오프)을 구현해야 합니다.
 
 ## 응용 프로그램 실행
 
@@ -83,7 +458,7 @@ Azure IoT Hub는 수백만의 IoT(사물 인터넷) 장치와 솔루션 백 엔�
 
     ![][8]
 
-3. [Azure 포털][lnk-portal]의 **사용 현황** 타일은 허브로 전송된 메시지의 수를 보여줍니다.
+3. [Azure 포털][lnk-portal]의 **사용량** 타일에 허브로 전송된 메시지 수가 표시됩니다.
 
     ![][43]
 
@@ -102,6 +477,12 @@ Azure IoT Hub는 수백만의 IoT(사물 인터넷) 장치와 솔루션 백 엔�
 [43]: ./media/iot-hub-csharp-csharp-getstarted/usage.png
 
 <!-- Links -->
+[lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
+
+[lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
+[lnk-devguide-identity]: iot-hub-devguide.md#identityregistry
+[lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
+
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/java/device/doc/devbox_setup.md
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
@@ -111,4 +492,4 @@ Azure IoT Hub는 수백만의 IoT(사물 인터넷) 장치와 솔루션 백 엔�
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

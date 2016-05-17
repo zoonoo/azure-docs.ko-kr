@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="02/02/2016"
+   ms.date="05/02/2016"
    ms.author="elizapo"/>
 
 # Azure RemoteApp을 사용하는 SQL Azure
@@ -50,4 +50,4 @@ Azure 또는 온-프레미스에 호스팅되는 SQL 데이터베이스에 연�
 - Azure RemoteApp에서 호스팅되는 클라이언트 앱은 부하가 높습니다. Premium 청구와 같은 다른 요금제를 선택하면 성능이 향상됩니다. 응용 프로그램이 소비하는 리소스를 모니터링하는 다른 방법은 다음과 같습니다. 활성 세션 동안 SAS 화면을 시작하고 작업 관리자를 선택하며 앱에 대한 리소스 사용률을 관찰하는 ctrl-alt-end 키 시퀀스를 수행합니다.
 - SQL Server은 부하가 많거나 최적화되지 않습니다. 문제 해결에 대한 SQL 지침을 따릅니다. 
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

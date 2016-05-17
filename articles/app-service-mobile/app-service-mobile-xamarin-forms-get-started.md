@@ -12,8 +12,8 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article"
-	ms.date="05/03/2016"
+	ms.topic="hero-article"
+	ms.date="05/06/2016"
 	ms.author="glenga"/>
 
 #Xamarin.Forms 앱 만들기
@@ -63,7 +63,7 @@
 
 ##Xamarin.Forms 솔루션 다운로드 및 실행
 
-여기서 몇 가지를 선택합니다. Mac에 솔루션을 다운로드하고 Xamarin Studio에서 열 수 있습니다. 또는 iOS 앱을 빌드하는 네트워크에 연결된 Mac을 사용하여 Windows 컴퓨터에 솔루션을 다운로드하고 Visual Studio에서 열 수 있습니다. 또한 지침은 [Visual Studio 및 Xamarin을 위한 설치 및 설정](https://msdn.microsoft.com/library/mt613162.aspx)을 참조하세요.
+여기서 몇 가지를 선택합니다. Mac에 솔루션을 다운로드하고 Xamarin Studio에서 열 수 있습니다. 또는 iOS 앱을 빌드하는 네트워크에 연결된 Mac을 사용하여 Windows 컴퓨터에 솔루션을 다운로드하고 Visual Studio에서 열 수 있습니다. Xamarin 설정 시나리오에 대해 자세한 지침이 필요할 경우 [Visual Studio 및 Xamarin 설치 및 설정](https://msdn.microsoft.com/library/mt613162.aspx)을 참조하세요.
 
 작업을 진행하겠습니다.
 
@@ -77,6 +77,7 @@
 	![][9]
 
 	![][8]
+
 
 ##(선택 사항) iOS 프로젝트 실행
 
@@ -93,13 +94,15 @@
 3. **구성 관리자** 대화 상자에서 iOS 프로젝트의 **빌드** 및 **배포** 확인란을 선택합니다.
 4. **F5** 키를 눌러 프로젝트를 빌드하고 iPhone 에뮬레이터에서 앱을 시작합니다.
 
-앱에서 _Learn Xamarin_와 같은 의미 있는 텍스트를 입력한 후 더하기(**+**) 아이콘을 클릭합니다.
+	>[AZURE.NOTE] 빌드 문제가 있을 경우 NuGet 패키지 관리자를 실행하고 최신 버전의 Xamarin 지원 패키지로 업데이트합니다. Quickstart 프로젝트는 최신 버전으로 업데이트되는 데 시간 지연이 발생할 수 있습니다.
+
+앱에서 _Learn Xamarin_과 같은 의미 있는 텍스트를 입력한 후 더하기(**+**) 아이콘을 클릭합니다.
 
 ![][10]
 
 Azure에 호스트된 새 모바일 앱 백 엔드에 POST 요청이 전송됩니다. 요청에서 데이터가 TodoItem 테이블에 삽입됩니다. TodoItem 테이블에 저장된 항목이 모바일 앱 백 엔드에서 반환된 후 데이터가 목록에 표시됩니다.
 
-> [AZURE.NOTE]
+>[AZURE.NOTE]
 솔루션의 이식 가능한 클래스 라이브러리 프로젝트의 TodoItemManager.cs C# 파일에서 모바일 앱 백 엔드에 액세스하는 코드를 찾을 수 있습니다.
 
 ##(선택 사항) Android 프로젝트 실행
@@ -112,10 +115,13 @@ Azure에 호스트된 새 모바일 앱 백 엔드에 POST 요청이 전송됩�
 2. **실행** 메뉴에서 **디버깅 시작**을 클릭하여 프로젝트를 빌드하고 Android 에뮬레이터에서 앱을 시작합니다.
 
 ####Visual Studio에서
-1. Android 프로젝트를 마우스 오른쪽 단추로 누른 다음 **시작 프로젝트로 설정**을 클릭합니다.
+1. Android(Droid) 프로젝트를 마우스 오른쪽 단추로 누른 다음 **시작 프로젝트로 설정**을 클릭합니다.
 4. **빌드** 메뉴에서 **구성 관리자**를 클릭합니다.
 5. **구성 관리자** 대화 상자에서 Android 프로젝트의 **빌드** 및 **배포** 확인란을 선택합니다.
 6. **F5** 키를 눌러 프로젝트를 빌드하고 Android 에뮬레이터에서 앱을 시작합니다.
+
+	>[AZURE.NOTE] 빌드 문제가 있을 경우 NuGet 패키지 관리자를 실행하고 최신 버전의 Xamarin 지원 패키지로 업데이트합니다. Quickstart 프로젝트는 최신 버전으로 업데이트되는 데 시간 지연이 발생할 수 있습니다.
+
 
 앱에서 _Learn Xamarin_과 같은 의미 있는 텍스트를 입력한 후 더하기(**+**) 아이콘을 클릭합니다.
 
@@ -139,6 +145,9 @@ Azure에 호스트된 새 모바일 앱 백 엔드에 POST 요청이 전송됩�
 5. **구성 관리자** 대화 상자에서 선택한 Windows 프로젝트의 **빌드** 및 **배포** 확인란을 선택합니다.
 6. **F5** 키를 눌러 프로젝트를 빌드하고 Windows 에뮬레이터에서 앱을 시작합니다.
 
+	>[AZURE.NOTE] 빌드 문제가 있을 경우 NuGet 패키지 관리자를 실행하고 최신 버전의 Xamarin 지원 패키지로 업데이트합니다. Quickstart 프로젝트는 최신 버전으로 업데이트되는 데 시간 지연이 발생할 수 있습니다.
+
+
 앱에서 _Learn Xamarin_과 같은 의미 있는 텍스트를 입력한 후 더하기(**+**) 아이콘을 클릭합니다.
 
 Azure에 호스트된 새 모바일 앱 백 엔드에 POST 요청이 전송됩니다. 요청에서 데이터가 TodoItem 테이블에 삽입됩니다. TodoItem 테이블에 저장된 항목이 모바일 앱 백 엔드에서 반환된 후 데이터가 목록에 표시됩니다.
@@ -152,7 +161,7 @@ Azure에 호스트된 새 모바일 앱 백 엔드에 POST 요청이 전송됩�
 
 * [앱에 인증 추가](app-service-mobile-xamarin-forms-get-started-users.md) ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
 * [Xamarin.Android 앱에 푸시 알림 추가](app-service-mobile-xamarin-forms-get-started-push.md) 앱에 푸시 알림을 추가하는 방법을 알아봅니다.
-* [Azure 모바일 앱에 대한 관리되는 클라이언트를 사용하는 방법](app-service-mobile-dotnet-how-to-use-client-library.md) Xamarin 앱에서 관리되는 클라이언트 SDK로 작업하는 방법에 대해 알아봅니다. 
+* [Azure 모바일 앱에 관리되는 클라이언트를 사용하는 방법](app-service-mobile-dotnet-how-to-use-client-library.md) Xamarin 앱에서 관리되는 클라이언트 SDK로 작업하는 방법에 대해 알아봅니다. 
 
 
 <!-- Anchors. -->
@@ -175,4 +184,4 @@ Azure에 호스트된 새 모바일 앱 백 엔드에 POST 요청이 전송됩�
 [Mobile app SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Azure 포털]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

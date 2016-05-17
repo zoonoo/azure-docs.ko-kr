@@ -15,7 +15,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="04/21/2016"
+   ms.date="05/05/2016"
    ms.author="glenga"/>
 
 # 첫 번째 Azure Function 만들기
@@ -29,7 +29,7 @@ Azure 기능은 기타 Azure 서비스, SaaS 제품 및 온-프레미스 시스�
 
 다음 비디오는 이 자습서에서 기본 단계를 수행하는 방법을 보여 줍니다.
 
-[AZURE.VIDEO create-your-first-azure-function]
+[AZURE.VIDEO create-your-first-azure-function-simple]
 
 ##빠른 시작에서 함수 만들기
 
@@ -64,4 +64,4 @@ Azure Functions 빠른 시작에는 함수 코드가 포함되어 새 함수를 
 
 [AZURE.INCLUDE [시작 메모](../../includes/functions-get-help.md)]
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

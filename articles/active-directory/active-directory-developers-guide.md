@@ -40,7 +40,7 @@ IDMaaS(Identity Management As A Service) 플랫폼인 Azure Active Directory는 
 
 ### 모바일 및 PC 응용 프로그램 빠른 시작 가이드
 
-|[![iOS](./media/active-directory-developers-guide/ios.png)](active-directory-devquickstarts-ios.md)로 바꿉니다.|[![Android](./media/active-directory-developers-guide/android.png)](active-directory-devquickstarts-android.md)로 바꿉니다.|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-dotnet.md)로 바꿉니다.| [![Windows Phone](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsphone.md)로 바꿉니다.|[![Windows 스토어](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsstore.md)로 바꿉니다.|[![Xamarin](./media/active-directory-developers-guide/xamarin.png)](active-directory-devquickstarts-xamarin.md)로 바꿉니다.|[![Cordova](./media/active-directory-developers-guide/cordova.png)](active-directory-devquickstarts-cordova.md)로 바꿉니다.
+|[![iOS](./media/active-directory-developers-guide/ios.png)](active-directory-devquickstarts-ios.md)로 바꿉니다.|[![Android](./media/active-directory-developers-guide/android.png)](active-directory-devquickstarts-android.md)로 바꿉니다.|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-dotnet.md)로 바꿉니다.|[![Windows 범용](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsstore.md)로 바꿉니다.|[![Xamarin](./media/active-directory-developers-guide/xamarin.png)](active-directory-devquickstarts-xamarin.md)로 바꿉니다.|[![Cordova](./media/active-directory-developers-guide/cordova.png)](active-directory-devquickstarts-cordova.md)로 바꿉니다.
 |:--:|:--:|:--:|:--:|:--:|:--:|:--:
 |[iOS](active-directory-devquickstarts-ios.md)|[Android](active-directory-devquickstarts-android.md)|[.NET](active-directory-devquickstarts-dotnet.md)|[Windows Phone](active-directory-devquickstarts-windowsphone.md)|[Windows 스토어](active-directory-devquickstarts-windowsstore.md)|[Xamarin](active-directory-devquickstarts-xamarin.md)|[Cordova](active-directory-devquickstarts-cordova.md)
 
@@ -140,4 +140,4 @@ IDMaaS(Identity Management As A Service) 플랫폼인 Azure Active Directory는 
 
 - [Azure Active Directory Twitter](https://twitter.com/azuread): 140자 이하의 Azure Active Directory 알림입니다.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

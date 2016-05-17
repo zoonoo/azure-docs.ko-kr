@@ -250,6 +250,12 @@ Azure VPN 게이트웨이 통해 트래픽을 전송할 수 있지만, netcfg �
 
 예, 지원됩니다. 자세한 내용은 [공존하는 Express 경로 및 사이트 간 VPN 연결 구성](../expressroute/expressroute-howto-coexist-classic.md)을 참조하세요.
 
+## BGP
+
+[AZURE.INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-bpg-faq-include.md)]
+
+
+
 ## 크로스-프레미스 연결 및 VM
 
 ### 가상 컴퓨터가 가상 네트워크에 있고 프레미스 간 연결을 사용하는 경우 VM에 연결하려면 어떻게 해야 합니까?
@@ -273,4 +279,4 @@ VPN 게이트웨이에 대한 자세한 정보는 [VPN 게이트웨이 설명서
 
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/06/2016"
+   ms.date="05/04/2016"
    ms.author="charleywen"/>
 
 # Resource Manager 배포 모델에 대한 Express 경로 및 사이트 간 공존 연결 구성
@@ -115,7 +115,7 @@ Express 경로에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 
 		$ckt = Get-AzureRmExpressRouteCircuit -Name "YourCircuit" -ResourceGroupName "YourCircuitResourceGroup"
 		New-AzureRmVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -VirtualNetworkGateway1 $gw -PeerId $ckt.Id -ConnectionType ExpressRoute
 
-6. 다음으로, 사이트 간 VPN 게이트웨이를 만듭니다. VPN 게이트웨이 구성에 대한 자세한 내용은 [VNet 간 연결 구성](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)을 참조하세요. GatewaySKU는 *표준* 또는 *HighPerformance*여야 합니다. VpnType은 *RouteBased*여야 합니다.
+6. <a name="vpngw"></a>그런 다음 사이트 간 VPN 게이트웨이를 만듭니다. VPN 게이트웨이 구성에 대한 자세한 내용은 [VNet 간 연결 구성](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)을 참조하세요. GatewaySKU는 *표준* 또는 *HighPerformance*여야 합니다. VpnType은 *RouteBased*여야 합니다.
 
 		$gwSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
 		$gwIP = New-AzureRmPublicIpAddress -Name "VPNGatewayIP" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -AllocationMethod Dynamic
@@ -135,11 +135,13 @@ Express 경로에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 
 		New-AzureRmVirtualNetworkGatewayConnection -Name "VPNConnection" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -VirtualNetworkGateway1 $azureVpn -LocalNetworkGateway2 $localVpn -ConnectionType IPsec -SharedKey <yourkey>
 
 
-## <a name="add"></a> 기존 VNet에 대한 공존 연결을 구성하려면
+## <a name="add"></a>기존 VNet에 대한 공존 연결을 구성하려면
 
-Express 경로 또는 사이트 간 VPN 연결을 통해 연결된 기존 가상 네트워크가 있는 경우 두 연결 모두를 기존 게이트웨이에 연결하려면 먼저 기존 게이트웨이를 삭제해야 합니다. 이 구성에서 작업하는 동안에는 로컬 프레미스에서 게이트웨이를 통한 가상 네트워크 연결이 손실됩니다.
+기존 가상 네트워크가 있는 경우 게이트웨이 서브넷 크기를 확인합니다. 게이트웨이 서브넷이 /28 또는 /29인 경우 우선 가상 네트워크 게이트웨이를 삭제하고 게이트웨이 서브넷 크기를 늘려야 합니다. 이 섹션에서 단계별 수행 방법을 보여줍니다.
 
-**구성을 시작하기 전에:** 게이트웨이 서브넷 크기를 늘릴 수 있도록 가상 네트워크에 충분한 IP 주소가 남아 있는지 확인합니다. 충분한 IP 주소가 있어도 게이트웨이를 삭제하고 다시 만들어야 합니다. 공존 연결을 수용하기 위해 게이트웨이를 다시 만들어야 하기 때문입니다.
+게이트웨어 서브넷이 /27 이상이고 가상 네트워크가 Express 경로를 통해 연결된 경우 아래 단계를 건너뛰고 이전 섹션의 ["6단계 - 사이트 간 VPN 게이트웨이 만들기"](#vpngw)를 진행할 수 있습니다.
+
+>[AZURE.NOTE] 기존 게이트웨이를 삭제하면 이 구성에서 작업하는 동안 로컬 프레미스와 가상 네트워크의 연결이 끊어집니다.
 
 1. 최신 버전의 Azure PowerShell cmdlet을 설치해야 합니다. PowerShell cmdlet 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요. 이 구성에 사용할 cmdlet은 지금까지 익숙하던 cmdlet과는 약간 다를 수 있습니다. 다음 지침에 지정된 cmdlet을 사용해야 합니다. 
 
@@ -149,19 +151,20 @@ Express 경로 또는 사이트 간 VPN 연결을 통해 연결된 기존 가상
 
 3. 게이트웨이 서브넷을 삭제합니다.
 		
-		$vnet = Get-AzureRmVirtualNetworkGateway -Name <yourvnetname> -ResourceGroupName <yourresourcegroup> 
+		$vnet = Get-AzureRmVirtualNetwork -Name <yourvnetname> -ResourceGroupName <yourresourcegroup> 
 		Remove-AzureRmVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet
 
 4. /27 이상인 게이트웨이 서브넷을 추가합니다.
+	>[AZURE.NOTE] 가상 네트워크에 게이트웨이 서브넷 크기를 늘릴 수 있는 IP 주소가 충분히 남아 있지 않을 경우 추가 IP 주소 공간을 추가해야 합니다.
 
-		$vnet = Get-AzureRmVirtualNetworkGateway -Name <yourvnetname> -ResourceGroupName <yourresourcegroup>
+		$vnet = Get-AzureRmVirtualNetwork -Name <yourvnetname> -ResourceGroupName <yourresourcegroup>
 		Add-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet -AddressPrefix "10.200.255.0/24"
 
 	VNet 구성을 저장합니다.
 
 		$vnet = Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
-5. 이제 게이트웨이가 없는 VNet이 설정됩니다. 새 게이트웨이를 만들고 연결을 완료하기 위해 이전 단계에 위치한 [4단계 - Express 경로 게이트웨이 만들기](#gw)를 진행할 수 있습니다.
+5. 이제 게이트웨이가 없는 VNet이 설정됩니다. 새 게이트웨이를 만들고 연결을 완료하려면 이전 단계의 [4단계 - Express 경로 게이트웨이 만들기](#gw)를 진행합니다.
 
 ## VPN 게이트웨이에 지점 및 사이트 간 구성을 추가하려면
 아래 단계에 따라 공존 설정에서 VPN 게이트웨이에 지점 및 사이트 간 구성을 추가할 수 있습니다.
@@ -191,4 +194,4 @@ Express 경로 또는 사이트 간 VPN 연결을 통해 연결된 기존 가상
 
 Express 경로에 대한 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

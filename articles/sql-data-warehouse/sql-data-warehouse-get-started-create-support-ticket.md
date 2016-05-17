@@ -84,4 +84,4 @@
 [S스택 오버플로]: http://stackoverflow.com/questions/tagged/azure-sqldw/
 [Azure SQL 데이터 웨어하우스 MSDN 포럼]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -1,6 +1,6 @@
-    <properties
-	pageTitle="Create a lab in DevTest Labs | Microsoft Azure"
-	description="Create a new lab in DevTest Labs for virtual machines"
+<properties
+	pageTitle="DevTest Lab에서 랩 만들기 | Microsoft Azure"
+	description="가상 컴퓨터에 DevTest Lab에서 새 랩 만들기"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/03/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
 # Azure DevTest Labs에서 랩 만들기
@@ -27,7 +27,7 @@
 
 ## 랩 만들기
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 
 1. **찾아보기**를 탭합니다.
 
@@ -50,7 +50,7 @@
 
 랩을 만들었으면 다음 단계를 고려 합니다.
 
-- [DevTest Lab에 대한 액세스 보호](devtest-lab-add-devtest-user.md).
+- [랩에 안전하게 액세스](devtest-lab-add-devtest-user.md).
 
 - [랩 정책 설정](devtest-lab-set-lab-policy.md).
 
@@ -58,6 +58,6 @@
 
 - [VM에 대한 사용자 지정 아티팩트 만들기](devtest-lab-artifact-author.md).
 
-- [Azure DevTest Lab에 아티팩트를 사용하여 VM 추가](devtest-lab-add-vm-with-artifacts.md).
+- [아티팩트를 사용하여 랩에 VM 추가](devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

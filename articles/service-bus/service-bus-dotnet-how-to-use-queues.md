@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="get-started-article"
-    ms.date="01/26/2016"
+    ms.date="05/09/2016"
     ms.author="sethm"/>
 
 # 서비스 버스 큐를 사용하는 방법
@@ -28,9 +28,7 @@
 
 ## 서비스 버스 NuGet 패키지 추가
 
-[서비스 버스 **NuGet** 패키지](https://www.nuget.org/packages/WindowsAzure.ServiceBus)는 서비스 버스 API를 가져오고 모든 서비스 버스 종속성으로 응용 프로그램을 구성하는 가장 쉬운 방법입니다. NuGet Visual Studio 확장을 사용하면 Visual Studio 및 Visual Studio Express에서 라이브러리와 도구를 쉽게 설치 및 업데이트할 수 있습니다. 서비스 버스 NuGet 패키지는 서비스 버스 API를 가져오고 모든 서비스 버스 종속성으로 응용 프로그램을 구성하는 가장 쉬운 방법입니다.
-
-응용 프로그램에서 NuGet 패키지를 설치하려면 다음을 수행합니다.
+[서비스 버스 NuGet 패키지](https://www.nuget.org/packages/WindowsAzure.ServiceBus)는 서비스 버스 API를 가져오고 모든 서비스 버스 종속성으로 응용 프로그램을 구성하는 가장 쉬운 방법입니다. 응용 프로그램에서 NuGet 패키지를 설치하려면 다음을 수행합니다.
 
 1.  솔루션 탐색기에서 **참조**를 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭합니다.
 2.  "서비스 버스"를 검색하고 **Microsoft Azure 서비스 버스** 항목을 선택합니다. **설치**를 클릭하여 설치를 완료한 후 이 대화 상자를 닫습니다.
@@ -48,9 +46,9 @@
 
 두 경우 모두, 이 문서의 뒷부분에 표시된 대로 [CloudConfigurationManager.GetSetting][GetSetting] 메서드를 사용하여 연결 문자열을 검색할 수 있습니다.
 
-### 클라우드 서비스를 사용하는 경우 연결 문자열 구성
+### 연결 문자열 구성
 
-서비스 구성 메커니즘은 Azure 클라우드 서비스 프로젝트에 고유하며, 응용 프로그램을 다시 배포하지 않고도 [Azure 클래식 포털][]에서 구성 설정을 동적으로 변경할 수 있게 해줍니다. 예를 들어 다음 예에 표시된 대로 서비스 정의(.csdef) 파일에 `Setting` 레이블을 추가합니다.
+서비스 구성 메커니즘은 응용 프로그램을 다시 배포하지 않고도 [Azure 클래식 포털][]에서 구성 설정을 동적으로 변경할 수 있게 해줍니다. 예를 들어 다음 예에 표시된 대로 서비스 정의(.csdef) 파일에 `Setting` 레이블을 추가합니다.
 
 ```
 <ServiceDefinition name="Azure1">
@@ -179,7 +177,7 @@ for (int i=0; i<5; i++)
 }
 ```
 
-서비스 버스 큐는 [메시지 크기를 최대 256KB](service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas)까지 지원합니다.(표준 및 사용자 지정 응용 프로그램 속성이 포함된 헤더의 크기는 최대 64KB임) 한 큐에 저장되는 메시지 수에는 제한이 없지만 한 큐에 저장되는 총 메시지 크기는 제한됩니다. 이 큐 크기는 생성 시 정의되며 상한이 5GB입니다. 분할을 사용하는 경우 상한이 더 높습니다. 자세한 내용은 [메시징 엔터티 분할](service-bus-partitioning.md)을 참조하세요.
+서비스 버스 큐는 [메시지 크기를 최대 256KB](service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas)까지 지원합니다.(표준 및 사용자 지정 응용 프로그램 속성이 포함된 헤더의 크기는 최대 64KB임) 한 큐에 저장되는 메시지 수에는 제한이 없지만 한 큐에 저장되는 총 메시지 크기는 제한됩니다. 이 큐 크기는 생성 시 정의되며 상한이 5GB입니다. 분할을 사용하는 경우 상한이 더 높습니다. 자세한 내용은 [분할된 메시징 엔터티](service-bus-partitioning.md)를 참조하세요.
 
 ## 큐에서 메시지를 받는 방법
 
@@ -257,4 +255,4 @@ Client.OnMessage((message) =>
   [Abandon]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx
   [완료]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -36,7 +36,7 @@
   - 응용 프로그램 모드로 설정하면 컬렉션의 사용자 할당은 Azure 포털을 통해 관리될 수 없습니다. 사용자 할당은 PowerShell cmdlet을 통해 관리될 수 있습니다.
 
 3. 사용자는 자신에게 직접 게시된 응용 프로그램만을 봅니다. 그러나 사용자가 운영 체제에 직접 액세스하여 이미지에서 사용할 수 있는 다른 응용 프로그램을 시작할 수 있습니다.
-  - 이 기능은 응용 프로그램의 보안 잠금 기능을 제공하지 않습니다. 응용 프로그램 피드에서 표시 유형을 제한합니다.
+  - 이 기능은 응용 프로그램의 보안 잠금 기능을 제공하지 않으며 응용 프로그램 피드에서 표시 유형을 제한합니다.
   - 응용 프로그램에서 사용자를 격리해야 하는 경우 이에 대한 별도 컬렉션을 사용해야 합니다.
 
 ## Azure RemoteApp PowerShell cmdlet을 가져오는 방법
@@ -88,7 +88,7 @@ AclLevel 속성은 다음 값을 가질 수 있습니다.
 
 		Add-AzureRemoteAppUser -CollectionName <collectionName> -UserUpn <user@domain.com> -Type <OrgId|MicrosoftAccount> -Alias <appAlias>
 
-사용자는 이제 Azure RemoteApp 클라이언트에서 응용 프로그램을 볼 수 있고 이에 연결할 수 있습니다.
+이제 사용자가 Azure RemoteApp 클라이언트에서 응용 프로그램을 보고 여기에 연결할 수 있습니다.
 
 ## 사용자의 응용 프로그램을 제거하는 방법
 
@@ -102,4 +102,4 @@ AclLevel 속성은 다음 값을 가질 수 있습니다.
 ## 미리 보기 기능을 시도해 본 적이 있나요?
 미리 보기에 아직 참여하지 않은 경우 이 [설문 조사](http://www.instant.ly/s/AY83p)를 사용하여 액세스를 요청하세요.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0511_2016-->

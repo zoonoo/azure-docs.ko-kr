@@ -76,4 +76,4 @@ SQL 데이터 웨어하우스에서 프로비전을 완료한 후 [샘플 데이
 [SQL 데이터 웨어하우스 가격 책정]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 [Visual Studio 다운로드]: https://www.visualstudio.com/downloads/download-visual-studio-vs
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

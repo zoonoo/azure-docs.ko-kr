@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="01/26/2016"
+	ms.date="05/06/2016"
 	ms.author="sethm"/>
 
 
@@ -35,7 +35,7 @@
 
 ## 서비스 네임스페이스 만들기
 
-Azure에서 서비스 버스 릴레이 사용을 시작하려면 먼저 서비스 네임스페이스를 만들어야 합니다. 네임스페이스는 응용 프로그램 내에서 서비스 버스 리소스의 주소를 지정하기 위한 범위 컨테이너를 제공합니다.
+Azure에서 서비스 버스 릴레이 사용을 시작하려면 먼저 네임스페이스를 만들어야 합니다. 네임스페이스는 응용 프로그램 내에서 서비스 버스 리소스의 주소를 지정하기 위한 범위 컨테이너를 제공합니다.
 
 서비스 네임스페이스를 만들려면
 
@@ -75,9 +75,7 @@ Azure에서 서비스 버스 릴레이 사용을 시작하려면 먼저 서비�
 
 ## 서비스 버스 NuGet 패키지 다운로드
 
-[서비스 버스 NuGet 패키지](https://www.nuget.org/packages/WindowsAzure.ServiceBus)는 서비스 버스 API를 가져오고 모든 서비스 버스 종속성으로 응용 프로그램을 구성하는 가장 쉬운 방법입니다. NuGet Visual Studio 확장을 사용하면 Visual Studio 및 Visual Studio Express에서 라이브러리와 도구를 쉽게 설치 및 업데이트할 수 있습니다. 서비스 버스 NuGet 패키지는 서비스 버스 API를 가져오고 모든 서비스 버스 종속성으로 응용 프로그램을 구성하는 가장 쉬운 방법입니다.
-
-응용 프로그램에서 NuGet 패키지를 설치하려면 다음을 수행합니다.
+[서비스 버스 NuGet 패키지](https://www.nuget.org/packages/WindowsAzure.ServiceBus)는 서비스 버스 API를 가져오고 모든 서비스 버스 종속성으로 응용 프로그램을 구성하는 가장 쉬운 방법입니다. 응용 프로그램에서 NuGet 패키지를 설치하려면 다음을 수행합니다.
 
 1.  솔루션 탐색기에서 **참조**를 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭합니다.
 2.  "서비스 버스"를 검색하고 **Microsoft Azure 서비스 버스** 항목을 선택합니다. **설치**를 클릭하여 설치를 완료한 후 다음의 대화 상자를 닫습니다.
@@ -265,8 +263,8 @@ using (var ch = cf.CreateChannel())
 
 이제 서비스 버스 릴레이 서비스의 기본 사항을 익혔으므로 다음 링크를 따라 자세히 알아보세요.
 
+- [서비스 버스 릴레이된 메시징 개요](service-bus-relay-overview.md)
 - [Azure 서비스 버스 아키텍처 개요](service-bus-fundamentals-hybrid-solutions.md)
-- [서비스 버스 릴레이 서비스를 사용하는 방법](service-bus-dotnet-how-to-use-relay.md)
 - [Azure 샘플][]에서 서비스 버스 샘플을 다운로드하거나 [서비스 버스 샘플 개요][]를 참조하세요.
 
   [Azure 클래식 포털]: http://manage.windowsazure.com
@@ -274,4 +272,4 @@ using (var ch = cf.CreateChannel())
   [Azure 샘플]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
   [서비스 버스 샘플 개요]: service-bus-samples.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0511_2016-->

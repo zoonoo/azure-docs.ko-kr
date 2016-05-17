@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="04/14/2016"
+	ms.date="05/05/2016"
 	ms.author="wesmc"/>
 
 # Azure 알림 허브를 사용하여 Android에 푸시 알림 보내기
@@ -93,7 +93,7 @@
 
 1. GCM을 지원하기 위해, 코드에 [Google 인스턴스 ID API](https://developers.google.com/instance-id/)를 사용하여 [등록 토큰 가져오기](https://developers.google.com/cloud-messaging/android/client#sample-register)에 사용되는 인스턴스 ID 수신기 서비스를 구현해야 합니다. 이 자습서에서는 클래스의 이름을 `MyInstanceIDService`라고 하겠습니다. 
  
-	AndroidManifest.xml 파일의 `<application>` 태그 내부에 다음 서비스 정의를 추가합니다. `<your package>` 자리 표시자를 실제 패키지 이름으로 바꿉니다.
+	AndroidManifest.xml 파일의 `<application>` 태그 내부에 다음 서비스 정의를 추가합니다. `<your package>` 자리 표시자를 `AndroidManifest.xml` 파일 맨 위에 표시된 실제 패키지 이름으로 바꿉니다.
 
 		<service android:name="<your package>.MyInstanceIDService" android:exported="false">
 		    <intent-filter>
@@ -102,18 +102,18 @@
 		</service>
 
 
-2. 인스턴스 ID API로부터 GCM 등록 토큰을 받으면 그 토큰을 사용하여 [Azure 알림 허브에 등록](notification-hubs-registration-management.md)할 것입니다. 이 등록은 `RegistrationIntentService`라는 `IntentService`를 사용하여 백그라운드에서 지원될 것입니다. 이 서비스는 [GCM 등록 토큰 새로 고침](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens)에 대한 책임도 맡습니다.
+2. 인스턴스 ID API에서 GCM 등록 토큰을 수신하면 해당 토큰을 사용하여 [Azure 알림 허브에 등록](notification-hubs-registration-management.md)합니다. 이 등록은 `RegistrationIntentService`라는 `IntentService`를 사용하여 백그라운드에서 지원합니다. 이 서비스는 [GCM 등록 토큰 새로 고침](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens)도 책임집니다.
  
-	AndroidManifest.xml 파일의 `<application>` 태그 내부에 다음 서비스 정의를 추가합니다.
+	AndroidManifest.xml 파일의 `<application>` 태그 내부에 다음 서비스 정의를 추가합니다. `<your package>` 자리 표시자를 `AndroidManifest.xml` 파일 맨 위에 표시된 실제 패키지 이름으로 바꿉니다.
 
         <service
-            android:name="com.example.microsoft.getstarted.RegistrationIntentService"
+            android:name="<your package>.RegistrationIntentService"
             android:exported="false">
         </service>
 
 
 
-3. 또한 알림을 수신하도록 수신기를 정의할 것입니다. AndroidManifest.xml 파일의 `<application>` 태그 내부에 다음 수신기 정의를 추가합니다.
+3. 또한 알림을 수신하도록 수신기를 정의할 것입니다. 다음 수신기 정의를 `<application>` 태그 안의 AndroidManifest.xml 파일에 추가합니다. `<your package>` 자리 표시자를 `AndroidManifest.xml` 파일 맨 위에 표시된 실제 패키지 이름으로 바꿉니다.
 
 		<receiver android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
 		    android:permission="com.google.android.c2dm.permission.SEND">
@@ -125,7 +125,7 @@
 
 
 
-4. `</application>` 태그 아래에서 다음 필수 GCM 관련 권한을 추가합니다. `<your package>`를 `AndroidManifest.xml` 파일의 위쪽에 표시된 패키지 이름으로 바꿔야 합니다.
+4. `</application>` 태그 아래에 다음 필수 GCM 관련 권한을 추가합니다. 반드시 `<your package>`을(를) `AndroidManifest.xml` 파일 맨 위에 있는 패키지 이름으로 바꿉니다.
 
 	이러한 권한에 대한 자세한 내용은 [Android용 GCM 클라이언트 앱 설치](https://developers.google.com/cloud-messaging/android/client#manifest)를 참조하세요.
 
@@ -141,13 +141,13 @@
 ### 코드 추가
 
 
-1. 프로젝트 뷰에서 **앱** > **원본** > **기본** > **java**를 확장합니다. **java** 아래의 패키지 폴더를 마우스 오른쪽 단추로 클릭하고 **New**, **Java Class**를 차례로 클릭합니다. `NotificationSettings`라는 새 클래스를 추가합니다. 
+1. 프로젝트 뷰에서 **앱** > **원본** > **기본** > **java**를 확장합니다. **java** 아래의 패키지 폴더를 마우스 오른쪽 단추로 클릭하고 **New**, **Java Class**를 차례로 클릭합니다. `NotificationSettings`(이)라는 새 클래스를 추가합니다. 
 
 	![Android Studio - 새 Java 프로젝트][6]
 
-	`NotificationSettings` 클래스에 대한 다음 코드에서 이러한 자리 표시자 세 개를 업데이트합니다.
+	`NotificationSettings` 클래스에 대한 다음 코드에서 아래 세 개의 자리 표시자를 업데이트합니다.
 	* **SenderId**: 이전에 [Google 클라우드 콘솔](http://cloud.google.com/console)에서 얻은 프로젝트 번호입니다.
-	* **HubListenConnectionString**: 허브의 **DefaultListenAccessSignature** 연결 문자열입니다. **Azure 포털**에서, 허브의 **설정** 블레이드에서 [액세스 정책]을 클릭하여 이 연결 문자열을 복사할 수 있습니다.
+	* **HubListenConnectionString**: 허브의 **DefaultListenAccessSignature** 연결 문자열입니다. **Azure 포털**에 있는 허브의 **설정** 블레이드에서 [액세스 정책]을 클릭하여 이 연결 문자열을 복사할 수 있습니다.
 	* **HubName**: [Azure 포털]의 허브 블레이드에 표시되는 알림 허브 이름을 사용합니다.
 
 	`NotificationSettings` 코드:
@@ -160,7 +160,7 @@
 
 2. 위의 단계에 따라 `MyInstanceIDService`라는 또 다른 새 클래스를 추가합니다. 이것으로 인스턴스 ID 수신기 서비스가 구현될 것입니다.
 
-	이 클래스의 코드는 `IntentService`를 호출하여 백그라운드에서 [GCM 토큰을 새로 고칠](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) 것입니다.
+	이 클래스의 코드는 `IntentService`를 호출하여 백그라운드에서 [GCM 토큰을 새로 고칩니다](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens).
 
 		import android.content.Intent;
 		import android.util.Log;
@@ -182,7 +182,7 @@
 		};
 
 
-3. `RegistrationIntentService`라는 프로젝트에 또 다른 새 클래스를 추가합니다. 이것으로 [GCM 토큰 새로 고침](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) 및 [알림 허브 등록](notification-hubs-registration-management.md)을 처리하는 `IntentService`에 대한 솔루션이 구현될 것입니다.
+3. `RegistrationIntentService`라는 프로젝트에 또 다른 새 클래스를 추가합니다. 그러면 [GCM 토큰 새로 고침](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) 및 [알림 허브 등록](notification-hubs-registration-management.md)을 처리하는 `IntentService`에 대한 솔루션이 구현됩니다.
 
 	이 클래스에 대해 다음 코드를 사용합니다.
 
@@ -437,7 +437,7 @@
 
 일반적으로, 백 엔드 서버를 사용하여 알림을 보냅니다. 경우에 따라, 클라이언트 응용 프로그램에서 직접 푸시 알림을 보낼 수 있기를 원하기도 합니다. 이 섹션은 [Azure 알림 허브 REST API](https://msdn.microsoft.com/library/azure/dn223264.aspx)를 사용하여 클라이언트에서 알림을 보내는 방법을 설명합니다.
 
-1. Android Studio 프로젝트 뷰에서 **앱** > **원본** > **기본** > **자원** > **레이아웃**을 확장합니다. `activity_main.xml` 레이아웃 파일을 열고 **Text** 탭을 클릭하여 파일의 텍스트 내용을 업데이트합니다. 아래 코드로 업데이트하여 알림 허브에 푸시 알림 메시지를 보내는 새 `Button` 및 `EditText` 컨트롤을 추가합니다. 이 코드를 맨 아래의 `</RelativeLayout>` 바로 앞에 추가합니다.
+1. Android Studio 프로젝트 뷰에서 **앱** > **원본** > **기본** > **자원** > **레이아웃**을 확장합니다. `activity_main.xml` 레이아웃 파일을 열고 **텍스트** 탭을 클릭하여 파일의 텍스트 내용을 업데이트합니다. 아래 코드로 업데이트하여 알림 허브에 푸시 알림 메시지를 보내는 새 `Button` 및 `EditText` 컨트롤을 추가합니다. 이 코드를 맨 아래의 `</RelativeLayout>` 바로 앞에 추가합니다.
 
 	    <Button
         android:layout_width="wrap_content"
@@ -469,7 +469,7 @@
 
 		public static String HubFullAccess = "<Enter Your DefaultFullSharedAccess Connection string>";
 
-4. `MainActivity.java` 파일에서 다음 `import` 문을 `MainActivity` 클래스 위에 추가합니다.
+4. `MainActivity.java` 파일에서 `MainActivity` 클래스 위에 다음 `import` 문을 추가합니다.
 
 		import java.io.BufferedOutputStream;
 		import java.io.BufferedReader;
@@ -725,4 +725,4 @@
 [Azure 포털]: https://portal.azure.com
 [액세스 정책]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

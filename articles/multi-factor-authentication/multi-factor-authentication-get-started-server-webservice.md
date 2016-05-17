@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="04/04/2016" 
+	ms.date="05/10/2016" 
 	ms.author="billmath"/>
 
 # MFA 서버 모바일 앱 웹 서비스 시작
@@ -24,12 +24,12 @@ Azure Multi-Factor Authentication 앱을 사용하려면 앱이 모바일 앱 �
 
 - 하드웨어 및 소프트웨어 요구 사항에 대해서는 하드웨어 및 소프트웨어 요구 사항을 참조하세요.
 - v6.0 이상의 Azure Multi-Factor Authentication 서버를 사용해야 합니다.
-- Microsoft® IIS(인터넷 정보 서비스) 6.x 또는 IIS 7.x가 실행되는 인터넷 연결 웹 서버에 모바일 앱 웹 서비스를 설치해야 합니다. IIS에 대한 자세한 내용은 [IIS.NET](http://www.iis.net/)을 참조하세요.
-- IIS 6.x를 사용하는 경우 ASP.NET v2.0.50727이 설치되고, 등록되고, 허용으로 설정되어야 합니다.
-- IIS 7.x를 사용할 때 필요한 역할 서비스에는 ASP.NET 및 IIS 6 메타베이스 호환성이 포함됩니다.
+- Microsoft® IIS(인터넷 정보 서비스) 7.x 이상이 실행되는 인터넷 연결 웹 서버에 모바일 앱 웹 서비스를 설치해야 합니다. IIS에 대한 자세한 내용은 [IIS.NET](http://www.iis.net/)을 참조하세요.
+- ASP.NET v4.0.30319가 설치, 등록되고 허용됨으로 설정되어 있는지 확인합니다.
+- 필요한 역할 서비스에는 ASP.NET 및 IIS 6 메타베이스 호환성이 포함됩니다.
 - 모바일 앱 웹 서비스는 공용 URL을 통해 액세스할 수 있어야 합니다.
 - 모바일 앱 웹 서비스는 SSL 인증서로 보호되어야 합니다.
-- Azure Multi-Factor Authentication 서버가 설치된 서버의 IIS 6.x 또는 IIS 7.x에 Azure Multi-Factor Authentication 웹 서비스 SDK가 설치되어야 합니다.
+- Azure Multi-Factor Authentication 웹 서비스 SDK는 Azure Multi-Factor Authentication 서버가 설치된 서버의 IIS 7.x 이상에 설치해야 합니다.
 - Azure Multi-Factor Authentication 웹 서비스 SDK는 SSL 인증서로 보호되어야 합니다.
 - 모바일 웹 앱 서비스는 SSL을 통해 Azure Multi-Factor Authentication 웹 서비스 SDK에 연결될 수 있어야 합니다.
 - 모바일 앱 웹 서비스는 "PhoneFactor Admins"라는 보안 그룹의 구성원인 서비스 계정의 자격 증명을 사용하여 Azure Multi-Factor Authentication 웹 서비스 SDK에서 인증을 받을 수 있어야 합니다. 이 서비스 계정 및 그룹은 Azure Multi-Factor Authentication 서버가 도메인 연결된 서버에서 실행 중인 경우 Active Directory에 존재합니다. 도메인에 연결되지 않은 경우에는 이 서비스 계정 및 그룹이 Azure Multi-Factor Authentication 서버에 로컬로 존재합니다.
@@ -90,4 +90,4 @@ Azure Multi-Factor Authentication 웹 서비스 SDK가 Azure Multi-Factor Authen
 <center>![Setup](./media/multi-factor-authentication-get-started-server-webservice/mobile.png)</center>
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

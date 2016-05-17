@@ -124,7 +124,7 @@ Express 경로에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 
 
 		New-AzureDedicatedCircuitLink -ServiceKey <service-key> -VNetName MyAzureVNET
 
-6. 다음으로, 사이트 간 VPN 게이트웨이를 만듭니다. GatewaySKU는 *표준* 또는 *HighPerformance*이고, GatewayType은 *DynamicRouting*이어야 합니다.
+6. <a name="vpngw"></a>그런 다음 사이트 간 VPN 게이트웨이를 만듭니다. GatewaySKU는 *표준* 또는 *HighPerformance*이고, GatewayType은 *DynamicRouting*이어야 합니다.
 
 		New-AzureVirtualNetworkGateway -VNetName MyAzureVNET -GatewayName S2SVPN -GatewayType DynamicRouting -GatewaySKU  HighPerformance
 
@@ -157,7 +157,7 @@ Express 경로에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 
 
 	다음 샘플(사용자 고유의 값으로 대체)을 사용합니다.
 
-	`New-AzureLocalNetworkGateway -GatewayName MyLocalNetwork -IpAddress <MyLocalGatewayIp> -AddressSpace <MyLocalNetworkAddress>`
+		New-AzureLocalNetworkGateway -GatewayName MyLocalNetwork -IpAddress <MyLocalGatewayIp> -AddressSpace <MyLocalNetworkAddress>
 
 	> [AZURE.NOTE] 로컬 네트워크에 여러 경로가 있는 경우 모두 배열로 전달할 수 있습니다. $MyLocalNetworkAddress = @("10.1.2.0/24","10.1.3.0/24","10.2.1.0/24")
 
@@ -182,25 +182,28 @@ Express 경로에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 
 	이 예제에서 connectedEntityId는 `Get-AzureLocalNetworkGateway`를 실행하여 찾을 수 있는 로컬 게이트웨이 ID입니다. virtualNetworkGatewayId는 `Get-AzureVirtualNetworkGateway` cmdlet을 사용하여 찾을 수 있습니다. 이 단계를 수행하면 사이트 간 VPN 연결을 통해 로컬 네트워크와 Azure 간의 연결이 설정됩니다.
 
 
-	`New-AzureVirtualNetworkGatewayConnection -connectedEntityId <local-network-gateway-id> -gatewayConnectionName Azure2Local -gatewayConnectionType IPsec -sharedKey abc123 -virtualNetworkGatewayId <azure-s2s-vpn-gateway-id>`
+		New-AzureVirtualNetworkGatewayConnection -connectedEntityId <local-network-gateway-id> -gatewayConnectionName Azure2Local -gatewayConnectionType IPsec -sharedKey abc123 -virtualNetworkGatewayId <azure-s2s-vpn-gateway-id>
 
 ## <a name="add"></a>기존 VNet에 대한 공존 연결을 구성하려면
 
-Express 경로 또는 사이트 간 VPN 연결을 통해 연결된 기존 가상 네트워크가 있는 경우 두 연결 모두를 기존 게이트웨이에 연결하려면 먼저 기존 게이트웨이를 삭제해야 합니다. 이 구성에서 작업하는 동안에는 로컬 프레미스에서 게이트웨이를 통한 가상 네트워크 연결이 손실됩니다.
+기존 가상 네트워크가 있는 경우 게이트웨이 서브넷 크기를 확인합니다. 게이트웨이 서브넷이 /28 또는 /29인 경우 우선 가상 네트워크 게이트웨이를 삭제하고 게이트웨이 서브넷 크기를 늘려야 합니다. 이 섹션에서 단계별 수행 방법을 보여줍니다.
 
-**구성을 시작하기 전에:** 게이트웨이 서브넷 크기를 늘릴 수 있도록 가상 네트워크에 충분한 IP 주소가 남아 있는지 확인합니다. 충분한 IP 주소가 있어도 게이트웨이를 삭제하고 다시 만들어야 합니다. 공존 연결을 수용하기 위해 게이트웨이를 다시 만들어야 하기 때문입니다.
+게이트웨어 서브넷이 /27 이상이고 가상 네트워크가 Express 경로를 통해 연결된 경우 아래 단계를 건너뛰고 이전 섹션의 ["6단계 - 사이트 간 VPN 게이트웨이 만들기"](#vpngw)를 진행할 수 있습니다.
+
+>[AZURE.NOTE] 기존 게이트웨이를 삭제하면 이 구성에서 작업하는 동안 로컬 프레미스와 가상 네트워크의 연결이 끊어집니다.
 
 1. 최신 버전의 Azure 리소스 관리자 PowerShell cmdlet을 설치해야 합니다. PowerShell cmdlet 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요. 이 구성에 사용할 cmdlet은 지금까지 익숙하던 cmdlet과는 약간 다를 수 있습니다. 다음 지침에 지정된 cmdlet을 사용해야 합니다. 
 
 2. 기존 Express 경로 또는 사이트 간 VPN 게이트웨이를 삭제합니다. 다음 cmdlet(사용자 고유의 값으로 대체)을 사용합니다.
 
-	`Remove-AzureVNetGateway –VnetName MyAzureVNET`
+		Remove-AzureVNetGateway –VnetName MyAzureVNET
 
 3. 가상 네트워크 스키마를 내보냅니다. 다음 PowerShell cmdlet(사용자 고유의 값으로 대체)을 사용합니다.
 
-	`Get-AzureVNetConfig –ExportToFile “C:\NetworkConfig.xml”`
+		Get-AzureVNetConfig –ExportToFile “C:\NetworkConfig.xml”
 
-4. 게이트웨이 서브넷이 /27 또는 더 짧은 접두사가 되도록 네트워크 구성 파일 스키마를 편집합니다.(/26 또는 /25와 같이) 다음 예제를 참조하세요. 구성 스키마에 대한 자세한 내용은 [Azure 가상 네트워크 구성 스키마](https://msdn.microsoft.com/library/azure/jj157100.aspx)를 참조하세요.
+4. 게이트웨이 서브넷이 /27 또는 더 짧은 접두사가 되도록 네트워크 구성 파일 스키마를 편집합니다.(/26 또는 /25와 같이) 다음 예제를 참조하세요.
+>[AZURE.NOTE] 가상 네트워크에 게이트웨이 서브넷 크기를 늘릴 수 있는 IP 주소가 충분히 남아 있지 않을 경우 추가 IP 주소 공간을 추가해야 합니다. 구성 스키마에 대한 자세한 내용은 [Azure 가상 네트워크 구성 스키마](https://msdn.microsoft.com/library/azure/jj157100.aspx)를 참조하세요.
 
           <Subnet name="GatewaySubnet">
             <AddressPrefix>10.17.159.224/27</AddressPrefix>
@@ -216,10 +219,10 @@ Express 경로 또는 사이트 간 VPN 연결을 통해 연결된 기존 가상
 		          </ConnectionsToLocalNetwork>
 		        </Gateway>
 
-6. 이제 게이트웨이가 없는 VNet이 설정됩니다. 새 게이트웨이를 만들고 연결을 완료하기 위해 이전 단계에 위치한 [4단계 - Express 경로 게이트웨이 만들기](#gw)를 진행할 수 있습니다.
+6. 이제 게이트웨이가 없는 VNet이 설정됩니다. 새 게이트웨이를 만들고 연결을 완료하려면 이전 단계의 [4단계 - Express 경로 게이트웨이 만들기](#gw)를 진행합니다.
 
 ## 다음 단계
 
 Express 경로에 대한 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->
