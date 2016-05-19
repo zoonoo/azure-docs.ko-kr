@@ -29,7 +29,12 @@ OMS 솔루션도 연결된 원본에서 데이터를 수집하고 OMS 리포지�
 
 | 데이터 원본 | 이벤트 유형 | 설명 |
 |:--|:--|:--|
-| [사용자 지정 로그](log-analytics-data-sources-custom-logs.md) | <LogName>\_CL | 로그 정보를 포함하는 Windows 또는 Linux 에이전트의 텍스트 파일 | | [Windows 이벤트 로그](log-analytics-data-sources-windows-events.md) | Event | Windows 컴퓨터의 이벤트 로그에서 수집된 이벤트 | | [Windows 성능 카운터](log-analytics-data-sources-performance-counters.md) | Perf | Windows 컴퓨터에서 수집된 성능 카운터 | | [Linux 성능 카운터](log-analytics-data-sources-performance-counters.md) | Perf | Linux 컴퓨터에서 수집된 성능 카운터 | | [IIS 로그](log-analytics-data-sources-iis-logs.md) | W3CIISLog | W3C 형식의 인터넷 정보 서비스 로그 | | Syslog | Syslog | Windows 또는 Linux 컴퓨터의 Syslog 이벤트 |
+| [사용자 지정 로그](log-analytics-data-sources-custom-logs.md) | \<LogName\>_CL | 로그 정보를 포함하는 Windows 또는 Linux 에이전트의 텍스트 파일 |
+| [Windows 이벤트 로그](log-analytics-data-sources-windows-events.md) | Event | Windows 컴퓨터의 이벤트 로그에서 수집된 이벤트 |
+| [Windows 성능 카운터](log-analytics-data-sources-performance-counters.md) | Perf | Windows 컴퓨터에서 수집된 성능 카운터 |
+| [Linux 성능 카운터](log-analytics-data-sources-performance-counters.md) | Perf | Linux 컴퓨터에서 수집된 성능 카운터 |
+| [IIS 로그](log-analytics-data-sources-iis-logs.md) | W3CIISLog | W3C 형식의 인터넷 정보 서비스 로그 |
+| Syslog | Syslog | Windows 또는 Linux 컴퓨터의 Syslog 이벤트 |
 
 ## 데이터 원본 구성
 
