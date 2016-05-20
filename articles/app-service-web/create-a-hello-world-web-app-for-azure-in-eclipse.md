@@ -134,7 +134,7 @@
 
   1. **확인**을 클릭하여 새 웹앱 컨테이너 만들기를 완료합니다.
 
-        Wait a few seconds for the list of the Web App containers to be refreshed, and your newly-created web app container should now be selected in the list.
+        웹 앱 컨테이너의 목록이 새로 고쳐지도록 몇 초 간 기다리고 나면 새로 만든 웹 앱 컨테이너를 목록에서 선택할 수 있게 됩니다.
 
 1. 이제 Azure에 웹앱의 초기 배포를 완료할 준비가 되었습니다.
 
