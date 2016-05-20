@@ -626,4 +626,4 @@ Azure 미디어 서비스를 사용하여 Widevine를 암호화할 때 제한 �
 
 [Azure 미디어 서비스에서 Google Widevine 라이선스 전달 서비스 발표](https://azure.microsoft.com/blog/announcing-general-availability-of-google-widevine-license-services/)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!-----HONumber=AcomDC_0504_2016-->

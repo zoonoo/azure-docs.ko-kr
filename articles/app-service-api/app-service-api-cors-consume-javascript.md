@@ -281,4 +281,4 @@ Web API CORS 지원은 앱 서비스 CORS 지원보다 유연성이 뛰어납니
 
 이 문서에서는 앱 서비스 CORS 지원을 사용하여 클라이언트 JavaScript 코드가 다른 도메인에서 API를 호출할 수 있는 방법을 살펴보았습니다. API 앱 시작 시리즈의 다음 문서에서는 [앱 서비스 API 앱에 대한 인증](app-service-api-authentication.md)에 대해 알아봅니다.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!-------HONumber=AcomDC_0413_2016-->
