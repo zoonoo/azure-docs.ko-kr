@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="04/18/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # 명명된 인증 자격 증명 설정
@@ -33,7 +33,7 @@ Visual Studio는 자격 증명으로 인증서 데이터와 함께 구독 ID를 
 
 이 항목의 뒷부분에 설명된 대로 **구독 새로 만들기/편집** 대화 상자에서 구독 정보를 편집할 수 있습니다.
 
-인증서를 만들 려는 경우 [Azure용 관리 인증서 만들기 및 업로드](https://msdn.microsoft.com/library/windowsazure/gg551722.aspx)에서 지침을 참조한 다음 관리 포털에 수동으로 인증서를 업로드합니다.
+인증서를 만들 려는 경우 [Azure용 관리 인증서 만들기 및 업로드](https://msdn.microsoft.com/library/windowsazure/gg551722.aspx)에서 지침을 참조한 다음 [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)에 수동으로 인증서를 업로드합니다.
 
 >[AZURE.NOTE] Visual Studio에서 클라우드 서비스를 관리해야 하는 이러한 자격 증명은 Azure 저장소 서비스에 대한 요청을 인증하는데 필요한 자격 증명과 동일하지 않습니다.
 
@@ -53,15 +53,15 @@ Visual Studio는 자격 증명으로 인증서 데이터와 함께 구독 ID를 
 
 1. **전체 경로 복사** 단추를 선택합니다. 인증서(.cer 파일)에 대한 경로가 클립보드에 복사됩니다.
 
-    >[AZURE.IMPORTANT] Visual Studio에서 Azure 응용 프로그램을 게시하려면 관리 포털에 이 인증서를 업로드해야 합니다.
+    >[AZURE.IMPORTANT] Visual Studio에서 Azure 응용 프로그램을 게시하려면 [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)에 이 인증서를 업로드해야 합니다.
 
-1. Azure 관리 포털로 인증서를 업로드하려면
+1. [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)에 인증서를 업로드하려면:
 
     1. Azure 포털 링크를 선택합니다.
 
-         [Azure 관리 포털](http://go.microsoft.com/fwlink/?LinkID=213885)이 열립니다.
+         [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)이 열립니다.
 
-    1. Microsoft 계정을 사용하여 Azure 관리 포털에 로그인한 다음 **클라우드 서비스** 단추를 선택합니다.
+    1. [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)에 로그인한 다음 **클라우드 서비스** 단추를 선택합니다.
 
     1. 관심 있는 클라우드 서비스를 선택합니다.
 
@@ -71,4 +71,4 @@ Visual Studio는 자격 증명으로 인증서 데이터와 함께 구독 ID를 
 
     1. 방금 만든 .cer 파일의 전체 경로를 붙여넣은 다음 지정한 암호를 입력합니다.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

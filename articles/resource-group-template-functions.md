@@ -4,8 +4,8 @@
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+   manager="timlt"
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/22/2016"
+   ms.date="05/06/2016"
    ms.author="tomfitz"/>
 
 # Azure 리소스 관리자 템플릿 함수
@@ -228,15 +228,15 @@
 <a id="padleft" />
 ### padLeft
 
-**padLeft (stringToPad, totalLength, paddingCharacter)**
+**padLeft(valueToPad, totalLength, paddingCharacter)**
 
 지정된 총 길이에 도달할 때까지 왼쪽에 문자를 추가하여 오른쪽 맞추어진 문자열을 반환합니다.
   
 | 매개 변수 | 필수 | 설명
 | :--------------------------------: | :------: | :----------
-| stringToPad | 예 | 오른쪽에 맞추어진 문자열입니다.
+| valueToPad | 예 | 오른쪽에 맞추어진 문자열 또는 int입니다.
 | totalLength | 예 | 반환된 문자열에서 문자의 총수입니다.
-| paddingCharacter | 예 | 총 길이에 도달할 때까지 왼쪽 여백에 사용되는 문자입니다.
+| paddingCharacter | 아니요 | 총 길이에 도달할 때까지 왼쪽 여백에 사용되는 문자입니다. 기본값은 공백입니다.
 
 다음 예제는 문자열이 10자에 도달할 때까지 0 문자를 추가하여 사용자가 제공한 매개 변수 값을 채우는 방법을 보여줍니다. 원래 매개 변수 값이 10자 보다 긴 경우 문자가 더 추가되지 않습니다.
 
@@ -278,7 +278,7 @@
 
 | 매개 변수 | 필수 | 설명
 | :--------------------------------: | :------: | :----------
-| inputString | 예 | 분할에 사용될 문자열입니다.
+| inputString | 예 | 분할할 문자열입니다.
 | 구분 기호 | 예 | 사용할 구분 기호는 단일 문자열 또는 문자열의 배열일 수 있습니다.
 
 다음 예제에서는 쉼표를 사용하여 입력 문자열을 분할합니다.
@@ -299,15 +299,31 @@
 
 | 매개 변수 | 필수 | 설명
 | :--------------------------------: | :------: | :----------
-| valueToConvert | 예 | 문자열로 변환할 값입니다. 값 형식은 부울, 정수 또는 문자열일 수만 있습니다.
+| valueToConvert | 예 | 문자열로 변환할 값입니다. 개체 및 배열을 비롯하여 모든 값 형식을 변환할 수 있습니다.
 
 다음 예제는 사용자가 제공한 매개 변수 값을 문자열로 변환합니다.
 
     "parameters": {
-        "appId": { "type": "int" }
+      "jsonObject": {
+        "type": "object",
+        "defaultValue": {
+          "valueA": 10,
+          "valueB": "Example Text"
+        }
+      },
+      "jsonArray": {
+        "type": "array",
+        "defaultValue": [ "a", "b", "c" ]
+      },
+      "jsonInt": {
+        "type": "int",
+        "defaultValue": 5
+      }
     },
     "variables": { 
-        "stringValue": "[string(parameters('appId'))]"
+      "objectString": "[string(parameters('jsonObject'))]",
+      "arrayString": "[string(parameters('jsonArray'))]",
+      "intString": "[string(parameters('jsonInt'))]"
     }
 
 <a id="substring" />
@@ -397,14 +413,14 @@
 
 **uniqueString(stringForCreatingUniqueString, ...)**
 
-고유한 문자열을 만들려면 제공된 64비트 해시의 문자열을 수행합니다. 이 함수는 리소스의 고유한 이름을 만들어야 할 때 유용합니다. 결과의 고유성 수준을 나타내는 매개 변수 값을 제공합니다. 구독, 리소스 그룹 또는 배포에 대해 해당 이름이 고유한지 여부를 지정할 수 있습니다.
+매개 변수로 제공된 값을 기반으로 고유 문자열을 만듭니다. 이 함수는 리소스의 고유한 이름을 만들어야 할 때 유용합니다. 결과의 고유성 수준을 나타내는 매개 변수 값을 제공합니다. 구독, 리소스 그룹 또는 배포에 대해 해당 이름이 고유한지 여부를 지정할 수 있습니다.
 
 | 매개 변수 | 필수 | 설명
 | :--------------------------------: | :------: | :----------
 | stringForCreatingUniqueString | 예 | 고유한 문자열을 만들기 위해 해시 함수에서 사용되는 기본 문자열입니다.
-| 필요에 따라 추가하는 매개 변수 | 아니요 | 고유성의 수준을 지정하는 값을 만들기 위해 필요한 만큼 문자열을 추가할 수 있습니다.
+| 필요에 따라 추가하는 매개 변수 | 아니요 | 고유성 수준을 지정하는 값을 만들기 위해 필요한 만큼 문자열을 추가할 수 있습니다.
 
-반환된 값은 완전한 임의 문자열이 아닌 해시 함수의 결과입니다. 반환된 값은 13자입니다. 전역적으로 고유하도록 보장되지는 않습니다. 보다 친숙한 이름을 만들기 위해 해당 값과 명명 규칙의 접두사를 결합할 수도 있습니다.
+반환된 값은 임의 문자열이 아닌 해시 함수의 결과입니다. 반환된 값은 13자입니다. 전역적으로 고유하도록 보장되지는 않습니다. 쉽게 인식할 수 있는 이름을 만들기 위해 해당 값과 명명 규칙의 접두사를 결합할 수도 있습니다.
 
 다음 예제에서는 uniqueString를 사용하여 일반적으로 사용하는 다른 수준에 대해 고유한 값을 만드는 방법을 보여 줍니다.
 
@@ -439,7 +455,7 @@ baseUri와 relativeUri 문자열을 결합하여 절대 URI를 만듭니다.
 | baseUri | 예 | 기본 uri 문자열입니다.
 | relativeUri | 예 | 기본 uri 문자열에 추가할 상대 uri 문자열입니다.
 
-**baseUri** 매개 변수에 대한 값은 특정 파일을 포함할 수 있지만 URI를 생성하는 경우 기본 경로만 사용됩니다. 예를 들어 **http://contoso.com/resources/azuredeploy.json**을 baseUri 매개 변수로 전달하면 기본 URI는 **http://contoso.com/resources/**가 됩니다.
+**baseUri** 매개 변수에 대한 값은 특정 파일을 포함할 수 있지만 URI를 생성하는 경우 기본 경로만 사용됩니다. 예를 들어 **http://contoso.com/resources/azuredeploy.json** 을 baseUri 매개 변수로 전달하면 기본 URI는 **http://contoso.com/resources/** 가 됩니다.
 
 다음 예제에서는 부모 템플릿의 값을 기반으로 중첩된 템플릿에 대한 링크를 생성하는 방법을 보여 줍니다.
 
@@ -671,15 +687,6 @@ listKeys 작업을 지원하는 모든 리소스 형식에 대한 키를 반환�
 		}
 	}
 
-템플릿에 API 버전을 직접 지정하려면 아래와 같이 [공급자](#providers) 함수를 사용하고 최신 버전 등의 값을 검색할 수 있습니다.
-
-    "outputs": {
-		"BlobUri": {
-			"value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).primaryEndpoints.blob]",
-			"type" : "string"
-		}
-	}
-
 다음 예제에서는 다른 리소스 그룹에서 저장소 계정을 참조합니다.
 
     "outputs": {
@@ -717,7 +724,7 @@ listKeys 작업을 지원하는 모든 리소스 형식에 대한 키를 반환�
 <a id="resourceid" />
 ### resourceId
 
-**resourceId ([resourceGroupName], resourceType, resourceName1, [resourceName2]...)**
+**resourceId ([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2]...)**
 
 리소스의 고유 식별자를 반환합니다. 리소스 이름이 모호하거나 동일한 템플릿 내에서 프로비전되지 않은 경우 이 함수를 사용합니다. 식별자는 다음 형식으로 반환됩니다.
 
@@ -725,6 +732,7 @@ listKeys 작업을 지원하는 모든 리소스 형식에 대한 키를 반환�
       
 | 매개 변수 | 필수 | 설명
 | :---------------: | :------: | :----------
+| subscriptionId | 아니요 | 선택적 구독 ID입니다. 기본값은 현재 구독입니다. 다른 구독에서 리소스를 검색할 경우 이 값을 지정합니다.
 | resourceGroupName | 아니요 | 선택적 리소스 그룹 이름입니다. 기본값은 현재 리소스 그룹입니다. 다른 리소스 그룹에서 리소스를 검색할 경우 이 값을 지정합니다.
 | resourceType | 예 | 리소스 공급자 네임스페이스를 포함하는 리소스 유형입니다.
 | resourceName1 | 예 | 리소스의 이름입니다.
@@ -733,7 +741,7 @@ listKeys 작업을 지원하는 모든 리소스 형식에 대한 키를 반환�
 다음 예에서는 웹 사이트 및 데이터베이스에 대한 리소스 ID를 검색하는 방법을 보여 줍니다. 웹 사이트는 **myWebsitesGroup**이라는 리소스 그룹에 있고 데이터베이스는 이 템플릿에 대한 현재 리소스 그룹에 있습니다.
 
     [resourceId('myWebsitesGroup', 'Microsoft.Web/sites', parameters('siteName'))]
-    [resourceId('Microsoft.SQL/servers/databases', parameters('serverName'),parameters('databaseName'))]
+    [resourceId('Microsoft.SQL/servers/databases', parameters('serverName'), parameters('databaseName'))]
     
 대체 리소스 그룹의 저장소 계정 또는 가상 네트워크를 사용할 경우 이 함수를 사용해야 합니다. 저장소 계정 또는 가상 네트워크를 여러 리소스 그룹에서 사용할 수 있으므로, 단일 리소스 그룹을 삭제할 때 해당 저장소 계정 또는 가상 네트워크를 삭제하지 않습니다. 다음 예에서는 외부 리소스 그룹의 리소스를 쉽게 사용할 수 있는 방법을 보여 줍니다.
 
@@ -807,4 +815,4 @@ listKeys 작업을 지원하는 모든 리소스 형식에 대한 키를 반환�
 - 리소스 유형을 만들 때 지정된 횟수만큼 반복하려면 [Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
 - 만든 템플릿을 배포하는 방법을 보려면 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

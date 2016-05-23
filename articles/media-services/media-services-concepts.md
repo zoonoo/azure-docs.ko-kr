@@ -137,7 +137,7 @@ Azure 미디어 서비스에서 채널은 라이브 스트리밍 콘텐츠를 �
 자세한 내용은 다음을 참조하세요.
 
 - [Azure 미디어 서비스를 사용하여 라이브 인코딩을 수행할 수 있는 채널 작업](media-services-manage-live-encoder-enabled-channels.md)
-- [온-프레미스 인코더에서 다중 비트 전송률 라이브 스트림을 받는 채널 작업](media-services-manage-channels-overview.md)
+- [온-프레미스 인코더에서 다중 비트 전송률 라이브 스트림을 받는 채널 작업](media-services-live-streaming-with-onprem-encoders.md)
 - [할당량 및 제한 사항](media-services-quotas-and-limitations.md)  
 
 ##콘텐츠 보호
@@ -252,4 +252,4 @@ SSL 연결을 통해 콘텐츠를 스트리밍할 수도 있습니다. 이렇게
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0511_2016-->

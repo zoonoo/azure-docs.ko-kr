@@ -1,19 +1,19 @@
 <properties
-	pageTitle="Azure Site Recovery로 Active Directory 및 DNS 보호 | Microsoft Azure" 
-	description="이 문서에서는 Azure Site Recovery를 사용하여 Active Directory에 대한 재해 복구 솔루션을 구현하는 방법에 대해 설명합니다." 
-	services="site-recovery" 
-	documentationCenter="" 
-	authors="prateek9us" 
-	manager="abhiag" 
+	pageTitle="Azure Site Recovery로 Active Directory 및 DNS 보호 | Microsoft Azure"
+	description="이 문서에서는 Azure Site Recovery를 사용하여 Active Directory에 대한 재해 복구 솔루션을 구현하는 방법에 대해 설명합니다."
+	services="site-recovery"
+	documentationCenter=""
+	authors="prateek9us"
+	manager="abhiag"
 	editor=""/>
 
-<tags 
-	ms.service="site-recovery" 
+<tags
+	ms.service="site-recovery"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.workload="storage-backup-recovery" 
-	ms.date="12/14/2015" 
+	ms.workload="storage-backup-recovery"
+	ms.date="05/10/2016"
 	ms.author="pratshar"/>
 
 # Azure Site Recovery로 Active Directory 및 DNS 보호
@@ -36,7 +36,7 @@ SharePoint, Dynamics AX 및 SAP와 같은 엔터프라이즈 응용 프로그램
 
 환경에 많은 응용 프로그램과 둘 이상의 도메인 컨트롤러가 있는 경우 또는 동시에 적은 수의 응용 프로그램을 장애 조치(failover)하려는 경우 사이트 복구로 도메인 컨트롤러 가상 컴퓨터를 복제하는 것 이외에 대상 사이트(Azure 또는 보조 온-프레미스 데이터 센터)에 추가 도메인 컨트롤러를 설정하는 것이 좋습니다.
 
->[AZURE.NOTE]옵션-2를 구현하더라도 테스트 장애 조치(Failover)를 수행하기 위해서는 사이트 복구를 사용하여 계속 도메인 컨트롤러를 복제해야 합니다. 자세한 내용은 [테스트 장애 조치 시 고려 사항](#considerations-for-test-failover)을 확인하세요.
+>[AZURE.NOTE] 옵션-2를 구현하더라도 테스트 장애 조치(Failover)를 수행하기 위해서는 사이트 복구를 사용하여 계속 도메인 컨트롤러를 복제해야 합니다. 자세한 내용은 [테스트 장애 조치 시 고려 사항](#considerations-for-test-failover)을 확인하세요.
 
 
 다음 섹션은 사이트 복구에서 도메인 컨트롤러에 대해 보호를 설정하는 방법과 Azure에서 도메인 컨트롤러를 설정하는 방법에 대해 설명합니다.
@@ -45,7 +45,7 @@ SharePoint, Dynamics AX 및 SAP와 같은 엔터프라이즈 응용 프로그램
 ## 필수 조건
 
 - Active Directory 및 DNS 서버의 온-프레미스 배포
-- Microsoft Azure 구독에서 Azure Site Recovery 서비스 자격 증명 모음 
+- Microsoft Azure 구독에서 Azure Site Recovery 서비스 자격 증명 모음
 - Azure에 복제 중인 경우 VM에서 Azure Virtual Machine Readiness Assessment 도구를 실행하여 Azure VM 및 Azure Site Recovery 서비스와 호환되는지 확인
 
 
@@ -62,7 +62,7 @@ SharePoint, Dynamics AX 및 SAP와 같은 엔터프라이즈 응용 프로그램
 
 ![VM 네트워크 설정](./media/site-recovery-active-directory/VM-Network-Settings.png)
 
-## Active Directory 복제로 Active Directory 보호 
+## Active Directory 복제로 Active Directory 보호
 
 ### 사이트-사이트 보호
 
@@ -70,10 +70,10 @@ SharePoint, Dynamics AX 및 SAP와 같은 엔터프라이즈 응용 프로그램
 
 ###사이트-Azure 보호
 
-다음 지침을 따라 [Azure 가상 네트워크에서 도메인 컨트롤러](../virtual-network/virtual-networks-install-replica-active-directory-domain-controller.md)를 만듭니다. 서버를 도메인 컨트롤러 역할로 승격할 때 기본 사이트에 사용된 도메인과 동일한 이름을 지정합니다.
+다음 지침을 따라 [Azure 가상 네트워크에서 도메인 컨트롤러](../active-directory/active-directory-install-replica-active-directory-domain-controller.md)를 만듭니다. 서버를 도메인 컨트롤러 역할로 승격할 때 기본 사이트에 사용된 도메인과 동일한 이름을 지정합니다.
 
-그런 다음 Azure에서 DNS 서버를 사용하도록 [가상 네트워크에 대한 DNS 서버를 재구성](../virtual-network/virtual-networks-install-replica-active-directory-domain-controller.md#reconfigure-dns-server-for-the-virtual-network)합니다.
-  
+그런 다음 Azure에서 DNS 서버를 사용하도록 [가상 네트워크에 대한 DNS 서버를 재구성](../active-directory/active-directory-install-replica-active-directory-domain-controller.md#reconfigure-dns-server-for-the-virtual-network)합니다.
+
 ![Azure 네트워크](./media/site-recovery-active-directory/azure-network.png)
 
 ## 테스트 장애 조치 시 고려 사항
@@ -84,16 +84,16 @@ SharePoint, Dynamics AX 및 SAP와 같은 엔터프라이즈 응용 프로그램
 
 1. 사이트 복구에서 도메인 컨트롤러/DNS 가상 컴퓨터에 대한 보호를 설정합니다.
 2. 격리된 네트워크를 만듭니다. Azure에서 생성되는 모든 가상 네트워크는 기본적으로 다른 네트워크에서 격리됩니다. 이 네트워크의 IP 범위를 프로덕션 네트워크와 동일하게 설정하는 것이 좋습니다. 이 네트워크에서 사이트-사이트 연결을 사용하지 마십시오.
-3. DNS 가상 컴퓨터를 가져올 것으로 예상되는 IP 주소로 만든 네트워크에서 DNS IP 주소를 제공합니다. Azure로 복제 중인 경우 VM 속성의 **대상 IP** 설정에서 장애 조치(failover)로 사용할 VM의 IP 주소를 제공합니다. 다른 온-프레미스에 복제 중이고 DHCP를 사용하는 경우 지침을 따라 [테스트 장애 조치(failover)의 DNS 및 DHCP를 설정](site-recovery-failover.md#prepare-dhcp)합니다. 
+3. DNS 가상 컴퓨터를 가져올 것으로 예상되는 IP 주소로 만든 네트워크에서 DNS IP 주소를 제공합니다. Azure로 복제 중인 경우 VM 속성의 **대상 IP** 설정에서 장애 조치(failover)로 사용할 VM의 IP 주소를 제공합니다. 다른 온-프레미스에 복제 중이고 DHCP를 사용하는 경우 지침을 따라 [테스트 장애 조치(failover)의 DNS 및 DHCP를 설정](site-recovery-failover.md#prepare-dhcp)합니다.
 
->[AZURE.NOTE]테스트 장애 조치(failover) 중에 가상 컴퓨터에 할당된 IP 주소는 이 IP 주소가 테스트 장애 조치(failover) 네트워크에서 사용할 수 있는 경우, 계획되거나 계획되지 않은 장애 조치(failover) 시 얻게 되는 IP 주소와 동일합니다. 그렇지 않다면 가상 컴퓨터는 테스트 장애 조치 네트워크에서 사용할 수 있는 다른 IP 주소를 수신합니다.
+>[AZURE.NOTE] 테스트 장애 조치(failover) 중에 가상 컴퓨터에 할당된 IP 주소는 이 IP 주소가 테스트 장애 조치(failover) 네트워크에서 사용할 수 있는 경우, 계획되거나 계획되지 않은 장애 조치(failover) 시 얻게 되는 IP 주소와 동일합니다. 그렇지 않다면 가상 컴퓨터는 테스트 장애 조치 네트워크에서 사용할 수 있는 다른 IP 주소를 수신합니다.
 
-4. 도메인 컨트롤러 가상 컴퓨터에서 격리된 네트워크에서 해당 가상 컴퓨터의 테스트 장애 조치(failover)를 실행합니다. 
+4. 도메인 컨트롤러 가상 컴퓨터에서 격리된 네트워크에서 해당 가상 컴퓨터의 테스트 장애 조치(failover)를 실행합니다.
 5. 응용 프로그램 복구 계획용 테스트 장애 조치(Failover)를 실행합니다.
-6. 테스트가 완료되면 사이트 복구 포털의 **작업** 탭에서 도메인 컨트롤러 가상 컴퓨터 작업의 테스트 장애 조치(failover) 및 복구 계획을 '완료'로 표시합니다. 
+6. 테스트가 완료되면 사이트 복구 포털의 **작업** 탭에서 도메인 컨트롤러 가상 컴퓨터 작업의 테스트 장애 조치(failover) 및 복구 계획을 '완료'로 표시합니다.
 
 ### 다른 컴퓨터에서 DNS 및 도메인 컨트롤러
- 
+
 DNS가 도메인 컨트롤러와 같은 가상 컴퓨터에 없는 경우 테스트 장애 조치(failover)를 위한 DNS VM를 만들어야 합니다. 동일한 VM에 있는 경우는 이 섹션을 건너뛸 수 있습니다.
 
 새 DNS 서버를 사용하고 모든 필요한 영역을 만들 수 있습니다. 예를 들어, Active Directory 도메인이 contoso.com인 경우 이름이 contoso.com인 DNS 영역을 만들 수 있습니다. 다음과 같이 Active Directory에 해당하는 항목을 DNS에서 업데이트해야 합니다.
@@ -111,9 +111,9 @@ DNS가 도메인 컨트롤러와 같은 가상 컴퓨터에 없는 경우 테스
 
 3. DNS 서버에서 영역을 추가하고 비보안 업데이트를 허용하고 DNS에 이에 대한 항목을 추가합니다.
 
-	    dnscmd /zoneadd contoso.com  /Primary 
-	    dnscmd /recordadd contoso.com  contoso.com. SOA %computername%.contoso.com. hostmaster. 1 15 10 1 1 
-	    dnscmd /recordadd contoso.com %computername%  A <IP_OF_DNS_VM> 
+	    dnscmd /zoneadd contoso.com  /Primary
+	    dnscmd /recordadd contoso.com  contoso.com. SOA %computername%.contoso.com. hostmaster. 1 15 10 1 1
+	    dnscmd /recordadd contoso.com %computername%  A <IP_OF_DNS_VM>
 	    dnscmd /config contoso.com /allowupdate 1
 
 
@@ -121,4 +121,4 @@ DNS가 도메인 컨트롤러와 같은 가상 컴퓨터에 없는 경우 테스
 
 Azure Site Recovery로 엔터프라이즈 워크로드를 보호하는 방법에 대해 자세히 알아보려면 [어떤 워크로드를 보호할 수 있습니까?](../site-recovery/site-recovery-workload.md)를 읽어보세요.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0511_2016-->

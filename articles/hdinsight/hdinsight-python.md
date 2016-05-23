@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="02/10/2016" 
+	ms.date="04/26/2016" 
 	ms.author="larryfr"/>
 
 #HDInsight에서 Hive 및 Pig와 함께 Python 사용
@@ -225,6 +225,8 @@ SSH 사용에 대한 자세한 내용은 <a href="../hdinsight-hadoop-linux-use-
 ###PowerShell
 
 이 단계에서는 Azure PowerShell을 사용합니다. 이 도구를 아직 개발 컴퓨터에 설치하여 구성하지 않은 경우 다음 단계를 사용하기 전에 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
+
+[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 1. Python 예제 [streaming.py](#streamingpy) 및 [jython.py](#jythonpy)를 사용하여, 개발 컴퓨터에서 파일의 로컬 사본을 만듭니다.
 
@@ -447,4 +449,4 @@ Pig 및 Hive를 사용하고 MapReduce 사용에 대해 배우는 다른 방법�
 
 * [HDInsight와 함께 MapReduce 사용](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

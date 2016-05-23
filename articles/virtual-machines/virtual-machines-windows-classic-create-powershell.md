@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/10/2016"
+	ms.date="05/05/2016"
 	ms.author="cynthn"/>
 
 # PowerShell 및 클래식 배포 모델을 사용하여 Windows 가상 컴퓨터 만들기 
@@ -22,7 +22,6 @@
 > [AZURE.SELECTOR]
 - [Azure 클래식 포털 - Windows](virtual-machines-windows-classic-tutorial.md)
 - [PowerShell - Windows](virtual-machines-windows-classic-create-powershell.md)
-- [PowerShell - Linux](virtual-machines-linux-classic-createpowershell.md)
 
 <br>
 
@@ -34,13 +33,11 @@
 
 다음 단계에서는 빈 칸 채우기 접근 방식에 따라 Azure PowerShell 명령 집합을 만듭니다. 이 접근 방식은 PowerShell을 처음 접하거나 성공적인 구성을 위해 지정할 값만 알기를 원하는 경우에 유용할 수 있습니다. 고급 PowerShell 사용자는 명령을 가져와 고유한 변수 값("$"로 시작하는 줄)을 대체할 수 있습니다.
 
-Linux 기반 가상 컴퓨터에 대한 관련 항목은 [Azure PowerShell을 사용하여 Linux 기반 가상 컴퓨터 만들기 및 미리 구성](virtual-machines-linux-classic-createpowershell.md)을 참조하세요.
-
 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)의 지침을 사용하여 로컬 컴퓨터에 Azure PowerShell을 설치합니다(아직 설치하지 않은 경우). 그런 다음 Windows PowerShell 명령 프롬프트를 엽니다.
 
 ## 1단계: 사용자 계정 추가
 
-1. PowerShell 프롬프트에서 **Add-AzureAccount**를 입력하고 **입력**을 클릭합니다. 
+1. PowerShell 프롬프트에서 **Add-AzureAccount**를 입력하고 **Enter**를 클릭합니다. 
 2. Azure 구독과 연관된 메일 주소를 입력하고 **계속**을 클릭합니다. 
 3. 계정에 암호를 입력합니다. 
 4. **로그인**을 클릭합니다.
@@ -263,4 +260,4 @@ Active Directory 도메인 컨트롤러에 대해 $hcaching을 "None"으로 설�
 
 127GB보다 큰 OS 디스크가 필요한 경우 [OS 드라이브를 확장](virtual-machines-windows-expand-os-disk.md)할 수 있습니다.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0511_2016-->

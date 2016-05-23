@@ -51,7 +51,7 @@ Visual Studio 서비스 패브릭 리소스 관리자 템플릿은 인증서로 
 기본적으로 클러스터 이름은 자동으로 생성되며 임의의 접미사를 "cluster" 접두사에 추가하여 고유하게 만들어집니다. 이렇게 하면 템플릿을 **Ci(연속 통합)** 시스템의 일부로 쉽게 사용할 수 있습니다. 클러스터에 대해 사용자에게 의미가 있는 특정 이름을 사용하려는 경우 리소스 관리자 템플릿 파일(`ServiceFabricCluster.json`)의 `clusterName` 변수 값을 선택한 이름으로 설정합니다. 해당 파일에 정의된 첫 번째 변수입니다.
 
 ## 옵션: 공용 응용 프로그램 포트 추가
-배포하기 전에 클러스터에 대한 공용 응용 프로그램 포트를 변경할 수도 있습니다. 기본적으로 템플릿에서는 두 개의 공용 TCP 포트(80과 8081)만 열립니다. 응용 프로그램에 더 많은 포트가 필요한 경우 템플릿에서 Azure 부하 분산 장치 정의를 수정합니다. 정의는 기본 템플릿 파일(`SecureFabricCluster.json`)에 저장됩니다. 해당 파일을 열고 `loadBalancedAppPort`를 검색합니다. 각 포트는 세 개의 아티팩트에 연결됩니다.
+배포하기 전에 클러스터에 대한 공용 응용 프로그램 포트를 변경할 수도 있습니다. 기본적으로 템플릿에서는 두 개의 공용 TCP 포트(80과 8081)만 열립니다. 응용 프로그램에 더 많은 포트가 필요한 경우 템플릿에서 Azure 부하 분산 장치 정의를 수정합니다. 정의는 기본 템플릿 파일(`ServiceFabricCluster.json`)에 저장됩니다. 해당 파일을 열고 `loadBalancedAppPort`를 검색합니다. 각 포트는 세 개의 아티팩트에 연결됩니다.
 
 1. 포트에 대한 TCP 포트 값을 정의하는 템플릿 매개 변수:
 
@@ -126,4 +126,4 @@ Visual Studio 출력 창에서 배포 프로세스의 진행률을 모니터링�
 [2]: ./media/service-fabric-cluster-creation-via-visual-studio/selecting-azure-template.png
 [3]: ./media/service-fabric-cluster-creation-via-visual-studio/deploy-to-azure.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

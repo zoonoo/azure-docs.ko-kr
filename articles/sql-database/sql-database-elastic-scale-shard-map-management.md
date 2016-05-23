@@ -13,17 +13,39 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="04/26/2016" 
 	ms.author="ddove;sidneyh"/>
 
-# 분할된 데이터베이스 맵 관리
+# 분할된 데이터베이스 맵 관리자를 사용하여 데이터베이스 확장
 
-분할된 데이터베이스 환경에서는 [**분할된 데이터베이스 맵**](sql-database-elastic-scale-glossary.md)이 **분할 키**의 값에 따라 응용 프로그램이 올바른 데이터베이스에 연결할 수 있도록 정보를 유지 관리합니다. 분할된 데이터베이스 맵 관리를 위해서는 이 맵의 구성을 이해하는 것이 필수적입니다. Azure SQL 데이터베이스의 경우 [탄력적 데이터베이스 클라이언트 라이브러리](sql-database-elastic-database-client-library.md)에 있는 [ShardMapManager 클래스](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)를 사용하여 분할된 데이터베이스 맵을 관리합니다.
+SQL Azure에서 데이터베이스를 쉽게 확장하려면 분할된 데이터베이스 맵 관리자를 사용합니다. 분할된 데이터베이스 맵 관리자는 분할된 데이터베이스 집합에서 모든 분할된 데이터베이스(데이터베이스)에 대한 전역 매핑 정보를 유지 관리하는 특수한 데이터베이스입니다. 메타데이터를 사용하면 응용 프로그램을 **분할 키**의 값에 따라 올바른 데이터베이스에 연결할 수 있습니다. 또한 집합에 있는 모든 분할된 데이터베이스은 로컬 분할된 데이터베이스 데이터를 추적하는 맵을 포함합니다(**shardlet**라고도 함).
 
-기존의 데이터베이스 집합을 변환하려면 [탄력적 데이터베이스 도구를 사용하도록 기존 데이터베이스 변환](sql-database-elastic-convert-to-use-elastic-tools.md)을 참조하세요.
- 
+![분할된 데이터베이스 맵 관리](./media/sql-database-elastic-scale-shard-map-management/glossary.png)
+
+분할된 데이터베이스 맵 관리를 위해서는 이 맵의 구성을 이해하는 것이 필수적입니다. [탄력적 데이터베이스 클라이언트 라이브러리](sql-database-elastic-database-client-library.md)에 있는 [ShardMapManager 클래스](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)를 사용하여 분할된 데이터베이스 맵을 관리합니다.
+
 
 ## 분할된 데이터베이스 맵 및 분할된 데이터베이스 매핑
+
+각 분할된 데이터베이스에 만들 분할된 데이터베이스 맵의 종류를 선택해야 합니다. 데이터베이스 아키텍처에 따라 선택합니다.
+
+1. 데이터베이스당 단일 테넌트  
+2. 데이터베이스당 다중 테넌트(두 가지 형식):
+	3. 목록 매핑
+	4. 범위 매핑
+ 
+단일 테넌트 모델은 **목록 매핑** 분할된 데이터베이스 맵을 만듭니다. 단일 테넌트 모델은 테넌트당 하나의 데이터베이스를 할당합니다. 관리를 단순화하므로 SaaS 개발자에게 효과적인 모델입니다.
+
+![목록 매핑][1]
+
+다중 테넌트 모델은 단일 데이터베이스에 여러 테넌트를 할당합니다(또한 테넌트 그룹을 여러 데이터베이스에 배포할 수 있음). 각 테넌트에 데이터 요구가 적다고 예상되는 경우 이 모델을 사용합니다. 이 모델에서 **범위 매핑**을 사용하여 데이터베이스에 테넌트의 범위를 할당합니다.
+ 
+
+![범위 매핑][2]
+
+또는 다중 테넌트를 단일 데이터베이스에 할당하는 *목록 매핑*을 사용하여 다중 테넌트 데이터베이스 모델을 구현할 수 있습니다. 예를 들어 DB1은 테넌트 ID 1과 5에 대한 정보를 저장하는 데 사용하고 DB2는 테넌트 7과 테넌트 10의 데이터를 저장합니다.
+
+![단일 DB의 다중 테넌트][3]
  
 ### 분할 키에 대해 지원되는 .Net 형식
 
@@ -69,7 +91,7 @@
 
 ## 분할된 데이터베이스 맵 관리자 
 
-클라이언트 라이브러리에서 분할된 데이터베이스 맵 관리자는 분할된 데이터베이스 맵의 컬렉션입니다. **ShardMapManager** 인스턴스를 통해 관리되는 데이터는 다음 3개 위치에 저장됩니다.
+클라이언트 라이브러리에서 분할된 데이터베이스 맵 관리자는 분할된 데이터베이스 맵의 컬렉션입니다. **ShardMapManager** 인스턴스를 통해 관리되는 데이터는 다음 세 개 위치에 저장됩니다.
 
 1. **GSM(전역 분할된 데이터베이스 맵)**: 해당 분할된 데이터베이스 맵 및 매핑 모두에 대한 리포지토리 역할을 할 데이터베이스를 지정합니다. 정보를 관리할 특수 테이블 및 저장된 프로시저는 자동으로 생성됩니다. 일반적으로 작은 데이터베이스이며 손쉽게 액세스할 수 있지만 응용 프로그램의 다른 요구 사항에는 사용할 수 없습니다. 테이블은 **\_\_ShardManagement**라는 특수한 스키마에 있습니다.
 
@@ -79,7 +101,7 @@
 
 ## ShardMapManager 생성
 
-**ShardMapManager** 개체는 [팩터리](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.aspx) 패턴을 사용하여 생성됩니다. **[ShardMapManagerFactory.GetSqlShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx)** 메서드는 **ConnectionString** 형식으로 자격 증명(GSM이 저장되는 데이터베이스 이름과 서버 이름 포함)을 가져와 **ShardMapManager** 인스턴스를 반환합니다.
+**ShardMapManager** 개체는 [팩터리](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.aspx) 패턴을 사용하여 생성됩니다. **[ShardMapManagerFactory.GetSqlShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx)** 메서드는 **ConnectionString** 형식으로 자격 증명(GSM이 저장되는 데이터베이스 이름과 서버 이름 포함)을 가져오고 **ShardMapManager** 인스턴스를 반환합니다.
 
 **참고:** **ShardMapManager**는 응용 프로그램용 초기화 코드 내에서 앱 도메인별로 한 번만 인스턴스화해야 합니다. 동일한 AppDomain에서 ShardMapManager의 추가 인스턴스를 만들면 응용 프로그램의 메모리와 CPU 사용률이 증가합니다. **ShardMapManager**는 분할된 데이터베이스 맵을 개수와 관계없이 포함할 수 있습니다. 많은 응용 프로그램의 경우 단일 분할된 데이터베이스 맵으로 충분할 수 있지만 서로 다른 스키마에 대해서 또는 고유성을 위해서는 서로 다른 데이터베이스 집합이 사용되며 이러한 경우 다중 분할된 데이터베이스 맵을 사용하는 것이 좋습니다.
 
@@ -147,11 +169,11 @@
 
 분할된 데이터베이스, 분할된 데이터베이스 맵, 분할된 데이터베이스 매핑 등을 추가/변경하는 등 분할된 데이터베이스 맵을 관리하려는 경우 **ShardMapManager**를 인스턴스화해야 하며, 이때 **GSM 데이터베이스 및 분할된 데이터베이스로 사용되는 각 데이터베이스 모두에 대해 읽기/쓰기 권한이 있는 자격 증명**을 사용해야 합니다. 이 자격 증명은 분할된 데이터베이스 맵 정보를 입력하거나 변경할 뿐만 아니라 새로운 분할된 데이터베이스에 LSM 테이블을 생성할 때 GSM 및 LSM에서 테이블에 쓸 수 있도록 허용해야 합니다.
 
-[탄력적 데이터베이스 클라이언트 라이브러리 액세스에 사용되는 자격 증명](sql-database-elastic-scale-manage-credentials.md)을 참조하세요.
+[탄력적 데이터베이스 클라이언트 라이브러리에 액세스하는 데 사용되는 자격 증명](sql-database-elastic-scale-manage-credentials.md)을 참조하세요.
 
 ### 영향을 받는 메타데이터만 
 
-**ShardMapManager** 데이터를 채우거나 변경하는 데 사용되는 메서드는 분할된 데이터베이스 자체에 저장된 사용자 데이터를 변경하지 않습니다. 예를 들어 **CreateShard**, **DeleteShard**, **UpdateMapping** 등의 메서드는 분할된 데이터베이스 맵 메타데이터에만 적용됩니다. 분할된 데이터베이스에 포함된 사용자 데이터를 제거, 추가 또는 변경하지 않습니다. 대신, 이러한 메서드는 실제 데이터베이스를 생성 또는 제거하기 위해 수행하는 개별 작업 또는 분할된 환경을 리밸런스하기 위해 분할된 데이터베이스 간에 행을 이동하는 개별 작업과 함께 사용하도록 설계되었습니다. 탄력적 데이터베이스 도구에 포함된 **분할-병합** 도구는 분할된 데이터베이스 간의 실제 데이터 이동을 조정하면서 이러한 API를 사용합니다. [탄력적 데이터베이스 분할/병합 도구를 사용하여 확장하기](sql-database-elastic-scale-overview-split-and-merge.md)를 참조하세요.
+**ShardMapManager** 데이터를 채우거나 변경하는 데 사용되는 메서드는 분할된 데이터베이스 자체에 저장된 사용자 데이터를 변경하지 않습니다. 예를 들어 **CreateShard**, **DeleteShard**, **UpdateMapping** 등의 메서드는 분할된 데이터베이스 맵 메타데이터에만 적용됩니다. 분할된 데이터베이스에 포함된 사용자 데이터를 제거, 추가 또는 변경하지 않습니다. 대신, 이러한 메서드는 실제 데이터베이스를 생성 또는 제거하기 위해 수행하는 개별 작업 또는 분할된 환경을 리밸런스하기 위해 분할된 데이터베이스 간에 행을 이동하는 개별 작업과 함께 사용하도록 설계되었습니다. 탄력적 데이터베이스 도구에 포함된 **분할-병합** 도구는 분할된 데이터베이스 간의 실제 데이터 이동을 조정하면서 이러한 API를 사용합니다. [탄력적 데이터베이스 분할/병합 도구를 사용하여 확장하기](sql-database-elastic-scale-overview-split-and-merge.md).를 참조하세요.
 
 ## 분할된 데이터베이스 맵 채우기 예제
  
@@ -268,7 +290,7 @@
 
 분할된 데이터베이스 맵 관리자는 앱별 작업을 수행하기 위해 데이터베이스 연결이 필요한 응용 프로그램에서 대부분 사용됩니다. 이러한 연결은 올바른 데이터베이스와 연결되어야 합니다. 이를 **데이터 종속 라우팅**이라고 합니다. 이러한 응용 프로그램의 경우 GSM 데이터베이스에 대한 읽기 전용 액세스 권한이 있는 자격 증명을 사용하여 팩터리의 분할된 데이터베이스 맵 관리자 개체를 인스턴스화합니다. 이후 연결에 대한 개별 요청은 적합한 분할된 데이터베이스에 연결하는 데 필요한 자격 증명을 제공합니다.
 
-읽기 전용 자격 증명으로 연 **ShardMapManager**를 사용하는 이러한 응용 프로그램은 맵 또는 매핑을 변경할 수 없습니다. 이러한 요구 사항을 위해, 앞서 설명한 대로 더 높은 권한의 자격 증명을 제공하는 PowerShell 스크립트 또는 관리별 응용 프로그램을 만듭니다. [탄력적 데이터베이스 클라이언트 라이브러리 액세스에 사용되는 자격 증명](sql-database-elastic-scale-manage-credentials.md)을 참조하세요.
+읽기 전용 자격 증명으로 열린 **ShardMapManager**를 사용하는 이러한 응용 프로그램은 맵 또는 매핑을 변경할 수 없습니다. 이러한 요구 사항을 위해, 앞서 설명한 대로 더 높은 권한의 자격 증명을 제공하는 PowerShell 스크립트 또는 관리별 응용 프로그램을 만듭니다. [탄력적 데이터베이스 클라이언트 라이브러리 액세스에 사용되는 자격 증명](sql-database-elastic-scale-manage-credentials.md)을 참조하세요.
 
 자세한 내용은 [데이터 종속 라우팅](sql-database-elastic-scale-data-dependent-routing.md)을 참조하세요.
 
@@ -312,5 +334,9 @@
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
+<!--Image references-->
+[1]: ./media/sql-database-elastic-scale-shard-map-management/listmapping.png
+[2]: ./media/sql-database-elastic-scale-shard-map-management/rangemapping.png
+[3]: ./media/sql-database-elastic-scale-shard-map-management/multipleonsingledb.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

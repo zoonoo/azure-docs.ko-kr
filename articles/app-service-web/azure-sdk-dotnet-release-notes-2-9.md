@@ -13,9 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="03/29/2016"
+   ms.date="04/25/2016"
    ms.author="juliako"/>
-
 
 # Azure SDK for .NET 2.9 릴리스 정보
 
@@ -44,7 +43,7 @@
 
 	이 도구는 자주 업데이트되며 업데이트를 받으려면 [여기](http://aka.ms/datalaketool)로 이동하세요.
 
-- 이제 **서버 탐색기**를 통해 모든 항목을 보고 일부 U-SQL 메타데이터 엔터티를 만들 수 있습니다. 자세한 내용은 [이 블로그]()를 참조하세요.
+- 이제 **서버 탐색기**를 통해 모든 항목을 보고 일부 U-SQL 메타데이터 엔터티를 만들 수 있습니다. 자세한 내용은 [이 블로그](https://azure.microsoft.com/documentation/services/data-lake-analytics/)를 참조하세요.
 
 
 ##HDInsight 도구 
@@ -60,4 +59,4 @@ Visual Studio용 **HDInsight 도구**에서 Tez 그래프 표시 및 기타 언�
 
 [Azure SDK 2.9 발표 게시물](https://azure.microsoft.com/blog/announcing-visual-studio-azure-tools-and-sdk-2-9/)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

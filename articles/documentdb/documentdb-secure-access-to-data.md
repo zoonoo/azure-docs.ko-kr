@@ -2,7 +2,7 @@
 	pageTitle="DocumentDB에서 데이터에 대한 액세스를 보호하는 방법 | Microsoft Azure" 
 	description="마스터 키, 읽기 전용 키, 사용자 및 권한을 포함해서 DocumentDB의 액세스 제어 개념에 대해 알아봅니다." 
 	services="documentdb" 
-	authors="ryancrawcour" 
+	authors="kiratp" 
 	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="03/30/2016" 
-	ms.author="ryancraw"/>
+	ms.author="kipandya"/>
 
 # DocumentDB 데이터에 대한 액세스 보호
 
@@ -166,4 +166,4 @@ DocumentDB 권한 리소스는 DocumentDB 사용자와 연관됩니다. 각 사�
 - DocumentDB 권한 부여 토큰을 생성하는 방법에 대해 자세히 알아보려면 [여기](https://msdn.microsoft.com/library/azure/dn783368.aspx)를 클릭합니다.
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0511_2016-->

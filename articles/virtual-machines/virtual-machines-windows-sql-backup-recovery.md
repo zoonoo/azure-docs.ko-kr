@@ -6,7 +6,7 @@
 	authors="rothja"
 	manager="jeffreyg"
 	editor="monicar"
-	tags="azure-service-management" />
+	tags="azure-resource-management" />
 
 <tags
 	ms.service="virtual-machines-windows"
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="02/03/2016"
+	ms.date="05/06/2016"
 	ms.author="jroth" />
 
 # Azure 가상 컴퓨터에서 SQL Server의 백업 및 복원
@@ -33,29 +33,29 @@ SQL Server 2014부터는 Microsoft Azure Blob 저장소에 백업 및 복원할 
 
 아래 섹션에는 Azure 가상 컴퓨터에서 지원되는 다양한 SQL Server 버전에 관련된 정보가 포함되어 있습니다.
 
-## Microsoft Azure Blob 서비스에서 데이터베이스 파일을 저장한 경우 백업 고려 사항
+## SQL Server 가상 컴퓨터
 
-데이터베이스 백업 수행 이유 및 기본 백업 기술 자체는 데이터베이스 파일을 Microsoft Azure Blob 저장소에 저장할 때 변경됩니다. Azure Blob 저장소에 데이터베이스 파일을 저장하는 방법에 대한 자세한 내용은 [Azure의 SQL Server 데이터 파일](https://msdn.microsoft.com/library/jj919148.aspx)을 참조하세요.
+Azure 가상 컴퓨터에 SQL Server 인스턴스가 실행 중이면, 데이터베이스 파일이 Azure의 데이터 디스크에 이미 상주합니다. 이 디스크는 Azure Blob 저장소에 있습니다. 따라서 데이터베이스를 백업하는 이유와 방식이 약간 변경됩니다. 다음을 고려해보세요.
 
 - Microsoft Azure에서 Microsoft Azure 서비스의 일부로 이 보호 기능을 제공하므로 하드웨어 또는 미디어 오류를 방지하기 위해 더 이상 데이터베이스 백업을 수행해야 할 필요가 없습니다.
 
 - 하지만 사용자 오류를 방지하기 위한 목적이나 보관 목적, 규정상의 이유 또는 관리 목적으로는 데이터베이스 백업을 수행해야 합니다.
 
-- Microsoft SQL Server 2016 CTP3(Community Technology Preview 3)의 SQL Server 파일-스냅숏 백업 기능을 사용하여 거의 즉시 백업 및 신속한 복원을 수행할 수 있습니다. 자세한 내용은 [Azure에서 데이터베이스 파일에 대한 파일-스냅숏 백업](https://msdn.microsoft.com/library/mt169363.aspx)을 참조하세요.
+- 백업 파일을 Azure에 바로 저장할 수 있습니다. 자세한 내용은 다양한 버전의 SQL Server에 대한 지침을 제공하는 다음 섹션을 참조하세요.
 
-## Microsoft SQL Server 2016 CTP3(Community Technology Preview 3)에서 백업 및 복원
+## SQL Server 2016 Release Candidate
 
-Microsoft SQL Server 2016 CTP3(Community Technology Preview 3)는 SQL Server 2014에서 제공하는 [Azure Blob을 사용한 백업 및 복원](https://msdn.microsoft.com/library/jj919148.aspx) 기능을 지원하며, 이 기능에 대해서는 아래에서 설명합니다. 하지만 다음과 같은 향상된 기능이 포함되어 있습니다.
+Microsoft SQL Server 2016 Release Candidate(RC3)은 SQL Server 2014의 [Azure BLOB를 사용한 백업 및 복원](https://msdn.microsoft.com/library/jj919148.aspx) 기능을 지원합니다. 하지만 다음과 같은 향상된 기능이 포함되어 있습니다.
 
-- **스트라이프**: Microsoft Azure Blob 저장소에 백업하는 경우 SQL Server 2016에서는 대형 데이터베이스를 백업할 수 있도록 최대 12.8TB까지 여러 Blob으로의 백업을 지원합니다.
+| 2016의 향상된 기능 | 세부 정보 |
+|---------------------|-------------------------------|
+| **스트라이프** | Microsoft Azure Blob 저장소에 백업하는 경우 SQL Server 2016에서는 대형 데이터베이스를 백업할 수 있도록 최대 12.8TB까지 여러 Blob으로의 백업을 지원합니다. |
+| **스냅숏 백업** | Azure 스냅숏을 사용하는 경우 SQL Server 파일-스냅숏 백업 기능은 Azure Blob 저장소 서비스를 사용하여 저장한 데이터베이스 파일을 거의 즉시 백업하고 신속하게 복원하는 기능을 제공합니다. 이 기능을 사용하면 백업 및 복원 정책을 단순화할 수 있습니다. 또한 파일-스냅숏 백업 기능은 특정 시점 복원도 지원합니다. 자세한 내용은 [Azure에서 데이터베이스 파일에 대한 스냅숏 백업](https://msdn.microsoft.com/library/mt169363%28v=sql.130%29.aspx)을 참조하세요. |
+| **Managed Backup 일정** | Azure에 대한 SQL Server Managed Backup에서 이제 사용자 지정 일정을 지원합니다. 자세한 내용은 [Microsoft Azure로의 SQL Server 관리되는 백업](https://msdn.microsoft.com/library/dn449496.aspx)을 참조하세요. |
 
-- **스냅숏 백업**: Azure 스냅숏을 사용하는 경우 SQL Server 파일-스냅숏 백업 기능은 Azure Blob 저장소 서비스를 사용하여 저장한 데이터베이스 파일에 대해 거의 즉시 백업 및 신속한 복원을 제공합니다. 이 기능을 사용하면 백업 및 복원 정책을 단순화할 수 있습니다. 또한 파일-스냅숏 백업 기능은 특정 시점 복원도 지원합니다. 자세한 내용은 [Azure에서 데이터베이스 파일에 대한 스냅숏 백업](https://msdn.microsoft.com/library/mt169363%28v=sql.130%29.aspx)을 참조하세요.
+Azure Blob 저장소를 사용하는 경우 SQL Server 2016 기능에 대한 자습서는 [자습서: SQL Server 2016 데이터베이스에서 Microsoft Azure Blob 저장소 서비스 사용](https://msdn.microsoft.com/library/dn466438.aspx)을 참조하세요.
 
-- **관리되는 백업 일정**: Azure에 대한 SQL Server 관리되는 백업에서 이제는 사용자 지정 일정을 지원합니다. 자세한 내용은 [Microsoft Azure로의 SQL Server 관리되는 백업](https://msdn.microsoft.com/library/dn449496.aspx)을 참조하세요.
-
->[AZURE.NOTE] Azure Blob 저장소를 사용하는 경우 SQL Server 2016 기능에 대한 자습서는 [자습서: SQL Server 2016 데이터베이스에서 Microsoft Azure Blob 저장소 서비스 사용](https://msdn.microsoft.com/library/dn466438.aspx)을 참조하세요.
-
-## SQL Server 2014에서 백업 및 복원
+## SQL Server 2014
 
 SQL Server 2014에는 다음과 같은 향상된 기능이 포함되어 있습니다.
 
@@ -68,7 +68,7 @@ SQL Server 2014에는 다음과 같은 향상된 기능이 포함되어 있습�
 
 1. **암호화**: SQL Server 2014는 백업을 만들 때 데이터를 암호화하는 기능을 지원합니다. 이 기능은 다양한 암호화 알고리즘과 인증서 또는 비대칭 키의 사용을 지원합니다. 자세한 내용은 [백업 암호화](https://msdn.microsoft.com/library/dn449489%28v=sql.120%29.aspx)를 참조하세요.
 
-## SQL Server 2012에서 백업 및 복원
+## SQL Server 2012
 
 SQL Server 2012에서 SQL Server 백업 및 복원에 대한 자세한 내용은 [SQL Server 데이터베이스 백업 및 복원(SQL Server 2012)](https://msdn.microsoft.com/library/ms187048%28v=sql.110%29.aspx)을 참조하세요.
 
@@ -78,7 +78,7 @@ Azure Blob 저장소 서비스를 사용하는 이점에는 연결된 디스크�
 
 권장 모범 사례 및 문제 해결 정보에 대해서는 [백업 및 복원 모범 사례(Azure Blob 저장소 서비스)](https://msdn.microsoft.com/library/jj919149%28v=sql.110%29.aspx)를 참조하세요.
 
-## Azure 가상 컴퓨터에서 지원되는 다른 SQL Server 버전에서 백업 및 복원
+## SQL Server 2008
 
 SQL Server 2008 R2에서 SQL Server 백업 및 복원에 대해서는 [SQL Server에서 데이터베이스 백업 및 복원(SQL Server 2008 R2)](https://msdn.microsoft.com/library/ms187048%28v=sql.105%29.aspx)을 참조하세요.
 
@@ -92,4 +92,4 @@ Azure VM에서 SQL Server를 배포할 계획 중인 경우 [Azure Resource Mana
 
 그 밖에 [Azure 가상 컴퓨터에서 SQL Server 실행과 관련된 리소스](virtual-machines-windows-sql-server-iaas-overview.md)를 검토하세요.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

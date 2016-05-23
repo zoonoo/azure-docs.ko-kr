@@ -1,24 +1,24 @@
-<properties 
-	pageTitle="Android에서 Engagement API를 사용하는 방법" 
+<properties
+	pageTitle="Android에서 Engagement API를 사용하는 방법"
 	description="최신 Android SDK - Android에서 Engagement API를 사용하는 방법"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="erikre"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/29/2016" 
-	ms.author="piyushjo" />
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/10/2016"
+	ms.author="piyushjo;ricksal" />
 
 #Android에서 Engagement API를 사용하는 방법
 
-이 문서는 [Android에서 Engagement API를 사용하는 방법](mobile-engagement-android-integrate-engagement.md) 문서에 대한 추가 내용입니다. Engagement API를 사용하여 응용 프로그램 통계를 보고하는 방법을 자세히 설명합니다.
+이 문서는 [Android Mobile Engagement SDK에 대한 고급 보고 옵션](mobile-engagement-android-advanced-reporting.md) 문서의 추가 자료입니다. Engagement API를 사용하여 응용 프로그램 통계를 보고하는 방법을 자세히 설명합니다.
 
 Engagement에서 응용 프로그램의 세션, 활동, 충돌 및 기술 정보만 보고하길 원하는 경우 가장 간단한 방법은 모든 `Activity` 하위 클래스가 해당 `EngagementActivity` 클래스에서 상속하도록 설정하는 것입니다.
 
@@ -136,7 +136,7 @@ Engagement API는 `EngagementAgent` 클래스를 통해 제공됩니다. 이 클
 다음 예제에서는 응용 프로그램 프로세스가 실행되는 동안 휴대폰의 메모리가 부족할 때마다 오류를 보고하는 방법을 보여 줍니다.
 
 			public MyApplication extends EngagementApplication {
-			
+
 			  @Override
 			  protected void onApplicationProcessLowMemory() {
 			    EngagementAgent.getInstance(this).sendError("low_memory", null);
@@ -148,18 +148,18 @@ Engagement API는 `EngagementAgent` 클래스를 통해 제공됩니다. 이 클
 ### 예
 
 로그인 프로세스의 기간을 보고하는 경우를 가정해 보겠습니다.
-			
+
 			[...]
 			public void signIn(Context context, ...) {
-			
+
 			  /* We need an Android context to call the Engagement API, if you are extending Activity, Service, you can pass "this" */
 			  EngagementAgent engagementAgent = EngagementAgent.getInstance(context);
-			
+
 			  /* Report sign in job has started */
 			  engagementAgent.startJob("sign_in", null);
-			
+
 			  [... sign in ...]
-			
+
 			  /* Report sign in job is now ended */
 			  engagementAgent.endJob("sign_in");
 			}
@@ -177,10 +177,10 @@ Engagement API는 `EngagementAgent` 클래스를 통해 제공됩니다. 이 클
 
 			  /* We need an Android context to call the Engagement API, if you are extending Activity, Service, you can pass "this" */
 			  EngagementAgent engagementAgent = EngagementAgent.getInstance(context);
-			
+
 			  /* Report sign in job has been started */
 			  engagementAgent.startJob("sign_in", null);
-			
+
 			  /* Try to sign in */
 			  while(true)
 			    try {
@@ -190,7 +190,7 @@ Engagement API는 `EngagementAgent` 클래스를 통해 제공됩니다. 이 클
 			    catch(Exception e) {
 			      /* Report the error to Engagement */
 			      engagementAgent.sendJobError("sign_in_error", "sign_in", null);
-			
+
 			      /* Retry after a moment */
 			      sleep(2000);
 			    }
@@ -209,7 +209,7 @@ Engagement API는 `EngagementAgent` 클래스를 통해 제공됩니다. 이 클
 소셜 네트워크가 있으며 작업을 사용하여 사용자가 서버에 연결되어 있는 총 시간을 보고한다고 가정해 보겠습니다. 사용자가 다른 응용 프로그램을 사용하거나 휴대폰이 절전 모드에 있는 경우에도 사용자가 백그라운드에서 연결을 유지할 수 있으므로, 세션이 존재하지 않습니다.
 
 사용자는 친구로부터 메시지를 받을 수 있습니다. 이것이 작업 이벤트입니다.
-			
+
 			[...]
 			public void signin(Context context, ...) {
 			  [...Sign in code...]
@@ -296,6 +296,5 @@ Engagement API는 `EngagementAgent` 클래스를 통해 제공됩니다. 이 클
 위의 예제에서 서버로 전송된 JSON의 길이는 44자입니다.
 
 			{"expiration":"2016-12-07","status":"premium"}
- 
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/15/2015" 
+	ms.date="04/15/2016" 
 	ms.author="rasquill"/>
 
 #Azure에서 Linux 및 Mac과 함께 SSH를 사용하는 방법
@@ -38,7 +38,7 @@ Azure에 대한 기본 SSH 설정은 2048비트(기본적으로 **ssh-keygen**�
 
 ## SSH와 함께 사용할 키 생성
 
-시나리오에 따라 Azure에 2048비트의 **ssh-rsa** 형식 키 파일 또는 그에 해당하는 .pem 파일이 필요합니다. 이러한 파일이 이미 있는 경우 Azure VM을 만들 때 공개 키 파일을 전달하세요.
+SSH 키가 이미 있는 경우 Azure VM을 만들 때 공개 키 파일을 전달하세요.
 
 파일을 만들어야 하는 경우:
 
@@ -47,17 +47,14 @@ Azure에 대한 기본 SSH 설정은 2048비트(기본적으로 **ssh-keygen**�
 	- Mac의 경우 [Apple 제품 보안 웹 사이트](https://support.apple.com/HT201222)를 방문하여 필요에 따라 적절한 업데이트를 선택합니다.
 	- Ubuntu, Debian, Mint 등과 같은 Debian 기반 Linux 배포의 경우:
 
-			sudo apt-get update ssh-keygen
-			sudo apt-get update openssl
+			sudo apt-get install --upgrade-only openssl
 
 	- CentOS, Oracle Linux 등과 같은 RPM 기반 Linux 배포의 경우:
 
-			sudo yum update ssh-keygen
 			sudo yum update openssl
 
 	- SLES 및 OpenSUSE의 경우
 
-			sudo zypper update ssh-keygen
 			sudo zypper update openssl
 
 2. **ssh-keygen**을 사용하여 2048비트 RSA 공개 및 개인 키 파일을 만들고, 파일의 특정 위치 또는 특정 이름이 없는 경우에는 `~/.ssh/id_rsa`의 기본 위치 및 이름을 수락합니다. 기본 명령은 다음과 같습니다.
@@ -72,9 +69,7 @@ Azure에 대한 기본 SSH 설정은 2048비트(기본적으로 **ssh-keygen**�
 
 	다른 개인 키 파일에서 .pem 파일을 만들려면 `-key` 인수를 수정하세요.
 
-> [AZURE.NOTE] 클래식 배포 모델로 배포되는 서비스를 관리하려는 경우 **.cer** 서식 파일을 만들어 포털에 업로드하려고 할 수 있습니다. 여기엔 이 문서의 주제인 Linux VM에 연결 또는 **ssh**는 포함되어 있지 않습니다. Linux 또는 Mac에서 이러한 파일을 만들려면 <br /> openssl.exe x509 -outform der -in myCert.pem -out myCert.cer을 입력합니다.
-
-.pem 파일을 DER 인코딩된 X509 인증서 파일로 변환하려면
+> [AZURE.NOTE] 클래식 배포 모델로 배포되는 서비스를 관리하려는 경우 **.cer** 서식 파일을 만들어 포털에 업로드하려고 할 수 있습니다. 여기엔 이 문서의 주제인 Linux VM에 연결 또는 **ssh**는 포함되어 있지 않습니다. .pem 파일을 Linux 또는 Mac의 DER 인코딩된 X509 인증서로 변환하려면 다음을 입력합니다. <br /> openssl x509 -outform der -in myCert.pem -out myCert.cer
 
 ## 이미 갖고 있는 SSH 키 사용
 
@@ -86,7 +81,7 @@ Azure에 대한 기본 SSH 설정은 2048비트(기본적으로 **ssh-keygen**�
 
 ### 예: id\_rsa.pub 파일을 사용하여 VM 만들기
 
-가장 일반적인 사용법은 명령을 통해 VM을 만들거나 템플릿을 업로드하여 VM을 만드는 경우입니다. 다음 코드 예제에서는 공개 파일 이름(이 예에서는 기본 `~/.ssh/id_rsa.pub` 파일)을 `azure vm create` 명령에 전달하여 Azure에서 안전한 Linux VM을 새로 만드는 방법을 보여 줍니다. (다른 인수는 이전에 만들었습니다.)
+가장 일반적인 사용법은 명령을 통해 VM을 만들거나 템플릿을 업로드하여 VM을 만드는 경우입니다. 다음 코드 예제에서는 공개 파일 이름(이 예에서는 기본 `~/.ssh/id_rsa.pub` 파일)을 `azure vm create` 명령에 전달하여 Azure에서 안전한 Linux VM을 새로 만드는 방법을 보여 줍니다. (리소스 그룹 및 저장소 계정 같은 다른 인수는 이전에 생성되었습니다.) 이 예제는 Resource Manager 배포 방식을 사용하므로, `azure config mode arm`을 사용하여 Azure CLI를 그에 맞게 설정해야 합니다.
 
 	azure vm create \
 	--nic-name testnic \
@@ -94,7 +89,7 @@ Azure에 대한 기본 SSH 설정은 2048비트(기본적으로 **ssh-keygen**�
 	--vnet-name testvnet \
 	--vnet-subnet-name testsubnet \
 	--storage-account-name computeteststore 
-	--image-urn canonical:UbuntuServer:14.04.3-LTS:latest \
+	--image-urn canonical:UbuntuServer:14.04.4-LTS:latest \
 	--username ops \
 	-ssh-publickey-file ~/.ssh/id_rsa.pub \
 	testrg testvm westeurope linux
@@ -133,23 +128,23 @@ Azure에 대한 기본 SSH 설정은 2048비트(기본적으로 **ssh-keygen**�
 	data:    location               String  West Europe
 	data:    vmSize                 String  Standard_A2
 	data:    vmName                 String  sshvm
-	data:    ubuntuOSVersion        String  14.04.2-LTS
+	data:    ubuntuOSVersion        String  14.04.4-LTS
 	info:    group deployment create command OK
 
 
 ### 예: .pem 파일을 사용하여 VM 만들기
 
-그런 후에는 다음 예와 같이 .pem 파일을 클래식 포털 또는 클래식 배포 모드 및 `azure vm create`와 함께 사용할 수 있습니다.
+그런 후에는 다음 예와 같이 .pem 파일을 클래식 포털 또는 클래식 배포 모드(`azure config mode asm`) 및 `azure vm create`와 함께 사용할 수 있습니다.
 
 	azure vm create \
 	-l "West US" -n testpemasm \
 	-P -t myCert.pem -e 22 \
 	testpemasm \
-	b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_3-LTS-amd64-server-20150908-ko-KR-30GB \
+	b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_4-LTS-amd64-server-20160406-ko-KR-30GB \
 	ops
 	info:    Executing command vm create
 	warn:    --vm-size has not been specified. Defaulting to "Small".
-	+ Looking up image b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_3-LTS-amd64-server-20150908-ko-KR-30GB
+	+ Looking up image b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_4-LTS-amd64-server-20160406-ko-KR-30GB
 	+ Looking up cloud service
 	info:    cloud service testpemasm not found.
 	+ Creating cloud service
@@ -263,30 +258,32 @@ VM을 만들 때 기본 SSH 포트 22를 사용하지 않았으면 다음 예와
 	RSA key fingerprint is dc:bb:e4:cc:59:db:b9:49:dc:71:a3:c8:37:36:fd:62.
 	Are you sure you want to continue connecting (yes/no)? yes
 	Warning: Permanently added 'testpemasm.cloudapp.net,40.83.178.221' (RSA) to the list of known hosts.
-	Welcome to Ubuntu 14.04.3 LTS (GNU/Linux 3.19.0-28-generic x86_64)
-
+	
+    Welcome to Ubuntu 14.04.4 LTS (GNU/Linux 3.19.0-49-generic x86_64)
+	
 	* Documentation:  https://help.ubuntu.com/
 
-	System information as of Sat Oct 10 20:53:08 UTC 2015
+    System information as of Fri Apr 15 18:51:42 UTC 2016
 
-	System load: 0.52              Memory usage: 5%   Processes:       80
-	Usage of /:  45.3% of 1.94GB   Swap usage:   0%   Users logged in: 0
+    System load: 0.31              Memory usage: 2%   Processes:       213
+    Usage of /:  42.1% of 1.94GB   Swap usage:   0%   Users logged in: 0
 
-	Graph this data and manage this system at:
-		https://landscape.canonical.com/
+    Graph this data and manage this system at:
+    https://landscape.canonical.com/
 
-	Get cloud support with Ubuntu Advantage Cloud Guest:
-		http://www.ubuntu.com/business/services/cloud
+    Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
 
-	0 packages can be updated.
+    0 packages can be updated.
 	0 updates are security updates.
-
+	
 	The programs included with the Ubuntu system are free software;
 	the exact distribution terms for each program are described in the
 	individual files in /usr/share/doc/*/copyright.
-
+	
 	Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
 	applicable law.
+
 
 ## 연결에 문제가 있는 경우
 
@@ -296,4 +293,4 @@ VM을 만들 때 기본 SSH 포트 22를 사용하지 않았으면 다음 예와
  
 VM에 연결했으니, 선택한 배포를 계속 사용할 수 있도록 업데이트해야 합니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->

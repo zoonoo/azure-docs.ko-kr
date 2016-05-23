@@ -1,5 +1,5 @@
 <properties
-   pageTitle="탄력적 데이터베이스 도구를 사용하도록 기존 데이터베이스 변환"
+   pageTitle="확장하기 위해 기존 데이터베이스 마이그레이션 | Microsoft Azure"
    description="분할된 데이터베이스 맵 관리자를 만들어 탄력적 데이터베이스 도구를 사용하기 위해 분할된 데이터베이스 변환"
    services="sql-database"
    documentationCenter=""
@@ -13,31 +13,30 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="04/01/2016"
+   ms.date="04/26/2016"
    ms.author="SilviaDoomra"/>
 
-# 탄력적 데이터베이스 도구를 사용하도록 기존 데이터베이스 변환
+# 확장하기 위해 기존 데이터베이스 마이그레이션
 
-기존의 확장되고 분할된 솔루션이 있는 경우 여기에서 설명한 기술을 사용하여 탄력적 데이터베이스 도구(예: [탄력적 데이터베이스 클라이언트 라이브러리](sql-database-elastic-database-client-library.md) 및 [split-merge 도구](sql-database-elastic-scale-overview-split-and-merge.md))를 활용할 수 있습니다.
+Azure SQL 데이터베이스 데이터베이스 도구(예: [탄력적 데이터베이스 클라이언트 라이브러리](sql-database-elastic-database-client-library.md))를 사용하여 기존의 확장된 분할된 데이터베이스를 쉽게 관리합니다. 기존의 데이터베이스 집합을 먼저 변환하여 [분할된 데이터베이스 맵 관리자](sql-database-elastic-scale-shard-map-management.md)를 사용해야 합니다.
 
-이러한 기술은 [.NET Framework 클라이언트 라이브러리](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) 또는 [Azure SQL DB - 탄력적 데이터베이스 도구 스크립트](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db)에 있는 PowerShell 스크립트 중 하나를 사용하여 구현할 수 있습니다. 여기에 있는 예제에서는 PowerShell 스크립트를 사용합니다.
+## 개요
+기존의 분할된 데이터베이스를 마이그레이션하려면:
 
-Add-Shard 및 New-ShardMapManager cmdlet을 실행하기 전에 데이터베이스를 만들어야 합니다. 이러한 cmdlet은 데이터베이스를 자동으로 만들지 않습니다.
-
-이 프로세스는 다음 4개의 단계로 구성됩니다.
-
-1. 분할된 데이터베이스 맵 관리자 데이터베이스를 준비합니다.
+1. [분할된 데이터베이스 맵 관리자 데이터베이스](sql-database-elastic-scale-shard-map-management.md)를 준비합니다.
 2. 분할된 데이터베이스 맵을 만듭니다.
 3. 개별 분할된 데이터베이스를 준비합니다.  
 2. 분할된 데이터베이스 맵에 매핑을 추가합니다.
 
+이러한 기술은 [.NET Framework 클라이언트 라이브러리](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) 또는 [Azure SQL DB - 탄력적 데이터베이스 도구 스크립트](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db)에 있는 PowerShell 스크립트 중 하나를 사용하여 구현할 수 있습니다. 여기에 있는 예제에서는 PowerShell 스크립트를 사용합니다.
+
 ShardMapManager에 대한 자세한 내용은 [분할된 데이터베이스 맵 관리](sql-database-elastic-scale-shard-map-management.md)를 참조하세요. 탄력적 데이터베이스 도구에 대한 개요는 [탄력적 데이터베이스 기능 개요](sql-database-elastic-scale-introduction.md)를 참조하세요.
 
-## 분할된 데이터베이스 맵 관리자 데이터베이스 준비
-분할된 데이터베이스 맵 관리자로 신규 또는 기존 데이터베이스를 사용할 수 있습니다.
+## 분할된 데이터베이스 맵 관리자 데이터베이스를 준비합니다.
+
+분할된 데이터베이스 맵 관리자는 확장된 데이터베이스를 관리하는 데이터를 포함하는 특별한 데이터베이스입니다. 기존 데이터베이스를 사용하거나 새 데이터베이스를 만들 수 있습니다. 분할된 데이터베이스 맵 관리자의 역할을 하는 데이터베이스는 분할된 데이터베이스와 같은 데이터베이스가 아니어야 합니다. 또한 PowerShell 스크립트는 데이터베이스를 만들지 않습니다.
 
 ## 1단계: 분할된 데이터베이스 맵 관리자 만들기
-분할된 데이터베이스 맵 관리자의 역할을 하는 데이터베이스는 분할된 데이터베이스와 같은 데이터베이스가 아니어야 합니다.
 
 	# Create a shard map manager. 
 	New-ShardMapManager -UserName '<user_name>' 
@@ -61,29 +60,30 @@ ShardMapManager에 대한 자세한 내용은 [분할된 데이터베이스 맵 
   
 ## 2단계: 분할된 데이터베이스 맵 만들기
 
-선택하여 다음과 같은 모델 중 하나를 만듭니다.
+만들 분할된 데이터베이스 맵의 종류를 선택해야 합니다. 데이터베이스 아키텍처에 따라 선택합니다.
 
-1. 데이터베이스당 단일 테넌트 
+1. 데이터베이스당 단일 테넌트(용어는 [용어집](sql-database-elastic-scale-glossary.md) 참조.) 
 2. 데이터베이스당 다중 테넌트(두 가지 형식):
-	3. 범위 매핑
-	4. 목록 매핑
+	3. 목록 매핑
+	4. 범위 매핑
  
 
-단일 테넌트 데이터베이스 모델을 사용하는 경우 목록 매핑을 사용합니다. 단일 테넌트 모델은 테넌트당 하나의 데이터베이스를 할당합니다. 관리를 단순화하므로 SaaS 개발자에게 효과적인 모델입니다.
+단일 테넌트 모델은 **목록 매핑** 분할된 데이터베이스 맵을 만듭니다. 단일 테넌트 모델은 테넌트당 하나의 데이터베이스를 할당합니다. 관리를 단순화하므로 SaaS 개발자에게 효과적인 모델입니다.
 
 ![목록 매핑][1]
 
-반면에 다중 테넌트 데이터베이스 모델은 단일 데이터베이스에 여러 테넌트를 할당합니다(또한 테넌트 그룹을 여러 데이터베이스에 배포할 수 있음). 이는 테넌트당 데이터의 양이 적을 것으로 예상될 때 실행 가능한 모델입니다. 이 모델에서 *범위 매핑*을 사용하여 데이터베이스에 테넌트의 범위를 할당합니다.
+다중 테넌트 모델은 단일 데이터베이스에 여러 테넌트를 할당합니다(또한 테넌트 그룹을 여러 데이터베이스에 배포할 수 있음). 각 테넌트에 데이터 요구가 적다고 예상되는 경우 이 모델을 사용합니다. 이 모델에서 **범위 매핑**을 사용하여 데이터베이스에 테넌트의 범위를 할당합니다.
  
 
 ![범위 매핑][2]
 
-다중 테넌트를 단일 데이터베이스에 할당하는 목록 매핑을 사용하여 다중 테넌트 데이터베이스 모델을 구현할 수도 있습니다. 예를 들어 DB1은 테넌트 ID 1과 5에 대한 정보를 저장하는 데 사용하고 DB2는 테넌트 7과 테넌트 10의 데이터를 저장합니다.
+또는 다중 테넌트를 단일 데이터베이스에 할당하는 *목록 매핑*을 사용하여 다중 테넌트 데이터베이스 모델을 구현할 수 있습니다. 예를 들어 DB1은 테넌트 ID 1과 5에 대한 정보를 저장하는 데 사용하고 DB2는 테넌트 7과 테넌트 10의 데이터를 저장합니다.
 
 ![단일 DB의 다중 테넌트][3]
 
+**다음 옵션 중 하나를 선택합니다.**
 
-## 2단계, 옵션1: 목록 매핑에 대한 분할된 데이터베이스 맵 만들기
+### 옵션1: 목록 매핑에 대한 분할된 데이터베이스 맵 만들기
 ShardMapManager 개체를 사용하여 분할된 데이터베이스 맵을 만듭니다.
 
 	# $ShardMapManager is the shard map manager object. 
@@ -92,7 +92,7 @@ ShardMapManager 개체를 사용하여 분할된 데이터베이스 맵을 만�
 	-ShardMapManager $ShardMapManager 
  
  
-## 2단계, 옵션 2: 범위 매핑에 대한 분할된 데이터베이스 맵 만들기
+### 옵션 2: 범위 매핑에 대한 분할된 데이터베이스 맵 만들기
 
 이 매핑 패턴을 활용하려면 테넌트 ID 값이 연속 범위여야 합니다. 또한 데이터베이스를 만들 때 범위를 간단히 건너뛰어 범위에 갭이 있을 수 있습니다.
 
@@ -103,7 +103,7 @@ ShardMapManager 개체를 사용하여 분할된 데이터베이스 맵을 만�
 	-RangeShardMapName 'RangeShardMap' 
 	-ShardMapManager $ShardMapManager 
 
-## 2단계, 옵션 3: 단일 데이터베이스의 목록 매핑
+### 옵션 3: 단일 데이터베이스의 목록 매핑
 2단계 옵션 1과 같이 이 패턴을 설정할 때도 목록 맵을 만들어야 합니다.
 
 ## 3단계: 개별 분할된 데이터베이스 준비
@@ -121,7 +121,7 @@ ShardMapManager 개체를 사용하여 분할된 데이터베이스 맵을 만�
 
 매핑 추가는 만든 분할된 데이터베이스 맵의 종류에 따라 달라집니다. 목록 맵을 만든 경우 목록 매핑을 추가합니다. 범위 맵을 만든 경우 범위 매핑을 추가합니다.
 
-### 4단계 옵션 1: 목록 매핑을 위한 데이터 매핑
+### 옵션 1: 목록 매핑을 위한 데이터 매핑
 
 각 테넌트에 대한 목록 매핑을 추가하여 데이터를 매핑합니다.
 
@@ -133,7 +133,7 @@ ShardMapManager 개체를 사용하여 분할된 데이터베이스 맵을 만�
 	-SqlServerName '<shard_server_name>' 
 	-SqlDatabaseName '<shard_database_name>' 
 
-### 4단계 옵션 2: 범위 매핑을 위한 데이터 매핑
+### 옵션 2: 범위 매핑을 위한 데이터 매핑
 
 모든 테넌트 ID 범위에 대한 범위 매핑 추가 - 데이터베이스 연결:
 
@@ -181,4 +181,4 @@ ShardMapManager 개체를 사용하여 분할된 데이터베이스 맵을 만�
 [3]: ./media/sql-database-elastic-convert-to-use-elastic-tools/multipleonsingledb.png
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

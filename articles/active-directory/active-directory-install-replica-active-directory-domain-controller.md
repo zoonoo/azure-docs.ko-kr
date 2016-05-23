@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure에 복제본 도메인 컨트롤러 설치 | Microsoft Azure"
+	pageTitle="Azure에서 복제 Active Directory 도메인 컨트롤러 설치| Microsoft Azure"
 	description="온-프레미스 Active Directory 포리스트에서 Azure 가상 컴퓨터에 도메인 컨트롤러를 설치하는 방법을 설명하는 자습서입니다."
 	services="virtual-network"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/01/2016"
+	ms.date="05/10/2016"
 	ms.author="curtand"/>
 
 
@@ -33,7 +33,7 @@
 
 응용 프로그램 서버 및 DC는 계산 처리 분산을 위해 별개의 클라우드 서비스에 배포되고 내결함성 향상을 위해 [가용성 집합](../virtual-machines/virtual-machines-windows-manage-availability.md) 내에 배포됩니다. DC는 Active Directory 복제를 사용하여 온-프레미스 DC 및 서로 간에 복제됩니다. 동기화 도구가 필요하지 않습니다.
 
-![][1]
+![Azure VNet에서 복제 Active Directory 도메인 컨트롤러의 다이어그램][1]
 
 ## Azure 가상 네트워크에 대한 Active Directory 사이트 만들기
 
@@ -45,7 +45,7 @@
 
 ## Azure 가상 네트워크 만들기
 
-1. Azure 클래식 포털에서 **새로 만들기** > **네트워크 서비스** > **가상 네트워크** > **사용자 지정 만들기**를 클릭하고 다음 값을 사용하여 마법사를 완료합니다.
+1. [Azure 클래식 포털](https://manage.windowsazure.com)에서 **새로 만들기** > **네트워크 서비스** > **가상 네트워크** > **사용자 지정 만들기**를 클릭하고 다음 값을 사용하여 마법사를 완료합니다.
 
     마법사 페이지 | 값 지정
 	------------- | -------------
@@ -58,12 +58,11 @@
 3. 새 가상 네트워크와 온-프레미스 VPN 장치 간에 사이트 간 VPN 연결을 만듭니다. 자세한 내용은 [가상 네트워크 게이트웨이 구성](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md)을.참조하세요.
 
 
-
 ## DC 역할에 대한 Azure VM 만들기
 
 필요에 따라 다음 단계를 반복하여 DC 역할을 호스트할 VM을 만듭니다. 내결함성과 중복성을 제공하려면 가상 DC를 두 개 이상 배포해야 합니다. Azure 가상 네트워크에 구성된 것과 유사한 DC가 둘 이상 있는 경우(즉, 둘 다 GC이고, DNS 서버를 실행하며, FSMO 역할을 수행하지 않는 등) 이러한 DC를 실행하는 VM을 가용성 집합에 배치하여 내결함성을 개선합니다. UI 대신 Windows PowerShell을 사용하여 VM을 만들려면 [Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성하기](../virtual-machines/virtual-machines-windows-classic-create-powershell.md)를 참조하세요.
 
-1. Azure 클래식 포털에서 **새로 만들기** > **계산** > **가상 컴퓨터** > **갤러리에서**를 클릭합니다. 다음 값을 사용하여 마법사를 완료합니다. 다른 값이 제안되거나 필요하지 않은 한 설정의 기본값을 적용합니다.
+1. [Azure 클래식 포털](https://manage.windowsazure.com)에서 **새로 만들기** > **계산** > **가상 컴퓨터** > **갤러리에서**를 클릭합니다. 다음 값을 사용하여 마법사를 완료합니다. 다른 값이 제안되거나 필요하지 않은 한 설정의 기본값을 적용합니다.
 
     마법사 페이지 | 값 지정
 	------------- | -------------
@@ -85,14 +84,13 @@ VM에 로그인한 다음 사이트 간 VPN 또는 Express 경로 연결을 통�
 
 ## Azure 가상 네트워크에 대한 DNS 서버 다시 구성
 
-1. Azure 클래식 포털에서 가상 네트워크의 이름을 클릭한 다음 **구성** 탭을 클릭하여 [가상 네트워크에 대한 DNS 서버 IP 주소를 다시 구성](virtual-networks-manage-dns-in-vnet.md)하고 온-프레미스 DNS 서버의 IP 주소가 아닌 복제본 DC에 할당된 정적 IP 주소를 사용합니다.
+1. [Azure 클래식 포털](https://manage.windowsazure.com)에서 가상 네트워크의 이름을 클릭한 다음 **구성** 탭을 클릭하여 [가상 네트워크에 대한 DNS 서버 IP 주소를 다시 구성](../virtual-network/virtual-networks-manage-dns-in-vnet.md)하고 온-프레미스 DNS 서버의 IP 주소가 아닌 복제본 DC에 할당된 정적 IP 주소를 사용합니다.
 
 2. 가상 네트워크의 모든 복제 DC VM이 가상 네트워크의 DNS 서버를 사용하도록 구성되었는지 확인하려면 **가상 컴퓨터**를 클릭하고 각 VM의 상태 열을 클릭한 후 **다시 시작**을 클릭합니다. VM에 **실행 중** 상태가 표시될 때까지 기다렸다가 로그인을 시도합니다.
 
 ## 응용 프로그램 서버에 대한 VM 만들기
 
 1. 다음 단계를 반복하여 응용 프로그램 서버로 실행할 VM을 만듭니다. 다른 값이 제안되거나 필요하지 않은 한 설정의 기본값을 적용합니다.
-
 
 	마법사 페이지 | 값 지정
 	------------- | -------------
@@ -119,6 +117,6 @@ Windows PowerShell 사용에 대한 자세한 내용은 [Azure Cmdlets 시작하
 -  [Azure 관리 Cmdlet](https://msdn.microsoft.com/library/azure/jj152841)
 
 <!--Image references-->
-[1]: ./media/virtual-networks-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
+[1]: ./media/active-directory-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

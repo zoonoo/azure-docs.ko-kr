@@ -1,6 +1,6 @@
 <properties
     pageTitle="테이블 저장소 사용 방법(C++) | Microsoft Azure"
-    description="Azure에서 테이블 저장소 서비스를 사용하는 방법을 알아봅니다. 샘플은 C++로 작성되었습니다."
+	description="Azure 테이블 저장소, NoSQL 데이터 저장소를 사용하여 클라우드에 구조화된 데이터를 저장합니다."
     services="storage"
     documentationCenter=".net"
     authors="tamram"
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="02/17/2016"
+	ms.date="04/29/2016"
     ms.author="dineshm"/>
 
 # C++에서 테이블 저장소를 사용하는 방법
@@ -414,4 +414,4 @@ Azure 저장소 에뮬레이터를 시작하려면 **시작** 단추를 클릭�
 -	[C++용 Storage Client Library 참조(영문)](http://azure.github.io/azure-storage-cpp)
 -	[Azure 저장소 설명서](https://azure.microsoft.com/documentation/services/storage/)
 
-<!----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0511_2016-->

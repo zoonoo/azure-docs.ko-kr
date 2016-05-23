@@ -14,21 +14,16 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="05/06/2016"
 	ms.author="robmcm"/>
 
-
-
-
-
-#Azure VM의 Ruby on Rails 웹 응용 프로그램
+# Azure VM의 Ruby on Rails 웹 응용 프로그램
 
 이 자습서에서는 Azure에서 Linux 가상 컴퓨터를 사용하여 Ruby on Rails 웹 사이트를 호스트하는 방법을 보여줍니다.
 
 이 자습서의 내용은 Ubuntu Server 14.04 LTS를 사용하여 유효성이 검사되었습니다. 다른 Linux 배포를 사용하는 경우, Rails를 설치하는 단계를 수정해야 합니다.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
-
 
 ## Azure VM 만들기
 
@@ -70,9 +65,9 @@ VM이 프로비전된 후, 다음 명령을 실행하여 SSH 끝점을 가져올
 
 3. 다음 명령을 사용하여 Rails를 설치합니다.
 
-		sudo gem install rails --no-rdoc --no-ri
+		sudo gem install rails --no-rdoc --no-ri -V
 
-	--no-rdoc 및 --no-ri 플래그를 사용하여 설명서 설치를 건너뜁니다. 이 방법이 더 빠릅니다.
+	--no-rdoc 및 --no-ri 플래그를 사용하여 설명서 설치를 건너뜁니다. 이 방법이 더 빠릅니다. 이 명령을 실행하려면 시간이 오래 걸릴 수 있으니 –V를 추가하여 설치 프로세스에 대한 정보를 표시합니다.
 
 ## 앱 만들기 및 실행
 
@@ -93,7 +88,6 @@ SSH를 통해 로그인한 경우.다음 명령을 실행합니다.
 	[2015-06-09 23:34:23] INFO  WEBrick 1.3.1
 	[2015-06-09 23:34:23] INFO  ruby 1.9.3 (2013-11-22) [x86_64-linux]
 	[2015-06-09 23:34:23] INFO  WEBrick::HTTPServer#start: pid=27766 port=3000
-
 
 ## 끝점 추가
 
@@ -129,8 +123,7 @@ SSH를 통해 로그인한 경우.다음 명령을 실행합니다.
 
 	![기본 Rails 페이지][default-rails-cloud]
 
-
-##<a id="next"></a>다음 단계
+## 다음 단계
 
 이 자습서에서는 수동으로 대부분의 단계를 수행했습니다. 프로덕션 환경의 개발 컴퓨터에 앱을 작성하고 Azure VM에 배포합니다. 또한 대부분의 프로덕션 환경은 Rails 응용 프로그램을 다른 서버 프로세스(예: Apache 또는 NginX)와 함께 호스트하며 이러한 서버 프로세스는 Rails 응용 프로그램의 여러 인스턴스로 라우팅하여 정적 리소스를 제공하는 요청을 처리합니다. 자세한 내용은 http://rubyonrails.org/deploy/을 참조하세요.
 
@@ -144,35 +137,23 @@ Ruby 응용 프로그램에서 Azure 서비스를 사용하려면 다음을 참�
 
 * [콘텐츠 배달 네트워크로 높은 대역폭 콘텐츠 제공][cdn-howto]
 
-
-
 <!-- WA.com links -->
 [blobs]: ../storage/storage-ruby-how-to-use-blob-storage.md
-
-[cdn-howto]: /develop/ruby/app-services/
-
+[cdn-howto]: https://azure.microsoft.com/develop/ruby/app-services/
 [management-portal]: https://manage.windowsazure.com/
-
-[tables]: /develop/ruby/how-to-guides/table-service/
-
+[tables]: ../storage/storage-ruby-how-to-use-table-storage.md
 [vm-instructions]: virtual-machines-linux-classic-createportal.md
-
 
 <!-- External Links -->
 [rails-guides]: http://guides.rubyonrails.org/
-
 [sqlite3]: http://www.sqlite.org/
 
 <!-- Images -->
 
 [default-rails-cloud]: ./media/virtual-machines-linux-classic-ruby-rails-web-app/basicrailscloud.png
-
 [vmlist]: ./media/virtual-machines-linux-classic-ruby-rails-web-app/vmlist.png
-
 [endpoints]: ./media/virtual-machines-linux-classic-ruby-rails-web-app/endpoints.png
-
 [new-endpoint]: ./media/virtual-machines-linux-classic-ruby-rails-web-app/newendpoint.png
-
 [new-endpoint1]: ./media/virtual-machines-linux-classic-ruby-rails-web-app/newendpoint1.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

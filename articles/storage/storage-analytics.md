@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/14/2016"
+	ms.date="05/09/2016"
 	ms.author="robinsh"/>
 
 # 저장소 분석
@@ -64,7 +64,7 @@ Azure 저장소 분석은 로깅을 수행하며 저장소 계정에 대한 메�
 
 - 오류 코드가 304(수정되지 않음)인 실패한 GET 요청
 
-기타 모든 실패한 익명 요청은 기록되지 않습니다. 기록되는 데이터의 전체 목록은 [저장소 분석에서 기록한 작업 및 상태 메시지](https://msdn.microsoft.com/library/hh343260.aspx) 및 [저장소 분석 로그 형식](https://msdn.microsoft.com/library/hh343259.aspx) 토픽에 나와 있습니다.
+기타 모든 실패한 익명 요청은 기록되지 않습니다. 기록되는 데이터의 전체 목록은 [저장소 분석에서 기록한 작업 및 상태 메시지](https://msdn.microsoft.com/library/hh343260.aspx) 및 [저장소 분석 로그 형식](https://msdn.microsoft.com/library/hh343259.aspx) 항목에 나와 있습니다.
 
 ### 로그 저장 방법
 모든 로그는 $logs 컨테이너의 블록 Blob에 저장됩니다. 이 컨테이너는 저장소 계정에 대해 저장소 분석을 사용하도록 설정하면 자동으로 작성됩니다. $logs 컨테이너는와 같은 저장소 계정의 Blob 네임스페이스에 있습니다. `http://<accountname>.blob.core.windows.net/$logs` 저장소 계정을 사용하도록 설정한 후에는 이 컨테이너를 삭제할 수 없지만 해당 콘텐츠는 삭제할 수 있습니다.
@@ -76,7 +76,7 @@ Azure 저장소 분석은 로깅을 수행하며 저장소 계정에 대한 메�
 ### 로그 명명 규칙
 각 로그는 다음 형식으로 작성됩니다.
 
-    <service-name>/YYYY/MM/DD/hhmm/<counter>.log
+    <service-name>/YYYY/MM/DD/hhmm/<counter>.log 
 
 다음 표에서는 로그 이름의 각 특성에 대해 설명합니다.
 
@@ -96,7 +96,7 @@ Azure 저장소 분석은 로깅을 수행하며 저장소 계정에 대한 메�
 
 이전 로그에 액세스하는 데 사용할 수 있는 샘플 URI는 다음과 같습니다.
 
-    https://<accountname>.blob.core.windows.net/$logs/blob/2011/07/31/1800/000001.log
+    https://<accountname>.blob.core.windows.net/$logs/blob/2011/07/31/1800/000001.log 
 
 저장소 요청이 기록되면 생성되는 로그 이름과 요청한 작업이 완료된 시간 간의 상관 관계가 지정됩니다. 예를 들어 GetBlob 요청이 2011/7/31 오후 6:30에 완료된 경우 로그는 다음 접두사와 함께 작성됩니다. `blob/2011/07/31/1800/`
 
@@ -142,7 +142,7 @@ Azure 관리되는 라이브러리에서 제공하는 .NET API를 비롯한 Blob
 
 ### 용량 메트릭
 
->[AZURE.NOTE] 현재는 Blob 서비스에 대해서만 용량 메트릭이 제공됩니다. 테이블 서비스와 큐 서비스에 대한 용량 메트릭은 이후 저장소 분석 버전에서 제공될 예정입니다.
+>[AZURE.NOTE]현재는 Blob 서비스에 대해서만 용량 메트릭이 제공됩니다. 테이블 서비스와 큐 서비스에 대한 용량 메트릭은 이후 저장소 분석 버전에서 제공될 예정입니다.
 
 용량 데이터는 저장소 계정의 Blob 서비스에 대해 매일 기록되며 2개 테이블 엔터티가 작성됩니다. 이러한 엔터티 중 하나는 사용자 데이터에 대한 통계를 제공하며 다른 하나는 저장소 분석에서 사용하는 `$logs` Blob 컨테이너에 대한 통계를 제공합니다. `$MetricsCapacityBlob` 테이블에는 다음 통계가 포함됩니다.
 
@@ -180,7 +180,7 @@ Azure 관리되는 라이브러리에서 제공하는 .NET API를 비롯한 테�
 
 저장소 분석에서 수행하는 다음 작업에 대해 요금이 청구될 수 있습니다.
 
-- 로깅용 Blob 작성 요청 
+- 로깅용 Blob 작성 요청
 
 - 메트릭용 테이블 엔터티 작성 요청
 
@@ -208,4 +208,4 @@ Azure 관리되는 라이브러리에서 제공하는 .NET API를 비롯한 테�
 - [저장소 분석 메트릭 테이블 스키마](https://msdn.microsoft.com/library/hh343264.aspx)
 - [저장소 분석에서 기록한 작업 및 상태 메시지](https://msdn.microsoft.com/library/hh343260.aspx)  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0511_2016-->

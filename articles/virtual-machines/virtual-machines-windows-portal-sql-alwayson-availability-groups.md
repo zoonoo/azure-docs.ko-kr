@@ -1,6 +1,6 @@
 <properties
-	pageTitle="AlwaysOn 가용성 그룹 Azure 리소스 관리자 구성 | Microsoft Azure"
-	description="Azure 리소스 관리자 모드에서 Azure 가상 컴퓨터로 AlwaysOn 가용성 그룹을 구성합니다. 이 자습서는 주로 사용자 인터페이스를 사용하여 자동으로 전체 솔루션을 만듭니다."
+	pageTitle="Always On 가용성 그룹 Azure Resource Manager 구성 | Microsoft Azure"
+	description="Azure Resource Manager 모드에서 Azure 가상 컴퓨터로 Always On 가용성 그룹을 만듭니다. 이 자습서는 주로 사용자 인터페이스를 사용하여 자동으로 전체 솔루션을 만듭니다."
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="MikeRayMSFT"
@@ -13,27 +13,25 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="02/04/2016"
+	ms.date="05/10/2016"
 	ms.author="mikeray" />
 
-# Azure 리소스 관리자 가상 컴퓨터(GUI)에서 AlwaysOn 가용성 그룹 구성
+# Azure Resource Manager 가상 컴퓨터(GUI)에서 Always On 가용성 그룹 구성
 
 > [AZURE.SELECTOR]
-- [포털 - 리소스 관리자 - 템플릿](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-- [포털 - 리소스 관리자 - 수동](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
-- [포털 - 클래식 - 수동](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
-- [PowerShell - 클래식](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
+- [Template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+- [설명서](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
 
 <br/>
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 모델입니다.
+> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 모델입니다.
 
 
 이 종단 간 자습서에서는 Azure 리소스 관리자 가상 컴퓨터로 SQL Server 가용성 그룹을 만드는 방법을 보여줍니다. 자습서에서는 Azure 블레이드를 사용하여 템플릿을 구성합니다. 이 자습서를 살펴보면서 기본 설정을 검토하고 필요한 설정을 입력하며 포털에서 블레이드를 업데이트합니다.
 
->[AZURE.NOTE] Azure 관리 포털에는 수신기와 함께 AlwaysOn 가용성 그룹을 위한 새로운 갤러리 설치가 있습니다. 설치 시 AlwaysOn 가용성 그룹에 필요한 모든 항목이 자동으로 구성됩니다. 자세한 내용은 [Microsoft Azure 클래식 포털 갤러리의 SQL Server AlwaysOn 제품](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx)을 참조하세요.
+>[AZURE.NOTE] Azure 관리 포털에는 수신기와 함께 Always On 가용성 그룹을 위한 새로운 갤러리 설치가 있습니다. 이것은 가용성 그룹에 필요한 모든 항목을 자동으로 구성합니다. 자세한 내용은 [Microsoft Azure 클래식 포털 갤러리의 SQL Server Always On 제품](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx)을 참조하세요.
 
-자습서 마지막에서 Azure의 SQL Server AlwaysOn 솔루션은 다음 요소로 구성됩니다.
+자습서 마지막에 Azure의 SQL Server 가용성 그룹 솔루션은 다음 요소로 구성됩니다.
 
 - 프런트 엔드 및 백 엔드 서브넷을 비롯한 여러 서브넷을 포함하는 가상 네트워크
 
@@ -57,13 +55,13 @@
 
 - GUI를 사용하여 가상 컴퓨터 갤러리에서 SQL Server VM을 프로비전하는 방법을 이미 알고 있습니다. 자세한 내용은 [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-portal-sql-server-provision.md)을 참조하세요.
 
-- AlwaysOn 가용성 그룹을 확실하게 이해하고 있습니다. 자세한 내용은 [AlwaysOn 가용성 그룹(SQL Server)](http://msdn.microsoft.com/library/hh510230.aspx)을 참조하세요.
+- 가용성 그룹을 확실하게 이해하고 있습니다. 자세한 내용은 [Always On 가용성 그룹(SQL Server)](http://msdn.microsoft.com/library/hh510230.aspx)을 참조하세요.
 
->[AZURE.NOTE] SharePoint와 AlwaysOn 가용성 그룹을 사용하는 것에 관심이 있는 경우 [SharePoint 2013에 대해 SQL Server 2012 AlwaysOn 가용성 그룹 구성](http://technet.microsoft.com/library/jj715261.aspx)을 참조하세요.
+>[AZURE.NOTE] SharePoint와 가용성 그룹을 사용하는 것에 관심이 있는 경우 [SharePoint 2013에 대해 SQL Server 2012 Always On 가용성 그룹 구성](http://technet.microsoft.com/library/jj715261.aspx)을 참조하세요.
 
 이 자습서에서는 다음 작업에 Azure 포털을 사용합니다.
 
-- 포털에서 새 AlwaysOn 가용성 그룹 템플릿 선택
+- 포털에서 Always On 템플릿 선택
 
 - 템플릿 설정 검토 및 환경에 대한 몇 가지 구성 설정 업데이트
 
@@ -71,7 +69,7 @@
 
 - 도메인 컨트롤러 중 하나에 연결한 다음 SQL Server 중 하나에 연결
 
-## 리소스 관리자 배포 모델을 사용하여 갤러리에서 AlwaysOn 가용성 그룹 프로비전
+## Resource Manager 배포 모델을 사용하여 갤러리에서 가용성 그룹 프로비전
 
 Azure는 전체 솔루션에 대한 갤러리 이미지를 제공합니다. 템플릿을 찾기 위해 다음을 수행합니다.
 
@@ -79,7 +77,7 @@ Azure는 전체 솔루션에 대한 갤러리 이미지를 제공합니다. 템�
 1.	Azure 포털에서 **+새로 만들기**를 클릭합니다. 포털에서 새 블레이드가 열립니다.
 1.	새 블레이드에서 **AlwaysOn**을 검색합니다. ![AlwaysOn 템플릿 찾기](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/16-findalwayson.png)
 1.	검색 결과에서 **SQL Server AlwaysOn 클러스터**를 찾습니다. ![AlwaysOn 템플릿](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/17-alwaysontemplate.png)
-1.	**배포 모델 선택**에서 **리소스 관리자**를 선택합니다.
+1.	**배포 모델 선택**에서 **Resource Manager**를 선택합니다.
 
 ### 기본 사항
 
@@ -89,7 +87,7 @@ Azure는 전체 솔루션에 대한 갤러리 이미지를 제공합니다. 템�
 
 - **암호**는 도메인 관리자 계정의 암호입니다. 복잡한 암호를 사용합니다. 암호를 확인합니다.
 
-- **구독**은 AlwaysOn 가용성 그룹에 대해 배포된 모든 리소스를 실행하기 위해 Azure에서 청구하는 구독입니다. 계정에 여러 구독이 있는 경우 다른 구독을 지정할 수 있습니다.
+- **구독**은 가용성 그룹에 대해 배포된 모든 리소스를 실행하기 위해 Azure에서 청구하는 구독입니다. 계정에 여러 구독이 있는 경우 다른 구독을 지정할 수 있습니다.
 
 - **리소스 그룹**은 이 자습서에서 만든 모든 Azure 리소스가 속하게 될 그룹의 이름입니다. 이 자습서에서는 **SQL-HA-RG**를 사용합니다. 자세한 내용은 (Azure 리소스 관리자 개요)[resource-group-overview.md/#resource-groups]를 참조하세요.
 
@@ -187,7 +185,7 @@ Azure의 가상 네트워크에 대한 자세한 내용은 [가상 네트워크 
 
 저장소 공간 및 저장소 풀에 대한 자세한 내용은 다음을 참조하세요.
 
-- [저장소 공간 개요](http://technet.microsoft.com/library/hh831739.aspx)
+- [저장소 공간 개요](http://technet.microsoft.com/library/hh831739.aspx).
 
 - [Windows Server 백업 및 저장소 풀](http://technet.microsoft.com/library/dn390929.aspx)
 
@@ -222,7 +220,7 @@ SQL Server 구성 모범 사례에 대한 자세한 내용은 [Azure 가상 컴�
 
 ###구입
 
-이 마지막 블레이드는 **사용 약관** 및 **개인 정보 취급 방침**을 포함합니다. 이 정보를 검토합니다. Azure에서 가상 컴퓨터 및 AlwaysOn 가용성 그룹에 필요한 기타 모든 리소스 만들기를 시작하도록 준비된 경우 **만들기**를 클릭합니다.
+이 마지막 블레이드는 **사용 약관** 및 **개인 정보 취급 방침**을 포함합니다. 이 정보를 검토합니다. Azure에서 가상 컴퓨터 및 가용성 그룹에 필요한 기타 모든 리소스 만들기를 시작하도록 준비된 경우 **만들기**를 클릭합니다.
 
 Azure 포털에서 리소스 그룹 및 모든 리소스를 만듭니다.
 
@@ -259,6 +257,6 @@ SQL Server의 새 인스턴스는 인터넷에 연결되지 않은 가상 컴퓨
 
 1.	도메인 컨트롤러에 대한 RDP에 사용한 것과 동일한 사용자 계정 및 암호를 사용합니다.
 
-이제 SQL Server에 대한 RDP와 연결됩니다. SQL Server management studio를 열고 SQL Server의 기본 인스턴스에 연결하며 AlwaysOn 가용성 그룹이 구성되는지 확인합니다.
+이제 SQL Server에 대한 RDP와 연결됩니다. SQL Server management studio를 열고 SQL Server의 기본 인스턴스에 연결하며 가용성 그룹이 구성되는지 확인합니다.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

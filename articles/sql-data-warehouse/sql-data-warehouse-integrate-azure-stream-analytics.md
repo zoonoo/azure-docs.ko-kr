@@ -86,8 +86,8 @@ SQL 데이터베이스를 선택하고 다음을 클릭합니다.
 
 <!--Article references-->
 
-[Azure 스트림 분석 소개]: stream-analytics-introductiond.md
-[Azure 스트림 분석을 사용하여 시작]: stream-analytics-get-started.md
+[Azure 스트림 분석 소개]: ../stream-analytics/stream-analytics-introductiond.md
+[Azure 스트림 분석을 사용하여 시작]: ../stream-analytics/stream-analytics-get-started.md
 [SQL 데이터 웨어하우스 개발 개요]: sql-data-warehouse-overview-develop.md
 [SQL 데이터 웨어하우스 통합 개요]: sql-data-warehouse-overview-integrate.md
 
@@ -96,4 +96,4 @@ SQL 데이터베이스를 선택하고 다음을 클릭합니다.
 <!--Other Web references-->
 [Azure Stream Analytics documentation]: http://azure.microsoft.com/documentation/services/stream-analytics/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0511_2016-->

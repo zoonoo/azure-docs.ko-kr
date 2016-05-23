@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Python에서 Azure Blob 저장소를 사용하는 방법 | Microsoft Azure"
-	description="Python에서 Azure Blob 저장소를 사용하여 Blob을 업로드, 나열, 다운로드 및 삭제하는 방법을 알아봅니다."
+	description="Azure Blob 저장소(개체 저장소)를 사용하여 클라우드에 구조화되지 않은 데이터를 저장합니다."
 	services="storage"
 	documentationCenter="python"
 	authors="emgerner-msft"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="02/29/2016"
+    ms.date="04/29/2016"
 	ms.author="jehine"/>
 
 # Python에서 Azure Blob 저장소를 사용하는 방법
@@ -125,4 +125,4 @@ Blob에서 데이터를 다운로드하려면 **get\_blob\_to\_path**, **get\_bl
 [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
 [Microsoft Azure Storage SDK for Python]: https://github.com/Azure/azure-storage-python
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0511_2016-->

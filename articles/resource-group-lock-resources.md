@@ -4,8 +4,8 @@
 	services="azure-resource-manager" 
 	documentationCenter="" 
 	authors="tfitzmac" 
-	manager="wpickett" 
-	editor=""/>
+	manager="timlt" 
+	editor="tysonn"/>
 
 <tags 
 	ms.service="azure-resource-manager" 
@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/04/2016" 
+	ms.date="04/25/2016" 
 	ms.author="tomfitz"/>
 
 # Azure 리소스 관리자를 사용하여 리소스 잠그기
 
-관리자는 구독, 리소스 그룹 또는 리소스에 잠금을 설정하여 조직의 다른 사용자가 실수로 중요한 리소스를 삭제하지 못하게 하려는 경우가 있을 수 있습니다. 잠긴 경우 권한 있는 사용자는 여전히 리소스를 읽고 수정할 수 있지만 제한된 리소스를 삭제할 수는 없습니다.
+관리자는 구독, 리소스 그룹 또는 리소스에 잠금을 설정하여 조직의 다른 사용자가 실수로 중요한 리소스를 삭제하지 못하게 할 수 있습니다. 잠긴 경우 권한 있는 사용자는 여전히 리소스를 읽고 수정할 수 있지만 제한된 리소스를 삭제할 수는 없습니다.
 
-잠금은 특정 작업을 수행하기 위해 사용자 권한을 할당하는 역할 기반 액세스 제어 사용과 다릅니다. 사용자 및 역할에 대한 권한 설정에 대해 알아보려면 [Azure 역할 기반 액세스 제어](./active-directory/role-based-access-control-configure.md)를 참조하세요. 역할 기반 액세스 제어와 달리 관리 잠금을 사용하여 모든 사용자와 역할에 걸쳐 제한을 적용하며 일반적으로 잠금을 제한된 기간 동안만 적용합니다.
+역할 기반 액세스 제어와 달리 관리 잠금을 사용하여 모든 사용자와 역할에 걸쳐 제한을 적용합니다. 사용자 및 역할에 대한 권한 설정에 대해 알아보려면 [Azure 역할 기반 액세스 제어](./active-directory/role-based-access-control-configure.md)를 참조하세요.
 
 부모 범위에서 잠금을 적용하면 모든 자식 리소스가 동일한 잠금을 상속합니다.
 
 ## 조직에서 잠금을 만들거나 삭제할 수 있는 사람
 
-관리 잠금을 만들거나 삭제하려면 **Microsoft.Authorization/*** 또는 **Microsoft.Authorization/locks/*** 작업에 대한 액세스 권한이 있어야 합니다. 기본 제공 역할의 경우 **소유자** 및 **사용자 액세스 관리자**에게만 이러한 작업의 권한이 부여됩니다. 액세스 제어 할당에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어](./active-directory/role-based-access-control-configure.md)를 참조하세요.
+관리 잠금을 만들거나 삭제하려면 **Microsoft.Authorization/*** 또는 **Microsoft.Authorization/locks/*** 작업에 대한 액세스 권한이 있어야 합니다. 기본 제공 역할의 경우 **소유자** 및 **사용자 액세스 관리자**에게만 이러한 작업의 권한이 부여됩니다.
 
 ## 템플릿에서 잠금 만들기
 
@@ -90,4 +90,4 @@ Azure PowerShell은 잠금을 업데이트하기 위한 **Set-AzureRmResourceLoc
 - 리소스가 존재하는 리소스 그룹을 변경하려면 [새 리소스 그룹으로 리소스 이동](resource-group-move-resources.md)을 참조하세요.
 - 사용자 지정된 정책을 사용하여 구독을 통해 제한 사항 및 규칙을 적용할 수 있습니다. 자세한 내용은 [정책을 사용하여 리소스 및 컨트롤 액세스 관리](resource-manager-policy.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

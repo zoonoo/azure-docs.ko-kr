@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/26/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher"/>
 
 # 원격 Docker 호스트에 ASP.NET 컨테이너 배포
@@ -51,11 +51,11 @@ Docker는 가상 컴퓨터와 몇 가지 측면에서 비슷하며 응용 프로
 1.  Visual Studio를 다시 시작합니다.
 
 ## 5\. Azure Docker 호스트 끝점 구성
-나중에 브라우저에서 앱을 볼 수 있도록 Visual Studio에서 Azure로 응용 프로그램을 배포하기 전에 끝점 80을 Docker 호스트 가상 컴퓨터에 추가합니다. 클래식 Azure 포털이나 Windows PowerShell을 통해 이 작업을 수행할 수 있습니다.
+나중에 브라우저에서 앱을 볼 수 있도록 Visual Studio에서 Azure로 응용 프로그램을 배포하기 전에 끝점 80을 Docker 호스트 가상 컴퓨터에 추가합니다. [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)이나 Windows PowerShell을 통해 이 작업을 수행할 수 있습니다.
 
-- **클래식 Azure 포털을 사용하여 Azure Docker 호스트 끝점 구성**
+- **[Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)을 사용하여 Azure Docker 호스트 끝점 구성**
 
-    1.  [클래식 Azure 포털](https://manage.windowsazure.com/)로 이동합니다. 
+    1.  [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)로 이동합니다. 
     
     1.  **가상 컴퓨터**를 탭합니다.
     
@@ -96,4 +96,4 @@ Docker는 가상 컴퓨터와 몇 가지 측면에서 비슷하며 응용 프로
 [2]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/launch-application.png
 [3]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/view-application.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0511_2016-->

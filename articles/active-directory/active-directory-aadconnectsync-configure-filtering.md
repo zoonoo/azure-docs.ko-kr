@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
-	ms.author="andkjell;markusvi"/>
+	ms.date="05/10/2016"
+	ms.author="andkjell;markvi"/>
 
 
 # Azure AD Connect 동기화 구성 필터링
@@ -51,10 +51,17 @@ Azure AD Connect를 설치하거나 최신 버전으로 업그레이드할 때 �
 둘 이상의 포리스트가 있는 경우 이 항목에서 설명한 필터링 구성이 모든 포리스트에 적용되어야 합니다(모든 포리스트에 동일하게 구성하려는 경우).
 
 ### 예약형 작업 사용 안 함
-3시간 마다 동기화 주기를 트리거하는 예약형 작업을 사용하지 않으려면 다음 단계를 수행합니다.
+30분 마다 동기화 주기를 트리거하는 기본 제공 스케줄러를 사용하지 않으려면 다음 단계를 수행합니다.
+
+1. PowerShell 프롬프트로 이동합니다.
+2. `Set-ADSyncScheduler -SyncCycleEnabled $False`를 실행하여 스케줄러를 비활성화합니다.
+3. 이 문서의 설명대로 변경합니다.
+4. `Set-ADSyncScheduler -SyncCycleEnabled $True`를 실행하여 스케줄러를 다시 활성화합니다.
+
+**Azure AD Connect 1.1.105.0 전 빌드를 사용하는 경우** 3시간 마다 동기화 주기를 트리거하는 예약형 작업을 사용하지 않으려면 다음 단계를 수행합니다.
 
 1. 시작 메뉴에서 **작업 스케줄러**를 시작합니다.
-2. **작업 스케줄러 라이브러리** 바로 아래에서 **Azure AD Sync 스케줄러**라는 작업을 찾아 마우스 오른쪽 단추로 클릭하고 **사용 안 함**을 선택합니다. ![작업 스케줄러](./media/active-directory-aadconnectsync-configure-filtering/taskscheduler.png)  
+2. **작업 스케줄러 라이브러리** 바로 아래에서 **Azure AD 동기화 스케줄러**라는 작업을 찾아 마우스 오른쪽 단추로 클릭하고 **사용 안 함**을 선택합니다. ![작업 스케줄러](./media/active-directory-aadconnectsync-configure-filtering/taskscheduler.png)  
 3. 이제 구성을 변경하고 **Synchronization Service Manager** 콘솔에서 수동으로 동기화 엔진을 실행할 수 있습니다.
 
 필터링 변경을 모두 완료한 후 돌아와서 해당 작업을 **사용**으로 다시 설정해야 합니다.
@@ -247,11 +254,11 @@ OU 기반 필터링을 변경하는 기본 방법은 설치 마법사를 실행�
 이제 다시 스케줄러를 사용하도록 설정합니다.
 
 1. 시작 메뉴에서 **작업 스케줄러**를 시작합니다.
-2. **작업 스케줄러 라이브러리** 바로 아래에서 **Azure AD Sync 스케줄러**라는 작업을 찾아 마우스 오른쪽 단추로 클릭하고 **사용**을 선택합니다.
+2. **작업 스케줄러 라이브러리** 바로 아래에서 **Azure AD 동기화 스케줄러**라는 작업을 찾아 마우스 오른쪽 단추로 클릭하고 **사용**을 선택합니다.
 
 ## 다음 단계
 [Azure AD Connect 동기화](active-directory-aadconnectsync-whatis.md) 구성에 대해 자세히 알아봅니다.
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0511_2016-->

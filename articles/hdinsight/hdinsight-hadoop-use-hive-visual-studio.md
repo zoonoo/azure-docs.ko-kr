@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/05/2016"
+   ms.date="04/22/2016"
    ms.author="larryfr"/>
 
 #Visual Studio용 HDInsight 도구를 사용하여 Hive 쿼리 실행
@@ -31,7 +31,13 @@
 
 * Azure HDInsight(HDInsight의 Hadoop)클러스터(Linux 또는 Windows 기반)
 
-* Visual Studio 2012 [업데이트 4](http://www.microsoft.com/download/details.aspx?id=39305), Visual Studio 2013 [업데이트 3](http://go.microsoft.com/fwlink/?LinkId=390465) 또는 [Visual Studio Express 2013](http://www.microsoft.com/download/details.aspx?id=40769)
+* Visual Studio(다음 버전 중 하나)
+
+    Visual Studio 2013 Community/Professional/Premium/Ultimate [업데이트 4](https://www.microsoft.com/download/details.aspx?id=44921)
+
+    Visual Studio 2015(Community/Enterprise)
+
+- Visual Studio용 HDInsight 도구. 도구 설치 및 구성에 대한 내용은 [HDInsight용 Visual Studio Hadoop 도구 사용 시작](hdinsight-hadoop-visual-studio-tools-get-started.md)을 참조하세요.
 
 ##<a id="run"></a> Visual Studio용 HDInsight 도구를 사용하여 Hive 쿼리 실행
 
@@ -59,7 +65,7 @@
     * **SELECT**: **t4** 열에 **[ERROR]** 값이 포함된 모든 행의 수를 선택합니다. 이 경우 이 값을 포함하는 행이 3개 있으므로 **3** 값이 반환되어야 합니다.
     * **INPUT\_\_FILE\_\_NAME LIKE '%.log'** - .log로 끝나는 파일의 데이터만 반환하도록 Hive에 지시합니다. 데이터를 포함하는 sample.log 파일로 검색을 제한하며, 정의한 스키마와 일치하지 않는 다른 예제 데이터 파일의 데이터가 반환되지 않도록 합니다.
 
-3. 도구 모음에서 쿼리에 사용할 **HDInsight 클러스터**를 선택한 다음 **제출**을 선택하여 Hive 작업으로 문을 실행합니다. **Hive 작업 요약**이 표시되고 실행 중인 작업 정보가 표시됩니다. **작업 상태**가 **완료**로 변경될 때까지 **새로 고침** 링크를 사용하여 작업 정보를 새로 고칩니다.
+3. 도구 모음에서 이 쿼리에 사용할 **HDInsight 클러스터**를 선택한 다음 **WebHCat에 제출**을 선택하여 WebHCat을 사용하여 Hive 작업으로 문을 실행합니다. 클러스터 버전에서 HiveServer2를 사용할 수 있는 경우 __HiveServer2를 통해 실행__ 단추를 사용하여 작업을 제출할 수도 있습니다. **Hive 작업 요약**이 표시되고 실행 중인 작업 정보가 표시됩니다. **작업 상태**가 **완료**로 변경될 때까지 **새로 고침** 링크를 사용하여 작업 정보를 새로 고칩니다.
 
 4. 이 작업의 출력을 보려면 **작업 출력** 링크를 사용합니다. SELECT 문이 반환한 값인 `[ERROR] 3`이 표시되어야 합니다.
 
@@ -135,4 +141,4 @@ Visual Studio용 HDInsight 도구에 대한 자세한 내용은 다음을 참조
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0511_2016-->

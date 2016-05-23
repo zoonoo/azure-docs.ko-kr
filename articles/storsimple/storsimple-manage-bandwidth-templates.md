@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="StorSimple 대역폭 템플릿 관리 | Microsoft Azure"
    description="대역폭 소비를 제어할 수 있도록 StorSimple 대역폭 템플릿을 관리하는 방법을 설명합니다."
    services="storsimple"
@@ -6,13 +6,13 @@
    authors="alkohli"
    manager="carolz"
    editor="" />
-<tags 
+<tags
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/14/2015"
+   ms.date="05/10/2016"
    ms.author="alkohli" />
 
 # StorSimple 관리자 서비스를 사용하여 StorSimple 대역폭 템플릿 관리
@@ -28,7 +28,7 @@
 - 쉽고 원활한 방식으로 여러 장치에서 중앙 관리하고 일정을 다시 사용합니다.
 
 > [AZURE.NOTE] 이 기능은 가상 장치가 아닌 StorSimple 물리적 장치에 대해서만 사용할 수 있습니다.
-   
+
 서비스에 대한 모든 대역폭 템플릿은 테이블 형식으로 표시되며 다음 정보를 포함합니다.
 
 - **이름** – 만들어졌을 때 대역폭 템플릿에 할당된 고유 이름입니다.
@@ -172,4 +172,4 @@ StorSimple 장치에 대해 이 모범 사례를 따릅니다.
 
 [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

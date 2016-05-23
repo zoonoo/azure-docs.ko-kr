@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/01/2016"
+	ms.date="05/04/2016"
 	ms.author="josephd"/>
 
 # SharePoint 서버 팜 만들기
@@ -42,7 +42,7 @@ Microsoft Azure 포털 마켓플레이스를 사용하면 미리 구성된 Share
 
 ![sharepointfarm](./media/virtual-machines-windows-sharepoint-farm/HAFarm.png)
 
-이 팜 구성을 사용하여 SharePoint 팜에 대해 보다 과도한 클라이언트 부하, 외부 SharePoint 사이트의 고가용성 및 SQL Server AlwaysOn을 테스트할 수 있습니다. 또한 고가용성 환경에서 SharePoint app 개발에 이 구성을 사용할 수 있습니다.
+이 팜 구성을 사용하여 SharePoint 팜에 대해 보다 과도한 클라이언트 부하, 외부 SharePoint 사이트의 고가용성 및 SQL Server Always On을 테스트할 수 있습니다. 또한 고가용성 환경에서 SharePoint app 개발에 이 구성을 사용할 수 있습니다.
 
 고가용성(9-서버) SharePoint 팜을 만들려면:
 
@@ -53,17 +53,18 @@ Microsoft Azure 포털 마켓플레이스를 사용하면 미리 구성된 Share
 
 > [AZURE.NOTE] Azure 무료 평가판에서는 **SharePoint 2013 비 HA 팜** 또는 **SharePoint 2013 HA 팜**을 만들 수 없습니다.
 
+Azure 포털은 인터넷 연결 웹 서비스를 사용하여 클라우드 전용 가상 네트워크에 이러한 팜을 모두 만듭니다. 조직 네트워크에 대한 사이트 간 VPN 또는 ExpressRoute 연결은 없습니다.
+
 ## SharePoint 팜 관리
 
 원격 데스크톱 연결을 통해 이러한 팜의 서버를 관리할 수 있습니다. 자세한 내용은 [가상 컴퓨터에 로그온](virtual-machines-windows-hero-tutorial.md#log-on-to-the-virtual-machine)을 참조하세요.
 
 중앙 관리 SharePoint 사이트에서 내 사이트, SharePoint 응용 프로그램 및 기타 기능을 구성할 수 있습니다. 자세한 내용은 [SharePoint 2013 구성](http://technet.microsoft.com/library/ee836142.aspx)을 참조하세요.
 
-> [AZURE.NOTE] Azure 포털은 인터넷 연결 웹 서비스를 사용하여 클라우드 전용 가상 네트워크에 이러한 팜을 모두 만듭니다. 조직 네트워크에 대한 사이트 간 VPN 또는 ExpressRoute 연결은 없습니다.
+> [AZURE.NOTE] [SharePoint Server 2016 평가판 이미지](https://azure.microsoft.com/blog/test-sharepoint-server-2016/)를 사용하면, SharePoint Server 2016을 실행하는 가상 컴퓨터를 만들 수 있습니다.
 
 ## 다음 단계
 
-- Azure 인프라 서비스에서 [SharePoint 2013 인트라넷 팜](virtual-machines-windows-sp-intranet-overview.md)을 프로덕션 워크로드로 배포합니다.
 - Azure 인프라 서비스에서 추가 [SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) 구성을 검색합니다.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

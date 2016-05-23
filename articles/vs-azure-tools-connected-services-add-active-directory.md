@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="visual-studio-online"
-   ms.date="04/18/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Visual Studio에서 연결된 서비스를 사용하여 Azure Active Directory 추가 
@@ -53,7 +53,7 @@ Azure Active Directory(Azure AD)를 사용하여 ASP.NET MVC 웹 응용 프로�
 
     ![마법사에서 Azure AD 구성](./media/vs-azure-tools-connected-services-add-active-directory/configure-azure-ad-wizard-3.png)
 
-1. **마침** 단추를 선택합니다. 대화 상자는 Azure AD 인증을 위한 프로젝트를 사용 가능하도록 필요한 구성 코드 및 참조를 추가합니다. Azure 포털에서 AD 도메인을 확인할 수 있습니다.
+1. **마침** 단추를 선택합니다. 대화 상자는 Azure AD 인증을 위한 프로젝트를 사용 가능하도록 필요한 구성 코드 및 참조를 추가합니다. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에서 AD 도메인을 볼 수 있습니다.
 
 1. 다음 단계에 대한 아이디어를 위해 브라우저에 표시되는 시작 페이지 및 프로젝트를 수정한 방법을 보기 위해 변경된 내용 페이지를 검토합니다. 모든 항목이 제대로 작동하는지 확인하려면 수정된 구성 파일 중 하나를 열고 변경된 내용에 언급된 설정이 있는지 확인합니다. 예를 들어, ASP.NET MVC 프로젝트의 기본 web.config에 다음 설정이 추가됩니다.
 
@@ -79,4 +79,4 @@ Azure Active Directory(Azure AD)를 사용하여 ASP.NET MVC 웹 응용 프로�
 
  - [블로그 게시물: Azure AD에 대한 소개](http://blogs.msdn.com/b/brunoterkaly/archive/2014/03/03/introduction-to-windows-azure-active-directory.aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/04/2016"   
+	ms.date="04/25/2016"   
 	ms.author="juliako"/>
 
 
@@ -61,7 +61,7 @@
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-index-content.md)
-- [Portal](media-services-manage-content.md#index)
+- [포털](media-services-manage-content.md#index)
 
 Azure 미디어 인덱서를 사용하면 미디어 파일 콘텐츠를 검색 가능하게 만들고 선택 자막 및 키워드용 전체 텍스트 기록을 생성할 수 있습니다. 아래에서 설명하는 단계에 따라 Azure 클래식 포털을 사용하여 콘텐츠를 인덱싱할 수 있습니다. 그러나 파일 및 인덱싱 작업 수행 방법을 보다 세부적으로 제어하려는 경우에는 Media Services SDK for .NET이나 REST API를 사용할 수 있습니다. 자세한 내용은 [Azure 미디어 인덱서를 사용하여 미디어 파일 인덱싱](media-services-index-content.md)을 참조하세요.
 
@@ -78,8 +78,8 @@ Azure 미디어 인덱서를 사용하면 미디어 파일 콘텐츠를 검색 �
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-dotnet-encode-asset.md)
-- [REST](media-services-rest-encode-asset.md)
-- [Portal](media-services-manage-content.md#encode)
+- [REST (영문)](media-services-rest-encode-asset.md)
+- [포털](media-services-manage-content.md#encode)
 
 인터넷을 통해 디지털 비디오를 배달하려면 미디어를 압축해야 합니다. 미디어 서비스는 콘텐츠를 인코딩할 방법(예: 사용할 코덱, 파일 형식, 해상도, 비트 전송률)을 지정할 수 있는 미디어 인코더를 제공합니다.
 
@@ -100,7 +100,9 @@ Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나
 
 1.  인코딩하려는 파일을 선택합니다.
 
-  이 파일 형식에 대해 이 지원되는 경우에는 콘텐츠 페이지 아래쪽에서 프로세스 단추를 사용할 수 있습니다. 4. **프로세스** 대화 상자에서 **미디어 인코더 표준** 프로세서를 선택합니다. 5. **인코딩 구성** 중에서 하나를 선택합니다.
+  이 파일 형식에 대해 이 지원되는 경우에는 콘텐츠 페이지 아래쪽에서 프로세스 단추를 사용할 수 있습니다.
+4. **프로세스** 대화 상자에서 **미디어 인코더 표준** 프로세서를 선택합니다.
+5. **인코딩 구성** 중에서 하나를 선택합니다.
 
 ![Process2][process2]
 
@@ -141,8 +143,8 @@ Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-deliver-streaming-content.md)
-- [REST](media-services-rest-deliver-streaming-content.md)
-- [Portal](media-services-manage-content.md#publish)
+- [REST (영문)](media-services-rest-deliver-streaming-content.md)
+- [포털](media-services-manage-content.md#publish)
 
 ###개요
 
@@ -220,4 +222,4 @@ MPEG DASH 스트리밍 URL을 작성하려면 URL에 (format=mpd-time-csf)를 �
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-manage-content/media-services-portal-player.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

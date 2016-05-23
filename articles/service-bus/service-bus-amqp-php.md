@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="AMQP 1.0을 사용한 서비스 버스 및 PHP | Microsoft Azure"
-   description="AMQP를 사용하여 PHP에서 서비스 버스 사용."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" /> 
+    pageTitle="AMQP 1.0을 사용한 서비스 버스 및 PHP | Microsoft Azure"
+    description="AMQP를 사용하여 PHP에서 서비스 버스 사용."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" /> 
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="01/26/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/06/2016"
+    ms.author="sethm" />
 
 # AMQP 1.0을 사용하여 PHP에서 서비스 버스 사용
 
@@ -187,4 +187,4 @@ if ($message->properties != null)
 [Windows Server용 서비스 버스의 AMQP]: https://msdn.microsoft.com/library/dn574799.aspx
 [서비스 버스 AMQP 개요]: service-bus-amqp-overview.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0511_2016-->

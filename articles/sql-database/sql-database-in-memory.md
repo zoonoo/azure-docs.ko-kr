@@ -107,7 +107,7 @@ GA, 일반 공급:
 
 2. SQL Server Management Studio[(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx)를 사용하여 데이터베이스에 연결합니다.
 
-3. [메모리 내 OLTP Transact-SQL 스크립트](http://raw.githubusercontent.com/Azure/azure-sql-database-samples/master/T-SQL/In-Memory/sql_in-memory_oltp_sample.sql)를 클립보드에 복사합니다.
+3. [메모리 내 OLTP Transact-SQL 스크립트](https://raw.githubusercontent.com/Azure/azure-sql-database-samples/master/t-sql/In-Memory/sql_in-memory_oltp_sample.sql)를 클립보드에 복사합니다.
  - T-SQL 스크립트는 1단계에서 만든 AdventureWorksLT 샘플 데이터베이스에서 필요한 메모리 내 개체를 만듭니다.
 
 4. SSMS에 T-SQL 스크립트를 붙여 넣고 스크립트를 실행합니다.
@@ -348,7 +348,7 @@ OLTP 작업의 실시간 분석의 경우 비클러스터형 columnstore 인덱�
  - 정확한 이름을 사용합니다.
  - Premium 서비스 계층을 선택합니다.
 
-2. [sql\_in memory\_analytics\_sample](http://raw.githubusercontent.com/Azure/azure-sql-database-samples/master/T-SQL/In-Memory/sql_in-memory_analytics_sample.sql)을 클립보드에 복사합니다.
+2. [sql\_in memory\_analytics\_sample](https://raw.githubusercontent.com/Azure/azure-sql-database-samples/master/t-sql/In-Memory/sql_in-memory_analytics_sample.sql)을 클립보드에 복사합니다.
  - T-SQL 스크립트는 1단계에서 만든 AdventureWorksLT 샘플 데이터베이스에서 필요한 메모리 내 개체를 만듭니다.
  - 스크립트는 차원 테이블과 두 개의 팩트 테이블을 만듭니다. 팩트 테이블은 각각 350만 개의 행으로 채워집니다.
  - 스크립트는 완료하는 데 15분 정도 걸릴 수 있습니다.
@@ -371,7 +371,7 @@ OLTP 작업의 실시간 분석의 경우 비클러스터형 columnstore 인덱�
 #### columnstore 인덱스를 비교하는 중요한 쿼리
 
 
-[여기](http://raw.githubusercontent.com/Azure/azure-sql-database-samples/master/T-SQL/In-Memory/clustered_columnstore_sample_queries.sql)에 성능 향상을 확인하도록 실행할 수 있는 여러 유형의 T-SQL 쿼리가 있습니다. T-SQL 스크립트의 2단계에 직접 관심 있는 쿼리의 쌍이 있습니다. 두 쿼리는 한 줄에 대해서만 다릅니다.
+[여기](https://raw.githubusercontent.com/Azure/azure-sql-database-samples/master/t-sql/In-Memory/clustered_columnstore_sample_queries.sql)에 성능 향상을 확인하도록 실행할 수 있는 여러 유형의 T-SQL 쿼리가 있습니다. T-SQL 스크립트의 2단계에 직접 관심 있는 쿼리의 쌍이 있습니다. 두 쿼리는 한 줄에 대해서만 다릅니다.
 
 
 - `FROM FactResellerSalesXL_PageCompressed a`
@@ -533,4 +533,4 @@ SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 
 - 메모리 내 OLTP에 대한 [메모리 내 저장소 모니터링](sql-database-in-memory-oltp-monitoring.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->

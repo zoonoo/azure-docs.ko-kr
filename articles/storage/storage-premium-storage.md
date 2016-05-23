@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/28/2016"
+	ms.date="04/26/2016"
 	ms.author="prkhad"/>
 
 
@@ -55,7 +55,11 @@ Azure는 저장소 계정을 운영 체제(OS) 및 데이터 디스크의 컨테
 
 ## DS, DSv2 및 GS 시리즈 VM
 
-프리미엄 저장소는 DS 시리즈, DSv2 시리즈 및 GS 시리즈 Azure VM(가상 컴퓨터)을 지원합니다. DS 시리즈, DSv2 시리즈 또는 GS 시리즈의 VM에는 표준 및 프리미엄 저장소 디스크를 모두 사용할 수 있습니다. 그러나 DS 시리즈 또는 GS 시리즈가 아닌 VM의 경우 프리미엄 저장소 디스크를 사용할 수 없습니다. 사용 가능한 Azure VM 유형 및 크기에 대한 자세한 내용은 [가상 컴퓨터의 크기](../virtual-machines/virtual-machines-linux-sizes.md)를 참조하세요. 다음은 DS, DSv2 및 GS 시리즈 VM의 일부 기능입니다.
+프리미엄 저장소는 DS 시리즈, DSv2 시리즈 및 GS 시리즈 Azure VM(가상 컴퓨터)을 지원합니다. DS 시리즈, DSv2 시리즈 또는 GS 시리즈의 VM에는 표준 및 프리미엄 저장소 디스크를 모두 사용할 수 있습니다. 그러나 DS 시리즈 또는 GS 시리즈가 아닌 VM의 경우 프리미엄 저장소 디스크를 사용할 수 없습니다.
+
+사용 가능한 Azure VM 유형 및 크기에 대한 자세한 내용은 [가상 컴퓨터의 크기](../virtual-machines/virtual-machines-windows-sizes.md)를 참조하세요. Linux VM용 VM 유형 및 크기에 대한 자세한 내용은 [가상 컴퓨터의 크기](../virtual-machines/virtual-machines-linux-sizes.md)를 참조하세요.
+
+다음은 DS, DSv2 및 GS 시리즈 VM의 일부 기능입니다.
 
 **클라우드 서비스**: DS 시리즈 VM만 포함하는 클라우드 서비스에 DS 시리즈 VM을 추가할 수 있습니다. DS 시리즈가 아닌 VM을 포함하는 기존 클라우드 서비스에 DS 시리즈 VM을 추가하지 마세요. DS 시리즈 VM만 실행하는 새 클라우드 서비스에 기존 VHD를 마이그레이션할 수 있습니다. DS 시리즈 VM을 호스트하는 새 클라우드 서비스에 동일한 VIP(가상 IP 주소)를 유지하려는 경우, [예약된 IP 주소](../virtual-network/virtual-networks-instance-level-public-ip.md)를 사용합니다. GS 시리즈 VM은 G 시리즈 VM만을 실행 중인 기존 클라우드 서비스에 추가될 수 있습니다.
 
@@ -73,7 +77,9 @@ Azure는 저장소 계정을 운영 체제(OS) 및 데이터 디스크의 컨테
 
 현재, DS 계열에서 가장 큰 VM은 STANDARD\_DS14 이며 모든 디스크에서 초당 최대 512MB를 제공할 수 있습니다. GS 시리즈에서 가장 큰 VM은 STANDARD\_GS5 이며 모든 디스크에서 초당 최대 2000MB를 제공할 수 있습니다. 이러한 한도는 캐시 적중 수 및 네트워크 트래픽을 포함하지 않는 디스크 트래픽에만 단독으로 적용됩니다. VM 네트워크 트래픽에 사용할 수 있는 별도 대역폭이 있으며, 프리미엄 저장소 디스크 전용 대역폭과는 다릅니다.
 
-DS 시리즈, DSv2 시리즈 및 GS 시리즈 VM에 대한 최대 IOPS 및 처리량(대역폭)에 대한 최신 정보는 [가상 컴퓨터의 크기](../virtual-machines/virtual-machines-linux-sizes.md)를 참조하세요. 프리미엄 저장소 디스크와 해당 IOPS 및 처리량 한도에 대한 자세한 내용은 이 문서에서 [프리미엄 저장소 사용 시 확장성 및 성능 목표](#scalability-and-performance-targets-whko-KRing-premium-storage) 섹션의 테이블을 참조하세요.
+DS 시리즈, DSv2 시리즈 및 GS 시리즈 VM에 대한 최대 IOPS 및 처리량(대역폭)에 대한 최신 정보는 [Windows VM 크기](../virtual-machines/virtual-machines-windows-sizes.md) 또는 [Linux VM 크기](../virtual-machines/virtual-machines-linux-sizes.md)를 참조하세요.
+
+프리미엄 저장소 디스크와 해당 IOPS 및 처리량 한도에 대한 자세한 내용은 이 문서에서 [프리미엄 저장소 사용 시 확장성 및 성능 목표](#scalability-and-performance-targets-whko-KRing-premium-storage) 섹션의 테이블을 참조하세요.
 
 ## 프리미엄 저장소 확장성 및 성능 목표
 
@@ -370,7 +376,7 @@ OpenLogic CentOS VM을 실행하는 고객은 다음 명령을 실행하여 최�
 	>  
 	> 저장소 계정 이름은 Azure 내에서 고유해야 합니다. 선택한 저장소 계정 이름이 이미 사용 중인 경우 Azure 포털에 표시됩니다.
 
-4. 사용할 배포 모델을 **Resource Manager** 또는 **클래식**으로 지정합니다. **리소스 관리자**는 권장되는 배포 모델입니다. 자세한 내용은 [리소스 관리자 배포 및 클래식 배포 이해](../resource-manager-deployment-model.md)를 참조하세요.
+4. 사용할 배포 모델을 **리소스 관리자** 또는 **클래식**으로 지정합니다. **리소스 관리자**는 권장되는 배포 모델입니다. 자세한 내용은 [리소스 관리자 배포 및 클래식 배포 이해](../resource-manager-deployment-model.md)를 참조하세요.
 
 5. 저장소 계정의 성능 계층을 **프리미엄**으로 지정합니다.
 
@@ -544,4 +550,4 @@ Azure 프리미엄 저장소에 대한 자세한 내용은 다음 문서를 참�
 
 [Image1]: ./media/storage-premium-storage/Azure_attach_premium_disk.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

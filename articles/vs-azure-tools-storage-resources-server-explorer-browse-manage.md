@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/19/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # 서버 탐색기로 저장소 리소스 찾아보기 및 관리
@@ -21,7 +21,7 @@ Microsoft Visual Studio용 Azure 도구를 설치한 경우 Azure 저장소 계�
 
 Visual Studio에서 서버 탐색기를 보려면, 메뉴 모음에서 **보기**, **서버 탐색기**를 선택합니다. 저장소 노드는 연결된 Azure 구독/인증서 아래에 존재하는 모든 저장소 계정을 보여줍니다. 저장소 계정이 나타나지 않으면 [이 항목의 뒷부분에 나오는](#add-storage-accounts-by-using-server-explorer) 다음의 지침을 따라 추가할 수 있습니다.
 
-Azure SDK 2.7부터 새로운 클라우드 탐색기를 사용해 Azure 리소스를 확인 및 관리할 수 있습니다. 자세한 내용은 [클라우드 탐색기를 사용하여 Azure 리소스 관리](vs-azure-tools-resources-managing-with-cloud-explorer)를 참조하세요.
+Azure SDK 2.7부터 새로운 클라우드 탐색기를 사용해 Azure 리소스를 확인 및 관리할 수 있습니다. 자세한 내용은 [클라우드 탐색기를 사용하여 Azure 리소스 관리](./vs-azure-tools-resources-managing-with-cloud-explorer.md)를 참조하세요.
 
 
 ## Visual Studio에서 저장소 리소스를 확인 및 관리합니다.
@@ -40,7 +40,7 @@ Azure SDK 2.7부터 새로운 클라우드 탐색기를 사용해 Azure 리소�
 
 ## Blob 리소스로 작업
 
-Blob 노드는 선택된 저장소 계정의 컨테이너 목록을 표시합니다. Blob 컨테이너는 Blob 파일을 포함하고 있으며 이러한 Blob을 폴더와 하위 폴더로 구성할 수 있습니다. 자세한 내용은 [.NET에서 Blob 저장소를 사용하는 방법](..storage/storage-dotnet-how-to-use-blobs/)(영문)을 참조하세요.
+Blob 노드는 선택된 저장소 계정의 컨테이너 목록을 표시합니다. Blob 컨테이너는 Blob 파일을 포함하고 있으며 이러한 Blob을 폴더와 하위 폴더로 구성할 수 있습니다. 자세한 내용은 [.NET에서 Blob 저장소를 사용하는 방법](./storage/storage-dotnet-how-to-use-blobs.md)(영문)을 참조하세요.
 
 ### Blob 컨테이너를 생성하려면
 
@@ -308,10 +308,10 @@ Azure 테이블 저장소 서비스는 다량의 구조화된 데이터를 저�
 
 - 서버 탐색기에서 계정 이름에 대한 바로 가기 메뉴를 연 다음 **삭제**를 선택합니다. 저장소 계정을 삭제하면 해당 계정에 저장된 키 정보도 제거됩니다.
 
-    >[AZURE.NOTE] 서버 탐색기에서 저장소 계정을 삭제하면 저장소 계정이나 그 안에 포함된 데이터에는 영향을 주지 않으며, 단순히 서버 탐색기의 참조를 제거합니다. 저장소 계정을 영구적으로 삭제하려면 Azure 관리 포털을 사용하세요.
+    >[AZURE.NOTE] 서버 탐색기에서 저장소 계정을 삭제하면 저장소 계정이나 그 안에 포함된 데이터에는 영향을 주지 않으며, 단순히 서버 탐색기의 참조를 제거합니다. 저장소 계정을 영구적으로 삭제하려면 [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)을 사용하세요.
 
 ## 다음 단계
 
 Azure 저장소 서비스를 사용하는 방법에 대해 자세히 알아보려면 [Azure 저장소 서비스 액세스](https://msdn.microsoft.com/library/azure/ee405490.aspx)를 참조하세요.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

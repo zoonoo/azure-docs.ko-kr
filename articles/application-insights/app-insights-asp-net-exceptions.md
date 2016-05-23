@@ -134,7 +134,7 @@ JavaScript
     }
     catch (ex)
     {
-      appInsights.TrackException(ex, "handler loc",
+      appInsights.trackException(ex, "handler loc",
         {Game: currentGame.Name, 
          State: currentGame.State.ToString()});
     }
@@ -467,7 +467,7 @@ TrackException 보고서를 계산하여 Application Insights 포털에서 계�
 <!--Link references-->
 
 [api]: app-insights-api-custom-events-metrics.md
-[azure]: ../insights-perf-analytics.md
+[azure]: ../azure-portal/insights-perf-analytics.md
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
 [greenbrown]: app-insights-asp-net.md
@@ -477,4 +477,4 @@ TrackException 보고서를 계산하여 Application Insights 포털에서 계�
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0511_2016-->

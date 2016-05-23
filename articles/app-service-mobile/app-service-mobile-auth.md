@@ -4,7 +4,7 @@
 	services="app-service\mobile"
 	documentationCenter=""
 	authors="mattchenderson"
-	manager="dwrede"
+	manager="erikref"
 	editor=""/>
 
 <tags
@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="05/05/2016"
 	ms.author="mahender"/>
 
 # Azure 모바일 앱의 인증 및 권한 부여
 
 ## 앱 서비스 인증/권한 부여란?
+
+> [AZURE.NOTE] 이 항목은 웹, 모바일 및 API 앱을 다루는 통합된 [앱 서비스 인증/권한 부여](../app-service/app-service-authentication-overview.md) 항목으로 마이그레이션됩니다.
 
 앱 서비스 인증/권한 부여는 응용 프로그램이 앱 백 엔드에 필요한 코드 변경 없이 사용자를 로그인할 수 있도록 만드는 기능입니다. 응용 프로그램을 보호하고 사용자 단위당 데이터로 작업하는 쉬운 방법을 제공합니다.
 
@@ -102,4 +104,4 @@ ID 공급자 중 하나를 사용하여 인증하려면 먼저 ID 공급자를 �
 [Microsoft 계정 로그인을 사용하도록 앱을 구성하는 방법]: app-service-mobile-how-to-configure-microsoft-authentication.md
 [Twitter 로그인을 사용하도록 앱을 구성하는 방법]: app-service-mobile-how-to-configure-twitter-authentication.md
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/09/2016"
+    ms.date="04/26/2016"
     ms.author="curtand"/>
 
 # Azure Active Directory Single Sign-On과 SaaS 앱 통합  
@@ -47,7 +47,7 @@ Azure AD는 조직의 최종 사용자에게 응용 프로그램을 배포하는
 
 ### 사용자 계정 매핑
 
-사용자의 ID에는 일반적으로 전자 메일 주소 또는 범용 개인 이름(UPN)일 수 있는 고유 식별자가 있습니다. 각 사용자의 응용 프로그램 ID를 해당 Azure AD ID에 링크(맵핑)해야 합니다. 응용 프로그램 인증이 요구하는 방법에 따라 이 작업을 수행하는 몇 가지 방법이 있습니다.
+사용자의 ID에는 일반적으로 전자 메일 주소 또는 사용자 계정 이름(UPN)일 수 있는 고유 식별자가 있습니다. 각 사용자의 응용 프로그램 ID를 해당 Azure AD ID에 링크(맵핑)해야 합니다. 응용 프로그램 인증이 요구하는 방법에 따라 이 작업을 수행하는 몇 가지 방법이 있습니다.
 
 응용 프로그램 ID를 Azure AD ID와 매핑하는 방법에 대한 자세한 내용은 [SAML 토큰에서 발급된 클레임 사용자 지정](http://social.technet.microsoft.com/wiki/contents/articles/31257.azure-active-directory-customizing-claims-issued-in-the-saml-token-for-pre-integrated-apps.aspx) 및 [프로비전을 위한 특성 매핑 사용자 지정](active-directory-saas-customizing-attribute-mappings.md)을 참조하세요.
 
@@ -72,4 +72,4 @@ Azure AD는 조직의 최종 사용자에게 응용 프로그램을 배포하는
 
 - [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

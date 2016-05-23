@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/02/2015"
+   ms.date="04/18/2016"
    ms.author="v-sharos" />
 
 # StorSimple 스냅숏 관리자를 사용하여 볼륨 보기 및 관리
 
 ## 개요
 
-StorSimple 스냅숏 관리자 **볼륨** 노드(**범위** 창)를 사용하여 볼륨을 선택하고 관련 정보를 볼 수 있습니다. 볼륨은 호스트에 의해 탑재된 볼륨에 해당하는 드라이브로 표시됩니다. **볼륨** 노드는 iSCSI와 장치를 사용하여 검색한 볼륨을 포함하여 Azure StorSimple에서 지원하는 로컬 볼륨 및 볼륨 유형을 표시합니다.
+StorSimple 스냅숏 관리자 **볼륨** 노드(**범위** 창)를 사용하여 볼륨을 선택하고 관련 정보를 볼 수 있습니다. 볼륨은 호스트에 의해 탑재된 볼륨에 해당하는 드라이브로 표시됩니다. **볼륨** 노드는 iSCSI와 장치를 사용하여 검색한 볼륨을 포함하여 StorSimple에서 지원하는 로컬 볼륨 및 볼륨 유형을 표시합니다.
 
 지원되는 볼륨에 대한 자세한 내용은 [여러 볼륨 유형에 대한 지원](storsimple-what-is-snapshot-manager.md#support-for-multiple-volume-types)을 참조하세요.
 
@@ -35,11 +35,11 @@ StorSimple 스냅숏 관리자 **볼륨** 노드(**범위** 창)를 사용하여
 - 기본 볼륨을 구성하고 백업
 - 동적 미러 볼륨 구성 및 백업
 
->[AZURE.NOTE]모든 **볼륨** 노드 작업은 **작업** 창에서도 사용할 수 있습니다.
+>[AZURE.NOTE] 모든 **볼륨** 노드 작업은 **작업** 창에서도 사용할 수 있습니다.
  
 ## 볼륨 탑재
 
-다음 절차에 따라 Azure StorSimple 볼륨을 탑재, 초기화 및 포맷할 수 있습니다. 이 절차는 포함하고 있는 하드 디스크 및 볼륨 또는 파티션 관리를 위한 디스크 관리, 시스템 유틸리티를 사용합니다. 디스크 관리에 대한 자세한 내용은 Microsoft TechNet 웹 사이트에서 [디스크 관리](https://technet.microsoft.com/library/cc770943.aspx)로 이동하세요.
+다음 절차에 따라 StorSimple 볼륨을 탑재, 초기화 및 포맷할 수 있습니다. 이 절차는 하드 디스크 및 해당 볼륨 또는 파티션을 관리하기 위해 디스크 관리, 시스템 유틸리티를 사용합니다. 디스크 관리에 대한 자세한 내용은 Microsoft TechNet 웹 사이트에서 [디스크 관리](https://technet.microsoft.com/library/cc770943.aspx)로 이동하세요.
 
 #### 볼륨을 탑재하려면
 
@@ -55,7 +55,7 @@ StorSimple 스냅숏 관리자 **볼륨** 노드(**범위** 창)를 사용하여
 
     - **관리 도구**를 시작하고 **컴퓨터 관리** 노드를 확장한 다음 **디스크 관리**를 선택합니다.
 
-    >[AZURE.NOTE]관리자 권한을 사용하여 디스크 관리를 실행해야 합니다.
+    >[AZURE.NOTE] 관리자 권한을 사용하여 디스크 관리를 실행해야 합니다.
  
 4. 볼륨을 온라인 상태로 만듭니다.
 
@@ -110,7 +110,7 @@ StorSimple 스냅숏 관리자 **볼륨** 노드(**범위** 창)를 사용하여
 
 다음 절차에 따라 StorSimple 스냅숏 관리자에서 볼륨을 삭제할 수 있습니다.
 
->[AZURE.NOTE]볼륨 그룹에 속해 있는 볼륨은 삭제할 수 없습니다. (볼륨 그룹에 속한 볼륨에 대해서는 삭제 옵션을 사용할 수 없습니다.) 볼륨을 삭제하려면 전체 볼륨 그룹을 삭제해야 합니다.
+>[AZURE.NOTE] 볼륨 그룹에 속해 있는 볼륨은 삭제할 수 없습니다. (볼륨 그룹에 속한 볼륨에 대해서는 삭제 옵션을 사용할 수 없습니다.) 볼륨을 삭제하려면 전체 볼륨 그룹을 삭제해야 합니다.
 
 
 #### 볼륨을 삭제하려면
@@ -153,7 +153,7 @@ StorSimple 스냅숏 관리자 **볼륨** 노드(**범위** 창)를 사용하여
 
 시작하기 전에
 
-- StorSimple 장치 및 호스트 컴퓨터가 올바르게 구성되었는지 확인합니다. 자세한 내용은 [온-프레미스 StorSimple 장치 배포](storsimple-deployment-walkthrough.md)를 참조하세요.
+- StorSimple 장치 및 호스트 컴퓨터가 올바르게 구성되었는지 확인합니다. 자세한 내용은 [온-프레미스 StorSimple 장치 배포](storsimple-deployment-walkthrough-u2.md)를 참조하세요.
 
 - StorSimple 스냅숏 관리자 설치 및 구성 자세한 내용은 [StorSimple 스냅숏 관리자 배포](storsimple-snapshot-manager-deployment.md)를 참조하세요.
 
@@ -195,7 +195,7 @@ StorSimple 스냅숏 관리자 **볼륨** 노드(**범위** 창)를 사용하여
 
 시작하기 전에
 
-- StorSimple 장치 및 호스트 컴퓨터가 올바르게 구성되었는지 확인합니다. 자세한 내용은 [온-프레미스 StorSimple 장치 배포](storsimple-deployment-walkthrough.md)를 참조하세요.
+- StorSimple 장치 및 호스트 컴퓨터가 올바르게 구성되었는지 확인합니다. 자세한 내용은 [온-프레미스 StorSimple 장치 배포](storsimple-deployment-walkthrough-u2.md)를 참조하세요.
 
 - StorSimple 스냅숏 관리자 설치 및 구성 자세한 내용은 [StorSimple 스냅숏 관리자 배포](storsimple-snapshot-manager-deployment.md)를 참조하세요.
 
@@ -271,4 +271,4 @@ StorSimple 스냅숏 관리자 **볼륨** 노드(**범위** 창)를 사용하여
 <!--Reference links-->
 [1]: https://msdn.microsoft.com/library/ee338480(v=ws.10).aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0511_2016-->

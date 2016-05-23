@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/02/2016"
+   ms.date="05/03/2016"
    ms.author="alkohli" />
 
 # StorSimple 관리자 서비스를 사용하여 StorSimple 가상 배열에 대한 액세스 제어 레코드 관리 
@@ -43,7 +43,7 @@ Windows Server 2012를 실행하는 Windows 호스트의 IQN을 가져오려면 
 
 StorSimple 관리자 서비스 **구성** 페이지를 사용하여 ACR을 추가합니다. 일반적으로 하나의 볼륨으로 하나의 ACR을 연결합니다.
 
-볼륨에 ACR을 연결하는 방법에 대한 정보는 [StorSimple 관리자 서비스를 사용하여 StorSimple 가상 배열의 볼륨 관리](storsimple-ova-manage-volumes)로 이동하세요.
+볼륨과 ACR을 연결하는 방법에 대한 정보는 [볼륨 추가](storsimple-ova-deploy3-iscsi-setup.md#step-3-add-a-volume)로 이동합니다.
 
 >[AZURE.IMPORTANT] 
 > 
@@ -114,4 +114,4 @@ Azure 클래식 포털의 **구성** 페이지에서 ACR을 삭제합니다.
 
 - [볼륨 추가 및 ACR 구성](storsimple-ova-deploy3-iscsi-setup.md#step-3-add-a-volume)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0511_2016-->

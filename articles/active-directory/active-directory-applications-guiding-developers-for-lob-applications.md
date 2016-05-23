@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="05/09/2016"
 	ms.author="kgremban"/>
 
-# Azure AD 및 응용 프로그램: 개발자 안내
-
-## 개요
+# Azure AD 및 응용 프로그램: LOB(기간 업무) 앱 개발
 
 이 가이드는 Azure Active Directory(AD)에 대한 LoB(기간 업무) 응용 프로그램 개발의 개요를 제공하고 Active Directory/Office 365 전역 관리자를 위해 구체적으로 기록됩니다.
+
+## 개요
 
 Azure AD와 통합된 응용 프로그램을 구축하면 조직의 사용자에게 Office 365를 사용하여 Single Sign-On을 제공합니다. Azure AD에 응용 프로그램이 있다면 응용 프로그램에 대한 인증 정책을 통한 제어를 제공합니다. 조건부 액세스 및 Multi-Factor Authentication(MFA)을 사용하여 앱을 보호하는 방법에 대한 자세한 내용은 [액세스 규칙 구성](active-directory-conditional-access-azuread-connected-apps.md) 문서를 참조하세요.
 
@@ -32,12 +32,12 @@ Azure Active Directory를 사용하기 위해 응용 프로그램을 등록해�
 
 - Azure AD가 인식하는 응용 프로그램에 ID 가져오기
 - 응용 프로그램에서 사용할 수 있는 하나 이상의 암호/키를 가져와서 AD에 자신을 인증
-- Azure 포털에서 이름, 로고 등으로 응용 프로그램 브랜딩
-- 앱에 대한 Azure AD 권한 부여 기능 활용
-  - 응용 프로그램 역할 기반 액세스 제어(RBAC)
+- Azure 포털에서 사용자 지정 이름, 로고 등으로 응용 프로그램 브랜딩
+- 다음을 포함하는 앱에 대한 Azure AD 권한 부여 기능 활용
+  - 역할 기반 액세스 제어(RBAC)
   - OAuth 권한 부여 서버인 Azure Active Directory(응용 프로그램에서 노출된 API 보호)
 
-- 응용 프로그램에 예상 대로 작동하는 데 필요한 사용 권한을 선언합니다. 다음과 같습니다.
+- 응용 프로그램에 예상 대로 작동하는 데 필요한 다음을 포함하는 사용 권한을 선언합니다.
 	  - 앱 사용 권한(전역 관리자만 해당) 예:
 	    - 다른 Azure AD 응용 프로그램에서 역할 멤버 자격 또는 Azure 리소스, 리소스 그룹 또는 구독에 상대적인 역할 멤버 자격
 	  - 위임된 권한(모든 사용자). 예:
@@ -55,9 +55,7 @@ Azure Active Directory를 사용하기 위해 응용 프로그램을 등록해�
 
 ## 액세스 규칙 구성
 
-앞에서 언급한 대로 응용 프로그램에 대한 액세스 규칙을 구성하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
-
-[액세스 규칙 구성](active-directory-conditional-access-azuread-connected-apps.md).
+SaaS 앱에 응용 프로그램별 액세스 규칙을 구성합니다. 여기에 MFA 요구나 신뢰할 수 있는 네트워크의 사용자에 대한 액세스 허용만 포함할 수 있습니다. 이에 대한 세부 정보는 [액세스 규칙 구성](active-directory-conditional-access-azuread-connected-apps.md) 문서에서 사용할 수 있습니다.
 
 ## 앱을 구성하여 사용자 할당 요구 및 사용자 할당
 
@@ -71,14 +69,17 @@ Azure AD Premium 또는 Enterprise Mobility Suite(EMS) 구독자인 경우 그�
 
 ## 사용자 동의 무시
 
-기본적으로 사용자는 로그인하기 위해 필요한 사용 권한에 동의해야 합니다. 응용 프로그램에 사용 권한을 부여하도록 요청하는 동의 환경은 그런 결정을 내리는 데 익숙하지 않은 사용자에게 혼란을 줄 수 있습니다.
+기본적으로 각 사용자는 로그인하기 위해 동의 환경을 통해 전달됩니다. 응용 프로그램에 사용 권한을 부여하도록 요청하는 동의 환경은 그런 결정을 내리는 데 익숙하지 않은 사용자에게 혼란을 줄 수 있습니다.
 
-신뢰하는 응용 프로그램의 경우 조직에서 모든 사용자를 대신하여 응용 프로그램에 동의할 수 있습니다.
+신뢰할 수 있는 응용 프로그램의 경우 조직을 대신하여 응용 프로그램에 동의하여 사용자 환경을 간소화할 수 있습니다.
 
 Azure에서 동의 및 동의 환경에 대한 자세한 내용은 [Azure Active Directory와 응용 프로그램 통합](active-directory-integrating-applications.md)을 참조하세요.
 
 ##관련 문서
 
+- [Azure AD 응용 프로그램 프록시를 사용하여 온-프레미스 응용 프로그램에 대한 보안 원격 액세스 사용](active-directory-application-proxy-get-started.md)
+- [Azure Conditional Access Preview for SaaS Apps](active-directory-conditional-access-azuread-connected-apps.md)
+- [Azure AD를 사용하는 앱에 대한 액세스 관리](active-directory-managing-access-to-apps.md)
 - [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

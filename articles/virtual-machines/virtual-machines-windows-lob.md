@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2016" 
+	ms.date="05/04/2016" 
 	ms.author="josephd"/>
 
 # Azure 인프라 서비스 워크로드: 고가용성 LOB(기간 업무) 응용 프로그램
@@ -52,7 +52,7 @@ Azure의 고가용성 LOB(기간 업무) 응용 프로그램에 대한 기본적
 이 구성은 다음으로 이루어집니다.
 
 - 웹과 데이터베이스 계층에 두 서버가 있는 인트라넷 전용 LOB(기간 업무) 응용 프로그램
-- SQL Server를 실행하는 두 가상 컴퓨터와, 한 클러스터에 다수 노드 컴퓨터가 있는 SQL Server AlwaysOn 구성
+- SQL Server를 실행하는 두 가상 컴퓨터와, 한 클러스터에 다수 노드 컴퓨터가 있는 SQL Server Always On 구성
 - 두 복제본 도메인 컨트롤러를 사용하는 가상 네트워크의 Active Directory 도메인 서비스
 
 LOB(기간 업무) 응용 프로그램 개요는 [LOB(기간 업무) 응용 프로그램 아키텍처 청사진](http://msdn.microsoft.com/dn630664)을 참조하세요.
@@ -75,9 +75,9 @@ LOB(기간 업무) 응용 프로그램 개요는 [LOB(기간 업무) 응용 프�
 
 	웹 서버 가상 컴퓨터를 만들어 LOB(기간 업무) 응용 프로그램을 배포합니다. 자세한 구성은 [4 단계](virtual-machines-windows-ps-lob-ph4.md)를 참조하세요.
 
-- 5단계: SQL Server AlwaysOn 가용성 그룹 구성
+- 5단계: SQL Server Always On 가용성 그룹 구성
 
-	응용 프로그램 데이터베이스를 준비하고, AlwaysOn 가용성 그룹을 만든 다음 해당 그룹에 응용 프로그램 데이터베이스를 추가합니다. 자세한 구성 단계는 [단계 5](virtual-machines-windows-ps-lob-ph5.md)를 참조하세요.
+	응용 프로그램 데이터베이스를 준비하고, Always On 가용성 그룹을 만든 다음 해당 그룹에 응용 프로그램 데이터베이스를 추가합니다. 자세한 구성 단계는 [단계 5](virtual-machines-windows-ps-lob-ph5.md)를 참조하세요.
 
 구성 후에는 SQL Server를 실행하는 다른 웹 서버나 가상 컴퓨터를 클러스터에 추가하여 간편하게 LOB(기간 업무) 응용 프로그램을 확장할 수 있습니다.
 
@@ -85,4 +85,4 @@ LOB(기간 업무) 응용 프로그램 개요는 [LOB(기간 업무) 응용 프�
 
 - 구성에 대해 자세히 알아보기 전에 프로덕션 워크로드의 [개요](virtual-machines-windows-lob-overview.md)를 확인합니다.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

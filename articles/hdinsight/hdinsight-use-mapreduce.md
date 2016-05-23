@@ -146,7 +146,7 @@ Azure Blob 저장소가 HDInsight의 기본 저장소이므로 **/example/data/g
 	  }
 	}
 
-고유한 MapReduce 작업을 작성하는 방법에 대한 지침은 [HDInsight용 Java MapReduce 프로그램 개발](hdinsight-develop-deploy-java-mapreduce.md)을 참조하세요.
+고유한 MapReduce 작업을 작성하는 방법에 대한 지침은 [HDInsight용 Java MapReduce 프로그램 개발](hdinsight-develop-deploy-java-mapreduce-linux.md)을 참조하세요.
 
 ##<a id="run"></a>MapReduce 실행
 
@@ -163,7 +163,7 @@ HDInsight는 다양한 메서드를 사용하여 HiveQL 작업을 실행할 수 
 
 MapReduce는 강력한 진단 기능을 제공하는 반면 익히기 어려울 수 있습니다. HDInsight에서 데이터로 작업하는 편리한 방법을 제공하는 Pig 및 Hive와 같은 기술 뿐만 아니라 MapReduce 응용 프로그램을 쉽게 정의할 수 있는 Java 기반 프레임 워크도 있습니다. 자세한 내용은 다음 문서를 참조하세요.
 
-* [HDInsight용 Java MapReduce 프로그램 개발](hdinsight-develop-deploy-java-mapreduce.md)
+* [HDInsight용 Java MapReduce 프로그램 개발](hdinsight-develop-deploy-java-mapreduce-linux.md)
 
 * [HDInsight용 Python 스트리밍 MapReduce 프로그램 개발](hdinsight-hadoop-streaming-python.md)
 
@@ -178,7 +178,7 @@ MapReduce는 강력한 진단 기능을 제공하는 반면 익히기 어려울 
 
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
-[hdinsight-develop-mapreduce-jobs]: hdinsight-develop-deploy-java-mapreduce.md
+[hdinsight-develop-mapreduce-jobs]: hdinsight-develop-deploy-java-mapreduce-linux.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-samples]: hdinsight-run-samples.md
@@ -188,4 +188,4 @@ MapReduce는 강력한 진단 기능을 제공하는 반면 익히기 어려울 
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

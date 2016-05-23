@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="05/05/2016"
 	ms.author="wesmc"/>
 
 # Xamarin.Forms 앱에 푸시 알림 추가
@@ -145,6 +145,9 @@
 		using Newtonsoft.Json.Linq;
 		using System.Text;
 		using System.Linq;
+		using Android.Support.V4.App;
+		using Android.Media;
+
 
 9. 파일의 맨 위에서 `using` 문 뒤의 `namespace` 선언 앞에 다음과 같은 사용 권한 요청을 추가합니다.
 
@@ -189,12 +192,9 @@
 		    Log.Verbose("PushHandlerBroadcastReceiver", "GCM Registered: " + registrationId);
 		    RegistrationID = registrationId;
 
-		    createNotification("GcmService Registered...", "The device has been Registered, Tap to View!");
-
             var push = TodoItemManager.DefaultManager.CurrentClient.GetPush();
 
 		    MainActivity.CurrentActivity.RunOnUiThread(() => Register(push, null));
-
 		}
 
         public async void Register(Microsoft.WindowsAzure.MobileServices.Push push, IEnumerable<string> tags)
@@ -206,7 +206,7 @@
                 JObject templates = new JObject();
                 templates["genericMessage"] = new JObject
                 {
-                  {"body", templateBodyGCM}
+                	{"body", templateBodyGCM}
                 };
 
                 await push.RegisterAsync(RegistrationID, templates);
@@ -256,28 +256,35 @@
 		    createNotification("Unknown message details", msg.ToString());
 		}
 
-		void createNotification(string title, string desc)
-		{
-		    //Create notification
-		    var notificationManager = GetSystemService(Context.NotificationService) as NotificationManager;
+        void createNotification(string title, string desc)
+        {
+            //Create notification
+            var notificationManager = GetSystemService(Context.NotificationService) as NotificationManager;
 
-		    //Create an intent to show ui
-		    var uiIntent = new Intent(this, typeof(MainActivity));
+            //Create an intent to show ui
+            var uiIntent = new Intent(this, typeof(MainActivity));
 
-		    //Create the notification
-		    var notification = new Notification(Android.Resource.Drawable.SymActionEmail, title);
+            //Use Notification Builder
+            NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
 
-		    //Auto cancel will remove the notification once the user touches it
-		    notification.Flags = NotificationFlags.AutoCancel;
+            //Create the notification
+            //we use the pending intent, passing our ui intent over which will get called
+            //when the notification is tapped.
+            var notification = builder.SetContentIntent(PendingIntent.GetActivity(this, 0, uiIntent, 0))
+                    .SetSmallIcon(Android.Resource.Drawable.SymActionEmail)
+                    .SetTicker(title)
+                    .SetContentTitle(title)
+                    .SetContentText(desc)
 
-		    //Set the notification info
-		    //we use the pending intent, passing our ui intent over which will get called
-		    //when the notification is tapped.
-		    notification.SetLatestEventInfo(this, title, desc, PendingIntent.GetActivity(this, 0, uiIntent, 0));
+                    //Set the notification sound
+                    .SetSound(RingtoneManager.GetDefaultUri(RingtoneType.Notification))
 
-		    //Show the notification
-		    notificationManager.Notify(1, notification);
-		}
+                    //Auto cancel will remove the notification once the user touches it
+                    .SetAutoCancel(true).Build();
+
+            //Show the notification
+            notificationManager.Notify(1, notification);
+        }
 
 14. 또한 수신기에 대해 `OnUnRegistered` 및 `OnError` 처리기를 구현해야 합니다.
 
@@ -297,13 +304,11 @@
 
 1. Visual Studio 또는 Xamarin Studio에서 **droid** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 클릭합니다.
 
-2. **실행** 단추를 눌러 프로젝트를 빌드하고 iOS 지원 장치에서 앱을 시작한 다음, **확인**을 클릭하여 푸시 알림을 수락합니다.
+2. **실행** 단추를 눌러 프로젝트를 빌드하고 Android 장치에서 앱을 시작합니다.
 
-	> [AZURE.NOTE] 앱에서 푸시 알림을 명시적으로 수락해야 합니다. 이 요청은 앱이 처음 실행될 때만 발생합니다.
+3. 앱에서 작업을 입력한 다음 더하기(**+**) 아이콘을 클릭합니다.
 
-2. 앱에서 작업을 입력한 다음 더하기(**+**) 아이콘을 클릭합니다.
-
-3. 알림이 수신되는지 확인하고, **확인**을 클릭하여 알림을 해제합니다.
+4. 항목이 추가될 때 알림을 받았는지 확인합니다.
 
 
 
@@ -405,7 +410,7 @@
 
 1. iOS 프로젝트를 마우스 오른쪽 단추로 누른 다음 **시작 프로젝트로 설정**을 클릭합니다.
 
-2. Visual Studio에서 **실행** 단추 또는 **F5** 키를 눌러 프로젝트를 빌드하고 iOS 지원 장치에서 앱을 시작한 다음, **확인**을 클릭하여 푸시 알림을 수락합니다.
+2. Visual Studio에서 **실행** 단추 또는 **F5** 키를 눌러 프로젝트를 빌드하고 iOS 장치에서 앱을 시작한 다음, **확인**을 클릭하여 푸시 알림을 수락합니다.
 
 	> [AZURE.NOTE] 앱에서 푸시 알림을 명시적으로 수락해야 합니다. 이 요청은 앱이 처음 실행될 때만 발생합니다.
 
@@ -437,9 +442,13 @@
 
 		using System.Threading.Tasks;
 		using Windows.Networking.PushNotifications;
-		using WesmcMobileAppGaTest;
 		using Microsoft.WindowsAzure.MobileServices;
 		using Newtonsoft.Json.Linq;
+
+	`TodoItemManager` 클래스를 포함하는 이식 가능한 프로젝트에서 네임스페이스에 대한 `using` 문을 추가합니다.
+
+		using <Your namespace for the TodoItemManager class>;
+ 
 
 2. App.xaml.cs에서 다음 `InitNotificationsAsync` 메서드를 추가합니다. 이 메서드는 푸시 알림 채널을 가져오고 알림 허브에서 템플릿 알림을 수신하기 위해 템플릿을 등록합니다. `messageParam`를 지원하는 템플릿 알림이 이 클라이언트에 전달됩니다.
 
@@ -455,15 +464,15 @@
 
             JObject templates = new JObject();
             templates["genericMessage"] = new JObject
-                {
-                  {"body", templateBodyWNS},
-                  {"headers", headers} // Only needed for WNS & MPNS
-                };
+			{
+				{"body", templateBodyWNS},
+				{"headers", headers} // Only needed for WNS & MPNS
+			};
 
             await TodoItemManager.DefaultManager.CurrentClient.GetPush().RegisterAsync(channel.Uri, templates);
         }
 
-3. App.xaml.cs에서 `async` 특성으로 `OnLaunched` 이벤트 처리기를 업데이트하고 `InitNotificationsAsync`을 호출합니다.
+3. App.xaml.cs에서 `async` 특성으로 `OnLaunched` 이벤트 처리기를 업데이트하고 메서드 맨 아래의 `InitNotificationsAsync`에 호출을 추가합니다.
 
         protected async override void OnLaunched(LaunchActivatedEventArgs e)
         {
@@ -510,13 +519,11 @@
 1. Visual Studio에서 **WinApp** 프로젝트를 마우스 오른쪽 단추로 누른 다음 **시작 프로젝트로 설정**을 클릭합니다.
 
 
-2. **실행** 단추를 눌러 프로젝트를 빌드하고 iOS 지원 장치에서 앱을 시작한 다음, **확인**을 클릭하여 푸시 알림을 수락합니다.
+2. **실행** 단추를 눌러 프로젝트를 빌드하고 앱을 시작합니다.
 
-	> [AZURE.NOTE] 앱에서 푸시 알림을 명시적으로 수락해야 합니다. 이 요청은 앱이 처음 실행될 때만 발생합니다.
+3. 앱에서 새 todoitem에 대한 이름을 입력한 다음 더하기(**+**) 아이콘을 클릭하여 추가합니다.
 
-3. 앱에서 작업을 입력한 다음 더하기(**+**) 아이콘을 클릭합니다.
-
-4. 알림이 수신되는지 확인하고, **확인**을 클릭하여 알림을 해제합니다.
+4. 항목이 추가될 때 알림을 받았는지 확인합니다.
 
 
 
@@ -527,4 +534,4 @@
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

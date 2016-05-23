@@ -1,6 +1,6 @@
 <properties
-	pageTitle="AlwaysOn 가용성 그룹 구성(GUI) | Microsoft Azure"
-	description="Azure 가상 컴퓨터로 AlwaysOn 가용성 그룹을 만듭니다. 이 자습서에서는 스크립트보다는 사용자 인터페이스 및 도구를 주로 사용합니다."
+	pageTitle="Always On 가용성 그룹 구성(GUI) | Microsoft Azure"
+	description="Azure 가상 컴퓨터로 Always On 가용성 그룹을 만듭니다. 이 자습서에서는 스크립트보다는 사용자 인터페이스 및 도구를 주로 사용합니다."
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="MikeRayMSFT"
@@ -13,10 +13,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/22/2016"
+	ms.date="05/04/2016"
 	ms.author="mikeray" />
 
-# Azure VM의 AlwaysOn 가용성 그룹 구성(GUI)
+# Azure VM의 Always On 가용성 그룹 구성(GUI)
 
 > [AZURE.SELECTOR]
 - [포털](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
@@ -27,11 +27,11 @@
 > [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
 
 
-이 종단 간 자습서에서는 Azure 가상 컴퓨터에서 실행되는 SQL Server AlwaysOn을 사용하여 가용성 그룹을 구현하는 방법을 보여줍니다.
+이 종단 간 자습서에서는 Azure 가상 컴퓨터에서 실행되는 SQL Server Always On을 사용하여 가용성 그룹을 구현하는 방법을 보여줍니다.
 
->[AZURE.NOTE] Azure 관리 포털에는 수신기와 함께 AlwaysOn 가용성 그룹을 위한 새로운 갤러리 설치가 있습니다. 설치 시 AlwaysOn 가용성 그룹에 필요한 모든 항목이 자동으로 구성됩니다. 자세한 내용은 [Microsoft Azure 클래식 포털 갤러리의 SQL Server AlwaysOn 제품](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx)을 참조하세요. PowerShell을 사용하려면 [PowerShell을 사용하여 Azure에서 AlwaysOn 가용성 그룹 구성](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)에서 동일한 시나리오의 자습서를 참조하세요.
+>[AZURE.NOTE] Azure 관리 포털에는 수신기와 함께 Always On 가용성 그룹을 위한 새로운 갤러리 설치가 있습니다. 이것은 Always On 가용성 그룹에 필요한 모든 항목을 자동으로 구성합니다. 자세한 내용은 [Microsoft Azure 클래식 포털 갤러리의 SQL Server Always On 제품](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx)을 참조하세요. PowerShell을 사용하려면 [PowerShell을 사용하여 Azure에서 Always On 가용성 그룹 구성](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)에서 동일한 시나리오의 자습서를 참조하세요.
 
-자습서 마지막에서 Azure의 SQL Server AlwaysOn 솔루션은 다음 요소로 구성됩니다.
+자습서 마지막에서 Azure의 SQL Server Always On 솔루션은 다음 요소로 구성됩니다.
 
 - 프런트 엔드 및 백 엔드 서브넷을 비롯한 여러 서브넷을 포함하는 가상 네트워크
 
@@ -55,9 +55,9 @@
 
 - GUI를 사용하여 가상 컴퓨터 갤러리에서 클래식 SQL Server VM을 프로비전하는 방법을 이미 알고 있습니다.
 
-- AlwaysOn 가용성 그룹을 확실하게 이해하고 있습니다. 자세한 내용은 [AlwaysOn 가용성 그룹(SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx)을 참조하세요.
+- Always On 가용성 그룹을 확실하게 이해하고 있습니다. 자세한 내용은 [Always On 가용성 그룹(SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx)을 참조하세요.
 
->[AZURE.NOTE] SharePoint와 AlwaysOn 가용성 그룹을 사용하는 것에 관심이 있는 경우 [SharePoint 2013에 대해 SQL Server 2012 AlwaysOn 가용성 그룹 구성](https://technet.microsoft.com/library/jj715261.aspx)을 참조하세요.
+>[AZURE.NOTE] SharePoint와 Always On 가용성 그룹을 사용하는 것에 관심이 있는 경우 [SharePoint 2013에 대해 SQL Server 2012 Always On 가용성 그룹 구성](https://technet.microsoft.com/library/jj715261.aspx)을 참조하세요.
 
 ## 가상 네트워크 및 도메인 컨트롤러 서버 만들기
 
@@ -367,7 +367,7 @@ SQL Server VM이 프로비전되어 실행 중이지만 기본 옵션으로 SQL 
 
 - SQL Server의 원격 액세스를 위한 방화벽 열기
 
-- AlwaysOn 가용성 그룹 기능 사용
+- Always On 가용성 그룹 기능 사용
 
 - SQL Server 서비스 계정을 **CORP\\SQLSvc1** 및 **CORP\\SQLSvc2**로 각각 변경
 
@@ -413,13 +413,13 @@ SQL Server VM이 프로비전되어 실행 중이지만 기본 옵션으로 SQL 
 
 1. **이름** 페이지에서 **이름** 텍스트 상자에 **SQL Server(프로그램 규칙)**와 같은 규칙 이름을 지정하고 **마침**을 클릭합니다.
 
-1. 다음으로, **AlwaysOn 가용성 그룹** 기능을 사용하도록 설정합니다. **시작** 화면에서 **SQL Server 구성 관리자**를 시작합니다.
+1. 다음으로, **Always On 가용성 그룹** 기능을 사용하도록 설정합니다. **시작** 화면에서 **SQL Server 구성 관리자**를 시작합니다.
 
 1. 브라우저 트리에서 **SQL Server 서비스**를 클릭하고 **SQL Server(MSSQLSERVER)** 서비스를 마우스 오른쪽 단추로 클릭한 다음 **속성**을 클릭합니다.
 
-1. **AlwaysOn 고가용성** 탭을 클릭한 후 **AlwaysOn 가용성 그룹 사용**을 선택한 후에 아래와 같이 **적용**을 클릭합니다. 팝업 대화 상자에서 **확인**을 클릭하고 아직 속성 창을 닫지 마세요. 서비스 계정을 변경한 후에 SQL Server 서비스를 다시 시작합니다.
+1. **Always On 고가용성** 탭을 클릭한 후 **Always On 가용성 그룹 사용**을 선택한 후에 아래와 같이 **적용**을 클릭합니다. 팝업 대화 상자에서 **확인**을 클릭하고 아직 속성 창을 닫지 마세요. 서비스 계정을 변경한 후에 SQL Server 서비스를 다시 시작합니다.
 
-	![AlwaysOn 가용성 그룹 사용](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665520.gif)
+	![Always On 가용성 그룹 사용](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665520.gif)
 
 1. 다음으로, SQL Server 서비스 계정을 변경합니다. **로그온** 탭을 클릭한 후 **계정 이름**에 **CORP\\SQLSvc1**(**ContosoSQL1**인 경우) 또는 **CORP\\SQLSvc2**(**ContosoSQL2**인 경우)를 입력한 후 암호를 입력 및 확인한 후 **확인**을 클릭합니다.
 
@@ -491,7 +491,7 @@ SQL Server VM이 프로비전되어 실행 중이지만 기본 옵션으로 SQL 
 
 ### 가용성 그룹 만들기:
 
-1. **ContosoSQL1**에 대한 원격 데스크톱 세션으로 돌아갑니다. SSMS의 **개체 탐색기**에서 **AlwaysOn 고가용성**을 마우스 오른쪽 단추로 클릭하고 아래와 같이 **새 가용성 그룹 마법사**를 클릭합니다.
+1. **ContosoSQL1**에 대한 원격 데스크톱 세션으로 돌아갑니다. SSMS의 **개체 탐색기**에서 **Always On 고가용성**을 마우스 오른쪽 단추로 클릭하고 아래와 같이 **새 가용성 그룹 마법사**를 클릭합니다.
 
 	![새 가용성 그룹 마법사 시작](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665523.gif)
 
@@ -519,7 +519,7 @@ SQL Server VM이 프로비전되어 실행 중이지만 기본 옵션으로 SQL 
 
 	![새 AG 마법사, 초기 데이터 동기화 선택](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665529.gif)
 
-1. **유효성 검사** 페이지에서 **다음**을 클릭합니다. 이 페이지는 다음과 유사하게 표시되어야 합니다. 가용성 그룹 수신기가 구성되어 있지 않으므로 수신기 구성에 대한 경고가 표시됩니다. 이 자습서에서는 수신기를 구성하지 않으므로 이 경고를 무시해도 됩니다. 이 자습서를 완료한 후 수신기를 구성하려면 [Azure에서 AlwaysOn 가용성 그룹을 위해 ILB 수신기 구성](virtual-machines-windows-classic-ps-sql-int-listener.md)을 참조하세요.
+1. **유효성 검사** 페이지에서 **다음**을 클릭합니다. 이 페이지는 다음과 유사하게 표시되어야 합니다. 가용성 그룹 수신기가 구성되어 있지 않으므로 수신기 구성에 대한 경고가 표시됩니다. 이 자습서에서는 수신기를 구성하지 않으므로 이 경고를 무시해도 됩니다. 이 자습서를 완료한 후 수신기를 구성하려면 [Azure에서 Always On 가용성 그룹을 위해 ILB 수신기 구성](virtual-machines-windows-classic-ps-sql-int-listener.md)을 참조하세요.
 
 	![새 AG 마법사, 유효성 검사](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665530.gif)
 
@@ -527,11 +527,11 @@ SQL Server VM이 프로비전되어 실행 중이지만 기본 옵션으로 SQL 
 
 	![새 AG 마법사, 결과](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665531.gif)
 
-1. **개체 탐색기**에서 **AlwaysOn 고가용성**을 확장하고 **가용성 그룹**을 확장합니다. 이 컨테이너에 새 가용성 그룹이 표시됩니다. **AG1(기본)**을 마우스 오른쪽 단추로 클릭하고 **대시보드 표시**를 클릭합니다.
+1. **개체 탐색기**에서 **Always On 고가용성**을 확장하고 **가용성 그룹**을 확장합니다. 이 컨테이너에 새 가용성 그룹이 표시됩니다. **AG1(기본)**을 마우스 오른쪽 단추로 클릭하고 **대시보드 표시**를 클릭합니다.
 
 	![AG 대시보드 표시](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665532.gif)
 
-1. **AlwaysOn 대시보드**는 다음과 유사하게 표시되어야 합니다. 복제본, 각 복제본의 장애 조치(failover) 모드 및 동기화 상태를 볼 수 있습니다.
+1. **Always On 대시보드**는 다음과 유사하게 표시되어야 합니다. 복제본, 각 복제본의 장애 조치(failover) 모드 및 동기화 상태를 볼 수 있습니다.
 
 	![AG 대시보드](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665533.gif)
 
@@ -541,11 +541,11 @@ SQL Server VM이 프로비전되어 실행 중이지만 기본 옵션으로 SQL 
 
 	![장애 조치(Failover) 클러스터 관리자에서 AG](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665534.gif)
 
->[AZURE.WARNING] 장애 조치(Failover) 클러스터 관리자에서 가용성 그룹으로 장애 조치를 시도하지 마세요. 모든 장애 조치(Failover) 작업은 SSMS의 **AlwaysOn 대시보드**에서 수행해야 합니다. 자세한 내용은 [가용성 그룹에서 WSFC 장애 조치(Failover) 클러스터 관리자 사용에 대한 제한 사항](https://msdn.microsoft.com/library/ff929171.aspx)을 참조하세요.
+>[AZURE.WARNING] 장애 조치(Failover) 클러스터 관리자에서 가용성 그룹으로 장애 조치를 시도하지 마세요. 모든 장애 조치(Failover) 작업은 SSMS의 **Always On 대시보드**에서 수행해야 합니다. 자세한 내용은 [가용성 그룹에서 WSFC 장애 조치(Failover) 클러스터 관리자 사용에 대한 제한 사항](https://msdn.microsoft.com/library/ff929171.aspx)을 참조하세요.
 
 ## 다음 단계
-이제 Azure에서 가용성 그룹을 만들어 SQL Server AlwaysOn을 성공적으로 구현했습니다. 이 가용성 그룹에 대한 수신기를 구성하려면 [Azure에서 AlwaysOn 가용성 그룹에 대한 ILB 수신기 구성](virtual-machines-windows-classic-ps-sql-int-listener.md)을 참조하세요.
+이제 Azure에서 가용성 그룹을 만들어 SQL Server Always On을 성공적으로 구현했습니다. 이 가용성 그룹에 대한 수신기를 구성하려면 [Azure에서 Always On 가용성 그룹에 대한 ILB 수신기 구성](virtual-machines-windows-classic-ps-sql-int-listener.md)을 참조하세요.
 
 Azure에서 SQL Server를 사용하는 방법에 대한 기타 정보는 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

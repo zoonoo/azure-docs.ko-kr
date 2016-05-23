@@ -1,17 +1,17 @@
 
-## Start your PowerShell session
+## PowerShell 세션 시작
 
-First you need to have [Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx) (1.0 or later) installed and running. For detailed information, see [How to install and configure Azure PowerShell](../articles/powershell-install-configure.md).
-
-
->[AZURE.NOTE] Many new features of SQL Database are only supported using the [Azure Resource Manager (ARM) deployment model](../articles/resource-group-overview.md) so examples use ARM based [Azure SQL Database PowerShell cmdlets](https://msdn.microsoft.com/library/azure/mt574084.aspx). The existing classic deployment model [Azure SQL Database (classic) cmdlets](https://msdn.microsoft.com/library/azure/dn546723.aspx) are supported for backward compatibility, but using the ARM based cmdlets are recommended. 
+우선 [Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx) 1.0 이상을 설치하고 실행해야 합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](../articles/powershell-install-configure.md)을 참조하세요.
 
 
-Run the [**Add-AzureRmAccount**](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet and you will be presented with a sign in screen to enter your credentials. Use the same credentials that you use to sign in to the Azure portal.
+>[AZURE.NOTE] SQL 데이터베이스의 여러 새로운 기능은 [ARM(Azure Resource Manager) 배포 모델](../articles/resource-group-overview.md)을 사용하여 지원되므로 예제는 ARM 기반 [Azure SQL 데이터베이스 PowerShell cmdlet](https://msdn.microsoft.com/library/azure/mt574084.aspx)을 사용합니다. 이전 버전과 호환성을 위해 기존 클래식 배포 모델 [Azure SQL 데이터베이스(클래식) cmdlet](https://msdn.microsoft.com/library/azure/dn546723.aspx)이 지원되지만 ARM 기반 cmdlet을 사용하는 것이 좋습니다.
+
+
+[**Add-AzureRmAccount**](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet을 실행하면 자격 증명을 입력할 수 있는 로그인 화면이 나타납니다. Azure 포털에 로그인하는 데 사용하는 동일한 자격 증명을 사용합니다.
 
 	Add-AzureRmAccount
 
-If you have multiple subscriptions use the [**Set-AzureRmContext**](https://msdn.microsoft.com/library/mt619263.aspx) cmdlet to select which subscription your PowerShell session should use. To see what subscription the current PowerShell session is using, run [**Get-AzureRmContext**](https://msdn.microsoft.com/library/mt619265.aspx). To see all your subscriptions, run [**Get-AzureRmSubscription**](https://msdn.microsoft.com/library/mt619284.aspx).
+여러 구독에서 [**Set-AzureRmContext**](https://msdn.microsoft.com/library/mt619263.aspx) cmdlet을 사용하는 경우 PowerShell 세션이 사용해야 하는 구독을 선택합니다. 현재 PowerShell 세션이 사용 중인 구독을 보려면 [**Get-AzureRmContext**](https://msdn.microsoft.com/library/mt619265.aspx)를 실행합니다. 모든 구독을 보려면 [**Get-AzureRmSubscription**](https://msdn.microsoft.com/library/mt619284.aspx)을 실행합니다.
 
 	Set-AzureRmContext -SubscriptionId '4cac86b0-1e56-bbbb-aaaa-000000000000'
 
