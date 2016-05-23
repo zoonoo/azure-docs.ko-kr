@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="04/20/2016"
 	ms.author="curtand;jeffsta"/>
 
 # 사용자 지정 도메인에 사용자 할당
@@ -56,10 +56,10 @@ Azure Active Directory에 사용자 지정 도메인을 추가한 후에 인증�
 
 ## 다음 단계
 
-- [사용자 지정 도메인 이름을 사용하여 사용자의 로그인 환경 간소화](active-directory-add-domain.md)
-- [로그인 및 액세스 패널 페이지에 회사 브랜딩 추가하기](active-directory-add-company-branding.md)
-- [Azure Active Directory에서 사용자 지정 도메인 이름 추가 및 확인](active-directory-add-domain-add-verify-general.md)
-- [사용자 지정 도메인 이름의 DNS 등록 기관 변경](active-directory-add-domain-change-registrar.md)
-- [Azure Active Directory에서 사용자 지정 도메인 삭제](active-directory-add-domain-delete-domain.md)
+-   [사용자 지정 도메인 이름을 사용하여 사용자의 로그인 환경 간소화](active-directory-add-domain.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+-   [사용자 지정 도메인 이름 관리](active-directory-add-manage-domain-names.md)
+
+-   [Azure AD에서 도메인 관리 개념 알아보기](active-directory-add-domain-concepts.md)
+
+<!---HONumber=AcomDC_0511_2016-->

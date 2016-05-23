@@ -1,5 +1,5 @@
 <properties
-	pageTitle="탄력적 데이터베이스 작업 만들기 및 관리 | Micosoft Azure"
+	pageTitle="규모가 확장된 SQL Azure 데이터베이스 만들기 및 관리 | Micosoft Azure"
 	description="탄력적 데이터베이스 작업 만들기 및 관리 과정을 단계별로 안내합니다."
 	services="sql-database"
 	documentationCenter=""
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="04/25/2016"
 	ms.author="ddove; sidneyh"/>
 
-# 포털을 사용하여 SQL 데이터베이스 탄력적 작업 만들기 및 관리(미리 보기)
+# 규모가 확장된 SQL Azure 데이터베이스 만들기 및 관리(미리 보기)
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-elastic-jobs-create-and-manage.md)
+- [Azure 포털](sql-database-elastic-jobs-create-and-manage.md)
 - [PowerShell](sql-database-elastic-jobs-powershell.md)
 
 
@@ -115,4 +115,4 @@
 
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0511_2016-->

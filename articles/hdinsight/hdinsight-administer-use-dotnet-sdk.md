@@ -36,7 +36,8 @@
 다음 NuGet 패키지를 설치해야 합니다.
 
 	Install-Package Microsoft.Azure.Common.Authentication -Pre
-	Install-Package Microsoft.Azure.Management.HDInsight -Pre
+	Install-Package Microsoft.Azure.Management.ResourceManager -Pre
+	Install-Package Microsoft.Azure.Management.HDInsight
 
 다음 코드 샘플은 Azure 구독에서 HDInsight 클러스터를 관리할 수 있기 전에 Azure에 연결하는 방법을 보여 줍니다.
 
@@ -48,6 +49,7 @@
 	using Microsoft.Azure.Common.Authentication.Models;
 	using Microsoft.Azure.Management.HDInsight;
 	using Microsoft.Azure.Management.HDInsight.Models;
+	using Microsoft.Azure.Management.ResourceManager;
 
 	namespace HDInsightManagement
 	{
@@ -60,6 +62,10 @@
 			{
 				var tokenCreds = GetTokenCloudCredentials();
 				var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
+				
+				var svcClientCreds = new TokenCredentials(tokenCreds.Token); 
+				var resourceManagementClient = new ResourceManagementClient(svcClientCreds);
+				var rpResult = resourceManagementClient.Providers.Register("Microsoft.HDInsight");
 
 				_hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
 
@@ -273,4 +279,4 @@ HDInsight 클러스터에는 다음과 같은 HTTP 웹 서비스가 있습니다
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-flight]: hdinsight-analyze-flight-delay-data.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

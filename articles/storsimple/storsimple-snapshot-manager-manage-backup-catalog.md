@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,14 +12,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/28/2015"
+   ms.date="04/26/2016"
    ms.author="v-sharos" />
 
 # StorSimple 스냅숏 관리자를 사용하여 백업 카탈로그 관리
 
 ## 개요
 
-StorSimple 스냅숏 관리자의 기본 기능은 Azure StorSimple 볼륨의 응용 프로그램 일치 백업 복사본을 스냅숏의 형태로 만들 수 있도록 하는 것입니다. 스냅숏은 *백업 카탈로그*라는 XML 파일에 나열됩니다. 백업 카탈로그는 볼륨 그룹별로 스냅숏을 구성한 다음 로컬 스냅숏 또는 클라우드 스냅숏별로 구성합니다.
+StorSimple Snapshot Manager의 기본 기능은 StorSimple 볼륨의 응용 프로그램과 일치하는 백업 복사본을 스냅숏의 형태로 만들 수 있도록 하는 것입니다. 스냅숏은 *백업 카탈로그*라는 XML 파일에 나열됩니다. 백업 카탈로그는 볼륨 그룹별로 스냅숏을 구성한 다음 로컬 스냅숏 또는 클라우드 스냅숏별로 구성합니다.
+
+이 자습서에서는 **백업 카탈로그** 노드를 사용하여 다음 작업을 완료하는 방법을 설명합니다.
+
+- 볼륨 복원 
+- 볼륨 또는 볼륨 그룹 복제 
+- 백업 삭제 
+- 파일 복구
+- StorSimple 스냅숏 관리자 데이터베이스 복원
 
 **범위** 창에서 **백업 카탈로그** 노드를 확장한 후 볼륨 그룹을 확장하면 백업 카탈로그를 볼 수 있습니다.
 
@@ -33,7 +41,7 @@ StorSimple 스냅숏 관리자의 기본 기능은 Azure StorSimple 볼륨의 �
 
     - **소유자** – 콘텐츠 소유자.
 
-    - **사용 가능** – 스냅숏을 현재 사용할 수 있는지 여부. True이면 스냅숏을 사용할 수 있고 복원 가능합니다. False이면 스냅숏을 더 이상 사용할 수 없습니다.
+    - **사용 가능** – 스냅숏을 현재 사용할 수 있는지 여부. **True**이면 스냅숏을 사용할 수 있고 복원 가능합니다. **False**이면 스냅숏을 더 이상 사용할 수 없습니다.
 
     - **가져옴** – 백업을 가져왔는지 여부. **True**이면 StorSimple 스냅숏 관리자에서 장치를 구성했을 때 백업을 StorSimple 관리자 서비스에서 가져왔습니다. **False**이면 백업을 가져오지 않았지만 StorSimple 스냅숏 관리자에서는 만들었습니다. (가져온 볼륨 그룹에는 해당 볼륨 그룹을 가져온 원본 장치를 식별하는 접미사가 추가되므로 쉽게 식별할 수 있습니다.)
 
@@ -49,13 +57,6 @@ StorSimple 스냅숏 관리자의 기본 기능은 Azure StorSimple 볼륨의 �
 
     - **사용 가능** – 스냅숏을 현재 사용할 수 있는지 여부. **True**이면 스냅숏을 사용할 수 있고 복원 가능합니다. **False**이면 스냅숏을 더 이상 사용할 수 없습니다.
 
-이 자습서에서는 **백업 카탈로그** 노드를 사용하여 다음 작업을 완료하는 방법을 설명합니다.
-
-- 볼륨 복원 
-- 볼륨 또는 볼륨 그룹 복제 
-- 백업 삭제 
-- 파일 복구
-- StorSimple 스냅숏 관리자 데이터베이스 복원
 
 ## 볼륨 복원
 
@@ -69,7 +70,7 @@ StorSimple 스냅숏 관리자는 예비 백업이 생성되는 동안 다음 �
 
 ![자동 스냅숏 메시지](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Automatic_snap.png)
 
->[AZURE.IMPORTANT]볼륨 그룹에 속해 있는 볼륨은 삭제할 수 없습니다. 삭제 옵션을 사용할 수 없습니다.<br>
+>[AZURE.IMPORTANT] 볼륨 그룹에 속해 있는 볼륨은 삭제할 수 없습니다. 삭제 옵션을 사용할 수 없습니다.<br>
 
 #### 볼륨을 복원하려면
 
@@ -117,7 +118,7 @@ StorSimple 스냅숏 관리자는 예비 백업이 생성되는 동안 다음 �
 
 다음 절차를 사용하여 백업 카탈로그에서 스냅숏을 삭제합니다.
 
->[AZURE.NOTE]스냅숏을 삭제하면 스냅숏에 연결된 백업된 데이터도 삭제됩니다. 그러나 클라우드에서 데이터를 정리하는 과정에는 시간이 좀 걸릴 수 있습니다.<br>
+>[AZURE.NOTE] 스냅숏을 삭제하면 스냅숏에 연결된 백업된 데이터도 삭제됩니다. 그러나 클라우드에서 데이터를 정리하는 과정에는 시간이 좀 걸릴 수 있습니다.<br>
  
 #### 백업을 삭제하려면
 
@@ -183,7 +184,7 @@ StorSimple 스냅숏 관리자는 예비 백업이 생성되는 동안 다음 �
 
 2. 호스트 컴퓨터에서 C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog로 이동합니다.
 
-    >[AZURE.NOTE]ProgramData는 숨겨진 폴더입니다.
+    >[AZURE.NOTE] ProgramData는 숨겨진 폴더입니다.
  
 3. 카탈로그 XML 파일을 찾아 파일을 복사하고 안전한 위치 또는 클라우드에 복사본을 저장합니다. 호스트에서 오류가 발생하는 경우 이 백업 파일을 사용하여 StorSimple 스냅숏 관리자에서 만든 백업 정책을 복구할 수 있도록 도움을 줄 수 있습니다.
 
@@ -208,4 +209,4 @@ StorSimple 스냅숏 관리자는 예비 백업이 생성되는 동안 다음 �
 - [StorSimple 스냅숏 관리자를 사용하여 StorSimple 솔루션을 관리](storsimple-snapshot-manager-admin.md)하는 방법을 자세히 알아봅니다.
 - [StorSimple 스냅숏 관리자 작업 및 워크플로](storsimple-snapshot-manager-admin.md#storsimple-snapshot-manager-tasks-and-workflows)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0511_2016-->

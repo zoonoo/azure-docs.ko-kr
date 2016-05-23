@@ -14,7 +14,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/23/2016"
+ms.date="05/10/2016"
 ms.author="mandia"/>
 
 # Twilio API 시작
@@ -248,4 +248,4 @@ Twilio API에는 다음 작업이 포함됩니다. 트리거는 없습니다.
 ## 다음 단계
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

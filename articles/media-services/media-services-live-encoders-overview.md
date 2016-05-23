@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="온-프레미스 라이브 인코더 구성" 
+	pageTitle="Azure 미디어 서비스를 사용할 때 온-프레미스 인코더를 구성하여 다중 비트 전송률 스트림을 만드는 방법" 
 	description="이 항목에서는 추가 처리를 위해 라이브 이벤트를 캡처하고 단일 비트 전송률 라이브 스트림을 AMS 채널(라이브 인코딩 사용)로 보내는데 사용할 수 있는 온-프레미스 라이브 인코더를 나열합니다. 항목은 나열된 인코더를 구성하는 방법을 보여 주는 자습서에 연결합니다." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016"
+	ms.date="05/05/2016"
 	ms.author="juliako"/>
 
 
 
-#온-프레미스 라이브 인코더 구성
+#Azure 미디어 서비스를 사용할 때 온-프레미스 인코더를 구성하여 다중 비트 전송률 스트림을 만드는 방법
 
 이 항목에서는 추가 처리를 위해 라이브 이벤트를 캡처하고 단일 비트 전송률 라이브 스트림을 AMS 채널(라이브 인코딩 사용)로 보내는데 사용할 수 있는 온-프레미스 라이브 인코더를 나열합니다. 또한 나열된 인코더를 구성하는 방법을 보여 주는 자습서에 연결합니다.
 
@@ -51,6 +51,6 @@
 
 ## 참고 항목
 
-[Azure 미디어 서비스를 사용하여 라이브 인코딩을 수행할 수 있는 채널 작업](media-services-manage-live-encoder-enabled-channels.md)
+[Azure 미디어 서비스를 사용하여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍](media-services-manage-live-encoder-enabled-channels.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

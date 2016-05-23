@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-android"
     ms.devlang="dotnet"
     ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="05/05/2016"
     ms.author="wesmc"/>
 
 # Xamarin.Android 모바일 앱에 대해 오프라인 동기화 사용
@@ -123,7 +123,7 @@
 
 5. (선택 사항) Azure SQL 데이터베이스 테이블을 보는 Visual Studio를 사용하여 백 엔드 데이터베이스에서 데이터가 변경되지 않았음을 확인합니다.
 
-   Visual Studio에서 **서버 탐색기**를 엽니다. **Azure**->**SQL 데이터베이스**에 있는 데이터베이스로 이동합니다. 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **SQL Server 개체 탐색기에서 열기**를 선택합니다. 이제 SQL 데이터베이스 테이블 및 콘텐츠를 찾아볼 수 있습니다.
+   	Visual Studio에서 **서버 탐색기**를 엽니다. **Azure**->**SQL 데이터베이스**에 있는 데이터베이스로 이동합니다. 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **SQL Server 개체 탐색기에서 열기**를 선택합니다. 이제 SQL 데이터베이스 테이블 및 콘텐츠를 찾아볼 수 있습니다.
 
 6. (선택 사항) Fiddle 또는 Postman과 같은 REST 도구를 사용하여 모바일 백 엔드를 쿼리하는데에 `https://your-mobile-app-backend-name.azurewebsites.net/tables/TodoItem` 양식의 GET 쿼리를 사용합니다.
 
@@ -132,7 +132,7 @@
 
 이 섹션에서는 앱을 모바일 백 엔드에 다시 연결하여 다시 온라인 상태로 전환되는 앱을 시뮬레이트합니다. 새로 고침 제스처를 수행하면 데이터가 모바일 백 엔드에 동기화됩니다.
 
-1. `ToDoActivity.cs`를 엽니다. 올바른 URL을 가리키도록 `applicationURL`를 수정합니다.
+1. `ToDoActivity.cs`을(를) 엽니다. 올바른 URL을 가리키도록 `applicationURL`를 수정합니다.
 
 2. 앱을 다시 빌드하고 실행합니다. 앱을 시작한 후에 Azure 모바일 앱 백 엔드와 동기화하려고 합니다. 예외 대화 상자를 만들지 않았는지를 확인합니다.
 
@@ -170,4 +170,4 @@
 
 [Cloud Cover: Azure 모바일 서비스에서 오프라인 동기화]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

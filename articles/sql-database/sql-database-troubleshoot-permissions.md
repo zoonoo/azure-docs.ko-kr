@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure SQL 데이터베이스 권한 및 액세스 문제 해결"
-	description="일반적인 권한, 액세스, 사용자 및 로그인 문제를 해결하는 빠른 단계"
+	pageTitle="Azure SQL 데이터베이스의 일반 관리 작업을 수행하는 방법"
+	description="일반 관리 작업을 수행하는 방법을 설명합니다."
 	services="sql-database"
 	documentationCenter=""
 	authors="v-shysun"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/28/2016"
+	ms.date="05/04/2016"
 	ms.author="v-shysun"/>
 
-#일반적인 Azure SQL 데이터베이스 권한 및 액세스 문제 해결
+# Azure SQL 데이터베이스의 일반 관리 작업을 수행하는 방법
 이 항목을 통해 Azure SQL 데이터베이스에 대한 액세스 권한을 신속하게 부여 및 제거하는 방법을 알아보세요. 자세한 내용은 다음 항목을 참조하세요.
 
 - [Azure SQL 데이터베이스에서 데이터베이스 및 로그인 관리](sql-database-manage-logins.md)
@@ -37,4 +37,4 @@
 ## 가상 마스터 데이터베이스에서 권한이 높은 사용자에 대한 추가 로그인을 만들려면
 [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) 문을 사용하세요. 자세한 내용은 [Azure SQL 데이터베이스에서 데이터베이스 및 로그인 관리](sql-database-manage-logins.md)의 로그인 관리 섹션을 참조하세요.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0511_2016-->

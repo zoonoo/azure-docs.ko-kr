@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/19/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Azure 응용 프로그램 게시 마법사
@@ -29,7 +29,7 @@ Azure에 웹 응용 프로그램을 게시하기 전에 Azure 구독과 Microsof
 
 1. Microsoft 계정과 Azure 구독을 가져옵니다. 1개월 무료 Azure 구독을 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 시도할 수 있습니다.
 
-1. Azure에서 클라우드 서비스 및 저장소 계정을 만듭니다. Visual Studio의 서버 탐색기에서 또는 [Azure 관리 포털](http://go.microsoft.com/fwlink/?LinkID=213885)을 사용하여 수행할 수 있습니다.
+1. Azure에서 클라우드 서비스 및 저장소 계정을 만듭니다. Visual Studio의 서버 탐색기에서 또는 [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)을 사용하여 수행할 수 있습니다.
 
 1. Azure용 웹 응용 프로그램을 사용합니다. 웹 응용 프로그램을 사용하여 Visual Studio에서 Azure에 게시하려면, Visual Studio에서 Azure 클라우드 서비스 프로젝트와 연결해야 합니다. 연관된 클라우드 서비스 프로젝트를 만드려면, 웹 응용 프로그램용 프로젝트에 대 한 바로 가기 메뉴를 열고 **Azure 클라우드 서비스 프로젝트로 변환**을 선택합니다.
 
@@ -139,4 +139,4 @@ Azure에 웹 응용 프로그램을 게시하기 전에 Azure 구독과 Microsof
 
 [클라우드 서비스의 성능 테스트](https://msdn.microsoft.com/library/azure/hh369930.aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

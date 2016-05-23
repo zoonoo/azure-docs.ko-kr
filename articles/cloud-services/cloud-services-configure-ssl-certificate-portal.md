@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/15/2016"
+	ms.date="04/19/2016"
 	ms.author="adegeo"/>
 
 
@@ -43,7 +43,7 @@ SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터
 
 -   인증서에 개인 키가 포함되어 있어야 합니다.
 -   개인 정보 교환(.pfx) 파일로 내보낼 수 있는 키 교환용 인증서를 만들어야 합니다.
--   인증서의 주체 이름은 클라우드 서비스 액세스에 사용되는 도메인과 일치해야 합니다. cloudapp.net 도메인에 사용되는 SSL 인증서는 CA(인증 기관)에서 얻을 수 없습니다. 서비스에 액세스할 때 사용할 사용자 지정 도메인 이름을 획득해야 합니다. CA에서 인증서를 요청하는 경우 인증서의 주체 이름이 응용 프로그램 액세스에 사용되는 사용자 지정 도메인 이름과 일치해야 합니다. 예를 들어 사용자 지정 도메인 이름이 **contoso.com**인 경우 CA에서 **.contoso.com** 또는 **www.contoso.com**에 대한 인증서를 요청합니다.
+-   인증서의 주체 이름은 클라우드 서비스 액세스에 사용되는 도메인과 일치해야 합니다. cloudapp.net 도메인에 사용되는 SSL 인증서는 CA(인증 기관)에서 얻을 수 없습니다. 서비스에 액세스할 때 사용할 사용자 지정 도메인 이름을 획득해야 합니다. CA에서 인증서를 요청하는 경우 인증서의 주체 이름이 응용 프로그램 액세스에 사용되는 사용자 지정 도메인 이름과 일치해야 합니다. 예를 들어 사용자 지정 도메인 이름이 **contoso.com**인 경우 CA에서 ****.contoso.com** 또는 **www.contoso.com**에 대한 인증서를 요청합니다.
 -   인증서는 최소한 2048비트 암호화를 사용해야 합니다.
 
 테스트용으로 자체 서명된 인증서를 [만들어](cloud-services-certs-create.md) 사용할 수 있습니다. 자체 서명된 인증서는 CA를 통해 인증되지 않으며 cloudapp.net 도메인을 웹 사이트 URL로 사용할 수 있습니다. 예를 들어 아래 작업에서는 인증서에서 사용되는 CN(일반 이름)이 **sslexample.cloudapp.net**인 자체 서명된 인증서를 사용합니다.
@@ -62,7 +62,7 @@ SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터
             <Certificates>
                 <Certificate name="SampleCertificate" 
 							 storeLocation="LocalMachine" 
-                    		 storeName="CA"
+                    		 storeName="My"
                              permissionLevel="limitedOrElevated" />
                 <!-- IMPORTANT! Unless your certificate is either
                 self-signed or signed directly by the CA root, you
@@ -138,14 +138,9 @@ SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터
 
 포털에 연결하고 다음을 수행합니다.
 
-1. 다음 방법 중 하나를 사용하여 클라우드 서비스를 선택합니다.
-    - 포털에서 **클라우드 서비스**를 선택합니다. (**모두 찾아보기/최근 영역**에 있습니다.)
+1. 포털에서 클라우드 서비스를 선택하고 **클라우드 서비스**를 선택합니다. (**모든 리소스** 섹션에 있음) 
     
-        ![클라우드 서비스 게시](media/cloud-services-configure-ssl-certificate-portal/browse.png)
-    
-        **또는**
-        
-    - **모두 찾아보기**에서 **클라우드 서비스**를 선택하고 **필터 기준**에서 원하는 클라우드 서비스 인스턴스를 선택합니다.
+    ![클라우드 서비스 게시](media/cloud-services-configure-ssl-certificate-portal/browse.png)
 
 3. 클라우드 서비스의 **설정**을 엽니다.
 
@@ -182,4 +177,4 @@ SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터
 * [사용자 지정 도메인 이름](cloud-services-custom-domain-name-portal.md)을 구성합니다.
 * [클라우드 서비스를 관리합니다](cloud-services-how-to-manage-portal.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

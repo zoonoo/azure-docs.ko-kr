@@ -114,7 +114,6 @@ V12는 대폭 개선된 복구 지점 목표(RPO) 및 예상된 복구 시간 (E
 | 비즈니스 연속성 기능 | 이전 버전 | V12 |
 | :-- | :-- | :-- |
 | 지역 복원 | • RPO < 24시간.<br/>• ERT < 12시간. | • RPO < 1시간.<br/>• ERT < 12시간. |
-| 표준 지역 복제 | • RPO < 30분.<br/>• ERT < 2 시간. | • RPO < 5초.<br/>• ERT < 30초. |
 | 활성 지역 복제 | • RPO < 5분.<br/>• ERT < 1시간. | • RPO < 5초.<br/>• ERT < 30초. |
 
 
@@ -167,4 +166,4 @@ V12 논리 서버에만 V12 데이터베이스를 호스팅할 수 있습니다.
 
 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

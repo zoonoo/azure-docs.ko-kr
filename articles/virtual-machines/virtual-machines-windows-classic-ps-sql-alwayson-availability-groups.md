@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure VM의 AlwaysOn 가용성 그룹 구성 | Microsoft Azure"
-	description="이 자습서에서는 클래식 배포 모델을 사용하여 만든 리소스를 사용하며, PowerShell을 사용하여 Azure에 AlwaysOn 가용성 그룹을 만듭니다."
+	pageTitle="Azure VM의 Always On 가용성 그룹 구성 | Microsoft Azure"
+	description="이 자습서에서는 클래식 배포 모델을 사용하여 만든 리소스를 사용하며, PowerShell을 사용하여 Azure에 Always On 가용성 그룹을 만듭니다."
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="MikeRayMSFT"
@@ -13,10 +13,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/22/2016"
+	ms.date="05/04/2016"
 	ms.author="mikeray" />
 
-# Azure VM의 AlwaysOn 가용성 그룹 구성(PowerShell)
+# Azure VM의 Always On 가용성 그룹 구성(PowerShell)
 
 > [AZURE.SELECTOR]
 - [포털](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
@@ -27,7 +27,7 @@
 > [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
 
 
-Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQL Server 시스템 비용 절감을 지원합니다. 이 자습서에서는 Azure 환경 안에서 SQL Server AlwaysOn 종단 간을 사용하여 가용성 그룹을 구현하는 방법을 보여줍니다. 자습서 마지막에서 Azure의 SQL Server AlwaysOn 솔루션은 다음 요소로 구성됩니다.
+Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQL Server 시스템 비용 절감을 지원합니다. 이 자습서에서는 Azure 환경 안에서 종단 간에 SQL Server Always On 사용하여 가용성 그룹을 구현하는 방법을 보여줍니다. 자습서 마지막에서 Azure의 SQL Server Always On 솔루션은 다음 요소로 구성됩니다.
 
 - 프런트 엔드 및 백 엔드 서브넷을 비롯한 여러 서브넷을 포함하는 가상 네트워크
 
@@ -47,7 +47,7 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
 
 - [Azure PowerShell cmdlet](../powershell-install-configure.md)을 설치했습니다.
 
-- 온-프레미스 솔루션에서의 AlwaysOn 가용성 그룹을 확실하게 이해하고 있습니다. 자세한 내용은 [AlwaysOn 가용성 그룹(SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx)을 참조하세요.
+- 온-프레미스 솔루션에서의 Always On 가용성 그룹을 확실하게 이해하고 있습니다. 자세한 내용은 [Always On 가용성 그룹(SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx)을 참조하세요.
 
 ## Azure 구독에 연결하고 가상 네트워크 만들기
 
@@ -137,7 +137,7 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
 			-SubscriptionName (Get-AzureSubscription).SubscriptionName `
 			-CurrentStorageAccount $storageAccountName
 
-1. 새 클라우스 서비스와 가용성 집합에 DC 서버를 만듭니다.
+1. 새 클라우드 서비스와 가용성 집합에 DC 서버를 만듭니다.
 
 		New-AzureVMConfig `
 			-Name $dcServerName `
@@ -444,7 +444,7 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
 
 다음으로 **ContosoSQL1** 및 **ContosoSQL2**를 초기화합니다. 아래 단계를 따릅니다. 이 절차는 SQL Server VM 모두에 동일합니다.
 
-1. 원격 데스크톱 파일을 실행하여두 SQL Server VM에 연결합니다. VM을 만들 때 지정한 컴퓨터 관리자의 사용자 이름 **AzureAdmin**과 암호 **Contoso!000**을 사용합니다.
+1. 원격 데스크톱 파일을 실행하여 두 SQL Server VM에 연결합니다. VM을 만들 때 지정한 컴퓨터 관리자의 사용자 이름 **AzureAdmin**과 암호 **Contoso!000**을 사용합니다.
 
 1. 컴퓨터가 **corp.contoso.com**에 성공적으로 연결되어 있는지 확인합니다.
 
@@ -534,14 +534,14 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
 		$svc2.Start();
 		$svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
 
-1. [Azure VM에서 AlwaysOn 가용성 그룹의 WSFC 클러스터 만들기](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)에서 **CreateAzureFailoverCluster.ps1**을 로컬 작업 디렉터리로 다운로드합니다. 이 스크립트를 사용하면 작동 가능한 WSFC 클러스터를 만들 수 있습니다. WSFC가 Azure 네트워크와 상호 작용하는 방식에 대한 중요 정보는 [Azure 가상 컴퓨터의 SQL Server에 대한 고가용성 및 재해 복구](virtual-machines-windows-sql-high-availability-dr.md)를 참조하세요.
+1. [Azure VM에서 Always On 가용성 그룹을 위한 WSFC 클러스터 만들기](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)에서 **CreateAzureFailoverCluster.ps1**을 로컬 작업 디렉터리로 다운로드합니다. 이 스크립트를 사용하면 작동 가능한 WSFC 클러스터를 만들 수 있습니다. WSFC가 Azure 네트워크와 상호 작용하는 방식에 대한 중요 정보는 [Azure 가상 컴퓨터의 SQL Server에 대한 고가용성 및 재해 복구](virtual-machines-windows-sql-high-availability-dr.md)를 참조하세요.
 
 1. 작업 디렉터리로 변경하고 다운로드한 스크립트로 WSFC 클러스터를 만듭니다.
 
 		Set-ExecutionPolicy Unrestricted -Force
 		.\CreateAzureFailoverCluster.ps1 -ClusterName "$clusterName" -ClusterNode "$server1","$server2","$serverQuorum"
 
-1. **ContosoSQL1** 및 **ContosoSQL2**의 기본 SQL Server 인스턴스에 대해 AlwaysOn 가용성 그룹을 사용하도록 설정합니다.
+1. **ContosoSQL1** 및 **ContosoSQL2**의 기본 SQL Server 인스턴스에 대해 Always On 가용성 그룹을 사용하도록 설정합니다.
 
 		Enable-SqlAlwaysOn `
 		    -Path SQLSERVER:\SQL\$server1\Default `
@@ -561,7 +561,7 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
 		net share backup=$backup "/grant:$acct1,FULL" "/grant:$acct2,FULL"
 		icacls.exe "$backup" /grant:r ("$acct1" + ":(OI)(CI)F") ("$acct2" + ":(OI)(CI)F")
 
-1. **ContosoSQL1** 에 이름이 **MyDB1** 인 데이터베이스를 만들고 전체 백업과 로그 백업을 모두 만든 다음 **WITH NORECOVERY** 옵션을 사용하여 해당 백업을 **ContosoSQL2** 에 복원합니다.
+1. **ContosoSQL1**에 이름이 **MyDB1**인 데이터베이스를 만들고 전체 백업과 로그 백업을 모두 만든 다음 **WITH NORECOVERY ** 옵션을 사용하여 해당 백업을 **ContosoSQL2**에 복원합니다.
 
 		Invoke-SqlCmd -Query "CREATE database $db"
 		Backup-SqlDatabase -Database $db -BackupFile "$backupShare\db.bak" -ServerInstance $server1
@@ -625,8 +625,8 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
 		    -Database $db
 
 ## 다음 단계
-이제 Azure에서 가용성 그룹을 만들어 SQL Server AlwaysOn을 성공적으로 구현했습니다. 이 가용성 그룹에 대한 수신기를 구성하려면 [Azure에서 AlwaysOn 가용성 그룹에 대한 ILB 수신기 구성](virtual-machines-windows-classic-ps-sql-int-listener.md)을 참조하세요.
+이제 Azure에서 가용성 그룹을 만들어 SQL Server Always On을 성공적으로 구현했습니다. 이 가용성 그룹에 대한 수신기를 구성하려면 [Azure에서 Always On 가용성 그룹에 대한 ILB 수신기 구성](virtual-machines-windows-classic-ps-sql-int-listener.md)을 참조하세요.
 
 Azure에서 SQL Server를 사용하는 방법에 대한 기타 정보는 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

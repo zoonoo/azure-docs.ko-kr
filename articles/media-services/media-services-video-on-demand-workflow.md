@@ -87,7 +87,7 @@
 
 ##개념
 
-주문형 콘텐츠 배달과 관련된 개념은 [미디어 서비스 개념](media-services-concepts.md). players.md)을 참조하세요.
+주문형 콘텐츠 배달과 관련된 개념은 [미디어 서비스 개념](media-services-concepts.md)을 참조하세요
 
 ##미디어 서비스 학습 경로
 
@@ -101,4 +101,4 @@
 [vod-overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

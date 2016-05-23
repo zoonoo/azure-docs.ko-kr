@@ -57,6 +57,7 @@ HDInsight에서 지원하는 다른 가상 컴퓨터에 대한 자세한 정보�
 
 Windows 기반 HDInsight 클러스터의 경우 프로비전하는 시점에 Tez를 설정해야 합니다. 다음은 Tez을 사용한 Hadoop 클러스터를 프로비전하기 위한 샘플 Azure PowerShell 스크립트입니다.
 
+[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 	$clusterName = "[HDInsightClusterName]"
 	$location = "[AzureDataCenter]" #i.e. West US
@@ -220,4 +221,4 @@ ORC 형식에 대한 자세한 내용은 [여기](https://cwiki.apache.org/confl
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

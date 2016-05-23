@@ -1,20 +1,20 @@
 <properties
-   pageTitle="데이터 원본을 데이터 프로파일링하는 방법"
-   description="Azure Data Catalog에서 데이터 원본을 등록할 경우 테이블 및 열 수준 데이터 프로필을 포함하는 방법 및 데이터 프로필을 사용하여 데이터 원본을 이해하는 방법을 강조한 방법 문서입니다."
-   services="data-catalog"
-   documentationCenter=""
-   authors="dvana"
-   manager="NA"
-   editor=""
-   tags=""/>
+	pageTitle="데이터 원본을 데이터 프로파일링하는 방법"
+	description="Azure Data Catalog에서 데이터 원본을 등록할 경우 테이블 및 열 수준 데이터 프로필을 포함하는 방법 및 데이터 프로필을 사용하여 데이터 원본을 이해하는 방법을 강조한 방법 문서입니다."
+	services="data-catalog"
+	documentationCenter=""
+	authors="spelluru"
+	manager="NA"
+	editor=""
+	tags=""/>
 <tags
-   ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="04/07/2016"
-   ms.author="derrickv"/>
+	ms.service="data-catalog"
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="04/07/2016"
+	ms.author="spelluru"/>
 
 # 데이터 원본 데이터 프로파일링
 
@@ -91,4 +91,4 @@
 -	[데이터 원본을 등록하는 방법](data-catalog-how-to-register.md)
 -	[Azure 데이터 카탈로그 시작](data-catalog-get-started.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="AMQP 1.0을 사용한 서비스 버스 및 Java | Microsoft Azure"
-   description="AMQP를 사용하여 Java에서 서비스 버스 사용."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" /> 
+    pageTitle="AMQP 1.0을 사용한 서비스 버스 및 Java | Microsoft Azure"
+    description="AMQP를 사용하여 Java에서 서비스 버스 사용"
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" /> 
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="01/26/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/06/2016"
+    ms.author="sethm" />
 
 # AMQP 1.0을 사용하여 Java에서 서비스 버스 사용
 
@@ -362,25 +362,7 @@ while (propertyNames.hasMoreElements())
 
 | .NET 속성 형식 | JMS 속성 형식 | 참고 |
 |--------------------|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| byte | UnsignedByte | - | 
-| sbyte | Byte | - | 
-| char | Character | - | 
-| short | Short | - | 
-| ushort | UnsignedShort | - | 
-| int | Integer | - | 
-| uint | UnsignedInteger | - |
-| long | Long | - |
-| ulong | UnsignedLong | - |
-| float | Float | - |
-| double | Double | - |
-| decimal | BigDecimal | - |
-| bool | Boolean | - |
-| Guid | UUID | - |
-| string | String | - |
-| DateTime | Date | - |
-| DateTimeOffset | DescribedType | AMQP 형식으로 매핑된 DateTimeOffset.UtcTicks:<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type> |
-| TimeSpan | DescribedType | AMQP 형식으로 매핑된 Timespan.Ticks:<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> |
-| Uri | DescribedType | AMQP 형식으로 매핑된 Uri.AbsoluteUri:<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type> |
+| byte | UnsignedByte | - | | sbyte | Byte | - | | char | Character | - | | short | Short | - | | ushort | UnsignedShort | - | | int | Integer | - | | uint | UnsignedInteger | - | | long | Long | - | | ulong | UnsignedLong | - | | float | Float | - | | double | Double | - | | decimal | BigDecimal | - | | bool | Boolean | - | | Guid | UUID | - | | string | String | - | | DateTime | Date | - | | DateTimeOffset | DescribedType | AMQP 형식으로 매핑된 DateTimeOffset.UtcTicks:<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type> | | TimeSpan | DescribedType | AMQP 형식으로 매핑된 Timespan.Ticks:<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> | | Uri | DescribedType | AMQP 형식으로 매핑된 Uri.AbsoluteUri:<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type> |
 
 ### 표준 헤더
 
@@ -390,32 +372,13 @@ while (propertyNames.hasMoreElements())
 
 | JMS | 서비스 버스 .NET | 참고 |
 |------------------|--------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| JMSCorrelationID | Message.CorrelationID | - |
-| JMSDeliveryMode | 현재 사용할 수 없음 | 서비스 버스는 지정된 것과 관계 없이 지속적 메시지만 지원합니다(예: DeliveryMode.PERSISTENT). |
-| JMSDestination | Message.To | - |
-| JMSExpiration | Message. TimeToLive | Conversion |
-| JMSMessageID | Message.MessageID | 기본적으로 JMSMessageID는 AMQP 메시지에서 이진 형식으로 인코딩됩니다. 이진 메시지 ID를 받으면 .NET 클라이언트 라이브러리는 바이트의 유니코드 값 기반 문자열 표현으로 변환합니다. JMS 라이브러리를 전환하여 문자열 메시지 ID를 사용하려면 "binary-messageid=false" 문자열을 JNDI ConnectionURL의 쿼리 매개 변수에 추가합니다. 예: “amqps://[username]:[password]@[namespace].servicebus.windows.net? binary-messageid=false”. |
-| JMSPriority | 현재 사용 불가능 | 서비스 버스는 메시지 우선 순위를 제공하지 않습니다. |
-| JMSRedelivered | 현재 사용 불가능 | - |
-| JMSReplyTo | Message. ReplyTo | - |
-| JMSTimestamp | Message.EnqueuedTimeUtc | Conversion |
-| JMSType | Message.Properties[“jms-type”] | - |
+| JMSCorrelationID | Message.CorrelationID | - | | JMSDeliveryMode | 현재 사용할 수 없음 | 서비스 버스는 지정된 것과 관계 없이 지속적 메시지만 지원합니다(예: DeliveryMode.PERSISTENT). | | JMSDestination | Message.To | - | | JMSExpiration | Message. TimeToLive | Conversion | | JMSMessageID | Message.MessageID | 기본적으로 JMSMessageID는 AMQP 메시지에서 이진 형식으로 인코딩됩니다. 이진 메시지 ID를 받으면 .NET 클라이언트 라이브러리는 바이트의 유니코드 값 기반 문자열 표현으로 변환합니다. JMS 라이브러리를 전환하여 문자열 메시지 ID를 사용하려면 "binary-messageid=false" 문자열을 JNDI ConnectionURL의 쿼리 매개 변수에 추가합니다. 예: “amqps://[username]:[password]@[namespace].servicebus.windows.net? binary-messageid=false”. | | JMSPriority | 현재 사용 불가능 | 서비스 버스는 메시지 우선 순위를 제공하지 않습니다. | | JMSRedelivered | 현재 사용 불가능 | - | | JMSReplyTo | Message. ReplyTo | - | | JMSTimestamp | Message.EnqueuedTimeUtc | Conversion | | JMSType | Message.Properties[“jms-type”] | - |
 
 #### 서비스 버스 .NET API에서 JMS
 
 | 서비스 버스 .NET | JMS | 참고 |
 |-------------------------|------------------|-------------------------|
-| ContentType | - | 현재 사용 불가능 |
-| CorrelationId | JMSCorrelationID | - |
-| EnqueuedTimeUtc | JMSTimestamp | Conversion |
-| Label | n/a | 현재 사용 불가능 |
-| MessageId | JMSMessageID | - |
-| ReplyTo | JMSReplyTo | - |
-| ReplyToSessionId | n/a | 현재 사용 불가능 |
-| ScheduledEnqueueTimeUtc | n/a | 현재 사용 불가능 |
-| SessionId | n/a | 현재 사용 불가능 |
-| TimeToLive | JMSExpiration | Conversion |
-| To | JMSDestination | - |
+| ContentType | - | 현재 사용 불가능 | | CorrelationId | JMSCorrelationID | - | | EnqueuedTimeUtc | JMSTimestamp | Conversion | | Label | n/a | 현재 사용 불가능 | | MessageId | JMSMessageID | - | | ReplyTo | JMSReplyTo | - | | ReplyToSessionId | n/a | 현재 사용 불가능 | | ScheduledEnqueueTimeUtc | n/a | 현재 사용 불가능 | | SessionId | n/a | 현재 사용 불가능 | | TimeToLive | JMSExpiration | Conversion | | To | JMSDestination | - |
 
 ## 지원되지 않는 기능 및 제한
 
@@ -446,4 +409,4 @@ while (propertyNames.hasMoreElements())
 [서비스 버스 AMQP 개요]: service-bus-amqp-overview.md
 [Azure 클래식 포털]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0511_2016-->

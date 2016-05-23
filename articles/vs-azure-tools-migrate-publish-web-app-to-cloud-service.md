@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="04/19/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # 방법: Visual Studio에서 Azure 클라우드 서비스로 웹 응용 프로그램 마이그레이션 및 게시
@@ -45,7 +45,7 @@ Visual Studio에서 Azure에 웹 응용 프로그램을 마이그레이션 및 �
 
     - **로컬 복사** 속성이 MVC 2, MVC 3, MVC 4, Silverlight 비즈니스 응용 프로그램에 필요한 어셈블리에 대해 true로 설정됩니다. 그러면 이러한 어셈블리가 배포에 사용되는 서비스 패키지에 추가됩니다.
 
-  >[AZURE.IMPORTANT] 이 웹 응용 프로그램에 필요한 다른 어셈블리 또는 파일이 있는 경우 이러한 파일에 대한 속성을 수동으로 설정해야 합니다. 이러한 속성에 대한 자세한 내용은 이 문서의 뒷부분에서 **서비스 패키지에 파일 포함** 섹션을 참조하세요.  
+  >[AZURE.IMPORTANT] 이 웹 응용 프로그램에 필요한 다른 어셈블리 또는 파일이 있는 경우 이러한 파일에 대한 속성을 수동으로 설정해야 합니다. 이러한 속성에 대한 자세한 내용은 이 문서의 뒷부분에서 **서비스 패키지에 파일 포함** 섹션을 참조하세요.
 
   >[AZURE.NOTE] 솔루션의 Azure 프로젝트에 특정 웹 프로젝트의 웹 역할이 이미 있는 경우 이 웹 프로젝트의 바로 가기 메뉴에 **변환** > **Azure 클라우드 서비스 프로젝트로 변환**이 표시되지 않습니다.
 
@@ -55,17 +55,17 @@ Visual Studio에서 Azure에 웹 응용 프로그램을 마이그레이션 및 �
 
 온-프레미스 SQL Server 데이터베이스를 사용하는 웹 응용 프로그램에 대한 연결 문자열이 있을 경우 Azure에서 호스팅하는 SQL 데이터베이스 인스턴스를 사용하도록 이 연결 문자열을 변경해야 합니다.
 
->[AZURE.IMPORTANT] 구독에서 사용자가 SQL 데이터베이스를 사용할 수 있도록 설정해야 합니다. Azure 관리 포털에서 구독에 액세스할 경우 구독에서 어떤 서비스를 제공하는지 확인할 수 있습니다. 다음 지침은 릴리스된 관리 포털에 적용됩니다. 미리 보기 관리 포털을 사용하는 경우 다음 절차로 건너 뜁니다.|
+>[AZURE.IMPORTANT] 구독에서 사용자가 SQL 데이터베이스를 사용할 수 있도록 설정해야 합니다. [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)에서 구독에 액세스할 경우 구독에서 어떤 서비스를 제공하는지 확인할 수 있습니다. 다음 지침은 릴리스된 [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)에 적용됩니다. [Azure 포털](http://portal.microsoft.com)을 사용하는 경우 다음 절차로 건너 뜁니다.
 
 ### 연결 문자열에 대한 웹 역할로 SQL 데이터베이스 인스턴스를 사용하려면
 
-1. Azure 관리 포털에서 SQL 데이터베이스 인스턴스를 만들려면 [SQL 데이터베이스 서버 만들기](http://go.microsoft.com/fwlink/?LinkId=225109) 문서에 나오는 단계를 따르세요.
+1. [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)에서 SQL 데이터베이스 인스턴스를 만들려면 [SQL 데이터베이스 서버 만들기](http://go.microsoft.com/fwlink/?LinkId=225109) 문서에 나오는 단계를 따르세요.
 
     >[AZURE.NOTE] SQL 데이터베이스 인스턴스에 대해 방화벽 규칙을 설정하는 경우 **Microsoft Azure 서비스가 서버에 액세스할 수 있도록 허용합니다.** 확인란을 선택해야 합니다.
 
 1. 연결 문자열에 사용할 SQL 데이터베이스 인스턴스를 만들려면 [SQL 데이터베이스 만들기](http://go.microsoft.com/fwlink/?LinkId=225110) 문서에 나오는 단계를 따르세요.
 
-1. 연결 문자열에 사용할 ADO.NET 연결 문자열을 복사하려면 Azure 관리 포털에서 다음 단계를 수행합니다.
+1. 연결 문자열에 사용할 ADO.NET 연결 문자열을 복사하려면 [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)에서 다음 단계를 수행합니다.
 
   1. **데이터베이스** 단추를 선택한 다음 SQL 데이터베이스 인스턴스를 만드는 데 사용하는 구독의 노드를 엽니다.
 
@@ -99,9 +99,9 @@ Visual Studio에서 Azure에 웹 응용 프로그램을 마이그레이션 및 �
 
 1. 수정한 파일을 저장하고 응용 프로그램을 다시 게시합니다.
 
-### Azure 관리 포털을 사용하여 SQL 데이터베이스 인스턴스를 사용하려면
+### Azure 클래식 포털을 사용하여 SQL 데이터베이스 인스턴스를 사용하려면
 
-1. [Azure 관리 포털](http://go.microsoft.com/fwlink/?LinkID=213885)에서 SQL 데이터베이스 노드를 선택합니다.
+1. [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)에서 SQL 데이터베이스 노드를 선택합니다.
 
   - 사용하려는 SQL 데이터베이스 인스턴스가 표시되면 선택하여 엽니다.
 
@@ -135,7 +135,7 @@ Visual Studio에서 Azure에 웹 응용 프로그램을 마이그레이션 및 �
 
 1. (선택 사항) 배포 프로세스를 취소하려면 활동 로그에서 개별 항목의 바로 가기 메뉴를 열고 **취소한 후 제거**를 선택합니다. 그러면 배포 프로세스가 중단되고 Azure에서 배포 환경이 삭제됩니다.
 
-    >[AZURE.NOTE] 이 배포 환경을 배포한 후 제거하려면 Azure 관리 포털을 사용해야 합니다.
+    >[AZURE.NOTE] 이 배포 환경을 배포한 후 제거하려면 [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)을 사용해야 합니다.
 
 1. (선택 사항) 역할 인스턴스가 시작되면 Visual Studio에서 **클라우드 탐색기** 또는 **서버 탐색기**의 **Azure 계산** 노드에 자동으로 배포 환경을 표시합니다. 여기에서 개별 역할 인스턴스의 상태를 볼 수 있습니다.
 
@@ -168,7 +168,7 @@ Visual Studio에서 Azure에 웹 응용 프로그램을 마이그레이션 및 �
 
 1. ASP.NET 동적 엔터티 웹 응용 프로그램에 사용할 수 있는 SQL Azure 데이터베이스를 만들려면 이 항목의 앞부분에 나오는 **응용 프로그램에 SQL Azure 데이터베이스 사용** 절차의 단계를 따르세요.
 
-1. Azure 관리 포털에서 이 데이터베이스에 필요한 테이블과 필드를 추가합니다.
+1. [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)에서 이 데이터베이스에 필요한 테이블과 필드를 추가합니다.
 
 1. 이 응용 프로그램 유형의 연결 문자열은 web.config 파일에 다음과 같은 형식이 있습니다.
 
@@ -208,4 +208,4 @@ Azure에 웹 응용 프로그램을 게시하려면 응용 프로그램이 아�
 ## 다음 단계
 게시에 대한 자세한 내용은 [Visual Studio에서 Azure 응용 프로그램 게시 또는 배포 준비](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md)를 참조하세요. 또한 [명명된 인증 자격 증명 설정](vs-azure-tools-setting-up-named-authentication-credentials.md)도 참조하세요.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/19/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
 # Visual Studio Team Services 및 Git을 사용하여 Azure에 지속적으로 전송
@@ -23,8 +23,7 @@ Visual Studio Team Services 팀 프로젝트를 사용하여 소스 코드용 Gi
 Visual Studio 2013 및 Azure SDK가 설치되어 있어야 합니다. Visual Studio 2013을 아직 설치하지 않은 경우 **www.visualstudio.com**에서 [무료로 시작하기](http://www.visualstudio.com) 링크를 선택하여 다운로드하세요. Azure SDK의 경우 [여기](http://go.microsoft.com/fwlink/?LinkId=239540)에서 설치할 수 있습니다.
 
 
-> [AZURE.NOTE] 이 자습서를 완료하려면 Visual Studio Team Services 계정이 있어야 합니다. 
-[Visual Studio Team Services 계정은 무료로 개설](http://go.microsoft.com/fwlink/p/?LinkId=512979)할 수 있습니다.
+> [AZURE.NOTE] 이 자습서를 완료하려면 Visual Studio Team Services 계정이 있어야 합니다. [Visual Studio Team Services 계정은 무료로 개설](http://go.microsoft.com/fwlink/p/?LinkId=512979)할 수 있습니다.
 
 Visual Studio Team Services를 사용하여 Azure에 자동으로 빌드 및 배포하도록 클라우드 서비스를 설정하려면 다음 단계를 따르세요.
 
@@ -60,7 +59,7 @@ Visual Studio Team Services를 사용하여 Azure에 자동으로 빌드 및 배
 
 ## 3: Azure에 프로젝트 연결
 
-1. Visual Studio Team Services에 일부 소스 코드를 포함한 Git 리포지토리가 있으므로 Azure에 Git 리포지토리를 연결할 준비가 되었습니다. [Azure 클래식 포털](http://manage.windowsazure.com)에서 클라우드 서비스 또는 웹앱을 선택하거나, 왼쪽 아래에 있는 + 아이콘을 선택하고 **클라우드 서비스** 또는 **웹앱**을 선택한 후 **빠른 생성**을 선택하여 새로 만듭니다.
+1. Visual Studio Team Services에 일부 소스 코드를 포함한 Git 리포지토리가 있으므로 Azure에 Git 리포지토리를 연결할 준비가 되었습니다. [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)에서 클라우드 서비스 또는 웹앱을 선택하거나, 왼쪽 아래에 있는 + 아이콘을 선택하고 **클라우드 서비스** 또는 **웹앱**을 선택한 후 **빠른 생성**을 선택하여 새로 만듭니다.
 
 	![][9]
 
@@ -153,7 +152,7 @@ Visual Studio Team Services를 사용하여 Azure에 자동으로 빌드 및 배
 
 	![][29]
 
-1. [Azure 클래식 포털](http://manage.windowsazure.com)에서 스테이징 환경을 선택하면 **배포** 탭에서 연결된 배포를 확인할 수 있습니다.
+1. [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)에서 스테이징 환경을 선택하면 **배포** 탭에서 연결된 배포를 확인할 수 있습니다.
 
 	![][30]
 
@@ -183,7 +182,7 @@ Visual Studio Team Services를 사용하여 Azure에 자동으로 빌드 및 배
 
 ![][35]
 
-## 6: 작업 분기에서 배포
+## 7: 작업 분기에서 배포
 
 Git을 사용할 경우 보통 작업 분기에서 변경한 다음 개발이 최종 단계에 도달하면 마스터 분기로 통합합니다. 프로젝트의 개발 단계에서는 작업 분기를 구성하여 Azure에 배포합니다.
 
@@ -273,4 +272,4 @@ Visual Studio Team Services에서 Git 사용에 대해 더 많은 팁을 알아�
 [47]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

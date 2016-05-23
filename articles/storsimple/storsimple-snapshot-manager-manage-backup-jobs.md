@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/28/2015"
+   ms.date="04/26/2016"
    ms.author="v-sharos" />
 
 
@@ -40,7 +40,7 @@
 
     - **마지막 실행** – 가장 최근으로 예약된 스냅숏의 날짜 및 시간
 
-    >[AZURE.NOTE]일회성 스냅숏은 **다음 실행** 및 **마지막 실행**이 동일합니다.
+    >[AZURE.NOTE] 일회성 스냅숏은 **다음 실행** 및 **마지막 실행**이 동일합니다.
  
     ![예약된 백업 작업](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_scheduled.png)
  
@@ -96,11 +96,11 @@
     
     - **경과** - 백업이 시작된 이후 경과된 시간
 
-    - **평균 처리량(MB)** – 전달된 데이터 양의 중앙값으로, MB 단위로 표시
+    - **평균 처리량(MB)** – 처리하는 데 걸린 총 시간에 대해 처리된 데이터 총 바이트의 비율(MB)
 
-    - **처리된 바이트(MB)** – 처리된 볼륨 그룹의 데이터 양(MB)
+    - **처리된 바이트(MB)** - 처리된 데이터의 총 바이트(MB)
 
-    - **쓴 바이트(MB)** – 백업에 기록된 데이터의 양(MB)
+    - **작성된 바이트(MB)** - 작성된 데이터의 총 바이트(MB) 메타데이터 뿐만 아니라 데이터를 포함하고 따라서 일반적으로 처리된 바이트보다 큽니다.
 
     ![현재 실행 중인 작업](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_running.png)
 
@@ -130,4 +130,4 @@
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0511_2016-->

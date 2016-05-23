@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Azure 데이터 카탈로그 | Microsoft Azure"
-   description="이 문서는 Azure 데이터 카탈로그에 대한 키보드 바로 가기를 보여줍니다."
-   services="data-catalog"
-   documentationCenter=""
-   authors="dvana"
-   manager="NA"
-   editor="steelanddata"
-   tags=""/>
+	pageTitle="Azure 데이터 카탈로그 | Microsoft Azure"
+	description="이 문서는 Azure 데이터 카탈로그에 대한 키보드 바로 가기를 보여줍니다."
+	services="data-catalog"
+	documentationCenter=""
+	authors="spelluru"
+	manager="NA"
+	editor=""
+	tags=""/>
 <tags
-   ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="03/31/2016"
-   ms.author="derrickv"/>
+	ms.service="data-catalog"
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="03/31/2016"
+	ms.author="spelluru"/>
 
 # Azure 데이터 카탈로그에 대한 키보드 바로 가기
 
@@ -92,4 +92,4 @@
 |**열기** 메뉴 토글 | ALT + O
 |자산이 컨테이너인 경우 컨테이너 탐색 | ALT+L
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -14,7 +14,7 @@
    ms.topic="campaign-page"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="na"
-   ms.date="02/12/2016"
+   ms.date="05/04/2016"
    ms.author="sedusch"/>
 
 # Azure의 Linux 가상 컴퓨터에서 SAP 사용
@@ -35,4 +35,4 @@ Microsoft는 Microsoft Azure 가상 컴퓨터와 함께 포괄적인 IaaS(Infras
 
 [이 문서는 여기서 확인할 수 있습니다.](virtual-machines-linux-sap-on-suse-quickstart.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0511_2016-->

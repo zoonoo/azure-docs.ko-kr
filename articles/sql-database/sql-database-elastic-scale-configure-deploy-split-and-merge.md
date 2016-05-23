@@ -1,5 +1,5 @@
 <properties
-	pageTitle="탄력적 데이터베이스 분할/병합 도구 자습서 | Microsoft Azure"
+	pageTitle="분할/병합 서비스 배포 | Microsoft Azure"
 	description="탄력적 데이터베이스 도구를 사용하는 분할 및 병합"
 	services="sql-database"  
 	documentationCenter=""
@@ -13,21 +13,24 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/23/2016"
-	ms.author="sidneyh" />
+	ms.date="04/26/2016"
+	ms.author="ddove" />
 
-# 탄력적 데이터베이스 분할/병합 도구 자습서
+# 분할/병합 서비스 배포 
+
+분할-병합 도구를 사용하면 분할된 데이터베이스 간에 데이터를 이동할 수 있습니다. [확장된 클라우드 데이터베이스 간 데이터 이동](sql-database-elastic-scale-overview-split-and-merge.md)을 참조하세요.
 
 ## 분할-병합 패키지 다운로드
+
 1. [NuGet](http://docs.nuget.org/docs/start-here/installing-nuget)에서 최신 NuGet 버전을 다운로드합니다.
-2. 명령 프롬프트를 열고 nuget.exe를 다운로드한 디렉터리로 이동합니다.
+2. 명령 프롬프트를 열고 nuget.exe를 다운로드한 디렉터리로 이동합니다. 다운로드에는 PowerShell 명령이 포함됩니다.
 3. 아래 명령을 사용하여 최신 분할/병합 패키지를 현재 디렉터리에 다운로드합니다. `nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge`  
 
-위의 단계에서는 현재 디렉터리에 분할/병합 파일을 다운로드합니다. 파일은 **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x**라는 디렉터리에 저장됩니다. 여기서 *x.x.xxx.x*는 버전 번호를 나타냅니다. **content\\splitmerge\\service** 하위 디렉터리에서 분할/병합 서비스 파일을 찾고 **content\\splitmerge\\powershell** 하위 디렉터리에서 분할/병합 PowerShell 스크립트 및 필요한 클라이언트 .dll을 찾습니다.
+파일은 **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x**라는 디렉터리에 저장됩니다. 여기서 *x.x.xxx.x*는 버전 번호를 나타냅니다. **content\\splitmerge\\service** 하위 디렉터리에서 분할/병합 서비스 파일을 찾고 **content\\splitmerge\\powershell** 하위 디렉터리에서 분할/병합 PowerShell 스크립트 및 필요한 클라이언트 .dll을 찾습니다.
 
 ## 필수 조건
 
-1. 분할/병합 상태 데이터베이스로 사용할 Azure SQL DB 데이터베이스를 만듭니다. [Azure 포털](https://ms.portal.azure.com)로 이동합니다. 새 **SQL 데이터베이스**를 만듭니다. 데이터베이스 이름을 입력하고 새 사용자 및 암호를 만듭니다. 나중에 사용할 수 있도록 이름과 암호를 기록합니다.
+1. 분할/병합 상태 데이터베이스로 사용할 Azure SQL DB 데이터베이스를 만듭니다. [Azure 포털](https://ms.portal.azure.com)로 이동합니다. 새 **SQL 데이터베이스**를 만듭니다. 데이터베이스에 이름을 지정하고 새 관리자 및 암호를 만듭니다. 나중에 사용할 수 있도록 이름과 암호를 기록합니다.
 
 2. Azure SQL DB 서버에서 Azure 서비스의 연결을 허용하는지 확인합니다. 포털의 **방화벽 설정**에서 **Azure 서비스에 대한 액세스 허용** 설정이 **On**으로 설정되었는지 확인합니다. "저장" 아이콘을 클릭합니다.
 
@@ -38,7 +41,7 @@
 4. 분할/병합 서비스를 포함할 Azure 클라우드 서비스를 만듭니다. Azure 포털로 이동합니다. 왼쪽 막대에서 **새로 만들기**, **계산**, **클라우드 서비스**, **만들기**를 차례로 클릭합니다.
 
 
-## 분할/병합 서비스 구성하기
+## 분할/병합 서비스 구성
 
 ### 분할/병합 서비스 구성
 
@@ -58,6 +61,7 @@
 5.    **SplitMergeWorker** 역할의 경우, **WorkerRoleSynchronizationStorageAccountConnectionString** 설정에 대해 Azure 저장소에 유효한 연결 문자열을 입력합니다.
         
 ### 보안 구성
+
 서비스의 보안을 구성하는 자세한 지침은 [분할-병합 보안 구성](sql-database-elastic-scale-split-merge-security-configuration.md)을 참조하세요.
 
 이 자습서에 대한 간단한 테스트를 배포하기 위해 서비스를 작동하고 실행하는 데 필요한 최소 구성 단계가 수행됩니다. 이러한 단계에서는 단계를 실행하는 데 사용하는 컴퓨터/계정 하나만 서비스와 통신할 수 있습니다.
@@ -119,7 +123,7 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
 
 프로덕션 배포의 경우 CA, 암호화, 서버 인증서 및 클라이언트 인증서에 개별 인증서를 사용해야 합니다. 이와 관련된 자세한 지침은 [보안 구성](sql-database-elastic-scale-split-merge-security-configuration.md)을 참조하세요.
 
-### 분할/병합 서비스 배포
+## 서비스 배포
 
 1. [Azure 포털](https://manage.windowsazure.com)로 이동합니다.
 2. 왼쪽에서 **클라우드 서비스** 탭을 클릭하고 앞에서 만든 클라우드 서비스를 선택합니다.
@@ -150,9 +154,9 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
 * 서버 이름이 ****https://**로 시작하지 않는지 확인합니다.
 * Azure SQL DB 서버에서 Azure 서비스의 연결을 허용하는지 확인합니다. 그렇게 하려면 https://manage.windowsazure.com을(를) 열고, 왼쪽에서 “SQL 데이터베이스”를 클릭하고, 위쪽에서 “서버”를 클릭하여 사용 중인 서버를 선택합니다. 위쪽에서 **구성**을 클릭하고 **Azure 서비스** 설정이 “예”로 지정되어 있는지 확인합니다. 관련 정보는 이 문서 앞부분의 필수 조건 섹션을 참조하세요.
 
-## 분할/병합 서비스 배포 테스트
+## 서비스 배포 테스트
 
-### 웹 브라우저로 연결
+### 웹 브라우저와 연결
 
 분할/병합 서비스의 웹 끝점을 확인합니다. Azure 클래식 포털에서 클라우드 서비스의 **대시보드**로 이동한 다음 오른쪽의 **사이트 URL**에서 이 끝점을 찾아 확인할 수 있습니다. 기본 보안 설정에서는 HTTP 끝점을 사용할 수 없으므로 ****http://**를 ****https://**로 바꿉니다. 이 URL에 해당하는 페이지를 브라우저에 로드합니다.
 
@@ -212,7 +216,7 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
   </tr>
 </table>
 
-##PowerShell을 사용하여 배포 확인
+## PowerShell을 사용하여 배포 확인
 
 1.    새 PowerShell 창을 열고 분할/병합 패키지를 다운로드한 디렉터리로 이동한 다음 "powershell" 디렉터리로 이동합니다.
 2.    Azure SQL 데이터베이스 서버를 만들거나 기존 서버를 선택합니다. 이 서버에 분할된 데이터베이스 맵 관리자 및 분할된 데이터베이스가 생성됩니다.
@@ -292,11 +296,11 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
 
 6.    다른 데이터 형식으로도 연결해 봅니다. 이러한 모든 스크립트는 키 유형을 지정할 수 있도록 하는 선택적인 -ShardKeyType 매개 변수를 사용합니다. 기본값은 Int32지만 Int64, GUID 또는 이진 파일을 지정할 수도 있습니다.
 
-## 고유한 요청 만들기
+## 요청 만들기
 
 웹 UI를 사용하거나 웹 역할을 통해 요청을 제출하는 SplitMerge.psm1 PowerShell 모듈을 가져와서 사용하여 서비스를 사용할 수 있습니다.
 
-분할/병합 서비스는 분할된 테이블과 참조 테이블 모두에서 데이터를 이동할 수 있습니다. 분할된 테이블에는 분할 키 열과 각 분할 키에 대한 여러 행의 데이터가 있습니다. 참조 테이블은 분할되지 않으므로 모든 분할된 데이터베이스에 동일한 행 데이터를 포함합니다. 참조 테이블은 자주 변경되지 않으며 쿼리에서 분할된 테이블과 조인하는 데 사용되는 데이터에 유용합니다.
+이 서비스는 분할된 테이블과 참조 테이블 모두에서 데이터를 이동할 수 있습니다. 분할된 테이블에는 분할 키 열과 각 분할 키에 대한 여러 행의 데이터가 있습니다. 참조 테이블은 분할되지 않으므로 모든 분할된 데이터베이스에 동일한 행 데이터를 포함합니다. 참조 테이블은 자주 변경되지 않으며 쿼리에서 분할된 테이블과 조인하는 데 사용되는 데이터에 유용합니다.
 
 분할/병합 작업을 수행하려면 이동할 분할된 테이블 및 참조 테이블을 선언해야 합니다. **SchemaInfo** API를 사용하여 이 작업을 수행합니다. 이 API는 **Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.Schema** 네임스페이스에 있습니다.
 
@@ -312,6 +316,7 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
 
 
 ## 문제 해결
+
 샘플 PowerShell 스크립트를 실행할 때 아래 메시지가 표시될 수 있습니다.
 
     Invoke-WebRequest : The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.
@@ -334,4 +339,4 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0511_2016-->

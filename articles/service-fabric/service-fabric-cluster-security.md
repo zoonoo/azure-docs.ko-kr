@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/01/2016"
+   ms.date="05/02/2016"
    ms.author="chackdan"/>
 
 # 서비스 패브릭 클러스터 보안
@@ -82,6 +82,7 @@ Login-AzureRmAccount
 ```
 
 다음 스크립트는 새 리소스 그룹 및/또는 주요 자격 증명 모음이 아직 없는 경우 만듭니다. **참고: 기존 주요 자격 증명 모음을 사용하는 경우 이 스크립트를 사용하여 배포를 지원하도록 구성되어야 합니다.**
+
 ```
 Set-AzureRmKeyVaultAccessPolicy -VaultName <Name of the Vault> -ResourceGroupName <string> -EnabledForDeployment
 ```
@@ -134,11 +135,11 @@ Invoke-AddCertToKeyVault -SubscriptionId 35389201-c0b3-405e-8a23-9f1450994307 -R
 자체 서명된 인증서이므로 이 인증서를 보안 클러스터에 연결하는 데 사용하기 전에 사용자 컴퓨터의 "신뢰할 수 있는 사용자" 저장소로 가져와야 합니다.
 
 ```
-Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPeople -FilePath C:\MyCertificates\ChackdanTestCertificate.pfx -Password (Read-Host -AsSecureString -Prompt "Enter Certificate Password")
+Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPeople -FilePath C:\MyCertificates\ChackdanTestCertificate.pfx -Password (Read-Host -AsSecureString -Prompt "Enter Certificate Password ")
 ```
 
 ```
-Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My -FilePath C:\MyCertificates\ChackdanTestCertificate.pfx -Password (Read-Host -AsSecureString -Prompt "Enter Certificate Password")
+Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My -FilePath C:\MyCertificates\ChackdanTestCertificate.pfx -Password (Read-Host -AsSecureString -Prompt "Enter Certificate Password ")
 ```
 
 스크립트가 성공적으로 완료되면 아래와 같은 출력을 얻게 됩니다. 이는 3단계에 필요합니다.
@@ -262,4 +263,4 @@ X.509 디지털 인증서는 클라이언트 및 서버를 인증하고 암호�
 [Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png
 [Client-to-Node]: ./media/service-fabric-cluster-security/client-to-node.png
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

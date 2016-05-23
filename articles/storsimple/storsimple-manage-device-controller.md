@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="StorSimple 장치 컨트롤러 관리 | Microsoft Azure"
    description="StorSimple 장치 컨트롤러를 중지, 다시 시작, 종료 또는 다시 설정하는 방법을 알아봅니다."
    services="storsimple"
@@ -6,13 +6,13 @@
    authors="alkohli"
    manager="carmonm"
    editor="" />
-<tags 
+<tags
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/18/2016"
+   ms.date="04/25/2016"
    ms.author="alkohli" />
 
 # StorSimple 장치 컨트롤러 관리
@@ -24,7 +24,7 @@
 이 자습서는 다음을 사용하여 장치 컨트롤러를 관리하도록 단계별 지침을 제공합니다.
 
 - StorSimple 관리자 서비스에서 **유지 관리** 페이지의 **컨트롤러** 섹션
-- StorSimple용 Windows PowerShell입니다. 
+- StorSimple용 Windows PowerShell입니다.
 
 사용자가 StorSimple Manager 서비스를 통해 장치 컨트롤러를 관리하는 것이 좋습니다. StorSimple용 Windows PowerShell을 사용해야 동작을 수행할 수 있는 경우에는 자습서에 관련 메모가 표시됩니다.
 
@@ -41,7 +41,7 @@
 
 수동 컨트롤러를 사용할 수 있다면 장치를 다시 시작해도 연결된 개시 장치를 중단하지 않습니다. 수동 컨트롤러를 사용할 수 없거나 꺼져있는 경우 활성 컨트롤러를 다시 시작하면 서비스 및 가동 중지 시간이 중단될 수 있습니다.
 
-> [AZURE.IMPORTANT] 
+> [AZURE.IMPORTANT]
 
 > - **이렇게 하면 중복 손실과 가동 중지 시간 위험 가능성이 높아져서 실행 중인 컨트롤러를 물리적으로 제거하지 말아야 합니다.**
 
@@ -66,23 +66,17 @@ Azure 클래식 포털에서 장치 컨트롤러를 관리 하려면 다음 단�
 	>[AZURE.NOTE] **컨트롤러 관리**가 표시되지 않는 경우 업데이트를 설치해야 합니다. 자세한 내용은 [StorSimple 장치 업데이트](storsimple-update-device.md)를 참조하세요.
 
 1. **컨트롤러 설정 변경** 대화 상자에서 다음을 수행합니다.
-
-
-	- **컨트롤러 선택** 드롭다운 목록에서 관리하려는 컨트롤러를 선택합니다. 옵션은 컨트롤러 0과 컨트롤러 1입니다. 이러한 컨트롤러는 활성 또는 수동으로 식별됩니다.
+    1. **컨트롤러 선택** 드롭다운 목록에서 관리하려는 컨트롤러를 선택합니다. 옵션은 컨트롤러 0과 컨트롤러 1입니다. 이러한 컨트롤러는 활성 또는 수동으로 식별됩니다.
 
 		>[AZURE.NOTE] 컨트롤러를 사용할 수 없거나 꺼져있으면 관리할 수 없으며 드롭다운 목록에 표시되지 않습니다.
-	
 
+    2. **작업 선택** 드롭다운 목록에서 **컨트롤러 다시 시작** 또는 **컨트롤러 종료**를 선택합니다.
 
-	- **작업 선택** 드롭다운 목록에서 **컨트롤러 다시 시작** 또는 **컨트롤러 종료**를 선택합니다.
-	
 		![StorSimple 장치 수동 컨트롤러 다시 시작](./media/storsimple-manage-device-controller/IC766020.png)
- 
-
-	- 확인 아이콘![확인 아이콘](./media/storsimple-manage-device-controller/IC740895.png)을 클릭합니다.
+    3. 확인 아이콘![확인 아이콘](./media/storsimple-manage-device-controller/IC740895.png)을 클릭합니다.
 
 컨트롤러 종료하거나 다시 시작합니다. **컨트롤러 설정 변경** 대화 상자에서 사용자의 선택에 따라 발생한 일의 세부 정보를 아래 테이블에서 요약합니다.
-													
+
 
 |선택 #|선택한 경우...|발생합니다.|
 |---|---|---|
@@ -101,16 +95,12 @@ Azure 클래식 포털에서 장치 컨트롤러를 관리 하려면 다음 단�
 1. 직렬 콘솔 메뉴에서 옵션 1, **모든 권한으로 로그인**을 선택합니다.
 
 1. 배너 메시지에서 연결된 컨트롤러(컨트롤러 0 또는 컨트롤러 1)와 활성 또는 수동(대기) 컨트롤러 여부를 기록합니다.
-	
-
-	- 프롬프트에서 단일 컨트롤러를 종료하려면 다음을 입력합니다.
+    - 프롬프트에서 단일 컨트롤러를 종료하려면 다음을 입력합니다.
 
 		`Stop-HcsController`
 
 		연결된 컨트롤러를 종료합니다. 활성 컨트롤러를 중지하면 수동 컨트롤러를 종료하기 전에 장애 조치합니다.
-
-
-	- 컨트롤러를 다시 시작하려면 프롬프트에 다음을 입력합니다.
+    - 컨트롤러를 다시 시작하려면 프롬프트에 다음을 입력합니다.
 
 		`Restart-HcsController`
 
@@ -150,7 +140,7 @@ Azure 클래식 포털에서 장치 컨트롤러를 관리 하려면 다음 단�
 
 ## 장치를 공장 기본 설정으로 재설정
 
-이 절차는 StorSimple용 Windows PowerShell을 사용하여 Microsoft Azure StorSimple 장치를 공장 기본 설정으로 재설정하는데 필요한 자세한 단계를 포함합니다.
+이 절차는 StorSimple용 Windows PowerShell을 사용하여 Microsoft Azure StorSimple 장치를 공장 기본 설정으로 다시 설정하는 방법을 설명합니다. 장치를 다시 설정하면 기본적으로 전체 클러스터에서 모든 데이터 및 설정을 제거합니다.
 
 Microsoft Azure StorSimple 장치를 공장 기본 설정으로 다시 설정하려면 다음 단계를 수행합니다.
 
@@ -160,19 +150,19 @@ Microsoft Azure StorSimple 장치를 공장 기본 설정으로 다시 설정하
 
 1. 직렬 콘솔 메뉴에서 옵션 1, **모든 권한으로 로그인**을 선택합니다.
 
-1. 프롬프트에 다음 명령을 입력합니다.
+1. 프롬프트에서 전체 클러스터를 다시 설정하는 다음 명령을 입력하면 모든 데이터, 메타데이터 및 컨트롤러 설정을 제거합니다.
 
 	`Reset-HcsFactoryDefault`
 
-	시스템을 여러 번 다시 부팅합니다. 재설정이 성공적으로 완료되면 알림이 표시됩니다. 시스템 모델에 따라 이 프로세스를 완료 하는 데 8100 장치로 45-60분이 걸리고 8600 장치로 60-90분이 걸릴 수 있습니다.
+    대신 단일 컨트롤러를 다시 설정하려면 `-scope` 매개 변수가 있는 [Reset-HcsFactoryDefault](http://technet.microsoft.com/library/dn688132.aspx) cmdlet을 사용합니다.
 
-	> [AZURE.TIP] 
-	
-	> - `Reset-HcsFactoryDefault –SkipFirmwareVersionCheck` 명령을 사용하여 공장 재설정 cmdlet(위에서 사용)이 펌웨어 버전의 불일치를 보고하는 경우 펌웨어 버전 확인을 건너뜁니다. 공장 재설정은 펌웨어 버전의 불일치로 인해 계속할 수 없습니다. Microsoft 업데이트 또는 핫픽스 메커니즘을 사용하여 이전에 업데이트된 장치에 공장 재설정을 수행하는 경우 펌웨어 검사(`–SkipFirmwareCheck` 옵션 사용)를 건너뛰어야 합니다.
-	
+    시스템을 여러 번 다시 부팅합니다. 재설정이 성공적으로 완료되면 알림이 표시됩니다. 시스템 모델에 따라 이 프로세스를 완료 하는 데 8100 장치로 45-60분이 걸리고 8600 장치로 60-90분이 걸릴 수 있습니다.
+
+	> [AZURE.TIP]
+
+	> - 업데이트 1.2 이상을 사용하는 경우 `–SkipFirmwareVersionCheck` 매개 변수를 사용하여 펌웨어 버전 확인을 건너뜁니다(아니면 펌웨어 불일치 에러가 표시되며 펌웨어 버전의 불일치로 인해 펌웨어 버전의 불일치 때문에 공장 재설정을 계속할 수 없음).
+
 	> - 정부 포털에서 업데이트 1 또는 1.1을 실행하고, 단일 또는 이중 컨트롤러 교체(업데이트 1 이전 소프트웨어와 함께 제공된 교체 컨트롤러)를 성공적으로 수행한 StorSimple 장치에서는 공장 재설정 절차에 실패할 수 있습니다. 이는 공장 재설정 이미지가 업데이트 1 이전 소프트웨어에 대해 존재하지 않는 컨트롤러의 SHA1 파일 존재에 대해 유효성이 검사된 경우에 발생합니다. 이 공장 재설정 오류가 표시되면 Microsoft 지원에 문의하여 다음 단계에 대한 지원을 받으세요. 업데이트 1 이상 소프트웨어와 함께 공장에서 배송된 교체 컨트롤러에는 이 문제가 발생하지 않습니다.
-
-	> - 이 cmdlet을 사용하는 방법에 대한 자세한 내용을 보려면 [StorSimple용 Windows PowerShell에 대한 cmdlet 참조](https://technet.microsoft.com/library/dn688168.aspx)로 이동합니다.
 
 
 ## 장치 컨트롤러를 관리하는 방법에 대한 질문 및 답변
@@ -223,4 +213,4 @@ Microsoft Azure StorSimple 장치를 공장 기본 설정으로 다시 설정하
 
 - StorSimple Manager 서비스를 사용하는 방법을 자세히 알아보려면 [StorSimple Manager 서비스를 사용하여 StorSimple 장치 관리](storsimple-manager-service-administration.md)로 이동하세요.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -10,7 +10,7 @@
 <tags
    ms.service="data-catalog"
    ms.devlang="NA"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
    ms.date="03/30/2016"
@@ -76,4 +76,4 @@ Azure 데이터 카탈로그 포털 홈 페이지는 현재 사용자에 대한 
 ## 요약
 Azure 데이터 카탈로그는 사용자가 필요한 데이터 원본을 쉽게 검색할 수 있는 기능을 제공하므로 데이터를 찾는 시간이 줄고 작업하는 시간은 늘어나게 됩니다. 저장된 검색 및 고정된 데이터 자산은 이러한 핵심 기능을 작성하므로 사용자가 반복해서 작업할 데이터 원본을 쉽게 식별할 수 있습니다.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

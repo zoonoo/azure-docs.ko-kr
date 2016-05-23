@@ -3,7 +3,7 @@
 	description="RecoveryManager 클래스를 사용하여 분할된 데이터베이스 맵의 문제 해결" 
 	services="sql-database" 
 	documentationCenter=""  
-	manager="jeffreyg"
+	manager="jhubbard"
 	authors="ddove"/>
 
 <tags 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="05/05/2016" 
 	ms.author="ddove"/>
 
 # RecoveryManager 클래스를 사용하여 분할된 데이터베이스 맵 문제 해결
@@ -129,14 +129,13 @@ Azure SQL 데이터베이스 탄력적 데이터베이스 도구, 지역에서 �
 4. GSM 및 LSM 간의 매핑에서 불일치를 감지합니다. 
 5. LSM을 신뢰하여 GSM 및 LSM 간의 차이를 해결합니다. 
 
-이 예제에서는 1단계를 수행합니다. 장애 조치 이벤트 이전에, 분할된 데이터베이스 위치를 반영하는 분할된 데이터베이스 맵에서 분할된 데이터베이스를 제거합니다. 2. 분할된 데이터베이스를 새 분할된 데이터베이스 위치를 반영하는 분할된 데이터베이스 맵에 연결합니다("Configuration.SecondaryServer" 매개 변수는 새로운 서버 이름이지만 동일한 데이터베이스 이름입니다). 3. 각 분할된 데이터베이스에 대해 GSM 및 LSM 간의 매핑 차이를 감지하여 복구 토큰을 검색합니다. 4. 각 분할된 데이터베이스의 LSM에서 매핑을 신뢰하여 불일치를 해결합니다.
+이 예제에서는 다음 단계를 수행합니다.
+1. 장애 조치 이벤트 이전에, 분할된 데이터베이스 위치를 반영하는 분할된 데이터베이스 맵에서 분할된 데이터베이스를 제거합니다.
+2. 분할된 데이터베이스를 새 분할된 데이터베이스 위치를 반영하는 분할된 데이터베이스 맵에 연결합니다("Configuration.SecondaryServer" 매개 변수는 새로운 서버 이름이지만 동일한 데이터베이스 이름입니다).
+3. 각 분할된 데이터베이스에 대해 GSM 및 LSM 간의 매핑 차이를 감지하여 복구 토큰을 검색합니다. 
+4. 각 분할된 데이터베이스의 LSM에서 매핑을 신뢰하여 불일치를 해결합니다. 
 
-	var shards = smm.GetShards(); 
-	foreach (shard s in shards) 
-	{ 
-	 if (s.Location.Server == Configuration.PrimaryServer) 
-		 { 
-		  ShardLocation slNew = new ShardLocation(Configuration.SecondaryServer, s.Location.Database); 
+	var shards = smm.GetShards(); foreach (shard s in shards) { if (s.Location.Server == Configuration.PrimaryServer) { ShardLocation slNew = new ShardLocation(Configuration.SecondaryServer, s.Location.Database);
 		
 		  rm.DetachShard(s.Location); 
 		
@@ -149,7 +148,7 @@ Azure SQL 데이터베이스 탄력적 데이터베이스 도구, 지역에서 �
 			   rm.ResolveMappingDifferences(g, MappingDifferenceResolution.KeepShardMapping); 
 			} 
 		} 
-	} 
+	}
 
 
 
@@ -160,4 +159,4 @@ Azure SQL 데이터베이스 탄력적 데이터베이스 도구, 지역에서 �
 [1]: ./media/sql-database-elastic-database-recovery-manager/recovery-manager.png
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

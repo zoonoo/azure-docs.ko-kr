@@ -159,7 +159,7 @@ MP3(MPEG-1 Audio Layer 3)|예|예
 Windows Media 오디오|예|예
 WAV/PCM|예|예
 [FLAC](https://en.wikipedia.org/wiki/FLAC)</a>|예|아니요
-[Opus](https://en.wikipedia.org/wiki/Opus_(audio_format) |예|아니요
+[Opus](https://en.wikipedia.org/wiki/Opus_(audio_format)) |예|아니요
 [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a>|예|아니요
 
 
@@ -242,4 +242,4 @@ TransientError|일시적인 문제를 포함하는 오류 범주(예: Azure 저�
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -13,13 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="02/23/2016"
+   ms.date="05/05/2016"
    ms.author="elizapo"/>
 
 
 
 # Azure RemoteApp에서 Windows PowerShell cmdlet 사용
-=====================================
 
  Azure RemoteApp PowerShell cmdlet을 사용하여 컬렉션을 유지 관리할 수 있습니다. 시작하려면 다음 정보를 사용합니다.
 
@@ -112,4 +111,4 @@ RemoteApp 템플릿 이미지 cmdlet:
 - Get-AzureRemoteAppOperationResult
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0511_2016-->

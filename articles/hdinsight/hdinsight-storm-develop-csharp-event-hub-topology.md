@@ -13,20 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/28/2016"
+   ms.date="05/10/2016"
    ms.author="larryfr"/>
 
 # HDInsight의 Storm으로 Azure 이벤트 허브에서 이벤트 처리
 
 Azure 이벤트 허브를 사용하면 웹 사이트, 앱 및 장치에서 대량의 데이터를 처리할 수 있습니다. 이벤트 허브 Spout를 사용하면 HDInsight에서 Apache Storm을 사용하여 이 데이터를 실시간으로 분석하기가 쉽습니다. 또한 이벤트 허브 Bolt를 사용하여 Storm에서 이벤트 허브에 데이터를 기록할 수도 있습니다.
 
-이 자습서에서는 Visual Studio용 HDInsight 도구 및 이벤트 허브 Spout와 Bolt를 사용하여 두 개의 하이브리드 C#/Java 토폴로지를 만드는 방법에 대해 알아봅니다.
+이 자습서에서는 Visual Studio용 HDInsight 도구와 함께 설치된 Visual Studio 템플릿을 사용하여 Azure 이벤트 허브에서 작동하는 두 토폴로지를 만드는 방법을 알아봅니다.
 
 * **EventHubWriter**: 무작위로 데이터를 생성하여 이벤트 허브에 기록합니다.
 
 * **EventHubReader**: 이벤트 허브에서 데이터를 읽어 Azure 테이블 저장소에 저장합니다.
 
-[AZURE.NOTE] 이 문서의 단계는 Windows 기반 HDInsight 클러스터에만 적용됩니다. Linux 기반 또는 Windows 기반 클러스터로 작동하는 이 프로젝트의 Java 버전의 경우 [HDInsight의 Storm으로 Azure 이벤트 허브에서 이벤트 처리(Java)](hdinsight-storm-develop-java-event-hub-topology.md)를 참조하세요.
+> [AZURE.NOTE] 이 문서의 단계는 Windows 기반 HDInsight 클러스터에만 적용됩니다. Linux 기반 또는 Windows 기반 클러스터로 작동하는 이 프로젝트의 Java 버전의 경우 [HDInsight의 Storm으로 Azure 이벤트 허브에서 이벤트 처리(Java)](hdinsight-storm-develop-java-event-hub-topology.md)를 참조하세요.
 
 ## 필수 조건
 
@@ -40,7 +40,7 @@ Azure 이벤트 허브를 사용하면 웹 사이트, 앱 및 장치에서 대�
 
 ## 완성된 프로젝트
 
-이 자습서에서 만든 프로젝트의 전체 버전은 GitHub [eventhub-storm-hybrid](https://github.com/Blackmist/eventhub-storm-hybrid)에서 다운로드할 수 있습니다. 그러나 이 자습서의 단계에 따라 구성 설정을 제공해야 합니다.
+이 자습서에서 만든 프로젝트의 전체 버전은 GitHub [eventhub-storm-hybrid](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub)에서 다운로드할 수 있습니다. 그러나 이 자습서의 단계에 따라 구성 설정을 제공해야 합니다.
 
 > [AZURE.NOTE] 완성된 프로젝트를 사용하는 경우 **NuGet 패키지 관리자**를 사용하여 이 솔루션에 필요한 패키지를 복원해야 합니다.
 
@@ -52,17 +52,17 @@ Spout 및 Bolt는 **eventhubs-storm-spout-0.9-jar-with-dependencies.jar**이라�
 
 ### .jar 파일 다운로드
 
-최신 버전의 **eventhubs-storm-spout-0.9-jar-with-dependencies.jar** 파일은 **lib** 폴더 아래의 <a href="https://github.com/hdinsight/hdinsight-storm-examples" target="_blank">HDInsight Storm 예제</a> 프로젝트에 포함되어 있습니다. 이 파일을 다운로드하려면 다음 방법 중 하나를 사용합니다.
+최신 버전의 **eventhubs-storm-spout-0.9-jar-with-dependencies.jar** 파일은 **lib** 폴더 아래의 [HDInsight Storm 예제](https://github.com/hdinsight/hdinsight-storm-examples) 프로젝트에 포함되어 있습니다. 이 파일을 다운로드하려면 다음 방법 중 하나를 사용합니다.
 
-> [AZURE.NOTE] spout 및 bolt는 Apache Storm 프로젝트에 포함되도록 제출되었습니다. 자세한 내용은 GitHub에서 <a href="https://github.com/apache/storm/pull/336/files">STORM-583: storm-event hubs 초기 체크 인</a>을 참조하세요.
+> [AZURE.NOTE] spout 및 bolt는 Apache Storm 프로젝트에 포함되도록 제출되었습니다. 자세한 내용은 GitHub에서 [STORM-583: storm-event hubs 초기 체크 인](https://github.com/apache/storm/pull/336/files)을 참조하세요.
 
-* **ZIP 파일 다운로드**: <a href="https://github.com/hdinsight/hdinsight-storm-examples" target="_blank">HDInsight Storm 예제</a> 사이트의 오른쪽 창에서 **Download ZIP** 단추를 선택하여 프로젝트가 포함된 .zip 파일을 다운로드합니다.
+* **ZIP 파일 다운로드**: [HDInsight Storm 예제](https://github.com/hdinsight/hdinsight-storm-examples) 사이트의 오른쪽 창에서 **ZIP 다운로드** 단추를 선택하여 프로젝트가 포함된 .zip 파일을 다운로드합니다.
 
 	![download zip 단추](./media/hdinsight-storm-develop-csharp-event-hub-topology/download.png)
 
 	파일을 다운로드한 후 보관 파일을 추출하면 파일이 **lib** 디렉터리에 저장됩니다.
 
-* **프로젝트 복제**: <a href="http://git-scm.com/" target="_blank">Git</a>가 설치된 경우 다음 명령을 사용하여 로컬에서 리포지토리를 복제한 다음 **lib** 디렉터리에서 파일을 찾습니다.
+* **프로젝트 복제**: [Git](http://git-scm.com/)가 설치된 경우 다음 명령을 사용하여 로컬에서 리포지토리를 복제한 다음 **lib** 디렉터리에서 파일을 찾습니다.
 
 		git clone https://github.com/hdinsight/hdinsight-storm-examples
 
@@ -70,7 +70,7 @@ Spout 및 Bolt는 **eventhubs-storm-spout-0.9-jar-with-dependencies.jar**이라�
 
 이벤트 허브는 이 예제의 데이터 원본입니다. 다음 단계에 따라 새 이벤트 허브를 만듭니다.
 
-1. [Azure 클래식 포털](https://manage.windowsazure.com)에서 **새로 만들기** > **서비스 버스** > **이벤트 허브** > **사용자 지정 만들기**를 선택합니다.
+1. [Azure 클래식 포털](https://manage.windowsazure.com)에서 **새로 만들기** > __앱 서비스__ > **서비스 버스** > **이벤트 허브** > **사용자 지정 만들기**를 선택합니다.
 
 2. **새 이벤트 허브 추가** 화면에서 **이벤트 허브 이름**을 입력하고 허브를 만들 **하위 지역**을 선택한 다음 새 네임스페이스를 만들거나 기존 네임스페이스를 선택합니다. **화살표**를 클릭하여 계속합니다.
 
@@ -78,19 +78,16 @@ Spout 및 Bolt는 **eventhubs-storm-spout-0.9-jar-with-dependencies.jar**이라�
 
 	> [AZURE.NOTE] 대기 시간 및 비용을 줄이려면 HDInsight 서버의 Storm과 동일한 **위치**를 선택해야 합니다.
 
-2. **이벤트 허브 구성** 화면에서 **파티션 개수** 및 **메시지 보존** 값을 입력합니다. 이 예에서는 파티션 개수로 10을, 메시지 보존으로는 1을 사용합니다. 파티션 개수 값은 나중에 필요하므로 기록해 둡니다.
-
-	![마법사 페이지 2](./media/hdinsight-storm-develop-csharp-event-hub-topology/wiz2.png)
+2. **이벤트 허브 구성** 화면에서 **파티션 개수** 및 **메시지 보존** 값을 입력합니다. 이 예에서는 파티션 개수로 8을, 메시지 보존으로는 1을 사용합니다. 파티션 개수 값은 나중에 필요하므로 기록해 둡니다.
 
 3. 이벤트 허브를 만든 후 네임스페이스를 선택하고 **이벤트 허브**를 선택한 다음 앞에서 만든 이벤트 허브를 선택합니다.
 
 4. **구성**을 선택하고 다음 정보를 사용하여 새 액세스 정책 두 개를 만듭니다.
 
-	<table>
-	<tr><th>이름</th><th>권한</th></tr>
-	<tr><td>기록기</td><td>보내기</td></tr>
-	<tr><td>읽기 권한자</td><td>수신 대기</td></tr>
-	</table>
+	| 이름 | 권한 |
+    | ----- | ----- |
+	| 기록기 | 보내기 |
+	| 읽기 권한자 | 수신 대기 |
 
 	권한을 만든 후 페이지 아래쪽의 **저장** 아이콘을 선택합니다. 그러면 이 이벤트 허브로 보내고(기록기) 수신하는(판독기) 데 사용되는 공유 액세스 정책이 만들어집니다.
 
@@ -110,15 +107,21 @@ Spout 및 Bolt는 **eventhubs-storm-spout-0.9-jar-with-dependencies.jar**이라�
 
 	> [AZURE.NOTE] 대기 시간 및 비용을 줄이려면 이벤트 허브 및 HDInsight 서버의 Storm과 동일한 **위치**를 선택해야 합니다.
 
-3. 새 저장소 계정이 프로비전되면 계정을 선택하고 페이지 아래쪽에 있는 **액세스 키 관리** 링크를 사용하여 **저장소 계정 이름** 및 **기본 액세스 키**를 검색합니다. 이 정보는 나중에 사용되므로 저장합니다.
+3. 새 저장소 계정이 만들어지면 계정을 선택하고 페이지 아래쪽에 있는 **액세스 키 관리** 링크를 사용하여 **저장소 계정 이름** 및 **기본 액세스 키**를 검색합니다. 이 정보는 나중에 사용되므로 저장합니다.
 
 	![액세스 키](./media/hdinsight-storm-develop-csharp-event-hub-topology/managekeys.png)
+
+4. Visual Studio를 엽니다. __보기__ 메뉴에서 __클라우드 탐색기__를 선택합니다. __클라우드 탐색기__에서 __저장소 계정__, 이전에 만든 저장소 계정을 차례로 확장합니다.
+
+    ![클라우드 탐색기](./media/hdinsight-storm-develop-csharp-event-hub-topology/createtablestorage.png)
+
+5. 저장소 계정에 대한 __테이블__을 마우스 오른쪽 단추로 클릭한 후 __테이블 만들기__를 선택합니다. 메시지가 표시되면 테이블의 이름으로 **이벤트**를 입력합니다. 이후 단계에서 필요하므로 이름을 저장해 둡니다.
 
 ## EventHubWriter 만들기
 
 이 섹션에서는 이벤트 허브 Bolt를 사용하여 이벤트 허브에 데이터를 기록하는 토폴로지를 만듭니다.
 
-1. 최신 버전의 Visual Studio용 HDInsight 도구를 아직 설치하지 않은 경우 <a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">Visual Studio용 HDInsight 도구 사용 시작</a>을 참조하세요.
+1. 최신 버전의 Visual Studio용 HDInsight 도구를 아직 설치하지 않은 경우 [Visual Studio용 HDInsight 도구 사용 시작](hdinsight-hadoop-visual-studio-tools-get-started.md)을 참조하세요.
 
 2. Visual Studio를 열고 **파일** > **새로 만들기** > **프로젝트**를 차례로 선택합니다.
 
@@ -142,14 +145,13 @@ Spout 및 Bolt는 **eventhubs-storm-spout-0.9-jar-with-dependencies.jar**이라�
 
 3. 다음 설정을 입력합니다. 앞에서 만든 이벤트 허브에 대한 정보를 **값** 열에 사용합니다.
 
-	<table>
-	<tr><th style="text-align:left">이름</th><th style="text-align:left">형식</th><th style="text-align:left">범위</th></tr>
-	<tr><td style="text-align:left">EventHubPolicyName</td><td style="text-align:left">string</td><td style="text-align:left">응용 프로그램</td></tr>
-	<tr><td style="text-align:left">EventHubPolicyKey</td><td style="text-align:left">string</td><td style="text-align:left">응용 프로그램</td></tr>
-	<tr><td style="text-align:left">EventHubNamespace</td><td style="text-align:left">string</td><td style="text-align:left">응용 프로그램</td></tr>
-	<tr><td style="text-align:left">EventHubName</td><td style="text-align:left">string</td><td style="text-align:left">응용 프로그램</td></tr>
-	<tr><td style="text-align:left">EventHubPartitionCount</td><td style="text-align:left">int</td><td style="text-align:left">응용 프로그램</td></tr>
-	</table>
+	| 이름 | 형식 | 범위 |
+    | ----- | ----- | ----- |
+	| EventHubPolicyName | string | 응용 프로그램 |
+	| EventHubPolicyKey | string | 응용 프로그램 |
+	| EventHubNamespace | string | 응용 프로그램 |
+	| EventHubName | string | 응용 프로그램 |
+	| EventHubPartitionCount | int | 응용 프로그램 |
 
 4. **속성** 페이지를 저장하고 닫습니다.
 
@@ -157,7 +159,7 @@ Spout 및 Bolt는 **eventhubs-storm-spout-0.9-jar-with-dependencies.jar**이라�
 
 1. **솔루션 탐색기**에서 **Bolt.cs**를 마우스 오른쪽 단추로 클릭하고 **삭제**를 선택합니다. Java 이벤트 허브 Bolt를 사용하고 있으므로 이 파일은 필요하지 않습니다.
 
-2. **Program.cs** 파일을 열고 `TopologyBuilder topologyBuilder = new TopologyBuilder("EventHubWriter");` 줄 바로 뒤에 다음 코드를 추가합니다.
+2. **Program.cs** 파일을 열고 `TopologyBuilder topologyBuilder = new TopologyBuilder("EventHubWriter" + DateTime.Now.ToString("yyyyMMddHHmmss"));` 줄 바로 뒤에 다음 코드를 추가합니다.
 
 		int partitionCount = Properties.Settings.Default.EventHubPartitionCount;
 		List<string> javaDeserializerInfo =
@@ -230,7 +232,7 @@ Spout 및 Bolt는 **eventhubs-storm-spout-0.9-jar-with-dependencies.jar**이라�
 
 이제 **Program.cs** 작업을 마쳤습니다. 토폴로지는 정의되었지만 이제 이벤트 허브 Bolt에서 사용할 수 있는 형식으로 데이터를 생성하도록 **Spout.cs**를 수정해야 합니다.
 
-> [AZURE.NOTE] 이 토폴로지는 기본적으로 하나의 작업자 프로세스를 만들며, 이는 예제의 목적에 충분합니다. 이를 프로덕션 클러스터에 맞게 조정하려면 다음을 추가하고 작업자 수를 변경해야 합니다.
+> [AZURE.NOTE] 이 토폴로지는 기본적으로 하나의 작업자 프로세스를 만들며, 이는 예제의 목적에 충분합니다. 이를 프로덕션 클러스터에 맞게 조정하려면 다음을 추가하여 작업자 수를 변경해야 합니다.
 
     StormConfig config = new StormConfig();
     config.setNumWorkers(1);
@@ -293,20 +295,23 @@ Spout 및 Bolt는 **eventhubs-storm-spout-0.9-jar-with-dependencies.jar**이라�
 
 1. **솔루션 탐색기**에서 **EventHubReader**를 마우스 오른쪽 단추로 클릭한 다음 **속성**을 선택합니다.
 
+2. **도구**, **NuGet 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 선택합니다. 콘솔이 나타나면 다음 명령을 사용하여 Azure 저장소 패키지를 설치합니다.
+
+        NuGet install WindowsAzure.Storage
+
 2. 프로젝트 속성에서 **설정**을 선택한 다음 **이 프로젝트에는 기본 설정 파일이 없습니다. 기본 설정 파일을 만들려면 여기를 클릭하세요.**를 선택합니다.
 
 3. 다음 설정을 입력합니다. 앞에서 만든 이벤트 허브 및 저장소 계정에 대한 정보를 **값** 열에 사용합니다.
 
-	<table>
-	<tr><th style="text-align:left">이름</th><th style="text-align:left">형식</th><th style="text-align:left">범위</th></tr>
-	<tr><th style="text-align:left">EventHubPolicyName</th><th style="text-align:left">string</th><th style="text-align:left">응용 프로그램</th></tr>
-	<tr><th style="text-align:left">EventHubPolicyKey</th><th style="text-align:left">string</th><th style="text-align:left">응용 프로그램</th></tr>
-	<tr><th style="text-align:left">EventHubNamespace</th><th style="text-align:left">string</th><th style="text-align:left">응용 프로그램</th></tr>
-	<tr><th style="text-align:left">EventHubName</th><th style="text-align:left">string</th><th style="text-align:left">응용 프로그램</th></tr>
-	<tr><th style="text-align:left">EventHubPartitionCount</th><th style="text-align:left">int</th><th style="text-align:left">응용 프로그램</th></tr>
-	<tr><th style="text-align:left">StorageConnection</th><th style="text-align:left">(연결 문자열)</th><th style="text-align:left">응용 프로그램</th></tr>
-	<tr><th style="text-align:left">TableName</th><th style="text-align:left">string</th><th style="text-align:left">응용 프로그램</th></tr>
-	</table>
+	| 이름 | 형식 | 범위 |
+    | ----- | ----- | ----- |
+	| EventHubPolicyName | string | 응용 프로그램 |
+	| EventHubPolicyKey | string | 응용 프로그램 |
+	| EventHubNamespace | string | 응용 프로그램 |
+	| EventHubName | string | 응용 프로그램 |
+	| EventHubPartitionCount | int | 응용 프로그램 |
+	| StorageConnection | (연결 문자열) | 응용 프로그램 |
+	| TableName | string | 응용 프로그램 |
 
 	**TableName**에 대해 이벤트를 저장하려는 테이블의 이름을 입력합니다.
 
@@ -320,7 +325,7 @@ Spout 및 Bolt는 **eventhubs-storm-spout-0.9-jar-with-dependencies.jar**이라�
 
 1. **솔루션 탐색기**에서 **Spout.cs**를 마우스 오른쪽 단추로 클릭하고 **삭제**를 선택합니다. Java 이벤트 허브 Spout를 사용하고 있으므로 이 파일은 필요하지 않습니다.
 
-2. **Program.cs** 파일을 열고 `TopologyBuilder topologyBuilder = new TopologyBuilder("EventHubReader");` 줄 바로 뒤에 다음 코드를 추가합니다.
+2. **Program.cs** 파일을 열고 `TopologyBuilder topologyBuilder = new TopologyBuilder("EventHubReader" + DateTime.Now.ToString("yyyyMMddHHmmss"));` 줄 바로 뒤에 다음 코드를 추가합니다.
 
 		int partitionCount = Properties.Settings.Default.EventHubPartitionCount;
 		EventHubSpoutConfig ehConfig = new EventHubSpoutConfig(
@@ -396,9 +401,9 @@ Spout 및 Bolt는 **eventhubs-storm-spout-0.9-jar-with-dependencies.jar**이라�
 
 테이블 저장소에 데이터를 기록하려면 기록할 데이터를 설명하는 클래스를 만들어야 합니다.
 
-1. **솔루션 탐색기**에서 **EventHubReader** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가**, **새 클래스**를 차례로 선택합니다. 새 클래스 이름을 **Devices.cs**로 지정합니다.
+1. **솔루션 탐색기**에서 **EventHubReader** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가**, **클래스**를 차례로 선택합니다. 새 클래스 이름을 **Device.cs**로 지정합니다.
 
-2. **Devices.cs**를 열고 기본 코드를 다음으로 바꿉니다.
+2. **Device.cs**를 열고 기본 코드를 다음으로 바꿉니다.
 
 		using System;
 		using System.Collections.Generic;
@@ -462,7 +467,7 @@ Spout 및 Bolt는 **eventhubs-storm-spout-0.9-jar-with-dependencies.jar**이라�
         table = tableClient.GetTableReference(Properties.Settings.Default.TableName);
         table.CreateIfNotExists();
 
-	이전에 구성한 연결 문자열을 사용하여 **이벤트** 테이블에 연결합니다. 연결 문자열이 없으면 새로 만듭니다.
+	그러면 `TableName`에 저장된 연결 문자열을 사용하여 이전에 만든 Azure 저장소 테이블에 연결됩니다.
 
 2. **Execute** 메서드를 찾아 다음으로 바꿉니다.
 
@@ -490,7 +495,7 @@ Spout 및 Bolt는 **eventhubs-storm-spout-0.9-jar-with-dependencies.jar**이라�
 
     > [AZURE.IMPORTANT] EventHubSpout 구성 요소에는 이 Bolt와 같은 다운스트림 구성 요소에서의 각 튜플에 대한 ACK가 필요합니다. ACK가 수신되지 않은 경우 EventHubSpout는 튜플 처리가 실패한 것으로 간주합니다.
 
-이제 이벤트 허브에서 데이터를 읽어 테이블 저장소의 **이벤트** 테이블에 저장하는 전체 토폴로지가 있습니다.
+이제 이벤트 허브에서 데이터를 읽어 이전에 만든 테이블의 테이블 저장소에 저장하는 전체 토폴로지가 있습니다.
 
 ## 토폴로지 배포
 
@@ -565,4 +570,4 @@ EventHubSpout는 해당 상태의 검사점을 큐에서 읽은 메시지의 현
 * [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0511_2016-->

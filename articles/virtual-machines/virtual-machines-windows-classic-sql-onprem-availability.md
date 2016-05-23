@@ -1,6 +1,6 @@
 <properties
-	pageTitle="온-프레미스 AlwaysOn 가용성 그룹을 Azure에 확장 | Microsoft Azure"
-	description="이 자습서에서는 클래식 배포 모델을 사용하여 만든 리소스를 사용하며, SSMS(SQL Server Management Studio)에서 복제본 추가 마법사를 사용하여 Azure에 AlwaysOn 가용성 그룹 복제본을 추가하는 방법을 설명합니다."
+	pageTitle="온-프레미스 Always On 가용성 그룹을 Azure로 확장 | Microsoft Azure"
+	description="이 자습서에서는 클래식 배포 모델을 사용하여 만든 리소스를 사용하며, SSMS(SQL Server Management Studio)에서 복제본 추가 마법사를 사용하여 Azure에 Always On 가용성 그룹 복제본을 추가하는 방법을 설명합니다."
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="MikeRayMSFT"
@@ -14,12 +14,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/05/2016"
+	ms.date="05/08/2016"
 	ms.author="mikeray" />
 
-# 온-프레미스 AlwaysOn 가용성 그룹을 Azure에 확장
+# 온-프레미스 Always On 가용성 그룹을 Azure로 확장
 
-AlwaysOn 가용성 그룹은 보조 복제본 추가를 통해 데이터베이스 그룹에 고가용성을 제공합니다. 이러한 복제본은 오류 발생 시의 데이터베이스 장애 조치를 허용합니다. 또한 읽기 워크로드 또는 백업 작업의 부하를 줄이는 데 사용할 수 있습니다.
+Always On 가용성 그룹은 보조 복제본 추가를 통해 데이터베이스 그룹에 고가용성을 제공합니다. 이러한 복제본은 오류 발생 시의 데이터베이스 장애 조치를 허용합니다. 또한 읽기 워크로드 또는 백업 작업의 부하를 줄이는 데 사용할 수 있습니다.
 
 SQL Server에 하나 이상의 Azure VM을 프로비전한 다음 온-프레미스 가용성 그룹에 복제본 형태로 추가하면 온-프레미스 가용성 그룹을 Microsoft Azure로 확장할 수 있습니다.
 
@@ -27,7 +27,7 @@ SQL Server에 하나 이상의 Azure VM을 프로비전한 다음 온-프레미�
 
 - 활성 Azure 구독. [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 
-- 기존 AlwaysOn 가용성 그룹 온-프레미스. 가용성 그룹에 대한 자세한 내용은 [AlwaysOn 가용성 그룹](https://msdn.microsoft.com/library/hh510230.aspx)을 참조하세요.
+- 기존 Always On 가용성 그룹 온-프레미스. 가용성 그룹에 대한 자세한 내용은 [Always On 가용성 그룹](https://msdn.microsoft.com/library/hh510230.aspx)을 참조하세요.
 
 - Azure 가상 네트워크와 온-프레미스 네트워크 간의 연결. 이 가상 네트워크 만들기에 대한 자세한 내용은 [Azure 클래식 포털에서 사이트 간 VPN 구성](../vpn-gateway/vpn-gateway-site-to-site-create.md)을 참조하세요.
 
@@ -35,9 +35,9 @@ SQL Server에 하나 이상의 Azure VM을 프로비전한 다음 온-프레미�
 
 ## Azure Replica Wizard 추가
 
-이 섹션에서는 **Azure 복제본 추가 마법사**를 사용하여 Azure 복제본을 포함하도록 AlwaysOn 가용성 그룹 솔루션을 확장하는 방법을 보여줍니다.
+이 섹션에서는 **Azure 복제본 추가 마법사**를 사용하여 Azure 복제본을 포함하도록 Always On 가용성 그룹 솔루션을 확장하는 방법을 보여줍니다.
 
-1. SQL Server Management Studio에서 **AlwaysOn 고가용성** > **가용성 그룹** > **[가용성 그룹 이름]**을 확장합니다.
+1. SQL Server Management Studio에서 **Always On 고가용성** > **가용성 그룹** > **[가용성 그룹 이름]**을 확장합니다.
 
 1. 마우스 오른쪽 단추로 **가용성 복제본**을 클릭한 다음 **복제본 추가**를 클릭합니다.
 
@@ -81,7 +81,7 @@ SQL Server에 하나 이상의 Azure VM을 프로비전한 다음 온-프레미�
 
 1. **다음**을 클릭합니다.
 
-1. **초기 데이터 동기화 선택** 페이지에서 사용하려는 데이터 동기화 방법을 선택하고 **다음**을 클릭합니다. 대부분의 시나리오에서 **전체 데이터 동기화**를 선택합니다. 데이터 동기화 방법에 대한 자세한 내용은 [최초 데이터 동기화 선택 페이지(AlwaysOn 가용성 그룹 마법사)](https://msdn.microsoft.com/library/hh231021.aspx)를 참조하세요.
+1. **초기 데이터 동기화 선택** 페이지에서 사용하려는 데이터 동기화 방법을 선택하고 **다음**을 클릭합니다. 대부분의 시나리오에서 **전체 데이터 동기화**를 선택합니다. 데이터 동기화 방법에 대한 자세한 내용은 [최초 데이터 동기화 선택 페이지(Always On 가용성 그룹 마법사)](https://msdn.microsoft.com/library/hh231021.aspx)를 참조하세요.
 
 1. **유효성 검사** 페이지에서 결과를 검토합니다. 해결되지 않은 문제를 수정하고 필요에 따라 유효성 검사를 다시 실행합니다. **다음**을 클릭합니다.
 
@@ -95,12 +95,12 @@ SQL Server에 하나 이상의 Azure VM을 프로비전한 다음 온-프레미�
 
 ## 가용성 그룹 수신기 만들기
 
-가용성 그룹을 만든 후에는 클라이언트가 복제본에 연결할 수 있게 수신기를 만들어야 합니다. 수신기는 들어오는 연결을 주 또는 읽기 전용 보조 복제본으로 전달합니다. 수신기에 대한 자세한 내용은 [Azure에서 AlwaysOn 가용성 그룹에 대한 ILB 수신기 구성](virtual-machines-windows-classic-ps-sql-int-listener.md)을 참조하세요.
+가용성 그룹을 만든 후에는 클라이언트가 복제본에 연결할 수 있게 수신기를 만들어야 합니다. 수신기는 들어오는 연결을 주 또는 읽기 전용 보조 복제본으로 전달합니다. 수신기에 대한 자세한 내용은 [Azure에서 Always On 가용성 그룹에 대한 ILB 수신기 구성](virtual-machines-windows-classic-ps-sql-int-listener.md)을 참조하세요.
 
 ## 다음 단계
 
-**Azure 복제본 추가 마법사**를 사용하여 AlwaysOn 가용성 그룹을 Azure로 확장하는 것 외에도 일부 SQL Server 워크로드를 완전히 Azure로 이동할 수 있습니다. 시작하려면 [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-portal-sql-server-provision.md)을 참조하세요.
+**Azure 복제본 추가 마법사**를 사용하여 Always On 가용성 그룹을 Azure로 확장하는 것 외에도 일부 SQL Server 워크로드를 완전히 Azure로 이동할 수 있습니다. 시작하려면 [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-portal-sql-server-provision.md)을 참조하세요.
 
 Azure VM에서의 SQL Server 실행에 관한 다른 항목은 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

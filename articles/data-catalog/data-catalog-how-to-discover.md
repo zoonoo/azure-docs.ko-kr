@@ -10,7 +10,7 @@
 <tags
    ms.service="data-catalog"
    ms.devlang="NA"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
    ms.date="03/31/2016"
@@ -62,4 +62,4 @@
 ## 참고 항목
 - 데이터 원본을 검색하는 방법에 대한 단계별 세부 정보에 대한 [Azure 데이터 카탈로그 시작](data-catalog-get-started.md) 자습서.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

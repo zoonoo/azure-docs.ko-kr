@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Azure App 서비스 환경" 
-	description="앱 서비스 작동 방법 알아보기" 
-	keywords="앱 서비스 환경, azure app 서비스 환경"
+	pageTitle="앱 서비스 환경 | Microsoft Azure" 
+	description="Azure App 서비스 환경이란? 앱 서비스 환경 소개" 
+	keywords="Azure App 서비스 환경, 가상 네트워크, 보안 네트워킹"
 	services="app-service" 
 	documentationCenter="" 
 	authors="yochay" 
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2016" 
+	ms.date="05/10/2016" 
 	ms.author="stefsch"/>
 
-# 개요
+# 앱 서비스 환경 설명서
 
 앱 서비스 환경은 Azure 앱 서비스의 [프리미엄][PremiumTier] 서비스 계획 옵션으로, [웹앱][WebApps], [모바일 앱][MobileApps] 및 [API 앱][APIApps]을 포함하여 높은 확장성에서 Azure 앱 서비스 앱을 안전하게 실행하기 위해 완전히 격리된 전용 환경을 제공합니다.
 
@@ -59,4 +59,4 @@
 [SiteToSite]: https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0511_2016-->

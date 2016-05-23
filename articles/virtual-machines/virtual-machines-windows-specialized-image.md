@@ -28,15 +28,15 @@
 
 ## 시작하기 전 점검 항목
 
-이 문서는 단계를 시작하기 전에 다음과 같은 필수 조건이 충족된 경우를 가정합니다.
+이 문서에서는 사용자가 다음 작업을 수행한 것으로 가정합니다.
 
-1. Windows를 실행하며 클래식 또는 Resource Manager 배포 모델을 사용하여 만든 Azure 가상 컴퓨터가 있습니다. 운영 체제와 연결된 데이터 디스크를 구성하고 필수 응용 프로그램 설치와 같은 기타 사용자 지정을 수행했습니다. 여기서는 이 VM을 사용하여 복사본을 만듭니다. 원본 VM을 만드는 데 도움이 필요할 경우 [Resource Manager를 사용하여 Windows VM을 만드는 방법](virtual-machines-windows-ps-create.md)을 참조하세요. 
+1. 클래식 또는 Resource Manager 배포 모델의 **Windows를 실행하는 Azure 가상 컴퓨터**에 운영 체제를 구성하고, 데이터 디스크를 연결하고, 필요한 응용 프로그램을 설치했습니다. VM을 만드는 데 도움이 필요하면 [리소스 관리자를 사용하여 Windows VM 만들기](virtual-machines-windows-ps-create.md)를 참조하세요. 
 
-1. 컴퓨터에 Azure PowerShell이 설치되어 있으며 Azure 구독에 로그인되어 있습니다. 자세한 내용은 [PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
+1. 컴퓨터에 **Azure PowerShell 1.0 이상**이 설치되어 있으며 Azure 구독에 로그인되어 있습니다. 자세한 내용은 [PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
 
-1. AzCopy 도구를 다운로드 및 설치했습니다. 이 도구에 대한 자세한 내용은 [AzCopy 명령줄 도구를 사용하여 데이터 전송](../storage/storage-use-azcopy.md)을 참조하세요.
+1. **AzCopy 도구**가 컴퓨터에 설치되어 있습니다. 자세한 내용은 [AzCopy 명령줄 도구를 사용하여 데이터 전송](../storage/storage-use-azcopy.md)을 참조하세요.
 
-1. 리소스 그룹과 저장소 계정, 해당 리소스 그룹에서 VHD를 복사하기 위해 만든 Blob 컨테이너가 있습니다. 기존 저장소 계정을 사용하거나 새 저장소 계정을 만드는 단계를 보려면 [Azure 저장소 계정 만들기 또는 찾기](virtual-machines-windows-upload-image.md#createstorage) 섹션을 참조하세요.
+1. VHD를 복사하기 위해 **BLOB 컨테이너** 및 **저장소 계정**이 있는 **리소스 그룹**이 만들어졌습니다. 기존 저장소 계정을 사용하거나 새 저장소 계정을 만드는 단계를 보려면 [Azure 저장소 계정 만들기 또는 찾기](virtual-machines-windows-upload-image.md#createstorage) 섹션을 참조하세요.
 
 
 
@@ -57,11 +57,11 @@
 	
 	- 원본 가상 컴퓨터를 **_마이그레이션_**하려는 경우에는 해당 VM을 **삭제**한 다음 남은 VHD를 사용합니다. [포털](https://portal.azure.com)에서 가상 컴퓨터로 **이동**한 다음 **삭제**를 클릭합니다.
 	
-1. 원본 VHD가 포함된 저장소 계정과 새 VM을 만들기 위해 VHD를 복사할 저장소 계정의 액세스 키를 찾습니다. VHD를 복사하는 원본 계정의 키를 *원본 키*라고 하며 복사 대상 계정의 키를 *대상 키*라고 합니다. 액세스 키에 대한 자세한 내용은 [Azure 저장소 계정 정보](../storage/storage-create-storage-account.md)를 참조하세요.
+1. 원본 VHD가 포함된 저장소 계정과 새 VM을 만들기 위해 VHD를 복사할 저장소 계정의 액세스 키를 찾습니다. VHD를 복사하는 원본 계정의 키를 *원본 키*라고 하며 복사 대상 계정의 키를 *대상 키*라고 합니다. 선택키에 대한 자세한 내용은 [Azure 저장소 계정 정보](../storage/storage-create-storage-account.md)를 참조하세요.
 
-	- 원본 VM을 클래식 배포 모델을 사용하여 만든 경우 **찾아보기** > **저장소 계정(클래식)** > *사용자 저장소 계정* > **모든 설정** > **키**를 클릭하고 레이블이 **기본 액세스 키**인 키를 복사합니다. 
+	- 원본 VM을 클래식 배포 모델을 사용하여 만든 경우 **찾아보기** > **저장소 계정(클래식)** > *사용자 저장소 계정* > **모든 설정** > **키**를 클릭하고 레이블이 **기본 선택키**인 키를 복사합니다. 
 	
-	- Resource Manager 배포 모델을 사용하여 만든 VM 또는 새 VM에 사용할 저장소 계정의 경우 **찾아보기** > **저장소 계정** > *사용자 저장소 계정* > **모든 설정** > **액세스 키**를 클릭하고 레이블이 **키1**인 텍스트를 복사합니다.
+	- Resource Manager 배포 모델을 사용하여 만든 VM 또는 새 VM에 사용할 저장소 계정의 경우 **찾아보기** > **저장소 계정** > *사용자 저장소 계정* > **모든 설정** > **선택키**를 클릭하고 레이블이 **키1**인 텍스트를 복사합니다.
 
 1. 원본 및 대상 저장소 계정에 액세스하기 위한 URL을 가져옵니다. 포털에서 사용자의 저장소 계정으로 **이동**한 다음 **Blob**을 클릭합니다. 그런 다음 원본 VHD를 호스팅하고 있는 컨테이너(예: 클래식 배포 모델의 경우 *vhds*) 또는 VHD를 복사하려는 대상 컨테이너를 클릭합니다. 컨테이너의 **속성**을 클릭하고 레이블이 **URL**인 텍스트를 복사합니다. 원본 및 대상 컨테이너의 URL이 모두 필요합니다. URL은 `https://myaccount.blob.core.windows.net/mycontainer`과(와) 유사하게 표시됩니다.
 
@@ -129,4 +129,4 @@
 
 Azure PowerShell을 사용하여 새 가상 컴퓨터를 관리하려면 [Azure Resource Manager 및 PowerShell을 사용하여 가상 컴퓨터 관리](virtual-machines-windows-ps-manage.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

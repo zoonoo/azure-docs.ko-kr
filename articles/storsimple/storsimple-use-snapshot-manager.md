@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/28/2015"
+   ms.date="04/25/2016"
    ms.author="v-sharos" />
 
 # StorSimple 스냅숏 관리자 사용자 인터페이스
 
 ## 개요
 
-StorSimple 스냅숏 관리자는 로컬 및 클라우드 저장 사본을 포함한 대규모 그룹의 백업 사본을 관리하는 데 사용할 수 있는 직관적인 그래픽 사용자 인터페이스(GUI)로 제공됩니다. 이 자습서는 이 인터페이스를 소개하고, 각 구성 요소의 사용 방법을 설명합니다. StorSimple 스냅숏 관리자에 대한 자세한 설명은 [StorSimple 스냅숏 관리자란?](storsimple-what-is-snapshot-manager.md)을 참조하세요.
+StorSimple Snapshot Manager는 백업을 가져오고 관리하는 데 사용할 수 있는 직관적인 사용자 인터페이스입니다. 이 자습서는 사용자 인터페이스를 소개하고, 각 구성 요소의 사용 방법을 설명합니다. StorSimple 스냅숏 관리자에 대한 자세한 설명은 [StorSimple 스냅숏 관리자란?](storsimple-what-is-snapshot-manager.md)을 참조하세요.
 
 ### 콘솔 설명
 
@@ -110,7 +110,7 @@ StorSimple 스냅숏 관리자 사용자 인터페이스는 Windows 운영 체�
 
 - **설명** 열에서는 **동작** 메뉴의 각 동작 또는 작업 창 사용 방법과 그 기능에 대해 설명합니다.
 
->[AZURE.NOTE]**작업** 창 및 **동작** 메뉴에는 **보기**, **여기에서 창 새로 만들기**, **새로 고침**, **목록 내보내기** 및 **도움말** 등과 같은 추가 옵션이 있습니다. 이러한 옵션은 MMC의 일부로 제공되며 StorSimple 스냅숏 관리자 특정 메뉴가 아닙니다. 표에서는 이 옵션에 대해 설명합니다.
+>[AZURE.NOTE] **작업** 창 및 **동작** 메뉴에는 **보기**, **여기에서 창 새로 만들기**, **새로 고침**, **목록 내보내기** 및 **도움말** 등과 같은 추가 옵션이 있습니다. 이러한 옵션은 MMC의 일부로 제공되며 StorSimple 스냅숏 관리자 특정 메뉴가 아닙니다. 표에서는 이 옵션에 대해 설명합니다.
  
 | 작업 | 탐색 | 설명 |
 |:--------|:------------|:-------------|
@@ -225,7 +225,7 @@ StorSimple 스냅숏 관리자 사용자 인터페이스는 Windows 운영 체�
 | 아이콘 | 설명 |
 |:------|:-------------| 
 | ![왼쪽 화살표](./media/storsimple-use-snapshot-manager/HCS_SSM_LeftArrow.png) | 왼쪽 화살표 아이콘을 클릭하면 이전 페이지로 돌아갑니다. |
-| ![오른쪽 화살표](./media/storsimple-use-snapshot-manager/HCS_SSM_RightArrow.png) | 오른쪽 화살표를 클릭하면 다음 페이지로 이동합니다(화살표가 회색으로 표시된 경우 이 동작을 사용할 수 없음). |
+| ![오른쪽 화살표](./media/storsimple-use-snapshot-manager/HCS_SSM_RightArrow.png) | 오른쪽 화살표를 클릭하면 다음 페이지로 이동합니다(화살표가 회색으로 표시된 경우 이 작업을 사용할 수 없음). |
 | ![위로 아이콘](./media/storsimple-use-snapshot-manager/HCS_SSM_Up.png) | 위로 아이콘을 클릭하면 콘솔 트리에서 한 단계 위로 이동합니다(**범위** 창). |
 | ![콘솔 트리 표시/숨기기](./media/storsimple-use-snapshot-manager/HCS_SSM_ShowConsoleTree.png) | 콘솔 트리 표시/숨기기 아이콘을 클릭하면 **범위** 창을 표시하거나 숨깁니다. |
 | ![목록 내보내기](./media/storsimple-use-snapshot-manager/HCS_SSM_ExportListIcon.png) | 목록 내보내기 아이콘을 클릭하면 목록을 지정한 CSV 파일로 내보냅니다. |
@@ -234,7 +234,7 @@ StorSimple 스냅숏 관리자 사용자 인터페이스는 Windows 운영 체�
  
 ## 범위 창
 
-**범위** 창은 StorSimple 스냅숏 관리자 UI의 왼쪽 창입니다. 이 창은 콘솔(또는 노드) 트리를 포함하며 StorSimple 스냅숏 관리자의 기본 탐색 방법입니다.
+**범위** 창은 StorSimple Snapshot Manager UI에서 가장 왼쪽 창입니다. 이 창은 콘솔(또는 노드) 트리를 포함하며 StorSimple 스냅숏 관리자의 기본 탐색 방법입니다.
  
 ### 범위 창 구조
 
@@ -307,7 +307,7 @@ StorSimple 스냅숏 관리자 사용자 인터페이스는 Windows 운영 체�
 
 - 백업 정책 목록을 보려면 **범위**에서 **백업 정책**을 클릭합니다. 백업 정책과 각 정책 관련 정보가 **결과** 창에 나타납니다.
 
->[AZURE.NOTE]최대 64개의 백업을 유지할 수 있습니다.
+>[AZURE.NOTE] 최대 64개의 백업을 유지할 수 있습니다.
 
 
 ### 백업 카탈로그 노드
@@ -490,8 +490,7 @@ StorSimple 스냅숏 관리자는 MMC(Microsoft Management Console) 및 Windows 
 | V | **보기** 메뉴가 열립니다. |
 | W | **볼륨 그룹** 노드에 초점을 맞춘 새 StorSimple 스냅숏 관리자 콘솔을 엽니다.|
 | F | StorSimple 스냅숏 관리자 콘솔을 업데이트합니다.|
-| L | **목록 내보내기** 페이지가 열립니다.
-| H | 온라인 도움말을 엽니다.|
+| L | **목록 내보내기** 페이지가 열립니다. | H | 온라인 도움말을 엽니다.|
  
 #### 백업 카탈로그 노드 바로 가기 키
 
@@ -516,4 +515,4 @@ StorSimple 스냅숏 관리자는 MMC(Microsoft Management Console) 및 Windows 
 - [StorSimple 스냅숏 관리자를 사용하여 StorSimple 솔루션을 관리](storsimple-snapshot-manager-admin.md)하는 방법을 알아봅니다.
 - [StorSimple 스냅숏 관리자를 사용하여 장치를 연결 및 관리하는 방법](storsimple-snapshot-manager-manage-devices.md)을 학습합니다.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0511_2016-->

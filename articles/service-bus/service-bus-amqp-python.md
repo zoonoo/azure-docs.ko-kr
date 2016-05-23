@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="AMQP 1.0을 사용한 서비스 버스 및 Python | Microsoft Azure"
-   description="AMQP를 사용하여 Python에서 서비스 버스 사용."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" /> 
+    pageTitle="AMQP 1.0을 사용한 서비스 버스 및 Python | Microsoft Azure"
+    description="AMQP를 사용하여 Python에서 서비스 버스 사용."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" /> 
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="02/08/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/10/2016"
+    ms.author="sethm" />
 
 # AMQP 1.0을 사용하여 Python에서 서비스 버스 사용
 
@@ -142,25 +142,7 @@ if message.properties != None:
 
 | .NET 속성 형식 | Python 속성 형식 | 참고 |
 |--------------------|----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| byte | int | - |
-| sbyte | int | - |
-| char | char | Proton-Python class |
-| short | int | - |
-| ushort | int | - |
-| int | int | - |
-| uint | int | - |
-| long | int | - |
-| ulong | long | Proton-Python class |
-| float | float | - |
-| double | float | - |
-| decimal | String | Decimal is not currently supported with Proton. |
-| bool | bool | - |
-| Guid | uuid | Proton-Python class |
-| string | string | - |
-| DateTime | timestamp | Proton-Python class |
-| DateTimeOffset | DescribedType | AMQP 형식으로 매핑된 DateTimeOffset.UtcTicks:<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type> |
-| TimeSpan | DescribedType | AMQP 형식으로 매핑된 Timespan.Ticks:<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> |
-| Uri | DescribedType | AMQP 형식으로 매핑된 Uri.AbsoluteUri:<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type> |
+| byte | int | - | | sbyte | int | - | | char | char | Proton-Python class | | short | int | - | | ushort | int | - | | int | int | - | | uint | int | - | | long | int | - | | ulong | long | Proton-Python class | | float | float | - | | double | float | - | | decimal | String | Decimal is not currently supported with Proton. | | bool | bool | - | | Guid | uuid | Proton-Python class | | string | string | - | | DateTime | timestamp | Proton-Python class | | DateTimeOffset | DescribedType | AMQP 형식으로 매핑된 DateTimeOffset.UtcTicks:<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type> | | TimeSpan | DescribedType | AMQP 형식으로 매핑된 Timespan.Ticks:<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> | | Uri | DescribedType | AMQP 형식으로 매핑된 Uri.AbsoluteUri:<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type> |
 
 ### 표준 속성
 
@@ -173,36 +155,11 @@ if message.properties != None:
 | 지속성 | 해당 없음 | 서비스 버스는 지속적 메시지만 지원합니다. |
 | 우선 순위 | 해당 없음 | 서비스 버스는 단일 메시지 우선 순위만 지원합니다. |
 | Ttl | Message.TimeToLive | 변환, Proton-Python TTL이 밀리초 단위로 정의됩니다. |
-| first\_acquirer | n/a | - |
-| delivery\_count | n/a | - |
-| Id | Message.MessageID | - |
-| user\_id | n/a | - |
-| address | Message.To | - |
-| subject | Message.Label | - |
-| reply\_to | Message.ReplyTo | - |
-| correlation\_id | Message.CorrelationID | - |
-| content\_type | Message.ContentType | - |
-| content\_encoding | n/a | - |
-| expiry\_time | n/a | - |
-| creation\_time | n/a | - |
-| group\_id | Message.SessionId | - |
-| group\_sequence | n/a | - |
-| reply\_to\_group\_id | Message.ReplyToSessionId | - |
-| format | n/a | - |
+| first\_acquirer | n/a | - | | delivery\_count | n/a | - | | Id | Message.MessageID | - | | user\_id | n/a | - | | address | Message.To | - | | subject | Message.Label | - | | reply\_to | Message.ReplyTo | - | | correlation\_id | Message.CorrelationID | - | | content\_type | Message.ContentType | - | | content\_encoding | n/a | - | | expiry\_time | n/a | - | | creation\_time | n/a | - | | group\_id | Message.SessionId | - | | group\_sequence | n/a | - | | reply\_to\_group\_id | Message.ReplyToSessionId | - | | format | n/a | - |
 
 | 서비스 버스 .NET | Proton | 참고 |
 |-------------------------|------------------------------|-----------------------------------------------------------|
-| ContentType | Message.content\_type | - |
-| CorrelationId | Message.correlation\_id | - |
-| EnqueuedTimeUtc | n/a | - |
-| Label | Message.subject | - |
-| MessageId | Message.id | - |
-| ReplyTo | Message.reply\_to | - |
-| ReplyToSessionId | Message.reply\_to\_group\_id | - |
-| ScheduledEnqueueTimeUtc | n/a | - |
-| SessionId | Message.group\_id | - |
-| TimeToLive | Message.ttl | 변환, Proton-Python TTL이 밀리초 단위로 정의됩니다. |
-| To | Message.address | - |
+| ContentType | Message.content\_type | - | | CorrelationId | Message.correlation\_id | - | | EnqueuedTimeUtc | n/a | - | | Label | Message.subject | - | | MessageId | Message.id | - | | ReplyTo | Message.reply\_to | - | | ReplyToSessionId | Message.reply\_to\_group\_id | - | | ScheduledEnqueueTimeUtc | n/a | - | | SessionId | Message.group\_id | - | | TimeToLive | Message.ttl | 변환, Proton-Python TTL이 밀리초 단위로 정의됩니다. | | To | Message.address | - |
 
 ## 다음 단계
 
@@ -216,4 +173,4 @@ if message.properties != None:
 
 [서비스 버스 AMQP 개요]: service-bus-amqp-overview.md
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

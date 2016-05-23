@@ -29,13 +29,14 @@
 
 ## 시작하기 전 점검 항목
 
-이 문서는 단계를 시작하기 전에 다음과 같은 필수 조건이 충족된 경우를 가정합니다.
+이 문서에서는 사용자가 다음 작업을 수행한 것으로 가정합니다.
 
-1. Linux를 실행하며 클래식 또는 Resource Manager 배포 모델을 사용하여 만든 Azure 가상 컴퓨터가 있습니다. 운영 체제와 연결된 데이터 디스크를 구성하고 필수 응용 프로그램 설치와 같은 기타 사용자 지정을 수행했습니다. 여기서는 이 VM을 사용하여 복사본을 만듭니다. 원본 VM을 만드는 데 도움이 필요할 경우 [Azure에서 Linux VM 만들기](virtual-machines-linux-quick-create-cli.md)를 참조하세요. 
+1. 클래식 또는 Resource Manager 배포 모델의 **Linux를 실행하는 Azure 가상 컴퓨터**에 운영 체제를 구성하고, 데이터 디스크를 연결하고, 필요한 응용 프로그램을 설치했습니다. VM을 만드는 데 도움이 필요하면 [Azure에서 Linux VM 만들기](virtual-machines-linux-quick-create-cli.md)를 참조하세요. 
 
-1. 컴퓨터에 Azure CLI를 다운로드 및 설치하고 Azure 구독에 로그인했습니다. 자세한 내용은 [Azure CLI 설치 방법](../xplat-cli-install.md)을 참조하세요.
+1. 컴퓨터에 **Azure CLI**가 설치되었고, Azure 구독에 로그인되어 있습니다. 자세한 내용은 [Azure CLI 설치 방법](../xplat-cli-install.md)을 참조하세요.
 
-1. 리소스 그룹과 저장소 계정, 해당 리소스 그룹에서 VHD를 복사하기 위해 만든 Blob 컨테이너가 있습니다. Azure CLI를 사용하여 저장소 계정과 Blob 컨테이너를 만드는 방법은 [Azure 저장소와 함께 Azure CLI 사용](../storage/storage-azure-cli.md)을 참조하세요.
+1. VHD를 복사하기 위해 **BLOB 컨테이너** 및 **저장소 계정**이 있는 **리소스 그룹**이 만들어졌습니다. 자세한 내용은 [Azure 저장소에서 Azure CLI 사용](../storage/storage-azure-cli.md)을 참조하세요.
+
 
 
 > [AZURE.NOTE] 원본 이미지로 두 가지 배포 모델 중 하나를 사용하여 만든 VM에도 유사한 단계가 적용됩니다. 사소한 차이는 해당 부분에서 명시합니다.
@@ -50,11 +51,11 @@
 	
 	- 원본 가상 컴퓨터를 **_마이그레이션_**하려는 경우에는 해당 VM을 **삭제**한 다음 남은 VHD를 사용합니다. [포털](https://portal.azure.com)에서 가상 컴퓨터로 **이동**한 다음 **삭제**를 클릭합니다.
 	
-1. 원본 VHD가 포함된 저장소 계정의 액세스 키를 찾습니다. 액세스 키에 대한 자세한 내용은 [Azure 저장소 계정 정보](../storage/storage-create-storage-account.md)를 참조하세요.
+1. 원본 VHD가 포함된 저장소 계정의 액세스 키를 찾습니다. 선택키에 대한 자세한 내용은 [Azure 저장소 계정 정보](../storage/storage-create-storage-account.md)를 참조하세요.
 
-	- 원본 VM을 클래식 배포 모델을 사용하여 만든 경우 **찾아보기** > **저장소 계정(클래식)** > *사용자 저장소 계정* > **모든 설정** > **키**를 클릭하고 레이블이 **기본 액세스 키**인 키를 복사합니다. Azure CLI에서는 `azure config mode asm`을 사용하여 클래식 모델로 변경한 다음 `azure storage account keys list <yourSourceStorageAccountName>`을 사용합니다
+	- 원본 VM을 클래식 배포 모델을 사용하여 만든 경우 **찾아보기** > **저장소 계정(클래식)** > *사용자 저장소 계정* > **모든 설정** > **키**를 클릭하고 레이블이 **기본 선택키**인 키를 복사합니다. Azure CLI에서는 `azure config mode asm`을 사용하여 클래식 모델로 변경한 다음 `azure storage account keys list <yourSourceStorageAccountName>`을 사용합니다
 
-	- Resource Manager 배포 모델을 사용하여 만든 VM의 경우 **찾아보기** > **저장소 계정** > *사용자 저장소 계정* > **모든 설정** > **액세스 키**를 클릭하고 레이블이 **키1**인 텍스트를 복사합니다. Azure CLI인 경우에는 `azure config mode arm` 및 `azure storage account keys list -g <yourDestinationResourceGroup> <yourDestinationStorageAccount>`를 차례로 사용하여 Resource Manager 모드로 전환하십시오.
+	- Resource Manager 배포 모델을 사용하여 만든 VM의 경우 **찾아보기** > **저장소 계정** > *사용자 저장소 계정* > **모든 설정** > **선택키**를 클릭하고 레이블이 **키1**인 텍스트를 복사합니다. Azure CLI인 경우에는 `azure config mode arm` 및 `azure storage account keys list -g <yourDestinationResourceGroup> <yourDestinationStorageAccount>`를 차례로 사용하여 Resource Manager 모드로 전환하십시오.
 
 1. 다음 단계의 설명에 따라 [저장소의 Azure CLI 명령](../storage/storage-azure-cli.md)을 사용하여 VHD 파일을 복사합니다. 동일한 결과를 얻는 데 UI 방식을 선호할 경우에는 대신 [Microsoft Azure 저장소 탐색기](http://storageexplorer.com/)를 사용할 수 있습니다. </br>
 	1. 대상 저장소 계정에 대해 연결 문자열을 설정합니다. 이 연결 문자열에는 이 저장소 계정에 대한 액세스 키만 포함됩니다.
@@ -127,4 +128,4 @@
 
 Azure CLI를 사용하여 새 가상 컴퓨터를 관리하는 방법을 알아보려면 [Azure Resource Manager의 Azure CLI 명령](azure-cli-arm-commands.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

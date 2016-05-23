@@ -103,11 +103,13 @@
 
     인증 프로세스를 처리하는 함수 집합이 만들어집니다. 사용자는 Facebook 로그인을 사용하여 인증됩니다. Facebook 이외의 ID 공급자를 사용하는 경우, 위의 **login** 메서드에 전달된 값을 다음 중 하나로 변경합니다. *microsoftaccount*, *facebook*, *twitter*, *google* 또는 *aad*.
 
-	>[AZURE.IMPORTANT]PhoneGap 앱에서 프로젝트에 다음 플러그 인도 추가해야 합니다.<ul><li><code>phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git</code></li> <li><code>phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git</code></li></ul>
+	>[AZURE.IMPORTANT]PhoneGap 앱에서 프로젝트에 다음 플러그 인도 추가해야 합니다.
+	><ul><li><code>phonegap 플러그 인 추가 https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git</code></li>
+	> <li><code>phonegap 플러그 인 추가 https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git</code></li></ul>
 
 9. 앱이 실행 중인 브라우저로 돌아가 페이지를 새로 고칩니다.
 
-	   로그인하고 나면 앱이 오류 없이 실행되며 모바일 서비스를 쿼리하고 데이터를 업데이트할 수 있게 됩니다.
+	로그인하고 나면 앱이 오류 없이 실행되며 모바일 서비스를 쿼리하고 데이터를 업데이트할 수 있게 됩니다.
 
 	>[AZURE.NOTE]Internet Explorer를 사용할 때 로그인한 후에 오류가 발생할 수 있습니다. <code>Cannot reach window opener. It may be on a different Internet Explorer zone</code>. 이는 팝업이 localhost(인트라넷)와 다른 보안 영역(인터넷)에서 실행되기 때문에 발생합니다. localhost를 사용하여 개발하는 동안에만 앱에 영향을 미칩니다. 해결하려면 **인터넷 옵션**의 **보안** 탭을 열고 **로컬 인트라넷**을 클릭한 후 **사이트**를 클릭한 다음 **인트라넷 네트워크를 자동으로 검색**을 사용하지 않도록 설정합니다. 테스트를 완료하면 이 설정을 다시 변경해야 합니다.
 
@@ -135,4 +137,4 @@
 [모바일 서비스 HTML/JavaScript 방법 개념 참조]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0511_2016-->

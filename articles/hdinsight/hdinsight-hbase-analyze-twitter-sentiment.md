@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="05/09/2016" 
 	ms.author="jgao"/>
 
 # HDInsight에서 HBase를 사용하여 Twitter 데이터 실시간 분석
@@ -23,7 +23,7 @@
 
 소셜 웹 사이트는 빅데이터 채택의 주요 추진력 중 하나입니다. Twitter와 같은 사이트에서 제공하는 공개 API는 대중적인 추세를 분석하고 이해하는 데 유용한 데이터 원본입니다. 이 자습서에는 다음을 수행하기 위한 콘솔 스트리밍 서비스 응용 프로그램과 ASP.NET 웹 응용 프로그램을 개발합니다.
 
-![][img-app-arch]
+![HDInsight HBase에서 Twitter 데이터 분석][img-app-arch]
 
 - 스트리밍 응용 프로그램
 	- Twitter 스트리밍 API를 사용하여 실시간으로 지역 태그가 적용된 트윗 가져오기
@@ -146,7 +146,7 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
 		Install-Package Microsoft.HBase.Client
 		Install-Package TweetinviAPI
     이러한 명령으로 [HBase .NET SDK](https://www.nuget.org/packages/Microsoft.HBase.Client/) 패키지(HBase 클러스터에 액세스하기 위한 클라이언트 라이브러리) 및 [Tweetinvi API](https://www.nuget.org/packages/TweetinviAPI/) 패키지(Twitter API에 액세스하는 데 사용)를 설치합니다.
-3. **솔루션 탐색기**에서 **System.Configuration"을 참조에 추가합니다.
+3. **솔루션 탐색기**에서 **System.Configuration**을 참조에 추가합니다.
 4. 프로젝트에 **HBaseWriter.cs**라는 새 클래스 파일을 추가하고 코드를 다음과 같이 바꿉니다.
 
         using System;
@@ -193,12 +193,12 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
                     client = new HBaseClient(credentials);
 
                     // create the HBase table if it doesn't exist
-                    if (!client.ListTables().name.Contains(HBASETABLENAME))
+                    if (!client.ListTablesAsync().Result.name.Contains(HBASETABLENAME))
                     {
                         TableSchema tableSchema = new TableSchema();
                         tableSchema.name = HBASETABLENAME;
                         tableSchema.columns.Add(new ColumnSchema { name = "d" });
-                        client.CreateTable(tableSchema);
+                        client.CreateTableAsync(tableSchema).Wait;
                         Console.WriteLine("Table "{0}" is created.", HBASETABLENAME);
                     }
 
@@ -344,7 +344,7 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
                                 }
 
                                 // Write the Tweet by words cell set to the HBase table
-                                client.StoreCells(HBASETABLENAME, set);
+								client.StoreCellsAsync(HBASETABLENAME, set).Wait();
                                 Console.WriteLine("\tRows written: {0}", set.rows.Count);
                             }
                             Thread.Sleep(100);
@@ -445,7 +445,7 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
 
 스트리밍 서비스를 실행하려면 **F5** 키를 누릅니다. 다음은 콘솔 응용 프로그램의 스크린샷입니다.
 
-	![hdinsight.hbase.twitter.sentiment.streaming.service][img-streaming-service]
+![hdinsight.hbase.twitter.sentiment.streaming.service][img-streaming-service]
     
 웹 응용 프로그램을 개발하는 동안 더 많은 데이터를 사용할 수 있도록 스트리밍 콘솔 응용 프로그램을 실행 상태로 유지합니다. HBase 셸을 사용하여 테이블에 삽입된 데이터를 검사할 수 있습니다. [HDInsight에서 HBase 시작](hdinsight-hbase-tutorial-get-started.md#create-tables-and-insert-data)을 참조하세요.
 
@@ -1236,8 +1236,8 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
 - [HDInsight용 Java MapReduce 프로그램 개발][hdinsight-develop-mapreduce]
 
 
-[hbase-get-started]: ../hdinsight-hbase-tutorial-get-started.md
-[website-get-started]: ../web-sites-dotnet-get-started.md
+[hbase-get-started]: hdinsight-hbase-tutorial-get-started-linux.md
+[website-get-started]: ../app-service-web/web-sites-dotnet-get-started.md
 
 
 
@@ -1248,9 +1248,8 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
 
 
 
-[hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
+[hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce-linux.md
 [hdinsight-analyze-twitter-data]: hdinsight-analyze-twitter-data.md
-[hdinsight-hbase-get-started]: ../hdinsight-hbase-tutorial-get-started.md
 
 
 
@@ -1277,4 +1276,4 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->

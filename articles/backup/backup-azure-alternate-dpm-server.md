@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
+	ms.date="05/05/2016"
 	ms.author="giridham;jimpark"/>
 
 # 백업 저장소의 다른 DPM 서버에서 데이터 복구
@@ -32,7 +32,7 @@
 
     ![외부 DPM 자격 증명](./media/backup-azure-alternate-dpm-server/external-dpm-credentials.png)
 
-    >[AZURE.NOTE]같은 등록 저장소로 연결된 DPM 서버끼리만 데이터를 복구할 수 있습니다.
+    >[AZURE.NOTE] 같은 등록 저장소로 연결된 DPM 서버끼리만 데이터를 복구할 수 있습니다.
 
     외부 DPM 서버가 성공적으로 추가되면 **복구** 탭에서 외부 DPM 서버와 로컬 DPM 서버의 데이터를 찾아볼 수 있습니다.
 
@@ -73,7 +73,7 @@
 
     ![외부 DPM 복구 옵션 요약](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-options-summary.png)
 
-    >[AZURE.NOTE]복구 작업은 DPM의 **모니터링** 탭에서 모니터링할 수 있습니다.
+    >[AZURE.NOTE] 복구 작업은 DPM의 **모니터링** 탭에서 모니터링할 수 있습니다.
 
     ![복구 모니터링](./media/backup-azure-alternate-dpm-server/monitoring-recovery.png)
 
@@ -103,4 +103,4 @@
 ## 다음 단계:
 [Azure 백업 - FAQ](backup-azure-backup-faq.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0511_2016-->

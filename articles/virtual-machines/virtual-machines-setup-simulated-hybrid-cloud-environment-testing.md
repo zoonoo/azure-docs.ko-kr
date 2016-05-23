@@ -14,16 +14,16 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2016" 
+	ms.date="04/25/2016" 
 	ms.author="josephd"/>
 
 # 테스트용 시뮬레이션된 하이브리드 클라우드 환경 설정
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
 
-이 문서에서는 별도의 Azure 가상 네트워크 두 개를 사용하여 Microsoft Azure에서 테스트용 시뮬레이션된 하이브리드 클라우드 환경을 만드는 과정을 안내합니다. 인터넷을 직접 연결할 수 없고 사용 가능한 공용 IP 주소가 없는 경우 [테스트용 하이브리드 클라우드 환경 설정](../virtual-network/virtual-networks-setup-hybrid-cloud-environment-testing.md)의 대안으로 이 구성을 사용합니다. 다음은 결과 구성입니다.
+이 문서에서는 별도의 Azure 가상 네트워크 두 개를 사용하여 Microsoft Azure에서 테스트용 시뮬레이션된 하이브리드 클라우드 환경을 만드는 과정을 안내합니다. 인터넷을 직접 연결할 수 없고 사용 가능한 공용 IP 주소가 없는 경우 [테스트용 하이브리드 클라우드 환경 설정](virtual-machines-windows-ps-hybrid-cloud-test-env-base.md)의 대안으로 이 구성을 사용합니다. 다음은 결과 구성입니다.
 
-![](./media/virtual-machines-setup-simulated-hybrid-cloud-environment-testing/CreateSimHybridCloud_4.png)
+![](./media/virtual-machines-setup-simulated-hybrid-cloud-environment-testing/virtual-machines-setup-simulated-hybrid-cloud-environment-testing-ph4.png)
 
 하이브리드 클라우드 프로덕션 환경을 시뮬레이션하며, 다음으로 구성됩니다.
 
@@ -54,7 +54,7 @@ Azure 구독이 아직 없는 경우 [Azure 평가판 사용](https://azure.micr
 
 다음으로 Azure PowerShell 프롬프트를 시작합니다.
 
-> [AZURE.NOTE] 다음 명령 집합은 Azure PowerShell 1.0 이상을 사용합니다. 자세한 내용은 Azure PowerShell 1.0을 참조하세요.
+> [AZURE.NOTE] 다음 명령 집합은 Azure PowerShell 1.0 이상을 사용합니다. 자세한 내용은 [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)을 참조하세요.
 
 계정에 로그인합니다.
 
@@ -99,7 +99,7 @@ Azure 구독을 설정합니다. 기본 구성을 빌드하는 데 사용했던 
 
 다음은 현재 구성입니다.
 
-![](./media/virtual-machines-setup-simulated-hybrid-cloud-environment-testing/CreateSimHybridCloud_1.png)
+![](./media/virtual-machines-setup-simulated-hybrid-cloud-environment-testing/virtual-machines-setup-simulated-hybrid-cloud-environment-testing-ph1.png)
  
 ## 2단계: TestVNET 가상 네트워크 만들기
 
@@ -127,7 +127,7 @@ Azure 구독을 설정합니다. 기본 구성을 빌드하는 데 사용했던 
 
 다음은 현재 구성입니다.
 
-![](./media/virtual-machines-setup-simulated-hybrid-cloud-environment-testing/CreateSimHybridCloud_2.png)
+![](./media/virtual-machines-setup-simulated-hybrid-cloud-environment-testing/virtual-machines-setup-simulated-hybrid-cloud-environment-testing-ph2.png)
  
 ##3단계: VNet 간 연결 만들기
 
@@ -145,7 +145,7 @@ Azure 구독을 설정합니다. 기본 구성을 빌드하는 데 사용했던 
 
 다음은 현재 구성입니다.
 
-![](./media/virtual-machines-setup-simulated-hybrid-cloud-environment-testing/CreateSimHybridCloud_3.png)
+![](./media/virtual-machines-setup-simulated-hybrid-cloud-environment-testing/virtual-machines-setup-simulated-hybrid-cloud-environment-testing-ph3.png)
  
 ## 4단계: DC2 구성
 
@@ -190,7 +190,7 @@ Ping 명령을 실행한 경우 IP 주소 10.0.0.4에서 성공적인 회신 4�
 8.	파일 시스템 설정 선택 페이지에서 **다음**을 클릭합니다.
 9.	선택 확인 페이지에서 **만들기**를 클릭합니다.
 10.	완료되면 **닫기**를 클릭합니다.
-
+ 
 그런 다음 DC2를 corp.contoso.com 도메인의 복제본 도메인 컨트롤러로 구성합니다. DC2의 관리자 수준 Windows PowerShell 명령 프롬프트에서 다음 명령을 실행합니다.
 
 	Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
@@ -207,7 +207,7 @@ TestVNET 가상 네트워크에는 고유한 DNS 서버(DC2)가 있으므로 이
 
 다음은 현재 구성입니다.
 
-![](./media/virtual-machines-setup-simulated-hybrid-cloud-environment-testing/CreateSimHybridCloud_4.png)
+![](./media/virtual-machines-setup-simulated-hybrid-cloud-environment-testing/virtual-machines-setup-simulated-hybrid-cloud-environment-testing-ph4.png)
  
 이제 시뮬레이션된 하이브리드 클라우드 환경을 테스트할 준비가 완료되었습니다.
 
@@ -215,4 +215,4 @@ TestVNET 가상 네트워크에는 고유한 DNS 서버(DC2)가 있으므로 이
 
 - TestVNET 서브넷(예: Microsoft SQL Server를 실행하는)에 [새 가상 컴퓨터를 추가](virtual-machines-windows-create-powershell.md)합니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -42,7 +42,7 @@
 | Livy Crash 복구 | Livy를 통해 제출된 모든 작업에 대한 작업 상태 복원력 제공 | 안정성 | Linux에서의 Spark| 해당 없음
 | Jupyter 콘텐츠 HA | 클러스터와 연결된 저장소 계정에 대해 Jupyter 노트북 콘텐츠를 저장 및 로드하는 기능을 제공합니다. 자세한 내용은 [Jupyter 노트북에 사용할 수 있는 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md)을 참조하세요.| 노트북 | Linux에서의 Spark| 해당 없음
 | Jupter 노트북에서 HiveContext 제거 | `%%hive` 매직 대신 `%%sql` 매직을 사용합니다. SqlContext는 hiveContext와 같습니다. 자세한 내용은 [Jupyter 노트북에 사용할 수 있는 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md)을 참조하세요.| 노트북 | Linux에서 Spark 클러스터| 해당 없음
-| 이전 Spark 버전의 사용 중단 | 5/31에 이전 버전 Spark 1.3.1이 서비스에서 제거됩니다. | 부여 | Linux에서 Spark 클러스터 | 해당 없음
+| 이전 Spark 버전의 사용 중단 | 5/31에 이전 버전 Spark 1.3.1이 서비스에서 제거됩니다. | 부여 | Windows에서 Spark 클러스터 | 해당 없음
 
 ## HDInsight의 2016/03/29 릴리스 정보
 
@@ -1523,7 +1523,7 @@ Oozie Metastore는 특정 클러스터에 연결되며 클러스터 간에 공�
 
 
 ### 드라이버
-SQL Server용 JDBC(Java Database Connnectivity) 드라이버는 HDInsight에서 내부적으로 사용되며 외부 작업에는 사용되지 않습니다. odbc를 사용하여 HDInsight에 연결하려는 경우 Microsoft Hive odbc(Open Database Connectivity) 드라이버를 사용하세요. 자세한 내용은 [HDInsight에 Microsoft Hive ODBC 드라이버로 Excel 연결](../../articles/hdinsight/hdinsight-connect-excel-hive-odbc-driver.md) 을 참조하세요.
+SQL Server용 JDBC(Java Database Connnectivity) 드라이버는 HDInsight에서 내부적으로 사용되며 외부 작업에는 사용되지 않습니다. ODBC를 사용하여 HDInsight에 연결하려는 경우 Microsoft Hive ODBC(Open Database Connectivity) 드라이버를 사용하세요. 자세한 내용은 [HDInsight에 Microsoft Hive ODBC 드라이버로 Excel 연결](hdinsight-connect-excel-hive-odbc-driver.md)을 참조하세요.
 
 
 ### 버그 수정
@@ -1565,4 +1565,4 @@ HDInsight 버전 클러스터에 사용되는 HDP(Hortonworks Data Platform)에 
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!------HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

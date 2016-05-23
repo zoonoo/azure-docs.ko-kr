@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="04/28/2016"
+    ms.date="05/10/2016"
     ms.author="sidneyh"/>
 
 # PowerShell로 탄력적 데이터베이스 풀 모니터링 및 관리 
@@ -31,6 +31,7 @@ PowerShell cmdlet을 사용하여 [탄력적 데이터베이스 풀](sql-databas
 풀에 대한 값은 [eDTU 및 저장소 제한](sql-database-elastic-pool#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases)에서 찾을 수 있습니다.
 
 ## 필수 조건
+
 * Azure PowerShell 1.0 이상. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
 * 탄력적 데이터베이스 풀은 SQL 데이터베이스 V12 서버에서만 사용할 수 있습니다. SQL 데이터베이스 V11 서버가 있는 경우 [PowerShell을 사용하여 한 번에 V12로 업그레이드하고 풀을 만듭니다](sql-database-upgrade-server-portal.md).
 
@@ -101,6 +102,26 @@ PowerShell cmdlet을 사용하여 [탄력적 데이터베이스 풀](sql-databas
 메트릭을 검색하려면:
 
     $metrics = (Get-AzureRmMetric -ResourceId /subscriptions/<subscriptionId>/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/databases/myDB -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015") 
+
+## 구독에서 여러 풀에 걸친 리소스 사용 데이터 수집 및 모니터링
+
+구독에 데이터베이스가 많은 경우 각 탄력적 풀을 개별적으로 모니터링하는 작업은 번거롭습니다. 대신, 리소스 사용량을 모니터링하고 분석하기 위해 여러 풀 및 해당 데이터베이스에서 리소스 사용 데이터를 수집하기 위해 SQL 데이터베이스 PowerShell cmdlet 및 T-SQL 쿼리를 결합할 수 있습니다. 이러한 일련의 Powershell 스크립트의 [샘플 구현](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools)은 작동 내용 및 사용 방법에 대한 설명서와 함께 GitHub SQL Server 샘플 리포지토리에 나와 있습니다.
+
+이 샘플 구현을 사용하려면 아래에 나열된 다음 단계를 따릅니다.
+
+
+1. [스크립트 및 설명서](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools)를 다운로드합니다.
+2. 사용자 환경에 대한 스크립트를 수정합니다. 탄력적 풀이 호스팅되는 하나 이상의 서버를 지정합니다.
+3. 수집된 메트릭을 저장할 원격 분석 데이터베이스를 지정합니다. 
+4. 스크립트의 실행 기간을 지정하는 스크립트를 사용자 지정합니다.
+
+높은 수준에서 스크립트는 다음을 수행합니다.
+
+*	지정된 Azure 구독(또는 지정된 서버 목록)에 모든 서버를 열거합니다.
+*	각 서버에 대한 백그라운드 작업을 실행합니다. 작업은 일정한 간격으로 루프에서 실행되고 서버에서 모든 풀에 대한 원격 분석 데이터를 수집합니다. 그러면 지정된 원격 분석 데이터베이스에 수집된 데이터를 로드합니다.
+*	각 풀에서 데이터베이스의 목록을 열거하여 데이터베이스 리소스 사용 데이터를 수집합니다. 그러면 원격 분석 데이터베이스에 수집된 데이터를 로드합니다.
+
+탄력적 풀 및 해당 데이터베이스의 상태를 모니터링하도록 원격 분석 데이터베이스에서 수집된 메트릭을 분석할 수 있습니다. 또한 스크립트는 원격 분석 데이터베이스에 미리 정의된 TVF(테이블 값 함수)를 설치하여 지정된 기간 동안 메트릭을 집계하도록 도움을 줍니다. 예를 들어 TVF의 결과는 "주어진 기간에 최대 eDTU 사용률을 포함한 상위 N개의 탄력적 풀 창"을 표시하는 데 사용할 수 있습니다. 필요에 따라 Excel 또는 Power BI와 같은 분석 도구를 사용하여 수집된 데이터를 쿼리하고 분석합니다.
 
 ## 예: 풀 및 해당 데이터베이스에 대한 리소스 사용 메트릭 검색
 
@@ -190,4 +211,4 @@ Stop- cmdlet은 취소를 의미하는 것으로, 일시 중지가 아닙니다.
 - [탄력적 작업 만들기](sql-database-elastic-jobs-overview.md) 탄력적 작업은 풀의 데이터베이스 개수에 관계없이 T-SQL 스크립트를 실행할 수 있습니다.
 - [Azure SQL 데이터베이스를 사용하여 규모 확장](sql-database-elastic-scale-introduction.md) 참조: 탄력적 데이터베이스 도구를 사용하여 규모를 확장하거나 데이터를 이동하거나 쿼리 또는 트랜잭션을 만듭니다.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

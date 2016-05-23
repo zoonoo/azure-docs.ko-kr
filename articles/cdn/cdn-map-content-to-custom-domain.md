@@ -12,7 +12,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="02/25/2016" 
+	ms.date="05/11/2016"
 	 ms.author="casoper"/>
 
 # 사용자 지정 도메인을 CDN(콘텐츠 배달 네트워크) 끝점에 매핑하는 방법
@@ -81,4 +81,4 @@ azureedge.net의 하위 도메인을 사용하는 대신 캐시된 콘텐츠에 
 
 [Azure에 대해 CDN(콘텐츠 배달 네트워크)을 사용하도록 설정하는 방법](./cdn-create-new-endpoint.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0511_2016-->

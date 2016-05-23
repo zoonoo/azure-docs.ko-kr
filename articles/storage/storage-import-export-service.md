@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2016"
+	ms.date="05/09/2016"
 	ms.author="renash"/>
 
 
@@ -195,6 +195,7 @@ Azure 가져오기/내보내기 도구는 각 드라이브가 준비되면 각 �
 	- Anker 68UPSATAA-02BU
 	- Anker 68UPSHHDS-BU
 	- Startech SATADOCK22UE
+	- Sharkoon QuickPort XT HC
 
 > [AZURE.NOTE] 위에 나열되지 않은 변환기가 있는 경우 변환기를 통해 Azure 가져오기/내보내기 도구를 실행하여 드라이브를 준비하고 지원되는 변환기를 구입하기 전에 해당 변환기가 작동하는지 확인할 수 있습니다.
 
@@ -239,7 +240,7 @@ Azure 가져오기/내보내기 도구는 각 드라이브가 준비되면 각 �
 
 - 미국 및 유럽 지역에서는 [Federal Express](http://www.fedex.com/us/oadr/)(FedEx)만 지원됩니다. 모든 패키지는 FedEx Ground 또는 FedEx International Economy를 통해 반송됩니다.
 
-- APAC 동부, APAC 남동부, 오스트레일리아 동부, 오스트레일리아 남동부 및 일본 서부에서만 [DHL](http://www.dhl.com/)이 지원됩니다. 모든 패키지는 DHL Express Worldwide를 통해 반환됩니다.
+- APAC 동부, APAC 남동부, 오스트레일리아 동부, 오스트레일리아 남동부, 일본 서부, 일본 동부 및 인도 중부에서만 [DHL](http://www.dhl.com/)이 지원됩니다. 모든 패키지는 DHL Express Worldwide를 통해 반환됩니다.
 
 	> [AZURE.IMPORTANT] Azure 가져오기/내보내기 서비스에 추적 번호를 제공해야 합니다. 그렇지 않으면 작업을 처리할 수 없습니다.
 
@@ -265,6 +266,8 @@ Azure 가져오기/내보내기 도구는 각 드라이브가 준비되면 각 �
 	- 오스트레일리아 동부
 	- 오스트레일리아 남동부
 	- 일본 서부
+	- 일본 동부
+	- 인도 중부
 
 - 저장소 계정이 있는 지역의 배송지 주소가 제공됩니다. 예를 들어 미국에 거주하며 저장소 계정이 서유럽 데이터 센터에 있는 경우 드라이브 전송을 위해 유럽의 배송지 주소가 제공됩니다.
 
@@ -293,4 +296,4 @@ Azure 가져오기/내보내기 도구는 각 드라이브가 준비되면 각 �
 [export-job-03]: ./media/storage-import-export-service/export-job-03.png
 [export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

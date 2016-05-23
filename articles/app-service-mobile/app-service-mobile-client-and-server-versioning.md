@@ -4,7 +4,7 @@
   services="app-service\mobile"
   documentationCenter=""
   authors="lindydonna"
-  manager="dwrede"
+  manager="erikre"
   editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="mobile-multiple"
   ms.devlang="dotnet"
   ms.topic="article"
-  ms.date="02/04/2016"
+  ms.date="05/10/2016"
   ms.author="donnam"/>
 
 # 모바일 앱 및 모바일 서비스에서 클라이언트 및 서버 버전 관리
@@ -53,7 +53,7 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 | [모바일 서비스 클라이언트] | 확인 | 오류* |
 | [모바일 앱 클라이언트] | 오류* | 확인 |
 
-***MS_SkipVersionCheck**를 지정하여 제어될 수 있습니다.
+***MS\_SkipVersionCheck**를 지정하여 제어될 수 있습니다.
 
 
 <!-- IMPORTANT!  The anchors for Mobile Services and Mobile Apps MUST be 1.0.0 and 2.0.0 respectively, since there is an exception error message that uses those anchors. -->
@@ -79,8 +79,7 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
 | 서버 플랫폼 | 버전 | 수락된 버전 헤더 |
 | ---------------- | ------------------------------------------------------------                                                   | ----------------------- |
-| .NET             | [WindowsAzure.MobileServices.Backend.* 버전 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | **버전 헤더 없음** |
-| Node.js           | (출시 예정)                        | **버전 헤더 없음** |
+| .NET | [WindowsAzure.MobileServices.Backend.* 버전 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | ****버전 헤더 없음 ** | | Node.js | (출시 예정) | **버전 헤더 없음** |
 
 <!-- TODO: add Node npm version -->
 
@@ -113,7 +112,7 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 | 서버 플랫폼 | SDK) | 수락된 버전 헤더 |
 | ---------------- | ------------------------------------------------------------                                                   | ----------------------- |
 | .NET | [Microsoft.Azure.Mobile.Server](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) | 2\.0.0 |
-| Node.js | [azure-mobile-apps 버전 1.0-beta1 (또는 이상)](https://www.npmjs.com/package/azure-mobile-apps) | 2\.0.0 |
+| Node.js | [azure-mobile-apps)](https://www.npmjs.com/package/azure-mobile-apps) | 2\.0.0 |
 
 ### 모바일 앱 백 엔드의 동작
 
@@ -139,4 +138,4 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 [Azure 앱 서비스에 모바일 서비스 마이그레이션]: app-service-mobile-migrating-from-mobile-services.md
 [모바일 서비스를 Azure 앱 서비스로 마이그레이션]: app-service-mobile-migrating-from-mobile-services.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

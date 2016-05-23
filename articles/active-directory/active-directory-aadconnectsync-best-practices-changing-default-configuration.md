@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
-	ms.author="markusvi;andkjell"/>
+	ms.date="05/10/2016"
+	ms.author="markvi;andkjell"/>
 
 
 # Azure AD Connect 동기화: 기본 구성 변경에 대한 모범 사례
@@ -109,4 +109,4 @@ Fabrikam에서는 클라우드에 동기화된 특성 중 일부라도 클라우
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0511_2016-->

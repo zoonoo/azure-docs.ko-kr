@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Java에서 Azure Blob 저장소를 사용하는 방법 | Microsoft Azure"
-	description="Azure Blob 저장소를 사용하여 Blob 콘텐츠를 업로드, 다운로드, 나열 및 삭제하는 방법을 알아봅니다. 샘플은 Java로 작성되었습니다."
+	description="Azure Blob 저장소(개체 저장소)를 사용하여 클라우드에 구조화되지 않은 데이터를 저장합니다."
 	services="storage"
 	documentationCenter="java"
 	authors="rmcmurray"
@@ -269,4 +269,4 @@ Blob을 삭제하려면 Blob 참조를 가져온 후 **deleteIfExists**를 호�
 [Azure 저장소 REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

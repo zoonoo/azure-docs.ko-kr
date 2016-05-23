@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD Connect를 사용한 AD FS 관리 및 사용자 지정 | Microsoft Azure"
+	pageTitle="Azure AD Connect를 사용하여 Active Directory Federation Services 관리 및 사용자 지정 | Microsoft Azure"
 	description="Azure AD Connect를 사용한 AD FS 관리 및 Azure AD Connect와 Powershell을 사용한 사용자 AD FS 로그인 환경의 사용자 지정입니다."
 	services="active-directory"
 	documentationCenter=""
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2016"
+	ms.date="05/04/2016"
 	ms.author="anandy"/>
 
-# Azure AD Connect를 사용한 AD FS 관리 및 사용자 지정
+# Azure AD Connect를 사용하여 Active Directory Federation Services 관리 및 사용자 지정
 
-이 문서에서는 Azure AD Connect 및 AD FS 팜 전체 구성에 필요할 수 있는 기타 일반적인 AD FS 작업을 사용하여 수행할 수 있는 다양한 AD FS 관련 작업에 대해 자세히 설명합니다.
+이 문서에서는 Azure AD Connect 및 AD FS 팜 전체 구성에 필요할 수 있는 기타 일반적인 AD FS 작업을 사용하여 수행할 수 있는 다양한 AD FS(Active Directory Federation Services) 관련 작업에 대해 자세히 설명합니다.
 
 ## AD FS 관리
 
@@ -28,7 +28,7 @@ Azure AD Connect는 Azure AD Connect 마법사를 사용하여 최소한의 사�
 
 Azure AD Connect는 AD FS와 Azure ADtrust의 현재 상태를 확인하고 적절한 조치를 취하여 트러스트를 복구할 수 있습니다. 다음 단계에 따라 Azure AD 및 AD FS 트러스트를 복구합니다.
 
-사용 가능한 작업 목록에서 **Azure AD 및 ADFS 트러스트 복구**를 선택합니다.
+사용 가능한 작업 목록에서 **AAD 및 ADFS 트러스트 복구**를 선택합니다.
 
 ![](media\active-directory-aadconnect-federation-management\RepairADTrust1.PNG)
 
@@ -84,9 +84,9 @@ Azure AD Connect는 AD FS와 Azure ADtrust의 현재 상태를 확인하고 적�
 
 ![](media\active-directory-aadconnect-federation-management\AddNewADFSServer8.PNG)
 
-### 새 AD FS WAP 서버 추가
+### 새 AD FS 웹 응용 프로그램 프록시 서버 추가
 
-> [AZURE.NOTE] Azure AD Connect는 WAP 서버를 추가하는 데 PFX 인증서 파일이 필요합니다. 따라서 Azure AD Connect를 사용하여 AD FS 팜을 구성한 경우에만 이 작업을 수행할 수 있습니다.
+> [AZURE.NOTE] Azure AD Connect는 웹 응용 프로그램 프록시 서버를 추가하는 데 PFX 인증서 파일이 필요합니다. 따라서 Azure AD Connect를 사용하여 AD FS 팜을 구성한 경우에만 이 작업을 수행할 수 있습니다.
 
 사용 가능한 작업 목록에서 **웹 응용 프로그램 프록시 배포**를 선택합니다.
 
@@ -102,7 +102,7 @@ Azure AD Connect는 AD FS와 Azure ADtrust의 현재 상태를 확인하고 적�
 
 ![](media\active-directory-aadconnect-federation-management\WapServer4.PNG)
 
-다음 페이지에서 WAP로 추가할 서버를 추가합니다. WAP 서버가 도메인에 가입되거나 가입되지 않을 수 있으므로 마법사가 추가 중인 서버에 대한 관리자 자격 증명을 요청합니다.
+다음 페이지에서 웹 응용 프로그램 프록시로 추가할 서버를 추가합니다. 웹 응용 프로그램 프록시 서버가 도메인에 가입되거나 가입되지 않을 수 있으므로 마법사가 추가 중인 서버에 대한 관리자 자격 증명을 요청합니다.
 
 ![](media\active-directory-aadconnect-federation-management\WapServer5.PNG)
 
@@ -138,7 +138,7 @@ Azure AD Connect를 사용하면 Azure AD와 페더레이션될 새 도메인을
 
 ![](media\active-directory-aadconnect-federation-management\AdditionalDomain4.PNG)
 
-도메인을 선택하면 마법사는 마법사가 수행할 추가 작업 및 구성의 영향에 대한 적절한 정보를 제공합니다. 경우에 따라 Azure AD에서 아직 확인되지 않은 도메인을 선택하는 경우 마법사는 도메인을 확인하는 데 유용한 정보를 제공합니다. 도메인을 확인하는 방법에 대한 자세한 내용은 [Azure Active Directory에서 사용자 지정 도메인 이름 추가 및 확인](active-directory-add-domain-add-verify-general.md)을 참조하세요.
+도메인을 선택하면 마법사는 마법사가 수행할 추가 작업 및 구성의 영향에 대한 적절한 정보를 제공합니다. 경우에 따라 Azure AD에서 아직 확인되지 않은 도메인을 선택하는 경우 마법사는 도메인을 확인하는 데 유용한 정보를 제공합니다. 도메인을 확인하는 방법에 대한 자세한 내용은 [Azure Active Directory에 사용자 지정 도메인 이름 추가](active-directory-add-domain.md)를 참조하세요.
 
 다음을 클릭하면 **구성 준비** 페이지에 Azure AD Connect가 수행할 작업 목록이 표시됩니다. 설치를 클릭하여 구성을 완료합니다.
 
@@ -191,7 +191,10 @@ Azure AD Connect에서는 개체가 Azure AD에 동기화되는 경우 원본 �
 
 이 규칙은 단순히 사용자에 대해 채워진 ms-ds-concistencyguid가 없는 경우 "useguid"로 설정된 임시 플래그 "idflag"를 정의합니다. 이 이면에 숨겨진 논리는 ADFS가 빈 클레임을 허용하지 않는다는 사실입니다. 따라서 규칙 1에서 클레임 http://contoso.com/ws/2016/02/identity/claims/objectguid 및 http://contoso.com/ws/2016/02/identity/claims/msdsconcistencyguid가 추가된 경우 사용자에 대해 값이 채워진 경우에만 msdsconsistencyguid 클레임으로 끝납니다. 값이 채워지지 않은 경우 ADFS는 빈 값이 되고 삭제되는 것을 볼 수 있습니다. 알다시피 모든 개체에는 ObjectGuid가 있으므로 규칙 1이 실행된 후 항상 클레임이 발생합니다.
 
-**규칙 3: ms-ds-consistencyguid를 변경이 불가능한 ID(있는 경우)로 발급** c:[Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconcistencyguid"] => issue(Type = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", Value = c.Value);
+**규칙 3: 있는 경우 변경이 불가능한 ID로 ms-ds-consistencyguid 발급**
+
+    c:[Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconcistencyguid"]
+    => issue(Type = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", Value = c.Value);
 
 이는 암시적 EXIST 확인입니다. 클레임에 대한 값이 있으면 변경이 불가능한 ID로 이를 발급합니다. nameidentifier 클레임을 발급하는 중입니다. 사용자 환경에서 변경이 불가능한 ID에 대한 적절한 클레임 유형으로 변경해야 합니다.
 
@@ -205,4 +208,35 @@ Azure AD Connect에서는 개체가 Azure AD에 동기화되는 경우 원본 �
 
 > [AZURE.NOTE] 이러한 규칙 시퀀스는 중요합니다.
 
-<!---HONumber=AcomDC_0427_2016-->
+#### 하위 도메인 UPN을 사용한 SSO
+
+Azure AD Connect를 사용하여 페더레이션될 도메인을 둘 이상 추가할 수 있습니다([새 페더레이션된 도메인 추가](active-directory-aadconnect-federation-management.md#add-a-new-federated-domain)). 페더레이션된 루트 도메인이 자식도 포함하기 때문에 발급자 ID는 하위 도메인이 아닌 루트 도메인과 일치해야 하므로 UPN 클레임을 수정하는 것이 필요합니다.
+
+기본적으로 발급자 ID에 대한 클레임 규칙은 다음과 같이 설정됩니다.
+
+	c:[Type 
+	== “http://schemas.xmlsoap.org/claims/UPN“]
+
+	=> issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
+
+![기본 발급자 ID 클레임](media\active-directory-aadconnect-federation-management\issuer_id_default.png)
+
+기본 규칙은 UPN 접미사를 가져다가 발급자 ID 클레임에 사용합니다. 예를 들어, John은 sub.contoso.com의 사용자이고 contoso.com은 Azure AD를 사용하여 페더레이션됩니다. John이 Azure AD에 로그인할 때 john@sub.contoso.com을 사용자 이름으로 입력하면, AD FS의 기본 발급자 ID 클레임 규칙이 다음과 같은 방식으로 그것을 처리합니다.
+
+c:[Type == “http://schemas.xmlsoap.org/claims/UPN“]
+
+=> issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(john@sub.contoso.com, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
+
+**클레임 값:** http://sub.contoso.com/adfs/services/trust/
+
+발급자 클레임 값에 루트 도메인을 포함시키려면, 클레임 규칙을 다음과 같이 변경합니다.
+
+	c:[Type == “http://schemas.xmlsoap.org/claims/UPN“]
+
+	=> issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “^((.*)([.|@]))?(?<domain>[^.]*[.].*)$”, “http://${domain}/adfs/services/trust/“));
+
+## 다음 단계
+
+[사용자 로그인 옵션](active-directory-aadconnect-user-signin.md)에 대해 알아봅니다.
+
+<!---HONumber=AcomDC_0511_2016-->

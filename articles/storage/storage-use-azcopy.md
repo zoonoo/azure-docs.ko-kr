@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/02/2016"
+	ms.date="05/06/2016"
 	ms.author="micurd"/>
 
 # AzCopy 명령줄 유틸리티로 데이터 전송
@@ -477,7 +477,7 @@ AzCopy 작업을 다시 시작하려는 경우
 
 ### 시작할 동시 작업 수 지정
 
-`/NC` 옵션은 동시 복사 작업의 수를 지정합니다. 기본적으로 AzCopy는 보유한 코어 프로세서 수의 8배에 해당하는 동시 작업을 시작합니다. 저대역폭 네트워크에서 AzCopy를 실행하는 경우에는 리소스 경쟁으로 인한 실패를 방지하기 위해 이 옵션 값을 더 낮게 지정할 수 있습니다.
+`/NC` 옵션은 동시 복사 작업의 수를 지정합니다. AzCopy는 데이터 전송 처리량을 높이기 위해 기본적으로 특정 수의 동시 작업을 시작합니다. 테이블 작업의 경우 동시 작업 수는 가지고 있는 프로세서의 수와 같습니다. Blob 및 파일 작업의 경우 동시 작업 수는 가지고 있는 프로세서 수의 8배입니다. 저대역폭 네트워크에서 AzCopy를 실행하는 경우에는 리소스 경쟁으로 인한 실패를 방지하기 위해 /NC를 더 낮게 지정할 수 있습니다.
 
 ### Azure 저장소 에뮬레이터에 대해 AzCopy 실행
 
@@ -583,7 +583,7 @@ AzCopy는 Azure Blob 또는 파일을 서비스로 업로드하기 전에 항상
 
 스냅숏을 전송할지 여부를 나타냅니다. 이 옵션은 소스가 Blob일 때만 유효합니다.
 
-전송된 Blob 스냅숏은 [blob-name](snapshot-time)[extension] 형식으로 이름이 바뀝니다.
+전송된 Blob 스냅숏의 이름을 blob-name (snapshot-time).extension 형식으로 바꿉니다.
 
 기본적으로 스냅숏은 복사되지 않습니다.
 
@@ -864,4 +864,4 @@ Azure 저장소 및 AzCopy에 대한 자세한 내용은 다음 리소스를 참
 - [AzCopy: 크로스 계정 Blob 복사 사용(영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 - [AzCopy: Azure Blob 파일 업로드/다운로드(영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

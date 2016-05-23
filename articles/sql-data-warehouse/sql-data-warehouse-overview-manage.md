@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/03/2016"
+   ms.date="05/04/2016"
    ms.author="barbkess;sonyama;"/>
 
 # Azure SQL 데이터 웨어하우스의 데이터베이스 관리
@@ -115,7 +115,7 @@ SQL 데이터 웨어하우스는 계산과 저장소를 분리하기 때문에, 
 <!--Image references-->
 
 <!--Article references-->
-[Azure 저장소 중복 옵션]: storage-redundancy.md#read-access-geo-redundant-storage
+[Azure 저장소 중복 옵션]: ../storage/storage-redundancy.md#read-access-geo-redundant-storage
 [SQL 데이터 웨어하우스 만들기(Azure 포털)]: sql-data-warehouse-get-started-provision.md
 [데이터베이스 만들기(PowerShell)]: sql-data-warehouse-get-started-provision-powershell
 [connection]: sql-data-warehouse-develop-connections.md
@@ -139,4 +139,4 @@ SQL 데이터 웨어하우스는 계산과 저장소를 분리하기 때문에, 
 <!--Other web references-->
 [Azure 포털]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->
