@@ -32,7 +32,8 @@ Azure HDInsight를 사용하여 Hadoop 클러스터에서 MapReduce 작업을 �
 
 Hadoop 관련 기술(예: Java 기반 MapReduce 프로그래밍 및 스트리밍)에 대한 다양한 추가 설명서 및 Windows PowerShell 스크립팅에 사용되는 cmdlet에 대한 설명서를 웹에서 찾을 수 있습니다. 이러한 리소스에 대한 자세한 내용은 다음을 참조하세요.
 
-- [HDInsight의 Hadoop용 Java MapReduce 프로그램 개발](hdinsight-develop-deploy-java-mapreduce-linux.md)
+- [HDInsight의 Hadoop용 Java MapReduce 프로그램 개발](hdinsight-develop-deploy-java-mapreduce.md)
+- [HDInsight용 C# Hadoop 스트리밍 프로그램 개발](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
 - [HDInsight에서 Hadoop 작업 제출](hdinsight-submit-hadoop-jobs-programmatically.md)
 - [Azure HDInsight 소개][hdinsight-introduction]
 
@@ -51,7 +52,7 @@ Hadoop 관련 기술(예: Java 기반 MapReduce 프로그래밍 및 스트리밍
 
 ## <a name="hdinsight-sample-wordcount"></a>단어 개수 - Java 
 
-MapReduce 프로젝트를 제출하려면 먼저 MapReduce 작업 정의를 만듭니다. 작업 정의에서 MapReduce 프로그램 jar 파일 및 jar 파일이 있는 위치(여기서 ****wasb:///example/jars/hadoop-mapreduce-examples.jar**), 클래스 이름 및 인수를 지정합니다. 단어 개수 MapReduce 프로그램은 두 인수로, 단어를 계산하는 데 사용할 소스 파일과 출력 위치를 사용합니다.
+MapReduce 프로젝트를 제출하려면 먼저 MapReduce 작업 정의를 만듭니다. 작업 정의에서 MapReduce 프로그램 jar 파일 및 jar 파일이 있는 위치(여기서 **wasb:///example/jars/hadoop-mapreduce-examples.jar**), 클래스 이름 및 인수를 지정합니다. 단어 개수 MapReduce 프로그램은 두 인수로, 단어를 계산하는 데 사용할 소스 파일과 출력 위치를 사용합니다.
 
 [부록 A](#apendix-a---the-word-count-MapReduce-program-in-java)에서 소스 코드를 찾을 수 있습니다.
 
@@ -138,11 +139,11 @@ Hadoop 스트리밍 인터페이스에 대한 자세한 내용은 [Hadoop 스트
 - [단어 개수 - Java](#word-count-java)의 절차에 따라 작업 정의를 다음으로 바꿉니다.
 
 		$mrJobDefinition = New-AzureRmHDInsightStreamingMapReduceJobDefinition `
-    							-Files "/example/apps/cat.exe","/example/apps/wc.exe" `
-    							-Mapper "cat.exe" `
-    							-Reducer "wc.exe" `
-    							-InputPath "/example/data/gutenberg/davinci.txt" `
-    							-OutputPath "/example/data/StreamingOutput/wc.txt"  
+									-File "/example/apps/" `
+									-Mapper "cat.exe" `
+									-Reducer "wc.exe" `
+									-InputPath "/example/data/gutenberg/davinci.txt" `
+									-OutputPath "/example/data/StreamingOutput/wc.txt"
 
 
 	출력 파일은 다음과 같습니다.
@@ -983,7 +984,7 @@ mapper 및 reducer 함수가 포함된 Pi 추정 Java 코드를 아래 검사에
 [hdinsight-introduction]: hdinsight-hadoop-introduction.md
 
 
-[powershell-install-configure]: ../powershell-install-configure.md
+[powershell-install-configure]: powershell-install-configure.md
 
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 

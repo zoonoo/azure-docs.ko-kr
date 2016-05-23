@@ -367,7 +367,7 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
             }
         }
 
-6. 이전 코드에서 **CLUSTERNAME**, **HADOOPUSERNAME**, **HADOOPUSERPASSWORD** 및 DICTIONARYFILENAME 등의 상수를 설정합니다. DICTIONARYFILENAME은 파일 이름 및 direction.tsv의 위치입니다. 파일은 ****https://hditutorialdata.blob.core.windows.net/twittersentiment/dictionary.tsv**에서 다운로드할 수 있습니다. HBase 테이블 이름을 변경하려면 웹 응용 프로그램에서 테이블 이름을 적절하게 변경해야 합니다.
+6. 이전 코드에서 **CLUSTERNAME**, **HADOOPUSERNAME**, **HADOOPUSERPASSWORD** 및 DICTIONARYFILENAME 등의 상수를 설정합니다. DICTIONARYFILENAME은 파일 이름 및 direction.tsv의 위치입니다. 파일은 **https://hditutorialdata.blob.core.windows.net/twittersentiment/dictionary.tsv**에서 다운로드할 수 있습니다. HBase 테이블 이름을 변경하려면 웹 응용 프로그램에서 테이블 이름을 적절하게 변경해야 합니다.
 
 7. **Program.cs**를 열고 코드를 다음으로 바꿉니다.
 
@@ -1236,8 +1236,8 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
 - [HDInsight용 Java MapReduce 프로그램 개발][hdinsight-develop-mapreduce]
 
 
-[hbase-get-started]: hdinsight-hbase-tutorial-get-started-linux.md
-[website-get-started]: ../app-service-web/web-sites-dotnet-get-started.md
+[hbase-get-started]: ../hdinsight-hbase-tutorial-get-started.md
+[website-get-started]: ../web-sites-dotnet-get-started.md
 
 
 

@@ -343,7 +343,7 @@
 | 172 | [Azure SQL 데이터베이스 리소스 제한](sql-database-resource-limits.md) | 이 페이지에서는 Azure SQL 데이터베이스에 대한 몇 가지 일반적인 리소스 제한을 설명합니다. |
 | 173 | [Azure SQL 데이터베이스 TRANSACT-SQL의 차이점](sql-database-transact-sql-information.md) | Azure SQL 데이터베이스에서 완전히 지원되지 않는 TRANSACT-SQL 문 |
 | 174 | [SQL 데이터베이스 및 SQL Server용 연결 라이브러리](sql-database-libraries.md) | 클라이언트 프로그램에서 Azure SQL 데이터베이스 또는 Microsoft SQL Server에 연결하는 데 사용할 수 있는 각 드라이버의 최소 버전 번호를 나열합니다. Microsoft가 아니라 커뮤니티에서 릴리즈된 드라이버에 대한 버전 정보 링크가 제공됩니다. |
-| 175 | [필터를 사용하여 검색](https://azure.microsoft.com/ko-KR/documentation/articles/?service=sql-database) | 필터를 사용하여 Azure SQL 데이터베이스에 대한 설명서 문서를 검색합니다. |
+| 175 | [필터를 사용하여 검색](https://azure.microsoft.com/documentation/articles/?service=sql-database) | 필터를 사용하여 Azure SQL 데이터베이스에 대한 설명서 문서를 검색합니다. |
 
 
 ## 기타

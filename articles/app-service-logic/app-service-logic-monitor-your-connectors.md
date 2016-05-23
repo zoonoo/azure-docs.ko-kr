@@ -121,7 +121,10 @@ API 앱 역할 기반 보안을 사용합니다. 이러한 역할은 API 앱과 
 
 ## 자세히 알아보기
 
-[논리 앱 모니터링](app-service-logic-monitor-your-logic-apps.md)<br/>[ 앱 서비스의 커넥터 및 API 앱 목록](app-service-logic-connectors-list.md)<br/>[Microsoft Azure 포털에서 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)<br/>[Azure 앱 서비스에서 하이브리드 연결 관리자 사용](app-service-logic-hybrid-connection-manager.md)
+[논리 앱 모니터링](app-service-logic-monitor-your-logic-apps.md)<br/>
+[ 앱 서비스의 커넥터 및 API 앱 목록](app-service-logic-connectors-list.md)<br/>
+[Microsoft Azure 포털에서 역할 기반 액세스 제어](role-based-access-control-configure.md)<br/>
+[Azure 앱 서비스에서 하이브리드 연결 관리자 사용](app-service-logic-hybrid-connection-manager.md)
 
 
 <!--Image references-->

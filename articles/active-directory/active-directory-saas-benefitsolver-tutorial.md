@@ -82,8 +82,8 @@
 
     ![앱 설정 구성](./media/active-directory-saas-benefitsolver-tutorial/IC804826.png "앱 설정 구성")
 
-    1.  **로그인 URL** 텍스트 상자에서 ****http://azure.benefitsolver.com**을 입력합니다.
-2.  **회신 URL** 텍스트 상자에서 ****https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml**을 입력합니다.
+    1.  **로그인 URL** 텍스트 상자에서 **http://azure.benefitsolver.com**을 입력합니다.
+2.  **회신 URL** 텍스트 상자에서 **https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml**을 입력합니다.
 
     3.  **다음**을 클릭합니다.
 
@@ -135,7 +135,7 @@ Azure AD 사용자가 Benefitsolver에 로그인할 수 있도록 하려면 Bene
 
 1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
 
-2.  **Benefitsolver ** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+2.  **Benefitsolver** 응용 프로그램 통합 페이지에서 **사용자 할당** 을 클릭합니다.
 
     ![사용자 할당](./media/active-directory-saas-benefitsolver-tutorial/IC804829.png "사용자 할당")
 

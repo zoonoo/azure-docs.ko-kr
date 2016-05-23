@@ -31,8 +31,8 @@ Azure VM에서 SQL Server를 실행하는 것은 관계형 데이터를 Azure에
 |---:|---|---|
 |![Azure 가상 컴퓨터의 SQL Server](./media/virtual-machines-windows-sql-server-iaas-overview/sql-server-virtual-machine.png)|[Azure 가상 컴퓨터의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)|Azure 가상 컴퓨터에서 SQL Server를 실행합니다. 가상 컴퓨터를 직접 관리하고 SQL Server 정품 버전에서 데이터베이스를 실행합니다. |
 |![SQL 데이터베이스](./media/virtual-machines-windows-sql-server-iaas-overview/azure-sql-database.png)|[SQL 데이터베이스](https://azure.microsoft.com/services/sql-database/)|SQL 데이터베이스 서비스를 사용하여 기본 인프라를 관리할 필요 없이, 데이터베이스를 액세스하고 크기를 조정합니다.|
-|![SQL 데이터 웨어하우스](./media/virtual-machines-windows-sql-server-iaas-overview/azure-sql-data-warehouse.png)|[SQL 데이터 웨어하우스](https://azure.microsoft.com/ko-KR/services/sql-data-warehouse/)|Azure SQL 데이터 웨어하우스를 사용하여 대량의 관계형 및 비관계형 데이터를 처리합니다. 확장성 있는 데이터 웨어하우징 기능을 서비스로 제공합니다.|
-|![SQL Server 스트레치 데이터베이스](./media/virtual-machines-windows-sql-server-iaas-overview/sql-server-stretch-database.png)|[SQL Server 스트레치 데이터베이스](https://azure.microsoft.com/ko-KR/services/sql-server-stretch-database/)|Microsoft SQL Server 2016의 온-프레미스 트랜잭션 데이터를 Azure에 동적으로 스트레치합니다.|
+|![SQL 데이터 웨어하우스](./media/virtual-machines-windows-sql-server-iaas-overview/azure-sql-data-warehouse.png)|[SQL 데이터 웨어하우스](https://azure.microsoft.com/services/sql-data-warehouse/)|Azure SQL 데이터 웨어하우스를 사용하여 대량의 관계형 및 비관계형 데이터를 처리합니다. 확장성 있는 데이터 웨어하우징 기능을 서비스로 제공합니다.|
+|![SQL Server 스트레치 데이터베이스](./media/virtual-machines-windows-sql-server-iaas-overview/sql-server-stretch-database.png)|[SQL Server 스트레치 데이터베이스](https://azure.microsoft.com/services/sql-server-stretch-database/)|Microsoft SQL Server 2016의 온-프레미스 트랜잭션 데이터를 Azure에 동적으로 스트레치합니다.|
 
 >[AZURE.NOTE] SQL VM과 SQL 데이터베이스 간의 자세한 비교는 [클라우드 SQL Server 옵션 선택: Azure SQL(PaaS) 데이터베이스 또는 Azure VM의 SQL Server(IaaS)](../sql-database/data-management-azure-sql-database-and-sql-server-iaas.md)를 참조하세요.
 

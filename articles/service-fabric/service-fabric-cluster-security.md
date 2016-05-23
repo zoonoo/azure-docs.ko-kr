@@ -218,8 +218,8 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My -FileP
 
 >[AZURE.NOTE] 보안 클러스터의 경우 항상 적어도 하나의 유효한(취소되지 않거나 만료되지 않은) 주 또는 보조 인증서 배포가 필요하며 그렇지 않으면 클러스터에 액세스할 수 없습니다.
 
-
-## 서비스 패브릭에서 사용하는 인증서 유형
+## 
+서비스 패브릭에서 사용하는 인증서 종류에 대해 자세히 설명합니다.
 
 ### X.509 인증서
 

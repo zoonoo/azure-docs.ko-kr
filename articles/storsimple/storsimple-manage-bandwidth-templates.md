@@ -63,11 +63,11 @@ Azure 클래식 포털의 StorSimple Manager 서비스 **구성** 페이지를 �
    2. 하루 전체에 대해 일정이 적용되는 경우 **하루 종일** 옵션을 선택합니다. 이 옵션을 선택하면 **시작 시간** 또는 **종료 시간**을 더 이상 지정할 수 없습니다. 일정은 오전 12시에서 오후 11시 59분에 실행됩니다.
    3. 드롭다운 목록에서 **시작 시간**을 선택합니다. 일정이 시작되는 시간입니다.
    4. 드롭다운 목록에서 **종료 시간**을 선택합니다. 일정이 중지되는 시간입니다.
+   
+         > [AZURE.NOTE] 겹치는 일정은 허용되지 않습니다. 시작 및 종료 시간이 겹치는 경우 그에 대한 오류 메시지를 받게 됩니다.
 
-         > [AZURE.NOTE] Overlapping schedules are not allowed. If the start and end times will result in an overlapping schedule, you will see an error message to that effect.
-
-   5. **대역폭 속도**를 지정합니다. 클라우드와 관련된 작업(업로드 및 다운로드 모두)에서 StorSimple가 사용하는 초당 메가 비트(Mbps)의 대역폭입니다. 이 필드에 대해 1에서 1,000 사이의 숫자를 제공합니다.
-
+   5. **대역폭 속도**를 지정합니다. 클라우드와 관련된 작업에서 StorSimple가 사용하는 초당 메가 비트(Mbps)의 대역폭입니다. 이 필드에 대해 1에서 1,000 사이의 숫자를 제공합니다.
+   
    6. 확인 아이콘![확인 아이콘](./media/storsimple-manage-bandwidth-templates/HCS_CheckIcon.png)을 클릭합니다. 사용자가 만든 템플릿이 서비스 **구성** 페이지의 대역폭 템플릿 목록에 추가됩니다.
 
     ![새 대역폭 템플릿 만들기](./media/storsimple-manage-bandwidth-templates/HCS_CreateNewBT1.png)

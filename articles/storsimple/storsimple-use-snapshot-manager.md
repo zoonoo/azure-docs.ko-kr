@@ -96,7 +96,7 @@ StorSimple 스냅숏 관리자 사용자 인터페이스는 Windows 운영 체�
  
 ![StorSimple 스냅숏 관리자 동작 메뉴](./media/storsimple-use-snapshot-manager/HCS_SSM_Action_menu.png)
 
-**동작 ** 창(콘솔 오른쪽)에는 **동작** 메뉴와 동일한 목록이 있습니다. 또한 **작업** 창에는 **보기** 메뉴 옵션이 있어 **결과** 창의 사용자 지정 보기를 만들 수 있습니다.
+**동작** 창(콘솔 오른쪽)에는 **동작** 메뉴와 동일한 목록이 있습니다. 또한 **작업** 창에는 **보기** 메뉴 옵션이 있어 **결과** 창의 사용자 지정 보기를 만들 수 있습니다.
 
 ![보기 메뉴가 열린 작업 창](./media/storsimple-use-snapshot-manager/HCS_SSM_ActionsPane_Results.png)
 
@@ -490,7 +490,8 @@ StorSimple 스냅숏 관리자는 MMC(Microsoft Management Console) 및 Windows 
 | V | **보기** 메뉴가 열립니다. |
 | W | **볼륨 그룹** 노드에 초점을 맞춘 새 StorSimple 스냅숏 관리자 콘솔을 엽니다.|
 | F | StorSimple 스냅숏 관리자 콘솔을 업데이트합니다.|
-| L | **목록 내보내기** 페이지가 열립니다. | H | 온라인 도움말을 엽니다.|
+| L | **목록 내보내기** 페이지가 열립니다.
+| H | 온라인 도움말을 엽니다.|
  
 #### 백업 카탈로그 노드 바로 가기 키
 
