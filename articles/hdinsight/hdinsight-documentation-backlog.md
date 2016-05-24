@@ -24,7 +24,7 @@
 
 영역 |항목 | 우선 순위 | 상태 | 할당 대상 | 요청자 
 ------------- | ------------- | -------------- | -------------- | --------------- | --------------
-관리 | .NET SDK를 사용하는 관리자 HDInsight 클러스터 | 1 | 작성 | [@mumian](https://github.com/mumian) | - |
+관리 | .NET SDK를 사용하는 관리자 HDInsight 클러스터 | 1 | 작성 | [@mumian](https://github.com/mumian) | - | 
 관리 | Azure Data Factory를 사용하여 HDInsight 클러스터 프로비전 | 2 | [완료됨](hdinsight-hadoop-create-linux-clusters-adf.md) | [@mumian](https://github.com/mumian) | - | 
 자동화 | ARM 템플릿을 사용하도록 [Spark 클러스터를 만드는 방법](hdinsight-apache-spark-jupyter-spark-sql.md)에 대한 문서 업데이트 | 1 | [완료됨](hdinsight-apache-spark-jupyter-spark-sql.md#create-spark-cluster) | [@mumian](https://github.com/mumian) | - 
 자동화 | ARM 템플릿을 사용하도록 [Storm 클러스터를 만들고 Storm Starter 샘플을 실행하는 방법](hdinsight-apache-storm-tutorial-get-started-linux.md)에 대한 문서 업데이트 | 1 | [완료됨](hdinsight-apache-storm-tutorial-get-started-linux.md#create-a-storm-cluster) | [@mumian](https://github.com/mumian) | - 
@@ -33,7 +33,7 @@
 저장소 | WASB 및 Data Lake 저장소 옵션을 설명하는 문서 | 2 | 보류 중 | [@mumian](https://github.com/mumian) | - 
 성능 | MapReduce 응용 프로그램에 대한 성능 튜닝 지침 | 1 | 보류 중 | [@blackmist](https://github.com/blackmist) | - 
 성능 | Spark 클러스터에 대한 성능 튜닝 지침 |1 | 보류 중 | [@nitinme](https://github.com/nitinme) | -
-개발 | Sqoop를 사용하는 Curl 및 Rest API 샘플 | 2 | 보류 중 | [@mumian](https://github.com/mumian) | Jon Kennerly |
+개발 | Sqoop를 사용하는 Curl 및 Rest API 샘플 | 2 | 보류 중 | [@mumian](https://github.com/mumian) | Jon Kennerly | 
 개발 | [HDInsight .NET 응용 프로그램으로 비대화형 인증](hdinsight-create-non-interactive-authentication-dotnet-applications) |2| [완료됨](hdinsight-create-non-interactive-authentication-dotnet-applications.md) | [@mumian](https://github.com/mumian) | [@matt1883](https://github.com/matt1883)
 
 
