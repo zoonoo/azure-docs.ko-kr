@@ -24,7 +24,7 @@
 
 >[AZURE.NOTE] Azure AD Connect는 이전에 DirSync 및 AAD 동기화로 릴리스된 구성 요소와 기능을 통합합니다. 이러한 도구는 이제 개별적으로 릴리스되지 않습니다. 향후의 모든 향상 기능은 Azure AD Connect 업데이트에 포함되므로, 최신 기능을 구할 위치를 항상 알 수 있습니다.
 >
->디렉터리 동기화 및 Azure AD Sync는 사용되지 않습니다. 자세한 내용은 [Windows Azure Active Directory 동기화("DirSync") 및 Azure Active Directory 동기화("Azure AD Sync") 업그레이드](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-dirsync-deprecated/?WT.mc_id=DirSyncDepACOM)에서 찾을 수 있습니다.
+>디렉터리 동기화 및 Azure AD Sync는 사용되지 않습니다. 자세한 내용은 [Microsoft Azure Active Directory 동기화("DirSync") 및 Azure Active Directory 동기화("Azure AD Sync") 업그레이드](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-dirsync-deprecated/?WT.mc_id=DirSyncDepACOM)에서 찾을 수 있습니다.
 
 
 각 테이블에 다음 키를 사용합니다.

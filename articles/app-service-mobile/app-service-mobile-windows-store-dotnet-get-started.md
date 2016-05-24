@@ -62,7 +62,7 @@
 
 4. UWP 앱을 시작 프로젝트로 사용하여 앱을 배포하고 실행하도록 F5 키를 누릅니다.
 
-5. 앱에서 **Insert a TodoItem** 텍스트 상자에 *자습서 완료*와 같은 의미 있는 텍스트를 입력하고 **저장**을 클릭합니다.
+5. 앱에서 **Insert a TodoItem** 텍스트 상자에 *자습서 완료* 와 같은 의미 있는 텍스트를 입력하고 **저장**을 클릭합니다.
 
 	![](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-startup.png)
 
