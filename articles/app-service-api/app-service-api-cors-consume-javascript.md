@@ -72,7 +72,7 @@ CORS 속성을 설정하는 Azure Resource Manager 템플릿의 예를 보려면
 
 ## <a id="tutorialstart"></a> .NET 시작 자습서 계속
 
-API 앱에 Node.js 또는 Java 시작 시리즈를 수행 중인 경우 다음 문서, [앱 서비스 API 앱에 대한 인증](app-service-api-authentication.md)으로 건너뜁니다.
+API 앱에 Node.js 또는 Java 시작 시리즈를 수행 중인 경우 시작 시리즈를 완료했습니다. [다음 단계](#next-steps) 섹션으로 건너뛰어 API 앱에 대한 추가 학습을 위한 제안을 찾습니다.
 
 이 문서의 나머지 부분은 .NET 시작 시리즈를 계속 진행하며 성공적으로 [첫 번째 자습서](app-service-api-dotnet-get-started.md)를 완료했다고 가정합니다.
 
@@ -142,7 +142,7 @@ API 앱에 Node.js 또는 Java 시작 시리즈를 수행 중인 경우 다음 �
 
 	코드가 Azure에서 실행되면 이 값은 *Web.config* 파일에 있는 localhost URL을 재정의합니다.
 
-	설정값을 가져오는 코드는 *index.cshtml*에 있습니다.
+	설정값을 가져오는 코드는 *index.cshtml* 에 있습니다.
 
 		<script type="text/javascript">
 		    var apiEndpoint = "@System.Configuration.ConfigurationManager.AppSettings["toDoListAPIURL"]";
@@ -264,6 +264,13 @@ Web API CORS 지원은 앱 서비스 CORS 지원보다 유연성이 뛰어납니
 		    [EnableCors(origins:"https://todolistangular0121.azurewebsites.net", headers:"accept,content-type,origin,x-my-header", methods: "get,post")]
 		    public class ToDoListController : ApiController
  
+## API 앱으로 Azure API 관리 사용
+
+API 앱으로 Azure API 관리를 사용하는 경우 API 앱 대신 API 관리에서 CORS를 구성합니다. 자세한 내용은 다음 리소스를 참조하세요.
+
+* [Azure API 관리 개요(비디오: CORS는 12:10부터 시작)](https://azure.microsoft.com/documentation/videos/azure-api-management-overview/)
+* [도메인 정책 간 API 관리](https://msdn.microsoft.com/library/azure/dn894084.aspx#CORS)
+ 
 ## 문제 해결
 
 이 자습서를 진행하면서 문제에 직면하는 경우 .NET용 Azure SDK의 최신 버전을 사용하도록 합니다. 작업을 수행하는 가장 쉬운 방법은 [Visual Studio 2015용 Azure SDK를 다운로드](http://go.microsoft.com/fwlink/?linkid=518003)하는 것입니다. 현재 버전이 설치되어 있다면 웹 플랫폼 설치 관리자에서 설치가 필요하지 않다고 알려줍니다.
@@ -279,6 +286,6 @@ Web API CORS 지원은 앱 서비스 CORS 지원보다 유연성이 뛰어납니
 
 ## 다음 단계 
 
-이 문서에서는 앱 서비스 CORS 지원을 사용하여 클라이언트 JavaScript 코드가 다른 도메인에서 API를 호출할 수 있는 방법을 살펴보았습니다. API 앱 시작 시리즈의 다음 문서에서는 [앱 서비스 API 앱에 대한 인증](app-service-api-authentication.md)에 대해 알아봅니다.
+이 문서에서는 앱 서비스 CORS 지원을 사용하여 클라이언트 JavaScript 코드가 다른 도메인에서 API를 호출할 수 있는 방법을 살펴보았습니다. API 앱에 대한 자세한 내용은 [앱 서비스에서 인증 소개](../app-service/app-service-authentication-overview.md)를 참고하고 [API 앱에 대한 사용자 인증](app-service-api-dotnet-user-principal-auth.md) 자습서로 이동합니다.
 
-<!-------HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -15,14 +15,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/25/2016"
+	ms.date="05/09/2016"
 	ms.author="sstein;carlrab" />
 
 # SQL Server Management Studio를 사용하여 SQL 데이터베이스에 연결하고 샘플 T-SQL 쿼리를 실행합니다.
 
 > [AZURE.SELECTOR]
-- [C#](sql-database-connect-query.md)
 - [SSMS](sql-database-connect-query-ssms.md)
+- [C#](sql-database-connect-query.md)
 - [Excel](sql-database-connect-excel.md)
 
 이 문서에서는 최신 버전의 SQL Server Management Studio(SSMS)를 사용하여 Azure SQL 데이터베이스 서버에 연결하고 Transact-SQL(T-SQL) 문을 통해 간단한 쿼리를 수행하는 방법을 보여 줍니다.
@@ -66,4 +66,4 @@ T-SQL을 처음 접하는 경우 [자습서: Transact-SQL 문 쓰기](https://ms
 
 데이터베이스 사용자 및 데이터베이스 사용자 관리자 만들기를 시작하려면 [Azure SQL 데이터베이스 보안 시작](sql-database-get-started-security.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

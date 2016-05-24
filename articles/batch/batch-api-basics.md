@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="03/11/2016"
+	ms.date="05/12/2016"
 	ms.author="yidingz;marsma"/>
 
 # Azure 배치 기능 개요
@@ -38,7 +38,7 @@
 
 6. 작업 진행 상황을 모니터링하고 결과를 검색합니다.
 
-> [AZURE.NOTE] 배치 서비스를 사용하려면 [배치 계정](batch-account-create-portal.md)이 필요하며, 거의 모든 솔루션에서 파일 저장 및 검색에 [Azure 저장소][azure_storage] 계정을 사용합니다.
+> [AZURE.NOTE] 배치 서비스를 사용하려면 [배치 계정](batch-account-create-portal.md)이 필요하며, 거의 모든 솔루션에서 파일 저장 및 검색에 [Azure 저장소][azure_storage] 계정을 사용합니다. 배치는 현재 [Azure 저장소 계정 정보](../storage/storage-create-storage-account.md)의 #5 단계 [저장소 계정 만들기](../storage/storage-create-storage-account.md#create-a-storage-account)에서 설명한 대로 **범용** 저장소 계정 유형만을 지원합니다.
 
 아래 섹션에서는 위 워크플로에 설명된 각 리소스와 분산 컴퓨팅 시나리오를 지원하는 배치의 다른 많은 기능을 알아봅니다.
 
@@ -130,7 +130,7 @@ Azure 배치 풀은 코어 Azure 계산 플랫폼을 기반으로 합니다. 배
 
 - 태스크의 **명령줄**에 지정된 응용 프로그램
 
-- 처리할 데이터를 포함하는 **리소스 파일**. 이러한 파일은 Azure 저장소 계정의 Blob 저장소에서 노드로 자동으로 복사됩니다. 자세한 내용은 아래의 [파일 및 디렉터리](#files)를 참조하세요.
+- 처리할 데이터를 포함하는 **리소스 파일**. 이러한 파일은 **범용** Azure 저장소 계정의 Blob 저장소에서 노드로 자동으로 복사됩니다. 자세한 내용은 아래의 *시작 태스크* 및 [파일 및 디렉터리](#files)를 참조하세요.
 
 - 응용 프로그램에 필요한 **환경 변수**. 자세한 내용은 아래의 [태스크에 대한 환경 설정](#environment)을 참조하세요.
 
@@ -149,6 +149,8 @@ Azure 배치 풀은 코어 Azure 계산 플랫폼을 기반으로 합니다. 배
 **시작 태스크**를 풀과 연결하여 해당 노드의 운영 체제를 구성할 수 있습니다. 소프트웨어 설치 및 백그라운드 프로세스 시작은 시작 태스크가 수행할 수 있는 일부 동작입니다. 시작 태스크는 노드가 풀에 처음 추가된 경우를 포함하여 풀에 남아 있는 한, 노드가 시작될 때마다 실행됩니다. 시작 태스크의 주요 이점은 계산 노드를 구성하고 작업 태스크 실행에 필요한 응용 프로그램을 설치하는 데 필요한 모든 정보를 포함하고 있다는 것입니다. 따라서 풀의 노드 수를 늘리려면 새 목표 노드 수를 지정하기만 하면 됩니다. 새 노드를 구성하고 태스크를 적용하도록 준비하는 데 필요한 모든 정보가 배치에 이미 있습니다.
 
 모든 배치 태스크와 마찬가지로, 실행할 **명령줄** 외에 [Azure 저장소][azure_storage]의 **리소스 파일** 목록을 지정할 수 있습니다. Azure 배치는 먼저 Azure 저장소에서 파일을 복사한 다음 명령줄을 실행합니다. 풀 시작 태스크의 경우 일반적으로 파일 목록에 응용 프로그램 패키지 또는 파일이 포함되지만, 계산 노드에서 실행되는 모든 태스크에 사용할 참조 데이터가 포함될 수도 있습니다. 예를 들어 시작 태스크의 명령줄에서 PowerShell 스크립트를 실행하거나 `robocopy` 작업을 수행하여 응용 프로그램 파일을 "공유" 폴더에 복사한 다음 MSI 또는 `setup.exe`를 실행할 수 있습니다.
+
+> [AZURE.IMPORTANT] 배치는 현재 [Azure 저장소 계정 정보](../storage/storage-create-storage-account.md)의 5단계 [저장소 계정 만들기](../storage/storage-create-storage-account.md#create-a-storage-account)에서 설명한 대로 **범용** 저장소 계정 유형*만*을 지원합니다. 배치 작업(표준 작업, 시작 작업, 작업 준비 및 작업 릴리스 작업 포함)은 **범용** 저장소 계정에서*만* 상주하는 리소스 파일을 지정해야 합니다.
 
 일반적으로 배치 서비스에서 시작 태스크가 완료되기를 기다린 후 노드에 태스크를 할당할 준비가 되었다고 간주하는 것이 좋지만 이는 구성 가능합니다.
 
@@ -411,4 +413,4 @@ Azure 배치 솔루션을 디자인할 때 디자인 결정은 풀을 만드는 
 [rest_offline]: https://msdn.microsoft.com/library/azure/mt637904.aspx
 [rest_online]: https://msdn.microsoft.com/library/azure/mt637907.aspx
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

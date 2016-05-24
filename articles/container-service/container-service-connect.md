@@ -41,7 +41,7 @@ Linux 또는 OS X에서 SSH 터널을 만들 때 먼저 수행할 작업은 부�
 ssh -L PORT:localhost:PORT -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
 ```
 
-### DC/OS 터널
+## DC/OS 터널
 
 DC/OS 관련 끝점에 대한 터널을 열려면 다음과 비슷한 명령을 실행합니다.
 
@@ -59,7 +59,7 @@ ssh -L 80:localhost:80 -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com 
 
 마찬가지로, 각 응용 프로그램에 대한 rest API는 이 터널을 통해 도달할 수 있습니다.
 
-### Swarm 터널
+## Swarm 터널
 
 Swarm 끝점에 대한 터널을 열려면 다음과 비슷한 명령을 실행합니다.
 
@@ -117,4 +117,4 @@ DC/OS 또는 Swarm으로 컨테이너를 배포 및 관리합니다.
 
 [Azure 컨테이너 서비스 및 DC/OS로 작업](./container-service-mesos-marathon-rest.md) [Azure 컨테이너 서비스 및 Docker Swarm으로 작업](./container-service-docker-swarm.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

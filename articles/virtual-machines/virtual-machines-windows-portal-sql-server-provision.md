@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/06/2016"
+	ms.date="05/16/2016"
 	ms.author="jroth" />
 
 # Azure 포털에서 SQL Server 가상 컴퓨터 프로비전
@@ -76,11 +76,13 @@ Azure 포털에는 SQL Server 가상 컴퓨터를 구성하기 위한 5개의 �
 * 강력한 **암호**를 제공합니다.
 * 구독이 여러 개인 경우 구독이 작성하려고 하는 VM에 대해 올바른지 확인합니다.
 * **리소스 그룹** 상자에 새 리소스 그룹의 이름을 입력합니다. 또는 기존 리소스 그룹을 사용하려면 **기존 항목 선택**을 클릭합니다. 리소스 그룹은 Azure 내 관련 리소스의 컬렉션입니다(가상 컴퓨터, 저장소 계정, 가상 네트워크 등).
->[AZURE.NOTE] 새 리소스 그룹을 사용하면 Azure에서 SQL Server 배포를 테스트하거나 알아보는 경우에 유용합니다. 테스트를 마치고 나면, 전체 리소스 그룹을 삭제할 수 있습니다. 이렇게 하면 SQL VM을 포함하여 리소스 그룹과 연관된 모든 리소스가 삭제됩니다. 리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager 개요](../resource-group-overview.md)를 참조하세요.
+	
+	>[AZURE.NOTE] 새 리소스 그룹을 사용하면 Azure에서 SQL Server 배포를 테스트하거나 알아보는 경우에 유용합니다. 테스트를 마치고 나면, 전체 리소스 그룹을 삭제할 수 있습니다. 이렇게 하면 SQL VM을 포함하여 리소스 그룹과 연관된 모든 리소스가 삭제됩니다. 리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager 개요](../resource-group-overview.md)를 참조하세요.
+
 * 배포의 **위치**를 선택합니다.
 * **확인**을 클릭하여 설정을 저장합니다.
 
-	![SQL 기본 블레이드](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-basic.png)
+	![SQL 기본 블레이드](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-basic.png)
 
 ## 2\. 가상 컴퓨터 크기 선택
 **크기** 단계의, **크기 선택** 블레이드에서 가상 컴퓨터 크기를 선택합니다. 먼저, 권장되는 컴퓨터 크기가 표시됩니다. 크기는 선택한 템플릿을 기반으로 합니다. VM 실행에 소요되는 월간 비용을 예측합니다.
@@ -247,4 +249,4 @@ Azure에서 SQL Server를 사용하는 방법에 대한 기타 정보는 [Azure 
 
 Azure 가상 컴퓨터의 SQL Server에 대한 비디오 개요는 [Azure VM은 SQL Server 2016에 가장 적합한 플랫폼입니다.](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016)를 시청하세요.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

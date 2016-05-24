@@ -87,4 +87,4 @@ Azure Functions에는 두 가지 가격 책정 계획이 있으므로 요구 사
 + [Azure Functions 조정 방법](functions-scale.md) 동적 서비스 계획, 올바른 계획 선택 방법을 포함하여 Azure Functions에서 사용 가능한 서비스 계획에 대해 설명합니다. 
 + [Azure 앱 서비스에 대해 자세히 알아보기](../app-service/app-service-value-prop-what-is.md) Azure Functions는 개발, 환경 변수, 진단 등의 주요 함수에 대한 Azure 앱 서비스 플랫폼을 활용합니다. 
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

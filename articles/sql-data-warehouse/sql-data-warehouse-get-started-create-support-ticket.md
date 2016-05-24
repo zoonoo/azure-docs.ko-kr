@@ -3,7 +3,7 @@
    description="Azure SQL 데이터 웨어하우스에서 지원 티켓을 만드는 방법"
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sahaj08"
+   authors="sonyam"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
-   ms.author="sahajs;barbkess;sonyama"/>
+   ms.date="05/17/2016"
+   ms.author="sonyam;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스에 대한 지원 티켓 만들기
  이 문서에서는 SQL 데이터 웨어하우스에 대한 지원 티켓을 만드는 방법을 보여줍니다.
@@ -84,4 +84,4 @@
 [S스택 오버플로]: http://stackoverflow.com/questions/tagged/azure-sqldw/
 [Azure SQL 데이터 웨어하우스 MSDN 포럼]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

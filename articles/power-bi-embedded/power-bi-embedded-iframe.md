@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="05/06/2016"
+   ms.date="05/16/2016"
    ms.author="derrickv"/>
 
 # IFrame을 사용하여 Power BI 보고서 포함
@@ -180,6 +180,40 @@ function postActionLoadReport() {
     iframe.contentWindow.postMessage(message, "*");
 }
 ```
+앱에 보고서를 포함한 후에 보고서를 필터링할 수 있습니다. 다음 섹션에서는 URL 구문을 사용하여 보고서를 필터링하는 방법을 보여 줍니다.
+
+## 보고서 필터링
+
+URL 구문을 사용하여 포함된 보고서를 필터링할 수 있습니다. 이를 위해 지정된 필터와 함께 iFrame src url에 쿼리 문자열 매개 변수를 추가합니다. **값으로 필터링**하고 **필터 창을 숨길** 수 있습니다.
+
+
+**값으로 필터링**
+
+값으로 필터링하려면 다음과 같이 **eq** 연산자로 **$filter** 쿼리 구문을 사용합니다.
+
+```
+https://app.powerbi.com/reportEmbed
+?reportId=d2a0ea38-0694-...-ee9655d54a4a&
+$filter={tableName/fieldName}%20eq%20'{fieldValue}'
+```
+
+예를 들어 저장소 체인이 'Lindseys'인 부분을 필터링할 수 있습니다. URL의 필터 일부는 다음과 같습니다.
+
+```
+$filter=Store/Chain%20eq%20'Lindseys'
+```
+
+> [AZURE.NOTE] {tableName/fieldName}은(는) 공백이나 특수 문자를 포함할 수 없습니다. {fieldValue}은(는) 단일 범주 값을 허용합니다.
+
+**필터 창 숨기기**
+
+**필터 창**을 숨기려면 보고서 쿼리 문자열에 **filterPaneEnabled**를 다음과 같이 추가합니다.
+
+```
+&filterPaneEnabled=false
+```
+
+## 결론
 
 이 문서에서는 앱에 **Power BI** 보고서를 통합하기 위한 코드를 소개했습니다. 앱에 보고서를 빠르게 통합하려면 GitHub에서 다음 샘플을 다운로드합니다.
 
@@ -194,4 +228,4 @@ function postActionLoadReport() {
 - [System.IdentityModel.Tokens.JwtSecurityTokenHandler](https://msdn.microsoft.com/library/system.identitymodel.tokens.signingcredentials.aspx)
 - [보고서 가져오기](https://msdn.microsoft.com/library/mt711510.aspx)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

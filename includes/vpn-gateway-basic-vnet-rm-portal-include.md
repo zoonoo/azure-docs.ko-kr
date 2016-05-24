@@ -1,6 +1,4 @@
-Azure 포털을 사용하여 VNet을 만들려면 다음 단계를 수행합니다. 스크린샷은 예제로 제공됩니다. 사용자 고유의 값으로 대체해야 합니다.
-
-가상 네트워크 작업에 대한 자세한 내용은 [가상 네트워크 개요](../articles/virtual-network/virtual-networks-overview.md)를 참조하세요.
+Azure 포털을 사용하여 VNet을 만들려면 다음 단계를 수행합니다. 스크린샷은 예제로 제공됩니다. 사용자 고유의 값으로 대체해야 합니다. 가상 네트워크 작업에 대한 자세한 내용은 [가상 네트워크 개요](../articles/virtual-network/virtual-networks-overview.md)를 참조하세요.
 
 1. 브라우저에서 [Azure 포털](http://portal.azure.com)로 이동하고 필요한 경우 Azure 계정으로 로그인합니다.
 
@@ -31,5 +29,3 @@ Azure 포털을 사용하여 VNet을 만들려면 다음 단계를 수행합니�
 9. 만들기를 클릭한 후에 VNet의 진행 상황을 반영하는 대시보드에 타일이 표시됩니다. 타일은 VNet 생성될 때 변경됩니다.
 
 	![가상 네트워크 만들기 타일](./media/vpn-gateway-basic-vnet-rm-portal-include/deploying150.png)
-
-<!---HONumber=AcomDC_0504_2016-->

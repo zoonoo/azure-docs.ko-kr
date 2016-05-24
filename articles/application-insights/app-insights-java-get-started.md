@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/02/2016"
+	ms.date="05/12/2016"
 	ms.author="awills"/>
 
 # Java 웹 프로젝트에서 Application Insights 시작하기
@@ -214,35 +214,38 @@ Struts 구성 파일에 이 항목 추가(일반적으로 struts.xml 또는 stru
 
 ## 6\. Application Insights에서 원격 분석 보기
 
+
 [Microsoft Azure 포털](https://portal.azure.com)의 Application Insights 리소스로 돌아갑니다.
 
 HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 몇 초 정도 기다린 다음 새로고침을 클릭합니다.)
 
 ![샘플 데이터](./media/app-insights-java-get-started/5-results.png)
 
+[메트릭에 대해 자세히 알아봅니다.][metrics]
 
-차트를 클릭하면 더 자세한 메트릭을 볼 수 있습니다.
+차트를 클릭하면 더 자세한 집계된 메트릭을 볼 수 있습니다.
 
 ![](./media/app-insights-java-get-started/6-barchart.png)
 
+> Application Insights는 MVC 응용 프로그램에 대한 HTTP 요청 형식을 다음과 같이 가정합니다. `VERB controller/action` 예를들어, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` 및 `GET Home/Product/sdf96vws`은(는) `GET Home/Product`(으)로 그룹화됩니다. 이를 통해 요청 수와 같은 의미 있는 집계 및 요청에 대한 평균 실행 시간을 사용할 수 있습니다.
 
 
-또한 요청 속성 검토 시 요청 및 예외 사항과 관련된 원격 분석 이벤트를 볼 수 있습니다.
+### 인스턴스 데이터 
+
+특정 요청 유형을 클릭하여 개별 인스턴스를 확인합니다.
+
+집계된 데이터, 평균, 개수, 합계로 저장 및 표시된 인스턴스 데이터와 HTTP 요청, 예외, 페이지 보기 또는 사용자 지정 이벤트의 개별 보고서 등 두 종류의 데이터가 Application Insights에 표시됩니다.
+
+요청 속성을 검토할 경우 요청 및 예외 사항 등 이와 관련된 원격 분석 이벤트를 볼 수 있습니다.
 
 ![](./media/app-insights-java-get-started/7-instance.png)
 
 
+### 분석: 강력한 쿼리 언어
 
-[메트릭에 대해 자세히 알아봅니다.][metrics]
+더 많은 데이터가 누적되면 쿼리를 실행하여 데이터를 집계하고 개별 인스턴스를 찾을 수 있습니다. [분석]()은 성능 및 사용 이해 및 진단 목적 모두에 강력한 도구입니다.
 
-#### 스마트 주소 이름 계산
-
-Application Insights는 MVC 응용 프로그램에 대한 HTTP 요청 형식을 다음과 같이 가정합니다. `VERB controller/action`
-
-
-예를들어, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` 및 `GET Home/Product/sdf96vws`은(는) `GET Home/Product`(으)로 그룹화됩니다.
-
-이를 통해 요청 수와 같은 의미 있는 집계 및 요청에 대한 평균 실행 시간을 사용할 수 있습니다.
+![분석 예제](./media/app-insights-java-get-started/025.png)
 
 
 ## 5\. 서버에 앱 설치
@@ -398,4 +401,4 @@ Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

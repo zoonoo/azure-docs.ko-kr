@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="05/10/2016"
+	ms.date="05/12/2016"
 	ms.author="piyushjo;ricksal" />
 
 # Android 앱용 Azure Mobile Engagement 시작
@@ -165,7 +165,7 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 
 [AZURE.INCLUDE [포털에서 알림 보내기](../../includes/mobile-engagement-android-send-push-from-portal.md)]
 
-## 추가 리소스
+## 다음 단계
 
 [Android SDK](mobile-engagement-android-sdk-overview.md)로 돌아가 SDK 통합에 대한 자세한 정보를 확인합니다.
 
@@ -182,4 +182,4 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 [10]: ./media/mobile-engagement-android-get-started/copy-resources.png
 [11]: ./media/mobile-engagement-android-get-started/paste-resources.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

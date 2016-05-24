@@ -4,7 +4,7 @@
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
-	manager="mblythe" 
+	manager="paulettm" 
 	editor=""
     tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="04/22/2016" 
+	ms.date="05/17/2016" 
 	ms.author="heidist"/>
 
 # 포털에서 Azure 검색 시작
@@ -23,7 +23,7 @@
 
 자습서에서는 데이터 및 지침을 사용하여 간단히 만들 수 있는 [샘플 Azure DocumentDB 데이터베이스](#apdx-sampledata)를 가정하지만 DocumentDB 또는 SQL 데이터베이스에서 기존 데이터에 이들 단계를 적용할 수도 있습니다.
 
-> [AZURE.NOTE] 이 시작하기 자습서는 [Azure 구독](../../includes/free-trial-note.md) 및 [Azure 검색 서비스](search-create-service-portal.md)가 필요합니다. 평가판 구독에 등록할 준비가 되지 않은 경우 이 자습서를 건너뛰고 [Azure 앱 서비스 시도](search-tryappservice.md)를 선택할 수 있습니다. 이 대체 옵션은 ASP.NET 웹앱과 함께 Azure 검색을 무료로 제공하며 - 세션당 한 시간 - 구독이 필요 없습니다.
+> [AZURE.NOTE] 이 시작하기 자습서는 [Azure 구독](../../includes/free-trial-note.md) 및 [Azure 검색 서비스](search-create-service-portal.md)가 필요합니다.
  
 ## 서비스 찾기
 
@@ -54,7 +54,7 @@
 
   ![][7]
 
-2. 마법사 내에서 **데이터 소스** > **DocumentDB** > **이름**을 클릭하고 데이터 원본에 이름을 입력합니다. 데이터 원본은 다른 인덱서와 함께 사용할 수 있는 Azure 검색의 연결 개체입니다. 데이터 원본을 만든 후에 서비스에서 "기존 데이터 원본"으로 사용할 수 있습니다.
+2. 마법사 내에서 **데이터 원본** > **DocumentDB** > **이름**을 클릭하고 데이터 원본에 이름을 입력합니다. 데이터 원본은 다른 인덱서와 함께 사용할 수 있는 Azure 검색의 연결 개체입니다. 데이터 원본을 만든 후에 서비스에서 "기존 데이터 원본"으로 사용할 수 있습니다.
 
 3. 기존 DocumentDB 계정, 데이터베이스 및 컬렉션을 선택합니다. 제공하는 샘플 데이터를 사용하는 경우 데이터 원본 정의는 다음과 같이 표시됩니다.
 
@@ -183,4 +183,4 @@ Azure 가상 컴퓨터에서 Azure SQL 데이터베이스 또는 SQL Server와 �
 [6]: ./media/search-get-started-portal/AzureSearch-GetStart-IndexerList.png
 [7]: ./media/search-get-started-portal/search-data-import-wiz-btn.png
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

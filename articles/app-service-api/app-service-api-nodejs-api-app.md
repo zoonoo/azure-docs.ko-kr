@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
-이 자습서에서는 간단한 [Node.js](http://nodejs.org) API를 만들고 [Azure 앱 서비스](../app-service/app-service-value-prop-what-is.md)에서 [API 앱](app-service-api-apps-why-best-platform.md)에 배포하는 방법을 알아보았습니다. Node.js를 실행할 수 있는 운영 체제를 사용할 수 있으며 comd.exe 또는 bash 등의 명령줄 도구를 사용하여 모든 작업을 수행합니다.
+이 자습서에서는 [Git](http://git-scm.com)를 사용하여 간단한 [Node.js](http://nodejs.org) API를 만들고 [Azure 앱 서비스](../app-service/app-service-value-prop-what-is.md)의 [API 앱](app-service-api-apps-why-best-platform.md)에 배포하는 방법을 보여 줍니다. Node.js를 실행할 수 있는 운영 체제를 사용할 수 있으며 comd.exe 또는 bash 등의 명령줄 도구를 사용하여 모든 작업을 수행합니다.
 
 ## 필수 조건
 
@@ -41,9 +41,9 @@
 
 ## Swagger 메타데이터 기반 스캐폴드 Node.js 코드
 
-[Swagger](http://swagger.io/)는 RESTful API에 대해 설명하는 메타데이터의 JSON 파일 형식입니다. Azure 앱 서비스는 [기본적으로 Swagger 메타데이터를 지원](app-service-api-metadata.md)합니다. 여기에서는 Swagger 메타데이터 파일 기반 샘플 API의 서버 코드를 스캐폴드합니다.
+[Swagger](http://swagger.io/)는 RESTful API에 대해 설명하는 메타데이터의 파일 형식입니다. Azure 앱 서비스는 [기본적으로 Swagger 메타데이터를 지원](app-service-api-metadata.md)합니다. 이 자습서는 Swagger 메타데이터를 먼저 만들고 API에 대한 서버 코드에 스캐폴딩하는 데 사용하여 진행되는 API 개발 워크플로를 모델링합니다. 이 자습서의 일부에서는 Swagger 메타데이터 파일에 기반한 Node.js 서버 코드를 스캐폴딩하는 방법을 알아봅니다.
 
->[AZURE.NOTE] Swagger 파일을 스캐폴드하는 방법에 대해 알아보지 않으려는 경우 자습서에서 새 API 앱에 샘플 코드를 배포하는 단계만 학습하세요. [Azure에서 API 앱 만들기](#createapiapp) 섹션으로 바로 건너 뛰세요.
+>[AZURE.NOTE] 스캐폴딩 단계를 수행하지 않으려는 경우 [Azure에서 API 앱 만들기](#createapiapp) 섹션으로 직접 이동하여 샘플 코드를 새 API 앱에 배포할 수 있습니다.
 
 1. 다음 명령을 실행하여 **yo** 및 **generator-swaggerize** NPM 모듈을 전역적으로 설치합니다.
 
@@ -88,9 +88,9 @@
 
 1. **start** 폴더의 **lib** 폴더를 scaffolder에서 만든 **ContactList** 폴더에 복사합니다. 
 
-1. **handlers/contacts.js** 파일의 코드를 아래 코드로 바꿉니다.
+1. **handlers/contacts.js** 파일의 코드를 다음 코드로 바꿉니다.
 
-	이 코드는 **lib/contactRepository.js**에서 제공하는 **lib/contacts.json** 파일에 저장된 JSON 데이터를 사용합니다. 아래의 새 contacts.js 코드는 HTTP 요청에 응답하여 모든 연락처를 가져와 JSON 페이로드로 반환합니다.
+	이 코드는 **lib/contactRepository.js**에서 제공하는 **lib/contacts.json** 파일에 저장된 JSON 데이터를 사용합니다. 새 contacts.js 코드는 HTTP 요청에 응답하여 모든 연락처를 가져와 JSON 페이로드로 반환합니다.
 
         'use strict';
         
@@ -102,7 +102,7 @@
             }
         };
 
-1. **handlers/contacts/{id}.js** 파일의 코드를 아래 코드로 바꿉니다.
+1. **handlers/contacts/{id}.js** 파일의 코드를 다음 코드로 바꿉니다.
 
         'use strict';
 
@@ -114,7 +114,7 @@
             }    
         };
 
-1. **server.js**의 코드를 아래 코드로 바꿉니다.
+1. **server.js**의 코드를 다음 코드로 바꿉니다.
 
 	변경되는 내용을 볼 수 있도록 server.js 파일의 변경 사항이 주석으로 명시됩니다.
 
@@ -155,11 +155,11 @@
 
         node server.js
 
-1. ****http://localhost:8000/contacts**로 이동하면 연락처 목록의 JSON 출력이 표시됩니다(또는 사용 중인 브라우저에 따라 다운로드할지 묻는 메시지가 표시됨).
+1. **http://localhost:8000/contacts**로 이동하면 연락처 목록의 JSON 출력이 표시됩니다(또는 사용 중인 브라우저에 따라 다운로드할지 묻는 메시지가 표시됨).
 
     ![모든 연락처 Api 호출](media/app-service-api-nodejs-api-app/all-contacts-api-call.png)
 
-1. ****http://localhost:8000/contacts/2**로 이동하면 해당 id 값이 나타내는 연락처가 표시됩니다.
+1. **http://localhost:8000/contacts/2**로 이동하면 해당 id 값이 나타내는 연락처가 표시됩니다.
 
     ![특정 연락처 Api 호출](media/app-service-api-nodejs-api-app/specific-contact-api-call.png)
 
@@ -185,11 +185,11 @@
 
 	다른 사용자가 이미 사용한 이름을 입력한 경우 녹색 확인 표시 대신 오른쪽에 빨간색 느낌표가 표시되며, 다른 이름을 입력해야 합니다.
 
-	Azure에서는 API의 URL에 대한 접두사로 이 이름을 사용합니다. 전체 URL은 이 이름과 *.azurewebsites.net*으로 구성됩니다. 예를 들어 이름이 `NodejsAPIApp`일 경우 URL은 `nodejsapiapp.azurewebsites.net`이 됩니다.
+	Azure에서는 API의 URL에 대한 접두사로 이 이름을 사용합니다. 전체 URL은 이 이름과 *.azurewebsites.net*으로 구성됩니다. 예를 들어 이름이 `NodejsAPIApp`이면 URL은 `nodejsapiapp.azurewebsites.net`이 됩니다.
 
 6. **리소스 그룹** 드롭다운에서 **새로 만들기**를 클릭한 다음 **새 리소스 그룹 이름**에 "NodejsAPIAppGroup" 또는 선호하는 다른 이름을 입력합니다.
 
-	[리소스 그룹](../azure-portal/resource-group-portal.md)은 API 앱, 데이터베이스, VM 등 Azure 리소스의 컬렉션입니다. 이 자습서에서는 새 리소스 그룹을 만드는 것이 가장 좋습니다. 자습서에서 만든 모든 Azure 리소스를 한 번에 쉽게 삭제할 수 있기 때문입니다.
+	[리소스 그룹](../azure-portal/resource-group-portal.md)은 API 앱, 데이터베이스, VM과 같은 Azure 리소스의 컬렉션입니다. 이 자습서에서는 새 리소스 그룹을 만드는 것이 가장 좋습니다. 자습서에서 만든 모든 Azure 리소스를 한 번에 쉽게 삭제할 수 있기 때문입니다.
 
 4. **앱 서비스 계획/위치**를 클릭한 다음 **새로 만들기**를 클릭합니다.
 
@@ -247,7 +247,7 @@
 
     **참고**: Git 복제 URL은 다음 단계에서 임의 위치에 임시로 저장하는 데 필요합니다.
 
-이제 백업 Git 리포지토리가 있는 새 API 앱을 만들었으므로 코드를 리포지토리에 푸시하고 Azure의 연속 배포 기능을 사용하여 변경 내용을 자동으로 배포할 수 있습니다.
+백업하는 Git 리포지토리가 포함된 API 앱이 있으므로 코드를 리포지토리에 푸시하여 API 앱에 배포할 수 있습니다.
 
 ## Azure에 API 코드 배포
 
@@ -273,7 +273,7 @@ Azure 앱 서비스에 기본적으로 포함된 지속적 업데이트를 통�
 
     **참고**: "YOUR\_GIT\_CLONE\_URL\_HERE" 문자열을 앞에서 복사한 자신의 Git 복제 URL로 바꿉니다.
 
-1. 아래의 두 명령을 실행하여 모든 코드가 포함된 커밋을 만듭니다.
+1. 다음 명령을 실행하여 모든 코드가 포함된 커밋을 만듭니다.
 
         git add .
         git commit -m "initial revision"
@@ -316,6 +316,6 @@ Azure 앱 서비스에 기본적으로 포함된 지속적 업데이트를 통�
 
 ## 다음 단계
 
-이제 Node.js를 사용하여 첫 번째 API 앱을 만들고 배포했습니다. API 앱 시작 시리즈의 다음 자습서에서는 [CORS를 사용하여 JavaScript 클라이언트에서 API 앱을 사용](app-service-api-cors-consume-javascript.md)하는 방법을 보여 줍니다.
+이제 Node.js를 사용하여 첫 번째 API 앱을 만들고 배포했습니다. 다음 자습서에서는 [CORS를 사용하여 JavaScript 클라이언트에서 API 앱을 사용](app-service-api-cors-consume-javascript.md)하는 방법을 보여 줍니다. 시리즈의 후반부 자습서에서는 인증 및 권한 부여를 구현하는 방법을 보여 줍니다.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -47,7 +47,7 @@ Microsoft Azure Active Directory 응용 프로그램 프록시를 사용하면 S
 
 
 ## 1단계: Azure AD에서 응용 프로그램 프록시를 사용하도록 설정
-1. Azure 클래식 포털에서 관리자로 로그인합니다.
+1. [Azure 클래식 포털](https://manage.windowsazure.com/)에서 관리자로 로그인합니다.
 2. Active Directory로 이동하여 응용 프로그램 프록시를 사용하도록 설정할 디렉터리를 선택합니다.
 3. **구성**을 클릭하고 응용 프로그램 프록시로 스크롤하여 이 디렉터리에 대해 응용 프로그램 프록시 서비스 사용을 **사용**으로 설정합니다.
 
@@ -96,4 +96,4 @@ Microsoft Azure Active Directory 응용 프로그램 프록시를 사용하면 S
 - [Azure ID](fundamentals-identity.md)
 - [응용 프로그램 프록시를 사용하여 응용 프로그램 게시](active-directory-application-proxy-publish.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -55,8 +55,8 @@
 - 온-프레미스 SQL 서버 데이터베이스를 Azure로 이동하려면 [Azure SQL 데이터베이스로 데이터베이스 마이그레이션](sql-database-cloud-migrate.md)에서 자세히 알아보세요.
 
 
-## 추가 리소스
+## 자세한 정보
 
-[SQL 데이터베이스 개요](sql-database-technical-overview.md)
+[SQL 데이터베이스 정의](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->
