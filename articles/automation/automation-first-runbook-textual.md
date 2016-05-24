@@ -6,14 +6,14 @@
     authors="mgoedtel"
     manager="jwhit"
     editor=""
-	keywords="powershell 워크플로, powershell 워크플로 예, powershell 워크플로" />
+	keywords="Powershell 워크플로, Powershell 워크플로 예제, 워크플로 Powershell"/>
 <tags
     ms.service="automation"
     ms.workload="tbd"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/10/2016"
+    ms.date="05/18/2016"
     ms.author="magoedte;bwren"/>
 
 # 내 첫 번째 PowerShell 워크플로 Runbook
@@ -45,8 +45,23 @@
 
 runbook에 직접 코드를 입력하거나 라이브러리 컨트롤에서 cmdlet, Runbook 및 자산을 선택한 후 관련 매개 변수와 함께 Runbook에 추가되도록 할 수 있습니다. 이 연습에서는 Runbook에 직접 입력합니다.
 
-1.	현재 Runbook에는 필요한 *워크플로* 키워드, Runbook의 이름, 전체 워크플로를 포함하는 중괄호만 있으며 빈 상태입니다.<br>![Runbook 컨트롤](media/automation-first-runbook-textual/empty-runbook.png)
-2.	중괄호 안에 *Write-Output "Hello World"*라고 입력합니다. <br>![Hello world](media/automation-first-runbook-textual/hello-world.png)
+1.	현재 Runbook에는 필요한 *워크플로* 키워드, Runbook의 이름, 전체 워크플로를 포함하는 중괄호만 있으며 빈 상태입니다. 
+
+    ```
+    Workflow MyFirstRunbook-Workflow
+    {
+    }
+    ```
+
+2.	중괄호 안에 *Write-Output "Hello World."*라고 입력합니다.
+   
+    ```
+    Workflow MyFirstRunbook-Workflow
+    {
+      Write-Output "Hello World"
+    }
+    ```
+
 3.	**저장**을 클릭하여 Runbook을 저장합니다.<br>![Runbook을 저장 합니다.](media/automation-first-runbook-textual/runbook-edit-toolbar-save.png)
 
 ## 3 단계 - runbook 테스트
@@ -78,23 +93,38 @@ runbook에 직접 코드를 입력하거나 라이브러리 컨트롤에서 cmdl
 
 ## 5 단계-Azure 리소스를 관리 인증 추가
 
-지금까지 runbook을 테스트 하고 게시했지만, 딱히 유용하지는 않습니다. Azure 리소스를 관리하고자 합니다. 그러나 [필수 조건](#prerequisites)에서 언급된 자격 증명을 사용하여 인증하지 않은 경우에는 Runbook을 통해 관리할 수 없습니다. **Add-AzureAccount** cmdlet을 사용하여 리소스를 관리합니다.
+지금까지 runbook을 테스트 하고 게시했지만, 딱히 유용하지는 않습니다. Azure 리소스를 관리하고자 합니다. 그러나 [필수 조건](#prerequisites)에서 언급된 자격 증명을 사용하여 인증하지 않은 경우에는 Runbook을 통해 관리할 수 없습니다. 이 리소스를 관리하기 위해 **Add-AzureRMAccount** cmdlet을 사용합니다.
 
 1.	MyFirstRunbook-Workflow 창에서 **편집**을 클릭하여 텍스트 편집기를 엽니다.<br> ![Runbook 편집](media/automation-first-runbook-textual/runbook-toolbar-edit.png)
 2.	**Write-Output** 줄은 더 이상 필요하지 않으므로 삭제합니다.
 3.	중괄호 사이의 빈 줄에 커서를 놓습니다.
-4.	라이브러리 컨트롤에서 **자산**, **자격 증명**을 차례로 확장합니다.
-5.	자격 증명을 마우스 오른쪽 단추로 클릭하고 **캔버스에 추가**를 클릭합니다. 이렇게 하면 자격 증명에 대해 **Get-AutomationPSCredential** 작업이 추가됩니다.
-6.	**Get-AutomationPSCredential** 앞에 *$Credential =*을 입력하여 자격 증명을 변수에 할당합니다.
-7.	다음 줄에 *Add-AzureAccount -Credential $Credential*을 입력합니다.<br>![인증](media/automation-first-runbook-textual/authentication.png)
-8.	Runbook을 테스트할 수 있도록 **테스트 창**을 클릭합니다.
-9.	**시작**을 클릭하여 테스트를 시작합니다. 완료되면 자격 증명의 사용자에 대한 정보를 반환하는 다음과 비슷한 출력이 표시됩니다. 이를 통해 자격 증명이 유효한지 확인됩니다.<br>![인증](media/automation-first-runbook-textual/authentication-test.png)
+4.	자동화 실행 계정으로 인증을 처리할 다음 코드를 입력하거나 복사하여 붙여 넣습니다.
+
+    ```
+    $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
+    Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
+    -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+    ```
+
+5.	Runbook을 테스트할 수 있도록 **테스트 창**을 클릭합니다.
+6.	**시작**을 클릭하여 테스트를 시작합니다. 일단 완료되면 계정에서 기본 정보를 표시하는 출력을 수신해야 합니다. 이를 통해 자격 증명이 유효한지 확인됩니다.<br>![인증](media/automation-first-runbook-textual/runbook-auth-results.png)
 
 ## 6단계 - 가상 컴퓨터를 시작하기 위한 코드 추가
 
 Runbook이 Azure 구독에서 인증을 받으므로 리소스를 관리할 수 있습니다. 가상 컴퓨터를 시작하는 명령을 추가합니다. Azure 구독에서 모든 가상 컴퓨터를 선택 할 수 있지만 지금은 cmdlet의 이름을 하드코딩합니다.
 
-1.	*Add-AzureAccount* 다음에 *Start-AzureVM -Name 'VMName' -ServiceName 'VMServiceName'*을 입력하여 시작할 가상 컴퓨터의 이름과 서비스 이름을 제공합니다.<br>![인증](media/automation-first-runbook-textual/start-azurevm.png)
+1.	*Add-AzureRmAccount* 다음에 *Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'NameofResourceGroup'*을 입력하여 시작하려는 가상 컴퓨터의 이름과 리소스 그룹 이름을 입력합니다.  
+
+    ```
+    workflow MyFirstRunbook-Workflow
+    {
+     $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
+     Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
+     -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+     Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName'
+    }
+    ```
+
 2.	Runbook을 저장하고 테스트할 수 있도록 **테스트 창**을 클릭합니다.
 3.	**시작**을 클릭하여 테스트를 시작합니다. 완료되면, 가상 컴퓨터가 시작되었다는 것을 확인합니다.
 
@@ -102,18 +132,35 @@ Runbook이 Azure 구독에서 인증을 받으므로 리소스를 관리할 수 
 
 현재 Runbook은 Runbook에 하드 코딩된 가상 컴퓨터를 시작하지만 Runbook이 시작될 때 가상 컴퓨터를 지정할 수 있으면 더욱더 유용할 것입니다. 이제 해당 기능을 제공하도록 Runbook에 입력 매개 변수를 추가합니다.
 
-1.	*VMName* 및 *VMServiceName*에 대한 매개 변수를 Runbook에 추가하고 다음 그림과 같이 이러한 변수를 **Start-azurevm** cmdlet에서 사용합니다.<br>![인증](media/automation-first-runbook-textual/params.png)
+1.	Runbook에 *VMName* 및 *ResourceGroupName*에 대한 매개 변수를 추가하고 아래 예제와 같이 **Start-AzureRmVM** cmdlet에 이러한 변수를 사용합니다. 
+
+    ```
+    workflow MyFirstRunbook-Workflow
+    {
+       Param(
+        [string]$VMName,
+        [string]$ResourceGroupName
+       )  
+     $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
+     Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
+     -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+     Start-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
+    }
+    ```
+
 2.	Runbook을 저장하고 테스트 창을 엽니다. 사용자는 테스트에 사용될 두 개의 입력변수에 대한 값을 제공할 수 있음을 참고하세요.
 3.	창을 닫습니다.
 4.	**게시**를 클릭하여 Runbook의 새 버전을 게시합니다.
 5.	이전 단계에서 실행시킨 가상 컴퓨터를 중지합니다.
-6.	**시작**을 클릭하여 runbook을 시작합니다. 시작하려는 가상 컴퓨터의 **VMName** 및**VMServiceName**을 입력합니다.<br> ![Runbook 시작](media/automation-first-runbook-textual/start-runbook-input-params.png)
+6.	**시작**을 클릭하여 runbook을 시작합니다. 시작하려는 가상 컴퓨터의 **VMName** 및**ResourceGroupName**을 입력합니다.<br> ![Runbook 시작](media/automation-first-runbook-textual/automation-pass-params.png)
 
 7.	Runbook이 완료되면 가상 컴퓨터가 시작되었다는 것을 확인합니다.
 
-## 관련된 문서
+## 다음 단계
 
--	[내 첫 번째 그래픽 Runbook](automation-first-runbook-graphical.md)
--	[내 첫 번째 PowerShell Runbook](automation-first-runbook-textual-PowerShell.md)
+-  그래픽 Runbook을 시작하려면 [내 첫 번째 그래픽 Runbook](automation-first-runbook-graphical.md)을 참조하세요.
+-	PowerShell Runbook을 시작하려면 [내 첫 번째 PowerShell Runbook](automation-first-runbook-textual-powershell.md)을 참조하세요.
+-  Runbook 형식, 해당 장점 및 제한 사항에 대해 자세히 알아보려면 [Azure 자동화 Runbook 형식](automation-runbook-types.md)을 참조하세요.
+-	PowerShell 스크립트 지원 기능에 대한 자세한 내용은 [Azure 자동화에서 네이티브 PowerShell 스크립트 지원](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)을 참조하세요.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

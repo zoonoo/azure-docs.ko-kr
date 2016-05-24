@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/05/2016"
+   ms.date="05/02/2016"
    ms.author="chackdan"/>
 
 # Windows Server 또는 Linux에서 독립 실행형 서비스 패브릭 클러스터 만들기
@@ -62,4 +62,4 @@ Windows Server를 실행하는 VM 또는 컴퓨터에서 클러스터 만들기:
 
 Linux를 실행하는 VM 또는 컴퓨터에서 클러스터 만들기: [Linux의 서비스 패브릭](service-fabric-linux-overview.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

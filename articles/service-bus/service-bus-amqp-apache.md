@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Linux VM에 Apache Qpid Proton-c 설치 하는 방법 | Microsoft Azure"
-   description="Azure 가상 컴퓨터를 사용하여 CentOS Linux VM을 만드는 방법 및 Apache Qpid Proton-C 라이브러리를 빌드 및 설치하는 방법입니다."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" /> 
+    pageTitle="Linux VM에 Apache Qpid Proton-c 설치 하는 방법 | Microsoft Azure"
+    description="Azure 가상 컴퓨터를 사용하여 CentOS Linux VM을 만드는 방법 및 Apache Qpid Proton-C 라이브러리를 빌드 및 설치하는 방법입니다."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" /> 
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="01/26/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/06/2016"
+    ms.author="sethm" />
 
 # Azure Linux VM에 Apache Qpid Proton-C 설치
 
@@ -116,4 +116,4 @@ Python 및 PHP 응용 프로그램의 경우 이 예제에서는 Apache의 Proto
 
 [Azure 클래식 포털]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -1,6 +1,6 @@
 <properties
  pageTitle="MPI 응용 프로그램을 실행하는 Linux RDMA 클러스터 | Microsoft Azure"
- description="RDMA를 사용하여 MPI 응용 프로그램을 실행하기 위해 크기가 A8 또는 A9인 VM의 Linux 클러스터를 만듭니다."
+ description="RDMA를 사용하여 MPI 앱을 실행하기 위해 A8 또는 A9 크기 VM의 Linux 클러스터를 만듭니다."
  services="virtual-machines-linux"
  documentationCenter=""
  authors="dlepow"
@@ -13,7 +13,7 @@ ms.service="virtual-machines-linux"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="infrastructure-services"
- ms.date="01/21/2016"
+ ms.date="05/09/2016"
  ms.author="danlep"/>
 
 # MPI 응용 프로그램을 실행하도록 Linux RDMA 클러스터 설정
@@ -21,72 +21,67 @@ ms.service="virtual-machines-linux"
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
 
 
-이 문서에서는 Azure에서 [크기가 A8 및 A9인 가상 컴퓨터](virtual-machines-windows-a8-a9-a10-a11-specs.md)를 사용하여 MPI(Message Passing Interface) 응용 프로그램을 병렬로 실행하도록 Linux RDMA를 설정하는 방법을 보여 줍니다. 지원되는 MPI 구현을 실행하도록 크기가 A8 및 A9인 Linux 기반 VM을 구성한 경우 MPI 응용 프로그램은 Azure에서 RDMA(원격 직접 메모리 액세스) 기술을 기반으로 하는 낮은 대기 시간 및 높은 처리량의 네트워크에서 효율적으로 통신합니다.
+Azure에서 [크기가 A8 및 A9인 가상 컴퓨터](virtual-machines-linux-a8-a9-a10-a11-specs.md)를 사용하여 MPI(Message Passing Interface) 응용 프로그램을 병렬로 실행하도록 Linux RDMA를 설정하는 방법을 알아봅니다. 지원되는 Linux HPC 및 지원되는 MPI 구현을 실행하도록 A8 및 A9 크기 VM의 클러스터를 설정한 경우 MPI 응용 프로그램은 Azure에서 RDMA(원격 직접 메모리 액세스) 기술을 기반으로 하는 낮은 대기 시간 및 높은 처리량의 네트워크에서 효율적으로 통신합니다.
 
->[AZURE.NOTE] Azure Linux RDMA는 현재 Azure 마켓플레이스의 SUSE Linux Enterprise Server 12(SLES 12) 이미지에서 실행되는 Intel MPI Library 버전 5에서 지원됩니다. 이 문서는 Intel MPI 5.0.3.048 버전을 기반으로 합니다.
->
-> 또한 Azure에서는 A8 및 A9 인스턴스와 처리 성능이 동일하지만 RDMA 백 엔드 네트워크에 연결되지 않는 A10 및 A11 계약 집약적 인스턴스도 제공합니다. Azure에서 MPI 작업을 실행하려는 경우 일반적으로 A8 및 A9 인스턴스에서 최상의 성능을 얻을 수 있습니다.
+>[AZURE.NOTE] Azure Linux RDMA는 현재 Azure 마켓플레이스의 SLES(SUSE Linux Enterprise Server) 12 HPC 이미지 또는 CentOS 기반 6.5 또는 7.1 HPC 이미지에서 만든 A8 또는 A9 크기 VM에서 실행되는 Intel MPI Library 버전 5에서 지원됩니다. Centos 기반 HPC 마켓플레이스 이미지는 Intel MPI 버전 5.1.3.181을 설치합니다.
 
 
-## Linux 클러스터 배포 옵션
+
+## 클러스터 배포 옵션
 
 다음은 작업 스케줄러를 사용하거나 사용하지 않고 Linux RDMA 클러스터를 만드는 데 사용할 수 있는 방법입니다.
 
-* **HPC 팩** - Azure에서 Microsoft HPC 팩 클러스터를 만들고 지원되는 Linux 배포판을 실행하는 계산 노드를 추가합니다. 특정 Linux 노드는 RDMA 네트워크에 액세스하도록 구성할 수 있습니다. [Azure에서 HPC Pack 클러스터의 Linux 계산 노드 시작](virtual-machines-linux-classic-hpcpack-cluster.md)을 참조하세요.
+* **HPC 팩** - Azure에서 Microsoft HPC 팩 클러스터를 만들고 지원되는 Linux 배포판을 실행하는 A8 또는 A9 크기 계산 노드를 추가하여 RDMA 네트워크에 액세스합니다. [Azure에서 HPC Pack 클러스터의 Linux 계산 노드 시작](virtual-machines-linux-classic-hpcpack-cluster.md)을 참조하세요.
 
-* **Azure CLI 스크립트** - 이 문서의 나머지 부분의 단계에 나와 있는 설명과 같이 Mac, Linux 및 Windows용 [Azure CLI](../xplat-cli-install.md)(명령줄 인터페이스)를 사용하여Linux 클러스터를 만드는 데 필요한 가상 네트워크 및 기타 구성 요소의 배포를 스크립팅합니다. 클래식(서비스 관리) 배포 모드의 CLI는 계산 노드를 순차적으로 배포하므로 많은 계산 노드를 배포하는 경우 배포를 완료하는 데 몇 분 정도 걸릴 수 있습니다.
+* **Azure CLI 스크립트** - 이 문서의 나머지 부분의 단계에 나와 있는 설명과 같이 [Azure CLI(명령줄 인터페이스)](../xplat-cli-install.md)를 사용하여 A8 또는 A9 크기 Linux VM 클러스터를 만드는 데 필요한 가상 네트워크 및 기타 구성 요소의 배포를 스크립팅합니다. 서비스 관리 모드의 CLI는 클래식 배포 모델에서 계산 노드를 순차적으로 배포하므로 많은 계산 노드를 배포하는 경우 배포를 완료하는 데 몇 분 정도 걸릴 수 있습니다.
 
-* **Azure 리소스 관리자 템플릿** - Azure 리소스 관리자 배포 모델을 사용하여 여러 A8 및 A9 Linux VM을 배포하고 가상 네트워크, 고정 IP 주소, DNS 설정 및 그 밖에 RDMA 네트워크를 활용하여 MPI 작업을 실행할 수 있는 계산 클러스터를 위한 리소스를 정의합니다. [사용자 고유의 템플릿을 만들거나](../resource-group-authoring-templates.md) [Azure 빠른 시작 템플릿 페이지](https://azure.microsoft.com/documentation/templates/)에서 Microsoft 또는 커뮤니티가 참여한 템플릿을 확인하여 원하는 솔루션을 배포할 수 있습니다. 리소스 관리자 템플릿을 사용하면 빠르고 안정적으로 Linux 클러스터를 배포할 수 있습니다.
+* **Azure Resource Manager 템플릿** - 리소스 관리자 배포 모델을 사용하여 여러 A8 및 A9 Linux VM을 배포하고 가상 네트워크, 고정 IP 주소, DNS 설정 및 그 밖에 RDMA 네트워크를 활용하여 MPI 작업을 실행할 수 있는 계산 클러스터를 위한 리소스를 정의합니다. [사용자 고유의 템플릿을 만들거나](../resource-group-authoring-templates.md) [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)에서 Microsoft 또는 커뮤니티가 참여한 템플릿을 확인하여 원하는 솔루션을 배포할 수 있습니다. 리소스 관리자 템플릿을 사용하면 빠르고 안정적으로 Linux 클러스터를 배포할 수 있습니다.
 
-## Azure 서비스 관리에서 Azure CLI 스크립트를 사용하여 배포
+## 기존 모델에 샘플 배포
 
-다음 단계에서는 Azure CLI를 사용하여 SUSE Linux Enterprise Server 12 VM을 배포하고, Intel MPI Library 및 기타 사용자 지정 항목을 설치하고, 사용자 지정 VM 이미지를 만들고, A8 또는 A9 VM 클러스터 배포 스크립트를 작성하도록 도와줍니다.
+다음 단계에서는 Azure CLI를 사용하여 Azure 마켓플레이스에서 SUSE Linux Enterprise Server 12 HPC VM을 배포하고, Intel MPI Library 및 기타 사용자 지정 항목을 설치하고, 사용자 지정 VM 이미지를 만들고, A8 또는 A9 VM 클러스터 배포 스크립트를 작성하도록 도와줍니다.
+
+>[AZURE.TIP]  비슷한 단계를 사용하여 Azure 마켓플레이스의 CentOS 기반 6.5 또는 7.1 HPC 이미지에 따라 A8 또는 A9 VM의 클러스터를 배포합니다. 차이점은 단계에 설명되어 있습니다. 예를 들어 CentOS 기반 HPC 이미지는 Intel MPI를 포함하기 때문에 이러한 이미지에서 만든 VM에 Intel MPI를 별도로 설치할 필요가 없습니다.
 
 ### 필수 조건
 
 *   **클라이언트 컴퓨터** - Azure와 통신할 Mac, Linux 또는 Windows 기반 클라이언트가 필요합니다. 이러한 단계는 Linux 클라이언트를 사용하는 것을 가정합니다.
 
-*   **Azure 구독** - 계정이 없는 경우에는 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+*   **Azure 구독** - 구독이 없는 경우 몇 분 만에 [무료 계정](https://azure.microsoft.com/free/)을 만들 수 있습니다. 대규모 클러스터의 경우, 종량제 구독이나 다른 구매 옵션을 고려하세요.
 
 *   **코어 할당량** - A8 또는 A9 VM 클러스터를 배포하려면 코어 할당량을 늘려야 할 수도 있습니다. 예를 들어 이 문서에 설명된 것처럼 8대의 A9 VM을 배포하려는 경우 적어도 128개의 코어가 필요합니다. 할당량을 늘리려면 무료로 [온라인 고객 지원 요청을 개설](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)합니다.
 
-*   **Azure CLI** - Azure CLI를 [설치](../xplat-cli-install.md)하고 클라이언트 컴퓨터에서 Azure 구독을 연결하도록 [구성](../xplat-cli-connect.md)합니다.
+*   **Azure CLI** - Azure CLI를 [설치](../xplat-cli-install.md)하고 클라이언트 컴퓨터에서 [Azure 구독에 연결](../xplat-cli-connect.md)합니다.
 
-*   **Intel MPI** -클러스터에 대한 Linux VM 이미지 사용자 지정의 일부로(이 문서의 뒷부분에 나오는 세부 정보 참조) [Intel.com 사이트](https://software.intel.com/ko-KR/intel-mpi-library/)에서 Intel MPI 라이브러리 5 런타임을 다운로드 및 설치해야 합니다. 이를 준비하려면 Intel에 등록한 후 확인 전자 메일의 링크를 따라 관련 웹 페이지로 이동하여 적절한 Intel MPI 버전의 .tgz 파일에 대한 다운로드 링크를 복사합니다. 이 문서는 Intel MPI 5.0.3.048 버전을 기반으로 합니다.
+*   **Intel MPI** - 클러스터에 대한 SLES 12 HPC VM 이미지를 사용자 지정하려면(이 문서의 뒷부분에 나오는 세부 정보 참조) [Intel.com 사이트](https://software.intel.com/ko-KR/intel-mpi-library/)에서 현재 Intel MPI Library 5 런타임을 다운로드 및 설치해야 합니다. 이를 준비하려면 Intel에 등록한 후 확인 전자 메일의 링크를 따라 관련 웹 페이지로 이동하여 적절한 Intel MPI 버전의 .tgz 파일에 대한 다운로드 링크를 복사합니다. 이 문서는 Intel MPI 5.0.3.048 버전을 기반으로 합니다.
+
+    >[AZURE.NOTE] Azure 마켓플레이스에서 CentOS 6.5 또는 CentOS 7.1 HPC 이미지를 사용하여 클러스터 노드를 만드는 경우 Intel MPI 버전 5.1.3.181이 VM에 미리 설치되어 있습니다
 
 ### SLES 12 VM 프로비전
 
-Azure CLI에서 Azure에 로그인한 후 `azure config list`를 실행하여 출력이 CLI가 Azure 서비스 관리 모드에 있는지를 나타내는 **asm** 모드를 표시하는지 확인합니다. 그렇지 않은 경우 다음 명령을 실행하여 모드를 설정합니다.
+Azure CLI에서 Azure에 로그인한 후 `azure config list`를 실행하여 출력이 Azure 서비스 관리 모드를 표시하는지 확인합니다. 그렇지 않은 경우 다음 명령을 실행하여 모드를 설정합니다.
 
-```
-azure config mode asm
-```
+
+    azure config mode asm
+
 
 다음을 입력하여 사용 권한이 부여된 모든 구독을 나열합니다.
 
-```
-azure account list
-```
+
+    azure account list
 
 현재 활성 구독은 `Current`가 `true`로 설정되어 있습니다. 클러스터를 만드는 데 사용하려는 구독이 아닌 경우 해당 구독 번호를 활성 구독으로 설정합니다.
 
-```
-azure account set <subscription-number>
-```
+    azure account set <subscription-number>
 
 Azure에서 공개적으로 사용할 수 있는 SLES 12 HPC 이미지를 보려면 셸 환경에서 **grep**를 지원하는 경우 다음과 유사한 명령을 실행합니다.
 
-```
-azure vm image list | grep "suse.*hpc"
-```
 
->[AZURE.NOTE]SLES 12 HPC 이미지는 Azure에 필요한 Linux RDMA 드라이버로 미리 구성되어 있습니다.
+    azure vm image list | grep "suse.*hpc"
 
 이제 다음과 유사한 명령을 실행하여 사용 가능한 SLES 12 HPC 이미지로 크기가 A9인 VM을 프로비전합니다.
 
-```
-azure vm create -g <username> -p <password> -c <cloud-service-name> -l <location> -z A9 -n <vm-name> -e 22 b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708
-```
+    azure vm create -g <username> -p <password> -c <cloud-service-name> -l <location> -z A9 -n <vm-name> -e 22 b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708
 
 여기서,
 
@@ -96,7 +91,9 @@ azure vm create -g <username> -p <password> -c <cloud-service-name> -l <location
 
 * 새 클라우드 서비스는 위치로 지정된 Azure 지역에 서 만들어집니다. A8 및 A9 인스턴스를 사용할 수 있는 "West US"와 같은 위치를 지정합니다.
 
-* 이미지 이름은 현재 `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708`(무료) 또는 `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-priority-v20150708`(SUSE 우선 지원의 경우 - 요금이 부과됨)일 수 있습니다.
+* SLES 12 이미지 이름은 SUSE 우선 지원의 경우 현재 `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708` 또는 `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-priority-v20150708`일 수 있습니다(요금이 부과됨).
+
+    >[AZURE.NOTE]CentOS 기반 HPC 이미지를 사용하려는 경우 현재 이미지 이름은 `5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-65-HPC-20160408` 및 `5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-71-HPC-20160408`입니다.
 
 ### VM 사용자 지정
 
@@ -104,54 +101,48 @@ VM 프로비전이 완료되면 VM의 외부 IP 주소(또는 DNS 이름) 및 �
 
 >[AZURE.IMPORTANT]Microsoft Azure에서는 Linux VM에 대한 루트 액세스를 제공하지 않습니다. VM에 사용자로 연결된 경우 관리 액세스 권한을 얻으려면 `sudo`을(를) 사용하여 명령을 실행합니다.
 
-*   **업데이트** -**zypper**를 사용하여 업데이트를 설치합니다. NFS 유틸리티를 설치하려고 할 수도 있습니다.  
+* **업데이트** -**zypper**를 사용하여 업데이트를 설치합니다. NFS 유틸리티를 설치하려고 할 수도 있습니다.  
 
-    >[AZURE.IMPORTANT]이때 Linux RDMA 드라이버에 문제가 발생할 수 있으므로 커널 업데이트를 적용하지 않는 것이 좋습니다.
+    >[AZURE.IMPORTANT]SLES 12 HPC V를 배포한 경우 이 시점에 Linux RDMA 드라이버에 문제가 발생할 수 있으므로 커널 업데이트를 적용하지 않는 것이 좋습니다.
+    >
+    >마켓플레이스의 CentOS 기반 HPC 이미지에서 커널 업데이트는 **yum** 구성 파일을 사용할 수 없습니다. 즉 Linux RDMA 드라이버가 RPM 패키지로 배포되기 때문에 커널이 업데이트되는 경우 드라이버 업데이트가 작동하지 않을 수 있습니다.
 
-*   **Intel MPI** - Intel.com 사이트에서 Intel MPI Library 5 런타임을 다운로드하여 설치합니다.
+* **Linux RDMA 드라이버 업데이트** - SLES 12 HPC VM을 배포한 경우 RDMA 드라이버를 업데이트해야 합니다. 자세한 내용은 [A8, A9, A10 및 A11 계산 집약적 인스턴스 정보](virtual-machines-linux-a8-a9-a10-a11.md#Linux-RDMA-driver-updates-for-SLES-12)를 참조하세요.
 
-    ```
-    sudo wget <download link for your registration>
+* **Intel MPI** - SLES 12 HPC VM을 배포한 경우 Intel.com 사이트에서 Intel MPI Library 5 런타임을 다운로드하여 설치합니다. 이 단계는 CentOS 기반 6.5 또는 7.1 HPC VM을 배포한 경우에는 필요하지 않습니다.
 
-    sudo tar xvzf <tar-file>
+        sudo wget <download link for your registration>
 
-    cd <mpi-directory>
+        sudo tar xvzf <tar-file>
 
-    sudo ./install.sh
+        cd <mpi-directory>
 
-    ```
+        sudo ./install.sh
 
     VM에 Intel MPI를 설치하려면 기본 설정을 수락합니다.
 
-*   **메모리 잠금** - MPI 코드를 사용하여 RDMA에 사용 가능한 메모리를 잠그려면 /etc/security/limits.conf 파일에서 다음 설정을 추가하거나 변경해야 합니다. (이 파일을 편집하려면 루트 액세스가 필요합니다.)
+* **메모리 잠금** - MPI 코드를 사용하여 RDMA에 사용 가능한 메모리를 잠그려면 /etc/security/limits.conf 파일에서 다음 설정을 추가하거나 변경해야 합니다. (이 파일을 편집하려면 루트 액세스가 필요합니다.) CentOS 기반 6.5 또는 7.1 HPC VM을 배포한 경우 이 파일에 설정이 이미 추가됩니다.
 
-    ```
-    <User or group name> hard    memlock <memory required for your application in KB>
+        <User or group name> hard    memlock <memory required for your application in KB>
 
-    <User or group name> soft    memlock <memory required for your application in KB>
-    ```
+        <User or group name> soft    memlock <memory required for your application in KB>
 
-    >[AZURE.NOTE]테스트를 위해 memlock을 무제한으로 설정할 수도 있습니다. 예: `<User or group name>    hard    memlock unlimited`
+    >[AZURE.NOTE]테스트를 위해 memlock을 무제한으로 설정할 수도 있습니다. 예: '<User or group name> 하드 memlock 무제한
 
+* **SLES 12 VM에 대한 SSH 키** - MPI 작업을 실행하는 경우 SSH 키를 생성하여 SLES 12 HPC 클러스터의 모든 계산 노드 간에 사용자 계정에 대한 트러스트를 설정합니다. (HPC CentOS 기반 VM을 배포한 경우 단계를 수행하지 않습니다. 이미지를 캡처하고 클러스터를 배포한 후에 클러스터 노드 간에 암호 없는 SSH 트러스트를 설정하려면 문서의 뒷부분에 나오는 지침을 참조하세요.)
 
-*   **SSH 키** - MPI 작업을 실행하는 경우 SSH 키를 생성하여 클러스터의 모든 계산 노드 간의 사용자 계정에 대 한 트러스트를 설정합니다. 다음 명령을 실행하여 SSH 키를 만듭니다. enter 키를 눌러 암호를 설정하지 않고 기본 위치에 키를 생성합니다.
+    다음 명령을 실행하여 SSH 키를 만듭니다. enter 키를 눌러 암호를 설정하지 않고 기본 위치에 키를 생성합니다.
 
-    ```
-    ssh-keygen
-    ```
+        ssh-keygen
 
     알려진 공용 키에 대한 authorized\_keys 파일에 공개키를 추가합니다.
 
-    ```
-    cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
-    ```
+        cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 
     ~/.ssh 디렉터리에서 "config" 파일을 편집하거나 만듭니다. Azure에서 사용할 개인 네트워크의 IP 주소 범위를 제공합니다(이 예에서는 10.32.0.0/16).
 
-    ```
-    host 10.32.0.*
-    StrictHostKeyChecking no
-    ```
+        host 10.32.0.*
+        StrictHostKeyChecking no
 
     또는 다음과 같이 클러스터의 각 VM에 대한 개인 네트워크 IP 주소를 나열합니다.
 
@@ -189,7 +180,7 @@ azure vm capture -t <vm-name> <image-name>
 
 ### 이미지를 사용하여 클러스터 배포
 
-다음 Bash 스크립트를 사용자 환경에 적절한 값으로 수정하여 클라이언트 컴퓨터에서 실행합니다. 서비스 관리자 배포 방법에서는 VM을 순차적으로 배포하려면 이 스크립트에 제안된 8대의 A9 VM을 배포하는 데 몇 분 정도 걸립니다.
+다음 Bash 스크립트를 사용자 환경에 적절한 값으로 수정하여 클라이언트 컴퓨터에서 실행합니다. Azure가 클래식 배포 모델에 VM을 순차적으로 배포하기 때문에 이 스크립트에 제안된 8대의 A9 VM을 배포하는 데 몇 분 정도가 걸립니다.
 
 ```
 #!/bin/bash -x
@@ -224,73 +215,52 @@ done
 # Save this script with a name like makecluster.sh and run it in your shell environment to provision your cluster
 ```
 
-## SLES 12용 Linux RDMA 드라이버 업데이트
+## CentOS 클러스터의 암호 없는 SSH 트러스트
 
-SLES 12 HPC 이미지에 따라 Linux RDMA 클러스터를 만든 후 RDMA 네트워크 연결을 위해 VM에서 RDMA 드라이버를 업데이트해야 할 수 있습니다.
+CentOS 기반 HPC 이미지를 사용하여 클러스터를 배포한 경우 계산 노드 간에 트러스트를 설정하기 위해 호스트 기반 인증 미 사용자 기반 인즈 등 두 가지 방법이 있습니다 호스트 기반 인증은 이 기사의 범위를 벗어나고 일반적으로 배포하는 동안 확장 스크립트를 통해 수행되어야 합니다. 사용자 기반 인증은 배포 후에 트러스트를 설정하는 데 유용하며 클러스터의 계산 노드 간에 SSH 키를 생성하고 공유해야 합니다. 이는 일반적으로 암호 없는 SSH 로그인이라고 알려졌으며 MPI 작업을 실행하는 경우에 필요합니다.
 
->[AZURE.IMPORTANT]이 단계는 현재 대부분의 Azure 지역에서 Linux RDMA 클러스터 배포에 **필요합니다**. **업데이트하면 안 되는 SLES 12 VM은 미국 서부, 유럽 서부, 일본 동부 등의 Azure 지역에서 만들어진 VM뿐입니다.**
+커뮤니티에서 제공하는 샘플 스크립트는 [GitHub](https://github.com/tanewill/utils/blob/master/user_authentication.sh)에서 사용할 수 있으며 CentOS 기반 HPC 클러스터에서 쉬운 사용자 인증이 가능합니다. 다음 단계를 사용하여 이 스크립트를 다운로드하고 사용할 수 있습니다. 이 스크립트를 수정하거나 다른 메서드를 사용하여 클러스터 계산 노드 간에 암호 없는 SSH 인증을 설정할 수 있습니다.
 
-드라이버를 업데이트 하기 전에 **zypper** 프로세스 또는 VM에서 SUSE 리포지토리 데이터베이스를 잠그는 모든 프로세스를 중지합니다. 그렇지 않으면 드라이버가 제대로 업데이트되지 않을 수 있습니다.
+    wget https://raw.githubusercontent.com/tanewill/utils/master/ user_authentication.sh
+    
+스크립트를 실행하려면 서브넷 IP 주소에 대한 접두사를 확인해야 합니다. 클러스터 노드 중 하나에서 다음 명령을 실행하여 이 데이터를 가져올 수 있습니다. 출력은 10.1.3.5와 비슷해야 하며 접두사는 10.1.3 부분입니다.
+
+    ifconfig eth0 | grep -w inet | awk '{print $2}'
+
+이제 계산 노드의 일반 사용자 이름, 계산 노드의 해당 사용자에 대한 일반적인 암호 및 이전 명령에서 반환된 서브넷 접두사 등 세 개의 매개 변수를 사용하여 스크립트를 실행합니다.
 
 
-클라이언트 컴퓨터에서 다음 Azure CLI 명령 집합 중 하나를 실행하여 각 VM에서 Linux RDMA 드라이버를 업데이트합니다.
+    ./user_authentication.sh <myusername> <mypassword> 10.1.3
 
-**Azure 서비스 관리에서 프로비전된 VM**
+이 스크립트는 다음을 수행합니다.
 
-```
-azure config mode asm
+* .ssh라는 호스트 노드에 디렉터리를 만듭니다. 이것은 암호 없는 로그인에 필요합니다. 
+* 클러스터의 노드에서 로그인할 수 있도록 암호 없는 로그인을 지시하는 .ssh 디렉터리에 구성 파일을 만듭니다. 
+* 클러스터의 모든 노드에 대한 노드 이름 및 노드 IP 주소를 포함하는 파일을 만듭니다. 이러한 파일은 사용자가 참조하기 위해 스크립트를 실행한 후에도 남아 있습니다. 
+* 호스트 노드를 포함하여 각 클러스터 노드에 개인 및 공개 키 쌍을 만들고 키 쌍에 대한 정보를 공유하며 authorized\_keys 파일에 항목을 만듭니다.
 
-azure vm extension set <vm-name> RDMAUpdateForLinux Microsoft.OSTCExtensions 0.1
-```
+>[AZURE.WARNING]이 스크립트를 실행하면 잠재적인 보안 위협이 생길 수 있습니다. ~/.ssh의 공개 키 정보가 분산되지 않도록 확인하세요.
 
-**Azure 리소스 관리자에서 프로비전된 VM**
-
-```
-azure config mode arm
-
-azure vm extension set <resource-group> <vm-name> RDMAUpdateForLinux Microsoft.OSTCExtensions 0.1
-```
-
->[AZURE.NOTE]드라이버를 설치하는 데 약간의 시간이 걸릴 수 있으며 명령은 출력 없이 반환됩니다. 업데이트가 수행된 후 VM이 다시 시작하므로 몇 분 후에 사용할 수 있습니다.
-
-클러스터의 모든 노드에서 드라이버 업데이트를 스크립팅할 수 있습니다. 예를 들어 다음 스크립트는 이전 단계의 스크립트에서 만든 8노드 클러스터의 드라이버를 업데이트합니다.
-
-```
-
-#!/bin/bash -x
-
-# Define a prefix naming scheme for compute nodes, e.g., cluster11, cluster12, etc.
-
-vmname=cluster
-
-# Plug in appropriate numbers in the for loop below.
-
-for (( i=11; i<19; i++ )); do
-
-# For ASM VMs use the following command in your script.
-
-azure vm extension set $vmname$i RDMAUpdateForLinux Microsoft.OSTCExtensions 0.1
-
-# For ARM VMs use the following command in your script.
-
-# azure vm extension set <resource-group> $vmname$i RDMAUpdateForLinux Microsoft.OSTCExtensions 0.1
-
-done
-
-```
 
 ## Intel MPI 구성 및 실행
 
-Azure Linux RDMA에서 MPI 응용 프로그램을 실행하려면 Intel MPI에 특정한 특정 환경 변수를 구성해야 합니다. 변수를 구성하고 응용 프로그램을 실행하는 샘플 Bash 스크립트는 다음과 같습니다.
+Azure Linux RDMA에서 MPI 응용 프로그램을 실행하려면 Intel MPI에 특정한 특정 환경 변수를 구성해야 합니다. 변수를 구성하고 응용 프로그램을 실행하는 샘플 Bash 스크립트는 다음과 같습니다. Intel MPI 설치를 위해 필요에 따라 경로를 mpivars.sh로 변경합니다.
 
 ```
 #!/bin/bash -x
 
+# For a SLES 12 HPC cluster
+
 source /opt/intel/impi_latest/bin64/mpivars.sh
+
+# For a CentOS-based HPC cluster 
+
+# source /opt/intel/impi/5.1.3.181/bin64/mpivars.sh
+
 
 export I_MPI_FABRICS=shm:dapl
 
-# THIS IS A MANDATORY ENVIRONMENT VARIABLEAND MUST BE SET BEFORE RUNNING ANY JOB
+# THIS IS A MANDATORY ENVIRONMENT VARIABLE AND MUST BE SET BEFORE RUNNING ANY JOB
 # Setting the variable to shm:dapl gives best performance for some applications
 # If your application doesn’t take advantage of shared memory and MPI together, then set only dapl
 
@@ -321,7 +291,13 @@ mpirun -n <number-of-cores> -ppn <core-per-node> -hostfile <hostfilename>  /path
 아직 그렇게 하지 않은 경우 먼저 Intel MPI에 대한 환경을 설정합니다.
 
 ```
+# For a SLES 12 HPC cluster
+
 source /opt/intel/impi_latest/bin64/mpivars.sh
+
+# For a CentOS-based HPC cluster 
+
+# source /opt/intel/impi/5.1.3.181/bin64/mpivars.sh
 ```
 
 ### 간단한 MPI 명령 실행
@@ -329,7 +305,7 @@ source /opt/intel/impi_latest/bin64/mpivars.sh
 계산 노드 중 하나에서 간단한 MPI 명령을 실행하여 MPI가 제대로 설치되고 적어도 두 개의 계산 노드 사이에서 통신할 수 있는지 표시합니다. 다음 **mpirun** 명령은 두 개의 노드에서 **hostname** 명령을 실행합니다.
 
 ```
-/opt/intel/impi_latest/bin64/mpirun -ppn 1 -n 2 -hosts <host1>,<host2> -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 hostname
+mpirun -ppn 1 -n 2 -hosts <host1>,<host2> -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 hostname
 ```
 출력은 `-hosts`에 대한 입력으로 전달한 모든 노드의 이름을 나열해야 합니다. 예를 들어 두 개의 노드가 있는 **mpirun** 명령은 다음과 유사한 출력을 반환합니다.
 
@@ -343,7 +319,7 @@ cluster12
 다음 Intel MPI 명령은 pingpong 벤치마크를 사용하여 클러스터 구성 및 RDMA 네트워크 연결을 확인합니다.
 
 ```
-/opt/intel/impi_latest/bin64/mpirun -hosts <host1>,<host2> -ppn 1 -n 2 -env I_MPI_FABRICS=dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 /opt/intel/impi_latest/bin64/IMB-MPI1 pingpong
+mpirun -hosts <host1>,<host2> -ppn 1 -n 2 -env I_MPI_FABRICS=dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 IMB-MPI1 pingpong
 ```
 
 두 개의 노드가 있는 작동하는 클러스터에 다음과 유사한 출력이 표시되어야 합니다. Azure의 RDMA 네트워크에서 최대 512바이트의 메시지 크기에 대해 3 마이크로초 이하의 대기 시간이 예상됩니다.
@@ -412,13 +388,7 @@ cluster12
 
 ```
 
-## 네트워크 토폴로지 고려 사항
 
-* Linux VM에서 Eth1은 RDMA 네트워크 트래픽용으로 예약됩니다. Eth1 설정 또는 이 네트워크를 참조하는 구성 파일의 정보를 변경하지 마세요.
-
-* Azure IP over Infiniband(IB)는 지원되지 않습니다. RDMA over IB만 지원됩니다.
-
-* Linux VM에서 Eth0은 일반 Azure 네트워크 트래픽용으로 예약됩니다.
 
 ## 다음 단계
 
@@ -426,4 +396,6 @@ cluster12
 
 * Intel MPI에 대한 지침은 [Intel MPI Library 설명서](https://software.intel.com/ko-KR/articles/intel-mpi-library-documentation/)를 참조하세요.
 
-<!---HONumber=AcomDC_0323_2016-->
+* CentOS 기반 HPC 이미지를 사용하여 Intel Lustre 클러스터를 만들기 위해 [빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/intel-lustre-clients-on-centos)을 사용해 봅니다.
+
+<!---HONumber=AcomDC_0511_2016-->

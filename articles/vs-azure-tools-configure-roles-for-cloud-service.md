@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="02/24/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Visual Studio를 사용하여 Azure 클라우드 서비스에 대한 역할 구성
@@ -279,8 +279,8 @@ Azure 클라우드 서비스에 대한 진단 데이터를 수집할 수 있습�
 
 1. **계정 이름**에서 사용할 저장소 계정을 선택합니다.
 
-    저장소 계정 자격 증명을 수동으로 입력하는 경우 **계정 키**에 기본 키를 복사하거나 입력합니다. Azure 관리 포털에서 이 키를 복사할 수 있습니다. 이 키를 복사하려면 Azure 관리 포털의 **저장소 계정** 보기에서 다음 단계를 따릅니다.
-
+    저장소 계정 자격 증명을 수동으로 입력하는 경우 **계정 키**에 기본 키를 복사하거나 입력합니다. [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)에서 이 키를 복사할 수 있습니다. 이 키를 복사하려면 [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)의 **저장소 계정** 보기에서 다음 단계를 따릅니다.
+    
   1. 클라우드 서비스에 사용할 저장소 계정을 선택합니다.
 
   1. 화면 아래쪽에 있는 **액세스 키 관리** 단추를 선택합니다. **액세스 키 관리** 대화 상자가 나타납니다.
@@ -319,7 +319,7 @@ Azure 클라우드 서비스의 보안을 향상시키기 위해 HTTPS 프로토
 
 HTTPS 끝점을 추가하는 경우 SSL 인증서를 사용해야 합니다. 이를 위해 인증서를 모든 서비스 구성에 대한 역할과 연결하고 끝점에 대해 사용할 수 있습니다.
 
->[AZURE.IMPORTANT] 이러한 인증서는 서비스와 함께 패키징되지 않습니다. Azure 플랫폼 관리 포털을 통해 Azure에 인증서를 별도로 업로드해야 합니다.
+>[AZURE.IMPORTANT] 이러한 인증서는 서비스와 함께 패키징되지 않습니다. [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)을 통해 Azure에 인증서를 별도로 업로드해야 합니다.
 
 서비스 구성과 연결되는 모든 관리 인증서는 Azure에서 클라우드 서비스가 실행될 때만 적용됩니다. 클라우드 서비스가 로컬 개발 환경에서 실행되는 경우 Azure 계산 에뮬레이터가 관리하는 표준 인증서를 사용합니다.
 
@@ -376,4 +376,4 @@ HTTPS 끝점을 추가하는 경우 SSL 인증서를 사용해야 합니다. 이
 ## 다음 단계
 [Azure 프로젝트 구성](vs-azure-tools-configuring-an-azure-project.md)을 읽고 Visual Studio에서 Azure 프로젝트에 대해 자세히 알아봅니다. [스키마 참조](https://msdn.microsoft.com/library/azure/dd179398)를 읽고 클라우드 서비스 스키마에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0511_2016-->

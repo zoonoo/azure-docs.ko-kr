@@ -84,8 +84,7 @@ Azure 포털에서 네이티브 Apache Spark 사용에 대한 문서를 보려�
 
 * [개요: Azure HDInsight에서 Apache Spark](hdinsight-apache-spark-overview.md)
 * [Hadoop 클러스터에서 Spark 설치 및 사용](hdinsight-hadoop-spark-install.md)
-* [HDInsight 클러스터에서 Spark 작업 서버](hdinsight-apache-spark-job-server.md)
-* [Apache Spark 프로비전 및 Spark SQL을 사용하여 대화형 쿼리 실행](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1.md)
+
 
 
 ## 빅 데이터 솔루션
@@ -131,4 +130,4 @@ Azure 포털에서 네이티브 Apache Spark 사용에 대한 문서를 보려�
 * [오류 메시지 해석](hdinsight-debug-jobs.md)
 * [포럼에서 도움말 보기](https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->

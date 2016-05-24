@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/30/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # 이벤트 허브를 사용하여 실행 부하 과다 경로에서 Azure 진단 데이터 스트리밍
@@ -51,7 +51,7 @@ Azure 진단은 항상 기본적으로 Azure 저장소 계정에 로그 및 메�
 
 이 예제에서는 이벤트 허브 URL이 이벤트 허브의 정규화된 네임스페이스로 설정되어 있습니다(ServiceBus 네임스페이스 + “/” + 이벤트 허브 이름).
 
-이벤트 허브 URL은 이벤트 허브 대시보드의 [클래식 Azure 포털](https://manage.windowsazure.com)에 표시됩니다.
+이벤트 허브 URL은 이벤트 허브 대시보드의 [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)에 표시됩니다.
 
 **싱크** 이름은 같은 값이 구성 파일 전체에서 일관되게 사용되고 있다면 유효한 문자열로 설정할 수 있습니다.
 
@@ -295,4 +295,4 @@ Azure 진단은 항상 기본적으로 Azure 저장소 계정에 로그 및 메�
 <!-- Images. -->
 [0]: ./media/event-hubs-streaming-azure-diags-data/dashboard.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

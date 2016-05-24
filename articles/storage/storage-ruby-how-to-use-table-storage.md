@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Ruby에서 Azure 테이블 저장소를 사용하는 방법 | Microsoft Azure"
-	description="Azure에서 Azure 테이블 저장소를 사용하는 방법을 알아봅니다. 코드 샘플은 Ruby API를 사용하여 작성되었습니다."
+	description="Azure 테이블 저장소, NoSQL 데이터 저장소를 사용하여 클라우드에 구조화된 데이터를 저장합니다."
 	services="storage"
 	documentationCenter="ruby"
 	authors="rmcmurray"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="04/10/2016"
+	ms.date="04/29/2016"
 	ms.author="robmcm"/>
 
 
@@ -164,4 +164,4 @@ Azure 포털의 클래식 또는 ARM 저장소 계정에서 이러한 값을 가
 - [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)
 - GitHub의 [Azure SDK for Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby)(영문) 리포지토리
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

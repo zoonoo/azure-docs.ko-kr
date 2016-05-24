@@ -4,7 +4,7 @@
 	description="Upgrade apps and libraries using Nuget" 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	authors="ddove"/>
 
 <tags 
@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/01/2016" 
+	ms.date="04/26/2016" 
 	ms.author="ddove;sidneyh" />
 
-# 최신 탄력적 데이터베이스 클라이언트 라이브러리로 업그레이드
+# 최신 탄력적 데이터베이스 클라이언트 라이브러리를 사용하도록 앱 업그레이드
 
-[탄력적 데이터베이스 클라이언트 라이브러리](sql-database-elastic-database-client-library.md)의 새 버전은 Visual Studio의 NuGetPackage Manager 인터페이스와 [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)을 통해 제공됩니다. 업그레이드에는 클라이언트 라이브러리의 새 기능 지원 및 버그 수정이 포함됩니다.
+[탄력적 데이터베이스 클라이언트 라이브러리](sql-database-elastic-database-client-library.md)의 새 버전은 Visual Studio의 NuGetand 및 NuGetPackage 관리자 인터페이스를 통해 제공됩니다. 업그레이드에는 클라이언트 라이브러리의 새 기능 지원 및 버그 수정이 포함됩니다.
+
+**최신 버전은** [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)로 이동합니다.
 
 새 라이브러리를 사용하여 응용 프로그램을 다시 빌드하고 새로운 기능을 지원하도록 Azure SQL 데이터베이스에 저장된 기존 분할된 데이터베이스 맵 관리자 메타데이터를 변경합니다.
 
@@ -39,7 +41,7 @@
 
 **3. 분할/병합 서비스를 업그레이드합니다.** 탄력적 데이터베이스 분할/병합 도구를 사용하여 분할된 데이터를 다시 구성하는 경우 [도구의 최신 버전을 다운로드하여 배포](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)합니다. 자세한 서비스 업그레이드 단계는 [여기](sql-database-elastic-scale-overview-split-and-merge.md)서 확인할 수 있습니다.
 
-**4. 분할된 데이터베이스 맵 관리자 DB를 업그레이드합니다**. Azure SQL 데이터베이스에서 분할된 데이터베이스 맵을 지원하는 메타데이터를 업그레이드합니다. 이 작업은 두 가지 방법, 즉 PowerShell이나 C#을 사용하여 수행할 수 있습니다. 아래에는 두 옵션이 모두 나와 있습니다.
+**4. 분할된 데이터베이스 맵 관리자 데이터베이스를 업그레이드합니다**. Azure SQL 데이터베이스에서 분할된 데이터베이스 맵을 지원하는 메타데이터를 업그레이드합니다. 이 작업은 두 가지 방법, 즉 PowerShell이나 C#을 사용하여 수행할 수 있습니다. 아래에는 두 옵션이 모두 나와 있습니다.
 
 ***옵션 1: PowerShell을 사용하여 메타데이터 업그레이드***
 
@@ -74,20 +76,7 @@ ShardMapManager를 열고 모든 분할에서 반복 실행한 다음, 다음 �
 
 ## 탄력적 데이터베이스 클라이언트 버전 기록 
 
-**버전 1.0 -- 2015년 4월**
-
-* 일반 공급 릴리스
-* 분할 키로 날짜/시간 형식에 대한 지원 추가
-
-**버전 0.8 – 2015년 3월**
-
-* 새로운 ShardMap.OpenConnectionForKeyAsync 메서드를 통해 데이터 종속 라우팅을 위한 비동기 지원이 추가되었습니다. 
-* 공용 KeyType 속성이 ShardMap에 추가되었습니다. 
-* 분할에 대한 개선된 데이터베이스 복원 및 데이터베이스 복구 시나리오 지원 기능이 추가되었습니다. 
-
-**버전 0.7 – 2014년 10월**
-
-초기 미리 보기 버전입니다.
+버전 기록은 [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)로 이동합니다.
 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
@@ -97,4 +86,4 @@ ShardMapManager를 열고 모든 분할에서 반복 실행한 다음, 다음 �
 [1]: ./media/sql-database-elastic-scale-upgrade-client-library/nuget-upgrade.png
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0511_2016-->

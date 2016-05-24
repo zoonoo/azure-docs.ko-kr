@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="05/09/2016"
 	ms.author="kgremban"/>
 
 # Azure AD 응용 프로그램 프록시 커넥터를 자동으로 설치하는 방법
@@ -125,24 +125,13 @@
 
 
 
-## 다음 작업
-응용 프로그램 프록시를 사용하여 수행할 수 있는 작업은 많습니다.
+## 참고 항목
 
-
+- [Azure Active Directory에 대한 응용 프로그램 프록시 사용](active-directory-application-proxy-enable.md)
 - [고유한 도메인 이름을 사용하여 응용 프로그램 게시](active-directory-application-proxy-custom-domains.md)
 - [Single Sign-On 사용](active-directory-application-proxy-sso-using-kcd.md)
-- [클레임 인식 응용 프로그램으로 작업](active-directory-application-proxy-claims-aware-apps.md)
-- [조건부 액세스 사용](active-directory-application-proxy-conditional-access.md)
+- [응용 프로그램 프록시에서 발생한 문제 해결](active-directory-application-proxy-troubleshoot.md)
 
+최신 뉴스 및 업데이트는 [응용 프로그램 프록시 블로그](http://blogs.technet.com/b/applicationproxyblog/)를 확인하세요.
 
-### 응용 프로그램 프록시에 대해 자세히 알아보기
-- [온라인 도움말에서 살펴보기](active-directory-application-proxy-enable.md)
-- [응용 프로그램 프록시 블로그 확인](http://blogs.technet.com/b/applicationproxyblog/)
-- [Channel 9에서 비디오 시청](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
-
-## 추가 리소스
-- [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
-- [조직으로 Azure에 등록](sign-up-organization.md)
-- [Azure ID](fundamentals-identity.md)
-
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

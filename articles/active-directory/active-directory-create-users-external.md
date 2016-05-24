@@ -74,6 +74,7 @@ ID가 온-프레미스 Active Directory 서비스와 동기화된 사용자에 �
 - 외부 사용자가 홈 디렉터리 외부에 있는 디렉터리의 다중 테넌트 응용 프로그램에 동의할 수 없습니다.
 - PowerBI는 현재 외부 사용자의 액세스를 지원하지 않습니다.
 - Office 포털은 현재 외부 사용자에 대한 라이선싱을 지원하지 않습니다.
+- Azure AD PowerShell과 관련하여 외부 사용자는 해당 홈 디렉터리에 로그인되며 외부 사용자인 경우 디렉터리를 관리할 수 없습니다.
 
 
 ## 다음 단계
@@ -83,4 +84,4 @@ ID가 온-프레미스 Active Directory 서비스와 동기화된 사용자에 �
 - [Azure AD에서 암호 관리](active-directory-manage-passwords.md)
 - [Azure AD에서 그룹 관리](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/02/2016"
+   ms.date="05/13/2016"
    ms.author="cherylmc"/>
 
 # Azure 포털 및 Azure Resource Manager를 사용하여 사이트 간 VPN 연결로 VNet 만들기
@@ -25,19 +25,23 @@
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 
-이 문서에서는 Azure Resource Manager 배포 모델 및 Azure 포털을 사용하여 온-프레미스 네트워크에 대한 가상 네트워크와 사이트 간 VPN 연결을 만드는 과정을 안내합니다.
+이 문서에서는 Azure Resource Manager 배포 모델 및 Azure 포털을 사용하여 온-프레미스 네트워크에 대한 가상 네트워크와 사이트 간 VPN 연결을 만드는 과정을 안내합니다. 아래 단계에서 VNet을 만들고 게이트웨이 서브넷, 게이트웨이, 로컬 사이트 및 연결을 추가합니다. 또한 VPN 장치를 구성해야 합니다.
+
 
 
 **Azure 배포 모델 정보**
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
+## 연결 다이어그램
+
+![사이트 간](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/site2site.png)
+
 **사이트 간 연결에 대한 배포 모델 및 도구**
 
 [AZURE.INCLUDE [vpn-gateway-table-site-to-site-table](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
-Vnet끼리 서로 연결하지만 온-프레미스에는 연결하지 않을 경우 [VNet간 연결 구성](vpn-gateway-vnet-vnet-rm-ps.md)을 참조하세요.
-
+Vnet끼리 서로 연결하지만 온-프레미스에는 연결하지 않을 경우 [VNet간 연결 구성](vpn-gateway-vnet-vnet-rm-ps.md)을 참조하세요. 다른 유형의 연결 구성을 찾으려는 경우 [VPN 게이트웨이 연결 토폴로지](vpn-gateway-topology.md) 문서를 참조하세요.
 
 ## 시작하기 전에
 
@@ -49,18 +53,10 @@ Vnet끼리 서로 연결하지만 온-프레미스에는 연결하지 않을 경
 	
 - Azure 구독. Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하거나 [무료 계정](http://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 
-## 이 구성에 대한 정보
-
-
-![사이트 간](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/site2site.png)
-
-아래 단계에서 VNet을 만들고 게이트웨이 서브넷, 게이트웨이, 로컬 사이트 및 연결을 추가합니다. 또한 VPN 장치를 구성해야 합니다.
-
-연습으로 이러한 단계를 사용하는 경우 다음 값을 사용할 수 있습니다.
-
-
-
 ### <a name="values"></a>이 연습에 대한 샘플 구성 값
+
+
+연습으로 이러한 단계를 사용하는 경우 샘플 구성 값을 사용할 수 있습니다.
 
 - VNet 이름: TestVNet1
 - 주소 공간: 10.11.0.0/16 및 10.12.0.0/16
@@ -83,9 +79,9 @@ Vnet끼리 서로 연결하지만 온-프레미스에는 연결하지 않을 경
 
 ## 1\. 가상 네트워크 만들기 
 
-이미 가상 네트워크를 만든 경우 설정이 VPN 게이트웨이 디자인과 호환되는지를 확인하고 다른 네트워크와 겹칠 수 있는 모든 서브넷에 특히 주의합니다. [DNS 서버 지정](#dns)으로 이동할 수 있습니다.
+이미 가상 네트워크를 만든 경우 설정이 VPN 게이트웨이 디자인과 호환되는지를 확인하고 다른 네트워크와 겹칠 수 있는 모든 서브넷에 특히 주의합니다. 겹치는 서브넷에 있으면 연결이 제대로 작동하지 않습니다. VNet이 올바른 설정으로 구성되었는지 확인했다면 [DNS 서버 지정](#dns) 섹션의 단계를 시작할 수 있습니다.
 
-연습으로 새 VNet을 만들려는 경우 VNet을 만들 때 이 [값](#values)을 참조할 수 있습니다.
+### 가상 네트워크를 만들려면
 
 [AZURE.INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
@@ -99,6 +95,8 @@ VNet이 만들어지면 여기에 다른 주소 공간 및 서브넷을 추가�
 
 연습으로 이 구성을 만드는 경우 DNS 서버를 지정할 때 이 [값](#values)을 참조합니다.
 
+### DNS 서버를 지정하려면
+
 [AZURE.INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
 ## 4\. 게이트웨이 서브넷 만들기
@@ -109,11 +107,17 @@ VNet이 만들어지면 여기에 다른 주소 공간 및 서브넷을 추가�
 
 연습으로 이 구성을 만드는 경우 게이트웨이 서브넷을 만들 때 이 [값](#values)을 참조합니다.
 
+### 게이트웨이 서브넷을 만들려면
+
+[AZURE.INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
+
 [AZURE.INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
 ## 5\. 가상 네트워크 게이트웨이 만들기
 
 연습으로 이 구성을 만드는 경우 게이트웨이를 만들 때 이 [값](#values)을 참조합니다.
+
+### 가상 네트워크 게이트웨이를 만들려면
 
 [AZURE.INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
@@ -122,6 +126,8 @@ VNet이 만들어지면 여기에 다른 주소 공간 및 서브넷을 추가�
 *로컬 네트워크 게이트웨이*는 온-프레미스 위치를 가리킵니다. Azure에서 참조할 수 있는 이름을 로컬 네트워크 게이트웨이에 지정합니다.
 
 연습으로 이 구성을 만드는 경우 로컬 사이트를 추가할 때 이 [값](#values)을 참조합니다.
+
+### 로컬 네트워크 게이트웨이를 만들려면
 
 [AZURE.INCLUDE [vpn-gateway-add-lng-rm-portal](../../includes/vpn-gateway-add-lng-rm-portal-include.md)]
 
@@ -135,10 +141,14 @@ VNet이 만들어지면 여기에 다른 주소 공간 및 서브넷을 추가�
 
 이 섹션을 시작하기 전에 가상 네트워크 게이트웨이 및 로컬 네트워크 게이트웨이를 다 만들었는지 확인합니다. 연습으로 이 구성을 만드는 경우 연결을 만들 때 이 [값](#values)을 참조합니다.
 
+### VPN 연결을 만들려면
+
 
 [AZURE.INCLUDE [vpn-gateway-add-site-to-site-connection-rm-portal](../../includes/vpn-gateway-add-site-to-site-connection-rm-portal-include.md)]
 
 ## 9\. VPN 연결 확인
+
+포털에서 또는 PowerShell을 사용하여 VPN 연결을 확인할 수 있습니다.
 
 [AZURE.INCLUDE [vpn-gateway-verify-connection-rm](../../includes/vpn-gateway-verify-connection-rm-include.md)]
 
@@ -148,4 +158,4 @@ VNet이 만들어지면 여기에 다른 주소 공간 및 서브넷을 추가�
 
 - BGP에 대한 내용은 [BGP 개요](vpn-gateway-bgp-overview.md) 및 [BGP를 구성하는 방법](vpn-gateway-bgp-resource-manager-ps.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

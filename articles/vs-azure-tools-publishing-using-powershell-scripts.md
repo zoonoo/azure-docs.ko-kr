@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="04/19/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Windows PowerShell 스크립트를 사용하여 개발 및 테스트 환경에 게시
@@ -149,7 +149,7 @@ JSON 파일은 **Configurations** 폴더에 생성되며 Azure에 배포할 리�
 
 JSON 구성을 편집하여 게시 스크립트를 실행할 때 발생하는 결과를 변경할 수 있습니다. `cloudService` 및 `virtualMachine` 섹션은 필수이며 `databases` 섹션은 필요하지 않을 경우 삭제할 수 있습니다. Visual Studio에서 생성한 기본 구성 파일에 비어 있는 속성은 선택 사항입니다. 기본 구성 파일에 값이 있는 속성은 필수 속성입니다.
 
-Azure에 단일 프로덕션 사이트가 아닌 여러 배포 환경(슬롯이라고 함)이 포함된 웹 사이트가 있을 경우 JSON 구성 파일에서 웹 사이트 이름에 슬롯 이름을 포함할 수 있습니다. 예를 들어 이름이 **mysite**인 웹 사이트와 **test**라는 슬롯이 있을 경우 URI는 mysite-test.cloudapp.net이지만 구성 파일에서 사용해야 할 올바른 이름은 mysite(test)입니다. 구독에 웹 사이트와 슬롯이 이미 있는 경우에만 이렇게 할 수 있습니다. 없을 경우에는 슬롯을 지정하지 않고 스크립트를 실행한 다음 Azure 관리 포털에 슬롯을 만들고 수정한 웹 사이트 이름으로 스크립트를 실행합니다. 웹 앱의 배포 슬롯에 대한 자세한 내용은 [Azure 앱 서비스에서 웹 앱에 대한 스테이징 환경 설정](./app-service-web/web-sites-staged-publishing.md)을 참조하세요.
+Azure에 단일 프로덕션 사이트가 아닌 여러 배포 환경(슬롯이라고 함)이 포함된 웹 사이트가 있을 경우 JSON 구성 파일에서 웹 사이트 이름에 슬롯 이름을 포함할 수 있습니다. 예를 들어 이름이 **mysite**인 웹 사이트와 **test**라는 슬롯이 있을 경우 URI는 mysite-test.cloudapp.net이지만 구성 파일에서 사용해야 할 올바른 이름은 mysite(test)입니다. 구독에 웹 사이트와 슬롯이 이미 있는 경우에만 이렇게 할 수 있습니다. 없을 경우에는 슬롯을 지정하지 않고 스크립트를 실행한 다음 [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)에 슬롯을 만들고 수정한 웹 사이트 이름으로 스크립트를 실행합니다. 웹 앱의 배포 슬롯에 대한 자세한 내용은 [Azure 앱 서비스에서 웹 앱에 대한 스테이징 환경 설정](./app-service-web/web-sites-staged-publishing.md)을 참조하세요.
 
 ## 게시 스크립트 실행 방법
 
@@ -351,4 +351,4 @@ Windows PowerShell 명령 프롬프트에서 사용할 수 있는 함수에 대�
 
 [Windows PowerShell를 사용하여 스크립팅](https://technet.microsoft.com/library/bb978526.aspx)을 읽어 PowerShell 스크립팅에 대해 자세히 알아보고 [스크립트 센터](https://azure.microsoft.com/documentation/scripts/)에서 기타 Azure PowerShell 스크립트에 대해 알아보세요.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

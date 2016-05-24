@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="05/09/2016"
 	ms.author="kgremban"/>
 
 # 조건부 액세스로 작업하기
 > [AZURE.NOTE] 응용 프로그램 프록시는 Premium 또는 Basic 버전의 Azure Active Directory로 업그레이드하는 경우에만 사용할 수 있는 기능입니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
 
-이제 응용 프로그램 프록시를 사용하여 게시된 응용 프로그램에 액세스하는 사용자와 그룹에 조건부 액세스 권한을 부여하도록 액세스 규칙을 설정할 수 있습니다. 다음을 수행할 수 있습니다.
+응용 프로그램 프록시를 사용하여 게시된 응용 프로그램에 대한 조건부 액세스 권한을 부여하도록 액세스 규칙을 구성할 수 있습니다. 다음을 수행할 수 있습니다.
 
 - 응용 프로그램 당 Multi-Factor Authentication 요구
 - 사용자가 직장이 아닌 경우 Multi-Factor Authentication 요구
@@ -33,9 +33,7 @@
 
 - Azure Active Directory Premium 구독
 - 페더레이션 또는 관리되는 Azure Active Directory 테넌트
-- 페더레이션된 테넌트가 해당 MFA(Multi-Factor Authentication)의 사용 요구
-
-![액세스 규칙 구성 - 다단계 인증 필요](./media/active-directory-application-proxy-conditional-access/application-proxy-conditional-access.png)
+- 페더레이션된 테넌트가 해당 MFA(Multi-Factor Authentication)의 ![액세스 규칙 구성 - 다단계 인증 필요](./media/active-directory-application-proxy-conditional-access/application-proxy-conditional-access.png) 사용 요구
 
 ## 응용 프로그램당 Multi-Factor Authentication 구성
 1. Azure 클래식 포털에서 관리자로 로그인합니다.
@@ -63,23 +61,12 @@
 
 
 ## 참고 항목
-응용 프로그램 프록시를 사용하여 수행할 수 있는 작업은 많습니다.
 
-- [응용 프로그램 프록시를 사용하여 응용 프로그램 게시](active-directory-application-proxy-publish.md)
-- [고유한 도메인 이름을 사용하여 응용 프로그램 게시](active-directory-application-proxy-custom-domains.md)
-- [Single Sign-On 사용](active-directory-application-proxy-sso-using-kcd.md)
 - [클레임 인식 응용 프로그램으로 작업](active-directory-application-proxy-claims-aware-apps.md)
-- [응용 프로그램 프록시에서 발생한 문제 해결](active-directory-application-proxy-troubleshoot.md)
+- [응용 프로그램 프록시를 사용하여 응용 프로그램 게시](active-directory-application-proxy-publish.md)
+- [Single Sign-On 사용](active-directory-application-proxy-sso-using-kcd.md)
+- [고유한 도메인 이름을 사용하여 응용 프로그램 게시](active-directory-application-proxy-custom-domains.md)
 
-## 응용 프로그램 프록시에 대해 자세히 알아보기
-- [온라인 도움말에서 살펴보기](active-directory-application-proxy-enable.md)
-- [응용 프로그램 프록시 블로그 확인](http://blogs.technet.com/b/applicationproxyblog/)
-- [Channel 9에서 비디오 시청](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
+최신 뉴스 및 업데이트는 [응용 프로그램 프록시 블로그](http://blogs.technet.com/b/applicationproxyblog/)를 확인하세요.
 
-
-## 추가 리소스
-- [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
-- [조직으로 Azure에 등록](sign-up-organization.md)
-- [Azure ID](fundamentals-identity.md)
-
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

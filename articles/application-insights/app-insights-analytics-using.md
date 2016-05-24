@@ -43,7 +43,7 @@ Application Insights의 앱 홈 리소스에서 Analytics를 클릭합니다.
 ![](./media/app-insights-analytics-using/150.png)
 
 * 쿼리에 빈 줄을 넣으면 안 됩니다.
-* 쿼리에서는 줄 바꿈 하나를 사용할 수 있습니다.
+* 쿼리에서는 단일 줄 바꿈을 사용할 수 있습니다.
 * 창에서 여러 쿼리를 빈 줄로 구분하여 작성할 수 있습니다.
 * 쿼리를 실행하려면 **쿼리 안이나 끝에 커서를 놓고** 이동을 클릭합니다.
 
@@ -79,11 +79,11 @@ Application Insights의 앱 홈 리소스에서 Analytics를 클릭합니다.
 
 ## Excel로 내보내기
 
-쿼리를 실행한 후 .csv 파일을 다운로드할 수 있습니다. 이렇게 하려면 **내보내기 > Excel**을 클릭합니다.
+쿼리를 실행한 후 .csv 파일을 다운로드할 수 있습니다. 이렇게 하려면 **Excel로 내보내기**를 클릭합니다.
 
 ## Power BI에 내보내기
 
-1. 쿼리에 커서를 놓고 **내보내기 > Power BI**를 선택합니다.
+1. 쿼리에 커서를 놓고 **Power BI로 내보내기**를 선택합니다.
 
     ![](./media/app-insights-analytics-using/240.png)
 
@@ -101,6 +101,7 @@ Application Insights의 앱 홈 리소스에서 Analytics를 클릭합니다.
 
 
 
+
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0511_2016-->

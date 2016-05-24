@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="04/18/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Visual Studio로 사설 Azure 클라우드에 액세스
@@ -23,13 +23,13 @@
 
 ## Visual Studio의 사설 클라우드에 액세스 하려면
 
-1. 사설 클라우드를 위한 관리 포털에서 게시 설정 파일을 다운로드 하거나 게시 설정 파일에 대해 관리자에게 문의합니다. Azure의 공용 버전에서 이 설정의 다운로드에 대한 링크: [https://manage.windowsazure.com/publishsettings/](https://manage.windowsazure.com/publishsettings/). (다운로드하는 파일의 확장명에는.publishsettings 있어야 합니다.)
+1. 사설 클라우드를 위한 [Azure 클래식 포털](http://go.microsoft.com/fwlink/?LinkID=213885)에서 게시 설정 파일을 다운로드 하거나 게시 설정 파일에 대해 관리자에게 문의합니다. Azure의 공용 버전에서 이 설정의 다운로드에 대한 링크: [https://manage.windowsazure.com/publishsettings/](https://manage.windowsazure.com/publishsettings/). (다운로드하는 파일의 확장명에는.publishsettings 있어야 합니다.)
 
 1. **서버 탐색기**의 Visual Studio에서**Azure** 노드를 선택하고, 바로 가기 메뉴에서 **구독 관리** 명령을 선택합니다.
 
     ![구독 명령 관리](./media/vs-azure-tools-access-private-azure-clouds-with-visual-studio/IC790778.png)
 
-1. **Microsof Azure 구독 관리** 대화 상자에서 **인증서** 탭을 클릭한 후 **가져오기**를 클릭합니다.
+1. **Microsoft Azure 구독 관리** 대화 상자에서 **인증서** 탭을 클릭한 후 **가져오기**를 클릭합니다.
 
     ![Azure 인증서 가져오기](./media/vs-azure-tools-access-private-azure-clouds-with-visual-studio/IC790779.png)
 
@@ -43,4 +43,4 @@
 
 [방법: 게시 설정 및 구독 정보를 다운로드 및 가져오기] (https://msdn.microsoft.com/library/dn385850(v=nav.70).aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

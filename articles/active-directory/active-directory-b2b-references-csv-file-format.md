@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="03/31/2016"
+   ms.date="05/09/2016"
    ms.author="viviali"/>
 
 # Azure AD B2B 공동 작업 미리 보기: CSV 파일 형식
@@ -56,8 +56,8 @@ bsmith@contoso.com,Ben Smith,Hi Ben! I hope you’ve been doing well.,,cd3ed3de-
 
 ```
 
-## 관련된 문서
-Azure B2B 공동 작업에 대한 다른 문서 찾아보기
+## 관련 문서
+Azure AD B2B 공동 작업에 대한 다른 문서 찾아보기
 
 - [Azure AD B2B 공동 작업이란?](active-directory-b2b-what-is-azure-ad-b2b.md)
 - [작동 방법](active-directory-b2b-how-it-works.md)
@@ -67,4 +67,4 @@ Azure B2B 공동 작업에 대한 다른 문서 찾아보기
 - [현재 미리 보기 제한 사항](active-directory-b2b-current-preview-limitations.md)
 - [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

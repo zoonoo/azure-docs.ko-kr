@@ -19,64 +19,75 @@
 
 # PowerApps 엔터프라이즈에 새 OneDrive API 만들기
 
-> [AZURE.SELECTOR]
-- [논리 앱](../articles/connectors/connectors-create-api-onedrive.md)
-- [PowerApps 엔터프라이즈](../articles/power-apps/powerapps-create-api-onedrive.md)
+> [AZURE.IMPORTANT] 이 항목은 보관되고 곧 제거될 예정입니다. 새 [PowerApps](https://powerapps.microsoft.com)의 새로운 내용을 살펴보세요.
+> 
+> - PowerApps에 대해 자세히 알아보고 시작하려면 [PowerApps](https://powerapps.microsoft.com)로 이동합니다.  
+> - PowerApps에서 사용 가능한 연결에 대해 자세히 알아보려면 [사용 가능한 연결](https://powerapps.microsoft.com/tutorials/connections-list/)로 이동합니다. 
 
-조직의 (테넌트) 앱 서비스 환경에 OneDrive API를 추가합니다.
+<!--Archived
+Add the Onedrive API to your organization's (tenant) app service environment. 
 
-## Azure 포털에서 API 만들기
+## Create the API in the Azure portal
 
-1. [Azure 포털](https://portal.azure.com/)에서 회사 계정으로 로그인합니다. 예를 들어 *yourUserName*@*YourCompany*.com으로 로그인합니다. 그러면 회사 구독에 자동으로 로그인됩니다.
+1. In the [Azure portal](https://portal.azure.com/), sign-in with your work account. For example, sign-in with *yourUserName*@*YourCompany*.com. When you do this, you are automatically signed in to your company subscription.
  
-2. 작업 표시줄에서 **찾아보기**를 선택합니다. ![][14]
+2. Select **Browse** in the task bar:  
+![][14]
 
-3. 목록을 스크롤하여 PowerApps를 찾거나 *powerapps*를 입력합니다. ![][15]
+3. In the list, you can scroll to find PowerApps or type in *powerapps*:  
+![][15]  
 
-4. **PowerApps**에서 **API 관리**를 선택합니다. ![등록된 API 찾아보기][1]
+4. In **PowerApps**, select **Manage APIs**:    
+![Browse to registered apis][1]
 
-5. **API 관리**에서 **추가**를 선택하여 새 API를 추가합니다. ![API 추가][2]
+5. In **Manage APIs**, select **Add** to add the new API:  
+![Add API][2]
 
-6. API에 대한 설명이 포함된 **이름**을 입력합니다.
+6. Enter a descriptive **name** for your API.  
 	
-7. **원본**에서 **사용 가능한 API**를 선택하여 이미 만들어진 API를 선택한 다음 **OneDrive**를 선택합니다. ![OneDrive API 선택][3]
+7. In **Source**, select **Available APIs** to select the pre-built APIs, and select **OneDrive**:  
+![select OneDrive api][3]
 
-8. **설정 - 필수 설정 구성**을 선택합니다. ![OneDrive API 설정 구성][4]
+8. Select **Settings - Configure required settings**:  
+![configure OneDrive API settings][4]
 
-9. OneDrive 응용 프로그램의 *앱 키*와 *앱 암호*를 입력합니다. 없는 경우 이 항목의 "PowerApps에서 사용할 OneDrive 앱 등록" 섹션을 참조하여 필요한 키와 암호 값을 만듭니다.
+9. Enter the *App Key* and *App Secret* of your OneDrive application. If you don't have one, see the "Register a OneDrive app for use with PowerApps" section in this topic to create the key and secret values you need.  
 
-	> [AZURE.IMPORTANT] **리디렉션 URL**을 저장합니다. 이 항목 뒷부분에서 이 값이 필요할 수 있습니다.
+	> [AZURE.IMPORTANT] Save the **redirect URL**. You may need this value later in this topic.
 
-10. **확인**을 선택하여 이 단계를 완료합니다.
+10. Select **OK** to complete the steps.
 
-완료하면 새 OneDrive API가 앱 서비스 환경에 추가됩니다.
+When finished, a new OneDrive API is added to your app service environment.
 
-## 옵션: PowerApps에서 사용할 OneDrive 앱 등록
+## Optional: Register a OneDrive app for use with PowerApps
 
-키와 암호 값을 가진 기존 OneDrive 앱이 없는 경우 다음 단계를 사용하여 응용 프로그램을 만들고 필요한 값을 가져옵니다.
+If you don't have an existing OneDrive app with the key and secret values, then use the following steps to create the application, and get the values you need. 
 
-1. _Microsoft 계정 개발자 센터_의 [앱 만들기 페이지][5]로 이동하고 _Microsoft 계정_으로 로그인합니다.
+1. Go to the [app creation page][5] in _Microsoft account developer center_ and sign in with your _Microsoft Account_.
 
-2. **응용 프로그램 이름**을 입력하고 **동의함**을 선택합니다. ![OneDrive 새 앱][6]
+2. Enter your **Application name**, and select **I accept**:  
+![OneDrive new app][6]
 
-3. 설정 페이지에서:
+3. In the settings page:  
 
-	1. **API 설정**을 선택합니다.  
-	2. 리디렉션 URL을 이 항목의 Azure 포털에서 새 OneDrive API를 추가했을 때 받은 리디렉션 URL로 설정합니다.  
-	3. **저장**을 선택합니다.  
+	1. Select **API Settings**.  
+	2. Set the redirect URL to the redirect URL you received when you added the new OneDrive API in the Azure Portal (in this topic).  
+	3. Select **Save**.  
 
-	![OneDrive 앱 API 설정][7]
+	![OneDrive app API settings][7]
 
-새 OneDrive 앱이 만들어졌습니다. 이 앱을 Azure 포털의 OneDrive API 구성에서 사용할 수 있습니다.
+A new OneDrive app is created. You can use this app in your OneDrive API configuration in the Azure portal. 
 
-## REST API 참조
+## See the REST APIs
 
-[OneDrive REST API](../connectors/connectors-create-api-onedrive.md) 참조.
+[Onedrive REST API](../connectors/connectors-create-api-onedrive.md) reference.
 
-## 요약 및 다음 단계
-이 항목에서는 PowersApps 엔터프라이즈에 OneDrive API를 추가했습니다. 그 다음에는 이 API를 사용자의 앱에 추가할 수 있도록 사용자에게 이 API에 대한 액세스 권한을 부여합니다.
+## Summary and next steps
+In this topic, you added the OneDrive API to your PowersApps Enterprise. Next, give users access to the API so it can be added to their apps: 
 
-[연결 추가 및 사용자에게 액세스 권한 부여](powerapps-manage-api-connection-user-access.md)
+[Add a connection and give users access](powerapps-manage-api-connection-user-access.md)
+-->
+
 
 <!--References-->
 [1]: ./media/powerapps-create-api-onedrive/browse-to-registered-apis.PNG
@@ -89,4 +100,4 @@
 [14]: ./media/powerapps-create-api-onedrive/browseall.png
 [15]: ./media/powerapps-create-api-onedrive/allresources.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -71,7 +71,7 @@ VM이 프로비전되고 실행되면 데이터 디스크를 연결하고 탑재
 
 7. 다음 명령을 사용하여 프로비전을 해제한 VM을 중지합니다.
 
-	`azure vm stop –g <your-resource-group-name> -n <your-virtual-machine-name>`
+	`azure vm deallocate -g <your-resource-group-name> -n <your-virtual-machine-name>`
 
 8. 다음 명령을 사용하여 VM을 일반화합니다.
 
@@ -197,4 +197,4 @@ VM이 프로비전되고 실행되면 데이터 디스크를 연결하고 탑재
 
 CLI를 사용하여 VM을 관리하려면 [Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 가상 컴퓨터 배포 및 관리](virtual-machines-linux-cli-deploy-templates.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

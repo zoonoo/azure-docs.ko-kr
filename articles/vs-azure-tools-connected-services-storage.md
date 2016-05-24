@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="mobile"
-   ms.date="04/18/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Visual Studio 연결 서비스를 사용하여 Azure 저장소 추가
@@ -79,7 +79,7 @@ Visual Studio 2015에서 **연결된 서비스 추가** 대화 상자를 사용�
  - ASP.NET 프로젝트는 [변경된 내용 – ASP.NET 프로젝트](http://go.microsoft.com/fwlink/p/?LinkId=513126)를 참조하세요. 
  - ASP.NET 5 프로젝트는 [변경된 내용 – ASP.NET 5 프로젝트](http://go.microsoft.com/fwlink/p/?LinkId=513124)를 참조하세요. 
  - 클라우드 서비스 프로젝트(웹 역할 및 작업자 역할)는 [변경된 내용 – 클라우드 서비스 프로젝트](http://go.microsoft.com/fwlink/p/?LinkId=516965)를 참조하세요. 
- - WebJob 프로젝트는 [변경된 내용 -WebJob 프로젝트](vs-storage-webjobs-what-happened/)를 참조하세요.
+ - WebJob 프로젝트는 [변경된 내용 -WebJob 프로젝트](./storage/vs-storage-webjobs-what-happened.md)를 참조하세요.
 
 ## 다음 단계
 
@@ -94,4 +94,4 @@ Visual Studio 2015에서 **연결된 서비스 추가** 대화 상자를 사용�
 
      - [azure.microsoft.com의 저장소 설명서](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

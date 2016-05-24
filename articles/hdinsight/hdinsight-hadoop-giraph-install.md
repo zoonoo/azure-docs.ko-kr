@@ -83,7 +83,9 @@ SimpleShortestPathsComputation 예제를 사용하여 그래프의 개체 간 �
 
 
 
-4. SimpleShortestPathsComputation 예제를 실행합니다. 다음 Azure PowerShell cmdlet에서 tiny\_graph.txt 파일을 입력으로 사용하여 예제를 실행합니다. 그렇게 하려면 [Azure PowerShell][powershell-install]을 설치하고 구성해야 합니다.
+4. SimpleShortestPathsComputation 예제를 실행합니다. 다음 Azure PowerShell cmdlet에서 tiny\_graph.txt 파일을 입력으로 사용하여 예제를 실행합니다.
+
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 		$clusterName = "clustername"
 		# Giraph examples jar
@@ -181,4 +183,4 @@ SimpleShortestPathsComputation 예제를 사용하여 그래프의 개체 간 �
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

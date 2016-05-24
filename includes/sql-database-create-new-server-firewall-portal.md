@@ -30,6 +30,9 @@ Azure 포털에서 다음 단계를 사용하여 (클라이언트 컴퓨터의)�
 
  	![새 서버 방화벽](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-4.png)
     
+
+ 	> [AZURE.IMPORTANT] 살펴보는 블레이드에서 **방화벽**에 대한 옵션이 표시되지 않으면 다시 돌아가서 SQL 데이터베이스에 대한 블레이드가 아니라 SQL 데이터베이스 논리 서버에 대한 블레이드를 보고 있는지 확인합니다.
+
 5. **클라이언트 IP 추가**를 클릭하여 Azure에서 클라이언트 IP 주소에 규칙을 생성하도록 합니다.
 
       ![새 서버 방화벽](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-5.png)

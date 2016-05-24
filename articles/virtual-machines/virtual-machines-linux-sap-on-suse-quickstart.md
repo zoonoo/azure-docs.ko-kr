@@ -14,7 +14,7 @@
    ms.topic="campaign-page"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="na"
-   ms.date="02/12/2016"
+   ms.date="05/04/2016"
    ms.author="hermannd"/>
 
 # Microsoft Azure SUSE Linux VM에서 SAP NetWeaver 테스트
@@ -161,4 +161,4 @@ Gnome 데스크톱을 사용하여 SAP GUI, 브라우저 및 SAP 관리 콘솔�
 
 가상화된 환경에서 Linux의 Oracle을 지원하는 것에 관한 제한 사항이 있습니다. Azure 관련 항목은 아니지만 이해하는 것이 중요합니다. SAP은 Azure와 같은 공용 클라우드에 있는 SUSE 또는 Red Hat에서 Oracle을 지원하지 않습니다. 이 항목을 논의하려면 Oracle에 직접 문의합니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->

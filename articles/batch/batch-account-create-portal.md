@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/18/2016"
+	ms.date="05/12/2016"
 	ms.author="marsma"/>
 
 # Azure 포털에서 Azure 배치 계정 만들기 및 관리
@@ -50,7 +50,7 @@
 
 	d. **위치** - 배치 계정을 만들 Azure 지역을 선택합니다. 구독 및 리소스 그룹에서 지원하는 지역만 옵션으로 표시됩니다.
 
-    e. **저장소 계정**(선택 사항) - 저장소 계정을 새 배치 계정에 연결(링크)할 수 있습니다. 배치의 [응용 프로그램 패키지](batch-application-packages.md) 기능은 저장소를 위한 연결된 저장소 계정과 응용 프로그램 패키지의 검색을 사용합니다. 이 기능에 대한 자세한 내용은 [Azure 배치 응용 프로그램 패키지를 사용하여 응용 프로그램 배포](batch-application-packages.md)를 참조하세요.
+    e. **저장소 계정**(선택 사항) - **범용** 저장소 계정을 새 배치 계정에 연결(링크)할 수 있습니다. 배치의 [응용 프로그램 패키지](batch-application-packages.md) 기능은 저장소를 위한 연결된 저장소 계정과 응용 프로그램 패키지의 검색을 사용합니다. 이 기능에 대한 자세한 내용은 [Azure 배치 응용 프로그램 패키지를 사용하여 응용 프로그램 배포](batch-application-packages.md)를 참조하세요.
 
      > [AZURE.TIP] 연결된 저장소 계정에 키를 다시 생성하려면 특별히 고려할 사항이 있습니다. 자세한 내용은 [배치 계정을 위한 고려 사항](#considerations-for-batch-accounts)을 참조하세요.
 
@@ -66,7 +66,7 @@
 
   `https://<account_name>.<region>.batch.azure.com`
 
-* **액세스 키** - 배치 계정의 액세스 키를 보고 관리하려면 키 아이콘을 클릭하여 **키 관리** 블레이드를 열거나 **모든 설정** > **키**를 클릭합니다. [Batch REST][api_rest] 또는 [Batch .NET][api_net] 클라이언트 라이브러리와 같은 배치 서비스 API와 통신할 때 액세스 키가 필요합니다.
+* **액세스 키** - 배치 계정의 액세스 키를 보고 관리하려면 키 아이콘을 클릭하여 **키 관리** 블레이드를 열거나 **모든 설정** > **키**를 클릭합니다. [Batch REST][api_rest] 또는 [Batch .NET][api_net] 클라이언트 라이브러리와 같은 배치 서비스 API와 통신할 때 선택키가 필요합니다.
 
  ![Batch 계정 키][account_keys]
 
@@ -84,9 +84,11 @@
 
 * 여러 대규모 배치 작업을 실행하고 있는 경우 Azure 구독 및 각 배치 계정에 적용하는 특정 [배치 서비스 할당량 및 제한](batch-quota-limit.md)에 유의해야 합니다. 배치 계정의 현재 할당량이 계정 속성의 포털에 표시됩니다.
 
-* 저장소 계정을 배치 계정에 연결하는 경우 저장소 계정 액세스 키를 다시 생성할 때 주의하세요. 단일 저장소 계정 키만 다시 생성해야 하며 연결된 저장소 계정 블레이드에서 **동기화 키**를 클릭하고 키가 풀에 있는 계산 노드에 전파되도록 5분 기다린 후 필요한 경우 다른 키를 다시 생성하고 동기화합니다. 동시에 두 키를 다시 생성하는 경우 계산 노드에서 키를 동기화할 수 없으며 저장소 계정에 액세스할 수 없게 됩니다.
+* 저장소 계정을 배치 계정에 연결(링크)하는 경우 저장소 계정 액세스 키를 다시 생성할 때 주의하세요. 단일 저장소 계정 키만 다시 생성해야 하며 연결된 저장소 계정 블레이드에서 **동기화 키**를 클릭하고 키가 풀에 있는 계산 노드에 전파되도록 5분 기다린 후 필요한 경우 다른 키를 다시 생성하고 동기화합니다. 동시에 두 키를 다시 생성하는 경우 계산 노드에서 키를 동기화할 수 없으며 저장소 계정에 액세스할 수 없게 됩니다.
 
   ![저장소 계정 키 다시 생성][4]
+
+> [AZURE.IMPORTANT] 배치는 현재 [Azure 저장소 계정 정보](../storage/storage-create-storage-account.md)의 5단계 [저장소 계정 만들기](../storage/storage-create-storage-account.md#create-a-storage-account)에서 설명한 대로 **범용** 저장소 계정 유형*만*을 지원합니다. Azure 저장소 계정을 배치 계정에 연결할 경우 **범용** 저장소 계정*만*을 연결합니다.
 
 ## 다음 단계
 
@@ -107,4 +109,4 @@
 [account_portal]: ./media/batch-account-create-portal/batch_acct_portal.png
 [account_keys]: ./media/batch-account-create-portal/account_keys.PNG
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

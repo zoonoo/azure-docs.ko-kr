@@ -2,6 +2,7 @@
 
 **리소스** | **기본 제한** | **최대 제한**
 -------- | ------------- | -------------
+Azure 구독의 데이터 팩터리 | 50 | [지원에 문의](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 데이터 팩터리 내의 파이프라인 | 100 | 2500
 데이터 팩터리 내의 데이터 집합 | 500 | 5000
 데이터 집합당 동시 조각 | 10 | 10
@@ -29,4 +30,4 @@
 
 Azure 리소스 관리자에는 API 호출 제한이 있습니다. [Azure 리소스 관리자 API 제한](../azure-subscription-service-limits/#resource-group-limits) 범위 안의 속도로 API 호출을 수행할 수 있습니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+

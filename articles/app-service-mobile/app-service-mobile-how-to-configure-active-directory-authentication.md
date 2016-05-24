@@ -2,9 +2,9 @@
 	pageTitle="앱 서비스 응용 프로그램에 대해 Azure Active Directory 인증을 구성하는 방법"
 	description="앱 서비스 응용 프로그램에 대해 Azure Active Directory 인증을 구성하는 방법을 알아봅니다."
 	authors="mattchenderson"
-	services="app-service\mobile"
+	services="app-service"
 	documentationCenter=""
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="05/04/2016"
 	ms.author="mahender"/>
 
 # Azure Active Directory 로그인을 사용하도록 앱 서비스 응용 프로그램을 구성하는 방법
@@ -21,9 +21,6 @@
 [AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
 이 항목에서는 Azure Active Directory를 인증 공급자로 사용하도록 Azure 앱 서비스를 구성하는 방법을 보여 줍니다.
-
-> [AZURE.NOTE] 이 항목에서는 앱 서비스 인증/권한 부여 기능을 사용하는 과정을 보여 줍니다. 이는 대부분의 응용 프로그램에 대한 앱 서비스 게이트웨이를 대체합니다. 게이트웨이를 사용하는 경우 [대체 방법]을 참조하세요. 게이트웨이 사용에 적용되는 차이가 해당 섹션의 참고에 설명되어 있습니다.
-
 
 ## <a name="express"> </a>기본 설정을 사용하여 Azure Active Directory 구성
 
@@ -68,22 +65,13 @@
 
     ![][3]
 
-
-	> [AZURE.NOTE]
-	앱 서비스 인증/권한 부여 기능 대신 앱 서비스 게이트웨이를 사용 중인 경우 회신 URL은 _/signin-aad_ 경로가 추가된 게이트웨이 URL을 대신 사용합니다.
-
-
-9. **Save**를 클릭합니다. 그런 다음 앱의 **클라이언트 ID**를 복사합니다. 나중에 이를 사용하도록 응용 프로그램을 구성합니다.
+9. **저장**을 클릭합니다. 그런 다음 앱의 **클라이언트 ID**를 복사합니다. 나중에 이를 사용하도록 응용 프로그램을 구성합니다.
 
 10. 맨 아래 명령 모음에서 **끝점 보기**를 클릭한 다음 **페더레이션 메타데이터 문서** URL을 복사하고 해당 문서를 다운로드하거나 브라우저에서 이 문서로 이동합니다.
 
 11. 루트 **EntityDescriptor** 요소 내에 테넌트에 관련된 GUID(“테넌트 ID”라고 함) 앞에 양식 `https://sts.windows.net/`의 **entityID** 특성이 있어야 합니다. 이 값을 복사하여 **발급자 URL**로 사용합니다. 나중에 이를 사용하도록 응용 프로그램을 구성합니다.
 
 ### <a name="secrets"> </a>응용 프로그램에 Azure Active Directory 정보 추가
-
-> [AZURE.NOTE]
-앱 서비스 게이트웨이를 사용하는 경우 이 섹션을 무시하고 대신 포털에서 게이트웨이로 이동합니다. **설정**, **ID**, **Azure Active Directory**를 차례로 선택합니다. ClientID를 붙여넣고 **허용된 테넌트** 목록에 테넌트 ID를 추가합니다. **저장**을 클릭합니다.
-
 
 13. [Azure 포털]로 돌아가서 응용 프로그램으로 이동합니다. **설정**을 클릭한 다음 **인증/권한 부여**를 클릭합니다.
 
@@ -113,7 +101,7 @@ Azure Active Directory를 사용하면 권한 매핑에 대해 보다 강력한 
 
 4. 응용 프로그램 추가 마법사에서 응용 프로그램의 **이름**을 입력하고 **네이티브 클라이언트 응용 프로그램** 유형을 클릭합니다. 계속하려면 클릭합니다.
 
-5. HTTPS 체계를 사용하여 **리디렉션 URI** 상자에 사이트의 _/.auth/login/done_ 끝점을 입력합니다. 이 값은 \__https://contoso.azurewebsites.net/.auth/login/done_와 유사해야 합니다.
+5. HTTPS 체계를 사용하여 **리디렉션 URI** 상자에 사이트의 _/.auth/login/done_ 끝점을 입력합니다. 이 값은 \__https://contoso.azurewebsites.net/.auth/login/done_와 유사해야 합니다. Windows 응용 프로그램을 만드는 경우 URI로 [패키지 SID](app-service-mobile-dotnet-how-to-use-client-library.md#package-sid)를 사용합니다.
 
 6. 네이티브 응용 프로그램이 추가되면 **구성** 탭을 클릭합니다. **클라이언트 ID**를 찾고 이 값을 기록해 둡니다.
 
@@ -140,7 +128,6 @@ Azure Active Directory를 사용하면 권한 매핑에 대해 보다 강력한 
 
 [Azure 포털]: https://portal.azure.com/
 [Azure 클래식 포털]: https://manage.windowsazure.com/
-[ios-adal]: ../app-service-mobile-xamarin-ios-aad-sso.md
-[대체 방법]: #advanced
+[alternative method]: #advanced
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0511_2016-->

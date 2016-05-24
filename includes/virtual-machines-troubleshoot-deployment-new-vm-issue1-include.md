@@ -1,5 +1,5 @@
-## Issue: Custom image; provisioning errors
+## 문제: 사용자 지정 이미지; 프로비전 오류
 
-Provisioning errors arise if you upload or capture a generalized VM image as a specialized VM image or vice versa. The former will cause a provisioning timeout error and the latter will cause a provisioning failure. To deploy your custom image without errors, you must ensure that the type of the image does not change during the capture process.
+프로비전 오류는 일반화된 VM 이미지를 특수화된 VM 이미지로 또는 그 반대로 업로드하거나 캡처하는 경우에 발생합니다. 전자의 경우는 프로비전 시간 초과 오류를, 후자는 프로비전 실패를 유발합니다. 오류 없이 사용자 지정 이미지를 배포하려면, 캡처 프로세스 중에 이미지 유형이 변경되지 않도록 해야 합니다.
 
-The following table lists the possible combinations of generalized and specialized images, the error type you will encounter and what you need to do to fix the errors.
+다음 테이블은 일반화 및 특수화된 이미지의 가능한 조합, 접하게 되는 오류 유형, 오류를 해결하기 위해 수행할 작업이 나열되어 있습니다.

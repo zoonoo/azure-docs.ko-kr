@@ -290,10 +290,10 @@ swagger.io 온라인 편집기를 사용하여 API의 구조를 나타내는 Swa
 	![Azure에서 Java 연락처 REST API 라이브 사용](media/app-service-api-java-api-app/postman-calling-azure-contacts.png)
 	
 ## 다음 단계
-이 문서에서는 Swagger.io 편집기에서 가져온 Swagger JSON 파일 및 스캐폴드된 Java 코드를 시작할 수 있었습니다. 여기서부터 간단한 변경 내용 및 Git 배포 프로세스가 Java로 작성된 기능 API 앱을 갖게 됩니다. API 앱 시작 시리즈의 다음 자습서에서는 [CORS를 사용하여 JavaScript 클라이언트에서 API 앱을 사용](app-service-api-cors-consume-javascript.md)하는 방법을 보여 줍니다.
+이 문서에서는 Swagger.io 편집기에서 가져온 Swagger JSON 파일 및 스캐폴드된 Java 코드를 시작할 수 있었습니다. 여기서부터 간단한 변경 내용 및 Git 배포 프로세스가 Java로 작성된 기능 API 앱을 갖게 됩니다. 다음 자습서에서는 [CORS를 사용하여 JavaScript 클라이언트에서 API 앱을 사용](app-service-api-cors-consume-javascript.md)하는 방법을 보여 줍니다. 시리즈의 후반부 자습서에서는 인증 및 권한 부여를 구현하는 방법을 보여 줍니다.
 
 이 샘플을 작성하려면 JSON blob를 유지하기 위해 [Java용 저장소 SDK](../storage/storage-java-how-to-use-blob-storage.md)에 대한 자세한 정보를 알아볼 수 있습니다. 또는 [Document DB Java SDK](../documentdb/documentdb-java-application.md)를 사용하여 Azure Document DB에 연락처 데이터를 저장할 수 있습니다.
 
 Azure에서 Java를 사용하는 방법에 대한 자세한 내용은 [Java 개발자 센터](/develop/java/)를 참조하세요.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->
