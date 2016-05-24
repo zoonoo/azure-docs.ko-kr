@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="이벤트 허브 인증 및 보안 모델의 개요 | Microsoft Azure"
-   description="이벤트 허브 인증 및 보안 모델 개요"
-   services="event-hubs"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="" />
+    pageTitle="이벤트 허브 인증 및 보안 모델의 개요 | Microsoft Azure"
+    description="이벤트 허브 인증 및 보안 모델 개요"
+    services="event-hubs"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="event-hubs"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="01/26/2016"
-   ms.author="sethm" />
+    ms.service="event-hubs"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/03/2016"
+    ms.author="sethm;clemensv" />
 
 # 이벤트 허브 인증 및 보안 모델 개요
 
@@ -25,9 +25,9 @@
 
 ## 장치 인증
 
-이벤트 허브 보안 모델은 [공유 액세스 서명(SAS)](../service-bus/service-bus-shared-access-signature-authentication.md) 토큰 및 이벤트 게시자의 조합을 기반으로 합니다. 이벤트 게시자는 이벤트 허브에 대한 가상 끝점을 정의합니다. 게시자는 이벤트 허브에 메시지를 보내는 데만 사용할 수 있습니다. 게시자에서 메시지를 받을 수 없습니다.
+이벤트 허브 보안 모델은 [공유 액세스 서명(SAS)](../service-bus/service-bus-shared-access-signature-authentication.md) 토큰 및 *이벤트 게시자*의 조합을 기반으로 합니다. 이벤트 게시자는 이벤트 허브에 대한 가상 끝점을 정의합니다. 게시자는 이벤트 허브에 메시지를 보내는 데만 사용할 수 있습니다. 게시자에서 메시지를 받을 수 없습니다.
 
-일반적으로 이벤트 허브에서는 장치 당 하나의 게시자를 사용합니다. 이벤트 허브의 게시자에게 전달되는 모든 메시지는 해당 이벤트 허브 내에서 큐에 삽입합니다. 게시자는 세분화된 액세스 제어 및 제한을 허용합니다.
+일반적으로 이벤트 허브에서는 장치 당 하나의 게시자를 사용합니다. 이벤트 허브의 게시자에게 전달되는 모든 메시지는 해당 이벤트 허브 내에서 큐에 삽입합니다. 게시자는 세분화된 액세스 제어 및 제한을 사용하도록 설정합니다.
 
 각 장치는 장치에 업로드되는 고유 토큰을 할당합니다. 각 고유 토큰이 고유한 다른 게시자에 대한 액세스가 허용되도록 토큰이 생성됩니다. 토큰을 소유하는 장치는 하나의 게시자에게만 보낼 수 있으며 다른 게시자에는 보낼 수 없습니다. 여러 장치에서 동일한 토큰을 공유하는 경우 이러한 각 장치들은 게시자를 공유합니다.
 
@@ -50,7 +50,7 @@ Uri uri = ServiceBusEnvironment.CreateServiceUri("sb", serviceNamespace, string.
 TokenProvider td = TokenProvider.CreateSharedAccessSignatureTokenProvider(namespaceManageKeyName, namespaceManageKey);
 NamespaceManager nm = new NamespaceManager(namespaceUri, namespaceManageTokenProvider);
 
-// Create Event hub with a SAS rule that allows sending to that Event hub
+// Create Event Hub with a SAS rule that enables sending to that Event Hub
 EventHubDescription ed = new EventHubDescription("MY_EVENT_HUB") { PartitionCount = 32 };
 string eventHubSendKeyName = "EventHubSendKey";
 string eventHubSendKey = SharedAccessAuthorizationRule.GenerateRandomKey();
@@ -145,7 +145,7 @@ ACS는 서비스 ID, 신뢰 당사자 및 규칙을 만드는 여러 방법을 �
 
 이벤트 허브에 대한 자세한 내용은 다음 항목을 방문하세요.
 
-- [이벤트 허브 개요].
+- [이벤트 허브 개요]
 - [이벤트 허브를 사용하는 샘플 응용 프로그램] 전체.
 - 서비스 버스 큐를 사용하는 [큐 메시징 솔루션].
 
@@ -154,4 +154,4 @@ ACS는 서비스 ID, 신뢰 당사자 및 규칙을 만드는 여러 방법을 �
 [큐 메시징 솔루션]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0511_2016-->

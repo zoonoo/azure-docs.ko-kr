@@ -4,7 +4,7 @@
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"/>
 
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/23/2016"
+   ms.date="05/09/2016"
    ms.author="cherylmc" />
 
 # 클래식 배포 모델에 대한 VPN 게이트웨이 구성
@@ -162,12 +162,10 @@ VPN 장치를 구성한 후 VNet에 대한 대시보드 페이지에서 업데�
 
 ## 다음 단계
 
-[가상 네트워크에 대한 보안 프레미스 간 연결 정보](vpn-gateway-cross-premises-options.md) 문서에서 가상 네트워크 프레미스 간 연결에 대해 알아볼 수 있습니다.
-
 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. [사용자 지정 가상 컴퓨터를 만드는 방법](../virtual-machines/virtual-machines-windows-classic-createportal.md)을 참조하세요.
 
 지점 및 사이트 간 VPN 연결을 구성하려면 [지점 및 사이트 간 VPN 연결 구성](vpn-gateway-point-to-site-create.md)을 참조하세요.
 
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->

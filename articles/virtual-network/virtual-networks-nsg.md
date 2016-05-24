@@ -40,8 +40,7 @@ NSG 규칙은 다음 속성을 포함합니다.
 |---|---|---|---|
 |**Name**|규칙의 이름|지역 내에서 고유해야 합니다.<br/>문자, 숫자, 밑줄, 마침표, 하이픈을 포함할 수 있습니다.<br/>문자 또는 숫자로 시작해야 합니다.<br/>문자, 숫자 또는 밑줄로 끝나야 합니다.<br/>최대 80자까지 포함할 수 있습니다.|NSG 내에 몇 개의 규칙을 포함할 수 있습니다. 따라서 규칙의 기능을 식별할 수 있도록 명명 규칙을 따라야 합니다.|
 |**프로토콜**|규칙과 일치하는 프로토콜|TCP, UDP, 또는 *|프로토콜에 *를 사용하면 ICMP(동부 및 서부 트래픽에만 해당)는 물론 UDP와 TCP가 포함되며 필요한 규칙의 수를 줄일 수 있습니다.<br/>그렇지만 *를 사용하면 방식의 폭이 너무 넓어질 수 있으므로 정말 필요한 경우에만 사용하도록 주의해야 합니다.|
-|**원본 포트 범위**|규칙과 일치하는 원본 포트 범위|1에서 65535까지의 단일 포트 번호, 포트 범위(예: 1-65635) 또는 \*(모든 포트에 해당)|원본 포트는 사용 후 삭제될 수 있습니다. 클라이언트 프로그램이 특정 포트를 사용하지 않으면 대부분의 경우 "*" 을 사용합니다.<br/>여러 규칙을 피하기 위해 포트 범위를 가능한 한 많이 사용하도록 합니다.<br/>여러 포트 또는 포트 범위는 쉼표로 그룹화될 수 없습니다| 
-|**대상 포트 범위**|규칙과 일치하는 대상 포트 범위|1에서 65535까지의 단일 포트 번호, 포트 범위(예: 1-65535) 또는 *(모든 포트에 해당)|여러 규칙을 피하기 위해 포트 범위를 가능한 한 많이 사용하도록 합니다.<br/>여러 포트 또는 포트 범위는 쉼표로 그룹화될 수 없습니다
+|**원본 포트 범위**|규칙과 일치하는 원본 포트 범위|1에서 65535까지의 단일 포트 번호, 포트 범위(예: 1-65635) 또는 *(모든 포트에 해당)|원본 포트는 사용 후 삭제될 수 있습니다. 클라이언트 프로그램이 특정 포트를 사용하지 않으면 대부분의 경우 "*"을 사용합니다.<br/>여러 규칙을 피하기 위해 포트 범위를 가능한 한 많이 사용하도록 합니다.<br/>여러 포트 또는 포트 범위는 쉼표로 그룹화될 수 없습니다 |**대상 포트 범위**|규칙과 일치하는 대상 포트 범위|1에서 65535까지의 단일 포트 번호, 포트 범위(예: 1-65535) 또는 *(모든 포트에 해당)|여러 규칙을 피하기 위해 포트 범위를 가능한 한 많이 사용하도록 합니다<br/>여러 포트 또는 포트 범위는 쉼표로 그룹화될 수 없습니다
 |**원본 주소 접두사**|규칙과 일치하는 원본 주소 접두사 또는 태그|단일 IP 주소(예: 10.10.10.10), IP 서브넷(예: 192.168.1.0/24), [기본 태그](#Default-Tags) 또는 *(모든 주소에 해당)|규칙의 수를 줄이기 위해서 범위, 기본 태그, *를 사용하는 것이 좋습니다.|
 |**대상 주소 접두사**|규칙과 일치하는 대상 주소 접두사 또는 태그|단일 IP 주소(예: 10.10.10.10), IP 서브넷(예: 192.168.1.0/24), [기본 태그](#Default-Tags) 또는 *(모든 주소에 해당)|규칙의 수를 줄이기 위해서 범위, 기본 태그, *를 사용하는 것이 좋습니다.|
 |**방향**|규칙과 일치하는 트래픽의 방향|인바운드 또는 아웃바운드|인바운드 규칙과 아웃바운드 규칙은 방향에 근거하여 별도로 처리됩니다.|
@@ -125,10 +124,10 @@ NSG에는 인바운드 및 아웃바운드의 두 가지 규칙 집합이 포함
 |배포 도구|클래식|리소스 관리자|
 |---|---|---|
 |클래식 포털|![아니요][red]|![아니요][red]|
-|Azure 포털|![예][green]|[![예][green]]( https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-pportal)|
-|PowerShell|[![예][green]]( https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-ps)|[![예][green]]( https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-ps)|
-|Azure CLI|[![예][green]]( https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-cli)|[![예][green]]( https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-cli)|
-|ARM 템플릿|![아니요][red]|[![예][green]](https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-template)|
+|Azure 포털|![예][green]|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-pportal">![예][green]</a>|
+|PowerShell|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-ps">![예][green]</a>|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-ps">![예][green]</a>|
+|Azure CLI|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-cli">![예][green]</a>|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-cli">![예][green]</a>|
+|ARM 템플릿|![아니요][red]|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-template">![예][green]</a>|
 
 |**키**|![예][green] 지원됩니다. 문서를 클릭합니다.|![아니요][red] 지원되지 않습니다.|
 |---|---|---|
@@ -173,7 +172,7 @@ NSG가 서브넷에 적용될 수 있기 때문에, 서브넷에 따라서 리�
 
 ### ICMP 트래픽
 
-현재 NSG 규칙은 *TCP* 또는 *UDP* 프로토콜만 허용합니다. *ICMP*에 대한 고유 태그는 없습니다. 그러나 ICMP 트래픽은 기본적으로 VNet 내의 모든 포트 및 프로토콜 '*'의 송/수신 트래픽을 허용하는 인바운드 VNet 규칙(기본 규칙 65500 인바운드)을 통해 가상 네트워크 내에서 허용됩니다.
+현재 NSG 규칙은 *TCP* 또는 *UDP* 프로토콜만 허용합니다. *ICMP*에 대한 고유 태그는 없습니다. 그러나 ICMP 트래픽은 기본적으로 VNet 내의 모든 포트 및 프로토콜의 송/수신 트래픽을 허용하는 인바운드 VNet 규칙(기본 규칙 65000 인바운드)을 통해 가상 네트워크 내에서 허용됩니다.
 
 ### 서브넷
 
@@ -282,4 +281,4 @@ NSG가 서브넷에 적용될 수 있기 때문에, 서브넷에 따라서 리�
 [yellow]: ./media/virtual-network-nsg-overview/yellow.png
 [red]: ./media/virtual-network-nsg-overview/red.png
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

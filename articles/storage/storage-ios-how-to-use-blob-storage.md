@@ -1,6 +1,6 @@
 <properties
     pageTitle="iOS에서 Azure Blob 저장소를 사용하는 방법 | Microsoft Azure"
-    description="Azure Blob 저장소를 사용하여 Blob 콘텐츠를 업로드, 다운로드, 나열 및 삭제하는 방법을 알아봅니다. 샘플은 Objective-C로 작성되었습니다."
+	description="Azure Blob 저장소(개체 저장소)를 사용하여 클라우드에 구조화되지 않은 데이터를 저장합니다."
     services="storage"
     documentationCenter="ios"
     authors="micurd"
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Objective-C"
     ms.topic="article"
-    ms.date="01/05/2016"
+    ms.date="04/11/2016"
     ms.author="micurd"/>
 
 # iOS에서 Blob 저장소를 사용하는 방법
@@ -111,7 +111,7 @@ iOS 응용 프로그램에서 Blob 저장소에 대해 클라이언트의 요청
 		// Get a reference to a container in your Storage account
     	AZSCloudBlobContainer *blobContainer = [[AZSCloudBlobContainer alloc] initWithUrl:[NSURL URLWithString:@" your SAS URL"]];
 
-보시는 바와 같이 SAS 토큰을 사용하는 경우, iOS 응용 프로그램에서 계정 이름 및 계정 키가 노출되지 않습니다. [공유 액세스 서명: SAS 모델 이해](../storage-dotnet-shared-access-signature-part-1)를 확인하여 SAS에 대해 자세히 알아볼 수 있습니다.
+보시는 바와 같이 SAS 토큰을 사용하는 경우, iOS 응용 프로그램에서 계정 이름 및 계정 키가 노출되지 않습니다. [공유 액세스 서명: SAS 모델 이해](storage-dotnet-shared-access-signature-part-1.md)를 확인하여 SAS에 대해 자세히 알아볼 수 있습니다.
 
 ##비동기 작업
 > [AZURE.NOTE] 서비스에 대한 요청을 수행하는 모든 메서드는 비동기 작업입니다. 코드 샘플에서 이러한 메서드에는 완료 처리기가 있음을 확인할 수 있습니다. 완료 처리기 내에 있는 코드는 요청이 완료된 **후** 실행됩니다. 완료 처리기 이후 코드는 요청이 이루어지는 **동안** 실행됩니다.
@@ -355,4 +355,4 @@ NSString에서 블록 Blob를 업로드하는 것 외에도 이와 유사한 메
 
 이 라이브러리에 대한 문의 사항이 있는 경우 [MSDN Azure 포럼](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) 또는 [스택 오버플로](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files)에 자유롭게 게시해 주세요. Azure 저장소에 대한 기능 제안 사항이 있는 경우 [Azure 저장소 피드백](https://feedback.azure.com/forums/217298-storage/)에 게시해 주세요.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0511_2016-->

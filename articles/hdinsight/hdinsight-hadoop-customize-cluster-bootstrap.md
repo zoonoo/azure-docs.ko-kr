@@ -33,6 +33,9 @@
 Bootstrap을 사용하는 방법은 3가지가 있습니다.
 
 - Azure PowerShell 사용
+
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+    
 - .NET SDK 사용
 - ARM 템플릿 사용
 
@@ -79,7 +82,7 @@ Bootstrap을 사용하는 방법은 3가지가 있습니다.
 7. **Configs** 탭을 클릭합니다.
 8. 왼쪽 메뉴에서 **Hive**를 클릭합니다.
 9. **고급** 탭을 클릭합니다.
-10. 스크롤을 내린 다음 **고급 Hive 사이트**를 확장합니다.
+10. 스크롤을 내린 다음 **고급 hive 사이트**를 확장합니다.
 11. 섹션에서 **hive.metastore.client.socket.timeout**을 찾습니다.
 
 다른 구성 파일을 사용자 지정하는 추가 샘플:
@@ -249,4 +252,4 @@ ARM 템플릿에 부트스트랩을 사용할 수 있습니다.
 
     #endregion
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -1,9 +1,9 @@
 <properties
-	pageTitle="분할(행 분할)을 위한 탄력적 쿼리 시작 | Microsoft Azure"
+	pageTitle="확장된 클라우드 데이터베이스에서 보고(수평 분할) | Microsoft Azure"
 	description="데이터베이스 간 쿼리 사용 방법"
 	services="sql-database"
 	documentationCenter=""  
-	manager="jeffreyg"
+	manager="jhubbard"
 	authors="sidneyh"/>
 
 <tags
@@ -12,14 +12,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="04/26/2016"
 	ms.author="SilviaDoomra" />
 
-# 분할(행 분할)을 위한 탄력적 쿼리 시작
+# 확장된 클라우드 데이터베이스에서 보고(미리 보기)
 
-Azure SQL 데이터베이스에 탄력적 데이터베이스 쿼리 (미리 보기)를 사용 하면 단일 연결 지점을 사용하여 여러 데이터베이스에 걸쳐 있는 T-SQL 쿼리를 실행할 수 있습니다. 탄력적 데이터베이스 쿼리 기능에 대한 자세한 내용은 [기능 개요 페이지](sql-database-elastic-query-overview.md)를 참조하세요.
+[탄력적 쿼리](sql-database-elastic-query-overview.md)를 사용하여 단일 연결 지점의 여러 Azure SQL 데이터베이스에서 보고서를 만들 수 있습니다. 데이터베이스를 가로로 분할해야 합니다("분할됨"이라고도 함).
 
-이 항목에 확장 샘플은 [탄력적 데이터베이스 도구 시작](sql-database-elastic-scale-get-started.md)에서 찾을 수 있습니다. 완료 되면 많은 관련된 데이터베이스에 걸쳐 있는 쿼리를 수행 하는 Azure SQL 데이터베이스를 사용과 구성방법을 알아봅니다.
+기존 데이터베이스를 사용하는 경우 [확장된 데이터베이스에 기존 데이터베이스 마이그레이션](sql-database-elastic-convert-to-use-elastic-tools.md)을 참조하세요.
+
+쿼리에 필요한 SQL 개체를 알아보려면 [수평 분할된 데이터베이스에 쿼리](sql-database-elastic-query-horizontal-partitioning.md)를 참조하세요.
+
 ## 필수 조건
 
 [탄력적 데이터베이스 도구 샘플 시작](sql-database-elastic-scale-get-started.md)을 다운로드하고 실행하세요.
@@ -142,4 +145,4 @@ ElasticDBQuery 데이터베이스에서 다음쿼리를 실행 합니다.
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0511_2016-->

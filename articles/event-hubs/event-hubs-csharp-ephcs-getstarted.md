@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="04/12/2016"
+	ms.date="05/13/2016"
 	ms.author="sethm"/>
 
 # 이벤트 허브 시작
@@ -32,35 +32,7 @@
 
 + 활성 Azure 계정. <br/>계정이 없는 경우 몇 분 만에 무료 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F target="\_blank")을 참조하세요.
 
-## 이벤트 허브 만들기
-
-1. [Azure 클래식 포털][]에 로그온한 다음 화면 맨 아래에서 **새로 만들기**를 클릭합니다.
-
-2. **앱 서비스**, **서비스 버스**, **이벤트 허브**, **빨리 만들기**를 차례로 클릭합니다.
-
-	![][1]
-
-3. 이벤트 허브의 이름을 입력하고 원하는 지역을 선택한 후 **새 이벤트 허브 만들기**를 클릭합니다.
-
-	![][2]
-
-4. 지정된 지역에서 기존 네임스페이스를 명시적으로 선택하지 않은 경우 포털은 네임스페이스를 만들어줍니다(일반적으로 ***event hub name*-ns**). 해당 네임스페이스(이 예제에서는 **eventhub-ns**)를 클릭합니다.
-
-	![][3]
-
-5. 페이지 위쪽의 **이벤트 허브** 탭을 클릭한 후 방금 만든 이벤트 허브를 클릭합니다.
-
-	![][4]
-
-6. 맨 위에 있는 **구성** 탭을 클릭하고 보내기 권한이 있는 **SendRule**이라는 규칙과 *관리*, *보내기*, *수신* 권한이 있는 **ReceiveRule**이라는 규칙을 추가한 후 **저장**을 클릭합니다.
-
-	![][5]
-
-7. 페이지 위쪽의 **대시보드** 탭을 클릭한 후 **연결 정보**를 클릭합니다. 이 자습서의 뒷부분에서 사용한 것처럼 두 연결 문자열을 임시 위치로 복사합니다.
-
-	![][6]
-
-이제 이벤트 허브가 만들어졌고 이벤트를 보내고 받기 위한 연결 문자열이 있습니다.
+[AZURE.INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
 
 [AZURE.INCLUDE [service-bus-event-hubs-get-started-send-csharp](../../includes/service-bus-event-hubs-get-started-send-csharp.md)]
 
@@ -79,7 +51,7 @@
  
 4. 다시 **수신기** 솔루션을 마우스 오른쪽 단추로 클릭한 다음 **속성**을 클릭합니다. **수신기** 속성 페이지가 표시됩니다.
 
-5. **시작 프로젝트**를 클릭한 다음 **여러 시작 프로젝트** 단추를 클릭합니다. **수신기** 및 **보낸 사람** 프로젝트 모두에 대한 **동작** 상자를 설정하여 **시작**합니다.
+5. **시작 프로젝트**를 클릭한 다음 **여러 시작 프로젝트** 단추를 클릭합니다. **수신기** 및 **보낸 사람** 프로젝트 모두에 대한 **작업** 상자를 설정하여 **시작**합니다.
 
 	![][19]
 
@@ -109,20 +81,13 @@
 - [이벤트 허브 개요][]
 
 <!-- Images. -->
-[1]: ./media/event-hubs-csharp-ephcs-getstarted/create-event-hub1.png
-[2]: ./media/event-hubs-csharp-ephcs-getstarted/create-event-hub2.png
-[3]: ./media/event-hubs-csharp-ephcs-getstarted/create-event-hub3.png
-[4]: ./media/event-hubs-csharp-ephcs-getstarted/create-event-hub4.png
-[5]: ./media/event-hubs-csharp-ephcs-getstarted/create-event-hub5.png
-[6]: ./media/event-hubs-csharp-ephcs-getstarted/create-event-hub6.png
-
 [19]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj1.png
 [20]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj2.png
 [21]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs1.png
 [22]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs2.png
 
 <!-- Links -->
-[Azure 클래식 포털]: https://manage.windowsazure.com/
+[Azure classic portal]: https://manage.windowsazure.com/
 [이벤트 프로세서 호스트]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [이벤트 허브 개요]: event-hubs-overview.md
 [이벤트 허브를 사용하는 샘플 응용 프로그램]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
@@ -130,4 +95,4 @@
 [큐 메시징 솔루션]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

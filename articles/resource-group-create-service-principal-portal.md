@@ -4,8 +4,8 @@
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+   manager="timlt"
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -13,20 +13,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/10/2016"
+   ms.date="04/18/2016"
    ms.author="tomfitz"/>
 
 # 포털을 사용하여 Active Directory 응용 프로그램 및 서비스 주체 만들기
 
 ## 개요
-리소스를 액세스하거나 수정해야 하는 자동화된 프로세스 또는 응용 프로그램이 있는 경우 클래식 포털을 사용하여 Active Directory 응용 프로그램을 만들 수 있습니다. 클래식 포털을 통해 Active Directory 응용 프로그램을 만들 때 실제로 응용 프로그램과 서비스 주체를 만듭니다. 응용 프로그램의 ID 또는 응용 프로그램에 로그인한 사용자의 ID로 응용 프로그램을 실행할 수 있습니다. 이러한 두 가지 응용 프로그램 인증 방법은 대화형(사용자 로그인) 및 비대화형(앱이 자체적으로 자격 증명 제공)이라고 합니다. 비대화형 모드에서는 역할에 맞는 권한과 함께 서비스 주체를 반드시 할당해야 합니다.
+리소스를 액세스하거나 수정해야 하는 자동화된 프로세스 또는 응용 프로그램이 있는 경우 클래식 포털을 사용하여 Active Directory 응용 프로그램을 만들 수 있습니다. 응용 프로그램의 ID 또는 응용 프로그램에 로그인한 사용자의 ID로 응용 프로그램을 실행할 수 있습니다. 이러한 두 가지 응용 프로그램 인증 방법은 대화형(사용자 로그인) 및 비대화형(앱이 자체적으로 자격 증명 제공)이라고 합니다. 비대화형 모드에서는 응용 프로그램 ID에 맞는 권한과 함께 역할을 반드시 할당해야 합니다. 앱이 백 엔드 프로세스처럼 무인 모드로 실행되면 비대화형 인증을 사용해야 합니다.
 
-이 항목에서는 클래식 포털을 사용하여 새 응용 프로그램 및 서비스 주체를 만드는 방법을 보여줍니다. 현재는 새 Active Directory 응용 프로그램을 만들려면 클래식 포털을 사용해야 합니다. 이 기능은 이후 릴리스에서 Azure 포털에 추가될 예정입니다. 포털을 사용하여 응용 프로그램을 역할에 할당할 수 있습니다. Azure PowerShell 또는 Azure CLI를 통해 이러한 단계를 수행할 수도 있습니다. 서비스 주체와 함께 PowerShell 또는 CLI를 사용하는 방법에 대한 자세한 내용은 [Azure 리소스 관리자를 사용하여 서비스 주체 인증](resource-group-authenticate-service-principal.md)을 참조하세요.
+이 항목에서는 클래식 포털을 사용하여 새 응용 프로그램을 만드는 방법을 보여 줍니다. 현재는 새 Active Directory 응용 프로그램을 만들려면 클래식 포털을 사용해야 합니다. 포털을 사용하여 응용 프로그램을 역할에 할당할 수 있습니다.
+
+Azure PowerShell 또는 Azure CLI를 통해 이러한 단계를 수행할 수도 있습니다. 서비스 주체와 함께 PowerShell 또는 CLI를 사용하는 방법에 대한 자세한 내용은 [Azure 리소스 관리자를 사용하여 서비스 주체 인증](resource-group-authenticate-service-principal.md)을 참조하세요.
 
 ## 개념
 1. AAD(Azure Active Directory) - 클라우드에 대한 ID 및 액세스 관리 서비스 빌드입니다. 자세한 내용은 [Azure Active Directory란](active-directory/active-directory-whatis.md)을 참조하세요.
-2. 서비스 사용자 - 디렉터리의 응용 프로그램 인스턴스입니다.
-3. AD 응용 프로그램 - AAD에 응용 프로그램을 식별하는 AAD의 디렉터리 레코드입니다. 
+2. AD 응용 프로그램 - 응용 프로그램을 식별하는 Active Directory의 디렉터리 레코드입니다. 
+3. 서비스 주체 - 액세스 제어 역할을 적용할 수 있는 응용 프로그램의 인스턴스입니다.
 
 응용 프로그램 및 서비스 주체에 대한 자세한 내용은 [응용 프로그램 개체 및 서비스 주체 개체](active-directory/active-directory-application-objects.md)를 참조하세요. Active Directory 인증에 대한 자세한 내용은 [Azure AD에 대한 인증 시나리오](active-directory/active-directory-authentication-scenarios.md)를 참조하세요.
 
@@ -40,10 +42,14 @@
 2. 왼쪽 창에서 **Active Directory**를 선택합니다.
 
      ![Active Directory 선택][1]
-
-3. 새 응용 프로그램을 만드는 데 사용할 디렉터리를 선택합니다.
+     
+3. 새 응용 프로그램을 만드는 데 사용할 디렉터리를 선택합니다. 구독에 있는 리소스의 경우 구독과 동일한 디렉터리에 서비스 주체에 대한 액세스를 할당할 수 있습니다. 일반적으로 구독이 있는 디렉터리에서 응용 프로그램을 만들려고 합니다.
 
      ![디렉터리 선택][2]
+     
+    구독을 위한 디렉터리를 찾아야 할 경우 **설정**을 선택하고 디렉터리 이름을 찾습니다.
+   
+     ![기본 디렉터리 찾기](./media/resource-group-create-service-principal-portal/show-default-directory.png)
 
 3. 디렉터리에서 응용 프로그램을 보려면 **응용 프로그램**을 클릭합니다.
 
@@ -83,7 +89,7 @@
 
 끝점은 네이티브 클라이언트 응용 프로그램에 사용할 수 없습니다. 대신 PowerShell을 통해 테넌트 ID를 검색할 수 있습니다.
 
-    PS C:\> Get-AzureRmSubscription
+    Get-AzureRmSubscription
 
 또는 Azure CLI:
 
@@ -218,7 +224,7 @@
 
 - 보안 정책 지정에 대해 자세히 알아보려면 [Azure 역할 기반 액세스 제어](./active-directory/role-based-access-control-configure.md)를 참조하세요.  
 - 이러한 단계에 대한 비디오 데모를 보려면 [Azure Active Directory에서 Azure 리소스의 프로그래밍 방식 관리 활성화](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory)를 참조하세요.
-- Azure PowerShell 또는 Azure CLI를 사용하여 Active Directory 응용 프로그램 및 서비스 주체로 작업 및 인증을 위해 인증서를 사용하는 방법에 대해 자세히 알아보려면 [Azure 리소스 관리자를 사용하여 서비스 주체 인증](./resource-group-authenticate-service-principal.md)을 참조하세요.
+- Azure PowerShell 또는 Azure CLI를 사용하여 Active Directory 응용 프로그램 및 서비스 주체로 작업 및 인증을 위해 인증서를 사용하는 방법에 대해 자세히 알아보려면 [Azure 리소스 관리자를 사용하여 서비스 주체 인증](resource-group-authenticate-service-principal.md)을 참조하세요.
 - Azure 리소스 관리자에서 보안 구현에 대한 지침은 [Azure 리소스 관리자에 대한 보안 고려 사항](best-practices-resource-manager-security.md)을 참조하세요.
 
 
@@ -237,4 +243,4 @@
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0511_2016-->

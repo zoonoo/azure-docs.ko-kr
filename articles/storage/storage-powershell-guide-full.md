@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/19/2016"
+	ms.date="05/09/2016"
 	ms.author="robinsh"/>
 
 # Azure 저장소와 함께 Azure PowerShell 사용
@@ -665,13 +665,17 @@ AzureChinaCloud와 함께 Azure 저장소를 사용하려면 AzureChinaCloud와 
 
 [U.S. Azure Government](https://azure.microsoft.com/features/gov/)에서 Azure 저장소를 사용하려면 새 환경을 정의한 다음 이 환경으로 새 저장소 컨텍스트를 생성해야 합니다.
 
-1. [Add-AzureEnvironment](http://msdn.microsoft.com/library/azure/dn790364.aspx) cmdlet을 호출하여 개인 데이터 센터에 대한 새 Azure 환경을 만듭니다.
+1.	[Get-AzureEnvironment](https://msdn.microsoft.com/library/azure/dn790368.aspx) cmdlet을 실행하여 사용 가능한 Azure 환경을 확인합니다.
 
-    	Add-AzureEnvironment -Name $EnvironmentName -PublishSettingsFileUrl $publishSettingsFileUrl -ServiceEndpoint $serviceEndpoint -ManagementPortalUrl $managementPortalUrl -StorageEndpoint $storageEndpoint -ActiveDirectoryEndpoint $activeDirectoryEndpoint -ResourceManagerEndpoint $resourceManagerEndpoint -GalleryEndpoint $galleryEndpoint -ActiveDirectoryServiceEndpointResourceId $activeDirectoryServiceEndpointResourceId -GraphEndpoint $graphEndpoint -SubscriptionDataFile $subscriptionDataFile
+    `Get-AzureEnvironment`
 
-2. [New-AzureStorageContext](http://msdn.microsoft.com/library/azure/dn806380.aspx) cmdlet을 실행하여 아래와 같이 새로운 환경에 대한 새 저장소 컨텍스트를 만듭니다.
+2.	Windows PowerShell에 Azure 미국 정부 계정을 추가합니다.
 
-	    $Ctx = New-AzureStorageContext -StorageAccountName $AccountName -StorageAccountKey $AccountKey> -Environment $EnvironmentName
+    `Add-AzureAccount –Environment AzureUSGovernment`
+
+3.	AzureUSGovernment 계정에 대한 저장소 컨텍스트를 만듭니다.
+
+    	$Ctx = New-AzureStorageContext -StorageAccountName $AccountName -StorageAccountKey $AccountKey> -Environment AzureUSGovernment
 
 자세한 내용은 다음을 참조하세요.
 
@@ -730,4 +734,4 @@ AzureChinaCloud와 함께 Azure 저장소를 사용하려면 AzureChinaCloud와 
 [Next Steps]: #next
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0511_2016-->

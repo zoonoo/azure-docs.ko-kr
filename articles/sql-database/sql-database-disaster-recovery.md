@@ -1,6 +1,6 @@
 <properties 
    pageTitle="SQL 데이터베이스 재해 복구" 
-   description="Azure SQL 데이터베이스 활성 지역 복제, 표준 지역 복제 및 지역 복원 기능을 사용하여 하위 지역 데이터 센터 중단 또는 오류로부터 데이터베이스를 복구하는 방법에 대해 알아봅니다." 
+   description="Azure SQL 데이터베이스 활성 지역 복제 및 지역 복원 기능을 사용하여 하위 지역 데이터 센터 중단 또는 오류로부터 데이터베이스를 복구하는 방법에 대해 알아봅니다." 
    services="sql-database" 
    documentationCenter="" 
    authors="elfisher" 
@@ -13,135 +13,101 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="02/09/2016"
+   ms.date="05/10/2016"
    ms.author="elfish"/>
 
-# 중단 상태에서 Azure SQL 데이터베이스 복구
+# Azure SQL 데이터베이스 복원 또는 보조 데이터베이스에 대한 장애 조치
 
 Azure SQL 데이터베이스는 중단에서의 복구를 위해 다음 기능을 제공합니다.
 
-- 활성 지역에서 복제[(블로그)](http://azure.microsoft.com/blog/2014/07/12/spotlight-on-sql-database-active-geo-replication/)
-- 표준 지역에서 복제[(블로그)](http://azure.microsoft.com/blog/2014/09/03/azure-sql-database-standard-geo-replication/)
-- 지역 복원[(블로그)](http://azure.microsoft.com/blog/2014/09/13/azure-sql-database-geo-restore/)
-- 새로운 지역에서 복제 기능[(블로그)](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
+- [활성 지역 복제](sql-database-geo-replication-overview.md)
+- [지역 복원](sql-database-geo-restore.md)
 
 재해 대비 및 데이터베이스 복구 시기에 대한 자세한 내용은 [비즈니스 연속성을 위한 설계](sql-database-business-continuity-design.md) 페이지를 참조하세요.
 
-##복구를 시작해야 하는 시기 
+## 복구를 시작해야 하는 시기
 
 복구 작업은 응용 프로그램에 영향을 줍니다. SQL 연결 문자열을 변경해야 하며 데이터가 영구적으로 손상될 수 있습니다. 따라서 중단이 응용 프로그램의 RTO보다 오래 지속될 가능성이 있을 때만 복구를 수행해야 합니다. 응용 프로그램이 프로덕션에 배포되면 응용 프로그램 상태를 정기적으로 모니터링하고 다음 데이터 요소를 사용하여 복구가 보장되는지 확인해야 합니다.
 
-1. 응용 프로그램 계층에서 데이터베이스로 영구적인 연결 실패
-2. Azure 포털에 광범위한 영향이 있는 지역 내 인시던트에 대한 경고가 표시됩니다.
+1.	응용 프로그램 계층에서 데이터베이스로 영구적인 연결 실패
+2.	Azure 포털에 광범위한 영향이 있는 지역 내 인시던트에 대한 경고가 표시됩니다.
+3.	Azure SQL 데이터베이스 서버는 성능이 저하됨으로 표시됩니다. 
 
-> [AZURE.NOTE] 데이터베이스가 복구된 후 [복구 후 데이터베이스 구성](#postrecovery) 가이드에 따라 데이터베이스를 사용하도록 구성할 수 있습니다.
+가동 중지 시간에 대한 응용 프로그램 허용 범위 및 가능한 비즈니스 책임에 따라 다음과 같은 복구 옵션을 고려할 수 있습니다.
+
+## 서비스 복구 대기
+
+Azure 팀은 가능한 한 신속하게 서비스 가용성을 복원하기 위해 열심히 작업하지만 루트에 따라 몇 시간 또는 며칠씩 걸릴 수 있습니다. 응용 프로그램이 가동 중지 시간을 상당히 허용할 수 있는 경우 복구가 완료되기를 기다릴 수밖에 없습니다. 이 경우에 사용자의 조치가 필요하지 않습니다. 서비스의 현재 상태를 [Azure 서비스 상태 대시보드](https://azure.microsoft.com/status/)에서 확인할 수 있습니다. 지역 복구 후에 응용 프로그램의 가용성이 복원됩니다.
 
 ## 지역에서 복제된 보조 데이터베이스로 장애 조치(failover)
-> [AZURE.NOTE] 장애 조치(failover)에 사용할 보조 데이터베이스를 구성해야 합니다. 지역에서 복제는 표준 및 프리미엄 데이터베이스에서만 사용할 수 있습니다. [지역에서 복제를 구성하는 방법](sql-database-business-continuity-design.md)을 참조하세요.
 
-###Azure 포털
-Azure 포털을 사용하여 지역 복제된 보조 데이터베이스와의 연속 복사 관계를 종료합니다.
+응용 프로그램의 가동 중지 시간으로 인해 비즈니스 책임이 발생할 수 있는 경우 응용 프로그램에서 지역에서 복제된 데이터베이스를 사용해야 합니다. 가동 중지 시에도 응용 프로그램이 다른 지역의 가용성을 신속하게 복원할 수 있습니다. [지역에서 복제를 구성하는 방법](sql-database-geo-replication-portal.md)을 참조하세요.
 
-1. [Azure 포털](https://portal.Azure.com)에 로그인합니다.
-2. 화면 왼쪽에서 **찾아보기**를 선택한 다음 **SQL 데이터베이스**를 선택합니다.
-3. 사용자의 데이터베이스로 이동한 후 선택합니다. 
-4. 데이터베이스 블레이드의 맨 아래에서 **지역에서 복제 지도**를 선택합니다.
-4. **보조** 아래에서 복구하려는 데이터베이스 이름이 있는 행을 마우스 오른쪽 단추로 클릭하고 **장애 조치(Failover)**를 선택합니다.
+데이터베이스의 가용성을 복원하려면 지원되는 방법 중 하나를 사용하여 지역에서 복제된 보조 데이터베이스에 장애 조치를 시작해야 합니다.
 
-###PowerShell
-PowerShell을 사용하여 지역에서 복제된 보조 데이터베이스로 장애 조치(failover)를 시작하려면 [Set-AzureRMSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt619393.aspx) cmdlet을 사용합니다.
-		
-		$database = Get-AzureRMSqlDatabase –DatabaseName "mydb” –ResourceGroupName "rg2” –ServerName "srv2”
-		$database | Set-AzureRMSqlDatabaseSecondary –Failover -AllowDataLoss
 
-###REST API 
-REST를 사용하여 프로그래밍 방식으로 보조 데이터베이스로의 장애 조치(failover)를 시작할 수 있습니다.
+다음 가이드 중 하나를 사용하여 지역에서 복제된 보조 데이터베이스를 장애 조치합니다.
 
-1. [복제 링크 가져오기](https://msdn.microsoft.com/library/mt600778.aspx) 작업을 사용하여 특정 보조에 대한 복제 링크를 가져옵니다.
-2. 데이터 손실을 허용하는 상태로 [보조 데이터베이스를 주 데이터베이스로 설정](https://msdn.microsoft.com/library/mt582027.aspx)을 사용하여 보조로 장애 조치(failover)합니다. 
+- [Azure 포털을 사용하여 지역에서 복제된 보조 데이터베이스에 장애 조치](sql-database-geo-replication-portal.md)
+- [PowerShell을 사용하여 지역에서 복제된 보조 데이터베이스에 장애 조치](sql-database-geo-replication-powershell.md)
+- [T-SQL을 사용하여 지역에서 복제된 보조 데이터베이스에 장애 조치](sql-database-geo-replication-transact-sql.md) 
+
+
 
 ## 지역 복원을 사용한 복구
 
-데이터베이스의 중단이 발생하는 경우, 지역 복원을 사용하여 최신 지역 중복 백업으로 데이터베이스를 복구할 수 있습니다.
+응용 프로그램의 가동 중지 시간으로 인해 비즈니스 책임이 발생하지 않은 경우 응용 프로그램 데이터베이스를 복구하는 방법으로 지역 복원을 사용할 수 있습니다. 최신 지역 중복 백업에서 데이터베이스의 복사본을 만듭니다.
 
-> [AZURE.NOTE] 데이터베이스를 복구하면 새 데이터베이스가 생성됩니다. 복구하는 서버에 새 데이터베이스를 위한 충분한 DTU 용량이 있는지 확인하는 것이 중요합니다. [지원 센터에 연락](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/)하여 이 할당량을 늘리도록 요청할 수 있습니다.
+다음 가이드 중 하나를 사용하여 새 영역에는 데이터베이스를 지역 복원합니다.
 
-###Azure 포털(독립 실행형 데이터베이스에 복구)
-Azure 포털의 지역 복원을 사용하여 SQL 데이터베이스를 복원하려면 다음 단계를 사용하세요.
+- [Azure 포털을 사용하여 새 지역에 대한 데이터베이스 지역 복원](sql-database-geo-restore-portal.md)
+- [PowerShell을 사용하여 새 지역에 대한 데이터베이스 지역 복원](sql-database-geo-restore-powershell.md) 
 
-1. [Azure 포털](https://portal.Azure.com)에 로그인합니다.
-2. 화면 왼쪽에서 **새로 만들기**를 선택한 다음 **데이터 및 저장소**를 선택하고 **SQL 데이터베이스**를 선택합니다.
-2. 원본으로 **백업**을 선택한 다음 복구에 사용할 지역 중복 백업을 선택합니다.
-3. 나머지 데이터베이스 속성을 지정한 다음 **만들기**를 클릭합니다.
-4. 데이터베이스 복원 프로세스가 시작되며 화면 왼쪽의 **알림**을 사용하여 모니터링할 수 있습니다.
 
-###Azure 포털(탄력적 데이터베이스 풀에 복구)
-포털에서 지역에서 복원을 사용하여 SQL 데이터베이스를 탄력적 데이터베이스 풀에 복원하려면 아래 지침을 따릅니다.
+## 복구 후 데이터베이스 구성
 
-1. [Azure 포털](https://portal.Azure.com)에 로그인합니다.
-2. 화면 왼쪽에서 **찾아보기**를 선택한 다음 **SQL 탄력적 풀**을 선택합니다.
-3. 데이터베이스를 지역 복원할 풀을 선택합니다.
-4. 탄력적 풀 블레이드 위쪽에서 **데이터베이스 만들기**를 선택합니다.
-5. 원본으로 **백업**을 선택한 다음 복구에 사용할 지역 중복 백업을 선택합니다.
-6. 나머지 데이터베이스 속성을 지정한 다음 **만들기**를 클릭합니다.
-7. 데이터베이스 복원 프로세스가 시작되며 화면 왼쪽의 **알림**을 사용하여 모니터링할 수 있습니다.
-
-###PowerShell 
-> [AZURE.NOTE] PowerShell에서 지역 복원을 사용할 경우 현재 독립 실행형 데이터베이스로의 복원만 지원됩니다. 탄력적 데이터베이스 풀로 지역 복원하려면 [Azure 포털](https://portal.Azure.com)을 사용하세요.
-
-PowerShell 지역 복원을 사용하여 SQL 데이터베이스를 복원하려면 [start-AzureSqlDatabaseRecovery](https://msdn.microsoft.com/library/azure/dn720224.aspx) cmdlet에서 지역 복원 요청을 시작합니다.
-
-		$Database = Get-AzureSqlRecoverableDatabase -ServerName "ServerName" –DatabaseName “DatabaseToBeRecovered"
-		$RecoveryRequest = Start-AzureSqlDatabaseRecovery -SourceDatabase $Database –TargetDatabaseName “NewDatabaseName” –TargetServerName “TargetServerName”
-		Get-AzureSqlDatabaseOperation –ServerName "TargetServerName" –OperationGuid $RecoveryRequest.RequestID
-
-###REST API 
-
-프로그래밍 방식으로 데이터베이스 복구를 수행하려면 REST를 사용합니다.
-
-1.	[복구 가능한 데이터베이스 나열](http://msdn.microsoft.com/library/azure/dn800984.aspx) 작업을 통해 복구 가능한 데이터베이스 목록을 가져옵니다.
-	
-2.	[복구 가능한 데이터베이스 가져오기](http://msdn.microsoft.com/library/azure/dn800985.aspx) 작업을 통해 복구할 데이터베이스를 가져옵니다.
-	
-3.	[데이터베이스 복구 요청 만들기](http://msdn.microsoft.com/library/azure/dn800986.aspx) 작업을 통해 복구 요청을 만듭니다.
-	
-4.	[데이터베이스 작업 상태](http://msdn.microsoft.com/library/azure/dn720371.aspx) 작업을 통해 복구 상태를 추적합니다.
- 
-## 복구 후 데이터베이스 구성<a name="postrecovery"></a>
-
-복구된 데이터베이스 프로덕션을 준비하는 데 사용할 수 있는 작업의 검사 목록입니다.
+지역 복원 옵션의 지역에서 복제 장애 조치를 사용하여 가동 중단된 응용 프로그램을 복구하는 경우 일반적인 응용 프로그램 함수를 다시 시작할 수 있도록 새 데이터베이스에 대한 연결이 제대로 구성되었는지 확인해야 합니다. 복구된 데이터베이스 프로덕션을 준비하는 작업의 검사 목록입니다.
 
 ### 연결 문자열 업데이트
 
-응용 프로그램의 연결 문자열이 새로 복구된 데이터베이스를 가리키는지 확인합니다. 아래 상황 중 하나에 해당되는 경우 연결 문자열을 업데이트합니다.
-
-  + 복구된 데이터베이스 이름으로 원본 데이터베이스와 다른 이름 사용
-  + 복구된 데이터베이스가 원본 서버와 다른 서버에 존재
+복구된 데이터베이스가 다른 서버에 상주하기 때문에 해당 서버를 가리키도록 응용 프로그램의 연결 문자열을 업데이트해야 합니다.
 
 연결 문자열 변경에 대한 자세한 내용은 [Azure SQL 데이터베이스 연결: 핵심 권장 사항](sql-database-connect-central-recommendations.md)을 참조하세요.
- 
-### 방화벽 규칙 수정
-서버 수준 및 데이터베이스 수준에서 방화벽 규칙을 확인하고 서버 및 새로 복구된 데이터베이스와 클라이언트 컴퓨터 또는 Azure의 연결이 설정되어 있는지 확인합니다. 자세한 내용은 [방법: 방화벽 설정 구성(Azure SQL 데이터베이스)](sql-database-configure-firewall-settings.md)을 참조하세요.
 
-### 서버 로그인 및 데이터베이스 사용자 확인
+### 방화벽 규칙 구성
 
-응용 프로그램에서 사용하는 모든 로그인이 복구된 데이터베이스를 호스팅하는 서버에 존재하는지 확인합니다. 누락된 로그인을 다시 만들고 복구된 데이터베이스에 대한 적절한 사용 권한을 부여합니다. 자세한 내용은 [Azure SQL 데이터베이스에서 데이터베이스 및 로그인 관리](sql-database-manage-logins.md)를 참조하세요.
+서버 및 데이터베이스에서 구성된 방화벽 규칙이 주 데이터베이스와 주 서버에서 구성된 방화벽 규칙과 일치하는지 확인해야 합니다. 자세한 내용은 [방법: 방화벽 설정 구성(Azure SQL 데이터베이스)](sql-database-configure-firewall-settings.md)을 참조하세요.
 
-복구된 데이터베이스의 각 데이터베이스 사용자가 유효한 서버 로그인과 연결되어 있는지 확인합니다. 유효한 서버 로그인에 사용자를 매핑하려면 ALTER USER 문을 사용합니다. 자세한 내용은 [ALTER USER](http://go.microsoft.com/fwlink/?LinkId=397486)를 참조하세요.
 
+### 로그인 및 데이터베이스 사용자 구성
+
+응용 프로그램에서 사용하는 모든 로그인이 복구된 데이터베이스를 호스팅하는 서버에 존재하도록 해야 합니다. 자세한 내용은 재해 복구 중 보안을 관리하는 방법을 참조하세요. 자세한 내용은 [지역에서 복제를 위한 보안 구성](sql-database-geo-replication-security-config.md)을 참조하세요.
+
+>[AZURE.NOTE] 가동 중단을 복구하는 지역 복원 옵션을 사용하는 경우 서버 방화벽 규칙을 구성해야 하고 DR 드릴 중에 로그인하여 기본 서버가 해당 구성을 검색할 수 있도록 해야 합니다. 지역 복원이 데이터베이스 백업을 사용하기 때문에 중단된 시간 동안 서버 수준 구성을 사용할 수 없습니다. 드릴 후에 복원된 데이터베이스를 제거할 수 있지만 서버 및 해당 구성이 복구 프로세스에 대비하도록 합니다. DR 드릴에 대한 자세한 내용은 [재해 복구 드릴 수행](sql-database-disaster-recovery-drills.md)을 참조하세요.
 
 ### 원격 분석 경고 설정
 
-기존 경고 규칙 설정이 복구된 데이터베이스에 매핑되어 있는지 확인합니다. 아래 상황 중 하나에 해당되는 경우 설정을 업데이트합니다.
-
-  + 복구된 데이터베이스 이름으로 원본 데이터베이스와 다른 이름 사용
-  + 복구된 데이터베이스가 원본 서버와 다른 서버에 존재
+기존 경고 규칙 설정을 업데이트하여 복구된 데이터베이스와 다른 서버에 매핑하도록 해야 합니다.
 
 데이터베이스 경고 규칙에 대한 자세한 내용은 [경고 알림 수신](../azure-portal/insights-receive-alert-notifications.md) 및 [서비스 상태 추적](../azure-portal/insights-service-health.md)을 참조하세요.
-
 
 ### 감사 사용
 
 데이터베이스에 액세스하기 위해 감사가 필요한 경우, 데이터베이스 복구 후에 감사 사용을 설정해야 합니다. 감사는 클라이언트 응용 프로그램이 *.database.secure.windows.net 패턴의 보안 연결 문자열을 사용한다는 것을 나타내기 위해 필요한 훌륭한 지표입니다. 자세한 내용은 [SQL 데이터베이스 감사 시작](sql-database-auditing-get-started.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0413_2016-->
+
+
+
+## 추가 리소스
+
+
+- [SQL 데이터베이스 비즈니스 연속성 및 재해 복구](sql-database-business-continuity.md)
+- [특정 시점 복원](sql-database-point-in-time-restore.md)
+- [지역 복원](sql-database-geo-restore.md)
+- [활성 지역 복제](sql-database-geo-replication-overview.md)
+- [클라우드 재해 복구를 위한 응용 프로그램 설계](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [복구된 Azure SQL 데이터베이스 마무리](sql-database-recovered-finalize.md)
+- [지역에서 복제를 위한 보안 구성](sql-database-geo-replication-security-config.md)
+- [SQL 데이터베이스 BCDR FAQ](sql-database-bcdr-faq.md)
+
+<!---HONumber=AcomDC_0511_2016-->

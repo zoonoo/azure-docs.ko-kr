@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="05/10/2016"
 	ms.author="cjiang"/>
 
 # Azure 마켓플레이스 요금의 이해
@@ -80,13 +80,17 @@
 ## 청구 내역
 요약 페이지에는 가상 컴퓨터처럼 상품을 기반으로 사용량을 볼 수 있는 새 기능이 추가되었습니다. 이제는 청구 주기를 기반으로 현재 기간과 완료된 기간의 사용량을 다운로드할 수 있습니다. 사용량을 보려면 보고 싶은 기간의 **사용량 다운로드** 링크를 클릭합니다.
 
-실제 요금을 보고 싶으면 **요금 보기**를 클릭합니다. 그러면 세금이 포함된 모든 요금을 볼 수 있는 다른 포털로 리디렉션됩니다. 조직 ID를 사용하는 경우에는 **요금 보기** 단추를 사용할 수 없고 요금 요약 정보를 요청하는 지원 티켓을 제출해야 합니다
+실제 요금을 보고 싶으면 **요금 보기**를 클릭합니다. 그러면 세금이 포함된 모든 요금을 볼 수 있는 다른 포털로 리디렉션됩니다. 조직 ID를 사용하는 경우에는 **요금 보기** 단추를 사용할 수 없고 요금 요약 정보를 요청하는 지원 티켓을 제출해야 합니다.
 
 ![청구 내역](./media/billing-understand-your-azure-marketplace-charges/billing-history.png)
 
 실제 요금을 보려면 다음 단계를 수행합니다.
 
-1. **청구 내역** 페이지에서 **요금 보기**를 클릭합니다. [주문 내역]( https://account.microsoft.com/billing/orders#/)을 보여 주는 새 탭이 열립니다. 청구 및 계정 관리 포털에서 가공되지 않은 사용량 정보에 액세스하려면 페이지 하단의 지원 링크를 클릭하여 지원을 요청해야 합니다.
+1. **청구 내역** 페이지에서 **요금 보기**를 클릭합니다.
+
+	[주문 내역](https://account.microsoft.com/billing/orders#/)을 보여 주는 새 탭이 열립니다.
+
+    청구 및 계정 관리 포털에서 가공되지 않은 사용량 정보에 액세스하려면 페이지 하단의 지원 링크를 클릭하여 지원을 요청해야 합니다.
 
 	![주문 내역](./media/billing-understand-your-azure-marketplace-charges/order-history.jpg)
 
@@ -94,4 +98,4 @@
 
 	![주문 세부 정보](./media/billing-understand-your-azure-marketplace-charges/order-details.jpg)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0511_2016-->

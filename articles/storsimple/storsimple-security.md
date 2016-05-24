@@ -4,7 +4,7 @@
    services="storsimple" 
    documentationCenter="NA" 
    authors="SharS" 
-   manager="Carolz" 
+   manager="carmonm" 
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="01/22/2016"
+   ms.date="05/03/2016"
    ms.author="v-sharos"/>
 
 # StorSimple 보안 및 데이터 보호
@@ -70,7 +70,7 @@ StorSimple 관리자 서비스는 Azure에서 호스팅되므로 Azure 보안 �
 
 StorSimple용 Windows PowerShel은 StorSimple 장치를 관리하는데 사용할 수 있는 명령줄 인터페이스입니다. StorSimple용 Windows PowerShell에는 장치를 등록하고, 장치에서 네트워크 인터페이스를 구성하고 특정 형식의 업데이트를 설치하고, 지원 세션에 액세스하여 장치 문제를 해결하고 장치 상태를 변경할 수 있는 기능이 있습니다. 장치의 직렬 콘솔에 연결하거나 Windows PowerShell 원격 기능을 사용하여 StorSimple용 Windows PowerShell에 액세스할 수 있습니다.
 
-PowerShell 원격은 HTTPS 또는 HTTP를 통해 수행할 수 있습니다. HTTPS 통한 원격 관리를 사용하는 경우, 장치에서 원격 관리 인증서를 다운로드하고 원격 클라이언트에 설치해야 합니다. PowerShell 원격에 대한 자세한 내용을 보려면 [StorSimple 장치에 원격으로 연결](storsimple-remote-connect)로 이동하세요.
+PowerShell 원격은 HTTPS 또는 HTTP를 통해 수행할 수 있습니다. HTTPS 통한 원격 관리를 사용하는 경우, 장치에서 원격 관리 인증서를 다운로드하고 원격 클라이언트에 설치해야 합니다. PowerShell 원격에 대한 자세한 내용을 보려면 [StorSimple 장치에 원격으로 연결](storsimple-remote-connect.md)로 이동하세요.
 
 StorSimple용 Windows PowerShell을 사용하여 장치에 연결 후 장치에 로그온하려면 장치 관리자 암호를 입력해야 합니다.
 
@@ -269,4 +269,4 @@ StorSimple는 StorSimple 솔루션의 구성 요소 간 이동되는 또는 저�
 [StorSimple 장치 배포](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0511_2016-->

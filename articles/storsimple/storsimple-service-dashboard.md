@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="StorSimple 관리자 서비스 대시보드 | Microsoft Azure"
    description="StorSimple 관리자 서비스 대시보드 및 이 대시보드를 사용하여 StorSimple 솔루션의 상태를 모니터링하는 방법을 설명합니다."
    services="storsimple"
@@ -6,13 +6,13 @@
    authors="SharS"
    manager="carolz"
    editor="" />
-<tags 
+<tags
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/01/2016"
+   ms.date="05/10/2016"
    ms.author="v-sharos" />
 
 # StorSimple 관리자 서비스 대시보드 사용
@@ -25,7 +25,7 @@ StorSimple 관리자 서비스 대시보드 페이지는 StorSimple 관리자 �
 
 StorSimple 관리자 서비스 대시보드에 다음 정보가 표시됩니다.
 
-- **차트** 영역에서 장치 관련 메트릭 차트를 볼 수 있습니다. 일정 시간 동안 장치에서 사용된 클라우드 저장소는 물론, 모든 장치에 걸쳐 사용되는 기본 저장소도 볼 수 있습니다. 1주, 1개월, 3개월 또는 1년 단위를 지정하려면 차트 오른쪽 위 모퉁이의 컨트롤을 사용하세요.
+- **차트** 영역에서 장치 관련 메트릭 차트를 볼 수 있습니다. 일정 시간 동안 장치에서 사용된 클라우드 저장소는 물론, 모든 장치에 걸쳐 사용되는 기본 저장소(로컬로 고정되고 계층화됨)도 볼 수 있습니다. 1주, 1개월, 3개월 또는 1년 단위를 지정하려면 차트 오른쪽 위 모퉁이의 컨트롤을 사용하세요.
 
 - **사용 개요**에서는 모든 장치에서 사용 가능한 총 저장소를 기준으로 모든 장치에서 프로비전하여 사용하는 기본 저장소를 보여줍니다. **프로비전됨**은 사용을 위해 준비 및 할당된 저장소의 용량을 나타내며 **사용됨**은 장치에 연결된 초기자에 의해 표시된 볼륨의 사용량을 나타냅니다.
 
@@ -76,4 +76,4 @@ StorSimple 관리자 서비스 대시보드에 다음 정보가 표시됩니다.
 
 - [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0511_2016-->

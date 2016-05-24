@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
-	ms.date="05/05/2016" 
+	ms.date="05/18/2016" 
 	ms.author="sdanie"/>
 
 # Redis Cache를 사용하여 웹앱을 만드는 방법
@@ -689,12 +689,13 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 1. **사용자 지정 배포** 블레이드에서 사용할 Azure 구독을 선택하고 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만들고 리소스 그룹 위치를 지정합니다.
 2. **매개 변수** 블레이드에서 관리자 계정 이름(**ADMINISTRATORLOGIN** - **admin**을 사용하지 마세요), 관리자 로그인 암호(**ADMINISTRATORLOGINPASSWORD**) 및 데이터베이스 이름(**DATABASENAME**)을 지정합니다. 다른 매개 변수는 무료 앱 서비스 호스팅 계획을 위해 구성되며 더 낮은 비용 옵션은 SQL 데이터베이스 및 무료 계층으로 제공되지 않는 Azure Redis Cache를 위해 구성됩니다.
 3. 원하는 경우 다른 설정을 변경하거나 기본값을 유지하고 **확인**을 클릭합니다.
-4. 설정이 구성된 후 **약관 검토**를 클릭합니다.
+
 
 ![Azure에 배포][cache-deploy-to-azure-step-2]
 
-1. **만들기** 블레이드에서 약관을 읽고 **만들기**를 클릭합니다.
-2. 리소스 프로비전을 시작하려면 **사용자 지정 배포** 블레이드에서 **만들기**를 클릭합니다.
+1. **약관 검토**를 클릭합니다.
+2. **구매** 블레이드에서 약관을 읽고 **구매**를 클릭합니다.
+3. 리소스 프로비전을 시작하려면 **사용자 지정 배포** 블레이드에서 **만들기**를 클릭합니다.
 
 배포의 진행률을 보려면 알림 아이콘을 클릭하고 **배포가 시작됨**을 클릭합니다.
 
@@ -839,4 +840,4 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 [cache-delete-resource-group]: ./media/cache-web-app-howto/cache-delete-resource-group.png
 [cache-delete-confirm]: ./media/cache-web-app-howto/cache-delete-confirm.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

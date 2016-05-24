@@ -44,7 +44,7 @@ Visual Studio에서 서버 탐색기를 사용하여 Azure에 가상 컴퓨터�
 
     >[AZURE.NOTE] 더 큰 크기의 가상 컴퓨터를 선택하면 추가 요금이 부과될 수 있습니다. 자세한 내용은 [가상 컴퓨터 가격 정보](https://azure.microsoft.com/pricing/details/virtual-machines/)를 참조하세요.
 
-1. Visual Studio에서 만든 가상 컴퓨터는 클라우드 서비스를 필요로 합니다. **클라우드 서비스 설정** 페이지에서, 가상 컴퓨터에 대한 클라우드 서비스를 선택하거나 또는 클라우드 서비스가 아직 없거나 새로운 것을 사용하려는 경우 드롭다운 목록에서 **<새로 만들기...>**를 선택합니다. 저장소 계정도 필요하므로 **저장소 계정** 드롭다운 목록 상자에서 저장소 계정을 선택 (또는 새로운 저장소 계정을 생성)합니다. 자세한 내용은 [Microsoft Azure 저장소 소개](./storage/storage-introduction/)를 참조하세요.
+1. Visual Studio에서 만든 가상 컴퓨터는 클라우드 서비스를 필요로 합니다. **클라우드 서비스 설정** 페이지에서, 가상 컴퓨터에 대한 클라우드 서비스를 선택하거나 또는 클라우드 서비스가 아직 없거나 새로운 것을 사용하려는 경우 드롭다운 목록에서 **<새로 만들기...>**를 선택합니다. 저장소 계정도 필요하므로 **저장소 계정** 드롭다운 목록 상자에서 저장소 계정을 선택 (또는 새로운 저장소 계정을 생성)합니다. 자세한 내용은 [Microsoft Azure 저장소 소개](../articles/storage/storage-introduction/)를 참조하세요.
 
 1. 가상 네트워크를 지정하려는 경우 (선택 사항) 가상 네트워크 및 서브넷 드롭다운 목록 상자에서 선택합니다.
 
@@ -157,4 +157,3 @@ Visual Studio에서 서버 탐색기를 사용하여 Azure에 가상 컴퓨터�
 ## 다음 단계
 
 가상 컴퓨터를 만드는 방법을 자세히 알아보려면 [Linux를 실행하는 가상 컴퓨터 만들기](../articles/virtual-machines/virtual-machines-linux-quick-create-cli.md) 및 [Azure Preview 포털에서 Windows를 실행하는 가상 컴퓨터 만들기](../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md)를 참조하세요.
-

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure SQL 데이터베이스에서 데이터베이스 성능 문제를 해결합니다."
-	description="데이터베이스 성능 문제를 해결하는 빠른 단계입니다."
+	pageTitle="Azure SQL 데이터베이스에서 데이터베이스 성능을 평가하고 향상하는 방법"
+	description="데이터베이스 성능을 평가하고 향상하는 방법을 설명합니다."
 	services="sql-database"
 	documentationCenter=""
 	authors="v-shysun"
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/28/2016"
+	ms.date="05/04/2016"
 	ms.author="v-shysun"/>
 
-# Azure SQL 데이터베이스를 사용하여 데이터베이스 성능 문제 해결
+# Azure SQL 데이터베이스에서 데이터베이스 성능을 평가하고 향상하는 방법
 단일 데이터베이스의 [서비스 계층](sql-database-service-tiers.md)을 변경하거나 탄력적 데이터베이스 풀의 eDTU를 늘려 언제든지 성능을 개선할 수 있지만 먼저 쿼리 성능을 개선 및 최적화할 기회를 파악하고 싶을 수 있습니다. 인덱스 누락 및 최적화되지 않은 쿼리는 데이터베이스 성능을 저하시키는 일반적인 원인입니다.
 
 ## 데이터베이스 성능을 평가 및 조정하는 단계
 1.	[Azure 포털](https://portal.azure.com)에서 **SQL 데이터베이스**를 클릭하고 데이터베이스를 선택한 후 모니터링 차트를 사용하여 최대값에 근접한 리소스를 찾습니다. 기본적으로 DTU 사용량이 표시됩니다. **편집**을 클릭하여 표시된 시간 범위 및 값을 변경합니다.
-2.	[Query Performance Insight](sql-database-query-performance.md)에서 DTU를 사용하여 쿼리를 평가한 후 [인덱스 관리자](sql-database-index-advisor.md)를 사용하여 인덱스를 권장하고 만듭니다.
+2.	[쿼리 성능 Insight](sql-database-query-performance.md)를 사용하여 DTU를 사용하는 쿼리를 평가한 다음 [SQL 데이터베이스 관리자](sql-database-index-advisor.md)를 사용하여 인덱스 만들기 및 삭제, 쿼리 매개 변수화 및 스키마 문제 해결에 대한 권장 사항을 확인합니다.
 3.	동적 관리 뷰(DMV), 확장 이벤트(Xevents) 및 SSMS의 쿼리 저장소를 사용하여 실시간으로 성능 매개 변수를 가져올 수 있습니다. 자세한 모니터링 및 튜닝 팁은 [성능 지침 항목](sql-database-performance-guidance.md)을 참조하세요.
 
 ## 보다 많은 리소스와 함께 데이터베이스 성능을 개선하는 단계
@@ -30,4 +30,4 @@
 
 성능 문제가 지속되면 지원에 문의하여 지원 사례를 확인하세요.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0511_2016-->

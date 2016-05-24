@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="05/05/2016"
 	ms.author="danlep"/>
 
-# ARM(Azure Resource Manager) 모드의 Azure CLI 명령
+# 리소스 관리자 모드에서 Azure CLI 명령
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](../virtual-machines-command-line-tools.md).
 
@@ -1796,7 +1796,9 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 
 **기본 리소스를 사용하여 VM 만들기**
 
-	vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>
+    vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password
+    
+>[AZURE.TIP]CLI 0.10 버전부터 일부 인기 있는 마켓플레이스 이미지에 대한 `image-urn`(으)로 "UbuntuLTS" 또는 "Win2012R2Datacenter"와 같은 짧은 별칭을 제공할 수 있습니다. 옵션으로 `azure help vm quick-create`을(를) 실행합니다. 또한 0.10 버전부터 `azure vm quick-create`은(는) 선택한 영역에서 사용 가능한 경우 기본적으로 프리미엄 저장소를 사용합니다.
 
 **계정 내에서 가상 컴퓨터 나열**
 
@@ -1872,4 +1874,4 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!----HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

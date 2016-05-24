@@ -3,7 +3,7 @@
    description="Visual Studio를 사용하여 서비스 패브릭 응용 프로그램 만들기, 배포 및 디버깅"
    services="service-fabric"
    documentationCenter=".net"
-   authors="seanmck"
+   authors="rwike77"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="03/27/2016"
-   ms.author="seanmck"/>
+   ms.author="ryanwi"/>
 
 # Visual Studio에서 Azure 서비스 패브릭 응용 프로그램 처음 만들기
 
@@ -115,9 +115,9 @@
   마무리하기 전에, 로컬 클러스터가 실제로 존재한다는 것을 기억하는 것이 중요합니다. 디버거를 중지하고 Visual Studio를 닫은 후에도 응용 프로그램은 백그라운드에서 계속 실행됩니다. 앱의 특성에 따라서, 이 백그라운드 작업은 컴퓨터에서 상당한 리소스를 차지할 수 있습니다. 이것을 관리하는 옵션이 몇 가지 있습니다.
 
   1. 개별 응용 프로그램 및 모든 데이터를 제거하려면 왼쪽 창에서 응용 프로그램 목록 보기에 있는 컨텍스트 메뉴 또는 **작업** 메뉴를 통해 서비스 패브릭 탐색기에서 **응용 프로그램 삭제** 작업을 사용합니다.
-  
+
     ![서비스 패브릭 탐색기에서 응용 프로그램 삭제][sfe-delete-application]
-    
+
   2. 클러스터에서 응용 프로그램을 삭제한 후 응용 프로그램의 패키지를 제거할 응용 프로그램의 **프로비전 해제 형식**(예: 코드 및 구성)을 클러스터의 이미지 저장소에서 선택할 수 있습니다.
   3. 클러스터는 끄되 응용 프로그램 데이터와 추적은 유지하려면 시스템 트레이 앱에서 **로컬 클러스터 중지**를 클릭합니다.
 
@@ -150,4 +150,4 @@ Temporarily removing this link because we have removed the ASP.NET template.
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

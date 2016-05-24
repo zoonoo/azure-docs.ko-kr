@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Azure VM의 Windows Server Active Directory | Microsoft Azure" 
-	description="Azure 가상 컴퓨터에 Windows Server AD DS(Active Directory 도메인 서비스) 또는 AD FS(Active Directory Federation Services)를 실행할 수 있습니다." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="markusvi" 
-	manager="stevenpo" 
+<properties
+	pageTitle="Azure VM의 Windows Server Active Directory | Microsoft Azure"
+	description="Azure 가상 컴퓨터에 Windows Server AD DS(Active Directory 도메인 서비스) 또는 AD FS(Active Directory Federation Services)를 실행할 수 있습니다."
+	services="active-directory"
+	documentationCenter=""
+	authors="markusvi"
+	manager="stevenpo"
 	tags="azure-classic-portal"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/07/2016" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/07/2016"
 	ms.author="markusvi"/>
 
 
@@ -24,7 +24,7 @@
 
 ## 개념적 지침
 
-- [Azure 가상 컴퓨터에 Windows Server Active Directory를 배포하기 위한 지침](https://msdn.microsoft.com/library/azure/jj156090.aspx) 
+- [Azure 가상 컴퓨터에 Windows Server Active Directory를 배포하기 위한 지침](https://msdn.microsoft.com/library/azure/jj156090.aspx)
 
 ## 비디오
 
@@ -33,7 +33,7 @@
 ## 방법 문서
 
 - [Azure 가상 네트워크에 새 Active Directory 포리스트 설치](active-directory-new-forest-virtual-machine.md)
-- [Azure 가상 네트워크에서 복제본 Active Directory 도메인 컨트롤러 설치](../virtual-network/virtual-networks-install-replica-active-directory-domain-controller.md) 
+- [Azure 가상 네트워크에서 복제본 Active Directory 도메인 컨트롤러 설치](../active-directory/active-directory-install-replica-active-directory-domain-controller.md)
 - [테스트용 하이브리드 클라우드 환경 설정](../virtual-machines/virtual-machines-windows-ps-hybrid-cloud-test-env-base.md)
 
 
@@ -42,9 +42,4 @@
 - [조직으로 Azure 등록](sign-up-organization.md)
 - [Azure ID](fundamentals-identity.md)
 
-
-
-
- 
-
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

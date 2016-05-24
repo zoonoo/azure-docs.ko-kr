@@ -22,7 +22,7 @@
 [AZURE.INCLUDE [media-services-selector-manage-channels](../../includes/media-services-selector-manage-channels.md)]
 
 
-이 자습서에서는 채널이 온-프레미스 라이브 인코더에서 다중 비트 전송률 라이브 스트림을 받는 기본적인 미디어 서비스 라이브 스트리밍 응용 프로그램을 구현하는 단계를 안내합니다. 채널 및 관련 구성 요소 작업에 대한 자세한 내용은 [온-프레미스 인코더에서 다중 비트 전송률 라이브 스트림을 받는 채널 작업](media-services-manage-channels-overview.md)을 참조하세요.
+이 자습서에서는 채널이 온-프레미스 라이브 인코더에서 다중 비트 전송률 라이브 스트림을 받는 기본적인 미디어 서비스 라이브 스트리밍 응용 프로그램을 구현하는 단계를 안내합니다. 채널 및 관련 구성 요소 작업에 대한 자세한 내용은 [온-프레미스 인코더에서 다중 비트 전송률 라이브 스트림을 받는 채널 작업](media-services-live-streaming-with-onprem-encoders.md)을 참조하세요.
 
 이 자습서에서는 Azure 클래식 포털을 사용하여 다음 작업을 수행합니다.
 
@@ -88,7 +88,7 @@ Azure 클래식 포털에서 **채널** 페이지를 선택합니다. 그런 다
 
 ![ingesturls](./media/media-services-portal-get-started-with-live/media-services-ingest-urls.png)
 
-수집 URL에 대한 자세한 내용은 [온-프레미스 인코더를 사용하여 다중 비트 전송률 라이브 스트림을 채널에 보내기](media-services-manage-channels-overview.md)를 참조하세요.
+수집 URL에 대한 자세한 내용은 [온-프레미스 인코더를 사용하여 다중 비트 전송률 라이브 스트림을 채널에 보내기](media-services-live-streaming-with-onprem-encoders.md)를 참조하세요.
 
 ## 라이브 인코더를 구성하고 라이브 스트림 수집
 
@@ -212,4 +212,4 @@ MPEG DASH 스트리밍 URL을 작성하려면 URL에 (format=mpd-time-csf)를 �
 
 <!-- Images -->
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

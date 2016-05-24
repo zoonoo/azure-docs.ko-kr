@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="04/18/2016"
+	ms.date="05/10/2016"
 	ms.author="kgremban"/>
 
 #RBAC: 기본 제공 역할
@@ -34,7 +34,7 @@ Azure 역할 기반 액세스 제어(RBAC)에는 사용자, 그룹 및 서비스
 | [ClearDB MySQL DB 참여자](#cleardb-mysql-db-contributor) | ClearDB MySQL 데이터베이스를 관리할 수 있음 |
 | [참여자](#contributor) | 액세스를 제외한 모든 것을 관리할 수 있음 |
 | [데이터 팩터리 참여자](#data-factory-contributor) | 데이터 팩터리를 관리할 수 있음 |
-| [DevTest Lab 사용자](#devtest-lab-user) | 모든 항목을 볼 수 있으며 가상 컴퓨터를 연결, 시작, 다시 시작 및 종료할 수 있음 |
+| [DevTest Lab 사용자](#devtest-labs-user) | 모든 항목을 볼 수 있으며 가상 컴퓨터를 연결, 시작, 다시 시작 및 종료할 수 있음 |
 | [문서 DB 계정 참여자](#document-db-account-contributor) | 문서 DB 계정을 관리할 수 있음 |
 | [지능형 시스템 계정 참여자](#intelligent-systems-account-contributor) | 지능형 시스템 계정을 관리할 수 있음 |
 | [네트워크 참여자](#network-contributor) | 모든 네트워크 리소스를 관리할 수 있음 |
@@ -369,17 +369,17 @@ SQL 서버 및 데이터베이스의 보안 관련 정책을 관리할 수 있�
 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
 ### 저장소 계정 참여자
-저장소 계정을 관리할 수 있음
+저장소 계정을 관리할 수 있지만 액세스할 수 없습니다.
 
 | **actions** ||
 | ------- | ------ |
 | Microsoft.Storage/storageAccounts/* | 저장소 계정 만들기 및 관리 |
 | Microsoft.Authorization/*/read | 모든 권한 부여 읽기 |
-| Microsoft.Resources/subscriptions/resources/read | 구독 리소스 읽기 |
 | Microsoft.Resources/subscriptions/resourceGroups/read | 구독 리소스 그룹 읽기 |
-| Microsoft.Resources/subscriptions/resourceGroups/resources/read | 구독 리소스 그룹 리소스 읽기 |
 | Microsoft.Resources/subscriptions/resourceGroups/deployments/* | 구독 리소스 그룹 배포 만들기 및 관리 |
+| Microsoft.ResourceHealth/availabilityStatuses/read | 리소스 상태 읽기 |
 | Microsoft.Insights/alertRules/* | Insights 경고 규칙 만들기 및 관리 |
+| Microsoft.Insights/diagnosticSettings/* | 진단 설정 관리 |
 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
 ### 사용자 액세스 관리자
@@ -491,4 +491,4 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있음
 - [액세스 변경 기록 보고서 만들기](role-based-access-control-access-change-history-report.md): RBAC에서 역할 할당 변경을 추적합니다.
 - [역할 기반 액세스 제어 문제 해결](role-based-access-control-troubleshooting.md): 일반적인 문제를 수정하기 위한 제안 사항을 봅니다.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->
