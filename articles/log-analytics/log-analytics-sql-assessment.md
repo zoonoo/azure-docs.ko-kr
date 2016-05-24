@@ -51,7 +51,7 @@ SQL 평가는 현재 지원되는 모든 버전의 SQL Server Standard, Develope
 
 다음 표에는 에이전트에 대한 데이터 수집 방법, Operations Manager(SCOM)가 필요한지 여부 및 에이전트에서 데이터가 수집되는 빈도가 나와 있습니다.
 
-| 플랫폼 | 직접 에이전트 | SCOM 에이전트 | Azure 저장소 | SCOM 필요 여부 | 관리 그룹을 통해 전송되는 SCOM 에이전트 데이터 | 수집 빈도 |
+| 플랫폼 | 직접 에이전트 | SCOM 에이전트 | Azure 저장소 | SCOM 필요? | 관리 그룹을 통해 전송되는 SCOM 에이전트 데이터 | 수집 빈도 |
 |---|---|---|---|---|---|---|
 |Windows|![예](./media/log-analytics-sql-assessment/oms-bullet-green.png)|![예](./media/log-analytics-sql-assessment/oms-bullet-green.png)|![아니요](./media/log-analytics-sql-assessment/oms-bullet-red.png)|	![아니요](./media/log-analytics-sql-assessment/oms-bullet-red.png)|![예](./media/log-analytics-sql-assessment/oms-bullet-green.png)|	7 일|
 
@@ -81,26 +81,26 @@ OMS의 Log Analytics에서는 Operations Manager 에이전트와 관리 그룹�
 6. SQL 평가에 실행 계정으로 필요한 최소 사용 권한을 부여하도록 각 SQL Server 인스턴스에서 다음 T-SQL 샘플을 수정한 다음 실행합니다. 그러나 실행 계정이 SQL Server 인스턴스에서 이미 sysadmin 서버 역할의 일부인 경우, 이 작업을 수행할 필요가 없습니다.
 
 ```
----
-    -- Replace <UserName> with the actual user name being used as Run As Account.
-    USE master
-
-    -- Create login for the user, comment this line if login is already created.
-    CREATE LOGIN [<UserName>] FROM WINDOWS
-
-    -- Grant permissions to user.
-    GRANT VIEW SERVER STATE TO [<UserName>]
-    GRANT VIEW ANY DEFINITION TO [<UserName>]
-    GRANT VIEW ANY DATABASE TO [<UserName>]
-
-    -- Add database user for all the databases on SQL Server Instance, this is required for connecting to individual databases.
-    -- NOTE: This command must be run anytime new databases are added to SQL Server instances.
-    EXEC sp_msforeachdb N'USE [?]; CREATE USER [<UserName>] FOR LOGIN [<UserName>];'
+	---
+	    -- Replace <UserName> with the actual user name being used as Run As Account.
+	    USE master
+	
+	    -- Create login for the user, comment this line if login is already created.
+	    CREATE LOGIN [<UserName>] FROM WINDOWS
+	
+	    -- Grant permissions to user.
+	    GRANT VIEW SERVER STATE TO [<UserName>]
+	    GRANT VIEW ANY DEFINITION TO [<UserName>]
+	    GRANT VIEW ANY DATABASE TO [<UserName>]
+	
+	    -- Add database user for all the databases on SQL Server Instance, this is required for connecting to individual databases.
+	    -- NOTE: This command must be run anytime new databases are added to SQL Server instances.
+	    EXEC sp_msforeachdb N'USE [?]; CREATE USER [<UserName>] FOR LOGIN [<UserName>];'
 
 ```
-#### To configure the SQL Run As account using Windows PowerShell
+#### Windows PowerShell을 사용하여 SQL 실행 계정을 구성하려면
 
-Open a PowerShell window and run the following script after you’ve updated it with your information:
+PowerShell 창을 열고 사용자 정보로 업데이트 한 후 다음 스크립트를 실행합니다.
 
 ```
 
@@ -112,70 +112,70 @@ Open a PowerShell window and run the following script after you’ve updated it 
     Set-SCOMRunAsProfile -Action "Add" -Profile $Profile -Account $Account
 ```
 
-## Understanding how recommendations are prioritized
+## 권장 사항 우선 순위 이해
 
-Every recommendation made is given a weighting value that identifies the relative importance of the recommendation. Only the ten most important recommendations are shown.
+작성된 모든 권장 구성은 권장 사항의 상대적 중요도를 식별하는 가중치 값을 제공합니다. 10개의 가장 중요한 권장 사항만 표시됩니다.
 
-### How weights are calculated
+### 가중치 계산 방법
 
-Weightings are aggregate values based on three key factors:
+가중치는 3개의 주요 요인을 기반으로 하는 집계 값입니다.
 
-- The *probability* that an issue identified will cause problems. A higher probability equates to a larger overall score for the recommendation.
+- 식별된 문제로 인해 문제가 발생될 수 있는 *확률*입니다. 확률이 높을수록 권장 사항에 대한 전체 점수가 커집니다.
 
-- The *impact* of the issue on your organization if it does cause a problem. A higher impact equates to a larger overall score for the recommendation.
+- 문제가 발생된 경우 조직에 대한 문제의 *영향*입니다. 영향이 높을수록 권장 사항에 대한 전체 점수가 커집니다.
 
-- The *effort* required to implement the recommendation. A higher effort equates to a smaller overall score for the recommendation.
+- 권장 구성을 구현하는 데 필요한 *노력*입니다. 노력이 높을수록 권장 사항에 대한 전체 점수가 작아집니다.
 
-The weighting for each recommendation is expressed as a percentage of the total score available for each focus area. For example, if a recommendation in the Security and Compliance focus area has a score of 5%, implementing that recommendation will increase your overall Security and Compliance score by 5%.
+각 권장 사항에 대한 가중치는 각 주요 영역에 사용할 수 있는 총 점수에 대한 백분율로 표현됩니다. 예를 들어, 보안 및 규정 준수 주요 영역의 권장 사항의 점수가 5%라면, 해당 권장 사항 구현에는 전체 보안 및 규정 준수 점수에서 5%가 증가합니다.
 
-### Focus areas
+### 주요 영역
 
-**Security and Compliance** - This focus area shows recommendations for potential security threats and breaches, corporate policies, and technical, legal and regulatory compliance requirements.
+**보안 및 규정 준수** - 이 주요 영역은 잠재적 보안 위협 및 위반, 회사 정책, 기술, 법률 및 규정 준수 요구 사항 등에 대한 권장 사항을 보여 줍니다.
 
-**Availability and Business Continuity** - This focus area shows recommendations for service availability, resiliency of your infrastructure, and business protection.
+**가용성 및 비즈니스 연속성** - 이 주요 영역은 서비스 가용성, 인프라 복원성 및 비즈니스 보호에 대한 권장 사항을 보여 줍니다.
 
-**Performance and Scalability** - This focus area shows recommendations to help your organization's IT infrastructure grow, ensure that your IT environment meets current performance requirements, and is able to respond to changing infrastructure needs.
+**성능 및 확장성** - 이 주요 영역은 조직의 IT 인프라를 확장하고, IT 환경이 현재 성능 요구 사항을 충족하며, 변화하는 인프라 요구 사항에 대응할 수 있도록 하는 데 도움이 되는 권장 사항을 보여 줍니다.
 
-**Upgrade, Migration and Deployment** - This focus area shows recommendations to help you upgrade, migrate, and deploy SQL Server to your existing infrastructure.
+**업그레이드, 마이그레이션 및 배포** - 이 주요 영역은 기존 인프라를 업그레이드 및 마이그레이션하고 기존 인프라에 SQL Server를 배포하는 데 도움이 되는 권장 사항을 보여 줍니다.
 
-**Operations and Monitoring** - This focus area shows recommendations to help streamline your IT operations, implement preventative maintenance, and maximize performance.
+**운영 및 모니터링** - 이 주요 영역은 IT 운영을 간소화하고, 예방 유지 관리를 구현하고, 성능을 최대화하는 데 도움이 되는 권장 사항을 보여 줍니다.
 
-**Change and Configuration Management** - This focus area shows recommendations to help protect day-to-day operations, ensure that changes don't negatively affect your infrastructure, establish change control procedures, and to track and audit system configurations.
+**변경 및 구성 관리** - 이 주요 영역은 일상적인 작업을 보호하고, 변경 사항이 인프라에 부정적인 영향을 주지 않는지 확인하고, 변경 제어 절차를 설정하고, 시스템 구성을 추적 및 감사하는 데 도움이 되는 권장 사항을 보여 줍니다.
 
-### Should you aim to score 100% in every focus area?
+### 모든 주요 영역에서 100%의 점수를 목표로 해야 하나요?
 
-Not necessarily. The recommendations are based on the knowledge and experiences gained by Microsoft engineers across thousands of customer visits. However, no two server infrastructures are the same, and specific recommendations may be more or less relevant to you. For example, some security recommendations might be less relevant if your virtual machines are not exposed to the Internet. Some availability recommendations may be less relevant for services that provide low priority ad hoc data collection and reporting. Issues that are important to a mature business may be less important to a start-up. You may want to identify which focus areas are your priorities and then look at how your scores change over time.
+그럴 필요는 없습니다. 권장 사항은 수천 번의 고객 방문에서 Microsoft 엔지니어가 얻은 지식과 경험을 기반으로 합니다. 그러나 두 서버 인프라는 동일하지 않으며 특정 권장 사항은 거의 사용자와 관련 될 수 있습니다. 예를 들어, 가상 컴퓨터가 인터넷에 노출되지 않는 경우 일부 보안 권장 사항의 관련성은 떨어질 수 있습니다. 일부 가용성 권장 사항은 우선순위가 낮은 임시 데이터 수집 및 보고를 제공하는 서비스와는 관련성이 떨어질 수 있습니다. 성숙한 비즈니스에 중요한 문제는 시작에 덜 중요할 수 있습니다. 우선하는 주요 영역을 식별하고 시간이 지남에 따라 다음 점수가 어떻게 변경되는지 확인할 수 있습니다.
 
-Every recommendation includes guidance about why it is important. You should use this guidance to evaluate whether implementing the recommendation is appropriate for you, given the nature of your IT services and the business needs of your organization.
+모든 권장 사항에는 중요한 이유에 대한 지침이 포함됩니다. IT 서비스의 특성 및 조직의 비즈니스 요구를 고려해 볼 때, 이 가이드를 사용하여 권장 사항 구현이 사용자에 적절한지 여부를 평가해야 합니다
 
-## Use assessment focus area recommendations
+## 평가 주요 영역 권장 사항 사용
 
-Before you can use an assessment solution in OMS, you must have the solution installed. To read more about installing solutions, see [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md). After it is installed, you can view the summary of recommendations by using the SQL Assessment tile on the Overview page in OMS.
+OMS에서 평가 솔루션을 사용하려면 먼저 솔루션이 설치되어 있어야 합니다. 솔루션 설치에 대한 자세한 내용은 [솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)를 참조하세요. 설치 후 OMS의 개요 페이지에서 SQL 평가 타일을 사용하여 권장 사항의 요약을 볼 수 있습니다.
 
-View the summarized compliance assessments for your infrastructure and then drill-into recommendations.
+인프라에 대한 요약된 규정 준수 평가를 본 다음 세부 권장 사항을 확인합니다.
 
-### To view recommendations for a focus area and take corrective action
+### 주요 영역에 대한 권장 사항을 보고 수정 작업을 수행하려면
 
-1. On the **Overview** page, click the **SQL Assessment** tile.
-2. On the **SQL Assessment** page, review the summary information in one of the focus area blades and then click one to view recommendations for that focus area.
-3. On any of the focus area pages, you can view the prioritized recommendations made for your environment. Click a recommendation under **Affected Objects** to view details about why the recommendation is made.  
-    ![image of SQL Assessment recommendations](./media/log-analytics-sql-assessment/sql-assess-focus.png)
-4. You can take corrective actions suggested in **Suggested Actions**. When the item has been addressed, later assessments will record that recommended actions were taken and your compliance score will increase. Corrected items appear as **Passed Objects**.
+1. **개요** 페이지에서 **SQL 평가** 타일을 클릭합니다.
+2. **SQL 평가** 페이지에서, 주요 영역 블레이드 중 하나에 있는 요약 정보를 검토한 다음 하나를 클릭하여 해당 주요 영역에 대한 권장 사항을 봅니다.
+3. 주요 영역 페이지에서 사용자 환경에 대해 우선순위가 지정된 권장 사항을 볼 수 있습니다. 권장하는 이유에 대한 세부 정보를 보려면 **영향을 받는 개체** 아래에서 해당 권장 사항을 클릭합니다. 
+    ![SQL 평가 권장 사항의 이미지](./media/log-analytics-sql-assessment/sql-assess-focus.png)
+4. **권장 조치**에 제안된 올바른 조치를 수행할 수 있습니다. 항목의 주소가 지정되면, 이후 평가는 수행된 권장 조치 및 늘어난 규정 준수 점수를 기록합니다. 수정된 항목은 **전달된 개체**로 나타납니다.
 
-## Ignore recommendations
+## 권장 사항 무시
 
-If you have recommendations that you want to ignore, you can create a text file that OMS will use to prevent recommendations from appearing in your assessment results.
+무시하려는 권장 사항이 있는 경우 OMS에서 평가 결과에 권장 사항이 표시되는 것을 방지하는 데 사용할 텍스트 파일을 만들 수 있습니다.
 
-### To identify recommendations that you will ignore
+### 무시할 권장 사항을 식별하려면
 
-1.	Sign in to your workspace and open Log Search. Use the following query to list recommendations that have failed for computers in your environment.
+1.	작업 영역에 로그인하고 로그 검색을 엽니다. 다음 쿼리를 사용하여 사용자 환경의 컴퓨터에 대해 실패한 권장 사항을 나열합니다.
 
     ```
     Type=SQLAssessmentRecommendation RecommendationResult=Failed | select  Computer, RecommendationId, Recommendation | sort  Computer
     ```
 
-    Here's a screen shot showing the Log Search query:
-    ![failed recommendations](./media/log-analytics-sql-assessment/sql-assess-failed-recommendations.png)
+    로그 검색 쿼리를 보여 주는 스크린샷은 다음과 같습니다. 
+    ![실패한 권장 사항](./media/log-analytics-sql-assessment/sql-assess-failed-recommendations.png)
 
 2.	무시할 권장 사항을 선택합니다. RecommendationId 값은 다음 절차에서 사용됩니다.
 
