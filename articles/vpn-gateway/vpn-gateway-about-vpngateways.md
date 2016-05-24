@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="가상 네트워크 크로스-프레미스 연결에 대한 VPN 게이트웨이 정보 | Microsoft Azure"
-   description="하이브리드 구성, VNet 간 연결 및 지점 및 사이트 간 연결에 대한 사이트 간 프레미스 간 연결에 사용할 수 있는 VPN 게이트웨이에 대해 알아봅니다."
+   pageTitle="VPN 게이트웨이 정보 | Microsoft Azure"
+   description="Azure 가상 네트워크용 VPN 게이트웨이에 대해 알아봅니다."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -13,12 +13,12 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/18/2016"
+   ms.date="05/16/2016"
    ms.author="cherylmc" />
 
 # VPN 게이트웨이 정보
 
-Azure 가상 네트워크 게이트웨이라는 VPN 게이트웨이는 가상 네트워크와 온-프레미스 위치 간에 네트워크 트래픽을 보내는 데 사용됩니다. 또한 Azure 내의 여러 가상 네트워크 간(VNet 간)에 트래픽을 보내는 데에도 사용됩니다. 아래 섹션에서는 VPN 게이트웨이와 관련된 항목을 설명합니다.
+VPN 게이트웨이는 가상 네트워크와 온-프레미스 위치 간에 네트워크 트래픽을 보내는 데 사용됩니다. 또한 Azure 내의 여러 가상 네트워크 간(VNet 간)에 트래픽을 보내는 데에도 사용됩니다. 아래 섹션에서는 VPN 게이트웨이와 관련된 항목을 설명합니다.
 
 VPN 게이트웨이를 만드는 데 사용할 지침은 가상 네트워크를 만드는 데 사용되는 배포 모델에 따라 달라집니다. 예를 들어 클래식 배포 모델을 사용하여 VNet을 만든 경우 클래식 배포 모델에 대한 가이드 및 지침을 사용하여 VPN 게이트웨이를 만들고 구성합니다. 클래식 배포 모델 가상 네트워크에 리소스 관리자 VPN 게이트웨이를 만들 수 없습니다.
 
@@ -39,6 +39,7 @@ VPN 게이트웨이를 구성하려면 먼저 VNet에 대한 게이트웨이 서
 
 	Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
 
+>[AZURE.IMPORTANT] 연결에 오류를 발생시킬 수 있기 때문에 GatewaySubnet에 적용되는 NSG(네트워크 보안 그룹)가 없는지 확인합니다.
 
 ## <a name="gwtype"></a>게이트웨이 유형
 
@@ -48,7 +49,7 @@ VPN 게이트웨이를 구성하려면 먼저 VNet에 대한 게이트웨이 서
 - Express 경로
 
 
-이 예제는 -GatewayType을 *Vpn*으로 지정하는 리소스 관리자 배포 모델에 대한 것입니다. 게이트웨이를 만들 때 게이트웨이 유형이 구성에 정확한지 확인해야 합니다.
+리소스 관리자 배포 모델에 대한 이 예제는 -GatewayType을 *Vpn*으로 지정합니다. 게이트웨이를 만들 때 게이트웨이 유형이 구성에 정확한지 확인해야 합니다.
 
 	New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
 
@@ -64,7 +65,7 @@ VPN 게이트웨이 만들 때 사용하려는 게이트웨이 SKU를 지정해�
 
 	New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewaySku Standard -GatewayType Vpn -VpnType RouteBased
 
-### SKU 및 게이트웨이 유형에서 예상된 총 처리량
+###  <a name="aggthroughput"></a>SKU 및 게이트웨이 유형에서 예상된 총 처리량
 
 
 아래 표는 게이트웨이 유형과 예상 총 처리량을 보여 줍니다. 가격은 게이트웨이 SKU마다 다릅니다. 가격에 대한 자세한 내용은 [VPN 게이트웨이 가격](https://azure.microsoft.com/pricing/details/vpn-gateway/)을 참조하세요. 이 표는 리소스 관리자 배포 모델과 클래식 배포 모델 모두에 적용됩니다.
@@ -73,7 +74,9 @@ VPN 게이트웨이 만들 때 사용하려는 게이트웨이 SKU를 지정해�
 
 ## <a name="vpntype"></a>VPN 유형
 
-각 구성이 작동하려면 특정 VPN 유형이 필요합니다. 동일한 VNet에 사이트 간 연결 및 지점 및 사이트 간 연결을 만드는 것과 같은 두 가지 구성을 결합하는 경우 두 연결 요구 사항을 충족하는 VPN 유형을 사용해야 합니다. 지점 및 사이트 간 및 사이트 간 공존 연결의 경우 Azure Resource Manager 배포 모델 또는 동적 게이트웨이로 작업하거나 클래식 배포 모드로 작업하면 경로 기반 VPN 유형을 사용해야 합니다.
+각 구성이 작동하려면 특정 VPN 유형이 필요합니다. 동일한 VNet에 사이트 간 연결 및 지점 및 사이트 간 연결을 만드는 것과 같은 두 가지 구성을 결합하는 경우 두 연결 요구 사항을 충족하는 VPN 유형을 사용해야 합니다.
+
+지점 및 사이트 간 및 사이트 간 공존 연결의 경우 Azure Resource Manager 배포 모델 또는 동적 게이트웨이로 작업하거나 클래식 배포 모드로 작업하면 경로 기반 VPN 유형을 사용해야 합니다.
 
 구성을 만든 경우 연결에 필요한 VPN 유형을 선택합니다.
 
@@ -81,11 +84,11 @@ VPN 게이트웨이 만들 때 사용하려는 게이트웨이 SKU를 지정해�
 
 [AZURE.INCLUDE [vpn-gateway-vpntype](../../includes/vpn-gateway-vpntype-include.md)]
 
-이 예제는 `-VpnType`을 *RouteBased*로 지정하는 리소스 관리자 배포 모델에 대한 것입니다. 게이트웨이를 만들 때 -VpnType이 구성에 정확한지 확인해야 합니다.
+리소스 관리자 배포 모델에 대한 이 예제는 `-VpnType`을 *RouteBased*로 지정합니다. 게이트웨이를 만들 때 -VpnType이 구성에 정확한지 확인해야 합니다.
 
 	New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
 
-## <a name="connectiontype"></a>연결 형식
+## <a name="connectiontype"></a>연결 유형
 
 각 구성이 작동하려면 특정 연결 형식이 필요합니다. `-ConnectionType`에 대해 사용 가능한 리소스 관리자 PowerShell 값은 다음과 같습니다.
 
@@ -115,14 +118,14 @@ VPN 게이트웨이 만들 때 사용하려는 게이트웨이 SKU를 지정해�
 
 ### 주소 접두사 수정 - 클래식 배포
 
-클래식 배포 모델을 사용할 때 로컬 사이트를 수정해야 할 경우 이번에는 클래식 포털에서 로컬 네트워크 구성 페이지를 사용하거나 네트워크 구성 파일인 NETCFG.XML을 직접 수정할 수 있습니다.
+클래식 배포 모델을 사용할 때 로컬 사이트를 수정해야 할 경우 클래식 포털에서 로컬 네트워크 구성 페이지를 사용하거나 네트워크 구성 파일인 NETCFG.XML을 직접 수정할 수 있습니다.
 
 
-## VPN 장치
+##  <a name="devices"></a> VPN 장치
 
 VPN 장치를 사용하려면 사용자 구성에 필요한 VPN 유형을 지원하는지 확인해야 합니다. 호환 가능한 VPN 장치에 대한 자세한 내용은 [VPN 장치 정보](vpn-gateway-about-vpn-devices.md)를 참조하세요.
 
-## 게이트웨이 요구 사항
+##  <a name="requirements"></a>게이트웨이 요구 사항
 
 
 [AZURE.INCLUDE [vpn-gateway-table-requirements](../../includes/vpn-gateway-table-requirements-include.md)]
@@ -138,4 +141,4 @@ VPN 장치를 사용하려면 사용자 구성에 필요한 VPN 유형을 지원
 
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

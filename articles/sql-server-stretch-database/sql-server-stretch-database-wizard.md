@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="02/26/2016"
+	ms.date="05/17/2016"
 	ms.author="douglasl"/>
 
 # 스트레치 마법사에 대한 데이터베이스 사용을 실행하여 시작
@@ -44,7 +44,7 @@
 |**Name**|테이블의 열 이름을 지정합니다.|
 |(제목 없음)|이 열의 기호는 일반적으로 차단 문제로 인해 선택한 테이블에서 스트레치를 사용할 수 없음을 나타냅니다. 테이블에서 지원되지 않는 데이터 형식을 사용하기 때문일 수 있습니다. 기호 위에 마우스를 두면 도구 설명에 자세한 내용이 표시됩니다. 자세한 내용은 [스트레치 데이터베이스에 대한 노출 영역 제한 사항 및 차단 문제](sql-server-stretch-database-limitations.md)를 참조하세요.|
 |**확대**|테이블이 이미 사용하도록 설정되었는지 여부를 나타냅니다.|
-|**마이그레이션**|RC3에서 전체 테이블(**전체 테이블**)을 마이그레이션하거나 마법사에서 날짜 기준 필터 조건자를 지정할 수 있습니다. 다른 필터 조건자를 사용하여 마이그레이션하려는 행을 선택하려는 경우 ALTER TABLE 문을 실행하여 마법사를 종료한 후 필터 조건자를 지정합니다. 필터 조건자에 대한 자세한 내용은 [필터 조건자를 사용하여 마이그레이션할 행 선택(스트레치 데이터베이스)](sql-server-stretch-database-predicate-function.md)을 참조하세요. 조건자를 적용하는 방법에 대한 자세한 내용은 [테이블에 대해 스트레치 데이터베이스 사용](sql-server-stretch-database-enable-table.md) 또는 [ALTER TABLE(Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)을 참조하세요.|
+|**마이그레이션**|전체 테이블(**전체 테이블**)을 마이그레이션하거나 마법사에서 날짜 기준 필터 조건자를 지정할 수 있습니다. 다른 필터 조건자를 사용하여 마이그레이션하려는 행을 선택하려는 경우 ALTER TABLE 문을 실행하여 마법사를 종료한 후 필터 조건자를 지정합니다. 필터 조건자에 대한 자세한 내용은 [필터 조건자를 사용하여 마이그레이션할 행 선택(스트레치 데이터베이스)](sql-server-stretch-database-predicate-function.md)을 참조하세요. 조건자를 적용하는 방법에 대한 자세한 내용은 [테이블에 대해 스트레치 데이터베이스 사용](sql-server-stretch-database-enable-table.md) 또는 [ALTER TABLE(Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)을 참조하세요.|
 |**행**|테이블의 행 수를 지정합니다.|
 |**크기(KB)**|테이블의 크기를 KB로 지정합니다.|
 
@@ -163,4 +163,4 @@ SQL Server의 공용 IP 주소를 사용하거나 IP 주소 범위를 입력하�
 [StretchWizardImage7]: ./media/sql-server-stretch-database-wizard/stretchwiz7.png
 [StretchWizardImage8]: ./media/sql-server-stretch-database-wizard/stretchwiz8.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

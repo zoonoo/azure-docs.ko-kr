@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/13/2016"
+   ms.date="05/11/2016"
    ms.author="nitinme"/>
 
 # Azure 데이터 레이크 저장소 개요
@@ -67,11 +67,18 @@ Azure 데이터 레이크 저장소는 인증 및 액세스 제어 목록(ACL)�
 | 인증 | Azure 데이터 레이크 저장소는 Azure 데이터 레이크 저장소에 저장된 모든 데이터에 대한 ID 및 액세스 관리를 위해 Azure Active Directory(AAD)와 통합합니다. 통합의 결과로 Azure 데이터 레이크는 다단계 인증, 조건부 액세스, 역할 기반 액세스 제어, 응용 프로그램 사용 모니터링, 보안 모니터링 및 경고 등을 포함한 모든 AAD 기능의 이점을 얻습니다. Azure 데이터 레이크 저장소는 REST 인터페이스에서 인증을 위한 OAuth 2.0 프로토콜을 지원합니다. |
 | 액세스 제어 | Azure 데이터 레이크 저장소는 WebHDFS 프로토콜에 의해 노출되는 POSIX 스타일 권한을 지원하여 액세스 제어를 제공합니다. 현재 릴리스에서 권한은 데이터 레이크 수준에서 지정될 수 있으며 데이터 레이크의 모든 파일 및 폴더에 적용됩니다. 향후 업데이트에서 개별 파일 및 폴더에 지정되도록 권한을 허용하여 세분화된 액세스 제어를 활성화할 것입니다.|
 
-데이터 레이크 저장소의 데이터 보안 방법에 대한 지침은 [Azure 데이터 레이크 저장소의 데이터 보안](data-lake-store-secure-data.md)을 참조하세요.
+Data Lake 저장소의 데이터를 보호하는 방법에 대한 자세히 알아보려 합니다. 아래 링크를 따라갑니다.
+
+* 데이터 레이크 저장소의 데이터 보안 방법에 대한 지침은 [Azure 데이터 레이크 저장소의 데이터 보안](data-lake-store-secure-data.md)을 참조하세요.
+* 비디오를 선호하십니까? Data Lake 저장소에 저장된 데이터를 보호하는 방법은 [이 비디오를 참고하세요](https://mix.office.com/watch/1q2mgzh9nn5lx).
 
 ## Azure 데이터 레이크 저장소와 호환되는 응용 프로그램
 
-Azure 데이터 레이크 저장소와 상호 운용 가능한 오픈 소스 응용 프로그램 목록은 [Azure 데이터 레이크와 호환되는 응용 프로그램 및 서비스](data-lake-store-compatible-oss-other-applications.md)를 참조하세요. 데이터 레이크 저장소를 다른 Azure 서비스와 사용하여 광범위한 시나리오를 활성화할 수 있는 방법을 이해하려면 [다른 Azure 서비스와 통합](data-lake-store-integrate-with-other-services.md)을 참조하세요.
+Azure Data Lake 저장소는 Hadoop 에코시스템의 오픈 소스 구성 요소 대부분과 호환됩니다. 또한 다른 Azure 서비스와 원활하게 통합됩니다. 따라서 Data Lake 저장소는 데이터 저장소 요구 사항에 맞는 완벽한 옵션입니다. 다른 Azure 서비스 뿐만 아니라 오픈 소스 구성 요소와 함께 Data Lake 저장소를 사용할 수 있는 방법을 자세히 알아보려면 아래 링크를 따라갑니다.
+
+* Data Lake 저장소와 상호 운용 가능한 오픈 소스 응용 프로그램 목록은 [Azure Data Lake 저장소와 호환되는 응용 프로그램 및 서비스](data-lake-store-compatible-oss-other-applications.md)를 참조하세요.
+* 데이터 레이크 저장소를 다른 Azure 서비스와 사용하여 광범위한 시나리오를 활성화할 수 있는 방법을 이해하려면 [다른 Azure 서비스와 통합](data-lake-store-integrate-with-other-services.md)을 참조하세요.
+* [Data Lake 저장소를 사용하는 시나리오](data-lake-store-data-scenarios.md)를 참조하여 데이터 수집, 데이터 처리, 데이터 다운로드 및 데이터 시각화와 같은 시나리오에서 Data Lake 저장소를 사용하는 방법을 알아봅니다.
 
 ## Azure 데이터 레이크 저장소 파일 시스템이란?(adl://)?
 
@@ -87,4 +94,20 @@ Azure 포털을 사용하여 데이터 레이크 저장소를 프로비전하는
 - [데이터 레이크 저장소와 함께 Azure HDInsight 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [.NET SDK를 사용하여 Azure 데이터 레이크 저장소 시작](data-lake-store-get-started-net-sdk.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+
+## Data Lake 저장소 비디오
+
+학습을 위해 비디오를 선호하는 경우 Data Lake 저장소는 다양한 기능에 대한 비디오를 제공합니다.
+
+* [Azure Data Lake 저장소 계정 만들기](https://mix.office.com/watch/1k1cycy4l4gen)
+* [데이터 탐색기를 사용하여 Azure Data Lake 저장소에서 데이터 관리](https://mix.office.com/watch/icletrxrh6pc)
+* [Azure Data Lake 분석을 Azure Data Lake 저장소에 연결](https://mix.office.com/watch/qwji0dc9rx9k)
+* [Data Lake 분석을 통해 Azure Data Lake 저장소에 액세스](https://mix.office.com/watch/1n0s45up381a8)
+* [Azure HDInsight를 Azure Data Lake 저장소에 연결](https://mix.office.com/watch/l93xri2yhtp2)
+* [Hive 및 Pig를 통해 Azure Data Lake 저장소에 액세스](https://mix.office.com/watch/1n9g5w0fiqv1q)
+* [DistCp(Hadoop 분산 복사)를 사용하여 Azure Data Lake 저장소 간에 데이터 복사](https://mix.office.com/watch/1liuojvdx6sie)
+* [Apache Sqoop을 사용하여 관계형 원본 및 Azure Data Lake 저장소 간에 데이터 이동](https://mix.office.com/watch/1butcdjxmu114)
+* [Azure 데이터 팩터리를 사용하여 Azure Data Lake 저장소에 대한 데이터 오케스트레이션](https://mix.office.com/watch/1oa7le7t2u4ka)
+* [Azure Data Lake 저장소에서 데이터 보호](https://mix.office.com/watch/1q2mgzh9nn5lx)
+
+<!---HONumber=AcomDC_0518_2016-->

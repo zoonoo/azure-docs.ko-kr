@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/02/2016"
+   ms.date="05/13/2016"
    ms.author="cherylmc"/>
 
 # Azure 클래식 포털을 사용하여 사이트 간 VPN 연결로 가상 네트워크 만들기
@@ -27,17 +27,20 @@
 
 이 문서에서는 가상 네트워크와 온-프레미스 네트워크에 대한 사이트 간 VPN 연결을 만드는 과정을 안내합니다. 사이트간 연결은 프레미스 간 및 하이브리드 구성에 사용될 수 있습니다. 이 문서는 클래식 배포 모델에 적용되고 Azure 클래식 포털을 사용합니다.
 
+
 **Azure 배포 모델 정보**
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+
+## 연결 다이어그램
  
 ![사이트 간 다이어그램](./media/vpn-gateway-site-to-site-create/site2site.png "사이트 간")
 
 **사이트 간 연결에 대한 배포 모델 및 도구**
 
 [AZURE.INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)]
- 
-VNet을 서로 연결하면서도 온-프레미스 위치에 대한 연결을 만들지 않으려는 경우 [클래식 배포 모델에 VNet 간 연결 구성](virtual-networks-configure-vnet-to-vnet-connection.md) 또는 [리소스 관리자 배포 모델에 VNet 간 연결 구성](vpn-gateway-vnet-vnet-rm-ps.md)을 참조하세요.
+
+Vnet끼리 서로 연결하지만 온-프레미스 위치에는 연결하지 않을 경우 [클래식 배포 모델에 대한 VNet간 연결 구성](virtual-networks-configure-vnet-to-vnet-connection.md)을 참조하세요. 다른 유형의 연결 구성을 찾으려는 경우 [VPN 게이트웨이 연결 토폴로지](vpn-gateway-topology.md) 문서를 참조하세요.
 
  
 ## 시작하기 전에
@@ -109,4 +112,4 @@ VNet을 서로 연결하면서도 온-프레미스 위치에 대한 연결을 �
 
 연결이 완료되면 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 자세한 내용은 [가상 컴퓨터](https://azure.microsoft.com/documentation/services/virtual-machines/) 설명서를 참조하세요.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/10/2016"
+   ms.date="05/16/2016"
    ms.author="curtand"/>
 
 #Azure에서 Office 365 구독의 디렉터리 관리
@@ -71,4 +71,4 @@ Michael Smith는 Azure에 msmith@hotmail.com으로 로그인한 동안 두 디�
 ##다음 단계
 구독과 디렉터리 간의 관계에 대한 자세한 내용은 [구독과 디렉터리의 연관 관계](active-directory-how-subscriptions-associated-directory.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0518_2016-->

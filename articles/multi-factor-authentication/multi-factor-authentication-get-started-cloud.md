@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/10/2016" 
+	ms.date="05/12/2016" 
 	ms.author="billmath"/>
 
 # 클라우드에서 Azure Multi-Factor Authentication 시작
@@ -90,4 +90,4 @@ PowerShell을 사용하면 많은 사용자에 대해 사용을 설정할 수 �
 ## 다음 단계
 클라우드에서 Multi-Factor Authentication을 설정했으므로 배포를 구성 및 설정할 수 있습니다. [Azure Multi-Factor Authentication 구성]을 참조하세요.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

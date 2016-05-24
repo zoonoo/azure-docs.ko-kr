@@ -3,7 +3,7 @@
    description="솔루션 개발을 위한 Azure SQL 데이터 웨어하우스와 함께 Azure 기계 학습 사용을 위한 팁"
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sahaj08"
+   authors="shivaniguptamsft"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
-   ms.author="sahajs;barbkess;sonyama"/>
+   ms.date="05/17/2016"
+   ms.author="shivaniguptamsft;barbkess;sonyama"/>
 
 # Azure 기계 학습을 사용하여 데이터 분석
 이 자습서는 Azure SQL 데이터 웨어하우스에 데이터를 사용하여 Azure 기계 학습으로 예측 기계 학습 모델을 구축하는 방법을 보여 줍니다. 이 자습서에는 고객이 자전거를 구매할 가능성 여부를 예측하여 자전거 매장인 Adventure Works에 대한 대상 마케팅 캠페인을 구축합니다.
@@ -65,9 +65,6 @@ FROM [dbo].[vTargetMail]
 실험이 성공적으로 실행되고 나면 판독기 모듈 아래쪽에서 출력 포트를 클릭하고 **시각화**를 선택하여 가져온 데이터를 확인합니다. ![가져온 데이터 확인][3]
 
 
-
-
-
 ## 2단계: 데이터 정리
 모델에 관련되지 않은 일부 열을 삭제합니다.
 
@@ -75,8 +72,6 @@ FROM [dbo].[vTargetMail]
 2. 속성 창에서 **열 선택기 시작**을 클릭하여 삭제하려는 열을 지정합니다. ![Project Columns][4]
 
 3. 다음 두 열을 제외합니다. CustomerAlternateKey 및 GeographyKey ![불필요한 열 제거][5]
-
-
 
 
 ## 3단계: 모델 작성
@@ -91,9 +86,6 @@ FROM [dbo].[vTargetMail]
 5. **BikeBuyer** 열을 예측할 열로 선택합니다. ![예측할 열 선택][8]
 
 
-
-
-
 ## 4단계: 모델 점수 매기기
 이제 모델이 테스트 데이터를 수행하는 방법을 테스트합니다. 더 잘 수행하는 알고리즘을 확인하도록 다른 알고리즘을 선택하여 비교합니다.
 
@@ -103,8 +95,6 @@ FROM [dbo].[vTargetMail]
 4. **모델 평가** 모듈을 캔버스로 끌어서 놓아 두 알고리즘을 비교합니다.
 5. 실험을 **실행**합니다. ![실험 실행][10]
 6. 모델 평가 모듈의 아래쪽에서 출력 포트를 클릭하고 시각화를 클릭합니다. ![평가 결과 시각화][11]
-
-
 
 제공된 메트릭은 ROC 곡선, 정밀도-리콜 다이어그램 및 리프트 곡선입니다. 이러한 메트릭을 살펴보면 첫 번째 모델이 두 번째보다 더 잘 실행하는 것을 볼 수 있습니다. 첫 번째 모델이 예측하는 것을 보려면 모델 점수 매기기의 출력 포트를 클릭하고 시각화를 클릭합니다. ![점수 결과 시각화][12]
 
@@ -118,8 +108,6 @@ FROM [dbo].[vTargetMail]
 ## 다음 단계
 
 예측 기계 학습 모델을 구축하는 방법에 대한 자세한 내용은 [Azure의 기계 학습 소개][]를 참고하세요.
-
-
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1_reader.png
@@ -142,4 +130,4 @@ FROM [dbo].[vTargetMail]
 [샘플 데이터를 수동으로 로드]: sql-data-warehouse-get-started-manually-load-samples.md
 [SQL 데이터 웨어하우스에 만들기]: sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

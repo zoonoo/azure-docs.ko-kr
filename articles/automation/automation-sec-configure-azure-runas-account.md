@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/10/2016"
+    ms.date="05/16/2016"
     ms.author="magoedte"/>
 
 # Azure 실행 계정으로 Runbook 인증
@@ -53,7 +53,15 @@ Azure 포털에서 자동화 계정을 만들고 Azure PowerShell을 사용하�
 
 7. Azure에서 자동화 계정을 만드는 동안 메뉴의 **알림**에서 진행률을 추적할 수 있습니다.
 
-완료되면 1년 수명인 **AzureRunAsCertificate**라는 인증서 자산 및 **AzureRunAsConnection**이라는 연결 자산이 포함된 자동화 계정이 만들어집니다.
+### 포함된 리소스
+자동화 계정 만들기가 완료되면 몇 가지 리소스가 자동으로 만들어집니다. 아래 테이블에 요약됩니다.
+
+리소스|설명 
+----|----
+AzureAutomationTutorial Runbook|실행 계정을 사용하여 인증하고 구독에서 처음 10개의 Azure VM을 표시하는 방법을 보여 주는 예제 Runbook입니다.
+AzureRunAsCertificate|자동화 계정 만드는 동안 실행 계정을 만들도록 선택하거나 기존 계정에 대해 아래의 PowerShell 스크립트를 사용한 경우 생성되는 인증서 자산입니다. 이 인증서는 수명이 1년입니다. 
+AzureRunAsConnection|자동화 계정 만드는 동안 실행 계정을 만들도록 선택하거나 기존 계정에 대해 아래의 PowerShell 스크립트를 사용한 경우 생성되는 연결 자산입니다.
+모듈|Runbook을 즉시 사용하기 위해 Azure, PowerShell 및 자동화에 대한 cmdlet을 사용하는 15개의 모듈입니다.  
 
 ## PowerShell을 사용하여 자동화 계정 업데이트
 다음 절차는 기존의 자동화 계정을 업데이트하고 PowerShell을 사용하는 서비스 주체를 만듭니다. 계정을 만들었지만 실행 계정 만들기를 거부한 경우 이 절차가 필요합니다.
@@ -92,6 +100,9 @@ PowerShell 스크립트는 다음을 구성합니다.
     [String] $ApplicationDisplayName,
 
     [Parameter(Mandatory=$true)]
+    [String] $SubscriptionName,
+
+    [Parameter(Mandatory=$true)]
     [String] $CertPlainPassword,
 
     [Parameter(Mandatory=$false)]
@@ -100,6 +111,7 @@ PowerShell 스크립트는 다음을 구성합니다.
 
     Login-AzureRmAccount
     Import-Module AzureRM.Resources
+    Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 
     $CurrentDate = Get-Date
     $EndDate = $CurrentDate.AddMonths($NoOfMonthsUntilExpired)
@@ -156,12 +168,13 @@ PowerShell 스크립트는 다음을 구성합니다.
     ```
 <br>
 2. 사용자 컴퓨터의 **시작** 화면에서 관리자 권한으로 **Windows PowerShell**을 시작합니다.
-3. 관리자 권한 PowerShell 명령줄 셸에서 1단계에서 만든 스크립트가 포함된 폴더로 이동하고 *–ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName* 및 *-CertPlainPassword* 매개 변수에 대한 값을 변경하는 스크립트를 실행합니다.<br>
+3. 관리자 권한 PowerShell 명령줄 셸에서 1단계에서 만든 스크립트가 포함된 폴더로 이동하고 *–ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName*, *-SubscriptionName* 및 *-CertPlainPassword* 매개 변수에 대한 값을 변경하는 스크립트를 실행합니다.<br>
 
     ```
     .\New-AzureServicePrincipal.ps1 -ResourceGroup <ResourceGroupName> `
      -AutomationAccountName <NameofAutomationAccount> `
      -ApplicationDisplayName <DisplayNameofAutomationAccount> `
+     -SubscriptionName <SubscriptionName> `
      -CertPlainPassword "<StrongPassword>"
     ```   
 <br>
@@ -176,28 +189,61 @@ PowerShell 스크립트는 다음을 구성합니다.
 2. **Runbook** 타일을 클릭하여 Runbook 목록을 엽니다.
 3. **Runbook 추가** 단추를 클릭하고 **Runbook 추가** 블레이드에서 **새 Runbook 만들기**를 선택하여 새 Runbook을 만듭니다.
 4. Runbook의 이름을 *Test-SecPrin-Runbook*으로 지정하고 **Runbook 형식**에 PowerShell을 선택합니다. **만들기**를 클릭하여 Runbook을 만듭니다.
-5. **PowerShell Runbook 편집** 블레이드에서 캔버스에 다음 코드를 붙여넣습니다.<br>
+5. **PowerShell Runbook 편집** 블레이드에서 캔버스에 다음 코드를 붙여 넣습니다.<br>
 
     ```
-     $Conn = Get-AutomationConnection -Name AzureRunAsConnection `
+     $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
      Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
      -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
-   ```  
+    ```  
 <br>
 6. **저장**을 클릭하여 Runbook을 저장합니다.
 7. **테스트 창**을 클릭하여 **테스트** 블레이드를 엽니다.
 8. **시작**을 클릭하여 테스트를 시작합니다.
 9. 이 창에서 [Runbook 작업](automation-runbook-execution.md)이 생성되고 해당 상태가 표시됩니다.  
-10. 작업 상태는 클라우드의 Runbook 작업자가 사용 가능해질 때까지 기다리고 있음을 나타내는 *대기 중*으로 시작합니다. 작업자가 작업을 요구한 경우, *시작 중*으로 바뀐 다음 Runbook이 실제로 실행되기 시작하면 *실행 중*으로 바뀝니다.  
+10. 작업 상태는 클라우드의 runbook 작업자가 사용 가능해질 때까지 기다리고 있음을 나타내는 *대기 중*으로 시작합니다. 작업자가 작업을 요구한 경우, *시작 중*으로 바뀐 다음 Runbook이 실제로 실행되기 시작하면 *실행 중*으로 바뀝니다.  
 11. Runbook 작업이 완료되면 해당 출력이 표시됩니다. 이 경우에는 상태가 **완료됨**으로 표시됩니다.<br> ![보안 주체 Runbook 테스트](media/automation-sec-configure-azure-runas-account/runbook-test-results.png)<br>
 12. 캔버스로 돌아가려면 **테스트** 블레이드를 닫습니다.
 13. **PowerShell Runbook 편집** 블레이드를 닫습니다.
 14. **Test-SecPrin-Runbook** 블레이드를 닫습니다.
 
-새 계정을 제대로 설치했는지를 확인하는 데 사용된 위의 코드는 Azure 자동화에서 인증하기 위해 PowerShell Runbook에서 사용되어 ARM 리소스를 관리합니다. 물론 현재 사용 중인 자동화 계정으로 인증을 계속할 수 있습니다.
+## ARM 리소스를 사용하여 인증하는 샘플 코드
+
+AzureAutomationTutorial 예제 Runbook에서 가져온 아래 업데이트된 샘플 코드를 사용하여 Runbook으로 ARM 리소스를 관리하는 실행 계정을 사용하여 인증할 수 있습니다.
+
+   ```
+   $connectionName = "AzureRunAsConnection"
+   $SubId = Get-AutomationVariable -Name 'SubscriptionId'
+   try
+   {
+      # Get the connection "AzureRunAsConnection "
+      $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
+
+      "Logging in to Azure..."
+      Add-AzureRmAccount `
+         -ServicePrincipal `
+         -TenantId $servicePrincipalConnection.TenantId `
+         -ApplicationId $servicePrincipalConnection.ApplicationId `
+         -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint 
+	  "Setting context to a specific subscription"	 
+	  Set-AzureRmContext -SubscriptionId $SubId	 		 
+   }
+   catch {
+       if (!$servicePrincipalConnection)
+       {
+           $ErrorMessage = "Connection $connectionName not found."
+           throw $ErrorMessage
+       } else{
+           Write-Error -Message $_.Exception
+           throw $_.Exception
+       }
+   } 
+   ```
+
+스크립트에는 여러 구독 간에 쉽게 작업할 수 있도록 구독 컨텍스트를 참조하기 위해 지원되는 두 개의 코드 줄이 추가로 포함됩니다. SubscriptionId라는 변수 자산은 구독 ID를 포함하고 Add-AzureRmAccount cmdlet 문 뒤에 있는 [Set-AzureRmContext cmdlet](https://msdn.microsoft.com/library/mt619263.aspx)은 매개 변수 집합 *-SubscriptionId*으로 지정됩니다. 변수 이름이 너무 일반적인 경우 변수의 이름을 수정하여 용도에 맞게 식별하기 쉽도록 접두사 또는 다른 명명 규칙을 포함할 수 있습니다. 또한 해당하는 변수 자산이 있는 -SubscriptionId 대신 set -SubscriptionName 매개 변수를 사용할 수 있습니다.
 
 ## 다음 단계
 - 서비스 주체에 대한 자세한 내용은 [응용 프로그램 개체 및 서비스 주체 개체](../active-directory/active-directory-application-objects.md)를 참조합니다.
 - Azure 자동화의 역할 기반 액세스 제어에 대한 자세한 내용은 [Azure 자동화에서 역할 기반 액세스 제어](../automation/automation-role-based-access-control.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

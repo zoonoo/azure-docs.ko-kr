@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/13/2016"
+	ms.date="05/12/2016"
 	ms.author="billmath"/>
 
 # 하이브리드 ID 디렉터리 통합 도구 비교
@@ -24,7 +24,7 @@
 
 >[AZURE.NOTE] Azure AD Connect는 이전에 DirSync 및 AAD 동기화로 릴리스된 구성 요소와 기능을 통합합니다. 이러한 도구는 이제 개별적으로 릴리스되지 않습니다. 향후의 모든 향상 기능은 Azure AD Connect 업데이트에 포함되므로, 최신 기능을 구할 위치를 항상 알 수 있습니다.
 >
->디렉터리 동기화 및 Azure AD Sync는 사용되지 않습니다. 자세한 내용은 [Windows Azure Active Directory 동기화("DirSync") 및 Azure Active Directory 동기화("Azure AD Sync") 업그레이드]( https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-dirsync-deprecated/?WT.mc_id=DirSyncDepACOM)에서 찾을 수 있습니다.
+>디렉터리 동기화 및 Azure AD Sync는 사용되지 않습니다. 자세한 내용은 [Windows Azure Active Directory 동기화("DirSync") 및 Azure Active Directory 동기화("Azure AD Sync") 업그레이드](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-dirsync-deprecated/?WT.mc_id=DirSyncDepACOM)에서 찾을 수 있습니다.
 
 
 각 테이블에 다음 키를 사용합니다.
@@ -94,4 +94,4 @@ AD에서 Azure AD로의 흐름에서 특성 제거 허용 | ● | ● | | |
 ## 다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!----HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

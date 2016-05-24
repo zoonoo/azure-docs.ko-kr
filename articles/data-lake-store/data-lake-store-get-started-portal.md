@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/07/2016"
+   ms.date="05/11/2016"
    ms.author="nitinme"/>
 
 # Azure 포털을 사용하여 Azure 데이터 레이크 저장소 시작
@@ -44,6 +44,13 @@ Azure 포털을 사용하여 Azure 데이터 레이크 저장소 계정을 만�
 3. **새 데이터 레이크 저장소** 블레이드에서 **미리 보기 등록**을 클릭합니다. 정보를 읽은 후 **확인**을 클릭합니다. 공개 미리 보기에 대한 구독을 사용하도록 설정한 후에 전자 메일을 받습니다.
 
 	![공개 미리 보기에 등록](./media/data-lake-store-get-started-portal/preview-signup.png "새 Azure 데이터 레이크 계정 만들기")
+
+## 비디오로 빠르게 배우시겠습니까?
+
+Data Lake 저장소를 시작하려면 다음 비디오를 시청하세요.
+
+* [Data Lake 저장소 계정 만들기](https://mix.office.com/watch/1k1cycy4l4gen)
+* [데이터 탐색기를 사용하여 Data Lake 저장소에서 데이터 관리](https://mix.office.com/watch/icletrxrh6pc)
 
 ## Azure 데이터 레이크 저장소 계정 만들기
 
@@ -130,4 +137,4 @@ Azure 데이터 레이크 저장소 계정을 삭제하려면 데이터 레이�
 - [Azure 데이터 레이크 분석에 데이터 레이크 저장소 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Azure HDInsight에 데이터 레이크 저장소 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

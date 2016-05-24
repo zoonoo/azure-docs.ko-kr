@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="swkrish"
 	manager="msmbaldwin"
-	editor="curtand"/>
+	editor="bryanla"/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/25/2016"
+	ms.date="05/16/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 미리 보기: Azure AD B2C 테넌트 만들기
@@ -46,9 +46,6 @@ Azure 구독이 이미 있는 경우 이 단계를 건너뜁니다. 그렇지 �
 
 6. 이제 테넌트가 만들어지고 Active Directory 확장에 표시됩니다. 또한 사용자는 테넌트의 전역 관리자가 되었습니다. 필요에 따라 다른 전역 관리자를 추가할 수 있습니다.
 
-    > [AZURE.IMPORTANT]
-    해당 테넌트를 만드는 데 최대 2분이 걸릴 수 있습니다. 테넌트를 만드는 동안 문제에 직면하는 경우 [Azure AD 테넌트 만들기 또는 Azure AD B2C 테넌트-문제 및 해결](active-directory-b2c-support-create-directory.md)의 지침을 참조하세요.
-
 ## 3단계: Azure 포털의 B2C 기능 블레이드로 이동
 
 1. 왼쪽의 탐색 모음에서 Active Directory 확장으로 이동합니다.
@@ -61,7 +58,7 @@ Azure 구독이 이미 있는 경우 이 단계를 건너뜁니다. 그렇지 �
 5. 새 브라우저 탭 또는 창에 Azure 포털이 열리고 B2C 기능 블레이드가 표시됩니다.
 
     > [AZURE.IMPORTANT]
-    이 페이지가 제대로 로드하지 않는다고 알려진 문제가 있습니다(소수의 테넌트에 해당). 브라우저를 새로 고치면 해결됩니다. 그렇지 않은 경우 Azure 지원 부서에 문의하세요.
+    테넌트가 Azure 포털에 액세스하는 데 최대 2-3분이 걸릴 수 있습니다. 시간이 지난 후에 이 단계를 다시 시도하면 이 문제가 해결됩니다. 그렇지 않은 경우 고객 지원으로 문의하세요.
 
 6. 이 블레이드를 쉽게 액세스할 수 있도록 시작 보드에 고정합니다. (고정 도구는 기능 블레이드의 오른쪽 위 모서리에 빨간색으로 표시됩니다.)
 
@@ -74,4 +71,4 @@ Azure 구독이 이미 있는 경우 이 단계를 건너뜁니다. 그렇지 �
 
 [Azure Active Directory B2C 미리 보기: 응용 프로그램 등록](active-directory-b2c-app-registration.md)을 읽어서 Azure AD B2C에 응용 프로그램을 등록하고 빠른 시작 응용 프로그램을 빌드하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

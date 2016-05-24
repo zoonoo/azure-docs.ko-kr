@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/10/2016" 
+	ms.date="05/12/2016" 
 	ms.author="billmath"/>
 
 # 사용자에게 Azure MFA, Azure AD Premium 또는 Enterprise Mobilitiy Suite 라이선스 할당
@@ -33,4 +33,4 @@ Azure MFA, Azure AD Premium 또는 Enterprise Mobility Suite 라이선스가 있
 7. 확인 표시를 **클릭**하여 변경 내용을 저장합니다. ![라이선스 할당](./media/multi-factor-authentication-get-started-assign-licenses/assign4.png)
 8. 할당된 라이선스 수와 실패한 수를 알려주는 메시지가 표시됩니다. **확인**을 클릭합니다. ![라이선스 할당](./media/multi-factor-authentication-get-started-assign-licenses/assign5.png)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

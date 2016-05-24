@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="서비스 버스 릴레이된 메시징 자습서 | Microsoft Azure"
-   description="서비스 버스 릴레이 메시징을 사용하여 서비스 버스 클라이언트 응용 프로그램과 서비스를 빌드합니다."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="서비스 버스 릴레이된 메시징 자습서 | Microsoft Azure"
+    description="서비스 버스 릴레이 메시징을 사용하여 서비스 버스 클라이언트 응용 프로그램과 서비스를 빌드합니다."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="tysonn" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="01/26/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/17/2016"
+    ms.author="sethm" />
 
 # 서비스 버스 릴레이 메시징 자습서
 
@@ -29,15 +29,19 @@
 
 ## 계정 등록
 
-첫 단계는 서비스 버스 네임스페이스를 만들고 SAS(공유 액세스 서명) 키를 확보합니다. 서비스 네임스페이스는 서비스 버스를 통해 노출되는 각 응용 프로그램에 대한 응용 프로그램 경계를 제공합니다. 서비스 네임스페이스 및 SAS 키 조합은 서비스 버스에 자격 증명을 제공하여 응용 프로그램에 대한 액세스를 인증합니다.
+첫 단계는 서비스 버스 네임스페이스를 만들고 SAS(공유 액세스 서명) 키를 확보합니다. 네임스페이스는 서비스 버스를 통해 노출되는 각 응용 프로그램에 대한 응용 프로그램 경계를 제공합니다. 네임스페이스 및 SAS 키 조합은 서비스 버스에 자격 증명을 제공하여 응용 프로그램에 대한 액세스를 인증합니다.
 
-1. 서비스 네임스페이스를 만들려면 [Azure 클래식 포털][]을 방문합니다. 왼쪽에서 **서비스 버스**를 클릭한 다음 **만들기**를 클릭합니다. 네임스페이스에 이름을 입력한 다음 확인 표시를 클릭합니다.
+1. 네임스페이스를 만들려면 [Azure 클래식 포털][]을 방문합니다. 왼쪽에서 **서비스 버스**를 클릭한 다음 **만들기**를 클릭합니다. 네임스페이스에 이름을 입력하고 다른 모든 값에 기본값을 그대로 적용한 다음 확인 표시를 클릭합니다.
 
 	>[AZURE.NOTE] 클라이언트와 서비스 응용 프로그램에 동일한 네임스페이스를 사용할 필요는 없습니다.
 
+	![][4]
+
 1. 포털의 주 창에서 이전 단계에서 만든 네임스페이스의 이름을 클릭합니다.
 
-2. **구성**을 클릭하여 네임스페이스에 대한 기본 공유 액세스 정책을 확인합니다.
+2. **구성** 탭을 클릭하여 네임스페이스에 대한 기본 공유 액세스 정책 및 키를 확인합니다.
+
+	![][1]
 
 3. **RootManageSharedAccessKey** 정책에 대한 기본 키를 기록해 두거나 클립보드로 복사합니다. 이 자습서의 뒷부분에서 이 값을 사용하게 됩니다.
 
@@ -49,19 +53,24 @@
 
 1. **시작 메뉴**에서 프로그램을 마우스 오른쪽 단추로 누른 다음 **관리자 권한으로 실행**을 선택하여 Visual Studio를 관리자 권한으로 엽니다.
 
-1. 새 콘솔 응용 프로그램 프로젝트를 만듭니다. **파일** 메뉴를 클릭하고 **새로 만들기**를 선택한 다음 **프로젝트**를 클릭합니다. **새 프로젝트** 대화 상자에서 **Visual C#**를 클릭합니다(**Visual C#**가 표시되지 않을 경우 **다른 언어** 아래 확인). **콘솔 응용 프로그램** 템플릿을 클릭한 다음 이름을 **EchoService**로 지정합니다. 기본 **위치**를 사용합니다. **확인**을 클릭하여 프로젝트를 만듭니다.
+2. 새 콘솔 응용 프로그램 프로젝트를 만듭니다. **파일** 메뉴를 클릭하고 **새로 만들기**를 선택한 다음 **프로젝트**를 클릭합니다. **새 프로젝트** 대화 상자에서 **Visual C#**를 클릭합니다(**Visual C#**가 표시되지 않을 경우 **다른 언어** 아래 확인). **콘솔 응용 프로그램** 템플릿을 클릭한 다음 이름을 **EchoService**로 지정합니다. **확인**을 클릭하여 프로젝트를 만듭니다.
 
-1. 프로젝트에 `System.ServiceModel.dll`에 대한 참조 추가: 솔루션 탐색기에서 프로젝트 폴더 아래 **참조** 폴더를 마우스 오른쪽 단추로 클릭한 후 **참조 추가**를 클릭합니다. **참조 추가** 대화 상자의 **.NET** 탭을 선택하고 **System.ServiceModel**이 보일 때까지 아래로 스크롤합니다. 해당 항목을 선택하고 **확인**을 클릭합니다.
+	![][2]
 
-1. 솔루션 탐색기에서 Program.cs 파일을 두 번 클릭하여 편집기에서 엽니다.
+3. 서비스 버스 NuGet 패키지를 설치합니다. 이 패키지는 WCF **System.ServiceModel** 뿐만 아니라 서비스 버스 라이브러리에 대한 참조를 자동으로 추가합니다. [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx)은 WCF의 기본 기능에 프로그래밍 방식의 액세스를 가능하게 하는 네임스페이스입니다. 서비스 버스는 WCF의 많은 개체와 특성을 사용하여 서비스 계약을 정의합니다.
 
-1. System.ServiceModel 네임스페이스에 대한 `using` 문을 추가합니다.
+	솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭한 다음 **솔루션에 대한 NuGet 패키지 관리**를 클릭합니다. **찾아보기** 탭을 클릭한 다음 `Microsoft Azure Service Bus`을 검색합니다. 프로젝트 이름이 **버전** 상자에서 지정되었는지 확인합니다. **설치**를 클릭하고 사용 약관에 동의합니다.
+
+	![][3]
+
+3. 아직 열리지 않은 경우 솔루션 탐색기에서 Program.cs 파일을 두 번 클릭하여 편집기에서 엽니다.
+
+4. 파일 맨 위에 다음 using 문을 추가합니다.
 
 	```
 	using System.ServiceModel;
+	using Microsoft.ServiceBus;
 	```
-
-	[System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx)은 WCF의 기본 기능에 프로그래밍 방식의 액세스를 가능하게 하는 네임스페이스입니다. 서비스 버스는 WCF의 많은 개체와 특성을 사용하여 서비스 계약을 정의합니다.
 
 1. 네임스페이스 이름을 **EchoService**의 기본 이름에서 **Microsoft.ServiceBus.Samples**로 변경합니다.
 
@@ -71,7 +80,7 @@
 
 	```
 	[ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
-	publicinterface IEchoContract
+	public interface IEchoContract
 	{
 	}
 	```
@@ -85,22 +94,15 @@
 	string Echo(string text);
 	```
 
-1. 계약의 외부에서 다음과 같이 `IEchoChannel` 및 `IClientChannel` 인터페이스에서 모두 상속되는 채널을 선언합니다.
+1. 다음과 같이 `IEchoContract` 인터페이스 정의 바로 다음에 `IEchoChannel` 및 `IClientChannel` 인터페이스에서 모두 상속되는 채널을 선언합니다.
 
 	```
-    [ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
-    publicinterface IEchoContract
-    {
-        [OperationContract]
-        String Echo(string text);
-    }
-
-    publicinterface IEchoChannel : IEchoContract, IClientChannel { }
+    public interface IEchoChannel : IEchoContract, IClientChannel { }
 	```
 
 	채널은 호스트 및 클라이언트가 서로 정보를 전달하는 WCF 개체입니다. 나중에 두 응용 프로그램 간에 정보를 에코할 채널에 대한 코드를 작성합니다.
 
-1. **빌드** 메뉴에서 **솔루션 빌드**를 클릭하거나 F6 키를 눌러 지금까지의 작업의 정확성을 확인합니다.
+1. **빌드** 메뉴에서 **솔루션 빌드**를 클릭하거나 **Ctrl+Shift+B** 키를 눌러 지금까지의 작업의 정확성을 확인합니다.
 
 ### 예
 
@@ -134,7 +136,7 @@ namespace Microsoft.ServiceBus.Samples
 
 ## 서비스 버스를 사용하도록 WCF 계약 구현
 
-서비스 버스 서비스를 만들려면 첫째로 계약을 만들어야 하는데, 계약은 인터페이스를 사용하여 정의됩니다. 인터페이스를 만드는 방법에 자세한 내용은 이전 단계를 참조하십시오. 다음 단계는 인터페이스를 구현합니다. 여기에는 사용자 정의 `IEchoContract` 인터페이스를 구현하는 이름이 `EchoService`인 클래스를 만드는 단계가 포함됩니다. 인터페이스를 구현한 후 App.config 구성 파일을 사용하여 인터페이스를 구현합니다. 구성 파일은 서비스 이름, 계약 이름, 서비스 버스와 통신에 사용되는 프로토콜 유형과 같은 응용 프로그램에 필요한 정보를 포함합니다. 이 작업에 사용되는 코드는 과정을 수행하면서 예제에 제공됩니다. 서비스 계약 구현 방법에 대한 더 일반적인 논의는 Windows Communication Foundation(WCF) 설명서의 [서비스 계약 구현](https://msdn.microsoft.com/library/ms733764.aspx)을 참조하세요.
+서비스 버스 릴레이를 만들려면 첫째로 계약을 만들어야 하는데, 계약은 인터페이스를 사용하여 정의됩니다. 인터페이스를 만드는 방법에 자세한 내용은 이전 단계를 참조하십시오. 다음 단계는 인터페이스를 구현합니다. 여기에는 사용자 정의 `IEchoContract` 인터페이스를 구현하는 이름이 `EchoService`인 클래스를 만드는 단계가 포함됩니다. 인터페이스를 구현한 후 App.config 구성 파일을 사용하여 인터페이스를 구현합니다. 구성 파일은 서비스 이름, 계약 이름, 서비스 버스와 통신에 사용되는 프로토콜 유형과 같은 응용 프로그램에 필요한 정보를 포함합니다. 이 작업에 사용되는 코드는 과정을 수행하면서 예제에 제공됩니다. 서비스 계약 구현 방법에 대한 더 일반적인 논의는 WCF 설명서의 [서비스 계약 구현](https://msdn.microsoft.com/library/ms733764.aspx)을 참조하세요.
 
 1. `IEchoContract` 인터페이스 정의 바로 뒤에 이름이 `EchoService`인 클래스를 새로 만듭니다. `EchoService` 클래스가 `IEchoContract` 인터페이스를 구현합니다. 
 
@@ -146,9 +148,10 @@ namespace Microsoft.ServiceBus.Samples
 	
 	다른 인터페이스 구현과 유사하게, 다른 파일에 정의를 구현할 수 있습니다. 하지만, 이 자습서에서는 구현이 인터페이스 정의 및 `Main` 메서드와 같은 파일에 위치합니다.
 
-1. 서비스 이름과 네임스페이스를 표시하는 [ServiceBehaviorAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicebehaviorattribute.aspx) 특성을 적용합니다.
+1. [ServiceBehaviorAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicebehaviorattribute.aspx) 특성을 `IEchoContract` 인터페이스에 적용합니다. 특성은 서비스 이름 및 네임스페이스를 지정합니다. 그러면 `EchoService` 클래스는 다음과 같이 표시됩니다.
 
-	```[ServiceBehavior(Name = "EchoService", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+	```
+	[ServiceBehavior(Name = "EchoService", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
 	class EchoService : IEchoContract
 	{
 	}
@@ -170,24 +173,9 @@ namespace Microsoft.ServiceBus.Samples
 
 1. 구성 파일은 WCF 구성 파일과 매우 유사합니다. 여기에는 서비스 이름, 끝점(즉, 클라이언트와 호스트가 서로 통신하도록 서비스 버스가 노출하는 위치) 및 바인딩(통신에 사용되는 프로토콜 유형)이 포함되어 있습니다. 주요 차이점은 구성된 서비스 끝점이 .NET Framework에 속하지 않는 [NetTcpRelayBinding](https://msdn.microsoft.com/library/azure/microsoft.servicebus.nettcprelaybinding.aspx) 바인딩을 참조한다는 것입니다. [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx)은 서비스 버스에서 정의한 바인딩 중 하나입니다.
 
-1. **솔루션 탐색기**에서 현재 다음과 같은 XML 요소를 포함하는 App.config를 클릭합니다.
+1. 솔루션 탐색기에서 **App.config** 파일을 두 번 클릭하여 Visual Studio 편집기에서 엽니다.
 
-	```
-	<?xmlversion="1.0"encoding="utf-8"?>
-	<configuration>
-	</configuration>
-	```
-
-1. `<system.serviceModel>` XML 요소를 App.config 파일에 추가합니다. 이것은 하나 이상의 서비스를 정의하는 WCF 요소입니다. 이 예제에서는 서비스 이름 및 끝점을 정의하는 데 사용합니다.
-
-	```
-	<?xmlversion="1.0"encoding="utf-8"?>
-	<configuration>
-	  <system.serviceModel>
-  
-	  </system.serviceModel>
-	</configuration>
-	```
+2. `<appSettings>` 요소에서 자리 표시자를 이전 단계에서 복사한 서비스 네임스페이스 및 SAS 키의 이름으로 바꿉니다.
 
 1. `<system.serviceModel>` 태그 안에 `<services>` 요소를 추가합니다. 단일 구성 파일 내에 여러 서비스 버스 응용 프로그램을 정의할 수 있습니다. 그러나 이 자습서에서는 하나만 정의합니다.
  
@@ -205,28 +193,17 @@ namespace Microsoft.ServiceBus.Samples
 1. `<services>` 요소 안에서 `<service>` 요소를 추가하여 서비스의 이름을 정의합니다.
 
 	```
-	<servicename="Microsoft.ServiceBus.Samples.EchoService">
+	<service name="Microsoft.ServiceBus.Samples.EchoService">
 	</service>
 	```
 
 1. `<service>` 요소 안에서 끝점 계약의 위치와 해당 끝점의 바인딩 형식을 정의합니다.
 
 	```
-	<endpointcontract="Microsoft.ServiceBus.Samples.IEchoContract"binding="netTcpRelayBinding"/>
+	<endpoint contract="Microsoft.ServiceBus.Samples.IEchoContract" binding="netTcpRelayBinding"/>
 	```
 
 	끝점은 클라이언트가 호스트 응용 프로그램을 검색하는 위치를 정의합니다. 나중에 이 자습서에서는 이 단계를 사용하여 서비스 버스를 통해 호스트를 완전히 공개하는 URI를 만듭니다. 바인딩은 서비스 버스와의 통신에 TCP를 프로토콜로 사용한다고 선언합니다.
-
-
-1. `<services>` 요소 바로 뒤에 다음 바인딩 확장을 추가합니다.
- 
-	```
-	<extensions>
-	  <bindingExtensions>
-	    <addname="netTcpRelayBinding"type="Microsoft.ServiceBus.Configuration.NetTcpRelayBindingCollectionElement, Microsoft.ServiceBus, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
-	  </bindingExtensions>
-	</extensions>
-	```
 
 1. **빌드** 메뉴에서 **솔루션 빌드**를 클릭하여 작업의 정확성을 확인합니다.
 
@@ -260,7 +237,8 @@ namespace Microsoft.ServiceBus.Samples
     </services>
     <extensions>
       <bindingExtensions>
-        <add name="netTcpRelayBinding" type="Microsoft.ServiceBus.Configuration.NetTcpRelayBindingCollectionElement, Microsoft.ServiceBus, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+        <add name="netTcpRelayBinding"
+                    type="Microsoft.ServiceBus.Configuration.NetTcpRelayBindingCollectionElement, Microsoft.ServiceBus, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
       </bindingExtensions>
     </extensions>
   </system.serviceModel>
@@ -272,8 +250,6 @@ namespace Microsoft.ServiceBus.Samples
 이 단계에서는 기본 서비스 버스 서비스를 실행하는 방법을 설명합니다.
 
 ### 서비스 버스 자격 증명을 만들려면
-
-1. [서비스 버스 NuGet 패키지](https://www.nuget.org/packages/WindowsAzure.ServiceBus) 설치
 
 1. `Main()`에서 콘솔 창으로부터 읽은 네임스페이스와 SAS 키를 저장할 두 변수를 만듭니다.
 
@@ -372,7 +348,7 @@ namespace Microsoft.ServiceBus.Samples
 	host.Close();
 	```
 
-1. F6을 눌러 프로젝트를 빌드합니다.
+1. **Ctrl+Shift+B**를 눌러 프로젝트를 빌드합니다.
 
 ### 예
 
@@ -461,13 +437,13 @@ namespace Microsoft.ServiceBus.Samples
 	2. **새 프로젝트 추가** 대화 상자에서 **Visual C#**을 클릭하고(**Visual C#**이 보이지 않으면 **다른 언어** 아래 확인) **콘솔 응용 프로그램** 서식 파일을 선택하여 이름을 **EchoClient**로 지정합니다.
 	3. **확인**을 클릭합니다. <br />
 
-1. 솔루션 탐색기에서 Program.cs 파일을 두 번 클릭하여 편집기에서 **EchoClient** 프로젝트를 엽니다.
+1. 아직 열리지 않은 경우 솔루션 탐색기에서 Program.cs 파일을 두 번 클릭하여 편집기에서 **EchoClient** 프로젝트를 엽니다.
 
 1. 네임스페이스 이름을 기본 이름인 `EchoClient`에서 `Microsoft.ServiceBus.Samples`로 변경합니다.
 
-1. 프로젝트에 대해 System.ServiceModel.dll 참조를 추가합니다.
-	1. 솔루션 탐색기의 **EchoClient** 프로젝트에서 **참조**를 마우스 오른쪽 단추로 클릭합니다. 그런 다음 **참조 추가**를 클릭합니다.
-	2. 이미 이 자습서의 첫 단계에서 이 어셈블리에 대한 참조를 추가했으므로 이제 **최근에 사용한 항목** 탭에 나열됩니다. **최근에 사용한 항목**을 클릭한 다음 목록에서 **System.ServiceModel.dll**을 선택합니다. 그런 후 **OK**를 클릭합니다. **최근에 사용한 항목** 탭에 **System.ServiceModel.dll**이 표시되지 않으면 **찾아보기** 탭을 클릭하여 **C:\\Windows\\Microsoft.NET\\Framework\\v3.0\\Windows Communication Foundation**으로 이동합니다. 여기에서 어셈블리를 선택합니다. <br />
+1. [서비스 버스 NuGet 패키지](https://www.nuget.org/packages/WindowsAzure.ServiceBus)를 설치합니다. 솔루션 탐색기에서 **EchoClient** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리**를 클릭합니다. **찾아보기** 탭을 클릭한 다음 `Microsoft Azure Service Bus`를 검색합니다. **설치**를 클릭하고 사용 약관에 동의합니다.
+
+	![][3]
 
 1. Program.cs 파일에서[System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) 네임스페이스에 대한 `using` 문을 추가합니다.
 
@@ -475,22 +451,20 @@ namespace Microsoft.ServiceBus.Samples
 	using System.ServiceModel;
 	```
 
-1. [서비스 버스 NuGet 패키지](https://www.nuget.org/packages/WindowsAzure.ServiceBus)를 설치합니다.
-
 1. 다음 예제와 같이 서비스 계약 정의를 네임스페이스에 추가합니다. 이 정의는 **서비스** 프로젝트에 사용되는 정의와 동일합니다. 이 코드는 `Microsoft.ServiceBus.Samples` 네임스페이스 위쪽에 추가해야 합니다.
 
 	```
 	[ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
-	publicinterface IEchoContract
+	public interface IEchoContract
 	{
 	    [OperationContract]
 	    string Echo(string text);
 	}
 
-	publicinterface IEchoChannel : IEchoContract, IClientChannel { }
+	public interface IEchoChannel : IEchoContract, IClientChannel { }
 	```
 
-1. F6을 눌러 클라이언트를 빌드합니다.
+1. **Ctrl+Shift+B**를 눌러 클라이언트를 빌드합니다.
 
 ### 예
 
@@ -527,29 +501,9 @@ namespace Microsoft.ServiceBus.Samples
 
 이 단계에서는 이 자습서의 앞에서 만든 서비스에 액세스하는 기본 클라이언트 응용 프로그램의 App.config 파일을 만듭니다. 이 App.config 파일은 계약, 바인딩 및 끝점의 이름을 정의합니다. 이 작업에 사용되는 코드는 과정을 수행하면서 예제에 제공됩니다.
 
-1. 솔루션 탐색기의 클라이언트 프로젝트에서 **App.config**를 두 번 클릭하여 파일을 엽니다. 현재 여기에는 다음 XML 요소가 포함되어 있습니다.
+1. 솔루션 탐색기의 **EchoClient** 프로젝트에서 **App.config**를 두 번 클릭하여 Visual Studio 편집기에서 파일을 엽니다.
 
-	```
-	<?xmlversion="1.0"?>
-	<configuration>
-	  <startup>
-	    <supportedRuntimeversion="v4.0"sku=".NETFramework,Version=v4.0"/>
-	  </startup>
-	</configuration>
-	```
-
-1. `system.serviceModel`에 대한 App.config 파일에 XML 요소를 추가합니다.
-
-	```
-	<?xmlversion="1.0"encoding="utf-8"?>
-	<configuration>
-	  <system.serviceModel>
-	
-	  </system.serviceModel>
-	</configuration>
-	```
-	
-	이 요소는 응용 프로그램이 WCF 스타일 끝점을 사용하도록 선언합니다. 앞서 설명한 것처럼 서비스 버스 응용 프로그램의 구성은 대부분 WCF 응용 프로그램과 동일합니다. 주요 차이점은 구성 파일이 지정하는 위치입니다.
+2. `<appSettings>` 요소에서 자리 표시자를 이전 단계에서 복사한 서비스 네임스페이스 및 SAS 키의 이름으로 바꿉니다.
 
 1. System.serviceModel 요소 안에서 `<client>` 요소를 추가합니다.
 
@@ -568,22 +522,12 @@ namespace Microsoft.ServiceBus.Samples
 1. `client` 요소 내에서 끝점의 이름, 계약, 바인딩 형식을 정의합니다.
 
 	```
-	<endpointname="RelayEndpoint"
+	<endpoint name="RelayEndpoint"
 					contract="Microsoft.ServiceBus.Samples.IEchoContract"
 					binding="netTcpRelayBinding"/>
 	```
 
 	이 단계에서는 끝점 이름, 서비스에서 정의한 계약, 클라이언트가 TCP를 사용하여 서비스 버스와 통신한다는 사실을 정의합니다. 끝점 이름은 이 끝점 구성을 서비스 URI에 연결하는 다음 절차에서 사용됩니다.
-
-1. <client> 요소 바로 뒤에 다음 바인딩 확장을 추가합니다.
- 
-	```
-	<extensions>
-	  <bindingExtensions>
-	    <addname="netTcpRelayBinding"type="Microsoft.ServiceBus.Configuration.NetTcpRelayBindingCollectionElement, Microsoft.ServiceBus, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
-	  </bindingExtensions>
-	</extensions>
-	```
 
 1. **파일**을 클릭한 다음 **모두 저장**을 클릭합니다.
 
@@ -602,7 +546,8 @@ namespace Microsoft.ServiceBus.Samples
     </client>
     <extensions>
       <bindingExtensions>
-        <add name="netTcpRelayBinding" type="Microsoft.ServiceBus.Configuration.NetTcpRelayBindingCollectionElement, Microsoft.ServiceBus, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+        <add name="netTcpRelayBinding"
+                    type="Microsoft.ServiceBus.Configuration.NetTcpRelayBindingCollectionElement, Microsoft.ServiceBus, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
       </bindingExtensions>
     </extensions>
   </system.serviceModel>
@@ -625,7 +570,7 @@ namespace Microsoft.ServiceBus.Samples
 
 ### 클라이언트 응용 프로그램을 구현 하려면
 
-1. 연결 모드를 **AutoDetect**로 설정합니다. 클라이언트 응용 프로그램의 `Main()` 메서드 안에 다음 코드를 추가합니다.
+1. 연결 모드를 **AutoDetect**로 설정합니다. **EchoClient** 응용 프로그램의 `Main()` 메서드 안에 다음 코드를 추가합니다.
 
 	```
 	ServiceBusEnvironment.SystemConnectivity.Mode = ConnectivityMode.AutoDetect;
@@ -702,31 +647,41 @@ namespace Microsoft.ServiceBus.Samples
 	channelFactory.Close();
 	```
 
-## 클라이언트 응용 프로그램을 실행하려면
+## 응용 프로그램을 실행하려면
 
-1. F6을 눌러 솔루션을 빌드합니다. 그러면 이 자습서의 앞 단계에서 만든 클라이언트 프로젝트와 서비스 프로젝트가 모두 빌드되고 각각에 대한 실행 파일을 만듭니다.
+1. **Ctrl+Shift+B**를 눌러 솔루션을 빌드합니다. 이렇게 하면 이전 단계에서 만든 클라이언트 프로젝트와 서비스 프로젝트를 빌드합니다.
 
-1. 클라이언트 응용 프로그램을 실행하기 전에 서비스 응용 프로그램이 실행 중인지 확인합니다.
+2. 클라이언트 응용 프로그램을 실행하기 전에 서비스 응용 프로그램이 실행 중인지 확인해야 합니다. Visual Studio의 솔루션 탐색기에서 마우스 오른쪽 단추로 **EchoService** 솔루션을 클릭한 다음 **속성**을 클릭합니다.
 
-	이제 이름이 EchoService.exe인 에코 서비스 응용 프로그램의 실행 파일이 서비스 프로젝트 폴더 \\bin\\Debug\\EchoService.exe(디버그 구성) 또는 \\bin\\Release\\EchoService.exe(릴리스 구성) 아래에 있을 것입니다. 서비스 응용 프로그램을 시작하려면 이 파일을 두 번 클릭합니다.
+3. 솔루션 속성 대화 상자에서 **시작 프로젝트**를 클릭한 다음 **여러 시작 프로젝트** 단추를 클릭합니다. **EchoService**가 목록의 처음에 나타나는지 확인합니다.
 
-1. 콘솔 창이 열리고 네임스페이스를 입력하라는 메시지가 표시됩니다. 이 콘솔 창에서 서비스 네임스페이스를 입력하고 Enter를 누릅니다.
+4. **EchoService** 및 **EchoClient** 프로젝트 모두에 대해 **작업** 상자를 설정하여 **시작**합니다.
 
-1. 다음으로, SAS 키를 입력하라는 메시지가 표시됩니다. SAS 키를 입력하고 ENTER를 누릅니다.
+	![][5]
+
+5. **프로젝트 종속성**을 클릭합니다. **프로젝트** 상자에서 **EchoClient**를 선택합니다. **종속 대상** 상자에서 **EchoService**를 확인해야 합니다.
+
+	![][6]
+
+6. **확인**을 클릭하여 **속성** 대화 상자를 해제합니다.
+
+7. **F5** 키를 눌러 두 프로젝트를 실행합니다.
+
+8. 두 콘솔 창을 열고 네임스페이스 이름에 대한 메시지를 표시합니다. 서비스가 먼저 실행해서 **EchoService** 콘솔 창에서 네임스페이스를 입력한 다음 **Enter** 키를 누릅니다.
+
+9. 다음으로, SAS 키를 입력하라는 메시지가 표시됩니다. SAS 키를 입력하고 ENTER를 누릅니다.
 
 	콘솔 창의 출력 예는 다음과 같습니다. 여기서 입력한 값은 오직 예시용입니다.
 
 	`Your Service Namespace: myNamespace` `Your SAS Key: <SAS key value>`
 
-	서비스 응용 프로그램이 시작되고 다음 예제에서처럼 콘솔 창에 수신 중인 주소가 출력됩니다.
+	서비스 응용 프로그램은 다음 예제에서처럼 콘솔 창에 수신 중인 주소를 출력합니다.
 
     `Service address: sb://mynamespace.servicebus.windows.net/EchoService/` `Press [Enter] to exit`
     
-1. 클라이언트 응용 프로그램을 실행합니다. 이제 이름이 EchoClient.exe인 에코 클라이언트 응용 프로그램의 실행 파일이 클라이언트 프로젝트 폴더 \\bin\\Debug\\EchoClient.exe(디버그 구성) 또는 \\bin\\Release\\EchoClient.exe(릴리스 구성) 아래에 있을 것입니다. 클라이언트 응용 프로그램을 시작하려면 이 파일을 두 번 클릭합니다.
+10. **EchoClient** 콘솔 창에서 이전에 서비스 응용 프로그램에 입력한 동일한 정보를 입력합니다. 이전 단계에 따라 클라이언트 응용 프로그램에 동일한 서비스 네임스페이스 및 SAS 키 값을 입력합니다.
 
-1. 콘솔 창이 열리고 앞서 서비스 응용 프로그램에 대해 입력한 것과 같은 정보를 입력하라는 메시지가 표시됩니다. 앞의 단계에 따라 클라이언트 응용 프로그램에 대해 서비스 네임스페이스, 발급자 이름, 발급자 암호에 동일한 값을 입력합니다.
-
-1. 이 값을 입력한 후 클라이언트가 서비스에 대한 채널을 열고 다음 콘솔 출력 예제에서 보이는 것처럼 여러 텍스트를 입력하라는 메시지가 표시됩니다.
+11. 이 값을 입력한 후 클라이언트가 서비스에 대한 채널을 열고 다음 콘솔 출력 예제에서 보이는 것처럼 여러 텍스트를 입력하라는 메시지가 표시됩니다.
 
 	`Enter text to echo (or [Enter] to exit):`
 
@@ -738,7 +693,7 @@ namespace Microsoft.ServiceBus.Samples
 
 	`Server echoed: My sample text`
 
-1. 이런 방식으로 클라이언트에서 서비스로 문자 메시지를 지속적으로 보낼 수 있습니다. 작업을 마치면 클라이언트와 서비스 콘솔 창에서 Enter를 눌러 두 응용 프로그램을 모두 종료합니다.
+12. 이런 방식으로 클라이언트에서 서비스로 문자 메시지를 지속적으로 보낼 수 있습니다. 작업을 마치면 클라이언트와 서비스 콘솔 창에서 Enter를 눌러 두 응용 프로그램을 모두 종료합니다.
 
 ## 예
 
@@ -809,8 +764,6 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-클라이언트를 시작하기 전에 서비스가 실행 중인지 확인합니다.
-
 ## 다음 단계
 
 이 자습서에서는 서비스 버스 "릴레이" 기능을 사용하여 서비스 버스 클라이언트 응용 프로그램 및 서비스를 빌드하는 방법을 보여줍니다. 서비스 버스 [조정된 메시징](service-bus-messaging-overview.md#Brokered-messaging)을 사용하는 유사한 자습서는 [서비스 버스 조정된 메시징 .NET 자습서](service-bus-brokered-tutorial-dotnet.md)를 참조하세요.
@@ -823,4 +776,11 @@ namespace Microsoft.ServiceBus.Samples
 
 [Azure 클래식 포털]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0302_2016-->
+[1]: ./media/service-bus-relay-tutorial/service-bus-policies.png
+[2]: ./media/service-bus-relay-tutorial/create-console-app.png
+[3]: ./media/service-bus-relay-tutorial/install-nuget.png
+[4]: ./media/service-bus-relay-tutorial/create-ns.png
+[5]: ./media/service-bus-relay-tutorial/set-projects.png
+[6]: ./media/service-bus-relay-tutorial/set-depend.png
+
+<!---HONumber=AcomDC_0518_2016-->

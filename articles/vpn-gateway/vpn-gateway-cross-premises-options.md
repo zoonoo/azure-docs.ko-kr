@@ -12,12 +12,12 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/08/2016"
+   ms.date="05/16/2016"
    ms.author="cherylmc" />
 
 # 가상 네트워크에 대한 보안 프레미스 간 연결 정보
 
-이 문서에서는 온-프레미스 사이트를 Azure 가상 네트워크에 연결할 수 있는 여러 가지 방법을 설명합니다. 이 문서는 리소스 관리자 및 클래식 배포 모델 모두에 적용됩니다.
+이 문서에서는 온-프레미스 사이트를 Azure 가상 네트워크에 연결할 수 있는 여러 가지 방법을 설명합니다. 이 문서는 리소스 관리자 및 클래식 배포 모델 모두에 적용됩니다. VPN 게이트웨이 연결 다이어그램을 찾는 경우 [Azure VPN 게이트웨이 연결 토폴로지](vpn-gateway-topology.md)를 참조하세요.
 
 사이트 간, 지점 및 사이트 간 및 Express 경로 등 세 개의 연결 옵션을 사용할 수 있습니다. 선택하는 옵션은 다음과 같은 다양한 고려 사항에 따라 달라질 수 있습니다.
 
@@ -31,20 +31,7 @@
 
 아래 표는 솔루션에 대한 최상의 연결 옵션을 결정하는 데 도움이 될 수 있습니다.
 
-
-| - | **지점-사이트** | **사이트 간** | **Express 경로** |
-|------------------------------|----------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
-| **Azure 지원 서비스** | 클라우드 서비스 및 가상 컴퓨터 | 클라우드 서비스 및 가상 컴퓨터 | [서비스 목록](../expressroute/expressroute-faqs.md#supported-services) |
-| **일반적인 대역폭** | 일반적으로 총 100Mbps 미만 | 일반적으로 총 100Mbps 미만 | 50Mbps, 100Mbps, 200Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps |
-| **지원되는 프로토콜** | SSTP(Secure Sockets Tunneling Protocol) | IPsec | VLAN, NSP의 VPN 기술(MPLS, VPLS,...)을 통해 직접 연결 |
-| **라우팅** | 경로 기반(동적) | 정책 기반(정적 라우팅) 및 경로 기반(동적 라우팅 VPN) 지원 | BGP |
-| **연결 복원력** | 액티브-패시브 | 액티브-패시브 | 액티브-액티브 |
-| **일반적인 사용 사례** | 프로토타입 제작, 클라우드 서비스 및 가상 컴퓨터에 대한 개발/테스트/실습 시나리오 | 클라우드 서비스 및 가상 컴퓨터에 대한 개발/테스트/실습 시나리오 및 소규모 프로덕션 워크로드 | 모든 Azure 서비스(유효성이 검사된 목록), 엔터프라이즈 수준 및 중요 업무 워크로드, 백업, 빅 데이터, Azure as a DR 사이트 액세스 |
-| **SLA** | [SLA](https://azure.microsoft.com/support/legal/sla/) | [SLA](https://azure.microsoft.com/support/legal/sla/) | [SLA](https://azure.microsoft.com/support/legal/sla/) |
-| **가격** | [가격](https://azure.microsoft.com/pricing/details/vpn-gateway/) | [가격](https://azure.microsoft.com/pricing/details/vpn-gateway/) | [가격](https://azure.microsoft.com/pricing/details/expressroute/) |
-| **기술 문서** | [VPN 게이트웨이 설명서](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [VPN 게이트웨이 설명서](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [Express 경로 설명서](https://azure.microsoft.com/documentation/services/expressroute/) |
-| **FAQ** | [VPN 게이트웨이 FAQ](vpn-gateway-vpn-faq.md) | [VPN 게이트웨이 FAQ](vpn-gateway-vpn-faq.md) | [Express 경로 FAQ](../expressroute/expressroute-faqs.md) |
-
+[AZURE.INCLUDE [vpn-gateway-cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
 
 ## 사이트 간 연결
 
@@ -61,9 +48,11 @@
 - 온-프레미스 VPN 장치에 인터넷 연결 IPv4 IP 주소가 있어야 합니다. 이 장치는 NAT 뒤에 있을 수 없습니다.
 - 호환되는 VPN 장치가 있어야 합니다. [VPN 장치 정보](vpn-gateway-about-vpn-devices.md)를 참조하세요. 
 - 사용하는 VPN 장치는 솔루션에 필요한 게이트웨이 형식과 호환되어야 합니다. [VPN 게이트웨이 정보](vpn-gateway-about-vpngateways.md)를 참조하세요.
-- 게이트웨이 SKU는 집계 처리량에도 영향을 줍니다. 자세한 내용은 [게이트웨이 SKU](vpn-gateway-about-vpngateways.md#gateway-skus)를 참조하세요. 
+- 게이트웨이 SKU는 집계 처리량에도 영향을 줍니다. 자세한 내용은 [게이트웨이 SKU](vpn-gateway-about-vpngateways.md#gwsku)를 참조하세요. 
 
-Azure 클래식 포털 및 클래식 배포 모델을 사용하여 사이트 간 VPN 게이트웨이 연결을 구성하는 방법에 대한 자세한 내용은 [클래식 배포 모델에 사이트 간 VPN 연결을 사용하여 가상 네트워크 구성](vpn-gateway-site-to-site-create.md)을 참조하세요. 리소스 관리자 배포 모델을 사용하여 사이트 간 VPN을 구성하는 방법에 대한 자세한 내용은 [리소스 관리자 배포 모델에 사이트 간 VPN 연결을 사용하여 가상 네트워크 만들기](vpn-gateway-create-site-to-site-rm-powershell.md)를 참조하세요.
+**S2S에 사용 가능한 배포 모델 및 메서드**
+
+[AZURE.INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
 
 ## 지점 및 사이트 간 연결
@@ -84,7 +73,9 @@ Azure 클래식 포털 및 클래식 배포 모델을 사용하여 사이트 간
 
 - VPN 장치에 대한 인터넷 연결 IPv4 IP 주소가 없는 경우
 
-클래식 배포 모델에 지점 및 사이트 간 연결을 구성하는 방법에 대한 자세한 내용은 [클래식 배포 모델에 가상 네트워크에 지점 및 사이트 간 VPN 연결 구성](vpn-gateway-point-to-site-create.md)을 참조하세요. 리소스 관리자 배포 모델에 지점 및 사이트 간 연결을 구성하는 방법에 대한 자세한 내용은 [리소스 관리자 배포 모델에 가상 네트워크에 지점 및 사이트 간 VPN 연결 구성](vpn-gateway-howto-point-to-site-rm-ps.md)을 참조하세요.
+**P2S에 사용 가능한 배포 모델 및 메서드**
+
+[AZURE.INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)]
 
 ## Express 경로 연결
 
@@ -97,6 +88,8 @@ Express 경로에 대한 자세한 내용은 [Express 경로 기술 개요](../e
 
 ## 다음 단계
 
-자세한 내용은 [VPN 게이트웨이 FAQ](vpn-gateway-vpn-faq.md) 및 [Express 경로 FAQ](../expressroute/expressroute-faqs.md)를 참조하세요.
+- VPN 게이트웨이에 대한 자세한 내용은 [VPN 게이트웨이 정보](vpn-gateway-about-vpngateways.md), VPN 게이트웨이 [FAQ](vpn-gateway-vpn-faq.md) 및 [계획 및 디자인](vpn-gateway-plan-design.md) 문서를 참조하세요.
 
-<!---HONumber=AcomDC_0316_2016-->
+- Express 경로에 대한 자세한 내용은 [Express 경로 기술 개요](../expressroute/expressroute-introduction.md), [FAQ](../expressroute/expressroute-faqs.md) 및 [워크플로](../expressroute/expressroute-workflows.md)를 참조하세요.
+
+<!---HONumber=AcomDC_0518_2016-->

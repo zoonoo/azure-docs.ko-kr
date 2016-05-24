@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/25/2016"
+	ms.date="05/16/2016"
 	ms.author="swkrish"/>
 
 
@@ -39,8 +39,8 @@ Azure 포털 또는 Azure 클래식 포털에서 B2C 기능 블레이드로 이�
 
 또한 [https://portal.azure.com/{tenant}.onmicrosoft.com/?#blade/Microsoft\_AAD\_B2CAdmin/TenantManagementBlade/id/](https://portal.azure.com/{tenant}.onmicrosoft.com/?#blade/Microsoft_AAD_B2CAdmin/TenantManagementBlade/id/)로 이동하여 블레이드에 직접 액세스할 수 있습니다. 여기서 **{tenant}**는 테넌트를 만들 때 사용된 이름(예: contosob2c)으로 바꿉니다. 나중에 사용할 경우를 위해 이 링크에 책갈피를 설정할 수 있습니다.
 
-> [AZURE.IMPORTANT]
-B2C 기능 블레이드에 액세스하려면 B2C 테넌트의 전역 관리자가 되어야 합니다. 다른 테넌트의 전역 관리자 또는 사용자는 액세스할 수 없습니다.
+    > [AZURE.IMPORTANT]
+    You need to be a Global Administrator of the B2C tenant to be able to access the B2C features blade. A Global Administrator from any other tenant or a user from any tenant cannot access it.
 
 ### 2\. Azure 클래식 포털에서 액세스
 
@@ -60,7 +60,7 @@ B2C 기능 블레이드에 액세스하려면 B2C 테넌트의 전역 관리자�
 
 5. 모바일 응용 프로그램을 작성하는 경우 **네이티브 클라이언트 포함** 스위치를 **예**로 전환합니다. 자동으로 만들어진 기본 **리디렉션 URI**을 적어둡니다.
 6. **만들기**를 클릭하여 응용 프로그램을 등록합니다.
-7. 방금 만든 응용 프로그램을 클릭하고, 나중에 코드에서 사용할 전역적으로 고유한 **응용 프로그램 ID**를 적어둡니다.
+7. 방금 만든 응용 프로그램을 클릭하고, 나중에 코드에서 사용할 전역적으로 고유한 **응용 프로그램 클라이언트 ID**를 적어둡니다.
 
 ## 빠른 시작 응용 프로그램 빌드하기
 
@@ -68,4 +68,4 @@ Azure AD B2C로 등록된 응용 프로그램이 있다면 작동할 빠른 시�
 
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-b2c-quickstart-table.md)]
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

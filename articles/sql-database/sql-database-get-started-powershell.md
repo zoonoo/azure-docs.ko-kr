@@ -5,7 +5,7 @@
 	services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
-    manager="jeffreyg" 
+    manager="jhubbard" 
     editor="cgronlun"/>
 
 <tags
@@ -14,45 +14,23 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="01/20/2016"
+    ms.date="05/09/2016"
     ms.author="sstein"/>
 
 # PowerShell cmdlet을 사용하여 새 SQL 데이터베이스 만들기 및 일반적인 데이터베이스 설치 작업 수행하기 
 
-**단일 데이터베이스**
 
 > [AZURE.SELECTOR]
 - [Azure 포털](sql-database-get-started.md)
-- [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
+- [C#](sql-database-get-started-csharp.md)
 
 
-PowerShell cmdlet을 사용하여 새 SQL 데이터베이스를 만들고 일반적인 데이터베이스 설치 작업을 수행합니다.
+
+PowerShell cmdlet을 사용하여 새 SQL 데이터베이스를 만드는 방법을 알아봅니다. (탄력적 데이터베이스를 만드는 방법은 [PowerShell을 사용하여 새 탄력적 데이터베이스 풀 만들기](sql-database-elastic-pool-create-powershell.md)를 참조하세요.)
 
 
-PowerShell cmdlet을 실행하려면 Azure powershell을 설치하고 실행해야 합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
-
-- Azure 구독이 필요할 경우 이 페이지 위쪽에서 **무료 평가판**을 클릭하고 되돌아와 이 문서를 완료합니다.
-
-
-## 자격 증명 구성 및 구독 선택
-
-이제 Azure 리소스 관리자 모듈을 실행하고 있으므로 SQL 데이터베이스를 만드는 데 필요한 모든 cmdlet에 액세스할 수 있습니다.
-
-먼저 다음 cmdlet을 실행하도록 Azure 계정에 대한 액세스를 설정하해야 하며 자격 증명을 입력하는 로그인 화면이 나타납니다. Azure 포털에 로그인할 때 사용한 것과 동일한 메일과 암호를 사용합니다.
-
-	Add-AzureRmAccount
-
-로그인에 성공하면 액세스 권한이 있는 Azure 구독으로 로그인한 ID를 포함한 일부 정보가 화면에 표시됩니다.
-
-
-### Azure 구독 선택
-
-구독을 선택하려면 구독 ID가 필요합니다. 이전 단계에서 해당 정보를 복사하거나, 구독이 여러 개일 경우 **Get-AzureRmSubscription** cmdlet을 실행하고 결과 집합에서 원하는 구독 정보를 복사할 수 있습니다. 구독을 설정한 후 다음 cmdlet을 실행합니다.
-
-	Select-AzureRmSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
-
-성공적으로 **Select-AzureRmSubscription**을 실행한 후 PowerShell 프롬프트로 돌아갑니다. 둘 이상의 구독이 있는 경우 **Get-AzureRmSubscription**을 실행하고 사용하려는 구독이 **IsCurrent: True**를 표시하는지 확인할 수 있습니다.
+[AZURE.INCLUDE [PowerShell 세션 시작](../../includes/sql-database-powershell.md)]
 
 ## 데이터베이스 설치: 리소스 그룹, 서버, 방화벽 규칙 만들기
 
@@ -142,4 +120,4 @@ SQL 데이터베이스는 Azure SQL 데이터베이스 서버 내부에서 만�
 
 - [Azure SQL 데이터베이스](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

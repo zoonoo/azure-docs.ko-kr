@@ -49,7 +49,7 @@ Azure 리소스 그룹 프로젝트는 Azure에 배포되는 리소스를 정의
 
     |파일 이름|설명|
     |---|---|
-    |Deploy-AzureResourceGroup.ps1|Azure 리소스 관리자를 배포할 PowerShell 명령을 호출하는 PowerShell 스크립트입니다.<br /> **참고** 이 PowerShell 스크립트는 Visual Studio에서 템플릿을 배포하는 데 사용됩니다. 이 스크립트를 변경하면 Visual Studio를 이용한 배포에도 영향이 있으므로 신중해야 합니다.|
+    |Deploy-AzureResourceGroup.ps1|Azure 리소스 관리자를 배포할 PowerShell 명령을 호출하는 PowerShell 스크립트입니다.<br />* * 참고 * * 이 PowerShell 스크립트는 Visual Studio에서 템플릿을 배포하는 데 사용됩니다. 이 스크립트를 변경하면 Visual Studio를 이용한 배포에도 영향이 있으므로 신중해야 합니다.|
     |WebSiteSQLDatabase.json|Azure에 배포하려는 인프라를 정의하는 리소스 관리자 템플릿 및 배포하는 동안 제공할 수 있는 매개 변수입니다. 또한 올바른 순서로 배포되므로 리소스 간의 종속성을 정의합니다.|
     |WebSiteSQLDatabase.parameters.json|템플릿에 필요한 값을 포함하는 매개 변수 파일입니다. 각 배포를 사용자 지정하도록 전달하는 값입니다.|
     |AzCopy.exe|PowerShell 스크립트가 로컬 저장소 드롭 경로에서 저장소 계정 컨테이너로 파일을 복사할 때 사용하는 도구입니다. 이 도구는 템플릿과 함께 코드를 배포하는 배포 프로젝트를 구성하는 경우에만 사용됩니다.|
@@ -173,7 +173,13 @@ Visual Studio는 또한 템플릿을 편집하는 경우 사용 가능한 속성
 
     ![참조 추가](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-reference.png)
     
-    참조를 추가하여 리소스 그룹 프로젝트에 웹앱 프로젝트에 연결하고 세 가지 주요 속성을 설정합니다. **추가 속성**은 Azure 저장소에 푸시되는 웹 배포 패키지 준비 위치를 포함합니다. **파일 경로 포함**은 패키지를 만들 경로를 포함합니다. **대상 포함**은 배포를 실행하는 명령을 포함합니다. **빌드;패키지**의 기본값을 통해 배포는 웹 배포 패키지(package.zip)를 빌드하고 만들 수 있습니다. 배포는 패키지를 만드는 속성에서 필요한 정보를 얻게 되므로 게시 프로필은 필요하지 않습니다.
+    참조를 추가하여 리소스 그룹 프로젝트에 웹앱 프로젝트에 연결하고 자동으로 세 가지 주요 속성을 설정합니다.
+    
+    - **추가 속성**은 Azure 저장소에 푸시되는 웹 배포 패키지 준비 위치를 포함합니다. 
+    - **파일 경로 포함**은 패키지를 만들 경로를 포함합니다. **대상 포함**은 배포를 실행하는 명령을 포함합니다. 
+    - **빌드;패키지**의 기본값을 통해 배포는 웹 배포 패키지(package.zip)를 빌드하고 만들 수 있습니다.  
+    
+    배포는 패키지를 만드는 속성에서 필요한 정보를 얻게 되므로 게시 프로필은 필요하지 않습니다.
     
       ![참조 보기](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/see-reference.png)
       
@@ -194,6 +200,6 @@ Visual Studio는 또한 템플릿을 편집하는 경우 사용 가능한 속성
 ## 다음 단계
 
 - 포털을 통한 리소스 관리에 대한 내용은 [Azure 포털을 사용하여 Azure 리소스 관리](./azure-portal/resource-group-portal.md)를 참조하세요.
-- 템플릿에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
+- 템플릿에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->
