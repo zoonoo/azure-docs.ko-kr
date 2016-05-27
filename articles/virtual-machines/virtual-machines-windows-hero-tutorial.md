@@ -116,4 +116,4 @@ Windows Server 2012 R2 Datacenter 이미지를 예로 사용할 것이지만, �
 
 * [Powershell을 사용하여 Windows VM 만들기](virtual-machines-windows-ps-create.md) 또는 [Azure CLI를 사용하여 Linux 가상 컴퓨터 만들기](virtual-machines-linux-quick-create-cli.md)를 사용할 수도 있습니다.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---------HONumber=AcomDC_0511_2016-->
