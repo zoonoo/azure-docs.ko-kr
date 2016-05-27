@@ -157,16 +157,20 @@ ClearDB MySQL 데이터베이스를 관리할 수 있음
 
 | **actions** ||
 | ------- | ------ |
-| */read | 모든 유형의 리소스 읽기 | | Microsoft.DevTestLab/labs/labStats/action | 랩 통계 읽기 | | Microsoft.DevTestLab/Environments/* | 환경 만들기 및 관리 |
-| Microsoft.DevTestLab/labs/createEnvironment/action | 랩 환경 만들기 |
-| Microsoft.Compute/virtualMachines/start/action | 가상 컴퓨터 시작 |
-| Microsoft.Compute/virtualMachines/restart/action | 가상 컴퓨터 다시 시작 |
-| Microsoft.Compute/virtualMachines/deallocate/action | 가상 컴퓨터 할당 취소 |
-| Microsoft.Storage/storageAccounts/listKeys/action | 저장소 계정 키 나열 |
-| Microsoft.Network/virtualNetworks/join/action | 가상 네트워크 연결 |
-| Microsoft.Network/loadBalancers/join/action | 부하 분산 장치 연결 |
-| Microsoft.Network/publicIPAddresses/link/action | 공용 IP 주소에 연결 |
-| Microsoft.Network/networkInterfaces/link/action | 네트워크 인터페이스에 연결 |
+| */read | 모든 유형의 리소스 읽기 | 
+| Microsoft.DevTestLab/labs/createEnvironment/action | 랩 환경 만들기 | 
+| Microsoft.DevTestLab/labs/formulas/delete | 수식 삭제 | 
+| Microsoft.DevTestLab/labs/formulas/write | 수식 추가 또는 수정 | 
+| Microsoft.DevTestLab/labs/policySets/evaluatePolicies/action | 랩 정책 평가 | 
+| Microsoft.Compute/virtualMachines/start/action | 가상 컴퓨터 시작 | 
+| Microsoft.Compute/virtualMachines/restart/action | 가상 컴퓨터 다시 시작 | 
+| Microsoft.Compute/virtualMachines/deallocate/action | 가상 컴퓨터 할당 취소 | 
+| Microsoft.Storage/storageAccounts/listKeys/action | 저장소 계정 키 나열 | 
+| Microsoft.Network/virtualNetworks/subnets/join/action | 가상 네트워크 가입 | 
+| Microsoft.Network/loadBalancers/backendAddressPools/join/action | 부하 분산 장치의 백 엔드 주소 풀 가입 | 
+| Microsoft.Network/loadBalancers/inboundNatRules/join/action | 부하 분산 장치의 인바운드 NAT 규칙 가입 | 
+| Microsoft.Network/publicIPAddresses/join/action | 공용 IP 주소 가입 | 
+| Microsoft.Network/networkInterfaces/join/action | 가상 컴퓨터를 네트워크 인터페이스에 가입 | 
 | Microsoft.Network/networkInterfaces/write | 네트워크 인터페이스 작성 |
 
 ### 문서 DB 계정 참여자
@@ -387,7 +391,8 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있음
 
 | **actions** ||
 | ------- | ------ |
-| */read | 암호를 제외한 모든 유형의 리소스 읽기 | | Microsoft.Authorization/* | 읽기 권한 부여 |
+| */read | 암호를 제외한 모든 유형의 리소스 읽기 | 
+| Microsoft.Authorization/* | 읽기 권한 부여 |
 | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
 ### 클래식 가상 컴퓨터 참여자
