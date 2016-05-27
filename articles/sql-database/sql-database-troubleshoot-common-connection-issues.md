@@ -22,7 +22,8 @@ Azure SQL 데이터베이스에 대한 연결 문제는 다음과 같이 광범�
 - [일시적인 오류(단기 또는 일시적)](#troubleshoot-the-transient-errors)
 - [영구적 또는 일시적이지 않은 오류(정기적으로 되풀이되는 오류)](#troubleshoot-the-persistent-errors-non-transient-errors)
 
-연결 문제가 발생하는 경우 이 문서에 설명된 문제 해결 단계를 수행합니다.[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+연결 문제가 발생하는 경우 이 문서에 설명된 문제 해결 단계를 수행합니다.
+[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## 일시적인 오류 문제 해결
 응용 프로그램에 일시적인 오류가 발생하는 경우 다음 토픽에서 이러한 오류를 해결하고 빈도를 줄이는 방법에 대한 팁을 검토합니다.
