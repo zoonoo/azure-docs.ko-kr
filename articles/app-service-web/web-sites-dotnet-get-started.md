@@ -241,4 +241,4 @@ Azure 앱 서비스에서 ASP.NET 웹앱이 실행 중인 경우 문제 해결�
 
 	Azure 포털에서 리소스 그룹으로 작업하는 방법에 대한 자세한 내용은 [Azure 포털을 사용하여 Azure 리소스 배포 및 관리](../resource-group-portal.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!------HONumber=AcomDC_0504_2016-->

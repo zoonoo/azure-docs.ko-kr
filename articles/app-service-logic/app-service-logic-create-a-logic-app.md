@@ -67,4 +67,4 @@
 [Azure portal]: https://portal.azure.com
 [논리 앱 기능 사용]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!------HONumber=AcomDC_0323_2016-->
