@@ -1464,7 +1464,7 @@ R-sqr = 0.740751197012
 PythonRDD[122] at RDD at PythonRDD.scala:43
 
 
-****소비 Notebook에 사용할 모델 파일에 대한 경로를 출력합니다. ** 소비 및 독립적인 데이터 집합의 점수 매기기를 위해 이러한 파일 이름을 "Consumption notebook(소비 Notebook)"에 복사하여 붙여 넣어야 합니다.
+**소비 Notebook에 사용할 모델 파일에 대한 경로를 출력합니다.** 소비 및 독립적인 데이터 집합의 점수 매기기를 위해 이러한 파일 이름을 "Consumption notebook(소비 Notebook)"에 복사하여 붙여 넣어야 합니다.
 
 
 	# PRINT MODEL FILE LOCATIONS FOR CONSUMPTION

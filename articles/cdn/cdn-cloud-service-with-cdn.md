@@ -144,22 +144,22 @@ CDN 프로필은 CDN 끝점의 컬렉션입니다. 각 프로필에는 CDN 끝�
 
 	http://camservice.azureedge.net/Content/bootstrap.css
 
-이는 CDN 끝점의 다음 원본 URL과 일치합니다.
+	이는 CDN 끝점의 다음 원본 URL과 일치합니다.
 
 	http://camcdnservice.cloudapp.net/Content/bootstrap.css
 
 **http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css**로 이동한 경우 브라우저에 따라 게시한 웹앱에서 제공한 bootstrap.css를 다운로드하거나 열라는 메시지가 표시됩니다.
 
-![](media/cdn-cloud-service-with-cdn/cdn-1-browser-access.PNG)
+	![](media/cdn-cloud-service-with-cdn/cdn-1-browser-access.PNG)
 
 마찬가지로 CDN 끝점에서 **http://*&lt;serviceName>*.cloudapp.net/**의 공개적으로 액세스 가능한 URL에 바로 액세스할 수 있습니다. 예:
 
 -	/Script 경로의 .js 파일
 -	/Content 경로의 모든 콘텐츠 파일
--	모든 controller/action
+-	모든 controller/action 
 -	CDN 끝점에서 쿼리 문자열을 사용하도록 설정한 경우 쿼리 문자열이 포함된 모든 URL
 
-실제로 위의 구성으로 **http://*&lt;cdnName>*.azureedge.net/**에서 전체 클라우드 서비스를 호스트할 수 있습니다. ****http://camservice.azureedge.net/**으로 이동한 경우 Home/Index에서 작업 결과를 가져옵니다.
+실제로 위의 구성으로 **http://*&lt;cdnName>*.azureedge.net/**에서 전체 클라우드 서비스를 호스트할 수 있습니다. **http://camservice.azureedge.net/**으로 이동한 경우 Home/Index에서 작업 결과를 가져옵니다.
 
 ![](media/cdn-cloud-service-with-cdn/cdn-2-home-page.PNG)
 

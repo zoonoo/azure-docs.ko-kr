@@ -107,7 +107,7 @@ Azure 포털에서 Jupyter Notebook을 시작할 수 있습니다. 대시보드�
 
 ![](./media/machine-learning-data-science-spark-overview/spark-jupyter-on-portal.png)
 
-또한 ******https://CLUSTERNAME.azurehdinsight.net/jupyter***를 탐색하여 Jupyter Notebook에 액세스할 수도 있습니다. 이 URL의 CLUSTERNAME 부분을 사용자 고유의 클러스터 이름으로 바꿉니다. Notebook에 액세스하려면 관리자 계정에 대한 암호가 필요합니다.
+또한 ***https://CLUSTERNAME.azurehdinsight.net/jupyter***를 탐색하여 Jupyter Notebook에 액세스할 수도 있습니다. 이 URL의 CLUSTERNAME 부분을 사용자 고유의 클러스터 이름으로 바꿉니다. Notebook에 액세스하려면 관리자 계정에 대한 암호가 필요합니다.
 
 ![](./media/machine-learning-data-science-spark-overview/spark-jupyter-notebook.png)
 

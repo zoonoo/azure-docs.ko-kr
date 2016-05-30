@@ -1650,7 +1650,7 @@ Azure에서 SAP용 모니터링 솔루션의 기본 구성 요소는 다음과 �
  
 ![Microsoft Azure 확장 구성 요소][planning-guide-figure-2400]
 
-위의 블록 다이어그램에 나와 있는 것처럼 SAP용 모니터링 솔루션의 한 부분은 Azure VM 이미지 및 Azure Operations에 의해 관리되는 전역 복제 리포지토리인 Azure 확장 갤러리에서 호스트됩니다. Azure Operations를 사용하여 SAP용 Azure 모니터링 확장의 새 버전을 게시하는 것은 Azure의 SAP 구현과 관련해서 작업하는 공동 SAP/MS 팀의 책임입니다. 이러한 SAP용 Azure 모니터링 확장 기능은 WAD(Windows Azure 진단) 확장 또는 LAD(Linux Azure 진단)를 사용하여 필요한 정보를 가져옵니다.
+위의 블록 다이어그램에 나와 있는 것처럼 SAP용 모니터링 솔루션의 한 부분은 Azure VM 이미지 및 Azure Operations에 의해 관리되는 전역 복제 리포지토리인 Azure 확장 갤러리에서 호스트됩니다. Azure Operations를 사용하여 SAP용 Azure 모니터링 확장의 새 버전을 게시하는 것은 Azure의 SAP 구현과 관련해서 작업하는 공동 SAP/MS 팀의 책임입니다. 이러한 SAP용 Azure 모니터링 확장 기능은 WAD(Microsoft Azure 진단) 확장 또는 LAD(Linux Azure 진단)를 사용하여 필요한 정보를 가져옵니다.
 
 새 Windows VM을 배포하는 경우 'Azure VM 에이전트'가 VM에 자동으로 추가됩니다. 이 에이전트의 기능은 SAP NetWeaver Systems의 모니터링을 위해 Azure 확장의 로드 및 구성을 조정하는 것입니다. Linux VM의 경우 Azure VM 에이전트가 이미 Azure 마켓플레이스 OS 이미지의 일부입니다.
 

@@ -3,9 +3,9 @@
 ## 다중 및 단일 인스턴스 VM
 Azure에서 VM을 실행하는 여러 고객의 경우 VM에 대한 계획된 유지 관리 시간을 예약할 수 있어야 합니다. 계획된 유지 관리가 진행되는 동안 15분 정도 가동이 중지되기 때문입니다. 가용성 집합을 활용하여 프로비전된 VM이 계획된 유지 관리를 받는 시간을 제어할 수 있습니다.
 
-Azure에서 실행되는 VM에 대한 두 가지 구성이 가능합니다. VM은 다중 인스턴스 또는 단일 인스턴스로 구성됩니다. VM이 가용성 집합에 있으면 해당 VM은 다중 인스턴스로 구성된 것입니다. 단일 VM도 가용성 집합에 배포할 수 있으며 다중 인스턴스도 취급됩니다. VM이 가용성 집합에 없으면 해당 VM은 단일 인스턴스로 구성된 것입니다. 가용성 집합에 대한 자세한 내용은 [Windows 가상 컴퓨터의 가용성 관리](../articles/virtual-machines/virtual-machines-windows-manage-availability.md) 또는 [Linux 가상 컴퓨터의 가용성 관리](../articles/virtual-machines/virtual-machines-linux-manage-availability.md)를 참조하세요.
+Azure에서 실행되는 VM에 대한 두 가지 구성이 가능합니다. VM은 다중 인스턴스 또는 단일 인스턴스로 구성됩니다. VM이 가용성 집합에 있으면 해당 VM은 다중 인스턴스로 구성된 것입니다. 단일 VM도 가용성 집합에 배포할 수 있으며 다중 인스턴스도 취급됩니다. VM이 가용성 집합에 없으면 해당 VM은 단일 인스턴스로 구성된 것입니다. 가용성 집합에 대한 자세한 내용은 [Microsoft 가상 컴퓨터의 가용성 관리](../articles/virtual-machines/virtual-machines-windows-manage-availability.md) 또는 [Linux 가상 컴퓨터의 가용성 관리](../articles/virtual-machines/virtual-machines-linux-manage-availability.md)를 참조하세요.
 
-단일 인스턴스 및 다중 인스턴스 VM의 계획된 유지 관리는 따로 발생합니다. VM을 단일 인스턴스로 다시 구성하거나(다중 인스턴스인 경우) 다중 인스턴스로 다시 구성하여(단일 인스턴스인 경우) VM이 계획된 유지 관리를 받는 시간을 제어할 수 있습니다. Azure VM의 계획된 유지 관리에 대한 자세한 내용은 [Azure Linux 가상 컴퓨터에 대한 계획된 유지 관리](../articles/virtual-machines/virtual-machines-linux-planned-maintenance.md) 또는 [Windows Azure 가상 컴퓨터에 대한 계획된 유지 관리](../articles/virtual-machines/virtual-machines-windows-planned-maintenance.md)를 참조하세요.
+단일 인스턴스 및 다중 인스턴스 VM의 계획된 유지 관리는 따로 발생합니다. VM을 단일 인스턴스로 다시 구성하거나(다중 인스턴스인 경우) 다중 인스턴스로 다시 구성하여(단일 인스턴스인 경우) VM이 계획된 유지 관리를 받는 시간을 제어할 수 있습니다. Azure VM의 계획된 유지 관리에 대한 자세한 내용은 [Azure Linux 가상 컴퓨터에 대한 계획된 유지 관리](../articles/virtual-machines/virtual-machines-linux-planned-maintenance.md) 또는 [Microsoft Azure 가상 컴퓨터에 대한 계획된 유지 관리](../articles/virtual-machines/virtual-machines-windows-planned-maintenance.md)를 참조하세요.
 
 ## 다중 인스턴스 구성의 경우
 가용성 집합에서 이러한 VM을 제거하여 계획된 유지 관리가 가용성 집합 구성에 배포된 VM에 영향을 미치는 시간을 선택할 수 있습니다.

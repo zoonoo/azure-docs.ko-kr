@@ -123,7 +123,7 @@ Runbook은 Azure 포털 UI, webhook, PowerShell cmdlet, REST API 및 SDK 등 여
 ![도움말 풍선](media/automation-runbook-input-parameters/automation_05_HelpBaloon.png)
 
 
->[AZURE.NOTE] 문자열 형식 매개 변수는 **빈** 문자열 값을 지원합니다. 입력 매개 변수 상자에 **[EmptyString]**을 입력하면 빈 문자열을 매개 변수에 전달합니다. 또한 문자열 형식 매개 변수는 전달되는 **Null** 값을 지원하지 않습니다. 문자열 매개 변수에 값을 전달하지 않으면 PowerShell이 null로 해석합니다.
+>[AZURE.NOTE] 문자열 형식 매개 변수는 **빈** 문자열 값을 지원합니다. 입력 매개 변수 상자에 **[EmptyString]** 을 입력하면 빈 문자열을 매개 변수에 전달합니다. 또한 문자열 형식 매개 변수는 전달되는 **Null** 값을 지원하지 않습니다. 문자열 매개 변수에 값을 전달하지 않으면 PowerShell이 null로 해석합니다.
 
 - **PowerShell cmdlet을 사용하여 게시된 Runbook 시작 및 매개 변수 할당**
 
@@ -136,6 +136,7 @@ Runbook은 Azure 포털 UI, webhook, PowerShell cmdlet, REST API 및 SDK 등 여
 
         Start-AzureAutomationRunbook -AutomationAccountName “TestAutomation” -Name “Get-AzureVMGraphical” -Parameters $params
       ```
+
 
     - **Azure Resource Manager cmdlet:** [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx)을 사용하여 리소스 그룹에 생성된 자동화 Runbook을 시작할 수 있습니다
 

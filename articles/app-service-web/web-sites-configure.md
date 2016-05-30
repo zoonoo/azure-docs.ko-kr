@@ -38,7 +38,7 @@
 **프레임워크 버전**. 앱에서 다음 프레임워크를 사용하는 경우 이러한 옵션을 설정합니다.
 
 - **.NET Framework**: .NET Framework 버전을 설정합니다. 
-- **PHP**: PHP 버전을 설정하거나 PHP를 사용하지 않으려면 **끄기**를 선택합니다. 
+- **PHP**: PHP 버전을 설정하거나 PHP를 사용하지 않으려면 **끄기** 를 선택합니다. 
 - **Java**: Java 버전을 선택하거나 Java를 사용하지 않도록 **끄기**를 선택합니다. **웹 컨테이너** 옵션을 사용하여 Tomcat 및 Jetty 버전 사이에서 선택합니다.
 - **Python**: Python 버전을 설정하거나, Python을 사용하지 않도록 설정하려면 **끄기**를 선택합니다.
 
@@ -76,10 +76,10 @@
 
 PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 이러한 설정을 환경 변수로 사용할 수 있으며, 환경 변수 앞에는 연결 형식이 옵니다. 환경 변수 접두사는 다음과 같습니다.
 
-- SQL 서버: SQLCONNSTR\_
-- MySQL: MYSQLCONNSTR\_
-- SQL 데이터베이스: SQLAZURECONNSTR\_
-- 사용자 지정: CUSTOMCONNSTR\_
+- SQL 서버: SQLCONNSTR_
+- MySQL: MYSQLCONNSTR_
+- SQL 데이터베이스: SQLAZURECONNSTR_
+- 사용자 지정: CUSTOMCONNSTR_
 
 예를 들어 MySql 연결 문자열 이름이 `connectionstring1`로 지정된 경우 환경 변수 `MYSQLCONNSTR_connectionString1`을 통해 액세스될 수 있습니다.
 

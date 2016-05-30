@@ -195,7 +195,7 @@ Jupyter Notebook은 Azure에서 Python 에코시스템의 기능에 대화형으
 
 자세한 내용은 [Python 개발자 센터](/develop/python/)를 참조하세요.
 
-[portal-vm-linux]: https://azure.microsoft.com/ko-KR/documentation/articles/virtual-machines-linux-tutorial-portal-rm/
+[portal-vm-linux]: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-tutorial-portal-rm/
 [리포지토리]: https://github.com/ipython/ipython
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
 
