@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/18/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
 #DevTest Lab VM에 대한 사용자 지정 아티팩트 만들기
@@ -118,10 +118,10 @@ VM이 프로비전된 후 응용 프로그램을 배포하고 구성하기 위�
 
 	![아티팩트 Git 리포지토리 예](./media/devtest-lab-artifact-author/git-repo.png)
 
-1. 랩에 아티팩트 리포지토리 추가 - [DevTest Lab에 Git 아티팩트 리포지토리 추가](devtest-lab-add-artifact-repo.md) 문서를 참조하세요.
+1. 랩에 아티팩트 리포지토리 추가 - [랩에 Git 아티팩트 리포지토리 추가](devtest-lab-add-artifact-repo.md) 문서를 참조하세요.
 
 ## 다음 단계
 
-- [DevTest Lab에 Git 아티팩트 리포지토리 추가](devtest-lab-add-artifact-repo.md) 방법에 대해 알아봅니다.
+- [랩에 Git 아티팩트 리포지토리를 추가](devtest-lab-add-artifact-repo.md)하는 방법에 대해 알아봅니다.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016"
+ 	ms.date="05/03/2016"
 	ms.author="juliako;anilmur"/>
 
 
@@ -37,12 +37,15 @@
 
 미디어 인코더 표준은 [여기](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409)에서 설명한 인코더 기본 설정 중 하나를 사용하여 구성됩니다.
 
-###MES 입력 및 출력 메타데이터
+###입력 및 출력 메타데이터
 
-인코더 입력 메타데이터는 [여기](http://msdn.microsoft.com/library/azure/dn783120.aspx)에서 설명합니다.
+MES를 사용하여 입력 자산을 인코딩하는 경우 인코딩 작업이 성공적으로 완료되면 출력 자산을 얻게 됩니다. 출력 자산에는 사용하는 인코딩 기본 설정에 따라 비디오, 오디오, 미리 보기, 매니페스트 등이 포함됩니다.
 
-인코더 출력 메타데이터는 [여기](http://msdn.microsoft.com/library/azure/dn783217.aspx)에서 설명합니다.
+출력 자산에는 입력된 자산에 대한 메타데이터가 있는 파일도 포함됩니다. 메타데이터 XML 파일의 이름 형식은 다음과 같습니다. <asset_id>\_metadata.xml(예를 들어, 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4\_metadata.xml). 여기서 <asset_id>은(는) 입력 자산의 AssetId 값입니다. 이 입력 메타데이터 XML의 스키마는 [여기](http://msdn.microsoft.com/library/azure/dn783120.aspx)에 설명됩니다.
 
+출력 자산에는 출력된 자산에 대한 메타데이터가 있는 파일도 포함됩니다. 메타데이터 XML 파일의 이름은 <source_file_name>\_manifest.xml 형식입니다(예: BigBuckBunny\_manifest.xml). 이 출력 메타데이터 XML의 스키마는 [여기](http://msdn.microsoft.com/library/azure/dn783217.aspx)에 설명됩니다.
+
+두 메타데이터 파일 중 하나를 검사하려는 경우 SAS 로케이터를 만들고 로컬 컴퓨터에 파일을 다운로드할 수 있습니다. SAS 로케이터를 만들고 미디어 서비스 .NET SDK 확장을 사용하여 파일을 다운로드하는 방법에 대한 예제를 찾을 수 있습니다.
 
 ##샘플 다운로드
 
@@ -147,4 +150,4 @@
 
 [.NET과 함께 미디어 인코더 표준을 사용하여 미리 보기를 생성하는 방법](media-services-dotnet-generate-thumbnail-with-mes.md) [미디어 서비스 인코딩 개요](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

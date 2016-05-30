@@ -45,7 +45,7 @@ Hive 작업 외에도 데이터 팩터리의 데이터 변환 활동 목록은 [
 
 데이터 팩터리와 함께 HDInsight를 사용할 때 많은 이점이 있습니다.
 
-- HDInsight 클러스터는 사용 여부와 상관없이 시간당 청구됩니다. 데이터 팩터리를 사용하여 클러스터가 요청 시 만들어집니다. 그리고 작업이 완료되면 클러스터가 자동으로 삭제됩니다. 따라서 작업 실행 시간 및 잠깐의 유휴 시간(TTL)에 대해서만 지불합니다.
+- HDInsight 클러스터 결제는 사용 여부에 관계없이 분당으로 비례 배분됩니다. 데이터 팩터리를 사용하여 클러스터가 요청 시 만들어집니다. 그리고 작업이 완료되면 클러스터가 자동으로 삭제됩니다. 따라서 작업 실행 시간 및 잠깐의 유휴 시간(TTL)에 대해서만 지불합니다.
 - 데이터 팩터리 파이프라인을 사용하여 워크플로를 만들 수 있습니다.
 - 재귀 작업을 예약할 수 있습니다.  
 
@@ -54,7 +54,7 @@ Hive 작업 외에도 데이터 팩터리의 데이터 변환 활동 목록은 [
 이 문서의 지침을 시작하기 전에 다음이 있어야 합니다.
 
 - [Azure 구독](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- [Azure CLI](../xplat-cli-install.md) 또는 [Azure PowerShell](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater). 
+- Azure CLI 또는 Azure PowerShell. 
 
     [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
@@ -262,7 +262,7 @@ Hive 작업 외에도 데이터 팩터리의 데이터 변환 활동 목록은 [
             "style": "EndOfInterval"
         },
 
-    Azure Data Factory에서 출력 데이터 집합 가용성이 파이프라인을 유도합니다. 즉, 월의 마지막 날에 조각이 매달 생성됩니다. 자세한 내용은 [Data Factory 예약 및 실행](../data-factory/data-factory-scheduling-and-execution.md)을 참조하세요.
+    Azure Data Factory에서 출력 데이터 집합 가용성이 파이프라인을 유도합니다. 즉, 월의 마지막 날에 조각이 매달 생성됩니다. 자세한 내용은 [데이터 팩터리 예약 및 실행](../data-factory/data-factory-scheduling-and-execution.md)을 참조하세요.
 
     파이프라인 정의는 다음과 같습니다.
     
@@ -282,7 +282,7 @@ Hive 작업 외에도 데이터 팩터리의 데이터 변환 활동 목록은 [
             }
         }
                 
-    하나의 작업이 포함됩니다. 작업의 *start* 및 *end*는 모두 과거 날짜이며 이것은 조각이 하나뿐이라는 것을 의미합니다. end가 미래 날짜이면 데이터 팩터리는 시간이 되면 다른 조각을 만듭니다. 자세한 내용은 [Data Factory 예약 및 실행](../data-factory/data-factory-scheduling-and-execution.md)을 참조하세요.
+    하나의 작업이 포함됩니다. 작업의 *start* 및 *end*는 모두 과거 날짜이며 이것은 조각이 하나뿐이라는 것을 의미합니다. end가 미래 날짜이면 데이터 팩터리는 시간이 되면 다른 조각을 만듭니다. 자세한 내용은 [데이터 팩터리 예약 및 실행](../data-factory/data-factory-scheduling-and-execution.md)을 참조하세요.
 
     다음은 작업 정의입니다.
     
@@ -326,7 +326,7 @@ Hive 작업 외에도 데이터 팩터리의 데이터 변환 활동 목록은 [
 
 2. 마지막 섹션에서 만든 계정에 대해 **DATAFACTORYNAME**, **STORAGEACCOUNTNAME** 및 **STORAGEACCOUNTKEY**를 입력한 후 **확인**을 클릭합니다. 데이터 팩터리 이름은 전역적으로 고유해야 합니다.
 3. **리소스 그룹**에서, 마지막 섹션에서 사용한 동일한 리소스 그룹을 선택합니다.
-4. **약관**을 클릭한 다음 **만들기**를 클릭합니다.
+4. **약관**을 클릭한 후에 **만들기**를 클릭합니다.
 5. **만들기**를 클릭합니다. 대시보드에 **템플릿 배포 배포 중**이라는 타일이 표시됩니다. 타일 텍스트가 리소스 그룹 이름으로 변경될 때까지 기다립니다. HDInsight 클러스터를 만들려면 보통 약 20분 정도 걸립니다.
 6. 타일을 클릭하여 리소스 그룹을 엽니다. 이제 저장소 계정 리소스 외에 하나 이상의 데이터 팩터리 리소스가 나열됩니다.
 7. **hdinsight-hive-on-demand**를 클릭합니다.
@@ -438,4 +438,4 @@ Hive 작업 외에도 데이터 팩터리의 데이터 변환 활동 목록은 [
 - [HDInsight 설명서](https://azure.microsoft.com/documentation/services/hdinsight/)
 - [데이터 팩터리 설명서](https://azure.microsoft.com/documentation/services/data-factory/)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/21/2016"
+	ms.date="05/16/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 미리 보기: FAQ
@@ -98,6 +98,20 @@ Azure AD Graph API를 사용하여 마이그레이션 도구를 작성할 수 �
 
 현재는 아닙니다. 이 기능은 우리의 로드맵입니다. 또한 Azure 클래식 포털에서 테넌트의 **도메인** 탭에서 해당 도메인 확인은 해당 내용을 수행하지 않습니다.
 
+### Azure AD B2C 테넌트를 삭제하려면 어떻게 해야 하나요?
+
+Azure AD B2C 테넌트를 삭제하려면 다음 단계를 수행합니다.
+
+- [Azure 클래식 포털](https://manage.windowsazure.com/)에 구독 관리자로 로그인합니다. (이것은 동일한 작업이거나 학교 계정 또는 Azure에 등록 하는데 사용한 동일한 Microsoft 계정입니다.)
+- 왼쪽에서 Active Directory 확장으로 이동하고 B2C 테넌트를 클릭합니다.
+- **응용 프로그램** 탭을 클릭합니다.
+- **표시** 드롭다운 필드에서 **회사가 보유한 응용 프로그램**을 선택하고 확인 표시를 클릭합니다.
+- 아래에 나열된 **b2c-extensions-app**이라는 응용 프로그램을 확인할 수 있습니다. 페이지의 아래쪽에서 **삭제**를 클릭한 다음 메시지가 나타나면 **예**를 클릭합니다.
+- Active Directory 확장으로 다시 이동하고 B2C 테넌트를 선택합니다.
+- 페이지 맨 아래에서 **삭제**를 클릭합니다. 화면의 지시에 따라 프로세스를 완료합니다.
+
+B2C 테넌트에서 **사용자**, **응용 프로그램** 또는 기타 개체를 이미 만든 경우 위의 단계를 수행하기 전에 삭제해야 합니다.
+
 ### Enterprise Mobility Suite의 일부로 Azure AD B2C를 가져올 수 있나요?
 
 아니요, Azure AD B2C는 종량제 Azure 서비스이며 Enterprise Mobility Suite의 일부가 아닙니다.
@@ -114,4 +128,4 @@ Azure AD Graph API를 사용하여 마이그레이션 도구를 작성할 수 �
 
 또한 현재 [미리 보기 제한, 제한 사항 및 제약 조건](active-directory-b2c-limitations.md)을 검토하려 합니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

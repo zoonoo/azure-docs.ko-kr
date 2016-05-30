@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 
@@ -66,25 +66,7 @@ CDN 프로필은 CDN 끝점의 컬렉션입니다. 각 프로필에는 CDN 끝�
 
 > [AZURE.TIP] 이미 이 자습서에 사용하려는 CDN 프로필이 있는 경우 [3단계](#step-3-create-a-new-cdn-endpoint)로 진행합니다.
 
-**새 CDN 프로필을 만들려면**
-
-1. [Azure 관리 포털](https://portal.azure.com)의 왼쪽 위에서 **새로 만들기**를 클릭합니다. **새로 만들기** 블레이드에서 **미디어 + CDN**, **CDN**을 차례로 선택합니다.
-
-    새 CDN 프로필 블레이드가 나타납니다.
-
-    ![새 CDN 프로필][new-cdn-profile]
-
-2. CDN 프로필에 대한 이름을 입력합니다.
-
-3. **가격 책정 계층**을 선택하거나 기본값을 사용합니다.
-
-4. **리소스 그룹**을 선택하거나 만듭니다. 저장소 계정과 동일한 리소스 그룹이 아니어도 됩니다.
-
-5. 이 CDN 프로필에 대한 **구독**을 선택합니다. 이 자습서의 목적을 위해서는 저장소 계정과 동일한 구독이어야 합니다.
-
-6. **위치**를 선택합니다. CDN 프로필 정보가 저장될 Azure 위치입니다. CDN 끝점 위치에는 영향을 주지 않습니다. 저장소 계정과 동일한 위치일 필요는 없습니다.
-
-7. **만들기** 단추를 클릭하여 새 프로필을 만듭니다.
+[AZURE.INCLUDE [cdn-create-profile](../../includes/cdn-create-profile.md)]
 
 ## 3단계: 새 CDN 끝점 만들기
 
@@ -148,10 +130,9 @@ CDN에 이미 캐시된 개체는 개체의 TTL(Time-to-Live) 기간이 만료�
 
 [create-new-storage-account]: ./media/cdn-create-a-storage-account-with-cdn/CDN_CreateNewStorageAcct.png
 
-[new-cdn-profile]: ./media/cdn-create-a-storage-account-with-cdn/cdn-new-profile.png
 [cdn-profile-settings]: ./media/cdn-create-a-storage-account-with-cdn/cdn-profile-settings.png
 [cdn-new-endpoint-button]: ./media/cdn-create-a-storage-account-with-cdn/cdn-new-endpoint-button.png
 [cdn-add-endpoint]: ./media/cdn-create-a-storage-account-with-cdn/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-a-storage-account-with-cdn/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

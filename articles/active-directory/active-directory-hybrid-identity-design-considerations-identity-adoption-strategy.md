@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="02/23/2016"
+	ms.date="05/12/2016"
 	ms.author="billmath"/>
 
 
@@ -73,7 +73,10 @@ Microsoft에는 클라우드 ID, 동기화된 ID 및 페더레이션된 ID는 3�
 | Exchange ActiveSync | 자격 증명 확인 | Exchange에 대한 자격 증명을 확인하는 Lync용 Single Sign-On |
 | 모바일 앱 | 자격 증명 확인 | 자격 증명 확인 |
 
-타사 IdP가 있거나 Azure AD의 페더레이션을 제공하는 IdP를 사용하도록 작업1에서 결정한 경우 지원되는 다음의 기능에 주의해야 합니다. - SP Lite 프로필 규격인 SAML 2.0 공급자는 Azure AD 및 관련 응용 프로그램에 인증을 지원할 수 있습니다 - OWA, SPO 등에 대한 인증을 용이하게 하는 수동 인증을 지원합니다. - Exchange Online 클라이언트는 SAML 2.0 향상된 클라이언트 프로필(ECP)을 통해 지원될 수 있습니다
+타사 IdP가 있거나 Azure AD의 페더레이션을 제공하는 IdP를 사용하도록 작업1에서 결정한 경우 지원되는 다음의 기능에 주의해야 합니다.
+- SP Lite 프로필 규격인 SAML 2.0 공급자는 Azure AD 및 관련 응용 프로그램에 인증을 지원할 수 있습니다.
+- OWA, SPO 등에 대한 인증을 용이하게 하는 수동 인증을 지원합니다.
+- Exchange Online 클라이언트는 SAML 2.0 향상된 클라이언트 프로필(ECP)을 통해 지원될 수 있습니다
 
 또한 어떤 기능을 사용할 수 없는지 알고 있어야 합니다.
 
@@ -197,4 +200,4 @@ Multi-Factor 설계 옵션:
 ## 참고 항목
 [설계 고려 사항 개요](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

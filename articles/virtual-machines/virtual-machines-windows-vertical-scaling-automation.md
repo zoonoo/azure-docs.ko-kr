@@ -53,7 +53,7 @@
 
 ## 가상 컴퓨터에 액세스하도록 Azure 자동화 설정
 
-가장 먼저 해야 할 일은 VM 규모 집합 인스턴스의 크기를 조정하는 데 사용하는 Runbook을 호스트할 Azure 자동화 계정을 만드는 것입니다. 최근 자동화 서비스에서는 사용자 대신 Runbook을 자동으로 매우 쉽게 실행하기 위한 서비스 주체를 설정하는 "실행 계정" 기능을 도입했습니다. 이에 대한 자세한 내용은 아래 문서를 참조하세요.
+가장 먼저 해야 할 일은 가상 컴퓨터의 규모를 조정하는 데 사용하는 Runbook을 호스트할 Azure 자동화 계정을 만드는 것입니다. 최근 자동화 서비스에서는 사용자 대신 Runbook을 자동으로 매우 쉽게 실행하기 위한 서비스 주체를 설정하는 "실행 계정" 기능을 도입했습니다. 이에 대한 자세한 내용은 아래 문서를 참조하세요.
 
 * [Azure 실행 계정으로 Runbook 인증](../automation/automation-sec-configure-azure-runas-account.md)
 
@@ -90,4 +90,4 @@ Runbook을 가져온 후에는 가상 컴퓨터에서 경고를 통해 트리거
 
 ![가상 컴퓨터 2에 경고 추가](./media/virtual-machines-vertical-scaling-automation/add-alert-webhook-2.png)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

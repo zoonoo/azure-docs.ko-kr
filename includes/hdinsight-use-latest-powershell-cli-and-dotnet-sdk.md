@@ -1,3 +1,4 @@
-> [AZURE.IMPORTANT] 이 문서의 단계는 최신 버전의 Azure PowerShell, Azure CLI, HDInsight .NET SDK에서 테스트되었습니다. 이전 버전을 사용 중인 경우 해당 단계가 작동하지 않거나 오류를 반환할 수 있습니다. 최신 버전을 설치하려면 [Azure CLI 설치 및 구성](../articles/xplat-cli-install.md) 또는 [Azure PowerShell 설치 및 구성](../articles/powershell-install-configure.md) 문서의 단계를 따릅니다. 최신 버전의 HDInsight .NET SDK를 설치하려면 [Microsoft Azure HDInsight .NET SDK](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.HDInsight/) NuGet 페이지에 제공되는 정보를 사용하세요.
+> [AZURE.IMPORTANT] Azure PowerShell, Azure CLI 및 HDInsight .NET SDK를 통해 ASM(Azure Service Manager)을 사용하여 리소스를 관리하는 지원은 __사용되지 않으며__ 2017년 1월 1일에 제거됩니다. 이 문서의 단계에서는 ARM(Azure Resource Manager)과 함께 작동하는 새 Azure PowerShell cmdlet, Azure CLI 명령 및 .NET SDK를 사용합니다.
+>
+> 최신 버전의 Azure PowerShell 및 Azure CLI를 설치하려면 [Azure CLI 설치 및 구성](../articles/xplat-cli-install.md) 및 [Azure PowerShell 설치 및 구성](../articles/powershell-install-configure.md)의 단계를 따르세요. 최신 버전의 HDInsight .NET SDK를 설치하려면 [Microsoft Azure HDInsight .NET SDK](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.HDInsight/) NuGet 페이지에서 제공되는 정보를 사용하세요. 새 Cmdlet, 새 CLI 명령 또는 .NET SDK를 사용하도록 수정해야 하는 기존 스크립트 또는 응용 프로그램이 있는 경우 자세한 내용은 [HDInsight 클러스터에 대한 Azure Resource Manager 기반 개발 도구로 마이그레이션](../articles/hdinsight/hdinsight-hadoop-development-using-azure-resource-manager.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0427_2016-->

@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016"
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 # Microsoft Azure CDN에서 에지 노드 성능 분석
 
+[AZURE.INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
+
 ## 개요
 에지 성능 분석은 CDN에 대한 세분화된 정보 트래픽과 대역폭 사용을 제공합니다. 이 정보를 사용하여 추세 통계를 생성할 수 있으며 이를 통해 자산이 캐시되고 클라이언트에 전달되는 방식에 대한 이해를 넓힐 수 있습니다. 결과적으로 콘텐츠를 배달하는 방식을 최적화하고 CDN을 보다 잘 활용하기 위해 해결해야 하는 문제를 결정하는 방법에 대한 전략을 세울 수 있습니다. 따라서 데이터 배달 성능을 향상시킬 수 있을 뿐만 아니라 CDN 비용도 줄일 수 있습니다.
 
-> [AZURE.NOTE] 에지 성능 분석은 프리미엄 CDN 계층의 기능입니다. 표준 및 프리미엄 CDN 기능을 비교하려면 [Azure CDN 개요](cdn-overview.md)를 참조하세요.
->
-> 모든 보고서는 날짜/시간을 지정할 때 UTC/GMT 표기법을 사용합니다.
+> [AZURE.NOTE] 모든 보고서는 날짜/시간을 지정할 때 UTC/GMT 표기법을 사용합니다.
 
 ## 보고서 및 로그 수집
 
@@ -192,4 +192,4 @@ HTTP 응답 코드 | 에지 서버에 의해 HTTP 클라이언트에 전달된 H
 * [규칙 엔진을 사용하여 기본 HTTP 동작 재정의](cdn-rules-engine.md)
 * [고급 HTTP 보고서](cdn-advanced-http-reports.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
 # VM을 만드는 DevTest Lab 수식 관리
@@ -40,7 +40,7 @@ DevTest Lab *사용자* 권한이 있으면 수식을 기반으로 사용하여 
 ### 처음부터 새 수식 만들기
 다음 단계는 새 수식을 처음부터 만드는 과정을 안내합니다.
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 
 1. **찾아보기**를 탭한 다음 목록에서 **DevTest Lab**을 탭합니다.
 
@@ -73,7 +73,7 @@ DevTest Lab *사용자* 권한이 있으면 수식을 기반으로 사용하여 
 
     	![수식 만들기](./media/devtest-lab-manage-formulas/create-formula.png)
 
-1. **만들기**를 탭하여 수식을 만듭니다. 포털에 수식이 만들어지면, **Lab formulas**(랩 수식) 블레이드에 나열됩니다.
+1. **만들기**를 탭하여 수식을 만듭니다. 수식이 만들어지면, **Lab formulas**(랩 수식) 블레이드에 나열됩니다.
 
 	![새로 만든 수식](./media/devtest-lab-manage-formulas/newly-created-formula.png)
 
@@ -82,7 +82,7 @@ DevTest Lab *사용자* 권한이 있으면 수식을 기반으로 사용하여 
 
 > [AZURE.NOTE] 2016년 3월 30일 후에 만든 VM에 대해서만 랩 VM을 통해 새 수식 만들기가 지원됩니다.
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 
 1. **찾아보기**를 탭한 다음 목록에서 **DevTest Lab**을 탭합니다.
 
@@ -96,14 +96,14 @@ DevTest Lab *사용자* 권한이 있으면 수식을 기반으로 사용하여 
 
 	![수식 만들기](./media/devtest-lab-manage-formulas/create-formula-menu.png)
 
-1. **Create formula**(수식 만들기) 블레이드에서 새 수식의 **이름** 및 **설명**을 입력하고 **확인**을 탭합니다. 포털에 수식이 만들어지면, **Lab formulas**(랩 수식) 블레이드에 나열됩니다.
+1. **Create formula**(수식 만들기) 블레이드에서 새 수식의 **이름** 및 **설명**을 입력하고 **확인**을 탭합니다. 수식이 만들어지면, **Lab formulas**(랩 수식) 블레이드에 나열됩니다.
 
 	![수식 만들기 블레이드](./media/devtest-lab-manage-formulas/create-formula-blade.png)
 
 ## 수식 수정
 수식을 수정하려면 다음 단계를 수행합니다.
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 
 1. **찾아보기**를 탭한 다음 목록에서 **DevTest Lab**을 탭합니다.
 
@@ -120,7 +120,7 @@ DevTest Lab *사용자* 권한이 있으면 수식을 기반으로 사용하여 
 ## 수식 삭제 
 수식을 삭제하려면 다음 단계를 수행합니다.
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 
 1. **찾아보기**를 탭한 다음 목록에서 **DevTest Lab**을 탭합니다.
 
@@ -143,6 +143,6 @@ DevTest Lab *사용자* 권한이 있으면 수식을 기반으로 사용하여 
     ![수식 상황에 맞는 메뉴](./media/devtest-lab-manage-formulas/formula-delete-confirmation.png)
 
 ## 다음 단계
-VM을 만들 때 사용할 수식을 만들었으면 다음 단계는 [DevTest Lab에 VM을 추가](./devtest-lab-add-vm-with-artifacts.md)하는 것입니다.
+VM을 만들 때 사용할 수식을 만들었으면 다음 단계는 [랩에 VM을 추가](./devtest-lab-add-vm-with-artifacts.md)하는 것입니다.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

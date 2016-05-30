@@ -60,7 +60,7 @@ Windows Phone 또는 Windows 스토어 8.1에서 SQLite 기반 구현을 사용�
 
 로컬 저장은 [.NET 클라이언트 SDK]의 `IMobileServicesSyncContext.InitializeAsync(localstore)`와 같은 초기화 메서드를 사용하여 동기화 컨텍스트와 관련됩니다.
 
-## 오프라인 암호 동기화 작동 방법
+## <a name="how-sync-works"></a>오프라인 동기화 작동 방법
 
 동기화 테이블을 사용할 경우 클라이언트 코드는 로컬 변경이 Azure 모바일 앱 백 엔드와 동기화하는 시기를 제어합니다. 로컬 변경을 *푸시*하는 호출이 있을 때까지 백 엔드에 아무 것도 보내지 않습니다. 마찬가지로 로컬 저장소는 데이터 *끌어오기* 호출이 있을 때 새 데이터로 채워집니다
 
@@ -76,11 +76,12 @@ Windows Phone 또는 Windows 스토어 8.1에서 SQLite 기반 구현을 사용�
 
   쿼리 이름에 모든 문자열을 선택할 수 있지만 앱에서 각 논리 쿼리에 대해 고유해야 합니다. 그렇지 않은 경우 다른 끌어오기 작업이 동일한 증분 동기화 timestamp를 덮어쓰고 쿼리는 잘못된 결과를 반환할 수 있습니다.
 
-  쿼리에 매개 변수가 있으면 고유한 쿼리 이름을 만드는 한 가지 방법은 매개 변수 값을 통합하는 것입니다. 예를 들어 userid를 필터링할 경우 사용자 쿼리 이름은 다음과 같을 수 있습니다.
+  쿼리에 매개 변수가 있으면 고유한 쿼리 이름을 만드는 한 가지 방법은 매개 변수 값을 통합하는 것입니다. 예를 들어 userid를 필터링할 경우 사용자 쿼리 이름은 C#으로 다음과 같을 수 있습니다.
 
-		await todoTable.PullAsync("todoItems" + userid, syncTable.Where(u => u.UserId = userid));
+		await todoTable.PullAsync("todoItems" + userid, 
+			syncTable.Where(u => u.UserId = userid));
 
-  증분 동기화를 옵트아웃하려면 `null`을(를) 쿼리 ID로 전달합니다. 이 경우 `PullAsync`에 대한 모든 호출에서 모든 레코드가 검색되므로 이는 잠재적으로 비효율적입니다.
+  증분 동기화를 옵트아웃하려면 `null`을 쿼리 ID로 전달합니다. 이 경우 `PullAsync`에 대한 모든 호출에서 모든 레코드가 검색되므로 이는 잠재적으로 비효율적입니다.
 
 * **제거**: `IMobileServiceSyncTable.PurgeAsync`를 사용하여 로컬 저장소의 내용을 지울 수 있습니다. 이 기능은 클라이언트 데이터베이스에서 오래된 데이터가 있는 경우 또는 모든 보류 중인 변경 내용을 취소하려는 경우에 필요할 수 있습니다.
 
@@ -103,4 +104,4 @@ Windows Phone 또는 Windows 스토어 8.1에서 SQLite 기반 구현을 사용�
 [Xamarin Android: 오프라인 동기화 사용]: app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Windows 8.1: 오프라인 동기화 사용]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

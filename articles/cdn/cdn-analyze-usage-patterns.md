@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 # CDN 사용 패턴 분석
+
+[AZURE.INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
 다음과 같은 보고서를 사용하여 CDN 사용 패턴을 볼 수 있습니다.
 
@@ -142,4 +144,4 @@
 
 보고서는 최근 18개월 내에서만 생성할 수 있습니다.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

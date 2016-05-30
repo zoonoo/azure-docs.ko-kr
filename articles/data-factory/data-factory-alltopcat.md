@@ -4,7 +4,7 @@
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
-	manager="jhubbard"
+	manager="paulettm"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2016"
+	ms.date="05/12/2016"
 	ms.author="spelluru"/>
 
 
@@ -22,14 +22,6 @@
 이 항목에서는 Azure Data Factory 서비스에 직접 적용되는 모든 항목을 나열합니다. 이 웹 페이지에서 **Ctrl+F**를 사용해 키워드를 검색하여 현재 관심 있는 항목을 찾을 수 있습니다.
 
 
-
-
-## 새로 만들기
-
-
-| 제목 | 설명 |
-| :-- | :-- |
-| [Data Factory에서 Spark 프로그램 호출](data-factory-spark.md) | MapReduce 작업을 사용하여 Azure Data Factory에서 Spark 프로그램을 호출하는 방법에 대해 알아봅니다. |
 
 
 ## 핵심 개념
@@ -58,11 +50,6 @@
 | [자습서: 데이터 팩터리 복사 마법사를 사용하여 복사 작업이 있는 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md) | 이 자습서에서는 데이터 팩터리가 지원하는 복사 마법사를 사용하여 복사 작업이 있는 Azure 데이터 팩터리 파이프라인을 만들 것입니다. |
 | [자습서: 데이터 팩터리 편집기를 사용하여 복사 작업이 있는 파이프라인 만들기](data-factory-get-started-using-editor.md) | 이 자습서에서는 Azure 포털의 데이터 팩터리 편집기를 사용하여 복사 작업이 있는 Azure Data Factory 파이프라인을 만듭니다. |
 | [자습서: Visual Studio를 사용하여 복사 작업이 있는 파이프라인 만들기](data-factory-get-started-using-vs.md) | 이 자습서에서는 Visual Studio를 사용하여 복사 작업이 있는 Azure Data Factory 파이프라인을 만듭니다. |
-| [자습서: Azure Data Factory를 사용하여 로그 파일 이동 및 처리(Azure 포털)](data-factory-tutorial.md) | 이 고급 자습서에서는 거의 실제 시나리오를 설명하고 Azure 포털의 Azure Data Factory 서비스 및 데이터 팩터리 편집기를 사용하여 시나리오를 구현합니다. |
-| [자습서: Data Factory를 사용하여 로그 파일 이동 및 처리(PowerShell)](data-factory-tutorial-using-powershell.md) | 이 고급 자습서에서는 거의 실제 시나리오를 설명하고 Azure Data Factory 서비스 및 Azure PowerShell을 사용하여 시나리오를 구현합니다. |
-| [연습: 온-프레미스 SQL Server 데이터베이스에 출력 데이터 복사(Azure 포털)](data-factory-tutorial-extend-onpremises.md) | 이 연습에서는 파이프라인이 출력 데이터를 SQL Server 데이터베이스에 복사하도록 Azure 포털의 데이터 팩터리 편집기를 사용하는 자습서를 확장합니다. |
-| [연습: 온-프레미스 SQL Server 데이터베이스에 출력 데이터 복사(Azure PowerShell)](data-factory-tutorial-extend-onpremises-using-powershell.md) | 이 연습에서는 파이프라인이 출력 데이터를 SQL Server 데이터베이스에 복사하도록 Azure PowerShell을 사용하는 자습서를 확장합니다. |
-
 
 ## 데이터 이동
 
@@ -105,6 +92,7 @@
 | [Hive 작업](data-factory-hive-activity.md) | Azure 데이터 공장에서 Hive 활동을 사용하여 필요 시/사용자 고유의 HDInsight 클러스터에서 Hive 쿼리를 실행하는 방법을 알아봅니다. |
 | [Azure 배치 및 데이터 팩터리를 사용하여 HPC 및 데이터 오케스트레이션](data-factory-data-processing-using-batch.md) | Azure 배치의 병렬 처리 기능을 사용하여 Azure Data Factory 파이프라인에서 대용량 데이터를 처리하는 방법을 설명합니다. |
 | [데이터 팩터리에서 MapReduce 프로그램 호출](data-factory-map-reduce.md) | Azure HDInsight 클러스터에서 Azure 데이터 팩터리의 MapReduce 프로그램을 실행하여 데이터를 처리하는 방법을 알아봅니다. |
+| [Data Factory에서 Spark 프로그램 호출](data-factory-spark.md) | MapReduce 작업을 사용하여 Azure Data Factory에서 Spark 프로그램을 호출하는 방법에 대해 알아봅니다. |
 | [Pig 작업](data-factory-pig-activity.md) | Azure Data Factory에서 Pig 작업을 사용하여 주문형/사용자 고유의 HDInsight 클러스터에서 Pig 스크립트를 실행하는 방법을 알아봅니다. |
 | [Azure Data Factory의 Azure 데이터 레이크 분석에서 U-SQL 스크립트 실행](data-factory-usql-activity.md) | Azure 데이터 레이크 분석 계산 서비스에서 U-SQL 스크립트를 실행하여 데이터를 처리하는 방법에 대해 알아봅니다. |
 | [SQL Server 저장 프로시저 작업](data-factory-stored-proc-activity.md) | SQL Server 저장 프로시저 작업을 사용하여 데이터 팩터리 파이프라인으로 Azure SQL 데이터베이스 또는 Azure SQL 데이터 웨어하우스에서 저장 프로시저를 호출하는 방법을 알아봅니다. |
@@ -156,7 +144,6 @@
 | [Azure 데이터 팩터리 - 질문과 대답](data-factory-faq.md) | Azure 데이터 팩터리에 대한 질문과 대답입니다. |
 | [Azure 데이터 팩터리 - 함수 및 시스템 변수](data-factory-functions-variables.md) | Azure 데이터 팩터리 함수 및 시스템 변수 목록을 제공합니다. |
 | [Azure 데이터 팩터리 - 이름 지정 규칙](data-factory-naming-rules.md) | 데이터 팩터리 엔터티에 대한 이름 지정 규칙을 설명합니다. |
-| [Azure Data Factory 릴리스 정보](data-factory-release-notes.md) | 데이터 팩터리 릴리스 정보 |
 | [데이터 팩터리 문제 해결](data-factory-troubleshoot.md) | Azure 데이터 팩터리 사용과 관련된 문제를 해결하는 방법에 대해 알아봅니다. |
 
 
@@ -170,4 +157,4 @@
 
 - 학습 경로 그래픽: [data-factory](http://azure.microsoft.com/documentation/learning-paths/data-factory/)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

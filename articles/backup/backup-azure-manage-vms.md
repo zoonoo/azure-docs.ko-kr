@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/25/2016"
+	ms.date="05/06/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Azure 가상 컴퓨터 백업 관리 및 모니터링
@@ -42,7 +42,9 @@
     ![작업](./media/backup-azure-manage-vms/backup-job.png)
 
 ## 가상 컴퓨터의 주문형 백업
-보호를 위해 구성한 후에는 가상 컴퓨터의 주문형 백업을 수행할 수 있습니다. 가상 컴퓨터에 대한 초기 백업이 보류 중인 경우 주문형 백업은 Azure 백업 자격 증명 모음에 가상 컴퓨터의 전체 복사본을 만듭니다. 첫 번째 백업이 완료된 경우 주문형 백업은 이전 백업의 변경 내용만 Azure 백업 자격 증명 모음으로 보냅니다.
+보호를 위해 구성한 후에는 가상 컴퓨터의 주문형 백업을 수행할 수 있습니다. 가상 컴퓨터에 대한 초기 백업이 보류 중인 경우 주문형 백업은 Azure 백업 자격 증명 모음에 가상 컴퓨터의 전체 복사본을 만듭니다. 첫 번째 백업이 완료된 경우 주문형 백업은 이전 백업의 변경 내용(즉, 항상 증분)만 Azure 백업 자격 증명 모음으로 보냅니다.
+
+>[AZURE.NOTE] 주문형 백업의 보존 범위는 VM에 해당하는 백업 정책의 일 단위 보존에 대해 지정된 보존 값으로 설정됩니다.
 
 가상 컴퓨터의 주문형 백업을 수행하려면
 
@@ -198,62 +200,38 @@ Azure 백업은 백업 자격 증명 모음에서 관리 작업이 무엇을 수
     ![작업 세부 정보](./media/backup-azure-manage-vms/ops-logs-details-window.png)
 
 ## 경고 알림
-포털에서 작업에 대한 사용자 지정 경고 알림을 받을 수 있습니다. 작업 로그 이벤트에서 PowerShell 기반 경고 규칙을 정의하여 수행됩니다.
-
-Azure 리소스 모드에서 경고 작업에 기반한 이벤트입니다. 승격된 명령 모드에서 다음 cmdlet을 실행하여 Azure 리소스 모드로 전환합니다.
-
-```
-PS C:\> Switch-AzureMode AzureResourceManager
-```
+포털에서 작업에 대한 사용자 지정 경고 알림을 받을 수 있습니다. 작업 로그 이벤트에서 PowerShell 기반 경고 규칙을 정의하여 수행됩니다. *PowerShell 버전 1.3.0 이상*을 사용하는 것이 좋습니다.
 
 사용자 지정 알림을 정의하여 백업 실패에 대해 경고하려면 예제 명령은 다음과 같습니다.
 
 ```
-PS C:\> Add-AlertRule -Operator GreaterThanOrEqual -Threshold 1 -ResourceId '/subscriptions/86eeac34-eth9a-4de3-84db-7a27d121967e/resourceGroups/RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US/providers/microsoft.backupbvtd2/BackupVault/trinadhVault' -EventName Backup  -EventSource Administrative -Level Error -OperationName 'Microsoft.Backup/backupVault/Backup' -ResourceProvider Microsoft.Backup -Status Failed  -SubStatus Failed -RuleType Event -Location eastus -ResourceGroup RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US -Name Backup-Failed -Description 'Backup failed for one of the VMs in vault trinadhkVault' -CustomEmails 'contoso@microsoft.com' -SendToServiceOwners
+PS C:\> $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail contoso@microsoft.com
+PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -ResourceGroup RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US -OperationName Microsoft.Backup/backupVault/Backup -Status Failed -TargetResourceId /subscriptions/86eeac34-eth9a-4de3-84db-7a27d121967e/resourceGroups/RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US/providers/microsoft.backupbvtd2/BackupVault/trinadhVault -Actions $actionEmail
 ```
 
 **ResourceId**: 이 섹션에서 설명한 것처럼 작업 로그 팝업에서 가져올 수 있습니다. 작업의 세부 정보 팝업 창에서 ResourceUri는 이 cmdlet를 위해 제공된 ResourceId입니다.
 
-**EventName**: IaaS VM 백업에 대한 경고의 경우 지원되는 값은 다음과 같습니다. Register,Unregister,ConfigureProtection,Backup,Restore,StopProtection,DeleteBackupData,CreateProtectionPolicy,DeleteProtectionPolicy,UpdateProtectionPolicy
+**OperationName**: "Microsoft.Backup/backupvault/<EventName>" 형식이며, 여기서 EventName은 Register,Unregister,ConfigureProtection,Backup,Restore,StopProtection,DeleteBackupData,CreateProtectionPolicy,DeleteProtectionPolicy,UpdateProtectionPolicy 중 하나입니다.
 
-**수준**: 지원되는 값은 정보, 오류입니다. 실패한 작업에 대한 경고의 경우 오류를 사용하고 성공한 작업에 대한 경고의 경우 정보를 사용합니다.
-
-**OperationName**: EventName이 위에서 설명한 것처럼 "Microsoft.Backup/backupvault/<EventName>" 형식입니다.
-
-**상태**: 지원되는 값은 시작함, 성공함 및 실패함입니다. 정보를 Succeeded 상태에 대한 수준으로 유지하는 것이 좋습니다.
-
-**하위 상태**: 백업 작업에 대한 상태와 동일합니다.
-
-**RuleType**: 백업 경고가 이벤트를 기반으로 한 것처럼 *이벤트*로 유지합니다.
+**상태**: 지원되는 값은 시작함, 성공함 및 실패함입니다.
 
 **ResourceGroup**: 작업이 트리거되는 리소스의 ResourceGroup입니다. ResourceId 값에서 얻을 수 있습니다. ResourceId 값에서 */resourceGroups/* 및 */providers/* 필드 간의 값은 ResourceGroup에 대한 값입니다.
 
 **이름**: 경고 규칙의 이름입니다.
 
-**설명**: 경고 규칙에 대한 설명입니다.
+**CustomEmail**: 경고 알림을 보낼 사용자 지정 메일 주소를 지정합니다.
 
-**CustomEmails**: 경고 알림을 보내려는 사용자 지정 메일 주소를 지정합니다.
-
-**SendToServiceOwners**: 이 옵션은 구독의 모든 관리자 및 공동 관리자에게 경고 알림을 보냅니다.
-
-샘플 경고 메일은 다음과 유사합니다.
-
-샘플 헤더:
-
-![경고 헤더](./media/backup-azure-manage-vms/alert-header.png)
-
-경고 메일의 샘플 본문:
-
-![경고 본문](./media/backup-azure-manage-vms/alert-body.png)
+**SendToServiceOwners**: 이 옵션은 구독의 모든 관리자 및 공동 관리자에게 경고 알림을 보냅니다. **New-AzureRmAlertRuleEmail** cmdlet에 사용될 수 있습니다.
 
 ### 경고에 대한 제한
 이벤트 기반 경고는 다음과 같은 제한 사항에 종속됩니다.
 
 1. 백업 자격 증명 모음의 모든 가상 컴퓨터에서 경고를 유발합니다. 이에 사용자 지정으로 백업 자격 증명 모음에서 가상 컴퓨터의 특정 집합에 대한 경고를 가져올 수 없습니다.
-2. 다음 경고 기간에서 트리거된 경고와 일치하는 이벤트가 있는 경우 경고는 자동으로 해결됩니다. AlertRule cmdlet에서 *WindowSize* 매개 변수를 사용하여 경고 트리거 기간을 설정합니다.
+2. 이 기능은 미리 보기 상태입니다. [자세히 알아보기](../azure-portal/insights-powershell-samples.md/#create-alert-rules)
+3. "alerts-noreply@mail.windowsazure.com"으로 부터 경고를 받게 됩니다. 현재는 전자 메일 보낸 사람을 수정할 수 없습니다. 
 
 ## 다음 단계
 
 - [Azure VM 복원](backup-azure-restore-vms.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

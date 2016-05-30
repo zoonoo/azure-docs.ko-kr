@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 
 # CDN 규칙 엔진 일치 조건 및 기능 세부사항
 
-이 항목에서는 Azure CDN(콘텐츠 배달 네트워크) [규칙 엔진](cdn-rules-engine.md)에 대해 제공되는 일치 조건 및 기능에 대해 자세히 설명합니다.
+[AZURE.INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
-> [AZURE.NOTE] 규칙 엔진에는 프리미엄 CDN 계층이 필요합니다. 표준 및 프리미엄 CDN 계층의 기능에 대한 자세한 내용은 [Azure 콘텐츠 배달 네트워크 개요](cdn-overview.md)를 참조하세요.
+이 항목에서는 Azure CDN(콘텐츠 배달 네트워크) [규칙 엔진](cdn-rules-engine.md)에 대해 제공되는 일치 조건 및 기능에 대해 자세히 설명합니다.
 
 ## 일치 조건
 
@@ -98,6 +98,8 @@ URL 쿼리 와일드카드 | 지정된 값을 요청의 쿼리 문자열에 대�
 ### Access
 
 이러한 기능은 콘텐츠에 대한 액세스를 제어하도록 설계되었습니다.
+
+> [AZURE.NOTE] 토큰 인증은 아직 일반적으로 제공되지 않지만 향후 릴리스에서 지원될 예정입니다.
 
 이름 | 목적
 -----|--------
@@ -206,4 +208,4 @@ URL 다시 쓰기 | 요청 URL을 다시 씁니다.
 * [Azure CDN 개요](cdn-overview.md)
 * [규칙 엔진을 사용하여 기본 HTTP 동작 재정의](cdn-rules-engine.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/11/2016"
+   ms.date="04/22/2016"
    ms.author="seanmck"/>
 
 # 미리 보기: 클라이언트 인증에 대해 Azure Active Directory를 사용하여 서비스 패브릭 클러스터 만들기
@@ -33,9 +33,13 @@ AAD를 통해 조직(테넌트라고도 함)에서 웹 기반 로그인 UI를 �
 
 >[AZURE.NOTE] 스크립트에 클러스터 이름 및 끝점이 필요한 경우 이러한 값은 이미 만들어진 값이 아니라 계획된 값이어야 하므로 클러스터를 만들기 *이전*에 이러한 단계를 수행해야 합니다.
 
-1. 계속 진행하기 전에 [스크립트를 다운로드][sf-aad-ps-script-download]하고 압축을 풉니다.
+1. [스크립트를 컴퓨터에 다운로드][sf-aad-ps-script-download]합니다.
 
-2. TenantId, ClusterName 및 WebApplicationReplyUrl을 매개 변수로 제공하여 `SetupApplications.ps1`을 실행합니다. 예:
+2. zip 파일을 마우스 오른쪽 단추로 클릭한 다음 **속성**을 선택한 후 **차단 해제** 확인란을 선택하고 적용합니다.
+
+3. zip 파일의 압축을 풉니다.
+
+4. TenantId, ClusterName 및 WebApplicationReplyUrl을 매개 변수로 제공하여 `SetupApplications.ps1`을 실행합니다. 예:
 
     ```powershell
     .\SetupApplications.ps1 -TenantId '690ec069-8200-4068-9d01-5aaf188e557a' -ClusterName 'mycluster' -WebApplicationReplyUrl 'https://mycluster.westus.cloudapp.azure.com:19080/Explorer/index.html'
@@ -156,4 +160,4 @@ Visual Studio 또는 PowerShell과 같은 네이티브 클라이언트에서 인
 [setupapp-script-output]: ./media/service-fabric-cluster-security-client-auth-with-aad/setupapp-script-arm-json-output.png
 [vs-publish-aad-login]: ./media/service-fabric-cluster-security-client-auth-with-aad/vs-login-prompt.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

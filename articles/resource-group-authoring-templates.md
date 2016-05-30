@@ -4,8 +4,8 @@
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+   manager="timlt"
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/04/2016"
+   ms.date="05/17/2016"
    ms.author="tomfitz"/>
 
 # Azure 리소스 관리자 템플릿 작성
@@ -77,7 +77,7 @@ Visual Studio는 템플릿 생성 작업을 도와주는 도구를 제공합니�
        "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
     }
 
-템플릿 함수의 전체 목록을 보려면 [Azure 리소스 관리자 템플릿 함수](./resource-group-template-functions.md)를 참조하세요.
+템플릿 함수의 전체 목록을 보려면 [Azure 리소스 관리자 템플릿 함수](resource-group-template-functions.md)를 참조하세요.
 
 
 ## 매개 변수
@@ -167,7 +167,7 @@ parameters 섹션 내에서는 다른 매개 변수 값을 생성하는 매개 �
        }
     }
 
-배포 중에 매개 변수 값을 입력하는 방법은 [Azure Resource Manager 템플릿을 사용하여 응용 프로그램 배포](../resource-group-template-deploy/#parameter-file)를 참조하세요.
+배포 중에 매개 변수 값을 입력하는 방법은 [Azure Resource Manager 템플릿을 사용하여 응용 프로그램 배포](resource-group-template-deploy.md#parameter-file)를 참조하세요.
 
 ## 변수
 
@@ -241,10 +241,10 @@ resources 섹션에서 배포 또는 업데이트되는 리소스를 정의합�
 
 | 요소 이름 | 필수 | 설명
 | :----------------------: | :------: | :----------
-| apiVersion | 예 | 리소스를 만들 때 사용하는 REST API의 버전입니다. 특정 리소스 형식에 사용 가능한 버전 번호를 결정하려면 [지원되는 API 버전](../resource-manager-supported-services/#supported-api-versions)을 참조하세요.
+| apiVersion | 예 | 리소스를 만들 때 사용하는 REST API의 버전입니다. 특정 리소스 형식에 사용 가능한 버전 번호를 결정하려면 [지원되는 API 버전](resource-manager-supported-services.md#supported-api-versions)을 참조하세요.
 | type | 예 | 리소스 유형입니다. 이 값은 리소스 공급자의 네임스페이스와 리소스 공급자가 지원하는 리소스 유형을 조합한 값입니다.
-| name | 예 | 리소스의 이름입니다. 이 이름은 RFC3986에 정의된 URI 구성 요소 제한을 따라야 합니다.
-| 위치 | 다름 | 제공된 리소스의 지역적 위치를 지원합니다. 사용 가능한 위치를 확인하려면 [지원되는 지역](../resource-manager-supported-services/#supported-regions)을 참조하세요. 대부분의 리소스 종류에는 위치가 필요하지만 일부 종류(예: 역할 할당)에는 위치가 필요하지 않습니다.
+| name | 예 | 리소스의 이름입니다. 이 이름은 RFC3986에 정의된 URI 구성 요소 제한을 따라야 합니다. 또한 리소스 이름을 외부에 노출하는 Azure 서비스는 다른 ID를 스푸핑하려는 시도가 아님을 확인하기 위해 이름의 유효성을 확인합니다. [리소스 이름 검사](https://msdn.microsoft.com/library/azure/mt219035.aspx)를 참조하세요.
+| location | 다름 | 제공된 리소스의 지역적 위치를 지원합니다. 사용 가능한 위치를 확인하려면 [지원되는 지역](resource-manager-supported-services.md#supported-regions)을 참조하세요. 대부분의 리소스 종류에는 위치가 필요하지만 일부 종류(예: 역할 할당)에는 위치가 필요하지 않습니다.
 | tags | 아니요 | 리소스와 연결된 태그입니다.
 | 설명 | 아니요 | 템플릿에서 리소스를 문서화하는 내용에 대한 참고
 | dependsOn | 아니요 | 정의 중인 리소스가 종속되는 리소스입니다. 종속된 순서에 따라 리소스 간의 종속성이 평가되고 리소스가 배포됩니다. 리소스가 서로 종속되어 있지 않으면 병렬로 배포됩니다. 이 값은 리소스 이름 또는 리소스 고유 식별자의 쉼표로 구분된 목록일 수 있습니다.
@@ -283,7 +283,7 @@ resources 섹션에서 배포 또는 업데이트되는 리소스를 정의합�
 
 
 
-다음 예제는 하위 **확장** 리소스가 있는 **Microsoft.Web/serverfarms** 리소스 및 **Microsoft.Web/sites** 리소스를 보여줍니다. 서버 팜이 존재해야 사이트를 배포할 수 있기 때부터 해당 사이트는 서버 팜에 대한 종속으로 표시됩니다. **확장** 리소스는 사이트의 하위 항목입니다.
+다음 예제는 하위 **확장** 리소스가 있는 **Microsoft.Web/serverfarms** 리소스 및 **Microsoft.Web/sites** 리소스를 보여줍니다. 서버 팜이 존재해야 사이트를 배포할 수 있기 때부터 해당 사이트는 서버 팜에 대한 종속으로 표시됩니다. **확장** 리소스도 사이트의 하위 항목입니다.
 
     "resources": [
       {
@@ -370,20 +370,11 @@ Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 예를 �
        }
     }
 
-## 고급 시나리오
-이 항목에서는 템플릿에 대한 기본 지식을 제공합니다. 하지만 시나리오에 따라서는 고급 작업이 필요할 수 있습니다.
-
-두 템플릿을 병합하거나 부모 템플릿 내에서 자식 템플릿을 사용해야 할 수 있습니다. 자세한 내용은 [Azure 리소스 관리자에서 연결된 템플릿 사용](resource-group-linked-templates.md)을 참조하세요.
-
-리소스 유형을 만들 때 지정된 횟수만큼 반복하려면 [Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
-
-다른 리소스 그룹 내에 있는 리소스를 사용해야 할 수도 있습니다. 여러 리소스 그룹에서 공유하는 저장소 계정 또는 가상 네트워크에서 작업하는 경우 흔한 일입니다. 자세한 내용은 참조는 [resourceId 함수](../resource-group-template-functions#resourceid)를 참조하세요.
-
 ## 다음 단계
 - 다양한 유형의 솔루션에 대한 전체 템플릿을 보려면 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)을 참조하세요.
-- 템플릿 내에서 사용할 수 있는 함수에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 함수](resource-group-template-functions.md)를 참조하세요.
-- 만든 템플릿을 배포하는 방법을 보려면 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
-- 응용 프로그램 배포에 대한 자세한 예는 [Azure에서 마이크로 서비스를 예측 가능하게 프로비전 및 배포](app-service-web/app-service-deploy-complex-application-predictably.md)를 참조하세요.
-- 사용할 수 있는 스키마는 [Azure 리소스 관리자 스키마](https://github.com/Azure/azure-resource-manager-schemas)를 참조하세요.
+- 템플릿 내에서 사용할 수 있는 함수에 대한 자세한 내용은 [Azure Resource Manager 템플릿 함수](resource-group-template-functions.md)를 참조하세요.
+- 배포 중 여러 템플릿을 결합하려면 [Azure Resource Manager에서 연결된 템플릿 사용](resource-group-linked-templates.md)을 참조하세요.
+- 리소스 유형을 만들 때 지정된 횟수만큼 반복하려면 [Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
+- 다른 리소스 그룹 내에 있는 리소스를 사용해야 할 수도 있습니다. 여러 리소스 그룹에서 공유하는 저장소 계정 또는 가상 네트워크에서 작업하는 경우 흔한 일입니다. 자세한 내용은 참조는 [resourceId 함수](resource-group-template-functions.md#resourceid)를 참조하세요.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

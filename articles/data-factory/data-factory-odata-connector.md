@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2016" 
+	ms.date="05/09/2016" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory를 사용하여 OData 소스에서 데이터 이동
@@ -287,4 +287,7 @@ OData 데이터 저장소에서 데이터를 이동할 때 OData 데이터 형�
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!------HONumber=AcomDC_0224_2016-->
+## 성능 및 튜닝  
+Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
+
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2016"
+	ms.date="04/27/2016"
 	ms.author="andkjell"/>
 
 # Azure AD Connect 연결 문제 해결
@@ -26,9 +26,8 @@ Azure AD Connect는 인증에 최신 인증을 사용합니다(ADAL 라이브러
 
 첫째, [**machine.config**](active-directory-aadconnect-prerequisites.md#connectivity)가 올바르게 구성되었는지 확인해야 합니다. ![machineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/machineconfig.png)
 
-> [AZURE.NOTE] Microsoft가 아닌 타사 일부 블로그에 miiserver.exe.config를 대신 변경하는 것에 대한 내용이 나와 있습니다. 그러나 업그레이드할 때마다 이 파일을 덮어쓰기 때문에 초기 설치 중에는 작동한다 해도 첫 번째 업그레이드에서 시스템이 작동을 멈춥니다. 이런 이유로 인해 machine.config를 업데이트하는 것이 좋습니다.
-
-
+>[AZURE.NOTE]
+Microsoft가 아닌 타사 일부 블로그에 miiserver.exe.config를 대신 변경하는 것에 대한 내용이 나와 있습니다. 그러나 업그레이드할 때마다 이 파일을 덮어쓰기 때문에 초기 설치 중에는 작동한다 해도 첫 번째 업그레이드에서 시스템이 작동을 멈춥니다. 이런 이유로 인해 machine.config를 업데이트하는 것이 좋습니다.
 
 또한 프록시 서버에 필요한 URL이 열려 있어야 합니다. 공식 목록은 [Office 365 URL 및 IP 주소 범위](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)에 나와 있습니다.
 
@@ -38,10 +37,10 @@ Azure AD Connect는 인증에 최신 인증을 사용합니다(ADAL 라이브러
 | ---- | ---- | ---- |
 | mscrl.microsoft.com | HTTP/80 | CRL 목록을 다운로드하는 데 사용됩니다. |
 | **.verisign.com | HTTP/80 | CRL 목록을 다운로드하는 데 사용됩니다. |
-| *.trust.com | HTTP/80 | MFA에 대한 CRL 목록을 다운로드하는 데 사용됩니다. |
+| *.entrust.com | HTTP/80 | MFA용 CRL 목록을 다운로드하는 데 사용합니다. |
 | *.windows.net | HTTPS/443 | Azure AD에 로그인하는 데 사용됩니다. |
-|secure.aadcdn.microsoftonline-p.com | HTTPS/443 | MFA에 사용됩니다. |
-| *. microsoftonline.com | HTTPS/443 | Azure AD 디렉터리를 구성하고 데이터를 구성하고 데이터를 가져오거나 내보내는 데 사용됩니다. |
+| secure.aadcdn.microsoftonline-p.com | HTTPS/443 | MFA에 사용됩니다. |
+| *.microsoftonline.com | HTTPS/443 | Azure AD 디렉터리 및 가져오기/내보내기 데이터를 구성하는 데 사용됩니다. |
 
 ## 마법사 오류
 설치 마법사는 두 개의 서로 다른 보안 컨텍스트를 사용합니다. **Azure AD에 연결** 페이지에서 현재 로그인된 사용자를 사용합니다. **구성** 페이지에서 [동기화 엔진에 대한 서비스를 실행하는 계정](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts)으로 변경합니다. 프록시 구성은 컴퓨터에 전체적으로 적용되므로 문제가 있다면 이미 마법사의 **Azure AD에 연결** 페이지에 나타날 가능성이 매우 높습니다.
@@ -126,6 +125,42 @@ Time | URL
 1/11/2016 8:49 | connect://*bba900-anchor*.microsoftonline.com:443
 1/11/2016 8:49 | connect://*bba800-anchor*.microsoftonline.com:443
 
+## 인증 오류
+이 섹션에서는 ADAL(Azure AD Connect에 의해 사용된 인증 라이브러리) 및 PowerShell에서 반환될 수 있는 오류를 다룹니다. 설명한 오류는 다음 단계를 이해하는 데 도움이 됩니다.
+
+### 잘못된 권한 부여
+잘못된 사용자 이름 또는 암호 자세한 내용은 [암호를 확인할 수 없음](#the-password-cannot-be-verified)을 참조하세요.
+
+### 알 수 없는 사용자 유형
+Azure AD 디렉터리를 찾거나 해결할 수 없습니다. 확인되지 않은 도메인의 사용자 이름으로 로그인을 시도하시겠습니까?
+
+### 사용자 영역 검색에 실패했습니다
+네트워크 또는 프록시 구성 문제 네트워크에 도달할 수 없는 경우 [설치 마법사에서 연결 문제 해결](#troubleshoot-connectivity-issues-in-the-installation-wizard)을 참조하세요.
+
+### 사용자 암호가 만료되었습니다
+자격 증명이 만료되었습니다. 암호를 변경합니다.
+
+### AuthorizationFailure
+알 수 없는 문제
+
+### 인증이 취소되었습니다
+MFA(Multi-Factor Authentication) 시도를 취소했습니다.
+
+### ConnectToMSOnline
+인증에 성공했지만 Azure AD PowerShell에 인증 문제가 있습니다.
+
+### AzureRoleMissing
+인증이 성공했습니다. 전역 관리자가 아닙니다.
+
+### PrivilegedIdentityManagement
+인증이 성공했습니다. Privileged Identity Management를 사용하며 현재 전역 관리자가 아닙니다. 자세한 내용은 [Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md)를 참조하세요.
+
+### CompanyInfoUnavailable
+인증이 성공했습니다. Azure AD에서 회사 정보를 검색할 수 없습니다.
+
+### RetrieveDomains
+인증이 성공했습니다. Azure AD에서 도메인 정보를 검색할 수 없습니다.
+
 ## 이전 릴리스에 대한 문제 해결 단계입니다.
 빌드 번호 1.1.105.0(2016년 2월에 발표됨)으로 시작하는 릴리스에서 로그인 도우미 사용이 중지되었습니다. 이 섹션 및 구성은 더 이상 필요하지 않지만 참조로 유지됩니다.
 
@@ -140,4 +175,4 @@ Time | URL
 ## 다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

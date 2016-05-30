@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/02/2016"
+   ms.date="05/13/2016"
    ms.author="bwren" />
 
 # Log Analytics란?
@@ -69,8 +69,8 @@ Log Analytics 외부 데이터를 분석하기 위해 OMS 리포지토리에서 
 
 ## 다음 단계
 
-- [무료 Log Analytics 계정에 등록](log-analytics)하여 자신의 환경을 테스트합니다.
+- [무료 Log Analytics 계정에 등록](log-analytics-get-started.md)하여 자신의 환경을 테스트합니다.
 - OMS 리포지토리로 수집하는 데 사용할 수 있는 여러 [데이터 원본](log-analytics-data-sources.md)을 확인합니다. 
 - [솔루션 갤러리에서 사용 가능한 솔루션을 찾아서](log-analytics-add-solutions.md) Log Analytics에 기능을 추가합니다. 
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

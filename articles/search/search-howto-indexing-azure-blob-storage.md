@@ -12,12 +12,12 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="05/03/2016"
+ms.date="05/17/2016"
 ms.author="eugenesh" />
 
 # Azure 검색으로 Azure Blob 저장소에서 문서 인덱싱
 
-이 문서에서는 Azure 검색을 사용하여 Azure Blob 저장소에 저장된 문서(예: PDF 또는 Office 파일)를 인덱싱하는 방법을 보여줍니다. 새로운 Azure 검색 Blob 인덱서로 이 과정을 신속하게 원활하게 수행할 수 있습니다.
+이 문서에서는 Azure 검색을 사용하여 Azure Blob 저장소에 저장된 문서(예: PDF, Office 파일 및 다양한 기타 일반적인 형식)를 인덱싱하는 방법을 보여줍니다. 새로운 Azure 검색 Blob 인덱서로 이 과정을 신속하게 원활하게 수행할 수 있습니다.
 
 > [AZURE.IMPORTANT] 이 기능은 현재 미리 보기 상태입니다. **2015-02-28-Preview** 버전을 사용하여 REST API로만 제공됩니다. 미리 보기 API는 테스트 및 평가 용도로 제공되며 프로덕션 환경에는 사용되지 않는다는 점을 유념하세요.
 
@@ -31,11 +31,11 @@ Azure Blob 저장소 인덱서를 설정 및 구성하려면 [이 문서](https:
 
 BLOB 인덱서를 설정하려면 다음을 수행합니다.
 
-1. Azure 저장소 계정에서 컨테이너(및 필요에 따라, 해당 컨테이너의 폴더)를 참조하는 `azureblob` 유형의 데이터 원본을 만듭니다.
+1. Azure 저장소 계정에서 컨테이너(및 필요에 따라, 해당 컨테이너의 폴더)를 참조하는 `azureblob` 형식의 데이터 원본을 만듭니다.
 	- 저장소 계정 연결 문자열을 `credentials.connectionString` 매개 변수로 전달합니다.
 	- 컨테이너 이름을 지정합니다. 필요에 따라 `query` 매개 변수를 사용하여 폴더를 포함할 수도 있습니다.
-2. 검색 가능한 `content` 필드로 검색 인덱스 만들기 
-3. 대상 인덱스에 데이터 원본을 연결하여 인덱서 만들기
+2. 검색 가능한 `content` 필드로 검색 인덱스를 만듭니다. 
+3. 대상 인덱스에 데이터 원본을 연결하여 인덱서를 만듭니다.
 
 ### 데이터 원본 만들기
 
@@ -104,7 +104,7 @@ BLOB 인덱서는 다음과 같은 문서 형식에서 텍스트를 추출할 �
 Azure 검색은 각 문서(BLOB)를 다음과 같이 인덱싱합니다.
 
 - 문서의 전체 텍스트 내용이 `content`라는 문자열 필드로 추출됩니다. 현재는 단일 BLOB에서 여러 문서를 추출하는 것은 지원되지 않습니다.
-	- 예를 들어, CSV 파일은 단일 문서로 인덱싱됩니다.
+	- 예를 들어, CSV 파일은 단일 문서로 인덱싱됩니다. CSV의 각 라인을 별도의 문서로 취급해야 하는 경우 [이 UserVoice 제안](https://feedback.azure.com/forums/263029-azure-search/suggestions/13865325-please-treat-each-line-in-a-csv-file-as-a-separate)에 투표하세요.
 	- 복합 또는 포함된 문서(예: ZIP 보관 파일 또는 PDF 첨부 파일이 있는 Outlook 메일이 포함된 Word 문서)도 단일 문서로 인덱싱됩니다.
 
 - BLOB에 있는 사용자 지정 메타데이터 속성은 그대로 추출됩니다(있는 경우). 메타데이터 속성은 문서 추출 프로세스의 특정 부분을 제어하는 데 사용할 수 있습니다. 자세한 내용은 [사용자 지정 메타데이터를 사용하여 문서 추출 제어](#CustomMetadataControl)를 참조하세요.
@@ -135,7 +135,7 @@ Azure 검색에서는 문서 키가 문서를 고유하게 식별합니다. 모�
    
 어떤 추출된 필드를 인덱스에 대한 키 필드에 매핑할지 신중하게 고려해야 합니다. 후보는 다음과 같습니다.
 
-- **metadata\_storage\_name** - 편리한 후보일 수 있으나 1) 다른 폴더에 같은 이름을 가진 BLOB를 포함할 수 있으므로 이름이 고유하지 않을 수 있으며 2) 이름에 대시와 같은 문서 키로 유효하지 않은 문자가 포함될 수 있습니다. 인덱서 속성에서 `base64EncodeKeys` 옵션을 사용하여 유효하지 않은 문자를 처리할 수 있습니다. 이렇게 하면 Lookup과 같은 API 호출에 전달할 때 문서 키를 인코딩해야 합니다. (예를 들어, .NET에서 이러한 용도로 [UrlTokenEncode 메서드](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx)를 사용할 수 있습니다.)
+- **metadata\_storage\_name** - 편리한 후보일 수 있으나 1) 다른 폴더에 같은 이름을 가진 BLOB를 포함할 수 있으므로 이름이 고유하지 않을 수 있으며 2) 이름에 대시와 같은 문서 키로 유효하지 않은 문자가 포함될 수 있습니다. 인덱서 속성에서 `base64EncodeKeys` 옵션을 사용하여 유효하지 않은 문자를 처리할 수 있습니다. 이렇게 하면 Lookup과 같은 API 호출에 전달할 때 문서 키를 인코딩해야 합니다. (예를 들어, .NET에서 이러한 용도로 [UrlTokenEncode 메서드](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) 를 사용할 수 있습니다).
 
 - **metadata\_storage\_path** - 전체 경로를 사용하여 고유성을 보장할 수 있지만 해당 경로에 [문서 키로 유효하지 않은](https://msdn.microsoft.com/library/azure/dn857353.aspx) `/` 문자가 분명히 포함됩니다. 위와 같이 `base64EncodeKeys` 옵션을 사용하여 키를 인코딩하는 옵션이 제공됩니다.
 
@@ -292,4 +292,4 @@ AzureSearch\_SkipContent | "true" | Blob 인덱서에게 메타데이터만 인�
 
 기능 요청 또는 개선에 대한 아이디어가 있는 경우 [UserVoice 사이트](https://feedback.azure.com/forums/263029-azure-search/)를 통해 연락해 주세요.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

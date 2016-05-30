@@ -34,9 +34,10 @@ Azure Active Directory를 사용하여 Azure, Office 365 또는 다른 Microsoft
 간단한 로그인 프로세스에 대한 사용자 요구를 충족하는 동안 Azure Multi-Factor Authentication을 사용하면 데이터와 응용 프로그램에 대한 액세스를 보호합니다. 전화 통화, 문자 메시지 또는 모바일 앱 알림 또는 확인 코드 및 타사 OATH 토큰을 포함하여 다양한 손쉬운 확인 옵션을 통해 강력한 인증을 전달합니다.
 
 Azure Multi-Factor Authentication의 작동 원리 개요는 다음 비디오를 참조하세요.
-<center>[AZURE.VIDEO windows-azure-multi-factor-authentication]</center>
 
-자세한 내용은 [MFA for Office 365 and MFA for Azure(Office 365용 MFA 및 Azure용 MFA)](https://blogs.technet.microsoft.com/ad/2014/02/11/mfa-for-office-365-and-mfa-for-azure/)를 참조하세요.
+>[AZURE.VIDEO windows-azure-multi-factor-authentication]
+
+자세한 내용은 [Office 365용 MFA 및 Azure용 MFA](https://blogs.technet.microsoft.com/ad/2014/02/11/mfa-for-office-365-and-mfa-for-azure/)를 참조하세요.
 
 ## 시간 제한 권한
 
@@ -50,7 +51,7 @@ Azure Multi-Factor Authentication의 작동 원리 개요는 다음 비디오를
 
 ## 공격 탐지
 
-[Azure Active Directory ID 보호](active-directory-identityprotection.d)는 조직의 ID에 영향을 주는 위험 이벤트와 잠재적 취약성에 대한 통합된 뷰를 제공합니다. ID 보호는 위험 이벤트에 따라 각 사용자에 대한 위험 수준을 계산하며 이는 위험 기반 정책을 구성하여 조직의 ID를 자동으로 보호할 수 있도록 합니다. 이 정책은 Azure Active Directory 및 EMS에서 제공하는 다른 조건부 액세스 제어와 함께 자동적으로 사용자를 차단하거나 암호 재설정 및 다단계 인증 적용을 포함한 제안 사항을 제공할 수 있습니다.
+[Azure Active Directory ID 보호](active-directory-identityprotection.md)는 조직의 ID에 영향을 주는 위험 이벤트와 잠재적 취약성에 대한 통합된 뷰를 제공합니다. ID 보호는 위험 이벤트에 따라 각 사용자에 대한 위험 수준을 계산하며 이는 위험 기반 정책을 구성하여 조직의 ID를 자동으로 보호할 수 있도록 합니다. 이 정책은 Azure Active Directory 및 EMS에서 제공하는 다른 조건부 액세스 제어와 함께 자동적으로 사용자를 차단하거나 암호 재설정 및 다단계 인증 적용을 포함한 제안 사항을 제공할 수 있습니다.
 
 ![Azure AD ID 보호][3]
 
@@ -74,7 +75,7 @@ Azure Multi-Factor Authentication의 작동 원리 개요는 다음 비디오를
 - [조건부 액세스 제어](active-directory-conditional-access.md) 사용
 
 
-완벽한 보안 로드맵 작성에 대한 자세한 내용은 [Microsoft Cloud Security for Enterprise Architects(엔터프라이즈 설계자를 위한 Microsoft 클라우드 보안)](http://aka.ms/securecustomer) 문서의 "Customer responsibilities and roadmap(고객 책임 및 로드맵)" 섹션을 참조하세요. 이러한 항목에 도움이 되는 Microsoft 서비스 참여에 대한 자세한 내용은 Microsoft 담당자에게 문의하거나 [사이버 보안 솔루션 페이지](https://www.microsoft.com/microsoftservices/campaigns/cybersecurity-protection.aspx)를 방문하세요.
+완벽한 보안 로드맵 작성에 대한 자세한 내용은 [엔터프라이즈 설계자를 위한 Microsoft 클라우드 보안](http://aka.ms/securecustomer) 문서의 "고객 책임 및 로드맵" 섹션을 참조하세요. 이러한 항목에 도움이 되는 Microsoft 서비스 참여에 대한 자세한 내용은 Microsoft 담당자에게 문의하거나 [사이버 보안 솔루션 페이지](https://www.microsoft.com/microsoftservices/campaigns/cybersecurity-protection.aspx)를 방문하세요.
 
 <!--Image references-->
 [1]: ./media/active-directory-privileged-identity-management-configure/Search_PIM.png
@@ -82,4 +83,4 @@ Azure Multi-Factor Authentication의 작동 원리 개요는 다음 비디오를
 [3]: ./media/active-directory-identityprotection/29.png
 [4]: ./media/active-directory-conditional-access/conditionalaccess-saas-apps.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

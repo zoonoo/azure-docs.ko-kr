@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/27/2016"
+   ms.date="05/13/2016"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager 및 클래식 배포: 배포 모델 및 리소스 상태 이해
@@ -26,7 +26,9 @@
 - **저장소** - 운영 체제 및 추가 데이터 디스크를 비롯하여 가상 컴퓨터를 위한 VHD를 저장하는 데 필요한 저장소 계정을 지원합니다.
 - **네트워크** - 필수 NIC, 가상 컴퓨터 IP 주소, 가상 네트워크 및 옵션 부하 분산 장치, 부하 분산 장치 IP 주소 내의 서브넷, 네트워크 보안 그룹을 지원합니다.
 
-이 리소스 종류에 대해 지원되는 작업이 서로 다르기 때문에 사용 중인 버전을 알고 있어야 합니다. 리소스를 배포하는 데 어떤 모델을 사용했는지 이해하기 위해 두 모델을 검토해 보겠습니다.
+이 리소스 종류에 대해 지원되는 작업이 서로 다르기 때문에 사용 중인 버전을 알고 있어야 합니다. 클래식 배포에서 Resource Manager 배포로 마이그레이션할 준비가 되었다면 [클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션](./virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)을 참조하세요.
+
+리소스를 배포하는 데 어떤 모델을 사용했는지 이해하기 위해 두 모델을 검토해 보겠습니다.
 
 ## 리소스 관리자 특성
 
@@ -145,7 +147,7 @@ Azure 서비스 관리를 위한 구성 요소 및 해당 관계는 다음과 �
     Location          : westus
     SubscriptionId    : {guid}
 
-그러나 **Get-AzureRmVM** cmdlet만 리소스 관리자를 통해 배포된 가상 컴퓨터를 반환합니다. 다음 명령은 클래식 배포를 통해 만든 가상 컴퓨터를 반환하지 않습니다.
+그러나 **Get-AzureRmVM** cmdlet만 Resource Manager를 통해 배포된 가상 컴퓨터를 반환합니다. 다음 명령은 클래식 배포를 통해 만든 가상 컴퓨터를 반환하지 않습니다.
 
     Get-AzureRmVM -ResourceGroupName ExampleGroup
 
@@ -161,7 +163,7 @@ Azure 서비스 관리를 위한 구성 요소 및 해당 관계는 다음과 �
 - 리소스 관리자 배포 모델로 배포된 가상 컴퓨터는 가상 네트워크에 포함되어야 합니다.
 - 클래식 배포 모델로 배포된 가상 컴퓨터는 가상 네트워크에 포함되어야 합니다.
 
-가상 컴퓨터에 대한 가동 중지를 이용할 수 있는 경우 [ASM2ARM PowerShell 스크립트](https://github.com/fullscale180/asm2arm)를 사용하여 클래식 배포에서 리소스 관리자로 전환할 수 있습니다.
+클래식 배포에서 Resource Manager 배포로 마이그레이션할 준비가 되었다면 [클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션](./virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)을 참조하세요.
 
 전환, 계산, 저장소 및 네트워킹 리소스에 관한 자세한 내용은 [Azure 리소스 관리자에서 Azure 계산, 네트워크 및 저장소 공급자](./virtual-machines/virtual-machines-windows-compare-deployment-models.md)를 참조하세요.
 
@@ -169,8 +171,8 @@ Azure 서비스 관리를 위한 구성 요소 및 해당 관계는 다음과 �
 
 ## 다음 단계
 
-- 가상 컴퓨터, 저장소 계정 및 가상 네트워크를 정의하는 템플릿 생성을 연습하려면 [리소스 관리자 템플릿 연습](resource-manager-template-walkthrough.md)을 참조하세요.
-- 리소스 관리자 템플릿의 구조에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
+- 가상 컴퓨터, 저장소 계정 및 가상 네트워크를 정의하는 템플릿 생성을 연습하려면 [Resource Manager 템플릿 연습](resource-manager-template-walkthrough.md)을 참조하세요.
+- Resource Manager 템플릿의 구조에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 - 템플릿 배포에 대한 명령을 보려면 [Azure 리소스 관리자 템플릿으로 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/13/2016"
+	ms.date="05/12/2016"
 	ms.author="billmath"/>
 
 # Azure AD 페더레이션 호환성 목록
@@ -320,4 +320,4 @@ AuthAnvil Single Sign On 4.5는 널리 사용되는 WS Federation/WS-Trust ID �
 
 자세한 내용은 [AuthAnvil Single Sign On](https://help.scorpionsoft.com/entries/26538603-How-can-I-Configure-Single-Sign-On-for-Office-365-)을 참조하세요.
 
-<!----HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

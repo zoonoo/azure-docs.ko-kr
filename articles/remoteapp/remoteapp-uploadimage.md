@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="02/02/2016"
+    ms.date="05/12/2016"
     ms.author="ericor" />
 
 
@@ -51,4 +51,4 @@
 - 스크립트를 변경하지 않아야 하며, 유효성 검사는 사용자 편의를 위한 것입니다.
 - 업로드 중 Vhd 파일이 잠기면, 파일을 복사하거나 새 위치로 이동하여 다시 업로드해봅니다. 업로드를 방지하는 일부 Windows 프로세스가 있을 수 있습니다.  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

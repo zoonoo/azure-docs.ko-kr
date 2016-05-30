@@ -66,7 +66,7 @@ HDInsight 클러스터는 JSON(**linkedServiceName**)에서 지정한 Blob 저�
 속성 | 설명 | 필수
 -------- | ----------- | --------
 type | 형식 속성은 **HDInsightOnDemand**로 설정해야 합니다. | 예
-clusterSize | 주문형 클러스터의 크기입니다. 이 주문형 클러스터에 포함하려는 노드 수를 지정합니다. | 예
+clusterSize | 클러스터의 작업자/데이터 노드 수 HDInsight 클러스터는 속성에 지정한 작업자 노드의 수와 함께 2개의 헤드 노드로 생성됩니다. 노드의 크기는 코어가 4개인 Standard\_D3이므로, 작업자 노드 클러스터 4개는 코어 24개를(작업자 노드용 4*4 + 헤드 노드용 2*4) 취합니다. Standard\_D3 계층에 대한 자세한 내용은 [HDInsight에서 Linux 기반 Hadoop 클러스터 만들기](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요. | 예
 timetolive | 주문형 HDInsight 클러스터에 대한 허용된 유휴 시간입니다. 클러스터에 다른 활성 작업이 없는 경우 활동이 완료된 후에 주문형 HDInsight 클러스터가 유지될 기간을 지정합니다.<br/><br/>예를 들어 활동 실행에 6분이 걸리고 timetolive이 5분으로 설정된 경우 클러스터는 활동을 처리하는 6분 동안 실행된 후에 5분 동안 유지됩니다. 다른 활동 실행이 6분 창을 실행하는 경우 동일한 클러스터에 의해 처리됩니다.<br/><br/>주문형 HDInsight 클러스터를 만드는 것은 비용이 많이 드는 작업이므로(시간이 걸림) 주문형 HDInsight 클러스터를 다시 사용하여 데이터 팩터리의 성능 향상을 위해 필요한 만큼 이 설정을 사용합니다.<br/><br/>timetolive 값을 0으로 설정한 경우 클러스터는 활동이 처리되는 즉시 삭제됩니다. 반면 높은 값을 설정하는 경우 클러스터는 불필요하게 많은 비용이 발생하는 유휴 상태에 머무를 수 있습니다. 따라서 필요에 따라 적절한 값을 설정하는 것이 중요합니다.<br/><br/>timetolive 속성 값이 적절하게 설정되는 경우 여러 파이프라인은 주문형 HDInsight 클러스터의 동일한 인스턴스를 공유할 수 있습니다. | 예
 버전 | HDInsight 클러스터의 버전입니다. 기본값은 Windows 클러스터의 경우 3.1이고 Linux 클러스터의 경우 3.2입니다. | 아니요
 linkedServiceName | 데이터를 저장 및 처리하기 위해 주문형 클러스터에서 사용하는 blob 저장소입니다. | 예
@@ -137,9 +137,9 @@ yarnConfiguration | HDInsight 클러스터에 대한 Yarn 구성 매개 변수(y
 
 속성 | 설명 | 필수
 :-------- | :----------- | :--------
-headNodeSize | 헤드 노드의 크기를 지정합니다. 기본값은 크게입니다. 자세한 내용은 아래 섹션의 **노드 크기 지정**을 참조하세요. | 아니요
-dataNodeSize | 데이터 노드의 크기를 지정합니다. 기본값은 크게입니다. | 아니요
-zookeeperNodeSize | Zookeeper 노드의 크기를 지정합니다. 기본값은 작게입니다. | 아니요
+headNodeSize | 헤드 노드의 크기를 지정합니다. 기본값은 Standard\_D3입니다. 자세한 내용은 아래 섹션의 **노드 크기 지정**을 참조하세요. | 아니요
+dataNodeSize | 데이터 노드의 크기를 지정합니다. 기본값은 Standard\_D3입니다. | 아니요
+zookeeperNodeSize | Zookeeper 노드의 크기를 지정합니다. 기본값은 Standard\_D3입니다. | 아니요
  
 #### 노드 크기 지정
 위의 속성에 대해 지정해야 하는 문자열 값은 [가상 컴퓨터의 크기](../virtual-machines/virtual-machines-linux-sizes.md#size-tables) 문서를 참조하세요. 값은 이 문서에서 참조된 **CMDLET 및 API**를 준수해야 합니다. 이 문서에서 볼 수 있는 것처럼 크게(기본값) 크기의 데이터 노드는 메모리가 7GB이므로 시나리오에 맞지 않을 수 있습니다.
@@ -297,7 +297,7 @@ subscriptionId | Azure 구독 ID | 아니요(지정하지 않으면 Data Factory
 resourceGroupName | Azure 리소스 그룹 이름 | 아니요(지정하지 않으면 Data Factory의 리소스 그룹이 사용됨).
 sessionId | OAuth 권한 부여 세션의 세션 ID입니다. 각 세션 ID는 고유하고 한 번만 사용될 수 있으며 Data Factory 편집기에서 자동으로 생성됩니다. | 예
 
-**권한 부여** 단추를 사용하여 생성된 인증 코드는 잠시 후 만료됩니다. 다양한 유형의 사용자 계정에 대한 만료 시간은 다음 표를 참조하세요. 인증 **토큰이 만료**되는 경우 다음과 같은 오류 메시지가 표시될 수 있습니다. 자격 증명 작업 오류: invalid\_grant - AADSTS70002: 자격 증명의 유효성 검사 오류 AADSTS70008: 제공된 액세스 권한 부여가 만료되었거나 해지됩니다. 추적 ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 상관관계 ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 타임스탬프: 2015-12-15 21:09:31Z
+**권한 부여** 단추를 사용하여 생성된 권한 부여 코드는 잠시 후 만료됩니다. 다양한 유형의 사용자 계정에 대한 만료 시간은 다음 표를 참조하세요. 인증 **토큰이 만료**되는 경우 다음과 같은 오류 메시지가 표시될 수 있습니다. 자격 증명 작업 오류: invalid\_grant - AADSTS70002: 자격 증명의 유효성 검사 오류 AADSTS70008: 제공된 액세스 권한 부여가 만료되었거나 해지됩니다. 추적 ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 상관관계 ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 타임스탬프: 2015-12-15 21:09:31Z
 
 | 사용자 유형 | 다음 시간 후에 만료 |
 | :-------- | :----------- | 
@@ -339,4 +339,4 @@ sessionId | OAuth 권한 부여 세션의 세션 ID입니다. 각 세션 ID는 �
 
 Azure SQL 연결된 서비스를 만들고 [저장 프로시저 활동](data-factory-stored-proc-activity.md)에서 사용하여 Data Factory 파이프라인에서 저장 프로시저를 호출합니다. 이 연결된 서비스에 대한 자세한 내용은 [Azure SQL 커넥터](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) 문서를 참조하세요.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

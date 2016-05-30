@@ -11,10 +11,10 @@
 <tags 
 	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="Windows" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/21/2016" 
+	ms.date="04/01/2016" 
 	ms.author="josephd"/>
 
 # LOB(기간 업무) 응용 프로그램 워크로드 1단계: Azure 구성
@@ -220,4 +220,4 @@ Azure 구독을 설정합니다. < and > 문자를 포함하여 따옴표 안의
 
 - [2단계](virtual-machines-windows-ps-lob-ph2.md)를 사용하여 이 워크로드의 구성을 계속합니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

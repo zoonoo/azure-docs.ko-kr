@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="dragon119"
-   manager="masimms"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -19,8 +19,7 @@
 
 # API 구현 지침
 
-![](media/best-practices-api-implementation/pnp-logo.png)
-
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 이 지침에 포함된 일부 항목은 논의 중이며 나중에 변경될 수 있습니다. 귀하의 피드백을 환영합니다!
 
@@ -1152,4 +1151,4 @@ API 관리 서비스를 사용하여 Web API를 게시한 경우 Azure 관리 �
 - Microsoft 웹 사이트의 [단위 테스트를 사용하여 코드 확인](https://msdn.microsoft.com/library/dd264975.aspx) 페이지는 Visual Studio를 사용하여 단위 테스트를 생성하고 관리하는 자세한 정보를 제공합니다.
 - Microsoft 웹 사이트의 [앱에서 성능 테스트 실행](https://msdn.microsoft.com/library/dn250793.aspx) 페이지는 Visual Studio Ultimate을 사용하여 웹 성능 및 부하 테스트 프로젝트를 생성하는 방법을 설명합니다.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

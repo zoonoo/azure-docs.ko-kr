@@ -62,8 +62,8 @@
 
 
 <!-- URLs. -->
-[인증 시작]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md
-[Get started with push notifications]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md
-[푸시 알림 시작]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md
+[인증 시작]: mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md
+[Get started with push notifications]: mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md
+[푸시 알림 시작]: mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

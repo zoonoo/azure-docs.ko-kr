@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/17/2016"
+    ms.date="05/16/2016"
     ms.author="asmalser-msft"/>
 
 #자습서: Azure Active Directory와 Google Apps를 통합하는 방법
@@ -313,4 +313,4 @@ Single Sign-On을 수동으로 설정하는 것을 선호하는 경우 다음 �
 [29]: ./media/active-directory-saas-google-apps-tutorial/assign-users.png
 [30]: ./media/active-directory-saas-google-apps-tutorial/assign-confirm.png
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

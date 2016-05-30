@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="04/14/2016"
+	ms.date="05/13/2016"
 	ms.author="chrande"/>
 
 # Azure Functions C# 개발자 참조
@@ -100,8 +100,10 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter 
 
 * `System`
 * `System.Collections.Generic`
+* `System.IO`
 * `System.Linq`
 * `System.Net.Http`
+* `System.Threading.Tasks`
 * `Microsoft.Azure.WebJobs`
 * `Microsoft.Azure.WebJobs.Host`.
 
@@ -135,10 +137,12 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter 
 또한 다음 어셈블리는 특수한 경우이며 simplename에서 참조할 수 있습니다(예: `#r "AssemblyName"`).
 
 * `Newtonsoft.Json`
+* `Microsoft.WindowsAzure.Storage`
+* `Microsoft.ServiceBus`
 * `Microsoft.AspNet.WebHooks.Receivers`
 * `Microsoft.AspNEt.WebHooks.Common`.
 
-개인 어셈블리를 참조해야 하는 경우 어셈블리 파일을 함수에 상대적인 `bin` 폴더에 업로드하고 파일 이름(예: `#r "MyAssembly.dll"`)을 사용하여 참조할 수 있습니다.
+개인 어셈블리를 참조해야 하는 경우 어셈블리 파일을 함수에 상대적인 `bin` 폴더에 업로드하고 파일 이름(예: `#r "MyAssembly.dll"`)을 사용하여 참조할 수 있습니다. 함수 폴더에 파일을 업로드하는 방법에 대한 내용은 패키지 관리에 대한 다음 섹션을 참조하세요.
 
 ## 패키지 관리
 
@@ -160,43 +164,13 @@ C# 함수에서 NuGet 패키지를 사용하려면 *project.json* 파일을 함�
 
 ### project.json 파일을 업로드하는 방법
 
-함수 앱을 실행하여 시작하며 이는 Azure 포털에서 함수를 열어 수행할 수 있습니다. 또한 패키지 설치 출력이 표시되는 스트리밍 로그에 액세스할 수 있습니다.
+1. 함수 앱을 실행하여 시작하며 이는 Azure 포털에서 함수를 열어 수행할 수 있습니다. 
 
-함수 앱은 앱 서비스를 기반으로 하므로 [표준 웹앱에 사용할 수 있는 배포 옵션](../app-service-web/web-sites-deploy.md)을 모두 함수 앱에도 사용할 수 있습니다. 다음은 사용할 수 있는 몇 가지 방법입니다.
+	또한 패키지 설치 출력이 표시되는 스트리밍 로그에 액세스할 수 있습니다.
 
-#### Visual Studio Online을 사용하여 project.json를 업로드하려면(모나코)
+2. project.json 파일을 업로드하려면, [Azure Functions 개발자 참조](functions-reference.md#fileupdate) 항목에 있는 **함수 앱 파일을 업데이트하는 방법** 섹션에 설명되어 있는 방법 중 하나를 사용합니다.
 
-1. Azure Functions 포털에서 **함수 앱 설정**을 클릭합니다.
-
-2. **고급 설정** 섹션에서 **앱 서비스 설정으로 이동**을 클릭합니다.
-
-3. **도구**를 클릭합니다.
-
-4. **개발**에서 **Visual Studio Online**을 클릭합니다.
-
-5. 아직 활성화되지 않은 경우 **켜고** **이동**을 클릭합니다.
-
-6. Visual Studio Online이 로드된 후에 *project.json* 파일을 함수의 폴더에 끌어서 놓습니다(함수 이름을 딴 폴더).
-
-#### 함수 앱의 SCM(Kudu) 끝점을 사용하여 project.json를 업로드하려면
-
-1. `https://<function_app_name>.scm.azurewebsites.net`로 이동합니다.
-
-2. **디버그 콘솔 > CMD**를 클릭합니다.
-
-3. *D:\\home\\site\\wwwroot<function\_name>*으로 이동합니다.
-
-4. *project.json* 파일을 (파일 표의) 폴더에 끌어서 놓습니다.
-
-#### FTP를 사용하여 project.json을 업로드하려면
-
-1. [여기](../app-service-web/web-sites-deploy.md#ftp)에 있는 지침에 따라 FTP를 구성합니다.
-
-2. 함수 앱 사이트에 연결된 경우 *project.json* 파일을 */site/wwwroot/<function_name>*에 복사합니다.
-
-#### 패키지 설치 로그 
-
-*project.json* 파일을 업로드한 함수의 스트리밍 로그에서 다음 예제와 같은 출력을 확인합니다.
+3. *project.json* 파일을 업로드한 함수의 스트리밍 로그에서 다음 예제와 같은 출력을 확인합니다.
 
 ```
 2016-04-04T19:02:48.745 Restoring packages.
@@ -213,6 +187,25 @@ C# 함수에서 NuGet 패키지를 사용하려면 *project.json* 파일을 함�
 2016-04-04T19:02:57.189 
 2016-04-04T19:02:57.189 
 2016-04-04T19:02:57.455 Packages restored.
+```
+
+## 환경 변수
+
+환경 변수 또는 앱 설정 값을 가져오려면, 다음 코드 예제와 같이 `System.Environment.GetEnvironmentVariable`을 사용합니다.
+
+```csharp
+public static void Run(TimerInfo myTimer, TraceWriter log)
+{
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+    log.Info(GetEnvironmentVariable("AzureWebJobsStorage"));
+    log.Info(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
+}
+
+public static string GetEnvironmentVariable(string name)
+{
+    return name + ": " + 
+        System.Environment.GetEnvironmentVariable(name, EnvironmentVariableTarget.Process);
+}
 ```
 
 ## .csx 코드 재사용
@@ -258,4 +251,4 @@ public static void MyLogger(TraceWriter log, string logtext)
 * [Azure Functions NodeJS 개발자 참조](functions-reference-node.md)
 * [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

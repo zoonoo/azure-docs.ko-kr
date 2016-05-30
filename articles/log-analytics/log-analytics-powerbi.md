@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/02/2016"
+   ms.date="05/11/2016"
    ms.author="bwren" />
 
 # Log Analytics 데이터를 Power BI로 내보내기
@@ -21,7 +21,7 @@
 
 Log Analytics로 Power BI를 구성할 때 해당 결과를 Power BI의 해당 데이터 집합으로 내보내는 로그 쿼리를 만듭니다. 쿼리 및 내보내기는 Log Analytics에 의해 수집된 최신 데이터로 데이터 집합을 최신 상태로 유지하도록 정의한 일정에 따라 계속해서 자동으로 실행합니다.
 
-![Log Analytics에서 Power BI로](media/log-analytics-power-bi/overview.png)
+![Log Analytics에서 Power BI로](media/log-analytics-powerbi/overview.png)
 
 ## Power BI 일정
 
@@ -29,7 +29,7 @@ Log Analytics로 Power BI를 구성할 때 해당 결과를 Power BI의 해당 �
 
 데이터 집합의 필드는 로그 검색에서 반환되는 레코드의 속성과 일치합니다. 검색이 다양한 종류의 레코드를 반환하는 경우 데이터 집합은 포함된 각 레코드 형식의 모든 속성을 포함합니다.
 
-[Measure](log-analytics-search-reference.md#measure)와 같은 명령을 사용하여 모든 통합을 수행하는 것과 달리 원시 데이터를 반환하는 로그 검색 쿼리를 사용하는 것이 가장 좋은 방법입니다. 원시 데이터에서 Power BI의 모든 집계와 계산을 수행할 수 있습니다.
+> [AZURE.NOTE] [Measure](log-analytics-search-reference.md#measure)와 같은 명령을 사용하여 모든 통합을 수행하는 것과 달리 원시 데이터를 반환하는 로그 검색 쿼리를 사용하는 것이 가장 좋은 방법입니다. 원시 데이터에서 Power BI의 모든 집계와 계산을 수행할 수 있습니다.
 
 ## OMS 작업 영역을 Power BI에 연결
 
@@ -67,7 +67,7 @@ Log Analytics에서 Power BI로 내보내려면 다음 절차를 사용하여 Po
 
 **열 제거**의 **X**를 클릭하여 일정을 제거할 수 있습니다. **끄기**를 선택하여 일정을 비활성화할 수 있습니다. 일정을 수정하려면 제거하고 새 설정으로 다시 만들어야 합니다.
 
-![Power BI 일정](media/log-analytics-power-bi/schedules.png)
+![Power BI 일정](media/log-analytics-powerbi/schedules.png)
 
 ## 샘플 연습
 다음 섹션은 Power BI 일정을 만들고 해당 데이터 집합을 사용하여 간단한 보고서를 만드는 예제를 안내합니다. 이 예제에서는 컴퓨터 집합에 대한 모든 성능 데이터가 Power BI로 내보내진 다음 프로세서 사용률을 표시하는 꺾은선형 그래프가 작성됩니다.
@@ -75,22 +75,22 @@ Log Analytics에서 Power BI로 내보내려면 다음 절차를 사용하여 Po
 ### 로그 검색 만들기
 데이터 집합에 보낼 데이터에 대한 로그 검색을 만들어 보겠습니다. 이 예제에서는 *srv*로 시작하는 이름의 컴퓨터에 대한 모든 성능 데이터를 반환하는 쿼리를 사용합니다.
 
-![Power BI 일정](media/log-analytics-power-bi/walkthrough-query.png)
+![Power BI 일정](media/log-analytics-powerbi/walkthrough-query.png)
 
 ### Power BI 검색 만들기
 **Power BI** 단추를 클릭하여 Power BI 대화 상자를 열고 필요한 정보를 제공합니다. 이 검색이 시간당 한 번씩 실행되길 원하고 *Contoso Perf*라는 데이터 집합을 만듭니다. 원하는 데이터를 만드는 검색 열기가 이미 있으므로 **저장된 검색**에 대한 *현재 검색 쿼리 사용*의 기본값을 유지합니다.
 
-![Power BI 검색](media/log-analytics-power-bi/walkthrough-schedule.png)
+![Power BI 검색](media/log-analytics-powerbi/walkthrough-schedule.png)
 
 ### Power BI 검색 확인
 일정을 올바르게 만들었는지 확인하려면 OMS 대시보드의 **설정** 타일 아래에서 Power BI 검색의 목록을 봅니다. 동기화가 실행되었음을 보고할 때까지 몇 분 정도 기다렸다가 이 보기를 새로 고칩니다.
 
-![Power BI 검색](media/log-analytics-power-bi/walkthrough-schedules.png)
+![Power BI 검색](media/log-analytics-powerbi/walkthrough-schedules.png)
 
 ### Power BI의 데이터 집합 확인
 [powerbi.microsoft.com](http://powerbi.microsoft.com/)에 계정으로 로그인하고 왼쪽 창 맨 아래의 **데이터 집합**으로 스크롤합니다. 내보내기가 성공적으로 실행되었음을 나타내는 *Contoso Perf*가 나열된 것을 볼 수 있습니다.
 
-![Power BI 데이터 집합](media/log-analytics-power-bi/walkthrough-datasets.png)
+![Power BI 데이터 집합](media/log-analytics-powerbi/walkthrough-datasets.png)
 
 ### 데이터 집합 기반 보고서 만들기
 **Contoso Perf** 데이터 집합을 선택한 다음 오른쪽 **필드** 창의 **결과**를 클릭하여 이 데이터 집합에 포함된 필드를 봅니다. 각 컴퓨터에 대한 프로세서 사용률을 보여 주는 꺾은선형 그래프를 만들려면 다음 작업을 수행합니다.
@@ -104,16 +104,16 @@ Log Analytics에서 Power BI로 내보내려면 다음 절차를 사용하여 Po
 
 데이터 집합의 데이터로 결과 꺾은선형 그래프가 표시된 것을 확인할 수 있습니다.
 
-![Power BI 꺾은선형 그래프](media/log-analytics-power-bi/walkthrough-linegraph.png)
+![Power BI 꺾은선형 그래프](media/log-analytics-powerbi/walkthrough-linegraph.png)
 
 ### 보고서 저장
 화면 맨 위에 있는 저장 단추를 클릭하여 보고서를 저장하고 왼쪽 창의 보고서 섹션에 나열된 것을 검사합니다.
 
-![Power BI 보고서](media/log-analytics-power-bi/walkthrough-report.png)
+![Power BI 보고서](media/log-analytics-powerbi/walkthrough-report.png)
 
 ## 다음 단계
 
 - Power BI로 내보낼 수 있는 쿼리를 작성하려면 [로그 검색](log-analytics-log-searches.md)에 대해 알아봅니다.
 - Log Analytics 내보내기 기반 시각화를 작성하려면 [Power BI](powerbi.microsoft.com)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

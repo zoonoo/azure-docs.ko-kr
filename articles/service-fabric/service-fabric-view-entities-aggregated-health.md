@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/23/2016"
+   ms.date="04/25/2016"
    ms.author="oanapl"/>
 
 # 서비스 패브릭 상태 보고서 보기
@@ -763,7 +763,7 @@ HealthEvents          :
 
 현재, 상태 청크 쿼리는 클러스터 엔터티에 대해서만 노출됩니다. 상태 청크 쿼리는 클러스터 상태 청크를 반환하며, 다음을 포함합니다.
 
-- 클러스터 집계 상태.
+- 클러스터 집계 성능 상태.
 
 - 입력 필터를 준수하는 노드의 상태 청크 목록.
 
@@ -1132,4 +1132,4 @@ UpgradeReplicaSetCheckTimeout : 00:15:00
 
 [서비스 패브릭 응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

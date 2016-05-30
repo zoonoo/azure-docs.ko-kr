@@ -232,4 +232,4 @@ class MyActor : Actor, IMyActor
  - [행위자 API 참조 설명서](https://msdn.microsoft.com/library/azure/dn971626.aspx)
  - [샘플 코드](https://github.com/Azure/servicefabric-samples)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

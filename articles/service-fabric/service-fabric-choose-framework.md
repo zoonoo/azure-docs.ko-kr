@@ -34,7 +34,7 @@ Reliable Services는 웹 서버나 Azure 클라우드 서비스의 작업자 역
 
 Reliable Services는 서비스 패브릭 단독으로 상태를 저장할 수도 있습니다. 여기서는 Reliable Collections를 사용하여 서비스 자체에 상태가 직접적으로 유지됩니다. 상태는 복제를 통해 고가용성이 유지되고 분할을 통해 배포되며, 모두 서비스 패브릭에서 자동으로 관리합니다.
 
-[Reliable Actors에 대해 자세히 알아보거나](service-fabric-reliable-services-introduction) [첫 번째 Reliable Services를 작성해 보세요.](service-fabric-reliable-services-quick-start.md)
+[Reliable Actors에 대해 자세히 알아보거나](service-fabric-reliable-services-introduction.md) [첫 번째 Reliable Services를 작성해 보세요.](service-fabric-reliable-services-quick-start.md)
 
 ## Reliable Actors
 
@@ -45,4 +45,4 @@ Reliable Actors 자체는 Reliable Services에 구축된 응용 프로그램 프
 ## 다음 단계
 [Reliable Actors에 대해 자세히 알아보거나](service-fabric-reliable-actors-introduction.md)[첫 번째 Reliable Actor 서비스 작성](service-fabric-reliable-actors-get-started.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

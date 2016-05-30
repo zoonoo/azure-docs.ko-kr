@@ -14,23 +14,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/25/2016"
+   ms.date="05/16/2016"
    ms.author="mandia"/>
 
 
 # SQL Azure API 시작
-SQL Azure에 연결하여 행 삽입, 테이블 가져오기 등 테이블 및 행을 관리합니다.
+Azure SQL 데이터베이스에 연결하여 행 삽입, 테이블 가져오기 등 테이블 및 행을 관리합니다.
 
-SQL Azure API를 다음에서 사용할 수 있습니다.
+Azure SQL 데이터베이스 API는 다음에서 사용할 수 있습니다.
 
-- 논리 앱 
+- 논리 앱(이 항목에 설명됨)
+- PowerApps([PowerApps 연결 목록](https://powerapps.microsoft.com/tutorials/connections-list/)에서 전체 목록을 참조하세요.)
 
 >[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다.
 
-SQL Azure로 다음을 수행할 수 있습니다.
+Azure SQL 데이터베이스를 사용하여 다음과 같은 작업을 할 수 있습니다.
 
-- SQL Azure에서 가져온 데이터를 기반으로 비즈니스 흐름을 빌드합니다. 
-- 행 가져오기, 행 삽입 등의 작업을 사용합니다. 이러한 작업을 사용하여 응답을 가져오고 출력을 다른 작업에 사용할 수 있도록 설정합니다. 예를 들어 SQL Azure에서 데이터 행을 가져와 Excel에 추가할 수 있습니다. 
+- Azure SQL 데이터베이스에서 가져온 데이터를 기반으로 비즈니스 흐름을 빌드합니다. 
+- 행 가져오기, 행 삽입 등의 작업을 사용합니다. 이러한 작업을 사용하여 응답을 가져오고 출력을 다른 작업에 사용할 수 있도록 설정합니다. 예를 들어 Azure SQL 데이터베이스에서 데이터 행을 가져와 Excel에 추가할 수 있습니다. 
 
 논리 앱에 작업을 추가하려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
 
@@ -49,7 +50,7 @@ SQL에는 다음 작업이 포함됩니다. 트리거는 없습니다.
 
 |속성| 필수|설명|
 | ---|---|---|
-|SQL 연결 문자열|예|SQL Azure 연결 문자열 입력|
+|SQL 연결 문자열|예|Azure SQL 데이터베이스 연결 문자열을 입력합니다.|
 
 연결을 만든 후에 테이블 이름 등의 SQL 속성을 입력합니다. 이 항목의 **REST API 참조**에서는 이러한 속성에 대해 설명합니다.
 
@@ -225,6 +226,6 @@ SQL 테이블에서 기존 행을 업데이트합니다. ```PATCH: /datasets/def
 
 ## 다음 단계
 
-[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[논리 앱을 만듭니다](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

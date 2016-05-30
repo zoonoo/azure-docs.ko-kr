@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 # Azure CDN 끝점에 자산 미리 로드
+
+[AZURE.INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
 기본적으로 요청되었으므로 자산이 먼저 캐시됩니다. 즉, 가장자리 서버는 캐시된 콘텐츠가 없고 요청을 원본 서버에 전달해야 하므로 각 지역의 첫 번째 요청은 오래 걸릴 수 있습니다. 콘텐츠를 미리 로드하면 첫 번째 적중 대기 시간이 발생하지 않습니다.
 
@@ -58,4 +60,4 @@
 - [Azure CDN 끝점 제거](cdn-purge-endpoint.md)
 - [Azure CDN REST API 참조 - 끝점 제거 또는 미리 로드](https://msdn.microsoft.com/library/mt634451.aspx)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

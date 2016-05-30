@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="04/07/2016"
+	ms.date="05/13/2016"
 	ms.author="chrande"/>
 
 # Azure Functions 개발자 참조
@@ -80,7 +80,7 @@ HTTP 트리거를 지원하기 위하여, 프로덕션 시나리오에서 스크
 스크립트 호스트가 구성 파일 및 하나 이상의 함수를 포함하는 폴더를 가리킵니다.
 
 ```
-parentFolder (for example, wwwroot)
+parentFolder (for example, wwwroot in a function app)
  | - host.json
  | - mynodefunction
  | | - function.json
@@ -93,11 +93,49 @@ parentFolder (for example, wwwroot)
  | | - run.csx
 ```
 
-*host.json* 파일은 스크립트 호스트에 해당하는 구성을 포함하며 parent 폴더에 위치합니다.
+*host.json* 파일은 스크립트 호스트에 해당하는 구성을 포함하며 parent 폴더에 위치합니다. 사용 가능한 설정에 대한 정보는, WebJobs.Script 리포지토리 wiki에서 [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json)을 참조하세요.
 
 각 함수에는 코드 파일, *function.json*, 기타 종속성을 포함하는 폴더가 있습니다.
 
 Azure 앱 서비스에서 함수를 함수 앱에 배포하기 위한 프로젝트를 설정하는 경우에는, 이 폴더 구조를 사용자의 사이트 코드로 처리할 수 있습니다. 배포 시 패키지 설치 또는 코드 transpilation 수행을 위하여 지속적인 통합 및 배포 같은 기존 툴 또는 사용자 지정 배포 스크립트를 사용할 수 있습니다.
+
+## <a id="fileupdate"></a> 함수 앱 파일을 업데이트하는 방법
+
+Azure 포털에 기본 제공되는 함수 편집기를 사용하면 함수에 대한 코드 파일 및 *function.json* 파일을 업데이트할 수 있습니다. *package.json* 또는 *project.json* 또는 종속성 등의 다른 파일을 업로드하거나 업데이트하려면, 다른 배포 방법을 사용해야 합니다.
+
+함수 앱은 앱 서비스를 기반으로 하므로 [표준 웹앱에 사용할 수 있는 배포 옵션](../app-service-web/web-sites-deploy.md)을 모두 함수 앱에도 사용할 수 있습니다. 함수 앱 파일을 업로드하거나 업데이트하는 데 사용할 수 있는 방법이 몇 가지 입니다.
+
+#### Visual Studio Online(Monaco)을 사용하려면
+
+1. Azure Functions 포털에서 **함수 앱 설정**을 클릭합니다.
+
+2. **고급 설정** 섹션에서 **앱 서비스 설정으로 이동**을 클릭합니다.
+
+3. **도구**를 클릭합니다.
+
+4. **개발**에서 **Visual Studio Online**을 클릭합니다.
+
+5. 아직 활성화되지 않은 경우 **켜고** **이동**을 클릭합니다.
+
+	Visual Studio Online이 로드된 후에, *wwwroot* 하위의 함수 폴더와 *host.json* 파일을 볼 수 있습니다.
+
+6. 파일을 열어서 편집하거나, 배포 컴퓨터에서 끌어서 놓기로 파일을 업로드합니다.
+
+#### 함수 앱의 SCM(Kudu) 끝점을 사용하려면
+
+1. `https://<function_app_name>.scm.azurewebsites.net`로 이동합니다.
+
+2. **디버그 콘솔 > CMD**를 클릭합니다.
+
+3. `D:\home\site\wwwroot`으로 이동하여 *host.json*을 업데이트하거나 `D:\home\site\wwwroot<function_name>`로 이동하여 함수 파일을 업데이트합니다.
+
+4. 파일 그리드에서 적절한 폴더로 업로드할 파일을 끌어서 놓습니다.
+
+#### FTP를 사용하려면
+
+1. [여기](../app-service-web/web-sites-deploy.md#ftp)에 있는 지침에 따라 FTP를 구성합니다.
+
+2. 함수 앱 사이트에 연결되면, 업데이트된 *host.json* 파일을 `/site/wwwroot`에 복사하거나 함수 파일을 `/site/wwwroot/<function_name>`에 복사합니다.
 
 ## 병렬 실행
 
@@ -106,6 +144,16 @@ Azure 앱 서비스에서 함수를 함수 앱에 배포하기 위한 프로젝�
 ## Azure Functions 펄스  
 
 펄스는 함수의 실행 빈도는 물론 성공과 실패를 보여주는 라이브 이벤트 스트림입니다. 평균 실행 시간을 모니터링하는 것도 가능합니다. 앞으로 더 많은 기능과 사용자 지정을 추가할 예정입니다. **Pulse**(펄스) 페이지는 **Monitoring**(모니터링) 탭을 통해 액세스할 수 있습니다.
+
+## 리포지토리
+
+Azure Functions에 대한 코드는 공개 소스이며 GitHub 리포지토리에 저장됩니다.
+
+* [Azure Functions 런타임](https://github.com/Azure/azure-webjobs-sdk-script/)
+* [Azure Functions 포털](https://github.com/projectkudu/AzureFunctionsPortal)
+* [Azure Functions 템플릿](https://github.com/Azure/azure-webjobs-sdk-templates/)
+* [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/)
+* [Azure WebJobs SDK 확장](https://github.com/Azure/azure-webjobs-sdk-extensions/)
 
 ## 바인딩
 
@@ -124,5 +172,6 @@ Azure 앱 서비스에서 함수를 함수 앱에 배포하기 위한 프로젝�
 * [Azure Functions C# 개발자 참조](functions-reference-csharp.md)
 * [Azure Functions NodeJS 개발자 참조](functions-reference-node.md)
 * [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)
+* [Azure Functions: Azure 앱 서비스](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) 팀 블로그 여행. Azure Functions 개발에 대한 기록
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

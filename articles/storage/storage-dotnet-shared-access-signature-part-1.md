@@ -69,8 +69,8 @@ SAS가 유용한 일반적인 시나리오로는 다른 사용자가 저장소 �
 
 - **Api 버전** 요청을 실행하기 위해 사용할 저장소 서비스 버전을 지정하는 선택적 매개 변수입니다.
 - **서비스 버전** 요청을 인증하기 위해 사용할 저장소 서비스 버전을 지정하는 선택적 매개 변수입니다.
-- **시작 시간.** SAS가 유효해지는 시간입니다. 공유 액세스 서명의 시작 시간은 선택 사항이며, 생략할 경우 SAS가 즉시 유효해집니다.
-- **만료 시간.** SAS가 더 이상 유효하지 않게 되는 시간입니다. 모범 사례에 따라 SAS의 만료 시간을 지정하거나 만료 시간을 저장된 액세스 정책과 연결하는 것이 좋습니다(아래 내용 참조).
+- **시작 시간.** SAS가 유효해지는 시간입니다. 공유 액세스 서명의 시작 시간은 선택 사항이며, 생략할 경우 SAS가 즉시 유효해집니다. 특정 UTC 지정자("Z")를 이용하여 UTC(협정 세계시)로 표시해야 합니다(즉, 1994-11-05T13:15:30Z).
+- **만료 시간.** SAS가 더 이상 유효하지 않게 되는 시간입니다. 모범 사례에 따라 SAS의 만료 시간을 지정하거나 만료 시간을 저장된 액세스 정책과 연결하는 것이 좋습니다. 특정 UTC 지정자("Z")를 이용하여 UTC(협정 세계시)로 표시해야 합니다(즉, 1994-11-05T13:15:30Z)(아래 내용 참조).
 - **사용 권한** SAS에 지정된 사용 권한은 클라이언트가 SAS를 사용하여 저장소 리소스에 대해 수행할 수 있는 작업을 나타냅니다. 사용 가능한 권한은 계정 SAS와 서비스 SAS가 다릅니다.
 - **IP** 요청을 수락할 Azure 외부(Express 경로에 대한 [라우팅 세션 구성 상태](../expressroute/expressroute-workflows.md#routing-session-configuration-state) 섹션 참조)의 IP 주소 또는 IP 주소 범위를 지정하는 선택적 매개 변수입니다.
 - **프로토콜** 요청에 허용되는 프로토콜을 지정하는 선택적 매개 변수입니다. 기본값인 HTTPS 및 HTTP(https,http) 또는 HTTPS만(https) 허용됩니다. HTTP만은 허용되는 값이 아닙니다.
@@ -318,4 +318,4 @@ IP 범위|sip=168.1.5.60-168.1.5.70|요청을 수락할 IP 주소 범위입니�
 [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
 [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

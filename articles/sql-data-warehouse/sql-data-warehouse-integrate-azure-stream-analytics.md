@@ -3,7 +3,7 @@
    description="솔루션 개발을 위한 Azure SQL 데이터 웨어하우스와 함께 Azure 스트림 분석 사용을 위한 팁"
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sahaj08"
+   authors="shivaniguptamsft"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
-   ms.author="sahajs;mausher;barbkess;sonyama"/>
+   ms.date="05/17/2016"
+   ms.author="shivaniguptamsft;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스와 함께 Azure 스트림 분석 사용
 
@@ -88,12 +88,12 @@ SQL 데이터베이스를 선택하고 다음을 클릭합니다.
 
 [Azure 스트림 분석 소개]: ../stream-analytics/stream-analytics-introductiond.md
 [Azure 스트림 분석을 사용하여 시작]: ../stream-analytics/stream-analytics-get-started.md
-[SQL 데이터 웨어하우스 개발 개요]: sql-data-warehouse-overview-develop.md
-[SQL 데이터 웨어하우스 통합 개요]: sql-data-warehouse-overview-integrate.md
+[SQL 데이터 웨어하우스 개발 개요]: ./sql-data-warehouse-overview-develop.md
+[SQL 데이터 웨어하우스 통합 개요]: ./sql-data-warehouse-overview-integrate.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 [Azure Stream Analytics documentation]: http://azure.microsoft.com/documentation/services/stream-analytics/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -92,7 +92,7 @@ VM에서 Jupyter Notebook을 실행하려면 먼저 Jupyter 및 종속성을 설
 	rm -rf anaconda/
 
 	# Update Jupyter to the latest install and generate its config file
-	sudo /anaconda3/bin/conda install -f jupyter -y
+	sudo /anaconda3/bin/conda install jupyter -y
 	/anaconda3/bin/jupyter-notebook --generate-config
 
 
@@ -124,7 +124,7 @@ Linux에서는 다음 명령을 사용합니다.
     Verify password:
     sha1:b86e933199ad:a02e9592e59723da722.. (elided the rest for security)
 
-다음으로, 프로필 구성 파일을 편집합니다. 사용자가 있는 디렉터리의 `jupyter_notebook_config.py` 파일입니다. 이 파일이 존재하지 않을 수 있습니다. 이 경우 만들면 됩니다. 이 파일에는 여러 필드가 포함되어 있으며 기본적으로 모든 필드는 주석 처리되어 있습니다. 원하는 텍스트 편집기로 이 파일을 열 수 있으며, 다음과 같은 내용이 있는지 확인해야 합니다. 이전 단계에서 sha1로 암호를 대체해야 합니다.
+다음으로, 프로필 구성 파일을 편집합니다. 사용자가 있는 디렉터리의 `jupyter_notebook_config.py` 파일입니다. 이 파일이 존재하지 않을 수 있습니다. 이 경우 만들면 됩니다. 이 파일에는 여러 필드가 포함되어 있으며 기본적으로 모든 필드는 주석 처리되어 있습니다. 원하는 텍스트 편집기로 이 파일을 열 수 있으며, 다음과 같은 내용이 있는지 확인해야 합니다. **구성에 있는 c.NotebookApp.password를 이전 단계의 sha1로 대체해야 합니다**.
 
     c = get_config()
 
@@ -135,7 +135,7 @@ Linux에서는 다음 명령을 사용합니다.
     c.NotebookApp.password = u'sha1:b86e933199ad:a02e9592e5 etc... '
 
     # Network and browser details. We use a fixed port (9999) so it matches
-    # our Azure setup, where we've allowed :wqtraffic on that port
+    # our Azure setup, where we've allowed traffic on that port
     c.NotebookApp.ip = '*'
     c.NotebookApp.port = 9999
     c.NotebookApp.open_browser = False
@@ -199,4 +199,4 @@ Jupyter Notebook은 Azure에서 Python 에코시스템의 기능에 대화형으
 [리포지토리]: https://github.com/ipython/ipython
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

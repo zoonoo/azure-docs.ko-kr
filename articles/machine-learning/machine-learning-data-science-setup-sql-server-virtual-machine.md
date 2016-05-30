@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/28/2016"
-	ms.author="mohabib;xibingao;bradsev" />
+	ms.date="05/10/2016"
+	ms.author="xibingao;bradsev" />
 
 # 고급 분석을 위해 Azure SQL Server 가상 컴퓨터를 IPython Notebook으로 설정
 
@@ -233,7 +233,7 @@ SQL Server Management Studio를 사용하여 새 SQL Server 로그인을 만들�
 
 1.  Azure 클래식 포털(또는 이전 단계)에서 **가상 컴퓨터**를 선택합니다.
 
-2.  **가상 컴퓨터 인스턴스** 페이지의 **DNS 이름** 열에서 **http://** 로 시작하는 가상 컴퓨터의 DNS 이름을 찾아서 복사합니다. 사용자 인터페이스에 전체 이름이 표시되지 않을 수도 있지만 이름을 마우스 오른쪽 단추로 클릭하고 복사를 선택합니다.
+2.  **가상 컴퓨터 인스턴스** 페이지의 **DNS 이름** 열에서 **http://**로 시작하는 가상 컴퓨터의 DNS 이름을 찾아서 복사합니다. 사용자 인터페이스에 전체 이름이 표시되지 않을 수도 있지만 이름을 마우스 오른쪽 단추로 클릭하고 복사를 선택합니다.
 
 ##<a name="cde"></a>다른 컴퓨터에서 데이터베이스 엔진에 연결
 
@@ -306,4 +306,4 @@ Azure 가상 컴퓨터는 **종량제**로 비용이 청구됩니다. 가상 컴
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

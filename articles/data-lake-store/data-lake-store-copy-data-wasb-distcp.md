@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/13/2016"
+   ms.date="05/11/2016"
    ms.author="nitinme"/>
 
 # Distcp를 사용하여 Azure 저장소 Blob과 데이터 레이크 저장소 간에 데이터 복사
@@ -27,6 +27,10 @@
 - **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 - 데이터 레이크 저장소 공개 미리 보기를 위해 **Azure 구독을 사용하도록 설정합니다**. [지침](data-lake-store-get-started-portal.md#signup)을 참조하세요.
 - 데이터 레이크 저장소 계정에 액세스할 수 있는 **Azure HDInsight 클러스터**입니다. [데이터 레이크 저장소가 있는 HDInsight 클러스터 만들기](data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요. 클러스터에 대한 원격 데스크톱을 사용하도록 설정해야 합니다.
+
+## 비디오로 빠르게 배우시겠습니까?
+
+DistCp를 사용하여 Azure 저장소 Blob과 Data Lake 저장소 간에 데이터 복사하는 방법에 대한 [비디오를 보세요](https://mix.office.com/watch/1liuojvdx6sie).
 
 ## 원격 데스크톱(Windows 클러스터) 또는 SSH(Linux 클러스터)에서 Distcp 사용
 
@@ -52,13 +56,13 @@ HDInsight 클러스터는 서로 다른 원본에서 HDInsight 클러스터로 �
 
 		hadoop distcp wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg adl://<data_lake_store_account>.azuredatalakestore.net:443/myfolder
 
-	WASB에 있는 **/example/data/gutenberg/** 폴더의 콘텐츠가 데이터 레이크 저장소 계정의 **/myfolder**에 복사됩니다.
+	WASB에 있는 **/example/data/gutenberg/** 폴더의 콘텐츠가 Data Lake 저장소 계정의 **/myfolder**에 복사됩니다.
 
 6. 마찬가지로 Distcp를 사용하여 데이터 레이크 저장소 계정에서 WASB에 데이터를 복사합니다.
 
 		hadoop distcp adl://<data_lake_store_account>.azuredatalakestore.net:443/myfolder wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg
 
-	데이터 레이크 저장소 계정에 있는 **/myfolder**의 콘텐츠가 WASB의 **/example/data/gutenberg/** 폴더에 복사됩니다.
+	Data Lake 저장소 계정에 있는 **/myfolder**의 콘텐츠가 WASB의 **/example/data/gutenberg/** 폴더에 복사됩니다.
 
 ## 참고 항목
 
@@ -67,4 +71,4 @@ HDInsight 클러스터는 서로 다른 원본에서 HDInsight 클러스터로 �
 - [Azure 데이터 레이크 분석에 데이터 레이크 저장소 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Azure HDInsight에 데이터 레이크 저장소 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

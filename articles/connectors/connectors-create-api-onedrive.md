@@ -14,7 +14,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="03/16/2016"
+ms.date="05/12/2016"
 ms.author="mandia"/>
 
 # OneDrive API 시작
@@ -59,7 +59,7 @@ OneDrive API에는 다음 트리거 및 작업이 포함됩니다.
 1. OneDrive 계정에 로그인합니다.
 2. 논리 앱에서 OneDrive에 연결하고 사용할 수 있도록 허용합니다. 
 
-연결을 만든 후에 폴더 경로 또는 파일 이름 등의 OneDrive 속성을 입력합니다. 이 항목의 **REST API 참조**에서는 이러한 속성에 대해 설명합니다.
+>[AZURE.INCLUDE [OneDrive에 대한 연결을 만드는 단계](../../includes/connectors-create-api-onedrive.md)]
 
 >[AZURE.TIP] 다른 논리 앱에서 이와 동일한 연결을 사용할 수 있습니다.
 
@@ -220,7 +220,7 @@ OneDrive 폴더에서 새 파일을 만들 때 흐름을 트리거합니다. ```
 
 
 ### OneDrive 폴더에서 파일을 수정할 때 흐름을 트리거합니다.
-OneDrive 폴더에서 파일을 수정할 때 흐름을 트리거합니다. ```GET: /datasets/default/triggers/onupdatedfile```
+OneDrive 폴더에서 파일을 수정할 때 흐름을 트리거합니다.```GET: /datasets/default/triggers/onupdatedfile```
 
 | 이름| 데이터 형식|필수|위치|기본값|설명|
 | ---|---|---|---|---|---|
@@ -312,4 +312,4 @@ OneDrive로 폴더를 추출합니다. ```POST: /datasets/default/extractFolderV
 [6]: ./media/connectors-create-api-onedrive/onedrive-new-app.png
 [7]: ./media/connectors-create-api-onedrive/onedrive-app-api-settings.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

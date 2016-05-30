@@ -19,8 +19,9 @@
 # Azure Site Recovery를 사용하여 Azure에 VMware 가상 컴퓨터 및 물리적 서버 복제(레거시)
 
 > [AZURE.SELECTOR]
-- [향상된](site-recovery-vmware-to-azure-classic.md)
-- [레거시](site-recovery-vmware-to-azure-classic-legacy.md)
+- [Azure 포털](site-recovery-vmware-to-azure.md)
+- [클래식 포털](site-recovery-vmware-to-azure-classic.md)
+- [클래식 포털(레거시)](site-recovery-vmware-to-azure-classic-legacy.md)
 
 
 Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제, 장애 조치(Failover) 및 복구를 오케스트레이션하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. 컴퓨터는 Azure 또는 보조 온-프레미스 데이터 센터로 복제할 수 있습니다. 빠른 개요를 알아보려면 [Azure Site Recovery란?](site-recovery-overview.md)을 확인하세요.
@@ -58,7 +59,7 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 1. [향상된 기능](site-recovery-vmware-to-azure-classic.md#enhanced-deployment)을 참조하여 새 [아키텍처](site-recovery-vmware-to-azure-classic.md#scenario-architecture)를 이해하고 [필수 조건](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment)에서 향상된 배포를 확인하세요.
 2. 현재 보호 중인 컴퓨터에서 모바일 서비스를 제거합니다. 컴퓨터를 새 보호 그룹에 추가하면 새 버전의 모바일 서비스가 해당 컴퓨터에 설치됩니다.
 3. [자격 증명 모음 등록 키](site-recovery-vmware-to-azure-classic.md#step-4-download-a-vault-registration-key)를 가져오고 [통합 설치 마법사를 실행](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server)하여 구성 서버, 프로세스 서버를 설치하고 관리 서버에 마스터 대상 서버 구성 요소를 설치합니다. [용량 계획](site-recovery-vmware-to-azure-classic.md#capacity-planning)에 대해 자세히 알아보세요.
-4. VMware vCenter Server가 있는 경우 액세스할 [자격 증명을 설정](site-recovery-vmware-to-azure-classic.md#step-6-set-up-credentials-for-the-vcenter-server)하여 Site Recovery에서 관리하는 VM을 자동으로 검색할 수 있도록 합니다. [필요한 사용 권한](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access)에 대해 자세히 알아보세요.
+4. VMware vCenter Server가 있는 경우 액세스할 [자격 증명을 설정](site-recovery-vmware-to-azure-classic.md#step-6-set-up-credentials-for-the-vcenter-server)하여 사이트 복구에서 관리하는 VM을 자동으로 검색할 수 있도록 합니다. [필요한 사용 권한](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access)에 대해 자세히 알아보세요.
 5. [vCenter Server 또는 ESXi 호스트](site-recovery-vmware-to-azure-classic.md#step-7-add-vcenter-servers-and-esxi-hosts)를 추가합니다. 포털을 새로 고침하여 자격 증명이 표시될 때까지는 최대 15분까지 소요될 수 있습니다.
 6. [새 보호 그룹](site-recovery-vmware-to-azure-classic.md#step-8-create-a-protection-group)을 만듭니다. 포털을 새로 고침하여 가상 컴퓨터가 검색 및 표시될 때까지는 최대 15분까지 소요될 수 있습니다. 기다리지 않으려면 관리 서버 이름(클릭 안 함) > **새로 고침**을 강조 표시하면 됩니다.
 7. 새 보호 그룹에서 **컴퓨터 마이그레이션**을 클릭합니다.
@@ -105,7 +106,7 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 **온-프레미스 컴퓨터** | VMware 하이퍼바이저에서 실행되는 온-프레미스 가상 컴퓨터나 Windows 또는 Linux를 실행하는 물리적 서버입니다. | 가상 컴퓨터와 서버에 적용되는 복제 설정을 지정합니다. 장애 조치(Failover)를 개별 컴퓨터에 대해 실행할 수 있지만, 보통은 함께 장애 조치(Failover)를 실행하는 복수 가상 컴퓨터가 포함된 복구 계획으로 실행합니다.
 **모바일 서비스** | <p>보호하려는 각각의 가상 컴퓨터 또는 물리적 서버에 설치</p><p>보호가 서버에 대해 사용하도록 설정된 경우 수동으로 설치하거나 프로세스 서버로 자동으로 푸시 및 설치할 수 있습니다. | 모바일 서비스는 초기 복제의 일부로 프로세스 서버로 데이터를 보냅니다(다시 동기화). 서버가 보호된 상태에 도달하면(재동기화가 완료된 후) 모바일 서비스는 디스크에 메모리 내 캡처의 쓰기를 수행하고 이를 프로세스 서버에 보냅니다. Windows 서버에 대한 응용 프로그램 일관성은 VSS 프레임워크를 사용하여 얻을 수 있습니다.
 **Azure Site Recovery 자격 증명 모음** | Site Recovery 서비스를 구독한 다음 설정합니다. | Site Recovery 자격 증명 모음에 서버를 등록합니다. 자격 증명 모음은 온-프레미스 사이트와 Azure 간의 데이터 복제본, 장애 조치(Failover) 및 복구를 조정하고 오케스트레이션합니다.
-**복제 메커니즘** | <p>**인터넷 이용** - 인터넷 연결을 통해 SSL/TLS 통신 채널을 사용하여 보호된 온-프레미스 서버와 Azure의 데이터를 전달 및 복제합니다. 기본 옵션입니다.</p><p>**VPN/Express 경로** - VPN 연결을 통해 온-프레미스 서버와 Azure 간에 데이터를 전달 및 복제합니다. 온-프레미스 사이트와 Azure 네트워크 사이에 사이트 간 VPN 또는 Express 경로 연결을 설정해야 합니다.</p><p>Site Recovery 배포 중에 복제 방식을 선택합니다. 구성된 후에는 이미 보호되고 있는 서버의 보호에 영향을 미치지 않고 메커니즘을 변경할 수 없습니다.| <p>두 옵션 모두 보호된 컴퓨터에 인바운드 네트워크 포트를 열 필요가 없습니다. 모든 네트워크 통신은 온-프레미스 사이트에서 시작됩니다.</p> 
+**복제 메커니즘** | <p>**인터넷 이용** - 인터넷 연결을 통해 SSL/TLS 통신 채널을 사용하여 보호된 온-프레미스 서버와 Azure의 데이터를 전달 및 복제합니다. 기본 옵션입니다.</p><p>**VPN/Express 경로** - VPN 연결을 통해 온-프레미스 서버와 Azure 간에 데이터를 전달 및 복제합니다. 온-프레미스 사이트와 Azure 네트워크 사이에 사이트 간 VPN 또는 Express 경로 연결을 설정해야 합니다.</p><p>사이트 복구 배포 중에 복제 방식을 선택합니다. 구성된 후에는 이미 보호되고 있는 서버의 보호에 영향을 미치지 않고 메커니즘을 변경할 수 없습니다.| <p>두 옵션 모두 보호된 컴퓨터에 인바운드 네트워크 포트를 열 필요가 없습니다. 모든 네트워크 통신은 온-프레미스 사이트에서 시작됩니다.</p> 
 
 ## 용량 계획
 
@@ -230,7 +231,7 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 
 ![배포 다이어그램 인터넷](./media/site-recovery-vmware-to-azure-classic-legacy/internet-deployment.png)
 
-**VPN:** 온-프레미스 서버(서버 프로세스, 보호된 컴퓨터)와 Azure 인프라 구성 요소 서버(구성 서버, 마스터 대상 서버) 간의 통신 및 데이터 복제는 온-프레미스 네트워크와 구성 서버 및 마스터 대상 서버가 배포된 Azure 가상 네트워크 간의 VPN 연결을 통해 발생합니다. 온-프레미스 네트워크가 Express 경로 연결 또는 사이트 간 VPN 연결을 통해 Azure 가상 네트워크에 연결되어 있는지 확인합니다.
+**VPN**: 온-프레미스 서버(서버 프로세스, 보호된 컴퓨터)와 Azure 인프라 구성 요소 서버(구성 서버, 마스터 대상 서버) 간의 통신 및 데이터 복제는 온-프레미스 네트워크와 구성 서버 및 마스터 대상 서버가 배포된 Azure 가상 네트워크 간의 VPN 연결을 통해 발생합니다. 온-프레미스 네트워크가 Express 경로 연결 또는 사이트 간 VPN 연결을 통해 Azure 가상 네트워크에 연결되어 있는지 확인합니다.
 
 ![배포 다이어그램 VPN](./media/site-recovery-vmware-to-azure-classic-legacy/vpn-deployment.png)
 
@@ -316,11 +317,11 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 	- **다음**을 클릭하면 프록시 연결을 확인하는 테스트가 실행됩니다.
 	- 사용자 지정 프록시를 사용하거나 기본 프록시에 인증이 필요한 경우 주소, 포트, 자격 증명을 포함한 프록시 정보를 입력해야 합니다.
 	- 다음 URL은 프록시를 통해 액세스할 수 있습니다.
-		- *.hypervrecoverymanager.windowsazure.com
-		- *.accesscontrol.windows.net
-		- *.backup.windowsazure.com
-		- *.blob.core.windows.net
-		- *.store.core.windows.net
+	- *.hypervrecoverymanager.windowsazure.com
+	- *.accesscontrol.windows.net
+	- *.backup.windowsazure.com
+	- *.blob.core.windows.net
+	- *.store.core.windows.net
 	- IP 주소 기반 방화벽 규칙이 구성 서버에서 [Azure 데이터 센터 IP 주소](https://msdn.microsoft.com/library/azure/dn175718.aspx)에 설명된 IP 주소 및 HTTPS(443) 프로토콜로 연결하는 통신을 허용하는지 확인하세요. 사용하려는 Azure 지역 및 미국 서부의 IP 범위를 허용해야 합니다.
 
 	![프록시 등록](./media/site-recovery-vmware-to-azure-classic-legacy/register-proxy.png)
@@ -814,4 +815,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

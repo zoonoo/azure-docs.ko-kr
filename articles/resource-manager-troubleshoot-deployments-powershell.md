@@ -27,9 +27,7 @@
 
 Azure로 리소스를 배포할 때 오류가 발생하면 문제를 해결해야 합니다. Azure PowerShell은 쉽게 오류를 찾고 잠재적 해결 방법을 확인할 수 있는 cmdlet을 제공합니다.
 
-감사 로그 또는 배포 작업을 확인하여 배포 문제를 해결할 수 있습니다. 이 항목에서는 두 가지 방법을 모두 보여 줍니다.
-
-배포하기 전에 템플릿 및 인프라의 유효성을 검사하여 몇 가지 오류를 방지할 수 있습니다. 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 리소스 그룹 배포](resource-group-template-deploy.md)를 참조하세요.
+[AZURE.INCLUDE [resource-manager-troubleshoot-introduction](../includes/resource-manager-troubleshoot-introduction.md)]
 
 ## 감사 로그를 사용하여 문제 해결
 
@@ -142,7 +140,8 @@ Azure로 리소스를 배포할 때 오류가 발생하면 문제를 해결해�
 
 ## 다음 단계
 
-- 감사 로그를 사용하여 다른 유형의 작업을 모니터링하는 방법을 알아보려면 [리소스 관리자를 사용하여 작업 감사](resource-group-audit.md)를 참조하세요.
+- 특정 배포 오류에 대한 도움말은 [ Azure Resource Manager를 사용하여 Azure에 리소스를 배포할 때 발생한 일반적인 오류 해결](resource-manager-common-deployment-errors.md)을 참조하세요.
+- 감사 로그를 사용하여 다른 유형의 작업을 모니터링하는 방법을 알아보려면 [Resource Manager를 사용하여 작업 감사](resource-group-audit.md)를 참조하세요.
 - 실행하기 전에 배포의 유효성을 검사하려면 [Azure Resource Manager 템플릿을 사용하여 리소스 그룹 배포](resource-group-template-deploy.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

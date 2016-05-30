@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Azure Data Catalog 개발자 개념 | Microsoft Azure"
-   description="이 문서는 데이터 카탈로그 REST API를 통해 노출된 것으로 Azure 데이터 카탈로그 개념적 모델의 주요 개념에 대한 소개를 제공합니다."
+   pageTitle="Azure 데이터 카탈로그 개발자 개념"
+   description="카탈로그 REST API를 통해 노출된 것으로 Azure 데이터 카탈로그 개념적 모델의 주요 개념을 소개합니다."
    services="data-catalog"
    documentationCenter=""
-   authors="dvana"
-   manager="mblythe"
+   authors="spelluru"
+   manager=""
    editor=""
    tags=""/>
 <tags 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/29/2016"
-   ms.author="derrickv"/>
+   ms.date="05/10/2016"
+   ms.author="spelluru"/>
 
 # Azure 데이터 카탈로그 개발자 개념
 
@@ -24,7 +24,7 @@ Microsoft**Azure 데이터 카탈로그**는 데이터 원본 검색 및 크라�
 
 **Azure 데이터 카탈로그**개념적 모델은 **카탈로그**, **사용자**, **자산** 및 **주석**의 4개의 주요 개념에 기반합니다.
 
-![](media/data-catalog-developer-concepts/concept2.png)
+![개념][1]
 
 *그림 1-Azure 데이터 카탈로그 단순 개념적 모델*
 
@@ -58,9 +58,9 @@ Azure 데이터 카탈로그는 관리를 식별하고 액세스하기 위해 Az
 
 주석은 자산에 대한 메타데이터를 나타내는 항목입니다.
 
-주석의 예는 설명, 태그, 스키마 및 설명서를 포함합니다. 자산 형식 및 주석 형식의 전체 목록은 아래 [자산 개체 모델](#asset-model) 섹션에 있습니다.
+주석의 예에는 설명, 태그, 스키마, 설명서 등이 있습니다. 자산 형식 및 주석 형식의 전체 목록은 자산 개체 모델 섹션에 있습니다.
 
-## 크라우드소싱 주석 및 사용자 관점(의견의 복합성)
+## 크라우드소싱 주석 및 사용자 관점 (의견의 복합성)
 
 Azure 데이터 카탈로그의 주요 측면은 시스템에서 메타데이터의 크라우드소싱을 지원하는 방법입니다. 하나의 의견만 있고 마지막 기록자가 우선하는 wiki 접근 방식과 대비하여, Azure 데이터 카탈로그 모델은 시스템에 여러 의견이 나란히 있도록 허용합니다.
 
@@ -82,7 +82,6 @@ Azure 데이터 카탈로그의 주요 측면은 시스템에서 메타데이터
 -	다른 패턴은 "병합"입니다. 이 패턴에서 다른 사용자의 모든 값 중복을 제거하여 함께 병합됩니다. Azure 데이터 카탈로그 포털 UX에서 이 패턴의 예는 태그 및 전문가 속성입니다.
 -	세 번째 패턴은 "마지막 기록자 우선"입니다. 이 패턴에서는 입력한 가장 최근의 값만 표시 됩니다. friendlyName은 이 패턴의 예입니다.
 
-<a name="asset-model"/>
 ## 자산 개체 모델
 
 주요 개념 섹션에 소개된 것처럼 **Azure 데이터 카탈로그**개체 모델에는 자산 또는 주석일 수 있는 항목이 포함됩니다. 항목에는 선택 또는 필수가 될 수 있는 속성이 있습니다. 일부 속성은 모든 항목에 적용 됩니다. 일부 속성은 모든 자산에 적용 됩니다. 일부 속성은 특정 자산 형식에만 적용 됩니다.
@@ -103,7 +102,7 @@ Azure 데이터 카탈로그의 주요 측면은 시스템에서 메타데이터
 ### 공용 루트 속성
 <p>
 이러한 속성은 모든 루트 자산 형식에 적용 됩니다.
-<table><tr><td><b>속성 이름</b></td><td><b>데이터 형식</b></td><td><b>설명</b></td></tr><tr><td>name</td><td>문자열</td><td>데이터 원본 위치 정보에서 파생된 이름</td></tr><tr><td>dsl</td><td>데이터 원본 위치</td><td>고유하게 데이터 원본을 설명하고 자산에 대한 식별자 중 하나입니다. (이중 ID 섹션 참조). dsl의 구조는 원본 유형에 따라 달라집니다.</td></tr><tr><td>DataSource</td><td>DataSourceInfo</td><td>자산 형식에 대한 세부 정보.</td></tr><tr><td>lastRegisteredBy</td><td>SecurityPrincipal</td><td>이 자산을 가장 최근에 등록한 사용자를 설명합니다. 사용(upn)뿐만 아니라 표시 이름(lastName과 firstName)에 대한 고유 id를 포함합니다.</td></tr><tr><td>containerId</td><td>String</td><td>데이터 원본에 대한 컨테이너 자산의 ID입니다. 이 속성은 컨테이너 형식에 대해 지원되지 않습니다.</td></tr></table>
+<table><tr><td><b>속성 이름</b></td><td><b>데이터 형식</b></td><td><b>설명</b></td></tr><tr><td>name</td><td>문자열</td><td>데이터 원본 위치 정보에서 파생된 이름</td></tr><tr><td>dsl</td><td>DataSourceLocation</td><td>고유하게 데이터 원본을 설명하고 자산에 대한 식별자 중 하나입니다. (이중 ID 섹션 참조). dsl의 구조는 프로토콜 및 원본 유형에 따라 달라집니다.</td></tr><tr><td>DataSource</td><td>DataSourceInfo</td><td>자산 형식에 대한 세부 정보.</td></tr><tr><td>lastRegisteredBy</td><td>SecurityPrincipal</td><td>이 자산을 가장 최근에 등록한 사용자를 설명합니다. 사용(upn)뿐만 아니라 표시 이름(lastName과 firstName)에 대한 고유 id를 포함합니다.</td></tr><tr><td>containerId</td><td>String</td><td>데이터 원본에 대한 컨테이너 자산의 ID입니다. 이 속성은 컨테이너 형식에 대해 지원되지 않습니다.</td></tr></table>
 
 ### 일반적인 단일 항목이 아닌 주석 속성
 
@@ -116,58 +115,58 @@ Azure 데이터 카탈로그의 주요 측면은 시스템에서 메타데이터
 
 ### 루트 자산 형식
 
-루트 자산 형식은 카탈로그에 등록 될 수 있는 다양한 유형의 데이터 자산을 나타내는 자산 형식입니다.
+루트 자산 형식은 카탈로그에 등록 될 수 있는 다양한 유형의 데이터 자산을 나타내는 자산 형식입니다. 각 루트 형식에는 뷰에 포함된 자산 및 주석을 설명하는 뷰가 정의되어 있습니다. 뷰 이름은 REST API를 사용하여 자산을 게시할 때, 해당하는 {view\_name} URL 세그먼트에 사용되어야 합니다.
 
-<table><tr><td><b>자산 형식</b></td><td><b>추가 속성</b></td><td><b>데이터 형식</b></td><td><b>허용된 주석</b></td><td><b>설명</b></td></tr><tr><td>테이블</td><td></td><td></td><td>설명<p>FriendlyName<p>태그<p>스키마<p>ColumnDescription<p>ColumnTag<p> 전문가<p>미리 보기<p>AccessInstruction<p>TableDataProfile<p>ColumnDataProfile<p>설명서<p></td><td>테이블은 모든 테이블 형식 데이터를 나타냅니다. 여기에는 SQL 테이블, SQL 보기, Analysis Services 테이블 형식 테이블, Analysis Services 다차원 차원, Oracle 등...이 포함됩니다    </td></tr><tr><td>측정값</td><td></td><td></td><td>설명<p>FriendlyName<p>태그<p>전문가<p>AccessInstruction<p>설명서<p></td><td>이 유형은 Analysis Services 측정값을 나타냅니다.</td></tr><tr><td></td><td>측정값</td><td>열</td><td></td><td>측정값을 설명하는 메타데이터</td></tr><tr><td></td><td>isCalculated </td><td>Boolean</td><td></td><td>측정값이 계산할지 여부를 지정합니다.</td></tr><tr><td></td><td>측정값 그룹</td><td>문자열</td><td></td><td>측정값에 대한 물리적 컨테이너</td></tr><td>KPI</td><td></td><td></td><td>설명<p>FriendlyName<p>태그<p>전문가<p>AccessInstruction<p>설명서</td><td></td></tr><tr><td></td><td>측정값 그룹</td><td>문자열</td><td></td><td>측정값에 대한 물리적 컨테이너</td></tr><tr><td></td><td>goalExpression</td><td>문자열</td><td></td><td>KPI의 목표값을 반환하는 MDX 숫자 식 또는 계산.</td></tr><tr><td></td><td>valueExpression</td><td>문자열</td><td></td><td>KPI의 실제 값을 반환하는 MDX 숫자 식.</td></tr><tr><td></td><td>statusExpression</td><td>문자열</td><td></td><td>특정 시점에 지정한 KPI의 상태를 나타내는 MDX 식.</td></tr><tr><td></td><td>trendExpression</td><td>String</td><td></td><td>시간이 지남에 따라 KPI 값을 계산하는 MDX 식.  특정 비즈니스 컨텍스트에서 유용한 시간 기반 조건이 추세가 될 수 있습니다.</td>
-<tr><td>보고서</td><td></td><td></td><td>설명<p>FriendlyName<p>태그<p>전문가<p>AccessInstruction<p>설명서<p></td><td>이 형식은 SQL Server Reporting Services 보고서를 나타냅니다. </td></tr><tr><td></td><td>assetCreatedDate</td><td>문자열</td><td></td><td></td></tr><tr><td></td><td>assetCreatedBy</td><td>String</td><td></td><td></td></tr><tr><td></td><td>assetModifiedDate</td><td>문자열</td><td></td><td></td></tr><tr><td></td><td>assetModifiedBy</td><td>문자열</td><td></td><td></td></tr><tr><td>컨테이너</td><td></td><td></td><td>설명<p>FriendlyName<p>태그<p>전문가<p>AccessInstruction<p>설명서<p></td><td>이 형식은 SQL 데이터베이스, Azure Blob 컨테이너 또는 Analysis Services 모델과 같은 다른 자산의 컨테이너를 나타냅니다.</td></tr></table>
+<table><tr><td><b>자산 유형(뷰 이름)</b></td><td><b>추가 속성</b></td><td><b>데이터 형식</b></td><td><b>허용된 주석</b></td><td><b>설명</b></td></tr><tr><td>테이블 ("tables")</td><td></td><td></td><td>설명<p>FriendlyName<p>태그<p>스키마<p>ColumnDescription<p>ColumnTag<p> 전문가<p>미리 보기<p>AccessInstruction<p>TableDataProfile<p>ColumnDataProfile<p>설명서<p></td><td>테이블은 모든 테이블 형식 데이터를 나타냅니다. 여기에는 SQL 테이블, SQL 보기, Analysis Services 테이블 형식 테이블, Analysis Services 다차원 차원, Oracle 등...이 포함됩니다    </td></tr><tr><td>측정값("measures")</td><td></td><td></td><td>설명<p>FriendlyName<p>태그<p>전문가<p>AccessInstruction<p>설명서<p></td><td>이 유형은 Analysis Services 측정값을 나타냅니다.</td></tr><tr><td></td><td>측정값</td><td>열</td><td></td><td>측정값을 설명하는 메타데이터</td></tr><tr><td></td><td>isCalculated </td><td>Boolean</td><td></td><td>측정값이 계산할지 여부를 지정합니다.</td></tr><tr><td></td><td>측정값 그룹</td><td>문자열</td><td></td><td>측정값에 대한 물리적 컨테이너</td></tr><td>KPI("kpis")</td><td></td><td></td><td>설명<p>FriendlyName<p>태그<p>전문가<p>AccessInstruction<p>설명서</td><td></td></tr><tr><td></td><td>측정값 그룹</td><td>문자열</td><td></td><td>측정값에 대한 물리적 컨테이너</td></tr><tr><td></td><td>goalExpression</td><td>문자열</td><td></td><td>KPI의 목표값을 반환하는 MDX 숫자 식 또는 계산.</td></tr><tr><td></td><td>valueExpression</td><td>문자열</td><td></td><td>KPI의 실제 값을 반환하는 MDX 숫자 식.</td></tr><tr><td></td><td>statusExpression</td><td>문자열</td><td></td><td>특정 시점에 지정한 KPI의 상태를 나타내는 MDX 식.</td></tr><tr><td></td><td>trendExpression</td><td>String</td><td></td><td>시간이 지남에 따라 KPI 값을 계산하는 MDX 식.  특정 비즈니스 컨텍스트에서 유용한 시간 기반 조건이 추세가 될 수 있습니다.</td>
+<tr><td>보고서("reports")</td><td></td><td></td><td>설명<p>FriendlyName<p>태그<p>전문가<p>AccessInstruction<p>설명서<p></td><td>이 형식은 SQL Server Reporting Services 보고서를 나타냅니다. </td></tr><tr><td></td><td>assetCreatedDate</td><td>문자열</td><td></td><td></td></tr><tr><td></td><td>assetCreatedBy</td><td>String</td><td></td><td></td></tr><tr><td></td><td>assetModifiedDate</td><td>문자열</td><td></td><td></td></tr><tr><td></td><td>assetModifiedBy</td><td>문자열</td><td></td><td></td></tr><tr><td>컨테이너("containers")</td><td></td><td></td><td>설명<p>FriendlyName<p>태그<p>전문가<p>AccessInstruction<p>설명서<p></td><td>이 형식은 SQL 데이터베이스, Azure Blob 컨테이너 또는 Analysis Services 모델과 같은 다른 자산의 컨테이너를 나타냅니다.</td></tr></table>
 
 ### 주석 형식
 
 주석 형식은 카탈로그 내에서 다른 형식으로 할당할 수 있는 메타데이터의 형식을 나타냅니다.
 
 <table>
-<tr><td><b>주석 형식</b></td><td><b>추가 속성</b></td><td><b>데이터 형식</b></td><td><b>설명</b></td></tr>
+<tr><td><b>주석 형식(중첩된 뷰 이름)</b></td><td><b>추가 속성</b></td><td><b>데이터 형식</b></td><td><b>설명</b></td></tr>
 
-<tr><td>설명</td><td></td><td></td><td>자산에 대한 설명을 포함합니다. 시스템의 각 사용자는 자신의 설명을 추가할 수 있습니다. 해당 사용자만 설명 개체를 편집할 수 있습니다. (Admins 및 자산 소유자는 설명 개체를 삭제할 수 있지만 편집할 수는 없습니다.) 시스템은 이 개체를 별도로 유지합니다. 따라서 각 자산에 대한 설명의 배열이 있습니다.(아마도 데이터 소스로부터 도출 된 정보를 포함한 사람 이외에, 자산에 대한 지식에 기여한 각 사용자에 대한 배열)</td></tr>
+<tr><td>설명("descriptions")</td><td></td><td></td><td>자산에 대한 설명을 포함합니다. 시스템의 각 사용자는 자신의 설명을 추가할 수 있습니다. 해당 사용자만 설명 개체를 편집할 수 있습니다. (Admins 및 자산 소유자는 설명 개체를 삭제할 수 있지만 편집할 수는 없습니다.) 시스템은 이 개체를 별도로 유지합니다. 따라서 각 자산에 대한 설명의 배열이 있습니다.(아마도 데이터 소스로부터 도출 된 정보를 포함한 사람 이외에, 자산에 대한 지식에 기여한 각 사용자에 대한 배열)</td></tr>
 <tr><td></td><td>description</td><td>string</td><td>자산에 대해 간단한 설명(2-3 줄)</td></tr>
 
-<tr><td>태그</td><td></td><td></td><td>자산에 대한 태그를 포함합니다. 시스템의 각 사용자는 자산에 대해 여러 태그를 추가할 수 있습니다. 태그 개체를 만든 사용자만 편집할 수 있습니다. (Admins 및 자산 소유자는 태그 개체를 삭제할 수 있지만 편집할 수는 없습니다.) 시스템은 이 개체를 별도로 유지합니다. 따라서 각 자산에 대한 태그 개체의 배열이 있습니다.</td></tr>
+<tr><td>태그("tags")</td><td></td><td></td><td>자산에 대한 태그를 포함합니다. 시스템의 각 사용자는 자산에 대해 여러 태그를 추가할 수 있습니다. 태그 개체를 만든 사용자만 편집할 수 있습니다. (Admins 및 자산 소유자는 태그 개체를 삭제할 수 있지만 편집할 수는 없습니다.) 시스템은 이 개체를 별도로 유지합니다. 따라서 각 자산에 대한 태그 개체의 배열이 있습니다.</td></tr>
 <tr><td></td><td>tag</td><td>string</td><td>자산을 설명하는 태그입니다.</td></tr>
 
-<tr><td>FriendlyName</td><td></td><td></td><td>자산에 대한 이름을 포함합니다. FriendlyName은 단일 주석입니다. 자산에 하나의 FriendlyName만을 추가할 수 있습니다. FriendlyName 개체를 만든 사용자만 편집할 수 있습니다. (Admins 및 자산 소유자는 FriendlyName 개체를 삭제할 수 있지만 편집할 수는 없습니다.) 시스템은 이 개체를 별도로 유지합니다.</td></tr>
+<tr><td>이름("friendlyName")</td><td></td><td></td><td>자산에 대한 이름을 포함합니다. FriendlyName은 단일 주석입니다. 자산에 하나의 FriendlyName만을 추가할 수 있습니다. FriendlyName 개체를 만든 사용자만 편집할 수 있습니다. (Admins 및 자산 소유자는 FriendlyName 개체를 삭제할 수 있지만 편집할 수는 없습니다.) 시스템은 이 개체를 별도로 유지합니다.</td></tr>
 <tr><td></td><td>friendlyName</td><td>string</td><td>자산의 이름입니다.</td></tr>
 
-<tr><td>스키마</td><td></td><td></td><td>스키마는 데이터의 구조를 설명합니다. 스키마는 특성(즉, 열, 특성, 필드, 등...), 이름, 형식 뿐 아니라 다른 메타데이터도 나열합니다. 이 정보는 모든 데이터 소스에서 파생됩니다. 스키마는 단일 주석입니다. 자산에 하나의 스키마만을 추가할 수 있습니다.</td></tr>
+<tr><td>스키마("schema")</td><td></td><td></td><td>스키마는 데이터의 구조를 설명합니다. 스키마는 특성(즉, 열, 특성, 필드, 등...), 이름, 형식 뿐 아니라 다른 메타데이터도 나열합니다. 이 정보는 모든 데이터 소스에서 파생됩니다. 스키마는 단일 주석입니다. 자산에 하나의 스키마만을 추가할 수 있습니다.</td></tr>
 <tr><td></td><td>열</td><td>Column[]</td><td>열 개체의 배열입니다. 열을 데이터 소스에서 파생된 정보와 함께 설명합니다.</td></tr>
 
-<tr><td>ColumnDescription</td><td></td><td></td><td>열에 대한 설명을 포함합니다. 시스템의 각 사용자는 여러 열에 대해 고유한 설명을 추가할 수 있습니다(열당 최대 하나). ColumnDescription 개체를 만든 사용자만 편집할 수 있습니다. (Admins 및 자산 소유자는 ColumnDescription 개체를 삭제할 수 있지만 편집할 수는 없습니다.) 시스템은 이 개체를 별도로 유지합니다. 따라서 각 자산에 대한 ColumnDescription 개체의 배열이 있습니다(아마도 데이터 원본으로부터 도출된 정보를 포함한 사람 이외에 열에 대한 지식에 기여한 각 사용자에 대해 열당 하나). ColumnDescription은 스키마에 느슨하게 바인딩되어 있어서 비동기화 될 수 있습니다. 즉, ColumnDescription은 더 이상 스키마에 존재하지 않는 열을 설명할 수 있습니다. 동기화에 이 상태를 유지하는 것은 작성자에 따라 다릅니다. 데이터 소스에는 열 설명 정보도 있을 수 있습니다. 이러한 정보는 도구를 실행할 때 발생할 수 있는 추가 ColumnDescription 개체가 될 것입니다.</td></tr>
+<tr><td>ColumnDescription("columnDescriptions")</td><td></td><td></td><td>열에 대한 설명을 포함합니다. 시스템의 각 사용자는 여러 열에 대해 고유한 설명을 추가할 수 있습니다(열당 최대 하나). ColumnDescription 개체를 만든 사용자만 편집할 수 있습니다. (Admins 및 자산 소유자는 ColumnDescription 개체를 삭제할 수 있지만 편집할 수는 없습니다.) 시스템은 이 개체를 별도로 유지합니다. 따라서 각 자산에 대한 ColumnDescription 개체의 배열이 있습니다(아마도 데이터 원본으로부터 도출된 정보를 포함한 사람 이외에 열에 대한 지식에 기여한 각 사용자에 대해 열당 하나). ColumnDescription은 스키마에 느슨하게 바인딩되어 있어서 비동기화 될 수 있습니다. 즉, ColumnDescription은 더 이상 스키마에 존재하지 않는 열을 설명할 수 있습니다. 동기화에 이 상태를 유지하는 것은 작성자에 따라 다릅니다. 데이터 소스에는 열 설명 정보도 있을 수 있습니다. 이러한 정보는 도구를 실행할 때 발생할 수 있는 추가 ColumnDescription 개체가 될 것입니다.</td></tr>
 <tr><td></td><td>columnName</td><td>문자열</td><td>이 설명이 참조하는 열의 이름입니다.</td></tr>
 <tr><td></td><td>description</td><td>문자열</td><td>열에 대한 간단한 설명입니다(2-3 줄).</td></tr>
 
-<tr><td>ColumnTag</td><td></td><td></td><td>열에 대한 태그를 포함합니다. 시스템의 각 사용자는 지정된 열에 대해 여러 태그를 추가할 수 있으며 여러 열에 대해 태그를 추가할 수 있습니다. ColumnTag 개체를 만든 사용자만 편집할 수 있습니다. (Admins 및 자산 소유자는 ColumnTag 개체를 삭제할 수 있지만 편집할 수는 없습니다.) 시스템은 이 개체를 별도로 유지합니다. 따라서 각 자산에 대한 ColumnTag 개체의 배열이 있습니다. ColumnTag는 스키마에 느슨하게 바인딩되어 있어서 비동기화 될 수 있습니다. 즉, ColumnTag는 더 이상 스키마에 존재하지 않는 열을 설명할 수 있습니다. 동기화에 이 상태를 유지하는 것은 작성자에 따라 다릅니다.</td></tr>
+<tr><td>ColumnTag("columnTags")</td><td></td><td></td><td>열에 대한 태그를 포함합니다. 시스템의 각 사용자는 지정된 열에 대해 여러 태그를 추가할 수 있으며 여러 열에 대해 태그를 추가할 수 있습니다. ColumnTag 개체를 만든 사용자만 편집할 수 있습니다. (Admins 및 자산 소유자는 ColumnTag 개체를 삭제할 수 있지만 편집할 수는 없습니다.) 시스템은 이 개체를 별도로 유지합니다. 따라서 각 자산에 대한 ColumnTag 개체의 배열이 있습니다. ColumnTag는 스키마에 느슨하게 바인딩되어 있어서 비동기화 될 수 있습니다. 즉, ColumnTag는 더 이상 스키마에 존재하지 않는 열을 설명할 수 있습니다. 동기화에 이 상태를 유지하는 것은 작성자에 따라 다릅니다.</td></tr>
 <tr><td></td><td>columnName</td><td>String</td><td>이 태그가 참조하는 열의 이름입니다.</td></tr>
 <tr><td></td><td>tag</td><td>문자열</td><td>열을 설명하는 태그입니다.</td></tr>
 
-<tr><td>전문가</td><td></td><td></td><td>데이터 집합에서 전문가로 간주되는 사용자를 포함합니다. 전문가 의견(즉, 설명)은 설명 목록을 만들 때 UX 위에 풍선으로 표시됩니다. 각 사용자는 자신의 전문가를 지정할 수 있습니다. 해당 사용자만 전문가 개체를 편집할 수 있습니다. (Admins 및 자산 소유자는 전문가 개체를 삭제할 수 있지만 편집할 수는 없습니다.)</td></tr>
+<tr><td>전문가("experts")</td><td></td><td></td><td>데이터 집합에서 전문가로 간주되는 사용자를 포함합니다. 전문가 의견(즉, 설명)은 설명 목록을 만들 때 UX 위에 풍선으로 표시됩니다. 각 사용자는 자신의 전문가를 지정할 수 있습니다. 해당 사용자만 전문가 개체를 편집할 수 있습니다. (Admins 및 자산 소유자는 전문가 개체를 삭제할 수 있지만 편집할 수는 없습니다.)</td></tr>
 <tr><td></td><td>전문가</td><td>SecurityPrincipal</td><td></td></tr>
 
-<tr><td>미리 보기</td><td></td><td></td><td>미리 보기는 자산에 대한 데이터의 상위 20 행의 스냅숏을 포함합니다. 미리 보기는 일부 형식의 자산에만 적합합니다(예: 테이블에 대해서는 적합하지만 측정값에 대해서는 적합하지 않음).</td></tr>
+<tr><td>미리 보기("previews")</td><td></td><td></td><td>미리 보기는 자산에 대한 데이터의 상위 20 행의 스냅숏을 포함합니다. 미리 보기는 일부 형식의 자산에만 적합합니다(예: 테이블에 대해서는 적합하지만 측정값에 대해서는 적합하지 않음).</td></tr>
 <tr><td></td><td>미리 보기</td><td>object[]</td><td>열을 나타내는 개체의 배열입니다. 각 개체에는 행에 대해 해당 열에 대한 값을 가진 열에 매핑되는 속성이 있습니다.</td></tr>
 
-<tr><td>AccessInstruction</td><td></td><td></td><td></td></tr>
+<tr><td>AccessInstruction("accessInstructions")</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>mimeType</td><td>string</td><td>콘텐츠의 mime 형식입니다.</td></tr>
 <tr><td></td><td>콘텐츠</td><td>string</td><td>이 데이터 자산에 액세스하는 방법에 대한 지침입니다. URL, 메일 주소 또는 명령 집합일 수 있습니다.</td></tr>
 
-<tr><td>TableDataProfile</td><td></td><td></td><td></td></tr>
+<tr><td>TableDataProfile("tableDataProfiles")</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>numberOfRows</td></td><td>int</td><td>데이터 집합의 행 수입니다.</td></tr>
 <tr><td></td><td>size</td><td>long</td><td>데이터 집합의 크기(바이트)입니다.  </td></tr>
 <tr><td></td><td>schemaModifiedTime</td><td>string</td><td>스키마가 마지막으로 수정된 시간입니다.</td></tr>
 <tr><td></td><td>dataModifiedTime</td><td>string</td><td>데이터 집합이 마지막으로 수정된 시간입니다(데이터 추가, 수정 또는 삭제).</td></tr>
 
-<tr><td>ColumnsDataProfile</td><td></td><td></td><td></td></tr>
+<tr><td>ColumnsDataProfile("columnsDataProfiles")</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>열</td></td><td>ColumnDataProfile[]</td><td>열 데이터 프로필의 배열입니다.</td></tr>
 
-<tr><td>설명서</td><td></td><td></td><td>지정된 자산은 하나의 설명서에만 연결될 수 있습니다.</td></tr>
+<tr><td>설명서("documentation")</td><td></td><td></td><td>지정된 자산은 하나의 설명서에만 연결될 수 있습니다.</td></tr>
 <tr><td></td><td>mimeType</td><td>string</td><td>콘텐츠의 mime 형식입니다.</td></tr>
 <tr><td></td><td>콘텐츠</td><td>string</td><td>설명서 내용입니다.</td></tr>
 
@@ -181,6 +180,12 @@ Azure 데이터 카탈로그의 주요 측면은 시스템에서 메타데이터
 <tr><td>DataSourceInfo</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>sourceType</td><td>string</td><td>SQL Server, Oracle 데이터베이스 등 데이터 소스의 형식을 설명합니다.   </td></tr>
 <tr><td></td><td>ObjectType</td><td>string</td><td>테이블, SQL Server에 대한 보기 등 데이터 소스에 대한 개체의 형식을 설명합니다.</td></tr>
+
+<tr><td>DataSourceLocation</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>protocol</td><td>string</td><td>필수입니다. 데이터 원본(예: SQL Server의 "tds", Oracle의 "oracle" 등)과의 통신에 사용되는 프로토콜을 설명합니다. 현재 지원되는 프로토콜 목록은 [데이터 원본 참조 사양 - DSL 구조](data-catalog-dsr.md)를 참조하세요.</td></tr>
+<tr><td></td><td>address</td><td>Dictionary&lt;string, object></td><td>필수입니다. 참조되는 데이터 원본을 식별하는 데 사용되는 프로토콜에 해당하는 데이터 집합입니다. 주소 데이터는 특정 프로토콜로 범위가 지정됩니다. 즉, 프로토콜을 모르면 의미가 없습니다.</td></tr>
+<tr><td></td><td>authentication</td><td>string</td><td>선택 사항입니다. 데이터 원본과의 통신에 사용되는 인증 체계(예: windows, oauth 등) </td></tr>
+<tr><td></td><td>connectionProperties</td><td>Dictionary&lt;string, object></td><td>선택 사항입니다. 데이터 원본에 연결하는 방법에 대한 추가적인 정보입니다.</td></tr>
 
 <tr><td>SecurityPrincipal</td><td></td><td></td><td>백 엔드는 게시하는 동안 AAD에 대해 제공되는 속성의 유효성 검사를 수행하지 않습니다.</td></tr>
 <tr><td></td><td>upn</td><td>string</td><td>사용자의 고유한 전자 메일 주소입니다. objectId가 제공되지 않거나 "lastRegisteredBy" 속성의 컨텍스트에 있는 경우 지정되어야 합니다. 그렇지 않은 경우 선택 사항입니다.</td></tr>
@@ -209,6 +214,31 @@ Azure 데이터 카탈로그의 주요 측면은 시스템에서 메타데이터
 
 </table>
 
+## 자산 ID
+Azure Data Catalog는 DataSourceLocation "dsl" 속성의 "address" 속성 모음의 ID 및 "protocol" 속성을 사용하여 카탈로그 내 자산을 호출하는 데 사용되는 자산의 ID를 생성합니다. 예를 들어, "tds" 프로토콜에는 "server", "database", "schema", "object"라는 ID 속성이 있습니다. 프로토콜 및 ID 속성의 조합은 SQL Server 테이블 자산의 ID를 생성하는 데 사용됩니다. Azure Data Catalog에는 몇 가지 데이터 원본 프로토콜이 기본으로 제공되며 [데이터 원본 참조 사양 - DSL 구조](data-catalog-dsr.md)에 목록이 있습니다. 지원되는 프로토콜 집합은 프로그래밍 방식으로 확장될 수 있습니다.(Data Catalog REST API 참조를 참조하세요.) 카탈로그의 관리자는 사용자 지정 데이터 원본 프로토콜을 등록할 수 있습니다. 아래 표에서 사용자 지정 프로토콜을 등록하는 데 필요한 속성을 설명합니다.
+
+### 사용자 지정 데이터 원본 프로토콜 사양
+<table>
+<tr><td><b>형식</b></td><td><b>속성</b></td><td><b>데이터 형식</b></td><td><b>설명</b></td></tr>
+
+<tr><td>DataSourceProtocol</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>namespace</td><td>string</td><td>프로토콜의 네임스페이스입니다. 네임스페이스의 길이는 1~255자 사이여야 하고, 점(.)으로 구분된 비지 않은 부분을 하나 이상 포함해야 합니다. 각 부분의 길이는 1~255자 사이여야 하고, 문자로 시작하고 문자와 숫자만 포함해야 합니다.</td></tr>
+<tr><td></td><td>name</td><td>string</td><td>프로토콜의 이름입니다. 이름의 길이는 1~255자 사이여야 하고, 문자로 시작하고 문자, 숫자, 대시(-) 문자만 포함해야 합니다.</td></tr>
+<tr><td></td><td>identityProperties</td><td>DataSourceProtocolIdentityProperty[]</td><td>ID 속성 목록이며, 하나 이상 20 이하의 속성을 포함해야 합니다. 예를 들어, "server", "database", "schema", "object"는 "tds" 프로토콜의 ID 속성입니다.</td></tr>
+<tr><td></td><td>identitySets</td><td>DataSourceProtocolIdentitySet[]</td><td>ID 목록 집합입니다. 유효한 자산의 ID를 나타내는 ID 속성 집합을 정의합니다. 하나 이상 20 이하의 집합을 포함해야 합니다. 예를 들어, {"server", "database", "schema" and "object"}는 "tds" 프로토콜에 대한 ID 집합이며, Sql Server 테이블 자산의 ID를 정의합니다.</td></tr>
+
+<tr><td>DataSourceProtocolIdentityProperty</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>name</td><td>string</td><td>속성의 이름입니다. 이름의 길이는 1~100자 사이여야 하고, 문자로 시작해야 하고 문자와 숫자만 포함할 수 있습니다.</td></tr>
+<tr><td></td><td>type</td><td>string</td><td>속성의 유형입니다. 지원되는 값: "bool", boolean", "byte", "guid", "int", "integer", "long", "string", "url"</td></tr>
+<tr><td></td><td>ignoreCase</td><td>bool</td><td>속성 값을 사용할 때 대/소문자를 무시할지 여부를 나타냅니다. "string" 형식의 속성에 대해서만 지정할 수 있습니다. 기본값은 False입니다.</td></tr>
+<tr><td></td><td>urlPathSegmentsIgnoreCase</td><td>bool[]</td><td>URL 경로의 각 세그먼트에 대해 대/소문자를 무시할지 여부를 나타냅니다. "url" 형식의 속성에 대해서만 지정할 수 있습니다. 기본값은 [false]입니다.</td></tr>
+
+<tr><td>DataSourceProtocolIdentitySet</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>name</td><td>string</td><td>ID 집합의 이름입니다.</td></tr>
+<tr><td></td><td>properties</td><td>string[]</td><td>이 ID 집합에 포함된 ID 속성의 목록입니다. 중복 항목을 포함할 수 없습니다. ID 집합에 의해 참조되는 각 속성은 프로토콜의 "identityProperties" 목록에 정의되어야 합니다.</td></tr>
+
+</table>
+
 ## 역할 및 권한 부여
 
 Microsoft Azure 데이터 카탈로그는 자산 및 주석에 대한 CRUD 작업에 대해 권한 부여 기능을 제공합니다.
@@ -226,7 +256,7 @@ Azure 데이터 카탈로그는 두 가지 권한 부여 메커니즘을 사용�
 
 <table><tr><td><b>역할</b></td><td><b>범위</b></td><td><b>권한</b></td></tr><tr><td>관리자</td><td>카탈로그(즉, 카탈로그의 모든 자산/주석)</td><td>Read Delete ViewRoles ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>소유자</td><td>각 자산(즉,일명 루트 항목)</td><td>Read Delete ViewRoles ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>참여자</td><td>각 개별 자산 및 주석</td><td>읽기/업데이트/삭제/권한보기/참고(Read Update Delete ViewRoles Note): 항목에서 읽기(Read) 권한을 참여자가 해지하는 경우 모든 권한이 취소 됩니다.</td></tr></table>
 
-> [AZURE.NOTE] **읽기**, **업데이트**, **삭제**, **역할 보기** 권한은 모든 항목(자산 또는 주석)에 적용할 수 있으며, 반면에 **TakeOwnership**, **ChangeOwnership**, **ChangeVisibility**, **ViewPermissions**는 루트 자산에만 적용됩니다.
+> [AZURE.NOTE] **읽기**, **업데이트**, **삭제**, **역할 보기** 권한은 모든 항목 (자산 또는 주석)에 적용할 수 있으며, 반면에 **TakeOwnership**, **ChangeOwnership**, **ChangeVisibility**, **ViewPermissions**는 루트 자산에만 적용됩니다.
 >
 >**삭제** 권한은 항목 뿐만 그 아래에 있는의 모든 하위 항목 단일 항목에 적용 됩니다. 예를 들어, 자산을 삭제하면 해당 자산에 대한 모든 주석도 삭제됩니다.
 
@@ -240,80 +270,41 @@ Azure 데이터 카탈로그는 두 가지 권한 부여 메커니즘을 사용�
 
 ## REST API
 
-**PUT** 및 **POST** 보기 항목 요청은 역할 및 권한을 제어하는 데 사용할 수 있습니다. 항목 페이로드 외에도 두 시스템 속성은 **역할** 및 **권한**을 지정할 수 있습니다.
+**PUT** 및 **POST** 보기 항목 요청은 역할 및 권한을 제어하는 데 사용할 수 있습니다. 항목 페이로드 외에도 두 시스템 속성은 **roles** 및 **permissions**을 지정할 수 있습니다.
 
 > [AZURE.NOTE]
 >
-> **권한**은 루트 항목에만 적용됩니다.
+> **permissions**은 루트 항목에만 적용됩니다.
 >
 > **소유자** 역할은 루트 항목에만 적용됩니다.
 >
-> 기본적으로 카탈로그에서 항목을 만들면 **참여자**는 현재 인증된 사용자로 설정됩니다. 항목을 누구나 업데이트할 수 있어야 한다면 항목을 처음 게시하는 경우**역할** 속성에서 **참여자**를 <Everyone> 특수 보안 주체로 설정해야 합니다(아래 예를 참조). **참여자**는 변경할 수 없으며 항목의 수명 동안 동일하게 유지됩니다. 예를 들어 **관리자**나 **소유자**도 **참여자**를 변경할 수 있는 권한은 없습니다. **참여자**의 명시적 설정에 지원되는 유일한 값은 <Everyone>입니다. 예를 들어 **참여자**는 항목 또는 <Everyone>을 만든 사용자로만 설정할 수 있습니다.
+> 기본적으로 카탈로그에서 항목을 만들면 **참여자**는 현재 인증된 사용자로 설정됩니다. 항목을 누구나 업데이트할 수 있어야 한다면 항목을 처음 게시하는 경우**roles** 속성에서 **Contributor**를 <Everyone> 특수 보안 주체로 설정해야 합니다(아래 예를 참조). **참여자**는 변경할 수 없으며 항목의 수명 동안 동일하게 유지됩니다. 예를 들어 **관리자**나 **소유자**도 **참여자**를 변경할 수 있는 권한은 없습니다. **참여자**의 명시적 설정에 지원되는 유일한 값은 <Everyone>입니다. 예를 들어 **참여자**는 항목 또는 <Everyone>을 만든 사용자로만 설정할 수 있습니다.
 
 ###예
 **항목을 게시할 때 참여자를 <Everyone>으로 설정합니다.** 특수 보안 주체에는 <Everyone>의 objectId는 "00000000-0000-0000-0000-000000000201"입니다. **POST** https://api.azuredatacatalog.com/catalogs/default/views/tables/?api-version=2016-03-30
 
-> [AZURE.NOTE] 일부 HTTP 클라이언트 구현은 302에 대한 응답으로 요청을 다시 보낼 수 있지만, 일반적으로 요청의 **권한 부여 헤더**를 제거합니다. ADC에 요청을 보내려면 권한 부여 헤더가 필요하기 때문에 ADC가 지정한 리디렉션 위치로 요청을 다시 보낼 때 권한 부여 헤더가 계속 제공되어야 합니다. 아래는 .NET HttpWebRequest 개체를 사용하여 이를 보여 주는 샘플 코드입니다.
+  > [AZURE.NOTE] 일부 HTTP 클라이언트 구현은 302에 대한 응답으로 요청을 다시 보낼 수 있지만, 일반적으로 요청의 권한 부여 헤더를 제거합니다. ADC에 요청을 보내려면 권한 부여 헤더가 필요하기 때문에 ADC가 지정한 리디렉션 위치로 요청을 다시 보낼 때 권한 부여 헤더가 계속 제공되어야 합니다. 아래는 .NET HttpWebRequest 개체를 사용하여 이를 보여 주는 샘플 코드입니다.
 
-  **본문**
+**본문**
 
-    {
-      "roles": [
-        {
-          "role": "Contributor",
-          "members": [
-            {
-              "objectId": "00000000-0000-0000-0000-000000000201"
-            }
-          ]
-        }
-      ]
-    }
+	{
+		"roles": [
+			{
+				"role": "Contributor",
+				"members": [
+					{
+						"objectId": "00000000-0000-0000-0000-000000000201"
+					}
+				]
+			}
+		]
+	}
 
-  **소유자를 할당하고 기존 루트 항목에 대한 표시를 제한** **PUT** https://api.azuredatacatalog.com/catalogs/default/views/tables/042297b0...1be45ecd462a?api-version=2016-03-30
+  **소유자를 할당하고 기존 루트 항목에 대한 표시를 제한** **PUT** https://api.azuredatacatalog.com/catalogs/default/views/tables/042297b0...1be45ecd462a?api-version=2016-03-30 { "roles": [ { "role": "Owner", "members": [ { "objectId": "c4159539-846a-45af-bdfb-58efd3772b43", "upn": "user1@contoso.com" }, { "objectId": "fdabd95b-7c56-47d6-a6ba-a7c5f264533f", "upn": "user2@contoso.com" } ] } ], "permissions": [ { "principal": { "objectId": "27b9a0eb-bb71-4297-9f1f-c462dab7192a", "upn": "user3@contoso.com" }, "rights": [ { "right": "Read" } ] }, { "principal": { "objectId": "4c8bc8ce-225c-4fcf-b09a-047030baab31", "upn": "user4@contoso.com" }, "rights": [ { "right": "Read" } ] } ] }
 
-    {
-      "roles": [
-        {
-          "role": "Owner",
-          "members": [
-            {
-              "objectId": "c4159539-846a-45af-bdfb-58efd3772b43",
-              "upn": "user1@contoso.com"
-            },
-            {
-              "objectId": "fdabd95b-7c56-47d6-a6ba-a7c5f264533f",
-              "upn": "user2@contoso.com"
-            }
-          ]
-        }
-      ],
-      "permissions": [
-        {
-          "principal": {
-            "objectId": "27b9a0eb-bb71-4297-9f1f-c462dab7192a",
-            "upn": "user3@contoso.com"
-          },
-          "rights": [
-            {
-              "right": "Read"
-            }
-          ]
-        },
-        {
-          "principal": {
-            "objectId": "4c8bc8ce-225c-4fcf-b09a-047030baab31",
-            "upn": "user4@contoso.com"
-          },
-          "rights": [
-            {
-              "right": "Read"
-            }
-          ]
-        }
-      ]
-    }
+> [AZURE.NOTE] PUT에서 본문에는 항목 페이로드 지정은 필수 사항이 아닙니다. PUT은 역할 및/또는 사용 권한을 업데이트 하는 데에만 사용할 수 있습니다.
 
-  > [AZURE.NOTE] PUT에서 본문에는 항목 페이로드 지정은 필수 사항이 아닙니다. PUT은 역할 및/또는 사용 권한을 업데이트 하는 데에만 사용할 수 있습니다.
+<!--Image references-->
+[1]: ./media/data-catalog-developer-concepts/concept2.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

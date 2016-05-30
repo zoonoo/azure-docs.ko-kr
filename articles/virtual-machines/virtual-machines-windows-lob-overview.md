@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="LOB(기간 업무) 응용 프로그램 배포 | Microsoft Azure" 
-	description="다섯 단계를 통해 Azure의 SQL Server AlwaysOn 가용성 그룹으로 웹 기반 고가용성 LOB(기간 업무) 응용 프로그램을 배포합니다." 
+	description="다섯 단계를 통해 Azure의 SQL Server Always On 가용성 그룹으로 웹 기반 고가용성 LOB(기간 업무) 응용 프로그램을 배포합니다." 
 	documentationCenter=""
 	services="virtual-machines-windows" 
 	authors="JoeDavies-MSFT" 
@@ -11,17 +11,17 @@
 <tags 
 	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="Windows" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2016" 
+	ms.date="05/08/2016" 
 	ms.author="josephd"/>
 
 # 고가용성 LOB(기간 업무) 응용 프로그램 배포
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
 
-이 항목에는 Azure 인프라 서비스에서 SQL Server AlwaysOn 가용성 그룹을 사용하여 고가용성 인트라넷 전용 웹 기반 LOB(기간 업무) 응용 프로그램을 배포하는 단계별 지침에 대한 링크가 포함되어 있습니다. 응용 프로그램은 다음 컴퓨터에서 호스팅됩니다.
+이 항목에는 Azure 인프라 서비스에서 SQL Server Always On 가용성 그룹을 사용하여 고가용성 인트라넷 전용 웹 기반 LOB(기간 업무) 응용 프로그램을 배포하는 단계별 지침에 대한 링크가 포함되어 있습니다. 응용 프로그램은 다음 컴퓨터에서 호스팅됩니다.
 
 - 웹 서버 두 대
 - 데이터베이스 서버 두 대
@@ -73,9 +73,9 @@
 
 - [1단계: Azure 구성](virtual-machines-windows-ps-lob-ph1.md). 저장소 계정, 가용성 집합 및 크로스-프레미스 가상 네트워크를 만들 수 있습니다.
 - [2단계: 도메인 컨트롤러 구성](virtual-machines-windows-ps-lob-ph2.md). 복제본 AD DS(Active Directory 도메인 서비스) 도메인 컨트롤러를 만들고 구성합니다.
-- [3단계: SQL Server 인프라 구성](virtual-machines-windows-ps-lob-ph3.md). SQL Server를 실행하는 가상 컴퓨터를 만들어 구성하고, 클러스터를 만들고, SQL Server AlwaysOn 가용성 그룹을 사용하도록 설정합니다.
+- [3단계: SQL Server 인프라 구성](virtual-machines-windows-ps-lob-ph3.md). SQL Server를 실행하는 가상 컴퓨터를 만들어 구성하고, 클러스터를 만들고, SQL Server Always On 가용성 그룹을 사용하도록 설정합니다.
 - [4단계: 웹 서버 구성](virtual-machines-windows-ps-lob-ph4.md). 웹 서버 가상 커퓨터 2대를 만들고 구성합니다.
-- [5단계: SQL Server AlwaysOn 가용성 그룹에 응용 프로그램 데이터베이스 추가](virtual-machines-windows-ps-lob-ph5.md). LOB(기간 업무) 응용 프로그램 데이터베이스를 준비하여 SQL Server AlwaysOn 가용성 그룹에 추가합니다.
+- [5단계: SQL Server Always On 가용성 그룹에 응용 프로그램 데이터베이스 추가](virtual-machines-windows-ps-lob-ph5.md). LOB(기간 업무) 응용 프로그램 데이터베이스를 준비하여 SQL Server Always On 가용성 그룹에 추가합니다.
 
 이 배포는 [LOB(기간 업무) 응용 프로그램 아키텍처 청사진](http://msdn.microsoft.com/dn630664)과 함께 제공되며 최신 권장 사항을 통합합니다.
 
@@ -93,4 +93,4 @@ Azure에 대한 IT 워크로드를 디자인하는 방법에 대한 자세한 �
 
 - [1단계](virtual-machines-windows-ps-lob-ph1.md)를 사용하여 이 워크로드의 구성을 시작합니다.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

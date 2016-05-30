@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 리소스 관리자에 대한 보안 고려 사항"
+	pageTitle="Resource Manager에 대한 보안 고려 사항 | Microsoft Azure"
 	description="키 및 암호, 역할 기반 액세스 및 네트워크 보안 그룹을 사용하여 리소스를 보호하기 위해 Azure 리소스 관리자에서 권장되는 방식을 보여줍니다."
 	services="azure-resource-manager"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="05/16/2016"
 	ms.author="georgem;tomfitz"/>
 
 
@@ -306,7 +306,7 @@ Azure 가상 네트워크와 인터넷 간의 트래픽을 제어하기 위해 �
 
 ### BGP 경로
 
-이 내용을 작성할 당시에는 Azure 리소스 관리자의 [네트워크 리소스 공급자](virtual-network/resource-groups-networking.md)에서 [Express 경로](./expressroute/expressroute-introduction.md)가 아직 지원되지 않습니다. 온-프레미스 네트워크와 Azure 간에 ExpressRoute 연결이 있는 경우 BGP를 사용하도록 설정하여 ExpressRoute가 NRP에서 지원되고 나서 온-프레미스 네트워크에서 Azure로 경로를 전파할 수 있습니다. 이러한 BGP 경로는 각 Azure 서브넷의 사용자 정의 경로 및 기본 경로와 동일한 방식으로 사용됩니다. 자세한 내용은 [ExpressRoute 소개](./expressroute/expressroute-introduction.md)를 참조하세요.
+이 내용을 작성할 당시에는 Azure 리소스 관리자의 [네트워크 리소스 공급자](./virtual-network/resource-groups-networking.md)에서 [Express 경로](./expressroute/expressroute-introduction.md)가 아직 지원되지 않습니다. 온-프레미스 네트워크와 Azure 간에 ExpressRoute 연결이 있는 경우 BGP를 사용하도록 설정하여 ExpressRoute가 NRP에서 지원되고 나서 온-프레미스 네트워크에서 Azure로 경로를 전파할 수 있습니다. 이러한 BGP 경로는 각 Azure 서브넷의 사용자 정의 경로 및 기본 경로와 동일한 방식으로 사용됩니다. 자세한 내용은 [ExpressRoute 소개](./expressroute/expressroute-introduction.md)를 참조하세요.
 
 >[AZURE.NOTE] NRP에서 Express 경로가 지원되는 경우 VPN 게이트웨이를 다음 홉으로 사용하는 서브넷 0.0.0.0/0에 대한 사용자 정의 경로를 만들어 온-프레미스 네트워크를 통한 강제 터널링을 사용하도록 Azure 환경을 구성할 수 있습니다. 그러나 이 구성은 VPN 게이트웨이를 사용하는 경우에만 작동하고 ExpressRoute를 사용하는 경우에는 작동하지 않습니다. ExpressRoute의 경우 강제 터널링은 BGP를 통해 구성됩니다.
 
@@ -339,4 +339,4 @@ Azure 환경에서는 위에서 지정한 기본 경로를 볼 수 없으며, �
 - 라우팅 및 IP 전달을 구성하려면 [템플릿을 사용하여 리소스 관리자에서 UDR(사용자 정의 경로) 만들기](./virtual-network/virtual-network-create-udr-arm-template.md)를 참조하세요.
 - 역할 기반 액세스 제어에 대한 개요는 [Microsoft Azure 포털에서 역할 기반 액세스 제어](./active-directory/role-based-access-control-configure.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

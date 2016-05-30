@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/21/2016"
+    ms.date="05/13/2016"
     ms.author="elizapo" />
 
 # Azure RemoteApp에서 리디렉션 사용
@@ -104,4 +104,4 @@ RemoteApp에 연결하는 컴퓨터에서 USB 리디렉션을 사용하려는 �
 7. **사용**을 선택한 다음 **RemoteFX USB 리디렉션 액세스 권한의 관리자 및 사용자**를 선택합니다.
 8. **확인**을 클릭합니다.  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="02/08/2016" 
+	ms.date="05/06/2016" 
 	ms.author="eugenesh"/>
 
 #인덱서를 사용하여 Azure 검색에 Azure SQL 데이터베이스 연결
@@ -70,7 +70,7 @@ Azure SQL 인덱서를 설정 및 구성하기 위해 [Azure 검색 REST API](ht
 
 그런 다음 대상 Azure 검색 인덱스가 없는 경우 새로 만듭니다. 이 작업은 [포털 UI](https://portal.azure.com) 또는 [인덱스 만들기 API](https://msdn.microsoft.com/library/azure/dn798941.aspx)를 사용하여 수행할 수 있습니다. 대상 인덱스의 스키마가 원본 테이블의 스키마와 호환되는지 확인합니다. SQL 및 Azure 검색 데이터 형식 간의 매핑은 다음 표를 참조하세요.
 
-****SQL 데이터 형식과 Azure 검색 데이터 형식 사이의 매핑
+## SQL 데이터 형식과 Azure 검색 데이터 형식 사이의 매핑
 
 |SQL 데이터 형식 | 허용되는 대상 인덱스 필드 유형 |참고 사항 
 |------|-----|----|
@@ -275,4 +275,4 @@ A: 예. 그러나 한 번에 하나의 인덱서만 실행할 수 있습니다. 
 
 A: 예. 인덱서는 검색 서비스의 노드 중 하나에서 실행되므로 해당 노드의 리소스가 인덱싱 및 쿼리 지원 트래픽과 다른 API 요청 간에 공유됩니다. 많은 인덱싱 및 쿼리 작업을 실행하는 경우 503 오류가 자주 발생하거나 응답 시간이 증가하면 검색 서비스를 확장하는 것이 좋습니다.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

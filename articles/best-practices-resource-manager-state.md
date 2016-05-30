@@ -365,7 +365,7 @@ enableJumpbox | 제한된 목록에서 가져온 문자열(enabled/disabled) | �
         "type": "string"
       }
      
-연결된 템플릿의 출력 섹션을 사용하여 가상 컴퓨터에 대한 데이터 디스크를 반환하는 예제는 [가상 컴퓨터에 대한 여러 데이터 디스크 만들기](./resource-group-create-multiple/#creating-multiple-data-disks-for-a-virtual-machine)를 참조하세요.
+연결된 템플릿의 출력 섹션을 사용하여 가상 컴퓨터에 대한 데이터 디스크를 반환하는 예제는 [가상 컴퓨터에 대한 여러 데이터 디스크 만들기](resource-group-create-multiple.md#creating-multiple-data-disks-for-a-virtual-machine)를 참조하세요.
 
 ## 가상 컴퓨터에 대한 인증 설정 정의
 
@@ -426,4 +426,4 @@ enableJumpbox | 제한된 목록에서 가져온 문자열(enabled/disabled) | �
 - 템플릿의 섹션에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 - 템플릿 내에서 사용할 수 있는 모든 함수는 [Azure Resource Manager 템플릿 함수](resource-group-template-functions.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

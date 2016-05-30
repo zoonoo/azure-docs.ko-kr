@@ -702,4 +702,4 @@ SCIM 서비스 구현에 대한 Microsoft 공용 언어 인프라 라이브러�
 [4]: ./media/active-directory-scim-provisioning/scim-figure-4.PNG
 [5]: ./media/active-directory-scim-provisioning/scim-figure-5.PNG
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

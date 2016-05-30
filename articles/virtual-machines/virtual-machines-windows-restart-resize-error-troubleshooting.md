@@ -1,27 +1,27 @@
 <properties
    pageTitle="VM 재시작 또는 크기 조정 문제 | Microsoft Azure"
    description="Azure의 기존 Windows 가상 컴퓨터 재시작 또는 크기 조정 관련 Resource Manager 배포 문제 해결"
-   services="virtual-machines"
+   services="virtual-machines-windows, azure-resource-manager"
    documentationCenter=""
-   authors="delhan"
+   authors="Deland-Han"
    manager="felixwu"
    editor=""
    tags="top-support-issue"/>
 
 <tags
-   ms.service="virtual-machines"
-   ms.topic="support-article"
-   ms.tgt_pltfrm="virtual-machines"
+   ms.service="virtual-machines-windows"
+   ms.topic="article"
+   ms.tgt_pltfrm="vm-windows"
    ms.devlang="na"
    ms.workload="required"
-   ms.date="04/28/2016"
+   ms.date="05/12/2016"
    ms.author="delhan"/>
 
 # Azure의 기존 Windows 가상 컴퓨터 재시작 또는 크기 조정 관련 Resource Manager 배포 문제 해결
 
 > [AZURE.SELECTOR]
 - [클래식](../articles/virtual-machines/virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
-- [리소스 관리자](../articles/virtual-machines/virtual-machines-windows-arm-restart-resize-error-troubleshooting.md)
+- [리소스 관리자](../articles/virtual-machines/virtual-machines-windows-restart-resize-error-troubleshooting.md)
 
 중지된 Azure 가상 컴퓨터(VM)를 시작하거나, 기존 Azure AM의 크기를 조정하려다 접하는 일반적인 오류는 할당 오류입니다. 이런 오류는 클러스터나 지역에 사용할 수 있는 리소스가 없거나 요청한 VM 크기를 지원할 수 없을 때 발생합니다.
 
@@ -70,10 +70,10 @@ VM 크기를 조정하기 위한 요청은 클라우드 서비스를 호스트�
 * 요청한 VM의 크기를 변경할 수 없으면:
 
   1. 가용성 집합의 VM을 모두 중지합니다.
-  
+
     * **리소스 그룹** > _사용자의 리소스 그룹_ > **리소스** > _사용자의 가용성 집합_ > **가상 컴퓨터** > _사용자의 가상 컴퓨터_ > **중지**를 클릭합니다.
 
   2. VM을 모두 중지한 후에, 원하는 VM을 더 크게 조정합니다.
   3. 크기가 조정된 VM을 선택하고 **시작**을 클릭한 다음 중지된 각각의 VM을 시작합니다.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

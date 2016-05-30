@@ -19,8 +19,10 @@
 # Azure Site Recovery를 사용하여 Azure의 VMware 가상 컴퓨터 및 물리적 서버를 VMware로 장애 복구(failback)(레거시)
 
 > [AZURE.SELECTOR]
-- [향상된](site-recovery-failback-azure-to-vmware-classic.md)
-- [레거시](site-recovery-failback-azure-to-vmware-classic-legacy.md)
+- [Azure 포털](site-recovery-failback-azure-to-vmware.md)
+- [Azure 클래식 포털](site-recovery-failback-azure-to-vmware-classic.md)
+- [Azure 클래식 포털(레거시)](site-recovery-failback-azure-to-vmware-classic-legacy.md)
+
 
 Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제, 장애 조치(Failover) 및 복구를 오케스트레이션하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. 컴퓨터는 Azure 또는 보조 온-프레미스 데이터 센터로 복제할 수 있습니다. 빠른 개요를 알아보려면 [Azure Site Recovery란?](site-recovery-overview.md)을 확인하세요.
 
@@ -39,13 +41,13 @@ Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제,
 
 ## 시작하기 전에 
 
-- VMware Vm 또는 물리적 서버를 통해 실패해야 하며 Azure에서 실행해야 합니다.
+- VMware VM 또는 물리적 서버를 통해 실패해야 하며 Azure에서 실행해야 합니다.
 - Azure의 VMware 가상 컴퓨터 및 Windows/Linux 물리적 서버를 온-프레미스 기본 사이트의 VMware 가상 컴퓨터로 장애 복구할 수 있습니다. 물리적 컴퓨터를 장애 복구하는 경우 Azure로 장애 조치는 이를 Azure VM으로 변환시키고 VMware로 장애 복구는 이를 VMware VM으로 변환시킵니다.
 
 장애 복구를 설정하는 방법은 다음과 같습니다.
 
 1. **장애 복구 구성 요소 설정**: 온-프레미스에 vContinuum 서버를 설정하고 Azure의 구성 서버 VM을 가리키도록 해야 합니다. 또한 온-프레미스 마스터 대상 서버에 데이터를 다시 보내려면 프로세스 서버를 Azure VM으로 설정합니다. 장애 조치를 처리하는 구성 서버와 프로세스 서버를 등록합니다. 온-프레미스 마스터 대상 서버를 설치합니다. Windows 마스터 대상 서버가 필요한 경우 vContinuum을 설치하면 자동으로 설정됩니다. Linux가 필요한 경우 별도 서버에서 수동으로 설정해야 합니다.
-2. **보호 및 장애 복구 사용**: 구성 요소를 설정한 후 vContinuum에서 Azure VM에 대한 장애 조치를 위해 보호를 사용해야 합니다. Vm에 대한 준비 상태 확인을 실행하고 Azure에서 온-프레미스 사이트로 장애 조치를 실행합니다. 장애 복구가 완료된 후 Azure에 복제를 시작하도록 온-프레미스 컴퓨터를 다시 보호합니다.
+2. **보호 및 장애 복구 사용**: 구성 요소를 설정한 후 vContinuum에서 Azure VM에 대한 장애 조치를 위해 보호를 사용해야 합니다. VM에 대한 준비 상태 확인을 실행하고 Azure에서 온-프레미스 사이트로 장애 조치를 실행합니다. 장애 복구가 완료된 후 Azure에 복제를 시작하도록 온-프레미스 컴퓨터를 다시 보호합니다.
 
 
 
@@ -426,4 +428,4 @@ VM이 Azure로 장애 조치되면 페이지 파일에 임시 드라이브가 �
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/12/2016"
+	ms.date="04/18/2016"
 	ms.author="csand"/>
 
 # Azure 자동화를 사용하여 Azure 서비스 버스 관리
@@ -30,14 +30,13 @@ Azure 자동화에서 자동으로 실행되도록 클라우드 관리 작업을
 
 ## Azure 자동화를 통해 Azure 서비스 버스 관리를 간소화하는 방법
 
-[서비스 버스 REST API](https://msdn.microsoft.com/library/azure/hh780717.aspx)를 사용하여 Azure 자동화에서 서비스 버스를 관리할 수 있습니다. Azure 자동화 내에서 REST API를 사용하여 많은 서비스 버스 작업을 수행하는 PowerShell 스크립트를 실행할 수 있습니다. Azure 자동화에서 이러한 REST API 호출을 다른 Azure 서비스의 PowerShell cmdlet과 쌍을 이루어 Azure 서비스와 타사 시스템 간에 복잡한 작업을 자동화할 수도 있습니다.
+[서비스 버스 REST API](https://msdn.microsoft.com/library/azure/hh780717.aspx)를 사용하여 Azure 자동화에서 서비스 버스를 관리할 수 있습니다. Azure 자동화 내에서 REST API를 사용하여 많은 서비스 버스 작업을 수행하는 PowerShell 스크립트를 실행할 수 있습니다. Azure 자동화에서 이러한 REST API 호출을 다른 Azure 서비스의cmdlet과 쌍을 이루어 Azure 서비스와 타사 시스템 간에 복잡한 작업을 자동화할 수도 있습니다.
 
 PowerShell을 사용하여 Azure 서비스 버스를 관리하는 몇 가지 예는 다음과 같습니다.
-
-- [Azure 서비스 버스 큐를 관리하기 위한 사용자 지정 PowerShell cmdlet](https://blogs.technet.microsoft.com/uktechnet/2014/12/04/sample-of-custom-powershell-cmdlets-to-manage-azure-servicebus-queues/)
-- [PowerShell 스크립트를 사용하여 서비스 버스 큐, 토픽 및 구독을 만드는 방법](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
-- [PowerShell을 사용하여 Azure 서비스 버스 네임스페이스 만들기](http://buildazure.com/2015/09/24/create-azure-service-bus-namespaces-using-powershell-and-x-plat-cli/)
-- [Azure 서비스 버스를 만들기 위해 구성 노드를 추가하는 DSCResource 포함 모듈](https://www.powershellgallery.com/packages/AzureServiceBusCreation/1.0)
+* [Azure 서비스 버스 큐를 관리하기 위한 사용자 지정 PowerShell cmdlet](https://blogs.technet.microsoft.com/uktechnet/2014/12/04/sample-of-custom-powershell-cmdlets-to-manage-azure-servicebus-queues/)
+* [PowerShell 스크립트를 사용하여 서비스 버스 큐, 토픽 및 구독을 만드는 방법](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
+* [PowerShell을 사용하여 Azure 서비스 버스 네임스페이스 만들기](http://buildazure.com/2015/09/24/create-azure-service-bus-namespaces-using-powershell-and-x-plat-cli/)
+* [Azure 서비스 버스를 만들기 위해 구성 노드를 추가하는 DSCResource 포함 모듈](https://www.powershellgallery.com/packages/AzureServiceBusCreation/1.0)
 
 ## 다음 단계
 
@@ -46,4 +45,4 @@ Azure 자동화의 기본 사항과 Azure 자동화를 사용하여 Azure 서비
 * Azure 자동화 [시작 자습서](https://azure.microsoft.com/documentation/learning-paths/automation/)를 참조하세요.
 * [PowerShell을 사용하여 서비스 버스를 관리](service-bus-powershell-how-to-provision.md)하는 방법을 참조하세요.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -29,10 +29,10 @@
 ## 필수 조건 ##
 
 * JDK(Java 개발자 키트), v 1.7 이상
-* Eclipse IDE for Java EE Developers, Indigo 이상. <http://www.eclipse.org/downloads/>에서 다운로드할 수 있습니다.
+* Eclipse IDE for Java EE Developers, Indigo 이상. <http://www.eclipse.org/downloads/> 에서 다운로드할 수 있습니다.
 * Java 기반 웹 서버 또는 응용 프로그램 서버의 배포(예: Apache Tomcat, GlassFish, JBoss Application Server, Jetty 또는 IBM® WebSphere® Application Server Liberty Core)
-* Azure 구독. <http://azure.microsoft.com/pricing/purchase-options/>에서 구입할 수 있습니다.
-* Eclipse용 Azure 도구 키트 자세한 내용은 [Eclipse용 Azure 도구 키트 설치][]를 참조하세요.
+* Azure 구독. <http://azure.microsoft.com/pricing/purchase-options/> 에서 구입할 수 있습니다.
+* Eclipse용 Azure 도구 키트 자세한 내용은 [Eclipse용 Azure 도구 키트 설치][] 를 참조하세요.
 
 ## Hello World 응용 프로그램을 만들려면 ##
 
@@ -40,11 +40,11 @@
 
 *  Eclipse를 시작하고 메뉴에서 **File**, **New**, **Dynamic Web Project**를 차례로 클릭합니다. (**파일**, **새로 만들기**를 차례로 클릭한 후 **Dynamic Web Project**가 사용 가능한 프로젝트로 표시되지 않는 경우 **파일**, **새로 만들기**, **프로젝트...**를 차례로 클릭한 후 **웹**을 확장하고 **Dynamic Web Project**를 클릭한 후 **다음**을 클릭합니다.)
 *  이 자습서에서는 프로젝트의 이름을 **MyHelloWorld**로 지정합니다. (이 이름을 사용했는지 확인하세요. 이 자습서의 이후 단계에서는 WAR 파일의 이름이 MyHelloWorld라고 가정합니다.) 화면이 다음과 유사하게 나타납니다.
-![][ic589576]
+    ![][ic589576]
 * **마침**을 클릭합니다.
 * Eclipse의 Project Explorer 뷰 내에서 **MyHelloWorld**를 확장합니다. **WebContent**를 마우스 오른쪽 단추로 클릭하고 **New**를 클릭한 후 **JSP File**을 클릭합니다.
 * **New JSP File** 대화 상자에서 파일의 이름을 **index.jsp**로 지정합니다. 다음에 표시된 것처럼 상위 폴더를 **MyHelloWorld/WebContent**로 유지합니다.
-![][ic659262]
+    ![][ic659262]
 * **JSP 템플릿 선택** 대화 상자에서 이 자습서의 목적에 따라 **새 JSP 파일(html)**을 선택하고 **완료**를 클릭합니다.
 * Eclipse에서 index.jsp 파일이 열리면 기존 `<body>` 요소 내에 **Hello World!**를 동적으로 표시하도록 텍스트를 추가합니다. 업데이트된 `<body>` 내용이 다음과 같이 나타납니다.
 ```
@@ -59,18 +59,19 @@
 Java 웹 응용 프로그램을 테스트할 준비가 되는 즉시 다음 바로 가기를 사용하여 Azure 클라우드에서 직접 체험할 수 있습니다.
 
 1. Eclipse의 프로젝트 탐색기에서 **MyHelloWorld**를 클릭합니다.
-1. Eclipse 도구 모음에서 **Azure 클라우드에 게시** 단추를 클릭합니다.
-	![][ic710882]
+1. Eclipse 도구 모음에서 **게시** 드롭다운 단추를 클릭한 다음 **Publish As Azure Cloud Service**(Azure 클라우드 서비스로 게시)를 클릭합니다
+    ![][publishDropdownButton]
 1. 처음으로 Azure에 이 응용 프로그램을 게시하고 이전에 이 응용 프로그램에 대한 Azure 배포 프로젝트를 만들지 않은 경우 Azure 배포 프로젝트가 자동으로 만들어집니다. 또한 다음과 같은 메시지가 표시되어야 하며 이는 응용 프로그램을 실행하기 위해 자동으로 배포되는 JDK 패키지 및 응용 프로그램 서버를 나열합니다.
-	![][ic789598]
-	이 바로 가기 방식을 사용하면 기본값과 다른 특정 서버 또는 JDK를 구성할 필요 없이 Azure에서 응용 프로그램을 테스트하는 빠르고 쉬운 방법이 가능합니다. 기본값에 만족할 경우 **확인**을 클릭하여 다음 단계를 계속할 수 있습니다.
-	 그러나 응용 프로그램에 사용할 JDK 또는 응용 프로그램 서버를 변경하려는 경우 나중에 사용자를 위해 자동으로 만들어진 Azure 배포 프로젝트를 편집하여 수행하거나 지금 **취소**를 클릭하고 이 자습서의 **Azure 배포 프로젝트 섹션 정보**를 읽을 수 있습니다.
+    ![][ic789598]
+
+    이 바로 가기 방식을 사용하면 기본값과 다른 특정 서버 또는 JDK를 구성할 필요 없이 Azure에서 응용 프로그램을 테스트하는 빠르고 쉬운 방법이 가능합니다. 기본값에 만족할 경우 **확인**을 클릭하여 다음 단계를 계속할 수 있습니다.
+    그러나 응용 프로그램에 사용할 JDK 또는 응용 프로그램 서버를 변경하려는 경우 나중에 사용자를 위해 자동으로 만들어진 Azure 배포 프로젝트를 편집하여 수행하거나 지금 **취소**를 클릭하고 이 자습서의 **Azure 배포 프로젝트 섹션 정보**를 읽을 수 있습니다.
 1. **Azure에 게시** 대화 상자에서:
     1. 아직 **구독** 목록에서 선택할 구독이 없는 경우 다음이 단계를 수행하여 구독 정보를 가져옵니다.
         1. **게시 설정 파일에서 가져오기**를 클릭합니다.
         1. **구독 정보 가져오기** 대화 상자에서 **게시-설정 파일 다운로드**를 클릭합니다. Azure 계정에 로그인하지 않은 경우에는 로그인을 요청하는 메시지가 표시됩니다. 그 후 Azure 게시 설정 파일을 저장하도록 요청하는 메시지가 표시됩니다. 로컬 컴퓨터에 저장합니다.
         1. **구독 정보 가져오기** 대화 상자에서 **찾아보기** 단추를 클릭하고 이전 단계에서 로컬에 저장해 놓은 게시 설정 파일을 선택한 다음 **열기**를 클릭합니다. 화면은 다음과 유사해야 합니다.
-	![][ic644267]
+            ![][ic644267]
         1. **확인**을 클릭합니다.
     1. **구독**의 경우 배포에 사용하려는 구독을 선택합니다.
     1. **저장소 계정**의 경우 사용하려는 저장소 계정을 선택하거나 **새로 만들기**를 클릭하여 새 저장소 계정을 만듭니다.
@@ -87,7 +88,7 @@ Java 웹 응용 프로그램을 테스트할 준비가 되는 즉시 다음 바�
     ![][ic719489]
     **콘솔** 보기와 같이 이 로그를 사용하여 배포의 진행 상황을 볼 수 있습니다. [Azure 관리 포털][]에 로그인하거나 **클라우드 서비스** 섹션을 사용해서도 상태를 모니터링할 수 있습니다.
 1. 배포가 성공적으로 배포될 때 **Azure 활동 로그**는 **게시된** 상태를 보여줍니다. 다음 그림에 표시된 것처럼 **게시**를 클릭하고 브라우저가 배포의 인스턴스를 엽니다.
- ![][ic719490]
+    ![][ic719490]
 
 스테이징 환경에 대한 배포이기 때문에 DNS 이름은 http://&lt;*guid*&gt;.cloudapp.net 양식이고 URL은 DNS 이름과 응용 프로그램에 대한 접미사를 포함합니다. 예: http://447564652c20426f6220526f636b7321.cloudapp.net/MyHelloWorld (**MyHelloWorld** 부분은 대/소문자를 구분합니다.) 또한 Azure Platform Management 포털(관리 포털의 클라우드 서비스 부분 내)에서 배포 이름을 클릭하는 경우 DNS 이름을 볼 수 있습니다.
 
@@ -139,8 +140,7 @@ Java 웹 응용 프로그램을 테스트할 준비가 되는 즉시 다음 바�
 >[AZURE.IMPORTANT] UAC 프롬프트가 표시되지 않으면 UAC 아이콘에 대한 Windows 작업 표시줄을 확인하고 먼저 클릭합니다. 때로는 UAC 프롬프트가 최상위 창으로 표시되지 않고 작업 표시줄 아이콘으로 표시됩니다.
 
 1. 계산 에뮬레이터 UI의 출력을 검사하여 프로젝트에 문제가 있는지 확인합니다. 배포 콘텐츠에 따라 응용 프로그램이 계산 에뮬레이터 내에서 완전히 시작되려면 일 분 정도 걸릴 수 있습니다.
-1. 브라우저를 시작하고 URL `http://localhost:8080/MyHelloWorld`을 주소로 사용합니다.(URL의 `MyHelloWorld` 부분은 대/소문자 구분함) MyHelloWorld 응용 프로그램(index.jsp의 출력)을 확인하면 다음 이미지와 비슷해야 합니다.
-![][ic589579]
+1. 브라우저를 시작하고 URL `http://localhost:8080/MyHelloWorld`을 주소로 사용합니다.(URL의 `MyHelloWorld` 부분은 대/소문자 구분함) MyHelloWorld 응용 프로그램(index.jsp의 출력)을 확인하면 다음 이미지와 비슷해야 합니다. ![][ic589579]
 
 계산 에뮬레이터에서 실행되는 응용 프로그램을 중지할 준비가 되면 Eclipse 도구 모음에서 **Azure 에뮬레이터 다시 설정** 단추 ![][ic710880]를 클릭합니다.
 
@@ -192,5 +192,6 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 [ic719490]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/ic719490.png
 [ic719491]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/ic719491.png
 [ic789598]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/ic789598.png
+[publishDropdownButton]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/publishDropdownButton.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

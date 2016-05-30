@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="04/11/2016"
+	ms.date="05/09/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -47,7 +47,7 @@ BACPAC은 데이터베이스 스키마 및 데이터를 포함하는 .bacpac 파
 
 ## 데이터베이스가 포함될 서버 선택
 
-가져오려는 데이터베이스에 대한 SQL Server 블레이드를 엽니다.
+SQL Server 블레이드를 엽니다.
 
 1.	[Azure 포털](https://portal.azure.com)로 이동합니다.
 2.	**SQL Server**를 클릭합니다.
@@ -60,7 +60,7 @@ BACPAC은 데이터베이스 스키마 및 데이터를 포함하는 .bacpac 파
 
     ![저장소 옵션 구성][2]
 
-1.  새 데이터베이스에 대한 가격 책정 계층을 선택하고 **선택**을 클릭합니다.
+1.  새 데이터베이스에 대한 가격 책정 계층을 선택하고 **선택**을 클릭합니다. 탄력적 풀에 직접 데이터베이스 가져오기는 지원되지 않지만 먼저 단일 데이터베이스로 가져온 다음 데이터베이스를 풀로 이동할 수 있습니다.
 
     ![가격 책정 계층 선택][3]
 
@@ -109,4 +109,4 @@ BACPAC은 데이터베이스 스키마 및 데이터를 포함하는 .bacpac 파
 [5]: ./media/sql-database-import/import-history.png
 [6]: ./media/sql-database-import/import-status.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

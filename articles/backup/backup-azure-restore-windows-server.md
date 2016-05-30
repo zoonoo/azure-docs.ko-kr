@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure에서 Windows Server 또는 Windows 클라이언트에 데이터 복원 | Microsoft Azure"
+   pageTitle="Resource Manager 배포 모델을 사용하여 Azure에서 Windows 서버 또는 Windows 클라이언트로 데이터 복원 | Microsoft Azure"
    description="Windows 서버 또는 Windows 클라이언트에서 복원하는 방법을 알아보세요."
    services="backup"
    documentationCenter=""
@@ -13,16 +13,23 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="01/25/2016"
+	 ms.date="05/10/2016"
 	 ms.author="trinadhk; jimpark; markgal;"/>
 
-# Windows 서버 또는 Windows 클라이언트 컴퓨터로 파일 복원
+# Resource Manager 배포 모델을 사용하여 Windows 서버 또는 Windows 클라이언트 컴퓨터로 파일 복원
+
+> [AZURE.SELECTOR]
+- [Azure 포털](backup-azure-restore-windows-server.md)
+- [클래식 포털](backup-azure-restore-windows-server-classic.md)
+
 이 문서는 두가지 유형의 복원 작업을 수행하는 데 필요한 단계를 다룹니다.
 
 - 백업을 수행한 동일한 컴퓨터에 데이터를 복원합니다.
 - 데이터를 다른 컴퓨터에 복원합니다.
 
-두 경우 모두 데이터는 Azure 백업 자격 증명 모음에서 검색됩니다.
+두 경우 모두 데이터는 Azure 복구 서비스 자격 증명 모음에서 검색됩니다.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델.
 
 ## 동일한 컴퓨터로 데이터 복구
 파일을 실수로 삭제했는데 (백업이 수행된) 동일한 컴퓨터에서 복원하려는 경우 다음 단계를 사용하면 데이터를 복구할 수 있습니다.
@@ -69,12 +76,12 @@
 
 - *원본 컴퓨터* – 처음에 백업이 수행되었고 현재는 사용할 수 없는 컴퓨터입니다.
 - *대상 컴퓨터* – 데이터가 복구되는 컴퓨터입니다.
-- *샘플 자격 증명 모음* – *원본 컴퓨터* 및 *대상 컴퓨터*가 등록된 백업 자격 증명 모음입니다. <br/>
+- *샘플 자격 증명 모음* – *원본 컴퓨터* 및 *대상 컴퓨터*가 등록된 복구 서비스 자격 증명 모음입니다. <br/>
 
 > [AZURE.NOTE] 이전 버전의 운영 체제를 실행 중인 컴퓨터에는 컴퓨터에서 수행된 백업을 복원할 수 없습니다. 예를 들어 백업이 Windows 7 컴퓨터에서 수행된 경우 Windows 8 이상의 컴퓨터에서 복원할 수 있습니다. 그러나 그 반대의 경우는 그렇지 않습니다.
 
 1. *대상 컴퓨터*에서 **Microsoft Azure 백업** 스냅인을 엽니다.
-2. *대상 컴퓨터* 및 *원본 컴퓨터*가 동일한 백업 자격 증명 모음에 등록됐는지 확인합니다.
+2. *대상 컴퓨터* 및 *원본 컴퓨터*가 동일한 복구 서비스 자격 증명 모음에 등록됐는지 확인합니다.
 3. **데이터 복구**를 클릭하여 워크플로를 시작합니다.
 
     ![데이터 복구](./media/backup-azure-restore-windows-server/recover.png)
@@ -83,7 +90,7 @@
 
     ![다른 서버](./media/backup-azure-restore-windows-server/anotherserver.png)
 
-5. *샘플 자격 증명 모음*에 해당하는 자격 증명 모음 파일을 제공합니다. 자격 증명 모음 파일이 잘못되었거나 만료된 경우 Azure 포털의 *샘플 자격 증명 모음* 에서 새 자격 증명 모음 파일을 다운로드합니다. 자격 증명 모음 파일이 제공되면 자격 증명 모음 파일에 대한 백업 자격 증명 모음이 표시됩니다.
+5. *샘플 자격 증명 모음*에 해당하는 자격 증명 모음 파일을 제공합니다. 자격 증명 모음 파일이 잘못되었거나 만료된 경우 Azure 포털의 *샘플 자격 증명 모음* 에서 새 자격 증명 모음 파일을 다운로드합니다. 자격 증명 모음 파일이 제공되면 보관 자격 증명 파일에 대한 복구 서비스 자격 증명 모음이 표시됩니다.
 
 6. 표시된 컴퓨터 목록에서 *원본 컴퓨터*를 선택합니다.
 
@@ -108,12 +115,6 @@
 11. 입력을 제공하면 제공된 대상에 백업된 파일을 복원하는 작업을 트리거하는 **복구**를 클릭합니다.
 
 ## 다음 단계
-- [Azure 백업 - FAQ](backup-azure-backup-faq.md)
-- [Azure 백업 포럼](http://go.microsoft.com/fwlink/p/?LinkId=290933)을 방문하세요.
+- 파일과 폴더를 복구했으므로 [백업을 관리](backup-azure-manage-windows-server.md)할 수 있습니다.
 
-## 자세한 정보
-- [Azure 백업 개요](http://go.microsoft.com/fwlink/p/?LinkId=222425)
-- [Azure 가상 컴퓨터 백업](backup-azure-vms-introduction.md)
-- [Microsoft 워크로드 백업](backup-azure-dpm-introduction.md)
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

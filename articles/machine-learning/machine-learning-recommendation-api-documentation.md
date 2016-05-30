@@ -3,7 +3,7 @@
 	description="Microsoft Azure 마켓플레이스에서 사용할 수 있는 권장 사항 엔진에 대한 Azure 기계 학습 권장 사항 API 설명서입니다." 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="AharonGumnik" 
+	authors="LuisCabrer" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2016" 
+	ms.date="05/05/2016" 
 	ms.author="LuisCa"/>
 
 #Azure 기계 학습 권장 사항 API 설명서
@@ -93,14 +93,18 @@ API에서 반환되는 ID는 대/소문자를 구분하며, 후속 API 호출에
 
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
-|	modelName |	문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(\_)만 사용할 수 있습니다.<br>최대 길이: 20 | | apiVersion | 1.0 | ||| | Request Body | NONE |
+|	modelName |	문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(\_)만 사용할 수 있습니다.<br>최대 길이: 20 | 
+| apiVersion | 1.0 | 
+||| 
+| Request Body | NONE |
 
 
 **응답**:
 
 HTTP 상태 코드: 200
 
-- `feed/entry/content/properties/id` – 모델 ID를 포함합니다. **참고**: 모델 ID는 대/소문자를 구분합니다.
+- `feed/entry/content/properties/id` – 모델 ID를 포함합니다.
+**참고**: 모델 ID는 대/소문자를 구분합니다.
 
 OData XML
 
@@ -890,7 +894,7 @@ OData XML
 <ins>FeatureBlockList 규칙을 추가하려면:</ins><br>
 <br>
 `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins>
-Upsale 규칙을 추가하려면:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br> <ins>
+Upsale 규칙을 추가하려면:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"],"NumberOfItemsToUpsale":5}</Value></ApiFilter>`<br><br> <ins>
 허용 목록 규칙을 추가하려면:</ins><br>
 `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>
 <ins>FeatureWhiteList 규칙을 추가하려면:</ins><br>
@@ -1039,7 +1043,8 @@ OData XML
 	</feed>
 
 ###8\.2. 카탈로그 가져오기
-모든 카탈로그 항목을 검색합니다. 한 번에 한 페이지씩 카탈로그가 검색됩니다. 특정 인덱스에서 항목을 가져오려는 경우 $skip odata 매개 변수를 사용할 수 있습니다. 예를 들어 100 위치에서 시작하는 항목을 가져오려면 $skip=100 매개 변수를 요청에 추가합니다.
+모든 카탈로그 항목을 검색합니다.
+한 번에 한 페이지씩 카탈로그가 검색됩니다. 특정 인덱스에서 항목을 가져오려는 경우 $skip odata 매개 변수를 사용할 수 있습니다. 예를 들어 100 위치에서 시작하는 항목을 가져오려면 $skip=100 매개 변수를 요청에 추가합니다.
 
 | HTTP 메서드 | URI |
 |:--------|:--------|
@@ -1207,9 +1212,9 @@ OData XML
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 |	modelId |	모델의 고유 식별자 |
-| filename | 카탈로그의 텍스트 식별자.<br>문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(_)만 사용할 수 있습니다.<br>최대 길이: 50 | 
-| apiVersion | 1.0 | 
-||| 
+| filename | 카탈로그의 텍스트 식별자.<br>문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(_)만 사용할 수 있습니다.<br>최대 길이: 50 |
+| apiVersion | 1.0 |
+|||
 | 요청 본문 | 사용 데이터. 형식:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>이름</th><th>필수</th><th>형식</th><th>설명</th></tr><tr><td>사용자 ID</td><td>예</td><td>[a-z], [a-z], [0-9], [_] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> 최대 길이: 255 </td><td>사용자의 고유 식별자입니다.</td></tr><tr><td>항목 ID</td><td>예</td><td>[a-z], [a-z], [0-9], [&#95;] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> 최대 길이: 50</td><td>항목의 고유 식별자입니다.</td></tr><tr><td>시간</td><td>No</td><td>날짜 형식: YYYY/MM/DDTHH:MM:SS (예: 2013/06/20T10:00:00)</td><td>데이터의 시간.</td></tr><tr><td>이벤트</td><td>아니요; 제공되면 그 다음 날짜를 삽입해야 합니다</td><td>다음 중 하나:<br>• 클릭<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• 구매</td><td></td></tr></table><br>최대 파일 크기: 200MB<br><br>예제:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **응답**:
@@ -1358,7 +1363,8 @@ OData XML
   		</EventData>
 		</Event>
 
-**응답**: HTTP 상태 코드: 200
+**응답**:
+HTTP 상태 코드: 200
 
 ###9\.2. 모델 사용 파일 나열
 모든 모델 사용 파일의 메타데이터를 검색합니다. 한 번에 한 페이지씩 사용 파일이 검색됩니다. 각 페이지는 100개의 항목을 포함합니다. 특정 인덱스에서 항목을 가져오려는 경우 $skip odata 매개 변수를 사용할 수 있습니다. 예를 들어 100 위치에서 시작하는 항목을 가져오려면 $skip=100 매개 변수를 요청에 추가합니다.
@@ -2937,7 +2943,8 @@ HTTP 상태 코드: 200
 12\.1의 응답 예제 참조
 
 ##13\. 사용자 사용 기록
-권장 모델이 작성되면 시스템은 작성에 사용된 사용자 기록(특정 사용자와 관련된 항목)을 검색할 수 있습니다. 이 API를 통해 사용자 기록을 검색할 수 있습니다.
+권장 모델이 작성되면 시스템은 작성에 사용된 사용자 기록(특정 사용자와 관련된 항목)을 검색할 수 있습니다.
+이 API를 통해 사용자 기록을 검색할 수 있습니다.
 
 참고: 이 사용자 기록은 현재 권장 사항 작성에만 사용할 수 있습니다.
 
@@ -3100,4 +3107,4 @@ HTTP 상태 코드: 200
 © 2015 Microsoft. All rights reserved.
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

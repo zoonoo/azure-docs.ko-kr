@@ -5,7 +5,7 @@
    services="sql-database"
    documentationCenter=""
    authors="BYHAM"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor="cgronlun"
    tags=""/>
 
@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="02/18/2016"
+   ms.date="05/12/2016"
    ms.author="rickbyh"/>
 
 # Azure SQL 데이터베이스 방화벽을 구성하는 방법
@@ -29,9 +29,6 @@ Microsoft Azure SQL 데이터베이스는 Azure 및 기타 인터넷 기반 응�
 
 **권장사항:** Microsoft는 데이터베이스의 휴대성이 높아질수록 데이터베이스 수준 방화벽을 사용하도록 권장합니다. 동일한 액세스를 요구하는 데이터베이스가 많을 때, 서버 수준 방화벽을 사용하면 각 데이터베이스 개별적으로 구성할 필요가 없습니다.
 
-**페더레이션에 대해:**현재 구현된 페더레이션 기능은 웹 및 비즈니스 서비스 계층과 사용 중지될 예정입니다. 확장성, 유연성 및 성능을 최대화하기 위해 사용자 지정 분할 솔루션을 배포하는 것이 좋습니다. 사용자 지정 분할에 관한 자세한 내용은, [Azure SQL 데이터베이스 확장](https://msdn.microsoft.com/library/dn495641.aspx)을 참조하세요.
-
-> [AZURE.NOTE] 데이터베이스 수준 방화벽 규칙을 포함한 루트 데이터베이스에서 Azure SQL 데이터베이스의 데이터베이스 페더레이션을 생성하는 경우, 페더레이션 멤버 데이터베이스로 복사할 수 없습니다. 페더레이션 멤버에 관한 데이터베이스 수준 방화벽 규칙이 필요한 경우, 페더레이션에 관한 규칙을 재생성해야 합니다. 그러나, 데이터베이스 수준 방화벽 규칙을 포함한 페더레이션 멤버를 ALTER FEDERATION ... SPLIT 문을 사용하여 새 페더레이션 멤버로 분할할 경우, 대상 멤버는 원본 페더레이션 멤버처럼 동일한 데이터베이스 수준 방화벽 규칙을 가집니다. 페더레이션에 대한 자세한 내용은 [Azure SQL 데이터베이스의 페더레이션](https://msdn.microsoft.com/library/hh597452.aspx)을 참조하세요.
 
 ## SQL 데이터베이스 방화벽 개요
 
@@ -62,13 +59,13 @@ Azure의 응용 프로그램이 데이터베이스 서버로 연결을 시도할
 
 Azure에서 두 가지 방법으로 연결을 설정할 수 있습니다.
 
-- [Microsoft Azure 포털](https://portal.azure.com/)에서 새 서버를 만들 때 **Microsoft Azure 서비스가 서버에 액세스하도록 허용** 확인란을 선택합니다.
+- [Microsoft Azure 포털](https://portal.azure.com/)에서 새 서버를 만들 때 **Azure 서비스가 서버에 액세스하도록 허용** 확인란을 선택합니다.
 
 - [클래식 포털](http://go.microsoft.com/fwlink/p/?LinkID=161793)에서 서버의 **구성** 탭에 있는 **허용되는 서비스** 섹션으로 이동하여 **Microsoft Azure 서비스**에 대해 **예**를 클릭합니다.
 
 ## 첫 번째 서버 수준 방화벽 규칙 만들기
 
-첫 번째 서버 수준 방화벽 설정은 [Azure 포털](https://portal.azure.com/)을 사용하거나 REST API 또는 Azure PowerShell을 사용하여 프로그램에 따라 설정할 수 있습니다. 후속 서버 수준 방화벽 규칙은 Transact-SQL과 같은 메서드를 사용하여 생성할 수 있습니다. 서버 수준 방화벽 규칙에 대한 자세한 내용은 [방화벽 설정 구성: 방법(Azure SQL Database)](sql-database-configure-firewall-settings.md)을 참조하세요.
+첫 번째 서버 수준 방화벽 설정은 [Azure 포털](https://portal.azure.com/)을 사용하거나 REST API 또는 Azure PowerShell을 사용하여 프로그램에 따라 만들 수 있습니다. 후속 서버 수준 방화벽 규칙은 Transact-SQL과 같은 메서드를 사용하여 생성할 수 있습니다. 서버 수준 방화벽 규칙에 대한 자세한 내용은 [방화벽 설정 구성: 방법(Azure SQL Database)](sql-database-configure-firewall-settings.md)을 참조하세요.
 
 ## 데이터베이스 수준 방화벽 규칙 만들기.
 
@@ -138,4 +135,4 @@ Microsoft Azure SQL 데이터베이스 서비스로의 연결이 예상대로 �
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

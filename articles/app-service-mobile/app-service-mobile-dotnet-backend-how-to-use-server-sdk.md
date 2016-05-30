@@ -275,7 +275,7 @@ Entity Framework를 사용하여 Azure SQL 데이터베이스의 데이터를 �
 			}
 		}
 
-`MobileAppLoginHAppServiceLoginHandlerandler.CreateToken()` 메서드는 _audience_ 및 _issuer_ 매개 변수를 포함합니다. 일반적으로 두 매개 변수 모두 HTTPS 체계를 사용하여 응용 프로그램 루트의 URL로 설정됩니다. 마찬가지로 _secretKey_를 응용 프로그램의 서명 키의 값으로 설정해야 합니다. 이 값은 클라이언트에서 공유되거나 포함되지 않아야 하는 중요한 값입니다. 앱 서비스에서 호스팅하는 동안 _WEBSITE\_AUTH\_SIGNING\_KEY_ 환경 변수를 참조하여 이 값을 가져올 수 있습니다. 로컬 디버깅 컨텍스트에서 필요한 경우 [인증을 사용하여 로컬 디버깅](#local-debug) 섹션의 지침에 따라 키를 검색하고 이 키를 응용 프로그램 설정으로 저장합니다.
+`AppServiceLoginHandler.CreateToken()` 메서드는 _audience_ 및 _issuer_ 매개 변수를 포함합니다. 일반적으로 두 매개 변수 모두 HTTPS 체계를 사용하여 응용 프로그램 루트의 URL로 설정됩니다. 마찬가지로 _secretKey_를 응용 프로그램의 서명 키의 값으로 설정해야 합니다. 이 값은 클라이언트에서 공유되거나 포함되지 않아야 하는 중요한 값입니다. 앱 서비스에서 호스팅하는 동안 _WEBSITE\_AUTH\_SIGNING\_KEY_ 환경 변수를 참조하여 이 값을 가져올 수 있습니다. 로컬 디버깅 컨텍스트에서 필요한 경우 [인증을 사용하여 로컬 디버깅](#local-debug) 섹션의 지침에 따라 키를 검색하고 이 키를 응용 프로그램 설정으로 저장합니다.
 
 발급된 토큰 및 포함하고자 하는 클레임에 대한 수명도 제공해야 합니다. 예제 코드에 나오는 것처럼 제목 클레임을 제공해야 합니다.
 
@@ -461,4 +461,4 @@ Azure 앱 서비스는 ASP.NET 응용 프로그램에 대한 여러 디버깅 �
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

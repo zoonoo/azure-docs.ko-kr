@@ -1,19 +1,19 @@
 <properties
    pageTitle="VM 재시작 또는 크기 조정 문제 | Microsoft Azure"
    description="Azure의 기존 Linux 가상 컴퓨터 재시작 또는 크기 조정 관련 클래식 배포 문제 해결"
-   services="virtual-machines"
+   services="virtual-machines-linux"
    documentationCenter=""
-   authors="delhan"
+   authors="Deland-Han"
    manager="felixwu"
    editor=""
    tags="top-support-issue"/>
 
 <tags
-   ms.service="virtual-machines"
-   ms.topic="support-article"
-   ms.tgt_pltfrm="virtual-machines"
+   ms.service="virtual-machines-linux"
+   ms.topic="article"
+   ms.tgt_pltfrm="vm-linux"
    ms.workload="required"
-   ms.date="04/28/2016"
+   ms.date="05/12/2016"
    ms.devlang="na"
    ms.author="delhan"/>
 
@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [클래식](../articles/virtual-machines/virtual-machines-linux-classic-restart-resize-error-troubleshooting.md)
-- [리소스 관리자](../articles/virtual-machines/virtual-machines-linux-arm-restart-resize-error-troubleshooting.md)
+- [리소스 관리자](../articles/virtual-machines/virtual-machines-linux-restart-resize-error-troubleshooting.md)
 
 중지된 Azure 가상 컴퓨터(VM)를 시작하거나, 기존 Azure AM의 크기를 조정하려다 접하는 일반적인 오류는 할당 오류입니다. 이런 오류는 클러스터나 지역에 사용할 수 있는 리소스가 없거나 요청한 VM 크기를 지원할 수 없을 때 발생합니다.
 
@@ -76,9 +76,9 @@ VM 크기를 줄이는 것이 가능하지 않으면, 다음 단계를 수행합
   * 새 클라우드 서비스를 만들어서, 선호도 그룹에 연결되지 않도록 하고 선호도 그룹에 연결된 가상 네트워크와 연결되지 않도록 합니다.
 
   * 그 안에 큰 규모의 VM을 새로 만듭니다.
-  
+
 모든 VM을 동일한 클라우드 서비스로 통합할 수 있습니다. 기존 클라우드 서비스가 지역 기반 가상 네트워크와 연결된 경우, 새 클라우드 서비스를 기존 가상 네트워크에 연결할 수 있습니다.
 
 기존 클라우드 서비스가 지역 기반 가상 네트워크에 연결되지 않은 경우에는, 기존 클라우드 서비스의 VM을 삭제하고 디스크에서 새 클라우드 서비스에 VM을 다시 만들어야 합니다. 하지만, 새 클라우드 서비스가 새 이름과 VIP를 갖게 되므로, 기존 클라우드 서비스에 이 정보를 사용하는 모든 종속성에 대해 해당 정보를 업데이트해야 합니다.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

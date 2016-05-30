@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="03/22/2016"
+   ms.date="05/12/2016"
    ms.author="rickbyh"/>
 
 # SQL 데이터베이스 보안: 데이터베이스 액세스 및 로그인 보안 관리  
@@ -24,7 +24,7 @@ SQL 데이터베이스 보안 관리, 특히 서버 수준 보안 주체 계정�
 
 ## 데이터베이스 프로비저닝 및 서버 수준 보안 주체 로그인
 
-Microsoft Azure SQL 데이터베이스에서 서비스에 등록하면 프로비전 프로세스가 Azure SQL 데이터베이스 서버의 서버 수준 보안 주체가 되는 Azure SQL 데이터베이스 서버, **마스터**라는 데이터베이스 및 로그인을 만듭니다. 이 로그인은 SQL Server의 온-프레미스 인스턴스의 경우 서버 수준 보안 주체(**sa**)와 비슷합니다.
+Microsoft Azure SQL 데이터베이스에서 서비스에 등록하면 프로비전 프로세스가 Azure SQL 데이터베이스 서버의 서버 수준 보안 주체가 되는 Azure SQL 데이터베이스 서버, **마스터**라는 데이터베이스 및 로그인을 만듭니다. 이 로그인은 SQL Server의 온-프레미스 인스턴스의 경우 서버 수준 보안 주체(**sa**)와 비슷합니다. 이 항목에 설명된 개념은 Azure SQL 데이터 웨어하우스에도 적용됩니다.
 
 Azure SQL 데이터베이스 서버 수준 보안 주체 계정은 항상 모든 서버 수준 및 데이터베이스 수준 보안을 관리할 권한이 있습니다. 이 항목에서는 서버 수준 보안 주체 및 기타 계정을 사용하여 SQL 데이터베이스에서 로그인 및 데이터베이스를 관리하는 방법을 설명합니다.
 
@@ -176,4 +176,4 @@ SELECT * FROM sys.databases;
 
 [Azure SQL 데이터베이스 자습서: Azure SQL 데이터베이스 보안 시작](sql-database-get-started-security.md) [Azure SQL 데이터베이스 보안 지침 및 제한 사항](sql-database-security-guidelines.md) [Azure Active Directory 인증을 사용한 SQL 데이터베이스에 연결](sql-database-aad-authentication.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

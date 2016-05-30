@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2016" 
+	ms.date="05/18/2016" 
 	ms.author="luisca"/>
 
 
@@ -90,4 +90,4 @@ API에 대한 자세한 내용은 Microsoft Azure 마켓플레이스 설명서�
 샘플 앱은 프로덕션 환경에서 실행할 수 없습니다. 카탈로그에 제공되는 데이터가 매우 작기 때문에 의미 있는 권장 사항 모델을 제공하지 않습니다. 제공되는 데이터는 시연용입니다.
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -65,7 +65,32 @@ sourceAnchor 특성값은 개체가 Azure AD에 생성되고 ID가 동기화된 
 - 다른 Azure AD Connect 서버를 설치한 경우 이전에 사용했던 동일한 sourceAnchor 특성을 선택해야만 합니다. 이전부터 DirSync를 사용했으며 Azure AD Connect로 이동한 경우 DirSync에서 사용했던 특성이므로 **objectGUID**를 사용해야 합니다.
 - 개체를 Azure AD로 내보낸 후 sourceAnchor 값이 변경된 경우, Azure AD Connect 동기화는 오류를 표시하고 문제가 해결되거나 sourceAnchor를 source 디렉터리에 원상 복귀시키기 전까지는 어떠한 변경도 허용하지 않습니다.
 
+## Azure AD 로그인
+
+Azure AD와 온-프레미스 디렉터리를 통합하는 동안 동기화 설정이 사용자가 인증하는 방식에 어떤 영향을 주는지를 이해해야 합니다. Azure AD는 userPrincipalName 또는 UPN을 사용하여 사용자를 인증합니다. 그러나 사용자를 동기화할 경우 신중하게 userPrincipalName의 값에 사용할 특성을 선택해야 합니다.
+
+### userPrincipalName의 특성 선택
+
+Azure에서 사용할 UPN의 값을 제공하기 위해 특성을 선택하는 경우 다음을 확인해야 합니다.
+
+* 특성 값은 UPN 구문(RFC 822)을 맞춥니다. 즉, username@domain 형식이어야 합니다.
+* 값의 접미사는 Azure AD에서 확인된 사용자 지정 도메인 중 하나에 일치합니다.
+
+Express 설정에서 특성에 userPrincipalName을 선택할 것입니다. 그러나 userprincipalname 특성이 사용자가 Azure에 로그인하는 데 사용하려는 값을 포함하지 않는 경우 **사용자 지정 설치**를 선택하고 적절한 특성을 제공해야 합니다.
+
+### 사용자 지정 도메인 상태 및 UPN
+UPN 접미사에 확인된 도메인이 있는지 확인해야 합니다.
+
+John은 contoso.com의 사용자입니다. 사용자를 Azure AD 디렉터리 azurecontoso.onmicrosoft.com에 동기화한 후에 John이 Azure에 로그인하는 데 온-프레미스 UPN john@contoso.com을 사용하려고 합니다. 이렇게 하려면 사용자를 동기화하기 전에 Azure AD에서 contoso.com을 사용자 지정 도메인으로 추가하고 확인해야 합니다. John의 UPN 접미사인 contoso.com이 Azure AD에서 확인된 도메인과 일치하지 않으면 Azure AD는 UPN 접미사를 azurecontoso.onmicrosoft.com으로 바꾸고 John은 john@azurecontoso.onmicrosoft.com를 사용하여 Azure에 로그인해야 합니다.
+
+### 라우팅할 수 있는 온-프레미스가 아닌 도메인 및 Azure AD에 대한 UPN
+일부 조직에는 라우팅할 수 없는 도메인(예: contoso.local) 또는 간단한 단일 레이블 도메인(예: contoso)이 있습니다. Azure AD에서 라우팅할 수 없는 도메인을 확인할 수 없습니다. Azure AD Connect는 Azure AD에서 확인된 도메인에 동기화할 수 있습니다. Azure AD 디렉터리를 만들면 라우팅 가능한 도메인을 만들고 다시 Azure AD에 대한 기본 도메인(예: contoso.onmicrosoft.com)이 됩니다. 따라서 기본 도메인(.onmicrosoft.com)에 동기화하지 않으려는 경우 이 시나리오에서 라우팅할 수 있는 다른 도메인을 확인하는 데 필요하게 됩니다.
+
+도메인을 추가하고 확인하는 방법에 대한 자세한 내용은 [Azure Active Directory에 사용자 지정 도메인 이름 추가](active-directory-add-domain.md)를 참고합니다.
+
+Azure AD Connect는 라우팅할 수 없는 도메인 환경에서 실행하는지를 검색하고 Express 설정을 계속 진행하는 경우 적절하게 경고합니다. 라우팅할 수 없는 도메인에서 작업하는 경우 사용자의 UPN이 라우팅할 수 없는 접미사를 포함할 가능성이 있습니다. 예를 들어, contoso.local에서 실행하는 경우 Azure AD Connect는 Express 설정을 사용하지 않고 사용자 지정 설정을 사용하는 것이 좋습니다. 사용자 지정 설정을 사용하면 사용자가 Azure AD에 동기화된 후에 Azure에 로그인하기 위해 UPN으로 사용해야 하는 특성을 지정할 수 있습니다. 자세한 정보는 아래의 **Azure AD에서 사용자 계정 이름에 특성 선택**을 참조하세요.
+
 ## 다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

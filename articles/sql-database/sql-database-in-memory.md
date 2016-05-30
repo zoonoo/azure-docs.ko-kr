@@ -460,7 +460,7 @@ GO
 Azure SQL 데이터베이스의 메모리 내 OLTP 기능은 [2015년 10월 28일에 미리 보기에 대해 활성화](https://azure.microsoft.com/updates/public-preview-in-memory-oltp-and-real-time-operational-analytics-for-azure-sql-database/)되었습니다.
 
 
-GA(일반 공급) 전의 미리 보기 단계 동안 메모리 내 OLTP는 다음에 대해서만 지원됩니다.
+현재 미리 보기에서 메모리 내 OLTP는 다음에 대해서만 지원됩니다.
 
 - *프리미엄* 서비스 계층에 있는 데이터베이스.
 
@@ -491,7 +491,11 @@ SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 #### 기타 관계
 
 
-- 탄력적 풀의 데이터베이스로 메모리 내 OLTP 기능 사용은 미리 보기 중에 지원되지 않지만 나중에 지원을 받을 수 있습니다.
+- 탄력적 풀의 데이터베이스로 메모리 내 OLTP 기능 사용은 미리 보기 중에 지원되지 않습니다.
+ - 메모리 내 OLTP 개체가 있는 데이터베이스를 탄력적 풀로 이동하려면 다음 단계를 따르세요.
+  - 1. 메모리 액세스에 최적화된 테이블, 테이블 형식 및 데이터베이스의 고유하게 컴파일된 T-SQL 모듈을 삭제합니다.
+  - 2. 데이터베이스의 서비스 계층을 표준으로 변경합니다(*현재 이전에 메모리 내 OLTP 개체가 있었던 프리미엄 데이터베이스를 탄력적 풀로 이동하지 못하게 하는 문제가 있습니다. Azure DB 팀은 이 문제를 해결하기 위해 적극적으로 작업하고 있습니다.).
+  - 3. 데이터베이스를 탄력적 풀 내로 이동합니다.
 
 - SQL 데이터 웨어하우스와 함께 메모리 내 OLTP은 사용은 지원되지 않습니다.
  - 메모리 내 분석의 columnstore 인덱스 기능은 SQL 데이터 웨어하우스에서 지원됩니다.
@@ -533,4 +537,4 @@ SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 
 - 메모리 내 OLTP에 대한 [메모리 내 저장소 모니터링](sql-database-in-memory-oltp-monitoring.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/30/2016"
+   ms.date="05/02/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스에서 데이터베이스 보호
@@ -86,7 +86,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 
 ```
 
-[Azure 클래식 포털][]의 데이터베이스 설정에서 투명한 데이터 암호화를 사용하도록 설정할 수도 있습니다. 자세한 내용은 [TDE(투명한 데이터 암호화) 시작](sql-data-warehouse-encryption-tde-tsql.md)을 참조하세요.
+[Azure 포털][]의 데이터베이스 설정에서 투명한 데이터 암호화를 사용하도록 설정할 수도 있습니다. 자세한 내용은 [TDE(투명한 데이터 암호화) 시작](sql-data-warehouse-encryption-tde-tsql.md)을 참조하세요.
 
 ## 감사
 
@@ -108,9 +108,9 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 [권한]: https://msdn.microsoft.com/library/ms191291.aspx
 [저장 프로시저]: https://msdn.microsoft.com/library/ms190782.aspx
 [투명한 데이터 암호화]: http://go.microsoft.com/fwlink/?LinkId=526242
-[Azure 클래식 포털]: https://portal.azure.com/
+[Azure 포털]: https://portal.azure.com/
 
 <!--Other Web references-->
 [Azure 포털의 역할 기반 액세스 제어]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

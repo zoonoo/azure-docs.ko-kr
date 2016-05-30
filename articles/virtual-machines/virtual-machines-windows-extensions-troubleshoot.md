@@ -28,9 +28,9 @@ Azure Powershell에서 Azure Resource Manager 템플릿을 실행할 수 있습�
 
 다음은 예제입니다.
 
-Azure Powershell:
+Azure PowerShell:
 
-      Get-AzureVM -ResourceGroupName $RGName -Name $vmName -Status
+      Get-AzureRmVM -ResourceGroupName $RGName -Name $vmName -Status
 
 샘플 출력은 다음과 같습니다.
 
@@ -66,8 +66,8 @@ Azure Powershell:
 
 #### Azure Powershell에서 확장 제거
 
-    Remove-AzureVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomScriptExtension"
+    Remove-AzureRmVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomScriptExtension"
 
 확장이 제거되면 템플릿을 다시 실행하여 VM에서 스크립트를 실행할 수 있습니다.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

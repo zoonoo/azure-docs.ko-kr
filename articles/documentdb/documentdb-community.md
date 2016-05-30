@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="04/16/2016"
+  ms.date="05/09/2016"
   ms.author="andrl"/>
 
 # 커뮤니티 포털
@@ -147,12 +147,8 @@ fluent-plugin-documentdb는 Azure Document DB로 출력하기 위한 Fluentd 플
 
 | 이벤트 이름 | 발표자 | 위치 | Date | 해시 태그 |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ------------------------ | ------- |
-| [Global Azure Bootcamp: SoCal](http://xprs.imcreator.com/free/vishalishere/gab2016) | Leonard Lobel | Orange, CA | 2016년 4월 16일 | [#GlobalAzure](https://twitter.com/hashtag/GlobalAzure)
-| [Global Azure Bootcamp: 레드몬드](https://www.eventbrite.com/e/2016-global-azure-bootcamp-redmond-wa-tickets-21387752343) | David Makogon | Redmond, WA | 2016년 4월 16일 | [#GlobalAzure](https://twitter.com/hashtag/GlobalAzure)
-| [통합 사용자 그룹](http://www.integrationusergroup.com/#) | Howard Edidin | 웹 세미나 | 2016년 4월 25일 | 해당 없음 |
-| [모임: NYC .NET 개발자 그룹](http://www.meetup.com/NYC-NET-Developers/events/230396260/) | Leonard Lobel | 뉴욕 시, NY | 2016년 4월 21일 | 해당 없음 |
-| [SQLBits XV](https://sqlbits.com/) | Andrew Liu, Aravind Ramachandran | 리버풀, UK | 2016년 5월 4-7일 | [#SQLBits](https://twitter.com/hashtag/SQLBits)
 | [모임: 영국 Azure 사용자 그룹](http://www.meetup.com/UKAzureUserGroup/events/229673468/) | Andrew Liu | 런던, 영국 | 2016년 5월 12일 | 해당 없음 |
+| [Meetup: ONETUG - Orlando .NET 사용자 그룹 ](http://www.meetup.com/ONETUG/events/230797164/) | Santosh Hari | 올랜도, FL | 2016년 5월 12일 | [#ONETUG](https://twitter.com/search?q=%23onetug&src=typd) |
 
 *연설하거나 이벤트를 호스팅했습니까? 도울 방법을 [알려주세요](mailto:askdocdb@microsoft.com)!*
 
@@ -160,6 +156,11 @@ fluent-plugin-documentdb는 Azure Document DB로 출력하기 위한 Fluentd 플
 
 | 이벤트 이름 | 발표자 | 위치 | Date | 기록 |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ---------------------- | --------- |
+| [SQLBits XV](https://sqlbits.com/) | Andrew Liu, Aravind Ramachandran | 리버풀, UK | 2016년 5월 4-7일 | 해당 없음
+| [모임: NYC .NET 개발자 그룹](http://www.meetup.com/NYC-NET-Developers/events/230396260/) | Leonard Lobel | 뉴욕 시, NY | 2016년 4월 21일 | 해당 없음 |
+| [통합 사용자 그룹](http://www.integrationusergroup.com/#) | Howard Edidin | 웹 세미나 | 2016년 4월 25일 | 해당 없음 |
+| [Global Azure Bootcamp: SoCal](http://xprs.imcreator.com/free/vishalishere/gab2016) | Leonard Lobel | Orange, CA | 2016년 4월 16일 | 해당 없음 |
+| [Global Azure Bootcamp: 레드몬드](https://www.eventbrite.com/e/2016-global-azure-bootcamp-redmond-wa-tickets-21387752343) | David Makogon | Redmond, WA | 2016년 4월 16일 | 해당 없음 |
 | [SQL Saturday #481 - 이스라엘 2016](http://www.sqlsaturday.com/481/Sessions/Details.aspx?sid=40912) | Leonard Lobel | HaMerkaz, 이스라엘 | 2016년 4월 4일 | 해당 없음 |
 | [빌드 2016](https://build.microsoft.com/) | John Macintyre | 샌프란시스코, CA | 2016년 3월 31일 | [Azure의 NoSQL 문서 데이터베이스인 DocumentDB를 사용하여 대규모 응용 프로그램 제공](https://channel9.msdn.com/Events/Build/2016/B840)
 | [SQL Saturday #505 - 벨기에 2016](http://www.sqlsaturday.com/505/Sessions/Details.aspx?sid=44217) | Mihail Mateev | Antwerp, 벨기에 | 2016년 3월 19일 | 해당 없음 |
@@ -305,6 +306,6 @@ DocumentDB 마법사는 다른 사용자가 Azure DocumentDB에서 경험을 최
 | [![Allan Mitchell](./media/documentdb-community/wizard-allan-mitchell.jpg)](https://twitter.com/allansqlis) <br/> [Allan Mitchell](https://twitter.com/allansqlis) | [![Jen Stirrup](./media/documentdb-community/wizard-jen-stirrup.jpg)](https://twitter.com/jenstirrup) <br/> [Jen Stirrup](https://twitter.com/jenstirrup) | [![Lenni Lobel](./media/documentdb-community/wizard-lenni-lobel.jpg)](https://twitter.com/lennilobel) <br/> [Lenni Lobel](https://twitter.com/lennilobel) | [![Mihail Mateev](./media/documentdb-community/wizard-mihail-mateev.jpg)](https://twitter.com/mihailmateev) <br/> [Mihail Mateev](https://twitter.com/mihailmateev)|
 | [![Larry Maccherone](./media/documentdb-community/wizard-larry-maccherone.jpg)](https://twitter.com/lmaccherone) <br/> [Larry Maccherone](https://twitter.com/lmaccherone) | [![Howard Edidin](./media/documentdb-community/wizard-howard-edidin.jpg)](https://twitter.com/hsedidin) <br/> [Howard Edidin](https://twitter.com/hsedidin)
 
-DocumentDB 마법사가 되고 싶으세요? DocumentDB 마법사가 되기 위한 벤치마크는 없지만 몇 가지 평가 기준에는 StackOverflow 및 MSDN과 같은 온라인 포럼, wiki 및 온라인 콘텐츠, 회의 및 사용자 그룹, 팟캐스트, 웹 사이트, 블로그 및 소셜 미디어, 기사 및 저서와 관련된 후보자의 영향력이 포함됩니다. [메일을 보내](mailto:askdocdb@microsoft.com) 자신이나 다른 사용자를 후보로 지명할 수 있습니다.
+DocumentDB 마법사가 되고 싶으세요? DocumentDB 마법사가 되기 위한 벤치마크는 없지만 몇 가지 평가 기준에는 StackOverflow 및 MSDN과 같은 온라인 포럼, wiki 및 온라인 콘텐츠, 회의 및 사용자 그룹, 팟캐스트, 웹 사이트, 블로그 및 소셜 미디어, 기사 및 저서와 관련된 후보자의 영향력이 포함됩니다. [전자 메일을 보내서](mailto:askdocdb@microsoft.com) 자신이나 다른 사용자를 추천할 수 있습니다.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

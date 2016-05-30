@@ -31,7 +31,9 @@ Azure PowerShell을 사용하여 HDInsight 클러스터를 만드는 방법을 �
 이 문서의 지침을 시작하기 전에 다음이 있어야 합니다.
 
 - Azure 구독. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
-- Azure PowerShell. [Azure PowerShell 1.0 설치](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater)를 참조하세요.
+- Azure PowerShell.
+
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 
 
@@ -156,4 +158,4 @@ Azure PowerShell을 사용하여 HDInsight 클러스터를 만드는 ARM 템플�
 [ssisclustercreate]: http://msdn.microsoft.com/library/mt146774(v=sql.120).aspx
 [ssisclusterdelete]: http://msdn.microsoft.com/library/mt146778(v=sql.120).aspx
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

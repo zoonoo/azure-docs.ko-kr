@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/04/2016"
+   ms.date="05/12/2016"
    ms.author="subramar"/>
 
 
@@ -70,4 +70,4 @@ Azure 서비스 패브릭 응용 프로그램은 서비스의 컬렉션입니다
 
 [image]: media/service-fabric-application-upgrade/service-fabric-application-upgrade-flowchart.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

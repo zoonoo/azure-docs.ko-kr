@@ -1,10 +1,10 @@
 <properties
    pageTitle="Azure 데이터 카탈로그 지원되는 데이터 원본 | Microsoft Azure"
-   description="이 문서는 Azure 데이터 카탈로그에서 등록에 대해 지원되는 모든 데이터 원본 및 데이터 자산 형식을 나열합니다."
+   description="현재 지원되는 데이터 원본의 사양."
    services="data-catalog"
    documentationCenter=""
-   authors="steelanddata"
-   manager=""
+   authors="trhabe"
+   manager="jstrauss"
    editor=""
    tags=""/>
 <tags
@@ -13,24 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/31/2016"
-   ms.author="maroche"/>
+   ms.date="05/10/2016"
+   ms.author="trhabe"/>
 
 # Azure 데이터 카탈로그 지원되는 데이터 원본
 
-**Azure 데이터 카탈로그**의 사용자는 공용 API, ClickOnce 데이터 원본 등록 도구를 사용하거나 데이터 카탈로그 웹 포털에 정보를 직접 입력하여 메타데이터를 게시할 수 있습니다.
-
-아래 표는 현재 데이터 카탈로그로 지원되는 모든 원본 및 각각에 대한 게시 기능을 요약합니다. 또한 데이터 카탈로그 포털의 "열기" 경험에서 시작할 수 있는 각 원본에 대한 외부 데이터 도구가 나열되어 있습니다.
-
-아래는 각 데이터 원본 연결 속성 및 데이터 카탈로그 API를 사용할 때 지원되는 각 데이터 자산에 사용되는 DSR(데이터 원본 참조) 사양의 자세한 기술 사양을 제공하는 두 번째 표입니다.
+Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 공용 API를 사용하거나 데이터 카탈로그 웹 포털에 정보를 직접 입력하여 메타데이터를 게시할 수 있습니다. 아래 표는 현재 카탈로그로 지원되는 모든 원본 및 각각에 대한 게시 기능을 요약합니다. 또한 포털의 "열기" 경험에서 시작할 수 있는 각 원본에 대한 외부 데이터 도구가 나열되어 있습니다. 아래는 각 데이터 원본 연결 속성의 자세한 기술 사양이 있는 두 번째 표입니다.
 
 
-## 지원되는 데이터 원본 및 자산 목록
+## 지원되는 데이터 원본 목록
 
 <table>
 
     <tr>
-       <td><b>데이터 자산</b></td>
+       <td><b>데이터 원본 개체</b></td>
        <td><b>API</b></td>
        <td><b>수동 입력</b></td>
        <td><b>등록 도구</b></td>
@@ -72,6 +68,19 @@
       <td>✓</td>
       <td><font size=2>PowerBI</font></td>
       <td><font size=2></font></td>
+    </tr>
+
+    <tr>
+      <td>Azure 저장소 테이블</td>
+      <td>✓</td>
+      <td></td>
+      <td></td>
+      <td>
+        <font size="2"></font>
+      </td>
+      <td>
+        <font size="2"></font>
+      </td>
     </tr>
 
     <tr>
@@ -160,7 +169,7 @@
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2>Excel, PowerBI</font></td>
+      <td><font size=2>Excel, PowerBI, SQL Server Data Tools</font></td>
       <td><font size=2></font></td>
     </tr>
 
@@ -169,7 +178,7 @@
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2>Excel, PowerBI</font></td>
+      <td><font size=2>Excel, PowerBI, SQL Server Data Tools</font></td>
       <td><font size=2></font></td>
     </tr>
 
@@ -215,7 +224,7 @@
       <td>✓</td>
       <td>✓</td>
       <td><font size=2>브라우저</font></td>
-      <td><font size=2></font></td>
+      <td><font size=2>기본 모드 서버에만 해당. SharePoint 모드는 지원되지 않음.</font></td>
     </tr>
 
     <tr>
@@ -223,7 +232,7 @@
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2>Excel, PowerBI</font></td>
+      <td><font size=2>Excel, PowerBI, SQL Server Data Tools</font></td>
       <td><font size=2></font></td>
     </tr>
 
@@ -232,7 +241,7 @@
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2>Excel, PowerBI</font></td>
+      <td><font size=2>Excel, PowerBI, SQL Server Data Tools</font></td>
       <td><font size=2></font></td>
     </tr>
 
@@ -259,12 +268,12 @@
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2></font></td>
+      <td><font size=2>PowerBI</font></td>
       <td><font size=2></font></td>
     </tr>
 
     <tr>
-      <td>DB2 테이블</td>
+      <td>Db2 테이블</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -273,7 +282,7 @@
     </tr>
 
     <tr>
-      <td>DB2 뷰</td>
+      <td>Db2 뷰</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -400,893 +409,667 @@
 
 </table>
 
+추가적인 원본에 대한 지원이 필요하면, [Azure Data Catalog 포럼](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409)에 기능 요청을 제출해 주세요.
+
 
 <br> <br>
-
 ## 데이터 원본 참조 사양
-
+> [AZURE.NOTE] 아래 테이블의 "DSL 구조" 열에는 Azure Data Catalog에 사용되는 "address" 속성 모음에 대한 연결 속성만 나열됩니다.("address" 속성 모음은 Azure Data Catalog에서 유지하는 데이터 원본의 다른 연결 속성을 포함할 수 있지만, 사용하지는 않습니다.)
 <table>
-    <tr>
-       <td><b>원본 유형</b></td>
-       <td><b>루트 형식</b></td>
-       <td><b>개체 유형</b></td>
-       <td><b>개체 형식에 포함</b></td>
-       <td><b>DSR 구조<b></td>
-    </tr>
-
-
-    <tr>
-      <td>Azure 데이터 레이크 저장소</td>
-      <td>테이블</td>
-      <td>디렉터리</td>
-      <td>데이터 레이크</td>
-      <td>
-        <font size=2> 프로토콜: webhdfs
-            <br>인증:{기본, oauth}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Azure 데이터 레이크 저장소</td>
-      <td>테이블</td>
-      <td>파일</td>
-      <td>데이터 레이크</td>
-      <td>
-        <font size=2> 프로토콜: webhdfs}
-            <br>인증:{기본, oauth}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
-      </td>
-    </tr>
-
-
-
-    <tr>
-      <td>SQL Server Reporting Services</td>
-      <td>컨테이너</td>
-      <td>서버</td>
-      <td>해당 없음</td>
-      <td>
-        <font size=2> 프로토콜: reporting-services
-            <br>인증: {windows}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; 버전 {ReportingService2010} </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Azure 저장소</td>
-      <td>테이블</td>
-      <td>Blob</td>
-      <td>컨테이너</td>
-      <td>
-        <font size=2> 프로토콜:azure-blobs
-            <br>인증: {azure-access-key}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; 도메인
-            <br>&#160;&#160;&#160;&#160;&#160; 계정
-            <br>&#160;&#160;&#160;&#160;&#160; 컨테이너
-            <br>&#160;&#160;&#160;&#160;&#160; 이름 </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Azure 저장소</td>
-      <td>테이블</td>
-      <td>디렉터리</td>
-      <td>컨테이너</td>
-      <td>
-        <font size=2> 프로토콜:azure-blobs
-            <br>인증: {azure-access-key}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; 도메인
-            <br>&#160;&#160;&#160;&#160;&#160; 계정
-            <br>&#160;&#160;&#160;&#160;&#160; 컨테이너
-            <br>&#160;&#160;&#160;&#160;&#160; 이름 </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Azure 저장소</td>
-      <td>테이블</td>
-      <td>테이블</td>
-      <td>Azure 저장소</td>
-      <td>
-        <font size=2> 프로토콜:azure-tables
-            <br>인증: {azure-access-key}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; 도메인
-            <br>&#160;&#160;&#160;&#160;&#160; 계정
-            <br>&#160;&#160;&#160;&#160;&#160; 이름 </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>SQL Server Analysis Services</td>
-      <td>컨테이너</td>
-      <td>모델</td>
-      <td>해당 없음</td>
-      <td>
-        <font size=2> 프로토콜: analysis-services
-            <br>인증: {windows, 기본, 익명}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; database
-            <br>&#160;&#160;&#160;&#160;&#160; 모델
-            <br>
-            <br>*https을 통해서만 사용할 수 있는 기본/익명* </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>DB2</td>
-      <td>컨테이너</td>
-      <td>데이터베이스</td>
-      <td>해당 없음</td>
-      <td>
-        <font size=2> 프로토콜: db2
-            <br>인증: {기본, windows}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; 데이터베이스 </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>DB2</td>
-      <td>테이블</td>
-      <td>테이블</td>
-      <td>데이터베이스</td>
-      <td>
-        <font size=2> 프로토콜: db2
-            <br>인증: {기본, windows}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; database
-            <br>&#160;&#160;&#160;&#160;&#160; schema
-            <br>&#160;&#160;&#160;&#160;&#160; Object </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>DB2</td>
-      <td>테이블</td>
-      <td>보기</td>
-      <td>데이터베이스</td>
-      <td>
-        <font size=2> 프로토콜: db2
-            <br>인증: {기본, windows}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; database
-            <br>&#160;&#160;&#160;&#160;&#160; schema
-            <br>&#160;&#160;&#160;&#160;&#160; Object </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>파일 시스템</td>
-      <td>테이블</td>
-      <td>파일</td>
-      <td>서버</td>
-      <td>
-        <font size=2> 프로토콜: 파일
-            <br>인증: {없음, 기본, windows}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; 경로 </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Ftp</td>
-      <td>테이블</td>
-      <td>디렉터리</td>
-      <td>서버</td>
-      <td>
-        <font size=2> 프로토콜: ftp
-            <br>인증: {없음, 기본, windows}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Ftp</td>
-      <td>테이블</td>
-      <td>파일</td>
-      <td>서버</td>
-      <td>
-        <font size=2> 프로토콜: ftp
-            <br>인증: {없음, 기본, windows}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>SQL Server Analysis Services 테이블 형식</td>
-      <td>컨테이너</td>
-      <td>모델</td>
-      <td>해당 없음</td>
-      <td>
-        <font size=2> 프로토콜: analysis-services
-            <br>인증: {windows, 기본, 익명}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; database
-            <br>&#160;&#160;&#160;&#160;&#160; 모델
-            <br>
-            <br>*https을 통해서만 사용할 수 있는 기본/익명* </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Hadoop Distributed File System</td>
-      <td>테이블</td>
-      <td>디렉터리</td>
-      <td>프로비전</td>
-      <td>
-        <font size=2> 프로토콜:webhdfs
-            <br>인증:{기본, oauth}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Hadoop Distributed File System</td>
-      <td>테이블</td>
-      <td>파일</td>
-      <td>프로비전</td>
-      <td>
-        <font size=2> 프로토콜:webhdfs
-            <br>인증:{기본, oauth}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Azure 데이터 레이크 저장소</td>
-      <td>컨테이너</td>
-      <td>데이터 레이크</td>
-      <td>해당 없음</td>
-      <td>
-        <font size=2> 프로토콜: webhdfs
-            <br>인증:{기본, oauth}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Hive</td>
-      <td>테이블</td>
-      <td>테이블</td>
-      <td>데이터베이스</td>
-      <td>
-        <font size=2> 프로토콜:hive
-            <br>인증: {hdinsight, 기본, 사용자 이름}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; database
-            <br>&#160;&#160;&#160;&#160;&#160; object
-            <br>&#160;&#160;&#160;&#160;&#160; connectionProperties
-            <br>&#160;&#160;&#160;&#160;&#160; serverprotocol: {hive2} </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Hive</td>
-      <td>테이블</td>
-      <td>보기</td>
-      <td>데이터베이스</td>
-      <td>
-        <font size=2> 프로토콜:hive
-            <br>인증: {hdinsight, 기본, 사용자 이름}
-            <br>주소: 서버
-            <br>&#160;&#160;&#160;&#160;&#160; database
-            <br>&#160;&#160;&#160;&#160;&#160; object
-            <br>&#160;&#160;&#160;&#160;&#160; connectionProperties
-            <br>&#160;&#160;&#160;&#160;&#160; serverprotocol: {hive2} </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Azure 저장소</td>
-      <td>컨테이너</td>
-      <td>Azure 저장소</td>
-      <td>해당 없음</td>
-      <td>
-        <font size=2> 프로토콜:azure-tables
-            <br>인증: {azure-access-key}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; 도메인
-            <br>&#160;&#160;&#160;&#160;&#160; 계정 </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Http</td>
-      <td>컨테이너</td>
-      <td>사이트</td>
-      <td>해당 없음</td>
-      <td>
-        <font size=2> 프로토콜: http
-            <br>인증: {없음, 기본, windows}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Http</td>
-      <td>보고서</td>
-      <td>보고서</td>
-      <td>사이트</td>
-      <td>
-        <font size=2> 프로토콜: http
-            <br>인증: {없음, 기본, windows}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Http</td>
-      <td>테이블</td>
-      <td>끝점</td>
-      <td>사이트</td>
-      <td>
-        <font size=2> 프로토콜: http
-            <br>인증: {없음, 기본, windows}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Azure 저장소</td>
-      <td>컨테이너</td>
-      <td>컨테이너</td>
-      <td>해당 없음</td>
-      <td>
-        <font size=2> 프로토콜:azure-blobs
-            <br>인증: {Azure-Access-Key}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; 도메인
-            <br>&#160;&#160;&#160;&#160;&#160; 계정
-            <br>&#160;&#160;&#160;&#160;&#160; 컨테이너 </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>MySQL</td>
-      <td>테이블</td>
-      <td>테이블</td>
-      <td>데이터베이스</td>
-      <td>
-        <font size=2> 프로토콜: mysql
-            <br>인증: {프로토콜, windows}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; database
-            <br>&#160;&#160;&#160;&#160;&#160; Object </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>MySQL</td>
-      <td>테이블</td>
-      <td>보기</td>
-      <td>데이터베이스</td>
-      <td>
-        <font size=2> 프로토콜: mysql
-            <br>인증: {프로토콜, windows}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; database
-            <br>&#160;&#160;&#160;&#160;&#160; Object </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Hadoop Distributed File System</td>
-      <td>컨테이너</td>
-      <td>프로비전</td>
-      <td>해당 없음</td>
-      <td>
-        <font size=2> 프로토콜:webhdfs
-            <br>인증:{기본, oauth}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Http</td>
-      <td>테이블</td>
-      <td>파일</td>
-      <td>사이트</td>
-      <td>
-        <font size=2> 프로토콜: http
-            <br>인증: {없음, 기본, windows}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Odata</td>
-      <td>컨테이너</td>
-      <td>엔터티 컨테이너</td>
-      <td>해당 없음</td>
-      <td>
-        <font size=2> 프로토콜: odata
-            <br>인증: {없음, 기본, windows}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Hive</td>
-      <td>컨테이너</td>
-      <td>데이터베이스</td>
-      <td>해당 없음</td>
-      <td>
-        <font size=2> 프로토콜: hiveserver2
-            <br>인증: {hdinsight, 기본, 사용자 이름, 없음}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; 포트
-            <br>&#160;&#160;&#160;&#160;&#160; 데이터베이스 </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Odata</td>
-      <td>테이블</td>
-      <td>엔터티 집합</td>
-      <td>엔터티 컨테이너</td>
-      <td>
-        <font size=2> 프로토콜: odata
-            <br>인증: {없음, 기본, windows}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; url
-            <br>&#160;&#160;&#160;&#160;&#160; 리소스 </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Oracle 데이터베이스</td>
-      <td>테이블</td>
-      <td>테이블</td>
-      <td>데이터베이스</td>
-      <td>
-        <font size=2> 프로토콜: oracle
-            <br>인증: {프로토콜, windows}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; database
-            <br>&#160;&#160;&#160;&#160;&#160; schema
-            <br>&#160;&#160;&#160;&#160;&#160; Object </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Oracle 데이터베이스</td>
-      <td>테이블</td>
-      <td>보기</td>
-      <td>데이터베이스</td>
-      <td>
-        <font size=2> 프로토콜: oracle
-            <br>인증: {프로토콜, windows}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; database
-            <br>&#160;&#160;&#160;&#160;&#160; schema
-            <br>&#160;&#160;&#160;&#160;&#160; Object </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Odata</td>
-      <td>테이블</td>
-      <td>함수</td>
-      <td>엔터티 컨테이너</td>
-      <td>
-        <font size=2> 프로토콜: odata
-            <br>인증: {없음, 기본, windows}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; url
-            <br>&#160;&#160;&#160;&#160;&#160; 리소스 </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>기타</td>
-      <td>테이블</td>
-      <td>기타</td>
-      <td>해당 없음</td>
-      <td>
-        <font size=2> 프로토콜: generic-asset
-            <br>인증: {없음, 기본, windows}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; assetId </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Postgresql</td>
-      <td>컨테이너</td>
-      <td>데이터베이스</td>
-      <td>해당 없음</td>
-      <td>
-        <font size=2> 프로토콜: postgresql
-            <br>인증: {기본, windows}
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; 데이터베이스 </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Postgresql</td>
-      <td>테이블</td>
-      <td>테이블</td>
-      <td>데이터베이스</td>
-      <td>
-        <font size=2> 프로토콜: postgresql
-            <br>인증: {기본, windows}
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; database
-            <br>&#160;&#160;&#160;&#160;&#160; schema
-            <br>&#160;&#160;&#160;&#160;&#160; Object </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Postgresql</td>
-      <td>테이블</td>
-      <td>보기</td>
-      <td>데이터베이스</td>
-      <td>
-        <font size=2> 프로토콜: postgresql
-            <br>인증: {기본, windows}
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; database
-            <br>&#160;&#160;&#160;&#160;&#160; schema
-            <br>&#160;&#160;&#160;&#160;&#160; Object </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>MySQL</td>
-      <td>컨테이너</td>
-      <td>데이터베이스</td>
-      <td>해당 없음</td>
-      <td>
-        <font size=2> 프로토콜: mysql
-            <br>인증: {프로토콜, windows}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; 데이터베이스 </font>
-      </td>
-    </tr>
-    <tr>
-      <td>SAP Hana</td>
-      <td>테이블</td>
-      <td>보기</td>
-      <td>서버</td>
-      <td>
-        <font size=2> 프로토콜: sap-hana-sql
-            <br>인증: {프로토콜, windows}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; schema
-            <br>&#160;&#160;&#160;&#160;&#160; Object </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Salesforce</td>
-      <td>테이블</td>
-      <td>Object</td>
-      <td>해당 없음</td>
-      <td>
-        <font size=2> 프로토콜: salesforce-com
-            <br>인증: {기본, windows}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; loginServer
-            <br>&#160;&#160;&#160;&#160;&#160; class
-            <br>&#160;&#160;&#160;&#160;&#160; itemName </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>SharePoint</td>
-      <td>테이블</td>
-      <td>나열</td>
-      <td>사이트</td>
-      <td>
-        <font size=2> 프로토콜: sharepoint-list
-            <br>인증: {기본, windows}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>SQL 데이터 웨어하우스</td>
-      <td>테이블</td>
-      <td>테이블</td>
-      <td>데이터베이스</td>
-      <td>
-        <font size=2> 프로토콜: tds
-            <br>인증: {sql, windows}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; database
-            <br>&#160;&#160;&#160;&#160;&#160; schema
-            <br>&#160;&#160;&#160;&#160;&#160; Object </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>SQL 데이터 웨어하우스</td>
-      <td>테이블</td>
-      <td>보기</td>
-      <td>데이터베이스</td>
-      <td>
-        <font size=2> 프로토콜: tds
-            <br>인증: {sql, windows}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; database
-            <br>&#160;&#160;&#160;&#160;&#160; schema
-            <br>&#160;&#160;&#160;&#160;&#160; Object </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>SQL Server</td>
-      <td>테이블</td>
-      <td>테이블</td>
-      <td>데이터베이스</td>
-      <td>
-        <font size=2> 프로토콜: tds
-            <br>인증: {sql, windows}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; database
-            <br>&#160;&#160;&#160;&#160;&#160; schema
-            <br>&#160;&#160;&#160;&#160;&#160; Object </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>SQL Server</td>
-      <td>테이블</td>
-      <td>테이블 값 함수</td>
-      <td>데이터베이스</td>
-      <td>
-        <font size=2> 프로토콜: tds
-            <br>인증: {sql, windows}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; database
-            <br>&#160;&#160;&#160;&#160;&#160; schema
-            <br>&#160;&#160;&#160;&#160;&#160; Object </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>SQL Server</td>
-      <td>테이블</td>
-      <td>보기</td>
-      <td>데이터베이스</td>
-      <td>
-        <font size=2> 프로토콜: tds
-            <br>인증: {sql, windows}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; database
-            <br>&#160;&#160;&#160;&#160;&#160; schema
-            <br>&#160;&#160;&#160;&#160;&#160; Object </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Oracle 데이터베이스</td>
-      <td>컨테이너</td>
-      <td>데이터베이스</td>
-      <td>해당 없음</td>
-      <td>
-        <font size=2> 프로토콜: oracle
-            <br>인증: {프로토콜, windows}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; 데이터베이스 </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>SQL Server Analysis Services</td>
-      <td>KPI</td>
-      <td>KPI</td>
-      <td>모델</td>
-      <td>
-        <font size=2> 프로토콜: analysis-services
-            <br>인증: {windows, 기본, 익명}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; database
-            <br>&#160;&#160;&#160;&#160;&#160; 모델
-            <br>&#160;&#160;&#160;&#160;&#160; object
-            <br>&#160;&#160;&#160;&#160;&#160; objectType: {Kpi}
-            <br>
-            <br>*https을 통해서만 사용할 수 있는 기본/익명* </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>SQL Server Analysis Services</td>
-      <td>측정값</td>
-      <td>측정값</td>
-      <td>모델</td>
-      <td>
-        <font size=2> 프로토콜: analysis-services
-            <br>인증: {windows, 기본, 익명}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; database
-            <br>&#160;&#160;&#160;&#160;&#160; 모델
-            <br>&#160;&#160;&#160;&#160;&#160; object
-            <br>&#160;&#160;&#160;&#160;&#160; objectType: {측정값} </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>SQL Server Analysis Services</td>
-      <td>테이블</td>
-      <td>차원</td>
-      <td>모델</td>
-      <td>
-        <font size=2> 프로토콜: analysis-services
-            <br>인증: {windows, 기본, 익명}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; database
-            <br>&#160;&#160;&#160;&#160;&#160; 모델
-            <br>&#160;&#160;&#160;&#160;&#160; object
-            <br>&#160;&#160;&#160;&#160;&#160; objectType: {차원} </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>SAP Hana</td>
-      <td>컨테이너</td>
-      <td>서버</td>
-      <td>해당 없음</td>
-      <td>
-        <font size=2> 프로토콜: sap-hana-sql
-            <br>인증: {프로토콜, windows}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; 서버 </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>SQL Server Analysis Services 테이블 형식</td>
-      <td>테이블</td>
-      <td>테이블</td>
-      <td>모델</td>
-      <td>
-        <font size=2> 프로토콜: analysis-services
-            <br>인증: {windows, 기본, 익명}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; database
-            <br>&#160;&#160;&#160;&#160;&#160; 모델
-            <br>&#160;&#160;&#160;&#160;&#160; object
-            <br>&#160;&#160;&#160;&#160;&#160; objectType: {테이블}
-            <br>
-            <br>*https을 통해서만 사용할 수 있는 기본/익명* </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>SQL 데이터 웨어하우스</td>
-      <td>컨테이너</td>
-      <td>데이터베이스</td>
-      <td>해당 없음</td>
-      <td>
-        <font size=2> 프로토콜: tds
-            <br>인증: {sql, windows}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; 데이터베이스 </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>SQL Server</td>
-      <td>컨테이너</td>
-      <td>데이터베이스</td>
-      <td>해당 없음</td>
-      <td>
-        <font size=2> 프로토콜: tds
-            <br>인증: {sql, windows}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; 데이터베이스 </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>SQL Server Reporting Services</td>
-      <td>보고서</td>
-      <td>보고서</td>
-      <td>서버</td>
-      <td>
-        <font size=2> 프로토콜: reporting-services
-            <br>인증: {windows}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; path
-            <br>&#160;&#160;&#160;&#160;&#160; 버전 {ReportingService2010} </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Teradata</td>
-      <td>컨테이너</td>
-      <td>데이터베이스</td>
-      <td>해당 없음</td>
-      <td>
-        <font size=2> 프로토콜: teradata
-            <br>인증: {프로토콜, windows}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; 데이터베이스 </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Teradata</td>
-      <td>테이블</td>
-      <td>테이블</td>
-      <td>데이터베이스</td>
-      <td>
-        <font size=2> 프로토콜: teradata
-            <br>인증: {프로토콜, windows}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; database
-            <br>&#160;&#160;&#160;&#160;&#160; Object </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Teradata</td>
-      <td>테이블</td>
-      <td>보기</td>
-      <td>데이터베이스</td>
-      <td>
-        <font size=2> 프로토콜: teradata
-            <br>인증: {프로토콜, windows}
-            <br>주소:
-            <br>&#160;&#160;&#160;&#160;&#160; server
-            <br>&#160;&#160;&#160;&#160;&#160; database
-            <br>&#160;&#160;&#160;&#160;&#160; Object </font>
-      </td>
-    </tr>
-
-
-
-</table>
-
-<!---HONumber=AcomDC_0406_2016-->
+>     <tr>
+>        <td><b>원본 유형</b></td>
+>        <td><b>자산 형식</b></td>
+>        <td><b>개체 유형</b></td>
+>        <td><b>DSL 구조<b></td>
+>     </tr>
+>     <tr>
+>       <td>Azure 데이터 레이크 저장소</td>
+>       <td>컨테이너</td>
+>       <td>데이터 레이크</td>
+>       <td>
+>         <font size=2> 프로토콜: webhdfs
+>             <br>authentication: {basic, oauth}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; url </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>Azure 데이터 레이크 저장소</td>
+>       <td>테이블</td>
+>       <td>디렉터리, 파일</td>
+>       <td>
+>         <font size=2> 프로토콜: webhdfs
+>             <br>authentication: {basic, oauth}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; url </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>Azure 저장소</td>
+>       <td>컨테이너</td>
+>       <td>컨테이너</td>
+>       <td>
+>         <font size=2> protocol: azure-blobs
+>             <br>인증: {azure-access-key}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; 도메인
+>             <br>&#160;&#160;&#160;&#160;&#160; 계정
+>             <br>&#160;&#160;&#160;&#160;&#160; 컨테이너 </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>Azure 저장소</td>
+>       <td>테이블</td>
+>       <td>Blob, 디렉터리</td>
+>       <td>
+>         <font size=2> protocol: azure-blobs
+>             <br>인증: {azure-access-key}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; 도메인
+>             <br>&#160;&#160;&#160;&#160;&#160; 계정
+>             <br>&#160;&#160;&#160;&#160;&#160; 컨테이너
+>             <br>&#160;&#160;&#160;&#160;&#160; 이름 </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>Azure 저장소</td>
+>       <td>컨테이너</td>
+>       <td>컨테이너</td>
+>       <td>
+>         <font size=2> protocol: azure-tables
+>             <br>인증: {azure-access-key}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; 도메인
+>             <br>&#160;&#160;&#160;&#160;&#160; 계정 </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>Azure 저장소</td>
+>       <td>테이블</td>
+>       <td>테이블</td>
+>       <td>
+>         <font size=2> protocol: azure-tables
+>             <br>인증: {azure-access-key}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; 도메인
+>             <br>&#160;&#160;&#160;&#160;&#160; 계정
+>             <br>&#160;&#160;&#160;&#160;&#160; 이름 </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>Cosmos</td>
+>       <td>컨테이너</td>
+>       <td>가상 클러스터</td>
+>       <td>
+>         <font size=2> 프로토콜: cosmos
+>             <br>인증: {기본, windows}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; url </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>Cosmos</td>
+>       <td>테이블</td>
+>       <td>스트림, 스트림 집합, 뷰</td>
+>       <td>
+>         <font size=2> 프로토콜: cosmos
+>             <br>인증: {기본, windows}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; url </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>DataZen</td>
+>       <td>컨테이너</td>
+>       <td>사이트</td>
+>       <td>
+>         <font size=2> 프로토콜: http
+>             <br>authentication: {none, basic, windows, oauth}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; url </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>DataZen</td>
+>       <td>보고서</td>
+>       <td>보고서, 대시보드</td>
+>       <td>
+>         <font size=2> 프로토콜: http
+>             <br>authentication: {none, basic, windows, oauth}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; url </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>Db2</td>
+>       <td>컨테이너</td>
+>       <td>데이터베이스</td>
+>       <td>
+>         <font size=2> 프로토콜: db2
+>             <br>인증: {기본, windows}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; server
+>             <br>&#160;&#160;&#160;&#160;&#160; 데이터베이스 </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>Db2</td>
+>       <td>테이블</td>
+>       <td>테이블, 뷰</td>
+>       <td>
+>         <font size=2> 프로토콜: db2
+>             <br>인증: {기본, windows}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; server
+>             <br>&#160;&#160;&#160;&#160;&#160; database
+>             <br>&#160;&#160;&#160;&#160;&#160; object
+>             <br>&#160;&#160;&#160;&#160;&#160; 스키마 </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>파일 시스템</td>
+>       <td>테이블</td>
+>       <td>파일</td>
+>       <td>
+>         <font size=2> 프로토콜: 파일
+>             <br>인증: {없음, 기본, windows}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; 경로 </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>Ftp</td>
+>       <td>테이블</td>
+>       <td>디렉터리, 파일</td>
+>       <td>
+>         <font size=2> 프로토콜: ftp
+>             <br>인증: {없음, 기본, windows}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; url </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>Hadoop Distributed File System</td>
+>       <td>컨테이너</td>
+>       <td>프로비전</td>
+>       <td>
+>         <font size=2> 프로토콜: webhdfs
+>             <br>authentication: {basic, oauth}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; url </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>Hadoop Distributed File System</td>
+>       <td>테이블</td>
+>       <td>디렉터리, 파일</td>
+>       <td>
+>         <font size=2> 프로토콜: webhdfs
+>             <br>authentication: {basic, oauth}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; url </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>Hive</td>
+>       <td>컨테이너</td>
+>       <td>데이터베이스</td>
+>       <td>
+>         <font size=2> protocol: hive
+>             <br>인증: {hdinsight, 기본, 사용자 이름, 없음}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; server
+>             <br>&#160;&#160;&#160;&#160;&#160; database
+>             <br>connectionProperties:
+>             <br>&#160;&#160;&#160;&#160;&#160; serverProtocol: {hive2} </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>Hive</td>
+>       <td>테이블</td>
+>       <td>테이블, 뷰</td>
+>       <td>
+>         <font size=2> protocol: hive
+>             <br>인증: {hdinsight, 기본, 사용자 이름, 없음}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; server
+>             <br>&#160;&#160;&#160;&#160;&#160; database
+>             <br>&#160;&#160;&#160;&#160;&#160; object
+>             <br>connectionProperties:
+>             <br>&#160;&#160;&#160;&#160;&#160; serverProtocol: {hive2} </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>Http</td>
+>       <td>컨테이너</td>
+>       <td>사이트</td>
+>       <td>
+>         <font size=2> 프로토콜: http
+>             <br>authentication: {none, basic, windows, oauth}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; url </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>Http</td>
+>       <td>보고서</td>
+>       <td>보고서, 대시보드</td>
+>       <td>
+>         <font size=2> 프로토콜: http
+>             <br>authentication: {none, basic, windows, oauth}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; url </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>Http</td>
+>       <td>테이블</td>
+>       <td>끝점, 파일</td>
+>       <td>
+>         <font size=2> 프로토콜: http
+>             <br>authentication: {none, basic, windows, oauth}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; url </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>MySQL</td>
+>       <td>컨테이너</td>
+>       <td>데이터베이스</td>
+>       <td>
+>         <font size=2> 프로토콜: mysql
+>             <br>인증: {프로토콜, windows}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; server
+>             <br>&#160;&#160;&#160;&#160;&#160; 데이터베이스 </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>MySQL</td>
+>       <td>테이블</td>
+>       <td>테이블, 뷰</td>
+>       <td>
+>         <font size=2> 프로토콜: mysql
+>             <br>인증: {프로토콜, windows}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; server
+>             <br>&#160;&#160;&#160;&#160;&#160; database
+>             <br>&#160;&#160;&#160;&#160;&#160; Object </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>Odata</td>
+>       <td>컨테이너</td>
+>       <td>엔터티 컨테이너</td>
+>       <td>
+>         <font size=2> 프로토콜: odata
+>             <br>인증: {없음, 기본, windows}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; url </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>Odata</td>
+>       <td>테이블</td>
+>       <td>엔터티 집합, 함수</td>
+>       <td>
+>         <font size=2> 프로토콜: odata
+>             <br>인증: {없음, 기본, windows}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; url
+>             <br>&#160;&#160;&#160;&#160;&#160; 리소스 </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>Oracle 데이터베이스</td>
+>       <td>컨테이너</td>
+>       <td>데이터베이스</td>
+>       <td>
+>         <font size=2> 프로토콜: oracle
+>             <br>인증: {프로토콜, windows}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; server
+>             <br>&#160;&#160;&#160;&#160;&#160; 데이터베이스 </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>Oracle 데이터베이스</td>
+>       <td>테이블</td>
+>       <td>테이블, 뷰</td>
+>       <td>
+>         <font size=2> 프로토콜: oracle
+>             <br>인증: {프로토콜, windows}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; server
+>             <br>&#160;&#160;&#160;&#160;&#160; database
+>             <br>&#160;&#160;&#160;&#160;&#160; schema
+>             <br>&#160;&#160;&#160;&#160;&#160; Object </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>Postgresql</td>
+>       <td>컨테이너</td>
+>       <td>데이터베이스</td>
+>       <td>
+>         <font size=2> 프로토콜: postgresql
+>             <br>인증: {기본, windows}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; server
+>             <br>&#160;&#160;&#160;&#160;&#160; 데이터베이스 </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>Postgresql</td>
+>       <td>테이블</td>
+>       <td>테이블, 뷰</td>
+>       <td>
+>         <font size=2> 프로토콜: postgresql
+>             <br>인증: {기본, windows}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; server
+>             <br>&#160;&#160;&#160;&#160;&#160; database
+>             <br>&#160;&#160;&#160;&#160;&#160; schema
+>             <br>&#160;&#160;&#160;&#160;&#160; Object </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>Power BI</td>
+>       <td>컨테이너</td>
+>       <td>사이트</td>
+>       <td>
+>         <font size=2> 프로토콜: http
+>             <br>authentication: {none, basic, windows, oauth}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; url </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>Power BI</td>
+>       <td>보고서</td>
+>       <td>보고서, 대시보드</td>
+>       <td>
+>         <font size=2> 프로토콜: http
+>             <br>authentication: {none, basic, windows, oauth}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; url </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>Salesforce</td>
+>       <td>테이블</td>
+>       <td>Object</td>
+>       <td>
+>         <font size=2> 프로토콜: salesforce-com
+>             <br>인증: {기본, windows}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; loginServer
+>             <br>&#160;&#160;&#160;&#160;&#160; class
+>             <br>&#160;&#160;&#160;&#160;&#160; itemName </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>SAP Hana</td>
+>       <td>컨테이너</td>
+>       <td>서버</td>
+>       <td>
+>         <font size=2> 프로토콜: sap-hana-sql
+>             <br>인증: {프로토콜, windows}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; 서버 </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>SAP Hana</td>
+>       <td>테이블</td>
+>       <td>보기</td>
+>       <td>
+>         <font size=2> 프로토콜: sap-hana-sql
+>             <br>인증: {프로토콜, windows}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; server
+>             <br>&#160;&#160;&#160;&#160;&#160; schema
+>             <br>&#160;&#160;&#160;&#160;&#160; Object </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>SharePoint</td>
+>       <td>테이블</td>
+>       <td>나열</td>
+>       <td>
+>         <font size=2> 프로토콜: sharepoint-list
+>             <br>인증: {기본, windows}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; url </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>SQL 데이터 웨어하우스</td>
+>       <td>컨테이너</td>
+>       <td>데이터베이스</td>
+>       <td>
+>         <font size=2> 프로토콜: tds
+>             <br>인증: {프로토콜, windows}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; server
+>             <br>&#160;&#160;&#160;&#160;&#160; 데이터베이스 </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>SQL 데이터 웨어하우스</td>
+>       <td>테이블</td>
+>       <td>테이블, 뷰</td>
+>       <td>
+>         <font size=2> 프로토콜: tds
+>             <br>인증: {프로토콜, windows}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; server
+>             <br>&#160;&#160;&#160;&#160;&#160; database
+>             <br>&#160;&#160;&#160;&#160;&#160; schema
+>             <br>&#160;&#160;&#160;&#160;&#160; Object </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>SQL Server</td>
+>       <td>컨테이너</td>
+>       <td>데이터베이스</td>
+>       <td>
+>         <font size=2> 프로토콜: tds
+>             <br>인증: {프로토콜, windows}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; server
+>             <br>&#160;&#160;&#160;&#160;&#160; 데이터베이스 </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>SQL Server</td>
+>       <td>테이블</td>
+>       <td>테이블, 뷰, 테이블 값 함수</td>
+>       <td>
+>         <font size=2> 프로토콜: tds
+>             <br>인증: {프로토콜, windows}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; server
+>             <br>&#160;&#160;&#160;&#160;&#160; database
+>             <br>&#160;&#160;&#160;&#160;&#160; schema
+>             <br>&#160;&#160;&#160;&#160;&#160; Object </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>SQL Server Analysis Services 다차원</td>
+>       <td>컨테이너</td>
+>       <td>모델</td>
+>       <td>
+>         <font size=2> 프로토콜: analysis-services
+>             <br>authentication: {windows, basic, anonymous, none}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; server
+>             <br>&#160;&#160;&#160;&#160;&#160; database
+>             <br>&#160;&#160;&#160;&#160;&#160; 모델 </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>SQL Server Analysis Services 다차원</td>
+>       <td>KPI</td>
+>       <td>KPI</td>
+>       <td>
+>         <font size=2> 프로토콜: analysis-services
+>             <br>authentication: {windows, basic, anonymous, none}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; server
+>             <br>&#160;&#160;&#160;&#160;&#160; database
+>             <br>&#160;&#160;&#160;&#160;&#160; 모델
+>             <br>&#160;&#160;&#160;&#160;&#160; object
+>             <br>&#160;&#160;&#160;&#160;&#160; objectType: {KPI} </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>SQL Server Analysis Services 다차원</td>
+>       <td>측정값</td>
+>       <td>측정값</td>
+>       <td>
+>         <font size=2> 프로토콜: analysis-services
+>             <br>authentication: {windows, basic, anonymous, none}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; server
+>             <br>&#160;&#160;&#160;&#160;&#160; database
+>             <br>&#160;&#160;&#160;&#160;&#160; 모델
+>             <br>&#160;&#160;&#160;&#160;&#160; object
+>             <br>&#160;&#160;&#160;&#160;&#160; objectType: {측정값} </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>SQL Server Analysis Services 다차원</td>
+>       <td>테이블</td>
+>       <td>차원</td>
+>       <td>
+>         <font size=2> 프로토콜: analysis-services
+>             <br>authentication: {windows, basic, anonymous, none}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; server
+>             <br>&#160;&#160;&#160;&#160;&#160; database
+>             <br>&#160;&#160;&#160;&#160;&#160; 모델
+>             <br>&#160;&#160;&#160;&#160;&#160; object
+>             <br>&#160;&#160;&#160;&#160;&#160; objectType: {차원} </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>SQL Server Analysis Services 테이블 형식</td>
+>       <td>컨테이너</td>
+>       <td>모델</td>
+>       <td>
+>         <font size=2> 프로토콜: analysis-services
+>             <br>authentication: {windows, basic, anonymous, none}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; server
+>             <br>&#160;&#160;&#160;&#160;&#160; database
+>             <br>&#160;&#160;&#160;&#160;&#160; 모델 </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>SQL Server Analysis Services 테이블 형식</td>
+>       <td>KPI</td>
+>       <td>KPI</td>
+>       <td>
+>         <font size=2> 프로토콜: analysis-services
+>             <br>authentication: {windows, basic, anonymous, none}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; server
+>             <br>&#160;&#160;&#160;&#160;&#160; database
+>             <br>&#160;&#160;&#160;&#160;&#160; 모델
+>             <br>&#160;&#160;&#160;&#160;&#160; object
+>             <br>&#160;&#160;&#160;&#160;&#160; objectType: {KPI} </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>SQL Server Analysis Services 테이블 형식</td>
+>       <td>측정값</td>
+>       <td>측정값</td>
+>       <td>
+>         <font size=2> 프로토콜: analysis-services
+>             <br>authentication: {windows, basic, anonymous, none}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; server
+>             <br>&#160;&#160;&#160;&#160;&#160; database
+>             <br>&#160;&#160;&#160;&#160;&#160; 모델
+>             <br>&#160;&#160;&#160;&#160;&#160; object
+>             <br>&#160;&#160;&#160;&#160;&#160; objectType: {측정값} </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>SQL Server Analysis Services 테이블 형식</td>
+>       <td>테이블</td>
+>       <td>테이블</td>
+>       <td>
+>         <font size=2> 프로토콜: analysis-services
+>             <br>authentication: {windows, basic, anonymous, none}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; server
+>             <br>&#160;&#160;&#160;&#160;&#160; database
+>             <br>&#160;&#160;&#160;&#160;&#160; 모델
+>             <br>&#160;&#160;&#160;&#160;&#160; object
+>             <br>&#160;&#160;&#160;&#160;&#160; objectType: {Table} </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>SQL Server Reporting Services</td>
+>       <td>컨테이너</td>
+>       <td>서버</td>
+>       <td>
+>         <font size=2> 프로토콜: reporting-services
+>             <br>인증: {windows}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; server
+>             <br>&#160;&#160;&#160;&#160;&#160; version: {ReportingService2010} </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>SQL Server Reporting Services</td>
+>       <td>보고서</td>
+>       <td>보고서</td>
+>       <td>
+>         <font size=2> 프로토콜: reporting-services
+>             <br>인증: {windows}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; server
+>             <br>&#160;&#160;&#160;&#160;&#160; path
+>             <br>&#160;&#160;&#160;&#160;&#160; version: {ReportingService2010} </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>Teradata</td>
+>       <td>컨테이너</td>
+>       <td>데이터베이스</td>
+>       <td>
+>         <font size=2> 프로토콜: teradata
+>             <br>인증: {프로토콜, windows}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; server
+>             <br>&#160;&#160;&#160;&#160;&#160; 데이터베이스 </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>Teradata</td>
+>       <td>테이블</td>
+>       <td>테이블, 뷰</td>
+>       <td>
+>         <font size=2> 프로토콜: teradata
+>             <br>인증: {프로토콜, windows}
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; server
+>             <br>&#160;&#160;&#160;&#160;&#160; database
+>             <br>&#160;&#160;&#160;&#160;&#160; Object </font>
+>       </td>
+>     </tr>
+>     <tr>
+>       <td>기타(위에 없는 항목)</td>
+>       <td>*</td>
+>       <td>*</td>
+>       <td>
+>         <font size=2> 프로토콜: generic-asset
+>             <br>주소:
+>             <br>&#160;&#160;&#160;&#160;&#160; assetId </font>
+>       </td>
+>     </tr>
+> </table>
+
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,21 +13,27 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/12/2016" 
+	ms.date="05/17/2016" 
 	ms.author="nitinme"/>
 
 # HDInsight Hadoop 클러스터에 Giraph를 설치하고 Giraph를 사용하여 대규모 그래프를 처리합니다.
 
-스크립트 동작을 사용하여 Giraph로 Windows 기반 HDInsight 클러스터를 사용자 지정하는 방법 및 대규모 그래프를 처리하기 위해 Giraph를 사용하는 방법을 알아봅니다. Linux 기반 클러스터와 함께 Giraph를 사용한 작업에 대한 자세한 내용은 [HDInsight Hadoop 클러스터에 Giraph 설치(Linux)](hdinsight-hadoop-giraph-install-linux.md)를 참조하세요.
+스크립트 작업을 사용하여 Giraph로 Windows 기반 HDInsight 클러스터를 사용자 지정하는 방법 및 대규모 그래프를 처리하기 위해 Giraph를 사용하는 방법을 알아봅니다. Linux 기반 클러스터와 함께 Giraph를 사용한 작업에 대한 자세한 내용은 [HDInsight Hadoop 클러스터에 Giraph 설치(Linux)](hdinsight-hadoop-giraph-install-linux.md)를 참조하세요.
  
 *스크립트 작업*을 사용하여 Azure HDInsight에서 모든 형식의 클러스터(Hadoop, Storm, HBase, Spark)에 Giraph를 설치할 수 있습니다. HDInsight 클러스터에 Giraph를 설치하는 샘플 스크립트는 읽기 전용 Azure 저장소 Blob([https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1))에서 다운로드할 수 있습니다. 샘플 스크립트는 HDInsight 클러스터 버전 3.1에서만 작동합니다. HDInsight 클러스터 버전에 대한 자세한 내용은 [HDInsight 클러스터 버전](hdinsight-component-versioning.md)을 참조하세요.
+
+> [AZURE.IMPORTANT] 이 문서의 단계는 Azure 클래식 포털을 사용합니다. 새 서비스를 만들 때 클래식 포털을 사용하지 않는 것이 좋습니다. Azure 포털의 장점에 대한 자세한 내용은 [Microsoft Azure 포털](https://azure.microsoft.com/features/azure-portal/)을 참조하세요.
+>
+> 또한 이 문서는 Azure PowerShell을 사용하는 방법에 관한 정보도 포함하고 있습니다. 제공된 코드 조각은 ASM(Azure 서비스 관리)을 사용하여 HDInsight와 작동하고 현재 __사용되지 않는__ 명령을 기반으로 작성되었습니다. 이러한 명령은 2017년 1월 1일에 제거됩니다.
+>
+>ARM(Azure Resource Manager)을 사용하는 Azure 리소스 PowerShell 코드 조각과 함께 Azure 포털을 사용하는 이 문서의 버전에 대해서는 [HDInsight 클러스터에 Giraph 설치](hdinsight-hadoop-giraph-install.md)를 참조하세요.
 
 **관련된 문서**
 
 - [HDInsight 클러스터에서 Giraph 설치](hdinsight-hadoop-giraph-install.md): Azure 포털을 사용하여 Giraph를 설치합니다.
 - [HDInsight Hadoop 클러스터에 Giraph 설치(Linux)](hdinsight-hadoop-giraph-install-linux.md)
 - [HDInsight에서 Hadoop 클러스터 만들기](hdinsight-provision-clusters.md): HDInsight 클러스터를 만드는 방법에 대한 일반 정보입니다.
-- [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-cluster-customize]\: 스크립트 동작을 사용하여 HDInsight 클러스터를 사용자 지정하는 데 대한 일반 정보입니다.
+- [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-cluster-customize]\: 스크립트 작업을 사용하여 HDInsight 클러스터를 사용자 지정하는 데 대한 일반 정보입니다.
 - [HDInsight용 스크립트 작업 스크립트 개발](hdinsight-hadoop-script-actions.md)
 
 
@@ -41,26 +47,24 @@
    
 ## 포털을 사용하여 Giraph 설치
 
-[AZURE.INCLUDE [hdinsight-azure-portal](../../includes/hdinsight-azure-portal.md)]
-
-* [HDInsight 클러스터에 Giraph 설치](hdinsight-hadoop-giraph-install.md)
-
 1. [HDInsight에서 사용자 지정 옵션을 사용하여 Hadoop 클러스터 만들기](hdinsight-provision-clusters.md#portal)에서 설명한 대로 **사용자 지정 만들기** 옵션을 사용하여 클러스터를 만들기 시작합니다. 
 2. 아래와 같이 마법사의 **스크립트 작업** 페이지에서 **스크립트 작업 추가**를 클릭하여 스크립트 작업에 대한 세부 정보를 제공합니다.
 
 	![스크립트 작업을 사용하여 클러스터 사용자 지정](./media/hdinsight-hadoop-giraph-install-v1/hdi-script-action-giraph.png "스크립트 작업을 사용하여 클러스터 사용자 지정")
 	
 	<table border='1'>
-	<tr><th>속성</th><th>값</th></tr>
-	<tr><td>이름</td>
-		<td>스크립트 작업의 이름을 지정합니다. 예: <b>Install Giraph</b>.</td></tr>
-	<tr><td>스크립트 URI</td>
-		<td>클러스터를 사용자 지정하기 위해 호출되는 스크립트에 URI(Uniform Resource Identifier)를 지정합니다. 예: <i>https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1</i></td></tr>
-	<tr><td>노드 유형</td>
-		<td>사용자 지정 스크립트가 실행되는 노드를 지정합니다. <b>모든 노드</b>, <b>헤드 노드만</b> 또는 <b>작업자 노드만</b>을 선택할 수 있습니다.
-	<tr><td>매개 변수</td>
-		<td>스크립트에 필요한 경우 매개 변수를 지정합니다. Giraph를 설치하는 스크립트는 매개 변수가 필요하지 않으므로 공백으로 둘 수 있습니다.</td></tr>
-</table>두 개 이상의 스크립트 작업을 추가하여 클러스터에 여러 구성 요소를 설치할 수 있습니다. 스크립트를 추가한 후 확인 표시를 클릭하여 클러스터 만들기를 시작합니다.
+		<tr><th>속성</th><th>값</th></tr>
+		<tr><td>이름</td>
+			<td>스크립트 작업의 이름을 지정합니다. 예: <b>Install Giraph</b>.</td></tr>
+		<tr><td>스크립트 URI</td>
+			<td>클러스터를 사용자 지정하기 위해 호출되는 스크립트에 URI(Uniform Resource Identifier)를 지정합니다. 예: <i>https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1</i></td></tr>
+		<tr><td>노드 유형</td>
+			<td>사용자 지정 스크립트가 실행되는 노드를 지정합니다. <b>모든 노드</b>, <b>헤드 노드만</b> 또는 <b>작업자 노드만</b>을 선택할 수 있습니다.
+		<tr><td>매개 변수</td>
+			<td>스크립트에 필요한 경우 매개 변수를 지정합니다. Giraph를 설치하는 스크립트는 매개 변수가 필요하지 않으므로 공백으로 둘 수 있습니다.</td></tr>
+	</table>	
+
+	두 개 이상의 스크립트 작업을 추가하여 클러스터에 여러 구성 요소를 설치할 수 있습니다. 스크립트를 추가한 후 확인 표시를 클릭하여 클러스터 만들기를 시작합니다.
 
 스크립트를 사용하여 Azure PowerShell 또는 HDInsight.NET SDK로 HDInsight에 Giraph를 설치할 수도 있습니다. 이 절차에 대한 자세한 내용은 이 항목의 뒷부분에 제공됩니다.
 
@@ -174,7 +178,7 @@ SimpleShortestPathsComputation 예제를 사용하여 그래프의 개체 간 �
 - [HDInsight 클러스터에서 Giraph 설치](hdinsight-hadoop-giraph-install.md): Azure 포털을 사용하여 Giraph를 설치합니다.
 - [HDInsight Hadoop 클러스터에 Giraph 설치(Linux)](hdinsight-hadoop-giraph-install-linux.md)
 - [HDInsight에서 Hadoop 클러스터 만들기](hdinsight-provision-clusters.md): HDInsight 클러스터를 만드는 방법에 대한 일반 정보입니다.
-- [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-cluster-customize]\: 스크립트 동작을 사용하여 HDInsight 클러스터를 사용자 지정하는 데 대한 일반 정보입니다.
+- [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-cluster-customize]\: 스크립트 작업을 사용하여 HDInsight 클러스터를 사용자 지정하는 데 대한 일반 정보입니다.
 - [HDInsight용 스크립트 작업 스크립트 개발](hdinsight-hadoop-script-actions.md)
 - [HDInsight 클러스터에서 Spark 설치 및 사용][hdinsight-install-spark]\: Spark 설치에 대한 스크립트 작업 샘플입니다.
 - [HDInsight 클러스터에서 R 설치][hdinsight-install-r]\: R 설치에 대한 스크립트 작업 샘플입니다.
@@ -190,4 +194,4 @@ SimpleShortestPathsComputation 예제를 사용하여 그래프의 개체 간 �
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0518_2016-->

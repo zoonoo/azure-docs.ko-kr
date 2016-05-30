@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/02/2016"
+   ms.date="05/04/2016"
    ms.author="bwren" />
 
 # Log Analytics의 사용자 지정 로그
@@ -70,8 +70,8 @@ Custom Log Wizard(사용자 지정 로그 마법사)는 OMS 포털에서 실행�
 |:--|:--|
 | Windows 에이전트에서 확장명이 .txt인 *C:\\Logs* 내 모든 파일 | C:\\Logs\\*.txt |
 | Windows 에이전트에서 이름이 log로 시작되고 확장명이 .txt인 *C:\\Logs* 내 모든 파일 | C:\\Logs\\log*.txt |
-| Windows 에이전트에서 확장명이 .txt인 */var/log/audit* 내 모든 파일 | /var/log/audit/*.txt |
-| Windows 에이전트에서 이름이 log로 시작되고 확장명이 .txt인 */var/log/audit* 내 모든 파일 | /var/log/audit/log*.txt |
+| Linux 에이전트에서 확장명이 .txt인 */var/log/audit* 내 모든 파일 | /var/log/audit/*.txt |
+| Linux 에이전트에서 이름이 log로 시작되고 확장명이 .txt인 */var/log/audit* 내 모든 파일 | /var/log/audit/log*.txt |
   
 
 1.	Windows 또는 Linux를 선택하여 추가하는 경로 형식을 지정합니다.
@@ -178,4 +178,4 @@ Log Analytics는 각 사용자 지정 로그로부터 새로운 항목을 약 5�
 - [사용자 지정 필드](log-analytics-custom-fields.md)를 사용하여 사용자 지정 로그의 항목을 개별적인 필드로 구문 분석합니다.
 - 데이터 원본 및 솔루션에서 수집한 데이터를 분석하기 위해 [로그 검색](log-analytics-log-searches.md)에 대해 알아봅니다. 
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -34,11 +34,11 @@
 
 긴 단계 또는 작업을 실행할 때 가장 먼저 해야 할 일은 엔진이 사용자가 시간 초과되지 않았음을 알고 있는지 확인하는 것입니다. 또한 작업이 완료된 것을 어떻게 파악할지 엔진과 통신해야 하며 마지막으로 관련 데이터를 엔진에 반환하여 워크플로를 계속 진행할 수 있도록 해야 합니다. 아래 흐름에 따라 API를 통해 완료할 수 있습니다. 이러한 단계는 사용자 지정 API의 관점에서 설명한 것입니다.
 
-1\. 요청을 받으면, 즉시 응답을 반환합니다(작업이 완료되기 전에). 이 응답은 `202 ACCEPTED` 응답이고 엔진에 사용자게 데이터를 받았고 페이로드를 수락했으며 지금 처리 중임을 알려줍니다. 202 응답에는 메서드에는 다음 헤더가 포함되어야 합니다.
+1. 요청을 받으면 (작업이 완료되기 전에) 즉시 응답을 반환합니다. 이 응답은 `202 ACCEPTED` 응답으로 사용자가 데이터를 받았고 페이로드를 수락했으며 지금 처리 중임을 엔진에 알려줍니다. 202 응답에는 메서드에는 다음 헤더가 포함되어야 합니다. 
  * `location` 헤더(필수): 작업 상태를 확인하는 데 사용할 수 있는 URL 논리 앱에 대한 절대 경로입니다.
- * `retry-after`(선택 사항, 동작에 대한 기본값은 20). 상태를 확인하기 위해 위치 헤더 URL을 폴링할 때까지 엔진이 대기할 시간(초)입니다.
+ * `retry-after`(선택 사항, 작업에 대한 기본값은 20). 상태를 확인하기 위해 위치 헤더 URL을 폴링할 때까지 엔진이 대기할 시간(초)입니다.
 
-2\. 작업 상태를 확인했으면 다음 확인을 수행합니다.
+2. 작업 상태를 확인했으면 다음 확인을 수행합니다. 
  * 작업을 완료한 경우: 응답 페이로드와 함께 `200 OK` 응답을 반환합니다.
  * 작업이 아직 처리 중인 경우: 초기 응답과 동일한 헤더와 함께 다른 `202 ACCEPTED` 응답을 반환합니다.
 
@@ -56,7 +56,7 @@
 
 현재는 논리 앱 디자이너에서 swagger를 통한 webhook 끝점 검색을 지원하지 않으므로 이러한 유형의 동작을 사용하려면 "Webhook" 동작을 추가하고 URL, 헤더 및 요청 본문을 지정해야 합니다. 필요에 따라 콜백 URL을 전달하기 위해 일부 필드에 `@listCallbackUrl()` 워크플로 함수를 사용할 수 있습니다.
 
-webhook 패턴에 대한 샘플은 GitHub [여기](https://github.com/jeffhollan/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs)에서 볼 수 있습니다.
+웹후크 패턴에 대한 샘플은 GitHub [여기](https://github.com/jeffhollan/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs)에서 볼 수 있습니다.
 
 ## 트리거
 
@@ -74,7 +74,7 @@ webhook 패턴에 대한 샘플은 GitHub [여기](https://github.com/jeffhollan
 * triggerState와 함께 요청을 수신한 경우:
  * triggerState DateTime 이후 파일이 추가되었는지 확인합니다. 
   * 1개 파일이 있는 경우 콘텐츠 페이로드와 함께 `200 OK` 응답을 반환하고 triggerState를 반환한 파일의 DateTime으로 증가시킨 후 `retry-after`를 15로 설정합니다.
-  * 파일이 여러 개 있는 경우 `200 OK`와 함께 한 번에 1개를 반환할 수 있으며 `location` 헤더에서 내 triggerState를 증가시키고 `retry-after`를 0으로 설정합니다. 이렇게 하면 엔진은 사용할 수 있는 데이터가 더 많다는 것을 알고 지정된 `location` 헤더에서 데이터를 즉시 요청합니다.
+  * 파일이 여러 개 있는 경우 `200 OK`와 함께 한 번에 1개를 반환하고 `location` 헤더에서 내 triggerState를 증가시키며 `retry-after`를 0으로 설정할 수 있습니다. 이렇게 하면 엔진은 사용할 수 있는 데이터가 더 많다는 것을 알고 지정된 `location` 헤더에서 데이터를 즉시 요청합니다.
   * 사용 가능한 파일이 없는 경우 `202 ACCEPTED` 응답을 반환하고 `location` triggerState는 동일하게 유지합니다. `retry-after`를 15로 설정합니다.
 
 폴링 트리거의 샘플은 GitHub [여기](https://github.com/jeffhollan/LogicAppTriggersExample/tree/master/LogicAppTriggers)에서 볼 수 있습니다.
@@ -87,6 +87,6 @@ Webhook 트리거가 삭제되는 경우(논리 앱 전체 또는 webhook 트리
 
 현재는 논리 앱 디자이너에서 swagger를 통한 webhook 트리거 검색을 지원하지 않으므로 이러한 유형의 동작을 사용하려면 "Webhook" 트리거를 추가하고 URL, 헤더 및 요청 본문을 지정해야 합니다. 필요에 따라 콜백 URL을 전달하기 위해 일부 필드에 `@listCallbackUrl()` 워크플로 함수를 사용할 수 있습니다.
 
-webhook 트리거의 샘플은 GitHub [여기](https://github.com/jeffhollan/LogicAppTriggersExample/tree/master/LogicAppTriggers)에서 볼 수 있습니다.
+웹후크 트리거의 샘플은 GitHub [여기](https://github.com/jeffhollan/LogicAppTriggersExample/tree/master/LogicAppTriggers)에서 볼 수 있습니다.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

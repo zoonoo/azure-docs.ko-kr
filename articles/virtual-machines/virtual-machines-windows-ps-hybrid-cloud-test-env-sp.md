@@ -11,7 +11,7 @@
 <tags 
 	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="Windows" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/01/2016" 
@@ -198,10 +198,10 @@ Ping 명령을 실행한 경우 IP 주소 192.168.0.4에서 성공적인 회신 
 
 1.	시작 화면에서 **SharePoint 2013 제품**을 입력하고 **SharePoint 2013 제품 구성 마법사**를 클릭합니다. 프로그램이 컴퓨터를 변경하도록 허용할지 묻는 메시지가 나타나면 **예**를 클릭합니다.
 2.	SharePoint 제품 페이지에서 **다음**을 클릭합니다. 
-3.	구성하는 동안 일부 서비스를 다시 시작해야 할 수 있음을 알리는 대화 상자에서 **예** 를 클릭합니다.
-4.	서버 팜에 연결 페이지에서 **새 서버 팜 만들기** 를 클릭한 후 **다음**을 클릭합니다.
-5.	구성 데이터베이스 설정 지정 페이지에서 **데이터베이스 서버**에 **sql1.corp.contoso.com** 을 입력하고, **사용자 이름**에 **CORP\\SPFarmAdmin**을 입력하고, 암호에 SPFarmAdmin 계정 **암호**를 입력한 후 **다음** 을 클릭합니다.
-6.	팜 보안 설정 지정 페이지에서 **암호** 와 **암호 확인** 둘 다에 **P@ssphrase**를 입력하고 **다음**을 클릭합니다.
+3.	구성하는 동안 일부 서비스를 다시 시작해야 할 수 있음을 알리는 대화 상자에서 **예**를 클릭합니다.
+4.	서버 팜에 연결 페이지에서 **새 서버 팜 만들기**를 클릭한 후 **다음**을 클릭합니다.
+5.	구성 데이터베이스 설정 지정 페이지에서 **데이터베이스 서버**에 **sql1.corp.contoso.com**을 입력하고, **사용자 이름**에 **CORP\\SPFarmAdmin**을 입력하고, 암호에 SPFarmAdmin 계정 **암호**를 입력한 후 **다음**을 클릭합니다.
+6.	팜 보안 설정 지정 페이지에서 **암호**와 **암호 확인** 둘 다에 ****P@ssphrase**를 입력하고 **다음**을 클릭합니다.
 7.	SharePoint 중앙 관리 웹 응용 프로그램 구성 페이지에서 **다음**을 클릭합니다.
 8.	SharePoint 제품 구성 마법사 완료 페이지에서 **다음**을 클릭합니다. SharePoint 제품 구성 마법사를 완료하는 데 몇 분 정도 걸릴 수 있습니다.
 9.	구성 완료 페이지에서 **마침**을 클릭합니다. 완료 후 초기 팜 구성 마법사라는 탭에서 Internet Explorer가 시작됩니다.
@@ -222,6 +222,6 @@ Ping 명령을 실행한 경우 IP 주소 192.168.0.4에서 성공적인 회신 
 
 ## 다음 단계
 
-- [프로덕션 워크로드](virtual-machines-windows-sp-intranet-overview.md)를 배포합니다.
+- SharePoint 팜을 [구성](https://technet.microsoft.com/library/ee836142.aspx)합니다.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

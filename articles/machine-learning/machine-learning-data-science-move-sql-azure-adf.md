@@ -3,11 +3,9 @@
 	description="온-프레미스와 클라우드의 데이터베이스 간에 데이터를 매일 이동하는 두 데이터 마이그레이션 활동으로 구성된 ADF 파이프라인을 설정합니다."
 	services="machine-learning"
 	documentationCenter=""
-	authors="fashah"
-	manager="jacob.spoelstra"
-	editor=""
-	videoId=""
-	scriptId="" />
+	authors="bradsev"
+	manager="paulettm"
+	editor="cgronlun" />
 
 <tags
 	ms.service="machine-learning"
@@ -15,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="05/10/2016"
 	ms.author="fashah;bradsev" />
 
 
@@ -27,6 +25,7 @@
 
 [AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
+
 ## <a name="intro"></a>소개: ADF란 무엇이며 데이터를 마이그레이션하는 데 사용하려면 언제 사용해야 하나요?
 
 Azure 데이터 팩터리는 데이터의 이동과 변환을 오케스트레이션하고 자동화하는 완전히 관리되는 클라우드 기반의 데이터 통합 서비스입니다. ADF 모델의 핵심 개념은 파이프라인입니다. 파이프라인은 각각 데이터 집합에 포함된 데이터에 수행할 작업을 정의하는 활동의 논리적 그룹화입니다. 연결된 서비스는 데이터 팩터리가 데이터 리소스에 연결하기 위해 필요한 정보를 정의하는 데 사용됩니다.
@@ -34,6 +33,7 @@ Azure 데이터 팩터리는 데이터의 이동과 변환을 오케스트레이
 ADF와 함께 기존 데이터 처리 서비스는 가용성이 높고 클라우드에서 관리되는 데이터 파이프라인으로 구성될 수 있습니다. 이러한 데이터 파이프라인에서 데이터 수집, 준비, 변환, 분석 및 게시를 예약할 수 있으며 ADF가 모든 복잡한 데이터 및 처리 종속성을 관리하고 오케스트레이션합니다. 클라우드에서 솔루션을 신속하게 구축 및 배포할 수 있으며 증가하는 온-프레미스 및 클라우드 데이터 원본을 연결합니다.
 
 온-프레미스 및 클라우드 리소스를 모두 액세스하는 하이브리드 시나리오에서 데이터를 지속적으로 마이그레이션해야 하는 경우, 데이터를 트랜잭션 처리하거나 수정해야 하거나 마이그레이션 과정 중에 비즈니스 로직을 추가해야 하는 경우 ADF를 사용하는 것이 좋습니다. ADF에서는 정기적으로 데이터 이동을 관리하는 간단한 JSON 스크립트를 사용하여 작업 예약 및 모니터링이 가능합니다. 또한 복잡한 작업을 지원하는 기타 기능도 포함하고 있습니다. ADF에 대한 자세한 내용은 [Azure 데이터 팩터리(ADF)](https://azure.microsoft.com/services/data-factory/)를 참조하세요.
+
 
 ## <a name="scenario"></a>시나리오
 
@@ -55,6 +55,7 @@ ADF와 함께 기존 데이터 처리 서비스는 가용성이 높고 클라우
 
 > [AZURE.NOTE] 이 절차에서는 [Azure 포털](https://ms.portal.azure.com/)을 사용합니다.
 
+
 ##<a name="upload-data"></a>온-프레미스 SQL Server에 데이터 업로드
 
 [NYC Taxi 데이터 집합](http://chriswhong.com/open-data/foil_nyc_taxi/)을 사용하여 마이그레이션 프로세스를 시연합니다. 해당 게시물에서 설명한 것처럼 NYC Taxi 데이터 집합은 Azure blob 저장소 [NYC Taxi 데이터](http://www.andresmh.com/nyctaxitrips/)에서 제공됩니다. 데이터에는 두 개 파일이 있습니다. trip\_data.csv 파일에는 여정 세부 정보가 들어 있고 trip\_far.csv 파일에는 각 여정에 대한 요금 세부 정보가 들어 있습니다. 이러한 파일의 샘플 및 설명은 [NYC Taxi Trips 데이터 집합 설명](machine-learning-data-science-process-sql-walkthrough.md#dataset)에 제공됩니다.
@@ -62,9 +63,11 @@ ADF와 함께 기존 데이터 처리 서비스는 가용성이 높고 클라우
 
 자신의 데이터 집합에 여기에 제공된 절차를 도입하거나 NYC Taxi 데이터 집합을 사용하여 설명된 대로 단계를 따릅니다. NYC Taxi 데이터 집합을 온-프레미스 SQL Server 데이터베이스에 업로드하려면 [SQL Server 데이터베이스로 대량 데이터 가져오기](machine-learning-data-science-process-sql-walkthrough.md#dbload)에 설명된 절차를 따릅니다. 이러한 지침은 Azure 가상 컴퓨터의 SQL Server에 대한 내용이지만 온-프레미스 SQL Server로 업로드하는 절차는 동일합니다.
 
+
 ##<a name="create-adf"></a>Azure 데이터 팩터리 만들기
 
 [Azure 포털](https://ms.portal.azure.com/)에서 새 Azure Data Factory 및 리소스 그룹을 만들기 위한 지침은 [Azure Data Factory 만들기](../data-factory/data-factory-build-your-first-pipeline-using-editor.md#step-1-creating-the-data-factory)에서 제공됩니다. 새 ADF 인스턴스의 이름은 *adfdsp*이고 생성된 리소스 그룹은 *adfdsprg*입니다.
+
 
 ## 데이터 관리 게이트웨이 설치 및 구성
 
@@ -208,6 +211,7 @@ SQL Azure 출력에 대한 테이블 정의가 다음과 같습니다(이 스키
 
 	New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\AzureSqlTable.json  
 
+
 ##<a name="adf-pipeline"></a>파이프라인 정의 및 만들기
 
 파이프라인에 포함될 활동을 지정하고 다음 스크립트 기반 프로시저로 파이프라인을 만듭니다. 파이프라인 속성을 정의하는 데 JSON 파일이 사용됩니다.
@@ -294,6 +298,7 @@ Azure 클래식 포털의 ADF에서 다음과 같이 파이프라인이 표시�
 
 ![](media/machine-learning-data-science-move-sql-azure-adf/DJP1kji.png)
 
+
 ##<a name="adf-pipeline-start"></a>파이프라인 시작
 이제 다음 명령을 사용하여 파이프라인을 실행할 수 있습니다.
 
@@ -305,4 +310,4 @@ Azure 클래식 포털의 ADF에서 다음과 같이 파이프라인이 표시�
 
 데이터를 증분 방식으로 파이프하는 ADF 제공 기능을 활용하지 않았습니다. 이 작업을 수행하는 방법 및 ADF에서 제공하는 기타 기능에 대한 자세한 내용은 [ADF 설명서](https://azure.microsoft.com/services/data-factory/)를 참조하세요.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

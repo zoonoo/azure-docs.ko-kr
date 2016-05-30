@@ -1,23 +1,17 @@
-### Prerequisites
-- A Twilio account
-- A verified Twilio phone number that can receive SMS
-- A verified Twilio phone number that can send SMS
+### 필수 조건
+- Twilio 계정
+- SMS를 받을 수 있다고 확인된 Twilio 전화 번호
+- SMS를 보낼 수 있다고 확인된 Twilio 전화 번호
 
->[AZURE.NOTE] If you are using a Twilio trial account, you can only send SMS to **verified** phone numbers.  
+>[AZURE.NOTE] Twilio 체험 계정을 사용하는 경우 **확인된** 전화 번호에만 SMS를 보낼 수 있습니다.
 
-Before you can use your Twilio account in a Logic app, you must authorize the Logic app to connect to your Twilio account. Fortunately, you can do this easily from within your Logic app on the Azure Portal. 
+논리 앱에서 Twilio 계정을 사용하려면 먼저 Twilio 계정에 연결하도록 논리 앱에 권한을 부여해야 합니다. 다행히 Azure 포털의 논리 앱 내에서 이를 쉽게 수행할 수 있습니다.
 
-Here are the steps to authorize your Logic app to connect to your Twilio account:
+Twilio 계정에 연결하도록 논리 앱에 권한을 부여하는 단계는 다음과 같습니다.
 
-1. To create a connection to Twilio, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *Twilio* in the search box. Select the trigger or action you'll like to use:  
-  ![](./media/connectors-create-api-twilio/twilio-0.png)
-2. If you haven't created any connections to Twilio before, you'll get prompted to provide your Twilio credentials. These credentials will be used to authorize your Logic app to connect to, and access your Twilio account's data:  
-  ![](./media/connectors-create-api-twilio/twilio-1.png)  
-3. You'll need the **Twilio account id** and **Twilio access token**  from the dashboard in Twilio, so log in to your Twilio account now to grab these two pieces of information:  
-  ![](./media/connectors-create-api-twilio/twilio-2.png)  
-4. Twilio and Logic apps use different names to identify these two pieces of infomation. Here is how you must map them to the Logic apps dialog: 
-  ![](./media/connectors-create-api-twilio/twilio-3.png)  
-5. Select the **Create connection** button:  
-  ![](./media/connectors-create-api-twilio/twilio-4.png)
-6. Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:  
-  ![](./media/connectors-create-api-twilio/twilio-5.png)
+1. 논리 앱 디자이너에서 Twilio에 대한 연결을 만들려면 드롭다운 목록에서 **Microsoft 관리되는 API 표시**를 선택한 다음 검색 상자에 *Twilio*를 입력합니다. 사용할 트리거 또는 동작을 선택합니다. ![](./media/connectors-create-api-twilio/twilio-0.png)
+2. 이전에 Twilio에 대한 연결을 만들지 않은 경우 Twilio 자격 증명을 제공하라는 메시지가 표시됩니다. 이러한 자격 증명을 사용하여 Twilio 계정의 데이터에 연결하도록 논리 앱에 권한을 부여하고 해당 데이터에 액세스할 수 있습니다. ![](./media/connectors-create-api-twilio/twilio-1.png)  
+3. Twilio의 대시보드에서 **Twilio 계정 ID** 및 **Twilio 액세스 토큰**이 필요하므로 이제 Twilio 계정에 로그인하여 두 가지 정보를 가져옵니다. ![](./media/connectors-create-api-twilio/twilio-2.png)  
+4. Twilio 및 논리 앱에서는 서로 다른 이름을 사용하여 이러한 두 가지 정보를 식별합니다. 이러한 정보를 논리 앱 대화 상자에 매핑하는 방법은 다음과 같습니다. ![](./media/connectors-create-api-twilio/twilio-3.png)  
+5. **연결 만들기** 단추를 선택합니다. ![](./media/connectors-create-api-twilio/twilio-4.png)
+6. 연결이 만들어졌으면 논리 앱의 다른 단계를 진행할 수 있습니다. ![](./media/connectors-create-api-twilio/twilio-5.png)

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/28/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
     
 # CDN 파일 압축 문제 해결
@@ -45,11 +45,13 @@
 - 요청이 원본이 아닌 끝점 URL, `<endpointname>.azureedge.net`에 전송되는지 확인합니다.
 - 요청에 **Accept-Encoding** 헤더가 포함되는지, 헤더 값에 **gzip**, **deflate** 또는 **bzip2**가 포함되는지 확인합니다.
 
+> [AZURE.NOTE] **Akamai의 Azure CDN** 프로필은 **gzip** 인코딩만 지원합니다.
+
 ![CDN 요청 헤더](./media/cdn-troubleshoot-compression/cdn-request-headers.png)
 
 ### 압축 설정 확인(Standard CDN 프로필)
 
-> [AZURE.NOTE] 이 단계는 CDN 프로필이 **표준** 가격 책정 계층인 경우에만 적용됩니다.
+> [AZURE.NOTE] 이 단계는 CDN 프로필이 **Verizon의 Azure CDN Standard** 또는 **Akamai의 Azure CDN Standard** 프로필인 경우에만 적용됩니다.
 
 [Azure 포털](https://portal.azure.com)에서 끝점으로 이동하여 **구성** 단추를 클릭합니다.
 
@@ -60,7 +62,7 @@
 
 ### 압축 설정 확인(Premium CDN 프로필)
 
-> [AZURE.NOTE] 이 단계는 CDN 프로필이 **프리미엄** 가격 책정 계층인 경우에만 적용됩니다.
+> [AZURE.NOTE] 이 단계는 CDN 프로필이 **Verizon의 Azure CDN Premium** 프로필인 경우에만 적용됩니다.
 
 [Azure 포털](https://portal.azure.com)에서 끝점으로 이동하여 **관리** 단추를 클릭합니다. 보조 포털이 열립니다. **HTTP Large**(HTTP 크게) 탭을 가리킨 다음 **캐시 설정** 플라이아웃을 가리킵니다. **압축**을 클릭합니다.
 
@@ -72,18 +74,22 @@
 
 ### 콘텐츠 캐시 여부 확인
 
+> [AZURE.NOTE] 이 단계는 CDN 프로필이 **Verizon의 Azure CDN** 프로필(Standard 또는 Premium)인 경우에만 적용됩니다.
+
 브라우저의 개발자 도구를 사용하여, 요청되는 지역에서 파일이 캐시되는지 응답 헤더를 확인합니다.
 
-- **서버** 응답 헤더를 확인합니다. 헤더에는 **Platform (POP/Server ID)** 형식이 포함되어야 합니다(아래 예제 참조).
+- **Server** 응답 헤더를 확인합니다. 헤더에는 **Platform (POP/Server ID)** 형식이 포함되어야 합니다(아래 예제 참조).
 - **X-Cache** 응답 헤더를 확인합니다. 헤더는 **HIT**여야 합니다.  
 
 ![CDN 응답 헤더](./media/cdn-troubleshoot-compression/cdn-response-headers.png)
 
 ### 파일의 크기 요건 충족 여부 확인
 
+> [AZURE.NOTE] 이 단계는 CDN 프로필이 **Verizon의 Azure CDN** 프로필(Standard 또는 Premium)인 경우에만 적용됩니다.
+
 압축을 적용할 수 있으려면, 파일은 다음과 같은 크기 요건을 충족해야 합니다.
 
 - 128바이트 초과.
 - 1MB 미만.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->
