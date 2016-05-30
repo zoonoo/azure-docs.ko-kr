@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="가동 중단 및 재해로부터 서비스 버스 응용 프로그램 보호 | Microsoft Azure"
-   description="잠재적 서비스 버스 가동 중단으로부터 응용 프로그램을 보호하기 위해 사용할 수 있는 기술을 설명합니다."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" /> 
+    pageTitle="가동 중단 및 재해로부터 서비스 버스 응용 프로그램 보호 | Microsoft Azure"
+    description="잠재적 서비스 버스 가동 중단으로부터 응용 프로그램을 보호하기 위해 사용할 수 있는 기술을 설명합니다."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="tysonn" /> 
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="01/26/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/06/2016"
+    ms.author="sethm" />
 
 # 서비스 버스 가동 중단 및 재해로부터 응용 프로그램을 보호하기 위한 모범 사례
 
@@ -27,7 +27,7 @@
 
 서비스 버스는 여러 메시징 저장소를 사용하여 큐 또는 항목에 전송되는 메시지를 저장합니다. 분할되지 않은 큐나 항목은 하나의 메시징 저장소에 할당됩니다. 이 메시지 저장소를 사용할 수 없게 되면 해당 큐 또는 항목의 모든 작업이 실패하게 됩니다.
 
-모든 서비스 버스 메시징 엔터티(큐, 항목, 릴레이)는 데이터센터와 연결된 서비스 네임스페이스에 상주합니다. 서비스 버스는 자동 지역 복제를 사용하지 않으며 서비스 네임스페이스가 여러 데이터 센터에 걸쳐 사용되는 것도 허용하지 않습니다.
+모든 서비스 버스 메시징 엔터티(큐, 항목, 릴레이)는 데이터센터와 연결된 서비스 네임스페이스에 상주합니다. 서비스 버스는 자동 지역에서 복제를 사용하지 않으며 네임스페이스가 여러 데이터 센터에 걸쳐 사용되는 것도 허용하지 않습니다.
 
 ## ACS 가동 중단으로부터 보호
 
@@ -41,7 +41,7 @@ ACS 가동 중단으로부터 보호하려면 SAS(공유 액세스 서명) 토�
 
 ## 데이터센터 가동 중단 또는 재해로부터 보호
 
-두 데이터센터 간의 장애 조치(failover)를 허용하려면 각 데이터센터에 서비스 버스 서비스 네임스페이스를 만들 수 있습니다. 예를 들어, 서비스 버스 서비스 네임스페이스 **contosoPrimary.servicebus.windows.net**은 미국(북부/중부) 지역에 있고 **contosoSecondary.servicebus.windows.net**은 미국(남부/중부) 지역에 있을 수 있습니다. 데이터센터가 가동 중단되어도 서비스 버스 메시징 엔터티를 액세스할 수 있도록 하려면 이 엔터티를 두 네임스페이스 모두에 만들 수 있습니다.
+두 데이터센터 간의 장애 조치(failover)를 허용하려면 각 데이터센터에 서비스 버스 서비스 네임스페이스를 만들 수 있습니다. 예를 들어, 서비스 버스 서비스 네임스페이스 **contosoPrimary.servicebus.windows.net**은 미국(북부/중부) 하위 지역에 있고 **contosoSecondary.servicebus.windows.net**은 미국(남부/중부) 하위 지역에 있을 수 있습니다. 데이터센터가 가동 중단되어도 서비스 버스 메시징 엔터티를 액세스할 수 있도록 하려면 이 엔터티를 두 네임스페이스 모두에 만들 수 있습니다.
 
 자세한 내용은 [비동기 메시징 패턴 및 고가용성][]의 "Azure 데이터 센터 내의 서비스 버스 오류" 섹션을 참조하세요.
 
@@ -61,7 +61,7 @@ ACS 가동 중단으로부터 보호하려면 SAS(공유 액세스 서명) 토�
 
 ## 능동 복제
 
-능동 복제는 모든 작업에서 양쪽 서비스 네임스페이스의 엔터티를 사용합니다. 메시지를 보내는 클라이언트는 동일한 메시지의 두 복사본을 보냅니다. 첫 번째 복사본은 기본 엔터티(예: **contosoPrimary.servicebus.windows.net/sales**)로 전송되고, 메시지의 두 번째 복사본은 보조 엔터티(예: **contosoSecondary.servicebus.windows.net/sales**)로 전송됩니다.
+능동 복제는 모든 작업에서 양쪽 네임스페이스의 엔터티를 사용합니다. 메시지를 보내는 클라이언트는 동일한 메시지의 두 복사본을 보냅니다. 첫 번째 복사본은 기본 엔터티(예: **contosoPrimary.servicebus.windows.net/sales**)로 전송되고, 메시지의 두 번째 복사본은 보조 엔터티(예: **contosoSecondary.servicebus.windows.net/sales**)로 전송됩니다.
 
 클라이언트는 두 큐에서 모두 메시지를 받습니다. 수신자는 메시지의 첫 번째 복사본을 처리하고 두 번째 복사본은 표시하지 않습니다. 중복 메시지를 표시하지 않기 위해 발송자는 각 메시지에 고유 식별자로 태그를 지정해야 합니다. 메시지의 두 복사본 모두 동일한 식별자로 태그가 지정되어야 합니다. 메시지에 태그를 지정하기 위해 [BrokeredMessage.MessageId][]나 [BrokeredMessage.Label][] 속성 또는 사용자 지정 속성을 사용할 수 있습니다. 수신자는 이미 받은 메시지의 목록을 유지해야 합니다.
 
@@ -111,4 +111,4 @@ ACS 가동 중단으로부터 보호하려면 SAS(공유 액세스 서명) 토�
   [Azure SQL 데이터베이스 비즈니스 연속성]: ../sql-database/sql-database-business-continuity.md
   [Azure 비즈니스 연속성 기술 지침]: https://msdn.microsoft.com/library/azure/hh873027.aspx
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

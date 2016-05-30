@@ -13,11 +13,21 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="03/10/2016"
+	ms.date="05/17/2016"
 	ms.author="piyushjo" />
 
 
 #릴리스 정보
+
+##4\.2.2(2016/05/17)
+
+- 안정성 향상
+
+##4\.2.1(2016/05/10)
+
+- 보안: 웹 보기 로컬 파일 액세스를 비활성화합니다.
+- 보안: 사용되지 않고 보호되지 않는 `PreferenceActivity` 클래스를 확장하는 `EngagementPreferenceActivity` 클래스를 제거합니다.
+- 보안: 도달률 활동에서 현재 `exported="false"`을(를) 사용하도록 문서화되어 있으며 이 플래그는 이전 SDK 버전에서 사용할 수 있습니다.
 
 ##4\.2.0(2016/03/11)
 
@@ -70,4 +80,4 @@
 -   보안이 개선되었습니다.
 -   Google Play 및 SmartAd 추적을 제거했습니다.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

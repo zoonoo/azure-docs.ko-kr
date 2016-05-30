@@ -3,9 +3,9 @@
 	description="Hive 테이블을 만들어서 blob의 데이터를 Hive 테이블에 로드" 
 	services="machine-learning,storage" 
 	documentationCenter="" 
-	authors="hangzh-msft" 
-	manager="jacob.spoelstra" 
-	editor="cgronlun"  />
+	authors="bradsev"
+	manager="paulettm"
+	editor="cgronlun" />
 
 <tags 
 	ms.service="machine-learning" 
@@ -13,14 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="05/10/2016" 
 	ms.author="hangzh;bradsev" />
 
  
 #데이터를 만들어서 Azure blob 저장소의 Hive 테이블에 로드
 
-## 소개
-이 **문서**에서는 Hive 테이블을 만들고 Azure blob 저장소의 데이터를 로드하는 일반 Hive 쿼리를 보여 줍니다. 또한 Hive 테이블을 분할하고 ORC(Optimized Row Columnar) 형식을 사용하여 쿼리 성능을 개선하는 방법에 대한 지침도 제공됩니다.
+이 항목에서는 Hive 테이블을 만들고 Azure blob 저장소의 데이터를 로드하는 일반 Hive 쿼리를 보여 줍니다. 또한 Hive 테이블을 분할하고 ORC(Optimized Row Columnar) 형식을 사용하여 쿼리 성능을 개선하는 방법에 대한 지침도 제공됩니다.
 
 이 **메뉴**는 CAP(Cortana 분석 프로세스) 중 데이터를 저장하고 처리할 수 있는 대상 환경으로 데이터를 수집하는 방법을 설명하는 항목에 연결됩니다.
 
@@ -41,88 +40,87 @@ Hive 테이블의 데이터가 **압축되지 않은** 테이블 형식이고 Ha
 
 _NYC Taxi Trip Data_를 연습하고 싶다면 먼저 24개의 <a href="http://www.andresmh.com/nyctaxitrips/" target="_blank">NYC Taxi Trip Data</a> 파일(Trip 파일 12개, Fare 파일 12개)을 다운로드하고, .csv 파일로 모든 파일의 **압축을 풀고**, [고급 분석 프로세스 및 기술을 위한 Azure HDInsight Hadoop 클러스터 사용자 지정](machine-learning-data-science-customize-hadoop-cluster.md) 항목에 설명된 절차에 따라 작성된 기본 Azure 저장소 계정 또는 Azure 저장소 계정의 적절한 컨테이너에 해당 파일을 업로드해야 합니다. 저장소 계정의 기본 컨테이너에 .csv 파일을 업로드하는 프로세스는 이 [페이지](machine-learning-data-science-process-hive-walkthrough/#upload)에 나와 있습니다.
 
+
 ## <a name="submit"></a>Hive 쿼리를 제출하는 방법
+
 다음을 사용하여 Hive 쿼리를 제출할 수 있습니다.
 
-* 클러스터 헤드 노드의 Hadoop 명령줄
-* IPython Notebook
-* Hive 편집기
-* Azure PowerShell 스크립트
-
-Hive 쿼리는 SQL과 유사하므로, SQL에 익숙한 사용자에게는 <a href="http://hortonworks.com/wp-content/uploads/downloads/2013/08/Hortonworks.CheatSheet.SQLtoHive.pdf" target="_blank">SQL-Hive 치트 시트</a>가 유용할 수 있습니다.
+1. [Hadoop 클러스터 헤드 노드의 Hadoop 명령줄을 통해 Hive 쿼리 제출](#headnode)
+2. [Hive 편집기를 사용하여 Hive 쿼리 제출](#hive-editor)
+3. [Azure PowerShell 명령을 사용하여 Hive 쿼리 제출](#ps)
+ 
+Hive 쿼리는 SQL과 유사하므로, SQL에 익숙한 사용자에게는 [SQL 사용자용 Hive 치트 시트](http://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf)가 유용할 수 있습니다.
 
 또한 Hive 쿼리를 제출할 때 Hive 쿼리에서 화면, 헤드 노드의 로컬 파일, Azure blob 등의 출력 대상을 제어할 수 있습니다.
 
-### Hadoop 클러스터 헤드 노드에서 Hadoop 명령줄 콘솔을 통해
 
-쿼리가 복잡한 경우 Hadoop 클러스터의 헤드 노드에서 바로 Hive 쿼리를 제출하면 일반적으로 Hive 편집기 또는 Azure PowerShell 스크립트를 사용하여 제출하는 것보다 반환 시간이 빠릅니다.
+###<a name="headnode"></a> 1. Hadoop 클러스터 헤드 노드의 Hadoop 명령줄을 통해 Hive 쿼리 제출
 
-Hadoop 클러스터의 헤드 노드에 로그인하고, 헤드 노드 바탕 화면에서 Hadoop 명령줄을 열고, 명령을 입력합니다.
+Hive 쿼리가 복잡한 경우 Hadoop 클러스터의 헤드 노드에서 바로 Hive 쿼리를 제출하면 일반적으로 Hive 편집기 또는 Azure PowerShell 스크립트를 사용하여 제출하는 것보다 반환 시간이 빠릅니다.
 
-    cd %hive_home%\bin
+Hadoop 클러스터의 헤드 노드에 로그인하고, 헤드 노드 바탕 화면에서 Hadoop 명령줄을 열고, 명령을 입력합니다`cd %hive_home%\bin`.
 
-사용자는 세 가지 방법으로 Hadoop 명령줄 콘솔에서 Hive 쿼리를 제출할 수 있습니다.
+사용자는 세 가지 방법으로 Hadoop 명령줄에서 Hive 쿼리를 제출할 수 있습니다.
 
-* Hadoop 명령줄에서 직접 제출
+* 직접 제출
 * .hql 파일을 사용하여 제출
-* Hive 명령 콘솔에서 제출
+* Hive 명령 콘솔을 사용하여 제출
 
-#### Hadoop 명령줄에서 직접 Hive 쿼리 제공
+#### Hadoop 명령줄에서 직접 Hive 쿼리를 제출합니다. 
 
-사용자는 아래와 같이 명령을 실행하여
+사용자는 `hive -e "<your hive query>;` 같은 명령을 실행하여 Hadoop 명령줄에서 바로 간단한 Hive 쿼리를 제출할 수 있습니다. 다음은 그 예제입니다. 빨간색 상자는 Hive 쿼리를 제출하는 명령을, 녹색 상자는 Hive 쿼리의 출력을 보여 줍니다.
 
-	hive -e "<your hive query>;
-
-Hadoop 명령줄에서 직접 간단한 Hive 쿼리를 제출할 수 있습니다. 다음은 그 예제입니다. 빨간색 상자는 Hive 쿼리를 제출하는 명령을, 녹색 상자는 Hive 쿼리의 출력을 보여 줍니다.
-
-![작업 영역 만들기](./media/machine-learning-data-science-process-hive-tables/run-hive-queries-1.png)
+![작업 영역 만들기](./media/machine-learning-data-science-move-hive-tables/run-hive-queries-1.png)
 
 #### .hql 파일로 Hive 쿼리 제출
 
-Hive 쿼리가 좀 더 복잡하고 줄이 여러 개인 경우 Hadoop 명령줄 또는 Hive 명령 콘솔에서 쿼리를 편집하는 방법은 실용적이지 않습니다. 대신 Hadoop 클러스터의 헤드 노드에서 텍스트 편집기를 사용하여 헤드 노드의 로컬 디렉터리에 있는 .hql 파일에 Hive 쿼리를 저장합니다. 그러면 다음과 같이 `hive` 명령에 `-f` 인수를 사용하여 .hql 파일의 Hive 쿼리를 제출할 수 있습니다.
+Hive 쿼리가 좀 더 복잡하고 줄이 여러 개인 경우 명령줄 또는 Hive 명령 콘솔에서 쿼리를 편집하는 방법은 실용적이지 않습니다. 대신 Hadoop 클러스터의 헤드 노드에서 텍스트 편집기를 사용하여 헤드 노드의 로컬 디렉터리에 있는 .hql 파일에 Hive 쿼리를 저장합니다. 그러면 다음과 같이 `-f` 인수를 사용하여 .hql 파일의 Hive 쿼리를 제출할 수 있습니다.
+	
+	hive -f "<path to the .hql file>"
 
-	`hive -f "<path to the .hql file>"`
+![작업 영역 만들기](./media/machine-learning-data-science-move-hive-tables/run-hive-queries-3.png)
 
 
-#### Hive 쿼리의 진행 상태 화면 인쇄 숨기기
+**Hive 쿼리의 진행 상태 화면 인쇄 숨기기**
 
-기본적으로 Hadoop 명령줄 콘솔에서 Hive 쿼리가 제출되면 맵/감소 작업의 진행 상태가 화면에 인쇄됩니다. 맵/감소 작업의 진행 상태 화면 인쇄를 숨기려면 다음과 같이 명령줄에 `-S` 인수(대문자 구분)를 사용할 수 있습니다.
+기본적으로 Hadoop 명령줄에서 Hive 쿼리가 제출되면 맵/감소 작업의 진행 상태가 화면에 인쇄됩니다. 맵/감소 작업의 진행 상태 화면 인쇄를 숨기려면 다음과 같이 명령줄에 `-S` 인수("S"는 대문자)를 사용합니다.
 
 	hive -S -f "<path to the .hql file>"
 	hive -S -e "<Hive queries>"
 
 #### Hive 명령 콘솔에서 Hive 쿼리를 제출합니다.
 
-Hadoop 명령줄에서 `hive` 명령을 실행하여 Hive 명령 콘솔로 전환한 후 Hive 명령 콘솔의 **hive>** 프롬프트에서 Hive 쿼리를 제출하는 방법도 있습니다. 다음은 예제입니다.
+또한 사용자는 Hadoop 명령줄에서 `hive` 명령을 실행하여 Hive 명령 콘솔을 먼저 입력한 후 Hive 명령 콘솔에서 Hive 쿼리를 제출할 수 있습니다. 다음은 예제입니다. 이 예제에서 두 빨간색 상자는 각각 Hive 명령 콘솔을 입력하는 데 사용된 명령과 Hive 명령 콘솔에서 제출된 Hive 쿼리를 보여 줍니다. 녹색 상자는 Hive 쿼리의 출력을 보여 줍니다.
 
-![작업 영역 만들기](./media/machine-learning-data-science-process-hive-tables/run-hive-queries-2.png)
+![작업 영역 만들기](./media/machine-learning-data-science-move-hive-tables/run-hive-queries-2.png)
 
-이 예제에서 두 빨간색 상자는 각각 Hive 명령 콘솔을 입력하는 데 사용된 명령과 Hive 명령 콘솔에서 제출된 Hive 쿼리를 보여 줍니다. 녹색 상자는 Hive 쿼리의 출력을 보여 줍니다.
+이전 예제에서는 Hive 쿼리 결과가 화면에 바로 출력됩니다. 또한 사용자는 헤드 로드의 로컬 파일 또는 Azure blob에 출력을 작성할 수 있습니다. 그런 다음 사용자는 다른 도구를 사용하여 Hive 쿼리 출력을 추가로 분석할 수 있습니다.
 
-이전 예제에서는 Hive 쿼리 결과가 화면에 바로 출력됩니다. 또한 사용자는 헤드 로드의 로컬 파일 또는 Azure blob에 출력을 작성할 수 있습니다. 그런 다음 사용자는 다른 도구를 사용하여 Hive 쿼리의 출력을 추가로 분석할 수 있습니다.
-
-#### Hive 쿼리 결과를 로컬 파일에 출력합니다.
+**Hive 쿼리 결과를 로컬 파일에 출력합니다.**
 
 Hive 쿼리 결과를 헤드 노드의 로컬 디렉터리에 출력하려면 사용자는 다음과 같이 Hadoop 명령줄에서 Hive 쿼리를 제출해야 합니다.
 
-	`hive -e "<hive query>" > <local path in the head node>`
+	hive -e "<hive query>" > <local path in the head node>
 
+다음 예제에서 Hive 쿼리의 출력은 `C:\apps\temp` 디렉터리의 `hivequeryoutput.txt` 파일에 작성됩니다.
 
-#### Azure blob에 Hive 쿼리 결과 출력
+![작업 영역 만들기](./media/machine-learning-data-science-move-hive-tables/output-hive-results-1.png)
 
-사용자는 Hadoop 클러스터의 기본 컨테이너 내에 있는 Azure blob에 Hive 쿼리 결과를 출력할 수도 있습니다. 이렇게 하는 Hive 쿼리는 다음과 같습니다.
+**Azure blob에 Hive 쿼리 결과 출력**
+
+사용자는 Hadoop 클러스터의 기본 컨테이너 내에 있는 Azure blob에 Hive 쿼리 결과를 출력할 수도 있습니다. Hive 쿼리는 다음과 같아야 합니다.
 
 	insert overwrite directory wasb:///<directory within the default container> <select clause from ...>
 
-다음 예제에서 Hive 쿼리의 출력은 Hadoop 클러스터의 기본 컨테이너 내에 있는 blob 디렉터리 `queryoutputdir`에 작성됩니다. 이때 사용자는 blob 이름 없이 디렉터리 이름만 입력하면 됩니다. **wasb:///queryoutputdir/queryoutput.txt*처럼 디렉터리 이름과 Blob 이름을 모두 입력하면 오류가 발생합니다.
+다음 예제에서 Hive 쿼리는 Hadoop 클러스터의 기본 컨테이너 내에 있는 blob 디렉터리 `queryoutputdir`에 작성됩니다. 이때 사용자는 blob 이름 없이 디렉터리 이름만 입력하면 됩니다. `wasb:///queryoutputdir/queryoutput.txt`처럼 디렉터리 이름과 blob 이름을 모두 입력하면 오류가 발생합니다.
 
-![작업 영역 만들기](./media/machine-learning-data-science-process-hive-tables/output-hive-results-2.png)
+![작업 영역 만들기](./media/machine-learning-data-science-move-hive-tables/output-hive-results-2.png)
 
-Azure 저장소 탐색기 또는 그에 상응하는 도구를 사용하여 Hadoop 클러스터의 기본 컨테이너를 열면 blob 저장소에서 Hive 쿼리 출력을 볼 수 있습니다. 필터(빨간색 상자로 강조 표시됨)를 적용하여 이름에 지정된 문자가 포함된 blob만 검색할 수 있습니다.
+Azure 저장소 탐색기 같은 도구를 사용하여 Hadoop 클러스터의 기본 컨테이너를 열면 다음과 같은 Hive 쿼리 출력을 볼 수 있습니다. 필터(빨간색 상자로 강조 표시됨)를 적용하여 이름에 지정된 문자가 포함된 blob만 검색할 수 있습니다.
 
-![작업 영역 만들기](./media/machine-learning-data-science-process-hive-tables/output-hive-results-3.png)
+![작업 영역 만들기](./media/machine-learning-data-science-move-hive-tables/output-hive-results-3.png)
 
-### Hive 편집기 또는 Azure PowerShell 명령을 통해
+###<a name="hive-editor"></a> 2. Hive 편집기를 사용하여 Hive 쿼리 제출
 
 사용자는 웹 브라우저에
 
@@ -130,7 +128,9 @@ Azure 저장소 탐색기 또는 그에 상응하는 도구를 사용하여 Hado
 
 입력하여 쿼리 콘솔(Hive 편집기)을 사용할 수도 있습니다. 로그인하려면 Hadoop 클러스터 자격 증명을 입력하라는 메시지가 표시됩니다.
 
-또는 [PowerShell을 사용하여 Hive 쿼리를 실행](../hdinsight/hdinsight-hadoop-use-hive-powershell.md)할 수 있습니다.
+###<a name="ps"></a> 3. Azure PowerShell 명령을 사용하여 Hive 쿼리 제출
+
+사용자는 PowerShell을 사용하여 Hive 쿼리를 제출할 수도 있습니다. 자세한 내용은 [PowerShell을 사용하여 Hive 작업 제출](../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md#hive-powershell)을 참조하세요.
 
 
 ## <a name="create-tables"></a> Hive 데이터베이스 및 테이블 만들기
@@ -245,9 +245,4 @@ Hive 테이블 분할 외에도 Hive 데이터를 ORC(Optimized Row Columnar) �
 
 이 절차를 모두 수행했다면 이제 ORC 형식의 데이터를 사용할 수 있는 테이블이 준비되었을 것입니다.
 
-
-##튜닝 색션은 여기로 이동해야 합니다.
-
-마지막 섹션에서는 사용자가 조정하여 Hive 쿼리 성능을 높일 수 있는 매개 변수에 대해 설명합니다.
-
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

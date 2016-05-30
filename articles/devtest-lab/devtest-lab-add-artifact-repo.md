@@ -1,6 +1,6 @@
 <properties
-	pageTitle="DevTest Lab에 Git 아티팩트 리포지토리 추가 | Microsoft Azure"
-	description="랩에 사용자 지정 아티팩트용 GitHub 또는 Visual Studio Team Services Git 저장소 추가"
+	pageTitle="랩에 Git 아티팩트 리포지토리 추가 | Microsoft Azure"
+	description="DevTest Lab에서 사용자 지정 아티팩트용 GitHub 또는 Visual Studio Team Services Git 리포지토리 추가"
 	services="devtest-lab,virtual-machines,visual-studio-online"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/21/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
-# DevTest Lab에 Git 아티팩트 리포지토리 추가
+# 랩에 Git 아티팩트 리포지토리 추가
 
-> [AZURE.NOTE] 이 문서와 함께 제공되는 비디오를 보려면 다음 링크를 클릭하세요. [DevTest Lab에서 개인 아티팩트 리포지토리를 추가하는 방법](/documentation/videos/how-to-add-your-private-artifacts-repository-in-a-devtest-lab)
+> [AZURE.NOTE] 이 문서와 함께 제공되는 비디오를 보려면 다음 링크를 클릭하세요. [How to add your private artifacts repository to a lab in DevTest Labs](/documentation/videos/how-to-add-your-private-artifacts-repository-in-a-devtest-lab)(DevTest Lab에서 랩에 개인 아티팩트 리포지토리를 추가하는 방법)
 
 ## 개요
 
-기본적으로 DevTest Lab에는 공식 Azure DevTest Lab 아티팩트 리포지토리의 아티팩트가 포함되어 있습니다. 팀이 만드는 아티팩트를 포함시키기 위해 랩에 Git 리포지토리를 추가할 수 있습니다. 리포지토리는 [GitHub](https://github.com) 또는 [VSTS(Visual Studio Team Services)](https://visualstudio.com)에서 호스트될 수 있습니다.
+기본적으로 랩에는 공식 Azure DevTest Lab 아티팩트 리포지토리의 아티팩트가 포함되어 있습니다. 팀이 만드는 아티팩트를 포함시키기 위해 랩에 Git 리포지토리를 추가할 수 있습니다. 리포지토리는 [GitHub](https://github.com) 또는 [VSTS(Visual Studio Team Services)](https://visualstudio.com)에서 호스트될 수 있습니다.
 
 - GitHub 리포지토리를 만드는 방법을 알아보려면 [GitHub Bootcamp](https://help.github.com/categories/bootcamp/)를 참조하세요.
 - Git 리포지토리를 사용하여 Team Services 프로젝트를 만드는 방법을 알아보려면 [Visual Studio Team Services에 연결](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online)을 참조하세요.
@@ -51,7 +51,7 @@
 
 ###GitHub 리포지토리에 랩 연결
 
-1. [Azure Preview 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 
 1. **찾아보기**를 탭한 다음 목록에서 **DevTest Lab**을 탭합니다.
 
@@ -101,7 +101,7 @@
 
 1. 완료되면 새 토큰이 **개인 액세스 토큰** 목록에 표시됩니다. 곧 이 토큰을 사용하므로 **토큰 복사**를 탭한 다음 토큰 값을 저장합니다.
 
-### DevTest Lab에서
+### 랩에서
 
 1. 랩의 블레이드에서 **설정**을 탭합니다.
 
@@ -117,4 +117,4 @@
     3. 저장된 **개인 액세스 토큰**을 아티팩트 리포지토리에 입력합니다.
     4. **저장**을 탭합니다.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

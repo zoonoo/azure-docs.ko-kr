@@ -4,7 +4,7 @@
    services="sql-database"
    documentationCenter=""
    authors="BYHAM"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor=""
    tags=""/>
 
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="02/18/2016"
+   ms.date="05/12/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Azure SQL 데이터베이스 TRANSACT-SQL의 차이점
@@ -93,7 +93,7 @@ SQL 데이터베이스 V12에서는 해당 SQL Server 2016 TRANSACT-SQL 문에 �
 - 추적 플래그
 - TRANSACT-SQL 디버깅
 - 트리거: 서버 범위 또는 로그온 트리거
-- USE 문
+- USE 문: 데이터베이스 컨텍스트를 다른 데이터베이스로 변경하려면 새 데이터베이스에 대한 새 연결을 설정해야 합니다.
 
 
 ## 전체 TRANSACT-SQL 참조
@@ -108,4 +108,4 @@ Transact-SQL 참조에는 현재까지 SQL Server 버전 2008과 관련된 항�
 
 경우에 따라 항목의 일반 제목이 제품에 사용될 수 있지만 제품 간에 약간의 차이가 있습니다. 차이점은 항목의 중간점에 적절히 표시됩니다.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

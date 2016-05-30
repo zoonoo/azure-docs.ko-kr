@@ -33,7 +33,7 @@
 
 시작하기 전에 필요한 사항:
 
-- **관리 서버**: 관리 서버 역할을 하는 Windows Server 2012 R2를 실행 중인 온-프레미스 VM입니다. 이 서버에 사이트 복구 구성요소(구성 서버 및 프로세스 서버 포함)를 설치합니다. 자세한 내용은 [관리 서버 고려사항](site-recovery-vmware-to-azure-classic.md#management-server-considerations) 및 [온-프레미스 필수 구성 요소](site-recovery-vmware-to-azure-classic.md#on-premises-prerequisites)에서 참조하세요.
+- **관리 서버**: 관리 서버 역할을 하는 Windows Server 2012 R2를 실행 중인 VM입니다. 이 서버에 사이트 복구 구성요소(구성 서버 및 프로세스 서버 포함)를 설치합니다. 자세한 내용은 [관리 서버 고려사항](site-recovery-vmware-to-azure-classic.md#management-server-considerations) 및 [원본 필수 구성 요소](site-recovery-vmware-to-azure-classic.md#on-premises-prerequisites)에서 참조하세요.
 - **EC2 VM 인스턴스**: 마이그레이션한 다음 보호하려는 인스턴스입니다.
 
 ## 배포 단계
@@ -62,4 +62,4 @@
 
 [Azure Site Recovery란?](site-recovery-overview.md)의 다른 복제 시나리오에 대해 알아보기
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/14/2016"
+	ms.date="05/12/2016"
 	ms.author="billmath"/>
 
 # Azure AD로 페더레이션에 대한 여러 도메인 지원
@@ -153,4 +153,4 @@ PowerShell 명령을 사용하여 `Get-MsolDomainFederationSettings - DomainName
 ![클레임 바꾸기](./media/active-directory-multiple-domains/sub2.png)
 5.	확인을 클릭합니다. 적용을 클릭합니다. 확인을 클릭합니다. AD FS 관리를 닫습니다.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

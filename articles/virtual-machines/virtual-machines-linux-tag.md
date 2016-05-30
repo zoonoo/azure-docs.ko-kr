@@ -19,13 +19,13 @@
 
 # Azure에서 Linux 가상 컴퓨터에 태그를 지정하는 방법
 
-이 문서에서는 Azure Resource Manager를 통해 Azure의 Linux 가상 컴퓨터에 태그를 지정하는 다양한 방법에 대해 설명합니다. 태그는 리소스 또는 리소스 그룹에 직접 배치할 수 있는 사용자 정의 키/값 쌍입니다. Azure는 현재 리소스 및 리소스 그룹당 최대 15개의 태그를 지원합니다. 태그를 만들 때 리소스에 배치하거나 기존 리소스에 추가할 수 있습니다. 태그는 Azure 리소스 관리자를 통해 생성된 리소스에 대해서만 지원됩니다.
+이 문서에서는 리소스 관리자 배포 모델을 통해 Azure의 Linux 가상 컴퓨터에 태그를 지정하는 다양한 방법에 대해 설명합니다. 태그는 리소스 또는 리소스 그룹에 직접 배치할 수 있는 사용자 정의 키/값 쌍입니다. Azure는 현재 리소스 및 리소스 그룹당 최대 15개의 태그를 지원합니다. 태그를 만들 때 리소스에 배치하거나 기존 리소스에 추가할 수 있습니다. 태그는 리소스 관리자 배포 모델을 통해 만든 리소스에 대해서만 지원됩니다.
 
 [AZURE.INCLUDE [virtual-machines-common-tag](../../includes/virtual-machines-common-tag.md)]
 
 ## Azure CLI를 사용하여 태그 지정
 
-Azure CLI를 통해 이미 생성된 리소스에 대한 태그 지정도 지원됩니다. 먼저 [Azure CLI 환경][]을 설정합니다. Azure CLI를 통해 구독에 로그인하고 ARM 모드(`azure config mode arm`)로 전환합니다.
+Azure CLI를 통해 이미 생성된 리소스에 대한 태그 지정도 지원됩니다. 먼저 [Azure CLI 환경][]을 설정합니다. Azure CLI를 통해 구독에 로그인하고 리소스 관리자 모드(`azure config mode arm`)로 전환합니다.
 
 다음 명령을 사용하여 태그를 비롯한 지정된 가상 컴퓨터의 모든 속성을 볼 수 있습니다.
 
@@ -42,8 +42,7 @@ Azure CLI를 통해 새 VM 태그를 추가하려면 태그 매개 변수 **-t**
 
 Azure CLI 및 포털을 통해 리소스에 태그를 적용했으므로 이제 사용량 세부 정보를 확인하여 청구 포털에서 태그를 살펴보겠습니다.
 
-
-
+[AZURE.INCLUDE [virtual-machines-common-tag-usage](../../includes/virtual-machines-common-tag-usage.md)]
 
 ## 다음 단계
 
@@ -60,4 +59,4 @@ Azure CLI 및 포털을 통해 리소스에 태그를 적용했으므로 이제 
 [Azure 청구서 이해]: ../billing-understand-your-bill.md
 [Microsoft Azure 리소스 소비에 대한 정보 얻기]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

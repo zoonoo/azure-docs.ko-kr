@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="04/26/2016" 
 	ms.author="rnagpal"/>
 
 # DocumentDB SDK
@@ -36,11 +36,14 @@
 
 ## 릴리스 정보
 
+### <a name="1.7.0"/>[1\.7.0](https://pypi.python.org/pypi/pydocumentdb/1.7.0)
+- 문서의 TTL(Time to Live) 기능에 대한 지원이 추가되었습니다.
+
 ### <a name="1.6.1"/>[1\.6.1](https://pypi.python.org/pypi/pydocumentdb/1.6.1)
 - partitionkey 경로에 특수 문자를 허용하는 서버 쪽 분할과 관련된 버그 수정입니다.
 
 ### <a name="1.6.0"/>[1\.6.0](https://pypi.python.org/pypi/pydocumentdb/1.6.0)
-- 구현된 [분할된 컬렉션](documentdb-partition-data.md) 및 [사용자 정의된 성능 수준](documentdb-performance-levels.md)입니다. 
+- [분할된 컬렉션](documentdb-partition-data.md) 및 [사용자 정의 성능 수준](documentdb-performance-levels.md)이 구현되었습니다. 
 
 ### <a name="1.5.0"/>[1\.5.0](https://pypi.python.org/pypi/pydocumentdb/1.5.0)
 - 여러 파티션 간의 응용 프로그램 분할을 지원하기 위해 해시 및 범위 파티션 해결 프로그램을 추가합니다.
@@ -55,13 +58,13 @@
 - ResourceResponse에 새 헤더 "인덱스 변환 진행"을 추가합니다.
 
 ### <a name="1.1.0"/>[1\.1.0](https://pypi.python.org/pypi/pydocumentdb/1.1.0)
-- V2 인덱싱 정책 구현
+- V2 인덱싱 정책을 구현합니다.
 
 ### <a name="1.0.1"/>[1\.0.1](https://pypi.python.org/pypi/pydocumentdb/1.0.1)
 - 프록시 연결을 지원합니다
 
 ### <a name="1.0.0"/>[1\.0.0](https://pypi.python.org/pypi/pydocumentdb/1.0.0)
-- GA SDK
+- GA SDK.
 
 ## 릴리스 및 사용 중지 날짜
 Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적어도 SDK 사용 중지 **12개월** 전에 알림을 제공합니다.
@@ -77,20 +80,7 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 
 | ---	  | ---	         | ---
-| [1\.6.1](#1.6.1) | 2016년 4월 8일 |--- 
-| [1\.6.0](#1.6.0) | 2016년 3월 29일 |--- 
-| [1\.5.0](#1.5.0) | 2016년 1월 3일 |--- 
-| [1\.4.2](#1.4.2) | 2015년 10월 6일 |--- 
-| [1\.4.1](#1.4.1) | 2015년 10월 6일 |--- 
-| [1\.2.0](#1.2.0) | 2015년 8월 6일 |--- 
-| [1\.1.0](#1.1.0) | 2015년년 7월 9일 |--- 
-| [1\.0.1](#1.0.1) | 2015년 5월 25일 |--- 
-| [1\.0.0](#1.0.0) | 2015년 4월 7일 |--- 
-| 0.9.4-prelease | 2015년 1월 14일 | 2016년 2월 29일 
-| 0.9.3-prelease | 2014년 12월 9일 | 2016년 2월 29일 
-| 0.9.2-prelease | 2014년 11월 25일 | 2016년 2월 29일 
-| 0.9.1-prelease | 2014년 9월 23일 | 2016년 2월 29일 
-| 0.9.0-prelease | 2014년 8월 21일 | 2016년 2월 29일
+| [1\.7.0](#1.7.0) | 2016년 4월 26일 |--- | [1\.6.1](#1.6.1) | 2016년 4월 08일 |--- | [1\.6.0](#1.6.0) | 2016년 3월 29일 |--- | [1\.5.0](#1.5.0) | 2016년 1월 03일 |--- | [1\.4.2](#1.4.2) | 2015년 10월 06일 |--- | [1\.4.1](#1.4.1) | 2015년 10월 06일 |--- | [1\.2.0](#1.2.0) | 2015년 8월 06일 |--- | [1\.1.0](#1.1.0) | 2015년년 7월 09일 |--- | [1\.0.1](#1.0.1) | 2015년 5월 25일 |--- | [1\.0.0](#1.0.0) | 2015년 4월 07일 |--- | 0.9.4-prelease | 2015년 1월 14일 | 2016년 2월 29일 | 0.9.3-prelease | 2014년 12월 09일 | 2016년 2월 29일 | 0.9.2-prelease | 2014년 11월 25일 | 2016년 2월 29일 | 0.9.1-prelease | 2014년 9월 23일 | 2016년 2월 29일 | 0.9.0-prelease | 2014년 8월 21일 | 2016년 2월 29일
 
 ## FAQ
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
@@ -99,4 +89,4 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 DocumentDB에 대해 자세히 알아보려면 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 서비스 페이지를 참조하세요.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

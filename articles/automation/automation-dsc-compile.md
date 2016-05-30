@@ -37,7 +37,7 @@ Azure 자동화를 사용하여 두 가지 방법으로 필요한 상태 구성(
 
 컴파일 방법을 결정했다면 컴파일을 시작하기 위해 아래의 해당 절차를 수행할 수 있습니다.
 
-##Azure Preview 포털을 사용하여 DSC 구성을 컴파일##
+##Azure 포털을 사용하여 DSC 구성 컴파일##
 
 1.  자동화 계정에서 **구성**을 클릭합니다.
 2.  구성을 클릭하여 해당 블레이드를 엽니다.
@@ -115,7 +115,7 @@ PowerShell은 키와 매개 변수 이름이 일치하고 매개 변수 값과 �
     }
     
     
-    Start-AzureRMAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "ParametersExample" -Parameters $Parameters 
+    Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "ParametersExample" -Parameters $Parameters 
     
 
 PSCredentials을 매개 변수로 전달하는 방법에 대한 정보는 아래의 <a href="#credential-assets">**자격 증명 자산**</a>을 참조하세요.
@@ -228,4 +228,4 @@ PowerShell로 위의 DSC 구성을 컴파일할 수 있습니다. 아래 PowerSh
     
     Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "CredentialSample" -ConfigurationData $ConfigData
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

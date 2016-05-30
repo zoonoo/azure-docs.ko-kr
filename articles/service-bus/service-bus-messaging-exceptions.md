@@ -58,8 +58,7 @@
 | [MessagingEntityDisabledException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingentitydisabledexception.aspx) | 비활성화된 엔터티의 런타임 작업에 대한 요청입니다. | 엔터티를 활성화합니다. | 그 사이에 엔터티가 활성화된 경우 다시 시도하면 문제가 해결될 수 있습니다. |
 | [NoMatchingSubscriptionException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.nomatchingsubscriptionexception.aspx) | 사전 필터링이 활성화되었으며 일치하는 필터가 없는 항목에 메시지를 보내는 경우 서비스 버스가 이 예외를 반환합니다. | 하나 이상의 필터가 일치하는지 확인합니다. | 재시도로 해결되지 않습니다. |
 | [MessageSizeExceededException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesizeexceededexception.aspx) | 메시지 페이로드가 256K 제한을 초과합니다. 256K 제한은 총 메시지 크기입니다. 여기에는 시스템 속성과 모든 .NET 오버헤드가 포함됩니다. | 메시지 페이로드의 크기를 줄인 다음 작업을 다시 시도합니다. | 재시도로 해결되지 않습니다. |
-| [TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx) | 앰비언트 트랜잭션(*Transaction.Current*)이 올바르지 않습니다. 완료되었거나 중단되었을 수 있습니다. 내부 예외가 추가 정보를 제공할 수 있습니다. | | 재시도는 도움이 되지 않습니다. | -
-| [TransactionInDoubtException](https://msdn.microsoft.com/library/system.transactions.transactionindoubtexception.aspx) | 의심스러운 트랜잭션에 대해 작업을 시도하거나, 트랜잭션을 커밋하려고 시도하고 트랜잭션이 의심스러운 상태가 됩니다. | 트랜잭션이 이미 커밋되었을 때 응용 프로그램은 이 예외(특별한 경우)를 처리해야 합니다. | - |
+| [TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx) | 앰비언트 트랜잭션(*Transaction.Current*)이 올바르지 않습니다. 완료되었거나 중단되었을 수 있습니다. 내부 예외가 추가 정보를 제공할 수 있습니다. | | 재시도는 도움이 되지 않습니다. | - | [TransactionInDoubtException](https://msdn.microsoft.com/library/system.transactions.transactionindoubtexception.aspx) | 의심스러운 트랜잭션에 대해 작업을 시도하거나, 트랜잭션을 커밋하려고 시도하고 트랜잭션이 의심스러운 상태가 됩니다. | 트랜잭션이 이미 커밋되었을 때 응용 프로그램은 이 예외(특별한 경우)를 처리해야 합니다. | - |
 
 ## QuotaExceededException
 
@@ -98,7 +97,7 @@ Message: The maximum entity size has been reached or exceeded for Topic: ‘xxx-
 
 ## TimeoutException 
 
-[TimeoutException][]은 사용자가 시작한 작업이 작업 시간 제한보다 더 오래 걸린다는 것을 나타냅니다.
+[TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx)은 사용자가 시작한 작업이 작업 시간 제한보다 더 오래 걸린다는 것을 나타냅니다.
 
 ### 큐 및 토픽
 
@@ -139,4 +138,4 @@ Message: The maximum entity size has been reached or exceeded for Topic: ‘xxx-
 - [서비스 버스 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
 - [서비스 버스 아키텍처](service-bus-architecture.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -4,7 +4,7 @@
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="guyinacube"
-	manager="jeffreyg"
+	manager="mblythe"
 	editor="monicar"
 	tags="azure-service-management"/>
 <tags
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="12/11/2015"
+	ms.date="05/13/2016"
 	ms.author="asaxton" />
 
 # Azure 가상 컴퓨터의 SQL Server Business Intelligence
@@ -50,27 +50,29 @@ Microsoft Azure 가상 컴퓨터 갤러리에는 Microsoft SQL Server가 포함�
 
 	Set-AzureSubscription -SubscriptionName $subscriptionName -Certificate $certificate -SubscriptionID $subscriptionID
 
+	Write-Host -foregroundcolor green "List of available gallery images where imagename contains 2016"
+	Write-Host -foregroundcolor green ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+	get-azurevmimage | where {$_.ImageName -Like "*SQL-Server-2016*"} | select imagename,category, location, label, description
+
 	Write-Host -foregroundcolor green "List of available gallery images where imagename contains 2014"
 	Write-Host -foregroundcolor green ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 	get-azurevmimage | where {$_.ImageName -Like "*SQL-Server-2014*"} | select imagename,category, location, label, description
-
-	Write-Host -foregroundcolor green "List of available gallery images where imagename contains 2012"
-	Write-Host -foregroundcolor green ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-	get-azurevmimage | where {$_.ImageName -Like "*SQL-Server-2012*"} | select imagename,category, location, label, description
 
 SQL Server에서 지원되는 버전 및 기능에 대한 자세한 내용은 다음을 참조하세요.
 
 - [SQL Server 버전](https://www.microsoft.com/server-cloud/products/sql-server-editions/#fbid=Zae0-E6r5oh)
 
-- [SQL Server 2014 버전에서 지원되는 기능](https://msdn.microsoft.com/library/cc645993.aspx)
+- [SQL Server 2016 버전에서 지원되는 기능](https://msdn.microsoft.com/library/cc645993.aspx)
 
 ### SQL Server 가상 컴퓨터 갤러리 이미지에 설치된 BI 기능
 
 다음 표는 SQL Server에 대한 일반적인 Microsoft Azure 가상 컴퓨터 갤러리 이미지에 설치된 비즈니스 인텔리전스 기능을 요약합니다."
 
-- SQL Server 2014 RTM Enterprise
+- SQL Server 2016 RC3
 
-- SQL Server 2014 Standard
+- SQL Server 2014 SP1 Enterprise
+
+- SQL Server 2014 SP1 Standard
 
 - SQL Server 2012 SP2 Enterprise
 
@@ -81,7 +83,7 @@ SQL Server에서 지원되는 버전 및 기능에 대한 자세한 내용은 �
 |**Reporting Services 기본 모드**|예|설치되었지만 보고서 관리자 URL을 비롯한 구성이 필요합니다. [Reporting Services 구성](#configure-reporting-services) 섹션을 참조하세요.|
 |**Reporting Services SharePoint 모드**|아니요|Microsoft Azure 가상 컴퓨터 갤러리 이미지는 SharePoint 또는 SharePoint 설치 파일을 포함하지 않습니다. <sup>1</sup>|
 |**Analysis Services 다차원 및 데이터 마이닝(OLAP)**|예|설치되고 기본 Analysis Services 인스턴스로 구성되었습니다.|
-|**Analysis Services 테이블 형식**|아니요|SQL Server 2012 및 2014 이미지에서 지원되지만 기본적으로 설치되지 않습니다. Analysis Services의 다른 인스턴스를 설치합니다. 이 항목의 다른 SQL Server 서비스 및 기능 설치 섹션을 참조하세요.|
+|**Analysis Services 테이블 형식**|아니요|SQL Server 2012, 2014 및 2016 이미지에서 지원되지만 기본적으로 설치되지 않습니다. Analysis Services의 다른 인스턴스를 설치합니다. 이 항목의 다른 SQL Server 서비스 및 기능 설치 섹션을 참조하세요.|
 |**SharePoint용 Analysis Services 파워 피벗**|아니요|Microsoft Azure 가상 컴퓨터 갤러리 이미지는 SharePoint 또는 SharePoint 설치 파일을 포함하지 않습니다. <sup>1</sup>|
 
 <sup>1</sup> SharePoint 및 Azure 가상 컴퓨터에 대한 추가 정보는 [SharePoint 2013용 Microsoft Azure 아키텍처](https://technet.microsoft.com/library/dn635309.aspx) 및 [Microsoft Azure 가상 컴퓨터에 SharePoint 배포](https://www.microsoft.com/download/details.aspx?id=34598)를 참조하세요.
@@ -184,7 +186,7 @@ Azure 가상 컴퓨터에 연결하는 데 다음과 같은 두 가지 일반적
 
 1. **시작**을 클릭한 다음 **모든 프로그램**을 클릭합니다.
 
-1. **Microsoft SQL Server 2012**를 클릭합니다.
+1. **Microsoft SQL Server 2016**을 클릭합니다.
 
 1. **구성 도구**를 클릭합니다.
 
@@ -240,9 +242,9 @@ Azure 가상 컴퓨터에 연결하는 데 다음과 같은 두 가지 일반적
 
 1. **진행 후 마침** 페이지에서 **다음**을 클릭합니다.
 
-**보고서 관리자 URL:**
+**2012 및 2014용 웹 포털 URL 또는 보고서 관리자 URL:**
 
-1. 왼쪽 창에서 **보고서 관리자 URL**을 클릭합니다.
+1. 왼쪽 창에서 2014 및 2012용 **웹 포털 URL** 또는 **보고서 관리자 URL**을 클릭합니다.
 
 1. **Apply**를 클릭합니다.
 
@@ -260,31 +262,33 @@ Azure 가상 컴퓨터에 연결하는 데 다음과 같은 두 가지 일반적
 
 1. VM에서 http://localhost/reports로 이동합니다.
 
-### 원격 보고서 관리자에 연결하려면
+### 2014 및 2012용 원격 웹 포털 또는 보고서 관리자에 연결하려면
 
-원격 컴퓨터에서 가상 컴퓨터의 보고서 관리자에 연결하려는 경우 새 가상 컴퓨터 TCP 끝점을 만듭니다. 기본적으로 보고서 서버는 **포트 80**에서 HTTP 요청을 수신합니다. 다른 포트를 사용하도록 보고서 서버 URL을 구성하는 경우 다음 지침에서 해당 포트 번호를 지정해야 합니다.
+원격 컴퓨터에서 가상 컴퓨터의 2014 및 2012용 보고서 관리자 또는 웹 포털에 연결하려는 경우 새 가상 컴퓨터 TCP 끝점을 만듭니다. 기본적으로 보고서 서버는 **포트 80**에서 HTTP 요청을 수신합니다. 다른 포트를 사용하도록 보고서 서버 URL을 구성하는 경우 다음 지침에서 해당 포트 번호를 지정해야 합니다.
 
 1. TCP 포트 80의 가상 컴퓨터에 대해 끝점을 만듭니다. 자세한 내용은 이 문서의 [가상 컴퓨터 끝점 및 방화벽 포트](#virtual-machine-endpoints-and-firewall-ports) 섹션을 참조하세요.
 
 1. 가상 컴퓨터의 방화벽에서 포트 80을 엽니다.
 
-1. Azure 가상 컴퓨터 **DNS 이름**을 URL의 서버 이름으로 사용하는 보고서 관리자로 이동합니다. 예:
+1. Azure 가상 컴퓨터 **DNS 이름**을 URL의 서버 이름으로 사용하는 보고서 관리자 또는 웹 포털로 이동합니다. 예:
 
-	**보고서 관리자**: http://uebi.cloudapp.net/reportserver **보고서 서버**: http://uebi.cloudapp.net/reports
+	**보고서 서버**: http://uebi.cloudapp.net/reportserver **웹 포털**: http://uebi.cloudapp.net/reports
 
-	[보고서 서버 액세스를 위한 방화벽 구성](https://technet.microsoft.com/library/bb934283.aspx)
+	[보고서 서버 액세스를 위한 방화벽 구성](https://msdn.microsoft.com/library/bb934283.aspx)
 
 ### 보고서를 만들고 Azure 가상 컴퓨터에 게시하려면
 
 다음 표에는 온-프레미스 컴퓨터의 기존 보고서를 Microsoft Azure 가상 컴퓨터에 호스트된 보고서 서버에 게시하는 데 사용 가능한 일부 옵션이 요약되어 있습니다.
 
-- **보고서 작성기**: 가상 컴퓨터는 Microsoft SQL Server 보고서 작성기의 ClickOnce 버전을 포함합니다. 가상 컴퓨터에서 처음으로 보고서 작성기를 시작하려면:
+- **보고서 작성기**: 가상 컴퓨터는 SQL 2014 및 2012용 Microsoft SQL Server 보고서 작성기의 ClickOnce 버전을 포함합니다. SQL 2016이 있는 가상 컴퓨터에서 처음으로 보고서 작성기를 시작하려면:
 
 	1. 관리자 권한으로 브라우저를 시작합니다.
 
-	1. 가상 컴퓨터에서 보고서 관리자로 이동하고 리본에서 **보고서 작성기**를 클릭합니다.
+	1. 웹 포털로 이동하고 가상 컴퓨터에서 오른쪽 위에 있는 **다운로드** 아이콘을 선택합니다.
+	
+	1. **보고서 작성기**를 선택합니다.
 
-	자세한 내용은 [보고서 작성기 설치, 제거 및 지원](https://technet.microsoft.com/library/dd207038.aspx)을 참조하세요.
+	자세한 내용은 [보고서 작성기 시작](https://msdn.microsoft.com/library/ms159221.aspx)을 참조하세요.
 
 - **SQL Server Data Tools**: VM: SQL Server Data Tools가 가상 컴퓨터에 설치되어 있으므로 가상 컴퓨터에서 **보고서 서버 프로젝트** 및 보고서를 만드는 데 사용할 수 있습니다. SQL Server Data Tools는 보고서를 가상 컴퓨터의 보고서 서버에 게시할 수 있습니다.
 
@@ -308,11 +312,11 @@ Azure 가상 컴퓨터에 연결하는 데 다음과 같은 두 가지 일반적
 
 1. **시작**을 클릭한 다음 **모든 프로그램**을 클릭합니다.
 
-1. **Microsoft SQL Server 2014** 또는 **Microsoft SQL Server 2012**를 클릭한 다음 **구성 도구**를 클릭합니다.
+1. **Microsoft SQL Server 2016**, **Microsoft SQL Server 2014** 또는 **Microsoft SQL Server 2012**를 클릭한 다음 **구성 도구**를 클릭합니다.
 
 1. **SQL Server 설치 센터**를 클릭합니다.
 
-또는 C:\\SQLServer\_12.0\_full\\setup.exe나 C:\\SQLServer\_11.0\_full\\setup.exe를 실행합니다.
+또는 C:\\SQLServer\_13.0\_full\\setup.exe, C:\\SQLServer\_12.0\_full\\setup.exe, C:\\SQLServer\_11.0\_full\\setup.exe를 실행합니다.
 
 >[AZURE.NOTE] 처음으로 SQL Server 설치 프로그램을 실행하면 더 많은 설치 파일이 다운로드될 수 있으며 가상 컴퓨터를 재부팅하고 SQL Server 설치를 다시 시작해야 할 수도 있습니다.
 >
@@ -324,13 +328,13 @@ Azure 가상 컴퓨터에 연결하는 데 다음과 같은 두 가지 일반적
 
 - [테이블 형식 모드에서 Analysis Services 설치](https://msdn.microsoft.com/library/hh231722.aspx)
 
-- [테이블 형식 모델링(Adventure Works 자습서)](https://technet.microsoft.com/library/140d0b43-9455-4907-9827-16564a904268)
+- [테이블 형식 모델링(Adventure Works 자습서)](https://msdn.microsoft.com/library/140d0b43-9455-4907-9827-16564a904268)
 
 **Analysis Services 테이블 형식 모드를 설치하려면:**
 
 1. SQL Server 설치 마법사에서 왼쪽 창의 **설치**를 클릭한 다음 **새 SQL Server 독립 실행형 설치 또는 기존 설치에 기능 추가**를 클릭합니다.
 
-	- **폴더 찾아보기**가 표시되면 c:\\SQLServer\_12.0\_full 또는 c:\\SQLServer\_11.0\_full로 이동한 다음 **확인**을 클릭합니다.
+	- **폴더 찾아보기**가 표시되면 c:\\SQLServer\_13.0\_full, c:\\SQLServer\_12.0\_full 또는 c:\\SQLServer\_11.0\_full로 이동한 다음 **확인**을 클릭합니다.
 
 1. 제품 업데이트 페이지에서 **다음**을 클릭합니다.
 
@@ -388,9 +392,7 @@ Analysis Services의 **명명된 인스턴스**의 경우 포트 액세스를 �
 
 	|포트|형식|설명|
 |---|---|---|
-|**80**|TCP|보고서 서버 원격 액세스(*).|
-|**1433**|TCP|SQL Server Management Studio(*).|
-|**1434**|UDP|SQL Server Browser입니다. VM이 도메인에 가입된 경우 필요합니다.|
+|**80**|TCP|보고서 서버 원격 액세스(*).| |**1433**|TCP|SQL Server Management Studio(*).| |**1434**|UDP|SQL Server Browser입니다. VM이 도메인에 가입된 경우 필요합니다.|
 |**2382**|TCP|SQL Server Browser입니다.|
 |**2383**|TCP|SQL Server Analysis Services 기본 인스턴스 및 클러스터된 명명된 인스턴스입니다.|
 |**사용자 정의**|TCP|선택하는 포트 번호에 대해 정적 Analysis Services 명명된 인스턴스 포트를 만든 다음 방화벽에서 포트 번호의 차단을 해제합니다.|
@@ -433,4 +435,4 @@ Analysis Services의 **명명된 인스턴스**의 경우 포트 액세스를 �
 
 - [PowerShell을 사용한 Azure SQL 데이터베이스 관리](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

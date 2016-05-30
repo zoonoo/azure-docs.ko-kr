@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2016" 
+	ms.date="05/04/2016" 
 	ms.author="awills"/>
 
 
@@ -31,10 +31,10 @@
 
 Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에서 Analytics를 엽니다.
 
-![portal.azure.com을 열고 Application Insights 리소스를 열고 Analytics를 클릭합니다.](./media/app-insights-analytics/001.png)
+![portal.azure.com을 열고 Application Insights 리소스를 열고 Analytics를 클릭합니다.](./media/app-insights-analytics-tour/001.png)
 
 	
-## [Take](app-insights-analytics-aggregations.md#take): n개의 행 표시
+## [Take](app-insights-analytics-reference.md#take-operator): n개의 행 표시
 
 사용자 작업(일반적으로 웹앱에서 받는 HTTP 요청)을 기록하는 데이터 요소는 `requests`라는 테이블에 저장됩니다. 각 행은 앱의 Application Insights SDK에서 수신된 원격 분석 데이터 요소입니다.
 
@@ -56,7 +56,7 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 
 > [AZURE.NOTE] 웹 브라우저에서 사용할 수 있는 결과의 순서를 변경하려면 열 머리글을 클릭합니다. 단, 큰 결과 집합의 경우에는 브라우저에 다운로드되는 행의 수가 제한된다는 점을 고려해야 합니다. 또한 이 방식으로 정렬한다고 해서 항상 최상위 항목이나 최하위 항목이 표시되지는 않습니다. 최상위 항목이나 최하위 항목을 표시하려면 `top` 또는 `sort` 연산자를 사용해야 합니다.
 
-## [Top](app-insights-analytics-aggregations.md#top) 및 [sort](app-insights-analytics-aggregations.md#sort)
+## [Top](app-insights-analytics-reference.md#top-operator) 및 [sort](app-insights-analytics-reference.md#sort-operator)
 
 `take`는 빨리 확인할 결과 샘플을 가져오는 데 유용하지만 테이블의 행을 특정 순서 없이 표시합니다. 순서가 지정된 보기를 가져오려면 `top`(샘플의 경우) 또는 `sort`(전체 테이블에 대해)를 사용합니다.
 
@@ -84,9 +84,9 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 테이블 보기의 열 머리글을 사용하여 화면에서 결과를 정렬할 수도 있습니다. 하지만 물론 `take` 또는 `top`을 사용하여 테이블의 일부만 검색했다면 검색한 레코드의 순서만 변경될 것입니다.
 
 
-## [Project](app-insights-analytics-aggregations.md#project): 열 선택, 이름 바꾸기 및 계산
+## [Project](app-insights-analytics-reference.md#project-operator): 열 선택, 이름 바꾸기 및 계산
 
-원하는 열만 선택하려면 [`project`](app-insights-analytics-aggregations.md#project)를 사용합니다.
+원하는 열만 선택하려면 [`project`](app-insights-analytics-reference.md#project-operator)를 사용합니다.
 
 ```AIQL
 
@@ -117,11 +117,13 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 * `1d`(한 자릿수, 'd' 한 개)는 하루를 의미하는 시간 간격 리터럴입니다. 기타 시간 간격 리터럴에는 `12h`, `30m`, `10s`, `0.01s` 등이 있습니다.
 * `floor`(별칭 `bin`)는 값을 사용자가 입력하는 기준 값에 가장 가까운 낮은 배수로 반올림합니다. 따라서 `floor(aTime, 1s)`는 시간을 가장 가까운 초로 반올림합니다.
 
-[식](app-insights-analytics-scalars.md)은 `+`, `-` 등 모든 일반적인 연산자를 포함할 수 있으며, 특정 범위의 함수를 식에 사용할 수 있습니다.
+[식](app-insights-analytics-reference.md#scalars)은 `+`, `-` 등 모든 일반적인 연산자를 포함할 수 있으며, 특정 범위의 함수를 식에 사용할 수 있습니다.
 
-## [Extend](app-insights-analytics-aggregations.md#extend): 열 계산
+    
 
-기존 열에 열을 추가하기만 하려면 [`extend`](app-insights-analytics-aggregations.md#extend)를 사용합니다.
+## [확장](app-insights-analytics-reference.md#extend-operator): 열 계산
+
+기존 열에 열을 추가하기만 하려면 [`extend`](app-insights-analytics-reference.md#extend-operator)를 사용합니다.
 
 ```AIQL
 
@@ -130,9 +132,53 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
     | extend timeOfDay = floor(timestamp % 1d, 1s)
 ```
 
-기존 열을 모두 유지하려는 경우 [`extend`](app-insights-analytics-aggregations.md#extend)를 사용하면 [`project`](app-insights-analytics-aggregations.md#project)에 비해 대략적인 정보가 표시됩니다.
+기존 열을 모두 유지하려는 경우 [`extend`](app-insights-analytics-reference.md#extend-operator)를 사용하면 [`project`](app-insights-analytics-reference.md#project-operator)에 비해 대략적인 정보가 표시됩니다.
 
-## [Summarize](app-insights-analytics-aggregations.md#summarize): 행 그룹 집계
+
+## 중첩된 개체에 액세스
+
+중첩된 개체에 쉽게 액세스할 수 있습니다. 예를 들어 예외 스트림에서 다음과 같이 구조화된 객체가 표시됩니다.
+
+![result](./media/app-insights-analytics-tour/520.png)
+
+관심이 있는 속성을 선택하여 평면화할 수 있습니다.
+
+```AIQL
+
+    exceptions | take 10
+    | extend method1 = details[0].parsedStack[1].method
+```
+
+## 사용자 지정 속성 및 측정
+
+응용 프로그램이 이벤트에 대한 [사용자 지정 차원(속성) 및 사용자 지정 측정](app-insights-api-custom-events-metrics.md#properties)에 연결되면 `customDimensions` 및 `customMeasurements` 개체에 표시됩니다.
+
+
+예를 들어 앱이 다음을 포함한 경우입니다.
+
+```C#
+
+    var dimensions = new Dictionary<string, string> 
+                     {{"p1", "v1"},{"p2", "v2"}};
+    var measurements = new Dictionary<string, double>
+                     {{"m1", 42.0}, {"m2", 43.2}};
+	telemetryClient.TrackEvent("myEvent", dimensions, measurements);
+```
+
+분석에서 이러한 값을 추출하려면:
+
+```AIQL
+
+    customEvents
+    | extend p1 = customDimensions.p1, 
+      m1 = todouble(customMeasurements.m1) // cast numerics
+
+``` 
+
+> [AZURE.NOTE] [메트릭 탐색기](app-insights-metrics-explorer.md)에서 원격 분석의 모든 형식에 연결된 모든 사용자 지정 측정값은 `TrackMetric()`를 사용하여 전송되는 메트릭과 함께 메트릭 블레이드에 표시됩니다. 하지만 분석에서 사용자 지정 측정은 수행된 유형의 원격 분석에 연결되고 메트릭은 해당 `metrics` 스트림에 표시됩니다.
+
+
+## [요약](app-insights-analytics-reference.md#summarize-operator): 행 그룹 집계
 
 `Summarize`는 행 그룹에서 지정된 *집계 함수*를 적용합니다.
 
@@ -170,7 +216,7 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 그룹의 행 수를 계산하려는 경우 `count()` 집계(및 개수 계산 작업)도 있습니다.
 
 
-[집계 함수](app-insights-analytics-aggregations.md)의 범위가 있습니다.
+[집계 함수](app-insights-analytics-reference.md#aggregations)의 범위가 있습니다.
 
 
 ## 결과 차트로 작성
@@ -196,7 +242,7 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 참고로 결과를 시간에 의해 정렬하지 않았지만(테이블 표시에서 확인 가능) 차트 표시는 언제나 날짜 및 시간을 정확한 순서로 표시합니다.
 
 
-## [Where](app-insights-analytics-aggregations.md#where): 조건에 대한 필터링
+## [Where](app-insights-analytics-reference.md#where-operator): 조건에 대한 필터링
 
 앱의 [클라이언트](app-insights-javascript.md) 쪽과 서버 쪽에 대해 모두 Application Insights 모니터링을 설정했다면 데이터베이스의 일부 원격 분석은 브라우저에서 나왔을 것입니다.
 
@@ -218,7 +264,7 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
  * `==`, `<>`: 같음 및 같지 않음
  * `=~`, `!=`: 대/소문자 구분 없는 문자열 같음 및 같지 않음 더 많은 문자열 비교 연산자가 있습니다.
 
-[스칼라 식](app-insights-analytics-scalars.md)에 대한 모든 내용을 읽어보세요.
+[스칼라 식](app-insights-analytics-reference.md#scalars)에 대한 모든 내용을 읽어보세요.
 
 ### 이벤트 필터링
 
@@ -230,7 +276,7 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
     | where isnotempty(resultCode) and toint(resultCode) >= 400
 ```
 
-`responseCode`는 형식 문자열을 가지고 있으므로 숫자 비교를 위해서는 [캐스트](app-insights-analytics-scalars.md#casts)해야 합니다.
+`responseCode`는 형식 문자열을 가지고 있으므로 숫자 비교를 위해서는 [캐스트](app-insights-analytics-reference.md#casts)해야 합니다.
 
 서로 다른 응답 요약:
 
@@ -339,7 +385,7 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 
 
 
-## [백분위수](app-insights-analytics-aggregations.md#percentiles)
+## [백분위수](app-insights-analytics-reference.md#percentiles)
 
 서로 다른 세션 백분위수를 다루는 기간 범위는 무엇입니까?
 
@@ -385,7 +431,7 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 ![](./media/app-insights-analytics-tour/190.png)
 
 
-## [Join](app-insights-analytics-aggregations.md#join)
+## [Join](app-insights-analytics-reference.md#join)
 
 요청 및 예외를 비롯한 일부 테이블에 액세스할 수 있습니다.
 
@@ -404,7 +450,7 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 
 
 
-## [Let](app-insights-analytics-aggregations.md#let): 변수에 결과 할당
+## [Let](app-insights-analytics-reference.md#let-clause): 변수에 결과 할당
 
 [let](./app-insights-analytics-syntax.md#let-statements)을 사용하여 이전 식의 일부를 분리할 수 있습니다. 결과는 변하지 않음:
 
@@ -423,4 +469,4 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md)에
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -53,7 +53,7 @@ JMS는 JNDI(Java Naming and Directory Interface)를 사용하여 논리적 이�
 	
 # Register a ConnectionFactory in JNDI using the form:
 # connectionfactory.[jndi_name] = [ConnectionURL]
-connectionfactory.SBCF = amqps://[username]:[password]@[namespace].servicebus.windows.net
+connectionfactory.SBCF = amqps://[SASPolicyName]:[SASPolicyKey]@[namespace].servicebus.windows.net
 	
 # Register some queues in JNDI using the form
 # queue.[jndi_name] = [physical_name]
@@ -77,13 +77,13 @@ connectionfactory.[jndi_name] = [ConnectionURL]
 **ConnectionURL**의 형식은 다음과 같습니다.
 
 ```
-amqps://[username]:[password]@[namespace].servicebus.windows.net
+amqps://[SASPolicyName]:[SASPolicyKey]@[namespace].servicebus.windows.net
 ```
-여기서 **[namespace]**, **[username]** 및 **[password]**의 의미는 다음과 같습니다.
+여기서 **[namespace]**, **[SASPolicyName]** 및 **[SASPolicyKey]**의 의미는 다음과 같습니다.
 
 - **[namespace]**: 서비스 버스 네임스페이스입니다.
-- **[username]**: 서비스 버스 발급자 이름입니다.
-- **[password]**: URL 인코딩된 형식의 서비스 버스 발급자 키입니다.
+- **[SASPolicyName]**: 큐 공유 액세스 서명 정책 이름입니다.
+- **[SASPolicyKey]**: 큐 공유 액세스 서명 정책 키입니다.
 
 > [AZURE.NOTE] 수동으로 암호를 URL 인코딩해야 합니다. 유용한 URL 인코딩 유틸리티는 [http://www.w3schools.com/tags/ref\_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp)에서 사용할 수 있습니다.
 
@@ -339,4 +339,4 @@ exit
 
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

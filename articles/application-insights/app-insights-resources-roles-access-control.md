@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="05/07/2016"
 	ms.author="awills"/>
 
 # Application Insights에서 리소스, 역할 및 액세스 제어
@@ -58,7 +58,7 @@
 
 구독 또는 리소스 그룹에 대한 소유자 권한이 있어야 합니다.
 
-사용자에게 [Microsoft 계정][account]이 있어야 합니다. 개별 사용자에 대한 액세스 권한을 제공할 수 있으며 Azure Active Directory에 정의된 사용자 그룹에 대한 액세스 권한도 제공할 수 있습니다.
+사용자에게 [Microsoft 계정][account]이 있거나 해당 [조직의 Microsoft 계정](..\active-directory\sign-up-organization.md)에 액세스해야 합니다. 개별 사용자에 대한 액세스 권한을 제공할 수 있으며 Azure Active Directory에 정의된 사용자 그룹에 대한 액세스 권한도 제공할 수 있습니다.
 
 #### 리소스 그룹으로 이동
 
@@ -104,8 +104,8 @@ Application Insights 구성 요소 참여자 | Application Insights 리소스, �
 <!--Link references-->
 
 [account]: https://account.microsoft.com
-[group]: ../azure-preview-portal-using-resource-groups.md
-[portal]: http://portal.azure.com/
+[group]: ../azure-portal/resource-group-portal.md
+[portal]: https://portal.azure.com/
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

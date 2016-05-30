@@ -65,9 +65,8 @@ Azure 검색은 항상 REST API를 통해 실험 기능을 미리 공개한 다�
 
 그러나 미리 보기 기능이 변경될 수 있으므로 미리 보기 버전에 종속된 프로덕션 코드를 작성하지 않는 것이 좋습니다. 이전 미리 보기 버전을 사용하는 경우 일반 공급(GA) 버전으로 마이그레이션하는 것이 좋습니다.
 
-- .NET SDK의 코드 마이그레이션에 대한 지침은 [.NET SDK 업그레이드](search-dotnet-sdk-migration.md)에서 찾을 수 있습니다.
-- REST API의 코드 마이그레이션에 대한 지침은 [미리 보기에서 GA로 전환](search-transition-from-preview.md)에서 찾을 수 있습니다.
+.NET SDK의 코드 마이그레이션에 대한 지침은 [.NET SDK 업그레이드](search-dotnet-sdk-migration.md)에서 찾을 수 있습니다.
 
 일반 공급은 Azure 검색이 현재 SLA(서비스 수준 계약) 하에 있다는 의미입니다. SLA는 [Azure 검색 서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/search/v1_0/)에서 찾을 수 있습니다.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

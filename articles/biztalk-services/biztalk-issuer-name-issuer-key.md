@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="05/16/2016" 
 	ms.author="mandia"/>
 
 
@@ -71,9 +71,7 @@ Visual Studio에서 BizTalk 어댑터 서비스로 LOB 릴레이 만들기 | 서
 2. 왼쪽 탐색 창에서 **Service Bus**를 선택합니다.
 3. 네임스페이스를 선택합니다. 작업 표시줄에서 **연결 정보**를 선택합니다. 그러면 **기본 발급자**(발급자 이름) 및 **기본 키**(발급자 키)가 표시됩니다. 이 값은 복사할 수 있습니다.  
 
-요약하면 다음과 같습니다.  
-발급자 이름 = 기본 발급자  
-발급자 키 = 기본 키
+요약하면 다음과 같습니다.발급자 이름 = 기본 발급자 발급자 키 = 기본 키
 
 ## 다음
 추가 Azure BizTalk 서비스 항목:
@@ -94,4 +92,4 @@ Visual Studio에서 BizTalk 어댑터 서비스로 LOB 릴레이 만들기 | 서
 - [BizTalk 서비스: 제한](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

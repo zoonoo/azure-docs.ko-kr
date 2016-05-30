@@ -5,7 +5,7 @@
 	documentationCenter=".net" 
 	authors="sethmanheim" 
 	manager="timlt" 
-	editor="tysonn"/>
+	editor=""/>
 
 <tags 
 	ms.service="service-bus" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="05/10/2016" 
 	ms.author="sethm"/>
 
 # 서비스 버스 .NET API와 함께 AMQP 1.0을 사용하는 방법
@@ -306,11 +306,11 @@ exit
 * 세션 잠금 갱신
 * 몇 가지 사소한 동작의 차이
 
-자세한 내용은 [서비스 버스 AMQP 개요](service-bus-amqp-dotnet.md)를 참조하세요. 이 항목에는 지원되지 않는 API의 자세한 목록이 포함되어 있습니다.
+자세한 내용은 [서비스 버스 AMQP 개요](service-bus-amqp-dotnet.md)를 참조하세요. 이 문서에는 지원되지 않는 API의 자세한 목록이 포함되어 있습니다.
 
 ## 요약
 
-이 항목에서는 AMQP 1.0과 서비스 버스 .NET API를 사용하여 .NET 응용 프로그램에서 서비스 버스 조정된 메시징 기능(큐 및 게시/구독 토픽)에 액세스하는 방법에 대해 설명했습니다.
+이 문서에서는 AMQP 1.0과 서비스 버스 .NET API를 사용하여 .NET 응용 프로그램에서 서비스 버스 조정된 메시징 기능(큐 및 게시/구독 토픽)에 액세스하는 방법에 대해 설명했습니다.
 
 Java, C, Python, PHP 등의 다른 언어에서도 서비스 버스 AMQP 1.0을 사용할 수 있습니다. 이러한 언어로 빌드한 구성 요소는 서비스 버스의 AMQP 1.0을 사용하여 안정적이며 완전히 신뢰할 수 있는 상태로 메시지를 교환할 수 있습니다. 자세한 내용은 [서비스 버스 AMQP 개요](service-bus-amqp-dotnet.md)를 참조하세요.
 
@@ -322,6 +322,6 @@ Java, C, Python, PHP 등의 다른 언어에서도 서비스 버스 AMQP 1.0을 
 * [서비스 버스 및 AMQP 1.0과 함께 JMS(Java Message Service) API를 사용하는 방법](service-bus-java-how-to-use-jms-api-amqp.md)
 * [서비스 버스 큐를 사용하는 방법](service-bus-dotnet-how-to-use-queues.md)
  
-[Azure 클래식 포털]: http://manage.windowsazure.com
+[Azure 클래식 포털]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

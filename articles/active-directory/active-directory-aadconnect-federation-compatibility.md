@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/13/2016"
+	ms.date="05/12/2016"
 	ms.author="billmath"/>
 
 # Azure AD 페더레이션 호환성 목록
@@ -215,9 +215,7 @@ NetIQ Access Manager 4.0.1은 널리 사용되는 WS Federation/WS-Trust ID 표�
 
 | 클라이언트 |지원 |예외|
 | --------- | --------- |--------- |
-| Exchange Web Access 및 SharePoint Online과 같은 웹 기반 클라이언트 | 지원됨 |**Kerberos 계약 지원됨|
-| Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 | 지원됨 |Windows 통합 인증은 지원되지 않음|
-| Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 | 지원됨 |없음|
+| Exchange Web Access 및 SharePoint Online과 같은 웹 기반 클라이언트 | 지원됨 |**Kerberos 계약 지원됨| | Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 | 지원됨 |Windows 통합 인증은 지원되지 않음| | Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 | 지원됨 |없음|
 
 **NetIQ는 Kerberos 계약 구성을 통해 Kerberos 인증을 지원합니다. 이 구성에 지원이 필요한 경우 NetIQ에 문의하거나 설치 가이드를 확인하세요. NetIQ Access Manager에 대한 자세한 내용은 [NetIQ Access Manager](https://www.netiq.com/documentation/netiqaccessmanager4/identityserverhelp/data/b12iqp0m.html)를 참조하세요.
 
@@ -320,4 +318,4 @@ AuthAnvil Single Sign On 4.5는 널리 사용되는 WS Federation/WS-Trust ID �
 
 자세한 내용은 [AuthAnvil Single Sign On](https://help.scorpionsoft.com/entries/26538603-How-can-I-Configure-Single-Sign-On-for-Office-365-)을 참조하세요.
 
-<!----HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/08/2016"
+	ms.date="04/05/2016"
 	ms.author="onewth"/>
 
 
 # 기계 학습 API: 정서, 핵심 구문 추출, 언어 검색 및 항목 검색을 위한 텍스트 분석
+
+>[AZURE.NOTE] 이 가이드는 API의 버전 1용입니다. 버전 2의 경우 [**이 문서를 참조**](../cognitive-services-text-analytics-quick-start/)하세요. 현재 버전 2가 기본 설정된 API 버전입니다.
 
 ## 개요
 
@@ -383,4 +385,4 @@ API는 다음과 같은 형식의 JSON 형식으로 출력을 반환합니다.
 | TopicId | 레코드가 할당된 항목 ID입니다. |
 | Distance | 레코드가 항목에 속할 신뢰도입니다. Distance가 0에 가까울수록 신뢰도가 높아집니다. |
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

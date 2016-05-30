@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/01/2015"
+   ms.date="04/29/2016"
    ms.author="v-sharos" />
 
 # StorSimple 관리자 서비스를 사용하여 저장소 계정 관리
@@ -60,7 +60,10 @@ StorSimple 장치에서 사용할 수 있는 저장소 계정에는 다음과 �
 
 저장소 계정을 저장하는 동안 해당 서비스는 클라우드 서비스 공급자와 통신을 시도합니다. 사용자가 지정한 자격 증명 및 액세스 자료가 이 때 인증됩니다. 인증에 성공하는 경우에만 저장소 계정이 만들어집니다. 인증에 실패하는 경우 그에 따른 오류 메시지가 표시됩니다.
 
-> [AZURE.NOTE]저장소 계정을 추가하기 위한 절차는 사용하는 StorSimple 소프트웨어 버전에 따라 다릅니다. StorSimple 버전에 대한 올바른 절차를 수행해야 합니다.
+Azure 포털에서 만든 Resource Manager 저장소 계정은 StorSimple에서도 지원됩니다. Resource Manager 저장소 계정은 볼륨 컨테이너를 만들려고 할 때 드롭다운 목록에서 선택할 수 있도록 표시되지 않으며, Azure 클래식 포털에서 만든 저장소 계정만 표시됩니다. 아래에 설명된 저장소 계정 추가 절차에 따라 Resource Manager 저장소 계정을 추가해야 합니다.
+
+> [AZURE.NOTE] 저장소 계정을 추가하기 위한 절차는 사용하는 StorSimple 소프트웨어 버전에 따라 다릅니다. StorSimple 버전에 대한 올바른 절차를 수행해야 합니다.
+
 
 [AZURE.INCLUDE [저장소 계정 업데이트1 추가](../../includes/storsimple-configure-new-storage-account-u1.md)]
 
@@ -87,7 +90,7 @@ StorSimple 장치에서 사용할 수 있는 저장소 계정에는 다음과 �
   
 ## 저장소 계정 삭제
 
-> [AZURE.IMPORTANT]볼륨 컨테이너에서 사용하지 않는 경우에만 저장소 계정을 삭제할 수 있습니다. 저장소 계정을 볼륨 컨테이너에서 사용 중인 경우 먼저 볼륨 컨테이너를 삭제하고 연결된 저장소 계정을 삭제합니다.
+> [AZURE.IMPORTANT] 볼륨 컨테이너에서 사용하지 않는 경우에만 저장소 계정을 삭제할 수 있습니다. 저장소 계정을 볼륨 컨테이너에서 사용 중인 경우 먼저 볼륨 컨테이너를 삭제하고 연결된 저장소 계정을 삭제합니다.
 
 #### 저장소 계정을 삭제하려면
 
@@ -103,7 +106,7 @@ StorSimple 장치에서 사용할 수 있는 저장소 계정에는 다음과 �
 
 보안상의 이유로 키 회전이 데이터 센터에서 요구되기도 합니다.
 
-> [AZURE.NOTE]다음의 키 회전 정보 및 회전 절차는 Microsoft Azure 저장소 계정에만 적용 됩니다. 다른 클라우드 서비스 공급자를 사용하는 경우에 해당 공급자의 대시보드를 통해 저장소 계정 키를 관리할 수 있습니다.
+> [AZURE.NOTE] 다음의 키 회전 정보 및 회전 절차는 Microsoft Azure 저장소 계정에만 적용 됩니다. 다른 클라우드 서비스 공급자를 사용하는 경우에 해당 공급자의 대시보드를 통해 저장소 계정 키를 관리할 수 있습니다.
  
 각 Microsoft Azure 구독에 하나 이상의 연결된 저장소 계정을 만들 수 있습니다. 이러한 계정에 대한 액세스는 해당 저장소 계정에 대한 구독 및 액세스 키를 통해 제어됩니다.
 
@@ -151,4 +154,4 @@ StorSimple 관리자 서비스에 변경을 알리려면 StorSimple 관리자 �
 - [StorSimple 보안](storsimple-security.md)에 대해 자세히 알아봅니다.
 - [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0518_2016-->

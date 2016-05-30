@@ -93,7 +93,7 @@ ADO.NET을 사용하는 클라이언트에 대한 *차단 기간*의 설명은 [
 
 재시도 논리가 포함된 코드 샘플은 다음에서 다양한 언어로 다운로드할 수 있습니다.
 
-- [빠른 시작 코드 샘플](sql-database-develop-quick-start-client-code-samples.md)
+- [SQL 데이터베이스 및 SQL Server용 연결 라이브러리](sql-database-libraries.md)
 
 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
@@ -418,11 +418,6 @@ Enterprise Library 6(EntLib60)은 Azure SQL 데이터베이스를 포함한 견�
 - [4 - 모든 성공의 인내와 비밀: 일시적 오류 처리 응용 프로그램 블록 사용](http://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)
 
 
-재시도 논리에서 EntLib60을 사용하는 간단한 C# 코드 샘플을 다음에서 사용할 수 있습니다.
-
-- [코드 샘플: C#의 Enterprise Library 6에서 SQL 데이터베이스 연결을 위한 논리 재시도](sql-database-develop-entlib-csharp-retry-windows.md)
-
-
 > [AZURE.NOTE] EntLib60에 대한 소스 코드는 공용 [다운로드](http://go.microsoft.com/fwlink/p/?LinkID=290898)에 대해 사용할 수 있습니다. Microsoft는 EntLib에 추가 기능 또는 유지 관리를 업데이트할 계획이 없습니다.
 
 <a id="entlib60-classes-for-transient-errors-and-retry" name="entlib60-classes-for-transient-errors-and-retry"></a>
@@ -565,4 +560,4 @@ public bool IsTransient(Exception ex)
 
 - [*Retrying*은 임의 항목에 재시도 동작을 추가하는 작업을 간소화하기 위해 Apache 2.0 라이선스 하에 **Python**으로 작성한 일반 목적의 재시도 라이브러리입니다.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

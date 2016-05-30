@@ -119,7 +119,7 @@ SQL 데이터 웨어하우스에 대한 **기능 제안**이 있는 경우 [Azur
 [Azure SQL 데이터 웨어하우스의 columnstore 인덱스 관리]: sql-data-warehouse-manage-columnstore-indexes.md
 [SQL 데이터 웨어하우스의 통계 관리]: sql-data-warehouse-develop-statistics.md
 [DMV를 사용하여 워크로드 모니터링]: sql-data-warehouse-manage-monitor.md
-[Azure Data Factory를 사용하여 Azure SQL 데이터 웨어하우스 간 데이터 이동]: data-factory-azure-sql-data-warehouse-connector.md
+[Azure Data Factory를 사용하여 Azure SQL 데이터 웨어하우스 간 데이터 이동]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
 [SQL 데이터 웨어하우스에 대한 트랜잭션 최적화]: sql-data-warehouse-develop-best-practices-transactions.md
 [계산 리소스 일시 중지]: sql-data-warehouse-overview-scalability.md#pause-compute-bk
 [계산 리소스 다시 시작]: sql-data-warehouse-overview-scalability.md#resume-compute-bk
@@ -158,4 +158,4 @@ SQL 데이터 웨어하우스에 대한 **기능 제안**이 있는 경우 [Azur
 [Azure SQL 데이터 웨어하우스 Stack Overflow 포럼]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Azure SQL 데이터 웨어하우스 로딩 패턴 및 전략]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/06/azure-sql-data-warehouse-loading-patterns-and-strategies
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/19/2016"
+	ms.date="05/16/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 미리 보기: 제한 사항
 
-미리 보기하는 동안 아직 지원되지 않는 Azure AD(Azure Active Directory) B2C의 여러 특징 및 기능이 있습니다. 이러한 많은 제한 사항은 Azure AD B2C가 일반 공급되기 전에 제거되지만 미리 보기하는 동안 Azure AD B2C를 사용하여 소비자 지향 응용 프로그램을 빌드하는 경우 알고 있어야 합니다.
+미리 보기하는 동안 아직 지원되지 않는 Azure AD(Azure Active Directory) B2C의 여러 특징 및 기능이 있습니다. 이러한 많은 알려진 문제 및 제한 사항은 Azure AD B2C가 일반 공급되기 전에 제거되지만 미리 보기하는 동안 Azure AD B2C를 사용하여 소비자 지향 응용 프로그램을 빌드하는 경우 알고 있어야 합니다.
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
@@ -92,4 +92,11 @@ Azure 클래식 포털에서 Azure AD B2C 테넌트를 삭제할 수 없습니�
 
 현재는 [Azure 클래식 포털](https://manage.windowsazure.com/)에서 도메인을 성공적으로 확인할 수 없습니다. 문제를 해결하기 위한 작업을 하고 있습니다.
 
-<!---HONumber=AcomDC_0427_2016-->
+## Safari 브라우저에서 MFA 정책을 사용하는 로그인 문제
+
+HTTP 400(잘못된 요청) 오류가 있는 Safari 브라우저에서 (MFA를 사용하는) 일시적인 로그인 정책 실패에 대한 요청입니다. Safari의 쿠키 크기가 낮게 제한되기 때문입니다. 이 문제에 대한 해결 방법은 다음과 같이 몇 가지가 있습니다.
+
+- "로그인 정책" 대신 "등록 또는 로그인 정책"을 사용합니다.
+- 정책에서 요청되는 **응용 프로그램 클레임** 수를 줄입니다. 
+
+<!---HONumber=AcomDC_0518_2016-->

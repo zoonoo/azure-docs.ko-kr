@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="02/08/2016" 
+    ms.date="05/13/2016" 
     ms.author="elizapo" />
 
 
@@ -45,4 +45,4 @@ Azure 구독의 현지 디렉터리를 1단계에서 작업한 Office 365 디렉
 
 이제 Azure RemoteApp 구독이 Office 365 Azure AD와 연결되었습니다. Azure RemoteApp에서 기존 Office 365 사용자 계정을 사용할 수 있습니다.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

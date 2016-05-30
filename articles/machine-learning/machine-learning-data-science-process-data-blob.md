@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/10/2016"
 	ms.author="sunliangms;fashah;garye;bradsev" />
 
 #<a name="heading"></a>고급 분석을 사용하여 Azure blob 데이터 처리
@@ -48,6 +48,7 @@
     	dataframe_blobdata = pd.read_csv(LOCALFILE)
 
 이제 데이터를 탐색하고 이 데이터 집합에 기능을 생성할 준비가 완료되었습니다.
+
 
 ##<a name="blob-dataexploration"></a>데이터 탐색
 
@@ -149,6 +150,7 @@
 
 		dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)	
 
+
 ##<a name="sql-featuregen"></a>다시 Azure blob에 데이터를 쓰고 Azure 기계 학습에서 데이터 사용
 
 데이터를 탐색하고 필요한 기능을 만든 후에는 다음 단계에 따라 샘플링한 또는 기능화한 데이터를 Azure blob에 업로드하여 Azure 기계 학습에서 사용할 수 있습니다. Azure 기계 학습 스튜디오에서 추가 기능을 만들 수도 있습니다.
@@ -189,4 +191,4 @@
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

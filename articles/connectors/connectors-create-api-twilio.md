@@ -14,7 +14,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="05/10/2016"
+ms.date="05/12/2016"
 ms.author="mandia"/>
 
 # Twilio API 시작
@@ -47,9 +47,10 @@ Twilio API에는 다음 작업이 포함됩니다. 트리거는 없습니다.
 |계정 ID|예|Twilio 계정 ID 입력|
 |액세스 토큰|예|Twilio 액세스 토큰 입력|
 
-액세스 토큰을 만들려면 [Twilio](https://www.twilio.com/docs/api/ip-messaging/guides/identity)를 참조하세요.
+>[AZURE.INCLUDE [Twilio에 대한 연결을 만드는 단계](../../includes/connectors-create-api-twilio.md)]
 
-연결을 만든 후에 Twilio 속성을 입력합니다. 이 항목의 **REST API 참조**에서는 이러한 속성에 대해 설명합니다.
+액세스 토큰이 없으면, [Twilio](https://www.twilio.com/docs/api/ip-messaging/guides/identity)를 참조하여 만듭니다.
+
 
 >[AZURE.TIP] 다른 논리 앱에서 이와 동일한 Twilio 연결을 사용할 수 있습니다.
 
@@ -248,4 +249,4 @@ Twilio API에는 다음 작업이 포함됩니다. 트리거는 없습니다.
 ## 다음 단계
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

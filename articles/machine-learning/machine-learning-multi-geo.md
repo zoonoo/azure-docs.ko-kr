@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/12/2016"
+   ms.date="05/09/2016"
    ms.author="tedway; neerajkh"/>
 
 # 다중 지역 도움말 문서
@@ -38,7 +38,9 @@
 
 ## 웹 서비스 관리
 
-프로그래밍 방식으로 웹 서비스를 관리하려면(예: 다시 학습을 위해) 지역별 주소(****https://asiasoutheast.management.azureml.net**)를 사용합니다.
+프로그래밍 방식으로 웹 서비스를 관리하려면(예: 다시 학습을 위해) 지역별 주소를 사용합니다.
+- https://asiasoutheast.management.azureml.net
+- https://europewest.management.azureml.net
 
 ### 주의할 사항
 
@@ -57,4 +59,4 @@
 [3]: ./media/machine-learning-multi-geo/multi-geo_3.png
 [4a]: ./media/machine-learning-multi-geo/multi-geo_4a.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0518_2016-->

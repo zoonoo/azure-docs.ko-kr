@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/21/2016" 
+    ms.date="05/12/2016" 
     ms.author="elizapo" />
 
 
@@ -36,4 +36,4 @@ Azure RemoteApp를 통해 기존 App-V 인프라를 쉽게 사용할 수 있습�
 
  사용자 지정 이미지 및 하이브리드 컬렉션을 만든 후 응용 프로그램을 게시하고, 사용자를 할당하고, 어디서나 임의 장치에 배달된 Azure RemoteApp에서 호스팅되는 기존 App-V 응용 프로그램을 즐길 수 있습니다.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/22/2016" 
+	ms.date="05/13/2016" 
 	ms.author="ccompy"/>
 
 # Azure 가상 네트워크에 앱 통합 #
@@ -59,7 +59,9 @@ VNET 통합이 지원하지 않는 사항에는 다음과 같은 내용이 포�
 
 ## VNET 통합 사용 ##
 
-새 가상 네트워크나 기존 가상 네트워크에 연결할 수 있습니다. 네트워크를 새로 만드는 경우 VNET 생성 외에도 동적 라우팅 게이트웨이가 미리 구성되고 지점과 사이트 간 VPN을 사용하도록 설정됩니다.
+이 문서는 VNET 통합에 대한 Azure 포털 사용에 주로 초점을 둡니다. PowerShell을 사용하여 앱과의 VNET 통합을 활성화하려면, 다음 지침을 따릅니다. [PowerShell을 사용하여 앱을 가상 네트워크에 연결합니다][IntPowershell].
+
+앱을 새 가상 네트워크나 기존 가상 네트워크에 연결할 수 있습니다. VNET 생성 외에도 통합의 일환으로 네트워크를 새로 만든 경우, 동적 라우팅 게이트웨이가 미리 구성되고 지점과 사이트 간 VPN을 사용하도록 설정됩니다.
 
 >[AZURE.NOTE] 새 가상 네트워크를 구성하려면 몇 분 정도 걸릴 수 있습니다.
 
@@ -287,5 +289,6 @@ VNET에 호스트되는 리소스에 액세스할 수 있도록 하는 기능은
 [VNETPricing]: http://azure.microsoft.com/pricing/details/vpn-gateway/
 [DataPricing]: http://azure.microsoft.com/pricing/details/data-transfers/
 [V2VNETP2S]: http://azure.microsoft.com/documentation/articles/vpn-gateway-howto-point-to-site-rm-ps/
+[IntPowershell]: http://azure.microsoft.com/documentation/articles/app-service-vnet-integration-powershell/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

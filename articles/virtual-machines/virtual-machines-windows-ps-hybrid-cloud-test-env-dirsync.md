@@ -11,7 +11,7 @@
 <tags 
 	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="Windows" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/01/2016" 
@@ -60,12 +60,12 @@
 
 Office 365 FastTrack 평가판을 시작하려면 가상 회사 이름 및 Microsoft 계정이 필요합니다. Contoso라는 회사 이름의 변형을 회사 이름으로 사용하는 것이 좋습니다. 이는 Microsoft 샘플 콘텐츠에서 사용되는 가상 회사이지만 필수 사항은 아닙니다.
 
-새 Microsoft 계정에 등록합니다. **http://outlook.com**로 이동하여 user123@outlook.com과 같이 전자 메일 주소로 계정을 생성합니다. 이 계정을 사용하여 Office 365 FastTrack 평가판에 등록합니다.
+새 Microsoft 계정에 등록합니다. ****http://outlook.com**로 이동하여 user123@outlook.com과 같이 전자 메일 주소로 계정을 생성합니다. 이 계정을 사용하여 Office 365 FastTrack 평가판에 등록합니다.
 
 그런 다음 새 Office 365 Enterprise E3 평가판에 등록합니다.
 
 1.	CORP\\User1 계정 자격 증명을 사용하여 CLIENT1에 로그온합니다.
-2.	Internet Explorer를 열고 **https://go.microsoft.com/fwlink/p/?LinkID=403802**로 이동합니다.
+2.	Internet Explorer를 열고 ****https://go.microsoft.com/fwlink/p/?LinkID=403802**로 이동합니다.
 3.	Office 365 Enterprise E3 평가판에 등록하는 과정을 단계별로 실행합니다.
 
 **비즈니스 메일 주소**를 입력하라는 메시지가 나타나면 새 Microsoft 계정을 지정합니다.
@@ -142,7 +142,7 @@ Ping 명령을 실행한 경우 IP 주소 192.168.0.4에서 성공적인 회신 
 
 그런 다음 DS1에서 Azure AD Connect 도구를 설치하고 구성합니다.
 
-1.	Internet Explorer를 열고 **주소 표시줄**에 **https://www.microsoft.com/download/details.aspx?id=47594**를 입력한 뒤 ENTER를 누릅니다.
+1.	Internet Explorer를 열고 **주소 표시줄**에 ****https://www.microsoft.com/download/details.aspx?id=47594**를 입력한 뒤 ENTER를 누릅니다.
 2.	Microsoft Azure AD Connect 설치 프로그램을 실행합니다.
 3.	데스크톱에서 **Azure AD Connect**을 두 번 클릭합니다.
 4.	**시작** 페이지에서 **I agree to the license terms and privacy notice(사용 약관 및 에 개인 정보 취급 방침에 동의)**를 선택하고 **계속**을 클릭합니다.
@@ -167,7 +167,7 @@ CLIENT1의 **Active Directory 동기화 설정 및 관리 페이지**에서 이 
 3.	**라이선스 할당** 탭의 **사용자 위치 선택**에서 위치(예: 미국)를 선택합니다.
 4.	**Microsoft Office 365 Plan E3**를 선택하고 **저장**을 클릭합니다.
 5.	Internet Explorer를 닫습니다.
-6.	Internet Explorer를 열고 **http://portal.microsoftonline.com**으로 이동합니다.
+6.	Internet Explorer를 열고 ****http://portal.microsoftonline.com**으로 이동합니다.
 7.	Lynda Meyer의 Office 365 자격 증명으로 로그온합니다. 사용자 이름은 lyndam@<*가상의 이름*>.onmicrosoft.com입니다. 암호는 Lynda Meyer Active Directory 사용자 계정 암호입니다.
 8.	로그온에 성공하면 **Let's make a difference today**가 표시된 Office 365 기본 포털 페이지가 나타납니다.
 
@@ -181,4 +181,4 @@ CLIENT1의 **Active Directory 동기화 설정 및 관리 페이지**에서 이 
 
 - 이 워크로드를 [프로덕션에서](http://technet.microsoft.com/library/dn635310.aspx) 배포합니다.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

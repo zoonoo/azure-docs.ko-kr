@@ -1,26 +1,20 @@
-##TCP settings for Azure VMs
+##Azure VM에 대한 TCP 설정
 
-Azure VMs communicate with the public Internet by using [NAT][nat] (Network Address Translation). NAT devices assign a public IP address and port to an Azure VM, allowing that VM to establish a socket for communication with other devices. If packets stop flowing through that socket after a specific time, the NAT device kills the mapping, and the socket is free to be used by other VMs.
+Azure VM은 [NAT][nat](Network Address Translation)를 사용하여 공용 인터넷과 통신합니다. NAT 장치는 Azure VM에 공용 IP 주소 및 포트를 할당하여 해당 VM이 다른 장치와의 통신을 위한 소켓을 설정하도록 허용합니다. 패킷이 특정 시간 이후에 해당 소켓을 통해 흐르는 것을 중지하는 경우 NAT 장치가 매핑을 종료하고 소켓은 다른 VM에서 사용할 수도 있습니다.
 
-This is a common NAT behavior, which can cause communication issues on TCP based applications that expect a socket to be maintained beyond a time-out period. There are two idle timeout settings to consider, for sessions in a *established connection* state:
+이는 일반적인 NAT 동작이며, 소켓을 시간 제한 기간을 초과하여 유지 관리하는 TCP 기반 응용 프로그램에서 통신 문제를 발생시킬 수 있습니다. *설정된 연결* 상태의 세션에 대해 두 가지 유휴 시간 제한 설정을 고려해야 합니다.
 
-- **inbound** through the [Azure load balancer][azure-lb-timeout]. This timeout defaults to 4 minutes, and can be adjusted up to 30 minutes.
-- **outbound** using [SNAT][snat] (Source NAT). This timeout is set to 4 minutes, and cannot be adjusted.
+- [Azure 부하 분산 장치][azure-lb-timeout]를 통한 **인바운드**. 이 시간 제한은 4분을 기본값으로 하며 30분까지 조정할 수 있습니다.
+- [SNAT][snat](원본 NAT)를 사용하는 **아웃바운드**. 이 시간 제한은 4분으로 설정되고 조정할 수 없습니다.
 
-To ensure connections are not lost beyond the timeout limit, you should make sure either your application keeps the session alive, or you can configure the underlying operating system to do so. The settings to be used are different for Linux and Windows systems, as shown below.
+연결이 시간 제한을 초과하여 손실되지 않도록 하려면 응용 프로그램의 세션을 활성 상태로 유지하거나 그렇게 하도록 기본 운영 체제를 구성할 수 있습니다. 아래와 같이 Linux 및 Windows 시스템의 경우 사용하는 설정이 서로 다릅니다.
 
-For [Linux][linux], you should change the kernel variables below.
-net.ipv4.tcp_keepalive_time = 120
-net.ipv4.tcp_keepalive_intvl = 30
-net.ipv4.tcp_keepalive_probes = 8
+[Linux][linux]의 경우 아래 커널 변수를 변경해야 합니다. net.ipv4.tcp\_keepalive\_time = 120 net.ipv4.tcp\_keepalive\_intvl = 30 net.ipv4.tcp\_keepalive\_probes = 8
  
-For [Windows][windows], you should change the registry values below.
-KeepAliveInterval = 30
-KeepAliveTime = 120
-TcpMaxDataRetransmissions = 8
+[Windows][windows]의 경우 아래의 레지스트리 값을 변경해야 합니다. KeepAliveInterval = 30 KeepAliveTime = 120 TcpMaxDataRetransmissions = 8
 
 
-The settings above ensure a keep alive packet is sent after 2 minutes (120 seconds) of idle time, and then sent every 30 seconds. And if 8 of those packets fail, the session is dropped.
+위의 설정으로 연결 유지 패킷이 2분(120초)의 유휴 시간 후 전송된 다음 30초마다 전송됩니다. 또한 해당 패킷이 8번 실패하면 세션이 삭제됩니다.
 
 <!-- links -->
 [nat]: http://computer.howstuffworks.com/nat.htm

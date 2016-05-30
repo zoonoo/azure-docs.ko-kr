@@ -44,7 +44,7 @@ Linux 진단 확장을 통해 사용자는 다음과 같은 기능으로 Microso
 Azure 포털에서 직접 시스템 및 성능 데이터를 보고 구성하려면 다음 [단계](https://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/ "Windows 블로그에 대한 URL"/)를 따르세요.
 
 
-이 문서에서는 Azure CLI 명령을 통해 확장을 사용하도록 설정하고 구성하는 과정을 중점적으로 다룹니다. 이 옵션을 통해 저장소 테이블에서 데이터를 직접 읽고 볼 수 있습니다.
+이 문서에서는 Azure CLI 명령을 통해 확장을 사용하도록 설정하고 구성하는 과정을 중점적으로 다룹니다. 이 옵션을 통해 저장소 테이블에서 데이터를 직접 읽고 볼 수 있습니다. 아래에 설명된 구성 방법은 Azure 포털에서 작동하지 않습니다. Azure 포털에서 직접 시스템 및 성능 데이터를 보고 구성하려면 이전 단락에서 설명했듯이 Azure 포털을 통해 확장할 수 있어야 합니다.
 
 
 ## 필수 조건
@@ -74,15 +74,13 @@ Azure 포털에서 직접 시스템 및 성능 데이터를 보고 구성하려�
 ###   시나리오 2. 성능 모니터 메트릭 사용자 지정  
 이 섹션은 성능 및 진단 데이터 테이블을 사용자가 지정하는 방법을 설명합니다.
 
-1단계. 다음 예제에 표시되는 내용으로 PrivateConfig.json라는 파일을 만듭니다. 수집하려는 특정 데이터를 지정합니다.
+1단계. 위의 시나리오 1에서 설명한 내용으로 PrivateConfig.json이라는 파일을 만듭니다. 다음 예제에 표시되는 PublicConfig.json이라는 파일도 만듭니다. 수집하려는 특정 데이터를 지정합니다.
 
 지원되는 모든 공급자 및 변수에 대해서는 이 [문서](https://scx.codeplex.com/wikipage?title=xplatproviders)를 참조하세요. 스크립트에 더 많은 쿼리를 추가하여 여러 쿼리를 포함하고 여러 테이블에 저장할 수 있습니다.
 
 기본적으로 Rsyslog 데이터는 항상 수집됩니다.
 
 	{
-     	"storageAccountName":"storage account to receive data",
-     	"storageAccountKey":"key of the account",
       	"perfCfg":[
            	{"query":"SELECT PercentAvailableMemory, AvailableMemory, UsedMemory ,PercentUsedSwap FROM SCX_MemoryStatisticalInformation","table":"LinuxMemory"
            	}
@@ -90,17 +88,15 @@ Azure 포털에서 직접 시스템 및 성능 데이터를 보고 구성하려�
 	}
 
 
-2단계. **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**을 실행합니다.
+2단계. **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**을 실행합니다.
 
 
 ###   시나리오 3. 고유한 로그 파일 업로드
 이 섹션은 저장소 계정에 특정 로그 파일을 수집하고 업로드하는 방법을 설명합니다. 로그 파일의 경로 및 로그를 저장할 테이블 이름을 지정해야 합니다. 스크립트에 여러 파일/테이블 항목을 추가하여 여러 로그 파일을 포함할 수 있습니다.
 
-1단계. 다음과 같은 내용으로 PrivateConfig.json라는 파일을 만듭니다.
+1단계. 시나리오 1에서 설명한 내용으로 PrivateConfig.json이라는 파일을 만듭니다. 다음과 같은 내용으로 PublicConfig.json이라는 다른 파일을 만듭니다.
 
 	{
-     	"storageAccountName":"the storage account to receive data",
-     	"storageAccountKey":"key of the account",
       	"fileCfg":[
            	{"file":"/var/log/mysql.err",
              "table":"mysqlerr"
@@ -109,21 +105,19 @@ Azure 포털에서 직접 시스템 및 성능 데이터를 보고 구성하려�
 	}
 
 
-2단계. **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**을 실행합니다.
+2단계. **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**을 실행합니다.
 
 
 ###   시나리오 4. Linux 모니터 확장을 사용하지 않도록 설정
-1단계. 다음과 같은 내용으로 PrivateConfig.json라는 파일을 만듭니다.
+1단계. 시나리오 1에서 설명한 내용으로 PrivateConfig.json이라는 파일을 만듭니다. 다음과 같은 내용으로 PublicConfig.json이라는 다른 파일을 만듭니다.
 
 	{
-     	"storageAccountName":"the storage account to receive data",
-     	"storageAccountKey":"the key of the account",
-     	“perfCfg”:[],
-     	“enableSyslog”:”False”
+     	"perfCfg":[],
+     	"enableSyslog":”False”
 	}
 
 
-2단계. **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**을 실행합니다.
+2단계. **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**을 실행합니다.
 
 
 ## 데이터 검토
@@ -143,4 +137,4 @@ Azure 포털에서 직접 시스템 및 성능 데이터를 보고 구성하려�
 ## 알려진 문제
 - 버전 2.0의 경우 스크립팅을 통해 Rsyslog 정보 및 고객이 지정한 로그 파일에만 액세스할 수 있습니다.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

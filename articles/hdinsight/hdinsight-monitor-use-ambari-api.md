@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/17/2016"
+	ms.date="05/18/2016"
 	ms.author="jgao"/>
 
 # Ambari API를 사용하여 HDInsight에서 Hadoop 클러스터 모니터링
@@ -174,4 +174,4 @@ Ambari 모니터링 API 호출을 사용하는 방법을 알아보았습니다. 
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

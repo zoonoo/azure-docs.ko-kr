@@ -3,7 +3,7 @@
 	description="Excel에서 Azure 기계 학습 웹 서비스 사용"
 	services="machine-learning"
 	documentationCenter=""
-	authors="LuisCabrer"
+	authors="tedway"
 	manager="paulettm"
 	editor="cgronlun"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/12/2016"
+	ms.date="05/09/2016"
 	ms.author="tedway"/>
 
 
@@ -71,4 +71,4 @@ RRS 호출은 다음 두 가지 상황에서 수행됩니다.
 [3]: ./media/machine-learning-consuming-from-excel/enablecontent.png
 [4]: ./media/machine-learning-consuming-from-excel/sampletable.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/31/2016"
+   ms.date="05/16/2016"
    ms.author="karolz@microsoft.com"/>
 
 # 서비스 패브릭 응용 프로그램 추적 저장소로 ElasticSearch 사용
@@ -22,13 +22,11 @@
 
 ETW는 서비스 패브릭 런타임에서 진단 정보(추적)를 얻는 데 사용됩니다. 이는 서비스 패브릭 응용 프로그램에서 응용 프로그램의 진단 정보를 얻는 데에도 권장되는 방법입니다. 이렇게 하면 런타임 제공 및 응용 프로그램 제공 추적 사이의 상관 관계를 허용하고 문제를 보다 쉽게 해결할 수 있습니다. Visual Studio의 서비스 패브릭 프로젝트 템플릿에는 기본적으로 ETW 추적을 내보내는 로깅 API(.NET **EventSource** 클래스 기반)가 포함됩니다. ETW를 사용한 서비스 패브릭 응용 프로그램 추적에 대한 일반적인 개요는 [로컬 컴퓨터 개발 설정에서의 모니터링 및 진단 서비스](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)를 참조하세요.
 
-ElasticSearch에 추적을 표시하려면 실시간으로 서비스 패브릭 클러스터 노드에서 캡처하고(응용 프로그램 실행 중) ElasticSearch 끝점에 전송해야 합니다. 추적 캡처에 대한 두 가지 주요 옵션이 있습니다.
+Elasticsearch에 추적을 표시하려면 실시간으로 서비스 패브릭 클러스터 노드에서 캡처하고(응용 프로그램 실행 중) Elasticsearch 끝점에 전송해야 합니다. 추적 캡처에 대한 두 가지 주요 옵션이 있습니다.
 
-+ **In-process 추적 캡처**  
-응용 프로그램 또는 보다 정확하게 서비스 프로세스는 추적 저장소에 진단 데이터를 전송하는 것을 담당합니다(ElasticSearch).
++ **In Process 추적 캡처** 응용 프로그램 또는 보다 정확하게 서비스 프로세스는 추적 저장소에 진단 데이터를 전송하는 것을 담당합니다(Elasticsearch).
 
-+ **Out-of-process 추적 캡처**  
-별도 에이전트를 서비스 프로세스에서 추적 캡처하고 추적 저장소에 보냅니다.
++ **Out of Process 추적 캡처** 별도 에이전트를 서비스 프로세스에서 추적 캡처하고 추적 저장소에 보냅니다.
 
 아래에서 Azure에 Elasticsearch를 설정하는 방법을 설명하고 캡처 옵션의 장단점에 대해 알아보고 Elasticsearch에 데이터를 전송하도록 서비스 패브릭 서비스를 구성하는 방법을 설명합니다.
 
@@ -36,14 +34,14 @@ ElasticSearch에 추적을 표시하려면 실시간으로 서비스 패브릭 �
 ## Azure에 Elasticsearch 설정
 Azure에 Elasticsearch 서비스를 설정하는 가장 간단한 방법은 [**Azure 리소스 관리자 템플릿**](../resource-group-overview.md)을 통하는 것입니다. 포괄적인 [Elasticsearch에 대한 빠른 시작 Azure 리소스 관리자 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch)은 Azure 빠른 시작 템플릿 리포지토리에서 사용할 수 있습니다. 이 템플릿에서는 규모 단위(노드 그룹)에 대한 별도의 저장소 계정을 사용합니다. 또한 서로 다른 구성 및 여러 개의 연결된 데이터 디스크를 사용하여 별개의 클라이언트 및 서버 노드를 프로비전할 수 있습니다.
 
-여기에서는 [Microsoft Patterns & Practices ELK 분기](https://github.com/mspnp/semantic-logging/tree/elk/)의 **ES MultiNode**라는 다른 템플릿을 사용합니다. 이 템플릿은 사용하기 쉬우며 기본적으로 HTTP 기본 인증으로 보호되는 Elasticsearch 클러스터를 만듭니다. 계속하기 전에 리포지토리를 복제하거나 zip 파일을 다운로드하여 GitHub에서 컴퓨터로 [Microsoft 패턴 및 사례 ELK 리포지토리](https://github.com/mspnp/semantic-logging/tree/elk/)를 다운로드하세요. ES-MultiNode 템플릿은 동일한 이름의 폴더에 있습니다.
+여기에서 [Azure 진단 도구 저장소](https://github.com/Azure/azure-diagnostics-tools)의 **ES-MultiNode**라는 다른 템플릿을 사용합니다. 이 템플릿은 사용하기 쉬우며 HTTP 기본 인증으로 보호되는 Elasticsearch 클러스터를 만듭니다. 계속하기 전에 리포지토리를 복제하거나 zip 파일을 다운로드하여 GitHub에서 컴퓨터로 리포지토리를 다운로드하세요. ES-MultiNode 템플릿은 동일한 이름의 폴더에 있습니다.
 
 ### Elasticsearch 설치 스크립트를 실행하도록 컴퓨터 준비
 ES MultiNode 템플릿을 사용하는 가장 쉬운 방법은 `CreateElasticSearchCluster`라는 제공된 Azure PowerShell 스크립트를 통하는 것입니다. 이 스크립트를 사용하려면 PowerShell 모듈 및 **openssl**이라는 도구를 설치해야 합니다. 후자는 Elasticsearch 클러스터를 원격으로 관리하는 데 사용될 수 있는 SSH 키를 만들기 위해 필요합니다.
 
 `CreateElasticSearchCluster` 스크립트는 Windows 컴퓨터에서 ES-MultiNode 템플릿을 보다 쉽게 사용할 수 있도록 디자인되었습니다. 비Windows 컴퓨터에서 템플릿을 사용할 수도 있지만 해당 시나리오가 이 문서의 범위를 벗어납니다.
 
-1. 아직 설치하지 않은 경우 [**Azure PowerShell 모듈**](http://aka.ms/webpi-azps)을 설치합니다. 메시지가 표시되면 **실행**을 클릭한 다음 **설치**합니다.
+1. 아직 설치하지 않은 경우 [**Azure PowerShell 모듈**](http://aka.ms/webpi-azps)을 설치합니다. 메시지가 표시되면 **실행**을 클릭한 다음 **설치**합니다. Azure PowerShell 1.3 이상이 필요합니다.
 
 2. **openssl** 도구는 [**Windows용 Git**](http://www.git-scm.com/downloads)의 배포에 포함되어 있습니다. [Windows용 GIT](http://www.git-scm.com/downloads)를 아직 설치하지 않은 경우 지금 설치하세요. (기본 설치 옵션도 적합합니다.)
 
@@ -54,9 +52,9 @@ ES MultiNode 템플릿을 사용하는 가장 쉬운 방법은 `CreateElasticSea
     $ENV:OPENSSL_CONF = "<Git installation folder>\usr\ssl\openssl.cnf"
     ```
 
-    `<Git installation folder>`을(를) 컴퓨터의 Git 위치로 대체합니다. 기본값은 *"C:\\Program Files\\Git"* 입니다. 첫 번째 경로의 시작 부분에는 세미콜론 문자가 있습니다.
+    `<Git installation folder>`을(를) 컴퓨터의 Git 위치로 대체합니다. 기본값은 **"C:\\Program Files\\Git"**입니다. 첫 번째 경로의 시작 부분에는 세미콜론 문자가 있습니다.
 
-4. Azure에 로그온하고([`Add-AzureRmAccount`](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet을 통해) ElasticSearch 클러스터를 만드는 데 사용되어야 하는 구독을 선택했는지 확인합니다. `Get-AzureRmContext` 및 `Get-AzureRmSubscription` cmdlet을 사용하여 올바른 구독을 선택했는지 확인할 수 있습니다.
+4. Azure에 로그온하고([`Add-AzureRmAccount`](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet을 통해) Elastic Search 클러스터를 만드는 데 사용되어야 하는 구독을 선택했는지 확인합니다. `Get-AzureRmContext` 및 `Get-AzureRmSubscription` cmdlet을 사용하여 올바른 구독을 선택했는지 확인할 수 있습니다.
 
 5. 아직 수행하지 않은 경우 현재 디렉터리를 ES-MultiNode 폴더로 변경합니다.
 
@@ -71,12 +69,12 @@ ES MultiNode 템플릿을 사용하는 가장 쉬운 방법은 `CreateElasticSea
 |dataDiskSize |각 데이터 노드에 할당되는 데이터 디스크의 크기(GB)입니다. 각 노드는 Elasticsearch 서비스 전용으로 4개의 데이터 디스크를 받게 됩니다.|
 |region |Elasticsearch 클러스터가 위치해야 하는 Azure 지역의 이름입니다.|
 |esUserName |ES 클러스터에 액세스하도록 구성할 사용자의 사용자 이름입니다(HTTP 기본 인증에 따라 달라짐). 암호는 매개 변수 파일의 일부가 아니며 `CreateElasticSearchCluster` 스크립트가 호출될 때 제공됩니다.|
-|vmSizeDataNodes |Elasticsearch 클러스터 노드에 대한 Azure 가상 컴퓨터 크기입니다. 기본값은 Standard\_D1입니다.|
+|vmSizeDataNodes |Elasticsearch 클러스터 노드에 대한 Azure 가상 컴퓨터 크기입니다. 기본값은 Standard\_D2입니다.|
 
 이제 스크립트를 실행할 준비가 되었습니다. 다음 명령을 실행합니다.
 
 ```powershell
-CreateElasticSearchCluster -ResourceGroupName <es-group-name>
+CreateElasticSearchCluster -ResourceGroupName <es-group-name> -Region <azure-region> -EsPassword <es-password>
 ```
 
 여기서,
@@ -257,4 +255,4 @@ Elasticsearch 연결 데이터는 서비스 구성 파일(**PackageRoot\\Config\
 [1]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/listener-lib-references.png
 [2]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/kibana.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

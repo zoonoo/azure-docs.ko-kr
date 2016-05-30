@@ -47,4 +47,4 @@ Azure Functions에 익숙하지 않다면, 해당 기능을 더 잘 이해할 �
 
 [AZURE.INCLUDE [동적 서비스 계획](../../includes/functions-dynamic-service-plan.md)]
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

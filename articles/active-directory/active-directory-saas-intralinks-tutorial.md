@@ -63,6 +63,7 @@ Intralinks의 Azure AD 통합을 구성하려면 갤러리의 Intralinks를 관�
 1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
 	![Active Directory][1]
+
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 
 3. 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.
@@ -80,11 +81,14 @@ Intralinks의 Azure AD 통합을 구성하려면 갤러리의 Intralinks를 관�
 6. 검색 상자에 **Intralinks**를 입력합니다.
 
 	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_01.png)
+
 7. 결과 창에서 **Intralinks**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
 
+	![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_02.png)
 
 
 ##  Azure AD Single Sign-on 구성 및 테스트
+
 이 섹션에서는 "Britta Simon"이라는 테스트 사용자를 기반으로 Intralinks에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 
 Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하는 Intralinks 사용자가 누구인지 알고 있어야 합니다. 즉, Azure AD 사용자와 Intralinks의 관련 사용자 간에 연결이 형성되어야 합니다.
@@ -271,10 +275,10 @@ Intralinks는 Deal Nexus 응용 프로그램을 제외한 모든 다른 Intralin
 
 	![Intralinks VIA 또는 Elite 응용 프로그램 추가](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_53.png)
 
-	a. 로그인 URL 텍스트 상자에 **https://\<회사 이름>.Intralinks.com/?PartnerIdpId=https://sts.windows.net/<Azure AD 테넌트 ID>/** 패턴을 사용하여 사용자가 Intralinks 응용 프로그램에 로그인하는 데 사용할 URL을 입력합니다.
+	a. 로그인 URL 텍스트 상자에 **https://\<CompanyName>.Intralinks.com/?PartnerIdpId=https://sts.windows.net/<AzureADTenantID>/** 패턴을 사용하여 사용자가 Intralinks 응용 프로그램에 로그인하는 데 사용할 URL을 입력합니다.
 
 
-11. 다음을 클릭합니다.
+11. **다음**을 클릭합니다.
 
 12. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** 섹션에 나와 있는 것처럼 응용 프로그램을 사용자 또는 그룹에 할당합니다.
 
@@ -311,4 +315,4 @@ Intralinks는 Deal Nexus 응용 프로그램을 제외한 모든 다른 Intralin
 [204]: ./media/active-directory-saas-intralinks-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-intralinks-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

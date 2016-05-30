@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="05/17/2016"
 	ms.author="douglasl"/>
 
 # 스트레치 데이터베이스를 사용하지 않고 원격 데이터 다시 가져오기
@@ -98,4 +98,4 @@ ALTER DATABASE <database name>
 
 [스트레치 데이터베이스 일시 중지 및 다시 시작](sql-server-stretch-database-pause.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

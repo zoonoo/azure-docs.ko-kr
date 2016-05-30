@@ -18,21 +18,20 @@
 
 # Azure 앱 서비스의 API 앱에 대한 사용자 인증
 
-[AZURE.INCLUDE [선택기](../../includes/app-service-api-auth-selector.md)]
-
 ## 개요
 
-앱 서비스 API 앱 시작 시리즈의 네 번째 문서입니다. 이 문서에서는 다음에 대해 알아봅니다.
+이 문서는 인증된 사용자만 호출할 수 있도록 Azure API 앱을 보호하는 방법을 보여 줍니다. 문서는 [Azure 앱 서비스 인증 개요](../app-service/app-service-authentication-overview.md)를 읽었다고 가정합니다.
 
-* 인증된 사용자만 호출할 수 있도록 앱 서비스 API 앱을 보호하는 방법
+다음 내용을 배웁니다.
+
 * 인증 공급자 구성 방법 및 Azure AD(Azure Active Directory)에 대한 세부 정보
-* [JavaScript용 ADAL(Azure AD 인증 라이브러리)](https://github.com/AzureAD/azure-activedirectory-library-for-js)을 사용하여 보호되는 API 앱 사용 방법
+* [JavaScript용 ADAL(Active Directory 인증 라이브러리)](https://github.com/AzureAD/azure-activedirectory-library-for-js)을 사용하여 보호되는 API 앱 사용 방법
 
 이 문서에는 두 섹션이 포함되어 있습니다.
 
 * [Azure 앱 서비스에서 사용자 인증을 구성하는 방법](#authconfig) 섹션은 모든 API 앱에 사용자 인증을 구성하는 방법을 일반적으로 설명하며 .NET, Node.js 및 Java 등, 앱 서비스에서 지원하는 모든 프레임워크에 동일하게 적용됩니다.
 
-* [.NET 시작 자습서 계속](#tutorialstart) 섹션으로 시작하는 이 문서는 사용자 인증에 Azure Active Directory를 사용할 수 있도록 .NET 백 엔드 및 AngularJS 프런트 엔드로 응용 프로그램 예제를 구성하는 과정을 안내합니다.
+* [.NET API 앱 자습서 계속](#tutorialstart) 섹션으로 시작하는 이 문서는 사용자 인증에 Azure Active Directory를 사용할 수 있도록 .NET 백 엔드 및 AngularJS 프런트 엔드로 응용 프로그램 예제를 구성하는 과정을 안내합니다.
 
 ## <a id="authconfig"></a>Azure 앱 서비스의 사용자 인증 구성 방법
 
@@ -70,21 +69,21 @@
 
 인증된 API를 호출하려면 호출자가 인증 공급자의 OAuth 2.0 전달자 토큰을 HTTP 요청의 Authorization 헤더에 포함해야 합니다. 이 토큰은 인증 공급자의 SDK를 사용하여 받을 수 있습니다.
 
-## <a id="tutorialstart"></a> .NET 시작 자습서 계속
+## <a id="tutorialstart"></a> .NET API 앱 자습서 계속
 
-API 앱에 대한 Node.js 또는 Java 시작 시리즈를 진행 중인 경우 다음 글인 [API 앱용 서비스 주체 인증](app-service-api-dotnet-service-principal-auth.md)으로 건너뜁니다.
+API 앱에 대한 Node.js 또는 Java 자습서를 진행 중인 경우 다음 글인 [API 앱용 서비스 주체 인증](app-service-api-dotnet-service-principal-auth.md)으로 건너뜁니다.
 
-API 앱에 대한 .NET 시작 시리즈를 따르고 있고 이미 [첫 번째](app-service-api-dotnet-get-started.md) 및 [두 번째](app-service-api-cors-consume-javascript.md) 자습서에서 지시한 대로 샘플 응용 프로그램을 배포한 경우 [앱 서비스와 Azure AD에서 인증 설정](#azureauth) 섹션으로 건너뜁니다.
+API 앱에 대한 .NET 자습서를 따르고 있고 이미 [첫 번째](app-service-api-dotnet-get-started.md) 및 [두 번째](app-service-api-cors-consume-javascript.md) 자습서에서 지시한 대로 샘플 응용 프로그램을 배포한 경우 [앱 서비스와 Azure AD에서 인증 설정](#azureauth) 섹션으로 건너뜁니다.
 
-첫 번째 및 두 번째 자습서를 거치지 않고 이 자습서를 진행하려면, 다음 단계를 수행합니다.
+첫 번째 및 두 번째 자습서를 통하지 않고 이 자습서를 수행하려는 경우 샘플 응용 프로그램을 배포하기 위해 자동화된 프로세스를 사용하여 시작하는 방법을 설명하는 다음 단계를 수행합니다.
+
+>[AZURE.NOTE] 다음 단계는 마치 앞 쪽의 두 가지 자습서를 수행한 것 같이, 동일한 시작 지점을 만들어 주지만, 한가지 예외 사항이 있습니다. Visual Studio에서는 각 프로젝트가 배포되는 웹앱 또는 API 앱이 무엇인지 알지 못합니다. 즉, 이 자습서에는 올바른 대상에 배포하는 방법을 설명하는 정확한 지침이 없습니다. 직접 배포 단계를 수행하는 방법을 알아내기 어려운 경우 자동화된 배포 프로세스를 시작하지 않고 [첫 번째 자습서](app-service-api-dotnet-get-started.md)에서 자습서 시리즈를 수행하는 것이 좋습니다.
 
 1. [첫 번째 자습서](app-service-api-dotnet-get-started.md)에 나열된 모든 필수 조건이 있는지 확인합니다. 필수 조건 목록 외에도, 이 인증 자습서에서는 Visual Studio 및 Azure 포털에서 앱 서비스 웹앱 및 API 앱 작업을 수행한 것으로 가정합니다.
 
 2. [To Do List 샘플 리포지토리 추가 정보 파일](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/readme.md)의 **Azure에 배포** 단추를 클릭하여 API 앱을 웹앱에 배포합니다. 생성되는 Azure리소스 그룹을 기록해 둡니다. 나중에 웹앱 및 API 앱 이름을 조회하는 데 사용할 수 있습니다.
  
 3. Visual Studio로 로컬에서 작업할 코드를 가져오려면 [To Do List 샘플 리포지토리](https://github.com/Azure-Samples/app-service-api-dotnet-todo-list)를 다운로드하거나 복제합니다.
-
-이러한 단계는 마치 앞 쪽의 두 가지 자습서를 수행한 것 같이, 동일한 시작 지점을 만들어 주지만, 한가지 예외 사항이 있습니다. Visual Studio에서는 각 프로젝트가 배포되는 웹앱 또는 API 앱이 무엇인지 알지 못합니다. 프로젝트를 배포하는 경우, 프로젝트를 배포할 Azure 웹앱 또는 API 앱을 선택해야 합니다. 웹앱 및 API 앱 이름을 가져오려면, Azure 포털을 열고 **Azure에 배포** 단추를 클릭할 때 생성한 리소스 그룹에 대한 리소스 그룹 블레이드로 이동합니다.
 
 ## <a id="azureauth"></a> 앱 서비스와 Azure AD에서 인증 설정
 
@@ -337,4 +336,4 @@ ToDoListAPI 프로젝트를 다음과 같이 변경합니다.
 
 이 자습서에서는 API 앱에 앱 서비스 인증을 사용하는 방법과, ADAL JS 라이브러리를 사용하여 API 앱을 호출하는 방법을 배웠습니다. 다음 자습서에서는 [서비스 간 시나리오에 대해 API 앱에 대한 액세스를 보호](app-service-api-dotnet-service-principal-auth.md)하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

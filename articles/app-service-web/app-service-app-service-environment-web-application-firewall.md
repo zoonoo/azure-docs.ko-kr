@@ -78,7 +78,7 @@ Barracuda에는 Azure의 가상 컴퓨터에 WAF를 배포하는 방법에 대�
 
 ![웹사이트 번역][WebsiteTranslations]
 
-## 네트워크 리소스 그룹을 사용하여 앱 서비스 환경에 대한 트래픽 보안##
+## NSG(네트워크 보안 그룹)을 사용하여 앱 서비스 환경에 대한 트래픽 보안##
 클라우드 서비스의 VIP 주소만 사용하여 WAF에서 앱 서비스 환경으로 들어오는 트래픽을 제한하는 방법에 대한 자세한 내용은 [인바운드 트래픽 제어 설명서](app-service-app-service-environment-control-inbound-traffic.md)를 참조하세요. TCP 포트 80에 대한 작업을 수행 하기 위한 샘플 Powershell 명령은 다음과 같습니다.
 
 
@@ -99,4 +99,4 @@ Barracuda에는 Azure의 가상 컴퓨터에 WAF를 배포하는 방법에 대�
 [ConfigureTrafficManager]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureTrafficManager.png
 [WebsiteTranslations]: ./media/app-service-app-service-environment-web-application-firewall/WebsiteTranslations.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

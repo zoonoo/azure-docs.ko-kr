@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/24/2016"
+	ms.date="04/05/2016"
 	ms.author="onewth"/>
 
 # 감성, 핵심 문구, 항목 및 언어를 검색하는 텍스트 분석 API 시작
@@ -24,7 +24,7 @@
 
 API에 대한 기술 설명서는 [API 정의](//go.microsoft.com/fwlink/?LinkID=759346)를 참조하세요.
 
-이 가이드는 API의 버전 2용입니다. API의 버전 1에 대한 자세한 내용은 [이 문서를 참조](machine-learning-apps-text-analytics/)하세요.
+이 가이드는 API의 버전 2용입니다. API의 버전 1에 대한 자세한 내용은 [이 문서를 참조](../machine-learning-apps-text-analytics/)하세요.
 
 이 자습서를 마치면 프로그래밍 방식으로 검색할 수 있습니다.
 
@@ -64,7 +64,7 @@ API에 대한 기술 설명서는 [API 정의](//go.microsoft.com/fwlink/?LinkID
 
 텍스트에서 감성, 핵심 문구 및 언어를 검색하는 것은 쉽습니다. [데모 환경](//go.microsoft.com/fwlink/?LinkID=759712)이 반환하는 것과 동일한 결과를 프로그래밍 방식으로 얻게 됩니다.
 
-**팁** 감성 분석의 경우 텍스트를 문장으로 분할하는 것이 좋습니다. 이렇게 하면 일반적으로 감성 예측의 정밀도가 더 높아집니다.
+>[AZURE.TIP] 감성 분석의 경우 텍스트를 문장으로 분할하는 것이 좋습니다. 이렇게 하면 일반적으로 감성 예측의 정밀도가 더 높아집니다.
 
 1. 다음과 같이 헤더를 설정해야 합니다. 현재는 JSON의 경우에만 API에 대한 입력 형식이 허용됩니다. XML은 지원되지 않습니다.
 
@@ -236,8 +236,52 @@ API에 대한 기술 설명서는 [API 정의](//go.microsoft.com/fwlink/?LinkID
 			}
 		}
 
+`operations` 끝점의 항목에 대한 성공적인 응답에는 다음 스키마가 포함됩니다.
+
+	{
+    		"topics" : [{
+        		"id" : "string",
+        		"score" : "number",
+        		"keyPhrase" : "string"
+    		}],
+    		"topicAssignments" : [{
+        		"documentId" : "string",
+        		"topicId" : "string",
+        		"distance" : "number"
+    		}],
+    		"errors" : [{
+        		"id" : "string",
+        		"message" : "string"
+    		}]
+    	}
+
+응답의 각 부분에 대한 설명은 다음과 같습니다.
+
+**topics**
+
+| 키 | 설명 |
+|:-----|:----|
+| id | 각 항목에 대한 고유 식별자입니다. |
+| score에 대한 임계값 수준 보기 | 항목에 할당된 문서의 수입니다. |
+| keyPhrase | 항목에 대한 요약 단어 또는 구입니다. |
+
+**topicAssignments**
+
+| 키 | 설명 |
+|:-----|:----|
+| documentId | 문서에 대한 식별자입니다. 입력에 포함된 ID와 같습니다. |
+| topicId | 문서가 할당된 항목 ID입니다. |
+| distance | 문서에서 항목까지의 연계 점수(0과 1 사이)입니다. distance 점수가 낮을수록 항목 연계가 강합니다. |
+
+**errors**
+
+| 키 | 설명 |
+|:-----|:----|
+| id | 오류에서 참조하는 입력 문서 고유 식별자입니다. |
+| message | 오류 메시지입니다. |
+
 ## 다음 단계 ##
 
 축하합니다. 데이터에 대한 텍스트 분석 사용을 완료했습니다. 이제 데이터를 시각화하고 통찰력을 자동화하여 텍스트 데이터의 실시간 보기를 제공하는 [Power BI](//powerbi.microsoft.com)와 같은 도구 사용에 대해 살펴보고 싶을 수 있습니다.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -19,9 +19,11 @@
 # Powershell - 클래식을 사용하여 Azure에 VMM 클라우드의 Hyper-V 가상 컴퓨터 복제
 
 > [AZURE.SELECTOR]
-- [Azure 클래식 포털](site-recovery-vmm-to-azure.md)
+- [Azure 포털](site-recovery-vmm-to-azure.md)
+- [PowerShell - ARM](site-recovery-vmm-to-azure-powershell-resource-manager.md)
+- [클래식 포털](site-recovery-vmm-to-azure-classic.md)
 - [PowerShell - 클래식](site-recovery-deploy-with-powershell.md)
-- [PowerShell - Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md) 
+
 
 ## 개요
 
@@ -34,7 +36,7 @@ Azure Site Recovery는 여러 배포 시나리오에서 가상 컴퓨터의 복�
 이 시나리오를 설정하는 동안 문제가 발생할 경우 [Azure 복구 서비스 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에 문의 사항을 게시하세요.
 
 
-> [AZURE.NOTE] Azure에는 리소스를 만들고 작업하기 위한 두 가지 다양한 배포 모델, [리소스 관리자 및 클래식](../resource-manager-deployment-model.md)이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다.
+> [AZURE.NOTE] Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다.
 
 
 
@@ -447,4 +449,4 @@ marsagentinstaller.exe /q /nu
 
 Azure Site Recovery PowerShell cmdlet에 대해 [자세히 알아보세요](https://msdn.microsoft.com/library/dn850420.aspx). </a>
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

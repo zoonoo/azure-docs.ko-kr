@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/14/2016"
+   ms.date="05/13/2016"
    ms.author="subramar"/>
 
 
@@ -65,7 +65,7 @@ VisualObjects 솔루션에서 VisualObjects.ActorService 프로젝트를 선택�
 ```
 
 
-이제 **ActorService** 프로젝트를 선택하고 마우스 오른쪽 단추를 클릭한 후 Visual Studio에서 **빌드** 를 선택하여 프로젝트를 빌드합니다. **모두 다시 빌드** 를 선택하면 코드를 변경해야 하기 때문에 *ServiceManifest.xml* 및 *ApplicationManifest.xml*의 다른 프로젝트에 대한 버전도 업데이트해야 할 수 있습니다. 다음으로, ***VisualObjectsApplication***을 마우스 오른쪽 단추로 클릭하고 서비스 패브릭 메뉴를 선택한 후 **패키지** 를 선택하여 업데이트된 응용 프로그램을 패키지해봅시다. 배포 가능한 응용 프로그램 패키지를 만들어야 합니다. 이제 업데이트된 응용 프로그램의 배포 준비가 되었습니다.
+이제 **ActorService** 프로젝트를 선택하고 마우스 오른쪽 단추를 클릭한 후 Visual Studio에서 **빌드**를 선택하여 프로젝트를 빌드합니다. **모두 다시 빌드**를 선택하면 코드를 변경해야 하기 때문에 *ServiceManifest.xml* 및 *ApplicationManifest.xml*의 다른 프로젝트에 대한 버전도 업데이트해야 할 수 있습니다. 다음으로, ***VisualObjectsApplication***을 마우스 오른쪽 단추로 클릭하고 서비스 패브릭 메뉴를 선택한 후 **패키지**를 선택하여 업데이트된 응용 프로그램을 패키지해봅시다. 배포 가능한 응용 프로그램 패키지를 만들어야 합니다. 이제 업데이트된 응용 프로그램의 배포 준비가 되었습니다.
 
 
 ## 3단계: 상태 정책 결정 및 매개 변수 업그레이드
@@ -136,4 +136,4 @@ Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/VisualObjects -Ap
 
 [응용 프로그램 업그레이드 문제 해결](service-fabric-application-upgrade-troubleshooting.md)의 단계를 참조하여 응용 프로그램 업그레이드 중 발생하는 일반적인 문제를 해결합니다.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

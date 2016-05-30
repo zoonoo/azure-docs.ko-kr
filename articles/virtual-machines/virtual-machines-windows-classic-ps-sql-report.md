@@ -4,7 +4,7 @@
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="guyinacube"
-	manager="jeffreyg"
+	manager="mblythe"
 	editor="monicar" 
 	tags="azure-service-management"/>
 <tags 
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="12/11/2015"
+	ms.date="05/13/2016"
 	ms.author="asaxton" />
 
 # PowerShell을 사용하여 기본 모드 보고서 서버로 Azure VM 만들기
@@ -633,7 +633,7 @@ HTTPS에 대해 443 이외의 개인 포트를 구성한 경우 다음 스크립
 
 		http://localhost/Reports
 
-- 로컬 컴퓨터의 VM에서 **원격** 보고서 관리자로 이동합니다. 다음 예제에서 DNS 이름을 적절하게 업데이트합니다. 암호를 입력하라는 메시지가 표시되면 VM이 프로비전되었을 때 만든 관리자 자격 증명을 사용합니다. 사용자 이름은 [도메인]\[사용자 이름] 형식이며, 여기서 도메인은 VM 컴퓨터 이름입니다. 예를 들어 ssrsnativecloud\\testuser입니다. HTTP**S**를 사용하지 않는 경우 URL에서 **s**를 제거합니다. VM에서 추가 사용자를 만드는 방법에 대한 자세한 내용은 다음 섹션을 참조하세요.
+- 로컬 컴퓨터의 VM에서 **원격** 보고서 관리자로 이동합니다. 다음 예제에서 DNS 이름을 적절하게 업데이트합니다. 암호를 입력하라는 메시지가 표시되면 VM이 프로비전되었을 때 만든 관리자 자격 증명을 사용합니다. 사용자 이름은 [도메인][사용자 이름] 형식이며, 여기서 도메인은 VM 컴퓨터 이름입니다. 예를 들어 ssrsnativecloud\\testuser입니다. HTTP**S**를 사용하지 않는 경우 URL에서 **s**를 제거합니다. VM에서 추가 사용자를 만드는 방법에 대한 자세한 내용은 다음 섹션을 참조하세요.
 
 		https://ssrsnativecloud.cloudapp.net/Reports
 
@@ -705,4 +705,4 @@ HTTPS에 대해 443 이외의 개인 포트를 구성한 경우 다음 스크립
 
 [Azure 가상 컴퓨터의 SQL Server 개요](virtual-machines-windows-sql-server-iaas-overview.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

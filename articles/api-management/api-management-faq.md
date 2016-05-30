@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/26/2016" 
+	ms.date="04/28/2016" 
 	ms.author="sdanie"/>
 
 # Azure API 관리 FAQ
@@ -35,6 +35,7 @@ Azure API 관리에 대한 일반적인 질문과 대답, 패턴 및 모범 사�
 -	[API 관리 게이트웨이 IP 주소가 상수입니까? 그것을 방화벽 규칙에 사용할 수 있습니까?](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)
 -	[ADFS 보안을 통해 OAUth 2.0 권한 부여 서버를 구성할 수 있습니까?](#can-i-configure-an-oauth-20-authorization-server-with-adfs-security)
 -	[여러 곳의 지리적 위치에 배포할 때 API 관리에서 사용하는 라우팅 방법은 무엇입니까?](#what-routing-method-does-api-management-use-when-deployed-to-multiple-geographic-locations)
+-	[ARM 템플릿을 사용하여 API 관리 서비스 인스턴스를 만들 수 있나요?](#can-i-create-an-api-management-service-instance-using-an-arm-template)
 
 
 
@@ -71,7 +72,18 @@ API 관리 서비스 인스턴스를 새 인스턴스에 복사하는 데 사용
 
 ### 관리자 그룹에 사용자를 추가하려면 어떻게 해야 합니까?
 
-지금은 관리자가 Azure 클래식 포털을 통해 관리자 권한으로 로그인한 사용자 또는 API 관리 인스턴스를 포함하는 Azure 구독의 공동 관리자로 제한됩니다. 게시자 포털에서 만든 사용자를 관리자로 지정하거나 관리자 그룹에 추가할 수 없습니다.
+아래 단계를 통해 수행할 수 있습니다.
+
+1. 새 [Azure 포털](https://portal.azure.com)에 로그인 
+2. 원하는 API 관리 인스턴스를 포함하는 리소스 그룹으로 이동
+3. "API 관리 참여자" 역할에 원하는 사용자를 추가
+
+작업이 완료되면 새로 추가된 참여자는 Azure PowerShell [cmdlet](https://msdn.microsoft.com/library/mt613507.aspx)을 사용하여 관리자 권한으로 로그인합니다.
+
+1. `Login-AzureRmAccount` cmdlet을 사용하여 로그인합니다.
+2. `Set-AzureRmContext -SubscriptionID <subscriptionGUID>`을 사용하여 서비스를 포함하는 구독에 컨텍스트를 설정합니다.
+3. `Get-AzureRmApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>`를 사용하여 SSO 토큰을 가져옵니다.
+4. 브라우저에서 URL을 복사하고 붙여 넣으려면 사용자는 관리 포털에 액세스해야 합니다.
 
 
 ### 추가하려는 정책이 정책 편집기에서 활성화되지 않는 이유는 무엇입니까?
@@ -121,4 +133,8 @@ IP 주소(또는 다중 지역 배포의 경우 여러 IP 주소)는 Azure 클�
 
 API 관리는 [성능 트래픽 라우팅 방법](../traffic-manager/traffic-manager-routing-methods.md#performance-traffic-routing-method)을 사용합니다. 들어오는 트래픽은 가장 가까운 API 게이트웨이로 라우팅됩니다. 한 지역이 오프라인 상태가 되면, 들어오는 트래픽은 다음으로 가까운 게이트웨이로 자동으로 라우팅됩니다. 라우팅 방법에 대한 자세한 내용은 [Tr트래픽 관리자 라우팅 방법](../traffic-manager/traffic-manager-routing-methods.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0427_2016-->
+### ARM 템플릿을 사용하여 API 관리 서비스 인스턴스를 만들 수 있나요?
+
+예, [Azure API 관리 서비스](http://aka.ms/apimtemplate) 빠른 시작 템플릿을 참조하세요.
+
+<!---HONumber=AcomDC_0518_2016-->

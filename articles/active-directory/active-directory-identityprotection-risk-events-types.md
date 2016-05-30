@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/04/2016"
+	ms.date="05/17/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory ID 보호에서 검색한 위험 이벤트의 유형 
@@ -78,4 +78,4 @@ Microsoft 보안 연구원은 Dark 웹에 공개적으로 게시된 유출된 �
 
 - [Azure Active Directory ID 보호](active-directory-identityprotection.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

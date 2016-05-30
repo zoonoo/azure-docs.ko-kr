@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure Multi-Factor Authentication 정의 | Microsoft Azure"
-	description="이 항목은 Multifactor Authentication(mfa)이 무엇인지 MFA를 왜 사용하는 지를 설명하고, Multifactor Authentication 클라이언트 및 사용 가능한 다른 방법과 버전을 설명합니다. Azure Multi-Factor Authentication은 사용자 이름 및 암호 이외의 다른 내용을 사용해야하는 사람인지를 확인하는 메서드입니다. 사용자 로그인 및 트랜잭션에 대한 보안의 추가 계층을 제공합니다."
+	description="이 항목은 Multi-Factor Authentication(mfa)란 무엇인가에 대해 설명하고 MFA를 사용하는 이유, Multi-Factor Authentication 클라이언트 및 사용 가능한 다양한 방법과 버전에 대해 설명합니다. Azure Multi-Factor Authentication은 사용자 이름 및 암호 이외의 다른 내용을 사용해야하는 사람인지를 확인하는 메서드입니다. 사용자 로그인 및 트랜잭션에 대해 한층 강화된 보안을 제공합니다."
 	keywords="MFA 소개, mfa 개요, mfa 정의"
 	services="multi-factor-authentication"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="04/07/2016"
+	ms.date="05/12/2016"
 	ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication 정의
@@ -35,7 +35,7 @@ Azure Multi-Factor Authentication은 사용자 이름 및 암호 이외의 다�
 Azure Multi-Factor Authentication의 작동 원리 개요는 다음 비디오를 참조하세요.
 
 
-> [AZURE.VIDEO multi-factor-authentication-overview]
+>[AZURE.VIDEO multi-factor-authentication-overview]
 
 ##Azure Multi-Factor Authentication을 사용하는 이유
 
@@ -54,7 +54,7 @@ Azure Multi-Factor Authentication은 인증의 두번째 메서드를 제공하�
 
 Azure Multi-Factor Authentication을 사용하는 이유에 대한 추가 정보는 다음 비디오를 참조하세요.
 
-> [AZURE.VIDEO windows-azure-multi-factor-authentication]
+>[AZURE.VIDEO windows-azure-multi-factor-authentication]
 
 
 ## Azure Multi-Factor Authentication 작동 방법
@@ -75,7 +75,7 @@ Azure Multi-Factor Authentication을 사용하는 이유에 대한 추가 정보
 
 작동 방법에 대한 추가 정보는 다음 비디오를 참조하십시오.
 
-> [AZURE.VIDEO multi-factor-authentication-deep-dive-securing-access-on-premises]
+>[AZURE.VIDEO multi-factor-authentication-deep-dive-securing-access-on-premises]
 
 ## 다단계 인증에 사용할 수 있는 방법
 사용자가 로그인하면 사용자에게 추가 확인이 전송됩니다. 이 두 번째 확인에 사용할 수 있는 방법의 목록은 다음과 같습니다.
@@ -95,7 +95,7 @@ Azure Multi-Factor Authentication을 사용하는 이유에 대한 추가 정보
 ------------- | ------------- |
 Office 365용 Multi-Factor Authentication | 이 버전은 Office 365 응용프로그램에서만 작동되며 Office 365 포털에서 관리됩니다. 따라서 이제 관리자는 다단계 인증을 사용하여 Office 365 리소스의 보안을 유지할 수 있습니다. 이 버전은 Office 365 구독과 함께 제공됩니다.
 Azure 관리자를 위한 Multi-Factor Authentication | 모든 Azure 관리자는 Office 365에 적용되는 것과 동일한 Multi-Factor Authentication 기능을 무료로 사용할 수 있습니다. Azure 구독의 모든 관리 계정은 이제 이 핵심 다단계 인증 기능을 사용하여 추가의 보호 기능을 얻을 수 있습니다. 따라서 VM 및 웹 사이트 만들기, 저장소나 모바일 서비스 또는 다른 Azure 서비스 관리를 위해 Azure 포털에 액세스하려는 관리자는 자신의 관리자 계정에 다단계 인증을 추가할 수 있습니다.
-Azure Multi-Factor Authentication | Azure Multi-factor Authentication은 가장 다양한 기능을 제공합니다. Azure 관리 포털, 고급 보고, 온-프레미스 범위에 대한 지원 및 클라우드 응용프로그램을 통해 추가 구성 옵션을 제공합니다. Azure Multi-factor Authentication은 Azure Active Directory Premium의 일부로 제공됩니다.
+Azure Multi-Factor Authentication | Azure Multi-factor Authentication은 가장 다양한 기능을 제공합니다. Azure 관리 포털, 고급 보고, 온-프레미스 범위에 대한 지원 및 클라우드 응용프로그램을 통해 추가 구성 옵션을 제공합니다. Azure Multi-Factor Authentication은 Azure Active Directory Premium 및 Enterprise Mobility Suite의 일부로 제공됩니다.
 
 ## 버전 기능 비교
 다음 표에서 다양한 버전의 Azure Multi-Factor Authentication에서 사용 가능한 기능의 목록을 제공합니다.
@@ -209,4 +209,4 @@ MFA 보고서 | ● | ●
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

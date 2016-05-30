@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Android Azure Mobile Engagement SDK에 대한 고급 보고 옵션"
-	description="Azure Mobile Engagement SDK용 Android에 대한 고급 보고 옵션"
+	pageTitle="Azure Mobile Engagement Android SDK에 대한 고급 보고 옵션"
+	description="고급 보고를 실행하여 Azure Mobile Engagement Android SDK에 대한 분석을 캡처하는 방법을 설명합니다"
 	services="mobile-engagement"
 	documentationCenter="mobile"
 	authors="piyushjo"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="05/12/2016"
 	ms.author="piyushjo;ricksal" />
 
 # Android에서 Engagement를 사용한 보고 옵션
@@ -29,43 +29,9 @@
 
 완료한 자습서는 의도적으로 직접적이고 간소화했으나 선택할 수 있는 다양한 옵션이 있습니다.
 
-## ProGuard를 사용하여 빌드
-
-ProGuard로 응용 프로그램 패키지를 빌드하는 경우 일부 클래스를 유지해야 합니다. 다음 구성 코드 조각을 사용할 수 있습니다.
-
-
-			-keep public class * extends android.os.IInterface
-			-keep class com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity$EngagementReachContentJS {
-			<methods>;
-		 	}
-
-## AndroidManifest.xml 파일에 태그 지정
-
-AndroidManifest.xml 파일의 서비스 태그에서 `android:label` 특성을 통해 휴대폰의 "서비스 실행 중" 화면에서 최종 사용자에게 표시될 참여 서비스의 이름을 선택할 수 있습니다. 이 특성을 `"<Your application name>Service"`(예: `"AcmeFunGameService"`)(으)로 설정하는 것이 좋습니다.
-
-또한 `android:process` 특성을 지정하면 Engagement 서비스가 자체 프로세스에서 실행됩니다. 그리고 응용 프로그램과 동일한 프로세스에서 Engagement를 실행하면 주/UI 스레드의 응답성이 떨어질 수 있습니다.
-
-## Application.onCreate() 사용
-
-`Application.onCreate()` 및 기타 응용 프로그램 콜백에 배치한 코드는 Engagement 서비스를 비롯하여 모든 응용 프로그램 프로세스에서 실행됩니다. 이로 인해 Engagement 프로세스, 중복 브로드캐스트 수신기 또는 서비스에서의 불필요한 메모리 할당 및 스레드와 같은 원치 않는 부작용이 발생할 수 있습니다.
-
-`Application.onCreate()`를 재정의하는 경우 `Application.onCreate()` 함수의 시작 부분에 다음 코드 조각을 추가하는 것이 좋습니다.
-
-			 public void onCreate()
-			 {
-			   if (EngagementAgentUtils.isInDedicatedEngagementProcess(this))
-			     return;
-
-			   ... Your code...
-			 }
-
-그리고 `Application.onTerminate()`, `Application.onLowMemory()` 및 `Application.onConfigurationChanged(...)`에 대해 동일한 작업을 수행할 수 있습니다.
-
-또한 `Application`을(를) 확장하는 대신 `EngagementApplication`을(를) 확장할 수도 있습니다. 콜백 `Application.onCreate()`은(는) 프로세스 검사를 수행하고 현재 프로세스가 Engagement 서비스를 호스트하는 프로세스가 아닌 경우에만 `Application.onApplicationProcessCreate()`을(를) 호출합니다. 그리고 다른 콜백에 대해서도 동일한 규칙이 적용됩니다.
-
 ## `Activity` 클래스 수정
 
-[자습서 시작](mobile-engagement-android-get-started.md)에서는 `*Activity` 하위 클래스가 해당 `Engagement*Activity` 클래스에서 상속하도록 설정하면 됐습니다(예를 들어 레거시 작업이 `ListActivity`를 확장하는 경우 `EngagementListActivity`를 확장하도록 합니다).
+[시작 자습서](mobile-engagement-android-get-started.md)에서는 `*Activity` 하위 클래스가 해당 `Engagement*Activity` 클래스에서 상속하는 설정만 지정했습니다(예: 레거시 작업이 `ListActivity`를 확장하는 경우 `EngagementListActivity`를 확장하도록 함).
 
 > [AZURE.IMPORTANT] `EngagementListActivity` 또는 `EngagementExpandableListActivity`을(를) 사용할 경우 `super.onCreate(...);`을(를) 호출하기 전에 `requestWindowFeature(...);`을(를) 호출해야 합니다. 그렇지 않으면 충돌이 발생합니다.
 
@@ -79,24 +45,57 @@ AndroidManifest.xml 파일의 서비스 태그에서 `android:label` 특성을 �
 
 다음은 예제입니다.
 
-			public class MyActivity extends Some3rdPartyActivity
-			{
-			  @Override
-			  protected void onResume()
-			  {
-			    super.onResume();
-			    String activityNameOnEngagement = EngagementAgentUtils.buildEngagementActivityName(getClass()); // Uses short class name and removes "Activity" at the end.
-			    EngagementAgent.getInstance(this).startActivity(this, activityNameOnEngagement, null);
-			  }
+	public class MyActivity extends Some3rdPartyActivity
+	{
+	  @Override
+	  protected void onResume()
+	  {
+	    super.onResume();
+	    String activityNameOnEngagement = EngagementAgentUtils.buildEngagementActivityName(getClass()); // Uses short class name and removes "Activity" at the end.
+	    EngagementAgent.getInstance(this).startActivity(this, activityNameOnEngagement, null);
+	  }
 
-			  @Override
-			  protected void onPause()
-			  {
-			    super.onPause();
-			    EngagementAgent.getInstance(this).endActivity();
-			  }
-			}
+	  @Override
+	  protected void onPause()
+	  {
+	    super.onPause();
+	    EngagementAgent.getInstance(this).endActivity();
+	  }
+	}
 
-이 예제는 `EngagementActivity` 클래스 및 해당 변형과 매우 비슷합니다. 해당 소스 코드는 `src` 폴더에 제공되어 있습니다.
+이 예제는 `EngagementActivity` 클래스 및 해당 변형과 매우 비슷합니다. 해당 소스 코드는 `src` 폴더에 있습니다.
 
-<!---HONumber=AcomDC_0511_2016-->
+## Application.onCreate() 사용
+
+`Application.onCreate()` 및 기타 응용 프로그램 콜백에 배치하는 코드는 Engagement 서비스를 비롯하여 모든 응용 프로그램 프로세스에서 실행됩니다. 이로 인해 Engagement 프로세스, 중복 브로드캐스트 수신기 또는 서비스에서의 불필요한 메모리 할당 및 스레드와 같은 원치 않는 부작용이 발생할 수 있습니다.
+
+`Application.onCreate()`을 재정의하는 경우 `Application.onCreate()` 함수의 시작 부분에 다음 코드 조각을 추가하는 것이 좋습니다.
+
+	 public void onCreate()
+	 {
+	   if (EngagementAgentUtils.isInDedicatedEngagementProcess(this))
+	     return;
+
+	   ... Your code...
+	 }
+
+그리고 `Application.onTerminate()`, `Application.onLowMemory()` 및 `Application.onConfigurationChanged(...)`에 대해 동일한 작업을 수행할 수 있습니다.
+
+또한 `Application`을(를) 확장하는 대신 `EngagementApplication`을(를) 확장할 수도 있습니다. 콜백 `Application.onCreate()`은(는) 프로세스 검사를 수행하고 현재 프로세스가 Engagement 서비스를 호스트하는 프로세스가 아닌 경우에만 `Application.onApplicationProcessCreate()`을(를) 호출합니다. 그리고 다른 콜백에 대해서도 동일한 규칙이 적용됩니다.
+
+## AndroidManifest.xml 파일에 태그 지정
+
+AndroidManifest.xml 파일의 서비스 태그에서 `android:label` 특성을 사용하면 휴대폰의 "서비스 실행 중" 화면에서 최종 사용자에게 표시될 Engagement 서비스의 이름을 선택할 수 있습니다. 이 특성을 `"<Your application name>Service"`로 설정하는 것이 좋습니다(예: `"AcmeFunGameService"`).
+
+또한 `android:process` 특성을 지정하면 Engagement 서비스가 자체 프로세스에서 실행됩니다. 그리고 응용 프로그램과 동일한 프로세스에서 Engagement를 실행하면 주/UI 스레드의 응답성이 떨어질 수 있습니다.
+
+## ProGuard를 사용하여 빌드
+
+ProGuard로 응용 프로그램 패키지를 빌드하는 경우 일부 클래스를 유지해야 합니다. 다음 구성 코드 조각을 사용할 수 있습니다.
+
+	-keep public class * extends android.os.IInterface
+	-keep class com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity$EngagementReachContentJS {
+	<methods>;
+ 	}
+
+<!---HONumber=AcomDC_0518_2016-->

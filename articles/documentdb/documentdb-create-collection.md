@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
+	ms.date="05/16/2016" 
 	ms.author="mimig"/>
 
 # Azure 포털을 사용하여 DocumentDB 컬렉션을 만드는 방법
@@ -44,7 +44,7 @@ Microsoft Azure DocumentDB를 사용하려면 [DocumentDB 계정](documentdb-cre
 
 	분할된 컬렉션을 만드는 경우 가격 책정 계층을 선택할 필요가 없으므로 7 단계로 건너뜁니다.
 
-7. **단일 파티션** 또는 **분할된** 경우 컬렉션에 **분할 모드**를 선택합니다. 단일 파티션의 예약된 저장소 용량은 10GB이며 처리량 수준은 초당 400-10,000개 요청 단위까지 가능합니다. 분할된 컬렉션은 확장을 통해 여러 파티션에 걸쳐 250GB인 저장소를 처리할 수 있고 처리량 수준은 초당 10,100-250,000 요청 단위까지 가능합니다.
+7. **단일 파티션** 또는 **분할된** 경우 컬렉션에 **분할 모드**를 선택합니다. 단일 파티션의 예약된 저장소 용량은 10GB이며 처리량 수준은 초당 400-10,000개 요청 단위까지 가능합니다. 분할된 컬렉션은 확장을 통해 여러 파티션에 걸쳐 250GB인 저장소를 처리할 수 있고 처리량 수준은 초당 10,100-250,000 요청 단위까지 가능합니다. 컬렉션을 만든 후에 기본 할당에 대한 증가를 요청하는 것과 관련된 내용을 보려면 [DocumentDB 계정 제한 증가 요청](documentdb-increase-limits.md)을 참조하세요.
 
 8. 분할된 컬렉션에 대한 **처리량**을 선택합니다. 하나의 RU(요청 단위)는 1KB 문서를 읽는 처리량에 해당합니다. 요청 단위에 대한 자세한 내용은 [요청 단위](documentdb-request-units.md)를 참조하세요.
 
@@ -87,4 +87,4 @@ Microsoft Azure DocumentDB를 사용하려면 [DocumentDB 계정](documentdb-cre
 
 컬렉션에 문서를 추가한 후에 포털의 [쿼리 탐색기](documentdb-query-collections-query-explorer.md), [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 또는 [SDK](documentdb-sdk-dotnet.md) 중 하나를 사용하여 문서에 [쿼리를 실행](documentdb-sql-query.md#executing-queries)하기 위해 [DocumentDB SQL](documentdb-sql-query.md)을 사용할 수 있습니다.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

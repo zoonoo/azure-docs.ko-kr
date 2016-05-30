@@ -12,18 +12,21 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/10/2016" 
+	ms.date="05/07/2016" 
 	ms.author="awills"/>
  
 # Application Insights에서 원격 분석 내보내기
 
-원격 분석에서 사용자 지정된 분석을 수행하시겠습니까? 또는 특정 속성으로 이벤트에 대한 이메일 경고를 받으시겠습니까? 그렇다면 연속 내보내기가 적합합니다. Application Insights 포털에 표시되는 이벤트는 JSON 형식으로 Microsoft Azure에서 저장소로 내보낼 수 있습니다. 여기에서 데이터를 다운로드하고 프로세스에 필요한 모든 코드를 작성할 수 있습니다.
+표준 보존 기간 보다 오랫동안 원격 분석을 유지하시겠습니까? 또는 일부 특수한 방식으로 처리하시겠습니까? 그렇다면 연속 내보내기가 적합합니다. Application Insights 포털에 표시되는 이벤트는 JSON 형식으로 Microsoft Azure에서 저장소로 내보낼 수 있습니다. 여기에서 데이터를 다운로드하고 프로세스에 필요한 모든 코드를 작성할 수 있습니다.
 
 연속 내보내기는 무료 평가 기간에 사용할 수 있고 [표준 및 프리미엄 요금제](https://azure.microsoft.com/pricing/details/application-insights/)에서 확인할 수 있습니다.
 
->[AZURE.NOTE] [Power BI에서 데이터를 탐색](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)하려는 경우 연속 내보내기를 사용하지 않고 탐색할 수 있습니다.
->
->단순히 메트릭에서 보거나 블레이드를 검색할 내용의 [일회성 내보내기](app-insights-metrics-explorer.md#export-to-excel)를 수행하려면 블레이드 맨 위의 내보내기를 클릭합니다.
+
+연속 내보내기를 설정하기 전에 고려하려는 일부 대안이 있습니다.
+
+* 메트릭 또는 검색 블레이드 맨 위에 있는 [내보내기 단추](app-insights-metrics-explorer.md#export-to-excel)를 사용하면 테이블 및 차트를 Excel 스프레드시트에 전송할 수 있습니다. 
+* [분석](app-insights-analytics.md)은 원격 분석을 위한 강력한 쿼리 언어를 제공하고 또한 결과를 내보낼 수 있습니다.
+* [Power BI에서 데이터를 탐색](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)하려는 경우 연속 내보내기를 사용하지 않고 탐색할 수 있습니다.
 
 
 ## 저장소 계정 만들기
@@ -74,6 +77,8 @@ Application Insights 포털의 응용 프로그램 개요 블레이드에서 연
 
 클라이언트 IP 주소에서 계산하는 위치 데이터를 추가한다는 점을 제외하고 내보낸 데이터는 응용 프로그램에서 수신하는 원시 원격 분석입니다.
 
+[샘플링](app-insights-sampling.md)에서 무시된 데이터는 내보낸 데이터에 포함되지 않습니다.
+
 계산된 다른 메트릭은 포함되지 않습니다. 예를들어 평균 CPU 사용률을 내보내지 않지만 평균이 계산된 곳에서 원시 원격 분석을 내보냅니다.
 
 데이터에는 설정한 [가용성 웹 테스트](app-insights-monitor-web-app-availability.md)의 결과도 포함됩니다.
@@ -107,6 +112,7 @@ Where
 ## <a name="format"></a> 데이터 형식
 
 * 각 blob은 다중 '\\n'-separated 행을 포함하는 텍스트 파일입니다.
+* 각 행은 요청 또는 페이지 보기와 같은 원격 분석 데이터 요소를 나타냅니다.
 * 각 행은 서식이 지정되지 않은 JSON 파일입니다. 관찰만 하려는 경우 Visual Studio에서 열고 편집, 고급, 형식 파일을 선택합니다.
 
 ![적합한 도구를 사용하여 원격 분석 보기](./media/app-insights-export-telemetry/06-json.png)
@@ -223,4 +229,4 @@ Where
 
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
  <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/15/2016"
+   ms.date="05/16/2016"
    ms.author="v-sharos" />
 
 
@@ -26,7 +26,7 @@
 
 2015년 1월 업데이트에 대한 릴리스 정보에 포함된 다음 정보를 검토하세요.
 
-> [AZURE.IMPORTANT]
+> [AZURE.IMPORTANT]  
 >
 >- 이 업데이트는 Windows Update를 통해 사용할 수 없으며 다른 업데이트와 같이 설치할 수 없습니다. Azure 클래식 포털을 사용하여 업데이트를 적용한 경우에도 장치에서 이 업데이트가 수신되지 않습니다. 이 업데이트는 2015년 1월 20일 이후에 만들어진 가상 장치에만 적용됩니다. 
 > 
@@ -78,4 +78,4 @@
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0518_2016-->

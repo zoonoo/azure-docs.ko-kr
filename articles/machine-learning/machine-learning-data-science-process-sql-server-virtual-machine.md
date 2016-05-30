@@ -3,7 +3,7 @@
 	description="SQL Azure에서 데이터 처리" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="fashah" 
+	authors="garyericson" 
 	manager="paulettm" 
 	editor="" />
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
-	ms.author="fashah;garye" />
+	ms.date="05/16/2016" 
+	ms.author="fashah;garye;bradsev" />
 
 #<a name="heading"></a>Azure의 SQL Server 가상 컴퓨터에서 데이터 처리
 
@@ -84,7 +84,7 @@ SQL Server에서 데이터 저장소를 탐색하는 데 사용할 수 있는 �
 
 이 섹션에서는 테이블의 단일 열을 롤아웃하여 추가 기능을 생성하는 방법을 보여 줍니다. 이 예제에서는 기능을 생성하려는 테이블에 위도 또는 경도 열이 있는 것으로 가정합니다.
 
-다음은 위도/경도 위치 데이터에 대한 간략한 기초 정보입니다(stackoverflow(`http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude`)에서 발췌). 위치 필드를 기능화하기 전에 이 정보를 이해하는 것이 좋습니다.
+다음은 위도/경도 위치 데이터에 대한 간략한 기초 정보입니다(stackoverflow [위도 및 경도의 정확도를 측정하는 방법](http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude)에서 발췌). 위치 필드를 기능화하기 전에 이 정보를 이해하는 것이 좋습니다.
 
 - 부호는 지구에서 현재 위치의 방위(북쪽, 남쪽, 동쪽 또는 서쪽)를 알려 줍니다.
 - 0이 아닌 100자리수는 위도가 아니라 경도를 사용하고 있음을 알려 줍니다.
@@ -97,7 +97,7 @@ SQL Server에서 데이터 저장소를 탐색하는 데 사용할 수 있는 �
 - 다섯 번째 소수 자릿수는 1.1m까지 적용되며, 수목을 서로 구분할 수 있습니다. 상용 GPS 장치에서는 미분 보정을 통해서만 이 수준의 정확도를 실현할 수 있습니다.
 - 여섯 번째 소수 자릿수는 0.11m까지 적용되며, 상세 구조물 배치, 조경 설계, 도로 건설 등에 사용될 수 있습니다. 빙하 및 강의 이동을 추적하는 데 매우 적합합니다. 미분 보정된 GPS와 같은 GPS로 세밀히 측정하여 이를 수행할 수 있습니다.
 
-위치 정보는 다음과 같이 지역, 위치 및 도시 정보를 구분하여 기능화할 수 있습니다. 또한 Bing Maps API(`https://msdn.microsoft.com/library/ff701710.aspx`)와 같은 REST 끝점을 호출하여 지역/구역 정보를 가져올 수 있습니다.
+위치 정보는 다음과 같이 지역, 위치 및 도시 정보를 구분하여 기능화할 수 있습니다. 또한 Bing Maps API([지점별 위치 찾기](https://msdn.microsoft.com/library/ff701710.aspx))와 같은 REST 끝점을 호출하여 지역/구역 정보를 가져올 수 있습니다.
 
 	select 
 		<location_columnname>
@@ -113,14 +113,14 @@ SQL Server에서 데이터 저장소를 탐색하는 데 사용할 수 있는 �
 위의 위치 기반 기능을 사용하여 앞서 설명한 대로 추가 개수 기능을 생성할 수도 있습니다.
 
 
-> [AZURE.TIP] 선택한 언어를 사용하여 프로그래밍 방식으로 레코드를 삽입할 수 있습니다. 쓰기 효율성을 개선하기 위해 청크에 데이터를 삽입해야 할 수도 있습니다. [pyodbc를 사용하여 이 작업을 수행하는 방법에 대한 예제는 여기를 참조](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python)하세요.
+> [AZURE.TIP] 선택한 언어를 사용하여 프로그래밍 방식으로 레코드를 삽입할 수 있습니다. 쓰기 효율성을 개선하기 위해 청크에 데이터를 삽입해야 할 수도 있습니다. pyodbc를 사용하여 이 작업을 수행하는 방법에 대한 예제는 [python을 사용하여 SQL Server에 액세스하는 HelloWorld 샘플](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python)을 참조하세요.
  
 
 > [AZURE.TIP] 또 다른 방법은 [BCP 유틸리티](https://msdn.microsoft.com/library/ms162802.aspx)를 사용하여 데이터베이스에 데이터를 삽입하는 것입니다.
 
 ###<a name="sql-aml"></a>Azure 기계 학습에 연결
 
-새로 생성한 기능을 기존 테이블에 열로 추가하거나, 새 테이블에 저장하여 기계 학습을 위해 원래 테이블과 조인할 수 있습니다. Azure 기계 학습에서는 아래 표시된 대로 [판독기][reader] 모듈을 사용하여 기능을 생성하거나 액세스(이미 만든 경우)할 수 있습니다.
+새로 생성한 기능을 기존 테이블에 열로 추가하거나, 새 테이블에 저장하여 기계 학습을 위해 원래 테이블과 조인할 수 있습니다. Azure 기계 학습에서는 아래 표시된 대로 [데이터 가져오기][reader] 모듈을 사용하여 기능을 생성하거나 액세스(이미 만든 경우)할 수 있습니다.
 
 ![azureml 판독기][1]
 
@@ -139,7 +139,7 @@ Python의 [Pandas 라이브러리](http://pandas.pydata.org/)에서는 Python �
 	# Query database and load the returned results in pandas data frame
 	data_frame = pd.read_sql('''select <columnname1>, <cloumnname2>... from <tablename>''', conn)
 
-이제 [데이터 과학 환경에서 Azure Blob 데이터 처리](machine-learning-data-science-process-data-blob.md) 항목에 설명된 대로 Pandas 데이터 프레임으로 작업할 수 있습니다.
+이제 [데이터 과학 환경에서 Azure Blob 데이터 처리](machine-learning-data-science-process-data-blob.md) 문서에 설명된 대로 Pandas 데이터 프레임으로 작업할 수 있습니다.
 
 ## Azure 데이터 과학 작동 예제
 
@@ -152,4 +152,4 @@ Python의 [Pandas 라이브러리](http://pandas.pydata.org/)에서는 Python �
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

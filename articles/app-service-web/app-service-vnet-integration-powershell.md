@@ -22,7 +22,7 @@
 
 Azure 앱 서비스에서 구독의 Azure 가상 네트워크(VNet)에 앱(웹, 모바일 또는 API)을 연결할 수 있습니다. 이 기능은 VNet 통합이라고 합니다. VNet 통합 기능을 가상 네트워크에서 Azure 앱 서비스의 인스턴스를 실행할 수 있게 하는 앱 서비스 환경 기능과 혼동해서는 안됩니다.
 
-VNet 통합 기능에는 클래식 배포 모델 또는 Azure Resource Manager 배포 모델을 사용하여 배포된 가상 네트워크와 통합하는 데 사용할 수 있는 새 포털의 사용자 인터페이스(UI)가 있습니다. 기능에 대해 자세히 알아보려면 [Azure 가상 네트워크에 앱 통합](web-sites-integrate-with-vnet)을 참조하세요.
+VNet 통합 기능에는 클래식 배포 모델 또는 Azure Resource Manager 배포 모델을 사용하여 배포된 가상 네트워크와 통합하는 데 사용할 수 있는 새 포털의 사용자 인터페이스(UI)가 있습니다. 기능에 대해 자세히 알아보려면 [Azure 가상 네트워크에 앱 통합](web-sites-integrate-with-vnet.md)을 참조하세요.
 
 이 문서는 UI를 사용하는 방법이 아닌, PowerShell을 사용하여 통합을 사용하는 방법에 대해 설명합니다. 각 배포 모델의 명령이 서로 다르므로 이 문서는 배포 모델별로 섹션이 있습니다.
 
@@ -725,4 +725,4 @@ PowerShell 창을 열고 다음을 사용하여 Azure 계정 및 구독을 설�
 [createvpngateway]: http://azure.microsoft.com/documentation/articles/vpn-gateway-point-to-site-create/
 [azureportal]: http://portal.azure.com
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

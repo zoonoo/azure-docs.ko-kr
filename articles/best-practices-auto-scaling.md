@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="dragon119"
-   manager="masimms"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -19,12 +19,10 @@
 
 # 자동 크기 조정 지침
 
-![패턴 및 작업 방식 로고](media/best-practices-auto-scaling/pnp-logo.png)
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 ## 개요
 자동 크기 조정은 런타임 비용을 최소화하면서 성능 요구 사항 및 SLA(서비스 수준 계약)에 맞는 응용 프로그램에 필요한 리소스를 동적으로 할당하는 프로세스입니다. 작업량이 증가하면 적시에 작업을 수행할 수 있도록 응용 프로그램에 추가 리소스가 필요할 수 있습니다. 요구가 완화되면 리소스의 할당을 취소하여 여전히 적절한 성능을 유지하면서 SLA를 충족하는 상태로 비용을 최소화할 수 있습니다. 자동 크기 조정은 관리 부담을 완화하면서 클라우드에 호스트된 환경의 탄력성을 이용합니다. 이렇게 하려면 운영자가 시스템 성능을 지속적으로 모니터링하고 리소스 추가 또는 제거를 결정할 필요성을 줄이면 됩니다.
-<br\>
-
 >[AZURE.NOTE] 자동 크기 조정은 계산 리소스뿐 아니라 응용 프로그램에 사용되는 모든 리소스에 적용됩니다. 예를 들어 사용자의 시스템이 메시지 큐를 사용하여 정보를 송수신하면 규모에 따라 추가 큐를 만들 수 있습니다.
 
 ## 크기 조정 유형
@@ -113,4 +111,4 @@ Azure 솔루션에 대해 자동 크기 조정을 구성하는 여러 옵션이 
 - [자동 크기 조정에 대한 작업](http://msdn.microsoft.com/library/azure/dn510374.aspx)
 - [Microsoft.WindowsAzure.Management.Monitoring.Autoscale Namespace](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.management.monitoring.autoscale.aspx)
 
-<!----HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

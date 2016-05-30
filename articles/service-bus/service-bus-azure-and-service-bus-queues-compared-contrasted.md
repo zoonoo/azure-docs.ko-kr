@@ -89,7 +89,7 @@ Azure 큐와 서비스 버스 큐는 모두 현재 Microsoft Azure에서 제공�
 |---|---|---|
 |순서 보장|**아니요** <br/><br>자세한 내용은 “추가 정보” 섹션의 첫 번째 참고를 참조하세요.</br>|**예 - FIFO(선입선출)**<br/><br>(메시징 세션을 사용하여 지원)|
 |전달 보장|**최소 1회(At-Least-Once)**|**최소 1회**<br/><br/>**최대 1회**|
-|트랜잭션 지원|**아니요**|**예**<br/><br/>(로컬 트랜잭션을 사용하여 지원)|
+|원자성 작업 지원|**아니요**|**예**<br/><br/>|
 |수신 동작|**무중단**<br/><br/>(새 메시지가 없을 경우 즉시 완료)|**시간 제한 포함/비포함 차단**<br/><br/>(장기 폴링 또는 ["Comet 기술"](http://go.microsoft.com/fwlink/?LinkId=613759) 제공)<br/><br/>**무중단**<br/><br/>(.NET으로 관리되는 API만을 사용하여 지원)|
 |푸시 스타일 API|**아니요**|**예**<br/><br/>[OnMessage](https://msdn.microsoft.com/library/azure/jj908682.aspx) 및 **OnMessage sessions** .NET API|
 |수신 모드|**엿보기 및 임대(Peek & Lease)**|**엿보기 및 잠금(Peek & Lock)**<br/><br/>**수신 및 삭제**|
@@ -178,7 +178,7 @@ Azure 큐와 서비스 버스 큐는 모두 현재 Microsoft Azure에서 제공�
 |비교 기준|Azure 큐|서비스 버스 큐|
 |---|---|---|
 |최대 큐 크기|**200TB**<br/><br/>(단일 저장소 계정 용량으로 제한됨)|**1GB ~ 80GB**<br/><br/>(큐 생성 및 [분할 사용](service-bus-partitioning.md) 시에 정의됨 – “추가 정보” 섹션 참조)|
-|최대 메시지 크기|**64KB**<br/><br/>(**Base64** 인코딩을 사용하는 경우 48KB)<br/><br/>Azure는 큐 및 BLOB 결합을 통해 더 큰 메시지를 지원하며, 단일 항목에 대해 최대 200GB까지 큐에 삽입할 수 있습니다.|**256KB**<br/><br/>(헤더 및 본문 포함, 최대 헤더 크기: 64KB)|
+|최대 메시지 크기|**64KB**<br/><br/>(**Base64** 인코딩을 사용하는 경우 48KB)<br/><br/>Azure는 큐 및 BLOB 결합을 통해 더 큰 메시지를 지원하며, 단일 항목에 대해 최대 200GB까지 큐에 삽입할 수 있습니다.|**256KB** 또는 **1MB**<br/><br/>(헤더 및 본문 포함, 최대 헤더 크기: 64KB).<br/><br/>[서비스 계층](service-bus-premium-messaging.md)에 따라 달라집니다.|
 |최대 메시지 TTL|**7일**|**무제한**|
 |최대 큐 수|**무제한**|**10,000개**<br/><br/>(서비스 네임스페이스별, 확장 가능)|
 |최대 동시 클라이언트 수|**무제한**|**무제한**<br/><br/>(TCP 프로토콜 기반의 통신에 한해 100개의 동시 연결 제한이 적용됨)|
@@ -191,7 +191,7 @@ Azure 큐와 서비스 버스 큐는 모두 현재 Microsoft Azure에서 제공�
 
 - Azure 큐의 경우 메시지 콘텐츠가 XML-safe가 아니라면 **Base64**로 인코딩되어야 합니다. 메시지를 **Base64**로 인코딩하면 사용자 페이로드가 64KB가 아니라 최대 48KB가 될 수 있습니다.
 
-- 서비스 버스 큐의 경우 큐에 저장된 각 메시지가 헤더와 본문의 두 부분으로 구성됩니다. 메시지의 총 크기는 256KB를 초과할 수 없습니다.
+- 서비스 버스 큐의 경우 큐에 저장된 각 메시지가 헤더와 본문의 두 부분으로 구성됩니다. 메시지의 총 크기는 서비스 계층에서 지원하는 최대 메시지 크기를 초과할 수 없습니다.
 
 - 클라이언트가 TCP 프로토콜을 통해 서비스 버스와 통신할 때, 단일 서비스 버스 큐에 대한 최대 동시 연결 수가 100으로 제한됩니다. 이 숫자는 보낸 사람과 받는 사람 사이에 공유됩니다. 이 할당량에 도달하면 후속 추가 연결 요청이 거부되며 호출 코드에서 예외를 수신합니다. REST 기반 API를 사용하여 큐에 연결하는 클라이언트에게는 이 제한이 적용되지 않습니다.
 
@@ -204,14 +204,13 @@ Azure 큐와 서비스 버스 큐는 모두 현재 Microsoft Azure에서 제공�
 |비교 기준|Azure 큐|서비스 버스 큐|
 |---|---|---|
 |관리 프로토콜|**HTTP/HTTPS를 통한 REST**|**HTTPS를 통한 REST**|
-|런타임 프로토콜|**HTTP/HTTPS를 통한 REST**|**HTTPS를 통한 REST**<br/><br/>**AMQP 1.0 Standard(TCP 및 TLS)**|
-|.NET 관리 API|**예**<br/><br/>(.NET 관리 저장소 클라이언트 API)|**예**<br/><br/>(.NET 관리 조정된 메시징 API)|
+|런타임 프로토콜|**HTTP/HTTPS를 통한 REST**|**HTTPS를 통한 REST**<br/><br/>**AMQP 1.0 Standard(TCP 및 TLS)**| |.NET 관리 API|**예**<br/><br/>(.NET 관리 저장소 클라이언트 API)|**예**<br/><br/>(.NET 관리 조정된 메시징 API)|
 |네이티브 C++|**예**|**아니요**|
 |Java API|**예**|**예**|
 |PHP API|**예**|**예**|
 |Node.js API|**예**|**예**|
 |임의 메타데이터 지원|**예**|**아니요**|
-|큐 명명 규칙|**최대 길이 63자**<br/><br/>(큐 이름의 문자는 소문자여야 함)|**최대 길이 260자**<br/><br/>(큐 이름은 대/소문자가 구분됨)|
+|큐 명명 규칙|**최대 길이 63자**<br/><br/>(큐 이름의 문자는 소문자여야 함)|**최대 길이 260자**<br/><br/>(큐 경로 및 이름은 대/소문자가 구분됨)|
 |큐 길이 가져오기 함수|**예**<br/><br/>(메시지가 삭제되지 않고 TTL을 초과하여 만료되는 경우 근사값)|**예**<br/><br/>(정확한 지정 시간 값)|
 |엿보기 기능|**예**|**예**|
 
@@ -311,8 +310,7 @@ Azure 큐와 서비스 버스 큐는 모두 현재 Microsoft Azure에서 제공�
 - [Azure에서 큐 서비스 사용하기](http://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
 - [Azure 저장소 대금 청구 - 대역폭, 트랜잭션, 용량의 이해](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
 
-
 [Azure 클래식 포털]: http://manage.windowsazure.com
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

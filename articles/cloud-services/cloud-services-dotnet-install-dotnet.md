@@ -1,5 +1,5 @@
 <properties
-   pageTitle="클라우드 서비스 역할에 .NET 설치"
+   pageTitle="클라우드 서비스 역할에 .NET 설치 | Microsoft Azure"
    description="이 문서에서는 클라우드 서비스 웹 및 작업자 역할에 .NET Framework를 수동으로 설치하는 방법을 설명합니다."
    services="cloud-services"
    documentationCenter=".net"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/17/2016"
+   ms.date="05/17/2016"
    ms.author="adegeo"/>
 
 # 클라우드 서비스 역할에 .NET 설치 
@@ -183,4 +183,4 @@
 
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

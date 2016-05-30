@@ -73,17 +73,17 @@ SQL Server, MySQL, HTTP Web API 및 대부분의 사용자 지정 웹 서비스�
 2. 하이브리드 연결 블레이드에서 **추가**를 클릭합니다.
 	
 	<!-- ![Add a hybrid connnection][CreateHCAddHC]
--->
+	-->
 	
 3. **하이브리드 연결 추가** 블레이드가 열립니다. 첫 번째 하이브리드 연결이므로, **새 하이브리드 연결** 옵션이 미리 선택되어 있으며 **하이브리드 연결 만들기** 블레이드가 자동으로 열립니다.
 	
 	![하이브리드 연결 만들기][TwinCreateHCBlades]
 	
-	**하이브리드 연결 블레이드 만들기**에서 
-	**이름**에 연결 이름을 입력하고 
-	**호스트 이름**에는 리소스를 호스트하는 온-프레미스 컴퓨터의 이름을 입력합니다. 
-	**포트**에는 온-프레미스 리소스가 사용하는 포트 번호를 입력합니다(SQL Server 기본 인스턴스의 경우 1433).
-	 **Biz Talk 서비스**를 클릭합니다.
+	**하이브리드 연결 블레이드 만들기**에서 다음을 수행합니다.
+	- **이름**에서 연결 이름을 입력합니다.
+	- **호스트 이름**에서 리소스를 호스트하는 온-프레미스 컴퓨터의 이름을 입력합니다.
+	- **포트**에서 온-프레미스 리소스가 사용하는 포트 번호(SQL Server 기본 인스턴스의 경우 1433)를 입력합니다.
+	- **Biz Talk 서비스**를 클릭합니다.
 
 
 4. **BizTalk 서비스 만들기** 블레이드가 열립니다. BizTalk 서비스의 이름을 입력한 다음 **확인**을 클릭합니다.
@@ -98,14 +98,14 @@ SQL Server, MySQL, HTTP Web API 및 대부분의 사용자 지정 웹 서비스�
 	
 6. 프로세스가 완료되면 포털의 알림 영역에서 연결이 설정되었다는 메시지가 표시됩니다.
 	<!--- TODO
-
-    Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the classic portal
+	
+	Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the classic portal
 	(full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
 	Create hybrid conn step, you get the following error
 	Failed to create hybrid connection RelecIoudHC. The 
 	resource type could not be found in the namespace 
 	'Microsoft.BizTaIkServices for api version 2014-06-01'.
-
+	
 	The error indicates it couldn't find the type, not the instance.
 	![Success notification][CreateHCSuccessNotification]
 	-->
@@ -227,7 +227,7 @@ SQL Server, MySQL, HTTP Web API 및 대부분의 사용자 지정 웹 서비스�
 
 [하이브리드 연결 웹 사이트](https://azure.microsoft.com/services/biztalk-services/)
 
-[BizTalk 서비스: 대시보드, 모니터, 확장, 구성 및 하이브리드 연결 탭](../biztalk-dashboard-monitor-scale-tabs/)
+[BizTalk 서비스: 대시보드, 모니터, 확장, 구성 및 하이브리드 연결 탭](../biztalk-services/biztalk-dashboard-monitor-scale-tabs.md)
 
 [원활한 응용 프로그램 이식성으로 실시간 하이브리드 연결 클라우드 구축(채널 9 비디오)(영문)](http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
 
@@ -262,4 +262,4 @@ SQL Server, MySQL, HTTP Web API 및 대부분의 사용자 지정 웹 서비스�
 [HCStatusConnected]: ./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

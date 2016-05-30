@@ -11,7 +11,7 @@
 
 작업 | 서비스 관리 모드 | 리소스 관리자 모드
 -------------- | ----------- | -------------------------
-가장 기본적인 VM 만들기 | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(`azure vm image list` 명령에서 `image-urn`을 가져옵니다. 예제는 [이 문서](../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md)를 참조하세요.)
+가장 기본적인 VM 만들기 | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(`azure help vm quick-create`를 실행하여 인기 있는 마켓플레이스 이미지에 대한 `image-urn`을 가져옵니다. *publisherName:offer:skus:version* 형식의 URN에 대한 예제는 [이 문서](../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md)를 참조하세요.)
 Linux VM 만들기 | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure  vm create [options] <resource-group> <name> <location> -y "Linux"`
 Windows VM 만들기 | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure  vm create [options] <resource-group> <name> <location> -y "Windows"`
 VM 나열 | `azure  vm list [options]` | `azure  vm list [options]`
@@ -42,4 +42,3 @@ VM 리소스 사용 | 사용할 수 없음 | `azure vm list-usage [options] <loc
 
 * CLI 명령의 추가 예제는 [Azure 서비스 관리 모드의 Azure CLI 명령](../articles/virtual-machines-command-line-tools.md) 및 [Azure Resource Manager 모드의 Azure CLI 명령](../articles/virtual-machines/azure-cli-arm-commands.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0420_2016-->

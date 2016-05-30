@@ -23,11 +23,11 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-intro-include.md](../../includes/virtual-network-deploy-multinic-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [클래식 배포 모델](virtual-network-deploy-multinic-classic-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-network-deploy-multinic-classic-ps.md).
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-현재는 단일 NIC가 사용되는 VM과 여러 NIC가 사용되는 VM을 같은 리소스 그룹에서 포함할 수 없습니다. 따라서 다른 모든 구성 요소와 다른 리소스 그룹에 백 엔드 서버를 구현해야 합니다. 다음 단계에서는 기본 리소스 그룹에 *IaaSStory* 라는 리소스 그룹을, 백 엔드 서버에는 *IaaSStory-BackEnd* 를 사용합니다.
+현재는 단일 NIC가 사용되는 VM과 여러 NIC가 사용되는 VM을 같은 리소스 그룹에서 포함할 수 없습니다. 따라서 다른 모든 구성 요소와 다른 리소스 그룹에 백 엔드 서버를 구현해야 합니다. 다음 단계에서는 기본 리소스 그룹에 *IaaSStory*라는 리소스 그룹을, 백 엔드 서버에는 *IaaSStory-BackEnd*를 사용합니다.
 
 ## 필수 조건
 
@@ -77,6 +77,7 @@
 		$vmNamePrefix          = "DB"
 		$osDiskPrefix          = "osdiskdb"
 		$dataDiskPrefix        = "datadisk"
+		$diskSize	           = "120"	
 		$nicNamePrefix         = "NICDB"
 		$ipAddressPrefix       = "192.168.2."
 		$numberOfVMs           = 2
@@ -139,12 +140,12 @@
 
 5. VM 당 두 개의 데이터 디스크를 만듭니다. 데이터 디스크는 앞에서 만든 프리미엄 저장소 계정에 있습니다.
 
-		    $dataDisk1Name = $vmName + "-" + $dataDiskSuffix + "-1"    
+		    $dataDisk1Name = $vmName + "-" + $osDiskPrefix + "-1"    
 		    $data1VhdUri = $prmStorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $dataDisk1Name + ".vhd"
 		    Add-AzureRmVMDataDisk -VM $vmConfig -Name $dataDisk1Name -DiskSizeInGB $diskSize `
 				-VhdUri $data1VhdUri -CreateOption empty -Lun 0
 
-		    $dataDisk2Name = $vmName + "-" + $dataDiskSuffix + "-2"    
+		    $dataDisk2Name = $vmName + "-" + $dataDiskPrefix + "-2"    
 		    $data2VhdUri = $prmStorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $dataDisk2Name + ".vhd"
 		    Add-AzureRmVMDataDisk -VM $vmConfig -Name $dataDisk2Name -DiskSizeInGB $diskSize `
 				-VhdUri $data2VhdUri -CreateOption empty -Lun 1
@@ -308,4 +309,4 @@
 		RequestId           : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 		StatusCode          : OK
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

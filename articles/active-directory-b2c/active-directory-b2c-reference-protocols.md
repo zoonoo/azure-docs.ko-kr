@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="05/16/2016"
 	ms.author="dastrock"/>
 
 # Azure AD B2C 미리 보기: 인증 프로토콜
@@ -70,4 +70,4 @@ Azure AD B2C에서 사용되는 다양한 토큰 형식에 대한 자세한 내�
 - 사용자 이름 및 암호를 사용하여 OAuth 2.0 리소스 소유자 암호 자격 증명 흐름으로 토큰 가져오기(출시 예정)
 - 흐름 대신 OAuth 2.0을 사용하여 웹 API의 토큰 가져오기(출시 예정)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

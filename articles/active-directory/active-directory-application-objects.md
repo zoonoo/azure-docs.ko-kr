@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/08/2016"
+   ms.date="05/16/2016"
    ms.author="mbaldwin"/>
 
 
@@ -31,7 +31,7 @@ Azure 관리 포털에서 앱을 등록할 때 두 개체는 디렉터리 테넌
 - **ServicePrincipal 개체**:이 개체는 디렉터리 테넌트에 앱의 인스턴스를 나타냅니다. 앱에서 테넌트의 디렉터리 데이터 읽기를 허용하는 ServicePrincipal에 사용 권한 할당을 포함하여 ServicePrincipal 개체에 정책을 적용할 수 있습니다. 응용 프로그램 개체를 변경할 때마다 변경 내용이 테넌트의 연결된 ServicePrincipal 개체에도 적용됩니다.
 
 
-> [AZURE.NOTE]응용 프로그램이 외부 액세스를 위해 구성된 경우, 소비자 테넌트가 액세스를 제거하고 다시 액세스 권한이 부여될 때까지 응용 프로그램 개체의 변경 내용은 소비자 테넌트의 ServicePrincipal에 반영되지 않습니다.
+> [AZURE.NOTE] 응용 프로그램이 외부 액세스를 위해 구성된 경우, 소비자 테넌트가 액세스를 제거하고 다시 액세스 권한이 부여될 때까지 응용 프로그램 개체의 변경 내용은 소비자 테넌트의 ServicePrincipal에 반영되지 않습니다.
 
 
 
@@ -85,4 +85,4 @@ Azure 관리 포털에서 앱을 등록할 때 두 개체는 디렉터리 테넌
 
 ##
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0518_2016-->

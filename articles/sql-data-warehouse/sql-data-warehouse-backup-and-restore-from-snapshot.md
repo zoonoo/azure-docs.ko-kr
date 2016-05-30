@@ -43,7 +43,7 @@ Azure 포털을 사용하여 복원하려면 다음 단계를 사용하세요.
 
 Azure PowerShell을 사용하여 [Restore-AzureRmSqlDatabase][] cmdlet으로 데이터베이스 복원을 프로그래밍 방식으로 수행합니다.
 
-> [AZURE.NOTE]  SQL 데이터 웨어하우스에서 Azure PowerShell을 사용하려면 Azure PowerShell 버전 1.0.3 이상을 설치해야 합니다. **Get-Module -ListAvailable -Name Azure**를 실행하여 버전을 확인할 수 있습니다. 최신 버전은 [Microsoft 웹 플랫폼 설치 관리자][]를 통해 설치할 수 있습니다. 최신 버전 설치에 관한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법][]을 참조하세요.
+> [AZURE.NOTE]  SQL 데이터 웨어하우스에서 Azure PowerShell을 사용하려면 Azure PowerShell 버전 1.0.3 이상을 설치해야 합니다. **Get-Module -ListAvailable -Name Azure**를 실행하여 버전을 확인할 수 있습니다. 최신 버전은 [Microsoft 웹 플랫폼 설치 관리자][]를 통해 설치할 수 있습니다. 최신 버전 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법][]을 참조하세요.
 
 1. Windows PowerShell을 엽니다.
 2. Azure 계정에 연결하고 사용자 계정과 연결된 모든 구독을 나열합니다.
@@ -163,9 +163,9 @@ Azure SQL 데이터베이스 버전의 비즈니스 연속성 기능에 대해 �
 <!--Image references-->
 
 <!--Article references-->
-[Azure SQL 데이터베이스 비즈니스 연속성 개요]: sql-database-business-continuity.md
-[복구된 데이터베이스 마무리]: sql-database-recovered-finalize.md
-[Azure PowerShell 설치 및 구성 방법]: powershell-install-configure.md
+[Azure SQL 데이터베이스 비즈니스 연속성 개요]: ../sql-database/sql-database-business-continuity.md
+[복구된 데이터베이스 마무리]: ../sql-database/sql-database-recovered-finalize.md
+[Azure PowerShell 설치 및 구성 방법]: ../powershell/powershell-install-configure.md
 
 <!--MSDN references-->
 [데이터베이스 복원 요청 만들기]: https://msdn.microsoft.com/library/azure/dn509571.aspx
@@ -181,4 +181,4 @@ Azure SQL 데이터베이스 버전의 비즈니스 연속성 기능에 대해 �
 [Azure 포털]: https://portal.azure.com/
 [Microsoft 웹 플랫폼 설치 관리자]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -698,4 +698,4 @@ Azure Data Factory에서 지원하는 함수 및 시스템 변수 목록은 [Dat
 
   
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -83,7 +83,7 @@ ADFS 서버에 Microsoft Identity Health Agent를 설치해도 CPU, 메모리 �
 
 **Q: Azure AD Connect Health 경고는 어떻게 해결하나요?**
 
-Azure AD Connect Health 경고는 성공 조건에서 해결됩니다. Azure AD Connect Health Agent가 정기적으로 성공 조건을 검색하여 서비스에 보고합니다. 일부 경고의 경우 시간을 기준으로 경고가 제거됩니다. 즉 동일한 오류 조건이 경고 생성으로부터 48시간 내에 관찰되지 않으면 경고가 자동으로 해결됩니다.
+Azure AD Connect Health 경고는 성공 조건에서 해결됩니다. Azure AD Connect Health Agent가 정기적으로 성공 조건을 검색하여 서비스에 보고합니다. 일부 경고의 경우 시간을 기준으로 경고가 제거됩니다. 즉, 동일한 오류 조건이 경고 생성으로부터 72시간 내에 관찰되지 않으면 경고가 자동으로 해결됩니다.
 
 
 
@@ -106,4 +106,4 @@ Azure AD Connect Health 에이전트가 Azure AD Health 서비스 끝점과 통�
 * [동기화에 대한 Azure AD Connect Health 사용](active-directory-aadconnect-health-sync.md)
 * [Azure AD Connect Health 버전 내역](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -3,7 +3,7 @@
    description="솔루션 개발을 위한 Azure SQL 데이터 웨어하우스와 함께 Azure 기계 학습 사용을 위한 팁"
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sahaj08"
+   authors="shivaniguptamsft"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
-   ms.author="sahajs;barbkess;sonyama"/>
+   ms.date="05/17/2016"
+   ms.author="shigu;barbkess;sonyama"/>
 
 # SQL 데이터 웨어하우스와 함께 Azure 기계 학습 사용
 
@@ -43,7 +43,7 @@ AdventureWorksDW 데이터베이스의 Product 테이블에서 데이터를 읽�
 판독기 모듈을 선택하고 속성 창을 완성합니다.
 
 1. Azure SQL 데이터베이스를 데이터 원본으로 선택합니다.
-2. 데이터베이스 서버 이름: 서버 이름을 입력합니다. [Azure 클래식 포털][]을 사용하여 찾을 수 있습니다.
+2. 데이터베이스 서버 이름: 서버 이름을 입력합니다. [Azure 포털][]을 사용하여 찾을 수 있습니다.
 
 ![][server_name]
 
@@ -101,7 +101,7 @@ FROM dbo.DimProduct;
 기록기 모듈을 선택하고 속성 창을 완성합니다.
 
 1. Azure SQL 데이터베이스를 데이터 대상으로 선택합니다.
-2. 데이터베이스 서버 이름: 서버 이름을 입력합니다. [Azure 클래식 포털][]을 사용하여 찾을 수 있습니다.
+2. 데이터베이스 서버 이름: 서버 이름을 입력합니다. [Azure 포털][]을 사용하여 찾을 수 있습니다.
 3. 데이터베이스 이름: 방금 지정한 서버에서 데이터베이스의 이름을 입력합니다.
 4. 서버 사용자 계정 이름: 데이터베이스에 대한 쓰기 권한이 있는 계정의 사용자 이름을 입력합니다.
 5. 서버 사용자 계정 암호: 지정된 사용자 계정에 대한 암호를 제공합니다.
@@ -136,12 +136,12 @@ FROM dbo.DimProduct;
 
 <!--Article references-->
 
-[SQL 데이터 웨어하우스 개발 개요]: ./sql-data-warehouse-overview-develop/
-[SQL 데이터 웨어하우스 통합 개요]: ./sql-data-warehouse-overview-integration/
+[SQL 데이터 웨어하우스 개발 개요]: ./sql-data-warehouse-overview-develop.md
+[SQL 데이터 웨어하우스 통합 개요]: ./sql-data-warehouse-overview-integration.md
 [실험 만들기 자습서]: https://azure.microsoft.com/ko-KR/documentation/articles/machine-learning-create-experiment/
 [Azure에서 기계 학습 소개]: https://azure.microsoft.com/ko-KR/documentation/articles/machine-learning-what-is-machine-learning/
 [Azure 기계 학습 스튜디오]: https://studio.azureml.net/Home
-[Azure 클래식 포털]: https://portal.azure.com/
+[Azure 포털]: https://portal.azure.com/
 
 <!--MSDN references-->
 
@@ -149,4 +149,4 @@ FROM dbo.DimProduct;
 
 [Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

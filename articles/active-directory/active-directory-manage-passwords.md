@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="05/16/2016"
 	ms.author="curtand"/>
 
 # Azure Active Directory에서 암호 관리하기
@@ -49,4 +49,4 @@
 - [Azure AD에서 사용자 만들기 또는 편집](active-directory-create-users.md)
 - [Azure AD에서 그룹 관리](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

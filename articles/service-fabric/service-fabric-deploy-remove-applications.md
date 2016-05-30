@@ -3,7 +3,7 @@
    description="서비스 패브릭에서 응용 프로그램을 배포 및 제거하는 방법"
    services="service-fabric"
    documentationCenter=".net"
-   authors="seanmck"
+   authors="rwike77"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="03/08/2016"
-   ms.author="seanmck"/>
+   ms.author="ryanwi"/>
 
 # 응용 프로그램 배포
 
@@ -225,4 +225,4 @@ PS D:\temp>
 [10]: service-fabric-application-model.md
 [11]: service-fabric-application-upgrade.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

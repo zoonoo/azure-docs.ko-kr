@@ -13,12 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/05/2016"
+	ms.date="05/10/2016"
 	ms.author="gokuma;bradsev" />
 
 # Linux 데이터 과학 가상 컴퓨터 프로비전 
 
-## 소개
 
 Linux 데이터 과학 가상 컴퓨터는 데이터 분석 및 기계 학습을 하는 데 흔히 사용되는 도구 모음으로 사전 설치 및 구성된 Azure VM(가상 컴퓨터) 이미지입니다. 포함된 주요 소프트웨어 구성 요소는 다음과 같습니다.
 
@@ -355,7 +354,7 @@ Rattle 및 R을 종료합니다. 이제 생성된 R 스크립트를 수정하거
 학습 및 탐색을 계속하려면 다음 단계는 다음과 같습니다.
 
 * 이 문서에 설명된 도구를 사용하여 데이터 과학 VM에서 다양한 데이터 과학 도구를 살펴봅니다. 가상 컴퓨터의 셸에서 *dsvm-more-info*를 실행하여 VM에 설치된 도구에 대한 기본 소개 및 자세한 내용을 참조할 수도 있습니다.  
-* [데이터 과학 프로세스](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)를 사용하여 체계적으로 종단 간 분석 솔루션을 구축하는 방법을 알아봅니다.
+* 체계적으로 [데이터 과학 프로세스](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)를 사용하여 종단 간 분석 솔루션을 구축하는 방법을 알아봅니다.
 * Cortana 분석 모음을 사용하는 기계 학습 및 데이터 분석 샘플은 [Cortana 분석 갤러리](http://gallery.cortanaanalytics.com)를 방문하세요. 
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

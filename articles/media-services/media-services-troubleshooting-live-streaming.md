@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="문제 해결 라이브 스트리밍 가이드" 
+	pageTitle="라이브 스트리밍 문제 해결 가이드" 
 	description="이 항목에서는 라이브 스트리밍 문제를 해결하는 방법에 대한 제안을 제공합니다." 
 	services="media-services" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
  	ms.date="03/02/2016"  
 	ms.author="juliako"/>
 
-#문제 해결 라이브 스트리밍 가이드 
+#라이브 스트리밍 문제 해결 가이드
 
 이 항목에서는 일부 라이브 스트리밍 문제를 해결하는 방법에 대한 제안을 제공합니다.
 
@@ -85,4 +85,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

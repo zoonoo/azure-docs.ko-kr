@@ -3,7 +3,7 @@
    description="SQL 데이터 웨어하우스 시나리오에서 PolyBase를 사용하는 방법에 대한 지침 및 권장 사항입니다."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sahaj08"
+   authors="happynicolle"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
-   ms.author="sahajs;barbkess;sonyama"/>
+   ms.date="05/18/2016"
+   ms.author="nicw;barbkess;sonyama"/>
 
 
 # SQL 데이터 웨어하우스의 PolyBase 사용을 위한 가이드
@@ -178,12 +178,12 @@ SQL 데이터 웨어하우스에 데이터를 이동하는 방법에 대한 자�
 <!--Image references-->
 
 <!--Article references-->
-[Load data with bcp]: sql-data-warehouse-load-with-bcp.md
-[PolyBase를 사용하여 데이터 로드]: sql-data-warehouse-get-started-load-with-polybase.md
-[solution partners]: sql-data-warehouse-solution-partners.md
-[development overview]: sql-data-warehouse-overview-develop.md
-[통계]: sql-data-warehouse-develop-statistics.md
-[데이터 마이그레이션 개요]: sql-data-warehouse-overview-migrate.md
+[Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
+[PolyBase를 사용하여 데이터 로드]: ./sql-data-warehouse-get-started-load-with-polybase.md
+[solution partners]: ./sql-data-warehouse-solution-partners.md
+[development overview]: ./sql-data-warehouse-overview-develop.md
+[통계]: ./sql-data-warehouse-develop-statistics.md
+[데이터 마이그레이션 개요]: ./sql-data-warehouse-overview-migrate.md
 
 <!--MSDN references-->
 [supported source/sink]: https://msdn.microsoft.com/library/dn894007.aspx
@@ -191,8 +191,6 @@ SQL 데이터 웨어하우스에 데이터를 이동하는 방법에 대한 자�
 [SQL Server destination adapter]: https://msdn.microsoft.com/library/ms141095.aspx
 [SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
-
-<!-- External Links -->
 [CREATE EXTERNAL DATA SOURCE (Transact-SQL)]: https://msdn.microsoft.com/library/dn935022.aspx
 [CREATE EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/library/dn935026).aspx
 [CREATE EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/library/dn935021.aspx
@@ -208,4 +206,6 @@ SQL 데이터 웨어하우스에 데이터를 이동하는 방법에 대한 자�
 [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-- External Links -->
+
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/26/2016" 
+	ms.date="05/17/2016" 
 	ms.author="nitinme"/>
 
 # 스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정
 
-[AZURE.INCLUDE [hdinsight-azure-portal](../../includes/hdinsight-azure-portal.md)]
-
-* [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster.md)
+> [AZURE.IMPORTANT] 이 문서의 단계는 Azure 클래식 포털을 사용합니다. 새 서비스를 만들 때 클래식 포털을 사용하지 않는 것이 좋습니다. Azure 포털의 장점에 대한 자세한 내용은 [Microsoft Azure 포털](https://azure.microsoft.com/features/azure-portal/)을 참조하세요.
+>
+> 또한 이 문서는 Azure PowerShell 및 HDInsight .NET SDK를 사용하는 방법에 관한 정보도 포함하고 있습니다. 제공된 코드 조각은 ASM(Azure 서비스 관리)를 사용하여 HDInsight와 작동하고 현재 __사용되지 않는__ 명령을 기반으로 작성되었습니다. 이러한 명령은 2017년 1월 1일에 제거됩니다.
+>
+>ARM(Azure Resource Manager)을 사용하는 PowerShell 및 HDInsight .NET SDK 코드 조각과 함께 Azure 포털을 사용하는 이 문서의 버전에 대해서는 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster.md)을 참조하세요.
 
 HDInsight는 사용자 지정 스크립트(프로비전 프로세스 중 클러스터에서 수행할 사용자 지정 정의)를 호출하는 **스크립트 작업**이라는 구성 옵션을 제공합니다. 이 스크립트를 사용하여 클러스터에 추가 소프트웨어를 설치하거나 클러스터에서 응용 프로그램의 구성을 변경할 수 있습니다.
 
@@ -86,7 +88,7 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
   
 **Azure PowerShell cmdlet**
 
-HDInsight용 Azure PowerShell 명령을 사용하여 단일 스크립트 작업 또는 여러 스크립트 작업을 실행합니다. **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** cmdlet을 사용하여 사용자 지정 스크립트를 호출할 수 있습니다. 이 cmdlet을 사용하려면 Azure PowerShell이 설치 및 구성되어 있어야 합니다. HDInsight용 Azure PowerShell cmdlet을 실행하도록 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성][powershell-install-configure]을 참조하세요.
+HDInsight용 Azure PowerShell 명령을 사용하여 단일 스크립트 작업 또는 여러 스크립트 작업을 실행합니다. **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** cmdlet을 사용하여 사용자 지정 스크립트를 호출할 수 있습니다. 이 cmdlet을 사용하려면 Azure PowerShell이 설치 및 구성되어 있어야 합니다. HDInsight용 Azure PowerShell cmdlet을 실행하도록 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](../powershell-install-configure.md)을 참조하세요.
 
 HDInsight 클러스터를 배포할 때 단일 스크립트 작업을 실행하려면 다음 Azure PowerShell 명령을 사용합니다.
 
@@ -178,4 +180,4 @@ HDInsight 서비스는 사용자 지정 구성 요소를 사용하는 여러 방
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-v1/HDI-Cluster-state.png "클러스터 프로 비전 중의 단계"
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

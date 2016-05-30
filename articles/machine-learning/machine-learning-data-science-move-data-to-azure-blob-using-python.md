@@ -13,15 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/04/2016"
+	ms.date="05/10/2016"
 	ms.author="bradsev" />
 
 # Python을 사용하여 Azure Blob 저장소의 데이터 이동
 
-## 소개
-이 항목에서는 Python API를 사용하여 blob를 나열, 업로드 및 다운로드하는 방법을 설명합니다.
-
-Azure SDK에 제공되는 Python API를 사용하여 다음을 수행할 수 있습니다.
+이 항목에서는 Python API를 사용하여 blob를 나열, 업로드 및 다운로드하는 방법을 설명합니다. Azure SDK에 제공되는 Python API를 사용하여 다음을 수행할 수 있습니다.
 
 - 컨테이너 만들기
 - 컨테이너에 Blob 업로드
@@ -40,12 +37,14 @@ Azure Blob 저장소로 및/또는 저장소에서 데이터를 이동하는 데
 
 > [AZURE.NOTE] Azure blob 저장소에 대한 전체 지침은 [Azure Blob 기본 사항](../storage/storage-dotnet-how-to-use-blobs.md) 및 [Azure Blob 서비스](https://msdn.microsoft.com/library/azure/dd179376.aspx)를 참조하세요.
 
+
 ## 필수 조건
 
 이 문서에서는 사용자에게 Azure 구독, 저장소 계정 및 계정에 해당하는 저장소 키가 있다고 가정합니다. 데이터를 업로드/다운로드하려면 Azure 저장소 계정 이름 및 계정 키를 알아야 합니다.
 
 - Azure 구독을 설정하려면 [무료 1개월 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 - 저장소 계정을 만들고 계정 및 키 정보를 가져오는 방법에 대한 지침은 [Azure 저장소 계정 정보](../storage/storage-create-storage-account.md)를 참조하세요.
+
 
 ## Blob에 데이터 업로드
 
@@ -93,6 +92,7 @@ Azure Blob 저장소로 및/또는 저장소에서 데이터를 이동하는 데
 	    except:
 	        print "something wrong happened when uploading the data %s"%blob_name
 
+
 ## Blob에서 데이터 다운로드
 
 다음 메서드를 사용하여 blob에서 데이터를 다운로드합니다.
@@ -129,4 +129,4 @@ Azure Blob 저장소로 및/또는 저장소에서 데이터를 이동하는 데
 	    except:
 	        print "something wrong happened when downloading the data %s"%blob.name
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -14,7 +14,7 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="04/29/2016"
+ms.date="05/17/2016"
 ms.author="deonhe"/>
 
 # 비즈니스용 OneDrive 커넥터 시작
@@ -69,6 +69,8 @@ ms.author="deonhe"/>
 | ---|---|---|
 |신뢰|예|비즈니스용 OneDrive 자격 증명 제공|
 연결을 만든 후에 사용하여 작업을 실행하고 이 문서에 설명된 트리거에 대한 수신을 대기할 수 있습니다.
+
+>[AZURE.INCLUDE [비즈니스용 OneDrive에 대한 연결을 만드는 단계](../../includes/connectors-create-api-onedriveforbusiness.md)]
 
 >[AZURE.TIP] 다른 논리 앱에서 이 연결을 사용할 수 있습니다.
 
@@ -364,4 +366,4 @@ ID를 사용하여 파일 콘텐츠 가져오기: ID를 사용하여 비즈니�
 ## 다음 단계
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

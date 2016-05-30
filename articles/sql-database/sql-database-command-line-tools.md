@@ -4,7 +4,7 @@
 	services="sql-database" 
 	documentationCenter="" 
 	authors="stevestein" 
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
@@ -13,42 +13,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/23/2016" 
+	ms.date="05/09/2016" 
 	ms.author="sstein"/>
 
 # PowerShell을 사용하여 Azure SQL 데이터베이스 관리
 
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-database-manage-portal.md)
-- [Transact-SQL (SSMS)](sql-database-manage-azure-ssms.md)
+- [Azure 포털](sql-database-manage-portal.md)
+- [Transact-SQL(SSMS)](sql-database-manage-azure-ssms.md)
 - [PowerShell](sql-database-command-line-tools.md)
 
 이 항목에서는 많은 Azure SQL 데이터베이스 작업을 수행하기 위한 PowerShell 명령을 제공 합니다.
 
+[AZURE.INCLUDE [PowerShell 세션 시작](../../includes/sql-database-powershell.md)]
 
-PowerShell cmdlet을 실행하려면 Azure powershell을 설치하고 실행해야 합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
-
-
-
-## 자격 증명을 구성합니다.
-
-Azure 구독에 대한 PowerShell cmdlet을 실행 하려면 먼저 Azure 계정에 대한 액세스를 설정 해야 합니다. 다음을 실행하면 자격 증명을 입력할 수 있는 로그인 화면이 나타납니다. Azure 클래식 포털에 로그인할 때 사용한 것과 동일한 메일과 암호를 사용합니다.
-
-	Login-AzureRmAccount
-
-로그인에 성공하면 액세스 권한이 있는 Azure 구독으로 로그인한 ID를 포함한 일부 정보가 화면에 표시됩니다.
-
-
-## Azure 구독 선택
-
-사용할 구독을 선택하려면 구독 ID(**-SubscriptionId**) 또는 구독 이름(**-SubscriptionName**)이 필요합니다. 이는 이전 단계에서 복사하거나, 또는 구독이 여러 개일 경우 **Get-AzureSubscription** cmdlet을 실행하고 결과 집합에서 원하는 구독 정보를 복사할 수 있습니다.
-
-현재 구독을 설정 하 여 구독 정보로 다음 cmdlet을 실행 합니다.
-
-	Select-AzureRmSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
-
-다음 명령은 위에서 방금 선택한 구독을 실행합니다.
 
 ## 리소스 그룹 만들기
 
@@ -127,4 +106,4 @@ Azure SQL 리소스를 다시 만들거나 유사한 리소스를 만들 경우 
 
 - [Azure SQL 데이터베이스 cmdlet](https://msdn.microsoft.com/library/azure/mt574084.aspx)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

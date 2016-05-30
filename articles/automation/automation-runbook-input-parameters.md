@@ -6,13 +6,13 @@
    authors="SnehaGunda"
    manager="stevenka"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="automation"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/16/2015"
+   ms.date="04/25/2016"
    ms.author="sngun"/>
 
 # Runbook 입력 매개 변수
@@ -29,7 +29,7 @@ Azure 자동화에서 PowerShell 및 [PowerShell 워크플로 Runbook](automatio
 
 | **속성** | **설명** |
 |:--- |:---|
-| 형식 | 필수입니다. 매개 변수 값에 필요한 데이터 형식입니다. 모든 .Net 형식이 유효합니다. |
+| 형식 | 필수입니다. 매개 변수 값에 필요한 데이터 형식입니다. 모든 .NET 형식이 유효합니다. |
 | 이름 | 필수입니다. 매개 변수의 이름입니다. 이름은 Runbook 내에서 고유해야 하고 문자, 숫자 또는 밑줄 문자를 포함할 수 있습니다. 문자로 시작해야 합니다. |
 | 필수 | 선택 사항입니다. 매개 변수에 대해 값을 제공해야 하는지 여부를 지정합니다. 이 값을 **$true**로 설정한 경우 Runbook이 시작될 때 값을 지정해야 합니다. 이 값을 **$false**로 설정한 경우 값은 선택 사항입니다. |
 | 기본값 | 선택 사항입니다. Runbook이 시작될 때 값을 전달하지 않으면 매개 변수에 대해 사용될 값을 지정합니다. 기본값을 매개 변수에 대해 설정할 수 있으며 필수 설정에 관계 없이 자동으로 매개 변수를 선택적으로 만듭니다. |
@@ -98,19 +98,11 @@ Azure를 사용하여 인증하는 [**Add-AzureAccount**](https://msdn.microsoft
 
 4. **Get-AzureVM** 활동에서 사용될 다음 속성을 가진 두 개의 매개 변수를 만듭니다.
 
-    * **매개 변수1:** 
-    이름--VMName,
-    형식--문자열,
-    필수--아니오
+    * **매개 변수1:** 이름--VMName, 형식--문자열, 필수--아니오
 
-    * **매개 변수2:** 
-    이름--ServiceName,
-    형식--문자열,
-    필수--아니오,
-    기본값--사용자 지정,
-    사용자 지정 기본값--<가상 컴퓨터를 포함하는 기본 서비스의 이름>
+    * **매개 변수2:** 이름--ServiceName, 형식--문자열, 필수--아니오, 기본값--사용자 지정, 사용자 지정 기본값--<가상 컴퓨터를 포함하는 기본 서비스의 이름>
 
-5. 매개 변수를 추가하면 **확인** 을 클릭합니다. 이제 **입력 및 출력 블레이드** 에서 볼 수 있습니다. 다시 **확인**을 클릭한 다음 Runbook을 **저장**하고 **게시** 하도록 클릭합니다.
+5. 매개 변수를 추가하면 **확인**을 클릭합니다. 이제 **입력 및 출력 블레이드**에서 볼 수 있습니다. 다시 **확인**을 클릭한 다음 Runbook을 **저장**하고 **게시**하도록 클릭합니다.
 
 ## Runbook의 입력 매개 변수에 값 할당
 
@@ -145,29 +137,29 @@ Runbook은 Azure 포털 UI, webhook, PowerShell cmdlet, REST API 및 SDK 등 여
         Start-AzureAutomationRunbook -AutomationAccountName “TestAutomation” -Name “Get-AzureVMGraphical” -Parameters $params
       ```
 
-    - **Azure 리소스 관리자 cmdlet:** [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx)을 사용하여 기본 리소스 그룹에 생성된 자동화 Runbook을 시작할 수 있습니다
+    - **Azure Resource Manager cmdlet:** [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx)을 사용하여 리소스 그룹에 생성된 자동화 Runbook을 시작할 수 있습니다
 
 
     **예제:**
 
-      ``` 
-         $params = @{“VMName”=”WSVMClassic”;”ServiceName”=”WSVMClassicSG”}
+      ```
+        $params = @{“VMName”=”WSVMClassic”;”ServiceName”=”WSVMClassicSG”}
 
-        Start-AzureRMAutomationRunbook -AutomationAccountName “TestAutomationRG” -Name “Get-AzureVMGraphical” –ResourceGroupName “RG1” -Parameters $params
+        Start-AzureRmAutomationRunbook -AutomationAccountName “TestAutomationRG” -Name “Get-AzureVMGraphical” –ResourceGroupName “RG1” -Parameters $params
       ```
 
 >[AZURE.NOTE] PowerShell cmdlet을 사용하여 Runbook을 시작할 때 기본 매개 변수인 **MicrosoftApplicationManagementStartedBy**는 **PowerShell** 값을 사용하여 만들어집니다. **작업 세부 정보** 블레이드에서 이 매개 변수를 볼 수 있습니다.
 
 - **SDK를 사용하여 Runbook 시작 및 매개 변수 할당**
 
-    - **Azure 서비스 관리 방법:** 프로그래밍 언어의 SDK를 사용하여 Runbook을 시작할 수 있습니다. 다음은 자동화 계정의 Runbook을 시작하기 위한 C# 코드 조각입니다. [GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs)에 있는 모든 코드를 볼 수 있습니다.  
+    - **Azure 서비스 관리 방법:** 프로그래밍 언어의 SDK를 사용하여 Runbook을 시작할 수 있습니다. 다음은 자동화 계정의 Runbook을 시작하기 위한 C# 코드 조각입니다. [GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs)에서 모든 코드를 볼 수 있습니다.  
 
     ```      
         public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
         {
             var response = AutomationClient.Jobs.Create(automationAccount, new JobCreateParameters
             {
-                Properties = new JobCreateProperties 
+                Properties = new JobCreateProperties
                 {
                     Runbook = new RunbookAssociationProperty
                     {
@@ -179,15 +171,15 @@ Runbook은 Azure 포털 UI, webhook, PowerShell cmdlet, REST API 및 SDK 등 여
             return response.Job;
         }
     ```
-      
-    - **Azure 리소스 관리자 방법:** 프로그래밍 언어의 SDK를 사용하여 Runbook을 시작할 수 있습니다. 다음은 자동화 계정의 Runbook을 시작하기 위한 C# 코드 조각입니다. [GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs)에 있는 모든 코드를 볼 수 있습니다.  
+
+    - **Azure Resource Manager 방법:** 프로그래밍 언어의 SDK를 사용하여 Runbook을 시작할 수 있습니다. 다음은 자동화 계정의 Runbook을 시작하기 위한 C# 코드 조각입니다. [GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs)에서 모든 코드를 볼 수 있습니다.  
 
     ```
         public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
         {
            var response = AutomationClient.Jobs.Create(resourceGroup, automationAccount, new JobCreateParameters
            {
-               Properties = new JobCreateProperties 
+               Properties = new JobCreateProperties
                {
                    Runbook = new RunbookAssociationProperty
                    {
@@ -215,17 +207,17 @@ Runbook은 Azure 포털 UI, webhook, PowerShell cmdlet, REST API 및 SDK 등 여
 
 - **REST API를 사용하여 Runbook 시작 및 매개 변수 할당**
 
-다음 요청 URI가 있는 **배치** 메서드를 사용하여 Azure 자동화 REST API를 통해 Runbook 작업을 만들고 시작할 수 있습니다.
+다음 요청 URI가 있는 **PUT** 메서드를 사용하여 Azure 자동화 REST API를 통해 Runbook 작업을 만들고 시작할 수 있습니다.
 
     https://management.core.windows.net/<subscription-id>/cloudServices/<cloud-service-name>/resources/automation/~/automationAccounts/<automation-account-name>/jobs/<job-id>?api-version=2014-12-08
 
 요청 URI에서 다음 매개 변수를 바꿉니다.
- 
+
 * **subscription-id:** Azure 구독 ID입니다.  
 * **cloud-service-name:** 요청을 보낼 클라우드 서비스의 이름입니다.  
-* **automation-account-name:** 지정된 클라우드 서비스 내에 호스팅된 자동화 계정의 이름입니다.  
+* **automation-account-name:** 지정된 클라우드 서비스 내에 호스트되는 자동화 계정의 이름입니다.  
 * **job-id:** 작업에 대한 GUID입니다. **[GUID]::NewGuid().ToString()** 명령을 사용하여 PowerShell에서 GUID를 만들 수 있습니다.
-	
+
 Runbook 작업에 매개 변수를 전달하기 위해 요청 본문을 사용합니다. JSON 형식으로 제공되는 다음 두 가지 속성을 사용합니다.
 
 * **Runbook 이름**--필수입니다. 시작할 작업 시작에 대한 Runbook의 이름입니다.  
@@ -257,7 +249,7 @@ Runbook 작업에 매개 변수를 전달하기 위해 요청 본문을 사용�
 
 ### Runbook에 일정 연결 및 매개 변수 할당
 
-Runbook에 [일정을 연결](automation-scheduling-a-runbook.md)하므로 Runbook이 특정 시간에 시작하도록 할 수 있습니다. 일정을 만드는 동안 입력 매개 변수를 할당하고 Runbook이 일정에 따라 시작될 때 이러한 값을 사용합니다. 모든 필수 매개 변수 값이 제공될 때까지 일정을 저장할 수 없습니다.
+Runbook이 특정 시간에 시작하도록 Runbook에 [일정을 연결](automation-scheduling-a-runbook.md)할 수 있습니다. 일정을 만드는 동안 입력 매개 변수를 할당하고 Runbook이 일정에 따라 시작될 때 이러한 값을 사용합니다. 모든 필수 매개 변수 값이 제공될 때까지 일정을 저장할 수 없습니다.
 
 ![매개 변수 예약 및 할당](media/automation-runbook-input-parameters/automation_07_ScheduleAndAssignParameters.png)
 
@@ -267,7 +259,7 @@ Runbook에 대한 [webhook](automation-webhooks.md)을 만들고 Runbook 입력 
 
 ![Webhook 만들기 및 매개 변수 할당](media/automation-runbook-input-parameters/automation_08_CreateWebhookAndAssignParameters.png)
 
-Webhook을 사용하여 Runbook을 실행할 때 미리 정의된 입력 매개 변수 **[Webhookdata](automation-webhooks.md#details-of-a-webhook)**는 정의된 입력 매개 변수와 함께 전송됩니다. 자세한 내용은 **WebhookData** 매개 변수를 확장하도록 클릭할 수 있습니다.
+웹후크를 사용하여 Runbook을 실행할 때 미리 정의된 입력 매개 변수 **[Webhookdata](automation-webhooks.md#details-of-a-webhook)**가 사용자가 정의한 입력 매개 변수와 함께 전송됩니다. **WebhookData** 매개 변수를 클릭하여 확장하면 자세한 내용을 볼 수 있습니다.
 
 ![WebhookData 매개 변수](media/automation-runbook-input-parameters/automation_09_WebhookDataParameter.png)
 
@@ -276,7 +268,7 @@ Webhook을 사용하여 Runbook을 실행할 때 미리 정의된 입력 매개 
 
 - Runbook 입력 및 출력에 대한 자세한 내용은 [Azure 자동화: Runbook 입력, 출력 및 중첩된 Runbook](https://azure.microsoft.com/blog/azure-automation-runbook-input-output-and-nested-runbooks/)을 참조하세요.
 - Runbook을 시작하는 다양한 방법에 대한 자세한 내용은 [Runbook 시작](automation-starting-a-runbook.md)을 참조하세요.
-- 텍스트 Runbook을 편집하려면 [텍스트 Runbook 편집](automation-edit-textual-runbook.md)을 참조합니다.
-- 그래픽 Runbook을 편집하려면 [Azure 자동화에서 그래픽 작성](automation-graphical-authoring-intro.md)을 참조합니다.
+- 텍스트 Runbook을 편집하려면 [텍스트 Runbook 편집](automation-edit-textual-runbook.md)을 참조하세요.
+- 그래픽 Runbook을 편집하려면 [Azure 자동화에서 그래픽 작성](automation-graphical-authoring-intro.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -45,7 +45,7 @@
         // Request id becomes the operation id of child events 
         "id": "fCOhCdCnZ9I=",  
         "name": "GET Home/Index",
-        "count": 1, // Always 1
+        "count": 1, // 100% / sampling rate
         "durationMetric": {
           "value": 1046804.0, // 10000000 == 1 second
           // Currently the following fields are redundant:
@@ -127,23 +127,26 @@
 | context.data.isSynthetic | 부울 | 요청이 봇 또는 웹 테스트에서 들어오는 것 같습니다. |
 | context.data.samplingRate | number | 포털에 전송되는 SDK에 의해 생성된 원격 분석의 비율입니다. 범위는 0.0-100.0입니다.|
 | context.device | object | 클라이언트 장치 |
+| context.device.browser | string | IE, Chrome, ... |
+| context.device.browserVersion | string | Chrome 48.0, ... |
 | context.device.deviceModel | string | |
 | context.device.deviceName | string | |
 | context.device.id | string | |
-| context.device.locale | string | 예: en-GB, de-DE |
+| context.device.locale | string | en-GB, de-DE, ... |
 | context.device.network | string | |
 | context.device.oemName | string | |
-| context.device.osVersion | string | |
-| context.device.roleInstance | string | |
+| context.device.osVersion | string | 호스트 OS |
+| context.device.roleInstance | string | 서버 호스트의 ID |
 | context.device.roleName | string | |
-| context.device.type | string | |
+| context.device.type | string | PC, 브라우저... |
 | context.location | object | clientip에서 파생됩니다. |
-| context.location.city | string | |
+| context.location.city | string | 알 수 있는 경우 clientip에서 파생됩니다. |
 | context.location.clientip | string | 마지막 팔각형이 0으로 익명 처리됩니다. |
 | context.location.continent | string | |
 | context.location.country | string | |
-| context.location.province | string | |
+| context.location.province | string | 시/도 |
 | context.operation.id | string | 작업 ID가 동일한 항목은 포털에서 관련 항목으로 표시됩니다. 일반적으로 요청 ID입니다. |
+| context.operation.name | string | URL 또는 요청 이름 |
 | context.operation.parentId | string | 중첩된 관련 항목을 허용합니다. |
 | context.session.id | string | 동일한 소스의 작업 그룹 ID입니다. 30분 동안 작업이 없으면 세션이 끝난 것입니다. |
 | context.session.isFirst | 부울 | |
@@ -164,8 +167,8 @@
 
 |Path|형식|참고|
 |---|---|---|
-| event [0] count | 정수 | |
-| event [0] name | string | 이벤트 이름입니다. 최대 250ch입니다. |
+| event [0] count | 정수 | 100/([샘플링](app-insights-sampling.md) 속도) 예: 4 =&gt; 25% |
+| event [0] name | string | 이벤트 이름입니다. 최대 길이 250 |
 | event [0] url | string | |
 | event [0] urlData.base | string | |
 | event [0] urlData.host | string | |
@@ -178,7 +181,7 @@
 |Path|형식|참고|
 |---|---|---|
 | basicException [0] assembly | string | |
-| basicException [0] count | 정수 | |
+| basicException [0] count | 정수 | 100/([샘플링](app-insights-sampling.md) 속도) 예: 4 =&gt; 25% |
 | basicException [0] exceptionGroup | string | |
 | basicException [0] exceptionType | string | |string | |
 | basicException [0] failedUserCodeMethod | string | |
@@ -187,7 +190,7 @@
 | basicException [0] hasFullStack | 부울 | |
 | basicException [0] id | string | |
 | basicException [0] method | string | |
-| basicException [0] message | string | 예외 메시지입니다. 최대 10k ch입니다.|
+| basicException [0] message | string | 예외 메시지입니다. 최대 길이 10000|
 | basicException [0] outerExceptionMessage | string | |
 | basicException [0] outerExceptionThrownAtAssembly | string | |
 | basicException [0] outerExceptionThrownAtMethod | string | |
@@ -198,7 +201,7 @@
 | basicException [0] parsedStack [0] level | 정수 | |
 | basicException [0] parsedStack [0] line | 정수 | |
 | basicException [0] parsedStack [0] method | string | |
-| basicException [0] stack | string | 최대 10k입니다.|
+| basicException [0] stack | string | 최대 길이 10000|
 | basicException [0] typeName | string | |
 
 
@@ -212,7 +215,7 @@
 |---|---|---|
 | message [0] loggerName | string ||
 | message [0] parameters | string ||
-| message [0] raw | string | 로그 메시지입니다(최대 길이 10k). 포털에서 이러한 문자열을 검색할 수 있습니다. |
+| message [0] raw | string | 로그 메시지입니다(최대 길이 10k). |
 | message [0] severityLevel | string | |
 
 
@@ -225,19 +228,19 @@ TrackDependency에서 전송합니다. 서버의 [종속성에 대한 호출](ap
 |---|---|---|
 | remoteDependency [0] async | 부울 | |
 | remoteDependency [0] baseName | string | |
-| remoteDependency [0] commandName | string | 예: asp "home/index" |
-| remoteDependency [0] count | 정수 | |
+| remoteDependency [0] commandName | string | 예를 들어 "홈/인덱스" |
+| remoteDependency [0] count | 정수 | 100/([샘플링](app-insights-sampling.md) 속도) 예: 4 =&gt; 25% |
 | remoteDependency [0] dependencyTypeName | string | HTTP, SQL, ... |
 | remoteDependency [0] durationMetric.value | number | 호출부터 종속성의 응답 완료까지 걸리는 시간 |
 | remoteDependency [0] id | string | |
-| remoteDependency [0] name | string | Url. 최대 250ch입니다.|
+| remoteDependency [0] name | string | Url. 최대 길이 250|
 | remoteDependency [0] resultCode | string | HTTP 종속성에서 |
 | remoteDependency [0] success | 부울 | |
 | remoteDependency [0] type | string | Http, Sql,... |
-| remoteDependency [0] url | string | 최대 2k |
-| remoteDependency [0] urlData.base | string | 최대 2k |
+| remoteDependency [0] url | string | 최대 길이 2000 |
+| remoteDependency [0] urlData.base | string | 최대 길이 2000 |
 | remoteDependency [0] urlData.hashTag | string | |
-| remoteDependency [0] urlData.host | string | 최대 200|
+| remoteDependency [0] urlData.host | string | 최대 길이 200 |
 
 
 ## 요청
@@ -247,12 +250,12 @@ TrackDependency에서 전송합니다. 서버의 [종속성에 대한 호출](ap
 
 |Path|형식|참고|
 |---|---|---|
-| request [0] count | 정수 | |
+| request [0] count | 정수 | 100/([샘플링](app-insights-sampling.md) 속도) 예: 4 =&gt; 25% |
 | request [0] durationMetric.value | number | 요청부터 응답까지 걸리는 시간입니다. 1e7 == 1s |
 | request [0] id | string | 작업 ID |
-| request [0] name | string | GET/POST + url 기본입니다. 최대 250ch입니다. |
+| request [0] name | string | GET/POST + url 기본입니다. 최대 길이 250 |
 | request [0] responseCode | 정수 | 클라이언트에 보낸 HTTP 응답 |
-| request [0] success | 부울 | 기본값 == responseCode<400 |
+| request [0] success | boolean | 기본값 == (responseCode &lt; 400) |
 | request [0] url | string | 호스트를 포함하지 않음 |
 | request [0] urlData.base | string | |
 | request [0] urlData.hashTag | string | |
@@ -282,13 +285,13 @@ TrackDependency에서 전송합니다. 서버의 [종속성에 대한 호출](ap
 
 ## 페이지 보기
 
-trackPageView() 또는 [stopTrackPage](app-insights-api-custom-events-metrics.md#page-view)에서 전송
+trackPageView() 또는 [stopTrackPage](app-insights-api-custom-events-metrics.md#page-view)에서 전송됩니다.
 
 |Path|형식|참고|
 |---|---|---|
-| view [0] count | 정수 | |
-| view [0] durationMetric.value | 정수 | 필요에 따라 trackPageView()에서 또는 start/stopTrackPage를 사용하여 설정한 값입니다. clientPerformance 값과 다릅니다. |
-| view [0] name | string | 페이지 제목입니다. 최대 250ch입니다. |
+| view [0] count | 정수 | 100/([샘플링](app-insights-sampling.md) 속도) 예: 4 =&gt; 25% |
+| view [0] durationMetric.value | 정수 | 필요에 따라 trackPageView()에서 또는 startTrackPage() - stopTrackPage()에 의해 설정한 값입니다. clientPerformance 값과 다릅니다. |
+| view [0] name | string | 페이지 제목입니다. 최대 길이 250 |
 | view [0] url | string | |
 | view [0] urlData.base | string | |
 | view [0] urlData.hashTag | string | |
@@ -304,11 +307,11 @@ trackPageView() 또는 [stopTrackPage](app-insights-api-custom-events-metrics.md
 |---|---|---|
 | availability [0] availabilityMetric.name | string | availability |
 | availability [0] availabilityMetric.value | number |1\.0 또는 0.0 |
-| availability [0] count | 정수 | |
+| availability [0] count | 정수 | 100/([샘플링](app-insights-sampling.md) 속도) 예: 4 =&gt; 25% |
 | availability [0] dataSizeMetric.name | string | |
 | availability [0] dataSizeMetric.value | 정수 | |
 | availability [0] durationMetric.name | string | |
-| availability [0] durationMetric.value | number | 테스트의 길이입니다. 1e7==1s |
+| availability [0] durationMetric.value | number | 테스트 기간 1e7==1s |
 | availability [0] message | string | 오류 진단 |
 | availability [0] result | string | 성공/실패 |
 | availability [0] runLocation | string | Http 요청의 지역 소스 |
@@ -323,7 +326,7 @@ trackPageView() 또는 [stopTrackPage](app-insights-api-custom-events-metrics.md
 
 TrackMetric()에서 생성합니다.
 
-메트릭은 context.custom.metrics[0]에서 찾을 수 있습니다.
+메트릭 값은 context.custom.metrics[0]에서 찾을 수 있습니다.
 
 예:
 
@@ -386,4 +389,4 @@ TrackMetric()에서 생성합니다.
 * [연속 내보내기](app-insights-export-telemetry.md)
 * [코드 샘플](app-insights-export-telemetry.md#code-samples)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

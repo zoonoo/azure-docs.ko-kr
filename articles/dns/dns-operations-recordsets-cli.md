@@ -9,14 +9,14 @@
 
 <tags
    ms.service="dns"
-   ms.devlang="en"
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="03/04/2016"
+   ms.date="05/06/2016"
    ms.author="cherylmc"/>
 
-# CLI를 사용하여 DNS 레코드를 관리하는 방법
+# CLI를 사용하여 DNS 레코드 및 레코드 집합 관리
 
 
 > [AZURE.SELECTOR]
@@ -25,133 +25,66 @@
 - [PowerShell](dns-operations-recordsets.md)
 
 
-이 가이드에서는 플랫폼 간 Azure CLI를 사용하여 DNS 영역에 대한 레코드 집합 및 레코드를 관리하는 방법을 보여 줍니다.
+이 문서는 플랫폼 간 Azure CLI를 사용하여 DNS 영역에 대한 레코드 집합 및 레코드를 관리하는 방법을 보여줍니다.
 
->[AZURE.NOTE] Azure DNS는 Azure 리소스 관리자 전용 서비스입니다. 여기에는 ASM API가 없습니다. 따라서 'azure config mode arm' 명령을 사용하여 Azure CLI가 리소스 관리자 모드를 사용하도록 구성되었는지 확인해야 합니다.
-
->"오류: 'dns'가 azure 명령이 아닙니다"가 표시되면 Azure CLI를 리소스 관리자 모드가 아닌 ASM 모드에서 사용하고 있기 때문입니다.
-
-DNS 레코드 집합과 개별 DNS 레코드의 차이점을 이해하는 것이 중요합니다. 레코드 집합은 영역 내에서 동일한 이름과 형식을 가진 레코드 컬렉션입니다. 자세한 내용은 [레코드 집합 및 레코드 이해](dns-getstarted-create-recordset.md#Understanding-record-sets-and-records)를 참조하세요.
-
-## 레코드 집합 만들기
-
-`azure network dns record-set create` 명령을 사용하여 레코드 집합을 만듭니다. 레코드 집합 이름, 영역, TTL(Time-to-Live) 및 레코드 형식을 지정해야 합니다.
-
-레코드 집합 이름은 영역 이름을 제외한 상대 이름이어야 합니다. 예를 들어 'contoso.com' 영역의 레코드 집합 이름 'www'는 정규화된 이름 'www.contoso.com'을 가진 레코드 집합을 만듭니다.
-
-영역 구로의 레코드 집합의 경우, 따옴표를 포함하여 "@"를 레코드 집합 이름으로 사용합니다. 완전한 레코드 집합의 이름은 영역 이름과 동일하며 이 경우 "contoso.com"입니다.
-
-Azure DNS는 A, AAAA, CNAME, MX, NS, SOA, SRV, TXT 등의 레코드 형식을 지원합니다. SOA 형식의 레코드 집합은 각 영역과 함께 자동으로 생성되며 별도로 만들 수 없습니다. [SPF 레코드 유형은 TXT 레코드 종류를 사용하여 SPF 레코드를 만드는 데 유리한 DNS 표준에 의해 사용되지 않습니다](http://tools.ietf.org/html/rfc7208#section-3.1).
-
-	azure network dns record-set create myresourcegroup contoso.com  www  A --ttl 300
+DNS 레코드 집합과 개별 DNS 레코드 사이의 차이를 이해하는 것이 중요합니다. 레코드 집합은 영역 내에서 동일한 이름과 형식을 가진 레코드 컬렉션입니다. 자세한 내용은 [레코드 집합 및 레코드 이해](dns-getstarted-create-recordset-cli.md)를 참조하세요.
 
 
->[AZURE.IMPORTANT] CNAME 레코드 집합은 동일한 이름의 다른 레코드 집합과 함께 존재할 수 없습니다. 예를 들어 상대 이름이 'www'인 CNAME과 상대 이름이 'www'인 A 레코드를 동시에 만들 수 없습니다. 영역 루트(이름 = '@')는 항상 영역을 만들 때 생성된 NS 및 SOA 레코드 집합을 포함하므로 영역 루트에 CNAME 레코드 집합을 만들 수 없습니다. 이러한 제약 조건은 DNS 표준에서 발생하며 Azure DNS의 제한 사항이 아닙니다.
+## Azure DNS 및 플랫폼 간 Azure CLI
 
-### 와일드카드 레코드
+Azure DNS는 Azure 리소스 관리자 전용 서비스입니다. 여기에는 ASM API가 없습니다. Azure CLI가 리소스 관리자 모드를 사용하도록 구성되었는지 확인해야 합니다. `azure config mode arm` 명령을 사용하여 이 작업을 수행할 수 있습니다.<BR>"*오류: 'dns'가 azure 명령이 아닙니다*"라는 메시지가 표시되면 Azure CLI를 리소스 관리자 모드가 아닌 ASM 모드에서 사용하고 있기 때문입니다.
 
-Azure DNS는 [와일드카드 레코드](https://en.wikipedia.org/wiki/Wildcard_DNS_record)를 지원합니다. 이러한 레코드는 일치하는 이름이 있는 모든 쿼리에 대해 반환됩니다(비 와일드카드 레코드 집합에 더 일치하는 항목이 없는 한). 와일드카드 레코드 집합을 만들려면 "*"라는 레코드 집합 이름을 사용하거나 첫 번째 레이블의 이름이 "*", 예: "*.foo"인 이름을 사용합니다.
+## 새 레코드 집합 및 레코드 만들기
 
-와일드카드 레코드 집합은 NS 및 SOA를 제외한 모든 레코드 유형에 대해 지원됩니다.
+Azure 포털에서 레코드 집합을 만들려면, [레코드 집합 및 레코드 만들기](dns-getstarted-create-recordset-cli.md)를 참조하세요.
+
 
 ## 레코드 집합 가져오기
-기존 레코드 집합을 가져오려면 리소스 그룹, 영역 이름, 레코드 집합 상대 이름 및 레코드 형식을 지정하여 `azure network dns record-set show`를 사용합니다.
+
+기존 레코드 집합을 가져오려면, `azure network dns record-set show`를 사용합니다. 리소스 그룹, 영역 이름, 레코드 집합의 상대적 이름, 레코드 형식을 지정합니다. 아래 예제(사용자 고유의 값으로 대체)를 사용합니다.
 
 	azure network dns record-set show myresourcegroup contoso.com www A
 
 
 ## 레코드 집합 나열
 
-`azure network dns record-set list` 명령을 사용하여 DNS 영역에 있는 모든 레코드를 나열할 수 있습니다.
+`azure network dns record-set list` 명령을 사용하여 DNS 영역에 있는 모든 레코드를 나열할 수 있습니다. 리소스 그룹 이름 및 영역 이름을 지정해야 합니다.
 
-### 옵션 1 
-모든 레코드 집합을 나열합니다. 이름 또는 레코드 형식에 관계없이 모든 레코드 집합을 반환합니다.
+### 모든 레코드 집합을 나열하려면
+
+이 예제는 이름이나 레코드 유형에 관계없이 모든 레코드 집합을 반환합니다.
 
 	azure network dns record-set list myresourcegroup contoso.com
 
-### 옵션 2 
+### 지정된 형식의 레코드 집합을 나열하려면
 
-지정된 레코드 형식의 레코드 집합을 나열합니다. 지정된 레코드 형식(이 경우 A 레코드)과 일치하는 모든 레코드 집합을 반환합니다.
-
+이 예제는 지정된 레코드 형식(이 경우 A 레코드)과 일치하는 모든 레코드 집합을 반환합니다.
 
 	azure network dns record-set list myresourcegroup contoso.com A 
 
-두 경우 모두 리소스 그룹 이름 및 영역 이름을 지정합니다.
 
 ## 레코드 집합에 레코드 추가
 
-`azure network dns record-set add-record`를 사용하여 레코드 집합에 레코드를 추가합니다.
+`azure network dns record-set add-record`를 사용하여 레코드 집합에 레코드를 추가합니다. 레코드 집합에 레코드를 추가하기 위한 매개 변수는 레코드 집합 형식에 따라 달라집니다. 예를 들어 *A* 형식의 레코드 집합을 사용하는 경우 `-a <IPv4 address>` 매개 변수를 사용해야만 레코드를 지정할 수 있습니다.
 
-레코드 집합에 레코드를 추가하기 위한 매개 변수는 레코드 집합 형식에 따라 달라집니다. 예를 들어 'A' 형식의 레코드 집합을 사용하는 경우 "-a `<IPv4 address>`" 매개 변수를 통해서만 레코드를 지정할 수 있습니다.
-
-다음 예제에서는 단일 레코드를 포함하는 각 레코드 형식의 레코드 집합을 만드는 방법을 보여 줍니다.
-
-### 단일 레코드를 포함하는 A 레코드 집합 만들기
-
-레코드 집합을 만들려면 리소스 그룹, 영역 이름, 레코드 집합 상대 이름, 레코드 종류 및 TTL(Time to Live)을 지정하여 `azure network dns record-set create`을 사용합니다.
+레코드 집합을 만들려면 `azure network dns record-set create`을 사용합니다. 리소스 그룹, 영역 이름, 레코드 집합의 상대적 이름, 레코드 형식, TTL(Time to Live)을 지정합니다. --ttl 매개 변수가 정의되지 않은 경우 기본값은 4(초)입니다.
 	
 	azure network dns record-set create myresourcegroup  contoso.com "test-a"  A --ttl 300
 
->[AZURE.NOTE] --ttl 매개 변수가 정의되지 않은 경우 기본값은 4(초)입니다.
 
-
-A 레코드 집합을 만든 후에 `azure network dns record-set add-record`로 레코드 집합에 IPv4 주소를 추가합니다.
+A 레코드 집합을 만든 후에, `azure network dns record-set add-record`를 사용하여 IPv4 주소를 추가합니다.
 
 	azure network dns record-set add-record myresourcegroup contoso.com "test-a" A -a 192.168.1.1 
 
-### 단일 레코드를 포함하는 AAAA 레코드 집합 만들기
 
-	azure network dns record-set create myresourcegroup contoso.com "test-aaaa" AAAA --ttl 300
+다음 예제에서는 단일 레코드를 포함하는 각 레코드 형식의 레코드 집합을 만드는 방법을 보여 줍니다.
 
-	azure network dns record-set add-record myresourcegroup contoso.com "test-aaaa" AAAA -b "2607:f8b0:4009:1803::1005"
-
-### 단일 레코드를 포함하는 CNAME 레코드 집합 만들기
-
-	azure network dns record-set create -g myresourcegroup contoso.com  "test-cname" CNAME --ttl 300
-	
-	azure network dns record-set add-record  myresourcegroup contoso.com  test-cname CNAME -c "www.contoso.com"
-
->[AZURE.NOTE] CNAME 레코드에는 하나의 단일 문자열 값만 허용됩니다.
-
-### 단일 레코드를 포함하는 MX 레코드 집합 만들기
-
-이 예제에서는 레코드 집합 이름을 "@"로 사용하여 영역 구로에 MX 레코드를 만듭니다(예: "contoso.com"). MX 레코드에 공통됩니다.
-
-	azure network dns record-set create myresourcegroup contoso.com  "@"  MX --ttl 300
-
-	azure network dns record-set add-record -g myresourcegroup contoso.com  "@" MX -e "mail.contoso.com" -f 5
+[AZURE.INCLUDE [dns-add-record-cli-include](../../includes/dns-add-record-cli-include.md)]
 
 
-### 단일 레코드를 포함하는 NS 레코드 집합 만들기
+## 레코드 집합의 레코드 업데이트
 
-	azure network dns record-set create myresourcegroup contoso.com test-ns  NS --ttl 300
-	
-	azure network dns record-set add-record myresourcegroup  contoso.com  "test-ns" NS -d "ns1.contoso.com" 
-	
-### 단일 레코드를 포함하는 SRV 레코드 집합 만들기
-
-영역 루트에 SRV 레코드를 만드는 경우 레코드 이름에 \_service 및 \_protocol만 지정하면 됩니다. 레코드 이름에 '.@'도 포함할 필요가 없습니다.
-
-	
-	azure network dns record-set create myresourcegroup contoso.com "_sip._tls" SRV --ttl 300 
-
-	azure network dns record-set add-record myresourcegroup contoso.com  "_sip._tls" SRV -p 0 - w 5 -o 8080 -u "sip.contoso.com" 
-
-### 단일 레코드를 포함하는 TXT 레코드 집합 만들기
-
-	azure network dns record-set create myresourcegroup contoso.com "test-TXT" TXT --ttl 300
-
-	azure network dns record-set add-record myresourcegroup contoso.com "test-txt" TXT -x "this is a TXT record" 
-
-
-## 기존 레코드 집합 수정
-
-
-이 내용은 다음 예제에 나와 있습니다.
-
-### 기존 레코드 집합의 레코드 업데이트
-
-이 예제에서는 기존 A 레코드 집합에 다른 IP 주소(1.2.3.4)를 추가합니다.
+### 기존 A 레코드 집합(www)에 다른 IP 주소(1.2.3.4)를 추가하려면: 
 
 	azure network dns record-set add-record  myresourcegroup contoso.com  A
 	-a 1.2.3.4
@@ -171,8 +104,7 @@ A 레코드 집합을 만든 후에 `azure network dns record-set add-record`로
 	data:
 	info:    network dns record-set add-record command OK
 
-
-`azure network dns record-set delete-record`를 사용하여 레코드 집합에서 기존 값을 제거합니다.
+### 레코드 집합에서 기존 값을 제거하려면 `azure network dns record-set delete-record`를 사용합니다.
  
 	azure network dns record-set delete-record myresourcegroup contoso.com www A -a 1.2.3.4
 	info:    Executing command network dns record-set delete-record
@@ -185,18 +117,17 @@ A 레코드 집합을 만든 후에 `azure network dns record-set add-record`로
 	data:    Location                        : global
 	data:    TTL                             : 4
 	data:    A records:
-	data:        IPv4 address                : 192.168.1.1
+	data:    IPv4 address                    : 192.168.1.1
 	data:
 	info:    network dns record-set delete-record command OK
 
 
 
-## 기존 레코드 집합에서 레코드 제거
+## 레코드 집합에서 레코드 제거
 
-`azure network dns record-set delete-record`를 사용하여 레코드 집합에서 레코드를 제거할 수 있습니다. 제거되는 레코드는 모든 매개 변수에서 기존 레코드와 정확히 일치해야 합니다.
+`azure network dns record-set delete-record`를 사용하여 레코드 집합에서 레코드를 제거할 수 있습니다. 제거되는 레코드는 모든 매개 변수가 기존 레코드와 정확히 일치해야 합니다.
 
-레코드 집합에서 마지막 레코드를 제거해도 레코드 집합은 삭제되지 않습니다. 자세한 내용은 아래의 [레코드 집합 삭제](#delete-a-record-set)를 참조하세요.
-
+레코드 집합에서 마지막 레코드를 제거해도 레코드 집합은 삭제되지 않습니다. 자세한 내용은 이 문서의 [레코드 집합 삭제](#delete) 섹션을 참조하세요.
 
 	azure network dns record-set delete-record myresourcegroup contoso.com www A -a 192.168.1.1
 
@@ -227,22 +158,26 @@ A 레코드 집합을 만든 후에 `azure network dns record-set add-record`로
 
 	azure network dns record-set delete-record myresourcegroup contoso.com  "test-TXT" TXT -x "this is a TXT record"
 
-## 레코드 집합 삭제
-Remove-AzureDnsRecordSet cmdlet을 사용하여 레코드 집합을 삭제할 수 있습니다.
+## <a name="delete"></a>레코드 집합 삭제
 
->[AZURE.NOTE] 영역을 만들 때 자동으로 생성된 영역 루트(이름 = '@')의 SOA 및 NS 레코드 집합은 삭제할 수 없습니다. 영역을 삭제하면 자동으로 삭제됩니다.
+`Remove-AzureRmDnsRecordSet` cmdlet을 사용하여 레코드 집합을 삭제할 수 있습니다. 영역을 만들 때 자동으로 생성된 영역 루트(이름 = '@')의 SOA 및 NS 레코드 집합은 삭제할 수 없습니다. 영역이 삭제되면 자동으로 삭제됩니다.
 
 다음 예제에서는 "test-a" 레코드 집합이 DNS 영역에서 제거됩니다.
 
 	azure network dns record-set delete myresourcegroup contoso.com  "test-a" A 
 
-선택적 '-q' 스위치를 사용하여 확인 메시지가 표시되지 않도록 할 수 있습니다.
+선택적 *-q* 스위치를 사용하여 확인 메시지가 표시되지 않도록 할 수 있습니다.
 
 
 ## 다음 단계
 
-DNS 영역 및 레코드를 만든 후 [Azure DNS에 도메인을 위임](dns-domain-delegation.md)할 수 있습니다.<BR> CLI를 사용하여 [DNS 영역을 관리](dns-operations-dnszones-cli.md)하는 방법에 대해 알아봅니다.<BR> Azure DNS 작업을 응용 프로그램으로 코딩하도록 [.NET SDK를 사용하여 작업을 자동화](dns-sdk.md)할 수도 있습니다.
+Azure DNS에 대한 자세한 내용은 [Azure DNS 개요](dns-overview.md)를 참조하세요. DNS 자동화에 대한 자세한 내용은 [.NET SDK를 사용하여 DNS 영역 및 레코드 집합 만들기](dns-sdk.md)를 참조하세요.
+
+역방향 DNS 레코드를 작업하려면 [역방향 DNS 레코드를 관리하는 방법](dns-reverse-dns-record-operations-cli.md)을 참조하세요.
+
+
+
 
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

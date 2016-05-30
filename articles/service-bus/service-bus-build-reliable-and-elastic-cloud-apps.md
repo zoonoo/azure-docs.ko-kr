@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="05/10/2016" 
 	ms.author="sethm"/>
 
 # 메시징을 사용하여 안정적이고 탄력적인 클라우드 앱 빌드 
@@ -39,10 +39,11 @@
 
 - [Azure 큐 및 Azure 서비스 버스 큐 - 비교 및 대조](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - [서비스 버스 REST API 참조](http://msdn.microsoft.com/library/azure/hh780717.aspx)
+- [서비스 버스 RP REST API 참조](https://msdn.microsoft.com/library/azure/mt639375.aspx)
 
 ## 관련 서비스
 
 - [클라우드 서비스](https://azure.microsoft.com/services/cloud-services/) 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

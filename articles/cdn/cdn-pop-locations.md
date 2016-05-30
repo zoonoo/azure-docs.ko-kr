@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure CDN(콘텐츠 배달 네트워크) POP 위치"
-	description="이 항목은 Azure CDN(콘텐츠 배달 네트워크) POP 위치를 나열합니다."
+	pageTitle="Azure CDN POP 위치"
+	description="이 항목에서는 Azure CDN POP 위치를 나열합니다."
 	services="cdn"
 	documentationCenter=""
 	authors="camsoper"
@@ -12,77 +12,30 @@
 	ms.workload="media"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="04/15/2016" 
+	ms.topic="article"
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 
-# Azure CDN(콘텐츠 배달 네트워크) POP 위치
+# Azure CDN POP 위치
 
-이 항목은 현재 Microsoft Azure CDN 상호 접속(POP) 위치를 나열합니다.
+이 항목에서는 **Verizon의 Azure CDN** 및 **Akamai의 Azure CDN**에 대한 현재 POP 위치를 나열합니다.
 
-![CDN POP 위치](./media/cdn-pop-locations/CDN_POP_locations_update.png)
+>[AZURE.IMPORTANT] ***Akamai의 Azure CDN** POP 위치는 개별적으로 공개되지 않습니다.
+>
+>두 공급자의 CDN 인프라를 구축하는 방식은 분명히 구별됩니다. 사용할 Azure CDN 제품을 결정하기 위해 POP 위치를 사용하는 것은 좋지 않습니다. 그 대신 기능 및 최종 사용자 성능을 고려하십시오. 두 공급자의 성능을 테스트하여 사용자에게 적합한 Azure CDN 제품을 선택하세요.
+ 
+| 지역 | Verizon | Akamai |
+|--------|---------|--------|
+| 북아메리카 | 애틀랜타, GA<br />필라델피아, PA<br />뉴욕, NY<br />마이애미, FL<br />워싱턴 DC<br />보스턴, MA<br />시카고, IL<br />댈러스, TX<br />로스앤젤레스, CA<br />산호세, CA<br />시애틀, WA | **&#x2713;*** |
+| 남미 | 상파울루, 브라질<br />리우데자네이루, 브라질<br />키토, 에콰도르<br />메데인, 콜롬비아<br/>부에노스아이레스, 아르헨티나| **&#x2713;*** | 
+| 북유럽 및 동유럽| 코펜하겐, 덴마크<br />헬싱키, 핀란드<br />런던, 영국<br />스톡홀름, 스웨덴<br />바르샤바, 폴란드 | **&#x2713;*** |
+| 서유럽 | 암스테르담, 네덜란드<br />프랑크푸르트, 독일<br />파리, 프랑스<br />비엔나, 오스트리아 | **&#x2713;*** |
+| 남유럽 | 마드리드, 스페인<br />밀라노, 이탈리아 | **&#x2713;*** |
+| 동아시아 | 도쿄, 일본<br />오사카, 일본<br />바탐, 인도네시아<br />자카르타, 인도네시아<br />홍콩<br />가오슝, 대만<br />서울, 대한민국<br />싱가포르| **&#x2713;*** |
+| 중남 아시아 | 방갈로, 인도<br />첸나이, 인도<br />델리, 인도<br />뭄바이, 인도 | **&#x2713;*** |
+| 중동/서 아시아 | 무스카트, 오만 | **&#x2713;*** |
+| 아프리카 | | **&#x2713;*** |
+| 오스트레일리아 및 뉴질랜드 | 멜버른, 오스트레일리아<br />시드니, 오스트레일리아 | **&#x2713;*** |
 
-## 북아메리카
-
-- 애틀랜타
-- 시카고
-- 댈러스
-- 필라델피아
-- 로스앤젤레스
-- 마이애미
-- 뉴욕
-- 새너제이(San Jose)
-- 시애틀
-- 워싱턴 DC
-- 보스턴
-
-## 남미
-
-- 상파울루
-- 리우데자네이루
-- 키토
-- 메데인
-- 부에노스아이레스
-
-
-## 유럽
-
-- 암스테르담
-- 코펜하겐
-- 프랑크푸르트
-- 헬싱키
-- 런던
-- 마드리드
-- 밀란
-- 파리
-- 스톡홀름
-- 비엔나
-- 바르샤바
-
-## 아시아
-
-- 바탐
-- 홍콩
-- 자카르타
-- 가오슝
-- 오사카
-- 서울
-- 싱가포르
-- 도쿄
-- 방갈로르
-- 첸나이
-- 델리
-- 뭄바이
-- 무스카트
-
-## 오스트레일리아
-
-- 멜버른
-- 시드니
-
-## 서비스 예정
-
-Microsoft가 [Akamai와 제휴를 맺었다는](https://azure.microsoft.com/blog/microsoft-and-akamai-bring-cdn-to-azure-customers/) 소식을 들어 보였을 겁니다. 이 제휴를 통해 앞으로 몇 달간 전세계에서 Azure CDN의 도달 범위를 크게 확대할 예정입니다.
-
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

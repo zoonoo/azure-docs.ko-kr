@@ -3,7 +3,7 @@
     description="그룹 정책을 사용하여 My Apps 포털용 Internet Explorer 추가 기능을 배포하는 방법"
     services="active-directory"
     documentationCenter=""
-    authors="liviodlc"
+    authors="MarkusVi"
     manager="stevenpo"
     editor=""/>
 
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="identity"
     ms.date="02/09/2016"
-    ms.author="liviodlc"/>
+    ms.author="markvi;liviodlc"/>
 
 #Internet Explorer용 액세스 패널 확장 문제 해결
 
@@ -109,4 +109,4 @@ InPrivate 브라우징 모드를 사용 중인 경우:
 - [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On](active-directory-appssoaccess-whatis.md)
 - [그룹 정책을 사용하여 Internet Explorer용 액세스 패널 확장을 배포하는 방법](active-directory-saas-ie-group-policy.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

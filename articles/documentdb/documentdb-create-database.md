@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="DocumentDB에서 데이터베이스를 만드는 방법 | Microsoft Azure" 
-	description="JSON용 NoSQL 문서 데이터베이스인 Azure DocumentDB용 온라인 서비스 포털을 사용하여 데이터베이스를 만드는 방법을 알아봅니다. 지금 무료 계정을 받으세요." 
+	description="획기적인 속도, 세계적인 규모의 NoSQL 데이터베이스인, Azure DocumentDB용 온라인 서비스 포털을 사용하여 데이터베이스를 만드는 방법을 알아봅니다." 
 	keywords="데이터베이스를 만드는 방법" 
 	services="documentdb" 
 	authors="mimig1" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2016" 
+	ms.date="05/16/2016" 
 	ms.author="mimig"/>
 
 # Azure 포털을 사용하여 DocumentDB용 데이터베이스를 만드는 방법
@@ -51,4 +51,4 @@ Microsoft Azure DocumentDB를 사용하려면 [DocumentDB 계정](documentdb-cre
 
 컬렉션에 문서를 추가한 후에 포털의 [쿼리 탐색기](documentdb-query-collections-query-explorer.md), [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 또는 [SDK](documentdb-sdk-dotnet.md) 중 하나를 사용하여 문서에 [쿼리를 실행](documentdb-sql-query.md#executing-sql-queries)하기 위해 [DocumentDB SQL](documentdb-sql-query.md)을 사용할 수 있습니다.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

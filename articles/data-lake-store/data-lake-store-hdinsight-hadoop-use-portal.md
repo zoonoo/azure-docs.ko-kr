@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/27/2016"
+   ms.date="05/11/2016"
    ms.author="nitinme"/>
 
 # Azure 포털을 사용하여 데이터 레이크 저장소로 HDInsight 클러스터 만들기
@@ -45,6 +45,12 @@ Azure 포털을 사용하여 Azure 데이터 레이크 저장소에 대한 액�
 	* [데이터 레이크 저장소에 폴더를 만듭니다](data-lake-store-get-started-portal.md#createfolder).
 	* [Data Lake 저장소에 파일을 업로드합니다](data-lake-store-get-started-portal.md#uploaddata). 업로드할 일부 샘플 데이터를 찾는 경우 [Azure 데이터 레이크 Git 리포지토리](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData)의 **Ambulance Data** 폴더에 있을 수 있습니다.
 
+## 비디오로 빠르게 배우시겠습니까?
+
+Data Lake 저장소에 대한 액세스와 HDInsight 클러스터를 프로비전하는 방법을 이해하려면 다음 비디오를 시청하세요.
+
+* [Data Lake 저장소에 대한 액세스와 HDInsight 클러스터 만들기](https://mix.office.com/watch/l93xri2yhtp2)
+* 클러스터가 설정된 후, [Hive 및 Pig 스크립트를 사용하여 Data Lake 저장소의 데이터에 액세스](https://mix.office.com/watch/1n9g5w0fiqv1q)
 
 ## Azure 데이터 레이크 저장소 계정에 액세스할 수 있는 HDInsight 클러스터를 만듭니다.
 
@@ -252,4 +258,4 @@ HBase 클러스터에서 추가 저장소 외에 기본 저장소로 Data Lake �
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

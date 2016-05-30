@@ -14,11 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/05/2016"
+   ms.date="04/26/2016"
    ms.author="dobett"/>
 
 
-# 미리 구성된 IoT Suite 원격 모니터링 솔루션에 장치 연결
+# 미리 구성된 원격 모니터링 솔루션에 장치 연결(mbed)
 
 [AZURE.INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
@@ -199,7 +199,7 @@ EXECUTE_COMMAND_RESULT SetHumidity(Thermostat* thermostat, int humidity)
 
     ![][11]
 
-4. PuTTY에서 **직렬** 연결 형식을 클릭합니다. 장치는 일반적으로 115200 보드로 연결되므로 **속도** 상자에 115200을 입력합니다. 그런 다음 **열기**를 클릭합니다.
+4. PuTTY에서 **직렬** 연결 형식을 클릭합니다. 장치는 일반적으로 9600 보드로 연결되므로 **속도** 상자에 9600을 입력합니다. 그런 다음 **열기**를 클릭합니다.
 
 5. 프로그램이 실행을 시작합니다. 연결할 때 프로그램이 자동으로 시작되지 않는 경우 보드를 다시 설정해야 할 수 있습니다(CTRL + Break를 누르거나 보드의 다시 설정 단추를 누름).
 
@@ -220,4 +220,4 @@ EXECUTE_COMMAND_RESULT SetHumidity(Thermostat* thermostat, int humidity)
 [lnk-mbed-pcconnect]: https://developer.mbed.org/platforms/FRDM-K64F/#pc-configuration
 [lnk-serializer]: https://azure.microsoft.com/documentation/articles/iot-hub-device-sdk-c-intro/#serializer
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

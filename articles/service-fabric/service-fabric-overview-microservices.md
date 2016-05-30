@@ -148,4 +148,4 @@ Azure 서비스 패브릭은 Microsoft가 보통 모놀리식 스타일의 박�
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

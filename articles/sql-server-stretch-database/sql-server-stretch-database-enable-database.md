@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="05/17/2016"
 	ms.author="douglasl"/>
 
 # 데이터베이스에 대해 스트레치 데이터베이스를 사용하도록 설정
@@ -133,4 +133,4 @@ GO
 
 [ALTER DATABASE SET 옵션(TRANSACT-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

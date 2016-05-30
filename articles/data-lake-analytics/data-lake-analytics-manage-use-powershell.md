@@ -71,7 +71,7 @@ Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 계정, 데이
 		-ResourceGroupName $resourceGroupName `
 		-Name $dataLakeAnalyticsAccountName  
 
-Azure 리소스 그룹 템플릿을 사용할 수도 있습니다. 데이터 레이크 분석 계정 및 종속 데이터 레이크 저장소 계정에 대한 템플릿은 [부록 A](#appendix-a)에 있습니다. .json 템플릿을 사용하여 템플릿을 파일에 저장한 후 다음 PowerShell 스크립트를 사용하여 호출합니다.
+Azure 리소스 그룹 템플릿을 사용할 수도 있습니다. Data Lake 분석 계정 및 종속 Data Lake 저장소 계정에 대한 템플릿은 [부록 A](#appendix-a)에 있습니다. .json 템플릿을 사용하여 템플릿을 파일에 저장한 후 다음 PowerShell 스크립트를 사용하여 호출합니다.
 
 
 	$AzureSubscriptionID = "<Your Azure Subscription ID>"
@@ -132,7 +132,7 @@ cmdlet이 **True** 또는 **False**를 반환합니다.
 	
 	Remove-AzureRmDataLakeAnalyticsAccount -Name $dataLakeAnalyticsAccountName 
 
-분석 계정을 삭제해도 종속 데이터 레이크 저장소 계정은 삭제되지 않습니다. 다음 예제에서는 데이터 레이크 분석 계정 및 기본 데이터 레이크 저장소 계정을 삭제합니다.
+Data Lake 분석 계정을 삭제해도 종속 Data Lake 저장소 계정은 삭제되지 않습니다. 다음 예제에서는 데이터 레이크 분석 계정 및 기본 데이터 레이크 저장소 계정을 삭제합니다.
 
 	$resourceGroupName = "<ResourceGroupName>"
 	$dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
@@ -392,4 +392,4 @@ U-SQL 카탈로그는 U-SQL 스크립트에서 공유할 수 있도록 데이터
 	  }
 	}
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

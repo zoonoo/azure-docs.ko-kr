@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2016" 
+	ms.date="05/10/2016"
 	ms.author="bradsev" />
 
 # Azure 저장소 탐색기를 사용하여 Azure Blob 저장소의 데이터 이동
-
-## 소개 
 
 Azure 저장소 탐색기는 Azure 저장소 계정의 데이터를 검사하고 변경할 수 있는 무료 Windows 기반 도구입니다. 이 항목에서는 Azure 저장소 탐색기를 사용하여 Azure Blob 저장소에서 데이터를 업로드 및 다운로드하는 방법을 설명합니다. 이 도구는 [Azure 저장소 탐색기](http://storageexplorer.com/)에서 다운로드할 수 있습니다.
 
@@ -59,4 +57,4 @@ Azure Blob 저장소로 및/또는 저장소에서 데이터를 이동하는 데
 [2]: ./media/machine-learning-data-science-move-azure-blob/data-science-process-uploading-data-to-blob-storage-img2.png
 [3]: ./media/machine-learning-data-science-move-azure-blob/data-science-process-uploading-data-to-blob-storage-img3.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -56,4 +56,6 @@ Visual Studio를 사용하거나 명령줄에서 API 앱에 대한 클라이언�
 
 API 앱을 만들고 배포하며 소비하는 과정을 안내하는 단계별 자습서는 [Azure 앱 서비스에서 API 앱 시작](app-service-api-dotnet-get-started.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0504_2016-->
+API 앱과 함께 Azure API 관리를 사용하는 경우 Swagger 메타데이터를 사용하여 API를 API 관리로 가져올 수 있습니다. 자세한 내용은 [Azure API 관리에서 작업과 함께 API의 정의를 가져오는 방법](../api-management/api-management-howto-import-api.md)을 참조하세요.
+
+<!---HONumber=AcomDC_0518_2016-->

@@ -23,6 +23,8 @@
 
 이 문서의 단계를 수행하려면 약 20분이 걸립니다.
 
+> [AZURE.IMPORTANT] VM을 가용성 집합의 일부가 되도록 하려면 VM을 만들 때 해당 집합에 추가해야 합니다. 현재는 만든 이후에 가용성 집합에 VM을 추가하는 방법이 없습니다.
+
 ## 1단계: 템플릿 파일 만들기
 
 [Azure Resource Manager 템플릿 작성](../resource-group-authoring-templates.md)에 있는 정보를 사용하여 고유의 템플릿을 만들 수 있습니다. [Azure Quiskstarts 템플릿](https://azure.microsoft.com/documentation/templates/)으로 만든 고유의 템플릿을 배포할 수도 있습니다. 이 문서에 사용된 예는 [미국 서부에서 간단한 Windows VM 배포](https://azure.microsoft.com/documentation/templates/101-vm-simple-windows/)에 설명된 템플릿과 유사합니다.
@@ -193,7 +195,7 @@
           ]
         }
         
-    >[AZURE.NOTE] 이 문서는 Windows Server 운영 체제의 버전을 실행하는 가상 컴퓨터를 만듭니다. 기타 이미지 선택에 대해 자세히 알아보려면 [Windows PowerShell 및 Azure CLI를 사용하여 Azure 가상 컴퓨터 이미지 탐색 및 선택](virtual-machines-linux-cli-ps-findimage.md)을 참조하세요.
+    >[AZURE.NOTE] 이 문서는 Windows Server 운영 체제의 버전을 실행하는 가상 컴퓨터를 만듭니다. 기타 이미지 선택에 대해 자세히 알아보려면 [Windows PowerShell 및 Azure CLI를 사용하여 Azure 가상 컴퓨터 탐색 및 선택](virtual-machines-linux-cli-ps-findimage.md)을 참조하세요.
     
 2. 템플릿 파일을 저장합니다.
 
@@ -218,7 +220,7 @@
 
 ## 3단계: Azure PowerShell 설치
 
-최신 버전의 Azure PowerShell을 설치하고 사용하려는 구독을 선택하며 Azure 계정에 로그인하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
+최신 버전의 Azure PowerShell을 설치하는 방법, 사용할 구독을 선택하는 방법, Azure 계정에 로그인하는 방법은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
 
 ## 4단계: 리소스 그룹 만들기
 
@@ -280,6 +282,6 @@
 ## 다음 단계
 
 - 배포에 문제가 있는 경우 다음 단계로서 [Azure 포털을 사용하여 리소스 그룹 배포 문제 해결](../resource-manager-troubleshoot-deployments-portal.md)을 살펴보세요.
-- [Azure Resource Manager 및 PowerShell을 사용하여 가상 컴퓨터 관리](virtual-machines-windows-ps-manage.md)를 검토하여 방금 만든 가상 컴퓨터를 관리하는 방법을 알아봅니다.
+- [Azure Resource Manager 및 PowerShell을 사용하여 가상 컴퓨터 관리](virtual-machines-windows-ps-manage.md)에서 방금 만든 가상 컴퓨터를 관리하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

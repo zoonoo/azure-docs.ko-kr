@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure Mobile Engagement용 Android SDK 통합"
-	description="Azure Mobile Engagement용 Android SDK의 최신 업데이트 및 절차"
+	description="Android 앱에서 Azure Mobile Engagement SDK를 통합하는 방법에 대해 설명합니다"
 	services="mobile-engagement"
 	documentationCenter="mobile"
 	authors="piyushjo"
@@ -13,11 +13,10 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="05/17/2016"
 	ms.author="piyushjo;ricksal" />
 
-
-# Android 앱에 대해 고급 Azure Mobile Engagement 기능 사용
+# Azure Mobile Engagement용 Android SDK 통합
 
 > [AZURE.SELECTOR]
 - [유니버설 Windows](mobile-engagement-windows-store-sdk-overview.md)
@@ -25,7 +24,7 @@
 - [iOS](mobile-engagement-ios-sdk-overview.md)
 - [Android](mobile-engagement-android-sdk-overview.md)
 
-Android 앱에 통합할 수는 모든 Azure Mobile Engagement의 고급 기능에 대해 알아봅니다.
+이 문서는 Azure Mobile Engagement Android SDK에 사용 가능한 모든 통합 및 구성 옵션에 대해 설명합니다.
 
 ## 필수 조건
 
@@ -53,6 +52,16 @@ Android 앱에 통합할 수는 모든 Azure Mobile Engagement의 고급 기능�
 
 ## 릴리스 정보
 
+### 4\.2.2(2016/05/17)
+
+- 안정성 향상
+
+### 4\.2.1(2016/05/10)
+
+- 보안: 웹 보기 로컬 파일 액세스를 비활성화합니다.
+- 보안: 사용되지 않고 보호되지 않는 `PreferenceActivity` 클래스를 확장하는 `EngagementPreferenceActivity` 클래스를 제거합니다.
+- 보안: 도달률 활동에서 현재 `exported="false"`을(를) 사용하도록 문서화되어 있으며 이 플래그는 이전 SDK 버전에서 사용할 수 있습니다.
+
 ### 4\.2.0(2016/03/11)
 
 - SDK는 이제 MIT에 따라 사용이 허가됩니다.
@@ -64,4 +73,4 @@ Android 앱에 통합할 수는 모든 Azure Mobile Engagement의 고급 기능�
 
 이전 버전의 SDK를 응용 프로그램에 이미 통합한 경우에는 [업그레이드 절차](mobile-engagement-android-upgrade-procedure.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

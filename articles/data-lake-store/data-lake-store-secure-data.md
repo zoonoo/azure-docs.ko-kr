@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="03/15/2016"
+   ms.date="05/11/2016"
    ms.author="nitinme"/>
 
 # Azure 데이터 레이크 저장소에 저장된 데이터 보호
@@ -34,6 +34,10 @@ Azure 데이터 레이크 저장소의 데이터를 보호하는 것은 3단계�
 
 - **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 - **Azure 데이터 레이크 저장소 계정**. 만드는 방법에 대한 지침은 [Azure 데이터 레이크 저장소 시작](data-lake-store-get-started-portal.md)을 참조하세요.
+
+## 비디오로 빠르게 배우시겠습니까?
+
+Data Lake 저장소에 저장된 데이터를 보호하는 방법은 [이 비디오를 참고하세요](https://mix.office.com/watch/1q2mgzh9nn5lx).
 
 ## Azure Active Directory의 보안 그룹 만들기
 
@@ -98,8 +102,8 @@ AAD 보안 그룹을 만드는 방법 및 사용자를 그룹에 추가하는 �
 
 	![표준 및 사용자 지정 액세스 나열](./media/data-lake-store-secure-data/adl.acl.2.png "표준 및 사용자 지정 액세스 나열")
 
-	* 표준 액세스는 세 가지 고유한 사용자 클래스(소유자, 그룹 및 기타)에 읽기, 쓰기 실행(rwx)을 지정하는 UNIX 스타일 액세스입니다.
-	* 사용자 지정 액세스는 파일의 소유자 또는 그룹 뿐만 아니라 특정하게 명명된 사용자 또는 그룹에 대한 권한을 설정할 수 있도록 하는 POSIX ACL에 해당합니다.
+	* **표준 액세스**는 세 가지 고유한 사용자 클래스(소유자, 그룹 및 기타)에 읽기, 쓰기 실행(rwx)을 지정하는 UNIX 스타일 액세스입니다.
+	* **사용자 지정 액세스**는 파일의 소유자 또는 그룹 뿐만 아니라 특정하게 명명된 사용자 또는 그룹에 대한 권한을 설정할 수 있도록 하는 POSIX ACL에 해당합니다. 
 	
 	자세한 내용은 [HDFS ACL](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists)을 참조하세요.
 
@@ -111,8 +115,13 @@ AAD 보안 그룹을 만드는 방법 및 사용자를 그룹에 추가하는 �
 
 	![그룹에 권한 할당](./media/data-lake-store-secure-data/adl.acl.4.png "그룹에 권한 할당")
 
+	권한은 다음과 같이 이해할 수 있습니다.
 
-	>[AZURE.NOTE] 실행 권한은 디렉터리의 열거가 필요하며 사용자 또는 그룹에 데이터에 대한 읽기 전용 액세스를 제공하는 경우에 종종 필요합니다.
+	* **읽기** - 디렉터리에 이 권한이 설정되면, 디렉터리에 있는 파일의 이름을 읽을 수 있게 됩니다.
+	* **쓰기** - 디렉터리에 이 권한이 설정되면, 디렉터리에 있는 항목을 수정할 수 있게 됩니다. 예를 들면, 파일을 만들고, 삭제하고, 이름을 변경할 수 있게 됩니다.
+	* **실행** - 디렉터리에 이 권한이 설정되면, 디렉터리에 있는 파일의 콘텐츠에 액세스할 있게 됩니다. 파일 이름이 알려진 경우에는, 파일의 메타데이터에도 액세스할 수 있게 됩니다. 하지만, **읽기** 권한이 설정되어 있지 않다면, 이 권한으로 디렉터리에 있는 파일을 나열할 수 없습니다.
+
+	>[AZURE.NOTE] **읽기 + 실행** 권한은 디렉터리를 열거하는 데 필요하며 사용자 또는 그룹에 데이터에 대한 읽기 전용 액세스를 제공하는 경우에 종종 필요합니다.
 
 
 6. **사용자 지정 액세스 추가** 블레이드에서 **확인**을 클릭합니다. 이제 연결된 권한으로 새롭게 추가된 그룹이 **액세스** 블레이드에 나열됩니다.
@@ -165,4 +174,4 @@ Azure 데이터 레이크 저장소 파일 시스템에서 보안 그룹 ACL을 
 - [PowerShell을 사용하여 데이터 레이크 저장소 시작](data-lake-store-get-started-powershell.md)
 - [.NET SDK를 사용하여 데이터 레이크 저장소 시작](data-lake-store-get-started-net-sdk.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="03/30/2016" 
+    ms.date="05/16/2016" 
     ms.author="arramac"/>
     
 # Azure DocumentDB에서 지리 공간 데이터 작업
@@ -181,7 +181,7 @@ DocumentDB는 지리 공간 쿼리를 위해 다음과 같은 OGC(Open Geospatia
 
 ST\_WITHIN을 사용하여 점이 다각형 내에 있는지 여부를 확인할 수 있습니다. 일반적으로 다각형은 우편 번호, 시/도 경계 또는 자연스러운 대형과 같은 경계를 나타내는 데 사용됩니다. 인덱싱 정책에 공간 인덱싱을 포함하면 "이내" 쿼리가 인덱스를 통해 효율적으로 처리됩니다.
 
-ST\_WITHIN의 다각형 인수에는 단일 링만 포함될 수 있습니다. 즉, 다각형에 구멍이 포함되지 않아야 합니다. ST\_WITHIN 쿼리에서 다각형에 허용되는 최대 점 수에 대한 [DocumentDB 제한](documentdb-limits.md)을 확인합니다.
+ST\_WITHIN의 다각형 인수에는 단일 링만 포함될 수 있습니다. 즉, 다각형에 구멍이 포함되지 않아야 합니다.
 
 **쿼리**
 
@@ -346,4 +346,4 @@ DocumentDB에서 지리 공간 지원을 시작하는 방법을 배웠으므로 
 - [DocumentDB 쿼리](documentdb-sql-query.md)에 대해 자세히 알아보기
 - [DocumentDB 인덱싱 정책](documentdb-indexing-policies.md)에 대해 자세히 알아보기
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

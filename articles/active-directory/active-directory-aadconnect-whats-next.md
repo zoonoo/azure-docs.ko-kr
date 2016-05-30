@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/16/2016"
+	ms.date="05/12/2016"
 	ms.author="billmath"/>
 
 # 다음 단계 및 Azure AD Connect 관리 방법
@@ -21,13 +21,6 @@
 
 ## 추가 동기화 관리자 추가
 기본적으로 설치를 수행한 사용자와 로컬 관리자만 설치된 동기화 엔진을 관리할 수 있습니다. 추가 사용자가 동기화 엔진에 액세스하여 관리할 수 있도록 로컬 서버에서 그룹 이름으로 ADSyncAdmins를 찾아 이 그룹에 추가합니다.
-
-## AD FS 서비스에서 옵션 구성
-AD FS에 로그인하고 PSH를 사용하여 이렇게 구성하여 AD FS 로그인 페이지에 대한 그림 및 로고 이미지를 사용자 지정할 수 있습니다.
-
-	Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.png"} –Illustration @{path=”c:\Contoso\illustration.png”}
-
-구성 가능성에 대한 전체 설명은 [AD FS 로그인 페이지 사용자 지정](https://technet.microsoft.com/library/dn280950.aspx)을 참조하세요.
 
 ## Azure AD Premium 및 엔터프라이즈 이동성 사용자에게 라이선스 할당
 
@@ -61,7 +54,7 @@ AD FS에 로그인하고 PSH를 사용하여 이렇게 구성하여 AD FS 로그
 
 <center>![Cloud](./media/active-directory-aadconnect-whats-next/startsynch.png)</center>
 
-Azure AD Connect 동기화: 스케줄러에 대한 자세한 내용은 [Azure AD Connect 스케줄러](active-directory-aadconnectsync-feature-scheduler.md) 참조하세요.
+Azure AD Connect 동기화: 스케줄러에 대한 자세한 내용은 [Azure AD Connect 스케줄러](active-directory-aadconnectsync-feature-scheduler.md)를 참조하세요.
 
 
 ## Azure AD Connect에서 사용할 수 있는 추가 작업
@@ -81,4 +74,4 @@ Azure AD Connect의 초기 설치 후, Azure AD Connect 시작 페이지 또는 
 ## 다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

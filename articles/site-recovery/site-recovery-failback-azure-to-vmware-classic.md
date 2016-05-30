@@ -19,8 +19,10 @@
 # 온-프레미스 사이트로 VMWare 가상 컴퓨터 및 물리적 서버 장애 복구
 
 > [AZURE.SELECTOR]
-- [향상된](site-recovery-failback-azure-to-vmware-classic.md)
-- [레거시](site-recovery-failback-azure-to-vmware-classic-legacy.md)
+- [Azure 포털](site-recovery-failback-azure-to-vmware.md)
+- [Azure 클래식 포털](site-recovery-failback-azure-to-vmware-classic.md)
+- [Azure 클래식 포털(레거시)](site-recovery-failback-azure-to-vmware-classic-legacy.md)
+
 
 
 이 문서에서는 Azure의 Azure 가상 컴퓨터를 온-프레미스 사이트로 장애 복구하는 방법을 설명합니다. 이 [자습서](site-recovery-vmware-to-azure-classic.md)를 사용하여 온-프레미스 사이트에서 Azure로 장애 조치한 후 VMware 가상 컴퓨터 또는 Windows/Linux 물리적 서버 장애 복구가 준비된 경우 이 문서의 지침에 따릅니다.
@@ -37,7 +39,7 @@
 
 프로세스 서버가 Azure에 있고 VPN 또는 Express 경로를 연결할 경우 이 아키텍처를 사용합니다.
 
-![](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.PNG)
+![](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.png)
 
 포트 및 장애 복구(failback) 아키텍처 다이어그램의 전체 목록을 보려면 아래 이미지를 참조하세요.
 
@@ -152,7 +154,7 @@ Linux VM으로 마스터 대상 서버를 실행하는 관리 서버를 설정�
 설치 후 단계를 완료하고 패키지를 설치한 후 다음을 수행하여 사용자 지정 변경 내용을 적용합니다.
 
 1.	RHEL 6-64 통합 에이전트 바이너리를 VM에 복사합니다. 이 명령을 실행하여 바이너리: **tar –zxvf <file name>**를 untar합니다.
-2.	이 명령을 실행하여 사용 권한: # **chmod 755 ./ApplyCustomChanges.sh**를 부여합니다.
+2.	이 명령을 실행하여 사용 권한: # **# chmod 755 ./ApplyCustomChanges.sh**를 부여합니다.
 3.	스크립트: **# ./ApplyCustomChanges.sh**를 실행합니다. 스크립트를 한 번만 실행해야 합니다. 스크립트가 성공적으로 실행된 후 서버를 다시 부팅합니다.
 
 
@@ -202,4 +204,4 @@ VPN 연결 또는 Azure Express 경로를 통해 장애 복구할 수 있습니�
 - Express 경로는 원본 컴퓨터가 장애 조치되고 장애 조치가 발생한 후 Azure VM이 위치하는 Azure 가상 네트워크에 설치되어 있어야 합니다.
 - 데이터는 공용 끝점의 Azure 저장소 계정에 복제됩니다. Express 경로를 사용하려면 사이트 복구 복제에 대한 대상 데이터 센터로 Express 경로에 공용 피어링을 설정해야 합니다.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

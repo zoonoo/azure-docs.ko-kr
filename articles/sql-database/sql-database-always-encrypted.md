@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/02/2016"
+	ms.date="05/09/2016"
 	ms.author="sstein"/>
 
 # 상시 암호화 - 데이터베이스 암호화를 사용하여 SQL 데이터베이스의 중요한 데이터 보호 및 Windows 인증서 저장소에 암호화 키 저장
@@ -550,4 +550,4 @@ SSMS를 사용하여 일반 텍스트 데이터에 액세스하려면 **열 암�
 - [상시 암호화 마법사](https://msdn.microsoft.com/library/mt459280.aspx)
 - [상시 암호화 블로그](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

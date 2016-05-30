@@ -58,7 +58,7 @@ requests // The request table starts this pipeline.
 | count 
 ```
     
-파이프 문자 `|`이 접두사로 붙는 각 필터는 일부 매개 변수를 가진 *연산자* 의 인스턴스입니다. 연산자에 대한 입력은 앞에 붙는 파이프라인의 결과인 테이블입니다. 대부분의 경우 모든 매개 변수는 입력 열에 대한 [스칼라 식](##scalars)입니다. 매개 변수가 입력 열의 이름인 경우도 있고 매개 변수가 두 번째 테이블인 경우도 있습니다. 테이블에 열 및 행이 한 개만 있더라도 쿼리의 결과는 언제나 테이블입니다.
+파이프 문자 `|`이 접두사로 붙는 각 필터는 일부 매개 변수를 가진 *연산자*의 인스턴스입니다. 연산자에 대한 입력은 앞에 붙는 파이프라인의 결과인 테이블입니다. 대부분의 경우 모든 매개 변수는 입력 열에 대한 [스칼라 식](##scalars)입니다. 매개 변수가 입력 열의 이름인 경우도 있고 매개 변수가 두 번째 테이블인 경우도 있습니다. 테이블에 열 및 행이 한 개만 있더라도 쿼리의 결과는 언제나 테이블입니다.
 
 쿼리는 단일 줄 바꿈을 포함할 수 있지만 빈 줄이 있으면 종료됩니다. 쿼리는 `//`와 줄의 끝 사이에 주석을 포함할 수 있습니다.
 
@@ -543,7 +543,7 @@ range timestamp from ago(4h) to now() step 1m
 유사한 레코드에 대해 그룹화를 시도합니다. 각 그룹에 대해 연산자는 그룹을 가장 잘 설명하는 것으로 여겨지는 `Pattern` 및 그룹의 레코드 `Count`를 출력합니다.
 
 
-![](./media/app-insights-analytics-queries/reduce.png)
+![](./media/app-insights-analytics-reference/reduce.png)
 
 **구문**
 
@@ -625,7 +625,7 @@ Traces
 
     T | summarize count() by price_range=bin(price, 10.0)
 
-[0,10.0] , [10.0,20.0] 등의 각 간격에 가격을 가진 항목 수를 표시하는 테이블입니다. 이 예제는 개수에 대한 열 및 가격 범위에 대한 열을 가지고 있습니다. 모든 다른 입력된 열은 무시됩니다.
+[0,10.0], [10.0,20.0] 등의 각 간격에 가격을 가진 항목 수를 표시하는 테이블입니다. 이 예제는 개수에 대한 열 및 가격 범위에 대한 열을 가지고 있습니다. 모든 다른 입력된 열은 무시됩니다.
 
 
 **구문**
@@ -760,7 +760,7 @@ exceptions
 **인수**
 
 * *T:* 레코드를 필터링할 테이블 형식 입력입니다.
-* *Predicate:* *T*의 열에 대한 `boolean` [식](#boolean)으로, *T* 의 각 행에 대해 계산됩니다.
+* *Predicate:* *T*의 열에 대한 `boolean` [식](#boolean)으로, *T*의 각 행에 대해 계산됩니다.
 
 **반환**
 
@@ -822,7 +822,7 @@ traces
     argmin(ExprToMinimize, * | ExprToReturn  [ , ... ] )
     argmax(ExprToMaximize, * | ExprToReturn  [ , ... ] ) 
 
-*ExprToMaximize* 를 최소화/최대화하는 그룹의 행을 찾고 *ExprToReturn*(전체 행을 반환하려는 경우에는 `*`)의 값을 반환합니다.
+*ExprToMaximize*를 최소화/최대화하는 그룹의 행을 찾고 *ExprToReturn*(전체 행을 반환하려는 경우에는 `*`)의 값을 반환합니다.
 
 **팁**: 통과된 열의 이름은 자동으로 바뀝니다. 올바른 이름을 사용하고 있는지 확인하려면 결과를 다른 연산자에 파이프하기 전에 `take 5`를 사용하여 결과를 검사합니다.
 
@@ -844,7 +844,7 @@ traces
       by name
 
 
-![](./media/app-insights-analytics-aggregations/argmin.png)
+![](./media/app-insights-analytics-reference/argmin.png)
  
 
 
@@ -852,13 +852,13 @@ traces
 
     avg(Expression)
 
-그룹 전체에서 *Expression* 의 평균을 계산합니다.
+그룹 전체에서 *Expression*의 평균을 계산합니다.
 
 ### buildschema
 
     buildschema(DynamicExpression)
 
-*DynamicExpression* 의 모든 값을 허용하는 최소 스키마를 반환합니다.
+*DynamicExpression*의 모든 값을 허용하는 최소 스키마를 반환합니다.
 
 매개 변수 열 형식은 `dynamic`(배열 또는 속성 모음)이어야 합니다.
 
@@ -946,7 +946,7 @@ traces
 
     count([ Predicate ])
 
-*Predicate*이 `true`로 계산되는 행 수를 반환합니다. *Predicate* 을 지정하지 않으면 그룹의 총 레코드 수를 반환합니다.
+*Predicate*이 `true`로 계산되는 행 수를 반환합니다. *Predicate*을 지정하지 않으면 그룹의 총 레코드 수를 반환합니다.
 
 **성능 팁**: `where filter | summarize count()` 대신 `summarize count(filter)` 사용
 
@@ -980,7 +980,7 @@ traces
     | summarize cities=dcount(client_City) 
       by client_CountryOrRegion
 
-![](./media/app-insights-analytics-aggregations/dcount.png)
+![](./media/app-insights-analytics-reference/dcount.png)
 
 ### makelist
 
@@ -1004,7 +1004,7 @@ traces
     | summarize cities=makeset(client_City) 
       by client_CountryOrRegion
 
-![](./media/app-insights-analytics-aggregations/makeset.png)
+![](./media/app-insights-analytics-reference/makeset.png)
 
 반대 함수는 [`mvexpand` 연산자](#mvexpand-operator)를 참조하세요.
 
@@ -1052,7 +1052,7 @@ traces
         percentiles(duration, 5, 20, 50, 80, 95) 
       by name
 
-![](./media/app-insights-analytics-aggregations/percentiles.png)
+![](./media/app-insights-analytics-reference/percentiles.png)
 
 이 결과는 요청/이벤트/인덱스에 대해 요청의 5%가 2.44s 이내에 응답하고 그 중 절반이 3.52s 이내에 응답하고 5%가 6.85s보다 더 느리다는 것을 보여줍니다.
 
@@ -1288,17 +1288,7 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 || |
 |---|-------------|
 | + | 추가 |
-| - | 빼기 |
-| * | 곱하기
-| / | 나누기
-| % | 모듈로 |
-||
-|`<` |보다 작음
-|`<=`|작거나 같음
-|`>` |보다 큼
-|`>=`|크거나 같음
-|`<>`|같지 않음
-|`!=`|같지 않음
+| - | 빼기 | | * | 곱하기 | | / | 나누기 | | % | 모듈로 | || |`<` |보다 작음 |`<=`|작거나 같음 |`>` |보다 큼 |`>=`|크거나 같음 |`<>`|같지 않음 |`!=`|같지 않음
 
 
 
@@ -1316,11 +1306,11 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 **인수**
 
 * *value:* 숫자, 날짜 또는 시간 범위입니다. 
-* *roundTo:* "bin 크기"입니다. *값* 을 나누는 숫자, 날짜 또는 시간 범위입니다. 
+* *roundTo:* "bin 크기"입니다. *값*을 나누는 숫자, 날짜 또는 시간 범위입니다. 
 
 **반환**
 
-*값* 보다 작은 *roundTo* 의 가장 가까운 배수입니다.
+*값*보다 작은 *roundTo*의 가장 가까운 배수입니다.
  
     (toint((value/roundTo)-0.5)) * roundTo
 
@@ -1672,7 +1662,7 @@ h"hello"
 **인수**
 
 * *text:* 문자열입니다.
-* *search:* *text* 내에서 일치하는 일반 문자열 또는 정규식입니다.
+* *search:* *text*내에서 일치하는 일반 문자열 또는 정규식입니다.
 * *kind:* `"normal"|"regex"`입니다(기본값: `normal`). 
 
 **반환**
@@ -1787,7 +1777,7 @@ extract("^.{2,2}(.{4,4})", 1, Text)
 
 **반환**
 
-*regex* 의 모든 일치 항목을 *rewrite* 로 바꾼 후의 *text* 입니다. 일치 항목은 겹치지 않습니다.
+*regex*의 모든 일치 항목을 *rewrite*로 바꾼 후의 *text*입니다. 일치 항목은 겹치지 않습니다.
 
 **예제**
 
@@ -1911,7 +1901,7 @@ substring("ABCD", 0, 2)       // AB
 
 다음은 Application Insights 예외에 대한 쿼리의 결과입니다. `details`의 값은 배열입니다.
 
-![](./media/app-insights-analytics-scalars/310.png)
+![](./media/app-insights-analytics-reference/310.png)
 
 **Indexing:** JavaScript에서와 같은 인덱스 배열 및 개체입니다.
 
@@ -1943,7 +1933,7 @@ substring("ABCD", 0, 2)       // AB
     | mvexpand details[0].parsedStack[0]
 
 
-![](./media/app-insights-analytics-scalars/410.png)
+![](./media/app-insights-analytics-reference/410.png)
 
 
 **treepath:** 복합 개체에서 모든 경로를 찾으려면 다음을 수행합니다.
@@ -1953,7 +1943,7 @@ substring("ABCD", 0, 2)       // AB
     | mvexpand path
 
 
-![](./media/app-insights-analytics-scalars/420.png)
+![](./media/app-insights-analytics-reference/420.png)
 
 **buildschema:** 테이블에 있는 식의 모든 값을 인정하는 최소 스키마를 찾으려면 다음을 수행합니다.
 
@@ -2049,7 +2039,7 @@ T
 
 **반환**
 
-*array*의 배열 수 또는 *array* 가 배열이 아닌 경우 `null`입니다.
+*array*의 배열 수 또는 *array*가 배열이 아닌 경우 `null`입니다.
 
 **예**
 
@@ -2233,4 +2223,4 @@ path 식의 배열입니다.
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

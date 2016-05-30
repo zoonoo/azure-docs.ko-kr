@@ -3,7 +3,7 @@
    description="VSTS(Visual Studio Team Services)를 사용한 서비스 패브릭 응용 프로그램에 대한 지속적인 통합 설정 방법의 개요를 확인합니다."
    services="service-fabric"
    documentationCenter="na"
-   authors="cawams"
+   authors="mthalman-msft"
    manager="timlt"
    editor="" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="03/29/2016"
-   ms.author="cawa" />
+   ms.author="mthalman" />
 
 # Visual Studio Team Services를 사용한 서비스 패브릭 응용 프로그램에 대한 연속 통합 설정
 
@@ -45,7 +45,7 @@ Team Services 프로젝트 작업에 대한 자세한 내용은 [Visual Studio�
 
     a. 최신 업데이트가 설치된 Windows 10을 실행 중인 경우 이 단계를 건너뛸 수 있습니다(PowerShellGet이 이미 설치됨).
 
-    b. 그렇지 않은 경우 PowerShellGet이 포함된 [Windows Management Framework 5.0](http://www.microsoft.com/download/details.aspx?id=48729)을 설치합니다.
+    b. 그렇지 않은 경우 PowerShellGet을 포함하는 [Windows Management Framework 5.0](https://aka.ms/wmf5download)을 설치합니다.
 
 2.	AzureRM 모듈을 설치하고 업데이트합니다. 이전 버전의 Azure PowerShell이 설치되어 있다면 제거합니다.
 
@@ -53,11 +53,9 @@ Team Services 프로젝트 작업에 대한 자세한 내용은 [Visual Studio�
 
     b. "Azure PowerShell"을 검색하여 제거합니다.
 
-    c. PowerShell 명령 프롬프트를 엽니다.
+    c. 관리자로 PowerShell 명령 프롬프트를 엽니다.
 
     d. `Install-Module AzureRM` 명령을 사용하여 AzureRM 모듈을 설치합니다.
-
-    e. `Update-AzureRM` 명령을 사용하여 AzureRM 모듈을 업데이트합니다.
 
 3.	Azure 데이터 수집을 비활성화(또는 활성화)합니다.
 
@@ -99,10 +97,10 @@ Team Services 프로젝트 작업에 대한 자세한 내용은 [Visual Studio�
 | --- | --- |
 | KeyVaultLocation | 모든 값 이 매개 변수는 클러스터를 만들려는 위치와 일치해야 합니다. |
 | CertificateSecretName | 모든 값 |
-| CertificateDnsName | 클러스터의 DNS 이름과 일치해야 합니다. 예제: `mycluster.westus.azure.cloudapp.net` |
+| CertificateDnsName | 클러스터의 DNS 이름과 일치해야 합니다. 예제: `mycluster.westus.cloudapp.azure.com` |
 | SecureCertificatePassword | 모든 값 이 매개 변수는 빌드 컴퓨터에 인증서를 가져올 때 사용됩니다. |
-| KeyVaultResourceGroupName | 모든 값 클러스터에 사용하려는 리소스 그룹 이름은 사용하지 않습니다. |
 | KeyVaultName | 모든 값 |
+| KeyVaultResourceGroupName | 모든 값 클러스터에 사용하려는 리소스 그룹 이름은 사용하지 않습니다. |
 | PfxFileOutputPath| 모든 값 이 파일은 빌드 컴퓨터에 인증서를 가져오는 데 사용됩니다. |
 
 스크립트가 완료되면 다음의 세 값을 출력합니다. 이 값은 빌드 변수로 사용되므로 기록해 둡니다.
@@ -129,7 +127,7 @@ Team Services 프로젝트 작업에 대한 자세한 내용은 [Visual Studio�
 
 5. **계산** > **가상 컴퓨터** > **갤러리에서**를 선택합니다.
 
-6. **Windows Server 2012 R2의 Azure SDK 2.8이 있는 Visual Studio Enterprise 2015 업데이트 1** 이미지를 선택합니다.
+6. **Windows Server 2012 R2의 Azure SDK 2.9와 유니버설 Windows 도구가 있는 Visual Studio Enterprise 2015 업데이트 2** 이미지를 선택합니다.
 
     >[AZURE.NOTE] Azure SDK는 필수 구성 요소가 아니지만 현재 Visual Studio 2015만 설치하는 이미지는 제공되지 않습니다.
 
@@ -137,7 +135,7 @@ Team Services 프로젝트 작업에 대한 자세한 내용은 [Visual Studio�
 
 ### 서비스 패브릭 SDK 설치
 
-컴퓨터에 [서비스 패브릭 SDK](https://azure.microsoft.com/campaigns/service-fabric/)를 설치합니다.
+컴퓨터에 [서비스 패브릭 SDK](service-fabric-get-started.md#install-the-runtime-sdk-and-tools)를 설치합니다.
 
 ### Azure PowerShell 설치
 
@@ -161,10 +159,10 @@ Azure PowerShell을 설치하려면 이전 섹션 "Azure PowerShell 설치 및 �
 
     b. 관리자 PowerShell 프롬프트를 열고 앞서 `CreateAndUpload-Certificate.ps1`에 전달한 암호를 사용하여 다음 명령을 실행합니다.
 
-        ```
-        $password = Read-Host -AsSecureString
-        Import-PfxCertificate -FilePath <path/to/cert.pfx> -CertStoreLocation Cert:\LocalMachine\My -Password $password -Exportable
-        ```
+    ```powershell
+    $password = Read-Host -AsSecureString
+    Import-PfxCertificate -FilePath <path/to/cert.pfx> -CertStoreLocation Cert:\LocalMachine\My -Password $password -Exportable
+    ```
 
 2.	인증서 관리자를 실행합니다.
 
@@ -184,7 +182,7 @@ Azure PowerShell을 설치하려면 이전 섹션 "Azure PowerShell 설치 및 �
 
     d. **추가** 단추를 선택하고 **네트워크 서비스**를 입력한 다음 **이름 확인**을 선택합니다.
 
-    e. **확인**을 선택한 다음 인증서 관리자를 닫습니다.
+    e. **확인**을 선택합니다.
 
     ![로컬 서비스 계정 권한 부여에 대한 단계의 스크린샷](media/service-fabric-set-up-continuous-integration/windows-certificate-manager.png)
 
@@ -196,7 +194,7 @@ Azure PowerShell을 설치하려면 이전 섹션 "Azure PowerShell 설치 및 �
 
 1.	agent.zip을 다운로드합니다. 다음을 수행합니다.
 
-    a. 팀 프로젝트(예: **https://[your-VSTS-account-name].visualstudio.com**)에 로그인합니다.
+    a. 팀 프로젝트(예: ****https://[your-VSTS-account-name].visualstudio.com**)에 로그인합니다.
 
     b. 화면 오른쪽 위 모퉁이에서 기어 아이콘을 선택합니다.
 
@@ -221,7 +219,7 @@ Azure PowerShell을 설치하려면 이전 섹션 "Azure PowerShell 설치 및 �
 |에이전트 풀|에이전트 풀의 이름을 입력합니다. 에이전트 풀을 만들지 않은 경우 기본 값을 적용합니다.|
 |작업 폴더|기본값을 적용합니다. 빌드 에이전트가 실제로 응용 프로그램을 빌드하는 폴더입니다. ASP.NET 5 웹 서비스를 사용할 계획이라면 배포 중 PathTooLongExceptions 오류가 발생하지 않게 이 폴더에 가능한 가장 짧은 이름을 선택하는 것이 좋습니다.|
 |Windows 서비스로 설치?|기본값은 N입니다. 이 값을 **Y**로 변경합니다.|
-|서비스를 실행하는 사용자 계정|기본값(`NT AUTHORITY\NetworkService`)을 적용합니다.|
+|서비스를 실행하는 사용자 계정|기본값은 `NT AUTHORITY\LOCAL SERVICE`입니다. 기본값을 `NT AUTHORITY\NetworkService`로 변경합니다.|
 |`NT AUTHORITY\Network Service`에 대한 암호|네트워크 서비스 계정에는 암호가 없지만 빈 암호를 거부합니다. 암호에 비어 있지 않은 문자열을 입력합니다(무엇을 입력하든 무시됨).|
 |기존 에이전트 구성 취소?|기본값(**N**)을 적용합니다.|
 
@@ -277,7 +275,9 @@ Azure PowerShell을 설치하려면 이전 섹션 "Azure PowerShell 설치 및 �
 
     e. 오른쪽 리포지토리 및 분기가 선택되었는지 확인합니다.
 
-    f. 빌드 에이전트를 등록한 에이전트 큐를 선택하고 **연속 통합** 확인란을 선택합니다.
+    f. **연속 통합** 확인란을 선택하여 분기가 업데이트될 때마다 이 빌드가 트리거되는지 확인합니다.
+
+    g. 빌드 에이전트를 등록한 에이전트 큐를 선택합니다.
 
 2.	**변수** 탭에서 해당 값을 갖는 다음 변수를 만듭니다.
 
@@ -337,7 +337,7 @@ Azure PowerShell을 설치하려면 이전 섹션 "Azure PowerShell 설치 및 �
 
 5.	빌드 정의를 저장합니다.
 
-### "클러스터 리소스 그룹 제거" 단계 추가
+### <a name="RemoveClusterResourceGroup"></a> "클러스터 리소스 그룹 제거" 단계 추가
 
 이전 빌드에서 자체 정리되지 않은 경우(예: 정리되기 전에 빌드가 취소됨) 새 리소스 그룹과 충돌하는 기존 리소스 그룹이 있을 수 있습니다. 충돌을 방지하기 위해 새 리소스 그룹을 만들기 전에 잔여 리소스 그룹(및 관련 리소스)을 모두 정리해야 합니다.
 
@@ -355,6 +355,7 @@ Azure PowerShell을 설치하려면 이전 섹션 "Azure PowerShell 설치 및 �
     |Azure RM 구독|**서비스 주체 만들기** 섹션에서 만든 연결 끝점을 선택합니다.|
     |작업|**리소스 그룹 삭제**|
     |리소스 그룹|사용되지 않은 이름을 입력합니다. 다음 단계에서 동일한 이름을 사용해야 합니다.|
+    |오류 발생 시 계속|리소스 그룹이 없는 경우 이 단계가 실패합니다. 이러한 현상을 방지하려면 **제어 옵션** 섹션에서 **오류 발생 시 계속**을 설정합니다.|
 
 5.	빌드 정의를 저장합니다.
 
@@ -398,6 +399,14 @@ Azure PowerShell을 설치하려면 이전 섹션 "Azure PowerShell 설치 및 �
 
 5.	빌드 정의를 저장합니다.
 
+### "확인" 단계 추가
+
+1. 이 단계는 구성된 빌드 정의를 처음 가져올 때 선택 사항입니다. 하지만 빌드를 성공적으로 실행했고 다른 빌드 단계의 정확성을 확인했으면 여기에 사용자 고유의 확인 빌드 단계를 삽입할 수 있습니다. 이 내용은 응용 프로그램에 특정적이며 클러스터에 배포된 응용 프로그램의 정확성을 확인하기 위한 것입니다.
+  
+### 마지막 "정리" 단계 추가
+
+1. ["클러스터 리소스 그룹 제거" 단계 추가](#RemoveClusterResourceGroup)의 동일한 지침을 따릅니다. 빌드 중에 만들어진 프로비전된 Azure 리소스를 모두 정리합니다.
+
 ### 시도
 
 **빌드 큐 대기**를 선택하여 빌드를 시작합니다. 또한 빌드는 푸시 또는 체크인할 때 트리거됩니다.
@@ -420,4 +429,4 @@ Azure PowerShell을 설치하려면 이전 섹션 "Azure PowerShell 설치 및 �
  - [빌드 에이전트 배포](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows)
  - [빌드 정의 만들기 및 구성](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

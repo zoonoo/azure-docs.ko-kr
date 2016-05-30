@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/07/2016"
+	ms.date="05/13/2016"
 	ms.author="jgao"/>
 
 #Azure 포털을 사용하여 HDInsight의 Hadoop 클러스터 관리
@@ -64,7 +64,7 @@ HDInsight는 다양한 Hadoop 구성 요소에서 작동합니다. 검증되어 
 	
 	- **설정** 및 **모든 설정**: 클러스터의 자세한 구성 정보에 액세스할 수 있는 클러스터의 **설정** 블레이드를 표시합니다.
 	- **대시보드**, **클러스터 대시보드** 및 **URL: 이러한 항목을 통해 Linux 기반 클러스터용 Ambari 웹인 클러스터 대시보드에 액세스할 수 있습니다.
-	- **보안 셸**: SSH(보안 셸) 연결을 사용하여 클러스터에 연결하는 지침을 보여 줍니다.
+- **보안 셸**: SSH(보안 셸) 연결을 사용하여 클러스터에 연결하는 지침을 보여 줍니다.
 	- **클러스터 크기 조정**: 이 클러스터의 작업자 노드 수를 변경할 수 있습니다.
 	- **삭제**: 클러스터를 삭제합니다.
 	- **빠른 시작(![구름과 벼락 아이콘 = 빠른 시작](./media/hdinsight-administer-use-portal-linux/quickstart.png))**: HDInsight를 사용하여 시작하는 데 도움이 되는 정보를 표시합니다.
@@ -91,7 +91,7 @@ HDInsight는 다양한 Hadoop 구성 요소에서 작동합니다. 검증되어 
     - **보안 셸**: SSH(보안 셸) 연결을 사용하여 클러스터에 연결하는 지침을 보여 줍니다.
     - **HDInsight 파트너**: 현재 HDInsight 파트너를 추가/제거합니다.
 	- **외부 Metastore**: Hive 및 Oozie Metastore를 표시합니다. Metastore는 클러스터 생성 과정 중에만 구성될 수 있습니다.
-    - **스크립트 동작**: 클러스터에서 Bash 스크립트를 실행합니다.
+    - **스크립트 작업**: 클러스터에서 Bash 스크립트를 실행합니다.
     - **속성**: 클러스터 속성을 표시합니다.
 	- **Azure 저장소 키**: 기본 저장소 계정 및 키를 표시합니다. 저장소 계정은 클러스터를 만드는 과정에서 구성됩니다.
 	- **클러스터 AAD ID**: 
@@ -196,17 +196,49 @@ HDInsight에서 지원되는 클러스터의 각 형식에 대한 데이터 노�
 
 가격 정보는 [HDInsight 가격](https://azure.microsoft.com/pricing/details/hdinsight/)을 참조하세요. 포털에서 클러스터를 삭제하려면 [클러스터 삭제](#delete-clusters)를 참조하세요.
 
-##클러스터 사용자 이름 변경
+##암호 변경
 
-HDInsight 클러스터마다 두 개의 사용자 계정이 포함될 수 있습니다. HDInsight 클러스터 사용자 이름(HTTP 사용자 계정이라고도 함) 및 SSH 사용자 계정은 만들기 프로세스 중에 만들어집니다. Ambari 웹 UI를 사용하여 클러스터 사용자 계정의 사용자 이름 및 암호를 변경할 수 있습니다.
+HDInsight 클러스터마다 두 개의 사용자 계정이 포함될 수 있습니다. HDInsight 클러스터 사용자 이름(HTTP 사용자 계정이라고도 함) 및 SSH 사용자 계정은 만들기 프로세스 중에 만들어집니다. Ambari 웹 UI를 사용하여 클러스터 사용자 계정의 사용자 이름 및 암호를 변경할 수 있으며 스크립트 작업을 사용하여 SSH 사용자 계정을 변경할 수 있습니다.
 
-**HDInsight 클러스터 사용자 암호를 변경하려면**
+###클러스터 사용자 암호 변경
+
+> [AZURE.NOTE] 클러스터 사용자(관리자) 암호를 변경하는 경우 이 클러스터를 실행하는 스크립트 작업에 오류가 발생할 수 있습니다. 작업자 노드를 대상으로 하는 지속적인 스크립트 작업이 있는 경우 작업의 크기 조정을 통해 클러스터에 노드를 추가할 때 실패할 수 있습니다. 스크립트 작업에 대한 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
 
 1. HDInsight 클러스터 사용자 자격 증명을 사용하여 Ambari 웹 UI에 로그인합니다. 기본 사용자 이름은 **admin**입니다. URL은 **https://<HDInsight Cluster Name>azurehdinsight.net**입니다.
 2. 위쪽 메뉴에서 **Admin**을 클릭한 다음 “Ambari 관리”를 클릭합니다. 
 3. 왼쪽 메뉴에서 **Users**를 클릭합니다.
 4. **Admin**을 클릭합니다.
 5. **Change Password**를 클릭합니다.
+
+Ambari는 클러스터의 모든 노드에 대해 암호를 변경합니다.
+
+###SSH 사용자 암호 변경
+
+1. 텍스트 편집기를 사용하여 __changepassword.sh__라는 파일로 다음을 저장합니다.
+
+    > [AZURE.IMPORTANT] 줄 끝으로 LF를 사용하는 편집기를 사용해야 합니다. 편집기에서 CRLF를 사용하는 경우 스크립트가 작동하지 않습니다.
+    
+        #! /bin/bash
+        USER=$1
+        PASS=$2
+
+        usermod --password $(echo $PASS | openssl passwd -1 -stdin) $USER
+
+2. HTTP 또는 HTTPS 주소를 사용하여 HDInsight에서 액세스할 수 있는 저장소 위치에 파일을 업로드합니다. 예를 들어 OneDrive 또는 Azure Blob 저장소와 같은 공용 파일 저장소입니다. 다음 단계에서 이 작업이 필요하므로 URI(HTTP 또는 HTTPS 주소)를 파일에 저장합니다.
+
+3. Azure 포털에서 HDInsight 클러스터를 선택한 다음 __모든 설정__을 선택합니다. __설정__ 블레이드에서 __스크립트 작업__을 선택합니다.
+
+4. __스크립트 작업__ 블레이드에서 __새로운 항목 제출__을 선택합니다. __스크립트 작업 제출__ 블레이드가 나타나면 다음 정보를 입력합니다.
+
+    | 필드 | 값 |
+    | ----- | ----- |
+    | 이름 | SSH 암호 변경 |
+    | Bash 스크립트 URI | Changepassword.sh 파일에 대한 URI |
+    | 노드(헤드, 작업자, Nimbus, 감독자, Zookeeper 등) | 나열된 모든 노드 형식에 대한 ✓ |
+    | 매개 변수 | SSH 사용자 이름 및 새 암호를 입력합니다. 사용자 이름과 암호 사이에 공백이 하나 있어야 합니다.
+    | 이 스크립트 작업을 유지... | 이 필드는 선택 취소로 둡니다.
+
+5. __만들기__를 선택하여 스크립트를 적용합니다. 스크립트가 완료되면 새 암호와 함께 SSH를 사용하여 클러스터에 연결할 수 있습니다.
 
 ##액세스 권한 부여/해지
 
@@ -300,4 +332,4 @@ HDInsight 클러스터 블레이드의 __사용량__ 섹션은 해당 클러스�
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-portal-linux/hdinsight-hadoop-command-line.png "Hadoop 명령줄"
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

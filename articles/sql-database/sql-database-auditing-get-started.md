@@ -13,9 +13,9 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/11/2016"
+	ms.date="05/17/2016"
 	ms.author="carlrabeler; ronitr"/>
- 
+
 # SQL 데이터베이스 감사 시작
 Azure SQL 데이터베이스 감사는 데이터베이스 이벤트를 추적하고 Azure 저장소 계정의 감사 로그에 감사된 이벤트를 씁니다. 감사 기능은 일반적으로 Basic, Standard 및 Premium 서비스 계층에서 제공됩니다.
 
@@ -57,7 +57,7 @@ SQL 데이터베이스 감사를 사용하여 다음을 수행할 수 있습니�
 
 특정 데이터베이스에 대해 또는 기본 서버 정책으로 감사 정책을 정의할 수 있습니다. 기본 서버 감사 정책은 특정 재정의 데이터베이스 감사 정책이 정의되지 않은 서버의 모든 데이터베이스에 적용됩니다.
 
-감사를 설정하기 전에 ["하위 클라이언트"](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md)를 사용 중인지 여부를 확인합니다.
+감사를 설정하기 전에 ["하위 클라이언트"](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md)를 사용 중인지 여부를 확인합니다. 또한 엄격한 방화벽 설정이 있으면 감사를 사용하도록 설정할 때 [데이터베이스의 IP 끝점이 변경됩니다](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md).
 
 
 ##<a id="subheading-2"></a>데이터베이스에 대한 감사 설정
@@ -140,7 +140,7 @@ SQL 데이터베이스 감사를 사용하여 다음을 수행할 수 있습니�
 3. 감사 구성 블레이드로 돌아가서 **저장소 액세스 키**를 *보조*에서 *기본*으로 전환하고 **저장**을 클릭합니다.
 
 4. 저장소 UI로 돌아와서 *보조 액세스 키*를 **다시 생성**합니다(다음 키 새로 고침 주기를 위한 준비).
-  
+
 ##<a id="subheading-7"></a>자동화
 Azure SQL 데이터베이스에서 감사를 구성하는 데 사용할 수 있는 여러 가지 PowerShell cmdlet이 있습니다.
 
@@ -175,7 +175,4 @@ Azure SQL 데이터베이스에서 감사를 구성하는 데 사용할 수 있�
 [7]: ./media/sql-database-auditing-get-started/7_auditing_get_started_classic_portal_storage.png
 [8]: ./media/sql-database-auditing-get-started/8_auditing_get_started_storage_key_rotation.png
 
-
- 
-
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->
