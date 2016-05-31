@@ -13,10 +13,15 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/17/2016"
-   ms.author="shivaniguptamsft;barbkess;sonyama"/>
+   ms.date="05/18/2016"
+   ms.author="shigu;barbkess;sonyama"/>
 
 # Azure 기계 학습을 사용하여 데이터 분석
+
+> [AZURE.SELECTOR]
+- [Power BI][]
+- [Azure 기계 학습][]
+
 이 자습서는 Azure SQL 데이터 웨어하우스에 데이터를 사용하여 Azure 기계 학습으로 예측 기계 학습 모델을 구축하는 방법을 보여 줍니다. 이 자습서에는 고객이 자전거를 구매할 가능성 여부를 예측하여 자전거 매장인 Adventure Works에 대한 대상 마케팅 캠페인을 구축합니다.
 
 > [AZURE.VIDEO integrating-azure-machine-learning-with-azure-sql-data-warehouse]
@@ -129,5 +134,7 @@ FROM [dbo].[vTargetMail]
 [Azure의 기계 학습 소개]: https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
 [샘플 데이터를 수동으로 로드]: sql-data-warehouse-get-started-manually-load-samples.md
 [SQL 데이터 웨어하우스에 만들기]: sql-data-warehouse-get-started-provision.md
+[Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
+[Azure 기계 학습]: ./sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

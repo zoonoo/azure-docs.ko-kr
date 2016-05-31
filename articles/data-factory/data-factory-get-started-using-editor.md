@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="03/07/2016" 
+	ms.date="05/16/2016" 
 	ms.author="spelluru"/>
 
 # 자습서: 데이터 팩터리 편집기를 사용하여 복사 작업이 있는 파이프라인 만들기
@@ -64,6 +64,8 @@
 	![데이터 팩터리 이름을 사용할 수 없음][image-data-factory-name-not-available]
 	
 	> [AZURE.NOTE] 데이터 팩터리의 이름은 나중에 DNS 이름으로 표시되므로 공개적으로 등록될 수도 있습니다.
+	> 
+	> 데이터 팩터리 인스턴스를 만들려면 Azure 구독의 참가자/관리자여야 합니다.
 
 9. 왼쪽의 **알림** 허브를 클릭하고 만들기 프로세스에서 제공하는 알림을 찾습니다. **알림** 블레이드가 열려 있으면 **X**를 클릭하여 닫습니다.
 10. 만들기가 완료되면 아래와 같이 **데이터 팩터리** 블레이드가 표시됩니다.
@@ -371,16 +373,24 @@
 
 
 ## 요약 
-이 자습서에서는 Azure Blob에서 Azure SQL 데이터베이스로 데이터를 복사하는 Azure Data Factory를 만들었습니다. Azure 포털을 사용하여 데이터 팩터리, 연결된 서비스, 테이블 및 파이프라인을 만들었습니다. 이 자습서에서 수행한 단계를 요약하면 다음과 같습니다.
+이 자습서에서는 Azure Blob에서 Azure SQL 데이터베이스로 데이터를 복사하는 Azure Data Factory를 만들었습니다. Azure 포털을 사용하여 데이터 팩터리, 연결된 서비스, 데이터 집합 및 파이프라인을 만들었습니다. 이 자습서에서 수행한 단계를 요약하면 다음과 같습니다.
 
-1.	Azure **데이터 팩터리**를 만듭니다.
-2.	데이터 저장소와 계산(**연결된 서비스**라고 함)을 데이터 팩터리에 연결하는** 연결된 서비스**를 만듭니다.
-3.	파이프라인의 입력 데이터와 출력 데이터를 설명하는 **테이블**을 만듭니다.
-4.	**파이프라인**을 만듭니다. 파이프라인은 하나 이상의 작업으로 구성되며 입력을 처리하고 출력을 생성합니다. 파이프라인에 대한 **시작** 시간 및 **종료** 시간을 지정하여 파이프라인에 대한 활성 기간을 설정합니다. 활성 기간은 데이터 조각이 생성되는 기간을 정의합니다.
+1.	Azure **데이터 팩터리**를 만들었습니다.
+2.	**연결된 서비스**를 만들었습니다.
+	1. 입력 데이터를 보유하는 Azure 저장소 계정을 연결하는 **Azure 저장소** 연결된 서비스입니다. 	
+	2. 출력 데이터를 보유하는 Azure SQL 데이터베이스를 연결하는 **Azure SQL** 연결된 서비스입니다. 
+3.	파이프라인의 입력 데이터와 출력 데이터를 설명하는 **데이터 집합**을 만들었습니다.
+4.	원본으로 **BlobSource**와 **복사 작업**을 사용하고 싱크로 **SqlSink**를 사용하여 **파이프라인**을 만들었습니다.  
 
 
 ## 참고 항목
-Azure Data Factory의 **복사 작업**에 대한 자세한 내용은 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 참조하세요.
+| 항목 | 설명 |
+| :---- | :---- |
+| [데이터 이동 활동](data-factory-data-movement-activities.md) | 이 문서에서는 이 자습서에서 사용한 복사 작업에 대한 자세한 정보를 제공합니다. |
+| [예약 및 실행](data-factory-scheduling-and-execution.md) | 이 문서에서는 Azure Data Factory 응용 프로그램 모델의 예약 및 실행에 대한 내용을 설명합니다. |
+| [파이프라인](data-factory-create-pipelines.md) | 이 문서는 Azure 데이터 팩터리의 파이프라인 및 시나리오 또는 비즈니스를 위한 활동과 종단 간 데이터 기반 워크플로 활용하는 방법을 이해하는 데 도움이 됩니다. |
+| [데이터 집합](data-factory-create-datasets.md) | 이 문서는 Azure 데이터 팩터리의 데이터 집합을 이해하는 데 도움이 됩니다.
+| [모니터링 앱을 사용하여 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) | 이 문서는 모니터링 및 관리 앱을 사용하여 파이프라인을 모니터링하고 관리하고 디버그하는 방법을 설명합니다. 
 
 <!--Link references-->
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
@@ -455,4 +465,4 @@ Azure Data Factory의 **복사 작업**에 대한 자세한 내용은 [데이터
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

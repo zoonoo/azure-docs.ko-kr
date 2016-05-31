@@ -56,21 +56,23 @@
 
 모바일 앱 백 엔드를 구성하면 새 클라이언트 앱을 만들거나 Azure에 연결할 기존 앱을 수정할 수 있습니다. 이 섹션에서 모바일 앱 백 엔드에 연결하도록 사용자 지정된 UWP 앱 템플릿 프로젝트를 다운로드합니다.
 
-1. 모바일 앱 백 엔드에 대한 **시작** 블레이드로 돌아가서 **새 앱 만들기** > **다운로드**를 클릭한 다음 로컬 컴퓨터에 압축된 프로젝트 파일을 추출합니다.
+1. 모바일 앱 백 엔드에 대한 **빠른 시작** 블레이드로 돌아가서 **새 앱 만들기** > **다운로드**를 클릭한 다음 로컬 컴퓨터에 압축된 프로젝트 파일을 추출합니다.
+
+	![Windows 빠른 시작 프로젝트 다운로드](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-app-windows-quickstart.png)
 
 3. (선택 사항) 동일한 솔루션에 UWP 앱 프로젝트를 서버 프로젝트로 추가합니다. 이렇게 하면 작업을 수행하려는 경우 동일한 Visual Studio 솔루션에서 앱 및 백 엔드 모두를 디버그하고 테스트할 수 있습니다. UWP 앱 프로젝트를 솔루션에 추가하려면 Visual Studio 2015 이상 버전을 사용해야 합니다.
 
 4. UWP 앱을 시작 프로젝트로 사용하여 앱을 배포하고 실행하도록 F5 키를 누릅니다.
 
-5. 앱에서 **Insert a TodoItem** 텍스트 상자에 *자습서 완료* 와 같은 의미 있는 텍스트를 입력하고 **저장**을 클릭합니다.
+5. 앱에서 **Insert a TodoItem** 텍스트 상자에 *자습서 완료*와 같은 의미 있는 텍스트를 입력하고 **저장**을 클릭합니다.
 
-	![](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-startup.png)
+	![Windows 빠른 시작 완료 데스크톱](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-startup.png)
 
 	Azure에 호스트된 새 모바일 앱 백 엔드에 POST 요청이 전송됩니다.
 
 6. (선택 사항) 앱을 중지하고 다른 장치 또는 모바일 에뮬레이터에서 다시 시작합니다.
 
-	![](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-completed.png)
+	![Windows 빠른 시작 완료 휴대폰](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-completed.png)
 
 	UWP 앱이 시작된 후 이전 단계에서 저장한 데이터가 Azure에서 로드됩니다.
 
@@ -87,6 +89,6 @@
 <!-- URLs. -->
 [Mobile App SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Azure portal]: https://portal.azure.com/
-[Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
+[Visual Studio Community 2015]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

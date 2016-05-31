@@ -24,8 +24,8 @@ DC/OS는 기본 하드웨어를 추상화하는 동안 클러스터형 워크로
 
 프레임워크는 수많은 워크로드에 사용할 수 있지만 이 문서에서는 Marathon을 사용하여 컨테이너 배포를 만들고 확장할 수 있는 방법을 설명합니다. 이러한 예제를 통해 작업하기 전에 Azure 컨테이너 서비스에 구성된 DC/OS 클러스터가 필요합니다. 또한 이 클러스터에 원격으로 연결해야 합니다. 이러한 항목에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-- [Azure 컨테이너 서비스 클러스터 배포](./container-service-deployment.md)
-- [Azure 컨테이너 서비스 클러스터에 연결](./container-service-connect.md)
+- [Azure 컨테이너 서비스 클러스터 배포](container-service-deployment.md)
+- [Azure 컨테이너 서비스 클러스터에 연결](container-service-connect.md)
 
 Azure 컨테이너 서비스 클러스터에 연결한 후에 http://localhost:local-port을 통해 DC/OS 및 관련된 REST API에 액세스할 수 있습니다. 이 문서의 예제에서는 포트 80에서 터널링하는 것을 가정합니다. 예를 들어, Marathon 끝점은 있으신 `http://localhost/marathon/v2/`에 도달할 수 있습니다. 다양한 API에 대한 자세한 내용은 [Marathon API](https://mesosphere.github.io/marathon/docs/rest-api.html) 및 [Chronos API](https://mesos.github.io/chronos/docs/api.html)에 대한 Mesosphere 문서와 [Mesos 스케줄러 API](http://mesos.apache.org/documentation/latest/scheduler-http-api/)에 대한 Apache 문서를 참조하세요.
 
@@ -172,6 +172,6 @@ Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -Cont
 
 ## 다음 단계
 
-[Meso HTTP 끝점에 대해 자세히 알아봅니다](http://mesos.apache.org/documentation/latest/endpoints/). [Marathon REST API에 대해 자세히 알아봅니다](https://mesosphere.github.io/marathon/docs/rest-api.html).
+[Mesos HTTP 끝점에 대해 자세히 알아봅니다](http://mesos.apache.org/documentation/latest/endpoints/). [Marathon REST API에 대해 자세히 알아봅니다](https://mesosphere.github.io/marathon/docs/rest-api.html).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

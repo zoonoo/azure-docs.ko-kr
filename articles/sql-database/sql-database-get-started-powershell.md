@@ -34,7 +34,7 @@ PowerShell cmdlet을 사용하여 새 SQL 데이터베이스를 만드는 방법
 
 ## 데이터베이스 설치: 리소스 그룹, 서버, 방화벽 규칙 만들기
 
-이제 선택한 Azure 구독에 대한 cmdlet 실행에 대한 액세스가 가능하므로 다음 단계는 데이터베이스를 만들 서버가 포함된 리소스 그룹을 설정하는 것입니다. 다음 명령을 편집하여 선택한 모든 유효한 위치를 사용할 수 있습니다. **(Get-AzureRmLocation | where-object {$\_.Name -eq "Microsoft.Sql/servers" }).Locations**를 실행하여 유효한 위치의 목록을 가져옵니다.
+이제 선택한 Azure 구독에 대한 cmdlet 실행에 대한 액세스가 가능하므로 다음 단계는 데이터베이스를 만들 서버가 포함된 리소스 그룹을 설정하는 것입니다. 다음 명령을 편집하여 선택한 모든 유효한 위치를 사용할 수 있습니다. **(Get-AzureRmLocation | Where-Object { $\_.Providers -eq "Microsoft.Sql" }).Location**을 실행하여 유효한 위치의 목록을 가져옵니다.
 
 다음 명령을 실행하여 새 리소스 그룹을 만듭니다.
 
@@ -120,4 +120,4 @@ SQL 데이터베이스는 Azure SQL 데이터베이스 서버 내부에서 만�
 
 - [Azure SQL 데이터베이스](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

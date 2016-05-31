@@ -34,6 +34,7 @@ Application Insights SDK는 라이브 웹 응용 프로그램에서 로그인하
 * [Microsoft Azure](http://azure.com) 구독. 팀 또는 조직에 Azure 구독이 있는 경우 소유자가 [Microsoft 계정](http://live.com)을 사용하여 사용자를 추가할 수 있습니다.
 * Visual Studio 2013 업데이트 3 이상
 
+
 ## <a name="ide"></a> Visual Studio의 프로젝트에 Application Insights 추가
 
 #### 새 프로젝트의 경우
@@ -62,7 +63,7 @@ Azure 로그인으로 계정을 선택합니다. 자격 증명을 다시 입력�
 
 ####<a name="land"></a> ‘Application Insights 추가'에서 무엇을 했나요?
 
-명령은 다음 단계를 수행했습니다(원하는 경우 [수동으로 수행](app-insights-start-monitoring-app-health-usage.md) 가능).
+명령은 다음 단계를 수행했습니다(원하는 경우 [수동으로 수행](app-insights-asp-net-manual.md) 가능).
 
 1. 프로젝트에 Application Insights 웹 SDK NuGet 패키지를 추가합니다. Visual Studio에서 보려면 프로젝트를 마우스 오른쪽 단추로 클릭하고 NuGet 패키지 관리를 선택합니다.
 2. [Azure 포털][portal]에 Application Insights 리소스를 만듭니다. 이곳에서 사용자의 데이터를 볼 수 있습니다. 리소스를 식별하는 *계측 키*를 검색합니다.
@@ -257,4 +258,4 @@ ApplicationInsights.config에 대한 사용자 지정을 변경한 경우, 업�
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

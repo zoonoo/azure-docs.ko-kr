@@ -22,7 +22,7 @@
 # SQL 데이터베이스 자습서: Azure SQL 데이터베이스에 Excel 연결 및 보고서 만들기
 
 > [AZURE.SELECTOR]
-- [C#](sql-database-connect-query.md)
+- [Visual Studio](sql-database-connect-query.md)
 - [SSMS](sql-database-connect-query-ssms.md)
 - [Excel](sql-database-connect-excel.md)
 
@@ -83,4 +83,4 @@
 - [탄력적 풀](sql-database-elastic-pool.md)의 이점에 대해 알아보세요.
 - [백 엔드에서 SQL 데이터베이스에 연결할 웹 응용 프로그램을 만드는](../app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md) 방법에 대해 알아보세요.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

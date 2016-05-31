@@ -1,5 +1,5 @@
 <properties
-	pageTitle=".NET을 사용하여 Azure Blob 저장소 시작 | Microsoft Azure"
+	pageTitle=".NET을 사용하여 Azure Blob 저장소(개체 저장소) 시작 | Microsoft Azure"
 	description="Azure Blob 저장소(개체 저장소)를 사용하여 클라우드에 구조화되지 않은 데이터를 저장합니다."
 	services="storage"
 	documentationCenter=".net"
@@ -395,4 +395,4 @@ Azure 저장소는 클라이언트와 서버 모두에서 Blob 데이터를 암�
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

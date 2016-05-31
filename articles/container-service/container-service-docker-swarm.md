@@ -24,9 +24,9 @@ Docker Swarm은 풀링된 Docker 호스트 집합에 컨테이너화된 워크�
 
 이 문서의 연습을 위한 필수 구성 요소
 
-[Azure 컨테이너 서비스에서 Swarm 클러스터 만들기](./container-service-deployment.md)
+[Azure 컨테이너 서비스에서 Swarm 클러스터 만들기](container-service-deployment.md)
 
-[Azure 컨테이너 서비스에서 Swarm 클러스터에 연결](./container-service-connect.md)
+[Azure 컨테이너 서비스에서 Swarm 클러스터에 연결](container-service-connect.md)
 
 ## 새 컨테이너 배포
 
@@ -119,4 +119,4 @@ caf185d221b7        adtd/web:0.1        "apache2-foreground"   2 minutes ago    
 
 [Docker Swarm에 대해 자세히 알아보기](https://docs.docker.com/swarm/)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

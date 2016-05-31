@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="get-started-article"
-   ms.date="04/25/2016"
+   ms.date="05/19/2016"
    ms.author="andkjell;shoatman;billmath"/>
 
 # Azure AD Connect: Microsoft Azure Active Directory 동기화(DirSync) 업그레이드
@@ -23,19 +23,19 @@
 ## 관련 설명서
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대한 설명서를 읽지 않은 경우 다음 테이블에서 관련 항목에 대한 링크를 제공합니다. DirSync에서 업그레이드를 시작하려면 굵게 표시된 처음 두 항목이 필요합니다.
 
-| 항목 | |
-| --------- | --------- |
-| **Azure AD Connect 다운로드** | [Azure AD Connect 다운로드](http://go.microsoft.com/fwlink/?LinkId=615771) |
-| **하드웨어 및 필수 조건** | [Azure AD Connect: 하드웨어 및 필수 조건](active-directory-aadconnect-prerequisites.md) |
-| **설치에 사용되는 계정** | [Azure AD Connect 계정 및 사용 권한에 대한 추가 정보](active-directory-aadconnect-accounts-permissions.md) |
+ 항목 |  
+--------- | ---------
+**Azure AD Connect 다운로드** | [Azure AD Connect 다운로드](http://go.microsoft.com/fwlink/?LinkId=615771)
+**하드웨어 및 필수 조건** | [Azure AD Connect: 하드웨어 및 필수 조건](active-directory-aadconnect-prerequisites.md)
+**설치에 사용되는 계정** | [Azure AD Connect 계정 및 사용 권한에 대한 추가 정보](active-directory-aadconnect-accounts-permissions.md)
 
 ## DirSync에서 업그레이드
 현재 DirSync 배포에 따라 업그레이드에 대한 여러 옵션이 있습니다. 예상되는 업그레이드 시간이 3시간 미만인 경우 전체 업그레이드를 수행하는 것이 좋습니다. 예상되는 업그레이드 시간이 3시간 이상인 경우 다른 서버에서 병렬 배포를 수행하는 것이 좋습니다. 50,000개 이상의 개체가 있는 경우 업그레이드를 수행하는 데 3시간 이상이 걸릴 수 있습니다.
 
-| 시나리오 | |
-| ---- | ---- |
-| [전체 업그레이드](#in-place-upgrade) | 업그레이드가 3시간 미만이 걸릴 것으로 예상되는 경우 기본 설정된 옵션입니다. |
-| [병렬 배포](#parallel-deployment) | 업그레이드가 3시간 이상이 걸릴 것으로 예상되는 경우 기본 설정된 옵션입니다. |
+시나리오 |  
+---- | ----
+[전체 업그레이드](#in-place-upgrade) | 업그레이드가 3시간 미만이 걸릴 것으로 예상되는 경우 기본 설정된 옵션입니다.
+[병렬 배포](#parallel-deployment) | 업그레이드가 3시간 이상이 걸릴 것으로 예상되는 경우 기본 설정된 옵션입니다.
 
 >[AZURE.NOTE] DirSync에서 Azure AD Connect로 업그레이드하려는 경우 업그레이드하기 전에 DirSync를 직접 제거하지 마세요. Azure AD Connect는 DirSync에서 구성을 읽고 마이그레이션하며 서버를 검사한 후에 제거합니다.
 
@@ -199,4 +199,4 @@ Azure AD Connect를 설치했으므로 [설치를 확인하고 라이선스를 �
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

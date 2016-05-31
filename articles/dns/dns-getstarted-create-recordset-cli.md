@@ -62,8 +62,8 @@
 
 ## 다음 단계
 
-레코드 집합과 레코드를 관리하려면 CLI를 사용하여 [DNS 레코드 및 레코드 집합 관리](dns-operations-recordsets-portal.md)를 참조하세요.
+레코드 집합과 레코드를 관리하려면 CLI를 사용하여 [DNS 레코드 및 레코드 집합 관리](dns-operations-recordsets-cli.md)를 참조하세요.
 
 Azure DNS에 대한 자세한 내용은 [Azure DNS 개요](dns-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

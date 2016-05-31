@@ -279,8 +279,6 @@ Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이
 	2. **이름**에 **FirstDataFactoryUsingVS**를 입력합니다. 
 	
 		> [AZURE.IMPORTANT] Azure Data Factory 이름은 전역적으로 고유해야 합니다. 게시할 때 **데이터 팩터리 이름 “FirstDataFactoryUsingVS”를 사용할 수 없습니다.** 오류가 표시되는 경우 이름을 변경합니다.(예: yournameFirstDataFactoryUsingVS) 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](data-factory-naming-rules.md) 항목을 참조하세요.
-		> 
-		> 데이터 팩터리의 이름은 나중에 DNS 이름으로 표시되므로 공개적으로 등록될 수도 있습니다.
 	3. **구독** 필드에서 올바른 구독을 선택합니다. 
 	4. 생성되는 데이터 팩터리의 **리소스 그룹**을 선택합니다. 
 	5. 데이터 팩터리의 **하위 지역**을 선택합니다. 
@@ -289,23 +287,26 @@ Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이
 24. 요약을 검토한 후 **다음**을 클릭하여 배포 프로세스를 시작하고 **배포 상태**를 봅니다.
 25. **배포 상태** 페이지에 배포 프로세스의 상태가 표시됩니다. 배포가 완료되면 마침을 클릭합니다. 
 
-"**구독이 Microsoft.DataFactory 네임스페이스를 사용하도록 등록되어 있지 않습니다.**" 오류를 수신하는 경우 다음 중 하나를 수행하고 다시 게시하세요.
+다음 사항에 유의하세요.
 
-- Azure PowerShell에서 다음 명령을 실행하여 Data Factory 공급자를 등록합니다. 
+- "**구독이 Microsoft.DataFactory 네임스페이스를 사용하도록 등록되어 있지 않습니다.**" 오류를 수신하는 경우 다음 중 하나를 수행하고 다시 게시하세요. 
+
+	- Azure PowerShell에서 다음 명령을 실행하여 Data Factory 공급자를 등록합니다. 
 		
-		Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+			Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
 	
-	데이터 팩터리 공급자가 등록되어 있는지 확인하려면 다음 명령을 실행할 수 있습니다.
+		데이터 팩터리 공급자가 등록되어 있는지 확인하려면 다음 명령을 실행할 수 있습니다.
 	
-		Get-AzureRmResourceProvider
-- Azure 구독을 사용하여 [Azure 포털](https://portal.azure.com)에 로그인하고 데이터 팩터리 블레이드로 이동하거나 Azure 포털에 데이터 팩터리를 만듭니다. 그러면 공급자가 자동으로 등록됩니다.
+			Get-AzureRmResourceProvider
+	- Azure 구독을 사용하여 [Azure 포털](https://portal.azure.com)에 로그인하고 데이터 팩터리 블레이드로 이동하거나 Azure 포털에 데이터 팩터리를 만듭니다. 그러면 공급자가 자동으로 등록됩니다.
+- 	데이터 팩터리의 이름은 나중에 DNS 이름으로 표시되므로 공개적으로 등록될 수도 있습니다.
+- 	데이터 팩터리 인스턴스를 만들려면 Azure 구독의 참가자/관리자여야 합니다.
 
  
 ## 파이프라인 모니터링
 
 6. [Azure 포털](https://portal.azure.com/)에 로그인하고 다음을 수행합니다.
-	1. **찾아보기**를 클릭하고 **데이터 팩터리**를 선택합니다.
-		 ![데이터 팩터리 찾아보기](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
+	1. **찾아보기**를 클릭하고 **데이터 팩터리**를 선택합니다. ![데이터 팩터리 찾아보기](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
 	2. 데이터 팩터리의 목록에서 **FirstDataFactoryUsingVS**를 선택합니다. 
 7. 데이터 팩터리에 대한 홈페이지에서 **다이어그램**을 클릭합니다.
   
@@ -463,8 +464,27 @@ VS에서 Azure 데이터 팩터리 엔터티를 게시하는 경우 해당 게�
 
 배포할 때 구성 파일의 값은 엔터티가 Azure 데이터 팩터리 서비스에 배포되기 전에 데이터 팩터리 엔터티(연결된 서비스, 테이블 또는 파이프라인)에 대한 JSON 파일에서 속성 값을 설정하는 데 사용됩니다.
 
+## 요약 
+이 자습서에서는 HDInsight hadoop 클러스터에서 Hive 스크립트를 실행하여 데이터를 처리하는 데 Azure 데이터 팩터리를 만들었습니다. Azure 포털에서 다음 단계를 수행하기 위해 데이터 팩터리 편집기를 사용했습니다.
+
+1.	Azure **데이터 팩터리**를 만들었습니다.
+2.	두 개의 **연결된 서비스**를 만들었습니다.
+	1.	데이터 팩터리에 대한 입력/출력 파일을 보유하는 Azure Blob 저장소를 연결하는 **Azure 저장소** 연결된 서비스입니다.
+	2.	주문형 HDInsight Hadoop 클러스터를 데이터 팩터리에 연결하는 **Azure HDInsight** 주문형 연결된 서비스입니다. Azure 데이터 팩터리는 입력 데이터를 처리하고 출력 데이터를 생성하기 위해 적시에 HDInsight Hadoop 클러스터를 만듭니다. 
+3.	파이프라인에서 HDInsight Hive 작업에 대한 입력 및 출력 데이터를 설명하는 두 개의 **데이터 집합**을 만들었습니다. 
+4.	**HDInsight Hive** 작업으로 **파이프라인**을 만들었습니다.  
+
+
 ## 다음 단계
 이 문서에서 파이프라인과 주문형 HDInsight 클러스터에서 Hive 스크립트를 실행하는 변환 작업(HDInsight 작업)을 만들었습니다. 복사 작업을 사용하여 Azure Blob에서 Azure SQL로 데이터를 복사하는 방법은 [자습서: Azure Blob에서 Azure SQL로 데이터 복사](data-factory-get-started.md)를 참조하세요.
   
+## 참고 항목
+| 항목 | 설명 |
+| :---- | :---- |
+| [데이터 변환 활동](data-factory-data-transformation-activities.md) | 이 문서에서는 Azure 데이터 팩터리에서 지원되는 데이터 변환 활동(예: 자습서에 사용된 HDInsight Hive 변환)의 목록을 제공합니다. | 
+| [예약 및 실행](data-factory-scheduling-and-execution.md) | 이 문서에서는 Azure Data Factory 응용 프로그램 모델의 예약 및 실행에 대한 내용을 설명합니다. |
+| [파이프라인](data-factory-create-pipelines.md) | 이 문서는 Azure 데이터 팩터리의 파이프라인 및 시나리오 또는 비즈니스를 위한 활동과 종단 간 데이터 기반 워크플로 활용하는 방법을 이해하는 데 도움이 됩니다. |
+| [데이터 집합](data-factory-create-datasets.md) | 이 문서는 Azure 데이터 팩터리의 데이터 집합을 이해하는 데 도움이 됩니다.
+| [모니터링 앱을 사용하여 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) | 이 문서는 모니터링 및 관리 앱을 사용하여 파이프라인을 모니터링하고 관리하고 디버그하는 방법을 설명합니다. 
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

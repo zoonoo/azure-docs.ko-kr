@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="05/11/2016"
 	ms.author="banders"/>
 
@@ -35,7 +35,7 @@ OMS 웹 사이트를 사용하여 무료 OMS 작업 영역을 만들 수 있습�
 - Log Analytics을 완전하게 사용하려면 유료 Microsoft Azure 구독이 필요합니다. Azure 구독이 없는 경우 모든 Azure 서비스에 액세스할 수 있는 [무료 계정](https://azure.microsoft.com/free/)을 만듭니다. 또는 [Operations Management Suite](http://microsoft.com/oms) 웹 사이트에서 무료 OMS 계정을 만들고 **무료 평가판**을 클릭할 수 있습니다.
 - OMS 작업 영역
 - 데이터를 수집할 각 Windows 컴퓨터에서 Windows Server 2008 SP1 이상을 실행해야 합니다.
-- OMS 웹 서비스의 주소에 대한 [방화벽](log-analytics-proxy-firewall) 액세스
+- OMS 웹 서비스의 주소에 대한 [방화벽](log-analytics-proxy-firewall.md) 액세스
 - 컴퓨터에서 인터넷 액세스를 사용할 수 없는 경우 서버에서 OMS로 트래픽을 전달하는 [OMS Log Analytics 전달자](https://blogs.technet.microsoft.com/msoms/2016/03/17/oms-log-analytics-forwarder)(게이트웨이) 서버
 - Operations Manager를 사용하는 경우 Log Analytics는 Operations Manager 2012 SP1 UR6 이상 및 Operations Manager 2012 R2 UR2 이상을 지원합니다. 프록시 지원은 Operations Manager 2012 SP1 UR7 및 Operations Manager 2012 R2 UR3에 추가되었습니다. OMS와 통합할 방법을 결정합니다.
 - 컴퓨터에 직접 인터넷 액세스 권한이 있는지 결정합니다. 없는 경우 게이트웨이 서버에서 OMS 웹 서비스 사이트에 액세스해야 합니다. 모든 액세스는 HTTPS를 통해 이루어집니다.
@@ -131,4 +131,4 @@ Operations Management Suite에 Operations Manager를 연결하는 방법에 대�
 - [로그 검색](log-analytics-log-searches.md)을 숙지하여 솔루션에서 수집한 자세한 정보를 확인합니다.
 - [대시보드](log-analytics-dashboards.md)를 사용하여 자신만의 사용자 지정 검색을 저장하고 표시합니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

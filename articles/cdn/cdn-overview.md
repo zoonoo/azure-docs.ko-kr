@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/11/2016"
+	ms.date="05/24/2016"
 	ms.author="casoper"/>
 
 # Azure CDN(콘텐츠 배달 네트워크) 개요
 
-Azure CDN(콘텐츠 배달 네트워크)은 전략적으로 배치된 위치에서 정적 웹 콘텐츠를 캐싱하여 사용자에게 콘텐츠를 배달하기 위한 최대 처리량을 제공합니다. CDN은 전 세계 물리적 노드에 콘텐츠를 캐시하여 고대역폭 콘텐츠를 배달하기 위한 글로벌 솔루션을 개발자에게 제공합니다. 현재 CDN 노드 위치 목록을 보려면 [Azure CDN POP 위치](cdn-pop-locations.md)를 참조하세요.
+> [AZURE.NOTE] 이 문서에서는 Azure CDN(콘텐츠 배달 네트워크)이 무엇이고 어떻게 작동하며 각 Azure CDN 제품의 기능은 무엇인지에 대해 설명합니다. 이 정보를 건너뛰고 CDN 끝점을 만드는 방법에 대한 자습서로 바로 이동하려면 [Azure CDN 사용](cdn-create-new-endpoint.md)을 참조하세요. 현재 CDN 노드 위치 목록을 보려면 [Azure CDN POP 위치](cdn-pop-locations.md)를 참조하세요.
+
+Azure CDN(콘텐츠 배달 네트워크)은 전략적으로 배치된 위치에서 정적 웹 콘텐츠를 캐싱하여 사용자에게 콘텐츠를 배달하기 위한 최대 처리량을 제공합니다. CDN은 전 세계 물리적 노드에 콘텐츠를 캐시하여 고대역폭 콘텐츠를 배달하기 위한 글로벌 솔루션을 개발자에게 제공합니다.
 
 CDN을 사용하여 웹 사이트 자산을 캐시할 경우의 이점은 다음과 같습니다.
 
@@ -76,4 +78,4 @@ CDN을 시작하려면 [Azure CDN 사용](./cdn-create-new-endpoint.md)을 참�
 
 가격 정보는 [CDN 가격 책정](https://azure.microsoft.com/pricing/details/cdn/)을 참조하세요.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->
