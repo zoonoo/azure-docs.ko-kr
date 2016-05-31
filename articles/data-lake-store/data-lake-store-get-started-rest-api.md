@@ -61,7 +61,7 @@ Azure Active Directory를 사용한 인증에는 두 가지 접근 방식이 있
 
 		https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<CLIENT-ID>&response_type=code&redirect_uri=<REDIRECT-URI>
 
-	>[AZURE.NOTE] <REDIRECT-URI>는 URL에서 사용하도록 인코딩되어야 합니다. 따라서 https://localhost은 `https%3A%2F%2Flocalhost`를 사용합니다.
+	>[AZURE.NOTE] \<REDIRECT-URI>는 URL에서 사용하도록 인코딩되어야 합니다. 따라서 https://localhost은 `https%3A%2F%2Flocalhost`를 사용합니다.
 
 	이 자습서에서는 위의 URL에 있는 자리 표시자 값을 바꿀 수 있으며 이를 웹 브라우저의 주소 표시줄에 붙여 넣습니다. Azure 로그인을 사용하여 인증하도록 리디렉션됩니다. 성공적으로 로그인되면 응답은 브라우저의 주소 표시줄에 표시됩니다. 응답은 다음 형식으로 되어 있습니다.
 		
@@ -76,7 +76,7 @@ Azure Active Directory를 사용한 인증에는 두 가지 접근 방식이 있
         -F client_id=<CLIENT-ID> \
         -F code=<AUTHORIZATION-CODE>
 
-	>[AZURE.NOTE] 이 경우에 <REDIRECT-URI>는 인코딩되지 않아야 합니다.
+	>[AZURE.NOTE] 이 경우에 \<REDIRECT-URI>는 인코딩되지 않아야 합니다.
 
 3. 응답은 액세스 토큰(예: `"access_token": "<ACCESS_TOKEN>"`) 및 새로 고침 토큰(예: `"refresh_token": "<REFRESH_TOKEN>"`)을 포함하는 JSON 개체입니다. 응용 프로그램은 Azure Data Lake 저장소에 액세스할 때 액세스 토큰을 사용하고 액세스 토큰이 만료되면 다른 액세스 토큰을 가져오는 새로 고침 토큰을 사용합니다.
 
