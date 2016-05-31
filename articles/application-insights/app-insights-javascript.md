@@ -12,10 +12,11 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/19/2016"
+	ms.date="05/18/2016"
 	ms.author="awills"/>
 
 # 웹 페이지용 Application Insights
+
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
@@ -89,8 +90,14 @@ Application Insights 리소스는 페이지의 성능 및 사용 현황에 대�
     // Don't log browser exceptions.
     disableExceptionTracking: true,
 
+    // Don't log ajax calls.
+    disableAjaxTracking: boolean,
+
     // Limit number of Ajax calls logged, to reduce traffic.
     maxAjaxCallsPerView: 10, // default is 500
+
+    // Time page load up to execution of first trackPageView().
+    overridePageViewDuration: boolean,
 
     // Set these dynamically for an authenticated user.
     appUserId: string,
@@ -204,7 +211,11 @@ Ajax 호출은 웹 페이지의 스크립트에서 이루어진 HTTP 호출을 �
 
 ### 페이지 보기 속성
 
-* **페이지 보기 기간** 페이지를 로드하고 스크립트 실행을 시작하는 데 걸리는 시간입니다. 특히, 시작 페이지와 트랙 페이지 보기의 실행을 로드하는 사이의 간격입니다. 스크립트의 초기화 후 일반적인 위치에서 trackPageView를 이동한 경우 다른 값이 반영 됩니다.
+* **페이지 보기 기간** 
+
+ * 기본적으로 클라이언트 요청에서 전체 로드로 페이지를 로드하는 데 걸리는 시간(보조 파일을 포함하지만 Ajax 호출과 같은 비동기 작업은 제외)입니다.
+ * [페이지 구성](#detailed-configuration)에서 `overridePageViewDuration`을 설정한 경우 첫 번째 `trackPageView` 실행에 대한 클라이언트 요청 간 간격입니다. 스크립트의 초기화 후 일반적인 위치에서 trackPageView를 이동한 경우 다른 값이 반영 됩니다.
+ * `overridePageViewDuration`을 설정하고 `trackPageView()` 호출에서 기간 인수가 제공된 경우 인수 값이 대신 사용됩니다. 
 
 
 ## 사용자 지정 페이지 수
@@ -238,4 +249,4 @@ Ajax 호출은 웹 페이지의 스크립트에서 이루어진 HTTP 호출을 �
 * [사용자 지정 이벤트 및 메트릭](app-insights-api-custom-events-metrics.md)
 * [빌드 - 측정 - 학습](app-insights-overview-usage.md)
 
-<!------HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/24/2016"
+	ms.date="05/23/2016"
 	ms.author="tamram"/>
 
 # Microsoft Azure 저장소 소개
@@ -233,4 +233,4 @@ Azure 저장소에 대한 자세한 내용은 다음 리소스를 살펴보세�
 - [Python에서 큐 저장소를 사용하는 방법](storage-python-how-to-use-queue-storage.md)
 - [Python에서 파일 저장소를 사용하는 방법](storage-python-how-to-use-file-storage.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

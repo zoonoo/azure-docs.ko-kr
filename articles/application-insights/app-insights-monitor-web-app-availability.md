@@ -12,10 +12,13 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/18/2016"
+	ms.date="05/20/2016"
 	ms.author="awills"/>
 
 # 웹 사이트의 가용성 및 응답성 모니터링
+
+
+[AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
 웹 응용 프로그램을 배포한 후 가용성 및 응답성을 모니터링하도록 웹 테스트를 설정할 수 있습니다. Application Insights는 전 세계에서 정기적으로 웹 요청을 보내 응용 프로그램이 느리게 응답하거나 전혀 응답하지 않을 경우 알려줄 수 있습니다.
 
@@ -258,6 +261,28 @@ Visual Studio Enterprise 또는 Ultimate를 사용하여 웹 세션을 기록합
 
     이 문서의 끝에 있는 목록의 IP 주소에서 요청을 허용하도록 방화벽을 구성합니다.
 
+* *다중 단계 웹 테스트 업로드 실패*
+
+    300K의 크기 제한이 있습니다.
+
+    루프는 지원되지 않습니다.
+
+    다른 웹 테스트에 대한 참조는 지원되지 않습니다.
+
+    데이터 원본은 지원되지 않습니다.
+
+    
+* *다중 단계 테스트가 완료되지 않습니다.*
+
+    테스트당 100개 요청의 제한이 있습니다.
+
+    2분 이상 실행되는 경우 테스트가 중지됩니다.
+
+* *클라이언트 인증서로 테스트를 실행하는 방법*
+
+    죄송합니다만, 지원되지 않습니다.
+
+
 ## <a name="video"></a>동영상
 
 > [AZURE.VIDEO monitoring-availability-with-application-insights]
@@ -396,4 +421,4 @@ Visual Studio Enterprise 또는 Ultimate를 사용하여 웹 세션을 기록합
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

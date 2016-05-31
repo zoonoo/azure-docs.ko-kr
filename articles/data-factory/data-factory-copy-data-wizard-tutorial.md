@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="03/07/2016" 
+	ms.date="05/16/2016" 
 	ms.author="spelluru"/>
 
 # 자습서: 데이터 팩터리 복사 마법사를 사용하여 복사 작업이 있는 파이프라인 만들기
@@ -108,6 +108,15 @@
 13. [모니터링 앱을 사용하여 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md)의 지침을 사용하여 방금 만든 파이프라인을 모니터링하는 방법에 대해 자세히 알아봅니다.
 
 	![모니터링 앱](./media/data-factory-copy-data-wizard-tutorial/monitoring-app.png)
-  
+ 
 
-<!---HONumber=AcomDC_0330_2016-->
+## 참고 항목
+| 항목 | 설명 |
+| :---- | :---- |
+| [데이터 이동 활동](data-factory-data-movement-activities.md) | 이 문서에서는 이 자습서에서 사용한 복사 작업에 대한 자세한 정보를 제공합니다. |
+| [예약 및 실행](data-factory-scheduling-and-execution.md) | 이 문서에서는 Azure Data Factory 응용 프로그램 모델의 예약 및 실행에 대한 내용을 설명합니다. |
+| [파이프라인](data-factory-create-pipelines.md) | 이 문서는 Azure 데이터 팩터리의 파이프라인 및 시나리오 또는 비즈니스를 위한 활동과 종단 간 데이터 기반 워크플로 활용하는 방법을 이해하는 데 도움이 됩니다. |
+| [데이터 집합](data-factory-create-datasets.md) | 이 문서는 Azure 데이터 팩터리의 데이터 집합을 이해하는 데 도움이 됩니다.
+| [모니터링 앱을 사용하여 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) | 이 문서는 모니터링 및 관리 앱을 사용하여 파이프라인을 모니터링하고 관리하고 디버그하는 방법을 설명합니다. 
+
+<!---HONumber=AcomDC_0525_2016-->
