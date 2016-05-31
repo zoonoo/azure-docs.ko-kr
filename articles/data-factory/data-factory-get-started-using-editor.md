@@ -102,7 +102,7 @@
 
 	![편집기 Azure SQL 설정][image-editor-azure-sql-settings]
 
-2. **servername**, **databasename**, ****username@servername** 및 **password**를 Azure SQL Server, 데이터베이스, 사용자 계정 및 암호로 바꿉니다.
+2. **servername**, **databasename**, **username@servername** 및 **password**를 Azure SQL Server, 데이터베이스, 사용자 계정 및 암호로 바꿉니다.
 3. 도구 모음에서 **배포**를 클릭하여 AzureSqlLinkedService를 만들고 배포합니다. 
    
 

@@ -139,7 +139,7 @@
 		  		}
 			}
 
-	**servername**, **databasename**, ****username@servername** 및 **password**를 Azure SQL Server, 데이터베이스, 사용자 계정 및 암호로 바꿉니다.
+	**servername**, **databasename**, **username@servername** 및 **password**를 Azure SQL Server, 데이터베이스, 사용자 계정 및 암호로 바꿉니다.
 
 2.	다음 명령을 실행하여 연결된 서비스를 만듭니다.
 	

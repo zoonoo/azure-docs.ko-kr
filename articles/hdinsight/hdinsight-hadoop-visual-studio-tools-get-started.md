@@ -95,7 +95,7 @@ HDInsight 클러스터에 대해 Hive 스크립트를 테스트하려면 많은 
 Visual Studio용 HDInsight 도구를 사용하여 일부 Hive 작업의 YARN 로그를 수집하고 표시하여 사용자가 Hive 작업 내에 무엇이 있는지 볼 수 있습니다.
 
 ### **hivesampletable** 보기
-모든 HDInsight 클러스터에는 *hivesampletable*이라는 샘플 Hive 테이블이 함께 제공됩니다. 여기서는 이 테이블을 사용하여 Hive 테이블을 나열하고, 테이블 스키마를 보고, Hive 테이블의 행을 나열하는 방법을 보여줍니다.
+모든 HDInsight 클러스터에는 *hivesampletable* 이라는 샘플 Hive 테이블이 함께 제공됩니다. 여기서는 이 테이블을 사용하여 Hive 테이블을 나열하고, 테이블 스키마를 보고, Hive 테이블의 행을 나열하는 방법을 보여줍니다.
 
 
 

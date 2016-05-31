@@ -28,7 +28,7 @@ Azure Active Directory는 ID, 액세스 관리 및 보안의 모든 측면에 �
 ## Azure 및 Azure Active Directory에 액세스
 
 
-****Q: Azure 클래식 포털에서 Azure AD에 액세스하려고 할 때 "구독을 찾을 수 없음"이 표시되는 이유는 무엇인가요(https://manage.windowsazure.com)?**
+**Q: Azure 클래식 포털에서 Azure AD에 액세스하려고 할 때 "구독을 찾을 수 없음"이 표시되는 이유는 무엇인가요(https://manage.windowsazure.com)?**
 
 **A:** Azure 클래식 포털에 엑세스하려면 각 사용자에게 Azure 구독에 대한 권한이 있어야 합니다. 유료 Office 365 또는 Azure AD를 사용하여 일회성 활성화 단계를 위해 [http://aka.ms/accessAAD](http://aka.ms/accessAAD)로 이동하는 경우 구독에 대한 사용 권한이 있어야 하며 그렇지 않으면 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/) 또는 유료 구독을 활성화해야 합니다.
 
