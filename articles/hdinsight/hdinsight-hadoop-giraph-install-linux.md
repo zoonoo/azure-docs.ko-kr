@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="05/17/2016"
 	ms.author="larryfr"/>
 
 # HDInsight Hadoop 클러스터에 Giraph를 설치하고 Giraph를 사용하여 대규모 그래프를 처리합니다.
@@ -154,4 +154,4 @@ HDInsight 클러스터에서 Giraph를 설치하는 샘플 스크립트는 다�
 
 - [HDInsight 클러스터에 Solr 설치](hdinsight-hadoop-solr-install-linux.md)(영문). 클러스터 사용자 지정을 사용하여 HDInsight Hadoop 클러스터에 Solr을 설치합니다. Solr을 사용하면 저장된 데이터에서 강력한 검색 작업을 수행할 수 있습니다.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

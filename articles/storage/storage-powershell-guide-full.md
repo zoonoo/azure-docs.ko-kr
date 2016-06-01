@@ -3,7 +3,7 @@
 	description="Azure 저장소의 PowerShell cmdlets를 생성 및 ; blob, 테이블, 큐, 그리고 파일;을 포함하는 관리 저장소 계정구성과 쿼리 저장소 분석, 공유액세스 서명을 만드는 방법을 알아봅니다."
 	services="storage"
 	documentationCenter="na"
-	authors="robinsh" 
+	authors="robinsh"
 	manager="carmonm"/>
 
 <tags
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="05/18/2016"
 	ms.author="robinsh"/>
 
 # Azure 저장소와 함께 Azure PowerShell 사용
@@ -102,16 +102,16 @@ Azure 구독에 대한 자세한 내용은 [Azure AD(Azure Active Directory)에�
 	- **$SubscriptionName:** 변수를 사용자 고유의 구독 이름으로 업데이트해야 합니다. 구독 이름을 찾으려면 다음 세 방법 중 하나를 수행 합니다.
 
 		a. **Windows PowerShell ISE**에서, **파일** > **새로 만들기**를 클릭하여 새 스크립트 파일을 만듭니다. 다음 스크립트를 새 스크립트 파일에 복사하고 **디버그** >**실행**을 클릭합니다. 다음 스크립트는 먼저 로컬 PowerShell 환경에 Azure 계정을 추가하기 위해 Azure 계정 자격 증명을 요구한 다음, 로컬 PowerShell 세션에 연결된 모든 구독을 표시합니다. 이 자습서를 수행하는 동안 사용할 구독의 이름을 기록해 둡니다.
-		
+
 			Add-AzureAccount
 				Get-AzureSubscription | Format-Table SubscriptionName, IsDefault, IsCurrent, CurrentStorageAccountName
-		
+
 		b. [Azure 포털](https://portal.azure.com)에서 구독 이름을 찾아서 복사하려면 왼쪽의 허브 메뉴에서 **구독**을 클릭합니다. 이 가이드에서 스크립트를 실행하는 동안 사용할 구독의 이름을 복사합니다.
-		
+
 		![Azure 포털][Image2]
-		  
+
 		c. [Azure 클래식 포털](https://manage.windowsazure.com/)에서 구독 이름을 찾아서 복사하려면 아래로 스크롤하여 포털의 왼쪽에서 **설정**을 클릭합니다. 구독 목록을 보려면 **구독**을 클릭합니다. 이 가이드에서 제공하는 스크립트를 실행하는 동안 사용할 구독의 이름을 복사합니다.
-		
+
 		![Azure 클래식 포털][Image1]
 
 	- **$StorageAccountName:** 스크립트에 지정된 이름을 사용하거나 사용자 저장소 계정에 대한 새 이름을 입력합니다. **중요:** 저장소 계정 이름은 Azure에서 고유해야 합니다. 소문자여야 합니다.
@@ -235,6 +235,24 @@ Azure 저장소 컨텍스트는 저장소 자격 증명을 캡슐화하는 Power
 
 컴퓨터를 설정하고 Azure PowerShell을 사용하여 구독 및 저장소 계정을 관리하는 방법을 알아보았습니다. 다음 섹션으로 이동하여 Azure Blob 및 스냅숏 Blob을 관리하는 방법을 알아보세요.
 
+### Azure 저장소 키 검색 및 다시 생성 방법
+
+Azure 저장소 계정과 두 계정 키를 함께 제공합니다. 다음 cmdlet을 사용하여 키를 검색할 수 있습니다.
+
+	Get-AzureStorageKey -StorageAccountName "yourstorageaccount"
+
+다음 cmdlet을 사용하여 특정 키를 검색합니다. 유효한 값은 Primary 및 Secondary입니다.
+
+	(Get-AzureStorageKey -StorageAccountName $StorageAccountName).Primary
+
+	(Get-AzureStorageKey -StorageAccountName $StorageAccountName).Secondary
+
+키를 다시 생성하려는 경우 다음 cmdlet을 사용합니다. -KeyType에 대한 유효한 값은 "Primary" 및 "Secondary"입니다.
+
+	New-AzureStorageKey -StorageAccountName $StorageAccountName -KeyType “Primary”
+
+	New-AzureStorageKey -StorageAccountName $StorageAccountName -KeyType “Secondary”
+
 ## Azure Blob 관리 방법
 Azure Blob 저장소는 HTTP 또는 HTTPS를 통해 전 세계 어디에서든 액세스할 수 있는 다량의 구조화되지 않은 데이터(예: 텍스트 또는 이진 데이터)를 저장할 수 있는 서비스입니다. 이 섹션에서는 Azure Blob 저장소 서비스 개념에 이미 익숙하다고 가정합니다. 자세한 내용은 [.NET을 사용하여 Blob 저장소 시작](storage-dotnet-how-to-use-blobs.md) 및 [Blob 서비스 개념](http://msdn.microsoft.com/library/azure/dd179376.aspx)을 참조하세요.
 
@@ -244,10 +262,10 @@ Azure 저장소의 모든 Blob은 컨테이너에 있어야 합니다. New-Azure
     $StorageContainerName = "yourcontainername"
     New-AzureStorageContainer -Name $StorageContainerName -Permission Off
 
-> [AZURE.NOTE] 익명 읽기 액세스의 세가지 수준은 **해제**, **Blob**, 및 **컨테이너**입니다. Blob에 대한 익명 액세스를 방지하려면 권한 매개 변수를 **해제**로 설정합니다. 기본적으로 새 컨테이너는 전용이며 계정 소유자만 액세스할 수 있습니다. 익명 공용 읽기 권한을 Blob 리소스에 대해 허용하지만 컨테이너 메타데이터나 컨테이너의 Blob 목록에 대해서는 허용하지 않으려면, 사용 권한 매개 변수를 **Blob**으로 설정하세요. Blob 리소스, 컨테이너 메타데이터 및 컨테이너의 Blob 목록에 대한 전체 공용 읽기 권한을 허용하려면, 권한 매개 변수를 **컨테이너**로 설정하세요. 자세한 내용은 [컨테이너 및 Blob에 대한 익명읽기 권한 관리](storage-manage-access-to-resources.md)를 참조하세요.
+> [AZURE.NOTE] 익명 읽기 액세스의 세가지 수준은 **해제**, **Blob**, 및 **컨테이너**입니다. Blob에 대한 익명 액세스를 방지하려면 권한 매개 변수를 **해제**로 설정합니다. 기본적으로 새 컨테이너는 전용이며 계정 소유자만 액세스할 수 있습니다. 익명 공용 읽기 권한을 Blob 리소스에 대해 허용하지만 컨테이너 메타데이터나 컨테이너의 Blob 목록에 대해서는 허용하지 않으려면, 사용 권한 매개 변수를 **Blob**으로 설정하세요. Blob 리소스, 컨테이너 메타데이터 및 컨테이너의 Blob 목록에 대한 전체 공용 읽기 권한을 허용하려면, 권한 매개 변수를 **컨테이너**로 설정하세요. 자세한 내용은 [컨테이너 및 Blob에 대한 익명 읽기 권한 관리](storage-manage-access-to-resources.md)를 참조하세요.
 
 ### 컨테이너에 Blob을 업로드하는 방법
-Azure Blob 저장소는 블록 Blob 및 페이지 Blob을 지원합니다. 자세한 내용은 [블록 Blob,추가 Blob 및 페이지 Blob 이해](http://msdn.microsoft.com/library/azure/ee691964.aspx)를 참조하세요.
+Azure Blob 저장소는 블록 Blob 및 페이지 Blob을 지원합니다. 자세한 내용은 [블록 Blob, 추가 Blob 및 페이지 Blob 이해](http://msdn.microsoft.com/library/azure/ee691964.aspx)를 참조하세요.
 
 컨테이너에 Blob을 업로드하기 위해 [Set-AzureStorageBlobContent](http://msdn.microsoft.com/library/azure/dn806379.aspx) cmdlet을 사용할 수 있습니다. 기본적으로 이 명령은 로컬 파일을 블록 Blob에 업로드합니다. Blob의 종류를 지정하기 위해 -BlobType 매개 변수를 사용할 수 있습니다.
 
@@ -300,7 +318,7 @@ Azure Blob 저장소는 블록 Blob 및 페이지 Blob을 지원합니다. 자�
 ### 보조 위치에서 blob를 복사하는 방법
 활성화 RA-GRS 계정의 보조 locatioon에서 blob을 복사할 수 있습니다.
 
-    #define secondary storage context using a connection string constructed from secondary endpoints. 
+    #define secondary storage context using a connection string constructed from secondary endpoints.
     $SrcContext = New-AzureStorageContext -ConnectionString "DefaultEndpointsProtocol=https;AccountName=***;AccountKey=***;BlobEndpoint=http://***-secondary.blob.core.windows.net;FileEndpoint=http://***-secondary.file.core.windows.net;QueueEndpoint=http://***-secondary.queue.core.windows.net; TableEndpoint=http://***-secondary.table.core.windows.net;"
     Start-AzureStorageBlobCopy –Container *** -Blob *** -Context $SrcContext –DestContainer *** -DestBlob *** -DestContext $DestContext
 
@@ -613,7 +631,7 @@ PowerShell을 사용하여 로깅 데이터 저장소 사용 및 검색하는 �
 - **Ad hoc SAS**: 애드혹 SAS를 만들 때 SAS의 시작 시간, 만료 시간 및 사용 권한이 SAS URI에 모두 지정됩니다. 이 유형의 SAS는 컨테이너, Blob, 테이블 또는 큐에서 만들 수 있으며, 취소할 수 없습니다.
 - **저장된 액세스 정책 사용 SAS:** 저장된 액세스 정책은 리소스 컨테이너(Blob 컨테이너, 테이블 또는 큐)에서 정의되며, 하나 이상의 공유 액세스 서명에 대한 제약 조건을 관리하는 데 사용할 수 있습니다. SAS를 공유 액세스 정책과 연결할 경우 SAS는 저장된 액세스 정책에 대해 정의된 제약 조건(시작 시간, 만료 시간 및 사용 권한)을 상속합니다. 이 유형의 SAS는 취소할 수 있습니다.
 
-자세한 내용은 참조 [공유 액세스 서명: SAS 모델 이해](storage-dotnet-shared-access-signature-part-1.md) 및 [컨테이너 및 blob에 대한 익명 읽기 액세스 관리](storage-manage-access-to-resources.md)를 참조하세요.
+자세한 내용은 [공유 액세스 서명: SAS 모델 이해](storage-dotnet-shared-access-signature-part-1.md) 및 [컨테이너 및 Blob에 대한 익명 읽기 권한 관리](storage-manage-access-to-resources.md)를 참조하세요.
 
 다음 섹션에서는 Azure 테이블에 대한 공유 액세스 서명 토큰 및 저장된 액세스 정책을 만드는 방법을 배웁니다. Azure PowerShell은 컨테이너, Blob, 큐에 대해 유사한 cmdlet을 제공합니다. 이 섹션의 스크립트를 실행하려면 [Azure PowerShell 버전 0.8.14](http://go.microsoft.com/?linkid=9811175&clcid=0x409) 이상을 다운로드하세요.
 
@@ -732,6 +750,5 @@ AzureChinaCloud와 함께 Azure 저장소를 사용하려면 AzureChinaCloud와 
 [How to manage Shared Access Signature (SAS) and Stored Access Policy]: #sas
 [How to use Azure Storage for U.S. government and Azure China]: #gov
 [Next Steps]: #next
- 
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

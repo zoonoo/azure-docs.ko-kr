@@ -53,9 +53,9 @@
 
 SQL 데이터베이스에 사용자로 사용자를 추가할 때 옵션이 있습니다.
 
-- 암호를 사용하여 *로그인* 을 **마스터** 데이터베이스에 추가한 다음 해당 *사용자* 를 동일한 서버의 하나 이상의 다른 데이터베이스에 추가합니다.
+- 암호를 사용하여 *로그인*을 **마스터** 데이터베이스에 추가한 다음 해당 *사용자*를 동일한 서버의 하나 이상의 다른 데이터베이스에 추가합니다.
 
-- 암호를 사용하여 *포함된 사용자* 를 하나 이상의 데이터베이스에 **마스터** 의 모든 *로그인* 에 연결하지 않고 추가합니다.
+- 암호를 사용하여 *포함된 사용자*를 하나 이상의 데이터베이스에 **마스터**의 모든 *로그인*에 연결하지 않고 추가합니다.
 
 
 포함된 사용자 접근 방식은 모두 장점과 단점이 있습니다.
@@ -103,8 +103,7 @@ SQL 데이터베이스에 사용자로 사용자를 추가할 때 옵션이 있�
 ### V12에서 1433 이외의 포트
 
 
-Azure SQL 데이터베이스 V12에 대한 클라이언트 연결이 프록시를 무시하고 데이터베이스와 직접 상호 작용하는 경우가 있습니다. 1433 이외의 포트가 중요해집니다. 자세한 내용은 <br/>
-[ADO.NET 4.5 및 SQL 데이터베이스 V12에 대한 1433 이외의 포트](sql-database-develop-direct-route-ports-adonet-v12.md)를 참조하세요.
+Azure SQL 데이터베이스 V12에 대한 클라이언트 연결이 프록시를 무시하고 데이터베이스와 직접 상호 작용하는 경우가 있습니다. 1433 이외의 포트가 중요해집니다. 자세한 내용은 <br/> [ADO.NET 4.5 및 SQL 데이터베이스 V12에 대한 1433 이외의 포트](sql-database-develop-direct-route-ports-adonet-v12.md)를 참조하세요.
 
 
 다음 섹션에서는 재시도 논리와 일시적인 오류 처리에 대해 더 설명합니다.
@@ -120,24 +119,23 @@ Azure SQL 데이터베이스 V12에 대한 클라이언트 연결이 프록시�
 
 SQL 데이터베이스 서비스에 과도한 워크로드 부하가 발생하는 경우 Azure 시스템은 서버를 동적으로 다시 구성 하는 기능이 있습니다.
 
-그러나 재구성 중 클라이언트 프로그램의 SQL 데이터베이스에 대한 연결이 손실될 수 있습니다. 이 오류를 *일시적 장애* 라고 합니다.
+그러나 재구성 중 클라이언트 프로그램의 SQL 데이터베이스에 대한 연결이 손실될 수 있습니다. 이 오류를 *일시적 장애*라고 합니다.
 
 클라이언트 프로그램에 재시도 논리가 있는 경우, 자체 해결을 위한 일시적 오류 시간이 지난 후 연결을 다시 시도할 수 있습니다.
 
 첫 번째 재시도 전에 5초간 지연하는 것이 좋습니다. 5초보다 짧은 지연 후 재시도는 클라우드 서비스에 많은 위험이 있습니다. 각 후속 재시도에 대해 지연 시간은 최대 60초까지 기하급수적으로 증가해야 합니다.
 
-ADO.NET을 사용하는 클라이언트에 대한 *차단 기간* 의 설명은 [SQL Server 연결 풀링(ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)에서 사용 가능합니다.
+ADO.NET을 사용하는 클라이언트에 대한 *차단 기간*의 설명은 [SQL Server 연결 풀링(ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)에서 사용 가능합니다.
 
 
 재시도 논리를 보여 주는 코드 샘플은 다음을 참조하세요.
 
-- [SQL 데이터베이스에 대한 클라이언트 빠른 시작 코드 샘플](sql-database-develop-quick-start-client-code-samples.md)
-
+- 코드 샘플: [SQL 데이터베이스 및 SQL Server용 연결 라이브러리](sql-database-libraries.md)
 
 ### 일시적인 오류에 대한 오류 번호
 
 
-SQL 데이터베이스에서 오류가 발생하면 [SqlException](http://msdn.microsoft.com/library/system.data.sqlclient.sqlexception.aspx)이 발생합니다. **SqlException** 은 해당 **Number** 속성에 숫자 오류 코드를 포함합니다. 오류 코드가 일시적 오류로 나열된 코드인 경우 프로그램에서 호출을 다시 시도해야 합니다.
+SQL 데이터베이스에서 오류가 발생하면 [SqlException](http://msdn.microsoft.com/library/system.data.sqlclient.sqlexception.aspx)이 발생합니다. **SqlException**은 해당 **Number**속성에 숫자 오류 코드를 포함합니다. 오류 코드가 일시적 오류로 나열된 코드인 경우 프로그램에서 호출을 다시 시도해야 합니다.
 
 
 - [SQL 데이터베이스 클라이언트 프로그램에 대한 오류 메시지](sql-database-develop-error-messages.md#bkmk_connection_errors)
@@ -162,10 +160,12 @@ SQL 데이터베이스에서 오류가 발생하면 [SqlException](http://msdn.m
 다음 항목에서는 여러 언어 및 클라이언트 프로그램에서 Azure SQL 데이터베이스에 연결할 때 사용할 수 있는 드라이버 기술에 대한 코드 샘플에 대한 링크를 포함 합니다.
 
 
-Windows, Linux 및 Mac OS X 모두에서 실행 되는 클라이언트에 대한 다양한 코드 샘플이 제공 됩니다.
+Windows, Linux 및 Mac 플랫폼에서 실행되는 클라이언트에 대한 다양한 코드 샘플이 제공 됩니다.
 
 
-**일반 샘플:** PHP, Python, Node.js 및 .NET C#을 비롯한 다양한 프로그래밍 언어에 대한 [코드 샘플](sql-database-develop-quick-start-client-code-samples.md)이 있습니다. 또한, Windows, LInux 및 Mac OS X에서 실행되는 클라이언트에 샘플이 제공됩니다.
+**일반 샘플:** PHP, Python, Java, Node.js 및 .NET C#을 비롯한 다양한 프로그래밍 언어에 대한 코드 샘플이 있습니다. 다음에서 코드 샘플에 대한 링크를 찾을 수 있습니다.
+
+- [SQL 데이터베이스 및 SQL Server용 연결 라이브러리](sql-database-libraries.md)
 
 
 **탄력적인 확장:** 탄력적인 확장 데이터베이스의 연결에 대한 자세한 내용은 다음을 참조하세요.
@@ -173,9 +173,4 @@ Windows, Linux 및 Mac OS X 모두에서 실행 되는 클라이언트에 대한
 - [Azure SQL 데이터베이스 탄력적인 확장 미리 보기 시작](sql-database-elastic-scale-get-started.md)
 - [데이터 종속 라우팅](sql-database-elastic-scale-data-dependent-routing.md)
 
-
-**드라이버 라이브러리:** 권장 버전을 포함한 연결 드라이버 라이브러리에 대한 정보는 다음을 참조하세요:
-
-- [SQL 데이터베이스 및 SQL Server에 대한 연결 라이브러리](sql-database-libraries.md)
-
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

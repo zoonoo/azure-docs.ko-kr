@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/09/2016"
+    ms.date="05/23/2016"
     ms.author="brjohnst"/>
 
 # .NET SDK를 사용하여 Azure 검색에 데이터 업로드
@@ -205,4 +205,4 @@ public partial class Hotel
 ## 다음
 Azure 검색 인덱스를 채운 후에 문서를 검색하기 위해 쿼리를 발급하기 시작할 준비가 되었습니다. 세부 정보는 [Azure 검색 인덱스 쿼리](search-query-overview.md)를 참조하세요.
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0525_2016-->

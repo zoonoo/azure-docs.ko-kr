@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="05/12/2016" 
 	ms.author="billmath"/>
 
 # Azure Multi-factor Authentication에서 대체 방법을 사용하여 로그인
@@ -33,4 +33,6 @@
 
 <li>대체 방법을 선택하고 로그인합니다.</li>
 
-<!---HONumber=AcomDC_0218_2016-->
+ 
+
+<!---HONumber=AcomDC_0518_2016-->

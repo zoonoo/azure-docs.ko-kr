@@ -14,14 +14,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/10/2016"
+	ms.date="05/18/2016"
 	ms.author="jroth"/>
 
 # Azure 가상 컴퓨터의 SQL Server 개요
 
 [Azure 가상 컴퓨터에서 실행되는 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)를 사용하면 SQL Server 데이터베이스를 클라우드에 호스트할 수 있습니다. 예를 들어, 온-프레미스 데이터베이스를 Windows Server 2012 R2 및 SQL Server 2014 Enterprise edition을 사용하여 미리 구성된 Azure VM에 마이그레이션할 수 있습니다. 하지만, 온-프레미스 네트워크에 대한 연결과 함께 고가용성 또는 하이브리드 아키텍처를 지원하는 다중 컴퓨터 구성 같은 다른 가능한 시나리오가 많이 있습니다.
 
-유용한 개요를 보려면 [Azure VM은 SQL Server 2016를 위한 최상의 플랫폼입니다.](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016) 비디오를 시청하세요.
+보다 명확한 개요를 보려면 다음 동영상을 시청합니다.
+
+> [AZURE.VIDEO data-driven-sql-server-2016-azure-vm-is-the-best-platform-for-sql-server-2016]
 
 ## SQL 제품
 
@@ -84,8 +86,8 @@ SQL Server 가상 컴퓨터를 준비하고 실행한 후 기존 데이터베이
 
 먼저, [Azure 포털에 자신의 SQL Server VM을 만듭니다](virtual-machines-windows-portal-sql-server-provision.md).
 
-그 다음, SQL Server 워크로드를 Azure VM으로 이동하는 것을 고려하여 [성능 모범 사례](virtual-machines-windows-sql-performance.md) 및 [마이그레이션 기법](virtual-machines-windows-migrate-sql.md)을 검토합니다.
+그런 다음 SQL Server 워크로드를 Azure VM으로 이동하는 것을 고려하며 [성능 모범 사례](virtual-machines-windows-sql-performance.md) 및 [마이그레이션 기법](virtual-machines-windows-migrate-sql.md)을 검토합니다.
 
 Azure 가상 컴퓨터의 SQL Server에 대한 질문이 더 있으면 [Azure 가상 컴퓨터의 SQL Server FAQ](virtual-machines-windows-sql-server-iaas-faq.md)를 참조하세요. 또는 SQL VM 항목의 맨 아래에 의견을 추가하여 Microsoft 및 커뮤니티와 상호 의견을 교환하세요.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

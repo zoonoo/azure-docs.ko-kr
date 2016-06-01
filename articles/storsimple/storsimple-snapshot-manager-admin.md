@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/04/2016"
+   ms.date="05/18/2016"
    ms.author="v-sharos" />
 
 # StorSimple 스냅숏 관리자를 사용하여 StorSimple 솔루션 관리
@@ -39,7 +39,7 @@ StorSimple 스냅숏 관리자의 중앙 관리 콘솔은 로컬 및 클라우�
 
 - StorSimple 스냅숏 관리자 배포 절차에 대해서는 [StorSimple 스냅숏 관리자 배포](storsimple-snapshot-manager-deployment.md)로 이동하세요.
 
->[AZURE.NOTE]StorSimple 스냅숏 관리자를 사용하여 Microsoft Azure StorSimple 가상 배열 (StorSimple 온-프레미스 가상 장치라고도 함)를 관리할 수 없습니다.
+>[AZURE.NOTE] StorSimple 스냅숏 관리자를 사용하여 Microsoft Azure StorSimple 가상 배열 (StorSimple 온-프레미스 가상 장치라고도 함)를 관리할 수 없습니다.
 
 ## StorSimple 스냅숏 관리자 작업 및 워크플로
 
@@ -62,4 +62,4 @@ StorSimple 스냅숏 관리자를 사용하여 현재 백업 작업, 예약된 �
 
 [StorSimple 스냅숏 관리자 다운로드](https://www.microsoft.com/download/details.aspx?id=44220)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0518_2016-->

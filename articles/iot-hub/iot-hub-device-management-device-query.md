@@ -16,7 +16,9 @@
  ms.date="04/29/2016"
  ms.author="elfarber"/>
 
-# 자습서: 쿼리를 사용하여 쌍 장치를 찾는 방법(미리 보기)
+# 자습서: C#으로 쿼리를 사용하여 쌍 장치를 찾는 방법(미리 보기)
+
+[AZURE.INCLUDE [iot-hub-device-management-query-selector](../../includes/iot-hub-device-management-query-selector.md)]
 
 Azure IoT 장치 관리를 통해 쿼리를 사용하여 물리적 장치의 서비스 표시인 장치 쌍을 찾을 수 있습니다. 장치 속성, 서비스 속성 또는 장치 쌍의 태그를 기반으로 쿼리할 수 있습니다. 태그와 속성을 사용하여 쿼리할 수 있습니다.
 
@@ -53,26 +55,29 @@ Azure IoT 장치 관리를 통해 쿼리를 사용하여 물리적 장치의 서
 - **Project**: 쿼리 결과 집합에 포함할 장치 개체의 필드를 지정하는 식(SQL의 SELECT와 같음):
 
   ```
-  var query = JsonConvert.SerializeObject(
-      project = new
-      {
-        all = false,
-        properties = new []
-        {
-          new
-          {
-            name = "CustomerId",
-            type = "service"
-          },
-          new
-          {
-            name = "Weight",
-            type = "service"
-          }
-        }
-      }
-  );
-```
+	  var query = JsonConvert.SerializeObject(
+		  new
+		  {
+			  project = new
+			  {
+				  all = false,
+				  properties = new[]
+				  {
+					  new
+					  {
+					  name = "CustomerId",
+					  type = "service"
+					  },
+					  new
+					  {
+					  name = "Weight",
+					  type = "service"
+					  }
+				  }
+			  }
+		  }
+	  );
+	```
 
 - **Filter**: 쿼리 결과 집합에 포함되는 장치 개체를 제한하는 식(SQL의 WHERE와 같음):
 
@@ -196,7 +201,7 @@ var foundDevices = await registryManager.QueryDevicesAsync(new[] { "bacon" }, 10
 
 ### 장치 구현
 
-쿼리는 Azure IoT Hub 장치 관리 클라이언트 라이브러리에서 사용하도록 설정됩니다. 장치 속성이 동기화되었다면([자습서: 장치 쌍을 사용하는 방법][lnk-twin-tutorial]에서 설명한 대로)해당 속성에 대해 쿼리할 수 있습니다. 장치 속성은 물리적 장치가 IoT Hub에 연결하고 초기값을 제공한 후에만 사용할 수 있습니다.
+쿼리는 Azure IoT Hub 장치 관리 클라이언트 라이브러리에서 사용하도록 설정됩니다. 장치 속성이 동기화되었다면([자습서: 장치 쌍을 사용하는 방법][lnk-twin-tutorial]에서 설명한 대로) 해당 속성에 대해 쿼리할 수 있습니다. 장치 속성은 물리적 장치가 IoT Hub에 연결하고 초기값을 제공한 후에만 사용할 수 있습니다.
 
 ## 다음 단계
 
@@ -216,4 +221,4 @@ Azure IoT Hub 장치 관리 기능에 대해 자세히 알아보려면 이 자�
 [lnk-query-samples]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/doc/get_started/dm_queries/query-samples.md
 [lnk-query-expression-guide]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/node/service/devdoc/query_expression_requirements.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/01/2016"
+   ms.date="05/05/2016"
    ms.author="ganesr"/>
 
 
@@ -98,7 +98,7 @@ Express 경로 회로의 세부 정보를 가져오려면 다음을 실행합니
 
     get-azurededicatedcircuit
 
-나열된 서비스 키를 볼 수 있어야 합니다. 이제 Express 경로 회로에 대한 링크를 관리할 수 있습니다. 다음 문서에서는 Express 경로 회로에 대한 링크를 관리하는 방법을 안내합니다.
+나열된 서비스 키를 볼 수 있어야 합니다. 이제 클래식 VNet에 대한 표준 클래식 배포 모델 명령 및 ARM VNET에 대한 표준 ARM 명령을 사용하여 Express 경로 회로에 대한 링크를 관리할 수 있습니다. 다음 문서에서는 Express 경로 회로에 대한 링크를 관리하는 방법을 안내합니다.
 
 - [리소스 관리자 배포 모델에서 가상 네트워크를 Express 경로 회로에 연결](expressroute-howto-linkvnet-arm.md)
 - [클래식 배포 모델에서 가상 네트워크를 Express 경로 회로에 연결](expressroute-howto-linkvnet-classic.md)
@@ -126,4 +126,4 @@ Express 경로 회로의 세부 정보를 가져오려면 다음을 실행합니
 - [Express 경로 회로의 라우팅 만들기 및 수정](expressroute-howto-routing-arm.md)
 - [가상 네트워크를 Express 경로 회로에 연결](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

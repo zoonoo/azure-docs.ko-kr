@@ -24,8 +24,8 @@ DC/OS는 기본 하드웨어를 추상화하는 동안 클러스터형 워크로
 
 프레임워크는 수많은 워크로드에 사용할 수 있지만 이 문서에서는 Marathon으로 컨테이너 배포를 만들고 확장할 수 있는 방법을 설명합니다. 이러한 예제를 통해 작업하기 전에 Azure 컨테이너 서비스에 구성된 DC/OS 클러스터가 필요합니다. 또한 이 클러스터에 원격으로 연결해야 합니다. 이러한 항목에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-- [Azure 컨테이너 서비스 클러스터 배포](./container-service-deployment.md)
-- [Azure 컨테이너 서비스 클러스터에 연결](./container-service-connect.md)
+- [Azure 컨테이너 서비스 클러스터 배포](container-service-deployment.md)
+- [Azure 컨테이너 서비스 클러스터에 연결](container-service-connect.md)
 
 ## DC/OS UI 탐색
 
@@ -95,6 +95,6 @@ DC/OS 앱(http://localhost/)으로 다시 전환하면 이 경우 Docker로 포�
 
 ## 다음 단계
 
-[DC/OS 및 Marathon API 작업](./container-service-mesos-marathon-rest.md)
+[DC/OS 및 Marathon API 작업](container-service-mesos-marathon-rest.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -81,6 +81,8 @@ Outlook.com으로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 
 |신뢰|예|Outlook.com 자격 증명 제공|
 연결을 만든 후에 사용하여 작업을 실행하고 이 문서에 설명된 트리거에 대한 수신을 대기할 수 있습니다.
 
+>[AZURE.INCLUDE [Outlook.com에 대한 연결을 만드는 단계](../../includes/connectors-create-api-outlook.md)]
+
 >[AZURE.TIP] 다른 논리 앱에서 이 연결을 사용할 수 있습니다.
 
 ## Outlook.com에 대한 참조
@@ -602,11 +604,14 @@ Outlook.com으로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 
 |원본|string|아니요 |
 |참조|string|아니요 |
 |Bcc|string|아니요 |
-|제목|string|예 |
+|제목  
+|string|예 |
 |본문|string|예 |
-|중요도|string|아니요 |
+|중요도  
+|string|아니요 |
 |IsHtml|부울|아니요 |
-|받는 사람|string|예 |
+|받는 사람  
+|string|예 |
 
 
 
@@ -634,11 +639,14 @@ Outlook.com으로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 
 |원본|string|아니요 |
 |참조|string|아니요 |
 |Bcc|string|아니요 |
-|제목|string|예 |
+|제목  
+|string|예 |
 |본문|string|예 |
-|중요도|string|아니요 |
+|중요도  
+|string|아니요 |
 |IsHtml|부울|아니요 |
-|받는 사람|string|예 |
+|받는 사람  
+|string|예 |
 
 
 
@@ -660,12 +668,15 @@ Outlook.com으로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 
 
 | 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|제목|string|예 |
+|제목  
+|string|예 |
 |본문|string|아니요 |
-|중요도|string|아니요 |
+|중요도  
+|string|아니요 |
 |Digest|array|예 |
 |첨부 파일|array|아니요 |
-|받는 사람|string|예 |
+|받는 사람  
+|string|예 |
 
 
 
@@ -773,12 +784,15 @@ Outlook.com으로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 
 
 | 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|제목|string|예 |
+|제목  
+|string|예 |
 |옵션|string|예 |
 |본문|string|아니요 |
-|중요도|string|아니요 |
+|중요도  
+|string|아니요 |
 |첨부 파일|array|아니요 |
-|받는 사람|string|예 |
+|받는 사람  
+|string|예 |
 
 
 
@@ -809,12 +823,15 @@ Outlook.com으로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 
 
 | 속성 이름 | 데이터 형식 | 필수 |
 |---|---|---|
-|제목|string|예 |
+|제목  
+|string|예 |
 |옵션|string|예 |
 |본문|string|아니요 |
-|중요도|string|아니요 |
+|중요도  
+|string|아니요 |
 |첨부 파일|array|아니요 |
-|받는 사람|string|예 |
+|받는 사람  
+|string|예 |
 
 
 
@@ -912,4 +929,4 @@ Outlook.com으로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 
 ## 다음 단계
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

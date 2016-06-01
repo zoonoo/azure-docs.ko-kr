@@ -11,7 +11,7 @@
 <tags 
 	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="Windows" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="05/04/2016" 
@@ -119,4 +119,4 @@ Azure 인프라 서비스의 고가용성 LOB(기간 업무) 응용 프로그램
 
 - Azure에 자체 IT 워크로드를 배포하려면 이러한 [지침](virtual-machines-linux-infrastructure-service-guidelines.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

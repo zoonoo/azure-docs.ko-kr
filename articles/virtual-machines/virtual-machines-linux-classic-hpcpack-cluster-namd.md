@@ -29,7 +29,7 @@ Microsoft HPC 팩에서는 MPI 응용 프로그램을 포함한 다양한 대규
 
 ## 필수 조건
 
-* **Linux 계산 노드가 포함된 HPC 팩 클러스터** - [Azure Resource Manager 템플릿](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) 또는 [Azure PowerShell 스크립트](virtual-machines-hpcpack-cluster-powershell-script)를 사용하여 Azure에서 Linux 계산 노드가 포함된 HPC 팩 클러스터를 배포합니다. 각 옵션 사용 시의 필수 구성 요소 및 단계는 [Azure에서 HPC 팩 클러스터의 Linux 계산 노드 시작](virtual-machines-linux-classic-hpcpack-cluster.md)을 참조하세요. PowerShell 스크립트 배포 옵션을 선택하는 경우 이 문서 끝부분의 샘플 파일 섹션에 나와 있는 샘플 구성 파일을 참조하여 Windows Server 2012 R2 헤드 노드와 대형(A3) CentOS 6.6 계산 노드 4개로 구성된 Azure 기반 HPC 팩 클러스터를 배포합니다. 환경에서 필요한 경우 이 파일을 조정합니다.
+* **Linux 계산 노드가 포함된 HPC 팩 클러스터** - [Azure Resource Manager 템플릿](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) 또는 [Azure PowerShell 스크립트](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md)를 사용하여 Azure에서 Linux 계산 노드가 포함된 HPC 팩 클러스터를 배포합니다. 각 옵션 사용 시의 필수 구성 요소 및 단계는 [Azure에서 HPC 팩 클러스터의 Linux 계산 노드 시작](virtual-machines-linux-classic-hpcpack-cluster.md)을 참조하세요. PowerShell 스크립트 배포 옵션을 선택하는 경우 이 문서 끝부분의 샘플 파일 섹션에 나와 있는 샘플 구성 파일을 참조하여 Windows Server 2012 R2 헤드 노드와 대형(A3) CentOS 6.6 계산 노드 4개로 구성된 Azure 기반 HPC 팩 클러스터를 배포합니다. 환경에서 필요한 경우 이 파일을 조정합니다.
 
 
 * **NAMD 소프트웨어 및 자습서 파일** - [NAMD](http://www.ks.uiuc.edu/Research/namd/) 사이트(등록 필요)에서 Linux용 NAMD 소프트웨어를 다운로드합니다. 이 문서는 NAMD 버전 2.10을 기반으로 하며 클러스터 네트워크의 여러 Linux 계산 노드에서 NAMD를 실행하는 데 사용할 [Linux-x86\_64(이더넷 포함 64비트 Intel/AMD)](http://www.ks.uiuc.edu/Development/Download/download.cgi?UserID=&AccessCode=&ArchiveID=1310) 보관 파일을 사용합니다. [NAMD 자습서 파일](http://www.ks.uiuc.edu/Training/Tutorials/#namd)도 다운로드합니다. 다운로드는 .tar 파일이므로 클러스터 헤드 노드에 파일을 추출하기 위한 Windows 도구가 필요합니다. 이 도구를 사용하여 파일을 추출하려면 하려면 이 문서 뒷부분의 지침을 따릅니다.
@@ -415,4 +415,4 @@ exit ${RTNSTS}
 [task_details]: ./media/virtual-machines-linux-classic-hpcpack-cluster-namd/task_details.png
 [vmd_view]: ./media/virtual-machines-linux-classic-hpcpack-cluster-namd/vmd_view.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

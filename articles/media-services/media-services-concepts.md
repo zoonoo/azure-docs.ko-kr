@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/25/2016" 
+	ms.date="05/11/2016" 
 	ms.author="juliako"/>
 
 #Azure 미디어 서비스 개념 
@@ -252,4 +252,4 @@ SSL 연결을 통해 콘텐츠를 스트리밍할 수도 있습니다. 이렇게
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

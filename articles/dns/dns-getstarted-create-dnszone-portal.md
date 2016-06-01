@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/29/2016"
+   ms.date="05/09/2016"
    ms.author="cherylmc"/>
 
-# Azure 포털에서 DNS 영역 만들기 및 관리
+# Azure 포털에서 DNS 영역 만들기
 
 
 > [AZURE.SELECTOR]
@@ -29,13 +29,8 @@
 
 이 문서에서는 Azure 포털을 사용하여 DNS 영역을 만드는 단계를 안내합니다. PowerShell 또는 CLI를 사용하여 DNS 영역을 만들 수도 있습니다.
 
-“contoso.com” 도메인은 “mail.contoso.com”(메일 서버) 및 “www.contoso.com”(웹 사이트)과 같은 많은 DNS 레코드를 포함할 수 있습니다. DNS 영역은 특정 도메인에 대한 DNS 레코드를 호스트하는 데 사용됩니다. 도메인 호스팅을 시작하려면 먼저 DNS 영역을 만들어야 합니다. 특정 도메인에 대해 만든 DNS 레코드는 모두 해당 도메인에 대한 DNS 영역 내에 있습니다.
+[AZURE.INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
-### <a name="names"></a>DNS 영역 이름 정보
- 
-- 영역 이름은 리소스 그룹 내에서 고유해야 하며, 영역이 존재해서는 안 됩니다. 그렇지 않으면 작업이 실패합니다.
-
-- 서로 다른 리소스 그룹이나 Azure 구독에서는 동일한 영역 이름을 다시 사용할 수 있습니다. 여러 영역이 동일한 이름을 공유하는 경우 각 인스턴스에 다른 이름 서버 주소가 할당되며, 하나의 인스턴스만 부모 도메인에서 위임할 수 있습니다. 자세한 내용은 [Azure DNS에 도메인 위임](#delegate)을 참조하세요.
 
 ### Azure DNS에 대한 태그 정보
 
@@ -74,7 +69,7 @@ Azure 포털에서 DNS 영역에 대한 **설정** 블레이드를 사용하여 
 9. 새 영역이 만들어지면 대시보드에서 새 영역에 대한 블레이드가 열립니다.
 
 
-## DNS 영역 레코드 보기
+## 레코드 보기
 
 DNS 영역을 만들면 다음 레코드도 생성됩니다.
 
@@ -93,6 +88,29 @@ Azure 포털에서 레코드를 볼 수 있습니다.
 
 	![영역](./media/dns-getstarted-create-dnszone-portal/viewzone500.png)
 
+## 테스트
+
+nslookup, dig 또는 [Resolve-DnsName PowerShell cmdlet](https://technet.microsoft.com/library/jj590781.aspx)과 같은 DNS 도구를 사용하여 DNS 영역을 테스트할 수 있습니다.
+
+Azure DNS에서 새 영역을 사용하도록 도메인을 아직 위임하지 않은 경우 DNS 쿼리를 영역에 대한 이름 서버 중 하나로 직접 보내야 합니다. 사용자의 영역에 대한 이름 서버는 `Get-AzureRmDnsRecordSet`을 통해 나열된 것처럼 NS 레코드에 제공됩니다. 아래 명령을 사용자 영역의 올바른 값으로 대체해야 합니다.
+
+	nslookup
+	> set type=SOA
+	> server ns1-01.azure-dns.com
+	> contoso.com
+
+	Server: ns1-01.azure-dns.com
+	Address:  208.76.47.1
+
+	contoso.com
+        	primary name server = ns1-01.azure-dns.com
+        	responsible mail addr = msnhst.microsoft.com
+        	serial  = 1
+        	refresh = 900 (15 mins)
+        	retry   = 300 (5 mins)
+        	expire  = 604800 (7 days)
+        	default TTL = 300 (5 mins)
+
 
 
 ## DNS 영역 삭제
@@ -106,6 +124,6 @@ Azure 포털에서 레코드를 볼 수 있습니다.
 
 ## 다음 단계
 
-DNS 영역을 만든 후에는 [레코드 집합 및 레코드 만들기 시작](dns-getstarted-create-recordset-portal.md), [DNS 영역을 관리하는 방법](dns-operations-dnszones.md) 및 [DNS 레코드를 관리하는 방법](dns-operations-recordsets-portal.md)을 참조하세요.
+DNS 영역을 만든 후에는 [레코드 집합 및 레코드](dns-getstarted-create-recordset-portal.md)를 만들어 인터넷 도메인에 대한 이름 확인을 시작해야 합니다.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

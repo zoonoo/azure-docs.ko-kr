@@ -13,13 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="05/10/2016" 
 	ms.author="bradsev" />
 
 
 # 확장된 기계 학습을 위한 데이터 준비 작업
 
-## 소개
 데이터 전처리 및 정리는 일반적으로 기계 학습에 데이터 집합을 효과적으로 사용할 수 있기 전에 수행해야 하는 중요한 작업입니다. 원시 데이터는 노이즈가 많고, 불안정하고, 값이 누락된 경우가 종종 있습니다. 이러한 데이터를 모델링에 사용하면 결과가 잘못될 수 있습니다. 이러한 작업은 Cortana 분석 프로세스(CAP)의 일부이며 일반적으로 필요한 전처리를 검색하고 계획하는 데 사용되는 데이터 집합의 초기 탐색을 수행합니다. CAP 프로세스에 대한 자세한 지침은 [Cortana 분석 프로세스](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)에 설명된 단계를 참조하세요.
 
 데이터 탐색 작업 등의 전처리 및 정리 작업은 데이터가 저장된 위치와 포맷 방식에 따라 R 또는 Python 등의 다양한 도구 및 언어와 함께 SQL나 Hive 또는 Azure 기계 학습 스튜디오와 같은 다양한 환경에서 수행할 수 있습니다. CAP은 반복 성향을 띠기 때문에, 이러한 작업은 프로세스의 워크플로 내의 다양한 단계에서 발생할 수 있습니다.
@@ -110,4 +109,4 @@ Azure 기계 학습 스튜디오 내부에서 수행된 데이터 탐색 및 전
 
 >*데이터 마이닝: 개념 및 기술*, Third Edition, Morgan Kaufmann, 2011, Jiawei Han, Micheline Kamber 및 Jian Pei
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

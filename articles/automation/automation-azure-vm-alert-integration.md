@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="infrastructure-services"
-    ms.date="04/11/2016"
+    ms.date="04/24/2016"
     ms.author="csand;magoedte" />
 
 # Azure 자동화 솔루션 - Azure VM 경고 수정
@@ -66,6 +66,102 @@ VM 경고 임계값에 도달할 때 runbook이 실행되도록 구성하려면 
 
 경고에 대해 runbook을 구성한 경우 runbook 구성을 제거하지 않고 사용하지 않도록 설정할 수 있습니다. 이렇게 하면 경고를 실행 상태로 유지하고 일부 경고 규칙을 테스트한 후 나중에 runbook을 다시 사용하도록 설정할 수 있습니다.
 
+## Azure 경고를 사용하여 작동하는 Runbook 만들기
+
+Azure 경고 규칙의 일환으로 Runbook을 선택하면 Runbook은 여기에 전달되는 경고 데이터를 관리하는 논리를 포함해야 합니다. Runbook이 경고 규칙에 구성된 경우 웹후크가 Runbook에 생성됩니다.해당 웹후크는 경고가 트리거될 때마다 Runbook을 시작하는 데 사용됩니다. Runbook을 시작하는 실제 호출은 웹후크 URL에 대한 HTTP POST 요청입니다. POST 요청의 본문에는 경고와 관련된 유용한 속성을 포함하는 JSON으로 포맷된 개체가 포함되어 있습니다. 아래에서 볼 수 있는 것처럼 경고 데이터는 subscriptionID, resourceGroupName, resourceName, 및 resourceType와 같은 세부 정보를 포함합니다.
+
+### 경고 데이터의 예
+```
+{
+    "WebhookName": "AzureAlertTest",
+    "RequestBody": "{
+	"status":"Activated",
+	"context": {
+		"id":"/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/microsoft.insights/alertrules/AlertTest",
+		"name":"AlertTest",
+		"description":"",
+		"condition": {
+			"metricName":"CPU percentage guest OS",
+			"metricUnit":"Percent",
+			"metricValue":"4.26337916666667",
+			"threshold":"1",
+			"windowSize":"60",
+			"timeAggregation":"Average",
+			"operator":"GreaterThan"},
+		"subscriptionId":<subscriptionID> ",
+		"resourceGroupName":"TestResourceGroup",
+		"timestamp":"2016-04-24T23:19:50.1440170Z",
+		"resourceName":"TestVM",
+		"resourceType":"microsoft.compute/virtualmachines",
+		"resourceRegion":"westus",
+		"resourceId":"/subscriptions/<subscriptionId>/resourceGroups/TestResourceGroup/providers/Microsoft.Compute/virtualMachines/TestVM",
+		"portalLink":"https://portal.azure.com/#resource/subscriptions/<subscriptionId>/resourceGroups/TestResourceGroup/providers/Microsoft.Compute/virtualMachines/TestVM"
+		},
+	"properties":{}
+	}",
+    "RequestHeader": {
+        "Connection": "Keep-Alive",
+        "Host": "<webhookURL>"
+    }
+}
+```
+
+자동화 웹후크 서비스가 HTTP POST를 수신한 경우 경고 데이터를 추출하고 WebhookData Runbook 입력 매개 변수에서 Runbook에 전달합니다. 다음은 WebhookData 매개 변수를 사용하고 경고 데이터를 추출하고 사용하여 경고를 트리거하는 Azure 리소스를 관리하는 방법을 보여 주는 샘플 Runbook입니다.
+
+### 예제 Runbook
+
+```
+#  This runbook will restart an ARM (V2) VM in response to an Azure VM alert.
+
+[OutputType("PSAzureOperationResponse")]
+
+param ( [object] $WebhookData )
+
+if ($WebhookData)
+{
+	# Get the data object from WebhookData
+	$WebhookBody = (ConvertFrom-Json -InputObject $WebhookData.RequestBody)
+
+    # Assure that the alert status is 'Activated' (alert condition went from false to true)
+    # and not 'Resolved' (alert condition went from true to false)
+	if ($WebhookBody.status -eq "Activated")
+    {
+	    # Get the info needed to identify the VM
+	    $AlertContext = [object] $WebhookBody.context
+	    $ResourceName = $AlertContext.resourceName
+	    $ResourceType = $AlertContext.resourceType
+        $ResourceGroupName = $AlertContext.resourceGroupName
+        $SubId = $AlertContext.subscriptionId
+
+	    # Assure that this is the expected resource type
+	    Write-Verbose "ResourceType: $ResourceType"
+	    if ($ResourceType -eq "microsoft.compute/virtualmachines")
+	    {
+		    # This is an ARM (V2) VM
+
+		    # Authenticate to Azure with service principal and certificate
+            $ConnectionAssetName = "AzureRunAsConnection"
+		    $Conn = Get-AutomationConnection -Name $ConnectionAssetName
+		    if ($Conn -eq $null) {
+                throw "Could not retrieve connection asset: $ConnectionAssetName. Check that this asset exists in the Automation account."
+            }
+		    Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint | Write-Verbose
+		    Set-AzureRmContext -SubscriptionId $SubId -ErrorAction Stop | Write-Verbose
+
+            # Restart the VM
+		    Restart-AzureRmVM -Name $ResourceName -ResourceGroupName $ResourceGroupName
+	    } else {
+		    Write-Error "$ResourceType is not a supported resource type for this runbook."
+	    }
+    } else {
+        # The alert status was not 'Activated' so no action taken
+		Write-Verbose ("No action taken. Alert status: " + $WebhookBody.status)
+    }
+} else {
+    Write-Error "This runbook is meant to be started from an Azure alert only."
+}
+```
+
 ## 요약
 
 Azure VM에서 경고를 구성할 경우 경고가 트리거될 때 수정 작업을 자동으로 수행하도록 이제 자동화 runbook을 쉽게 구성할 수 있습니다. 이 릴리스에서는 경고 시나리오에 따라 runbook에서 VM을 다시 시작, 중지 또는 삭제하도록 선택할 수 있습니다. 이 릴리스는 경고가 트리거될 때 자동으로 수행하는 동작(알림, 문제 해결, 수정)을 제어하는 시나리오를 실현하는 시작일 뿐입니다.
@@ -76,4 +172,4 @@ Azure VM에서 경고를 구성할 경우 경고가 트리거될 때 수정 작�
 - PowerShell 워크플로 Runbook을 시작하려면 [내 첫 번째 PowerShell 워크플로 Runbook](automation-first-runbook-textual.md)을 참조하세요.
 - Runbook 형식, 해당 장점 및 제한 사항에 대해 자세히 알아보려면 [Azure 자동화 Runbook 형식](automation-runbook-types.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

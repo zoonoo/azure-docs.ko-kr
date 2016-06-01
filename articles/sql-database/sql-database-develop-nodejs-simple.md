@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Node.js를 사용하여 SQL 데이터베이스에 연결"
+	pageTitle="Node.js를 사용하여 SQL 데이터베이스에 연결 | Microsoft Azure"
 	description="Azure SQL 데이터베이스에 연결하는 데 사용할 수 있는 Node.js 코드 샘플을 제시합니다."
 	services="sql-database"
 	documentationCenter=""
@@ -38,4 +38,4 @@
 
 [Node.js를 사용하여 SQL에 연결하는 개념 증명](https://msdn.microsoft.com/library/mt715784.aspx)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

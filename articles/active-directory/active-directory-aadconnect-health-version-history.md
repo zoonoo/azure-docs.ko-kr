@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2016" 
+	ms.date="05/12/2016" 
 	ms.author="billmath"/>
 
 # Azure AD Connect Health: 버전 릴리스 내역
@@ -86,4 +86,4 @@ Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect 
 ## 다음 단계
 [온-프레미스 ID 인프라 및 클라우드 동기화 서비스 모니터링](active-directory-aadconnect-health.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

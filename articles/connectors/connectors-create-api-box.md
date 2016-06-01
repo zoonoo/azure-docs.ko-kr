@@ -14,13 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/25/2016"
+   ms.date="05/16/2016"
    ms.author="mandia"/>
 
 # Box API 시작
 Box에 연결하여 파일 만들기, 파일 삭제 등의 작업을 수행합니다. Box API는 다음에서 사용할 수 있습니다.
 
-- 논리 앱 
+- 논리 앱(이 항목에 설명됨)
+- PowerApps([PowerApps 연결 목록](https://powerapps.microsoft.com/tutorials/connections-list/)에서 전체 목록을 참조하세요.)
 
 >[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다.
 
@@ -260,6 +261,6 @@ Box 폴더에서 파일을 수정할 때 흐름을 트리거합니다. ```GET: /
 
 ## 다음 단계
 
-[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[논리 앱을 만듭니다](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

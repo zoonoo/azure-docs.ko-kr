@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="05/16/2016"
 	ms.author="dastrock"/>
 
 
@@ -63,27 +63,23 @@ Azure AD에서 응용 프로그램이 있으므로 ADAL을 설치하고 ID 관�
 -	먼저 패키지 관리자 콘솔을 사용하여 솔루션의 각 프로젝트에 ADAL을 추가합니다.
 
 `
-PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirectorySearcherLib -IncludePrerelease
+PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirectorySearcherLib
 `
 
 `
-PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-Android -IncludePrerelease
+PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-Android
 `
 
 `
-PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-Desktop -IncludePrerelease
+PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-Desktop
 `
 
 `
-PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-iOS -IncludePrerelease
+PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-iOS
 `
 
 `
-PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-Universal.Windows -IncludePrerelease
-`
-
-`
-PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-Universal.WindowsPhone -IncludePrerelease
+PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-Universal
 `
 
 - ADAL의 PCL 부분과 플랫폼별 부분의 두 라이브러리 참조가 각 프로젝트에 추가됩니다.
@@ -107,13 +103,17 @@ public static async Task<List<User>> SearchByAlias(string alias, IPlatformParame
 
 ```C#
 ...
-AuthenticationResult authResult = null;
-
-try
-{
-    AuthenticationContext authContext = new AuthenticationContext(authority);
-    authResult = await authContext.AcquireTokenAsync(graphResourceUri, clientId, returnUri, parent);
-}
+    AuthenticationResult authResult = null;
+    try
+    {
+        AuthenticationContext authContext = new AuthenticationContext(authority);
+        authResult = await authContext.AcquireTokenAsync(graphResourceUri, clientId, returnUri, parent);
+    }
+    catch (Exception ee)
+    {
+        results.Add(new User { error = ee.Message });
+        return results;
+    }
 ...
 ```
 - `AcquireTokenAsync(...)`는 먼저 사용자에게 자격 증명을 요구하지 않고(이전 토큰을 캐시하거나 새로 고침) 요청된 리소스(이 경우 Graph API)에 대한 토큰을 반환하려고 합니다. 필요한 경우에만 요청된 토큰을 획득하기 전에 사용자에게 Azure AD 로그인 페이지를 표시합니다.
@@ -123,7 +123,7 @@ try
 
 ```C#
 ...
-request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", authResult.AccessToken);
+    request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", authResult.AccessToken);
 ...
 ```
 
@@ -165,28 +165,13 @@ List<User> results = await DirectorySearcher.SearchByAlias(
   new PlatformParameters(PromptBehavior.Auto, this.Handle));
 ```
 
-####Windows 스토어
-- Windows 스토어에서 `MainPage.xaml.cs`를 열고 `Search` 메서드를 구현합니다. 이 메서드는 필요에 따라 공유 프로젝트에서 도우미 메서드를 사용하여 UI를 업데이트합니다.
+####Windows 유니버설:
+- Windows 유니버설에서 `MainPage.xaml.cs`를 열고 `Search` 메서드를 구현합니다. 이 메서드는 필요에 따라 공유 프로젝트에서 도우미 메서드를 사용하여 UI를 업데이트합니다.
 
 ```C#
-await UnivDirectoryHelper.Search(
-  sender, e,
-  SearchResults,
-  SearchTermText,
-  StatusResult,
-  new PlatformParameters(PromptBehavior.Auto, false));
-```
-
-####Windows Phone
-- Windows Phone에서 `MainPage.xaml.cs`를 열고 `Search` 메서드를 구현합니다. 이 메서드는 공유 프로젝트에서 동일한 도우미 메서드를 사용하여 UI를 업데이트합니다.
-
-```C#
-await UnivDirectoryHelper.Search(
-  sender, e,
-  SearchResults,
-  SearchTermText,
-  StatusResult,
-  new PlatformParameters());
+...
+    List<User> results = await DirectorySearcherLib.DirectorySearcher.SearchByAlias(SearchTermText.Text, new PlatformParameters(PromptBehavior.Auto, false));
+...
 ```
 
 축하합니다. 이제 5개의 서로 다른 플랫폼에서 OAuth 2.0을 사용하여 사용자를 인증하고 안전 하 게 Web API를 호출하는 기능이 있는 Xamarin 앱이 작성되었습니다. 아직 일부 사용자로 테넌트를 채우지 않은 경우 지금 할 수 있습니다. DirectorySearcher 앱을 실행하고 해당 사용자 중 하나로 로그인합니다. 해당 UPN에 따라 다른 사용자를 검색합니다.
@@ -199,4 +184,4 @@ ADAL은 앱에 일반적인 ID 기능을 쉽게 통합할 수 있습니다. 또�
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

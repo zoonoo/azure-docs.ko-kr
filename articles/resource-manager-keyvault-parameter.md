@@ -1,5 +1,5 @@
 <properties
-   pageTitle="리소스 관리자 템플릿에서 키 자격 증명 모음 암호 사용 | Microsoft Azure"
+   pageTitle="Resource Manager 템플릿에서 주요 자격 증명 모음 암호 | Microsoft Azure"
    description="배포하는 동안 키 자격 증명 모음의 암호를 매개 변수로 전달하는 방법을 보여 줍니다."
    services="azure-resource-manager,key-vault"
    documentationCenter="na"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/09/2016"
+   ms.date="05/16/2016"
    ms.author="tomfitz"/>
 
 # 배포 중 보안 값 전달
@@ -103,4 +103,4 @@
 - 가상 컴퓨터에서 키 자격 증명 모음을 사용하는 방법에 대한 자세한 내용은 [Azure Resource Manager에 대한 보안 고려 사항](best-practices-resource-manager-security.md)을 참조하세요.
 - 키 암호를 참조하는 전체 예제는 [키 자격 증명 모음 예제](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples)를 참조하세요.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

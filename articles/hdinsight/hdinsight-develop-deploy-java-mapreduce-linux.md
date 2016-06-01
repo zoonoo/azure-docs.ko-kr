@@ -14,14 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="04/22/2016"
+	ms.date="05/05/2016"
 	ms.author="larryfr"/>
 
-# HDInsight의 Hadoop용 Java MapReduce 프로그램 개발
+# HDInsight Linux의 Hadoop용 Java MapReduce 프로그램 개발
 
-[AZURE.INCLUDE [pig-선택기](../../includes/hdinsight-maven-mapreduce-selector.md)]
-
-이 문서에서는 Apache Maven을 사용하여 MapReduce 응용 프로그램을 만든 다음 HDInsight 클러스터의 Linux 기반 Hadoop에서 배포하고 실행하는 과정을 안내합니다. HDInsight 클러스터에서 Windows 기반 Hadoop 사용에 대한 정보는 [HDInsight에서 Hadoop용 Java MapReduce 프로그램 개발(Windows)](hdinsight-develop-deploy-java-mapreduce.md)을 참조하세요.
+이 문서에서는 Apache Maven을 사용하여 MapReduce 응용 프로그램을 만든 다음 HDInsight 클러스터의 Linux 기반 Hadoop에서 배포하고 실행하는 과정을 안내합니다.
 
 ##<a name="prerequisites"></a>필수 조건
 
@@ -290,4 +288,4 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

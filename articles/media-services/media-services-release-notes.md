@@ -83,8 +83,14 @@ SDK의 미디어 서비스 개체는 직렬화할 수 없으며, 결과적으로
 
 ##<a id="apr_changes16"></a>2016년 4월 릴리스
 
-이 릴리스에서는 강력한 비디오 인텔리전스를 위해 Azure 미디어 서비스에 Azure 미디어 분석을 도입했습니다. 자세한 내용은 Azure 미디어 서비스 분석 개요[media-services-analytics-overview.md]를 참조하세요.
+### Azure 미디어 분석
 
+Azure 미디어 서비스는 강력한 비디오 인텔리전스를 위한 Azure 미디어 분석을 출시했습니다. 자세한 내용은 [Azure 미디어 서비스 분석 개요](media-services-analytics-overview.md)를 참조하세요.
+
+### Apple FairPlay(미리 보기)
+
+이제 Azure 미디어 서비스를 사용하여 Apple FairPlay에서 HLS(HTTP 라이브 스트리밍) 콘텐츠를 동적으로 암호화할 수 있습니다. 또한 AMS 라이선스 배달 서비스를 사용하여 클라이언트에 FairPlay 라이선스를 배달할 수 있습니다. 자세한 내용은 [Azure 미디어 서비스를 사용하여 Apple FairPlay로 보호되는 HLS 콘텐츠 스트리밍](media-services-protect-hls-with-fairplay.md)을 참조하세요.
+  
 ##<a id="feb_changes16"></a>2016년 2월 릴리스
 
 최신 버전의 .NET용 Azure 미디어 서비스 SDK(3.5.3)에는 Widevine 관련 버그 수정이 포함되어 있습니다. 문제: Widevine으로 암호화된 여러 자산에 대해 AssetDeliveryPolicy를 다시 사용할 수 없습니다. 이 버그 수정의 일환으로 **WidevineBaseLicenseAcquisitionUrl** 속성이 SDK에 추가되었습니다.
@@ -200,29 +206,29 @@ OpenID Connect Discovery 문서를 노출하는 ID 공급자(예: Azure Active D
 
 ##<a id="april_changes_15"></a>2015년 4월 릴리스
 
-###일반 미디어 서비스 업데이트
+        ###General Media Services Updates
 
-- [Azure 미디어 플레이어가 도입](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/)되었습니다.
-- 미디어 서비스 REST 2.10부터 RTMP 프로토콜을 수집하도록 구성된 채널이 기본 및 보조 수집 URL을 통해 생성됩니다. 자세한 내용은 [채널 수집 구성](media-services-manage-channels-overview.md#channel_input)을 참조하세요.
-- Azure 미디어 인덱서 업데이트
-	- 스페인어 지원
-	- 새로운 구성 xml 형식
-	
-	자세한 내용은 [이 게시물](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/)을 참조하세요.
-###미디어 서비스 .NET SDK 업데이트
+        - [Announcing Azure Media Player](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/).
+        - Starting with Media Services REST 2.10, channels that are configured to ingest an RTMP protocol, are created with primary and secondary ingest URLs. For more information, see [Channel ingest configurations](media-services-live-streaming-with-onprem-encoders.md#channel_input)
+        - Azure Media Indexer updates
+        - Support for Spanish Language
+        - New configuration xml format
 
-Azure 미디어 서비스 .NET SDK의 현재 버전은 3.2.0.0입니다.
+        For more information see [this blog](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
+        ###Media Services .NET SDK Updates
 
-다음은 고객을 위한 몇 가지 업데이트입니다.
- 
-- **주요 변경 내용**: **TokenRestrictionTemplate.Issuer** 및 **TokenRestrictionTemplate.Audience**가 문자열 형식으로 변경됨 
-- 사용자 지정 다시 시도 정책 만들기 관련 업데이트 
-- 파일 업로드/다운로드 관련 버그 수정 
-- **MediaServicesCredentials** 클래스에서 이제 기본 및 보조 액세스 제어 끝점에 대한 인증을 허용합니다.
+        Azure Media Services .NET SDK is now version 3.2.0.0.
+
+        The following are some of the customer facing updates:
+
+        - **Breaking change**: Changed **TokenRestrictionTemplate.Issuer** and **TokenRestrictionTemplate.Audience** to be of a string type.
+        - Updates related to creating custom retry policies.
+        - Bug fixes related to uploading/downloading files.
+        - The **MediaServicesCredentials** class now accepts primary and secondary access control endpoint to authenticate against.
 
 
 
-##<a id="march_changes_15"></a>2015년 3월 릴리스
+        ##<a id="march_changes_15"></a>March 2015 Release
 
 ### 일반 미디어 서비스 업데이트
 
@@ -660,4 +666,4 @@ Azure 미디어 서비스 .NET SDK Extensions는 코드를 단순화하고 Azure
 [미디어 서비스 작업 알림 처리]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

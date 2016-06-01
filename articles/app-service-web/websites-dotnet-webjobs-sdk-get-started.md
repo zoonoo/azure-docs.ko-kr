@@ -299,7 +299,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 이 섹션에서는 **서버 탐색기**를 사용하여 Azure에서 연결 문자열 값을 설정합니다.
 
-7. **서버 탐색기**의 **Azure > {리소스 그룹}**에서 웹앱을 마우스 오른쪽 단추로 클릭한 다음 **설정 보기**를 클릭합니다.
+7. **서버 탐색기**의 **Azure > 앱 서비스 > {리소스 그룹}**에서 웹앱을 마우스 오른쪽 단추로 클릭한 다음 **설정 보기**를 클릭합니다.
 
 	**Azure 웹 앱** 창이 **구성** 탭에서 열립니다.
 
@@ -817,4 +817,4 @@ https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 
 자세한 내용은 [Azure WebJob 설명서 리소스](http://go.microsoft.com/fwlink/?LinkId=390226)를 참조하세요.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

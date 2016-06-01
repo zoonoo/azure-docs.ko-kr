@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure blob 컨테이너, SQL Server 및 Hive 테이블의 샘플 데이터 | Microsoft Azure" 
+	pageTitle="Azure blob 컨테이너, SQL Server 및 Hive 테이블의 데이터 샘플링 | Microsoft Azure" 
 	description="다양한 Azure 환경에 저장된 데이터를 탐색하는 방법" 
 	services="machine-learning" 
 	documentationCenter="" 
@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/07/2016" 
+	ms.date="05/10/2016" 
 	ms.author="fashah;garye;bradsev" />
 
-#<a name="heading"></a>Azure blob 컨테이너, SQL Server 및 Hive 테이블의 샘플 데이터
+#<a name="heading"></a>Azure blob 컨테이너, SQL Server 및 Hive 테이블의 데이터 샘플링
 
-## 소개
-
-이 문서에서는 Cortana 분석 프로세스에서 데이터를 분석하고 모델링할 때 일반적으로 사용되는 세 가지 Azure 위치에 저장된 데이터를 샘플링하는 방법을 설명합니다.
+이 문서는 세 가지 다른 Azure 위치 중 하나에 저장된 데이터를 샘플링하는 방법을 설명하는 항목에 대한 링크를 포함합니다.
 
 - **Azure blob 컨테이너 데이터**는 프로그래밍 방식으로 다운로드한 다음 샘플 Python 코드로 샘플링함으로써 샘플링됩니다.
 - **SQL Server 데이터**는 SQL 및 Python 프로그래밍 언어를 모두 사용하여 샘플링됩니다. 
@@ -36,4 +34,4 @@
 
 분석할 데이터 집합이 큰 경우 일반적으로 데이터를 다운 샘플링하여 작지만 전형적이고 관리하기 쉬운 크기로 줄이는 것이 좋습니다. 그러면 데이터 이해, 탐색 및 기능 엔지니어링이 용이해집니다. Cortana 분석 프로세스에서는 데이터 처리 기능 및 기계 학습 모델의 빠른 프로토타입 제작을 지원하는 역할을 합니다.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

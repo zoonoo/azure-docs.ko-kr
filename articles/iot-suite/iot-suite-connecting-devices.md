@@ -14,11 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/04/2016"
+   ms.date="05/09/2016"
    ms.author="dobett"/>
 
 
-# 미리 구성된 IoT Suite 원격 모니터링 솔루션에 장치 연결
+# 미리 구성된 원격 모니터링 솔루션에 장치 연결(Windows)
 
 [AZURE.INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
@@ -54,7 +54,6 @@ IoT Hub 클라이언트 라이브러리는 장치에서 IoT Hub로 보내는 메
     #include "iothub_client.h"
     #include "serializer.h"
     #include "schemaserializer.h"
-    #include "threadapi.h"
     ```
 
 2. 다음 변수 선언을 `#include` 문 뒤에 추가합니다. 원격 모니터링 솔루션 대시보드에서 자리 표시자 값 [Device Id] 및 [Device Key]를 장치에 대한 값으로 바꿉니다. 대시보드에서 IoT Hub 호스트 이름을 사용하여 [IoTHub Name]을 바꿉니다. 예를 들어 IoT Hub 호스트 이름이 **contoso.azure-devices.net**인 경우 [IoTHub Name]을 contoso로 바꿉니다.
@@ -360,4 +359,4 @@ IoT Hub 클라이언트 라이브러리는 장치에서 IoT Hub로 보내는 메
 
 [lnk-setup-windows]: https://github.com/azure/azure-iot-sdks/blob/develop/c/doc/devbox_setup.md#windows
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

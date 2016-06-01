@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 #국가 코드
+
+[AZURE.INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
 **국가 필터링** 기능은 국가 코드를 사용하여 보안된 디렉터리에 대해 요청이 허용 또는 차단될 국가를 정의합니다. 다음 표에는 모든 국가 코드가 포함되어 있습니다. "EU"(유럽) 또는 "AP"(아시아/태평양)를 지정하면 해당 지역의 국가에서 발생하는 IP 주소의 하위 집합이 차단 또는 허용됩니다. 국가 필터링 기능을 사용하는 방법에 대한 자세한 내용은 [국가별로 콘텐츠에 대한 액세스를 제한하는 방법](cdn-restrict-access-by-country.md)을 참조하세요.
 
@@ -268,4 +270,4 @@
 | ZM | 잠비아 | |
 | ZW | 짐바브웨 | |
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="04/28/2016"
 	ms.author="banders"/>
 
@@ -40,8 +40,9 @@ Microsoft Monitoring Agent를 사용하여 OMS 서비스에 연결하고 등록�
 
 2. **Microsoft Monitoring Agent**를 엽니다.
 
-3. **프록시 설정** 탭을 클릭합니다.  
+3. **프록시 설정** 탭을 클릭합니다.
   ![프록시 설정 탭](./media/log-analytics-proxy-firewall/proxy-direct-agent-proxy.png)
+
 
 4. **프록시 서버 사용**을 선택하고 URL과 포트 번호를 입력하고, 필요한 경우 표시된 예제와 비슷합니다. 프록시 서버에 인증이 필요한 경우 프록시 서버에 액세스 하려면 사용자 이름과 암호를 입력합니다.
 
@@ -196,5 +197,4 @@ Hybrid Runbook Worker를 실행 중인 온-프레미스 컴퓨터는 포트 443,
 - [솔루션 갤러리에서 Log Analytics 솔루션을 추가](log-analytics-add-solutions.md)하여 기능을 추가하고 데이터를 수집합니다.
 - [로그 검색](log-analytics-log-searches.md)을 통해 솔루션에서 수집한 자세한 정보를 확인하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0504_2016-->
-
+<!---HONumber=AcomDC_0525_2016-->

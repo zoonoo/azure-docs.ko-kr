@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/04/2016"
+	ms.date="05/25/2016"
 	ms.author="sdanie"/>
 
 # Azure API 관리에서 개발자 포털 사용자 지정
@@ -99,4 +99,4 @@
 [부트스트랩]: http://getbootstrap.com/
 [LESS 변수]: http://getbootstrap.com/css/
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

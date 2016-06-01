@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/19/2016"
+	ms.date="05/16/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 미리 보기: Azure AD B2C UI(사용자 인터페이스)를 사용자 지정
@@ -198,6 +198,61 @@ Azure Blob 저장소에서 호스트되는 샘플 HTML 및 CSS 콘텐츠를 사�
 
 이 페이지는 Facebook 또는 Google+와 같은 소셜 ID 공급자에서 기존 계정을 사용하여 등록하는 경우 소비자가 작성해야 하는 등록 양식을 포함합니다. 이 페이지는 암호 입력 필드를 제외하고 로컬 계정 등록 페이지와 유사합니다.(이전 섹션에 표시됨)
 
+### 통합 등록 또는 로그인 페이지
+
+이 페이지는 Facebook 또는 Google+ 또는 로컬 계정과 같은 소셜 ID 공급자를 사용할 수 있는 고객의 등록 및 로그인을 모두 다룹니다.
+
+```HTML
+
+<div id="api" data-name="Unified">
+        <div class="social" role="form">
+               <div class="intro">
+                       <h2>Sign in with your social account</h2>
+               </div>
+               <div class="options">
+                       <div><button class="accountButton firstButton" id="MicrosoftAccountExchange" tabindex="1">msa</button></div>
+                       <div><button class="accountButton" id="FacebookExchange" tabindex="1">fb</button></div>
+               </div>
+        </div>
+        <div class="divider">
+               <h2>OR</h2>
+        </div>
+        <div class="localAccount" role="form">
+               <div class="intro">
+                       <h2>Sign in with your existing account</h2>
+               </div>
+               <div class="error pageLevel" aria-hidden="true" style="display: none;">
+                       <p role="alert"></p>
+               </div>
+               <div class="entry">
+                       <div class="entry-item">
+                               <label for="logonIdentifier">Email Address</label> 
+                               <div class="error itemLevel" aria-hidden="true" style="display: none;">
+                                      <p role="alert"></p>
+                               </div>
+                               <input type="email" id="logonIdentifier" name="LogonIdentifier" pattern="^[a-zA-Z0-9.!#$%&amp;’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" placeholder="LogonIdentifier" value="" tabindex="1">
+                       </div>
+                       <div class="entry-item">
+                               <div class="password-label"> <label for="password">Password</label><a id="forgotPassword" tabindex="2">Forgot your password?</a></div>
+                               <div class="error itemLevel" aria-hidden="true" style="display: none;">
+                                      <p role="alert"></p>
+                               </div>
+                               <input type="password" id="password" name="Password" placeholder="Password" tabindex="1">
+                       </div>
+                       <div class="working"></div>
+                       <div class="buttons"> <button id="next" tabindex="1">Sign in</button> </div>
+               </div>
+               <div class="divider">
+                       <h2>OR</h2>
+               </div>
+               <div class="create">
+                       <p>Don't have an account?<a id="createAccount" tabindex="1">Sign up now</a> </p>
+               </div>
+        </div>
+</div>
+
+```
+
 ### 다단계 인증 페이지
 
 이 페이지에서 등록 또는 로그인하는 동안 사용자가 텍스트 또는 음성을 사용하여 전화 번호를 확인할 수 있습니다.
@@ -277,4 +332,4 @@ Azure Blob 저장소에서 호스트되는 샘플 HTML 및 CSS 콘텐츠를 사�
 	- Mozilla Firefox 38.0
 	- Mozilla Firefox 37.0
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

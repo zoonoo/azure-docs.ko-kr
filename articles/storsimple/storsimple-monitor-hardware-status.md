@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/05/2016"
+   ms.date="05/18/2016"
    ms.author="alkohli" />
 
 # StorSimple 관리자 서비스를 사용하여 하드웨어 구성 요소 및 상태 모니터링
@@ -39,7 +39,7 @@
 
 - **EBOD 컨트롤러 1 구성 요소** – EBOD 0에 대한 설명과 유사한 EBOD 인클로저 1을 구성하는 구성 요소입니다.
 
->[AZURE.NOTE]**하드웨어 상태 섹션은 StorSimple 가상 장치(1100)에 대한 유지 관리 페이지에 나타나지 않습니다.**
+>[AZURE.NOTE] **하드웨어 상태 섹션은 StorSimple 가상 장치(1100)에 대한 유지 관리 페이지에 나타나지 않습니다.**
 
 
 ## 하드웨어 상태 모니터링
@@ -136,4 +136,4 @@
 
 - 장치 문제가 계속되면 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -19,9 +19,11 @@
 # PowerShell 및 Azure Resource Manager를 사용하여 Azure에 VMM 클라우드의 Hyper-V 가상 컴퓨터 복제
 
 > [AZURE.SELECTOR]
-- [Azure 클래식 포털](site-recovery-vmm-to-azure.md)
+- [Azure 포털](site-recovery-vmm-to-azure.md)
+- [PowerShell - ARM](site-recovery-vmm-to-azure-powershell-resource-manager.md)
+- [클래식 포털](site-recovery-vmm-to-azure-classic.md)
 - [PowerShell - 클래식](site-recovery-deploy-with-powershell.md)
-- [PowerShell - Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md) 
+
 
 
 ## 개요
@@ -42,7 +44,7 @@ Azure Site Recovery는 여러 배포 시나리오에서 가상 컴퓨터의 복�
 
 이 시나리오를 설정하는 동안 문제가 발생할 경우 [Azure 복구 서비스 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에 문의 사항을 게시하세요.
 
-> [AZURE.NOTE] Azure에는 리소스를 만들고 작업하기 위한 두 가지 다양한 배포 모델이 있습니다. [리소스 관리자 및 클래식](../resource-manager-deployment-model.md) 이 문서에서는 리소스 관리자 배포 모델 사용에 대해 설명합니다.
+> [AZURE.NOTE] Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델이 있습니다. [리소스 관리자 및 클래식](../resource-manager-deployment-model.md) 이 문서에서는 리소스 관리자 배포 모델 사용에 대해 설명합니다.
 
 ## 시작하기 전에
 
@@ -50,7 +52,7 @@ Azure Site Recovery는 여러 배포 시나리오에서 가상 컴퓨터의 복�
 
 ### Azure 필수 조건
 
-- [Microsoft Azure](https://azure.microsoft.com/) 계정이 있어야 합니다. 계정이 없는 분은 [무료 계정](https://azure.microsoft.com/free)으로 시작할 수 있습니다. [Azure Site Recovery Manager 가격 책정](https://azure.microsoft.com/pricing/details/site-recovery/)에 대해서도 알아보세요.
+- [Microsoft Azure](https://azure.microsoft.com/) 계정이 있어야 합니다. 계정이 없는 분은 [무료 계정](https://azure.microsoft.com/free)으로 시작할 수 있습니다. [Azure Site 복구 관리자 가격 책정](https://azure.microsoft.com/pricing/details/site-recovery/)에 대해서도 알아보세요.
 - CSP 구독 시나리오에 복제하려면 CSP 구독이 필요합니다. [CSP 프로그램에 등록하는 방법](https://msdn.microsoft.com/library/partnercenter/mt156995.aspx)에서 CSP 프로그램에 대해 자세히 알아보세요.
 - Azure로 복제된 데이터를 저장하려면 Azure v2 저장소(ARM) 계정이 있어야 합니다. 계정의 지역에서 복제 기능을 사용하도록 설정해야 합니다. 계정은 Azure Site Recovery 서비스와 같은 지역에 있어야 하며, 같은 구독 또는 CSP 구독에 연결되어야 합니다. Azure 저장소 설정에 대한 자세한 내용은 [Microsoft Azure 저장소 소개](../storage/storage-introduction.md)를 참조하세요.
 - 보호할 가상 컴퓨터가 [Azure 가상 컴퓨터 필수 조건](site-recovery-best-practices.md#azure-virtual-machine-requirements)을 준수하는지 확인해야 합니다.
@@ -74,7 +76,7 @@ Azure Site Recovery는 여러 배포 시나리오에서 가상 컴퓨터의 복�
 
 - 호스트 Hyper-V 서버는 Hyper-V 역할로 Windows Server 2012 이상을 실행해야 하며 최신 업데이트가 설치되어 있어야 합니다.
 - 클러스터에서 Hyper-V를 실행하는 경우 고정 IP 주소 기반 클러스터가 있으면 클러스터 브로커가 자동으로 만들어지지 않습니다. 클러스터 브로커를 수동으로 구성해야 합니다. 자세한 
-- 자세한 내용은 [Hyper-V 복제본 broker 구성 방법](http://blogs.technet.com/b/haroldwong/archive/2013/03/27/server-virtualization-series-hyper-v-replica-broker-explained-part-15-of-20-by-yung-chou.aspx)을 참조하세요.
+- 자세한 내용은 [Hyper-V 복제본 Broker 구성 방법](http://blogs.technet.com/b/haroldwong/archive/2013/03/27/server-virtualization-series-hyper-v-replica-broker-explained-part-15-of-20-by-yung-chou.aspx)을 참조하세요.
 - 보호를 관리할 Hyper-V 호스트 서버 또는 클러스터가 모두 VMM 클라우드에 포함되어야 합니다.
 
 ### 네트워크 매핑 필수 조건
@@ -121,7 +123,7 @@ Azure PowerShell에서 매개 변수 값, 입력, 출력이 일반적으로 처�
 		Set-AzureRmContext –SubscriptionID <subscriptionId>
 
 
-## 2단계: 복구 서비스 자격 증명 모음 만들기
+## 2단계: 복구 서비스 자격 증명 모음 만들기 
 
 1. 아직 ARM 리소스 그룹이 없으면 지금 만듭니다.
 
@@ -131,19 +133,11 @@ Azure PowerShell에서 매개 변수 값, 입력, 출력이 일반적으로 처�
 
 		$vault = New-AzureRmRecoveryServicesVault -Name #vaultname -ResouceGroupName #ResourceGroupName -Location #location 
 
-## 3단계: 자격 증명 모음 등록 키 생성
+## 3단계: 복구 서비스 자격 증명 모음 설정
 
-자격 증명 모음에 등록 키를 생성합니다. Azure Site Recovery 공급자를 다운로드하고 VMM 서버에 설치한 후 이 키를 사용하여 VMM 서버를 자격 증명 모음에 등록합니다.
+1.  다음 명령을 실행하여 자격 증명 모음 컨텍스트를 설정합니다.
 
-1.	자격 증명 모음 설정 파일을 가져오고 컨텍스트를 설정합니다.
-	
-
-		Get-AzureRmRecoveryServicesVaultSettingsFile -Vault vaultname -Path #VaultSettingFilePath
-	
-	
-2.	다음 명령을 실행하여 자격 증명 모음 컨텍스트를 설정합니다.
-	
-		Import-AzureRmSiteRecoveryVaultSettingsFile -Path $VaultSettingFilePath
+		Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
 
 ## 4단계: Azure Site Recovery 공급자 설치
 
@@ -319,7 +313,7 @@ Azure PowerShell에서 매개 변수 값, 입력, 출력이 일반적으로 처�
 
 ### 계획되지 않은 장애 조치 실행
 
-1. 다음 명령을 실행하여 계획된 장애 조치(Failover)를 시작합니다.
+1. 다음 명령을 실행하여 계획되지 않은 장애 조치(Failover)를 시작합니다.
 		
 		$protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $protectionContainer
 
@@ -351,4 +345,4 @@ Azure PowerShell에서 매개 변수 값, 입력, 출력이 일반적으로 처�
 
 Azure Site Recovery PowerShell cmdlet에 대해 [자세히 알아보세요](https://msdn.microsoft.com/library/dn850420.aspx)</a>.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

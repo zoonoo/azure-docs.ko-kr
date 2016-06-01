@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="dragon119"
-   manager="masimms"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -19,7 +19,7 @@
 
 # 데이터 분할 지침
 
-![](media/best-practices-data-partitioning/pnp-logo.png)
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 ## 개요
 
@@ -564,4 +564,4 @@ _그림 10. 고객 주문 및 세부 정보를 기록하기 위해 제안된 Red
 [Azure 검색이란?]: search/search-what-is-azure-search.md
 [Azure SQL 데이터베이스 정의]: sql-database/sql-database-technical-overview.md
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

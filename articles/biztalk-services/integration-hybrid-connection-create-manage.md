@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="05/16/2016" 
 	ms.author="mandia"/>
 
 
@@ -33,7 +33,7 @@
 
 하이브리드 연결은 웹앱**또는** BizTalk 서비스를 사용하여 Azure 포털에서 만들 수 있습니다.
 
-**웹앱을 사용하여 하이브리드 연결을 만들려면** [Azure 웹앱을 온-프레미스 리소스에 연결](../app-service-web/web-sites-hybrid-connection-get-started.md)을 참조하세요.
+**웹앱을 사용하여 하이브리드 연결을 만들려면** [Azure 웹앱을 온-프레미스 리소스에 연결](../app-service-web/web-sites-hybrid-connection-get-started.md)을 참조하세요. 기본 방법인 웹앱에서 하이브리드 연결 관리자(HCM)를 설치할 수도 있습니다.
 
 **BizTalk 서비스에서 하이브리드 연결을 만들려면**
 
@@ -152,4 +152,4 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

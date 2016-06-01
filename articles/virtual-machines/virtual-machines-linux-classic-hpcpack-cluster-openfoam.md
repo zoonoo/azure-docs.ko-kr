@@ -30,7 +30,7 @@ Microsoft HPC 팩에서는 MPI 응용 프로그램을 포함한 다양한 대규
 
 ## 필수 조건
 
-*   **A8 또는 A9 크기의 Linux 계산 노드가 포함된 HPC 팩 클러스터** - [Azure Resource Manager 템플릿](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) 또는 [Azure PowerShell 스크립트](virtual-machines-hpcpack-cluster-powershell-script)를 사용하여 Azure에서 A8 또는 A9 크기의 Linux 계산 노드가 포함된 HPC 팩 클러스터를 배포합니다. 각 옵션 사용 시의 필수 구성 요소 및 단계는 [Azure에서 HPC 팩 클러스터의 Linux 계산 노드 시작](virtual-machines-linux-classic-hpcpack-cluster.md)을 참조하세요. PowerShell 스크립트 배포 옵션을 선택하는 경우 이 문서 끝부분의 샘플 파일 섹션에 나와 있는 샘플 구성 파일을 참조하여 A8 크기 Windows Server 2012 R2 헤드 노드와 A8 크기 SUSE Linux Enterprise Server 12 계산 노드 2개로 구성된 Azure 기반 HPC 팩 클러스터를 배포합니다. 구독 및 서비스 이름을 적절한 값으로 대체합니다. 
+*   **A8 또는 A9 크기의 Linux 계산 노드가 포함된 HPC 팩 클러스터** - [Azure Resource Manager 템플릿](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) 또는 [Azure PowerShell 스크립트](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md)를 사용하여 Azure에서 A8 또는 A9 크기의 Linux 계산 노드가 포함된 HPC 팩 클러스터를 배포합니다. 각 옵션 사용 시의 필수 구성 요소 및 단계는 [Azure에서 HPC 팩 클러스터의 Linux 계산 노드 시작](virtual-machines-linux-classic-hpcpack-cluster.md)을 참조하세요. PowerShell 스크립트 배포 옵션을 선택하는 경우 이 문서 끝부분의 샘플 파일 섹션에 나와 있는 샘플 구성 파일을 참조하여 A8 크기 Windows Server 2012 R2 헤드 노드와 A8 크기 SUSE Linux Enterprise Server 12 계산 노드 2개로 구성된 Azure 기반 HPC 팩 클러스터를 배포합니다. 구독 및 서비스 이름을 적절한 값으로 대체합니다. 
 
     **알아야 할 추가 사항**
 
@@ -654,4 +654,4 @@ exit ${RTNSTS}
 [isosurface_color]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/isosurface_color.png
 [linux_processes]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/linux_processes.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

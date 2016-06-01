@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/14/2016"   
+	ms.date="04/22/2016"   
 	ms.author="adsolank;juliako;"/>
 
 
@@ -56,7 +56,7 @@
 
 ##작업 구성(기본 설정)
 
-**Azure 미디어 인덱서 2 미리 보기*로 인덱싱 작업을 만들 때에는 구성 기본 설정을 지정해야 합니다.
+**Azure 미디어 인덱서 2 미리 보기**로 인덱싱 작업을 만들 때에는 구성 기본 설정을 지정해야 합니다.
 
 다음 JSON은 사용 가능한 매개 변수를 설정합니다.
 
@@ -289,4 +289,4 @@ Azure 미디어 인덱서 2 미리 보기는 다음 언어에 대한 음성-텍�
 
 [Azure 미디어 분석 데모](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -18,6 +18,13 @@
 
 # Redis Cache를 사용하여 웹앱을 만드는 방법
 
+> [AZURE.SELECTOR]
+- [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
+- [ASP.NET](cache-web-app-howto.md)
+- [Node.JS](cache-nodejs-get-started.md)
+- [Java](cache-java-get-started.md)
+- [Python](cache-python-get-started.md)
+
 이 자습서에서는 Visual Studio 2015를 사용하여 ASP.NET 웹 응용 프로그램을 만들고 Azure 앱 서비스에서 웹앱에 배포하는 방법을 보여 줍니다. 샘플 응용 프로그램은 데이터베이스에서 팀 통계 목록을 표시하고 Azure Redis Cache를 사용하여 캐시에서 데이터를 저장 및 검색하는 여러 가지 방법을 보여 줍니다. 이 자습서를 완료하면 Azure Redis Cache에 최적화되고 Azure에서 호스팅되며 데이터베이스에 읽고 쓰는 실행 웹앱을 갖게 됩니다.
 
 다음 내용을 배웁니다.
@@ -240,13 +247,12 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 
 
 3. `body` 섹션에서 첫 번째 `Html.ActionLink` 문을 업데이트하고 `Application name`을 `Contoso Team Stats`로 바꾸고 `Home`을 `Teams`로 바꿉니다.
-	-	실행 전: `@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })`
-	-	실행 후: `@Html.ActionLink("Contoso Team Stats", "Index", "Teams", new { area = "" }, new { @class = "navbar-brand" })`
+	-	이전: `@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })`
+	-	이후: `@Html.ActionLink("Contoso Team Stats", "Index", "Teams", new { area = "" }, new { @class = "navbar-brand" })`
 
     ![코드 변경 내용][cache-layout-cshtml-code]
 
-4. **Ctrl+F5** 키를 눌러 응용 프로그램을 빌드 및 실행합니다. 이 버전의 응용 프로그램이 데이터베이스에서 직접 결과를 읽습니다. 참고로 **새로 만들기**, **편집**, **세부 정보** 및 **삭제** 작업은  
-응용 프로그램에 의해 **Entity Framework를 사용하는 보기 포함 MVC 5 컨트롤러** 스캐폴드에 자동으로 추가되었습니다. 자습서의 다음 섹션에서는 데이터 액세스를 최적화하고 응용 프로그램에 추가 기능을 제공하기 위해 Redis Cache를 추가합니다.
+4. **Ctrl+F5** 키를 눌러 응용 프로그램을 빌드 및 실행합니다. 이 버전의 응용 프로그램이 데이터베이스에서 직접 결과를 읽습니다. 참고로 **새로 만들기**, **편집**, **세부 정보** 및 **삭제** 작업은 응용 프로그램에 **Entity Framework를 사용하는 보기 포함 MVC 5 컨트롤러** 스캐폴드에 이해 자동으로 추가되었습니다. 자습서의 다음 섹션에서는 데이터 액세스를 최적화하고 응용 프로그램에 추가 기능을 제공하기 위해 Redis Cache를 추가합니다.
 
 ![시작 응용 프로그램][cache-starter-application]
 
@@ -313,8 +319,8 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
     ![Web.config][cache-web-config]
 
 3. 다음 `file` 속성을 `appSettings` 요소에 추가합니다. 다른 파일 이름 또는 위치를 사용한 경우, 예제에 나타난 값을 해당 값으로 대체합니다.
-	-	실행 전: `<appSettings>`
-	-	실행 후: ` <appSettings file="C:\AppSecrets\WebAppPlusCacheAppSecrets.config">`
+	-	이전: `<appSettings>`
+	-	이후: ` <appSettings file="C:\AppSecrets\WebAppPlusCacheAppSecrets.config">`
 
     ASP.NET 런타임은 외부 파일의 내용을 `<appSettings>` 요소의 태그와 병합합니다. 지정된 파일을 찾을 수 없는 경우 런타임에서 파일 특성을 무시합니다. 암호(캐시에 대한 연결 문자열)는 응용 프로그램에 대 한 소스 코드의 일부분으로 포함되지 않습니다. Azure에 웹앱을 배포하는 경우 `WebAppPlusCacheAppSecrests.config` 파일은 배포되지 않습니다(즉, 원하는 상태임). Azure에서 이러한 암호를 지정하는 여러 가지 방법이 있으며 이 자습서에서는 이후 단계에서 [Azure 리소스를 프로비전](#provision-the-azure-resources)할 때 암호가 자동으로 구성됩니다. Azure에서 암호로 작업에 대한 자세한 내용은 [ASP.NET 및 Azure 앱 서비스에 암호 및 기타 중요한 데이터 배포를 위한 모범 사례](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure)를 참조하세요.
 
@@ -707,7 +713,7 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 
 프로비전이 완료되면 Visual Studio에서 Azure에 응용 프로그램을 게시할 수 있습니다.
 
->[AZURE.NOTE] 프로비저 프로세스 중에 발생할 수 있는 오류는 **Microsoft.Template** 블레이드에 표시됩니다. 일반적인 오류는 너무 많은 SQL 서버 또는 구독에 따라 계획을 호스팅하는 너무 많은 무료 앱 서비스입니다. **Microsoft.Template** 블레이드의 **재배포** 또는 이 자습서의 **Azure에 배포** 단추를 클릭하여 오류를 해결하고 프로세스를 다시 시작합니다.
+>[AZURE.NOTE] 프로비전 프로세스 중에 발생할 수 있는 오류는 **Microsoft.Template** 블레이드에 표시됩니다. 일반적인 오류는 너무 많은 SQL 서버 또는 구독에 따라 계획을 호스팅하는 너무 많은 무료 앱 서비스입니다. **Microsoft.Template** 블레이드의 **재배포** 또는 이 자습서의 **Azure에 배포** 단추를 클릭하여 오류를 해결하고 프로세스를 다시 시작합니다.
 
 ## 응용 프로그램을 Azure에 게시
 
@@ -840,4 +846,4 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 [cache-delete-resource-group]: ./media/cache-web-app-howto/cache-delete-resource-group.png
 [cache-delete-confirm]: ./media/cache-web-app-howto/cache-delete-confirm.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

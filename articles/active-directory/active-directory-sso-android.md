@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="03/17/2015"
+	ms.date="05/16/2016"
 	ms.author="brandwe"/>
 
 
@@ -259,4 +259,4 @@ MANAGE_ACCOUNTS
 
 이제 Microsoft ID SDK는 자동으로 응용 프로그램에서 자격 증명을 공유하고 장치에 있는 경우 브로커를 호출합니다.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

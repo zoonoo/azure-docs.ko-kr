@@ -3,12 +3,12 @@
 이벤트 허브에 대한 Java 클라이언트 라이브러리는 [Maven 중앙 리포지토리](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22)의 Maven 프로젝트에 사용할 수 있으며 Maven 프로젝트 파일 내의 다음 종속성 선언을 사용하여 참조할 수 있습니다.
 
 ``` XML
-<dependency> 
-    <groupId>com.microsoft.azure</groupId> 
-    <artifactId>azure-eventhubs-clients</artifactId> 
-    <version>0.6.0</version> 
-</dependency>   
- ```
+<dependency>
+	<groupId>com.microsoft.azure</groupId>
+	<artifactId>azure-eventhubs</artifactId>
+	<version>0.6.9</version>
+</dependency>
+```
  
 다양한 유형의 빌드 환경을 위해, [Maven 중앙 리포지토리](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22) 또는 [GitHub의 릴리스 배포 지점](https://github.com/Azure/azure-event-hubs/releases)에서 최근에 릴리스된 JAR 파일을 명시적으로 가져올 수 있습니다.
 
@@ -56,5 +56,3 @@ public class Send
 }
 
 ``` 
-
-<!---HONumber=AcomDC_0323_2016-->

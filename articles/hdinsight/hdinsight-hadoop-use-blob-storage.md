@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/28/2016"
+	ms.date="05/18/2016"
 	ms.author="jgao"/>
 
 
@@ -64,7 +64,7 @@ Hadoop은 기본 파일 시스템의 개념을 지원합니다. 기본 파일 �
 - **클러스터에 연결되지 않은 저장소 계정의 개인 컨테이너:** WebHCat 작업을 제출할 때 저장소 계정을 정의하지 않는 경우 컨테이너의 Blob에 액세스할 수 없습니다. 이것은 문서 뒷부분에 설명되어 있습니다.
 
 
-만들기 프로세스에서 정의된 저장소 계정과 해당 키는 클러스터 노드의 %HADOOP_HOME%/conf/core-site.xml에 저장됩니다. HDInsight의 기본 동작은 core-site.xml 파일에 정의된 저장소 계정을 사용하는 것입니다. 클러스터 헤드 노드(마스터)는 언제든지 다시 이미징되거나 마이그레이션될 수 있으며 해당 파일의 변경 내용은 손실되므로 core-site.xml 파일은 편집하지 않는 것이 좋습니다.
+만들기 프로세스에서 정의된 저장소 계정과 해당 키는 클러스터 노드의 %HADOOP\_HOME%/conf/core-site.xml에 저장됩니다. HDInsight의 기본 동작은 core-site.xml 파일에 정의된 저장소 계정을 사용하는 것입니다. 클러스터 헤드 노드(마스터)는 언제든지 다시 이미징되거나 마이그레이션될 수 있으며 해당 파일의 변경 내용은 손실되므로 core-site.xml 파일은 편집하지 않는 것이 좋습니다.
 
 Hive, MapReduce, Hadoop 스트리밍 및 Pig를 비롯한 여러 WebHCat 작업은 저장소 계정 및 메타데이터 설명을 포함할 수 있습니다. (현재 메타데이터가 아닌 저장소 계정이 있는 Pig에서 작동합니다.) 이 문서의 [PowerShell을 사용하여 Blob 액세스](#powershell) 섹션에는 이 기능의 샘플이 포함되어 있습니다. 자세한 내용은 [대체 저장소 계정 및 메타스토어와 HDInsight 클러스터 사용](http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx)을 참조하세요.
 
@@ -144,7 +144,7 @@ Blob을 사용하려면 먼저 [Azure 저장소 계정][azure-storage-create]을
 	New-AzureRmStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -Location $Location -Type Standard_LRS 
 	
 	# Create default blob containers
-	$storageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -StorageAccountName $StorageAccountName |  %{ $_.Key1 }
+	$storageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -StorageAccountName $StorageAccountName)[0].Value
 	$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
 	New-AzureStorageContainer -Name $containerName -Context $destContext
 
@@ -228,7 +228,7 @@ URI 체계는암호화되지 않은 액세스(*wasb:* 접두사가 있음)와 SS
 	Select-AzureRmSubscription -SubscriptionID "<Your Azure Subscription ID>"
 	
 	Write-Host "Create a context object ... " -ForegroundColor Green
-	$storageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName | %{ $_.key1 }
+	$storageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName)[0].Value
 	$storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
 	
 	Write-Host "Download the blob ..." -ForegroundColor Green
@@ -245,7 +245,7 @@ URI 체계는암호화되지 않은 액세스(*wasb:* 접두사가 있음)와 SS
 	
 	$cluster = Get-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
 	$defaultStorageAccount = $cluster.DefaultStorageAccount -replace '.blob.core.windows.net'
-	$defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccount |  %{ $_.Key1 }
+	$defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccount)[0].Value
 	$defaultStorageContainer = $cluster.DefaultStorageContainer
 	$storageContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccount -StorageAccountKey $defaultStorageAccountKey 
 	
@@ -304,4 +304,4 @@ URI 체계는암호화되지 않은 액세스(*wasb:* 접두사가 있음)와 SS
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
 
-<!----HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

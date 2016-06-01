@@ -26,6 +26,8 @@ C용 Azure IoT 장치 SDK는 이식성을 최대화하기 위해 ANSI C(C99)로 
 
 이 문서에서는 C용 Azure IoT 장치 SDK의 아키텍처를 소개합니다. 장치 라이브러리를 초기화하고 IoT Hub로 이벤트를 전송하며 메시지를 수신하는 방법을 보여줍니다. 이 문서의 정보로 SDK 사용을 시작하기에 충분하지만 라이브러리에 대한 추가 정보에 대한 포인터도 제공합니다.
 
+>> [AZURE.NOTE] 이 문서는 SDK의 C 라이브러리의 *장치 관리* 기능 사용 방법에 대한 정보를 포함하지 않습니다. 장치 관리 기능을 사용하는 방법을 알아보려면 [C용 Azure IoT Hub 장치 관리 라이브러리 소개](iot-hub-device-management-library.md)를 참조하세요.
+
 ## SDK 아키텍처
 
 다음 GitHub 리포지토리에서 **C용 Azure IoT 장치 SDK**를 찾을 수 있습니다.
@@ -65,7 +67,7 @@ SDK에 포함된 [추가 정보 파일](https://github.com/Azure/azure-iot-sdks/
 
 먼저, GitHub에서 SDK의 복사본을 가져온 후 소스를 빌드해야 합니다. [GitHub 리포지토리](https://github.com/Azure/azure-iot-sdks)의 **마스터** 분기에서 원본의 복사본을 가져와야 합니다.
 
-소스의 복사본을 다운로드한 경우 SDK 문서 [개발 환경 준비](https://github.com/Azure/azure-iot-sdks/blob/master/c/doc/devbox_setup.md)에 설명된 단계를 완료해야 합니다.
+소스의 복사본을 다운로드한 경우 SDK 문서 ["개발 환경 준비"](https://github.com/Azure/azure-iot-sdks/blob/master/c/doc/devbox_setup.md)에 설명된 단계를 완료해야 합니다.
 
 
 다음은 준비 가이드에 설명된 절차를 완료하는 데 도움이 되는 몇 가지 팁입니다.
@@ -460,4 +462,6 @@ serializer_deinit();
 
 이 문서에서는 **C용 Azure IoT 장치 SDK**에서 라이브러리 사용에 대한 기본 사항을 다룹니다. SDK에 포함된 사항, 아키텍처 및 Windows 샘플 작업을 시작하는 방법을 이해하기에 충분한 정보를 제공합니다. 다음 문서에서는 [IoTHubClient 라이브러리에 대한 자세한 정보](iot-hub-device-sdk-c-iothubclient.md)를 설명하여 SDK를 계속 설명합니다.
 
-<!---HONumber=AcomDC_0330_2016-->
+**C용 Azure IoT 장치 SDK**에서 장치 관리 기능을 사용하는 방법을 알아보려면 [C용 Azure IoT Hub 장치 관리 라이브러리 소개](iot-hub-device-management-library.md)를 참조하세요.
+
+<!---HONumber=AcomDC_0518_2016-->

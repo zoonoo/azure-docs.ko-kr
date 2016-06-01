@@ -4,7 +4,7 @@
 	services="search, sql-database,  storage, web-sites" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
-	manager="mblythe"/>
+	manager="paulettm"/>
 
 <tags 
 	ms.service="search" 
@@ -12,7 +12,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="search" 
-	ms.date="02/18/2016" 
+	ms.date="05/17/2016" 
 	ms.author="heidist"/>
 
 # Azure 검색 개발자 사례 연구
@@ -421,4 +421,4 @@ Azure 검색만 놀라움을 선사한 것이 아니었습니다. 우리는 WebJ
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

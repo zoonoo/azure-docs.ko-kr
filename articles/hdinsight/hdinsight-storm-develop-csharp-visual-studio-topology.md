@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/22/2016"
+   ms.date="05/17/2016"
    ms.author="larryfr"/>
 
 # Visual Studio용 Hadoop 도구를 사용하여 HDInsight에서 Apache Storm에 대한 C# 토폴로지 개발
@@ -640,6 +640,10 @@ C# 토폴로지 만들기에 대한 자세한 내용을 보려면 [SCP.NET Getti
 
 HDInsight 사용 방법 및 HDInsight의 Storm에 대한 추가 샘플은 다음을 참조하세요.
 
+**Microsoft SCP.NET**
+
+* [SCP 프로그래밍 가이드](hdinsight-storm-scp-programming-guide.md)
+
 **HDInsight의 Apache Storm**
 
 -	[HDInsight에서 Apache Storm을 사용하는 토폴로지 배포 및 모니터링](hdinsight-storm-deploy-monitor-topology.md)
@@ -658,4 +662,4 @@ HDInsight 사용 방법 및 HDInsight의 Storm에 대한 추가 샘플은 다음
 
 -	[HDInsight에서 HBase 시작](hdinsight-hbase-tutorial-get-started.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

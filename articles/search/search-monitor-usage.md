@@ -4,7 +4,7 @@
    services="search" 
    documentationCenter="" 
    authors="HeidiSteen" 
-   manager="mblythe" 
+   manager="paulettm" 
    editor=""
    tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required" 
-   ms.date="02/04/2016"
+   ms.date="05/17/2016"
    ms.author="heidist"/>
 
 # Azure 검색의 사용량 및 통계 모니터링
@@ -59,4 +59,4 @@ Azure 검색 REST API와 .NET SDK는 모두 서비스 메트릭에 대한 프로
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

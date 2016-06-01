@@ -4,8 +4,8 @@
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+   manager="timlt"
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/11/2016"
+   ms.date="05/20/2016"
    ms.author="tomfitz"/>
 
 # Azure 리소스 관리자 개요
@@ -59,7 +59,7 @@
 
 ## 리소스 공급자
 
-리소스 공급자는 리소스 관리자를 통해 배포하고 관리할 수 있는 리소스를 제공하는 서비스입니다. 각 리소스 공급자는 리소스로 작업하기 위해 REST API 작업을 제공합니다. 예를 들어 키와 암호를 저장하기 위해 Azure 주요 자격 증명 모음을 배포하려는 경우 **Microsoft.KeyVault** 리소스 공급자로 작업합니다. 이 리소스 공급자는 주요 자격 증명 모음을 만드는 데 **자격 증명 모음**이라는 리소스 형식을 제공하고 주요 자격 증명 모음에 암호를 만들기 위해 **자격 증명 모음/암호**라는 리소스 형식을 제공하며 [REST API 작업](https://msdn.microsoft.com/library/azure/dn903609.aspx) 집합을 제공합니다.
+리소스 공급자는 리소스 관리자를 통해 배포하고 관리할 수 있는 리소스를 제공하는 서비스입니다. 각 리소스 공급자는 리소스로 작업하기 위해 REST API 작업을 제공합니다. 예를 들어 키와 암호를 저장하기 위해 Azure 주요 자격 증명 모음을 배포하려는 경우 **Microsoft.KeyVault** 리소스 공급자로 작업합니다. 이 리소스 공급자는 주요 자격 증명 모음을 만드는 데 **자격 증명 모음**이라는 리소스 형식을 제공하고 주요 자격 증명 모음에 암호를 만들기 위해 **자격 증명 모음/암호**라는 리소스 형식을 제공합니다. [주요 자격 증명 모음 REST API 작업](https://msdn.microsoft.com/library/azure/dn903609.aspx)과 같은 REST API 작업을 확인하여 리소스 공급자에 대해 알아볼 수 있습니다.
 
 인프라를 배포하고 관리하려면 제공하는 리소스 형식, REST API 작업의 버전 수, 지원하는 작업 및 만들려는 리소스 형식의 값을 설정할 때 사용할 스키마와 같은 리소스 공급자에 대한 세부 정보를 파악해야 합니다. 지원되는 리소스 공급자에 대해 알아보려면 [리소스 관리자 공급자, 영역, API 버전 및 스키마](resource-manager-supported-services.md)를 참조하세요.
 
@@ -69,6 +69,8 @@
 
 템플릿 내에서 앱에 대한 인프라, 해당 인프라를 구성하는 방법 및 해당 인프라에 앱 코드를 게시하는 방법을 정의합니다. 리소스가 올바른 순서로 생성되도록 Azure 리소스 관리자가 종속성을 분석하기 때문에 배포 순서를 걱정할 필요가 없습니다. 자세한 정보는 [Azure 리소스 관리자 템플릿에서 종속성 정의](resource-group-define-dependencies.md)를 참조하세요.
 
+Marketplace에서 솔루션을 만들 때 솔루션에 자동으로 배포 템플릿을 포함합니다. 솔루션용 템플릿으로 시작하고 특정 요구 사항에 맞게 사용자 지정할 수 있기 때문에 서식 파일을 처음부터 새로 만들 필요가 없습니다. 템플릿에 리소스 그룹의 현재 상태를 내보내거나 특정 배포에 사용된 템플릿을 검토하여 기존 리소스 그룹에 대한 템플릿을 검색할 수 있습니다. 내보낸 템플릿을 살펴보면 템플릿 구문에 대해 알아보는 데 도움이 됩니다. 내보낸 템플릿으로 작업하는 방법에 대한 자세한 내용은 [기존 리소스에서 Azure Resource Manager 템플릿 내보내기](resource-manager-export-template.md)를 참조하세요.
+
 단일 템플릿에서 전체 인프라를 정의할 필요가 없습니다. 대부분 배포 요구 사항을 대상, 목적에 특정 템플릿 집합으로 나누는 것이 좋습니다. 서로 다른 솔루션에 이러한 템플릿을 쉽게 다시 사용할 수 있습니다. 특정 솔루션을 배포하려면 모든 필수 템플릿에 연결하는 마스터 템플릿을 만듭니다. 자세한 내용은 [Azure 리소스 관리자에서 연결된 템플릿 사용](resource-group-linked-templates.md)을 참조하세요.
 
 또한 인프라의 업데이트에 대한 템플릿을 사용할 수 있습니다. 예를 들어 앱에 새 리소스를 추가할 수 있으며 이미 배포된 리소스에 대한 구성 규칙을 추가할 수 있습니다. 템플릿에서 새 리소스 만들기를 지정하지만 해당 리소스가 이미 존재하는 경우 Azure 리소스 관리자는 새 자산을 만드는 대신 업데이트를 수행합니다. Azure 리소스 관리자는 새 것과 동일한 상태로 기존 자산을 업데이트합니다. 또는 리소스 관리자가 템플릿에 지정되지 않은 모든 리소스를 삭제하도록 지정할 수 있습니다. 여러 배포 옵션의 차이점을 이해하려면 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
@@ -77,17 +79,11 @@
 
 리소스 관리자는 설치에 포함되지 않은 특정 소프트웨어를 설치하는 등의 추가 작업을 할 때 시나리오에 대한 확장을 제공합니다. DSC, Chef 또는 Puppet와 같은 구성 관리 서비스를 이미 사용 중인 경우 확장을 사용하여 해당 서비스로 작업을 계속할 수 있습니다.
 
-Marketplace에서 솔루션을 만들 때 솔루션에 자동으로 배포 템플릿을 포함합니다. 솔루션용 템플릿으로 시작하고 특정 요구 사항에 맞게 사용자 지정할 수 있기 때문에 서식 파일을 처음부터 새로 만들 필요가 없습니다.
-
-템플릿에 리소스 그룹의 현재 상태를 내보내거나 특정 배포에 사용된 템플릿을 검토하여 기존 리소스 그룹에 대한 템플릿을 검색할 수 있습니다. 두 옵션은 모두 [Azure 포털을 사용하여 Azure 리소스 배포 및 관리](./azure-portal/resource-group-portal.md)에서 표시됩니다.
-
 마지막으로 템플릿은 앱에 대한 소스 코드의 일부가 됩니다. 소스 코드 리포지토리를 확인하고 앱이 발전하면 업데이트할 수 있습니다. Visual Studio를 통해 템플릿을 편집할 수 있습니다.
 
-템플릿을 정의하는 더 자세한 내용은 [Azure 리소스 관리자 템플릿 작성하기](./resource-group-authoring-templates.md)를 참조하십시오.
+템플릿을 정의하는 더 자세한 내용은 [Azure 리소스 관리자 템플릿 작성하기](resource-group-authoring-templates.md)를 참조하십시오.
 
 템플릿 작성에 대한 단계별 지침은 [Resource Manager 템플릿 연습](resource-manager-template-walkthrough.md)을 참조하세요.
-
-템플릿을 구성하는 방법에 대한 지침은 [Azure 리소스 관리자 템플릿 설계의 모범 사례](best-practices-resource-manager-design-templates.md)를 참조하세요.
 
 다른 환경에 솔루션 배포에 관한 지침은 [Microsoft Azure의 개발 및 테스트 환경](solution-dev-test-environments.md)을 참조하세요.
 
@@ -97,7 +93,7 @@ Marketplace에서 솔루션을 만들 때 솔루션에 자동으로 배포 템�
 
 리소스는 태그를 공유하는 동일한 리소스 그룹에 있을 필요가 없습니다. 조직의 모든 사용자가 실수로 약간 다른 태그 (예: "dept" 대신 "department")를 적용하지 않고 일반 태그를 사용하는지 확인하려면 사용자 고유의 태그 분류를 만들 수 있습니다.
 
-태그에 대한 자세한 내용은 [태그를 사용하여 Azure 리소스 구성](./resource-group-using-tags.md)을 참조하십시오. 배포하는 동안 리소스에 태그를 추가해야 하는 [사용자 지정된 정책](#manage-resources-with-customized-policies)을 만들 수 있습니다.
+태그에 대한 자세한 내용은 [태그를 사용하여 Azure 리소스 구성](resource-group-using-tags.md)을 참조하십시오. 배포하는 동안 리소스에 태그를 추가해야 하는 [사용자 지정된 정책](#manage-resources-with-customized-policies)을 만들 수 있습니다.
 
 ## 액세스 제어
 
@@ -119,25 +115,25 @@ Marketplace에서 솔루션을 만들 때 솔루션에 자동으로 배포 템�
 
 리소스 관리자는 Mac, Linux 및 Windows, Azure 포털 또는 REST API용 Azure PowerShell, Azure CLI를 통해 완전히 호환되는 작업을 제공합니다. 가장 잘 작동하는 인터페이스를 사용하여 혼동 없이 인터페이스 간을 빠르게 이동할 수 있습니다. 포털은 포털 외부에서 수행된 작업에 대한 알림을 표시합니다.
 
-Azure PowerShell에 대한 정보는 [Azure 리소스 관리자와 함께 Azure PowerShell 사용](./powershell-azure-resource-manager.md) 및 nd [Azure 리소스 관리자 Cmdlets](https://msdn.microsoft.com/library/azure/dn757692.aspx)을 참조하십시오.
+Azure PowerShell에 대한 정보는 [Azure 리소스 관리자와 함께 Azure PowerShell 사용](powershell-azure-resource-manager.md) 및 nd [Azure 리소스 관리자 Cmdlets](https://msdn.microsoft.com/library/azure/dn757692.aspx)을 참조하십시오.
 
-Azure CLI에 대한 정보는 [Azure 리소스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](./xplat-cli-azure-resource-manager.md)을 참조하십시오.
+Azure CLI에 대한 정보는 [Azure 리소스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](xplat-cli-azure-resource-manager.md)을 참조하십시오.
 
 REST API에 대한 정보는 [Azure 리소스 관리자 REST API 참조](https://msdn.microsoft.com/library/azure/dn790568.aspx)를 참조하십시오.. 배포된 리소스에 대한 REST 작업을 보려면 [Azure 리소스 탐색기를 사용하여 리소스 보기 및 수정](resource-manager-resource-explorer.md)을 참조하세요.
 
-포털 사용에 대한 내용은 [Azure 포털을 사용하여 Azure 리소스 관리](azure-portal/resource-group-portal.md)를 참조하세요.
+포털 사용에 대한 내용은 [Azure 포털을 사용하여 Azure 리소스 관리](./azure-portal/resource-group-portal.md)를 참조하세요.
 
 Azure 리소스 관리자는 크로스-원본 자원 공유 (CORS)를 지원합니다. CORS를 통해 다른 도메인에 상주하는 웹 응용 프로그램에서 리소스 관리자 REST API 또는 Azure 서비스 REST API를 호출할 수 있습니다. CORS 지원하지 않는 웹 브라우저에서는 한 도메인의 응용 프로그램이 다른 도메인의 리소스에 액세스할 수 없습니다. 리소스 관리자는 유효한 인증 자격 증명을 사용하여 모든 요청에 대해 CORS할 수 있습니다.
 
 ## 다음 단계
 
-- 템플릿 작성에 대해 자세히 알아보려면 [템플릿 작성](./resource-group-authoring-templates.md)을 참조하세요.
+- 템플릿 작성에 대해 자세히 알아보려면 [템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 - 작성한 템플릿을 배포하려면 [템플릿 배포](resource-group-template-deploy.md)를 참조하세요.
-- 템플릿에서 사용할 수 있는 함수를 이해하려면 [템플릿 함수](./resource-group-template-functions.md)를 참조하세요.
+- 템플릿에서 사용할 수 있는 함수를 이해하려면 [템플릿 함수](resource-group-template-functions.md)를 참조하세요.
 - 템플릿 설계에 대한 지침은 [Azure 리소스 관리자 템플릿 설계의 모범 사례](best-practices-resource-manager-design-templates.md)를 참조하세요.
 
 이 개요에 대한 비디오 데모는 다음과 같습니다.
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

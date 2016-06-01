@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/09/2016"
+    ms.date="05/16/2016"
     ms.author="asmalser-msft"/>
 
 #자습서: Azure Active Directory와 NetSuite를 통합하는 방법
@@ -22,13 +22,13 @@
 
 ##필수 조건
 
-1. [Azure 관리 포털](https://manage.windowsazure.com)을 통해 Azure Active Directory에 액세스하려면 먼저 유효한 Azure 구독이 있어야 합니다.
+1. [Azure 클래식 포털](https://manage.windowsazure.com)을 통해 Azure Active Directory에 액세스하려면 먼저 유효한 Azure 구독이 있어야 합니다.
 
 2. [NetSuite](http://www.netsuite.com/portal/home.shtml) 구독에 대한 관리자 액세스 권한이 있어야 합니다. 어느 서비스에나 무료 평가판 계정을 사용할 수 있습니다.
 
 ##1단계: 디렉터리에 NetSuite 추가
 
-1. [Azure 관리 포털](https://manage.windowsazure.com)의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+1. [Azure 클래식 포털](https://manage.windowsazure.com)의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
 
 	![왼쪽 탐색 창에서 Active Directory를 선택합니다.][0]
 
@@ -259,4 +259,4 @@
 [31]: ./media/active-directory-saas-netsuite-tutorial/assign-users.png
 [32]: ./media/active-directory-saas-netsuite-tutorial/assign-confirm.png
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

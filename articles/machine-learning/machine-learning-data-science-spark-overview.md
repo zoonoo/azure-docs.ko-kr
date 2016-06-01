@@ -13,37 +13,32 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="05/05/2016"
 	ms.author="bradsev" />
 
 # Azure HDInsight에서 Spark를 사용하는 데이터 과학 개요
 
 [AZURE.INCLUDE [machine-learning-spark-modeling](../../includes/machine-learning-spark-modeling.md)]
 
-## 소개
+이 항목 모음에서는 HDInsight Spark를 사용하여 데이터 수집, 기능 엔지니어링, 모델링 및 모델 평가와 같은 일반적인 데이터 과학 작업을 완료하는 방법을 보여 줍니다. 사용되는 데이터는 2013 NYC Taxi Trip 및 요금 데이터 집합의 샘플입니다. 작성된 모델은 로지스틱 및 선형 회귀, 임의 포리스트 및 그라데이션 향상된 트리를 포함합니다. 또한 이 항목은 이러한 모델을 Azure Blob 저장소(WASB)에 저장하고 예측 성능의 점수를 매기며 평가하는 방법도 보여 줍니다. 고급 항목에서는 교차 유효성 검사 및 하이퍼 매개 변수 스위핑을 사용하여 모델을 학습할 수 있는 방법을 다룹니다. 이 개요 항목에서는 제공된 세 가지 연습의 단계를 완료하는 데 필요한 Spark 클러스터를 설정하는 방법도 설명합니다.
 
 [Spark](http://spark.apache.org/)는 메모리 내 처리를 지원하여 빅데이터 분석 응용 프로그램의 성능을 향상하는 오픈 소스 병렬 처리 프레임워크입니다. 속도, 간편한 사용 및 정교한 분석을 위해 Spark 처리 엔진이 빌드되었습니다. Spark는 메모리 내 분산형 계산 기능을 지원하여 기계 학습 및 그래프 계산의 반복 알고리즘에 적합합니다. [MLlib](http://spark.apache.org/mllib/)는 Spark의 확장형 기계 학습 라이브러리로, 분산형 환경에서 모델링 기능을 사용할 수 있습니다.
 
-HDInsight Spark는 Azure에서 호스트하는 오픈 소스 Spark의 제품입니다. 또한 Azure Blob(WASB)에 저장된 데이터를 변환, 필터링 및 시각화하기 위해 Spark SQL 대화형 쿼리를 실행할 수 있는 Spark 클러스터 상의 Jupyter Notebook에 대한 지원도 포함하고 있습니다.
+[HDInsight Spark](../hdinsight/hdinsight-apache-spark-overview.md)는 Azure에서 호스트하는 오픈 소스 Spark의 제품입니다. 또한 Azure Blob(WASB)에 저장된 데이터를 변환, 필터링 및 시각화하기 위해 Spark SQL 대화형 쿼리를 실행할 수 있는 Spark 클러스터 상의 **Jupyter PySpark Notebook**에 대한 지원도 포함하고 있습니다. PySpark는 Spark용 Python API입니다. 솔루션을 제공하고 데이터 시각화를 위해 관련 플롯을 여기에 보여 주는 코드 조각은 Spark 클러스터에 설치된 Jupyter Notebook에서 실행됩니다. 이러한 항목의 모델링 단계는 각 모델 유형을 학습, 평가, 저장 및 사용하는 방법을 보여 주는 코드를 포함하고 있습니다.
 
-메뉴에 연결된 토픽 컬렉션은 이진 분류 및 회귀 태스크를 통해 NYC 택시 여정 및 요금 2013 데이터 집합에 대해 작업하여 이 기능을 보여 주며 모델을 WASB에 저장합니다. 작성된 모델은 로지스틱 및 선형 회귀, 임의 포리스트 및 그라데이션 향상된 트리를 포함합니다. 또한 모델의 예측 성능을 평가하고 점수를 정하기 위해 이러한 모델의 사용 방법을 표시합니다. 고급 토픽에서는 교차 유효성 검사 및 하이퍼 매개 변수 스위핑을 사용하여 모델을 학습할 수 있는 방법을 다룹니다.
-
-이러한 토픽의 모델링 단계는 각 모델 유형을 학습, 평가, 저장 및 사용하는 방법을 보여 주는 코드를 포함하고 있습니다. 솔루션을 코딩하고 데이터 시각화를 위해 관련 플롯을 보여주기 위해Spark 클러스터에 설치된 Jupyter Notebook에서 실행되는 Python(PySpark)을 사용했습니다.
-
-이 연습에 제공되는 설치 단계와 코드는 HDInsight Spark용입니다. 그러나 이 코드는 일반적이므로 아무 Spark 클러스터에서나 작동할 것입니다. HDInsight Spark를 사용하지 않는 경우 클러스터 설치 및 관리 단계가 여기에 나오는 내용과 약간 다를 수 있습니다.
+이 연습에 제공되는 설치 단계와 코드는 HDInsight 3.4 Spark 1.6용입니다. 그러나 여기에 있는 코드와 Notebook에 있는 코드는 일반적이므로 아무 Spark 클러스터에서나 작동할 것입니다. HDInsight Spark를 사용하지 않는 경우 클러스터 설치 및 관리 단계가 여기에 나오는 내용과 약간 다를 수 있습니다.
 
 ## 필수 조건
 
 1\. 이러한 토픽을 시작하기 전에 Azure 구독이 있어야 합니다. 아직 가지고 있지 않은 경우 [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 
-2\. 버전 Spark 1.5.2(HDI 3.3)의 HDInsight Spark 클러스터를 만들려면 [시작하기: Azure HDInsight에서 Apache Spark 만들기](../hdinsight/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md) 참조
+2\. 이 연습을 완료하는 데는 HDInsight 3.4 Spark 1.6 클러스터가 필요합니다. 만드는 방법은 [시작: Azure HDInsight에서 Apache Spark 만들기](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md)를 참조하세요. 클러스터 유형 및 버전은 **클러스터 유형 선택** 메뉴에서 지정됩니다.
 
->[AZURE.NOTE] 현재 이 연습의 Notebook과 코드에서 사용되는 python2 커널은 Spark(미리 보기) -> Spark 1.5.2(HDI 3.3) 버전을 사용해야 합니다.
 
 ![](./media/machine-learning-data-science-spark-overview/spark-cluster-on-portal.png)
 
 
-[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+>[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 
 ## NYC 2013 Taxi 데이터
@@ -108,37 +103,46 @@ trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_licence 및
 
 ## Spark 클러스터의 Jupyter Notebook에서 코드 실행 
 
-Azure 포털에서 Jupyter Notebook을 시작할 수 있습니다: Spark 클러스터를 찾아서 클릭하여 상세 클러스터 관리 페이지로 이동합니다. 해당 페이지의 **Cluster 대시보드**에서 Spark 클러스터와 연결된 Jupyter Notebook에 대한 아이콘을 클릭할 수 있습니다.
+Azure 포털에서 Jupyter Notebook을 시작할 수 있습니다. 대시보드에서 Spark 클러스터를 찾아 클릭하여 클러스터에 대한 관리 페이지로 들어갑니다. 그런 다음 **Cluster 대시보드** -> **Jupyter Notebook**을 클릭하여 Spark 클러스터와 연결된 Notebook을 엽니다.
 
 ![](./media/machine-learning-data-science-spark-overview/spark-jupyter-on-portal.png)
 
-또한 ***https://CLUSTERNAME.azurehdinsight.net/jupyter***를 탐색하여 Jupyter Notebook에 액세스할 수도 있습니다. Notebook에 액세스하려면 관리자 계정에 대한 암호가 필요합니다.
+또한 ***https://CLUSTERNAME.azurehdinsight.net/jupyter***를 탐색하여 Jupyter Notebook에 액세스할 수도 있습니다. 이 URL의 CLUSTERNAME 부분을 사용자 고유의 클러스터 이름으로 바꿉니다. Notebook에 액세스하려면 관리자 계정에 대한 암호가 필요합니다.
 
 ![](./media/machine-learning-data-science-spark-overview/spark-jupyter-notebook.png)
 
-Python을 탐색하여 Python 스크립트를 실행하는 기존 Notebook을 확인합니다. 미리 패키지된 Notebook의 몇 가지 예제가 들어 있는 디렉터리가 있을 것입니다. 이 토픽의 코드 샘플을 포함하고 있는 Notebook은 [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/Python)에서 사용할 수 있습니다.
+PySpark를 선택하여 PySpark API를 사용하는 미리 패키지된 Notebook에 대한 몇 가지 예가 들어 있는 디렉터리를 표시합니다. 이 Spark 항목 모음에 대한 코드 예제가 있는 Notebook은 [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark)에 제공됩니다.
 
-Notebook을 Github에서 Spark 클러스터의 Jupyter Notebook 서버에 직접 업로드할 수 있습니다. Jupyter의 홈 페이지에서 화면 오른쪽의 **업로드** 단추를 클릭합니다. 파일 탐색기가 열립니다. 여기서 Notebook의 Github(원시 콘텐츠) URL을 붙여넣고 **열기**를 클릭할 수 있습니다. **업로드** 단추를 다시 사용하여 Jupyter 파일 목록에서 파일 이름을 확인합니다. 이 **업로드** 단추를 클릭합니다. 이제 Notebook을 가져왔습니다. 이 단계를 반복하여 이 연습에서 다음과 같은 Notebook을 업로드합니다. 참고: 브라우저에서 아래 링크를 마우스 오른쪽 단추로 클릭하고 **링크 복사**를 선택하면 Jupyter 업로드 파일 탐색기 대화 상자에 붙여 넣을 수 있는 github 원시 콘텐츠 URL을 가져올 수 있습니다.
 
-1.	[machine-learning-data-science-spark-data-exploration-modeling.ipynb](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/machine-learning-data-science-spark-data-exploration-modeling.ipynb)
-2.	[machine-learning-data-science-spark-model-consumption.ipynb](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/machine-learning-data-science-spark-model-consumption.ipynb)
-3.	[machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb)
+Notebook을 Github에서 Spark 클러스터의 Jupyter Notebook 서버에 직접 업로드할 수 있습니다. Jupyter의 홈 페이지에서 화면 오른쪽의 **업로드** 단추를 클릭합니다. 파일 탐색기가 열립니다. 여기서 Notebook의 Github(원시 콘텐츠) URL을 붙여넣고 **열기**를 클릭할 수 있습니다. PySpark Notebook은 다음 URL에서 사용할 수 있습니다.
+
+1.	[pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb)
+2.	[pySpark-machine-learning-data-science-spark-model-consumption.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-model-consumption.ipynb)
+3.	[pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb)
+
+**업로드** 단추를 다시 사용하여 Jupyter 파일 목록에서 파일 이름을 확인합니다. 이 **업로드** 단추를 클릭합니다. 이제 Notebook을 가져왔습니다. 이 단계를 반복하여 이 연습에서 다음과 같은 Notebook을 업로드합니다.
+
+> [AZURE.TIP] 브라우저에서 아래 링크를 마우스 오른쪽 단추로 클릭하고 **링크 복사**를 선택하면 Jupyter 업로드 파일 탐색기 대화 상자에 붙여 넣을 수 있는 github 원시 콘텐츠 URL을 가져올 수 있습니다.
 
 이제 다음을 수행할 수 있습니다.
 
 - Notebook을 클릭하여 코드 확인
 - **SHIFT-ENTER**를 눌러 각 셀 실행
 - **셀** -> **실행**을 클릭하여 전체 Notebook 실행
+- 쿼리의 자동 시각화 사용
 
+> [AZURE.TIP] PySpark 커널은 SQL(HiveQL) 쿼리의 출력을 자동으로 시각화합니다. Notebook의 **형식** 메뉴 단추를 사용하여 다양한 시각화 형식(테이블, 원형, 꺾은선형, 영역 또는 막대) 중에서 선택할 수 있는 옵션이 제공됩니다.
+
+![일반적인 접근 방식에 대한 로지스틱 회귀 분석 ROC 곡선](./media/machine-learning-data-science-spark-overview/pyspark-jupyter-autovisualization.png)
 
 ## 다음 작업
 
-이제 HDInsight Spark 클러스터를 설치하고 Jupyter Notebook을 업로드했으므로 이 세 Notebook에 해당하고 데이터 탐색과 모델 만들기 및 사용 방법을 보여 주는 토픽을 진행할 준비가 되었습니다. 고급 데이터 탐색 및 모델링 Notebook은 교차 유효성 검사, 하이퍼 매개 변수 비우기 및 모델 평가 등을 포함한 상세 영역으로 나뉩니다.
+이제 HDInsight Spark 클러스터를 설치하고 Jupyter Notebook을 업로드했으므로 이 세 PySpark Notebook에 해당하고 데이터 탐색과 모델 만들기 및 사용 방법을 보여 주는 항목을 진행할 준비가 되었습니다. 고급 데이터 탐색 및 모델링 Notebook은 교차 유효성 검사, 하이퍼 매개 변수 비우기 및 모델 평가 등을 포함한 상세 영역으로 나뉩니다.
 
-**Spar로 데이터 탐색 및 모델링:** [Spark MLlib 도구 키트를 사용하여 데이터에 대한 이진 분류 및 회귀 모델 만들기](machine-learning-data-science-spark-data-exploration-modeling.md) 토픽을 통해 작업하여 여기서 점수를 매기고 평가할 기계 학습 모델을 만듭니다..
+**Spar로 데이터 탐색 및 모델링:** [Spark MLlib 도구 키트를 사용하여 데이터에 대한 이진 분류 및 회귀 모델 만들기](machine-learning-data-science-spark-data-exploration-modeling.md) 항목을 통해 작업하여 여기서 점수를 매기고 평가할 기계 학습 모델을 만듭니다.
 
 **모델 사용:** 이 항목에서 만든 분류 및 회귀 모델의 점수를 매기는 방법을 알아보려면 [Spark에서 만든 기계 학습 모델 점수 매기기 및 평가](machine-learning-data-science-spark-model-consumption.md)를 참조하세요.
 
 **교차 유효성 검사 및 하이퍼 매개 변수 비우기**: 교차 유효성 검사 및 하이퍼 매개 변수 비우기를 사용하여 모델을 학습하는 방법은 [Spark로 고급 데이터 탐색 및 모델링](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,18 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2016" 
-	ms.author="fashah;mohabib;bradsev" />
+	ms.date="05/10/2016" 
+	ms.author="fashah;bradsev" />
 
 # Azure 가상 컴퓨터에서 SQL Server로 데이터 이동
 
-## 소개
-
-**이 문서**에서는 플랫 파일(CSV 또는 TSV 형식) 또는 온-프레미스 SQL Server에서 Azure 가상 컴퓨터의 SQL Server로 데이터를 이동하기 위한 옵션에 대해 간략히 설명합니다. 클라우드로 데이터를 이동하는 이 작업은 Azure에서 제공하는 Cortana 분석 프로세스의 일부입니다.
+이 항목에서는 플랫 파일(CSV 또는 TSV 형식) 또는 온-프레미스 SQL Server에서 Azure 가상 컴퓨터의 SQL Server로 데이터를 이동하기 위한 옵션에 대해 간략히 설명합니다. 클라우드로 데이터를 이동하는 이 작업은 Azure에서 제공하는 Cortana 분석 프로세스의 일부입니다.
 
 기계 학습을 위해 Azure SQL 데이터베이스로 데이터를 이동하기 위한 옵션을 설명하는 항목은 [Azure 기계 학습을 위해 Azure SQL 데이터베이스로 데이터 이동](machine-learning-data-science-move-sql-azure.md)을 참조하세요.
 
-다음 **메뉴**는 CAP(Cortana 분석 프로세스) 중 데이터를 저장하고 처리할 수 있는 다른 대상 환경으로 데이터를 수집하는 방법을 설명하는 항목에 연결됩니다.
+다음 **메뉴**는 CAPS(Cortana 분석 프로세스) 중 데이터를 저장하고 처리할 수 있는 다른 대상 환경으로 데이터를 수집하는 방법을 설명하는 항목에 연결됩니다.
 
 [AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
@@ -85,6 +83,7 @@ BCP는 SQL Server와 함께 설치되는 명령줄 유틸리티로, 데이터를
 	`bcp dbname..tablename in datafilename.tsv -f exportformatfilename.xml -S servername\sqlinstancename -U username -P password -b block_size_to_move_in_single_attemp -t \t -r \n`
 
 > **BCP 삽입 최적화 삽입** 작업을 최적화하는 방법은 ['대량 가져오기를 최적화하기 위한 지침'](https://technet.microsoft.com/library/ms177445%28v=sql.105%29.aspx) 문서를 참조하세요.
+
 
 ### <a name="insert-tables-bulkquery-parallel"></a>더 빠른 데이터 이동을 위한 병렬 처리
 
@@ -160,6 +159,7 @@ SSIS(SQL Server Integrations Services)를 사용하여 플랫 파일의 데이�
 - SQL Server 데이터 도구에 대한 자세한 내용은 [Microsoft SQL Server 데이터 도구](https://msdn.microsoft.com/data/tools.aspx) 참조  
 - 가져오기/내보내기 마법사에 대한 자세한 내용은 [SQL Server 가져오기 및 내보내기 마법사](https://msdn.microsoft.com/library/ms141209.aspx) 참조
 
+
 ## <a name="sqlonprem_to_sqlonazurevm"></a>온-프레미스 SQL Server에서 Azure VM의 SQL Server로 데이터 이동
 
 다음과 같은 마이그레이션 전략을 사용할 수도 있습니다.
@@ -224,4 +224,4 @@ SQL Server는 다음을 지원합니다.
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

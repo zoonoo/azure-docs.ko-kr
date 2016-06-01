@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="03/29/2016"
+   ms.date="05/16/2016"
    ms.author="derrickv"/>
 
 # Microsoft Power BI Embedded 샘플 시작
@@ -222,14 +222,14 @@ Task<ActionResult> Report(string reportId)
 ![](media\powerbi-embedded-get-started-sample\power-bi-embedded-iframe-code.png)
 
 
-### 응용 프로그램에 포함된 보고서 필터링
+## 응용 프로그램에 포함된 보고서 필터링
 
-URL 구문을 사용하여 포함된 보고서를 필터링할 수 있습니다. 이를 위해 지정된 필터와 함께 iFrame src url에 쿼리 문자열 매개 변수를 추가합니다. 필터 쿼리 구문은 다음과 같습니다.
+URL 구문을 사용하여 포함된 보고서를 필터링할 수 있습니다. 이렇게 하려면 지정된 필터를 사용하여 iFrame src url에 **eq** 연산자와 함께 **$filter** 쿼리 문자열 매개 변수를 추가합니다. 필터 쿼리 구문은 다음과 같습니다.
 
 ```
 https://app.powerbi.com/reportEmbed
-?reportId=d2a0ea38-0694-4c70-9673-ee9655d54a4a&
-$filter={tableName/fieldName} eq '{fieldValue}'
+?reportId=d2a0ea38-...-9673-ee9655d54a4a&
+$filter={tableName/fieldName}%20eq%20'{fieldValue}'
 ```
 
 > [AZURE.NOTE] {tableName/fieldName}은(는) 공백이나 특수 문자를 포함할 수 없습니다. {fieldValue}은(는) 단일 범주 값을 허용합니다.
@@ -242,4 +242,4 @@ $filter={tableName/fieldName} eq '{fieldValue}'
 - [Microsoft Power BI Embedded 미리 보기 시작](power-bi-embedded-get-started.md)
 - [Power BI Embedded의 앱 토큰 흐름 정보](power-bi-embedded-app-token-flow.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

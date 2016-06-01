@@ -31,12 +31,12 @@
 
 항목을 변경한 후에는 마법사가 표시되지 않습니다. 다음에 사용자 또는 다른 보안 관리자가 PIM을 사용할 때 PIM 대시보드가 표시됩니다.
 
-- 역할에서 사용자를 추가 또는 제거하거나 영구에서 임시로 할당을 변경하려면 [사용자의 역할을 추가 또는 제거하는 방법](active-directory-privileged-identity-management-how-to-add-role-to-user)을 참조하세요.
-- 더 많은 사용자에게 PIM을 관리하기 위해 액세스 권한을 제공하려면 [PIM을 관리하기 위해 액세스 권한을 제공하는 방법](active-directory-privileged-identity-management-how-to-give-access-to-pim)을 참조하세요.
+- 역할에서 사용자를 추가 또는 제거하거나 영구에서 임시로 할당을 변경하려면 [사용자의 역할을 추가 또는 제거하는 방법](active-directory-privileged-identity-management-how-to-add-role-to-user.md)을 참조하세요.
+- 더 많은 사용자에게 PIM을 관리하기 위해 액세스 권한을 제공하려면 [PIM을 관리하기 위해 액세스 권한을 제공하는 방법](active-directory-privileged-identity-management-how-to-give-access-to-pim.md)을 참조하세요.
 
 
 
 ## 다음 단계
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

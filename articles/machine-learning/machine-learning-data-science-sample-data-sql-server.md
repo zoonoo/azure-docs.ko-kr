@@ -13,13 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/07/2016" 
+	ms.date="05/10/2016" 
 	ms.author="fashah;garye;bradsev" />
 
 #<a name="heading"></a>Azure의 SQL Server에서 데이터 샘플링
 
-
-## 소개
 
 이 문서에서는 SQL 또는 Python 프로그래밍 언어를 사용하여 Azure의 SQL Server에 저장된 데이터를 샘플링하는 방법을 보여 줍니다. 또한 샘플링된 데이터를 파일에 저장하고, Azure blob에 업로드한 다음, Azure 기계 학습 스튜디오로 읽어 들여 Azure 기계 학습으로 이동하는 방법을 보여 줍니다.
 
@@ -126,4 +124,4 @@ Python의 [Pandas](http://pandas.pydata.org/) 라이브러리에서는 Python �
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

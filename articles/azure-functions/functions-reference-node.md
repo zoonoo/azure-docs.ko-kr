@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="04/06/2016"
+	ms.date="05/13/2016"
 	ms.author="chrande"/>
 
 # Azure Functions NodeJS 개발자 참조
@@ -138,10 +138,22 @@ context.res = { status: 202, body: 'You successfully ordered more coffee!' };
 
 노드 버전이 현재 `5.9.1`에서 잠겨 있습니다. 더 많은 버전에 대한 지원을 추가하고 구성할 수 있도록 연구 중입니다.
 
-`npm install`을 통해 함수 디렉터리에 패키지를 포함한 다음 `require('packagename')`을 통해 일반적인 방법으로 함수에 가져올 수 있습니다.
+함수 앱의 파일 시스템에 있는 함수 폴더에 *package.json* 파일을 업로드하여 함수에 패키지를 포함시킬 수 있습니다. 파일 업로드 지침은 [Azure Functions 개발자 참조](functions-reference.md#fileupdate) 항목의 **함수 앱 파일을 업데이트하는 방법** 섹션을 참조하세요.
+
+함수 앱의 SCM(Kudu) 명령줄 인터페이스에서 `npm install`를 사용할 수도 있습니다.
+
+1. `https://<function_app_name>.scm.azurewebsites.net`로 이동합니다.
+
+2. **디버그 콘솔 > CMD**를 클릭합니다.
+
+3. `D:\home\site\wwwroot<function_name>`로 이동합니다.
+
+4. `npm install`을 실행합니다.
+
+필요한 패키지가 설치되면, 일반적인 방법(예: `require('packagename')`)으로 함수에 가져옵니다.
 
 ```javascript
-// Import the underescore.js library
+// Import the underscore.js library
 var _ = require('underscore');
 var version = process.version; // version === 'v5.9.1'
 
@@ -163,4 +175,4 @@ module.exports = function(context) {
 * [Azure Functions C# 개발자 참조](functions-reference-csharp.md)
 * [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

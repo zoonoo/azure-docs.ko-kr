@@ -13,17 +13,20 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="05/18/2016"
    ms.author="lodipalm;barbkess;sonyama" />
 
 # Power BI를 사용하여 데이터 시각화
 
+> [AZURE.SELECTOR]
+- [Power BI][]
+- [Azure 기계 학습][]
+
+이 자습서에서는 Power BI를 사용하여 SQL 데이터 웨어하우스에 연결하고 몇 가지 기본적인 시각화를 만드는 방법을 보여줍니다.
 
 > [AZURE.NOTE] 이 자습서를 완료하려면 AdventureWorksDW 예제 데이터베이스가 미리 로그된 SQL 데이터 웨어하우스 데이터베이스가 필요합니다. [SQL 데이터 웨어하우스 만들기](sql-data-warehouse-get-started-provision.md)는 만드는 방법을 보여줍니다.
 >
 > SQL 데이터 웨어하우스 데이터베이스는 있지만 샘플 데이터가 없는 경우 [샘플 데이터를 수동으로 로드][]할 수 있습니다.
-
-이 자습서에서는 Power BI를 사용하여 SQL 데이터 웨어하우스에 연결하고 몇 가지 기본적인 시각화를 만드는 방법을 보여줍니다.
 
 > [AZURE.VIDEO azure-sql-data-warehouse-sample-data-and-powerbi]
 
@@ -85,7 +88,7 @@ Power BI를 열고 AdventureWorksDW 데이터베이스에 연결하려면
 언제든지 **파일**을 클릭하고 **저장**을 선택하여 진행 상황을 저장할 수 있습니다.
 
 ## 다음 단계
-이제 샘플 데이터로 [개발][], [로드][] 또는 [마이그레이션][]할 준비 시간을 드리겠습니다.
+이제 샘플 데이터로 [개발][], [로드][] 또는 [마이그레이션][]할 준비 시간을 드리겠습니다. 또는 [Power BI 웹 사이트][]를 살펴보세요.
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-find-database.png
@@ -106,9 +109,13 @@ Power BI를 열고 AdventureWorksDW 데이터베이스에 연결하려면
 [개발]: ./sql-data-warehouse-overview-develop.md
 [로드]: ./sql-data-warehouse-overview-load.md
 [샘플 데이터를 수동으로 로드]: ./sql-data-warehouse-get-started-manually-load-samples.md
-[Azure 포털]: https://portal.azure.com/
-[Power BI]: http://www.powerbi.com/
 [connecting to SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
 [Create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
+[Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
+[Azure 기계 학습]: ./sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md
 
-<!----HONumber=AcomDC_0309_2016-->
+<!--Other-->
+[Azure 포털]: https://portal.azure.com/
+[Power BI 웹 사이트]: http://www.powerbi.com/
+
+<!---HONumber=AcomDC_0525_2016-->

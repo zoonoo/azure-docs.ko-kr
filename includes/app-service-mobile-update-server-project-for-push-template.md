@@ -70,7 +70,7 @@
 	    logger.info('Running TodoItem.insert');
 	    
 	    // Define the template payload.
-	    var payload = '{"messageParam": context.item.text}'; 
+	    var payload = '{"messageParam":' + context.item.text + '}'; 
 	    
 	    // Execute the insert.  The insert returns the results as a Promise,
 	    // Do the push as a post-execute action within the promise flow.
@@ -100,5 +100,3 @@
 	이는 새 todo 항목이 삽입된 경우 item.text가 포함된 템플릿 알림을 보냅니다.
 
 2. 로컬 컴퓨터에서 파일을 편집할 때 서버 프로젝트를 다시 게시합니다.
-
-<!---HONumber=AcomDC_1223_2015-->

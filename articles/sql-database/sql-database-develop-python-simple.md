@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Python을 사용하여 SQL 데이터베이스에 연결"
+	pageTitle="Python을 사용하여 SQL 데이터베이스에 연결 | Microsoft Azure"
 	description="Azure SQL 데이터베이스에 연결하는 데 사용할 수 있는 Python 코드 샘플을 제시합니다."
 	services="sql-database"
 	documentationCenter=""
@@ -47,4 +47,4 @@
 
 자세한 내용은 [Python 개발자 센터](/develop/python/)를 참조하세요.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

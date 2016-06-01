@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="03/04/2016"
+	ms.date="05/12/2016"
 	ms.author="billmath"/>
 
 # 하이브리드 ID 솔루션에 대한 다단계 인증 요구 사항 확인
@@ -58,4 +58,4 @@ MFA 및 그 기능에 대해 잘 모르는 경우 이 섹션을 계속하기 전
 ## 참고 항목
 [설계 고려 사항 개요](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

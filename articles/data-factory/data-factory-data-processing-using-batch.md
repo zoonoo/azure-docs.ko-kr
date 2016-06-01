@@ -62,21 +62,17 @@
     샘플 솔루션은 Azure 배치를 사용하여(간접적으로 Azure Data Factory 파이프라인을 통해) 가상 컴퓨터의 관리되는 컬렉션인 계산 노드의 풀에서 병렬 방식으로 데이터를 처리합니다.
 
 4.  적어도 2개의 계산 노드로 **Azure 배치 풀**을 만듭니다.
-
-	 [Azure 배치 탐색기 도구](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer)의 소스 코드를 다운로드하고 컴파일하고 사용하여 풀을 만들거나(**이 샘플 솔루션에 적극 권장됨**) [.NET용 Azure 배치 라이브러리](../batch/batch-dotnet-get-started.md)를 사용하여 풀을 만들 수 있습니다. Azure 배치 탐색기를 사용하는 단계별 지침은 [Azure 배치 탐색기 샘플 연습](http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx)을 참조하세요. [New-AzureRmBatchPool](https://msdn.microsoft.com/library/mt628690.aspx) cmdlet을 사용하여 Azure 배치 풀을 만들 수도 있습니다.
-
-	 배치 탐색기를 사용하여 아래와 같은 설정으로 풀을 만듭니다.
-
-	-   풀에 대한 ID(**풀 ID**)를 입력합니다. 데이터 팩터리 솔루션을 만들 때 필요하므로 **풀의 ID**를 메모해둡니다.
-
-	-   **운영 체제 제품군** 설정에 **Windows Server 2012 R2**를 지정합니다.
-
-	-   **계산 노드당 최대 작업** 설정에 대한 값으로 **2**를 지정합니다.
-
-	-   **대상 전용 수** 설정에 대한 값으로 **2**를 지정합니다.
-
-	 ![](./media/data-factory-data-processing-using-batch/image2.png)
-
+	1.  [Azure 포털](https://portal.azure.com)에서 왼쪽의 **찾아보기**를 클릭하고 **배치 계정**을 선택합니다. 
+	2. Azure 배치 계정을 선택하여 **배치 계정** 블레이드를 엽니다. 
+	3. **풀** 타일을 클릭합니다.
+	4. **풀** 블레이드에서 도구 모음의 추가 단추를 클릭하여 풀을 추가합니다.
+		1. 풀에 대한 ID(**풀 ID**)를 입력합니다. 데이터 팩터리 솔루션을 만들 때 필요하므로 **풀의 ID**를 메모해둡니다. 
+		2. 운영 체제 제품군 설정에 **Windows Server 2012 R2**를 지정합니다.
+		3. **노드 가격 책정 계층**을 선택합니다. 
+		3. **대상 전용** 설정에 대한 값으로 **2**를 입력합니다.
+		4. **노드당 최대 작업** 설정에 대한 값으로 **2**를 입력합니다.
+	5. **확인**을 클릭하여 풀을 만듭니다. 
+ 	 
 5.  [Azure 저장소 탐색기 6(도구)](https://azurestorageexplorer.codeplex.com/) 또는 [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer)(ClumsyLeaf 소프트웨어에서). 클라우드 호스티드 응용 프로그램의 로그를 포함한 Azure 저장소 프로젝트의 데이터 검사 및 변경에 대한 GUI 도구입니다.
 
     1.  개인 액세스로 **mycontainer**라는 컨테이너 만들기(익명 액세스 없음)
@@ -161,7 +157,7 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
 
     4.  **logger**. 로거를 사용하면 파이프라인에 대한 "User" 로그로 노출할 디버그 주석을 기록할 수 있습니다.
 
--   이 메서드는 사용자 지정 작업을 함께 연결하는 데 사용할 수 있는 사전을 반환합니다. 이 샘플 솔루션에서는 이 기능을 사용하지 않습니다.
+-   이 메서드는 나중에 사용자 지정 작업을 함께 연결하는 데 사용할 수 있는 사전을 반환합니다. 이 기능은 아직 구현되지 않았기 때문에, 메서드로부터 빈 사전이 반환됩니다.
 
 ### 절차: 사용자 지정 작업 만들기
 
@@ -228,13 +224,8 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
             // declare types for input and output data stores
             AzureStorageLinkedService inputLinkedService;
 
-            // declare dataset types
-            CustomDataset inputLocation;
-            AzureBlobDataset outputLocation;
-
             Dataset inputDataset = datasets.Single(dataset => dataset.Name == activity.Inputs.Single().Name);
-            inputLocation = inputDataset.Properties.TypeProperties as CustomDataset;
-
+	
             foreach (LinkedService ls in linkedServices)
                 logger.Write("linkedService.Name {0}", ls.Name);
 
@@ -277,8 +268,6 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
 
             // get the output dataset using the name of the dataset matched to a name in the Activity output collection.
             Dataset outputDataset = datasets.Single(dataset => dataset.Name == activity.Outputs.Single().Name);
-            // convert to blob location object.
-            outputLocation = outputDataset.Properties.TypeProperties as AzureBlobDataset;
 
             folderPath = GetFolderPath(outputDataset);
 
@@ -295,7 +284,8 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
             logger.Write("Writing {0} to the output blob", output);
             outputBlob.UploadText(output);
 
-            // return a new Dictionary object (unused in this code).
+			// The dictionary can be used to chain custom activities together in the future.
+			// This feature is not implemented yet, so just return an empty dictionary.
             return new Dictionary<string, string>();
         }
 
@@ -428,9 +418,6 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
 		// Get the output dataset using the name of the dataset matched to a name in the Activity output collection.
 		Dataset outputDataset = datasets.Single(dataset => dataset.Name == activity.Outputs.Single().Name);
 
-		// Convert to blob location object.
-		outputLocation = outputDataset.Properties.TypeProperties as AzureBlobDataset;
-
 4.	이 코드는 도우미 메서드인 **GetFolderPath**도 호출합니다. 이 메서드는 폴더 경로(저장소 컨테이너 이름)를 검색합니다.
 
 		folderPath = GetFolderPath(outputDataset);
@@ -554,9 +541,15 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
 
     3.  **poolName** 속성에 대한 풀의 ID를 입력합니다**.** 이 속성의 경우 풀 이름 또는 풀 ID 중 하나를 지정할 수 있습니다.
 
-    4.  **batchUri** JSON 속성에 대한 배치 URI를 입력합니다. **Azure 배치 계정 블레이드**의 **URL**은 <accountname>.<region>.batch.azure.com 형식을 사용합니다. JSON의 **batchUri** 속성의 경우 URL에서 **"accountname"을 제거**해야 합니다. 예: "batchUri": "https://eastus.batch.azure.com"
+    4.  **batchUri** JSON 속성에 대한 배치 URI를 입력합니다.
+    
+		> [AZURE.IMPORTANT] **Azure 배치 계정 블레이드**의 **URL**은 <accountname>.<region>.batch.azure.com 형식을 사용합니다. JSON의 **batchUri** 속성의 경우 URL에서 **"accountname"을 제거**해야 합니다. 예: "batchUri": "https://eastus.batch.azure.com"
 
         ![](./media/data-factory-data-processing-using-batch/image9.png)
+
+		**poolName** 속성의 경우 풀 이름 대신 풀 ID를 지정할 수도 있습니다.
+
+		> [AZURE.NOTE] 데이터 팩터리 서비스는 HDInsight에 대해서와 마찬가지로 Azure Batch에 대한 주문형 옵션을 지원하지 않습니다. Azure Data Factory에서는 사용자 고유의 Azure Batch 풀만 사용할 수 있습니다.
 
     5.  **linkedServiceName** 속성에 대해 **StorageLinkedService**를 지정합니다. 이 연결된 서비스는 이전 단계에서 만들었습니다. 이 저장소는 파일 및 로그에 대한 준비 영역으로 사용됩니다.
 
@@ -576,7 +569,7 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
 		    "name": "InputDataset",
 		    "properties": {
 		        "type": "AzureBlob",
-		        "linkedServiceName": "StorageLinkedService",
+		        "linkedServiceName": "AzureStorageLinkedService",
 		        "typeProperties": {
 		            "folderPath": "mycontainer/inputfolder/{Year}-{Month}-{Day}-{Hour}",
 		            "format": {
@@ -651,7 +644,7 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
 	| 4 | 2015-11-16T**03**:00:00 | 2015-11-16-**03** |
 	| 5 | 2015-11-16T**04**:00:00 | 2015-11-16-**04** |
 
-3.  도구 모음에서 **배포**를 클릭하여 **InputDataset** 테이블을 만들고 배포합니다. 편집기의 제목 표시줄에 **테이블이 성공적으로 생성됨** 메시지가 표시되는지 확인합니다.
+3.  도구 모음에서 **배포**를 클릭하여 **InputDataset** 테이블을 만들고 배포합니다.
 
 #### 출력 데이터 집합 만들기
 
@@ -665,7 +658,7 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
 		    "name": "OutputDataset",
 		    "properties": {
 		        "type": "AzureBlob",
-		        "linkedServiceName": "StorageLinkedService",
+		        "linkedServiceName": "AzureStorageLinkedService",
 		        "typeProperties": {
 		            "fileName": "{slice}.txt",
 		            "folderPath": "mycontainer/outputfolder",
@@ -723,7 +716,7 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
 						"typeProperties": {
 							"assemblyName": "MyDotNetActivity.dll",
 							"entryPoint": "MyDotNetActivityNS.MyDotNetActivity",
-							"packageLinkedService": "StorageLinkedService",
+							"packageLinkedService": "AzureStorageLinkedService",
 							"packageFile": "customactivitycontainer/MyDotNetActivity.zip"
 						},
 						"inputs": [
@@ -807,6 +800,8 @@ Azure Data Factory 파이프라인에서 사용할 .NET 사용자 지정 작업�
 6.  [Azure 배치 탐색기](http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx)를 사용하여 **조각**과 연결된 **작업**을 보고 각 조각이 실행된 VM을 봅니다. **adf-<poolname>**으로 만들어진 작업이 표시됩니다. 이 작업에는 각 조각에 대한 작업이 있습니다. 이 예제에서는 5개 조각이 있으므로 Azure 배치에 5개의 작업이 있게 됩니다. Azure 데이터 팩터리의 파이프라인 JSON에서 **동시성**을 **5**로, **2**개의 VM이 있는 Azure 배치 풀에서 **VM당 최대 작업**을 **2**로 설정하여 작업이 매우 빠르게 실행되었습니다**Created** 시간 참조).
 
     ![](./media/data-factory-data-processing-using-batch/image14.png)
+
+	> [AZURE.NOTE] [Azure 배치 Explorer 도구][batch-explorer]에 대한 코드를 다운로드하고, 컴파일하여, 배치 풀을 만들고 모니터링하는 데 사용합니다. Azure 배치 탐색기를 사용하는 단계별 지침은 [Azure 배치 탐색기 샘플 연습][batch-explorer-walkthrough]을 참조하세요.
 
 7.  Azure Blob 저장소에서 **mycontainer**의 **outputfolder**에 출력 파일이 표시됩니다.
 
@@ -899,7 +894,7 @@ Azure Data Factory 및 Azure 배치 기능에 대한 자세한 내용을 보려�
 
 	자세한 내용은 [Azure 배치 풀에서 자동으로 계산 노드 크기 조정](../batch/batch-automatic-scaling.md)을 참조하세요.
 
-	Azure 배치 서비스는 VM에서 사용자 지정 작업을 실행하기 전에 VM을 준비하는 데 15-30분이 걸릴 수 있습니다.
+	풀에 기본 [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx)이 사용되는 경우, 배치 서비스가 사용자 지정 작업을 실행하기 전에 VM을 준비하는 데 15-30분이 소요될 수 있습니다. 풀에 다른 autoScaleEvaluationInterval이 사용되는 경우, 배치 서비스는 autoScaleEvaluationInterval +10분이 소요될 수 있습니다.
 	 
 5. 샘플 솔루션에서 **Execute** 메서드는 출력 데이터 조각을 생성하도록 입력 데이터 조각을 처리하는 **Calculate** 메서드를 호출합니다. 사용자 고유 메서드를 작성하여 입력 데이터를 처리하고 Execute 메서드의 Calculate 메서드 호출을 사용자 메서드에 호출로 대체할 수 있습니다.
 
@@ -938,4 +933,8 @@ Azure Data Factory 및 Azure 배치 기능에 대한 자세한 내용을 보려�
 
     -   [Azure 배치 라이브러리 .NET 시작](../batch/batch-dotnet-get-started.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+
+[batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
+[batch-explorer-walkthrough]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
+
+<!---HONumber=AcomDC_0518_2016-->

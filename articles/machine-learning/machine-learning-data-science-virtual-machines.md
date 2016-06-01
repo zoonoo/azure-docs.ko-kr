@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
-	ms.author="mohabib;xibingao;bradsev" />
+	ms.date="05/10/2016"
+	ms.author="xibingao;bradsev" />
 
 # Azure의 데이터 과학 가상 컴퓨터
 
@@ -41,4 +41,4 @@ Azure VM 및 SQL 서비스 포함 Azure VM을 IPython Notebook 서버로 설정�
 > [AZURE.NOTE] Azure 가상 컴퓨터는 **종량제**로 비용이 청구됩니다. 가상 컴퓨터를 사용하지 않을 때 비용이 청구되지 않도록 하려면 [Azure 클래식 포털](http://manage.windowsazure.com/)에서 **중지(할당 해제)** 상태에 있어야 합니다. 가상 컴퓨터를 할당 해제하는 방법 및 단계별 지침은 [사용하지 않을 때 가상 컴퓨터 종료 및 할당 해제](machine-learning-data-science-setup-virtual-machine.md#shutdown)를 참조하세요.
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -91,15 +91,13 @@ HTTP PUT을 사용하여 리소스 생성 또는 템플릿 배포가 발생하�
 | 내용 | "in" : [ "&lt;value1&gt;","&lt;value2&gt;" ]|
 | ContainsKey | "containsKey" : "&lt;keyName&gt;" |
 
-### 필드 및 소스
+### 필드
 
 조건은 필드와 소스를 사용하여 형성됩니다. 필드는 리소스의 상태를 설명하는 데 사용되는 리소스 요청 페이로드의 속성을 나타냅니다. 원본은 요청 자체의 특성을 나타냅니다.
 
 다음과 같은 필드와 소스가 지원됩니다.
 
 필드: **name**, **kind**, **type**, **location**, **tags**, **tags.*** 및 **property alias**.
-
-원본: **action**.
 
 ### 속성 별칭 
 속성 별칭은 설정 및 sku와 같은 리소스 종류 특정 속성에 액세스하는 정책 정의에 사용될 수 있는 이름입니다. 속성이 존재하는 모든 API 버전에서 작동합니다. 아래 표시된 REST API를 사용하여 별칭을 검색할 수 있습니다(Powershell 지원은 향후 추가될 예정).
@@ -133,7 +131,7 @@ HTTP PUT을 사용하여 리소스 생성 또는 템플릿 배포가 발생하�
 
 | 별칭 이름 | 설명 |
 | ---------- | ----------- |
-| {resourceType}/sku.name | 지원되는 리소스 유형: Microsoft.Compute/virtualMachines,<br />Microsoft.Storage/storageAccounts,<br />Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles |
+| {resourceType}/sku.name | 지원되는 리소스 형식: Microsoft.Compute/virtualMachines,<br />Microsoft.Storage/storageAccounts,<br />Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles |
 | {resourceType}/sku.family | 지원되는 리소스 종류: Microsoft.Cache/Redis |
 | {resourceType}/sku.capacity | 지원되는 리소스 종류: Microsoft.Cache/Redis |
 | Microsoft.Compute/virtualMachines/imagePublisher | |
@@ -339,8 +337,8 @@ HTTP PUT을 사용하여 리소스 생성 또는 템플릿 배포가 발생하�
                 }
               },
               {
-                "source": "action",
-                "like": "Microsoft.Storage/*"
+                "field": "type",
+                "equals": "Microsoft.Storage/storageAccounts"
               }
             ]
         },
@@ -464,4 +462,4 @@ Get-AzureRmPolicyDefinition, Set-AzureRmPolicyDefinition 및 Remove-AzureRmPolic
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
     
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

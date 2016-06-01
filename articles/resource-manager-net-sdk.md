@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/10/2016"
+   ms.date="05/17/2016"
    ms.author="navale;tomfitz;"/>
 
 # .Net용 Azure Resource Manager SDK  
@@ -28,7 +28,7 @@ ARM(Azure Resource Manager) 미리 보기 SDK는 여러 언어 및 플랫폼에 
 아래의 모든 코드 조각을 가져온 전체 다운로드 가능한 샘플 프로젝트를 [여기](https://github.com/dx-ted-emea/Azure-Resource-Manager-Documentation/tree/master/ARM/SDKs/Samples/Net)에서 찾을 수 있습니다.
 
 ## 인증
-ARM에 대한 인증은 Azure AD(Active Directory)에 의해 처리됩니다. API에 연결하기 위해 먼저 모든 요청에 전달할 수 있는 인증 토큰을 수신하도록 Azure AD로 인증해야 합니다. 이 토큰을 가져오려면 먼저 로그인에 사용되는 Azure AD 응용 프로그램 및 서비스 주체를 만들어야 합니다. 단계별 지침은 [Azure AD 응용 프로그램 및 서비스 주체 만들기](./resource-group-create-service-principal-portal.md)를 따릅니다.
+ARM에 대한 인증은 Azure AD(Active Directory)에 의해 처리됩니다. API에 연결하기 위해 먼저 모든 요청에 전달할 수 있는 인증 토큰을 수신하도록 Azure AD로 인증해야 합니다. 이 토큰을 가져오려면 먼저 로그인에 사용되는 Azure AD 응용 프로그램 및 서비스 주체를 만들어야 합니다. 단계별 지침은 [Azure AD 응용 프로그램 및 서비스 주체 만들기](resource-group-create-service-principal-portal.md)를 따릅니다.
 
 서비스 주체를 만든 후에 다음을 수행해야 합니다.
 * 클라이언트 ID(GUID)
@@ -119,7 +119,7 @@ private static async Task<ResourceGroup> CreateResourceGroupAsync(TokenCredentia
 Azure Resource Manager API와 상호 작용하는 여러 가지 방법이 있지만 중요한 두가지는 다음과 같습니다.
 
 * 수동으로 특정 리소스 공급자를 수동으로 호출하거나
-* Azure Resource Manager(즉, ARM 템플릿)을 사용합니다.
+* Azure Resource Manager 템플릿(즉, ARM 템플릿)을 사용합니다.
 
 ARM 템플릿을 사용하면 다음과 같은 이점이 있습니다.
 
@@ -274,7 +274,7 @@ private static async Task<VirtualMachine> CreateVirtualMachineAsync(TokenCredent
 ```
 
 ### 템플릿 기반 배포 사용
-템플릿을 배포하는 방법에 대한 자세한 지침은 [.NET 라이브러리 및 템플릿을 사용하여 Azure 리소스 배포](./arm-template-deployment/#step-4-create-the-credentials-that-are-used-to-authenticate-requests) 자습서를 읽고 수행합니다.
+템플릿을 배포하는 방법에 대한 자세한 지침은 [.NET 라이브러리 및 템플릿을 사용하여 Azure 리소스 배포](./virtual-machines/virtual-machines-windows-csharp-template.md) 자습서를 읽고 수행합니다.
 
 간단히 말해 템플릿을 배포하는 작업이 리소스를 수동으로 프로비전하는 것보다 훨씬 쉽습니다. 아래 코드는 템플릿과 매개 변수 파일이 있는 URI을 가리켜서 이를 수행하는 방법을 보여줍니다.
 
@@ -298,4 +298,4 @@ private static async Task<DeploymentExtended> CreateTemplatedDeployment(TokenCre
  
    
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

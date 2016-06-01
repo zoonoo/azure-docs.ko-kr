@@ -10,14 +10,14 @@
 
 <tags
    ms.service="dns"
-   ms.devlang="en"
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="03/29/2016"
+   ms.date="05/06/2016"
    ms.author="cherylmc"/>
 
-# Azure 포털을 사용하여 DNS 레코드 및 레코드 집합을 만들고 관리하는 방법
+# Azure 포털을 사용하여 DNS 레코드 및 레코드 집합 관리
 
 
 > [AZURE.SELECTOR]
@@ -26,9 +26,9 @@
 - [PowerShell](dns-operations-recordsets.md)
 
 
-이 가이드에서는 Azure 포털을 사용하여 DNS 영역에 대한 레코드 집합 및 레코드를 만들고 관리하는 방법을 보여 줍니다.
+이 문서는 Azure 포털을 사용하여 DNS 영역에 대한 레코드 집합 및 레코드를 관리하는 방법을 보여줍니다.
 
-DNS 레코드 집합과 개별 DNS 레코드의 차이점을 이해하는 것이 중요합니다. 레코드 집합은 영역 내에서 동일한 이름과 형식을 가진 레코드 컬렉션입니다. 자세한 내용은 [레코드 집합 및 레코드 이해](../dns-getstarted-create-recordset#Understanding-record-sets-and-records)를 참조하세요.
+DNS 레코드 집합과 개별 DNS 레코드 사이의 차이를 이해하는 것이 중요합니다. 레코드 집합은 영역 내에서 동일한 이름과 형식을 가진 레코드 컬렉션입니다. 자세한 내용은 [레코드 집합 및 레코드 이해](dns-getstarted-create-recordset-portal.md)를 참조하세요.
 
 ## 새 레코드 집합 및 레코드 만들기
 
@@ -44,7 +44,7 @@ Azure 포털에서 레코드 집합을 만들려면 [Azure 포털을 사용하�
 	![레코드 집합 검색](./media/dns-operations-recordsets-portal/searchset500.png)
 
 
-## 기존 레코드 집합에 새 레코드 추가
+## 레코드 집합에 새 레코드 추가
 
 레코드 집합에 최대 20개의 레코드를 추가할 수 있습니다. 레코드 집합에는 두 개의 동일한 레코드가 포함될 수 없습니다. 빈 레코드 집합(0개 레코드 포함)을 만들 수 있지만 Azure DNS 이름 서버에는 표시되지 않습니다. CNAME 형식의 레코드 집합은 최대 하나의 레코드를 포함할 수 있습니다.
 
@@ -77,14 +77,11 @@ Azure 포털에서 레코드 집합을 만들려면 [Azure 포털을 사용하�
 	![레코드 수정](./media/dns-operations-recordsets-portal/modifyrecord500.png)
 
 3. 블레이드의 맨 위에서 **저장**을 클릭하여 설정을 저장합니다. 오른쪽 위 모서리에서 레코드가 저장되었다는 알림을 볼 수 있습니다.
-
 	
 	![레코드 저장](./media/dns-operations-recordsets-portal/saved150.png)
 
 
-
 3. 레코드가 저장된 후 DNS 블레이드의 레코드 집합에 대한 값은 업데이트된 레코드를 반영합니다.
-
 
 
 ## 레코드 집합에서 레코드 제거
@@ -135,4 +132,8 @@ Azure 포털을 사용하여 레코드 집합에서 레코드를 제거할 수 �
 
 Azure DNS에 대한 자세한 내용은 [Azure DNS 개요](dns-overview.md)를 참조하세요. DNS 자동화에 대한 자세한 내용은 [.NET SDK를 사용하여 DNS 영역 및 레코드 집합 만들기](dns-sdk.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0406_2016-->
+
+역방향 DNS 레코드를 작업하려면 [역방향 DNS 레코드를 관리하는 방법](dns-reverse-dns-record-operations-ps.md)을 참조하세요.
+ 
+
+<!---HONumber=AcomDC_0518_2016-->

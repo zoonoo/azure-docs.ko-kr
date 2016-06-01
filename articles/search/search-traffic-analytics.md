@@ -14,59 +14,50 @@
 	ms.workload="na" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="01/26/2016" 
+	ms.date="04/21/2016" 
 	ms.author="betorres"
 />
 
 
 # 검색 트래픽 분석 설정 및 사용
 
-검색 트래픽 분석은 검색 서비스에 대한 가시성을 확보하고 사용자와 이들의 동작을 이해할 수 있게 해주는 Azure 검색 기능입니다. 이 기능을 사용하도록 설정하면 검색 서비스 데이터가 선택한 저장소 계정에 복사됩니다. 이 데이터는 검색 서비스 로그 및 집계된 운영 메트릭을 포함합니다. 여기에서 어떤 방식으로든 사용 현황 데이터를 처리 및 조작할 수 있습니다.
-
+검색 트래픽 분석은 검색 서비스에 대한 가시성을 확보하고 사용자와 이들의 동작을 이해할 수 있게 해주는 Azure 검색 기능입니다. 이 기능을 사용하도록 설정하면 검색 서비스 데이터가 선택한 저장소 계정에 복사됩니다. 이 데이터에는 추가 분석을 위해 처리하고 조작할 수 있는 검색 서비스 로그 및 집계된 운영 메트릭이 포함됩니다.
 
 ## 검색 트래픽 분석을 사용하도록 설정하는 방법
+
+검색 서비스와 동일한 하위 지역 및 구독의 저장소 계정이 필요합니다.
+
+> [AZURE.IMPORTANT] 이 저장소 계정에 대해서는 표준 요금이 부과됩니다.
+
+사용하도록 설정되었으면 5-10분 이내 데이터가 저장소 계정의 이 두 개의 Blob 컨테이너로 전달되기 시작합니다.
+
+    insights-logs-operationlogs: search traffic logs
+    insights-metrics-pt1m: aggregated metrics
+
 
 ### 1\. 포털 사용
 [Azure 포털](http://portal.azure.com)에서 Azure 검색 서비스를 엽니다. 설정에서 검색 트래픽 분석 옵션을 찾습니다.
 
 ![][1]
 
-이 옵션을 선택하면 새 블레이드가 열립니다. 상태를 **On**으로 변경하고 데이터를 복사할 Azure 저장소 계정을 선택하고 복사할 데이터(로그, 메트릭 또는 둘 다)를 선택합니다. 로그 및 메트릭을 복사하는 것이 좋습니다.
+이 옵션을 선택하면 새 블레이드가 열립니다. 상태를 **On**으로 변경하고 데이터를 복사할 Azure 저장소 계정을 선택하고 복사할 데이터(로그, 메트릭 또는 둘 다)를 선택합니다. 로그 및 메트릭을 복사하는 것이 좋습니다. 1일 ~ 365일까지 데이터에 대한 보존 정책을 설정할 수 있는 옵션이 있습니다. 보존 정책을 적용하지 않고 해당 데이터를 영원히 보존하려는 경우 보존(일)을 0으로 설정하세요.
 
 ![][2]
 
-
-> [AZURE.IMPORTANT] 저장소 계정이 검색 서비스와 동일한 지역 및 구독에 있어야 합니다.
-> 
-> 이 저장소 계정에 대해서는 표준 요금이 부과됩니다.
-
 ### 2\. PowerShell 사용
 
-또한 다음 PowerShell cmdlet을 실행하여 이 기능을 사용할 수 있습니다.
+먼저, 최신 [Azure PowerShell cmdlets](https://github.com/Azure/azure-powershell/releases)를 설치했는지 확인합니다.
+
+그런 다음 검색 서비스 및 저장소 계정에 대한 리소스 ID를 가져옵니다. 설정 -> 속성 -> ResourceId로 이동하여 포털에서 찾을 수 있습니다.
+
+![][3]
 
 ```PowerShell
 Login-AzureRmAccount
-Set-AzureRmDiagnosticSetting -ResourceId <SearchService ResourceId> StorageAccountId <StorageAccount ResourceId> -Enabled $true
+$SearchServiceResourceId = "Your Search service resource id"
+$StorageAccountResourceId = "Your Storage account resource id"
+Set-AzureRmDiagnosticSetting -ResourceId $SearchServiceResourceId StorageAccountId $StorageAccountResourceId -Enabled $true
 ```
-
--   **SearchService ResourceId**: ```
-/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Search/searchServices/<searchServiceName>
-```
-
- 
--  **StorageAccount ResourceId**: 포털의 설정 -> 속성 -> 리소스 ID ```
-New: /subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/Microsoft.Storage/storageAccounts/<storageAccountName>
-OR
-Classic: /subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.ClassicStorage/storageAccounts/<storageAccountName>
-```에서 찾을 수 있습니다.
-
-----------
-
-사용하도록 설정되었으면 5-10분 이내 데이터가 저장소 계정으로 전달되기 시작합니다. Blob 저장소에서 2개의 새 컨테이너를 찾을 수 있습니다.
-
-    insights-logs-operationlogs: search traffic logs
-    insights-metrics-pt1m: aggregated metrics
-
 
 ## 데이터 이해
 
@@ -112,6 +103,7 @@ properties |object |아래 참조 |데이터별 작업을 포함하는 개체
 사용 가능한 메트릭:
 
 - 대기 시간
+- SearchQueriesPerSecond
 
 ####메트릭 스키마
 
@@ -137,7 +129,7 @@ properties |object |아래 참조 |데이터별 작업을 포함하는 개체
 
 [Power BI 콘텐츠 팩](https://app.powerbi.com/getdata/services/azure-search): 자동으로 데이터를 표시하고 검색 서비스에 대한 시각적 통찰력을 제공하는 Power BI 대시보드 및 Power BI 보고서 집합을 만듭니다. [콘텐츠 팩 도움말 페이지](https://powerbi.microsoft.com/ko-KR/documentation/powerbi-content-pack-azure-search/)를 참조하세요.
 
-![][3]
+![][4]
 
 #### Power BI Desktop
 
@@ -146,17 +138,17 @@ properties |object |아래 참조 |데이터별 작업을 포함하는 개체
 1. 새 PowerBI Desktop 보고서를 엽니다.
 2. 데이터 가져오기 -> 자세히...를 선택합니다.
 
-	![][4]
+	![][5]
 
 3. Microsoft Azure Blob 저장소 및 연결을 선택합니다.
 
-	![][5]
+	![][6]
 
 4. 저장소 계정의 이름 및 계정 키를 입력합니다.
 5. "insight-logs-operationlogs" 및 "insights-metrics-pt1m"을 선택한 다음 편집을 클릭합니다.
 6. 쿼리 편집기가 열리면 왼쪽에서 "insight-logs-operationlogs"가 선택되었는지 확인합니다. 이제 보기 -> 고급 편집기를 선택하여 고급 편집기를 엽니다.
 
-	![][6]
+	![][7]
 
 7. 처음 두 줄은 유지하고 나머지를 다음 쿼리로 바꿉니다.
 
@@ -223,9 +215,10 @@ properties |object |아래 참조 |데이터별 작업을 포함하는 개체
 
 [1]: ./media/search-traffic-analytics/SettingsBlade.png
 [2]: ./media/search-traffic-analytics/DiagnosticsBlade.png
-[3]: ./media/search-traffic-analytics/Dashboard.png
-[4]: ./media/search-traffic-analytics/GetData.png
-[5]: ./media/search-traffic-analytics/BlobStorage.png
-[6]: ./media/search-traffic-analytics/QueryEditor.png
+[3]: ./media/search-traffic-analytics/ResourceId.png
+[4]: ./media/search-traffic-analytics/Dashboard.png
+[5]: ./media/search-traffic-analytics/GetData.png
+[6]: ./media/search-traffic-analytics/BlobStorage.png
+[7]: ./media/search-traffic-analytics/QueryEditor.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0518_2016-->

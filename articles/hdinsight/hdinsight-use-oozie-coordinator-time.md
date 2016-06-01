@@ -56,14 +56,17 @@ Apache Oozie는 Hadoop 작업을 관리하는 워크플로/코디네이션 시�
 
 > [AZURE.NOTE] HDInsight 클러스터에서 지원되는 Oozie 버전에 대해서는 [HDInsight에서 제공하는 클러스터 버전의 새로운 기능][hdinsight-versions]을 참조하세요.
 
-> [AZURE.NOTE] 이 자습서는 HDInsight 클러스터 버전 2.1 및 3.0에 적용됩니다. 이 문서는 HDInsight 에뮬레이터에서는 테스트되지 않았습니다.
-
 
 ##<a id="prerequisites"></a>필수 조건
 
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-- **Azure PowerShell이 포함된 워크스테이션**. [Azure PowerShell 설치 및 사용](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)을 참조하세요. Windows PowerShell 스크립트를 실행하려면 관리자로 Azure PowerShell을 실행하고 실행 정책을 *RemoteSigned*로 설정해야 합니다. 자세한 내용은 [Windows PowerShell 스크립트 실행][powershell-script]을 참조하세요.
+- **Azure PowerShell이 포함된 워크스테이션**.
+
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+
+    Windows PowerShell 스크립트를 실행하려면 관리자로 Azure PowerShell을 실행하고 실행 정책을 *RemoteSigned*로 설정해야 합니다. 자세한 내용은 [Windows PowerShell 스크립트 실행][powershell-script]을 참조하세요.
+
 - **HDInsight 클러스터**. HDInsight 클러스터 만들기에 대한 자세한 내용은 [HDInsight 클러스터 프로비전][hdinsight-provision] 또는 [HDInsight 시작][hdinsight-get-started]을 참조하세요. 자습서를 완료하려면 다음 데이터가 필요합니다.
 
 	<table border = "1">
@@ -99,7 +102,7 @@ Oozie 워크플로 정의는 hPDL(XML 프로세스 정의 언어)로 작성되�
 
 1. **DROP TABLE 문**은 log4j Hive 테이블이 있는 경우 이 테이블을 삭제합니다.
 2. **CREATE TABLE 문**은 log4j 로그 파일 위치를 가리키는 log4j Hive 외부 테이블을 만듭니다;
-3.  **log4j Hive 외부 테이블의 위치**입니다. 필드 구분 기호는 ","입니다. 기본 줄 구분 기호는 "\n"입니다. Hive 외부 테이블은 Oozie 워크플로를 여러 번 실행하려는 경우 데이터 파일이 원래 위치에서 제거되지 않도록 하기 위해서 사용됩니다.
+3.  **log4j Hive 외부 테이블의 위치**입니다. 필드 구분 기호는 ","입니다. 기본 줄 구분 기호는 "\\n"입니다. Hive 외부 테이블은 Oozie 워크플로를 여러 번 실행하려는 경우 데이터 파일이 원래 위치에서 제거되지 않도록 하기 위해서 사용됩니다.
 3. **INSERT OVERWRITE 문**은 log4j Hive 테이블에서 각 로그 수준 유형의 수를 계산하고 그 출력 결과를 Azure Blob 저장소 위치에 저장합니다.
 
 **참고**: 알려진 Hive 경로 문제가 있습니다. Oozie 작업을 제출할 때 이 문제가 발생합니다. TechNet Wiki에서 문제 해결을 위한 지침을 찾을 수 있습니다: [HDInsight 하이브 오류:이름을 바꿀 수 없습니다][technetwiki-hive-error].
@@ -120,7 +123,7 @@ Oozie 워크플로 정의는 hPDL(XML 프로세스 정의 언어)로 작성되�
 
 	워크플로 정의 파일(이 자습서에서는 workflow.xml)은 런타임 시 이러한 값을 이 HiveQL 스크립트에 전달합니다.
 
-2. ANSI(ASCII) 인코딩을 사용하여 파일을 **C:\Tutorials\UseOozie\useooziewf.hql**로 저장하세요. (텍스트 편집기에서 이 옵션을 제공하지 않는 경우 메모장을 사용하세요.) 이 스크립트 파일은 자습서의 뒷부분에 나오는 HDInsight 클러스터에 배포됩니다.
+2. ANSI(ASCII) 인코딩을 사용하여 파일을 **C:\\Tutorials\\UseOozie\\useooziewf.hql**로 저장하세요. (텍스트 편집기에서 이 옵션을 제공하지 않는 경우 메모장을 사용하세요.) 이 스크립트 파일은 자습서의 뒷부분에 나오는 HDInsight 클러스터에 배포됩니다.
 
 
 
@@ -212,7 +215,7 @@ Oozie 워크플로 정의는 hPDL(XML 프로세스 정의 언어)로 작성되�
 
 	Oozie 워크플로 및 워크플로 작업 사용에 대한 자세한 내용은 [Apache Oozie 4.0 설명서][apache-oozie-400](HDInsight 클러스터 버전 3.0의 경우) 또는 [Apache Oozie 3.3.2 설명서][apache-oozie-332](HDInsight 클러스터 버전 2.1의 경우)를 참조하세요.
 
-2. ANSI(ASCII) 인코딩을 사용하여 파일을**C:\Tutorials\UseOozie\workflow.xml**로 저장하세요. (텍스트 편집기에서 이 옵션을 제공하지 않는 경우 메모장을 사용하세요.)
+2. ANSI(ASCII) 인코딩을 사용하여 파일을**C:\\Tutorials\\UseOozie\\workflow.xml**로 저장하세요. (텍스트 편집기에서 이 옵션을 제공하지 않는 경우 메모장을 사용하세요.)
 
 **코디네이터를 정의하려면**
 
@@ -236,7 +239,7 @@ Oozie 워크플로 정의는 hPDL(XML 프로세스 정의 언어)로 작성되�
     | ${coordTimezone} | Oozie는 일광 절약 시간제(UTC를 사용하여 일반적으로 표시 됨)없이 고정된 시간대에서 코디네이터 작업을 처리합니다. 해당 시간대는 "Oozie 처리 시간대"라고 합니다. |
 	| ${wfPath} | workflow.xml의 경로입니다. 워크플로 파일 이름이 기본 파일 이름(workflow.xml)이 아닌 경우 기본 파일 이름을 지정해야 합니다. |
 
-2. ANSI(ASCII) 인코딩을 사용하여 파일을 **C:\Tutorials\UseOozie\coordinator.xml**로 저장하세요. (텍스트 편집기에서 이 옵션을 제공하지 않는 경우 메모장을 사용하세요.)
+2. ANSI(ASCII) 인코딩을 사용하여 파일을 **C:\\Tutorials\\UseOozie\\coordinator.xml**로 저장하세요. (텍스트 편집기에서 이 옵션을 제공하지 않는 경우 메모장을 사용하세요.)
 
 ##<a id="deploy"></a>Oozie 프로젝트 배포 및 자습서 준비
 
@@ -256,7 +259,7 @@ HDInsight 클러스터를 프로비전할 때 Azure Blob 저장소 계정 및 �
 
 	wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
-> [AZURE.NOTE] HDInsight 클러스터 버전 3.0에서는 *wasb://* 구문만 지원됩니다. 이전 *asv://* 구문은 HDInsight 2.1 및 1.6 클러스터에서 지원되지만, HDInsight 3.0 클러스터 이상 버전에서는 지원되지 않습니다.
+> [AZURE.NOTE]HDInsight 클러스터 버전 3.0에서는 *wasb://* 구문만 지원됩니다. 이전 *asv://* 구문은 HDInsight 2.1 및 1.6 클러스터에서 지원되지만, HDInsight 3.0 클러스터 이상 버전에서는 지원되지 않습니다.
 
 > [AZURE.NOTE] wasb:// 경로는 가상 경로입니다. 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용][hdinsight-storage]을 참조하세요.
 
@@ -284,7 +287,7 @@ Hive 내부 테이블 및 외부 테이블에 대해 알아야 할 사항이 몇
 
 **자습서를 준비하려면**
 
-1. Windows PowerShell ISE를 엽니다. (Windows 8 시작 화면에서 **PowerShell_ISE**를 입력한 후 **Windows PowerShell ISE**를 클릭하면 됩니다. 자세한 내용은 [Windows 8 및 Windows에서 Windows PowerShell 시작][powershell-start]을 참조하세요.)
+1. Windows PowerShell ISE를 엽니다. (Windows 8 시작 화면에서 **PowerShell\_ISE**를 입력한 후 **Windows PowerShell ISE**를 클릭하면 됩니다. 자세한 내용은 [Windows 8 및 Windows에서 Windows PowerShell 시작][powershell-start]을 참조하세요.)
 2. 아래 창에서 다음 명령을 실행하여 Azure 구독에 연결합니다.
 
 		Add-AzureAccount
@@ -381,7 +384,7 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
 
 **Oozie 작업을 제출하려면**
 
-1. Windows PowerShell ISE를 엽니다. (Windows 8 시작 화면에서 **PowerShell_ISE**를 입력한 후에 **Windows PowerShell ISE**를 클릭하면 됩니다. 자세한 내용은 [Windows 8 및 Windows에서 Windows PowerShell 시작][powershell-start]을 참조하세요.)
+1. Windows PowerShell ISE를 엽니다. (Windows 8 시작 화면에서 **PowerShell\_ISE**를 입력한 후에 **Windows PowerShell ISE**를 클릭하면 됩니다. 자세한 내용은 [Windows 8 및 Windows에서 Windows PowerShell 시작][powershell-start]을 참조하세요.)
 
 3. 다음 스크립트를 스크립트 창에 복사한 후 처음 14개 변수를 설정합니다(하지만 **$storageUri**는 건너뜀).
 
@@ -645,7 +648,7 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
 
 **작업 오류 로그를 검사하려면**
 
-워크플로 문제를 해결하기 위해 클러스터 headnode에서 C:\apps\dist\oozie-3.3.2.1.3.2.0-05\oozie-win-distro\logs\Oozie.log에 있는 Oozie 로그 파일을 확인할 수 있습니다. RDP에 대한 자세한 내용은 [Azure 포털을 사용하여 HDInsight 클러스터 관리][hdinsight-admin-portal]를 참조하세요.
+워크플로 문제를 해결하기 위해 클러스터 headnode에서 C:\\apps\\dist\\oozie-3.3.2.1.3.2.0-05\\oozie-win-distro\\logs\\Oozie.log에 있는 Oozie 로그 파일을 확인할 수 있습니다. RDP에 대한 자세한 내용은 [Azure 포털을 사용하여 HDInsight 클러스터 관리][hdinsight-admin-portal]를 참조하세요.
 
 **자습서를 다시 실행하려면**
 
@@ -687,7 +690,6 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
 이 자습서에서는 Oozie 워크플로를 정의하는 방법, Oozie 코디네이터 및 Azure PowerShell을 사용하여 Oozie 코디네이터 작업을 실행하는 방법을 알아보았습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 - [HDInsight 시작][hdinsight-get-started]
-- [HDInsight Emulator 시작][hdinsight-get-started-emulator]
 - [HDInsight에서 Azure Blob 저장소 사용][hdinsight-storage]
 - [Azure PowerShell을 사용하여 HDInsight 클러스터 관리][hdinsight-admin-powershell]
 - [HDInsight에 데이터 업로드:][hdinsight-upload-data]
@@ -702,7 +704,7 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
 
 
 [hdinsight-versions]: hdinsight-component-versioning.md
-[hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 
@@ -713,13 +715,12 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
-[hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
-[hdinsight-get-started-emulator]: ../hdinsight-get-started-emulator.md
-[hdinsight-develop-java-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
+[hdinsight-develop-java-mapreduce]: hdinsight-develop-deploy-java-mapreduce-linux.md
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
 
 [sqldatabase-create-configue]: ../sql-database-create-configure.md
-[sqldatabase-get-started]: ../sql-database-get-started.md
+[sqldatabase-get-started]: ../sql-database/sql-database-get-started.md
 
 [azure-management-portal]: https://portal.azure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account.md
@@ -742,4 +743,4 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

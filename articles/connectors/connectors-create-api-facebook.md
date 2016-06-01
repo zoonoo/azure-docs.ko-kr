@@ -14,13 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/25/2016"
+   ms.date="05/16/2016"
    ms.author="mandia"/>
 
 # Facebook API 시작
 Facebook에 연결하여 타임라인에 게시, 페이지 피드 가져오기 등의 작업을 수행합니다. Facebook API를 다음에서 사용할 수 있습니다.
 
-- 논리 앱 
+- 논리 앱(이 항목에 설명됨)
+- PowerApps([PowerApps 연결 목록](https://powerapps.microsoft.com/tutorials/connections-list/)에서 전체 목록을 참조하세요.)
 
 >[AZURE.NOTE] 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다.
 
@@ -48,7 +49,7 @@ Facebook API에는 다음 트리거 및 작업이 포함됩니다.
 1. Facebook 계정으로 로그인
 2. **권한 부여**를 선택하고 논리 앱에서 Facebook에 연결하고 사용할 수 있도록 허용합니다. 
 
-연결을 만든 후에 Facebook 속성을 입력합니다. 이 항목의 **REST API 참조**에서는 이러한 속성에 대해 설명합니다.
+>[AZURE.INCLUDE [Facebook에 대한 연결을 만드는 단계](../../includes/connectors-create-api-facebook.md)]
 
 >[AZURE.TIP] 다른 논리 앱에서 이와 동일한 Facebook 연결을 사용할 수 있습니다.
 
@@ -433,6 +434,6 @@ Facebook API에는 다음 트리거 및 작업이 포함됩니다.
 
 ## 다음 단계
 
-[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[논리 앱을 만듭니다](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

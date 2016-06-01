@@ -20,7 +20,7 @@
 # Azure 앱 서비스 정의
 Azure 앱 서비스는 모든 플랫폼과 장치용 웹앱과 모바일 앱을 빠르고 쉽게 빌드하는 데 필요한 모든 사항을 통합하는 유일한 클라우드 서비스입니다. 개발자용으로 빌드된 앱 서비스는 기본 제공 DevOps, Visual Studio Team Services 및 GitHub와의 연속 통합, 스테이징 및 프로덕션 지원, 자동 패치 적용과 같은 강력한 기능을 갖춘 완전히 관리된 플랫폼입니다.
 
-Azure 앱 서비스는 Azure 웹 사이트, Azure 모바일 서비스 및 Azure Biztalk 서비스의 모든 기능을 포함하는 단일 서비스입니다. Azure Functions는 차세대 응용 프로그램을 가능하게 하는 앱 서비스에 대한 지속적인 추가 항목의 예입니다.
+Azure 앱 서비스는 새로운 기능을 추가하는 동시에 Azure 웹 사이트, Azure 모바일 서비스 및 Azure Biztalk 서비스의 모든 기존 기능을 포함하는 단일 서비스입니다. 이러한 기존 서비스와 앱 서비스의 관계에 대해 [자세히 알아보세요](https://azure.microsoft.com/documentation/services/app-service/).
 
 ## 앱 서비스 사용 이유
 웹앱과 모바일 앱의 신속한 개발 및 비즈니스 프로세스 자동화에 중점을 두는 Azure 앱 서비스는 단일 개발 및 관리 환경을 통해 통합된 엔터프라이즈 기능 집합을 제공하므로 다음과 같은 이점이 있습니다.
@@ -44,7 +44,6 @@ Azure 앱 서비스는 Azure 웹 사이트, Azure 모바일 서비스 및 Azure 
 - [**웹앱**](../app-service-web/app-service-web-overview.md) - 비즈니스와 더불어 크기가 조정되는 중요 업무용 웹앱을 신속하게 만들고 배포합니다.
 - [**모바일 앱**](../app-service-mobile/app-service-mobile-value-prop.md) - 언제든지 어떤 장치에서든 직원, 파트너 및 고객을 관리합니다.
 - [**API 앱**](../app-service-api/app-service-api-apps-why-best-platform.md) - 클라우드 API를 간편하게 빌드하고 사용합니다.
-- [**함수 앱**](../azure-functions/functions-overview.md) - Azure, 온-프레미스, SaaS 공급자의 이벤트에 응답하는 간단한 기능을 만듭니다.
 - [**논리 앱**](../app-service-logic/app-service-logic-what-are-logic-apps.md) - 코드를 작성하지 않고 클라우드 간의 데이터 액세스 및 사용을 자동화합니다.
 
 단일 통합 서비스인 앱 서비스를 통해 위와 같은 앱 형식을 단일 솔루션으로 쉽게 작성할 수 있으므로 동일한 백 엔드를 사용하는 웹 클라이언트 및 모바일 클라이언트를 모두 대상으로 하는 앱을 쉽게 빌드하고 온-프레미스 시스템 뿐만 아니라 인기 있는 서비스(예: Office 365 및 salesforce.com)와 통합할 수 있습니다.
@@ -60,4 +59,4 @@ Azure 앱 서비스를 사용하면 언어를 선택하는 것만큼 쉽습니�
 지금 무료로 [새로운 앱을 만드세요](http://go.microsoft.com/fwlink/?LinkId=523751). 신용 카드는 필요하지 않으며 약정이나 수고도 필요하지 않습니다.
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

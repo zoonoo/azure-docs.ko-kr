@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="04/11/2016"
+   ms.date="04/19/2016"
    ms.author="robinsh" />
 
 # Azure 저장소 확장성 및 성능 목표
@@ -22,8 +22,6 @@
 이 항목에서는 Microsoft Azure 저장소에 대한 확장성 및 성능을 설명합니다. 기타 Azure 제한 사항에 대한 요약은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)을 참조하세요.
 
 >[AZURE.NOTE] 모든 저장소 계정은 새로운 플랫 네트워크 토폴로지에서 실행되고 작성된 시기에 관계 없이 아래에 설명된 확장성 및 성능 목표를 지원합니다. Azure 저장소 플랫 네트워크 아키텍처 및 확장성에 대한 자세한 내용은 [Microsoft Azure 저장소: 일관성과 가용성이 뛰어난 클라우드 저장소 서비스](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)를 참조하세요.
-
-<!-- -->
 
 >[AZURE.IMPORTANT] 여기에 나열된 확장성 및 성능 목표는 최첨단 목표이지만 달성할 수 있습니다. 모든 경우, 계정 사용량에 따라 달성된 요청 속도 및 대역폭은 저장된 개채의 크기 및 응용 프로그램이 수행한 작업 형태에 따릅니다. 해당 성능이 요구 사항을 충족시키는지 여부를 확인 하려면 서비스를 반드시 테스트해야 합니다. 가능하면 트래픽 속도가 갑자기 증가하지 않고 파티션 간의 트래픽이 적절하게 분산되도록 보장합니다.
 
@@ -40,8 +38,7 @@
 
 [AZURE.INCLUDE [azure-storage-limits-vm-disks](../../includes/azure-storage-limits-vm-disks.md)]
 
-
-자세한 내용은 [가상 컴퓨터 크기](../virtual-machines/virtual-machines-linux-sizes.md)를 참조하세요.
+자세한 내용은 [Windows VM 크기](../virtual-machines/virtual-machines-windows-sizes.md) 또는 [Linux VM 크기](../virtual-machines/virtual-machines-linux-sizes.md)를 참조하세요.
 
 ### 표준 저장소 계정
 
@@ -86,4 +83,4 @@ Azure 저장소(blob, 메시지, 엔터티 및 파일)에 저장 된 데이터�
 - [Microsoft Azure 저장소 성능 및 확장성 검사 목록](storage-performance-checklist.md)
 - [Microsoft Azure 저장소: 일관성과 가용성이 뛰어난 클라우드 저장소 서비스](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

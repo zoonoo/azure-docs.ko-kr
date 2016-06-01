@@ -18,11 +18,9 @@
 
 # Azure 앱 서비스의 API 앱에 대한 서비스 주체 인증
 
-[AZURE.INCLUDE [선택기](../../includes/app-service-api-auth-selector.md)]
-
 ## 개요
 
-이 문서에서는 API 앱에 대한 [내부](app-service-api-authentication.md#internal) 액세스를 위해 앱 서비스 인증을 사용하는 방법을 설명합니다. 내부 시나리오에는 사용자 고유의 응용 프로그램 코드에 의해서만 사용되도록 한 API 앱이 있습니다. 앱 서비스에서 이 시나리오를 구현하는 가장 쉬운 방법은 호출된 API 앱을 보호하기 위해 Azure AD를 사용하는 것입니다. 응용 프로그램 ID(서비스 주체) 자격 증명을 제공하여 Azure AD에서 가져온 전달자 토큰으로 보호된 API 앱을 호출합니다.
+이 문서에서는 API 앱에 대한 *내부* 액세스를 위해 앱 서비스 인증을 사용하는 방법을 설명합니다. 내부 시나리오에는 사용자 고유의 응용 프로그램 코드에 의해서만 사용되도록 한 API 앱이 있습니다. 앱 서비스에서 이 시나리오를 구현하는 가장 좋은 방법은 호출된 API 앱을 보호하기 위해 Azure AD를 사용하는 것입니다. 응용 프로그램 ID(서비스 주체) 자격 증명을 제공하여 Azure AD에서 가져온 전달자 토큰으로 보호된 API 앱을 호출합니다. Azure AD를 사용하는 대안은 [Azure 앱 서비스 인증 개요](../app-service/app-service-authentication-overview.md#service-to-service-authentication)의 **서비스 간 인증** 섹션을 참조하세요.
 
 이 문서에서는 다음에 대해 알아봅니다.
 
@@ -37,9 +35,9 @@
 
 * [.NET 시작 자습서 계속](#tutorialstart)으로 시작하는 자습서는 앱 서비스에서 실행되는 .NET 샘플 응용 프로그램에 대해 "내부 액세스" 시나리오를 구성하는 과정을 안내합니다.
 
-## <a id="authconfig"></a> Azure 앱 서비스에서 서비스 주체를 인증하는 방법
+## <a id="authconfig"></a> Azure 앱 서비스에서 서비스 주체 인증을 구성하는 방법
 
-이 섹션에서는 모든 API 앱에 적용되는 일반적인 지침을 제공합니다. 수행 목록 .NET 샘플 응용 프로그램에 특정한 단계는 [.NET 시작 자습서 계속](#tutorialstart)으로 이동합니다.
+이 섹션에서는 모든 API 앱에 적용되는 일반적인 지침을 제공합니다. 수행 목록 .NET 샘플 응용 프로그램에 특정한 단계는 [.NET API 앱 자습서 시리즈 계속](#tutorialstart)으로 이동합니다.
 
 1. [Azure 포털](https://portal.azure.com/)에서 보호할 API 앱의 **설정** 블레이드로 이동한 후 **기능** 섹션을 찾고 **인증/권한 부여**를 클릭합니다.
 
@@ -94,11 +92,11 @@
 
 보호된 API 앱의 코드에서 클레임의 유효성을 검사하지 않은 경우 및 보호된 API 앱에 별도의 Azure AD 응용 프로그램을 사용하는 경우 Azure AD 응용 프로그램의 회신 URL이 API 앱의 기본 URL과 동일하지 않도록 해야 합니다. 회신 URL이 직접 보호된 API 앱을 가리키는 경우 동일한 Azure AD 테넌트의 사용자는 API 앱을 찾고 로그온한 다음 성공적으로 API를 호출할 수 있습니다.
 
-## <a id="tutorialstart"></a> .NET 시작 자습서 계속
+## <a id="tutorialstart"></a> .NET API 앱 자습서 시리즈 계속
 
-API 앱에 Node.js 또는 Java 시작 시리즈를 수행 중인 경우 [다음 단계](#next-steps) 섹션으로 건너뜁니다.
+API 앱에 Node.js 또는 Java 자습서 시리즈를 수행 중인 경우 [다음 단계](#next-steps) 섹션으로 건너뜁니다.
 
-이 문서의 나머지 부분에서는 API 앱에 .NET 시작 시리즈를 계속하며 [사용자 인증 자습서](app-service-api-dotnet-user-principal-auth.md)를 완료하고 사용자 인증을 사용하여 Azure에서 실행하는 샘플 응용 프로그램이 있다고 가정합니다.
+이 문서의 나머지 부분에서는 API 앱에 .NET API 앱 자습서 시리즈를 계속하며 [사용자 인증 자습서](app-service-api-dotnet-user-principal-auth.md)를 완료하고 사용자 인증을 사용하여 Azure에서 실행하는 샘플 응용 프로그램이 있다고 가정합니다.
 
 ## Azure에서 인증 설정
 
@@ -152,7 +150,7 @@ API 앱에 Node.js 또는 Java 시작 시리즈를 수행 중인 경우 [다음 
 
 ### API 앱이 보호되는지 확인합니다.
 
-1. 브라우저에서 API 앱의 URL로 이동: Azure 포털에서 **API 앱** 블레이드에서 **URL** 아래 링크를 클릭합니다. 
+1. 브라우저에서 API 앱의 URL로 이동: Azure 포털에서 **API 앱** 블레이드에서 **URL**에 있는 링크를 클릭합니다. 
 
 	인증되지 않은 요청은 API 앱에 도달할 수 없으므로 로그인 화면으로 리디렉션됩니다.
 
@@ -203,7 +201,7 @@ Visual Studio의 ToDoListAPI 프로젝트에서 다음과 같이 변경합니다
 
 	**참고:** 이 코드는 .NET NuGet 패키지(Microsoft.IdentityModel.Clients.ActiveDirectory)에 ADAL이 필요하며 이는 프로젝트에 이미 설치되어 있습니다. 처음부터 이 프로젝트를 만들 때 이 패키지를 설치해야 했습니다. 이 패키지는 API 앱 new-project 템플릿에서 자동으로 설치되지 않습니다.
 
-2. *컨트롤러/ToDoListController*에서 인증 헤더의 HTTP 요청에 토큰을 추가하는 `NewDataAPIClient` 메서드에서 코드의 주석 처리를 제거합니다.
+2. *Controllers/ToDoListController*에서 인증 헤더의 HTTP 요청에 토큰을 추가하는 `NewDataAPIClient` 메서드에서 코드의 주석 처리를 제거합니다.
 
 		client.HttpClient.DefaultRequestHeaders.Authorization =
 		    new AuthenticationHeaderValue("Bearer", ServicePrincipal.GetS2SAccessTokenForProdMSA().AccessToken);
@@ -405,7 +403,7 @@ ToDoListAngular와 같은 Web API 백 엔드를 통한 AngularJS 단일 페이�
 
 ## 다음 단계
 
-이 문서는 API 앱 시작 시리즈의 마지막 문서입니다.
+이 자습서는 API 앱 시리즈의 마지막 자습서입니다.
 
 Azure Active Directory에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
@@ -417,4 +415,4 @@ Azure Active Directory에 대한 자세한 내용은 다음 리소스를 참조�
 
 Visual Studio를 사용하거나 [원본 제어 시스템](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control)에서 [배포를 자동화](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery)하여 API 앱에 Visual Studio를 배포하는 다른 방법에 대한 정보는 [Azure 앱 서비스 앱을 배포하는 방법](../app-service-web/web-sites-deploy.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

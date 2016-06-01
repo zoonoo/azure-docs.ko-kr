@@ -1,6 +1,6 @@
-    <properties
-	pageTitle="Grant user permissions to specific DevTest Lab policies | Microsoft Azure"
-	description="Learn how to grant user permissions to specific DevTest Lab policies based on each user's needs"
+<properties
+	pageTitle="특정 랩 정책에 사용자 권한 부여| Microsoft Azure"
+	description="각 사용자의 요구에 따라 DevTest Lab에서 특정 랩 정책에 사용자 권한을 부여하는 방법 알아보기"
 	services="devtest-lab,virtual-machines,visual-studio-online"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,26 +13,26 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
-# 특정 DevTest Lab 정책에 사용자 권한 부여
+# 특정 랩 정책에 사용자 권한 부여
 
 ## 개요
 
-이 문서에서는 PowerShell을 사용하여 특정 Azure DevTest Lab 정책에 사용자 권한을 부여하는 방법을 보여 줍니다. 이런 방식으로 각 사용자의 요구 사항에 따라 권한을 적용할 수 있습니다. 예를 들어 특정 사용자에게 VM 정책 설정을 변경할 수 있는 기능은 부여하지만 비용 정책에 대해서는 부여하지 않을 수 있습니다.
+이 문서에서는 PowerShell을 사용하여 특정 랩 정책에 사용자 권한을 부여하는 방법을 보여줍니다. 이런 방식으로 각 사용자의 요구 사항에 따라 권한을 적용할 수 있습니다. 예를 들어 특정 사용자에게 VM 정책 설정을 변경할 수 있는 기능은 부여하지만 비용 정책에 대해서는 부여하지 않을 수 있습니다.
 
 ## 리소스인 정책
 
 [Azure 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md) 문서에 설명된 대로 RBAC를 사용하면 Azure 리소스에 대해 세밀한 리소스 액세스 관리가 가능합니다. RBAC를 사용하여 DevOps 팀 내에서 업무를 분리하고 사용자에게 해당 작업을 수행하는 데 필요한 만큼의 권한만 부여할 수 있습니다.
 
-DevTest Lab에서 정책은 RBAC 작업 **Microsoft.DevTestLab/labs/policySets/policies/**를 지원하는 리소스 종류입니다. 각 DevTest Lab 정책은 정책 리소스 종류에 속한 리소스이며 RBAC 역할에 범위로 할당할 수 있습니다.
+DevTest Lab에서 정책은 RBAC 작업 **Microsoft.DevTestLab/labs/policySets/policies/**를 지원하는 리소스 종류입니다. 각 랩 정책은 정책 리소스 종류에 속한 리소스이며 RBAC 역할에 범위로 할당할 수 있습니다.
 
 예를 들어 사용자에게 **허용된 VM 크기** 정책에 대한 읽기/쓰기 권한을 부여하기 위해 **Microsoft.DevTestLab/labs/policySets/policies/*** 작업을 수행하는 사용자 지정 역할을 만든 다음 적절한 사용자를 **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab** 범위의 이 사용자 지정 역할에 할당합니다.
 
 RBAC의 사용자 지정 역할에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md) 문서의 [Azure RBAC에서 사용자 지정 역할](../active-directory/role-based-access-control-configure.md#custom-roles-in-azure-rbac) 섹션을 참조하세요.
 
-##PowerShell을 사용하여 DevTest Lab 사용자 지정 역할 만들기
+##PowerShell을 사용하여 랩 사용자 지정 역할 만들기
 시작하려면 Azure PowerShell cmdlet을 설치하고 구성하는 방법을 설명하는 다음 문서를 읽어야 합니다. [https://azure.microsoft.com/blog/azps-1-0-pre](https://azure.microsoft.com/blog/azps-1-0-pre).
 
 Azure PowerShell cmdlet을 설정한 후 다음 작업을 수행할 수 있습니다.
@@ -83,9 +83,9 @@ Azure PowerShell cmdlet을 설정한 후 다음 작업을 수행할 수 있습�
 
 ## 다음 단계
 
-특정 DevTest Lab 정책에 사용자 권한을 부여한 경우 다음 몇 가지 단계를 고려해야 합니다.
+특정 랩 정책에 사용자 권한을 부여한 경우 다음 몇 가지 단계를 고려해야 합니다.
 
-- [DevTest Lab에 대한 액세스 보호](devtest-lab-add-devtest-user.md).
+- [랩에 안전하게 액세스](devtest-lab-add-devtest-user.md).
 
 - [랩 정책 설정](devtest-lab-set-lab-policy.md).
 
@@ -93,6 +93,6 @@ Azure PowerShell cmdlet을 설정한 후 다음 작업을 수행할 수 있습�
 
 - [VM에 대한 사용자 지정 아티팩트 만들기](devtest-lab-artifact-author.md).
 
-- [Azure DevTest Lab에 아티팩트를 사용하여 VM 추가](devtest-lab-add-vm-with-artifacts.md).
+- [아티팩트를 사용하여 랩에 VM 추가](devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

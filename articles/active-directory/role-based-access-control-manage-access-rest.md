@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="rest-api"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/12/2016"
+	ms.date="05/13/2016"
 	ms.author="kgremban"/>
 
 # REST API를 사용하여 역할 기반 액세스 제어 관리
@@ -36,7 +36,7 @@ Azure 포털 및 Azure Resource Manager API의 RBAC(역할 기반 액세스 제�
 
 다음 URI와 함께 **GET** 메서드를 사용합니다.
 
-	https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments?api-version={api-version}&filter={filter}
+	https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments?api-version={api-version}&$filter={filter}
 
 URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 
@@ -56,8 +56,8 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 | 조건 | *{Filter}* | Replace |
 |-----------|------------|---------|
 | 하위 범위에서는 역할 할당을 포함시키지 않고 지정된 범위에 대해서만 역할 할당을 나열하려면 | `atScope()` | |
-| 특정 사용자, 그룹 또는 응용 프로그램에 대해서만 역할 할당을 나열하려면 | `principalId%20eq%20'{objectId}'` | *{objectId}*를 사용자, 그룹 또는 서비스 사용자의 Azure AD objectId로 바꿉니다. 예: `&filter=principalId%20eq%20'3a477f6a-6739-4b93-84aa-3be3f8c8e7c2'` |
-| 사용자가 멤버인 그룹에 할당된 역할 할당을 포함하여 특정 사용자에 대해서만 역할 할당을 나열하려면 | `assignedTo('{objectId}')` | *{objectId}*를 사용자의 Azure AD objectId로 바꿉니다. 예: `&filter=assignedTo('3a477f6a-6739-4b93-84aa-3be3f8c8e7c2')` |
+| 특정 사용자, 그룹 또는 응용 프로그램에 대해서만 역할 할당을 나열하려면 | `principalId%20eq%20'{objectId}'` | *{objectId}*를 사용자, 그룹 또는 서비스 사용자의 Azure AD objectId로 바꿉니다. 예: `&$filter=principalId%20eq%20'3a477f6a-6739-4b93-84aa-3be3f8c8e7c2'` |
+| 사용자가 멤버인 그룹에 할당된 역할 할당을 포함하여 특정 사용자에 대해서만 역할 할당을 나열하려면 | `assignedTo('{objectId}')` | *{objectId}*를 사용자의 Azure AD objectId로 바꿉니다. 예: `&$filter=assignedTo('3a477f6a-6739-4b93-84aa-3be3f8c8e7c2')` |
 
 
 
@@ -259,7 +259,7 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 
 다음 URI와 함께 **GET** 메서드를 사용합니다.
 
-	https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?api-version={api-version}&filter={filter}
+	https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?api-version={api-version}&$filter={filter}
 
 URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 
@@ -714,4 +714,4 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 
 ```
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="01/19/2016" 
+ms.date="05/17/2016" 
 ms.author="adegeo"/>
 
 # PowerShell을 사용하여 Azure 클라우드 서비스의 역할에 대해 원격 데스크톱 연결 사용
@@ -35,7 +35,7 @@ ms.author="adegeo"/>
 대화형으로 PowerShell을 사용하는 경우, [Get-Credentials](https://technet.microsoft.com/library/hh849815.aspx) cmdlet을 호출하여 PSCredential 개체를 쉽게 설정할 수 있습니다.
 
 ```
-	$remoteusercredentials = Get-Credential
+$remoteusercredentials = Get-Credential
 ```
 
 이는 안전하게 원격 사용자의 사용자 이름과 암호를 입력할 수 있는 대화 상자를 표시합니다.
@@ -45,7 +45,7 @@ PowerShell은 자동화 시나리오에 주로 사용되므로 사용자 조작�
 다음과 같은 PowerShell을 사용하여 보안 암호 파일을 만듭니다.
 
 ```
-	ConvertTo-SecureString -String "Password123" -AsPlainText -Force | ConvertFrom-SecureString | Set-Content "password.txt"
+ConvertTo-SecureString -String "Password123" -AsPlainText -Force | ConvertFrom-SecureString | Set-Content "password.txt"
 ``` 
 
 암호 파일(password.txt)을 만들고 나면, 이 파일만 사용할 것이며 일반 텍스트로 암호를 지정할 필요가 없습니다. 암호를 업데이트해야 하는 경우, 새 암호로 위의 powershell을 다시 실행하여 새 password.txt 파일을 생성할 수 있습니다.
@@ -57,12 +57,12 @@ PowerShell은 자동화 시나리오에 주로 사용되므로 사용자 조작�
 이 PowerShell 예는 클라우드 서비스에서 원격 데스크톱 확장을 설정하는 방법을 보여줍니다.
 
 ```
-	$servicename = "cloudservice"
-	$username = "RemoteDesktopUser"
-	$securepassword = Get-Content -Path "password.txt" | ConvertTo-SecureString
-	$expiry = $(Get-Date).AddDays(1)
-	$credential = New-Object System.Management.Automation.PSCredential $username,$securepassword
-	Set-AzureServiceRemoteDesktopExtension -ServiceName $servicename -Credential $credential -Expiration $expiry 
+$servicename = "cloudservice"
+$username = "RemoteDesktopUser"
+$securepassword = Get-Content -Path "password.txt" | ConvertTo-SecureString
+$expiry = $(Get-Date).AddDays(1)
+$credential = New-Object System.Management.Automation.PSCredential $username,$securepassword
+Set-AzureServiceRemoteDesktopExtension -ServiceName $servicename -Credential $credential -Expiration $expiry 
 ```
 또한 원격 데스크톱을 사용하려는 배포 슬롯와 역할을 선택적으로 지정할 수도 있습니다. 이러한 매개 변수가 지정되지 않은 경우 cmdlet는 프로덕션 배포 슬롯을 사용하여 기본값으로 설정되고 프로덕션 배포에서 모든 역할에 대해 원격 데스크톱을 사용합니다.
 
@@ -73,7 +73,7 @@ PowerShell은 자동화 시나리오에 주로 사용되므로 사용자 조작�
 [Get-AzureRemoteDesktopFile](https://msdn.microsoft.com/library/azure/dn495261.aspx) cmdlet는 원격 데스크톱을 클라우드 서비스의 특정 역할 인스턴스에 가져오는 데 사용할 수 있습니다. RDP 파일을 로컬에 다운로드하기 위해 cmdlet에 대해 *LocalPath* 매개 변수를 사용하거나 *Launch* 매개 변수를 사용하여 클라우드 서비스 역할 인스턴스에 액세스하기 위해 원격 데스크톱 연결 대화 상자를 바로 시작합니다.
 
 ```
-	Get-AzureRemoteDesktopFile -ServiceName $servicename -Name "WorkerRole1_IN_0" -Launch
+Get-AzureRemoteDesktopFile -ServiceName $servicename -Name "WorkerRole1_IN_0" -Launch
 ```
 
 
@@ -81,7 +81,7 @@ PowerShell은 자동화 시나리오에 주로 사용되므로 사용자 조작�
 [Get-AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/library/azure/dn495261.aspx) cmdlet는 원격 데스크톱이 서비스 배포에 사용되는지 여부를 표시합니다. cmdlet는 원격 데스크톱 확장을 사용할 수 있는 원격 데스크톱 사용자 및 역할에 대한 사용자 이름을 반환합니다. 프로덕션되는 기본값으로 선택적으로 지정할 수 있습니다.
 
 ```
-	Get-AzureServiceRemoteDesktopExtension -ServiceName $servicename
+Get-AzureServiceRemoteDesktopExtension -ServiceName $servicename
 ```
 
 ## 서비스에서 원격 데스크톱 확장 제거 
@@ -91,10 +91,11 @@ PowerShell은 자동화 시나리오에 주로 사용되므로 사용자 조작�
 
 ```
 Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallConfiguration
-
 ```  
 
->[AZURE.NOTE] *UninstallConfiguration* 매개 변수는 서비스에 적용된 모든 확장 구성을 제거합니다. 모든 확장 구성은 배포를 통해 확장을 활성화하는 서비스 구성과 연결되고 배포는 확장 구성과 연결되어야 됩니다. *UninstallConfiguration* 없는 제거 cmdlet를 호출하면 확장 구성에서 배포가 분리되어 배포에서 확장이 효과적으로 제거됩니다. 그러나 확장 구성은 서비스와 연결되어 있습니다. 확장 구성을 완전히 제거하려면 *UninstallConfiguration* 매개 변수로 제거 cmdlet을 호출해야 합니다.
+>[AZURE.NOTE] 확장 구성을 완전히 제거하려면 **UninstallConfiguration** 매개 변수와 *remove* cmdlet을 호출해야 합니다.
+>
+>**UninstallConfiguration** 매개 변수는 서비스에 적용된 모든 확장 구성을 제거합니다. 모든 확장 구성은 배포를 통해 확장을 활성화하는 서비스 구성과 연결되고 배포는 확장 구성과 연결되어야 됩니다. **UninstallConfiguration** 없이 *remove* cmdlet을 호출하면 확장 구성에서 배포가 분리되어 배포에서 확장이 효과적으로 제거됩니다. 그러나 확장 구성은 서비스와 연결되어 있습니다.
 
 
 
@@ -102,4 +103,4 @@ Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallCo
 
 [클라우드 서비스를 구성하는 방법](cloud-services-how-to-configure.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

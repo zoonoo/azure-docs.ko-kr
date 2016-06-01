@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2016" 
+	ms.date="05/16/2016" 
 	ms.author="nitinme"/>
 
 
@@ -170,7 +170,7 @@
 1. 데이터 집합에 무엇이 들어 있는지 알아보겠습니다. 예를 들어 **결과** 열에 어떤 값이 있을까요?
 
 
-	df.select('results').distinct().show()
+		df.select('results').distinct().show()
 
 	
 	다음과 유사한 출력이 표시됩니다.
@@ -412,4 +412,4 @@ MLLib는 이 작업을 간단하게 수행할 수 있는 방법을 제공합니�
 
 * [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

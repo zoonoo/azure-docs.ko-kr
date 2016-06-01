@@ -20,7 +20,7 @@
 
 # Azure 컨테이너 서비스 클러스터 배포
 
-Azure 컨테이너 서비스는 인기 있는 오픈 소스 컨테이너 클러스터링 및 오케스트레이션 솔루션의 신속한 배포를 제공합니다. Azure 컨테이너 서비스를 사용하면 Azure Resource Manager 템플릿 또는 Azure 포털에서 DC/OS 및 Docker Swarm 클러스터를 배포할 수 있습니다. Azure 가상 컴퓨터 규모 집합을 사용하여 이러한 클러스터를 배포하면 클러스터가 Azure 네트워킹 및 저장소 기능을 활용합니다. Azure 컨테이너 서비스에 액세스하려면 Azure 구독이 필요합니다. 아직 구독하지 않은 경우 [무료 평가판]( http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935)에 등록할 수 있습니다.
+Azure 컨테이너 서비스는 인기 있는 오픈 소스 컨테이너 클러스터링 및 오케스트레이션 솔루션의 신속한 배포를 제공합니다. Azure 컨테이너 서비스를 사용하면 Azure Resource Manager 템플릿 또는 Azure 포털에서 DC/OS 및 Docker Swarm 클러스터를 배포할 수 있습니다. Azure 가상 컴퓨터 규모 집합을 사용하여 이러한 클러스터를 배포하면 클러스터가 Azure 네트워킹 및 저장소 기능을 활용합니다. Azure 컨테이너 서비스에 액세스하려면 Azure 구독이 필요합니다. 아직 구독하지 않은 경우 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935)에 등록할 수 있습니다.
 
 이 문서에서는 [Azure 포털](#creating-a-service-using-the-azure-portal), [Azure CLI(명령줄 인터페이스I)](#creating-a-service-using-the-azure-cli) 및 [Azure PowerShell 모듈](#creating-a-service-using-powershell)을 사용하여 Azure 컨테이너 서비스 클러스터를 배포하는 방법을 안내합니다.
 
@@ -40,7 +40,7 @@ Azure 포털에 로그인하여 새로 만들기를 선택하고, Azure 마켓�
 - 구독 – Azure 구독을 선택합니다.
 - 리소스 그룹 – 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다.
 - 위치 – Azure 컨테이너 서비스 배포를 위한 Azure 지역을 선택합니다.
-- SSH 공개 키 – Azure 컨테이너 서비스 가상 컴퓨터에 대한 인증에 사용할 공개 키를 추가합니다. 키에 줄 바꿈이 없고 'ssh-rsa' 접두사와 'username@domain' 접미사를 포함해야 합니다. 다음과 같이 표시됩니다. "**ssh-rsa AAAAB3Nz...SNIPPEDCONTENT...UcyupgH azureuser@linuxvm**" SSH 키 생성에 대한 지침은 [Linux]( https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/) 및 [Windows]( https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/) 문서를 참조하세요.
+- SSH 공개 키 – Azure 컨테이너 서비스 가상 컴퓨터에 대한 인증에 사용할 공개 키를 추가합니다. 키에 줄 바꿈이 없고 'ssh-rsa' 접두사와 'username@domain' 접미사를 포함해야 합니다. 다음과 같이 표시됩니다. "**ssh-rsa AAAAB3Nz...SNIPPEDCONTENT...UcyupgH azureuser@linuxvm**" SSH 키 생성에 대한 지침은 [Linux](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/) 및 [Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/) 문서를 참조하세요.
 
 진행할 준비가 되면 **확인**을 클릭합니다.
 
@@ -82,12 +82,12 @@ Azure 포털에 배포를 고정하도록 선택한 경우에는 배포 상태�
 
 ## Azure CLI를 사용하여 서비스 만들기
 
-명령줄을 사용하여 Azure 컨테이너 서비스의 인스턴스를 만들려면 Azure 구독이 필요합니다. 아직 구독하지 않은 경우 [무료 평가판]( http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935)에 등록할 수 있습니다. 또한 Azure CLI를 설치 및 구성해야 합니다.
+명령줄을 사용하여 Azure 컨테이너 서비스의 인스턴스를 만들려면 Azure 구독이 필요합니다. 아직 구독하지 않은 경우 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935)에 등록할 수 있습니다. 또한 Azure CLI를 설치 및 구성해야 합니다.
 
 DC/OS 또는 Docker Swarm 클러스터를 배포하려면 GitHub에서 다음 템플릿 중 하나를 선택합니다. 이러한 두 템플릿은 기본 Orchestrator 선택을 제외하고 동일합니다.
 
-* [DC/OS 템플릿]( https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
-* [Swarm 템플릿]( https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
+* [DC/OS 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
+* [Swarm 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
 
 다음으로, Azure CLI가 Azure 구독에 연결되어 있는지 확인합니다. 다음 명령을 사용하여 이 작업을 수행할 수 있습니다.
 
@@ -142,12 +142,12 @@ azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMP
 
 ## PowerShell을 사용하여 서비스 만들기
 
-PowerShell 사용하여 Azure 컨테이너 서비스 클러스터를 배포할 수도 있습니다. 이 문서는 [Azure PowerShell 모듈]( https://azure.microsoft.com/blog/azps-1-0/) 버전 1.0을 기반으로 합니다.
+PowerShell 사용하여 Azure 컨테이너 서비스 클러스터를 배포할 수도 있습니다. 이 문서는 [Azure PowerShell 모듈](https://azure.microsoft.com/blog/azps-1-0/) 버전 1.0을 기반으로 합니다.
 
 DC/OS 또는 Docker Swarm 클러스터를 배포하려면 다음 템플릿 중 하나를 선택합니다. 이러한 두 템플릿은 기본 Orchestrator 선택을 제외하고 동일합니다.
 
-* [DC/OS 템플릿]( https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
-* [Swarm 템플릿]( https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
+* [DC/OS 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
+* [Swarm 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
 
 Azure 구독에서 클러스터를 만들기 전에 PowerShell 세션이 Azure에 로그인했는지 확인합니다. 이렇게 하려면 `Get-AzureRMSubscription` 명령을 사용합니다.
 
@@ -191,6 +191,6 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-Templa
  
 이제 클러스터가 작동하며 연결 및 관리 정보가 나와 있는 다음 문서를 방문합니다.
  
-[Azure 컨테이너 서비스 클러스터에 연결](./container-service-connect.md) [Azure 컨테이너 서비스 및 DC/OS로 작업](./container-service-mesos-marathon-rest.md) [Azure 컨테이너 서비스 및 Docker Swarm으로 작업](./container-service-docker-swarm.md)
+[Azure 컨테이너 서비스 클러스터에 연결](container-service-connect.md) [Azure 컨테이너 서비스 및 DC/OS로 작업](container-service-mesos-marathon-rest.md) [Azure 컨테이너 서비스 및 Docker Swarm으로 작업](container-service-docker-swarm.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

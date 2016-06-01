@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2016"
+	ms.date="04/26/2016"
 	ms.author="adrianhall"/>
 
 # <a name="article-top"></a>기존 Azure 모바일 서비스를 Azure 앱 서비스로 마이그레이션
@@ -332,6 +332,33 @@ Azure PowerShell을 사용하여 마이그레이션된 모바일 서비스를 �
 
 해결 방법: 당사에서 이 문제에 대한 작업을 하고 있습니다. 사이트를 복제하려는 경우 포털을 통해 수행하세요.
 
+### web.config을 변경할 수 없습니다.
+
+ASP.NET 사이트가 있는 경우 `Web.config` 파일을 변경할 수 없습니다. Azure 앱 서비스는 시작하는 동안 적절한 `Web.config` 파일을 빌드하여 모바일 서비스 런타임을 지원합니다. XML 변환 파일을 사용하여 특정 설정(예: 사용자 지정 헤더)를 재정의할 수 있습니다. 호출된 `applicationHost.xdt`에 파일을 만듭니다. 이 파일은 Azure 서비스의 `D:\home\site` 디렉터리에서 종료되어야 합니다. 사용자 지정 배포 스크립트를 통하거나 Kudu를 사용하여 직접 수행할 수 있습니다. 예제 문서는 다음과 같습니다.
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <system.webServer>
+    <httpProtocol>
+      <customHeaders>
+        <add name="X-Frame-Options" value="DENY" xdt:Transform="Replace" />
+        <remove name="X-Powered-By" xdt:Transform="Insert" />
+      </customHeaders>
+    </httpProtocol>
+    <security>
+      <requestFiltering removeServerHeader="true" xdt:Transform="SetAttributes(removeServerHeader)" />
+    </security>
+  </system.webServer>
+</configuration>
+```
+
+자세한 내용은 GitHub에 대한 [XDT 변환 샘플] 설명서를 참조하세요.
+
+### 마이그레이션된 모바일 서비스를 트래픽 관리자에 추가할 수 없습니다.
+
+트래픽 관리자 프로필을 만들면 프로필에 마이그레이션된 모바일 서비스를 직접 선택할 수 없습니다. "외부 끝점"을 사용해야 합니다. PowerShell을 통해서만 외부 끝점을 추가할 수 있습니다. 자세한 내용은 [트래픽 관리자 자습서](https://azure.microsoft.com/blog/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/)를 참조합니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 응용 프로그램이 앱 서비스에 마이그레이션하지 않지만 더 많은 기능을 활용할 수 있습니다.
@@ -380,5 +407,6 @@ Azure PowerShell을 사용하여 마이그레이션된 모바일 서비스를 �
 [스테이징 슬롯]: ../app-service-web/web-sites-staged-publishing.md
 [VNet]: ../app-service-web/web-sites-integrate-with-vnet.md
 [WebJobs]: ../app-service-web/websites-webjobs-resources.md
+[XDT 변환 샘플]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

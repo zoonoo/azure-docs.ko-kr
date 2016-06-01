@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/28/2016"
+   ms.date="05/02/2016"
    ms.author="chackdan"/>
 
 
@@ -75,7 +75,7 @@
 
 	b. VM 크기/가격 책정 계층을 선택합니다. 기본값은 D4 표준이지만 응용 프로그램을 테스트하는 데만 이 클러스터를 사용하는 경우 D2 또는 보다 작은 VM을 선택할 수 있습니다.
 
-	c. 주 노드 유형에 대한 최소 VM 수는 선택한 안정성 계층에 따라 결정됩니다. 안정성 계층에 대한 기본값은 은입니다. [서비스 패브릭 클러스터 안정성 및 내구성 선택](service-fabric-cluster-reliability-and-durability.md) 방법 문서를 참조하세요.
+	c. 주 노드 유형에 대한 최소 VM 수는 선택한 안정성 계층에 따라 결정됩니다. 안정성 계층에 대한 기본값은 은입니다. [서비스 패브릭 클러스터 안정성 및 내구성 선택](service-fabric-cluster-capacity.md) 방법 문서를 참조하세요.
 
 	c. 노드 유형에 대한 VM 수를 선택합니다. 나중에 노드 유형의 VM 수를 늘리거나 줄일 수 있지만 주 노드 유형에서는 선택한 안정성 수준에 따라 최소 개수가 결정됩니다. 다른 노드 유형은 1대 이상의 VM을 가질 수 있습니다.
 
@@ -141,39 +141,39 @@
 
 ### 비보안 클러스터에 연결
 
-    ```powershell
-    Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 -KeepAliveIntervalInSec 10
-    ```
+```powershell
+Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 -KeepAliveIntervalInSec 10
+```
 
 ### 보안 클러스터에 연결
 
-    1. Run the following to set up the certificate on the machine that you are going to use to run the "Connect-serviceFabricCluster" PowerShell command.
+1. "Connect-serviceFabricCluster" PowerShell 명령을 실행하는 데 사용할 컴퓨터에서 다음 명령을 실행하여 인증서를 설정합니다.
 
-        ```powershell
-        Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
-                -FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
-                -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
-        ```
+    ```powershell
+    Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
+            -FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
+            -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
+    ```
 
-    2. Run the following PowerShell command to connect to a secure cluster. The certificate details are the same ones that you gave on the portal.
+2. 다음 PowerShell 명령을 실행하여 보안 클러스터에 연결합니다. 인증서 세부 정보는 포털에서 입력한 것과 동일합니다.
 
-        ```powershell
-        Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
-                  -KeepAliveIntervalInSec 10 `
-                  -X509Credential -ServerCertThumbprint <Certificate Thumbprint> `
-                  -FindType FindByThumbprint -FindValue <Certificate Thumbprint> `
-                  -StoreLocation CurrentUser -StoreName My
-        ```
+    ```powershell
+    Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
+              -KeepAliveIntervalInSec 10 `
+              -X509Credential -ServerCertThumbprint <Certificate Thumbprint> `
+              -FindType FindByThumbprint -FindValue <Certificate Thumbprint> `
+              -StoreLocation CurrentUser -StoreName My
+    ```
 
-        For example, the PowerShell command above should look similar to the following:
+    예를 들어 위의 PowerShell 명령은 다음과 비슷합니다.
 
-        ```powershell
-        Connect-serviceFabricCluster -ConnectionEndpoint sfcluster4doc.westus.cloudapp.azure.com:19000 `
-                  -KeepAliveIntervalInSec 10 `
-                  -X509Credential -ServerCertThumbprint C179E609BBF0B227844342535142306F3913D6ED `
-                  -FindType FindByThumbprint -FindValue C179E609BBF0B227844342535142306F3913D6ED `
-                  -StoreLocation CurrentUser -StoreName My
-        ```
+    ```powershell
+    Connect-serviceFabricCluster -ConnectionEndpoint sfcluster4doc.westus.cloudapp.azure.com:19000 `
+              -KeepAliveIntervalInSec 10 `
+              -X509Credential -ServerCertThumbprint C179E609BBF0B227844342535142306F3913D6ED `
+              -FindType FindByThumbprint -FindValue C179E609BBF0B227844342535142306F3913D6ED `
+              -StoreLocation CurrentUser -StoreName My
+    ```
 
 ### 앱 배포
 이제 연결되었으며 다음 명령을 실행하여 응용 프로그램을 배포하고 표시된 경로를 해당 컴퓨터의 적절한 경로로 바꿉니다. 아래 예제에서는 단어 개수 응용 프로그램 예제를 배포합니다.
@@ -205,9 +205,9 @@
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
-## VMSS(가상 컴퓨터 크기 집합) 인스턴스 또는 클러스터 노드에 원격 연결
+## 가상 컴퓨터 크기 집합 인스턴스 또는 클러스터 노드에 원격 연결
 
-클러스터에서 지정한 각 NodeType에 따라 VMSS가 설정됩니다. 자세한 내용은 [VMSS 인스턴스로 RDP 연결하는 방법](service-fabric-cluster-nodetypes.md)을 참조하세요.
+클러스터에서 지정한 각 NodeType에 따라 VM 크기 집합이 설정됩니다. 자세한 내용은 [VM 크기 집합 인스턴스에 원격 연결](service-fabric-cluster-nodetypes.md#remote-connect-to-a-vm-scale-set-instance-or-a-cluster-node)을 참조하십시오.
 
 ## 다음 단계
 
@@ -229,4 +229,4 @@
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [SecureConnection]: ./media/service-fabric-cluster-creation-via-portal/SecureConnection.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

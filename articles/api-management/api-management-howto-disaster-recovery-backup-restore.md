@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Azure API 관리에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법" 
+	pageTitle="Azure API 관리에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법 | Microsoft Azure" 
 	description="Azure API 관리에서 백업 및 복원을 사용하여 재해 복구를 수행하는 방법에 대해 알아봅니다." 
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="05/16/2016" 
 	ms.author="sdanie"/>
 
 # Azure API 관리에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법
@@ -54,7 +54,7 @@ Azure 리소스 관리자를 사용하여 리소스에서 수행하는 모든 �
 
 ![권한 추가][api-management-aad-permissions]
 
-새로 추가된 **Windows** **Azure 서비스 관리 API** 응용 프로그램 확인란 옆의 **위임된 권한**을 클릭하고 ** Azure 서비스 관리 액세스(미리 보기)**의 상자를 선택하고 **저장**을 클릭합니다.
+새로 추가된 **Windows** **Azure 서비스 관리 API** 응용 프로그램 확인란 옆의 **위임된 권한**을 클릭하고 **Azure 서비스 관리 액세스(미리 보기)**의 상자를 선택하고 **저장**을 클릭합니다.
 
 ![권한 추가][api-management-aad-delegated-permissions]
 
@@ -191,4 +191,4 @@ API 관리 서비스를 백업하려면 다음 HTTP 요청을 실행합니다.
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

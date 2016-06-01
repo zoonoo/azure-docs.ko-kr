@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="05/18/2016"
+   	ms.date="05/24/2016"
    	ms.author="jgao"/>
 
 # 사용자 지정 HDInsight 응용 프로그램 설치
@@ -86,8 +86,25 @@ Azure 포털에서 응용 프로그램 상태를 확인하여 응용 프로그�
  
 ## 설치 문제 해결
 
-HDInsight 응용 프로그램 설치에서 [문제 해결](hdinsight-apps-install-applications.md#troubleshoot) 섹션을 참조하세요.
+포털 알림에서 응용 프로그램 설치 상태를 확인할 수 있습니다(포털 맨 위에 있는 종 모양 아이콘 클릭).
 
+응용 프로그램 설치에 실패한 경우 3곳에서 오류 메시지 및 디버그 정보를 확인할 수 있습니다.
+
+- HDInsight 응용 프로그램: 일반 오류 정보입니다.
+
+    포털에서 클러스터를 열고 설정 블레이드에서 응용 프로그램을 클릭합니다.
+
+    ![hdinsight 응용 프로그램 응용 프로그램 설치 오류](./media/hdinsight-apps-install-applications/hdinsight-apps-error.png)
+
+- HDInsight 스크립트 작업: HDInsight 응용 프로그램의 오류 메시지가 스크립트 작업 실패를 나타내는 경우 스크립트 오류에 대한 자세한 내용이 스크립트 작업 창에 표시됩니다.
+
+    설정 블레이드에서 스크립트 작업을 클릭합니다. 스크립트 작업 기록에 오류 메시지가 표시됩니다.
+
+    ![hdinsight 응용 프로그램 스크립트 작업 오류](./media/hdinsight-apps-install-applications/hdinsight-apps-script-action-error.png)
+    
+- Ambari 웹 UI: 설치 스크립트가 오류의 원인인 경우 Ambari 웹 UI를 사용하여 설치 스크립트에 대한 전체 로그를 확인합니다.
+
+    자세한 내용은 [문제 해결](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)을 참조하세요.
 
 ## 다음 단계
 
@@ -96,4 +113,4 @@ HDInsight 응용 프로그램 설치에서 [문제 해결](hdinsight-apps-instal
 - [스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md): 스크립트 작업을 사용하여 추가 응용 프로그램을 설치하는 방법을 알아봅니다.
 - [ARM 템플릿을 사용하여 HDInsight의 Linux 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md): ARM 템플릿을 호출하여 HDInsight 클러스터를 만드는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -98,7 +98,7 @@ Message: The maximum entity size has been reached or exceeded for Topic: ‘xxx-
 
 ## TimeoutException 
 
-[TimeoutException][]은 사용자가 시작한 작업이 작업 시간 제한보다 더 오래 걸린다는 것을 나타냅니다.
+[TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx)은 사용자가 시작한 작업이 작업 시간 제한보다 더 오래 걸린다는 것을 나타냅니다.
 
 ### 큐 및 토픽
 
@@ -139,4 +139,4 @@ Message: The maximum entity size has been reached or exceeded for Topic: ‘xxx-
 - [서비스 버스 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
 - [서비스 버스 아키텍처](service-bus-architecture.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

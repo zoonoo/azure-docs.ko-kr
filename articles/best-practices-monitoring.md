@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="dragon119"
-   manager="masimms"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -19,7 +19,7 @@
 
 # 모니터링 및 진단 지침
 
-![패턴 및 작업 방식 로고](media/best-practices-monitoring/pnp-logo.png)
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 ## 개요
 클라우드에서 실행되는 분산 응용 프로그램 및 서비스는 특성상, 많은 이동 부분으로 구성되는 복잡한 소프트웨어입니다. 프로덕션 환경에서는 사용자가 시스템을 활용하는 방식과 리소스 사용률을 추적하고, 시스템의 상태 및 성능을 전반적으로 모니터링할 수 있어야 합니다. 이 정보를 진단 보조 기능으로 사용하여 문제를 검색하고 수정할 수 있으며 잠재적 문제를 발견하여 이 문제가 발생하지 않도록 할 수도 있습니다.
@@ -664,4 +664,4 @@ _그림 6. 분석 및 저장소 요구 사항에 따라 데이터 분할_
 - [경고 알림 받기](./azure-portal/insights-receive-alert-notifications.md) 및 [서비스 상태 추적](./azure-portal/insights-service-health.md)
 - [Application Insights](./application-insights/app-insights-get-started.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

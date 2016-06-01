@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/17/2016"
+	ms.date="05/18/2016"
 	ms.author="jgao"/>
 
 # Ambari API를 사용하여 HDInsight에서 Hadoop 클러스터 모니터링
@@ -51,7 +51,7 @@ HDInsight는 현재 Ambari 모니터링 기능만 지원합니다. Ambari API 1.
     클러스터 사용자 이름|$clusterUsername||프로비전 시 지정된 클러스터 사용자 이름입니다.
     클러스터 암호|$clusterPassword||클러스터 사용자 암호입니다.
 
-    >[AZURE.NOTE] 테이블의 채우기 값입니다. 이 자습서를 완료하는 데 유용합니다.
+	> [AZURE.NOTE] 테이블의 채우기 값입니다. 이 자습서를 완료하는 데 유용합니다.
 
 ## 신속한 시작
 
@@ -174,4 +174,4 @@ Ambari 모니터링 API 호출을 사용하는 방법을 알아보았습니다. 
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

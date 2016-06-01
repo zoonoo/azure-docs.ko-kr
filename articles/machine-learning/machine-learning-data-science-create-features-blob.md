@@ -13,24 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/10/2016" 
 	ms.author="fashah;garye;bradsev" />
 
 #Panda를 사용하여 Azure blob 저장소 데이터에 대한 기능 만들기
 
-
-##소개
-
-이 문서는 [Panda](http://pandas.pydata.org/) Python 패키지를 사용하여 Azure Blob 컨테이너에 저장된 데이터에 대한 기능을 만드는 방법에 대해 설명합니다. Panda 데이터 프레임에 로드하는 방법을 설명한 후, Python 스크립트를 사용하여 표시기 값과 범주화 기능으로 범주 기능을 생성하는 방법을 보여줍니다.
+이 문서는 [Panda](http://pandas.pydata.org/) Python 패키지를 사용하여 Azure Blob 컨테이너에 저장된 데이터에 대한 기능을 만드는 방법을 보여 줍니다. Panda 데이터 프레임에 데이터를 로드하는 방법을 설명한 후, 표시기 값과 범주화 기능과 함께 Python 스크립트를 사용하여 범주 기능을 생성하는 방법을 보여줍니다.
 
 [AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
 
 이 **메뉴**는 다양한 환경에서 데이터에 대한 기능을 만드는 방법을 설명하는 항목으로 연결되는 링크입니다. 이 작업은 [Cortana 분석 프로세스(CAP)]( https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)의 한 단계입니다.
 
 ## 필수 조건
-이 문서에서는 사용자가 다음 작업을 수행한 것으로 가정합니다.
-
-* Azure blob 저장소 계정을 만들고 여기에 데이터를 저장합니다. 계정을 설정하는 지침이 필요한 경우 [Azure 저장소 계정 만들기](../hdinsight-get-started.md#storage)를 참조하세요.
+이 문서에서는 Azure blob 저장소 계정을 만들고 여기에 데이터를 저장했다고 가정합니다. 계정을 설정하는 지침이 필요한 경우 [Azure 저장소 계정 만들기](../hdinsight-get-started.md#storage)를 참조하세요.
 
 
 ## Pandas 데이터 프레임에 데이터 로드
@@ -142,4 +137,4 @@
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->
